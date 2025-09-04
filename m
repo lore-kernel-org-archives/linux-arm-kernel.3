@@ -4,90 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C527FCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB41CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OuqZMaZEY3Ro7lOt8/v6vij9JESnmu0skXkRr3yqkBo=; b=Uo25g1ujCZFYedhybaSa4QsYIf
-	XnQITqH0ukWmuTqwCT/KG4RKkMce+WacnjlNxOArNXK+dZA4e6Eom1PwF55NcdeuC/rWkKf0+Sh2H
-	nDM+iXmi4rglUsrASMBQ03olWu12DiucRtDXtPyb79O+wEo4bvunfsXKLhA3DlBOfO2GVJVrrsfbt
-	OzkrHtWjXS/3Mm5N9Ml5huXX8UTqioLVs21EDYDf9P13bMAg3HZJKYWwrKOZuyq0SHqC44F/g2sHt
-	lf/z0E9qNq39GycTRfBh2sCsPFiEsiCP/I+ffoFUKzyGvo6ncFmqAmoWYlThAvozpfnWbXNZKRjjD
-	H1knK0tQ==;
+	bh=24Zi8WOEygWkIc2RmSs4Cx5Dymolsyz5cyj/qJbGvow=; b=Mj8kX5q5ABvtSnjo3BDWXGqZIY
+	iDyEF8mwT+gT+caGaCFBVS88X4ciKJN9KmAojPPY9UWXF9qMU3V4wRxXQKfkODWBQt95+e2twzPk5
+	RYp6B5DlKS5XwVbBlL7k1QUyhDYgtHcWmyn8FmPy/Yj9KHRMdi8OSV6kTLSN4w3x8drBD/EIZ/gHl
+	tE2aZ222J8fBuQ2u7JFD/ALb4L4UNdr5QjTySHCy+QHvVhkNAPsYWrHTXJdomIo6TsjBbLHexiSoD
+	nYA5C76W6S43kTkO8I8b5+CHpuRw2y6k5KeAYBAWT2BBbNI02IDn9blHNjWUeLq92ViBJoxB+J/50
+	bRFh7VlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCnv-0000000Cudg-300d;
-	Thu, 04 Sep 2025 16:27:19 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uuCnu-0000000CuaQ-0OAx;
+	Thu, 04 Sep 2025 16:27:18 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu9zv-0000000Bslq-3yhr
+	id 1uu9vg-0000000BrFO-3r3k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 13:27:34 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250904132728euoutp01597682d0c69dd80340077d4674a9df32~iF1Kzr8Vm3101231012euoutp01t
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 13:27:28 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250904132728euoutp01597682d0c69dd80340077d4674a9df32~iF1Kzr8Vm3101231012euoutp01t
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756992448;
-	bh=OuqZMaZEY3Ro7lOt8/v6vij9JESnmu0skXkRr3yqkBo=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=D+Of34zz2dwO58oipgkskjDy0ppJoZmQXo63nqEJfv72IvnnIB8uWBGApOhhQvZdL
-	 /9wTKwo+V35VsuIyoJE0tpEyKbCFcV5vWeI//gOnrow0l9jGlNCA1Lpj0D2QTZj7Ny
-	 0cuZAif42CpQkC1UD2tHFGIwv7Ce89dQo4XEPPao=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250904132728eucas1p110dd7341b827ecb00d326aaab1b6e052~iF1KTEFC-1354913549eucas1p1Y;
-	Thu,  4 Sep 2025 13:27:28 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250904132725eusmtip10df52413ab5451a89e7ae40f97632d99~iF1H12Bu90185801858eusmtip1I;
-	Thu,  4 Sep 2025 13:27:25 +0000 (GMT)
-Message-ID: <4939d55e-b560-4235-8295-adf8e48d9b74@samsung.com>
-Date: Thu, 4 Sep 2025 15:27:24 +0200
+	Thu, 04 Sep 2025 13:23:10 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b042eb09948so178237266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 06:23:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756992187; x=1757596987; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=24Zi8WOEygWkIc2RmSs4Cx5Dymolsyz5cyj/qJbGvow=;
+        b=XdZqOucjgbO5yxt1bjoGHdUrM/XxTA15pKvoWbTBNmwxTPTOCiuiU6N6g01K9U0C8f
+         t1RC1cwawH0PvL/RkME2CaI6z3YVXSiThdqbydrbKATTJHDbQsYhKmBWzf+7d7SEUes7
+         4hxVDhG54YHuR5L6IbBAV2bIPZ9AL6jO28o1IhIBwcS4bzIAJeEDyPKj0agwKhIjCmCo
+         911B0H4K9UUa/k2GiVP/3t0r+e2rpgIeWQRTt3SGXfO6bgwIpuoa5aq/8lmcgnC8rlus
+         cYW/r83bYh55RJEpFi123i9eZqknHxiV/jRmxIKgJsfWWXrZSWl/BZxKn8T4h0ZbDvAL
+         P/zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756992187; x=1757596987;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=24Zi8WOEygWkIc2RmSs4Cx5Dymolsyz5cyj/qJbGvow=;
+        b=mJZOXOqbjdHJMFMnO2GbGlVT8XJZh26tEYYCeiade809Ssd7dWUeIKITaVNRMxYIsO
+         nExINBFBQY5lZDwaYIMWFjFChXO3JDk8gub+dZJSU2eoPPO5zrmFzio9jocBFYjRIEJ/
+         3njdKUJ946JY1exaFxWhU9Lh44qetnz9QLwZ37Q8k7JVk8nJ+zn5zt3f3UaaVi67eoM8
+         /1wyxmxeU8j4dR0NSgvd6Nkr1ktSm0kdLgzfb9N3qG8pkGPOAe1ShwsOS17j5ElJSlH9
+         iwi/um/J9RFCV+3FKLHIzVow6nYD5MZka5+EDM0kgWSAPp0JBKCITIE+ZlQ71an9h1u9
+         LX7w==
+X-Forwarded-Encrypted: i=1; AJvYcCU2n6p0oJYeZCX/ngAX+kWvyYWNIBzT9GV4uHkgJetwXgeI/95rIbF5xvpcsjXIOH6tm47RFwaROThQTkMvVkD5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdJJVRGYcXNT7UfaUYom/pDoYSfj/7CUyX0T7IEum6QGLQk9aY
+	L0FUzkOc5+pA5bux9NSzmwOXZRzEK5G5A7LK2tdHFm/ld6LOxXqklkbA
+X-Gm-Gg: ASbGnctlXKM0lXIz8f87SP0MtB/YfTmh0tjX8XLezNOyOgLbvV7HgIzNEWz5ZMA/Xlb
+	cqnwMxXMwCzdY6C84Z+FVbLozAdjZai2eu8Niy1L4IBETSqgsIjSYS1zIpjnMhrG27QzbjYd0Pe
+	9Ul6ibMR4/6zoR5vxkAw+P9ya4eIwwN+qonezoGcHpqNlznnz37goNGvgNZyXOcwBEdgTZqhzTz
+	PXNBE7xu3kyTYYyAaQ/WjX72n0TJnDtpt5aLAeHblquXmLP6f3RQdQAC2mT5fOtrGMPAdrpfGWJ
+	SjOOENlWPKNBbhok2pRKhtwmGUxSua3S6yV5T4eDyUslBcO8ebBHqj9PNWX3JQiZeYcY+2ijL0q
+	S3bvkj/tq22JRbSSKobXvJFmwdA1nDYicuyYJTy4Favd22bVnaUJZPrLRpyiB04vaGSVVkej09H
+	fpBf9UaQ==
+X-Google-Smtp-Source: AGHT+IHuGeHWOhweqdu1VP92vWUU+6amg2lUCMvgplfn2I5kC9chlFPE20gaGKHCeqVGqj84/rgYGA==
+X-Received: by 2002:a17:907:1c12:b0:b04:31c6:a41f with SMTP id a640c23a62f3a-b0431c6a7bamr1261664566b.41.1756992186756;
+        Thu, 04 Sep 2025 06:23:06 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-70-53-177.cust.vodafonedsl.it. [93.70.53.177])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b046d0b0135sm372121966b.73.2025.09.04.06.23.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Sep 2025 06:23:06 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v6 3/3] arm64: dts: ti: var-som-am62p: Add support for Variscite Symphony Board
+Date: Thu,  4 Sep 2025 15:22:30 +0200
+Message-ID: <20250904132240.36819-4-stefano.radaelli21@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250904132240.36819-1-stefano.radaelli21@gmail.com>
+References: <20250904132240.36819-1-stefano.radaelli21@gmail.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v4 00/13] Apply drm_bridge_connector and panel_bridge
- helper for the Analogix DP driver
-To: Damon Ding <damon.ding@rock-chips.com>, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
-	hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
-	dianders@chromium.org, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <825ff59f-0a97-49a1-a210-a7ee275364bc@rock-chips.com>
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250904132728eucas1p110dd7341b827ecb00d326aaab1b6e052
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264
-X-EPHeader: CA
-X-CMS-RootMailID: 20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264
-References: <CGME20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264@eucas1p2.samsung.com>
-	<20250814104753.195255-1-damon.ding@rock-chips.com>
-	<a3a2f8be-2c3c-49e7-b27a-72364ea48b06@samsung.com>
-	<7cb50c9c-ac41-43b6-8c69-5f184e7c94cf@samsung.com>
-	<1ccd3889-5f13-4609-9bd8-2c208e17fc96@rock-chips.com>
-	<f2ebfff1-08ab-4f26-98f3-6d6415d58a5e@samsung.com>
-	<a5e613ba-b404-40ae-b467-0f6f223f5d4c@rock-chips.com>
-	<461daea4-5582-4aa2-bfea-130d2fb93717@samsung.com>
-	<46f9137e-402d-4c0f-a224-10520f80c8b4@rock-chips.com>
-	<ea57ca6e-4000-49f7-8e0b-899f34b7693a@samsung.com>
-	<825ff59f-0a97-49a1-a210-a7ee275364bc@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_062732_599120_EA6334B1 
-X-CRM114-Status: GOOD (  28.17  )
+X-CRM114-CacheID: sfid-20250904_062308_960947_74CE0678 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,138 +106,558 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04.09.2025 05:19, Damon Ding wrote:
-> On 9/1/2025 6:25 PM, Marek Szyprowski wrote:
->> On 01.09.2025 05:41, Damon Ding wrote:
->>> On 8/29/2025 4:23 PM, Marek Szyprowski wrote:
->>>> On 29.08.2025 10:08, Damon Ding wrote:
->>>>> On 8/20/2025 5:20 AM, Marek Szyprowski wrote:
->>>>>> On 15.08.2025 04:59, Damon Ding wrote:
->>>>>>> On 2025/8/15 5:16, Marek Szyprowski wrote:
->>>>>>>> On 14.08.2025 16:33, Marek Szyprowski wrote:
->>>>>>>>> On 14.08.2025 12:47, Damon Ding wrote:
->>>>>>>>>> PATCH 1 is a small format optimization for struct
->>>>>>>>>> analogid_dp_device.
->>>>>>>>>> PATCH 2 is to perform mode setting in
->>>>>>>>>> &drm_bridge_funcs.atomic_enable.
->>>>>>>>>> PATCH 3-6 are preparations for apply drm_bridge_connector 
->>>>>>>>>> helper.
->>>>>>>>>> PATCH 7 is to apply the drm_bridge_connector helper.
->>>>>>>>>> PATCH 8-10 are to move the panel/bridge parsing to the Analogix
->>>>>>>>>> side.
->>>>>>>>>> PATCH 11-12 are preparations for apply panel_bridge helper.
->>>>>>>>>> PATCH 13 is to apply the panel_bridge helper.
->>>>>>>>> ...
->>>>>>
->>>>>
->>>>> Could you please provide the related DTS file for the test? I will
->>>>> also try to find out the reason for this unexpected issue. ;-)
->>>>
->>>> Unfortunately I didn't find enough time to debug this further. The 
->>>> above
->>>> log is from Samsung Snow Chromebook,
->>>> arch/arm/boot/dts/samsung/exynos5250-snow.dts
->>>>
->>>>
->>>
->>> I compare the differences in the following display path before and
->>> after this patch series:
->>>
->>> exynos_dp -> nxp-ptn3460 -> panel "auo,b116xw03"
->>>
->>> The issue is likely caused by the &drm_connector_funcs.detect()
->>> related logic. Before this patch series, the nxp-ptn3460 connector is
->>> always connector_status_connected because there is not available
->>> &drm_connector_funcs.detect(). After it, the DRM_BRIDGE_OP_DETECT flag
->>> make the connection status depend on analogix_dp_bridge_detect().
->>>
->>> Could you please add the following patches additionally and try again?
->>> (Not the final solution, just validation)
->>>
->>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> index a93ff8f0a468..355911c47354 100644
->>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> @@ -1491,9 +1491,11 @@ int analogix_dp_bind(struct analogix_dp_device
->>> *dp, struct drm_device *drm_dev)
->>>                  }
->>>          }
->>>
->>> -       bridge->ops = DRM_BRIDGE_OP_DETECT |
->>> -                     DRM_BRIDGE_OP_EDID |
->>> +       bridge->ops = DRM_BRIDGE_OP_EDID |
->>>                        DRM_BRIDGE_OP_MODES;
->>> +       if (drm_bridge_is_panel(dp->plat_data->next_bridge))
->>> +               bridge->ops |= DRM_BRIDGE_OP_DETECT;
->>> +
->>>          bridge->of_node = dp->dev->of_node;
->>>          bridge->type = DRM_MODE_CONNECTOR_eDP;
->>>          ret = devm_drm_bridge_add(dp->dev, &dp->bridge);
->>
->> It is better. Now the display panel is detected and reported to
->> userspace, but it looks that something is not properly initialized,
->> because there is garbage instead of the proper picture.
->>
->
-> I simulated the display path mentioned above on my RK3588S EVB1 Board.
-> To my slight surprise, it displayed normally with the reported 
-> connector type DRM_MODE_CONNECTOR_LVDS. ;-)
->
-> The modifications included:
-> 1.Synchronized the Analogix DP ralated DT configurations with Samsung 
-> Snow Chromebook.
-> 2.Skipped the I2C transfers and GPIO operations in nxp-ptn3460 driver.
-> 3.Set the EDID to that of eDP Panel LP079QX1-SP0V forcibly.
->
-> Additionally, I added debug logs to verify whether the functions in 
-> ptn3460_bridge_funcs were actually called.
->
-> Did you encounter any unexpected logs during your investigation? I'd 
-> like to perform additional tests on this issue. :-)
+Add device tree support for the Variscite Symphony carrier board with
+the VAR-SOM-AM62P system on module.
 
+The Symphony board includes
+- uSD Card support
+- USB ports and OTG
+- Additional Gigabit Ethernet interface
+- Uart interfaces
+- OV5640 Camera support
+- GPIO Expander
+- CAN, I2C and general purpose interfaces
 
-Okay, I've finally went to the office and tested manually all 3 
-Chromebook boards witch use exynos-dp based display hardware. Previously 
-I only did the remote tests and observed result on a webcam, which was 
-not directed directly at the tested displays, so I only saw the glare 
-from the display panel.
+Link: https://www.variscite.it/product/single-board-computers/symphony-board/
 
-The results are as follows:
+Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+---
+v6:
+ - Fixed wrong pinmux for uSD, external pullup already mounted on DATA lines
+v5:
+ - Update to match up with coding guidelines for device tree
+v4:
+ - Moved every MCUs-related node into the SOM dtsi
+v3:
+ - Change compatible string to match existing mainline format
+ - Fixed underscore typo
+v2:
+ - Fixed warnings and cleanup
 
-1. Snow (arch/arm/boot/dts/samsung/exynos5250-snow.dts) - exynos-dp -> 
-nxp-ptn3460 1366x768 lvds panel - works fine with the above mentioned 
-change.
+ arch/arm64/boot/dts/ti/Makefile               |   1 +
+ .../dts/ti/k3-am62p5-var-som-symphony.dts     | 500 ++++++++++++++++++
+ 2 files changed, 501 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
 
-2. Peach-Pit (arch/arm/boot/dts/samsung/exynos5420-peach-pit.dts) - 
-exynos-dp -> parade,ps8625 -> auo,b116xw03 1366x768 lvds panel - 
-displays garbage, this was the only board I previously was able to see 
-partially on the webcam.
-
-3. Peach-Pi (arch/arm/boot/dts/samsung/exynos5800-peach-pi.dts) - 
-exynos-dp -> auo,b133htn01 1920x1080 edp panel - also displays garbage.
-
-Then I found why both Peach boards displays garbage on boot - the 
-framebuffer emulation is initialized for 1024x786 resolution, which is 
-not handled by those panels. This is a bit strange, because the 
-connector implemented by the panel reports proper native mode to drm and 
-userspace. 'modetest -c' shows the right resolution. Also when I run 
-'modetest -s' with the panel's native resolution then the test pattern 
-is correctly displayed on all three boards.
-
-
-Then I've played a bit with the analogix code and it looks that this 
-1024x768 mode is some kind default mode which comes from 
-analogix_dp_bridge_edid_read() function, which has been introduced by 
-this patchset. When I removed DRM_BRIDGE_OP_EDID flag from bridge->ops, 
-then I got it finally working again properly on all three boards. I hope 
-this helps fixing this issue.
-
-
-
-Best regards
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index aad9177930e6..b11cbf33422d 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -38,6 +38,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
+ 
+ # Boards with AM62Px SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-am62p5-var-som-symphony.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dahlia.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dev.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-ivy.dtb
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
+new file mode 100644
+index 000000000000..4bb92fde6ab8
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
+@@ -0,0 +1,500 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Variscite Symphony carrier board for VAR-SOM-AM62P
++ *
++ * Link: https://www.variscite.it/product/single-board-computers/symphony-board/
++ *
++ * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
++ *
++ */
++
++/dts-v1/;
++
++#include "k3-am62p5-var-som.dtsi"
++
++/ {
++	model = "Variscite VAR-SOM-AM62P on Symphony-Board";
++	compatible = "variscite,var-som-am62p-symphony", "variscite,var-som-am62p", "ti,am62p5";
++
++	aliases {
++		ethernet0 = &cpsw_port1;
++		ethernet1 = &cpsw_port2;
++		mmc0 = &sdhci0;
++		mmc1 = &sdhci1;
++		mmc2 = &sdhci2;
++		serial0 = &main_uart0;
++		serial2 = &main_uart2;
++		serial5 = &main_uart5;
++		serial6 = &main_uart6;
++		spi5 = &main_spi2;
++		usb0 = &usb0;
++		usb1 = &usb1;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	clk_ov5640_fixed: clock-24000000 {
++		#clock-cells = <0>;
++		compatible = "fixed-clock";
++		clock-frequency = <24000000>;
++	};
++
++	gpio-keys {
++		compatible = "gpio-keys";
++
++		button-back {
++			label = "Back";
++			linux,code = <KEY_BACK>;
++			gpios = <&pca9534 1 GPIO_ACTIVE_LOW>;
++		};
++
++		button-home {
++			label = "Home";
++			linux,code = <KEY_HOME>;
++			gpios = <&pca9534 2 GPIO_ACTIVE_LOW>;
++		};
++
++		button-menu {
++			label = "Menu";
++			linux,code = <KEY_MENU>;
++			gpios = <&pca9534 3 GPIO_ACTIVE_LOW>;
++		};
++	};
++
++	gpio-leds {
++		compatible = "gpio-leds";
++
++		led-heartbeat {
++			label = "Heartbeat";
++			linux,default-trigger = "heartbeat";
++			gpios = <&pca9534 0 GPIO_ACTIVE_LOW>;
++		};
++	};
++
++	reg_2p8v: regulator-2p8v {
++		compatible = "regulator-fixed";
++		regulator-name = "2P8V";
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++		vin-supply = <&reg_3v3>;
++		regulator-always-on;
++	};
++
++	reg_1p8v: regulator-1p8v {
++		compatible = "regulator-fixed";
++		regulator-name = "1P8V";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&reg_3v3>;
++		regulator-always-on;
++	};
++
++	reg_1p5v: regulator-1p5v {
++		compatible = "regulator-fixed";
++		regulator-name = "1P5V";
++		regulator-min-microvolt = <1500000>;
++		regulator-max-microvolt = <1500000>;
++		vin-supply = <&reg_3v3>;
++		regulator-always-on;
++	};
++
++	reg_sdhc1_vmmc: regulator-sdhc1 {
++		compatible = "regulator-fixed";
++		regulator-name = "+V3.3_SD";
++		vin-supply = <&reg_sdhc1_vmmc_int>;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-boot-on;
++		enable-active-high;
++		gpio = <&main_gpio0 30 GPIO_ACTIVE_HIGH>;
++		bootph-all;
++	};
++
++	reg_sdhc1_vmmc_int: regulator-sdhc1-int {
++		compatible = "regulator-fixed";
++		regulator-name = "+V3.3_SD_INT";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_sd1_vmmc>;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-boot-on;
++		enable-active-high;
++		gpio = <&main_gpio0 53 GPIO_ACTIVE_HIGH>;
++		bootph-all;
++	};
++
++	reg_sdhc1_vqmmc: regulator-sdhci1-vqmmc {
++		compatible = "regulator-gpio";
++		regulator-name = "+V3.3_SD_VQMMC";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_sd1_vqmmc>;
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-boot-on;
++		gpios = <&main_gpio0 56 GPIO_ACTIVE_HIGH>;
++		states = <1800000 0x0>,
++			 <3300000 0x1>;
++		bootph-all;
++	};
++
++	reg_ov5640_buf_en: regulator-camera-buf-en {
++		compatible = "regulator-fixed";
++		regulator-name = "ov5640_buf_en";
++		gpios = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	transceiver1: can-phy {
++		compatible = "ti,tcan1042";
++		#phy-cells = <0>;
++		max-bitrate = <5000000>;
++	};
++
++	connector {
++		compatible = "gpio-usb-b-connector", "usb-b-connector";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_extcon>;
++		label = "USB-C";
++		id-gpios = <&main_gpio1 12 GPIO_ACTIVE_HIGH>;
++		status = "okay";
++
++		port {
++			usb_con_hs: endpoint {
++				remote-endpoint = <&typec_hs>;
++			};
++		};
++	};
++};
++
++&cdns_csi2rx0 {
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		csi0_port0: port@0 {
++			reg = <0>;
++			status = "okay";
++
++			csi2rx0_in_sensor: endpoint {
++				remote-endpoint = <&csi2_cam0>;
++				bus-type = <4>; /* CSI2 DPHY. */
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++			};
++		};
++	};
++};
++
++&cpsw3g {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_rgmii1>,
++		    <&pinctrl_rgmii2>;
++	status = "okay";
++};
++
++&cpsw3g_mdio {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_mdio1>;
++	status = "okay";
++
++	cpsw3g_phy1: ethernet-phy@5 {
++		compatible = "ethernet-phy-id0283.bc30";
++		reg = <5>;
++		reset-gpios = <&pca9534 5 GPIO_ACTIVE_LOW>;
++		reset-assert-us = <10000>;
++		reset-deassert-us = <100000>;
++	};
++};
++
++&cpsw_port2 {
++	/*
++	 * The required RGMII TX and RX 2ns delays are implemented directly
++	 * in hardware via passive delay elements on the Symphony PCB.
++	 * No delay configuration is needed in software via PHY driver.
++	 */
++	phy-mode = "rgmii";
++	phy-handle = <&cpsw3g_phy1>;
++	status = "okay";
++};
++
++&dphy0 {
++	status = "okay";
++};
++
++&main_i2c0{
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c0>;
++	clock-frequency = <400000>;
++	status = "okay";
++
++	ov5640: camera@3c {
++		compatible = "ovti,ov5640";
++		reg = <0x3c>;
++		clocks = <&clk_ov5640_fixed>;
++		clock-names = "xclk";
++		AVDD-supply = <&reg_2p8v>;
++		DOVDD-supply = <&reg_1p8v>;
++		DVDD-supply = <&reg_1p5v>;
++		powerdown-gpios = <&main_gpio0 10 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_ov5640>;
++
++		port {
++			csi2_cam0: endpoint {
++				remote-endpoint = <&csi2rx0_in_sensor>;
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++			};
++		};
++	};
++
++	/* GPIO expander */
++	pca9534: gpio@20 {
++		compatible = "nxp,pca9534";
++		reg = <0x20>;
++		gpio-controller;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_pca9534>;
++		interrupt-parent = <&main_gpio1>;
++		interrupts = <30 IRQ_TYPE_EDGE_FALLING>;
++		#gpio-cells = <2>;
++		status = "okay";
++
++		usb3-sel-hog {
++			gpio-hog;
++			gpios = <4 0>;
++			output-low;
++			line-name = "usb3_sel";
++		};
++
++		eth-som-vselect-hog {
++			gpio-hog;
++			gpios = <6 0>;
++			output-low;
++			line-name = "eth-vselect";
++		};
++
++		eth-mdio-enable-hog {
++			gpio-hog;
++			gpios = <7 0>;
++			output-high;
++			line-name = "eth-mdio-enable";
++		};
++	};
++};
++
++&main_i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c1>;
++	clock-frequency = <400000>;
++	status = "okay";
++
++	rtc@68 {
++		compatible = "dallas,ds1337";
++		reg = <0x68>;
++	};
++};
++
++&main_mcan0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_mcan0>;
++	phys = <&transceiver1>;
++	status = "okay";
++};
++
++&main_pmx0 {
++	pinctrl_extcon: main-extcon-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x01a8, PIN_INPUT, 7) /* (F25) MCASP0_AFSX.GPIO1_12 */
++		>;
++	};
++
++	pinctrl_i2c0: main-i2c0-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (B25) I2C0_SCL */
++			AM62PX_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (A24) I2C0_SDA */
++		>;
++	};
++
++	pinctrl_i2c1: main-i2c1-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0) /* (C24) I2C1_SCL */
++			AM62PX_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0) /* (B24) I2C1_SDA */
++		>;
++		bootph-all;
++	};
++
++	pinctrl_mcan0: main-mcan0-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x01dc, PIN_INPUT, 0) /* (F20) MCAN0_RX */
++			AM62PX_IOPAD(0x01d8, PIN_OUTPUT, 0) /* (B23) MCAN0_TX */
++		>;
++	};
++
++	pinctrl_mmc1: main-mmc1-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x023c, PIN_INPUT, 0) /* (H20) MMC1_CMD */
++			AM62PX_IOPAD(0x0234, PIN_OUTPUT, 0) /* (J24) MMC1_CLK */
++			AM62PX_IOPAD(0x0230, PIN_INPUT, 0) /* (H21) MMC1_DAT0 */
++			AM62PX_IOPAD(0x022c, PIN_INPUT, 0) /* (H23) MMC1_DAT1 */
++			AM62PX_IOPAD(0x0228, PIN_INPUT, 0) /* (H22) MMC1_DAT2 */
++			AM62PX_IOPAD(0x0224, PIN_INPUT, 0) /* (H25) MMC1_DAT3 */
++			AM62PX_IOPAD(0x0240, PIN_INPUT, 0) /* (D23) MMC1_SDCD */
++		>;
++		bootph-all;
++	};
++
++	pinctrl_rgmii2: main-rgmii2-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x0184, PIN_INPUT, 0) /* (E19) RGMII2_RD0 */
++			AM62PX_IOPAD(0x0188, PIN_INPUT, 0) /* (E16) RGMII2_RD1 */
++			AM62PX_IOPAD(0x018c, PIN_INPUT, 0) /* (E17) RGMII2_RD2 */
++			AM62PX_IOPAD(0x0190, PIN_INPUT, 0) /* (C19) RGMII2_RD3 */
++			AM62PX_IOPAD(0x0180, PIN_INPUT, 0) /* (D19) RGMII2_RXC */
++			AM62PX_IOPAD(0x017c, PIN_INPUT, 0) /* (F19) RGMII2_RX_CTL */
++			AM62PX_IOPAD(0x016c, PIN_INPUT, 0) /* (B19) RGMII2_TD0 */
++			AM62PX_IOPAD(0x0170, PIN_INPUT, 0) /* (A21) RGMII2_TD1 */
++			AM62PX_IOPAD(0x0174, PIN_INPUT, 0) /* (D17) RGMII2_TD2 */
++			AM62PX_IOPAD(0x0178, PIN_INPUT, 0) /* (A19) RGMII2_TD3 */
++			AM62PX_IOPAD(0x0168, PIN_INPUT_PULLDOWN, 0) /* (D16) RGMII2_TXC */
++			AM62PX_IOPAD(0x0164, PIN_INPUT, 0) /* (A20) RGMII2_TX_CTL */
++		>;
++	};
++
++	pinctrl_spi2: main-spi2-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x01b0, PIN_INPUT, 1) /* (G20) MCASP0_ACLKR.SPI2_CLK */
++			AM62PX_IOPAD(0x0194, PIN_OUTPUT, 1) /* (D25) MCASP0_AXR3.SPI2_D0 */
++			AM62PX_IOPAD(0x0198, PIN_INPUT, 1) /* (E25) MCASP0_AXR2.SPI2_D1 */
++			AM62PX_IOPAD(0x01ac, PIN_OUTPUT, 7) /* (G23) MCASP0_AFSR.GPIO1_13 */
++		>;
++	};
++
++	pinctrl_uart0: main-uart0-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x1c8, PIN_INPUT, 0)	/* (A22) UART0_RXD */
++			AM62PX_IOPAD(0x1cc, PIN_OUTPUT, 0)	/* (B22) UART0_TXD */
++		>;
++		bootph-all;
++	};
++
++	pinctrl_uart2: main-uart2-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x005c, PIN_INPUT_PULLUP, 2) /* (AC25) GPMC0_AD8.UART2_RXD */
++			AM62PX_IOPAD(0x0060, PIN_OUTPUT, 2) /* (AB25) GPMC0_AD9.UART2_TXD */
++		>;
++	};
++
++	pinctrl_uart6: main-uart6-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x009c, PIN_INPUT_PULLUP, 3) /* (AD24) GPMC0_WAIT1.UART6_RXD */
++			AM62PX_IOPAD(0x0244, PIN_OUTPUT, 1) /* (D24) MMC1_SDWP.UART6_TXD */
++		>;
++	};
++
++	pinctrl_usb1: main-usb1-default-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x0258, PIN_OUTPUT, 0) /* (G21) USB1_DRVVBUS */
++		>;
++	};
++
++	pinctrl_ov5640: main-ov5640-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x0028, PIN_OUTPUT, 7) /* (N20) OSPI0_D7.GPIO0_10 */
++			AM62PX_IOPAD(0x0054, PIN_OUTPUT, 7) /* (V24) GPMC0_AD6.GPIO0_21 */
++			AM62PX_IOPAD(0x0058, PIN_OUTPUT, 7) /* (W25) GPMC0_AD7.GPIO0_22 */
++		>;
++	};
++
++	pinctrl_pca9534: main-pca9534-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x01f0, PIN_INPUT, 7) /* (C25) EXT_REFCLK1.GPIO1_30 */
++		>;
++	};
++
++	pinctrl_sd1_vmmc: main-sd1-vmmc-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x0078, PIN_OUTPUT, 7) /* (AC24) GPMC0_AD15.GPIO0_30 */
++			AM62PX_IOPAD(0x00d8, PIN_OUTPUT, 7) /* (AE22) VOUT0_DATA8.GPIO0_53 */
++		>;
++		bootph-all;
++	};
++
++	pinctrl_sd1_vqmmc: main-sd1-vqmmc-pins {
++		pinctrl-single,pins = <
++			AM62PX_IOPAD(0x00e4, PIN_OUTPUT, 7) /* (AE21) VOUT0_DATA11.GPIO0_56 */
++		>;
++		bootph-all;
++	};
++};
++
++&main_spi2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_spi2>;
++	ti,pindir-d0-out-d1-in;
++	cs-gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
++	status = "okay";
++};
++
++&main_uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart0>;
++	status = "okay";
++};
++
++&main_uart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart2>;
++	status = "okay";
++};
++
++&main_uart6 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart6>;
++	status = "okay";
++};
++
++&sdhci1 {
++	/* SD Card */
++	vmmc-supply = <&reg_sdhc1_vmmc>;
++	vqmmc-supply = <&reg_sdhc1_vqmmc>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_mmc1>;
++	disable-wp;
++	bootph-all;
++	status="okay";
++};
++
++&ti_csi2rx0 {
++	status = "okay";
++};
++
++&usb0 {
++	usb-role-switch;
++	status = "okay";
++
++	port {
++		typec_hs: endpoint {
++			remote-endpoint = <&usb_con_hs>;
++		};
++	};
++};
++
++&usb1 {
++	dr_mode = "host";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_usb1>;
++	status = "okay";
++};
++
++&usbss0 {
++	status = "okay";
++};
++
++&usbss1 {
++	status = "okay";
++};
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+2.43.0
 
 
