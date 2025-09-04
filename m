@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CA6CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:36:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DE3CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=svoWC9D6G6+eNOlVocEza5byvhWFgL6Kwc7fUb0lntI=; b=gKvZ73aAAmNdGDqWSzzaQtBAo4
-	qQqkKSz4hSviGpV79JKRpxLLkFt/d0HUqkvKWMTEHGyJFbr+7DJ0pXxZ4/4zIkq8Tx43YcW3fkqgP
-	GYdisvswRx5OJuEffjbF6qgzVM5xFTWYQLh8VU8cB/2T0WqgDHff98SWt54UjiGItBqYGoR40C5xQ
-	WsZ4Hbjtu3OlRMzUsvc5bqkQs8/yJIMKFRBJhr3Mq2BU1XumxrjVjAlOpDb4IH+iX3pfHh7GbcAQe
-	W14MmlLdADgFGbnjGKDOUf3GRyz8ZOTT6xlVKsC8HeGVgdp7Jxq8H6R2I9ORL37IEgGbegzpF9L+g
-	kDXO9BPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+X43dhWbmJe9Xz++Pv2ayZuVgsAdoCm6ORyQ6/XM/ek=; b=ToF7ZhXccXFSfPyBs9KbucYl3E
+	DYM7tXgBCLwFyYP8OzBi/P34MS9bh1vADeB7eERKMb6favRMUKLb7EUoVQLj/U7SmM8C6uKBxC/+G
+	NsrQy3shTyUxf4yiSIlFVruETKP/SfmrG9TB/4MYQsiwvZTTUYFFmF+ypslmG2jJOZFFrL95pDLqh
+	g4E7GK3TJKRVFQF8i8R28bJO2SYm56LgGBsOVEh7HbwCv4gtlJNauTg81RjCKZnWpaJ9PpDTzdtJN
+	giFc2LrkmzWTbild2Tt6zGKc3ght46d9bJD/mPM5br/oOOpfh3uDmHtLEA9bdv84A9FKvpoXDbJeR
+	KrAg/Rjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5SR-0000000AH47-4Au2;
-	Thu, 04 Sep 2025 08:36:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uu5VB-0000000AIEL-0mRD;
+	Thu, 04 Sep 2025 08:39:29 +0000
+Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu4qS-0000000A2oL-0YVk;
-	Thu, 04 Sep 2025 07:57:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9CF143AF9;
-	Thu,  4 Sep 2025 07:57:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DC2FC4CEF0;
-	Thu,  4 Sep 2025 07:57:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756972643;
-	bh=pvJsvoWdlUTvC290n9suVtfKhZuifPF5wPtJPHfxArI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DmKytEVgFvKUkYzq1imcCKcI1zp/r25292wZFTV+c2vUUHNgeB4MooczeAOgIkbi9
-	 WyWOFY53frLOZediouAeCMZgkYOu5hIKeE94meIQNumgMpgUbdnH65IuGZe9kBBuGA
-	 2UJrY74cmuQtWLiApp8AMekdIn+lNgVkMeau2Ruh9kZcmx/ujJG7c3FCx/6H9Mejh0
-	 dx0wGfkAWrZugjCGc57RBCPAvWOT1XPANmkZIzQOC6sAjTNKPxggWy8BoDiKwoJbLp
-	 GbCv8eXtPyq63GDTSKzHKnBiPKU8kH7yuT+agZjDk7hgBz4WAGZ3XSiJjDO8IXOUHr
-	 9nQNIHM8rormw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 04 Sep 2025 09:56:42 +0200
-Subject: [PATCH mt76 4/4] wifi: mt76: mt7996: Temporarily disable EPCS
+	id 1uu4rw-0000000A36z-27Lp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 07:58:58 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C3FAD1480743;
+	Thu,  4 Sep 2025 09:58:51 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1756972733; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=+X43dhWbmJe9Xz++Pv2ayZuVgsAdoCm6ORyQ6/XM/ek=;
+	b=kBZsKGUTXh40axdPM+jwNAUPcrKpHtV+eLyOGobFw9fzq5Nw0GoG8Hom5cCSOzzfoCAScQ
+	lBtuzBDJWEPaH6wszhHWWr5kpl5b0/ODwsgRKdY4yU+QR1MyncGvbzcNxSojV0JvcEvQyO
+	upSNBPm85nflPkb7bnlvMw5iWWv3LBJxPyqkyi4yF+WqgEeeqrxJXah1WJyk7pFQbfh+XK
+	S1nPs5MfHrvkX+ZsVT7eMDfjYu45Z3XGB6tIPFArPzFHKVXyo6O3Hp+MRfK/nB9Ewso1m0
+	AbNTKhAQaHJBbu1c75R+cchVAJUg1tdzQuxYonbZ/5qxeMET28GC0Vf+g36UYw==
+Date: Thu, 4 Sep 2025 09:58:50 +0200
+From: Alexander Dahl <ada@thorsis.com>
+To: nicolas.ferre@microchip.com
+Cc: Arnd Bergmann <arnd@arndb.de>, arm@kernel.org, soc@kernel.org,
+	Linux Kernel list <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Vinod Koul <vkoul@kernel.org>, Alexander Dahl <ada@thorsis.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [GIT PULL] ARM: at91: fixes for 6.17
+Message-ID: <20250904-comply-veal-99d4839588e9@thorsis.com>
+Mail-Followup-To: nicolas.ferre@microchip.com,
+	Arnd Bergmann <arnd@arndb.de>, arm@kernel.org, soc@kernel.org,
+	Linux Kernel list <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+References: <20250903173403.113604-1-nicolas.ferre@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250904-mt7996-mlo-more-fixes-v1-4-89d8fed67f20@kernel.org>
-References: <20250904-mt7996-mlo-more-fixes-v1-0-89d8fed67f20@kernel.org>
-In-Reply-To: <20250904-mt7996-mlo-more-fixes-v1-0-89d8fed67f20@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Benjamin Lin <benjamin-jw.lin@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250903173403.113604-1-nicolas.ferre@microchip.com>
+User-Agent: Mutt/2.2.12 (2023-09-09)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_005724_196969_33E26149 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250904_005857_002739_6405E046 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +79,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+Hello Nicolas,
 
-EPCS is not yet ready, so do not claim to support it.
+Am Wed, Sep 03, 2025 at 07:33:55PM +0200 schrieb nicolas.ferre@microchip.com:
+> From: Nicolas Ferre <nicolas.ferre@microchip.com>
+> 
+> Dear arm-soc maintainers,
+> 
+> Here are the fixes for 6.17. The addition of the Kconfig symbol is taken from a
+> bigger series by Robert here:
+> https://lore.kernel.org/linux-arm-kernel/20250813174720.540015-1-robert.marko@sartura.hr/
+> It is needed because one patch of this series was taken before that symbols were
+> defined properly (queued for 6.18). You can read the discussion here:
+> https://lore.kernel.org/all/bac5390f-725a-43db-a2b6-17a68d0d733c@tuxon.dev/
+> 
+> Thanks, best regards,
+>   Nicolas
+> 
+> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+> 
+>   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-fixes-6.17
+> 
+> for you to fetch changes up to 217efb440933bf97a78ef328b211d8a39f4ff171:
+> 
+>   ARM: dts: microchip: sama7d65: Force SDMMC Legacy mode (2025-09-03 18:52:08 +0200)
+> 
+> ----------------------------------------------------------------
+> Microchip AT91 fixes for v6.17
+> 
+> This update includes:
+> - adaptation to the SDHCI capabilities on sama7d65 curiosity board DT as
+>   SDHCI quirks are not in place yet. SD/MMC don't work without these
+> - addition of one Kconfig symbol that is already used in DMA tree for
+>   6.17. XDMA cannot be selected if not present.
+> 
+> ----------------------------------------------------------------
+> Robert Marko (1):
+>       ARM: at91: select ARCH_MICROCHIP
 
-Signed-off-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
-Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/init.c | 1 -
- 1 file changed, 1 deletion(-)
+Tested on SAMA5D2 and SAM9X60 based boards.  Works for me.  Thanks for
+taking care of it. :-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-index bce128bcb8be7dea64db42f4dd9984ba0b9f4ba1..21ac618d1c836aa997b12769cdbe386265b2b276 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-@@ -1351,7 +1351,6 @@ mt7996_init_eht_caps(struct mt7996_phy *phy, enum nl80211_band band,
- 	eht_cap->has_eht = true;
- 
- 	eht_cap_elem->mac_cap_info[0] =
--		IEEE80211_EHT_MAC_CAP0_EPCS_PRIO_ACCESS |
- 		IEEE80211_EHT_MAC_CAP0_OM_CONTROL |
- 		u8_encode_bits(IEEE80211_EHT_MAC_CAP0_MAX_MPDU_LEN_11454,
- 			       IEEE80211_EHT_MAC_CAP0_MAX_MPDU_LEN_MASK);
+Greets
+Alex
 
--- 
-2.50.1
-
+> 
+> Ryan Wanner (1):
+>       ARM: dts: microchip: sama7d65: Force SDMMC Legacy mode
+> 
+>  arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts | 2 ++
+>  arch/arm/mach-at91/Kconfig                              | 4 ++++
+>  2 files changed, 6 insertions(+)
+> 
+> -- 
+> Nicolas Ferre
 
