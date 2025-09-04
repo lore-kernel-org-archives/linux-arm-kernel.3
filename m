@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421BCCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2A9BCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wg9RQ81pLZ+ciihaHbHh+VHe51/1jd/flpRJCWP5vTY=; b=Zd7AYDtVsVO8UicXf0+wV41CI5
-	w0H7wHwlPVmyCc5Pmi43V3Gqze4xPcFzKFvFSGjDlHvkuOcNx8nxf+H7UY0yIfZNe52C5V1GAHMpW
-	AhoTHfA9mnOv0dzqQlnn6iZwIHH6FCqRDOosMGFa1mpI2wyc0z4x/CMXqD0IyUJXkBXu23xD8Eimp
-	joCP8K3oh3YvhBeEJlxuIfd83Gu+yuhl9KJMRFmQbwGrFOn1f1UYttYw6YgXj0yiDhlqF31V1SOGu
-	jj6flDlvJWw5T4npZTi74lfLaNDVPMJnYYo+JBJemdakz7Lg6c7WcWPg61KqRA5mQ0WoD+DqBkM0M
-	6vPqZKLg==;
+	bh=FPemxXw+0FJhICaHUSL6epgUI+v6RGxIc62gtZdQfSo=; b=Eq7jl9yWQ2zAetH80BVZosX05K
+	Eg2960PEgIIu6VPxoYUTtr7MJ9UqTBc594lKXx9Cn5f0okY8XVmHjH98sOlKw1CimVkZXvTSZj6Hm
+	zbO0vyxX2QV0b+4O4/YJ0nt1mGvv5I3R6ryUAF5yr3I0KMq1sJdsWyuvV3df8/jUgbl8+glA8621p
+	pswCrzgJBI6+2/ab9uennot6pKT4MEY2Yc5SM0a6q7svAccrW6M1DiQtgjOU3FG8pvxIYstORmCGd
+	p6eokYvXxs+qZZCmaQjzVT8UCnX/q45al76sks580OVk/7mGNfa3pUvYZOG+APTAo1HoTUcxDnMNY
+	4s7TDfgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCnx-0000000Cugg-1RZa;
-	Thu, 04 Sep 2025 16:27:21 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1uuCo6-0000000CutY-2sjP;
+	Thu, 04 Sep 2025 16:27:32 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuA0t-0000000BtHL-0njZ
+	id 1uuA0z-0000000BtKX-0h0h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 13:28:32 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45b7722ea37so5227945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 06:28:30 -0700 (PDT)
+	Thu, 04 Sep 2025 13:28:38 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45b7da4101fso3788515e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 06:28:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756992510; x=1757597310; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1756992516; x=1757597316; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wg9RQ81pLZ+ciihaHbHh+VHe51/1jd/flpRJCWP5vTY=;
-        b=sm4tP6reqfYeqbefl7PVBbho9zDSmQKJNv9nLDS1Z8npFnnhne3Sdg2VRFlSQiwgxE
-         ZThikM6Q5xmu27EI+GZQ2XhylUY8tEGTD/rQmvO9wlsiIGkNhEAAHq+il8Taw7jVRNIw
-         G7YSkxvrueBoQnebJOZhoyZCmSslrkLPp8tPl5V3oIcBKpklLSaYw3tZln2vhj3lZCPy
-         OLtpkHlO13fvT/JtkHUCVW3Rz4uSZAEh+gSL8CSdDRiccfm3OHni+Jio6R3HouTUkLS7
-         5fr7Mis2Opbx/Rj3PhAhqF6Sj96kzvK6qDB2D62utHJAN79m/WfMrQnIEwboguLPFGBP
-         KthA==
+         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FPemxXw+0FJhICaHUSL6epgUI+v6RGxIc62gtZdQfSo=;
+        b=yEtOiLl7mgKIvgCxps/u1kH9eSYImWCVAlh7mAod54qzCi7YEsJae821B2VetG8gi3
+         HcBAZ3/vomxSrTiy3j8OMqK8JAx7tKLrMNrpoMCppa/xmk9VGUr5fxq3K/6DywIEI4d+
+         b5Hi69RAiIYx97BAdeahf3UAewDB8C6oyJ0LfADFLpQdD03ALJujUI+DSmMFXbjh1e4A
+         kBGk4a76diXMeiLouggqbl7DtHsy1UdYosNhodutSG8IQc3m6Pn+sfa2SPr2b9IJvVEd
+         7CsLa8Kk4kQZVJs7kWYeoP/ZML2lvrKsLFDEPhCbucii12K4Nk3VH4slCLbCMuQKOM+F
+         2xUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756992510; x=1757597310;
+        d=1e100.net; s=20230601; t=1756992516; x=1757597316;
         h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wg9RQ81pLZ+ciihaHbHh+VHe51/1jd/flpRJCWP5vTY=;
-        b=VLrU6nAn8D1asuUDhlXLqYJrqCaiwx6YVCWZ7jvIjStC8IUSSZX+Rtf8Khdreba5Ho
-         HmQKGVJ/ebOvxR8yyTRGx3PznY8Hq1x0s/k5sllnIwHKwI8kupm6Z/8I7JPPVRT2AQW8
-         caK+CZrTVF9VQwLVwNhrT2H8YauEnz3rLTIXICCEjXV0bq2eEGXvCDynxxoCtBeiu9WW
-         Vzw3xyC07CeHUiXOSxOmctmEHthj0A/BnhIs9s7XUt/fRvPLBXmhynubZB7vvE0zrJAu
-         PkOenu+LW2Jdj8BKbQHFYx0FYEWUfLyt7dqo8UalbAP3t/5F/lyjU4WCfL1EGuDcw+wr
-         BD+A==
-X-Forwarded-Encrypted: i=1; AJvYcCVyDilfdsSFQ1gjiyNZ+Xi+qT66sX69os1HfbUxVu3ftGaDKa6tgb3spJAbfWIV2HSpKYy+jii2D1+tLg6qISqw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxgxruvpp7kkLTJMEekDfdf7qQuipOmaWy+58dJSrFKt6o0i5ry
-	8UFYQgGMhFHXeUXacgOdrA5dvepvzb7sfELsY0hiM3dqvcUdH3Z7fyUSzGUO3uUsN7E=
-X-Gm-Gg: ASbGnct9Ooo0Xe0CQNNxbyZxwt1PMwvYiOm8Sv2BNio0uCMNkV7uTxZcV7Jj//DDVuc
-	bIUv/K12Ld+BcUAcmphBXJiPB1hvUp4hn8GvD5CggLxPVlJ3rJlD7S3W1OQipggsLt6FKbQPK8N
-	N8B6J6VPs4XVHw59G+5CCPhWkmy5zAz/G2hammmKeogNm+/yLkqsMqPOIjcNsrFqZ6xypen2C4n
-	b55WV3DUT95HT0HE4gdY7P0dVSPISdmp405sPAXDjw9N0N5AL5hKNj2w40kZs8+7zpnIIaitpvg
-	6Yj0bn9AKe15nd8Ztef8Unw4wkaI5mWIgT1Igig2zhbFnqu9cB+fAN4EpOnixgPoQ0XPQxo/Swp
-	lymOVQB4BEstgxChee9VeoOqmNwRBJHLBAvMlhZxuI6s=
-X-Google-Smtp-Source: AGHT+IEqR0+n4/kIxFH+iZ1e8ctE7JnfjyeZG2z9hWnY3yB50qjsaKmYnmnDkhp/9C/R0KCDPHIUFw==
-X-Received: by 2002:a05:600c:331b:b0:45c:b501:795c with SMTP id 5b1f17b1804b1-45cb50179cemr38578945e9.10.1756992509525;
-        Thu, 04 Sep 2025 06:28:29 -0700 (PDT)
+        bh=FPemxXw+0FJhICaHUSL6epgUI+v6RGxIc62gtZdQfSo=;
+        b=p3uU72o4rclegEUM/PegI6PigjN+tTUXefh8b1btsFL/VUhs7OobxcXF1pqLUt+L+G
+         dIP0t+V5uvEc6hzIQER2fAyg4EHx1x74fqp67QInyw6VDJeb0nLQWlAmfRjLm80+6Rh4
+         BA44GzIgGjOPvvSZ37KGoWiPZ1c5pmcfceaNyAvA3qL+2+rQ1CdveeUtSmhkzd/ltnUW
+         3zS8HVG2qRlXOA6Pk1ub+CGPpuADU1TNoWXBORDqrcAAajelLWaznLZg5aqxjrVQNETu
+         PPtGhCjHvT8lE8UF8TM+bSq8v6FJvnMAbWt4c+qgs9XPpJMu8BU+cu0Vu+if9FGnP+AX
+         Vfzw==
+X-Forwarded-Encrypted: i=1; AJvYcCX5hBXffxmNXsLmo0utidzgjIIUI0Q+ut2oGSEe+C+GnMychBEIOmFxf/trMw4Kwf6AFnL2Wt482Lyfs1ko/bNB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYc0uosZfnt0vtTBdJfUhnAQcVMbYkTuXybfohCXkuZnUaU+L5
+	M6Kx7koXQ+wLitEHPaEgAwmWVeFSuH1w8IGE0t2EafScnlr4muMDgHH5xL9eWuz8T/A=
+X-Gm-Gg: ASbGncu4AaUEiQbdwY0gG02iLNH0JG2fkDNpuAvwzv/KRyp4YL8V0FkWNj4KBK8qazY
+	yHxv2VTloIk2wygUYVPZfV6GGzqsyxIxKcU7kPUBNvveHnQSXlQq2CRuiWWd4vFIXsZ5qWT/gaG
+	LgNQgOq5fy0iAa96cFD8Uavv1b7+qMhE6O+dM5HcXIEpLRq2bRFYcQiTGyMFFVG+pGzPSm8J422
+	SxkJGdK+ZLRhEYNjGly9ZfSIRQ/Il5pzYsLFv6WtnBEvaiLsmusijD735p8K7ShOWCi+9t7mmQK
+	aISJawfyTDaEntJ4UrgDSepafWug+UjlFEBzyO1W06T18Fto5izUt8/gsm6wMAo5wVyjcF3ShdC
+	fau1TsrYNthDMVyywQK9eOKqsodBwL0bv8Vk+d2ch0n0=
+X-Google-Smtp-Source: AGHT+IFChDxfidjmo6oLli8hpEv8BHitZXQWhFKQ0sFyaxZOzOcsJqvu3t6i4m2n6GGf1/m4WMbRVQ==
+X-Received: by 2002:a05:600c:35d5:b0:456:fdd:6030 with SMTP id 5b1f17b1804b1-45d030f7fc7mr32582245e9.19.1756992511081;
+        Thu, 04 Sep 2025 06:28:31 -0700 (PDT)
 Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e8879cesm286165305e9.12.2025.09.04.06.28.28
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e8879cesm286165305e9.12.2025.09.04.06.28.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 06:28:29 -0700 (PDT)
+        Thu, 04 Sep 2025 06:28:30 -0700 (PDT)
 From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Yiting Deng <yiting.deng@amlogic.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+To: Kevin Hilman <khilman@baylibre.com>, 
  Jerome Brunet <jbrunet@baylibre.com>, 
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: linux-amlogic@lists.infradead.org, linux-rtc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20250717-rtc-c3-node-v1-0-4f9ae059b8e6@amlogic.com>
-References: <20250717-rtc-c3-node-v1-0-4f9ae059b8e6@amlogic.com>
-Subject: Re: (subset) [PATCH 0/2] rtc: add amlogic C3 RTC node
-Message-Id: <175699250880.3374853.13696019102809895067.b4-ty@linaro.org>
-Date: Thu, 04 Sep 2025 15:28:28 +0200
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <20250505143700.4029484-1-christianshewitt@gmail.com>
+References: <20250505143700.4029484-1-christianshewitt@gmail.com>
+Subject: Re: [PATCH] arm64: dts: amlogic: sm1-bananapi: lower SD card speed
+ for stability
+Message-Id: <175699251033.3374853.7119442456595565513.b4-ty@linaro.org>
+Date: Thu, 04 Sep 2025 15:28:30 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_062831_245748_4FA17A85 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20250904_062837_197053_CBDE19CE 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,15 +106,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Thu, 17 Jul 2025 17:38:36 +0800, Xianwei Zhao wrote:
-> Add C3 rtc compatible string and device node.
+On Mon, 05 May 2025 14:37:00 +0000, Christian Hewitt wrote:
+> Users report being able to boot (u-boot) from SD card but kernel
+> init then fails to mount partitions on the card containing boot
+> media resulting in first-boot failure. System logs show only the
+> probe of the mmc devices: the SD card is seen, but no partitions
+> are found so init fails to mount them and boot stalls.
 > 
+> Reducing the speed of the SD card from 50MHz to 35MHz results in
+> complete probing of the card and successful boot.
 > 
+> [...]
 
 Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.18/arm64-dt)
 
-[2/2] arm64: dts: amlogic: C3: Add RTC controller node
-      https://git.kernel.org/amlogic/c/59b4c260582a74e641c973d016725e5dca32f300
+[1/1] arm64: dts: amlogic: sm1-bananapi: lower SD card speed for stability
+      https://git.kernel.org/amlogic/c/916fa558cb27182933fdfe82d6d84b437e69349c
 
 These changes has been applied on the intermediate git tree [1].
 
