@@ -4,155 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CAACA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 380C8CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7C4806exYRY3N7qN/+Z4pwjrdu0wMop5tNsxD9FWvYA=; b=4MnT5O3mdhtIi0grKJNKhSsKIn
-	5ZaRly7KIp+S9QW8eIJ5x08FgHP8Tj/fpUYwVV3eGYqh7bQid+xYZh2gI4GDevgNO8585i9rELZzg
-	3P805QCXuC+bKWR+1kXhLrw/n3B0Gd3wcCIIChNrA/P3kQkZxpoMH7hj8K7gLLJvx2wbs49eQ0Dq2
-	y6i22Gk356/wl9jSyLwiPTj3xoW3I+gP/VpiXmf1kgJE7etnLd4srfep91NC5rxzUPS5l6bJJiP5C
-	JnRaigYzPsC2cAC5J3aoGpk7BjXqEdLMrVwL0tVJewI6PxveiTfwcnMUwDaX0kYD3Z/ozcqI4NfMg
-	LxDzNA+g==;
+	bh=zlqqrNZEiY7IvtFC2IBEJxofiBdzO+GTzrOpSqcb4w8=; b=ZMbMyytLDzigt+oncFjq4hU1BJ
+	Cz9xcKsOqKjMB4vjn4KV7RyyR/XaDnK/dpKYQRrjjw0972roOF94jMjJ07GPuKMGrZ+0abE5f2ipr
+	rwSiIVVuB0A64dfOlMz+egZfY2IjzovA/liX9rjdU4wXEWJz4w23GV9AB7XIKkpAy2NMUvbtBGb73
+	lMTr9MliP66xVoCNdLdrFgHBj93kyim208KZ7vdsnvkvI83z7onTmwyTQxy1b/QjovflIMM7ne+LQ
+	7lasT720DXrQ2vJSKoIPORYGB/W0e/e5dp2rr27SxlukzAYnthMlJCNGchR9NOGFsK/lEIfs8jBN9
+	FMv1iR1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuFz9-0000000E0pi-2I5e;
-	Thu, 04 Sep 2025 19:51:07 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uuFze-0000000E1Vi-0VXy;
+	Thu, 04 Sep 2025 19:51:38 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuA7R-0000000BvTW-3MyV
+	id 1uuB1w-0000000CEzS-26jv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 13:35:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G3J1Q622mzWFEnEU3adedxJuLsQjA3tG7NXLBllGP+qgAYvJNciCmaSESl2Ff/teeQY/MPVYIZ4exv1pYNH9bTmNVmOLba6oT4R1HtSzxOSua1pXKyMEO4IBLIDYd14LJJa0p+lKc+XFvk1p9k8uhJajuWigRAaqgx+lJOsFNtJXAMKForcRQfIMp25s/BcBCZT81PzISJYUzwqqlqYONfrf/oFUnOCNdmXxaCSirSXvtJHcMv64m4pyiH72YmsbUpGcwU29zflqaLVV4kXgfwt4MoUjY6z1VjzPxpMUgKcaPtpC+TjmCY22MP5Nt0x1UOPh0iJ4r6bOdwxeWzsWJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7C4806exYRY3N7qN/+Z4pwjrdu0wMop5tNsxD9FWvYA=;
- b=ApFfRkKRrtNPcYR5lBUDo7vjWHkxzjfbVVg12LElggZF4QEZDcEOegq0VU1fmWA6wD1h4La4UvIzd2zFLjj1Tg9I34tPNl+bKw2IKtpuZaj11uw8vTnnkR5TMDExRgalYcKJoEyYitNr7NtZE1sdsndSHLA38S4yVQCFIw37CMGb/3LabS37siwwHqcxCx2trhxbhD4Ohe0rWJOK7HwEAvroZn5btYWIuCV4hlWtRj3sFNYGcbDCVCw/mH/LrnONxq9gMq0WhKAH5NwdL7PD7kr7aQlvlg2npAkNmcM0R7ESbcpANAok3IcW9g5083/vZjnKkkdZogWE5isXKYHr4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7C4806exYRY3N7qN/+Z4pwjrdu0wMop5tNsxD9FWvYA=;
- b=Ws0ZkilcuRDYR57+Cs+4dCmcVoFTA4VGHyjMAJq/bZA8dEIRJmYZ1h7Y154+Ic8nrRbio+ZC2UapRzoJ7o1FRdxx+HYppxC4InEPIyFPLKa4eGuNtrO9Q3qyGGwcp6OY7QU+BT6w0OTic34Xvn85GNHMLd+xDI23Qufdwqngvkf+V4jQzIEPy5qZ/Gn3bGgPOcEZU1A/8fn7N3VxySHTiCUzG9rL/sQvH4C8YIBjKSMXYTyQ3LH0jd3jsREo/GEvoDIrylh8ZVnGO0KW/b90B7KmmMfzXg32zcmqDiqhpG4TKjwNKagEiYQ3GMqcztty4jrgDpBd5pj5puhdDb+2vg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by PA1PR04MB10296.eurprd04.prod.outlook.com (2603:10a6:102:44a::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Thu, 4 Sep
- 2025 13:35:12 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2%7]) with mapi id 15.20.9094.016; Thu, 4 Sep 2025
- 13:35:12 +0000
-Date: Thu, 4 Sep 2025 16:35:09 +0300
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: richardcochran@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	xiaoning.wang@nxp.com, Frank.Li@nxp.com, yangbo.lu@nxp.com,
-	christophe.leroy@csgroup.eu, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH net-next 3/3] ptp: qoriq: covert to use generic
- interfaces to set loopback mode
-Message-ID: <20250904133509.cnhihr4x6vgehv5p@skbuf>
-References: <20250903083749.1388583-1-wei.fang@nxp.com>
- <20250903083749.1388583-1-wei.fang@nxp.com>
- <20250903083749.1388583-4-wei.fang@nxp.com>
- <20250903083749.1388583-4-wei.fang@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250903083749.1388583-4-wei.fang@nxp.com>
- <20250903083749.1388583-4-wei.fang@nxp.com>
-X-ClientProxiedBy: BE1P281CA0174.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:66::20) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+	Thu, 04 Sep 2025 14:33:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1756996421; x=1788532421;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=zlqqrNZEiY7IvtFC2IBEJxofiBdzO+GTzrOpSqcb4w8=;
+  b=WR+j4onDB8Z9Ftp1RG8m3Q75uxfy7glT8/vLzk0Qowrv8Kv9XiuKpHOU
+   AJd8DQbwd+1h8vfb/+x9/3UwHOHKyHI4JaMVhEDje2YeklxY41qN+Z2PA
+   AoK5GQzcAbPV6PxMOWrTgMdCF5wY2fDhUrkH9W2WpEmDwSKyHS/M9EDb4
+   oBR8jbptN5w7YA1ThJZ6kg5XXpQgu7O+maqm5yAIlR656NhRMMIxmo13c
+   1FVPnuyfDgR1GPOJsvPZQT/vpkd4xWF7VO8qnD9uAXCyZNOFLINfyVq4i
+   Ajx2e5OhJBS2swqVJr9h0PM031UxXqwEFYlvixzDsUOdJU8dk+ET3LhjD
+   w==;
+X-CSE-ConnectionGUID: G8Hed7ClSl6WgvwutzZBuA==
+X-CSE-MsgGUID: 8y9w8OLiQMyZ87BDufx9nQ==
+X-IronPort-AV: E=Sophos;i="6.18,238,1751234400"; 
+   d="scan'208";a="46080653"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 04 Sep 2025 16:33:31 +0200
+X-CheckPoint: {68B9A339-15-20CAA7DA-EC9DC758}
+X-MAIL-CPID: 54915AE65B26EEED12B979108A0F4215_0
+X-Control-Analysis: str=0001.0A2D034A.68B9A341.0064,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8A97E161458;
+	Thu,  4 Sep 2025 16:33:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1756996405;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=zlqqrNZEiY7IvtFC2IBEJxofiBdzO+GTzrOpSqcb4w8=;
+	b=FBd4BEaS14MCTqQhaMKyPetyi2HMKe+mCbXS7zgCsuJzNmwMtXYZwLQ4jrwpSLA+PzN2up
+	McSGUADKYjEVrHOUtG+izV5tWNXLmvK4mzPVM20q66XHPPqS907HHAzLPXVRhqPXytUvIK
+	JuF4tG9AJStDVT/fXSdMFIQqbFTM5JFH7/yW643XqVg2eQDSMjcOSas61VgDFzfUBIFLBS
+	o8RilpJVvxV3cxnYihXyXVbTDuF3DDjDLq7QHUzfxBUDTJ4K5VTOx3fAfoKNzVfrlQRQ7a
+	FkKux87MuC0Amd7kiIzibz+1yYt/lN5FOFyuEDVMsHr/J5Yz2oHJ5FsT32C6Bw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org,
+ cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+ l.stach@pengutronix.de, shengjiu.wang@gmail.com, perex@perex.cz,
+ tiwai@suse.com, linux-sound@vger.kernel.org
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>
+Subject: Re: [PATCH v6 0/7] drm/bridge: imx: Add HDMI PAI driver on i.MX8MP
+Date: Thu, 04 Sep 2025 16:33:21 +0200
+Message-ID: <13565586.O9o76ZdvQC@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250904070600.1361165-1-shengjiu.wang@nxp.com>
+References: <20250904070600.1361165-1-shengjiu.wang@nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|PA1PR04MB10296:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7a94547-c299-4df4-d66a-08ddebb7dfb6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|10070799003|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ksYtqAyGWKTnH39iVJY3bu41p3UzW34+kV76XsJuqMHRdNu2w+4pBn3Bsxbe?=
- =?us-ascii?Q?QtZUeA6kOectlnoMhk5kPpXF9zH1dvhftmu94+Bi0M2sfHQQqJm4IsvFTcgI?=
- =?us-ascii?Q?eKQqS5fOudmZdpqPHCzN1k1axGDp70M3J9v76odYHjiF1Qf+7tY31bf1Q9Gs?=
- =?us-ascii?Q?JyLHbFuNmm52IdjRTQepJrenRL/eLsbB8azLkhFOlE903w3JyeAzpjTDWnDa?=
- =?us-ascii?Q?MCKzkYMbjqiRSUTn+bwLHLDmfGFLjXLcluZRl8Je5gkWuWi5E/tfkkAX53Rz?=
- =?us-ascii?Q?uz35h5NcH4AssUT3P0GpHREEOl8ONdR8Z1sg0hA7BA7P0+CQpgtd3+LZ1WSS?=
- =?us-ascii?Q?dsCWqNcoonflC2yNe11cZwhaaWkfq719MCtixF2r1fUTuiolNMfujxtrMyHF?=
- =?us-ascii?Q?CUGzAQ+LnaMb8XiMtqvGAbS/bQ44eDTVDGI2bxx19O/Mn5XiGZFmBV9J3NG5?=
- =?us-ascii?Q?13JlSE7cmVIxQ5/PIRq1VrO34PUBUjPXz3xltnmwG6Oijabt9uDoCs0Db7Jx?=
- =?us-ascii?Q?Yt1z3bBx5bu2gud1qDBoflhk/uNGjMSHo9ykbJeOzkUPNc5alZNqSZ9+Dmx8?=
- =?us-ascii?Q?p5hV5XvyDwAkPnWovTAgV1efPcWvzrjPfpFsrIIg9K6fc076vgSufu0PRn3l?=
- =?us-ascii?Q?+zlnJf93Za/+M8q2omXxeflLYiPZUl4t288WnJnpaMZ7JpgKt+Yy6VAjBpje?=
- =?us-ascii?Q?nzdBPjP+uSfzFW9s5U65nAMiaHvt2S0lHYhUl1QcWk3p0Zcpy6AEYNkpZetJ?=
- =?us-ascii?Q?tROz7ZkcSzHve2EtbVpKXTamG+2+UgMk6CY7/tTNTBNPj2sQEv00pUgzec9E?=
- =?us-ascii?Q?beYjfH6skBoXMsB63SNZVwWls04nXwFubQiOQojYBsYXGP5Soq9XTTiYhsUk?=
- =?us-ascii?Q?tGqQaARLCpqEa1eN+7PlerQgB+j9Wp8dVBmBRutFPr7kEuWHRd4Xwmc/W8Vh?=
- =?us-ascii?Q?UMV42BUdb25cQ04stNoL1xpeiojP2GaRNLddmhqWQapz8m2BRsdXO+A/ZT+D?=
- =?us-ascii?Q?KXctYlVc0yHm+gaPOI4Moxv39HTcY1+rComuLBCc+a+7cheOVU6b7NJB1DSM?=
- =?us-ascii?Q?ZRznixpXxeuewAdIJPhGlsbss84d+OJKVPcZ822O96JA1t6WlOQ0bXkLoqRf?=
- =?us-ascii?Q?9sjFqDe8RTLBZfv+VnqNowoC4q9tjOj85KW8U5Z5MO7M3SnE2MADBMRIoZgW?=
- =?us-ascii?Q?vuxmi/SePK9y6z+dDChmt4A2zUYB3G+yQq4ZFuDgBWsPr42KScRHl/QBzl1e?=
- =?us-ascii?Q?djDqx5/qmGiqRzQ7HpKglosWkHCdwx6i76hAMreSOQ1akxzx8Saiz0xvmIYj?=
- =?us-ascii?Q?OiuMAf8Ahh4Hjb94EgtJQNzqiXyab9RkO2x2/WtGFsljLEI7MaN+12OIPKhz?=
- =?us-ascii?Q?g4xeG5VMeSwDKPT8NoDk+yCRg5VXIYy+tfHReZfshEIEw7PDOVWeZtWVE52u?=
- =?us-ascii?Q?J8lcjJhWnj4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(10070799003)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eACENHuCWew6MoyM0fTma7NoyJIRil/MO3S6+cW98MkmZCBCX6WQjN3qhn0X?=
- =?us-ascii?Q?HxrMAGzXWK9ZWMhrItr8bD/nqCrhyGzY36w+LvEGLnMKGJVXNEBkNg33WwE7?=
- =?us-ascii?Q?68j0YWhxyzQLIifiegu7RpaU9/Ia5WnlFBMkonCTPgd1aElBcjM12FqOau1k?=
- =?us-ascii?Q?AgnJw/UyEVKK0NGTgZ00WHVYd1yqu03XO4nnVnPJIKmP5FGlUwbPwUEFnEEN?=
- =?us-ascii?Q?+bG6gE9qyzUPUU3PJ4NSa8obaFykJ56JcOmblzybz+MWiopOIzrflwM40OR1?=
- =?us-ascii?Q?GhWLF7tRiU4bWgr+s2nxssNzbO49wFqwQAnMSWRC9T9p8Kxy9Htir9hKX6yR?=
- =?us-ascii?Q?gGB9Z2ot1gSUBbVzeNgoVaCofwCEyyai5RCLytu4y/llTS4YbJwGwBZ7Wcho?=
- =?us-ascii?Q?9POIgtC0VfdzAJum3YNtzKZEDi6RaJJKRH1GVR6RJk2A7MUSiL4yDzc9e2l2?=
- =?us-ascii?Q?xUjf+l8RuJMO5NF6/iQYmH6Xk4iDqf+5eU1kcaXPi5/TlvdjfW0PTF+rvwx4?=
- =?us-ascii?Q?K0KvnDsll327iZRt75zkrEwsRjfA5GXCbbMZpB1qOD4tqEPRW4/Ztvx11ZLz?=
- =?us-ascii?Q?ry5tFcSqRWroyjq7K/P+x55bhXfmSR7A+h7VD6GUAQHxYbv48xBQOaZHM1up?=
- =?us-ascii?Q?rEFnl4d7CVXFXA27pbXZWMHAJd3mqonJeY5dwUAcjiE9Jl7U6/yZlZzbLA74?=
- =?us-ascii?Q?09fq5TYfIoos1mgCJMsYKoYywJg+KltZ9v8he7FFtobbzHBF67lc7b4s1fu0?=
- =?us-ascii?Q?TR2oEyjFmYp4SqpUgxzyPH3YfDHtlUfA/yFETmpTwKFSeKNSeawat1D2l6gv?=
- =?us-ascii?Q?Fx960vGVCaJKOWxJH9UYliTo+TRleJoLu6lAuGnhCfFE/7V/zWr/eZ9zoIbE?=
- =?us-ascii?Q?AAFUBt09j+R6/lancGsDqNKvL22WX3Etnz2JwEg5mdE8tosFl1AKlcaCs5bO?=
- =?us-ascii?Q?X7urGxoEnpO86E/krCRJN1HYgY5A8j/gm1FAyLXlotMa5lKyfq9SbIsRO9RW?=
- =?us-ascii?Q?qvtA0ueGjvPCiUHIb/O9OB4shhB7H+RL82uK81+8TV5jstf9AvPGE3j3vsdF?=
- =?us-ascii?Q?l74NWieEQU1A8fumHtCwROk2ZcSTRguaMhHmmiLHqLaVX3x/7eBGc6qPNexS?=
- =?us-ascii?Q?eULaKcLi3kf3uIJGKILZ+RKgFhcmu2uTuKI3lBJp/CVzOh6KUb4DSmsHsfV9?=
- =?us-ascii?Q?XOkUZdEV8UDScokn/sbYM0O1t1TbTNSiDbjDhhyeKKzMJWva/wCCTCL36oJp?=
- =?us-ascii?Q?lhSup+UqcjWlzYce4fOOmo0CmZCQfiLz10wi8NlwArtkX77RSP+H4+1nav0D?=
- =?us-ascii?Q?p6buQilZl18vvOvj6jz1u3qs9WBGuQPorhMGObgMZqEV3pfk7j6HauPVylGy?=
- =?us-ascii?Q?nrIkfQ3IKYfAhYW88j71+oj9xyGkDDLAXoGJCDwusMxTuUIc9QVP9cVTScF9?=
- =?us-ascii?Q?dz8e1a0Z5w0Rw7AAESIHe44NjThCjZLmXst1CLQpllHFBOPrzp5YByksFOnh?=
- =?us-ascii?Q?ltfAD4Z6BipuoqTSsgqwZaL2bN22IPFLo6RetzXK7LLQkPqWXjzGtZPXI6gC?=
- =?us-ascii?Q?+HpsVLobJnmpgXn7FJr0StmFsCuDvpdL99MNBH5AN/F9N5x3Jey8inSetE1e?=
- =?us-ascii?Q?x7YMI5HeYFDA/0zThVntZ3tPNelsZ/xym19c7xiDYo85SlsY+cQp3jiBhljW?=
- =?us-ascii?Q?itlC4w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7a94547-c299-4df4-d66a-08ddebb7dfb6
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 13:35:12.3017
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5Bx2HiQJCvo8H+YYfMuZpjVMvnH41zC0zkZCkk4dhT/HIMHygoZrNi9tQm+5IbI9vj8m0YAR0y5Ladc+9oI23Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10296
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_063517_845358_EE44858C 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250904_073341_852019_0E2A612A 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,19 +102,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 04:37:49PM +0800, Wei Fang wrote:
-> Since the generic debugfs interfaces for setting the periodic pulse
-> signal loopback have been added to the ptp_clock driver, so covert the
+Hi,
 
-s/covert/convert/
+Am Donnerstag, 4. September 2025, 09:05:53 CEST schrieb Shengjiu Wang:
+> The HDMI TX Parallel Audio Interface (HTX_PAI) is a digital module that
+> acts as the bridge between the Audio Subsystem to the HDMI TX Controller.
+>=20
+> Add HDMI PAI driver on i.MX8MP to make HDMI audio function fully work.
 
-Also, 'since' doesn't go along with 'so'. You can remove either word.
+On TQMa8MPxL + MBa8MPxL:
+Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-> vendor-defined debugfs interfaces to the generic interfaces.
-> 
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
-> ---
+>=20
+> changes in v6:
+> - remove mutex in dw_hdmi_set_sample_iec958()
+>=20
+> changes in v5:
+> - add empty line commit message for patch 7
+> - remove blank line in dts node
+> - add component_unbind_all when dw_hdmi_probe return error
+>=20
+> changes in v4:
+> - separate dts for soc and board
+> - bind hdmi_pai with hdmi_tx by moving some code to .bind() and .unbind()
+> - add "select DRM_DW_HDMI" to fix build error reported by test robot
+> - remove unnecessary code/definition in pai driver
+>=20
+> changes in v3:
+> - add space and 'U' in asoundef.h
+> - add more commit message for binding doc commit
+> - add bitfield.h header for fixing build error
+>=20
+> changes in v2:
+> - address some comments on commit messages
+> - add two more commits:
+>   add definitions for the bits in IEC958 subframe
+>   add API dw_hdmi_set_sample_iec958() for iec958 format
+> - use component helper in hdmi_pai and hdmi_tx driver
+> - use regmap in hdmi_pai driver.
+> - add clocks in binding doc
+>=20
+> Shengjiu Wang (7):
+>   dt-bindings: display: imx: add HDMI PAI for i.MX8MP
+>   ALSA: Add definitions for the bits in IEC958 subframe
+>   drm/bridge: dw-hdmi: Add API dw_hdmi_to_plat_data() to get plat_data
+>   drm/bridge: dw-hdmi: Add API dw_hdmi_set_sample_iec958() for iec958
+>     format
+>   drm/bridge: imx: add driver for HDMI TX Parallel Audio Interface
+>   arm64: dts: imx8mp: Add hdmi parallel audio interface node
+>   arm64: dts: imx8mp-evk: enable hdmi_pai device
+>=20
+>  .../display/bridge/fsl,imx8mp-hdmi-tx.yaml    |  12 ++
+>  .../display/imx/fsl,imx8mp-hdmi-pai.yaml      |  69 ++++++++
+>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |   4 +
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  27 ++-
+>  drivers/gpu/drm/bridge/imx/Kconfig            |  11 ++
+>  drivers/gpu/drm/bridge/imx/Makefile           |   1 +
+>  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c  | 158 ++++++++++++++++++
+>  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c   |  65 ++++++-
+>  .../drm/bridge/synopsys/dw-hdmi-gp-audio.c    |   5 +
+>  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c     |  16 +-
+>  include/drm/bridge/dw_hdmi.h                  |  11 +-
+>  include/sound/asoundef.h                      |   9 +
+>  12 files changed, 380 insertions(+), 8 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx=
+8mp-hdmi-pai.yaml
+>  create mode 100644 drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
+>=20
+>=20
 
-Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-Tested-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
