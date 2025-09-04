@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7244ACA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 03:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD9ACA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 03:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jZ2dwryEpAaqKx6NOKXsLAFfc6Z2UHCkJYqUcHeCaVw=; b=oJkF/hC2yPI7GjXiqxYR/a35Hw
-	R5Vz03RDXkMES6CoO83j5txikmEEw3p8Di3dHM7LbkBFK63tAMglDEzKsO+2NqSA4DbIpWY/qMp9i
-	xMnsAOdycHhCXQxqnHED42J9++vqDfEVYOrUfMdzgi4xAXbb4mvoOCiWDR/KfIL69osK8cycejt2j
-	LJFqanMJfq3oALvHUxbp2ppg0WJ0gIaKrZoJD4joQ6szCpVGv7kEikWt5gomgMHtEZ5JMLjloeEbr
-	4GMg9cJzzGlIA+Xlx7CLJoUtFKov4g5pJiJu/tvpiW2wGJ0mMJ5+9UehS/W8b4ysVQF1zU1ik3Ulr
-	pZXGHbew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rexbZq37ojm1gWgYILbmLhzidPbLhbryKWFIZQaYdpU=; b=XjdwZbPz4tNkY7gCJhFfieYBO5
+	v5Y6VVF7BxES9GQv+6LWsCC8+P8jeUxxBrMfyaiZy4F/QyyMBoBBgOTuYsn2Ha9Kc5O/CJQiQ0Njo
+	6b2Cw4i9PPVWQF8K2zcMsbHZccWk2aAohj56F6qTT8/AX+lkv47lZVgK7LnA5861K/sG8Sj2Y09Cj
+	iDrvYr3YuR0U11N0lXe77VNDzrouv0Tqf931qikQdFca8IXUiELScHWzyQZMLJ6vJW6Sg26POyLXZ
+	SGqgAygg3Kevni9+bckBQSKrI1h3wQxAaoao0lMmavJ7X/DW4P9VQjAcPako5sE79G/TdSBs/hmYe
+	hlQmow9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu0bm-00000008fOO-0vVb;
-	Thu, 04 Sep 2025 03:25:58 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uu0bp-00000008fSR-0CRk;
+	Thu, 04 Sep 2025 03:26:01 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utxtr-00000007zw8-3a7e
+	id 1uty8O-000000080o9-1S0n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 00:32:29 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5840WMDZ3384193;
-	Wed, 3 Sep 2025 19:32:22 -0500
+	Thu, 04 Sep 2025 00:47:29 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5840lOOW3349406;
+	Wed, 3 Sep 2025 19:47:24 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756945942;
-	bh=jZ2dwryEpAaqKx6NOKXsLAFfc6Z2UHCkJYqUcHeCaVw=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=BV1mGANIIFvmVrVz/4aXs8qDORheVZ+jTFFihUTIKmgGF++9xucaryxSmSl+gStNv
-	 f4209rcCWyLq9LGUEnsgpPBzzS/qyT6B0HduqCbzvo+Iu9tp3xJ8Y2P2oxwVE7MPAB
-	 4bgcQgfvVwaS6Ihk/pkeknjjLM3UuP5xuVesR0IE=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5840WM0X467869
+	s=ti-com-17Q1; t=1756946844;
+	bh=rexbZq37ojm1gWgYILbmLhzidPbLhbryKWFIZQaYdpU=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=bGYZ3vJMnT630Vnx1nX3daMbYnOH4RnN0pfJMhRpPyc/BpXIqXMjWG6/RWvTaC7iv
+	 B6G6+NoAwf5/ocbDSmgXXUT0ORHFW87ijJgMLIaRJcl9mgRi3r+iSBAumGDP9M+JTl
+	 Y21QLQ8ijLoPbIgFtzJ5vLZxERkw1mvuy24GctL8=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5840lOjp3984944
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 3 Sep 2025 19:32:22 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 3 Sep 2025 19:47:24 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 3
- Sep 2025 19:32:22 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 19:47:23 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 3 Sep 2025 19:32:22 -0500
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5840WM2f2121193;
-	Wed, 3 Sep 2025 19:32:22 -0500
-Message-ID: <4c4e1619-51e9-468d-931b-82796bcf7142@ti.com>
-Date: Wed, 3 Sep 2025 19:32:22 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/3] arm64: dts: ti: var-som-am62p: Add support for
- Variscite Symphony Board
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Frontend Transport; Wed, 3 Sep 2025 19:47:24 -0500
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5840lNZK2425599;
+	Wed, 3 Sep 2025 19:47:23 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
+CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
         Tero
  Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
         Krzysztof
  Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250829165327.20007-1-stefano.radaelli21@gmail.com>
- <20250829165327.20007-4-stefano.radaelli21@gmail.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <20250829165327.20007-4-stefano.radaelli21@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH 1/2] arm64: dts: ti: k3-am62p/j722s: Move sdhci0 from common
+Date: Wed, 3 Sep 2025 19:47:22 -0500
+Message-ID: <20250904004723.2856005-2-jm@ti.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250904004723.2856005-1-jm@ti.com>
+References: <20250904004723.2856005-1-jm@ti.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_173227_992643_B6BD3260 
-X-CRM114-Status: GOOD (  22.22  )
+X-CRM114-CacheID: sfid-20250903_174728_471348_E3FC26FE 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,565 +89,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefano,
+Since eMMC HS400 has been descoped for j722s due to errata i2478 [0]
+and is supported for am62p SR1.2 device, remove sdhci0 node from
+common-main.dtsi and include instead in each device's main.dtsi
+appropriately.
 
-On 8/29/25 11:53 AM, Stefano Radaelli wrote:
-> Add device tree support for the Variscite Symphony carrier board with
-> the VAR-SOM-AM62P system on module.
-> 
-> The Symphony board includes
-> - uSD Card support
-> - USB ports and OTG
-> - Additional Gigabit Ethernet interface
-> - Uart interfaces
-> - OV5640 Camera support
-> - GPIO Expander
-> - CAN, I2C and general purpose interfaces
-> 
-> Link: https://www.variscite.it/product/single-board-computers/symphony-board/
-> 
-> Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
-> ---
-> v5:
->   - Update to match up with coding guidelines for device tree
-> v4:
->   - Moved every MCUs-related node into the SOM dtsi
-> v3:
->   - Change compatible string to match existing mainline format
->   - Fixed underscore typo
-> v2:
->   - Fixed warnings and cleanup
-> 
->   arch/arm64/boot/dts/ti/Makefile               |   1 +
->   .../dts/ti/k3-am62p5-var-som-symphony.dts     | 500 ++++++++++++++++++
->   2 files changed, 501 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-> 
-> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-> index aad9177930e6..b11cbf33422d 100644
-> --- a/arch/arm64/boot/dts/ti/Makefile
-> +++ b/arch/arm64/boot/dts/ti/Makefile
-> @@ -38,6 +38,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
->   
->   # Boards with AM62Px SoC
->   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
-> +dtb-$(CONFIG_ARCH_K3) += k3-am62p5-var-som-symphony.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dahlia.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dev.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-ivy.dtb
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-> new file mode 100644
-> index 000000000000..76c8dd31616c
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-> @@ -0,0 +1,500 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Variscite Symphony carrier board for VAR-SOM-AM62P
-> + *
-> + * Link: https://www.variscite.it/product/single-board-computers/symphony-board/
-> + *
-> + * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
-> + *
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "k3-am62p5-var-som.dtsi"
-> +
-> +/ {
-> +	model = "Variscite VAR-SOM-AM62P on Symphony-Board";
-> +	compatible = "variscite,var-som-am62p-symphony", "variscite,var-som-am62p", "ti,am62p5";
-> +
-> +	aliases {
-> +		ethernet0 = &cpsw_port1;
-> +		ethernet1 = &cpsw_port2;
-> +		mmc0 = &sdhci0;
-> +		mmc1 = &sdhci1;
-> +		mmc2 = &sdhci2;
-> +		serial0 = &main_uart0;
-> +		serial2 = &main_uart2;
-> +		serial5 = &main_uart5;
-> +		serial6 = &main_uart6;
-> +		spi5 = &main_spi2;
-> +		usb0 = &usb0;
-> +		usb1 = &usb1;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	clk_ov5640_fixed: clock-24000000 {
-> +		#clock-cells = <0>;
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <24000000>;
-> +	};
-> +
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
-> +
-> +		button-back {
-> +			label = "Back";
-> +			linux,code = <KEY_BACK>;
-> +			gpios = <&pca9534 1 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		button-home {
-> +			label = "Home";
-> +			linux,code = <KEY_HOME>;
-> +			gpios = <&pca9534 2 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		button-menu {
-> +			label = "Menu";
-> +			linux,code = <KEY_MENU>;
-> +			gpios = <&pca9534 3 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +
-> +	gpio-leds {
-> +		compatible = "gpio-leds";
-> +
-> +		led-heartbeat {
-> +			label = "Heartbeat";
-> +			linux,default-trigger = "heartbeat";
-> +			gpios = <&pca9534 0 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +
-> +	reg_2p8v: regulator-2p8v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "2P8V";
-> +		regulator-min-microvolt = <2800000>;
-> +		regulator-max-microvolt = <2800000>;
-> +		vin-supply = <&reg_3v3>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_1p8v: regulator-1p8v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "1P8V";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		vin-supply = <&reg_3v3>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_1p5v: regulator-1p5v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "1P5V";
-> +		regulator-min-microvolt = <1500000>;
-> +		regulator-max-microvolt = <1500000>;
-> +		vin-supply = <&reg_3v3>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_sdhc1_vmmc: regulator-sdhc1 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "+V3.3_SD";
-> +		vin-supply = <&reg_sdhc1_vmmc_int>;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-boot-on;
-> +		enable-active-high;
-> +		gpio = <&main_gpio0 30 GPIO_ACTIVE_HIGH>;
-> +		bootph-all;
-> +	};
-> +
-> +	reg_sdhc1_vmmc_int: regulator-sdhc1-int {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "+V3.3_SD_INT";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_sd1_vmmc>;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-boot-on;
-> +		enable-active-high;
-> +		gpio = <&main_gpio0 53 GPIO_ACTIVE_HIGH>;
-> +		bootph-all;
-> +	};
-> +
-> +	reg_sdhc1_vqmmc: regulator-sdhci1-vqmmc {
-> +		compatible = "regulator-gpio";
-> +		regulator-name = "+V3.3_SD_VQMMC";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_sd1_vqmmc>;
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-boot-on;
-> +		gpios = <&main_gpio0 56 GPIO_ACTIVE_HIGH>;
-> +		states = <1800000 0x0>,
-> +			 <3300000 0x1>;
-> +		bootph-all;
-> +	};
-> +
-> +	reg_ov5640_buf_en: regulator-camera-buf-en {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "ov5640_buf_en";
-> +		gpios = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	transceiver1: can-phy {
-> +		compatible = "ti,tcan1042";
-> +		#phy-cells = <0>;
-> +		max-bitrate = <5000000>;
-> +	};
-> +
-> +	connector {
-> +		compatible = "gpio-usb-b-connector", "usb-b-connector";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_extcon>;
-> +		label = "USB-C";
-> +		id-gpios = <&main_gpio1 12 GPIO_ACTIVE_HIGH>;
-> +		status = "okay";
-> +
-> +		port {
-> +			usb_con_hs: endpoint {
-> +				remote-endpoint = <&typec_hs>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&cdns_csi2rx0 {
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		csi0_port0: port@0 {
-> +			reg = <0>;
-> +			status = "okay";
-> +
-> +			csi2rx0_in_sensor: endpoint {
-> +				remote-endpoint = <&csi2_cam0>;
-> +				bus-type = <4>; /* CSI2 DPHY. */
-> +				clock-lanes = <0>;
-> +				data-lanes = <1 2>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&cpsw3g {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_rgmii1>,
-> +		    <&pinctrl_rgmii2>;
-> +	status = "okay";
-> +};
-> +
-> +&cpsw3g_mdio {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_mdio1>;
-> +	status = "okay";
-> +
-> +	cpsw3g_phy1: ethernet-phy@5 {
-> +		compatible = "ethernet-phy-id0283.bc30";
-> +		reg = <5>;
-> +		reset-gpios = <&pca9534 5 GPIO_ACTIVE_LOW>;
-> +		reset-assert-us = <10000>;
-> +		reset-deassert-us = <100000>;
-> +	};
-> +};
-> +
-> +&cpsw_port2 {
-> +	/*
-> +	 * The required RGMII TX and RX 2ns delays are implemented directly
-> +	 * in hardware via passive delay elements on the Symphony PCB.
-> +	 * No delay configuration is needed in software via PHY driver.
-> +	 */
-> +	phy-mode = "rgmii";
-> +	phy-handle = <&cpsw3g_phy1>;
-> +	status = "okay";
-> +};
-> +
-> +&dphy0 {
-> +	status = "okay";
-> +};
-> +
-> +&main_i2c0{
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_i2c0>;
-> +	clock-frequency = <400000>;
-> +	status = "okay";
-> +
-> +	ov5640: camera@3c {
-> +		compatible = "ovti,ov5640";
-> +		reg = <0x3c>;
-> +		clocks = <&clk_ov5640_fixed>;
-> +		clock-names = "xclk";
-> +		AVDD-supply = <&reg_2p8v>;
-> +		DOVDD-supply = <&reg_1p8v>;
-> +		DVDD-supply = <&reg_1p5v>;
-> +		powerdown-gpios = <&main_gpio0 10 GPIO_ACTIVE_HIGH>;
-> +		reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_ov5640>;
-> +
-> +		port {
-> +			csi2_cam0: endpoint {
-> +				remote-endpoint = <&csi2rx0_in_sensor>;
-> +				clock-lanes = <0>;
-> +				data-lanes = <1 2>;
-> +			};
-> +		};
-> +	};
-> +
-> +	/* GPIO expander */
-> +	pca9534: gpio@20 {
-> +		compatible = "nxp,pca9534";
-> +		reg = <0x20>;
-> +		gpio-controller;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_pca9534>;
-> +		interrupt-parent = <&main_gpio1>;
-> +		interrupts = <30 IRQ_TYPE_EDGE_FALLING>;
-> +		#gpio-cells = <2>;
-> +		status = "okay";
-> +
-> +		usb3-sel-hog {
-> +			gpio-hog;
-> +			gpios = <4 0>;
-> +			output-low;
-> +			line-name = "usb3_sel";
-> +		};
-> +
-> +		eth-som-vselect-hog {
-> +			gpio-hog;
-> +			gpios = <6 0>;
-> +			output-low;
-> +			line-name = "eth-vselect";
-> +		};
-> +
-> +		eth-mdio-enable-hog {
-> +			gpio-hog;
-> +			gpios = <7 0>;
-> +			output-high;
-> +			line-name = "eth-mdio-enable";
-> +		};
-> +	};
-> +};
-> +
-> +&main_i2c1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_i2c1>;
-> +	clock-frequency = <400000>;
-> +	status = "okay";
-> +
-> +	rtc@68 {
-> +		compatible = "dallas,ds1337";
-> +		reg = <0x68>;
-> +	};
-> +};
-> +
-> +&main_mcan0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_mcan0>;
-> +	phys = <&transceiver1>;
-> +	status = "okay";
-> +};
-> +
-> +&main_pmx0 {
-> +	pinctrl_extcon: main-extcon-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x01a8, PIN_INPUT, 7) /* (F25) MCASP0_AFSX.GPIO1_12 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_i2c0: main-i2c0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (B25) I2C0_SCL */
-> +			AM62PX_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (A24) I2C0_SDA */
-> +		>;
-> +	};
-> +
-> +	pinctrl_i2c1: main-i2c1-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0) /* (C24) I2C1_SCL */
-> +			AM62PX_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0) /* (B24) I2C1_SDA */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	pinctrl_mcan0: main-mcan0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x01dc, PIN_INPUT, 0) /* (F20) MCAN0_RX */
-> +			AM62PX_IOPAD(0x01d8, PIN_OUTPUT, 0) /* (B23) MCAN0_TX */
-> +		>;
-> +	};
-> +
-> +	pinctrl_mmc1: main-mmc1-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x023c, PIN_INPUT, 0) /* (H20) MMC1_CMD */
-> +			AM62PX_IOPAD(0x0234, PIN_OUTPUT, 0) /* (J24) MMC1_CLK */
-> +			AM62PX_IOPAD(0x0230, PIN_INPUT, 0) /* (H21) MMC1_DAT0 */
-> +			AM62PX_IOPAD(0x022c, PIN_INPUT_PULLUP, 0) /* (H23) MMC1_DAT1 */
-> +			AM62PX_IOPAD(0x0228, PIN_INPUT_PULLUP, 0) /* (H22) MMC1_DAT2 */
-> +			AM62PX_IOPAD(0x0224, PIN_INPUT_PULLUP, 0) /* (H25) MMC1_DAT3 */
+[0] https://www.ti.com/lit/pdf/sprz575
+Signed-off-by: Judith Mendez <jm@ti.com>
+---
+ .../dts/ti/k3-am62p-j722s-common-main.dtsi    | 25 -------------------
+ arch/arm64/boot/dts/ti/k3-am62p-main.dtsi     | 25 +++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi     | 22 ++++++++++++++++
+ 3 files changed, 47 insertions(+), 25 deletions(-)
 
-If you have external pulls, perhaps its a good idea to drop the internal
-pulls? So as to not risk violating the minimum spec requirement.
-
-~ Judith
-
-
-
-> +			AM62PX_IOPAD(0x0240, PIN_INPUT, 0) /* (D23) MMC1_SDCD */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	pinctrl_rgmii2: main-rgmii2-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0184, PIN_INPUT, 0) /* (E19) RGMII2_RD0 */
-> +			AM62PX_IOPAD(0x0188, PIN_INPUT, 0) /* (E16) RGMII2_RD1 */
-> +			AM62PX_IOPAD(0x018c, PIN_INPUT, 0) /* (E17) RGMII2_RD2 */
-> +			AM62PX_IOPAD(0x0190, PIN_INPUT, 0) /* (C19) RGMII2_RD3 */
-> +			AM62PX_IOPAD(0x0180, PIN_INPUT, 0) /* (D19) RGMII2_RXC */
-> +			AM62PX_IOPAD(0x017c, PIN_INPUT, 0) /* (F19) RGMII2_RX_CTL */
-> +			AM62PX_IOPAD(0x016c, PIN_INPUT, 0) /* (B19) RGMII2_TD0 */
-> +			AM62PX_IOPAD(0x0170, PIN_INPUT, 0) /* (A21) RGMII2_TD1 */
-> +			AM62PX_IOPAD(0x0174, PIN_INPUT, 0) /* (D17) RGMII2_TD2 */
-> +			AM62PX_IOPAD(0x0178, PIN_INPUT, 0) /* (A19) RGMII2_TD3 */
-> +			AM62PX_IOPAD(0x0168, PIN_INPUT_PULLDOWN, 0) /* (D16) RGMII2_TXC */
-> +			AM62PX_IOPAD(0x0164, PIN_INPUT, 0) /* (A20) RGMII2_TX_CTL */
-> +		>;
-> +	};
-> +
-> +	pinctrl_spi2: main-spi2-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x01b0, PIN_INPUT, 1) /* (G20) MCASP0_ACLKR.SPI2_CLK */
-> +			AM62PX_IOPAD(0x0194, PIN_OUTPUT, 1) /* (D25) MCASP0_AXR3.SPI2_D0 */
-> +			AM62PX_IOPAD(0x0198, PIN_INPUT, 1) /* (E25) MCASP0_AXR2.SPI2_D1 */
-> +			AM62PX_IOPAD(0x01ac, PIN_OUTPUT, 7) /* (G23) MCASP0_AFSR.GPIO1_13 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_uart0: main-uart0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x1c8, PIN_INPUT, 0)	/* (A22) UART0_RXD */
-> +			AM62PX_IOPAD(0x1cc, PIN_OUTPUT, 0)	/* (B22) UART0_TXD */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	pinctrl_uart2: main-uart2-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x005c, PIN_INPUT_PULLUP, 2) /* (AC25) GPMC0_AD8.UART2_RXD */
-> +			AM62PX_IOPAD(0x0060, PIN_OUTPUT, 2) /* (AB25) GPMC0_AD9.UART2_TXD */
-> +		>;
-> +	};
-> +
-> +	pinctrl_uart6: main-uart6-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x009c, PIN_INPUT_PULLUP, 3) /* (AD24) GPMC0_WAIT1.UART6_RXD */
-> +			AM62PX_IOPAD(0x0244, PIN_OUTPUT, 1) /* (D24) MMC1_SDWP.UART6_TXD */
-> +		>;
-> +	};
-> +
-> +	pinctrl_usb1: main-usb1-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0258, PIN_OUTPUT, 0) /* (G21) USB1_DRVVBUS */
-> +		>;
-> +	};
-> +
-> +	pinctrl_ov5640: main-ov5640-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0028, PIN_OUTPUT, 7) /* (N20) OSPI0_D7.GPIO0_10 */
-> +			AM62PX_IOPAD(0x0054, PIN_OUTPUT, 7) /* (V24) GPMC0_AD6.GPIO0_21 */
-> +			AM62PX_IOPAD(0x0058, PIN_OUTPUT, 7) /* (W25) GPMC0_AD7.GPIO0_22 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_pca9534: main-pca9534-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x01f0, PIN_INPUT, 7) /* (C25) EXT_REFCLK1.GPIO1_30 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_sd1_vmmc: main-sd1-vmmc-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0078, PIN_OUTPUT, 7) /* (AC24) GPMC0_AD15.GPIO0_30 */
-> +			AM62PX_IOPAD(0x00d8, PIN_OUTPUT, 7) /* (AE22) VOUT0_DATA8.GPIO0_53 */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	pinctrl_sd1_vqmmc: main-sd1-vqmmc-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x00e4, PIN_OUTPUT, 7) /* (AE21) VOUT0_DATA11.GPIO0_56 */
-> +		>;
-> +		bootph-all;
-> +	};
-> +};
-> +
-> +&main_spi2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_spi2>;
-> +	ti,pindir-d0-out-d1-in;
-> +	cs-gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-> +	status = "okay";
-> +};
-> +
-> +&main_uart0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_uart0>;
-> +	status = "okay";
-> +};
-> +
-> +&main_uart2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_uart2>;
-> +	status = "okay";
-> +};
-> +
-> +&main_uart6 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_uart6>;
-> +	status = "okay";
-> +};
-> +
-> +&sdhci1 {
-> +	/* SD Card */
-> +	vmmc-supply = <&reg_sdhc1_vmmc>;
-> +	vqmmc-supply = <&reg_sdhc1_vqmmc>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_mmc1>;
-> +	disable-wp;
-> +	bootph-all;
-> +	status="okay";
-> +};
-> +
-> +&ti_csi2rx0 {
-> +	status = "okay";
-> +};
-> +
-> +&usb0 {
-> +	usb-role-switch;
-> +	status = "okay";
-> +
-> +	port {
-> +		typec_hs: endpoint {
-> +			remote-endpoint = <&usb_con_hs>;
-> +		};
-> +	};
-> +};
-> +
-> +&usb1 {
-> +	dr_mode = "host";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_usb1>;
-> +	status = "okay";
-> +};
-> +
-> +&usbss0 {
-> +	status = "okay";
-> +};
-> +
-> +&usbss1 {
-> +	status = "okay";
-> +};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+index 4427b12058a6..84083f5125df 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+@@ -566,31 +566,6 @@ main_gpio1: gpio@601000 {
+ 		clock-names = "gpio";
+ 	};
+ 
+-	sdhci0: mmc@fa10000 {
+-		compatible = "ti,am64-sdhci-8bit";
+-		reg = <0x00 0x0fa10000 0x00 0x1000>, <0x00 0x0fa18000 0x00 0x400>;
+-		interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
+-		power-domains = <&k3_pds 57 TI_SCI_PD_EXCLUSIVE>;
+-		clocks = <&k3_clks 57 1>, <&k3_clks 57 2>;
+-		clock-names = "clk_ahb", "clk_xin";
+-		bus-width = <8>;
+-		mmc-ddr-1_8v;
+-		mmc-hs200-1_8v;
+-		mmc-hs400-1_8v;
+-		ti,clkbuf-sel = <0x7>;
+-		ti,strobe-sel = <0x77>;
+-		ti,trm-icp = <0x8>;
+-		ti,otap-del-sel-legacy = <0x1>;
+-		ti,otap-del-sel-mmc-hs = <0x1>;
+-		ti,otap-del-sel-ddr52 = <0x6>;
+-		ti,otap-del-sel-hs200 = <0x8>;
+-		ti,otap-del-sel-hs400 = <0x5>;
+-		ti,itap-del-sel-legacy = <0x10>;
+-		ti,itap-del-sel-mmc-hs = <0xa>;
+-		ti,itap-del-sel-ddr52 = <0x3>;
+-		status = "disabled";
+-	};
+-
+ 	sdhci1: mmc@fa00000 {
+ 		compatible = "ti,am62-sdhci";
+ 		reg = <0x00 0x0fa00000 0x00 0x1000>, <0x00 0x0fa08000 0x00 0x400>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+index 6aea9d3f134e..fb8473ce403a 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+@@ -31,6 +31,31 @@ usb1: usb@31100000 {
+ 			snps,usb2-lpm-disable;
+ 		};
+ 	};
++
++	sdhci0: mmc@fa10000 {
++		compatible = "ti,am64-sdhci-8bit";
++		reg = <0x00 0x0fa10000 0x00 0x1000>, <0x00 0x0fa18000 0x00 0x400>;
++		interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
++		power-domains = <&k3_pds 57 TI_SCI_PD_EXCLUSIVE>;
++		clocks = <&k3_clks 57 1>, <&k3_clks 57 2>;
++		clock-names = "clk_ahb", "clk_xin";
++		bus-width = <8>;
++		mmc-ddr-1_8v;
++		mmc-hs200-1_8v;
++		mmc-hs400-1_8v;
++		ti,clkbuf-sel = <0x7>;
++		ti,strobe-sel = <0x77>;
++		ti,trm-icp = <0x8>;
++		ti,otap-del-sel-legacy = <0x1>;
++		ti,otap-del-sel-mmc-hs = <0x1>;
++		ti,otap-del-sel-ddr52 = <0x6>;
++		ti,otap-del-sel-hs200 = <0x8>;
++		ti,otap-del-sel-hs400 = <0x5>;
++		ti,itap-del-sel-legacy = <0x10>;
++		ti,itap-del-sel-mmc-hs = <0xa>;
++		ti,itap-del-sel-ddr52 = <0x3>;
++		status = "disabled";
++	};
+ };
+ 
+ &oc_sram {
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+index 993828872dfb..2978fe1a151e 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+@@ -404,6 +404,28 @@ e5010: jpeg-encoder@fd20000 {
+ 		power-domains = <&k3_pds 201 TI_SCI_PD_EXCLUSIVE>;
+ 		interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
++
++	sdhci0: mmc@fa10000 {
++		compatible = "ti,am64-sdhci-8bit";
++		reg = <0x00 0x0fa10000 0x00 0x1000>, <0x00 0x0fa18000 0x00 0x400>;
++		interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
++		power-domains = <&k3_pds 57 TI_SCI_PD_EXCLUSIVE>;
++		clocks = <&k3_clks 57 1>, <&k3_clks 57 2>;
++		clock-names = "clk_ahb", "clk_xin";
++		bus-width = <8>;
++		mmc-ddr-1_8v;
++		mmc-hs200-1_8v;
++		ti,clkbuf-sel = <0x7>;
++		ti,trm-icp = <0x8>;
++		ti,otap-del-sel-legacy = <0x1>;
++		ti,otap-del-sel-mmc-hs = <0x1>;
++		ti,otap-del-sel-ddr52 = <0x6>;
++		ti,otap-del-sel-hs200 = <0x8>;
++		ti,itap-del-sel-legacy = <0x10>;
++		ti,itap-del-sel-mmc-hs = <0xa>;
++		ti,itap-del-sel-ddr52 = <0x3>;
++		status = "disabled";
++	};
+ };
+ 
+ &main_bcdma_csi {
+-- 
+2.51.0
 
 
