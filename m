@@ -4,81 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE3FCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:36:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB21ECA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L11aX+BB+qM1JXGrNxK4IIqPwXoq5+CWXGVYROLmJgs=; b=q1v/EJdFlVaznDsoGwUS17d3ep
-	Oy/CKM/0INX0Thk6f++LPsd/TkWYabnR5bmxVjaPJfTarTDuFEL/7u706zI84tBOdGpKP75uHkfni
-	lfj6sBl5I08+xi3l9OW3LEcRoB70pBvPxQhBmV4VsWnIgDu6ASh0dYWWMbiSWu2EuA2KnHxIgOchB
-	jApdrNe6WRhTl3nfygLRVpJYUUPuUiwRlELa1d3/iMcwLNIlM8ZmrqgizlMthPSRbg/VwEfw3FeaP
-	U+bEJDo3tKipXVd1Qh4n5x2SEwQ69DRzTkrG1/ZgP/9Ht4MMFGdZdKr/STw05eXVx8GSizY1Sz6HO
-	/FGv6u1w==;
+	bh=AXZSP2xkioaR8ZdjrFwrxpawXhm0LwGzXDZwHuE/4ms=; b=L5meHYNa4C90WCJHxTxIYvMoX+
+	egHWP3i3fyM+elUt5A5l5WyVPtdwHpmfa04rjHcee5SEEzyAxRRn5EYPsVaTdkMiCacdM8ZZNtn9H
+	BIOC0k1iEKvLCZPldLQCcRPjJ60Qkz0pRR5V4pCIkAigeVrhq6QsGbOPjVsTQa/sisbMHKwRmMZOT
+	7Yy08k4R+eHYu3ItpT8JeCUgU0Cc2xcCP7n0cIimciZze15LEybg+FpLMIbRDGdfDomy0xBBp7dXX
+	Q3u+nrpdSkRplT8xt3pZjicutAGTcffCq5koIAPmFNzBcXA/NLMESnHfVlafif/p/BBPuhzRLRl3R
+	hJlNVSOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCx7-0000000CzkS-299d;
-	Thu, 04 Sep 2025 16:36:49 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uuEkT-0000000Dadw-42PO;
+	Thu, 04 Sep 2025 18:31:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuAI1-0000000ByiC-2Dg6
+	id 1uuAFI-0000000Bxoa-1yUh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 13:46:15 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 584Dk96T3479535;
-	Thu, 4 Sep 2025 08:46:09 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756993569;
-	bh=L11aX+BB+qM1JXGrNxK4IIqPwXoq5+CWXGVYROLmJgs=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=QOADzU6hJGtS5drCUoNri8iBhZtuPVU7uXlMr5bZNUffj1der76zgwHFprUaLQE8B
-	 HRKhuqlMM4k0ORwqSHpD6mpdaszF1WD/LXq9V8YqqA6OyaAdF311LZEliRmjnyeQ7C
-	 0U0cYdotWlPbR1QBie/HTQOyzBuIIENZ3CzJYet4=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 584Dk93h3846174
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 4 Sep 2025 08:46:09 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
- Sep 2025 08:46:09 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 4 Sep 2025 08:46:09 -0500
-Received: from [10.24.68.177] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 584Dk4DQ3342464;
-	Thu, 4 Sep 2025 08:46:05 -0500
-Message-ID: <1a20e784-d2d7-46d7-b705-67e460b6ae33@ti.com>
-Date: Thu, 4 Sep 2025 19:16:04 +0530
+	Thu, 04 Sep 2025 13:43:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E1BE4601AD;
+	Thu,  4 Sep 2025 13:43:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0280AC4CEF0;
+	Thu,  4 Sep 2025 13:43:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756993403;
+	bh=/9OWqx5QESRGHRCL0BQyhOtgreyfaYTGqx7ChEu5PaA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qyE8UVOjEPIjeyF7QEHLaeb3XpXfyUCJJCnebujOv1YfryOeGm+JF5KogZrQCD/YH
+	 iCHkpF38GXpRQdshJl2JwIgOxWUecuwQPFmJ35OBBIv3eGob4TFOxG5gY0IgtLnqPe
+	 Ng6Xnh+qgof4RcgEBn4SDMeWIMpjURrIPo1jXjvmlEHMepDhogWb24A9LjFeX3sQPW
+	 UY2iYzf/hGeivJAqKBVWsscsvK3ooH3k3EJVAFEeVXXnNDsuk+oF61czum4PKf5uWu
+	 9eutPfy46F0aYNSMJy9LnbkJjpaBU2QuPfVqAPkcbTdi9mWq0CeGR7XKIhinCDRqgw
+	 y/oB8JbHR+xbQ==
+Message-ID: <5543f849-2be7-459f-8600-d236625cc8f8@kernel.org>
+Date: Thu, 4 Sep 2025 15:43:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining
- macros
-To: "Kumar, Udit" <u-kumar1@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
-        <afd@ti.com>, <vigneshr@ti.com>, <d-gole@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>
-References: <20250902071917.1616729-1-a-kaur@ti.com>
- <20250902071917.1616729-4-a-kaur@ti.com>
- <b946af38-abf9-4b34-bf44-3ba9bc64bff7@ti.com>
- <b0ccb51f-14f4-43c9-9646-296d6e9d559c@ti.com>
- <f2e60ec2-5a1f-4cff-a8ee-c2555d835946@ti.com>
+Subject: Re: [PATCH v4 4/6] arm64: dts: exynos: axis: Add initial ARTPEC-8 SoC
+ support
+To: Ravi Patel <ravi.patel@samsung.com>, jesper.nilsson@axis.com,
+ mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, s.nawrocki@samsung.com,
+ cw00.choi@samsung.com, alim.akhtar@samsung.com, linus.walleij@linaro.org,
+ tomasz.figa@gmail.com, catalin.marinas@arm.com, will@kernel.org,
+ arnd@arndb.de
+Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
+ gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
+ smn1196@coasia.com, shradha.t@samsung.com, inbaraj.e@samsung.com,
+ swathi.ks@samsung.com, hrishikesh.d@samsung.com, dj76.yang@samsung.com,
+ hypmean.kim@samsung.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@axis.com, devicetree@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+References: <20250901051926.59970-1-ravi.patel@samsung.com>
+ <CGME20250901054254epcas5p24db87bd64fc57a25b17c51e608f15e7b@epcas5p2.samsung.com>
+ <20250901051926.59970-5-ravi.patel@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Akashdeep Kaur <a-kaur@ti.com>
-In-Reply-To: <f2e60ec2-5a1f-4cff-a8ee-c2555d835946@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_064613_721267_2D0D8707 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250901051926.59970-5-ravi.patel@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,60 +127,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Udit,
-
-On 04/09/25 18:06, Kumar, Udit wrote:
+On 01/09/2025 07:19, Ravi Patel wrote:
+> From: SungMin Park <smn1196@coasia.com>
 > 
-
-...
-
->> ...
->>>>   #define PULLTYPESEL_SHIFT    (17)
->>>>   #define RXACTIVE_SHIFT        (18)
->>>> +#define DRV_STR_SHIFT           (19)
->>>
->>> referring to above TRM mentioned in commit message
->>>
->>> Bit 20-19 are for DRV_STR, and description says
->>>
->>> 0 - Default
->>> 1 - Reserved
->>> 2 - Reserved
->>> 3 - Reserved
->>>
->>> Not sure, is there some additional document to be referred for 
->>> PIN_DRIVE_STRENGTH
->>
->> This information will be updated in TRM in coming cycles.
+> Add initial device tree support for Axis ARTPEC-8 SoC.
 > 
+> This SoC contains 4 Cortex-A53 CPUs and several other peripheral IPs.
 > 
-> Sorry ,
+> Signed-off-by: SungMin Park <smn1196@coasia.com>
+> Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
+> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+> ---
+>  MAINTAINERS                                   |  12 +
+>  arch/arm64/Kconfig.platforms                  |   7 +
+>  arch/arm64/boot/dts/exynos/Makefile           |   1 +
+>  .../boot/dts/exynos/axis/artpec-pinctrl.h     |  36 +++
+>  .../boot/dts/exynos/axis/artpec8-pinctrl.dtsi | 120 +++++++++
+>  arch/arm64/boot/dts/exynos/axis/artpec8.dtsi  | 244 ++++++++++++++++++
+>  6 files changed, 420 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
+>  create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
+>  create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8.dtsi
 > 
-> can not ack before TRM update
-
-The information can be found at 
-https://www.ti.com/lit/ug/spruj83b/spruj83b.pdf in Table 14-8769. 
-Description Of The Pad Configuration Register Bit
-
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index fe168477caa4..4d0c1f10ffd4 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -4102,6 +4102,18 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/sound/axentia,*
+>  F:	sound/soc/atmel/tse850-pcm5142.c
 > 
-> 
-> 
->>>
->>>
->>>> +#define DS_ISO_OVERRIDE_SHIFT   (22)
->>>> +#define DS_ISO_BYPASS_EN_SHIFT  (23)
->>>
+> +AXIS ARTPEC ARM64 SoC SUPPORT
+> +M:	Jesper Nilsson <jesper.nilsson@axis.com>
+> +M:	Lars Persson <lars.persson@axis.com>
+> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> +L:	linux-samsung-soc@vger.kernel.org
+> +L:	linux-arm-kernel@axis.com
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/clock/axis,artpec*-clock.yaml
+> +F:	arch/arm64/boot/dts/exynos/axis/
+> +F:	drivers/clk/samsung/clk-artpec*.c
+> +F:	include/dt-bindings/clock/axis,artpec*-clk.h
 
-...
+Some official ack would be nice for this, but I also remember we earlier
+emails, so I will take it as is.
 
->>>
->>>>   /* Default mux configuration for gpio-ranges to use with pinctrl */
->>>>   #define PIN_GPIO_RANGE_IOPAD    (PIN_INPUT | 7)
->>
->> Regards,
->> Akashdeep Kaur
-
-Thanks,
-Akashdeep Kaur
-
+Best regards,
+Krzysztof
 
