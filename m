@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DE3CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9341CCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+X43dhWbmJe9Xz++Pv2ayZuVgsAdoCm6ORyQ6/XM/ek=; b=ToF7ZhXccXFSfPyBs9KbucYl3E
-	DYM7tXgBCLwFyYP8OzBi/P34MS9bh1vADeB7eERKMb6favRMUKLb7EUoVQLj/U7SmM8C6uKBxC/+G
-	NsrQy3shTyUxf4yiSIlFVruETKP/SfmrG9TB/4MYQsiwvZTTUYFFmF+ypslmG2jJOZFFrL95pDLqh
-	g4E7GK3TJKRVFQF8i8R28bJO2SYm56LgGBsOVEh7HbwCv4gtlJNauTg81RjCKZnWpaJ9PpDTzdtJN
-	giFc2LrkmzWTbild2Tt6zGKc3ght46d9bJD/mPM5br/oOOpfh3uDmHtLEA9bdv84A9FKvpoXDbJeR
-	KrAg/Rjw==;
+	bh=GADIokt87C5TMAbKoKAcLktw4EFHYfOIdhMP3zcaO2k=; b=O59b9gvtu8Fx4DFykGGbsyTIZ1
+	sUsV7v/GwMV3yTqvhltowOqOlDE1rGbkeMaFu72oIthtzAWp7+F2jvo0ic8KLrZd2+HNygs6BMfyZ
+	AOftzTiFELTAzZEwvuWexTRpOtUR10/D0Kh3Sg8Ppi+1hw+LIYdLc/SOQ+EVR31eK+UnOyh2lJp+d
+	c02WSAF2pKp2vd/KrnS2y1VQG1di7H1H4nXEFoWw0bRz5GPcDtZ+RnGXTYOIraI8WmziO0A8W3W60
+	Va08Ugxu1UxKOyyLtx69oqzTLqwvwSnsabdnV8t4/PYYS3nLHPZW+97r6xOsa7ZztGQeJgz/QSF2V
+	I9qsUZiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5VB-0000000AIEL-0mRD;
-	Thu, 04 Sep 2025 08:39:29 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1uu5Xt-0000000AJU3-2ifM;
+	Thu, 04 Sep 2025 08:42:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu4rw-0000000A36z-27Lp
+	id 1uu4se-0000000A3Mi-0h3i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 07:58:58 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C3FAD1480743;
-	Thu,  4 Sep 2025 09:58:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1756972733; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=+X43dhWbmJe9Xz++Pv2ayZuVgsAdoCm6ORyQ6/XM/ek=;
-	b=kBZsKGUTXh40axdPM+jwNAUPcrKpHtV+eLyOGobFw9fzq5Nw0GoG8Hom5cCSOzzfoCAScQ
-	lBtuzBDJWEPaH6wszhHWWr5kpl5b0/ODwsgRKdY4yU+QR1MyncGvbzcNxSojV0JvcEvQyO
-	upSNBPm85nflPkb7bnlvMw5iWWv3LBJxPyqkyi4yF+WqgEeeqrxJXah1WJyk7pFQbfh+XK
-	S1nPs5MfHrvkX+ZsVT7eMDfjYu45Z3XGB6tIPFArPzFHKVXyo6O3Hp+MRfK/nB9Ewso1m0
-	AbNTKhAQaHJBbu1c75R+cchVAJUg1tdzQuxYonbZ/5qxeMET28GC0Vf+g36UYw==
-Date: Thu, 4 Sep 2025 09:58:50 +0200
-From: Alexander Dahl <ada@thorsis.com>
-To: nicolas.ferre@microchip.com
-Cc: Arnd Bergmann <arnd@arndb.de>, arm@kernel.org, soc@kernel.org,
-	Linux Kernel list <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Vinod Koul <vkoul@kernel.org>, Alexander Dahl <ada@thorsis.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Subject: Re: [GIT PULL] ARM: at91: fixes for 6.17
-Message-ID: <20250904-comply-veal-99d4839588e9@thorsis.com>
-Mail-Followup-To: nicolas.ferre@microchip.com,
-	Arnd Bergmann <arnd@arndb.de>, arm@kernel.org, soc@kernel.org,
-	Linux Kernel list <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-References: <20250903173403.113604-1-nicolas.ferre@microchip.com>
+	Thu, 04 Sep 2025 07:59:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 93FF5601A4;
+	Thu,  4 Sep 2025 07:59:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC4AFC4CEF1;
+	Thu,  4 Sep 2025 07:59:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756972779;
+	bh=qr1V071kjlRjsRCmHcuB3ihXSJkt/phuzQie/Q1MiZg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ooXCt7hhW4NMrwAjO7gPOLnLZI7xsHoYmdJepFhj62ONTqa6O7U78jJlEolZJFTeb
+	 SEaqRG9H2nu8UH4g1THcNbD90ssj//+E1fGFMVU1/zpzXwtGkbyMt9f30SKIKv0G+3
+	 bwG/TLFdU2Ct5JbPvWJEqeuM2eTxyPbKmZdvtwAIvO3SipW7NbdHUt/Nmram6KmbmE
+	 LRzJjXoNmF5C3/jukRpA66VKlkLRSGunAExp4E+Ny4nbRS1YgBbbtOGAmG2PcJNCtn
+	 wmCQtPGXg32OMvsx1xv1Z7Qyf7rzpArlYodOGDNKfttA/xGG/0iszppNrFryEwsO8M
+	 9Vew+ag+ROmfA==
+Date: Thu, 4 Sep 2025 09:59:36 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Shin Son <shin.son@samsung.com>
+Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: samsung: Add tmu-name and
+ sensor-index-ranges properties
+Message-ID: <20250904-chocolate-kangaroo-of-order-2cced3@kuoka>
+References: <20250903073634.1898865-1-shin.son@samsung.com>
+ <CGME20250903073653epcas2p4cb25058c97aab9a30c7e68ef5f10fb91@epcas2p4.samsung.com>
+ <20250903073634.1898865-2-shin.son@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250903173403.113604-1-nicolas.ferre@microchip.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_005857_002739_6405E046 
-X-CRM114-Status: GOOD (  19.67  )
+In-Reply-To: <20250903073634.1898865-2-shin.son@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,62 +75,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Nicolas,
+On Wed, Sep 03, 2025 at 04:36:32PM +0900, Shin Son wrote:
+> The exynosautov920 TMU requires per-sensor interrupt enablement
+> for its critical trip points.
+> Add a DT property to the Samsung thermal bindings
+> to support this requirement:
 
-Am Wed, Sep 03, 2025 at 07:33:55PM +0200 schrieb nicolas.ferre@microchip.com:
-> From: Nicolas Ferre <nicolas.ferre@microchip.com>
+That's pretty redundant sentence.
 > 
-> Dear arm-soc maintainers,
-> 
-> Here are the fixes for 6.17. The addition of the Kconfig symbol is taken from a
-> bigger series by Robert here:
-> https://lore.kernel.org/linux-arm-kernel/20250813174720.540015-1-robert.marko@sartura.hr/
-> It is needed because one patch of this series was taken before that symbols were
-> defined properly (queued for 6.18). You can read the discussion here:
-> https://lore.kernel.org/all/bac5390f-725a-43db-a2b6-17a68d0d733c@tuxon.dev/
-> 
-> Thanks, best regards,
->   Nicolas
-> 
-> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
-> 
->   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-fixes-6.17
-> 
-> for you to fetch changes up to 217efb440933bf97a78ef328b211d8a39f4ff171:
-> 
->   ARM: dts: microchip: sama7d65: Force SDMMC Legacy mode (2025-09-03 18:52:08 +0200)
-> 
-> ----------------------------------------------------------------
-> Microchip AT91 fixes for v6.17
-> 
-> This update includes:
-> - adaptation to the SDHCI capabilities on sama7d65 curiosity board DT as
->   SDHCI quirks are not in place yet. SD/MMC don't work without these
-> - addition of one Kconfig symbol that is already used in DMA tree for
->   6.17. XDMA cannot be selected if not present.
-> 
-> ----------------------------------------------------------------
-> Robert Marko (1):
->       ARM: at91: select ARCH_MICROCHIP
+> - **samsung,hw-sensor-indices**: Defines the sensors currently
+>                                  mapped to the TMU hardware.
+> 				 Indices not listed are absent or fused off
 
-Tested on SAMA5D2 and SAM9X60 based boards.  Works for me.  Thanks for
-taking care of it. :-)
+Don't write here any code, but concise prose dxescribing hardware.
 
-Greets
-Alex
+If sensors are fused out, you certainly can read their status from efuse, no?
+
+This is really vague description of hardware. I don't understand why you
+are changing sensor-cells, why older variants of tmu gets now cells=1
+(missing constraints?).
+
+Why older variants also get that property for sensors? It does not make
+sense there, because they have one-to-one mapping between TMU and
+sensor.
 
 > 
-> Ryan Wanner (1):
->       ARM: dts: microchip: sama7d65: Force SDMMC Legacy mode
+> Additionally, add myself to the bindings' maintainers list, as I plan
+> to actively work on the exynosautov920 TMU support and handle further
+> updates in this area.
 > 
->  arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts | 2 ++
->  arch/arm/mach-at91/Kconfig                              | 4 ++++
->  2 files changed, 6 insertions(+)
+> Signed-off-by: Shin Son <shin.son@samsung.com>
+> ---
+>  .../bindings/thermal/samsung,exynos-thermal.yaml | 16 +++++++++++++++-
+>  1 file changed, 15 insertions(+), 1 deletion(-)
 > 
-> -- 
-> Nicolas Ferre
+> diff --git a/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml b/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
+> index 29a08b0729ee..abd89902d33a 100644
+> --- a/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
+> +++ b/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
+> @@ -8,6 +8,7 @@ title: Samsung Exynos SoC Thermal Management Unit (TMU)
+>  
+>  maintainers:
+>    - Krzysztof Kozlowski <krzk@kernel.org>
+> +  - Shin Son <shin.son@samsung.com>
+>  
+>  description: |
+>    For multi-instance tmu each instance should have an alias correctly numbered
+> @@ -27,6 +28,7 @@ properties:
+>        - samsung,exynos5420-tmu-ext-triminfo
+>        - samsung,exynos5433-tmu
+>        - samsung,exynos7-tmu
+> +      - samsung,exynosautov920-tmu
+>  
+>    clocks:
+>      minItems: 1
+> @@ -62,11 +64,22 @@ properties:
+>      minItems: 1
+>  
+>    '#thermal-sensor-cells':
+> -    const: 0
+> +    enum:
+> +      - 0
+> +      - 1
+>  
+>    vtmu-supply:
+>      description: The regulator node supplying voltage to TMU.
+>  
+> +  samsung,hw-sensor-indices:
+> +    description: |
+
+Drop |
+
+> +      List of hardware sensor indices that are physically present and usable
+> +      in this TMU instance. Indices not listed are either unmapped or unused.
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 1
+> +    maxItems: 16
+> +    uniqueItems: true
+
+Best regards,
+Krzysztof
+
 
