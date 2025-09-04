@@ -4,175 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D475ACA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967D9CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=roADL/FSK0rVKIN+JulISkHgUM6GMDNOOK5VTdUubBk=; b=ZP/Nbzbf5bVl9AlKnxpY+Jih4t
-	mk4FObou4Iw7XweTeuDmD+B1Km1n5WAk9dmeL9SrN+0xe/MMM1J5ADVUCq27iUtfZ8ImSHqKyZOxS
-	lG6tNomjWDoeXs8V39RMe3YAb4QXWW3Pzs4kngC1BZizLJuYDhErQO4ApTo5SOvRzL3whqQYHWKs5
-	nvVMb/ED2ZbaoEK/ksySgf7pMSm9fIGiZzYwP2R0f/3yoFvUw+aICyNWWmmtsGwE1bqr2Wk06q/i3
-	If82mVbM8HWAwtp9TVSKB2Ocss9jpuGGz89TkBgYxekj+LZH1GFXgmS0kznACKCcIKkSBP9WJMQJ6
-	pCGq2V+w==;
+	bh=4GjEUs0e8c/MtNVMy6JsCll6Hs84uHZfmaP0PVL0fO4=; b=FarABRg8kZ0M1Ejfgfi4oKYX0C
+	9gaHrpJPRb1/IBGuKXyWWk07euvVOZSQxqwv8pZ3tLzwySxPzU4TrefDDym4uIps8jvdOMQnh26YT
+	snyn9hGJ8d7TSc/JUSDPI1sMkR38EGdwMOpATFQK2R12xbt1R23LMMil5ttICn7xucQdZfpUt3c2W
+	dm/JQrkicjnYCFAZUvcbFfnx1A6I0Yh4geE3DpPjhBx/fPhO7PFbO0kq7a2OmIwyXdbbTke3gqgwB
+	Du0VHsAkTKyoK3ZgH4TNYyjIms+VCVZarfKBL/nBSsw5tFM5lvpnkaqfQhYu14+sWtzovEFpMI64j
+	iIP/jF9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuG0n-0000000E35D-0S7B;
-	Thu, 04 Sep 2025 19:52:49 +0000
-Received: from mail-bn8nam04on20726.outbound.protection.outlook.com ([2a01:111:f403:2408::726] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1uuG0u-0000000E3Fb-2oYC;
+	Thu, 04 Sep 2025 19:52:56 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuBQ1-0000000CNjP-1nVA
+	id 1uuBTe-0000000COy1-0mMp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 14:58:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d727UEhpfLt8rT+BmOzC5fR8CZxQqcbvtGtirphdHHdHB3E9T2aHSIxxrvEKyXOeCytjXbToXEXcpOJRBfbqs3cUxLU1KKPIwbIyY8xf5Ec+botgSDpMCLFADVXyK7dfJiqpunshSo/yhhApj+cWW7N4wNyAwTMo5AGW8nqsIg0XQkbBXzVALHHcp6dMnto8XLCND1Ma4oetxTzFyFfIalgzs9jFISAsEAQC5FD5dF8wpvEsmR4KMBCKAv3RFNBgGBPFo/WcRCKaGpi/wq99cjTrI2W4BSR0GyB2FQi0YF5jv/pBtLTS1iIMQWVgYJOG/SeT27c3+dj5RIXAruPfaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=roADL/FSK0rVKIN+JulISkHgUM6GMDNOOK5VTdUubBk=;
- b=QI5ZqgbRYYFOsOHt5eJMtBXVKzeuL2yoa/UX6Pb2w2DUmorDgWyJWtcns6jvhmTXXILrdHY6JN4i9428YvFgZTEg3/PZpaeC3f1mux7odHi2XlaX6ma6w3z4C3h16ZwOFoNxV994SvzhScW5Z8cjJxaDDYzEWmbz26PBTjFn5XE9lrAl0pVx3aWzaAXECyJRtvHp+/7LDfvH0Dtaj08dE9tvrPMwGKqTEVbdSwDMFH3URiuLPx/xMUROfhmoAQ7tkeKcsTaNXUzr0a1gdt3fKmqVUL65N/8FS4wK4oYc1U/zo1+1X3dkFBO/1+B27/utOwTXebdSf8j7vnmMfOyuUw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=roADL/FSK0rVKIN+JulISkHgUM6GMDNOOK5VTdUubBk=;
- b=TCcrbOAUfAHZKowvQf8n5yIzZr9SjLXwaEvI7GfIpO3tY3S3vSthm97xd6CzU2oeU96hE23v7OvzxcS5QxvKNOvZRcRmUc+RowyEFWqUQJgWfnSeMCyrMV97sna+NuP6nCRsk7EDT0XuS8e3OBIaY+pLmxJJkWrXhLMy585qC/Q=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- PH0PR01MB6683.prod.exchangelabs.com (2603:10b6:510:90::7) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.17; Thu, 4 Sep 2025 14:58:28 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.9094.016; Thu, 4 Sep 2025
- 14:58:28 +0000
-Message-ID: <d2877287-d456-44d2-b8ee-be1f27b35a9b@os.amperecomputing.com>
-Date: Thu, 4 Sep 2025 07:58:24 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 6/6] arm64: mm: Optimize linear_map_split_to_ptes()
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Ard Biesheuvel <ardb@kernel.org>, Dev Jain <dev.jain@arm.com>,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <20250829115250.2395585-7-ryan.roberts@arm.com>
- <9d666caf-a799-4229-86b5-3a22a60fa79f@os.amperecomputing.com>
- <2cf02021-10d2-46f6-b3e6-f5c55546ca9e@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <2cf02021-10d2-46f6-b3e6-f5c55546ca9e@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5PR15CA0019.namprd15.prod.outlook.com
- (2603:10b6:930:14::31) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Thu, 04 Sep 2025 15:02:23 +0000
+Received: from pendragon.ideasonboard.com (230.215-178-91.adsl-dyn.isp.belgacom.be [91.178.215.230])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 77E6818B9;
+	Thu,  4 Sep 2025 17:01:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1756998064;
+	bh=mH9Qa53DW8rPCvOMKW7s4T0USBUdqkx8bGES1nfIJtk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cl98NBHPhv8LuCGb6sR/py4+vw3iWwjNP/4f5ksPgnzKCh0fcSyh0rfe9BttjWpEg
+	 m0kGsY2utSojhny9N0pv2QghIQw7qIZp6mZIZsme5LJXSPkV/8ImfwDbUgIiR9LQGD
+	 IiKP+HjihV1AwWqsl2HinB2tMnMK9Xrt93pDqSdc=
+Date: Thu, 4 Sep 2025 17:01:53 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Isaac Scott <isaac.scott@ideasonboard.com>, rmfrfs@gmail.com,
+	martink@posteo.de, kernel@puri.sm, mchehab@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, hverkuil@kernel.org,
+	nicolas.dufresne@collabora.com, sakari.ailus@linux.intel.com,
+	tomi.valkeinen@ideasonboard.com, jonas@kwiboo.se,
+	dan.scally+renesas@ideasonboard.com, m.szyprowski@samsung.com,
+	mehdi.djait@linux.intel.com, niklas.soderlund+renesas@ragnatech.se
+Subject: Re: [PATCH v2 2/3] media: imx-mipi-csis: Store the number of
+ data_lanes configured in dt
+Message-ID: <20250904150153.GB6174@pendragon.ideasonboard.com>
+References: <20250903102243.1563527-1-isaac.scott@ideasonboard.com>
+ <20250903102243.1563527-3-isaac.scott@ideasonboard.com>
+ <aLhfu0KK5NHIGH/W@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH0PR01MB6683:EE_
-X-MS-Office365-Filtering-Correlation-Id: 750555f7-1f83-4e12-8158-08ddebc38178
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MVhUZ3hQZldSMm5vYUhxblR0dm5RQkJBOFR6d09OREs5OEswYytTWW9NUWcv?=
- =?utf-8?B?SG5yRDVoSTZ2UUZObUV4dzc1Nm9kenhpOHF0bEpMbGFPYmFtTEdWcE1wUEwy?=
- =?utf-8?B?YmJHMjdxeXNBOFgzY0xobWwweFQvRmxjQlBjZ29GMXRxUWlXMWF0WjBheGo3?=
- =?utf-8?B?YW9jeTlwUVozU0pzNFBHbWdZb0pIUVNGajloVWI2eWJxazNudmdsUlBTT0ll?=
- =?utf-8?B?TWpPSndtZ1RIUmRGZEpaWFI2U2hSeGg5Wm92T0lDemFQYnZ6K2Z2MW5UdU9E?=
- =?utf-8?B?akZxcXdFcFV1OUc2L2E5OXBlQnBNZEpoSnBOcU1UOGFhQ0kxVmVLVVBoTzAz?=
- =?utf-8?B?U2lMQzRqSjd4Snh3NTB3alpwWFA0NnFXL241d1N1eXB5VGxNYk40RDRZMVdW?=
- =?utf-8?B?aWJzaFd2cDZ2UnR2RVhlMVN0SEc4VUk2TDBtaUhvajdmTVJnNzc0RDlPeFlt?=
- =?utf-8?B?L0V1RGtLcnVUc0EzeHlNaEh6bUIvWE4xRDFIUFlIUURlb1ZvZ2tLWm9WZnJF?=
- =?utf-8?B?VWVrT1p2VmlGQklPMDI4MTB2WFZkKzRoRWU0aFBWSy83SEtkTFI3NTFPQWlX?=
- =?utf-8?B?eFNqUGg2Y3lhaHpybkptdlhmTkF4MVliN1hxUnM2RFdKQlJCbFU5QnRQbW91?=
- =?utf-8?B?OGZZM0xvK0RRRTRpYSt0SkZlRnhGSnMxQ1JvYXo1YjNjZ1RwMmRoYWJiYWpp?=
- =?utf-8?B?M1J4R1FaV2VZSlFtQ0hhbEtvVTJmZ0dVVklBOC9SQU1abEM0ak41U1FvUnl5?=
- =?utf-8?B?K3ZLdktkZVc4eWNRblVMbjFVUjNzUlNJNjJtaXV6R0xtRnhwSFNaZFpxTVhO?=
- =?utf-8?B?TFM5UzVVWmdISFphMDBRVXJSd2d4UU5zMGxXdEJ3cERoQ21MR3RPTlBxeGxt?=
- =?utf-8?B?V2gzNzdFMERnWWV4VGx0TGhQWStwOUhqVHdqNG8wSDFBR2dBSmJBRUNDanZC?=
- =?utf-8?B?ZmY0Qm1TSXF1bGQ4ekRKTU9LTzBmWUZ0VU1UUndyT3JkTi9FR0RaeDZ1NURW?=
- =?utf-8?B?ZzRiblNUMENlZU5adFlMM3JrMGZEVEdHSFZSQ2htbzRUUTJLMldzeHhDQmJy?=
- =?utf-8?B?dUhCMzhDZFQzWGxYS1lkVHgwUG9OUWx0TElUejlKSzVFS1lOdkJhSDV0NFdr?=
- =?utf-8?B?SjJVeG5Oa2xOYVVsRUJYbkxaRGNwRTV2Z2RRRzRGNzg5YXhzVGExeXUwL3da?=
- =?utf-8?B?cXBCbG1idUZKRDJweXlOVXU3SDhDRk8rZ1pNYmlVTCtmdU5hYTZ3TGR1NExP?=
- =?utf-8?B?MXVheGtqUnpvRHZjbEZKLzlrYmE2WmhVMzFLSndJTzIxcE5obzNnY09mY3gy?=
- =?utf-8?B?Z3FJbitSZ2V5NUNhTk5odlAxZG1MZ0oxTUM0aHhIM2JNTk41c3lOei9MWFBQ?=
- =?utf-8?B?NlFEbnl0ekJMQkRxajdkY1F0b1lZdTJYQlF0TGxtY1h4RnEydHNxQlJaWU5w?=
- =?utf-8?B?SVVuajNYQU10MkYyNTB3ZFpSTlJaS3krbW01WWRSOXBrV2t0TTY1SXdxTUF5?=
- =?utf-8?B?S0pwaHM2dHZ3bExRalFTT3JiZ1BFbUNQR3NNTEdrRCsyU25RQldoREhta1N0?=
- =?utf-8?B?SXQ4MEsxVWdRQnNpUlI4UUVIR2srK1ROTlFOTUZiakgraXlZYnF6WCsxT25r?=
- =?utf-8?B?LzNsS1JEbFhRMU9kUFN5RGRIT2N0S3VWWkxYUE5uMmRabldmazBhaC9mY2F2?=
- =?utf-8?B?d2FIVFpBaWJqK2dySE0zdlRwWGMyMVl5KzVLendZbytjdWhvZU1NTTJIcW0z?=
- =?utf-8?B?d3VURDdmN3NITUI1WDdRNEI3ZkFjemFDWHdzazlqOGEvYWI0aFFXVVFpS3VC?=
- =?utf-8?B?QW9QRVR5ZGYzYWhqNEV4S0svSGtnK25LNWUzc2YzZlM1SDAxSWtObXBlWG11?=
- =?utf-8?B?WVRHYVNHRnRHNU5JQWVvQTV0bEFaWktiOGVUNlZRMlpvUFZqQVJhR2xrRWdR?=
- =?utf-8?B?dVh5R21KeVZ5aVpLdWNsVCtBejB2eC8zUWNqb3dBQXBHQThEVllkMnB1V0pR?=
- =?utf-8?B?VSttRzJCZ1JnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(921020)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dWxjY25ZMGQ1VzlJMmpQTkQ2TGtuSGozY21kelJEeTRuM21QTnRqdDNYSG9I?=
- =?utf-8?B?bWhweG5HNzZqSnMyRHpGd1hBU1BoM3BzeEVZcUtRci9GRUdIT1lXMlMrR1lE?=
- =?utf-8?B?UlExY250dDhJb1hZcG5jclBCMFdTQ3p3dU5hQmFWWjF2OHRzSXMwajN3QXUv?=
- =?utf-8?B?Q2dnTkNwaUduVzBPeFRMSVpFZTJsamtyU1lWanJhM05XWE1Yb3I2Tld4U20v?=
- =?utf-8?B?RnpoWWUydk03QUI3WjIrNGpYY2Z3dS9MblQ5NlgzREVZVFlZT1M5c3dZMnVt?=
- =?utf-8?B?RkhCdlByQnRKL1FYUWZVYjZvbFVWTFdybTJROERGUng5OGN3bzJvaklpaFgx?=
- =?utf-8?B?Y2I2Tng3bjVwZ1pYQnVxWVYyRU5zUXllQnZESmhJN3VON3dvTHpwUVNGbTJu?=
- =?utf-8?B?Vy9GUDVMM09WUUNSS3F2MWx6bnBlQ08xNmlXdm9NK2tCN0Z1RGljdDd2QUp1?=
- =?utf-8?B?MllXbWliZUUxWFcraThYdkJnSlVsZ0N5RXV3RGJwTHg5c01lVEpuMEw5MTc2?=
- =?utf-8?B?aWpwamZoeTh2U1VxZmovZjAra2xRa2VyOHRIWUR2RFIwb1BJZUgxWTNNbUNG?=
- =?utf-8?B?ekJXK0thTzFBbnZ4U3FWWnZKL1U0NWV4bUdKMkxOSU55Tm1aYnV2dHhUYmYz?=
- =?utf-8?B?emREOCtnVFR6czE4YUVSS0crVHIyUnFwNjVZa0tmVEY0Z3dHL0pjdW9SMHE2?=
- =?utf-8?B?NTFxYm5HUi81NzJiaWFBSmRxZWNMM1FzSTkxTWZDcStjWWtRTWVFRWdZdG90?=
- =?utf-8?B?SEhlei8yQzk2T2pVdVpNenNlTENneERzVnhGQXpYTlR0K0UvTDhHYU9Za0t1?=
- =?utf-8?B?T3JndGhXZlFvdmx3WUdMRHhWQ3gyakFkNGVjOTBZUmdPQ0czNGxqbGlVblhU?=
- =?utf-8?B?c0g0Nm1tYm82Wm84cDVvc0lkQ1VadVRIaC9QMjdIWDBRMnZKeHpUc2RFb052?=
- =?utf-8?B?SXhTcjFESWMzSkRJaEJDN0tQS3VLcU1nZy9JUlJ4QlFNRklEUER2RkFyakJ1?=
- =?utf-8?B?eVdaMlkwdWpJUlE3eEtjbEkyclRRS05nWnNRK2tJbWFXaTN4MjlLU08ybXJh?=
- =?utf-8?B?a2JIVElGeEQrVUdaOHFVcFV5MFlRTmtrKzBzUHdIeXdCSFE5ejJIWHZHa0p4?=
- =?utf-8?B?TWZDeHdVdG5LSGxFaDl6aXo1N2VrUmtKQnRuUVpSeUtWOUtSS203Z2pDc29C?=
- =?utf-8?B?SG9yemxFWnpCaDZpQmlPOFMzNFFEVW5YcXdQR0dqaTJDK1pRbE1mQmtmSkIx?=
- =?utf-8?B?Q2NrUk9SeUVacGY2SGJXWE9YZitZSGdGRER2dk5hTEcyangwaEE1VXMrSUdB?=
- =?utf-8?B?aTI5cFBsSEIrZjVTRzl6WVNhZDNLV1NYOFAyanloMnlHbVdlSzI2elJydWhT?=
- =?utf-8?B?c3lzSC9ETnFyTElzSXVBNWhjU1RQQS8xRU9GYXMvRU9pQ1dBckFPbFpscVJJ?=
- =?utf-8?B?cXRGM25VNDNGTkNZWFJQSjQrWkJyMXUrK2hCUVJTRjJyYmR5QXE4M1pObkNp?=
- =?utf-8?B?V09oV1VTR2s0bVl5aytWZjNHV0RUdjV2bkk1WlR4a3FEenI0YW13dmF2MUVP?=
- =?utf-8?B?bGdvZ1BrYXRMNE5jalhRVVVpSEN2aDRqczJESkljMkR5WVZoT2w5eXEwRkhp?=
- =?utf-8?B?R0JncGo4OGRtcDF3M1gzUUMya0FSSEtJbXJ3eEFBak04cHZ5NXR3TEw3bGpi?=
- =?utf-8?B?S3ROL3paWHovQWhnMkwxOWRLWUtCMnFzY3pTWWMvK2JraE93ZjdWNy9hMnJN?=
- =?utf-8?B?WUpwQ0dEODkwS0RlODluRVg1NDNJRUY4SEcyU0VPK1pPckdxZ0FhRkU3SlNC?=
- =?utf-8?B?K1grZ0lDV1JvMXpCM3k2RjN3N0d4YXdEbGEwZkpCMjdmeHlxVXoxcitIRGxw?=
- =?utf-8?B?TStkTEJxNHZqVGJ3aTYyVlBBenNWWlVHUGQ3R0ppb0RZY1dtWk95bGRPZ256?=
- =?utf-8?B?WDVTMG1uUEVUOFdzM3dxMndCa3d3TTZ2R3ZRUDFlbTZsdFlrMnFmTnBybC9W?=
- =?utf-8?B?TGR6RmljYkdPTTZ1bm9XYkdjSHVPblFsZ1NrL28ySjAvVERUMy9NWkM3Y28r?=
- =?utf-8?B?L3VxRUl3MHlJRy9QbEJxSXFTSEJ4OUJqSG10bUZyWExRL2lFbE5iTWE0WG0x?=
- =?utf-8?B?UWhTYjFrenorRm1XeS8zNCs4S1ZrQXBLWnltR1RydHVWL2tzNEJjZU1aS1Fr?=
- =?utf-8?Q?RIpAXMZiJwmDqvcXXSmqKLQ=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 750555f7-1f83-4e12-8158-08ddebc38178
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 14:58:28.2417
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: syF6ZgQ0UOGUqI7HZgu5K++5UPz4FIDOYC/bPC0Py7CvvwX5y/ZbyVPemYslkZa4k9kcf+4/T8Cm2xbQc5emqkamHHOeuHFg/ATvc7UVvHc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB6683
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aLhfu0KK5NHIGH/W@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_075833_536282_828C2E8F 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250904_080218_651547_A7BE9CDD 
+X-CRM114-Status: GOOD (  27.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,119 +77,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 03, 2025 at 11:33:15AM -0400, Frank Li wrote:
+> On Wed, Sep 03, 2025 at 11:22:41AM +0100, Isaac Scott wrote:
+> > The number of lanes actively used by a MIPI CSI transmitter may differ
+> > from that which is defined in device tree. To allow us to be able to set
+> > the number of configured lanes without changing the maximum lane count,
+> > store the number of lanes configured in device tree, and adjust the
+> > debug print to reflect the device tree value.
+> >
+> > Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
+> > ---
+> >  drivers/media/platform/nxp/imx-mipi-csis.c | 5 ++++-
+> >  1 file changed, 4 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > index 2beb5f43c2c0..fc89325f2f94 100644
+> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > @@ -313,6 +313,8 @@ struct mipi_csis_device {
+> >  	u32 hs_settle;
+> >  	u32 clk_settle;
+> >
+> > +	unsigned int max_data_lanes;
+> > +
+> 
+> is num_data_lanes better? you get from vep.bus.mipi_csi2.num_data_lanes
 
+That's a good point, but I think I prefer max_data_lanes here as it
+conveys better the fact that the field stores the maximum number of data
+lanes that can be used, not the number of data lanes being used at a
+given point of time.
 
-On 9/4/25 4:10 AM, Ryan Roberts wrote:
-> On 29/08/2025 23:27, Yang Shi wrote:
->>
->> On 8/29/25 4:52 AM, Ryan Roberts wrote:
->>> When splitting kernel leaf mappings, either via
->>> split_kernel_leaf_mapping_locked() or linear_map_split_to_ptes(),
->>> previously a leaf mapping was always split to the next size down. e.g.
->>> pud -> contpmd -> pmd -> contpte -> pte. But for
->>> linear_map_split_to_ptes() we can avoid the contpmd and contpte states
->>> because we know we want to split all the way down to ptes.
->>>
->>> This avoids visiting all the ptes in a table if it was created by
->>> splitting a pmd, which is noticible on systems with a lot of memory.
->> Similar to patch #4, this patch should be squashed into patch #5 IMHO.
-> That's fine by me. I was just trying to make the review easier by splitting
-> non-essential stuff out. Let's squash for next version.
+This being said, why do we need this ? The maximum number of data lanes
+can be accessed through csis->bus.num_data_lanes. I've looked at patch
+3/3 to answer this question, it there csis->bus.num_data_lanes is
+modified to store the number of data lanes used at runtime. I think it
+would be better to consider csis->bus as immutable after probe, and
+store the number of used data lanes in csis->num_data_lanes.
 
-Understood.
+Isaac, could you replace this patch by another one that adds
+csis->num_data_lanes, sets it to csis->bus.num_data_lanes in
+mipi_csis_async_register(), and replace usage of
+csis->bus.num_data_lanes with csis->num_data_lanes through the driver ?
+Patch 3/3 should then modify csis->num_data_lanes, not
+csis->bus.num_data_lanes.
 
-Thanks,
-Yang
+> >  	spinlock_t slock;	/* Protect events */
+> >  	struct mipi_csis_event events[MIPI_CSIS_NUM_EVENTS];
+> >  	struct dentry *debugfs_root;
+> > @@ -1299,8 +1301,9 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
+> >  	}
+> >
+> >  	csis->bus = vep.bus.mipi_csi2;
+> > +	csis->max_data_lanes = vep.bus.mipi_csi2.num_data_lanes;
+> >
+> > -	dev_dbg(csis->dev, "data lanes: %d\n", csis->bus.num_data_lanes);
+> > +	dev_dbg(csis->dev, "data lanes: %d\n", csis->max_data_lanes);
+> >  	dev_dbg(csis->dev, "flags: 0x%08x\n", csis->bus.flags);
+> >
+> >  	asd = v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
 
->
->> Thanks,
->> Yang
->>
->>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->>> ---
->>>    arch/arm64/mm/mmu.c | 26 ++++++++++++++++++--------
->>>    1 file changed, 18 insertions(+), 8 deletions(-)
->>>
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index 6bd0b065bd97..8e45cd08bf3a 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -550,7 +550,7 @@ static void split_contpte(pte_t *ptep)
->>>            __set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
->>>    }
->>>    -static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp)
->>> +static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
->>>    {
->>>        pmdval_t tableprot = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
->>>        unsigned long pfn = pmd_pfn(pmd);
->>> @@ -568,7 +568,9 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp)
->>>            tableprot |= PMD_TABLE_PXN;
->>>          prot = __pgprot((pgprot_val(prot) & ~PTE_TYPE_MASK) | PTE_TYPE_PAGE);
->>> -    prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->>> +    prot = __pgprot(pgprot_val(prot) & ~PTE_CONT);
->>> +    if (to_cont)
->>> +        prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->>>          for (i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
->>>            __set_pte(ptep, pfn_pte(pfn, prot));
->>> @@ -592,7 +594,7 @@ static void split_contpmd(pmd_t *pmdp)
->>>            set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
->>>    }
->>>    -static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp)
->>> +static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
->>>    {
->>>        pudval_t tableprot = PUD_TYPE_TABLE | PUD_TABLE_UXN | PUD_TABLE_AF;
->>>        unsigned int step = PMD_SIZE >> PAGE_SHIFT;
->>> @@ -611,7 +613,9 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp)
->>>            tableprot |= PUD_TABLE_PXN;
->>>          prot = __pgprot((pgprot_val(prot) & ~PMD_TYPE_MASK) | PMD_TYPE_SECT);
->>> -    prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->>> +    prot = __pgprot(pgprot_val(prot) & ~PTE_CONT);
->>> +    if (to_cont)
->>> +        prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->>>          for (i = 0; i < PTRS_PER_PMD; i++, pmdp++, pfn += step)
->>>            set_pmd(pmdp, pfn_pmd(pfn, prot));
->>> @@ -669,7 +673,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long
->>> addr)
->>>        if (!pud_present(pud))
->>>            goto out;
->>>        if (pud_leaf(pud)) {
->>> -        ret = split_pud(pudp, pud, GFP_PGTABLE_KERNEL);
->>> +        ret = split_pud(pudp, pud, GFP_PGTABLE_KERNEL, true);
->>>            if (ret)
->>>                goto out;
->>>        }
->>> @@ -694,7 +698,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long
->>> addr)
->>>             */
->>>            if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
->>>                goto out;
->>> -        ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL);
->>> +        ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL, true);
->>>            if (ret)
->>>                goto out;
->>>        }
->>> @@ -771,7 +775,7 @@ static int __init split_to_ptes_pud_entry(pud_t *pudp,
->>> unsigned long addr,
->>>        int ret = 0;
->>>          if (pud_leaf(pud))
->>> -        ret = split_pud(pudp, pud, GFP_ATOMIC);
->>> +        ret = split_pud(pudp, pud, GFP_ATOMIC, false);
->>>          return ret;
->>>    }
->>> @@ -786,7 +790,13 @@ static int __init split_to_ptes_pmd_entry(pmd_t *pmdp,
->>> unsigned long addr,
->>>        if (pmd_leaf(pmd)) {
->>>            if (pmd_cont(pmd))
->>>                split_contpmd(pmdp);
->>> -        ret = split_pmd(pmdp, pmd, GFP_ATOMIC);
->>> +        ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
->>> +
->>> +        /*
->>> +         * We have split the pmd directly to ptes so there is no need to
->>> +         * visit each pte to check if they are contpte.
->>> +         */
->>> +        walk->action = ACTION_CONTINUE;
->>>        }
->>>          return ret;
+-- 
+Regards,
 
+Laurent Pinchart
 
