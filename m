@@ -4,177 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CD6CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 07:29:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A4ACA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 07:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rdo/z73Npt9ybPywP2lr9lHgy1PcfMNqlyiU6OtRDJE=; b=vylqehtIAwieH3qsNPZ1qbFU2L
-	ZTNOrEiaoggvPBtsof89yeqg4J7eoCaeYHlYjacu7H9e2ydrnyiil/zx8Q5z7P7wcPJ0WfOWBcilI
-	KerCktJnSFo9T1MOzdF9erLw6icih+LfyWgMzYXrkDZrO7QKvovs7Ha/0E4Cm0cF1YHDBHFaBoKAV
-	AT4WfyzlJPejMdodkFqUpSj7gQWD8oZYSw+pDokvHCtZGUZ3JbfJKMvFmwp/1fHl52B1fmtLZuaNq
-	aJuwsG1uliANY23I62K5UzxJMTAVL9jUsOaQ+zIE6GVBuncgxHSaT4dQTt4qRPTG9CAVzrN8K/m3P
-	hzqfLlaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=XIDY5zJ3pMt83TWBBmEEmGxMtm/5CHCj2NnIva/BZ98=; b=DqTaNz05EyVKXhPFJuFX4j8eRM
+	96yLkJju46kfa/2IhH0pj02AVcvf8CklgVuHCHu/1e+52w1spvvGgLe6X8/DdzuZB7exK7cvVlFGJ
+	iPnXfiuCynig5B14FZ6tbbSe9BqnnFAi97WCkxvjz5TBGRlUz+mUE6LB0YiyICe0zs0R/twtN+PmM
+	fF9LB2Xb+49Gds5Ty6slm70S77ghqnYqp9XnFKZMtzXkKP9VyRXKWc0zgDZAUA9pPu88GBYRLrFVS
+	a0yFpKKDUVFyeTQ/epr0rlgYv5P1xrirwZs1k61sg1mScwQemT7s57zfsSlll6ExI2uE1oYSIXYxk
+	ju0v6A3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu4PN-00000009rt0-2QDo;
-	Thu, 04 Sep 2025 07:29:25 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uu4S6-00000009smX-2DL3;
+	Thu, 04 Sep 2025 07:32:14 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu44J-00000009kwC-3Wl4
+	id 1uu4G5-00000009oVg-1JI0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 07:07:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BDWdlnUJ5hqlGfRGpi5daaC433qfaeAlQWjAjDMwlNJvxEsC9v4DKHYfmcIMXnmru99bAB0DyXnbQvBa6JKZV2rFjwfHdNNLF3NNX/YacjjN40Fa1cYC4vj0oNbjz7TemRX+wo27+komzNzggDWMrVtIsuSIwnl9wl7j0WrMQyodhlxpeppgwXupv9DBkRptKoM/fPiBHdmeEpXVurVS1qmA44q7/urDRn7YNzYwUbSjKJN75rHbJ+lM7zZAstXCSErXND14+PPBDpK8G3ZRuhCwd5K2mRkMDcjKt6isxE+1TCG+sFoXHbvOmfbRjlUaCUSDOI5ihWPMb3aaCJOBIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rdo/z73Npt9ybPywP2lr9lHgy1PcfMNqlyiU6OtRDJE=;
- b=Xta86cjZjkYAHxvh5tAstRLQ4AjmBZmZNyKBfjus+rGB5xbfR8nvGEJD/EodBxIndNWwk8JtwQMbcU3dV0MhFcW7YSI0kwr01sOdgoSumwFJDVdSFdieRMATe7NbEL9m3j1quA4COYnM8mNp59KVBz/HpDq9fn8OMtrtz4/wtrpPMD7F5K/+nM4qnG7AfOuaiYaSh0R119TG6XsFoPzWDDqn9EDiLZfKzkvBaJPADa87+wiq+4DXnd5r79o2wTv1Ldz4yMgYdKlGWnKPKyd8Pu5LvOzwVjBkQRSCSsbLwU8+OUxjNuN9D8q/K171BUvrPFAjzPLTQzUo9gHmr3ZBqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rdo/z73Npt9ybPywP2lr9lHgy1PcfMNqlyiU6OtRDJE=;
- b=J7Z4Ycl1D8pkUFAxCgN7x5/MLF6SWA6HbsZw6DUmGqRWR+xjnV0y6IO1zcFzxqHgQo9t/j1kFEQH4lWzUsD4YMMz+mQv0VTayMQSSAol+HTfhEdBSlii0PEll390lhF5pt5LKVPVjuMz1y4FTlVMMzqHXm++WeT5wYr1cLUCp5sXdVZTk70vMMej6ghd9QWzkiEg20GhLSNm+47IzFlz+rCcas/f7gU9ZmCZZyGwFLfkA+YpaLOc+XVwuVUGUua1YtZE8eBc1ylvxG9PAYHZ6AbEAd2R5B3vDeeJYsaQd5anVsaNLaIFM5MEfkMymT5inNLMtB53Ct0hKvoXBhHNbg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by DB8PR04MB7002.eurprd04.prod.outlook.com (2603:10a6:10:119::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.17; Thu, 4 Sep
- 2025 07:07:33 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b%6]) with mapi id 15.20.9094.016; Thu, 4 Sep 2025
- 07:07:32 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	lumag@kernel.org,
-	dianders@chromium.org,
-	cristian.ciocaltea@collabora.com,
-	luca.ceresoli@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	victor.liu@nxp.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	l.stach@pengutronix.de,
-	shengjiu.wang@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linux-sound@vger.kernel.org
-Subject: [PATCH v6 7/7] arm64: dts: imx8mp-evk: enable hdmi_pai device
-Date: Thu,  4 Sep 2025 15:06:00 +0800
-Message-Id: <20250904070600.1361165-8-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250904070600.1361165-1-shengjiu.wang@nxp.com>
-References: <20250904070600.1361165-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR04CA0016.apcprd04.prod.outlook.com
- (2603:1096:4:197::7) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+	Thu, 04 Sep 2025 07:19:51 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250904071943epoutp04cc47e0075eeafc1a2d9ef95eb57425c5~iA0E5Xr6d1093310933epoutp04M
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 07:19:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250904071943epoutp04cc47e0075eeafc1a2d9ef95eb57425c5~iA0E5Xr6d1093310933epoutp04M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756970383;
+	bh=XIDY5zJ3pMt83TWBBmEEmGxMtm/5CHCj2NnIva/BZ98=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=ak5tC+BFukzrUTWfIQGVKoVs3fE3A1pMBMpvIbCCnxwXVljg8dReeZVJljr5b5tuj
+	 pvjMRqzqUEwrCTFeY9BdCBIAjRUw9KsLIPoexT2J8J+mQ1iFL+8mJAkRQZuL2hc7K4
+	 +NlnWziASrp6fpu9SlQ5thFrSPByo3MeHuUumzng=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250904071942epcas5p1c7fd121345ed8fc30e6c449b18f1e023~iA0ES--qd0357003570epcas5p17;
+	Thu,  4 Sep 2025 07:19:42 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cHW7x4cL9z2SSKX; Thu,  4 Sep
+	2025 07:19:41 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250904071941epcas5p1ffa00f3f1cb69f7a10d08c1e96174cf1~iA0C3ZhEO0357003570epcas5p10;
+	Thu,  4 Sep 2025 07:19:41 +0000 (GMT)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250904071939epsmtip1658d4b2730e1a080e4041b37c376d7cb~iA0BI2m9F0339503395epsmtip1d;
+	Thu,  4 Sep 2025 07:19:39 +0000 (GMT)
+From: Faraz Ata <faraz.ata@samsung.com>
+To: andi.shyti@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alim.akhtar@samsung.com
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, rosa.pila@samsung.com,
+	pritam.sutar@samsung.com, dev.tailor@samsung.com, faraz.ata@samsung.com
+Subject: [PATCH] dt-bindings: i2c: exynos5: add exynosautov920-hsi2c
+ compatible
+Date: Thu,  4 Sep 2025 12:58:44 +0530
+Message-Id: <20250904072844.358759-1-faraz.ata@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|DB8PR04MB7002:EE_
-X-MS-Office365-Filtering-Correlation-Id: 443c3bae-4e48-449a-068c-08ddeb81b7ea
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vnOApbFddLNvBtjT+nX9mX0Bezg0LYHN/X0sw4y1OgC2b2jMta/UvRHnFdjY?=
- =?us-ascii?Q?RQGj5qVdxwfdshlb/Mt/TLHApzlyDO4i7T4lZ8hRv2rIQIyV7XEh2hCkVS5A?=
- =?us-ascii?Q?o34GOvXPyQtauA4WopfCZCHxC7Fdgi/KjV4YWSNJT0TrbW9NCz8mLCUday2G?=
- =?us-ascii?Q?5af9JcDNEZCko7Gyy7Lrv8W3a8g0zE2ejU0pzYT/YMhah3HsG/WFAB0dXWn5?=
- =?us-ascii?Q?8nqXQ8PxVtl3wth0wnUhSW8lu4cc5fuDLgB8rm7WFjm1ouc4HXpmEZPfhOV9?=
- =?us-ascii?Q?iV3wIVxzPSrHc4N1DJHzf1a/tYGCQBnUwebkC/BCn2HGmatB4CJFMsMpIgDF?=
- =?us-ascii?Q?3oFI5KrY/I60KE3gIkcWA2naRP5hNnaaRa4XNDO2bGLeR7hxpUrFWio4/pUA?=
- =?us-ascii?Q?LxUR3ak8zKTrrHWYlZEVbpGRXB5Xp04tcanS0i3h5FdJt+Z5+pumFfyio1XE?=
- =?us-ascii?Q?g4jTLhfqXJCFOd9tQ0UBLp7JlHlByjCnu9ghq3JIsHi7DFO4yKQxzw86g+Zu?=
- =?us-ascii?Q?9j4idmdpQtF3M0KD0PM5ET6wDodWzS2tPXhFwfXQ3nk8zLNc9xzssHV1oOcA?=
- =?us-ascii?Q?hAtkAIgW6qUkpup0y/hUq1f/WptaplMUgRx72H+CdgfAQw6FuArINqu7uNWQ?=
- =?us-ascii?Q?/IsaFf0yv3XN91UR0vFZI2AuTIf1kkGABxLj5ArDU36RinNuLrtf/kI8wQHy?=
- =?us-ascii?Q?v1mgUfZtNFoNlLBkZ2UsMEVyADAGXxPS5eTgSOSHkAvr607ZKcWulR9qmZ/W?=
- =?us-ascii?Q?m/jptEUjCOm5iX4O8X0qcyBJrv3ybVed9bttHAPMbUV2hWSsmHw9CMZkogUd?=
- =?us-ascii?Q?+HSskhFD6sb7rb/uvPh09swDlZm+EPdWa4d5W8VaaipoC0yvS2SeS4Vwj5gP?=
- =?us-ascii?Q?fMKnqmkZc6C2E8XXepJYBNZC+RZw9/bwNHH5Uc8z6dxWjHj7WMgKNpDzojS6?=
- =?us-ascii?Q?osWkRCThWD/cg38pCj1oFtrKldQ5oXo1b8vwfI119/ThmlSo1w8zFmFk1a/h?=
- =?us-ascii?Q?mgeDOxC+rPMl9QEZirmTWiPZJYm6TlE1unuOhrDEOS5rP8Uej/jFwXdX5BPM?=
- =?us-ascii?Q?eOX5h3xySvoFBGLQMsUqfzsUXjCeyVFugvUT9ThaJ9ukdOFE5gfE9fSs24/c?=
- =?us-ascii?Q?CipNjc5gWJeBkUjOLn0MnZHYTTM0PVACZ84c56OiFl6jeZT7KcSMr7yFd+wd?=
- =?us-ascii?Q?EA3Mm0YwcMPIkDuZWFr0wFrmL6qI/YJUxT6hGsXA167DyR5BTxNyhdG+h3ek?=
- =?us-ascii?Q?M437mefCSpvimKOciOYnlBrCLFwKL8ke66l0jDoHe7ape3SsBgzHd/OCOm9H?=
- =?us-ascii?Q?S95AziyvV1ZtjlM3LF7k+LhmoKmQ2clj8gjhObwiUHJdy0IFBKa0MHlK5nyw?=
- =?us-ascii?Q?ZPZB7vv+pIFyhZA7bLZXHm/jOetHk/TR/IBxDgXidRxGyYLYBGmOiOq3N9Et?=
- =?us-ascii?Q?vmlENu1D7BrFf8g1z9ntCyrpxr5nV/iYGQ9nKSrdocMZ1NLUx7WtEqyfqdtS?=
- =?us-ascii?Q?hEcu9xijLUBO5SY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0UpX53JQLY0qA7N31LBnmRL+LIRQgsTEBXnRVqorLM+S5Kutrc9ocW7WU954?=
- =?us-ascii?Q?pRYD9E0c9wL4qpHdymQzb107fKwTscLDxq2OShifEmy+y113jZrmdMHdQ9Xr?=
- =?us-ascii?Q?ClT3OgSIEb1rr/Ia38KNJelcJtIDIBmRmMGqemhQwMvYwEdm3O31xUrv9lsu?=
- =?us-ascii?Q?lJRsGDOXTSkMUKDVleFBV9P9bG2mJa5x6XuXDCT3N2Nk4Q7ZPIjy6R+eJ29S?=
- =?us-ascii?Q?A0yuwMqY71TH3PiiE8CgonyQAhtsoq91I55VrDf8r/tiAwc/7LQFQd9B43qM?=
- =?us-ascii?Q?5FWK74TbmLY77DIYVkrCoUYybZHxDLVW0yemoqTJecvxDKa6l9hsHpo9351Z?=
- =?us-ascii?Q?rdkpicWFsx+lVucS591hp6I7znQGzxFNX0b2g6+zDqDLWxGpATVWwsKkmGDx?=
- =?us-ascii?Q?C9s9SuxSI93ZOcXb0TdtzwZLEuT0Oog73lOQ7qluiMrJIjTSjvS5DoS+cg54?=
- =?us-ascii?Q?tTvVpcLQ9FPSnDRAjdBheL5O4JGXNJqZWD54daau4CQsX9ZRNCbEblHy9tYV?=
- =?us-ascii?Q?gmSXYdNy+++lv/2NtDoQY4lvzHzXzVJ7fQ3QONS9V8kEWZjDkwNd1BoBOeT4?=
- =?us-ascii?Q?UE9hjneNb7butcJpslgDz2xvX/lOVRHyPiBqDpx9HPh0DuOpUY2Y5peGVNva?=
- =?us-ascii?Q?SSty9sUvG9tJ++GSLdsEMsGiPAu1RUw4ZL/0CvWGk/5DzPvg7MmD5+RMOvXs?=
- =?us-ascii?Q?1uuQUR0HXKg0uLHx8TEcUvkFrBqBg/Z0vVdgqezTagBqmw2wGueOJn9mfnQV?=
- =?us-ascii?Q?iAjQfonMr7WMRtLRzLyJboDhs+W0Ae+et90plYPfOaSptsRVTWjImFHG/JsD?=
- =?us-ascii?Q?mfXsLV1TK7ty4hGJXheaKqZZfwLQPYQWsjifdQauRq1/ivyele00ZJO2nCRZ?=
- =?us-ascii?Q?dRJKJMGS9VAOa04XTLY0fFI3h37c1YAI+7+ilRu8ZEBsD4F+u/Nwj7lhS6xP?=
- =?us-ascii?Q?RC5qu97dKN4L2HAKCUa293n6yhrHrg8fpSAw8vSAbAbemrOD5P8Tt1lDBqyP?=
- =?us-ascii?Q?4eoo06dyZ4ugh9OQ37TMzJ+2Nh6zo8Vdsbmk1TUtLlnltAbwJp3lYzChB/vA?=
- =?us-ascii?Q?9quojIhaQipdzu6yE2LgE4HBmjKxJ9Mvhfg2OmVtiONntf/un4b9Fok24S/x?=
- =?us-ascii?Q?CUbv4zWXV5H5jSY4O+ku83NZr1eUBZgjo7U42GWSH2HGrt6s/rqpHYDi4wMX?=
- =?us-ascii?Q?n3ZLi0idyfvnjw+c33wUlICZwQ/ygp5rxI20Fk7Q3NWpLBFx7umuiDZwGRD1?=
- =?us-ascii?Q?QuUbfWWmL+1jnRtwLZQfA5gsYL4zqGhlhKMdhNZDt8z00VLDnE91EaHVtNMr?=
- =?us-ascii?Q?T19AnMFVGxazuHNyKN3TbdAix30Wvj+/8C4+0FpHXaQ4GnOAzjKU57VlcA92?=
- =?us-ascii?Q?g2RaEB8b0vkE8I/pCNPSPOAhmJyRDxc8tLANp7VXchg53QiCOdMpqm/JMTuM?=
- =?us-ascii?Q?tKC+jZDYMEexnCy4yxBAurfWoASZg0X4uXn0BhqZJU1racjoTFla4WMtPBaR?=
- =?us-ascii?Q?13/VTMjdwqgp8ExSaLHuhZLSuglwrNIKq/nv0CMTMvBX2wI+w2BOg2v25UiK?=
- =?us-ascii?Q?vYH3Ad00Z3w0kWM/Zc5/s6CG32Bw6cxKt3Hk/U7Z?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 443c3bae-4e48-449a-068c-08ddeb81b7ea
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 07:07:32.8552
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: N4qjN7bzLUYALlAxtCaeZMQMoD1iobBFoJ6wctoqLq2JtjfGLI4I2tQ/gFZfMAjGcZLxXIQ3b2EM6PDqXFTxRQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7002
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250904071941epcas5p1ffa00f3f1cb69f7a10d08c1e96174cf1
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250904071941epcas5p1ffa00f3f1cb69f7a10d08c1e96174cf1
+References: <CGME20250904071941epcas5p1ffa00f3f1cb69f7a10d08c1e96174cf1@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_000739_874101_25B9A25F 
-X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-CacheID: sfid-20250904_001950_644199_CA9B01FF 
+X-CRM114-Status: UNSURE (   9.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -190,32 +93,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable hdmi_pai device.
+Add "samsung,exynosautov920-hsi2c" dedicated compatible for
+HSI2C found in ExynosAutov920 SoC.
 
-Aud2htx module, hdmi_pai and hdmi controller compose the hdmi audio
-pipeline.
-
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+ Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index 3730792daf50..20c400766ea8 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -442,6 +442,10 @@ &flexcan2 {
- 	status = "disabled";/* can2 pin conflict with pdm */
- };
- 
-+&hdmi_pai {
-+	status = "okay";
-+};
-+
- &hdmi_pvi {
- 	status = "okay";
- };
+diff --git a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
+index 7ae8c7b1d006..207b95e392e5 100644
+--- a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
++++ b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
+@@ -38,6 +38,7 @@ properties:
+               - google,gs101-hsi2c
+               - samsung,exynos2200-hsi2c
+               - samsung,exynos850-hsi2c
++              - samsung,exynosautov920-hsi2c
+           - const: samsung,exynosautov9-hsi2c
+       - const: samsung,exynos5-hsi2c    # Exynos5250 and Exynos5420
+         deprecated: true
 -- 
 2.34.1
 
