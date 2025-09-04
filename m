@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC1E6CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A9ECA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tXT+xGg463hwxHQkaysDNXj3DgmwgfCfpZCPDlCDOkA=; b=WZk7VgWWDkAb4kemNlsQZ13L+k
-	CcRSIKf+UG+Qsba8hIlNOES646Hw/iTU0IuJM2f4HRq0C6CNnb/I5sMmE2DofP6cGAdKZZzBA1rku
-	PkWQCF8TagptLB76xJDjFY6inyQ/hK/Ah+kYX1UPmeSbd9ufVZOZSRr731sW8kaewqgwxHJIlqEhu
-	oJiHVpVDRBdcSIDK1xNwYJkZIDJv5Ejlj0fEYuVyCQCTiyFtYyy+ggbGfFN/1P+YfWCZxE4txfXgg
-	VmWHEE2nOU2JWXOIfhS4CW0Y/8qUlsWTNryevVwnkRCeu1qe6hegaJszEBvLBz1qDV6tW+sKBQd8f
-	1wy+eo+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=B6QZEQAGrZ6/3rkKC265OmTZsvazFci2LpzaEltMG8Y=; b=MDMHJTJsFqLDCE+cjFqUvU4RO+
+	pGu6LDR9Wu6aFQpFSqmnKBJf09dFwHMKAedvoYK6tKu36/ZOG04YOyHqGvULrwLDzIE3Y0AFvP7Za
+	f2M16ZiDd+lRnUFk26hq03N64ZPfxO7ClbzwYRNHuzHldQYzvc80YYm30gThiALFUaaxG/3RmFUgG
+	HJSsigjf0PfK1Z/inAG5om62c5DHyvUTOayX46Ta6+SyCKHfOViub5yiDdrVrzNYB3QRRjQPT6VIY
+	wR4HU/OBiqkIEivk+OsSPv8QGsO1tvwwYTWJUfrWToeF3zmUUR9N0auzTwUdUuaUXM/PMTj8QSZSD
+	3gyB3vEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu77J-0000000AruX-43yW;
-	Thu, 04 Sep 2025 10:22:57 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1uu7A1-0000000Asid-3ODn;
+	Thu, 04 Sep 2025 10:25:45 +0000
+Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu62Y-0000000AUTz-31TU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 09:14:00 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250904091354epoutp017fd668ebd518e55b3dfa36e15d2fd17d~iCXxNCI5G0168501685epoutp01i
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 09:13:54 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250904091354epoutp017fd668ebd518e55b3dfa36e15d2fd17d~iCXxNCI5G0168501685epoutp01i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756977234;
-	bh=tXT+xGg463hwxHQkaysDNXj3DgmwgfCfpZCPDlCDOkA=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=PY6KtGhRlxGmDpbtwOHdwsBtnAee65iHDPBNo8OP9IwKDtoubFDbc/B7e+PLYta/C
-	 nzzO8EzKXMfHdMzxjZUkFSNZcOW5Ln+XRpDC4AdyblmK5aY4ls/83WfvDJTe2sg/Ha
-	 JmSHBpekeoKCEuAtxSP1R2Yd5O5pPC9/xECZViu0=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250904091353epcas5p1583257065573710b90d66d7dfa6604f9~iCXwt45ny2104021040epcas5p1h;
-	Thu,  4 Sep 2025 09:13:53 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.88]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cHYgh4ZL4z6B9mB; Thu,  4 Sep
-	2025 09:13:52 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250904091351epcas5p12b672a06d35140266c02c2038c580f7c~iCXu3-r_91514515145epcas5p1w;
-	Thu,  4 Sep 2025 09:13:51 +0000 (GMT)
-Received: from INBRO002520 (unknown [107.122.1.191]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250904091349epsmtip274097b068a5ef332a9676265ad6c52ec~iCXtVRBrG1708017080epsmtip2D;
-	Thu,  4 Sep 2025 09:13:49 +0000 (GMT)
-From: "Devang Tailor" <dev.tailor@samsung.com>
-To: "'Henrik Grimler'" <henrik@grimler.se>
-Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<alim.akhtar@samsung.com>, <alexandre.belloni@bootlin.com>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-rtc@vger.kernel.org>, <faraz.ata@samsung.com>
-In-Reply-To: <20250903192046.GA4126@l14.localdomain>
-Subject: RE: [PATCH v2 2/3] rtc: s3c: support for exynosautov9 on-chip RTC
-Date: Thu, 4 Sep 2025 14:43:48 +0530
-Message-ID: <000001dc1d7c$3ac93f90$b05bbeb0$@samsung.com>
+	id 1uu63R-0000000AUfr-0HPU;
+	Thu, 04 Sep 2025 09:14:54 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 33BDB14805E7;
+	Thu,  4 Sep 2025 11:14:46 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1756977290; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=B6QZEQAGrZ6/3rkKC265OmTZsvazFci2LpzaEltMG8Y=;
+	b=lN4LhAr46QA2PDMQsbmJLuOwfONCabS9l0jHr5Jt7hNcIJ/ySJurLYYB+fRyOH40yRAWzp
+	JyTt+STxlouZpYfPWOsjd02Fn+BGAXsSEI+rUayHPiArwkcT+30lA4eXbgqFrSfpG6OZbD
+	sVF1RaRWjjyNYcC9ZAMU158SaXpDN3mxomDSDzLpQA9DiA24bIph3hMIbEWfQ8Zln9PriB
+	ZdSWLgLO8CSPY7mV0BAgr8HiLbwqH+n6VEVsoe2zLRIBfNuxRM6vmD6WztEO9y/0ryHvLv
+	QswgSpdoW88nFRKhNAxwvoqLoalqFIskmtZsv7vm4C5jyUzcielj0sq3NOWMFQ==
+From: Alexander Dahl <ada@thorsis.com>
+To: linux-mtd@lists.infradead.org
+Cc: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>,
+	Li Bin <bin.li@microchip.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Thomas Fourier <fourier.thomas@gmail.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] mtd: nand: raw: atmel: Fix pulse read timing for certain flash chips
+Date: Thu,  4 Sep 2025 11:14:41 +0200
+Message-Id: <20250904091441.351805-1-ada@thorsis.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQMc6yo9jRPgA4nZ2IiZrgLtyBFMygKSVtdMAw5/R1ICS4saWrHBuvVQ
-Content-Language: en-in
-X-CMS-MailID: 20250904091351epcas5p12b672a06d35140266c02c2038c580f7c
-X-Msg-Generator: CA
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250710082536epcas5p4f9dcd50ff474066562b2cbd40199d2d9
-References: <20250710083434.1821671-1-dev.tailor@samsung.com>
-	<CGME20250710082536epcas5p4f9dcd50ff474066562b2cbd40199d2d9@epcas5p4.samsung.com>
-	<20250710083434.1821671-3-dev.tailor@samsung.com>
-	<20250903192046.GA4126@l14.localdomain>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_021359_424830_5C3334B0 
-X-CRM114-Status: GOOD (  25.05  )
+X-CRM114-CacheID: sfid-20250904_021453_274433_25DC1C83 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,92 +74,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Prevent PMECC errors when reading from AMD/Spansion S34ML02G1 flash on
+SAM9X60 SoC, after switching to ONFI timing mode 3.
 
-Hi,
+From reading the S34ML02G1 and the SAM9X60 datasheets again, it seems
+like we have to wait tREA after rising RE# before sampling the data.
+Thus pulse must be at least tREA.
 
+The previous approach to set this timing worked on sam9g20 and sama5d2
+with the same flash (S34ML02G1), probably because those have a slower
+mck clock rate and thus the resolution of the timings setup is not as
+tight as with sam9x60.
 
-> -----Original Message-----
-> From: Henrik Grimler <henrik=40grimler.se>
-> Sent: 04 September 2025 00:51
-> To: Devang Tailor <dev.tailor=40samsung.com>
-> Cc: robh=40kernel.org; krzk+dt=40kernel.org; conor+dt=40kernel.org;
-> alim.akhtar=40samsung.com; alexandre.belloni=40bootlin.com;
-> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
-ux-
-> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org; linux-
-> rtc=40vger.kernel.org; faraz.ata=40samsung.com
-> Subject: Re: =5BPATCH v2 2/3=5D rtc: s3c: support for exynosautov9 on-chi=
-p RTC
->=20
-> Hi Devang,
->=20
-> On Thu, Jul 10, 2025 at 02:04:33PM +0530, Devang Tailor wrote:
-> > The on-chip RTC of this SoC is almost similar to the previous versions
-> > of SoC. Hence re-use the existing driver with platform specific change
-> > to enable RTC.
->=20
-> Could you please describe what the differences are to previous SoCs?
-> You write almost similar, please elaborate in what way in commit message.
+The approach to fix the issue was carried over from u-boot, which itself
+got it from at91bootstrap.  It has been successfully tested in
+at91bootstrap, U-Boot and Linux on sam9x60 and sama5d2, for several
+months here.
 
-Ok. I will add in V3.
+Link: https://github.com/linux4sam/at91bootstrap/issues/174
+Link: https://github.com/linux4sam/at91bootstrap/commit/e2dfd8141d00613a37acee66ef5724f70f34a538
+Link: https://lore.kernel.org/u-boot/20240415075755.780653-1-ada@thorsis.com/
+Link: https://source.denx.de/u-boot/u-boot/-/commit/344e2f2cd4a407f847b301804f37d036e8a0a10c
+Cc: Li Bin <bin.li@microchip.com>
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
+---
 
->=20
-> > This has been tested with 'hwclock' & 'date' utilities
-> >
-> > Signed-off-by: Devang Tailor <dev.tailor=40samsung.com>
-> > ---
-> >
-> >  drivers/rtc/rtc-s3c.c =7C 18 ++++++++++++++++++
-> >  1 file changed, 18 insertions(+)
-> >
-> > diff --git a/drivers/rtc/rtc-s3c.c b/drivers/rtc/rtc-s3c.c index
-> > 5dd575865adf..8db24b6360b8 100644
-> > --- a/drivers/rtc/rtc-s3c.c
-> > +++ b/drivers/rtc/rtc-s3c.c
-> > =40=40 -384,6 +384,15 =40=40 static void s3c6410_rtc_disable(struct s3c=
-_rtc
-> *info)
-> >  	writew(con, info->base + S3C2410_RTCCON);  =7D
-> >
-> > +static void exynosautov9_rtc_disable(struct s3c_rtc *info) =7B
-> > +	unsigned int con;
-> > +
-> > +	con =3D readb(info->base + S3C2410_RTCCON);
-> > +	con &=3D =7ES3C2410_RTCCON_RTCEN;
-> > +	writeb(con, info->base + S3C2410_RTCCON); =7D
->=20
-> Rather than adding a new rtc_disable variant I think this could be handle=
-d
-in
-> existing s3c24xx_rtc_disable (and I think that is what Krzysztof meant).
-How
-> about adding a new bool to rtc_data that describes if S3C2410_TICNT reg i=
-s
-> supported or not, and checking it in s3c24xx_rtc_disable?
+Notes:
+    based on v6.17-rc4
 
-Ok. I will add bool 'use_s3c2410_ticnt=B4=20to=20differentiate=20if=20any=
-=20variant=20uses=0D=0ATICNT=20or=20not,=20making=20it=0D=0A'true'=20for=20=
-existing=20RTC=20variants=20which=20are=20using=20s3c24xx_rtc_disable().=0D=
-=0A=0D=0A>=20=0D=0A>=20Best=20regards,=0D=0A>=20Henrik=20Grimler=0D=0A>=20=
-=0D=0A>=20>=20=20static=20void=20s3c_rtc_remove(struct=20platform_device=20=
-*pdev)=20=20=7B=0D=0A>=20>=20=20=09struct=20s3c_rtc=20*info=20=3D=20platfor=
-m_get_drvdata(pdev);=20=40=40=20-574,6=20+583,12=0D=0A>=20>=20=40=40=20stat=
-ic=20struct=20s3c_rtc_data=20const=20s3c6410_rtc_data=20=3D=20=7B=0D=0A>=20=
->=20=20=09.disable=09=09=3D=20s3c6410_rtc_disable,=0D=0A>=20>=20=20=7D;=0D=
-=0A>=20>=0D=0A>=20>=20+static=20const=20struct=20s3c_rtc_data=20exynosautov=
-9_rtc_data=20=3D=20=7B=0D=0A>=20>=20+=09.irq_handler=09=09=3D=20s3c6410_rtc=
-_irq,=0D=0A>=20>=20+=09.enable=09=09=09=3D=20s3c24xx_rtc_enable,=0D=0A>=20>=
-=20+=09.disable=09=09=3D=20exynosautov9_rtc_disable,=0D=0A>=20>=20+=7D;=0D=
-=0A>=20>=20+=0D=0A>=20>=20=20static=20const=20__maybe_unused=20struct=20of_=
-device_id=20s3c_rtc_dt_match=5B=5D=20=3D=20=7B=0D=0A>=20>=20=20=09=7B=0D=0A=
->=20>=20=20=09=09.compatible=20=3D=20=22samsung,s3c2410-rtc=22,=20=40=40=20=
--590,6=20+605,9=20=40=40=0D=0A>=20static=0D=0A>=20>=20const=20__maybe_unuse=
-d=20struct=20of_device_id=20s3c_rtc_dt_match=5B=5D=20=3D=20=7B=0D=0A>=20>=
-=20=20=09=7D,=20=7B=0D=0A>=20>=20=20=09=09.compatible=20=3D=20=22samsung,ex=
-ynos3250-rtc=22,=0D=0A>=20>=20=20=09=09.data=20=3D=20&s3c6410_rtc_data,=0D=
-=0A>=20>=20+=09=7D,=20=7B=0D=0A>=20>=20+=09=09.compatible=20=3D=20=22samsun=
-g,exynosautov9-rtc=22,=0D=0A>=20>=20+=09=09.data=20=3D=20&exynosautov9_rtc_=
-data,=0D=0A>=20>=20=20=09=7D,=0D=0A>=20>=20=20=09=7B=20/*=20sentinel=20*/=
-=20=7D,=0D=0A>=20>=20=20=7D;=0D=0A>=20>=20--=0D=0A>=20>=202.34.1=0D=0A>=20>=
-=0D=0A>=20>=0D=0A=0D=0A
+ drivers/mtd/nand/raw/atmel/nand-controller.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
+index 84ab4a83cbd6..87481b60f315 100644
+--- a/drivers/mtd/nand/raw/atmel/nand-controller.c
++++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
+@@ -1240,7 +1240,7 @@ static int atmel_smc_nand_prepare_smcconf(struct atmel_nand *nand,
+ 					const struct nand_interface_config *conf,
+ 					struct atmel_smc_cs_conf *smcconf)
+ {
+-	u32 ncycles, totalcycles, timeps, mckperiodps;
++	u32 ncycles, totalcycles, timeps, mckperiodps, pulse;
+ 	struct atmel_nand_controller *nc;
+ 	int ret;
+ 
+@@ -1366,11 +1366,16 @@ static int atmel_smc_nand_prepare_smcconf(struct atmel_nand *nand,
+ 			 ATMEL_SMC_MODE_TDFMODE_OPTIMIZED;
+ 
+ 	/*
+-	 * Read pulse timing directly matches tRP:
++	 * Read pulse timing would directly match tRP,
++	 * but some NAND flash chips (S34ML01G2 and W29N02KVxxAF)
++	 * do not work properly in timing mode 3.
++	 * The workaround is to extend the SMC NRD pulse to meet tREA
++	 * timing.
+ 	 *
+-	 * NRD_PULSE = tRP
++	 * NRD_PULSE = max(tRP, tREA)
+ 	 */
+-	ncycles = DIV_ROUND_UP(conf->timings.sdr.tRP_min, mckperiodps);
++	pulse = max(conf->timings.sdr.tRP_min, conf->timings.sdr.tREA_max);
++	ncycles = DIV_ROUND_UP(pulse, mckperiodps);
+ 	totalcycles += ncycles;
+ 	ret = atmel_smc_cs_conf_set_pulse(smcconf, ATMEL_SMC_NRD_SHIFT,
+ 					  ncycles);
+
+base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
+-- 
+2.39.5
+
 
