@@ -4,107 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2DFCA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05448CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rpSeqJWibCBMBBbovju/dupg5ryfvAcopD5wJVu+XO0=; b=sulTOaSvaPTDEy3esIh7B0h3J+
-	3+F1VeccbmEc2k4/9BZkLF9l3RLcClucG77P7TChKWE7xp5z8F21VufOTm5j/cfVebESBB7nMzPsW
-	7nuftNofS/u8bvzmbP5pc608QGlXbcrzC0pSjh//7qOK2SBCXKnW8ehlToNkK6FjQpB9PfsEo/VTy
-	Zd40274WrAQneEIvjVtmR2mgzZ/SpNc38AzOC2j+FucMPomtjlOORquxyLgkGdWyyHgd6vRPDofe9
-	t9svxAIu/3Qu6vzoF+GdrW5qq6j1Jqi76vkp3Q6VS+r0m4ov2+XK7M3tITzF3zU/idVqvmcpZI6S1
-	JeujzSmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HoP5rZhN/wcN0s5V5G96zFIhY9AxyhN0FPTyV5jomNA=; b=vk6/+N6HojjGwen8PbhDKD8fWo
+	pHHx+8sDpgIKxN/uEkdTIxLA6Qo04Eazyc/CSTe+Py2UGfb9M1XShD2QbNY6lippeiMGTmG3NwF8Y
+	W3dl6IbziGJK5Y2ju/v/83yryu/SSfESUiE0RHZgt1T9krZRABgveRseDvi9GBxXjHFBfLcechL9u
+	N9y3wN6S4G7eREXMKCnSKB3aWNb3pWj3sWO4UMUKLwLtFtoRhIoj7ucUT5EWVTeAlIxXvdV8AYf5C
+	ih7RjbHJYK49Ha+gQuGVojr+qVipEriyUQhCASbSaLePT1lh9OU5aZUGS4ke7OlMnRtTBKD15vRJ1
+	DnHE20Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5ii-0000000AN90-0Qft;
-	Thu, 04 Sep 2025 08:53:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uu5lQ-0000000ANq8-3rRT;
+	Thu, 04 Sep 2025 08:56:16 +0000
+Received: from mail-ua1-f43.google.com ([209.85.222.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu4xl-0000000A53u-0pxi
+	id 1uu53R-0000000A6qt-0vWQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 08:04:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 708DF60053;
-	Thu,  4 Sep 2025 08:04:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5F97C4CEF0;
-	Thu,  4 Sep 2025 08:04:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756973096;
-	bh=TCmU3EI9jxWadailuOfA0n0BlrZdIhAt3+9SPCCdzUI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UV3daTcO49651LPgFl4Ym3WNTH4bD0/uV+6O/x88njQWChtUAHe53fYktXioWt8Jz
-	 VWfSl7Wi2dWcui2dqa0gZqgEDbiCN7j2ohGhz7hBgK0Jq8J4sBCJ5FVCCkpLVr/1PN
-	 ajDvURY6LBa4sExKeIs6ubkiuSHTUugRQjYXuASV2S6k4Y5xa3gkcLJsnb+AGF1ZBx
-	 +I6vJWF5bf3gDnVoPtkfLULKUYQ90mmBdkrQXprigzcgoPurHt7Z8RCV3o6t6efPm1
-	 KJCw1AQa5tij4jqgJSlnhrIgn2Hc5dWmB5VAQAa+QksX9srPVatgE32mABjL5uu+X+
-	 tQo4C+rXyfJQw==
-Message-ID: <5643d3e6-a034-4e2a-babd-d82fb3d58e9d@kernel.org>
-Date: Thu, 4 Sep 2025 10:04:50 +0200
+	Thu, 04 Sep 2025 08:10:50 +0000
+Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-89a89313bb7so255558241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 01:10:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756973446; x=1757578246;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HoP5rZhN/wcN0s5V5G96zFIhY9AxyhN0FPTyV5jomNA=;
+        b=Mlppuh5Cqf+rJ6GVhnS1yAsgnppOCGFnKAtzsasiYtz1lQvlbgFvJu5TsJ9Do2Pg+1
+         xPCVHesUwz8/WFYbx3PYs9qxIlZvSzbT/XmdbjH9FApNdzLX1NVeBW86Xi9IS2n3i0Gm
+         yu7JcxifFCwnRsEp21yurjPgwEGdsFzd1D9T3TEFHePEBRZbCTvOjrHomeCaUYBnfpq5
+         hmeUsq8732WfCssefO+nDaTgnRORtI/+5MbpmQ/Pi4FBbworA41oPeMgJJyhJ/lrEMEE
+         y6ZidztJPDfoLpXmg11gbSNaQ6FiROmKhaHi9BAAFc6Isd3ICj7anFooTIAUeKDCNVBx
+         ZDgg==
+X-Forwarded-Encrypted: i=1; AJvYcCVGYfBkBCLLJh02u1shvYN0UuS3T17Je2fFfBvnn61AUaRhqsEw2NOWl7UvkumnPN4o4+U3U6N3yWjQ+hEqlueK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFJDmFqTARxm12/Du4TEIiS3GbRucm/mCOetOz1gzdGNo9BH18
+	2dXYBQgeSUC6wEhlnnv+uLOP2FSISyg75FzLUUNAOFF8kknbOoYMdMPBAeufsUcJ
+X-Gm-Gg: ASbGncv/zCKWy8FaipvdMr1aYJ/aRml5SuKMxE6Ej4SppzuJ1HLH55rUAJocvc45b3v
+	wVLfJ9ohrAoYGBocKwuZKvOT7opXQJPzdy+9Obt/Jv7o2pTbNIVEBGdn1j7v27GdoEtM7WDuUa0
+	b1bB0FdMjBBkxy8e1xrScuZp/lp0ZhK0gm+QH0ViWpyzn7e/MWJ130vCqcZ4qw2obmP2mN9ry3e
+	ouaebVELvMlXwMueEqnXRQDWydEUy4LIdSyoBizF/TOXR8OVgSZNksrNdOOjR47jQJZBhPPxW8m
+	T3XQLJhDydyxHg7XPaz0ZPOh0iQVo5UaN3miARKOl5NlRTOqv+J5+Hw1jk79141+ccpGMLiPfwN
+	WkhJAEuYCUKXE7/gdmR8mYgvKByAG+pwcUvrSpGFT5QyYFhQ2ZkOrB+627d3OhwK3y2fsXZs=
+X-Google-Smtp-Source: AGHT+IF/xLRUnLIZAlo8j3aMNRo1wW+5AUYJPNcxk8+KaBmDcrXbOyTsHHFCLN5vrt21GLQRhfD9Dw==
+X-Received: by 2002:a05:6102:2c0e:b0:524:bd1e:bcf2 with SMTP id ada2fe7eead31-52b1c76eb64mr7144193137.35.1756973446443;
+        Thu, 04 Sep 2025 01:10:46 -0700 (PDT)
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-52af1915741sm6250232137.10.2025.09.04.01.10.45
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Sep 2025 01:10:45 -0700 (PDT)
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-52e231e3d48so266379137.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 01:10:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWyWTu5+xSYAsz+R7sv4gTcwg+y9useHJ6krz9YntXj0/FLn61qYKYkXTwOxRP1fOqw7/fsl4FcP5jh3+d7ttO3@lists.infradead.org
+X-Received: by 2002:a05:6102:4613:b0:530:f657:c5d with SMTP id
+ ada2fe7eead31-530f666561bmr2551182137.20.1756973445172; Thu, 04 Sep 2025
+ 01:10:45 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: i2c: exynos5: add exynosautov920-hsi2c
- compatible
-To: Faraz Ata <faraz.ata@samsung.com>, andi.shyti@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- alim.akhtar@samsung.com
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, rosa.pila@samsung.com,
- pritam.sutar@samsung.com, dev.tailor@samsung.com
-References: <CGME20250904071941epcas5p1ffa00f3f1cb69f7a10d08c1e96174cf1@epcas5p1.samsung.com>
- <20250904072844.358759-1-faraz.ata@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250904072844.358759-1-faraz.ata@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250901201815.594177-1-ebiggers@kernel.org> <20250901201815.594177-2-ebiggers@kernel.org>
+In-Reply-To: <20250901201815.594177-2-ebiggers@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 4 Sep 2025 10:10:33 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWrJmj9jHJp5CEtzBJk6jiN81ZwmTAogc07U_P9KgyEjA@mail.gmail.com>
+X-Gm-Features: Ac12FXxrq9L6kDoaKUhsApHE-2MwPE4zmKHFkt6Jn14vX0EwMHLrIbnzAnxY_AA
+Message-ID: <CAMuHMdWrJmj9jHJp5CEtzBJk6jiN81ZwmTAogc07U_P9KgyEjA@mail.gmail.com>
+Subject: Re: [PATCH 1/6] crypto: curve25519 - Remove kpp support
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>, Zhiqi Song <songzhiqi1@huawei.com>, 
+	Longfang Liu <liulongfang@huawei.com>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250904_011049_260268_2FA351D0 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,15 +96,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/09/2025 09:28, Faraz Ata wrote:
-> Add "samsung,exynosautov920-hsi2c" dedicated compatible for
-> HSI2C found in ExynosAutov920 SoC.
-> 
-> Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
-> ---
+On Mon, 1 Sept 2025 at 22:29, Eric Biggers <ebiggers@kernel.org> wrote:
+> Currently, Curve25519 has both a library API and a crypto_kpp API.
+> However, the crypto_kpp API to Curve25519 has no users outside
+> crypto/testmgr.c.  I.e., no non-test code ever passes "curve25519" to
+> crypto_alloc_kpp().  And the crypto/testmgr.c test coverage for
+> Curve25519 isn't particularly useful either, since it just runs the same
+> list of test vectors that curve25519-selftest uses.
+>
+> Therefore, all the crypto_kpp support for Curve25519 is unnecessary.
+>
+> Remove it.  We'll instead focus on the Curve25519 library API, which is
+> the API that is actually being used.  Curve25519 remains fully supported
+> for in-kernel users via the library API (crypto/curve25519.h).
+>
+> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 
-Where is any user of it? I looked on lore and found nothing.
+>  arch/m68k/configs/amiga_defconfig             |    1 -
+>  arch/m68k/configs/apollo_defconfig            |    1 -
+>  arch/m68k/configs/atari_defconfig             |    1 -
+>  arch/m68k/configs/bvme6000_defconfig          |    1 -
+>  arch/m68k/configs/hp300_defconfig             |    1 -
+>  arch/m68k/configs/mac_defconfig               |    1 -
+>  arch/m68k/configs/multi_defconfig             |    1 -
+>  arch/m68k/configs/mvme147_defconfig           |    1 -
+>  arch/m68k/configs/mvme16x_defconfig           |    1 -
+>  arch/m68k/configs/q40_defconfig               |    1 -
+>  arch/m68k/configs/sun3_defconfig              |    1 -
+>  arch/m68k/configs/sun3x_defconfig             |    1 -
 
-Best regards,
-Krzysztof
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
+(although this would be handled during the regular defconfig refresh anyway)
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
