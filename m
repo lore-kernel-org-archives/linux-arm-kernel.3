@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D342CA1013
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D3DCA1015
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,53 +12,103 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d2LNIdr0IxFyRQU+JgR1Du2sRS2O22SqJsiSsupwl7U=; b=rnmkwtRgeDjiM0jVyGVG88nJd2
-	B2/7nUWTNECFIK8OziTmyzocSj1Dz23FOU3wBzWrIE7KfPlRxmzmC8AV8dv9a3D1Vt1OgnVg8GG+h
-	us64Ykfz3/WUewNe6Z6m7Zb4vLh8Tlw/q8Am/+TdHL5ZzA5QlNVaXCVL+cBNu1cvKLi5+VHujMF/I
-	R2FB9Zgely1rgsUBtXK1u5SIhmyN9rkx7yYtYqSXSWhV08R+SVPdbBCXT68lT2O64uRlyVZpzsJhv
-	mw2DBHl7IjuzVOcGMM28lTwIblb+2eOeiWHux2FDqKWt1ogprJrK9GQT+vLJ/7SqIAkCj0nvJ6ARY
-	g9a1go0g==;
+	bh=FkVLoXb9mhGKxEhNV/nFl0pjbwMJPi2UNB2Kt4a7mS0=; b=LsObOr/l74FSM1rGg9uSEl9JyP
+	gK+5a5ebTRwaItFpQ4sFPVAn5CzTa/oDz4rxn7Ge9nJ6+g9QJ/wRQG+aIu99gqknSiHkUiOyQvwHA
+	+2U5huZbvEagZZC9Pp40/FUZgvwy9TjyT5Kmjap/Q+d3Lf5/vCWiIrKxstn4iV7SSCoVTrdvU89Qv
+	rP+/gYpkLRaeG5VtmiBixkrQD7+D/zPOMLk/YZG+nFraH4jbk0HFro2Am35cDnhfcj9Sw/bOxR1WX
+	tZksMjYIMk4+OM0hcLNCRSUS/qyVdo+/oxxcn4d3CPltYwRofraQKaaclfkrLq7C/ZK7/mej/rstN
+	3mlOGDUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCl3-0000000CqKr-39mN;
-	Thu, 04 Sep 2025 16:24:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7o3-0000000B6Mm-36JA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 11:07:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6A4D1756;
-	Thu,  4 Sep 2025 04:06:58 -0700 (PDT)
-Received: from [10.1.37.179] (XHFQ2J9959.cambridge.arm.com [10.1.37.179])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 754B23F6A8;
-	Thu,  4 Sep 2025 04:07:05 -0700 (PDT)
-Message-ID: <a2ab7671-093d-4b7d-b0a2-2a6f73bb80e4@arm.com>
-Date: Thu, 4 Sep 2025 12:07:04 +0100
+	id 1uuCl4-0000000CqLs-44pg;
+	Thu, 04 Sep 2025 16:24:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uu7oj-0000000B6hx-2Z0L;
+	Thu, 04 Sep 2025 11:07:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1EEA143D51;
+	Thu,  4 Sep 2025 11:07:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F94AC4CEF0;
+	Thu,  4 Sep 2025 11:07:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756984069;
+	bh=W8Kb3H7rs8X2hyII1Ot5Epc50hcU2zHPUGNXGysAdrg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bqU2OYay8a/dEevRCiDUxLYHXLvLFpNklkOJtHJfKM0YeNinWYHDQL2KjRrqLycAa
+	 Qq5w/qBVrFBWtK9hCZDrpi4kcH+zFtlzMbsaC5abxtqqbTsgT8twtn/n3HPDxNsJrP
+	 bD3JR2+fzF5wyAjYVSJLIRwAu4xfUjWR3AcvoViftO9R2hYZA6/vMnR1dhIiFM/eEa
+	 tySM1rZMLArRLo7vD2y5eiMnQTe5Mlu8Rs2trxVSXWAMZam+ugEPeRA3CfC9LbuYIG
+	 kp2XH250lIcng/IJBfPu6YAD4PoOJumSq+u6Z9POlPtGKmvQLmcs+fjTxo1Z/Wq86B
+	 nR5LNdlFVEt1Q==
+Message-ID: <cce649b1-511b-4895-84be-2c85e748cfa8@kernel.org>
+Date: Thu, 4 Sep 2025 13:07:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/6] arm64: cpufeature: add AmpereOne to BBML2 allow
- list
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Ard Biesheuvel <ardb@kernel.org>, Dev Jain <dev.jain@arm.com>,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <20250829115250.2395585-3-ryan.roberts@arm.com>
- <b3f4e006-6101-496f-a4a5-13474470109d@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <b3f4e006-6101-496f-a4a5-13474470109d@os.amperecomputing.com>
+Subject: Re: [PATCH 1/5] dt-bindings: power: add Amlogic S6 S7 S7D power
+ domains
+To: xianwei.zhao@amlogic.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jianxin Pan <jianxin.pan@amlogic.com>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, "hongyu.chen1" <hongyu.chen1@amlogic.com>
+References: <20250822-pm-s6-s7-s7d-v1-0-82e3f3aff327@amlogic.com>
+ <20250822-pm-s6-s7-s7d-v1-1-82e3f3aff327@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250822-pm-s6-s7-s7d-v1-1-82e3f3aff327@amlogic.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_040707_816410_7C215EF1 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250904_040749_695380_152F95E4 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +123,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/08/2025 23:08, Yang Shi wrote:
+On 22/08/2025 07:39, Xianwei Zhao via B4 Relay wrote:
+> From: "hongyu.chen1" <hongyu.chen1@amlogic.com>
 > 
+> Add devicetree binding document and related header file for
+> Amlogic S6 S7 S7D secure power domains.
 > 
-> On 8/29/25 4:52 AM, Ryan Roberts wrote:
->> From: Yang Shi <yang@os.amperecomputing.com>
->>
->> AmpereOne supports BBML2 without conflict abort, add to the allow list.
->>
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
->> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: hongyu.chen1 <hongyu.chen1@amlogic.com>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+>  .../bindings/power/amlogic,meson-sec-pwrc.yaml     |  3 +++
+>  include/dt-bindings/power/amlogic,s6-pwrc.h        | 29 ++++++++++++++++++++++
+>  include/dt-bindings/power/amlogic,s7-pwrc.h        | 20 +++++++++++++++
+>  include/dt-bindings/power/amlogic,s7d-pwrc.h       | 27 ++++++++++++++++++++
+>  4 files changed, 79 insertions(+)
 > 
-> I saw Catalin gave Reviewed-by to v6 of this patch, I think we can keep it.
+> diff --git a/Documentation/devicetree/bindings/power/amlogic,meson-sec-pwrc.yaml b/Documentation/devicetree/bindings/power/amlogic,meson-sec-pwrc.yaml
+> index 15d74138baa3..12b71688dd34 100644
+> --- a/Documentation/devicetree/bindings/power/amlogic,meson-sec-pwrc.yaml
+> +++ b/Documentation/devicetree/bindings/power/amlogic,meson-sec-pwrc.yaml
+> @@ -24,6 +24,9 @@ properties:
+>        - amlogic,a5-pwrc
+>        - amlogic,c3-pwrc
+>        - amlogic,t7-pwrc
+> +      - amlogic,s6-pwrc
+> +      - amlogic,s7-pwrc
+> +      - amlogic,s7d-pwrc
 
-Sorry I missed that. I see Catalin and Rb'ed again.
 
-> 
-> Yang
-> 
->> ---
->>   arch/arm64/kernel/cpufeature.c | 2 ++
->>   1 file changed, 2 insertions(+)
->>
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 9ad065f15f1d..b93f4ee57176 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -2234,6 +2234,8 @@ static bool has_bbml2_noabort(const struct
->> arm64_cpu_capabilities *caps, int sco
->>       static const struct midr_range supports_bbml2_noabort_list[] = {
->>           MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
->>           MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
->> +        MIDR_ALL_VERSIONS(MIDR_AMPERE1),
->> +        MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
->>           {}
->>       };
->>   
-> 
+If there is going to be new version:
+Please keep alphabetical order.
 
+Best regards,
+Krzysztof
 
