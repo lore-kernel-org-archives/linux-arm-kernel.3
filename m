@@ -4,198 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF65CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA443CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bb8OyJNWkXoWbomOVdkD8jSMhnArCsbleFsCSjAudQY=; b=yJX0Epd+BXzzrX+N9d8uIu/Nuv
-	+esqQUZABSIveiOFwro2bJ0mGBtgCpQ6B8ncg74OjuPVw1MLx3iWsFju6hZGj2Xk79H0vY0Gk0ZbV
-	3Bxhj9JgYc1DLB6El2MUK+EcyyOKkWtTIfeeQi/fxbRhmyuj4xwDswWBTOdd7LgVwteLGcJBede9l
-	J1h5p5jZYPYHCeZOPOSrtY/TY104aHQzZXpcKRDHhHzD+olZishI+NHIeq+ZjmvK+pPw+btnXDbkN
-	On8bUrxp5bA7QPTlXbzaSZ3TI7NO99SiKbQSM9qRIu5fTKrkdFSD2PHWOcRpluQdcJwu91IpAyL/h
-	KFJNyHlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q88hKfU8Hy8EIQha6HXQ97z19Xx4zKmGDo4bPrKg7sY=; b=kH5dkWBGUh/mzBV3VrDrTxoaYZ
+	pFaXN77JhKD0SmCTvVlvl146vMoMeOmifzzQOXUh3ctot3zR7iat5ls02nr+JcIzU9SDHdVDwR0o9
+	kxUtO00br2xy87LzxU3+7ebZSjd6fzqdr8pP08qmjnMcviPOcoU9g1fA/fhk0YpeWtLY24cvQGPID
+	+rysskzga2g5cbUiw4HVTcQQTAkMPd+lUEjoDBEc9KsHoRZ6Og0BY1INXPwgdZj6jGeL0ny0ovWuk
+	3PT7YY8G7GMj4lOwXRqJFE3CEyShaBjKrDDL171TYf338tn2onFGD9fvfdqgdWkuCyC400EgnSX3l
+	otiLwMaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu51N-0000000A6CB-3Cwc;
-	Thu, 04 Sep 2025 08:08:41 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uu544-0000000A7BI-35Gh;
+	Thu, 04 Sep 2025 08:11:28 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu4fa-00000009ySd-31yp
+	id 1uu4h7-00000009z83-1XmY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 07:46:12 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Lq63AZHxRRs2Xjxr8wLTLMz8kD+QJ9KIhW8mptN2HFBZhCJdXA+Gauvdt6GGHMzIDwxo1/t4DL2kLYsxAAGVFgg+cMhab9tD202E7z/jWml8KjaIsePh3eNTgQLFKJf+coZynswFJuVkLYnNrt3DKy/O3+yyqW61ia7YV59fkWfLoRayDuDmjptcg9BkZ1187dYvfxp8KVwxeK84pMjXDkkFN/dVBPv4/Y65jrsYej23FU9OQMvv4JEfduqPZuMGeEBq6qxDWBdIoy3vvC06KtvwEkeDCnaAbeiwmMYPr3DAV0OZRHAmuUstM5+ZDg7dd8Yspv51JIPwU2DDQ6FNYw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Bb8OyJNWkXoWbomOVdkD8jSMhnArCsbleFsCSjAudQY=;
- b=vcPQDTEWLQeV9qcl7fUJ+j/mH52ofOJutYyn+MVAH2Bjd5++6nTuortcCi84HHHEN9ADO9Y84Wz7DhVGu2STsyBgT9saaUKH2uZ+LqI73eFJ89U9R8XUnvDWxX9xQEoP3h8i54rlgykCyLDbqZMssEG4GprWAoJrGyp8et/A3YtCcHcu8KIRjEaTW59tu5xs5ohmOR9qVppfARX1HZFeZ4kX7tT6uzqAuCvP8m9hPamNx025QkmooSPthG/YzQRoKvuqd44VQ3rlpMEWAhnQH1vejDMF7xcqQZiGr4vFuknfxJmUkDsb+upEaqAIosYWxdB6jHmOom4yhfBCVGS+pg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=gmail.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Bb8OyJNWkXoWbomOVdkD8jSMhnArCsbleFsCSjAudQY=;
- b=pSGA9Gc+acodALr8BADU/LusLrrpc1P65s8l7dB+UqtA09E4slAN69umSgHJZ1WG1Gx1V7tnxHSHqbN7GXYYQu+Ctxba9M3IiURhdU3ZoOZBPITgjFF6wqDRK2yB+1rl63c16oHqeNujauyvWQ0Cr8qsrAu6Yh3cGMFGEZq6MkA=
-Received: from PR1P264CA0027.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:19f::14)
- by GV1PR08MB11089.eurprd08.prod.outlook.com (2603:10a6:150:1ef::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Thu, 4 Sep
- 2025 07:45:59 +0000
-Received: from AM4PEPF00025F9C.EURPRD83.prod.outlook.com
- (2603:10a6:102:19f:cafe::a3) by PR1P264CA0027.outlook.office365.com
- (2603:10a6:102:19f::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.18 via Frontend Transport; Thu,
- 4 Sep 2025 07:45:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00025F9C.mail.protection.outlook.com (10.167.16.11) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.0
- via Frontend Transport; Thu, 4 Sep 2025 07:45:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NjdIG4GHK3agalbYIS5iOoSZAL0xg5ea6QGk6OEYef0+azbls06ELGmxxd4dn455fIVeT7p4jAaLYDopfQJzaolc80sDAo3IKdai7LF8hVqxivGTdObOIR0G18HPpl4jqqYRL3ig8FPGdwQWzJ1mdWpRb0maBk3IOv+0p/TjBAjpHCtnGuT8E9GQWlId+wYFPOlcy34ISrq5lRm2Q7NaRGZoRdJwNIS4pWY7xWd2+pVZIQbwe2e5Ft5VKRbvJlSU9PW4wZxeK5Kla90SYDGFvw0AcXUNlO3RZkoEuOCGKPVoMtbyZpht8I8jDTCNSb+oXTDJc4Vm9sYok4DEDnV35g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Bb8OyJNWkXoWbomOVdkD8jSMhnArCsbleFsCSjAudQY=;
- b=OFUY3q+fSqzvWftgKcbXVOjvdxlf4+4cIzjHKMBXYKb1QthDyaO7q5NIYbaQPc3NN032f/iB2C0vzD/EoT94XHxJUEzzLTxLX5Q5FNtnFsLvponOdQ8z7Oj6ECuzB7I4zviTMdvRDQE85WOb5BdqNepGM+Tv05SPx18siiSa9ACdVHYYP7vW136PSWs7OawDnpTR6lYLI+7rOjCSntS3Wq7babvS6Fy0DRYVPGP8UZPiJ4e+dJAUwovYqcK6D/jmkKRyPgsCksNb991xEMMFv0q2pA99U8aRpsDxwXNsNr5h6MnxML9wow3up3ZRyUhxsciIfpP0+zRMXrF5006SIg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Bb8OyJNWkXoWbomOVdkD8jSMhnArCsbleFsCSjAudQY=;
- b=pSGA9Gc+acodALr8BADU/LusLrrpc1P65s8l7dB+UqtA09E4slAN69umSgHJZ1WG1Gx1V7tnxHSHqbN7GXYYQu+Ctxba9M3IiURhdU3ZoOZBPITgjFF6wqDRK2yB+1rl63c16oHqeNujauyvWQ0Cr8qsrAu6Yh3cGMFGEZq6MkA=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by PAXPR08MB7393.eurprd08.prod.outlook.com
- (2603:10a6:102:2bd::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Thu, 4 Sep
- 2025 07:45:24 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9094.017; Thu, 4 Sep 2025
- 07:45:22 +0000
-Date: Thu, 4 Sep 2025 08:45:18 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com,
-	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com,
-	will@kernel.org, akpm@linux-foundation.org,
-	scott@os.amperecomputing.com, jhubbard@nvidia.com,
-	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
-	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
-	james.morse@arm.com, ardb@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
-	yang@os.amperecomputing.com, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v6 2/2] kasan: apply write-only mode in kasan kunit
- testcases
-Message-ID: <aLlDjmQF0DSOqILw@e129823.arm.com>
-References: <20250901104623.402172-1-yeoreum.yun@arm.com>
- <20250901104623.402172-3-yeoreum.yun@arm.com>
- <CA+fCnZeyKuet2XY9=jOdiK4Z6f4_=Xb5ZBzBaDL-2gFPv9yJ5A@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+fCnZeyKuet2XY9=jOdiK4Z6f4_=Xb5ZBzBaDL-2gFPv9yJ5A@mail.gmail.com>
-X-ClientProxiedBy: LO4P302CA0043.GBRP302.PROD.OUTLOOK.COM
- (2603:10a6:600:317::16) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|PAXPR08MB7393:EE_|AM4PEPF00025F9C:EE_|GV1PR08MB11089:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8f6bceba-7f59-48df-93b5-08ddeb8715c2
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?5tpcSuMHSDR338XvUmkG5hqIm81h55AwZOp3g7/jivJPT1M+h2+KZcSy/9ug?=
- =?us-ascii?Q?QiABnMsCAa5+WSECX6hhiCmLm8gUR/bqTlef/+47tGw0+RwLKUiQjTUbHWjS?=
- =?us-ascii?Q?rlfjxve6YHV0Sozehhg5di2HUR0TCBOuApP7FAO3jatSRCy500I5jVQs84bv?=
- =?us-ascii?Q?/zODw055eoK8Qq4/Dm8lviOry3jW5r93h1jSFeTSOW1SQsQL53pCYHb2NsXp?=
- =?us-ascii?Q?hT+fL3pDi5X/IM0gnCwfkyJzVqJBuVqmu38xK484zyUshe9UOfDSM8ScULSZ?=
- =?us-ascii?Q?Okq8Tb3YW+r4x1uCdEqfmbrAWjwRiiijudGtpOBs9kwE7GhLdTPiIdERLoN0?=
- =?us-ascii?Q?jHac0WyPT4MTJLq1V4ZdP9pbZ6QcZquZGIDKxVrBJTxJLP9hSxDD4gusM+IE?=
- =?us-ascii?Q?2dnrYAUOAsBlkDEQ2o9YE/fLD8ieKOuEO6YqWafu6uJSltHZBzA9sDQmtmhX?=
- =?us-ascii?Q?AXn/+0syQeBF2pE0HEQ9qV1zPabPGZtgK+z9SKtLdZsq9k0cf510VZL2W4T9?=
- =?us-ascii?Q?66ujplk/mSJtfbnCS3rkjcegB+bENqLW3vHemRnGFeaREZOEqEZncPFtW6Pt?=
- =?us-ascii?Q?pbXYzvW1H/o60lc6/Zir3CIkb0BZEuWRyNbNA0tp0y1DSthji7Unab09jQiD?=
- =?us-ascii?Q?3lfoTNu4liaBMlhkQeCgPKLw53MhHI4C2KR6WLAv4vkom8RB8ZShX1w1L6td?=
- =?us-ascii?Q?+IIc8t23a4We5FFhWga9Ll0ztd+vajJIocVHUIp0NPfRv7TtKLjUhI9qg6+t?=
- =?us-ascii?Q?kOYU022UNpeTAycYngfSVxTUBrH4CKynaV4dVDhTZeM/sBLnnr+OLRNeMzg5?=
- =?us-ascii?Q?LYkv1vDWSWcGK3SE2fciR1MOpmuEpo88rrfzB8Who9auTd723Sxn9YJh+vZg?=
- =?us-ascii?Q?nVMNXIPlw0Mo5/mDIfgwyAjyno9OyXa5WUJ8oR0ANsnGc3nqxo07xmFe7ZiE?=
- =?us-ascii?Q?kwzoq9s0VfbgDHsXktO0oTZsiw1I808nmBqn+XMp+wXouIBjGds66bjh0m0z?=
- =?us-ascii?Q?7gR00TdWTZi6fENJpPob050k4lVK1E4v2vHV1MQSPOIEDFRgEiolEYtAfdKz?=
- =?us-ascii?Q?swnNDC+jgiyMKMkgvwU545b2gzzhCr6jGZpcvWbNA6AWWY1Ld0AJvyh9cnhp?=
- =?us-ascii?Q?gnPA8hfS5Zf90Dj7qle9+6N34qgLnt5ShNgaLa0vnJsnvfwBx86N2GBq8rPh?=
- =?us-ascii?Q?nFuKApwaphiQ5qovNpigSnJgU6m9tsfVnPA2zWIFbcM034HKRp4OSsuCgd5L?=
- =?us-ascii?Q?WLfIt6iszu1Kp4oPOPGP6Rzz/BqEVgUf91DC1GXOOw3fkEodN0AnsjiiXLxM?=
- =?us-ascii?Q?CIbtzFTUTRmHurLpGcctAt0I2T92hZdf5PvZG8igdpq6rQip+P8LXBRkwsNo?=
- =?us-ascii?Q?94MUfSlnU9ZzYiWtJfqHxn25SQs2vrw6o6oyAt2lwZkVQIR+aL0+kNjyj5x3?=
- =?us-ascii?Q?zsU1LVT7/sM=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR08MB7393
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00025F9C.EURPRD83.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: b9ea77e3-b520-44e1-547f-08ddeb8700e3
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|1800799024|82310400026|36860700013|376014|7416014|14060799003|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wGbFgm/vmMXJjg0nb5oYdTlZShtxSzz01dwTjMsOnh3/I+vREKaMRb7qGInO?=
- =?us-ascii?Q?3iYddgW3DDafXUnomGe/xkJe4iJfmhFWByNcGh1t9LcBerpC0Ok2ix/ABsnk?=
- =?us-ascii?Q?HYBqJr5n9C2K4WdfvzWiYev28u2wBDkbGxxik44XXEvJprnpKJ0MhLc9ovkk?=
- =?us-ascii?Q?0bFHS5f5shGQv1TAqVjjHlGhA6bhdNKtphmSH5ScNEp2zNi9ofBjXJbLQMPE?=
- =?us-ascii?Q?l1EIXrS64CX4VlvcoWgc3sdGlffmyljf5guvOip8V+Xmnwa8LWY8u6rnJaPe?=
- =?us-ascii?Q?WL6nDyIKYb2NOSUjdPWf/QjW8AHMgKvYqWCcekoCbZ3CUF+1IHwTEHIFPBnq?=
- =?us-ascii?Q?GEdC1OMinG6oWCIK8f2/UJg1f0xxsbUHxuJmz0CyGvyVDLsHQXVsg6eP33AT?=
- =?us-ascii?Q?iaQHDjKyfotBC2uxgaoCkuGG9R1LNbvehqqu8e6O26i/N0YaiFzkXe91zGkN?=
- =?us-ascii?Q?E5C99mm+o6bmSbiuCVp2q6Sd28nU34u7rOoHgWRptHnth8rLGiJ8BLFN1QAE?=
- =?us-ascii?Q?lMMpAeuKQp11Iq6WAa8RY2cI3szf9WhwqC3EoQF1CjN/qtHy2mMElwQxsYw0?=
- =?us-ascii?Q?2FllUncuozlBc62UJ58oVA/Twxuxqe6wM93eU1TH8cTPUQqK0crs8p+F1ncq?=
- =?us-ascii?Q?QPQPNgmk64PDKDWOqpmKlx0WSFIaHRp1vQbpIgE2NFGE3A0aj0F4Au5HtLMl?=
- =?us-ascii?Q?pLjApHF47P2SVZDSBTxRXEjxX/Rrp1YaAFTr/pGPGDIyoUlIi/9d5DlBhebJ?=
- =?us-ascii?Q?vPsRCCHFmSZN0htNBuqjWdY4S3BeUZNqje87tbL6XAA/QP0MtlXSgVYbcR9R?=
- =?us-ascii?Q?2vkyDEsJ6MDUJGrEJOgsQYmv75l5ovWohFf95Z24TV5gn2H223fLshmdoUG4?=
- =?us-ascii?Q?FsQ4ttcSWylN2fNKDmuotU84e0yqQ8g7wwO1j9xLFuoOQ27Hv12CT7XTdXy7?=
- =?us-ascii?Q?wbjgAGY7jHy/7F14UWMe0FxisJABLysYZW6y+LRwObKO3NTUfLeLe0buvkQg?=
- =?us-ascii?Q?7mSNOAgtikhPzKOWr6eBxzxb3+7ZUlGRaU6PIAy5Qx8gHfu5vHOy79nTivlv?=
- =?us-ascii?Q?0VWzal8FmBhLLeq4fMeet6BrfAV7HXhEHxdXjs1fHxTgZD7O7JqHiytoNWnQ?=
- =?us-ascii?Q?8apj+yyP4bpXIhGR9mfsWJl2CYkSYMXL17xZqm4fsJu50MPIv0SYpdek08ak?=
- =?us-ascii?Q?anzfoOUOLQWgRjwBn9x4enYqglxGq9QYuzLFaQhiOZx1Vm46Kq/YcQizDJyU?=
- =?us-ascii?Q?aH9iVVnuLXyHF081E6rWmYX/SWusCpxS+Suo7deeRysmIlrufdFl1bGqTeP9?=
- =?us-ascii?Q?OoLdwlNkLsDPC1eQLOSN3tOxhw7HWKxm8proMkQXVsDKtIIlZ3q3Q4F4635H?=
- =?us-ascii?Q?ypRZ3QsRfAohcac0mQ9GrrUqfrpg9SEGrjvtN5dwEXDAIxasTQxjQt3y4E75?=
- =?us-ascii?Q?F3p7H39apXDA6afq2z5t6th+KEnNPbKc8vjI2SNy7oTa4WO+0lOwPfjnVlOd?=
- =?us-ascii?Q?QzXvz4WGMjaZoBx/5eCobu8kcuiZMIwkCNu+?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(1800799024)(82310400026)(36860700013)(376014)(7416014)(14060799003)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 07:45:57.3702
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f6bceba-7f59-48df-93b5-08ddeb8715c2
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F9C.EURPRD83.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB11089
+	Thu, 04 Sep 2025 07:47:46 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-76e4fc419a9so815102b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 00:47:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756972064; x=1757576864; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=q88hKfU8Hy8EIQha6HXQ97z19Xx4zKmGDo4bPrKg7sY=;
+        b=JOXhGHCKQEkuXU+cNSH32+27e25C0rKa5yLZK/qAmwA019IKEW4ZXa1gHCQKH5Qb98
+         rm/OherZp6x988jGWajtjQtJuF1qnd3taFgDqMdlpi+w9b/0U9W+JpSprfEvIi4Oqu97
+         Qg+s/8nZZHdeA94SdVky/HMnj6YMn7usg1xhNL+D5bJ4bs6Zax6kis0iwPbVmgEoS4X5
+         kXK9AzaMWkrWfrQ0KMH2UUvOuwbaAUeGt80H7q1wI/43AsxUWoXdB6ewkwxGO+Sqo/hA
+         j8vLnmTbcketLCaON4UhR7zkSi/cXnZLRwtJHOxadcdoHlgi0YKHTkaUQwRiGZ/JMmsU
+         cFbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756972064; x=1757576864;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=q88hKfU8Hy8EIQha6HXQ97z19Xx4zKmGDo4bPrKg7sY=;
+        b=JF83tLJ3n1CS04bzdfDY6yJy9yg8avn0XxyGRAjAnDPn0gbbwZlTOciFqGShy1UTUN
+         E1MnZ04P5+vEgqnzdQ9Ku+L5gZG940YOpQDY1LXUn/tJUPHzzZfBU030L6jPt5DK6dx7
+         4MKMU+mh1Ow3GGKAkxjUhy9Cz8Zb1EPBAhErEF4WM5QrXyMNjds5NKx1ynWQZWbEW63H
+         9FT9bAOx06aQZKBC+pT+fG/dreS3lj7gPcJ42aXWb9Y3P9jHxP4497ElNtRTMxwY1vOA
+         Ifpa3pFiacz0BXoGufJ3QwUCXejAg4PSlF95DvkAlrQJbZBX3YKZ53qo5qWTN0iE58xj
+         mYMQ==
+X-Gm-Message-State: AOJu0Yx3VCsTLzjwUd+0O4L2685ftB4fi390ZNJR7P/pnIXd8o2dQJ/X
+	KmbZaurE/rhZFo845p9viEm6f7c4G+TiYCeXMdgqKoTj3W497Mf8kRPB
+X-Gm-Gg: ASbGnctqPRjLCm/39IXmDu6XmCJv/aF8qMSfZjvLuJE8pUobqkfLdtIpsgaixJgV8aT
+	5Dxu2JrogEW3RmX9VSnpzil8Q/WIWrWLHbmdraD6b10dFbUQlD4tu9hvVF0s0ut7dW/PGjbtHpD
+	R1D+lrSC57bFfQ2k2mDOUho/V+B8w+3jH4Lux71AMKRYVPSUY9E0rVsWVB04eDYPubsQwHr95SG
+	dnupfNOMPGqdHe2gg/8rmDFAOg+2DNbyjBM+7HfTJwZMnJD9G+p1WRhITITLskXt/GtYJU1DgwG
+	keS86CgWSI35F4G7OS94yq3qE0s6uLHLg1mIq36TBRDsbzKaEFFb/Q9Fc7zDCfpzkzZrtWLkyiI
+	DnfD1dzqIC1cQX8+zU9ECP0AklGPQZxWpV1soDenC52eVy4Bh2tE4
+X-Google-Smtp-Source: AGHT+IFOMFzYlxH6hEamwoRKC2c4mONqfkPJG3ZH/sTJm3Oh4YrKkFfiMYAINhoGKkCZ2ACat3AIlw==
+X-Received: by 2002:a05:6a20:9144:b0:243:a9b6:dea2 with SMTP id adf61e73a8af0-243d6f02e4emr27118768637.29.1756972064183;
+        Thu, 04 Sep 2025 00:47:44 -0700 (PDT)
+Received: from localhost ([106.118.103.156])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4cd073f476sm16119124a12.20.2025.09.04.00.47.42
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 04 Sep 2025 00:47:43 -0700 (PDT)
+From: Mengchen Li <mengchenli64@gmail.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mengchen Li <mengchenli64@gmail.com>
+Subject: [PATCH] arm64: kgdb: Ensure atomic single-step execution
+Date: Thu,  4 Sep 2025 15:47:23 +0800
+Message-Id: <1756972043-12854-1-git-send-email-mengchenli64@gmail.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_004610_763863_502265D5 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20250904_004745_443929_73DB7CB3 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,30 +93,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrey,
+The existing KGDB single-step handling on ARM64 is susceptible to
+interference from external interrupts. If an interrupt arrives in the
+narrow time window between the execution of the instruction under test
+and the generation of the step exception, the CPU will vector to the
+interrupt handler (e.g., el1_interrupt -> __el1_irq) instead of
+triggering the debug exception immediately.
 
-[...]
-> >  /**
-> > - * KUNIT_EXPECT_KASAN_FAIL - check that the executed expression produces a
-> > - * KASAN report; causes a KUnit test failure otherwise.
-> > + * KUNIT_EXPECT_KASAN_RESULT - check that the executed expression
-> > + * causes a KUnit test failure when the result is different from @fail.
->
-> What I meant here was:
->
-> KUNIT_EXPECT_KASAN_RESULT - checks whether the executed expression
-> produces a KASAN report; causes a KUnit test failure when the result
-> is different from @fail.
+When the step exception is finally taken, the context is no longer that
+of the original instruction. This causes the debugger to appear "stuck",
+as it repeatedly tries to single-step through the interrupt handler's
+code (e.g., irq_enter_rcu()) instead of the target code.
 
-This is much clear. I'll modified the comment this again.
+The fix is to make the single-step operation atomic by masking interrupts
+for its duration:
+1. Upon receiving a step ('s') request from GDB, save the current
+   PSTATE and then mask IRQs by setting the PSTATE.I bit.
+2. After the single-step exception is taken, in kgdb_single_step_handler(),
+   disable the kernel's single-step mechanism and meticulously restore
+   the original interrupt mask state from the saved PSTATE.
 
-[...]
+This guarantees the instruction is executed without interruption and the
+debug exception is taken in the correct context.
 
-> Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
+As a result of this new approach, the following cleanups are also made:
+- The global `kgdb_single_step` flag is removed, as state is now precisely
+  managed by `kgdb_cpu_doing_single_step` and the interrupt mask.
+- The logic to disable single-step and manage the flag in the 'c'ontinue
+  case is removed, as it is rendered redundant.
+- The call to `kernel_rewind_single_step()` is unnecessary and is removed.
 
-Thanks :)
+Tested on OrangePi 3B (RK3566) via serial console (kgdboc);
+allows reliable single-stepping with GDB where it previously failed.
 
---
-Sincerely,
-Yeoreum Yun
+Signed-off-by: Mengchen Li <mengchenli64@gmail.com>
+---
+ arch/arm64/kernel/kgdb.c | 49 ++++++++++++++++++++----------------------------
+ 1 file changed, 20 insertions(+), 29 deletions(-)
+
+diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
+index 968324a..ee8a7e3 100644
+--- a/arch/arm64/kernel/kgdb.c
++++ b/arch/arm64/kernel/kgdb.c
+@@ -101,6 +101,8 @@ struct dbg_reg_def_t dbg_reg_def[DBG_MAX_REG_NUM] = {
+ 	{ "fpcr", 4, -1 },
+ };
+ 
++static DEFINE_PER_CPU(unsigned int, kgdb_pstate);
++
+ char *dbg_get_reg(int regno, void *mem, struct pt_regs *regs)
+ {
+ 	if (regno >= DBG_MAX_REG_NUM || regno < 0)
+@@ -128,25 +130,15 @@ int dbg_set_reg(int regno, void *mem, struct pt_regs *regs)
+ void
+ sleeping_thread_to_gdb_regs(unsigned long *gdb_regs, struct task_struct *task)
+ {
+-	struct cpu_context *cpu_context = &task->thread.cpu_context;
++	struct pt_regs *thread_regs;
+ 
+ 	/* Initialize to zero */
+ 	memset((char *)gdb_regs, 0, NUMREGBYTES);
+ 
+-	gdb_regs[19] = cpu_context->x19;
+-	gdb_regs[20] = cpu_context->x20;
+-	gdb_regs[21] = cpu_context->x21;
+-	gdb_regs[22] = cpu_context->x22;
+-	gdb_regs[23] = cpu_context->x23;
+-	gdb_regs[24] = cpu_context->x24;
+-	gdb_regs[25] = cpu_context->x25;
+-	gdb_regs[26] = cpu_context->x26;
+-	gdb_regs[27] = cpu_context->x27;
+-	gdb_regs[28] = cpu_context->x28;
+-	gdb_regs[29] = cpu_context->fp;
+-
+-	gdb_regs[31] = cpu_context->sp;
+-	gdb_regs[32] = cpu_context->pc;
++	thread_regs = task_pt_regs(task);
++	memcpy((void *)gdb_regs, (void *)thread_regs->regs, GP_REG_BYTES);
++	/* Special case for PSTATE */
++	dbg_get_reg(33, gdb_regs + GP_REG_BYTES, thread_regs);
+ }
+ 
+ void kgdb_arch_set_pc(struct pt_regs *regs, unsigned long pc)
+@@ -195,18 +187,12 @@ int kgdb_arch_handle_exception(int exception_vector, int signo,
+ 		 * over and over again.
+ 		 */
+ 		kgdb_arch_update_addr(linux_regs, remcom_in_buffer);
+-		atomic_set(&kgdb_cpu_doing_single_step, -1);
+-		kgdb_single_step =  0;
+-
+-		/*
+-		 * Received continue command, disable single step
+-		 */
+-		if (kernel_active_single_step())
+-			kernel_disable_single_step();
+-
+ 		err = 0;
+ 		break;
+ 	case 's':
++		/* mask interrupts while single stepping */
++		__this_cpu_write(kgdb_pstate, linux_regs->pstate);
++		linux_regs->pstate |= (1 << 7);
+ 		/*
+ 		 * Update step address value with address passed
+ 		 * with step packet.
+@@ -217,15 +203,12 @@ int kgdb_arch_handle_exception(int exception_vector, int signo,
+ 		 */
+ 		kgdb_arch_update_addr(linux_regs, remcom_in_buffer);
+ 		atomic_set(&kgdb_cpu_doing_single_step, raw_smp_processor_id());
+-		kgdb_single_step =  1;
+ 
+ 		/*
+ 		 * Enable single step handling
+ 		 */
+ 		if (!kernel_active_single_step())
+ 			kernel_enable_single_step(linux_regs);
+-		else
+-			kernel_rewind_single_step(linux_regs);
+ 		err = 0;
+ 		break;
+ 	default:
+@@ -252,9 +235,17 @@ NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
+ 
+ int kgdb_single_step_handler(struct pt_regs *regs, unsigned long esr)
+ {
+-	if (!kgdb_single_step)
+-		return DBG_HOOK_ERROR;
++	unsigned int pstate;
++
++	kernel_disable_single_step();
++	atomic_set(&kgdb_cpu_doing_single_step, -1);
+ 
++	/* restore interrupt mask status */
++	pstate = __this_cpu_read(kgdb_pstate);
++	if (pstate & (1 << 7))
++		regs->pstate |= (1 << 7);
++	else
++		regs->pstate &= ~(1 << 7);
+ 	kgdb_handle_exception(0, SIGTRAP, 0, regs);
+ 	return DBG_HOOK_HANDLED;
+ }
+-- 
+2.7.4
+
 
