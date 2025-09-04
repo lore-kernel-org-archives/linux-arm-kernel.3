@@ -4,90 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4742FCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 04:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 710ADCA1014
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 05:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Npc2kRdoiAQT8Oq6xsDbKE8d7v4q00xjFvwRzwJUB5g=; b=p6Kbsvvj806xkusrSwwlaCbK/w
-	PmagiyzAnyrO2fdMmPuurOMAKZPbnpjk/KnhVV4qfxVJNFMaRPkeHpKy9udb/1mbpVAgwNfXN7Z90
-	kNecF0+d4r0EdTrFnyY/kXqU/IZ/Nog8fy+jBIMXs/hz/vxq9yDGrnY/kf0yyVqSfDtA8RRNNCyaJ
-	n1orDZdqG1sooI0fB382nto18rAuWUv66EcZ5NuLFk5JqWwPLOpN59gEGcTt1H+kwBClXTjv6Sazm
-	eyHW5HLeCRnHdSJYntnj6MkMAxofgg71b9ONtpU/sVeYRaClke067iSDv9+TVkilouUlXUfHtM8P7
-	v6SxTgSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7YPx8unmpU8vWrZR96a9/B0BxfzL1aZP2vfGysMSKLY=; b=IM3qqchS+6cP+K93fN1l6oAPDH
+	Y2t5gKMcidTaEY9t70ZmD+zbP85a6LP/ax8CKmfLDZl9ib2wGLZaEcAueQf//82ZyKwwOaXMv3Ggp
+	OOL9ekA9m0vlNaP6aV5JA/7vUetfwOwhyAOW1bpRXXfej0sUHul+B0iSinYQmj4QkP5T9I6VOlpkm
+	rJUxsFlVDiofyJ619WMrBkppLR5WvbrHGUQFpoNyPX4QICvxVISA0WmkMSIsmvlVc/NCkSbKI6Pga
+	y5lWufp+nkHuvX1Sjcd0ioIv+7eaqeA6pYoklxDio8gqvWd6FIVZWqwbk1Zxw6No3bcY6DxCuQRtM
+	H3Tb6hDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu1yx-0000000969W-2JLc;
-	Thu, 04 Sep 2025 04:53:59 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1uu2FL-00000009ARj-2Mtf;
+	Thu, 04 Sep 2025 05:10:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu1wE-000000095FO-3e3w
+	id 1uu0w7-00000008lRF-0jrx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 04:51:12 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b4c3d8bd21eso355454a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 21:51:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756961470; x=1757566270; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Npc2kRdoiAQT8Oq6xsDbKE8d7v4q00xjFvwRzwJUB5g=;
-        b=H+BiOpmSzq7EiPFvxaAjaMhPUzfYzxW5ORNmhUQRzIarr/DJ+D7HpIhYQX8QKRdKyp
-         6zaxclZbqJmY4uM2y/x5L7Q6PolIxgjKaNXflnwZL35vOTLewPQn+dh2TwjleL/g10tN
-         OXm+F5Zj6qsNn4ZtRXWwtv9zhQqdF0HXoBsAjfhsnQowjJmA3R8DNY7fBuuYoVULwJUq
-         LyBnxUzFy4VVJF542298dg3XiSOXUUtLiUxrKI7wRQUWAXFBTiHKPyqFferPzdr+Nuv2
-         vsJM4wgHEDi9CUsi7DTM94NHOF9zU9OQoDR5/K7nLu/s9K9JAG8Wy0aIOZ/7Jl0fY9la
-         njew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756961470; x=1757566270;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Npc2kRdoiAQT8Oq6xsDbKE8d7v4q00xjFvwRzwJUB5g=;
-        b=sm5BGs//FH/Mtv5VRUpHUiLbdmfyG8/U0Ha6s0QxZ4j4rjhXRZPkGdFq+iQZmiORs4
-         pZTFQeM8o7IOJzR9ncD2nwxlDGhYkCv0A9dsEuWzWbpxoIgE3u+Iu6/6cnC83JiC8VH9
-         enkUG7Tjtsq8qt7LOktHjmemgjYx/Ra/pDFyOgZKPJrjFY+j06so6CMF1DVPLZaC9oZd
-         8QVLUFH9IxLp5ZEpTkX8jyhcsbrD6dgvwkVAlK1vH/6i2vpQLT2VPvpczTPZChSZoMRC
-         5CYyi/kzV5DaY6VcdbxRYlUxRc8r+W6zRTcVVolxs2SW2UZPaP0OVnb6AHPQb8eGGDfE
-         JwqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU3JogLbh36i55LKeHzvakwMLFxJieHpDs7bz/aNxJBQhVZGUZq809/7i7FhYx0NmvJSIZqycSr/0D9Q40+vqBX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfvRITiEhofweTZGQd44jisSS8hg65eWrI/36sPN4BQOR02Jlb
-	Ex40fQ8F6P/Db2+gUaCOixacuszois6AyNfqRlVGvigkkUvjbcnAjiSyoJ1oSmeRQkI=
-X-Gm-Gg: ASbGncum2EueSuvqDMY0W0OU/T11DrGv2H14PaxsYPoTr9GuMB0m4vnzuKNropSMOOU
-	YOm36S/A8uWxmq/gDwllRrCfsnb/oo5vGKbM5hTKMhZNvfbNsz/LjSviuIt3Z3jKwUjL+bdDf+i
-	ZBXUrlXU5CQyUOCbsIVVXvEDv691ftJfdw6RmNZqiO1SaGTfjHrI4erphXytxSvkmtn5Zi5e5s1
-	70QX/88rsM1iqE4tRAHjta6OYBPl/Ep9M6e9S/mDgUtgGYIcfdxthckoJ558V4O31Dy9fy3JR9M
-	ffGGjVm+rHqcQCRvVp5BncEDUYUJEOvXeqn6L0B868uRPgPDVijRLGmUWSPiCUJ+XTJAM3MVPFP
-	N3ZgfDuSz0pbCtzpR7fmaA75Xi5NF6ZRwYEE=
-X-Google-Smtp-Source: AGHT+IE8fhkKtW59L/QwQVMzIGYIlMT+Sa1j2ECntDz+uUUuSYYnswDb8stymALrifXH0JUgm5Q2WA==
-X-Received: by 2002:a17:902:d501:b0:245:f1bb:9bf9 with SMTP id d9443c01a7336-24944870959mr275858785ad.12.1756961469626;
-        Wed, 03 Sep 2025 21:51:09 -0700 (PDT)
-Received: from localhost ([122.172.87.183])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2490648c89bsm177058085ad.109.2025.09.03.21.51.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 21:51:08 -0700 (PDT)
-Date: Thu, 4 Sep 2025 10:21:07 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Liao Yuanhong <liaoyuanhong@vivo.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"open list:CPU FREQUENCY SCALING FRAMEWORK" <linux-pm@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH] cpufreq: mediatek: avoid redundant conditions
-Message-ID: <20250904045107.rweiwjv3glbehuwb@vireshk-i7>
-References: <20250903121228.385766-1-liaoyuanhong@vivo.com>
+	Thu, 04 Sep 2025 03:47:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1997944CB6;
+	Thu,  4 Sep 2025 03:46:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D57B5C4CEFB;
+	Thu,  4 Sep 2025 03:46:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756957616;
+	bh=gygAMbYS4/B7LWfdzKi5nAbFlKtsg4fEng11C4rHscA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ax77PiwhKcQSmL+erPQOSQzZtwHMjB7MlrBfQJMwgdIsaxbt+573t0SUH6yHrHkJ3
+	 MkT+5bEPP6ahiL4X3gvDSnlCKUBMkFLF8vbl053+vkwlFs0RPik7MNgDTSwHdxm/V2
+	 Y83JLwcOw35riFnhHzBlZ3s0oit68/A2QdGsOM7+WcdUBA2/0ouo74mLA6iAAmKXrs
+	 xjB/uwejT5g799laygAHq46UhgFrmajI57kspqGI5QtFomOny8Y4lVPFFevWIMlWXj
+	 1gu7EPzf0cBMhXuAULqTZSIj1HcBgF8lAEGs2Fa232iAMVQcHfE0DM9Zpg0Z4GQLlp
+	 shQFx2TjNSQhQ==
+From: Kees Cook <kees@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Kees Cook <kees@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Zhen Lei <thunder.leizhen@huawei.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?UTF-8?q?Micha=C5=82=20Pecio?= <michal.pecio@gmail.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Nathan Chancellor <nathan@kernel.org>,
+	Vegard Nossum <vegard.nossum@oracle.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Marco Elver <elver@google.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Ramon de C Valle <rcvalle@google.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	x86@kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v2 9/9] ARM: traps: Implement KCFI trap handler for ARM32
+Date: Wed,  3 Sep 2025 20:46:48 -0700
+Message-Id: <20250904034656.3670313-9-kees@kernel.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250904033217.it.414-kees@kernel.org>
+References: <20250904033217.it.414-kees@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250903121228.385766-1-liaoyuanhong@vivo.com>
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5332; i=kees@kernel.org; h=from:subject; bh=gygAMbYS4/B7LWfdzKi5nAbFlKtsg4fEng11C4rHscA=; b=owGbwMvMwCVmps19z/KJym7G02pJDBk7OUv3bN80e35o3zHx0myb+o8qKnZfg7IPSfIduFpVL 71eyfxERykLgxgXg6yYIkuQnXuci8fb9nD3uYowc1iZQIYwcHEKwEQ+dDD8FfttyuvjKDe7J/Di h2WqfeW1jRw+wb032a1sLxWWimQ+YPgft3Ij5+HZqmcvrGNlTr+uq1A4R/QWm9aTPZevstUHL0j hBwA=
+X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_215110_914904_C6E61A66 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20250903_204659_321402_11AB28E6 
+X-CRM114-Status: GOOD (  22.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,33 +105,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03-09-25, 20:12, Liao Yuanhong wrote:
-> While 'if (i <= 0) ... else if (i > 0) ...' is technically equivalent to
-> 'if (i <= 0) ... else ...', the latter is vastly easier to read because
-> it avoids writing out a condition that is unnecessary. Let's drop such
-> unnecessary conditions.
-> 
-> Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
-> ---
->  drivers/cpufreq/mediatek-cpufreq.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/cpufreq/mediatek-cpufreq.c b/drivers/cpufreq/mediatek-cpufreq.c
-> index fae062a6431f..00de1166188a 100644
-> --- a/drivers/cpufreq/mediatek-cpufreq.c
-> +++ b/drivers/cpufreq/mediatek-cpufreq.c
-> @@ -123,7 +123,7 @@ static int mtk_cpufreq_voltage_tracking(struct mtk_cpu_dvfs_info *info,
->  						      soc_data->sram_max_volt);
->  				return ret;
->  			}
-> -		} else if (pre_vproc > new_vproc) {
-> +		} else {
->  			vproc = max(new_vproc,
->  				    pre_vsram - soc_data->max_volt_shift);
->  			ret = regulator_set_voltage(proc_reg, vproc,
+ARM32 KCFI violations currently show as generic "Oops - undefined
+instruction" errors, making debugging CFI failures difficult. Add a
+proper KCFI trap handler similar to the aarch64 implementation to
+provide clear CFI error messages.
 
-Applied. Thanks.
+The GCC ARM32 KCFI implementation uses UDF instructions with a specific
+encoding pattern:
+- UDF instruction format: cccc 0111 1111 imm12 1111 imm4
+- 16-bit immediate reconstructed from bits 19-8 and 3-0
+- KCFI encoding: 0x8000 | (type_reg_num << 5) | (target_reg_num & 31)
+- Bit 15: KCFI trap identifier (0x8000)
+- Bits 9-5: Type ID register field (0x1F when unavailable)
+- Bits 4-0: Target address register number
 
+When the type register field is 0x1F (unavailable due to stack
+spilling), the handler walks back up to 5 preceding instructions to
+locate the movw/movt instruction pair that loads the 32-bit type ID,
+similar to x86 CFI trap reconstruction.
+
+The undef_hook pattern matching includes the KCFI bit requirement to
+ensure the handler is only called for KCFI violations, not arbitrary
+UDF instructions.
+
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Zhen Lei <thunder.leizhen@huawei.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: "Michał Pecio" <michal.pecio@gmail.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Sami Tolvanen <samitolvanen@google.com>
+Cc: <linux-arm-kernel@lists.infradead.org>
+---
+ arch/arm/kernel/traps.c | 102 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 102 insertions(+)
+
+diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+index afbd2ebe5c39..f2e4e18541e0 100644
+--- a/arch/arm/kernel/traps.c
++++ b/arch/arm/kernel/traps.c
+@@ -27,6 +27,7 @@
+ #include <linux/sched/task_stack.h>
+ #include <linux/irq.h>
+ #include <linux/vmalloc.h>
++#include <linux/cfi.h>
+ 
+ #include <linux/atomic.h>
+ #include <asm/cacheflush.h>
+@@ -40,6 +41,7 @@
+ #include <asm/stacktrace.h>
+ #include <asm/system_misc.h>
+ #include <asm/opcodes.h>
++#include <linux/bitfield.h>
+ 
+ 
+ static const char *handler[]= {
+@@ -685,6 +687,106 @@ asmlinkage int arm_syscall(int no, struct pt_regs *regs)
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_CFI
++/*
++ * ARM32 KCFI trap handler.
++ * UDF instruction format: cccc 0111 1111 imm12 1111 imm4
++ * Immediate is reconstructed from bits 19-8 (12 bits) and bits 3-0 (4 bits)
++ * KCFI immediate encoding: 0x8000 | (0x1F << 5) | (target_reg_num & 31)
++ * - Bit 15: KCFI trap identifier (0x8000)
++ * - Bits 9-5: Type ID register field (0x1F when invalid due to stack spilling)
++ * - Bits 4-0: Target address register number
++ */
++#define CFI_UDF_KCFI_BIT    BIT(15)	  /* KCFI identifier bit (0x8000) */
++#define CFI_UDF_IMM_TARGET  GENMASK(4, 0) /* Target register (bits 4:0) */
++#define CFI_UDF_IMM_TYPE    GENMASK(9, 5) /* Type register (bits 9:5) */
++
++/* UDF base pattern with KCFI bit: cond=0xe, 0x7f, xxxx, 1xxx, 0xf, xxxx */
++#define CFI_UDF_IMM_BASE    0xe7f008f0
++#define CFI_UDF_IMM_MASK    0xfff008f0	/* Mask for UDF + KCFI bit matching */
++
++static int cfi_udf_handler(struct pt_regs *regs, unsigned int instr)
++{
++	unsigned long target;
++	u32 target_reg, type_reg, type, imm16;
++
++	/* Reconstruct 16-bit immediate from bits 19-8 and 3-0 */
++	imm16 = ((instr >> 4) & 0xfff0) | (instr & 0x0f);
++
++	target_reg = FIELD_GET(CFI_UDF_IMM_TARGET, imm16);
++	type_reg = FIELD_GET(CFI_UDF_IMM_TYPE, imm16);
++
++	if (target_reg >= 16) {
++		pr_err("CFI UDF handler: invalid target register %u\n", target_reg);
++		return 1;
++	}
++
++	target = regs->uregs[target_reg];
++
++	/* Type register field is set to all 1s (0x1F) when invalid due to stack spilling */
++	if (type_reg == 0x1F) {
++		u32 *pc = (u32 *)regs->ARM_pc;
++		int i;
++
++		type = 0;
++		/* Walk back up to 5 instructions to find movw/movt pair for type ID */
++		for (i = 1; i <= 5; i++) {
++			u32 instr_prev = __mem_to_opcode_arm(pc[-i]);
++
++			/* Check for movw: cccc 0011 0000 imm4 Rd imm12 */
++			if ((instr_prev & 0x0ff00000) == 0x03000000) {
++				u32 imm16 = ((instr_prev >> 4) & 0xf000) | (instr_prev & 0xfff);
++				type |= imm16;
++			}
++			/* Check for movt: cccc 0011 0100 imm4 Rd imm12 */
++			else if ((instr_prev & 0x0ff00000) == 0x03400000) {
++				u32 imm16 = ((instr_prev >> 4) & 0xf000) | (instr_prev & 0xfff);
++				type |= (imm16 << 16);
++			}
++		}
++		if (type == 0)
++			pr_err("CFI UDF handler: failed to find type value\n");
++	} else {
++		if (type_reg >= 16) {
++			pr_err("CFI UDF handler: invalid type register %u\n", type_reg);
++			return 1;
++		}
++
++		type = regs->uregs[type_reg];
++	}
++
++	switch (report_cfi_failure(regs, regs->ARM_pc, &target, type)) {
++	case BUG_TRAP_TYPE_BUG:
++		die("Oops - CFI", regs, 0);
++		break;
++	case BUG_TRAP_TYPE_WARN:
++		break;
++	default:
++		return 1;
++	}
++
++	/* Skip the UDF instruction */
++	regs->ARM_pc += 4;
++	return 0;
++}
++
++static struct undef_hook cfi_undef_hook = {
++	.instr_mask	= CFI_UDF_IMM_MASK,
++	.instr_val	= CFI_UDF_IMM_BASE,
++	.cpsr_mask	= 0,
++	.cpsr_val	= 0,
++	.fn		= cfi_udf_handler,
++};
++
++static int __init arm_cfi_init(void)
++{
++	register_undef_hook(&cfi_undef_hook);
++	return 0;
++}
++
++early_initcall(arm_cfi_init);
++#endif /* CONFIG_CFI */
++
+ #ifdef CONFIG_TLS_REG_EMUL
+ 
+ /*
 -- 
-viresh
+2.34.1
+
 
