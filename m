@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D928ECA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3917DCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XFji0/x3X5YusfPZs9m4W+0Sur+eAL9XZMjQEDnUex4=; b=L7udZaeKBj3wl7WgEcBercgQP0
-	Fg3uDA6/pKjKjY6xSYmJbDBlXJ/yOMwYrx/6ImbvVkLxgRy3vsZQ+jIWUXaW7u+HxXbHg50imtzOU
-	+jUiI712HnaxVBjWqnbXAKiFbab/jH9nYQMJsRJ6l8UH38Q/bvyulMa3GZLV6cLXlQBTsFDJjMdlB
-	Mb8VACnqXqJ1LAjH0Xg/MMYH9WNKWVLS75uauyun6IVp4accSiyfWCxWhTtB7K8cuKKk6qmsrzKH1
-	MVhzR2dpxKDJ0T52ltQ/QKaoArNSVb252l9BSEDuTtR1NK1+dJM/XXJwdHatpclpb8PqTbo2ntzgK
-	3JZbF75Q==;
+	bh=UtPlYfy5hCIEeeacgZCc9O6oMPWKVLl1gTDYJ1AG9D0=; b=sLMIsjaats/NGaCrajkS2v72nS
+	pOfM8+LT8TLRBqJQ7ZkO725jOl9+BlvMajWxduwgGTj5Mg5nn0MCw5lSzTo9P9+BLsMpVrWs9g+pf
+	6UQH5HdytMlmr+5San5KhCeHV9lZ91eOL5+3aCzCPhTT31vpyhgouP4vLcnvHGDY+xSOsveLGm38c
+	8NcBYNUCt7EMJhvOKGPrxfmIPgYoAY3a70Tjuq80J/k/FNFIYg/K6pVbuhHXa6rEF6VipMcXMiV3z
+	0tcwBEki6g9TKINvX3jbaIO68xf04ndSo8KPEA7MjgYTo8nTCaayCaEKL/6oW8Jefa9ZmgxUHKV1O
+	kLaDiiFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7FR-0000000AuSI-3Dqw;
-	Thu, 04 Sep 2025 10:31:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uu7I9-0000000AvLf-1swu;
+	Thu, 04 Sep 2025 10:34:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu667-0000000AVQi-1N4A
+	id 1uu6HK-0000000AZ82-1LCp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 09:17:39 +0000
+	Thu, 04 Sep 2025 09:29:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A1F7460202;
-	Thu,  4 Sep 2025 09:17:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB8F8C4CEF0;
-	Thu,  4 Sep 2025 09:17:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 71C5F60202;
+	Thu,  4 Sep 2025 09:29:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21C55C4CEF0;
+	Thu,  4 Sep 2025 09:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756977458;
-	bh=0MmnVzpzU6gWyC/cUdsfoXzqPUDCX7NyIifVAJ0azTI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RlAflKCD6F+7Cd0lmVxfjA++Yh0k//cLYBSTZbn9qvmIbftU7fweSjYCeXlU5YIxj
-	 pVKR/ZZzhLiLuHW6ZWjwwXmUsghslV33IDvPasQ5nzaeF70z6jlwenBFan44xblXPP
-	 RMwLmwkuK/t5nyFnfSQzn/GaW3KQzobIcMo07+lkopCcasNBta51q9cnVh9NVQ8y3+
-	 22T4ajyJYSqgKuobUgakXTuWYjdrP2VGKziF79z40Mw+v684KWhJMOdL/NuVGasZsZ
-	 8yapBUWq4w0poU5rYwFRHxVBxjZTRTE4KjLk2Pf7dievHz4xlSrtZu+ju0srNmChfF
-	 BXvePHgyyHEtg==
-Date: Thu, 4 Sep 2025 11:17:35 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Peter Rosin <peda@axentia.se>, Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	upstream@lists.phytec.de
-Subject: Re: [PATCH 1/2] dt-bindings: iio: afe: current-sense-amplifier: Add
- io-channel-cells
-Message-ID: <20250904-tangible-practical-partridge-a1b0e4@kuoka>
-References: <20250903113700.3079626-1-primoz.fiser@norik.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250903113700.3079626-1-primoz.fiser@norik.com>
+	s=k20201202; t=1756978153;
+	bh=nau7kMpEG/k0ioNwzEP756kl3OKRZzgIs8ivDWYdEUM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=j51DwJykRcurtpU2Sp+0A7NQ1QLelFcrZOLttQSfUYPH03PqgVuRVF9/vr4XKogTb
+	 ArFiIlFJb/HW5VOV426tMt0hba7HO0fW5ZZOPyQJjkTinEWMIq6Goj254G0oKfLSj4
+	 DPFmBrQbVzmVE7uQWq4OWXHGRiPeh+LxdsxzoIGocRMsfOPuQ2XQtt9OWWGkucB5a1
+	 IfmZ2f92A9n5F1i4LkuP5A9Ipf4Q4DfWcyf7Ug/iNATlXIWQVAU7XeqJYXfod8vqxS
+	 k9rrjHVz24d7tTqtCy2va7Y2mpFeh6pN0w3jrn9W1bAoRRbgxwOnwJIiQ4Uv46czul
+	 EzRGro0fnPZVw==
+Received: from [131.175.126.3] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uu6HG-00000003Fjy-1W1K;
+	Thu, 04 Sep 2025 09:29:10 +0000
+Date: Thu, 04 Sep 2025 10:29:09 +0100
+Message-ID: <87wm6ezhui.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: p@sswd.pw
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	leedongha <gapdev2004@gmail.com>
+Subject: Re: [PATCH] arm64: kvm: Fix incorrect VNCR invalidation range calculation
+In-Reply-To: <20250903123949.24858-1-p@sswd.pw>
+References: <20250903123949.24858-1-p@sswd.pw>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 131.175.126.3
+X-SA-Exim-Rcpt-To: p@sswd.pw, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, gapdev2004@gmail.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,27 +88,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 01:36:59PM +0200, Primoz Fiser wrote:
-> The current-sense-amplifier is an IIO provider thus can be referenced by
-> IIO consumers (via "io-channels" property in consumer device node). Such
-> provider is required to describe number of cells used in phandle lookup
-> with "io-channel-cells" property, otherwise the following kernel error
-> is present:
+On Wed, 03 Sep 2025 13:39:49 +0100,
+p@sswd.pw wrote:
 > 
->   OF: /iio-hwmon: could not get #io-channel-cells for /current-sense
-
-Also, how can I reproduce this error? Do you paste here real errors or
-just some invented ones from some out of tree code (hint: such would not
-be relevant).
-
+> From: leedongha <gapdev2004@gmail.com>
 > 
-> Also fixes the following dtbs_check warning:
+> The code for invalidating VNCR entries in both kvm_invalidate_vncr_ipa()
+> and invalidate_vncr_va() incorrectly uses a bitwise AND with `(size - 1)`
+> instead of `~(size - 1)` to align the start address. This results
+> in masking the address bits instead of aligning them down to the start
+> of the block.
 > 
->   current-sense: '#io-channel-cells' does not match any of the regexes:
->   'pinctrl-[0-9]+' from schema $id:
->   http://devicetree.org/schemas/iio/afe/current-sense-amplifier.yaml#
+> This bug may cause stale VNCR TLB entries to remain valid even after a
+> TLBI or MMU notifier, leading to incorrect memory translation and
+> unexpected guest behavior.
+> 
+> Credit
+> Team 0xB6 in bob14:
+> DongHa Lee (@GAP-dev)
+> Gyujeong Jin (@G1uN4sh)
+> Daehyeon Ko (@4ncienth)
+> Geonha Lee (@leegn4a)
+> Hyungyu Oh (@DQPC_lover)
+> Jaewon Yang (@R4mbb1)
+> 
+> Signed-off-by: leedongha <gapdev2004@gmail.com>
 
-Best regards,
-Krzysztof
+The SoB of the person sending the patch is required.
 
+> ---
+>  arch/arm64/kvm/nested.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 77db81bae86f..d0ddce877b5d 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -847,7 +847,7 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
+>  
+>  		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+>  							    vt->wr.level));
+> -		ipa_start = vt->wr.pa & (ipa_size - 1);
+> +		ipa_start = vt->wr.pa & ~(ipa_size - 1);
+>  		ipa_end = ipa_start + ipa_size;
+>  
+>  		if (ipa_end <= start || ipa_start >= end)
+> @@ -887,7 +887,7 @@ static void invalidate_vncr_va(struct kvm *kvm,
+>  
+>  		va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+>  							   vt->wr.level));
+> -		va_start = vt->gva & (va_size - 1);
+> +		va_start = vt->gva & ~(va_size - 1);
+>  		va_end = va_start + va_size;
+>  
+>  		switch (scope->type) {
+
+Yup, absolutely correct. Thanks a lot for spotting this.
+With the above nit addressed:
+
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
