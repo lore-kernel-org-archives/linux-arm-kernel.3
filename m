@@ -4,71 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1C0CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 06:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6491CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 06:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=It85YCyY0Z6V3OSHiMm2GKafJoABnoz9EzMpSHJC0Lo=; b=14CA5HN9DjvVqA070OYJMtm3KP
-	4kbx/kzAFMGugIIIk5Lv8qTQksxl0+UVbUqhGVfD9cnhGnHBtqWKpIzJ/w9Z8hmDg/q049OM5S158
-	sSI7qFnoRvoybpQzug61YbKPZAJkiz04gu/pIRpRqgRd6f6vGIDhAkXzUWFfibfJwg5FwGCsXALY9
-	4oHkny6AuAFUMFCHe6WtBMG5wNFaAi8x2/Z7yJNra/VHkXyRfRS/QbkZ/TyAXPH/S+KqE3Wv47CyJ
-	lS/k7UpHAzh5d49glXxCOHjqPcpxbiggytcRSPobZhVPswzB5A2cL/tW4DJDi+9NwratO1IIZHhUW
-	NhlIMLSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fM8vAY0Q85Z9EMSXf59mCDlpv1x4CnX0CGNGXY1eJU0=; b=MebcHYalBi2AgWHv+u8hYgXk7s
+	dcGprJgyWI3oH6U6HzmMd2zObUaSrgw3f992fy3ImOKJq3oOoqhc5rkHs517FkLbE8cnDg7UrlRH9
+	YGulejMGQpFd3ErnnSC3wunRfMARGMtgjQfJsblKM8HhTb2D/BmhHwWf+jfL7jLQjR0ZMhE798UTY
+	2m1zzfk0zgi1pThs6gex9fBZOOPPN69JSkPDh/lsRea4C78kvAWgVQWmyhWvouNbxuVvbJJnuFTab
+	kxLFNpomVKNvzmCzIuTYQvzh0bo+kYx1cGvWEz6mN0Q082RjjsOs5187tAdNHX+6DuaDgxDG/ylId
+	npPDLvFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu36F-00000009PMp-1T1P;
-	Thu, 04 Sep 2025 06:05:35 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uu38w-00000009QN2-1j87;
+	Thu, 04 Sep 2025 06:08:22 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu33V-00000009OV9-3Qhf;
-	Thu, 04 Sep 2025 06:02:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756965763;
-	bh=090gkLICbGM7TNk6kExYlvvMe+p36xr/EilWtJfF52g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=YbFApHCMtpPV7aWtDBimSagK7GUlxOLsVOhn2efk4y6D7WTKDqaDKNVh2Qw5HJa49
-	 YT9K5uzYEUyhQS4tVDJXDUPkez3c6hNvH38OH/cZNvjSnvu7ia4Ij18GA5LV6Nq6aV
-	 dkR5BklGOP+AfqjjFFrWhxfvzfXqo76Pd/BqUJsAJtyPWxrIv0x2N1PJvUHzlOrleY
-	 wn/HCFCbSnr/lLPiHhxWv/EvkVBbjTFRlzLfvnUDjmh3oNbYKqXK9g1nFX8YYFBd8I
-	 L2b6AYtvTLSQAsH+Kj07nc0Q6XsBsZR+CrMse/+ajzchGiixuDRRdt6isiKPzCRsTG
-	 nTvYqllWSba2A==
-Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A221A17E0EB8;
-	Thu,  4 Sep 2025 08:02:42 +0200 (CEST)
-Date: Thu, 4 Sep 2025 08:02:39 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Chia-I Wu <olvaffe@gmail.com>
-Cc: Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [RFC PATCH 2/2] drm/panthor: add initial mt8196 support
-Message-ID: <20250904080239.779b5e24@fedora>
-In-Reply-To: <20250903225504.542268-3-olvaffe@gmail.com>
-References: <20250903225504.542268-1-olvaffe@gmail.com>
-	<20250903225504.542268-3-olvaffe@gmail.com>
-Organization: Collabora
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+	id 1uu33r-00000009OgN-0u2i
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 06:03:08 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5846328V3441617;
+	Thu, 4 Sep 2025 01:03:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756965782;
+	bh=fM8vAY0Q85Z9EMSXf59mCDlpv1x4CnX0CGNGXY1eJU0=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=eM4xdPD4AD/A7nqAs4IOXS9dyQxjN+IwfGqB5NLeMLtTsDQxr1V76Dd3PYdto9XGW
+	 y9QCqXLhvA1hho7Zpf0jNMyeyWiRltJWhFzzrCIzr/WnKDRnetXNouYjJ2gSRCxTKb
+	 1pSVzkG9SuPdTep53JAWued/gM2XnmQFBsoWYT7Q=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 584632br4155145
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 4 Sep 2025 01:03:02 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
+ Sep 2025 01:03:02 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 4 Sep 2025 01:03:01 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 584630uh2789507;
+	Thu, 4 Sep 2025 01:03:01 -0500
+Date: Thu, 4 Sep 2025 11:33:00 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
+        <helgaas@kernel.org>, <kishon@kernel.org>, <vigneshr@ti.com>,
+        <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <linux-omap@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH v3] PCI: j721e: Fix programming sequence of "strap"
+ settings
+Message-ID: <a0e1d273-239b-44e5-8ccc-0ba83b2b5839@ti.com>
+References: <20250829091707.2990211-1-s-vadapalli@ti.com>
+ <oztilfun77apxtjxumx4tydkcd2gsalsak4m2rvsry2oooqjna@2yvcx6cnuemm>
+ <b2fb9252-6bfc-45da-973a-31cdfcc86b3d@ti.com>
+ <z3ubracmtlq23yicbrhqjgnzrfoqheffm6cvhfnawlvbu4cmmp@ddu2o7xhw5tz>
+ <48e9d897-2cd3-48ef-b46a-635ae75f5ac6@ti.com>
+ <3wc3t6y5gzzspgfeklsqo3bupfp6gsfy6mls6t66hflcqlqsfk@cu26wv3sow4y>
+ <9d2bba15-52e4-432a-8f7f-a0f5d7c2e4ad@ti.com>
+ <7hxdcjm7evlphkldct7seytno4is7rjkx5vquvtfhpdkzxdhu6@yocrjgzciwu3>
+ <08b87b5f-838b-4f40-ae90-10ded134356e@ti.com>
+ <whinfqhjgqbbvlnuzgbukklqi6gocjji4gakqyycovrse4qq6s@6xq5imqbzvux>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <whinfqhjgqbbvlnuzgbukklqi6gocjji4gakqyycovrse4qq6s@6xq5imqbzvux>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_230246_022372_002D397E 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20250903_230307_342120_EB692926 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +96,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  3 Sep 2025 15:55:04 -0700
-Chia-I Wu <olvaffe@gmail.com> wrote:
+On Wed, Sep 03, 2025 at 06:51:14PM +0530, Manivannan Sadhasivam wrote:
 
-> diff --git a/drivers/gpu/drm/panthor/Makefile b/drivers/gpu/drm/panthor/Makefile
-> index 02db21748c125..75e92c461304b 100644
-> --- a/drivers/gpu/drm/panthor/Makefile
-> +++ b/drivers/gpu/drm/panthor/Makefile
-> @@ -12,4 +12,6 @@ panthor-y := \
->  	panthor_mmu.o \
->  	panthor_sched.o
->  
-> +panthor-$(CONFIG_DRM_PANTHOR_SOC_MT8196) += panthor_soc_mt8196.o
+[...]
 
-Based on the stuff you describe (ASN hash, core mask read from an nvmem
-cell, extra clks/regulators?), I don't think we need per-soc source
-files and per-soc config options. If it becomes too HW specific (no
-abstraction to make it SoC-agnostic), we can reconsider the per-SoC
-file approach, but I believe it can all live in panthor_drv.c for now.
+> 
+> I thought put_noidle() will just reduce the refcount and not invoke the
+> idle/suspend callbacks, but I seem to be wrong here.
+> 
+> Anyway, I guess we have no option here other than to drop the
+> pm_runtime_put_noidle() call. This will keep refcount as 1 and will prevent the
+> parent (genpd) to not enter runtime suspend, but we have to live with it (this
+> was also the previous beahvior as well).
+> 
+> Btw, pm_runtime_set_active/enable change belongs to a separate patch.
+
+I will work on and post the v4 patch with the following change:
+- The commit message and the comment in the code will be updated to
+  indicate that the runtime PM APIs are used to cause 'genpd' to power off
+  and power on the controller.
+
+I assume that the driver changes can remain as they are in this patch given
+that the existing behavior has to be preserved. As j721e_pcie_ctrl_init()
+programs the strap settings, powering off the controller via
+pm_runtime_put_sync() and powering it on via pm_runtime_get_sync() shall
+be implemented within j721e_pcie_ctrl_init() itself leaving the rest of the
+probe function as-is. To summarize, the driver changes will be:
+
+	j721e_pcie_ctrl_init()
+		...Existing code...
+	+	Add pm_runtime_put_sync() here to power off controller
+		...Existing code to program strap settings...
+	+	Add pm_runtime_get_sync() here to power on controller
+		...Existing code...
+
+Please let me know what you think.
+
+Regards,
+Siddharth.
 
