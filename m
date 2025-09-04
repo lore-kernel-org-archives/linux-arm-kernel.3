@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A9ECA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36A8CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B6QZEQAGrZ6/3rkKC265OmTZsvazFci2LpzaEltMG8Y=; b=MDMHJTJsFqLDCE+cjFqUvU4RO+
-	pGu6LDR9Wu6aFQpFSqmnKBJf09dFwHMKAedvoYK6tKu36/ZOG04YOyHqGvULrwLDzIE3Y0AFvP7Za
-	f2M16ZiDd+lRnUFk26hq03N64ZPfxO7ClbzwYRNHuzHldQYzvc80YYm30gThiALFUaaxG/3RmFUgG
-	HJSsigjf0PfK1Z/inAG5om62c5DHyvUTOayX46Ta6+SyCKHfOViub5yiDdrVrzNYB3QRRjQPT6VIY
-	wR4HU/OBiqkIEivk+OsSPv8QGsO1tvwwYTWJUfrWToeF3zmUUR9N0auzTwUdUuaUXM/PMTj8QSZSD
-	3gyB3vEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+akDx7KPRyZqzor3ZGyKyE0ylTHhg8R5D2yByYE2LEo=; b=z9/Bv1p+KexR3mQkxD5DyEWVAE
+	sqFlcfoRmMHC8L0xWZOnUN3rs737Ra3xaXPlRRWkWeH2Hvfpz/HlnfdWy1BPUbC0BBOfm00qmxaO/
+	B055WBnQoEouZUH+qVioqwpwCrbeC2jpNbFeltL+DmgZdMywk32+CuIufPe96yReAHeyY6qroRBni
+	igXvrY/x4s192XZmzDiUoE35WfKHl7+MXARO3kCMBgitWuOZKUo0zSrPcNqkebym5H/YGDACRSZMd
+	GGRSEMdXAlVsFFp+PbHwqDF8PwMCzSpB8uqXQiPAeO6FhU/D2bc+teTgoy1kSdSqpxRz+e6um+G0/
+	+5cMRcUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7A1-0000000Asid-3ODn;
-	Thu, 04 Sep 2025 10:25:45 +0000
-Received: from mail.thorsis.com ([217.92.40.78])
+	id 1uu7Ck-0000000AtXS-1ILF;
+	Thu, 04 Sep 2025 10:28:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu63R-0000000AUfr-0HPU;
-	Thu, 04 Sep 2025 09:14:54 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 33BDB14805E7;
-	Thu,  4 Sep 2025 11:14:46 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1756977290; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=B6QZEQAGrZ6/3rkKC265OmTZsvazFci2LpzaEltMG8Y=;
-	b=lN4LhAr46QA2PDMQsbmJLuOwfONCabS9l0jHr5Jt7hNcIJ/ySJurLYYB+fRyOH40yRAWzp
-	JyTt+STxlouZpYfPWOsjd02Fn+BGAXsSEI+rUayHPiArwkcT+30lA4eXbgqFrSfpG6OZbD
-	sVF1RaRWjjyNYcC9ZAMU158SaXpDN3mxomDSDzLpQA9DiA24bIph3hMIbEWfQ8Zln9PriB
-	ZdSWLgLO8CSPY7mV0BAgr8HiLbwqH+n6VEVsoe2zLRIBfNuxRM6vmD6WztEO9y/0ryHvLv
-	QswgSpdoW88nFRKhNAxwvoqLoalqFIskmtZsv7vm4C5jyUzcielj0sq3NOWMFQ==
-From: Alexander Dahl <ada@thorsis.com>
-To: linux-mtd@lists.infradead.org
-Cc: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>,
-	Li Bin <bin.li@microchip.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Thomas Fourier <fourier.thomas@gmail.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] mtd: nand: raw: atmel: Fix pulse read timing for certain flash chips
-Date: Thu,  4 Sep 2025 11:14:41 +0200
-Message-Id: <20250904091441.351805-1-ada@thorsis.com>
-X-Mailer: git-send-email 2.39.5
+	id 1uu65E-0000000AV5z-0KS9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 09:16:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C109D43730;
+	Thu,  4 Sep 2025 09:16:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BF10C4CEF0;
+	Thu,  4 Sep 2025 09:16:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756977403;
+	bh=qJ5SxDn7aebXMIST+p4VUse9TikgWbIjkKE/CdROn9E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bMSROS6xqn6Hw+QYxGhXMGnvVW7hSeJNC6zcpN7wX9fJfr0sAJcKcygAN1nTLck5X
+	 VKzPkCrqHWnYPYGSRq0LjM4BKknCue/yDkRwBeub5fPYREduBEJ0YMgL2kpsDiDMtp
+	 vwjQppVfO/iQgeHe+0EoympPMvjfpDsh/b4Owi5SYxLfcvNv4JC5iRFdA73RwoQNTg
+	 hUd2m5oyX2BWvBhsgKf6HgTL2b9Ko5DYocnHVTur/M+2Zd3n3mS1EN+BY7lMzfDrQC
+	 t/rscC2WYQqaeO8/N0+4t5xkLqy4K6hbqbV9S+LRBb/6OzGDI2JAYz85uxEKQuXzXI
+	 i6Ff0ILgWl6Gg==
+Date: Thu, 4 Sep 2025 11:16:40 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Peter Rosin <peda@axentia.se>, Jonathan Cameron <jic23@kernel.org>, 
+	David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	upstream@lists.phytec.de
+Subject: Re: [PATCH 1/2] dt-bindings: iio: afe: current-sense-amplifier: Add
+ io-channel-cells
+Message-ID: <20250904-stereotyped-swine-of-romance-f7185e@kuoka>
+References: <20250903113700.3079626-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250903113700.3079626-1-primoz.fiser@norik.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_021453_274433_25DC1C83 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20250904_021644_138721_A893E2B6 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,73 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prevent PMECC errors when reading from AMD/Spansion S34ML02G1 flash on
-SAM9X60 SoC, after switching to ONFI timing mode 3.
+On Wed, Sep 03, 2025 at 01:36:59PM +0200, Primoz Fiser wrote:
+> The current-sense-amplifier is an IIO provider thus can be referenced by
+> IIO consumers (via "io-channels" property in consumer device node). Such
+> provider is required to describe number of cells used in phandle lookup
+> with "io-channel-cells" property, otherwise the following kernel error
+> is present:
+> 
+>   OF: /iio-hwmon: could not get #io-channel-cells for /current-sense
+> 
+> Also fixes the following dtbs_check warning:
+> 
+>   current-sense: '#io-channel-cells' does not match any of the regexes:
+>   'pinctrl-[0-9]+' from schema $id:
+>   http://devicetree.org/schemas/iio/afe/current-sense-amplifier.yaml#
 
-From reading the S34ML02G1 and the SAM9X60 datasheets again, it seems
-like we have to wait tREA after rising RE# before sampling the data.
-Thus pulse must be at least tREA.
+Which DTS has this warning? You did not include Makefile target and
+quick look told me there is no such...
 
-The previous approach to set this timing worked on sam9g20 and sama5d2
-with the same flash (S34ML02G1), probably because those have a slower
-mck clock rate and thus the resolution of the timings setup is not as
-tight as with sam9x60.
+> 
+> Fixes: fbac26b9ad21 ("dt-bindings:iio:afe:current-sense-amplifier: txt to yaml conversion.")
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 
-The approach to fix the issue was carried over from u-boot, which itself
-got it from at91bootstrap.  It has been successfully tested in
-at91bootstrap, U-Boot and Linux on sam9x60 and sama5d2, for several
-months here.
-
-Link: https://github.com/linux4sam/at91bootstrap/issues/174
-Link: https://github.com/linux4sam/at91bootstrap/commit/e2dfd8141d00613a37acee66ef5724f70f34a538
-Link: https://lore.kernel.org/u-boot/20240415075755.780653-1-ada@thorsis.com/
-Link: https://source.denx.de/u-boot/u-boot/-/commit/344e2f2cd4a407f847b301804f37d036e8a0a10c
-Cc: Li Bin <bin.li@microchip.com>
-Signed-off-by: Alexander Dahl <ada@thorsis.com>
----
-
-Notes:
-    based on v6.17-rc4
-
- drivers/mtd/nand/raw/atmel/nand-controller.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
-index 84ab4a83cbd6..87481b60f315 100644
---- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-+++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-@@ -1240,7 +1240,7 @@ static int atmel_smc_nand_prepare_smcconf(struct atmel_nand *nand,
- 					const struct nand_interface_config *conf,
- 					struct atmel_smc_cs_conf *smcconf)
- {
--	u32 ncycles, totalcycles, timeps, mckperiodps;
-+	u32 ncycles, totalcycles, timeps, mckperiodps, pulse;
- 	struct atmel_nand_controller *nc;
- 	int ret;
- 
-@@ -1366,11 +1366,16 @@ static int atmel_smc_nand_prepare_smcconf(struct atmel_nand *nand,
- 			 ATMEL_SMC_MODE_TDFMODE_OPTIMIZED;
- 
- 	/*
--	 * Read pulse timing directly matches tRP:
-+	 * Read pulse timing would directly match tRP,
-+	 * but some NAND flash chips (S34ML01G2 and W29N02KVxxAF)
-+	 * do not work properly in timing mode 3.
-+	 * The workaround is to extend the SMC NRD pulse to meet tREA
-+	 * timing.
- 	 *
--	 * NRD_PULSE = tRP
-+	 * NRD_PULSE = max(tRP, tREA)
- 	 */
--	ncycles = DIV_ROUND_UP(conf->timings.sdr.tRP_min, mckperiodps);
-+	pulse = max(conf->timings.sdr.tRP_min, conf->timings.sdr.tREA_max);
-+	ncycles = DIV_ROUND_UP(pulse, mckperiodps);
- 	totalcycles += ncycles;
- 	ret = atmel_smc_cs_conf_set_pulse(smcconf, ATMEL_SMC_NRD_SHIFT,
- 					  ncycles);
-
-base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
--- 
-2.39.5
+Best regards,
+Krzysztof
 
 
