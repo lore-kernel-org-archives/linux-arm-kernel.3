@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078BFCA101C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFC6CA101F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z92vQ6tHmCJOxURO2v7NI6VNpz1OYWmCw8ZIen0j6D0=; b=4EaANsluNEVa6X/GGo7fdVHTBi
-	tVoEFMNEoga8yCVP8CwQvf0YOxZjN9+09K1vlKlc2lj+vxuUGUtzLqugM8UQ7LEGyfrAdoORTIZi6
-	YY2+Ui9mFB7fauP/abV9QiivcGZNUTtv2oTTiv77BGvXe1bX3jtrlvipJnux37XdeetGXfdMVgkaL
-	nhg+wQFWfgffmnWCzjK/9EjlmCSU7aWUnacxsv3BQtwmO2iGMdbIJRS5UDPYvxEtKrhv+U039uDuV
-	lbCMOlO8nMkrCoIOLFVkeZmzaTsemBFQcpHzoKWJJZzKEHbsQl6n8w0aBC9TvhJLZn79p+hDwnIPX
-	HZKSoWzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=65sfH/ad84nrJwQJ1pdXZCCcEwu4ZVnR+CKSuX7QrWI=; b=FcNeDwIme5o+6K4qgFc8s9HqQ3
+	OYlio9yuTHz1HrjG0JX4z/L8AQJi8Va8FonBdeP0ayrb1nKgc3iYClmg0D7wSmN1DfSrkRdS2RZS8
+	af0QjkZdt/bgMQNE06KqfwGvUsg75ENKylOuUJH68rzv4NKWVp9NPCCX6bbSeADflRvAbZwSz1/d5
+	Ndo2Ddx7VBYyCb7H/VP71/gO5Kidhwt06lIEuxBhD8U4wFZM4i+z1U7a0LWsuADYkJ3773Y8Vr8c8
+	JRyzHZYhz3tCqZp0Oli8rLu1u2GsKoN+yYAdI7RNs8WEMD2d6Ra+HXQuy05RaT4QMbp+HNsXAKPRZ
+	j4Bbd1HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM0v-0000000Fy5C-0Dxb;
-	Fri, 05 Sep 2025 02:17:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uuM0l-0000000FxvA-3TtA;
+	Fri, 05 Sep 2025 02:17:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuEsY-0000000DgmS-3eaw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 18:40:14 +0000
+	id 1uuCyj-0000000D0Dx-1Tj0;
+	Thu, 04 Sep 2025 16:38:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E11F60247;
-	Thu,  4 Sep 2025 18:40:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB0ADC4CEF6;
-	Thu,  4 Sep 2025 18:40:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C7BED6028E;
+	Thu,  4 Sep 2025 16:38:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00D2EC4CEF1;
+	Thu,  4 Sep 2025 16:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757011214;
-	bh=ILiVByv+j8sL6RIqPKHr6lcD5lYejE6CwCw4EFoN4f8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QuPqvLm3BxpuhLbqcQawdON7moRQflTsG/i697n1BQm5czZrXEMAY0SKKt8ZbpKxa
-	 CfwMIMFPO+HtPWYHlb1Dykig0UCLgZwo/CZVLh9iGcfAIqbv4EK6UrGC+zUj2DG5Nk
-	 32t9+6h5DTNfOBTEbQuhvMqcW/zTCLi/NvfCiXtdUFFg+epbo4E3OP7h1OzCZyb/mU
-	 bykMskO9KqcE00XXI9fXVewJdKZOELlVb9E1ydT1pFn3FhuhAqq7kJIGaawMvcskQa
-	 Kg99OHJffxp9hNXtIzfwD4PvSRtB6Y6dKy/9mfg2g6N2552wzx/5T9va88RdST70Jr
-	 1N01jP9mlh7Iw==
-Date: Thu, 4 Sep 2025 11:40:04 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	Vegard Nossum <vegard.nossum@oracle.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	David Woodhouse <dwmw2@infradead.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Marco Elver <elver@google.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Ramon de C Valle <rcvalle@google.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 4/9] x86/cfi: Standardize on common "CFI:" prefix for
- CFI reports
-Message-ID: <20250904184004.GC2110053@ax162>
-References: <20250904033217.it.414-kees@kernel.org>
- <20250904034656.3670313-4-kees@kernel.org>
+	s=k20201202; t=1757003908;
+	bh=jtgRLf0FRRSizIapqgfH1YFeyTX28uqo02yIy46q7Po=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=gnsNh7VMJZzaYGqHuQqdkPobXeL19Tu7b2Lm8MCbusSaOU2CkGRdFAfNoX/ut3QpN
+	 YzbVuu3BhkbPHY0McN5WeuhnhoZkMlKMwrJqYuH4maqd847Us/unbd7bVzRQ+h6xW8
+	 1iUZZog+Vao9A+JdN3EHZQ8rrNeo+6BSV6rRYTJqyvCbNC55942BadG7QXTbqPDnT5
+	 yy8cDbixT038l/I5G+fMm4DA8bBKwN5SquObq7iQMJzKOk47t+nZBELoOv9Znn/AXK
+	 NjAqSGZEd6isRDrOceT5dr1pKfLST/QCeCiXn5H/t38unDwIuhcvuQu5tfHr80UA2x
+	 qTrEwZAzDgB8w==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 04 Sep 2025 18:37:58 +0200
+Subject: [PATCH mt76 v4 04/15] wifi: mt76: Do not always enable NAPIs for
+ WED RRO queues
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250904034656.3670313-4-kees@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250904-mt7996-rro-rework-v4-4-2cd91e7229d6@kernel.org>
+References: <20250904-mt7996-rro-rework-v4-0-2cd91e7229d6@kernel.org>
+In-Reply-To: <20250904-mt7996-rro-rework-v4-0-2cd91e7229d6@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sujuan Chen <sujuan.chen@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,88 +74,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 08:46:43PM -0700, Kees Cook wrote:
-> Use a regular "CFI:" prefix for CFI reports during alternatives setup,
-> including reporting when nothing has happened (i.e. CONFIG_FINEIBT=n).
-> 
-> Signed-off-by: Kees Cook <kees@kernel.org>
-> ---
+Do not initialize NAPIs for WED RRO queues if WED is active.
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/dma.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Obviously minor but I had pointed out on v1 that there appears to be
-some inconsistency within the diff around capitalization, "ignoring" vs.
-"Ignoring".
+diff --git a/drivers/net/wireless/mediatek/mt76/dma.c b/drivers/net/wireless/mediatek/mt76/dma.c
+index 68b1dd1dbbe0e2b4850e02ee70253b5e248c69bf..f882b4e10858a233a5422ede80d79c21965136e9 100644
+--- a/drivers/net/wireless/mediatek/mt76/dma.c
++++ b/drivers/net/wireless/mediatek/mt76/dma.c
+@@ -967,6 +967,10 @@ mt76_dma_init(struct mt76_dev *dev,
+ 	init_completion(&dev->mmio.wed_reset_complete);
+ 
+ 	mt76_for_each_q_rx(dev, i) {
++		if (mtk_wed_device_active(&dev->mmio.wed) &&
++		    mt76_queue_is_wed_rro(&dev->q_rx[i]))
++			continue;
++
+ 		netif_napi_add(dev->napi_dev, &dev->napi[i], poll);
+ 		mt76_dma_rx_fill_buf(dev, &dev->q_rx[i], false);
+ 		napi_enable(&dev->napi[i]);
 
-> ---
->  arch/x86/kernel/alternative.c | 17 ++++++++++-------
->  1 file changed, 10 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
-> index 7bde68247b5f..d8f4ac95b4df 100644
-> --- a/arch/x86/kernel/alternative.c
-> +++ b/arch/x86/kernel/alternative.c
-> @@ -1266,26 +1266,26 @@ static __init int cfi_parse_cmdline(char *str)
->  		} else if (!strcmp(str, "norand")) {
->  			cfi_rand = false;
->  		} else if (!strcmp(str, "warn")) {
-> -			pr_alert("CFI mismatch non-fatal!\n");
-> +			pr_alert("CFI: mismatch non-fatal!\n");
->  			cfi_warn = true;
->  		} else if (!strcmp(str, "paranoid")) {
->  			if (cfi_mode == CFI_FINEIBT) {
->  				cfi_paranoid = true;
->  			} else {
-> -				pr_err("Ignoring paranoid; depends on fineibt.\n");
-> +				pr_err("CFI: ignoring paranoid; depends on fineibt.\n");
->  			}
->  		} else if (!strcmp(str, "bhi")) {
->  #ifdef CONFIG_FINEIBT_BHI
->  			if (cfi_mode == CFI_FINEIBT) {
->  				cfi_bhi = true;
->  			} else {
-> -				pr_err("Ignoring bhi; depends on fineibt.\n");
-> +				pr_err("CFI: ignoring bhi; depends on fineibt.\n");
->  			}
->  #else
-> -			pr_err("Ignoring bhi; depends on FINEIBT_BHI=y.\n");
-> +			pr_err("CFI: ignoring bhi; depends on FINEIBT_BHI=y.\n");
->  #endif
->  		} else {
-> -			pr_err("Ignoring unknown cfi option (%s).", str);
-> +			pr_err("CFI: Ignoring unknown option (%s).", str);
->  		}
->  
->  		str = next;
-> @@ -1757,7 +1757,7 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
->  	switch (cfi_mode) {
->  	case CFI_OFF:
->  		if (builtin)
-> -			pr_info("Disabling CFI\n");
-> +			pr_info("CFI: disabled\n");
->  		return;
->  
->  	case CFI_KCFI:
-> @@ -1766,7 +1766,8 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
->  			goto err;
->  
->  		if (builtin)
-> -			pr_info("Using kCFI\n");
-> +			pr_info("CFI: Using %sretpoline kCFI\n",
-> +				cfi_rand ? "rehashed " : "");
->  		return;
->  
->  	case CFI_FINEIBT:
-> @@ -2005,6 +2006,8 @@ bool decode_fineibt_insn(struct pt_regs *regs, unsigned long *target, u32 *type)
->  static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
->  			    s32 *start_cfi, s32 *end_cfi, bool builtin)
->  {
-> +	if (IS_ENABLED(CONFIG_CFI) && builtin)
-> +		pr_info("CFI: Using standard kCFI\n");
->  }
->  
->  #ifdef CONFIG_X86_KERNEL_IBT
-> -- 
-> 2.34.1
-> 
+-- 
+2.50.1
+
 
