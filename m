@@ -4,156 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A89CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D23CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PTG0hpViq4x1WdXPUY0ZvleNgY+ZRGbVt6Kx4/giHAg=; b=wxi+ByhqzgOj356EouovCT4tGa
-	KDJdFeSnur9bMmrUibDS+g2FPAaqRK8DDQroXb+NklKY1koZwJzjaa4KlSkA1R+nbLOfRdBG3aV2I
-	gbhK/EwDLKJJ0d3FArII4rjd2nn04nojtfJJ1guwZWJHgVMTPDzJ4BgSZp6nUTyFIe/71LPqTKmJ3
-	FJXt0a6D6mQi5bf/1mKcspaS18dsWwJQplgpPlgUSf54FKB+RO/IT/DyRyJyUmAcmu5JdUCGyrbxB
-	bMGXPTHE5lpshkwBuuEgt9C2w34uyynpnqMUBrbabqyJs/NHUcQnGq1vNTlNF+mbSD/3yLk2JotNg
-	oF37xbFg==;
+	bh=hhNQHJCCEEIbETm8PsRs80LMVSc5JQABFf4Nlp+TIXg=; b=vW2h9AvMBX1CIuCJ53Y1Sq/ZBE
+	J6Een3nu5gSMenqCttFmBD4Y2XJwLXda0yhYp3K+gozEl0k9V7j5l4x7KWzhfubk3biZV9Kcj+KdZ
+	J+XLDGifJLwg1T4bwUzjUPU1+C8D6pVNsVf/3rat+WyXjAWG56KA395NM1E2tdHKlIo7HT4NzlnLg
+	2yYrWsU4nVu2W7B3qlKL6TrETJqwbLno+8BlmEOJuV0sblbAnQNz/8VBfDvEdXrACDF3u/JaQB3ld
+	/Nb2CAsUtzLepKPh8YY95HzQJE2IXfrVA3ZilY6qQ9VJ5emjDVUzv19jkA8t+GzTDelnlZM6U8SJZ
+	Fs/EoX6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuClL-0000000CqcT-2uIh;
-	Thu, 04 Sep 2025 16:24:39 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uuCl4-0000000CqL2-1U8C;
+	Thu, 04 Sep 2025 16:24:22 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu8rV-0000000BUQq-1Kpj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 12:14:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fJ2efAS0NpZVa4oCsPeW4i2imc9zyyRf2vPJnCRu1RkAIsQ15TQL469o0G+ZSKfvBgvDe22UiGBqCZjK19qKQY7A0pg67SFe2WlbWz9eMaR0JBPoiXJtWqErlVIqXctKYPII8+Ox8VYur+L9zD4W1+dXMGSUjkkFlJt5sR2i4yYpVTOfrFFaM6baYB1/aaxYiOSSL71UCnXOwWKoP1pMY6PxL4SNGS7JK2tWtIgvN01SMIkm9VresCGXghxjTJ6/h16yb8wBqqw+zmO2ePyG9Vq/p37GNHgCOqlpSMI8VdgG5Jj5SsTWJx8U87BeywnJ00iU/rkfCPj9TJAzbYrxGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PTG0hpViq4x1WdXPUY0ZvleNgY+ZRGbVt6Kx4/giHAg=;
- b=eKWulGUJsg6s0n6mEuJSvGWjIEdGFsANg3se+c3e50AGI1hEGd2ZhmY19v6/iNtgB0Qhzstf0woeS4R7P/FKuZ8qEX/QTfK/TFZ7jb7YQePmgvf490NzNrvEOTkAJgejnNfeQLbToMJU4tA4rXXK/lJeIwwCoq58tF/beBm6aOFnFPuycF9wZZLNOxG8JoOhmTPEANSYrzrw6M7zuYtamtPdaG+G77vTtZxfZ33XlmlxAxMNQOy2XvLXjvWNnm7z7TvVtK35PtkXK1kbIPrVQFPix/ppPhff/WQ6rMXo4dsQpA4mNm31t1wEhnF9xJFRULxSugmAdYZa1ezQZvt4dQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PTG0hpViq4x1WdXPUY0ZvleNgY+ZRGbVt6Kx4/giHAg=;
- b=kgl1zpw0nAZfWVBUEkpaoCn+42Ac3R20FogmPweLZjGSjDyshff2a4uWUH9BoEigM6CvilmRAU1APdeMAOjmGHrD/a+Cr91ppiZTHiiYtvWLXmUo4VBNUTShT+/HBdKlcwA0U+weREOHi/PV49oWwiGue1pECRCItVOMX/7aFheLQTctYbgOcwdOhQwD/ih5TJW2pLlHPYvYYG0vUYwE5MgDdNHD5k1FBzcZUyS0U4bVArpXDBcuzglygE7wtYRMpl8dHlsZRe/+rFQ+eo3C6jfwr9zlxR7tp2J9zCCgbcJq03S8rJCpScIsMLzO2vU0+7AdSHLVJpoWyYBlnpK9BQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
- by DUZPR04MB9872.eurprd04.prod.outlook.com (2603:10a6:10:4dc::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Thu, 4 Sep
- 2025 12:14:37 +0000
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::b1f6:475e:de5d:8442]) by GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::b1f6:475e:de5d:8442%5]) with mapi id 15.20.9094.015; Thu, 4 Sep 2025
- 12:14:36 +0000
-Date: Thu, 4 Sep 2025 15:14:31 +0300
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: imx@lists.linux.dev, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 4/9] dt-bindings: display: imx: Add bindings for
- i.MX94 DCIF
-Message-ID: <s6uc6wjdb3seygps6nvusvu3x2io46dc5kai2bnelpnggpgyyh@j2ao3lhupohz>
-References: <20250903123332.2569241-1-laurentiu.palcu@oss.nxp.com>
- <20250903123332.2569241-5-laurentiu.palcu@oss.nxp.com>
- <20250904-attentive-seagull-of-fantasy-adea9f@kuoka>
+	id 1uu7oW-0000000B6bT-36Gh;
+	Thu, 04 Sep 2025 11:07:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=hhNQHJCCEEIbETm8PsRs80LMVSc5JQABFf4Nlp+TIXg=; b=lEWSoEyeyy0AyBUXEFyFioY2Qr
+	5ViAolylKJpUMXiqgDYZoq8Q2U5vNy3IYHQiNtDaLOL63OeTSyPUN/fZ58GNpOsaL59AcrLDG1GkW
+	4wl4fHb07tolpFqA/OQnNgJqcy4MiF54oENi78ThqDzJrDdEWjk8t+h2hUflqJ2Fhj9uVqfP2k7lr
+	C06yWvlC9kho/WlJKl5pyaT7G6AAavlFJksygtaEGJRIhnQgZBdcdkQLvtFLVB3P7g71C2ECvU3oQ
+	luqQbLl1fCFMiMjc9FsaQy3lb7KEPPDAz769ltbrReVkWXzsRbf6vBWCoJ5BnppVbbt+P82sEeHz5
+	t4bXFjbw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45246)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uu7oN-000000001s7-3uL3;
+	Thu, 04 Sep 2025 12:07:27 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uu7oM-000000001SM-3QdA;
+	Thu, 04 Sep 2025 12:07:26 +0100
+Date: Thu, 4 Sep 2025 12:07:26 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Yao Zi <ziyao@disroot.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net] net: stmmac: dwmac-rk: Ensure clk_phy doesn't
+ contain invalid address
+Message-ID: <aLly7lJ05xQjqCWn@shell.armlinux.org.uk>
+References: <20250904031222.40953-3-ziyao@disroot.org>
+ <aLlwv3v8ACha8b-3@shell.armlinux.org.uk>
+ <b5fbeb3f-9962-444d-85b3-3b8a11f69266@rock-chips.com>
+ <aLlyb6WvoBiBfUx3@shell.armlinux.org.uk>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250904-attentive-seagull-of-fantasy-adea9f@kuoka>
-X-ClientProxiedBy: AS4PR10CA0006.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:5dc::6) To GV1PR04MB9135.eurprd04.prod.outlook.com
- (2603:10a6:150:26::19)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|DUZPR04MB9872:EE_
-X-MS-Office365-Filtering-Correlation-Id: fe09cacc-d69f-4a1f-fd24-08ddebac9d26
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IRrTExC3N9Nu08WDhz7rcAbIJ2ggEWET32uQfvKCCBAyE3WUE5AHySKeWMrm?=
- =?us-ascii?Q?CPvzRVV6vjjuIEFVEaVMZ0JsfLgcCIOCXkE+IIOl/4RM5s9M1+rZmcrZfYaY?=
- =?us-ascii?Q?bUMUvg3cHUCqfpUh8KyLqaF5ia/gXZngQBF30dg/fp66Bw7/qPoEaAWYF6Uo?=
- =?us-ascii?Q?FYkRUhdR07KfHi1+V/Ua/RgRkPLWnO2xvx60fclXgDELlwAGNguHv2HR/zHG?=
- =?us-ascii?Q?f/gl3RFHchLrubSOA9uZtiT2IFCF+PXqSgpJcr7VMHE2iPbaTDiDUTSgEPvx?=
- =?us-ascii?Q?E3XHCGi5PM9FFy8bh7NZ4TK4bBpFLVkr6qj0RGlOMBVVhYmRDGIeMc4utLdq?=
- =?us-ascii?Q?GYOLxpTvkPHIoq5C8N4rEdpvz1LmGhvrh6iqEjozLHw51cei5xFsFd6de/R6?=
- =?us-ascii?Q?Vi1XpBhuiJ6iUpIyZa7Pf+AfdIwvPKkkOb/u7cyoEo7ks+PfBztMLPaen5e0?=
- =?us-ascii?Q?13p2EXhn697sRerpNUbXMfuNgD0mhnIBnB6mtIVnT+y3i6WJO2hqNM4YFL8/?=
- =?us-ascii?Q?jyNtVhLgiU41SJjEusob+naWNSiWzp2kpUu/U0D9nTQCN/aJ5It74EwRlfuW?=
- =?us-ascii?Q?R85QzP4nY5i1BakJhCugRNy9BNOxLOkRhB71oNdd+26jPFTk6xeHicAXPkol?=
- =?us-ascii?Q?mDgNrub7DwmghdXumvhpfZUVDTi9uE/YC4e0FFR5yvkEGAIsZ++I0OSHRQXV?=
- =?us-ascii?Q?6O6Yb6W9kNQyzmunaqZjOetqdtmTab/ND7YRuIaQtBce7kCTJz8G/aE9qPeQ?=
- =?us-ascii?Q?AMGo61NB6HYMP/1VH3RM4HQLQEYtfgmQn6WllWY1cjrrlyTIaLFUGbT6sDuG?=
- =?us-ascii?Q?OZlNfeUrRFrxWlo7s3XqyprEfTR60GHgx5lvV9PV0JMF2sDnRSj4LVZOAe4J?=
- =?us-ascii?Q?TMKnTIsuk+rVNE5JAZksI/WYDXuypkbj/Yj939USvLcbyxjVBzZ8q4/ehorI?=
- =?us-ascii?Q?6HalNexPAhgX1yVnCHxPRoDhgxN6S0Ag3Wj43IQLuu8+TW5C1CRAQWW5r2cy?=
- =?us-ascii?Q?h3tRiCOnNvSdDLiN7fU9dSP67uJDuXtbYuawlVQCHn0OM6YuNI3JZJ1+8AMG?=
- =?us-ascii?Q?3lgZVHJogFoTD/egxiJN47el8LC82v9JqpGCuU+U4LpcWzkq+642N5DQwcRi?=
- =?us-ascii?Q?h+R1JCCMdEe931GHfjtgfngJ0k5UTUgsOO1OGJ6WpZXKGJYrk73Vn4u6zwrs?=
- =?us-ascii?Q?ZQMg57136MAN23i+HTfeyzcpcXQJBQGTcV7DQ8Bsr5HK8LbivZBMn4oBp6Nk?=
- =?us-ascii?Q?d1uEh1g9OU6E1ZzDMP5Ew1YcEDsyIm+B+nK8ZdyjbdXTO3flYC4zDMv8Nyzp?=
- =?us-ascii?Q?ap06NR6UmLQE59t73obVl3HxNA865SgIpfbtsaAh5XbQg8uKrWqIvdt7Xls9?=
- =?us-ascii?Q?PcshMJk+sSQKFd1GUIiCU1u24OTE?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tJArZRVCop8vGEoKBmitLTuMxF2xWIbCeCJfdia0R38lbEqcdjiPXe/I9oDq?=
- =?us-ascii?Q?Ed1SU7ZjjzBdScLxMBdtttcwoloJ0ENtEZzJxhVzMaGC0gYT4lJFrIGlepgw?=
- =?us-ascii?Q?+DpOXD8QMHN4fyAH4DBJ4fzOtamguHVa8ktxPPOr6sygziwMzkJcJaXchazG?=
- =?us-ascii?Q?EyI7DCg/m7XnETfOIidsR7IkfcgGAu2VE6qrpsHaWgyHLvGjn5G6tcEhU9k5?=
- =?us-ascii?Q?IFM2b9mw/vh+BFsy/ux/SM2WrUdK6ILI/fo9Ck8yl7se3Jra+NvVIytv76hD?=
- =?us-ascii?Q?wWeJhvcCx3v9Yp1ub0dNWEiW+yerAOEFozYU0BR1jW0h0MzdSYKE2UQQPx4M?=
- =?us-ascii?Q?krBoCFYDF1I0U6mRh0lUoJ0tUWZgUJ8MDay1Dn5b+OCSTvamv4XeWxLv2XSS?=
- =?us-ascii?Q?SIpx4Kpq31OJODnNWNLMi4Kg0qb8DpXOftzZh6KJiylva7OEXrVYKXd0ofY7?=
- =?us-ascii?Q?kna8l4iPwj+Ao5yvPuT8i3TGBYfJYOOWuXEb1NA3Aezi62dh97iezAfaWljF?=
- =?us-ascii?Q?3PazR5BCLw+I0/v//KnmIyCnYr5jlBQkayBVnnYFdbbWmeBUFHrWRpN/AckB?=
- =?us-ascii?Q?AZxDesxLG+XgzV+jaAVxck/sWPiL5B8fuHqZHhG3FQnnMlAjLfYcyjFqerd5?=
- =?us-ascii?Q?povnNdibQ3AOlun5dc+vPn99As+Ym/eODE38MePndc7ugXM8hgnhldOjq4+D?=
- =?us-ascii?Q?xNpEX5Webv1mnE5qqA2dwi5V4YtMtC/eEslRpn0gUVVnQTAHA1XnEEy+zxEh?=
- =?us-ascii?Q?vr3Nv6LISlAXj+chzSzifedMCQBzbOKsvlWQO8WGXX1js7FChMRvcLOci1ht?=
- =?us-ascii?Q?DibL6lZxxBJrWqsftDlyFPF3zIrGrTSYK2CD8VgMfjwXIcZ0RFqTcU7y6nE1?=
- =?us-ascii?Q?YdWtOpVzCHE0tW7DN1Yz/g5zqoRXGkBk5XR6kTg+YkGxDqPyN/iJYyoI0SEo?=
- =?us-ascii?Q?u8K69H2y+fsOobvyDGmmtcZemsOmxvXMP7Ut8zOT14LBuflJEd8IoxzW1mSl?=
- =?us-ascii?Q?OuQbW4zdysEpN9EhW5BVr8Bj8SmOGpEnOSPOtH209WcRKUwflRKpd+0dV9/I?=
- =?us-ascii?Q?rUS6gkE4vsyZGMOEVXqBIaSxqDEw6qqSZUa49BUJSSDG+RsmEP6zTYajOjcs?=
- =?us-ascii?Q?yc8l6yrxISJVGwgYuApe8R7uof4/RTeOmbES9ncDWC4i9kaBoItSEzu8z3Rk?=
- =?us-ascii?Q?r3qCh8O4fBv77F1lTghkoJyOTHYqHZ2YL7ffZHY9DQC2pkyiQ0iViwo9RYGh?=
- =?us-ascii?Q?N4+Ap4HohTJ+hSvlg4Mu0uypfgxeoYoKcsBerlGndytAZS94E+6X1rrT7/cF?=
- =?us-ascii?Q?0swobbnR86klM4pUamGb1ihmD7gAPl3lUauzIdXHInbH3cfOQPQtv+lQQW+0?=
- =?us-ascii?Q?KgJKbbHX5rXIkaw0YqO9wVsv0BjPFu0lztS8pD5ol/M+dvcvqtZVuJ/6FhQM?=
- =?us-ascii?Q?Cj45etqtiu43evCkGazjAWGFmYiIprWbTn5zJ7HAbLJ2LkhqFUHL405pXt8s?=
- =?us-ascii?Q?hpJHj/4r9M+aqnezdJ8FZS9qOkaa0dODlkA5t/JyFUZUqlODW7ND+FIVWQEV?=
- =?us-ascii?Q?01msEBII5WZnPCSDkxojuMUwu6cuNnImIAoWyvITYJ4GZ5o4uTGSLnf9Bjfx?=
- =?us-ascii?Q?KA=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fe09cacc-d69f-4a1f-fd24-08ddebac9d26
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 12:14:36.4511
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tFLDYeq6jnS+4tFCxcCha8e3WwXQi96hvBxkyWWHjle6qT8LrQkF1CxXWTeygLnn6MROpPyXMGtLRGC/OLKLJQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9872
+In-Reply-To: <aLlyb6WvoBiBfUx3@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_051445_514023_9A699A1C 
-X-CRM114-Status: GOOD (  34.24  )
+X-CRM114-CacheID: sfid-20250904_040736_785343_60CFA267 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,152 +86,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 09:24:57AM +0200, Krzysztof Kozlowski wrote:
-> On Wed, Sep 03, 2025 at 03:33:22PM +0300, Laurentiu Palcu wrote:
-> > DCIF is the i.MX94 Display Controller Interface which is used to
-> > drive a TFT LCD panel or connects to a display interface depending
-> > on the chip configuration.
-> 
-> It looks like you are going to send v5, so:
-> 
-> A nit, subject: drop second/last, redundant "bindings for". The
-> "dt-bindings" prefix is already stating that these are bindings.
-> See also:
-> https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
-> 
-> Anyway, nothing in the changelog explains dropping tags.
-> 
-> I am not going to do the work twice. Write proper changelogs.
-
-Sorry about that. :/ I agree it's frustrating to do the same work
-twice... I admit I was lazy and only wrote a changelog in the
-cover-letter. I will try to add a changelog to each changed patch next
-time.
-
-The r-b tag was dropped in v4 because I removed the QoS functionality until
-I find a better way to handle it. Hence, the 'nxp,blk-ctl' property in
-the binding needed to be dropped as well.
-
-Thanks,
-Laurentiu
-
-> 
-> <form letter>
-> This is a friendly reminder during the review process.
-> 
-> It looks like you received a tag and forgot to add it.
-> 
-> If you do not know the process, here is a short explanation:
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-> versions of patchset, under or above your Signed-off-by tag, unless
-> patch changed significantly (e.g. new properties added to the DT
-> bindings). Tag is "received", when provided in a message replied to you
-> on the mailing list. Tools like b4 can help here. However, there's no
-> need to repost patches *only* to add the tags. The upstream maintainer
-> will do that for tags received on the version they apply.
-> 
-> Please read:
-> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-> 
-> If a tag was not added on purpose, please state why and what changed.
-> </form letter>
-> 
+On Thu, Sep 04, 2025 at 12:05:19PM +0100, Russell King (Oracle) wrote:
+> On Thu, Sep 04, 2025 at 07:03:10PM +0800, Chaoyi Chen wrote:
 > > 
-> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> > ---
-> >  .../bindings/display/imx/nxp,imx94-dcif.yaml  | 82 +++++++++++++++++++
-> >  1 file changed, 82 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
+> > On 9/4/2025 6:58 PM, Russell King (Oracle) wrote:
+> > > On Thu, Sep 04, 2025 at 03:12:24AM +0000, Yao Zi wrote:
+> > > >   	if (plat->phy_node) {
+> > > >   		bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+> > > >   		ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+> > > > -		/* If it is not integrated_phy, clk_phy is optional */
+> > > > +		/*
+> > > > +		 * If it is not integrated_phy, clk_phy is optional. But we must
+> > > > +		 * set bsp_priv->clk_phy to NULL if clk_phy isn't proivded, or
+> > > > +		 * the error code could be wrongly taken as an invalid pointer.
+> > > > +		 */
+> > > I'm concerned by this. This code is getting the first clock from the DT
+> > > description of the PHY. We don't know what type of PHY it is, or what
+> > > the DT description of that PHY might suggest that the first clock would
+> > > be.
+> > > 
+> > > However, we're geting it and setting it to 50MHz. What if the clock is
+> > > not what we think it is?
 > > 
-> > diff --git a/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
-> > new file mode 100644
-> > index 0000000000000..54419c589ef74
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
-> > @@ -0,0 +1,82 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +# Copyright 2025 NXP
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/display/imx/nxp,imx94-dcif.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: i.MX94 Display Control Interface (DCIF)
-> > +
-> > +maintainers:
-> > +  - Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> > +
-> > +description:
-> > +  The Display Control Interface(DCIF) is a system master that fetches graphics
-> > +  stored in memory and displays them on a TFT LCD panel or connects to a
-> > +  display interface depending on the chip configuration.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: nxp,imx94-dcif
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  interrupts:
-> > +    items:
-> > +      - description: CPU domain 0 (controlled by common registers group).
-> > +      - description: CPU domain 1 (controlled by background layer registers group).
-> > +      - description: CPU domain 2 (controlled by foreground layer registers group).
-> > +
-> > +  interrupt-names:
-> > +    items:
-> > +      - const: common
-> > +      - const: bg_layer
-> > +      - const: fg_layer
-> > +
-> > +  clocks:
-> > +    maxItems: 3
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: apb
-> > +      - const: axi
-> > +      - const: pix
-> > +
-> > +  power-domains:
-> > +    maxItems: 1
-> > +
-> > +  port:
-> > +    $ref: /schemas/graph.yaml#/properties/port
-> > +    description: Display Pixel Interface(DPI) output port
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +
-> > +    soc {
-> > +        #address-cells = <2>;
-> > +        #size-cells = <2>;
-> > +
-> > +        display-controller@4b120000 {
-> > +            compatible = "nxp,imx94-dcif";
-> > +            reg = <0x0 0x4b120000 0x0 0x300000>;
-> > +            interrupts = <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>,
-> > +                         <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>,
-> > +                         <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH>;
-> > +            interrupt-names = "common", "bg_layer", "fg_layer";
-> > +            clocks = <&scmi_clk 69>, <&scmi_clk 70>, <&dispmix_csr 0>;
-> > +            clock-names = "apb", "axi", "pix";
-> > +            assigned-clocks = <&dispmix_csr 0>;
-> > +            assigned-clock-parents = <&ldb_pll_pixel>;
-> > +            power-domains = <&scmi_devpd 11>;
-> > +
-> > +            port {
-> > +                dcif_out: endpoint {
-> > +                    remote-endpoint = <&ldb_in>;
-> > +                };
-> > +            };
-> > +        };
-> > +    };
-> > -- 
-> > 2.49.0
-> > 
+> > We only set integrated_phy to 50M, which are all known targets. For external PHYs, we do not perform frequency settings.
+> 
+> Same question concerning enabling and disabling another device's clock
+> that the other device should be handling.
+
+Let me be absolutely clear: I consider *everything* that is going on
+with clk_phy here to be a dirty hack.
+
+Resources used by a device that has its own driver should be managed
+by _that_ driver alone, not by some other random driver.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
