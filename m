@@ -4,129 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A522CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9540DCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BhjhLn4p+fVTddeDOV5N535Sl5j76d//X2bYh+lMLPs=; b=nrhHd5XV8Sa0X1GmEltB4xtZOM
-	/D7v+SwtyW1qq9/TkijulUlFqeIVETRGdU202SOHHLufw9ZHWo+xGMUbdokgwHTUmawhbnzfSVvf4
-	a+AcmdlQ0h2PV8rJF0Hj6sv29BZBQu07YiOufA8fn5rvQriZsaBN6C98GKElJogDebvlyBpQpWnIG
-	o1+2K9cPvChZv9bXOTJRpdRn+jOOYZgkWR5Hlh0Pozc2nkKEqmQWduFDqi/5jffv1eKGsQyu/j+OQ
-	yKFuLZV2mZJFAH0GUo7kgPH/T+0GeFbB+mKClTMqaVei7sXIi1TACfy5WNSzvfSxeZp145OpWOILS
-	o6o2UzOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VHuZOG1JpG+6j+YJABc/R/0AWg29WXqcswDzV+63td8=; b=TmfgabTdTAXQYbLowIOdYtZWcf
+	YRdXnzYlmxL9T7o3da9fcqC9NT+1Wlwryj/GIfZZ/Clneo4nKKGaGjPSIwpkcxXD2ZDPp76CYni32
+	/CBeXYKgFuzwP9RKVdb16PirvXdQMzQONH+GPly5P8BZrOSHNK5v6AIpqHg1DGbQ9v4JYKIzmHZh6
+	AgaQBPtpxsf25o/O3UZH/uK3Y1fkqDlIS2W+eCAZrhfFqalWPsB7w6ciHRpwhA6cwPcNFZqywjoFW
+	pGxESD8QgCeOE4KpvK4UOw57UhGfkmr49eVHe9d54msRs24NafVshjLtCP3Oww0ywNiythB0z0+VE
+	5tH+B8vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM2q-0000000G1K2-1IJ7;
-	Fri, 05 Sep 2025 02:19:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uuM2t-0000000G1QJ-40Mw;
+	Fri, 05 Sep 2025 02:19:23 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuGUZ-0000000EEIY-3FLQ
+	id 1uuGkN-0000000EKZL-3iTQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 20:23:37 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 584IguNh032214
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Sep 2025 20:23:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=BhjhLn4p+fVTddeDOV5N535S
-	l5j76d//X2bYh+lMLPs=; b=gIx24vXpFsSdYeFUk+FTmMF+B4fWHQdBzPmDn1LF
-	SRJUli3nCxV50BpDCX1zqobOq32MoATgytI0qIMpMYtk2fVfWbJt86zys1vlIheb
-	cViV+E2xviNdFDXLMdfK5WCGZvLlid0xsRG7K5iXiF5UFcVUm24gEW95xzMjDGRW
-	4Dm/0Gh8RYXspRMoJL1mMXKXSc3otG7CWOmIjLz35eYjeNYSprPo1S2ybgR1Glcu
-	xXNh275dxJHD5kI8+rxFACAbl1Mu6aV2Vw9A/WEm16IK2D6DI+HehFjC6Ki6etoS
-	rPBFtMlReVhhyvGq1l9pAYY3qknNvEyGFz3E4pUS/uTblg==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48upnpgye1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 20:23:33 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-718cb6230afso25646086d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 13:23:33 -0700 (PDT)
+	Thu, 04 Sep 2025 20:39:57 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45b627ea685so12509595e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 13:39:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757018394; x=1757623194; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VHuZOG1JpG+6j+YJABc/R/0AWg29WXqcswDzV+63td8=;
+        b=m+TomznQB4WsR9uHQSVL8+N6IHrx+n30kV5K4O0A8Uj7lgICJe/TIg5DaPJnN4BqQN
+         saAT8X4wSAQfrmaBGy3GyVxK6SUa1uO+LRbEXBGqIkAJQ4Bw+3hLB65eVBQgLbo5xAoZ
+         t4pFlpCVSW2zeHWHRj0bz0zFlQawx2OEnZlam9KBI9PIWkuQ4iH4TJOXPs9Mm8QbgyvQ
+         4pjHTWq30M9sb+u3E9W1Jk1HKE83WW/uaX7kqmyeVLN/+JpOT4IPT6tePZW+tQCfaz8k
+         2dJdsyDykyxEo1Bu3CwCXFbQsOxM3AuTqGRgLp9lNaZplNvUk4bq+1wVWldJbQsIec3H
+         wOWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757017413; x=1757622213;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BhjhLn4p+fVTddeDOV5N535Sl5j76d//X2bYh+lMLPs=;
-        b=PzeGe2aRnTNttUgOo+vVoeDQxQ6qxMf/5b8kwlEq7u4Ym8F9EhTQM8rg23gSRc1mZd
-         +DTCWwxLj67J28V2TfNe6B/lO6wNyFmdcpoAyH+mAL18JZZhXOlxD0D+sN3hZVYsUZ2V
-         I6iGLbfL6hJEwO8ofhork2uRqElsjRaYpwY18zjZNH8WF3SSsx4QxvuXacxBdyVOwPr5
-         wM0fdcE+eKkK0Ytx35PAKYpp9pv1qEPG6v529OhFfcHOnEUIwAFkH5Ci38rJAN1iXc0v
-         eN2jDq1lMvJxDq6hKbCUypdo1nqnz6l7KpWDY7Hp8LuH9fBoAAvjh48TdMjJCAonrycY
-         I3rQ==
-X-Gm-Message-State: AOJu0YwiXJ14jrMVbANF+sWOPAE/3rTOkekjF5WsUV861jn1cpzOVCsy
-	frAt9NiYpVWtR+ucQ+B4SjarKuVrF+W4Ki2TpAn90csS1eT26cLsDN5eOs0+iEW8NnMUdnWNYVQ
-	4a8SBvdiZX2UyvNxv97ruSsw79RLspXAuVtCmwVAPVcSD1sw/9dAWpVx7cxqX7bwOTNnN8727xB
-	ClOA==
-X-Gm-Gg: ASbGncsbjjn6Bx4phBlOK7DeMlrjQACRo54SDNqFHc9A+STAJJbAZNe1yLNKfG4hNTo
-	ImyzxX6wpnQl3ToJ9UrqZ0c1F9u6rwru/JTgge3RTnEUbTYXbE/pq6q2nq9UwHx5CQOM7hkfFa2
-	RG/f9kX68Ralrl3DuWCTdxa/iVoMlec/auVPqZC+d/qvxFPD+DZ4h9xHhhIkJ4kWYF9YURRUCOj
-	YFqgb0ezMqWboY/uLPdYGGgMD/7iuLaG/q5CyjvC3JSiDPXRufSfNcmnVSIEb7ys4xmAoeH8E3g
-	os7EZXWMM8fOn1ZgsYQc1TGQv4jRgwPT7DoeZ9rKt2YVocu7U7sY/yb9VWY3neOebb0x+IxR/tH
-	omKQ4JQgetX7JlkAteakJ4OaqFhZfTi0dl3AJDgrLKpYSdY83hHS2
-X-Received: by 2002:a05:6214:40e:b0:709:6582:86d8 with SMTP id 6a1803df08f44-70fac789c6amr237886026d6.21.1757017412551;
-        Thu, 04 Sep 2025 13:23:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF7DTtrjAmMG4+SbOuJLgcfs9oxMwNnEiEQAc0Pfy9/m+t6Z1n1hx4a3Nf6n68AGum0eX+41w==
-X-Received: by 2002:a05:6214:40e:b0:709:6582:86d8 with SMTP id 6a1803df08f44-70fac789c6amr237885516d6.21.1757017411833;
-        Thu, 04 Sep 2025 13:23:31 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5608ab5c0acsm1437638e87.16.2025.09.04.13.23.30
+        d=1e100.net; s=20230601; t=1757018394; x=1757623194;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VHuZOG1JpG+6j+YJABc/R/0AWg29WXqcswDzV+63td8=;
+        b=AqjL7BrNnu3pEomXxQ6MWKAi4Npv4nrYrjLFN2H/pbXhYqyGvGFoM3PrHodS2iRMPl
+         geDPR91smKlfKJpRavoI1tztgqdcSe4s8dmeCrOQN+Sl1y5CHv88vouwTN4ET2TyhwhT
+         8mBYbTJbvXm2VUXWSqNz2ucb6glaJyB4JmSRA2HnrTMLI/jEhv0lor5NmzVy8+6vOMPG
+         bHbCK6Ro+gx1D0sM12NnrFuj25AuwevTwBrvyD/sjms2s3y9g5y+h/ghHi19RKY2ynqh
+         Gk7HlOHw+QLTQGwN6Tk5WfC8mO+tqxYA/+cTbgMbaxImdpI3nL5n5nx1B4oYw+tsWwkz
+         HEpw==
+X-Forwarded-Encrypted: i=1; AJvYcCVlh0VGn2zO4Vvvk2hF7dyege3qX+ETRIbTrbW8Z0Zz4Yn/5ntuEVeN2rSAIdD3wYF8nzDcJgHi3WghpWZX9pxk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXMyMbTmwlR21LwmgbaU+9mFOlNDWKj1YxiWMJuP82gRXm6wki
+	qwHJUeqPzxgOyxDPonptGigsg6XQLxirZosXPZI0tEVOiy8xyxFPSn4o
+X-Gm-Gg: ASbGncsmKQEQrEy1NDbLC+4AkQKT//tvtnDktp48e2bhPNUorubwKUx2xO38mnkgnqL
+	NlNnpLB+mQYL2GcZNxB8Dg57Ktc05ukDGQ15Vw/3eV80OhUYfAN7Pt6yrdod7KUQpINIRk19VFb
+	2bG6A65E9E9R2bucgsRQlkI99P1e8xjxRlsaihbCbyNxh01bHabV49Sq+U1+hoS5cXXOegcS/I1
+	3d4wgSTfuG+JNaOLFHpMGy4yp+Y3m6OFFKsO2TgAtP9fWz4xrXr5hE94KezZfToViKVNWCSZ0vi
+	YTIC8Ml3R8hdvryeb3n5mUHcfU6os/ErEtFwB0c2ircZUwv6/MWUcwlCyZwIorElcIek+hyGNEO
+	CAK/+rhcFIszL/ZAjA/Y/5214k4mHX4fMLDFAMWV3LtIOyGjpMfEh7WSkgg==
+X-Google-Smtp-Source: AGHT+IHlvUXFtdZ6T+mhP6WxjKgMVUGGmx3Q9V4gCTiNFzGUlsXnsJbQjfN4KMrRuKQgbFoPLcI9rg==
+X-Received: by 2002:a05:600c:4f81:b0:45d:d1fe:804d with SMTP id 5b1f17b1804b1-45dd1fe8388mr28814195e9.35.1757018393660;
+        Thu, 04 Sep 2025 13:39:53 -0700 (PDT)
+Received: from iku.Home ([2a06:5906:61b:2d00:904e:70c8:edf3:59a4])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f306c93sm385528165e9.14.2025.09.04.13.39.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 13:23:30 -0700 (PDT)
-Date: Thu, 4 Sep 2025 23:23:29 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
-        David Airlie <airlied@gmail.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>,
-        Simona Vetter <simona@ffwll.ch>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
-        devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 4/4] dt-bindings: display: bridge: renesas, dsi-csi2-tx:
- Allow panel@ subnode
-Message-ID: <lecx2cs5durkwq4at4w32bgak3s7tsxfmj6fzvyxhfjud4zljm@25aijm4rlhmg>
-References: <20250904200431.168363-1-marek.vasut+renesas@mailbox.org>
- <20250904200431.168363-4-marek.vasut+renesas@mailbox.org>
+        Thu, 04 Sep 2025 13:39:53 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net-next v2 0/3] Add GMAC support for Renesas RZ/{T2H, N2H} SoCs
+Date: Thu,  4 Sep 2025 21:39:46 +0100
+Message-ID: <20250904203949.292066-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250904200431.168363-4-marek.vasut+renesas@mailbox.org>
-X-Proofpoint-GUID: QqDTg5Vnyt_peRVzA28bsd5W-GcLzM4Z
-X-Authority-Analysis: v=2.4 cv=Jt/xrN4C c=1 sm=1 tr=0 ts=68b9f545 cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=b3CbU_ItAAAA:8 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8
- a=P1BnusSwAAAA:8 a=KKAkSRfTAAAA:8 a=e5mUnYsNAAAA:8 a=HSFmO_Wm-5cOy6Hx3LcA:9
- a=CjuIK1q_8ugA:10 a=iYH6xdkBrDN1Jqds4HTS:22 a=Rv2g8BkzVjQTVhhssdqe:22
- a=D0XLA9XvdZm18NrgonBM:22 a=cvBusfyB2V15izCimMoJ:22 a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-ORIG-GUID: QqDTg5Vnyt_peRVzA28bsd5W-GcLzM4Z
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAwMSBTYWx0ZWRfX136ji0DOnCaL
- ofYbWylMiS8rTKqTtwqfmw2n9kZzy0x86PTJCqd21asf9aqX0EB/Dhmc01rtbFrgy1Xj8hn5ij5
- usCRqCI6Y8IWYFSdKJosVhV+cgKypMi74n7gXTJh+r4YljCHoDVRAcff4MZYmzoJDcFKgVrlZym
- S9k/e/Ztppk88WBrH19pL/IjDUwWVQIogkmqn8AHjyU4DFP3hs3VZWBVFA3xl75qxDZPmuc9e/9
- atgeAzIENiRrqcYrrZR4+5JW/ThGlPUF0QAFzwikjAZ55UxonPX/faTHYPO0/9nUiqHZYGaE6SQ
- jB0pUo/GsGJ/5wltEwTsKf4KFgw2Ly2oOCv1q0Cd8UrFcVupfcb6qAzY2ngNFD2yUu8rNuHfhhK
- jq2dbtO8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-04_06,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 clxscore=1015 bulkscore=0 impostorscore=0
- spamscore=0 phishscore=0 suspectscore=0 malwarescore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508300001
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_132335_938526_743FA263 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20250904_133955_927350_3D9E8F7F 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,126 +120,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 10:03:08PM +0200, Marek Vasut wrote:
-> This controller can have both bridges and panels connected to it. In
-> order to describe panels properly in DT, pull in dsi-controller.yaml
-> and disallow only unevaluatedProperties, because the panel node is
-> optional. Include example binding with panel.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> ---
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Robert Foss <rfoss@kernel.org>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
->  .../display/bridge/renesas,dsi-csi2-tx.yaml   | 53 ++++++++++++++++++-
->  1 file changed, 51 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/bridge/renesas,dsi-csi2-tx.yaml b/Documentation/devicetree/bindings/display/bridge/renesas,dsi-csi2-tx.yaml
-> index c167795c63f64..f663bc6a6f831 100644
-> --- a/Documentation/devicetree/bindings/display/bridge/renesas,dsi-csi2-tx.yaml
-> +++ b/Documentation/devicetree/bindings/display/bridge/renesas,dsi-csi2-tx.yaml
-> @@ -14,6 +14,9 @@ description: |
->    R-Car Gen4 SoCs. The encoder can operate in either DSI or CSI-2 mode, with up
->    to four data lanes.
->  
-> +allOf:
-> +  - $ref: /schemas/display/dsi-controller.yaml#
-> +
->  properties:
->    compatible:
->      enum:
-> @@ -80,14 +83,14 @@ required:
->    - resets
->    - ports
->  
-> -additionalProperties: false
-> +unevaluatedProperties: false
->  
->  examples:
->    - |
->      #include <dt-bindings/clock/r8a779a0-cpg-mssr.h>
->      #include <dt-bindings/power/r8a779a0-sysc.h>
->  
-> -    dsi0: dsi-encoder@fed80000 {
-> +    dsi0: dsi@fed80000 {
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-As you are touching this, you can drop the label too.
+Hi All,
 
->          compatible = "renesas,r8a779a0-dsi-csi2-tx";
->          reg = <0xfed80000 0x10000>;
->          power-domains = <&sysc R8A779A0_PD_ALWAYS_ON>;
-> @@ -117,4 +120,50 @@ examples:
->              };
->          };
->      };
-> +
-> +  - |
-> +    #include <dt-bindings/clock/r8a779g0-cpg-mssr.h>
-> +    #include <dt-bindings/power/r8a779g0-sysc.h>
-> +
-> +    dsi1: dsi@fed80000 {
+This series adds support for the Ethernet MAC (GMAC) IP present on
+the Renesas RZ/T2H and RZ/N2H SoCs.
 
-No need for the label (dsi1:)
+While these SoCs use the same Synopsys DesignWare MAC IP (version 5.20) as
+the existing RZ/V2H(P), the hardware is synthesized with different options
+that require driver and binding updates:
+- 8 RX/TX queue pairs instead of 4 (requiring 19 interrupts vs 11)
+- Different clock requirements (3 clocks vs 7)
+- Different reset handling (2 named resets vs 1 unnamed)
+- Split header feature enabled
+- GMAC connected through a MIIC PCS on RZ/T2H
 
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +        compatible = "renesas,r8a779g0-dsi-csi2-tx";
-> +        reg = <0xfed80000 0x10000>;
-> +        clocks = <&cpg CPG_MOD 415>,
-> +                 <&cpg CPG_CORE R8A779G0_CLK_DSIEXT>,
-> +                 <&cpg CPG_CORE R8A779G0_CLK_DSIREF>;
-> +        clock-names = "fck", "dsi", "pll";
-> +        power-domains = <&sysc R8A779G0_PD_ALWAYS_ON>;
-> +        resets = <&cpg 415>;
-> +
-> +        ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            port@0 {
-> +                reg = <0>;
-> +            };
-> +
-> +            port@1 {
-> +                reg = <1>;
-> +
-> +                dsi0port1_out: endpoint {
-> +                    remote-endpoint = <&panel_in>;
-> +                    data-lanes = <1 2>;
-> +                };
-> +            };
-> +        };
-> +
-> +        panel@0 {
-> +            reg = <0>;
-> +            compatible = "raspberrypi,dsi-7inch";
-> +
-> +            port {
-> +                panel_in: endpoint {
-> +                    remote-endpoint = <&dsi0port1_out>;
-> +                };
-> +            };
-> +        };
-> +    };
->  ...
-> -- 
-> 2.50.1
-> 
+The series first updates the generic dwmac binding to accommodate the
+higher interrupt count, then extends the Renesas-specific binding with
+a to document both SoCs.
+
+The driver changes prepare for multi-SoC support by introducing OF match data
+for per-SoC configuration, then add RZ/T2H support including PCS integration
+through the existing RZN1 MIIC driver.
+
+Note this patch series is dependent on the PCS driver [0] (not a build dependency).
+[0] https://lore.kernel.org/all/20250904114204.4148520-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+
+v1->v2:
+- Squshed incerasing interrupt count changes to snps,dwmac.yaml into this patch.
+- Dropped un-necessary blank lines.
+- Switched using "renesas,r9a09g077-gbeth" compatible string for RZ/T2H
+  instead of "renesas,rzt2h-gbeth" and used it as a fallback for RZ/N2H.
+- Updated description for reset property.
+- Added pcs-handle property required for RZ/T2H.
+- Updated commit message to reflect changes for patch 1/3.
+
+Cheers,
+Prabhakar
+
+Lad Prabhakar (3):
+  dt-bindings: net: renesas,rzv2h-gbeth: Document Renesas RZ/T2H and
+    RZ/N2H SoCs
+  net: stmmac: dwmac-renesas-gbeth: Use OF data for configuration
+  net: stmmac: dwmac-renesas-gbeth: Add support for RZ/T2H SoC
+
+ .../bindings/net/renesas,rzv2h-gbeth.yaml     | 178 ++++++++++++++----
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   9 +-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
+ .../stmicro/stmmac/dwmac-renesas-gbeth.c      | 109 ++++++++++-
+ 4 files changed, 243 insertions(+), 54 deletions(-)
 
 -- 
-With best wishes
-Dmitry
+2.51.0
+
 
