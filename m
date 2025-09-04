@@ -4,84 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D37CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70CC0CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uENlucYkOK+jy7BMNnzMMpf0QowE25p7A3vBs5YaH0w=; b=zAtO6o1WqyK1lH/UlvLgTxl1AS
-	1NepDXs8N6uP45VF4p3oxK6OhqC3JWfqxCsiVBBkNA/g+/cJ/+S/v1IAOsp2ecD9I1iTb7TjkPtoT
-	wc+HhL0OFhtRWVNNyIWGYrEpVEx3HwJLlc2Wc/ePOZNpQIj4NlDg0W6FCY/1FMOhdEYyQB5WToADQ
-	x44o8FAZnUn3ZepbqPbPWaavg5QiDOAH2mOifKW4du8I4EHqyjNWfb3l4z2d4o6XliHlKpljUV/rh
-	cGI1pL24z86MOC+Yb4Pr8vqkYg/16tCsdhTie6kzS6dY16Uf36guNENko++xKSQyK/AwkuNN3LdHq
-	znazzpzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eihtZU8OHYKgtMximmIrUFJ856exD8VD53vOuodUiTU=; b=wcf6eLNRyVQ3Ri
+	yqw1W+sJHomQbaXjN+4CC2I20w4hvBs5JFzfJApp6MTvv04yAuaCfCq/Lp/MvFlHvx7IryhWJEA1R
+	6o/Z/3Nt8cRF5yqqFUGafK27roBK1BQwTDTBCCF2VPQ62oBLQdZNTNkmWyVeTDT3ORvye0VH0e/3y
+	pDjs+sdtdaOutgqz3fJLWG7EVwkKc+CLl4iQEPjyN9yaZoyDtJtwp+8y/BjR9fKuL1XO12cnz7Y4G
+	6xkKx3zjKKBEgxv5bYXOwnSWvTDqe3d82oBd32D7BgkggXpyfE5k2PeGtlq28JvT0km8oWwiPQxB/
+	oCoWt9V0rUr/UT/r7nCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuEki-0000000Db2k-0Nfe;
-	Thu, 04 Sep 2025 18:32:08 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uuEkj-0000000Db4O-0EOn;
+	Thu, 04 Sep 2025 18:32:09 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuAa6-0000000C4nS-08ip
+	id 1uuAcN-0000000C5gC-3NQm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 14:04:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756994691;
-	bh=6QoSyBbdtINchh/KfpXAbLxJBZNAu4kUO37s+5VC3OE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RflE5jopt5njlxGhDC3AQjyRyIPKw9BYjyVeuh8p3sZ4CxUB4DnPdESkuwkbUnwEk
-	 r+f7FY7ipdHcA6nC1BMelz2e5gJVvDPGOWSXh2MUzsU7IRS4yoX9eQRFX2aRkVW9Eo
-	 Zwz/C+PWPmLRiHE/jc9a4VqOElzxRM/FLuT/8hEYYd1iDtMfrMHLF51RfElfCbnfNF
-	 +bgFxnfkWCFFqFWYI+Jileitn5LjWNWYHXSKp0kiFfqE+6qLwXYdVyRUhnpGmjbumr
-	 kFK4IO9FVT4zOfEC0RfrLOl1Yt3inf1x8FWvzfj+QQppSoZlpsnvO4jfDQTb+D2l+m
-	 Cta+AbMlTIrsw==
-Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8088E17E03B8;
-	Thu,  4 Sep 2025 16:04:50 +0200 (CEST)
-Date: Thu, 4 Sep 2025 16:04:45 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley
- <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, Fabio Estevam
- <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau
- <liviu.dudau@arm.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Philipp Zabel
- <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, Steven Price
- <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-Message-ID: <20250904160445.1671f140@fedora>
-In-Reply-To: <7d4e773b-64ac-49ce-8d8b-7a39c353d18f@mailbox.org>
-References: <20250321200625.132494-1-marex@denx.de>
-	<20250321200625.132494-5-marex@denx.de>
-	<20250324094333.7afb17a1@collabora.com>
-	<c1de2afb-3559-4fbb-b13b-2373175b420b@denx.de>
-	<20250325084349.344a0f11@collabora.com>
-	<7aadf355-edf0-46fc-b969-65c3789375ca@denx.de>
-	<20250325153507.61d82e39@collabora.com>
-	<4c06aef3-a254-437c-aa15-8e3eb7bf5951@denx.de>
-	<20250325155231.0d1b1000@collabora.com>
-	<838a0c6b-845b-428d-86b3-1480e5b8080f@mailbox.org>
-	<20250904082224.113d0cd1@fedora>
-	<7d4e773b-64ac-49ce-8d8b-7a39c353d18f@mailbox.org>
-Organization: Collabora
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+	Thu, 04 Sep 2025 14:07:16 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7f7381bd1fcso70033385a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 07:07:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756994834; x=1757599634; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eihtZU8OHYKgtMximmIrUFJ856exD8VD53vOuodUiTU=;
+        b=e7Hg78MIJ7Enij1h3eRkkDITPFOjXv8XRCdXZCU+PEEAHKrlFMKAzEmI46+K1+RQgf
+         TlXs8SaAzOem16zjJR5VVp297pWVyfcZZmsWT6w7NbI9PuNWTxmt1pifqzh4zzKwIS5m
+         sIuaFjl50kPdcPwdZpVRrZf5pfTZWRtP7C+rPE9tA+1MS7NBhUn60Cvv8LebDzW8OrwN
+         QJjjgLQehiCU6LbgdswqzVRo5d2ZiMO9Sx8exjUr+WNG11/5uKSnDON1zznc+73XkSMN
+         upAuS8teBo88XUxJPIv9ShZP1QFXCqjBI55cF2ortM42jKSq+cWbAFWE1ApR9s8ZR/1G
+         9Q9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756994834; x=1757599634;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eihtZU8OHYKgtMximmIrUFJ856exD8VD53vOuodUiTU=;
+        b=kOO18Rbi0jHlfaontg0TSSjH9ldJveqL5GYaxubXobbw6biQY33/dM5j5zWQdukRJg
+         uf5bGk9qozHWYQPy5THlhpVjBBCbwiRG1gPiftrHOPw9YC5er/vswhXcthTo28LtDhas
+         8YhTyiqha7ggmxJ2qZvPzINmdwh1Yx/6JYBtjPl80R1yXtkkz3twMXHNa8F+7ivHa4x6
+         ME8lBr45CLyHKyKvlyoohnwUiNTaZ4s2AReqY/VPCnlgfJr6GoPXjQOw3Lz43ruPGS2z
+         6zC5NQUrWmpkLQXRsar2OHii11rDN4r/KExQO1JAxQE/EMmD/Pwxp/U1P184UZnVrkKo
+         /7Xw==
+X-Forwarded-Encrypted: i=1; AJvYcCUV9er3n4J9y/lme0UlMZlc3XxIgw7gJxfLOQqhpc0vXVZ2y7iFDX6jKEzbZik1zk+CJ/iGZaq45GbdwoPMWxY9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqU+QvvP+d2zTzTg32RjGG217VYWVXaEwReDb+Bb1OkZeog0lN
+	AHhJJtgrJE0nu9lIcB3t+i2ZdqcV2Wt7T93WqQXUxVCWW81m103jJFMf
+X-Gm-Gg: ASbGncvtAKJwwQs5hsyp0L+tec77geNr5krebE2JQGzBA5m2rBr1U+cI4GfHrYp848O
+	9GBCCrlG2KasIU4yFgUXkuHE+M8bh5dkn66k1Xs+IBvEwo91gATVkDPiLCNOFZ1sRkxThxAxAru
+	OkFPnnQQjYc7yIDciF/GQL2xBz3g1tSJ9vaEnKkMFUgTEZwDAzIRsEQCfVaoadFpQIM+DqOXJDv
+	+rICX1WN4PwKrMZHA4y0+ECPk4lWGTvs3xQkQuJNTvxgux+47EHVhyoDVHFfKhXtgcam4S+h7Gv
+	4wL4oShFkHKRNtbFDRVMOZdtvNZIwOMLtt/gQksaBnh0LxAsT+VAdg/Bg/oHsT/1D22j4YsadFP
+	gkyaGgVIAQZMiBR7CrK5SddS9iefK
+X-Google-Smtp-Source: AGHT+IFAmc0wnCtcOEvRgXDrQ6IUkfol6ZeLbzKo/Il17bCwAzz4m4TitxyZWAzjU/KhfhX5q02NmA==
+X-Received: by 2002:a05:620a:394f:b0:806:522a:25ae with SMTP id af79cd13be357-806522a2b71mr1163297885a.36.1756994833844;
+        Thu, 04 Sep 2025 07:07:13 -0700 (PDT)
+Received: from [127.0.0.1] ([74.249.85.194])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-80bdedfeaedsm212280285a.70.2025.09.04.07.07.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Sep 2025 07:07:13 -0700 (PDT)
+From: Denzeel Oliva <wachiturroxd150@gmail.com>
+Subject: [PATCH v3 0/4] Add PERIC0/1 support for Exynos 990 and hsi2c
+ compatible
+Date: Thu, 04 Sep 2025 14:07:10 +0000
+Message-Id: <20250904-perics-usi-v3-0-3ea109705cb6@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAA6duWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDC2ND3QKg+uRi3dLiTF1DI0tTYyPDVFPT5CQloIaCotS0zAqwYdGxtbU
+ ANmCpbFwAAAA=
+X-Change-ID: 20250831-perics-usi-1295321e55cb
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ Denzeel Oliva <wachiturroxd150@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756994833; l=1287;
+ i=wachiturroxd150@gmail.com; s=20250831; h=from:subject:message-id;
+ bh=ly5NeSE539nxeXkPhgKBaDj4r7GvtHEHx5sOROseuOI=;
+ b=x5fRiKxuNl7/HyAUuv2TiCNfWDovKgGZuKvCrCwKms3j7fN31H08qUfze44YgZlEusYLZ0AnJ
+ RgL9/06hOEIBF6BxPXba4/LTG3kFYYYN4WKqsB2MOZ/NMszO+WUFfjB
+X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
+ pk=3fZmF8+BzoNPhZuzL19/BkBXzCDwLBPlLqQYILU0U5k=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_070454_229112_2D0D3054 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20250904_070715_848828_80CADB8A 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +119,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 4 Sep 2025 15:49:31 +0200
-Marek Vasut <marek.vasut@mailbox.org> wrote:
+Hi,
 
-> >> I suspect the extra soft reset I did before "un-halted" the GPU and
-> >> allowed it to proceed.  
-> > 
-> > Hm, not quite. I mean, you still need to explicitly boot the MCU after
-> > a reset, which is what the write to MCU_CONTROL [1] does. What the
-> > soft-reset does though, is reset all GPU blocks, including the MCU.
-> > This means the MCU starts from a fresh state when you reach [1].  
-> 
-> I have a feeling the write to MCU_CONTROL does nothing in my case.
+This patch series enables the PERIC0/1 (Peripheral Connectivity)
+and compatible hsi2c for Exynos990:
 
-I believe it does, otherwise you wouldn't be able to kick the MCU
-and get things working until the first runtime suspend happens. I gut
-feeling is that there's something fishy in the FW or SoC integration
-that causes the FW HALT request to put the MCU/GPU in a bad state
-preventing further MCU_CONTROL(AUTO_START) from functioning correctly
-after that point.
+- PERIC0/1 feeds HSI2C, SPI and UART
 
-> 
-> Is there some way to probe the MCU state before/after setting GLB_HALT, 
-> and also before/after the MCU_CONTROL write, using 
-> gpu_read()/gpu_write() register operations, to find out what is going on 
-> with the MCU at each point ?
+Changes in v2:
+- Remove other unnecessary patches not related to mainline style
 
-Yes, there's an MCU_STATUS register [1].
+Changes in v3:
+- Fix compatible string ordering in bindings (alphabetical)
+- Reorder device tree nodes by address as requested
 
-[1]https://elixir.bootlin.com/linux/v6.16.4/source/drivers/gpu/drm/panthor/panthor_fw.c#L1045
+Denzeel Oliva
 
+Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+---
+Denzeel Oliva (4):
+      dt-bindings: clock: exynos990: Add PERIC0 and PERIC1 clock units
+      dt-bindings: i2c: exynos5: Add exynos990-hsi2c compatible
+      clk: samsung: exynos990: Add PERIC0 and PERIC1 clock support
+      arm64: dts: exynos990: Enable PERIC0 and PERIC1 clock controllers
+
+ .../bindings/clock/samsung,exynos990-clock.yaml    |   24 +
+ .../devicetree/bindings/i2c/i2c-exynos5.yaml       |    1 +
+ arch/arm64/boot/dts/exynos/exynos990.dtsi          |   22 +
+ drivers/clk/samsung/clk-exynos990.c                | 1152 ++++++++++++++++++++
+ include/dt-bindings/clock/samsung,exynos990.h      |  176 +++
+ 5 files changed, 1375 insertions(+)
+---
+base-commit: 1b15d1010a693feaf99fe3e08271cfc72be0f9f2
+change-id: 20250831-perics-usi-1295321e55cb
+
+Best regards,
+-- 
+Denzeel Oliva <wachiturroxd150@gmail.com>
 
 
