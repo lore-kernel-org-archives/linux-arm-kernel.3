@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806BECA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 11:27:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE83DCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 11:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+goRaF2BXPa3JUfS9zLLRMae1vMLp+fPIsr+Jmw+l8=; b=Mhn6FgByM9vYyE1/bJgS0yUscz
-	FWNrFQhSZoLUWORkc21d/u2e3vx/9fw+aa1nmO+lt0dRWLOW+mKNruaKZp8iNxGDL2Ikb/2RpZFwO
-	eG356pqOEIeWeBI8a9pXEWVo8fk3Zajuqbb7m30rIOLyApg451doJPyNzHP3w7kIu/qDoEyUWZHxo
-	dXqeZKQZ1GbYpao+SD/k5dnHA2z30HlEl1lJxjnafa2SiK64LOBmWaVMY1hb1lMZ6k4eyC5Pvqr3W
-	UFPaMtGxRlg5cSlC756H5PQCksMkacyX7/oFEaGpwaSnAEIwAP4zeaP46m52k27B7oBEO/CC1Hvzd
-	3yccPIIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ihXqDf6rFoe4ZyEA7NFzt+D6bf9oIyLTCI2gHHd30lc=; b=c7NsfL7qx+3cpv
+	msJvfnpIhxi6tzErpjQ6rK5g2ZWkTRox3xelJ4Agicg8+HekoNopa9lF9FGv3xdoZdkGYpH4HOPxl
+	Y0y2zBekwe96TAUeqm9R8dlYRTCqtSo3EcpKKE4s+gboT9blt9QsLluhHNt6QLRpQj41rhoY3a70M
+	o6vlGNcpDwLX/W/poG9MB2teGDN0iVbHckBMUtZ2d4vFmqapFnumsz3qkZ7qwn80kebcnzLN7oXXq
+	mMpprGqLNOmpT6PeP316l16tUmQGa/Rra6Qrc7F3iRLqtG1j2O/uMkP7wiBST5XQEU6ix4FePizlg
+	QC7aqw0xGAIDRRncvXBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu87l-0000000BDsO-3Dx8;
-	Thu, 04 Sep 2025 11:27:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uu8AT-0000000BEw0-3vhc;
+	Thu, 04 Sep 2025 11:30:17 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7D0-0000000Atep-0ZoZ;
-	Thu, 04 Sep 2025 10:28:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C7328445E6;
-	Thu,  4 Sep 2025 10:28:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D167C4CEF0;
-	Thu,  4 Sep 2025 10:28:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756981729;
-	bh=ErbxO5/wHN1AdSE92UHPrTjG2PfFKUR4AzwDgopvUss=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ixWBUIU0YQ6tHk3M8l4X1k2WTRKz+XCz6x17USQfH+ncdZ8e4t2Q3J+D+nBd3IM7Y
-	 L79xi2dgRFC3nUjxYbvHDOQSIz4wokb7+6qhNNyFj+u7aXL8jh+5T5WWdTPZTvJdtf
-	 UBqrZXOMiVxMAr1y1NXwzNsk8rQHLXWuuKhdH2y9QTBCPd56LWBOZ6l2aNZp5K/TSU
-	 3m4czHUCYKZjBnVAGNKlID1oHbgnvpiaxD3wALS/L6W0x4t8EM8hGI8zscn5KAaZg5
-	 sPKI+0kvR6HP1PNqZqYm53WHFvUfudFYgg+OLGHnzT6N5kaN6CQxiD7uU/u++e2zZZ
-	 5qTCOt0zPLzTw==
-Date: Thu, 4 Sep 2025 11:28:45 +0100
-From: Simon Horman <horms@kernel.org>
-To: Yao Zi <ziyao@disroot.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH net] net: stmmac: dwmac-rk: Ensure clk_phy doesn't
- contain invalid address
-Message-ID: <20250904102845.GG372207@horms.kernel.org>
-References: <20250904031222.40953-3-ziyao@disroot.org>
- <20250904095457.GE372207@horms.kernel.org>
- <20250904095657.GF372207@horms.kernel.org>
- <aLlleb271owHNIbt@pie>
+	id 1uu7ID-0000000AvLY-1soS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 10:34:14 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 4 Sep
+ 2025 18:34:01 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 4 Sep 2025 18:34:01 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
+	<linus.walleij@linaro.org>, <brgl@bgdev.pl>, <billy_tsai@aspeedtech.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<openbmc@lists.ozlabs.org>, <linux-gpio@vger.kernel.org>,
+	<BMC-SW@aspeedtech.com>
+Subject: [PATCH v2 0/4] Add pinctrl support for AST2700 SoC
+Date: Thu, 4 Sep 2025 18:33:57 +0800
+Message-ID: <20250904103401.88287-1-billy_tsai@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLlleb271owHNIbt@pie>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_032850_194188_4E51C8E9 
-X-CRM114-Status: GOOD (  25.89  )
+X-CRM114-CacheID: sfid-20250904_033413_491033_D740DDCD 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +67,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 10:10:01AM +0000, Yao Zi wrote:
-> On Thu, Sep 04, 2025 at 10:56:57AM +0100, Simon Horman wrote:
-> > On Thu, Sep 04, 2025 at 10:54:57AM +0100, Simon Horman wrote:
-> > > On Thu, Sep 04, 2025 at 03:12:24AM +0000, Yao Zi wrote:
-> > > > We must set the clk_phy pointer to NULL to indicating it isn't available
-> > > > if the optional phy clock couldn't be obtained. Otherwise the error code
-> > > > returned by of_clk_get() could be wrongly taken as an address, causing
-> > > > invalid pointer dereference when later clk_phy is passed to
-> > > > clk_prepare_enable().
-> > > > 
-> > > > Fixes: da114122b831 ("net: ethernet: stmmac: dwmac-rk: Make the clk_phy could be used for external phy")
-> > > > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> > > 
-> > > ...
-> > > 
-> > > Hi,
-> > > 
-> > > I this patch doesn't seem to match upstream code.
-> > > 
-> > > Looking over the upstream code, it seems to me that
-> > > going into the code in question .clk_phy should
-> > > be NULL, as bsp_priv it is allocated using devm_kzalloc()
-> > > over in rk_gmac_setup()
-> > > 
-> > > While the upstream version of the code your patch modifies
-> > > is as follows. And doesn't touch .clk_phy if integrated_phy is not set.
-> > > 
-> > >         if (plat->phy_node && bsp_priv->integrated_phy) {
-> > >                 bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
-> > >                 ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
-> > >                 if (ret)
-> > >                         return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
-> > >                 clk_set_rate(bsp_priv->clk_phy, 50000000);
-> > >         }
-> > > 
-> > > Am I missing something?
-> > 
-> > Oops, I missed that da114122b831 is present in net-next (but not net).
-> > Let me look over this a second time.
-> 
-> Oops, yes. Though this is a fix patch, it should target net-next instead
-> of net since the commit causing problems hasn't landed in net. Sorry for
-> the confusion.
+Document and add the pinctrl driver for AST2700 SoC.
 
-It's ok. I'm pretty good at confusing myself without any assistance.
+Changes since v1:
+- Update pinctrl aspeed binding files.
+- Update the commit message for pinctrl binding patch.
+
+Billy Tsai (4):
+  dt-bindings: mfd: aspeed,ast2x00-scu: Support ast2700 pinctrl
+  dt-bindings: pinctrl: aspeed: Add support for AST27xx
+  pinctrl: aspeed: Add AST2700 pinmux support
+  arm64: dts: add AST27xx pinctrl configuration nodes
+
+ .../bindings/mfd/aspeed,ast2x00-scu.yaml      |    2 +
+ .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml  |  115 +
+ .../pinctrl/aspeed,ast2700-soc1-pinctrl.yaml  |  435 +++
+ .../boot/dts/aspeed/aspeed-g7-pinctrl.dtsi    | 1359 +++++++++
+ drivers/pinctrl/aspeed/Kconfig                |    8 +
+ drivers/pinctrl/aspeed/Makefile               |    1 +
+ .../pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c   |  503 ++++
+ .../pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c   | 2523 +++++++++++++++++
+ drivers/pinctrl/aspeed/pinctrl-aspeed.c       |   47 +
+ drivers/pinctrl/aspeed/pinctrl-aspeed.h       |   11 +-
+ drivers/pinctrl/aspeed/pinmux-aspeed.h        |   35 +-
+ 11 files changed, 5034 insertions(+), 5 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc1-pinctrl.yaml
+ create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7-pinctrl.dtsi
+ create mode 100644 drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c
+ create mode 100644 drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c
+
+-- 
+2.25.1
+
 
