@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA75CA101C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA37CA101F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=afEq9bHX/2s3KBTTklyPlyvAIAF9EeHEPeuOYA/bDc0=; b=qQNjMQ3u5zTyEOQ3ibF4DNVeDs
-	rPb9X52U9gG/VvZsgrOnLjeUQkCNZpLYxDSeIGFVgcaHjNrzjDe7Ak/VH3oOKILCSxiQYB4JBXrbW
-	8WZVxH+24A65630zbH4Mn6YKzF1wCQgiIfzrarn3vZ50Mh6mb/moGQRRRhl/m0QYtQJzIwy56SEIt
-	/PvlKHpUw3HHwG/FrI3n5PIyjdKZyJ8tVwLCCQBetcyLgJ70dp9R9TMEus2hqyHLqj57yUnSLL/Aj
-	IDBm40LBq3EKpGr/TsTCKCR0JGQu6Gzxgu3WkIb8LF78Xb5XaaJ8BnVwVP1Oiextx5gditj4JzwsP
-	9Pw/N0jw==;
+	bh=HHmDOPbnpVlBZN85+1DnJ5UG5L/VqNy2oOxWyq5NUIY=; b=3O6Yp94xRom64lYX5LUG9fwcrc
+	ttiNqUOUG3Oz7/5LogcnbD7JmXD1Uct7Y0TUybCPZq2HHdPnGKFTTUEfuHqEVZdLOX6qg1j7oSQHt
+	t9yFGV1igU8ZiEeLmTlmiXktgjEER/R/riOTMjXqDfkwl3TeE/8q1wBlp6vSR72+GdenV2u7oGY7P
+	mhkX9AWQSiSRPxyzImthO9KbcMqluG/HHEap9CnJ/ihO72qcfZkhuoJPRndVu7TjDHL5YYFmTcrFl
+	q4JsU4Nef9VHUjI13uyVJXb2VTEfymkyG6I540nIzwDztoLuNQ9YkVCODep38spPvP9jTMfz+xiHf
+	8rp3mP+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuFzI-0000000E0xI-2jmS;
-	Thu, 04 Sep 2025 19:51:16 +0000
+	id 1uuFzN-0000000E15U-2492;
+	Thu, 04 Sep 2025 19:51:21 +0000
 Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuAsW-0000000CBdZ-17BS
+	id 1uuAsc-0000000CBg3-0uvU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 14:23:57 +0000
+	Thu, 04 Sep 2025 14:24:03 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cEmn2inRj1Jr42fgjmnWhGI4smPAiIQd8+noHYUctQt9PzFnhqW9LHEhEXjTocgq9Uq+La83wJqucaD88CuEQm8T0n9OzDpDPd0E71lVolhD2VxCzaRyNjKhQ/HyUZE5iUljbeEVSepSWdvoHLKZznf4uI03LCkHHJWRnQHV4fXq3gfgyEHQCxplsdHv20nXitraLMp0n0r9xhs1j7cz2PxEiaU4DD5wu23FeRr90rsDzcRQJTfCeuzaT2FniUJNrWPkhDExwwQReJ9LPlkH8UQoZR4edzXooxDrPw/XkJoJbh63ZRjSI9qqaRzP7TNQIMUUkAjFMPAK6N+lpxN3IQ==
+ b=diD+2IVZp+R5Kk6+lwPMbhXpeHGFnhpd/fFkTXokAE19I8LTUedrVAAfWCWonPRtMWvOgXxLZ1TL32E4Ov1bKWn78Sx01MhZkamu8C3Nebj0s3HfJ73w9fhiG3xJRJyXE3JXBwZGHlopVl7wWpGjR/I0k/xvvn3PGLl9G0gHTNEbBQ/TjtoirU5Oo33IP/NtZxMjPuHJwL4E1kxxHR2jmggJJbbnJmXlgiClBqqws4jCz3+LBr3IikZCOeHigw6XNvI5dPJvFhuAGPJMNaKLPw9JM97eaVa8wFi/HiHEnREh3tM/c06fKSX5HPyn1qm0JzFR70Uca5U5PMUhdbh1vg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=afEq9bHX/2s3KBTTklyPlyvAIAF9EeHEPeuOYA/bDc0=;
- b=A0JcImtRkgEVP7ohn5MZibg8JbroejXSQmIN++DrAyMqXsK5f8b0QIQR0IBW1OUXjZMNu0GcHC6b8SRRIu5/ssoWl3RjzDLU7icUEBxUXleIo972H3/wv8gOYRZuSPCwPhwJa0d03Es6FQt0NlLh+ZMt9K/mRPR8de+7XG1cBnbScBzvgYE7kvWWkEUr0E5Fj7nX4IxkoyR2zwf7qcmsUQ0zDIUfhWZHhM9P9qLVYBQt0vshEd9BSi1r9q+QrnON1a4aicnxa7d3ibCrk9QS2hvEamcSXgJkennrnZZhEBrWl4xoaQtqPZ8G6QCr/Og1UdGkwbaIqW2MVly70xaJjA==
+ bh=HHmDOPbnpVlBZN85+1DnJ5UG5L/VqNy2oOxWyq5NUIY=;
+ b=y0qRt3Pvz4J7WOWJA3UNMgwp38rwm9EiAnGD8rhB0QVMk/UYPI1LNYvIpKJvWH7q+XL7NkIPXYbnrB/bUoc6IRLA/sAqLSAS9cX+sbt1+/psHm2KzZ/6MWQX0dmtbBftHUbWRZHh/28Hki5QaUAa5w/WVJR8/mtdtgBb3Tu5C0xNUz3jojkmPTNbSSC3GeVSv6OoekA6Bswf7rzT/x82zynStoKTi2d3C3wzXL2NkTBZVijjyZtemCaSc8hSwENpP8v6IQjgxvMVlqLe5A8dVxvwRSfkJ+XbpfF+58wdqw8gIjJT/kzkO+7inFt8dbv5Sp4QPyFusnxrrYPwLNph9w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
  dkim=pass header.d=iopsys.eu; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=afEq9bHX/2s3KBTTklyPlyvAIAF9EeHEPeuOYA/bDc0=;
- b=Gd0MBDJsqD7NItJa8d1KxZm+zsfr6YkTkOVRCqWKvUaard+ucyQ/BLT+yFxiO87JskIVFAXK2EOLwNiDB2810YQKgGLXxlBTLvI5nPl6vt/pvi77oqJcVlF0VAsASHtew5XDRvJiVK1/8LbfCu14gPJjnqtX8KGEvyWdXvzw9oa5DM/JXO3JqTWSJvEJJKpxitlvOwEFfEBdWMWr3IG6pO+XCl+EUrGcztB1/WruUz8mq8XQ7tsqBNlJYDPaEGRDJV9wlziCrPeDUv4IR+5M6vFrYsK2A6oauXRupn+sUHDXQbcG+5NFFjxl4XHNzZ6WZQK5wkAjNc74LGyGVwxCwA==
+ bh=HHmDOPbnpVlBZN85+1DnJ5UG5L/VqNy2oOxWyq5NUIY=;
+ b=FThljsSfPVRzjBHcJyBp8d41C/qFvlQIqFTl91jeKjBjN8Go+dXkKDbG/ZB2s60PVBVxptrk4sTkYlqxQ3EPoUfenoizGpA2TV3Sn7n11vvW054388yyMm8QPcJmU65zsMMmFlxhwu1f2ZHTmhTRlWZMnCYatZatKHS4SrGdUvYicgQ++s6p90Xrp3S8pM+qKzpihVtk1LiyboixZohO9Xv8BdhLRbKPvuhhMmwFTGVklfnx+bjAlUnMRhvs3kI7QO7dAAGSyxm81hHqbjIeCIw3EOyUNCzHO32VxegOO/LLfSdZuc4qxn6P3JK0gM5cDSUP6298XYFnbXfH51aIFQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=iopsys.eu;
 Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
  by PAVPR08MB8992.eurprd08.prod.outlook.com (2603:10a6:102:325::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Thu, 4 Sep
- 2025 14:23:48 +0000
+ 2025 14:23:53 +0000
 Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
  ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
  ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.9094.017; Thu, 4 Sep 2025
- 14:23:48 +0000
+ 14:23:51 +0000
 From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
 To: Lorenzo Bianconi <lorenzo@kernel.org>,
 	Ray Liu <ray.liu@airoha.com>,
@@ -63,11 +63,10 @@ To: Lorenzo Bianconi <lorenzo@kernel.org>,
 	linux-spi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Andreas Gnau <andreas.gnau@iopsys.eu>
-Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>
-Subject: [PATCH RESEND v5 01/13] spi: airoha: return an error for continuous mode dirmap creation cases
-Date: Thu,  4 Sep 2025 17:23:27 +0300
-Message-ID: <20250904142339.656346-2-mikhail.kshevetskiy@iopsys.eu>
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Subject: [PATCH RESEND v5 03/13] spi: airoha: add support of dual/quad wires spi modes to exec_op() handler
+Date: Thu,  4 Sep 2025 17:23:29 +0300
+Message-ID: <20250904142339.656346-4-mikhail.kshevetskiy@iopsys.eu>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250904142339.656346-1-mikhail.kshevetskiy@iopsys.eu>
 References: <20250904142339.656346-1-mikhail.kshevetskiy@iopsys.eu>
@@ -79,79 +78,79 @@ X-ClientProxiedBy: GV3P280CA0047.SWEP280.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|PAVPR08MB8992:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83309be3-3f94-449e-0c40-08ddebbea9f7
+X-MS-Office365-Filtering-Correlation-Id: cb9a49e2-7fd9-45d9-6570-08ddebbeab7e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/A83ICP3CisQ+0iLY5pXDTm7Tz0tCioZOaSq6U7qnEnTVxnsxM1qbOowFmIA?=
- =?us-ascii?Q?Cm+/oh0Fcb9cxq2qQdkesIQbkkyr0JFG8iwrznoMzCzhdVEQKjszr38f7Pdn?=
- =?us-ascii?Q?a+D2lYq9gXoTkLd67Vy39gk7Zgi34tMLHv8Qmx/XDOCco/eKxXXEojq8Q4F+?=
- =?us-ascii?Q?sFQivwYQq5FHUHptMxmKgiy2DuVQ+KBXQYftcFp38IE2nRPaX6NvAK04pHCK?=
- =?us-ascii?Q?QJNMwtfC0KoB1U+B/lMovC8pOJJywfO6o5BYGosaBWOPzSxpcbZc9UNGcGww?=
- =?us-ascii?Q?EO83KmqOoU8ZMYeJzBkG6VFsj7d8HT0lXZgOYzpMsE1I9gu4+gXqShJhkket?=
- =?us-ascii?Q?jnozFBy81i4fr13dyx54t11uGtYscQdymeIO0z2NCV/ZjOVWDFAs6dOMcBuG?=
- =?us-ascii?Q?8kL255xo4fKZeX1za1i7FA0PWEqQ+guvXacZ4t+oOhHDQACSHqLK68fkuEsp?=
- =?us-ascii?Q?vbGNCcU8di/nVsXXvB7cEtWp2aVpU8RLtdp9lA7doyCG1uJyhU/yFnpL26sS?=
- =?us-ascii?Q?dRecgBRPVeYCNioozqWWocJrMjBt3ZouHGCNoiJ6NOI3uJVV8VZYeYrGR+Wa?=
- =?us-ascii?Q?iRODc4K1Ym1UsdUBC9eUcwjXkD/T5/YBfpe4mj8RNg5L/O8cvMqjxMoBQh5N?=
- =?us-ascii?Q?8EYb9sBH+QU72HcKm4Df7XzklCcH692UzM8KeR1u6c+Mu3GeHpvWGaKr0cpy?=
- =?us-ascii?Q?M1VNgS9QlNEwxQTdS29VpRJZ1w3hoGa8oZgXH1hk5Z0Cokt4tOqW8k8faSr0?=
- =?us-ascii?Q?K4zOvftfdE394EOuGiiHQyP96+ksxtTL7JHVtsP9ywdZAwbYcrkMgRIYKy0x?=
- =?us-ascii?Q?nBQaaGymMKVbGHWoVcTOQoUlh5TayyJrYb4wyAYSDYl4RXvYJT+tYMRICPO0?=
- =?us-ascii?Q?qGUbFLBfmpEzbKH1BLOrChO824GeCNGg4luwiEKODYkeYG9604CQV/RR9kAv?=
- =?us-ascii?Q?AvyTmyzuTg0XLlrnxnHgdYOp6OEPMu7b2/XnFLB6kdfHmfYX5TmnO8SHPb2l?=
- =?us-ascii?Q?FJC3vLggA2QlgPS7KQrhrW9f/ZGLf1q+sgOwAgl8oPPR0bRE6xoGuAiHi8vb?=
- =?us-ascii?Q?bzQ1V3iO2ul+P5w5PZJ5WCcDjZfVVh1IZ0AqrqtTTBBF0lzyKaFeNrX7Diyp?=
- =?us-ascii?Q?cZtiXnOoEKVZ29toZ3JVXYOuEw9w3TwUTPWizukb6jf1f5iJFlp6tkBf6uya?=
- =?us-ascii?Q?7tQ4BScVqOHJuRWux5ljkvmTXXEQvtqmkrmrsGdK5EZX0XRTL8nyn2G3NiOM?=
- =?us-ascii?Q?JFwB40QRUn0+DPqdttVksjpOZUhpCK6ZfU4HAWWviLLhovX87fzRmDK8esZP?=
- =?us-ascii?Q?flhe2VlcIjbwtqWRGEh8iK/k7mCrTThWMYz83r+RQ8MQIvQFMC/BKx08eG2W?=
- =?us-ascii?Q?wIUtEegrse1gZLjIftyoWyxR1EnGujhPtLIJxnpK1i+WfZgRkpfxXnCYhs1W?=
- =?us-ascii?Q?/9WRo56Dn2WscU8PFkbmOvnQwCaoBVZsBw+QrnBeTdKASlrIitUE3g=3D=3D?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JE5LzVLUHe+27TQn3hEPIERm6ck2BgzwwwLVW9Jok/jlHsttKmRsI+mm/Sr+?=
+ =?us-ascii?Q?HU+T9pZ8GM25MFrETBbg1SiG4xDzSD357SlZmR7YccgpV7aUPza2EHDjUc+T?=
+ =?us-ascii?Q?2mCk3mH8ohUEAE/kQsY6nV1GrpeZuZz+l0+tG5TQrCbllAzg4pHvc7FHu3O4?=
+ =?us-ascii?Q?wiEHOMmcUC5qlPIfn3CqVZPxX9PA6mtDcjbSLwwi5kZapD8WYq/dRzrwhOU3?=
+ =?us-ascii?Q?u30g2Me80ZiJsnJHeuBbuzWI4iIP7Afnft1JBAdRN1vO1BaUcTMZdKr1R7ch?=
+ =?us-ascii?Q?JkF/VnaG5gltoURaYn/LyTM8VR0TsyB8mH3u9n8CGZsxkgn8yLaurDDniPAG?=
+ =?us-ascii?Q?bfejWVbN3HEitBz7wZ7GUO9fuo16TVcOZEG6l7iwZjWX2ExrD1p5ls834+PJ?=
+ =?us-ascii?Q?HUGsVsTdAZdCwbkc7d3ljdLzZM+Mh+tzi3vG72AKHBsgEJcnFl+s9XasUoEp?=
+ =?us-ascii?Q?EFEDIPXTscmnAZpw8IQAyKIKBVYjfNrWhpeSd7xHcKGD4JhW33pnA+l1PcRJ?=
+ =?us-ascii?Q?CZkq0awhDSuuMIhB0NWbB1pQR4upSaTQyF0fpBODS+NDFTJtcC/RoZZ+zgQ+?=
+ =?us-ascii?Q?14I2/htKoQ97Oxf4LUCS3btdGLMqzpV2EeYpfwBIZXZOeeWa606HI1u1wdkt?=
+ =?us-ascii?Q?smWGVuYV42BCGa3GEZ8W7lAnYNTK6fPeCNpzC3w7Pce9URm6Kx8tPAzLRrTC?=
+ =?us-ascii?Q?F+h1AkjIzamaXTLxPpFEYTQtw17Mm1AF3eZ9atgfnMHe4KlyMxS4ykUUmA+j?=
+ =?us-ascii?Q?qg1DWEMsK0VmKrduEz70rdyQnRzEG5uhkYEDzwm7erL1LdH9mEMbm9PQuRo3?=
+ =?us-ascii?Q?X8l+1MO0x3+EOhzpAaCGVs36VxKis2yPvBsAcHthJrzZS11Yw/Kukh0e3+Tw?=
+ =?us-ascii?Q?zApYwNdW50PaG5GFizI0s09k3L5Uqr0kBi+dsRCvEL8IgBF4B7xjLPsuPK0n?=
+ =?us-ascii?Q?9tSShKrgtZGso4RG2GJOk9/+W0gvUyZ4Vg2a8rK2XhWjxUG8IsUKoNrvYLRn?=
+ =?us-ascii?Q?UMdxQEpk7bDKO7eHrIcwJV7MF/RsTrWAUrGMO2n538H200x2LkorDBdINw+k?=
+ =?us-ascii?Q?6VN+YkN0hu7L0NdSyVEBvy9uglA5VQptYwVUZbNZNqwaYlwJBzYbqOqqEeOH?=
+ =?us-ascii?Q?ElwO8ftyhAlAJ7lekERUpVdVA21r6RExq9LU661Wq6oWMRbNGXD3pCADaRf5?=
+ =?us-ascii?Q?1caJETBj74eZpuqz8ZJD6gn+m9QJ1Hsr+iCYEkYdu81MZdqe0rlBKDpuOLUb?=
+ =?us-ascii?Q?n22vm6/GPvcGlMwlVqegjSmPNpqVFLGvMAokI0TSccjZiuh8Pr3aT8BMijwI?=
+ =?us-ascii?Q?zp5h3qNccDxCZGcJdsZPe/HoCFrba+RQcuVyXrDcWZeUu5lDVpxgWQQiPfcq?=
+ =?us-ascii?Q?BuzAosejpuk9Ufxj8mm6Af8XRWqNrKzt13JC6SdS1d9J5/lqnWxd5d/KMkP5?=
+ =?us-ascii?Q?HmkMMkHXvTX7Q6de98ROBtatUuZ8LifHVSNuOaAU2HZR9dZZ29EbGw=3D=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UzpATKaqMSP5ffWSvIMRce1eP9oNcXYO4rV5GZ8agjJcyFNxXCKnnC8m1xGq?=
- =?us-ascii?Q?z7IcAORTkkH5TL4zxZ+9zmeUEVBeEYmTshiV4QO+ZMdgxUooTxVQ8fUP+gyb?=
- =?us-ascii?Q?iHEwpYe/wSKenA8bRkmcRO6duQaI7MeZss6hAQ916Riw89r8EzpDyVfG3s9b?=
- =?us-ascii?Q?iiZyYpnNP5BDgft8yp+5syCJACDUqM1LHpnhP2QYZ+p3KHK/s2ujxeD8JPmt?=
- =?us-ascii?Q?koZYOV66MIQdrSFoDEh4JkX5PKN0p3N/7hdA7aNO2oh2YzO4NZCPGZWsNwjk?=
- =?us-ascii?Q?oB68ywd8uKN0sZ4Unqu/w3GbTsYIfILgV0MMhNnEEPkjLz5BdNupEDZDxM3q?=
- =?us-ascii?Q?FiLY7eKZ/XbfkbtThx9nt4xfi09x68O8rFYCxTnvwwdviMUeLWALEJpWEoPW?=
- =?us-ascii?Q?x9ThsIoYn9ysjA3NqRMPoqYzvcPy4w1AEpA63lnJbKZBtPmk27xDAWwTqC3C?=
- =?us-ascii?Q?xErN9qzKgWXjAJAhy9Um09y1vNYUgQQW+BIF200yuOSU9+P22vAYepwdIKdi?=
- =?us-ascii?Q?xiApvTYeLumGxcHGU8bMcc/6knQQzhsMAF8Hp6eJg8f8arJQBeLIvN95OUjr?=
- =?us-ascii?Q?a3sUHUFQZi2s8TIg9WWuyBjzLEPstuYh0Ef5N6jvZ2zxe3ixB2MUdfu5UBGg?=
- =?us-ascii?Q?QrRKHH3EWWAWSwWnQsorqpLDz31lAaAJo2HLL+cmLLj9wnme73w6dRJhGLzQ?=
- =?us-ascii?Q?EAAmFelmop328a7jcdrUIvF5xb8XbeHCPYxGmv/+dW5oc1jJ6KohnmBvOKAs?=
- =?us-ascii?Q?iO+IYh4jX9WNgVtEAxxsDKAR+NMBYte3xd+/ap6bFn4rhfe96D3fcX94F49w?=
- =?us-ascii?Q?zdOI8tOcAjl/a+hHkxXaZuFO6OSu4oC2iSKbrzXlckYfglqXHvCoM0sFmEpp?=
- =?us-ascii?Q?dj6Dizo3I+50Lhy1onwCroy4gj60oqK6WoA4tJPF/qVQn22fc5X4wp372D4S?=
- =?us-ascii?Q?ILdydH8tebCbfelV+7VG4sdWUVIT138HXg06plEDwaj3WbGt0njbrax0s9oE?=
- =?us-ascii?Q?ktGF2gV74roGfYEz0dSgeYFiDuTIDSuEZIlqDAoafclf/QVHWddIhFuc16+1?=
- =?us-ascii?Q?Hft6Ym4FueFWZrx8R+lqXfj/dkc39Q6RbrivYMX4CkE2ufR958xt7ej8DewM?=
- =?us-ascii?Q?fUXZWdXRn+utwgZxL6SjBgs6kvrKzH2tvezyFKs5igIqoL+SEWrfbjtsOTR/?=
- =?us-ascii?Q?WDQUhm8ytFkND+eOMUqJEcFCMj4E+V1L3VmTfeQoS6QDBKj1mKXiZLh82UKQ?=
- =?us-ascii?Q?u1fhB9NhOl6c3q5XU0tLoyoYFqZozS8eUHMJXfW8dtJkHOYNDfS6j7rmS19s?=
- =?us-ascii?Q?VZ2wa9LepzJBVMbdSgbL8mcc9IFLVWl9LEbHR+FvxIzKJBUn0RcYtSR2tmGA?=
- =?us-ascii?Q?zOsutmFLM0WPBRI+FBTJwxDI8F2MkpWDritsjZmpZn/sUZ08CB14BOkfVXn9?=
- =?us-ascii?Q?dXi34271oTFHyLMyhQ8EYb5FVqHtDwDbci8EJb8LogHadNV0ANHaE4DqNoAo?=
- =?us-ascii?Q?jYFTOT9TFbheJlKH7COsEqg+2g3yJEXrExEapCEOhX3SDSkqQvW7tzvrI0jz?=
- =?us-ascii?Q?dNWm9/VWYuenV9ARf3awHa0JJEQLG2jKl2g3fYj1poJzlOezETyvdFciG5GM?=
- =?us-ascii?Q?CYBXgLkpaNdh3qCMeUvYwV4=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rBNXvvzUuM/LDHCCDMd1lHZuV9NSaFZKhu9WfMGQaIWVV+D1nOXdP8HCkezI?=
+ =?us-ascii?Q?QKAz/EsysObm5ldVQFBpvuwPDnbM0kpdbGhOdT6meLUjrWNKCIrOauTk1SJS?=
+ =?us-ascii?Q?JulrWsTGjyLm2bDiTlhB+C/d20eG4SgST+YGkANy5TtjJJSBiEAu2/eB5eCm?=
+ =?us-ascii?Q?Foe1wijwA8+xKUAj79yA2JtSi5/7KyqRJtX0S4oebcz3WGL0LgcWQ15ZSCPT?=
+ =?us-ascii?Q?dONzjFe46HV1xE9yVcsqNkdEIP3GrFrdlTz3EALy+ZKaHmYL3/qcyLvEd1Bv?=
+ =?us-ascii?Q?/lk4PphncVy8Iy8svOlYko70ZUKjMcpXEGoHvDJXs2nzdqVztCX4MuDlnbgA?=
+ =?us-ascii?Q?vFccGEFBZ+rnVoY7LONbk8ScyjhLFeBNtt023ZKEDiy9Dsixmv/EKNg1sOtu?=
+ =?us-ascii?Q?K6mQkJctXyLswjXXeZAstj16EyEfQY1X6j9qdKI19I8+n89gtO7oxUXmKQIK?=
+ =?us-ascii?Q?EhZ3IBDUN3zz0401sQopWQFZLl43WqGEsW6nNTlbiqPcZyRUTNhcq/ShQ8v6?=
+ =?us-ascii?Q?d32QkPmadJxuOB/o+pzrC5PZt/ehzKW77/toSChpdKLQGsgNEPQux1xOaw+X?=
+ =?us-ascii?Q?UFJoN/KLTB9IBgR0tkSUS5RdIS4a9cRmnwlkIG0oqqcng2Ifr20UNgiQIrGv?=
+ =?us-ascii?Q?/QPtAiMU+Aa+dmBf4lhf6YpkPfsHg6yQ1on1W2QXx01pFKF27/hIKnzJFVf3?=
+ =?us-ascii?Q?2Z5/o/TXMNiGJTK7y5JM+niZy2Nr7WYDaKWl9gVZe6Gz3cY7fFaLowl5Cc9H?=
+ =?us-ascii?Q?bAX35ImLjh09RW3lH/7BAFA0m+JUa8oHiF9uVskNfqtN7amQqF26+IRgvGFg?=
+ =?us-ascii?Q?Y6fC/f8Jl60ANFoi/8cRfHPUYDioi+1KU8/VNjtOZey3+l/LRl5WnDVMJ3R9?=
+ =?us-ascii?Q?jEFGoo1yjrVuDHfe/V8bRFKb3XY1m3gQzLDmwmsIcMaxBuxK1G/GeI3el4B5?=
+ =?us-ascii?Q?eX0tLovSRi4OWLexihsK7fzJIRQ57XcUhF03MgzjNTC42OciG8ddAjFx4UNN?=
+ =?us-ascii?Q?p3OR67ld1hmYIIluG142IfXDCxrKQSQ35OLusd4yofWNaFXePGFnWdBP8gy5?=
+ =?us-ascii?Q?mtqveYsjCFXsuY306DXuaVVRkGdghUT2brHEFRNWkaDcM5IsRrYvY8yLN4im?=
+ =?us-ascii?Q?MJ9Tq1RM1oZ0VcYtOaccZdVAcHdhPHGldHw6+QqQSx/l1A1n+obX2opiDBhu?=
+ =?us-ascii?Q?7K+nfkaH7glmjO0D3h6UonhZJZ0dWlAXLhc+gazfjovRl+GghVS75956WEFL?=
+ =?us-ascii?Q?o+cZxYaDDYAdmfIYtjMfTDAYus2ccxpc3vWHxbCaahrHkHYjw+YK0qdr6mDZ?=
+ =?us-ascii?Q?ReaSi/F1mdgJfVGp/GQYsXCU7TT1YIO2Do/2Iy1XIhloSD+ylYSn6H7f6IvX?=
+ =?us-ascii?Q?oLzkTz+iVR6wmE4vWACC3/QKIhQv64b90mSmuGqT/Ux713FwxZABZzTB485F?=
+ =?us-ascii?Q?kaZGK5G9GtXxVjqFUvNi4hvavRYxEetHRZF/uOBJjgSUOzloxegXAWl6UobH?=
+ =?us-ascii?Q?+ryoeqwo9DUDFTwhX6PW6wOPJwgf/G5kqC1U8B7TOqcmteWCQhDFqu6qIiLm?=
+ =?us-ascii?Q?gY5PY8Pr2FRjYb1yAzRWGP361d+3gwE3O15CFqYGAR7yk8OZ7sXiKTYhGrJA?=
+ =?us-ascii?Q?KOOpMQdVfKyfOAnys0jFtn8=3D?=
 X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83309be3-3f94-449e-0c40-08ddebbea9f7
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb9a49e2-7fd9-45d9-6570-08ddebbeab7e
 X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 14:23:48.7433
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 14:23:51.2249
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1URQw4aoRhMuvhGa4TA/3h10pqB1lwNd4KSDV74t9yE8Q42hgBz7D43wYIL+vP7lUscGnIIj05rlEfdPkrAArFHsrhunT5HoP3iiAvg9Sbw=
+X-MS-Exchange-CrossTenant-UserPrincipalName: iO3icMkokooWx02sHpF0nXX6TY1znUi5AlGBIJriYwVDJEjxaCmGrNp8WctQWmlDEhcSTwHd4ZmSrGoZYd/tdhkc3t1xTjA3r6wUUBEopcc=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB8992
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_072356_310937_6A20D5AA 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20250904_072402_407636_763237E9 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,34 +165,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This driver can accelerate single page operations only, thus
-continuous reading mode should not be used.
+Booting without this patch and disabled dirmap support results in
 
-Continuous reading will use sizes up to the size of one erase block.
-This size is much larger than the size of single flash page. Use this
-difference to identify continuous reading and return an error.
+[    2.980719] spi-nand spi0.0: Micron SPI NAND was found.
+[    2.986040] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
+[    2.994709] 2 fixed-partitions partitions found on MTD device spi0.0
+[    3.001075] Creating 2 MTD partitions on "spi0.0":
+[    3.005862] 0x000000000000-0x000000020000 : "bl2"
+[    3.011272] 0x000000020000-0x000010000000 : "ubi"
+...
+[    6.195594] ubi0: attaching mtd1
+[   13.338398] ubi0: scanning is finished
+[   13.342188] ubi0 error: ubi_read_volume_table: the layout volume was not found
+[   13.349784] ubi0 error: ubi_attach_mtd_dev: failed to attach mtd1, error -22
+[   13.356897] UBI error: cannot attach mtd1
 
+If dirmap is disabled or not supported in the spi driver, the dirmap requests
+will be executed via exec_op() handler. Thus, if the hardware supports
+dual/quad spi modes, then corresponding requests will be sent to exec_op()
+handler. Current driver does not support such requests, so error is arrised.
+As result the flash can't be read/write.
+
+This patch adds support of dual and quad wires spi modes to exec_op() handler.
+
+Fixes: a403997c12019 ("spi: airoha: add SPI-NAND Flash controller driver")
 Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Reviewed-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- drivers/spi/spi-airoha-snfi.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/spi/spi-airoha-snfi.c | 108 ++++++++++++++++++++++++++--------
+ 1 file changed, 82 insertions(+), 26 deletions(-)
 
 diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
-index dbe640986825..043a03cd90a1 100644
+index bcc464ec9c61..fffed26ff990 100644
 --- a/drivers/spi/spi-airoha-snfi.c
 +++ b/drivers/spi/spi-airoha-snfi.c
-@@ -618,6 +618,10 @@ static int airoha_snand_dirmap_create(struct spi_mem_dirmap_desc *desc)
- 	if (desc->info.offset + desc->info.length > U32_MAX)
- 		return -EINVAL;
+@@ -192,6 +192,14 @@
+ #define SPI_NAND_OP_RESET			0xff
+ #define SPI_NAND_OP_DIE_SELECT			0xc2
  
-+	/* continuous reading is not supported */
-+	if (desc->info.length > SPI_NAND_CACHE_SIZE)
-+		return -E2BIG;
++/* SNAND FIFO commands */
++#define SNAND_FIFO_TX_BUSWIDTH_SINGLE		0x08
++#define SNAND_FIFO_TX_BUSWIDTH_DUAL		0x09
++#define SNAND_FIFO_TX_BUSWIDTH_QUAD		0x0a
++#define SNAND_FIFO_RX_BUSWIDTH_SINGLE		0x0c
++#define SNAND_FIFO_RX_BUSWIDTH_DUAL		0x0e
++#define SNAND_FIFO_RX_BUSWIDTH_QUAD		0x0f
 +
- 	if (!airoha_snand_supports_op(desc->mem, &desc->info.op_tmpl))
- 		return -EOPNOTSUPP;
+ #define SPI_NAND_CACHE_SIZE			(SZ_4K + SZ_256)
+ #define SPI_MAX_TRANSFER_SIZE			511
  
+@@ -387,10 +395,26 @@ static int airoha_snand_set_mode(struct airoha_snand_ctrl *as_ctrl,
+ 	return regmap_write(as_ctrl->regmap_ctrl, REG_SPI_CTRL_DUMMY, 0);
+ }
+ 
+-static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl, u8 cmd,
+-				   const u8 *data, int len)
++static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl,
++				   const u8 *data, int len, int buswidth)
+ {
+ 	int i, data_len;
++	u8 cmd;
++
++	switch (buswidth) {
++	case 0:
++	case 1:
++		cmd = SNAND_FIFO_TX_BUSWIDTH_SINGLE;
++		break;
++	case 2:
++		cmd = SNAND_FIFO_TX_BUSWIDTH_DUAL;
++		break;
++	case 4:
++		cmd = SNAND_FIFO_TX_BUSWIDTH_QUAD;
++		break;
++	default:
++		return -EINVAL;
++	}
+ 
+ 	for (i = 0; i < len; i += data_len) {
+ 		int err;
+@@ -409,16 +433,32 @@ static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl, u8 cmd,
+ 	return 0;
+ }
+ 
+-static int airoha_snand_read_data(struct airoha_snand_ctrl *as_ctrl, u8 *data,
+-				  int len)
++static int airoha_snand_read_data(struct airoha_snand_ctrl *as_ctrl,
++				  u8 *data, int len, int buswidth)
+ {
+ 	int i, data_len;
++	u8 cmd;
++
++	switch (buswidth) {
++	case 0:
++	case 1:
++		cmd = SNAND_FIFO_RX_BUSWIDTH_SINGLE;
++		break;
++	case 2:
++		cmd = SNAND_FIFO_RX_BUSWIDTH_DUAL;
++		break;
++	case 4:
++		cmd = SNAND_FIFO_RX_BUSWIDTH_QUAD;
++		break;
++	default:
++		return -EINVAL;
++	}
+ 
+ 	for (i = 0; i < len; i += data_len) {
+ 		int err;
+ 
+ 		data_len = min(len - i, SPI_MAX_TRANSFER_SIZE);
+-		err = airoha_snand_set_fifo_op(as_ctrl, 0xc, data_len);
++		err = airoha_snand_set_fifo_op(as_ctrl, cmd, data_len);
+ 		if (err)
+ 			return err;
+ 
+@@ -895,12 +935,28 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
+ static int airoha_snand_exec_op(struct spi_mem *mem,
+ 				const struct spi_mem_op *op)
+ {
+-	u8 data[8], cmd, opcode = op->cmd.opcode;
+ 	struct airoha_snand_ctrl *as_ctrl;
++	int op_len, addr_len, dummy_len;
++	u8 buf[20], *data;
+ 	int i, err;
+ 
+ 	as_ctrl = spi_controller_get_devdata(mem->spi->controller);
+ 
++	op_len = op->cmd.nbytes;
++	addr_len = op->addr.nbytes;
++	dummy_len = op->dummy.nbytes;
++
++	if (op_len + dummy_len + addr_len > sizeof(buf))
++		return -EIO;
++
++	data = buf;
++	for (i = 0; i < op_len; i++)
++		*data++ = op->cmd.opcode >> (8 * (op_len - i - 1));
++	for (i = 0; i < addr_len; i++)
++		*data++ = op->addr.val >> (8 * (addr_len - i - 1));
++	for (i = 0; i < dummy_len; i++)
++		*data++ = 0xff;
++
+ 	/* switch to manual mode */
+ 	err = airoha_snand_set_mode(as_ctrl, SPI_MODE_MANUAL);
+ 	if (err < 0)
+@@ -911,40 +967,40 @@ static int airoha_snand_exec_op(struct spi_mem *mem,
+ 		return err;
+ 
+ 	/* opcode */
+-	err = airoha_snand_write_data(as_ctrl, 0x8, &opcode, sizeof(opcode));
++	data = buf;
++	err = airoha_snand_write_data(as_ctrl, data, op_len,
++				      op->cmd.buswidth);
+ 	if (err)
+ 		return err;
+ 
+ 	/* addr part */
+-	cmd = opcode == SPI_NAND_OP_GET_FEATURE ? 0x11 : 0x8;
+-	put_unaligned_be64(op->addr.val, data);
+-
+-	for (i = ARRAY_SIZE(data) - op->addr.nbytes;
+-	     i < ARRAY_SIZE(data); i++) {
+-		err = airoha_snand_write_data(as_ctrl, cmd, &data[i],
+-					      sizeof(data[0]));
++	data += op_len;
++	if (addr_len) {
++		err = airoha_snand_write_data(as_ctrl, data, addr_len,
++					      op->addr.buswidth);
+ 		if (err)
+ 			return err;
+ 	}
+ 
+ 	/* dummy */
+-	data[0] = 0xff;
+-	for (i = 0; i < op->dummy.nbytes; i++) {
+-		err = airoha_snand_write_data(as_ctrl, 0x8, &data[0],
+-					      sizeof(data[0]));
++	data += addr_len;
++	if (dummy_len) {
++		err = airoha_snand_write_data(as_ctrl, data, dummy_len,
++					      op->dummy.buswidth);
+ 		if (err)
+ 			return err;
+ 	}
+ 
+ 	/* data */
+-	if (op->data.dir == SPI_MEM_DATA_IN) {
+-		err = airoha_snand_read_data(as_ctrl, op->data.buf.in,
+-					     op->data.nbytes);
+-		if (err)
+-			return err;
+-	} else {
+-		err = airoha_snand_write_data(as_ctrl, 0x8, op->data.buf.out,
+-					      op->data.nbytes);
++	if (op->data.nbytes) {
++		if (op->data.dir == SPI_MEM_DATA_IN)
++			err = airoha_snand_read_data(as_ctrl, op->data.buf.in,
++						     op->data.nbytes,
++						     op->data.buswidth);
++		else
++			err = airoha_snand_write_data(as_ctrl, op->data.buf.out,
++						      op->data.nbytes,
++						      op->data.buswidth);
+ 		if (err)
+ 			return err;
+ 	}
 -- 
 2.50.1
 
