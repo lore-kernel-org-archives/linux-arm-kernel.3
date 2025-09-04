@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4436CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B010FCA101C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TrZXZ5vj6rpI76QBE1riAOOnnjT8+4As+YM8KSkqa9Y=; b=4vqUNMUONXDgVgzBwzPiV6IJV9
-	LTR2aAKioj6Q/Zmq1YKbyjHcrmOHM9HvxlI9vs+VdF5Mx8mLhmXTr2Q08Hh1QrgQJkjH9T30IrXQi
-	84q0bWUowdpjjWdqvuSaCNbJDhqE6a/y4IIpMiaKrSu9aKTrur1bc6vjBAq+kJMZNRtX1Y1hFqn1j
-	eSFhSYgNzfsaLcvhIertia0HHZ7JC5cUHY98ICgL6QyhqcZtiJ/kuv2H71tH4hYrbnS4SWgRXN+/T
-	2xyuE+5DvZ9PjPVxy/DPQ8e5d9wZGfWlb7ElG1fH+5gtMg24+R5xKsmarx+KccuDTjQj/MTvefPHB
-	/MAOyjGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t+/Oo4CXJuDlDTMfiu6Xf1PiW3YU3ZTst/te5Oyyak0=; b=LxWj4sYEFoQAlZ0pN+ZjmsK/eA
+	bvAV/cbzNqeP9D6oTxuMgEYKgo3b3xIASyA5MKSXAYpFKFpllRi84RBaHn4Ygb3llq0k9SQ6IJgGz
+	s9YuYJKZxycxTV+H7iTE2gBsTrFMKepWhVecexPR4tKaD9WZXmrkNpHtbvxaC8m44Os/XSgcjUauc
+	3z6wKCZWimPUmKizz/bygdYFZCVZqTwHy7iyVsVzw36jC9rBPDfH26bExDpwjCEToIm7F6hMJeNxP
+	DuRXr34XA/zwisHOFIwO9XYsFIJiGPwq2b3BsK2fvcZTW2dOcFkqplwzoeg6k8p7wqzYBvdD8TsI9
+	1ST0EW5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuFzQ-0000000E1AX-2aEN;
-	Thu, 04 Sep 2025 19:51:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuAuy-0000000CClf-0ssC
+	id 1uuFzU-0000000E1Hn-1V9R;
+	Thu, 04 Sep 2025 19:51:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuAyC-0000000CDsP-2LKx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 14:26:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A2AA760286
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 14:26:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5354FC4CEF8
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 14:26:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756995987;
-	bh=MZTNLy8WumQBrAUxZruJ7A1RSPvhV1IcSRMMDbYEd5Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=R00ZNFjzGvMIV1z1JYLS3srxQQe2x1VuVBDB1GG9YR4OKz57tshnqOOqZbLxmuw7L
-	 xCLf65RuifIExOjc5NRKkx7vyOAC82sUKsXlUMqQ1+Pw380aoUXWHh0Md1bMsrnmyZ
-	 OtOc5At3+5t/P4f+yDft7PUret0sxRxvwWfSDavwSIecBLdmwg3quI5ZkR3nfKlcKJ
-	 ppjG234+0H4XtAWuwsZ8HUj5VaqZTNcLcAWqz5AFdW8D9JuiU2n0B5jbxvtzds1s6D
-	 FDaRoI+5BBmqdJ3QNF+/AVMi5Cvld1RLZMJbu5vsgORimigAPacWt4u6Gm216QFA4m
-	 0YuH7TxGBx3Pg==
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-b04679375f6so176477666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 07:26:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUrSnCN+V1jfOlPxc1CoRRejhkrHrpg/5nQ9pHOegsNYN0Z8PDHd5ptZIlxQjBypc2Ntcy1UZrXMqeDZfW79r/V@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDcEgroEOAuAAvgJqPkU+qFrpqUEVRDtt+yIFYnuUAoVhBdjfT
-	B+sqO4IrzDORAylc+TMjMW8nY7BfgTHEcbxpptgHXVMFmk7dFCBVHP+hJkarqwndUkxwwmUL+m+
-	CzfS6LIzEelyypkd+u1ab9DZaEnRU6A==
-X-Google-Smtp-Source: AGHT+IGC6do4FFjOEe96iRxCl7OvO0Z8eMjKL8C03py3+afXpF8z+wNZNrq9fN5BUDwZ+RhTw6v/xHjprm+YASxMvpE=
-X-Received: by 2002:a17:907:97d6:b0:b04:6858:13ce with SMTP id
- a640c23a62f3a-b0468583507mr693956966b.38.1756995985863; Thu, 04 Sep 2025
- 07:26:25 -0700 (PDT)
+	Thu, 04 Sep 2025 14:29:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABDF81596;
+	Thu,  4 Sep 2025 07:29:38 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5E763F63F;
+	Thu,  4 Sep 2025 07:29:45 -0700 (PDT)
+Date: Thu, 4 Sep 2025 15:29:42 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Paul Benoit <paul@os.amperecomputing.com>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] firmware: smccc: Fix Arm SMCCC SOC_ID name call
+Message-ID: <20250904-powerful-futuristic-tench-bcebd4@sudeepholla>
+References: <20250902172053.304911-1-andre.przywara@arm.com>
+ <20250903-great-savvy-bloodhound-38c1ca@sudeepholla>
+ <20250903-loutish-orangutan-of-experience-3dcfda@sudeepholla>
+ <cc8000c0-e457-4bfc-94de-aeeddacab23b@os.amperecomputing.com>
 MIME-Version: 1.0
-References: <20250904103401.88287-1-billy_tsai@aspeedtech.com> <20250904103401.88287-5-billy_tsai@aspeedtech.com>
-In-Reply-To: <20250904103401.88287-5-billy_tsai@aspeedtech.com>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 4 Sep 2025 09:26:13 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+XbTt-FbUOnmnSCwB7yYvWDVLy5kaYARhBwe=0QzGE4w@mail.gmail.com>
-X-Gm-Features: Ac12FXxgofUZYm-8aN3VW1dq-DHJjDy12C9x9yYGuLCJNCxaxLowzVV8WhBnhEg
-Message-ID: <CAL_Jsq+XbTt-FbUOnmnSCwB7yYvWDVLy5kaYARhBwe=0QzGE4w@mail.gmail.com>
-Subject: Re: [PATCH v2 4/4] arm64: dts: add AST27xx pinctrl configuration nodes
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: lee@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au, 
-	andrew@codeconstruct.com.au, linus.walleij@linaro.org, brgl@bgdev.pl, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, BMC-SW@aspeedtech.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <cc8000c0-e457-4bfc-94de-aeeddacab23b@os.amperecomputing.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250904_072948_688682_00E3D9CD 
+X-CRM114-Status: GOOD (  41.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,21 +70,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 4, 2025 at 5:34=E2=80=AFAM Billy Tsai <billy_tsai@aspeedtech.co=
-m> wrote:
+On Wed, Sep 03, 2025 at 05:38:44PM -0400, Paul Benoit wrote:
+> On 9/3/2025 10:49 AM, Sudeep Holla wrote:
+> > On Wed, Sep 03, 2025 at 03:23:58PM +0100, Sudeep Holla wrote:
+> > > On Tue, Sep 02, 2025 at 06:20:53PM +0100, Andre Przywara wrote:
+> > > > Commit 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID
+> > > > name") introduced the SOC_ID name string call, which reports a human
+> > > > readable string describing the SoC, as returned by firmware.
+> > > > The SMCCC spec v1.6 describes this feature as AArch64 only, since we rely
+> > > > on 8 characters to be transmitted per register. Consequently the SMCCC
+> > > > call must use the AArch64 calling convention, which requires bit 30 of
+> > > > the FID to be set. The spec is a bit confusing here, since it mentions
+> > > > that in the parameter description ("2: SoC name (optionally implemented for
+> > > > SMC64 calls, ..."), but still prints the FID explicitly as 0x80000002.
+> > > > But as this FID is using the SMC32 calling convention (correct for the
+> > > > other two calls), it will not match what mainline TF-A is expecting, so
+> > > > any call would return NOT_SUPPORTED.
+> > > > 
+> > > 
+> > > Good catch and I must admit I completely missed it inspite of discussing
+> > > 32b vs 64b FID around the same time this was introduced.
+> > > 
+> > > > Add a 64-bit version of the ARCH_SOC_ID FID macro, and use that for the
+> > > > SoC name version of the call.
+> > > > 
+> > > > Fixes: 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID name")
+> > > > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > > > ---
+> > > > Hi,
+> > > > 
+> > > > as somewhat expected, this now fails on an Ampere machine, which
+> > > > reported a string in /sys/devices/soc0/machine before, but is now missing
+> > > > this file.
+> > > > Any idea what's the best way to handle this? Let the code try the 32-bit
+> > > > FID, when the 64-bit one fails? Or handle this as some kind of erratum?
+> > > > 
+> > > 
+> > > Not sure about it yet. Erratum seems good option so that we can avoid
+> > > others getting it wrong too as they might just run the kernel and be happy
+> > > if the machine sysfs shows up as we decided to do fallback to 32b FID.
+> > > 
+> > > I will start a discussion to get the spec updated and pushed out and see
+> > > how that goes.
+> > > 
+> > > The change itself looks good and happy to get it merged once we know
+> > > what is the best approach(erratum vs fallback).
+> > > 
+> > 
+> > Looking at the SMCCC spec(DEN0028 v1.6 G Edition) ->
+> > Section 7.4.6 Implementation responsibilities
+> > 
+> > If implemented, the firmware:
+> > ...
+> > • must not implement SoC_ID_type == 2 for SMC32.
+> > • can optionally implement SoC_ID_type == 2 for SMC64 (Function ID 0xC000_0002),
+> > ...
+> > 
+> > So Ampere is not spec conformant here and hence I prefer to handle it as
+> > erratum. Hopefully we can use SOC_ID version and revision to keep the scope
+> > of erratum confined to smallest set of platforms.
+> > 
+> > Paul,
+> > 
+> > Thoughts ?
+> > 
+> 
+> Am I correctly understanding that, if the SMC64 SOC_ID Name call fails,
+> rather than an unconditional fallback to the SMC32 call, the SMC32
+> fallback would only be occurring under the proposed erratum?
 >
-> Add pinctrl0 and pinctrl1 nodes for AST27xx SoC0 and SoC1 to configure
-> the pinmux settings for each ball.
->
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> ---
->  .../boot/dts/aspeed/aspeed-g7-pinctrl.dtsi    | 1359 +++++++++++++++++
->  1 file changed, 1359 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7-pinctrl.dtsi
 
-This file isn't used anywhere and is therefore untestable. If there is
-a dependency to apply, then please specify that using b4. But then
-this would also need to be included somewhere.
+Correct, if we have unconditional fallback to the SMC32 call, then there
+is a chance that this issue gets carried into newer Ampere systems as f/w
+gets copied as well as other vendors will also not notice the issue if
+they make similar mistake as the kernel silent makes a SMC32 call.
 
-Rob
+We do need details of  the SoC revision and version for which we need to
+apply this workaround/erratum.
+
+> I brought this issue up at a weekly team meeting today, and I'll also be
+> communicating with the Ampere Computing firmware team regarding this
+> issue.
+
+Thanks!
+
+-- 
+Regards,
+Sudeep
 
