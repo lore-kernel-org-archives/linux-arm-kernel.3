@@ -4,129 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 761A3CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06666CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S6SmD/lRJtpl+jt1dK1UZV6pTcf74vgfYRGz8fZ0E+A=; b=Q8h5JaPjeKttFhcYeCoPq1TPz1
-	ZkeNRa4V8HOkCBjK0eS4cC2IT8F4o6JAHacmb+ZXOMl7B17pb3jayJa27kEjA+efjtneH/Y3PDBdi
-	KJkQ3d3qgkHRnAoUF2j5GGyykOY4ySNlefov36Hyer6D8YhsOvnEAaV/8/QuKx3qsvJ9yMSXn8k2b
-	wNBPyLnZ9tTTen41PesX5PFrh06Y7WCRH4qywHB3Va/IDQ24aP63zEien1ujn22+X1zqEYL/CM4PO
-	WRLaqCNQGdd8pet1GKWxRivk66gH35/dpNBfS4mQVydiE2hXqctwUwRuf4XHKnfrgPYBMj9FgJwW4
-	9B4HFXyw==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SEhM2tiUisq6N+QozK16nGrK2nZOTA65pnHCvF2QcgU=; b=4D7XUEsIwoML53jTGuUNNc5+Cw
+	PZsDuUA1JX6RW3g8lwtBRwKW54htiqsj6GKk1KEP7eHU6e1RR7oOQrfMUxL6REEh4n5v3Fyfq6ovQ
+	OwSPhZgzguPxH3j1s7xi3t1BtVsg8U0Nu/5MZmxiq5c6HVRJh3Z/Nxa0qJndvIP3sZb0IvZpVYPGA
+	DMoFaZQwW5tEBzbqLPLjOik8Re/TIgVbVpDelrSNIyIoB3YarWo2zHvIFgRMvWEXS1Y6bec9zSC9b
+	upuJQYC9M4D3V1Tq2bEULCWLqeRZP5nJ1lRMArRfnmEAUpvSMjiIqsgRd3oXtGhHdPqLGjzg3AQOA
+	lM169EAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu6tk-0000000AlkK-0nqN;
-	Thu, 04 Sep 2025 10:08:56 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5oO-0000000AP5t-0z5r
+	id 1uu6wS-0000000Amti-3uhy;
+	Thu, 04 Sep 2025 10:11:44 +0000
+Received: from sgoci-sdnproxy-4.icoremail.net ([129.150.39.64])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uu5om-0000000APHe-2YOg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 08:59:21 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5840eTdI030324
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Sep 2025 08:59:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	S6SmD/lRJtpl+jt1dK1UZV6pTcf74vgfYRGz8fZ0E+A=; b=p1QR0R6FqrKgJvqz
-	mH00+D1s/Cm6/E1qDhkfOnY7o/3dFYQBm73kQMw/Y6BVC5Sp7bcq+xo1jXmgz95x
-	oCfcGPOS6YNJpAcUQIGIP4l9kmrARXRUQ1qOtUmrZAtc5WWBC5TyBgzpbPjJRipl
-	+SyvQnZnaDP7Cv7SOYdTL2Ks/xPmhCSoSIMr/MJqJNpS4OPlV/0IV/mQcc6ViQXx
-	8BPzYVGcRDsKwjHN7wwkbN5E2m0TCsT568h4u6RgnHoC7LMdaZeon48q395f2Oq+
-	DOG/sbwFmDVQ9112RtUSfVaK3eiBSbfqeXbMb2wtP17qRNitoHvGLhQ8X6SbBldO
-	1QbjkA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48upnpf18b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 08:59:19 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-24b2336e513so12629855ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 01:59:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756976358; x=1757581158;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=S6SmD/lRJtpl+jt1dK1UZV6pTcf74vgfYRGz8fZ0E+A=;
-        b=aPu9gPM1497NMl1AA9dvUEhkCOSDg0sUh5hoe0hHjuYcbBxKgE5DILavqkUVOYHa3g
-         R7Kbw1KAde0c6iSCiXJQbEHnU8ErhSZOT1PrVNXdWukcQmO+CCuSJNs53GxVglCMO4Sx
-         mL0hbBTEO5Gy6xLgcm57XbQmSz4A5T4CbGhc2z7HKYjKj2aQgBfPvEzWWEqW+jTj6zQP
-         m45/Sg/6FYsT0XcIPdHk3rvPSD8kul0LJp16KCgc18J0crg4/PbJgFuThj94YD+z2w/b
-         Ou7H7byhZM4rksxuaXGDlT777RC4gHO4SpcqaXiwMd5JIlm3gN1AfkCt297q49x/dg/t
-         lKIg==
-X-Forwarded-Encrypted: i=1; AJvYcCUCPU53gscI5ZdqJCXclcAMtS8NhI63W2StAjZ1smhPMxKBXF0iZsZo9RTi8Bhrm6BdMoALJghVsPSRPJB/sn8E@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUZ/hZGT3rhgjsyrvdwLeTNNnb39jeZ/uNjSJwA0MTNEwShODu
-	kRhhFcBpP6n2ocHJRufEH41Ze2XPoz6U4OO84NdjzjNSkBrDDR7w05zrKueN6jVJrpyquNX9LtK
-	Kp1Pzw9DflVlGytkDuG3vPy8/PoyF7jEgzpqw5n3f2VCx4ACpIbLtXEDS7MHdiYbvAnVbFUjLFn
-	LkBg==
-X-Gm-Gg: ASbGncv0ctfWpKCUanMRd7WQOItUi7ivNYEYsTNErMpJQeQfifiFQjmeMFq513anLBQ
-	nmFQrLZqUQaRn71aZ3i64OBSmol1Eb48KR36oo9BhEQh/8vWcK4SeCZ1Ls1CDOAf03Dx6lvQ81O
-	LyblzoRXOFhxAjWmhh610sS5Ril+w9R82Lu9xH03lvylxrSZIabdCsH9hdbBGx1NoPERzFi1FeA
-	DE/wy2Q7wvlVqj8iOi3jhUTnDZmV7ljY40miJ6MwKQ4qCNj7a5ggRON2pVG/Ia3ZxLcp/8Xw9Aa
-	zVOhZnvZNlBBU7/hXtuyiSm8ZPaffRHs3MxIuXfP+Btk+k9DsNhfJbojgqO94fQ6k1U5Pv4tVuj
-	LVgleuc9GDZ90icxKRbPiK381wcOK
-X-Received: by 2002:a17:903:2309:b0:248:96f3:408c with SMTP id d9443c01a7336-24944b1cb74mr283245695ad.31.1756976357816;
-        Thu, 04 Sep 2025 01:59:17 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGxWuT4vPU835vv5tJ8tYhEIyfyj+itB0O3M9+Ms4yaueqkNroOnRQHh70sZZFhz9A9lgG84w==
-X-Received: by 2002:a17:903:2309:b0:248:96f3:408c with SMTP id d9443c01a7336-24944b1cb74mr283245125ad.31.1756976357320;
-        Thu, 04 Sep 2025 01:59:17 -0700 (PDT)
-Received: from [10.133.33.16] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24b020a7cb5sm79081045ad.115.2025.09.04.01.59.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Sep 2025 01:59:16 -0700 (PDT)
-Message-ID: <a2e3bcf2-80c9-4c8b-ad88-bd91c33137b5@oss.qualcomm.com>
-Date: Thu, 4 Sep 2025 16:59:11 +0800
+	Thu, 04 Sep 2025 08:59:47 +0000
+Received: from E0005182LT.eswin.cn (unknown [10.12.96.155])
+	by app1 (Coremail) with SMTP id TAJkCgDn_Q7kVLlosGTIAA--.33516S2;
+	Thu, 04 Sep 2025 16:59:19 +0800 (CST)
+From: weishangjuan@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	yong.liang.choong@linux.intel.com,
+	vladimir.oltean@nxp.com,
+	rmk+kernel@armlinux.org.uk,
+	faizal.abdul.rahim@linux.intel.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	inochiama@gmail.com,
+	jan.petrous@oss.nxp.com,
+	jszhang@kernel.org,
+	p.zabel@pengutronix.de,
+	boon.khai.ng@altera.com,
+	0x1207@gmail.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	emil.renner.berthing@canonical.com
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	lizhi2@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>
+Subject: [PATCH v5 0/2] Add driver support for Eswin eic7700 SoC ethernet controller
+Date: Thu,  4 Sep 2025 16:59:13 +0800
+Message-Id: <20250904085913.2494-1-weishangjuan@eswincomputing.com>
+X-Mailer: git-send-email 2.31.1.windows.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] coresight: tpda: fix the logic to setup the element
- size
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tao Zhang <quic_taozha@quicinc.com>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: tingwei.zhang@oss.qualcomm.com, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20250806080931.14322-1-jie.gan@oss.qualcomm.com>
- <2f243b22-d8d3-4352-b226-aaf9ccfe825b@arm.com>
- <a4382db3-115a-4d79-924a-08507e6e7b3e@oss.qualcomm.com>
- <1cef4224-1f0a-4c51-937d-66823a22dec3@oss.qualcomm.com>
- <961258a0-3cc6-4935-a305-80bb2c2c0597@arm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <961258a0-3cc6-4935-a305-80bb2c2c0597@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: B-3RzK36bammHBrdhSY8u2VeWaUBruWf
-X-Authority-Analysis: v=2.4 cv=Jt/xrN4C c=1 sm=1 tr=0 ts=68b954e7 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=pVyM_Y0qywZFV96uxSUA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-ORIG-GUID: B-3RzK36bammHBrdhSY8u2VeWaUBruWf
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAwMSBTYWx0ZWRfXxP20SrwHDtcJ
- 87TuQTnp4xQ9HQr395jPyyB3rMyKW1SEc1QNPGAgmoZLaTSoirEz1lVJfY39Di1LYgDZC8kZ8dc
- HEsQCQcKUO6yq4DrbDi2MEgeTYoVy2xLAJ9j9y5uTlWBjQOPQR2lI32iHENEDDRN3k8vJlEXluQ
- q5DC7Qf4B7WhM0QyYSnZtWJh3QELHh5RI/e/CwdtZ6UmRiI8F4IicsIFAA26yuhxNUxCOwfwfnw
- 99evqRTcABdiD5WyovG524WzW+d3akxT5S7ZEeDfYa6oK/JEjMZO41dvGuemuQUup2Oz0HbujPg
- LY6zHwF7hwEipa3E96PW8YSF5B72zYmIUQ45ttvWoeNFqiINWKXXletbT4bHNpmwsAlQQFbs7iz
- 6lMMbotb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-04_03,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 clxscore=1015 bulkscore=0 impostorscore=0
- spamscore=0 phishscore=0 suspectscore=0 malwarescore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508300001
+X-CM-TRANSID: TAJkCgDn_Q7kVLlosGTIAA--.33516S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZF4ftw1UXFy5try3WrykZrb_yoWrAryrpF
+	W0kry5Wwn8AryxXw4Iyw10kFyfJan7JF1akr1Iqw1fXa1qya90qr4ak3WjgFy7Cr4DZ34Y
+	gay3ZFW7Ca4ay3DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26rWY6Fy7MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI4
+	8JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4U
+	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRAnYwUUUUU
+X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_015920_395410_E1F0D5F7 
-X-CRM114-Status: GOOD (  27.06  )
+X-CRM114-CacheID: sfid-20250904_015945_050988_4BC131F3 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,131 +105,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Shangjuan Wei <weishangjuan@eswincomputing.com>
 
+This series depends on the config option patch [1].
 
-On 9/4/2025 4:50 PM, Suzuki K Poulose wrote:
-> On 04/09/2025 02:12, Jie Gan wrote:
->>
->>
->> On 9/3/2025 5:45 PM, Jie Gan wrote:
->>>
->>>
->>> On 9/3/2025 4:57 PM, Suzuki K Poulose wrote:
->>>> On 06/08/2025 09:09, Jie Gan wrote:
->>>>> Some TPDM devices support both CMB and DSB datasets, requiring
->>>>> the system to enable the port with both corresponding element sizes.
->>>>>
->>>>> Currently, the logic treats tpdm_read_element_size as successful if
->>>>> the CMB element size is retrieved correctly, regardless of whether
->>>>> the DSB element size is obtained. This behavior causes issues
->>>>> when parsing data from TPDM devices that depend on both element sizes.
->>>>>
->>>>> To address this, the function should explicitly fail if the DSB
->>>>> element size cannot be read correctly.
->>>>
->>>> But what is the device only has CMB ? Back when this was originally 
->>>
->>> We have CMB TPDM, DSB TPDM and CMB&&DSB TPDM.
->>>
->>>> merged, we raised this question and the answer was, "Only one is 
->>>> supported, not both." But this sounds like that is wrong.
->>>
->>> I think we may not answer the previous question clearly. But it 
->>> definitely has issue here.
->>>
->>>> Could we defer the "Warning" to the caller. i.e., Let the caller
->>>> figure out the if the DSB size is found and predicate that on the
->>>> DSB support on the TPDM.
->>>
->>> Understood, below codes will be added in the caller to check the error:
->>> if ((tpdm_data->dsb && !drvdata->dsb_esize) ||
->>>      (tpdm_data->cmb && !drvdata->cmb_esize))
->>>      goto err;
->>>
->>> Thanks,
->>> Jie
->>>
->>
->> Hi Suzuki,
->>
->> I've reviewed the logic here. It's not feasible for the caller to 
->> perform the check, since we first retrieve TPDM's drvdata, which adds 
->> complexity to the code. I believe it's better to handle this within 
->> the function itself.
->>
->> We are expecting the element_size for cmb if the condition is true, as 
->> well as dsb:
->> if (tpdm_data->dsb)
->> ...
->> should obtain a valid element size for dsb.
->> ...
->>
->> if (tpdm_data->cmb)
->> ...
->> should obtain a valid element size for cmb.
->> ...
->>
-> 
-> Ok, fair enough. Please resend the patch without the dependency on the 
-> static TPDM patch. Given this is a fix, this could go in without waiting 
-> for the new series.
-> 
+[1] https://lore.kernel.org/all/20250825132427.1618089-3-pinkesh.vaghela@einfochips.com/
 
-Hi Suzuki,
+Updates:
 
-This patch has not dependency with the static TPDM patch series.
+  Changes in v5：
+  - Updated eswin,eic7700-eth.yaml
+    - Use "items" instead "enum" for clock-names
+    - Arrange clocks description in correct order
+    - Delete redundant descriptions for eswin,hsp-sp-csr property
+  - Updated dwmac-eic7700.c  
+    - Optimize the implementation of eic7700_ appy_delay
+    - Update comments and remove reg checking
+    - Use FIELD_PREP in eic7700_apply_delay function
+    - Use clk_bulk related APIs to manage clks
+  - Link to v4: https://lore.kernel.org/all/20250827081135.2243-1-weishangjuan@eswincomputing.com/
 
-Actually, the static TPDM patch series depends on this fix patch because 
-both modified same code snippet in function tpdm_read_element_size.
+  Changes in v4:
+  - Updated eswin,eic7700-eth.yaml
+    - Modify reg:minItems:1 to reg:maxItems: 1
+    - Delete minItems and maxItems of clock and clock-names
+    - Delete phy-mode and phy-handle properties
+    - Add description for clock
+    - Add types of clock-names
+    - Delete descriptions for rx-internal-delay-ps and tx-internal-delay-ps
+    - Add enum value for rx-internal-delay-ps and tx-internal-delay-ps
+    - Modify description for eswin,hsp-sp-csr property
+    - Delete eswin,syscrg-csr and eswin,dly-hsp-reg properties
+    - Modify phy-mode="rgmii" to phy-mode="rgmii-id"
+  - Updated dwmac-eic7700.c
+    - Remove fix_mac_speed and configure different delays for different rates
+    - Merge the offset of the dly register into the eswin, hsp sp csr attributes
+      for unified management
+    - Add missing Author and optimize the number of characters per
+      line to within 80
+    - Support default delay configuration and add the handling of vendor delay 
+      configuration
+    - Add clks_config for pm_runtime
+    - Modify the attribute format, such as eswin,hsp_sp_csr to eswin,hsp-sp-csr
+  - Link to v3: https://lore.kernel.org/all/20250703091808.1092-1-weishangjuan@eswincomputing.com/
 
-Thanks,
-Jie
+  Changes in v3:
+  - Updated eswin,eic7700-eth.yaml
+    - Modify snps,dwmac to snps,dwmac-5.20
+    - Remove the description of reg
+    - Modify the value of clock minItems and maxItems
+    - Modify the value of clock-names minItems and maxItems
+    - Add descriptions of snps,write-questions, snps,read-questions
+    - Add rx-internal-delay-ps and tx-internal-delay-ps properties
+    - Modify descriptions for custom properties, such as eswin,hsp-sp-csr
+    - Delete snps,axi-config property
+    - Add snps,fixed-burst snps,aal snps,tso properties
+    - Delete snps,lpi_en property
+    - Modify format of custom properties
+  - Updated dwmac-eic7700.c
+    - Simplify drivers and remove unnecessary API and DTS attribute configurations
+    - Increase the mapping from tx/rx_delay_ps to private dly
+  - Link to v2: https://lore.kernel.org/all/aDad+8YHEFdOIs38@mev-dev.igk.intel.com/
 
-> Suzuki
-> 
-> 
-> 
->> Thanks,
->> Jie
->>
->>>>
->>>> Suzuki
->>>>
->>>>>
->>>>> Fixes: e6d7f5252f73 ("coresight-tpda: Add support to configure CMB 
->>>>> element")
->>>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>>>> ---
->>>>>   drivers/hwtracing/coresight/coresight-tpda.c | 3 +++
->>>>>   1 file changed, 3 insertions(+)
->>>>>
->>>>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/ 
->>>>> drivers/ hwtracing/coresight/coresight-tpda.c
->>>>> index 0633f04beb24..333b3cb23685 100644
->>>>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
->>>>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
->>>>> @@ -71,6 +71,8 @@ static int tpdm_read_element_size(struct 
->>>>> tpda_drvdata *drvdata,
->>>>>       if (tpdm_data->dsb) {
->>>>>           rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
->>>>>                   "qcom,dsb-element-bits", &drvdata->dsb_esize);
->>>>> +        if (rc)
->>>>> +            goto out;
->>>>>       }
->>>>>       if (tpdm_data->cmb) {
->>>>> @@ -78,6 +80,7 @@ static int tpdm_read_element_size(struct 
->>>>> tpda_drvdata *drvdata,
->>>>>                   "qcom,cmb-element-bits", &drvdata->cmb_esize);
->>>>>       }
->>>>> +out:
->>>>>       if (rc)
->>>>>           dev_warn_once(&csdev->dev,
->>>>>               "Failed to read TPDM Element size: %d\n", rc);
->>>>
->>>>
->>>
->>
-> 
-> 
+  Changes in v2:
+  - Updated eswin,eic7700-eth.yaml
+    - Add snps,dwmac in binding file
+    - Modify the description of reg
+    - Modify the number of clock-names
+    - Changed the names of reset-names and phy-mode
+    - Add description for custom properties, such as eswin,hsp_sp_csr
+    - Delete snps,blen snps,rd_osr_lmt snps,wr_osr_lmt properties
+  - Updated dwmac-eic7700.c
+    - Remove the code related to PHY LED configuration from the MAC driver
+    - Adjust the code format and driver interfaces, such as replacing kzalloc
+      with devm_kzalloc, etc.
+    - Use phylib instead of the GPIO API in the driver to implement the PHY
+      reset function
+  - Link to v1: https://lore.kernel.org/all/20250516010849.784-1-weishangjuan@eswincomputing.com/
+
+Shangjuan Wei (2):
+  dt-bindings: ethernet: eswin: Document for EIC7700 SoC
+  ethernet: eswin: Add eic7700 ethernet driver
+
+ .../bindings/net/eswin,eic7700-eth.yaml       | 128 +++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 250 ++++++++++++++++++
+ 4 files changed, 390 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+
+-- 
+2.17.1
 
 
