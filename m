@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5A9CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 12:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5A7CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 12:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/TtV5w9SklmHnKG5J7AZb+JOmSQbgWRInJV7KaTISYs=; b=Wm2MveMfZFB8XDHz4swbjYziF6
-	OjW8vmhotxPn1YQQXncCICJipye6fL43B0sEzKIAFfTvVrmSLbsnfov1k6JMoI6nPGXyRzbTEwIOW
-	g3tn60l1seW9u2InSuFC1o2UFzp+cRO1q2Vmh8hS56Huc9zyrORbesefNA7z4tFc92B2n1HGdreTU
-	c9OlpeT+g6ctX3LJyoxLQBYuHwn4MwDz3c13ZBa/RahA8EJN1XKDuxmgUqPHBPz4kXajcn8q9+N1U
-	o1ABLCJph0IzT7VL34/AlYEnhQQeqJ6gp0H3L1cX856X2mH4XEcsWFSdVqrGB+/tTT4Y0tjgigFfl
-	C2YRqqOg==;
+	bh=w32Z8An9AE74RRjZOQNiyp9a2tv/8S16VZROzHgn0T4=; b=r3fnNfxIssOPzqybYlruRq80OO
+	IbBJkwN85XTzo3dqQBkAVHMrGkVyOSNYuwKiT/aAV3lu/EuMRuZf1fCkO+oVd+606D8/UHdU3typd
+	CvnbTjFPqYySGydmygeMCgT9aINFQ+DLpcOL9LQTNx196Ak/kBE2u1bVW2RD+IwhKMOydsWwZ8qlS
+	BYvjGtMAvJEHkti71QuyW7SVXUKQmpi6sKPUuE8fGYUzus9TS10dQY+6utINha/XJSxhWeFUfmuGR
+	ETpLkxLiLla9RhemOgBHr3P394gamZC5108g0+pmR2NEjOLLLBeaiJB47LlJVr6az03SaOdyXs1JZ
+	abRGbM8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu9Vp-0000000BhlV-03aF;
-	Thu, 04 Sep 2025 12:56:25 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uu9YX-0000000Bj5a-0qd4;
+	Thu, 04 Sep 2025 12:59:13 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu810-0000000BAx1-1B1r;
-	Thu, 04 Sep 2025 11:20:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1756984821; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Nji4AYju6G0mt3NzQJwL2Rr2cAdxJ+LjeENAFu3XCnU0r+NC5+mUFVDPL+3NPdQ7chGfwt3ArL3AFc6NMksLdIf5DAdQvJT+u02aTrnnwU1gooxeHhWot0KoiRW8EJoPgZtJecjQC4CXjIZEnJUF8BUx0+W0ghXNXrlXsNIxQvw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1756984821; h=Content-Type:Content-Transfer-Encoding:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
-	bh=/TtV5w9SklmHnKG5J7AZb+JOmSQbgWRInJV7KaTISYs=; 
-	b=JRu/0NgFyGoAU63KwvB1aeN+YRnONpizSn53j9oE1FwQsrVXIb67C72fYSroXUNAV29AppNQRuhp7iusYddtQ1EqwOMU4u7HK0YGgauUMf2anG1PIW/TsRxiOQgvotaJGZVHOgMdBenKGX+zWnhgjuK9hGdxRZKdJWja0F9W5sM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756984821;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To:Cc;
-	bh=/TtV5w9SklmHnKG5J7AZb+JOmSQbgWRInJV7KaTISYs=;
-	b=MagfS2PSOiTr18ZnP+oxdKhZ067YCtKThK4WRuvcx6s3kSqzQRkt3a1qR98VYRu6
-	2H2MmEnvNuU+5HIi7O6nXyH7fCUlE8xTYPOQGQ08W+ZBiP5iOGCBmoJnH77kuHr0ipr
-	mII6diVyPGXSdzlhhP3AH7tlZh0o/hK6jaqL3MHU=
-Received: by mx.zohomail.com with SMTPS id 1756984818875807.4425046459023;
-	Thu, 4 Sep 2025 04:20:18 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Chia-I Wu <olvaffe@gmail.com>
-Subject: Re: [RFC PATCH 0/2] drm/panthor: initial mt8196 support
-Date: Thu, 04 Sep 2025 13:20:12 +0200
-Message-ID: <5820885.GXAFRqVoOG@workhorse>
-In-Reply-To: <20250903225504.542268-1-olvaffe@gmail.com>
-References: <20250903225504.542268-1-olvaffe@gmail.com>
+	id 1uu819-0000000BAzU-1lyn;
+	Thu, 04 Sep 2025 11:20:40 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 1919520575;
+	Thu,  4 Sep 2025 13:20:38 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id DiYsnYBqwS5a; Thu,  4 Sep 2025 13:20:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1756984837; bh=VX1Qorr4cLCVKxPq56XPUJlujQHb0CreFY/Z5gKIYUI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZdR2EzMXKNwMV0GD4t+UBqKkew284HTouolI5UMo3Nzd8iCtUBbc/XUbI8E39Cmxd
+	 U6mxlFG727uVHvXfbvpDNK5TP58JclnlusDCngy9wBIFwF4lp7jtkCuKKLgUudAySd
+	 tF63jMXOwagGkOyOBNun2B1ceVUfRR/7nkWxrIVx4sdBepH91ZPRkBDsZLVnPR4qCO
+	 vFn0uecDRhRw7CF3vKHEht6yk/+RlYEEEQRybNW/Lg1ixSRPBVpaXs9Cqc2JRyRQiV
+	 37w/UvDUU7ZvZnIf7Lec27pnDu1/rCWKbBo3vaL9n30qr5wOAdycsW6f0i07gDAwKE
+	 mJ0WBo+ZnQAsQ==
+Date: Thu, 4 Sep 2025 11:20:28 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net] net: stmmac: dwmac-rk: Ensure clk_phy doesn't
+ contain invalid address
+Message-ID: <aLl1_AjVZus5wx0M@pie>
+References: <20250904031222.40953-3-ziyao@disroot.org>
+ <20250904103443.GH372207@horms.kernel.org>
+ <aLluvYQ-i-Z9vyp7@shell.armlinux.org.uk>
+ <b0f9d781-6b8f-49dd-bfa1-456a26d01290@rock-chips.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b0f9d781-6b8f-49dd-bfa1-456a26d01290@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_042030_374891_1F3A1ED4 
-X-CRM114-Status: GOOD (  26.42  )
+X-CRM114-CacheID: sfid-20250904_042039_590787_5EA7A4C4 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,85 +82,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Thursday, 4 September 2025 00:55:02 Central European Summer Time Chia-I Wu wrote:
-> MediaTek MT8196 has Mali-G925-Immortalis, for which panthor gained
-> support recently. But the soc also requires custom ASN hash to be
-> enabled. This series introduces panthor_soc_data for per-soc data and
-> uses it to enable custom ASN hash on MT8196.
+On Thu, Sep 04, 2025 at 06:58:12PM +0800, Chaoyi Chen wrote:
 > 
-> The clk/regulator provider on MT8196 is GPUEB, whose driver[1] needs to
-> be cleaned up and upstreamed separately.
+> On 9/4/2025 6:49 PM, Russell King (Oracle) wrote:
+> > On Thu, Sep 04, 2025 at 11:34:43AM +0100, Simon Horman wrote:
+> > > Thanks, and sorry for my early confusion about applying this patch.
+> > > 
+> > > I agree that the bug you point out is addressed by this patch.
+> > > Although I wonder if it is cleaner not to set bsp_priv->clk_phy
+> > > unless there is no error, rather than setting it then resetting
+> > > it if there is an error.
+> > +1 !
+> > 
+> > > More importantly, I wonder if there is another bug: does clk_set_rate need
+> > > to be called in the case where there is no error and bsp_priv->integrated_phy
+> > > is false?
+> > I think there's another issue:
+> > 
+> > static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
+> > {
+> > ...
+> >          if (plat->phy_node) {
+> >                  bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
 
-I'm currently working on this, I'm at a functional 800 LoC driver vs the
-more than 30k LoC of the downstream... thing. I intend to send it in as
-an RFC once the clock stuff lands, and I get some responses wrt to
-figuring out what's still missing from linux-next aside from the DT to
-get basic boot working so that I don't send in something that I
-accidentally shredded during a rebase without noticing.
+This is the only invokation to of_clk_get() in the driver. Should we
+convert it to the devres-managed variant? And rk_gmac_remove could be
+simplified further.
 
-Cleaning up the downstream driver is a fool's errand, it's like 6?
-separate drivers, with lots of global state (and no locking), without
-using the common clock framework, and relying on abusing -supply DT
-properties to force a certain probe order to make all the race
-conditions it would otherwise have turn out fine. A lot of it is
-code that seems dead, or wrappers wrapping wrappers that have nothing
-to do with how the hardware actually works.
-
-My solution adds a small mailbox driver for the GPUEB, and also adds
-a new module that lives in the panthor tree and registers itself with
-panthor's devfreq stuff to be a "devfreq provider". The motivation
-for making it devfreq instead of a clock+regulator provider is that
-the GPUEB seems to have several quite devfreq-like parts to it that
-I am not yet using, namely setting a job completion target time and
-several methods of limiting performance.
-
-As it stands it can set the OPP, but boosting above 1.43 GHz does
-not seem to stick. The boosting stuff may be done by the four or
-five other ways it has to set some frequency target.
-
-I'm hoping I can send this in maybe next week or the week after. If
-things remain blocked by then it'll be compile-tested in its current
-form only and lack some clock stuff.
-
-Kind regards,
-Nicolas Frattaroli
-
+> > ...
+> > 
+> > static void rk_gmac_remove(struct platform_device *pdev)
+> > {
+> > ...
+> >          if (priv->plat->phy_node && bsp_priv->integrated_phy)
+> >                  clk_put(bsp_priv->clk_phy);
+> > 
+> > So if bsp_priv->integrated_phy is false, then we get the clock but
+> > don't put it.
 > 
-> This initial support also lacks support for some hw configs. On some
-> configs, panthor is expected to query a mask from efuse to mask out
-> unavailable shader cores from ptdev->gpu_info.shader_present. This
-> requires extending panthor_soc_data with a callback to read the mask.
-> 
-> This is an RFC because the dependent drivers are not ready yet. But I
-> would like to gather opinions on having panthor_soc_data for
-> soc-specific data and having CONFIG_DRM_PANTHOR_SOC_MT8196 for
-> soc-specific code.
-> 
-> [1] https://gitlab.freedesktop.org/olv/kernel/-/commit/170d5fc90f817dc90bde54b32872c59cf5c77779
-> 
-> Chia-I Wu (2):
->   dt-bindings: gpu: mali-valhall-csf: add MediaTek MT8196 compatible
->   drm/panthor: add initial mt8196 support
-> 
->  .../bindings/gpu/arm,mali-valhall-csf.yaml    |  1 +
->  drivers/gpu/drm/panthor/Kconfig               |  6 +++++
->  drivers/gpu/drm/panthor/Makefile              |  2 ++
->  drivers/gpu/drm/panthor/panthor_device.c      |  2 ++
->  drivers/gpu/drm/panthor/panthor_device.h      |  4 +++
->  drivers/gpu/drm/panthor/panthor_drv.c         |  4 +++
->  drivers/gpu/drm/panthor/panthor_gpu.c         | 26 ++++++++++++++++++-
->  drivers/gpu/drm/panthor/panthor_regs.h        |  4 +++
->  drivers/gpu/drm/panthor/panthor_soc.h         | 26 +++++++++++++++++++
->  drivers/gpu/drm/panthor/panthor_soc_mt8196.c  |  9 +++++++
->  10 files changed, 83 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/gpu/drm/panthor/panthor_soc.h
->  create mode 100644 drivers/gpu/drm/panthor/panthor_soc_mt8196.c
-> 
+> Yes! Just remove "bsp_priv->integrated_phy"
 > 
 
-
-
-
+Cheers,
+Yao Zi
 
