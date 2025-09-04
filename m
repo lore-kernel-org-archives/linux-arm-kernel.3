@@ -4,88 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67F26CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:31:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19891CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wYkWbCvyzrXYcRtGccULZYx96qOTZhMo/W/nEtVwCNo=; b=XCM6psFThXCBICcf4H81iDfoOo
-	DBVVO4+G2BKMJ7kzIrd2O6HffjzNPuoTUNfBLtCH97vF9hsphKa8Te2fWoLwqqI+IMmGoB90DsRCu
-	WrK1yb3TMd1n045nlR+EdHKE8Zan9jRmRSapONV1GYDGjpbx/oaLchySPa5l4NzMj/X9eRz+kGFeU
-	z1osSuFps3bU+SEBaspnH+T8hS0WmKTqXbls8XgmJLmXmmP78+rDSz7QuzZAnudTuq6GYCwp7ZcnQ
-	voZKuEbvrT1CmMAVRJoGxZvUwqF+ICszUE0R33vTLSKoCNbevlGVKy8MdOBRRMMnib+xbwOf9yEq+
-	tZ87iQog==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AQ26RmHLaQWCbZPPgHAZQdVbT/ghy6v/A0FERV/jWuE=; b=u8y4jMkmesUYhvsozLYLo6c/a4
+	uZaqhLqAWo7qvSy6vDnEY2uVP2CMkU8jOcgz4FkLwBPW7e2/lpJz/zmVuKyJwa5NwKOmRf1lk9Hv/
+	0WPnzIw25DgMeg/MCwRTD8Qlt7Du4JTwxd2m8pWkCbXOmfO/jmI7dqui4xvx5JyJSD/7RKWGIpt3+
+	DGjEIgs83/PuiLpRrsejktwmPwp2A7E11ut29E1Ee/8qbB6w/f51kpg2+8zae/tgzjymb/WpjNtBs
+	NAD8PbiszJBVZK0/JlHiibfN4CmAAuSPfdcR5m0FDNrD8ET6GZg40WBKn2bR4jiWaiuEMiw8ePBNa
+	4CoMY+pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuEkR-0000000Daa1-3NLp;
-	Thu, 04 Sep 2025 18:31:52 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uuEkV-0000000DagE-12E8;
+	Thu, 04 Sep 2025 18:31:55 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu9eS-0000000BlKM-0FTA
+	id 1uuAI2-0000000ByiQ-3MiW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 13:05:21 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45cb6428c46so8057445e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 06:05:19 -0700 (PDT)
+	Thu, 04 Sep 2025 13:46:16 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aff17215facso12393866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 06:46:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756991118; x=1757595918; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wYkWbCvyzrXYcRtGccULZYx96qOTZhMo/W/nEtVwCNo=;
-        b=ODaizJezgkmOaFAM+nK7qWpI2y6f6CtjITx37Ku/Lfi9KNCu5lrdcZwV47NtJeloMZ
-         mtp5el6yQ4PP57Qze4wrK6TzhyB9L5ZYW8VWb27vinjrPhSV8SLcg7bkIlBNGc+123CU
-         60L617HjH9dD/F3JjDIrLxjcPZKhI7U63rvDrEj+fOvsZ7MSLxo3m8Ew0nbDOWQvSrov
-         nEqt5x4Gp2ErbKl7bXSND+rwWcUr5gp6Ziw7EUxHvo4Ox2gFKSEPqFLyqQ60XNkW5pym
-         D1FowDNd7YP6aLaFRGoIML6CvJaAazZaDYl8qT6giYbz+E/OawVlB3gzFPq2b0Ue8Ey/
-         uLIg==
+        d=linaro.org; s=google; t=1756993573; x=1757598373; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AQ26RmHLaQWCbZPPgHAZQdVbT/ghy6v/A0FERV/jWuE=;
+        b=lTXSgnMH96zwvIENlxGofzZmKqepazZP43/645Y4N8Ly6YgKz3QarZ4yNRh9GLOqTg
+         9N3NvTntjlKbG1SYE7uyAz/ttD8XFXkiwhNdSNQKUzGvKu1SAWGArpudUC9o3PVHy93j
+         i3YVF+zp1nToqqfvZGBruy0Su/9LYqQY5X3cAUB0IX6F9DvSpXz86g1GJASCMz9P73YZ
+         S2IGxU22oXntzSrmAEQtPVgpU+D2fOWQUlkwQ/VdA6U8tDJ4c1FfPsd/hckLLFR/ZWro
+         e6R9g8tvUEyQgubFcSSXqc7H3ScdXdjRd7y3RbraZLaJRxuJhNEpXEotmR05DVOsRbgu
+         16Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756991118; x=1757595918;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wYkWbCvyzrXYcRtGccULZYx96qOTZhMo/W/nEtVwCNo=;
-        b=WR8n9RSLs0O5B47innALmtIEOBmHcqZq3FQF5Q0+h4j9c+v/RbmE5RuC98hBTJYp03
-         oKLbm5Jx6IeAwgpsSVPp7qUis2lQaqC628zJhb747GnWYlolwQe8xXiE9Sb7J6VX2pRT
-         p854esEMZFS4D7jqkKIZPNT8bDead2RwdVwTWkr+LIBPwA8w3MmfgnRLG8u/P5R9NbFv
-         aUU5txcQ3PZTb/1Qpcctb9XuHSyczlPYNlOLO9C0g28LPW6X0Ems6jYOZohDzfuHmVFq
-         +oin1ZftoWhV9vKs+SSNmDy96K9lGNTG0lFTta7QuygenmNorh0ixKEKxKNrR9XuksEH
-         xmQw==
-X-Forwarded-Encrypted: i=1; AJvYcCVUsnE+lrQ/NfImfAagEiq3c83mlNj5c4EsiD1Mqn56AB5i/KytQXrZ6f9HREr9Tdd1higxNCJvuboJbKBtczZz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0qNTK0k3HjEBo+8vDnRGK+lW8NNlQhiLez1IIevMPHlC66Lds
-	02P6QOa96pcKGH4D2glpmYu/mPgNfsOAQqfV89Ha70yGpvVzqjUF794l9+MdB9fH1ak=
-X-Gm-Gg: ASbGncvncZZKcXIOxjBoBnmvrl5was7wnVVnC0rGphoZFtdrJkB1+Ft7rIr9A125bcn
-	BMSbHcBt1nUNJW9in2bmSIBm6lMx7neaxXP6tO9DqapfHwVv63ADu7tjQCozZtCnqavLCooo2Ce
-	8HW0tC0uYn4ZdGrjmeXSjipZgp1oQ0DyRX55EkG1lT2LPzlZ+8/goaWycQlGprwkh+Gxln85+Hi
-	YctzRV1H9D3A6ib8Vn/sn7KOW8KWtGxIuxU6w4MtkX+bJEtSYtv1vHMNMPQn7uzO0W8sd/5litv
-	Pz1Pi2NXnRCBEm6HrNq6SeSEpriHeyHD/FEYGCFhjIkQmelEoV9y8FrOvnJcABrUCmVz7PztxHK
-	m8mkTicYqjOsg1nfFcvQwxVrqz5c3zmOn6A==
-X-Google-Smtp-Source: AGHT+IGeiyinvVoDIY4X2T0SG++4d/2SLzsdQmO+tL6RfTknWDo1frGnFfVgbdD6pRFAo9bc8mLUsQ==
-X-Received: by 2002:a05:600c:190f:b0:45b:8939:8b03 with SMTP id 5b1f17b1804b1-45b89398d27mr126045955e9.27.1756991118284;
-        Thu, 04 Sep 2025 06:05:18 -0700 (PDT)
-Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:6e82:a4aa:49e0:a7d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b93fae643sm131185925e9.3.2025.09.04.06.05.17
+        d=1e100.net; s=20230601; t=1756993573; x=1757598373;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AQ26RmHLaQWCbZPPgHAZQdVbT/ghy6v/A0FERV/jWuE=;
+        b=qkgPr9aQ/yAgXe8KkiUr3PowWpB2etd6ENEBLdb/NZ+p+9uaHRhE1ePWvi4crqjAUs
+         JaXw/Za4As9sSMDJOd7zcTWFoD9rb3NTTuFQS6epo/BYgjnAyJS4X2r0MZcagyHAEQTx
+         E73P8KQTnUl7wVW8Wk38eOPsox9MeTlmE+C0ABjZiHnQ75Q6/x2utaLOyTQLVq5Mn/C9
+         lw2hLWw4jXrdUyhcHofru6MzUVT6nTW16Mz1ECY7wBXrDtzFK7G22+KsFEuiORvu80V5
+         GvrYODQ4OC/11ezWA65Na0Ea0D4uj50vAw8+5sbaVcdZkZWbGANkNieTfkcjZWPTLLgG
+         1SHg==
+X-Forwarded-Encrypted: i=1; AJvYcCUUCZoO4UBet4KPbnptOpheJwuNFYeVwmZlsekUm0cvjrc+ZdMFY4+u2iEvkmEc1Rlr5saT6XxyFi5KX5jn3qSc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUceq9jrjkZZqyv5WwtU8W12bJf2/elXvKzmzr5lBp9pFYQtNh
+	kYkx6+plKSB8lONLZUaB/vzeSTqgcAa19ntvBBe9a1lj6PgzjbcdsEP9YH9rcaqHOLI=
+X-Gm-Gg: ASbGnctFJT/XEzJHk8CVCbFtqVIF+EkQlhASX7l02p00sSJttUyObc6IX+PLxg4mO3Q
+	xIbXsVErRxFXcmfIoMr36dKrnHmTKmDTQ+2gCjUvaM0cOyw9wsJ70bj91Jx3MXLuobuTWcpgaRA
+	aoIJXzqngK9Z5G+9SJFFOb4ypSTNaoSRJe1Wsm9RCMbVKHl0nBhfDqip4yRRSteiT0OUhCPBfGI
+	7ztDCSdmq/4Ix9IKcRsKgOkpE3S4o6X35OIGz94fGA/e4y1RWgIZCXt0w7BSXSnnK7+ZdKi7ahe
+	iIFh02g5gKarzcJZ1wAXGuPFjZi/xj+eL9vUDq4gE38vyu6+kkh6Ye1/Muyaozya/2AM9B7rIUy
+	4Aw2md3t5FXv+PezDyNRK8XnwuhlFc6JbDdwfsPBPRJMkfj84uQ==
+X-Google-Smtp-Source: AGHT+IEQoqOwB2yGHXtT3U5ow0C3hw1fUocrSdNOZukUnko/TRqHkgL5aBTtZ+Kkhn/YxvPmHZWsUg==
+X-Received: by 2002:a17:907:7e99:b0:afe:af91:2e54 with SMTP id a640c23a62f3a-aff0f15c2c2mr1210879366b.9.1756993573122;
+        Thu, 04 Sep 2025 06:46:13 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b0413782b94sm1180634266b.35.2025.09.04.06.46.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 06:05:17 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: Lee Jones <lee@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: [GIT PULL] Immutable branch between the MFD and GPIO trees for v6.18-rc1
-Date: Thu,  4 Sep 2025 15:05:16 +0200
-Message-ID: <20250904130516.72266-1-brgl@bgdev.pl>
-X-Mailer: git-send-email 2.48.1
+        Thu, 04 Sep 2025 06:46:12 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org, 
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org, 
+ s.nawrocki@samsung.com, cw00.choi@samsung.com, alim.akhtar@samsung.com, 
+ linus.walleij@linaro.org, tomasz.figa@gmail.com, catalin.marinas@arm.com, 
+ will@kernel.org, arnd@arndb.de, Ravi Patel <ravi.patel@samsung.com>
+Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com, 
+ gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com, 
+ smn1196@coasia.com, shradha.t@samsung.com, inbaraj.e@samsung.com, 
+ swathi.ks@samsung.com, hrishikesh.d@samsung.com, dj76.yang@samsung.com, 
+ hypmean.kim@samsung.com, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@axis.com, devicetree@vger.kernel.org, 
+ linux-gpio@vger.kernel.org
+In-Reply-To: <20250901051926.59970-6-ravi.patel@samsung.com>
+References: <20250901051926.59970-1-ravi.patel@samsung.com>
+ <CGME20250901054259epcas5p13dfe6ccb7759af018a07403ceb1e86f4@epcas5p1.samsung.com>
+ <20250901051926.59970-6-ravi.patel@samsung.com>
+Subject: Re: (subset) [PATCH v4 5/6] arm64: dts: axis: Add ARTPEC-8 Grizzly
+ dts support
+Message-Id: <175699357104.171312.5414348160649999670.b4-ty@linaro.org>
+Date: Thu, 04 Sep 2025 15:46:11 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_060520_098371_AEE324F9 
-X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-CacheID: sfid-20250904_064614_843579_ED3661D3 
+X-CRM114-Status: UNSURE (   6.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,38 +113,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Lee,
+On Mon, 01 Sep 2025 10:49:25 +0530, Ravi Patel wrote:
+> Add initial devcie tree for the ARTPEC-8 Grizzly board.
+> The ARTPEC-8 Grizzly is a small board developed by Axis,
+> based on the Axis ARTPEC-8 SoC.
+> 
+> 
 
-Please pull the following MFD changes that depend on commits I already
-have in the GPIO tree for the next merge window.
+Applied, thanks!
 
-Thanks,
-Bartosz
+[5/6] arm64: dts: axis: Add ARTPEC-8 Grizzly dts support
+      https://git.kernel.org/krzk/linux/c/9e74b88c0a57f78dfd3017de435ae400d9b659d2
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git tags/gpio/mfd-stmpe-for-v6.18-rc1
-
-for you to fetch changes up to df6a44003953fb23ad67f82d299e439e7ff7150a:
-
-  mfd: stmpe: Allow building as module (2025-09-04 15:00:53 +0200)
-
-----------------------------------------------------------------
-Immutable branch between the MFD and GPIO trees for v6.18-rc1
-
-Allow building the MFD STMPE driver as module.
-
-----------------------------------------------------------------
-Alexander Stein (1):
-      mfd: stmpe: Allow building as module
-
- drivers/mfd/Kconfig | 10 +++++-----
- drivers/mfd/stmpe.c |  6 ++++++
- 2 files changed, 11 insertions(+), 5 deletions(-)
 
