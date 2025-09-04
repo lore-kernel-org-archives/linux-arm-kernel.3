@@ -4,93 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A873CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FFDCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rie4NtT+lhI/VU3pftqdPT332lGA5fFGRROI4ZDW40c=; b=ty3BIKBDAgEG8l6GuWtnVrK1FH
-	JAxln7ys/OryR/5r5l+f7W5qujhXr2q4MHZ61Su2W/I60KaMUIoanB1QiVYeOmzh9ixpy6z5BeezQ
-	emwKit4X9y6jquGPlWWsazY+NUNTlDd/5SBQ8czSUGFSjOAJlPo3nf8Uw4mf669pYyMdcWhVw6VQ3
-	rTh75wHYVBS8QNkhNX2J9uwpzvKhyu428VkAPGfsQA9re/1sF0NekGQ1vVFcP/aMIJTRtzfryIDBH
-	93jN3o4cW9gfeKa0tSNc7vAbcKlKbQBA4cwFB2sv+0BNJuCefis85YYniS8NUBTAi5oKD+0iK+6RT
-	CvRf1ZIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4DYWAeKh3Hj9OaV5yFCYGjE3HAEPyEq4DXbAegkcXzc=; b=w0e7uTVhjUa8t4ld4541wQFArH
+	9VFk2d5QuZlSTw673BGRKOnGFEl29/vJpEJdkNkgJeJODuK+wXtLNxel9F/5aO1KCRA4x/nVodAZb
+	p6nj/hFk6p8SsVEO+i96oftCfUHIalhxMiLOzT4qEKXz72+yBZtv+7W7aWdeg7VpPp87ICbKceAAs
+	/IaeTWdUZjBNW4NTKnA0dnyoYtkTFfQUOWLEl3YTovfnEVsWhJc5EEp2Qpy56XM2y7tmO9ZaWSQ1f
+	fRMwHupdRkH9C/7ZlLpsy0hHqk0l67GTaZJLsV5EdOpaW06uW9di4MUOQKs74cS3J5SBCvEuSOes1
+	K2JgXcQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuG0S-0000000E2dw-1LV5;
-	Thu, 04 Sep 2025 19:52:28 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1uuG0X-0000000E2kE-0I0e;
+	Thu, 04 Sep 2025 19:52:33 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuBEW-0000000CJo4-2vit
+	id 1uuBHt-0000000CL4Z-2aLC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 14:46:42 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3da9ad0c1f4so776438f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 07:46:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756997199; x=1757601999; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Rie4NtT+lhI/VU3pftqdPT332lGA5fFGRROI4ZDW40c=;
-        b=KL9NtMwCvpYVD/aUDy4k9yGwPkupuWR56B0TNumtaNyuFucNyxFEQLdLVpEYsukWWZ
-         TrDo+9PnrKQETOCaaLPbsgVJa5Yni85FMgq/x4+1q89oBqqHOXSiaydNJOtN3snBVyRY
-         xrP2PN1VwXECrsGS3fp6YXQkrmKqetVtyTNDVrlLRiLkKSMsqCIx3Mh8KvW+lquyzhPs
-         e+4mZWPlRx+7eOmkYJ8ox+lnv7G7sfUIkkDLHX0GagSwltU06nUcUS+tmwt0xbbFCeFU
-         S03TxhYYT6ZZhTmoQuF6Fbe0yWIVoHtBg+YgJkupkJo9Zy3DwLGL97EEQyXVO9WNuxko
-         HOFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756997199; x=1757601999;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rie4NtT+lhI/VU3pftqdPT332lGA5fFGRROI4ZDW40c=;
-        b=eiIrp0qulMH0dGsVFEOKfhOCbCwP/GBLn3chTOzcgSrB2+hv1t7cIw9cFnyzOeBdT8
-         mfd0E70y4lH67Xp4/rKzdi83Hkr8J1PJ46tlTzGN0z3ekI0YS86cKhRSSJywoBASkQfs
-         iAv1dm3M8hfqc5XP4WfLBI2M66TzQB8CTnVfEPuFacLP640GpBiT0m2JXEqDQLRX122X
-         EvNPADqbPzp4saySiPQIIdbi+67w9P4YAbOTvaif2Tzdx/XLKx5eNaEKHiKP/kwg0XmZ
-         lKEGwjQvxxU8bTVhMUhu1CcZhRbAxKfp4oGrSqsMXvlD9vswa7aBLeHY8dFC/9XCVHx2
-         +T7g==
-X-Forwarded-Encrypted: i=1; AJvYcCV88bwxCkzOLJJ8nLv93AvURdlhe9qDUr9km9pfOow3qop6hfoU5ShddTefEoBIFoI3/j0Ju0AKIDt+h5XILqMR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAMfRfybncosdilmaj1zcWV+9uGo5TTfgRWzsSevJJiQtm7pLr
-	+IlKX7hl71KhlO80goSK9r3t74HIc7oo4YTPqOxZHMJ/rJepAXqd06lF89OI2U/FtX4=
-X-Gm-Gg: ASbGnctg4g009NIVowSgM85MIjz+4xpt+QdU0iG8NSFziUgLuiZLj+pqtY9hoL1YzKe
-	5KgXH+mkQUS+jk1/gZZ0VcAQ/1ki3XGw1Ayz+daXRnrbBJFRYFXCyJ+Yyr0H3nCZR0Hllt1cTwP
-	yYG93IkJA+xN7Jnc/EL1+bxJQy3XNhTZq+IYlnRwz2SgLSXfAn5VyvCxgPWudyM6oXaSzDkN2dg
-	0Gi6KnqYiQu8Vj+pecqBK7sG4yOVai3GDDe/Ry/ur4nU0Si1IQWiZIo06gawnckpCEzd0rkpAXg
-	lcy+Py/ZJQ7PpImFlLhjRuRnDz8hOrsODbEif1dncODW5SZUxOtZVI/eIvWubcPv0587GxlXWjc
-	Ls0XJgybUp8aU9zVNwVBj4+d0p0uqKm0o2mjjXg==
-X-Google-Smtp-Source: AGHT+IFI/E5qAIKfXdhNEpKBbEZViYZqEL++gyAmn9sf9BLf2v535PWLf+n1Md00yBlgDCzJA4lVmw==
-X-Received: by 2002:a05:6000:1a8c:b0:3cf:74e0:55ac with SMTP id ffacd0b85a97d-3d1dfb108b2mr16861958f8f.38.1756997198893;
-        Thu, 04 Sep 2025 07:46:38 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45cb5693921sm86639035e9.0.2025.09.04.07.46.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Sep 2025 07:46:38 -0700 (PDT)
-Message-ID: <fabea1ff-cff0-4496-ae82-40c38f293ad5@linaro.org>
-Date: Thu, 4 Sep 2025 15:46:37 +0100
+	Thu, 04 Sep 2025 14:50:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pvv4h4Mo8tOvaGDn0qUKoq16dvmX8bg06zoQU6KinrTokg2js+gI9Xwa2DsOj4JeAVUgxD4DYxsNYhUuy3DHo1VArV9GdulfXSLUoKWVHijXTEI1hGWnX5bV+D5VdNhlHyOm0QARYztrAwkPj7sWeyQET7qvUNNuHgtBPg8DWBNz6hHYWgxhM30Kq9uQsaFVB1Ia7kfI+WD6w/EbSEjAOB8pKtXYyTXeUN+7GDYd+qSqvGL6rqR1Gf/7ZZw1RPsVI4etXWGuEUbtY+yNyXjX5jBj93sbR7Dn/yzzhCd56Nlqwm6Wtbt+V0AvwWAfvbYdMXDQG3tj0ccyPEiDM4u4/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4DYWAeKh3Hj9OaV5yFCYGjE3HAEPyEq4DXbAegkcXzc=;
+ b=QvMRqqi82lNV3Ges7ATvDo/h8LujSR5n/w8l8Fa/vQ5/0uBHYSNYRhVWVdodBG754lIAhZXbgjTpwPJ1b2IbL2wYQFzaaCkhwj6cpdQvk/TipLUyrhv5zbLkTlgzz7+RZM0JiVlhRvgSGI+M3E0W2DK5wCaXoAzSJi+OSsIq80yFcl95Xf1WZg7FA5zzUyIlsoEynxcFh6BwmK7HFLhfiroy6LuseInaYD14SaOtUrndbZPvK5i40F34DXVIvgA0V4ktl9pSnUZCxu2kPJs/VMj2YUmD6GL3K9YJ2DMYrTCRG2fVE2LTsC7N32JC1acwKpSjQ/I7SUOjqhUk5VuZTA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4DYWAeKh3Hj9OaV5yFCYGjE3HAEPyEq4DXbAegkcXzc=;
+ b=f3qtFbjR140wifouha9KiLgV+RC+Vx97xgzo2XdKexZI0aoHxcQ02nnU6BYTy/l18tj2xPjrjjcRcJn+eqFLyt18ljn7zlpwhHSJzvvglJhaw1dnuyzPiV+dYd7GSLrx2VmoVZN7+FPKNkg+sDJxw/LX+4vuGzRTW432VNSdpoAhVgivvttgNWriYsFQ+z4QjGsDFU3OcBEO3zk+GdBzyLwBSMWCkmornjP/8A3Wi+pvW/NYjpAU8OXwkghSc8G/Vb90TKDeBcoYPNqHnoJrXDo3mJZvBScBEEXg1ggxuw9Dk83w7sMP7xfL556rgnnn0zjGPovjxA1WzeDxXD911w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by VI1PR04MB6896.eurprd04.prod.outlook.com (2603:10a6:803:12e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Thu, 4 Sep
+ 2025 14:49:57 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%5]) with mapi id 15.20.9094.015; Thu, 4 Sep 2025
+ 14:49:56 +0000
+Date: Thu, 4 Sep 2025 10:49:48 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/4] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
+ i.MX8ULP compatible string
+Message-ID: <aLmnDASizRALzVMM@lizhi-Precision-Tower-5810>
+References: <20250901-csi2_imx8ulp-v5-0-67964d1471f3@nxp.com>
+ <20250901-csi2_imx8ulp-v5-1-67964d1471f3@nxp.com>
+ <20250901154610.GB13448@pendragon.ideasonboard.com>
+ <aLZMQ7c8qr5XO88d@lizhi-Precision-Tower-5810>
+ <20250902083554.GD13448@pendragon.ideasonboard.com>
+ <7c461931-3b04-4354-a892-52f469511c5a@kernel.org>
+ <20250902123524.GK13448@pendragon.ideasonboard.com>
+ <647fdf8a-835b-44d1-b0b8-a3d253a14787@kernel.org>
+ <20250903192142.GA10637@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250903192142.GA10637@pendragon.ideasonboard.com>
+X-ClientProxiedBy: PH8P221CA0063.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:349::15) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] coresight: trbe: Return NULL pointer for allocation
- failures
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Mike Leach <mike.leach@linaro.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-References: <20250904-cs_etm_auxsetup_fix_error_handling-v2-1-a502d0bafb95@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250904-cs_etm_auxsetup_fix_error_handling-v2-1-a502d0bafb95@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|VI1PR04MB6896:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5f6a7c52-fbc4-408a-04f8-08ddebc25071
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8al2OpTJexT83gMFuDk2kDEQamynQLKbam7P42ExdUUVM5EKxu05eGSWqhS5?=
+ =?us-ascii?Q?6riaWdM2/EtktkvFDyV6ZFXXaUzN44GBqfPTXpIncPUHPu5eGRr5MyIKHbmG?=
+ =?us-ascii?Q?cdiUgAgRyzo5FZI2/IxfNdKSAtZl0Eh0w8Ikcd8tEfxiVCU5inXc9hj8Oiyf?=
+ =?us-ascii?Q?Q5JR5jZXfV9GeeG4OPFPpRSTtGPfPmn8m6jK5Knch/IZXbNvrP5EqEOE8CIZ?=
+ =?us-ascii?Q?tzDFwF0KMKQkiUoRAsovTy0RUCgFWSCHJhYl6EkaVldwJi2P3oNNll4GHtHh?=
+ =?us-ascii?Q?+m4wU8BoAnXlgZHdmuZCv8rZ5XnxMflaEoGmBXi+AUHc/HseI3VmMjun+Nun?=
+ =?us-ascii?Q?wxfJwIwGi+gkg91oqKVZ2/n50xODRIr0AZU49g1FrXHtRTiQPmjyysWZhmG3?=
+ =?us-ascii?Q?YwUUVgSuiCA4h0vsXTa5PYaFT9IrtX25CrKkDx9wg7y42Du/9qMeJzu15bgk?=
+ =?us-ascii?Q?qyOMo+FwQmwnepwkonlJ80bwgOjO9fH0BepQUri8Xhh5sZ7bbf/Uptln0AXA?=
+ =?us-ascii?Q?Ko3QKZmI71RHBLCetST9357270YzrpCrQNhzQzZPbm32rSa2JDE8hFrJC0df?=
+ =?us-ascii?Q?t3V+bkgK8+9lontqEnUTGZeuqOPVBMUxbsSdGI5n+rWXHiy/rLlcPPb7XwN+?=
+ =?us-ascii?Q?XOb5Alh9uI/STold5MzElRua/Abr61PL4mihpdOkvxKPOTMEy9vL7vXEjspC?=
+ =?us-ascii?Q?9KOlLF7wWqXxn5kRe/y3FocHSe9d1NXubzVz8ez+OGalflLRVDo1aqd9HCmd?=
+ =?us-ascii?Q?t53FZhdekJaei6U79TeeNgOXh6fUz2xVcP7dp5N4ev6g9Wn0EM3iAnecn1f1?=
+ =?us-ascii?Q?rFiQt5baSdqCBpwhPMNALQ/6kut0e5XuVY3Qltp0I0BkSjqLkZr10pE42kJn?=
+ =?us-ascii?Q?etxsKnDfEYzlomyGJK3aD7CAOBo2God5PaLg71AmeEjakufuSjQbnFQZow9k?=
+ =?us-ascii?Q?dKjef+ZOurimRlVYZyaftGAjn3C8BpwfdWPs6OmGHZO59hikidV0Mu+7FhDR?=
+ =?us-ascii?Q?DdAyeEuN+uzFtl6m1RUgoNY/YlQdlUGlA3NAAaF72h5uFPzRTwDYu+hM4pEJ?=
+ =?us-ascii?Q?SbE2H9wEV7B8es50XYbkiUtspUtjTtZdy0k6WlZu2o4akPbrey1/8T0dn0R8?=
+ =?us-ascii?Q?rdUVg4XiGNUKvZ99a0lEZksOFgfD+pkjSNVpjWT63Q67bwMcd/0iZYQGtnww?=
+ =?us-ascii?Q?SHnP/xaAdk/zVPuvFSGyFyivKk7GGp0dgw9l9xof5x2qNn2rE2e+PeljzLv0?=
+ =?us-ascii?Q?nGNyP6pGWiHogPNmV3qqZQYeWXwz5LZkq3QmPp9BU1ShsBjAQr0qDt9+v8H0?=
+ =?us-ascii?Q?pmB+YopJ0akP3tuKtiSZa1H8Av8s73sswEEG5jVvYEQWrqZ0qlDfrZ1u0E9S?=
+ =?us-ascii?Q?VWmDpRf01d6XKsza3nyH/efaB9U4M2YMw1A2pt3sP0m85o+HfMq87r1lp0SK?=
+ =?us-ascii?Q?ThtBAj8S/E8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WnHnOXizdFVCcZLrrStO+FNxGeMNF4/HPXaQ1/PouHJ1zK/ykvajPjaR5/po?=
+ =?us-ascii?Q?PG0yxWa3nMjsnCVJk5VT/rUYpEZBV93GLgWcONuSOM503sQct980aGafTwS4?=
+ =?us-ascii?Q?DawF8r0CqnKK3NiBkj36QjqPQ7M6stocsPPk/bgwkpJKikp2pILL8KQadl22?=
+ =?us-ascii?Q?NojInH957FYRt0dpNYaH7pxyaP4YAizoyFdJjGRmR1jezCnr0coifmYTkg8M?=
+ =?us-ascii?Q?SX/qQDHBHA4Q2KX4vlYYONtOzQK+PJ3Etm/vvfLjKfIYgO/NOIIKWARTWAWw?=
+ =?us-ascii?Q?/DlAXmx+FbhemHS4I67h627WmSW3XmTJTRrm5ThTsebZaZlRcqxX6jOzDVho?=
+ =?us-ascii?Q?aFqSizCZUkAvnZ1jiNq/Caolnj2T7sTlohkRwwIZ6iIkcu6foJKONeaOMZQb?=
+ =?us-ascii?Q?TpCcBQhciqvO24X1VzXhe/byXPws12ViizUOGphhhbNbOXFHYg9KT6sLIClN?=
+ =?us-ascii?Q?ie+ocSqrYSpzAY7B2v55KjaiIevI3zlz7DDHWzN9YGVqPRJkH76vkBTnp//P?=
+ =?us-ascii?Q?XAXeH9GaTvdC5ISIZQlPhl2rZjjpz3xfGmg/k5Ctk0c4SMSqiD+5jhtiU6Yy?=
+ =?us-ascii?Q?mJeim4zmDYTM96OcQMKk/wXq7J43DaIYFUQOsutQxXrr7PYEmV0bSXeGt2HV?=
+ =?us-ascii?Q?9bzUJzR6KYOwKXoLhHuYeZirQt/kC4rSVUWKsAai57R17M+qQNpQYqm+OEsU?=
+ =?us-ascii?Q?rp+vFHq9UmjEhe5i9NPJI5qATOWWAuVb2m8vhlWSPhhwkDWbHseyjRFileM7?=
+ =?us-ascii?Q?3ov9WqQrpDTFIve2cGPVvZmiBNp7bEe0s0XA+LBn8ZaUaFIJMu96zBPgtpcf?=
+ =?us-ascii?Q?+B/QN9vxHOCK29jO/9a/w8gkNkTMCCMS9fN+gcINraRP41ES1uedZqlM8Wgh?=
+ =?us-ascii?Q?/gxcP2cNmxwjsegl2daBi4f8RtJqOMj3iCLQhb1lYmwifxfV19RW2AtM071o?=
+ =?us-ascii?Q?aGcQ4BZlRSr8tH0jhBtKkXGhT9wq/nvxLGr4a6To1jkNeO6t+LJaujvI/niq?=
+ =?us-ascii?Q?2QmYm8J+Sdp8iKeZJYZwsXBTp01yxgQ/LD4mYrMZdUdByka8xeDsMg4KCSYn?=
+ =?us-ascii?Q?eR5JoKt5KUKTJKeaFKJ1gSeJypSduVdmsMadyWxYfQVPr0JX3/SpK3ImNHNm?=
+ =?us-ascii?Q?9ZkzYPG+xpcCkE8tcgGWJXHoWa/0A2+unLItTRJh1Jxlyb+YGunzB3eiE2Q6?=
+ =?us-ascii?Q?6Kgf4hIGtF75kEoj3LHCN+6urItS9YjF9pAYvJ6539BXKwTykOVoOLp0vsxb?=
+ =?us-ascii?Q?w3rl5XNhWtpxEsHjG7N3kR3q+sfHJ2NJ7ujKARpTg4gyMBBwUP/WGXLCXMex?=
+ =?us-ascii?Q?v6uKGHWxNrLXdMsqhwc0MTj2u92/Z2WWX3MeLFAW1VRhF6lnDwY9FqKRVV7c?=
+ =?us-ascii?Q?AubmVzn/NDdxqGwNDGjK6lA2dvBd0GBWTGz+LGzowWPLxE7i0pIsI+wftGd/?=
+ =?us-ascii?Q?cTZjPgrpRb5gxB/uzIdrIk1wzIrzVkgyVmSMBKNIEIeFZshMw+cSthQYjDmM?=
+ =?us-ascii?Q?2sx8mZeetWbAV09dQd3icL/Z4ItC9m8UNLY5T0dbcxpU4+3NdIMjTYc9Lp4O?=
+ =?us-ascii?Q?lajPAsfkvYNc8Edjb4Cd08N81Uyk8U+gbuqNvMVX?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f6a7c52-fbc4-408a-04f8-08ddebc25071
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 14:49:56.4394
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: B+VnTw5HQpbJbZXDyGjy04WKFcLZrDXv4FwgjXleK+qH2GWBUyKC7OxpHLdipfQCuD77ZtrWqiwYYmXDtPRr4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6896
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_074640_742506_CF8BEB80 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20250904_075009_814125_D467A2FA 
+X-CRM114-Status: GOOD (  55.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,64 +178,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 03, 2025 at 09:21:43PM +0200, Laurent Pinchart wrote:
+> On Tue, Sep 02, 2025 at 05:53:39PM +0200, Krzysztof Kozlowski wrote:
+> > On 02/09/2025 14:35, Laurent Pinchart wrote:
+> > > On Tue, Sep 02, 2025 at 02:26:53PM +0200, Krzysztof Kozlowski wrote:
+> > >> On 02/09/2025 10:35, Laurent Pinchart wrote:
+> > >>>>>>          compatible:
+> > >>>>>>            contains:
+> > >>>>>>              enum:
+> > >>>>>> -              - fsl,imx8qxp-mipi-csi2
+> > >>>>>> +              - fsl,imx8ulp-mipi-csi2
+> > >>>>>> +    then:
+> > >>>>>> +      properties:
+> > >>>>>> +        reg:
+> > >>>>>> +          minItems: 2
+> > >>>>>> +        resets:
+> > >>>>>> +          minItems: 2
+> > >>>>>> +          maxItems: 2
+> > >>>>>> +        clocks:
+> > >>>>>> +          minItems: 4
+> > >>>>>> +        clock-names:
+> > >>>>>> +          minItems: 4
+> > >>>>>
+> > >>>>> But according to this, the ULP version requires more clocks than the QXP
+> > >>>>> version.
+> > >>>>
+> > >>>> If only clock number difference, generally, it is still compatible and can
+> > >>>> be fallback, especialy driver use devm_bulk_clk_get_all().
+> > >>>
+> > >>> That's a driver-specific implementation decision, so I don't think it
+> > >>> should be taken into account to decide on compatibility.
+> > >>
+> > >> The clock inputs do not restrict compatibility. If Linux can use
+> > >> fallback to bind and operate properly, then it's a strong indication
+> > >> devices are compatible.
+> > >>
+> > >> Imagine exactly the same registers, so same programming interface, but
+> > >> one device takes one more clock which just needs to be enabled through
+> > >> its lifetime. Such devices are fully compatible, even though clock
+> > >> inputs differ.
+> > >
+> > > That's only the case if someone enables the clock, isn't it ? From a DT
+> > > binding point of view, how can we know that the extra clock will be
+> >
+> > We talk about software using the binding in this particular case. Can
+> > the software use fallback? Yes, it can.
+>
+> The Linux kernel driver, in its current implementation, can, yes. No
+> disagreement about that.
+>
+> > > enabled by a component separate from the driver (in this case by the
+> > > fact that the devm_bulk_clk_get_all() function gets all clocks) ?
+> >
+> > If you go that way, only 100% identical devices are compatible.
+> >
+> > >> I also wanted to express exactly that case on my slides from OSSE -
+> > >> slide 28:
+> > >> https://osseu2025.sched.com/event/25Vsl/dts-101-from-roots-to-trees-aka-devicetree-for-beginners-krzysztof-kozlowski-linaro
+> > >
+> > > Quoting that slide, you wrote
+> > >
+> > > "Two devices are compatible when the new device works with Linux drivers
+> > > bound via fallback (old) compatible".
+> > >
+> > > That is clearly the case here for the existing *Linux* driver. But what
+> > > if the driver called devm_bulkd_clk_get() with a device-specific list of
+> > > clocks ? Or what if the same DT bindings are used on an OS that has no
+> > > clk_get_all() equivalent ? This is my concern with declaring those two
+> > > devices as compatible: they may be from the point of view of the current
+> > > implementation of the corresponding Linux kernel driver, but DT bindings
+> > > are not Linux-specific.
+> >
+> > It seems you think of compatibility as new device is compatible with old
+> > kernel, e.g. one not requesting that clock. We don't talk about such case.
+>
+> No no, I'm considering compatibility in the same sense as you. Sorry if
+> that wasn't clear.
+>
+> > > Or do DT bindings assume that drivers have to always enable all clocks
+> > > declared in DT, even if they don't know what those clocks are ? That
+> > > seems error-prone, in quite a few cases drivers need to handle separate
+> > > clocks in a device-specific way, with for instance a particular
+> > > ordering, preventing them from using devm_bulk_clk_get_all(). If all
+> > > drivers are required to manage all clocks declared in DT, this would get
+> > > messy quite quickly.
+> >
+> > I don't really want to dive into such specifics, because it is
+> > impossible to create a generic rule of out.
+>
+> We're on the same page there :-)
+>
+> Compatible strings model compatibility with software. As DT bindings are
+> not OS-specific, they should be designed based on the concept of a
+> driver, and not on a particular driver implementation. As a conceptual
+> generic driver can't be precisely defined, we will always have edge
+> cases.
+>
+> In this specific case, I think that devm_bulk_clk_get_all() is too much
+> of a Linux-specific concept to consider that devices with different
+> clocks are compatible. Even considering Linux only, a driver that needs
+> to handle at least one of the clocks in a particular way (for instance
+> to guarantee a device-specific clock sequencing requirement, or to
+> retrieve or set the frequency of a particular clock) will need to get
+> clocks by their names, making fully generic handling of all clocks not
+> possible.
+
+New added clocks is simple clock, needn't specific handler. Only need
+enable at runtime resume.
+
+Back compatible is hard to decouple with driver's implement 100%.
+
+Compatible string C1 have clock A, B, C
+Compatible string C2 have clock A, B, C, D, E, F
+
+A, B, C is common for both C1 and C2, which need special handle.
+D, E, F is simple enable at probe or runtime resume.
+
+Can C1 be back compatible C2 (assume all the same except only D, E, F
+clock difference)? It is always depend on drivers' implemment.
+
+Add back compatible have NOT bad impact for drivers and bindings. Although
+back compatible "C1", "C2", driver still use can use C1 firstly to do
+special process.
 
 
-On 04/09/2025 3:13 pm, Leo Yan wrote:
-> When the TRBE driver fails to allocate a buffer, it currently returns
-> the error code "-ENOMEM". However, the caller etm_setup_aux() only
-> checks for a NULL pointer, so it misses the error. As a result, the
-> driver continues and eventually causes a kernel panic.
-> 
-> Fix this by returning a NULL pointer from arm_trbe_alloc_buffer() on
-> allocation failures. This allows that the callers can properly handle
-> the failure.
-> 
-> Fixes: 3fbf7f011f24 ("coresight: sink: Add TRBE driver")
-> Reported-by: Tamas Zsoldos <tamas.zsoldos@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
-> Changes in v2:
-> - Fix TRBE driver instead of changing coresight-etm-perf.c.
-> - Link to v1: https://lore.kernel.org/r/20250904-cs_etm_auxsetup_fix_error_handling-v1-1-ecc5edf282a5@arm.com
-> ---
->   drivers/hwtracing/coresight/coresight-trbe.c | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index 10f3fb401edf6a00b24b38cdaa7c2865e7a191ac..8f9bbef71f236b327d35a288689df9b0dd8ff3f4 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -748,12 +748,12 @@ static void *arm_trbe_alloc_buffer(struct coresight_device *csdev,
->   
->   	buf = kzalloc_node(sizeof(*buf), GFP_KERNEL, trbe_alloc_node(event));
->   	if (!buf)
-> -		return ERR_PTR(-ENOMEM);
-> +		return NULL;
->   
->   	pglist = kcalloc(nr_pages, sizeof(*pglist), GFP_KERNEL);
->   	if (!pglist) {
->   		kfree(buf);
-> -		return ERR_PTR(-ENOMEM);
-> +		return NULL;
->   	}
->   
->   	for (i = 0; i < nr_pages; i++)
-> @@ -763,7 +763,7 @@ static void *arm_trbe_alloc_buffer(struct coresight_device *csdev,
->   	if (!buf->trbe_base) {
->   		kfree(pglist);
->   		kfree(buf);
-> -		return ERR_PTR(-ENOMEM);
-> +		return NULL;
->   	}
->   	buf->trbe_limit = buf->trbe_base + nr_pages * PAGE_SIZE;
->   	buf->trbe_write = buf->trbe_base;
-> 
-> ---
-> base-commit: fa71e9cb4cfa59abb196229667ec84929bdc18fe
-> change-id: 20250904-cs_etm_auxsetup_fix_error_handling-cb7e07ed9adf
-> 
-> Best regards,
+> For such drivers, difference in clocks will preclude
+> considering two devices as compatible.
+>
+> As this is somewhat of an edge case someone will need to make a
+> decision, and I won't fight tooth and nail over it.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+Agree. Need a guide line. My opinion is
 
+back compatible if there are no new drvdata (pltdata) in drivers.
+Needn't back compatible if need add new item in drvdata(pltdata) in drivers.
+
+Frank
+>
+> > We decide here about
+> > programming interface mostly. Can Linux use the one from fallback-device
+> > to properly operate the new one? Can the same driver bind to fallback
+> > and operate the new device?
+> >
+> > If you enable clock by clock for whatever reason, e.g. very specific
+> > programming power up sequence, then answer would be: no, Linux cannot
+> > use fallback because handling clocks differ.
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
