@@ -4,93 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B6CCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 11:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AEFCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 11:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iSP1hOZ0AsVWU04bWbtB20mHDgaN9TSqIhbjaBRHRyQ=; b=d8hOY+2EhzRgYLk2Vig+doq470
-	lWP3KI42GjJcLKE0VOB1XxLva+fgxjOAhK9CUX1UJtaKSlQLFQJc+KM/rIpbCU58rG8/LWdS6krQ4
-	Wtwo58+J6CG2TpzuiLdG5WxOvrIsUuM0kGkALeKrQiesdIR/IQBYaAGfpwdBizVIaqf3UkXBExPJV
-	lv5TLfGk81Z7RAvck28doYbarV5U4DhcMqc2YFxDacRyKf01+k6Za4fvCIFrKBkFmCLvRHGb4rHJm
-	3PJ44eCi53kHZrpdwKMO9bgy7uwYL0Yc9+5hfTDmZ9AosMKaFgwOzwQuyJDuaRWuV3UlwsScAnx/W
-	ePf1niSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r+PxUXRPBCegn7nxIw8aU+giwhqnR+X96ofMNS1C+qA=; b=0MdpcxD6Yf7j1Xs/vuPQL6XrTx
+	A0KhgC1d6J9hqRD6s3UHI5wRdTeFgKAiwR68Jr86QGj9yDGXr0kedqLNxRWd0xo7JngBSiWtmjfuP
+	MeQfZPPc6mSIkpcdnz2wF5cMACWqzBqQLlKG9h37ag9igVQCokAFIXEK4xebvJIND7WTLwcrbicpn
+	8KacRYJDX6EP92ryEpQfWrThNgGs0jYD6U5MyIXWq9OB57HO8SizfkyoVPJMzMJVsebTKjcqNXcOj
+	4RHpDMX4iMxXxTERmQyli2qK2Ib1nIQ9J3tjvxNEFJpHumdOUwiga8Ggyps1angyZMPS/RTBJqDE6
+	iwki+ZjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu82K-0000000BBOn-3Mlp;
-	Thu, 04 Sep 2025 11:21:53 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1uu852-0000000BCiU-3q8L;
+	Thu, 04 Sep 2025 11:24:40 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu76e-0000000ArZ9-1lSG
+	id 1uu7B6-0000000AtAO-0I6U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 10:22:18 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250904102204epoutp01953eb075e35f1964a7f1efcc3d332763~iDTShEN8L3175531755epoutp01g
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 10:22:04 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250904102204epoutp01953eb075e35f1964a7f1efcc3d332763~iDTShEN8L3175531755epoutp01g
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756981324;
-	bh=iSP1hOZ0AsVWU04bWbtB20mHDgaN9TSqIhbjaBRHRyQ=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=dtC4k+ROPg66f9lY1NsNI0wkpkKWkj1gTW5yRJduCxfBnOEsKH4wmdjUM/PyQn0SO
-	 vEUC1TELplS2e5ut9rgeOU523Cht2Yp5bREFpQXb0+FMVgIWIPVjLC75CGrg0FBDCw
-	 31FxD3UbtbGr3e9BLqrEgmgvP3KJ4K+ypQOG8iB4=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250904102203epcas5p2b0df51eeea6ec050252650f41b15b480~iDTR7ag6b1396913969epcas5p2r;
-	Thu,  4 Sep 2025 10:22:03 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cHbBL4fQ3z6B9m4; Thu,  4 Sep
-	2025 10:22:02 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250904102201epcas5p2b0faaa8e8b9f42d99b4cfe51b76ad30b~iDTQVvWuh0469504695epcas5p2e;
-	Thu,  4 Sep 2025 10:22:01 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250904102158epsmtip1ead7e955e4664fff710c39fa1f568ca0~iDTNWxioq1828118281epsmtip1H;
-	Thu,  4 Sep 2025 10:21:58 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
-Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
-	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
-	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <87857202-b436-4476-9384-67566126d844@kernel.org>
-Subject: RE: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 HS phy compatible
-Date: Thu, 4 Sep 2025 15:51:57 +0530
-Message-ID: <001001dc1d85$c0d56a60$42803f20$@samsung.com>
+	Thu, 04 Sep 2025 10:26:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=r+PxUXRPBCegn7nxIw8aU+giwhqnR+X96ofMNS1C+qA=; b=Trk0VvDUUBQmIaaZkOwxKUs5VS
+	bHr2Pr+4J8HGE+FsC2yCsBZDLX+r9WZpbXWs+78vPnDsuSed1DhzcYI2IDAuBC/3z2LE41Pc/SQA7
+	rj2PyYhXRAlorckyYao+MnFL1x3CmS5iARyLuK9/N0cpMZ9cn46Ms9GZUx621z5gZz7JQzjGKQEr3
+	RSc9Wbn/jBSIPNUOpnR6MDIueDXv926ba8t3ia+ES0+TROjpeMAPwVcKWLBy6PfQlSgX3ndnbGf9L
+	GI9/0xvaLDAFYAgJC7e6gOdpmLkheX/ObZ0UNFEzJzt82MdP8SCU0lTARU6dZsrgDxtYZlCmupRz9
+	C+Kt+qxQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48290)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uu7An-000000001oA-2KNv;
+	Thu, 04 Sep 2025 11:26:33 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uu7Af-000000001Qj-0fPd;
+	Thu, 04 Sep 2025 11:26:25 +0100
+Date: Thu, 4 Sep 2025 11:26:24 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: weishangjuan@eswincomputing.com
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, yong.liang.choong@linux.intel.com,
+	vladimir.oltean@nxp.com, faizal.abdul.rahim@linux.intel.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+	jan.petrous@oss.nxp.com, jszhang@kernel.org, p.zabel@pengutronix.de,
+	boon.khai.ng@altera.com, 0x1207@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	emil.renner.berthing@canonical.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, lizhi2@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com
+Subject: Re: [PATCH v5 2/2] ethernet: eswin: Add eic7700 ethernet driver
+Message-ID: <aLlpUOr3IJzTuV1g@shell.armlinux.org.uk>
+References: <20250904085913.2494-1-weishangjuan@eswincomputing.com>
+ <20250904090125.2598-1-weishangjuan@eswincomputing.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQIRMOVGdWg5oRjNsRBgEjzIeIB8IgGabj6EAmTXuDcB8lF0oAGjtHpaA19Hw4WzwQPd4A==
-Content-Language: en-in
-X-CMS-MailID: 20250904102201epcas5p2b0faaa8e8b9f42d99b4cfe51b76ad30b
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e
-References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
-	<CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
-	<20250903073827.3015662-2-pritam.sutar@samsung.com>
-	<20250904-interesting-lovely-ringtail-38bbef@kuoka>
-	<000001dc1d70$aebf7d80$0c3e7880$@samsung.com>
-	<87857202-b436-4476-9384-67566126d844@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250904090125.2598-1-weishangjuan@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_032216_767121_2C0B73DB 
-X-CRM114-Status: GOOD (  26.07  )
+X-CRM114-CacheID: sfid-20250904_032652_107034_D90052BF 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,99 +91,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Thu, Sep 04, 2025 at 05:01:25PM +0800, weishangjuan@eswincomputing.com wrote:
+> +struct eic7700_qos_priv {
+> +	struct plat_stmmacenet_data *plat_dat;
+> +	struct device *dev;
+> +	struct regmap *hsp_regmap;
+> +	u32 tx_delay_ps;
+> +	u32 rx_delay_ps;
+> +};
+> +
+> +/**
+> + * eic7700_apply_delay - Apply TX or RX delay to a register value.
+> + * @delay_ps: Delay in picoseconds, converted to 0.1ns units.
+> + * @reg:      Pointer to register value to update in-place.
+> + * @is_rx:    True for RX delay (bits 30:24), false for TX delay (bits 14:8).
+> + *
+> + * Converts delay from ps to 0.1ns units, capped by EIC7700_MAX_DELAY_UNIT.
+> + * Updates only the RX or TX delay field (using FIELD_PREP), leaving all
+> + * other bits in *@reg unchanged.
+> + */
+> +static void eic7700_apply_delay(u32 delay_ps, u32 *reg, bool is_rx)
+> +{
+> +	u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
+> +
+> +	if (is_rx) {
+> +		*reg &= ~EIC7700_ETH_RX_ADJ_DELAY;
+> +		*reg |= FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
+> +	} else {
+> +		*reg &= ~EIC7700_ETH_TX_ADJ_DELAY;
+> +		*reg |= FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
+> +	}
+> +}
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: 04 September 2025 03:12 PM
-> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com;
-> andre.draszik=40linaro.org; peter.griffin=40linaro.org; kauschluss=40disr=
-oot.org;
-> ivo.ivanov.ivanov1=40gmail.com; igor.belwon=40mentallysanemainliners.org;
-> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
-> phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
-amsung-
-> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
-> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
-> selvarasu.g=40samsung.com
-> Subject: Re: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
-dd
-> ExynosAutov920 HS phy compatible
->=20
-> On 04/09/2025 09:51, Pritam Manohar Sutar wrote:
-> > Hi Krzysztof,
-> >
-> >> -----Original Message-----
-> >> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> >> Sent: 04 September 2025 12:18 PM
-> >> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> >> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> >> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com=
-;
-> >> andre.draszik=40linaro.org; peter.griffin=40linaro.org;
-> >> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
-> >> igor.belwon=40mentallysanemainliners.org;
-> >> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
-> >> phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> >> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;
-> >> linux-samsung- soc=40vger.kernel.org; rosa.pila=40samsung.com;
-> >> dev.tailor=40samsung.com; faraz.ata=40samsung.com;
-> >> muhammed.ali=40samsung.com; selvarasu.g=40samsung.com
-> >> Subject: Re: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy=
-:
-> >> add
-> >> ExynosAutov920 HS phy compatible
-> >>
-> >> On Wed, Sep 03, 2025 at 01:08:22PM +0530, Pritam Manohar Sutar wrote:
-> >>> Document support for the USB20 phy found on the ExynosAutov920 SoC.
-> >>> The
-> >>> USB20 phy is functionally identical to that on the Exynos850 SoC, so
-> >>> no driver changes are needed to support this phy. However, add a
-> >>> dedicated compatible string for USB20 phy found in this SoC.
-> >>>
-> >>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> >>
-> >> You just dropped all tags without explaining why.
-> >
-> > Regretted inconvenience.
-> >
-> > There were significant changes in supplies' names in driver and
-> > schemas (patch-set v8). This led to make changes in patch no 5.  And
-> > review for these changes is needed.  Hence, removed RB tag in this patc=
-h-set.
-> >
-> > There was a ask for the same https://lore.kernel.org/linux-
-> phy/000401dc18cd=24ec02a1b0=24c407e510=24=40samsung.com/=23:=7E:text=3DLe=
-t%20me%
-> 20know%2C%20because%20of%20above%20changes%2C%20should%20be%20
-> removing%20your%20%0A%27reviewed%2Dby%27%20tag%20from%20patch%
-> 201%20and%203.
-> >
->=20
->=20
-> Where in the changelog you explained why you dropped the tags?
+...
 
-Along with supplies' names, there were similar commit messages=20
-for patch no 1, 3 as patch no 5 (v7). (though, they were explaining=20
-schema more than h/w). Changed commit messages of the=20
-patch no 1, 3, 5 (v7) as per reference commits and would like=20
-to get them reviewed again, so did not add RB for patch 1 and 3,
-which you had given RB (in v7).=20
+> +	/* Read rx-internal-delay-ps and update rx_clk delay */
+> +	if (!of_property_read_u32(pdev->dev.of_node,
+> +				  "rx-internal-delay-ps",
+> +				  &dwc_priv->rx_delay_ps)) {
+> +		eic7700_apply_delay(dwc_priv->rx_delay_ps,
+> +				    &eth_dly_param, true);
 
-Forgot to add these details for dropping the RB tags in changelog.=20
-Do I need to send v9 by retaining RB for patch 1 and 3?
+I've been trying to figure out the reasoning behind the following:
 
->=20
-> Best regards,
-> Krzysztof
+1. the presence of dwc_priv->rx_delay_ps and dwc_priv->tx_delay_ps
+   rather than just using a local variable ("delay" ?)
+2. the presence of eic7700_apply_delay() when we have to do something
+   different to get the delay value anyway
 
+It seems to me that this should either be:
 
-Thank you.
+static void eic7700_parse_delay(u32 *reg, struct device *dev,
+				const char *name, bool is_rx)
+{
+	u32 delay;
 
-Regards,
-Pritam
+	if (of_property_read_u32(dev->of_node, name, &delay)) {
+		dev_warn(dev, "can't get %s\n", name);
+		return
+	}
 
+	if (is_rx) {
+		*reg &= ~EIC7700_ETH_RX_ADJ_DELAY;
+		*reg |= FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, delay);
+	} else {
+		*reg &= ~EIC7700_ETH_TX_ADJ_DELAY;
+		*reg |= FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, delay);
+	}
+}
+
+or just not bother with the function at all and just write it out
+fully in the probe function.
+
+Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
