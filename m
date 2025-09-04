@@ -4,97 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0672CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A180CCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g1GcUZqgBM2rvR9WerFxy2QlVf4Kk1dgDYgSCP6Uzsg=; b=EnzKDJX8m57SgxddS1OMi3QGFb
-	zopei+HaeaIxEUhNnSczADHz/X9rjaU/+xRbObToVbmeN601SJ5ondRHHqwMCRGwlCKbfgSBy+8hE
-	s51I+a5gbkG+U6YykRLygr8LQy+wbCz0Hzm0T7SYxLQkaIuUTjSbtv/pfbfecNMq4yGhgWkj7sYae
-	AJTLaPRtR6h8R4G9bXRxyNV/QN3Mytl6y0LbwUCYwXmWux4kg663l3g3UrMtbnYQbNVYAG2QAPrRJ
-	JIaB3IR8izl9l9/Ox6iAIP5ZtFJv5wh3IkM+0w59OLLJGGSe5xC/tEvb53FRs2qHOzeAr7f4oJHII
-	9W4qD/ig==;
+	bh=1EbKBkFAuo1NteYzvE4dUEWB/YtLESQqvNvC0CaLi7s=; b=LonUaBGSZVCYdFpczcvAQUU0G2
+	JNGgzGrVdyRmVJdmQpAP/wpsd2iQmfSPSLc7V8Zea9108aK8V2S0Y28Clv3Xgm93DWbLIjnN4E/H+
+	MT/xV5egCPXblTI0g8iimSNZwDNkxo1biHRLRWjZdo5fkCxLWnWWysBDz2Xcl5cKBbQKk4p7i4VH7
+	o0T4f26+JHUQr6uUdJoqR4yFGGjWBTUlBp92ZDzV37uImsiPxPV7xsTAAqlzKv2i7U80BjBpEnVvz
+	NMqHxA0GlY0L5ITte5jcVq8jgLrBc3rfwUxzsde935cTCdFqyp9PZVk9ya+3zaZEe66ixGQglcVpa
+	eiQ8po4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuFz9-0000000E0pa-06Qa;
-	Thu, 04 Sep 2025 19:51:07 +0000
-Received: from mail-ua1-f54.google.com ([209.85.222.54])
+	id 1uuFzH-0000000E0w4-1ACT;
+	Thu, 04 Sep 2025 19:51:15 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu9HR-0000000Bdgx-1vGl
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 12:41:35 +0000
-Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-8988b982245so703042241.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 05:41:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756989692; x=1757594492;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=g1GcUZqgBM2rvR9WerFxy2QlVf4Kk1dgDYgSCP6Uzsg=;
-        b=Y2Ol4qcFbi2csYtHuudoJuWFyrpPO6MAjMz8SvY9pXSxpHAWOcoQCx5NvII37/Zpud
-         i1dCnSfq7OgDMgQ5p/t6HB7Ui+94Pek1ZyZ8iEfzRftEzCxwxBhi8YZtWuOfIvhnsPNk
-         dcwNEtiZOesJV2Szre0uDCaSBRmO1VO2ANORvOdByC0gyrgRcaD89mURdh0KahqKre08
-         6CDtHt2gx8rSIdz03BjUy3fsBDPxZrndnFeXDyY9v3xhmfwwr+ECRMfVZ+gbinWLv/6h
-         LkLgHxOFVN2rY9snJyxQQ6XrjV8ytmZa96wUqxVsyZnOfRVFv9EsXAIi19DrKNdyKYei
-         ItxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWW26xY4E4MABXSZcKMhLp/13zicHE8cfGNL1KS9A8SAVOuJSLf0+Uw7AguXZdmJzeEzsVvn3bFB8srPkn7X0wl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/cHQCEoJLXrqJjRChcptZAW6LEFGuMBbFeVpD6s8Wmhv3EPOy
-	RIzLjUIeI1jpXAaMunYS+KnNWWrFxla01dcIGH3r4gYVIjhpa0D0H9bLmo1ZtbJH
-X-Gm-Gg: ASbGncs9b5b7NOLsKOgPBZ+HeiQ2I5FyJqordA9EpyIqR92PXX742lQh0kNTvurMpyM
-	Aux9pLJZ1j3hIGNXk2vKpQp3ctVqO4me+zjfI0Nf3Pwp68qUxTQUXKgXXRkYulbhQFX3upAYEB8
-	t1zCnZkj3jDCziPHvxTanFh8xKABvB0js8CtiQ3zXLoXrbJo1UDAWTJyeTVFmgbXilLI1ECzpm1
-	j6JuH8yxLjevE2uPpuVvzsrSOWT8I+YUnwoyzvWGAYCQqHOnGpcUxt8tM5P5c9MaX9jBv+x76Fn
-	oYJvP3F3G53uP90q7C20Fo4EaCN3JgEOLmS1NPAQE4l8mZNqDAgAFyHLQ+qUVygvxM3dnbDxZLK
-	Bjaeb9mVogJPeZ4CoiKh3g/vH1Toj4T7/D8PP/CZ18tccaVNxI0HyoDX/FK2cpOhXCdzGl4NHLT
-	4dAdUSmw==
-X-Google-Smtp-Source: AGHT+IEKaBoRFC1smkoom4EtAsGBaH4WlXZnagQDwc0kDZkTENUMjFAqzXg/GddZaIkDgsAOE0nl8A==
-X-Received: by 2002:a05:6102:5f04:b0:520:3f1a:c533 with SMTP id ada2fe7eead31-52b1b91e423mr5657499137.21.1756989691922;
-        Thu, 04 Sep 2025 05:41:31 -0700 (PDT)
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-52af19156ecsm6798403137.12.2025.09.04.05.41.30
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Sep 2025 05:41:31 -0700 (PDT)
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-89018e9f902so501522241.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 05:41:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXxPPYyDN9V774FURt+MWJZ+GxmRPXuNVjXC3efsknYL37x4XSXC6+54Aw9ud2x9ovVyi6+APRjhJtNb8jvOKNi@lists.infradead.org
-X-Received: by 2002:a05:6102:3243:20b0:533:44d4:d624 with SMTP id
- ada2fe7eead31-53344d4e497mr2659275137.8.1756989690635; Thu, 04 Sep 2025
- 05:41:30 -0700 (PDT)
+	id 1uuArb-0000000CBRX-2fdu;
+	Thu, 04 Sep 2025 14:23:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JxfjxJBgI7bFiCNYd1op3j9pQA7P6TYf/EGaZ9O7PbAYRZX/MazgoQ9Fj/WI6Fz3FJA20GYt+MBBswYspTiScnVwepYlZGyyBIf59BHs2Tishmb5l+EvZLaAW6XISNGbfUbCWEK8lZIfcXgHkaxO5RjQuvtf78MxkZtQIjaKdbbMflSkIchvRyKRayPgjrYmdPkYwLF6F0NzTufLojgX8VfU0swBdVaylWysQ4cJSVcxvFh7mutWLxOBUsSxoJYAZ1YAtMxrNk8jZbI3wgZj7nSbuM4stgGnfd6BS3TMGbkv//khRkM0lWDhNdO/VDY//CJOwbRb8BSxvR4JSfr3Jg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1EbKBkFAuo1NteYzvE4dUEWB/YtLESQqvNvC0CaLi7s=;
+ b=xHBuavPraio9eH6VbNw6bwFA4zTMiLfITfsQsbOi0lvKibP1xfneKwZ2dy63wBT5cbr6/es7urRTOZIUtUE+vIO93hfuVzUipbhshoWb00H1vIkoFUJmZEBYyTSeH1tB4tJnMzQqdr5WnivyobIGz4bpunaoaHG+y+8q+2sE64oV0IVh7iVML4oNFhIx0uEPIJPDI5sHzJqyCsJWQ1q/TK3lJmA3hgaWlOrl83nyh8yOJLbKKzjYXLZMP6eX0q77jFe6OALoXFm9lx0NLiSqn9CA+UQHZquelXmNfJBx1J3b7Xo9EE1B/YA8mBucdpmCnFjPGKnZJFoqi+qIXZz2UA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1EbKBkFAuo1NteYzvE4dUEWB/YtLESQqvNvC0CaLi7s=;
+ b=FNPEoSPvnQ5hYK/1Cm32F9Szxs1Oj4hxhLFhe64yUGlRZisGjxK/IwNXJos8duPj8x2U1lXdirpkEndhvS6M7O8SRVzrcGzseMp5u1AdXUKf/Ps/RuOIyvQ2ocI7ytLnqPdGUIyDD/8ZrArIhAM/+XEog5C5qEWOw04BHcoufIZdw28EXDInl+QYUx1IWW1YHpyUIt98BDi/ygooz02rSQ6cy9LooulPzTY1dSuGX4py4I/unAdzjsWRKLYpkDCfZ8ZQThbxf1KYWpl7r67tFBuJpEtqKBV2vCiN5Op7xY0ieRpGiWkcyw0VAQSmO5lD/K7fFKClBqKP3+xthVP7BQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by DB8PR04MB7099.eurprd04.prod.outlook.com (2603:10a6:10:12b::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.18; Thu, 4 Sep
+ 2025 14:22:55 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%5]) with mapi id 15.20.9094.015; Thu, 4 Sep 2025
+ 14:22:49 +0000
+Date: Thu, 4 Sep 2025 10:22:43 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 6/9] phy: phy-can-transceiver: Add support for
+ TJA105{1,7}
+Message-ID: <aLmgs6aAm/2Rj+Bo@lizhi-Precision-Tower-5810>
+References: <20250904-can-v5-0-23d8129b5e5d@nxp.com>
+ <20250904-can-v5-6-23d8129b5e5d@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250904-can-v5-6-23d8129b5e5d@nxp.com>
+X-ClientProxiedBy: AM9P195CA0001.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21f::6) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
- <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com>
- <CAPDyKFqANQZmGXd8ccA5qWiGrCor2N=W_7dmV+OK8hMd_+zmmw@mail.gmail.com>
- <CAMuHMdVrkr56XsRsbG7H-tLHVzmP+g-7=5Nrv9asC25ismwiYA@mail.gmail.com>
- <CAPDyKFq7z9e9hEC9QWiYcaU=t+Gs_GgRurmK-+cNYp4xkhr5Ow@mail.gmail.com>
- <CAMuHMdU7W+f3nZ_ckHOFsmmK6V9HzK0-fNtcu8kgjTSeU89AqQ@mail.gmail.com> <CAPDyKFr-mVbGo62Wp+othcs+cWR6Wn9bz==ZB5hSpyKgkGtqHg@mail.gmail.com>
-In-Reply-To: <CAPDyKFr-mVbGo62Wp+othcs+cWR6Wn9bz==ZB5hSpyKgkGtqHg@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 4 Sep 2025 14:41:19 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUAhsZMbkUzwb=XnCNyvA3aOvuhkKL4=1nOPQ0w0if-HA@mail.gmail.com>
-X-Gm-Features: Ac12FXzWgUQ1v4jwp8YVOmQ4uaqt1gNk5S1qspb_Ul3tFWFDvX6qayzlZulEUEQ
-Message-ID: <CAMuHMdUAhsZMbkUzwb=XnCNyvA3aOvuhkKL4=1nOPQ0w0if-HA@mail.gmail.com>
-Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support to genpd
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DB8PR04MB7099:EE_
+X-MS-Office365-Filtering-Correlation-Id: d865bc08-e63b-4d2a-198b-08ddebbe8697
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KDxxuXILH+QeDdad3jrc1NMuJlkM2FSELI9hnz9AJDehQZ7BCOdW+ZGXC0Cm?=
+ =?us-ascii?Q?Eguz842bwTs8t6WDqOLzLAWwlMUCoBAs+M5PiWVTUaQPjI0nv4z7vnIvtuq7?=
+ =?us-ascii?Q?GSFys8dCSUKJE3FkaR3oo3KcVhijQlCfuz3z1yFp409vM8CAxEVPzWFlxvNs?=
+ =?us-ascii?Q?oYLY6iWlAZYu/RqrFped1kVJZ0p/mcgpoYZRoWknHyr0G7b3a1Ppl9HO1pBg?=
+ =?us-ascii?Q?lHoRe/MLyWSbNmaDvIOOgu7ecP4OPdWhx3LElaBNhRrVyF0IF2VQRrli7lS9?=
+ =?us-ascii?Q?HmOVp3sEMhg7J4CvXZS9ap8ObNAi97Bah7MaEBhm0f2HIA0BCqSveea/R3Yf?=
+ =?us-ascii?Q?7baupnjuCUEm/4kDJE8tkWNrx1zfGA/SJC5r6BQb6s4ZzHae4+/5tQTzYu9e?=
+ =?us-ascii?Q?pNYg8iQmmMAX0gmX8bG6QuIeVnIew9fKNoM7+tm8QmGGzzHP4gTz4RM3MzsU?=
+ =?us-ascii?Q?6PswfrMTc3jR7L1BcJj0uW2FQpr5v7AAnmVFy5dhMzEG2WPxD+41dmWMG/JZ?=
+ =?us-ascii?Q?M16RQ+EjFth2wwCcHhX5vDiFOBFtNROMvvWpWpMqKIO1RF2qepl1qRA+0kRA?=
+ =?us-ascii?Q?/+0HSvZ9sO/6QAdU0RZzfyM2/I5C1ET3UlBZXxWHmeIKVU89nQTOp8CVMk+e?=
+ =?us-ascii?Q?wOlQs5oK96x+upZI2tDOtFReYKtV4mh9Z7yMzl1Rlyq/SnKrKVdszpBOVqiE?=
+ =?us-ascii?Q?IWjWoC6ZfbvP2p5gI7Ed80lCsRmCwd18q2RdG4GUFl+rd/mausZaceYc4anJ?=
+ =?us-ascii?Q?GXLI5GRXVtprTVtbk0nIASvOUG/wc7vQKBoegrxZF0kpm2jVOuj5uK/dQKKa?=
+ =?us-ascii?Q?Yq75o9Fd5Jc83U2YhWwkr6l5P8Zj3nheAyaUQ4p0PL4w7yPtriJ+bfbSiB+R?=
+ =?us-ascii?Q?5kmQj+zdipEbh2HKxsB3K2hiTTMHU5LTnmW4e96fk0WtJc26dXRm3htHCKWo?=
+ =?us-ascii?Q?DaR8zzWVtGLbrjKdAY1TYVsYVp2G0Glbp+TD01RWd7ZYqtkoft/uFoZX1LSl?=
+ =?us-ascii?Q?gY0PB0dq0YIOuVvnS+n3qRX4hiVW9VTeszO4cTwXi7SAX3Ue4oCFDBvVCwnD?=
+ =?us-ascii?Q?T6vdZTc4H9rKb/Skjuoe52MU4kprkw1Xr+ndSE6K2TB77UR7aHk7Xgmd3RJa?=
+ =?us-ascii?Q?3mKsdKuKrnpywlfr1Vd2/45kRNPBlLK2ZCDoKMpt3XTtUV/YMmm5Rvk/o/Xv?=
+ =?us-ascii?Q?uYBiHZow/W4uLI6v4aoDkmJHQmz65nLOheWS+XIFr8JF5HqXqGit9u18vDMm?=
+ =?us-ascii?Q?Pc2yE3AG4He7SDh+Wgr9/DdEhFI6wIBhVkWt4RUcJs6Ckyj9pUE9fEzlXOX/?=
+ =?us-ascii?Q?tKunnxzYbXqZmNKymtr7cDgriwIfU5s5Gzbztrugu9bXyZW48KvVo3uKIF8H?=
+ =?us-ascii?Q?8zNc6yvGbLGlaPBVA9ezPffrqPQqcpAlcNdGWSUcgNJ3xmDUV+Q3wRB7/Xda?=
+ =?us-ascii?Q?KhgT04/XOG18A38sn7N0CDFNiqOC5KxVWz0Ge4FnWLdA9ARQ1xHGkg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qaLD+qAblRBh6bsGH3MaAMMjOn/GaUx2ISbhVe0NWr8VC8CYBr826WqaLSEF?=
+ =?us-ascii?Q?D3xS6NVakDA2Rd89LyDjFqN5TEBAhZDxsicq/emGNUN/9UCO9f5DCx/metAY?=
+ =?us-ascii?Q?w7sJZwiJSgGzs/ilPygZjV78go1FLo2wGrDoAcKbUipdrdNo5bni8DUI+qZe?=
+ =?us-ascii?Q?eOzhNTZPCO3LeY16QsG2gTKxKZYwTd8JEocVIsTD+NFN9HpaD9KcOYuCc5fM?=
+ =?us-ascii?Q?YTozEu3dLdEnUdbYl6fHyt1A7Thjfew8Ga7YZSZkjt9q+MGqlDuvc+9WhX20?=
+ =?us-ascii?Q?w56/+1ATcZuLgRQKAS0anlZMBuumkig9+9FZ8VgD/KiEd8MUYA+8FJCIyF6H?=
+ =?us-ascii?Q?cwbZgjLlyBRMrO2m3wrnjnyI8FQou5R5Sk+06JX4k0hCXbP2LlSnvP5DpH68?=
+ =?us-ascii?Q?ndedJlD7ctyQJmoilfLUQ7prg/cfeDh1+4lueuXOmQs3k6yHFDcTQoLYCgWp?=
+ =?us-ascii?Q?tO9xg5hZWSPKKI1jWtaQtve9L+a51RkkSNrpusxrJXBoWxDgqCa6qNZDRIfq?=
+ =?us-ascii?Q?5XEYeZZO66WST9sjB12aAa/D1T0NOyHbk4kzBUZiaUIco6hP96mlgE0l38G1?=
+ =?us-ascii?Q?rls21nIzHN757JVDxlrsspfSz7RrGziYbC/Oljr3/3DQ+HKb3+MZ7mkX5IYU?=
+ =?us-ascii?Q?e16AMhn7C3dEZnadgGsaj3+M5U0+faMab8NXzsQ8libaOTp2Z2FPMDyeCjKc?=
+ =?us-ascii?Q?1LobEccBy20/whJV3HglnsQ97R/I7B0xajCpD1fPILh4+axoXJmmgpwRKVra?=
+ =?us-ascii?Q?jllW1h2fnfgjKosEgpi7sF5AQAGTLiGiTWlfgNYkx0MV5Ua4yqKxn0npp12p?=
+ =?us-ascii?Q?GFqrzWBJul3t4etmOHaD/gzrHUQ231NPc+p5g7rMwDbYHSAXl7fWEoscEp+l?=
+ =?us-ascii?Q?o+mkoOj45zoJ7LJNyhhlVAqlub+do3XwfzNw/nztsHhdRWZufD/u963P6SYQ?=
+ =?us-ascii?Q?snQ+p/XYmnEM9lBLDRyAAzyHICoObvriuwKIDHLr0k8qujZb1y+VYXXZ9uEF?=
+ =?us-ascii?Q?I3bxMZIkHJu+c68l7yev1YGNlvivtv9xLlZLvkKNl+lphcp48mt3T530knFb?=
+ =?us-ascii?Q?fZTWXGpD2d8Pt9YVOPSaf3ciO6Skajgx3YsEDb22I4UDksmCxrDwNJzQo99E?=
+ =?us-ascii?Q?FP/NfBoe/t9xvmUOEpu5M4Ss1kElpvW0S44cx765k6WhTa2W0CaHGVBvtQIY?=
+ =?us-ascii?Q?DzSypOslmwPyEz7mlVwFQ2uQF3hataj7MrWHlSLSxODb9amm7rMt5Aaotby2?=
+ =?us-ascii?Q?R1/7B0VlA32QYIMJhzs9VUbsZDqtXM6m5slKAWYuhrel8dlHXJq0ruJQU/VW?=
+ =?us-ascii?Q?BuGipOrmVPafKyDinwOCEiiiQeKIx7gT7KWavX6qXLFmXColhz0rPq4qEUwq?=
+ =?us-ascii?Q?KDV17IgHymHBY0CbQg/k0O1iz6/Srv7Xggzc0RNkZmD1rX0mY9zmyBpDE5zU?=
+ =?us-ascii?Q?B05yciMAXZxRUYn/obEWzDbRxfyPpa8H9MRTW58+QnBpNzGbsokjfHZ7LXdT?=
+ =?us-ascii?Q?iI/hXCXV2VrbWa2Z17SvOR6m+YQ5FyIvlAU0qIhYJTNVxShy245jIxgC865M?=
+ =?us-ascii?Q?R7PVECli5OO6fXWyFiODUHdGlChPE3dSQO8Hih3c?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d865bc08-e63b-4d2a-198b-08ddebbe8697
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 14:22:49.3855
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Gc/nh6HSwZuZPIvJQMFaw0puU1p/mmn6bnaMoqXc1KDdrzVorzRR7sGs6mQ9IF/tcMTeTDaTP5W1MVM7JZbdwg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_054133_498701_F64F6725 
-X-CRM114-Status: GOOD (  79.62  )
+X-CRM114-CacheID: sfid-20250904_072259_679613_DD05B633 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,207 +169,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
-
-On Thu, 14 Aug 2025 at 17:50, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> On Wed, 13 Aug 2025 at 13:58, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > On Tue, 12 Aug 2025 at 12:01, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > On Thu, 7 Aug 2025 at 11:38, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > On Wed, 30 Jul 2025 at 12:29, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > > > On Wed, 30 Jul 2025 at 11:56, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > > On Wed, 9 Jul 2025 at 13:31, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > > > > > On Tue, 1 Jul 2025 at 13:47, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > > > > > > Changes in v3:
-> > > > > > > >         - Added a couple of patches to adress problems on some Renesas
-> > > > > > > >         platforms. Thanks Geert and Tomi for helping out!
-> > > > > > > >         - Adressed a few comments from Saravanna and Konrad.
-> > > > > > > >         - Added some tested-by tags.
-> > > > > > >
-> > > > > > > I decided it was time to give this a try, so I have queued this up for
-> > > > > > > v6.17 via the next branch at my pmdomain tree.
-> > > > > > >
-> > > > > > > If you encounter any issues, please let me know so I can help to fix them.
-> > > > > >
-> > > > > > Thanks for your series!  Due to holidays, I only managed to test
-> > > > > > this very recently.
-> > > > > >
-> > > > > > Unfortunately I have an issue with unused PM Domains no longer being
-> > > > > > disabled on R-Car:
-> > > > > >   - On R-Car Gen1/2/3, using rcar-sysc.c, unused PM Domains are never
-> > > > > >     disabled.
-> > > > > >   - On R-Car Gen4, using rcar-gen4-sysc.c, unused PM Domains are
-> > > > > >     sometimes not disabled.
-> > > > > >     At first, I noticed the IOMMU driver was not enabled in my config,
-> > > > > >     and enabling it did fix the issue.  However, after that I still
-> > > > > >     encountered the issue in a different config that does have the
-> > > > > >     IOMMU driver enabled...
-> > > > > >
-> > > > > > FTR, unused PM Domains are still disabled correctly on R/SH-Mobile
-> > > > > > (using rmobile-sysc.c) and on BeagleBone Black. Note that these use
-> > > > > > of_genpd_add_provider_simple(), while all R-Car drivers use
-> > > > > > of_genpd_add_provider_onecell().  Perhaps there is an issue with
-> > > > > > the latter?  If you don't have a clue, I plan to do some more
-> > > > > > investigation later...
-> > > >
-> > > > of_genpd_add_provider_onecell() has:
-> > > >
-> > > >     if (!dev)
-> > > >             sync_state = true;
-> > > >     else
-> > > >             dev_set_drv_sync_state(dev, genpd_sync_state);
-> > > >
-> > > >     for (i = 0; i < data->num_domains; i++) {
-> > > >             ...
-> > > >             if (sync_state && !genpd_is_no_sync_state(genpd)) {
-> > > >                     genpd->sync_state = GENPD_SYNC_STATE_ONECELL;
-> > > >                     device_set_node(&genpd->dev, fwnode);
-> > > >                     sync_state = false;
-> > > >                     ^^^^^^^^^^^^^^^^^^^
-> > > >             }
-> > > >             ...
-> > > >     }
-> > > >
-> > > > As the R-Car SYSC drivers are not platform drivers, dev is NULL, and
-> > > > genpd->sync_state is set to GENPD_SYNC_STATE_ONECELL for the first PM
-> > > > Domain only.  All other domains have the default value of sync_state
-> > > > (0 = GENPD_SYNC_STATE_OFF).  Hence when genpd_provider_sync_state()
-> > > > is called later, it ignores all but the first domain.
-> > > > Apparently this is intentional, as of_genpd_sync_state() tries to
-> > > > power off all domains handled by the same controller anyway (see below)?
-> > >
-> > > Right, this is intentional and mainly because of how fw_devlink works.
-> > >
-> > > fw_devlink is limited to use only the first device - if multiple
-> > > devices share the same fwnode. In principle, we could have picked any
-> > > of the devices in the array of genpds here - and reached the same
-> > > result.
-> >
-> > OK, just like I already assumed...
-> >
-> > > > > > BTW, the "pending due to"-messages look weird to me.
-> > > > > > On R-Car M2-W (r8a7791.dtsi) I see e.g.:
-> > > > > >
-> > > > > >     genpd_provider ca15-cpu0: sync_state() pending due to e6020000.watchdog
-> > > > > >     renesas-cpg-mssr e6150000.clock-controller: sync_state() pending
-> > > > > > due to e6020000.watchdog
-> > > > > >
-> > > > > > ca15-cpu0 is the PM Domain holding the first CPU core, while
-> > > > > > the watchdog resides in the always-on Clock Domain, and uses the
-> > > > > > clock-controller for PM_CLK handling.
-> > > >
-> > > > Unfortunately the first PM Domain is "ca15-cpu0", which is blocked on
-> > > > these bogus pending states, and no PM Domain is powered off.
-> > >
-> > > I see, thanks for the details. I am looking closer at this.
-> > >
-> > > In any case, this is the main issue, as it prevents the ->sync_state()
-> > > callback to be called. Hence the "genpd->stay_on" will also *not* be
-> > > cleared for any of the genpd's for the genpd-provider.
-> >
-> > I was under the impression there is a time-out, after which the
-> > .sync_state() callback would be called anyway, just like for probe
-> > deferral due to missing optional providers like DMACs and IOMMUs.
-> > Apparently that is not the case?
+On Thu, Sep 04, 2025 at 04:36:49PM +0800, Peng Fan wrote:
+> Support TJA105{1,7} which are a single channel high-speed CAN transceiver
+> with silent mode supported.
 >
-> The behaviour is configurable, so it depends. The current default
-> behaviour does *not* enforce the ->sync_state() callbacks to be
-> called, even after a time-out.
+> phy mode is not implemented as of now. silent settings are kept in
+> phy_power_on and phy_power_off. After phy mode is supported, the silent
+> settings could be moved to phy_set_mode.
+
+nit: function need "()". phy_power_on()
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 >
-> You may set CONFIG_FW_DEVLINK_SYNC_STATE_TIMEOUT to achieve the above
-> behavior or use the fw_devlink command line parameters to change it.
-> Like setting "fw_devlink.sync_state=timeout".
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/phy/phy-can-transceiver.c | 35 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 35 insertions(+)
 >
-> I guess it can be debated what the default behaviour should be.
-> Perhaps we should even allow the default behaviour to be dynamically
-> tweaked on a per provider device/driver basis?
-
-The domains are indeed powered off like before when passing
-"fw_devlink.sync_state=timeout", so that fixes the regression.
-But it was not needed before...
-
-I could add "select FW_DEVLINK_SYNC_STATE_TIMEOUT" to the SYSC_RCAR
-and SYSC_RCAR_GEN4 Kconfig options, but that would play badly with
-multi-platform kernels.  As the fw_devlink_sync_state flag is static,
-the R-Car SYSC drivers can't just auto-enable the flag at runtime.
-
-Any other options? Perhaps a device-specific flag to be set by the PM
-Domain driver, and to be checked by fw_devlink_dev_sync_state()?
-
-> > > > If I remove the "sync_state = false" above, genpd_provider_sync_state()
-> > > > considers all domains, and does power down all unused domains (even
-> > > > multiple times, as expected).
-> > >
-> > > I think those are getting called because with the change above, there
-> > > is no device_link being tracked. As stated above, fw_devlink is
-> > > limited to use only one device - if multiple devices share the same
-> > > fwnode.
-> >
-> > Indeed.
-> >
-> > > In other words, the ->sync_state() callbacks are called even if the
-> > > corresponding consumer devices have not been probed yet.
-> >
-> > Hence shouldn't there be a timeout, as the kernel may not even have
-> > a driver for one or more consumer devices?
+> diff --git a/drivers/phy/phy-can-transceiver.c b/drivers/phy/phy-can-transceiver.c
+> index ccb29e1dfe0d07005b4bcd8fefa2787292d921a0..d9fd3564970695d5460ffdc4e8636dd7638d64a2 100644
+> --- a/drivers/phy/phy-can-transceiver.c
+> +++ b/drivers/phy/phy-can-transceiver.c
+> @@ -18,10 +18,12 @@ struct can_transceiver_data {
+>  #define CAN_TRANSCEIVER_STB_PRESENT	BIT(0)
+>  #define CAN_TRANSCEIVER_EN_PRESENT	BIT(1)
+>  #define CAN_TRANSCEIVER_DUAL_CH		BIT(2)
+> +#define CAN_TRANSCEIVER_SILENT_PRESENT	BIT(3)
+>  };
 >
-> See above.
+>  struct can_transceiver_phy {
+>  	struct phy *generic_phy;
+> +	struct gpio_desc *silent_gpio;
+>  	struct gpio_desc *standby_gpio;
+>  	struct gpio_desc *enable_gpio;
+>  	struct can_transceiver_priv *priv;
+> @@ -47,6 +49,10 @@ static int can_transceiver_phy_power_on(struct phy *phy)
+>  		}
+>  	}
 >
-> > > > Upon closer look, all "pending due to" messages I see claim that the
-> > > > first (index 0) PM Domain is pending on some devices, while all of
-> > > > these devices are part of a different domain (usually the always-on
-> > > > domain, which is always the last (32 or 64) on R-Car).
-> > > >
-> > > > So I think there are two issues:
-> > > >   1. Devices are not attributed to the correct PM Domain using
-> > > >      fw_devlink sync_state,
-> > > >   2. One PM Domain of a multi-domain controller being blocked should
-> > > >      not block all other domains handled by the same controller.
-> > >
-> > > Right, that's a current limitation with fw_devlink. To cope with this,
-> > > it's possible to enforce the ->sync_state() callback to be invoked
-> > > from user-space (timeout or explicitly) for a device.
-
-That needs explicit handling, which was not needed before.
-
-Perhaps the fw_devlink creation should be removed again from
-of_genpd_add_provider_onecell(), as it is not correct, except for
-the first domain?
-
-> > > Another option would be to allow an opt-out behavior for some genpd's
-> > > that are powered-on at initialization. Something along the lines of
-> > > the below.
-> > >
-> > > From: Ulf Hansson <ulf.hansson@linaro.org>
-> > > Date: Tue, 29 Jul 2025 14:27:22 +0200
-> > > Subject: [PATCH] pmdomain: core: Allow powered-on PM domains to be powered-off
-> > >  during boot
-> >
-> > [...]
-> >
-> > I gave this a try (i.e. "| GENPD_FLAG_NO_STAY_ON" in rcar-sysc.c), but
-> > this doesn't make any difference.  I assume this would only work when
-> > actively calling genpd_power_off() (i.e. not from of_genpd_sync_state()
-> > or genpd_provider_sync_state())?
+> +	ret = gpiod_set_value_cansleep(can_transceiver_phy->silent_gpio, 0);
+> +	if (ret)
+> +		return ret;
+> +
+>  	ret = gpiod_set_value_cansleep(can_transceiver_phy->standby_gpio, 0);
+>  	if (ret)
+>  		return ret;
+> @@ -60,6 +66,10 @@ static int can_transceiver_phy_power_off(struct phy *phy)
+>  	struct can_transceiver_phy *can_transceiver_phy = phy_get_drvdata(phy);
+>  	int ret;
 >
-> Right. Thanks for testing!
+> +	ret = gpiod_set_value_cansleep(can_transceiver_phy->silent_gpio, 1);
+> +	if (ret)
+> +		return ret;
+> +
+>  	ret = gpiod_set_value_cansleep(can_transceiver_phy->standby_gpio, 1);
+>  	if (ret)
+>  		return ret;
+> @@ -92,6 +102,14 @@ static const struct can_transceiver_data tja1048_drvdata = {
+>  	.flags = CAN_TRANSCEIVER_STB_PRESENT | CAN_TRANSCEIVER_DUAL_CH,
+>  };
 >
-> So, we may need to restore some part of the genpd_power_off_unused()
-> when CONFIG_PM_GENERIC_DOMAINS_OF is set. Without clearing
-> "genpd->stay_on".
+> +static const struct can_transceiver_data tja1051_drvdata = {
+> +	.flags = CAN_TRANSCEIVER_SILENT_PRESENT | CAN_TRANSCEIVER_EN_PRESENT,
+> +};
+> +
+> +static const struct can_transceiver_data tja1057_drvdata = {
+> +	.flags = CAN_TRANSCEIVER_SILENT_PRESENT,
+> +};
+> +
+>  static const struct of_device_id can_transceiver_phy_ids[] = {
+>  	{
+>  		.compatible = "ti,tcan1042",
+> @@ -105,6 +123,14 @@ static const struct of_device_id can_transceiver_phy_ids[] = {
+>  		.compatible = "nxp,tja1048",
+>  		.data = &tja1048_drvdata
+>  	},
+> +	{
+> +		.compatible = "nxp,tja1051",
+> +		.data = &tja1051_drvdata
+> +	},
+> +	{
+> +		.compatible = "nxp,tja1057",
+> +		.data = &tja1057_drvdata
+> +	},
+>  	{
+>  		.compatible = "nxp,tjr1443",
+>  		.data = &tcan1043_drvdata
+> @@ -150,6 +176,7 @@ static int can_transceiver_phy_probe(struct platform_device *pdev)
+>  	const struct can_transceiver_data *drvdata;
+>  	const struct of_device_id *match;
+>  	struct phy *phy;
+> +	struct gpio_desc *silent_gpio;
+>  	struct gpio_desc *standby_gpio;
+>  	struct gpio_desc *enable_gpio;
+>  	struct mux_state *mux_state;
+> @@ -213,6 +240,14 @@ static int can_transceiver_phy_probe(struct platform_device *pdev)
+>  			priv->can_transceiver_phy[i].enable_gpio = enable_gpio;
+>  		}
 >
-> I can extend the patch, if you think it would make sense for you?
-
-I would applaud anything that would fix these regressions.
-Thanks!
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> +		if (drvdata->flags & CAN_TRANSCEIVER_SILENT_PRESENT) {
+> +			silent_gpio = devm_gpiod_get_index_optional(dev, "silent", i,
+> +								    GPIOD_OUT_LOW);
+> +			if (IS_ERR(silent_gpio))
+> +				return PTR_ERR(silent_gpio);
+> +			priv->can_transceiver_phy[i].silent_gpio = silent_gpio;
+> +		}
+> +
+>  		phy_set_drvdata(priv->can_transceiver_phy[i].generic_phy,
+>  				&priv->can_transceiver_phy[i]);
+>  	}
+>
+> --
+> 2.37.1
+>
 
