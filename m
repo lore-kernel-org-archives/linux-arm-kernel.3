@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A85CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0041CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BqZ1XmFUt/xzyYk/wX7NCuk9uo6ckDaycK0e8faI0Ss=; b=STvOhajnUf60tPB9vgIh0AVLfX
-	xO0LSN3Y0hTwRTkZGwxqbT4yR9D1HjH6TdlUxjBpTTWb77VwHsLuuglkc1p8fnltCx4aEu1vByU8A
-	kK4z9MyBzRqT2BzZywtLEvwl4w5DP9w1CUxsaxLmClKFe7eopJbs4yJpAB487jtxoEQBr0T3X1XdG
-	MXXDGYBR3p2ThgV9Yc4Fa1uhZQnYKAg6I/t6CoZf4OnZK8buQnNBjXYAxQYBHxNYnUHAwGhJZp9fR
-	1kqpoASqdEa4V8mz2lJ1PRrZnV1RJkL7MuMx7b99QGvc4ydBNUK/Hp2Ul8t5MmdKQCamE61iibhg0
-	jbkTtAGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HwRnJdXLUnbJzEliJ8F7yWyHZeWeHGJT0waJGQRe0iU=; b=CkN/F4UOilNEezaRgVDI4MY9nx
+	B4Bk3LMwdFbUo1ymJNEWBApFO4Tj18JxhVUrMYC5RJqcqN99zXgmR2ad/78fVzQIUBIkZUKt4Q7vZ
+	h2GiaFiVASELGsb01tqy5pKSKBgXFOmX/E6IiuEGZIORoZjxp3gYwbbQ48EznKj7voMeLKJfdZ5d3
+	8euTaiadLRyu3jihpxufZaVpXh0N9ml0woZKdcZESROksAGk7QbsUqFy7rohyaM7a4fWKSkbqjrZL
+	rQr2vDUibCLzqyHpWCux6PEHncfK3kBfusPWxwNx80K3YQiOzmvrJYdyqKBH2nZZTaYDCjxfXjoQ6
+	UM919uFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM2c-0000000G0zb-2zYD;
-	Fri, 05 Sep 2025 02:19:06 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1uuM2e-0000000G11l-14Gj;
+	Fri, 05 Sep 2025 02:19:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuG8f-0000000E7iB-27cC;
-	Thu, 04 Sep 2025 20:00:58 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cHr2F4cDhz9spZ;
-	Thu,  4 Sep 2025 22:00:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757016053;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=BqZ1XmFUt/xzyYk/wX7NCuk9uo6ckDaycK0e8faI0Ss=;
-	b=dqZDuI2S8GZkr3bl0/3ab2Kpccyr+8/YTndb2WHtDWdw6XoKyYKS4rn9svcCiPLG94edzP
-	6wyWs/tl+a3CLwDOKtfsJHPXPtlQSiL6IYPkdwWTbKdaEc3WJBrp3vg6r4CxUfwXbtZTp2
-	SxxZ8Twl4lfgIWfTBEX6E40vvp50u+9e44qrO4rJasw+T5xi6/4HYtffa0vVVUWW99CGiV
-	aRz5tUXO0tZVnKYJKZtEZk/pc7f01nS78cqoQwR7FKnrOOfwcbFQ4kKd/wATPwQMIU3eS7
-	N5OzmR0kR6VJWD2OSKMi/KQ0H7Avg4Xo5sYgmebvR2QFMC15gyLffBEhIa0TUQ==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757016051;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=BqZ1XmFUt/xzyYk/wX7NCuk9uo6ckDaycK0e8faI0Ss=;
-	b=LmBfcudHz5D8daXdqVkUFpNyG+KArCs6QvjYLZE77lezOiTjHTs1oDxnur56NuQPKml3wv
-	9upjjbVr7nXqJnSBROSGF28wb4K44XQ8ADiqZGvu90u4mn26hK/DG6BVldr3IRUhTTSp7O
-	MjtnhEZ/1oyAsvVWp8ZKcd/H7YBBtuGDLhX/WLYjbHa7nVYH3FrYGvRwUy7sBrBFbRg7FT
-	bPvCYElwdJzfOJqrEJEgTS8NvVhlZ8YlsgeuBXYLlxzOIfSkQ65BVkrX4fDI9lJwvETnMa
-	CxbgI0uLFGPt/tjUwVCRKSLM3s4Gdw1zmxbA3SszZlJ0D8xWiBC2KWMCtqMutw==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] regulator: dt-bindings: rpi-panel: Split 7" Raspberry Pi 720x1280 v2 binding
-Date: Thu,  4 Sep 2025 21:58:26 +0200
-Message-ID: <20250904200036.168222-1-marek.vasut+renesas@mailbox.org>
+	id 1uuG9Q-0000000E7yP-1x0N;
+	Thu, 04 Sep 2025 20:01:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=HwRnJdXLUnbJzEliJ8F7yWyHZeWeHGJT0waJGQRe0iU=; b=Wdrg70szvN/Jf+5SKMdlqaYhhw
+	7wWW7bSsYxodvgACuWp5HYjdBWfyuJ1ud6jBYmz+eZo9rPDD5PW/trO/gw+IViNTpZpf2MhGS34vm
+	Q094atAW/NFnksVkTTUhS1uUUa/DW81zkQNOjwiNSwNqmVEBabodf/RzW+XJaJSoWzjekPp09SD+4
+	LOkJnffbEPz0fYXukeH2U4soT0qjZYu53RF7UlA8COJDghYxoJsqpdiKmP8azk+TtE+kTH8uiED1p
+	XQhvYFDVIHRyKaHgFC2vsbXb7ptjqwRwxF8Nbkb2cvQiqHRbxU/XhxzCkG37SQPfn8M9IUb8eVmEJ
+	cT+kcimw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuG9H-00000004PgU-3yfk;
+	Thu, 04 Sep 2025 20:01:36 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id B8E2D300220; Thu, 04 Sep 2025 22:01:34 +0200 (CEST)
+Date: Thu, 4 Sep 2025 22:01:34 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Kees Cook <kees@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	Vegard Nossum <vegard.nossum@oracle.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	David Woodhouse <dwmw2@infradead.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Marco Elver <elver@google.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Ramon de C Valle <rcvalle@google.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, linux-doc@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 0/9] kcfi: Prepare for GCC support
+Message-ID: <20250904200134.GA4067720@noisy.programming.kicks-ass.net>
+References: <20250904033217.it.414-kees@kernel.org>
+ <20250904070410.GX4067720@noisy.programming.kicks-ass.net>
+ <202509040933.06AF02E714@keescook>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 2d87d269ba95a788730
-X-MBO-RS-META: y5mfi1zxmpkaxpaxjbs8gahu5c69ye1i
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_130057_691002_99450904 
-X-CRM114-Status: GOOD (  16.54  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <202509040933.06AF02E714@keescook>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,127 +93,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 5" and 7" Raspberry Pi 720x1280 Display 2 MCU is a bit more
-complex than the original Display 1 ATTINY88 and the binding is
-also a bit more demanding. Split the binding into separate file
-and fill in required gpio-controller, #gpio-cells and #pwm-cells
-which must be present for the V2 MCU. Include mention of the 5"
-panel in the description of Display 2, as the 5" panel uses the
-same MCU.
+On Thu, Sep 04, 2025 at 09:37:14AM -0700, Kees Cook wrote:
+> On Thu, Sep 04, 2025 at 09:04:10AM +0200, Peter Zijlstra wrote:
+> > On Wed, Sep 03, 2025 at 08:46:39PM -0700, Kees Cook wrote:
+> > 
+> > > Kees Cook (9):
+> > >   compiler_types.h: Move __nocfi out of compiler-specific header
+> > >   x86/traps: Clarify KCFI instruction layout
+> > >   x86/cfi: Document the "cfi=" bootparam options
+> > >   x86/cfi: Standardize on common "CFI:" prefix for CFI reports
+> > >   x86/cfi: Add "debug" option to "cfi=" bootparam
+> > >   x86/cfi: Remove __noinitretpoline and __noretpoline
+> > 
+> > So I can take these first 6 patches (and edit that debug patch to
+> > un-annoy myself ;-), but I'm thinking this Kconfig stuff:
+> 
+> Sure, yeah. Do you want a v3 for the debug stuff that uses your proposed
+> helper?
 
-Fixes: 6d09c6e474bd ("regulator: dt-bindings: rpi-panel: Add regulator for 7" Raspberry Pi 720x1280")
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rpi-kernel@lists.infradead.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- ...,7inch-touchscreen-panel-regulator-v2.yaml | 61 +++++++++++++++++++
- ...ypi,7inch-touchscreen-panel-regulator.yaml |  7 +--
- 2 files changed, 63 insertions(+), 5 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml
+Nah, already done :-) I just pushed out these 6 and my UDB hackery to
+queue.git/x86/core. If the robots don't complain, I'll stuff it into tip
+in a few days.
 
-diff --git a/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml b/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml
-new file mode 100644
-index 0000000000000..efc7815a136b4
---- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml
-@@ -0,0 +1,61 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RaspberryPi 5" and 7" display V2 MCU-based regulator/backlight controller
-+
-+maintainers:
-+  - Marek Vasut <marek.vasut+renesas@mailbox.org>
-+
-+description: |
-+  The RaspberryPi 5" and 7" display 2 has an MCU-based regulator, PWM
-+  backlight and GPIO controller on the PCB, which is used to turn the
-+  display unit on/off and control the backlight.
-+
-+allOf:
-+  - $ref: regulator.yaml#
-+
-+properties:
-+  compatible:
-+    const: raspberrypi,touchscreen-panel-regulator-v2
-+
-+  reg:
-+    maxItems: 1
-+
-+  gpio-controller: true
-+  "#gpio-cells":
-+    const: 2
-+    description:
-+      The first cell is the pin number, and the second cell is used to
-+      specify the gpio polarity (GPIO_ACTIVE_HIGH or GPIO_ACTIVE_LOW).
-+
-+  "#pwm-cells":
-+    const: 3
-+    description: See ../../pwm/pwm.yaml for description of the cell formats.
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - gpio-controller
-+  - "#gpio-cells"
-+  - "#pwm-cells"
-+
-+examples:
-+  - |
-+    i2c {
-+      #address-cells = <1>;
-+      #size-cells = <0>;
-+      gpio@45 {
-+        compatible = "raspberrypi,touchscreen-panel-regulator-v2";
-+        reg = <0x45>;
-+        gpio-controller;
-+        #gpio-cells = <2>;
-+        #pwm-cells = <3>;
-+      };
-+    };
-+
-+...
-diff --git a/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator.yaml b/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator.yaml
-index 18944d39d08fc..41678400e63fa 100644
---- a/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator.yaml
-+++ b/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator.yaml
-@@ -12,17 +12,14 @@ maintainers:
- description: |
-   The RaspberryPi 7" display has an ATTINY88-based regulator/backlight
-   controller on the PCB, which is used to turn the display unit on/off
--  and control the backlight. The V2 supports 5" and 7" panels and also
--  offers PWM backlight control.
-+  and control the backlight.
- 
- allOf:
-   - $ref: regulator.yaml#
- 
- properties:
-   compatible:
--    enum:
--      - raspberrypi,7inch-touchscreen-panel-regulator
--      - raspberrypi,touchscreen-panel-regulator-v2
-+    const: raspberrypi,7inch-touchscreen-panel-regulator
- 
-   reg:
-     maxItems: 1
--- 
-2.50.1
+> > >   kconfig: Add transitional symbol attribute for migration support
+> > >   kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
+> > 
+> > Should perhaps go through the kbuild tree? A
+> 
+> I had chatted offline with Nathan about this series, and he'd suggested
+> the kconfig change could go with it's first user (the rename). So if you
+> don't want to put it in -tip, I can take it in the hardening tree.
+> (There's no dependencies between these 2 and the first 6.)
 
+So I suppose I can carry them, just to keep the lot together, but then I
+need an ack from someone that actually knows this Kconfig language stuff
+:-)
+
+You taking them through the hardening tree also works for em.
 
