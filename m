@@ -4,74 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D23CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:24:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9ECCCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hhNQHJCCEEIbETm8PsRs80LMVSc5JQABFf4Nlp+TIXg=; b=vW2h9AvMBX1CIuCJ53Y1Sq/ZBE
-	J6Een3nu5gSMenqCttFmBD4Y2XJwLXda0yhYp3K+gozEl0k9V7j5l4x7KWzhfubk3biZV9Kcj+KdZ
-	J+XLDGifJLwg1T4bwUzjUPU1+C8D6pVNsVf/3rat+WyXjAWG56KA395NM1E2tdHKlIo7HT4NzlnLg
-	2yYrWsU4nVu2W7B3qlKL6TrETJqwbLno+8BlmEOJuV0sblbAnQNz/8VBfDvEdXrACDF3u/JaQB3ld
-	/Nb2CAsUtzLepKPh8YY95HzQJE2IXfrVA3ZilY6qQ9VJ5emjDVUzv19jkA8t+GzTDelnlZM6U8SJZ
-	Fs/EoX6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hscWBN4AnWMsQSUtJUrXqZXLGRN0VTpmBHFldwuq3OM=; b=WuGpJTO+/PNUVhKx7pvq4e8nT8
+	bfjwwXEq/3PUSJHgFJpi0oR33Lw5CSxjYv/khHljiofUkALZZynlvbBypdEJRWXCG8c4/CnoypeqX
+	EnqYPu/DRanAk04tVtpT8LmP4JtbXEZxYj9I9LCNL8w0DhfFtItTRQq/4voIeszUGi+ZfAxNHN8DV
+	2o8RpsIWt5czcfrclC6ris/6T6x4JAyg/nw38ft0oaDRavhlrrDIkISfWucSLpxtbHf/lRYlivDPs
+	tt/YeCdj9E62LKbgb44wR4QP35Zgmz23nmEb3ZNS43xjeo7umMgQUXnVuI6WOxQoll9AOL/WmTnml
+	0Np7XWUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCl4-0000000CqL2-1U8C;
-	Thu, 04 Sep 2025 16:24:22 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uuCl2-0000000CqK2-0Fip;
+	Thu, 04 Sep 2025 16:24:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7oW-0000000B6bT-36Gh;
-	Thu, 04 Sep 2025 11:07:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=hhNQHJCCEEIbETm8PsRs80LMVSc5JQABFf4Nlp+TIXg=; b=lEWSoEyeyy0AyBUXEFyFioY2Qr
-	5ViAolylKJpUMXiqgDYZoq8Q2U5vNy3IYHQiNtDaLOL63OeTSyPUN/fZ58GNpOsaL59AcrLDG1GkW
-	4wl4fHb07tolpFqA/OQnNgJqcy4MiF54oENi78ThqDzJrDdEWjk8t+h2hUflqJ2Fhj9uVqfP2k7lr
-	C06yWvlC9kho/WlJKl5pyaT7G6AAavlFJksygtaEGJRIhnQgZBdcdkQLvtFLVB3P7g71C2ECvU3oQ
-	luqQbLl1fCFMiMjc9FsaQy3lb7KEPPDAz769ltbrReVkWXzsRbf6vBWCoJ5BnppVbbt+P82sEeHz5
-	t4bXFjbw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45246)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uu7oN-000000001s7-3uL3;
-	Thu, 04 Sep 2025 12:07:27 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uu7oM-000000001SM-3QdA;
-	Thu, 04 Sep 2025 12:07:26 +0100
-Date: Thu, 4 Sep 2025 12:07:26 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Yao Zi <ziyao@disroot.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH net] net: stmmac: dwmac-rk: Ensure clk_phy doesn't
- contain invalid address
-Message-ID: <aLly7lJ05xQjqCWn@shell.armlinux.org.uk>
-References: <20250904031222.40953-3-ziyao@disroot.org>
- <aLlwv3v8ACha8b-3@shell.armlinux.org.uk>
- <b5fbeb3f-9962-444d-85b3-3b8a11f69266@rock-chips.com>
- <aLlyb6WvoBiBfUx3@shell.armlinux.org.uk>
+	id 1uu7ml-0000000B5n5-0p8i;
+	Thu, 04 Sep 2025 11:05:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E4C0D4418D;
+	Thu,  4 Sep 2025 11:05:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52CFCC4CEF0;
+	Thu,  4 Sep 2025 11:05:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756983946;
+	bh=ERfmAvwGnsR9Noz+SlGnHy31HmeyJzY7rdvaAAcGjMc=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=QKZZiKq3M1IpJbcnyjTf2PJJkFW/J68fAJ78LCRzFusWHpWiSenY0rfiD9xC2zEa1
+	 MbQ24RgKLqoZpOUp5ftSsDRCVAxzB2Iv9GQ+LLUhAX8ZMbrcCIuLrcTTGbvPwTxYU/
+	 gNsE+POWGhlOsEpgIFDUY4m7qTQFvjQtwKgnHCVX4KgxTH5oxsLSbDngSUMS0QiB85
+	 76uo3nQ1KKuGEeZtxFcIU+RM4pOvLYxHXqxvmCBb0o20EjlgVwi5hCeVWvU/DiGU5o
+	 LhWwYyvYWUR9GUs1Xy/7wc8oRU96cw1w6T7xGOLLVauoWL1+2jnJuj6bDV5rEQvY32
+	 EK5eZRluNhsjQ==
+Message-ID: <f7bb0739-3161-4d70-87e5-8c978a023361@kernel.org>
+Date: Thu, 4 Sep 2025 13:05:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLlyb6WvoBiBfUx3@shell.armlinux.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: broadcom: rp1: Add USB nodes
+To: Andrea della Porta <andrea.porta@suse.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, iivanov@suse.de, svarbanov@suse.de,
+ mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
+ Phil Elwell <phil@raspberrypi.com>
+References: <4e026a66001da7b4924d75bd7bee158cbb978eed.1756387905.git.andrea.porta@suse.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <4e026a66001da7b4924d75bd7bee158cbb978eed.1756387905.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_040736_785343_60CFA267 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20250904_040547_282079_3E89C18E 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,40 +122,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 12:05:19PM +0100, Russell King (Oracle) wrote:
-> On Thu, Sep 04, 2025 at 07:03:10PM +0800, Chaoyi Chen wrote:
-> > 
-> > On 9/4/2025 6:58 PM, Russell King (Oracle) wrote:
-> > > On Thu, Sep 04, 2025 at 03:12:24AM +0000, Yao Zi wrote:
-> > > >   	if (plat->phy_node) {
-> > > >   		bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
-> > > >   		ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
-> > > > -		/* If it is not integrated_phy, clk_phy is optional */
-> > > > +		/*
-> > > > +		 * If it is not integrated_phy, clk_phy is optional. But we must
-> > > > +		 * set bsp_priv->clk_phy to NULL if clk_phy isn't proivded, or
-> > > > +		 * the error code could be wrongly taken as an invalid pointer.
-> > > > +		 */
-> > > I'm concerned by this. This code is getting the first clock from the DT
-> > > description of the PHY. We don't know what type of PHY it is, or what
-> > > the DT description of that PHY might suggest that the first clock would
-> > > be.
-> > > 
-> > > However, we're geting it and setting it to 50MHz. What if the clock is
-> > > not what we think it is?
-> > 
-> > We only set integrated_phy to 50M, which are all known targets. For external PHYs, we do not perform frequency settings.
+On 28/08/2025 15:50, Andrea della Porta wrote:
+> The RaspberryPi 5 has RP1 chipset containing two USB host controller,
+> while presenting two USB 2.0 and two USB 3.0 ports to the outside.
 > 
-> Same question concerning enabling and disabling another device's clock
-> that the other device should be handling.
+> Add the relevant USB nodes to the devicetree.
+> 
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
+>  arch/arm64/boot/dts/broadcom/rp1-common.dtsi | 28 ++++++++++++++++++++
+>  1 file changed, 28 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+> index 5002a375eb0b..116617fcb1eb 100644
+> --- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+> +++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+> @@ -39,4 +39,32 @@ rp1_gpio: pinctrl@400d0000 {
+>  			     <1 IRQ_TYPE_LEVEL_HIGH>,
+>  			     <2 IRQ_TYPE_LEVEL_HIGH>;
+>  	};
+> +
+> +	rp1_usb0: usb@40200000 {
+> +		reg = <0x00 0x40200000  0x0 0x100000>;
+> +		compatible = "snps,dwc3";
+Please order properties and nodes according to DTS coding style.
 
-Let me be absolutely clear: I consider *everything* that is going on
-with clk_phy here to be a dirty hack.
-
-Resources used by a device that has its own driver should be managed
-by _that_ driver alone, not by some other random driver.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Best regards,
+Krzysztof
 
