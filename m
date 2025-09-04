@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FB0CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD024CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xjjY66RcfO89xgSgq3BI/Zi1XnS61E6x2hm5O5e/pcM=; b=aQX71arWlVU2IwnQvtBgiovCR/
-	L52sdsxr7kkjyxRNPSXtz3Sz6PShevrCkWlZzL/2Qi0asByUcaZesRkz4+C2tyj/NQ/II7x5LnctB
-	unXsQvKEcH4mT6GGu3IsYHuLpGzObrwleausIMKVjug0Wf/UyfU1P3nnSdBYCt4SdsKgFAePa3glA
-	dxjNBClG7bSRuTnjhdW338RXC7rSPl6EM/rJPhc0SuiDXsQwFaUCILSgJOFfcwfPiLMBxwBNTiQZE
-	AHdK/+9N+pHbPWbWlfkJpHWVaA/WInlyjJOPIiB91530fdrx5wHdLUb8RZ8PuwSKLV9hO/yuU6e4d
-	ApUqCMtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fpv1SoLY/N77JkIb142ZPgXdcdlyIxxhftHl3vgHLBI=; b=MeqwKsA7NifUOBAS/US3BwT6jT
+	6sa5KEAWEzBVzEulXhqbIO3qSSmoSEaDD2PJwNtOJIScxxM/o6cQpN0IeTqNB4wCjY8OZDu/si894
+	r1rOCjzpWWOIBxah4MoJHPEtLcw6EFaKRDAzjC4vDHe/5sD9ztIFsIwi+EX5TAFLX8SHOSn3kQex0
+	OArKkmkSGbVay8pRGrG2eOZdoMKpvgKfWHzQvgUuyJgPQcfuZtldmiEp2BPLIkNyxYy7r6V14RGn4
+	Teno9W5Vh8YY3NdSLmT8TLJ+6oFCN6kG3keZl6qsdL0Vhkq4US46KA33MH51cmzeT5odzcUiTAafC
+	+nabkuzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM1A-0000000FyYl-0yEC;
-	Fri, 05 Sep 2025 02:17:36 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uuM0k-0000000FxuS-32eQ;
+	Fri, 05 Sep 2025 02:17:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuF7x-0000000DlUV-0FIA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 18:56:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=xjjY66RcfO89xgSgq3BI/Zi1XnS61E6x2hm5O5e/pcM=; b=lUlOD1PkTGxanSr7AKvyXl8irJ
-	J0gSgg248DiESUGkemYaDyC0CGalgiBh2QKBPxkVuQvH3KXixAHvWJCy2cDHpkkIrcv1UOXPg48bf
-	6/FdAVdH97UqdLXuQe+qQzfzwClHRrYwceo5RKKMbfUfatzwU1sgBq9IrAVzgMGMLpok=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uuF7o-007G0E-VD; Thu, 04 Sep 2025 20:56:00 +0200
-Date: Thu, 4 Sep 2025 20:56:00 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next v2 01/11] net: stmmac: mdio: provide address
- register formatter
-Message-ID: <d961d42e-e539-451d-ad17-b29fa5cfab9b@lunn.ch>
-References: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
- <E1uu8ns-00000001voU-0S7b@rmk-PC.armlinux.org.uk>
+	id 1uuCyd-0000000D0CS-3stV;
+	Thu, 04 Sep 2025 16:38:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5A7FA60247;
+	Thu,  4 Sep 2025 16:38:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2D22C4CEF0;
+	Thu,  4 Sep 2025 16:38:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757003903;
+	bh=W6N68IbV0jiwtH3MAFqH+TY6TjH35pe5n2zoPQK40aQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=gE9RSFVXYTyMFHQJ0RSW6u7hHNfokidemYDegKmlp5QjvT0AMrfY/4YYh6D8D8vU0
+	 /raqehO76RgY0pgwrL3cIbYt4DTt98PcmtR7o2TI3JBUyfKSyicMMm7xcI7W3dc0Qn
+	 lEm/Ixjg4Sk7OlqhSC6oV2+yWMQ3ThklFAnXq8qK1GhA1klwGH48MlhFd2KZNFvzT7
+	 YdO2a0sZKuwA5BB/lCL4+jmFtUoUGkS8aMSR1tIab0TEuIaLHYomrDLWArbS3NYxuD
+	 CuZ3qWJ7tGMqYgqo2Zxme521koxLXaTSTgE0hQOduhR1WceXZsuMkqM1LeluQlS4iW
+	 1gYOS2GaTvAvg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 04 Sep 2025 18:37:56 +0200
+Subject: [PATCH mt76 v4 02/15] wifi: mt76: Remove q->ndesc check in
+ mt76_dma_rx_fill()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1uu8ns-00000001voU-0S7b@rmk-PC.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_115609_094927_B5D69FA5 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250904-mt7996-rro-rework-v4-2-2cd91e7229d6@kernel.org>
+References: <20250904-mt7996-rro-rework-v4-0-2cd91e7229d6@kernel.org>
+In-Reply-To: <20250904-mt7996-rro-rework-v4-0-2cd91e7229d6@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sujuan Chen <sujuan.chen@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +74,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 01:11:00PM +0100, Russell King (Oracle) wrote:
-> Rather than duplicating the logic for filling the PA (MDIO address),
-> GR (MDIO register/devad), CR (clock range) and GB (busy) fields of the
-> address register in four locations, provide a helper to do this.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Remove q->ndesc check in mt76_dma_rx_fill routine since this is already
+done in mt76_dma_rx_fill_buf().
 
-I cannot test any of these patches, so please don't merge just because
-of my review. Russell specifically asked for testers.
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/dma.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+diff --git a/drivers/net/wireless/mediatek/mt76/dma.c b/drivers/net/wireless/mediatek/mt76/dma.c
+index 25c26ff8c8e24352f2bb31c6e185e628a56f609b..18c2a2de59897d038392a00ed5fb5a0de188ac95 100644
+--- a/drivers/net/wireless/mediatek/mt76/dma.c
++++ b/drivers/net/wireless/mediatek/mt76/dma.c
+@@ -671,9 +671,6 @@ int mt76_dma_rx_fill(struct mt76_dev *dev, struct mt76_queue *q,
+ {
+ 	int frames;
+ 
+-	if (!q->ndesc)
+-		return 0;
+-
+ 	spin_lock_bh(&q->lock);
+ 	frames = mt76_dma_rx_fill_buf(dev, q, allow_direct);
+ 	spin_unlock_bh(&q->lock);
 
-    Andrew
+-- 
+2.50.1
+
 
