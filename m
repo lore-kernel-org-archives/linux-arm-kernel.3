@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E893CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A873CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v3GFnHtIblNt4J73Ub9v6dpzDoaywFOdLjrcnDFlhlw=; b=zPcEZR7wbleNKxuHqXbZXr13pm
-	mkR4ueryZq34R8DI+Y001lM5mvZy2Jlk51tzi4xyAgEMvdNwOaEI1L7ZlmhfehhYzH6xWwslVM381
-	F6X7sv1hkrfbb3d5Q1YWzJ2kaWx49YearTsH+kE2bjggb0Nx8f02WPO78aJMGPiR8i7KikXRcAgwj
-	M39WrrjE/sT3aD/cj+wn6+pyhEsdwz46QGfhBVuEuxHDDO78P3PXuJYtHjntHN1v5oK+1NAZyHuPt
-	6n3+HGkEncouvDhgq8mnE8+I553kd7oSgVeR3j6yB6CrW0kuyC/I8VR+IN+B/DIuI4/5uDMVJqK9/
-	AVDTayZQ==;
+	bh=Rie4NtT+lhI/VU3pftqdPT332lGA5fFGRROI4ZDW40c=; b=ty3BIKBDAgEG8l6GuWtnVrK1FH
+	JAxln7ys/OryR/5r5l+f7W5qujhXr2q4MHZ61Su2W/I60KaMUIoanB1QiVYeOmzh9ixpy6z5BeezQ
+	emwKit4X9y6jquGPlWWsazY+NUNTlDd/5SBQ8czSUGFSjOAJlPo3nf8Uw4mf669pYyMdcWhVw6VQ3
+	rTh75wHYVBS8QNkhNX2J9uwpzvKhyu428VkAPGfsQA9re/1sF0NekGQ1vVFcP/aMIJTRtzfryIDBH
+	93jN3o4cW9gfeKa0tSNc7vAbcKlKbQBA4cwFB2sv+0BNJuCefis85YYniS8NUBTAi5oKD+0iK+6RT
+	CvRf1ZIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuG0L-0000000E2Tr-2hqn;
-	Thu, 04 Sep 2025 19:52:21 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1uuG0S-0000000E2dw-1LV5;
+	Thu, 04 Sep 2025 19:52:28 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuBED-0000000CJdP-3FdJ
+	id 1uuBEW-0000000CJo4-2vit
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 14:46:23 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cHj3D3blCz9tFV;
-	Thu,  4 Sep 2025 16:46:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1756997176;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=v3GFnHtIblNt4J73Ub9v6dpzDoaywFOdLjrcnDFlhlw=;
-	b=F2iBe9zdgFRK2TtiNEprqg+Jymv+RN2AS6WabCLEtHcjyuSYku9hArJ1Xc0XhqALy4lOaR
-	e30O4AdWf9E+JT7UAJ2GhQGKJBNJNJX/6YIL824tgVX07kN2wTdSbCROvUHJmHeTciKwCV
-	yFASCZV++Xm05PDyCxpqET79B6r8Em6FZusqntwMa9MIQbP5aH34Yc2zMp1+/SE3ZqZDsh
-	ZhyYoiz/TrGr3QQlHXgd6HlYBIPc2c0VTnn4WoM59ngfUVLHDkNjik2P7Qdg/49VPia6vB
-	DkxFilh8AqD7Hn0Usg1LZTa1nBCpU5h6rD8wEGltJsn+GrpcwIxQx5IGMcPnPw==
-Message-ID: <8cc352ee-8279-46c5-901b-e6624156263a@mailbox.org>
-Date: Thu, 4 Sep 2025 16:46:11 +0200
+	Thu, 04 Sep 2025 14:46:42 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3da9ad0c1f4so776438f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 07:46:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756997199; x=1757601999; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Rie4NtT+lhI/VU3pftqdPT332lGA5fFGRROI4ZDW40c=;
+        b=KL9NtMwCvpYVD/aUDy4k9yGwPkupuWR56B0TNumtaNyuFucNyxFEQLdLVpEYsukWWZ
+         TrDo+9PnrKQETOCaaLPbsgVJa5Yni85FMgq/x4+1q89oBqqHOXSiaydNJOtN3snBVyRY
+         xrP2PN1VwXECrsGS3fp6YXQkrmKqetVtyTNDVrlLRiLkKSMsqCIx3Mh8KvW+lquyzhPs
+         e+4mZWPlRx+7eOmkYJ8ox+lnv7G7sfUIkkDLHX0GagSwltU06nUcUS+tmwt0xbbFCeFU
+         S03TxhYYT6ZZhTmoQuF6Fbe0yWIVoHtBg+YgJkupkJo9Zy3DwLGL97EEQyXVO9WNuxko
+         HOFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756997199; x=1757601999;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Rie4NtT+lhI/VU3pftqdPT332lGA5fFGRROI4ZDW40c=;
+        b=eiIrp0qulMH0dGsVFEOKfhOCbCwP/GBLn3chTOzcgSrB2+hv1t7cIw9cFnyzOeBdT8
+         mfd0E70y4lH67Xp4/rKzdi83Hkr8J1PJ46tlTzGN0z3ekI0YS86cKhRSSJywoBASkQfs
+         iAv1dm3M8hfqc5XP4WfLBI2M66TzQB8CTnVfEPuFacLP640GpBiT0m2JXEqDQLRX122X
+         EvNPADqbPzp4saySiPQIIdbi+67w9P4YAbOTvaif2Tzdx/XLKx5eNaEKHiKP/kwg0XmZ
+         lKEGwjQvxxU8bTVhMUhu1CcZhRbAxKfp4oGrSqsMXvlD9vswa7aBLeHY8dFC/9XCVHx2
+         +T7g==
+X-Forwarded-Encrypted: i=1; AJvYcCV88bwxCkzOLJJ8nLv93AvURdlhe9qDUr9km9pfOow3qop6hfoU5ShddTefEoBIFoI3/j0Ju0AKIDt+h5XILqMR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAMfRfybncosdilmaj1zcWV+9uGo5TTfgRWzsSevJJiQtm7pLr
+	+IlKX7hl71KhlO80goSK9r3t74HIc7oo4YTPqOxZHMJ/rJepAXqd06lF89OI2U/FtX4=
+X-Gm-Gg: ASbGnctg4g009NIVowSgM85MIjz+4xpt+QdU0iG8NSFziUgLuiZLj+pqtY9hoL1YzKe
+	5KgXH+mkQUS+jk1/gZZ0VcAQ/1ki3XGw1Ayz+daXRnrbBJFRYFXCyJ+Yyr0H3nCZR0Hllt1cTwP
+	yYG93IkJA+xN7Jnc/EL1+bxJQy3XNhTZq+IYlnRwz2SgLSXfAn5VyvCxgPWudyM6oXaSzDkN2dg
+	0Gi6KnqYiQu8Vj+pecqBK7sG4yOVai3GDDe/Ry/ur4nU0Si1IQWiZIo06gawnckpCEzd0rkpAXg
+	lcy+Py/ZJQ7PpImFlLhjRuRnDz8hOrsODbEif1dncODW5SZUxOtZVI/eIvWubcPv0587GxlXWjc
+	Ls0XJgybUp8aU9zVNwVBj4+d0p0uqKm0o2mjjXg==
+X-Google-Smtp-Source: AGHT+IFI/E5qAIKfXdhNEpKBbEZViYZqEL++gyAmn9sf9BLf2v535PWLf+n1Md00yBlgDCzJA4lVmw==
+X-Received: by 2002:a05:6000:1a8c:b0:3cf:74e0:55ac with SMTP id ffacd0b85a97d-3d1dfb108b2mr16861958f8f.38.1756997198893;
+        Thu, 04 Sep 2025 07:46:38 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45cb5693921sm86639035e9.0.2025.09.04.07.46.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Sep 2025 07:46:38 -0700 (PDT)
+Message-ID: <fabea1ff-cff0-4496-ae82-40c38f293ad5@linaro.org>
+Date: Thu, 4 Sep 2025 15:46:37 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Steven Price <steven.price@arm.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, devicetree@vger.kernel.org, imx@lists.linux.dev,
- Boris Brezillon <boris.brezillon@collabora.com>
-References: <20250321200625.132494-1-marex@denx.de>
- <3372501.aeNJFYEL58@steina-w>
- <52e3c5dd-6952-43b5-94f9-43f30734680e@mailbox.org>
- <7020337.lOV4Wx5bFT@steina-w>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] coresight: trbe: Return NULL pointer for allocation
+ failures
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Mike Leach <mike.leach@linaro.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+References: <20250904-cs_etm_auxsetup_fix_error_handling-v2-1-a502d0bafb95@arm.com>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <7020337.lOV4Wx5bFT@steina-w>
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250904-cs_etm_auxsetup_fix_error_handling-v2-1-a502d0bafb95@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: k5w75xojfhphx8ai93r4gzgxiibg3nfm
-X-MBO-RS-ID: 3e8e287770314cb04a9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_074621_967666_EC878E12 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20250904_074640_742506_CF8BEB80 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,69 +105,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/4/25 4:39 PM, Alexander Stein wrote:
-> Hi,
-> 
-> Am Donnerstag, 4. September 2025, 15:52:38 CEST schrieb Marek Vasut:
->> On 9/4/25 8:36 AM, Alexander Stein wrote:
->>
->> Hello Alexander,
->>
->>>>> Maybe the GPU remains halted because
->>>>> setting the GLB_HALT stops command stream processing, and the GPU never
->>>>> samples the clearing of GLB_HALT and therefore remains halted forever ?
->>>>
->>>> Exactly that, and that's expected.
->>>
->>> FYI: in a new release of system manager software (starting from lf-6.12.3-1.0.0),
->>> the GPU reset is reasserted in SM software already [1] and access to GPU
->>> block control has been removed from Cortex-A [2]. Starting from B0 step this
->>> version is required AFAIK.
->>
->> I don't think the SM is involved in this, because if I do the following
->> test, the MCU also fails to boot unless I do a reset:
-> 
-> Is this some other reset than BLK_CTRL_GPUMIX? If so, it might be required.
-> Don't know much about internal details though.
-Yes
 
-    296	/**
-    297	 * panthor_gpu_soft_reset() - Issue a soft-reset
-    298	 * @ptdev: Device.
-    299	 *
-    300	 * Return: 0 on success, a negative error code otherwise.
-    301	 */
-    302	int panthor_gpu_soft_reset(struct panthor_device *ptdev)
-    303	{
-    304		bool timedout = false;
-    305		unsigned long flags;
-    306	
-    307		spin_lock_irqsave(&ptdev->gpu->reqs_lock, flags);
-    308		if (!drm_WARN_ON(&ptdev->base,
-    309				 ptdev->gpu->pending_reqs & GPU_IRQ_RESET_COMPLETED)) {
-    310			ptdev->gpu->pending_reqs |= GPU_IRQ_RESET_COMPLETED;
-    311			gpu_write(ptdev, GPU_INT_CLEAR, GPU_IRQ_RESET_COMPLETED);
-    312			gpu_write(ptdev, GPU_CMD, GPU_SOFT_RESET);
-    313		}
-    314		spin_unlock_irqrestore(&ptdev->gpu->reqs_lock, flags);
-    315	
-    316		if (!wait_event_timeout(ptdev->gpu->reqs_acked,
-    317					!(ptdev->gpu->pending_reqs & GPU_IRQ_RESET_COMPLETED),
-    318					msecs_to_jiffies(100))) {
-    319			spin_lock_irqsave(&ptdev->gpu->reqs_lock, flags);
-    320			if ((ptdev->gpu->pending_reqs & GPU_IRQ_RESET_COMPLETED) != 0 &&
-    321			    !(gpu_read(ptdev, GPU_INT_RAWSTAT) & GPU_IRQ_RESET_COMPLETED))
-    322				timedout = true;
-    323			else
-    324				ptdev->gpu->pending_reqs &= ~GPU_IRQ_RESET_COMPLETED;
-    325			spin_unlock_irqrestore(&ptdev->gpu->reqs_lock, flags);
-    326		}
-    327	
-    328		if (timedout) {
-    329			drm_err(&ptdev->base, "Soft reset timeout");
-    330			return -ETIMEDOUT;
-    331		}
-    332	
-    333		return 0;
-    334	}
+
+On 04/09/2025 3:13 pm, Leo Yan wrote:
+> When the TRBE driver fails to allocate a buffer, it currently returns
+> the error code "-ENOMEM". However, the caller etm_setup_aux() only
+> checks for a NULL pointer, so it misses the error. As a result, the
+> driver continues and eventually causes a kernel panic.
+> 
+> Fix this by returning a NULL pointer from arm_trbe_alloc_buffer() on
+> allocation failures. This allows that the callers can properly handle
+> the failure.
+> 
+> Fixes: 3fbf7f011f24 ("coresight: sink: Add TRBE driver")
+> Reported-by: Tamas Zsoldos <tamas.zsoldos@arm.com>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+> Changes in v2:
+> - Fix TRBE driver instead of changing coresight-etm-perf.c.
+> - Link to v1: https://lore.kernel.org/r/20250904-cs_etm_auxsetup_fix_error_handling-v1-1-ecc5edf282a5@arm.com
+> ---
+>   drivers/hwtracing/coresight/coresight-trbe.c | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index 10f3fb401edf6a00b24b38cdaa7c2865e7a191ac..8f9bbef71f236b327d35a288689df9b0dd8ff3f4 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -748,12 +748,12 @@ static void *arm_trbe_alloc_buffer(struct coresight_device *csdev,
+>   
+>   	buf = kzalloc_node(sizeof(*buf), GFP_KERNEL, trbe_alloc_node(event));
+>   	if (!buf)
+> -		return ERR_PTR(-ENOMEM);
+> +		return NULL;
+>   
+>   	pglist = kcalloc(nr_pages, sizeof(*pglist), GFP_KERNEL);
+>   	if (!pglist) {
+>   		kfree(buf);
+> -		return ERR_PTR(-ENOMEM);
+> +		return NULL;
+>   	}
+>   
+>   	for (i = 0; i < nr_pages; i++)
+> @@ -763,7 +763,7 @@ static void *arm_trbe_alloc_buffer(struct coresight_device *csdev,
+>   	if (!buf->trbe_base) {
+>   		kfree(pglist);
+>   		kfree(buf);
+> -		return ERR_PTR(-ENOMEM);
+> +		return NULL;
+>   	}
+>   	buf->trbe_limit = buf->trbe_base + nr_pages * PAGE_SIZE;
+>   	buf->trbe_write = buf->trbe_base;
+> 
+> ---
+> base-commit: fa71e9cb4cfa59abb196229667ec84929bdc18fe
+> change-id: 20250904-cs_etm_auxsetup_fix_error_handling-cb7e07ed9adf
+> 
+> Best regards,
+
+Reviewed-by: James Clark <james.clark@linaro.org>
+
 
