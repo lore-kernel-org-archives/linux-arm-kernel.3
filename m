@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0041CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09457CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HwRnJdXLUnbJzEliJ8F7yWyHZeWeHGJT0waJGQRe0iU=; b=CkN/F4UOilNEezaRgVDI4MY9nx
-	B4Bk3LMwdFbUo1ymJNEWBApFO4Tj18JxhVUrMYC5RJqcqN99zXgmR2ad/78fVzQIUBIkZUKt4Q7vZ
-	h2GiaFiVASELGsb01tqy5pKSKBgXFOmX/E6IiuEGZIORoZjxp3gYwbbQ48EznKj7voMeLKJfdZ5d3
-	8euTaiadLRyu3jihpxufZaVpXh0N9ml0woZKdcZESROksAGk7QbsUqFy7rohyaM7a4fWKSkbqjrZL
-	rQr2vDUibCLzqyHpWCux6PEHncfK3kBfusPWxwNx80K3YQiOzmvrJYdyqKBH2nZZTaYDCjxfXjoQ6
-	UM919uFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6Wl+hI7LKm1WzouZGi2FUnVOee5FU/DJYF/1DrUr4+8=; b=ovxTFDTw1ODRwJ5+2ihW0bSxX7
+	68xS0sVZPp7RVYr7TD47VUCryg9hl4+NJAPayudq2CbC7roHM/DFq2T7bN+xPQ5kjc/b+a2osdgFu
+	IlwPsQIbCVFhoYYFQjBVwaoVH2MWQUB2eipnDWCr1ww2Sio9Q8/fNpM/QD447UsLPUuBXv4bP2MAY
+	JT+iZBumhTdI6KGap1zEbVcRZlCllESPYnekrxqYpG7Dg/Xm5d/BsRtojgUn+wyPVHvVOOaNRthU3
+	vS9jmWaWDNdC8QmK71RUqEmYlgsjvyqbCTJtXST0l5fzMWwAGKIJI547oSZQwWs5RYPENpId3KPDs
+	DJosb+Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM2e-0000000G11l-14Gj;
-	Fri, 05 Sep 2025 02:19:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uuM2g-0000000G14q-0t2X;
+	Fri, 05 Sep 2025 02:19:10 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuG9Q-0000000E7yP-1x0N;
-	Thu, 04 Sep 2025 20:01:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=HwRnJdXLUnbJzEliJ8F7yWyHZeWeHGJT0waJGQRe0iU=; b=Wdrg70szvN/Jf+5SKMdlqaYhhw
-	7wWW7bSsYxodvgACuWp5HYjdBWfyuJ1ud6jBYmz+eZo9rPDD5PW/trO/gw+IViNTpZpf2MhGS34vm
-	Q094atAW/NFnksVkTTUhS1uUUa/DW81zkQNOjwiNSwNqmVEBabodf/RzW+XJaJSoWzjekPp09SD+4
-	LOkJnffbEPz0fYXukeH2U4soT0qjZYu53RF7UlA8COJDghYxoJsqpdiKmP8azk+TtE+kTH8uiED1p
-	XQhvYFDVIHRyKaHgFC2vsbXb7ptjqwRwxF8Nbkb2cvQiqHRbxU/XhxzCkG37SQPfn8M9IUb8eVmEJ
-	cT+kcimw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuG9H-00000004PgU-3yfk;
-	Thu, 04 Sep 2025 20:01:36 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id B8E2D300220; Thu, 04 Sep 2025 22:01:34 +0200 (CEST)
-Date: Thu, 4 Sep 2025 22:01:34 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Kees Cook <kees@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Vegard Nossum <vegard.nossum@oracle.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	David Woodhouse <dwmw2@infradead.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Marco Elver <elver@google.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Ramon de C Valle <rcvalle@google.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 0/9] kcfi: Prepare for GCC support
-Message-ID: <20250904200134.GA4067720@noisy.programming.kicks-ass.net>
-References: <20250904033217.it.414-kees@kernel.org>
- <20250904070410.GX4067720@noisy.programming.kicks-ass.net>
- <202509040933.06AF02E714@keescook>
+	id 1uuGCT-0000000E8sF-3GXd
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 20:04:55 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cHr6r0m2Pz9t0n;
+	Thu,  4 Sep 2025 22:04:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1757016292;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6Wl+hI7LKm1WzouZGi2FUnVOee5FU/DJYF/1DrUr4+8=;
+	b=NYgHj6g/Vg1/O3aM0zaNiKsM9/5AWE0M+MT1BsSdoYKVCVsAhglc/3e+rl6eiLOs5CLZEU
+	p8tQe70AEDdSmmb/5ApmsiBZI1LDZKjJH0xmKszK1RAXwOOaqqeLu47tW20Su6UpM106Ba
+	pxOP8Tmfadsf3hrTu3r4CutoxJegb9mXNXYQVQnb1EDwna1YdaXzvF9xP4e+eLF1IPkX7S
+	07r4ex0MXPDMcTKZE3kQ3y5yldcjwX5aw8NG6CqFwZF0VTPR6gM7xoe8feXtNAnx44jfsc
+	3d9KtuYwZiJjE6p8ZdMcHPkE8vJ9lLfYsm2AtXxXpPoi+V9wnxjKZHcz5pulig==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b="fiyV9Qb/";
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1757016290;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6Wl+hI7LKm1WzouZGi2FUnVOee5FU/DJYF/1DrUr4+8=;
+	b=fiyV9Qb/X6XHDMvj9SqyrwGMjyVaHeGWNnV06LxH5h+7AXdmE6MwD+7qLWSuTTMt+if43j
+	GuM8rxwIoYAHt3VOHeLmfbIsPW2qZTGeWvT5Nr81eQmsIE8o5B1TRkYM9e8x4o1q4xhn1a
+	c4XBrwzl+8S3vmdMMFmOwqd85SYa1aZids9atdUvWBV7O3zh9S2oLejHhjCAC1pGuUKdn0
+	V8EcWY/bbdtMIKx5oP8+yF988vDE+BYnk+IU/c6RbNw5EHFFnLN0eZIObarIYlSwW5Dqob
+	AEGsJtS51b9wyrnzdIhZFLD1F0eEmaEhdPLxIy5qAJPQn8Xp6cXvGoDIwIXb4w==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 1/4] arm64: dts: renesas: r8a779a0: Rename dsi-encoder@ to dsi@
+Date: Thu,  4 Sep 2025 22:03:05 +0200
+Message-ID: <20250904200431.168363-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <202509040933.06AF02E714@keescook>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 39f0f10070675c996cd
+X-MBO-RS-META: ouccmeteysisoe6uftnetf7iouy8sp36
+X-Rspamd-Queue-Id: 4cHr6r0m2Pz9t0n
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250904_130453_955524_337F9C22 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,41 +102,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 09:37:14AM -0700, Kees Cook wrote:
-> On Thu, Sep 04, 2025 at 09:04:10AM +0200, Peter Zijlstra wrote:
-> > On Wed, Sep 03, 2025 at 08:46:39PM -0700, Kees Cook wrote:
-> > 
-> > > Kees Cook (9):
-> > >   compiler_types.h: Move __nocfi out of compiler-specific header
-> > >   x86/traps: Clarify KCFI instruction layout
-> > >   x86/cfi: Document the "cfi=" bootparam options
-> > >   x86/cfi: Standardize on common "CFI:" prefix for CFI reports
-> > >   x86/cfi: Add "debug" option to "cfi=" bootparam
-> > >   x86/cfi: Remove __noinitretpoline and __noretpoline
-> > 
-> > So I can take these first 6 patches (and edit that debug patch to
-> > un-annoy myself ;-), but I'm thinking this Kconfig stuff:
-> 
-> Sure, yeah. Do you want a v3 for the debug stuff that uses your proposed
-> helper?
+Rename dsi-encoder@ node to dsi@ node to follow node name pattern
+in Documentation/devicetree/bindings/display/dsi-controller.yaml .
+No functional change.
 
-Nah, already done :-) I just pushed out these 6 and my UDB hackery to
-queue.git/x86/core. If the robots don't complain, I'll stuff it into tip
-in a few days.
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Robert Foss <rfoss@kernel.org>
+Cc: Simona Vetter <simona@ffwll.ch>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a779a0.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> > >   kconfig: Add transitional symbol attribute for migration support
-> > >   kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
-> > 
-> > Should perhaps go through the kbuild tree? A
-> 
-> I had chatted offline with Nathan about this series, and he'd suggested
-> the kconfig change could go with it's first user (the rename). So if you
-> don't want to put it in -tip, I can take it in the hardening tree.
-> (There's no dependencies between these 2 and the first 6.)
+diff --git a/arch/arm64/boot/dts/renesas/r8a779a0.dtsi b/arch/arm64/boot/dts/renesas/r8a779a0.dtsi
+index 95ff693399919..2c3fb34abb28e 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779a0.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a779a0.dtsi
+@@ -2949,7 +2949,7 @@ isp3vin31: endpoint {
+ 			};
+ 		};
+ 
+-		dsi0: dsi-encoder@fed80000 {
++		dsi0: dsi@fed80000 {
+ 			compatible = "renesas,r8a779a0-dsi-csi2-tx";
+ 			reg = <0 0xfed80000 0 0x10000>;
+ 			power-domains = <&sysc R8A779A0_PD_ALWAYS_ON>;
+@@ -2977,7 +2977,7 @@ port@1 {
+ 			};
+ 		};
+ 
+-		dsi1: dsi-encoder@fed90000 {
++		dsi1: dsi@fed90000 {
+ 			compatible = "renesas,r8a779a0-dsi-csi2-tx";
+ 			reg = <0 0xfed90000 0 0x10000>;
+ 			power-domains = <&sysc R8A779A0_PD_ALWAYS_ON>;
+-- 
+2.50.1
 
-So I suppose I can carry them, just to keep the lot together, but then I
-need an ack from someone that actually knows this Kconfig language stuff
-:-)
-
-You taking them through the hardening tree also works for em.
 
