@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C510DCA1013
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC73DCA101F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+igjDa/+h9/dAI1xGE7rMdzLe9y5NMxBfbCy+NMhbVY=; b=yNHvnq6yjfGG1nKRtvAWeLdqGa
-	ORSYuKFCXndaN1TacBNWbSlq2eKqJJBEdMtRHvSfOUXmRYdROxPSdWobUgtpIaSM9f0Y1sC6WolMR
-	OhdWBH2z3Vrwhk5IPgW9i5bIla1gFpmfv0GMUsKgqn1gaxnU2Dm0YnyctGwISritzt3Z2fOpzSsVg
-	xfme48+Px4poZr7Rg6Lp0lZfpvKccOpN7GIvUlHi4roXUnftdgBtBEi781NBqgnSwayaiCUL2Pwns
-	WaxqQdMufDTVR8+/HmuTYuhxTl0smybUTd3yD3loqeSZaEnm4KS2iOPV23iMbZBDUVa/Ot7AeSg2Y
-	4CVHLE+A==;
+	bh=09jzU5RnoK37mEWoerkBBMdU2xO5D5cZIVVTnpRSdkI=; b=Nh670PTysvHwse/EiyAg68zut6
+	0mCLCNhvG7LBMz7eBsLOvnrb/U8Zv+kZuaUueD+A9iE4aS7cQHyqlM6mVNE4AF4t2NvKVHgAtX1LY
+	+xQI0R7oLGA2B6F3dMEpKcOBXu8EqW2c6YPJ1GH+r1fXsmAfsC3lEu58yeKbtTbNmCuRhsapxhMAl
+	w8aXsstIgoaxyOSRgwTisOkYw1NDnuCdaK7B3bymaxgnahkwd6mLiE1obZURjN0W/z9PDHtgllrIn
+	wyDoBWvJB1ZirR63l0AXJWAHi5vcfT2JiaM330ga2TidUQcRa7eQLDVXbFuzlyKFEBBpaalyKqz3X
+	GUowVRow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuClC-0000000CqRH-34Ew;
-	Thu, 04 Sep 2025 16:24:30 +0000
+	id 1uuClD-0000000CqRn-1YHs;
+	Thu, 04 Sep 2025 16:24:31 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu8nx-0000000BSxj-2QTD
+	id 1uu8o3-0000000BT14-1JB2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 12:11:06 +0000
+	Thu, 04 Sep 2025 12:11:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+igjDa/+h9/dAI1xGE7rMdzLe9y5NMxBfbCy+NMhbVY=; b=vQdDzl2XgdNOcAHkagERx00mel
-	7ytanqclz8vvy4ifouQhW0CFGlpLuFygOkm45cmxH5DOLuQWLXob4AQz9Dy62RHlMoWccsDFl6kVj
-	rBAdCvx/abs4MXUk31UcFzmHXb61HT7ZTt9sQRf/E2tU5ukDwJDKiNZgVOsSTOjTbBRyh1ADhxkj7
-	YeQBL0UpQNDBZ2p7sE8tzHJAht9snD0rYuL1eIOWla4tvm17g2PPmnEGz8c3Uv47JCL2d5fJVzXKJ
-	hMsjTowIGuLfeSMYeIRoU5GBwQR2Sq9IU6Xc4hq7bjGay0RCJnVYkFqhpAd8Vr3EIcCXh1Ae7k05j
-	IWOYDnng==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:55606 helo=rmk-PC.armlinux.org.uk)
+	bh=09jzU5RnoK37mEWoerkBBMdU2xO5D5cZIVVTnpRSdkI=; b=mlgIdPmRkCa/S9QYhoiyeNMC37
+	ojIScjRfDgLlMMyfK8dr8TjvM5ogIHRMljyNu8Uir8Cd+Tdxrk4iRSjf9Bxe/33pR3mqj3PaLk5bp
+	kGyHkrQd138DV+KQHHbrAE3yWiXVXqbOGpaPKsPhg96FDQHm9GqF7+mjyF+1GlMAMB87gU0zIf1vn
+	cFH5Huc71dPSgV4qE3Y84ty1zal+kTKQDTEBi8iB3Juh9XaoaqWFRQ7psc++1aUOfiC5KU7WXykhh
+	neEW/j6J7Gew22TWXxmFTk9D9XYc1/LMiYpaL4eDNaKNyx60Le+Aw4KQQMOBwbrgQegd+aKIOkcJS
+	mtdJ7L+Q==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:55610 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1uu8ns-000000001x3-3kcd;
-	Thu, 04 Sep 2025 13:11:00 +0100
+	id 1uu8ny-000000001xK-04Po;
+	Thu, 04 Sep 2025 13:11:06 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1uu8ns-00000001voU-0S7b;
-	Thu, 04 Sep 2025 13:11:00 +0100
+	id 1uu8nx-00000001voa-0tJ0;
+	Thu, 04 Sep 2025 13:11:05 +0100
 In-Reply-To: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
 References: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 01/11] net: stmmac: mdio: provide address register
- formatter
+Subject: [PATCH net-next v2 02/11] net: stmmac: mdio: provide
+ stmmac_mdio_wait()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1uu8ns-00000001voU-0S7b@rmk-PC.armlinux.org.uk>
-Date: Thu, 04 Sep 2025 13:11:00 +0100
+Message-Id: <E1uu8nx-00000001voa-0tJ0@rmk-PC.armlinux.org.uk>
+Date: Thu, 04 Sep 2025 13:11:05 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_051105_618111_1877F657 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20250904_051111_513521_606EAFCD 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,135 +89,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rather than duplicating the logic for filling the PA (MDIO address),
-GR (MDIO register/devad), CR (clock range) and GB (busy) fields of the
-address register in four locations, provide a helper to do this.
+All the readl_poll_timeout()s follow the same pattern - test a register
+for a bit being clear every 100us, and timeout after 10ms returning
+-EBUSY. Wrap this up into a function to avoid duplicating this.
+
+This slightly changes the return value for stmmac_mdio_write() if the
+second readl_poll_timeout() fails - rather than returning -ETIMEDOUT
+we return -EBUSY matching the stmmac_mdio_read() behaviour.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 55 ++++++++++---------
- 1 file changed, 28 insertions(+), 27 deletions(-)
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 70 +++++++++----------
+ 1 file changed, 33 insertions(+), 37 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-index 0a302b711bc2..c305c202055a 100644
+index c305c202055a..6acce54b5d55 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-@@ -229,6 +229,26 @@ static int stmmac_xgmac2_mdio_write_c45(struct mii_bus *bus, int phyaddr,
- 					phydata);
- }
+@@ -45,6 +45,16 @@
+ #define MII_XGMAC_PA_SHIFT		16
+ #define MII_XGMAC_DA_SHIFT		21
  
-+/**
-+ * stmmac_mdio_format_addr() - format the address register
-+ * @priv: struct stmmac_priv pointer
-+ * @pa: 5-bit MDIO package address
-+ * @gr: 5-bit MDIO register address (C22) or MDIO device address (C45)
-+ *
-+ * Return: formatted address register
-+ */
-+static u32 stmmac_mdio_format_addr(struct stmmac_priv *priv,
-+				   unsigned int pa, unsigned int gr)
++static int stmmac_mdio_wait(void __iomem *reg, u32 mask)
 +{
-+	const struct mii_regs *mii_regs = &priv->hw->mii;
++	u32 v;
 +
-+	return ((pa << mii_regs->addr_shift) & mii_regs->addr_mask) |
-+	       ((gr << mii_regs->reg_shift) & mii_regs->reg_mask) |
-+	       ((priv->clk_csr << mii_regs->clk_csr_shift) &
-+		mii_regs->clk_csr_mask) |
-+	       MII_BUSY;
++	if (readl_poll_timeout(reg, v, !(v & mask), 100, 10000))
++		return -EBUSY;
++
++	return 0;
 +}
 +
- static int stmmac_mdio_read(struct stmmac_priv *priv, int data, u32 value)
+ static void stmmac_xgmac2_c45_format(struct stmmac_priv *priv, int phyaddr,
+ 				     int devad, int phyreg, u32 *hw_addr)
+ {
+@@ -83,7 +93,6 @@ static int stmmac_xgmac2_mdio_read(struct stmmac_priv *priv, u32 addr,
  {
  	unsigned int mii_address = priv->hw->mii.addr;
-@@ -263,18 +283,14 @@ static int stmmac_mdio_read(struct stmmac_priv *priv, int data, u32 value)
- static int stmmac_mdio_read_c22(struct mii_bus *bus, int phyaddr, int phyreg)
- {
- 	struct stmmac_priv *priv = netdev_priv(bus->priv);
--	u32 value = MII_BUSY;
- 	int data = 0;
-+	u32 value;
- 
- 	data = pm_runtime_resume_and_get(priv->device);
- 	if (data < 0)
- 		return data;
- 
--	value |= (phyaddr << priv->hw->mii.addr_shift)
--		& priv->hw->mii.addr_mask;
--	value |= (phyreg << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
--	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
--		& priv->hw->mii.clk_csr_mask;
-+	value = stmmac_mdio_format_addr(priv, phyaddr, phyreg);
- 	if (priv->plat->has_gmac4)
- 		value |= MII_GMAC4_READ;
- 
-@@ -300,20 +316,16 @@ static int stmmac_mdio_read_c45(struct mii_bus *bus, int phyaddr, int devad,
- 				int phyreg)
- {
- 	struct stmmac_priv *priv = netdev_priv(bus->priv);
--	u32 value = MII_BUSY;
- 	int data = 0;
-+	u32 value;
- 
- 	data = pm_runtime_resume_and_get(priv->device);
- 	if (data < 0)
- 		return data;
- 
--	value |= (phyaddr << priv->hw->mii.addr_shift)
--		& priv->hw->mii.addr_mask;
--	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
--		& priv->hw->mii.clk_csr_mask;
-+	value = stmmac_mdio_format_addr(priv, phyaddr, devad);
- 	value |= MII_GMAC4_READ;
- 	value |= MII_GMAC4_C45E;
--	value |= (devad << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
- 
- 	data |= phyreg << MII_GMAC4_REG_ADDR_SHIFT;
- 
-@@ -357,18 +369,13 @@ static int stmmac_mdio_write_c22(struct mii_bus *bus, int phyaddr, int phyreg,
- {
- 	struct stmmac_priv *priv = netdev_priv(bus->priv);
- 	int ret, data = phydata;
--	u32 value = MII_BUSY;
-+	u32 value;
+ 	unsigned int mii_data = priv->hw->mii.data;
+-	u32 tmp;
+ 	int ret;
  
  	ret = pm_runtime_resume_and_get(priv->device);
- 	if (ret < 0)
+@@ -91,33 +100,27 @@ static int stmmac_xgmac2_mdio_read(struct stmmac_priv *priv, u32 addr,
  		return ret;
  
--	value |= (phyaddr << priv->hw->mii.addr_shift)
--		& priv->hw->mii.addr_mask;
--	value |= (phyreg << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
--
--	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
--		& priv->hw->mii.clk_csr_mask;
-+	value = stmmac_mdio_format_addr(priv, phyaddr, phyreg);
- 	if (priv->plat->has_gmac4)
- 		value |= MII_GMAC4_WRITE;
- 	else
-@@ -395,21 +402,15 @@ static int stmmac_mdio_write_c45(struct mii_bus *bus, int phyaddr,
+ 	/* Wait until any existing MII operation is complete */
+-	if (readl_poll_timeout(priv->ioaddr + mii_data, tmp,
+-			       !(tmp & MII_XGMAC_BUSY), 100, 10000)) {
+-		ret = -EBUSY;
++	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
++	if (ret)
+ 		goto err_disable_clks;
+-	}
+ 
+ 	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+ 		& priv->hw->mii.clk_csr_mask;
+ 	value |= MII_XGMAC_READ;
+ 
+ 	/* Wait until any existing MII operation is complete */
+-	if (readl_poll_timeout(priv->ioaddr + mii_data, tmp,
+-			       !(tmp & MII_XGMAC_BUSY), 100, 10000)) {
+-		ret = -EBUSY;
++	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
++	if (ret)
+ 		goto err_disable_clks;
+-	}
+ 
+ 	/* Set the MII address register to read */
+ 	writel(addr, priv->ioaddr + mii_address);
+ 	writel(value, priv->ioaddr + mii_data);
+ 
+ 	/* Wait until any existing MII operation is complete */
+-	if (readl_poll_timeout(priv->ioaddr + mii_data, tmp,
+-			       !(tmp & MII_XGMAC_BUSY), 100, 10000)) {
+-		ret = -EBUSY;
++	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
++	if (ret)
+ 		goto err_disable_clks;
+-	}
+ 
+ 	/* Read the data from the MII data register */
+ 	ret = (int)readl(priv->ioaddr + mii_data) & GENMASK(15, 0);
+@@ -160,7 +163,6 @@ static int stmmac_xgmac2_mdio_write(struct stmmac_priv *priv, u32 addr,
  {
- 	struct stmmac_priv *priv = netdev_priv(bus->priv);
- 	int ret, data = phydata;
--	u32 value = MII_BUSY;
-+	u32 value;
+ 	unsigned int mii_address = priv->hw->mii.addr;
+ 	unsigned int mii_data = priv->hw->mii.data;
+-	u32 tmp;
+ 	int ret;
  
  	ret = pm_runtime_resume_and_get(priv->device);
- 	if (ret < 0)
+@@ -168,11 +170,9 @@ static int stmmac_xgmac2_mdio_write(struct stmmac_priv *priv, u32 addr,
  		return ret;
  
--	value |= (phyaddr << priv->hw->mii.addr_shift)
--		& priv->hw->mii.addr_mask;
--
--	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
--		& priv->hw->mii.clk_csr_mask;
--
-+	value = stmmac_mdio_format_addr(priv, phyaddr, devad);
- 	value |= MII_GMAC4_WRITE;
- 	value |= MII_GMAC4_C45E;
--	value |= (devad << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
+ 	/* Wait until any existing MII operation is complete */
+-	if (readl_poll_timeout(priv->ioaddr + mii_data, tmp,
+-			       !(tmp & MII_XGMAC_BUSY), 100, 10000)) {
+-		ret = -EBUSY;
++	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
++	if (ret)
+ 		goto err_disable_clks;
+-	}
  
- 	data |= phyreg << MII_GMAC4_REG_ADDR_SHIFT;
+ 	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+ 		& priv->hw->mii.clk_csr_mask;
+@@ -180,19 +180,16 @@ static int stmmac_xgmac2_mdio_write(struct stmmac_priv *priv, u32 addr,
+ 	value |= MII_XGMAC_WRITE;
  
+ 	/* Wait until any existing MII operation is complete */
+-	if (readl_poll_timeout(priv->ioaddr + mii_data, tmp,
+-			       !(tmp & MII_XGMAC_BUSY), 100, 10000)) {
+-		ret = -EBUSY;
++	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
++	if (ret)
+ 		goto err_disable_clks;
+-	}
+ 
+ 	/* Set the MII address register to write */
+ 	writel(addr, priv->ioaddr + mii_address);
+ 	writel(value, priv->ioaddr + mii_data);
+ 
+ 	/* Wait until any existing MII operation is complete */
+-	ret = readl_poll_timeout(priv->ioaddr + mii_data, tmp,
+-				 !(tmp & MII_XGMAC_BUSY), 100, 10000);
++	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
+ 
+ err_disable_clks:
+ 	pm_runtime_put(priv->device);
+@@ -253,18 +250,18 @@ static int stmmac_mdio_read(struct stmmac_priv *priv, int data, u32 value)
+ {
+ 	unsigned int mii_address = priv->hw->mii.addr;
+ 	unsigned int mii_data = priv->hw->mii.data;
+-	u32 v;
++	int ret;
+ 
+-	if (readl_poll_timeout(priv->ioaddr + mii_address, v, !(v & MII_BUSY),
+-			       100, 10000))
+-		return -EBUSY;
++	ret = stmmac_mdio_wait(priv->ioaddr + mii_address, MII_BUSY);
++	if (ret)
++		return ret;
+ 
+ 	writel(data, priv->ioaddr + mii_data);
+ 	writel(value, priv->ioaddr + mii_address);
+ 
+-	if (readl_poll_timeout(priv->ioaddr + mii_address, v, !(v & MII_BUSY),
+-			       100, 10000))
+-		return -EBUSY;
++	ret = stmmac_mdio_wait(priv->ioaddr + mii_address, MII_BUSY);
++	if (ret)
++		return ret;
+ 
+ 	/* Read the data from the MII data register */
+ 	return readl(priv->ioaddr + mii_data) & MII_DATA_MASK;
+@@ -340,20 +337,19 @@ static int stmmac_mdio_write(struct stmmac_priv *priv, int data, u32 value)
+ {
+ 	unsigned int mii_address = priv->hw->mii.addr;
+ 	unsigned int mii_data = priv->hw->mii.data;
+-	u32 v;
++	int ret;
+ 
+ 	/* Wait until any existing MII operation is complete */
+-	if (readl_poll_timeout(priv->ioaddr + mii_address, v, !(v & MII_BUSY),
+-			       100, 10000))
+-		return -EBUSY;
++	ret = stmmac_mdio_wait(priv->ioaddr + mii_address, MII_BUSY);
++	if (ret)
++		return ret;
+ 
+ 	/* Set the MII address register to write */
+ 	writel(data, priv->ioaddr + mii_data);
+ 	writel(value, priv->ioaddr + mii_address);
+ 
+ 	/* Wait until any existing MII operation is complete */
+-	return readl_poll_timeout(priv->ioaddr + mii_address, v,
+-				  !(v & MII_BUSY), 100, 10000);
++	return stmmac_mdio_wait(priv->ioaddr + mii_address, MII_BUSY);
+ }
+ 
+ /**
 -- 
 2.47.2
 
