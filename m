@@ -4,76 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A1DCA101C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC34CCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JCfZDqOW3xYUnS4qfRX3DC2JgwtDWIhIkGDWmHc2PpA=; b=RwrNNNaQuDTasznCxODeRUw+a5
-	D8V0XO00Qn0E1SXHgvu7/NkXVJwKEgz8mr+RrwE+LS/vIca4et8JvmzKD0a2oGbJQEcNeJQZSSrIr
-	X906rtHoRWj+TznvVtpn9qhuqM6wprHQqU+Oo8gNuciyx6q3wHBcLcuXtSta1TT31XmJrXU0Q9U5m
-	lddzYvjL4XJGKOhBkHUsRBfmDvWyo4kPXKAXa85t6+iepivPwwz4bzCzfVQoMe2Yhl53SGTeVy3aR
-	EH64X77v3bCHQFuDABhHRd76AouSC5iB047omqQZvDXKrQuqRDPpZnx6RwzRNE4RmeC6SvzdDdeFi
-	T69lf3KA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XhlHQX9QZI2Wc/319mBhA+FHNIABCp68X6Q8ZJdJwTQ=; b=LxDEU429nQqSISnyJOEnK+YEZF
+	N0QeF3kTZ1GFGX2hFsa4Ygb3xRhepjzeth1j22uIkpCPymIDr+L/S62s9+SmEBx0wXxEpsUQsYGYd
+	5stMoLjDLAfXNX+WHkBGJ7AE7hg3bgpkqCPOCaM3LFzvdLUyOtk9mu8wDmpvJTNKS/CKNP8Gfm20C
+	YPC48KZ7+gBLmpbkCMZRz4eHsvpSGLzlp0i5R9XE6lPzrBXC9hwzaTnoC3eIKVFbuLwmN/aFFACTi
+	t6EEE9d+0LQ9gbFH7ftN5llkKQjo0b3PaEv5bChMG0tKeAeDBu1skq/h+zNn5elI+PGkAPKFxLhHl
+	ysWBtFqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM6H-0000000G5ET-2dTb;
-	Fri, 05 Sep 2025 02:22:53 +0000
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
+	id 1uuM6G-0000000G5Cy-2str;
+	Fri, 05 Sep 2025 02:22:52 +0000
+Received: from mail-il1-x161.google.com ([2607:f8b0:4864:20::161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuIRN-0000000EsGs-1NVj
+	id 1uuIFj-0000000Enqy-0T3C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 22:28:26 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4cHvJP30QXz9tVN;
-	Fri,  5 Sep 2025 00:28:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757024901;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=JCfZDqOW3xYUnS4qfRX3DC2JgwtDWIhIkGDWmHc2PpA=;
-	b=e0ZRpMNRQGLryewqCpS/3+JvA4D/B76+kiY62TbaQSEtIdzxeLh2h+L8AxGfXWGDRLjWmF
-	G89G8/IurSpsEWUpnRNDuUDgrGyQeNyutJ/IQcgm8EYqkV9IEstP8W3PzEyeETAmxndt/s
-	fjZ20uwJuLRLd8xTagw/wwl9JBo69/yUZbTI+xq7+oaUyqWDk4X40AObNsmJT+cQ5oszO7
-	K96EMAUhJtaU0Ihdqp9gmrScU63ksE8a3qP3dS7mN7d9EdgOxonAVJL64PUA0mscddinMd
-	sADb6Kv28ucvA1Q+9+9begb2RB2FrES3V/ykve6eaB9wzem2pQef6vONbrgVoA==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757024899;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=JCfZDqOW3xYUnS4qfRX3DC2JgwtDWIhIkGDWmHc2PpA=;
-	b=Y0gx2hsFq+4s/uYCQxW/jpI5/1KPUQbGGRMcfJwvzmywREFGxImjit8pGMVyPJPOBc2wYv
-	DzUgx0acsiLf48xZWHcy84RGx5DJutoT/YCIa3H4/FqAbh9oHzOI1cS/HKx8xeBMBTA0Fb
-	6RNCIc3FdVqzwFtCUQeHG4gFNeRXbEv82+XqGb1G/pLt05aquC9gBY5dhMuK/Q+pJMp6Vy
-	dY8pYlZQ547oAhcQD2HGX/U8achT67f8tL9hjx14m2N7CQR5213tRgosKzKrzaCcgyESaQ
-	glzYmR/4V9QyQqmVllMnlEZ+8mDiKr/SLD0A7dGeURqy9uOozvHWfJojwEsZuA==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] pinctrl: renesas: r8a779g0: Fix trivial typo in SoC type comment
-Date: Fri,  5 Sep 2025 00:27:44 +0200
-Message-ID: <20250904222806.193260-1-marek.vasut+renesas@mailbox.org>
+	Thu, 04 Sep 2025 22:16:24 +0000
+Received: by mail-il1-x161.google.com with SMTP id e9e14a558f8ab-3f664c47ac9so9779475ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 15:16:22 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757024182; x=1757628982;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:dkim-signature:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=XhlHQX9QZI2Wc/319mBhA+FHNIABCp68X6Q8ZJdJwTQ=;
+        b=Gy3nKkkkiBO8TOUxfuvL8ksssgL61UYGsT86qagguDqrPtLqWAKyHY7ecWqB6Efbd7
+         vk/Mahbb6Lsr/ANTZwFeB+Las1YVmr+mwtxfCAz/nEWgjzoV7lWpMvbtI/4OZ6cdEeVL
+         7vPPbFhHp0caCrBuwKpyX195ao6m4/43hQO6FQeS0thvVJnx9hDMpQvp0ufhtlDnN2/R
+         sUljXCnuqM5NzipTNzeDJMsaCVzLsBzk8Wel9WidmDd8DVGQ/mVaP/40X1vvzv6tS5QD
+         KaHSPT/zWPA+XVkPWQuJshjeRAlJuvV45oYIk6LveijIkmdFt3GqQF3+KWvT33tNh+nn
+         HcPA==
+X-Forwarded-Encrypted: i=1; AJvYcCV+sHmsmuGwmjHY7JgclcylKvPSP3XwzHOGVBir4Ii2L8IOswdbh8JMEuDnLlUPIVf8pZVhQIgD1ni8GpmFv8WB@lists.infradead.org
+X-Gm-Message-State: AOJu0YymxYf1MA+srjTV8JyAnrD7081fLoCPA0T1w2y9zW0nV+0bcHqA
+	1dFovHxlhuq6NVY8ilyuUPLj8TlHsxzkac9cbac/hPV9xTKaPykKwJ3e+zbLSI/jgoZijverL/9
+	+WYSUQl9ASHYFgMr5omDI8gZapZPZGFCxRXvlkHeZ69LH0/KEUD0Avjc2XOPRqKz34obXcHwMmF
+	+NXZSbgAEmPt/oIdq90ub5Ylp+/xiUMKUKkPJ4Ad74ssqSDyqOmBv/E0GDXCksWJNJzOJKZ0kkc
+	1CyCI7rl7VcreC6B8ugjV1gxFuNkl0hwKg=
+X-Gm-Gg: ASbGncvOUqoPiMYmapDc5paj6c1X86G8dS2uck6yh/Nr5vLnS4Tvlw57Jqibm5EVpqt
+	gnSoyP2znpI/qBo1ETu19WS2XSBqF5AuugfYq2JDnd6EoKYFFMnX32LD5alh4AityOYpDkx1QXx
+	hOCfP5OizRvEppkfjZ0bfH930WzP/3h2A/7Z+4BTtsyvBA9Qm+s7PsAG2gHx/S39DCY/Gda/tjq
+	dDMTAyyAn/MvFJBNk5dDrtwjRmHDQ5hStKDUWxhy+gVx0fVbgl+DjS70LRFKAjKCMpY9yV3RNJn
+	VzgfyxojRn+bukKMpDy7qtfyAnrMyd1xHlz2rlss4GZ44s49KF+MHCZ5PpXlWFmxZyA0qZCzw69
+	qRcbCIRGXKdzglvL/xurbOu7420EDrpPOWOT1lwzOdC21D9pIPw8SxqXIzpOBK3Quc9IcovbYJj
+	pTJ6k++4Y=
+X-Google-Smtp-Source: AGHT+IGO8u2fkv9AmwEJ9snt3HDX0koryzD/VgPlDVcSXOskLjvxsf2UhXazw5WwU+xbGDJdANimWzIks5+A
+X-Received: by 2002:a05:6e02:188a:b0:3f7:3f65:479a with SMTP id e9e14a558f8ab-3f73f65483amr25986415ab.8.1757024182227;
+        Thu, 04 Sep 2025 15:16:22 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-101.dlp.protect.broadcom.com. [144.49.247.101])
+        by smtp-relay.gmail.com with ESMTPS id 8926c6da1cb9f-50d8f2deb9dsm883606173.41.2025.09.04.15.16.22
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 04 Sep 2025 15:16:22 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7e8702f4cf9so227003185a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 15:16:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1757024181; x=1757628981; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=XhlHQX9QZI2Wc/319mBhA+FHNIABCp68X6Q8ZJdJwTQ=;
+        b=Xw9xNr0aaFF683KjrBJ47WX0wB5eM3lTB6EfCQRYN8hGAxkcrkGfzZz747RVn8d2bb
+         8tauo+Al02xb8b9VeaBb/qjeUwA5WHyMtEGcAQ4QvRIc+L7gTGIP3t+0x4bS0P14HE0O
+         jfG29LXB+xr+1mgEumuMlW5KyQPru4B4r/ElI=
+X-Forwarded-Encrypted: i=1; AJvYcCVeXSAKsi6944+Y0Q7WEB9z1p23gvR8vyUoyEliPA6jcM9O51b8VTnJeZLGt6o16h7Fc4z5H/BBImDAtwynTpuz@lists.infradead.org
+X-Received: by 2002:a05:620a:2585:b0:7f2:d9d3:f5da with SMTP id af79cd13be357-7ff284b1c36mr2661081285a.33.1757024181079;
+        Thu, 04 Sep 2025 15:16:21 -0700 (PDT)
+X-Received: by 2002:a05:620a:2585:b0:7f2:d9d3:f5da with SMTP id af79cd13be357-7ff284b1c36mr2661077685a.33.1757024180578;
+        Thu, 04 Sep 2025 15:16:20 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b48f7838edsm34678821cf.39.2025.09.04.15.16.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Sep 2025 15:16:19 -0700 (PDT)
+Message-ID: <7e83777f-0912-4ae8-a196-d07fce67385c@broadcom.com>
+Date: Thu, 4 Sep 2025 15:16:14 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: mfes1j688q8wf3wu6ec8ger8k67kyhis
-X-MBO-RS-ID: 139fc08f7d3b6ce8f2e
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH 1/2] arm64: dts: broadcom: delete redundant pcie
+ enablement nodes
+To: Andrea della Porta <andrea.porta@suse.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof Wilczynski <kw@linux.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Derek Kiernan <derek.kiernan@amd.com>,
+ Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+ Stefan Wahren <wahrenst@gmx.net>, Herve Codina <herve.codina@bootlin.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn
+ <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>,
+ iivanov@suse.de, svarbanov@suse.de
+References: <cover.1754914766.git.andrea.porta@suse.com>
+ <2865b787d893fd1dcf816e1c96856711754d612d.1754914766.git.andrea.porta@suse.com>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <2865b787d893fd1dcf816e1c96856711754d612d.1754914766.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_152825_507635_647AC646 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250904_151623_182744_B668CDC1 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +173,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix SoC type comment in the PFC table file, replace R8A779A0
-likely copy-paste error with R8A779G0. No functional change.
+On 8/11/25 07:12, Andrea della Porta wrote:
+> The pcie1 and pcie2 override nodes to enable the respective peripherals are
+> declared both in bcm2712-rpi-5-b.dts and bcm2712-rpi-5-b-ovl-rp1.dts, which
+> makes those declared in the former file redundant.
+> 
+> Drop those redundant nodes from the board devicetree.
+> 
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-gpio@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- drivers/pinctrl/renesas/pfc-r8a779g0.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/pinctrl/renesas/pfc-r8a779g0.c b/drivers/pinctrl/renesas/pfc-r8a779g0.c
-index cae3e65534997..218c5eff9b67f 100644
---- a/drivers/pinctrl/renesas/pfc-r8a779g0.c
-+++ b/drivers/pinctrl/renesas/pfc-r8a779g0.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * R8A779A0 processor support - PFC hardware block.
-+ * R8A779G0 processor support - PFC hardware block.
-  *
-  * Copyright (C) 2021 Renesas Electronics Corp.
-  *
+Applied to 
+https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
 -- 
-2.50.1
-
+Florian
 
