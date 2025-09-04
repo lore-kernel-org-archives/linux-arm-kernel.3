@@ -4,110 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9ECCCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F018CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hscWBN4AnWMsQSUtJUrXqZXLGRN0VTpmBHFldwuq3OM=; b=WuGpJTO+/PNUVhKx7pvq4e8nT8
-	bfjwwXEq/3PUSJHgFJpi0oR33Lw5CSxjYv/khHljiofUkALZZynlvbBypdEJRWXCG8c4/CnoypeqX
-	EnqYPu/DRanAk04tVtpT8LmP4JtbXEZxYj9I9LCNL8w0DhfFtItTRQq/4voIeszUGi+ZfAxNHN8DV
-	2o8RpsIWt5czcfrclC6ris/6T6x4JAyg/nw38ft0oaDRavhlrrDIkISfWucSLpxtbHf/lRYlivDPs
-	tt/YeCdj9E62LKbgb44wR4QP35Zgmz23nmEb3ZNS43xjeo7umMgQUXnVuI6WOxQoll9AOL/WmTnml
-	0Np7XWUg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xx3k/xCeAHwbrVKHW5t7t/1u791QzLoKUDcVcEFFHzQ=; b=Drx854tzOwo/4gafwICIwkOcBy
+	OV/vcz/+lWB+dGuDbvaAv1wz9b5Hsv4i/HEffTHobZwLR2pta/FoIx0Dwzt0fuctF5VCbVKJIHHEh
+	Y3BZFzafhH9yZfQ8hvSs6v/51MEegSgXPyTLvlZN0Uxgbdly7T/8CqpjQSuyVEUtDH9tvhGGLpPQQ
+	JnplsEbWIIdQedzW/dabx3UZR9DpzMCzHXPFgxzMTmb0MZh7aCpboZZauTdDZe1FH2oXwZlwSLL8S
+	/wy5WiVGO9fSpHmMrbdO1kG3/jLB9CV6ipIquvsAbgwhWOIL+gqdyNhhXp6DPlAT0kPHSbrN1h/I0
+	xer4IfZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCl2-0000000CqK2-0Fip;
-	Thu, 04 Sep 2025 16:24:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7ml-0000000B5n5-0p8i;
-	Thu, 04 Sep 2025 11:05:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E4C0D4418D;
-	Thu,  4 Sep 2025 11:05:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52CFCC4CEF0;
-	Thu,  4 Sep 2025 11:05:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756983946;
-	bh=ERfmAvwGnsR9Noz+SlGnHy31HmeyJzY7rdvaAAcGjMc=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=QKZZiKq3M1IpJbcnyjTf2PJJkFW/J68fAJ78LCRzFusWHpWiSenY0rfiD9xC2zEa1
-	 MbQ24RgKLqoZpOUp5ftSsDRCVAxzB2Iv9GQ+LLUhAX8ZMbrcCIuLrcTTGbvPwTxYU/
-	 gNsE+POWGhlOsEpgIFDUY4m7qTQFvjQtwKgnHCVX4KgxTH5oxsLSbDngSUMS0QiB85
-	 76uo3nQ1KKuGEeZtxFcIU+RM4pOvLYxHXqxvmCBb0o20EjlgVwi5hCeVWvU/DiGU5o
-	 LhWwYyvYWUR9GUs1Xy/7wc8oRU96cw1w6T7xGOLLVauoWL1+2jnJuj6bDV5rEQvY32
-	 EK5eZRluNhsjQ==
-Message-ID: <f7bb0739-3161-4d70-87e5-8c978a023361@kernel.org>
-Date: Thu, 4 Sep 2025 13:05:41 +0200
+	id 1uuClb-0000000Cr3V-10p6;
+	Thu, 04 Sep 2025 16:24:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uu9Xj-0000000BiXt-3CMt
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 12:58:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F7181756;
+	Thu,  4 Sep 2025 05:58:12 -0700 (PDT)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 684763F6A8;
+	Thu,  4 Sep 2025 05:58:16 -0700 (PDT)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jann Horn <jannh@google.com>,
+	Juergen Gross <jgross@suse.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	xen-devel@lists.xenproject.org
+Subject: [PATCH 0/7] Nesting support for lazy MMU mode
+Date: Thu,  4 Sep 2025 13:57:29 +0100
+Message-ID: <20250904125736.3918646-1-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: broadcom: rp1: Add USB nodes
-To: Andrea della Porta <andrea.porta@suse.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, iivanov@suse.de, svarbanov@suse.de,
- mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
- Phil Elwell <phil@raspberrypi.com>
-References: <4e026a66001da7b4924d75bd7bee158cbb978eed.1756387905.git.andrea.porta@suse.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <4e026a66001da7b4924d75bd7bee158cbb978eed.1756387905.git.andrea.porta@suse.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_040547_282079_3E89C18E 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20250904_055823_891155_B3EEC5BC 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,31 +91,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/08/2025 15:50, Andrea della Porta wrote:
-> The RaspberryPi 5 has RP1 chipset containing two USB host controller,
-> while presenting two USB 2.0 and two USB 3.0 ports to the outside.
-> 
-> Add the relevant USB nodes to the devicetree.
-> 
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
->  arch/arm64/boot/dts/broadcom/rp1-common.dtsi | 28 ++++++++++++++++++++
->  1 file changed, 28 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-> index 5002a375eb0b..116617fcb1eb 100644
-> --- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-> +++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-> @@ -39,4 +39,32 @@ rp1_gpio: pinctrl@400d0000 {
->  			     <1 IRQ_TYPE_LEVEL_HIGH>,
->  			     <2 IRQ_TYPE_LEVEL_HIGH>;
->  	};
-> +
-> +	rp1_usb0: usb@40200000 {
-> +		reg = <0x00 0x40200000  0x0 0x100000>;
-> +		compatible = "snps,dwc3";
-Please order properties and nodes according to DTS coding style.
+When the lazy MMU mode was introduced eons ago, it wasn't made clear
+whether such a sequence was legal:
 
-Best regards,
-Krzysztof
+	arch_enter_lazy_mmu_mode()
+	...
+		arch_enter_lazy_mmu_mode()
+		...
+		arch_leave_lazy_mmu_mode()
+	...
+	arch_leave_lazy_mmu_mode()
+
+It seems fair to say that nested calls to
+arch_{enter,leave}_lazy_mmu_mode() were not expected, and most
+architectures never explicitly supported it.
+
+Ryan Roberts' series from March [1] attempted to prevent nesting from
+ever occurring, and mostly succeeded. Unfortunately, a corner case
+(DEBUG_PAGEALLOC) may still cause nesting to occur on arm64. Ryan
+proposed [2] to address that corner case at the generic level but this
+approach received pushback; [3] then attempted to solve the issue on
+arm64 only, but it was deemed too fragile.
+
+It feels generally fragile to rely on lazy_mmu sections not to nest,
+because callers of various standard mm functions do not know if the
+function uses lazy_mmu itself. This series therefore performs a U-turn
+and adds support for nested lazy_mmu sections, on all architectures.
+
+The main change enabling nesting is patch 2, following the approach
+suggested by Catalin Marinas [4]: have enter() return some state and
+the matching leave() take that state. In this series, the state is only
+used to handle nesting, but it could be used for other purposes such as
+restoring context modified by enter(); the proposed kpkeys framework
+would be an immediate user [5].
+
+Patch overview:
+
+* Patch 1: general cleanup - not directly related, but avoids any doubt
+  regarding the expected behaviour of arch_flush_lazy_mmu_mode() outside
+  x86
+
+* Patch 2: main API change, no functional change
+
+* Patch 3-6: nesting support for all architectures that support lazy_mmu
+
+* Patch 7: clarification that nesting is supported in the documentation
+
+Patch 4-6 are technically not required at this stage since nesting is
+only observed on arm64, but they ensure future correctness in case
+nesting is (re)introduced in generic paths. For instance, it could be
+beneficial in some configurations to enter lazy_mmu set_ptes() once
+again.
+
+This series has been tested by running the mm kselfetsts on arm64 with
+DEBUG_PAGEALLOC and KFENCE. It was also build-tested on other
+architectures (with and without XEN_PV on x86).
+
+- Kevin
+
+[1] https://lore.kernel.org/all/20250303141542.3371656-1-ryan.roberts@arm.com/
+[2] https://lore.kernel.org/all/20250530140446.2387131-1-ryan.roberts@arm.com/
+[3] https://lore.kernel.org/all/20250606135654.178300-1-ryan.roberts@arm.com/
+[4] https://lore.kernel.org/all/aEhKSq0zVaUJkomX@arm.com/
+[5] https://lore.kernel.org/linux-hardening/20250815085512.2182322-19-kevin.brodsky@arm.com/
+---
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Andreas Larsson <andreas@gaisler.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: David Hildenbrand <david@redhat.com>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Jann Horn <jannh@google.com>
+Cc: Juergen Gross <jgross@suse.com>
+Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Suren Baghdasaryan <surenb@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Vlastimil Babka <vbabka@suse.cz>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: sparclinux@vger.kernel.org
+Cc: xen-devel@lists.xenproject.org
+---
+Kevin Brodsky (7):
+  mm: remove arch_flush_lazy_mmu_mode()
+  mm: introduce local state for lazy_mmu sections
+  arm64: mm: fully support nested lazy_mmu sections
+  x86/xen: support nested lazy_mmu sections (again)
+  powerpc/mm: support nested lazy_mmu sections
+  sparc/mm: support nested lazy_mmu sections
+  mm: update lazy_mmu documentation
+
+ arch/arm64/include/asm/pgtable.h              | 34 ++++++-------------
+ .../include/asm/book3s/64/tlbflush-hash.h     | 24 +++++++++----
+ arch/powerpc/mm/book3s64/hash_tlb.c           | 10 +++---
+ arch/powerpc/mm/book3s64/subpage_prot.c       |  5 +--
+ arch/sparc/include/asm/tlbflush_64.h          |  6 ++--
+ arch/sparc/mm/tlb.c                           | 19 ++++++++---
+ arch/x86/include/asm/paravirt.h               |  8 ++---
+ arch/x86/include/asm/paravirt_types.h         |  6 ++--
+ arch/x86/include/asm/pgtable.h                |  3 +-
+ arch/x86/xen/enlighten_pv.c                   |  2 +-
+ arch/x86/xen/mmu_pv.c                         | 13 ++++---
+ fs/proc/task_mmu.c                            |  5 +--
+ include/linux/mm_types.h                      |  3 ++
+ include/linux/pgtable.h                       | 21 +++++++++---
+ mm/madvise.c                                  | 20 ++++++-----
+ mm/memory.c                                   | 20 ++++++-----
+ mm/migrate_device.c                           |  5 +--
+ mm/mprotect.c                                 |  5 +--
+ mm/mremap.c                                   |  5 +--
+ mm/vmalloc.c                                  | 15 ++++----
+ mm/vmscan.c                                   | 15 ++++----
+ 21 files changed, 147 insertions(+), 97 deletions(-)
+
+
+base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
+-- 
+2.47.0
+
 
