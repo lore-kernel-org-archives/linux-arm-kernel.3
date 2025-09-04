@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1B8CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F96ECA101C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RrMWG5cWBmM+XR+/vkLCxhlAh3UTzPrNoo8dEeCIYHM=; b=VGQLKOf5kMFersUMFwTi2WPj04
-	7Qap/S+UF2VASLxg5omNfsS5I+Ar0oFAbtOecihW2K8UiOdAX8dgKUM984TJlywHNZy1SBrrNPcbR
-	Y7lrlFBrMstioS0vKNUAaR8/szO5GIWppFee4iaRBpZ2VDUKtPqLmk2NRAnpCWkgYXHoey53MsYmD
-	kkz/y1aawNgIBwdfZ/nSaiXVzEvWUMWf9Z5NhPL5p/R+mMxhRzR4Ra1LjiZojv4AlScdwHhs6t+v0
-	X8u2d6wvTpOLeF3/h5ksPQfhdQPRf8buYNLOViT5WHH23A/M5diUizXIhkpDKbfAkca4FhE5Z4I9d
-	m/mobA4g==;
+	bh=UYoM3cK9vBeAs2c1rKLSFJjbhLQMxUGOsX7iDRX0aTM=; b=LIxwAyde77cwyB5j2bnNsrTjfx
+	MssrDy8T2zuGHuBAL3J3/m8h2nDdr+pv6CknrSWU03PhRSWsxo8IFivOtIdTD2/DYV7EhclyqxMxI
+	HsTCsPVpidrn3pC/hKE1iIhZAArG4hkSAJ1pezSNW7f1uUXcrPJ2CVNmv9evdN4O1zXWqLZVQO2vB
+	fy5uCodpbIVMiIxtnygMZN2hTSgYu1kbyiiEfPo0mDl4MhDGavPxSYqsWPSBeF1nrbuJ18QhoQvyy
+	GEOQ4zfImhg7TJew3JPgR4I8q4eu929rN0KXl4i2/2PgyT27sg+3clxkYEU1TGa8oPsreCkLxfH5j
+	xI2qe2RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuClF-0000000CqUH-1IU1;
-	Thu, 04 Sep 2025 16:24:33 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uuClH-0000000CqXH-33Rb;
+	Thu, 04 Sep 2025 16:24:35 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu8oI-0000000BTBd-0O5a
+	id 1uu8oW-0000000BTKq-0gkF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 12:11:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=RrMWG5cWBmM+XR+/vkLCxhlAh3UTzPrNoo8dEeCIYHM=; b=hoFnOagACWv2EH9UbaNPdQunoc
-	2k5STtElXx5ZSXnvrSY+H6X8Qw/P6T3DpKVEbboy2cbEGRh/j6sV/LYTAvifugyjqqxIL9taaF3UK
-	W8yskkiAsjWTlJCLVr7EoilgVPRnps/T4zFDg4Fpsm6o22AXCgNKZZPcfeqy6ruOCcjFkazQSBr/l
-	0+vm+P6/pq95LqNMm+ms6uOUx9RvdmqWNr6UKg9LQSwEj8yKyGYZbcHGbhvCdNNpj2+0W1Dc2SqLh
-	k2w2CwecGBrzFz56nhzQmIZbL5+XfviJ6MOykNHrGAz2yIcP4S4ElA1CDVtw+RO6w+hAPKDPVPKCG
-	+Y3ka4Yg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36312 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1uu8oD-000000001y6-1lGM;
-	Thu, 04 Sep 2025 13:11:21 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1uu8oC-00000001vos-2JnA;
-	Thu, 04 Sep 2025 13:11:20 +0100
-In-Reply-To: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
-References: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 05/11] net: stmmac: mdio: merge stmmac_mdio_read()
- and stmmac_mdio_write()
+	Thu, 04 Sep 2025 12:11:41 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45b8b02dd14so6770975e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 05:11:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756987899; x=1757592699; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=UYoM3cK9vBeAs2c1rKLSFJjbhLQMxUGOsX7iDRX0aTM=;
+        b=H80d+PTH4w6vYIzWDaonNZasDbZn1K7hdjxPqU9+/P2Zy0pOE2LN0zeoqrTNppXCL9
+         HSo0QVf4hJRtqXo3w/YiGcYZr1J3W2Q+KowQoNRvk1y4JQBEa92H/LSHpnz3d+ART/Ae
+         5Pf6vyXPSi2aLygI/kabJM+bkzQgOOnJkXtzjHJgLVq4tqKlX+z3n6IgdH1QdkEUIcJ3
+         GviehmPVpK26fFDrcC1S0tIx9/aRlv4C8N8wB0TEl/MUC1ld/z1E84rcCB+yfugMeJ7L
+         m5I3ZWmm0VbfIh6UogvGAOL15wpJhqSKRqn53OsY8uCoZTeNV8l/a3+bGjJwWwIpoeyg
+         ElmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756987899; x=1757592699;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UYoM3cK9vBeAs2c1rKLSFJjbhLQMxUGOsX7iDRX0aTM=;
+        b=SKYSIhfeuqMwceFI9r2W4Z/bMQA57XEjILX/LyUK92eiCiPz48jcMt4hP8KpnFO045
+         cNaohc85qZ5XhaPq/eZ/BScxUYGkCl8qs5OsybDywGYXy0Q7Vp4Z+yfabycwUwVh+7WR
+         yY4t8w+B+fmI8Q9DsN2XwgrUBsD9QEa840n1cqfcesoA5793Wb1Y1hyHb6aQRvUmSeWX
+         OrE6ydS/I+pjoG3FRVw3XnEV5H2MsfpwqH08GqMp4EUAzrcPQz8vjzJWndgGWpMvLAAU
+         qM1CiYGVUMfG5gOsDu/gbJBzY4z3v52Vw3C7LW95lIgvl0hjrBsZcNen/F03oJEz9Kj9
+         hL1g==
+X-Forwarded-Encrypted: i=1; AJvYcCVpHGEGWRJsn1stcv7p9cSxIItOY+0ze2vpisr6dUgnTMh+YU4L5bdcmaf2hW2zwueLzf7/NYyaPMZTZuO6sR5I@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIz6habXZGuQBcP45H9qk/UMfjwJR01MgDjkxJ0hU48ndpqJDK
+	dZQt2zJZnnBItc6qBVP9gF/SjK2ZsK3g36WdlCulf5MQTiArGP6Pj7pjn1M7+05VuJ0=
+X-Gm-Gg: ASbGncuapIND5HOmw3t/lprtqHaXA3xXEjq6hamxBiFKGi4to+jjXGAGGcEAiCzBMN8
+	37wrI5S4YK/9L9xV04f2iwa+sTVNQ26ZNXDetfU8fp/vKhpqBFLU9DrnlW5BjRvj2DJqDn7MfI8
+	dPc6pGmaDSBRYOOWKbBbHOFiknAti8XkYMeQf5zCZXY4d3VX6Xmxonpk4RyTAxw0la09HzlbrnF
+	VonN0Y13MK/NIPz4SxmBnRtDBOtVWZ7XYuUfvvU9gG6HopQPjamYrKNwMfKqbsuoaNiNzpaMQ7M
+	GDZWUF8CKWrUa7VMQ1+0VJq6gOLWPjCadxzMR0ilTanQ+SUvE3/N8K9rc8QXECSRA4kCp696FKn
+	FwUBc2BOgHipXt1mqAHsvmQDmXz5PVcP5InZIDg==
+X-Google-Smtp-Source: AGHT+IHQdXm8jC8e/msUJOyKC0lFFG5gg0CFfpvTp2PimVT6WH5aqg4j0JgEmA/4HZ8s1gbZTUkx4Q==
+X-Received: by 2002:a05:600c:4e44:b0:45b:80e4:4e1a with SMTP id 5b1f17b1804b1-45b855fe92bmr149416845e9.26.1756987898546;
+        Thu, 04 Sep 2025 05:11:38 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e7d1319sm312836545e9.5.2025.09.04.05.11.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Sep 2025 05:11:38 -0700 (PDT)
+Message-ID: <20cec516-1589-4fc5-ac07-06029f2dc143@linaro.org>
+Date: Thu, 4 Sep 2025 13:11:37 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: perf: Fix pointer check with IS_ERR_OR_NULL()
+From: James Clark <james.clark@linaro.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>
+References: <20250904-cs_etm_auxsetup_fix_error_handling-v1-1-ecc5edf282a5@arm.com>
+ <5f24d286-629c-404f-8e0f-aa01e27bcb80@linaro.org>
+Content-Language: en-US
+In-Reply-To: <5f24d286-629c-404f-8e0f-aa01e27bcb80@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1uu8oC-00000001vos-2JnA@rmk-PC.armlinux.org.uk>
-Date: Thu, 04 Sep 2025 13:11:20 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_051126_131135_1F6B1111 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20250904_051140_212732_287D7C02 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,104 +106,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_mdio_read() and stmmac_mdio_write() are virtually identical
-except for the final read in the stmmac_mdio_read(). Handle this as
-a flag.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 59 ++++++++-----------
- 1 file changed, 24 insertions(+), 35 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-index d588475b4279..4e2eb206a234 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-@@ -240,29 +240,41 @@ static u32 stmmac_mdio_format_addr(struct stmmac_priv *priv,
- 	       MII_BUSY;
- }
- 
--static int stmmac_mdio_read(struct stmmac_priv *priv, unsigned int pa,
--			    unsigned int gr, u32 cmd, int data)
-+static int stmmac_mdio_access(struct stmmac_priv *priv, unsigned int pa,
-+			      unsigned int gr, u32 cmd, u32 data, bool read)
- {
--	unsigned int mii_address = priv->hw->mii.addr;
--	unsigned int mii_data = priv->hw->mii.data;
--	u32 value;
-+	void __iomem *mii_address = priv->ioaddr + priv->hw->mii.addr;
-+	void __iomem *mii_data = priv->ioaddr + priv->hw->mii.data;
-+	u32 addr;
- 	int ret;
- 
--	ret = stmmac_mdio_wait(priv->ioaddr + mii_address, MII_BUSY);
-+	ret = stmmac_mdio_wait(mii_address, MII_BUSY);
- 	if (ret)
- 		return ret;
- 
--	value = stmmac_mdio_format_addr(priv, pa, gr) | cmd;
-+	addr = stmmac_mdio_format_addr(priv, pa, gr) | cmd;
- 
--	writel(data, priv->ioaddr + mii_data);
--	writel(value, priv->ioaddr + mii_address);
-+	writel(data, mii_data);
-+	writel(addr, mii_address);
- 
--	ret = stmmac_mdio_wait(priv->ioaddr + mii_address, MII_BUSY);
-+	ret = stmmac_mdio_wait(mii_address, MII_BUSY);
- 	if (ret)
- 		return ret;
- 
--	/* Read the data from the MII data register */
--	return readl(priv->ioaddr + mii_data) & MII_DATA_MASK;
-+	/* Read the data from the MII data register if in read mode */
-+	return read ? readl(mii_data) & MII_DATA_MASK : 0;
-+}
-+
-+static int stmmac_mdio_read(struct stmmac_priv *priv, unsigned int pa,
-+			    unsigned int gr, u32 cmd, int data)
-+{
-+	return stmmac_mdio_access(priv, pa, gr, cmd, data, true);
-+}
-+
-+static int stmmac_mdio_write(struct stmmac_priv *priv, unsigned int pa,
-+			     unsigned int gr, u32 cmd, int data)
-+{
-+	return stmmac_mdio_access(priv, pa, gr, cmd, data, false);
- }
- 
- /**
-@@ -330,29 +342,6 @@ static int stmmac_mdio_read_c45(struct mii_bus *bus, int phyaddr, int devad,
- 	return data;
- }
- 
--static int stmmac_mdio_write(struct stmmac_priv *priv, unsigned int pa,
--			     unsigned int gr, u32 cmd, int data)
--{
--	unsigned int mii_address = priv->hw->mii.addr;
--	unsigned int mii_data = priv->hw->mii.data;
--	u32 value;
--	int ret;
--
--	/* Wait until any existing MII operation is complete */
--	ret = stmmac_mdio_wait(priv->ioaddr + mii_address, MII_BUSY);
--	if (ret)
--		return ret;
--
--	value = stmmac_mdio_format_addr(priv, pa, gr) | cmd;
--
--	/* Set the MII address register to write */
--	writel(data, priv->ioaddr + mii_data);
--	writel(value, priv->ioaddr + mii_address);
--
--	/* Wait until any existing MII operation is complete */
--	return stmmac_mdio_wait(priv->ioaddr + mii_address, MII_BUSY);
--}
--
- /**
-  * stmmac_mdio_write_c22
-  * @bus: points to the mii_bus structure
--- 
-2.47.2
+On 04/09/2025 1:00 pm, James Clark wrote:
+> 
+> 
+> On 04/09/2025 11:53 am, Leo Yan wrote:
+>> The returned pointer from .alloc_buffer() callback can be an error, if
+>> only checking NULL pointer the driver cannot capture errors. The driver
+>> will proceed even after failure and cause kernel panic.
+>>
+>> Change to use IS_ERR_OR_NULL() check for capture error cases.
+>>
+>> Fixes: 0bcbf2e30ff2 ("coresight: etm-perf: new PMU driver for ETM 
+>> tracers")
+>> Reported-by: Tamas Zsoldos <tamas.zsoldos@arm.com>
+>> Signed-off-by: Leo Yan <leo.yan@arm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-etm-perf.c | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/ 
+>> drivers/hwtracing/coresight/coresight-etm-perf.c
+>> index 
+>> f677c08233ba1a28b277674662c6e6db904873dd..440d967f5d0962df187a81b0dd69a7d82a8b62ba 100644
+>> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+>> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+>> @@ -198,7 +198,7 @@ static void free_sink_buffer(struct etm_event_data 
+>> *event_data)
+>>       cpumask_t *mask = &event_data->mask;
+>>       struct coresight_device *sink;
+>> -    if (!event_data->snk_config)
+>> +    if (IS_ERR_OR_NULL(event_data->snk_config))
+>>           return;
+>>       if (WARN_ON(cpumask_empty(mask)))
+>> @@ -450,7 +450,7 @@ static void *etm_setup_aux(struct perf_event 
+>> *event, void **pages,
+>>       event_data->snk_config =
+>>               sink_ops(sink)->alloc_buffer(sink, event, pages,
+>>                                nr_pages, overwrite);
+>> -    if (!event_data->snk_config)
+>> +    if (IS_ERR_OR_NULL(event_data->snk_config))
+>>           goto err;
+> 
+> I think the bug is in TRBE. It's the only one that returns an error 
+> pointer, but only for -ENOMEM which would normally be NULL for alloc 
+> type functions anyway.
+> 
+> Also it's assigned to event_data->snk_config which is later NULL checked 
+> rather than IS_ERR_OR_NULL in free_sink_buffer(). Maybe that path 
+> doesn't happen, but all instances should be updated anyway.
+
+Oh sorry I was only looking at the update to etm_setup_aux() so both 
+functions are covered. But the other points still apply.
+
+> 
+> It's much easier to keep it as NULL and make the fix in TRBE. It also 
+> wouldn't need to be backported as far.
+> 
+>>   out:
+>>
+>> ---
+>> base-commit: fa71e9cb4cfa59abb196229667ec84929bdc18fe
+>> change-id: 20250904-cs_etm_auxsetup_fix_error_handling-cb7e07ed9adf
+>>
+>> Best regards,
+> 
 
 
