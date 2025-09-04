@@ -4,65 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A52CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 12:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307B2CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 12:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sth5f0EfnGMhnP61jZARNQU8jXYTlW3mtrdS5BDhcSc=; b=q1+LMm9Qr4ZpnZ4B8pa9XHiHqm
-	Nord3wdvoB3zGD8GyUtrHqKk0mgJm0F6KLAXg1bZM6qpB4OjoBZ29/K182Fno+TVQPshdHe+vtl2l
-	kF8fCr5cD3qIH8V6VFyxIs+pC61vFyZcI3rQPjiUDDzVuppMK1+iYm6B/yOjhN0gvldl0QlXJ4pjL
-	2vldLA9NK8GxUNGsQEZnAmqQ6bu96nG/oMGQU1bkX9FBVCksirzZim0uxPzXAKL736uRrG6fRrAcF
-	RxPIUS17ZkqR3dlnR+GXqlPv9tKfTbebZuunWMCXYHyTYNOd2djyxF+KAQAVn9XVCD7hSwWbDaz0W
-	J6md51jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W4phDzHG9AdHGBcyCX2YbSAlndz0iWmMCfdYzgpDyEY=; b=RYtrVHUOL7MdiyTx4rVVe3Y7Xr
+	yRZTeGirG5Kynli3E3z5s0+q2tqH47IZfxzWAhz8kgjjGu/R6fFsXPk+WNjDMMWoR6fjXl0dgvFT7
+	D9oC3YwUthkn1H5xFaTy9oQgRfnxDKoj2j2fWuMdWbVx5iV4KdGQ/KBm3r3leXKJHhmTJq2a5QNaZ
+	zxryO/UDptqIfrW2NbuqRxkgwQr8RzB98U4NeY4Yw5f+aSAgL5i++w9aVVSODyyqHjODjpADNuvgP
+	iHkSesIoERogd+iZdNQBFfr6Tk1z2jA90ld4F8ztpqyBN2Qh8ps6kOt0+pml4DsefF5bh4ADbnIY3
+	mCtmgIQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu8kc-0000000BRpx-0SGV;
-	Thu, 04 Sep 2025 12:07:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7ap-0000000B1i7-0L9x
+	id 1uu8nI-0000000BSiP-3WKc;
+	Thu, 04 Sep 2025 12:10:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uu7ct-0000000B2hu-3Xq0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 10:53:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C99F22E98;
-	Thu,  4 Sep 2025 03:53:15 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A20DB3F6A8;
-	Thu,  4 Sep 2025 03:53:22 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 04 Sep 2025 11:53:04 +0100
-Subject: [PATCH] coresight: perf: Fix pointer check with IS_ERR_OR_NULL()
+	Thu, 04 Sep 2025 10:55:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BBEA44BE1;
+	Thu,  4 Sep 2025 10:55:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EBC1C4CEF0;
+	Thu,  4 Sep 2025 10:55:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756983335;
+	bh=IsvPPeqV8POyoYunxkhkVNbHZma0NTrLqcfEJ8H1vOg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QHD9Wfe9pl81KaKyYx3q2f/4xdKdSE4GTZg14n1v3R0PxBM2ZlnaHOp2M9mEmpnQ5
+	 nUlqo58kaXVT5TT+pkv8cdyMVTGaoBvtxf38tWncUX2yB0f3CxtRqy561mgeJRWNQo
+	 Zhv/Z1n+OkYOqJfBS08e434/Ym6augQuxit6SOa8DpY9qyOg6llKU1Rh607HpYBBA2
+	 L7AwBCP5Q+3XlTax5HRY96wjwpovkEbeP+5SnEeWTzW84jrlXkStyQ4pBCLZHIU+w6
+	 JNDzKYYrJgjrAbpK3rgqdSGP9hdCr746owEOPUcBO2xvQnEcg93ncOsWSJTeG3AvsC
+	 pUyvVC5JHBs5w==
+Message-ID: <818b7848-1b34-49dc-87bd-0438a82f2ebf@kernel.org>
+Date: Thu, 4 Sep 2025 12:55:23 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250904-cs_etm_auxsetup_fix_error_handling-v1-1-ecc5edf282a5@arm.com>
-X-B4-Tracking: v=1; b=H4sIAI9vuWgC/x2N4QqCQBAGX0X2dweXFGKvErFcd5+2UKfsagjiu
- 7f0c2CY2cmgAqNbs5PiKyZTdTifGsqvVEcEKc7UxvYa+3gJ2RjLh9O6GZZ15kE2huqk7Hp5Sx1
- DfnaIHUqfykAemhVu/Sf3x3H8ALQBfQR0AAAA
-X-Change-ID: 20250904-cs_etm_auxsetup_fix_error_handling-cb7e07ed9adf
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Tamas Zsoldos <tamas.zsoldos@arm.com>, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756983202; l=1661;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=gUN/ZW4KvGQOdeqR8aU1Idybq150PRVccSLO4ebU/d4=;
- b=QWI/ZPBR2t1UE7dFZrvbApqTI04e5+fJVZrjlXO2btD5VhnPcXlBHbYw4I1p7FXEd3kkKQAAW
- 4V0fjusEoKsAj2fME8m4GLjO6vCqwiQvFrc7aQ5jQFrGOOyNi1Snu2N
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 07/10] powercap: dtpm_cpu: Use scope-based cleanup
+ helper
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>,
+ "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Viresh Kumar <viresh.kumar@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Thierry Reding <thierry.reding@gmail.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>,
+ Ben Horgan <ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>,
+ Zhang Rui <rui.zhang@intel.com>, Len Brown <lenb@kernel.org>,
+ Lukasz Luba <lukasz.luba@arm.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
+ <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>,
+ Sumit Gupta <sumitg@nvidia.com>,
+ Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+ linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
+ <20250903131733.57637-8-zhangzihuan@kylinos.cn>
+ <CAJZ5v0hirWzWZiLbAXPWB58SQv3CAW95iHLnsqs=i2twVCcmwg@mail.gmail.com>
+ <52e322e5-2dd4-488c-a98e-3a4018f0c323@kylinos.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <52e322e5-2dd4-488c-a98e-3a4018f0c323@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_035327_169234_1855E4D8 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250904_035535_925146_B3C27A99 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +147,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The returned pointer from .alloc_buffer() callback can be an error, if
-only checking NULL pointer the driver cannot capture errors. The driver
-will proceed even after failure and cause kernel panic.
+On 04/09/2025 12:37, Zihuan Zhang wrote:
+>>   * Lastly, given that the benefit of cleanup helpers is removal of
+>>   * "goto", and that the "goto" statement can jump between scopes, the
+>>   * expectation is that usage of "goto" and cleanup helpers is never
+>>   * mixed in the same function. I.e. for a given routine, convert all
+>>   * resources that need a "goto" cleanup to scope-based cleanup, or
+>>   * convert none of them.
+> 
+> 
+> Should I replace all the memory allocation cleanups here with `__free`?
+> That would allow us to drop all the `goto`s, but since this function has
+> quite a few of them, I’m concerned it might introduce new issues. What’s
+> your recommendation?
 
-Change to use IS_ERR_OR_NULL() check for capture error cases.
-
-Fixes: 0bcbf2e30ff2 ("coresight: etm-perf: new PMU driver for ETM tracers")
-Reported-by: Tamas Zsoldos <tamas.zsoldos@arm.com>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-etm-perf.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index f677c08233ba1a28b277674662c6e6db904873dd..440d967f5d0962df187a81b0dd69a7d82a8b62ba 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -198,7 +198,7 @@ static void free_sink_buffer(struct etm_event_data *event_data)
- 	cpumask_t *mask = &event_data->mask;
- 	struct coresight_device *sink;
- 
--	if (!event_data->snk_config)
-+	if (IS_ERR_OR_NULL(event_data->snk_config))
- 		return;
- 
- 	if (WARN_ON(cpumask_empty(mask)))
-@@ -450,7 +450,7 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
- 	event_data->snk_config =
- 			sink_ops(sink)->alloc_buffer(sink, event, pages,
- 						     nr_pages, overwrite);
--	if (!event_data->snk_config)
-+	if (IS_ERR_OR_NULL(event_data->snk_config))
- 		goto err;
- 
- out:
-
----
-base-commit: fa71e9cb4cfa59abb196229667ec84929bdc18fe
-change-id: 20250904-cs_etm_auxsetup_fix_error_handling-cb7e07ed9adf
+If you keep asking this, I have doubts you really know how to use
+cleanup.h. Don't blindly convert code to cleanup.h. It's very odd syntax
+and it is not even welcomed everywhere.
 
 Best regards,
--- 
-Leo Yan <leo.yan@arm.com>
-
+Krzysztof
 
