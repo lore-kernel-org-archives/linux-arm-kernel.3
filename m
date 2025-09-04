@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44004CA1014
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 03:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF07CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 03:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r8e/Frm3gGpREW7XSBJesw5WQdQhDkVNdRfh8jOHPqA=; b=HyTxd5os2Cd9+cxP4PmouCejws
-	9n7jfrTytXzcKEo6y0TOYNB4ljs2XKJ3tzIzJkJa3iH+DMgg6dJXJZkp4t3r9rGl0zSJlD2LUlnt1
-	l2A+K8mtpRWrSz9K/4xKwhjsLkKffNxIU5FOjiKVW1XU6EnZMuWFH1Wp7YjORhIbsc08kzpPEwZ13
-	AOFvjymVPMtQ16mtcOmc6456u5tufPWsHKbuHJVOWbEx9pLxIwjr6BT1Stm0I+HtcjH7Fo22vq31o
-	n6qhxxEdtNAwSDhGzyjX9kT156d6tL4kMdGGOTDX33IVHSK68BRf414E7XRhmHmPwV01EZ4Kva0Mp
-	yNmFnRqA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5E7Pe1wIdIGjatROlPGkY2Ofj85UacPtXXDcZ8mEbzM=; b=LHOxHqDRJ+1EZ8Kju1DLrFC5uB
+	BB891hwjx2jQOP7VxFvf18WO/qs+sxxJwSUYZ7n5bKRrWDs06rJmdCHKQLOE5KmCJlTNSdAuog/NL
+	2A9DJl4mhJWmCL94E5TRIh5Re3BcD1AwEzkw4YRYv4pU/VjsNNTy8VzpsduI8Eo7Qj/c2o58a03/l
+	mRoKic7iuco3yXcIZIyEujKJhL3nQyiZUeNPAlss32zlJj9pFduY0m7rv5xuQKdYDK94gX1LOyUhO
+	YhKwnIu2idHE6HdMbLVkRT2Pm1N+hdJ7NDT6RBeLWt0nI8msGcWumCVDqWfiz5wBV3ynuhavF6TCy
+	guT1cgmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu11X-00000008nGT-1cDr;
-	Thu, 04 Sep 2025 03:52:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uu14F-00000008nwK-0pvS;
+	Thu, 04 Sep 2025 03:55:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu0w5-00000008lPF-2KTC
+	id 1uu0w5-00000008lPH-3qwK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 03:46:58 +0000
+	Thu, 04 Sep 2025 03:46:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C297416B8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9EFC24379D;
 	Thu,  4 Sep 2025 03:46:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FF6AC4CEF0;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 625BAC4CEF6;
 	Thu,  4 Sep 2025 03:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1756957616;
-	bh=huQ/rMnniDWDIFjoLCvgz1AJbkQU2KKmTas/L98LjC4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=YbeKPCuH5Ku1My2/NILiDdlcd2lhEDDgpxPq4p42dihRGT7uqezRNNLqJ/6itihKY
-	 ZybcsCamMh2A4/2XW+klE6t0epSCXOyfFe3jrAH/62T0mUZnotmWCS1MlyvlvFURjS
-	 wBtqSVaPJXeNoAgSY8kOEzIGTq28Prg04cWEP1i4YB5etAXMKujx4zletrhJLce0Ju
-	 Tlqsqk2dy2g4br+paCb9iqydk75fbLBcdjQXY5kVfGFCPKF5R6FkTaothOimSf7pe/
-	 o1M21WhmArHLbNBHgSr0GYo9KuyY2qrA//aGDRAEE2i+WimSW2UqqryywqCqDlinNA
-	 fkLhdxXvfbK3w==
+	bh=d3lOLi68KOsHVuJ/f3j08zMj0QWctUjZ54+wY+NXD08=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WgQf/PimBcqXFchHFFEXbGkt8CPsVDbpv3hGvURMfReygav6u5xf86AMUd5DROUP6
+	 fNC3wlARQSAoXfliV/h+AXt/o27Ivu9RfomLqUxm0+VdkuU5Nzk11H6HAohoCpzy6+
+	 rbIMn0HY71k68cSQtrjQFhE2gFUFMtMOqoB+wbFR4PEGbhPCzXNb7Z70z/EY6zc5Ax
+	 /lamD6uEhHQoHb3eW9UsQ4Tfw8JaEvOKTNv+0rhHdZhj0LEt1u8h9DgOrUth8TLAEN
+	 /g+wNzxYIDGe18HCyIQNPgM4YFUvb06pMfW7n/JpltZ4z4x7wDWtoBIKF/UcW/DEPt
+	 1iJYogmhAdLDQ==
 From: Kees Cook <kees@kernel.org>
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: Kees Cook <kees@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
-	Vegard Nossum <vegard.nossum@oracle.com>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
 	Miguel Ojeda <ojeda@kernel.org>,
+	Marco Elver <elver@google.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Ramon de C Valle <rcvalle@google.com>,
+	llvm@lists.linux.dev,
+	Vegard Nossum <vegard.nossum@oracle.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	David Woodhouse <dwmw2@infradead.org>,
 	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Marco Elver <elver@google.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Ramon de C Valle <rcvalle@google.com>,
 	Jonathan Corbet <corbet@lwn.net>,
 	"Paul E. McKenney" <paulmck@kernel.org>,
 	Nicolas Schier <nicolas.schier@linux.dev>,
@@ -68,24 +69,24 @@ Cc: Kees Cook <kees@kernel.org>,
 	Sami Tolvanen <samitolvanen@google.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev,
 	linux-doc@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	x86@kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v2 0/9] kcfi: Prepare for GCC support
-Date: Wed,  3 Sep 2025 20:46:39 -0700
-Message-Id: <20250904033217.it.414-kees@kernel.org>
+Subject: [PATCH v2 1/9] compiler_types.h: Move __nocfi out of compiler-specific header
+Date: Wed,  3 Sep 2025 20:46:40 -0700
+Message-Id: <20250904034656.3670313-1-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250904033217.it.414-kees@kernel.org>
+References: <20250904033217.it.414-kees@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6367; i=kees@kernel.org; h=from:subject:message-id; bh=huQ/rMnniDWDIFjoLCvgz1AJbkQU2KKmTas/L98LjC4=; b=owGbwMvMwCVmps19z/KJym7G02pJDBk7OfNXqRXMPuu3KW/iNZutC1WFrp2pb562kb3h3dTZd 1RePqr401HKwiDGxSArpsgSZOce5+Lxtj3cfa4izBxWJpAhDFycAjARDW2G/3k7WW1vxMecMLya ZlWv0fs7zCJxQkrMl03arwWmGC/dx8rI0G3jZOYpOOvZq+8X2jhnZe4SNDbe8jnVLXeN8/8rO7O SmAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1743; i=kees@kernel.org; h=from:subject; bh=d3lOLi68KOsHVuJ/f3j08zMj0QWctUjZ54+wY+NXD08=; b=owGbwMvMwCVmps19z/KJym7G02pJDBk7OYtuJi1qLixhqb860yLcbsEPyaa/uQe18+7JeZj9F RMXrm7sKGVhEONikBVTZAmyc49z8XjbHu4+VxFmDisTyBAGLk4BmMiSCIb/MfMWcC1u7nPcvDS9 tlDJtsX0xvJV3CKsf/eJimm8OfoxjZHhZYDFc4NVL3fzS9216vF/erDP5f6VnveKx15OPcOeoMn ADgA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_204657_642209_4FF0C92F 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250903_204657_999363_A6DDC528 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,129 +101,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-v2:
- - integrate "transitional" Kconfig patch[2] (nathan, randy, miguel)
- - add arm32 KCFI trap handler
- - split pr_info changes (nathan)
- - clean up my broken SoB (peter)
- - remove Clang from CONFIG_CFI help (jeff)
- - add r-b (linus)
-v1: https://lore.kernel.org/all/20250825141316.work.967-kees@kernel.org/
+Prepare for GCC KCFI support and move the __nocfi attribute from
+compiler-clang.h to compiler_types.h. This was already gated by
+CONFIG_CFI_CLANG, so this remains safe for non-KCFI GCC builds.
 
-Hi,
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+Cc: Nathan Chancellor <nathan@kernel.org>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+Cc: Bill Wendling <morbo@google.com>
+Cc: Justin Stitt <justinstitt@google.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>
+Cc: Marco Elver <elver@google.com>
+Cc: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Cc: Ramon de C Valle <rcvalle@google.com>
+Cc: <llvm@lists.linux.dev>
+---
+ include/linux/compiler-clang.h | 5 -----
+ include/linux/compiler_types.h | 4 +++-
+ 2 files changed, 3 insertions(+), 6 deletions(-)
 
-With KCFI support in GCC coming[1], we need to make some (relatively
-small) changes in the kernel to deal with it:
-
-- move __nocfi out of compilers-clang.h (so GCC can see it too)
-- add cfi=debug so future Kees can find fineibt breakage easier
-- remove problematic __noinitretpoline usage
-- rename CONFIG_CFI_CLANG to CONFIG_CFI (otherwise it is quite confusing)
-
-If I can get some Acks, I will carry this in the hardening tree, unless
-someone else would like to take it (perhaps tip).
-
-Thanks!
-
--Kees
-
-[1] https://lore.kernel.org/linux-hardening/20250821064202.work.893-kees@kernel.org/
-[2] https://lore.kernel.org/all/20250901182334.make.517-kees@kernel.org/
-
-Kees Cook (9):
-  compiler_types.h: Move __nocfi out of compiler-specific header
-  x86/traps: Clarify KCFI instruction layout
-  x86/cfi: Document the "cfi=" bootparam options
-  x86/cfi: Standardize on common "CFI:" prefix for CFI reports
-  x86/cfi: Add "debug" option to "cfi=" bootparam
-  x86/cfi: Remove __noinitretpoline and __noretpoline
-  kconfig: Add transitional symbol attribute for migration support
-  kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
-  ARM: traps: Implement KCFI trap handler for ARM32
-
- arch/Kconfig                                  |  36 ++++---
- arch/arm/Kconfig                              |   2 +-
- arch/arm64/Kconfig                            |   4 +-
- arch/riscv/Kconfig                            |   6 +-
- arch/x86/Kconfig                              |  12 +--
- init/Kconfig                                  |   4 +-
- kernel/module/Kconfig                         |   2 +-
- .../kconfig/tests/err_transitional/Kconfig    |  52 +++++++++
- scripts/kconfig/tests/transitional/Kconfig    | 100 +++++++++++++++++
- lib/Kconfig.debug                             |   2 +-
- Makefile                                      |   2 +-
- arch/arm/mm/Makefile                          |   2 +-
- arch/riscv/kernel/Makefile                    |   2 +-
- arch/riscv/purgatory/Makefile                 |   2 +-
- arch/x86/kernel/Makefile                      |   2 +-
- arch/x86/purgatory/Makefile                   |   2 +-
- kernel/Makefile                               |   2 +-
- scripts/kconfig/expr.h                        |   1 +
- scripts/kconfig/lexer.l                       |   1 +
- scripts/kconfig/parser.y                      |  47 ++++++++
- scripts/kconfig/symbol.c                      |  16 ++-
- .../tests/err_transitional/__init__.py        |  14 +++
- .../tests/err_transitional/expected_stderr    |   7 ++
- .../kconfig/tests/transitional/__init__.py    |  18 ++++
- .../tests/transitional/expected_config        |  12 +++
- .../kconfig/tests/transitional/initial_config |  16 +++
- .../admin-guide/kernel-parameters.txt         |  18 ++++
- Documentation/kbuild/kconfig-language.rst     |  32 ++++++
- arch/riscv/include/asm/cfi.h                  |   4 +-
- arch/x86/include/asm/cfi.h                    |   4 +-
- include/asm-generic/vmlinux.lds.h             |   2 +-
- include/linux/cfi.h                           |   6 +-
- include/linux/cfi_types.h                     |   8 +-
- include/linux/compiler-clang.h                |   5 -
- include/linux/compiler-gcc.h                  |   4 -
- include/linux/compiler.h                      |   2 +-
- include/linux/compiler_types.h                |   4 +-
- include/linux/init.h                          |   8 --
- tools/include/linux/cfi_types.h               |   6 +-
- tools/perf/util/include/linux/linkage.h       |   2 +-
- arch/arm/mm/cache-fa.S                        |   2 +-
- arch/arm/mm/cache-v4.S                        |   2 +-
- arch/arm/mm/cache-v4wb.S                      |   4 +-
- arch/arm/mm/cache-v4wt.S                      |   2 +-
- arch/arm/mm/cache-v6.S                        |   2 +-
- arch/arm/mm/cache-v7.S                        |   2 +-
- arch/arm/mm/cache-v7m.S                       |   2 +-
- arch/arm/mm/proc-arm1020.S                    |   2 +-
- arch/arm/mm/proc-arm1020e.S                   |   2 +-
- arch/arm/mm/proc-arm1022.S                    |   2 +-
- arch/arm/mm/proc-arm1026.S                    |   2 +-
- arch/arm/mm/proc-arm920.S                     |   2 +-
- arch/arm/mm/proc-arm922.S                     |   2 +-
- arch/arm/mm/proc-arm925.S                     |   2 +-
- arch/arm/mm/proc-arm926.S                     |   2 +-
- arch/arm/mm/proc-arm940.S                     |   2 +-
- arch/arm/mm/proc-arm946.S                     |   2 +-
- arch/arm/mm/proc-feroceon.S                   |   2 +-
- arch/arm/mm/proc-mohawk.S                     |   2 +-
- arch/arm/mm/proc-xsc3.S                       |   2 +-
- arch/arm/mm/tlb-v4.S                          |   2 +-
- arch/arm/kernel/hw_breakpoint.c               |   2 +-
- arch/arm/kernel/traps.c                       | 102 ++++++++++++++++++
- arch/arm64/kernel/debug-monitors.c            |   2 +-
- arch/arm64/kernel/traps.c                     |   4 +-
- arch/arm64/kvm/handle_exit.c                  |   2 +-
- arch/arm64/net/bpf_jit_comp.c                 |   2 +-
- arch/riscv/net/bpf_jit_comp64.c               |   4 +-
- arch/x86/kernel/alternative.c                 |  44 ++++++--
- arch/x86/kernel/cfi.c                         |   2 +-
- arch/x86/kernel/kprobes/core.c                |   2 +-
- drivers/misc/lkdtm/cfi.c                      |   2 +-
- kernel/module/tree_lookup.c                   |   2 +-
- kernel/configs/hardening.config               |   2 +-
- 74 files changed, 569 insertions(+), 118 deletions(-)
- create mode 100644 scripts/kconfig/tests/err_transitional/Kconfig
- create mode 100644 scripts/kconfig/tests/transitional/Kconfig
- create mode 100644 scripts/kconfig/tests/err_transitional/__init__.py
- create mode 100644 scripts/kconfig/tests/err_transitional/expected_stderr
- create mode 100644 scripts/kconfig/tests/transitional/__init__.py
- create mode 100644 scripts/kconfig/tests/transitional/expected_config
- create mode 100644 scripts/kconfig/tests/transitional/initial_config
-
+diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
+index fa4ffe037bc7..7a4568e421dc 100644
+--- a/include/linux/compiler-clang.h
++++ b/include/linux/compiler-clang.h
+@@ -96,11 +96,6 @@
+ # define __noscs	__attribute__((__no_sanitize__("shadow-call-stack")))
+ #endif
+ 
+-#if __has_feature(kcfi)
+-/* Disable CFI checking inside a function. */
+-#define __nocfi		__attribute__((__no_sanitize__("kcfi")))
+-#endif
+-
+ /*
+  * Turn individual warnings and errors on and off locally, depending
+  * on version.
+diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+index 16755431fc11..a910f9fa5341 100644
+--- a/include/linux/compiler_types.h
++++ b/include/linux/compiler_types.h
+@@ -432,7 +432,9 @@ struct ftrace_likely_data {
+ # define __noscs
+ #endif
+ 
+-#ifndef __nocfi
++#if defined(CONFIG_CFI_CLANG)
++# define __nocfi		__attribute__((__no_sanitize__("kcfi")))
++#else
+ # define __nocfi
+ #endif
+ 
 -- 
 2.34.1
 
