@@ -4,65 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC78CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 09:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B0DFCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 09:46:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZEwYkBxATBfFnEmHwCfGAJRtrHj8HkxkqVpkDpK++KE=; b=fH/rmJ9GW2tgO5l/oFuHtSnMC/
-	iWhg0h4nU2l9Ejdwb93Ucceb+rSu5uCEw4Y5pLtvCI10e0QB5rIGraBzXy94Tqeo/b2yQNvsYJ3nD
-	jy0q+zWfjyrm2Qu6aGst+s3bk49ijxyyOzBiKzevaA0WJsO8Ad5n2EV7hJJEGeM95I3KhIUvcVvQB
-	ue6hnm46NDJVKf9CZ7u/+mGGQ5gquyG+9A9ArfVdPhsjgIcPGEtrpk/2ILZnQWLOdcCkBbWyrLitL
-	vKfo16FQaliGnNLbEbJ8vpcClwz3AbCGv6C0xKjnob/GBTxLGQb2nCKwO3jqzokVnPQznYsWBtPgE
-	PQJ+vkyw==;
+	bh=VJGsqDseOtrXvlkPOas7D4KpqFI0ZXkMojqpv4q8twU=; b=f4hheL7K4CfgT1QUSEpIE6Sf/s
+	1lynaKVNK8mAjLtIpp0szmtsOegMBbd6NR+vTiSCNUiOr5cWmTFY3EKlTq7PS6sskdzIqeukBjgnz
+	KHwFXmSwQxLgKOkq965SXnESNU7hfl7LgT0jH5r5gDPYdOncigqF5pI9VyMw4vbvn/M0SF7NJms5n
+	HUSCUwnziD6j6y034XjQWXTnTf7F6mH1FX+4z/c8NMd0rmL2/bQRyptOKnV2+0B/xmGNyxCN0Ztq1
+	BjM3Pxq+oaWEUHoVs3bhWvYiVCd8JuktbBShgP4/1AthPtToZ+GETlUR5NJB5UwoRbICmfEeBd5ZS
+	AJvkj/Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu6VO-0000000AdQW-1Ocm;
-	Thu, 04 Sep 2025 09:43:46 +0000
-Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
+	id 1uu6Y7-0000000AeWL-0ki8;
+	Thu, 04 Sep 2025 09:46:35 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5Td-0000000AHjQ-45gX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 08:37:55 +0000
-Date: Thu, 4 Sep 2025 10:37:45 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grimler.se; s=key1;
-	t=1756975072;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZEwYkBxATBfFnEmHwCfGAJRtrHj8HkxkqVpkDpK++KE=;
-	b=jZfw+XcyPayo4oQt0R98U7vVc/V6srm5uvAn08jRQL5cd6hqVrDiS8Ovo8Y39MVlj74jev
-	kjSc0lT9bTj0OHVicevI0T3vtTvPvr7l3ge41RlPpS7Ipucw8X13Q5MqWAfcAb+gfiN+6z
-	RyxL/Z6BPwbx7HbTLd2BG4Awbk1J3J4=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Henrik Grimler <henrik@grimler.se>
-To: Shin Son <shin.son@samsung.com>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] thermal: exynos_tmu: Support new hardware and
- update TMU interface
-Message-ID: <20250904083745.GA33254@l14.localdomain>
-References: <20250903073634.1898865-1-shin.son@samsung.com>
- <CGME20250903073653epcas2p16e8bf815e604fdb63669271ad3071d96@epcas2p1.samsung.com>
- <20250903073634.1898865-3-shin.son@samsung.com>
+	id 1uu5Th-0000000AHkX-2XuG;
+	Thu, 04 Sep 2025 08:37:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EX0n4jW2ljHbbBnajK1GRWRBdNGgqtAPO7oaBRQY3/9E4tj2IWrEbeeX94nFOc8dSl2oSvEPBEp3p4MbpwR2GmNcYnjI53MONvbTYsCFbHCH1evWLPiP5enntr5Q0pi6S5BHa+UfM+CvyJcdegd+2jKAKFLOGf8FDTqFAPR74ubsBbcw60LeY4IW2PcN1X2icOWUU05v+xAVX5Jkb15Ru6A5FT18qUWNEy+VplPJ2LxxT4fC+qTy3HSy7NZ2bunVury/KGvw6dz7tT/W/gZ0YY32T7cExId0weECty/CNCcid2Z8naxCz29tlHGYogpmQ4qxsdyN1bdIVUsXmtqG0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VJGsqDseOtrXvlkPOas7D4KpqFI0ZXkMojqpv4q8twU=;
+ b=bO9KAcfOHRdkIBFa7hzKEaluoGd1WpTGbcAokEz0w/5+inVi70eXn+ElJHOk311jRihJoYD5RyvnvqIC/QyuQDopDoSspKEdA4nt7FEBTnRYIlDgAnlk/vN1kqvL1hXKNbIZ1AJbTV8K8bcizfdxjxhx9pNfsJ8sTaBTfPsYdszeM0DBPX1BZ3NVL9hl++Fl+EP52/Pp5+/Y505FZ/dlaNWfnAaOKqlCzQJt2VeAQMvccnZ7xeI7/7Ip5fxT7/bU3utRWb8H4khzhJCNSvmA6LD2k8mR4cVNeKCTXrVOfnfgUf5bl9v5T/FRDfrZl8GvIneIG+gza83jZVpjwxUC/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VJGsqDseOtrXvlkPOas7D4KpqFI0ZXkMojqpv4q8twU=;
+ b=g4CwnK0JFTWJBIFO9yPYAJAUQ9hTWIcUKgC7+7vdMPbNnZS1WQuoWnqYoA6K42uCPd2XiV0jJud7AhJD58TXvToM24f56aWxmaviTfm2U3vQ9147Hspwe1qj7lJwHvfrTGlGdmUIyAPwp8opgfIR5G46jPD6AVH5UHJFLuMq6I4omlOb6roTHujoAo8OgLAJHj33T+dHHqzAiLOn4fKbpl0/F8ZdgVBqraoWlWBM2ta2gUXjm+NshBlUKqVi/9cbRx0ZjLP09D8veGo+76/+KbwUr3HUsaVTFjyfhDP5YxZr2pFbDIcM1KcHvsqAE59mltSoS+QsikzxRVpdlpAQag==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB8PR04MB6876.eurprd04.prod.outlook.com (2603:10a6:10:116::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Thu, 4 Sep
+ 2025 08:37:53 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9094.016; Thu, 4 Sep 2025
+ 08:37:53 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Date: Thu, 04 Sep 2025 16:36:51 +0800
+Subject: [PATCH v5 8/9] arm64: dts: imx8mp-evk: Use phys to replace
+ xceiver-supply
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250904-can-v5-8-23d8129b5e5d@nxp.com>
+References: <20250904-can-v5-0-23d8129b5e5d@nxp.com>
+In-Reply-To: <20250904-can-v5-0-23d8129b5e5d@nxp.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Aswath Govindraju <a-govindraju@ti.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
+ Haibo Chen <haibo.chen@nxp.com>
+Cc: linux-can@vger.kernel.org, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756975018; l=2835;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=gwYAoI63G4t5m4cNemzDZqyMtsvawPjOsIwclvW3JyI=;
+ b=dFVpZMra2uDe5Xg2lpc4w/wPaj3XD0ANi1dnyZdG868zHR9ow6slIhR5Ivxq/xpRh/IS4ENgy
+ wel4YTLLgnyCU5YCfS/Ip5H267JgQmM8Z/KlqU/tTUo4hBJJzMuLiaB
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SG3P274CA0008.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::20)
+ To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250903073634.1898865-3-shin.son@samsung.com>
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB8PR04MB6876:EE_
+X-MS-Office365-Filtering-Correlation-Id: 67805927-6a3c-4417-dda5-08ddeb8e56e2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SHRYLy9seVc2bFd1SEhydlM2eERNamlrK1VKSGFuUFRpd2txTzh6WW4xekhH?=
+ =?utf-8?B?UGdTMGhqWEpUTkdKRENVM011dGRXWnlRcGwwVlpCM3NjMlNSWHg3ckV3UGJa?=
+ =?utf-8?B?TDZVMVZtbVFTS3l4MWtCbnJ2ZTBuaUtRRVJoc0ZrQnFJMmd5ZFFuZUtad0FD?=
+ =?utf-8?B?YWw0S1VUVkVEa0swRDFRaDN3MVZOQkxpK3UrNWdUU1ZDZmY5ZlhwYWwrTENp?=
+ =?utf-8?B?SzU1WUw2bmNUWHhTSVVhM2tja0lvamtxcVRveHRXem9xZ3JCOXF4Sm1vb1R1?=
+ =?utf-8?B?cHV0aDZiYTlKNDUrTExLMzFrVUJSR21pRldTSjBRR0RFOThKNnpJeko4SnJa?=
+ =?utf-8?B?SW5wbmZHc0NpamJSdWpwUnBlVkFSdmcxWjEvc2UvNjhLbG9ZZW92c3djSllh?=
+ =?utf-8?B?ZjVpOTRaNWtKcWNZeW9ZMkwvektoUytSNTZBM3ovS29kNHYrUC92VEpqWnBz?=
+ =?utf-8?B?T1RjRzhDTHRvb2VSVWNOelE0blRkbjJ6b3pHd0R2TUtacXowQzVEMjh0NUpU?=
+ =?utf-8?B?UFZHNkhDSmREK09qOVNYdUlaV3NYZU02aEhvbXNZYWlGdGpqWU9DdmdGZlFN?=
+ =?utf-8?B?YXZwYTFQVzJmZmI5NEFJS09sU3hQK1pBZ1FKRWV5bjZzVEZHVXJJY1dHZEJm?=
+ =?utf-8?B?YTFUdVkwUXA2UG9oRTZOTXZxaU9jSFgzV0luL3RrdjZ1ZW51UU91MzAwcDZw?=
+ =?utf-8?B?VFk4Y1N0dDNjcGd2S3NoVTlCakhubDVvbHFiMi9YeWZ5YTVGRC9Jc2lRaXQv?=
+ =?utf-8?B?em1LdWRkaGhmTWFMUzd0Y0E5VUl1SW16M0djS25GLzJrbjJ3U2tqMWUvRTBX?=
+ =?utf-8?B?V3hxY2NIQ053VUpqSHdkV29QZ2ZRNTF0UEsvWUlRYXp3QzdZQ3ZNQVdXbnVE?=
+ =?utf-8?B?c1c2N1pNZWxIajl3R2FYMkp4ZWttUzBlTThWUUl0WXpSV2RnM0pncFZWUUZS?=
+ =?utf-8?B?elNUUE5MY0l1cnJCbHRGL1hjSWJxallrRHZzemxhbHh4UnlvUERITUlhVUFB?=
+ =?utf-8?B?S09YSGpUOWduVHlxRHU4S2ZkNHE3OCtXdDZjdXpuYlhCdkRlSlNOZEliZFlM?=
+ =?utf-8?B?UUxzaWYvTytXcDBtdFQrME4xbC9uVyttUlQ5dDZ5RE5BMkFUNjFzYktFTW5s?=
+ =?utf-8?B?UVJic3p6cnBTekUvNVhvMVZ0c05WS29TZW0wd2JhaTNQTnAvaHFGL1d5WUto?=
+ =?utf-8?B?R2NadGtXeHUxT2VjQ05lb0YyT2NWSzI2bldqekViNWVmcEFzZ0U5WE8wMms0?=
+ =?utf-8?B?OXE3VTBLYjBIbTljKzJNWnB5N2dwTUZrUHpQSlozL0lwSlptOUlzUVZFWFZw?=
+ =?utf-8?B?NE1XWW50Q0hwdWNJTXZ0aVR4T2hCNEhMMlBlMW1UZVoybnRIN0ZIMmZtL3li?=
+ =?utf-8?B?WnVrVHFlbVU1SDFmK1J5MExYMVV4WWlFRW5sRUp4c1VVMmFITTBJdjR1dEly?=
+ =?utf-8?B?OEJTNzFPZUpqTExaVG5Xc0dHWHQzbGtCS3ZtaWRiVlVDQlYzVU5xelhaa2pC?=
+ =?utf-8?B?Uks4UjJqUmdQZGNBNlFoWkFpamk2YXcxN3UxcnQ5bDZ0akRRT2MxZWxzeFha?=
+ =?utf-8?B?L2JvQkxPYk1GNWI3ajV5NkRhVCtvTGd2U1FjZDlkUEJZcVFxcEdaM0x2ZDFs?=
+ =?utf-8?B?czBlK09Rak41dWtVM2VCRS8vaUZ1eFoyT1NBeWVlZnplU0FabXRCWjlpckNq?=
+ =?utf-8?B?NGNFUkdyd2paam5pM2RRRFBydHh3dE9VTVdOOTcxbTE5WnY1NnBVL3MwOUZ5?=
+ =?utf-8?B?WlplS3Vnd2FnYmJkMkhOMDd6WUFFY3Zid0I0UE1xTFd6WFVyTVZNaUpqOHRJ?=
+ =?utf-8?B?bFd4a3ZrWUZGZXFoYnEwMjVtNFlUS0ZHNjZDN3RNUHJSa0RXK3NuZGE0b3M3?=
+ =?utf-8?B?QjJhS05IUXlEOUhOUzZZbStqNVRuMnNidlg3RGZzS0lBZ0dvcHllZzdOVVJE?=
+ =?utf-8?B?cjh0V2ZIVmNwVlNmVU9VWHdGWGNKb3FVdVo3ZkZ3NHY0U1BPV05BODJaM254?=
+ =?utf-8?Q?6EJ+dh8C2z/SBFXlY6GwO/JtSuyF8I=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d3B6d1FkZWcrdmMvSmRVV2Z2Sll1bnkwaWVRVExtcWVtNHRHSTFvK3FaRlRy?=
+ =?utf-8?B?OFFaQmZQbStSazV5UjY2WlVNK01hM1BPTld2MWxaWkxxWk9NRlFOU3UzTnVi?=
+ =?utf-8?B?RFVpVytXL2VjTmtOcXltRmJwMC9IM3V2RUxHaXZYN2R1RG43ZE04UmdYZEZM?=
+ =?utf-8?B?MkJ5WmFyeU1PZlc5bUpFenJkN0hPcXBYLzNYUksxVUlEK2VKUjZLSnltQzgv?=
+ =?utf-8?B?cTUrdWpQaWdFd1hFaTZ0NzlUTW5UaURQU2NiVGQrVjZyaGRJQ1lURkxwV0Ja?=
+ =?utf-8?B?SzRHM3l3dDNLQm05NDBMWHRVdGk0N0VDMTlnNitTSEpyeitldTFkQVRqM3FT?=
+ =?utf-8?B?NmJhZHR5QTBjWk9RWUErT0huSHZHUWd5WVk1VGMrSXFjYnZsa2RaOWQ3RlRI?=
+ =?utf-8?B?aVRwQ0VrWDI2Sy84Z2RXZDJ2NG5UTkFhZWp6QUxWTVViMXU1UTJKTHIzZmlK?=
+ =?utf-8?B?OTJkTU02Ym1EeUh2RHg3RGZuNEtaNFBIeVF0Uzc1VGlSczNnaW9ibHp3WVhV?=
+ =?utf-8?B?enpKWEJMLzBxdHZwY055N0V5anFubHlKa1NYdzVYWDk0MGVkUHFUYXRucEEw?=
+ =?utf-8?B?OUZmd3Fnc2t5ZTNOUEpGZVR5cDV0K2FqcDNaRXp3Q3dEb2poamMzamxyVjVU?=
+ =?utf-8?B?MllJRWJGaXVkcjBnU01pMFJZRUNFNUpsZS8xN1ljRU5MTkZCWXNJckRYSFNL?=
+ =?utf-8?B?NFM0bC9ZZUw3a3dqckFsYTYrNWxyN3FiYkhadUMvRnhncUxFb0t0blo0bHNn?=
+ =?utf-8?B?aWU5YkdOanVVcUJpTTNKNWJ0dTVkMXhFckx5eG1sZ3VzL24xV3BETDJBdDli?=
+ =?utf-8?B?QnFYcUZ4aEE3NWVZb0poQVNxSXhRamxkblZWVWlQVHA5WDkzbkxJTm1mM2V3?=
+ =?utf-8?B?T1FsaW9raU5ZQzhKdHpCYnlUZng3SGN0MFgwYnNMWHNldStBNjFmSWpEaFA4?=
+ =?utf-8?B?bk9mR25rMFdsRzlyRWxXcmNGUDc0T05hck5tMHE0djZIemRTbnhzMlo4Rzl6?=
+ =?utf-8?B?RHNwU1hsTHNtMkpqQm1jQmpyMGZ3ZU81SE5qdXFNdjQ2Q3RvTUk5ZjdhY3ZH?=
+ =?utf-8?B?Mm5XYWVkRVJxZE52T3BLVis5QVF5TmxpTmszOXRZSHY3MlFnbXNHWG1VNlZF?=
+ =?utf-8?B?QU9iSGRBNUFoTDc1dksvK0U1OGZGRkVsaUszV00rV0hIbmxsWTl5VlVwbDdy?=
+ =?utf-8?B?T09JY3NmS3JSdU50U09ETEduMCtxRnNKZkc5VzNoWWVnZFlTRHFXdlBRV3Uw?=
+ =?utf-8?B?a0pRWnFPOUlTYkczZkRKcHp1ZHdLWGtLOWExc1VZb3Y2TUJWL3F2ekhkZ2xL?=
+ =?utf-8?B?VndGaU95WnlyeUowRmRYVVA3SG5ZWC94WXRuNHdadW04eGg4U0hDOEtBcUh1?=
+ =?utf-8?B?N0QvamkrSk9KMk8vTWlnWENOY1BEbVBvQWVORHp0dFFvMC9nZmhMYmp5d01i?=
+ =?utf-8?B?NVN6Nks5U0tQbnBsV28rcWpFc0dxYk5BWUdENjIyTlRqQ1ZwZURqUU04MW5U?=
+ =?utf-8?B?UkdCQit4RDJlOVhnSTcxVmRGTUljd0tST1U4aWZUVmY4WHZwYk5GbDZ3SDRl?=
+ =?utf-8?B?a3BpWUFmSnd6ZStOeE1jRDJXdXJOV2xwUHd2N3N2b3V3Z2dKM2FLZ3QwUXlM?=
+ =?utf-8?B?a2l3a3VVRGNXYTJlOWRVMHUrMUZPU1NNaVFzeEl6TkN0ZkxmSVRXaUhPZWVH?=
+ =?utf-8?B?SGppcFNIQkxhTEpxL0pESlFwVlhKM3ZIVXdEVnJtWnFQcG5OU1BOTEliRmZI?=
+ =?utf-8?B?RDk5Nlk4cHNNT0pwb3NoMU1TdkpkSXZLbUgvZjZHVk1SR05YSGRoUjNxY2xn?=
+ =?utf-8?B?ZGgvRk5YVVdEYU1aZFlFSEtXZUJ4aWxJOWorNERrRkpnYzBCMGl0Q2N1L2F2?=
+ =?utf-8?B?VWRSR1BsekdyYytidkZKb3paZHczVjVwbjYzRGJkSTdxelZTTndPZ20vdzh3?=
+ =?utf-8?B?TTZDeFJXdy9FendqOFRTcmwwWm15ZXhBM2RmOWYwcFVwTmQ1aDZjVVM3V00y?=
+ =?utf-8?B?WXhwblhRc1YrQkVMQ0RoNXBHMU1mVFhoUUNyQjRyNEpSZGEwdEpNWVJlQkpG?=
+ =?utf-8?B?TXhJQnl2Vyt1L0NkblRVMXhjM1BQSjJNT3JGUUR4bEFNMUZFSjZrbyt0U1V5?=
+ =?utf-8?Q?3ablgQdjiOfLKE2RgNk7j55BF?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 67805927-6a3c-4417-dda5-08ddeb8e56e2
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 08:37:53.6081
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KNI8IcXm1OR9ybvUsM7/wwPcTDWy1ZYWGidCYVSzueY9mJ9HRhwHeLLYmwiqAW58iRYcsz/lQNjRzEgZRYUxUw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6876
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_013754_611568_3019A264 
-X-CRM114-Status: GOOD (  31.99  )
+X-CRM114-CacheID: sfid-20250904_013757_651279_56C8C827 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,220 +190,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shin,
+The TJA1048 used on i.MX8MP-EVK is actually high-speed CAN transceiver,
+not a regulator supply. So use phys to reflect the truth.
 
-On Wed, Sep 03, 2025 at 04:36:33PM +0900, Shin Son wrote:
-> The Exynos tmu driver's private data structure has been extended
-> to support the exynosautov920 hardware, which requires per-sensor interrupt
-> enablement and dual-zone handling:
-> 
-> - Add 'slope_comp' : compensation parameter below 25 degrees.
-> - Add 'calib_temp' : stores the fused calibaration temperature.
-> - Add 'tz_count' : reflects the new 1:2 hardware-to-thermal-zone ratio.
-> - Add 'valid_sensor_bitmap' : bitmap to enable interrupts
-> 			      for each valid sensor.
-> - Rename 'tzd' -> 'tzd_array' to register multiple thermal zones.
-> 
-> Since splitting this patch causes runtime errors during temperature
-> emulation or problems where the read temperature feature fails to
-> retrieve values, I have submitted it as a single commit. To add support
-> for the exynosautov920 to the exisiting TMU interface, the following
-> changes are included:
-> 
-> 1. Branch 'code_to_temp' and 'temp_to_code' for exynosautov920 SoC variant.
-> 2. Loop over 'tz_count' in critical-point setup.
-> 3. Introduce 'update_con_reg' for exynosautov920 control-register updates.
-> 4. Add exynosautov920-specific branch in 'exynos_tmu_update_temp' function.
-> 5. Skip high & low temperature threshold setup in exynosautov920.
-> 6. Enable interrupts via bitmap in 'exynosautov920_tmu_set_crit_temp'.
-> 7. Initialize all new members during 'exynosautov920_tmu_initialize'.
-> 8. Clear IRQs by iterating the bitamp in exynosautov920.
-> 9. Register each zone with 'devm_thermal_of_zone_register()'
->    based on 'tz_count'.
-> 
-> Signed-off-by: Shin Son <shin.son@samsung.com>
-> ---
->  drivers/thermal/samsung/exynos_tmu.c | 340 ++++++++++++++++++++++++---
->  1 file changed, 303 insertions(+), 37 deletions(-)
-> 
-> diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-> index 47a99b3c5395..60d5ab33c593 100644
-> --- a/drivers/thermal/samsung/exynos_tmu.c
-> +++ b/drivers/thermal/samsung/exynos_tmu.c
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 43 +++++++++-------------------
+ 1 file changed, 13 insertions(+), 30 deletions(-)
 
-[ ... ]
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+index 3730792daf5010213cbb9f6869a8110ea28eb48a..59891627dc462d37dfd620eb68b893546cc20d6a 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+@@ -56,6 +56,16 @@ memory@40000000 {
+ 		      <0x1 0x00000000 0 0xc0000000>;
+ 	};
+ 
++	flexcan_phy: can-phy {
++		compatible = "nxp,tja1048";
++		#phy-cells = <1>;
++		max-bitrate = <5000000>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_flexcan_phy>;
++		standby-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>,
++				<&gpio4 27 GPIO_ACTIVE_LOW>;
++	};
++
+ 	native-hdmi-connector {
+ 		compatible = "hdmi-connector";
+ 		label = "HDMI OUT";
+@@ -103,28 +113,6 @@ reg_audio_pwr: regulator-audio-pwr {
+ 		enable-active-high;
+ 	};
+ 
+-	reg_can1_stby: regulator-can1-stby {
+-		compatible = "regulator-fixed";
+-		regulator-name = "can1-stby";
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_flexcan1_reg>;
+-		regulator-min-microvolt = <3300000>;
+-		regulator-max-microvolt = <3300000>;
+-		gpio = <&gpio5 5 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-	};
+-
+-	reg_can2_stby: regulator-can2-stby {
+-		compatible = "regulator-fixed";
+-		regulator-name = "can2-stby";
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_flexcan2_reg>;
+-		regulator-min-microvolt = <3300000>;
+-		regulator-max-microvolt = <3300000>;
+-		gpio = <&gpio4 27 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-	};
+-
+ 	reg_pcie0: regulator-pcie {
+ 		compatible = "regulator-fixed";
+ 		pinctrl-names = "default";
+@@ -431,14 +419,14 @@ ethphy1: ethernet-phy@1 {
+ &flexcan1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_flexcan1>;
+-	xceiver-supply = <&reg_can1_stby>;
++	phys = <&flexcan_phy 0>;
+ 	status = "okay";
+ };
+ 
+ &flexcan2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_flexcan2>;
+-	xceiver-supply = <&reg_can2_stby>;
++	phys = <&flexcan_phy 1>;
+ 	status = "disabled";/* can2 pin conflict with pdm */
+ };
+ 
+@@ -903,14 +891,9 @@ MX8MP_IOMUXC_SAI5_RXD3__CAN2_TX         0x154
+ 		>;
+ 	};
+ 
+-	pinctrl_flexcan1_reg: flexcan1reggrp {
++	pinctrl_flexcan_phy: flexcanphygrp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05  0x154   /* CAN1_STBY */
+-		>;
+-	};
+-
+-	pinctrl_flexcan2_reg: flexcan2reggrp {
+-		fsl,pins = <
+ 			MX8MP_IOMUXC_SAI2_MCLK__GPIO4_IO27      0x154   /* CAN2_STBY */
+ 		>;
+ 	};
 
-> +#define EXYNOSAUTOV920_TMU_REG_THRESHOLD(p)	(((p)) * 0x50 + 0x00D0)
-> +#define EXYNOSAUTOV920_TMU_REG_INTEN(p)		(((p)) * 0x50 + 0x00F0)
-> +#define EXYNOSAUTOV920_TMU_REG_INT_PEND(p)	(((p)) * 0x50 + 0x00F8)
-> +
-> +#define EXYNOSAUTOV920_CURRENT_TEMP_P1_P0	0x084
-> +#define EXYNOSAUTOV920_TMU_REG_EMUL_CON		0x0B0
-> +
-> +#define EXYNOSAUTOV920_TMU_REG_CONTROL		0x50
-> +#define EXYNOSAUTOV920_TMU_REG_CONTROL1		0x54
-> +#define EXYNOSAUTOV920_TMU_REG_AVG_CONTROL	0x58
-> +#define EXYNOSAUTOV920_TMU_SAMPLING_INTERVAL	0x70
-> +#define EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE0	0x74
-> +#define EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE1	0x78
-> +
-> +#define EXYNOSAUTOV920_TMU_THERM_TRIP_EN_SHIFT	12
+-- 
+2.37.1
 
-There already is a EXYNOS_TMU_THERM_TRIP_EN_SHIFT constant with the
-same value. Is there some fundamental difference between
-EXYNOSAUTOV920_TMU_THERM_TRIP_EN_SHIFT and
-EXYNOS_TMU_THERM_TRIP_EN_SHIFT?
-
-> +#define EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_SHIFT		8
-> +#define EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_MASK		0x1f
-> +#define EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_SHIFT	3
-> +#define EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_MASK		0xf
-> +#define EXYNOSAUTOV920_TMU_NUM_PROBE_MASK		0xf
-> +#define EXYNOSAUTOV920_TMU_NUM_PROBE_SHIFT		16
-> +#define EXYNOSAUTOV920_TMU_LPI_MODE_MASK		1
-> +#define EXYNOSAUTOV920_TMU_LPI_MODE_SHIFT		10
-> +
-> +#define EXYNOSAUTOV920_TMU_AVG_CON_UPDATE		0x0008011A
-> +#define EXYNOSAUTOV920_TMU_COUNTER_VALUE0_UPDATE	0x030003C0
-> +#define EXYNOSAUTOV920_TMU_COUNTER_VALUE1_UPDATE	0x03C0004D
-
-If I am not mistaken lowercase letters is preferred in defines. The
-file already has a mix, but let's not make it worse. Please change to
-0x03c0004d and so on in constants above.
-
->  #define MCELSIUS	1000
->  
-> +#define EXYNOS_DEFAULT_TZ_COUNT		1
-> +#define EXYNOS_MAX_TZ_COUNT		2
-> +
->  enum soc_type {
->  	SOC_ARCH_EXYNOS3250 = 1,
->  	SOC_ARCH_EXYNOS4210,
-> @@ -133,6 +179,7 @@ enum soc_type {
->  	SOC_ARCH_EXYNOS5420_TRIMINFO,
->  	SOC_ARCH_EXYNOS5433,
->  	SOC_ARCH_EXYNOS7,
-> +	SOC_ARCH_EXYNOSAUTOV920,
->  };
->  
->  /**
-> @@ -150,6 +197,8 @@ enum soc_type {
->   * @efuse_value: SoC defined fuse value
->   * @min_efuse_value: minimum valid trimming data
->   * @max_efuse_value: maximum valid trimming data
-> + * @slope_comp: allocated value of the slope compensation.
-> + * @calib_temp: calibration temperature of the TMU.
->   * @temp_error1: fused value of the first point trim.
->   * @temp_error2: fused value of the second point trim.
->   * @gain: gain of amplifier in the positive-TC generator block
-> @@ -157,7 +206,9 @@ enum soc_type {
->   * @reference_voltage: reference voltage of amplifier
->   *	in the positive-TC generator block
->   *	0 < reference_voltage <= 31
-> - * @tzd: pointer to thermal_zone_device structure
-> + * @tz_count: The allocated number of the thermal zone
-> + * @tzd_array: pointer array of thermal_zone_device structure
-> + * @valid_sensor_bitmap: The enabled sensor of the TMU device
->   * @enabled: current status of TMU device
->   * @tmu_set_low_temp: SoC specific method to set trip (falling threshold)
->   * @tmu_set_high_temp: SoC specific method to set trip (rising threshold)
-> @@ -181,10 +232,14 @@ struct exynos_tmu_data {
->  	u32 efuse_value;
->  	u32 min_efuse_value;
->  	u32 max_efuse_value;
-> +	u16 slope_comp;
-> +	u16 calib_temp;
->  	u16 temp_error1, temp_error2;
->  	u8 gain;
->  	u8 reference_voltage;
-> -	struct thermal_zone_device *tzd;
-> +	u8 tz_count;
-> +	unsigned long valid_sensor_bitmap;
-> +	struct thermal_zone_device *tzd_array[EXYNOS_MAX_TZ_COUNT];
->  	bool enabled;
->  
->  	void (*tmu_set_low_temp)(struct exynos_tmu_data *data, u8 temp);
-> @@ -208,10 +263,25 @@ static int temp_to_code(struct exynos_tmu_data *data, u8 temp)
->  	if (data->cal_type == TYPE_ONE_POINT_TRIMMING)
->  		return temp + data->temp_error1 - EXYNOS_FIRST_POINT_TRIM;
->  
-> -	return (temp - EXYNOS_FIRST_POINT_TRIM) *
-> -		(data->temp_error2 - data->temp_error1) /
-> -		(EXYNOS_SECOND_POINT_TRIM - EXYNOS_FIRST_POINT_TRIM) +
-> -		data->temp_error1;
-> +	if (data->soc == SOC_ARCH_EXYNOSAUTOV920) {
-> +		if ((temp - EXYNOS_FIRST_POINT_TRIM) >= 0) {
-> +			return (temp - EXYNOS_FIRST_POINT_TRIM) *
-> +				(data->temp_error2 - data->temp_error1) /
-> +				(data->calib_temp - EXYNOS_FIRST_POINT_TRIM) +
-> +				data->temp_error1;
-> +		} else {
-> +			return ((temp - EXYNOS_FIRST_POINT_TRIM) *
-> +				(data->temp_error2 - data->temp_error1) /
-> +				(data->calib_temp - EXYNOS_FIRST_POINT_TRIM) *
-> +				((57 + data->slope_comp) * 1000 / 65)) / 1000 +
-> +				data->temp_error1;
-> +		}
-> +	} else {
-> +		return (temp - EXYNOS_FIRST_POINT_TRIM) *
-> +			(data->temp_error2 - data->temp_error1) /
-> +			(EXYNOS_SECOND_POINT_TRIM - EXYNOS_FIRST_POINT_TRIM) +
-> +			data->temp_error1;
-
-This is essentially the same as the first return in the
-SOC_ARCH_EXYNOSAUTOV920 path. How about putting
-EXYNOS_SECOND_POINT_TRIM in the calib_temp field for the non autov920
-SoCs, then we can simplify temp_to_code and code_to_temp to something
-more readable like:
-
-static int temp_to_code(struct exynos_tmu_data *data, u8 temp)
-{
-	if (data->cal_type == TYPE_ONE_POINT_TRIMMING)
-		return temp + data->temp_error1 - EXYNOS_FIRST_POINT_TRIM;
-
-	int coeff = (data->temp_error2 - data->temp_error1) /
-			(data->calib_temp - EXYNOS_FIRST_POINT_TRIM);
-
-	if (data->soc == SOC_ARCH_EXYNOSAUTOV920 &&
-	    temp < EXYNOS_FIRST_POINT_TRIM)
-		coeff *= (57 + data->slope_comp) * 1000 / 65)) / 1000;
-
-	return (temp - EXYNOS_FIRST_POINT_TRIM) * coeff + data->temp_error1;
-}
-
->  }
->  
->  /*
-> @@ -223,10 +293,25 @@ static int code_to_temp(struct exynos_tmu_data *data, u16 temp_code)
->  	if (data->cal_type == TYPE_ONE_POINT_TRIMMING)
->  		return temp_code - data->temp_error1 + EXYNOS_FIRST_POINT_TRIM;
->  
-> -	return (temp_code - data->temp_error1) *
-> -		(EXYNOS_SECOND_POINT_TRIM - EXYNOS_FIRST_POINT_TRIM) /
-> -		(data->temp_error2 - data->temp_error1) +
-> -		EXYNOS_FIRST_POINT_TRIM;
-> +	if (data->soc == SOC_ARCH_EXYNOSAUTOV920) {
-> +		if ((temp_code - data->temp_error1) >= 0) {
-> +			return (temp_code - data->temp_error1) *
-> +				(data->calib_temp - EXYNOS_FIRST_POINT_TRIM) /
-> +				(data->temp_error2 - data->temp_error1) +
-> +				EXYNOS_FIRST_POINT_TRIM;
-> +		} else {
-> +			return ((temp_code - data->temp_error1) *
-> +				(data->calib_temp - EXYNOS_FIRST_POINT_TRIM) /
-> +				(data->temp_error2 - data->temp_error1) *
-> +				(65 * 1000 / (57 + data->slope_comp))) / 1000 +
-> +				EXYNOS_FIRST_POINT_TRIM;
-> +		}
-> +	} else {
-> +		return (temp_code - data->temp_error1) *
-> +			(EXYNOS_SECOND_POINT_TRIM - EXYNOS_FIRST_POINT_TRIM) /
-> +			(data->temp_error2 - data->temp_error1) +
-> +			EXYNOS_FIRST_POINT_TRIM;
-> +	}
-
-Similar suggestion as for temp_to_code applies here as well.
-
-Best regards,
-Henrik Grimler
 
