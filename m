@@ -4,71 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE504CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 12:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC103CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 12:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2LIre3TFhr3h5fh/GInYRrsD3Rw8KDu39s4B2GrA9Lc=; b=NtGHlDYi7eoyyX
-	LOi36DJmNC8z/Q10z+NlTzpD+gpbVnZo5UPvd+aFqWFI8tgUebxpSK+AASpN9VY2dbiSel6wphYkx
-	rExbfVVOEPxE5tMVIQKNFiCN2yTsJ6+xmriOs9hWoe5WMQkQHRQBBO6tnRsLmaleXHiBcEARQRVDT
-	J7S39TJNybldcNV5J4u45LhJ26OWksh8dEcKqFg8hRN3/TwHRmG69YO+OFj/9+Fp8gRbPgxqCH7ir
-	JHVQD79bSj2YAlwoBlg+Z8fgqzouKS5FCF+hQ9x5UnBs5VmO67A4z6sKMaflmHWUvw3ozTEPHpDP1
-	jTRn9TjaPoONMV5/MSlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aSWeFTnmHxNL9NzQg+0RRcK61UxESBXBESIGSVxbF0k=; b=InZRHj5trdXDS96aNzLBfWZFii
+	BP1TTbe67EBTO76FKtYMZXLOtH18q5tAjBxdPdOW52qaDCWL1UK0OW+ggeldhZKJCtsPBi+GALKy4
+	LERizr/2ndrPbA564U7rtfmtWSFfHuy9q1X+X8ksQPkiZ2TWbY6+b6LQBVM97hydFRkSsIx7/J2Fj
+	liPxRf2Y2bBhRnixBxAzzz5Y4kLPzH7xT7umDi6+/Cly9LMhCsHNT2VhJHLvcI91BImcffPrTcpg+
+	eGMY5I+++Pe6SRQ0v11GqHvzNchoH6nUdducDk2v9go5vo5s0evnh/i4n3Izivgaiq05rYDNIoI12
+	litRk01w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu8vT-0000000BVrh-0wTm;
-	Thu, 04 Sep 2025 12:18:51 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uu8y9-0000000BWrC-48N1;
+	Thu, 04 Sep 2025 12:21:37 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7ga-0000000B3og-0sRf
+	id 1uu7M6-0000000Awh7-1zmg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 10:59:25 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 584AxKSU2996009;
-	Thu, 4 Sep 2025 05:59:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756983560;
-	bh=2LIre3TFhr3h5fh/GInYRrsD3Rw8KDu39s4B2GrA9Lc=;
-	h=From:To:Subject:Date;
-	b=fCGOoLzptGzx7i5mnk6oQ39voYQMJMMRZYGyt7cVsJiY6+fDvFRTgz61Rd/G8wau+
-	 0E0aUdcJEVxCYYWMyFKjlq6P67lCh/Rgb1TNnfcSYv3J8MsrwtVFOdqDFPGcbrgS5L
-	 6FIae1MqDR7/yUWdgeL1ACeoE+AS2bTu+N9qdYLM=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 584AxKM8122137
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 4 Sep 2025 05:59:20 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
- Sep 2025 05:59:19 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 4 Sep 2025 05:59:19 -0500
-Received: from hkshenoy.dhcp.ti.com (hkshenoy.dhcp.ti.com [172.24.235.208])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 584AxFad3147561;
-	Thu, 4 Sep 2025 05:59:16 -0500
-From: Harikrishna Shenoy <h-shenoy@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>,
-        <s-jain1@ti.com>
-Subject: [PATCH v2] arm64: dts: ti: k3-j721e-main: Add DSI and DPHY-TX
-Date: Thu, 4 Sep 2025 16:29:15 +0530
-Message-ID: <20250904105915.3043773-1-h-shenoy@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 04 Sep 2025 10:38:16 +0000
+X-UUID: 3d5fbc1e897b11f0b29709d653e92f7d-20250904
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:300f2fa7-17a5-4d38-96a3-11fd4189ac0a,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:8818228a5c537eaf9504e99b0c50a8d8,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|52,EDM:
+	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 3d5fbc1e897b11f0b29709d653e92f7d-20250904
+Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
+	(envelope-from <zhangzihuan@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 1160067433; Thu, 04 Sep 2025 18:38:05 +0800
+Received: from mail.kylinos.cn (localhost [127.0.0.1])
+	by mail.kylinos.cn (NSMail) with SMTP id 93A19E008FA5;
+	Thu,  4 Sep 2025 18:38:04 +0800 (CST)
+X-ns-mid: postfix-68B96C0C-3265371312
+Received: from [172.25.120.24] (unknown [172.25.120.24])
+	by mail.kylinos.cn (NSMail) with ESMTPA id 0174FE008FA2;
+	Thu,  4 Sep 2025 18:37:54 +0800 (CST)
+Message-ID: <52e322e5-2dd4-488c-a98e-3a4018f0c323@kylinos.cn>
+Date: Thu, 4 Sep 2025 18:37:54 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 07/10] powercap: dtpm_cpu: Use scope-based cleanup
+ helper
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Viresh Kumar <viresh.kumar@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>,
+ Ben Horgan <ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>,
+ Zhang Rui <rui.zhang@intel.com>, Len Brown <lenb@kernel.org>,
+ Lukasz Luba <lukasz.luba@arm.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
+ <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>,
+ Sumit Gupta <sumitg@nvidia.com>,
+ Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+ linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
+ <20250903131733.57637-8-zhangzihuan@kylinos.cn>
+ <CAJZ5v0hirWzWZiLbAXPWB58SQv3CAW95iHLnsqs=i2twVCcmwg@mail.gmail.com>
+From: Zihuan Zhang <zhangzihuan@kylinos.cn>
+In-Reply-To: <CAJZ5v0hirWzWZiLbAXPWB58SQv3CAW95iHLnsqs=i2twVCcmwg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_035924_340961_06AF7CC6 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250904_033814_860775_486C9DC3 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,91 +111,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rahul T R <r-ravikumar@ti.com>
 
-TI's J721E SoC supports a DPI to DSI video signal conversion bridge on
-it's platform bus. The IP is from Cadence, and it has a custom TI
-wrapper around it to facilitate integration.
+=E5=9C=A8 2025/9/3 21:45, Rafael J. Wysocki =E5=86=99=E9=81=93:
+> On Wed, Sep 3, 2025 at 3:18=E2=80=AFPM Zihuan Zhang <zhangzihuan@kylino=
+s.cn> wrote:
+>> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+>> annotation for policy references. This reduces the risk of reference
+>> counting mistakes and aligns the code with the latest kernel style.
+>>
+>> No functional change intended.
+>>
+>> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
+>> ---
+>>   drivers/powercap/dtpm_cpu.c | 30 +++++++++++-------------------
+>>   1 file changed, 11 insertions(+), 19 deletions(-)
+>>
+>> diff --git a/drivers/powercap/dtpm_cpu.c b/drivers/powercap/dtpm_cpu.c
+>> index 99390ec1481f..f76594185fa2 100644
+>> --- a/drivers/powercap/dtpm_cpu.c
+>> +++ b/drivers/powercap/dtpm_cpu.c
+>> @@ -144,19 +144,17 @@ static int update_pd_power_uw(struct dtpm *dtpm)
+>>   static void pd_release(struct dtpm *dtpm)
+>>   {
+>>          struct dtpm_cpu *dtpm_cpu =3D to_dtpm_cpu(dtpm);
+>> -       struct cpufreq_policy *policy;
+>>
+>>          if (freq_qos_request_active(&dtpm_cpu->qos_req))
+>>                  freq_qos_remove_request(&dtpm_cpu->qos_req);
+>>
+>> -       policy =3D cpufreq_cpu_get(dtpm_cpu->cpu);
+>> -       if (policy) {
+>> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D
+>> +               cpufreq_cpu_get(dtpm_cpu->cpu);
+>> +
+>> +       if (policy)
+>>                  for_each_cpu(dtpm_cpu->cpu, policy->related_cpus)
+>>                          per_cpu(dtpm_per_cpu, dtpm_cpu->cpu) =3D NULL=
+;
+>>
+>> -               cpufreq_cpu_put(policy);
+>> -       }
+>> -
+>>          kfree(dtpm_cpu);
+>>   }
+>>
+>> @@ -192,7 +190,6 @@ static int cpuhp_dtpm_cpu_online(unsigned int cpu)
+>>   static int __dtpm_cpu_setup(int cpu, struct dtpm *parent)
+>>   {
+>>          struct dtpm_cpu *dtpm_cpu;
+>> -       struct cpufreq_policy *policy;
+>>          struct em_perf_state *table;
+>>          struct em_perf_domain *pd;
+>>          char name[CPUFREQ_NAME_LEN];
+>> @@ -202,21 +199,19 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm=
+ *parent)
+>>          if (dtpm_cpu)
+>>                  return 0;
+>>
+>> -       policy =3D cpufreq_cpu_get(cpu);
+>> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D
+>> +               cpufreq_cpu_get(cpu);
+>> +
+>>          if (!policy)
+>>                  return 0;
+>>
+>>          pd =3D em_cpu_get(cpu);
+>> -       if (!pd || em_is_artificial(pd)) {
+>> -               ret =3D -EINVAL;
+>> -               goto release_policy;
+>> -       }
+>> +       if (!pd || em_is_artificial(pd))
+>> +               return -EINVAL;
+>>
+>>          dtpm_cpu =3D kzalloc(sizeof(*dtpm_cpu), GFP_KERNEL);
+>> -       if (!dtpm_cpu) {
+>> -               ret =3D -ENOMEM;
+>> -               goto release_policy;
+>> -       }
+>> +       if (!dtpm_cpu)
+>> +               return -ENOMEM;
+>>
+>>          dtpm_init(&dtpm_cpu->dtpm, &dtpm_ops);
+>>          dtpm_cpu->cpu =3D cpu;
+>> @@ -239,7 +234,6 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm *=
+parent)
+>>          if (ret < 0)
+>>                  goto out_dtpm_unregister;
+> So this change kind of goes against another recommendation given in cle=
+anup.h:
+>
+>   * Lastly, given that the benefit of cleanup helpers is removal of
+>   * "goto", and that the "goto" statement can jump between scopes, the
+>   * expectation is that usage of "goto" and cleanup helpers is never
+>   * mixed in the same function. I.e. for a given routine, convert all
+>   * resources that need a "goto" cleanup to scope-based cleanup, or
+>   * convert none of them.
 
-This IP takes the DPI video signals from DSS and alongwith the DPHY IP,
-it transmits DSI video signals out of the SoC.
 
-Add support for DSI bridge and the DPHY-TX.
+Should I replace all the memory allocation cleanups here with `__free`?
+That would allow us to drop all the `goto`s, but since this function has
+quite a few of them, I=E2=80=99m concerned it might introduce new issues.=
+ What=E2=80=99s
+your recommendation?
 
-Signed-off-by: Rahul T R <r-ravikumar@ti.com>
-Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
-Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
----
-Changelog v1 --> v2:
-- Updated phy labels
+Thanks!
 
-Link to v1:https://lore.kernel.org/all/1adea165-ae87-463f-a03e-2fe27f4b8695@ti.com/
-
-
- arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 35 +++++++++++++++++++++--
- 1 file changed, 33 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-index ab3666ff4297..df489bce86c9 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-@@ -671,7 +671,7 @@ cdns_csi2rx1: csi-bridge@4514000 {
- 				 <&k3_clks 27 2>, <&k3_clks 27 3>, <&k3_clks 27 3>;
- 			clock-names = "sys_clk", "p_clk", "pixel_if0_clk",
- 				      "pixel_if1_clk", "pixel_if2_clk", "pixel_if3_clk";
--			phys = <&dphy1>;
-+			phys = <&dphy_rx>;
- 			phy-names = "dphy";
- 
- 			ports {
-@@ -714,7 +714,7 @@ dphy0: phy@4580000 {
- 		status = "disabled";
- 	};
- 
--	dphy1: phy@4590000 {
-+	dphy_rx: phy@4590000 {
- 		compatible = "cdns,dphy-rx";
- 		reg = <0x0 0x4590000 0x0 0x1100>;
- 		#phy-cells = <0>;
-@@ -1887,6 +1887,37 @@ port@4 {
- 		};
- 	};
- 
-+	dphy_tx: phy@4480000 {
-+		compatible = "ti,j721e-dphy";
-+		reg = <0x00 0x04480000 0x00 0x1000>;
-+		clocks = <&k3_clks 296 1>, <&k3_clks 296 3>;
-+		clock-names = "psm", "pll_ref";
-+		#phy-cells = <0>;
-+		power-domains = <&k3_pds 296 TI_SCI_PD_EXCLUSIVE>;
-+		assigned-clocks = <&k3_clks 296 3>;
-+		assigned-clock-parents = <&k3_clks 296 4>;
-+		assigned-clock-rates = <19200000>;
-+		status = "disabled";
-+	};
-+
-+	dsi0: dsi@4800000 {
-+		compatible = "ti,j721e-dsi";
-+		reg = <0x00 0x04800000 0x00 0x100000>, <0x00 0x04710000 0x00 0x100>;
-+		clocks = <&k3_clks 150 1>, <&k3_clks 150 5>;
-+		clock-names = "dsi_p_clk", "dsi_sys_clk";
-+		power-domains = <&k3_pds 150 TI_SCI_PD_EXCLUSIVE>;
-+		interrupt-parent = <&gic500>;
-+		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
-+		phys = <&dphy_tx>;
-+		phy-names = "dphy";
-+		status = "disabled";
-+
-+		dsi0_ports: ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+	};
-+
- 	dss: dss@4a00000 {
- 		compatible = "ti,j721e-dss";
- 		reg =
--- 
-2.34.1
-
+>> -       cpufreq_cpu_put(policy);
+>>          return 0;
+>>
+>>   out_dtpm_unregister:
+>> @@ -251,8 +245,6 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm *=
+parent)
+>>                  per_cpu(dtpm_per_cpu, cpu) =3D NULL;
+>>          kfree(dtpm_cpu);
+>>
+>> -release_policy:
+>> -       cpufreq_cpu_put(policy);
+>>          return ret;
+>>   }
+>>
+>> --
 
