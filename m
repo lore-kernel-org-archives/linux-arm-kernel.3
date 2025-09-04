@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD05CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE24CA101C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8640/X5GgxrJKZjDASd1cd9xBcGfAFIcfe4DUa1IB3E=; b=FUy3zNSaD6qbrBa3jVm6z4zFgr
-	hrGtexiAXpOOJddpD7xavmtZ8sjfg1TFfCkzihwjG/aMKp35ZFReHmiFDX0gm2od5c7y3TAz3GplJ
-	biNfK9WDRo1BcjEnEuE7gh8GfvF/Dc6sMGUahdnuCNClU4xPuV50NPmH7lrwwJYUWgJvpsT3xbuM+
-	/LhhrWLyj2Bk3lvQK1il1RnsdL6QdVkHr9YdjQe62cT0ziyXQUW1qGl55PgG3IA27PnPwGsG8O+N4
-	GTXYsAc7uQm8WoQ4f2VftUI0SSBl0JbIWFR+RQkTn+OHWKRVs2UwHHFU5xRZS3pBJG1TXsOE0o0ox
-	UW9Da0rw==;
+	bh=r8W/oUNHFjrhArSnZfFhI6x2QvZVnsDk6O8XMPOV0AA=; b=wAT1ox/nOR5OrgVIfMJAJxv0VM
+	V7mwvnJb/6b3aIt6AhGX46oZRpjk4/7zb+Nk4b97UkLT3Tz8YlQioO4uU0zl5xs8ya57wCPiCNZY8
+	4xVuU/Un3VAoX9OnA+19S8Un+yrhw2Cm3uq2QUiUkOBFv0dyq09R2UyggHoiGv+uajhrfNHE8kZ0d
+	PVy+hu5D55pe67XszgPdoo7jLNrEUZFcYvj1G1knmVO+IfqdG8iQg+Uouhb4LYAmbT3fMw7FU4NhZ
+	91eUQ38xPi+Ym9hbQTNNCNxzSzjltTq9AW0zzVgTGzhpI0AF+tajrZDOZt+x4OOE1YemBTZCxGwia
+	nR9bqLIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM0k-0000000Fxtz-0iA0;
-	Fri, 05 Sep 2025 02:17:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uuM0p-0000000Fxzc-3igj;
+	Fri, 05 Sep 2025 02:17:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCyb-0000000D0CH-1TCq;
-	Thu, 04 Sep 2025 16:38:21 +0000
+	id 1uuCz1-0000000D0Lx-0fgs;
+	Thu, 04 Sep 2025 16:38:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B467960293;
-	Thu,  4 Sep 2025 16:38:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1575CC4CEF0;
-	Thu,  4 Sep 2025 16:38:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D2F8C40A4D;
+	Thu,  4 Sep 2025 16:38:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E97DC4CEF0;
+	Thu,  4 Sep 2025 16:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757003900;
-	bh=Qa+QGrBL38NAhpR4eNP1ahLdeQEyPJIqSr/n9x+uvyk=;
+	s=k20201202; t=1757003926;
+	bh=Jvo8yAkC9xqCxWx5mft+KS5231jV4WxygyHlawbj+JA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ObcXkqtvgV/NwldBVDFAfknocv8gsnYr1RcWyjpuIcVVb/TF3QMxufl93KslsyEbt
-	 ngzZqg7RLldr8dsfVzYxwNasuQHoUu9GqmP8NRf9Z4c38mn671ZQwXKB1MFDZo0tIL
-	 9O6lG9/LGavvOjm0kuRch3c/B4pBRyCFovZ6djhWhXadKaUpw6pjQv9tcZaZ1FToo2
-	 iGyGmosHZssIWroS0oFk+zbJg1jQov9mnRATwF1A9WkwkO1ytJkd7J64PErNcSpWOs
-	 MUbxd8Is/igHHM8lIob73UBNxkauW2RowoAPz49vd61O97UkO3C40XQdcbVtX0E+Of
-	 j4xuA9wVVcurA==
+	b=DNynekgApdAp7DJZvfBM0BA6QtLd2/Z+Yy5xRMplzxXnilfA4DFg5xt6aXSk5f4hM
+	 L5ugAK4G3O10ljqVVNb5lVZGZiU+yPNQekEZRPAKr8A5TnRelnmV0LcFm2oFghRpsx
+	 PGc+9uFDMnH1gJXtCb6+dM+LshqHaLfqO7obYJLgm35se3jN+1A4kcMmrKAxQDrCIL
+	 VSFZeU2QTuCD0W2CIW6VP1zY2dYy0OVVEQf2Kf8YnCC2KT90hdmCCzqbNhx1zSUxJo
+	 u/RacFj/2TZdV3vmvaCM0ae/hEPFSKjA92P3nsipgAyatnSDLSIBYNOG255Byc9ecI
+	 n6S4j1Nln6Wow==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 04 Sep 2025 18:37:55 +0200
-Subject: [PATCH mt76 v4 01/15] wifi: mt76: Add reset_idx to reset_q
- mt76_queue_ops signature.
+Date: Thu, 04 Sep 2025 18:38:05 +0200
+Subject: [PATCH mt76 v4 11/15] wifi: mt76: mt7996: Introduce RRO MSDU
+ callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250904-mt7996-rro-rework-v4-1-2cd91e7229d6@kernel.org>
+Message-Id: <20250904-mt7996-rro-rework-v4-11-2cd91e7229d6@kernel.org>
 References: <20250904-mt7996-rro-rework-v4-0-2cd91e7229d6@kernel.org>
 In-Reply-To: <20250904-mt7996-rro-rework-v4-0-2cd91e7229d6@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
@@ -58,9 +58,11 @@ To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>,
  Sujuan Chen <sujuan.chen@mediatek.com>, 
  Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Rex Lu <rex.lu@mediatek.com>, 
- Benjamin Lin <benjamin-jw.lin@mediatek.com>
+ linux-mediatek@lists.infradead.org, Rex Lu <rex.lu@mediatek.com>
 X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250904_093847_257261_0A6CF081 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,201 +77,538 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove __mt76_dma_queue_reset routine and use mt76_dma_queue_reset
-directly instead in mt76_queue_ops struct.
-This is a preliminary patch to enable WED support for MT7992 Kite
-chipset supported by MT7996 driver.
+From: Rex Lu <rex.lu@mediatek.com>
 
-Co-developed-by: Rex Lu <rex.lu@mediatek.com>
+Introduce rx_rro_ind_process and rx_rro_add_msdu_page callbacks and the
+related logic in the MT7996 driver. This is a preliminary patch to
+decouple RRO logic from WED support and reuse RRO when WED module is not
+available.
+
 Signed-off-by: Rex Lu <rex.lu@mediatek.com>
-Co-developed-by: Sujuan Chen <sujuan.chen@mediatek.com>
-Signed-off-by: Sujuan Chen <sujuan.chen@mediatek.com>
-Co-developed-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
-Signed-off-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/dma.c        | 11 +++--------
- drivers/net/wireless/mediatek/mt76/dma.h        |  7 +++----
- drivers/net/wireless/mediatek/mt76/mt76.h       |  3 ++-
- drivers/net/wireless/mediatek/mt76/mt7915/dma.c |  4 ++--
- drivers/net/wireless/mediatek/mt76/mt792x_dma.c |  6 +++---
- drivers/net/wireless/mediatek/mt76/mt7996/dma.c |  4 ++--
- drivers/net/wireless/mediatek/mt76/wed.c        |  8 ++++----
- 7 files changed, 19 insertions(+), 24 deletions(-)
+ drivers/net/wireless/mediatek/mt76/dma.c           |   2 +
+ drivers/net/wireless/mediatek/mt76/mt76.h          |   6 +
+ drivers/net/wireless/mediatek/mt76/mt7996/dma.c    |   3 +
+ drivers/net/wireless/mediatek/mt76/mt7996/init.c   |   6 +
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c    | 330 +++++++++++++++++++++
+ drivers/net/wireless/mediatek/mt76/mt7996/mmio.c   |   2 +
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  51 ++++
+ 7 files changed, 400 insertions(+)
 
 diff --git a/drivers/net/wireless/mediatek/mt76/dma.c b/drivers/net/wireless/mediatek/mt76/dma.c
-index 87f531297f8513b0caee2d034184ddd8fa3b6a21..25c26ff8c8e24352f2bb31c6e185e628a56f609b 100644
+index f882b4e10858a233a5422ede80d79c21965136e9..b8bb8cdfb69bd6aa8102bff474d8a25a881fb29d 100644
 --- a/drivers/net/wireless/mediatek/mt76/dma.c
 +++ b/drivers/net/wireless/mediatek/mt76/dma.c
-@@ -197,8 +197,8 @@ mt76_dma_sync_idx(struct mt76_dev *dev, struct mt76_queue *q)
- 	q->tail = q->head;
- }
+@@ -256,6 +256,8 @@ mt76_dma_add_rx_buf(struct mt76_dev *dev, struct mt76_queue *q,
  
--void __mt76_dma_queue_reset(struct mt76_dev *dev, struct mt76_queue *q,
--			    bool reset_idx)
-+void mt76_dma_queue_reset(struct mt76_dev *dev, struct mt76_queue *q,
-+			  bool reset_idx)
- {
- 	if (!q || !q->ndesc)
- 		return;
-@@ -218,11 +218,6 @@ void __mt76_dma_queue_reset(struct mt76_dev *dev, struct mt76_queue *q,
- 	mt76_dma_sync_idx(dev, q);
- }
- 
--void mt76_dma_queue_reset(struct mt76_dev *dev, struct mt76_queue *q)
--{
--	__mt76_dma_queue_reset(dev, q, true);
--}
--
- static int
- mt76_dma_add_rx_buf(struct mt76_dev *dev, struct mt76_queue *q,
- 		    struct mt76_queue_buf *buf, void *data)
-@@ -740,7 +735,7 @@ mt76_dma_alloc_queue(struct mt76_dev *dev, struct mt76_queue *q,
- 			return 0;
+ 		buf1 |= FIELD_PREP(MT_DMA_CTL_TOKEN, rx_token);
+ 		ctrl |= MT_DMA_CTL_TO_HOST;
++
++		txwi->qid = q - dev->q_rx;
  	}
  
--	mt76_dma_queue_reset(dev, q);
-+	mt76_dma_queue_reset(dev, q, true);
- 
- 	return 0;
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/dma.h b/drivers/net/wireless/mediatek/mt76/dma.h
-index e3ddc7a837579c0835a704ab8944099d276c6222..320d2cbbbd4559db146139a50e579b9b57282557 100644
---- a/drivers/net/wireless/mediatek/mt76/dma.h
-+++ b/drivers/net/wireless/mediatek/mt76/dma.h
-@@ -81,14 +81,13 @@ void mt76_dma_attach(struct mt76_dev *dev);
- void mt76_dma_cleanup(struct mt76_dev *dev);
- int mt76_dma_rx_fill(struct mt76_dev *dev, struct mt76_queue *q,
- 		     bool allow_direct);
--void __mt76_dma_queue_reset(struct mt76_dev *dev, struct mt76_queue *q,
--			    bool reset_idx);
--void mt76_dma_queue_reset(struct mt76_dev *dev, struct mt76_queue *q);
-+void mt76_dma_queue_reset(struct mt76_dev *dev, struct mt76_queue *q,
-+			  bool reset_idx);
- 
- static inline void
- mt76_dma_reset_tx_queue(struct mt76_dev *dev, struct mt76_queue *q)
- {
--	dev->queue_ops->reset_q(dev, q);
-+	dev->queue_ops->reset_q(dev, q, true);
- 	if (mtk_wed_device_active(&dev->mmio.wed))
- 		mt76_wed_dma_setup(dev, q, true);
- }
+ 	WRITE_ONCE(desc->buf0, cpu_to_le32(buf->addr));
 diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
-index d518a5441418bce5ae477e7f15dde56b6cb5b87d..314221fec512c99cc15b942b7ef7ccecfd1d987e 100644
+index 58d8aa213bb7bf7d1bab0926eca23303d8a733a7..60a3f13ac99125f66f3af406a2a37c25b257a762 100644
 --- a/drivers/net/wireless/mediatek/mt76/mt76.h
 +++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-@@ -290,7 +290,8 @@ struct mt76_queue_ops {
- 
- 	void (*kick)(struct mt76_dev *dev, struct mt76_queue *q);
- 
--	void (*reset_q)(struct mt76_dev *dev, struct mt76_queue *q);
-+	void (*reset_q)(struct mt76_dev *dev, struct mt76_queue *q,
-+			bool reset_idx);
+@@ -418,6 +418,8 @@ struct mt76_txwi_cache {
+ 		struct sk_buff *skb;
+ 		void *ptr;
+ 	};
++
++	u8 qid;
  };
  
- enum mt76_phy_type {
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/dma.c b/drivers/net/wireless/mediatek/mt76/mt7915/dma.c
-index 0c62272fe7d03552c8c260b3971a62fb143895c1..009ef713f437983a0676ed5d4d951a9efcb305e8 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/dma.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/dma.c
-@@ -624,13 +624,13 @@ int mt7915_dma_reset(struct mt7915_dev *dev, bool force)
- 	}
+ struct mt76_rx_tid {
+@@ -534,6 +536,10 @@ struct mt76_driver_ops {
  
- 	for (i = 0; i < __MT_MCUQ_MAX; i++)
--		mt76_queue_reset(dev, dev->mt76.q_mcu[i]);
-+		mt76_queue_reset(dev, dev->mt76.q_mcu[i], true);
+ 	void (*rx_poll_complete)(struct mt76_dev *dev, enum mt76_rxq_id q);
  
- 	mt76_for_each_q_rx(&dev->mt76, i) {
- 		if (mt76_queue_is_wed_tx_free(&dev->mt76.q_rx[i]))
- 			continue;
- 
--		mt76_queue_reset(dev, &dev->mt76.q_rx[i]);
-+		mt76_queue_reset(dev, &dev->mt76.q_rx[i], true);
- 	}
- 
- 	mt76_tx_status_check(&dev->mt76, true);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt792x_dma.c b/drivers/net/wireless/mediatek/mt76/mt792x_dma.c
-index 6f9db782338e6e405de49dd07fefae1a1de09f93..69217ce911307b3408a56d0a210b39ac3bc75e8c 100644
---- a/drivers/net/wireless/mediatek/mt76/mt792x_dma.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt792x_dma.c
-@@ -181,13 +181,13 @@ mt792x_dma_reset(struct mt792x_dev *dev, bool force)
- 
- 	/* reset hw queues */
- 	for (i = 0; i < __MT_TXQ_MAX; i++)
--		mt76_queue_reset(dev, dev->mphy.q_tx[i]);
-+		mt76_queue_reset(dev, dev->mphy.q_tx[i], true);
- 
- 	for (i = 0; i < __MT_MCUQ_MAX; i++)
--		mt76_queue_reset(dev, dev->mt76.q_mcu[i]);
-+		mt76_queue_reset(dev, dev->mt76.q_mcu[i], true);
- 
- 	mt76_for_each_q_rx(&dev->mt76, i)
--		mt76_queue_reset(dev, &dev->mt76.q_rx[i]);
-+		mt76_queue_reset(dev, &dev->mt76.q_rx[i], true);
- 
- 	mt76_tx_status_check(&dev->mt76, true);
++	void (*rx_rro_ind_process)(struct mt76_dev *dev, void *data);
++	int (*rx_rro_add_msdu_page)(struct mt76_dev *dev, struct mt76_queue *q,
++				    dma_addr_t p, void *data);
++
+ 	void (*sta_ps)(struct mt76_dev *dev, struct ieee80211_sta *sta,
+ 		       bool ps);
  
 diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-index c8bef0b2a14445224689efb4c0fee6c80387a7fa..c77e619070d34ddbf281a5d90c6c96cbd1bb2283 100644
+index c5fd25acf9a1a60d4aaffe8ba6d2cf2aafe4fd87..2412767bfaa7e26cdce45b482fb56dea2add8280 100644
 --- a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
 +++ b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-@@ -775,7 +775,7 @@ void mt7996_dma_reset(struct mt7996_dev *dev, bool force)
- 	}
- 
- 	for (i = 0; i < __MT_MCUQ_MAX; i++)
--		mt76_queue_reset(dev, dev->mt76.q_mcu[i]);
-+		mt76_queue_reset(dev, dev->mt76.q_mcu[i], true);
- 
- 	mt76_for_each_q_rx(&dev->mt76, i) {
- 		if (mtk_wed_device_active(&dev->mt76.mmio.wed))
-@@ -783,7 +783,7 @@ void mt7996_dma_reset(struct mt7996_dev *dev, bool force)
- 			    mt76_queue_is_wed_tx_free(&dev->mt76.q_rx[i]))
- 				continue;
- 
--		mt76_queue_reset(dev, &dev->mt76.q_rx[i]);
-+		mt76_queue_reset(dev, &dev->mt76.q_rx[i], true);
- 	}
+@@ -854,6 +854,9 @@ void mt7996_dma_reset(struct mt7996_dev *dev, bool force)
  
  	mt76_tx_status_check(&dev->mt76, true);
-diff --git a/drivers/net/wireless/mediatek/mt76/wed.c b/drivers/net/wireless/mediatek/mt76/wed.c
-index 63f69e152b1cbb5bc0170a44976be1c7c52f21dc..907a8e43e72ad1f2a68d097c4a06df4506c4b039 100644
---- a/drivers/net/wireless/mediatek/mt76/wed.c
-+++ b/drivers/net/wireless/mediatek/mt76/wed.c
-@@ -118,7 +118,7 @@ int mt76_wed_dma_setup(struct mt76_dev *dev, struct mt76_queue *q, bool reset)
- 	case MT76_WED_Q_TXFREE:
- 		/* WED txfree queue needs ring to be initialized before setup */
- 		q->flags = 0;
--		mt76_dma_queue_reset(dev, q);
-+		mt76_dma_queue_reset(dev, q, true);
- 		mt76_dma_rx_fill(dev, q, false);
  
- 		ret = mtk_wed_device_txfree_ring_setup(q->wed, q->regs);
-@@ -133,21 +133,21 @@ int mt76_wed_dma_setup(struct mt76_dev *dev, struct mt76_queue *q, bool reset)
- 		break;
- 	case MT76_WED_RRO_Q_DATA:
- 		q->flags &= ~MT_QFLAG_WED;
--		__mt76_dma_queue_reset(dev, q, false);
-+		mt76_dma_queue_reset(dev, q, false);
- 		mtk_wed_device_rro_rx_ring_setup(q->wed, ring, q->regs);
- 		q->head = q->ndesc - 1;
- 		q->queued = q->head;
- 		break;
- 	case MT76_WED_RRO_Q_MSDU_PG:
- 		q->flags &= ~MT_QFLAG_WED;
--		__mt76_dma_queue_reset(dev, q, false);
-+		mt76_dma_queue_reset(dev, q, false);
- 		mtk_wed_device_msdu_pg_rx_ring_setup(q->wed, ring, q->regs);
- 		q->head = q->ndesc - 1;
- 		q->queued = q->head;
- 		break;
- 	case MT76_WED_RRO_Q_IND:
- 		q->flags &= ~MT_QFLAG_WED;
--		mt76_dma_queue_reset(dev, q);
-+		mt76_dma_queue_reset(dev, q, true);
- 		mt76_dma_rx_fill(dev, q, false);
- 		mtk_wed_device_ind_rx_ring_setup(q->wed, q->regs);
- 		break;
++	if (dev->has_rro && !mtk_wed_device_active(&dev->mt76.mmio.wed))
++		mt7996_rro_msdu_page_map_free(dev);
++
+ 	/* reset wfsys */
+ 	if (force)
+ 		mt7996_wfsys_reset(dev);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+index 0104b50ce3f6d52d762dc2f87e5caa5d36ce69b8..24233ba922709389397034cacd72a1f9d00e118c 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+@@ -774,6 +774,10 @@ void mt7996_rro_hw_init(struct mt7996_dev *dev)
+ 	if (!dev->has_rro)
+ 		return;
+ 
++	INIT_LIST_HEAD(&dev->wed_rro.page_cache);
++	for (i = 0; i < ARRAY_SIZE(dev->wed_rro.page_map); i++)
++		INIT_LIST_HEAD(&dev->wed_rro.page_map[i]);
++
+ 	if (is_mt7992(&dev->mt76)) {
+ 		/* Set emul 3.0 function */
+ 		mt76_wr(dev, MT_RRO_3_0_EMU_CONF,
+@@ -1656,6 +1660,8 @@ void mt7996_unregister_device(struct mt7996_dev *dev)
+ 	mt7996_mcu_exit(dev);
+ 	mt7996_tx_token_put(dev);
+ 	mt7996_dma_cleanup(dev);
++	if (dev->has_rro && !mtk_wed_device_active(&dev->mt76.mmio.wed))
++		mt7996_rro_msdu_page_map_free(dev);
+ 	tasklet_disable(&dev->mt76.irq_tasklet);
+ 
+ 	mt76_free_device(&dev->mt76);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index e31e3324acf97b309c317a5203b78cf55306abdf..662935c19705e2fdb7cb5169eba466c0b8168393 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -1630,6 +1630,336 @@ void mt7996_queue_rx_skb(struct mt76_dev *mdev, enum mt76_rxq_id q,
+ 	}
+ }
+ 
++static struct mt7996_msdu_page *
++mt7996_msdu_page_get_from_cache(struct mt7996_dev *dev)
++{
++	struct mt7996_msdu_page *p = NULL;
++
++	spin_lock(&dev->wed_rro.lock);
++
++	if (!list_empty(&dev->wed_rro.page_cache)) {
++		p = list_first_entry(&dev->wed_rro.page_cache,
++				     struct mt7996_msdu_page, list);
++		if (p)
++			list_del(&p->list);
++	}
++
++	spin_unlock(&dev->wed_rro.lock);
++
++	return p;
++}
++
++static struct mt7996_msdu_page *mt7996_msdu_page_get(struct mt7996_dev *dev)
++{
++	struct mt7996_msdu_page *p;
++
++	p = mt7996_msdu_page_get_from_cache(dev);
++	if (!p) {
++		p = kzalloc(L1_CACHE_ALIGN(sizeof(*p)), GFP_ATOMIC);
++		if (p)
++			INIT_LIST_HEAD(&p->list);
++	}
++
++	return p;
++}
++
++static void mt7996_msdu_page_put_to_cache(struct mt7996_dev *dev,
++					  struct mt7996_msdu_page *p)
++{
++	if (p->buf) {
++		mt76_put_page_pool_buf(p->buf, false);
++		p->buf = NULL;
++	}
++
++	spin_lock(&dev->wed_rro.lock);
++	list_add(&p->list, &dev->wed_rro.page_cache);
++	spin_unlock(&dev->wed_rro.lock);
++}
++
++static void mt7996_msdu_page_free_cache(struct mt7996_dev *dev)
++{
++	while (true) {
++		struct mt7996_msdu_page *p;
++
++		p = mt7996_msdu_page_get_from_cache(dev);
++		if (!p)
++			break;
++
++		if (p->buf)
++			mt76_put_page_pool_buf(p->buf, false);
++
++		kfree(p);
++	}
++}
++
++static u32 mt7996_msdu_page_hash_from_addr(dma_addr_t dma_addr)
++{
++	u32 val = 0;
++	int i = 0;
++
++	while (dma_addr) {
++		val += (u32)((dma_addr & 0xff) + i) % MT7996_RRO_MSDU_PG_HASH_SIZE;
++		dma_addr >>= 8;
++		i += 13;
++	}
++
++	return val % MT7996_RRO_MSDU_PG_HASH_SIZE;
++}
++
++static struct mt7996_msdu_page *
++mt7996_rro_msdu_page_get(struct mt7996_dev *dev, dma_addr_t dma_addr)
++{
++	u32 hash = mt7996_msdu_page_hash_from_addr(dma_addr);
++	struct mt7996_msdu_page *p, *tmp, *addr = NULL;
++
++	spin_lock(&dev->wed_rro.lock);
++
++	list_for_each_entry_safe(p, tmp, &dev->wed_rro.page_map[hash],
++				 list) {
++		if (p->dma_addr == dma_addr) {
++			list_del(&p->list);
++			addr = p;
++			break;
++		}
++	}
++
++	spin_unlock(&dev->wed_rro.lock);
++
++	return addr;
++}
++
++static void mt7996_rx_token_put(struct mt7996_dev *dev)
++{
++	int i;
++
++	for (i = 0; i < dev->mt76.rx_token_size; i++) {
++		struct mt76_txwi_cache *t;
++
++		t = mt76_rx_token_release(&dev->mt76, i);
++		if (!t || !t->ptr)
++			continue;
++
++		mt76_put_page_pool_buf(t->ptr, false);
++		t->dma_addr = 0;
++		t->ptr = NULL;
++
++		mt76_put_rxwi(&dev->mt76, t);
++	}
++}
++
++void mt7996_rro_msdu_page_map_free(struct mt7996_dev *dev)
++{
++	struct mt7996_msdu_page *p, *tmp;
++	int i;
++
++	local_bh_disable();
++
++	for (i = 0; i < ARRAY_SIZE(dev->wed_rro.page_map); i++) {
++		list_for_each_entry_safe(p, tmp, &dev->wed_rro.page_map[i],
++					 list) {
++			list_del_init(&p->list);
++			if (p->buf)
++				mt76_put_page_pool_buf(p->buf, false);
++			kfree(p);
++		}
++	}
++	mt7996_msdu_page_free_cache(dev);
++
++	local_bh_enable();
++
++	mt7996_rx_token_put(dev);
++}
++
++int mt7996_rro_msdu_page_add(struct mt76_dev *mdev, struct mt76_queue *q,
++			     dma_addr_t dma_addr, void *data)
++{
++	struct mt7996_dev *dev = container_of(mdev, struct mt7996_dev, mt76);
++	struct mt7996_msdu_page_info *pinfo = data;
++	struct mt7996_msdu_page *p;
++	u32 hash;
++
++	pinfo->owner = 1;
++	p = mt7996_msdu_page_get(dev);
++	if (!p)
++		return -ENOMEM;
++
++	p->buf = data;
++	p->dma_addr = dma_addr;
++	p->q = q;
++
++	hash = mt7996_msdu_page_hash_from_addr(dma_addr);
++
++	spin_lock(&dev->wed_rro.lock);
++	list_add_tail(&p->list, &dev->wed_rro.page_map[hash]);
++	spin_unlock(&dev->wed_rro.lock);
++
++	return 0;
++}
++
++static struct mt7996_wed_rro_addr *
++mt7996_rro_addr_elem_get(struct mt7996_dev *dev, u16 session_id, u16 seq_num)
++{
++	u32 idx = 0;
++	void *addr;
++
++	if (session_id == MT7996_RRO_MAX_SESSION) {
++		addr = dev->wed_rro.session.ptr;
++	} else {
++		idx = session_id / MT7996_RRO_BA_BITMAP_SESSION_SIZE;
++		addr = dev->wed_rro.addr_elem[idx].ptr;
++
++		idx = session_id % MT7996_RRO_BA_BITMAP_SESSION_SIZE;
++		idx = idx * MT7996_RRO_WINDOW_MAX_LEN;
++	}
++	idx += seq_num % MT7996_RRO_WINDOW_MAX_LEN;
++
++	return addr + idx * sizeof(struct mt7996_wed_rro_addr);
++}
++
++#define MT996_RRO_SN_MASK	GENMASK(11, 0)
++
++void mt7996_rro_rx_process(struct mt76_dev *mdev, void *data)
++{
++	struct mt7996_dev *dev = container_of(mdev, struct mt7996_dev, mt76);
++	struct mt76_wed_rro_ind *cmd = (struct mt76_wed_rro_ind *)data;
++	struct mt7996_msdu_page_info *pinfo = NULL;
++	struct mt7996_msdu_page *p = NULL;
++	int i, seq_num = 0;
++
++	for (i = 0; i < cmd->ind_cnt; i++) {
++		struct mt7996_wed_rro_addr *e;
++		struct mt76_rx_status *status;
++		struct mt7996_rro_hif *rxd;
++		int j, len, qid, data_len;
++		struct mt76_txwi_cache *t;
++		struct mt76_queue *q;
++		dma_addr_t dma_addr;
++		struct sk_buff *skb;
++		u32 info = 0;
++		void *buf;
++
++		seq_num = FIELD_GET(MT996_RRO_SN_MASK, cmd->start_sn + i);
++		e = mt7996_rro_addr_elem_get(dev, cmd->se_id, seq_num);
++		if (e->signature != (seq_num / MT7996_RRO_WINDOW_MAX_LEN)) {
++			e->signature = 0xff;
++			goto update_ack_seq_num;
++		}
++
++		dma_addr = e->head_high;
++		dma_addr <<= 32;
++		dma_addr |= e->head_low;
++
++		for (j = 0; j < e->count; j++) {
++			if (!p) {
++				p = mt7996_rro_msdu_page_get(dev, dma_addr);
++				if (!p)
++					continue;
++
++				dma_sync_single_for_cpu(mdev->dma_dev, p->dma_addr,
++							SKB_WITH_OVERHEAD(p->q->buf_size),
++							page_pool_get_dma_dir(p->q->page_pool));
++				pinfo = (struct mt7996_msdu_page_info *)p->buf;
++			}
++
++			rxd = &pinfo->rxd[j % MT7996_MAX_HIF_RXD_IN_PG];
++			len = rxd->sdl;
++
++			t = mt76_rx_token_release(mdev, rxd->rx_token_id);
++			if (!t)
++				goto next_page;
++
++			qid = t->qid;
++			buf = t->ptr;
++			q = &mdev->q_rx[qid];
++			dma_sync_single_for_cpu(mdev->dma_dev, t->dma_addr,
++						SKB_WITH_OVERHEAD(q->buf_size),
++						page_pool_get_dma_dir(q->page_pool));
++
++			t->dma_addr = 0;
++			t->ptr = NULL;
++			mt76_put_rxwi(mdev, t);
++			if (!buf)
++				goto next_page;
++
++			if (q->rx_head)
++				data_len = q->buf_size;
++			else
++				data_len = SKB_WITH_OVERHEAD(q->buf_size);
++
++			if (data_len < len + q->buf_offset) {
++				dev_kfree_skb(q->rx_head);
++				mt76_put_page_pool_buf(buf, false);
++				q->rx_head = NULL;
++				goto next_page;
++			}
++
++			if (q->rx_head) {
++				/* TODO: Take into account non-linear skb. */
++				mt76_put_page_pool_buf(buf, false);
++				if (rxd->ls) {
++					dev_kfree_skb(q->rx_head);
++					q->rx_head = NULL;
++				}
++				goto next_page;
++			}
++
++			if (rxd->ls && !mt7996_rx_check(mdev, buf, len))
++				goto next_page;
++
++			skb = build_skb(buf, q->buf_size);
++			if (!skb)
++				goto next_page;
++
++			skb_reserve(skb, q->buf_offset);
++			skb_mark_for_recycle(skb);
++			__skb_put(skb, len);
++
++			if (cmd->ind_reason == 1 || cmd->ind_reason == 2) {
++				dev_kfree_skb(skb);
++				goto next_page;
++			}
++
++			if (!rxd->ls) {
++				q->rx_head = skb;
++				goto next_page;
++			}
++
++			status = (struct mt76_rx_status *)skb->cb;
++			if (cmd->se_id != MT7996_RRO_MAX_SESSION)
++				status->aggr = true;
++
++			mt7996_queue_rx_skb(mdev, qid, skb, &info);
++next_page:
++			if ((j + 1) % MT7996_MAX_HIF_RXD_IN_PG == 0) {
++				dma_addr = pinfo->next_pg_high;
++				dma_addr <<= 32;
++				dma_addr |= pinfo->next_pg_low;
++				mt7996_msdu_page_put_to_cache(dev, p);
++				p = NULL;
++			}
++		}
++
++update_ack_seq_num:
++		if ((i + 1) % 4 == 0)
++			mt76_wr(dev, MT_RRO_ACK_SN_CTRL,
++				FIELD_PREP(MT_RRO_ACK_SN_CTRL_SESSION_MASK,
++					   cmd->se_id) |
++				FIELD_PREP(MT_RRO_ACK_SN_CTRL_SN_MASK,
++					   seq_num));
++		if (p) {
++			mt7996_msdu_page_put_to_cache(dev, p);
++			p = NULL;
++		}
++	}
++
++	/* Update ack_seq_num for remaining addr_elem */
++	if (i % 4)
++		mt76_wr(dev, MT_RRO_ACK_SN_CTRL,
++			FIELD_PREP(MT_RRO_ACK_SN_CTRL_SESSION_MASK,
++				   cmd->se_id) |
++			FIELD_PREP(MT_RRO_ACK_SN_CTRL_SN_MASK, seq_num));
++}
++
+ void mt7996_mac_cca_stats_reset(struct mt7996_phy *phy)
+ {
+ 	struct mt7996_dev *dev = phy->dev;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+index aa70e5fce98f005ef5c3f588203f61e179ff04e8..38c15b061dfffc512f99fe4c7d70dcfd92f14c6e 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+@@ -821,6 +821,8 @@ struct mt7996_dev *mt7996_mmio_probe(struct device *pdev,
+ 		.rx_skb = mt7996_queue_rx_skb,
+ 		.rx_check = mt7996_rx_check,
+ 		.rx_poll_complete = mt7996_rx_poll_complete,
++		.rx_rro_ind_process = mt7996_rro_rx_process,
++		.rx_rro_add_msdu_page = mt7996_rro_msdu_page_add,
+ 		.update_survey = mt7996_update_channel,
+ 		.set_channel = mt7996_set_channel,
+ 		.vif_link_add = mt7996_vif_link_add,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+index f6dfd36a44c0bf587d3ac85a5a9d38e24deb14d4..0908ebcf65268e0eae862fad9f3c5d48493a78c7 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -112,6 +112,7 @@
+ #define MT7996_CRIT_TEMP		110
+ #define MT7996_MAX_TEMP			120
+ 
++#define MT7996_MAX_HIF_RXD_IN_PG	5
+ #define MT7996_RRO_MSDU_PG_HASH_SIZE	127
+ #define MT7996_RRO_MAX_SESSION		1024
+ #define MT7996_RRO_WINDOW_MAX_LEN	1024
+@@ -299,6 +300,49 @@ struct mt7996_wed_rro_session_id {
+ 	u16 id;
+ };
+ 
++struct mt7996_msdu_page {
++	struct list_head list;
++
++	struct mt76_queue *q;
++	dma_addr_t dma_addr;
++	void *buf;
++};
++
++struct mt7996_rro_hif {
++	u32 rx_blk_base_low;
++	u32 rx_blk_base_high	: 4;
++	u32 eth_hdr_ofst	: 7;
++	u32 rsv			: 1;
++	u32 ring_no		: 2;
++	u32 dst_sel		: 2;
++	u32 sdl			: 14;
++	u32 ls			: 1;
++	u32 rsv2		: 1;
++	u32 pn_31_0;
++	u32 pn_47_32		: 16;
++	u32 cs_status		: 4;
++	u32 cs_type		: 4;
++	u32 c			: 1;
++	u32 f			: 1;
++	u32 un			: 1;
++	u32 rsv3		: 1;
++	u32 is_fc_data		: 1;
++	u32 uc			: 1;
++	u32 mc			: 1;
++	u32 bc			: 1;
++	u16 rx_token_id;
++	u16 rsv4;
++	u32 rsv5;
++};
++
++struct mt7996_msdu_page_info {
++	struct mt7996_rro_hif rxd[MT7996_MAX_HIF_RXD_IN_PG];
++	u32 next_pg_low;
++	u32 next_pg_high	: 4;
++	u32 rsv			: 27;
++	u32 owner		: 1;
++};
++
+ struct mt7996_phy {
+ 	struct mt76_phy *mt76;
+ 	struct mt7996_dev *dev;
+@@ -416,6 +460,9 @@ struct mt7996_dev {
+ 		struct work_struct work;
+ 		struct list_head poll_list;
+ 		spinlock_t lock;
++
++		struct list_head page_cache;
++		struct list_head page_map[MT7996_RRO_MSDU_PG_HASH_SIZE];
+ 	} wed_rro;
+ 
+ 	bool ibf;
+@@ -773,6 +820,10 @@ int mt7996_tx_prepare_skb(struct mt76_dev *mdev, void *txwi_ptr,
+ void mt7996_tx_token_put(struct mt7996_dev *dev);
+ void mt7996_queue_rx_skb(struct mt76_dev *mdev, enum mt76_rxq_id q,
+ 			 struct sk_buff *skb, u32 *info);
++void mt7996_rro_msdu_page_map_free(struct mt7996_dev *dev);
++int mt7996_rro_msdu_page_add(struct mt76_dev *mdev, struct mt76_queue *q,
++			     dma_addr_t dma_addr, void *data);
++void mt7996_rro_rx_process(struct mt76_dev *mdev, void *data);
+ bool mt7996_rx_check(struct mt76_dev *mdev, void *data, int len);
+ void mt7996_stats_work(struct work_struct *work);
+ int mt76_dfs_start_rdd(struct mt7996_dev *dev, bool force);
 
 -- 
 2.50.1
