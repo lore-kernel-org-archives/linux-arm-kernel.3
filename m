@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A8BCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4770DCA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MdIf5gVpTwGEVzWTa0+48WrGpkdmS6Z3zAuyAh9kXOw=; b=p1oPBwdifWXitOjjcVNsv1jrX1
-	dSXe0CGBPMzSWmXXEVfrqSrvvYlRk8KgKKH2++Jqgg7rjRf237oqfTcpjq5gn9UqymFEM/kD6EuQd
-	x3Mwd0iM2A0nyTgxI9byCTgA/pqEgbPK0/in9idWUQjKPwEYE5vDcE9+sJSeq+jliNHJIOHNigqPf
-	6bNEWF+72AjdjhUcmETwbOAT+dDDMayBEiwg5jSwB0/kfmtgaZCMqqGr3axCqfeTqJd93h6aLw2+q
-	gp+5a+0t8p/GM+V4Wi6xglQgh9SUiV+xh5eTQPYi4Io3eRfC40yfO61R+3/XMug5XuBs+DlGfYXp9
-	8wIuqwlQ==;
+	bh=3HWs5BM/Zczfcib8xW5oddFZsmYZHDcxWDdtx5r08Kk=; b=xRHvmKw/V3rUp5PgM9xbABrQGd
+	sB0fy5udnsbL5psZcutjQWzyRFdpsdpppjV3yeAoyQxwP/wz7ACeLxUQcfYfE2+Iosy+vHHysbJr0
+	f30Kp+cjpMbyAV+/Nesu+fDSeE7AiBEdZInBmfwioImJ38HMLcgsZQ1UbVACifIcB/8psy7KoBu44
+	T3g2T3PilsEjgUfN7RVVuCWNv7+l5xzooPppUHb+eKRjIrMm9ZY4neY0h8Qb8CdnlcwIBnwa4jNDo
+	yS2VpepBWiMKFZnCTxKyjyBwk8AFRQCQgqy3p/hWfNzprRnKfy7+Wrn8BAq46CW29KB/wjQBgKY1L
+	Nvo3G7Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM2z-0000000G1ZI-13rD;
-	Fri, 05 Sep 2025 02:19:29 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uuM31-0000000G1cs-0ZCo;
+	Fri, 05 Sep 2025 02:19:31 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuGkP-0000000EKaR-3jFZ
+	id 1uuGkR-0000000EKbM-0kBf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 20:39:59 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45dd7b15a64so135925e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 13:39:57 -0700 (PDT)
+	Thu, 04 Sep 2025 20:40:00 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45b804ed966so6266305e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 13:39:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757018396; x=1757623196; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757018397; x=1757623197; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MdIf5gVpTwGEVzWTa0+48WrGpkdmS6Z3zAuyAh9kXOw=;
-        b=PU8NSJrlH36n4Te7R5AYe5TOEH5uxe7lx/iSzfOz6XNzi6kuTwMtfmlwPgPQtDGjd7
-         t25Yeiek/671ZWXjHRffW3EU0Yvxnw90zWcXgFDepKZert6a8/38h3/pyHY7NoSnxgs4
-         c+VUuAYI7G2rmiULEoG274AtKJidGObp/cmM/FE+iABbiJX6gXt/CFGLnUINppzB7LQO
-         8Zf95SuUyabEk2o6AS6kVPp2nEFyN4XDE+5Vyo2vxsqY1W+FmPG2EvYGh0cX1OZPKiS2
-         SXBjF2qSJP6q74teQrS4qjJbd3ckuD+bqh4Heg8hFAtTCgl4Iu1y8H4tNgKQzEZTwvH9
-         we2g==
+        bh=3HWs5BM/Zczfcib8xW5oddFZsmYZHDcxWDdtx5r08Kk=;
+        b=U3sClBlw+UOPnSJ2JO5Ny2wj7x66uN2/A2F84ZqQky7Mx0J+R1Oah1p1MM6FDXM5qy
+         GVuv0Kl4rX6alXaNM/n5038n0HB8WPPZEF2eLoXuiQech2M36d1qq8kh7kuFtRZ+/i5X
+         1EHuSLYfSHjGCXKaQNY0Pp2Hnu787z58AMXITnCWuC1DgaRpW5VRi5CsxJIam8HoeHrS
+         3XZiJZ+xREUg6GftF8nVyQc/Df1TJwCWG1/J3OHr5PN2bJOlhYOT1aSiK62ovPjdOwDG
+         K2atsPXmqzI9t5ZLxDkvHLrGaym7KM+CAoEl68cVvk3slOVkWj30RAiComhx8hg4kg9x
+         ul1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757018396; x=1757623196;
+        d=1e100.net; s=20230601; t=1757018397; x=1757623197;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MdIf5gVpTwGEVzWTa0+48WrGpkdmS6Z3zAuyAh9kXOw=;
-        b=AJrj8Oml4h7V8xBbc71wmBygW2jAD9XNDRhfuDrIFry0KrSwzgymOn84vcFClDxHBh
-         uR/tfRDzWLLLwY+5UsRutr5nSMnM8me3/N4rGHhLGWmlQ5goPAWmZxxEps525jhdSr+Y
-         41KgwYZhLDM3IQpr1lc6st+EaBNqh8jq2QDnKXSTVA8gHkkd0et9hgViZtANEWSMx/hU
-         wg+6LsN2QDH4c+K+8NAw1teonn7OgiYZGknTYsiQ+d17T9FEr2ysLBEigtK+fukkhQ5F
-         HFyuc8gso9THHaiw3f+JLjdRGUDucCxHq7x4NFHDvTjjcgrSk/fv1IXh0DuzI9tXP+I3
-         nPbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU7y/YofeO5YkX+GOGr54k4bMoyFoWci1QgySAr2uRemvtAmUdsTPMJv9ryerHyS1FTcU4VVOHwvnAVJaIs0Oaw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzetRx6itUcGa5wCSUAcMUe6sJTuH+gTioFZNCXzMihjcPgiO89
-	gBV8lJGbi9KcaEMFST15d6GJ+nVMqyxqKVUE9zaXrKLbPlMbuRfvenQN
-X-Gm-Gg: ASbGncuEPI0WikqCMAroMtxxAszXjoNB1YWvbVOPi9pSYkBJPhSgENuL4S9lvUL+I9F
-	BlMCgjyuiiPk7Hob5td1tqxivvN5cLL+6mTkXl9e1yuNMkfzDrzvRNHEn4KURoaSi5kcelHisTs
-	1qRTbjC9p/2FyWlvQjfn0I5o+czHJgEPpj28R4hFbver6MVuWPf/D30LxFWpAW7j5eILyam1+HK
-	VCCWdrCFHjNWbbdzLrduFR8gsqvXkDMUMlS0Qr8htzekqGVkGyg9GhXYJD/euTagcXhXY22l7Nm
-	09GhnZGzQlNp/thVvkNm+dmuCqFpsr6f0JR+WBerG10QEJG6lQLKwWXoiRLVrGq40GLEFM+HobA
-	kwsK9Pe+5qqrWM85QvwRtIb3TDntBl4sfW/pnmNpW3MzWIE2oSQg1pAD/6A==
-X-Google-Smtp-Source: AGHT+IHRTq0c9/U3clgYS/p+MF96IzAw4NdSVmzLuPTx5EY7YzBTRKNNSm4tAMGAq21gTWaRf+ycWg==
-X-Received: by 2002:a05:600c:350e:b0:45b:47e1:ef7b with SMTP id 5b1f17b1804b1-45dd5b5f591mr9778465e9.17.1757018396031;
-        Thu, 04 Sep 2025 13:39:56 -0700 (PDT)
+        bh=3HWs5BM/Zczfcib8xW5oddFZsmYZHDcxWDdtx5r08Kk=;
+        b=bjbKbQj5R3bkhbnbgy5wRN4DrXvFhNeiyk+JWkAmTWGUcWAEBQE92vvlqhl8490ED8
+         b3wy+1XLctH41yWwBogNLRj+knFlP/vs+mJV/E5b9HBhm2iMN84w6EDNc4zNUPQbhNiE
+         BrB2Re9XX9nTD1CwMNkcp6hfTqZyg44hRtpjRgWxjUvtFSGObhpiqmWsnoRUm+0odudC
+         3YQJEMp4qTesRSx/b2OjfMDNMGI0881bVDjMJqZHNfkbMQ/JwCOltfeA4+Dlk5LCuFgV
+         7To8XOYDgUOVUtV2xGMgvQVBJ/s4P9UFQdJCJtYUtgn/ZD4Uz7e1BS8iGLw+1wtAYa2T
+         XSrA==
+X-Forwarded-Encrypted: i=1; AJvYcCVNo7FsGPpwKwrU8vKcNtsrppOEQjCCkhCwnieGxLORv87/Kexy7LSWfnNCyYxWtABkqEWy2AfGFZRKMtyeBiMv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMoOkI8T3VomhNnBjGyhel8rEBxn3SzUoMvwK2pA95w6i++QAG
+	0CL+l14K2+jBcQFbPdMLXF5LgCR7MBYC1iFC4BVTWc4JPOqSUgI426lU
+X-Gm-Gg: ASbGnctCpoMVXH6KdZmXwmzqw7MdRZ1OTA9wRXCnEcAFx903ODf5wOcwdFLnsZaAfvF
+	ZPlDSMHPnd8Ou+OQz6VWrqmM2r21t6VMmkLCmb9X0TOYUVVQ0CI2zF85Vrjw8PXjro8jo8SWQjQ
+	IbaEjKoC+677+Nz3+VluSKHhIyYFYp5vRihYVND/tRntfv2cwqvbg0mX3Cn1qAq74aqF0RxJcyo
+	ZOxrXexIfNPPrlVV/PEGmPtFeUWj7W13KrQUCmfitVHM/hPVy3t86qmtLAZuYVqHv+wuFj2PEB0
+	nc0fX80FhP0ZX3AYlmpvY12TnCALb4ts9Azkt2h8R/gSA1x31pbirWayde2tchrvBpmGqjq4AA5
+	ROtepPGY5Tav9ObwbXh3++IzxJ/4ONGfwxIHDKrBzZotOdA3CrBVDlmiSvQ==
+X-Google-Smtp-Source: AGHT+IHL1oc02XZbGobYDQotXvvBze1vwYgK+kccWNcOGisk96waxJM71NYowbvY/REwkkmrpI/Nag==
+X-Received: by 2002:a05:600c:a04:b0:45b:7d24:beac with SMTP id 5b1f17b1804b1-45b8553335amr189504555e9.10.1757018397490;
+        Thu, 04 Sep 2025 13:39:57 -0700 (PDT)
 Received: from iku.Home ([2a06:5906:61b:2d00:904e:70c8:edf3:59a4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f306c93sm385528165e9.14.2025.09.04.13.39.54
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f306c93sm385528165e9.14.2025.09.04.13.39.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 13:39:55 -0700 (PDT)
+        Thu, 04 Sep 2025 13:39:56 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -98,17 +98,17 @@ Cc: netdev@vger.kernel.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next v2 2/3] net: stmmac: dwmac-renesas-gbeth: Use OF data for configuration
-Date: Thu,  4 Sep 2025 21:39:48 +0100
-Message-ID: <20250904203949.292066-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net-next v2 3/3] net: stmmac: dwmac-renesas-gbeth: Add support for RZ/T2H SoC
+Date: Thu,  4 Sep 2025 21:39:49 +0100
+Message-ID: <20250904203949.292066-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250904203949.292066-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20250904203949.292066-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_133957_949269_4D59BD7D 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20250904_133959_223938_A589561A 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,134 +125,140 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Prepare for adding RZ/T2H SoC support by making the driver configuration
-selectable via OF match data. While the RZ/V2H(P) and RZ/T2H use the same
-version of the Synopsys DesignWare MAC (version 5.20), the hardware is
-synthesized with different options. To accommodate these differences,
-introduce a struct holding per-SoC configuration such as clock list,
-number of clocks, TX clock rate control, and STMMAC flags, and retrieve
-it from the device tree match entry during probe.
+Extend the Renesas GBETH stmmac glue driver to support the RZ/T2H SoC,
+where the GMAC is connected through a MIIC PCS. Introduce a new
+`has_pcs` flag in `struct renesas_gbeth_of_data` to indicate when PCS
+handling is required.
+
+When enabled, the driver parses the `pcs-handle` phandle, creates a PCS
+instance with `miic_create()`, and wires it into phylink. Proper cleanup
+is done with `miic_destroy()`. New init/exit/select hooks are added to
+`plat_stmmacenet_data` for PCS integration.
+
+Update Kconfig to select `PCS_RZN1_MIIC` when building the Renesas GBETH
+driver so the PCS support is always available.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
 v1->v2:
-- No changes
+- Switched using "renesas,r9a09g077-gbeth" compatible string for RZ/T2H
+  instead of "renesas,rzt2h-gbeth".
 ---
- .../stmicro/stmmac/dwmac-renesas-gbeth.c      | 57 +++++++++++++++----
- 1 file changed, 47 insertions(+), 10 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  1 +
+ .../stmicro/stmmac/dwmac-renesas-gbeth.c      | 52 +++++++++++++++++++
+ 2 files changed, 53 insertions(+)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index 67fa879b1e52..a01c83b109f9 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -136,6 +136,7 @@ config DWMAC_RENESAS_GBETH
+ 	tristate "Renesas RZ/V2H(P) GBETH support"
+ 	default ARCH_RENESAS
+ 	depends on OF && (ARCH_RENESAS || COMPILE_TEST)
++	select PCS_RZN1_MIIC
+ 	help
+ 	  Support for Gigabit Ethernet Interface (GBETH) on Renesas
+ 	  RZ/V2H(P) SoCs.
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-index df4ca897a60c..022e595a9e1b 100644
+index 022e595a9e1b..129543c37a5e 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-@@ -16,12 +16,34 @@
- #include <linux/clk.h>
+@@ -17,6 +17,7 @@
  #include <linux/device.h>
  #include <linux/module.h>
-+#include <linux/of.h>
+ #include <linux/of.h>
++#include <linux/pcs-rzn1-miic.h>
  #include <linux/platform_device.h>
  #include <linux/reset.h>
-+#include <linux/types.h>
+ #include <linux/types.h>
+@@ -33,6 +34,7 @@
+  *                handled by the glue driver or core driver.
+  * @set_clk_tx_rate: Flag to indicate if Tx clock is fixed or
+  *                   set_clk_tx_rate is needed.
++ * @has_pcs: Flag to indicate if the MAC has a PCS
+  */
+ struct renesas_gbeth_of_data {
+ 	const char * const *clks;
+@@ -40,6 +42,7 @@ struct renesas_gbeth_of_data {
+ 	u32 stmmac_flags;
+ 	bool handle_reset;
+ 	bool set_clk_tx_rate;
++	bool has_pcs;
+ };
  
- #include "stmmac_platform.h"
+ struct renesas_gbeth {
+@@ -53,6 +56,41 @@ static const char *const renesas_gbeth_clks[] = {
+ 	"tx", "tx-180", "rx", "rx-180",
+ };
  
-+/**
-+ * struct renesas_gbeth_of_data - OF data for Renesas GBETH
-+ *
-+ * @clks: Array of clock names
-+ * @num_clks: Number of clocks
-+ * @stmmac_flags: Flags for the stmmac driver
-+ * @handle_reset: Flag to indicate if reset control is
-+ *                handled by the glue driver or core driver.
-+ * @set_clk_tx_rate: Flag to indicate if Tx clock is fixed or
-+ *                   set_clk_tx_rate is needed.
-+ */
-+struct renesas_gbeth_of_data {
-+	const char * const *clks;
-+	u8 num_clks;
-+	u32 stmmac_flags;
-+	bool handle_reset;
-+	bool set_clk_tx_rate;
++static const char *const renesas_gmac_clks[] = {
++	"tx",
 +};
 +
- struct renesas_gbeth {
-+	const struct renesas_gbeth_of_data *of_data;
- 	struct plat_stmmacenet_data *plat_dat;
- 	struct reset_control *rstc;
- 	struct device *dev;
-@@ -70,6 +92,7 @@ static void renesas_gbeth_exit(struct platform_device *pdev, void *priv)
- 
- static int renesas_gbeth_probe(struct platform_device *pdev)
- {
-+	const struct renesas_gbeth_of_data *of_data;
- 	struct plat_stmmacenet_data *plat_dat;
- 	struct stmmac_resources stmmac_res;
- 	struct device *dev = &pdev->dev;
-@@ -91,14 +114,17 @@ static int renesas_gbeth_probe(struct platform_device *pdev)
- 	if (!gbeth)
- 		return -ENOMEM;
- 
--	plat_dat->num_clks = ARRAY_SIZE(renesas_gbeth_clks);
-+	of_data = of_device_get_match_data(&pdev->dev);
-+	gbeth->of_data = of_data;
++static int renesas_gmac_pcs_init(struct stmmac_priv *priv)
++{
++	struct device_node *np = priv->device->of_node;
++	struct device_node *pcs_node;
++	struct phylink_pcs *pcs;
 +
-+	plat_dat->num_clks = of_data->num_clks;
- 	plat_dat->clks = devm_kcalloc(dev, plat_dat->num_clks,
- 				      sizeof(*plat_dat->clks), GFP_KERNEL);
- 	if (!plat_dat->clks)
- 		return -ENOMEM;
- 
- 	for (i = 0; i < plat_dat->num_clks; i++)
--		plat_dat->clks[i].id = renesas_gbeth_clks[i];
-+		plat_dat->clks[i].id = of_data->clks[i];
- 
- 	err = devm_clk_bulk_get(dev, plat_dat->num_clks, plat_dat->clks);
- 	if (err < 0)
-@@ -109,25 +135,36 @@ static int renesas_gbeth_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, -EINVAL,
- 				     "error finding tx clock\n");
- 
--	gbeth->rstc = devm_reset_control_get_exclusive(dev, NULL);
--	if (IS_ERR(gbeth->rstc))
--		return PTR_ERR(gbeth->rstc);
-+	if (of_data->handle_reset) {
-+		gbeth->rstc = devm_reset_control_get_exclusive(dev, NULL);
-+		if (IS_ERR(gbeth->rstc))
-+			return PTR_ERR(gbeth->rstc);
++	pcs_node = of_parse_phandle(np, "pcs-handle", 0);
++	if (pcs_node) {
++		pcs = miic_create(priv->device, pcs_node);
++		of_node_put(pcs_node);
++		if (IS_ERR(pcs))
++			return PTR_ERR(pcs);
++
++		priv->hw->phylink_pcs = pcs;
 +	}
- 
- 	gbeth->dev = dev;
- 	gbeth->plat_dat = plat_dat;
- 	plat_dat->bsp_priv = gbeth;
--	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-+	if (of_data->set_clk_tx_rate)
-+		plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
++
++	return 0;
++}
++
++static void renesas_gmac_pcs_exit(struct stmmac_priv *priv)
++{
++	if (priv->hw->phylink_pcs)
++		miic_destroy(priv->hw->phylink_pcs);
++}
++
++static struct phylink_pcs *renesas_gmac_select_pcs(struct stmmac_priv *priv,
++						   phy_interface_t interface)
++{
++	return priv->hw->phylink_pcs;
++}
++
+ static int renesas_gbeth_init(struct platform_device *pdev, void *priv)
+ {
+ 	struct plat_stmmacenet_data *plat_dat;
+@@ -149,6 +187,11 @@ static int renesas_gbeth_probe(struct platform_device *pdev)
  	plat_dat->init = renesas_gbeth_init;
  	plat_dat->exit = renesas_gbeth_exit;
--	plat_dat->flags |= STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY |
--			   STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP |
--			   STMMAC_FLAG_SPH_DISABLE;
-+	plat_dat->flags |= gbeth->of_data->stmmac_flags;
+ 	plat_dat->flags |= gbeth->of_data->stmmac_flags;
++	if (of_data->has_pcs) {
++		plat_dat->pcs_init = renesas_gmac_pcs_init;
++		plat_dat->pcs_exit = renesas_gmac_pcs_exit;
++		plat_dat->select_pcs = renesas_gmac_select_pcs;
++	}
  
  	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
  }
+@@ -163,7 +206,16 @@ static const struct renesas_gbeth_of_data renesas_gbeth_of_data = {
+ 			STMMAC_FLAG_SPH_DISABLE,
+ };
  
-+static const struct renesas_gbeth_of_data renesas_gbeth_of_data = {
-+	.clks = renesas_gbeth_clks,
-+	.num_clks = ARRAY_SIZE(renesas_gbeth_clks),
-+	.handle_reset = true,
-+	.set_clk_tx_rate = true,
++static const struct renesas_gbeth_of_data renesas_gmac_of_data = {
++	.clks = renesas_gmac_clks,
++	.num_clks = ARRAY_SIZE(renesas_gmac_clks),
 +	.stmmac_flags = STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY |
-+			STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP |
-+			STMMAC_FLAG_SPH_DISABLE,
++			STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP,
++	.has_pcs = true,
 +};
 +
  static const struct of_device_id renesas_gbeth_match[] = {
--	{ .compatible = "renesas,rzv2h-gbeth", },
-+	{ .compatible = "renesas,rzv2h-gbeth", .data = &renesas_gbeth_of_data },
++	{ .compatible = "renesas,r9a09g077-gbeth", .data = &renesas_gmac_of_data },
+ 	{ .compatible = "renesas,rzv2h-gbeth", .data = &renesas_gbeth_of_data },
  	{ /* Sentinel */ }
  };
- MODULE_DEVICE_TABLE(of, renesas_gbeth_match);
 -- 
 2.51.0
 
