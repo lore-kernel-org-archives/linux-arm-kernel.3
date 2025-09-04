@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF27CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D37CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4zy5l8eFFMF0aUoyAy0bt7SnpxYRV0uRa+VleoKKZoA=; b=nHp6JdooArCQhS9W46VD9IGH8A
-	ZhdeDA5lFuLfzlF38gjz7NBAhpq7iK85cTP7aQktInzkeoPE/vh8OCiqobBq/gV6iG7PGjkvVep5+
-	YcsEz3TFIPrs5yj1T660NjsqV4i0LFfq/ND8/caQF0BX4kDuv8TpVs5F9cMrdf07OInlbhjKjqpbk
-	Q+XUcnxtFUwkaWolWDIleicdTRRSBLuiYi5PZBBhSGX1bLWEzGkslZ6ZOAwjVUWx4eLV606K6eplt
-	zVqQWDgkY1ki2z1yq5Wyhe2N3kpLLjAjQQthTcHigkgd+5Qw74TlRspda4b8YtP/RRcJxKS9Izo/K
-	dI/MAEcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uENlucYkOK+jy7BMNnzMMpf0QowE25p7A3vBs5YaH0w=; b=zAtO6o1WqyK1lH/UlvLgTxl1AS
+	1NepDXs8N6uP45VF4p3oxK6OhqC3JWfqxCsiVBBkNA/g+/cJ/+S/v1IAOsp2ecD9I1iTb7TjkPtoT
+	wc+HhL0OFhtRWVNNyIWGYrEpVEx3HwJLlc2Wc/ePOZNpQIj4NlDg0W6FCY/1FMOhdEYyQB5WToADQ
+	x44o8FAZnUn3ZepbqPbPWaavg5QiDOAH2mOifKW4du8I4EHqyjNWfb3l4z2d4o6XliHlKpljUV/rh
+	cGI1pL24z86MOC+Yb4Pr8vqkYg/16tCsdhTie6kzS6dY16Uf36guNENko++xKSQyK/AwkuNN3LdHq
+	znazzpzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuEkg-0000000DazB-0pSE;
-	Thu, 04 Sep 2025 18:32:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uuEki-0000000Db2k-0Nfe;
+	Thu, 04 Sep 2025 18:32:08 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuAZ1-0000000C4Km-18QE;
-	Thu, 04 Sep 2025 14:03:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B088D601AD;
-	Thu,  4 Sep 2025 14:03:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 879F7C4CEF5;
-	Thu,  4 Sep 2025 14:03:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756994626;
-	bh=R15ptoc9ZlyJDelkbhGWd7+PsXr/DbQC7TFvXfTYnKA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QC/MO2Y21Nvl8IUs+sKbBsur180b4DnqC1iRGs4cDEmtA2dB/F/DnTrHtME+ejmVt
-	 Luw0G/b7TvS7mgqn4/WGSz4oN0IxJL4Qp4DYbP1QiYIZ6dJC+aYOy016xPny2cLPdp
-	 qXCYd3SoXMaiy6V8e+4y/EWctLTx89eNUWbPQlzkcICrdqPWKjBZ5cM+cm2gN0i5to
-	 2uHoLd86exMI9vMi6Eaz9JWEuNZ+hMpteDcLawe2q2LzBrnzIqS75vGOlEqBd9cdCI
-	 5172NQ1AECfMvUm+FZS/Svpc+N9NQOhz7vDTOR9r2AfIE9ewQk1UYNlx+Ffe+LAe7R
-	 1esFMTJP1dR+Q==
-Date: Thu, 4 Sep 2025 16:03:39 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: manivannan.sadhasivam@oss.qualcomm.com,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH v6 0/4] PCI: Add support for resetting the Root Ports in
- a platform specific way
-Message-ID: <aLmcO8ukT-CDZMuT@ryzen>
-References: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
- <aHoh1XfhR8EB_5yY@ryzen>
- <aHokdhpJUhSZ5FSp@ryzen>
- <tujurux64if24z7w7h6wjxhrnh4owkgiv33u2fftp7zr5ucv2m@2ijo5ok5jhfk>
- <aJ743hJw-T9y3waX@ryzen>
- <lakgphb7ym3cybwmpdqyipzi4tlkwbfijzhd4r6hvhho3pc7iu@6ludgw6wqkjh>
+	id 1uuAa6-0000000C4nS-08ip
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 14:04:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756994691;
+	bh=6QoSyBbdtINchh/KfpXAbLxJBZNAu4kUO37s+5VC3OE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RflE5jopt5njlxGhDC3AQjyRyIPKw9BYjyVeuh8p3sZ4CxUB4DnPdESkuwkbUnwEk
+	 r+f7FY7ipdHcA6nC1BMelz2e5gJVvDPGOWSXh2MUzsU7IRS4yoX9eQRFX2aRkVW9Eo
+	 Zwz/C+PWPmLRiHE/jc9a4VqOElzxRM/FLuT/8hEYYd1iDtMfrMHLF51RfElfCbnfNF
+	 +bgFxnfkWCFFqFWYI+Jileitn5LjWNWYHXSKp0kiFfqE+6qLwXYdVyRUhnpGmjbumr
+	 kFK4IO9FVT4zOfEC0RfrLOl1Yt3inf1x8FWvzfj+QQppSoZlpsnvO4jfDQTb+D2l+m
+	 Cta+AbMlTIrsw==
+Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8088E17E03B8;
+	Thu,  4 Sep 2025 16:04:50 +0200 (CEST)
+Date: Thu, 4 Sep 2025 16:04:45 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley
+ <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, Fabio Estevam
+ <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau
+ <liviu.dudau@arm.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, Steven Price
+ <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev
+Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
+Message-ID: <20250904160445.1671f140@fedora>
+In-Reply-To: <7d4e773b-64ac-49ce-8d8b-7a39c353d18f@mailbox.org>
+References: <20250321200625.132494-1-marex@denx.de>
+	<20250321200625.132494-5-marex@denx.de>
+	<20250324094333.7afb17a1@collabora.com>
+	<c1de2afb-3559-4fbb-b13b-2373175b420b@denx.de>
+	<20250325084349.344a0f11@collabora.com>
+	<7aadf355-edf0-46fc-b969-65c3789375ca@denx.de>
+	<20250325153507.61d82e39@collabora.com>
+	<4c06aef3-a254-437c-aa15-8e3eb7bf5951@denx.de>
+	<20250325155231.0d1b1000@collabora.com>
+	<838a0c6b-845b-428d-86b3-1480e5b8080f@mailbox.org>
+	<20250904082224.113d0cd1@fedora>
+	<7d4e773b-64ac-49ce-8d8b-7a39c353d18f@mailbox.org>
+Organization: Collabora
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <lakgphb7ym3cybwmpdqyipzi4tlkwbfijzhd4r6hvhho3pc7iu@6ludgw6wqkjh>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250904_070454_229112_2D0D3054 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,195 +96,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mani,
+On Thu, 4 Sep 2025 15:49:31 +0200
+Marek Vasut <marek.vasut@mailbox.org> wrote:
 
-On Fri, Aug 29, 2025 at 09:44:08PM +0530, Manivannan Sadhasivam wrote:
-> On Fri, Aug 15, 2025 at 11:07:42AM GMT, Niklas Cassel wrote:
-
-(snip)
-
-> > > > > ## On EP side:
-> > > > > # echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
-> > > > >   sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
-> > > > > 
-> > > > > Basically all tests timeout
-> > > > > # FAILED: 1 / 16 tests passed.
-> > > > > 
-> > > > > Which is the same as before this patch series.
-> > > 
-> > > This is kind of expected since the pci_endpoint_test driver doesn't have the AER
-> > > err_handlers defined.
+> >> I suspect the extra soft reset I did before "un-halted" the GPU and
+> >> allowed it to proceed.  
 > > 
-> > I see.
-> > Would be nice if we could add them then, so that we can verify that this
-> > series is working as intended.
-
-(snip)
-
-> Ok, thanks for the logs. I guess what is happening here is that we are not
-> saving/restoring the config space of the devices under the Root Port if linkdown
-> is happens. TBH, we cannot do that from the PCI core since once linkdown
-> happens, we cannot access any devices underneath the Root Port. But if
-> err_handlers are available for drivers for all devices, they could do something
-> smart like below:
+> > Hm, not quite. I mean, you still need to explicitly boot the MCU after
+> > a reset, which is what the write to MCU_CONTROL [1] does. What the
+> > soft-reset does though, is reset all GPU blocks, including the MCU.
+> > This means the MCU starts from a fresh state when you reach [1].  
 > 
-> diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
-> index c4e5e2c977be..9aabf1fe902e 100644
-> --- a/drivers/misc/pci_endpoint_test.c
-> +++ b/drivers/misc/pci_endpoint_test.c
-> @@ -989,6 +989,8 @@ static int pci_endpoint_test_probe(struct pci_dev *pdev,
->  
->         pci_set_drvdata(pdev, test);
->  
-> +       pci_save_state(pdev);
-> +
->         id = ida_alloc(&pci_endpoint_test_ida, GFP_KERNEL);
->         if (id < 0) {
->                 ret = id;
-> @@ -1140,12 +1142,31 @@ static const struct pci_device_id pci_endpoint_test_tbl[] = {
->  };
->  MODULE_DEVICE_TABLE(pci, pci_endpoint_test_tbl);
->  
-> +static pci_ers_result_t pci_endpoint_test_error_detected(struct pci_dev *pdev,
-> +                                              pci_channel_state_t state)
-> +{
-> +       return PCI_ERS_RESULT_NEED_RESET;
-> +}
-> +
-> +static pci_ers_result_t pci_endpoint_test_slot_reset(struct pci_dev *pdev)
-> +{
-> +       pci_restore_state(pdev);
-> +
-> +       return PCI_ERS_RESULT_RECOVERED;
-> +}
-> +
-> +static const struct pci_error_handlers pci_endpoint_test_err_handler = {
-> +       .error_detected = pci_endpoint_test_error_detected,
-> +       .slot_reset = pci_endpoint_test_slot_reset,
-> +};
-> +
->  static struct pci_driver pci_endpoint_test_driver = {
->         .name           = DRV_MODULE_NAME,
->         .id_table       = pci_endpoint_test_tbl,
->         .probe          = pci_endpoint_test_probe,
->         .remove         = pci_endpoint_test_remove,
->         .sriov_configure = pci_sriov_configure_simple,
-> +       .err_handler    = &pci_endpoint_test_err_handler,
->  };
->  module_pci_driver(pci_endpoint_test_driver);
+> I have a feeling the write to MCU_CONTROL does nothing in my case.
+
+I believe it does, otherwise you wouldn't be able to kick the MCU
+and get things working until the first runtime suspend happens. I gut
+feeling is that there's something fishy in the FW or SoC integration
+that causes the FW HALT request to put the MCU/GPU in a bad state
+preventing further MCU_CONTROL(AUTO_START) from functioning correctly
+after that point.
+
 > 
-> This essentially saves the good known config space during probe and restores it
-> during the slot_reset callback. Ofc, the state would've been overwritten if
-> suspend/resume happens in-between, but the point I'm making is that unless all
-> device drivers restore their known config space, devices cannot be resumed
-> properly post linkdown recovery.
-> 
-> I can add a patch based on the above diff in next revision if that helps. Right
-> now, I do not have access to my endpoint test setup. So can't test anything.
+> Is there some way to probe the MCU state before/after setting GLB_HALT, 
+> and also before/after the MCU_CONTROL write, using 
+> gpu_read()/gpu_write() register operations, to find out what is going on 
+> with the MCU at each point ?
 
-I tested your patch series + your suggested change above, and after a:
+Yes, there's an MCU_STATUS register [1].
 
-## On EP side:
-# echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
-  sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
-
-Instead of:
-
-# FAILED: 1 / 16 tests passed.
-
-I now get:
-# FAILED: 7 / 16 tests passed.
-
-Test cases 1-7 now passes (the test cases related to BARs),
-all other test cases still fail:
-
-# /pcitest 
-TAP version 13
-1..16
-# Starting 16 tests from 9 test cases.
-#  RUN           pci_ep_bar.BAR0.BAR_TEST ...
-#            OK  pci_ep_bar.BAR0.BAR_TEST
-ok 1 pci_ep_bar.BAR0.BAR_TEST
-#  RUN           pci_ep_bar.BAR1.BAR_TEST ...
-#            OK  pci_ep_bar.BAR1.BAR_TEST
-ok 2 pci_ep_bar.BAR1.BAR_TEST
-#  RUN           pci_ep_bar.BAR2.BAR_TEST ...
-#            OK  pci_ep_bar.BAR2.BAR_TEST
-ok 3 pci_ep_bar.BAR2.BAR_TEST
-#  RUN           pci_ep_bar.BAR3.BAR_TEST ...
-#            OK  pci_ep_bar.BAR3.BAR_TEST
-ok 4 pci_ep_bar.BAR3.BAR_TEST
-#  RUN           pci_ep_bar.BAR4.BAR_TEST ...
-#      SKIP      BAR is disabled
-#            OK  pci_ep_bar.BAR4.BAR_TEST
-ok 5 pci_ep_bar.BAR4.BAR_TEST # SKIP BAR is disabled
-#  RUN           pci_ep_bar.BAR5.BAR_TEST ...
-#            OK  pci_ep_bar.BAR5.BAR_TEST
-ok 6 pci_ep_bar.BAR5.BAR_TEST
-#  RUN           pci_ep_basic.CONSECUTIVE_BAR_TEST ...
-#            OK  pci_ep_basic.CONSECUTIVE_BAR_TEST
-ok 7 pci_ep_basic.CONSECUTIVE_BAR_TEST
-#  RUN           pci_ep_basic.LEGACY_IRQ_TEST ...
-# pci_endpoint_test.c:106:LEGACY_IRQ_TEST:Expected 0 (0) == ret (-110)
-# pci_endpoint_test.c:106:LEGACY_IRQ_TEST:Test failed for Legacy IRQ
-# LEGACY_IRQ_TEST: Test failed
-#          FAIL  pci_ep_basic.LEGACY_IRQ_TEST
-not ok 8 pci_ep_basic.LEGACY_IRQ_TEST
-#  RUN           pci_ep_basic.MSI_TEST ...
-# pci_endpoint_test.c:118:MSI_TEST:Expected 0 (0) == ret (-110)
-# pci_endpoint_test.c:118:MSI_TEST:Test failed for MSI1
-# pci_endpoint_test.c:118:MSI_TEST:Expected 0 (0) == ret (-110)
-# pci_endpoint_test.c:118:MSI_TEST:Test failed for MSI2
-# pci_endpoint_test.c:118:MSI_TEST:Expected 0 (0) == ret (-110)
-# pci_endpoint_test.c:118:MSI_TEST:Test failed for MSI3
-...
+[1]https://elixir.bootlin.com/linux/v6.16.4/source/drivers/gpu/drm/panthor/panthor_fw.c#L1045
 
 
-I think I know the reason.. you save the state before the IRQs have been allocated.
-
-Perhaps we need to save the state after enabling IRQs?
-
-I tried this patch on top of your patch:
---- a/drivers/misc/pci_endpoint_test.c
-+++ b/drivers/misc/pci_endpoint_test.c
-@@ -851,6 +851,8 @@ static int pci_endpoint_test_set_irq(struct pci_endpoint_test *test,
-                return ret;
-        }
- 
-+       pci_save_state(pdev);
-+
-        return 0;
- }
-
-
-But still:
-# FAILED: 7 / 16 tests passed.
-
-So... apparently that did not help...
-
-I tried with the following change as well (on top of my patch above):
-
-+static pci_ers_result_t pci_endpoint_test_slot_reset(struct pci_dev *pdev)
-+{
-+       struct pci_endpoint_test *test = pci_get_drvdata(pdev);
-+       int irq_type = test->irq_type;
-+
-+       pci_restore_state(pdev);
-+
-+       if (irq_type != PCITEST_IRQ_TYPE_UNDEFINED) {
-+               pci_endpoint_test_clear_irq(test);
-+               pci_endpoint_test_set_irq(test, irq_type);
-+       }
-+
-+       return PCI_ERS_RESULT_RECOVERED;
-+}
-
-But still only:
-# FAILED: 7 / 16 tests passed.
-
-Do you have any suggestions?
-
-
-Kind regards,
-Niklas
 
