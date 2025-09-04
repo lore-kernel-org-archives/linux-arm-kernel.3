@@ -4,173 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8758BCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 20:31:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A36BCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 20:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cC/h3QfKMJzrRDSZDbq93SJp3ae5x/zr+tomjc57MZ4=; b=K5sgiqysaVpdniQPyCtCkbwkc3
-	P1OQhhN+TLl2e6SjuXBKvKyLx1yp9Rj7sYXtr//x2J0iOSKYpBM57DMnsrSa9AHgTDKtHkLQWOFs1
-	9GlhzxWeECZxscW5LmjihFdeU5CN1YXztLxc479hjv7tDB4UvN5b6WhcSSTt/vu3gX9Xu6tcQdBvE
-	CXU8aJ6zellnCZKgkI8tfy0besNTyols+db9BK60pphgpaF+dU1n+uhOX8GX4U56q8VP0XUC0gU+S
-	8+zRGtSHvNvPbeJYMywrBv+Ov4NIgCbv0pEdl9odLuh42VjWwiKCPMDTrxKjdwEH6tK4i1/swzsjF
-	KHV8nuqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kIJmsH+az0/YSo7SqPN3ReyR93Ep24mQtVNKj1Tqafc=; b=tIL1Km2SHjUHhZ54iN+im/0bHF
+	x7xPD37B+qN4m/bx50YQBHKvHUIffgYTlo3q++jlQeuauLQlrIFvXqh2C7kQtiUfndEe1za/attY3
+	X0NShpfKNucz5mz7sTQo0ZYUGwl2CXlyFoXRHb6gZ0eTaMzjMgbGnpynnjRRK2qbamCEP+JP2eK/C
+	3KSq+bNA07tMWgKGAkZN63Mqmm8QHq/ges3x65TeF5IyChbJZeL67Uz+ZPIk18F9BEQ3UiZhVO5rX
+	ia1170DoyNSGtEsPyy4kyQav7C5p3wbZ/M853MuT7oQxsDR6aMmUqdczdEbPT5TpxIaNdn0duboLQ
+	5u6pBtpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuGbx-0000000EGYR-0SbW;
-	Thu, 04 Sep 2025 20:31:13 +0000
-Received: from mail-bn8nam12on20723.outbound.protection.outlook.com ([2a01:111:f403:2418::723] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uuGel-0000000EICy-04VF;
+	Thu, 04 Sep 2025 20:34:07 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuEAA-0000000DOjP-21oz
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 17:54:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zNvbhMHAY/Gz4QDpLrAqYDatChSileq0LTNX2vO561D9IqxdzzsR0YwdiZ4zdHrIVZCfYOwV1hRNP3doUpmMJG9Oj+2WLfSz4C7ssR8+ZJo07KyXbvNlW2FCiuiqM14tNzVzTyjyCXCl20cu119E7ybBlYnmX2w/AWZL4Rbymf/9KIJLvPAI2yizPwpP7zTA4sa0BwR5+lHi3F32NyxLjPDza7HH0QkMnvFpToadCa5XSq0VdHGGi2AiMMQKYFpn1lPDbLOn0LP4GkKViEM09gaAJu98K8p8fpVh6UC80ER72KfQbn0/R0fLKhnumLOLLC1/YYaR6WvC7K31ggV84A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cC/h3QfKMJzrRDSZDbq93SJp3ae5x/zr+tomjc57MZ4=;
- b=IpQt1Ciytex5Psjh988n2GgL3abmpDOHhwo8H9vI/bK2PWkYJvGIZPC7Q34tDy9VkP2/ukfmTgu0fXlzbiKy2D6jZt0zm+l2GVyWAH964IAeIaTSDQxQFf04HVCv89eEEURX27IJR4UdWr0PWFcx+VFB7NFG/SPHnJWELkLZnnGI1buWGnrUnXuPXn+xh7WPErfyTUGUeY9/vStuq9snTvxujcgGdyk65a4MtM3k+tOqwAXlr9obVmax/d5lYeoZfeEa7AiDr4M+WuXf+RA4Z+yzL7lYrS9C/DRYcw+xKiFCZmr0OkzpPbT9s06GFTQfurRCoxsO3k9MCRvm+IRwOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cC/h3QfKMJzrRDSZDbq93SJp3ae5x/zr+tomjc57MZ4=;
- b=kGRS8du9PfHMDZo2AcC9NDA5oeNPmPyVCTu3c2PjpsxJyGymjcRLq+l3wcGefbCRv8b0LSJ3dKq+metW1+zBFS3R25sI6tciF7IB7h7HWNZZzG9BKaIAfE0MLR5x/7QF6nY08ZL6jSmWea+BMlhSN6bZSBW/2449sS4XW0vRGIg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- CY1PR01MB9243.prod.exchangelabs.com (2603:10b6:930:106::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.17; Thu, 4 Sep 2025 17:54:15 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.9094.016; Thu, 4 Sep 2025
- 17:54:14 +0000
-Message-ID: <1c9093da-3ae5-4d13-a56d-592f92a63d51@os.amperecomputing.com>
-Date: Thu, 4 Sep 2025 10:54:10 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 5/6] arm64: mm: split linear mapping if BBML2
- unsupported on secondary CPUs
-To: Catalin Marinas <catalin.marinas@arm.com>,
- Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Ard Biesheuvel <ardb@kernel.org>, Dev Jain <dev.jain@arm.com>,
- scott@os.amperecomputing.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <20250829115250.2395585-6-ryan.roberts@arm.com> <aLnFd1Hl_FSHZR3z@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <aLnFd1Hl_FSHZR3z@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BYAPR06CA0020.namprd06.prod.outlook.com
- (2603:10b6:a03:d4::33) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	id 1uuEey-0000000DYFF-3o7P;
+	Thu, 04 Sep 2025 18:26:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757010370;
+	bh=ZVdFeXDHFTGKIbHi47qBjTijLaJeWpzS+AmwXx8Vgko=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=JIrxRGq3SWliP09Sjp2aJF+aVSU4eXyl5sFSGJpZ+LY1h4oR33D6cP15Hlf30yTju
+	 fcfimSXRPWisGH/8Saa8V3Y+wo1h5bZLrsUWgVyJp8u5u957qzsPJV12ocye3b+I3i
+	 ppDmLp32p5vdqyK2u4xuZS+lb1IjK0eYS2VvFm9UCRBwP75BGKm7p5VvgfNb16RBNP
+	 m2b9+SrHTYymy8qOqQMdm5ZkV/LXjWs55XWS0dIX5weiBzNZkgLhrwv2SGjI1AR4fD
+	 wY0HQVESiosKOK8/McwjxwxxCXyunCF1og6X3KCZIcKp+HJP6FKq/thEJjb2DZ2s7n
+	 rsONdHfyE5Z9g==
+Received: from jupiter.universe (dyndsl-091-248-191-002.ewe-ip-backbone.de [91.248.191.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7FEBD17E013C;
+	Thu,  4 Sep 2025 20:26:10 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 3F47E480048; Thu, 04 Sep 2025 20:26:10 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 04 Sep 2025 20:26:03 +0200
+Subject: [PATCH RFC 2/2] arm64: dts: rockchip: add USB-C DP AltMode for
+ ROCK 5B family
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|CY1PR01MB9243:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0214ec3d-000b-4ddc-ee7f-08ddebdc0f73
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MExkN0RBaGVXcjRySzEvTHFnU3lTUUVjcFc1c2FoZTZzYXQzeDg1OHVvbk5u?=
- =?utf-8?B?alBRVS9SenlOUk81VmxvTEw5WW1nREhtU1hWc3o5L1pCK0lSYWMvVGFlR0RQ?=
- =?utf-8?B?Tk9ja21yKzlsL0JCSWxmRVoxVXhqSktScDNjWWYrRWlVVVEwdGpxdHlMbXZj?=
- =?utf-8?B?bWlLZEpKcTh3N0tOTXExN3hJYnFQdWFodFo0RmlpTlZCL0pWMnY4eGhoNyt6?=
- =?utf-8?B?RGpGWFRIcWhwc2hsSEJZdTRNMStxSENFRTFjQ1o1Y0VmWVlFUi9YamNaMHg4?=
- =?utf-8?B?V0NZdUFLSlhMUktxODhjYmlIZkFVbEF2VnBHOHN4WnljNE16MXRTSnU1OVRt?=
- =?utf-8?B?SXhRTGpBdk4yNWxHMit1UHVqeU5XcTNIUmZnUzhLUzRyT2hNa1I4SXNOZEtE?=
- =?utf-8?B?d0R0RUNrb29VTEpVUEEzS1lCdk5saGF2bHNXcTM5WEVLTXhFZHdCeU9tNVN5?=
- =?utf-8?B?amlBSmpmVDE5SzFtbENPekQxbGF4bU5naVkwYi9pS0IrZkRTSEtsdklteEZm?=
- =?utf-8?B?UW5weWFZRUZ5d3R5OUNxZGcvUkRja0NVNFZuc3diVzFsNCsvbFF0V1YrVHJS?=
- =?utf-8?B?NDRHK2pXblVhbUN5R2UzaGxleHJWZ01CbVU4aWcxMUpLRzdCTWJUcXROdTdq?=
- =?utf-8?B?dmI5dlVyclpnbC9xTktQTU5HeEFxdEhRTS9mdWhZc1kyWG5BYUZGbFBKT1hO?=
- =?utf-8?B?ZVl5bFFOWXNWNmtWM0ZSdVgzZW1rbExuWnV5V1VySW5ucUpneE5ZTHFuQVo5?=
- =?utf-8?B?MENTY2FrdmNlemxOKyswbHRMcUxZR01YZjF1S0M4SDdFMVpHVkpRSDJ1YTFu?=
- =?utf-8?B?bi9zcU5sSTZKaGp1eFh5RHZDVkt4MHlCd0IxVXlQYTM1Sm5TbWVKYXZaUDZq?=
- =?utf-8?B?cUZaY2w0ajlGRFArNHJwN0MxNUxJSDZWY25WZm1uOXRIVUd3YXZWblJ0K3pS?=
- =?utf-8?B?UWY5Z0ZGeU1BVlZPcXhhNEZ0ZTUrOE5HeXlYaERrTTBoT0VoTm5nSm1ENFNs?=
- =?utf-8?B?bklmdHJIK2t5ZlU1V3MrN2h5QjlFYkZJUzhPYUhZWUZUTFBpcHE2cHdYN280?=
- =?utf-8?B?a0NMVlc0T2JPVVZrY2JRQVRYTXVHM3JNNTFGOG8zeldTcE96NEd1OWgwd2pq?=
- =?utf-8?B?WWtIZlZPdXZTc3FHOXI0bVRDSkNObThQY0FNT2lOK0JZVGk5cEE4L0Q4L2ZK?=
- =?utf-8?B?YU5kMzZ2bUJUSXYzN0ZCeTdJS3BJYUJESjUvMDhkM2UybCtGc3hoNkdVS2t5?=
- =?utf-8?B?dlViUE9JMTVKaGxMaUF0Z3B6TEdweWl5dmJRNzdiVmFaQzFucFk1d0J3QUJ4?=
- =?utf-8?B?bEltVEYrYnFHWlZXSW5SQUZTZkdzUlQrejFIb0JkS2M0MGxiTG1FTjFFaHZI?=
- =?utf-8?B?ZmNWSG5NaTl1Rlh2WXhnOGlBd3hmbWhmREhZL1BxVUEycTJnNkR0UmRjWEU0?=
- =?utf-8?B?OVlCSWlEbkltYlBtcGZlZ0hkMlJncHNyb0hlMTBabTlXdFBpN090cmNxVEdp?=
- =?utf-8?B?WlFUOWVIdDMxOWs0cnFKamVRSHlieTBNdFFXZzZmS0ZiaGhCNGR0Q0RlVGxp?=
- =?utf-8?B?Y3F0ekpNemZHdm5iL2ZRc2MvOUNUSkRpb1RRaUFvb3poOFNjK0puKzR2OUMw?=
- =?utf-8?B?ZnVHTnNxMHdSaHJUOVlCbUFtN1lFOWdjcTRNdDF2YWJiejY3ZE1ZTzQzSXB4?=
- =?utf-8?B?VmdOZFNPVE9USFhzSXNKcnp1ZXdWRnJ4SkwrRlpUd01tY09mRnZkQ0RBQ3Jh?=
- =?utf-8?B?UG04eHFZbC85eTM1Y0x1eEFKVWFYTDNnWnlTbll0aUxuS09lUmxRTGhNZWl2?=
- =?utf-8?B?dXJybmNlaVovUUlXMWlGaXJqZ1p2OU9Ua3N6MDhkQlZLMFpCY1h4c3JURHND?=
- =?utf-8?B?S01qcER5RjdMUzJHN2JkZUNQbFZvOWFjMmVNQzA1S0t2ZWM4ZEFxVVlid1Zn?=
- =?utf-8?Q?qO9ls+r9Aw4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZVQrSmVsSCtNTGdybWFmV2dBR1h4L2QrdHRzSlZ4U3JSV3BHMmlBQVNJRjVP?=
- =?utf-8?B?Ri9NRE1hWjkvU25zL2k0dkNYbHFzMjhTemozTTk5bTdsMW1FZUlCZlFRNndv?=
- =?utf-8?B?dnpuaXJkSTRjMW9nc25PN3VhZmdJbmlxN1VBSGZ3TUhrcDJxa2dEa1JaU1lD?=
- =?utf-8?B?SHI3eHJVWjYrRi9ORy8rYnN6SFdpeVIwSFM0MXNhdnQzYkUwZ1h2QjBkMGU4?=
- =?utf-8?B?VlRYNWNLKzJQSGF3R1JvNXl3YVYrc1Vua2l4d29uRTBnVncwM1dORmpoTWdI?=
- =?utf-8?B?U2V5RGdBdTVjSWpDY1NwYytiSFVFek1VVHVGZlBETlRPbmJpNEtlRjRxY3FQ?=
- =?utf-8?B?eGRmTnNvUkZLeE51VnZQbFBaeVZDS1VoVUg3NVpmRDVVZzBMVHh3RUhGWE13?=
- =?utf-8?B?V3kwWUpYZGZHNUhBV0dDblJMWnh2cmJySDhIWlBVYkdKaW5uT0VXZkF4N3FM?=
- =?utf-8?B?NFNudkhpV0VvM01NZEkzZHFDdXMzYzBXaG4wSmpHMzYzZVdERXpPNUVIeFI2?=
- =?utf-8?B?ZVJoeE9CRXMwY3JsYmwvZXlrWEtPV1UzOFpROWYvdHUrL1M0dDRsVzdCOVN3?=
- =?utf-8?B?VWdoVUN2a2YvNTZZcWFBNWt2M3I1SzFPVGpJYzNkMWNpYjA1ejhzR2RaY3Vq?=
- =?utf-8?B?a1lqbElyQjV2aEE4NnBxUytTRi9aSU1oQlcvWSt1YU03d1pwUlFCQVpDV0tm?=
- =?utf-8?B?My9xdUhyTTlicWlLVUNRT2kwcHpPKzVyZ3lOc1ZHRXNoNVI4UmRXZ0FURTRp?=
- =?utf-8?B?V0pxYWs1U1h6dEdJTkFnbnR2UHN3bWZKYitRNFduTlhWUTZqN2YyV1dVcStC?=
- =?utf-8?B?SytQc2l4ZnM5NkR3dCtCcEZZNC8zRnpuVEdqMFpoL2FWcFl1NUdCMHN4dDZq?=
- =?utf-8?B?SjNZVFZyWlE2YmdKeUx5TXJHWGFwQ3lvVjcxQzh0TmJ3UkxjRllDNmtmTjNh?=
- =?utf-8?B?N05qTys0STdDaFN3Y2tpS1VYSVA2SEhvdmpkMjBWMTNEZ25hSUlBME1OVE1v?=
- =?utf-8?B?aGh6dmtJNWxHRlltZXNJM2NPL3BraWJXYUlub0t3QWZhdzdiMTRuZys5N2NG?=
- =?utf-8?B?VGR1ZXpPa1FLVVo3S3BSODJFWHZabW5pOGhNdytqSy9DWUdBc0lKV2RMVGFp?=
- =?utf-8?B?b2d1V3ZGWXJPdjhOQ3UwbENNK1JvMjlKMHd4NUlYTjBlMmZrOUN3dnpuWHhz?=
- =?utf-8?B?aXFDTTY0K3FtSHd0R2E0WGIzR0lCQTJiTGx2QW80eWE1Um5jK2ErQW42NFdu?=
- =?utf-8?B?SStaMVlVT3d5Q29taGhLb0tMMkhmRElETG9ocXNOdUZpRlBWZ2ZDbkt4L092?=
- =?utf-8?B?eEtNUnB1SUI4bjNUWnAxUzJsa1RkSHRkdHVpMlg5dnYvZ2dNTFlrSW1CMTlj?=
- =?utf-8?B?LzFnUElrckM0RDd0ZkR4WVpvNHVaQXNxcm0xeDVCaGppdHhyWHFYK1c3MHIz?=
- =?utf-8?B?dElpRVFiVVNCdGVXUVFSd0hxYzJFUXNhdTFraEZhR09PV25kQmpnby92MDJG?=
- =?utf-8?B?THlWKzFncWp0czdWZHVFY2xZQzJnZDUxRmwzU1hVc3p1SWtUbnNBQlpYUldm?=
- =?utf-8?B?ZVBJMmVKWVVOZy9VQVJJV0F1L1o2THNydWdwNW0vNEtCUEdrbDc4aEhidzZH?=
- =?utf-8?B?SVgzVDJCTGd4UWNCVWowZDlJRkpMci96ak0rekdRcE56N1ZEOXRtYmk4MFAy?=
- =?utf-8?B?aVYxVE81N0dFeVhBYUFUV0NUekEwdzlRU3dhTnVtZnRvbmFQcERFZWJDTVll?=
- =?utf-8?B?ZEJLbjVCZGNrZGNBOFMvRnA1L0lzeStyR256ZE51VmdYYlpTV1FkL0xGNXJn?=
- =?utf-8?B?eVJUejJycHFlbzc2U2ZKaE05UmNQK2tQVGtSWnd6em4rY1BGK1dmdmhRNTBz?=
- =?utf-8?B?L2VqSUkzWFR2ZzB3NW83SGdNZjQ5SGU2RjlJeGdiN1ljdFgzZmxmNlg4aGE1?=
- =?utf-8?B?R2ZEa29TNGZUenlZM3l6TzUxaEtFK25HdHZaL0ZZa1hxOGlUYUlhSjZWRllR?=
- =?utf-8?B?TEFCQzVJYUhOcnl1NFY3bUJpeGdaZW5PbGExSFdwbFBFZnJjQVNhaERJOThH?=
- =?utf-8?B?MmMzSzlhOGY0bjNJMDZWbTBmV1ZpS3FwbmVXVGRkb1B2K3BPRUI5Y1hWckg2?=
- =?utf-8?B?KzU4ejFKWG83dTJ5OEJPTXdQZzUvaW10cHkrVmpNK2d0THRxL0FxRDRuai9Y?=
- =?utf-8?Q?YniU0i9JTs8rNJwNkLBKtgM=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0214ec3d-000b-4ddc-ee7f-08ddebdc0f73
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 17:54:14.3036
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Dw1LO208X5TzTNnfQujIDbOgBdXNGyWYp3f7WHX9I6IMJiIxi5n1HklJ4j96DL2pRyXJULi31xOPsDYTOguB6EzFTd3HeSL/MTHYgR7elAU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR01MB9243
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250904-rock5b-dp-alt-mode-v1-2-23df726b31ce@collabora.com>
+References: <20250904-rock5b-dp-alt-mode-v1-0-23df726b31ce@collabora.com>
+In-Reply-To: <20250904-rock5b-dp-alt-mode-v1-0-23df726b31ce@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Frank Wang <frank.wang@rock-chips.com>, 
+ Zhang Yubing <yubing.zhang@rock-chips.com>
+Cc: Andy Yan <andyshrk@163.com>, 
+ Maud Spierings <maud_spierings@hotmail.com>, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3114;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=ZVdFeXDHFTGKIbHi47qBjTijLaJeWpzS+AmwXx8Vgko=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGi52cIp7eVpQA0Sd4OgFJVSHe8qO0vCnXosU
+ qmEq3m50tCTH4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJoudnCAAoJENju1/PI
+ O/qay8wQAJH3PDFyf3UnbO0a1rGWzh1hcXe50Z/5Q1MxNcHheOwdmwHkWa70/uVf/bhf/mOicjJ
+ Yb2DRUJalYIkOrr8fwHXOwMTSZTnyrrukuxOlhgF0hjZuP0/CAFuyTyx8G0ji35rO7PeSSXxwI/
+ BY4F+r1+hBuzIcKOI+SkSYKLdYlGXdvtyzsqw3oAYbT8m+WLu4Tr00vMvm1QJ9swLh/WM4AjXMj
+ OYgySJ7dJ5Pe0fwernjaqEWWuBFDKuW98HRTuPOzXGz2RFBVyBzt6qXlrStDEWAivYHV7FwdN7S
+ t1y7YbS1KUMM09NTb3QY+ghMjs/5wy/swkSpBHSkimghnfvlXTpi/Di0zPOBDKVOI5oqz68c4cr
+ O/Z5RMikQ2cG1IH7OtIAeCXLNNb2U+B/EuXqLPHu95zesY+d1hitUTwVF8nNUVGO2rgqxky3Sq1
+ EXXpguMKIDUQdKLHYolIpUWj/CpRFwZV2qyIqAtvJiKjl7mD870NKvGgPPbBEBzNYWpfxVPS1a6
+ Vxomx6Oqk6pEKz0cp/ABN8JxICgmpehOKIHs3a+lZG5TZbkUfHJgJYUvHyamG3gk6WcD8B4prky
+ p1DOplrdMbLPaGmt8bYVlYETLJ+vncOcrVyMDrz2/ShMEqjkjjTfypZXpgMsjtieLG9IvbgWzLK
+ diBXhm+Yz/GW3rBTPE7Y3Dg==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_105422_531825_18531608 
-X-CRM114-Status: GOOD (  22.57  )
+X-CRM114-CacheID: sfid-20250904_112613_118846_A6C9A7BF 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,63 +101,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Enable support for USB-C DP AltMode to the ROCK 5B/5B+/5T.
 
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   | 83 +++++++++++++++++++---
+ 1 file changed, 72 insertions(+), 11 deletions(-)
 
-On 9/4/25 9:59 AM, Catalin Marinas wrote:
-> On Fri, Aug 29, 2025 at 12:52:46PM +0100, Ryan Roberts wrote:
->> The kernel linear mapping is painted in very early stage of system boot.
->> The cpufeature has not been finalized yet at this point. So the linear
->> mapping is determined by the capability of boot CPU only. If the boot
->> CPU supports BBML2, large block mappings will be used for linear
->> mapping.
->>
->> But the secondary CPUs may not support BBML2, so repaint the linear
->> mapping if large block mapping is used and the secondary CPUs don't
->> support BBML2 once cpufeature is finalized on all CPUs.
->>
->> If the boot CPU doesn't support BBML2 or the secondary CPUs have the
->> same BBML2 capability with the boot CPU, repainting the linear mapping
->> is not needed.
->>
->> Repainting is implemented by the boot CPU, which we know supports BBML2,
->> so it is safe for the live mapping size to change for this CPU. The
->> linear map region is walked using the pagewalk API and any discovered
->> large leaf mappings are split to pte mappings using the existing helper
->> functions. Since the repainting is performed inside of a stop_machine(),
->> we must use GFP_ATOMIC to allocate the extra intermediate pgtables. But
->> since we are still early in boot, it is expected that there is plenty of
->> memory available so we will never need to sleep for reclaim, and so
->> GFP_ATOMIC is acceptable here.
->>
->> The secondary CPUs are all put into a waiting area with the idmap in
->> TTBR0 and reserved map in TTBR1 while this is performed since they
->> cannot be allowed to observe any size changes on the live mappings. Some
->> of this infrastructure is reused from the kpti case. Specifically we
->> share the same flag (was __idmap_kpti_flag, now idmap_kpti_bbml2_flag)
->> since it means we don't have to reserve any extra pgtable memory to
->> idmap the extra flag.
->>
->> Co-developed-by: Yang Shi <yang@os.amperecomputing.com>
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> I think this works, so:
->
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+index 3bbe78810ec6f279a36d51d2fcef4a0f3f53036b..1e284dc48bd3fc2009f5f261e116bf8dbb96d7bd 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+@@ -177,6 +177,22 @@ &cpu_l3 {
+ 	cpu-supply = <&vdd_cpu_lit_s0>;
+ };
+ 
++&dp0 {
++	status = "okay";
++};
++
++&dp0_in {
++	dp0_in_vp2: endpoint {
++		remote-endpoint = <&vp2_out_dp0>;
++	};
++};
++
++&dp0_out {
++	dp0_out_con: endpoint {
++		remote-endpoint = <&usbdp_phy0_dp_in>;
++	};
++};
++
+ &gpu {
+ 	mali-supply = <&vdd_gpu_s0>;
+ 	status = "okay";
+@@ -352,21 +368,21 @@ ports {
+ 				port@0 {
+ 					reg = <0>;
+ 					usbc0_hs: endpoint {
+-						remote-endpoint = <&usb_host0_xhci_to_usbc0>;
++						remote-endpoint = <&usb_host0_xhci_hs>;
+ 					};
+ 				};
+ 
+ 				port@1 {
+ 					reg = <1>;
+ 					usbc0_ss: endpoint {
+-						remote-endpoint = <&usbdp_phy0_ss>;
++						remote-endpoint = <&usbdp_phy0_ss_out>;
+ 					};
+ 				};
+ 
+ 				port@2 {
+ 					reg = <2>;
+ 					usbc0_sbu: endpoint {
+-						remote-endpoint = <&usbdp_phy0_sbu>;
++						remote-endpoint = <&usbdp_phy0_dp_out>;
+ 					};
+ 				};
+ 			};
+@@ -993,18 +1009,41 @@ &usbdp_phy0 {
+ 	orientation-switch;
+ 	status = "okay";
+ 
+-	port {
++	ports {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
+-		usbdp_phy0_ss: endpoint@0 {
++
++		port@0 {
+ 			reg = <0>;
+-			remote-endpoint = <&usbc0_ss>;
++
++			usbdp_phy0_ss_out: endpoint {
++				remote-endpoint = <&usbc0_ss>;
++			};
+ 		};
+ 
+-		usbdp_phy0_sbu: endpoint@1 {
++		port@1 {
+ 			reg = <1>;
+-			remote-endpoint = <&usbc0_sbu>;
++
++			usbdp_phy0_ss_in: endpoint {
++				remote-endpoint = <&usb_host0_xhci_ss>;
++			};
++		};
++
++		port@2 {
++			reg = <2>;
++
++			usbdp_phy0_dp_in: endpoint {
++				remote-endpoint = <&dp0_out_con>;
++			};
++		};
++
++		port@3 {
++			reg = <3>;
++
++			usbdp_phy0_dp_out: endpoint {
++				remote-endpoint = <&usbc0_sbu>;
++			};
+ 		};
+ 	};
+ };
+@@ -1025,9 +1064,24 @@ &usb_host0_xhci {
+ 	usb-role-switch;
+ 	status = "okay";
+ 
+-	port {
+-		usb_host0_xhci_to_usbc0: endpoint {
+-			remote-endpoint = <&usbc0_hs>;
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++
++			usb_host0_xhci_hs: endpoint {
++				remote-endpoint = <&usbc0_hs>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			usb_host0_xhci_ss: endpoint {
++				remote-endpoint = <&usbdp_phy0_ss_in>;
++			};
+ 		};
+ 	};
+ };
+@@ -1066,3 +1120,10 @@ vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
+ 		remote-endpoint = <&hdmi1_in_vp1>;
+ 	};
+ };
++
++&vp2 {
++	vp2_out_dp0: endpoint@a {
++		reg = <ROCKCHIP_VOP2_EP_DP0>;
++		remote-endpoint = <&dp0_in_vp2>;
++	};
++};
 
-Thank you!
-
->
-> However, I wonder how likely we are to find this combination in the
-> field to be worth carrying this code upstream. With kpti, we were aware
-> of platforms requiring it but is this also the case for BBM? If not, I'd
-> keep the patch out until we get a concrete example.
-
-At least we (Ampere) are very very unlikely to ship asymmetric systems 
-AFAICT.
-
-Thanks,
-Yang
-
->
+-- 
+2.50.1
 
 
