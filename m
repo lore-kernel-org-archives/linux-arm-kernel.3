@@ -4,107 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DCACA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 12:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC7ECA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 12:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/7Qpa+5E2bmrsAWbeCTA0pTKwZXMSCn3kr8RYnaO9M=; b=bGkxnn/GvRumcVHBJwbuYHz03h
-	OOWyVWWVjDcsL3qWF2zQs0oBIjostmNch1jOjWEEDo1mW5B3gn1aqIGr0HYlEOldTUZvSMAC+wpx1
-	eSqwd60XGv76uEYP+qCle3izTCL6FyI6ewQ83aovYvGVS6KicjJh5u5QS9PB6GV1SgXKZp54dqilC
-	hOGL5Q9iTV8foULz48sTEUjgu6FhTetyQUx81j6Zbhta0sLo3okWPktSVI0g5ICN2U3F9LjHnhAou
-	pyOifPFq9SrSQ5n6cZKyF0NWlnNjusalGM/z72YJyx9n8H+3j5cGbQJvbj7JAsxJzfQcmkZO1jFZm
-	n2a/uAqA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZFFCk3oD5mOkAzLuXB6XLVMdJMHaibq0TJviAsZVl/c=; b=FIVZnMHIBHdp32iiE68s4gxEiG
+	P/BMg6FV3q7Gs5oMzeMKlT24BSYSgovEg5uXMCmRceehZnSHBvpwCc5SLIS9fSX3roPrNpNDhUp3k
+	qfVYwzC21MZsr+4wq9H2EIUkbdKUWyRM2UYkm2YOaFpUqV2S3Enmbl3ZC5qqZUWbHgoEfl6Fn7nnm
+	E+pOb9H9evF91ArldYZJl1dm2Xsz5iqHGg9mpfhg9ZZ2TCfBR7CQDYfOESTgdHPV3BHlZFWMLr4oZ
+	MYrjheQg43ww3igXq1ICfqEC0HX+Oml83rAhufVfS2TFHJWVe/4AUO9DAVLEJXprISqYrhwniZp87
+	PHTMW8pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu96I-0000000BZdB-0rif;
-	Thu, 04 Sep 2025 12:30:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uu98z-0000000BaaL-1bg4;
+	Thu, 04 Sep 2025 12:32:49 +0000
+Received: from mail-m49201.qiye.163.com ([45.254.49.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7jE-0000000B4Y2-2VPq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 11:02:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EBF7540AE3;
-	Thu,  4 Sep 2025 11:02:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95525C4CEF0;
-	Thu,  4 Sep 2025 11:02:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756983727;
-	bh=ZpDcHfqbkNtTxnr0oZm/g5zBZ1ZFTvCY+OSWik2dRxo=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=leNnvCIzUqbZXSKYxxwQATWQSVml0HMUG7F0t2gRvGtH54Y/HEB1PvGlarlYt8DmX
-	 CEA3ssCqmQTLjt8w1vEiQlltNs4cPFPhVu4wgatF0Vbb4AJvT5jSUv3cvpwmb0OLBt
-	 w9TcLFndUURBe/vyJpZFF6xamj2ZgQC7ykwqIosQxmQYXtNLBOi7NGuvXdz/C358hG
-	 2nc7eoAQFYONDO/a324NAC4nIDctkcqTJyFq8BiDZR73meXE8Pi0BWL+PQJMV9iGaK
-	 7jct9tthS63A7t4gNgNBF+ChDwlYwfpe229MKb27TkVAFjYI62HUinsjHTM8cqqOR9
-	 qhQrIaa9IIf6A==
-Message-ID: <f5953064-b369-4c17-ab09-d45a54f9d4f1@kernel.org>
-Date: Thu, 4 Sep 2025 13:02:03 +0200
+	id 1uu7kJ-0000000B4xF-1qbR;
+	Thu, 04 Sep 2025 11:03:16 +0000
+Received: from [172.16.12.153] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 21b2ed1f3;
+	Thu, 4 Sep 2025 19:03:11 +0800 (GMT+08:00)
+Message-ID: <b5fbeb3f-9962-444d-85b3-3b8a11f69266@rock-chips.com>
+Date: Thu, 4 Sep 2025 19:03:10 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j721e-main: Add DSI and DPHY-TX
-To: Harikrishna Shenoy <h-shenoy@ti.com>, nm@ti.com, vigneshr@ti.com,
- kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, devarsht@ti.com, u-kumar1@ti.com,
- s-jain1@ti.com
-References: <20250904105915.3043773-1-h-shenoy@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH net] net: stmmac: dwmac-rk: Ensure clk_phy doesn't contain
+ invalid address
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+ Yao Zi <ziyao@disroot.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+References: <20250904031222.40953-3-ziyao@disroot.org>
+ <aLlwv3v8ACha8b-3@shell.armlinux.org.uk>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250904105915.3043773-1-h-shenoy@ti.com>
-Content-Type: text/plain; charset=UTF-8
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <aLlwv3v8ACha8b-3@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a991465108003abkunm0f56a227434cd4
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxhDQlZLGR4dShpIS0pDQkxWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=Xit9gLr6c2F67gZWiRJ3knK+6v3aqUFhgRcIQ2qpT3IVYWVLjxjDx+93FZxit8MYIQ2q4QDexxikifP7ohn/GuR6WZl8TXLXN7BsZSF1phcaUvWq4h0bSxKVFlB7oNT+jkw/9A/nyTQILFNQSy4ZP7NbYAiYNyjQ3WrTJxtEWzs=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=ZFFCk3oD5mOkAzLuXB6XLVMdJMHaibq0TJviAsZVl/c=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_040208_679160_4201912F 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250904_040315_648925_1E4AF7DA 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +77,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/09/2025 12:59, Harikrishna Shenoy wrote:
-> +	dsi0: dsi@4800000 {
-> +		compatible = "ti,j721e-dsi";
-> +		reg = <0x00 0x04800000 0x00 0x100000>, <0x00 0x04710000 0x00 0x100>;
-> +		clocks = <&k3_clks 150 1>, <&k3_clks 150 5>;
-> +		clock-names = "dsi_p_clk", "dsi_sys_clk";
-> +		power-domains = <&k3_pds 150 TI_SCI_PD_EXCLUSIVE>;
-> +		interrupt-parent = <&gic500>;
-> +		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
-> +		phys = <&dphy_tx>;
-> +		phy-names = "dphy";
-> +		status = "disabled";
-> +
-> +		dsi0_ports: ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
 
-Missing ports. This is quite odd to see only cells here. You probably
-wanted to omit endpoints, but ports are fixed per SoC.
+On 9/4/2025 6:58 PM, Russell King (Oracle) wrote:
+> On Thu, Sep 04, 2025 at 03:12:24AM +0000, Yao Zi wrote:
+>>   	if (plat->phy_node) {
+>>   		bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+>>   		ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+>> -		/* If it is not integrated_phy, clk_phy is optional */
+>> +		/*
+>> +		 * If it is not integrated_phy, clk_phy is optional. But we must
+>> +		 * set bsp_priv->clk_phy to NULL if clk_phy isn't proivded, or
+>> +		 * the error code could be wrongly taken as an invalid pointer.
+>> +		 */
+> I'm concerned by this. This code is getting the first clock from the DT
+> description of the PHY. We don't know what type of PHY it is, or what
+> the DT description of that PHY might suggest that the first clock would
+> be.
+>
+> However, we're geting it and setting it to 50MHz. What if the clock is
+> not what we think it is?
 
-> +		};
-> +	};
-> +
->  	dss: dss@4a00000 {
->  		compatible = "ti,j721e-dss";
->  		reg =
+We only set integrated_phy to 50M, which are all known targets. For external PHYs, we do not perform frequency settings.
 
 
-Best regards,
-Krzysztof
+
+>
+> I'm not sure we should be delving in to some other device's DT
+> properties to then get resources that it _uses_ to then effectively
+> take control those resources.
+>
+> I think we need way more detail on what's going on. Commit da114122b83
+> merely stated:
+>
+>      For external phy, clk_phy should be optional, and some external phy
+>      need the clock input from clk_phy. This patch adds support for setting
+>      clk_phy for external phy.
+>
+> If the external PHY requires a clock supplied to it, shouldn't the PHY
+> driver itself be getting that clock and setting it appropriately?
+>
 
