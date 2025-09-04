@@ -4,72 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21EECA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36EF2CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Pv7gLZfaHpCfvYA7jgKY12bGc2k5o2bDh0NsFAfVIEE=; b=CW0fHFbHNYejczuNvrrg8rrPzG
-	GhkYV8lOIC3df9wxMiVklFoIy+0+ij02Xed7ACPn6YE8VOkM3H0gE65SaXUgM2iQjnAY9/+dbGAkg
-	XBUN4gZsFUHyn/abOkS3xVKAUCB/aphcEIbAKfr2546sqoq9OLPF/rbaUQyR4mHeLNkKe7c59ul7E
-	H33eiMiI7xoluqV1fFXGpQ4xiJNRaC8bG89SMKMKx+fyVM9XFBwSnfFbSed9BaeVzpsDBSRB0m8JX
-	++I0b1hnSwkEo6ZVzOPMD4VRu7CV7tOaJZGmr1K3W4LpuKTeb4X+kTz41PLPC68B0akY2EbAJyRgP
-	5B7I03aw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S3bQF2gp251DcQgalU4BELuM5R45YeVQZjcPHAOrjvE=; b=bdWS7XeCkbCUZ+gV2949JSgRpN
+	3m27e5wdlgKmBQlZjrh1tqbyPKXPMP01dHSkkXwd1oEoNnHQf1lnRbFufvlMJaveZRmYcacV2Tv5V
+	MPaeyW1wMrsQ4xLTkLAXGitYj2EdEcY9wTE9/DPrlPs0+BfVhjNq13hJRudku7UINd2XC/IVYyiZg
+	hGkV/dLpyJnSsiXnaOE2PnBlD1DxKh/gUgD0bNBYNPLTcveWHNgc/rKHX7NQLmxgtibNy+ReYUwcD
+	lL1kP1ob+6gxBLhpYyUZWCbF2tZYK5Vdumr21WjTnbikt1nIwydi326dh1b6IxxVVR9WJvtOiF4jg
+	ift2OfHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM6D-0000000G59l-48us;
-	Fri, 05 Sep 2025 02:22:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uuM6G-0000000G5CC-0KNg;
+	Fri, 05 Sep 2025 02:22:52 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuIBj-0000000EmZp-3zA7
+	id 1uuIFS-0000000Enlc-2LmQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 22:12:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757023933;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Pv7gLZfaHpCfvYA7jgKY12bGc2k5o2bDh0NsFAfVIEE=;
-	b=fOTYIjBwFx+FiHz5eE2VkIriyoOtipXlORSnihU9+f1d8C+f68LM16/sI22dTctbnATKHA
-	drKL3+zZ/IB5Hms3E5yEyg25oBKFkFZvX64Nc8ivK5UwAa4gg1RwWEHks+hhQcXiwwClDn
-	NZjdj1Edu+tChFnN67jwqNyJVjhRJbk=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-363-W4Lo03xJMwGwTiyDUWiZDQ-1; Thu,
- 04 Sep 2025 18:12:09 -0400
-X-MC-Unique: W4Lo03xJMwGwTiyDUWiZDQ-1
-X-Mimecast-MFC-AGG-ID: W4Lo03xJMwGwTiyDUWiZDQ_1757023928
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	Thu, 04 Sep 2025 22:16:11 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 00813C00151A;
+	Thu,  4 Sep 2025 15:16:05 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 00813C00151A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1757024165;
+	bh=FfkRI+Thfq9FLWdeGquE+YXJSXWp3aWZQCznOMbITyI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=jj5agdIupuNpfglCUEa2dAc3pRYIR+M/3P1yNtjfospVkOl8dfiOPDXtFcjcZc0sl
+	 eArjms3P9QmpLWWz9ORrwX30AtSoOAraPOsvB//vvB6dy32Khkc8G+s3384E8r85bd
+	 e9z4/294XS+ibqTGk0Y2m9N0FdrJIZhZb1BgLxlg=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B8C8E195419F;
-	Thu,  4 Sep 2025 22:12:08 +0000 (UTC)
-Received: from [172.20.143.215] (unknown [10.30.44.138])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 285BF1800452;
-	Thu,  4 Sep 2025 22:12:07 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.17.0-rc4,
- upstream-arm-next, b320789d)
-Date: Thu, 04 Sep 2025 22:12:07 -0000
-To: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 58A7C18000530;
+	Thu,  4 Sep 2025 15:15:34 -0700 (PDT)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: bcm-kernel-feedback-list@broadcom.com,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com,
+	Matthias Brugger <mbrugger@suse.com>,
+	iivanov@suse.de,
+	svarbanov@suse.de
+Cc: Florian Fainelli <f.fainelli@gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: broadcom: amend the comment about the role of BCM2712 board DTS
+Date: Thu,  4 Sep 2025 15:15:33 -0700
+Message-ID: <20250904221533.227156-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <47f6368a77d6bd846c02942d20c07dd48e0ae7df.1754914766.git.andrea.porta@suse.com>
+References: <cover.1754914766.git.andrea.porta@suse.com> <47f6368a77d6bd846c02942d20c07dd48e0ae7df.1754914766.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-Message-Id: <72875.125090418120900863@us-mta-363.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: j6hJkSliNn4BOANla_5vjcWogieCIkSYKeBdL0IodTo_1757023928
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_151216_062208_24D809E8 
-X-CRM114-Status: UNSURE (   7.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250904_151606_695708_91CC7B16 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +109,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+From: Florian Fainelli <f.fainelli@gmail.com>
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
+On Mon, 11 Aug 2025 16:12:35 +0200, Andrea della Porta <andrea.porta@suse.com> wrote:
+> Current board DTS for Raspberry Pi5 states that bcm2712-rpi-5-b.dts
+> should not be modified and all declarations should go in the overlay
+> board DTS instead (bcm2712-rpi-5-b-ovl-rp1.dts).
+> 
+> There's a caveat though: there's currently no infrastructure to reliably
+> reference nodes that have not been declared yet, as is the case when
+> loading those nodes from a runtime overlay. For more details about
+> these limitations see [1] and follow-ups.
+> 
+> Change the comment to make it clear which DTS file will host specific
+> nodes, especially the RP1 related nodes which should be customized
+> outside the overlay DTS.
+> 
+> Link
+> [1] - https://lore.kernel.org/all/CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com/
+> 
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
 
-Tested-by: CKI Project <cki-project@redhat.com>
-
-Kernel information:
-    Commit message: Linux 6.17-rc4
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2022821059
-
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:2022821059_aarch64_kernel
-                   Issue: upstream build: No rule to make target 'kernel.sb=
-at' -> Update CONFIG_EFI_SBAT_FILE
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/897
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
+--
+Florian
 
