@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE0FCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078BFCA101C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CAQ8/xlEfJm+udCC/3/iwD7fx0shSTS2qWwilQRSewM=; b=F9PZXy+aB8LcQ3iS8Dzlv/kBrW
-	UM+Dp1WDaINeUesUCi9/8xb8dzveLzN4lB97n9OsUCz0mj+WsGYp5xZhwwJf7Nda5QxeQRCcHV1Al
-	WFNmaA7BKcTh82yD5j6l+fuc8gzBXyMuJ1CpZKFmCkmzJvY4zgLkNmCPHBCGGHOLdqZzYYD/7RPJN
-	ScQ937qHyRf1mWiBANY29D5BD7GSdhzCnj3Azmmi+AOhljEAy3GNliRD6+EwmNwIhoj8zcqL6dLXV
-	fi/Dab7VLHQY++/1qlfbktboFuDDlIDPyvmVh+2o4NfuJ1z6OmhCGiDDgrDN8yfy8tbcgdJuZ58oV
-	8X4zGtxw==;
+	bh=z92vQ6tHmCJOxURO2v7NI6VNpz1OYWmCw8ZIen0j6D0=; b=4EaANsluNEVa6X/GGo7fdVHTBi
+	tVoEFMNEoga8yCVP8CwQvf0YOxZjN9+09K1vlKlc2lj+vxuUGUtzLqugM8UQ7LEGyfrAdoORTIZi6
+	YY2+Ui9mFB7fauP/abV9QiivcGZNUTtv2oTTiv77BGvXe1bX3jtrlvipJnux37XdeetGXfdMVgkaL
+	nhg+wQFWfgffmnWCzjK/9EjlmCSU7aWUnacxsv3BQtwmO2iGMdbIJRS5UDPYvxEtKrhv+U039uDuV
+	lbCMOlO8nMkrCoIOLFVkeZmzaTsemBFQcpHzoKWJJZzKEHbsQl6n8w0aBC9TvhJLZn79p+hDwnIPX
+	HZKSoWzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM0s-0000000Fy2e-2GoV;
-	Fri, 05 Sep 2025 02:17:18 +0000
+	id 1uuM0v-0000000Fy5C-0Dxb;
+	Fri, 05 Sep 2025 02:17:21 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuEld-0000000DcLv-1JhA
+	id 1uuEsY-0000000DgmS-3eaw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 18:33:05 +0000
+	Thu, 04 Sep 2025 18:40:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F4DC60247;
-	Thu,  4 Sep 2025 18:33:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58426C4CEF0;
-	Thu,  4 Sep 2025 18:32:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E11F60247;
+	Thu,  4 Sep 2025 18:40:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB0ADC4CEF6;
+	Thu,  4 Sep 2025 18:40:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757010782;
-	bh=vso1jcuXl4eMsNTY6YtZqzsNKfEUrShjwPxBJ8ib6Q4=;
+	s=k20201202; t=1757011214;
+	bh=ILiVByv+j8sL6RIqPKHr6lcD5lYejE6CwCw4EFoN4f8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UeOB5sfg1L8tYWhFhqz2+8pjsUnTOpx9cXPDxNx51xZLJCftmeovcMPkXsRvqFICf
-	 nDdAqQ76nV20Ej46lnDZ2exe/GQRuCAu/zDKenXuF52NkMVjkwQ60r605Qv2qk0LMT
-	 yytrDQgaMSRzgSCACAUVeXN+IG5zpDuFZcB9Vhvs6HgKGjDUd1MNCUkNQdmgoqNuqp
-	 43RQIvazYa3NVw8wSTiBAtqLh5duh+MB7aNAF/nnaIpXB0sZDWpWFEKQ4fp7JucklF
-	 x9HuiqWcOi6CRtX6yjY5m/F1zA9+7sbwTErgFA7+xxzsaeuofVvBZfNlk839R4mCVY
-	 682w7KI4IXfvw==
-Date: Thu, 4 Sep 2025 11:32:54 -0700
+	b=QuPqvLm3BxpuhLbqcQawdON7moRQflTsG/i697n1BQm5czZrXEMAY0SKKt8ZbpKxa
+	 CfwMIMFPO+HtPWYHlb1Dykig0UCLgZwo/CZVLh9iGcfAIqbv4EK6UrGC+zUj2DG5Nk
+	 32t9+6h5DTNfOBTEbQuhvMqcW/zTCLi/NvfCiXtdUFFg+epbo4E3OP7h1OzCZyb/mU
+	 bykMskO9KqcE00XXI9fXVewJdKZOELlVb9E1ydT1pFn3FhuhAqq7kJIGaawMvcskQa
+	 Kg99OHJffxp9hNXtIzfwD4PvSRtB6Y6dKy/9mfg2g6N2552wzx/5T9va88RdST70Jr
+	 1N01jP9mlh7Iw==
+Date: Thu, 4 Sep 2025 11:40:04 -0700
 From: Nathan Chancellor <nathan@kernel.org>
 To: Kees Cook <kees@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Jonathan Corbet <corbet@lwn.net>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org,
+Cc: Peter Zijlstra <peterz@infradead.org>,
 	Vegard Nossum <vegard.nossum@oracle.com>,
 	Miguel Ojeda <ojeda@kernel.org>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
 	David Woodhouse <dwmw2@infradead.org>,
 	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
 	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
@@ -60,23 +59,26 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Jonathan Corbet <corbet@lwn.net>,
 	Marco Elver <elver@google.com>,
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
 	Ramon de C Valle <rcvalle@google.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
 	Nicolas Schier <nicolas.schier@linux.dev>,
 	Masahiro Yamada <masahiroy@kernel.org>,
 	Arnd Bergmann <arnd@arndb.de>,
 	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	Sami Tolvanen <samitolvanen@google.com>,
 	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-kbuild@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 3/9] x86/cfi: Document the "cfi=" bootparam options
-Message-ID: <20250904183254.GB2110053@ax162>
+	llvm@lists.linux.dev, linux-doc@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 4/9] x86/cfi: Standardize on common "CFI:" prefix for
+ CFI reports
+Message-ID: <20250904184004.GC2110053@ax162>
 References: <20250904033217.it.414-kees@kernel.org>
- <20250904034656.3670313-3-kees@kernel.org>
+ <20250904034656.3670313-4-kees@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250904034656.3670313-3-kees@kernel.org>
+In-Reply-To: <20250904034656.3670313-4-kees@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +93,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 08:46:42PM -0700, Kees Cook wrote:
-> The kernel-parameters.txt didn't have a section for the cfi= options.
-> Add it.
+On Wed, Sep 03, 2025 at 08:46:43PM -0700, Kees Cook wrote:
+> Use a regular "CFI:" prefix for CFI reports during alternatives setup,
+> including reporting when nothing has happened (i.e. CONFIG_FINEIBT=n).
 > 
 > Signed-off-by: Kees Cook <kees@kernel.org>
 > ---
 
 Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
+Obviously minor but I had pointed out on v1 that there appears to be
+some inconsistency within the diff around capitalization, "ignoring" vs.
+"Ignoring".
+
 > ---
->  Documentation/admin-guide/kernel-parameters.txt | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
+>  arch/x86/kernel/alternative.c | 17 ++++++++++-------
+>  1 file changed, 10 insertions(+), 7 deletions(-)
 > 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 747a55abf494..8bbffbb334ab 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -608,6 +608,23 @@
->  	ccw_timeout_log	[S390]
->  			See Documentation/arch/s390/common_io.rst for details.
+> diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
+> index 7bde68247b5f..d8f4ac95b4df 100644
+> --- a/arch/x86/kernel/alternative.c
+> +++ b/arch/x86/kernel/alternative.c
+> @@ -1266,26 +1266,26 @@ static __init int cfi_parse_cmdline(char *str)
+>  		} else if (!strcmp(str, "norand")) {
+>  			cfi_rand = false;
+>  		} else if (!strcmp(str, "warn")) {
+> -			pr_alert("CFI mismatch non-fatal!\n");
+> +			pr_alert("CFI: mismatch non-fatal!\n");
+>  			cfi_warn = true;
+>  		} else if (!strcmp(str, "paranoid")) {
+>  			if (cfi_mode == CFI_FINEIBT) {
+>  				cfi_paranoid = true;
+>  			} else {
+> -				pr_err("Ignoring paranoid; depends on fineibt.\n");
+> +				pr_err("CFI: ignoring paranoid; depends on fineibt.\n");
+>  			}
+>  		} else if (!strcmp(str, "bhi")) {
+>  #ifdef CONFIG_FINEIBT_BHI
+>  			if (cfi_mode == CFI_FINEIBT) {
+>  				cfi_bhi = true;
+>  			} else {
+> -				pr_err("Ignoring bhi; depends on fineibt.\n");
+> +				pr_err("CFI: ignoring bhi; depends on fineibt.\n");
+>  			}
+>  #else
+> -			pr_err("Ignoring bhi; depends on FINEIBT_BHI=y.\n");
+> +			pr_err("CFI: ignoring bhi; depends on FINEIBT_BHI=y.\n");
+>  #endif
+>  		} else {
+> -			pr_err("Ignoring unknown cfi option (%s).", str);
+> +			pr_err("CFI: Ignoring unknown option (%s).", str);
+>  		}
 >  
-> +	cfi=		[X86-64] Set Control Flow Integrity checking features
-> +			when CONFIG_FINEIBT is enabled.
-> +			Format: feature[,feature...]
-> +			Default: auto
-> +
-> +			auto:	  Use FineIBT if IBT available, otherwise kCFI.
-> +				  Under FineIBT, enable "paranoid" mode when
-> +				  FRED is not available.
-> +			off:	  Turn off CFI checking.
-> +			kcfi:	  Use kCFI (disable FineIBT).
-> +			fineibt:  Use FineIBT (even if IBT not available).
-> +			norand:   Do not re-randomize CFI hashes.
-> +			paranoid: Add caller hash checking under FineIBT.
-> +			bhi:	  Enable register poisoning to stop speculation
-> +				  across FineIBT. (Disabled by default.)
-> +			warn:	  Do not enforce CFI checking: warn only.
-> +
->  	cgroup_disable=	[KNL] Disable a particular controller or optional feature
->  			Format: {name of the controller(s) or feature(s) to disable}
->  			The effects of cgroup_disable=foo are:
+>  		str = next;
+> @@ -1757,7 +1757,7 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
+>  	switch (cfi_mode) {
+>  	case CFI_OFF:
+>  		if (builtin)
+> -			pr_info("Disabling CFI\n");
+> +			pr_info("CFI: disabled\n");
+>  		return;
+>  
+>  	case CFI_KCFI:
+> @@ -1766,7 +1766,8 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
+>  			goto err;
+>  
+>  		if (builtin)
+> -			pr_info("Using kCFI\n");
+> +			pr_info("CFI: Using %sretpoline kCFI\n",
+> +				cfi_rand ? "rehashed " : "");
+>  		return;
+>  
+>  	case CFI_FINEIBT:
+> @@ -2005,6 +2006,8 @@ bool decode_fineibt_insn(struct pt_regs *regs, unsigned long *target, u32 *type)
+>  static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
+>  			    s32 *start_cfi, s32 *end_cfi, bool builtin)
+>  {
+> +	if (IS_ENABLED(CONFIG_CFI) && builtin)
+> +		pr_info("CFI: Using standard kCFI\n");
+>  }
+>  
+>  #ifdef CONFIG_X86_KERNEL_IBT
 > -- 
 > 2.34.1
 > 
