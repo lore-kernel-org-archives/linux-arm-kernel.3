@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B0ABCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 496AFCA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=67l47YskJlJP8yhiZ3Hn8G5grVZLLDVvWpMgz14yWcc=; b=171X9St9PwmbR/z1vQIcgNUSsh
-	6XHVCDyd2xX+nfiXlXRH/SvEMKaedu2V+FiyEZm5v41S03K0/pNY70TaQGMM+61VRwPta5bBp5Fkm
-	+SyaFtXoQTIUOY6kNHkFjdtPTj7SQ6U1u4OVJG1KFheXUZTC33mNbCTLOcCrQnKn6s1PIWz/zcLk8
-	6sTM6Ie3cId0awvYF43INFOgp8btUUp5Jtx0ZkmPLhe/rVPJAfo3kqvqiZ9MFrHmW7NvkeibJBg/k
-	N65lvHdXOyWMznFuSaOr2Q3uTyPN/DBVqADAf5/iuUUfdqMTqnyMEnMJ5gwNDJp99XbH1A8OiDBXe
-	bgASgXPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U08NYMB1Ad3w11Zr/tff+obhn58+XapkrwB6JYyUlOQ=; b=nyHBv/9ZcgHChMZTW/R65+qo7N
+	DX6v3oDW4H3gZDwg504zHv779ZIXWv6vPH+mO3Xv9dCG0yK9/Lib8gwrVWo3Fm5Tc7bBgP0mkKqF+
+	5hQBhbiw2HCOcHnLcB1CQ5v+FSpSEDZlEYQtXt6uRHNuwYtBiceZv+jcw7PHtVAAKiRxVoL/YSNUS
+	JfIAR+VVDZL8EVWIPAW+Fk5QHV5VQ6lOu/+xv/DCeXh2YmJALJk6zCV0i41q6FD7okbLARKQgaKEY
+	XWCY6K6CL+m3nHiCy/y60RTVow7Ses1lSViGHRVrgoUnjred1PwLydoeDyLK8Uk+a1nvgvgK8EoEX
+	8oAAnZmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCng-0000000CuBa-3CNo;
-	Thu, 04 Sep 2025 16:27:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uuCnj-0000000CuHE-23bq;
+	Thu, 04 Sep 2025 16:27:07 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu9qM-0000000BpDL-3wau
+	id 1uu9up-0000000Bqq0-0znb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 13:17:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26CD544C6B
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 13:17:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B6DC4CEFF
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 13:17:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756991858;
-	bh=J37h8zaAlmHnvnALjyhUgHlYpkvFqaV8s8bqNB0XjFQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=rSeeYMQC35U85BwNUUpTccZq+hmNBZVbOybxyuurDfaGkCAOruDMl/BJ+6V3r+u6h
-	 58CWTnMu+bkN110RdLUvsucq93Jc3d5+kS4frgCgo3FVx3GWK1mqvcgH10uQaLNdrC
-	 SjzoQa4PZZYmq/Cxf5GId4h0wwWgehrTcd3/KL9uaLs131Bk/JxcPE98Jb6fe/jKYz
-	 z9ZzUD2u+kcZHrqVDT3DoVuv24+ayotdgqIP+Ft/7HhGElCcWzJX7QOvWcqV7tq8AE
-	 Dyj7Rt7r/bwUN6zrO9NKAoaO0vQbLGPtbHKeSIOKcrHhUaGW45oySjjKxi6/1oZJq4
-	 26vW+iK8JHIJQ==
-Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-74381e207a0so830743a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 06:17:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCU26N8zUn93jPfSsw65qlx0jq6koXk/ey4Hi+CbE80IPHbRWbrAv+ycczddVu6PA6qHFtH9ha8dUILT1sgJprEg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0uP2TCC3m+DNW3s/vODfJ2cl4TbE4w5E1J/56zaAck8o/uiQw
-	COVzg7WuWj1wlpnY3+3RITwn0qszBfh/zl+DYWtMMx3ONvsuTEJiqzr3U47sSRRAry1CUHLFeon
-	7TlxengcL4DEiIWcdIfLP4jjIyefVMug=
-X-Google-Smtp-Source: AGHT+IEjDfW+3hJPUPYu26F2xz+pxJ+KiqPGjYP79H7T0/I1zIoWql1eDpgpdg2oH+VBSzMp/G1t2kU5l5bZBE+Bi2g=
-X-Received: by 2002:a05:6830:4901:b0:73e:8c8b:749 with SMTP id
- 46e09a7af769-74569c6739fmr14127345a34.0.1756991857138; Thu, 04 Sep 2025
- 06:17:37 -0700 (PDT)
+	Thu, 04 Sep 2025 13:22:16 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 584DLq1c3475583;
+	Thu, 4 Sep 2025 08:21:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756992112;
+	bh=U08NYMB1Ad3w11Zr/tff+obhn58+XapkrwB6JYyUlOQ=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=qx9+Mquj3rYrleoQ5Kt01Zx16auOkcL4QsMwyXUqtS8V65ryb7uQcLYZ6NN2Po14a
+	 zk2IlaNZz+frBQJdjJFSjZ10dfZAISqt3Un2A1DZ6MzUWJV0zduAE2kTTUJStPaXyI
+	 uTpNokX8C7DVyJjdDwkPRx/BkeFFH8G7SPvPNWP8=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 584DLqto3833851
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 4 Sep 2025 08:21:52 -0500
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
+ Sep 2025 08:21:52 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 4 Sep 2025 08:21:52 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 584DLotj3313729;
+	Thu, 4 Sep 2025 08:21:51 -0500
+Date: Thu, 4 Sep 2025 18:51:50 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Guillaume La Roque <glaroque@baylibre.com>
+CC: Thomas Gleixner <tglx@linutronix.de>, <vigneshr@ti.com>,
+        Nishanth Menon
+	<nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>,
+        Tero Kristo
+	<kristo@kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH RESEND v2 1/2] genirq/msi: Export functions to support TI
+ SCI INTA MSI module
+Message-ID: <20250904132150.vs4tzkigqowzqtzn@lcpd911>
+References: <20250902-timsi-v2-0-a5bf0f32905b@baylibre.com>
+ <20250902-timsi-v2-1-a5bf0f32905b@baylibre.com>
 MIME-Version: 1.0
-References: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
- <20250903131733.57637-8-zhangzihuan@kylinos.cn> <CAJZ5v0hirWzWZiLbAXPWB58SQv3CAW95iHLnsqs=i2twVCcmwg@mail.gmail.com>
- <52e322e5-2dd4-488c-a98e-3a4018f0c323@kylinos.cn>
-In-Reply-To: <52e322e5-2dd4-488c-a98e-3a4018f0c323@kylinos.cn>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 4 Sep 2025 15:17:26 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0g__9g_dfA3=4GVi351f4CKBegKkW9nU81j+Qu=2Hfg1Q@mail.gmail.com>
-X-Gm-Features: Ac12FXwmEGaidQr8PE8Gnv5hzk4SwGXFsXwEgV1BR4I0F2oh9v2_Dsc7pRXgYnA
-Message-ID: <CAJZ5v0g__9g_dfA3=4GVi351f4CKBegKkW9nU81j+Qu=2Hfg1Q@mail.gmail.com>
-Subject: Re: [PATCH v4 07/10] powercap: dtpm_cpu: Use scope-based cleanup helper
-To: Zihuan Zhang <zhangzihuan@kylinos.cn>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>, Ben Horgan <ben.horgan@arm.com>, 
-	zhenglifeng <zhenglifeng1@huawei.com>, Zhang Rui <rui.zhang@intel.com>, 
-	Len Brown <lenb@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Beata Michalska <beata.michalska@arm.com>, 
-	Fabio Estevam <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>, Sumit Gupta <sumitg@nvidia.com>, 
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Yicong Yang <yangyicong@hisilicon.com>, linux-pm@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
-	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250902-timsi-v2-1-a5bf0f32905b@baylibre.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_061739_022666_F78B10F9 
-X-CRM114-Status: GOOD (  31.91  )
+X-CRM114-CacheID: sfid-20250904_062215_317772_9146424D 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,125 +88,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 4, 2025 at 12:38=E2=80=AFPM Zihuan Zhang <zhangzihuan@kylinos.c=
-n> wrote:
->
->
-> =E5=9C=A8 2025/9/3 21:45, Rafael J. Wysocki =E5=86=99=E9=81=93:
-> > On Wed, Sep 3, 2025 at 3:18=E2=80=AFPM Zihuan Zhang <zhangzihuan@kylino=
-s.cn> wrote:
-> >> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
-> >> annotation for policy references. This reduces the risk of reference
-> >> counting mistakes and aligns the code with the latest kernel style.
-> >>
-> >> No functional change intended.
-> >>
-> >> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
-> >> ---
-> >>   drivers/powercap/dtpm_cpu.c | 30 +++++++++++-------------------
-> >>   1 file changed, 11 insertions(+), 19 deletions(-)
-> >>
-> >> diff --git a/drivers/powercap/dtpm_cpu.c b/drivers/powercap/dtpm_cpu.c
-> >> index 99390ec1481f..f76594185fa2 100644
-> >> --- a/drivers/powercap/dtpm_cpu.c
-> >> +++ b/drivers/powercap/dtpm_cpu.c
-> >> @@ -144,19 +144,17 @@ static int update_pd_power_uw(struct dtpm *dtpm)
-> >>   static void pd_release(struct dtpm *dtpm)
-> >>   {
-> >>          struct dtpm_cpu *dtpm_cpu =3D to_dtpm_cpu(dtpm);
-> >> -       struct cpufreq_policy *policy;
-> >>
-> >>          if (freq_qos_request_active(&dtpm_cpu->qos_req))
-> >>                  freq_qos_remove_request(&dtpm_cpu->qos_req);
-> >>
-> >> -       policy =3D cpufreq_cpu_get(dtpm_cpu->cpu);
-> >> -       if (policy) {
-> >> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D
-> >> +               cpufreq_cpu_get(dtpm_cpu->cpu);
-> >> +
-> >> +       if (policy)
-> >>                  for_each_cpu(dtpm_cpu->cpu, policy->related_cpus)
-> >>                          per_cpu(dtpm_per_cpu, dtpm_cpu->cpu) =3D NULL=
-;
-> >>
-> >> -               cpufreq_cpu_put(policy);
-> >> -       }
-> >> -
-> >>          kfree(dtpm_cpu);
-> >>   }
-> >>
-> >> @@ -192,7 +190,6 @@ static int cpuhp_dtpm_cpu_online(unsigned int cpu)
-> >>   static int __dtpm_cpu_setup(int cpu, struct dtpm *parent)
-> >>   {
-> >>          struct dtpm_cpu *dtpm_cpu;
-> >> -       struct cpufreq_policy *policy;
-> >>          struct em_perf_state *table;
-> >>          struct em_perf_domain *pd;
-> >>          char name[CPUFREQ_NAME_LEN];
-> >> @@ -202,21 +199,19 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm=
- *parent)
-> >>          if (dtpm_cpu)
-> >>                  return 0;
-> >>
-> >> -       policy =3D cpufreq_cpu_get(cpu);
-> >> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D
-> >> +               cpufreq_cpu_get(cpu);
-> >> +
-> >>          if (!policy)
-> >>                  return 0;
-> >>
-> >>          pd =3D em_cpu_get(cpu);
-> >> -       if (!pd || em_is_artificial(pd)) {
-> >> -               ret =3D -EINVAL;
-> >> -               goto release_policy;
-> >> -       }
-> >> +       if (!pd || em_is_artificial(pd))
-> >> +               return -EINVAL;
-> >>
-> >>          dtpm_cpu =3D kzalloc(sizeof(*dtpm_cpu), GFP_KERNEL);
-> >> -       if (!dtpm_cpu) {
-> >> -               ret =3D -ENOMEM;
-> >> -               goto release_policy;
-> >> -       }
-> >> +       if (!dtpm_cpu)
-> >> +               return -ENOMEM;
-> >>
-> >>          dtpm_init(&dtpm_cpu->dtpm, &dtpm_ops);
-> >>          dtpm_cpu->cpu =3D cpu;
-> >> @@ -239,7 +234,6 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm *=
-parent)
-> >>          if (ret < 0)
-> >>                  goto out_dtpm_unregister;
-> > So this change kind of goes against another recommendation given in cle=
-anup.h:
-> >
-> >   * Lastly, given that the benefit of cleanup helpers is removal of
-> >   * "goto", and that the "goto" statement can jump between scopes, the
-> >   * expectation is that usage of "goto" and cleanup helpers is never
-> >   * mixed in the same function. I.e. for a given routine, convert all
-> >   * resources that need a "goto" cleanup to scope-based cleanup, or
-> >   * convert none of them.
->
->
-> Should I replace all the memory allocation cleanups here with `__free`?
-> That would allow us to drop all the `goto`s, but since this function has
-> quite a few of them, I=E2=80=99m concerned it might introduce new issues.=
- What=E2=80=99s
-> your recommendation?
+On Sep 02, 2025 at 16:43:49 +0200, Guillaume La Roque wrote:
+> Export MSI domain management functions to allow the TI SCI INTA MSI
+> driver to be compiled as a module.
+> 
+> The following functions are now available for module use:
+> 
+> - msi_domain_insert_msi_desc()
+> - msi_domain_free_msi_descs_range()
+> - msi_setup_device_data()
+> - msi_create_irq_domain()
+> - msi_domain_alloc_irqs_all_locked()
+> 
+> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+> ---
 
-Frankly, don't use __free() in this code at all, at least for the time bein=
-g.
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 
-There is a problem with dropping the reference to policy at the end of
-__dtpm_cpu_setup() because that policy may be subsequently indirectly
-used in set_pd_power_limit() which calls
-freq_qos_update_request(&dtpm_cpu->qos_req, freq) and
-dtpm_cpu->qos_req->qos is policy->constraints, so using it will cause
-policy->constraints to be dereferenced in freq_qos_apply() which will
-crash and burn if the policy goes away in the meantime.  So AFAICS
-__dtpm_cpu_setup() shouldn't call cpufreq_cpu_put() at all and the
-policy should be released in pd_release() without acquiring a new
-reference to it.
-
-You may as well try to fix this if you have free cycles.
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
