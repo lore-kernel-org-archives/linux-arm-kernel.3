@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 774DCCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 03:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89496CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 03:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8gKOtpGMiRhZFeAUlKqtMcOBotYFR7k/ihU/c5rhRHU=; b=TZZWmlE5taR8ENZTJnnj7+aQXb
-	95sjsO0Hpk8dKK3l4ncGgr2O1oY+n+BNKryVPdJvDd5yJR3+8JqIlUabZxyJwgfY5fNBsEy2zOps6
-	xjGEhhPzDDJBple67CuTrJlHmZpSxCjThuh5vIjByDEZNPwm4VJ6PoR1Y7KgD8pya/jN3NCNxp1cX
-	Tn1GOugkFtYbE+ykcnXBGFTFnwmhiOQbq7rDfKdM5sf6eoRwUy5znoV34RzHMCFnJjLXqNyho+RMB
-	M+68KgbNvKOL7sQDtTYdVu531FR/xO+Rkmk+hmChXzs2rWHCQe1uovlcyRNwFWpjKd7ujOqJBVbTM
-	xDatTlwQ==;
+	bh=OCbw5c5RH08/3iWhVXYJBwj4/n0wTQaKln6EJVz/2Xs=; b=mMqgPT4OBYO00p/2gdoeE/yJA9
+	95J5J/RTDNov4/7IkH51Bwvit3q9rfkFk0vKmsswWXwtvu7nXZkkM1+c9xstwMSlkcm0EOfh9Ehmw
+	2gHYTwAO1sBEjYak3XqDPbajUeHFrTyB6KsBjX5n0SggsYXduXYteRZ1Zp2majt+TMUeYd4ycK3yf
+	1ntd9g3Ravq/QBVZldNvzUHA/Tigqe/7jpS4gI9umS+79AyPDnd8ttdfodxioyy/a9W6IQhQR2t51
+	bq4IOdFPTzqGpBN+0MNsCyY3rkM7hHvzTeKUnq5TxXQGCH1eWcIXhUa1/fyIy5zsA8xuKyKwXc9nu
+	1Vk+dL4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuN5W-0000000GR71-0VQF;
-	Fri, 05 Sep 2025 03:26:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uuN5R-0000000GR1w-13a1;
+	Fri, 05 Sep 2025 03:26:06 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuLYY-0000000FqJP-0VyA;
-	Fri, 05 Sep 2025 01:48:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2ACAD6028C;
-	Fri,  5 Sep 2025 01:48:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B47C4CEF0;
-	Fri,  5 Sep 2025 01:47:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757036879;
-	bh=nKN62gC4jkdDbMIOofqf7YTZbhCZ14cobe9mIKWrKv8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=rfe/GuOpH8cuEJ12EXJjZnxs8Ao00R7lbvEgT0XnlAnjTPGcgGRTfCzYXpMwmE4re
-	 JB1amUpWAPGJivhw+cKL6KuPsBTsuQbOX6PahAv8pplZuRsz/Ni6QerYmSW2QqVxTX
-	 axOLcpsJsjs67pNZM8kmc7tn53I4bzAhMfSw04Pdx7w5YvtcAK33nmRv7ZvCPZBJ5m
-	 LP9b0MfjoYzQwVKLI9hO+oSZ/zcJQTflFQ3sQaLFUh+0e/9roVzeGIx5lWoMueii7p
-	 Hlr39DthJTA1kcp1gG4iaESqFyHc+AlGSQP880GSonx5SeeN2cvGKj08nQzQ3xrESI
-	 Mcgm106muHXOA==
-Date: Thu, 4 Sep 2025 18:47:57 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Stanimir Varbanov <svarbanov@suse.de>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrea della Porta <andrea.porta@suse.com>, Nicolas
- Ferre <nicolas.ferre@microchip.com>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, Phil Elwell <phil@raspberrypi.com>, Jonathan
- Bell <jonathan@raspberrypi.com>, Dave Stevenson
- <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH v2 0/5] dd ethernet support for RPi5
-Message-ID: <20250904184757.1f7fb839@kernel.org>
-In-Reply-To: <06017779-f03b-4006-8902-f0eb66a1b1a1@broadcom.com>
-References: <20250822093440.53941-1-svarbanov@suse.de>
-	<06017779-f03b-4006-8902-f0eb66a1b1a1@broadcom.com>
+	id 1uuGWp-0000000EEpI-3agk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 20:25:57 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4cHrb52fZVz9tVR;
+	Thu,  4 Sep 2025 22:25:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1757017553;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OCbw5c5RH08/3iWhVXYJBwj4/n0wTQaKln6EJVz/2Xs=;
+	b=vFGyPpdsxilX+Hl+eye+5z2VObsfBJ2jo44J/mDVj7aAEi4JN/rKflE2/krTSlcuTkjS44
+	FCZSIjj3QKs/G2DeKLN5CYpQYpIOi5WWQvNUhTrVIheP/ULewPlBBAwe3ZrForrorPMSgB
+	h8//xpotWa2VRev9NCTvhNt1A+hisKyGmSAMXk4CB6l2To4KESNKVy/OF7fHGXTEVA5eSs
+	4XEcSIY6ByZA5qO3gvNnKtRonUJnxyLp3ysr3Ex4MAMpgJOTcV+rNsLGT0SqmVsLue1kev
+	KMKTWfe2e0TC/emsjJkkpFuY3Wqt6jdscbfXMPsbCpnPWOJ5WYmxZgseATxI9Q==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=CMw4HwYf;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+Message-ID: <94870c77-aeb1-432d-a951-27a0ff793eeb@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1757017551;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OCbw5c5RH08/3iWhVXYJBwj4/n0wTQaKln6EJVz/2Xs=;
+	b=CMw4HwYfz4h5joU6L4tPmsmztaBJ/GKqo7d4kb3TlSitgpiOcBLcAHnzanutJkUWqB+XVT
+	/oWjDuo4qQSi6UdpbZgM7vupEFaNqgxvAuYLjpZF14VtTecCfEUyGFlQU6OGKpEfFBZDl/
+	Z/YjqLObhQFfOryWKOg30gjQEb6p1ypThOKsRjQQ8+dsuUZFKW1txA3u1mSr7Deba5fCgK
+	JU6ajKqX+bS1IGBmW4tTmq3Q7GUW+52PLNEnvzQraKK3zQbGCDvzwoEuY8fvkB0h2Tym9i
+	mj9BXf07B+1hmBnVxidnsFkDN5EZhrtAUbioDBgXEFawS8ZnT1GlXk1Lv4p9Nw==
+Date: Thu, 4 Sep 2025 22:25:49 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Add RPi Display 2 DTO to
+ Retronix R-Car V4H Sparrow Hawk
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Conor Dooley <conor+dt@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <20250904200936.169536-1-marek.vasut+renesas@mailbox.org>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20250904200936.169536-1-marek.vasut+renesas@mailbox.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: 9rxpaercojqkobmp3jbnbb65osqtqkhi
+X-MBO-RS-ID: c3086cc37f5c9633d31
+X-Rspamd-Queue-Id: 4cHrb52fZVz9tVR
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250904_132556_044584_90E18798 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +99,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 4 Sep 2025 14:07:36 -0700 Florian Fainelli wrote:
-> On 8/22/25 02:34, Stanimir Varbanov wrote:
-> > Hello,
-> > 
-> > Changes in v2:
-> >   - In 1/5 updates according to review comments (Nicolas)
-> >   - In 1/5 added Fixes tag (Nicolas)
-> >   - Added Reviewed-by and Acked-by tags.
-> > 
-> > v1 can found at [1].
-> > 
-> > Comments are welcome!  
-> 
-> netdev maintainers, I took patches 4 and 5 through the Broadcom ARM SoC 
-> tree, please take patches 1 through 3 inclusive, or let me know if I 
-> should take patch 2 as well.
+On 9/4/25 10:08 PM, Marek Vasut wrote:
 
-Thanks for the heads up! Let me take patch 3 right now.
-I'm a bit unclear on where we landed with the parallel efforts to add
-the >32b address support :(
+> diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
+> index d8c9237624664..b14e593208758 100644
+> --- a/arch/arm64/boot/dts/renesas/Makefile
+> +++ b/arch/arm64/boot/dts/renesas/Makefile
+> @@ -99,6 +99,10 @@ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk.dtb
+>   dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-fan-pwm.dtbo
+>   r8a779g3-sparrow-hawk-fan-pwm-dtbs := r8a779g3-sparrow-hawk.dtb r8a779g3-sparrow-hawk-fan-pwm.dtbo
+>   dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-fan-pwm.dtb
+> +r8a779g3-sparrow-hawk-rpi-display-2-5in-dtbs := r8a779g3-sparrow-hawk.dtb r8a779g3-sparrow-hawk-rpi-display-2-5in.dtbo
+> +dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-rpi-display-2-5in.dtb
+> +r8a779g3-sparrow-hawk-rpi-display-2-7in-dtbs := r8a779g3-sparrow-hawk.dtb r8a779g3-sparrow-hawk-rpi-display-2-7in.dtbo
+> +dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-rpi-display-2-7in.dtb
+Make sure you also build the plain DTBOs , not just the DTBs here.
+
+I'll send a V2.
 
