@@ -4,99 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43CF8CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85253CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 03:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ejp+lg8gINEoy0MBHN/XIRMKOlDhM8ESEDoQsLHHuA8=; b=ILPG4RvpN5ipAY3f/hasn3S/J/
-	1obMRvKRYamWSByLv3BV+Hk93Ur8CbL42cLbUN8pTc9oynXE0tBqhD0KvE7gmlqcbP9V664buOBbh
-	53deNP0zlcVZs0q4Nzaj8AzOQGoyNVeTh3DzwOgN0iTA4FQWUcFXzqdmF0kMPPSxCya2Ud7/zvEeQ
-	vui1LusB22+MfYOu41pRjAV1YlS0Q+9WmuvwYVNU9xoHo+9tHtyyzDNunf5MwLnvJknZn1Y8mCpFo
-	NKfrlb5KFNcxfG3FBwzE1V6GOxTp7Vk8t5olf5Nej85mUk3eOix8PWx7+bfO+4IGaTzg8C8aOYV3H
-	jT3DkvOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QT7by1gfa9pKhUAtv+8oGByeE/LYqWFquUc9CO+EUmo=; b=O+qmSkasHT+Cpvf+DOZi3+yf7+
+	K/UzrxF3UwTY7x/4VRIpLp0EScgqdRRFansx3EJO9BXXOObwh4pAvP6Vnfs8LQrtseOYBuUbCVzHQ
+	AAw9GTtgx4to0XomAenesH4eT+RAg2Iz3HaqNPgyGbzvVfxWQ3Ejg7wokOQI+WS9k19kOUPLX7YtC
+	30J//4F8TogWvvCt2p7AzsvPY6awCg9oWgVG9qiJcEbaNuwlxr2IiXPYqPUz+PDEehLFeXkq5dhUI
+	itS5MW11D7t4uQVCq1+FyEU01FgVYRS08fo1vYsqKladIWDkTqelM4uqIxbhmX0bpk82ftHHqLdJC
+	VL30xj7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu0Bn-00000008Wzi-356A;
-	Thu, 04 Sep 2025 02:59:07 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uu0HT-00000008Z3f-1PeU;
+	Thu, 04 Sep 2025 03:04:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu094-00000008WAQ-36gv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 02:56:20 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5841FwwQ005260;
-	Thu, 4 Sep 2025 02:56:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ejp+lg8gINEoy0MBHN/XIRMKOlDhM8ESEDoQsLHHuA8=; b=O59jBCvF2ICqwLVb
-	t9JaKEau+qXN/urYCuizrLjH0cquYodbZ08tsTDBmhbP+NI1iub+F2Gi/wihg6DQ
-	Ouk76+rDehwe5o2iEyrd/Kcr+nsL0Rovix7yfWi7MW0A2ZbnDuR5KMUkflgf5ov4
-	x3SWws06tAR+aLGFZXxZPQ4vwQLARDwSFjunhQVZXuaV070xPi/MOh3jPpCvFMfe
-	3sMPSNJgCUFmPQLpTKtIDkUl/8THKrRMyvIwSezyDxYo5fRlEfE7t4aXagchYHeb
-	X7S4WB60lMRRdWQCvLB3CHvO4YNsOjzlCAk4ZdQAX0Sj6VQJELk3yRrcUGZ4Tofp
-	AEXrrw==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48urmjnvcb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 04 Sep 2025 02:56:09 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5842u8vi021511
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 4 Sep 2025 02:56:08 GMT
-Received: from hu-panfan-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.24; Wed, 3 Sep 2025 19:56:08 -0700
-From: panfan <panfan@qti.qualcomm.com>
-To: <panfan@qti.qualcomm.com>, <mhiramat@kernel.org>, <rostedt@goodmis.org>
-CC: <ardb@kernel.org>, <catalin.marinas@arm.com>, <dylanbhatch@google.com>,
-        <kdong@qti.qualcomm.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
-        <mark.rutland@arm.com>, <samitolvanen@google.com>, <song@kernel.org>,
-        <will@kernel.org>
-Subject: Re: [PATCH v1] arm64: ftrace: fix unreachable PLT for ftrace_caller in init_module with CONFIG_DYNAMIC_FTRACE
-Date: Wed, 3 Sep 2025 19:55:57 -0700
-Message-ID: <20250904025557.2002080-1-panfan@qti.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250819063418.1263119-1-panfan@qti.qualcomm.com>
-References: <20250819063418.1263119-1-panfan@qti.qualcomm.com>
+	id 1uu0Ej-00000008YLl-3kB8;
+	Thu, 04 Sep 2025 03:02:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=QT7by1gfa9pKhUAtv+8oGByeE/LYqWFquUc9CO+EUmo=; b=SzNchODQ1dpKsEuysE3M5cUA5n
+	RfxxT4TPOwAUUOLqAXwFJBt9xKtCjAqjh/8M+JhlSct34VuhlkQnLe8jsqs9OAduorzYpPmQoD8qK
+	2Dvu3TOmoNeXmIDBm2VdSQSttEe3maM0nzgqu3eO+BytOqBunUVjR4j9baH1z5VBlt+X/MOMP07u4
+	rUWQK2FmIwQpelWvZ5nVNPwaNe+E6sLGK6b+5/zl+DxWyrraSW+f3/xUzsRPaHAnudgEtL67QSsq7
+	DamRN/eALMv6n8q7ro6zkgaQ6f3NqKMp0iVQqWogqmSar/90qxHVng5y5Vi1SFSer6HF/FosTo3L4
+	MA37bftA==;
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uu0Ef-00000004Gu6-3dJq;
+	Thu, 04 Sep 2025 03:02:08 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-74526ca79beso559074a34.0;
+        Wed, 03 Sep 2025 20:02:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756954922; x=1757559722; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QT7by1gfa9pKhUAtv+8oGByeE/LYqWFquUc9CO+EUmo=;
+        b=FYnze3Inpg1IS5vv5R5kMR/A2MsAApANnjxmt9UxifcWKE1Yncw9MdWXMVOM5fL2bj
+         CoNW/Dhbi0FFRhKJyys78pat1vIcBKDP2WMQE/4CX6sfLI8MiLSkfkeiLLBwPGFAulk/
+         92d3M385rJPzgceIAfa3CGu3yv4tlL0detlFgjBZXnCL3algYrcktJz51q0r3ZqTcROD
+         p0lkqdugEe1xhU1TpKlxnx++UDDeqCN8DORtq4XlGHgU1R2xz4RfYvbi2UYldI/kG9HT
+         X8jkGE9N6uAlTIVsCimLJ5iN179haf++K8oIiDuf760UlgwKKiQvU8kw6BEewsU6d1OB
+         OA9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756954922; x=1757559722;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QT7by1gfa9pKhUAtv+8oGByeE/LYqWFquUc9CO+EUmo=;
+        b=k1P44gLcMeWOy9JjfJKgvd6POAKzJR5lPFtMVFzyK2zgFBhnqeR2VrPpwGCOOKZ1Bk
+         EhnfeqyjcNFKa6QkqxLNgHuaI1KyWEK5JSFvL/dIHvygRsw5ByIGKU31C2/rJqkv9zUq
+         E8SP7u/eWTz8yUKKnQenlq4rsDpIfFJaJxeqGQoeOcv+a1xnN8Hbph8JDEbRyKTQZOm/
+         bILfeqYw8Gcm+VzM0RuTckYJ5uW7Y4WWmTiyWrO9DFNOggvpkE/9HPC/L7/cgqIPsjKZ
+         rfqq71pzNdi5/PQaI+sEuf/UKzLm1e6irFp1/M1sYsHJCpfgsZCrw/UTrlz57Vy48pDi
+         rjMg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtwLmoSGD20wzBJ22VB4OTtnC2bTbpk8LymLnkos1SfEKoTzLnrca3kJSP5zt4XZzEvJBxdiog8zw1buS8peYD@lists.infradead.org, AJvYcCVUGsGRshatFNDwde4BoHMa9yrhMhJYo7ALSTSYPjKgD0kqDCPEarNZwRdIrA3fNkK3TfhrCDEDDh/a1MysdVo=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBKvgRgmr0FKoH2FmuKDzL97zlPL1/77TG+zKXennr6H6QfbdK
+	w72msweQNRtLXg+aQfLp/WLAGktrv0XVmpTalGEtVcrTpUnp/EGKqurP
+X-Gm-Gg: ASbGnctmHQm0M29wgF+Arr/OiWkPvieXQD/7bTUBcn2jNDdYUeJPhIvmSsrfh4fx5Np
+	QuUWLO6+F19FGlpjI6Oq/i2EAxwKWLE0DetqfzGJPuAieikyH54suwB4uM/jDPyqj8hJTd2MiBi
+	18ab0Oq/vCH5YUmz0RD1mYxuIhMNYUzyquOzdO+JZ/yKWu1wZMtGtOIykLIxbUV0PGIeiXp5K7H
+	GWVSi5eY7b1BR8PzQ2Mex3Hj4jUZTTStN1Ss0GqAEq6rZlC8oDztHfmhToOqyKzlrROOFOaYfx6
+	63BvmwMvN27xhdyeeJxi3DGFOzV8rLO5/VecPkV12ry9lFAMV1XMzvXmBPXUK6Hg3rWEzDnWoND
+	on8ZlOlSwHDRxUA1LxBOxIYjURlKEM4qixxT2XijClfdvglJPJOc=
+X-Google-Smtp-Source: AGHT+IFikeTWfA0Ri8vuJ5/yqUfpE5MwjQOIwn7/c1zwNw8O5lCPtcAHELSxXUuR8uEwh3MYjWv1DA==
+X-Received: by 2002:a05:6830:398a:b0:745:a1d8:9deb with SMTP id 46e09a7af769-745a1d8a3bemr829168a34.1.1756954921729;
+        Wed, 03 Sep 2025 20:02:01 -0700 (PDT)
+Received: from localhost.localdomain ([2603:8081:ad00:4a:c274:2bff:fefd:7058])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7457428b1b8sm2555110a34.6.2025.09.03.20.02.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Sep 2025 20:02:01 -0700 (PDT)
+From: Jimmy Hon <honyuenkwun@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Cenk Uluisik <cenk.uluisik@googlemail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Jimmy Hon <honyuenkwun@gmail.com>
+Subject: [PATCH] arm64: dts: rockchip: Fix the headphone detection on the orangepi 5
+Date: Thu,  4 Sep 2025 03:01:50 +0000
+Message-ID: <20250904030150.986042-1-honyuenkwun@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01c.na.qualcomm.com (10.47.97.35) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=OemYDgTY c=1 sm=1 tr=0 ts=68b8ffc9 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=3H110R4YSZwA:10 a=yJojWOMRYYMA:10 a=S8iKQRKk4SiPzSIsZgUA:9
-X-Proofpoint-GUID: MGCDhHIdEi94weTppguHRSFxRXu0UO34
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAyNCBTYWx0ZWRfXxykn31WwF5h0
- FUssFX1Pg6Fo28epVw+3FvxOHMOpZE7PyeCJkkBjMGcRe7isd9U/lK639lhTWvZkMmCDkzppAZ5
- 2j7UyBXPeJccIAlKx99ulwOvjP3quTK7K3OCIQXPPKX9dn99Hswu1cRbqXQDQ4B6+T+ERCvaddp
- eFNva7nxgEs82Dc/6Xljs0hgHLWlIdA25fERApygYjNOjE0pOXjqAWRZDoOR8Vskvc3qY5ePQEs
- I/3sAnxSjODNHJJM4tLqRtc7Beo6pD0BnF+fJX3GO8dPSr8QjM8lB1hbep0JDxtVtxBiMlxvvSz
- q8NKh/QFd8UlxLyQt0RRAyp8CK/QcawAwcg2Yp/1gcMsmHj3vnm0gm5C1aQijTZuOfdWGHEpEbB
- JENVi0VP
-X-Proofpoint-ORIG-GUID: MGCDhHIdEi94weTppguHRSFxRXu0UO34
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-04_01,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 spamscore=0 bulkscore=0 priorityscore=1501
- adultscore=0 clxscore=1015 phishscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508300024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_195618_896608_92EECD51 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250904_040206_432041_50D74E6D 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,12 +114,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+The logic of the headphone detect pin seems to be inverted, with this
+change headphones actually output sound when plugged in.
 
-Just following up on this patch. Any feedback would be greatly appreciated.
+Does not need workaround of using pin-switches to enable output.
 
-Thanks for your time!
+Verified by checking /sys/kernel/debug/gpio.
 
-Best regards,
-Pan Fan
+Fixes: ae46756faff8 ("arm64: dts: rockchip: analog audio on Orange Pi 5")
+Signed-off-by: Jimmy Hon <honyuenkwun@gmail.com>
+---
+similar to the fix for the Orange Pi 5 Plus [1]
+
+[1] https://lore.kernel.org/linux-rockchip/20250823-orangepi5-v1-1-ae77dd0e06d7@hotmail.com/
+---
+ arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
+index 34d195872a99..9bc7662ce9c8 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
+@@ -42,9 +42,8 @@ analog-sound {
+ 		simple-audio-card,bitclock-master = <&masterdai>;
+ 		simple-audio-card,format = "i2s";
+ 		simple-audio-card,frame-master = <&masterdai>;
+-		simple-audio-card,hp-det-gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_LOW>;
++		simple-audio-card,hp-det-gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
+ 		simple-audio-card,mclk-fs = <256>;
+-		simple-audio-card,pin-switches = "Headphones";
+ 		simple-audio-card,routing =
+ 			"Headphones", "LOUT1",
+ 			"Headphones", "ROUT1",
+-- 
+2.51.0
+
 
