@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80435CA1014
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 04:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2815ECA1014
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 04:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r6c256qQf2+lPChQleNTabNgjDZ9HCjDllbpACt/4yQ=; b=I7CdSppz0X+PqLD7AaaolFMNIM
-	5pNfuU2qMGICEismAGwh7l1rJQe8Rav57gesR11Am3eT+pWLczuOZBPdZBS6H+UrU+DQlv6eH3INw
-	x3Ih4RCXqmxb3qMcJjWoiodyIIyB6qw2mw37c1GIXqn5qstr1161qX3yE+9hIYX+90fjbEutED8JV
-	OEbebtfLJ+E5wPn2eq8PsJClSw+iR4pR3/REp9uIHTOTsEbLRqZF7AF1qAYYBga5aSrpRIIbj71ct
-	QYEWMuknkRoRQGbxnakG457Ln0Yp2OW2vpvy9evZVkuozuH6yFsG/+ZQnuGJvpM1Xf1SPT2LdigGo
-	XTdu4skw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rnIP2eiP2bXj3ji5lBbHOQAA8SlpLPVuxDVu6ezN2VQ=; b=AQwwdWwvEir+mF57lr+aUrbSAy
+	Skphjijst/u3gp+Ug8HAuomYUIs24RNj/JsrYJ8+Pm4eOHheV4Avh3Qf90ZaQ0nFz9LXFASqI1AZ0
+	XFOEqQCoifXB0Ex3FUzmlCe4bBWnTuRp5rU/uTdMvWI2/VB30OcgAyB3xqjV2XjkVtMqPc+zE/Lpm
+	zNS4GADtiJaLw1R9YbRVd28MdedJ+do8krBgNHLzyuBmq2/JbFpkt+bK39l6nRkjqhc29+UGCPwh5
+	MWZ1Q7HpaeMeO7D8JA3Sf0HOy+UkQuAOlepke9p3Y5exMw9NDnlrID/HJ7KIwB/nQwZPzzI+ebiME
+	ONa/wgVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu1Pq-00000008vLS-2XiN;
-	Thu, 04 Sep 2025 04:17:42 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1uu1h3-000000090KR-388T;
+	Thu, 04 Sep 2025 04:35:29 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu1JX-00000008sgv-0bAH
+	id 1uu1eI-00000008zN8-3K3q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 04:11:12 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 144D3101BCF;
-	Thu,  4 Sep 2025 06:10:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1756959063;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=r6c256qQf2+lPChQleNTabNgjDZ9HCjDllbpACt/4yQ=;
-	b=HiqyRxhOZSloSKrX3V2oCouTXLKNM9m8vCwl+6zFdCKeAnk+4lP4fAyHCdMZ5i7Ijb07K6
-	hS01N3VoLh8XMft6KSEJ8zkPTX2afsGtRmcrfUQaCl2f4HOFEsIpnWLL53uM4nazS2E//n
-	oLzPhzCY5/h6h4zzwDwyejealvEkIBqtOs1NQ9C44ALAtajWB2YYXhlGHTAAtdjfcdq1YW
-	eAEy6c55Qf6guCZtrIz5ph81l9higMj5woX4bk+hg4qCNvYL71M5AcMDUfN5gdX1jstU86
-	HVPu8ZC5/Qk1blAkjPEIiKnHg6tI13scsYivM/QYwwFk0j9wKUVluvLzqX5hVA==
-Message-ID: <9b32b7f6-637e-000a-63ab-642022ad5b8d@nabladev.com>
-Date: Thu, 4 Sep 2025 06:11:21 +0200
+	Thu, 04 Sep 2025 04:32:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756960359; x=1788496359;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=M5TwpNr55usP9Sz8MApwPf1Fs9RyfM3185mpZDbrJyc=;
+  b=mBXQxevE1L2suVyP6kzrrLmv1Nii+4ZNIXcoTDpmXjJtsG8r9qNO0RoV
+   tH5kKepbcYEqLTcvJzHoO8Dh7qpeBTt7aZpAIoZc2W+WzlEQpSgM8voiD
+   zC0DJrMbPtGPArBiuyVVYhD5FmHWxkPeN4PKy/39U9fRuvWMxQ3wkn9cZ
+   npN/P8YRoeRjPETXO1vji+giJZnji+Iu+Ahirozvn2ACX2ZneqaphHhn1
+   FH7U99u+YML5SyG4IqhMpSBnKb3xTZVCoDb9Ipbrr7p6+bijqm4NL9enR
+   b6PmVd+mrMpoAnzzHgIcOdK1hC5stzVjMSXstjSp7bYZQcFocUOFbjW4c
+   g==;
+X-CSE-ConnectionGUID: KMqi8LmHRj+SHXxiDd4j4g==
+X-CSE-MsgGUID: 00hBUjklTyeWZ3l1jeSHOA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="59204242"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="59204242"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2025 21:32:36 -0700
+X-CSE-ConnectionGUID: AbAUldJwTX65zWZ58P+kng==
+X-CSE-MsgGUID: asiFdFQmTLGNLDtAmDZW5Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,237,1751266800"; 
+   d="scan'208";a="202625452"
+Received: from lkp-server02.sh.intel.com (HELO 06ba48ef64e9) ([10.239.97.151])
+  by orviesa002.jf.intel.com with ESMTP; 03 Sep 2025 21:32:34 -0700
+Received: from kbuild by 06ba48ef64e9 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uu1eA-0004kZ-2S;
+	Thu, 04 Sep 2025 04:32:30 +0000
+Date: Thu, 4 Sep 2025 12:31:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marco Felsch <m.felsch@pengutronix.de>, Vinod Koul <vkoul@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jiada Wang <jiada_wang@mentor.com>
+Cc: oe-kbuild-all@lists.linux.dev, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Marco Felsch <m.felsch@pengutronix.de>
+Subject: Re: [PATCH 11/11] dmaengine: imx-sdma: fix spba-bus handling for
+ i.MX8M
+Message-ID: <202509041238.qCKW7MeD-lkp@intel.com>
+References: <20250903-v6-16-topic-sdma-v1-11-ac7bab629e8b@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.0
-Subject: Re: [PATCH 05/16] ARM: dts: imx6qdl-aristainetos2: rename
- ethernet-phy to ethernet-phy@0
-Content-Language: en-US
-To: Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Russell King <linux@armlinux.org.uk>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250903-imx6_dts_warning-v1-0-1e883d72e790@nxp.com>
- <20250903-imx6_dts_warning-v1-5-1e883d72e790@nxp.com>
- <CAOMZO5AGv2ykKmL631A6O2yas-1ffmFaZdHFGMxrFx93G9t8XA@mail.gmail.com>
-From: Heiko Schocher <hs@nabladev.com>
-In-Reply-To: <CAOMZO5AGv2ykKmL631A6O2yas-1ffmFaZdHFGMxrFx93G9t8XA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250903-v6-16-topic-sdma-v1-11-ac7bab629e8b@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_211111_409277_D19EDCAF 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20250903_213238_865697_61A3646B 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Fabio, Frank,
+Hi Marco,
 
-On 04.09.25 01:37, Fabio Estevam wrote:
-> Hi Frank,
-> 
-> Thanks for working on this series.
+kernel test robot noticed the following build warnings:
 
-+1
+[auto build test WARNING on 038d61fd642278bab63ee8ef722c50d10ab01e8f]
 
-> On Wed, Sep 3, 2025 at 5:20 PM Frank Li <Frank.Li@nxp.com> wrote:
->>
->> Rename ethernet-phy to ethernet-phy@0 to fix below CHECK_DTB warnings:
->>    arch/arm/boot/dts/nxp/imx/imx6dl-aristainetos2_4.dtb: ethernet@2188000 (fsl,imx6q-fec): mdio: Unevaluated properties are not allowed ('ethernet-phy' was unexpected)
-> ....
-> 
->> -               ethphy: ethernet-phy {
->> +               ethphy: ethernet-phy@0 {
->>                          compatible = "ethernet-phy-ieee802.3-c22";
->> +                       reg = <0>;
-> 
-> Are you sure the Ethernet PHY is actually at address 0?
-> 
-> The board schematics are often needed to get this information.
-> 
-> I'm adding Heiko on CC in case he can confirm.
+url:    https://github.com/intel-lab-lkp/linux/commits/Marco-Felsch/dmaengine-imx-sdma-drop-legacy-device_node-np-check/20250903-212133
+base:   038d61fd642278bab63ee8ef722c50d10ab01e8f
+patch link:    https://lore.kernel.org/r/20250903-v6-16-topic-sdma-v1-11-ac7bab629e8b%40pengutronix.de
+patch subject: [PATCH 11/11] dmaengine: imx-sdma: fix spba-bus handling for i.MX8M
+config: arm-randconfig-002-20250904 (https://download.01.org/0day-ci/archive/20250904/202509041238.qCKW7MeD-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 13.4.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250904/202509041238.qCKW7MeD-lkp@intel.com/reproduce)
 
-Yep, Frank was lucky, phy is @0
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509041238.qCKW7MeD-lkp@intel.com/
 
-So, I am fine with that change.
+All warnings (new ones prefixed by >>):
 
-bye,
-Heiko
+>> Warning: drivers/dma/imx-sdma.c:477 struct member 'spba_start_addr' not described in 'sdma_channel'
+>> Warning: drivers/dma/imx-sdma.c:477 struct member 'spba_end_addr' not described in 'sdma_channel'
+
 -- 
-Nabla Software Engineering
-HRB 40522 Augsburg
-Phone: +49 821 45592596
-E-Mail: office@nabladev.com
-Geschäftsführer : Stefano Babic
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
