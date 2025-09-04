@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F24CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D07CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4pvg5TsC472/OZBFsc5tes3U+vxNcbNyNKxPDxsap0=; b=wSKna+/Tov077QDMHmQBisoIIW
-	Wc8PqmoBCzMDn2lo3cDMPPnVtOawRkelN2Xd0CAZt3Thr6G3nOujtzMzw8c26buNgw8KDXEsux8kh
-	vIhqNtNBj4eKpDCDq1CA8YBL2s3hVfybtF2taGu3ZS7udFdBcWpKx/XQBlyGYGQregGK5BdGEzAre
-	xY6nAK26KgsVF5xxKr+1z3IlqF0rDbg1opsUk/k2mf9fNbCEArY0UANgmokdRf0x6bEelLZSu8aMZ
-	BRUq1XV6SFmlcPQ19YAIMRhAz1pXSVEQ+apjJaJjUv0u1tiqr2OOb5GXAluSQUc2OlM7Kd0Wf1q9P
-	EPXptVFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PRZRjRSX2JA9lvFNL/WZkeCUWyYQfQ1+r6Jp/WjO5pw=; b=Dv/PdejMhcoC9UgyGRwYlAfmnh
+	cDE2GAn0ql2ToL8L6THdun7CKK5hJ8L+p/4k5imKSY82UrHxTaU/RXC5cma8av/1BA7zgQokbEqgK
+	3A1GIDzFSejUcqRg3lKlPWYOLnvBREnj1KmOG7+p+H/j96TOFYrL+5qmguVKEmLeO2z2pRfkCPA9s
+	y5pZa4GOAF7fSM2zreYHJ7pxWa3O86fKX1QNukRCevjR5BZaDJDbsu0CA4kmPmv13Nk/n1aAZVf8h
+	vNttSiHQXkPYo2b3WpPjWYK1sEpsclzhoj6NZ/cLWjvLNQHawps+U3FrR9SezVE+YdbqfGWZuLHa6
+	9VX45N4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utzSJ-00000008HrA-2c2J;
-	Thu, 04 Sep 2025 02:12:07 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1utzSR-00000008I9U-1PWt;
+	Thu, 04 Sep 2025 02:12:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uty8O-000000080oB-0nYh
+	id 1utyEG-000000081eK-1haq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 00:47:29 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5840lO6n2954658;
-	Wed, 3 Sep 2025 19:47:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756946844;
-	bh=n4pvg5TsC472/OZBFsc5tes3U+vxNcbNyNKxPDxsap0=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=J85QDcyuOwzbzXSFAN12EOrJBP7LEn8R8SrgOtIbWRB/v7OjlKuhOrIiuZuHJaz7k
-	 vPKplQkCFH/oLfwze6OXPQ9aIY4L/BopemY9ySuwOFhBQrQy75CK2iKt7tphzNLJ0v
-	 +ErGTmHepiGiE691wK1MeqwCNGAXLEvq/88rvPxw=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5840lOC1476633
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 3 Sep 2025 19:47:24 -0500
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 3
- Sep 2025 19:47:24 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 3 Sep 2025 19:47:23 -0500
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5840lNZL2425599;
-	Wed, 3 Sep 2025 19:47:24 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH 2/2] arm64: dts: ti: k3-am62p: Update sdhci0 tap setting & STRB
-Date: Wed, 3 Sep 2025 19:47:23 -0500
-Message-ID: <20250904004723.2856005-3-jm@ti.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250904004723.2856005-1-jm@ti.com>
-References: <20250904004723.2856005-1-jm@ti.com>
+	Thu, 04 Sep 2025 00:53:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7AE776023D;
+	Thu,  4 Sep 2025 00:53:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5CDAC4CEE7;
+	Thu,  4 Sep 2025 00:53:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756947211;
+	bh=PRZRjRSX2JA9lvFNL/WZkeCUWyYQfQ1+r6Jp/WjO5pw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NgdwO+8wAFHW6LdO/eVyFoEDcchaE2YqsA5D3ztR5fafA1jCL3Sm2HpA+DttiBmGc
+	 /ClJ8qp+GmwYYnTJU8T9YOjXhS90FeHJPWLUrw8FyTxBolt4XzJGSy8nL8t0W2PzgV
+	 UcbGAKWYK2FD5eO7qPzQESFhUvGz/BcbTfUAHxbHjGOJZ7rhFG/TCfFiZtQemB8Qxc
+	 WcZGqDmvoyw8Z0D3YBkpBRmlPmPZO4j/So44m5f9fmvANi4hxPhdvrXUGOY7PDZKlw
+	 ImnIcmjuDEbWXJJgYaxxcGoPzh0qRUHNnMIRolv4044ETy6YaRJap3cAH9+do8qtX7
+	 Nz0JutItWH87A==
+Date: Wed, 3 Sep 2025 17:53:30 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
+ <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 01/11] net: stmmac: mdio: provide address
+ register formatter
+Message-ID: <20250903175330.6937a8a5@kernel.org>
+In-Reply-To: <E1utmli-00000001s00-49Uk@rmk-PC.armlinux.org.uk>
+References: <aLg24RZ6hodr711j@shell.armlinux.org.uk>
+	<E1utmli-00000001s00-49Uk@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_174728_271484_5F3B0822 
-X-CRM114-Status: GOOD (  10.80  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,34 +75,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tap setting for eMMC have been updated in device datasheet [0],
-so update for am62p in k3-am62p-main.
+On Wed, 03 Sep 2025 13:39:18 +0100 Russell King (Oracle) wrote:
+> +/**
+> + * stmmac_mdio_format_addr() - format the address register
+> + * @priv: struct stmmac_priv pointer
+> + * @pa: 5-bit MDIO package address
+> + * @gr: 5-bit MDIO register address (C22) or MDIO device address (C45)
 
-[0] https://www.ti.com/lit/gpn/am62p
-Signed-off-by: Judith Mendez <jm@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62p-main.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-index fb8473ce403a..9441317e39aa 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-@@ -44,10 +44,10 @@ sdhci0: mmc@fa10000 {
- 		mmc-hs200-1_8v;
- 		mmc-hs400-1_8v;
- 		ti,clkbuf-sel = <0x7>;
--		ti,strobe-sel = <0x77>;
-+		ti,strobe-sel = <0x66>;
- 		ti,trm-icp = <0x8>;
--		ti,otap-del-sel-legacy = <0x1>;
--		ti,otap-del-sel-mmc-hs = <0x1>;
-+		ti,otap-del-sel-legacy = <0x0>;
-+		ti,otap-del-sel-mmc-hs = <0x0>;
- 		ti,otap-del-sel-ddr52 = <0x6>;
- 		ti,otap-del-sel-hs200 = <0x8>;
- 		ti,otap-del-sel-hs400 = <0x5>;
--- 
-2.51.0
-
+If you're willing to oblige kdoc it wants Return: to be documented.
+Similar comment on patch 9 where stmmac_clk_csr_set() gains a return
+value.
 
