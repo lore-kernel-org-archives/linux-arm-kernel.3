@@ -4,153 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E5ACA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 13:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB703CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 13:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=chhjTT0HkHObU9k2wz0nc4+UzZ/+2+7nfCcx6T7u6pQ=; b=vy/BfUKUhyyUCn7ouYJbqyhDzg
-	cVUZLJCAAxJo703744cT9hWhr5FBDrawLura0TeK8mqyee3X1yWC1+DHuUQtH4BgbfARzvsuxGs9g
-	NiTgmm9hK2qaHGKwZIfWx1LxR1IlkOx/yq6A8MSZJ6b3YLpTwUrGwnNLM4d+flDqN2+UxG5Nida4w
-	64OAA3f5jzGMNSBOh0yu1rSD/dHH1XZ7SExsDhuD5WKGJgicWI7tJGPGLXyOgQKbomDLwkb5sMGTx
-	Z8KJtIMM7loICu8AqCV/Uo2T2wTHArggx0PWdR44TlNFnPdWvT5L5lxLVaWdROtaLqEdQtpP959px
-	BCzytIDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NvegV1zH8Pm8zagK+KRhg5cfI8kiWJq/medlBOhtErU=; b=dFM7P4xbMOHFrjvAd/PHssG8iz
+	usjYsYc0fjzND6QXtFWvKp/fT3/sqWjWFZHN9ysZHgJPOuIsHV+/an/QYjxEA/BVN0XdS1lx2EiO4
+	TuKahbpoHyrRfVMT0/TwZGtbXQfMtKwnfhFS7xYAW1Dioviq6p9ffglum8m/M/PtjT8HLmA/VDMDF
+	0hiWdx4TRmSH1cPRdkhMMbOHERXGHfaTqJtNDycYfSV/qaZukxAkupp+8r3jrsuVpq1ZV+k75+O5B
+	MMLPyPmuZv5pqgTaj13QrR17UGDnsdYEF5j2WdVmZSlS5XAR3F365bx2D7cCRfuZYpaqDzuql10gQ
+	DvPaufow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuA2L-0000000BtcB-0Zs0;
-	Thu, 04 Sep 2025 13:30:01 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1uuA52-0000000Buiw-44RM;
+	Thu, 04 Sep 2025 13:32:48 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu89F-0000000BEWq-1zIu
+	id 1uu8Bz-0000000BFc1-0esz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 11:29:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l2Hre2urpvptKT5DCQjHIHbg8rwa6SpY4O/JNKGp7APSzvhXFHOYhZEw4x8ylyO5TXRx4nIc2xcvY+OuIx3OWSa1dRDggG4MN373DAy1IT1dUbo9hK3tobW5Aqqj1tezs9fLE9Cf7I/Dcp+hSJEIdCWkeieJjAxY7OsE3pjJ/yE1hbhHHCtiNA3ef0U8BAOjTehoIfqgzjmY2+77O65+Gx0FqT2r+5z5Yccpc/BzKg10/eM8HfqbDefEh+nQ37CobDKqGVLU4P6zsI7saMAN+AUozNp6ckM11dE3jRLIs66+jd6WE0paxGc62eSQAutRaZHcBbMn8QKjUXh9YyoCjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=chhjTT0HkHObU9k2wz0nc4+UzZ/+2+7nfCcx6T7u6pQ=;
- b=s2Jz9XMPVL/P+t2xu5JiXJGAsOhl+bpt6I7rtJCR3CKjnbZyyQTEPrMNN5hborL7vdWa/mkCKyP4vCGgmR9tE1MH+UYqj9CSoqXAaVowo1uIgvBQveCMa0wsOiWY0scYCCNlq5oTDmRbjD2ZGLpuZmOHLjjAPX79Ce6pstRtT891dkX+L54CJL08FpypwK6573fdl/ILltt6Jjf5S1COHsq6agnjr0i6u0nLXu6epuBLpBcpEsMLsHdTWZHF10h3LoueZNh6TP/TptBu1RA3aPnX2HYg2EZ0Gy0bSDMcSfNmdfp2c2PzTcdbizw3ZcpzCdBDNHMv2DASrESw3IDf6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=chhjTT0HkHObU9k2wz0nc4+UzZ/+2+7nfCcx6T7u6pQ=;
- b=VQ40FkwFCYqUAivxvp2/uRZobitbo+UBNCKsJFdcbnLPk6X2Aq8xQ3Gevb52E/RN6/TWl8AlxLnKvmLF7410zRgVr1MdhuHg+7HqnE1t9fVvqjnAHtUyJUFTAGBMta6g/U0az6zaaG5fagQLOxSQFVj+UF8j+PDNHem69pJulcsKfcPYbffhaiuS1lCR058vNm/P/cpOnbXgbn84Q+61m2yXvHiFGMU7Ok4JJnP1DHf/3VInhmSy5BsnvHPR1PmDyPhWYQMy18Jc9AVv4QUwOMXP+SU1W+v5fLpiWUo8IccLqZGmLZlZ9XTWbaq8PhfJkWFeum9Lfu2jaZXv/b4x2A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5576.apcprd06.prod.outlook.com (2603:1096:101:c9::14)
- by TY0PR06MB5753.apcprd06.prod.outlook.com (2603:1096:400:271::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Thu, 4 Sep
- 2025 11:28:34 +0000
-Received: from SEZPR06MB5576.apcprd06.prod.outlook.com
- ([fe80::5c0a:2748:6a72:99b6]) by SEZPR06MB5576.apcprd06.prod.outlook.com
- ([fe80::5c0a:2748:6a72:99b6%7]) with mapi id 15.20.9094.016; Thu, 4 Sep 2025
- 11:28:34 +0000
-From: Liao Yuanhong <liaoyuanhong@vivo.com>
-To: Maxime Ripard <mripard@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR ALLWINNER A10),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
-	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Liao Yuanhong <liaoyuanhong@vivo.com>
-Subject: [PATCH] drm/sun4i: hdmi: Remove redundant ternary operators
-Date: Thu,  4 Sep 2025 19:28:23 +0800
-Message-Id: <20250904112824.350939-1-liaoyuanhong@vivo.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TYCP286CA0054.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:2b5::19) To SEZPR06MB5576.apcprd06.prod.outlook.com
- (2603:1096:101:c9::14)
+	Thu, 04 Sep 2025 11:31:52 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 584BVmlt3001597;
+	Thu, 4 Sep 2025 06:31:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756985508;
+	bh=NvegV1zH8Pm8zagK+KRhg5cfI8kiWJq/medlBOhtErU=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=a9vi+5949lMcJ6oo6WuLcXO9OrgPQaRY56bFvPalciMZ5rk9bbw4dxAfho4y4EXv4
+	 OIzkqtCDU4rZ6j40OOqCwL0StcUBI9rVLhdJEU5TvPpxePQcx/si8hsS+Lts4e+0x4
+	 Sa9kUL27PFf1YWV4kGkbcbyCCGlfrr6WcF7mYVOI=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 584BVmch138335
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 4 Sep 2025 06:31:48 -0500
+Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
+ Sep 2025 06:31:47 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 4 Sep 2025 06:31:47 -0500
+Received: from [10.24.68.177] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 584BVhNb3188138;
+	Thu, 4 Sep 2025 06:31:44 -0500
+Message-ID: <61954361-6aad-4761-967e-629cd288e33d@ti.com>
+Date: Thu, 4 Sep 2025 17:01:43 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5576:EE_|TY0PR06MB5753:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f36aa20-567f-4ed9-7fa7-08ddeba62f21
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4hFukAXH+uNDDZoyJkoqUBbm3p8NJl+nnoXg+Vyticf/rWZIElPVHa6afN45?=
- =?us-ascii?Q?5MAm+EEfEhWBYXtqW627BZ9IaGpWx5kffM0oOk0xFKmuiVHlX9rfRIsb78CZ?=
- =?us-ascii?Q?+TAcYgD8zjAoLzg6J2AHKa22e0U+DZl9Pjs/TwqsOZIluEDnnYU5RtnBz0lS?=
- =?us-ascii?Q?wP0KHLJsEP+kyY/D1MPuYqq8qqruxuVnCTPgB3161j2NE4GsTCML8TpTBlM1?=
- =?us-ascii?Q?dh/uxDtG9jSEWW+RjSlwDw79reZ6X29gAY6PDKHSBvYOzobaOqv0O/T1PvF2?=
- =?us-ascii?Q?4WKGOgDVzWsipLAf0ESZ3zdJZ7NtfMnPjkAhBhmEIvO2Nthe9QJ9qMT1e9if?=
- =?us-ascii?Q?j/JQQSJyZ46GtM3sxraAvNRgGq0dGJ5ipmSFf0dFHy0e5kgG1QY1YsqF0xwj?=
- =?us-ascii?Q?NU+FFrHxeloJT8T+BEUv+/pWyGXkmpGeN3beFK4NRvuq4VThnd0ZndDXrEdx?=
- =?us-ascii?Q?ke45V+0niYwxUDT0WqVOm0GuXS/JjwAGdqjzqGs9vg0Au3O5mPJzOXI/Pixq?=
- =?us-ascii?Q?lTn/Yqad00ePOnMMg3yi7KsXRgqi6jBYouv04FR6Zy1r3KoE3wWJYD2efxbV?=
- =?us-ascii?Q?stOaz/TZP8cE4/DtFaDoU94wSJA0fPF46CaSe4XW5PNEiEEjFYZjlUSRdkZu?=
- =?us-ascii?Q?LmWs/HCY4D/OHjL72KvaW2TvPxNxsIAgrK24oQfM7PPRTm7zDI4Vf9V3fA95?=
- =?us-ascii?Q?1eGkKS3916Z249a7MzG9upcgMcrEccACT/awwYEvk0t6rl4ahBO9opThMw8Z?=
- =?us-ascii?Q?63/88iw1YaqP1l/wGchhGv2kd68nXKz5ms47tG8/y1lASTz+YJETlpxnsoW9?=
- =?us-ascii?Q?opllnaZC+BRZNnM2cMIM3Moxh4ctBY6mBnSZnz1ZA0cPY9AN0QIrbfmc9uL8?=
- =?us-ascii?Q?5Iq8YZsAi1xdn09GFyjaREJb2P5BBDMJhuyJCMKbj9ckTldwD1Gy/rUUkKMq?=
- =?us-ascii?Q?gZwt6P+STfw00oXS7pso+gdqMxUPtBunWk6OTQVgVsWj+eI+N8kkI2ZNZITT?=
- =?us-ascii?Q?k8QmifVuVuoK9VtwsFeI0MZvDH9137g+AfzuSnZcb5fgsxo1MjLHfE2ar00U?=
- =?us-ascii?Q?TE2vd59w+MJ4NldbRdCu0jkSz2WcQwfaqqmDnrFpb915iaPEh6QyzYp+hxSQ?=
- =?us-ascii?Q?Mq1RX/JEodNPJrvaiMseeLxm4+78o17YclzkT/InoBDHrV1ue5SN7U13BSOk?=
- =?us-ascii?Q?LESHrERwogekypLLgGWJAWzneK8iN0Z9LaLnrayfJY0gvZ/+E2rYmhL1e62I?=
- =?us-ascii?Q?yF248rC+T3sHJdkvOM0vBbJB4m88YvlEX32SK56aQuFYTujMspLtXufjdprs?=
- =?us-ascii?Q?c8RMg28zyDj9PC6pSBHOOxRhNqIe4mJM9d6FbDlFqZ6Bb7+rALaRlqj2KfbO?=
- =?us-ascii?Q?MkGR5C1eMm280RjtAfLuVwhNIaGL/hBXio+SRefUBL1uUXgzlaasVZ38CNxj?=
- =?us-ascii?Q?dAIyfL4OrOmK+cSCthlS5MTfzSKmnUnZRSgFJWo32PpPtFxD4zOBD6TvQfBC?=
- =?us-ascii?Q?h+tyyVvD1LVmMl8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5576.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XmdDCcaBmdxdP49Qv016mf5bvlaOi33848xx3G+eFjnXIg0gZ47U+aBGhIcu?=
- =?us-ascii?Q?qg6BpaDHMVfxK7wLVsl4PeG7OTlFeBo8OFg8B1/uIbjDn0XSkq+EetBZrs1G?=
- =?us-ascii?Q?i2IDXnz3uZjiah6D9bLM+arLZ4F3M3xnrjtCKv8Wfvt0ZLZP+MUCZZKPo1nc?=
- =?us-ascii?Q?t+dpEsoqe1uoenXLI0gA2lJyEDSwbhQ79e848QgLIemnrgnUMc+JXNRZqmd+?=
- =?us-ascii?Q?yR8KvX69fgLgcxlG5v2Cddp5UHviZ1nGzkczVNLDWc7I4K+h52JBq+DCoj9a?=
- =?us-ascii?Q?guaaySmHPHfpu8IM5g/P2LPoWzh3QbONsQtitM92A0gIJv1VXl81F9iZOkJv?=
- =?us-ascii?Q?f3uSf9f1V9KmEHkihT4dlUi1ivTDZT9CNKR03glqqu42M59JOpqNp7VvcHrO?=
- =?us-ascii?Q?S+adOVk1DlIHEE+qsoFcwi7BrqQzDh/gAvB1cIYCps+GU77dF6tEE/bNyu+3?=
- =?us-ascii?Q?YRF84Fp6gDJNaRi+JXisgJ3FNNsPXuhKgpearKrVLqxhvJKmDYU70GuTxEqr?=
- =?us-ascii?Q?R+hLZ00/76lEGhl7S3rniZvGUnh9tX+N/tN3HvNij3TLvDMWbZpK1hCh3ikK?=
- =?us-ascii?Q?PzvWiUWZCobVxpr60KGaWrFAl07/13MNj6ASv6yoOQuSoZLxqhRoNaqXsPuG?=
- =?us-ascii?Q?wY7Ij2dgWP9La9o+cSiDQoivXKxTRmqefmdrncTSCKbuG7UCxE7c1MNIE/kj?=
- =?us-ascii?Q?/l/omAq4jZmf9zBEQhN/JovCsLss2orbJfduoQSX9d8jmiyYwcxtJkeiiq3Y?=
- =?us-ascii?Q?p7V7Mi9A9CObT8WhdZO0k1aQARH4w0wMLjks/NPhOyb4fhKnARtHvLvZ0ML4?=
- =?us-ascii?Q?Er3Ys7SZGVnKZNxRToSoXkJCQSVU9USXOpgE6v87rrWXHXT7RCOm6iife4zL?=
- =?us-ascii?Q?BYEtSrUg9mjHXlXKrG5g921oFCj94UK91U4q6n9o6nstY6wTPQ4HtkYFyHu+?=
- =?us-ascii?Q?nI194Mvcw4wAqkaqwChOPaRiJLdO14AHBQwjgGFq2SRjL7ojklaG3c2iik37?=
- =?us-ascii?Q?mRS34lHsen2reEPKNGkWvhG7blCxzuonxvaboi/kCFodpAIUEYDttz3v7vVD?=
- =?us-ascii?Q?srrL/lltSFLAQYofQkrjvCqEDh/9dqFXSlLcKG/7+UNn3Zli9Erfkl8b4CKI?=
- =?us-ascii?Q?0pinpGtulCT8jfAjOnMeSv7kLj6dLADEOX9bmVQrROaVJuLbfIzMzFcx5UQm?=
- =?us-ascii?Q?5qXWbwCAi0xUaFlGP+qwF86rQM9LlgzofHH0kSLHQvhAfrOQ0pnkN1SiBzdK?=
- =?us-ascii?Q?qj3ilSXTQkHlbBu0XRgIFahZIhamShNhqjGY/JnxVVEVOSwxDuq2HP2cszdB?=
- =?us-ascii?Q?m2Brd5RUz7VJ9W3Y9czSZrOZ9ACrnuo1ypgBCOMwWUOF4JDax30D77C8MHEm?=
- =?us-ascii?Q?YHCHjCw3/KJk4DeuC85onb97sEFpzEIAOCqbvC+d9Q2pAJiAWBMJqAeO9hlw?=
- =?us-ascii?Q?RLg0t19+2w5YOEp4wUuBDOCkwugoCR167Oz7h0O/A98TEa9oxonQWR4IFmME?=
- =?us-ascii?Q?DrzIcKzPED2a1NyNsQmnloaeYhIp+kapz+IjgGHp2MAjp9STV/Pah3m3VVfl?=
- =?us-ascii?Q?gTgGnVTWHJx7Rc4lLHRriqGDnRk5of+DlKOhE1MI?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f36aa20-567f-4ed9-7fa7-08ddeba62f21
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5576.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 11:28:34.6443
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vKodWlc21FAAV0c8qFpGf/GD2zV8D5EoC6WKCm39X8s1Mwi/JGt+gGXvsJ6O+ToC+565O4BQKWzq2GfUoZWANQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5753
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining
+ macros
+To: Sebin Francis <sebin.francis@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
+        <afd@ti.com>, <vigneshr@ti.com>, <d-gole@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <vishalm@ti.com>
+References: <20250902071917.1616729-1-a-kaur@ti.com>
+ <20250902071917.1616729-4-a-kaur@ti.com>
+ <c5dd1c02-8538-4b9f-a453-d18e7a30ae30@ti.com>
+Content-Language: en-US
+From: Akashdeep Kaur <a-kaur@ti.com>
+In-Reply-To: <c5dd1c02-8538-4b9f-a453-d18e7a30ae30@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_042901_507003_400C5247 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20250904_043151_295590_813508DD 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,29 +90,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For ternary operators in the form of "a ? true : false", if 'a' itself
-returns a boolean result, the ternary operator can be omitted. Remove
-redundant ternary operators to clean up the code.
+Hi Sebin,
 
-Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
----
- drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 04/09/25 11:32, Sebin Francis wrote:
+> Hi Akash,
+> 
+> On 02/09/25 12:49, Akashdeep Kaur wrote:
+>> Add the drive stregth, schmitt trigger enable macros to pinctrl file.
+>> Add the missing macros for DeepSleep configuration control referenced
+>> from "Table 14-6172. Description Of The Pad Configuration Register Bits"
+>> in AM625 TRM[0].
+>> Add some DeepSleep macros to provide combinations that can be used
+>> directly in device tree files example PIN_DS_OUTPUT_LOW that
+>> configures pin to be output and also sets its value to 0.
+>>
+>> [0] https://www.ti.com/lit/ug/spruiv7b/spruiv7b.pdf
+>>
+>> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+...
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
-index fbf7da9d9592..591962db626d 100644
---- a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
-@@ -49,7 +49,7 @@ static unsigned long sun4i_tmds_calc_divider(unsigned long rate,
- 			    (rate - tmp_rate) < (rate - best_rate)) {
- 				best_rate = tmp_rate;
- 				best_m = m;
--				is_double = (d == 2) ? true : false;
-+				is_double = d == 2;
- 			}
- 		}
- 	}
--- 
-2.34.1
+>> +#define WKUP_ON_EDGE            (0 << WKUP_LVL_EN_SHIFT)
+>> +#define WKUP_LEVEL_LOW          (0 << WKUP_LVL_POL_SHIFT)
+>> +#define WKUP_LEVEL_HIGH         (1 << WKUP_LVL_POL_SHIFT)
+>> +
+>> +#define WKUP_DISABLE            (0 << WKUP_EN_SHIFT)
+> 
+> This can be moved below WKUP_ENABLE macro to be consistent
+Moved. Thanks
+> 
+>> +
+>>   /* Only these macros are expected be used directly in device tree 
+>> files */
+>>   #define PIN_OUTPUT        (INPUT_DISABLE | PULL_DISABLE)
+>>   #define PIN_OUTPUT_PULLUP    (INPUT_DISABLE | PULL_UP)
+...
+> ...
+>> +#define DS_STATE_VAL                    (1 << DS_EN_SHIFT)
+>> +#define ACTIVE_STATE_VAL                (0 << DS_EN_SHIFT)
+> 
+> These can be moved to the top before PIN_* and can be renamed to 
+> DS_STATE_EN and DS_STATE_DIS
+Moved and renamed.>> +
+>> +#define PIN_DS_OUTPUT_LOW               (DS_STATE_VAL | 
+>> DS_INPUT_DISABLE | DS_OUT_VALUE_ZERO)
+...
+>> +#define PIN_WKUP_EN_LEVEL_HIGH          (WKUP_ENABLE | WKUP_ON_LEVEL 
+>> | WKUP_LEVEL_HIGH)
+>> +#define PIN_WKUP_EN                     WKUP_EN_EDGE
+> 
+> As EDGE wake is used commonly we can use the PIN_WKUP_EN_EDGE in this case
+That's a good idea. Changed.
+> 
+>>   /* Default mux configuration for gpio-ranges to use with pinctrl */
+>>   #define PIN_GPIO_RANGE_IOPAD    (PIN_INPUT | 7)
+> 
+> Thanks
+> Sebin
 
+Regards,
+Akashdeep Kaur
 
