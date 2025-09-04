@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26833CA101C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80625CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Exz4Qv14UGEN5VZBKDBNQpwpza7/Lwt+1RtIFpWka4=; b=j54V5b80NhcpYRjmGQBSID861K
-	AOz5nP9Sg7cTNhiUrqrLmI8jFyVXr6ggAxB8eOu19Ln95i6PxaGvtviDeJu+q2Yzn7dmEIAVwkrLL
-	gs09m7K8flLOC37X7aPADA65gK6IYg+kJzlUk0jIdxkljqYER459IdVCCGwxqxWD9iUjRj2p6zC4u
-	X3llUILcvd5Qq3a4A8Aj59aUaFxdOOR+aS72zWxzPx8JUTZSkzQMMA25BaiCEEbFFVAjM3Y/QbOeM
-	yyZv9oc861lGCeotwd6mjA4AF0UCLmlsH8MqHLjASZKVvommPJoX+BktomYSeol1kQRdBM9oFzPTJ
-	eZo40EYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I++08KjYUaNnGA2vqwEBlEjrmrBVzCtUSpLQK9eM7Jw=; b=jocgDbPSY9yr2v4SjcDZSvj0oB
+	8BWf3YWHXxyUdId6qHBt2VA0rYJgV6BU9J1BaVSb/9NR5nwU6Yz6aIy113PYUi/OsiRhleBrF5xmA
+	+xmbc9qxY6VgxWoLHW/I/PcuMqnPVuQoQq9vcLDuLOx88A3+Vp8ZM8nzyh1DKCw3drxzbyYgNV2Aw
+	M+2EekaFM6AQ5wpquGgCM/pN6aVJgpjMMOiPINUgB+6oqgAtPQ+hTHeZpZyqYXSFh5eemSTxvv285
+	S1Hdcs5DqxK8V9gi2zDcr2I7fYwIrXyK8w0MK9maxwh+ORDpbxeoC1w1z/shUDl6XwzpZR6+97q1w
+	aleMizXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuG11-0000000E3RQ-49MP;
-	Thu, 04 Sep 2025 19:53:04 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uuG19-0000000E3bT-2iRs;
+	Thu, 04 Sep 2025 19:53:11 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuBYw-0000000CQmu-2zLP
+	id 1uuBlD-0000000CVDy-1jZN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 15:07:47 +0000
-Received: from pendragon.ideasonboard.com (230.215-178-91.adsl-dyn.isp.belgacom.be [91.178.215.230])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 659D6F09;
-	Thu,  4 Sep 2025 17:06:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1756998395;
-	bh=fS0p2XvoEODSzfsL/y2SRg6kik4BTTH3iloa52I6Zwg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WkUjzkdazSd/Ab/viLMONgDttbk+IxhhaO8VT3lz6l273uWHfZ2k4lX1AywQrsQ7I
-	 T6O6MDjd2YlzTTZzuXizAuJ11xcf/4fpl4UVbAZQ6p51dRYPMQcIDf+cc5DbSKu2Uv
-	 PvRGlGgjqW55TCQynCJ43FPkqb9AXkY00JcMFEbw=
-Date: Thu, 4 Sep 2025 17:07:23 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Isaac Scott <isaac.scott@ideasonboard.com>, rmfrfs@gmail.com,
-	martink@posteo.de, kernel@puri.sm, mchehab@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, hverkuil@kernel.org,
-	nicolas.dufresne@collabora.com, tomi.valkeinen@ideasonboard.com,
-	jonas@kwiboo.se, dan.scally+renesas@ideasonboard.com,
-	m.szyprowski@samsung.com, mehdi.djait@linux.intel.com,
-	niklas.soderlund+renesas@ragnatech.se
-Subject: Re: [PATCH v2 1/3] media: v4l: Add helper to get number of active
- lanes via a pad
-Message-ID: <20250904150723.GC6174@pendragon.ideasonboard.com>
-References: <20250903102243.1563527-1-isaac.scott@ideasonboard.com>
- <20250903102243.1563527-2-isaac.scott@ideasonboard.com>
- <aLlRgRBztMEicEgM@kekkonen.localdomain>
+	Thu, 04 Sep 2025 15:20:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756999225;
+	bh=lVG6RUOs/vuQiBSENy+Q+/Zs0wuP4CpZcsQ73d+Pss8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=U7Y5JcbY2K+IP0RMcFoAhMxwWToXwsmZAUBPqSUOj9V997aSIGUmbeK0y6imQs3Mq
+	 /yPGz/VKDcqdAlxxChCXdUDccQSCCrYO4CdLPYL4kBDnGqqnjlpchyf4QFdGbXfcpA
+	 s2cd5lGAV2Um5SV545DCTXRIJJPXvwOKFonzwsvH+mZSWKpDK5FZOkP+2ew0Rs5nHg
+	 wBtisdLnWdyT4UFDT1tBM9hQcvR5sfg7iZ7U/DEdUKx0NHagcfrDeXuT8Q/itWCbBc
+	 QjAgvmjtx5TS18EhBtX3mi52zUojjACKwpZnC5uobBoTUFImGh4oXZDLVVJa6ZGyBI
+	 cv54/J3WQod/w==
+Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A057617E04D6;
+	Thu,  4 Sep 2025 17:20:24 +0200 (CEST)
+Date: Thu, 4 Sep 2025 17:20:19 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Peng Fan <peng.fan@nxp.com>, linux-arm-kernel@lists.infradead.org, Conor
+ Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, Fabio
+ Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, Steven Price
+ <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev
+Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
+Message-ID: <20250904172019.58e5f589@fedora>
+In-Reply-To: <36298ed9-05e4-4871-8e99-dfe814342c29@mailbox.org>
+References: <20250321200625.132494-1-marex@denx.de>
+	<20250321200625.132494-5-marex@denx.de>
+	<20250324094333.7afb17a1@collabora.com>
+	<c1de2afb-3559-4fbb-b13b-2373175b420b@denx.de>
+	<20250325084349.344a0f11@collabora.com>
+	<7aadf355-edf0-46fc-b969-65c3789375ca@denx.de>
+	<20250325153507.61d82e39@collabora.com>
+	<4c06aef3-a254-437c-aa15-8e3eb7bf5951@denx.de>
+	<20250325155231.0d1b1000@collabora.com>
+	<838a0c6b-845b-428d-86b3-1480e5b8080f@mailbox.org>
+	<20250904082224.113d0cd1@fedora>
+	<7d4e773b-64ac-49ce-8d8b-7a39c353d18f@mailbox.org>
+	<20250904160445.1671f140@fedora>
+	<36298ed9-05e4-4871-8e99-dfe814342c29@mailbox.org>
+Organization: Collabora
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aLlRgRBztMEicEgM@kekkonen.localdomain>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_080746_890972_67F30D78 
-X-CRM114-Status: GOOD (  27.24  )
+X-CRM114-CacheID: sfid-20250904_082027_604472_B8FB7FE5 
+X-CRM114-Status: GOOD (  26.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,94 +98,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 11:44:49AM +0300, Sakari Ailus wrote:
-> On Wed, Sep 03, 2025 at 11:22:40AM +0100, Isaac Scott wrote:
-> > Sometimes, users will not use all of the MIPI CSI 2 lanes available when
-> > connecting to the MIPI CSI receiver of their device. Add a helper
-> > function that checks the mbus_config for the device driver to allow
-> > users to define the number of active data lanes through the
-> > get_mbus_config op.
+On Thu, 4 Sep 2025 16:54:38 +0200
+Marek Vasut <marek.vasut@mailbox.org> wrote:
+
+> On 9/4/25 4:04 PM, Boris Brezillon wrote:
+> 
+> Hello Boris,
+> 
+> >>>> I suspect the extra soft reset I did before "un-halted" the GPU and
+> >>>> allowed it to proceed.  
+> >>>
+> >>> Hm, not quite. I mean, you still need to explicitly boot the MCU after
+> >>> a reset, which is what the write to MCU_CONTROL [1] does. What the
+> >>> soft-reset does though, is reset all GPU blocks, including the MCU.
+> >>> This means the MCU starts from a fresh state when you reach [1].  
+> >>
+> >> I have a feeling the write to MCU_CONTROL does nothing in my case.  
 > > 
-> > If the driver does not implement this op, fall back to using the number
-> > of data lanes specified in device tree.
+> > I believe it does, otherwise you wouldn't be able to kick the MCU
+> > and get things working until the first runtime suspend happens. I gut
+> > feeling is that there's something fishy in the FW or SoC integration
+> > that causes the FW HALT request to put the MCU/GPU in a bad state
+> > preventing further MCU_CONTROL(AUTO_START) from functioning correctly
+> > after that point.  
+> 
+> I wonder who at NXP could chime in ... Peng, do you know ?
+> 
+> >> Is there some way to probe the MCU state before/after setting GLB_HALT,
+> >> and also before/after the MCU_CONTROL write, using
+> >> gpu_read()/gpu_write() register operations, to find out what is going on
+> >> with the MCU at each point ?  
 > > 
-> > Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
-> > ---
-> >  drivers/media/v4l2-core/v4l2-common.c | 25 +++++++++++++++++++++++++
-> >  include/media/v4l2-common.h           |  1 +
-> >  2 files changed, 26 insertions(+)
-> > 
-> > diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-> > index 6e585bc76367..8683107b3704 100644
-> > --- a/drivers/media/v4l2-core/v4l2-common.c
-> > +++ b/drivers/media/v4l2-core/v4l2-common.c
-> > @@ -571,6 +571,31 @@ s64 __v4l2_get_link_freq_pad(struct media_pad *pad, unsigned int mul,
-> >  	return __v4l2_get_link_freq_ctrl(sd->ctrl_handler, mul, div);
-> >  }
-> >  EXPORT_SYMBOL_GPL(__v4l2_get_link_freq_pad);
-> > +
-> > +unsigned int v4l2_get_active_data_lanes(const struct media_pad *pad, unsigned int dt_lanes)
-> 
-> This line would benefit from being wrapped.
+> > Yes, there's an MCU_STATUS register [1].  
+> Is that the only register I can use , or is there something more 
+> detailed ? This register only returns values 0..3 which is not very 
+> informative.
 
-I'd also rename the dt_lanes parameter to max_data_lanes. "dt" sounds
-like data type.
-
-> > +{
-> > +	struct v4l2_mbus_config mbus_config = {};
-> > +	struct v4l2_subdev *sd;
-> > +	unsigned int lanes;
-> > +	int ret;
-> > +
-> > +	sd = media_entity_to_v4l2_subdev(pad->entity);
-> > +	ret = v4l2_subdev_call(sd, pad, get_mbus_config, pad->index,
-> > +			       &mbus_config);
-> > +	if (ret < 0 && ret != -ENOIOCTLCMD)
-> > +		return ret;
-> > +
-> > +	if (!mbus_config.bus.mipi_csi2.num_data_lanes)
-> > +		return dt_lanes;
-> > +
-> > +	lanes = mbus_config.bus.mipi_csi2.num_data_lanes;
-> > +
-> > +	if (lanes < 0 || lanes > dt_lanes)
-> 
-> lanes is unsigned int so no need to check for less than 0.
-> 
-> I might just not use a local variable for this, up to you.
-> 
-
-A debug message would also be nice.
-
-> > +		return -EINVAL;
-> > +
-> > +	return lanes;
-> > +}
-> > +EXPORT_SYMBOL_GPL(v4l2_get_active_data_lanes);
-> >  #endif /* CONFIG_MEDIA_CONTROLLER */
-> >  
-> >  /*
-> > diff --git a/include/media/v4l2-common.h b/include/media/v4l2-common.h
-> > index 0a43f56578bc..3f8937260c76 100644
-> > --- a/include/media/v4l2-common.h
-> > +++ b/include/media/v4l2-common.h
-> > @@ -584,6 +584,7 @@ int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt, u32 pixelformat,
-> >  	(pad, mul, div)
-> >  s64 __v4l2_get_link_freq_pad(struct media_pad *pad, unsigned int mul,
-> >  			     unsigned int div);
-> 
-> Some kernel-doc documentation would be nice.
-> 
-> > +unsigned int v4l2_get_active_data_lanes(const struct media_pad *pad, unsigned int dt_lanes);
-> 
-> Please wrap this, too.
-> 
-> >  #else
-> >  #define v4l2_get_link_freq(handler, mul, div)		\
-> >  	__v4l2_get_link_freq_ctrl(handler, mul, div)
-
--- 
-Regards,
-
-Laurent Pinchart
+Not that I'm aware.
 
