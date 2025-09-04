@@ -4,78 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9803ACA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 20:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8758BCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 20:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDLKHxEV4hBOubU1hA0pF3KKCXpZ9u6NZsKj3VxloXA=; b=dieY55r6L+cysR/CsKDoyNOnhI
-	wKUwYK8fnTrywZOnQga4wwpEnOZqcRbIiekvi8gomP5QnCkSx/80TSjmBMJQ6vxFgWjdwpJooK5yA
-	ULl8xymKJ0O5G9mVY+Usx4X5bOzT3uRRmXXQ4l3eDb27Z9TqlmiPjRVjlc9vd7LbnXEGN/gcp5HY/
-	yyRYmUNVsfPmvuTwyNjRkEiRgivXrtZrdQHI2Xa9m7G3UovIqXK1HCTAzXLIjBEEAgtgT3Pp389bw
-	mlHaGIAH2b0Ou9arD1nmyyfJd16iEmDDC1J0Gv74NXfutpcx9Kz4D7j9xksKwo49YsK5lcJZ1ouFa
-	AWUxopSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cC/h3QfKMJzrRDSZDbq93SJp3ae5x/zr+tomjc57MZ4=; b=K5sgiqysaVpdniQPyCtCkbwkc3
+	P1OQhhN+TLl2e6SjuXBKvKyLx1yp9Rj7sYXtr//x2J0iOSKYpBM57DMnsrSa9AHgTDKtHkLQWOFs1
+	9GlhzxWeECZxscW5LmjihFdeU5CN1YXztLxc479hjv7tDB4UvN5b6WhcSSTt/vu3gX9Xu6tcQdBvE
+	CXU8aJ6zellnCZKgkI8tfy0besNTyols+db9BK60pphgpaF+dU1n+uhOX8GX4U56q8VP0XUC0gU+S
+	8+zRGtSHvNvPbeJYMywrBv+Ov4NIgCbv0pEdl9odLuh42VjWwiKCPMDTrxKjdwEH6tK4i1/swzsjF
+	KHV8nuqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuGZE-0000000EFWB-3trF;
-	Thu, 04 Sep 2025 20:28:25 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1uuGbx-0000000EGYR-0SbW;
+	Thu, 04 Sep 2025 20:31:13 +0000
+Received: from mail-bn8nam12on20723.outbound.protection.outlook.com ([2a01:111:f403:2418::723] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuE5x-0000000DMmv-0B0n
+	id 1uuEAA-0000000DOjP-21oz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 17:50:03 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250904174955euoutp02cd4f55a7f9d83dc71791f5ebf8591437~iJaUEwTBr3046630466euoutp02W
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 17:49:55 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250904174955euoutp02cd4f55a7f9d83dc71791f5ebf8591437~iJaUEwTBr3046630466euoutp02W
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1757008195;
-	bh=xDLKHxEV4hBOubU1hA0pF3KKCXpZ9u6NZsKj3VxloXA=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=LM51+XH5yTExcGU88pRP1td8ngDXTxUnoaAgoRNqnWz/70AD7Ccf55vCTccn3Y1e1
-	 skSBgRtje2OwcDcspXfx8EsJZppo7vJ3/+u1tFeWyH17BrFvQenRtdMJZdKVqqmnWh
-	 TlsVqtdLkH5CDFGLBHQqW2Gd8LOWK5bee0Juq7IE=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250904174953eucas1p17f0b6acef323d0a44b84b8ab177041cb~iJaS00zsD2322323223eucas1p1H;
-	Thu,  4 Sep 2025 17:49:53 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250904174952eusmtip2cc300941d5463e8178ab6192d3bf54a1~iJaRhhG0z0094500945eusmtip2X;
-	Thu,  4 Sep 2025 17:49:52 +0000 (GMT)
-Message-ID: <28a9be50-2432-49b5-b10c-bf8b4f9ebd8b@samsung.com>
-Date: Thu, 4 Sep 2025 19:49:52 +0200
-MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH] clocksource/drivers/exynos_mct: only use IRQF_PERCPU
- flag on ARM64 SoCs
-To: Peter Griffin <peter.griffin@linaro.org>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Krzysztof
-	Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Ingo
-	Molnar <mingo@kernel.org>, Will McVicker <willmcvicker@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, John Stultz
-	<jstultz@google.com>, kernel-team@android.com, youngmin.nam@samsung.com,
-	hoony.yu@samsung.com
+	Thu, 04 Sep 2025 17:54:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zNvbhMHAY/Gz4QDpLrAqYDatChSileq0LTNX2vO561D9IqxdzzsR0YwdiZ4zdHrIVZCfYOwV1hRNP3doUpmMJG9Oj+2WLfSz4C7ssR8+ZJo07KyXbvNlW2FCiuiqM14tNzVzTyjyCXCl20cu119E7ybBlYnmX2w/AWZL4Rbymf/9KIJLvPAI2yizPwpP7zTA4sa0BwR5+lHi3F32NyxLjPDza7HH0QkMnvFpToadCa5XSq0VdHGGi2AiMMQKYFpn1lPDbLOn0LP4GkKViEM09gaAJu98K8p8fpVh6UC80ER72KfQbn0/R0fLKhnumLOLLC1/YYaR6WvC7K31ggV84A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cC/h3QfKMJzrRDSZDbq93SJp3ae5x/zr+tomjc57MZ4=;
+ b=IpQt1Ciytex5Psjh988n2GgL3abmpDOHhwo8H9vI/bK2PWkYJvGIZPC7Q34tDy9VkP2/ukfmTgu0fXlzbiKy2D6jZt0zm+l2GVyWAH964IAeIaTSDQxQFf04HVCv89eEEURX27IJR4UdWr0PWFcx+VFB7NFG/SPHnJWELkLZnnGI1buWGnrUnXuPXn+xh7WPErfyTUGUeY9/vStuq9snTvxujcgGdyk65a4MtM3k+tOqwAXlr9obVmax/d5lYeoZfeEa7AiDr4M+WuXf+RA4Z+yzL7lYrS9C/DRYcw+xKiFCZmr0OkzpPbT9s06GFTQfurRCoxsO3k9MCRvm+IRwOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cC/h3QfKMJzrRDSZDbq93SJp3ae5x/zr+tomjc57MZ4=;
+ b=kGRS8du9PfHMDZo2AcC9NDA5oeNPmPyVCTu3c2PjpsxJyGymjcRLq+l3wcGefbCRv8b0LSJ3dKq+metW1+zBFS3R25sI6tciF7IB7h7HWNZZzG9BKaIAfE0MLR5x/7QF6nY08ZL6jSmWea+BMlhSN6bZSBW/2449sS4XW0vRGIg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ CY1PR01MB9243.prod.exchangelabs.com (2603:10b6:930:106::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9094.17; Thu, 4 Sep 2025 17:54:15 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.9094.016; Thu, 4 Sep 2025
+ 17:54:14 +0000
+Message-ID: <1c9093da-3ae5-4d13-a56d-592f92a63d51@os.amperecomputing.com>
+Date: Thu, 4 Sep 2025 10:54:10 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 5/6] arm64: mm: split linear mapping if BBML2
+ unsupported on secondary CPUs
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ scott@os.amperecomputing.com, cl@gentwo.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20250829115250.2395585-1-ryan.roberts@arm.com>
+ <20250829115250.2395585-6-ryan.roberts@arm.com> <aLnFd1Hl_FSHZR3z@arm.com>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20250904-exynos-mct-arm32-cpuhp-regression-v1-1-5d9e4dd356ab@linaro.org>
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <aLnFd1Hl_FSHZR3z@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20250904174953eucas1p17f0b6acef323d0a44b84b8ab177041cb
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250904153242eucas1p12841f999bf68861f7386b0c9f3f4f60f
-X-EPHeader: CA
-X-CMS-RootMailID: 20250904153242eucas1p12841f999bf68861f7386b0c9f3f4f60f
-References: <CGME20250904153242eucas1p12841f999bf68861f7386b0c9f3f4f60f@eucas1p1.samsung.com>
-	<20250904-exynos-mct-arm32-cpuhp-regression-v1-1-5d9e4dd356ab@linaro.org>
+X-ClientProxiedBy: BYAPR06CA0020.namprd06.prod.outlook.com
+ (2603:10b6:a03:d4::33) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|CY1PR01MB9243:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0214ec3d-000b-4ddc-ee7f-08ddebdc0f73
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MExkN0RBaGVXcjRySzEvTHFnU3lTUUVjcFc1c2FoZTZzYXQzeDg1OHVvbk5u?=
+ =?utf-8?B?alBRVS9SenlOUk81VmxvTEw5WW1nREhtU1hWc3o5L1pCK0lSYWMvVGFlR0RQ?=
+ =?utf-8?B?Tk9ja21yKzlsL0JCSWxmRVoxVXhqSktScDNjWWYrRWlVVVEwdGpxdHlMbXZj?=
+ =?utf-8?B?bWlLZEpKcTh3N0tOTXExN3hJYnFQdWFodFo0RmlpTlZCL0pWMnY4eGhoNyt6?=
+ =?utf-8?B?RGpGWFRIcWhwc2hsSEJZdTRNMStxSENFRTFjQ1o1Y0VmWVlFUi9YamNaMHg4?=
+ =?utf-8?B?V0NZdUFLSlhMUktxODhjYmlIZkFVbEF2VnBHOHN4WnljNE16MXRTSnU1OVRt?=
+ =?utf-8?B?SXhRTGpBdk4yNWxHMit1UHVqeU5XcTNIUmZnUzhLUzRyT2hNa1I4SXNOZEtE?=
+ =?utf-8?B?d0R0RUNrb29VTEpVUEEzS1lCdk5saGF2bHNXcTM5WEVLTXhFZHdCeU9tNVN5?=
+ =?utf-8?B?amlBSmpmVDE5SzFtbENPekQxbGF4bU5naVkwYi9pS0IrZkRTSEtsdklteEZm?=
+ =?utf-8?B?UW5weWFZRUZ5d3R5OUNxZGcvUkRja0NVNFZuc3diVzFsNCsvbFF0V1YrVHJS?=
+ =?utf-8?B?NDRHK2pXblVhbUN5R2UzaGxleHJWZ01CbVU4aWcxMUpLRzdCTWJUcXROdTdq?=
+ =?utf-8?B?dmI5dlVyclpnbC9xTktQTU5HeEFxdEhRTS9mdWhZc1kyWG5BYUZGbFBKT1hO?=
+ =?utf-8?B?ZVl5bFFOWXNWNmtWM0ZSdVgzZW1rbExuWnV5V1VySW5ucUpneE5ZTHFuQVo5?=
+ =?utf-8?B?MENTY2FrdmNlemxOKyswbHRMcUxZR01YZjF1S0M4SDdFMVpHVkpRSDJ1YTFu?=
+ =?utf-8?B?bi9zcU5sSTZKaGp1eFh5RHZDVkt4MHlCd0IxVXlQYTM1Sm5TbWVKYXZaUDZq?=
+ =?utf-8?B?cUZaY2w0ajlGRFArNHJwN0MxNUxJSDZWY25WZm1uOXRIVUd3YXZWblJ0K3pS?=
+ =?utf-8?B?UWY5Z0ZGeU1BVlZPcXhhNEZ0ZTUrOE5HeXlYaERrTTBoT0VoTm5nSm1ENFNs?=
+ =?utf-8?B?bklmdHJIK2t5ZlU1V3MrN2h5QjlFYkZJUzhPYUhZWUZUTFBpcHE2cHdYN280?=
+ =?utf-8?B?a0NMVlc0T2JPVVZrY2JRQVRYTXVHM3JNNTFGOG8zeldTcE96NEd1OWgwd2pq?=
+ =?utf-8?B?WWtIZlZPdXZTc3FHOXI0bVRDSkNObThQY0FNT2lOK0JZVGk5cEE4L0Q4L2ZK?=
+ =?utf-8?B?YU5kMzZ2bUJUSXYzN0ZCeTdJS3BJYUJESjUvMDhkM2UybCtGc3hoNkdVS2t5?=
+ =?utf-8?B?dlViUE9JMTVKaGxMaUF0Z3B6TEdweWl5dmJRNzdiVmFaQzFucFk1d0J3QUJ4?=
+ =?utf-8?B?bEltVEYrYnFHWlZXSW5SQUZTZkdzUlQrejFIb0JkS2M0MGxiTG1FTjFFaHZI?=
+ =?utf-8?B?ZmNWSG5NaTl1Rlh2WXhnOGlBd3hmbWhmREhZL1BxVUEycTJnNkR0UmRjWEU0?=
+ =?utf-8?B?OVlCSWlEbkltYlBtcGZlZ0hkMlJncHNyb0hlMTBabTlXdFBpN090cmNxVEdp?=
+ =?utf-8?B?WlFUOWVIdDMxOWs0cnFKamVRSHlieTBNdFFXZzZmS0ZiaGhCNGR0Q0RlVGxp?=
+ =?utf-8?B?Y3F0ekpNemZHdm5iL2ZRc2MvOUNUSkRpb1RRaUFvb3poOFNjK0puKzR2OUMw?=
+ =?utf-8?B?ZnVHTnNxMHdSaHJUOVlCbUFtN1lFOWdjcTRNdDF2YWJiejY3ZE1ZTzQzSXB4?=
+ =?utf-8?B?VmdOZFNPVE9USFhzSXNKcnp1ZXdWRnJ4SkwrRlpUd01tY09mRnZkQ0RBQ3Jh?=
+ =?utf-8?B?UG04eHFZbC85eTM1Y0x1eEFKVWFYTDNnWnlTbll0aUxuS09lUmxRTGhNZWl2?=
+ =?utf-8?B?dXJybmNlaVovUUlXMWlGaXJqZ1p2OU9Ua3N6MDhkQlZLMFpCY1h4c3JURHND?=
+ =?utf-8?B?S01qcER5RjdMUzJHN2JkZUNQbFZvOWFjMmVNQzA1S0t2ZWM4ZEFxVVlid1Zn?=
+ =?utf-8?Q?qO9ls+r9Aw4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZVQrSmVsSCtNTGdybWFmV2dBR1h4L2QrdHRzSlZ4U3JSV3BHMmlBQVNJRjVP?=
+ =?utf-8?B?Ri9NRE1hWjkvU25zL2k0dkNYbHFzMjhTemozTTk5bTdsMW1FZUlCZlFRNndv?=
+ =?utf-8?B?dnpuaXJkSTRjMW9nc25PN3VhZmdJbmlxN1VBSGZ3TUhrcDJxa2dEa1JaU1lD?=
+ =?utf-8?B?SHI3eHJVWjYrRi9ORy8rYnN6SFdpeVIwSFM0MXNhdnQzYkUwZ1h2QjBkMGU4?=
+ =?utf-8?B?VlRYNWNLKzJQSGF3R1JvNXl3YVYrc1Vua2l4d29uRTBnVncwM1dORmpoTWdI?=
+ =?utf-8?B?U2V5RGdBdTVjSWpDY1NwYytiSFVFek1VVHVGZlBETlRPbmJpNEtlRjRxY3FQ?=
+ =?utf-8?B?eGRmTnNvUkZLeE51VnZQbFBaeVZDS1VoVUg3NVpmRDVVZzBMVHh3RUhGWE13?=
+ =?utf-8?B?V3kwWUpYZGZHNUhBV0dDblJMWnh2cmJySDhIWlBVYkdKaW5uT0VXZkF4N3FM?=
+ =?utf-8?B?NFNudkhpV0VvM01NZEkzZHFDdXMzYzBXaG4wSmpHMzYzZVdERXpPNUVIeFI2?=
+ =?utf-8?B?ZVJoeE9CRXMwY3JsYmwvZXlrWEtPV1UzOFpROWYvdHUrL1M0dDRsVzdCOVN3?=
+ =?utf-8?B?VWdoVUN2a2YvNTZZcWFBNWt2M3I1SzFPVGpJYzNkMWNpYjA1ejhzR2RaY3Vq?=
+ =?utf-8?B?a1lqbElyQjV2aEE4NnBxUytTRi9aSU1oQlcvWSt1YU03d1pwUlFCQVpDV0tm?=
+ =?utf-8?B?My9xdUhyTTlicWlLVUNRT2kwcHpPKzVyZ3lOc1ZHRXNoNVI4UmRXZ0FURTRp?=
+ =?utf-8?B?V0pxYWs1U1h6dEdJTkFnbnR2UHN3bWZKYitRNFduTlhWUTZqN2YyV1dVcStC?=
+ =?utf-8?B?SytQc2l4ZnM5NkR3dCtCcEZZNC8zRnpuVEdqMFpoL2FWcFl1NUdCMHN4dDZq?=
+ =?utf-8?B?SjNZVFZyWlE2YmdKeUx5TXJHWGFwQ3lvVjcxQzh0TmJ3UkxjRllDNmtmTjNh?=
+ =?utf-8?B?N05qTys0STdDaFN3Y2tpS1VYSVA2SEhvdmpkMjBWMTNEZ25hSUlBME1OVE1v?=
+ =?utf-8?B?aGh6dmtJNWxHRlltZXNJM2NPL3BraWJXYUlub0t3QWZhdzdiMTRuZys5N2NG?=
+ =?utf-8?B?VGR1ZXpPa1FLVVo3S3BSODJFWHZabW5pOGhNdytqSy9DWUdBc0lKV2RMVGFp?=
+ =?utf-8?B?b2d1V3ZGWXJPdjhOQ3UwbENNK1JvMjlKMHd4NUlYTjBlMmZrOUN3dnpuWHhz?=
+ =?utf-8?B?aXFDTTY0K3FtSHd0R2E0WGIzR0lCQTJiTGx2QW80eWE1Um5jK2ErQW42NFdu?=
+ =?utf-8?B?SStaMVlVT3d5Q29taGhLb0tMMkhmRElETG9ocXNOdUZpRlBWZ2ZDbkt4L092?=
+ =?utf-8?B?eEtNUnB1SUI4bjNUWnAxUzJsa1RkSHRkdHVpMlg5dnYvZ2dNTFlrSW1CMTlj?=
+ =?utf-8?B?LzFnUElrckM0RDd0ZkR4WVpvNHVaQXNxcm0xeDVCaGppdHhyWHFYK1c3MHIz?=
+ =?utf-8?B?dElpRVFiVVNCdGVXUVFSd0hxYzJFUXNhdTFraEZhR09PV25kQmpnby92MDJG?=
+ =?utf-8?B?THlWKzFncWp0czdWZHVFY2xZQzJnZDUxRmwzU1hVc3p1SWtUbnNBQlpYUldm?=
+ =?utf-8?B?ZVBJMmVKWVVOZy9VQVJJV0F1L1o2THNydWdwNW0vNEtCUEdrbDc4aEhidzZH?=
+ =?utf-8?B?SVgzVDJCTGd4UWNCVWowZDlJRkpMci96ak0rekdRcE56N1ZEOXRtYmk4MFAy?=
+ =?utf-8?B?aVYxVE81N0dFeVhBYUFUV0NUekEwdzlRU3dhTnVtZnRvbmFQcERFZWJDTVll?=
+ =?utf-8?B?ZEJLbjVCZGNrZGNBOFMvRnA1L0lzeStyR256ZE51VmdYYlpTV1FkL0xGNXJn?=
+ =?utf-8?B?eVJUejJycHFlbzc2U2ZKaE05UmNQK2tQVGtSWnd6em4rY1BGK1dmdmhRNTBz?=
+ =?utf-8?B?L2VqSUkzWFR2ZzB3NW83SGdNZjQ5SGU2RjlJeGdiN1ljdFgzZmxmNlg4aGE1?=
+ =?utf-8?B?R2ZEa29TNGZUenlZM3l6TzUxaEtFK25HdHZaL0ZZa1hxOGlUYUlhSjZWRllR?=
+ =?utf-8?B?TEFCQzVJYUhOcnl1NFY3bUJpeGdaZW5PbGExSFdwbFBFZnJjQVNhaERJOThH?=
+ =?utf-8?B?MmMzSzlhOGY0bjNJMDZWbTBmV1ZpS3FwbmVXVGRkb1B2K3BPRUI5Y1hWckg2?=
+ =?utf-8?B?KzU4ejFKWG83dTJ5OEJPTXdQZzUvaW10cHkrVmpNK2d0THRxL0FxRDRuai9Y?=
+ =?utf-8?Q?YniU0i9JTs8rNJwNkLBKtgM=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0214ec3d-000b-4ddc-ee7f-08ddebdc0f73
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 17:54:14.3036
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Dw1LO208X5TzTNnfQujIDbOgBdXNGyWYp3f7WHX9I6IMJiIxi5n1HklJ4j96DL2pRyXJULi31xOPsDYTOguB6EzFTd3HeSL/MTHYgR7elAU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR01MB9243
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_105001_674934_A0A4798B 
-X-CRM114-Status: GOOD (  26.39  )
+X-CRM114-CacheID: sfid-20250904_105422_531825_18531608 
+X-CRM114-Status: GOOD (  22.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,86 +185,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04.09.2025 17:32, Peter Griffin wrote:
-> This patch addresses a regression reported in [1] whereby CPU hotplug now
-> fails on little CPUs (for reasons that aren't fully understood) for Arm
-> 32bit platforms such as Exynos 5422 used in OdroidXU3/XU4 boards.
->
-> Note: This patch makes an assumption that the exynos_mct driver is only
-> used on Arm 32/64 bit SoCs.
->
-> Fixes: f3cec54ee3bf ("clocksource/drivers/exynos_mct: Set local timer interrupts as percpu")
-> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Closes: https://lore.kernel.org/lkml/8c861182-7e90-4bbf-ac04-173d59f5af69@samsung.com/
-> Link: https://lore.kernel.org/lkml/8c861182-7e90-4bbf-ac04-173d59f5af69@samsung.com/ [1]
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
-> Hi Marek & Krzysztof,
->      
-> Can you test this patch on your Exynos5422 based boards and see if it
-> resolves the issue Marek reported of CPU hot plug failing on the little
-> cores of Exynos 5422 based boards?
->
-> Unfortunately I only have gs101 based Exynos hardware (which is Arm 64 bit
-> SoC) to test on. I can confirm CPU hotplug is functional on the little
-> cluster CPUs with IRQF_PERCPU flag on Pixel6/gs101 though.
 
-This is a duplicate of 
-https://lore.kernel.org/all/20250827102645.1964659-1-m.szyprowski@samsung.com/
 
-and yes, it fixes the reported issue.
+On 9/4/25 9:59 AM, Catalin Marinas wrote:
+> On Fri, Aug 29, 2025 at 12:52:46PM +0100, Ryan Roberts wrote:
+>> The kernel linear mapping is painted in very early stage of system boot.
+>> The cpufeature has not been finalized yet at this point. So the linear
+>> mapping is determined by the capability of boot CPU only. If the boot
+>> CPU supports BBML2, large block mappings will be used for linear
+>> mapping.
+>>
+>> But the secondary CPUs may not support BBML2, so repaint the linear
+>> mapping if large block mapping is used and the secondary CPUs don't
+>> support BBML2 once cpufeature is finalized on all CPUs.
+>>
+>> If the boot CPU doesn't support BBML2 or the secondary CPUs have the
+>> same BBML2 capability with the boot CPU, repainting the linear mapping
+>> is not needed.
+>>
+>> Repainting is implemented by the boot CPU, which we know supports BBML2,
+>> so it is safe for the live mapping size to change for this CPU. The
+>> linear map region is walked using the pagewalk API and any discovered
+>> large leaf mappings are split to pte mappings using the existing helper
+>> functions. Since the repainting is performed inside of a stop_machine(),
+>> we must use GFP_ATOMIC to allocate the extra intermediate pgtables. But
+>> since we are still early in boot, it is expected that there is plenty of
+>> memory available so we will never need to sleep for reclaim, and so
+>> GFP_ATOMIC is acceptable here.
+>>
+>> The secondary CPUs are all put into a waiting area with the idmap in
+>> TTBR0 and reserved map in TTBR1 while this is performed since they
+>> cannot be allowed to observe any size changes on the live mappings. Some
+>> of this infrastructure is reused from the kpti case. Specifically we
+>> share the same flag (was __idmap_kpti_flag, now idmap_kpti_bbml2_flag)
+>> since it means we don't have to reserve any extra pgtable memory to
+>> idmap the extra flag.
+>>
+>> Co-developed-by: Yang Shi <yang@os.amperecomputing.com>
+>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> I think this works, so:
+>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Thank you!
 
-> Thanks,
 >
-> Peter
-> ---
-> ---
->   drivers/clocksource/exynos_mct.c | 13 +++++++++++--
->   1 file changed, 11 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-> index 62febeb4e1decec7f5db104db395884824563915..91d79b73a96a7e8a354d803c2b497bcde92af8d8 100644
-> --- a/drivers/clocksource/exynos_mct.c
-> +++ b/drivers/clocksource/exynos_mct.c
-> @@ -532,6 +532,16 @@ static int __init exynos4_timer_resources(struct device_node *np)
->   	return 0;
->   }
->   
-> +/*
-> + * For reasons that aren't fully understood IRQF_PERCPU breaks CPU hotplug on
-> + * little cores of ARM 32 bit SoCs like Exynos5422 used in OdroidXU3/4 boards.
-> + */
-> +#if defined(CONFIG_ARM64) || defined(CONFIG_COMPILE_TEST)
-> +#define MCT_IRQ_FLAGS (IRQF_TIMER | IRQF_NOBALANCING | IRQF_PERCPU)
-> +#elif defined(CONFIG_ARM)
-> +#define MCT_IRQ_FLAGS (IRQF_TIMER | IRQF_NOBALANCING)
-> +#endif
-> +
->   /**
->    * exynos4_timer_interrupts - initialize MCT interrupts
->    * @np: device node for MCT
-> @@ -602,8 +612,7 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
->   			irq_set_status_flags(mct_irq, IRQ_NOAUTOEN);
->   			if (request_irq(mct_irq,
->   					exynos4_mct_tick_isr,
-> -					IRQF_TIMER | IRQF_NOBALANCING |
-> -					IRQF_PERCPU,
-> +					MCT_IRQ_FLAGS,
->   					pcpu_mevt->name, pcpu_mevt)) {
->   				pr_err("exynos-mct: cannot register IRQ (cpu%d)\n",
->   									cpu);
->
-> ---
-> base-commit: 4ac65880ebca1b68495bd8704263b26c050ac010
-> change-id: 20250904-exynos-mct-arm32-cpuhp-regression-14f321e4a591
->
-> Best regards,
+> However, I wonder how likely we are to find this combination in the
+> field to be worth carrying this code upstream. With kpti, we were aware
+> of platforms requiring it but is this also the case for BBM? If not, I'd
+> keep the patch out until we get a concrete example.
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+At least we (Ampere) are very very unlikely to ship asymmetric systems 
+AFAICT.
+
+Thanks,
+Yang
+
+>
 
 
