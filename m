@@ -4,113 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 698E8CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1F0CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6LuBIgkWM2+M7hzDIe1WG+NDMEyZJ/V9E4FqFLdWzwQ=; b=Cnb2dgs7IewLHAQtrjGQJzUfbL
-	eEvuvIGvw6kiWGQBqLmS4pWVJtqp/ib0uhxa827xF4FLcf849kBJ+AFW2EzZx3jzJV+sDhSjM9sc6
-	x8slgfBCKUysJkdovtX8PLXnxRP5U4xbCFlK5dJG/CXf9166yC0c7pAZANfdP01vFC1DMgTwZQmJd
-	Fpvtycvlhdti9kiWtGtI9QAe5xaa4yUEupsm3kL0pgeWhTSFYSq8VZivgzXQAWtSXDorVsiDrl8s3
-	h6JiLfEUtXN60HfPFvAilA+RhOXq7n3CHxvG9LUsMlVl7E2GI96OPUrOxURWsN1DbEHvPxJtpc7Rv
-	y5lCh38g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z94ywxLihlP5imbl3FU1jjKwYYCzYT7fwycWOKoAX7s=; b=GKaYt+Taif4lxywv8NaJBrERwR
+	sgk/uyCi3x6KisP+iQBk8penUGiZ+rWRWZjw3D4J/6poXLICTVkE4FmBADu1sdMH5Jd+/aR951kfh
+	Wo1ZFd/zyIKn7JIhuWQOJyxSNNerezynC8aaK3e/TuEpDBxoLpnS+3gDoI6GuKFMxraHUR/vZI7Yo
+	dmUq0KGhK0cPmSDCNygNu5cFjT5+XXasP+5LMCp9gIEGV4eEsSHjQIuSQ4tpgbZ9PIezCesOm6ABm
+	ICVEaWJECCxFpvtYyMXN2ZnKQ7TLBeS872QLTLzPPUtXE/NgfQNAWIbaAYGLaIchU07M6aQd7ajMX
+	VNwh0BNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7YX-0000000B0zX-0bCu;
-	Thu, 04 Sep 2025 10:51:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uu7bF-0000000B1pv-0x0b;
+	Thu, 04 Sep 2025 10:53:54 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu6UD-0000000AdBr-009K;
-	Thu, 04 Sep 2025 09:42:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6B25660210;
-	Thu,  4 Sep 2025 09:42:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9DDEC4CEF0;
-	Thu,  4 Sep 2025 09:42:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756978952;
-	bh=GkDnuWOdz/TX4GGvL75O/nvs+H4WJw80rQUSnb3ZIgM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dQyHvkBacLkDH1Jmn8PM9g+Tv3V/P1Gd4wmJ1Okge6yEDvFYhMU/s50kaNGEOp0Uy
-	 c1A7E9IQ1ReSXF2XxkG5vHKmYTCAJv8xPMdxaiAY13tfdhg+J7HnHbaj48a8akh++1
-	 px5Pex58MZFxeCz/PDWbWi7xPHzhBCSXmI7B9UjjmsBPRMwzCLJDjNtL7rNMgGSTFg
-	 1txx+tDSPMm652JYg2mxvVdyFBKz/SPwy4OiHmprJK+lJx/3eDQjllq0wuZxdjnXtP
-	 R9BLGhOAdnqCxRhd+kEZfX0ZuacsCrKRMph0YrvlBPEz2D0bLTv81wCvYxHNSV39oJ
-	 sNVQwo4FOHGTg==
-Message-ID: <87857202-b436-4476-9384-67566126d844@kernel.org>
-Date: Thu, 4 Sep 2025 11:42:25 +0200
+	id 1uu6Yj-0000000AeaM-0z0l
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 09:47:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:mime-version:content-type; s=k1; bh=Z94ywxLihlP5imbl3FU1jjKwYYC
+	zYT7fwycWOKoAX7s=; b=Bd1UXp993IfnsYG251n/negH7uTJHbLI7dgi/rjn/GN
+	IUjLMOu0lewDU5/rZkpfTVRSS9HaYcNK3hg6A+ounw3N2mcIv6VKBdNHMKQhdiS1
+	Ima1sNLahAkVTCVRx55o+IjehFgMi78M8wyGnmOFeNrPB/a/Ed0Sz/oEQsev/XYB
+	IbEyG+bCugWaXGS5hi3cEvmpNF3mOU2E2P+R72trHgstDImBXK/mg9N3ycvzwX+s
+	lE7wWbv9Q2UEzOwcUrSIUPSRc169/wDs9osF7OM4A8midxD1pfRnjP1Jgv1btyCc
+	+dpkymv9Z4c3QYn6RcHfn9W9zJjNtu1tm2nDpjDP2vA==
+Received: (qmail 3617510 invoked from network); 4 Sep 2025 11:47:06 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 4 Sep 2025 11:47:06 +0200
+X-UD-Smtp-Session: l3s3148p1@vUWhmvY9xC5tKPNb
+Date: Thu, 4 Sep 2025 11:47:05 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: soc@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PULL REQUEST RESEND] i2c-gpio-fixes-for-6.18
+Message-ID: <aLlgGdrFEjh26knK@shikoro>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 HS phy compatible
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, alim.akhtar@samsung.com, andre.draszik@linaro.org,
- peter.griffin@linaro.org, kauschluss@disroot.org,
- ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
- m.szyprowski@samsung.com, s.nawrocki@samsung.com,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
- dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
- selvarasu.g@samsung.com
-References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
- <CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
- <20250903073827.3015662-2-pritam.sutar@samsung.com>
- <20250904-interesting-lovely-ringtail-38bbef@kuoka>
- <000001dc1d70$aebf7d80$0c3e7880$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <000001dc1d70$aebf7d80$0c3e7880$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FVwHWn2AG0eyJRbl"
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250904_024714_131088_3FB12B27 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,49 +67,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/09/2025 09:51, Pritam Manohar Sutar wrote:
-> Hi Krzysztof,
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: 04 September 2025 12:18 PM
->> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
->> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com;
->> andre.draszik@linaro.org; peter.griffin@linaro.org; kauschluss@disroot.org;
->> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
->> m.szyprowski@samsung.com; s.nawrocki@samsung.com; linux-
->> phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
->> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-
->> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
->> faraz.ata@samsung.com; muhammed.ali@samsung.com;
->> selvarasu.g@samsung.com
->> Subject: Re: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
->> ExynosAutov920 HS phy compatible
->>
->> On Wed, Sep 03, 2025 at 01:08:22PM +0530, Pritam Manohar Sutar wrote:
->>> Document support for the USB20 phy found on the ExynosAutov920 SoC.
->>> The
->>> USB20 phy is functionally identical to that on the Exynos850 SoC, so
->>> no driver changes are needed to support this phy. However, add a
->>> dedicated compatible string for USB20 phy found in this SoC.
->>>
->>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->>
->> You just dropped all tags without explaining why.
-> 
-> Regretted inconvenience. 
-> 
-> There were significant changes in supplies' names in driver and schemas 
-> (patch-set v8). This led to make changes in patch no 5.  And review for 
-> these changes is needed.  Hence, removed RB tag in this patch-set. 
-> 
-> There was a ask for the same https://lore.kernel.org/linux-phy/000401dc18cd$ec02a1b0$c407e510$@samsung.com/#:~:text=Let%20me%20know%2C%20because%20of%20above%20changes%2C%20should%20be%20removing%20your%20%0A%27reviewed%2Dby%27%20tag%20from%20patch%201%20and%203.
-> 
+
+--FVwHWn2AG0eyJRbl
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hi all,
+
+this is a resend because I used an old address for the SoC mailing list.
+Sorry for the noise!
+
+Happy hacking,
+
+   Wolfram
 
 
-Where in the changelog you explained why you dropped the tags?
+The following changes since commit 1b237f190eb3d36f52dffe07a40b5eb210280e00:
 
-Best regards,
-Krzysztof
+  Linux 6.17-rc3 (2025-08-24 12:04:12 -0400)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux.git tags/i2c-gpio-fixes-for-6.18
+
+for you to fetch changes up to ed8c952aee4183ac866a83397e12ceb99493c6ad:
+
+  ARM: dts: stm32: use recent scl/sda gpio bindings (2025-08-28 12:33:26 +0200)
+
+----------------------------------------------------------------
+i2c-gpio-fixes-for-6.18
+
+We have dedictaded bindings for scl/sda nowadays. Switch away from the
+deprecated plain 'gpios' property.
+
+----------------------------------------------------------------
+Wolfram Sang (2):
+      ARM: dts: cirrus: ep7211: use recent scl/sda gpio bindings
+      ARM: dts: stm32: use recent scl/sda gpio bindings
+
+
+with much appreciated quality assurance from
+----------------------------------------------------------------
+Linus Walleij (2):
+      (Rev.) ARM: dts: stm32: use recent scl/sda gpio bindings
+      (Rev.) ARM: dts: cirrus: ep7211: use recent scl/sda gpio bindings
+
+ arch/arm/boot/dts/cirrus/ep7211-edb7211.dts | 4 ++--
+ arch/arm/boot/dts/st/ste-nomadik-s8815.dts  | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+--FVwHWn2AG0eyJRbl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmi5YBkACgkQFA3kzBSg
+Kbag2hAAqxotRdcs2jDfUxL9ubnQ3k/TfkhqOEeU1mI7gF/zyC/egI96lb496+F6
+Z4eatokRljKjTBvsfZefc8ppw+/JipizoFqZNSyqWeAMj3dXpFTh3KXkIBo7zRxl
+mGcHl5hYkFiR2E+EuCPvMP+CudsqnkWPOMT23JDsWquEmfC+zGEjFbUpx/d1MlPW
+sbsYvlY7Jep5WcNDwjgHVejf+XEnZNgsJnbmZUPuNhyFVXLQOQQheRqV/GyoQthn
+UFQYBQt9ZL/lbR+timthvUuXP+6CGcdeVNk1AzO0DBjNbbyV4UweCiM8KaLFSRa0
+WlOQUSg1sQh2ZPcZ2UURyt1NpvhefA8sw6K7NZZwXn7irkY2skmesElwSfZWcePH
++7wBwlZN+B6U3Lx18oWCrp6TkQhhBkSXpNhXbYSFttOmgsE8iBFPasfwarX1E6A+
+epiPhWLYR+MvamKftL+A5EdA1m3JL2fZcslNQlrdxWC+xMag4+hNzWRvjsVuI58f
+r7EP1IejZ8YZSljzXS/U+onzO7AGoFB3Uktk2r7/ztCW9t9ejEAWpEl92HJVnxyf
+0lr+ZEwAtX9SH0b4D2Bk/QWxBN9k1Es/FtqnCjTsvcK4DiTaz29zYdWQyL+xmBtW
+UblRFgKUZvJ9UCeYC00A+oDPOCVudy4G1FXgTDwANfFt6SRdd+k=
+=1Vdc
+-----END PGP SIGNATURE-----
+
+--FVwHWn2AG0eyJRbl--
 
