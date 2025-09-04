@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0100CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 21:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6782ECA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uo0RISLwmkgLCYh2IN11pINVWBVogTF0MXL6fRzX8kM=; b=UXYes8r+JoLYtzJnd4W9WPOwXL
-	bkojNVtO5e5rEWeZEL1WgnjcAj1nZEg3EujOSsTfJzJnMqZZKYS9MZhyb91dlZ77dFRp+Mx4iSa+7
-	PKNVUtBjlw59wt8BKQCIi3JlxWSsfDD9myHWiOerQVKxSaVsiGA25JNLi863WP5IBBJrmwMErPmlG
-	+XSR5g14zOu9OPJumK1lJ0WNWB+IQQt/5jhQLSNjDb5a8rt2EAfqenQ6F44IBNZWR0G2Lsm7W2tHN
-	jvfd137LP9X4kt91rYh/Ybqsue6orRm7Y/ouQ04nUDpXb3TDRwk5/DTxAT+VuScw7hFoo4Q4Za/ha
-	5aYEapFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HYYsUJSExUwcyN5JblkJ1FdLMQ9q1FJz969Qu81c88E=; b=XfsZydF1YBC5bLuXLKHQadPGm4
+	CSnM3c7cxgWkl22IIWv93VwFSebZ9ZrgmNeMDrvPTUyjkohnlb9ZkF4ED7FkvV3372NKarY966SHb
+	myREyP9U4fWBNJJmP6SQE29soB0NoABp/4cVW2gbPVOy4VUwJx35GW23nBWazNVciKXAFAm1YU7ZJ
+	y1kKjqWgl5YOcVeuf1LmFVMRlFkfB3RfkBh93PtQwe2CjraoWcITikaOFUOzBeXgMCl953IsXJ4nD
+	rK/l970s/L5ldSjcAqatv5S9Zlo8pAoa2kgqmBsNKQ8UrE5PmqqYKmHvZKU3AMEUXBD8eNfWEjj7Q
+	oMI2YtmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuH6N-0000000ERsI-02Ja;
-	Thu, 04 Sep 2025 21:02:39 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1uuM0o-0000000Fxxw-0ktX;
+	Fri, 05 Sep 2025 02:17:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCcm-0000000Cnb9-02ay
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 16:15:49 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-71d603b60cbso11680337b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 09:15:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757002547; x=1757607347; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=uo0RISLwmkgLCYh2IN11pINVWBVogTF0MXL6fRzX8kM=;
-        b=f190ykHtJz6EfRr91T9VW1prlWLdyV61JFPP2cFr77bwGKMgP34cohBoUOpX56Utym
-         VklKstsMOBRGqhhOv+WFsgABQ0pN3ZjiN8gdyyd4YQrmrbi3DUGJGJZ9gflf3D4ZuhYY
-         RIah1Gn5mvnRGf0XDo0ZMxs2MRSihYEd8MGSuDEAZpt+vua1rQUZ68WsAAuc4L9KHwuS
-         f8vx7SPg29WGTwBHvJ1K16TS+40MJiigtk5DzxuOx5s9TMBSZTYOit5mso3IgupGe3vU
-         ZYfhdWAe/SFHb5B4RkB5GaMK3dJt7Q84MskOiOj4TNAPMoskKIymxFJXK1KEWH2MqQxf
-         3hvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757002547; x=1757607347;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uo0RISLwmkgLCYh2IN11pINVWBVogTF0MXL6fRzX8kM=;
-        b=C1njW6fgPoAC5FtR8M2olMS9nqX+ro2nrkVsDQxXaTlp4ZioyXnbWn5ldICy1VuHvH
-         BsehXIFkdK+AS5zpbnqkOLv7ai9KfmY0msF4MF1HcZOBgySycGWsh3CechBYlY79Q/GF
-         6s14nxm5WwVeZiqlK0VBtGewxT1Ffql6D/GCtdKMr0iBQ7ZfnH9drWp/OWk4ggEAgZwQ
-         UR15wqvislZy/29YLgvRrgpfWbAO5yZOnZ9ka7CeqDilC3pRzhbLy8Y0v3HNk/ka3uGL
-         8IyAdRN2QfQnmgE/3qYINdw3k3DM9sPHjrnvTFu5ccofPafVxQTLgj+pp9A6RrjLOMop
-         nw/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWI9EeUJUFdzjCIQS5J9KPRAnxgGNmTx6Ddkm3LJcRTvMYXkzy2rM7CPWEWd2aBwRYPzNFHCd7VVx0M4OeF8Uzb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxyk4AJzrP5oQiq/2YPHAONwXXgmi/fhBxOAol3nGyRIcb35qoR
-	ZYJh2/5cgdBg+4N7TPXc4cIvqK0DOfyuuIFH/MTMRmodm7FR9wkNtCbnD18cOjhMqqy5hy2FvNw
-	vs2HB79yxq+9WLG9SypeorEgN2OC9EosFJYRXGE+OTA==
-X-Gm-Gg: ASbGncvsarkkk5C1EnJVhZltTcVwbT1qGE0qsvMhqLuHPZiQtmyTab4k6/NZNVDuxrM
-	JNXtjfr6Ei35+Ivi9wUSUVE227WTtDhI7mtNq7iQYN/bNR1NurA2UPwChB9udVETd8qzOH2PvSz
-	zyFUYsReWpAlUQZ9Uuo12UlXO2kll3+UzLgJLLhkrKwshBiX0cs+AiaN7KU04rv+SUIwaK5ipCn
-	SrrpgGr
-X-Google-Smtp-Source: AGHT+IGSXAOQmOoToso0IfgUWvRUsTdb+WXo9AwnFjKjAqk7EZwQu7nr5DaxVSxNz2rwNfbQNvsp9DSe55yaj+5joiM=
-X-Received: by 2002:a05:690c:3602:b0:71f:efa8:587a with SMTP id
- 00721157ae682-7227656b2e1mr198475327b3.44.1757002546924; Thu, 04 Sep 2025
- 09:15:46 -0700 (PDT)
+	id 1uuCyt-0000000D0IH-2pCI;
+	Thu, 04 Sep 2025 16:38:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FF0560247;
+	Thu,  4 Sep 2025 16:38:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77612C4CEF1;
+	Thu,  4 Sep 2025 16:38:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757003918;
+	bh=iICsvqBjHpbdgvKMIe9FjXu6X5TjSs4q9RNrQpNXkoM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=kt4mR7bL3t1gbjeBFcdLDIqiR6m2OgBcmWEyzb+41bnXrRBJd5xEknge8oWe6AaIE
+	 nXYjv7CmGLbMqDmSAblG2m+Kclds6xBPCr4w0KPXEYceDB17Hasw4Q+gE9WRQp+rF8
+	 PRnFVeIp9YEAf62L6sFmtcNGJHzLjSpR5GB0oa9tJ1527Xi8DOK5hEsB1Qq6u5m/D9
+	 4X/bijgHODtTBEfn5T8XNGxwnakOZGp/jtOSK5UAxVGHy6K2Cezes1xInWla++tBp/
+	 zdv53OxSJA1sydmVuL6faEoK/vQhRn76EZFIEVVksN5Al9EWutXlKaUKFwdvUTxM3g
+	 PdpAWa/nN7qdg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 04 Sep 2025 18:38:02 +0200
+Subject: [PATCH mt76 v4 08/15] wifi: mt76: mt7996: Fix tx-queues
+ initialization for second phy on mt7996
 MIME-Version: 1.0
-References: <20250822-pm-s6-s7-s7d-v1-0-82e3f3aff327@amlogic.com>
- <20250822-pm-s6-s7-s7d-v1-1-82e3f3aff327@amlogic.com> <cce649b1-511b-4895-84be-2c85e748cfa8@kernel.org>
-In-Reply-To: <cce649b1-511b-4895-84be-2c85e748cfa8@kernel.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 4 Sep 2025 18:15:10 +0200
-X-Gm-Features: Ac12FXzPPHOEhHKW5z-O62jRJm47PZ-fsc3O4NGHgJmoH8G2XEru5vbAJkJqx1g
-Message-ID: <CAPDyKFrE8CafoKDkdHQKf=yxJjNcJUu9vFrpAASQYXhtUg6cVA@mail.gmail.com>
-Subject: Re: [PATCH 1/5] dt-bindings: power: add Amlogic S6 S7 S7D power domains
-To: xianwei.zhao@amlogic.com, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jianxin Pan <jianxin.pan@amlogic.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, "hongyu.chen1" <hongyu.chen1@amlogic.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_091548_051301_9BF3C7D3 
-X-CRM114-Status: GOOD (  15.61  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250904-mt7996-rro-rework-v4-8-2cd91e7229d6@kernel.org>
+References: <20250904-mt7996-rro-rework-v4-0-2cd91e7229d6@kernel.org>
+In-Reply-To: <20250904-mt7996-rro-rework-v4-0-2cd91e7229d6@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sujuan Chen <sujuan.chen@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Benjamin Lin <benjamin-jw.lin@mediatek.com>, Rex Lu <rex.lu@mediatek.com>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,41 +75,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 4 Sept 2025 at 13:07, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 22/08/2025 07:39, Xianwei Zhao via B4 Relay wrote:
-> > From: "hongyu.chen1" <hongyu.chen1@amlogic.com>
-> >
-> > Add devicetree binding document and related header file for
-> > Amlogic S6 S7 S7D secure power domains.
-> >
-> > Signed-off-by: hongyu.chen1 <hongyu.chen1@amlogic.com>
-> > Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> > ---
-> >  .../bindings/power/amlogic,meson-sec-pwrc.yaml     |  3 +++
-> >  include/dt-bindings/power/amlogic,s6-pwrc.h        | 29 ++++++++++++++++++++++
-> >  include/dt-bindings/power/amlogic,s7-pwrc.h        | 20 +++++++++++++++
-> >  include/dt-bindings/power/amlogic,s7d-pwrc.h       | 27 ++++++++++++++++++++
-> >  4 files changed, 79 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/power/amlogic,meson-sec-pwrc.yaml b/Documentation/devicetree/bindings/power/amlogic,meson-sec-pwrc.yaml
-> > index 15d74138baa3..12b71688dd34 100644
-> > --- a/Documentation/devicetree/bindings/power/amlogic,meson-sec-pwrc.yaml
-> > +++ b/Documentation/devicetree/bindings/power/amlogic,meson-sec-pwrc.yaml
-> > @@ -24,6 +24,9 @@ properties:
-> >        - amlogic,a5-pwrc
-> >        - amlogic,c3-pwrc
-> >        - amlogic,t7-pwrc
-> > +      - amlogic,s6-pwrc
-> > +      - amlogic,s7-pwrc
-> > +      - amlogic,s7d-pwrc
->
->
-> If there is going to be new version:
-> Please keep alphabetical order.
+Fix the second phy tx queue initialization if hif device is not
+available for MT7990 chipset.
 
-I have just applied this, so please send a fixup patch on-top.
+Fixes: 83eafc9251d6d ("wifi: mt76: mt7996: add wed tx support")
+Co-developed-by: Sujuan Chen <sujuan.chen@mediatek.com>
+Signed-off-by: Sujuan Chen <sujuan.chen@mediatek.com>
+Co-developed-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+Signed-off-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+Co-developed-by: Rex Lu <rex.lu@mediatek.com>
+Signed-off-by: Rex Lu <rex.lu@mediatek.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/init.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-Kind regards
-Uffe
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+index 73a55eea535872f94d2328ea5d832d82bf02abb2..a472c9bd4fd8ae88a5213bda8225c91716423f6d 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+@@ -703,13 +703,20 @@ static int mt7996_register_phy(struct mt7996_dev *dev, enum mt76_band_id band)
+ 
+ 	/* init wiphy according to mphy and phy */
+ 	mt7996_init_wiphy_band(mphy->hw, phy);
+-	ret = mt7996_init_tx_queues(mphy->priv,
+-				    MT_TXQ_ID(band),
+-				    MT7996_TX_RING_SIZE,
+-				    MT_TXQ_RING_BASE(band) + hif1_ofs,
+-				    wed);
+-	if (ret)
+-		goto error;
++
++	if (is_mt7996(&dev->mt76) && !dev->hif2 && band == MT_BAND1) {
++		int i;
++
++		for (i = 0; i <= MT_TXQ_PSD; i++)
++			mphy->q_tx[i] = dev->mt76.phys[MT_BAND0]->q_tx[0];
++	} else {
++		ret = mt7996_init_tx_queues(mphy->priv, MT_TXQ_ID(band),
++					    MT7996_TX_RING_SIZE,
++					    MT_TXQ_RING_BASE(band) + hif1_ofs,
++					    wed);
++		if (ret)
++			goto error;
++	}
+ 
+ 	ret = mt76_register_phy(mphy, true, mt76_rates,
+ 				ARRAY_SIZE(mt76_rates));
+
+-- 
+2.50.1
+
 
