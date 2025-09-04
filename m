@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36A8CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D928ECA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+akDx7KPRyZqzor3ZGyKyE0ylTHhg8R5D2yByYE2LEo=; b=z9/Bv1p+KexR3mQkxD5DyEWVAE
-	sqFlcfoRmMHC8L0xWZOnUN3rs737Ra3xaXPlRRWkWeH2Hvfpz/HlnfdWy1BPUbC0BBOfm00qmxaO/
-	B055WBnQoEouZUH+qVioqwpwCrbeC2jpNbFeltL+DmgZdMywk32+CuIufPe96yReAHeyY6qroRBni
-	igXvrY/x4s192XZmzDiUoE35WfKHl7+MXARO3kCMBgitWuOZKUo0zSrPcNqkebym5H/YGDACRSZMd
-	GGRSEMdXAlVsFFp+PbHwqDF8PwMCzSpB8uqXQiPAeO6FhU/D2bc+teTgoy1kSdSqpxRz+e6um+G0/
-	+5cMRcUw==;
+	bh=XFji0/x3X5YusfPZs9m4W+0Sur+eAL9XZMjQEDnUex4=; b=L7udZaeKBj3wl7WgEcBercgQP0
+	Fg3uDA6/pKjKjY6xSYmJbDBlXJ/yOMwYrx/6ImbvVkLxgRy3vsZQ+jIWUXaW7u+HxXbHg50imtzOU
+	+jUiI712HnaxVBjWqnbXAKiFbab/jH9nYQMJsRJ6l8UH38Q/bvyulMa3GZLV6cLXlQBTsFDJjMdlB
+	Mb8VACnqXqJ1LAjH0Xg/MMYH9WNKWVLS75uauyun6IVp4accSiyfWCxWhTtB7K8cuKKk6qmsrzKH1
+	MVhzR2dpxKDJ0T52ltQ/QKaoArNSVb252l9BSEDuTtR1NK1+dJM/XXJwdHatpclpb8PqTbo2ntzgK
+	3JZbF75Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7Ck-0000000AtXS-1ILF;
-	Thu, 04 Sep 2025 10:28:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uu7FR-0000000AuSI-3Dqw;
+	Thu, 04 Sep 2025 10:31:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu65E-0000000AV5z-0KS9
+	id 1uu667-0000000AVQi-1N4A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 09:16:45 +0000
+	Thu, 04 Sep 2025 09:17:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C109D43730;
-	Thu,  4 Sep 2025 09:16:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BF10C4CEF0;
-	Thu,  4 Sep 2025 09:16:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A1F7460202;
+	Thu,  4 Sep 2025 09:17:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB8F8C4CEF0;
+	Thu,  4 Sep 2025 09:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756977403;
-	bh=qJ5SxDn7aebXMIST+p4VUse9TikgWbIjkKE/CdROn9E=;
+	s=k20201202; t=1756977458;
+	bh=0MmnVzpzU6gWyC/cUdsfoXzqPUDCX7NyIifVAJ0azTI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bMSROS6xqn6Hw+QYxGhXMGnvVW7hSeJNC6zcpN7wX9fJfr0sAJcKcygAN1nTLck5X
-	 VKzPkCrqHWnYPYGSRq0LjM4BKknCue/yDkRwBeub5fPYREduBEJ0YMgL2kpsDiDMtp
-	 vwjQppVfO/iQgeHe+0EoympPMvjfpDsh/b4Owi5SYxLfcvNv4JC5iRFdA73RwoQNTg
-	 hUd2m5oyX2BWvBhsgKf6HgTL2b9Ko5DYocnHVTur/M+2Zd3n3mS1EN+BY7lMzfDrQC
-	 t/rscC2WYQqaeO8/N0+4t5xkLqy4K6hbqbV9S+LRBb/6OzGDI2JAYz85uxEKQuXzXI
-	 i6Ff0ILgWl6Gg==
-Date: Thu, 4 Sep 2025 11:16:40 +0200
+	b=RlAflKCD6F+7Cd0lmVxfjA++Yh0k//cLYBSTZbn9qvmIbftU7fweSjYCeXlU5YIxj
+	 pVKR/ZZzhLiLuHW6ZWjwwXmUsghslV33IDvPasQ5nzaeF70z6jlwenBFan44xblXPP
+	 RMwLmwkuK/t5nyFnfSQzn/GaW3KQzobIcMo07+lkopCcasNBta51q9cnVh9NVQ8y3+
+	 22T4ajyJYSqgKuobUgakXTuWYjdrP2VGKziF79z40Mw+v684KWhJMOdL/NuVGasZsZ
+	 8yapBUWq4w0poU5rYwFRHxVBxjZTRTE4KjLk2Pf7dievHz4xlSrtZu+ju0srNmChfF
+	 BXvePHgyyHEtg==
+Date: Thu, 4 Sep 2025 11:17:35 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Primoz Fiser <primoz.fiser@norik.com>
 Cc: Peter Rosin <peda@axentia.se>, Jonathan Cameron <jic23@kernel.org>, 
@@ -55,15 +55,12 @@ Cc: Peter Rosin <peda@axentia.se>, Jonathan Cameron <jic23@kernel.org>,
 	upstream@lists.phytec.de
 Subject: Re: [PATCH 1/2] dt-bindings: iio: afe: current-sense-amplifier: Add
  io-channel-cells
-Message-ID: <20250904-stereotyped-swine-of-romance-f7185e@kuoka>
+Message-ID: <20250904-tangible-practical-partridge-a1b0e4@kuoka>
 References: <20250903113700.3079626-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 In-Reply-To: <20250903113700.3079626-1-primoz.fiser@norik.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_021644_138721_A893E2B6 
-X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,19 +83,17 @@ On Wed, Sep 03, 2025 at 01:36:59PM +0200, Primoz Fiser wrote:
 > is present:
 > 
 >   OF: /iio-hwmon: could not get #io-channel-cells for /current-sense
+
+Also, how can I reproduce this error? Do you paste here real errors or
+just some invented ones from some out of tree code (hint: such would not
+be relevant).
+
 > 
 > Also fixes the following dtbs_check warning:
 > 
 >   current-sense: '#io-channel-cells' does not match any of the regexes:
 >   'pinctrl-[0-9]+' from schema $id:
 >   http://devicetree.org/schemas/iio/afe/current-sense-amplifier.yaml#
-
-Which DTS has this warning? You did not include Makefile target and
-quick look told me there is no such...
-
-> 
-> Fixes: fbac26b9ad21 ("dt-bindings:iio:afe:current-sense-amplifier: txt to yaml conversion.")
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 
 Best regards,
 Krzysztof
