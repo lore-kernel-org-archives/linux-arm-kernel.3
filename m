@@ -4,94 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96085CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C527FCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dcbmHnVKQOCsKNLi6K/da8/dQCHXCQqefwtUEpqoek4=; b=uaAWkbf1IIIqUDqyrl00v035zG
-	k0S0oqxysjAjABcK0CBr0zRpGm9uaFCqvoRWbztdGxta28shHjdAWIG3eRXKoxR51kopmdhqfifUv
-	ip66YkbL/Z6QkQ5jKFybh5SdIdMZvngFuYLrq5hSym8jz3/t9fVVF++1WCndxn2iXmsQU8J86xbDB
-	Ib/kkzESW4HKxp8JBILiuu/xqCfL9VQQFunD5g3piKCCRAoqtu3I0DO0acLIKVgdrMAEr68x53C/u
-	y+99uXdMVR/aTFrQQkynTVvYvBiavv0hdYJUXg77lHsi8nWzh1sl+6anePH7WnVlvnHGZjp3h+HWW
-	V/ql0eSg==;
+	bh=OuqZMaZEY3Ro7lOt8/v6vij9JESnmu0skXkRr3yqkBo=; b=Uo25g1ujCZFYedhybaSa4QsYIf
+	XnQITqH0ukWmuTqwCT/KG4RKkMce+WacnjlNxOArNXK+dZA4e6Eom1PwF55NcdeuC/rWkKf0+Sh2H
+	nDM+iXmi4rglUsrASMBQ03olWu12DiucRtDXtPyb79O+wEo4bvunfsXKLhA3DlBOfO2GVJVrrsfbt
+	OzkrHtWjXS/3Mm5N9Ml5huXX8UTqioLVs21EDYDf9P13bMAg3HZJKYWwrKOZuyq0SHqC44F/g2sHt
+	lf/z0E9qNq39GycTRfBh2sCsPFiEsiCP/I+ffoFUKzyGvo6ncFmqAmoWYlThAvozpfnWbXNZKRjjD
+	H1knK0tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCns-0000000CuX6-0fLC;
-	Thu, 04 Sep 2025 16:27:16 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1uuCnv-0000000Cudg-300d;
+	Thu, 04 Sep 2025 16:27:19 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu9vd-0000000BrE8-2QVf
+	id 1uu9zv-0000000Bslq-3yhr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 13:23:08 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b043da5a55fso152131966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 06:23:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756992184; x=1757596984; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dcbmHnVKQOCsKNLi6K/da8/dQCHXCQqefwtUEpqoek4=;
-        b=AsXF4NoSxzXIFD7gUwRlFo3e8LQfGK8sKBxKfaTpkB9Tlm5xEWxJq6jx3NSIzGntIF
-         xrz6I+sdSf/IMJ3q2+MQ2n+8LztLUuX36QCnjad8EDDvmVIQzsVK5pAE+qWE5MCfCoUX
-         UwZN6Wowd69bYYxzJ6GS641OWBxCQ/gGs19i6w3RACC9IluOuUVGYiK2qTPfZ5WV12u7
-         B50hO9JNeIRg8CjDBx67NL6tg5LWy6f9A2XYpWZjOu4OcgFNHdqo52TGCJvKTMkgTGLi
-         tsc3M3RUsw3CEHnlObiPZuv0k1Ia9CqEtwnDTTd+EMWLB8eBsC1Ou45i39yML1xTgK0D
-         MNkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756992184; x=1757596984;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dcbmHnVKQOCsKNLi6K/da8/dQCHXCQqefwtUEpqoek4=;
-        b=V2oGaG0fa/GM77nL3GmVYY6udNmZSWZ5PjM6iyzrwzbuSpul60NSsuY0RtefxX4Bi8
-         LH/Rl/BaLCmZ0aZbjfsh9Zm/12jEM8izYbesj+S5yrXb0w9Wv9nI5umgYSNNlkQNEfrS
-         tOGRW28sU1fqxBHPYoZpObDOCypigmBi7s0VhdPAz1z3FoqfYWJ8l2jmcGGgnOolSSaP
-         kK4wnc6cY6kn7Qb5M1aAUARV1c7Q/HfGqLvnrgOaZJgFZ8Sqe2Dq61QjsFSia080YJ4K
-         ikm0gpn7NsVmaTqMGaYXxUSmjU2hm+fv4QBRqSJXotGDUEg+qUx8K5d9qFxdgE6uze8b
-         derQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU3/A9O2PHKKmTKIkB1aT5HjJGXfuLMDYR2g0XMLvzvZuKIxOkJvTV1l1ix2xOAx6IZP8wKacSOJw0BhKF57QSq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbK1b1Ctd+Teebf2j5W2z0V+CQ6R3P6GZ2sCeWiHCu7ZGG9XTa
-	07sqV5HEJIyK5SYMeujN9VC8tOu9RNEpGd/seBsLKswRue/+zHGBSCWI
-X-Gm-Gg: ASbGncvuYCIayIcG8jpN61gMyPkdFNHnNo3gLoM8obQ/TifPHE3gzyIqT8xHccFUf1i
-	4RaFXf6n8eRimkpmkuhfgYsvzb20ulxyOdeAKZrVSFqk6Tk6j0HHWrtsgKY1zb+28EbSmQ7H2xu
-	PWDP31VquCvNWHT3IQNOwf/6BMC3h/0PoJhylIFsRq6xGJLJkRMtYZr+2sWv7ffkw1KW4pJxUqj
-	0YEjnzACC31Z6ywulHeDAvZKlKSy+IW9gDuUNbN6GeIUv6tJ9yHSNupMnK233Kgjs0xH8k0aKGG
-	z8QRwhzdr4SXuwItvgGPY4ySVrr2hcKG7LVFOUWbn0qXlbd/8wZDpLnD/L8GiykeHRaGNNJYEZi
-	E1Ugm3C65VmGLIOT+Z/epiemVWR8meoy0oJGlYctVeS++pGuDKhPTGwpuvsdTMgC3Ofh1beKtLU
-	aeG/0NRW0bH8YBqW88
-X-Google-Smtp-Source: AGHT+IH+6vGbodeqIgJC6fiLp1k3pNZ9MOlQMwilfgBJnv/WvDHl+pwpeHiuNQ1DBsGtUZ2/DI2FEg==
-X-Received: by 2002:a17:907:3f95:b0:afe:677e:a61d with SMTP id a640c23a62f3a-b01d8a32731mr1748165966b.6.1756992183803;
-        Thu, 04 Sep 2025 06:23:03 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-70-53-177.cust.vodafonedsl.it. [93.70.53.177])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b046d0b0135sm372121966b.73.2025.09.04.06.23.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 06:23:03 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v6 2/3] arm64: dts: ti: Add support for Variscite VAR-SOM-AM62P
-Date: Thu,  4 Sep 2025 15:22:29 +0200
-Message-ID: <20250904132240.36819-3-stefano.radaelli21@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250904132240.36819-1-stefano.radaelli21@gmail.com>
-References: <20250904132240.36819-1-stefano.radaelli21@gmail.com>
+	Thu, 04 Sep 2025 13:27:34 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250904132728euoutp01597682d0c69dd80340077d4674a9df32~iF1Kzr8Vm3101231012euoutp01t
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 13:27:28 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250904132728euoutp01597682d0c69dd80340077d4674a9df32~iF1Kzr8Vm3101231012euoutp01t
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756992448;
+	bh=OuqZMaZEY3Ro7lOt8/v6vij9JESnmu0skXkRr3yqkBo=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=D+Of34zz2dwO58oipgkskjDy0ppJoZmQXo63nqEJfv72IvnnIB8uWBGApOhhQvZdL
+	 /9wTKwo+V35VsuIyoJE0tpEyKbCFcV5vWeI//gOnrow0l9jGlNCA1Lpj0D2QTZj7Ny
+	 0cuZAif42CpQkC1UD2tHFGIwv7Ce89dQo4XEPPao=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250904132728eucas1p110dd7341b827ecb00d326aaab1b6e052~iF1KTEFC-1354913549eucas1p1Y;
+	Thu,  4 Sep 2025 13:27:28 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250904132725eusmtip10df52413ab5451a89e7ae40f97632d99~iF1H12Bu90185801858eusmtip1I;
+	Thu,  4 Sep 2025 13:27:25 +0000 (GMT)
+Message-ID: <4939d55e-b560-4235-8295-adf8e48d9b74@samsung.com>
+Date: Thu, 4 Sep 2025 15:27:24 +0200
 MIME-Version: 1.0
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v4 00/13] Apply drm_bridge_connector and panel_bridge
+ helper for the Analogix DP driver
+To: Damon Ding <damon.ding@rock-chips.com>, andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+	hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+	dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+	dianders@chromium.org, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <825ff59f-0a97-49a1-a210-a7ee275364bc@rock-chips.com>
 Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250904132728eucas1p110dd7341b827ecb00d326aaab1b6e052
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264
+X-EPHeader: CA
+X-CMS-RootMailID: 20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264
+References: <CGME20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264@eucas1p2.samsung.com>
+	<20250814104753.195255-1-damon.ding@rock-chips.com>
+	<a3a2f8be-2c3c-49e7-b27a-72364ea48b06@samsung.com>
+	<7cb50c9c-ac41-43b6-8c69-5f184e7c94cf@samsung.com>
+	<1ccd3889-5f13-4609-9bd8-2c208e17fc96@rock-chips.com>
+	<f2ebfff1-08ab-4f26-98f3-6d6415d58a5e@samsung.com>
+	<a5e613ba-b404-40ae-b467-0f6f223f5d4c@rock-chips.com>
+	<461daea4-5582-4aa2-bfea-130d2fb93717@samsung.com>
+	<46f9137e-402d-4c0f-a224-10520f80c8b4@rock-chips.com>
+	<ea57ca6e-4000-49f7-8e0b-899f34b7693a@samsung.com>
+	<825ff59f-0a97-49a1-a210-a7ee275364bc@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_062305_623110_D9FFFF0F 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20250904_062732_599120_EA6334B1 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,436 +102,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree support for the Variscite VAR-SOM-AM62P system on module.
-This SOM is designed to be used with various carrier boards.
+On 04.09.2025 05:19, Damon Ding wrote:
+> On 9/1/2025 6:25 PM, Marek Szyprowski wrote:
+>> On 01.09.2025 05:41, Damon Ding wrote:
+>>> On 8/29/2025 4:23 PM, Marek Szyprowski wrote:
+>>>> On 29.08.2025 10:08, Damon Ding wrote:
+>>>>> On 8/20/2025 5:20 AM, Marek Szyprowski wrote:
+>>>>>> On 15.08.2025 04:59, Damon Ding wrote:
+>>>>>>> On 2025/8/15 5:16, Marek Szyprowski wrote:
+>>>>>>>> On 14.08.2025 16:33, Marek Szyprowski wrote:
+>>>>>>>>> On 14.08.2025 12:47, Damon Ding wrote:
+>>>>>>>>>> PATCH 1 is a small format optimization for struct
+>>>>>>>>>> analogid_dp_device.
+>>>>>>>>>> PATCH 2 is to perform mode setting in
+>>>>>>>>>> &drm_bridge_funcs.atomic_enable.
+>>>>>>>>>> PATCH 3-6 are preparations for apply drm_bridge_connector 
+>>>>>>>>>> helper.
+>>>>>>>>>> PATCH 7 is to apply the drm_bridge_connector helper.
+>>>>>>>>>> PATCH 8-10 are to move the panel/bridge parsing to the Analogix
+>>>>>>>>>> side.
+>>>>>>>>>> PATCH 11-12 are preparations for apply panel_bridge helper.
+>>>>>>>>>> PATCH 13 is to apply the panel_bridge helper.
+>>>>>>>>> ...
+>>>>>>
+>>>>>
+>>>>> Could you please provide the related DTS file for the test? I will
+>>>>> also try to find out the reason for this unexpected issue. ;-)
+>>>>
+>>>> Unfortunately I didn't find enough time to debug this further. The 
+>>>> above
+>>>> log is from Samsung Snow Chromebook,
+>>>> arch/arm/boot/dts/samsung/exynos5250-snow.dts
+>>>>
+>>>>
+>>>
+>>> I compare the differences in the following display path before and
+>>> after this patch series:
+>>>
+>>> exynos_dp -> nxp-ptn3460 -> panel "auo,b116xw03"
+>>>
+>>> The issue is likely caused by the &drm_connector_funcs.detect()
+>>> related logic. Before this patch series, the nxp-ptn3460 connector is
+>>> always connector_status_connected because there is not available
+>>> &drm_connector_funcs.detect(). After it, the DRM_BRIDGE_OP_DETECT flag
+>>> make the connection status depend on analogix_dp_bridge_detect().
+>>>
+>>> Could you please add the following patches additionally and try again?
+>>> (Not the final solution, just validation)
+>>>
+>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> index a93ff8f0a468..355911c47354 100644
+>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> @@ -1491,9 +1491,11 @@ int analogix_dp_bind(struct analogix_dp_device
+>>> *dp, struct drm_device *drm_dev)
+>>>                  }
+>>>          }
+>>>
+>>> -       bridge->ops = DRM_BRIDGE_OP_DETECT |
+>>> -                     DRM_BRIDGE_OP_EDID |
+>>> +       bridge->ops = DRM_BRIDGE_OP_EDID |
+>>>                        DRM_BRIDGE_OP_MODES;
+>>> +       if (drm_bridge_is_panel(dp->plat_data->next_bridge))
+>>> +               bridge->ops |= DRM_BRIDGE_OP_DETECT;
+>>> +
+>>>          bridge->of_node = dp->dev->of_node;
+>>>          bridge->type = DRM_MODE_CONNECTOR_eDP;
+>>>          ret = devm_drm_bridge_add(dp->dev, &dp->bridge);
+>>
+>> It is better. Now the display panel is detected and reported to
+>> userspace, but it looks that something is not properly initialized,
+>> because there is garbage instead of the proper picture.
+>>
+>
+> I simulated the display path mentioned above on my RK3588S EVB1 Board.
+> To my slight surprise, it displayed normally with the reported 
+> connector type DRM_MODE_CONNECTOR_LVDS. ;-)
+>
+> The modifications included:
+> 1.Synchronized the Analogix DP ralated DT configurations with Samsung 
+> Snow Chromebook.
+> 2.Skipped the I2C transfers and GPIO operations in nxp-ptn3460 driver.
+> 3.Set the EDID to that of eDP Panel LP079QX1-SP0V forcibly.
+>
+> Additionally, I added debug logs to verify whether the functions in 
+> ptn3460_bridge_funcs were actually called.
+>
+> Did you encounter any unexpected logs during your investigation? I'd 
+> like to perform additional tests on this issue. :-)
 
-The module includes:
-- AM62P Sitara MPU processor
-- Up to 8GB of DDR4-3733 memory
-- eMMC storage memory
-- PS6522430 chip as a Power Management Integrated circuit (PMIC)
-- Integrated 10/100/1000 Mbps Ethernet Transceiver Analog Devices ADIN1300
-- Resistive touch panel interface controller TI TSC2046
-- I2C interfaces
 
-Only SOM-specific peripherals are enabled by default. Carrier board
-specific interfaces are left disabled to be enabled in the respective
-carrier board device trees.
+Okay, I've finally went to the office and tested manually all 3 
+Chromebook boards witch use exynos-dp based display hardware. Previously 
+I only did the remote tests and observed result on a webcam, which was 
+not directed directly at the tested displays, so I only saw the glare 
+from the display panel.
 
-Link: https://www.variscite.it/product/system-on-module-som/cortex-a53-krait/var-som-am62p-ti-sitara-am62px/
+The results are as follows:
 
-Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
----
-v6:
- - Removed unnecessary sdhci properties
-v5:
- - Update to match up with coding guidelines for device tree
-v4:
- - Moved every MCUs-related node into the SOM dtsi
- - Removed unused audio node
-v3:
- - Change compatible string to match existing mainline format
- - Lower case hex digits
- - Generic node names
-v2:
- - Fixed warnings and cleanup
+1. Snow (arch/arm/boot/dts/samsung/exynos5250-snow.dts) - exynos-dp -> 
+nxp-ptn3460 1366x768 lvds panel - works fine with the above mentioned 
+change.
 
- arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 385 ++++++++++++++++++
- 1 file changed, 385 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+2. Peach-Pit (arch/arm/boot/dts/samsung/exynos5420-peach-pit.dts) - 
+exynos-dp -> parade,ps8625 -> auo,b116xw03 1366x768 lvds panel - 
+displays garbage, this was the only board I previously was able to see 
+partially on the webcam.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-new file mode 100644
-index 000000000000..da037993574f
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-@@ -0,0 +1,385 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Common dtsi for Variscite VAR-SOM-AM62P
-+ *
-+ * Link: https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/var-som-am62p-ti-sitara-am62px/
-+ *
-+ * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include "k3-am62p5.dtsi"
-+
-+/ {
-+	compatible = "variscite,var-som-am62p", "ti,am62p5";
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		post-power-on-delay-ms = <100>;
-+		power-off-delay-us = <10000>;
-+		reset-gpios = <&main_gpio0 54 GPIO_ACTIVE_LOW>,	/* WIFI_PWR_EN */
-+			      <&main_gpio0 59 GPIO_ACTIVE_LOW>;	/* WIFI_EN */
-+	};
-+
-+	mmc_pwrseq: mmc-pwrseq {
-+		compatible = "mmc-pwrseq-emmc";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_mmc_pwrseq>;
-+		reset-gpios = <&main_gpio0 49 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	memory@80000000 {
-+		/* 8G RAM */
-+		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
-+		      <0x00000008 0x80000000 0x00000001 0x80000000>;
-+		device_type = "memory";
-+		bootph-pre-ram;
-+	};
-+
-+	opp-table {
-+		/* Add 1.4GHz OPP for am62p5-sk board. Requires VDD_CORE at 0v85 */
-+		opp-1400000000 {
-+			opp-hz = /bits/ 64 <1400000000>;
-+			opp-supported-hw = <0x01 0x0004>;
-+			clock-latency-ns = <6000000>;
-+		};
-+	};
-+
-+	reserved_memory: reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		rtos_ipc_memory_region: rtos-ipc-memory@9b500000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b500000 0x00 0x00300000>;
-+			no-map;
-+		};
-+
-+		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b800000 0x00 0x00100000>;
-+			no-map;
-+		};
-+
-+		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b900000 0x00 0x00f00000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c800000 0x00 0x00100000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-+			no-map;
-+		};
-+
-+		secure_tfa_ddr: tfa@9e780000 {
-+			reg = <0x00 0x9e780000 0x00 0x80000>;
-+			no-map;
-+		};
-+
-+		secure_ddr: optee@9e800000 {
-+			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
-+			no-map;
-+		};
-+	};
-+
-+	reg_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "On-module +V3.3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	reg_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "On-module +V1.8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	reg_3v3_phy: regulator-3v3-phy {
-+		compatible = "regulator-fixed";
-+		regulator-name = "On-module +V3.3_PHY";
-+		gpios = <&main_gpio0 45 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-always-on;
-+	};
-+};
-+
-+&cpsw3g {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii1>;
-+};
-+
-+&cpsw3g_mdio {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mdio1>;
-+	status = "okay";
-+
-+	cpsw3g_phy0: ethernet-phy@4 {
-+		compatible = "ethernet-phy-id0283.bc30";
-+		reg = <4>;
-+		reset-gpios = <&main_gpio0 46 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <100000>;
-+	};
-+};
-+
-+&cpsw_port1 {
-+	/*
-+	 * The required RGMII TX and RX 2ns delays are implemented directly
-+	 * in hardware via passive delay elements on the SOM PCB.
-+	 * No delay configuration is needed in software via PHY driver.
-+	 */
-+	phy-mode = "rgmii";
-+	phy-handle = <&cpsw3g_phy0>;
-+	status = "okay";
-+};
-+
-+&main_i2c2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+};
-+
-+&main_i2c3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c3>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+};
-+
-+&main_pmx0 {
-+	pinctrl_mmc_pwrseq: main-emmc-pwrseq-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00c8, PIN_OUTPUT, 7) /* (AB23) VOUT0_DATA4.GPIO0_49 */
-+		>;
-+	};
-+
-+	pinctrl_i2c2: main-i2c2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (T22) GPMC0_CSn2.I2C2_SCL */
-+			AM62PX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (U25) GPMC0_CSn3.I2C2_SDA */
-+		>;
-+	};
-+
-+	pinctrl_i2c3: main-i2c3-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01d0, PIN_INPUT_PULLUP, 2) /* (A23) UART0_CTSn.I2C3_SCL */
-+			AM62PX_IOPAD(0x01d4, PIN_INPUT_PULLUP, 2) /* (C22) UART0_RTSn.I2C3_SDA */
-+		>;
-+	};
-+
-+	pinctrl_mdio1: main-mdio1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0160, PIN_OUTPUT, 0) /* (F17) MDIO0_MDC */
-+			AM62PX_IOPAD(0x015c, PIN_INPUT, 0) /* (F16) MDIO0_MDIO */
-+		>;
-+	};
-+
-+	pinctrl_mmc2: main-mmc2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0120, PIN_INPUT_PULLUP, 0) /* (K24) MMC2_CMD */
-+			AM62PX_IOPAD(0x0118, PIN_INPUT_PULLDOWN, 0) /* (K21) MMC2_CLK */
-+			AM62PX_IOPAD(0x011c, PIN_INPUT_PULLUP, 0) /* () MMC2_CLKLB */
-+			AM62PX_IOPAD(0x0114, PIN_INPUT_PULLUP, 0) /* (K23) MMC2_DAT0 */
-+			AM62PX_IOPAD(0x0110, PIN_INPUT_PULLUP, 0) /* (K22) MMC2_DAT1 */
-+			AM62PX_IOPAD(0x010c, PIN_INPUT_PULLUP, 0) /* (L20) MMC2_DAT2 */
-+			AM62PX_IOPAD(0x0108, PIN_INPUT_PULLUP, 0) /* (L21) MMC2_DAT3 */
-+		>;
-+	};
-+
-+	pinctrl_rgmii1: main-rgmii1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x014c, PIN_INPUT, 0) /* (B15) RGMII1_RD0 */
-+			AM62PX_IOPAD(0x0150, PIN_INPUT, 0) /* (B16) RGMII1_RD1 */
-+			AM62PX_IOPAD(0x0154, PIN_INPUT, 0) /* (A14) RGMII1_RD2 */
-+			AM62PX_IOPAD(0x0158, PIN_INPUT, 0) /* (B14) RGMII1_RD3 */
-+			AM62PX_IOPAD(0x0148, PIN_INPUT, 0) /* (A16) RGMII1_RXC */
-+			AM62PX_IOPAD(0x0144, PIN_INPUT, 0) /* (A15) RGMII1_RX_CTL */
-+			AM62PX_IOPAD(0x0134, PIN_INPUT, 0) /* (A18) RGMII1_TD0 */
-+			AM62PX_IOPAD(0x0138, PIN_INPUT, 0) /* (C17) RGMII1_TD1 */
-+			AM62PX_IOPAD(0x013c, PIN_INPUT, 0) /* (A17) RGMII1_TD2 */
-+			AM62PX_IOPAD(0x0140, PIN_INPUT, 0) /* (C16) RGMII1_TD3 */
-+			AM62PX_IOPAD(0x0130, PIN_INPUT, 0) /* (B17) RGMII1_TXC */
-+			AM62PX_IOPAD(0x012c, PIN_INPUT, 0) /* (B18) RGMII1_TX_CTL */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_spi0: main-spi0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01bc, PIN_OUTPUT, 0) /* (B21) SPI0_CLK */
-+			AM62PX_IOPAD(0x01b4, PIN_OUTPUT, 0) /* (D20) SPI0_CS0 */
-+			AM62PX_IOPAD(0x01c0, PIN_OUTPUT, 0) /* (B20) SPI0_D0 */
-+			AM62PX_IOPAD(0x01c4, PIN_INPUT, 0) /* (C21) SPI0_D1 */
-+		>;
-+	};
-+
-+	pinctrl_uart5: main-uart5-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00ec, PIN_INPUT, 4) /* (AC21) VOUT0_DATA13.UART5_CTSn */
-+			AM62PX_IOPAD(0x00e8, PIN_OUTPUT, 4) /* (AD21) VOUT0_DATA12.UART5_RTSn */
-+			AM62PX_IOPAD(0x00d0, PIN_INPUT, 4) /* (AC23) VOUT0_DATA6.UART5_RXD */
-+			AM62PX_IOPAD(0x00d4, PIN_OUTPUT, 4) /* (AE23) VOUT0_DATA7.UART5_TXD */
-+		>;
-+	};
-+
-+	pinctrl_bt: main-btgrp-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00f4, PIN_OUTPUT, 7) /* (Y20) VOUT0_DATA15.GPIO0_60 (BT_EN) */
-+		>;
-+	};
-+
-+	pinctrl_restouch: main-restouch-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00c4, PIN_INPUT_PULLUP, 7) /* (Y23) VOUT0_DATA3.GPIO0_48 */
-+		>;
-+	};
-+
-+	pinctrl_wifi: main-wifi-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00dc, PIN_OUTPUT, 7) /* (AC22) VOUT0_DATA9.GPIO0_54 - WIFI_PWR_EN - */
-+			AM62PX_IOPAD(0x00f0, PIN_OUTPUT, 7) /* (AA20) VOUT0_DATA14.GPIO0_59 - WIFI_EN - */
-+		>;
-+	};
-+};
-+
-+&mcu_pmx0 {
-+	pinctrl_wkup_clkout0: wkup-clkout0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_MCU_IOPAD(0x0084, PIN_OUTPUT, 0) /* (F13) WKUP_CLKOUT0 */
-+		>;
-+	};
-+};
-+
-+&main_spi0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi0>;
-+	ti,pindir-d0-out-d1-in;
-+	status = "okay";
-+};
-+
-+&main_uart5 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart5>, <&pinctrl_bt>;
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "nxp,88w8987-bt";
-+	};
-+};
-+
-+&sdhci0 {
-+	ti,driver-strength-ohm = <50>;
-+	mmc-pwrseq = <&mmc_pwrseq>;
-+	bootph-all;
-+	status = "okay";
-+};
-+
-+&sdhci2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mmc2>, <&pinctrl_wifi>;
-+	bus-width = <4>;
-+	non-removable;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	ti,fails-without-test-cd;
-+	status = "okay";
-+};
-+
-+&usbss0 {
-+	ti,vbus-divider;
-+};
-+
-+&usbss1 {
-+	ti,vbus-divider;
-+};
-+
-+&mailbox0_cluster0 {
-+	status = "okay";
-+
-+	mbox_r5_0: mbox-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster1 {
-+	status = "okay";
-+
-+	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mcu_r5fss0 {
-+	status = "okay";
-+};
-+
-+&mcu_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-+	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-+			<&mcu_r5fss0_core0_memory_region>;
-+};
-+
-+&wkup_r5fss0 {
-+	status = "okay";
-+};
-+
-+&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-+			<&wkup_r5fss0_core0_memory_region>;
-+};
-+
-+/* mcu_gpio0 and mcu_gpio_intr are reserved for mcu firmware usage */
-+&mcu_gpio0 {
-+	status = "reserved";
-+};
-+
-+&mcu_gpio_intr {
-+	status = "reserved";
-+};
-+
-+&wkup_rtc0 {
-+	status = "disabled";
-+};
-+
-+&wkup_rti0 {
-+	/* WKUP RTI0 is used by DM firmware */
-+	status = "reserved";
-+};
-+
-+&wkup_uart0 {
-+	/* WKUP UART0 is used by DM firmware */
-+	status = "reserved";
-+};
-+
-+&main_uart1 {
-+	/* Main UART1 is used by TIFS firmware */
-+	status = "reserved";
-+};
+3. Peach-Pi (arch/arm/boot/dts/samsung/exynos5800-peach-pi.dts) - 
+exynos-dp -> auo,b133htn01 1920x1080 edp panel - also displays garbage.
+
+Then I found why both Peach boards displays garbage on boot - the 
+framebuffer emulation is initialized for 1024x786 resolution, which is 
+not handled by those panels. This is a bit strange, because the 
+connector implemented by the panel reports proper native mode to drm and 
+userspace. 'modetest -c' shows the right resolution. Also when I run 
+'modetest -s' with the panel's native resolution then the test pattern 
+is correctly displayed on all three boards.
+
+
+Then I've played a bit with the analogix code and it looks that this 
+1024x768 mode is some kind default mode which comes from 
+analogix_dp_bridge_edid_read() function, which has been introduced by 
+this patchset. When I removed DRM_BRIDGE_OP_EDID flag from bridge->ops, 
+then I got it finally working again properly on all three boards. I hope 
+this helps fixing this issue.
+
+
+
+Best regards
 -- 
-2.43.0
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
