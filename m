@@ -4,153 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38958CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBB5CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9aPr2dVgLydMAozF3g0hYlfzC3ZcQd6UmrwXJ1HUSg=; b=CiAEihuRvGXTrcfwsV2vfyzWLM
-	7rfk9fICnfJ9xwhWscjM86NbsSKlqrHXGRpaUfeMi8uzB2fsAvIwgXM4aEEVEtv3x0I3vZufc7B5q
-	pEo2bR2L50Z42FrwRTCMRJ//oi/gBT1fXHPo/MIv1PPTD3/woEtOKnWXMrHTIqOr2CeIHXouAzUA8
-	LHYjw73iyHX4S3wuusy5RQIIE6gypy6DLsxADOqbN9V9clGTQz9pQUQqinAsZjuw4kmI27cd1z8yu
-	eUjSfea3XfoFykjkcY7a/mOpq9QJME1y3ISr3ONPZ34/4HZx2ilIpWE2SXHUublobbbZOx0YE75/R
-	OP3iPqHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I9XuFjQYH7zkwT/vUCHWyQ6fWYvOgOMbcp7P/Xgr2gI=; b=gOtdXdxhpFrTXhhboJSUVsQXvU
+	ZYxmwnQwymSnHrt+vUkPWA45soznq7cmU3s3VDilGx10AOijJSvhUuxx++AD61ilwV8zb0dMwz+vI
+	CFzACw1ifVkR79mUYN5kIvijnt4dcdz63VTR1I2yO6WPMCXEzWVpGj+TpWrsn5rVmW1+LSJyAb7v6
+	yWLPUYyakHXmbHXMSmokcf21a+t0FeiDWaGL9a6wDjY/q71R8Sie8B86St8JfO+XimDZjoIMqACnM
+	/q94Cdgo1DnST0PbwMyzJuzDhDqkLp5NHIPV9LtAQb0QXff3NUIFGZhBdT4PEMPNAATcaJB2w467Q
+	M3d3cZug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuEme-0000000Ddq9-1d4A;
-	Thu, 04 Sep 2025 18:34:08 +0000
+	id 1uuEmn-0000000De0b-0OJ3;
+	Thu, 04 Sep 2025 18:34:17 +0000
 Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuAsi-0000000CBi1-2O27
+	id 1uuAxj-0000000CDf4-1hLo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 14:24:09 +0000
+	Thu, 04 Sep 2025 14:29:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SvixLLY/CzPWIpaCt1WmyKr0nGEac2fhSl853PojS9+lB0hZt6SdSo+sg7CdLubcDzokOox6JxIG+3o6t/EdC8d/VouUlcaP5CHD4QP2MRoHxwU2ODA9WF+ocHZwuoH6MqDsTTtBlanZWyPmM0wEAlqWaf+kAVIZsahwxosrad90LgYZ8lZ+M4RiaIN9v+ag3wd8oIkNTBjVmRZ0Hit/8uEU3CM8Tfv7rlnmFKKQJ5KOCsZNnziza0dP9ujeISeNfpxHdLp3JDFiA37kbXvYw9IAw6yLgLvkBMwP6aofY9JPzD0jhOVUHhLNgKu9bdaZOMvCrBizRa7N7P1A/NhEqg==
+ b=D64Z9Lur+ciJH+BsNrniAR+5y8uKqS3kkawzQPUhAQwm4K9GXJeBLp3U8ho+53HULSgjXGVfiUG3Dbh5FJAspBzCbhVSop/GyGe9hu3t4zTFrgnJAXqohw/XF5m6SQXMrj+xqebAXSyP7bLkuvwjJSo7/t8dhqSgepFbHyoz5nThkh8AATtFMayKprCuaEd+4UIakgVtWj/YQiTpw8I8cb90FxVbHUSKuNepPeIvztqQiCWT9Bvx0+zoF8gxSE4vLTWeqIZ0DqTOUjDCIya8ZvGuAzMLOYlc/hFcY+jSuw4g4bbUxaWO/t7U2w7rRAc1X6Y4Lc7fNx3itkicWh/d6g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R9aPr2dVgLydMAozF3g0hYlfzC3ZcQd6UmrwXJ1HUSg=;
- b=WOUVgTqjl/LZdCIHcX3gYwidBBioDT2kOfvHw2uKfzeaFtMdU5MQWPOT+YAnIIQdCVTPE4/YxZqKGsGUkkaGcnQlzy4Uu/2RjwoP5/jO8URGWACytVbWSo0ycHiVFCBBP8neLIlL+7fx5hmLQun0SygLxWoIKAp0tNThpgf9B1pUzU3b9angJ7S4l8QIlh7gtkMWjy6sxpff9hpNk32XOoCFDOJTFByhzR2PJrCMAJPx2SlmdVzyVz634f4tw+QaE0cLYo3FemmyAZehoNg6SsAve+RuCGqZu8ntqLQ3TVxTRf8nsm8e9a++IBjNR0f9Mlc4pV1JDrr09y7ELcEN0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
+ bh=I9XuFjQYH7zkwT/vUCHWyQ6fWYvOgOMbcp7P/Xgr2gI=;
+ b=wqXGu9Z7YnfTv0AVGe3VETJnpU5lB3Cdzbm0MFBglR2bRN07VaLjajW4XFlt2w9m1KygW9ZfDiWRNGfMWprUVAOmP+k8sgrByYQFmUAJCnfhvGtKFWm65Pm8aIxXvgcjkEH5qvzAHpd7ieaTHpqfxpCzRJ1yDeJFvSCg6CqcUnRAvIeSeyazArx5jVnmujvJIFliET6Wvg7zt4NP+qJ0gzC7PTmB+xUxNCcjB81cffVB/0HHerTUVv+8Irm4rFWnHbSI//u74XbWscCHY31M0+Bb0Pel4HYIXe0WRR+0FbmMW2MgFr3R31NEVF+Iyl6HRooRqW+EIsMJ+2i7AHKOoQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 195.60.68.100) smtp.rcpttodomain=arm.com smtp.mailfrom=axis.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=axis.com; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R9aPr2dVgLydMAozF3g0hYlfzC3ZcQd6UmrwXJ1HUSg=;
- b=Y647jCLr+pu5FnthtB2GzZd0XQGqEoJBIkugYamlHrhgtMamAQQIHjJZ7z7pznf+1pG7he4qMBIuxzKJ6WGQJwV96pZ4X4ww/lg4dgfa77p8aPRq2iSkiAsrd860HPnnMzF8lgAh8nfs2rvZdCq/+q9vI0bx7xQZR+PcC+uNzyHQ85BsY1pw0sTmpCZM460lUgTh8x6o7MUIX6kn0YKK3Ei4wmzjGhcdjs1jkSfYM1BfwGylrHgno82N6Cz2RqSjpZ47Iz2uMkrCn7UlGuuYM9+eEcxuFu5TmeyHNTCzvl+GxLepMedmeSDPMEh20Ow4yohQlD5z/isK5TEsB2A5AA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by AM8PR08MB6436.eurprd08.prod.outlook.com (2603:10a6:20b:365::8) with
+ bh=I9XuFjQYH7zkwT/vUCHWyQ6fWYvOgOMbcp7P/Xgr2gI=;
+ b=L3WYwSCTArwuRMqJczRKEwBrNzsG/oD3s/CKN5fn7W3iuhZc6a6Q3ZZyQFm9+DeeQFOs44KN2WLSDnXBXEM8B2Rn5RibVn1YS3O/Hk9EzU4f6ANNB4He7RHrQSiYlO5pebaQxID1S6dBvZ6I50T6HeIgtBQoyXb3kdSVbuClKkk=
+Received: from AS4P195CA0048.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:65a::23)
+ by AM0PR02MB5939.eurprd02.prod.outlook.com (2603:10a6:208:187::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.21; Thu, 4 Sep
- 2025 14:24:01 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.9094.017; Thu, 4 Sep 2025
- 14:24:01 +0000
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ray Liu <ray.liu@airoha.com>,
-	Mark Brown <broonie@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Andreas Gnau <andreas.gnau@iopsys.eu>
-Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Subject: [PATCH RESEND v5 11/13] spi: airoha: set custom sector size equal to flash page size
-Date: Thu,  4 Sep 2025 17:23:37 +0300
-Message-ID: <20250904142339.656346-12-mikhail.kshevetskiy@iopsys.eu>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250904142339.656346-1-mikhail.kshevetskiy@iopsys.eu>
-References: <20250904142339.656346-1-mikhail.kshevetskiy@iopsys.eu>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: GV3P280CA0047.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:150:9::15) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.18; Thu, 4 Sep
+ 2025 14:29:13 +0000
+Received: from AM4PEPF00025F97.EURPRD83.prod.outlook.com
+ (2603:10a6:20b:65a:cafe::f1) by AS4P195CA0048.outlook.office365.com
+ (2603:10a6:20b:65a::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.18 via Frontend Transport; Thu,
+ 4 Sep 2025 14:29:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 195.60.68.100)
+ smtp.mailfrom=axis.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=axis.com;
+Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
+ 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
+ client-ip=195.60.68.100; helo=mail.axis.com; pr=C
+Received: from mail.axis.com (195.60.68.100) by
+ AM4PEPF00025F97.mail.protection.outlook.com (10.167.16.6) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.9115.0 via Frontend Transport; Thu, 4 Sep 2025 14:29:13 +0000
+Received: from se-mail02w.axis.com (10.20.40.8) by se-mail01w.axis.com
+ (10.20.40.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58; Thu, 4 Sep
+ 2025 16:29:09 +0200
+Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail02w.axis.com
+ (10.20.40.8) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Thu, 4 Sep 2025 16:29:09 +0200
+Received: from pc36611-1939.se.axis.com (pc36611-1939.se.axis.com [10.88.125.175])
+	by se-intmail01x.se.axis.com (Postfix) with ESMTP id DD8981490;
+	Thu,  4 Sep 2025 16:29:09 +0200 (CEST)
+Received: by pc36611-1939.se.axis.com (Postfix, from userid 363)
+	id D823D601BA; Thu,  4 Sep 2025 16:29:09 +0200 (CEST)
+Date: Thu, 4 Sep 2025 16:29:09 +0200
+From: Jesper Nilsson <jesper.nilsson@axis.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Ravi Patel <ravi.patel@samsung.com>, <jesper.nilsson@axis.com>,
+	<mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <s.nawrocki@samsung.com>,
+	<cw00.choi@samsung.com>, <alim.akhtar@samsung.com>,
+	<linus.walleij@linaro.org>, <tomasz.figa@gmail.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <arnd@arndb.de>,
+	<ksk4725@coasia.com>, <kenkim@coasia.com>, <pjsin865@coasia.com>,
+	<gwk1013@coasia.com>, <hgkim05@coasia.com>, <mingyoungbo@coasia.com>,
+	<smn1196@coasia.com>, <shradha.t@samsung.com>, <inbaraj.e@samsung.com>,
+	<swathi.ks@samsung.com>, <hrishikesh.d@samsung.com>, <dj76.yang@samsung.com>,
+	<hypmean.kim@samsung.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-arm-kernel@axis.com>, <devicetree@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>
+Subject: Re: [PATCH v4 4/6] arm64: dts: exynos: axis: Add initial ARTPEC-8
+ SoC support
+Message-ID: <aLmiNQIsgBuDfLcX@axis.com>
+References: <20250901051926.59970-1-ravi.patel@samsung.com>
+ <CGME20250901054254epcas5p24db87bd64fc57a25b17c51e608f15e7b@epcas5p2.samsung.com>
+ <20250901051926.59970-5-ravi.patel@samsung.com>
+ <5543f849-2be7-459f-8600-d236625cc8f8@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <5543f849-2be7-459f-8600-d236625cc8f8@kernel.org>
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AM8PR08MB6436:EE_
-X-MS-Office365-Filtering-Correlation-Id: f1236f71-3407-4d75-3525-08ddebbeb186
+X-MS-TrafficTypeDiagnostic: AM4PEPF00025F97:EE_|AM0PR02MB5939:EE_
+X-MS-Office365-Filtering-Correlation-Id: d9791b69-f702-453b-cd20-08ddebbf6bf4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MDyBLzZH1zUkC9u7ld/OVVSH3Cuy6MKO/ha+n5mfyYb4xKhk2QsRGBVbLmVD?=
- =?us-ascii?Q?cCsj26r1kwYXVX6fBNkcf8WlU2e1en/tgOBSYhRQKroz+Wxnsn8m/V8bdFmO?=
- =?us-ascii?Q?bRBEdTvSllsrbQ4N0oe4MiW+iT8PVYLD4W30b3mzijoLVP6oeyuj+6tsu1/H?=
- =?us-ascii?Q?3jJvXe8wybmvSYFEgy7cr0F559GxCj7bBs2XbZr4DIca3rTeX71qFRk5WoQd?=
- =?us-ascii?Q?si0nNTJmXYOHYaT5DM6U8Dxm+ZSELPjq+b1Fllw3+T3fe/YrWzG6ox5KvF5f?=
- =?us-ascii?Q?qKBisV//PN8gi/nIUpFBuo++Ao0R6CZaKg/+n8HkSClwc+KXEMnlLttr4c1p?=
- =?us-ascii?Q?aWa1q1pXZ2xCbnh2ZMNpX8fa7LwMNpM14rYrjk6EWhctgEyEZx936j11ymAn?=
- =?us-ascii?Q?89SXBqBbu+mixUiLUrRAwxOcWMpT8ehOk0+2fWR0dUI8Z0zjKRhdRr4hWAD/?=
- =?us-ascii?Q?cM232ZKfYLPAGFIkwRBYgJl9riJdrA+IFGrhE+AXs7xS7QvYoj4vLTmLvTfw?=
- =?us-ascii?Q?XM16jpzXkuy8Q2tBcP1ROdn5QlgU+a2v8WeMRqZeFkc6BlDjHMFOBImvqjDP?=
- =?us-ascii?Q?HjbklEq89ru4Cuo8q/mI2378y8uQzAoOvZWWR/W0GFAkuHuousfho8ssdVOk?=
- =?us-ascii?Q?3kYha046mAalPauWZs0myBff4LJKjcFPec7XnH0sS2UfWfkivb9r/FacV8ZZ?=
- =?us-ascii?Q?3+EIJTGIZpqTaEX50WDKaOoyxzKmh9wEHI+ICPdR/VtVEEjZ0lTiLFoogK11?=
- =?us-ascii?Q?05splqsyDAWWTj3ld8rSpgyxyotwLHzrJdd7bf4SVtqdWmD7UBdLtg4rVYPV?=
- =?us-ascii?Q?nbZ7qOL/13O4mtoXu7rAGQbBCIdPB2MAcZoYQNK6S5kNtKS2Im/cAiWdYIOs?=
- =?us-ascii?Q?6a9nhY46houZArLVmjgi2bJGC6Or7sCn72pyRIMgpLSBRCtlfsMrlESYRHQ4?=
- =?us-ascii?Q?17+AaP7pDWCYHISmg7Yus7TueSjlU/Vxdyj63YJK1rbVJ5GPm/PR0NjQQfde?=
- =?us-ascii?Q?HSvTRt5tvZvjehkOHQEK4BEGxe3JXk0JP6/s3h2zRDlwB8zIU3v5v2Ij0jhk?=
- =?us-ascii?Q?7/OdC9Oc8Au7RLUmO0RzpQ5vXsQysvVaH0ULRFz8r4C6BfX/nxTHHVuVX/Ay?=
- =?us-ascii?Q?NMj57Lpp0a7Jb5He5FiYQquuYkVCC/0/Lpn6UU6vDSf1BaidfBP8EfCz40PH?=
- =?us-ascii?Q?EldzYXvGccL4CTuau9NCpM2jKRrdAnLXWxZpZhB/8pPqWS9Y8/KENEjfeA9I?=
- =?us-ascii?Q?fonuiXwuPZeQ2L1aYKNPh450KMMuzUpebbEX8y7bOwltxbZJge2a8CgW6g7r?=
- =?us-ascii?Q?73kn0cQM5v/PS1dFJlZqAH5NGQ+gu7xbFT3+ZOQRvGsb21OFmQG7SXBdLYF8?=
- =?us-ascii?Q?SaAkm3E5/S2HaCa4zi+9kILQt2f3F/dMTN9dlQp3v041otkDfPA4u4xKZYTA?=
- =?us-ascii?Q?NbgOwIN8HfFx+KSeHOsO1IVzJdwHKaIJdysDvCEjHe6gXatVh60Lgw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Omuq+mfz0ouCL1a/VyjP3Ort49JU39OMd7iIY2Q+4F7UczFZI3fG9phlWG9q?=
- =?us-ascii?Q?rtW7hNS/qQkpolrTicaP7Cd9YU8zHsU4V8MRQZHmN5ZteQZ0icqtyjvCnHOa?=
- =?us-ascii?Q?RgIDSx4WXrCHJs9e5snX0V1z+BH9dYqT1hoohs7sH+2ot9mALkOUh8eRO+Pk?=
- =?us-ascii?Q?s+Ac2VRhdmUaHxSglLwaaqBb3DUmoR7fDDMG8QyJ/Kd+/4qjjzGZRVpPZM+8?=
- =?us-ascii?Q?Uc06AyneNwbYHoM+LWDfLM2hAcTdgzGMXWTJZ0/qSNLRFsvPGl9CD/L6yLD4?=
- =?us-ascii?Q?kFAy8F1fEsZwqfQgeRm/JH3WfE0WXXpI8qyyhqm+oltAgBn+yq19yqjJwdYC?=
- =?us-ascii?Q?rgFSBQjfqnPTwZwm5D3/6mjNOgKtoDjAoeNKXX82cDUgixNBHwK/SScReIA1?=
- =?us-ascii?Q?jFFRfM406dOFXIFz2+HdDYNZngz78RvjUQRyFPQ8MCh4daUSs7meks1HqVYd?=
- =?us-ascii?Q?V8Ppt3PJsOTSHYEdbW0/XYIQfR2Mf0cd1mm6xe9mffsMK0rICMCtSliejytr?=
- =?us-ascii?Q?6J8ENSuhWZUnVq02HTZ0fEi/aVIyXZBOzRin2U8VJHvmBDRNNIAYyMtvWKJI?=
- =?us-ascii?Q?c9QeH6xFzsEF2geqcsR4L/qCM0hUSHHKGElT8+nFCm9kDwx+44xaF/2T1R9h?=
- =?us-ascii?Q?dm8F0NJJwOxKBGOpISFNCpnaC/oQ704Wkd2Wir/iMkJrJNUAONaHpOes02B7?=
- =?us-ascii?Q?cm9kkpZw2xNkFnwImN6JBJ8Twpo8HX3a9ZkT/zkNAwACoUcg76Mskb+dwKdc?=
- =?us-ascii?Q?tv6EUFSdX+dZyIygyAXTdxr9g2wYW5ZpX7aHfNCz0spueYWiDy6fpl6D+GuF?=
- =?us-ascii?Q?aW01kIZfNcawXsg3FVSDckNcSuqh6Q7qdvd+byLSAZGdFsncl76Hb5pLEIRJ?=
- =?us-ascii?Q?XtiuqWv80JP6WgXaoYgymg8EfUqu6rU8ryb7qbT21oOpPgXyUX+nUNa3THrm?=
- =?us-ascii?Q?GL46IE5U8Onzz9R1UcTCBLLwVci7orzikFfGuF3y88cTSXM2AHhpmqZlDyCS?=
- =?us-ascii?Q?6NogyONddnk1M1TKlbgdNbVKjycT6MnQX239CDFPBH6m5hid6zZeTSlxGDey?=
- =?us-ascii?Q?jMM9zFVP/5/APwfoMYiApKNqjMODK+csu9TsG5ybRfvV+x0FOWJOIRYVA5e7?=
- =?us-ascii?Q?H0NMYfMHVKVglhlHS9IBL8stLM5nRK27OWS7qLi+NIoNIlKVypbX40TSHBsM?=
- =?us-ascii?Q?ynjs9T97IXFfuyZQjoWmEErn2lsbwDF663TREj0hxBd0QmO7tZrr2XmMLxGE?=
- =?us-ascii?Q?e96JXiOQpeZnu8RX6usWvnAjv1x9I9ofVRjk2Z4R0HWTezcJCeSZAmQ+WqI4?=
- =?us-ascii?Q?EB+9A9DSUfFPO8iccGnQ27Wpayu9wZzUTpeLd0bOJU5CVJ3AgM+q9DJP36VT?=
- =?us-ascii?Q?VbR5hu4Ih25XVn0H1rXzzRQktuOnw1R9JoNN5CfAy9cXxn9b7OFZwt8KBuoJ?=
- =?us-ascii?Q?QHJZmVcmLyIVr1//oPYRNQleNefCrfsFDVr69IoJHkrXlYjbH1xcSXHoVZex?=
- =?us-ascii?Q?2pyDfemUAMAtRPodVX1eQgNyLdyhMLK3Gfx41T04q+2arMTs8CvFqJwIcZof?=
- =?us-ascii?Q?qpaItM3t84av9Nt5pCtnHD9yKPMQOj+RJUrIIosnqQowQ5VeKIxbLFiSQh9s?=
- =?us-ascii?Q?Dg9SWIZ1sWOKp9EOH3shlfU=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: f1236f71-3407-4d75-3525-08ddebbeb186
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 14:24:01.4546
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NUaa3e1Hv+PChXMbjqD2G3PVhS4+jM2MfDbef7UCK4LpxfrfMIIr3ixK3+Qz?=
+ =?us-ascii?Q?khcqCld95+KFpJZbD7u5UDu53VXrRTxy5V4IOy2x3AI4Io22M6iF+pwpRHEE?=
+ =?us-ascii?Q?8rpIqIqTrxzofwxhNCUcU1B0F1NEDDbXpJzrhfJzZCmlFKted56vyIfibCAa?=
+ =?us-ascii?Q?FnB+7bd7aDRwosrJteiJKZq8E8Sd48NFtNMamosZnQ1lpKvJZfC51qgvjJ8v?=
+ =?us-ascii?Q?hQubnds1FaJbrNngV/P3Z03jzIDFcAnuoGf9n7ryGMPUeEeGC++P01c5H47s?=
+ =?us-ascii?Q?fEV7QQSLZ6x71PHHWSDpiOwyjDZ6ySDBGe0gQo5yrYfY9TJpBKMfKuEECwHj?=
+ =?us-ascii?Q?G8omDPXAwt1BCVAET64OEspTU4yckgHBbmrKrG0LwBNH3V+mHkKaH3NWI9gS?=
+ =?us-ascii?Q?dvJggpTyCLntIdiNAUIRUS6ZQCK+fv3AocysNI96WZh6UL7Dt41ZUm+PXEEm?=
+ =?us-ascii?Q?Krso1carUzuEduBs+VJjmqDSJBe89X99vXPPuok/mfSKqozFF8q6zNjAEkDU?=
+ =?us-ascii?Q?730up0wa+udBsL7VvpNTPCe5gjdIxhSSNHf4q6E4yKb6RxE7bE1kIGyp/EE4?=
+ =?us-ascii?Q?7tqD3jlXWN2fwl+W/L6UWlfGxhBagiS2qmMkCTsu9yMwCYQEHNsUrDPFUmO2?=
+ =?us-ascii?Q?UqIEK83hVz52/+QlLl48yfe5Z2FFg+mQLcrCmDC7enXRsLZbDP8EhABlFIN6?=
+ =?us-ascii?Q?+zbmP7kNF89ZUBSr+cWS4irmjlshdfHSwxgVtm4//7750JCOB/1LTWhZsPmP?=
+ =?us-ascii?Q?pfb5/SGNpO7HnZMCCfQOBsVjvv4NKVph1lITOxaBDYKnYHLsrQJpYzefWyt8?=
+ =?us-ascii?Q?eHJKKgJeEeF/J2Hd+SiR9JDuxjZmBMJT8gTi4hiHNf4KwqA3M0/tlg6BwMe+?=
+ =?us-ascii?Q?3OH8WscwOpKACtBsIJCXOp6bofNO72nMmOuYHZPCst8f2LO5S/+mpr07qfsT?=
+ =?us-ascii?Q?tilBt2vhOHFmJaD/5f7CsFlZPHZjTbSd/Jqt9PzAVZqMKLHqCrR83mYKcLgf?=
+ =?us-ascii?Q?PExlGz9SgB8SjGvH2/lfiRkD7ZfuWf1rcTn1UyLTjNTOxjoBHwhoV5tKFKB4?=
+ =?us-ascii?Q?15qNkFdhbHSmnHPKafmsSDp2T0WWXBjGMdyVAZqN0Z8QB6kjOlylDoDWcNzv?=
+ =?us-ascii?Q?45i0Ei22hfvMdvIW94oSeaIbyDequ/cCodQO1bNVHFUdHQoSID3yJZOBqVYZ?=
+ =?us-ascii?Q?UfTeIaNNyO/uT0FlDtwvZtADFSAeQc3jUu7Arheb3n2cowUao8ypk425R1hR?=
+ =?us-ascii?Q?zAC22+UnIeA4bbNgl6wN9kPyiMgb54PEcW/K3ULe9tjQRLfBjBWLCih2/xUu?=
+ =?us-ascii?Q?yHw9rRIJhwbtFPBIWsJq92TIn4fjbeeaZP8wbAqaZ7nKnvVKgVBlBc6Fal/l?=
+ =?us-ascii?Q?jopLfPfl0HcMT3/UJ81F2pS2Co79/jfHftBYSSW9iaKY4sVQzaVB4A7bfCe0?=
+ =?us-ascii?Q?TFegCNRvypLQttmMw5v1sWpAbCIJKLKitSdPORo3OfEUEJRyk1SetcO1osyF?=
+ =?us-ascii?Q?u0xjCYH5xgxnu5yihN4fTF9OWoMdZFsXEejG?=
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: axis.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 14:29:13.8531
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ucm/bRgJZ48Vq/ffV+szeyV5X/HF2eZm8nWihfz2OjIqLnhsiHiFuoH7fvYJFbtXL3UR0u62XIBWAXMdn6RZ7+4/UtAy6midvQLz8joFk0I=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB6436
+X-MS-Exchange-CrossTenant-Network-Message-Id: d9791b69-f702-453b-cd20-08ddebbf6bf4
+X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F97.EURPRD83.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR02MB5939
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_072408_610222_95713B02 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20250904_072919_463875_8ED7010B 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,142 +163,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set custom sector size equal to flash page size including oob. Thus we
-will always read a single sector. The maximum custom sector size is
-8187, so all possible flash sector sizes are supported.
+On Thu, Sep 04, 2025 at 03:43:14PM +0200, Krzysztof Kozlowski wrote
+> On 01/09/2025 07:19, Ravi Patel wrote:
+> > From: SungMin Park <smn1196@coasia.com>
+> > 
+> > Add initial device tree support for Axis ARTPEC-8 SoC.
+> > 
+> > This SoC contains 4 Cortex-A53 CPUs and several other peripheral IPs.
+> > 
+> > Signed-off-by: SungMin Park <smn1196@coasia.com>
+> > Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
+> > Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+> > ---
+> >  MAINTAINERS                                   |  12 +
+> >  arch/arm64/Kconfig.platforms                  |   7 +
+> >  arch/arm64/boot/dts/exynos/Makefile           |   1 +
+> >  .../boot/dts/exynos/axis/artpec-pinctrl.h     |  36 +++
+> >  .../boot/dts/exynos/axis/artpec8-pinctrl.dtsi | 120 +++++++++
+> >  arch/arm64/boot/dts/exynos/axis/artpec8.dtsi  | 244 ++++++++++++++++++
+> >  6 files changed, 420 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
+> >  create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8.dtsi
+> > 
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index fe168477caa4..4d0c1f10ffd4 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -4102,6 +4102,18 @@ S:	Maintained
+> >  F:	Documentation/devicetree/bindings/sound/axentia,*
+> >  F:	sound/soc/atmel/tse850-pcm5142.c
+> > 
+> > +AXIS ARTPEC ARM64 SoC SUPPORT
+> > +M:	Jesper Nilsson <jesper.nilsson@axis.com>
+> > +M:	Lars Persson <lars.persson@axis.com>
+> > +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> > +L:	linux-samsung-soc@vger.kernel.org
+> > +L:	linux-arm-kernel@axis.com
+> > +S:	Maintained
+> > +F:	Documentation/devicetree/bindings/clock/axis,artpec*-clock.yaml
+> > +F:	arch/arm64/boot/dts/exynos/axis/
+> > +F:	drivers/clk/samsung/clk-artpec*.c
+> > +F:	include/dt-bindings/clock/axis,artpec*-clk.h
+> 
+> Some official ack would be nice for this, but I also remember we earlier
+> emails, so I will take it as is.
 
-This patch is a necessary step to avoid reading flash page settings
-from SNFI registers during driver startup.
+Sure, that is a reasonable request,
 
-Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
----
- drivers/spi/spi-airoha-snfi.c | 35 +++++++++++++++++++----------------
- 1 file changed, 19 insertions(+), 16 deletions(-)
+Acked-by: Jesper Nilsson <jesper.nilsson@axis.com>
 
-diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
-index 3fb76e2dd5e3..babf7b958dc3 100644
---- a/drivers/spi/spi-airoha-snfi.c
-+++ b/drivers/spi/spi-airoha-snfi.c
-@@ -519,7 +519,7 @@ static int airoha_snand_nfi_config(struct airoha_snand_ctrl *as_ctrl)
- 		return err;
- 
- 	/* sec num */
--	val = FIELD_PREP(SPI_NFI_SEC_NUM, as_ctrl->nfi_cfg.sec_num);
-+	val = FIELD_PREP(SPI_NFI_SEC_NUM, 1);
- 	err = regmap_update_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CON,
- 				 SPI_NFI_SEC_NUM, val);
- 	if (err)
-@@ -532,7 +532,8 @@ static int airoha_snand_nfi_config(struct airoha_snand_ctrl *as_ctrl)
- 		return err;
- 
- 	/* set cust sec size */
--	val = FIELD_PREP(SPI_NFI_CUS_SEC_SIZE, as_ctrl->nfi_cfg.sec_size);
-+	val = FIELD_PREP(SPI_NFI_CUS_SEC_SIZE,
-+			 as_ctrl->nfi_cfg.sec_size * as_ctrl->nfi_cfg.sec_num);
- 	return regmap_update_bits(as_ctrl->regmap_nfi,
- 				  REG_SPI_NFI_SECCUS_SIZE,
- 				  SPI_NFI_CUS_SEC_SIZE, val);
-@@ -635,10 +636,13 @@ static ssize_t airoha_snand_dirmap_read(struct spi_mem_dirmap_desc *desc,
- 	u8 *txrx_buf = spi_get_ctldata(spi);
- 	dma_addr_t dma_addr;
- 	u32 val, rd_mode, opcode;
-+	size_t bytes;
- 	int err;
- 
- 	as_ctrl = spi_controller_get_devdata(spi->controller);
- 
-+	bytes = as_ctrl->nfi_cfg.sec_num * as_ctrl->nfi_cfg.sec_size;
-+
- 	/*
- 	 * DUALIO and QUADIO opcodes are not supported by the spi controller,
- 	 * replace them with supported opcodes.
-@@ -697,18 +701,17 @@ static ssize_t airoha_snand_dirmap_read(struct spi_mem_dirmap_desc *desc,
- 		goto error_dma_mode_off;
- 
- 	/* Set number of sector will be read */
--	val = FIELD_PREP(SPI_NFI_SEC_NUM, as_ctrl->nfi_cfg.sec_num);
- 	err = regmap_update_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CON,
--				 SPI_NFI_SEC_NUM, val);
-+				 SPI_NFI_SEC_NUM,
-+				 FIELD_PREP(SPI_NFI_SEC_NUM, 1));
- 	if (err)
- 		goto error_dma_mode_off;
- 
- 	/* Set custom sector size */
--	val = as_ctrl->nfi_cfg.sec_size;
- 	err = regmap_update_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_SECCUS_SIZE,
- 				 SPI_NFI_CUS_SEC_SIZE |
- 				 SPI_NFI_CUS_SEC_SIZE_EN,
--				 FIELD_PREP(SPI_NFI_CUS_SEC_SIZE, val) |
-+				 FIELD_PREP(SPI_NFI_CUS_SEC_SIZE, bytes) |
- 				 SPI_NFI_CUS_SEC_SIZE_EN);
- 	if (err)
- 		goto error_dma_mode_off;
-@@ -733,11 +736,10 @@ static ssize_t airoha_snand_dirmap_read(struct spi_mem_dirmap_desc *desc,
- 	 *        = NFI_SNF_MISC_CTL2.read_data_byte_number =
- 	 *        = NFI_CON.sector_number * NFI_SECCUS.custom_sector_size
- 	 */
--	val = as_ctrl->nfi_cfg.sec_size * as_ctrl->nfi_cfg.sec_num;
--	val = FIELD_PREP(SPI_NFI_READ_DATA_BYTE_NUM, val);
- 	err = regmap_update_bits(as_ctrl->regmap_nfi,
- 				 REG_SPI_NFI_SNF_MISC_CTL2,
--				 SPI_NFI_READ_DATA_BYTE_NUM, val);
-+				 SPI_NFI_READ_DATA_BYTE_NUM,
-+				 FIELD_PREP(SPI_NFI_READ_DATA_BYTE_NUM, bytes));
- 	if (err)
- 		goto error_dma_unmap;
- 
-@@ -826,10 +828,13 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
- 	struct airoha_snand_ctrl *as_ctrl;
- 	dma_addr_t dma_addr;
- 	u32 wr_mode, val, opcode;
-+	size_t bytes;
- 	int err;
- 
- 	as_ctrl = spi_controller_get_devdata(spi->controller);
- 
-+	bytes = as_ctrl->nfi_cfg.sec_num * as_ctrl->nfi_cfg.sec_size;
-+
- 	opcode = desc->info.op_tmpl.cmd.opcode;
- 	switch (opcode) {
- 	case SPI_NAND_OP_PROGRAM_LOAD_SINGLE:
-@@ -880,18 +885,17 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
- 		goto error_dma_mode_off;
- 
- 	/* Set number of sector will be written */
--	val = FIELD_PREP(SPI_NFI_SEC_NUM, as_ctrl->nfi_cfg.sec_num);
- 	err = regmap_update_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CON,
--				 SPI_NFI_SEC_NUM, val);
-+				 SPI_NFI_SEC_NUM,
-+				 FIELD_PREP(SPI_NFI_SEC_NUM, 1));
- 	if (err)
- 		goto error_dma_mode_off;
- 
- 	/* Set custom sector size */
--	val = as_ctrl->nfi_cfg.sec_size;
- 	err = regmap_update_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_SECCUS_SIZE,
- 				 SPI_NFI_CUS_SEC_SIZE |
- 				 SPI_NFI_CUS_SEC_SIZE_EN,
--				 FIELD_PREP(SPI_NFI_CUS_SEC_SIZE, val) |
-+				 FIELD_PREP(SPI_NFI_CUS_SEC_SIZE, bytes) |
- 				 SPI_NFI_CUS_SEC_SIZE_EN);
- 	if (err)
- 		goto error_dma_mode_off;
-@@ -916,11 +920,10 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
- 	 *        = NFI_SNF_MISC_CTL2.write_data_byte_number =
- 	 *        = NFI_CON.sector_number * NFI_SECCUS.custom_sector_size
- 	 */
--	val = as_ctrl->nfi_cfg.sec_size * as_ctrl->nfi_cfg.sec_num;
--	val = FIELD_PREP(SPI_NFI_PROG_LOAD_BYTE_NUM, val);
- 	err = regmap_update_bits(as_ctrl->regmap_nfi,
- 				 REG_SPI_NFI_SNF_MISC_CTL2,
--				 SPI_NFI_PROG_LOAD_BYTE_NUM, val);
-+				 SPI_NFI_PROG_LOAD_BYTE_NUM,
-+				 FIELD_PREP(SPI_NFI_PROG_LOAD_BYTE_NUM, bytes));
- 	if (err)
- 		goto error_dma_unmap;
- 
+> Best regards,
+> Krzysztof
+
+/^JN - Jesper Nilsson
 -- 
-2.50.1
-
+               Jesper Nilsson -- jesper.nilsson@axis.com
 
