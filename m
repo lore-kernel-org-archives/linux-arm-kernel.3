@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8EACA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 20:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CC5CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 20:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HSuGAke0gdqeRAIfeWQr8j6H1h4Rm4Qza2dPLd6deIU=; b=xbEiS+SZ9WNwFem0DAriB3r8zE
-	0sYLEHf3Fo/DbsJBjxm6B3NmgM7soLxErCZiUP1xr4iRR2jZnJtV310jAKMsEPrFE9601gD6Xg3Re
-	UEZlp1VN9ErAyXorHaJ+5NoNGra+U5Wuet/dC3PfkuXlSscgOu4STqMJnoOOqlUvr1MQanO81HbR/
-	jqkVIIg/YQmP9qU0TxW/236xYkm7gIFxpw894p3Oox4yMVmhxLpqS3UK2bELqmQFfEWcgj7qqIph6
-	8Lcfxrtvg9gQlt5Hd/pxXI86DcD1//ExFM6Fel9VRZpPUR8RtcY0gg+T5nQaXjgiGhWGEyve1dZ0b
-	LyfPNo0A==;
+	bh=2ljcWFrJPcaRe8xII62FUT6usRu6iFKKNC7dwzJQr+E=; b=UkKhaQ2RFdZ9Y7H3DhGLiC49xc
+	nKdpPXaZ8EVRpVQO9hUJQo4Hr3DSi5V/iBbmh27fvxHftRkDGJDHaxNQSu9lohIGKdAyTiK65EcrV
+	HvYg7QTem3ukARFXnk9a8CcP0ep3DlI4YLp/Nx2NiwctX/99SD4jXz8wHyYQtwiMpeTryx5wVIz+4
+	7k+5u3RlT+7Slr+kLo2nZUnMMcHb4CHh6JdCjWVvrqQ29L4o5UJ7WGyzoCRRmJjuJ3UBjbXrRb78A
+	lWZe9N3tRVmRVrK4qMIa8L+IE+5qxx27tSKQBCrLRc1XzsRDecebxAVKnU7jFLK7XXp2QEZaXDhla
+	wLymlaqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuGDX-0000000E9Hr-0ESl;
-	Thu, 04 Sep 2025 20:05:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uuGGE-0000000EA2r-1dAM;
+	Thu, 04 Sep 2025 20:08:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuDJz-0000000D7je-2sn0
+	id 1uuDT1-0000000DAeK-1upZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 17:00:28 +0000
+	Thu, 04 Sep 2025 17:09:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B712434F3;
-	Thu,  4 Sep 2025 17:00:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00E4CC4CEF0;
-	Thu,  4 Sep 2025 17:00:24 +0000 (UTC)
-Date: Thu, 4 Sep 2025 18:00:22 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Dev Jain <dev.jain@arm.com>,
-	scott@os.amperecomputing.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v7 6/6] arm64: mm: Optimize linear_map_split_to_ptes()
-Message-ID: <aLnFpndf-XikPPFf@arm.com>
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <20250829115250.2395585-7-ryan.roberts@arm.com>
+	by sea.source.kernel.org (Postfix) with ESMTP id 4BCD543A4C;
+	Thu,  4 Sep 2025 17:09:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9297BC4CEF0;
+	Thu,  4 Sep 2025 17:09:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757005786;
+	bh=Kb5OEk6CH681dR8WwdpshUf8PEmUll6MbXBONva8auo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gPSwdcJP4MCiJ8QOfsVD77rIQdkXbfYiHaf4DPc/qOL1RGsR7t1mB26BNa/wvie6/
+	 ts8MIC5y8oLbQYvx0SMK33g32n5jSPH56QYrTHBu58/OwGaH4ZukJobGqMjoJfrDIL
+	 eIi1ufaEBTSeaoJQ1Ob4zLrTGy+/35sR7cL2JoNSPhdlU8Lrll1PsE86mPd9dxw1X1
+	 VsUcDNGjRIGA7Ti6yC45ONK39KNjqcXDi71D4bz33iTtNq6s/A+P/Kcuf5z57Ds/QV
+	 afQ/Sn8+EkWLyvj5vV81lEF2v2UuedyRrmT89OraQjWTmYe2ZW5/pFcMeANV7zKhPt
+	 aQ1vSw3Vn+lCg==
+Date: Thu, 4 Sep 2025 22:39:34 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5] PCI: imx6: Enable the vpcie3v3aux regulator when
+ fetch it
+Message-ID: <piirka3qlna6k33r2eutg26s2iepnvubzbdps6rh5b2tzhxxmg@c7nv3jgkwxpw>
+References: <20250820022328.2143374-1-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250829115250.2395585-7-ryan.roberts@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250820022328.2143374-1-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_100027_743351_ADD99E33 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20250904_100947_515259_A5973EB3 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,18 +77,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 12:52:47PM +0100, Ryan Roberts wrote:
-> When splitting kernel leaf mappings, either via
-> split_kernel_leaf_mapping_locked() or linear_map_split_to_ptes(),
-> previously a leaf mapping was always split to the next size down. e.g.
-> pud -> contpmd -> pmd -> contpte -> pte. But for
-> linear_map_split_to_ptes() we can avoid the contpmd and contpte states
-> because we know we want to split all the way down to ptes.
+On Wed, Aug 20, 2025 at 10:23:28AM GMT, Richard Zhu wrote:
+> Refer to PCIe CEM r6.0, sec 2.3 WAKE# Signal, WAKE# signal is only
+> asserted by the Add-in Card when all its functions are in D3Cold state
+> and at least one of its functions is enabled for wakeup generation. The
+> 3.3V auxiliary power (+3.3Vaux) must be present and used for wakeup
+> process.
 > 
-> This avoids visiting all the ptes in a table if it was created by
-> splitting a pmd, which is noticible on systems with a lot of memory.
+> When the 3.3V auxiliary power is present, fetch this auxiliary regulator
+> at probe time and keep it enabled for the entire PCIe controller
+> lifecycle. This ensures support for outbound wake-up mechanism such as
+> WAKE# signaling.
 > 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+> v5 changes:
+> - Use the vpcie3v3aux property instead of adding a duplicated one.
+> - Move the comments from the code changes into the description of
+>   commit.
+> 
+> v4 changes:
+> Move the dt-binding to snps,dw-pcie-common.yaml.
+> 
+> v3 changes:
+> Add a new vaux power supply used to specify the regulator powered up the
+> WAKE# circuit on the connector when WAKE# is supported.
+> 
+> v2 changes:
+> Update the commit message, and add reviewed-by from Frank.
+> https://patchwork.kernel.org/project/linux-pci/patch/20250619072438.125921-1-hongxing.zhu@nxp.com/
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 5a38cfaf989b1..5067da14bc053 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -1739,6 +1739,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	pci->max_link_speed = 1;
+>  	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
+>  
+> +	ret = devm_regulator_get_enable_optional(&pdev->dev, "vpcie3v3aux");
+> +	if (ret < 0 && ret != -ENODEV)
+> +		return dev_err_probe(dev, ret, "failed to enable pcie3v3vaux");
+> +
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+So if Vaux is available, do we still need the IMX95_PCIE_SYS_AUX_PWR_DET setting
+in imx95_pcie_init_phy()?
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
