@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6768CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2867CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ajgl4VkcAvKSjVnpuARRFDOopjNfFzRrXajmAnDP0g4=; b=Shxcm+XcYZ+et6THuvbwJs1rBQ
-	WofVJwlFv8fzSdYy3GzLfcCwFKlKfou6ulfj6vXMeYVlxQxwISaeH4gq4B0/14LjRbqOTSwQxke1W
-	B0hjrjcxCnDXLZdyAwsMQGkwgTSHGG1wwUHxJ7hp/vSib/SMEqLalEmuKB44SWxpspAuNekyxdNy/
-	RnMAo73CIaKEN7FhkHl22OdGg8aWePB33ycXhStsBSim9do6e1MzvApMJMORq4E+iSWCE/kKt4EVg
-	AFmdALAsI7dzPVS587A3lZZ5/lCBo/jcMJYnsXb80QVn6jtWn3t0MuRm51Jpu5cvkzU1YWBIuRrVL
-	3nPxpNEQ==;
+	bh=wxrn1xPJXjVzjC6eiOM9+qgIFPLs1DYtRf+UTTdmbuA=; b=ytdPvZ14fbOdG3+dPx0tP2nNX9
+	cRbRM3g7bSHxXKFYsz7LGunbVPglGreIX3BG00D5COT4opwjYUjPrtaQ98gwEgobVjMdZzxHw/jc1
+	2La4d+1VBHBxGrlxeRCCkLD+/CMl5qKilDedU6xyaabrqfSE7/UV5qPW/bpWe21qicG29W/7+NgLG
+	AKPbD+K3TCZPx8eMH/5jvJ8jrvfbRsxlkJWEmZAi+DDSimNS3bjylc5fopcUgpdvCb5LUd92F7fFu
+	1QYzIDFI7gfSyzYlJyjNaftZg26r2HbBzrazmjBgbuFqUD29EXdHZzVG7ztshmB9eVM6xgHqwxosj
+	oV0Li8Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM2j-0000000G1AV-38gK;
-	Fri, 05 Sep 2025 02:19:13 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1uuM2l-0000000G1Cn-3Rqv;
+	Fri, 05 Sep 2025 02:19:15 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuGCZ-0000000E8vE-476V
+	id 1uuGCd-0000000E8xU-10XA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 20:05:01 +0000
+	Thu, 04 Sep 2025 20:05:04 +0000
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cHr6y4HMLz9tB1;
-	Thu,  4 Sep 2025 22:04:58 +0200 (CEST)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4cHr714Cqdz9tNg;
+	Thu,  4 Sep 2025 22:05:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757016298;
+	t=1757016301;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Ajgl4VkcAvKSjVnpuARRFDOopjNfFzRrXajmAnDP0g4=;
-	b=X6keGGjel+lKtjCAF2XKf2EdVmHMTrtJI2qc7yUTRfnr+9LyL0cRqgprgV+IuKHUVxGo96
-	IWDY9fCRjikoCIii/GAiOiozzfCGqBai4HVYwiGc60HU6yBWBlvFXpBHr8FrECEN17e6oU
-	nrZySrMXnA8VAXf8o9kRneRgawgbl126Z+9dhjLrMMpsdYHdQg3DBL5+w1NPcv3Gz6rmG6
-	BrMLWNF4AFx+DwKhBMgt7cKKgrvQC9f3d46/hg9YWzyiA6mhxXMlWbyAU6bHSmJ+awxfb8
-	90fTAc/LvDwTHClDNBUJoE+nY266iAFzoVMMOXRYjunmhzFIr5qdqR+rMUi47Q==
+	bh=wxrn1xPJXjVzjC6eiOM9+qgIFPLs1DYtRf+UTTdmbuA=;
+	b=scEoM5kEKoU33XYZBy4HohcKw6x2DVLWAJRGUa75UzrYSetwsUmMkcIkt3LQPrK+ZxBJlS
+	iNkCu7T7SaAfvX3Lf2SvEj3BUaxMlZtJ93jqjcJbu2ylGG3Th8g/mb0GmtJhq6/H1wQnsX
+	22Z9/Trkiufy29vMw4BdxEbFqfr9SbgHVF5CNxYPLuyfLvtpHzxDLiNt7eMp4sYTajNF9f
+	r7AimCVNaJZr4mc2N0Udx5Ho8fr+1VKZL8+iFGWanQXM2ahvt/7KpAUgnQeb3r7qBPRB1w
+	0ppMb5iJZMV2HFtSUPmK0Tk0yEZv5P+fnuBh2UCMDu0w/WtVrHzKGTtd9NW00A==
 Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=ejXENH9q;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=mZ3kdp8r;
 	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757016296;
+	t=1757016299;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Ajgl4VkcAvKSjVnpuARRFDOopjNfFzRrXajmAnDP0g4=;
-	b=ejXENH9qkowuOTQpyYJzNDSF++JA4mGaY3b0XEhUhS42/MJEycKsc6k7wDyzRp+jd1VB7m
-	/2gdmNP+KmkVq2JyYMYEPuXyBmsXYFcemm8cBLg6MqrjxIeVVGoojZrQ9c1bFNdxkSVz50
-	/yGeqyxCWrYZEtla1quz+isubeTXs24ueXkqfwZnFfic1Igosp1cBrGw0Eyxbij+TNkeuJ
-	7ELni9ZHlJ/PgTxsIsjiQ6JOw5/HpXyB2W/sHetazFDYT0UpvC/gblWdRut4BdFwH1a9AL
-	r6KIOqoJEBotHfo9tJT6Q2fu60HqaIcK6EV87xi2RQS1BR9fmSjpXYzfUuPiRg==
+	bh=wxrn1xPJXjVzjC6eiOM9+qgIFPLs1DYtRf+UTTdmbuA=;
+	b=mZ3kdp8rOtZe2kNIT/MoDTxLy/nhzngoVbACCe7DXBKVsrNATERldm+Mrx/rex1bXd3aIL
+	799fPEcjFEkZcEzGE8W40HLs5yc0k8AVa/3ML/CJRrmx0AGvCORltqQ9IqZjjup6L5dqEM
+	AZzY1M1iO56cDG9Uo7k2vj7OnWw+eIXVzVpEI/TyMp1gm2IIva9c1sD38WWmoenfdebVGy
+	znq5aAfF2cIvJvFyUfEETGpthZUmjOna9UP7A66dkxC0dMjNGsPbqTGfQCqn9HvYrbkQTU
+	+Z1VP1O5WXDQDuirvqxBE/RJt7Edy39QOSCgfwsY6yUeZ5D4bgcBzVpIo7JT2g==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -78,19 +78,19 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 3/4] arm64: dts: renesas: r8a779h0: Rename dsi-encoder@ to dsi@
-Date: Thu,  4 Sep 2025 22:03:07 +0200
-Message-ID: <20250904200431.168363-3-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 4/4] dt-bindings: display: bridge: renesas,dsi-csi2-tx: Allow panel@ subnode
+Date: Thu,  4 Sep 2025 22:03:08 +0200
+Message-ID: <20250904200431.168363-4-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20250904200431.168363-1-marek.vasut+renesas@mailbox.org>
 References: <20250904200431.168363-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: 5mkbduokp49hwggqng9sp43kx7pzne5i
-X-MBO-RS-ID: 75d0db906adc813bcf6
-X-Rspamd-Queue-Id: 4cHr6y4HMLz9tB1
+X-MBO-RS-META: fenskp44gq75nsuwf4tpwxqtz5nw9hky
+X-MBO-RS-ID: 9f8996e81f69a55848b
+X-Rspamd-Queue-Id: 4cHr714Cqdz9tNg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_130500_160568_4BE2F431 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20250904_130503_420330_00FD5DC6 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,9 +105,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename dsi-encoder@ node to dsi@ node to follow node name pattern
-in Documentation/devicetree/bindings/display/dsi-controller.yaml .
-No functional change.
+This controller can have both bridges and panels connected to it. In
+order to describe panels properly in DT, pull in dsi-controller.yaml
+and disallow only unevaluatedProperties, because the panel node is
+optional. Include example binding with panel.
 
 Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
@@ -127,22 +128,91 @@ Cc: devicetree@vger.kernel.org
 Cc: dri-devel@lists.freedesktop.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm64/boot/dts/renesas/r8a779h0.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../display/bridge/renesas,dsi-csi2-tx.yaml   | 53 ++++++++++++++++++-
+ 1 file changed, 51 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779h0.dtsi b/arch/arm64/boot/dts/renesas/r8a779h0.dtsi
-index ed1eefa3515d8..0f20a2d239834 100644
---- a/arch/arm64/boot/dts/renesas/r8a779h0.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a779h0.dtsi
-@@ -2144,7 +2144,7 @@ isp1vin15: endpoint {
- 			};
- 		};
+diff --git a/Documentation/devicetree/bindings/display/bridge/renesas,dsi-csi2-tx.yaml b/Documentation/devicetree/bindings/display/bridge/renesas,dsi-csi2-tx.yaml
+index c167795c63f64..f663bc6a6f831 100644
+--- a/Documentation/devicetree/bindings/display/bridge/renesas,dsi-csi2-tx.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/renesas,dsi-csi2-tx.yaml
+@@ -14,6 +14,9 @@ description: |
+   R-Car Gen4 SoCs. The encoder can operate in either DSI or CSI-2 mode, with up
+   to four data lanes.
  
--		dsi0: dsi-encoder@fed80000 {
-+		dsi0: dsi@fed80000 {
- 			compatible = "renesas,r8a779h0-dsi-csi2-tx";
- 			reg = <0 0xfed80000 0 0x10000>;
- 			clocks = <&cpg CPG_MOD 415>,
++allOf:
++  - $ref: /schemas/display/dsi-controller.yaml#
++
+ properties:
+   compatible:
+     enum:
+@@ -80,14 +83,14 @@ required:
+   - resets
+   - ports
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+     #include <dt-bindings/clock/r8a779a0-cpg-mssr.h>
+     #include <dt-bindings/power/r8a779a0-sysc.h>
+ 
+-    dsi0: dsi-encoder@fed80000 {
++    dsi0: dsi@fed80000 {
+         compatible = "renesas,r8a779a0-dsi-csi2-tx";
+         reg = <0xfed80000 0x10000>;
+         power-domains = <&sysc R8A779A0_PD_ALWAYS_ON>;
+@@ -117,4 +120,50 @@ examples:
+             };
+         };
+     };
++
++  - |
++    #include <dt-bindings/clock/r8a779g0-cpg-mssr.h>
++    #include <dt-bindings/power/r8a779g0-sysc.h>
++
++    dsi1: dsi@fed80000 {
++        #address-cells = <1>;
++        #size-cells = <0>;
++        compatible = "renesas,r8a779g0-dsi-csi2-tx";
++        reg = <0xfed80000 0x10000>;
++        clocks = <&cpg CPG_MOD 415>,
++                 <&cpg CPG_CORE R8A779G0_CLK_DSIEXT>,
++                 <&cpg CPG_CORE R8A779G0_CLK_DSIREF>;
++        clock-names = "fck", "dsi", "pll";
++        power-domains = <&sysc R8A779G0_PD_ALWAYS_ON>;
++        resets = <&cpg 415>;
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++            };
++
++            port@1 {
++                reg = <1>;
++
++                dsi0port1_out: endpoint {
++                    remote-endpoint = <&panel_in>;
++                    data-lanes = <1 2>;
++                };
++            };
++        };
++
++        panel@0 {
++            reg = <0>;
++            compatible = "raspberrypi,dsi-7inch";
++
++            port {
++                panel_in: endpoint {
++                    remote-endpoint = <&dsi0port1_out>;
++                };
++            };
++        };
++    };
+ ...
 -- 
 2.50.1
 
