@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 833FCCA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B04BCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ps0O7+4QAd8ZPsjC+XlmtSAuEwLSI/hp1jScWS1y0uQ=; b=TPhMBzmEJvvNdATcEkBZ/i7YFP
-	aBXPsmpMMJ/yX3soyhiTqgGLizcYkfk/pIkpWAJobMFsJvsPyTTrAoEm2TmKAYjziRq3sb4F1HKCp
-	Lg1f+w5XQQ2idm7Q4dTGQD7qBa10/cVcVxX4r9ghK8IKrU1fXaG+PmQOMMYvF1TVwJUf88B85/sg9
-	fGvZ5MX4W/u+TcWydBgtYYno/wjcz0p/VHyvz0CeYJwfBoI+MfsGDNw/BGVMd9jdLchjE+CHsY10+
-	Z864JwAnmZ2b/4ipjDxe5lRyNhoyIEEvTqGzK5vx0Z3rT/ijOtXXJSD7H4i5om4Ui8fJClBdNs4NG
-	xsMekPXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T1dQr7Ppl0TgvxvMKid3GCHc1KrZCHrNt3OXe6GDVsc=; b=leKPHyr0V4V4iT/+cYL8ckGcI+
+	V7ABbsBAp00uwAlra39/dBsf/G82EbW2JIiew3KhmzVL9w5UfTOw2qEOBNiwgRF5riy37p1F6hcPX
+	9Dcw0x0DY87DNEGxjFGo5ZPp+0VhKCnB8mM88XTiqOW04sU0tsAtLQAAKn4SmBPLtvUZ2LnX7CJjp
+	I8UgWl+Bbb+k9dN8rNhN/hwAwN012tiHHMqmcpqqbAz+xhkCLFD687uQ6j4Xbpq6DlqPQKUf7nCAb
+	pMP7D3kPn1TqCVvoJKVk+0GIJztmL7QlIcAMZCKmT1kvUNqyNIo4Me5epkKr8Wq48oVpjaQ9jN/VZ
+	IGb6qZig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuFzx-0000000E1zT-1PhB;
-	Thu, 04 Sep 2025 19:51:57 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uuG07-0000000E2Cr-1tr0;
+	Thu, 04 Sep 2025 19:52:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuB7U-0000000CH88-1Hc6
+	id 1uuB8T-0000000CHRB-0cU0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 14:39:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1756996764; x=1788532764;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=ps0O7+4QAd8ZPsjC+XlmtSAuEwLSI/hp1jScWS1y0uQ=;
-  b=fmq/Uo/69V9d3rQuwJHbXdG5DX7hMAuuDUA8KdxbDjo1+H4m7R48izC7
-   me0oL4VxGd2iT6sz88pIU/3wvLS/AN8NPKXdrjNLSIkM5HzCgMFXdpj34
-   uUY6UCWvu3cyYDseZKqi133qL9SvPUbfEakfXZXiQD/wUo1CXLijndVN8
-   E0MhK6VmN3P0LTNW8vAeFjqStVvmHSoWy72AG7FVQDwVMovbt4h3vyDKR
-   Led0AFK27j6fGrBq+nlIUtIBwQ4gRE+ksFeN+8twR2PeLishM2BePFwvn
-   vLz7nQqVNWolAaEpZMiHj4eYcOCoN5i0FMYWOPJLWdMyxNBCIYQcoXeQz
-   w==;
-X-CSE-ConnectionGUID: ZUNtD6joRBO5U+tPGeVMdg==
-X-CSE-MsgGUID: fz5wvPgRRIWdooSDi1AZkw==
-X-IronPort-AV: E=Sophos;i="6.18,238,1751234400"; 
-   d="scan'208";a="46080766"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 04 Sep 2025 16:39:21 +0200
-X-CheckPoint: {68B9A499-11-AD8F5F64-F0EACAA5}
-X-MAIL-CPID: E3008ABF7ED2178689814A7AA6E161E5_1
-X-Control-Analysis: str=0001.0A2D031C.68B9A49A.0051,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EBC21161344;
-	Thu,  4 Sep 2025 16:39:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1756996757;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ps0O7+4QAd8ZPsjC+XlmtSAuEwLSI/hp1jScWS1y0uQ=;
-	b=MXowUIlr1cezGYBd7yCnJDooczCfeW/6PrA8HFwKnJU2o8ZgQ0wQCAoFlyUoGw1iDkxHsj
-	1oBEHJWR5OFCPQ+UetaAZBDjcYB45m+oAcT74o5pOvIaYQTwAHlO/CKIqR+39UEcuKH6dW
-	SIZt0pebReDu0nFmUM5/qf+plrzLN44amwR+3Q1/Oe+RtmQ0MCfWUglXz0WRtNQwHMYil7
-	kFAbEjCeKQaY63Y2I2ZxpyfQmNwf3drdxgs2n4XGuvvrRvbKIlNDtB0UQvZ08Ad3iLXo+p
-	ik7MRMPEaTovGMmBM+zu/FzWM5luEpgUBxhbK5/oIK2KAkFhH1qeboTDLU6/nw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: dri-devel@lists.freedesktop.org, Marek Vasut <marek.vasut@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Steven Price <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-Date: Thu, 04 Sep 2025 16:39:06 +0200
-Message-ID: <7020337.lOV4Wx5bFT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <52e3c5dd-6952-43b5-94f9-43f30734680e@mailbox.org>
-References: <20250321200625.132494-1-marex@denx.de> <3372501.aeNJFYEL58@steina-w>
- <52e3c5dd-6952-43b5-94f9-43f30734680e@mailbox.org>
+	Thu, 04 Sep 2025 14:40:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CC5B844C6F;
+	Thu,  4 Sep 2025 14:40:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 946EDC4CEF1;
+	Thu,  4 Sep 2025 14:40:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756996824;
+	bh=TBFRnhMRgAXSe3LCtzGepyvZUvc13K9Ht6o2DOKRDgA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=qzr1AFe309zcuwINaVjDTJpPHHWrJ/8Kaqnd+sgG09cF9Z0F4nhpTMfHqmNzrJFii
+	 NombqeJZqb9agmtAM13Oczcd1VeQlhIj8SHtBLJO4p0PsDXcTsStOW0eaAwB+sucm+
+	 NsPTmKAo8fnR1Apw+MWUPMy2b7WNTiwRZPRkYyAMDWj/ir9hBb8/TUqSD6enHtW0p8
+	 hCT0UOyTGqeFl8A8zcb0n+N58DGifceplxRdcPzRRG22XxNEpYwZLGq3HBWxTlJl9s
+	 opegY5P0mUk6HlA/UUw3Y3YYsWJxO6Bt8sDzz++pFnbALIN6x2UjPSXXuEXY6wOsWz
+	 8PJUGYaOBPOOg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADFFB383BF69;
+	Thu,  4 Sep 2025 14:40:30 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v3] net: xilinx: axienet: Add error handling for RX
+ metadata pointer retrieval
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175699682925.1834386.13423794125453117971.git-patchwork-notify@kernel.org>
+Date: Thu, 04 Sep 2025 14:40:29 +0000
+References: <20250903025213.3120181-1-abin.joseph@amd.com>
+In-Reply-To: <20250903025213.3120181-1-abin.joseph@amd.com>
+To: Abin Joseph <abin.joseph@amd.com>
+Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ michal.simek@amd.com, git@amd.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_073924_677014_6B8588F6 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20250904_074025_208077_1F2E09DA 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,72 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hello:
 
-Am Donnerstag, 4. September 2025, 15:52:38 CEST schrieb Marek Vasut:
-> On 9/4/25 8:36 AM, Alexander Stein wrote:
->=20
-> Hello Alexander,
->=20
-> >>> Maybe the GPU remains halted because
-> >>> setting the GLB_HALT stops command stream processing, and the GPU nev=
-er
-> >>> samples the clearing of GLB_HALT and therefore remains halted forever=
- ?
-> >>
-> >> Exactly that, and that's expected.
-> >=20
-> > FYI: in a new release of system manager software (starting from lf-6.12=
-=2E3-1.0.0),
-> > the GPU reset is reasserted in SM software already [1] and access to GPU
-> > block control has been removed from Cortex-A [2]. Starting from B0 step=
- this
-> > version is required AFAIK.
->=20
-> I don't think the SM is involved in this, because if I do the following=20
-> test, the MCU also fails to boot unless I do a reset:
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Is this some other reset than BLK_CTRL_GPUMIX? If so, it might be required.
-Don't know much about internal details though.
+On Wed, 3 Sep 2025 08:22:13 +0530 you wrote:
+> Add proper error checking for dmaengine_desc_get_metadata_ptr() which
+> can return an error pointer and lead to potential crashes or undefined
+> behaviour if the pointer retrieval fails.
+> 
+> Properly handle the error by unmapping DMA buffer, freeing the skb and
+> returning early to prevent further processing with invalid data.
+> 
+> [...]
 
-Best regards
-Alexander
+Here is the summary with links:
+  - [net,v3] net: xilinx: axienet: Add error handling for RX metadata pointer retrieval
+    https://git.kernel.org/netdev/net/c/8bbceba7dc50
 
-> "
-> diff --git a/drivers/gpu/drm/panthor/panthor_device.c=20
-> b/drivers/gpu/drm/panthor/panthor_device.c
-> index d4d73eebca49d..fd81cd2654111 100644
-> --- a/drivers/gpu/drm/panthor/panthor_device.c
-> +++ b/drivers/gpu/drm/panthor/panthor_device.c
-> @@ -642,6 +642,18 @@ int panthor_device_suspend(struct device *dev)
->   		panthor_fw_suspend(ptdev);
->   		panthor_mmu_suspend(ptdev);
->   		panthor_gpu_suspend(ptdev);
-> +
-> +
-> +panthor_gpu_soft_reset(ptdev); // needed, else panthor_fw_resume()=20
-> below fails
-> +
-> +		panthor_gpu_resume(ptdev);
-> +		panthor_mmu_resume(ptdev);
-> +
-> +		ret =3D panthor_fw_resume(ptdev);
-> +		if (!ret)
-> +			return 0;
-> +
-> +
->   		drm_dev_exit(cookie);
->   	}
->=20
-> "
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
