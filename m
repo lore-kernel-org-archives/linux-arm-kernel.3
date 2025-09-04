@@ -4,97 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B6BCA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 03:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E5ACA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 03:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t/th4jop1O0kFuAVgwskLm3Kft+pDSyOKRwu3IMOkLA=; b=hkvgqqARWkeXuTKjLQFBrtZzSa
-	kmopYyLtRYo2D+NKDJc9Xdhbku59iH4DmskIlxNLRJGnYXcpZDOT5UiYFNAbObRJBTEfOvBHHMldN
-	FjBZHN4w9FM52EvyKYPLNHbOsXWqY0Xook8vaoneHBr3kDzscn+dV61tglvd2cO1XmgpXbuNLfrCC
-	udnod2kJ0IeOUItbnDAnlj5VWS6ttFCmm1q0eOOExifuAx1ZB6qwYL7io3xBRgUGUoG1Gul0Tp+ca
-	l6/LICc/u/XCtB79u9s41pb1kMmUmZz/1X0XME9y30+mr5w3GTDpo0WPw4v6xUTJDdutBJSWuTkZA
-	r08LLnEA==;
+	bh=17s2MHhHmT5kNo+75PHQcfHsB0zgEcKrR7cg9CRVNlE=; b=OkbyIW0Fb3CBQP1+3vzT6YcRLC
+	BW5VtSn3/3fkxGNoLcBzxd0DTdST0Qwou1pkqhhPxGbXnEoQ9vuSaZjzgf7LgBwsnY61afkrMFIjw
+	6Vo5p78Yx4O9nNtdsZBV6dQL04B43jSSmfpMkRX2jlkDMJcjROBi5K+TSX0WDG9vfhCwCjkW3M+vt
+	CO5FpVD72344T3pZEbXIU8LJO+L1CpSPjzxGRzyb4o2lqqcp1Ozhx4JG6TkrmQL/EuDiO1iuohQrX
+	T4QHcMu/5i4nNvK3BmxKq0hi1siXZt+PAzreqlxo5lxpAzt7EZNCSlaLsEWQ9gprLrkBPOqFzUmZz
+	utgu+dcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu0bu-00000008fb4-279z;
-	Thu, 04 Sep 2025 03:26:06 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1uu0bp-00000008fTJ-2l1s;
+	Thu, 04 Sep 2025 03:26:01 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utyDN-000000081SG-3TDk
+	id 1uty8z-000000080xQ-41hQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 00:52:38 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-24c7848519bso5365385ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 17:52:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756947157; x=1757551957; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t/th4jop1O0kFuAVgwskLm3Kft+pDSyOKRwu3IMOkLA=;
-        b=E3tv4Mz9zsnVO6We6uEFt5NXvGpoSGi1bWjgdnemxmSc6pCIOIR8BtS+NW4yezHf4h
-         3nElEkqz6dogcL5fbDT7ESVTME/nMNFyuzLwYGO2C+k9FfAqCwIXIFm2Xko5CPo+p680
-         cB2s30HzDKfdTeNz6Aaj7xMsfh61m7DY5haD7Zpq532iSNPKi0c/YsKT3QQSKMxwVSPG
-         g+KCE6Fn8RGwFhvUdaFtgVrVwF2ZhfmHgh7Sg7b0aDrhqAecsDn/lD5pvqokxI+dZs+v
-         eLZqrTJEffhAvNcBWyizmeGus9IgKIrU0cc9hn9M9rdMJ1u+eOi7giUn4Yd5ASA7eANb
-         bYeQ==
+	Thu, 04 Sep 2025 00:48:07 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 583DwqHg021562
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Sep 2025 00:48:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	17s2MHhHmT5kNo+75PHQcfHsB0zgEcKrR7cg9CRVNlE=; b=LM9zTdKbue5Z6EDq
+	tG/ztLKWWIwSlbttSMR8hW1e9f/LH2aBDqhmoXhV/T3Qtjb3PyXZNCHBmb50Wh6Y
+	+4wwqerrTc/ReU701qKExxk+W90R4P+R6pKAOahRJObsmGsAKj+4XO6caspCKKB0
+	7E2/rMltGZMcIlfTMYO/bijQfj/WfWIffKHGwt/kPBWLvuaQCYA4siZapL2B+ena
+	eUnTUL2g+WtYLrwggiA0ER4sOHWVOreWXuho87UqELBqdZyvg7FKFxuZMHT3Uc7b
+	BY1P61lAChDTd6C23/9Q6aZRpER5nuSecO5s4rtDdzxagdXzKREra1wNDr+a7o4X
+	dPSuAQ==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48uq0ensqp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 00:48:05 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-24c9304b7bcso5188595ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 17:48:05 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756947157; x=1757551957;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=t/th4jop1O0kFuAVgwskLm3Kft+pDSyOKRwu3IMOkLA=;
-        b=nqOeObsg4lz8OJ/R4veQlr0Nr2YJvfVzcJQoncJxN0nfvJ8llQOUDnIcDoZcVb4rvO
-         qkMTeDzltMJC3658tS93G72d3KZJD6ZHcl97Nnak3LglyhaPgEmBhZeX5Ch+fmnIKKpX
-         96qtqAtkkuiGC/gwCWTgi7sx9UF8uV2R4YyArU7OmfdsEws6wVEiMOd5rPUsIss3R8i3
-         cCYqwdbOsKeEl3coHP+jJLrzUHjM8ivw2TQ+2ftuZlYz1q0TfjD85sPPlyKavBHH5usM
-         ySAYQXUOPkB6WD4nEc4AhM8wmZo9xvRCPOxkhbpuclYx5xwvVNeuggtrP6vMuyw7jgei
-         rn1A==
-X-Forwarded-Encrypted: i=1; AJvYcCVQJMk0eDZmLftONHwFFvr5R7jZScTxH/syEHTHYnapeijdu5glGm8Na7WceNX7Yi7L9Gfz3vusSuI97Ke/NaYS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEDjxzbgDpYWrQUpS8tUMN0lhaM/WYHXXm2NIBxoWXd8hA+hE5
-	EEp9TV9ZhS0gnuJ1NQn4mXScxcvKDENlvHdF4wipTO5Sw6inrOTd3TwOFDSNcXpq0Rg=
-X-Gm-Gg: ASbGnctyNoQBlpAGowKpZObYrbzoGRl9iDTvkhmO7jZfW4uEKl5UGrbcaPhzRI5RlGi
-	5IR/vpuUMnMVBjB1Y3AyWWCQaLYyfbytuVUpEyON5L7jVCQnFzf2WCfDA+ABLyYqqBYIdJFwGL9
-	s86Et6CwK6MA03B5yxV/fok3o+TS6aN7792S5zb3Ovi2rucrcmqvJmf4xY0n/1fvz7GhGrfoDaV
-	6feYPvmSUzg6HoVkJvf5Q2Yrt1srnXF14pj9E68wBsoUISmQub1jHa23FlPawa0sYDoULjjSUjN
-	TZ9Vf6awAfWYpigq08SFrSDDqpzmzFpjNu6YfkC1J43ObLs9u2r5gc7wgsV2x6eQT6hQSN/QPnp
-	pDgJ2tafcqyyJglJw/0kXKGoCk7yQn5+XnjyAlipESf2iGEiY+agF+aBp0WLr
-X-Google-Smtp-Source: AGHT+IHXTSNI5t71w5e+WgB8B52Hvu9vci+qQdskTPpSKSg3A5yenk7DiQMoYc/Whz1X4xBXi6xZAg==
-X-Received: by 2002:a17:903:2cf:b0:248:79d4:93b5 with SMTP id d9443c01a7336-24944a9d32bmr220968295ad.33.1756947157070;
-        Wed, 03 Sep 2025 17:52:37 -0700 (PDT)
-Received: from luna.turtle.lan ([2601:1c2:c184:dc00:882:283c:10f0:c999])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4cd28b3849sm15748931a12.31.2025.09.03.17.52.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 17:52:36 -0700 (PDT)
-From: Sam Edwards <cfsworks@gmail.com>
-X-Google-Original-From: Sam Edwards <CFSworks@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sam Edwards <CFSworks@gmail.com>
-Subject: [PATCH v2 2/3] arm64: mm: Make map_fdt() return mapped pointer
-Date: Wed,  3 Sep 2025 17:52:08 -0700
-Message-ID: <20250904005209.1494370-3-CFSworks@gmail.com>
-X-Mailer: git-send-email 2.49.1
-In-Reply-To: <20250904005209.1494370-1-CFSworks@gmail.com>
-References: <20250904005209.1494370-1-CFSworks@gmail.com>
+        d=1e100.net; s=20230601; t=1756946884; x=1757551684;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=17s2MHhHmT5kNo+75PHQcfHsB0zgEcKrR7cg9CRVNlE=;
+        b=KhfF/6NCz68GIJdqzcXmaajAtmmMZxKNvrr5YXXHjpx6gjjLVbDDVWiL+GSgisP1Q1
+         0hxqs5rR0vDgWA+te6g0X9CyNT5ZFlO2RxV78qCBLYZYK9gOoBhsouNffcnsi7cBMJYV
+         Nzu8gg1Rjc9S31R21vt1JRLDzIbVUMTcuzsCySlN3//ABplHzVsSm5KfIPYiwTbi68WA
+         RM2YstpOSsDmI9/ivV4IZD8evhgTNFZ6CWnWR7Equ19EjM53+VDauCbvpCbn3kap3zDy
+         9BPsAAtgfpy0b4frZFw/icj/KQSgkiUuxxWCxQDhy/z0UuNDIKrwRJtFp7XI1v1dTt6K
+         Wt/g==
+X-Forwarded-Encrypted: i=1; AJvYcCW36wMOTZtCg+Cm45nugX3bYTRiRfly8N+44gF5p+MZPkf/gGZcWchsLUwFBHb+fDcDq/Jv8DhukMkDj+Gv2z7J@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCGm7KOODfud1L7Ud2c2L6S0I8eS6/oOv28QQ0tpj3ZWWRXf/G
+	4MfQB59V/NAho8coYn0YEME5dM3tTRfBzP/lzHA4IPe1/nRt4Rjlshc80zTZ6LoAiIr2LdzvIee
+	WkYghOzdFhRKe0gzEcSzfNL6wwB3dNE327UAN96/gBYQ8ODWZN9VxVog+rdck0sR371/1QNvJpy
+	KR7w==
+X-Gm-Gg: ASbGncuP4HGh04FWoXTfmbSmZ8apt3qsdw1dGMaSGuUKyp/o+vjKr4PQOPGaBkaB89x
+	Wh9jlj9f/0MbSeI6SgsjFdZc9tkKiD0YgIWWRCiGRdchMqo0rUPPVcmQoDRAu6gScGX2ZWUraMv
+	3bjD7b4d+MkAtPTVC4kcAolEVI9z4Bf/5RGytFjrsJ6iHlzsI8il0lWvsWH5oBXauNrV//Tt6Xn
+	UCgXTdHfX7On2NDXLufN2wuUuZN84Y33ERdCmoe6u+oIy4E2L8D0AJvqqaWrlYj+UegtEYcAUKz
+	arFiR+0J8HAJpnI1xytKZuKCHIFHSTC2i5XhV9tY+VxinNc2QgiexTQMoNPGHQLzxh9QF3zobr7
+	U2kMl/w4qS8TaPqQbTXSWsdkRuyd7
+X-Received: by 2002:a17:903:388c:b0:249:33db:34b with SMTP id d9443c01a7336-24944b3fa5amr207542415ad.42.1756946884319;
+        Wed, 03 Sep 2025 17:48:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHxb9Q6ymf/7LlpnATnajz4oPJxLQ/auiRISza8RTn4ZuddVk1oudIFgSFwT0ws67aSUTyLJg==
+X-Received: by 2002:a17:903:388c:b0:249:33db:34b with SMTP id d9443c01a7336-24944b3fa5amr207541965ad.42.1756946883807;
+        Wed, 03 Sep 2025 17:48:03 -0700 (PDT)
+Received: from [10.133.33.16] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24c9304b790sm29195915ad.67.2025.09.03.17.47.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Sep 2025 17:48:03 -0700 (PDT)
+Message-ID: <2b36c742-f517-4685-950c-696a34bc9c1e@oss.qualcomm.com>
+Date: Thu, 4 Sep 2025 08:47:57 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] coresight: tpdm: add static tpdm support
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlmao.mao@oss.qualcomm.com>,
+        Tao Zhang <quic_taozha@quicinc.com>
+Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20250822103008.1029-1-jie.gan@oss.qualcomm.com>
+ <20250822103008.1029-3-jie.gan@oss.qualcomm.com>
+ <4a28c9ea-fe71-44de-ada9-eda3111eff9e@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <4a28c9ea-fe71-44de-ada9-eda3111eff9e@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: nQJWCkTzhRCcUa7nxJW-teNYTZ27N3mA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAwNCBTYWx0ZWRfX6AhJYRrMwptp
+ FLUqiNFzgYOwn1B6R5ikCdEAwPOzCKoAu2rP/kuWZfildRQE1wjjC9PSEAFwgFi/V3Q+lg1tIFF
+ a8ZSILLn3UcyaW0zK82/qsfHLVDUGpTQouwUN2jnevFOW+kTPrOzStBV1GAVMRebSmUSbU/BpF1
+ ZsChzZA3GXFuZCh/wJNsY8iI67hDxYRlxI3Uh221sMxROQLP1hLrfnyZkBdG2yKXqfyr7uujtM6
+ dYRmVsDictwFKEFIUaOxL9TZjjzF3fJT84DdW6UpKweHZ21uuIpvDcqbslRIivSrhVFnPuoODiI
+ ISxZjJS4JePjQ9Yj8CTUDUy9sd1bnGdgLiQ3xNwS1APTNsotLB+UPy83SQ3Cvf+OjLjnJi4Nf68
+ 3R1ucaAj
+X-Proofpoint-ORIG-GUID: nQJWCkTzhRCcUa7nxJW-teNYTZ27N3mA
+X-Authority-Analysis: v=2.4 cv=ea09f6EH c=1 sm=1 tr=0 ts=68b8e1c5 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=Uvk-ifDgNjwOAWHDOfAA:9
+ a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-03_11,2025-08-28_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 clxscore=1015 malwarescore=0 phishscore=0
+ bulkscore=0 spamscore=0 priorityscore=1501 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508300004
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_175237_864085_C5494698 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20250903_174806_008485_745620E3 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,74 +145,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently map_fdt() accepts a physical address and relies on the caller
-to keep using the same value after mapping, since the implementation
-happens to install an identity mapping. This obscures the fact that the
-usable pointer is defined by the mapping, not by the input value. Since
-the mapping determines pointer validity, it is more natural to produce
-the pointer at mapping time.
 
-Change map_fdt() to return a void * pointing to the mapped FDT. This
-clarifies the data flow, removes the implicit identity assumption, and
-prepares for making map_fdt() accept a phys_addr_t in a follow-up
-change.
 
-Signed-off-by: Sam Edwards <CFSworks@gmail.com>
----
- arch/arm64/kernel/pi/map_kernel.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+On 9/3/2025 7:06 PM, Konrad Dybcio wrote:
+> On 8/22/25 12:30 PM, Jie Gan wrote:
+>> The static TPDM function as a dummy source, however, it is essential
+>> to enable the port connected to the TPDA and configure the element size.
+>> Without this, the TPDA cannot correctly receive trace data from the
+>> static TPDM. Since the static TPDM does not require MMIO mapping to
+>> access its registers, a clock controller is not mandatory for its
+>> operation.
+>>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-tpda.c |   9 ++
+>>   drivers/hwtracing/coresight/coresight-tpdm.c | 148 ++++++++++++++-----
+>>   drivers/hwtracing/coresight/coresight-tpdm.h |   8 +
+>>   3 files changed, 131 insertions(+), 34 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+>> index 333b3cb23685..4e93fa5bace4 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+>> @@ -68,6 +68,15 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
+>>   	int rc = -EINVAL;
+>>   	struct tpdm_drvdata *tpdm_data = dev_get_drvdata(csdev->dev.parent);
+>>   
+>> +	if (coresight_is_static_tpdm(csdev)) {
+>> +		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+>> +					      "qcom,dsb-element-bits", &drvdata->dsb_esize);
+>> +		rc &= fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+>> +					       "qcom,cmb-element-bits", &drvdata->cmb_esize);
+> 
+> This allows either pass/pass or fail/pass combinations to succeed
+> - is this intended?
 
-diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
-index 2b3047860230..5dc4107b5a7f 100644
---- a/arch/arm64/kernel/pi/map_kernel.c
-+++ b/arch/arm64/kernel/pi/map_kernel.c
-@@ -191,7 +191,7 @@ static void __init remap_idmap_for_lpa2(void)
- 	memset(init_pg_dir, 0, (char *)init_pg_end - (char *)init_pg_dir);
- }
- 
--static void __init map_fdt(u64 fdt)
-+static void *__init map_fdt(u64 fdt)
- {
- 	static u8 ptes[INIT_IDMAP_FDT_SIZE] __initdata __aligned(PAGE_SIZE);
- 	u64 efdt = fdt + MAX_FDT_SIZE;
-@@ -205,6 +205,8 @@ static void __init map_fdt(u64 fdt)
- 		  fdt, PAGE_KERNEL, IDMAP_ROOT_LEVEL,
- 		  (pte_t *)init_idmap_pg_dir, false, 0);
- 	dsb(ishst);
-+
-+	return (void *)fdt;
- }
- 
- /*
-@@ -238,15 +240,14 @@ asmlinkage void __init early_map_kernel(u64 boot_status, void *fdt)
- 	int root_level = 4 - CONFIG_PGTABLE_LEVELS;
- 	int va_bits = VA_BITS;
- 	int chosen;
--
--	map_fdt((u64)fdt);
-+	void *fdt_mapped = map_fdt((u64)fdt);
- 
- 	/* Clear BSS and the initial page tables */
- 	memset(__bss_start, 0, (char *)init_pg_end - (char *)__bss_start);
- 
- 	/* Parse the command line for CPU feature overrides */
--	chosen = fdt_path_offset(fdt, chosen_str);
--	init_feature_override(boot_status, fdt, chosen);
-+	chosen = fdt_path_offset(fdt_mapped, chosen_str);
-+	init_feature_override(boot_status, fdt_mapped, chosen);
- 
- 	if (IS_ENABLED(CONFIG_ARM64_64K_PAGES) && !cpu_has_lva()) {
- 		va_bits = VA_BITS_MIN;
-@@ -266,7 +267,7 @@ asmlinkage void __init early_map_kernel(u64 boot_status, void *fdt)
- 	 * fill in the high bits from the seed.
- 	 */
- 	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
--		u64 kaslr_seed = kaslr_early_init(fdt, chosen);
-+		u64 kaslr_seed = kaslr_early_init(fdt_mapped, chosen);
- 
- 		if (kaslr_seed && kaslr_requires_kpti())
- 			arm64_use_ng_mappings = ng_mappings_allowed();
--- 
-2.49.1
+Yes. For static TPDM, we cannot read related registers to confirm which 
+types it supported, just depend on the element-bits property which 
+defined in DT.
+
+So we treat either pass/pass or fail/pass(pass/fail) as succeed.
+
+Thanks,
+Jie
+
+> 
+> Konrad
 
 
