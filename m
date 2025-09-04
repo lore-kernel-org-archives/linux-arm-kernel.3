@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6870ECA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55EF7CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RvXraad7M9/KAbsxZuVznw4PuxcMicz+ycPue4L1oEw=; b=ycYMEyLxwiu/fLfT+r/0FIQqUs
-	JvxKPjJnrAxGJsML7Wddz+JPFqUXNnzRx1yIhsPFwCoZPvzqkc6ePZMCKem3oLZ7S/QfJxMILiav4
-	WD9K6B0tBIxTC+LsfhM+yDBPfUziM8T4Fhmn8VbMKlCWj6+ZtZo9cbDPTKYS/h/61XSu4xIk6wMhp
-	Hq8B6AgQls1xKjo2S6PgWj0RNvnQC6pmJDErq8DidGdvw8s2p4wATuw+fnAb31/OYGQxpQq9TgCjV
-	qdKHmi+edNSAhVwq0jSfxJelLhlIP+5Yovax9uCgw5JkZZlIGXMaST4abo6BSPR87qIVSo8qIlPUp
-	zbprhfdA==;
+	bh=iPtDV58uOI4xwpWz7OLjB7QfACBY5Wzr1encpHan7Gk=; b=Of6ROueiWyJY5UB0mR48e/ye3n
+	aNx8r8wwzZfo26uVxautqdtc70PddfMqun6sWEQoJ109rjI068BVx8nsfV2PiyL7vDgNXPhoZXyvk
+	bW0SMWD472sCyG1OQe9rSXsLqKfl9UiwECPOe5EaKijCL/gpsoQQlkvC0s2oqeQlhzMkclRKLy4rF
+	T+obn4OCibhaBL7K3a+SmgP34g8NUmN/79wik65hsbR75SwanZtPL14wtCF97cFuiA8zV3V4L3tL/
+	eFuLgFmY66Y57CPD9qL7D1/BeyRsEUJj0XQMcLlhIcuGMeCUKwshlbrs6IIFq3/Wyc6BKJ+H6lV1c
+	t07AGwyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7T7-0000000Az7A-3XVE;
-	Thu, 04 Sep 2025 10:45:30 +0000
-Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
+	id 1uu7Vp-0000000B08X-0rhA;
+	Thu, 04 Sep 2025 10:48:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu6MU-0000000AbBr-1e7a
+	id 1uu6Mz-0000000AbPp-1eaa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 09:34:37 +0000
-Date: Thu, 4 Sep 2025 00:57:44 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1756978472;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RvXraad7M9/KAbsxZuVznw4PuxcMicz+ycPue4L1oEw=;
-	b=K8bnUM9oGvlHPCu5IwDqYoXJM87iFMrFkvivzsP9o3Vy9gVgb/OT6fLf2fWkv8V/AbMGxl
-	BIY4MxwR8GbjJKHyV+16OnLGE1pKkw/lwbt0IGO1EefBFMy2ll5Ux4XEVfzNAYirgsx0CO
-	VLT7Fiow1AaujU5PusHgs/OL8hEj+aE=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>, Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 0/5] KVM: arm64: GICv5 legacy (GCIE_LEGACY) NV enablement
- and cleanup
-Message-ID: <aLlGeLOE_PVsYDAU@linux.dev>
-References: <20250828105925.3865158-1-sascha.bischoff@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250828105925.3865158-1-sascha.bischoff@arm.com>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 04 Sep 2025 09:35:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EF9240ACD;
+	Thu,  4 Sep 2025 09:35:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9FA0C4CEF0;
+	Thu,  4 Sep 2025 09:35:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756978504;
+	bh=99XBGOZxR9KclNmgU94R23/33YjiM2agRYpbBOc1qEs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lZ6EVn1mEEznaJ1wYd5M5WnFrg9IhZOAHELWA5PqrVMOsYcquIMbFGBhF24iuQGh6
+	 WhZfmHbwze427vWBHO/boZIFy8Nu9IhWcKtDfza9qVhf67mxScKkazV/yyPf/ze9Td
+	 S/c833oiBA3hjAYAHXv0h+yo3phUq0EZgnORTP9BSjmqJGbXgLGl+aZcV7PBS8UkNR
+	 hCDG5vSXEkRM0GtC3dDYO/xQApdES7Fc/hXxANv2IO6MSP4Au2QXRndYTLocVlVKVU
+	 JgBunm7l8om7rAdiKND2kHuucgND+CY++yxFzwgzAyR+2ofygddduMOsSmLTAKGHz8
+	 7LEP1SLcbJLBw==
+Received: from [131.175.126.3] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uu6Mw-00000003FtY-2opD;
+	Thu, 04 Sep 2025 09:35:02 +0000
+Date: Thu, 04 Sep 2025 10:35:02 +0100
+Message-ID: <87tt1izhkp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	<fabrice.gasnier@foss.st.com>,
+	<mani@kernel.org>
+Subject: Re: [PATCH v2] irqchip: gic-v2m: Handle Multiple MSI base IRQ Alignment
+In-Reply-To: <20250902091045.220847-1-christian.bruel@foss.st.com>
+References: <20250902091045.220847-1-christian.bruel@foss.st.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 131.175.126.3
+X-SA-Exim-Rcpt-To: christian.bruel@foss.st.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, fabrice.gasnier@foss.st.com, mani@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_023434_781683_5953D524 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20250904_023505_474998_680C1DFC 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +86,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 10:59:41AM +0000, Sascha Bischoff wrote:
-> Hi all,
-> 
-> This series enables nested virtualization for GICv3-based VMs on GICv5
-> hosts (w/ FEAT_GCIE_LEGACY) in KVM/arm64. In addition, it adds a CPU
-> capability to track support for FEAT_GCIE_LEGACY across all CPUs.
-> 
-> The series fixes ICC_SRE_EL2 access handling for GICv5 hosts (to match
-> the updated bet1+ specification [1]), and extends nested
-> virtualization support to vGICv3 guests running on compatible GICv5
-> systems. With these changes, it becomes possible to run with
-> kvm-arm.mode=nested, and these changes have been tested with three
-> levels of nesting on simulated hardware (Arm FVP).
-> 
-> Previously, the presence of FEAT_GCIE_LEGACY was tracked in the GICv5
-> driver via gic_kvm_info, and the probing logic could incorrectly
-> enable legacy support if the boot CPU exposed the feature while others
-> did not. This created the risk of mismatched configurations,
-> particularly when late-onlining CPUs without FEAT_GCIE_LEGACY.
-> 
-> To address this, the series introduces a proper ARM64_HAS_GICV5_LEGACY
-> CPU capability, and moves KVM to use cpus_have_final_cap() to ensure
-> consistent system-wide enablement. With this, late-onlined but
-> mismatched CPUs are cleanly rejected at bring-up.
-> 
-> Patch summary
-> 
-> KVM: arm64: allow ICC_SRE_EL2 accesses on a GICv5 host
->     Update handling to reflect the corrected GICv5 specification.
-> 
-> KVM: arm64: Enable nested for GICv5 host with FEAT_GCIE_LEGACY
->     Allow nested virtualization for vGICv3 guests on GICv5 hosts with
->     legacy support.
-> 
-> arm64: cpucaps: Add GICv5 Legacy vCPU interface (GCIE_LEGACY) capability
->     Introduce a new CPU capability that prevents mismatched
->     configurations.
-> 
-> KVM: arm64: Use ARM64_HAS_GICV5_LEGACY for GICv5 probing
->     Ensure probing is consistent across all CPUs by using cpucaps.
-> 
-> irqchip/gic-v5: Drop has_gcie_v3_compat from gic_kvm_info
->     Remove obsolete compatibility flag, as FEAT_GCIE_LEGACY is now a
->     CPU feature.
-> 
-> Comments and reviews are very welcome.
-> 
-> Thanks,
-> Sascha
-> 
-> [1] https://developer.arm.com/documentation/aes0070/latest/
-> 
-> Sascha Bischoff (5):
->   KVM: arm64: Allow ICC_SRE_EL2 accesses on a GICv5 host
->   KVM: arm64: Enable nested for GICv5 host with FEAT_GCIE_LEGACY
->   arm64: cpucaps: Add GICv5 Legacy vCPU interface (GCIE_LEGACY)
->     capability
->   KVM: arm64: Use ARM64_HAS_GICV5_LEGACY for GICv5 probing
->   irqchip/gic-v5: Drop has_gcie_v3_compat from gic_kvm_info
+This is actually v3, right?
 
-For the series:
+On Tue, 02 Sep 2025 10:10:45 +0100,
+Christian Bruel <christian.bruel@foss.st.com> wrote:
+> 
+> The PCI Local Bus Specification 3.0 (section 6.8.1.6) allows modifying the
+> low-order bits of the MSI Message DATA register to encode nr_irqs interrupt
+> numbers in the log2(nr_irqs) bits for the domain.
+> 
+> The problem arises if the base vector (GICV2m base spi) is not aligned with
+> nr_irqs; in this case, the low-order log2(nr_irqs) bits from the base
+> vector conflict with the nr_irqs masking, causing the wrong MSI interrupt
+> to be identified.
+> 
+> To fix this, use bitmap_find_next_zero_area_off() instead of
+> bitmap_find_free_region() to align the initial base vector with nr_irqs.
+> 
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> ---
+> Changes in v2:
+>    (Marc Zyngier)
+>  - Move align_off definition inside the loop
+>  - Reworked Commit Message
+> 
+> Changes in v1:
+>    (Marc Zyngier)
+>  - Replace the incorrect usage of msi_attrib.multiple with nr_irqs
+>  - Reworked changelog
+> ---
+>  drivers/irqchip/irq-gic-v2m.c | 13 +++++++++----
+>  1 file changed, 9 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
+> index 24ef5af569fe..8a3410c2b7b5 100644
+> --- a/drivers/irqchip/irq-gic-v2m.c
+> +++ b/drivers/irqchip/irq-gic-v2m.c
+> @@ -153,14 +153,19 @@ static int gicv2m_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  {
+>  	msi_alloc_info_t *info = args;
+>  	struct v2m_data *v2m = NULL, *tmp;
+> -	int hwirq, offset, i, err = 0;
+> +	int hwirq, i, err = 0;
+> +	unsigned long offset;
+> +	unsigned long align_mask = nr_irqs - 1;
+>  
+>  	spin_lock(&v2m_lock);
+>  	list_for_each_entry(tmp, &v2m_nodes, entry) {
+> -		offset = bitmap_find_free_region(tmp->bm, tmp->nr_spis,
+> -						 get_count_order(nr_irqs));
+> -		if (offset >= 0) {
+> +		unsigned long align_off = tmp->spi_start - (tmp->spi_start & ~align_mask);
+> +
+> +		offset = bitmap_find_next_zero_area_off(tmp->bm, tmp->nr_spis, 0,
+> +							nr_irqs, align_mask, align_off);
+> +		if (offset < tmp->nr_spis) {
+>  			v2m = tmp;
+> +			bitmap_set(v2m->bm, offset, nr_irqs);
+>  			break;
+>  		}
+>  	}
 
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-Thanks,
-Oliver
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
