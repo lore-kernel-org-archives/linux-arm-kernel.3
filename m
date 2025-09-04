@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FCFBCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 09:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 169A9CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZirratZSLwqjd7Z7XkFFGNMRPlb9xTZ79O3shhiE0IA=; b=X9cJCZWSKPVVKZJ5Ue5OtK0taK
-	e94ypXxzRztGDVd7OJSAm1J8KZx4Xeed5xVTVG1Jlp74o2cPIo7EVhSjBV5QqySK95ppUx5APnujN
-	9nO+qofbFzEwzmpne40bF9Qjt39BQun1MXOWZA3BC2qMRyI9jnI64nf0XvIzXvcw1irkViWJz1rvo
-	h4EIbAjmT4/5+7ftHGQ38+j4lYl8RwXiiI01wrrgE/IAiTbPiVDzEjey79mFgP9Z2GFOlrNUz1W2N
-	zT5qTJ/ERFU8UCIPktYekfzKyTjou8FBumWFqA1Ch37jRwNVFKAvG2ppyztWPTHM0dRorerw9sJw2
-	2ytT1MBQ==;
+	bh=UbFxI1nbUxvYttiFTOIOkRfkrktqt/DTjxu5fMg4KBU=; b=DW8/9zx3seYEOvzeu4+u2GtcE6
+	hopsRVU4DypSF+K+FfSU6Eh/lO5Rqayr1g+6kcb3HRSJoC9jAHFH9H77WJajJkBim6yTMKoF5N+SJ
+	yFbPJa4QMjHcXMYXxXkaDIMRRG1E+GgoZylhk6uJk0/5GFB7UzEtircI+EH5lccrZ39GIGpHifc4w
+	WSqMqLZNMDztdKyOeCOew5yuU58UOQg83Sf4+wlcyCx0XAgYk7U/vB0tYfHx+PiuXcpVBvn3Qyadb
+	0UuiVGCgA1LK/9vZsT9E4uWA/zwZJeVE+MqEpIW+mq+0i2B0i4Org3TQ39rGci0O17l1h7YysdVBD
+	OBUmbpAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu6iv-0000000AiND-19Ap;
-	Thu, 04 Sep 2025 09:57:45 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1uu6le-0000000AjDs-0L22;
+	Thu, 04 Sep 2025 10:00:34 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5aV-0000000AKJJ-1acP
+	id 1uu5em-0000000ALnq-0873
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 08:45:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756975499; x=1788511499;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gzetGRXPPEFaGfqJAQ6Chzwhs2gIrlbRduBmetQTYrY=;
-  b=m6bvvW3Rom+DeuhxAKuIGPrKc89UY7KAXA3I7vWy1nyug+yc5r4v78ZD
-   DPxZAYGVJr3bT2h1WN1DNGCySAFMrf8mHg+8Pg1jBvDoQlJ1213IXOq6M
-   00j3uUWMMxh5xA/QkNLmi+Laj2WquRC4GIidlCmG9UVtakPm4olsKhGxT
-   777dCUeIGpx8nkMMPLyChN3KuDLj1MgTAUUqtYw6nI6QOWe5xhNKbyJCg
-   EQIVQ7we70bB1bF1Nu6rMaE+nIKZgwzu8ePzNYMucGedCZrQMCwlCrAPV
-   bbbyBVmk+qIYkqcXf8cfhFrxX1T3i+ZTRKBYFFAP4qMF5RRb1U5gqLBT+
-   A==;
-X-CSE-ConnectionGUID: S3MayUpBRJC/qyHcljk47Q==
-X-CSE-MsgGUID: FV3nWe/nQjWsoOv+VKpOyA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11542"; a="58520283"
-X-IronPort-AV: E=Sophos;i="6.18,237,1751266800"; 
-   d="scan'208";a="58520283"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2025 01:44:59 -0700
-X-CSE-ConnectionGUID: N3TxRB0xQP6c9RbJ1GcVrg==
-X-CSE-MsgGUID: aYx3EAAlQhmx5apJZHzVyw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,237,1751266800"; 
-   d="scan'208";a="177096940"
-Received: from agladkov-desk.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.92])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2025 01:44:53 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id EBE7611FCC7;
-	Thu, 04 Sep 2025 11:44:49 +0300 (EEST)
-Date: Thu, 4 Sep 2025 11:44:49 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Isaac Scott <isaac.scott@ideasonboard.com>
-Cc: laurent.pinchart@ideasonboard.com, rmfrfs@gmail.com, martink@posteo.de,
-	kernel@puri.sm, mchehab@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	hverkuil@kernel.org, nicolas.dufresne@collabora.com,
-	tomi.valkeinen@ideasonboard.com, jonas@kwiboo.se,
-	dan.scally+renesas@ideasonboard.com, m.szyprowski@samsung.com,
-	mehdi.djait@linux.intel.com, niklas.soderlund+renesas@ragnatech.se
-Subject: Re: [PATCH v2 1/3] media: v4l: Add helper to get number of active
- lanes via a pad
-Message-ID: <aLlRgRBztMEicEgM@kekkonen.localdomain>
-References: <20250903102243.1563527-1-isaac.scott@ideasonboard.com>
- <20250903102243.1563527-2-isaac.scott@ideasonboard.com>
+	Thu, 04 Sep 2025 08:49:25 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45b7d87b90fso6278165e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 01:49:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756975762; x=1757580562; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=UbFxI1nbUxvYttiFTOIOkRfkrktqt/DTjxu5fMg4KBU=;
+        b=wBa9TUkDYYj4vCaxAd+m0hV6onn6UnK6M0q9EAFXeOUQv60ANHYqUQQPCl8/Xkwet0
+         XFbwPvwYvGAeSqJs9+N1D7ZqPcly18URjiVRea0B13oAWEEJgwHaPaerRwmMaCh+SgPk
+         N0wsn2OflhOKPCPykPO/kPaF4nZdXdPiRbtlvHIie0LM+wUdUiqqk2vHnXIHv6s9mJ0r
+         sIyCD918nyIHXGdxxtUh4JQxv73srgKdEZsJ+Jj/eYcjt81UmhYIHmPgO/uzXqsrn6ZM
+         u9XM0DyXBf1meAN86+PPajDMQWAos9paoO3DDXSDtCIh2XfaDJXROvE9b7saGyphkJ4d
+         JKEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756975762; x=1757580562;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UbFxI1nbUxvYttiFTOIOkRfkrktqt/DTjxu5fMg4KBU=;
+        b=Tw7+AbYcePm+82ubw0DDdO+Y2SCA4UEfWwZksRyazRkDbQVAy1QpjEvEfNWXaJcERM
+         09PAtk59y9CPGaVneYUeKkaZBAuOF5T3OQ2DYv5y5IAQoMjhd5GnOVuMhFIeAdB9S7FI
+         Y0pRwGdABdG7PiffnAW6SisCZAJZoU877zgOWqihRli39CTtdvTtcWaa11Dx+bwtuVaX
+         usIACA6tpQHC+VfiekXTSywU5UK1U8HKb/A0g1KiwRzRaBHj4g+IyIWo0WeXMsI+K2au
+         IaAubQRr7bV3tdlW5Ala0Tm++/A5B8bN8LVZjcQLAvGUK8Gt/I8sTOTryT47D54+hvUU
+         PN4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUdTLqKSc701yjhgba8TdyO2kbLZ1SjfGQGbMCdB/YpDwvC8vhKgVAW4wEBmxnbt7HbhK2DdXyLvEnfidxYjTwc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFAvNrl70UoyLCFzb4mFxeRKWPEck/vwYthe6Zp1cg7D4Nh7iH
+	+LIqJq8V8LN1+fUktXt5gvH8zhvUUelEY04i3TXr+Vp0TdB61332FcQJVEmhtS7O/ZQ=
+X-Gm-Gg: ASbGnctT4IQrDkZxjuPeh1rsVPaTUGoxDV7zLr3Ezn8oqMdUcMJIhBxPIpfOBr39LRX
+	NHhhOz9xaXp5Z8ntNA+jSKF+a0sODV2lOQFiJjC5tKwTDXC03b9c4tsemsfWo6WC5F2IZrqGwiZ
+	VTzA9z86LHxRwGhgIy77bEFGvzXJFowzH9fjOlEPE6/nahrV1qoOYD/MF3lgINdKyFbW1jvbZQ7
+	lIe5nOYY3YgeR+Cds/I6FUW3R2yWCaH37fSLqQj+k29/RSA0SPAClqGLZgsWIJMgbzdQPvgsBCU
+	/Y49cPTBYBkPvGJh34B9Kkkp/VZiSX9E6c3mbq9HUHY/UrJiZ9bulSO+Nu4XFkikdUN199OK66d
+	cL+Dt3qMMWgaOFWCA9yrAx5lHMwRK5XWfFlqZCw==
+X-Google-Smtp-Source: AGHT+IEXzX+ko/VujNgyg1NkhNKGRrpRh4vT/RECxhIyLp2Rrc+Ao5e4p7lcyFLqt6liOn/R8Fm6cA==
+X-Received: by 2002:a05:600c:1f06:b0:45c:b6d3:a11d with SMTP id 5b1f17b1804b1-45cb6d3a1aamr38609495e9.1.1756975761979;
+        Thu, 04 Sep 2025 01:49:21 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45dd0754597sm12220685e9.11.2025.09.04.01.49.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Sep 2025 01:49:21 -0700 (PDT)
+Date: Thu, 4 Sep 2025 11:49:17 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: AKASHI Takahiro <takahiro.akashi@linaro.org>,
+	Michal Simek <michal.simek@amd.com>, arm-scmi@vger.kernel.org,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Sudeep Holla <sudeep.holla@arm.com>
+Subject: Re: [PATCH RFC v2 0/7] pinctrl-scmi: Add GPIO support
+Message-ID: <aLlSjZX_l8ifxL_h@stanley.mountain>
+References: <cover.1753039612.git.dan.carpenter@linaro.org>
+ <CACRpkdapzTTJhAvY1BL8GnUpCc_iHESbY9bFsNTE4Z6FjusiJw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250903102243.1563527-2-isaac.scott@ideasonboard.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACRpkdapzTTJhAvY1BL8GnUpCc_iHESbY9bFsNTE4Z6FjusiJw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_014459_429324_782CF618 
-X-CRM114-Status: GOOD (  25.68  )
+X-CRM114-CacheID: sfid-20250904_014924_080000_7BE15E59 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,91 +104,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Isaac,
-
-Thanks for the update.
-
-On Wed, Sep 03, 2025 at 11:22:40AM +0100, Isaac Scott wrote:
-> Sometimes, users will not use all of the MIPI CSI 2 lanes available when
-> connecting to the MIPI CSI receiver of their device. Add a helper
-> function that checks the mbus_config for the device driver to allow
-> users to define the number of active data lanes through the
-> get_mbus_config op.
+On Mon, Aug 18, 2025 at 11:03:43AM +0200, Linus Walleij wrote:
+> On Sun, Jul 20, 2025 at 9:38 PM Dan Carpenter <dan.carpenter@linaro.org> wrote:
 > 
-> If the driver does not implement this op, fall back to using the number
-> of data lanes specified in device tree.
+> > This is version 2 of the RFC.  The main reason I'm sending this is because
+> > there was a bug in the first version where it didn't calculate the offset
+> > correctly so pins and groups weren't linked correctly.
 > 
-> Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
-> ---
->  drivers/media/v4l2-core/v4l2-common.c | 25 +++++++++++++++++++++++++
->  include/media/v4l2-common.h           |  1 +
->  2 files changed, 26 insertions(+)
-> 
-> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-> index 6e585bc76367..8683107b3704 100644
-> --- a/drivers/media/v4l2-core/v4l2-common.c
-> +++ b/drivers/media/v4l2-core/v4l2-common.c
-> @@ -571,6 +571,31 @@ s64 __v4l2_get_link_freq_pad(struct media_pad *pad, unsigned int mul,
->  	return __v4l2_get_link_freq_ctrl(sd->ctrl_handler, mul, div);
->  }
->  EXPORT_SYMBOL_GPL(__v4l2_get_link_freq_pad);
-> +
-> +unsigned int v4l2_get_active_data_lanes(const struct media_pad *pad, unsigned int dt_lanes)
+> I'm thinking of applying patches 4, 5 and 7 of this patch set to get
+> some movement in the code upstream and make less work for you
+> to rebase the thing, would this be OK?
 
-This line would benefit from being wrapped.
+I think we need to hold of on 5.  I think patch 5 is the right thing, but
+I need to make sure that it doesn't break anything.  I was hoping people
+who care about it would let me know.
 
-> +{
-> +	struct v4l2_mbus_config mbus_config = {};
-> +	struct v4l2_subdev *sd;
-> +	unsigned int lanes;
-> +	int ret;
-> +
-> +	sd = media_entity_to_v4l2_subdev(pad->entity);
-> +	ret = v4l2_subdev_call(sd, pad, get_mbus_config, pad->index,
-> +			       &mbus_config);
-> +	if (ret < 0 && ret != -ENOIOCTLCMD)
-> +		return ret;
-> +
-> +	if (!mbus_config.bus.mipi_csi2.num_data_lanes)
-> +		return dt_lanes;
-> +
-> +	lanes = mbus_config.bus.mipi_csi2.num_data_lanes;
-> +
-> +	if (lanes < 0 || lanes > dt_lanes)
+Applying patch 1 is pretty easy as well.  We could do that too.
 
-lanes is unsigned int so no need to check for less than 0.
+Sorry for the delayed response.
 
-I might just not use a local variable for this, up to you.
-
-> +		return -EINVAL;
-> +
-> +	return lanes;
-> +}
-> +EXPORT_SYMBOL_GPL(v4l2_get_active_data_lanes);
->  #endif /* CONFIG_MEDIA_CONTROLLER */
->  
->  /*
-> diff --git a/include/media/v4l2-common.h b/include/media/v4l2-common.h
-> index 0a43f56578bc..3f8937260c76 100644
-> --- a/include/media/v4l2-common.h
-> +++ b/include/media/v4l2-common.h
-> @@ -584,6 +584,7 @@ int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt, u32 pixelformat,
->  	(pad, mul, div)
->  s64 __v4l2_get_link_freq_pad(struct media_pad *pad, unsigned int mul,
->  			     unsigned int div);
-
-Some kernel-doc documentation would be nice.
-
-> +unsigned int v4l2_get_active_data_lanes(const struct media_pad *pad, unsigned int dt_lanes);
-
-Please wrap this, too.
-
->  #else
->  #define v4l2_get_link_freq(handler, mul, div)		\
->  	__v4l2_get_link_freq_ctrl(handler, mul, div)
-
--- 
-Kind regards,
-
-Sakari Ailus
+regards,
+dan carpenter
 
