@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A620CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E012CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 08:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tvUe9bk3P9laRwdg5hlzaH+TGA88Jse6i/MxwlL5CuE=; b=ENpYX7JeSJ4JN5
-	GXJ4IiCvvqnVCSRPi+tpK73Hi6gQV35f5B8VL/qOEUKaPO4dkjLhyJpel6yBaLMwCAKyLgAKXa5lI
-	1ntSWO0J3uKXB4QSz6QVkr4v6kO67oLInoAFGMPAroOqg2knH7aUWXwxFX6CGJxdCcYQcgrjN1IGG
-	hsH3m3OxwYf8m7f0CcYQVI5BtRAPWSjyPerAjQd64gnXteaHukfujKbYmv+IPI0Mk97OZR0989Pr3
-	eKEUhz5OV5FHJDO53NoU26CcCjiq3Z02BSDLhBy8R8vzcfF7+rDAcm3pZYR7Efj8J+T720fYalVMv
-	b8/OZc1CHl3C015YKL0Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2gbXS5kIAJbaa3+Ndiyde30EBh5kNcPiDlQdLez9DaI=; b=0rgHlvhdSPPf/r1U5pq55yS3KT
+	CcwMw+a+zG+vwj+NRjIDbB+sILnkQ2CSBbtBxl81ubHCtuMLMXPStHlTqxPXN0beYbGEYVVTRM6OA
+	+ElTuu4yU9PsEGHkETydEwdJknZSoFbUK3jPfIqzJkxS4XE4nQvI6tKytv4qwsLeXb2urxXUAMVY0
+	mJMmv6lWi0EtULQZczi0EwXJm8HXOQaN44ZQ+b1RdOtK7MVBV/iistQRLjxA7KGIMlX7HicaPjj1o
+	J/gKlCiueIeuDYxW0DEftU2YZ/PXRd001tFu85CGnuztb0dgvYNt0lGb8pKA5qpFcC78edvepVJRI
+	miZTb+wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5He-0000000ADZ8-0egC;
-	Thu, 04 Sep 2025 08:25:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uu5KL-0000000AER4-1ECQ;
+	Thu, 04 Sep 2025 08:28:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu4qH-0000000A2k5-2yd6;
-	Thu, 04 Sep 2025 07:57:14 +0000
+	id 1uu4qK-0000000A2lM-3L3k;
+	Thu, 04 Sep 2025 07:57:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C17442B1D;
-	Thu,  4 Sep 2025 07:57:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88FD7C4CEF0;
-	Thu,  4 Sep 2025 07:57:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3CD0D60053;
+	Thu,  4 Sep 2025 07:57:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F6AEC4CEF0;
+	Thu,  4 Sep 2025 07:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756972632;
-	bh=PrHRyzcSKzKMyEeBhSvkydnyJ262xjKrBuA8xcLVjq8=;
-	h=From:Subject:Date:To:Cc:From;
-	b=UPne19rhYUcLZyR6q5sKNVyxPvwYs7xivNv7T+ELHs7UfCy51CAldtOxdRGxYUKEX
-	 viFwu7fFUO5iufbUXQqwTgffDQ014izUNdufRZhFmx9AF0OFIe0v70IuvV3CqPAlPm
-	 0WErKPbiJqi1BmZyKcohz+818odTr6VsaPvl2E3pVwerfY5amS33O45CmpXKAbCcfY
-	 zldI0LKkj31/5xbcM9CX6c6Qmkua7xP8WgHS7Sdok/HXmxo4jY8qAeC6/yjZOi0Zb5
-	 hu4b1x7M9U4KHowGqXWyuTBLOedifg4vWmLMJfZQ5hQkoKozMKfnPcdfqKIcCovgpN
-	 p7plIUK6ItpZQ==
+	s=k20201202; t=1756972635;
+	bh=nH1eMkt9+F83fYnXjSaQxEn/zpIxbfy/fTkLBMIxBic=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=F2PEC7P7PfI5B1Dttu09Dy3C+hMeE9l9PrulUsn+Yqs4HUe1VQaXNcOjTPXvZcIev
+	 vQq75jfjCk8hq8czRGbCcsHt0p730fKi7KOEJjYkrmY1+8Az9+hbMQwiBr+qOCGpQH
+	 FUg+LBDYS0UyNuO86PzMFzj/S06EEFvDNBPbY/VDYBIXJR+tjvdrho4pMMewWYhgFS
+	 9kzhaWAQMzFdWEViVCa92gdXPuvgApcTOD4euW8AVDEeXW8A0Afxi9HAfdkRQFaw+q
+	 pZ99Le7B5gGJBoELZot/b8+J85xp2lru3lQlVtVI7FZVnNpnsJbPmGhvFLxpIPJpD8
+	 03yEUhmaupDMA==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH mt76 0/4] wifi: mt76: Some more MLO fixes for MT7996 driver
-Date: Thu, 04 Sep 2025 09:56:38 +0200
-Message-Id: <20250904-mt7996-mlo-more-fixes-v1-0-89d8fed67f20@kernel.org>
+Date: Thu, 04 Sep 2025 09:56:39 +0200
+Subject: [PATCH mt76 1/4] wifi: mt76: mt7996: Fix
+ mt7996_reverse_frag0_hdr_trans for MLO
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADZGuWgC/x3LQQqAIBBA0avErBuwgVK7SrSQGmsgMzQiiO6et
- Hx8/gOZk3CGvnog8SVZ4l7Q1BVMq9sXRpmLgRS1yirCcGprOwxbxBATo5ebM2oyqjHkvO4Yyns
- k/kNZh/F9P5y9gnBnAAAA
-X-Change-ID: 20250902-mt7996-mlo-more-fixes-7280182af76e
+Message-Id: <20250904-mt7996-mlo-more-fixes-v1-1-89d8fed67f20@kernel.org>
+References: <20250904-mt7996-mlo-more-fixes-v1-0-89d8fed67f20@kernel.org>
+In-Reply-To: <20250904-mt7996-mlo-more-fixes-v1-0-89d8fed67f20@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
  Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, Bo Jiao <Bo.Jiao@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, 
- Benjamin Lin <benjamin-jw.lin@mediatek.com>
+ Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_005713_772754_CFE4B7A9 
-X-CRM114-Status: UNSURE (   6.65  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +73,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add some missing fixes for MLO in MT7996 driver.
+From: Shayne Chen <shayne.chen@mediatek.com>
 
+Update mt7996_reverse_frag0_hdr_trans routine to support MLO.
+
+Co-developed-by: Bo Jiao <Bo.Jiao@mediatek.com>
+Signed-off-by: Bo Jiao <Bo.Jiao@mediatek.com>
+Signed-off-by: Shayne Chen <shayne.chen@mediatek.com>
+Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Benjamin Lin (1):
-      wifi: mt76: mt7996: Temporarily disable EPCS
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-Lorenzo Bianconi (1):
-      wifi: mt76: mt7996: Add all active links to poll list in mt7996_mac_tx_free()
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index c525fe68897d5ba5412dabb8c1341a5ce55205d8..646c6f2f72918bbbdceddb5321c862f326d803b0 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -229,7 +229,9 @@ static int mt7996_reverse_frag0_hdr_trans(struct sk_buff *skb, u16 hdr_gap)
+ {
+ 	struct mt76_rx_status *status = (struct mt76_rx_status *)skb->cb;
+ 	struct ethhdr *eth_hdr = (struct ethhdr *)(skb->data + hdr_gap);
+-	struct mt7996_sta *msta = (struct mt7996_sta *)status->wcid;
++	struct mt7996_sta_link *msta_link = (void *)status->wcid;
++	struct mt7996_sta *msta = msta_link->sta;
++	struct ieee80211_bss_conf *link_conf;
+ 	__le32 *rxd = (__le32 *)skb->data;
+ 	struct ieee80211_sta *sta;
+ 	struct ieee80211_vif *vif;
+@@ -246,8 +248,11 @@ static int mt7996_reverse_frag0_hdr_trans(struct sk_buff *skb, u16 hdr_gap)
+ 	if (!msta || !msta->vif)
+ 		return -EINVAL;
+ 
+-	sta = container_of((void *)msta, struct ieee80211_sta, drv_priv);
++	sta = wcid_to_sta(status->wcid);
+ 	vif = container_of((void *)msta->vif, struct ieee80211_vif, drv_priv);
++	link_conf = rcu_dereference(vif->link_conf[msta_link->wcid.link_id]);
++	if (!link_conf)
++		return -EINVAL;
+ 
+ 	/* store the info from RXD and ethhdr to avoid being overridden */
+ 	frame_control = le32_get_bits(rxd[8], MT_RXD8_FRAME_CONTROL);
+@@ -260,7 +265,7 @@ static int mt7996_reverse_frag0_hdr_trans(struct sk_buff *skb, u16 hdr_gap)
+ 	switch (frame_control & (IEEE80211_FCTL_TODS |
+ 				 IEEE80211_FCTL_FROMDS)) {
+ 	case 0:
+-		ether_addr_copy(hdr.addr3, vif->bss_conf.bssid);
++		ether_addr_copy(hdr.addr3, link_conf->bssid);
+ 		break;
+ 	case IEEE80211_FCTL_FROMDS:
+ 		ether_addr_copy(hdr.addr3, eth_hdr->h_source);
 
-Shayne Chen (2):
-      wifi: mt76: mt7996: Fix mt7996_reverse_frag0_hdr_trans for MLO
-      wifi: mt76: mt7996: Implement MLD address translation for EAPOL
-
- drivers/net/wireless/mediatek/mt76/mt7996/init.c |  1 -
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c  | 62 ++++++++++++++++++++++--
- 2 files changed, 57 insertions(+), 6 deletions(-)
----
-base-commit: 12cce7624371dc68245356ae390bde93f84aed3a
-change-id: 20250902-mt7996-mlo-more-fixes-7280182af76e
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.50.1
 
 
