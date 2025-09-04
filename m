@@ -4,63 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC30CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 11:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E2BCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 11:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y4JoXUWI68dUNflYbV98fyocDkdSzyS+4MovMEppf1M=; b=eTLiTwVnQnunpFiFZ3GQIc0xvH
-	hiIhyZda3sai897aQqZfcrhm2NR+cP0HargIB7rIgcEL1DCijDqKd0SYNYJjCLy9Wj1vH8uoSLGq8
-	rlzgIFTQZWts4SneN6yiTzV+udPxKrS59RLLTWxbXjrzzu0rulWTEf/rj/rc5YjJ2SQ3peDDVC11d
-	8iv//lIYo9C7HmrB3E3aymfV7ayRVsNhmreeAuCl6/m7sAm0gFSYSrUOy3bQfONVJ4utL7kQ0yOGV
-	f6jB854dhFUXS7aI/BdCUx3YU4B9df9PfGcR53gWpLmFN6DEqWyETKmqJ67iodD/ca1ksx3hVeYTW
-	3vHYOwvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xgdsR49irpJByzJ96bcwBmhSCv4K4cXZahydPuILDco=; b=UdIjMjGlu699GES1yMFRNnBC8n
+	Aqvz0i7MXr10/BrBRvcTliVi3YKbMBXG1y1CFXkK3+XkYGQOXMeBVoBMg0xSB6eBN1IjHEgTIWVwz
+	683gy2h6JmLp0JnZQ8/F1U5YqQcSfe7fHD2KQtoWU8H+0S9gDIzmGtfTa8pd8VNlsdIcrOcUJ2+lm
+	3yU8b3x9PQ/5kruXtvdVs7xU9RJ+bBOG+mA29kL7nMKp0elJ2t80H6WdcVfycwb4smKl8kT4SW6Qv
+	+AckSjqQqSTPqfCgNR+g9O1Eol9G4XeG9Ko8b6aC5vGSSwYjIZ/UzEEGhgwVMIFcJnbV5weYl8fUo
+	J5LKMOIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7om-0000000B6kP-3mXu;
-	Thu, 04 Sep 2025 11:07:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uu7rV-0000000B7oy-3E4F;
+	Thu, 04 Sep 2025 11:10:53 +0000
+Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu6yV-0000000AnpH-0hQp;
-	Thu, 04 Sep 2025 10:13:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9414560210;
-	Thu,  4 Sep 2025 10:13:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3A65C4CEF0;
-	Thu,  4 Sep 2025 10:13:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756980830;
-	bh=TaCx2xdJ0PkyIQESevtrNgnqTCDtw2YcyYY/Mn7haVg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HbaN6Yjznr5n3Gogxrsx99hUcU54nZ3/fhnW5jw8827xmZUpTdL0M+x2zcrkKwdSr
-	 trKtFHUXICoR0Xtx3Wbnyr5gw63yTDdUsLaUsHsVCp7HunCjNBGw/MB5D+pb1lpr5G
-	 wMBAHcGyWwaUHK1j8FAbAVsfuDRbUjmc16AiEWPvPSb21XPNUNlCPL+h8f9sV6Joqw
-	 NDiK8o1f1BuiCRt7RsPXBmzmB6YyWWEquxW3QZAMneehJos4WyLbIVxIAgLfcgW8Zy
-	 TSB/mkGN5d2iXf0RkLf7zYyD/C7Z68NpUDPcWEKUrY/jDeyFfWcM59N1y8QeTidVnP
-	 JcmXOFrYFRL2w==
-Date: Thu, 4 Sep 2025 12:13:43 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, bhelgaas@google.com, heiko@sntech.de,
-	mani@kernel.org, yue.wang@amlogic.com, pali@kernel.org,
-	neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
-	khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v5 1/2] PCI: Configure root port MPS during host probing
-Message-ID: <aLlmV8Qiaph1PHFY@ryzen>
-References: <20250620155507.1022099-2-18255117159@163.com>
- <20250902174828.GA1165373@bhelgaas>
+	id 1uu70Y-0000000AogA-2c6t
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 10:16:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=xgdsR49irpJByzJ96bcwBmhSCv4K4cXZahydPuILDco=; b=nn3+1Rxo+sb6gVBkjg5wdrMG1Z
+	Xj9upXEyacqW45zeWBQy490E0jg4I3Gfck8A+K6G9un9jo7OGf2bmovU/zwCNRSRzYoI95P5nqkSs
+	R3QPMkWHZM/wTe7HTef84vL0G+oI2H4fhtfRAlEws7uYJxQ8+lsIWwG1Fy4gWk7g40NtoNRMi+4En
+	OHWTuxlNGVXq36Iecb7GlMsH8Zz9SG8UQJFfB+ahlMc54+9vX0kGBWPdrOLbDww6SjKNWwBKAugMW
+	XxXrSVbKQXhd8wDX7cAftW8u0Wkm3pjgMPM/Bwkt9k3EJ1gU4xkU3P6pXsr1rST++njyBvzg7u5c1
+	GhZVa7Mg==;
+Received: from 86-58-118-213.dynamic.telemach.net ([86.58.118.213]:54824 helo=[192.168.0.129])
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.98.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uu70U-00000003pfn-053I;
+	Thu, 04 Sep 2025 12:15:54 +0200
+Message-ID: <b6006a1b-0b46-4e0d-9d49-6cc0dbe84814@norik.com>
+Date: Thu, 4 Sep 2025 12:15:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250902174828.GA1165373@bhelgaas>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: iio: afe: current-sense-amplifier: Add
+ io-channel-cells
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Peter Rosin <peda@axentia.se>, Jonathan Cameron <jic23@kernel.org>,
+ David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ upstream@lists.phytec.de
+References: <20250903113700.3079626-1-primoz.fiser@norik.com>
+ <20250904-tangible-practical-partridge-a1b0e4@kuoka>
+Content-Language: en-US
+From: Primoz Fiser <primoz.fiser@norik.com>
+In-Reply-To: <20250904-tangible-practical-partridge-a1b0e4@kuoka>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250904_031559_134184_F0DE299A 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,109 +97,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 12:48:28PM -0500, Bjorn Helgaas wrote:
-> On Fri, Jun 20, 2025 at 11:55:06PM +0800, Hans Zhang wrote:
-> > Current PCIe initialization logic may leave root ports operating with
-> > non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> > configuration is handled during bus enumeration, root port MPS values
-> > inherited from firmware or hardware defaults ...
+Hi Krzysztof,
+
+On 4. 09. 25 11:17, Krzysztof Kozlowski wrote:
+> On Wed, Sep 03, 2025 at 01:36:59PM +0200, Primoz Fiser wrote:
+>> The current-sense-amplifier is an IIO provider thus can be referenced by
+>> IIO consumers (via "io-channels" property in consumer device node). Such
+>> provider is required to describe number of cells used in phandle lookup
+>> with "io-channel-cells" property, otherwise the following kernel error
+>> is present:
+>>
+>>    OF: /iio-hwmon: could not get #io-channel-cells for /current-sense
 > 
-> Apparently Root Port MPS configuration is different from that for
-> downstream devices?
+> Also, how can I reproduce this error? Do you paste here real errors or
+> just some invented ones from some out of tree code (hint: such would not
+> be relevant).
 
-pci_host_probe() will call pci_scan_root_bus_bridge(), which will call
-pci_scan_single_device(), which will call pci_device_add(), which will
-call pci_configure_device(), which will call pci_configure_mps().
+I get this error if I apply patch #2 without patch #1. See [1] for more 
+details.
 
-This will be done for both bridges and endpoints.
-
-The bridge will be scanned/added first, before devices behind the bridge.
-
-
-While pci_configure_device()/pci_configure_mps() will be called for both
-bridges and endpoints, pci_configure_mps() will do an early return for
-devices where pci_upstream_bridge() returns NULL, i.e. for devices where
-that does not have an upstream bridge, i.e. for the root bridge itself:
-https://github.com/torvalds/linux/blob/v6.17-rc4/drivers/pci/probe.c#L2181-L2182
-
-So MPS will not be touched for root bridges.
-
-This patch ensures that MPS for root bridges gets initialized to MPSS
-(Max supported MPS).
-
-Later, when pci_configure_device()/pci_configure_mps() is called for a
-device behind the bridge, if the MPSS of the device behind the bridge is
-smaller than the MPS of the bridge, the code reduces the MPS of the bridge:
-https://github.com/torvalds/linux/blob/v6.17-rc4/drivers/pci/probe.c#L2205
+BR,
+Primoz
 
 
-My only question with this patch is if there is a bridge behind a bridge,
-will the bridge behind the bridge still have pci_pcie_type() ==
-PCI_EXP_TYPE_ROOT_PORT ?
+[1] 
+https://lore.kernel.org/all/20250903113700.3079626-1-primoz.fiser@norik.com/
 
-If so, perhaps we should modify this patch from:
-
-+       if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-+           pcie_bus_config != PCIE_BUS_TUNE_OFF) {
-+               pcie_write_mps(dev, 128 << dev->pcie_mpss);
-+       }
-+
-        if (!bridge || !pci_is_pcie(bridge))
-                return;
-
-
-to:
-
-+       if (!bridge && pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-+           pcie_bus_config != PCIE_BUS_TUNE_OFF) {
-+               pcie_write_mps(dev, 128 << dev->pcie_mpss);
-+       }
-+
-        if (!bridge || !pci_is_pcie(bridge))
-                return;
-
-
-
-> > During host controller probing phase, when PCIe bus tuning is enabled,
-> > the implementation now configures root port MPS settings to their
-> > hardware-supported maximum values. Specifically, when configuring the MPS
-> > for a PCIe device, if the device is a root port and the bus tuning is not
-> > disabled (PCIE_BUS_TUNE_OFF), the MPS is set to 128 << dev->pcie_mpss to
-> > match the Root Port's maximum supported payload size. The Max Read Request
-> > Size (MRRS) is subsequently adjusted through existing companion logic to
-> > maintain compatibility with PCIe specifications.
-> > 
-> > Note that this initial setting of the root port MPS to the maximum might
-> > be reduced later during the enumeration of downstream devices if any of
-> > those devices do not support the maximum MPS of the root port.
-> > 
-> > Explicit initialization at host probing stage ensures consistent PCIe
-> > topology configuration before downstream devices perform their own MPS
-> > negotiations. This proactive approach addresses platform-specific
-> > requirements where controller drivers depend on properly initialized
-> > root port settings, while maintaining backward compatibility through
-> > PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
-> > utilized without altering existing device negotiation behaviors.
 > 
-> This last paragraph seems kind of like marketing without any real
-> content.  Is there something important in there?
+>>
+>> Also fixes the following dtbs_check warning:
+>>
+>>    current-sense: '#io-channel-cells' does not match any of the regexes:
+>>    'pinctrl-[0-9]+' from schema $id:
+>>    http://devicetree.org/schemas/iio/afe/current-sense-amplifier.yaml#
 > 
-> Nits:
-> s/root port/Root Port/
+> Best regards,
+> Krzysztof
 > 
-> Reword "implementation now configures" to be clear about whether "now"
-> refers to before this patch or after.
-> 
-> Update the MRRS "to maintain compatibility" part.  I'm dubious about
-> there being a spec compatibility issue with respect to MRRS.  Cite the
-> relevant section if there is an issue.
 
-I'm not sure why the commit message mentions MRRS at all.
-
-Sure, pcie_write_mrrs() might set MRRS to MPS, but that is existing logic
-and not really related to the change in this patch IMO.
-
-
-Kind regards,
-Niklas
 
