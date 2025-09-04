@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02DE7CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C9CCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MWJipRp1l0+TmPmfCk3tN9r8Mezn1hV2BQ2RPCc3KbU=; b=I/ew/aSnoKiLgrRn8sW9c2iMlt
-	NXPjKPtQru4g8lxK1nVuv/B+4jO0QdguU3SygrNt7l7NL0pOm5AVF+BpYOawrf69O57scuFkfYTQ+
-	AcRa4JF+wnciZl2EHIztgBCVUFbyaGcLkTBLv4GSqfCZXteI3BufJ8I9bjOYU5tr83e3OUsBXRcpF
-	dIqHBzK7W4qNb6YUurEMqEJL725XWBMkVHl0FCWlTSwrS4nogpeMckSEvispQT94hkkZgbHNbN3tj
-	5zH0BqDK2COm96xF7MA94wqPu1DlXA5g7f86GLCbnh9nOSij4cJLsTMTmO8BBnvzFjUnOiQxWBrWd
-	4Xd+UXhA==;
+	bh=uF4m/pRRU4rgRt7tXnCtpn8VYgPl9axTqJo4BB655os=; b=VGHbtz+HUFdDUVBh8enoFYr1Xz
+	jwMWsLb+S8GugA8idMoFnDRi/bVur0OuUk+TI+Y/OZfNoi8JNT7ruNOQ5gLr3PhPRaAxi2PnXKdRl
+	AlBW3Kh8dhR7kHRkzb0z1hdLNXqIIu+JLVs8qGOPo8iNAgF84AHOZip4gNlGCuYW4Ul7HR8z3w+0W
+	u+dM+g6Ir925aNxNeScQkdcTqTRXIb+wyFEt5aZkAlWvWbh0iU7PDyJGLUAbkIpHG0RzFRowA6b8p
+	AlNgnop9csRbfopdNtjyfh5uKIUu2L5td/2aEG/OGvb5NmlXU+NhKS6zLD2wHMJFhiOGyA2UHoJN7
+	+yWP7mfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu6oL-0000000AkC8-3w84;
-	Thu, 04 Sep 2025 10:03:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5fv-0000000AM04-0XE6
+	id 1uu6r2-0000000Al5y-0nfy;
+	Thu, 04 Sep 2025 10:06:08 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uu5mb-0000000AOdW-2iKs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 08:50:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA6881596;
-	Thu,  4 Sep 2025 01:50:25 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0F793F63F;
-	Thu,  4 Sep 2025 01:50:32 -0700 (PDT)
-Message-ID: <961258a0-3cc6-4935-a305-80bb2c2c0597@arm.com>
-Date: Thu, 4 Sep 2025 09:50:31 +0100
+	Thu, 04 Sep 2025 08:57:31 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5848vKau3472912;
+	Thu, 4 Sep 2025 03:57:20 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756976240;
+	bh=uF4m/pRRU4rgRt7tXnCtpn8VYgPl9axTqJo4BB655os=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=JZxGE2UBN40dWWYuDmfX2FMeRszsL4a7bvGt7TEhMXmCCHwYjN8WkLUZC0Nl8do7C
+	 vkSvHNg5bkVnCHd/DMKtwrMrLFq3xXWEnWD+Emu44QX7Cro4DUhm7eNrSVVNFg8K3m
+	 GOzORqTCUFmXIrpiXg1HAODHPx4WgDrzpblcQdt0=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5848vKSn749886
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 4 Sep 2025 03:57:20 -0500
+Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
+ Sep 2025 03:57:20 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 4 Sep 2025 03:57:20 -0500
+Received: from [172.24.20.139] (lt5cd2489kgj.dhcp.ti.com [172.24.20.139])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5848vFWj3006227;
+	Thu, 4 Sep 2025 03:57:15 -0500
+Message-ID: <b946af38-abf9-4b34-bf44-3ba9bc64bff7@ti.com>
+Date: Thu, 4 Sep 2025 14:27:14 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] coresight: tpda: fix the logic to setup the element
- size
-To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tao Zhang <quic_taozha@quicinc.com>, Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: tingwei.zhang@oss.qualcomm.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-References: <20250806080931.14322-1-jie.gan@oss.qualcomm.com>
- <2f243b22-d8d3-4352-b226-aaf9ccfe825b@arm.com>
- <a4382db3-115a-4d79-924a-08507e6e7b3e@oss.qualcomm.com>
- <1cef4224-1f0a-4c51-937d-66823a22dec3@oss.qualcomm.com>
+Subject: Re: [PATCH v3 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining
+ macros
+To: Akashdeep Kaur <a-kaur@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
+        <afd@ti.com>, <vigneshr@ti.com>, <d-gole@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <vishalm@ti.com>, <sebin.francis@ti.com>, <u-kumar1@ti.com>
+References: <20250902071917.1616729-1-a-kaur@ti.com>
+ <20250902071917.1616729-4-a-kaur@ti.com>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <1cef4224-1f0a-4c51-937d-66823a22dec3@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250902071917.1616729-4-a-kaur@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_015035_245690_C7A12E98 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20250904_015729_779551_F7A53B80 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,115 +89,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/09/2025 02:12, Jie Gan wrote:
-> 
-> 
-> On 9/3/2025 5:45 PM, Jie Gan wrote:
->>
->>
->> On 9/3/2025 4:57 PM, Suzuki K Poulose wrote:
->>> On 06/08/2025 09:09, Jie Gan wrote:
->>>> Some TPDM devices support both CMB and DSB datasets, requiring
->>>> the system to enable the port with both corresponding element sizes.
->>>>
->>>> Currently, the logic treats tpdm_read_element_size as successful if
->>>> the CMB element size is retrieved correctly, regardless of whether
->>>> the DSB element size is obtained. This behavior causes issues
->>>> when parsing data from TPDM devices that depend on both element sizes.
->>>>
->>>> To address this, the function should explicitly fail if the DSB
->>>> element size cannot be read correctly.
->>>
->>> But what is the device only has CMB ? Back when this was originally 
->>
->> We have CMB TPDM, DSB TPDM and CMB&&DSB TPDM.
->>
->>> merged, we raised this question and the answer was, "Only one is 
->>> supported, not both." But this sounds like that is wrong.
->>
->> I think we may not answer the previous question clearly. But it 
->> definitely has issue here.
->>
->>> Could we defer the "Warning" to the caller. i.e., Let the caller
->>> figure out the if the DSB size is found and predicate that on the
->>> DSB support on the TPDM.
->>
->> Understood, below codes will be added in the caller to check the error:
->> if ((tpdm_data->dsb && !drvdata->dsb_esize) ||
->>      (tpdm_data->cmb && !drvdata->cmb_esize))
->>      goto err;
->>
->> Thanks,
->> Jie
->>
-> 
-> Hi Suzuki,
-> 
-> I've reviewed the logic here. It's not feasible for the caller to 
-> perform the check, since we first retrieve TPDM's drvdata, which adds 
-> complexity to the code. I believe it's better to handle this within the 
-> function itself.
-> 
-> We are expecting the element_size for cmb if the condition is true, as 
-> well as dsb:
-> if (tpdm_data->dsb)
-> ...
-> should obtain a valid element size for dsb.
-> ...
-> 
-> if (tpdm_data->cmb)
-> ...
-> should obtain a valid element size for cmb.
-> ...
-> 
+Hello Akashdeep,
 
-Ok, fair enough. Please resend the patch without the dependency on the 
-static TPDM patch. Given this is a fix, this could go in without waiting 
-for the new series.
+On 9/2/2025 12:49 PM, Akashdeep Kaur wrote:
+> Add the drive stregth, schmitt trigger enable macros to pinctrl file.
+> Add the missing macros for DeepSleep configuration control referenced
+> from "Table 14-6172. Description Of The Pad Configuration Register Bits"
+> in AM625 TRM[0].
+> Add some DeepSleep macros to provide combinations that can be used
+> directly in device tree files example PIN_DS_OUTPUT_LOW that
+> configures pin to be output and also sets its value to 0.
+>
+> [0] https://www.ti.com/lit/ug/spruiv7b/spruiv7b.pdf
+>
+> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-pinctrl.h | 55 +++++++++++++++++++++++++++--
+>   1 file changed, 52 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> index c0f09be8d3f9..39aad59075d1 100644
+> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> @@ -3,15 +3,20 @@
+>    * This header provides constants for pinctrl bindings for TI's K3 SoC
+>    * family.
+>    *
+> - * Copyright (C) 2018-2024 Texas Instruments Incorporated - https://www.ti.com/
+> + * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
+>    */
+>   #ifndef DTS_ARM64_TI_K3_PINCTRL_H
+>   #define DTS_ARM64_TI_K3_PINCTRL_H
+>   
+> +#define WKUP_LVL_EN_SHIFT       (7)
+> +#define WKUP_LVL_POL_SHIFT      (8)
+>   #define ST_EN_SHIFT		(14)
+>   #define PULLUDEN_SHIFT		(16)
+>   #define PULLTYPESEL_SHIFT	(17)
+>   #define RXACTIVE_SHIFT		(18)
+> +#define DRV_STR_SHIFT           (19)
 
-Suzuki
+referring to above TRM mentioned in commit message
+
+Bit 20-19 are for DRV_STR, and description says
+
+0 - Default
+1 - Reserved
+2 - Reserved
+3 - Reserved
+
+Not sure, is there some additional document to be referred for 
+PIN_DRIVE_STRENGTH
+
+
+> +#define DS_ISO_OVERRIDE_SHIFT   (22)
+> +#define DS_ISO_BYPASS_EN_SHIFT  (23)
+
+Please follow same convention as for rest of bit fields
+
+DS_ISO_OVERRIDE_SHIFT  to ISO_OVR_SHIFT and
+DS_ISO_BYPASS_EN_SHIFT to ISO_BYP_SHIFT
 
 
 
-> Thanks,
-> Jie
-> 
->>>
->>> Suzuki
->>>
->>>>
->>>> Fixes: e6d7f5252f73 ("coresight-tpda: Add support to configure CMB 
->>>> element")
->>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>>> ---
->>>>   drivers/hwtracing/coresight/coresight-tpda.c | 3 +++
->>>>   1 file changed, 3 insertions(+)
->>>>
->>>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
->>>> hwtracing/coresight/coresight-tpda.c
->>>> index 0633f04beb24..333b3cb23685 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
->>>> @@ -71,6 +71,8 @@ static int tpdm_read_element_size(struct 
->>>> tpda_drvdata *drvdata,
->>>>       if (tpdm_data->dsb) {
->>>>           rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
->>>>                   "qcom,dsb-element-bits", &drvdata->dsb_esize);
->>>> +        if (rc)
->>>> +            goto out;
->>>>       }
->>>>       if (tpdm_data->cmb) {
->>>> @@ -78,6 +80,7 @@ static int tpdm_read_element_size(struct 
->>>> tpda_drvdata *drvdata,
->>>>                   "qcom,cmb-element-bits", &drvdata->cmb_esize);
->>>>       }
->>>> +out:
->>>>       if (rc)
->>>>           dev_warn_once(&csdev->dev,
->>>>               "Failed to read TPDM Element size: %d\n", rc);
->>>
->>>
->>
-> 
+>   #define DEBOUNCE_SHIFT		(11)
+>   #define FORCE_DS_EN_SHIFT	(15)
+>   #define DS_EN_SHIFT		(24)
+> @@ -19,6 +24,7 @@
+>   #define DS_OUT_VAL_SHIFT	(26)
+>   #define DS_PULLUD_EN_SHIFT	(27)
+>   #define DS_PULLTYPE_SEL_SHIFT	(28)
+> +#define WKUP_EN_SHIFT           (29)
+>   
+>   /* Schmitt trigger configuration */
+>   #define ST_DISABLE		(0 << ST_EN_SHIFT)
+> @@ -33,6 +39,26 @@
+>   #define INPUT_EN		(1 << RXACTIVE_SHIFT)
+>   #define INPUT_DISABLE		(0 << RXACTIVE_SHIFT)
+>   
+> +#define DS_PULL_DISABLE         (1 << DS_PULLUD_EN_SHIFT)
+> +#define DS_PULL_ENABLE          (0 << DS_PULLUD_EN_SHIFT)
 
+what is purpose of shifting zero,
+
+
+> +
+> +#define DS_PULL_UP              (1 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
+> +#define DS_PULL_DOWN            (0 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
+> +
+> +#define DS_INPUT_EN             (1 << DS_OUT_DIS_SHIFT)
+> +#define DS_INPUT_DISABLE        (0 << DS_OUT_DIS_SHIFT)
+> +
+> +#define DS_OUT_VALUE_ZERO       (0 << DS_OUT_VAL_SHIFT)
+> +#define DS_OUT_VALUE_ONE        (1 << DS_OUT_VAL_SHIFT)
+> +
+> +#define WKUP_ENABLE             (1 << WKUP_EN_SHIFT)
+> +#define WKUP_ON_LEVEL           (1 << WKUP_LVL_EN_SHIFT)
+> +#define WKUP_ON_EDGE            (0 << WKUP_LVL_EN_SHIFT)
+> +#define WKUP_LEVEL_LOW          (0 << WKUP_LVL_POL_SHIFT)
+> +#define WKUP_LEVEL_HIGH         (1 << WKUP_LVL_POL_SHIFT)
+> +
+> +#define WKUP_DISABLE            (0 << WKUP_EN_SHIFT)
+> +
+>   /* Only these macros are expected be used directly in device tree files */
+>   #define PIN_OUTPUT		(INPUT_DISABLE | PULL_DISABLE)
+>   #define PIN_OUTPUT_PULLUP	(INPUT_DISABLE | PULL_UP)
+> @@ -53,18 +79,41 @@
+>   #define PIN_DEBOUNCE_CONF5	(5 << DEBOUNCE_SHIFT)
+>   #define PIN_DEBOUNCE_CONF6	(6 << DEBOUNCE_SHIFT)
+>   
+> +#define PIN_DRIVE_STRENGTH_NOMINAL      (0 << DRV_STR_SHIFT)
+> +#define PIN_DRIVE_STRENGTH_SLOW         (1 << DRV_STR_SHIFT)
+> +#define PIN_DRIVE_STRENGTH_FAST         (2 << DRV_STR_SHIFT)
+> +
+> +#define PIN_SCHMITT_TRIGGER_DISABLE	(0 << ST_EN_SHIFT)
+> +#define PIN_SCHMITT_TRIGGER_ENABLE	(1 << ST_EN_SHIFT)
+> +
+>   #define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
+>   #define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
+>   #define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
+>   #define PIN_DS_IO_OVERRIDE_ENABLE	(1 << DS_IO_OVERRIDE_EN_SHIFT)
+> -#define PIN_DS_OUT_ENABLE		(0 << DS_OUT_DIS_SHIFT)
+> -#define PIN_DS_OUT_DISABLE		(1 << DS_OUT_DIS_SHIFT)
+> +#define PIN_DS_OUT_ENABLE		DS_INPUT_DISABLE
+> +#define PIN_DS_OUT_DISABLE		DS_INPUT_EN
+>   #define PIN_DS_OUT_VALUE_ZERO		(0 << DS_OUT_VAL_SHIFT)
+>   #define PIN_DS_OUT_VALUE_ONE		(1 << DS_OUT_VAL_SHIFT)
+>   #define PIN_DS_PULLUD_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
+>   #define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
+>   #define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
+>   #define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
+> +#define PIN_DS_ISO_BYPASS               (1 << DS_ISO_BYPASS_EN_SHIFT)
+> +#define PIN_DS_ISO_BYPASS_DISABLE       (0 << DS_ISO_BYPASS_EN_SHIFT)
+> +
+> +#define DS_STATE_VAL                    (1 << DS_EN_SHIFT)
+> +#define ACTIVE_STATE_VAL                (0 << DS_EN_SHIFT)
+> +
+
+Please do not mix PIN_x #define with other internal defines
+
+
+> +#define PIN_DS_OUTPUT_LOW               (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ZERO)
+> +#define PIN_DS_OUTPUT_HIGH              (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ONE)
+> +#define PIN_DS_INPUT                    (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DISABLE)
+> +#define PIN_DS_INPUT_PULLUP             (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_UP)
+> +#define PIN_DS_INPUT_PULLDOWN           (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DOWN)
+> +
+> +#define PIN_WKUP_EN_EDGE                (WKUP_ENABLE | WKUP_ON_EDGE)
+> +#define PIN_WKUP_EN_LEVEL_LOW           (WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_LOW)
+> +#define PIN_WKUP_EN_LEVEL_HIGH          (WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
+> +#define PIN_WKUP_EN                     WKUP_EN_EDGE
+
+what is difference between PIN_WKUP_EN_EDGE and PIN_WKUP_EN
+
+
+>   
+>   /* Default mux configuration for gpio-ranges to use with pinctrl */
+>   #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
 
