@@ -4,92 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B4ACA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE09CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SP//4Q+uImYUL6/+8qHx67kUOU4MQKI9owsJGMxhBGo=; b=CzhA9n8SrvfL7zXo021n/U8rm2
-	ZbCETmnxCxBcYdpx+R1T9yfTH9yLYQgo92iFpdQBq/7nDh4occNZDVPcB8qYERQymDGRcknHisBI1
-	JBD7hNhU/nwJr+3SgBUHSyij6mp0AcKo37E98ThGg0cT7wzfoW+mJKO9rH+vcak9TaLttrz1CplPg
-	vORAUqQ+rTYtoTM9k6txtacSeWHOVoWlxilm/es9NqMS6nx6TW0H/eME2LxOJFv9kUGk+f1MN2BzK
-	rSEWo1X0WeikEv+BtNVB8wd/PAA4rWCvUxwSpgKzqS3Ptc4c3sr8uQDljykKL3O+B6nN0KuZy8G7N
-	v1Vl5hHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9rHD7plJVEZkv8PkFJEx5BeBVBt5QFBtzvV5bLJfU1s=; b=Z4Vh1UNADi8a8zRk4XH9qHvxFe
+	PxPdja1W9O8nJHiSDS3wjdOsw8NFsFr2uj+f1fC74J1/K9/wjkswIcG7uZjTpvAEW4X4iWdSPJp/V
+	buzHyaa9e8LomHwPJZ2LdCVo6paJcW1Qi/Obgq3xma8V/2EisvPyleJ3L654Ay8OH+YwDxgA8pWtd
+	CSka6uwuStt4+lQe7Xe0HdXY4o11MZVQM4e7VOYgRzGbLsyF4sx6K/WGsECcoMSv/K1ez0vvrdgC9
+	lIJ65QGIY6ncrOBqr4U5eoIUc6E7M/6LmttUaw5Od+J7iu6ncBIKcPyd0qM9c4LFrMYKMKr4ooYfU
+	9YedUIBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM4G-0000000G3Xi-0EgS;
-	Fri, 05 Sep 2025 02:20:48 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1uuM4K-0000000G3dg-260p;
+	Fri, 05 Sep 2025 02:20:52 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuHZU-0000000EaRR-0Elx
+	id 1uuHfC-0000000EcFL-0gLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 21:32:45 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-4b5e35453acso8257461cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 14:32:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757021563; x=1757626363; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SP//4Q+uImYUL6/+8qHx67kUOU4MQKI9owsJGMxhBGo=;
-        b=c2jjJpBX2kYOZG/l0S/ryXkZqmr+zsZASIFbeX/TcjrvT3yMS+pWOlYOng88gusRtZ
-         vNxTgFnqK7O5E3N6C/CDxu6aty48aPXTwPOm/IT5H1i8vBXGkdGgH0MDCqwzku0yskxc
-         jRFyE8UE5VszaHuN4MLyGYZ2pUnZi3+5MhnQKN+b0rFQGxfzAjK04kHsW7dWIQOoRl3i
-         AaZ+mdbyEXfNfKh477HIRC+KLHuF0PpLunjAonZ6e5+4Ezx9tyxLZE/YHMkoWsbG/fAS
-         cPygKgvsCxpswYxoXhHQ0EE6mf/I4+VX0/orWBWDS7PtYdytAR9RtNFiXl6xgG5WLlXx
-         iv+g==
+	Thu, 04 Sep 2025 21:38:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757021915;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9rHD7plJVEZkv8PkFJEx5BeBVBt5QFBtzvV5bLJfU1s=;
+	b=e9AbxpzukcoKaOXSeXcp2w3w7k2MS+2IyhSpbfnhUREQ0UIZ7BCE9qj1yqrtxOdSrvzjTC
+	YPGkhDyA76fdqF+amJQ3SE2d/QTdtu/tmsliab5J2tRhxI89SVzLzsByv5Ijve04EkS0du
+	meZvvHlh2Zv+1cNBUPG2Y5DjPFA8Y5c=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-665-UWDo-ZuPNfWnZQQDlkQdsA-1; Thu, 04 Sep 2025 17:38:34 -0400
+X-MC-Unique: UWDo-ZuPNfWnZQQDlkQdsA-1
+X-Mimecast-MFC-AGG-ID: UWDo-ZuPNfWnZQQDlkQdsA_1757021913
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45cb5dbda9cso9151285e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 14:38:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757021563; x=1757626363;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SP//4Q+uImYUL6/+8qHx67kUOU4MQKI9owsJGMxhBGo=;
-        b=MwJr+bBzG3GhNcWdqh0EnUhrZb6ASjFNintaNDUlQmIA+VwI7n4FU6hjO8GBZDDLoJ
-         KFeB+/Eax5U7P9I4UHCr7zAbt/lEDhx7vgWcH7UzzRIzPtdwSjQ9Xhgx2Ll1zZC3rtEP
-         KnRAEzXXBWcSpbTXPB6BIkYbjwu0RRWdSXmeabcQSg3NmM5FMdA7KqWDfyrgUyoifngm
-         FRL+RY5S/8rJt+opne9vVjjE3w8o5b3y3lgjHYjSYLybzG2ErQ7CmEt17lmS81aKUdIB
-         woTLm0wHTOZZXA2Pmw3smcz4FUuBXJPmGQ4IPsRPnojNPZgXZMO3GKh0wup+VV93JOiX
-         B7+A==
-X-Forwarded-Encrypted: i=1; AJvYcCV1ZYzEjp5l6cGU5vMwjSRJr/XWETtP4LAmErMLZkMj3u85faCzxiiCsx6XNc1PbEBznf2AC+IHSrLN7L4otRTm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfDIOHY/1mOm5xyZBSRiiU5ogFWwtzlem8XDieFntNOnBpy4Ot
-	XjTWbC8e9zC4XqJL49c740KF2z0vI45+paRiI7uacWXxFfRLTQeMcouM
-X-Gm-Gg: ASbGncvN32lIX+x9JAZUkzkgs+5hPo+sUIigmSM9JqctQXA+dBC8FCh1/vUikFexGgR
-	hcRM0f/FAuODX5wwXwjTiCYOmempV6wQ9E9TQMBXIS3dfa77h9n4cqyHxuuZ6a1NCzbzo5OEPw5
-	WhAVvTykt4BUTqj9Dn9aVm/r2e4lHuG97qRn/fFAZ1NFj0FiMRL2Ec/fvum+29HQ09McV0UP8Gw
-	E/QDLAkfekeGwTTVP0k/uJaMuZ6SXCbvzNxCNcF25grEZPLwr/xTVxYmq8kdGcqlj4/9Ilxg1Fv
-	OEENxxmykfrTcvGxy7zSEjMPUAfSMtBSw8bZpWb5oXEKUppnNSus7FczwdZs3wbKzp/kVoY4lfG
-	52CXUY+Sx9p+vFW3MCakhVHJusAV9W1meTmZxx/PtehOCFA47gQ2drG4dheJmW39opnRsdiA=
-X-Google-Smtp-Source: AGHT+IEqs7POj69pxkvZDjE95U6KYOVuVkDeoyFsTxqhrP/MM9ePnYC09WI0Yur0q2gFyWQ0dNfZrw==
-X-Received: by 2002:a05:620a:461e:b0:7fc:797a:942a with SMTP id af79cd13be357-7ff2b0d77d8mr2309803585a.45.1757021562704;
-        Thu, 04 Sep 2025 14:32:42 -0700 (PDT)
-Received: from archlinux ([2601:644:8200:acc7::9ec])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b48f635cbesm35473501cf.5.2025.09.04.14.32.41
+        d=1e100.net; s=20230601; t=1757021913; x=1757626713;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9rHD7plJVEZkv8PkFJEx5BeBVBt5QFBtzvV5bLJfU1s=;
+        b=mnZEk5SXlouDaxlOVy0GTVOhGaBgys7HPwWvEoDVD/HaNyQj72WTuMZjf5IQv8Q+OF
+         HfLny6EkOuGfl7w+76jnxgwYN5HTGPxMqcO58rcYPRB2gglPplVyUBZqmLRjj5lAeXTh
+         d3jefEHL8ABjHCjDLh+nif8Y8i3ApIYruuOhu1wZZiR+yvRTqfOjFhhsm7CFH+KHul0x
+         eDrVLWqoMGzNPxJnCyXYudHYw/TVKADLe3B+zQtboluQwlDd2DCtRjhG5DoKmbMemr8T
+         jcHELX/ai/eaoSby6Lhvu5FV9BdatrTMO+0eHZ9QFVBototvfnqenQQRpsA7xSHAsJ+e
+         G+Lg==
+X-Forwarded-Encrypted: i=1; AJvYcCWGnjOX1zm961UwozvRrrOvu/iSSOKUml/TiXHy5bzo1vsPu4z33ve5bdccsRVc+HtJteTXfd5DSG/XZu6eCtm4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqRR0vjs6XfDhizMSnm+c7a/OXKSjxj1TtMINjGyQOut9uXJRE
+	gILObtLryeEcvLdFm8VzB8GpJGmxKAXxTtiUBXzTqOctdgczPJ9IOCd3u5PmxCwL3Can9xPIycU
+	IEGz2gqz4fGL89I0oEv4Mh8G+qKWbcALMwa/wxj2M6/JqhB3uFD5eUyGwYlbmqGIU9Yg9294ASZ
+	Pa
+X-Gm-Gg: ASbGncsyLwxOfrDFPparD7RpndXElcFmgcS40zAbQmZPsZvlgcendAohOrdNduH/PfB
+	bJxCpEJcJUefwUShe+NyEd/5VCo+vJzZEe1i5wuWQtl3pbz0J98PB94y/rmIG5vqncjv/lfXmTn
+	+JfzY33HTSnfEZGBIT3oO3h1CFaMzYq0fLQy7H/l8G5HnZ9DAAZGFyapulxe8uKrgjCW7jg/Fct
+	/5sC3wVJVqkR3TYxy2N5RkeYF25/+pc1HY0aWDA3/gRACQcBCGi92P+jCK/dCu6C5tMTf0yDsCM
+	hM/wCdv1+9q9CF4/5XUfcS1QwTom5/mVWcnwbFIzQaCWKkIp1Cz+vy0ANSeLq9eZpQ==
+X-Received: by 2002:a05:600c:1d10:b0:45b:891f:afcf with SMTP id 5b1f17b1804b1-45b891fb24dmr144597885e9.27.1757021913369;
+        Thu, 04 Sep 2025 14:38:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFWbBDlkpyRRxeIt/+qH4VagktWDBCJazVbSXDHRMhx/diXSZUFSBaQ6M24PtRDNYL0yu7m/g==
+X-Received: by 2002:a05:600c:1d10:b0:45b:891f:afcf with SMTP id 5b1f17b1804b1-45b891fb24dmr144597725e9.27.1757021912965;
+        Thu, 04 Sep 2025 14:38:32 -0700 (PDT)
+Received: from redhat.com (93-51-222-138.ip268.fastwebnet.it. [93.51.222.138])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf3458a67fsm1872200f8f.62.2025.09.04.14.38.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 14:32:42 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Sunil Goutham <sgoutham@marvell.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/CAVIUM THUNDER NETWORK DRIVER),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv2 net-next 2/2] net: thunder_bgx: use OF loop instead of fwnode
-Date: Thu,  4 Sep 2025 14:32:28 -0700
-Message-ID: <20250904213228.8866-3-rosenp@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250904213228.8866-1-rosenp@gmail.com>
-References: <20250904213228.8866-1-rosenp@gmail.com>
+        Thu, 04 Sep 2025 14:38:32 -0700 (PDT)
+Date: Thu, 4 Sep 2025 17:38:30 -0400
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-block@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-efi@vger.kernel.org, virtualization@lists.linux.dev,
+	David Hildenbrand <david@redhat.com>
+Subject: Re: [PATCH v3 7/7] virtio_balloon: Stop calling page_address() in
+ free_pages()
+Message-ID: <20250904173824-mutt-send-email-mst@kernel.org>
+References: <20250903185921.1785167-1-vishal.moola@gmail.com>
+ <20250903185921.1785167-8-vishal.moola@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250903185921.1785167-8-vishal.moola@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 09XznkA4i9PA8BY2FwPdAKSDFwZRHcNCYP561_vZDIc_1757021913
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_143244_090474_1F0C0B57 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20250904_143838_269600_90890D32 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,75 +113,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is implemented under CONFIG_OF_MDIO, which already assumes an OF
-node. Also the loop already checks to see if of_node is NULL before
-proceeding.
+On Wed, Sep 03, 2025 at 11:59:21AM -0700, Vishal Moola (Oracle) wrote:
+> free_pages() should be used when we only have a virtual address. We
+> should call __free_pages() directly on our page instead.
+> 
+> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- .../net/ethernet/cavium/thunder/thunder_bgx.c | 23 +++++++------------
- 1 file changed, 8 insertions(+), 15 deletions(-)
+Acked-by: Michael S. Tsirkin <mst@redhat.com>
 
-diff --git a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-index a68dccb7c2da..06ca305de1b4 100644
---- a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-+++ b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-@@ -1468,30 +1468,23 @@ static int bgx_init_acpi_phy(struct bgx *bgx)
- 
- static int bgx_init_of_phy(struct bgx *bgx)
- {
--	struct fwnode_handle *fwn;
--	struct device_node *node = NULL;
-+	struct device_node *node = bgx->pdev->dev.of_node;
-+	struct device_node *child;
- 	u8 lmac = 0;
--	int err;
- 
--	device_for_each_child_node(&bgx->pdev->dev, fwn) {
-+	for_each_child_of_node(node, child) {
- 		struct phy_device *pd;
- 		struct device_node *phy_np;
-+		int err;
- 
--		/* Should always be an OF node.  But if it is not, we
--		 * cannot handle it, so exit the loop.
--		 */
--		node = to_of_node(fwn);
--		if (!node)
--			break;
--
--		err = of_get_mac_address(node, bgx->lmac[lmac].mac);
-+		err = of_get_mac_address(child, bgx->lmac[lmac].mac);
- 		if (err == -EPROBE_DEFER)
- 			goto defer;
- 
- 		SET_NETDEV_DEV(bgx->lmac[lmac].netdev, &bgx->pdev->dev);
- 		bgx->lmac[lmac].lmacid = lmac;
- 
--		phy_np = of_parse_phandle(node, "phy-handle", 0);
-+		phy_np = of_parse_phandle(child, "phy-handle", 0);
- 		/* If there is no phy or defective firmware presents
- 		 * this cortina phy, for which there is no driver
- 		 * support, ignore it.
-@@ -1511,7 +1504,7 @@ static int bgx_init_of_phy(struct bgx *bgx)
- 
- 		lmac++;
- 		if (lmac == bgx->max_lmac) {
--			of_node_put(node);
-+			of_node_put(child);
- 			break;
- 		}
- 	}
-@@ -1528,7 +1521,7 @@ static int bgx_init_of_phy(struct bgx *bgx)
- 			bgx->lmac[lmac].phydev = NULL;
- 		}
- 	}
--	of_node_put(node);
-+	of_node_put(child);
- 	return -EPROBE_DEFER;
- }
- 
--- 
-2.51.0
+> ---
+>  drivers/virtio/virtio_balloon.c | 8 +++-----
+>  1 file changed, 3 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/virtio/virtio_balloon.c b/drivers/virtio/virtio_balloon.c
+> index eae65136cdfb..7f3fd72678eb 100644
+> --- a/drivers/virtio/virtio_balloon.c
+> +++ b/drivers/virtio/virtio_balloon.c
+> @@ -488,8 +488,7 @@ static unsigned long return_free_pages_to_mm(struct virtio_balloon *vb,
+>  		page = balloon_page_pop(&vb->free_page_list);
+>  		if (!page)
+>  			break;
+> -		free_pages((unsigned long)page_address(page),
+> -			   VIRTIO_BALLOON_HINT_BLOCK_ORDER);
+> +		__free_pages(page, VIRTIO_BALLOON_HINT_BLOCK_ORDER);
+>  	}
+>  	vb->num_free_page_blocks -= num_returned;
+>  	spin_unlock_irq(&vb->free_page_list_lock);
+> @@ -719,8 +718,7 @@ static int get_free_page_and_send(struct virtio_balloon *vb)
+>  	if (vq->num_free > 1) {
+>  		err = virtqueue_add_inbuf(vq, &sg, 1, p, GFP_KERNEL);
+>  		if (unlikely(err)) {
+> -			free_pages((unsigned long)p,
+> -				   VIRTIO_BALLOON_HINT_BLOCK_ORDER);
+> +			__free_pages(page, VIRTIO_BALLOON_HINT_BLOCK_ORDER);
+>  			return err;
+>  		}
+>  		virtqueue_kick(vq);
+> @@ -733,7 +731,7 @@ static int get_free_page_and_send(struct virtio_balloon *vb)
+>  		 * The vq has no available entry to add this page block, so
+>  		 * just free it.
+>  		 */
+> -		free_pages((unsigned long)p, VIRTIO_BALLOON_HINT_BLOCK_ORDER);
+> +		__free_pages(page, VIRTIO_BALLOON_HINT_BLOCK_ORDER);
+>  	}
+>  
+>  	return 0;
+> -- 
+> 2.51.0
 
 
