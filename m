@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10898CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 11:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E40CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 11:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0qN1tZzfg3FXU3LVrfOhult6tGJA7iHywR9otmHVhg4=; b=I4ibYrGBbbP6Sip377eZYSWC9V
-	QG67KPpCrvFNFyTazLpRJfx/+yDMpC1ZhqAWP/KWYhJvfNjXPxiQQPwFA0Uk35OANZkc4TLivICx6
-	rN2Xo3qaSFwR+EPGfr43zLlPWwRSn4efKDtBM/DuAOAwL4HYDUYfBxDjk6ZG4QFwx5Ovn31XzGoTE
-	w41nTUNAKnEjUa5u/86Kuf8k+DB5yM7/cdDk90oWJrzgIS3nyqBoVL7dZVIPmV5GxwJdfsk+3D2Rc
-	g6vzJXdIRSrnqox5r5LDQb99x03lCyx9cauQbn3+VVjAcbyAhiuYcgmfIVmsbbPjmJmmnkUBXNU2F
-	kfLOFKvQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GSBwf5lfBHegEnaBhwvDdkO8Vp7XKO1QkL89+4Sht/Q=; b=1xkmcSfaUYsnFXoYnkJazpr4Xw
+	HbyAQfPmnwWf9JZJy2aZwxYmYn8dhXpzkaGEi3XHV04BLYcdXMNk2DTXWSwiR98l3lf1yYPEHYI4H
+	y2SFpK3Dt793YSYGmiR2s6LBZUq4w2mMx2nGil20qz5sh8MskBnVk120t3s+MDJjj3re9R4dAZGMV
+	fc2jU+WBiExAZh+GzKfJJsosuFVJSxpOcK74uWxtyhuR3Mqohibxd2sOIIewo0uU4xJwK2DdjOw4u
+	OEe8lCOO5pN2UtaKVzJX+FRjPHh9RZx49k5vqWlCZylYTMyf6B7OzHXey3KlxzwqoqZDeqTUNhHAi
+	9gKOhl+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7uD-0000000B8Zt-2hBq;
-	Thu, 04 Sep 2025 11:13:29 +0000
+	id 1uu7wv-0000000B9eu-1vfN;
+	Thu, 04 Sep 2025 11:16:17 +0000
 Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu738-0000000ApjI-0zLD
+	id 1uu73B-0000000Aq86-04f4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 10:18:39 +0000
+	Thu, 04 Sep 2025 10:18:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
-	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=0qN1tZzfg3FXU3LVrfOhult6tGJA7iHywR9otmHVhg4=; b=NgTwArR+uQFfYaLeYT13mlX9ja
-	aN7nvke8S1ftnMWYlXTlRKHidAGsTfNGp/Jy5UK8fkEUOmYXeAPgFtsyKtq//q82mKp48FmlGAxXo
-	idFjzL856Rnh1fI05xTxp5ivFq8Z+sairAJIWistlPZ28o3U+25QxEeHGuFzcfmT0Hm9DqGNGf1ol
-	0ZxD7krpw+imviZap5NQKv69ALMFa7ieSsgSrc7nQ2YkZI/QSo6DRgSgdE47sSPus2bL5LCMpkjBJ
-	bh87rGQSb0R86chNW4zcT1XPG9FJufmYAE1MUz14GbOrhscDvYQHanP1CytaptLETvSRPOkHz++DB
-	JBLkWU7g==;
+	bh=GSBwf5lfBHegEnaBhwvDdkO8Vp7XKO1QkL89+4Sht/Q=; b=K+qiUPmTdGMAUeWPv32JkO5jYt
+	kS7yzw0hzPvA+fk2fzAEQh2hlr4IIiD8VMENIA8NWXDkjvlzch/nMiNTfDVNI+I0P5BEgs37NA1RI
+	OY5Ls0bQZlqbHaMJKFPpak7Xh19QXfhLF3NSLDCtqIOzemDv2ziIsxof/t/9dmABa8G0WYeqAcRRS
+	n6IsBIyisEEMjfjC6Ut61a6CgdtjtNxLHVMfiCNuM4SI+961RMZ/zU4feGsRzPiJ49gd8GryTgs30
+	MEJ6zYQl4eQKVv+ppih2RmoLW6VK8Oxo/Rm3cUipWDRB1xhYjcdbY/hz2W1vebJXdqVC9ZE35v7+p
+	VHufQWwA==;
 Received: from [122.175.9.182] (port=31570 helo=cypher.couthit.local)
 	by server.couthit.com with esmtpa (Exim 4.98.1)
 	(envelope-from <parvathi@couthit.com>)
-	id 1uu72N-0000000CN2u-2wJT;
-	Thu, 04 Sep 2025 06:17:52 -0400
+	id 1uu735-0000000CN2u-1eIR;
+	Thu, 04 Sep 2025 06:18:35 -0400
 From: Parvathi Pudi <parvathi@couthit.com>
 To: danishanwar@ti.com,
 	rogerq@kernel.org,
@@ -89,10 +89,12 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	krishna@couthit.com,
 	pmohan@couthit.com,
 	mohan@couthit.com
-Subject: [PATCH net-next v15 0/5] PRU-ICSSM Ethernet Driver
-Date: Thu,  4 Sep 2025 15:45:37 +0530
-Message-ID: <20250904101729.693330-1-parvathi@couthit.com>
+Subject: [PATCH net-next v15 2/5] net: ti: icssm-prueth: Adds ICSSM Ethernet driver
+Date: Thu,  4 Sep 2025 15:45:39 +0530
+Message-ID: <20250904101729.693330-3-parvathi@couthit.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250904101729.693330-1-parvathi@couthit.com>
+References: <20250904101729.693330-1-parvathi@couthit.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -106,8 +108,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_031838_345183_BA0901B6 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20250904_031841_119909_20E1421A 
+X-CRM114-Status: GOOD (  25.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,194 +124,790 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Roger Quadros <rogerq@ti.com>
 
-The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
-is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
-Megabit ICSS (ICSSM).
+Updates Kernel configuration to enable PRUETH driver and its dependencies
+along with makefile changes to add the new PRUETH driver.
 
-Support for ICSSG Dual-EMAC mode has already been mainlined [1] and the
-fundamental components/drivers such as PRUSS driver, Remoteproc driver,
-PRU-ICSS INTC, and PRU-ICSS IEP drivers are already available in the mainline
-Linux kernel. The current set of patch series builds on top of these components
-and introduces changes to support the Dual-EMAC using ICSSM on the TI AM57xx,
-AM437x and AM335x devices.
+Changes includes init and deinit of ICSSM PRU Ethernet driver including
+net dev registration and firmware loading for DUAL-MAC mode running on
+PRU-ICSS2 instance.
 
-AM335x, AM437x and AM57xx devices may have either one or two PRU-ICSS instances
-with two 32-bit RISC PRU cores. Each PRU core has (a) dedicated Ethernet interface
-(MII, MDIO), timers, capture modules, and serial communication interfaces, and
-(b) dedicated data and instruction RAM as well as shared RAM for inter PRU
-communication within the PRU-ICSS.
+Changes also includes link handling, PRU booting, default firmware loading
+and PRU stopping using existing remoteproc driver APIs.
 
-These patches add support for basic RX and TX  functionality over PRU Ethernet
-ports in Dual-EMAC mode.
-
-Further, note that these are the initial set of patches for a single instance of
-PRU-ICSS Ethernet.  Additional features such as Ethtool support, VLAN Filtering,
-Multicast Filtering, Promiscuous mode, Storm prevention, Interrupt coalescing,
-Linux PTP (ptp4l) Ordinary clock and Switch mode support for AM335x, AM437x
-and AM57x along with support for a second instance of  PRU-ICSS on AM57x
-will be posted subsequently.
-
-The patches presented in this series have gone through the patch verification
-tools and no warnings or errors are reported. Sample test logs obtained from AM33x,
-AM43x and AM57x verifying the functionality on Linux next kernel are available here:
-
-[Interface up Testing](https://gist.github.com/ParvathiPudi/47da3426920d6a545ad8a8057d659f1b)
-
-[Ping Testing](https://gist.github.com/ParvathiPudi/bf0bc8bd6bf83c8943bd43b81fa49a1d)
-
-[Iperf Testing](https://gist.github.com/ParvathiPudi/84cfdf999e7473f40abab2fdc3343d7c)
-
-[1] https://lore.kernel.org/all/20230106121046.886863-1-danishanwar@ti.com/
-[2] https://lore.kernel.org/all/20250108125937.10604-1-basharath@couthit.com/
-
-This is the v15 of the patch series [v1]. This version of the patchset
-addresses the comments made on [v14] of the series.
-
-Changes from v14 to v15 :
-
-*) Addressed Jakub Kicinski's comments on patch 4 of the series.
-*) Addressed MD Danish Anwar comments on patch 2 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v13 to v14 :
-
-*) Addressed Jakub Kicinski's comments on patch 4 of the series.
-*) Addressed MD Danish Anwar comments on cover letter of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v12 to v13 :
-
-*) Addressed Alok Tiwari comments on patch 2, 3 and 5 of the series.
-*) Addressed Bastien Curutchet comment on patch 2 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v11 to v12 :
-
-*) Addressed Jakub Kicinski's comments on patch 2 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v10 to v11 :
-
-*) Reduced patch series size by removing features such as Ethtool support,
-VLAN filtering, Multicast filtering, Promiscuous mode handling, Storm Prevention,
-Interrupt coalescing, and Linux PTP (ptp4l) ordinary clock support. This was done
-based on Jakub Kicinski's feedback regarding the large patch size (~5kLoC).
-Excluded features will be resubmitted.
-*) Addressed Jakub Kicinski comments on patch 2, and 3 of the series.
-*) Addressed Jakub Kicinski's comment on patch 4 of the series by implementing
-hrtimer based TX resume logic to notify upper layers in case of TX busy.
-*) Rebased the series on latest net-next.
-
-Changes from v9 to v10 :
-
-*) Addressed Vadim Fedorenko comments on patch 6 and 11 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v8 to v9 :
-
-*) Addressed Vadim Fedorenko comments on patch 6 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v7 to v8 :
-
-*) Addressed Paolo Abeni comments on patch 3 and 4 of the series.
-*) Replaced threaded IRQ logic with NAPI logic based on feedback from Paolo Abeni.
-*) Added Reviewed-by: tag from Rob Herring for patch 1.
-*) Rebased the series on latest net-next.
-
-Changes from v6 to v7 :
-
-*) Addressed Rob Herring comments on patch 1 of the series.
-*) Addressed Jakub Kicinski comments on patch 4, 5 and 6 of the series.
-*) Addressed Alok Tiwari comments on Patch 1, 4 and 5 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v5 to v6 :
-
-*) Addressed Simon Horman comments on patch 2, 7 and 11 of the series.
-*) Addressed Andrew Lunn comments on patch 5 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v4 to v5 :
-
-*) Addressed Andrew Lunn and Keller, Jacob E comments on patch 5 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v3 to v4 :
-
-*) Added support for AM33x and AM43x platforms.
-*) Removed SOC patch [2] and its dependencies.
-*) Addressed Jakub Kicinski, MD Danish Anwar and Nishanth Menon comments on cover
-   letter of the series.
-*) Addressed Rob Herring comments on patch 1 of the series.
-*) Addressed Ratheesh Kannoth comments on patch 2 of the series.
-*) Addressed Maxime Chevallier comments on patch 4 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v2 to v3 :
-
-*) Addressed Conor Dooley comments on patch 1 of the series.
-*) Addressed Simon Horman comments on patch 2, 3, 4, 5 and 6 of the series.
-*) Addressed Joe Damato comments on patch 4 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v1 to v2 :
-
-*) Addressed Andrew Lunn, Rob Herring comments on patch 1 of the series.
-*) Addressed Andrew Lunn comments on patch 2, 3, and 4 of the series.
-*) Addressed Richard Cochran, Jason Xing comments on patch 6 of the series.
-*) Rebased patchset on next-202401xx linux-next.
-
-[v1] https://lore.kernel.org/all/20250109105600.41297-1-basharath@couthit.com/
-[v2] https://lore.kernel.org/all/20250124122353.1457174-1-basharath@couthit.com/
-[v3] https://lore.kernel.org/all/20250214054702.1073139-1-parvathi@couthit.com/
-[v4] https://lore.kernel.org/all/20250407102528.1048589-1-parvathi@couthit.com/
-[v5] https://lore.kernel.org/all/20250414113458.1913823-1-parvathi@couthit.com/
-[v6] https://lore.kernel.org/all/20250423060707.145166-1-parvathi@couthit.com/
-[v7] https://lore.kernel.org/all/20250503121107.1973888-1-parvathi@couthit.com/
-[v8] https://lore.kernel.org/all/20250610105721.3063503-1-parvathi@couthit.com/
-[v9] https://lore.kernel.org/all/20250623135949.254674-1-parvathi@couthit.com/
-[v10] https://lore.kernel.org/all/20250702140633.1612269-1-parvathi@couthit.com/
-[v11] https://lore.kernel.org/all/20250722132700.2655208-1-parvathi@couthit.com/
-[v12] https://lore.kernel.org/all/20250724072535.3062604-1-parvathi@couthit.com/
-[v13] https://lore.kernel.org/all/20250812110723.4116929-1-parvathi@couthit.com/
-[v14] https://lore.kernel.org/all/20250822132758.2771308-1-parvathi@couthit.com/
-
-Thanks and Regards,
-Parvathi.
-
-Parvathi Pudi (2):
-  dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for
-    AM57xx, AM43xx and AM33xx SOCs
-  net: ti: icssm-prueth: Adds IEP support for PRUETH on AM33x, AM43x and
-    AM57x SOCs
-
-Roger Quadros (3):
-  net: ti: icssm-prueth: Adds ICSSM Ethernet driver
-  net: ti: icssm-prueth: Adds PRUETH HW and SW configuration
-  net: ti: icssm-prueth: Adds link detection, RX and TX support.
-
- .../devicetree/bindings/net/ti,icss-iep.yaml  |   10 +-
- .../bindings/net/ti,icssm-prueth.yaml         |  233 +++
- .../bindings/net/ti,pruss-ecap.yaml           |   32 +
- .../devicetree/bindings/soc/ti/ti,pruss.yaml  |    9 +
- drivers/net/ethernet/ti/Kconfig               |   12 +
- drivers/net/ethernet/ti/Makefile              |    3 +
- drivers/net/ethernet/ti/icssg/icss_iep.c      |  101 +
- drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 1753 +++++++++++++++++
- drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  262 +++
- .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |   85 +
- drivers/net/ethernet/ti/icssm/icssm_switch.h  |  257 +++
- 11 files changed, 2754 insertions(+), 3 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
- create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+Signed-off-by: Roger Quadros <rogerq@ti.com>
+Signed-off-by: Andrew F. Davis <afd@ti.com>
+Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+---
+ drivers/net/ethernet/ti/Kconfig              |  12 +
+ drivers/net/ethernet/ti/Makefile             |   3 +
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c | 612 +++++++++++++++++++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h | 100 +++
+ 4 files changed, 727 insertions(+)
  create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.c
  create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.h
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switch.h
 
+diff --git a/drivers/net/ethernet/ti/Kconfig b/drivers/net/ethernet/ti/Kconfig
+index a07c910c497a..a54d71155263 100644
+--- a/drivers/net/ethernet/ti/Kconfig
++++ b/drivers/net/ethernet/ti/Kconfig
+@@ -229,4 +229,16 @@ config TI_ICSS_IEP
+ 	  To compile this driver as a module, choose M here. The module
+ 	  will be called icss_iep.
+ 
++config TI_PRUETH
++	tristate "TI PRU Ethernet EMAC driver"
++	depends on PRU_REMOTEPROC
++	depends on NET_SWITCHDEV
++	select TI_ICSS_IEP
++	imply PTP_1588_CLOCK
++	help
++	  Some TI SoCs has Programmable Realtime Unit (PRU) cores which can
++	  support Single or Dual Ethernet ports with the help of firmware code
++	  running on PRU cores. This driver supports remoteproc based
++	  communication to PRU firmware to expose Ethernet interface to Linux.
++
+ endif # NET_VENDOR_TI
+diff --git a/drivers/net/ethernet/ti/Makefile b/drivers/net/ethernet/ti/Makefile
+index cbcf44806924..93c0a4d0e33a 100644
+--- a/drivers/net/ethernet/ti/Makefile
++++ b/drivers/net/ethernet/ti/Makefile
+@@ -3,6 +3,9 @@
+ # Makefile for the TI network device drivers.
+ #
+ 
++obj-$(CONFIG_TI_PRUETH) += icssm-prueth.o
++icssm-prueth-y := icssm/icssm_prueth.o
++
+ obj-$(CONFIG_TI_CPSW) += cpsw-common.o
+ obj-$(CONFIG_TI_DAVINCI_EMAC) += cpsw-common.o
+ obj-$(CONFIG_TI_CPSW_SWITCHDEV) += cpsw-common.o
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+new file mode 100644
+index 000000000000..2f9c92c8f949
+--- /dev/null
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+@@ -0,0 +1,612 @@
++// SPDX-License-Identifier: GPL-2.0
++
++/* Texas Instruments ICSSM Ethernet Driver
++ *
++ * Copyright (C) 2018-2022 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ */
++
++#include <linux/etherdevice.h>
++#include <linux/genalloc.h>
++#include <linux/if_bridge.h>
++#include <linux/if_hsr.h>
++#include <linux/if_vlan.h>
++#include <linux/interrupt.h>
++#include <linux/kernel.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/net_tstamp.h>
++#include <linux/of.h>
++#include <linux/of_irq.h>
++#include <linux/of_mdio.h>
++#include <linux/of_net.h>
++#include <linux/platform_device.h>
++#include <linux/phy.h>
++#include <linux/remoteproc/pruss.h>
++#include <linux/ptp_classify.h>
++#include <linux/regmap.h>
++#include <linux/remoteproc.h>
++#include <net/pkt_cls.h>
++
++#include "icssm_prueth.h"
++
++/* called back by PHY layer if there is change in link state of hw port*/
++static void icssm_emac_adjust_link(struct net_device *ndev)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++	struct phy_device *phydev = emac->phydev;
++	bool new_state = false;
++	unsigned long flags;
++
++	spin_lock_irqsave(&emac->lock, flags);
++
++	if (phydev->link) {
++		/* check the mode of operation */
++		if (phydev->duplex != emac->duplex) {
++			new_state = true;
++			emac->duplex = phydev->duplex;
++		}
++		if (phydev->speed != emac->speed) {
++			new_state = true;
++			emac->speed = phydev->speed;
++		}
++		if (!emac->link) {
++			new_state = true;
++			emac->link = 1;
++		}
++	} else if (emac->link) {
++		new_state = true;
++		emac->link = 0;
++	}
++
++	if (new_state)
++		phy_print_status(phydev);
++
++	if (emac->link) {
++	       /* reactivate the transmit queue if it is stopped */
++		if (netif_running(ndev) && netif_queue_stopped(ndev))
++			netif_wake_queue(ndev);
++	} else {
++		if (!netif_queue_stopped(ndev))
++			netif_stop_queue(ndev);
++	}
++
++	spin_unlock_irqrestore(&emac->lock, flags);
++}
++
++static int icssm_emac_set_boot_pru(struct prueth_emac *emac,
++				   struct net_device *ndev)
++{
++	const struct prueth_firmware *pru_firmwares;
++	struct prueth *prueth = emac->prueth;
++	const char *fw_name;
++	int ret;
++
++	pru_firmwares = &prueth->fw_data->fw_pru[emac->port_id - 1];
++	fw_name = pru_firmwares->fw_name[prueth->eth_type];
++	if (!fw_name) {
++		netdev_err(ndev, "eth_type %d not supported\n",
++			   prueth->eth_type);
++		return -ENODEV;
++	}
++
++	ret = rproc_set_firmware(emac->pru, fw_name);
++	if (ret) {
++		netdev_err(ndev, "failed to set %s firmware: %d\n",
++			   fw_name, ret);
++		return ret;
++	}
++
++	ret = rproc_boot(emac->pru);
++	if (ret) {
++		netdev_err(ndev, "failed to boot %s firmware: %d\n",
++			   fw_name, ret);
++		return ret;
++	}
++
++	return ret;
++}
++
++/**
++ * icssm_emac_ndo_open - EMAC device open
++ * @ndev: network adapter device
++ *
++ * Called when system wants to start the interface.
++ *
++ * Return: 0 for a successful open, or appropriate error code
++ */
++static int icssm_emac_ndo_open(struct net_device *ndev)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++	int ret;
++
++	ret = icssm_emac_set_boot_pru(emac, ndev);
++	if (ret)
++		return ret;
++
++	/* start PHY */
++	phy_start(emac->phydev);
++
++	return 0;
++}
++
++/**
++ * icssm_emac_ndo_stop - EMAC device stop
++ * @ndev: network adapter device
++ *
++ * Called when system wants to stop or down the interface.
++ *
++ * Return: Always 0 (Success)
++ */
++static int icssm_emac_ndo_stop(struct net_device *ndev)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++
++	/* stop PHY */
++	phy_stop(emac->phydev);
++
++	rproc_shutdown(emac->pru);
++
++	return 0;
++}
++
++static const struct net_device_ops emac_netdev_ops = {
++	.ndo_open = icssm_emac_ndo_open,
++	.ndo_stop = icssm_emac_ndo_stop,
++};
++
++/* get emac_port corresponding to eth_node name */
++static int icssm_prueth_node_port(struct device_node *eth_node)
++{
++	u32 port_id;
++	int ret;
++
++	ret = of_property_read_u32(eth_node, "reg", &port_id);
++	if (ret)
++		return ret;
++
++	if (port_id == 0)
++		return PRUETH_PORT_MII0;
++	else if (port_id == 1)
++		return PRUETH_PORT_MII1;
++	else
++		return PRUETH_PORT_INVALID;
++}
++
++/* get MAC instance corresponding to eth_node name */
++static int icssm_prueth_node_mac(struct device_node *eth_node)
++{
++	u32 port_id;
++	int ret;
++
++	ret = of_property_read_u32(eth_node, "reg", &port_id);
++	if (ret)
++		return ret;
++
++	if (port_id == 0)
++		return PRUETH_MAC0;
++	else if (port_id == 1)
++		return PRUETH_MAC1;
++	else
++		return PRUETH_MAC_INVALID;
++}
++
++static int icssm_prueth_netdev_init(struct prueth *prueth,
++				    struct device_node *eth_node)
++{
++	struct prueth_emac *emac;
++	struct net_device *ndev;
++	enum prueth_port port;
++	enum prueth_mac mac;
++	int ret;
++
++	port = icssm_prueth_node_port(eth_node);
++	if (port == PRUETH_PORT_INVALID)
++		return -EINVAL;
++
++	mac = icssm_prueth_node_mac(eth_node);
++	if (mac == PRUETH_MAC_INVALID)
++		return -EINVAL;
++
++	ndev = devm_alloc_etherdev(prueth->dev, sizeof(*emac));
++	if (!ndev)
++		return -ENOMEM;
++
++	SET_NETDEV_DEV(ndev, prueth->dev);
++	emac = netdev_priv(ndev);
++	prueth->emac[mac] = emac;
++	emac->prueth = prueth;
++	emac->ndev = ndev;
++	emac->port_id = port;
++
++	/* by default eth_type is EMAC */
++	switch (port) {
++	case PRUETH_PORT_MII0:
++		emac->pru = prueth->pru0;
++		break;
++	case PRUETH_PORT_MII1:
++		emac->pru = prueth->pru1;
++		break;
++	default:
++		return -EINVAL;
++	}
++	/* get mac address from DT and set private and netdev addr */
++	ret = of_get_ethdev_address(eth_node, ndev);
++	if (!is_valid_ether_addr(ndev->dev_addr)) {
++		eth_hw_addr_random(ndev);
++		dev_warn(prueth->dev, "port %d: using random MAC addr: %pM\n",
++			 port, ndev->dev_addr);
++	}
++	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
++
++	/* connect PHY */
++	emac->phydev = of_phy_get_and_connect(ndev, eth_node,
++					      icssm_emac_adjust_link);
++	if (!emac->phydev) {
++		dev_dbg(prueth->dev, "PHY connection failed\n");
++		ret = -ENODEV;
++		goto free;
++	}
++
++	/* remove unsupported modes */
++	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_10baseT_Full_BIT);
++
++	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_10baseT_Half_BIT);
++	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_100baseT_Half_BIT);
++
++	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Pause_BIT);
++	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Asym_Pause_BIT);
++
++	ndev->dev.of_node = eth_node;
++	ndev->netdev_ops = &emac_netdev_ops;
++
++	return 0;
++free:
++	emac->ndev = NULL;
++	prueth->emac[mac] = NULL;
++
++	return ret;
++}
++
++static void icssm_prueth_netdev_exit(struct prueth *prueth,
++				     struct device_node *eth_node)
++{
++	struct prueth_emac *emac;
++	enum prueth_mac mac;
++
++	mac = icssm_prueth_node_mac(eth_node);
++	if (mac == PRUETH_MAC_INVALID)
++		return;
++
++	emac = prueth->emac[mac];
++	if (!emac)
++		return;
++
++	phy_disconnect(emac->phydev);
++
++	prueth->emac[mac] = NULL;
++}
++
++static int icssm_prueth_probe(struct platform_device *pdev)
++{
++	struct device_node *eth0_node = NULL, *eth1_node = NULL;
++	struct device_node *eth_node, *eth_ports_node;
++	enum pruss_pru_id pruss_id0, pruss_id1;
++	struct device *dev = &pdev->dev;
++	struct device_node *np;
++	struct prueth *prueth;
++	int i, ret;
++
++	np = dev->of_node;
++	if (!np)
++		return -ENODEV; /* we don't support non DT */
++
++	prueth = devm_kzalloc(dev, sizeof(*prueth), GFP_KERNEL);
++	if (!prueth)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, prueth);
++	prueth->dev = dev;
++	prueth->fw_data = device_get_match_data(dev);
++
++	eth_ports_node = of_get_child_by_name(np, "ethernet-ports");
++	if (!eth_ports_node)
++		return -ENOENT;
++
++	for_each_child_of_node(eth_ports_node, eth_node) {
++		u32 reg;
++
++		if (strcmp(eth_node->name, "ethernet-port"))
++			continue;
++		ret = of_property_read_u32(eth_node, "reg", &reg);
++		if (ret < 0) {
++			dev_err(dev, "%pOF error reading port_id %d\n",
++				eth_node, ret);
++			of_node_put(eth_node);
++			return ret;
++		}
++
++		of_node_get(eth_node);
++
++		if (reg == 0 && !eth0_node) {
++			eth0_node = eth_node;
++			if (!of_device_is_available(eth0_node)) {
++				of_node_put(eth0_node);
++				eth0_node = NULL;
++			}
++		} else if (reg == 1 && !eth1_node) {
++			eth1_node = eth_node;
++			if (!of_device_is_available(eth1_node)) {
++				of_node_put(eth1_node);
++				eth1_node = NULL;
++			}
++		} else {
++			if (reg == 0 || reg == 1)
++				dev_err(dev, "duplicate port reg value: %d\n",
++					reg);
++			else
++				dev_err(dev, "invalid port reg value: %d\n",
++					reg);
++
++			of_node_put(eth_node);
++		}
++	}
++
++	of_node_put(eth_ports_node);
++
++	/* At least one node must be present and available else we fail */
++	if (!eth0_node && !eth1_node) {
++		dev_err(dev, "neither port0 nor port1 node available\n");
++		return -ENODEV;
++	}
++
++	prueth->eth_node[PRUETH_MAC0] = eth0_node;
++	prueth->eth_node[PRUETH_MAC1] = eth1_node;
++
++	if (eth0_node) {
++		prueth->pru0 = pru_rproc_get(np, 0, &pruss_id0);
++		if (IS_ERR(prueth->pru0)) {
++			ret = PTR_ERR(prueth->pru0);
++			dev_err_probe(dev, ret, "unable to get PRU0");
++			goto put_pru;
++		}
++	}
++
++	if (eth1_node) {
++		prueth->pru1 = pru_rproc_get(np, 1, &pruss_id1);
++		if (IS_ERR(prueth->pru1)) {
++			ret = PTR_ERR(prueth->pru1);
++			dev_err_probe(dev, ret, "unable to get PRU1");
++			goto put_pru;
++		}
++	}
++
++	/* setup netdev interfaces */
++	if (eth0_node) {
++		ret = icssm_prueth_netdev_init(prueth, eth0_node);
++		if (ret) {
++			if (ret != -EPROBE_DEFER) {
++				dev_err(dev, "netdev init %s failed: %d\n",
++					eth0_node->name, ret);
++			}
++			goto put_pru;
++		}
++	}
++
++	if (eth1_node) {
++		ret = icssm_prueth_netdev_init(prueth, eth1_node);
++		if (ret) {
++			if (ret != -EPROBE_DEFER) {
++				dev_err(dev, "netdev init %s failed: %d\n",
++					eth1_node->name, ret);
++			}
++			goto netdev_exit;
++		}
++	}
++
++	/* register the network devices */
++	if (eth0_node) {
++		ret = register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
++		if (ret) {
++			dev_err(dev, "can't register netdev for port MII0");
++			goto netdev_exit;
++		}
++
++		prueth->registered_netdevs[PRUETH_MAC0] =
++			prueth->emac[PRUETH_MAC0]->ndev;
++	}
++
++	if (eth1_node) {
++		ret = register_netdev(prueth->emac[PRUETH_MAC1]->ndev);
++		if (ret) {
++			dev_err(dev, "can't register netdev for port MII1");
++			goto netdev_unregister;
++		}
++
++		prueth->registered_netdevs[PRUETH_MAC1] =
++			prueth->emac[PRUETH_MAC1]->ndev;
++	}
++
++	if (eth1_node)
++		of_node_put(eth1_node);
++	if (eth0_node)
++		of_node_put(eth0_node);
++	return 0;
++
++netdev_unregister:
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		if (!prueth->registered_netdevs[i])
++			continue;
++		unregister_netdev(prueth->registered_netdevs[i]);
++	}
++
++netdev_exit:
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		eth_node = prueth->eth_node[i];
++		if (!eth_node)
++			continue;
++
++		icssm_prueth_netdev_exit(prueth, eth_node);
++	}
++
++put_pru:
++	if (eth1_node) {
++		if (prueth->pru1)
++			pru_rproc_put(prueth->pru1);
++		of_node_put(eth1_node);
++	}
++
++	if (eth0_node) {
++		if (prueth->pru0)
++			pru_rproc_put(prueth->pru0);
++		of_node_put(eth0_node);
++	}
++
++	return ret;
++}
++
++static void icssm_prueth_remove(struct platform_device *pdev)
++{
++	struct prueth *prueth = platform_get_drvdata(pdev);
++	struct device_node *eth_node;
++	int i;
++
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		if (!prueth->registered_netdevs[i])
++			continue;
++		unregister_netdev(prueth->registered_netdevs[i]);
++	}
++
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		eth_node = prueth->eth_node[i];
++		if (!eth_node)
++			continue;
++
++		icssm_prueth_netdev_exit(prueth, eth_node);
++		of_node_put(eth_node);
++	}
++
++	pruss_put(prueth->pruss);
++
++	if (prueth->eth_node[PRUETH_MAC0])
++		pru_rproc_put(prueth->pru0);
++	if (prueth->eth_node[PRUETH_MAC1])
++		pru_rproc_put(prueth->pru1);
++}
++
++#ifdef CONFIG_PM_SLEEP
++static int icssm_prueth_suspend(struct device *dev)
++{
++	struct prueth *prueth = dev_get_drvdata(dev);
++	struct net_device *ndev;
++	int i, ret;
++
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		ndev = prueth->registered_netdevs[i];
++
++		if (!ndev)
++			continue;
++
++		if (netif_running(ndev)) {
++			netif_device_detach(ndev);
++			ret = icssm_emac_ndo_stop(ndev);
++			if (ret < 0) {
++				netdev_err(ndev, "failed to stop: %d", ret);
++				return ret;
++			}
++		}
++	}
++
++	return 0;
++}
++
++static int icssm_prueth_resume(struct device *dev)
++{
++	struct prueth *prueth = dev_get_drvdata(dev);
++	struct net_device *ndev;
++	int i, ret;
++
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		ndev = prueth->registered_netdevs[i];
++
++		if (!ndev)
++			continue;
++
++		if (netif_running(ndev)) {
++			ret = icssm_emac_ndo_open(ndev);
++			if (ret < 0) {
++				netdev_err(ndev, "failed to start: %d", ret);
++				return ret;
++			}
++			netif_device_attach(ndev);
++		}
++	}
++
++	return 0;
++}
++
++#endif /* CONFIG_PM_SLEEP */
++
++static const struct dev_pm_ops prueth_dev_pm_ops = {
++	SET_SYSTEM_SLEEP_PM_OPS(icssm_prueth_suspend, icssm_prueth_resume)
++};
++
++/* AM335x SoC-specific firmware data */
++static struct prueth_private_data am335x_prueth_pdata = {
++	.fw_pru[PRUSS_PRU0] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am335x-pru0-prueth-fw.elf",
++	},
++	.fw_pru[PRUSS_PRU1] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am335x-pru1-prueth-fw.elf",
++	},
++};
++
++/* AM437x SoC-specific firmware data */
++static struct prueth_private_data am437x_prueth_pdata = {
++	.fw_pru[PRUSS_PRU0] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am437x-pru0-prueth-fw.elf",
++	},
++	.fw_pru[PRUSS_PRU1] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am437x-pru1-prueth-fw.elf",
++	},
++};
++
++/* AM57xx SoC-specific firmware data */
++static struct prueth_private_data am57xx_prueth_pdata = {
++	.fw_pru[PRUSS_PRU0] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am57xx-pru0-prueth-fw.elf",
++	},
++	.fw_pru[PRUSS_PRU1] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am57xx-pru1-prueth-fw.elf",
++	},
++};
++
++static const struct of_device_id prueth_dt_match[] = {
++	{ .compatible = "ti,am57-prueth", .data = &am57xx_prueth_pdata, },
++	{ .compatible = "ti,am4376-prueth", .data = &am437x_prueth_pdata, },
++	{ .compatible = "ti,am3359-prueth", .data = &am335x_prueth_pdata, },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, prueth_dt_match);
++
++static struct platform_driver prueth_driver = {
++	.probe = icssm_prueth_probe,
++	.remove = icssm_prueth_remove,
++	.driver = {
++		.name = "prueth",
++		.of_match_table = prueth_dt_match,
++		.pm = &prueth_dev_pm_ops,
++	},
++};
++module_platform_driver(prueth_driver);
++
++MODULE_AUTHOR("Roger Quadros <rogerq@ti.com>");
++MODULE_AUTHOR("Andrew F. Davis <afd@ti.com>");
++MODULE_DESCRIPTION("PRUSS ICSSM Ethernet Driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+new file mode 100644
+index 000000000000..b77deb02fc2f
+--- /dev/null
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+@@ -0,0 +1,100 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/* Texas Instruments ICSSM Ethernet driver
++ *
++ * Copyright (C) 2018-2022 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ */
++
++#ifndef __NET_TI_PRUETH_H
++#define __NET_TI_PRUETH_H
++
++#include <linux/phy.h>
++#include <linux/types.h>
++#include <linux/pruss_driver.h>
++#include <linux/remoteproc/pruss.h>
++
++/* PRU Ethernet Type - Ethernet functionality (protocol
++ * implemented) provided by the PRU firmware being loaded.
++ */
++enum pruss_ethtype {
++	PRUSS_ETHTYPE_EMAC = 0,
++	PRUSS_ETHTYPE_HSR,
++	PRUSS_ETHTYPE_PRP,
++	PRUSS_ETHTYPE_SWITCH,
++	PRUSS_ETHTYPE_MAX,
++};
++
++/* In switch mode there are 3 real ports i.e. 3 mac addrs.
++ * however Linux sees only the host side port. The other 2 ports
++ * are the switch ports.
++ * In emac mode there are 2 real ports i.e. 2 mac addrs.
++ * Linux sees both the ports.
++ */
++enum prueth_port {
++	PRUETH_PORT_HOST = 0,	/* host side port */
++	PRUETH_PORT_MII0,	/* physical port MII 0 */
++	PRUETH_PORT_MII1,	/* physical port MII 1 */
++	PRUETH_PORT_INVALID,	/* Invalid prueth port */
++};
++
++enum prueth_mac {
++	PRUETH_MAC0 = 0,
++	PRUETH_MAC1,
++	PRUETH_NUM_MACS,
++	PRUETH_MAC_INVALID,
++};
++
++/**
++ * struct prueth_firmware - PRU Ethernet FW data
++ * @fw_name: firmware names of firmware to run on PRU
++ */
++struct prueth_firmware {
++	const char *fw_name[PRUSS_ETHTYPE_MAX];
++};
++
++/**
++ * struct prueth_private_data - PRU Ethernet private data
++ * @fw_pru: firmware names to be used for PRUSS ethernet usecases
++ */
++struct prueth_private_data {
++	const struct prueth_firmware fw_pru[PRUSS_NUM_PRUS];
++};
++
++/* data for each emac port */
++struct prueth_emac {
++	struct prueth *prueth;
++	struct net_device *ndev;
++
++	struct rproc *pru;
++	struct phy_device *phydev;
++
++	int link;
++	int speed;
++	int duplex;
++
++	enum prueth_port port_id;
++	const char *phy_id;
++	u8 mac_addr[6];
++	phy_interface_t phy_if;
++
++	/* spin lock used to protect
++	 * during link configuration
++	 */
++	spinlock_t lock;
++};
++
++struct prueth {
++	struct device *dev;
++	struct pruss *pruss;
++	struct rproc *pru0, *pru1;
++
++	const struct prueth_private_data *fw_data;
++	struct prueth_fw_offsets *fw_offsets;
++
++	struct device_node *eth_node[PRUETH_NUM_MACS];
++	struct prueth_emac *emac[PRUETH_NUM_MACS];
++	struct net_device *registered_netdevs[PRUETH_NUM_MACS];
++
++	unsigned int eth_type;
++};
++#endif /* __NET_TI_PRUETH_H */
 -- 
 2.43.0
 
