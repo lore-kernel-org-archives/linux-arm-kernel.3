@@ -4,92 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D39ACAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED1B0CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8NjjCeXReyzcgLbvsACK7P63HLhNpR34lPrzMuu3eQ=; b=M14KaZcuR3yK0Q64zfMFKGD0Fc
-	uG26wgUiKmBq5CHELHU3lK2D7YjPO5jMI7JCbS8e1NxofouJKjGl4DgaBDnwFPdflFpC2KJ7mb7BG
-	rosXAm9bBX9ZMxJyOM/YlytQah3FuOxI8UMkiBvt0XDTfETT1fNWqYJJ1L7sTPdmRj16eCPfvaRdn
-	3HBYzf+4GUxyRUjzzOFV6i8Nr1i4FuIn4meavW4MJre5swMHydI/HG9+9BcSh/zbQ0NrJYoDFNCZ0
-	BQew6OitFeOSDB9bl/zpFpMURNA1kyRhheHbGx/BvFofL9UkemakujgwmuUJ9Nd+6vzAK0Xz2TK8/
-	+1APWO2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=; b=3xAEjhr0xB/iUfxDZN0LJkfi4L
+	g/vyAfHdze+0yGBQ9Yy3LTZkJUo+749UfAzvhcKu5ILdYLk8idmQv3HNuEK5RD+Ve8DosCGs0zAlB
+	+zFrJ5NhkaIcaIZBHB6xPJ0UfOoHy0v6eG6I3yF6vxLkLCuOk0K8kEMsOjYVRvfmrl93iwiFWtcY2
+	HQOWY3lKK6/APSOBr5JUryqiuhCysxL6xF3QrO7HNRL7xxDY/g36ZaGySMns1Z1aGteYeCPGnk0/Z
+	GOMAaJG1mzR7GnL9cDZpuM0f04l9Zi0S5EaQ3J3qanSLWqQPy4Iy7xvcUagN72f2uRufkA///4eWJ
+	KviSN/TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVV-00000005RLO-2jSI;
-	Sat, 06 Sep 2025 00:10:17 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1uugV7-00000005Qtb-3TAh;
+	Sat, 06 Sep 2025 00:09:54 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZpb-00000003Kf4-1pT8;
-	Fri, 05 Sep 2025 17:02:36 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-71d60150590so21554227b3.0;
-        Fri, 05 Sep 2025 10:02:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757091754; x=1757696554; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r8NjjCeXReyzcgLbvsACK7P63HLhNpR34lPrzMuu3eQ=;
-        b=nTlzj2CgElMKklfx/byFKPFJDuz6djPFX0aVxwy+D15vYHjLZZ8H/VN+858EqTv9vb
-         K66RFg/uP8bor/bZfOxjMef8ZPruWAkOO4L9EjTMlOwHYcuPDOxP2rk2WLsT9JXDYw14
-         6J5Ehw0/Eg1yjxn6sG/33WFoOtRO+r//MgKQ1qCVPbjSoQoc2FQWDLk3coPUdKkUbb5o
-         D2SUAERBQ8QwGxUEgVvP57lNBcTvNtBu9sreU0zKrPM//VRZvPnX+tPajwnBUr4NFIbP
-         z00B6o522f3EyQNCHqUJ3dTWn4BLv+bCqS9Xshw44bCOaSyO0N2B8u7TO/LK9EJORxyc
-         HqEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757091754; x=1757696554;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r8NjjCeXReyzcgLbvsACK7P63HLhNpR34lPrzMuu3eQ=;
-        b=s0iCZqcOSBaWd5ccgf2WTvMNCjTV7ZexCizOUK6JxBwsQ+WQrfIS/5h8jy/RAf2eK8
-         ERbA7ZlbfqEbDWEb22Lh2NxPMGIk8GF/YiPMP+UJwi0faX6FJeKZFR8Q+QMcFDjo1E14
-         n5rxX6+uIuuLGbCxoTqe6loSjd+uNmxN28D2xL2Vg17unDw5g0i1VTMFv/vk+wnL4DLl
-         NuCUsNwP5e7iV47OsFDihJ5SxikWjtYqO/cvbjf10hKMU7Kb6tNSDBv+Sdd8NT9JXoy/
-         JGJbERMhJ8ALAkhX3rDpMNkH4j9kTg/bNhDiIj5yOCtgdSpXE6KBYb7Ox3CPBHYpGXIO
-         Twpw==
-X-Forwarded-Encrypted: i=1; AJvYcCVUGxvpNpKy6WRkQkBhkdbpw/w1VIBObmTbKytSihmX+5egxHUGp0T8ix/Jz0hfZD5g+QLcQJjtI3uW5w0Wr46F@lists.infradead.org, AJvYcCWABmM3QMdrGvLIEuNO58+Cbl3S7ssVijcP7Od10IL1mpIFry+iV7scTnUy1j3SaiA3H4ghyz4+v7NuB4LABdQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/dDuz+qJenCVdPLnTrxwCEbJhhHx0hMd+lmzR6d8oF6jhHdIQ
-	hEtGczHxvY2Qi+o8Kb/mP6wIikIZg6fuTiK4/ykhH65UUNV3REczyyLKM6Kk8kTq96ZRSobYj5M
-	RwsY+/sc8fNidmMJX7vbFp1pMbv8QJlo=
-X-Gm-Gg: ASbGncucZbhpt6noEIwdCGHvmLvDQ3e2d5nINYAbIdw9WG//9HFGJxgwS1BE693Sx0S
-	C0QceC9VK+MsMmlgMDp3eFGzZ496cl5ErVdzqm7/+EFrk3IGaNP3xAdXCnoHNgf/i5UhCzU3mHj
-	Qr2Dh72HooQsotTgKmKQNHbyBpuSF/YxRdbU+KHsTbOf7ImS1d88hp/hKjNcL4pyES6E3cNBqIt
-	9nsI5oEbFm3QNOLKU0RmOyhntdW8vXS7Kf1WFOK0Fdb7HC4Mwprv3URSAEd7wUAWoOMRJHo5opu
-	bEZ6Yg==
-X-Google-Smtp-Source: AGHT+IHqV8s7u/gMm8e8T5OVb1+2lpSpU6gKPsZXfcRfbCdMQe3sy75wOj/QBNZIdintoDq0GMgoSv3igicKxfByJtQ=
-X-Received: by 2002:a05:690c:3383:b0:726:3f4b:8ee6 with SMTP id
- 00721157ae682-7263f4b992emr26133807b3.45.1757091753895; Fri, 05 Sep 2025
- 10:02:33 -0700 (PDT)
+	id 1uuYdQ-00000002rZv-1yGF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 15:45:58 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=E4C2C5nt81+qv0ErPFWGz4JHQM7PYXnY+enTbCgFdVgmyNmf2cK8Zv6lyE0pIVNOCu+fJxkdVIYkC64WVlv8L0DUnLITVcYCxR9zGJqXUOb1PpxRJnwHId9aR49d9+ckgKKSVatb9JVAjf0auG0sLqhhSmTGEH7Jho3nSkVOfDmU+S223J4tl7Ek4I5RGrFlxIQbJgEtsBKbjt0l0VpyGRxo8KV4FX0sBCC5X8EjTJlB5h7PT5Qd1Yxvks5QK0KoVkJwHHdr2l/MEHcuDiPWz5hfQtC7smxzFF7+JvKP5Oub0pH9bXJKBXTAHf+pNnvsMo3sG28lMJS6qboQyi1MqQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=;
+ b=Fkd0V97uTWbPnQEmpl7H0vDYPQtjl3CM/0F2CZ7+ATBLmJFz8G9r5JTh4d3BWCsDE+3/PAArN6V/LZSM/9gTvZAcnlqj6NbjBTGTWiRRcT1ADtPSXWOHXe2HmauuElmcrOiWnNQTAGKE2wdVyhlsoTytxk8+DYd+7xiX57so0rnm+a/k/lVLnG9lEQnHa+wQ+xINhadGSMhWQp2pS2koRXYE0eIKz+KaHN2jPpaCpZuciJkKW2xxZTu+AFnNq7Xc+lh0ZMGJNBSOcLJIXCF7JJmTwz0UfOx1Hw6pXUihoKJ1IURYdmxu4ze8RZXE+HcVuQlQCDYIJYx1VJ3oh1hgcw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=google.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=;
+ b=lRDZpA6odgv8ONgBEPBInl/RnaMkLVrgFHjSMlFHBDKixlx4t5lQ17yRJTqA64jaV504g1xqRymnXl8jq9PRy3RTB1ld/Ap7yAo6tVAIWPqjJR36fXRnCVS6EBDqCDYC90fxeQyFDdDrnu1Ejwk/8ggrWiTnRxFSpSacCit0pxo=
+Received: from AM6PR04CA0069.eurprd04.prod.outlook.com (2603:10a6:20b:f0::46)
+ by DB8PR08MB5356.eurprd08.prod.outlook.com (2603:10a6:10:f9::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.18; Fri, 5 Sep
+ 2025 15:45:45 +0000
+Received: from AM4PEPF00027A67.eurprd04.prod.outlook.com
+ (2603:10a6:20b:f0:cafe::6e) by AM6PR04CA0069.outlook.office365.com
+ (2603:10a6:20b:f0::46) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.20 via Frontend Transport; Fri,
+ 5 Sep 2025 15:45:45 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM4PEPF00027A67.mail.protection.outlook.com (10.167.16.84) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.14
+ via Frontend Transport; Fri, 5 Sep 2025 15:45:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b3yYIsy7JUl7Hr+10ciTNKS+W71fDgXbegO2aNsbsL7M3N0p468H37A0wYE7xMemzL7w0am1laVsARicxbxB+CTwk6Aqq1QmYR3vxesM2u1xiKVsBEr2m6p5Db8vQmQBAlrXErOAk9TnIjiKlj1f8N937SaKM6zuJ8elCXxiDOuJWR70a//q1Kz0rBiTyDdfuSpVm03035GJqw9YzhXgKlasjs9x/7ssU8HxHC7HzTfmDyfWlZHV/rBT8WMiMOoaa8a11uN6ag2wHo909Id0t8VmEpm0kU7hXQTP0Sg7D06ZQEUW7NsjOsPmQy6DyfflJMVxK9IGFYIaDlrX1CKU4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=;
+ b=byrOjpiHnqYkKqqJ8rfF+TI64JypWXvlZWdeHuVJ7QF2hISu8bv4J7bhR0CReVyh3GJTAomN+tTwHUAbBh16dukqdjyWPZZgbWxMSw/anS49lmOVjzB6fqHOcdqwu5oKA6xAZNRqXLDLezw65fQZzr5FO5bAi0wJVEsYjgcH34nsyeVOGAvRmd7P6FKJ8HN3X6d1e6osPjwx/m/VOk8F9u62tR89vTtTRy1Jw4HcRjkBptk2EY3XiASz2w6XvLoohvnsHFHsgYWW52M3L0H8GYNyyB6qxvzX4zD6yOZwph+AAL0iy0+3aRbanvHJQPU1rwyB6fTk7Goa1ptb1ObMDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=;
+ b=lRDZpA6odgv8ONgBEPBInl/RnaMkLVrgFHjSMlFHBDKixlx4t5lQ17yRJTqA64jaV504g1xqRymnXl8jq9PRy3RTB1ld/Ap7yAo6tVAIWPqjJR36fXRnCVS6EBDqCDYC90fxeQyFDdDrnu1Ejwk/8ggrWiTnRxFSpSacCit0pxo=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by DU0PR08MB7541.eurprd08.prod.outlook.com
+ (2603:10a6:10:312::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Fri, 5 Sep
+ 2025 15:45:12 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9094.017; Fri, 5 Sep 2025
+ 15:45:12 +0000
+Date: Fri, 5 Sep 2025 16:45:09 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [PATCH v2 0/7] arm64: Make EFI calls preemptible
+Message-ID: <aLsFhe/whtmKyFus@e129823.arm.com>
+References: <20250905133035.275517-9-ardb+git@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250905133035.275517-9-ardb+git@google.com>
+X-ClientProxiedBy: LO6P123CA0058.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:310::19) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-References: <20250903225504.542268-1-olvaffe@gmail.com> <20250903225504.542268-3-olvaffe@gmail.com>
- <20250904080239.779b5e24@fedora> <CAPaKu7RdpEtwqDHrjt4HJOJVYeRjUa38Sk70=6dD9WmXYtf_jw@mail.gmail.com>
- <39d3363d-dd49-43a3-b42e-a434ab6c347e@arm.com>
-In-Reply-To: <39d3363d-dd49-43a3-b42e-a434ab6c347e@arm.com>
-From: Chia-I Wu <olvaffe@gmail.com>
-Date: Fri, 5 Sep 2025 10:02:23 -0700
-X-Gm-Features: Ac12FXy0j2cggFX5ZVGDIXj0e4sNH-RhuO4KH_5mCNlFv0UkwEqWaYYEDOfSPLs
-Message-ID: <CAPaKu7SU5P-SkJj6aHi3ERekM4nnrv1p1joi1ZZ-pq0ZxytP8w@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/2] drm/panthor: add initial mt8196 support
-To: Florent Tomasin <florent.tomasin@arm.com>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
-	Liviu Dudau <liviu.dudau@arm.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DU0PR08MB7541:EE_|AM4PEPF00027A67:EE_|DB8PR08MB5356:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8416a9a2-f256-4994-0431-08ddec934734
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?Pu0jQOJWrVj+730WjAOoAfMTIWXynW7JmjRQFRviPbK3wlRgtiF0+Z2fX+bc?=
+ =?us-ascii?Q?bsVoA0zWGGb/0BNvovOdUHEgAdEFpmbKi0bgHnJSp9u35sAHtRQbxQ7Rihvz?=
+ =?us-ascii?Q?iTdr1JK/JM0iOzGIWYw5keUnAPTcjw+G5hBwUQXhuXVNaPOpB0Q9kUmMwTxu?=
+ =?us-ascii?Q?0l19UPgM+IdgnkbUPkZqoUhQO2WJahDHKacCWOfjaqMklrivWm0d3ouEX6J9?=
+ =?us-ascii?Q?BhsMPklTfkVtCKIRLRym+1u/p9E/+FkizlfAsZQfSEFMO15ibwvPR7opoNa5?=
+ =?us-ascii?Q?ySVUGlQMBHx8DQKbtOH4uSEBRHyS1nNuiTFWz3/ZEkg+5ejpKZt00289UVR3?=
+ =?us-ascii?Q?sKOOVzCPBaa6vzCdDBwH4D7w68s6Llbdgb1lqcCmqTjW1FmlIA12l43bfYZl?=
+ =?us-ascii?Q?n/Ga25UJyByBep+5plqf7h9s8yljnuYRySSY56HrVLfVy4SoUn2sIUpDUXnj?=
+ =?us-ascii?Q?UJRNmviK76YiGo6+aKOhtqGzazJwxMLSwSS8lWgS2YWFAh72Yf9NAIkV4PBi?=
+ =?us-ascii?Q?NG4wOs+IQyluxpOSYDUfwtLDmdcaYh9OThBavuixIvLNo/28f65WYbGOH4YO?=
+ =?us-ascii?Q?vym697MHjzwNu30CxYtHTiz5G0YIRmlZUldT9MsMtHP6O1GH5Dhk5FwyX2kW?=
+ =?us-ascii?Q?8fP9FhQcFsjhTXFDLz1kNRWYMRM5t2Fo8qb1cxfUjbfmwakL0dp1vX99GHLR?=
+ =?us-ascii?Q?uFHD9Or+YyxGyFsWg2bRZlY5mqhPjtXJ7axPmvhxo8TTqRHqHLiZLjM/w1xj?=
+ =?us-ascii?Q?5BVHaUz7EmGrZSOojjOOmiFYsFBJiMwbOhFLn0xwIK+jaOPzqgF5Ylq1TQGe?=
+ =?us-ascii?Q?jqfTtpvrlqpk5W577gtIXHwaInTRmbYegMGm3G2Xtha4xXG7OkG5yfWxkuUH?=
+ =?us-ascii?Q?a+I7Z5gdfkhFKtHpJ08Oh4bli/Nw6uhNsRyC2i4a54saWHoVcepj2oqRxg4q?=
+ =?us-ascii?Q?+8bGTKE6tKKH6CSygTO55CVk/F3RWcn6ozI1Wrb6MrGgwRRcGlJ/j0jeCrIj?=
+ =?us-ascii?Q?+3/TurN4I1s2SFVyY4m8ixZLtMoygVnhDlfl5+tLxgaSWbtzix/I3rNr+TwD?=
+ =?us-ascii?Q?Sl/9HFPfWyAUs4avDoWU7huAIhARBOQPKoAo05xZEVd+JT6yNYGNMp1zZaee?=
+ =?us-ascii?Q?q+JMUtmB7lcxsGDcXYBD6AwnOVHGWYGwtyFp2o6SluV87o6wOlXS0rB2I+3o?=
+ =?us-ascii?Q?0FD8q40MA/+XzkRQeB4JoNQcpYlzv/3lAwXVYhnCq5Uqb5C3XotaWjIpJb8g?=
+ =?us-ascii?Q?03m3DRRmwkV4HHrvgvXkROFF425H4OaubCSV5QyPO3KYiJT+1BURJPWynSLo?=
+ =?us-ascii?Q?bQM4Rt+84hNpDaRLkbaj62SI7XMhaYCjVV2SgpYQ/+lF6Mb7GCruItF0Ti8+?=
+ =?us-ascii?Q?2SXeurmHBbvwY+fhVSqj7XzHQCPzpdagAgMKGkPl8Be/I3g8t+sKStPROF3U?=
+ =?us-ascii?Q?Z71KpOOTq78=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB7541
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A67.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: e718d70c-4d30-4e91-093c-08ddec933359
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|35042699022|1800799024|14060799003|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9SaJ/bMdhXPniksqWp44yh6Q2TCgkgGBqgf8gK4t1unm+vJAO4nKIjgk34y3?=
+ =?us-ascii?Q?ipZ5f8+oW6qvBHfBFr6RKfsWtBGM5YnzeK6MuZy3k1JSdPqmSO2vUocbWeyO?=
+ =?us-ascii?Q?S6RIjC0ixb/SnOvX7juXtvv1hIb0lAtEAenm74/Gvn9hy7s0QFegx61H7FXq?=
+ =?us-ascii?Q?0UoqupfaOasvLFU9xub28IopAWIDVB3D1fVdFVecns/79pQX5ffJDdfBq7m5?=
+ =?us-ascii?Q?7pnuGI6LUSg6xezSczx/VucswHKb5Wrc9B0KtFliQ+nK3JxOxrs/MEKwl5oW?=
+ =?us-ascii?Q?XB/apcmGHIN4PzbCCX6NG8mix3+T+m/1cKyDuzekKQDXwZUa06h8/+QXybVL?=
+ =?us-ascii?Q?AWbCvIek5pysZ0tvUgRiwqyK0baziY4gfC7BykNDgRl03SIOuHYiVs43NcfF?=
+ =?us-ascii?Q?AwWt2y9fb83K0FAiI54pghY25wh4c5DUD6Enp8r+7kgG+n2m3FWKDJFSL9Gq?=
+ =?us-ascii?Q?vUFnygmDnCosqMV0z0ct94NDHRHZhizoMDfM2P4D2aW3mrXVf7tqBrIUnrbU?=
+ =?us-ascii?Q?bBK0yltTYpHz6uuA2z0S1FF/4xUwzWmTZOk8ndKgsOyWpC0ewZKoaAQ6Css5?=
+ =?us-ascii?Q?3KEZFA1jdeCtx/u1+xeW/SKKBe2HE+3uArcXhjGvPeTRis4scNOEzuGoOq8x?=
+ =?us-ascii?Q?836JNJIIlSH9weUgJ2WOzLs1NQMr2gfD/whwBnnCDxIcM1uO7zT2A4KhQMvl?=
+ =?us-ascii?Q?zvAskbW3wrZtZe9S5GvMGEEvWTFenV3D7tgBCqOFgYql2ah8p1KoZt6HIc/b?=
+ =?us-ascii?Q?9RJQ7WLdlHBbiypH0Y5Wb6CncMsCwrAiWkY7SqfU/CgbLzYJvzsa07tn1sex?=
+ =?us-ascii?Q?+YPTs7NOX4xJ+U2kBh2H599UpCwmHaiax/NCvFRppv6NfrmE8ein8TscMCT+?=
+ =?us-ascii?Q?N3KJ2Ly/zdzXE8hbgH9mMGv9RxjlbM14DiBKavEITMcVDnZgRyG/6iok7MTf?=
+ =?us-ascii?Q?01lZFydVTeB07mRqiOmY3r8GXU5Z4flXml45eaqisfcjIKuSVMmZim5ekJFB?=
+ =?us-ascii?Q?JMivo6/LHRiuscreiJUMNTfBRvByq3WQFOj7QumVl9RalgPmBCCzmipQc1dc?=
+ =?us-ascii?Q?A0cnlGzWKhOP1WcAGxpxjaFMNFVNwASrJZu6jfGemAlzNzZg5J5NtL1TASSQ?=
+ =?us-ascii?Q?80Br4oklBPDnFzjK651lOFYmKPh95C1kF1orhKwtcV2/Fw7gG9IGPMZw9uJY?=
+ =?us-ascii?Q?nM+G6yRja1Fi5LEwe20EjKmLx8Q+eL6vrelSZ1UCD1hRGOuZR2XLZcTv07dI?=
+ =?us-ascii?Q?a8UIilMcV/T5nKkZeaRqVycG6gEdR8Kx76/EbEjDjgfV533XC8sTkJomjd6Q?=
+ =?us-ascii?Q?PRBwTJbl2XJiKhc/3wSiJC7PpFqtifhMAOtuRteMB5qGqY1WjkcHoJWLZv6Y?=
+ =?us-ascii?Q?Zhievtt/CboojmRx5n2nSqGy5SSv8I957YSeTtKI5t4Ej7qT9pytKRmAJgMK?=
+ =?us-ascii?Q?pZ3lm4w4eFuHNnNln832+CpdntUDrQsbkByL57meter7eEmDQFAZkLOitTng?=
+ =?us-ascii?Q?FVFnY+c0Vdoh2g/9BDAa08Tqcw0FWp/OSCNq?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(35042699022)(1800799024)(14060799003)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2025 15:45:45.4370
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8416a9a2-f256-4994-0431-08ddec934734
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A67.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR08MB5356
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_100235_482672_DFE686F2 
-X-CRM114-Status: GOOD (  36.89  )
+X-CRM114-CacheID: sfid-20250905_084556_778559_FF86521E 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,104 +201,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 5, 2025 at 2:18=E2=80=AFAM Florent Tomasin <florent.tomasin@arm=
-.com> wrote:
->
->
->
-> On 05/09/2025 00:06, Chia-I Wu wrote:
-> > On Wed, Sep 3, 2025 at 11:02=E2=80=AFPM Boris Brezillon
-> > <boris.brezillon@collabora.com> wrote:
-> >>
-> >> On Wed,  3 Sep 2025 15:55:04 -0700
-> >> Chia-I Wu <olvaffe@gmail.com> wrote:
-> >>
-> >>> diff --git a/drivers/gpu/drm/panthor/Makefile b/drivers/gpu/drm/panth=
-or/Makefile
-> >>> index 02db21748c125..75e92c461304b 100644
-> >>> --- a/drivers/gpu/drm/panthor/Makefile
-> >>> +++ b/drivers/gpu/drm/panthor/Makefile
-> >>> @@ -12,4 +12,6 @@ panthor-y :=3D \
-> >>>       panthor_mmu.o \
-> >>>       panthor_sched.o
-> >>>
-> >>> +panthor-$(CONFIG_DRM_PANTHOR_SOC_MT8196) +=3D panthor_soc_mt8196.o
-> >>
-> >> Based on the stuff you describe (ASN hash, core mask read from an nvme=
-m
-> >> cell, extra clks/regulators?), I don't think we need per-soc source
-> >> files and per-soc config options. If it becomes too HW specific (no
-> >> abstraction to make it SoC-agnostic), we can reconsider the per-SoC
-> >> file approach, but I believe it can all live in panthor_drv.c for now.
-> > That's about right except no extra clk/regulator is needed.
-> >
-> > gpueb on mt8196 is yet another mcu running on its own fw.  It can
-> > provide clk/regulator to panthor and no change is needed from panthor.
-> > But it can also do dvfs autonomously, in which case panthor needs to
-> > be modified to make clk/regulator/devfreq optional.  I think the
-> > latter is where Nicolas Frattaroli is going and requires more invasive
-> > integration.
->
-> Hi Chia-I Wu,
->
-> I beleive the changes your are proposing need to be treated as 3
-> different features:
->
-> 1. Handling of ASN hash
-> 2. clk/regulator registration
-> 3. Core Mask control in Panthor
->
-> * For 1. since it is a GPU HW property, have you considered
-> handling it in the DTB as HW quirk?
->
-> Pass the value of the register from the DTB, then Panthor
-> driver applies a mask to filter the bits and then configre the HW regs
-It is a soc-specific quirk and was suggested to be dealt with using
-compatible string
+This series looks good to me.
 
-  https://lore.kernel.org/lkml/ac4838eb-7613-4642-a007-577a9f665984@arm.com=
-/
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 
+> From: Ard Biesheuvel <ardb@kernel.org>
 >
-> > The clk/regulator provider on MT8196 is GPUEB, whose driver[1] needs to
-> > be cleaned up and upstreamed separately.
+> The arm64 port permits the use of the baseline FP/SIMD register file in
+> kernel mode, and no longer requires preemption to be disabled. Now that
+> the EFI spec is being clarified to state that EFI runtime services may
+> only use baseline FP/SIMD, the fact that EFI may code may use FP/SIMD
+> registers (while executing at the same privilege level as the kernel) is
+> no longer a reason to disable preemption when invoking them.
 >
-> * For 2. Have you considered making the GPUEB MTK driver act as
-> a clock/regulator supplier?
-That's what the linked commit does
+> This means that the only remaining reason for disabling preemption is
+> the fact that the active mm is swapped out and replaced with efi_mm in a
+> way that is hidden from the scheduler, and so scheduling is not
+> supported currently. However, given that virtually all (*) EFI runtime
+> calls are made from the efi_rts_wq workqueue, the efi_mm can simply be
+> loaded into the workqueue worker kthread while the call is in progress,
+> and this does not require preemption to be disabled.
+>
+> Note that this is only a partial solution in terms of RT guarantees,
+> given that the runtime services execute at the same privilege level as
+> the kernel, and can therefore disable interrupts (and therefore
+> preemption) directly. But it should prevent scheduling latency spikes
+> for EFI calls that simply take a long time to run to completion.
+>
+> Changes since v1/RFC:
+> - Disable uaccess for SWPAN before updating the preserved TTBR0 value
+> - Document why disabling migration is needed
+> - Rebase onto v6.17-rc1
+>
+> (*) only efi_reset_system() and EFI pstore invoke EFI runtime services
+>     without going through the workqueue, and the latter only when saving
+>     a kernel oops log to the EFI varstore
+>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+>
+> Ard Biesheuvel (7):
+>   efi: Add missing static initializer for efi_mm::cpus_allowed_lock
+>   efi/runtime: Return success/failure from arch_efi_call_virt_setup()
+>   efi/runtime: Deal with arch_efi_call_virt_setup() returning failure
+>   arm64/fpsimd: Don't warn when EFI execution context is preemptible
+>   arm64/efi: Use a semaphore to protect the EFI stack and FP/SIMD state
+>   arm64/efi: Move uaccess en/disable out of efi_set_pgd()
+>   arm64/efi: Call EFI runtime services without disabling preemption
+>
+>  arch/arm/include/asm/efi.h              |  2 +-
+>  arch/arm64/include/asm/efi.h            | 15 ++----
+>  arch/arm64/kernel/efi.c                 | 57 +++++++++++++++++---
+>  arch/arm64/kernel/fpsimd.c              |  4 +-
+>  arch/loongarch/include/asm/efi.h        |  2 +-
+>  arch/riscv/include/asm/efi.h            |  2 +-
+>  arch/x86/include/asm/efi.h              |  2 +-
+>  arch/x86/platform/efi/efi_32.c          |  3 +-
+>  arch/x86/platform/efi/efi_64.c          |  3 +-
+>  arch/x86/platform/uv/bios_uv.c          |  3 +-
+>  drivers/firmware/efi/efi.c              |  3 ++
+>  drivers/firmware/efi/riscv-runtime.c    |  3 +-
+>  drivers/firmware/efi/runtime-wrappers.c | 20 ++++---
+>  include/linux/efi.h                     |  8 +--
+>  14 files changed, 89 insertions(+), 38 deletions(-)
+>
+>
+> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+> --
+> 2.51.0.355.g5224444f11-goog
+>
+>
 
-  https://gitlab.freedesktop.org/olv/kernel/-/commit/170d5fc90f817dc90bde54=
-b32872c59cf5c77779
-
->
-> Without a clocks, the driver won't be able to support
-> instrumenation.
->
-> And without a regulator or clock, how will system/runtime PM
-> suspend/resume be handled in the driver?
->
-> * For 3. I think this is a more complex topic and other vendors may
-> have different needs.
->
-> At first glance, `panthor_soc_data` does not seem to be sufficient
-> to cope with other vendors.
->
-> What would be the protocole used to communicate wth MCU?
-> Can the MCU update the core mask on its own?
-> Will the core mask change at runtime?
->
-> If the core mask is static, what about adding a DTB entry?
-AFAICT, gpueb reads the shader core mask from efuse and writes it to
-an memory address (together with other info) specified by the gpueb
-driver.  How the gpueb driver makes the mask available to panthor is
-tbd, but it should be a very small change to panthor (unless we want
-the gpueb driver to be a part of pantor).
-
-I was told by the vendor that the shader core mask does not change
-after boot, but can vary in unspecified ways.
-
-
->
-> Kind regards,
-> Florent
+--
+Sincerely,
+Yeoreum Yun
 
