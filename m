@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AECCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722BCCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ifEmDZV2kRYkcKBuyELvCClfwZcqzO0o4xpts/GJUhw=; b=cYDmVnRfByw7lWPByLKqultCfS
-	CiJKejPsUEp0Ge0LNRbbbl4CgbWsC36fy3V2CCNBvwctMCnsVHmVDSsYtGJFDFTZhL8jhEGbpS8Y3
-	K7FXqEA3WC+OGjVzf6hIqMJN/Dq8KU6alD7LUKGdXVkWLcJU3EL21dBgtncLN1tl/B6ypiJva4a7A
-	iLXy7CaBwuu/kWQyqxvkIHOPsNTbxhu7hIsFgqRbOxuOC0BbKelBRcRdhA9cTVZ6A07l8DACFYzyM
-	4wFQ1lKRz48A0nhyEgU/VGsgVCGhM9ktnvOWyheNNwVZBUGDg1envFcZZ9ph88TTnIc8C8CdBdX96
-	+VN/hr9A==;
+	bh=RvEyUa3aBwqq9pzCfPLROE7hTwVNse4Jw4z6I6A3IUI=; b=GpCqurajyEexLEJN+Fd+FJTyXQ
+	3b50htZN7qnVCNA3Cjjh8aKL30BuwdZ/EeG/dJBYZNtwcgNMbZnY9c/CgXtsU/c/A23W2Uqedw0YL
+	79nVtKbmw4xoxT5WXdNgamoid7BG57aHxGL+8owGGFXn42FsfalPcdBRmhsP2iA7WTrYweZ5f4S3c
+	g86dpaC6rlMmuA6xXUywcqO848K9/zKpEggsRuDSZ90W0dLqJVlMvF4m+VL316UoeZfJnVEWUKBkS
+	jdKYoZnnYFYTZydT7U5pTpoKBi7pq8EKB/W6Ai6hl4LMvqkLhRHyT+2JkqytX/JTyDnlT8HpHhk/a
+	RE0LZhsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugXM-00000005V5g-2IM8;
-	Sat, 06 Sep 2025 00:12:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uugXO-00000005V83-1Vla;
+	Sat, 06 Sep 2025 00:12:14 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uubYH-00000003w3H-3N2U
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 05 Sep 2025 18:52:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ifEmDZV2kRYkcKBuyELvCClfwZcqzO0o4xpts/GJUhw=; b=NMI2KjMF75wwv8Js/O+3MiYX6Q
-	ZY8U8t44LWyIQssC+Q5H660zNjBqtkXyZI7nANgKpTWdXWTKPF0JQB2vCZXh6en4dxZ3U/MK1IyKg
-	XQB1lWBetbsBEd24hbKW377HJxuf48VXgsNR26KPyfN/tH2B/8CZ/WKtIB+NSYA0eTdqkUMWT3nJB
-	M7IE0+0UxLlnrv1+aXrEmdIEgRYqvcQpR/boSCAZT3Py7nGAC0YXjKAWLtvBWsvO9YzdPUTBBCbD9
-	q3zEEZKiMCmRmKGw5XqLp7+4Nys3AuD1Wu29nnhGyJtFBaWAlpsoNv78EZjn6YX94RvUpqpSdWgQi
-	357Ik5sA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uubYE-00000004fov-2f4q
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 18:52:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E1241BC0;
-	Fri,  5 Sep 2025 11:52:35 -0700 (PDT)
-Received: from [10.1.197.69] (unknown [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 28DB93F6A8;
-	Fri,  5 Sep 2025 11:52:38 -0700 (PDT)
-Message-ID: <d4aa5d0d-da66-4350-a9e1-ce7fb39f2961@arm.com>
-Date: Fri, 5 Sep 2025 19:52:36 +0100
+	id 1uubal-00000003wjX-2LbV;
+	Fri, 05 Sep 2025 18:55:24 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4cJQX723qKz9t8p;
+	Fri,  5 Sep 2025 20:55:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1757098519;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RvEyUa3aBwqq9pzCfPLROE7hTwVNse4Jw4z6I6A3IUI=;
+	b=jDe8laPw/CLEhVt/gns4C/GwvDOWL06hGuCYyYa3+2qOpGK8EPAzeZdJvNlG1HNMmx/V77
+	ggPWH+R6vZ+2gZ11rp+ywtzQ/R/L7+W+HPQb8NzF5cK7cWoIcA0+KFtqQZQpDOOOR1PyP2
+	R87zmaaRv9s9XE5e7Y/X+6xPxWI9GKBIYFYFx9HWr1SCgwrQ8Hs7g2PLQ13QW+7tlIiEuo
+	r/HqRjzXM4jFgCKZ0HduZT1EdPsuHiEjYtqqYlC2ZQ11LjxYW5A1vxjzzN2d0qFfH9hWkU
+	KGvZv77cHfVYqRcjyDavC35eVjKIgIBeBbSz9My9uMfQaRAleVyMIZci/ZC2tg==
+Message-ID: <3ba2de63-4282-4b1e-a576-0b4501e56a7b@mailbox.org>
+Date: Fri, 5 Sep 2025 20:55:16 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
- kbuild boiler plate
-To: Rob Herring <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
- shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-11-james.morse@arm.com>
- <CAL_JsqKUSJjmyj-E6eduZt3S=x6v7VUR5JEJV_Ow6O-O49TgEg@mail.gmail.com>
- <CAL_JsqJDpEHBcWeCqxSiUjpyBs0gEJKVyyR70xJO56x-pYQHMw@mail.gmail.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <CAL_JsqJDpEHBcWeCqxSiUjpyBs0gEJKVyyR70xJO56x-pYQHMw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] regulator: dt-bindings: rpi-panel: Split 7" Raspberry Pi
+ 720x1280 v2 binding
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Conor Dooley <conor+dt@kernel.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+References: <20250904200036.168222-1-marek.vasut+renesas@mailbox.org>
+ <20250905-humble-framing-3d9b786c87a2@spud>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20250905-humble-framing-3d9b786c87a2@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 1610ff316d30fa5ccec
+X-MBO-RS-META: 7bwgeaepbm4mhh4ckbu5hz6y3qkdg661
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_195246_924543_1032F2D5 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250905_115523_818047_5949F62D 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,47 +85,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+On 9/5/25 8:46 PM, Conor Dooley wrote:
 
-On 27/08/2025 17:16, Rob Herring wrote:
-> On Wed, Aug 27, 2025 at 10:39 AM Rob Herring <robh@kernel.org> wrote:
->>
->> On Fri, Aug 22, 2025 at 10:32 AM James Morse <james.morse@arm.com> wrote:
->>>
->>> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
->>> only be accessible from those CPUs, and they may not be online.
->>> Touching the hardware early is pointless as MPAM can't be used until
->>> the system-wide common values for num_partid and num_pmg have been
->>> discovered.
->
-> [...]
->
->>> +static int mpam_dt_parse_resources(struct mpam_msc *msc, void *ignored)
->>> +{
->>> +       int err, num_ris = 0;
->>> +       const u32 *ris_idx_p;
->>> +       struct device_node *iter, *np;
->>> +
->>> +       np = msc->pdev->dev.of_node;
->>> +       for_each_child_of_node(np, iter) {
->>
->> Use for_each_available_child_of_node_scoped()
->>
->>> +               ris_idx_p = of_get_property(iter, "reg", NULL);
->>
->> This is broken on big endian and new users of of_get_property() are
->> discouraged. Use of_property_read_reg().
->
-> Err, this is broken on little endian as the DT is big endian.
->
-> So this was obviously not tested as I'm confident you didn't test on BE.
+Hi,
 
-'not tested' is shades of grey. I fed the FVP ~6 different DTB files to hit the different
-paths through the driver. The FVP only has controls under RIS-0, so all of those only
-defined RIS-0, and unsurprisingly didn't notice the helper isn't endian safe.
+>> +examples:
+>> +  - |
+>> +    i2c {
+>> +      #address-cells = <1>;
+>> +      #size-cells = <0>;
+>> +      gpio@45 {
+> 
+> ngl, seems strange to classify the device as a regulator in directory
+> and name, but use gpio as the node name in the example.
+> 
+> Otherwise, this seems fine - if you feel that the hardware is
+> substantively differentially to what's in the "v1" regulator then
+> keeping them apart is valid.
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+I can rename it to "mcu@" or "mfd@" some such ?
 
-
-Thanks,
-
-James
+I originally thought it could be compatible with the V1, which is why I 
+tried to conflate them into single binding in 6d09c6e474bd ("regulator: 
+dt-bindings: rpi-panel: Add regulator for 7" Raspberry Pi 720x1280") , 
+but they are too different, so this undoes the change and creates 
+separate binding.
 
