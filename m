@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84302CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 03:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BC5CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 03:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uvy4ABtAopbpacYZeTigpVnife8xFc0KLtur08dDo2Q=; b=pxmPX0CXkvGTxtxV353kVehSqR
-	3dVfiUQNyOjpRDhjv+J9sKpXDFGcxKjHA8OvRRIBcCkdC4vIRxMjG0CY94HYHlYud0xN9USnhbpmp
-	gJN5WmobNgtqfHsGFO5dwzbJU+jdQTO2WrY3gcbCs5UJVexyso2BEPWdGGaDpKRjZCVshJ5ueCZ8K
-	3ePZ80fZ8PSVqm/JwgvP/41pCY3cCsj2SbsRQ1bJ8zjnp3V4CVjBZUFkMTj4+k0xklg5q9ffTCPHH
-	l+qbwjEhI/j3ONOTv4L2YjoGlEeIh9MxgAYAIWJf8qc9DIQyjliJstmZXfVAh+UYoJt0dCUohTxem
-	FyyxCCiA==;
+	bh=WfJfdss/38RSY0RTrYoaMq8nr7FJ7yMCmd7sDXOBIE4=; b=LKl4qxWeWLiJl322LuhDtBgdim
+	Y5vYv/2ETGyxqZfSpEyfcs3EjPbEXZYFsU8twn/V9wbbbu90/NjRGLBw2AD/w6wh9T6lW/67xLYGX
+	x2bcMrzBxaMXg/BGx5sRDd8Q7zzroMDODiwkDky8BarLSCYznOgiaz625pdC6ibPNUyxNBqEAvcdg
+	woKfG6vm9RCjIf0IWi3LPY7fg63WvLDT+4ALWkkKCrlLKNrmyR9lWf71incXDjvucJWTgqvI0k8Bs
+	qvt6ySV8fuDBS2JC+bVFCwBLOkh/CXGgodkdcQIBq4Pb/W7+vpEMs8EtnDxblp/8O90N5F6q8BiIv
+	wkgvSblg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuMtU-0000000GNRC-1WRX;
-	Fri, 05 Sep 2025 03:13:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uuMwC-0000000GO7h-3K5E;
+	Fri, 05 Sep 2025 03:16:32 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuMdh-0000000GIPe-1giC;
-	Fri, 05 Sep 2025 02:57:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=uvy4ABtAopbpacYZeTigpVnife8xFc0KLtur08dDo2Q=; b=XmlvKLf5FZ0IKNZjUhSM4hDEAp
-	KAbbohr333JXt130n54bsIpHc1+tGIxJrs1h9k8SRQa7yWYhCRkl1QxpN3DgGR4ptBgLs/ZhDvEea
-	fTEe/AV+vgDBYd92qygVaQtFe76jzYGz78Uq07b8Kwv+U/Vtkaf2+hNeP/9gWN4srIBCeqwEhEGeR
-	73NizKiJSt/vIBfKCmCTqgIle18sbHfKsh+GclMx/M0Bozxd+MZtztmaBoDGeNpTDQSikxyp407E3
-	Ml7S53hLglinJzKrwntpvFlAOMHUseUvjkCBqwLQuaXKsUnDTfA2XLBvXR/G1vYWoS+EH+RZPAhFF
-	5Lm/aluA==;
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuMde-00000004SXC-2EXA;
-	Fri, 05 Sep 2025 02:57:24 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-32326e20aadso1836678a91.2;
-        Thu, 04 Sep 2025 19:57:22 -0700 (PDT)
+	id 1uuMdj-0000000GIPs-0U4b;
+	Fri, 05 Sep 2025 02:57:28 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-323266cdf64so1342564a91.0;
+        Thu, 04 Sep 2025 19:57:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757041041; x=1757645841; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757041046; x=1757645846; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uvy4ABtAopbpacYZeTigpVnife8xFc0KLtur08dDo2Q=;
-        b=LIatAmm0cNqvTkfd7xKfL8GNL9RPUtcJNAw72WGTsVu9Vwd/5wJ5NXlhHEMG52rswW
-         yyzYM2w9Do+9NqtvvagpMWBVD6cjnBdnBsJseLE7g43Wc8j3W+M0xNUM1g96OFPS/MF3
-         58oh76H6H/BhMh0gMZkfBQnfVYOuV/JPEV8gi7ZV1tDB16s3cVuIFeJSHgJxo3t2mx8P
-         aRmv9Oy238aa8jZ91z8+PdWrs8j5FqrqMSRHEKpgBowD740i/m/sePjL6IMeaWT5f8Ki
-         lPIU5YfEb65YynjJc+5JHPXjLR6zBHmEbOC9FI0lZ0jDe/R+USkyekgho/DtZDLLi/2K
-         S/Zw==
+        bh=WfJfdss/38RSY0RTrYoaMq8nr7FJ7yMCmd7sDXOBIE4=;
+        b=mU1X1X9E8SoHjNKZKWjUpIkmPkYjKWwfiulpBI7/riMxWGm1eRiy9QzHdKDino6sEQ
+         56bTMk8aw9iJj5R1eNDxP4+H0+mfWRJmdsrxwtD83rwidGGqpL1bmoZ9CX3qYIVLNutJ
+         3i9xLaKaCy3z6/rho0Lg10TMQM6CPuPDW3FPsuzShmX1bO2oVg+SzhtXdTCYREg8oYQe
+         cpzEM+NSZdCJ+tC5xuYOwevcGjfULHDNLsSV/WS+Yzwk5UswHjf5GwRlSjIcpvj5LwWL
+         mSRCigTLVIQ0s46lnOVp9C0spC+ZY/zYSYdr1jg4ay+pfABd0+uNARpaja0zChbi9Qw+
+         dVZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757041041; x=1757645841;
+        d=1e100.net; s=20230601; t=1757041046; x=1757645846;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uvy4ABtAopbpacYZeTigpVnife8xFc0KLtur08dDo2Q=;
-        b=o6pfnkMVI3e7kyxb0uAnlcNrYNhBXdLp/4NfR9TY8kTAWuOp3w6Y+1sbfm8OQX9WVp
-         bIbyHO8RJkgOHg6J3thR2+dQ7wbsXqgczq2OGCmcjCNV/HBeknmYawATBvv5YZqakgUY
-         +3vWAtl2jbhYgY2AZJMID6NvN6bkrXWPJARxzoyKlGgx3P5FJW4QedVSlQNLK3BbPJV6
-         wh2oMg3M7SurwJ9dSaetyiOYNLWRkEQHH6up5LDfNn9nYTuE1UlDfOdQbTVrM812/CBs
-         9xLKop5nhP/KD4V1ORQuseVO5PCT8NovuiWEKCkrLcO1LNUgeGDwxsm0KRLOLkQzJm9c
-         4ViQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWIJiiwbEYhFkl+muS7S59mmKpcrB2iYYgSKIueqLpMawV2jLaNSt3gxjojFumFZp/aFn1CNQsakqzXmCrPU3mD@lists.infradead.org, AJvYcCXgA4S9ngv+FffUs2TcKSRPiXwYcVJw9aQ2dcCE5iiyLQ+uL7Y0g1OjQ2r9FmeHn39PMVXXGLvSvmfIqjUMbrY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyutcAmUriE+fVwJqx9/UhimniZcm9cY4Ehzsy/2lrGE+2zlpbo
-	CTU78LHzeeVKrD5N4RAyXWIIknZrhb+5YsvYMLVGrPkj2ACDM0xC3PBY
-X-Gm-Gg: ASbGncvTy4SNrJr6l1HZAa+5uys8kskPiff5vnzD8pKGYZhGabOreIrqwc5sTieEJCs
-	Men7IcfJ+vugdi5gtrkTsp18Y0DqOflGPvnJ6X8nQgyPJ+105Xl1oXihDmHhfBYJds8Zk45a04v
-	2Jt32mI9jY1SlLLhleftlJbT/nNJHL4ESnNFzTgGc+q9R3iR6pwUhnU7E3JWY0M5c2Ngn0wix3e
-	f152J5Fb9/CcBV9HYlPoht0eR6UGhkiYxSVQ7Rxq1TOJlNO8qcNRXCvGnt1G8lldlbbPI2xq2kl
-	0mR1bbeMOwU8zHgh/4Gh+I+re/TqUNSTTgdrwIwE+0VYFNESacD5hyW/Krw+rgBUK1Z/33YMeoa
-	XkeYhntovIDk=
-X-Google-Smtp-Source: AGHT+IEiluV/7pSFUxZt7TPIrj6CV/ImWEQeYgPKO2eLTDMwSsAtaVcas/jhZsOVhMfNixsNGg7TvQ==
-X-Received: by 2002:a17:90b:518f:b0:32b:a76d:4c56 with SMTP id 98e67ed59e1d1-32ba76d4e23mr3808565a91.31.1757041040628;
-        Thu, 04 Sep 2025 19:57:20 -0700 (PDT)
+        bh=WfJfdss/38RSY0RTrYoaMq8nr7FJ7yMCmd7sDXOBIE4=;
+        b=ZE6raR/E+CYxlVYKaE9D96xcEHBSS2hvAwiW/yH7O3H0sYXRN3NbS76FStHqXAoKXt
+         jwBGUhmAWWH/ZSF/pevSfh8gDTuQB6ninbByiKh1jK19/M8tWgsd8M1vaXYIXTYfKbW9
+         lp/J0cSTd9kRRkZ7oMRc0GSaeDkNe4eq2dmhbVfZ4+TKry4lXaCozTYARbot/VGCJ2R7
+         34tA9Rg9htLDEdF4l3/noOEAC1pA0pbHcjR5x7zbg4TFiP/+FJ1o+5VaPSSYKDM/7WQk
+         HD5/CsSd75FCnMhO9gPllFPyL6JVVXMp+JnBOi1JJI1NJlfw4E7ehaAL690GZLuI93M8
+         u95Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU0QOBBmaVRyjO4L7p7DHHmHwDLKqWicNGH+8Ljg32FjEmCObYvYXgHQ9Jw1h/Jg4BIOrkoH3SlVxihgXl5iYyD@lists.infradead.org, AJvYcCVhGIQ9rEOCa7CRheVoKgELQGKecUnsHFgqvQOv2s/UKzk8zemJnCZp/+4vZLwVsO3mvC2FkEM7to0asqRd+w8=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxo461XCuAubhzseIK2b6dMca0RBLrde+EwCyFcdB2CbB3hKBq0
+	3ur8q6dyGgeDSQBCpk4iOVMGSZlheULM1pCDd65H1VLPoZixwT9uxjB3
+X-Gm-Gg: ASbGncsYyAWPSz7YGn8c9qXPmCh5BkiWckFBaZtEOMOGodHca50f9jR3eGpIr9JlHtn
+	rzvdK6V7gkwc81R3n4cmLYzc+VXbmS8lHhYVefuumy4xr06hVhE+4iQPqjK/PdwongXhLP0PhMB
+	a2fvItz859D/CkSfPTDK9owGNLU31nGfCA/v6cEKYygQdMLbAegwyrSoTWSfbH8gLvJHTy7uqHI
+	3dXmrLQbfcbdNLDx9mrt+P09F/9eTvQRPqGYYGU+/cUYCqX/XL9azScss2VGMkzTWtO/JviFgNr
+	ngFR8BkrFviKGQmuTU7ROGUVNS1KyVPJ627BezIZV8p20clT6q/z3b34NZTuIhEuZVbfZS7I45x
+	9419OFnellAiO+Wpk9we4kA==
+X-Google-Smtp-Source: AGHT+IH6KfxiNdSMUP/BpJqmlXaqQA2mXpzUuB8LyWMLU6lfm6qdp3trN+zpO7M53Lc1wJ4tYGO6hQ==
+X-Received: by 2002:a17:90b:17cd:b0:32a:e706:b7b6 with SMTP id 98e67ed59e1d1-32ae706be21mr11175451a91.11.1757041046306;
+        Thu, 04 Sep 2025 19:57:26 -0700 (PDT)
 Received: from localhost.localdomain ([2401:ce20:10::d4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-329e1c8e07bsm9428588a91.4.2025.09.04.19.57.15
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-329e1c8e07bsm9428588a91.4.2025.09.04.19.57.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 19:57:20 -0700 (PDT)
+        Thu, 04 Sep 2025 19:57:25 -0700 (PDT)
 From: WeiHao Li <cn.liweihao@gmail.com>
 To: heiko@sntech.de,
 	robh@kernel.org
@@ -95,17 +81,17 @@ Cc: hjc@rock-chips.com,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	WeiHao Li <cn.liweihao@gmail.com>
-Subject: [PATCH v2 5/8] arm64: dts: rockchip: Add display subsystem for RK3368
-Date: Fri,  5 Sep 2025 10:56:29 +0800
-Message-Id: <20250905025632.222422-6-cn.liweihao@gmail.com>
+Subject: [PATCH v2 6/8] arm64: dts: rockchip: Add D-PHY for RK3368
+Date: Fri,  5 Sep 2025 10:56:30 +0800
+Message-Id: <20250905025632.222422-7-cn.liweihao@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250905025632.222422-1-cn.liweihao@gmail.com>
 References: <20250905025632.222422-1-cn.liweihao@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_035722_749751_4CA8B8F1 
-X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-CacheID: sfid-20250904_195727_152456_E9E64178 
+X-CRM114-Status: UNSURE (   9.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,56 +107,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add vop and display-subsystem nodes to RK3368's device tree.
+RK3368 has a InnoSilicon D-PHY which supports DSI/LVDS/TTL with maximum
+trasnfer rate of 1 Gbps per lane.
 
 Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3368.dtsi | 25 ++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3368.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3368.dtsi b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-index 73618df7a..9761dfc88 100644
+index 9761dfc88..60e982a3d 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3368.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-@@ -140,6 +140,12 @@ cpu_b3: cpu@103 {
- 		};
- 	};
- 
-+	display_subsystem: display-subsystem {
-+		compatible = "rockchip,display-subsystem";
-+		ports = <&vop_out>;
-+		status = "disabled";
-+	};
-+
- 	arm-pmu {
- 		compatible = "arm,cortex-a53-pmu";
- 		interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>,
-@@ -847,6 +853,25 @@ isp_mmu: iommu@ff914000 {
+@@ -883,6 +883,17 @@ vop_mmu: iommu@ff930300 {
  		status = "disabled";
  	};
  
-+	vop: vop@ff930000 {
-+		compatible = "rockchip,rk3368-vop";
-+		reg = <0x0 0xff930000 0x0 0x2fc>, <0x0 0xff931000 0x0 0x400>;
-+		interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
-+		assigned-clocks = <&cru ACLK_VOP>, <&cru HCLK_VOP>;
-+		assigned-clock-rates = <400000000>, <200000000>;
-+		clocks = <&cru ACLK_VOP>, <&cru DCLK_VOP>, <&cru HCLK_VOP>;
-+		clock-names = "aclk_vop", "dclk_vop", "hclk_vop";
-+		iommus = <&vop_mmu>;
-+		resets = <&cru SRST_LCDC0_AXI>, <&cru SRST_LCDC0_AHB>, <&cru SRST_LCDC0_DCLK>;
-+		reset-names = "axi", "ahb", "dclk";
++	dphy: phy@ff968000 {
++		compatible = "rockchip,rk3368-dsi-dphy";
++		reg = <0x0 0xff968000 0x0 0x4000>;
++		clocks = <&cru SCLK_MIPIDSI_24M>, <&cru PCLK_DPHYTX0>;
++		clock-names = "ref", "pclk";
++		#phy-cells = <0>;
++		resets = <&cru SRST_MIPIDPHYTX>;
++		reset-names = "apb";
 +		status = "disabled";
-+
-+		vop_out: port {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
 +	};
 +
- 	vop_mmu: iommu@ff930300 {
+ 	hevc_mmu: iommu@ff9a0440 {
  		compatible = "rockchip,iommu";
- 		reg = <0x0 0xff930300 0x0 0x100>;
+ 		reg = <0x0 0xff9a0440 0x0 0x40>,
 -- 
 2.39.5
 
