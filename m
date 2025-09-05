@@ -4,111 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A044CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEAF5CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yNzF16PbnrymzXw8XwNj1X2cjJHo1hQQnEraT/RlzJM=; b=HSAwB10Ex/SVnGnIx6V4hNRB3t
-	MO6E9jQQ5bF7s9p/PJ7Bc8X75R3aQHUW6VaiTOqj5c3zLztpleT9NWsEeMbTBuWxUt0RaPK6Zc2Kd
-	OzNPkmrLFOzdE6OSCULmRoypDlFB66g5lv5KRbM0dge9bEXUyoexgG0EuQ5/Dc1KMxPF/iGQ7n1cJ
-	dujj5uuQJMzdBkBD8NUkFNYQCm4zEtgUrNwy6xxIEw82rWzut5Zq9TLCjtAilWCRqVM6TnQUAnOcT
-	CIt8m+6eKWeSMXX1vHIaEAWQ1zuvjwsDhmpekWosJNvsAAU2x2niwcyJUL+jVGGyMFEs9ea+WcDfE
-	+ZokLNrg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BvNSdgfroz2AQh+V+YdAGx7lMSQySMqfI1R60lc+cXY=; b=oDsxEw4JH0c/6fdPxcjm6QXC7K
+	UDH+zXuzhEhmJNyvXeAfHWYxFaUq2/9LSAbQoDRgA26W+m1av/wQnMB2zaP4pvUYdwX8yXfDcfCbY
+	95j7fHW9Xc4ejDpdI16f5WdzwqY2z9+M+x66S7g3vB7Z6HfsRUQWwbqROleCxE7ZzDkix9b81t7tV
+	Os+rrcZHqJh3am5s9YfHq2P9RMHJDZSzKi9ZPQso9ff01gYhpORkXbycx4WcQoZYf6uMkcMT5HYa1
+	209bj4XU2vceluZAIkAs6g1N8ppypsXE+OE/NhUqYIu4hNm7yhaskMc5jufxUrtAKxKLlz9Q5UT+a
+	FfBFqvxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXZj-00000002Q4D-1Jw9;
-	Fri, 05 Sep 2025 14:38:03 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1uuXZn-00000002QAh-1JC3;
+	Fri, 05 Sep 2025 14:38:07 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuUam-00000001NAF-2aU6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 11:26:58 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e96d8722c6eso2224068276.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 04:26:56 -0700 (PDT)
+	id 1uuUba-00000001NVE-0moF;
+	Fri, 05 Sep 2025 11:27:47 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-32b70820360so1604686a91.2;
+        Fri, 05 Sep 2025 04:27:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20230601.gappssmtp.com; s=20230601; t=1757071615; x=1757676415; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yNzF16PbnrymzXw8XwNj1X2cjJHo1hQQnEraT/RlzJM=;
-        b=iDDrBrlHlcxGEZHKZEZvpJsYStyeJ6dIZL8wPdh7nouLYXZ3rbls8jB1geZKiS9cG+
-         PAyNVHvq3IxS49XFos8oyJ00c2y4PUkvT2gpgc+xLVhMA+H0Tqo+QEwdC7Z/LX8uDZiY
-         6HrK/p2XUHfNHeJTlEgob2sOFbeCRbIXzwl0pc+2FrYhwBFHnhMvABIq8ouQmGev6cSe
-         1BzHLen8z2xeBvq7YceYV8kVwPEotGe8HAyrXhmsmWZn/FrvZW4/awNmxpKus0NFH+NF
-         iNfwqWEA4azHUv78aP1eBGxhb6sZBBEcjGqibVPlxK0C+O3eB8XLbAvSBNpR/KO513EC
-         gJdw==
+        d=gmail.com; s=20230601; t=1757071665; x=1757676465; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BvNSdgfroz2AQh+V+YdAGx7lMSQySMqfI1R60lc+cXY=;
+        b=BWzWMzOX/H3/rM9qt7yrJ4joshfDJkzVFXRg7PQjOBjqZ8wWHJDSCCwpxCwoV/Qvqj
+         pRyEwiiz4VwQlIx8H1SIBjF1I/Ehli+cfLI3F1As1p+qCp+Jmn1jjDBfEXq1E+lRb2Nk
+         XTZ84YNqJxlmALFqyWCvCxXwyvluN+vNX7Bk3QcgoCUEJMa5jGlLZtOJ45bYP4n/iXlI
+         6GFGclNK4y02O5MUPPP+d7kVotjT0Cdr/rBpg2UmUtZK+wRLHSjRqGueZgwLaLHte4pu
+         k0KxtbRH+DTwWNIXsosBZs06pO3c6LTu7Qg1W4EEsTODbM3bntd/7tB0TuWL9g2YyqsJ
+         T7UA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757071615; x=1757676415;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yNzF16PbnrymzXw8XwNj1X2cjJHo1hQQnEraT/RlzJM=;
-        b=BqvJqLdr2ARjyea1sqach5/wfh6h8gObb6dPm+RoHPiCV2joUASuutXSbz7i2GW3X7
-         HZcunub7bDbWXFNyAV7NbLolOCuNi3IMgZDPDQdXQWgjBJLkMXnMbw/AZw0IK3k0kdoN
-         NYNEEPgPfOM9tMJkHzR4PB/22CL2HNS+1jsji8dsYsYuuahWruWymbxZzO4dWdkbJ4FM
-         tpeNtkw2dCK0TquPaOf09Xko1euZPv09fQNC30WJZimRRo5YmA6RLgxJT3iwbMkUsL1g
-         Zu1UAGhhPBNIkzyGhh/KvKY11YmP0U2mj1OYi6OKUHOqTO2iae5ra2XQjKPvvnJwsvTO
-         4vUw==
-X-Forwarded-Encrypted: i=1; AJvYcCVrUS2CmXulwezAU0cMcJb8LvvZ+RZ8rrrwA7LlhPdbwbs3uvuWem5XfwERytEzUw3NXsTHDSMlVMjlnRKg0Ur4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaL1eAbqPfIP3jiE7Cefl6sue3EIjeXGNrRCPrBwICsHit2VIX
-	vdRsPlKkai9DBIewD1l3KIQGtDdSwchK61mEqjEzwoWernDv5hb77rsyp7HTgBAS558=
-X-Gm-Gg: ASbGnctTZxhuwMpX9cbk0TSK+LuHWd1Px3GEkoVi2M9nPkhoSChwUgAJU9RHVW4g2wb
-	4+C86B2LzGOcGDGzvHzRadAPzgfi/8bQvpU2SGEVO5H+bgYXxKwbhd1E29ioYDwG1hQJ1Xj9FkA
-	D8UEguD/Jo0blxtyqBE68D6b5N0g/Vuf7eRJ4Hu0owC7oCbPMV8HGJAL1NozGOW8oePFooOH7Of
-	/bXgol1k3FXI6jiPXwMy0QXu0FC39ECzfyAbyErURYW4vDimC1HTvhtS8bRHia+5KbiVmlkRPQ1
-	76TS+CpevvlUjVi3HQ/XpsTWlx51mv1G3g0bdSgsg/FXYdhzghN/2qQP+wDXKhgZCTk9zhruaUu
-	nNpllWTJ1jdyTgQUO6w==
-X-Google-Smtp-Source: AGHT+IEXVquWXmj0Yd3oyr4uhZoLxM2opNHaeihf8Xp8KBtnXc2guOYW42U1nSR+kmrTjCZ7Op/enQ==
-X-Received: by 2002:a05:6902:18ce:b0:e96:fac0:60bc with SMTP id 3f1490d57ef6-e98a58455f2mr22114649276.41.1757071615282;
-        Fri, 05 Sep 2025 04:26:55 -0700 (PDT)
-Received: from [10.0.3.24] ([50.227.229.138])
-        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e9bbdf504e0sm3031724276.11.2025.09.05.04.26.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Sep 2025 04:26:54 -0700 (PDT)
-Message-ID: <1513d5fd-14ef-4cd0-a9a5-1016e9be6540@kernel.dk>
-Date: Fri, 5 Sep 2025 05:26:53 -0600
+        d=1e100.net; s=20230601; t=1757071665; x=1757676465;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BvNSdgfroz2AQh+V+YdAGx7lMSQySMqfI1R60lc+cXY=;
+        b=rgm7Qg9Z6LtfviWWD7vHtNclm66BmhRG+VcxBBA7HXymS3IVVZ8mj1o2UzRrGzdYZ4
+         /ajkrLMiEt9ILO040ZQL5nL8+DYUigaYIGMcHjaRpvKf27ZrxQaKXRDqS2tmj6KGA98v
+         vNqPI3fpHc4jYMO4rNYeaP1kqLA3P3+pkJ/m5X9KHy5CyB16wb/N8ETMPUpNQI/UwzK1
+         LDR95HLSZ3zTdBKPvxgZHInq7/cvOs19UFtWehKlpkf7vyHbDi3HIcfwwTkDW5dku0EJ
+         InzRxVJnnHTmZw4yVr3Wny/pp+bC80EUFQBJE8Pl+1bUrK5wgKFJzt/GrsYu1fnFSW3y
+         eeEA==
+X-Forwarded-Encrypted: i=1; AJvYcCWrqoUOaMyAqDiaIXIiDqmGWkwiXtqNoj4dQIRLSKCtL9XBlGa9vmLfpunFAMIM5XlKEqbqlEg8+po/Ebc7hZWo@lists.infradead.org, AJvYcCXhhemBhZhqCV5/rPmwwVVFCLGA3RXSa0gPZHQbnSFOhQg3mdLsskqTWSWCUUgzdX5DDiJS+5Dr/UKRZPEvXUo=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMrRfjaqoU+pRIqIlk9+LxnodT/rKiZT5MOOnx9e5qbqfGywz4
+	+S1jhrUOwECn9eDPVQrLrh/98mk4MrzvwU0f5zc7jXAwQ7mj6DZioXZz
+X-Gm-Gg: ASbGncsIOar2PWOkeSjsiLMlupdTrx5pcA94o3xWXBDep642u31aETVNkiVP64RXfac
+	HC20s/Lb8b4mU7NADUkB4oqtRTh3DlWFt9M80zqRqmgi08MFH+b3QpvB6R5p9ktlW3WrEY5VzEY
+	kks+RGDEMRR+f7jWe87H6ZXASFGHJ1TtaM83M85IyzN16D+GIJ0ptzeHMfR5/FJqMGN7jArlULz
+	FcC1fcqb4RHF221oPeZx1WO3fnKI4/z8nrBC18YUmfU572178LDLg+D8qSSK9JujeG2SU3DztWX
+	4ZQXtFye/YwC/26Az5G0OVPlv89xmoC8xbtMzSgxjj1/xxnsON3z6iG9zDoCxo5MAciIe9oHBWH
+	4kqjb9cZ77WPybUHX/ZpjwiqPWhkTIHI=
+X-Google-Smtp-Source: AGHT+IGvR4zQ0L9DATfW6OC24buFgtcy9qBxyqE0QsalCQFZz8jZdjfaS+y+TmQZ4bZufc0KdMQo+g==
+X-Received: by 2002:a17:90b:3e44:b0:32b:bc1c:8d65 with SMTP id 98e67ed59e1d1-32bbc1c8e51mr3401055a91.30.1757071665181;
+        Fri, 05 Sep 2025 04:27:45 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.216])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-329e6d6d4b2sm10390179a91.0.2025.09.05.04.27.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Sep 2025 04:27:44 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Hans Zhang <18255117159@163.com>,
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	linux-pci@vger.kernel.org (open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
+	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v1] PCI: dw-rockchip: Simplify regulator setup with devm_regulator_get_enable_optional()
+Date: Fri,  5 Sep 2025 16:57:25 +0530
+Message-ID: <20250905112736.6401-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Johannes Weiner <hannes@cmpxchg.org>,
- John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
- kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
- Zi Yan <ziy@nvidia.com>
-References: <20250901150359.867252-1-david@redhat.com>
- <20250901150359.867252-20-david@redhat.com>
- <5090355d-546a-4d06-99e1-064354d156b5@redhat.com>
-Content-Language: en-US
-From: Jens Axboe <axboe@kernel.dk>
-In-Reply-To: <5090355d-546a-4d06-99e1-064354d156b5@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_042656_668371_C269480D 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20250905_042746_226071_A0F1A29F 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,114 +108,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/5/25 12:41 AM, David Hildenbrand wrote:
-> On 01.09.25 17:03, David Hildenbrand wrote:
->> We can just cleanup the code by calculating the #refs earlier,
->> so we can just inline what remains of record_subpages().
->>
->> Calculate the number of references/pages ahead of times, and record them
->> only once all our tests passed.
->>
->> Signed-off-by: David Hildenbrand <david@redhat.com>
->> ---
->>   mm/gup.c | 25 ++++++++-----------------
->>   1 file changed, 8 insertions(+), 17 deletions(-)
->>
->> diff --git a/mm/gup.c b/mm/gup.c
->> index c10cd969c1a3b..f0f4d1a68e094 100644
->> --- a/mm/gup.c
->> +++ b/mm/gup.c
->> @@ -484,19 +484,6 @@ static inline void mm_set_has_pinned_flag(struct mm_struct *mm)
->>   #ifdef CONFIG_MMU
->>     #ifdef CONFIG_HAVE_GUP_FAST
->> -static int record_subpages(struct page *page, unsigned long sz,
->> -               unsigned long addr, unsigned long end,
->> -               struct page **pages)
->> -{
->> -    int nr;
->> -
->> -    page += (addr & (sz - 1)) >> PAGE_SHIFT;
->> -    for (nr = 0; addr != end; nr++, addr += PAGE_SIZE)
->> -        pages[nr] = page++;
->> -
->> -    return nr;
->> -}
->> -
->>   /**
->>    * try_grab_folio_fast() - Attempt to get or pin a folio in fast path.
->>    * @page:  pointer to page to be grabbed
->> @@ -2967,8 +2954,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
->>       if (pmd_special(orig))
->>           return 0;
->>   -    page = pmd_page(orig);
->> -    refs = record_subpages(page, PMD_SIZE, addr, end, pages + *nr);
->> +    refs = (end - addr) >> PAGE_SHIFT;
->> +    page = pmd_page(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
->>         folio = try_grab_folio_fast(page, refs, flags);
->>       if (!folio)
->> @@ -2989,6 +2976,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
->>       }
->>         *nr += refs;
->> +    for (; refs; refs--)
->> +        *(pages++) = page++;
->>       folio_set_referenced(folio);
->>       return 1;
->>   }
->> @@ -3007,8 +2996,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
->>       if (pud_special(orig))
->>           return 0;
->>   -    page = pud_page(orig);
->> -    refs = record_subpages(page, PUD_SIZE, addr, end, pages + *nr);
->> +    refs = (end - addr) >> PAGE_SHIFT;
->> +    page = pud_page(orig) + ((addr & ~PUD_MASK) >> PAGE_SHIFT);
->>         folio = try_grab_folio_fast(page, refs, flags);
->>       if (!folio)
->> @@ -3030,6 +3019,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
->>       }
->>         *nr += refs;
->> +    for (; refs; refs--)
->> +        *(pages++) = page++;
->>       folio_set_referenced(folio);
->>       return 1;
->>   }
-> 
-> Okay, this code is nasty. We should rework this code to just return the nr and receive a the proper
-> pages pointer, getting rid of the "*nr" parameter.
-> 
-> For the time being, the following should do the trick:
-> 
-> commit bfd07c995814354f6b66c5b6a72e96a7aa9fb73b (HEAD -> nth_page)
-> Author: David Hildenbrand <david@redhat.com>
-> Date:   Fri Sep 5 08:38:43 2025 +0200
-> 
->     fixup: mm/gup: remove record_subpages()
->         pages is not adjusted by the caller, but idnexed by existing *nr.
->         Signed-off-by: David Hildenbrand <david@redhat.com>
-> 
-> diff --git a/mm/gup.c b/mm/gup.c
-> index 010fe56f6e132..22420f2069ee1 100644
-> --- a/mm/gup.c
-> +++ b/mm/gup.c
-> @@ -2981,6 +2981,7 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
->                 return 0;
->         }
->  
-> +       pages += *nr;
->         *nr += refs;
->         for (; refs; refs--)
->                 *(pages++) = page++;
-> @@ -3024,6 +3025,7 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
->                 return 0;
->         }
->  
-> +       pages += *nr;
->         *nr += refs;
->         for (; refs; refs--)
->                 *(pages++) = page++;
-> 
+Replace manual get/enable logic with devm_regulator_get_enable_optional()
+to reduce boilerplate and improve error handling. This devm helper ensures
+the regulator is enabled during probe and automatically disabled on driver
+removal. Dropping the vpcie3v3 struct member eliminates redundant state
+tracking, resulting in cleaner and more maintainable code.
 
-Tested as fixing the issue for me, thanks.
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 23 +++++--------------
+ 1 file changed, 6 insertions(+), 17 deletions(-)
 
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index b5f5eee5a50e..56baca52c3e9 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -76,7 +76,6 @@ struct rockchip_pcie {
+ 	unsigned int clk_cnt;
+ 	struct reset_control *rst;
+ 	struct gpio_desc *rst_gpio;
+-	struct regulator *vpcie3v3;
+ 	struct irq_domain *irq_domain;
+ 	const struct rockchip_pcie_of_data *data;
+ };
+@@ -644,22 +643,15 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	/* DON'T MOVE ME: must be enable before PHY init */
+-	rockchip->vpcie3v3 = devm_regulator_get_optional(dev, "vpcie3v3");
+-	if (IS_ERR(rockchip->vpcie3v3)) {
+-		if (PTR_ERR(rockchip->vpcie3v3) != -ENODEV)
+-			return dev_err_probe(dev, PTR_ERR(rockchip->vpcie3v3),
+-					"failed to get vpcie3v3 regulator\n");
+-		rockchip->vpcie3v3 = NULL;
+-	} else {
+-		ret = regulator_enable(rockchip->vpcie3v3);
+-		if (ret)
+-			return dev_err_probe(dev, ret,
+-					     "failed to enable vpcie3v3 regulator\n");
+-	}
++	ret = devm_regulator_get_enable_optional(dev, "vpcie3v3");
++	if (ret < 0 && ret != -ENODEV)
++		return dev_err_probe(dev, ret,
++				     "failed to enable vpcie3v3 regulator\n");
+ 
+ 	ret = rockchip_pcie_phy_init(rockchip);
+ 	if (ret)
+-		goto disable_regulator;
++		return dev_err_probe(dev, ret,
++				     "failed to initialize the phy\n");
+ 
+ 	ret = reset_control_deassert(rockchip->rst);
+ 	if (ret)
+@@ -692,9 +684,6 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+ 	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+ deinit_phy:
+ 	rockchip_pcie_phy_deinit(rockchip);
+-disable_regulator:
+-	if (rockchip->vpcie3v3)
+-		regulator_disable(rockchip->vpcie3v3);
+ 
+ 	return ret;
+ }
+
+base-commit: d69eb204c255c35abd9e8cb621484e8074c75eaa
 -- 
-Jens Axboe
+2.50.1
+
 
