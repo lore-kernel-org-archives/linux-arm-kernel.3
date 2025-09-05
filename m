@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF10CA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C419FCA1013
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,84 +12,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FYJbNr/FzY1+zoA5tKpao01rUyzDVS9XAIWE0H2pjng=; b=kHkvz9xD2zi8XGhOJkiqz28KJI
-	n6fCJkZgoDDNSJMLYZq4AeUk/cMW2XwC6Oi2QbWreF+fPJr7VrkYoJKwqxzpQWE8i/CmH2ag1QknT
-	05PSc3Nr3MtjFJm4+LzGxQbnQa/L0z6rk/E1AcidLvkm2L5Nh/lfjBdbIiVf4XKo3xlWzdJz5mUVE
-	oRMiZOXpZzAXcmqsdJx+QdFcagfxAJSEVf/BibH+TT2mpxHInvnPCyxrN0MbwuxOkPfXTue7T630/
-	GccqG7IV0wCvgvknWA/xSqV9A5kj5abWQSKzTSFyJvDCyV8PHamnVo7Wl5Fv1xcjnLm5ho+/KbAzj
-	0k2i8Lfg==;
+	bh=GiYUmwan2a+kfrxXxMqe+npus8z9DGrn+GKVxPMVh9I=; b=lzCIV65nQd3FVg3WweNHMhOC9I
+	Ore1Amh9WTrjO0qbvXaHYAQ3wFyhpsI+nvEpm8AIkTSgXEhltpp2YwpeIupoclelIsbErynAoipjb
+	2eC3UTzgTW1kurnZDmg+6JRr35W8gbe3ueDM86RVMlITejp4lVUo5ulhmHaYyOAkHYnNcMoYxkV49
+	45qKKXAa1OciA+ocdxb6y0mAPXT/DGA4skVHeExStpwn+WFUkGTVRjSQbPGOJJ6/cuUzw+bGcQ51q
+	2wGmYy4WSs7hQuK1PJ54kZ7X9xExQWqijue1F2C2IWWAwMhpeH40NVtT4LLoTBId7z81I42O+oyLj
+	rzVS68Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugZ4-00000005XwK-2QXB;
-	Sat, 06 Sep 2025 00:13:58 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1uugZ6-00000005Xyu-2vPc;
+	Sat, 06 Sep 2025 00:14:00 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uueov-00000004ywY-0BbJ
+	id 1uueow-00000004yxM-3sRc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 22:22:14 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7728815e639so1586049b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 15:22:12 -0700 (PDT)
+	Fri, 05 Sep 2025 22:22:16 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-24b21006804so26952215ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 15:22:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1757110932; x=1757715732; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1757110934; x=1757715734; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FYJbNr/FzY1+zoA5tKpao01rUyzDVS9XAIWE0H2pjng=;
-        b=zNGmOYRYVO1SiZdOeYqQv+vTpESD1lfVnzaGd9/xe9ZaxUJP0m67iK1meRhNK46pq4
-         la3K0c9Ij7NAOrTBAL5EddW/ts7OUPO7BrjpJX8ngo2NJ8lVd+B12xMLVyKAFRHk2EqK
-         s/IgRlVGRIVtW4bhmZz1rLt7lGUNq5h+PQm5WPI73mxY4zwolXp8n1WTleU7AZSMTGAr
-         bSa+pxyuDqo11rDlH7gostrRq7MpBZQ+HorIV1zNXh/+cqtQUx4Xf1z2uVl/SCGqXORq
-         Qw2iTvvyJbYuMzGKSMdY0KmEevV+uAQp0V3E1Imk+Wp67GvFxM5ABEPw1GEvWbvoU79k
-         GEoA==
+        bh=GiYUmwan2a+kfrxXxMqe+npus8z9DGrn+GKVxPMVh9I=;
+        b=S3cpyzG6yftF0ovrxUsTSzySAmff4PwjuKv8iMPSSAfEiVyfqvSfsVWdKHudxgpp3f
+         GPs3R5x6+6Ms+yxn1idAyyr46hL2qnQLbJWFefwmmbTagK+6O/XUueXLVKxjqm/E3goq
+         mtWDm9S2zShCZrQU+eeaJ4i4w/9w5yOn8sf3qXQvNyZ1/XQx8m1zzJXj1ZzgxgTiYW8l
+         e2wgI3elvZzhDyZR7Evd9KJJ1ifu3Lpd9yEAjVlo9UMNsUuW8rXmXSdiwSIPxVpBtOqZ
+         lq0hG4YwJHD0+CDaHzYkH4PXk1XDz858OIXBT1X8HGtkfc8AP93sbEbgPpp+1F0wqbZE
+         1flA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757110932; x=1757715732;
+        d=1e100.net; s=20230601; t=1757110934; x=1757715734;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FYJbNr/FzY1+zoA5tKpao01rUyzDVS9XAIWE0H2pjng=;
-        b=Vhb5ZRRlq+HUPtAWvTgRRH8iYcVFyVk/k4lRP37gDwvLB+OhQMv5neKm397XEGG1h9
-         uwBcqxL00zscmzfj0zzLd1tvmcW53qOIz6EJtKhZw/BnNse23ksJaj+Kr2JDFh6sNGN9
-         JtG9KZy2gnBiMT1sRkA30jlK0ZmSej/w4cs82PfflgexnRl0+GWK4sqYqtpRTSA8NUV9
-         db+veHKSB3yLsbeIaR5BayVY8c5fHdXM8j3FC/+eTde5U7cQSzus3UZbWLghlgpdlwhR
-         THcHjZYGU+W+Sq+acwhx2wM8qvekU08rFLs/L1KjvKxJo7oPYoXErw5pD6evMr9OVSnv
-         VW7g==
-X-Forwarded-Encrypted: i=1; AJvYcCUSuvwf6vS69j9hwHphs02AJ8PBuA8kNP9kvHzgBYX6qFTjNOJ8UvSiL3CzzXfmgvbnQCIL/YU5HsdFl0TiL91W@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9a+jVFIUATPJR4zUAFGipwUrqp0qkkSgv50FacUSubnbiI1Ix
-	2itGRyDpa/e6ZjzbqBUxkc4eYq1U8ZQdXpcV5mwhTZZAcoaAswdxABtNzPOLkbT3oIY=
-X-Gm-Gg: ASbGncuoodAuPmAwSGwQd7e4eUzHUwZ9xqSnTMiEZdUMfB0S8w2tSGbAuQ69VSanUdA
-	btek8z7nKAlm4H+wWb+dx1dw5gkkMOc+0tkqWFkqKtXfW0Sbtv9EpduDO41ViLY4fBOYNEMcIRF
-	8uc6qgHMC8Hiu+xR7bxKNKBowpjzoQ/YhtBZNC8H1bx/llvlYA4Ko4FxcR214GQp976NfjDLl7F
-	HoFW1gBUwgkWtUWHQSQtkxxntyI5Zn9CofiUTLRyGgPHw3Oeqexcjt4GRhcOEz3vmZOg1pVy1h8
-	CNzFmAOl2Nm0KIsjmAr1/3z/n6sWoWWJrtB67L1cdVZ8KR15AVcURElOIqEkqZne37bTf3WKR6O
-	AG1k2lr4gBXxQw925IHFVphn23cS5UCt0k8EJXaw+YQ==
-X-Google-Smtp-Source: AGHT+IGaXEwoc7ILB2arBg0Y16+KGjCnlIvUXKnnyBv3PESilhG49cI++fLCWMv8Z7e3a6gXIMXVhw==
-X-Received: by 2002:a05:6a00:17a8:b0:772:5165:3f68 with SMTP id d2e1a72fcca58-7742de615c8mr302181b3a.27.1757110931832;
-        Fri, 05 Sep 2025 15:22:11 -0700 (PDT)
+        bh=GiYUmwan2a+kfrxXxMqe+npus8z9DGrn+GKVxPMVh9I=;
+        b=ctriPIiBAaKwaYeUv1wkV+dLa/M921E4DFzeeRlRhTTzyDIOKpaxK895r7G+VPyJ++
+         vOk2AulVBUG55Tdmc6TXOsL3Qhxlaegf6yhnQ3WRch5L+RvHcAVZuM4zVYw8pyqzH/BB
+         Z3npb1vb12L8LFZQ/GFwh3lRVHT5ZxcakRRN2HmbaBfpTlRmf/sDCwcvgzbZOQa8IOyh
+         qGHmEISAh8f4Ou/FdM6us7g/NIV0+TEh7lzLat0gdzux1G5MbwKlvkHhNTDxB9m0iTMu
+         8pO4rUw3R3VHt4unz73JGWoyULjIMmq1MzvECzSay4EzG0kjxnAZUGg/UV0GCuN8FA60
+         Nabg==
+X-Forwarded-Encrypted: i=1; AJvYcCUnWo5R9MIzLEEz1KeK9BzU5ybLWFeJRefdwVmaSI2BcellueNRjAC4sO0YW4XHLuXUbuVdkJRrk5rC2rGfidqK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOHmD+Krr53VpCGXLk8i5R91t2ZZXuJFPxhwrr5rPKwhHgcK4v
+	WQtFusHl9+n6HY2+thw2WREe3n42912bJgcsOQEnP+Zu8biIODnIY9np2gJJILpRv/Cpw9zSugW
+	HBLXu
+X-Gm-Gg: ASbGncudSFKo4WJcQuxvdBZZSpTeb1Zy7If67OaR2ltPOyuIRJ8Sq6f6azfHm8Gvsex
+	p3bklCRCrYOlKddHsmKzxVnaNM05Mdtmag/gWjon9V5YvXuT6HUT6SxEJMHNiSouZjx+RNQkk1T
+	yGYy+Ke9QnTJllyzi/14f96fvx/pjIfZX7MMjbr+cOxIyYZ1y9AtsIINO4MxjrZ7QM/VOJvKXrq
+	jwfLCpQtt7jZdhGe8vhZi3QhdaEHxkOCM7joiaSLuMoXwSsocqWBskgeVWiECsbN1hpcQfMxBeS
+	YLEiL/dKvDCUaM7HmbJ6d5cu1KaGrY0ubs1v/jVh1LQHqKrVcRkxX5SsD4WhHwQQzYvOlyMRxSZ
+	7qqoNCsWV0Z87E/+fZoi6/ZlyXMDoWXA=
+X-Google-Smtp-Source: AGHT+IGHJWZuIgRAyT9zDVhr8nN6RGJKLHHQvXkQ2g6HD6wb1cHUQurMIYZhLi1IBI4WggIZ+0i/Gw==
+X-Received: by 2002:a17:902:a5c3:b0:24c:e9b8:c07 with SMTP id d9443c01a7336-25174374060mr2170575ad.43.1757110933953;
+        Fri, 05 Sep 2025 15:22:13 -0700 (PDT)
 Received: from localhost ([71.212.208.158])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77274171cf4sm11008985b3a.76.2025.09.05.15.22.11
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24b1ba1718bsm103698335ad.39.2025.09.05.15.22.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 15:22:11 -0700 (PDT)
+        Fri, 05 Sep 2025 15:22:13 -0700 (PDT)
 From: Kevin Hilman <khilman@baylibre.com>
-To: linux-omap@vger.kernel.org, 
- Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
- Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Matthias Michel <matthias.michel@siemens.com>, stable@vger.kernel.org
-In-Reply-To: <20250717152708.487891-1-alexander.sverdlin@siemens.com>
-References: <20250717152708.487891-1-alexander.sverdlin@siemens.com>
-Subject: Re: [PATCH] ARM: AM33xx: Implement TI advisory 1.0.36 (EMU0/EMU1
- pins state on reset)
-Message-Id: <175711093087.666031.2909646610138285182.b4-ty@baylibre.com>
-Date: Fri, 05 Sep 2025 15:22:10 -0700
+To: tony@atomide.com, Yang Xiuwei <yangxiuwei2025@163.com>
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Yang Xiuwei <yangxiuwei@kylinos.cn>
+In-Reply-To: <20250817083449.2249268-1-yangxiuwei2025@163.com>
+References: <20250817083449.2249268-1-yangxiuwei2025@163.com>
+Subject: Re: [PATCH] ARM: OMAP2+: use IS_ERR_OR_NULL() helper
+Message-Id: <175711093307.666031.7544773009023816119.b4-ty@baylibre.com>
+Date: Fri, 05 Sep 2025 15:22:13 -0700
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.3-dev-d7477
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_152213_085696_2227547F 
-X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-CacheID: sfid-20250905_152214_966045_03280604 
+X-CRM114-Status: UNSURE (   7.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,20 +102,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 17 Jul 2025 17:27:03 +0200, A. Sverdlin wrote:
-> There is an issue possible where TI AM33xx SoCs do not boot properly after
-> a reset if EMU0/EMU1 pins were used as GPIO and have been driving low level
-> actively prior to reset [1].
+On Sun, 17 Aug 2025 16:34:49 +0800, Yang Xiuwei wrote:
+> Simplify error handling in OMAP powerdomain, voltage, and VP code by
+> replacing open-coded '!ptr || IS_ERR(ptr)' checks with the combined
+> IS_ERR_OR_NULL() helper.
 > 
-> "Advisory 1.0.36 EMU0 and EMU1: Terminals Must be Pulled High Before
-> ICEPick Samples
+> This improves readability and consistency across
+> omap_set_pwrdm_state(), voltdm_get_voltage(), voltdm_scale(),
+> voltdm_reset(), and related functions.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] ARM: AM33xx: Implement TI advisory 1.0.36 (EMU0/EMU1 pins state on reset)
-      commit: 8a6506e1ba0d2b831729808d958aae77604f12f9
+[1/1] ARM: OMAP2+: use IS_ERR_OR_NULL() helper
+      commit: 045e81d8d7e65baefbd4dea0503ca3330f93f3e6
 
 Best regards,
 -- 
