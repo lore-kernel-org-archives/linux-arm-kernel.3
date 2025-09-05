@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC4DCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC42CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZHBuItl0ozZkBzFRArPWW9Vsl4ds/W9C4z84aEo38k=; b=yAgv0LU74GTASAEmqZ4tdo2uOO
-	Q23PrK6edFQZKYtIGB143aZ2giHb92edXPlcQlA4PbJs6y1USwBD43XZmSZvs/AZ8/T5q7JaS0s+X
-	4RPljlkw2h5MIcdDPt67KsFydH1yRwhN82n6aQd4MZSqBQmKaKkmCdNjJrCMmG56HRuLkOSFRaF+9
-	aqOszaD1LGwBzdG3j+9+jU1YPD9cceIHNVHDrjGDrJsdQWiPU9pJp7urr/cYOHGUGM637L/KcQD66
-	2uRS2v668mFrcxXytwaWYJvCEA4ERnNJoNZkB9EdqpngcnzzHIzxYxGetUAccV70tMLJXHIKCyqiw
-	QANkcSaQ==;
+	bh=nvYUl9QmXcZhGV7LDMivTR1R7SodOASqEywSNEZXCFc=; b=0Ql4lLNgRY1+4KHPyb0Pl4fkFH
+	h+3iRS9KFTZTKN4uhhefw3KvFYtuf07ifiSq/T6vEgWyHJuBXDmr7yfcclmVKnB+EOoCcl/Q17Rz0
+	WYvHiwNiAq1VMIGmkTZN5dhp5XxQFGHSlX7AcvwK098NpQ2r1QOJFvSnqkDjqR2Iq8Qu2+XEbKcR4
+	JM81EeEzKfA0C3RGR8gba1NCJoHAJE662O5vPl2y/OfOrcpCmcJfy1ILFjnOVnHuYn4xabPiZSjgc
+	/XL2/l3H8fnGxvRPDvYjBO8kszo6JM/q8OQUqwsiFUmuUS9Nij1ISF+Quqrd5ErwLMZH0V4y147AV
+	ytw2tPVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVl-00000005S0t-1q46;
-	Sat, 06 Sep 2025 00:10:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uugVm-00000005S4B-3iwl;
+	Sat, 06 Sep 2025 00:10:34 +0000
+Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuaUl-00000003Z3U-0ZF3;
-	Fri, 05 Sep 2025 17:45:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC20344EBF;
-	Fri,  5 Sep 2025 17:45:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E92DC4CEF1;
-	Fri,  5 Sep 2025 17:45:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757094306;
-	bh=qTi3deyURA+o4yjmNVEYbTqALgAHIt7cNmW+V7nDrPQ=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Ugt0Gko+03jwdaV6Miq6KVIAwzYFR6iqsRO9o5y9GQYZfyAiaNQcZs1/cX1yj3d11
-	 iJ2l0iqV1qLbzMpFceBhP9G8pMRUpUeSHvNdlyf62QZP9Cq0BhWeI79lGZHLpgg/pX
-	 mKmBQFapHk/enEo1HFX3G9z10MfRIv7vvmZW4ff4NyihaNM6KvWvvhAjnKqdvENbdT
-	 UV1eHVeUx9Xk9W7QmNDndZ61rYa09P21sVd5c7KRNuVBI3GpFBnQw3/4uuCRLHIpqj
-	 qFfr2j+d6tY7rYEUfgs2v0FVbkPxgI9WY5+0uEJVvrzcPvh52ScV5gM9fVftVoOccw
-	 j2ZLmGPN/QHeg==
-Date: Fri, 05 Sep 2025 12:45:06 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uuaaA-00000003b3y-3pgs
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 17:50:44 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 34ABD40E016D;
+	Fri,  5 Sep 2025 17:50:28 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 5uOUeExJDHzu; Fri,  5 Sep 2025 17:50:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1757094622; bh=nvYUl9QmXcZhGV7LDMivTR1R7SodOASqEywSNEZXCFc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MeAap+sk+VdwfyCrswiOc5REIH3s9U7SaP0ra9piDtNpViHKJrjiiXC+OYwbEnjcT
+	 vwbogjD2xQul6ZxKUnv7+8p/uvByda2LQ9ycJvqg+iaTvEDQdy9sJBj06686iAO05u
+	 LYk91Odqh2reQIDbVXE62GJ/SEHiShROwNqiWov8ZplEJ8dGU2H1o2LOqjuJUFPYnH
+	 Hl+/PMD8BvMWnnq9L74fYprFl1mAEdcKlMLwU1XuOaLLcme2lQlb8wB1EKeF1Wkr4w
+	 LPM1FpPt6mnOkHIE9/9ieU3LBDgDcugFeP301vE3tSOReDbOxcanvOnV9REpx/V79V
+	 kfDbtKEyGS+YKgf0/TkIDFi8HgFuTi+wPxplFJsKSbpkO+19/x25dNs7Yx2ChXhYA9
+	 nPABWcUYMaDxUwaTEk4fUX6JFbTPtsJX7TaU/qqXqIhLRLk9YuaagdbqQjdSVL1ZPz
+	 bVURNzkLucbI0Ny6oLRtekjNLnYlGwfAjPpE9J1xw8qkQ6Ea7DOkkTa1/3ISF7wWw4
+	 8G4tfgbnQEIkhkmQlAQseuKbvB3XWcCxvk0N/X8c1Ep28yuffQIMOl3KMycFMzcT1s
+	 76pK91UNExnVDSeaQTE2egOD0fCWDWZkFiJ4UCsr4k78nblHLZu4xXeaf2cCLYd3/h
+	 Ka+nU1Z9wTcsmovkAE+m7C4c=
+Received: from zn.tnic (p5de8ed27.dip0.t-ipconnect.de [93.232.237.39])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with UTF8SMTPSA id EFA6B40E00DE;
+	Fri,  5 Sep 2025 17:49:34 +0000 (UTC)
+Date: Fri, 5 Sep 2025 19:49:28 +0200
+From: Borislav Petkov <bp@alien8.de>
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>
+Cc: "Rafael J . wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	zhenglifeng <zhenglifeng1@huawei.com>,
+	Zhang Rui <rui.zhang@intel.com>, Len Brown <lenb@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Beata Michalska <beata.michalska@arm.com>,
+	Fabio Estevam <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>,
+	Sumit Gupta <sumitg@nvidia.com>,
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Yicong Yang <yangyicong@hisilicon.com>, linux-pm@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev, linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/6] cpufreq: use __free() for all cpufreq_cpu_get()
+ references
+Message-ID: <20250905174928.GFaLsiqKV36JDowX94@fat_crate.local>
+References: <20250905132413.1376220-1-zhangzihuan@kylinos.cn>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, linux-arm-kernel@lists.infradead.org, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-To: Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>
-In-Reply-To: <de71cbe5db3347756d3173245d01e091d3ad1b50.1757062843.git.marcin@juszkiewicz.com.pl>
-References: <de71cbe5db3347756d3173245d01e091d3ad1b50.1757062843.git.marcin@juszkiewicz.com.pl>
-Message-Id: <175709416351.988787.3563603110895477506.robh@kernel.org>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add vcc supply for SPI Flash on
- NanoPC-T6
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250905132413.1376220-1-zhangzihuan@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_104507_218848_5C27112D 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20250905_105043_098556_87E18B66 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,62 +122,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Sep 05, 2025 at 09:24:07PM +0800, Zihuan Zhang wrote:
+> This patchset converts all remaining cpufreq users to rely on the
+> __free(put_cpufreq_policy) annotation for policy references, instead of
+> calling cpufreq_cpu_put() manually.
 
-On Fri, 05 Sep 2025 11:18:59 +0200, Marcin Juszkiewicz wrote:
-> FriendlyELEC NanoPC-T6 LTS schematics shows VCC_1V8_S3 being used to
-> power SPI NOR chip.
-> 
-> This fixes the following kernel message:
-> 
-> spi-nor spi5.0: supply vcc not found, using dummy regulator
-> 
-> Signed-off-by: Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 1 +
->  1 file changed, 1 insertion(+)
-> 
+Sep 01 Zihuan Zhang ( :8.6K|) [PATCH v3 00/12] cpufreq: use __free() for all cpufreq_cpu_get() references
+Sep 03 Zihuan Zhang ( :  65|) [PATCH v4 00/10] cpufreq: use __free() for all cpufreq_cpu_get() references
+Sep 05 Zihuan Zhang ( :8.3K|) [PATCH v5 0/6] cpufreq: use __free() for all cpufreq_cpu_get() references
 
+Please stop the spamming. While waiting, go read how this kernel process thing
+works:
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+From: Documentation/process/submitting-patches.rst
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Don't get discouraged - or impatient
+------------------------------------
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+After you have submitted your change, be patient and wait.  Reviewers are
+busy people and may not get to your patch right away.
 
-  pip3 install dtschema --upgrade
+Once upon a time, patches used to disappear into the void without comment,
+but the development process works more smoothly than that now.  You should
+receive comments within a week or so; if that does not happen, make sure
+that you have sent your patches to the right place.  Wait for a minimum of
+one week before resubmitting or pinging reviewers - possibly longer during
+busy times like merge windows.
 
+-- 
+Regards/Gruss,
+    Boris.
 
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250904 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for de71cbe5db3347756d3173245d01e091d3ad1b50.1757062843.git.marcin@juszkiewicz.com.pl:
-
-vcc-supply: size (14) error for type phandle
-vcc-supply: size (14) error for type phandle
-arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: flash@0 (jedec,spi-nor): vcc-supply: 'oneOf' conditional failed, one must be fixed:
-	b'<&vcc_1v8_s3>\x00' is not of type 'object'
-	b'<&vcc_1v8_s3>\x00' is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: flash@0 (jedec,spi-nor): vcc-supply: b'<&vcc_1v8_s3>\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: flash@0 (jedec,spi-nor): vcc-supply: 'oneOf' conditional failed, one must be fixed:
-	b'<&vcc_1v8_s3>\x00' is not of type 'object'
-	b'<&vcc_1v8_s3>\x00' is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: flash@0 (jedec,spi-nor): vcc-supply: b'<&vcc_1v8_s3>\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-
-
-
-
-
+https://people.kernel.org/tglx/notes-about-netiquette
 
