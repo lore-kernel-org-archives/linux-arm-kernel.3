@@ -4,99 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF53CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2853ACA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QSWkjItMEsVNotyoDAMPLMvhhraXQe3wDj+bg0giOKA=; b=woLKJ5UlXA4oBjPijb93jrKAQB
-	CYtI55qpq4a8WKhhkPVFJiBdVzuE4PhKwsscG/kfFI8q0owXKrd+mXjZfdg3UR+AT+OVfBjFXlHeI
-	R5FvLda5JjrYN8eRB2ec8p/O3zgYtNa6MDyZPWtEbwXemZqE51SOnagvSDu2L97GoolWTsuladV8V
-	sKfKARfrUVq8V38JAjsN4jIKRll6HwkHkg4Emn4sMildIR4ItsHY0lgWZc5n/H08CBrT8DwOMYxxy
-	rgIdoZPwmbfod0ruCzJmVqcdNXprH+SU3mSVa6RkCyy72YWPHdBfptQ22uwN/CB89bc7OzS1UV1me
-	LBO+jcnQ==;
+	bh=G8XOvxlNGGHJoLa5Vx3ErGAvajcQpTrIPeSJD9PSV10=; b=z6cNOVNlziTSeZ/a0QEY8SZmci
+	IPQ/BTXAtYiLwrDBmS0k0nHIQwJWARLTDZe5cE2ijR3Wk1Ws1MaHTJ4puniOnSPSfKwCLIX7m26iD
+	yCigqiYjv4Ro/FZCi+uTkhtEe6UfChivyZSoyq4Ycfo9ZOpq9FnaqxzvJByzLj4LoN9z32HuUkyRY
+	viGDSArKpgHQmI//q4j5geeDX8B6dMEqgvUPBtNAK+Fv6zpKsQ0w1qnDQ2Z+9M7S69PGuHO+7Oqto
+	wk/mz5U7VKoVcTPDzRBnyUyc5k1B51mJjbN/3M+qdEX8WW6XS+Gb5u4OOh8s+f5wBxZRnzuCVTX8E
+	oqo3Vejw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXVt-00000002LOo-2ADo;
-	Fri, 05 Sep 2025 14:34:05 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1uuXVw-00000002LRY-1DyV;
+	Fri, 05 Sep 2025 14:34:08 +0000
+Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSw7-00000000nti-2LQh
+	id 1uuSwj-00000000oBv-1Zhp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 09:40:52 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b0415e03e25so281342666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 02:40:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1757065250; x=1757670050; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QSWkjItMEsVNotyoDAMPLMvhhraXQe3wDj+bg0giOKA=;
-        b=IKfVqXY1kx9nuLzcjj2L8NOTtNcg42Edc6gUSaTeCOBiosBVv/9ypZIkrE+pD7T0LD
-         3nuTQjQebh/DHFB3nzI526hXpJChiH0e5GkOZDkbbBa/3eC5aF7eLWpji5S/8DcC+lfn
-         N2sM/AAO6dlnOAW3GctfASyqnTcj8ovOKJsPujjorMvhtdtUU1JjupJauYwKsbcPKS2Y
-         LcRAk+qg/vwB+RyNjC3Q0rPMs9epBKU+K3Ay2E0UcxJHaTyvwn0omzKsx7At42JmUiZv
-         CqAO+XAo7b9oKct/CvcIHJzEYq7UeoEvqCDYjdNLugfdZ7NSWy5bSusZC1sFkHx3b5h7
-         9VQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757065250; x=1757670050;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QSWkjItMEsVNotyoDAMPLMvhhraXQe3wDj+bg0giOKA=;
-        b=P9xuCSiIKREP3KCgxSf8tLtG3D9igPE5RIBB79dghfnlnkWkzJkkk1vwhT0cPbITCn
-         5KzDd/dnzV8v1c0qcSm5TcA87vZkzBc16Rmzgp40XhqswRZWqCN2HwlkOippTuyDkknF
-         PBE+gxRm8EJQ52dvjYvz6yTabvH896wEKuXkWpHWiEVfiwBbWAkfrHG8q1wa3MlJpqan
-         jaXuf7hmpZDSpuMZnZDwAPQEQrKnVWWd43BJOW7119LM6doDoXwwgasfyiKnhMwU7evi
-         5Sh28aEVbUTx6KuGprPYjXaMabL5oUllH+H4Ozbhd7RpvGStbjhwkBucqaDlwiRk4oyW
-         aM8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW+uywadHKet24oi+04rcQhGDedFGJjIpOFakGoVPgJrx3KQyw6XW2PKZcCgrllVUdQld8a92KRmP5RwnuQWwMm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9zxyz8QN5z9ckZt5teJsn+vsAjMkQToj0hb2UoKgIeBgyKdNc
-	cZ26sCYIWJXtO5ZPKcJjSnGG3oV91bEruDKlzxSjJDKEz0HdPPQ6o9of1ohboxiny3g=
-X-Gm-Gg: ASbGncsX+vxtFrY24gg5yutqW+ErP8D7iPaPQkUbb9/RWBt6j6LOuLeBJBw0rlkNDIU
-	AXcs6MWWtHLi3F6uqpfz0et17YjTY5WriDxa/g2x0WjbsXTXy0GOueu5+gSlwG+/9RlVcXO6faC
-	1cme9fY2wQU+33CV4/FWUJvZOqT6AcoEwEYAg+OWag+utgQ4qydcoGquNp7P6gkkFMkvtU6ibFj
-	cpnV2U54lNJeWOVsfarJZrmD0new5IlBRz9NNEUOPx6BXikcfW9qbSqRxywcUCw5aEWhbSNp/Dj
-	KcctzGdEbMv93kaJu6DSP2iT8HEXp+H+MHo0QAia1pRMP8I6NQo59mvVMUhJLoQNtkppo81WrlW
-	9LGPhryntWwmmB7nbb3vuw92OqNkZw/8QI99NMqaFmhlYbxBTYyT05gERH7oeFKNB/LISew3mHJ
-	VKyS+rss+2z33g1jlstYbAHaKNTRBahlPI
-X-Google-Smtp-Source: AGHT+IH146YCd5rLDFXJuCKGLfeNOz6gYO2M5rsXVh68MQw9WmhS/YuaAcFuV11qUOxFVCZjfM7jgg==
-X-Received: by 2002:a17:907:7fab:b0:b04:48c5:36c with SMTP id a640c23a62f3a-b0448c50704mr1338741866b.3.1757065250127;
-        Fri, 05 Sep 2025 02:40:50 -0700 (PDT)
-Received: from localhost (host-79-31-194-29.retail.telecomitalia.it. [79.31.194.29])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b04190700a4sm1362967966b.63.2025.09.05.02.40.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 02:40:49 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
+	Fri, 05 Sep 2025 09:41:30 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1757065285;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=G8XOvxlNGGHJoLa5Vx3ErGAvajcQpTrIPeSJD9PSV10=;
+	b=A0w1z7DvZDe/KnnN8T47etkJWRrtB7CkxzLUmCf1ShOOB8lFX8wDeJXi1ugCG1FJhJefr9
+	U2wt/iIG9rpMMNbnFIhKpGQuEkh0GTYwSl40cwe4pQCXwCveOhw61iPR4gI6kfMy4QYOso
+	n+6fS1vUo9rUYzAQBRzvzdopdVM2IuI=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: maz@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iivanov@suse.de,
-	svarbanov@suse.de,
-	mbrugger@suse.com,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>
-Subject: [PATCH v2 2/2] arm64: dts: broadcom: Enable USB devicetree entries for Rpi5
-Date: Fri,  5 Sep 2025 11:42:40 +0200
-Message-ID: <c6b17f0f896b5cdd790fc10aeb2b76b71df9b58d.1757065053.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <16d753cb4bf37beb5e9c6f0e03576cf13708f27d.1757065053.git.andrea.porta@suse.com>
-References: <16d753cb4bf37beb5e9c6f0e03576cf13708f27d.1757065053.git.andrea.porta@suse.com>
+	kvmarm@lists.linux.dev,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Subject: Re: [PATCH v2 0/2] KVM: arm64: VHE: Debug fixes
+Date: Fri,  5 Sep 2025 02:41:07 -0700
+Message-Id: <175706523474.1669883.3863665313729519721.b4-ty@linux.dev>
+In-Reply-To: <20250902130833.338216-1-alexandru.elisei@arm.com>
+References: <20250902130833.338216-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_024051_606974_67E56B3C 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250905_024129_559700_DE5CA8C2 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,41 +76,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RaspberryPi 5 presents two USB 2.0 and two USB 3.0 ports.
+On Tue, 02 Sep 2025 14:08:31 +0100, Alexandru Elisei wrote:
+> This is v2 of the patch that zeroes PMSCR_EL1 [1] at boot, hopefully now it's
+> not as bad.
+> 
+> Picked up another fix - patch #2 ("KVM: arm64: VHE: Save and restore host
+> MDCR_EL2 value correctly") is new.
+> 
+> [1] https://lore.kernel.org/kvmarm/20241106122654.38234-1-alexandru.elisei@arm.com/
+> 
+> [...]
 
-Configure and enable the USB nodes in the devicetree.
+I squashed the suggestion into the second patch.
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- .../arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+Applied to fixes, thanks!
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index 865f092608a6..95ab67c7aa47 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -21,3 +21,20 @@
- &pcie2 {
- 	#include "rp1-nexus.dtsi"
- };
-+
-+&rp1_gpio {
-+	usb_vbus_default_state: usb-vbus-default-state {
-+		function = "vbus1";
-+		groups = "vbus1";
-+	};
-+};
-+
-+&rp1_usb0 {
-+	pinctrl-0 = <&usb_vbus_default_state>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&rp1_usb1 {
-+	status = "okay";
-+};
--- 
-2.35.3
+[1/2] KVM: arm64: VHE: Initialize PMSCR_EL1
+      https://git.kernel.org/kvmarm/kvmarm/c/e643542c7160
+[2/2] KVM: arm64: VHE: Save and restore host MDCR_EL2 value correctly
+      https://git.kernel.org/kvmarm/kvmarm/c/2f67b9a64842
 
+--
+Best,
+Oliver
 
