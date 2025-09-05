@@ -4,78 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CCE8CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:32:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84632CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iHlvgHZaFwCkf7ITU9EaNlOvR0Pl/LuLj+JB04prPxg=; b=yjoEyjX3PxjocEvEwek1RnEa4D
-	omp/7RlxWfDwTCU2K48AvfnozHeeWC2FR7SJ01J/SIVEEM8/2fPzfxG3dUAKvdCyJqshgaslbt5Gi
-	jYzZECOZypImpTepp9awHfY/+A+mUMhLxaxRPzVr+2IkdYTSm6i7iibX8OnqFU6d5UeQle8O8nLNq
-	habzsOhqTmWZ4PDM57mk5O9Dc5gxPcXqni24ECbFf9Oa1AzLVP7F2dzVqtf7w9rmvthf5qjrPfdsD
-	H84gx+1LzNeyfkuDrXnwiv+wUf7Yz4ew3arpYEfvQLYpM3r4Z1Y+kkrb4tUlTO6VGYAEzCNHAq5Zn
-	D/q4VmHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hImylEF8kRxc0pZCmefapOdNIdI9K4EzdImQ0P7qUyc=; b=TmJkwGbduzH2nP2C5U+G9sl44K
+	NyywppZEV7xDZ3pIPxGiKlPYUHNz0Zv5+aK1IQRFjUtpBonXDWso7x/H379ZSvT/zXaQUH1LwIr8i
+	lHxff5JelROiQUZUvpQI8oib5d5mGMR0j6B8fvShvJMAS56zAURW5wR1nnyZCBZMtFAagluFYn5Qi
+	ABA8qAcJ88pGUWnwtonzaJTLt7G749+ViGhHNlBHbuqB9JJtEXdKZsY3KzJsnKhk2A9lKkPkRzjv4
+	oUN82tQEmmrEnS7KeQPhjbRUx+Hx0Q59q8QUh8hqCfnH8vVkFk2NwA6puvXDB7H1oQ4VfvyF4SIcY
+	I6ZzyXFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXUd-00000002JWU-0MwU;
-	Fri, 05 Sep 2025 14:32:47 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uuXUj-00000002Jg1-2Ecg;
+	Fri, 05 Sep 2025 14:32:53 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSXI-00000000fD9-1Gq3;
-	Fri, 05 Sep 2025 09:15:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757063710;
-	bh=33A/I19euiFo7KyPkCzzuu4tf57r3cMykqNriw0KQWI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KssQjEZDH9qu/sgjacMKg0Zz3UxIzN6z1Hvhb5Fo9k5JDDWuD+TrfyEPCYWFKEmrJ
-	 btk2pincIPdba6Wn/25wln5tco96FJM/f8dTQZffE8QGDFfxp2jrbVcO9wDEHh+gqk
-	 yTHEibEWSqqAPD2ntAHoude1EL3UdPjp4aOO41aCWzfU7L4HQ+B28rK9JNjat3vt5X
-	 X8JwwuxuQvV/D6NYUiKcCgLYKHSKpmZ6PEZS5gFA1HOVradnMsZ4MVTCj1A99pD6ev
-	 Z0BaaOfxx0ZcWJGwfUiWiEzuiyeijBEqH4pkRhGqr57Snx/5Yp8jY3sHCcZQ0zh+xR
-	 k4w/eCvUdARjA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DC6EC17E0523;
-	Fri,  5 Sep 2025 11:15:09 +0200 (CEST)
-Message-ID: <9aa961d0-8138-4363-a606-30d879638a5b@collabora.com>
-Date: Fri, 5 Sep 2025 11:15:09 +0200
+	id 1uuSZs-00000000gGy-3Krl
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 09:17:54 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-24c786130feso18060085ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 02:17:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757063871; x=1757668671; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=hImylEF8kRxc0pZCmefapOdNIdI9K4EzdImQ0P7qUyc=;
+        b=4QHYD7SbSzSuZM1vXuaYL5Fja+x0UQGPUx4sCiGdGr6tKbC1748O+L8z+WX/yERk2P
+         eLxSsoK84fYG2I612NqsvFKm26pJak7yI82+wpFoSwRJmk7I/e7/+pOZBqE7jqcj9e+B
+         JJDfUy+RHc4g3LdykVSFvvip7Wd5qcOglDJS5pbrmGrYmpZsHRMU+lEmxLLg/42STSwc
+         F7VPGOQifFWGYtKVd7PFQ0pB6q+gk0WJ1ipLrO4vvmW31jUTXWvCIAgyCJHxarJ8M34x
+         KbHhzzB6KcR0TmJyVxP1wTMqiwkKkpXPp/NIerU2v2/J/jGvLORcbfZ9uIrDZQ03me5p
+         zfzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757063871; x=1757668671;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hImylEF8kRxc0pZCmefapOdNIdI9K4EzdImQ0P7qUyc=;
+        b=byvbzz0Ynp0qGO9u15JMNwfCphjM8+K4S0tNMX7B5j1DcaIYIgDyBaV7YN2QxshOu+
+         5AYk723xe0FM0ZKaxwdC/eK5HUBZzrwBEB/i6xwgAcrhqe+xjgJxeZVvp2S1fBJG2ZIv
+         dHi1mSZqhRjf5Pg/tXSXri1BJE5nLiIgNxiTY5FS9B8NnFvYOSTo7I7Qo0y2YTkU8hOh
+         dMXKDINabRP8MmkEBQnzeBN3o1rC8EkFJROoSDw8XlGzfzgqWa9oWpKTqXJrO95MedPp
+         3BBtqx0IHVlnhbKihc3tCcw4zEpvk1kmEmIoteYoCn6GdtnkS2zEowMEiBqnHSsP8bW1
+         LGow==
+X-Forwarded-Encrypted: i=1; AJvYcCVxc9YMkFBVxM1+nWLZhvenlOgLq7KJcbw4UToSZOGZoAoTKxG8QwBnBY7yq3OcdsQTzLx+oMlnOxlciFL7DKer@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzhcb4uBi/7W6sPFDxDGi9WIYhpGtyZtFo0AkUuxKBnHnwl8bCj
+	X+CXbGtEgdvCnU9ZgNJRnxR1HUpZC4CpCB69XMcu2mSZNit6R2S2DThp7bi/5XHS92S349IwVZi
+	LEcMOi95t8fDKYWPJSqoW2EJ03V64WW6TKhMwhUtL
+X-Gm-Gg: ASbGncv44hBwB4NMveiARwp5CgXlx8SVCV35Uorn+EgNwAM2KXNbJH2+8naYP2iDxIG
+	3L0/BUJmoaAqzpYLX1AyfHoGfoZC6HkBepHqudbPVSVb6GBIrzdNMkVF1TRySl8bo6L8YrKf9hv
+	5dikU8dOQ9iCkxvHZMWm15bf4y66GqWqkeFnvwevSpJpjUYCXu1AGhbNaCSCpm4MTtf0yjEuM+7
+	gtll3jdci6qml7sGyV71b7o5wa0FLIoFNOLnuig729NOfnMQS7M3uU3wg==
+X-Google-Smtp-Source: AGHT+IF9S6iUUusneiZYRAF8ubXHonr/3eNJ3dxl0xbw7JyDRWMcPsctZ7caRsOI3KB+wShmBqhQXJYDFiofBVvADxw=
+X-Received: by 2002:a17:903:3d0f:b0:24c:c8d1:2bec with SMTP id
+ d9443c01a7336-24cc8d12d26mr73181375ad.40.1757063871035; Fri, 05 Sep 2025
+ 02:17:51 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] Fix sleeping function called from invalid context
-To: Jason-JH Lin <jason-jh.lin@mediatek.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Jassi Brar <jassisinghbrar@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Nancy Lin <nancy.lin@mediatek.com>,
- Singo Chang <singo.chang@mediatek.com>,
- Paul-PL Chen <paul-pl.chen@mediatek.com>,
- Yongqiang Niu <yongqiang.niu@mediatek.com>,
- Zhenxing Qin <zhenxing.qin@mediatek.com>,
- Xiandong Wang <xiandong.wang@mediatek.com>,
- Sirius Wang <sirius.wang@mediatek.com>,
- Xavier Chang <xavier.chang@mediatek.com>,
- Jarried Lin <jarried.lin@mediatek.com>, Fei Shao <fshao@chromium.org>,
- Chen-yu Tsai <wenst@chromium.org>,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-media@vger.kernel.org
-References: <20250829091727.3745415-1-jason-jh.lin@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250829091727.3745415-1-jason-jh.lin@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250801092720.1845282-1-verhaegen@google.com>
+ <20250801092720.1845282-3-verhaegen@google.com> <aJGM2zXS6hOLDFm1@vaman>
+ <87h5ym1f75.wl-tiwai@suse.de> <aKMzGRzeRqkOwTNS@opensource.cirrus.com>
+ <aKQGuPgwXE-Unzeq@vaman> <87bjo96t2k.wl-tiwai@suse.de>
+In-Reply-To: <87bjo96t2k.wl-tiwai@suse.de>
+From: George Verhaegen <verhaegen@google.com>
+Date: Fri, 5 Sep 2025 10:17:24 +0100
+X-Gm-Features: Ac12FXyMMz2kHiEopHVWkiVekeij32ZuBn5pZ91dcPOnuZoD_YGrtaq5a00yJT4
+Message-ID: <CAAntYmLGiqfZDKi2ndB7vk1GGZ7=FdozFvUFtMsKhVf0AxdsCw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/3] ALSA: compress_offload: Add SNDRV_COMPRESS_TSTAMP64
+ ioctl
+To: Takashi Iwai <tiwai@suse.de>
+Cc: Vinod Koul <vkoul@kernel.org>, Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Cezary Rojewski <cezary.rojewski@intel.com>, 
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+	Bard Liao <yung-chuan.liao@linux.intel.com>, 
+	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, Srinivas Kandagatla <srini@kernel.org>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	kernel-team@android.com, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-arm-msm@vger.kernel.org, sound-open-firmware@alsa-project.org, 
+	linux-arm-kernel@lists.infradead.org, Miller Liang <millerliang@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_021512_501058_D1DC23DA 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20250905_021752_831581_85A7D5AA 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +111,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 29/08/25 11:15, Jason-JH Lin ha scritto:
-> We found that there is a spin_lock_irqsave protection in msg_submit()
-> of mailbox.c and it is in the atomic context.
-> So when the mailbox controller driver calls pm_runtime_get_sync() in
-> mbox_chan_ops->send_data(), it will get this BUG report.
-> "BUG: sleeping function called from invalid context at drivers/base/power/runtime.c:1164"
-> 
-> Additionally, pm_runtime_put_autosuspend() should be invoked from the
-> GCE IRQ handler to ensure the hardware has actually completed its work.
-> 
-> To resolve these issues, remove the pm_runtime calls from
-> cmdq_mbox_send_data() and delegate power management responsibilities
-> to the client driver.
-> ---
-> Changes in v2:
-> - Move pm_runtmie APIs from cmdq driver to client drivers.
-> - Move pm_runtime_put_autosuspend to GCE irq callback function.
-> - Link to v1: https://lore.kernel.org/r/20240614040133.24967-1-jason-jh.lin@mediatek.com
+On Thu, 21 Aug 2025 at 08:18, Takashi Iwai <tiwai@suse.de> wrote:
+> OK, Joris, could you submit v5 with correction of what Vinod
+> suggested in reviews?
 
-For the entire series:
+Submitted v5 with revert of the alignment change. I think that was the
+only remaining open item.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-
+Thanks,
+  George (Joris)
 
