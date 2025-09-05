@@ -4,113 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4FECA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 10:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4633CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 10:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yvwWbjWwQjmMeKAyOcdKCI6RZCmR6bUkJiMf7mwvHhM=; b=ZEXQpZ3yVlrqbatd5rTRE/oPbs
-	nIXJkHhcwkflH1zMeLQt+CJWjGSt++KPeRxuy1+1VLbF68KOc+MPBW9hLPb7wekRG+szZ80Ksr2PI
-	/pgSGHFmgBxVfBnlRGH9Vxfo0oktq5hWxNhd5sMp6+5vAs+H9w2eHVApfNKOAKR1DJoAxCSaIhk66
-	LOdOYr9N49ij2jXC4caHFm+ffCbJuMq7VVpAr43rbNEygw+XL8d6SrS8UgdI5QrnsFcMKYXcxbknt
-	TE2/JIN41gLo9NYjeYFbtsljd9j+zPkCs17XUzc7xrXedk7zrsK4H99aVXHGD57hsbe7pqoZX5NUv
-	M/MO6ScQ==;
+	bh=9f+++oJEJogx7iunr2Qwd9nxHYBvpJqjgZ7eo+XnEyw=; b=mwi9yNU980HlM7+JKjo5bsD5PV
+	zsw7uyMuNLs0NQgILUjugEIyENiLSNV5v2WqPK/RgpJ//CatwZYwM/gmn6EQOt1a5JVQcQxymaK/0
+	BrP70wgwghJOHEuGMvgSu0OHO/WELu+XO9nsWLrBARgh6/NLNYDUdlUFgKyTi28UGSspW8nzEwIt8
+	yyk3k7JSkS5yBa0AIE/92aphqGvW8ZZxFRQzkoNVDBTTPK2ssk4GxfewQUFxiWlCedts2h0d9GI+U
+	kjlYP4X6sISoHVMqs1AtHR4DXIIRowNxn0tEMyPLO8FAYM+Dk17Q3PUodPi6v0IR9f8qYtPvi3Ofs
+	zKjkOI9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuTJy-00000000vzV-11Fi;
-	Fri, 05 Sep 2025 10:05:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uuTMf-00000000wxy-1Khb;
+	Fri, 05 Sep 2025 10:08:17 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuRoc-00000000Meb-0zZl
+	id 1uuRrD-00000000Nnz-1zxH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 08:29:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 471DB438D0;
-	Fri,  5 Sep 2025 08:29:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA606C4CEF1;
-	Fri,  5 Sep 2025 08:28:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757060941;
-	bh=eLSPT4SvjiaM5pd479/XZ2eZwilGWqS+QIx8bq1ijsM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kDKqYhuHwbUI58PukjGi61n+u9vY8RWhwT4lsaqzR0RkwQZwio5Xugnc+wEoYPtyd
-	 IXQjTUpYf5H59w1ThetcDTlmfCDG5Q1mnxUKEF2jR/TUr/kwkiKzJdLd1aasWz33L1
-	 xhUn0ObO9sm9CJd70EVvYoytLPe1+pl4M0lNEzzZLW+xq2JmvmuYErXYXDLkydBEV7
-	 /NKul4+jUc5QfeNjuIQCGzeW8DIVxfzJOK1Dvcv8vkX1v3sSx4It2XHEMsaPEkOT4u
-	 HJr9Xb/S+kE/RPI1H/c6TNW1cLd8uzACUqWNVhZCBlbvXQkdAagtRv/gCQdjozI3x/
-	 N2PCp1CFiaIVQ==
-Message-ID: <8705ef37-45b2-44cf-8223-2dceb211ad53@kernel.org>
-Date: Fri, 5 Sep 2025 10:28:55 +0200
+	Fri, 05 Sep 2025 08:31:44 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-336b908cbaaso16325371fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 01:31:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757061102; x=1757665902; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9f+++oJEJogx7iunr2Qwd9nxHYBvpJqjgZ7eo+XnEyw=;
+        b=hKa/vFb+iyXMVGVBmoXxUZBIyvzG/38kQLHzm47oaIaKNbnBcIRDoBNn0kiQCzR2xZ
+         t+trPkYTSfanQ+InFD/0Juzm5jYCHI1XoIf/7wRkQ9YIhmd5u7hQ4Z9RdLZikwH+wYHZ
+         C4LrD6gUeWT5Mr/4T2lr2yhrhOSjKZJ5/Fyi7/UlsWqp/7z0JPU71VTAd6kP7yD5bNJQ
+         HFvlf5kov6uvIcEgdGWN+Oxowu9WQvMfDpHEJg4iGxtecwqRhJIa+IlCwe/oLRXpR2C5
+         Bb61x4e1n6X3u7nwCxDGvS8vhsf60ju5+NoTCfsbqrLgvvdZs+xx+BlKR1VlsT1ORkgs
+         iCJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757061102; x=1757665902;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9f+++oJEJogx7iunr2Qwd9nxHYBvpJqjgZ7eo+XnEyw=;
+        b=E32iKU7+6W/Tr+/sql9rFZW3+iZ7Jn1wQUaFYIlLNCsolV6tEgrUlyFn+CYow4xJY1
+         PpVHE1WZhkm1KQ4YKpNLvEybRicAJ+TfpUygdap9NCU19dTX1EuPqW33mIqh5O6Pa89z
+         21R8XsLrpAxbW73O8HMsUNFnQe+SdThlQRd4fpvp/Vh0KbymJBs0xha3H9SYvVBae0ch
+         bu7yhQghf0NtT1EVv2aNnPmPlp4QDCI7Vjj0uGU6v/S0s0Cwxgi3QoX54xe7Q1enQxuj
+         XYqH2ROTz+6UsTN+bYPSa8LggINiIr2Em+/4zKfnZCkZ99OvXZtbTL8Ra0X2SzrG4ivh
+         o+Tg==
+X-Forwarded-Encrypted: i=1; AJvYcCW0NckmhyzarPnBIQWr4uvB67lSqzy03SZSA97rKl/mCGtkU6+L7pI4ayiUvl7ujUXvPo6Phx83Qw7YlNpIYTzY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfyiWFQVdb3ObwRaYKyKKVXnGL97scOLYe12xPhR8PY5gLmBBd
+	0mlZs9j19Tqvt54N5G7G9WSaxJQMZ7A5T9odXRTaW7YsNKIdEmJ7KCi3xMYjEIDmbD1k+j+UG/h
+	RBBsxSxgOkT2gMmBzKHhQaUyugAdWPQj1IUSDgGdczw==
+X-Gm-Gg: ASbGncvaCIVLZRsV665WdBZ+mvJWI7HipA66iSStSseGtclrzYfftlPv9cL1u2CbWJb
+	sNf2N/EctoXD2izMAd3KbnHvkwmv9smC33eQnX54trf3rJEKf+drSC84k6iNYzyLviA5g1dyeS1
+	kyJaoYxZ9NMgnZyo4LcGlZP7OF+pG455SKSnWtDRe60kd+vtqhLUhKE2ntDJqgnyMFQIXz0ugNA
+	K9NSN+3iTfGh/OFlg==
+X-Google-Smtp-Source: AGHT+IHp+LpzTnlm/ik4qcZ3pH7JoklV/VwhpQ2B9YB70/pzgPXeMXc+xQDV0rAGZGWmglV837F6DBjwLozLyJEQpSM=
+X-Received: by 2002:a05:651c:503:b0:338:3d1:60a7 with SMTP id
+ 38308e7fff4ca-33803d165d1mr29380981fa.38.1757061101675; Fri, 05 Sep 2025
+ 01:31:41 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: imx: fix device node reference leak in
- imx_pcie_probe
-To: Miaoqian Lin <linmq006@gmail.com>, Richard Zhu <hongxing.zhu@nxp.com>,
- Lucas Stach <l.stach@pengutronix.de>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Trent Piepho <tpiepho@impinj.com>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-References: <20250903135150.2527259-1-linmq006@gmail.com>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <20250903135150.2527259-1-linmq006@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <cover.1753039612.git.dan.carpenter@linaro.org>
+ <6f732f53-7e00-4f0d-82a3-480bc81497bd@sabinyo.mountain> <CACRpkdZ9EHoHiKit+T-ur0xDKMEoN_=TydzTfoggNBQGdra2bQ@mail.gmail.com>
+In-Reply-To: <CACRpkdZ9EHoHiKit+T-ur0xDKMEoN_=TydzTfoggNBQGdra2bQ@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 5 Sep 2025 10:31:30 +0200
+X-Gm-Features: Ac12FXxg4bL_8E-D_W-eOel8gQZzsIXFhPs68sNRK9cduffuB3-nHYnzZaiCCko
+Message-ID: <CACRpkdY3_ifPsQOTqa2e-kHR24Khy0axrZ=K+vO4OJB+FjdB2A@mail.gmail.com>
+Subject: Re: [PATCH RFC v2 4/7] pinctrl-scmi: add PIN_CONFIG_INPUT_VALUE
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, AKASHI Takahiro <takahiro.akashi@linaro.org>, 
+	Michal Simek <michal.simek@amd.com>, Cristian Marussi <cristian.marussi@arm.com>, 
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_012902_321586_92381A7D 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20250905_013143_516207_3B617B6B 
+X-CRM114-Status: GOOD (  24.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,37 +98,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03. 09. 25, 15:51, Miaoqian Lin wrote:
-> As the doc of of_parse_phandle() states:
-> "The device_node pointer with refcount incremented.  Use
->   * of_node_put() on it when done."
-> Add missing of_node_put() after of_parse_phandle() call to properly
-> release the device node reference.
+On Fri, Sep 5, 2025 at 10:27=E2=80=AFAM Linus Walleij <linus.walleij@linaro=
+.org> wrote:
+> On Sun, Jul 20, 2025 at 9:39=E2=80=AFPM Dan Carpenter <dan.carpenter@lina=
+ro.org> wrote:
+>
+> > In SCMI the value of the pin is just another configuration option.  Add
+> > this as an option in the pin_config_param enum and creating a mapping t=
+o
+> > SCMI_PIN_INPUT_VALUE in pinctrl_scmi_map_pinconf_type()
+> >
+> > Since this is an RFC patch, I'm going to comment that I think the SCMI
+> > pinctrl driver misuses the PIN_CONFIG_OUTPUT enum.  It should be for
+> > enabling and disabling output on pins which can serve as both input and
+> > output.  Enabling it is supposed to write a 1 and disabling it is
+> > supposed to write a 0 but we use that side effect to write 1s and 0s.  =
+I
+> > did't change this because it would break userspace but I'd like to add =
+a
+> > PIN_CONFIG_OUTPUT_VALUE enum as well and use that in the GPIO driver.
+> > But in this patchset I just use PIN_CONFIG_OUTPUT.
+> >
+> > Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+>
+> I tweaked this patch around a bit and applied: removed the second comment
+> in the commit message and wrote the docs to be more generic since
+> in the future other things than SCMI might want to use this
+> config option.
 
-How did you verify the node can go after of_address_to_resource()?
+Then I thought about it some more. ...
 
-> Fixes: 1df82ec46600 ("PCI: imx: Add workaround for e10728, IMX7d PCIe PLL failure")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
-> ---
->   drivers/pci/controller/dwc/pci-imx6.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 80e48746bbaf..618bc4b08a8b 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -1636,6 +1636,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
->   		struct resource res;
->   
->   		ret = of_address_to_resource(np, 0, &res);
-> +		of_node_put(np);
+Isn't it more intuitive that we rewrite the curren PIN_CONFIG_OUTPUT_VALUE
+to just PIN_CONFIG_VALUE that can be used for both reading and
+writing binary low/high instead of having two different things like this?
 
-So why not to use __free(device_node)?
+I will look over current users and maybe propose a patch.
 
-thanks,
--- 
-js
-suse labs
-
+Yours,
+Linus Walleij
 
