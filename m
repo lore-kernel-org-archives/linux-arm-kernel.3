@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25026CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8068CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhHz+TFr6n8MBsawIb4Oc3dwbFBJk4FHeDQHAJj5oGk=; b=G3Jc18bGuvtwqk2W9poG8u77Ru
-	nxG6wxU8IMRmXEQJCSKpi5d1iKYPuEBvAXZ9yPD2yK1M/CLhUhGwmwqRFcNum7/n4nrgePoxS46LI
-	YKc/LpvUw6HzhLuePgToHeJJr2xOOqFwlEzOQL9+QOPVc+/+NzIE58FGhZlSMOPn42ts00Uw751KY
-	aRxTwA4y0J0T7wcaihMHtnK83gpRiAdzMBM9TPBqDKvM+2gBHUanLpIv8qPw/HV18C7uq+ZD7ULir
-	Fv9YrUOmJqZruME54R8tvbzopMdztUG66KyBkKqO1EpA+ux12EmnJXSZcbiCElBqHbMYHeAf2zgFq
-	3DfXADZw==;
+	bh=Pzt7qrENbx/8j/QYtoZElmLzncNQBAh6Evzi2YZaWyc=; b=egrgdUVg+go94Oa19qNxp2cMCA
+	+En2MxNMMLmzK0LaLdtzsVXeR6KwsVxWQPf0I6KSpSBud7uD3Q1hc3VexjkePsn14k404JkPbPezD
+	cV1BoXgOXHVb116W82tVifVNRJcGs/4EXK0bTPl7XmExxVPrFc1lzF9bRQ3ozN/krSuVVY01zeccw
+	JE+YXVAq2FR+/LMTETliNF5hVfvfAwRGHGQqahcu2IzPGQPqJxDwU3fxk2Bv4EfA2Jv6CODK0CepE
+	9LhCw7sRTa7BBXxlFJoN68yiLvTtrLOAQO5ABEu6+JWKvfbIMxnDZ2owO7liSyaHRE9+zo8LZ1Yua
+	JdyRiNyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuaQl-00000003Xgt-3swp;
-	Fri, 05 Sep 2025 17:40:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uuaQw-00000003Xij-21VZ;
+	Fri, 05 Sep 2025 17:41:10 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuWY1-0000000200W-0VDm
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 13:32:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 54A1244D03
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 13:32:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23083C19425
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 13:32:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757079131;
-	bh=8jAcdpkwkSpwOdJxvwA2Vj7xEHXguZJ+MKwk0qNCAa4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=YDLPRfxE+TA2Q55nxy+S45umyans+pDRvwbObVt0bW3hJ3GKjbxPrVlX07NomP+MM
-	 gilJHDzfgmGFOcAFu0+loSilTzpkeDO9g9x8k2BAevsNOqWlkswrDpHfRJW58By2gZ
-	 h5T2iOat+XnnhSD9UwBeQ3xYHCYi7jaP+GtkcpXBdqab/ccFdCeVstKHtgcieR/3QH
-	 +KRTayLgDC1M/LhwjwPtXIccD6HoAsAvaea3u1dA7qTzCEzjxT3V+HO3EHQdCVNDFU
-	 /St9BM0FbaHx4JdEUTHAM1R9DDj8M5cKZD+5HIpQks7AUiitM6xvVlMUYXsHzcS8lI
-	 bWTNhY8srV4ig==
-Received: by mail-ot1-f47.google.com with SMTP id 46e09a7af769-74526ca79beso1847719a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 06:32:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUaEnNXme4D0RH3RET3Qxynbl90WIYYLVQRCQ4RiVi7B6IkiE26KP6orhH4WNA2M+hSb6S5KjdFJ2M9JSKyFtF7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBe21jW0KBx8uZtNPQ4iuZahzAooUAD3m/nb5GDqQD14yd5bE/
-	sqGLwZjzeEObjHyUP66RUgNvPZlSsFmq2V1PFVVnb+JRDwy26h6Gw3So0qOtSOJn/XAV0igvnCW
-	uc9V+lipoRKq3oRQCDGRSSNUW3/BMC6E=
-X-Google-Smtp-Source: AGHT+IFnE56n2ZWY3m6GFquWJS3R+4zyRWG4mn/x7Tvk/fQPvR7/F7IjMN/5eFQpLDwVxaDdPh5JX7KANJsrFqH4mJc=
-X-Received: by 2002:a05:6830:378e:b0:741:a5f0:bc82 with SMTP id
- 46e09a7af769-74569e53d0dmr13231613a34.17.1757079130135; Fri, 05 Sep 2025
- 06:32:10 -0700 (PDT)
+	id 1uuVxi-00000001oNl-399M;
+	Fri, 05 Sep 2025 12:54:43 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3277c603b83so1229544a91.2;
+        Fri, 05 Sep 2025 05:54:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757076882; x=1757681682; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Pzt7qrENbx/8j/QYtoZElmLzncNQBAh6Evzi2YZaWyc=;
+        b=Zz9Qe8IGdFxZGq1vJDC816N8K9AvYbTSepJ3aAIaXQvjWoLhbX/E7K1jwNgqS/t/Pc
+         eaWjgR8s4ehPED0T56Ub25g/AtyJgLT3p2WDzmzAzpIIsAVUM5zcEp1nMegj5F0hk33A
+         0VdaFiqwyrvHBRJKtYudz3TgBftaacS9T2mRpU7CcOSw7oKlWkl8GcsfoNO4BRLjM49S
+         tcUHMGddBw3hfhMkAQIkCMbjc0BCoHu4kNty4nQJAIUuZ+V17+wVUwPS35xJFROYl0Yz
+         rFeEGlvDDxPdeEAUY/DaNIe8Jx86ksqxIWgeMglhp7g/6RzQYlDshkhzwm4uQLeUN0S0
+         5Cjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757076882; x=1757681682;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Pzt7qrENbx/8j/QYtoZElmLzncNQBAh6Evzi2YZaWyc=;
+        b=n/NBj6JoVmas9DpxvmVQRvHenZpfcswVntvCn55LoHgTtxPPPwP/Bq61B75WMWCvYO
+         Te7BW+RziyhxA2Nvjrxtc6EqhFtDgmorxR672z2Q3dka1h6Zi92+7pZdVJvDkfghDeWP
+         E+f+2Rism7ykxpv80F8+dwl/kXPbG8jerEUnld5ksbTqQqKzlApjAoRby+wzpgh8fx8Y
+         oHtgWBcn6QpDOp71rRMvOua2LzOa2Dk8cc6+oOgGKJSbehwx67l+FK1+YVN3fl3DkyBo
+         Wjhjrc0fU3ZvzuJd9yGmg/5s8wX5Ki2ISO8/SGEyscn83jryfSWL0+E6/n3kg+dKKMXo
+         RN3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUQxY7Kgado4CDmkc8h+jHZvaaWMXaAg3Brs7DAVs23tBv+qgX4NicNq0xrATu65E5mb/lq5GWzjE299hTX35gP@lists.infradead.org, AJvYcCUZUjZ1OXJHCAXh18ZPkmAIY8g0mOznkS7SGQ58SwSqiQCiSM8VXBLePPz1LQCjbixr89Z9KKZegT0LiNkJn0s=@lists.infradead.org, AJvYcCVmNuxn5SxpNNY6nczXQdd9vfLmclNHvzX4o+dffYFXRs5sY9FkT7PVKn+rLhxx3MzCOAzr1pr2VgU0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEs1xIe4oUaG6VZLY07v5gBNgcx+NiNj7H/1QlG1NCfA/YF/qo
+	H9ODa3CeoX1fayCxiI+oZNiXPIM2J650ZxmhbsIL1/rypUXJnCcpMLHA
+X-Gm-Gg: ASbGncvjqMF4yk+6atgl8/BU7uDkDA1cjAk6ql5juodZn4HT+ZaCk1Da+KgsyEWdYrL
+	r2CLoYDtgbf2cnOpMYkqjcVRS7RTuFwECDshnA4vVbVjKd2i26FVB1xlkzWDRSfF72ojSjJd0cB
+	vu9ZjztmxBylCCP4r2Adzg9uzzTnySd7AnGoskFujxyLonBcMS+NbV1TennZcL2oxtVWR1VvBJP
+	GAIq8n2hqxPD274LYciWMLIQYEQUG4uUrpJgmLaAWG2S/3D09Xqg/PTM8ECJa+6zLTZIgyAg0i4
+	nCvr3tOvPx5YW1A3Kja/AGSXleIZ9/SrJDLWhaaCdSnIkwovzu6DRGZcmQWnDFCiePF8VpOYuqu
+	3z6G2oi0GyrNdKDsjPZYGHdobv9Ay18RZ
+X-Google-Smtp-Source: AGHT+IGwaXpMS2RTd/sFuAtY1Bq+6bu9GKob5Mqjz6hbplf9JNkChNQZjJMmG8KUui+rta/1CzzCVA==
+X-Received: by 2002:a17:90b:5865:b0:313:1c7b:fc62 with SMTP id 98e67ed59e1d1-328156c62c2mr25634481a91.22.1757076881888;
+        Fri, 05 Sep 2025 05:54:41 -0700 (PDT)
+Received: from localhost.localdomain ([2401:ce20:10::d4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4fb98f9f6asm4992305a12.8.2025.09.05.05.54.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Sep 2025 05:54:41 -0700 (PDT)
+From: WeiHao Li <cn.liweihao@gmail.com>
+To: heiko@sntech.de,
+	robh@kernel.org
+Cc: krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	WeiHao Li <cn.liweihao@gmail.com>
+Subject: [PATCH v1 2/4] arm64: dts: rockchip: Add USB2.0 PHY for RK3368
+Date: Fri,  5 Sep 2025 20:53:15 +0800
+Message-ID: <20250905125318.7956-3-cn.liweihao@gmail.com>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250905125318.7956-1-cn.liweihao@gmail.com>
+References: <20250905125318.7956-1-cn.liweihao@gmail.com>
 MIME-Version: 1.0
-References: <20250905132413.1376220-1-zhangzihuan@kylinos.cn> <20250905132413.1376220-4-zhangzihuan@kylinos.cn>
-In-Reply-To: <20250905132413.1376220-4-zhangzihuan@kylinos.cn>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Fri, 5 Sep 2025 15:31:58 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0jdJZ2upvE4KzDnc59KpMX+oqYbq=ZW=SXfwvjBctMj3Q@mail.gmail.com>
-X-Gm-Features: Ac12FXwR6ToJkYo5xTTss3xr-Ox8ITso59X_uvklZva98cFgnVHnG6meS0I7mt8
-Message-ID: <CAJZ5v0jdJZ2upvE4KzDnc59KpMX+oqYbq=ZW=SXfwvjBctMj3Q@mail.gmail.com>
-Subject: Re: [PATCH v5 3/6] cpufreq: intel_pstate: Use scope-based cleanup helper
-To: Zihuan Zhang <zhangzihuan@kylinos.cn>
-Cc: "Rafael J . wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
-	Jonathan Cameron <jonathan.cameron@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, 
-	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>, Ben Horgan <ben.horgan@arm.com>, 
-	zhenglifeng <zhenglifeng1@huawei.com>, Zhang Rui <rui.zhang@intel.com>, 
-	Len Brown <lenb@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Beata Michalska <beata.michalska@arm.com>, 
-	Fabio Estevam <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>, Sumit Gupta <sumitg@nvidia.com>, 
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Yicong Yang <yangyicong@hisilicon.com>, linux-pm@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
-	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_063213_197174_05426C5B 
-X-CRM114-Status: GOOD (  23.11  )
+X-CRM114-CacheID: sfid-20250905_055442_786536_5377C25B 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,134 +105,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 5, 2025 at 3:24=E2=80=AFPM Zihuan Zhang <zhangzihuan@kylinos.cn=
-> wrote:
->
-> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
-> annotation for policy references. This reduces the risk of reference
-> counting mistakes and aligns the code with the latest kernel style.
->
-> No functional change intended.
->
-> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+RK3368 has one USB2.0 PHY with two ports, This adds device tree node for
+it.
 
-No, sorry.  I've already said that this isn't going to work:
+Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3368.dtsi | 29 ++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-https://lore.kernel.org/linux-pm/CAJZ5v0gN1T5woSF0tO=3DTbAh+2-sWzxFjWyDbB7w=
-G2TFCOU01iQ@mail.gmail.com/
+diff --git a/arch/arm64/boot/dts/rockchip/rk3368.dtsi b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
+index 1b21787269..b09e431a64 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3368.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
+@@ -766,11 +766,40 @@ cru: clock-controller@ff760000 {
+ 	grf: syscon@ff770000 {
+ 		compatible = "rockchip,rk3368-grf", "syscon", "simple-mfd";
+ 		reg = <0x0 0xff770000 0x0 0x1000>;
++		#address-cells = <1>;
++		#size-cells = <1>;
+ 
+ 		io_domains: io-domains {
+ 			compatible = "rockchip,rk3368-io-voltage-domain";
+ 			status = "disabled";
+ 		};
++
++		u2phy: usb2-phy@700 {
++			compatible = "rockchip,rk3368-usb2phy";
++			reg = <0x700 0x2c>;
++			clocks = <&cru SCLK_OTGPHY0>;
++			clock-names = "phyclk";
++			clock-output-names = "usb480m_phy";
++			#clock-cells = <0>;
++			status = "disabled";
++
++			u2phy_otg: otg-port {
++				interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>,
++					     <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>,
++					     <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
++				interrupt-names = "otg-bvalid", "otg-id",
++						  "linestate";
++				#phy-cells = <0>;
++				status = "disabled";
++			};
++
++			u2phy_host: host-port {
++				interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
++				interrupt-names = "linestate";
++				#phy-cells = <0>;
++				status = "disabled";
++			};
++		};
+ 	};
+ 
+ 	wdt: watchdog@ff800000 {
+-- 
+2.39.5
 
-so why are you resending it?
-
-And making changes to it in the process without saying what they are?
-
-Please stop adding confusion.
-
-> ---
->  drivers/cpufreq/intel_pstate.c | 59 +++++++++++++++++++---------------
->  1 file changed, 33 insertions(+), 26 deletions(-)
->
-> diff --git a/drivers/cpufreq/intel_pstate.c b/drivers/cpufreq/intel_pstat=
-e.c
-> index f366d35c5840..0b54e08f9447 100644
-> --- a/drivers/cpufreq/intel_pstate.c
-> +++ b/drivers/cpufreq/intel_pstate.c
-> @@ -1502,9 +1502,8 @@ static void __intel_pstate_update_max_freq(struct c=
-pufreq_policy *policy,
->
->  static bool intel_pstate_update_max_freq(struct cpudata *cpudata)
->  {
-> -       struct cpufreq_policy *policy __free(put_cpufreq_policy);
-> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpuf=
-req_cpu_get(cpudata->cpu);
->
-> -       policy =3D cpufreq_cpu_get(cpudata->cpu);
->         if (!policy)
->                 return false;
->
-> @@ -1695,41 +1694,49 @@ static ssize_t store_no_turbo(struct kobject *a, =
-struct kobj_attribute *b,
->         return count;
->  }
->
-> -static void update_qos_request(enum freq_qos_req_type type)
-> +static bool intel_pstate_cpufreq_update_limits(int cpu, enum freq_qos_re=
-q_type type)
->  {
->         struct freq_qos_request *req;
-> -       struct cpufreq_policy *policy;
-> -       int i;
-> +       unsigned int freq, perf_pct;
-> +       struct cpudata *data =3D all_cpu_data[cpu];
-> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpuf=
-req_cpu_get(cpu);
->
-> -       for_each_possible_cpu(i) {
-> -               struct cpudata *cpu =3D all_cpu_data[i];
-> -               unsigned int freq, perf_pct;
-> +       if (!policy)
-> +               return false;
->
-> -               policy =3D cpufreq_cpu_get(i);
-> -               if (!policy)
-> -                       continue;
-> +       req =3D policy->driver_data;
->
-> -               req =3D policy->driver_data;
-> -               cpufreq_cpu_put(policy);
-> +       if (!req)
-> +               return false;
->
-> -               if (!req)
-> -                       continue;
-> +       if (hwp_active)
-> +               intel_pstate_get_hwp_cap(data);
->
-> -               if (hwp_active)
-> -                       intel_pstate_get_hwp_cap(cpu);
-> +       if (type =3D=3D FREQ_QOS_MIN) {
-> +               perf_pct =3D global.min_perf_pct;
-> +       } else {
-> +               req++;
-> +               perf_pct =3D global.max_perf_pct;
-> +       }
->
-> -               if (type =3D=3D FREQ_QOS_MIN) {
-> -                       perf_pct =3D global.min_perf_pct;
-> -               } else {
-> -                       req++;
-> -                       perf_pct =3D global.max_perf_pct;
-> -               }
-> +       freq =3D DIV_ROUND_UP(data->pstate.turbo_freq * perf_pct, 100);
->
-> -               freq =3D DIV_ROUND_UP(cpu->pstate.turbo_freq * perf_pct, =
-100);
-> +       if (freq_qos_update_request(req, freq) < 0)
-> +               pr_warn("Failed to update freq constraint: CPU%d\n", cpu)=
-;
->
-> -               if (freq_qos_update_request(req, freq) < 0)
-> -                       pr_warn("Failed to update freq constraint: CPU%d\=
-n", i);
-> +       return true;
-> +}
-> +
-> +
-> +static void update_qos_request(enum freq_qos_req_type type)
-> +{
-> +       int i;
-> +
-> +       for_each_possible_cpu(i) {
-> +               if (!intel_pstate_cpufreq_update_limits(i, type))
-> +                       continue;
->         }
-> +
->  }
->
->  static ssize_t store_max_perf_pct(struct kobject *a, struct kobj_attribu=
-te *b,
-> --
-> 2.25.1
->
->
 
