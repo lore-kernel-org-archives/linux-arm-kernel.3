@@ -4,78 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFC8CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7976CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S8l7G2EepH8XkBBdvC2ecofLBYVddp2ctHowG/kpVt8=; b=pQ6pkaisLUYaEfkOUfNMKvN7Xe
-	eVvCkhbPxHRjrDcthvDNYG6BUVV4PJA/UH6VWfSDqynjUsIWcTKcr38hV2uUQPiu5Pul45MCc4Q70
-	UdiG/EWC+trq9PFBT4m0LzJR/b1sh+eK900cE1zYuBdVq6W61vuz+Cv3IZlksnv3dMdiIPCXjsVm4
-	jwLTPRcLq6pTCMtS/oxVBqCnlaNcZh4rB6TLS6IaxccsSiiysWWpJCcptiOIlMP1ojlzjhjylUktS
-	rwWOshYFjCEKfL/10yZkL/eMhPCNeD+Q5TPvVJM9+Yz71O9P5BxNhSgpaT7N6BA6sjLmKraAXfAqw
-	OmT7PoJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OfTOMWX66TbAfkqnKGzCFdhIOFRb5l9VXCVY15B8Ww4=; b=F1olRHJ5TdcsM7RBWQQcTjjDn4
+	JrCNLlrpjmwW/dCwCKTSWjzoJtLgtQ2dKSu9Sx/OyVYJXm68FPXOwlXrea2YAm5xkGmS42dOpNFsG
+	QHlRReQQdNYqJST6Zrzeu1WYBVxsAvoO9jWh1x4XXjH8E4Zx/twwBOzABNV5vzwdsaOcdALebEFK3
+	BUBhJZJaZSKTUk9JmEXwZHXX8G9Z86Y8U6eZVHqkbAkcV8zHc8HwR02//fz0hJ2aPW5E2pyd+xK/C
+	ZRMjwPI8u1tLCj6YGEM9ETz+JEoFC6DEYaJWPlcrR55C0Muqk/JsVj37yLWjfJ4UMV6yToYvBF6q+
+	1o4l+IKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYEm-00000002hIE-2dpd;
-	Fri, 05 Sep 2025 15:20:28 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uuYEo-00000002hK7-20IH;
+	Fri, 05 Sep 2025 15:20:30 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuS3n-00000000Sjq-0G2x;
-	Fri, 05 Sep 2025 08:44:44 +0000
-X-UUID: 8f0ca0ea8a3411f09f706fa2197c6ceb-20250905
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=S8l7G2EepH8XkBBdvC2ecofLBYVddp2ctHowG/kpVt8=;
-	b=lQbNGBaUvqfAFqj0PgRdoSz2VsrnlJRlyu9tAhwyKRYFrkQRKIp8dpvobrpLVvtJA61KEHhMI0j8mU5BIJmeqJA83FfRcsdf0t38o1f8+YKTDlvSASGc+KiXXim8r87h4qE/qRL56WQw+KqyTDhVHUnTt1dNIx4Vo3y3uXx/bjs=;
+	id 1uuTZM-000000011F5-3f6J
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 10:21:26 +0000
+X-UUID: 0e7797928a4211f0b29709d653e92f7d-20250905
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:6d63ffe5-7056-4776-a6d4-32f48968e9c6,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:f1326cf,CLOUDID:373400a9-24df-464e-9c88-e53ab7cf7153,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
-	nil,URL:11|97|99|83|106|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 8f0ca0ea8a3411f09f706fa2197c6ceb-20250905
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <ot_zhangchao.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 203631056; Fri, 05 Sep 2025 01:44:39 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 5 Sep 2025 16:44:34 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 5 Sep 2025 16:44:33 +0800
-From: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-To: Marcel Holtmann <marcel@holtmann.org>, Luiz Von Dentz
-	<luiz.dentz@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: Sean Wang <sean.wang@mediatek.com>, Jiande Lu <jiande.lu@mediatek.com>,
-	Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>, Hao Qin
-	<Hao.qin@mediatek.com>, linux-bluetooth <linux-bluetooth@vger.kernel.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>, linux-mediatek
-	<linux-mediatek@lists.infradead.org>, devicetree
-	<devicetree@vger.kernel.org>, Zhangchao Zhang
-	<ot_zhangchao.zhang@mediatek.com>
-Subject: [PATCH v7] dt-bindings: net: mediatek,mt7925-bluetooth.yaml
-Date: Fri, 5 Sep 2025 16:44:33 +0800
-Message-ID: <20250905084433.26999-1-ot_zhangchao.zhang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+X-CID-O-INFO: VERSION:1.1.45,REQID:14f482f1-1678-4861-8721-a3d21e06eb8e,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:6493067,CLOUDID:91ab872eaa9ae72f0b505e024ab096ae,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|83|102,TC:nil,Content:0|52,EDM:-3,
+	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
+	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 0e7797928a4211f0b29709d653e92f7d-20250905
+Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
+	(envelope-from <zhangzihuan@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 829448159; Fri, 05 Sep 2025 18:21:16 +0800
+Received: from mail.kylinos.cn (localhost [127.0.0.1])
+	by mail.kylinos.cn (NSMail) with SMTP id E4DD9E008FA4;
+	Fri,  5 Sep 2025 18:21:15 +0800 (CST)
+X-ns-mid: postfix-68BAB99B-76698910
+Received: from [172.25.120.24] (unknown [172.25.120.24])
+	by mail.kylinos.cn (NSMail) with ESMTPA id 96DA5E008FA3;
+	Fri,  5 Sep 2025 18:21:07 +0800 (CST)
+Message-ID: <59305500-9ecf-4eeb-b4dc-9c9eed02454f@kylinos.cn>
+Date: Fri, 5 Sep 2025 18:21:06 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/10] thermal: imx: Use scope-based cleanup helper
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: "Rafael J . wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>,
+ Ben Horgan <ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>,
+ Zhang Rui <rui.zhang@intel.com>, Len Brown <lenb@kernel.org>,
+ Lukasz Luba <lukasz.luba@arm.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
+ <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>,
+ Sumit Gupta <sumitg@nvidia.com>,
+ Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+ linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
+ <20250903131733.57637-9-zhangzihuan@kylinos.cn>
+ <20250905110551.00006588@huawei.com>
+From: Zihuan Zhang <zhangzihuan@kylinos.cn>
+In-Reply-To: <20250905110551.00006588@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_014443_101106_84F90C64 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20250905_032125_202493_9F766EC3 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,88 +112,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reset BT via BT_KILL_1V2_L hardware pin.
 
-On the M.2 standard hardware pin interface, the MTK chip
-has a pin called BT_KILL_1V2_L or W_DISABLE#2, it uses
-function-level device reset (FLDR) to reset Bluetooth.
-When it is pulled low, it can external shut down the BT
-function, it is defined as 5 on the MT7925 chip, and is
-defined as 248 on the device tree pio controller.
+=E5=9C=A8 2025/9/5 18:05, Jonathan Cameron =E5=86=99=E9=81=93:
+> This radically changes the lifetime of the reference to policy.
+> If that is valid, then I'd expect a lot more description of why!
 
-Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
----
- .../bluetooth/mediatek,mt7925-bluetooth.yaml  | 47 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 48 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
 
-diff --git a/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml b/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
-new file mode 100644
-index 000000000000..dd24312735e0
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
-@@ -0,0 +1,47 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/bluetooth/mediatek,mt7925-bluetooth.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Bluetooth mediatek use BT_KILL_1V2_L hardware pin to reset BT
-+
-+maintainers:
-+  - Sean Wang <sean.wang@mediatek.com>
-+
-+description:
-+  MT7925 modules provides hardware pin called W_DISABLE#2 to reset Bluetotoh,
-+  two methods are used to reset Bluetooth. When an exception occurs, resetting
-+  Bluetooth by hardware pin is more stable than resetting Bluetooth by software.
-+
-+allOf:
-+  - $ref: bluetooth-controller.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,mt7925-bluetooth
-+
-+  reset-gpios:
-+    maxItems: 1
-+    description:
-+      This pin can is used to externally reset BT function. When pull low,
-+      the Bluetooth and USB interface will be also disabled. After 100ms,
-+      it is pulled high to 3.3V to re_enable the device and trigger the
-+      next probe. This is typically used on M.2 key E modules.
-+
-+required:
-+  - compatible
-+  - reset-gpios
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+
-+    bluetooth {
-+      compatible = "mediatek,mt7925-bluetooth";
-+      #gpio-cells = <2>;
-+      reset-gpios = <&pio 248 GPIO_ACTIVE_LOW>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5959513a7359..d104a5821f20 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14676,6 +14676,7 @@ L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/net/bluetooth/mediatek,bluetooth.txt
- F:	Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7921s-bluetooth.yaml
-+F:	Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
- F:	drivers/bluetooth/btmtkuart.c
- 
- MEDIATEK BOARD LEVEL SHUTDOWN DRIVERS
--- 
-2.45.2
+Thanks for your comment.
+
+Initially I thought policy was only used within this function, so I=20
+moved it here.
+After your feedback, I realize that this change might affect the=20
+reference lifetime in ways I didn=E2=80=99t fully consider. I need to rev=
+iew it=20
+further to ensure it=E2=80=99s safe.
 
 
