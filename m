@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A94F0CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC131CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sg9V7A+vveZVwEgb6/4ZFeGTdbh9RAwHCgZXiFP+1HU=; b=Q7pnxyPt64e/z8p7liznjDwzt8
-	ScAveLEBERvHl+0UHI2eYwJIVZas4OsbSmWjJQ6O9i3uwNQme/VVq9oyONwxmMnE7Si82TuwpmMkp
-	UVSIDBdVO6hUZ2H/4l8jqF9YXol8BWTaK0PUvR9e1eeuWqYsHrn258IuGQvUpI2VXDiD/78odfiea
-	DSJKpqkGLeFae2WFx8ngTa0qx2NsSQLDLmovLXPDtLD1bH+HrPVC5fxU6YbxyyuplWL1PLM/iQ/Pk
-	GjcvvnMLD4CPXi4Karp66IPu7ewIwyzRckyU4eBiTYqRREvBFXvJnbl0vPFlWII4D/zdHNvj8hK6O
-	jIM2yYfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LtsMrUNIkQ4zM9Z4X+nbHG1Dt3TB9t+rJKx/WZzZMfg=; b=BqGw00K12tUM8vc6rh5R8NlNCi
+	p1l96wbu3JK5MuVcd5CbN9KQhA95SIlXu2+ixJ224aHEI0OpqGS0kuQ2x3Gc/Aqt2pIWOS5FC2q4B
+	C8uAE4K3vN2FzxO4JP9NQErUjfv0Egvd3w3ilhm3CCjeN950/qL3LszsLYe7ljAH4/V0pzDUOMpBX
+	K41NdpvlaRZFEqnAGqFvJTR0XxF89Z79PS2uCVJJqvY825Un98l6PksjYx1uyGS22541Dpgig/JG2
+	VZM2Cwqjm9I5Y0M4xH15lmiXwaT9y4YgjcIMAgLv2zsOig6p/IMzZG4WOr8EXwhmYWYs+/bIEF1ti
+	jJBJEP8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugZB-00000005Y69-3Rns;
-	Sat, 06 Sep 2025 00:14:05 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uugZL-00000005YMO-2dWW;
+	Sat, 06 Sep 2025 00:14:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuep1-00000004yzn-3dgQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 22:22:20 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2445824dc27so26497225ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 15:22:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1757110939; x=1757715739; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sg9V7A+vveZVwEgb6/4ZFeGTdbh9RAwHCgZXiFP+1HU=;
-        b=ScvSaNcuD540sCq/DFt6KHEXIfotBbLMIptvIad52xOfWWDBvXVZCAjzdTqz6kgtBr
-         jS9lSdmQ1RiE+G6Rz9Oy8tZrTCZAPXAUHzR0eHHHD901Pag0swvr2lDhI/MIsckXurIg
-         GHtStXo7qPgjWVgVoSygKoM33RLlpQoYznrUaeSQ7vbUV1fdNRLydbnF5fH3VQVYceFo
-         6fTIl4IL303A9iTH8vwRJXjfB0lFi41c5tIdaFZ/Ad4LKmL7cbtYADnRXgYY/B7b0gIZ
-         /LWV3QPJVfsuuCBIPN9kv6DhkuOClomFqfG/UJ0VonLes7XWqXExRJrDszAD6iaQXOkC
-         c1sQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757110939; x=1757715739;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sg9V7A+vveZVwEgb6/4ZFeGTdbh9RAwHCgZXiFP+1HU=;
-        b=KGkjryg86P75AQxaeYd/8hljvINhsP7YoN1iWmm8PR6P8Y6dEdj1OqYghfEslPRhJo
-         q3cgt8K3mPYYTCvjmLAbVVq9KMPVrrDDVbRdRv6e9MQYaw9pFTxiyGhudTe4jQCg5bAd
-         5zPiz/mRMRtPqRnTM4/ZITKmCLUFnsL+KxUgiFpEzVabBkcsswlCDGKngmw45cPh5/uU
-         NUuOQ1kNs7mNNaQyCLNwiOQ7b65NZaVlra+nxThyOLQZG/DM38Ttc5idHTKqcRserPcB
-         5ZnL1Oz+6ACl0dvtpzjQ8hvWxsGcCOarJ7eCD5zmmXUxeeeKZ6zQg5MOeMxXJ4UlZS2t
-         WVzw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwYkKDJ5dtN6h+rVCKC3qwTWWwh0hSZx/IRxQDPYMU4926eUFv/bKoZqCCT2j2TWSC6LWbS+HnFzgSI/zXfKVp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9TK++AQ0iazwnWghc8ck/vrmEx/ThZrPsreY9MPXGmbdo23vF
-	hFLGB77EiN3brag17/nfMpogTgmhWOOElP5HkbEExKBt8+eNNfIsM6ehq8ITHywVdpY=
-X-Gm-Gg: ASbGnct+E3jeCVO+8+oQ4T/lypvJzGkBLD+vtFPCn2kvmrAuuoycL9wKbdSaN/TESgm
-	hHG09lCEz3raurhwYvvlMjLTERpyKipe+6Q7oN/PbPTMRxj1qEY5bMI1/LBajvvjuUk+r8NMX3X
-	GDDQpKpFI9njn1d48xzQ8Ijwh92s4tM3jECNYOA657NRt2l1GAG1nlI8XAtT40/NtUbIEOu5vvO
-	adIZ8ixms4N7dVtGH2PO6qB5pPVxjqiUkpp356eF0MM+VIA0cWMv9zbzwv4SZa8+aBS6YYnwC9r
-	utMpiobl8d9b6Mkfk4fGMi+JS4IzD+EVBa/1DvDaTIEFTAWy5zF4IR0L++E245jjPxOeLmW81wC
-	KDnQrKnfHNzUDQT9ibSHXPInKTTLNk0Q=
-X-Google-Smtp-Source: AGHT+IEgDKOlBK6x0QOw3W3CHGpa5Cc8uz1T8qU/XEUIc8y0zuEtK7ONrjwU8Ktw48bTs0lLqjmlXw==
-X-Received: by 2002:a17:903:3bc7:b0:24e:e5c9:ed02 with SMTP id d9443c01a7336-25174470d47mr3109805ad.54.1757110939089;
-        Fri, 05 Sep 2025 15:22:19 -0700 (PDT)
-Received: from localhost ([71.212.208.158])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-329cb6a2ec2sm13579564a91.21.2025.09.05.15.22.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 15:22:18 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
- Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
- Santosh Shilimkar <ssantosh@kernel.org>, linux-omap@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Miaoqian Lin <linmq006@gmail.com>
-Cc: stable@vger.kernel.org
-In-Reply-To: <20250902075943.2408832-1-linmq006@gmail.com>
-References: <20250902075943.2408832-1-linmq006@gmail.com>
-Subject: Re: [PATCH] ARM: OMAP2+: pm33xx-core: ix device node reference
- leaks in amx3_idle_init
-Message-Id: <175711093813.666031.2668373270360080348.b4-ty@baylibre.com>
-Date: Fri, 05 Sep 2025 15:22:18 -0700
+	id 1uufHl-000000057m9-42Y5;
+	Fri, 05 Sep 2025 22:52:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 406C341AE5;
+	Fri,  5 Sep 2025 22:52:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E45ADC4CEF1;
+	Fri,  5 Sep 2025 22:52:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757112721;
+	bh=l60dkoYMQd6R7LAx2baVP55rb2TCT2FRvS6OPwDjEa0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cClxvj29M2e3KDkIgkmiYUfSDXzkuWy5oUvjb5kkZYK7M+gMzJfrS+K8ugUEG/Are
+	 3bDD/BJtCbkpp1dm7GZ6CNvMR5U2Duvz0eauHAYO7fDOofXFT7WmKtFFCcAB+NhYTd
+	 tbmrsKNllGTVtO4Eh7QYGJdtwZE/FHsAB0wc4FONERWLlShJz4UeLO9KHH9Zud3JJS
+	 xQeiwoxfwPFDmhnoMB7LWQJgaOKwkd8ukuEjN/8KvGWk7tgN0/A8MQ/fNkp5bAGaNO
+	 HnE8IbzwVitZTLFh7drome8VLwXrSDe5rMUaHfOJcP3G2MwvDjx+irD+T0JM5EzTGu
+	 Ghrt/79VY4Oeg==
+Date: Fri, 5 Sep 2025 17:52:00 -0500
+From: Rob Herring <robh@kernel.org>
+To: Cyril Chao <Cyril.Chao@mediatek.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Darren Ye <darren.ye@mediatek.com>, linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v2 09/10] ASoC: dt-bindings: mediatek,mt8189-nau8825: add
+ mt8189-nau8825 document
+Message-ID: <20250905225200.GA1355628-robh@kernel.org>
+References: <20250905071659.25805-1-Cyril.Chao@mediatek.com>
+ <20250905071659.25805-10-Cyril.Chao@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3-dev-d7477
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250905071659.25805-10-Cyril.Chao@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_152219_909662_73167B09 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250905_155202_050297_FBF6283A 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,20 +81,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 02 Sep 2025 15:59:43 +0800, Miaoqian Lin wrote:
-> Add missing of_node_put() calls to release
-> device node references obtained via of_parse_phandle().
+On Fri, Sep 05, 2025 at 03:15:54PM +0800, Cyril Chao wrote:
+> Add document for mt8189 board with nau8825.
 > 
+> Signed-off-by: Cyril Chao <Cyril.Chao@mediatek.com>
+> ---
+>  .../sound/mediatek,mt8189-nau8825.yaml        | 101 ++++++++++++++++++
+>  1 file changed, 101 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8189-nau8825.yaml
 > 
+> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8189-nau8825.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8189-nau8825.yaml
+> new file mode 100644
+> index 000000000000..db3a70c0b9d1
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8189-nau8825.yaml
+> @@ -0,0 +1,101 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/sound/mediatek,mt8189-nau8825.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek MT8189 ASoC sound card
+> +
+> +maintainers:
+> +  - Darren Ye <darren.ye@mediatek.com>
+> +  - Cyril Chao <cyril.chao@mediatek.com>
+> +
+> +allOf:
+> +  - $ref: sound-card-common.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - mediatek,mt8189-nau8825
+> +      - mediatek,mt8189-rt5650
+> +      - mediatek,mt8189-rt5682s
+> +      - mediatek,mt8189-rt5682i
+> +
+> +  mediatek,platform:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: The phandle of MT8189 ASoC platform.
+> +
+> +patternProperties:
+> +  "^dai-link-[0-9]+$":
+> +    type: object
+> +    description:
+> +      Container for dai-link level properties and CODEC sub-nodes.
+> +
+> +    properties:
+> +      link-name:
+> +        description:
+> +          This property corresponds to the name of the BE dai-link to which
+> +          we are going to update parameters in this node.
+> +        items:
 
-Applied, thanks!
+Only 1 name? If so, drop 'items'.
 
-[1/1] ARM: OMAP2+: pm33xx-core: ix device node reference leaks in amx3_idle_init
-      commit: 74139a64e8cedb6d971c78d5d17384efeced1725
+> +          enum:
+> +            - TDM_DPTX_BE
+> +            - I2SOUT0_BE
+> +            - I2SIN0_BE
+> +            - I2SOUT1_BE
+> +
+> +      codec:
+> +        description: Holds subnode which indicates codec dai.
+> +        type: object
+> +        additionalProperties: false
 
-Best regards,
--- 
-Kevin Hilman <khilman@baylibre.com>
+blank line
 
+> +        properties:
+> +          sound-dai:
+> +            minItems: 1
+> +            maxItems: 2
+> +        required:
+> +          - sound-dai
+> +
+> +      dai-format:
+> +        description: audio format.
+> +        items:
+
+Drop items
+
+> +          enum:
+> +            - i2s
+> +            - right_j
+> +            - left_j
+> +            - dsp_a
+> +            - dsp_b
+> +
+> +      mediatek,clk-provider:
+> +        $ref: /schemas/types.yaml#/definitions/string
+> +        description: Indicates dai-link clock master.
+> +        enum:
+> +          - cpu
+> +          - codec
+> +
+> +    additionalProperties: false
+> +
+> +    required:
+> +      - link-name
+> +
+> +required:
+> +  - compatible
+> +  - mediatek,platform
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    sound {
+> +        compatible = "mediatek,mt8189-nau8825";
+> +        model = "mt8189_rt9123_8825";
+> +        mediatek,platform = <&afe>;
+> +        dai-link-0 {
+> +            link-name = "I2SOUT1_BE";
+> +            dai-format = "i2s";
+> +            mediatek,clk-provider = "cpu";
+> +            codec {
+> +                sound-dai = <&nau8825>;
+> +            };
+> +        };
+> +    };
+> +
+> +...
+> -- 
+> 2.45.2
+> 
 
