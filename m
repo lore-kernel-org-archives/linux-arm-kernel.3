@@ -4,162 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA69CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DB8CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:35:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FZfNIOHdU1maA9yt0Oh1UlSOE4FsDJhs94bEPM0WFzM=; b=QIuhVtrYlkiukQ75xZ/tU7hKeW
-	wLsAeIGGQYRKCtfMIS9hFqgZCdFRM0mQh+03E6ShBLDDJrLw8bZMa0feNT03wbOYNn01nPC0AKYYR
-	fUs6K9GIKmKphpZZ0kxUj5SAyA+4TlXE4gW3Lz7OHRsWU6gJk6OzatCwVoORHs3AVyEFM6nMWH/Xi
-	rm8H4RgsTGBZ0neqhS2zqB8kmFgwf85s+6QvNmTOs5GbQTR62ixFBvoEhU0fIyFEHHmI53OYO7iMP
-	fZyyyr0oY2PAJmVMc6pTTuTNPNwm5wPBnX3VhEWW6O+n9jt5qRuZeNNMShSRBbfm23nvPazrdfzH3
-	zM0v2Daw==;
+	bh=M064Cu+ruftN0KyAR4fv7BOeQsnbrxb6iWPhUYz6BbQ=; b=tZ+dGlnH2nct2LcXXonzoCiUZP
+	MsTaX7Ldp+OXa9l9OKaF2KauxybT2NlBBRAnh/Xnrscv9EhCnCLvWCkwbaa4UlZuH2rrLN/8hv1ED
+	xlqkNHXPeWFsuLocCAHmHi/rEKfaoWokumQLVRLhxcHcrJq9NkTG8CVhmnARhbJFmlUH94QKSCBez
+	COl4etEsCZOmie0xDiH9CB3mVpVnYeybPRDO67cHIxkkEvytWTE4tAmvs8u9WEJ2xvpcCVce/nkPh
+	g4Ue+jahzKMiHYruIp3KY2pZO8WCFlv3KeLOEh1csS9ofDuUTqHh7MA/aKcMGyK+QcQDaty1pe84w
+	X/IQ0d5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuMBw-0000000G9wX-1WoO;
-	Fri, 05 Sep 2025 02:28:44 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uuMIb-0000000GBfc-2L4d;
+	Fri, 05 Sep 2025 02:35:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM9C-0000000G9Kn-2Lh4
+	id 1uuMFs-0000000GAwN-1czt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 02:25:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=diCTfzCUYPOPDGTeDy/0UUpcEngoXjnySJfTBdCIchUC6AVdZD5jJ/TQH/aCK5fSnNkvqNytWYd4NiTyWfav7Bt2mGIyXTMYwmdbzrE+HgYOI5uUh90N35UrY+qdLSAXPCG7uE52zOTjLX7VvX7v79aB2p5bdZbFvqSXOr2A/QX71UXBmvplcisQ418n33aNEwDaxgjIWN8jbfRN5n8ire6u/aeNYtJ5J98bPjIQhVo8EOzt3rMkNQ9cj9kajqIKeECvPW0zgaBl8tIHRf25+CUof7X/o8n6tdNiY4obEzxaxYMVAs2PLO+sFj1RWJrOx8jYEzghk1oWNYiSUCiQgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FZfNIOHdU1maA9yt0Oh1UlSOE4FsDJhs94bEPM0WFzM=;
- b=t80tAEN7V9WAnjUSfNVeY1sNkwcLfCDUOVg02fS8wjNHmDuryZR8Zp6PavfqeUU53TfheUgtpvbJtjNKZItnBcRngS1PKue1vcqxJlBLMHX+oby4jx5HaPg6VpClz504cm4N2qbn4trvlivXKZ+fJuBWGel8ZnASTxWFHogCleEQ/aAUZjUpmvp2ogS6fiY16xNp+24rq4s1d7aQL5BfJmvN9+ISlNNmFw/eb2W7EmuWi8g6buDmR0N1/bp+2L82PlyS2dv2EqPUqULZeBX1enCYBc/vSB6va7+jWVZY+uUmw1doaM3c0B9hrXvj1HUnGBjT11d+Fvs7PEc1EFG3kA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FZfNIOHdU1maA9yt0Oh1UlSOE4FsDJhs94bEPM0WFzM=;
- b=lQ2Uc9NR5EiypJUs5CEJMTSI6P5xvTPiUYU7aXe/xWHDZPvuKFw5tq9Dr79tRUKKPvZaflFqSmgVf/AgCHRhrQ79I8dBVzGqxgbEJN25AxHkPjmi/u3n9lcssRi3yY+dsW7cA620OJaiGzV6RS92Wle9iUO+uulwONjeIXzHBsMSI4EYC2t/3SlBIj3qlHEbiSI+CWloveVzsYDqhBL31W5oGQRSPdh1/CaEdRUZAoyNMNCW2DY5mo3XN11HUNZJFdDb8f4LNFg53b8QmACvOxXiJR6p2yX83TPvxQpN1EmZWGcT5f7J+DAVGe0VZWrXIATEL5ciHvKSuDzRrlyICQ==
-Received: from AM9PR04MB8505.eurprd04.prod.outlook.com (2603:10a6:20b:40a::14)
- by GV1PR04MB10584.eurprd04.prod.outlook.com (2603:10a6:150:210::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Fri, 5 Sep
- 2025 02:25:51 +0000
-Received: from AM9PR04MB8505.eurprd04.prod.outlook.com
- ([fe80::bb21:d7c8:f7f7:7868]) by AM9PR04MB8505.eurprd04.prod.outlook.com
- ([fe80::bb21:d7c8:f7f7:7868%7]) with mapi id 15.20.9094.015; Fri, 5 Sep 2025
- 02:25:51 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-CC: "richardcochran@gmail.com" <richardcochran@gmail.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	Clark Wang <xiaoning.wang@nxp.com>, Frank Li <frank.li@nxp.com>, "Y.B. Lu"
-	<yangbo.lu@nxp.com>, "christophe.leroy@csgroup.eu"
-	<christophe.leroy@csgroup.eu>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>
-Subject: RE: [PATCH net-next 1/3] ptp: add debugfs interfaces to loop back the
- periodic output signal
-Thread-Topic: [PATCH net-next 1/3] ptp: add debugfs interfaces to loop back
- the periodic output signal
-Thread-Index: AQHcHLD8ewvtanB8Y0eGvBgSbKKSlrSDBrdKgADW9QA=
-Date: Fri, 5 Sep 2025 02:25:50 +0000
-Message-ID: <AM9PR04MB850521C7E01BF30E5BDEB2E88803A@AM9PR04MB8505.eurprd04.prod.outlook.com>
-References: <20250903083749.1388583-1-wei.fang@nxp.com>
- <20250903083749.1388583-1-wei.fang@nxp.com>
- <20250903083749.1388583-2-wei.fang@nxp.com>
- <20250903083749.1388583-2-wei.fang@nxp.com>
- <20250904133011.asqvsucdmuktazc4@skbuf>
-In-Reply-To: <20250904133011.asqvsucdmuktazc4@skbuf>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM9PR04MB8505:EE_|GV1PR04MB10584:EE_
-x-ms-office365-filtering-correlation-id: f60be124-64eb-4a43-2396-08ddec238838
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?P+SfE6QJLySBighYKF4y9wtkCQT6rHAtCNKJXWSGAqB5h2CnhpvrB63aaJ7+?=
- =?us-ascii?Q?H+SGNv5NVCazmDA6tbp+NHzrJcpxBg4VZ62JK8vxXrVM1Fg8QFvh6P97AIDu?=
- =?us-ascii?Q?9+foNdWUZPfsfPJtRrbMa/2YR34llu8G8kbfJRqqEEAPCisHbZI1EmWJ5jbM?=
- =?us-ascii?Q?bKtxu7pT6fimEyVDg+nZzh7lU2kiWOaPHcpl9SlIWORYE8MsNnDiLAwEOUf1?=
- =?us-ascii?Q?RFh1HOpHoaFLZj9BwTl2HlKkk+JO07X8FICFiu6EUWMN1+dPLcT4Oc+9sclN?=
- =?us-ascii?Q?QmzqXrNYTDI/LHoj+1Pgbhj7WG1iFy/ROCoS68N0z+45ezku3BkBgrLVh3nT?=
- =?us-ascii?Q?TNtj/qw+0WEH31iybc92ghjyt8JSb8AvlJ8bjtOSDEESoSax+qNlfDhJDpS1?=
- =?us-ascii?Q?T9i+icZmekP9gsYsoWHxXwrAKrke+6190vwMAkNkA92sPllADp5BMG+lEBAm?=
- =?us-ascii?Q?ig7glxF4fNxNIAVbMzoIa6UXv3Yh+2eMBkkCMh83zCGmDd33yiCfXPByjYNi?=
- =?us-ascii?Q?gzbH3q2Vo7v5ngCDbGSFnMB0lsJag6R7jOpgStAg+uiCDmRrIZM536fO5UXW?=
- =?us-ascii?Q?HnnCaSwjpaf23ktJOyHLzBXCTeTu57cGQncyJz3WYwSDLfgjo49f6qhL49l7?=
- =?us-ascii?Q?JWe/d88ykrRrwrdAi3ijSv4xcjZgL1M3VERk9hw1fCR62UWHh/60cVdjQuyZ?=
- =?us-ascii?Q?G0e8hElQUTLJDnL1wXJiy4P8v4vuRCcdfis8WnH2ugzMkgmGNiEhp4WlXMsV?=
- =?us-ascii?Q?G1c7c67J7HmJZz0NSzqZEzpPycL5UvYIOMZPQc1WYE3BnDgFlztaqfwAixby?=
- =?us-ascii?Q?yRBTfiuvIWdSHUqHDLtsvcQR3t5M1WcYYrIivPt8SMdn8HA+TcIdKuf9sFf7?=
- =?us-ascii?Q?4nYhXNRqYT8pJ8KufyyGc/KVAxX7Rt4Te92l55eqyvVpMA1lS8ZGdzLWOSWp?=
- =?us-ascii?Q?zsG2zHISc1gvBjltV+0EIR2YM9MZN2h1hSxlYbK5v1oUgGZS2Rq3D9d2KoEb?=
- =?us-ascii?Q?DaefFhcDrCz3ISgk+tPSdtXtcMyuAQiv1Nl8hdH19SFYSDfCF2OYrQsO/0v3?=
- =?us-ascii?Q?22cLuTHpnf8bYb3M4KxMTtWkM0+UM4BVAbnwxPEXhPSMqLsC2Oy69Jz/9TqU?=
- =?us-ascii?Q?35yexuvaG8o+AV7YqKcMZQQAmHENR0EsAGRturfrN+ON2l4dwGlS1m149W1c?=
- =?us-ascii?Q?9uUjrWp/xhKaveZ9NQsbXmVRnV8XZzYhnZwmxtAJGnmzDofv2D3fWbi2DbOw?=
- =?us-ascii?Q?tK1lyjBVCC6w524M6+miFIKXC4LW4GazK/QI5F5jCOM8CY2HfkQuDLVM3rS7?=
- =?us-ascii?Q?F2J3upnRKF5dNzARoFaPy/VVEx5eFoFnVPp6TVDRPfhCiMB4f8t3HNeIUxie?=
- =?us-ascii?Q?UDfYz3wT58LYYOkQ1sLe/EDWVzXNPummsGzyeFh1zRP2qsjKb3ZxYki/YwWT?=
- =?us-ascii?Q?kE8Lfbr6SqwPkQCuFbeRedSaMWukTHDRppkB+Hxjv1F06LqyEC751w=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8505.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?qmaCrB+f8VkbDOtTxW0W9E/SeWwfobsEkHyhAcShXtGXnAa71ihc0Tl1DeS7?=
- =?us-ascii?Q?E45Tu4LhydcffYDMEn49qOaoy1beJCh66Spz0cl5DQHGXpdHdJJyRNBgQn3E?=
- =?us-ascii?Q?p7qsswMntk6tSJU2EgAzkKJzXPT8yAvP7seiXPp4QXAFCkXpHRcN3ofAMK4H?=
- =?us-ascii?Q?cL7O41NYY6XiDvXbc/7N4g4SWCbRIJdYwrXJFDy02AVxKipJqS5jFSq1tvME?=
- =?us-ascii?Q?BLDN9g/LgJe3MgAnBFmH79PxWXLmn1cTfObpQy44av22ZaDFIEduABS/oX2D?=
- =?us-ascii?Q?+uWf+OBrprKIXRjG7JdcHfvCBGjdVb8mOnmee+97ZbTcOrVgB5ZtT41WQhIq?=
- =?us-ascii?Q?Ch0ll1Gz03U7MxdizzwbRSsFj9uJlhFdRUZDvtOabpel+IxlWMK0Km2hAHku?=
- =?us-ascii?Q?kg4xbjBC4hgHxIx+8ctc0tNKhtO3PEMepDK9mTfF9hPoo7bshkUIvcaw/Mvw?=
- =?us-ascii?Q?CByeBU4Emare20wJk5C7P+BecC/0G1RN3y3B25u4RvN1eC7DfqGH2wtevv8s?=
- =?us-ascii?Q?jaJP6PWZMTb4pr0bApohHi4i1Hg6+2UXk630Tu0iU+xYSn9OQFdt9J3Tg9E0?=
- =?us-ascii?Q?SAHcvPSPusnMISIBRRf/Lprkhr2ONvSRWAimQG8WzXBIejLozGhrD6C+yqj4?=
- =?us-ascii?Q?rDvxRudyJOc7657HRydaRKpKOYvvcgPLPUTrFqpw+EUtMrTZkkuPOPJh/v1d?=
- =?us-ascii?Q?MCJW3s5YpNil38wnvZHzbMZjrU7f03WUF2cxkab6YpzIlQ3oqTbuwMm+LEGn?=
- =?us-ascii?Q?Sw3bmBdWRQnHye7ZFCxeGeZToFejBm6rT0DL7oASsgWp6hMSLY1VzAjJA5Mb?=
- =?us-ascii?Q?v1EIfgA3flFGSXi2yGUuTlMdeoTlN5rQkuCTjbI8X8JI0n/X3UrpHHVwqPWF?=
- =?us-ascii?Q?i+vVbMwg87hPziulWsFNeCG2s4Lzbos9a7NdzMBoiBtRV1XRf0FDuRtglEaa?=
- =?us-ascii?Q?mpRCSW/4wmH9XSUmx3poyK7KefjnsQwwi00cKAeZdbjWy1BMGddJHyNAxQBM?=
- =?us-ascii?Q?jjYtTCbmI+Dxne4xEZRPPaN4DHl6oaw3nwn03YwBMJ2zN7T3XXygwEpuEyL5?=
- =?us-ascii?Q?QrIOIzLLVbPTmr1JkfcRco0I+NVVwFAS21WsKuNNUPhLvdZhwQr23knc2tuv?=
- =?us-ascii?Q?iz6aqHdMHX4nvugb9LlgWkrzimJSaZnhABkhffgv7dYvwvLAwCPtPTK50/gH?=
- =?us-ascii?Q?bJYx9TkXCu4Ct4Wi1PlbLz8V9g82TV5+YbJpisYnuceRVTjkFEurUiA5Bjg3?=
- =?us-ascii?Q?2Fu7e9EDkAhVS9bXNV1+nWSUxbJe2lFGCCs2F0iojQqhqvNOcZ+89j1VylRD?=
- =?us-ascii?Q?ZHc2S9KU3MZIItLJp3rrSMZ+Y9bxjSMldIDXL8R+OkQyqwY225wIeOv6O/ZI?=
- =?us-ascii?Q?74RVJ4VMBYatDBkkxcgRMTpSI7iR9xV0npmx9M8kB0luN8VFdTMoQh/WzFeg?=
- =?us-ascii?Q?27t/epA4AaDKVSTDsbLlGklxJhFUmR14DLBoYb3/1BOxg9M/wSyZKFRx+7BB?=
- =?us-ascii?Q?rXcjQ1IetPvVIk3lGIbXRROv1S2PB2kddWSRSCrIV/l8pQe4cZuV+qCSvURV?=
- =?us-ascii?Q?rTYR0ZIU5lfbPgsQOT0=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 05 Sep 2025 02:32:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6283444CAC;
+	Fri,  5 Sep 2025 02:32:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A026C4CEF5;
+	Fri,  5 Sep 2025 02:32:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757039567;
+	bh=GPaD+K1HwBec1AzBnycvX5KKxlacm+uHk4fgWkMm9ak=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=V3PJ6H8yna7ghufxtWVbzbsZYOFev3/I9T48P6ykKzw9xhLIdq9ThxyOJ1Ud+Z4Zk
+	 tDwixER9hZNANWU4G8F12wY7aFU60ZZH0kNxmiGp+KqmnKd8syD8lShiV1LIhdZHwW
+	 pVXrEAqM15OYPrqffl8MaDA2fIsGhgsp1ijRR4ry6cwop7AgcxCkqhZj4jVb/jdYBO
+	 5qqpZkUsi5zBemLcl8dTqJmY4uJjwScp/Kyd8iMOw1ttmzH/NzrkNhQzsWfJCf7LtE
+	 dkto+S4r4q+Ul/p5YFhMsbFIayNHIs3oPFnwWSvQQWBB9XOayRJ9wfuAqWqSbAwq6s
+	 pFGVYpre8tj5Q==
+Date: Thu, 04 Sep 2025 21:32:46 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8505.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f60be124-64eb-4a43-2396-08ddec238838
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Sep 2025 02:25:50.9537
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Cv8ywDPUpWPTzSeuot0QbdkvY3m8n1dXliM5KgIYdNntpnGDttl4P75lvok1SlkPafImUjPssHUjRkqpTkI0Lw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10584
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: vishalm@ti.com, kristo@kernel.org, conor+dt@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, khilman@baylibre.com, d-gole@ti.com, 
+ vigneshr@ti.com, a-kaur@ti.com, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, msp@baylibre.com, sebin.francis@ti.com, 
+ krzk+dt@kernel.org, nm@ti.com
+To: Kendall Willis <k-willis@ti.com>
+In-Reply-To: <20250904212827.3730314-1-k-willis@ti.com>
+References: <20250904212827.3730314-1-k-willis@ti.com>
+Message-Id: <175703941947.745257.14151418968229633072.robh@kernel.org>
+Subject: Re: [PATCH 0/3] arm64: dts: ti: k3-am62: Support Main UART wakeup
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_192554_598207_82130CD1 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20250904_193248_473967_959826DA 
+X-CRM114-Status: GOOD (  25.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,23 +74,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Wed, Sep 03, 2025 at 04:37:47PM +0800, Wei Fang wrote:
-> > +	buf[len] =3D '\0';
-> > +	cnt =3D sscanf(buf, "%u %d", &index, &enable);
-> > +	if (cnt !=3D 2)
-> > +		return -EINVAL;
-> > +
-> > +	if (index >=3D ops->n_per_lp)
-> > +		return -EINVAL;
-> > +
-> > +	err =3D ops->perout_loopback(ops, index, enable ? 1 : 0);
->=20
-> Why not just reject other 'enable' values than 1 or 0? You make it
-> impossible for other values like '2' to be used in the future, if they
-> are currently treated the same as '1'.
->=20
-> Also, signed 'enable' doesn't make much sense.
 
-Okay, I will add strict check to the enable values.
+On Thu, 04 Sep 2025 16:28:24 -0500, Kendall Willis wrote:
+> This series adds wakeup support for the Main UART in the device tree of
+> the TI AM62 family of devices. It defines the specific pins and pinctrl
+> states needed to wakeup the system from the Main UART via I/O
+> daisy-chaining. The wakeup-source property is configured to describe the
+> low power modes the system can wakeup from using the Main UART.
+> 
+> Dependencies
+> ------------
+> This series is dependent on the following series [1] to be merged into
+> the kernel. The series adds the system idle states that are available on
+> the SoCs. The system idle states are used when configuring the
+> wakeup-source property.
+> 
+> This series is also dependent on the following patch [2] to be merged
+> into the kernel. The patch integrates the PIN_WKUP_EN macro which
+> enables the WKUP_EN bit.
+> 
+> Implementation
+> --------------
+> This series is intended to be implemented along with the following
+> series:
+> 
+> 1. "pmdomain: ti_sci: Handle wakeup constraint if device has pinctrl
+>    wakeup state": Patch which skips setting constraints for wakeup sources
+>    that use pinctrl state 'wakeup'.
+> 
+> 2. "serial: 8250: omap: Add wakeup support": Implements
+>    wakeup from the UARTs for TI K3 SoCs
+> 
+> 3. "arm64: dts: ti: k3-am62: Support Main UART wakeup": (this series)
+>    implements the functionality to wakeup the system from the Main UART
+> 
+> Testing
+> -------
+> Tested on a SK-AM62B-P1 board with all series and dependencies
+> implemented. Suspend/resume verified with the Main UART wakeup source
+> by entering a keypress on the console.
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/20250812-topic-am62-dt-partialio-v6-15-v2-2-25352364a0ac@baylibre.com/
+> [2] https://lore.kernel.org/all/20250904112538.529857-4-a-kaur@ti.com/
+> 
+> Kendall Willis (3):
+>   arm64: dts: ti: k3-am62x-sk-common: Enable Main UART wakeup
+>   arm64: dts: ti: k3-am62a7-sk: Enable Main UART wakeup
+>   arm64: dts: ti: k3-am62p5-sk: Enable Main UART wakeup
+> 
+>  arch/arm64/boot/dts/ti/k3-am62a7-sk.dts       | 24 +++++++++++++++----
+>  arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       | 24 +++++++++++++++----
+>  .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 24 +++++++++++++++----
+>  3 files changed, 60 insertions(+), 12 deletions(-)
+> 
+> 
+> base-commit: 4ac65880ebca1b68495bd8704263b26c050ac010
+> --
+> 2.34.1
+> 
+> 
+> 
+
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit 4ac65880ebca1b68495bd8704263b26c050ac010
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/ti/' for 20250904212827.3730314-1-k-willis@ti.com:
+
+Lexical error: arch/arm64/boot/dts/ti/k3-am62a7-sk.dts:313.71-82 Unexpected 'PIN_WKUP_EN'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/ti/k3-am62a7-sk.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/ti] Error 2
+make[2]: Target 'arch/arm64/boot/dts/ti/k3-am62a7-sk.dtb' not remade because of errors.
+Lexical error: arch/arm64/boot/dts/ti/k3-am62p5-sk.dts:359.71-82 Unexpected 'PIN_WKUP_EN'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/ti/k3-am62p5-sk.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/ti] Error 2
+make[2]: Target 'arch/arm64/boot/dts/ti/k3-am62p5-sk.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: ti/k3-am62p5-sk.dtb] Error 2
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: ti/k3-am62a7-sk.dtb] Error 2
+Lexical error: arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi:182.71-82 Unexpected 'PIN_WKUP_EN'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/ti] Error 2
+make[2]: Target 'arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: ti/k3-am62-lp-sk.dtb] Error 2
+Lexical error: arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi:182.71-82 Unexpected 'PIN_WKUP_EN'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/ti/k3-am625-sk.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/ti] Error 2
+make[2]: Target 'arch/arm64/boot/dts/ti/k3-am625-sk.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: ti/k3-am625-sk.dtb] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+make: Target 'ti/k3-am625-verdin-wifi-ivy.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-wifi-ivy.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-verdin-wifi-dahlia.dtb' not remade because of errors.
+make: Target 'ti/k3-j721e-common-proc-board.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-verdin-wifi-dev.dtb' not remade because of errors.
+make: Target 'ti/k3-am642-evm.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-verdin-wifi-mallow.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-verdin-nonwifi-dahlia.dtb' not remade because of errors.
+make: Target 'ti/k3-am62d2-evm.dtb' not remade because of errors.
+make: Target 'ti/k3-j742s2-evm.dtb' not remade because of errors.
+make: Target 'ti/k3-am642-hummingboard-t.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-beagleplay.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-verdin-nonwifi-yavia.dtb' not remade because of errors.
+make: Target 'ti/k3-am6528-iot2050-basic-pg2.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-wifi-mallow.dtb' not remade because of errors.
+make: Target 'ti/k3-am68-sk-base-board.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-sk.dtb' not remade because of errors.
+make: Target 'ti/k3-am6528-iot2050-basic.dtb' not remade because of errors.
+make: Target 'ti/k3-am62-pocketbeagle2.dtb' not remade because of errors.
+make: Target 'ti/k3-am6548-iot2050-advanced-m2.dtb' not remade because of errors.
+make: Target 'ti/k3-am654-base-board.dtb' not remade because of errors.
+make: Target 'ti/k3-am6548-iot2050-advanced.dtb' not remade because of errors.
+make: Target 'ti/k3-am62a7-phyboard-lyra-rdk.dtb' not remade because of errors.
+make: Target 'ti/k3-am62a7-sk.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-verdin-nonwifi-dev.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-nonwifi-mallow.dtb' not remade because of errors.
+make: Target 'ti/k3-j722s-evm.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-nonwifi-dahlia.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-nonwifi-ivy.dtb' not remade because of errors.
+make: Target 'ti/k3-j721e-beagleboneai64.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-nonwifi-dev.dtb' not remade because of errors.
+make: Target 'ti/k3-am642-phyboard-electra-rdk.dtb' not remade because of errors.
+make: Target 'ti/k3-am69-sk.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-wifi-dahlia.dtb' not remade because of errors.
+make: Target 'ti/k3-am6548-iot2050-advanced-pg2.dtb' not remade because of errors.
+make: Target 'ti/k3-am68-phyboard-izar.dtb' not remade because of errors.
+make: Target 'ti/k3-am642-hummingboard-t-pcie.dtb' not remade because of errors.
+make: Target 'ti/k3-j7200-common-proc-board.dtb' not remade because of errors.
+make: Target 'ti/k3-am62-lp-sk.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-verdin-wifi-yavia.dtb' not remade because of errors.
+make: Target 'ti/k3-j721s2-common-proc-board.dtb' not remade because of errors.
+make: Target 'ti/k3-am642-tqma64xxl-mbax4xxl.dtb' not remade because of errors.
+make: Target 'ti/k3-am67a-beagley-ai.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-nonwifi-yavia.dtb' not remade because of errors.
+make: Target 'ti/k3-am642-hummingboard-t-usb3.dtb' not remade because of errors.
+make: Target 'ti/k3-am642-sk.dtb' not remade because of errors.
+make: Target 'ti/k3-am6548-iot2050-advanced-sm.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-verdin-nonwifi-mallow.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-phyboard-lyra-rdk.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-wifi-yavia.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-verdin-nonwifi-ivy.dtb' not remade because of errors.
+make: Target 'ti/k3-j784s4-evm.dtb' not remade because of errors.
+make: Target 'ti/k3-am625-sk.dtb' not remade because of errors.
+make: Target 'ti/k3-am62p5-verdin-wifi-dev.dtb' not remade because of errors.
+make: Target 'ti/k3-j721e-sk.dtb' not remade because of errors.
+
+
+
+
 
 
