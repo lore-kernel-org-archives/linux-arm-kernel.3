@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E6ACA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A3ACA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOEcXeUcizfvnu5+T09Xo7eSsAfydjLjWPzQfaUOV+s=; b=OIVoHnKCXbVlQOJsMC7eDhPArp
-	MA7TF+dEY5slJnWBRN5Lv6yeD3w1a5LcVKxDIgtdDzOoPkFD0c+9ksLUHTHYndDPJZyPsBCGh8YFO
-	/E6il6g1MUxLJIwnYWnM0HJQe6/NbaHRo/d1uHl+K4u+iEzlcPjTxDTy3nVhcZ1885XS7uidmH7Tj
-	jL8h0KIS/673oUKhrWO7ikejj5L/WifG2+r7Z0z6dOPQY7wIqexugddLeXlkatEoX0Hg89HhDotVE
-	F3rm4p6/mOBx2boqMQI/Ptg9GLagKU7AVgeGBDnFzZmC6oD4/+ZzDP4J5fjd3Dd+1aCIkllcu4ge7
-	VeTK6sxA==;
+	bh=e6lU5THDhGfH0NkCBr9PUmiRxUFviaMJiioV8NyaxaM=; b=b0tAxpLTNjzdqMJFlIiizV0DKQ
+	RiVg8wkjyUGc20NAg8qzZEIhVrug/Vo2x9sND1MYoD5UBJKocBk1MNr+AsQU3KEN14b3A+fgvp3/U
+	xL35/mq5JaaCCzjBBs+3YhAgOumTPHfRJmgMMFLZ+lGqsJuTb7UPd8eOXnNSUppNPBjKGUhpOW6g7
+	okUSQ8HCNavTC5EFSh2ZLf/CXbSJVRgiJdwP17LOvk/fC+TkoZ0rdVUPsb2YhiLuIviyWQn5tRZYw
+	DAyFm7Ac1DfTmLoYgPXMjEMflBNuLQobbcTQY41Y+pbiaxCgxWimeoyqhAh4UK/T9uqcPErloFdGy
+	wSdXD/vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYVd-00000002oKQ-3euM;
-	Fri, 05 Sep 2025 15:37:53 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1uuYYP-00000002p0b-4Ba4;
+	Fri, 05 Sep 2025 15:40:46 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuV6b-00000001XCt-0sMj;
-	Fri, 05 Sep 2025 11:59:50 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-32b8919e7c7so2439015a91.2;
-        Fri, 05 Sep 2025 04:59:49 -0700 (PDT)
+	id 1uuV6i-00000001XHN-2fRO;
+	Fri, 05 Sep 2025 11:59:57 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-772301f8a4cso2748970b3a.3;
+        Fri, 05 Sep 2025 04:59:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757073588; x=1757678388; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757073596; x=1757678396; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xOEcXeUcizfvnu5+T09Xo7eSsAfydjLjWPzQfaUOV+s=;
-        b=lU5/PTSCK0JFqJq04bprBezppxUEEYqWGVWcCnAMW7hc5xcAr1GXE7fNoWkpN7wLeG
-         cloGrOy4tCVrp7/+ToFKQ0lhaXy0qKBETxvbcjNiYCNFr9/1kUZHxHClBXuwpCBytTso
-         fVudfe81SYrvo7Qquuzxoc+4AmWv7XgBxPG0He61y8fOUk4MtYMws5NDp/JuLNYPTiaC
-         f/eJ4dymK9mAleXt6GZbtK8Kb5sNmG0aKfV6PtnLh9IzbXuPAWxEmgRq4irye3IEmJ15
-         e4CNvxZeBd2DU7rqp2YAgjSwCo4LZD5gQ/xfl8r0zt2SX7rBygQ/lgpH79kqQAlWpfLZ
-         TkxQ==
+        bh=e6lU5THDhGfH0NkCBr9PUmiRxUFviaMJiioV8NyaxaM=;
+        b=Z6Igl9g7fLd8lhL2AmnFktTnvZWu9Hs5i43jDkCf/nWgQk2bSSsLAwLoNDhzxW6rnx
+         H9VfnsF1sTt6wdK1yIsZbHIn2R1FeyE3ycPgbDuTqMNfz39SKaNdVi8KJ59erIYAu6hz
+         3W1eNJBLz0v4B1dLyZwJtJ0l+QM435KVE9P2MM6Ed2Q5Z5YbcyRnXbpA+BfZ1x1hdAql
+         l/d9TlZsWdpBhFQLNuhcaw6jtwxiDmo66eIKzf3V1Kv+9gOGntj8ctwpw5ariHUNVfNr
+         5Wet5bDmEY/fMo0f9YzAOhcsDJBKvnKjRp3djEfT4Jzrj//4GtyY6uNmmZNGIXKB51BB
+         cFqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757073588; x=1757678388;
+        d=1e100.net; s=20230601; t=1757073596; x=1757678396;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xOEcXeUcizfvnu5+T09Xo7eSsAfydjLjWPzQfaUOV+s=;
-        b=n76ns7UXWy4PuPD2f2ca/TYU4g4aX7iA4LA4PvMsznEtc9HE/U9nr6ifLaTFgMc0SX
-         gUgljY/tPsyoAOpls9q1Jp+ZAM+XQy8Z8XOpJ9UNXiSpKVpPb+OhpdYFf8pyzR0mtuKD
-         yRWFiEF+3E2KuKOK2AYtLMBs/jgjl02cb/JCmCrHs+cS2gsOAus2ddSjumRZxwrll4rq
-         WIqB9l2jFzz/MMli4PC4EABOBCLf1ZzkmKcBIbM2ChTt0lcz2QmK2LnEEKS9WfbM686y
-         r4hwY4xuBHhd5OhRoO390sjcLZCCcKKzrmdT+/7zZoahO3h0smC6QHoLBgyLmaOxt8zK
-         zlew==
-X-Forwarded-Encrypted: i=1; AJvYcCVQ/3j1z7oAeMtggpXEsX5vC8ESdu9742IJ7FT7k9HRsSUVCylI7322210cdZ/pK/o3gvTgIam1/Yz8xyi2@lists.infradead.org, AJvYcCWv9TJTTDW08cwNkRFNbv4DjQA8zuR3AwlodFYdCI0xUxmnqjBO//xosvOufaBow20jgiNmldbiCnc3cuHNqjhyuA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YznJC6hbzXOiiTBtklfADo88rsB8O4Zsgq9kK5x2uhC+t2FmSFU
-	6r8eFubtrxXga8TtJ+VyNeHwD82fBlILLHPZ27DykqEnEQUcPX2kTqtB
-X-Gm-Gg: ASbGncunlkyEr2muEdXzh1my20bkwEg9LdXszz/5KjcJdDSudBoWr9/0b1RZupwCbKx
-	nGYdi/ixXlQ2zc6Rt6bnIoLX/6RSMzZg+bD6mvTgk0KI9Wdom6zBmvMaGiOdkFX5o/iRvEF2dBn
-	/J/CwcbPwoviz8g5cZDai+/4e0C3Pbc4ty57mWeBxGPgd8NjNAWdzGg2+JzxlT9+9s139kTX1Mg
-	vqInmh43J78IkBC3axBTqT7bhP3YYdUJ4tI5WRLjo5ECKsoSvm5auAi/p84Xt19wHWUS3O5nQqI
-	g0K4nHUS1yHTUdGXCpgLflzbY/YffgKk1aqyoYUE0Ejw1JNZHn9eAnnKwIBg+Gio+ccW0dnO8Nt
-	PVpMYjmfKJzWgmLLS6OnaoT8a9NfBC+P6+b/A+9fhEQ==
-X-Google-Smtp-Source: AGHT+IGSnGXMPfX2ToymDA+CKxfOFGpRs2YxaEW93/3sIQasItb8q0Va6j5MszBF7XBKNfyU+srCKg==
-X-Received: by 2002:a17:90b:3c12:b0:321:2b89:957c with SMTP id 98e67ed59e1d1-328156e29eamr29316101a91.27.1757073588211;
-        Fri, 05 Sep 2025 04:59:48 -0700 (PDT)
+        bh=e6lU5THDhGfH0NkCBr9PUmiRxUFviaMJiioV8NyaxaM=;
+        b=Y+0dnCu/IpvbOuoKkl+qGpHsrKq7zhVd4y8Bywz9+Cb3uaAwTRulqOh+soBYTvpnr1
+         hgIYfBjyM2+E0uKCzXpPhYBEFfDKwVXsTySi3FmkhRlT1sM52DqZ9hv4ejyFBf0nRKlo
+         PB38R+aBuOJdQ0XRa+4dY6Sumngy0vMPRVqnMmRJFHfw33qlc1RwNJDbXfvIPknj8h9m
+         +y/4XTgfmPz7tCoUmiUejdFBSd2WETgAYy9FbTR+jjrQYJBhw609/2zJquTKI/tUHuH3
+         o9rURVRoKYmGb/iezGSMKne/wHBbbaxEZ/HBkMdSp9etaf3i94KuI/zLjZopcZk215dJ
+         ng1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUfclPzO9VG3Fr2uqCmuIh2HXsuhLsCNmgOfhGiD5Ga6rIboh4mKBDO9O0WoOK/Ost4/s7s7YxwRAJWAnI50PzmWA==@lists.infradead.org, AJvYcCWNIzfJjeL2qtm2mIDsxUKVyuh4hpk5BC606uQ4FDc/LcoDqcCP9wIfc8JjT0LU5PIzcuhyR8/Efh3BLfiJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFEG4/yn9YUu3pztXpG32VSxBXErdMR5Nnv1/TZnFyc6HkqBEE
+	vJHdjUourXTm8l3RiZSk7UXVbH1HkCZvnptjyzuq9r5ZKg81ig1NfNRT
+X-Gm-Gg: ASbGncsfW2C413aWfMflBObPA/MNbWaBgOByjfVm7eOx5zkaKZna61RAr5VsaaJPWGG
+	tRxsyZtUVJoM8pE2gvTjEgSdXxQ+Aq3Zixwlpha63zQpNX9KVKKU0c716Pb+dX3XxRg94HZU5eD
+	emGPqcllzdyG4mZ/qliFdolo1mjpR+V3c/CHUgP6E9DKgtVmAuiECJLmhyOAemMMx3vC9ivIyZg
+	5G5GEOGJd/M4Wt0Po1pz6rI+4Rvw2tfm/LfzHWP0vJRPxkGPOpuFDQKdfvfW5yVcRhj92b30MFM
+	5oasQtxn0qrmu2+XR5BXN1fZ7Yj4rCUyqO4yKA8Ogh2gbCTRJV2prFLh51D8JnJup3ictxhQLF4
+	f1Qulo8gh5RR9657JPrWV1bL3/bvd4Ws=
+X-Google-Smtp-Source: AGHT+IGDRRzImt80hnKOwjC3oy3EHzVKBpOPyAHYFUXou++MQpCklyjW9Y8n+lPlMxc25VtzMQ+L+A==
+X-Received: by 2002:a05:6a00:114b:b0:76b:42e5:fa84 with SMTP id d2e1a72fcca58-7723e21e9aamr25229563b3a.7.1757073595856;
+        Fri, 05 Sep 2025 04:59:55 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.216])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-772396d2b97sm19633049b3a.67.2025.09.05.04.59.44
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-772396d2b97sm19633049b3a.67.2025.09.05.04.59.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 04:59:47 -0700 (PDT)
+        Fri, 05 Sep 2025 04:59:55 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Kevin Hilman <khilman@baylibre.com>,
@@ -81,16 +81,16 @@ To: Neil Armstrong <neil.armstrong@linaro.org>,
 	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
 	linux-kernel@vger.kernel.org (open list)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v3 08/11] arm64: dts: amlogic: Add cache information to the Amlogic C3 SoC
-Date: Fri,  5 Sep 2025 17:27:39 +0530
-Message-ID: <20250905115836.7549-9-linux.amoon@gmail.com>
+Subject: [PATCH v3 09/11] arm64: dts: amlogic: Add cache information to the Amlogic S7 SoC
+Date: Fri,  5 Sep 2025 17:27:40 +0530
+Message-ID: <20250905115836.7549-10-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250905115836.7549-1-linux.amoon@gmail.com>
 References: <20250905115836.7549-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_045949_245907_04B2B41D 
+X-CRM114-CacheID: sfid-20250905_045956_673839_639833E3 
 X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,23 +106,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per C3 datasheet add missing cache information to the Amlogic C3 SoC.
+As per S7 datasheet add missing cache information to the Amlogic S7 SoC.
 
-- Each Cortex-A53 core has 32KB of L1 instruction cache available and
+ ARM Cortex-A55 CPU uses unified L2 cache.
+
+- Each Cortex-A55 core has 32KB of L1 instruction cache available and
 	32KB of L1 data cache available.
-- Along with 512KB Unified L2 cache.
+- Along with 256KB Unified L2 cache.
 
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi | 23 +++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi | 36 +++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-index cb9ea3ca6ee0f..ee0b1ffa947e3 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-@@ -23,6 +23,13 @@ cpu0: cpu@0 {
- 			compatible = "arm,cortex-a35";
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+index 260918b37b9ae..d262c0b66e4b5 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+@@ -18,6 +18,13 @@ cpu0: cpu@0 {
+ 			compatible = "arm,cortex-a55";
  			reg = <0x0 0x0>;
  			enable-method = "psci";
 +			d-cache-line-size = <32>;
@@ -134,10 +136,10 @@ index cb9ea3ca6ee0f..ee0b1ffa947e3 100644
 +			next-level-cache = <&l2>;
  		};
  
- 		cpu1: cpu@1 {
-@@ -30,6 +37,22 @@ cpu1: cpu@1 {
- 			compatible = "arm,cortex-a35";
- 			reg = <0x0 0x1>;
+ 		cpu1: cpu@100 {
+@@ -25,6 +32,13 @@ cpu1: cpu@100 {
+ 			compatible = "arm,cortex-a55";
+ 			reg = <0x0 0x100>;
  			enable-method = "psci";
 +			d-cache-line-size = <32>;
 +			d-cache-size = <0x8000>;
@@ -146,18 +148,47 @@ index cb9ea3ca6ee0f..ee0b1ffa947e3 100644
 +			i-cache-size = <0x8000>;
 +			i-cache-sets = <32>;
 +			next-level-cache = <&l2>;
-+		};
-+
+ 		};
+ 
+ 		cpu2: cpu@200 {
+@@ -32,6 +46,13 @@ cpu2: cpu@200 {
+ 			compatible = "arm,cortex-a55";
+ 			reg = <0x0 0x200>;
+ 			enable-method = "psci";
++			d-cache-line-size = <32>;
++			d-cache-size = <0x8000>;
++			d-cache-sets = <32>;
++			i-cache-line-size = <32>;
++			i-cache-size = <0x8000>;
++			i-cache-sets = <32>;
++			next-level-cache = <&l2>;
+ 		};
+ 
+ 		cpu3: cpu@300 {
+@@ -39,8 +60,23 @@ cpu3: cpu@300 {
+ 			compatible = "arm,cortex-a55";
+ 			reg = <0x0 0x300>;
+ 			enable-method = "psci";
++			d-cache-line-size = <32>;
++			d-cache-size = <0x8000>;
++			d-cache-sets = <32>;
++			i-cache-line-size = <32>;
++			i-cache-size = <0x8000>;
++			i-cache-sets = <32>;
++			next-level-cache = <&l2>;
+ 		};
+ 
 +		l2: l2-cache0 {
 +			compatible = "cache";
 +			cache-level = <2>;
 +			cache-unified;
-+			cache-size = <0x7d000>; /* L2. 512 KB */
++			cache-size = <0x40000>; /* L2. 256 KB */
 +			cache-line-size = <64>;
 +			cache-sets = <512>;
- 		};
++		};
  	};
  
+ 	timer {
 -- 
 2.50.1
 
