@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38332CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1C0CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/RXfGzc8hdtZCQ3Z9H4MqjIVNYjUY3/62+AlWXklvNU=; b=0FQLBz1UxNddakMCuWrnwBtmqV
-	ZEWLv2W6ZboxALpUWhc4bxg/nXZXRWiSRuk8UlDNTvaKJMHv+V00+rAKBdxxJpqeT7UgR2QfcrODW
-	wqAusbKXblqvdUzxMLheAKixL1MWsZ7iA8CCaOM2yVQLHjWmHia+RO2jRP1vZhS2JLOxCY28oJ0kc
-	1avx4Z/9IPNrMoY5EDPfq2iuC2KWT5kID7ah1C4FgDMJaESeE6RBh6BT/d1pVU6RhsSINtELjupZk
-	to25r87F8HMXCHBeILVXhT6Ttbpnvk3dSl0CMBsRALL8m/6oeTvwhpIo+nLZb3Jo4fzhhtKvoiozX
-	+rABw/oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=npJkpA4zj0f0kUp2y5oDOcsYgf/eC/DfE8/mAA2FKTk=; b=i/l96QwUgzXwc2K4oIN7C6a1co
+	MCIyml/Xxzu0SIVB/F9NmZ1qK43KU7YM2lcDHmB3m9GhMykJDE3fkh9y7ZumeKlh3J3aUhdaAKnPx
+	87dGqCQO2EP0ZVQkgo0B2c5ZfBQLTU78e+BSXrFx8n44dy1MaUzKXbFtU0oa/K06XK0WZuVRLKyXz
+	1KOD+8D6rDg7ARogjVKAa8O7qeD5EkGhAkubZgAZvhYJH6h0XOtSxlTHSViXNQuyUM3E0klqyYSRx
+	iaeyNDyVVHTYLORztALGj++lpehMtUA1aqKrUwOEY+q8CkKw+WkLrSi6VTQGTIvQUdMlsREV1cnyN
+	fpPtLfCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuT6X-00000000rVV-2DN2;
-	Fri, 05 Sep 2025 09:51:37 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uuT9D-00000000sAP-05wm;
+	Fri, 05 Sep 2025 09:54:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuRgT-00000000Jvl-0vNi;
-	Fri, 05 Sep 2025 08:20:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757060435;
-	bh=OAnRq+EFKKwYtkRHr0XwJ5eAzkcTuotAqvUJYtyAA7w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aolFvpWn/tCj2yIGSvsHAhJDidaC+yNPqGzu1ARtT+PyBYBTtd+fcOWCWjFkbTlv5
-	 uFoQNUncMb9hUb0NDMi8pur6WyqqDA5e4reB8ZVZuxc0rZ0Vaat3d9bLvb59nsKtT+
-	 isbHtl4x2zbtuoZeqxvrKXW+VperMTogzjNhSEhblCaJO7jVrIuFuVAp94HThD4V+a
-	 6aC82FaNcKQYbGnbHCXfvkIvV9+S5W4b5AQCtRKGpcwSzh8NSOBSK7GPHB3mkn4pNp
-	 58HdvIOIyLzkxrV+JQHJ9ZQwpRUFk7RrxazV1WhYJ4eHS4rcMjt8cRn6Erl8yrkrVv
-	 EqP28fESmLtPg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6957517E0AC3;
-	Fri,  5 Sep 2025 10:20:34 +0200 (CEST)
-Message-ID: <000a0636-2a78-433b-8bfe-2534ae0a9bee@collabora.com>
-Date: Fri, 5 Sep 2025 10:20:34 +0200
+	id 1uuRgW-00000000Jx4-2OXW
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 08:20:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4AB4140489;
+	Fri,  5 Sep 2025 08:20:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BFE0C4CEF7;
+	Fri,  5 Sep 2025 08:20:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757060440;
+	bh=1NT/J9zy+wp2WIDDw1MZkz4+Ema5iHWmh+YcteWPW9E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bI2gIws5IK3KjZoCKjEfQSCveSDzyPef2WcTJ2SWU78Qo4+kuev4nc1ClkUZeHe1b
+	 0T2q8lFfzXl/9pygx1vXkJ/jrzh31H72fH/hybLYLHsJKa5hq3xd0WyV+YP6tiXNfx
+	 b/y5KYE6nae/LAzna+DXu8qgSirjGkxgo5dqLMe+VjClsXDcdAytJIJybGXPsVHaYw
+	 gTPYudJukJkiu1+ct8nlHssSsL593gb32imFWjpSQVw3bN1oyKY1BKoXtzrIW7fBwV
+	 B/aknTh/77HWQ0oztPegXY+qR/MmqYOX7Edw2ioZzLyyTzR72Pi1l3R2Pw73W8L1jd
+	 5NaKsmHgdVTkg==
+Date: Fri, 5 Sep 2025 10:20:37 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Peter Rosin <peda@axentia.se>, Jonathan Cameron <jic23@kernel.org>, 
+	David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	upstream@lists.phytec.de
+Subject: Re: [PATCH v2 1/2] dt-bindings: iio: afe: current-sense-amplifier:
+ Add io-channel-cells
+Message-ID: <20250905-dainty-liberal-monkey-ec28bb@kuoka>
+References: <20250905065503.3022107-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 06/27] clk: mediatek: clk-gate: Refactor
- mtk_clk_register_gate to use mtk_gate struct
-To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com, wenst@chromium.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- kernel@collabora.com
-References: <20250829091913.131528-1-laura.nao@collabora.com>
- <20250829091913.131528-7-laura.nao@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250829091913.131528-7-laura.nao@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250905065503.3022107-1-primoz.fiser@norik.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_012037_438033_932C7DBC 
-X-CRM114-Status: UNSURE (   6.80  )
+X-CRM114-CacheID: sfid-20250905_012040_628796_96BC0CAD 
+X-CRM114-Status: UNSURE (   9.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,19 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 29/08/25 11:18, Laura Nao ha scritto:
-> MT8196 uses a HW voter for gate enable/disable control, with
-> set/clr/sta registers located in a separate regmap. Refactor
-> mtk_clk_register_gate() to take a struct mtk_gate, and add a pointer to
-> it in struct mtk_clk_gate. This allows reuse of the static gate data
-> (including HW voter register offsets) without adding extra function
-> arguments, and removes redundant duplication in the runtime data struct.
+On Fri, Sep 05, 2025 at 08:55:02AM +0200, Primoz Fiser wrote:
+> The current-sense-amplifier is an IIO provider thus can be referenced by
+> IIO consumers (via "io-channels" property in consumer device node). Such
+> provider is required to describe number of cells used in phandle lookup
+> with "io-channel-cells" property.
 > 
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> ---
+> Changes in v2:
+> - refactor commit msg drop warnings introduced by commit #2
+> - drop Fixes: tag
 
-Nice cleanup.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
+Best regards,
+Krzysztof
 
 
