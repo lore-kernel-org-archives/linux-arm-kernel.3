@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47BFFCA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BDFCA1013
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7zAwIHul+G7hJa9UKdi3gwcydcwd+CNJiZMlBMy6ooM=; b=0PYzw179Tvj7HDeXNbFvR2z1JY
-	UkrjL5yDviAxS9eIEq7P7egOC3WYWq/l3CkZEs6k9BHM4o39mAZU7059T4iYdN6VhtpJoyT7s9bHg
-	L6bM+v5v7N23MKeFLUTQ3Y6LBvnj72/1NJ0vMfnQLdOwEuXs+4hh0QG1iFJpliSf1i5IfMKVuNreL
-	qQiRspT9evAsKKgpZnN0S7qS8vKzCm7mocdOmF7xUWcuynXo76Q0YLqZujQRp8FbD0To5vragSbxu
-	y9PyoS/RNO0O05NHnY/132rYRBEc7lSxE6IG/q1v11LvwF/d63zkK+HvhArAkhzOrweb+lEN2tkjj
-	O9OBoCrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vRufCPMFDRB5BP7WufrbsHc7OBquOwEP4BACQjpn5S8=; b=Ry4KXz9I+BmqrW3Dr013DZKPFY
+	NHvOoOe1r9CEJdC2MFeYl5u+2N+FfLUjjHJPVT1IubDstJjsF4EXVsbPaVoM4KM/gdsETqTZ55pWl
+	Wh7VCsMcTbA5LoOMwDgA4jb9TUXVIZyBuZC737osK1eBFQ4S/wzRLm7F1ExTTGNiCT01UjZvFCWE+
+	glOX5+EPznMFls6141qlxaWN+IZwlojOMykkVtCYhmnC1LAtIV9Ek3RizGi22v+Pt0Bu1kwXmcgDa
+	AAB1G3u/ph34oEpY3VbshlACE3PuHgQ/4mHIzNSi3Hmy/cizL+Wv88N6et+cNZ316yunGkJvJJn8G
+	olipUufA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVB-00000005QvJ-258e;
-	Sat, 06 Sep 2025 00:09:57 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uugVc-00000005Rdk-3UmZ;
+	Sat, 06 Sep 2025 00:10:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZ1N-000000030UR-1ScH
+	id 1uuaLz-00000003WOJ-1rk4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 16:10:42 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJLrs43nPz6L51Y;
-	Sat,  6 Sep 2025 00:09:33 +0800 (CST)
-Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id B62D21400D4;
-	Sat,  6 Sep 2025 00:10:32 +0800 (CST)
-Received: from a2303103017.china.huawei.com (10.202.66.105) by
- frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 5 Sep 2025 18:10:30 +0200
-From: Alireza Sanaee <alireza.sanaee@huawei.com>
-To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <coresight@lists.linaro.org>, <dianders@chromium.org>,
-	<james.clark@linaro.org>, <jonathan.cameron@huawei.com>, <krzk@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
-	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
-	<suzuki.poulose@arm.com>
-Subject: [PATCH v4 0/6] Refactoring finding CPU phandles in DT
-Date: Fri, 5 Sep 2025 17:10:22 +0100
-Message-ID: <20250905161028.649-1-alireza.sanaee@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 05 Sep 2025 17:36:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7534B444E6;
+	Fri,  5 Sep 2025 17:36:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 668F5C4CEF1;
+	Fri,  5 Sep 2025 17:36:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757093762;
+	bh=umg3I6wPb8guAG/qPCKFRIIy4aNrvO/HLOtPHL8FpMI=;
+	h=Date:From:To:Cc:Subject:From;
+	b=VnVo+TTaKMzoU/HUmR6xMccJWH/cGlE+veh7agFbYMdgrmK1KW61uOcEViNn1/xth
+	 TQK/MdaGT+rPeT5d2z7CPtIcog+zj0KkgkcJ81Fv/8F9v9xznAa9XUr9Qwg7S5959M
+	 80K+BtTjfaeRA+MGJOMO3iYOKhXL1Glkg7jcTZLAOXsFigvR9KVKpLJByguety2jYO
+	 s5vK7sI+S70t8AvJuCyPmzU3qsd15uds6YOjgdIOldgHg7396f0ojRAm461d7m1xlD
+	 x/R5ZaeM3FE2UOdz7mZNE2kQ6qc7QTL+QMW2nFI615zFdUARe1nAdnh3yeNY1CeG3v
+	 JxyGTtLA+Kvig==
+Date: Fri, 5 Sep 2025 18:35:58 +0100
+From: Catalin Marinas <cmarinas@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64 fixes for 6.17-rc5
+Message-ID: <aLsffo3bIIH4hYSQ@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.202.66.105]
-X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
- frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_091041_533707_2AD7FBA8 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20250905_103603_502489_FB412DF4 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,57 +70,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series refactor the way CPU IDs are retrieved from the device
-tree.
+Hi Linus,
 
-Usually, there is a for loop that goes over every single CPU that can be
-avoided. This also reduces the amount of NULL pointer checks in drivers.
-I have abstracted away that loop and introduced a new function
-(of_cpu_node_to_id) for this.
+Please pull the arm64 fixes below. Thanks.
 
-This patchset is a subset of [1], where I removed content and patches
-relevant to hyper-threaded cores for DT. Based on the discussion, the
-code refactor is still useful, hence this patchset.
+The following changes since commit d82aa5d3501b25bfb7bc2a24a68ad0a83b2ad10b:
 
-[1]
-https://lore.kernel.org/all/20250512080715.82-1-alireza.sanaee@huawei.co
+  kselftest/arm64: Don't open code SVE_PT_SIZE() in fp-ptrace (2025-08-30 11:31:11 +0100)
 
-Changes since v3:
-    - Rebased to d69eb204c255c35abd9e8cb621484e8074c75eaa
+are available in the Git repository at:
 
-Changes since v2:
-    - Addressed Jonathan Cameron's comments.
-    - Added reviewed-by tags.
-    - Added a new commit where I suggest simplfing the code in
-      arch_topology.c to remove the use of cpu_node on failure path.
-    - Improve documentation.
-    - Caught a bug in patch 1.
-    - Commit message fixed for patch 2.
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
 
-Changes since v1:
-    - Rebased on top of the latest mainline.
-    - Addressed Krzysztof Kozlowski's comments -- Hopefully :-)
-    - Addressed Jonathan Cameron's comments.
+for you to fetch changes up to a7ed7b9d0ebb038db9963d574da0311cab0b666a:
 
+  arm64: ftrace: fix unreachable PLT for ftrace_caller in init_module with CONFIG_DYNAMIC_FTRACE (2025-09-05 16:56:20 +0100)
 
-Alireza Sanaee (6):
-  of: add infra for finding CPU id from phandle
-  arch_topology: drop the use of cpu_node in the pr_info
-  arch_topology: update CPU map to use of_cpu_phandle_to_id
-  coresight: cti: Use of_cpu_phandle_to_id for grabbing CPU id
-  coresight: Use of_cpu_phandle_to_id for grabbing CPU ID
-  perf/arm-dsu: refactor cpu id retrieval via new API
-    of_cpu_phandle_to_id
+----------------------------------------------------------------
+arm64 fixes:
 
- drivers/base/arch_topology.c                  | 22 ++++-----
- .../coresight/coresight-cti-platform.c        | 13 +----
- .../hwtracing/coresight/coresight-platform.c  | 15 +-----
- drivers/of/cpu.c                              | 48 +++++++++++++++++++
- drivers/perf/arm_dsu_pmu.c                    |  7 +--
- include/linux/of.h                            |  9 ++++
- 6 files changed, 71 insertions(+), 43 deletions(-)
+ - Incorrect __BITS_PER_LONG as 64 when compiling the compat vDSO
+
+ - Unreachable PLT for ftrace_caller() in a module's .init.text
+   following past reworking of the module VA range selection
+
+ - Memory leak in the ACPI iort_rmr_alloc_sids() after a failed
+   krealloc_array()
+
+----------------------------------------------------------------
+Miaoqian Lin (1):
+      ACPI/IORT: Fix memory leak in iort_rmr_alloc_sids()
+
+Thomas Weiﬂschuh (1):
+      arm64: uapi: Provide correct __BITS_PER_LONG for the compat vDSO
+
+panfan (1):
+      arm64: ftrace: fix unreachable PLT for ftrace_caller in init_module with CONFIG_DYNAMIC_FTRACE
+
+ arch/arm64/include/asm/module.h           |  1 +
+ arch/arm64/include/asm/module.lds.h       |  1 +
+ arch/arm64/include/uapi/asm/bitsperlong.h |  5 +++++
+ arch/arm64/kernel/ftrace.c                | 13 ++++++++++---
+ arch/arm64/kernel/module-plts.c           | 12 +++++++++++-
+ arch/arm64/kernel/module.c                | 11 +++++++++++
+ drivers/acpi/arm64/iort.c                 |  4 +++-
+ 7 files changed, 42 insertions(+), 5 deletions(-)
 
 -- 
-2.43.0
-
+Catalin
 
