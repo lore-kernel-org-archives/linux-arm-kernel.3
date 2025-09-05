@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D67CCA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04805CAC580
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wqOqGEd782WLPUVDTcc7k5RXTuvfeHelG9nAk1RIVc=; b=Ib5UhrrVsCFKgUIoXYvfUqbgcU
-	HCt7ztjt6abCEElH7IhKDQl21DIHumG0IPPOJ2S2y6B/cczhCpOTzc2+nmIEWBxwoOcp6B1574PTA
-	/0QzHwGM/L5gJr0kJ9WCImWCuuuvu1d8kaJ3A2ey1N7m2Oxa/rnSehTJu7kXr+084upKwwFCagpHd
-	tYQpjuMT59WzfvXsN1bEMnwITzcf80HkizrFINzbZuEwDi7gwo2wQYaz7GXrAU62lF2yaxawnijiZ
-	isoY21r6Hb59gnBu9qGj9NLYozcAbWO38ZB8RmUg3i8pxvJ2qtrPJUHGGz5er/WWlHMqqL2LHccy6
-	6SniXJYg==;
+	bh=QwHcCldPQ4qAjzal1xk6MUkE2gKMVBa7LeiAC0EfbGg=; b=bvxRI1Rui6JXgXcTcSHb6DavkR
+	vPoEzDT7zTnOoSQsQP2FK8XC2PrsjXsK66JXohL3C5xFTn14cYqUa9x/tcngfHbLYrFkOutKZHiFf
+	Rvuz6QPTUJ7wMEZCiQFR/ZdiQZgI0zBKcrzcOeupeBeM94tK8jHEssFtkcUqbis55fje0Xw0ADd7S
+	UAnYt/tgb5oh/4aFsdhvgkZb3JJ+04LOPF5PrxFxc9LvhQpWlx3zkY0T36w5yvHdQ+T7hJZ/b5//7
+	cmVBNDE0ar92qpi6MT9h9i1Rpvqi6WHnALjmEvkTPQ1QPqdIBzXWH+TGdne4YuLI4swGdtRglsH90
+	YxFXi9eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVE-00000005Qxh-22AU;
-	Sat, 06 Sep 2025 00:10:00 +0000
+	id 1uugVF-00000005QyJ-0LuI;
+	Sat, 06 Sep 2025 00:10:01 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZ9Z-000000033P0-2RmB
+	id 1uuZA7-000000033eR-2Men
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 16:19:11 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJM2m72SLz6L51Z;
-	Sat,  6 Sep 2025 00:18:08 +0800 (CST)
+	Fri, 05 Sep 2025 16:19:44 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJM3Q6vwsz6L51J;
+	Sat,  6 Sep 2025 00:18:42 +0800 (CST)
 Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2C8B1140159;
-	Sat,  6 Sep 2025 00:19:08 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 2803F1401DC;
+	Sat,  6 Sep 2025 00:19:42 +0800 (CST)
 Received: from a2303103017.china.huawei.com (10.202.66.105) by
  frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 5 Sep 2025 18:19:05 +0200
+ 15.1.2507.39; Fri, 5 Sep 2025 18:19:39 +0200
 From: Alireza Sanaee <alireza.sanaee@huawei.com>
 To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
 CC: <coresight@lists.linaro.org>, <dianders@chromium.org>,
@@ -45,9 +45,9 @@ CC: <coresight@lists.linaro.org>, <dianders@chromium.org>,
 	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
 	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
 	<suzuki.poulose@arm.com>
-Subject: [PATCH v4 1/6] of: add infra for finding CPU id from phandle
-Date: Fri, 5 Sep 2025 17:18:24 +0100
-Message-ID: <20250905161830.37-2-alireza.sanaee@huawei.com>
+Subject: [PATCH v4 2/6] arch_topology: drop the use of cpu_node in the pr_info
+Date: Fri, 5 Sep 2025 17:18:25 +0100
+Message-ID: <20250905161830.37-3-alireza.sanaee@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250905161830.37-1-alireza.sanaee@huawei.com>
 References: <20250905161830.37-1-alireza.sanaee@huawei.com>
@@ -58,8 +58,8 @@ X-Originating-IP: [10.202.66.105]
 X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
  frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_091909_918411_9029B928 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20250905_091943_745744_7681BBFA 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,111 +74,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Get CPU ID from phandle. Some drivers such as coresight, cti-coresight,
-or arm-dsu use this API for finding CPU node in DT. In particular,
-drivers do this by getting the CPU device_node through a phandle and
-then find the CPU ID using of_cpu_node_to_id(). This commit encapsulates
-CPU node finding and improves readability.
+Remove the use of cpu_node in the pr_info(). When of_cpu_node_to_id() fails,
+it may set a pointer, cpu_node, and the get_cpu_for_node() function uses that
+pointer to log further in the fail scenario.
 
-The interface takes three parameters, 1) node, 2) pointer to
-pointer of CPU node, 3) CPU node index. API sets the pointer to the CPU
-node and allows the driver to work with the CPU node, for logging
-purposes for instance.
+Also, change the structure to exit early in fail scenarios which will
+help enabling code unification that follows in this series.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
 ---
- drivers/of/cpu.c   | 48 ++++++++++++++++++++++++++++++++++++++++++++++
- include/linux/of.h |  9 +++++++++
- 2 files changed, 57 insertions(+)
+ drivers/base/arch_topology.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
-index 5214dc3d05ae..9e0d3ec10bc2 100644
---- a/drivers/of/cpu.c
-+++ b/drivers/of/cpu.c
-@@ -173,6 +173,54 @@ int of_cpu_node_to_id(struct device_node *cpu_node)
- }
- EXPORT_SYMBOL(of_cpu_node_to_id);
+diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+index 1037169abb45..6fafd86f608a 100644
+--- a/drivers/base/arch_topology.c
++++ b/drivers/base/arch_topology.c
+@@ -481,12 +481,13 @@ static int __init get_cpu_for_node(struct device_node *node)
+ 		return -1;
  
-+/**
-+ * of_cpu_phandle_to_id: Get the logical CPU number for a given device_node
-+ *
-+ * @node: Pointer to the device_node containing CPU phandle.
-+ * @cpu_np: Pointer to the device_node for CPU.
-+ * @cpu_idx: The index of the CPU in the list of CPUs.
-+ *
-+ * *cpu_np is only set when cpu_np is not NULL.  Use of_node_put() to release
-+ * the node reference if cpu_np != NULL and this function succeeds.
-+ *
-+ * Return: This function has three different possible return situations:
-+ *	1) returns -EINVAL if the node is NULL.
-+ *	2) returns -ENODEV if the CPU node is not found or of_cpu_node_to_id is
-+ *	not successful.
-+ *	3) returns the logical CPU number if the CPU node is found.
-+ */
-+int of_cpu_phandle_to_id(const struct device_node *node,
-+			 struct device_node **cpu_np,
-+			 uint8_t cpu_idx)
-+{
-+	struct device_node *local_cpu_node = NULL;
-+	int cpu;
-+
-+	if (!node)
-+		return -EINVAL;
-+
-+	if (cpu_idx == 0)
-+		local_cpu_node = of_parse_phandle(node, "cpu", 0);
-+	if (!local_cpu_node)
-+		local_cpu_node = of_parse_phandle(node, "cpus", cpu_idx);
-+	if (!local_cpu_node)
-+		return -ENODEV;
-+
-+	cpu = of_cpu_node_to_id(local_cpu_node);
+ 	cpu = of_cpu_node_to_id(cpu_node);
+-	if (cpu >= 0)
+-		topology_parse_cpu_capacity(cpu_node, cpu);
+-	else
+-		pr_info("CPU node for %pOF exist but the possible cpu range is :%*pbl\n",
+-			cpu_node, cpumask_pr_args(cpu_possible_mask));
 +	if (cpu < 0) {
-+		of_node_put(local_cpu_node);
++		pr_info("CPU node exist but the possible cpu range is :%*pbl\n",
++			cpumask_pr_args(cpu_possible_mask));
 +		return cpu;
 +	}
-+
-+	if (cpu_np)
-+		*cpu_np = local_cpu_node;
-+	else
-+		of_node_put(local_cpu_node);
-+
-+	return cpu;
-+}
-+EXPORT_SYMBOL(of_cpu_phandle_to_id);
-+
- /**
-  * of_get_cpu_state_node - Get CPU's idle state node at the given index
-  *
-diff --git a/include/linux/of.h b/include/linux/of.h
-index a62154aeda1b..717e55065d99 100644
---- a/include/linux/of.h
-+++ b/include/linux/of.h
-@@ -365,6 +365,8 @@ extern const void *of_get_property(const struct device_node *node,
- extern struct device_node *of_get_cpu_node(int cpu, unsigned int *thread);
- extern struct device_node *of_cpu_device_node_get(int cpu);
- extern int of_cpu_node_to_id(struct device_node *np);
-+extern int of_cpu_phandle_to_id(const struct device_node *np,
-+				struct device_node **cpu_np, uint8_t cpu_idx);
- extern struct device_node *of_get_next_cpu_node(struct device_node *prev);
- extern struct device_node *of_get_cpu_state_node(const struct device_node *cpu_node,
- 						 int index);
-@@ -680,6 +682,13 @@ static inline int of_cpu_node_to_id(struct device_node *np)
- 	return -ENODEV;
+ 
++	topology_parse_cpu_capacity(cpu_node, cpu);
+ 	return cpu;
  }
  
-+static inline int of_cpu_phandle_to_id(const struct device_node *np,
-+				       struct device_node **cpu_np,
-+				       uint8_t cpu_idx)
-+{
-+	return -ENODEV;
-+}
-+
- static inline struct device_node *of_get_next_cpu_node(struct device_node *prev)
- {
- 	return NULL;
 -- 
 2.43.0
 
