@@ -4,92 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B0C5CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62697CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mzs0fcUa+DxpkLkc7ASzbeG0qA3dcJ9VCs0pVkhY65M=; b=WfOoiCI7SOC76EAH1iF8SgSvZ5
-	WYSPKiWMCje1zWbpk70C733+/pkl0r6oVR5AfKQpxXHBf56/BkAIcYuEQ09B62gr7+FfBA02vCctE
-	v3XlCvzkH0uaD7uyEQOmCFUiSg5VuVZB8RTNlwwrIFb+ri3HVhFOeqWQLfiY7l7TG0HF7VQsoRhIE
-	iC9wkCVwFC1YBAPcYkM23yFh6latq9QHKcFwKB28TD2jv55oust0KeRbImRXeumGwX8RlobLQ6eam
-	TEJ55hL9KoypZyyN2SyaZDuQguppu8hyG79qkPyLa9Lcvh5poIDRAbgvHzSJ9LOPz8GwAqEvF9TtE
-	3Hfm81XQ==;
+	bh=4UsSZ81znAIH2BHQxQH7893DTnd5tXkUeyvZxL3R4IU=; b=q+sc+YuwZE+88h9Qp3VpJlTOlG
+	h5OMqLMCUyEjpLb653o0rNyxYX7q+z+/nT4lOlYbaJdCKELd8prvYaS8t9tSM3ODE/peom2iy73W/
+	DespQEwb9Q7ZoK2aEYOoB8UrNrvaaFx9FG7CoZ5CabTupw2FdWeVaD91gZ6HklGCwrF312BmDl95y
+	bx7duDZoGbnLbUU/c1OOvdg/VLi4TxxwQCxHrkhedx+kggXr/Oi6hjPaHw8/jY/gbr0uDJqHoLYHk
+	+StY6ZoDCt8XfcaOz6+yAhwe5MSe23ipK52mzf8VW+mCNof2mbrF2uBe/D17eQvZIVDWyv63Re4sG
+	bMMrMbXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZuw-00000003MHc-2NHF;
-	Fri, 05 Sep 2025 17:08:06 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1uuZxm-00000003NeJ-0Og5;
+	Fri, 05 Sep 2025 17:11:02 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuWR5-00000001xPY-0BUt;
+	id 1uuWR5-00000001xOk-0N3f
+	for linux-arm-kernel@lists.infradead.org;
 	Fri, 05 Sep 2025 13:25:04 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-b47173749dbso1396565a12.1;
-        Fri, 05 Sep 2025 06:25:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757078702; x=1757683502; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mzs0fcUa+DxpkLkc7ASzbeG0qA3dcJ9VCs0pVkhY65M=;
-        b=JfP/gPkbjOvK8821uQN1ekifveK1ctZwzB8UuLrqMfCsNbLHH05z1HsI5aVwOjoi0x
-         lW1SHThX3K87F/y6Orz1FR6yHcXLwpKc+4Dh7ZFdugLqCZfQ4QJIP5h6avLhqdIS5aEH
-         CrdiWOjXICDsNp9ZI5b5lXyWVlPjyBSp9PGWzsDe6bJ/jHtJ8qkSGHnFkEJ02up4q6jy
-         lAFyWyd8dOaeL1CyVpO+HJuegH4UZJ7IhGOlMox2Rvc8BnZpO9WOertIbj0rJiGw+uUn
-         JY8jvbl0U+ZydnTw9q5REZCsDZTLmx7Jq6D1v4yErEjT0vDdWygS6pkYQaoHNODLkcPw
-         fapw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757078702; x=1757683502;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mzs0fcUa+DxpkLkc7ASzbeG0qA3dcJ9VCs0pVkhY65M=;
-        b=vrKs0gay1ogJG47nGVA5tvWCKPqzi8pSt29RTf8MhW+/AsMWn20dy69c01/pbKn2pQ
-         ztEOvn4wHrXILOwHWgoecZLIaGZF/879NoW0q7IlzCudrskJZyebTDzezdG3lpnseqOK
-         24A65Xx2eSXRHFVzHlZAuVDwsWYh1fV7VwJrZ53XK7AiB9TzcRf83x02iGm7PcbHL7hQ
-         i4GEByU48evGFSZmnvnpsUsH9FYcpfOhvnIqPNrWNsNTCaktIX7G+hjGTc5cz4c4x/9y
-         n19Qe7I0Edv/rYmGfipJeu2V2+qjXCQB6Qv+JD0wkgc3VRCPriaCdtB7qJGV02cqd8L/
-         Q5qA==
-X-Forwarded-Encrypted: i=1; AJvYcCUT7tDOEr5cQP+yl2qYu5EDTkkdKYepn/hNy5F5rnH55cbQWYmaCXqv27zJw7tw/yACjkhn/muXLXy+QlZ1Uus=@lists.infradead.org, AJvYcCWulfp3UzongM2NtfTCJkJXABHevzKLTffNnNv1JzEWy5c/5TwH5P7t3/7CDbbptNKQQRJbujt1FGCLKXiYnKPz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzhzt5ZUKVvZc6euEEt3Cd5XZyqlBg7M10i/9sLPJi87+EVMtxr
-	fTt4qr2eUc8mZjzvtGbx++aex4XC0qUT7v4VUn0Ll40FVzxRlMjcAxRt
-X-Gm-Gg: ASbGncv9DTqwlTUUnQdLaOFCexNHTeAtmE/1Q2GFselK/fyhPCd8vVdn4M5uiu0cr0n
-	8e27Fe7GyJIgT3a0ZaVr9jpLHFrRh3jMa9B/DQ9Lv2ENOM+IC0blsvymrotxpo7HbEAzsemb98D
-	qqfeouolFyHFEZXvYnUn/n2WrE1w/Mvc/1Q4Si3vTgKsrOmObqT1Tg1loYb9GEt9HJXt+SB86/S
-	zge6myCY3Znp2X7Q2fp0PDPNcGkcnJXx/ehtFTu+YqfLe42efrwlLVsv2RLRZLMd0TB0raPQyop
-	WcjZ5ThIodITeIFN9i/2IWAJ8ljs28p1blYwyVYuWm+KQ8+jy2UE55gseJUsygsrZhFmzLsE2Wi
-	eYyFB8x7cWnUxXcKETOcQFg==
-X-Google-Smtp-Source: AGHT+IH4zx4sI6FblJmB5He7a6nYAWLg6d3RbumYzZWccC7zXGmeUwtWGArXlU0WRJI06Z4GqaIqDQ==
-X-Received: by 2002:a17:902:c40c:b0:24c:b2a4:7089 with SMTP id d9443c01a7336-24cb2a4744fmr134900655ad.31.1757078702100;
-        Fri, 05 Sep 2025 06:25:02 -0700 (PDT)
-Received: from localhost.localdomain ([2401:ce20:10::d4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24c8945d8d4sm76447955ad.127.2025.09.05.06.24.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 06:25:01 -0700 (PDT)
-From: WeiHao Li <cn.liweihao@gmail.com>
-To: heiko@sntech.de,
-	robh@kernel.org
-Cc: krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
+X-UUID: b687c5d88a5b11f0b29709d653e92f7d-20250905
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:2f63b8d2-1ead-4757-b66c-86b8c1049e1d,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:3fcc3bb2746cc7389702de1a6e732580,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: b687c5d88a5b11f0b29709d653e92f7d-20250905
+Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
+	(envelope-from <zhangzihuan@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 2010186639; Fri, 05 Sep 2025 21:24:55 +0800
+Received: from mail.kylinos.cn (localhost [127.0.0.1])
+	by mail.kylinos.cn (NSMail) with SMTP id 6372FE008FA3;
+	Fri,  5 Sep 2025 21:24:55 +0800 (CST)
+X-ns-mid: postfix-68BAE4A7-2095376
+Received: from localhost.localdomain (unknown [172.25.120.24])
+	by mail.kylinos.cn (NSMail) with ESMTPA id 7B73DE008FA4;
+	Fri,  5 Sep 2025 21:24:51 +0800 (CST)
+From: Zihuan Zhang <zhangzihuan@kylinos.cn>
+To: "Rafael J . wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Eduardo Valentin <edubezval@gmail.com>,
+	Keerthy <j-keerthy@ti.com>
+Cc: Ben Horgan <ben.horgan@arm.com>,
+	zhenglifeng <zhenglifeng1@huawei.com>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Len Brown <lenb@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Beata Michalska <beata.michalska@arm.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pavel Machek <pavel@kernel.org>,
+	Sumit Gupta <sumitg@nvidia.com>,
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-pm@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
+	intel-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	WeiHao Li <cn.liweihao@gmail.com>
-Subject: [PATCH v1 1/4] clk: rockchip: rk3368: fix SCLK_I2S_8CH_OUT flags
-Date: Fri,  5 Sep 2025 21:23:25 +0800
-Message-ID: <20250905132328.9859-2-cn.liweihao@gmail.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250905132328.9859-1-cn.liweihao@gmail.com>
-References: <20250905132328.9859-1-cn.liweihao@gmail.com>
+	Zihuan Zhang <zhangzihuan@kylinos.cn>
+Subject: [PATCH v5 5/6] drm/i915: Use scope-based cleanup helper
+Date: Fri,  5 Sep 2025 21:24:12 +0800
+Message-Id: <20250905132413.1376220-6-zhangzihuan@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250905132413.1376220-1-zhangzihuan@kylinos.cn>
+References: <20250905132413.1376220-1-zhangzihuan@kylinos.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_062503_081727_FF036960 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250905_062503_429738_56B0DCF3 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +125,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clock SCLK_I2S_8CH_OUT has no capability to adjust clock frequency by
-itself, add CLK_SET_RATE_PARENT flag to fix it.
+Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+annotation for policy references. This reduces the risk of reference
+counting mistakes and aligns the code with the latest kernel style.
 
-Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
+No functional change intended.
+
+Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 ---
- drivers/clk/rockchip/clk-rk3368.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/i915/gt/intel_llc.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/clk/rockchip/clk-rk3368.c b/drivers/clk/rockchip/clk-rk3368.c
-index 95e6996adb..8159f643dc 100644
---- a/drivers/clk/rockchip/clk-rk3368.c
-+++ b/drivers/clk/rockchip/clk-rk3368.c
-@@ -371,7 +371,7 @@ static struct rockchip_clk_branch rk3368_clk_branches[] __initdata = {
- 			  RK3368_CLKSEL_CON(28), 0,
- 			  RK3368_CLKGATE_CON(6), 2, GFLAGS,
- 			  &rk3368_i2s_8ch_fracmux),
--	COMPOSITE_NODIV(SCLK_I2S_8CH_OUT, "i2s_8ch_clkout", mux_i2s_8ch_clkout_p, 0,
-+	COMPOSITE_NODIV(SCLK_I2S_8CH_OUT, "i2s_8ch_clkout", mux_i2s_8ch_clkout_p, CLK_SET_RATE_PARENT,
- 			RK3368_CLKSEL_CON(27), 15, 1, MFLAGS,
- 			RK3368_CLKGATE_CON(6), 0, GFLAGS),
- 	GATE(SCLK_I2S_8CH, "sclk_i2s_8ch", "i2s_8ch_pre", CLK_SET_RATE_PARENT,
--- 
-2.39.5
+diff --git a/drivers/gpu/drm/i915/gt/intel_llc.c b/drivers/gpu/drm/i915/g=
+t/intel_llc.c
+index 1d19c073ba2e..f15e4c0fa54b 100644
+--- a/drivers/gpu/drm/i915/gt/intel_llc.c
++++ b/drivers/gpu/drm/i915/gt/intel_llc.c
+@@ -29,13 +29,11 @@ static struct intel_gt *llc_to_gt(struct intel_llc *l=
+lc)
+=20
+ static unsigned int cpu_max_MHz(void)
+ {
+-	struct cpufreq_policy *policy;
++	struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq_cp=
+u_get(0);
+ 	unsigned int max_khz;
+=20
+-	policy =3D cpufreq_cpu_get(0);
+ 	if (policy) {
+ 		max_khz =3D policy->cpuinfo.max_freq;
+-		cpufreq_cpu_put(policy);
+ 	} else {
+ 		/*
+ 		 * Default to measured freq if none found, PCU will ensure we
+--=20
+2.25.1
 
 
