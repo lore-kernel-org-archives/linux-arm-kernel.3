@@ -4,93 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3DCCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 070EFCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3udnh9xsllR+FkjIGPPOo5bX8r6scLid4vmBPD5wmTc=; b=cUj5Emcuuv+4zqvwT6Ge8lEsT3
-	ReDIrPN3+vcoGKpO9xUv95VWbIe+2Mqi3VX0XV8tWa6RN+jK5rzCvy7qXkJqZZJRttPed6ajCh3aI
-	jVTJZRjRw+J8jfj6cx/zRQ+H7GBHAfjiYAWxFxkc8Vq0V9vgt4MQyt8Id1ipmCIFDcYxdoWdaUP9P
-	h3/ipibkt+9yIkyXL/DTgaKxB2NQo4Xl0eUrO/+rv+irLqQrjmMbDh85Pc7ccnlFq84ubdcsUycam
-	dwXpLA1x19XMwkM7oRrBDvWnsKimPWUKRad5y+k7eDWein9mU2bEkKxGYlhjtHL8zSuMRo8hYCFh3
-	EJDzVAiQ==;
+	bh=deXU0gcF7yBIf+TpC1TbTUZssVkV6sZTs9sHoaAOhKo=; b=OVqkRR6YXoKgjBRo8bZmcJZvIk
+	fkNDsuDp/mrFDx11THLyME8kRfex2sB4+8EewO2KOmoqm03xGrCgbwIZmt8lComPy3TjIzJCGNRx8
+	Y/gBWyFegi0wGEaQrD17fwFRtJt6pDolhh4xKzppaUu8xW6Tprc9Pvxi+lGdJKY1e+CJLce2yG/zA
+	nB8lM9CbAqv6LlRnHdnJz3QBfjLWegrraIYpco1FlPVfEl4n2nanUKRSlucSXplqIHIaYB8XVLQ6y
+	XdrEida4VNAfmJjEyxBoz7eiD0kxhtBl31p/2jqem8zUsF9eaU3q6DC8vN8MTL/1WQnyfSCV3RHjx
+	n3/515Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQdl-0000000HW8W-0uMl;
-	Fri, 05 Sep 2025 07:13:45 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uuQgS-0000000HXVU-1sG0;
+	Fri, 05 Sep 2025 07:16:32 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuPAo-0000000H3Or-1Oyo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 05:39:47 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-329745d6960so1718123a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 22:39:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757050785; x=1757655585; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3udnh9xsllR+FkjIGPPOo5bX8r6scLid4vmBPD5wmTc=;
-        b=zUWO50D3tiM87PviUcIZeXZHpRKLACZowq5urDeMUufJe8NTS2KuH/gppho7SKIqB7
-         /YDJ3u8WlYU1zM4jUFyGgoVfLQpLFb08dx52N5maIYS6IO9D9wbmbe+3GdUwX8FNZkzV
-         pYeFDn1PCbPTllXIxPJp7TOlhXBXh7ImatvaQmAIvjSkC7uyQ3mWlVPQ3ztuwXv10cbR
-         zckgjoyAK213NOjrtVVukE0PgNXdiViELF1ErH6ej+YJkkWOz7a+5IVQHAe4eSqlGfAi
-         7NRFLmJePAh6dTzGii8rnF//Kdn5f1ChyJzke/YMVQPkTQ356Gc7GcgmLLRBVNTkd2fn
-         Ob/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757050785; x=1757655585;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3udnh9xsllR+FkjIGPPOo5bX8r6scLid4vmBPD5wmTc=;
-        b=U4Hhuei8YE+iUDR//N+Qt8sp85yU6uAjgGXSnlqG/FDQYswr6Da3LxGFZVJjKv2KVl
-         rNTk2Skop94JW+W4DwzV7e0jeu4QK0JbZ/oygGA00cczRLNUgN7t48p7n4wwVWRSE5dV
-         muzuGQjz4HgAbQyO/QcQl16pAHmLVKEItNDa2nYsgGIiRMLMHZSkN1JNG7PmFv7cBjYG
-         31SytEEAfw6H6/hSkUYjFuQdr8rvDQsreCI9qlNJgEcOPAuXB3c6a3jvRBBvTjLWvM5c
-         P2EYfDubq6Dr8ogoHeUCO2dcMYHZnoxMYZ11DwuyOpKsN/b2HLWrKJLXE8ITFS2MDVRM
-         b2nw==
-X-Forwarded-Encrypted: i=1; AJvYcCW3s/6Rs/TKXvLG9BUEBaC8iPcvSXdqRfJMvEoFIwcYA/+1cgxKxbXqsQvndKLv5vyZUsWiT0W5mAICvcy5BUBI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYvNhTq0Z+aNOMao5d0Yt14bY/qYbvFS7GfCbKoVHye4PFNrXH
-	boJbUF6VYCSGh7zqMtgkLl8xq3rnrFcR61/UFgV7LncLNKIbZu80LQZFRubolRAW7VXio5/4G5z
-	4BmMDJg==
-X-Google-Smtp-Source: AGHT+IEl3aDxdJxOeFOgsIqqYfLRUExl039yXm0dtHzzby5zYzVGU35ZbpW1dVjZIdU0C50mCLd9IUYMCJw=
-X-Received: from pjuw15.prod.google.com ([2002:a17:90a:d60f:b0:325:5e4e:4bd4])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3809:b0:329:dff0:701b
- with SMTP id 98e67ed59e1d1-329dff070c6mr19066965a91.17.1757050784899; Thu, 04
- Sep 2025 22:39:44 -0700 (PDT)
-Date: Thu, 4 Sep 2025 22:39:37 -0700
-In-Reply-To: <aLojpyTwAMdb1z6D@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
-Mime-Version: 1.0
-References: <20250828000156.23389-1-seanjc@google.com> <aLojpyTwAMdb1z6D@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
-Message-ID: <aLp3makY6FzuUwor@google.com>
-Subject: Re: [PATCH v2 0/7] Drivers: hv: Fix NEED_RESCHED_LAZY and use common APIs
-From: Sean Christopherson <seanjc@google.com>
-To: Wei Liu <wei.liu@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-hyperv@vger.kernel.org, 
-	rcu@vger.kernel.org, Nuno Das Neves <nunodasneves@linux.microsoft.com>, 
-	Mukesh R <mrathor@linux.microsoft.com>
-Content-Type: text/plain; charset="us-ascii"
+	id 1uuPNa-0000000H75D-0e2l;
+	Fri, 05 Sep 2025 05:52:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=deXU0gcF7yBIf+TpC1TbTUZssVkV6sZTs9sHoaAOhKo=; b=rco3EMV4Wt2VyqeetV9N8LyVPC
+	dX6SlBGQuX3s5tjDwMdjzgjNcf9snf4erTwYbUd2Syp8dj8NpyLauI+F9q8WONGecmcxY24Ag/rAq
+	dWx4ooli/OUns9yfIIvvWxkzlo8eRXKDOgHG/1AhSxp3mJdqdqhO2NawV/2tFjEq3oNrT7eyq1TlH
+	nf7dB+c2oNYsAOn/bvpTql/QESyUQGHOpb1j+m3dy4mz6236lgeWhWEex+MTo8zs7TwPI9CBWFa7N
+	ofNL0oRo7ifk5ab2jUNGaXdFji9RPT3BqJd+gw9VNOF7HOBxthcmUrqSrWJg47CJcvRcuc7CdM033
+	dv8lWy/Q==;
+Received: from i53875bb6.versanet.de ([83.135.91.182] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uuPNQ-0004GZ-TW; Fri, 05 Sep 2025 07:52:48 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: robh@kernel.org, WeiHao Li <cn.liweihao@gmail.com>
+Cc: hjc@rock-chips.com, andy.yan@rock-chips.com, krzk+dt@kernel.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ WeiHao Li <cn.liweihao@gmail.com>
+Subject: Re: [PATCH v2 3/8] dt-bindings: clock: rk3368: Add SCLK_MIPIDSI_24M
+Date: Fri, 05 Sep 2025 07:52:47 +0200
+Message-ID: <2267196.NgBsaNRSFp@diego>
+In-Reply-To: <20250905025632.222422-4-cn.liweihao@gmail.com>
+References: <20250905025632.222422-1-cn.liweihao@gmail.com>
+ <20250905025632.222422-4-cn.liweihao@gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_223946_375538_DC1142AE 
-X-CRM114-Status: GOOD (  32.05  )
+X-CRM114-CacheID: sfid-20250904_225258_215832_6F0AB014 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,101 +73,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025, Wei Liu wrote:
-> On Wed, Aug 27, 2025 at 05:01:49PM -0700, Sean Christopherson wrote:
-> > Fix a bug where MSHV root partitions (and upper-level VTL code) don't honor
-> > NEED_RESCHED_LAZY, and then deduplicate the TIF related MSHV code by turning
-> > the "kvm" entry APIs into more generic "virt" APIs.
-> > 
-> > This version is based on
-> > 
-> >   git://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux.git hyperv-next
-> > 
-> > in order to pickup the VTL changes that are queued for 6.18.  I also
-> > squashed the NEED_RESCHED_LAZY fixes for root and VTL modes into a single
-> > patch, as it should be easy/straightforward to drop the VTL change as needed
-> > if we want this in 6.17 or earlier.
-> > 
-> > That effectively means the full series is dependent on the VTL changes being
-> > fully merged for 6.18.  But I think that's ok as it's really only the MSHV
-> > changes that have any urgency whatsoever, and I assume that Microsoft is
-> > the only user that truly cares about the MSHV root fix.  I.e. if the whole
-> > thing gets delayed, I think it's only the Hyper-V folks that are impacted.
-> > 
-> > I have no preference what tree this goes through, or when, and can respin
-> > and/or split as needed.
-> > 
-> > As with v1, the Hyper-V stuff and non-x86 architectures are compile-tested
-> > only.
-> > 
-> > v2:
-> >  - Rebase on hyperv-next.
-> >  - Fix and converge the VTL code as well. [Peter, Nuno]
-> > 
-> > v1: https://lore.kernel.org/all/20250825200622.3759571-1-seanjc@google.com
-> > 
-> 
-> I dropped the mshv_vtl changes in this series and applied the rest
-> (including the KVM changes) to hyperv-next.
+Hi,
 
-mshv_do_pre_guest_mode_work() ended up getting left behind since its removal was
-in the last mshv_vtl patch.
+Am Freitag, 5. September 2025, 04:56:27 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb WeiHao Li:
+> Add a clock id for mipi dsi reference clock, mipi dsi node used it.
+>=20
+> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
 
-  $ git grep mshv_do_pre_guest_mode_work
-  drivers/hv/mshv.h:int mshv_do_pre_guest_mode_work(ulong th_flags);
-  drivers/hv/mshv_common.c:int mshv_do_pre_guest_mode_work(ulong th_flags)
-  drivers/hv/mshv_common.c:EXPORT_SYMBOL_GPL(mshv_do_pre_guest_mode_work);
+another process-related comment :-) .
 
-Want to squash this into 3786d7d6b3c0 ("mshv: Use common "entry virt" APIs to do
-work in root before running guest")?
+(1) You already got in v1 the
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
----
- drivers/hv/mshv.h        |  2 --
- drivers/hv/mshv_common.c | 22 ----------------------
- 2 files changed, 24 deletions(-)
+So when sending a v2, please include such received tags
+(if there are no major changes to the relevant code)
 
-diff --git a/drivers/hv/mshv.h b/drivers/hv/mshv.h
-index 0340a67acd0a..d4813df92b9c 100644
---- a/drivers/hv/mshv.h
-+++ b/drivers/hv/mshv.h
-@@ -25,6 +25,4 @@ int hv_call_set_vp_registers(u32 vp_index, u64 partition_id, u16 count,
- int hv_call_get_partition_property(u64 partition_id, u64 property_code,
- 				   u64 *property_value);
- 
--int mshv_do_pre_guest_mode_work(ulong th_flags);
--
- #endif /* _MSHV_H */
-diff --git a/drivers/hv/mshv_common.c b/drivers/hv/mshv_common.c
-index eb3df3e296bb..aa2be51979fd 100644
---- a/drivers/hv/mshv_common.c
-+++ b/drivers/hv/mshv_common.c
-@@ -138,25 +138,3 @@ int hv_call_get_partition_property(u64 partition_id,
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(hv_call_get_partition_property);
--
--/*
-- * Handle any pre-processing before going into the guest mode on this cpu, most
-- * notably call schedule(). Must be invoked with both preemption and
-- * interrupts enabled.
-- *
-- * Returns: 0 on success, -errno on error.
-- */
--int mshv_do_pre_guest_mode_work(ulong th_flags)
--{
--	if (th_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
--		return -EINTR;
--
--	if (th_flags & (_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY))
--		schedule();
--
--	if (th_flags & _TIF_NOTIFY_RESUME)
--		resume_user_mode_work(NULL);
--
--	return 0;
--}
--EXPORT_SYMBOL_GPL(mshv_do_pre_guest_mode_work);
+This prevents people from reviewing things needlessly multiple times.
+So patch 3 would look something like:
 
-base-commit: 3786d7d6b3c0a412ebe4439ba4a7d4b0e27d9a12
---
+=2D-----------
+Add a clock id for mipi dsi reference clock, mipi dsi node used it.
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
+=2D-----------
+
+(2) As can be seen in
+https://lore.kernel.org/linux-rockchip/175690195013.3771488.435870786224873=
+257.b4-ty@sntech.de/
+
+I already applied the two clock patches, so in newer versions don't
+send them anymore.
+
+
+Just to keep in mind for next time.
+
+
+Heiko
+
+> ---
+>  include/dt-bindings/clock/rk3368-cru.h | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/include/dt-bindings/clock/rk3368-cru.h b/include/dt-bindings=
+/clock/rk3368-cru.h
+> index ebae3cbf8..b951e2906 100644
+> --- a/include/dt-bindings/clock/rk3368-cru.h
+> +++ b/include/dt-bindings/clock/rk3368-cru.h
+> @@ -72,6 +72,7 @@
+>  #define SCLK_SFC		126
+>  #define SCLK_MAC		127
+>  #define SCLK_MACREF_OUT		128
+> +#define SCLK_MIPIDSI_24M	129
+>  #define SCLK_TIMER10		133
+>  #define SCLK_TIMER11		134
+>  #define SCLK_TIMER12		135
+>=20
+
+
+
+
 
