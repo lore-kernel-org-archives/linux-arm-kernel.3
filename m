@@ -4,100 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9BFCA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E54CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U7VBhWYPVvktoXZ1dLXIUVka8/6TNbmCz4fkqfpuIvs=; b=G14vCv4qB4eFLXlvNn5TuqDqiY
-	d6VP5NzDBxJ21VVbxNC9bPcdGp+ybmR41pOBVnYbSeQxZijH1oux8U5uLluKdGlxzSzK4O5QhFnF5
-	mTwqcQ49YfBq3rWMW/IXyFmcUhEmfE35+o73WQnhJn7YHyiBvkIjhYQsQP1ucohoj9H2IWkrFbyEr
-	QM8ZTqP5hNBL+/BmqLIvoVK0OU+2XBg7mQsvZExLFFtcUFGO2vH/zMyfbHqoDzeP+AJHMnyb/qFXh
-	Liy7JEwxw32w1ctLJU4HZRHTLr6oDcoN4+7/u9zCujwojsRfitvS3enlWI3m9PK9uUz/KLl5LKtif
-	uAHUMuyA==;
+	bh=gPfnz/o3iNaHytOqe7truOjcGer8WrwACGpoW942gks=; b=kD9SVi07us+VIXeQATdCGp+aM9
+	jvzr8X0nlBXrwYoye/yAWqTU2tW6ZHeYVSMxjnM/3T/xdx4YYUrg0JmgNfQi443kNmHz26boOpa38
+	IYuBvL3jp+Ch1pkXaPytDsi3gS6z6hHIgo+uQypWBi+dNOgJManhzEr6mtIUkjV4sQhfxfdW/9Qh0
+	p5TYeWXDVGrODFQTgWmDK0M/2iAFdvjyEAJZfxmzRRjZP4KGBmxVx4UfsE6Az41CF/cDizOMFvKmy
+	Cpo2ROsXpAanJ3vgklifjeLvDFitStib8ppGjiwsYZAp2o84b3bPyZS36UKF/xqyREKIv++l0ybUP
+	QBYMzjTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSZw-00000000gKQ-2pHS;
-	Fri, 05 Sep 2025 09:17:56 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1uuSce-00000000hVW-2oNH;
+	Fri, 05 Sep 2025 09:20:44 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuRHJ-00000000AOI-0im9
+	id 1uuRQY-00000000E53-3Woj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 07:54:38 +0000
-X-UUID: 8b7cd9b08a2d11f0b29709d653e92f7d-20250905
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:b8911e54-e0aa-40d7-9e56-019791a9cc88,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:1038342e134dfa48eabc61cf9e37c597,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|52,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 8b7cd9b08a2d11f0b29709d653e92f7d-20250905
-Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
-	(envelope-from <zhangzihuan@kylinos.cn>)
-	(Generic MTA)
-	with ESMTP id 1912680162; Fri, 05 Sep 2025 15:54:26 +0800
-Received: from mail.kylinos.cn (localhost [127.0.0.1])
-	by mail.kylinos.cn (NSMail) with SMTP id 49564E008FA7;
-	Fri,  5 Sep 2025 15:54:26 +0800 (CST)
-X-ns-mid: postfix-68BA9732-140429547
-Received: from [172.25.120.24] (unknown [172.25.120.24])
-	by mail.kylinos.cn (NSMail) with ESMTPA id 33213E008FA4;
-	Fri,  5 Sep 2025 15:54:22 +0800 (CST)
-Message-ID: <2ccca29e-4d5f-44fa-bfc8-d77c659bc9f3@kylinos.cn>
-Date: Fri, 5 Sep 2025 15:54:21 +0800
+	Fri, 05 Sep 2025 08:04:12 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-336d3e4df3eso16718341fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 01:04:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1757059449; x=1757664249; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gPfnz/o3iNaHytOqe7truOjcGer8WrwACGpoW942gks=;
+        b=Wibob7VPCeqKIjR6QKihQPUFZivA+1+kSAQw3OGd3K+93RTEs8XCslJhFK13bFvDT2
+         uNqKymmuMN4Jj5hQl0HhB91E8iWQ87pFNsn9Om+PFmhjTy4rbFw2p7sEul4Nevrx0OKV
+         zk/5aRnx8Uo8URLkgU+Q0Idsucu1y6csEmB5s=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757059449; x=1757664249;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gPfnz/o3iNaHytOqe7truOjcGer8WrwACGpoW942gks=;
+        b=T5HmtMx9V/dm1GYjaZWtu7/ng7tS+X8Cu3bH4Xdb3xvc/umi+Gs5ymI3/faG25lOyy
+         GVOC2lkVugs9XxdvNo9amRKpqrkp6pXWDP7cRkEKIsVTV9DxpO+eCzV9BtnO+vggC2sm
+         uVTAJSk4oyrQo/eZhve4nIgN7XfM5F2OjeIaZm36N2ExwuxOVlTU9fwztFMtWhldWlo7
+         opIXR4LP4cELT3y98b3f43T3qk4MkfWqtqRqiBeeNcHFVCtu3PbWL+8pZIubOS1EVij/
+         vJlmRy6R8c17uclIYITXmUjzzONDBaHfWceYXbbcPh57vh0qqdKTTrd3v57zL/UCkxX6
+         2ICg==
+X-Forwarded-Encrypted: i=1; AJvYcCU7zgCSd+L5A3OEasF397/LOUi0TyhafqGX7cwBmTMmtU+Sr6LhIkR5jDCn7nDUk57WgUOJ1MAFBxhAixlc8+gx@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDEKpuzMysI+IhYuPxZB6dbvQhlU9abQkEUFXfUbITrNMay9xs
+	dTHKTAN88mEngOTxbmEoGZWH0GHO9DPUvc899rBZ6ae+RQv2RS3qLMcdtDwjWWElp3A1/5j63WU
+	p1GWhQoC8aNyC68l8fu3CODWpvGq4XCvm9JdvAktV
+X-Gm-Gg: ASbGncvGMKzegiwgcbO1Z8T8qoF49y9YAb+g9WYRL1mxCDA+Et71bkRvCmZ8awfZaBo
+	3WhR3gv7JzvJbadatv0D2iSWAdHExZEweOClrcXgxz5tTqa64tBxsspG0G0AKz1uc6lX2BriQYx
+	rEK5PzKQkwfnijg8A60oissBDuykmx10m4ILRoQynjRppcXAXJb9yMmqqDa5i6p7fJutUlJXo/C
+	I1JQ9W5n83aYcoxutkSYzc/pffIYMwnv/0bKQ==
+X-Google-Smtp-Source: AGHT+IHT043Y/TruREpGKZ+/QRl4lPJ5bvgN3xV40J/rToLhwUaxJ8c7vgtH50x+X4YlPrhw0jN/shKQPrGCvcazPsI=
+X-Received: by 2002:a05:651c:1a0c:b0:339:1b58:b199 with SMTP id
+ 38308e7fff4ca-3391b58bbc2mr3260661fa.36.1757059449029; Fri, 05 Sep 2025
+ 01:04:09 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/10] thermal/drivers/ti-soc-thermal: Use scope-based
- cleanup helper
-To: Andreas Kemnade <andreas@kemnade.info>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: "Rafael J . wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Alim Akhtar
- <alim.akhtar@samsung.com>, Thierry Reding <thierry.reding@gmail.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
- <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>,
- Ben Horgan <ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>,
- Zhang Rui <rui.zhang@intel.com>, Len Brown <lenb@kernel.org>,
- Lukasz Luba <lukasz.luba@arm.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
- <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>,
- Sumit Gupta <sumitg@nvidia.com>,
- Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
- linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
- <20250903131733.57637-10-zhangzihuan@kylinos.cn>
- <20250905085726.2bc6fcb4@akair>
-From: Zihuan Zhang <zhangzihuan@kylinos.cn>
-In-Reply-To: <20250905085726.2bc6fcb4@akair>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+References: <20250829091913.131528-1-laura.nao@collabora.com> <20250829091913.131528-23-laura.nao@collabora.com>
+In-Reply-To: <20250829091913.131528-23-laura.nao@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 5 Sep 2025 16:03:58 +0800
+X-Gm-Features: Ac12FXzqjLPg1snoakkIHpjZL3gjVDvpLkfu1BDJJWXmMZBGn3rIna_U1tSPpG8
+Message-ID: <CAGXv+5GreKJSz76EiHYzX-ByfyxuYNYB6OyBJk9ZhsKCapPjRA@mail.gmail.com>
+Subject: Re: [PATCH v5 22/27] clk: mediatek: Add MT8196 disp1 clock support
+To: Laura Nao <laura.nao@collabora.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
+	richardcochran@gmail.com, guangjie.song@mediatek.com, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+	kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_005437_561290_848A78D6 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20250905_010410_903602_757367A6 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,79 +98,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-=E5=9C=A8 2025/9/5 14:57, Andreas Kemnade =E5=86=99=E9=81=93:
-> Am Wed,  3 Sep 2025 21:17:32 +0800
-> schrieb Zihuan Zhang <zhangzihuan@kylinos.cn>:
+On Fri, Aug 29, 2025 at 5:21=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
+ wrote:
 >
->> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
->> annotation for policy references. This reduces the risk of reference
->> counting mistakes and aligns the code with the latest kernel style.
->>
->> No functional change intended.
->>
->> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
->> ---
->>   drivers/thermal/ti-soc-thermal/ti-thermal-common.c | 13 ++++--------=
--
->>   1 file changed, 4 insertions(+), 9 deletions(-)
->>
->> diff --git a/drivers/thermal/ti-soc-thermal/ti-thermal-common.c b/driv=
-ers/thermal/ti-soc-thermal/ti-thermal-common.c
->> index 0cf0826b805a..37d06468913a 100644
->> --- a/drivers/thermal/ti-soc-thermal/ti-thermal-common.c
->> +++ b/drivers/thermal/ti-soc-thermal/ti-thermal-common.c
->> @@ -27,7 +27,6 @@
->>  =20
->>   /* common data structures */
->>   struct ti_thermal_data {
->> -	struct cpufreq_policy *policy;
->>   	struct thermal_zone_device *ti_thermal;
->>   	struct thermal_zone_device *pcb_tz;
->>   	struct thermal_cooling_device *cool_dev;
->> @@ -218,6 +217,7 @@ int ti_thermal_register_cpu_cooling(struct ti_band=
-gap *bgp, int id)
->>   {
->>   	struct ti_thermal_data *data;
->>   	struct device_node *np =3D bgp->dev->of_node;
->> +	struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq=
-_cpu_get(0);
->>  =20
-> this looks as it changes the lifecycle from the device lifetime to just
-> this function...
+> Add support for the MT8196 disp1 clock controller, which provides clock
+> gate control for the display system. It is integrated with the mtk-mmsys
+> driver, which registers the disp1 clock driver via
+> platform_device_register_data().
+>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
 
+IMO removing CLK_OPS_PARENT_ENABLE is the right thing to do.
 
-I thought policy was only used in this function, so I moved it here.
+However if the hardware ends up does having a requirement that _some_
+clock be enabled before touching the registers, then I think the
+MTK clock library needs to be refactored, so that a register access
+clock can be tied to the regmap. That might also require some work
+on the syscon API.
 
-Thanks for clarifying the lifecycle issue.
+Whether the hardware needs such a clock or not, we would need some input
+from MediaTek. There's nothing in the datasheet on this.
 
->>   	/*
->>   	 * We are assuming here that if one deploys the zone
->> @@ -234,19 +234,17 @@ int ti_thermal_register_cpu_cooling(struct ti_ba=
-ndgap *bgp, int id)
->>   	if (!data)
->>   		return -EINVAL;
->>  =20
->> -	data->policy =3D cpufreq_cpu_get(0);
->> -	if (!data->policy) {
->> +	if (!policy) {
->>   		pr_debug("%s: CPUFreq policy not found\n", __func__);
->>   		return -EPROBE_DEFER;
->>   	}
->>  =20
->>   	/* Register cooling device */
->> -	data->cool_dev =3D cpufreq_cooling_register(data->policy);
->> +	data->cool_dev =3D cpufreq_cooling_register(policy);
-> and it is passed on to something living beyond this function. I see no
-> _get(policy) in cpufreq_cooling_register().
-> Am I missing something?
-
-This indeed causes a problem.
-
-Sure,=C2=A0 I will drop the patchset.
-
-Thanks!
-
-> Regards,
-> Andreas
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org> # CLK_OPS_PARENT_ENABLE remo=
+val
 
