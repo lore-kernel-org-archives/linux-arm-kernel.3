@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A52ACA1013
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BABACA0FED
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g/wt05ObpdxwaNVDkgazUTN9jzFwrbxwSbbI3oRgsSg=; b=Y6tJXjWxHTgBw2OpCg6DtmQYzI
-	82bHc6rActvCM4an4ylXv8FiyGrUGnPgq99T8AVdixjJFSfvQ9gHAi9ig2MBd+k/z3q5XEsjFqHg6
-	xiykLIMFKv581TTToKZ+Ss4F4RBbJ8xT1Q67v83j39sHS5XhrC72BRi5spgbNgAeC3cg3HChSJc3n
-	71ExlPtyj56P3GjRheRGCVhsMhftHMoscMlIOnyfCiPQpIuUcurBfenhD7Ajv6nRd+Ygk2k8p+XdH
-	rLlDsm7HYmvA87DeDKU0QwEmwtIwKnfynzA8ZyD67/EGLetYWcA7svKEW05pqUi//R/Dzo/G9o7MB
-	YanksuKw==;
+	bh=CS7/+88GKvPz+RzdqbRIb2EPsCndRz2p9qUkq+VGtSU=; b=1Oo72DLlmJ4cxZdjORjHT9f78g
+	3UTT/UWIfF9myp8+afFpE+8F6iSCSqC9RjwM/4PreHoeYhGM2DxU1cXGXmqG4ollOSWK5dMPESZMy
+	LnGLFPAuF7g171Dyv0UkEST7lA9udyDEVEgzoxRaB3PFyAMbN5Ab/cut0xmEFbTINMQJJ/Jf5GAwP
+	s86HYVz5kaHiMSpQfugb/jXtpbGwGtLdJWr234o7lXIzS6U15v9UnuGGfD3J2PVivI0l0RY/9Mzyl
+	ysx4xt0shPhLrhQ94QA8FhHRO4PYd0pLs7Lvlqj6EU6FVegby2mQ94nI57ZM4+nseICETDpHduUj5
+	T6ByWz9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXZR-00000002PfC-44Lt;
-	Fri, 05 Sep 2025 14:37:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uuXZS-00000002PhF-3t5t;
+	Fri, 05 Sep 2025 14:37:46 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuUOL-00000001J9p-2Ao6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 11:14:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D8DF860280;
-	Fri,  5 Sep 2025 11:14:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93F34C4CEF1;
-	Fri,  5 Sep 2025 11:13:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757070844;
-	bh=kDpzhB/6Cz5cknkR7vg25nX23vQb619EzR6gJMWg0zE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ihMD5UipqP42+z3YN+MrXn99n6Ycd3YsueOx6CaMNo+hdxO5RgsqI0SQxPdExPL3V
-	 BxsONFBqcXHbav7x1SkdqIDD48PmtLWsgPm58G0QlMiay/oaIVskT0KF8NuPaK9VFd
-	 /7wzkSZr/Kf5WRucMN8/UCNMZojnjOtaAmAF95Bjf8RmpqIT1ej5HygOv9JaajJW8G
-	 3sqfezMFb01ibM/+0hkAjFN8sRUuYHQxj5dBVnj+if/YJu29wWq859HwQBz6EYrcmA
-	 3EU4AmTwTsfLSifdqQkLCIzFzeBG/3X8Ze/ePLiEQWW6Tfu9V10hDtY4xQjiB241cI
-	 b5217/1pBB0Eg==
-Date: Fri, 5 Sep 2025 14:13:50 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-	Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>, Nicholas Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org
-Subject: Re: [PATCH 7/7] mm: update lazy_mmu documentation
-Message-ID: <aLrF7qi85tmHfWRf@kernel.org>
-References: <20250904125736.3918646-1-kevin.brodsky@arm.com>
- <20250904125736.3918646-8-kevin.brodsky@arm.com>
+	id 1uuUPi-00000001JTh-2c6n;
+	Fri, 05 Sep 2025 11:15:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757070931; x=1788606931;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3akFC5IMed+fG2KKB0KQf9NBmC17zIW/9AU0DfJiD7Q=;
+  b=evMVsjKRo24QhgqTHmUogHH7LKfCmEX34atlZNYejTiiEj0N5Ca/rcFd
+   cH+6oOKOVEzo6DU1BK5gHoJbqYZb/v772DJ4c8DLMGeMu5JWuGhDo2iZc
+   mdtwrzrTlrQl6AFnSzAJKVZkvs6yMiL3vi4Qcc/TGRpDTDq0QVzYvSHCN
+   T9cHkLfSormHSSP49CmzdPafgKLgYG1AFd42QyLI7xXKCaRp+kYAUINs5
+   G7QATflKakHJO3+HV7AXdS15fQwmSLeYLM/Wycy7zWSLiINzUw5RK7cma
+   mHk08Um1SEf/RTCFZ/f63DSK/xIi23K0mp1V87G+plKmDVRIdyWiBOdj3
+   Q==;
+X-CSE-ConnectionGUID: k0yHEqaOT4S1pJxU/d7+ZQ==
+X-CSE-MsgGUID: zdYGVnCtRTCgHFsMb0Tyhw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="63251836"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="63251836"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2025 04:15:24 -0700
+X-CSE-ConnectionGUID: +3HgtWUMTAaK3lJguvuAiQ==
+X-CSE-MsgGUID: 0bI3GIRWSgi/mUctC2BkUA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,241,1751266800"; 
+   d="scan'208";a="172069602"
+Received: from kuha.fi.intel.com ([10.237.72.152])
+  by fmviesa006.fm.intel.com with SMTP; 05 Sep 2025 04:15:17 -0700
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Fri, 05 Sep 2025 14:15:16 +0300
+Date: Fri, 5 Sep 2025 14:15:16 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Sven Peter <sven@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH RFC 12/22] usb: typec: tipd: Add cd321x struct with
+ separate size
+Message-ID: <aLrGRGTjyMhKV9hd@kuha.fi.intel.com>
+References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
+ <20250821-atcphy-6-17-v1-12-172beda182b8@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250904125736.3918646-8-kevin.brodsky@arm.com>
+In-Reply-To: <20250821-atcphy-6-17-v1-12-172beda182b8@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250905_041530_811276_CC5222D6 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +96,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 01:57:36PM +0100, Kevin Brodsky wrote:
-> We now support nested lazy_mmu sections on all architectures
-> implementing the API. Update the API comment accordingly.
+On Thu, Aug 21, 2025 at 03:39:04PM +0000, Sven Peter wrote:
+> We're about to add more fields to struct tps6598x which are only relevant
+> for Apple's CD321x and to ensure that we don't waste memory everywhere for
+> those add a separate struct for cd321x and prepare to allocate more space
+> inside probe.
 > 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> Signed-off-by: Sven Peter <sven@kernel.org>
 
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 
 > ---
->  include/linux/pgtable.h | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
+>  drivers/usb/typec/tipd/core.c | 20 +++++++++++++++-----
+>  1 file changed, 15 insertions(+), 5 deletions(-)
 > 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 6932c8e344ab..be0f059beb4d 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -228,8 +228,18 @@ static inline int pmd_dirty(pmd_t pmd)
->   * of the lazy mode. So the implementation must assume preemption may be enabled
->   * and cpu migration is possible; it must take steps to be robust against this.
->   * (In practice, for user PTE updates, the appropriate page table lock(s) are
-> - * held, but for kernel PTE updates, no lock is held). Nesting is not permitted
-> - * and the mode cannot be used in interrupt context.
-> + * held, but for kernel PTE updates, no lock is held). The mode cannot be used
-> + * in interrupt context.
-> + *
-> + * Calls may be nested: an arch_{enter,leave}_lazy_mmu_mode() pair may be called
-> + * while the lazy MMU mode has already been enabled. An implementation should
-> + * handle this using the state returned by enter() and taken by the matching
-> + * leave() call; the LAZY_MMU_{DEFAULT,NESTED} flags can be used to indicate
-> + * whether this enter/leave pair is nested inside another or not. (It is up to
-> + * the implementation to track whether the lazy MMU mode is enabled at any point
-> + * in time.) The expectation is that leave() will flush any batched state
-> + * unconditionally, but only leave the lazy MMU mode if the passed state is not
-> + * LAZY_MMU_NESTED.
->   */
->  #ifndef __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->  typedef int lazy_mmu_state_t;
+> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+> index 19d713937870304e68325a441b0de63eb5db3b80..51b0f3be8b66a743ddc3ea96c1b25f597a1e8f6c 100644
+> --- a/drivers/usb/typec/tipd/core.c
+> +++ b/drivers/usb/typec/tipd/core.c
+> @@ -113,6 +113,7 @@ struct tps6598x;
+>  struct tipd_data {
+>  	irq_handler_t irq_handler;
+>  	u64 irq_mask1;
+> +	size_t tps_struct_size;
+>  	int (*register_port)(struct tps6598x *tps, struct fwnode_handle *node);
+>  	void (*trace_data_status)(u32 status);
+>  	void (*trace_power_status)(u16 status);
+> @@ -148,6 +149,10 @@ struct tps6598x {
+>  	const struct tipd_data *data;
+>  };
+>  
+> +struct cd321x {
+> +	struct tps6598x tps;
+> +};
+> +
+>  static enum power_supply_property tps6598x_psy_props[] = {
+>  	POWER_SUPPLY_PROP_USB_TYPE,
+>  	POWER_SUPPLY_PROP_ONLINE,
+> @@ -1297,18 +1302,24 @@ tps25750_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+>  
+>  static int tps6598x_probe(struct i2c_client *client)
+>  {
+> +	const struct tipd_data *data;
+>  	struct tps6598x *tps;
+>  	struct fwnode_handle *fwnode;
+>  	u32 status;
+>  	u32 vid;
+>  	int ret;
+>  
+> -	tps = devm_kzalloc(&client->dev, sizeof(*tps), GFP_KERNEL);
+> +	data = i2c_get_match_data(client);
+> +	if (!data)
+> +		return -EINVAL;
+> +
+> +	tps = devm_kzalloc(&client->dev, data->tps_struct_size, GFP_KERNEL);
+>  	if (!tps)
+>  		return -ENOMEM;
+>  
+>  	mutex_init(&tps->lock);
+>  	tps->dev = &client->dev;
+> +	tps->data = data;
+>  
+>  	tps->reset = devm_gpiod_get_optional(tps->dev, "reset", GPIOD_OUT_LOW);
+>  	if (IS_ERR(tps->reset))
+> @@ -1334,10 +1345,6 @@ static int tps6598x_probe(struct i2c_client *client)
+>  	if (i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
+>  		tps->i2c_protocol = true;
+>  
+> -	tps->data = i2c_get_match_data(client);
+> -	if (!tps->data)
+> -		return -EINVAL;
+> -
+>  	if (tps->data->switch_power_state) {
+>  		ret = tps->data->switch_power_state(tps, TPS_SYSTEM_POWER_STATE_S0);
+>  		if (ret)
+> @@ -1521,6 +1528,7 @@ static const struct tipd_data cd321x_data = {
+>  	.irq_mask1 = APPLE_CD_REG_INT_POWER_STATUS_UPDATE |
+>  		     APPLE_CD_REG_INT_DATA_STATUS_UPDATE |
+>  		     APPLE_CD_REG_INT_PLUG_EVENT,
+> +	.tps_struct_size = sizeof(struct cd321x),
+>  	.register_port = tps6598x_register_port,
+>  	.trace_data_status = trace_cd321x_data_status,
+>  	.trace_power_status = trace_tps6598x_power_status,
+> @@ -1535,6 +1543,7 @@ static const struct tipd_data tps6598x_data = {
+>  	.irq_mask1 = TPS_REG_INT_POWER_STATUS_UPDATE |
+>  		     TPS_REG_INT_DATA_STATUS_UPDATE |
+>  		     TPS_REG_INT_PLUG_EVENT,
+> +	.tps_struct_size = sizeof(struct tps6598x),
+>  	.register_port = tps6598x_register_port,
+>  	.trace_data_status = trace_tps6598x_data_status,
+>  	.trace_power_status = trace_tps6598x_power_status,
+> @@ -1549,6 +1558,7 @@ static const struct tipd_data tps25750_data = {
+>  	.irq_mask1 = TPS_REG_INT_POWER_STATUS_UPDATE |
+>  		     TPS_REG_INT_DATA_STATUS_UPDATE |
+>  		     TPS_REG_INT_PLUG_EVENT,
+> +	.tps_struct_size = sizeof(struct tps6598x),
+>  	.register_port = tps25750_register_port,
+>  	.trace_data_status = trace_tps6598x_data_status,
+>  	.trace_power_status = trace_tps25750_power_status,
+> 
 > -- 
-> 2.47.0
+> 2.34.1
 > 
 
 -- 
-Sincerely yours,
-Mike.
+heikki
 
