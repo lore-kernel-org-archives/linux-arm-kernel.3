@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36580CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF96CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RdHOLLqwx7tJvI93Mas6xLDQ23Ec8f9ZA36n15YArp4=; b=sOU2/QYdjU9AbCXw4rP/ccmauf
-	2Iu2dYLiLHZ95jUmECXXHhuWX/shVx7/VsyZXbdn0zx9KF+ud3XAE89wt9Z8Nb99GwhBTW/HSUJ82
-	jo2xfSVlWoV5DpaavY2Abq9K3PLIBYwvL9eCbbFZ5rhBIY4ERuvJObZLfMue8tdjDkiWg+VOUVBth
-	m8DXz9usRlri9n8ewSFTiGS1l1P1YkTapqnvCGBE7MhOUG3N0E3zPuwrMGh/qS+sfbtAglsS9Vb8z
-	Bh3l9QQNt4zSkkMHF+BwdUDe1cAbF9O1Ri2IbU/71O4MrFqgWkZ1rdyhwsiTvBQvaXJCO18hHQIgY
-	u3hP7B/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VgTC8IqrzNB0yIkxqJvj+wmBiJP1X0A3ilnfrmRYT6M=; b=2tbWnyZnhzKl+XLaiez8mF/xSV
+	YnkQnyZ2xrBFp9j/YN/e1D/iqGaJpTOEsK1ARjPMLjQo8mY6UNm90wYHegNYUQnKAG04ZM+9HYQnt
+	bxUVSEVSgTZ2GhGWP0uc/UWxDqGJ+PTbWGbXAP6QQTS9GzP+WWhKSxY5qcSHfVCNCRPjGb6P2NJY8
+	4mA4PZGHtaTDWCw9PCLOj2X13uJOKz6G3iVhUxA9rfJdUi9mJCGxVVOkUmdTtV5de62OfvvD51cOG
+	MFJcrylXVEQm17vNUlNkw/fFaAWYnWRbr9BUE36T+SMRzhzS0Rjf9zMWako0ssvkrOTkww3BVYivP
+	Pteo0Ocg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVN-00000005R6T-25r7;
-	Sat, 06 Sep 2025 00:10:09 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZFN-000000035vb-2Z03
+	id 1uugVO-00000005R7A-0VXf;
+	Sat, 06 Sep 2025 00:10:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuZHS-000000036gW-0tOu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 16:25:11 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3dbf3054ac4so1282724f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 09:25:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757089508; x=1757694308; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RdHOLLqwx7tJvI93Mas6xLDQ23Ec8f9ZA36n15YArp4=;
-        b=jrqN2MCsY+fS4oneQ5IujPqujXDcJ0Cp7JL1l5NKvcqKzzwdjm5iha4mCx3DzS8Thu
-         RtGDdFv9BZwPM58cXm7iu2z2/l/MF0hiDC/6c7AaGMYbCuYMqcDMlg166/+kVj6jhooX
-         SzF1Gqod+rW+sIoGnlj/FYHoPMBt6c9juAvOBmTdwi7lekKSSsQqY2/rFKaJ6FLeBg5G
-         nm/Ft6Q0SbvpyfU1ehItydMk1ox9XgwKvZ33oi5gI3LPTM+jKfd9Ek1YXLWQaYZEfaAB
-         UVO2WdaNbYWvHaW8RH9luM0ltFz1CKbztCIEaBdRN8VGGUjbAmTR7hkcTAFu/CCDRhLj
-         TroQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757089508; x=1757694308;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RdHOLLqwx7tJvI93Mas6xLDQ23Ec8f9ZA36n15YArp4=;
-        b=wxT3PzNaEuHq9XOm6Y48yPbQlEn8PiUesWwVW7UnwJ6Kgk8Uc8TlHsUE1dg36RmeiM
-         O+TqIuiwX5jhyQMt/hG5w4Qdk+JFAQD98KxnYU29jJT/4mFEhhv3FrSP2gJKWwcgQ8Yk
-         NSOYbtbGCwW/X1/6njRbu8xj5xP7pO98t+Ep7rUbqfXNAwAp7KdXBCT3KtmZn8Ryg6qm
-         Bk0RNx1P7+XfWAfCmn9EkT+Q3qWx0Z7orT/+xO9SGGSB91NQX61hlKWRsWOwldKm84bd
-         +4yA8zGDtcDffyazPMmMDNXEVIb+Aon1hNdlJfsO3xBD3vtIjYzH3mRbZ8giKeitpBSm
-         RXNg==
-X-Gm-Message-State: AOJu0Yx0x8GvM9BFdvbB+Tc4wjuVEe2DV8eiva/F/4BlGAGzAte5rbWX
-	rATCbcoY4BRhp6isJmZmIzhkfbzQ3ix7lGILBm9PSzqEATK4LLdRnogsospi5JEgtKKmkV5CazZ
-	/oP/orTYwBSLMDaW1BIgd7dL9UymBVT9LAI5Z0YG3g8NXN9MnEMqIB+kdgGc95AXMB+TQiaW7jr
-	ojTeBA7k7MJOeih4XbJLX/PtYUIw57CqZFKlE2kef2syosiXnwd/4b2mVPEsPOYKx+CA==
-X-Google-Smtp-Source: AGHT+IFCF8RSEKc2M561aTeMp6Eg3cFM8Srz5/Q2pYIUE/bN9+Udlr5Snzmc+NupcbxxSPDUPWNVnLF2ct7JsA==
-X-Received: from wmbhg14.prod.google.com ([2002:a05:600c:538e:b0:45c:b52d:d2ee])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:4284:b0:3e0:152a:87b8 with SMTP id ffacd0b85a97d-3e0152a89b4mr5750276f8f.8.1757089507832;
- Fri, 05 Sep 2025 09:25:07 -0700 (PDT)
-Date: Fri,  5 Sep 2025 16:24:46 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.51.0.355.g5224444f11-goog
-Message-ID: <20250905162446.88987-1-smostafa@google.com>
-Subject: [PATCH] soc: samsung: exynos-pmu: Fix for CONFIG_DEBUG_PREEMPT
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Cc: krzk@kernel.org, alim.akhtar@samsung.com, 
-	Mostafa Saleh <smostafa@google.com>, Peter Griffin <peter.griffin@linaro.org>, 
-	"=?UTF-8?q?Andr=C3=A9=20Draszik?=" <andre.draszik@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 05 Sep 2025 16:27:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C6141152B;
+	Fri,  5 Sep 2025 09:27:08 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A4F83F63F;
+	Fri,  5 Sep 2025 09:27:11 -0700 (PDT)
+Date: Fri, 5 Sep 2025 17:27:08 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com, lcherian@marvell.com,
+	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+	dfustini@baylibre.com, amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH 05/33] ACPI / PPTT: Find cache level by cache-id
+Message-ID: <aLsPXFI4VuueQVXM@e133380.arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-6-james.morse@arm.com>
+ <aK7jEMqM/FoB4ABW@e133380.arm.com>
+ <cc4881e8-5d90-4992-8cbf-650ea2efa5ca@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cc4881e8-5d90-4992-8cbf-650ea2efa5ca@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_092509_694201_D71C5522 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250905_092718_348353_D1EAD847 
+X-CRM114-Status: GOOD (  69.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,83 +88,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Booting the kernel on Pixel-6 with `CONFIG_DEBUG_PREEMPT` prints the
-following WARN:
+Hi James,
 
-[    0.784187][    T1] BUG: using smp_processor_id() in preemptible [000000=
-00] code: swapper/0/1
-[    0.784328][    T1] caller is debug_smp_processor_id+0x20/0x30
-[    0.784433][    T1] CPU: 6 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.1=
-7.0-rc4-gd69eb204c255 #1 PREEMPT
-[    0.784439][    T1] Hardware name: Oriole (DT)
-[    0.784441][    T1] Call trace:
-[    0.784443][    T1]  show_stack+0x34/0xa0 (C)
-[    0.784453][    T1]  dump_stack_lvl+0x7c/0xb0
-[    0.784460][    T1]  dump_stack+0x18/0x24
-[    0.784464][    T1]  check_preemption_disabled+0xf8/0x100
-[    0.784470][    T1]  debug_smp_processor_id+0x20/0x30
-[    0.784476][    T1]  gs101_cpuhp_pmu_online+0x40/0x108
-[    0.784483][    T1]  cpuhp_invoke_callback+0x188/0x2d8
-[    0.784490][    T1]  cpuhp_issue_call+0xec/0x240
-[    0.784494][    T1]  __cpuhp_setup_state_cpuslocked+0x140/0x2c0
-[    0.784499][    T1]  __cpuhp_setup_state+0x58/0x88
-[    0.784504][    T1]  exynos_pmu_probe+0x2a4/0x380
-[    0.784508][    T1]  platform_probe+0x64/0xd0
-[    0.784516][    T1]  really_probe+0xd0/0x3b0
-[    0.784520][    T1]  __driver_probe_device+0x8c/0x170
-[    0.784524][    T1]  driver_probe_device+0x44/0x140
-[    0.784528][    T1]  __device_attach_driver+0xd8/0x180
-[    0.784532][    T1]  bus_for_each_drv+0x90/0xf8
-[    0.784536][    T1]  __device_attach+0xa8/0x1d0
-[    0.784540][    T1]  device_initial_probe+0x1c/0x30
-[    0.784544][    T1]  bus_probe_device+0xb4/0xc0
-[    0.784547][    T1]  device_add+0x4d0/0x700
-[    0.784550][    T1]  of_device_add+0x4c/0x78
-[    0.784556][    T1]  of_platform_device_create_pdata+0x9c/0x148
-[    0.784560][    T1]  of_platform_bus_create+0x1d0/0x370
-[    0.784563][    T1]  of_platform_bus_create+0x234/0x370
-[    0.784567][    T1]  of_platform_populate+0x84/0x178
-[    0.784571][    T1]  of_platform_default_populate_init+0xf0/0x120
-[    0.784579][    T1]  do_one_initcall+0x68/0x2d0
-[    0.784585][    T1]  kernel_init_freeable+0x2d8/0x358
-[    0.784589][    T1]  kernel_init+0x28/0x168
-[    0.784595][    T1]  ret_from_fork+0x10/0x20
+On Thu, Aug 28, 2025 at 04:58:05PM +0100, James Morse wrote:
+> Hi Dave,
+> 
+> On 27/08/2025 11:50, Dave Martin wrote:
+> > Hi,
+> > 
+> > On Fri, Aug 22, 2025 at 03:29:46PM +0000, James Morse wrote:
+> >> The MPAM table identifies caches by id. The MPAM driver also wants to know
+> >> the cache level to determine if the platform is of the shape that can be
+> >> managed via resctrl. Cacheinfo has this information, but only for CPUs that
+> >> are online.
+> >>
+> >> Waiting for all CPUs to come online is a problem for platforms where
+> >> CPUs are brought online late by user-space.
+> >>
+> >> Add a helper that walks every possible cache, until it finds the one
+> >> identified by cache-id, then return the level.
+> >> Add a cleanup based free-ing mechanism for acpi_get_table().
+> 
+> > Does this mean that the early secondaries must be spread out across the
+> > whole topology so that everything can be probed?
+> >
+> > (i.e., a random subset is no good?)
+> 
+> For the mpam driver - it needs to see each cache with mpam hardware, which means a CPU
+> associated with each cache needs to be online. Random is fine - provided you get lucky.
 
-As this value is only read once, it doesn't require to be stable, so
-just use "raw_smp_processor_id" instead.
+"Fine" = "not dependent on luck".  So, random is not fine.
 
-Cc: Peter Griffin <peter.griffin@linaro.org>
-Cc: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> > If so, is this documented somewhere, such as in booting.rst?
+> 
+> booting.rst is for the bootloader.
+> Late secondaries is a bit of a niche sport, I've only seen it commonly done in VMs.
+> Most platforms so far have their MPAM controls on a global L3, so this requirement doesn't
+> make much of a difference.
+> 
+> The concern is that if resctrl gets probed after user-space has started, whatever
+> user-space service is supposed to set it up will have concluded its not supported. Working
+> with cache-ids for offline CPUs means you don't have to bring all the CPUs online - only
+> enough so that every piece of hardware is reachable.
+> 
+> 
+> > Maybe this is not a new requirement -- it's not an area that I'm very
+> > familiar with.
+> 
+> Hard to say - its a potentially surprising side effect of glomming OS accessible registers
+> onto the side of hardware that can be automatically powered off. (PSCI CPU_SUSPEND).
+> 
+> I did try getting cacheinfo to populate all the CPUs at boot, regardless of whether they
+> were online. Apparently that doesn't work for PowerPC where the properties of CPUs can
+> change while they are offline. (presumably due to RAS or a firmware update)
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- drivers/soc/samsung/exynos-pmu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+So, it sounds like there is a requirement, but we don't document it,
+and if the requirement is not met then the user is presented with an
+obscure failure in the MPAM driver.  This seems a bit unhelpful?
 
-diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-=
-pmu.c
-index a77288f49d24..338f4758a089 100644
---- a/drivers/soc/samsung/exynos-pmu.c
-+++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -338,7 +338,7 @@ EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap_by_phandle);
-=20
- static int gs101_cpuhp_pmu_online(unsigned int cpu)
- {
--	unsigned int cpuhint =3D smp_processor_id();
-+	unsigned int cpuhint =3D raw_smp_processor_id();
- 	u32 reg, mask;
-=20
- 	/* clear cpu inform hint */
-@@ -361,7 +361,7 @@ static int gs101_cpuhp_pmu_online(unsigned int cpu)
- static int gs101_cpuhp_pmu_offline(unsigned int cpu)
- {
- 	u32 reg, mask;
--	unsigned int cpuhint =3D smp_processor_id();
-+	unsigned int cpuhint =3D raw_smp_processor_id();
-=20
- 	/* set cpu inform hint */
- 	regmap_write(pmu_context->pmureg, GS101_CPU_INFORM(cpuhint),
---=20
-2.51.0.355.g5224444f11-goog
+I'm not saying booting.rst is the right place for this -- maybe the
+appropriate document doesn't exist yet.
 
+I wonder whether the required property is reasonable and general enough
+that it should be treated as a kernel boot requirement.
+
+Or, we require caches to be symmetric for non-early CPUs and reject
+those that don't match when they try to come online (similarly to
+the way cpufeatures deals with mismatches).
+
+
+> >> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> >> index 8f9b9508acba..660457644a5b 100644
+> >> --- a/drivers/acpi/pptt.c
+> >> +++ b/drivers/acpi/pptt.c
+> >> @@ -907,3 +907,67 @@ int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+> >>  	return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
+> >>  					  ACPI_PPTT_ACPI_IDENTICAL);
+> >>  }
+> >> +
+> >> +/**
+> >> + * find_acpi_cache_level_from_id() - Get the level of the specified cache
+> >> + * @cache_id: The id field of the unified cache
+> >> + *
+> >> + * Determine the level relative to any CPU for the unified cache identified by
+> >> + * cache_id. This allows the property to be found even if the CPUs are offline.
+> >> + *
+> >> + * The returned level can be used to group unified caches that are peers.
+> >> + *
+> >> + * The PPTT table must be rev 3 or later,
+> >> + *
+> >> + * If one CPUs L2 is shared with another as L3, this function will return
+> >> + * an unpredictable value.
+> >> + *
+> >> + * Return: -ENOENT if the PPTT doesn't exist, or the cache cannot be found.
+> > 
+> > Nit: doesn't exist or its revision is too old.
+> 
+> ... its not old, but there is no published spec for that revision... unsupported?
+
+That seems OK, say,
+
+	"... if the PPTT doesn't exist or has an unsupported format, or ..."
+
+
+> >> + * Otherwise returns a value which represents the level of the specified cache.
+> >> + */
+> >> +int find_acpi_cache_level_from_id(u32 cache_id)
+> >> +{
+> >> +	u32 acpi_cpu_id;
+> >> +	int level, cpu, num_levels;
+> >> +	struct acpi_pptt_cache *cache;
+> >> +	struct acpi_pptt_cache_v1 *cache_v1;
+> >> +	struct acpi_pptt_processor *cpu_node;
+> >> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_PPTT, 0);
+> 
+> > acpi_get_pptt() ? (See comment on patch 3.)
+> 
+> Yup,
+> 
+> > Comments there also suggest that the acpi_put_table() may be
+> > unnecessary, at least on some paths.
+> > 
+> > I haven't tried to understand the ins and outs of this.
+> 
+> It's grabbing one reference and using it for everything, because it needs to 'map' the
+> table in atomic context due to cpuhp, but can't.
+> Given how frequently its used, there is no problem just leaving it mapped.
+
+That's rather what I thought -- in which case we can use it (as you
+already concluded, by the looks of it).
+
+> >> +
+> >> +	if (IS_ERR(table))
+> >> +		return PTR_ERR(table);
+> >> +
+> >> +	if (table->revision < 3)
+> >> +		return -ENOENT;
+> >> +
+> >> +	/*
+> >> +	 * If we found the cache first, we'd still need to walk from each CPU
+> >> +	 * to find the level...
+> >> +	 */
+> 
+> > ^ Possibly confusing comment?  The cache id is the starting point for
+> > calling this function.  Is there a world in which we are at this point
+> > without first having found the cache node?
+> > 
+> > (If the comment is just a restatement of part of the kerneldoc
+> > description, maybe just drop it.)
+> 
+> It's describing the alternate world where the table is searched to find the cache first,
+> but then we'd still need to walk the table another NR_CPUs times, which can't be avoided.
+> I'll drop it - it was justifying why its done this way round...
+
+Oh, I see, this is "if the code had been written in such-and-such a way",
+not "if such-and-such a runtime precondition is met" ?
+
+The comment can be read both ways, as it stands.
+
+> 
+> >> +	for_each_possible_cpu(cpu) {
+> >> +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> >> +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+> >> +		if (!cpu_node)
+> >> +			return -ENOENT;
+> >> +		num_levels = acpi_count_levels(table, cpu_node, NULL);
+> > 
+> > Is the initial call to acpi_count_levels() really needed here?
+> > 
+> > It feels a bit like we end up enumerating the whole topology two or
+> > three times here; once to count how many levels there are, and then
+> > again to examine the nodes, and once more inside acpi_find_cache_node().
+> > 
+> > Why can't we just walk until we run out of levels?
+> 
+> This is looking for a unified cache - and we don't know where those start.
+> We could walk the first 100 caches, and stop once we start getting unified caches, then
+> they stop again ... but this seemed simpler.
+
+I'm still a bit confused.
+
+We start at level one, and then trace parents until we hit a unified
+cache or run out of levels.
+
+Why do we need to know a priori how many levels there are, when the
+way to determine that is part of the same procedure we're already doing
+(i.e., start at level one and trace parents until we run out of levels)?
+
+> > I may be missing some details of how these functions interact -- if
+> > this is only run at probe time, compact, well-factored code is
+> > more important than making things as fast as possible.
+
+(This still stands.)
+
+
+> >> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+
+[...]
+
+> >> @@ -221,6 +222,17 @@ void acpi_reserve_initial_tables (void);
+> >>  void acpi_table_init_complete (void);
+> >>  int acpi_table_init (void);
+> >>  
+> >> +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
+> >> +{
+> >> +	struct acpi_table_header *table;
+> >> +	int status = acpi_get_table(signature, instance, &table);
+> >> +
+> >> +	if (ACPI_FAILURE(status))
+> >> +		return ERR_PTR(-ENOENT);
+> >> +	return table;
+> >> +}
+> 
+> > This feels like something that ought to exist already.  If not, why
+> > not?  If so, are there open-coded versions of this spread around the
+> > ACPI tree that should be ported to use it?
+> 
+> 
+> It's a cleanup idiom helper that lets the compiler do this automagically - but its moot as
+> its not going to be needed in the pptt because of the acpi_get_pptt() thing.
+
+Ah, OK.
+
+Cheers
+---Dave
 
