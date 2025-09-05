@@ -4,67 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1C0CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F981CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=npJkpA4zj0f0kUp2y5oDOcsYgf/eC/DfE8/mAA2FKTk=; b=i/l96QwUgzXwc2K4oIN7C6a1co
-	MCIyml/Xxzu0SIVB/F9NmZ1qK43KU7YM2lcDHmB3m9GhMykJDE3fkh9y7ZumeKlh3J3aUhdaAKnPx
-	87dGqCQO2EP0ZVQkgo0B2c5ZfBQLTU78e+BSXrFx8n44dy1MaUzKXbFtU0oa/K06XK0WZuVRLKyXz
-	1KOD+8D6rDg7ARogjVKAa8O7qeD5EkGhAkubZgAZvhYJH6h0XOtSxlTHSViXNQuyUM3E0klqyYSRx
-	iaeyNDyVVHTYLORztALGj++lpehMtUA1aqKrUwOEY+q8CkKw+WkLrSi6VTQGTIvQUdMlsREV1cnyN
-	fpPtLfCg==;
+	bh=XJnhSI4zKDT3ImFhZhJBvG+6tvoITddVraqHrrqOWpc=; b=gJFQ/pMTdDVIa1AZoV8XCKm5PD
+	saS65cGWQI2p1yExwEahV/BpIKJnOk/tmQ7ROjp0aDHMRz0COchlEs6JHcPuwBRT71fZqX8gyHnI8
+	ERH/P4pkRMocvAF/3De1xm9dFeXDYHxnYuqC0Y5LgUjsFY8lu4x00lnP3ndlzYwotXf5/wcZHtnVh
+	8speFrog8sBvMhLfSWYsB/8/Z88drzOJ3J783yOQSC/01oQPxZ+hIiWRKfMrPB6NhpJK331vcnx/E
+	FdCpIePccn5KKCtEqtZSkNaIdlZPzKcS5uinqfoXb+vXGfq6tqdINsA92p31CBquWQIsBmwAEuhrr
+	gaQWxtVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuT9D-00000000sAP-05wm;
-	Fri, 05 Sep 2025 09:54:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uuTBu-00000000t6Q-052V;
+	Fri, 05 Sep 2025 09:57:10 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuRgW-00000000Jx4-2OXW
+	id 1uuRjD-00000000Kj4-2jCY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 08:20:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4AB4140489;
-	Fri,  5 Sep 2025 08:20:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BFE0C4CEF7;
-	Fri,  5 Sep 2025 08:20:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757060440;
-	bh=1NT/J9zy+wp2WIDDw1MZkz4+Ema5iHWmh+YcteWPW9E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bI2gIws5IK3KjZoCKjEfQSCveSDzyPef2WcTJ2SWU78Qo4+kuev4nc1ClkUZeHe1b
-	 0T2q8lFfzXl/9pygx1vXkJ/jrzh31H72fH/hybLYLHsJKa5hq3xd0WyV+YP6tiXNfx
-	 b/y5KYE6nae/LAzna+DXu8qgSirjGkxgo5dqLMe+VjClsXDcdAytJIJybGXPsVHaYw
-	 gTPYudJukJkiu1+ct8nlHssSsL593gb32imFWjpSQVw3bN1oyKY1BKoXtzrIW7fBwV
-	 B/aknTh/77HWQ0oztPegXY+qR/MmqYOX7Edw2ioZzLyyTzR72Pi1l3R2Pw73W8L1jd
-	 5NaKsmHgdVTkg==
-Date: Fri, 5 Sep 2025 10:20:37 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Peter Rosin <peda@axentia.se>, Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	upstream@lists.phytec.de
-Subject: Re: [PATCH v2 1/2] dt-bindings: iio: afe: current-sense-amplifier:
- Add io-channel-cells
-Message-ID: <20250905-dainty-liberal-monkey-ec28bb@kuoka>
-References: <20250905065503.3022107-1-primoz.fiser@norik.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250905065503.3022107-1-primoz.fiser@norik.com>
+	Fri, 05 Sep 2025 08:23:29 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-77243618babso1985540b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 01:23:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757060606; x=1757665406; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XJnhSI4zKDT3ImFhZhJBvG+6tvoITddVraqHrrqOWpc=;
+        b=bo2bYEg0OX5SN5y5PV7eGQAF3OOwMia/AxB/0IYbYrI3jIIzfaLe/+q9RIQKkr9tgs
+         IanxpyLLfLUl1VVMmGfRUpf9GO52sfd/udARaxTjXT6oBRiyETzf0dw2DpEef1HNF3MV
+         Jjhr/R5PlZOdmRcD8GXaTNNZULQf+iJ/msxBoy34qQhlqVEbOfaLjBTXYoEjFCtc1/RV
+         y5i0zCwsEKNwPXBHF1Ss60bvWCy5yfu6qkxVym1O1BeZ4w2lhiBNXGMAN83UKJsob5bc
+         AqqPtlAOb4iTFDOUGYAIf6DE84LskgXhzjZFx5z4J9SZqedTiDWqf3W0gLNf+51fimO6
+         MpVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757060606; x=1757665406;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=XJnhSI4zKDT3ImFhZhJBvG+6tvoITddVraqHrrqOWpc=;
+        b=VFREP9M27peykLd3bpy1eaqOJFKdFszJHMQsIODiyuZ8IaucCbXBKQHD61qqu7ERsO
+         JwmNeJMEOkPZtfCKlxLR75jj9FdMZidO+bNauN7A/UeunN6tvE+WG5oHLHJRRNbgxxbb
+         uk6kuNFC+zeLqJbrokxZnq6ThczaDw/bW7/yh3+KAwSZhYiaoapvltmhDVI2TED/uGsy
+         xWKu8mLQmJ9eYX1CwW8vFqmpz+7V3UAoeBx91IhQNGuDu2F7+W/zb0HBKG15l7yv/IoD
+         I5AsDJQntb7wtOuqY+OKj0H2lSt047zTDj9l8Wu9St++7pmurpyVv5G5/I/C2YJjk5R8
+         SX6g==
+X-Forwarded-Encrypted: i=1; AJvYcCULCv9e5YFmvmADlU8Tcm24eBvo4GukU189YHISF3JOimM61ncLmVkHLbSU7q8OTqzqC5xaMgacdwL+a584j6D1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH9H5qtM+fOINp0Rv6SGUb5eOHRXXPJXnzaHiuXubovoU3lV0N
+	MSzB/4gMlIfnepwiW37g8oz9NFz+1H21i6gxUUebqxtCOxfJeNB8n0V6YgbT7lT4SKvnPQqk1sS
+	YnE+TkQ==
+X-Google-Smtp-Source: AGHT+IF349552GT13Po4cUSXoxXNT8kDuTD1Q1OQDc9T2EDq42EP/PDKUPEXnt4B6nyuOStBDkTUDu8oxLg=
+X-Received: from pfgu35.prod.google.com ([2002:a05:6a00:9a3:b0:772:8559:f89f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:734d:b0:24b:c7d9:88e4
+ with SMTP id adf61e73a8af0-24bc7d99007mr7502786637.42.1757060606101; Fri, 05
+ Sep 2025 01:23:26 -0700 (PDT)
+Date: Fri, 5 Sep 2025 01:23:17 -0700
+In-Reply-To: <CAHBxVyHFkNtFdX-vciPvYnTOH=GXvHVW7hjFrLA4MFr9wqWVvQ@mail.gmail.com>
+Mime-Version: 1.0
+References: <20250829-pmu_event_info-v5-0-9dca26139a33@rivosinc.com>
+ <20250829-pmu_event_info-v5-6-9dca26139a33@rivosinc.com> <aLIR3deQPxVI2VrE@google.com>
+ <CAHBxVyHFkNtFdX-vciPvYnTOH=GXvHVW7hjFrLA4MFr9wqWVvQ@mail.gmail.com>
+Message-ID: <aLqd9bKB6ucarR3e@google.com>
+Subject: Re: [PATCH v5 6/9] KVM: Add a helper function to check if a gpa is in
+ writable memselot
+From: Sean Christopherson <seanjc@google.com>
+To: Atish Kumar Patra <atishp@rivosinc.com>
+Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_012040_628796_96BC0CAD 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250905_012327_688644_3FE8D870 
+X-CRM114-Status: GOOD (  26.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,21 +98,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 05, 2025 at 08:55:02AM +0200, Primoz Fiser wrote:
-> The current-sense-amplifier is an IIO provider thus can be referenced by
-> IIO consumers (via "io-channels" property in consumer device node). Such
-> provider is required to describe number of cells used in phandle lookup
-> with "io-channel-cells" property.
-> 
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> ---
-> Changes in v2:
-> - refactor commit msg drop warnings introduced by commit #2
-> - drop Fixes: tag
+On Wed, Sep 03, 2025, Atish Kumar Patra wrote:
+> On Fri, Aug 29, 2025 at 1:47=E2=80=AFPM Sean Christopherson <seanjc@googl=
+e.com> wrote:
+> >
+> > On Fri, Aug 29, 2025, Atish Patra wrote:
+> > > +static inline bool kvm_is_gpa_in_writable_memslot(struct kvm *kvm, g=
+pa_t gpa)
+> > > +{
+> > > +     bool writable;
+> > > +     unsigned long hva =3D gfn_to_hva_prot(kvm, gpa_to_gfn(gpa), &wr=
+itable);
+> > > +
+> > > +     return !kvm_is_error_hva(hva) && writable;
+> >
+> > I don't hate this API, but I don't love it either.  Because knowing tha=
+t the
+> > _memslot_ is writable doesn't mean all that much.  E.g. in this usage:
+> >
+> >         hva =3D kvm_vcpu_gfn_to_hva_prot(vcpu, shmem >> PAGE_SHIFT, &wr=
+itable);
+> >         if (kvm_is_error_hva(hva) || !writable)
+> >                 return SBI_ERR_INVALID_ADDRESS;
+> >
+> >         ret =3D kvm_vcpu_write_guest(vcpu, shmem, &zero_sta, sizeof(zer=
+o_sta));
+> >         if (ret)
+> >                 return SBI_ERR_FAILURE;
+> >
+> > the error code returned to the guest will be different if the memslot i=
+s read-only
+> > versus if the VMA is read-only (or not even mapped!).  Unless every rea=
+d-only
+> > memslot is explicitly communicated as such to the guest, I don't see ho=
+w the guest
+> > can *know* that a memslot is read-only, so returning INVALID_ADDRESS in=
+ that case
+> > but not when the underlying VMA isn't writable seems odd.
+> >
+> > It's also entirely possible the memslot could be replaced with a read-o=
+nly memslot
+> > after the check, or vice versa, i.e. become writable after being reject=
+ed.  Is it
+> > *really* a problem to return FAILURE if the guest attempts to setup ste=
+al-time in
+> > a read-only memslot?  I.e. why not do this and call it good?
+> >
+>=20
+> Reposting the response as gmail converted my previous response as
+> html. Sorry for the spam.
+>=20
+> From a functionality pov, that should be fine. However, we have
+> explicit error conditions for read only memory defined in the SBI STA
+> specification[1].
+> Technically, we will violate the spec if we return FAILURE instead of
+> INVALID_ADDRESS for read only memslot.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+But KVM is already violating the spec, as kvm_vcpu_write_guest() redoes the
+memslot lookup and so could encounter a read-only memslot (if it races with
+a memslot update), and because the underlying memory could be read-only eve=
+n if
+the memslot is writable.
 
-Best regards,
-Krzysztof
-
+Why not simply return SBI_ERR_INVALID_ADDRESS on kvm_vcpu_write_guest() fai=
+lure?
+The only downside of that is KVM will also return SBI_ERR_INVALID_ADDRESS i=
+f the
+userspace mapping is completely missing, but AFAICT that doesn't seem to be=
+ an
+outright spec violation.
 
