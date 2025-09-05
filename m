@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034E4CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 19:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F44CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 19:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sU/vb1qvwFL5t+VtplJoGD5jYVUIc10GXK5hF8FrPto=; b=eZad29VagO4U01q8oRuhE1I8y4
-	qadboTZq/0WSDUd0QGJ8b7DMB1k4nRTYGHrpN0wSz6VxFzWR522JOOBwGBBRWaGATTeG+DYpLB4rx
-	XioOPJw1hA6ZrH54tgXJa1rbsfp2W5mKqb6ChCDDDCduEWwFxk89+Hhlc4zGfmanDEZgJyD+2zMhR
-	/TOxmkUaTvjauh558FtF4Y1eaG77nIrpmz4gmxkADdC3+k+oOlnYrFSlo9SS4V8OsMFL9uzV2dG4a
-	S2JrQOPv5DSqnIFvrgmGNwHP3AsiZ4nLP8zxkId6hMmVqDuFignKSJJ15vANxDrZO0PyzihPcFPek
-	M4i0cWXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZhaC+ulaf1xOTD0OmHuMFDx2uPJN7rg7I4X0/WJ2j0s=; b=Ibgzd7eczYT2s7EI5Q9PFdPQ7A
+	gTYtmBMgT3gBQtYlqM9mtB+m6PJVncE8VcbiYDsCtVOVDuIBjYugX5c51p+OfJO0tWDhgaqhaPzfB
+	UWH9gbmdfyv+Aj7TqpHG2NMAVBO+LsEMPMqE5KD6pI4M77moju4h1p6NzytXtzygRE+msBOK37gTT
+	d6pgJRtYBy3wxqkebBd8Sp3a4NvRh1MTujvaq2WFWCkLqjQihMclELKte4MoeNoJ0w5U5hvp8Di7p
+	3hVwKDOIn3rfLMd/Eqchy3xVw/sv231GW5CcIxFbnPWlsUCSMzIqRAAh7O2/OlXmKmxh2obuKpBS3
+	1E4mHefA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uucGQ-00000004D9c-2fYJ;
-	Fri, 05 Sep 2025 19:38:26 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uucJE-00000004EC4-3LFE;
+	Fri, 05 Sep 2025 19:41:20 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZAj-000000033xw-22uN
+	id 1uuZAl-000000033zR-3xjn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 16:20:22 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJM0j1rRgz6L5FV;
-	Sat,  6 Sep 2025 00:16:21 +0800 (CST)
-Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id EEE7F14037D;
-	Sat,  6 Sep 2025 00:20:15 +0800 (CST)
-Received: from a2303103017.china.huawei.com (10.202.66.105) by
- frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 5 Sep 2025 18:20:13 +0200
-From: Alireza Sanaee <alireza.sanaee@huawei.com>
-To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <coresight@lists.linaro.org>, <dianders@chromium.org>,
-	<james.clark@linaro.org>, <jonathan.cameron@huawei.com>, <krzk@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
-	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
-	<suzuki.poulose@arm.com>
-Subject: [PATCH v4 3/6] arch_topology: update CPU map to use of_cpu_phandle_to_id
-Date: Fri, 5 Sep 2025 17:18:26 +0100
-Message-ID: <20250905161830.37-4-alireza.sanaee@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250905161830.37-1-alireza.sanaee@huawei.com>
-References: <20250905161830.37-1-alireza.sanaee@huawei.com>
+	Fri, 05 Sep 2025 16:20:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
+ t=1757089223; bh=ZhaC+ulaf1xOTD0OmHuMFDx2uPJN7rg7I4X0/WJ2j0s=;
+ b=RmG+bNRWdZFWQRXoZypcDvEE/v3BIGzqEq3NPsI8fw8p7IV0PbYNbnkpI5zagyCp4+Vybde1r
+ GfzwL8IGZubBrUUckkZTbcyY6KgWKkxMr6XzZsr5c7fSa4cciM+p5jnd2SdcZi0yZQ/D3rOAFwb
+ 37UuTcrWBu8vb430gGxS6BxJk14s6HtZuI6amktOFag3QQtBccOS10ov3OeIV4lDEg21WwROtrQ
+ LI962atX/Y+ayKmBPcCn0UGMQZDEeUXWFB7QH9XXMSwnpZmxLKN/jcI9I5KOA7iQazoPOtuqKiv
+ RESHqOkpx3qevprCaPXa6PIemJSHVs2p8nsStjKxZo2g==
+X-Forward-Email-ID: 68bb0dc290d039a4fd84d663
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.2.13
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Alex Bee <knaerzche@gmail.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v3 5/7] media: rkvdec: Disable QoS for HEVC and VP9 on RK3328
+Date: Fri,  5 Sep 2025 16:19:23 +0000
+Message-ID: <20250905161942.3759717-6-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250905161942.3759717-1-jonas@kwiboo.se>
+References: <20250905161942.3759717-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.202.66.105]
-X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
- frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_092021_667431_F9759235 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250905_092024_031722_A98223A7 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,47 +82,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor get_cpu_for_node to use of_cpu_phandle_to_id instead of
-of_cpu_node_to_id.
+From: Alex Bee <knaerzche@gmail.com>
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+The RK3328 VDEC has a HW quirk that require QoS to be disabled when HEVC
+or VP9 is decoded, otherwise the decoded picture may become corrupted.
+
+Add a RK3328 variant with a quirk flag to disable QoS when before
+decoding is started.
+
+Signed-off-by: Alex Bee <knaerzche@gmail.com>
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
- drivers/base/arch_topology.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+Changes in v3:
+- Add rkvdec_quirks_disable_qos() helper to apply qos quirk
+- Use quirks from rkvdec_variant
+- Add num_regs field
 
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 6fafd86f608a..72bf23cdf469 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -474,20 +474,19 @@ static unsigned int max_smt_thread_num = 1;
- static int __init get_cpu_for_node(struct device_node *node)
- {
- 	int cpu;
--	struct device_node *cpu_node __free(device_node) =
--		of_parse_phandle(node, "cpu", 0);
-+	struct device_node *cpu_node = NULL;
+Changes in v2:
+- No change
+---
+ .../platform/rockchip/rkvdec/rkvdec-hevc.c    |  3 +++
+ .../platform/rockchip/rkvdec/rkvdec-regs.h    |  2 ++
+ .../platform/rockchip/rkvdec/rkvdec-vp9.c     |  4 ++++
+ .../media/platform/rockchip/rkvdec/rkvdec.c   | 24 +++++++++++++++++++
+ .../media/platform/rockchip/rkvdec/rkvdec.h   |  5 ++++
+ 5 files changed, 38 insertions(+)
+
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+index 9b5cf70188db..fc7e6a260b0a 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+@@ -789,6 +789,9 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
+ 	writel(1, rkvdec->regs + RKVDEC_REG_PREF_LUMA_CACHE_COMMAND);
+ 	writel(1, rkvdec->regs + RKVDEC_REG_PREF_CHR_CACHE_COMMAND);
  
--	if (!cpu_node)
--		return -1;
--
--	cpu = of_cpu_node_to_id(cpu_node);
--	if (cpu < 0) {
-+	cpu = of_cpu_phandle_to_id(node, &cpu_node, 0);
-+	if (cpu == -ENODEV) {
- 		pr_info("CPU node exist but the possible cpu range is :%*pbl\n",
- 			cpumask_pr_args(cpu_possible_mask));
- 		return cpu;
-+	} else if (cpu < 0) {
-+		return -1;
- 	}
++	if (rkvdec->variant->quirks & RKVDEC_QUIRK_DISABLE_QOS)
++		rkvdec_quirks_disable_qos(ctx);
++
+ 	/* Start decoding! */
+ 	reg = (run.pps->flags & V4L2_HEVC_PPS_FLAG_TILES_ENABLED) ?
+ 		0 : RKVDEC_WR_DDR_ALIGN_EN;
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+index 540c8bdf24e4..c627b6b6f53a 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+@@ -219,6 +219,8 @@
+ #define RKVDEC_REG_H264_ERR_E				0x134
+ #define RKVDEC_H264_ERR_EN_HIGHBITS(x)			((x) & 0x3fffffff)
  
- 	topology_parse_cpu_capacity(cpu_node, cpu);
-+	of_node_put(cpu_node);
- 	return cpu;
++#define RKVDEC_REG_QOS_CTRL				0x18C
++
+ #define RKVDEC_REG_PREF_LUMA_CACHE_COMMAND		0x410
+ #define RKVDEC_REG_PREF_CHR_CACHE_COMMAND		0x450
+ 
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+index 0e7e16f20eeb..b4bf01e839ef 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+@@ -824,6 +824,10 @@ static int rkvdec_vp9_run(struct rkvdec_ctx *ctx)
+ 	writel(1, rkvdec->regs + RKVDEC_REG_PREF_CHR_CACHE_COMMAND);
+ 
+ 	writel(0xe, rkvdec->regs + RKVDEC_REG_STRMD_ERR_EN);
++
++	if (rkvdec->variant->quirks & RKVDEC_QUIRK_DISABLE_QOS)
++		rkvdec_quirks_disable_qos(ctx);
++
+ 	/* Start decoding! */
+ 	writel(RKVDEC_INTERRUPT_DEC_E | RKVDEC_CONFIG_DEC_CLK_GATE_E |
+ 	       RKVDEC_TIMEOUT_E | RKVDEC_BUF_EMPTY_E,
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index f8cbc7bcfa15..2d7d20653e4c 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -903,6 +903,18 @@ void rkvdec_run_postamble(struct rkvdec_ctx *ctx, struct rkvdec_run *run)
+ 		v4l2_ctrl_request_complete(src_req, &ctx->ctrl_hdl);
  }
  
++void rkvdec_quirks_disable_qos(struct rkvdec_ctx *ctx)
++{
++	struct rkvdec_dev *rkvdec = ctx->dev;
++	u32 reg;
++
++	/* Set undocumented swreg_block_gating_e field */
++	reg = readl(rkvdec->regs + RKVDEC_REG_QOS_CTRL);
++	reg &= GENMASK(31, 16);
++	reg |= 0xEFFF;
++	writel(reg, rkvdec->regs + RKVDEC_REG_QOS_CTRL);
++}
++
+ static void rkvdec_device_run(void *priv)
+ {
+ 	struct rkvdec_ctx *ctx = priv;
+@@ -1226,6 +1238,14 @@ static const struct rkvdec_variant rk3288_rkvdec_variant = {
+ 	.capabilities = RKVDEC_CAPABILITY_HEVC,
+ };
+ 
++static const struct rkvdec_variant rk3328_rkvdec_variant = {
++	.num_regs = 109,
++	.capabilities = RKVDEC_CAPABILITY_HEVC |
++			RKVDEC_CAPABILITY_H264 |
++			RKVDEC_CAPABILITY_VP9,
++	.quirks = RKVDEC_QUIRK_DISABLE_QOS,
++};
++
+ static const struct rkvdec_variant rk3399_rkvdec_variant = {
+ 	.num_regs = 78,
+ 	.capabilities = RKVDEC_CAPABILITY_HEVC |
+@@ -1238,6 +1258,10 @@ static const struct of_device_id of_rkvdec_match[] = {
+ 		.compatible = "rockchip,rk3288-vdec",
+ 		.data = &rk3288_rkvdec_variant,
+ 	},
++	{
++		.compatible = "rockchip,rk3328-vdec",
++		.data = &rk3328_rkvdec_variant,
++	},
+ 	{
+ 		.compatible = "rockchip,rk3399-vdec",
+ 		.data = &rk3399_rkvdec_variant,
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+index c47457c954e5..566e06fa2b1e 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+@@ -26,6 +26,8 @@
+ #define RKVDEC_CAPABILITY_H264		BIT(1)
+ #define RKVDEC_CAPABILITY_VP9		BIT(2)
+ 
++#define RKVDEC_QUIRK_DISABLE_QOS	BIT(0)
++
+ struct rkvdec_ctx;
+ 
+ struct rkvdec_ctrl_desc {
+@@ -70,6 +72,7 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+ struct rkvdec_variant {
+ 	unsigned int num_regs;
+ 	unsigned int capabilities;
++	unsigned int quirks;
+ };
+ 
+ struct rkvdec_coded_fmt_ops {
+@@ -149,6 +152,8 @@ struct rkvdec_aux_buf {
+ void rkvdec_run_preamble(struct rkvdec_ctx *ctx, struct rkvdec_run *run);
+ void rkvdec_run_postamble(struct rkvdec_ctx *ctx, struct rkvdec_run *run);
+ 
++void rkvdec_quirks_disable_qos(struct rkvdec_ctx *ctx);
++
+ extern const struct rkvdec_coded_fmt_ops rkvdec_h264_fmt_ops;
+ extern const struct rkvdec_coded_fmt_ops rkvdec_hevc_fmt_ops;
+ extern const struct rkvdec_coded_fmt_ops rkvdec_vp9_fmt_ops;
 -- 
-2.43.0
+2.51.0
 
 
