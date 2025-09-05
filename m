@@ -4,96 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEAF5CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73A9CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BvNSdgfroz2AQh+V+YdAGx7lMSQySMqfI1R60lc+cXY=; b=oDsxEw4JH0c/6fdPxcjm6QXC7K
-	UDH+zXuzhEhmJNyvXeAfHWYxFaUq2/9LSAbQoDRgA26W+m1av/wQnMB2zaP4pvUYdwX8yXfDcfCbY
-	95j7fHW9Xc4ejDpdI16f5WdzwqY2z9+M+x66S7g3vB7Z6HfsRUQWwbqROleCxE7ZzDkix9b81t7tV
-	Os+rrcZHqJh3am5s9YfHq2P9RMHJDZSzKi9ZPQso9ff01gYhpORkXbycx4WcQoZYf6uMkcMT5HYa1
-	209bj4XU2vceluZAIkAs6g1N8ppypsXE+OE/NhUqYIu4hNm7yhaskMc5jufxUrtAKxKLlz9Q5UT+a
-	FfBFqvxg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e737NFCnB1pAiZwFeuIFUAdoH1qix+jNDtR6tlkeuzc=; b=Wnb2gVKq1UUSvju8AlC8LgnjO8
+	UXn92BdwjpN0itck/jifsVHCczTGTndDhlFz2HQLw/4ngszrKoVHIxAieXzhd2eog+RgtWyE7QXpM
+	xvg9Oxp8JqHQScJ2d8frrMXuSLwrBJKvkJwTQx094THDCx7W2KZB6bAfXF1FPpfi69N87u4ADPBnw
+	2DRglnI6z+rwjHnvm3mfABTgYG1zfvlj2+Zcv/wCkVVlc6RBE1v6DfSYq3XYz+FqDUvtbHjoCy9H3
+	E1uiHXHBEZgjebqU7CRtspwCJ8hoXC1Wu56mdrYGwcvZxzx6Ze4OIXlJd+FBegBvHtVKiVzlXxbtG
+	lmm9+i+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXZn-00000002QAh-1JC3;
-	Fri, 05 Sep 2025 14:38:07 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1uuXZr-00000002QGO-0zFj;
+	Fri, 05 Sep 2025 14:38:11 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuUba-00000001NVE-0moF;
-	Fri, 05 Sep 2025 11:27:47 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-32b70820360so1604686a91.2;
-        Fri, 05 Sep 2025 04:27:46 -0700 (PDT)
+	id 1uuUh1-00000001P8V-0MAe
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 11:33:24 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-336bbcebca9so15591871fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 04:33:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757071665; x=1757676465; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BvNSdgfroz2AQh+V+YdAGx7lMSQySMqfI1R60lc+cXY=;
-        b=BWzWMzOX/H3/rM9qt7yrJ4joshfDJkzVFXRg7PQjOBjqZ8wWHJDSCCwpxCwoV/Qvqj
-         pRyEwiiz4VwQlIx8H1SIBjF1I/Ehli+cfLI3F1As1p+qCp+Jmn1jjDBfEXq1E+lRb2Nk
-         XTZ84YNqJxlmALFqyWCvCxXwyvluN+vNX7Bk3QcgoCUEJMa5jGlLZtOJ45bYP4n/iXlI
-         6GFGclNK4y02O5MUPPP+d7kVotjT0Cdr/rBpg2UmUtZK+wRLHSjRqGueZgwLaLHte4pu
-         k0KxtbRH+DTwWNIXsosBZs06pO3c6LTu7Qg1W4EEsTODbM3bntd/7tB0TuWL9g2YyqsJ
-         T7UA==
+        d=linaro.org; s=google; t=1757072001; x=1757676801; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=e737NFCnB1pAiZwFeuIFUAdoH1qix+jNDtR6tlkeuzc=;
+        b=ILRPNlysYqxgksJHZDqE8gHGFw8xdbNE0ZMJQvthL/BD/4r3+XghQJhVL9gpSUUdIv
+         0/QeekA4+r4PSK39fxcCXj5PY17M0QRuO8cGIZemzQRiLpoInBYbWddMNJuwyyvxPnxc
+         k4i1Tgglu+Y0WBlxwWMv8QYArtpkvsqI3P/CBqQLtzrLY/AcZ2nzM+b+ULFXU6Q8uvT1
+         tNq7Sjq4kQnQ3FlpB0s2P7pCp8gMS23n58SqBOdFbDIuSKlqY17XdAHddOkZIUY3QDQB
+         /kuZtCtQuqZpn7FaxYNL2dkU7rQdXlY/IjUAdE4DYdyZ8XlNPF+/O4IwfojAjprh8NYS
+         OpGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757071665; x=1757676465;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BvNSdgfroz2AQh+V+YdAGx7lMSQySMqfI1R60lc+cXY=;
-        b=rgm7Qg9Z6LtfviWWD7vHtNclm66BmhRG+VcxBBA7HXymS3IVVZ8mj1o2UzRrGzdYZ4
-         /ajkrLMiEt9ILO040ZQL5nL8+DYUigaYIGMcHjaRpvKf27ZrxQaKXRDqS2tmj6KGA98v
-         vNqPI3fpHc4jYMO4rNYeaP1kqLA3P3+pkJ/m5X9KHy5CyB16wb/N8ETMPUpNQI/UwzK1
-         LDR95HLSZ3zTdBKPvxgZHInq7/cvOs19UFtWehKlpkf7vyHbDi3HIcfwwTkDW5dku0EJ
-         InzRxVJnnHTmZw4yVr3Wny/pp+bC80EUFQBJE8Pl+1bUrK5wgKFJzt/GrsYu1fnFSW3y
-         eeEA==
-X-Forwarded-Encrypted: i=1; AJvYcCWrqoUOaMyAqDiaIXIiDqmGWkwiXtqNoj4dQIRLSKCtL9XBlGa9vmLfpunFAMIM5XlKEqbqlEg8+po/Ebc7hZWo@lists.infradead.org, AJvYcCXhhemBhZhqCV5/rPmwwVVFCLGA3RXSa0gPZHQbnSFOhQg3mdLsskqTWSWCUUgzdX5DDiJS+5Dr/UKRZPEvXUo=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMrRfjaqoU+pRIqIlk9+LxnodT/rKiZT5MOOnx9e5qbqfGywz4
-	+S1jhrUOwECn9eDPVQrLrh/98mk4MrzvwU0f5zc7jXAwQ7mj6DZioXZz
-X-Gm-Gg: ASbGncsIOar2PWOkeSjsiLMlupdTrx5pcA94o3xWXBDep642u31aETVNkiVP64RXfac
-	HC20s/Lb8b4mU7NADUkB4oqtRTh3DlWFt9M80zqRqmgi08MFH+b3QpvB6R5p9ktlW3WrEY5VzEY
-	kks+RGDEMRR+f7jWe87H6ZXASFGHJ1TtaM83M85IyzN16D+GIJ0ptzeHMfR5/FJqMGN7jArlULz
-	FcC1fcqb4RHF221oPeZx1WO3fnKI4/z8nrBC18YUmfU572178LDLg+D8qSSK9JujeG2SU3DztWX
-	4ZQXtFye/YwC/26Az5G0OVPlv89xmoC8xbtMzSgxjj1/xxnsON3z6iG9zDoCxo5MAciIe9oHBWH
-	4kqjb9cZ77WPybUHX/ZpjwiqPWhkTIHI=
-X-Google-Smtp-Source: AGHT+IGvR4zQ0L9DATfW6OC24buFgtcy9qBxyqE0QsalCQFZz8jZdjfaS+y+TmQZ4bZufc0KdMQo+g==
-X-Received: by 2002:a17:90b:3e44:b0:32b:bc1c:8d65 with SMTP id 98e67ed59e1d1-32bbc1c8e51mr3401055a91.30.1757071665181;
-        Fri, 05 Sep 2025 04:27:45 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.216])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-329e6d6d4b2sm10390179a91.0.2025.09.05.04.27.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 04:27:44 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Hans Zhang <18255117159@163.com>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	linux-pci@vger.kernel.org (open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
-	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v1] PCI: dw-rockchip: Simplify regulator setup with devm_regulator_get_enable_optional()
-Date: Fri,  5 Sep 2025 16:57:25 +0530
-Message-ID: <20250905112736.6401-1-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        d=1e100.net; s=20230601; t=1757072001; x=1757676801;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=e737NFCnB1pAiZwFeuIFUAdoH1qix+jNDtR6tlkeuzc=;
+        b=TKCDiKvY0/5TNTVRU0yG78tTH1ORUDDETwwi3mY8xNHk+BTq7PNDi+lFaIVO79w86b
+         XT4ysCNF0Yc9fF5668lukOcHA23vO+7fPujTeJilHZqJeYm2Wu4CgB7DWyLkaOuD6Dwu
+         wwKdjInjTdfxsl721RH/riaQOnA+atQ/a5EnKACqOxonyzD8i3OnUD/r2ZYBF2CZFHFz
+         pp6Rss5nueNGZrrMy1AZepFzSyXSiC1MMsutHKAsw5P/fTT84Y97cumqjE8L6fY3dDCw
+         HmO97eiJkpUtDFyQXxLbzNe8lG1L8Ndq71UsxTx3QJJDtPdWpjoOXJN7XbuXsESVX59h
+         8sBA==
+X-Forwarded-Encrypted: i=1; AJvYcCWnl0q74iTwfdb60mTUPePAYnDHM6ABTEk9kvu1OZVeQb9Hop2DHmSEuWaskFVwrGRbymUu/fu7Snm8tI/7RR8G@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNrCvqDokI0IETm/a0/FQlIFaUyDuT1/YQcIZSYL9HUq5RyqcJ
+	578BYtmmmPzukZ4J1/5zxnU3Nvz9qvsgbimtB4X9i/B2wMeWDSQPI5BmKLqgmeY0K38S/1ivWpD
+	ugYKLR2tF3x2di4da02R43AE5smJEUPF55yeoi/i9gg==
+X-Gm-Gg: ASbGncsBuWu8p5XojEFwYO3UmDAsWxyCnDOgAJ9KGc3GhyXZsynHPSegboSi9OjCQ26
+	9ZuvYqtfDOGU8GVRjk4N9+m4spAvbyz1EbR3vwnPz1OeZocTUnM08c32IW59d97rd7JN//2w4z/
+	sKadXy2MjkDM2QVhG9dvncWcKci7PmDa/gcR6wE8QwoSEtDZWg1x9da9evZZxNFHglSgGMDPG5D
+	IXeQyeh7/ZTGyBSMQ==
+X-Google-Smtp-Source: AGHT+IGSWO4nCHB8o/6t/y6RH8BOysPzoQ6jiv8gZqcTwwokf+Kq7hYmaaHYY9kCJZ1mu3fJ8bEoY6l6Nt8aDc5ponQ=
+X-Received: by 2002:a2e:a482:0:b0:336:7c7c:5ba5 with SMTP id
+ 38308e7fff4ca-336cad21f17mr50388961fa.23.1757072001159; Fri, 05 Sep 2025
+ 04:33:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
+ <20250820171302.324142-14-ariel.dalessandro@collabora.com>
+ <CACRpkdbpKqKyebADj0xPFq3g0biPh-vm4d6C3sd8r0URyfyYRg@mail.gmail.com> <caguo7ud4dapb4yupeq2x4ocwoh4dt5nedwjsyuqsaratugcgz@ozajhsqwfzq6>
+In-Reply-To: <caguo7ud4dapb4yupeq2x4ocwoh4dt5nedwjsyuqsaratugcgz@ozajhsqwfzq6>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 5 Sep 2025 13:33:09 +0200
+X-Gm-Features: Ac12FXx6o0aglHH6TQGfVH200HSX_9WYooYS5LFefZX_Ln3xQz4XYXPyVN0c3dY
+Message-ID: <CACRpkdZRHQ6vuchN8x8d0uPCVMPPHOdBVWiUhzFJNs2paHGbYw@mail.gmail.com>
+Subject: Re: [PATCH v1 13/14] dt-bindings: input/touchscreen: Convert MELFAS
+ MIP4 Touchscreen to YAML
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: "Ariel D'Alessandro" <ariel.dalessandro@collabora.com>, airlied@gmail.com, 
+	amergnat@baylibre.com, andrew+netdev@lunn.ch, andrew-ct.chen@mediatek.com, 
+	angelogioacchino.delregno@collabora.com, broonie@kernel.org, 
+	chunkuang.hu@kernel.org, ck.hu@mediatek.com, conor+dt@kernel.org, 
+	davem@davemloft.net, edumazet@google.com, flora.fu@mediatek.com, 
+	houlong.wei@mediatek.com, jeesw@melfas.com, jmassot@collabora.com, 
+	kernel@collabora.com, krzk+dt@kernel.org, kuba@kernel.org, 
+	kyrie.wu@mediatek.corp-partner.google.com, lgirdwood@gmail.com, 
+	louisalexis.eyraud@collabora.com, maarten.lankhorst@linux.intel.com, 
+	matthias.bgg@gmail.com, mchehab@kernel.org, minghsiu.tsai@mediatek.com, 
+	mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com, 
+	robh@kernel.org, sean.wang@kernel.org, simona@ffwll.ch, 
+	support.opensource@diasemi.com, tiffany.lin@mediatek.com, tzimmermann@suse.de, 
+	yunfei.dong@mediatek.com, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-sound@vger.kernel.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_042746_226071_A0F1A29F 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20250905_043323_145369_26B97667 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,71 +115,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace manual get/enable logic with devm_regulator_get_enable_optional()
-to reduce boilerplate and improve error handling. This devm helper ensures
-the regulator is enabled during probe and automatically disabled on driver
-removal. Dropping the vpcie3v3 struct member eliminates redundant state
-tracking, resulting in cleaner and more maintainable code.
+On Fri, Sep 5, 2025 at 12:02=E2=80=AFPM Dmitry Torokhov
+<dmitry.torokhov@gmail.com> wrote:
+> On Thu, Aug 21, 2025 at 01:56:24PM +0200, Linus Walleij wrote:
+> > Hi Ariel,
+> >
+> > thanks for your patch!
+> >
+> > On Wed, Aug 20, 2025 at 7:17=E2=80=AFPM Ariel D'Alessandro
+> > <ariel.dalessandro@collabora.com> wrote:
+> >
+> > > +  ce-gpios:
+> > > +    description: GPIO connected to the CE (chip enable) pin of the c=
+hip
+> > > +    maxItems: 1
+> >
+> > Mention that this should always have the flag GPIO_ACTIVE_HIGH
+> > as this is required by the hardware.
+> >
+> > Unfortunately we have no YAML syntax for enforcing flags :/
+>
+> Theoretically there can be an inverter on the line, so from the AP point
+> of view the line is active low while from the peripheral POV the pin is
+> active high...
 
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 23 +++++--------------
- 1 file changed, 6 insertions(+), 17 deletions(-)
+Yes, I think someone even proposed adding inverters to the
+device tree and was nixed.
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index b5f5eee5a50e..56baca52c3e9 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -76,7 +76,6 @@ struct rockchip_pcie {
- 	unsigned int clk_cnt;
- 	struct reset_control *rst;
- 	struct gpio_desc *rst_gpio;
--	struct regulator *vpcie3v3;
- 	struct irq_domain *irq_domain;
- 	const struct rockchip_pcie_of_data *data;
- };
-@@ -644,22 +643,15 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	/* DON'T MOVE ME: must be enable before PHY init */
--	rockchip->vpcie3v3 = devm_regulator_get_optional(dev, "vpcie3v3");
--	if (IS_ERR(rockchip->vpcie3v3)) {
--		if (PTR_ERR(rockchip->vpcie3v3) != -ENODEV)
--			return dev_err_probe(dev, PTR_ERR(rockchip->vpcie3v3),
--					"failed to get vpcie3v3 regulator\n");
--		rockchip->vpcie3v3 = NULL;
--	} else {
--		ret = regulator_enable(rockchip->vpcie3v3);
--		if (ret)
--			return dev_err_probe(dev, ret,
--					     "failed to enable vpcie3v3 regulator\n");
--	}
-+	ret = devm_regulator_get_enable_optional(dev, "vpcie3v3");
-+	if (ret < 0 && ret != -ENODEV)
-+		return dev_err_probe(dev, ret,
-+				     "failed to enable vpcie3v3 regulator\n");
- 
- 	ret = rockchip_pcie_phy_init(rockchip);
- 	if (ret)
--		goto disable_regulator;
-+		return dev_err_probe(dev, ret,
-+				     "failed to initialize the phy\n");
- 
- 	ret = reset_control_deassert(rockchip->rst);
- 	if (ret)
-@@ -692,9 +684,6 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
- 	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
- deinit_phy:
- 	rockchip_pcie_phy_deinit(rockchip);
--disable_regulator:
--	if (rockchip->vpcie3v3)
--		regulator_disable(rockchip->vpcie3v3);
- 
- 	return ret;
- }
+It's a matter of phrasing I would say:
 
-base-commit: d69eb204c255c35abd9e8cb621484e8074c75eaa
--- 
-2.50.1
+"Mention that this should nominally have the flag GPIO_ACTIVE_HIGH
+as this is required by the hardware."
 
+s/always/nominally/g
+
+Yours,
+Linus Walleij
 
