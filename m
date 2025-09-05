@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC1F2CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E170ACA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LqrJFDIp3Qk8Daspity93aOZRCLtvYxKedurcvKPi2w=; b=W3QEvS+z6qE24NAojGFzRILdpw
-	UeTBskk6plnROS70G7T97iv28Dt/EFmgwebGFX8U+TVM/RBLZqe3RNcaGVldFb64AOG5kuWMcnju3
-	vGf9uF4CGRWCaRgFjIsJ0I1i+MyaPmzclD9y6EehyxW7JSJm41YhkWT2s+elIqb1Yb341BktOvVZ4
-	7YNYU77zdPa51bE9aGA92A/JzGLnRR473FfCHzYPNSVcu58ZL4ElcVt3Q7kLaReXKezFREZtQdOs+
-	kK3jWC5/LigMxlQzT2m+rmUrYrB1ZGQO20cjmDem4s4i3ItKT7BhM+5lywXScwBzbE8z2Q6wlpgIi
-	RF9Xs7Ow==;
+	bh=aOva2ua5YC0DlSsKzj422bisdd/KEYS4VnSvX68g38U=; b=y96/xujXuzoodnu5B2tOB9I3ti
+	pUmVDkkokhwBLKQmC/G7HZDsw+u/Qbid+b5ViYGxCRlMOoDxX6plucWuKhoGCMtKFnr92nPtJ29z8
+	3LzBCZqksYwSIl2a5lbQOMBKWmyphh3/9Edwbwv3cVLmjc64Ssi6dgloYnDJ4zxBJG/DlvU6cEDro
+	/P01mvatWtX6JZ1HgUbyZoLhlz0WSCeNih9Yjkbl48DDfbJ/S9+ogkA0t8Se0RDhOYH5OHeexBRd0
+	+1LD2WaYgdBPXhOtnkI6Mi8QlemkEFDMxYyuE7gKU/eyschHAq9UK1Lx8PbiPKgcrEoKC1gaGxQ4C
+	GvX7/CQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSl3-00000000kNx-0eYo;
-	Fri, 05 Sep 2025 09:29:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uuSnk-00000000lC6-010M;
+	Fri, 05 Sep 2025 09:32:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuRYC-00000000Gcp-0Z7h
+	id 1uuRZI-00000000Gy4-0MoY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 08:12:05 +0000
+	Fri, 05 Sep 2025 08:13:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B513442CA;
-	Fri,  5 Sep 2025 08:12:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0666C4CEF1;
-	Fri,  5 Sep 2025 08:12:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 534AE60279;
+	Fri,  5 Sep 2025 08:13:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CF30C4CEF1;
+	Fri,  5 Sep 2025 08:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757059923;
-	bh=mNHu3Dq59LBMQxbgLxMaQI+8a9Nh6j71J6ILlJhwpkI=;
+	s=k20201202; t=1757059991;
+	bh=S6kWmIW0hVTEZZAoAewWz0JxbYGS//J7DbVnzoq7lWw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rjBIK5wn6f7pd2b8kgpHsnktswpp0jsDZKR+mzoJkrpRqXsGOQ8Hq09cIY3lkFHJg
-	 nzUh8vJeVvCdy9sg3kNocvcU8WKjE48Xzke8Ix1mGA+L6jOujXWlGqEKQiScJzXtiT
-	 5hu0HdszSfr9/RVGP78AH7xeJ5J0/kP61EnA1qETBh7gigujUy74ck5aukJnDbbpdo
-	 ceEGFRzCva4VFLytCgA8BZFa31Uh77McjxyDjNeh9C9WbrRs7irDuQZ2wO9B2dsW3q
-	 R4hHdZ5RcHXuB6vVQasltt21cL+OyQihQpV+b/IXU6ogkDBDmcHSHfmCi11schly5c
-	 SSVP5k2l+rypA==
-Date: Fri, 5 Sep 2025 10:12:00 +0200
+	b=uqfTjSQidjTXugpGnslEzU82f/RadZElrGPTahUGa2Vj5cKM5BL5TuFZJyfNoVThP
+	 cXJqvvemUKZHUrcqJZj7S+nU2Mt/FOKD+ANHVUJDojYsr5/k6McPz32+9bHLye4urn
+	 1YvTNlTZ7ERiS/E3Q9h0TGVAo5cOi9RH9MY+eUMzyfVSeziJqjw93A3IIQ/qdHRK9U
+	 gm6OUCPSqji0ceFUTD5F2sflO21MDu6wIywexM4+gWmryX0aOhjgvVx2k+jpjZ2CGB
+	 dGnkwzASq7uyDcyrPakuM3WTWOS4lD5GVXOsqnJA5sbDKTJKhFkuNxRCnkvQ3cfDX8
+	 QhlCb/hGrMHrQ==
+Date: Fri, 5 Sep 2025 10:13:08 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Billy Tsai <billy_tsai@aspeedtech.com>
 Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
@@ -50,17 +50,15 @@ Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
 	linus.walleij@linaro.org, brgl@bgdev.pl, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
 	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, BMC-SW@aspeedtech.com
-Subject: Re: [PATCH v2 0/4] Add pinctrl support for AST2700 SoC
-Message-ID: <20250905-rough-notorious-leech-dd7a0d@kuoka>
+Subject: Re: [PATCH v2 1/4] dt-bindings: mfd: aspeed,ast2x00-scu: Support
+ ast2700 pinctrl
+Message-ID: <20250905-oxpecker-of-impossible-prosperity-63ee96@kuoka>
 References: <20250904103401.88287-1-billy_tsai@aspeedtech.com>
+ <20250904103401.88287-2-billy_tsai@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250904103401.88287-1-billy_tsai@aspeedtech.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_011204_196843_6369ED09 
-X-CRM114-Status: UNSURE (   7.55  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250904103401.88287-2-billy_tsai@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,16 +73,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 06:33:57PM +0800, Billy Tsai wrote:
-> Document and add the pinctrl driver for AST2700 SoC.
+On Thu, Sep 04, 2025 at 06:33:58PM +0800, Billy Tsai wrote:
+> Add the ast2700 pinctrl compatible string.
+> "aspeed,ast2700-soc0-pinctrl" and "aspeed,ast2700-soc1-pinctrl"
+
+Nothing improved, completely redundant commit msg. We see this from the
+diff.
+
+You got comment last time and it applies everywhere.
+
 > 
-> Changes since v1:
-> - Update pinctrl aspeed binding files.
-
-Anything is an update.
-
-Really too vague and some time ago I am sure I complained about this to
-Aspeed.
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 
 Best regards,
 Krzysztof
