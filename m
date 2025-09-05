@@ -4,106 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6835CCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25026CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+aB+iZJnL8ozb2pDFXduEFu8qABJrtYdff1K70ebeAQ=; b=yk5d6cbk+ew0cqELOXTL54GLx0
-	8OYvPyPOenGsmXE7gFJkkuwWhUFIoO0LW2vatyP9SiHDo1P18VvnZmlKS1L6s3o5Ft7d4bLlTU4nt
-	+oaQTNyytxLU+kIQSd/thujCQ9B33fdRsxI6Is1OdeQN2r2+PHaDFrjPIPnxZc7MMRGHWNHtus26M
-	peqk6p+//jEylxXlrYm7hzsWjl3DcCEl9zeAVesntZbtqODizRnGQFQIHE0Q+swnCNLTJyavDVqpZ
-	KkYh3sBAheWEP50YGwH5OUoe5xsVR9HI884xr9Q1XvFHwrFfaf0z8s99YGXACjG+1phfJMfcf7XKG
-	aJNl0xgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xhHz+TFr6n8MBsawIb4Oc3dwbFBJk4FHeDQHAJj5oGk=; b=G3Jc18bGuvtwqk2W9poG8u77Ru
+	nxG6wxU8IMRmXEQJCSKpi5d1iKYPuEBvAXZ9yPD2yK1M/CLhUhGwmwqRFcNum7/n4nrgePoxS46LI
+	YKc/LpvUw6HzhLuePgToHeJJr2xOOqFwlEzOQL9+QOPVc+/+NzIE58FGhZlSMOPn42ts00Uw751KY
+	aRxTwA4y0J0T7wcaihMHtnK83gpRiAdzMBM9TPBqDKvM+2gBHUanLpIv8qPw/HV18C7uq+ZD7ULir
+	Fv9YrUOmJqZruME54R8tvbzopMdztUG66KyBkKqO1EpA+ux12EmnJXSZcbiCElBqHbMYHeAf2zgFq
+	3DfXADZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuaNu-00000003WhR-0CbY;
-	Fri, 05 Sep 2025 17:38:02 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uuaQl-00000003Xgt-3swp;
+	Fri, 05 Sep 2025 17:40:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuWXE-00000001zdZ-23xv
+	id 1uuWY1-0000000200W-0VDm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 13:31:26 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5857JQJ3013602;
-	Fri, 5 Sep 2025 13:31:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=+aB+iZJnL8ozb2pDFXduEFu8
-	qABJrtYdff1K70ebeAQ=; b=I2iDrcK2MtkwVOPA+dlHtSA5J7zfQxu0rYmziqH+
-	cbcPv2FznN/UqiPECDfEjy2+99U/vtjuRm/mOLxKIjwofbuMn+2P5ISX3p8sjdL5
-	7qSnITFbD7hRQ5ShNQKxqOjFRMkrL5nu9JgSWvOjNH6hqNovIE3xLIpOe5PZ612N
-	/olG8fUXjIudIjG8fveehNl4AjElKTEQNBJwyg+bWm2UIG1xzdWtUgESRocyamEW
-	ov4MKhunL6PY+xQXMy8BZYFJgWij9N9kdVHfDOjLbgdHBQp1+QZcJCZuDRYJLZ5C
-	nDgX/1qn1WUhXq1NdMHvlBTUqB9CNSxtjm+iL6PWiwqF8A==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48w8wyf709-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 05 Sep 2025 13:31:08 +0000 (GMT)
-Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 585DV7hH029888
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 5 Sep 2025 13:31:07 GMT
-Received: from quicinc.com (10.80.80.8) by nasanex01c.na.qualcomm.com
- (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Fri, 5 Sep
- 2025 06:31:03 -0700
-Date: Fri, 5 Sep 2025 19:00:59 +0530
-From: Mohd Ayaan Anwar <quic_mohdayaa@quicinc.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-CC: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Andrew Lunn
-	<andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>
-Subject: Re: [PATCH net-next v2 00/11] net: stmmac: mdio cleanups
-Message-ID: <aLrmEzyxzo1DRBNG@quicinc.com>
-References: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
+	Fri, 05 Sep 2025 13:32:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 54A1244D03
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 13:32:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23083C19425
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 13:32:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757079131;
+	bh=8jAcdpkwkSpwOdJxvwA2Vj7xEHXguZJ+MKwk0qNCAa4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YDLPRfxE+TA2Q55nxy+S45umyans+pDRvwbObVt0bW3hJ3GKjbxPrVlX07NomP+MM
+	 gilJHDzfgmGFOcAFu0+loSilTzpkeDO9g9x8k2BAevsNOqWlkswrDpHfRJW58By2gZ
+	 h5T2iOat+XnnhSD9UwBeQ3xYHCYi7jaP+GtkcpXBdqab/ccFdCeVstKHtgcieR/3QH
+	 +KRTayLgDC1M/LhwjwPtXIccD6HoAsAvaea3u1dA7qTzCEzjxT3V+HO3EHQdCVNDFU
+	 /St9BM0FbaHx4JdEUTHAM1R9DDj8M5cKZD+5HIpQks7AUiitM6xvVlMUYXsHzcS8lI
+	 bWTNhY8srV4ig==
+Received: by mail-ot1-f47.google.com with SMTP id 46e09a7af769-74526ca79beso1847719a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 06:32:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUaEnNXme4D0RH3RET3Qxynbl90WIYYLVQRCQ4RiVi7B6IkiE26KP6orhH4WNA2M+hSb6S5KjdFJ2M9JSKyFtF7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBe21jW0KBx8uZtNPQ4iuZahzAooUAD3m/nb5GDqQD14yd5bE/
+	sqGLwZjzeEObjHyUP66RUgNvPZlSsFmq2V1PFVVnb+JRDwy26h6Gw3So0qOtSOJn/XAV0igvnCW
+	uc9V+lipoRKq3oRQCDGRSSNUW3/BMC6E=
+X-Google-Smtp-Source: AGHT+IFnE56n2ZWY3m6GFquWJS3R+4zyRWG4mn/x7Tvk/fQPvR7/F7IjMN/5eFQpLDwVxaDdPh5JX7KANJsrFqH4mJc=
+X-Received: by 2002:a05:6830:378e:b0:741:a5f0:bc82 with SMTP id
+ 46e09a7af769-74569e53d0dmr13231613a34.17.1757079130135; Fri, 05 Sep 2025
+ 06:32:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01c.na.qualcomm.com (10.45.79.139)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=Ycq95xRf c=1 sm=1 tr=0 ts=68bae61c cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=PHq6YzTAAAAA:8
- a=COk6AnOGAAAA:8 a=UbDMmHRTMWTSUy5J07AA:9 a=CjuIK1q_8ugA:10
- a=ZKzU8r6zoKMcqsNulkmm:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: YCkfEWMsAiv0yIOvixc3HIKlFi2tOG5r
-X-Proofpoint-ORIG-GUID: YCkfEWMsAiv0yIOvixc3HIKlFi2tOG5r
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTAxMDEwMSBTYWx0ZWRfX7Sk9AX65HGTR
- +yaae3yNsjsCY8k3TeqkbgczQendvtlfhcSXhcwyCwSe1GYsvrkmA4xgyRtzMFFmCdtFstBtwnJ
- CEqL2jpzTOtyexlVDjO/w8wBR0pds4NfMBr5ZQtqrfE5RuzClfvkHhVPOVrQuQAaX0U2GKH4pYa
- lnoU3A1yJTGde98s12J038RTVu1oHLIKHVtsThYO8Al5BR6UuytlJN4bzWhgxK5n/NClbKOm5LE
- Ar76YeNMBLBC5jr0qrb89AQITGVR97610xG3uxbI7sCDbB8UcWzqJHNhNbcmcM7Bw5Qxhr0w5dm
- smqkb3iQo6N4fkfWGYNnYdl38Nu+QdNmxkO/7w4/42S3jOWGMr3DDL+mNgPHGvVh3Ekl7Qx3K+C
- fQ0hZScY
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-05_04,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 priorityscore=1501 adultscore=0 phishscore=0 malwarescore=0
- bulkscore=0 suspectscore=0 impostorscore=0 spamscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509010101
+References: <20250905132413.1376220-1-zhangzihuan@kylinos.cn> <20250905132413.1376220-4-zhangzihuan@kylinos.cn>
+In-Reply-To: <20250905132413.1376220-4-zhangzihuan@kylinos.cn>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Fri, 5 Sep 2025 15:31:58 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0jdJZ2upvE4KzDnc59KpMX+oqYbq=ZW=SXfwvjBctMj3Q@mail.gmail.com>
+X-Gm-Features: Ac12FXwR6ToJkYo5xTTss3xr-Ox8ITso59X_uvklZva98cFgnVHnG6meS0I7mt8
+Message-ID: <CAJZ5v0jdJZ2upvE4KzDnc59KpMX+oqYbq=ZW=SXfwvjBctMj3Q@mail.gmail.com>
+Subject: Re: [PATCH v5 3/6] cpufreq: intel_pstate: Use scope-based cleanup helper
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>
+Cc: "Rafael J . wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, 
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Thierry Reding <thierry.reding@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>, Ben Horgan <ben.horgan@arm.com>, 
+	zhenglifeng <zhenglifeng1@huawei.com>, Zhang Rui <rui.zhang@intel.com>, 
+	Len Brown <lenb@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Beata Michalska <beata.michalska@arm.com>, 
+	Fabio Estevam <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>, Sumit Gupta <sumitg@nvidia.com>, 
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Yicong Yang <yangyicong@hisilicon.com>, linux-pm@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_063124_669282_F066F3F6 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20250905_063213_197174_05426C5B 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,47 +104,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 01:10:42PM +0100, Russell King (Oracle) wrote:
-> On Wed, Sep 03, 2025 at 01:38:57PM +0100, Russell King (Oracle) wrote:
-> Hi,
-> 
-> Clean up the stmmac MDIO code:
-> - provide an address register formatter to avoid repeated code
-> - provide a common function to wait for the busy bit to clear
-> - pre-compute the CR field (mdio clock divider)
-> - move address formatter into read/write functions
-> - combine the read/write functions into a common accessor function
-> - move runtime PM handling into common accessor function
-> - rename register constants to better reflect manufacturer names
-> - move stmmac_clk_csr_set() into stmmac_mdio
-> - make stmmac_clk_csr_set() return the CR field value and remove
->   priv->clk_csr
-> - clean up if() range tests in stmmac_clk_csr_set()
-> - use STMMAC_CSR_xxx definitions in initialisers
-> 
-> Untested on hardware; would be grateful for any testing people can do.
-> 
+On Fri, Sep 5, 2025 at 3:24=E2=80=AFPM Zihuan Zhang <zhangzihuan@kylinos.cn=
+> wrote:
+>
+> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+> annotation for policy references. This reduces the risk of reference
+> counting mistakes and aligns the code with the latest kernel style.
+>
+> No functional change intended.
+>
+> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-Picked this series on top of net-next and was able to test on the
-Qualcomm QCS9100 Ride R3 board with the AQR115C Phy. No issues seen with
-C45 MDIO operations, so:
+No, sorry.  I've already said that this isn't going to work:
 
-Tested-by: Mohd Ayaan Anwar <quic_mohdayaa@quicinc.com>
+https://lore.kernel.org/linux-pm/CAJZ5v0gN1T5woSF0tO=3DTbAh+2-sWzxFjWyDbB7w=
+G2TFCOU01iQ@mail.gmail.com/
 
-	Ayaan
+so why are you resending it?
 
-> v2: add "Return:" to patch 1 and 9
-> 
->  drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c  |   5 +-
->  .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   |   3 +-
->  drivers/net/ethernet/stmicro/stmmac/stmmac.h       |   2 +-
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |  82 -----
->  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c  | 345 ++++++++++++---------
->  drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c   |   5 +-
->  6 files changed, 207 insertions(+), 235 deletions(-)
-> 
-> -- 
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
-> 
+And making changes to it in the process without saying what they are?
+
+Please stop adding confusion.
+
+> ---
+>  drivers/cpufreq/intel_pstate.c | 59 +++++++++++++++++++---------------
+>  1 file changed, 33 insertions(+), 26 deletions(-)
+>
+> diff --git a/drivers/cpufreq/intel_pstate.c b/drivers/cpufreq/intel_pstat=
+e.c
+> index f366d35c5840..0b54e08f9447 100644
+> --- a/drivers/cpufreq/intel_pstate.c
+> +++ b/drivers/cpufreq/intel_pstate.c
+> @@ -1502,9 +1502,8 @@ static void __intel_pstate_update_max_freq(struct c=
+pufreq_policy *policy,
+>
+>  static bool intel_pstate_update_max_freq(struct cpudata *cpudata)
+>  {
+> -       struct cpufreq_policy *policy __free(put_cpufreq_policy);
+> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpuf=
+req_cpu_get(cpudata->cpu);
+>
+> -       policy =3D cpufreq_cpu_get(cpudata->cpu);
+>         if (!policy)
+>                 return false;
+>
+> @@ -1695,41 +1694,49 @@ static ssize_t store_no_turbo(struct kobject *a, =
+struct kobj_attribute *b,
+>         return count;
+>  }
+>
+> -static void update_qos_request(enum freq_qos_req_type type)
+> +static bool intel_pstate_cpufreq_update_limits(int cpu, enum freq_qos_re=
+q_type type)
+>  {
+>         struct freq_qos_request *req;
+> -       struct cpufreq_policy *policy;
+> -       int i;
+> +       unsigned int freq, perf_pct;
+> +       struct cpudata *data =3D all_cpu_data[cpu];
+> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpuf=
+req_cpu_get(cpu);
+>
+> -       for_each_possible_cpu(i) {
+> -               struct cpudata *cpu =3D all_cpu_data[i];
+> -               unsigned int freq, perf_pct;
+> +       if (!policy)
+> +               return false;
+>
+> -               policy =3D cpufreq_cpu_get(i);
+> -               if (!policy)
+> -                       continue;
+> +       req =3D policy->driver_data;
+>
+> -               req =3D policy->driver_data;
+> -               cpufreq_cpu_put(policy);
+> +       if (!req)
+> +               return false;
+>
+> -               if (!req)
+> -                       continue;
+> +       if (hwp_active)
+> +               intel_pstate_get_hwp_cap(data);
+>
+> -               if (hwp_active)
+> -                       intel_pstate_get_hwp_cap(cpu);
+> +       if (type =3D=3D FREQ_QOS_MIN) {
+> +               perf_pct =3D global.min_perf_pct;
+> +       } else {
+> +               req++;
+> +               perf_pct =3D global.max_perf_pct;
+> +       }
+>
+> -               if (type =3D=3D FREQ_QOS_MIN) {
+> -                       perf_pct =3D global.min_perf_pct;
+> -               } else {
+> -                       req++;
+> -                       perf_pct =3D global.max_perf_pct;
+> -               }
+> +       freq =3D DIV_ROUND_UP(data->pstate.turbo_freq * perf_pct, 100);
+>
+> -               freq =3D DIV_ROUND_UP(cpu->pstate.turbo_freq * perf_pct, =
+100);
+> +       if (freq_qos_update_request(req, freq) < 0)
+> +               pr_warn("Failed to update freq constraint: CPU%d\n", cpu)=
+;
+>
+> -               if (freq_qos_update_request(req, freq) < 0)
+> -                       pr_warn("Failed to update freq constraint: CPU%d\=
+n", i);
+> +       return true;
+> +}
+> +
+> +
+> +static void update_qos_request(enum freq_qos_req_type type)
+> +{
+> +       int i;
+> +
+> +       for_each_possible_cpu(i) {
+> +               if (!intel_pstate_cpufreq_update_limits(i, type))
+> +                       continue;
+>         }
+> +
+>  }
+>
+>  static ssize_t store_max_perf_pct(struct kobject *a, struct kobj_attribu=
+te *b,
+> --
+> 2.25.1
+>
+>
 
