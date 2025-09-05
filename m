@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79908CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 16:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B420CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 16:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ClMPDF0HluOKzI+GNmsNWO4LtH4Zjjqg5QR4CqPXIM=; b=iS0JRYyuQUDFxD8t6IgOTJj7vF
-	VcXmnXpZO61A111mZWlyMXAnewGSxPgLSItwwJy11gIdxiV2oz3LO4N89QcIcFgdAmbw0cx/yHLya
-	MJ6GP4/VbL9U2FlEmiZ9DnghPTHPW1v3erpARwOfD4mEyUC8/isdWkAlTToxvKzD7r2oBhMTh7WCe
-	K4k4l3JSb85Sg7pEUq7qjVpMtm2kz3n2i6nEoX2DDGECQOGhNwoE/dD1NmsYzR9hr+7sZZiQvhkgL
-	7isRMxct7eh8kVTSRnW11UgSHc0l3upcgRJd5ye/cQkDh0kZ7P4aJUbfxsmx9xb8EWuOd6PvqwiZ5
-	slUH0Obg==;
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uEtLYmY8JOalgrgOv2U5MLx2Oeht0cmwE/ZJBlYZqa4=; b=dbIHYWCpD3oQvLCRDm7KfDAlzO
+	z5y39iCZNT6KDp0yXD18DtZWObIrE09H+KG6210TYlh0lXptRKdmxjj9fX/IuXoTgfYj3SvsnqX+G
+	rwPFB2a8nDT83hJGtfLvEto1AxrTmj/NSQum8GqZ+wCcX0RJWGYfOWJSoEMd1i+ud2HQLcZrMSEMH
+	ZnvJJYnx5+7Al5xizwnRdKc8E1u85HdqvGgHC93o16pKTCWgEh3N1kv8jJXLTqi026VluwzHgV8BD
+	YhOAMx4wWlLk/Zdn7xCALlJpSGyUoYw8n3Aeqk1ADHuXB+E9G6LpUkmexpBH0dAzIia1yj0ee0bcc
+	MaIK3wsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZ0e-000000030EE-12pA;
-	Fri, 05 Sep 2025 16:09:56 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1uuZ3S-000000031I4-21ut;
+	Fri, 05 Sep 2025 16:12:50 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuVX2-00000001gkd-2Oby;
-	Fri, 05 Sep 2025 12:27:09 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-620724883e6so2920296a12.2;
-        Fri, 05 Sep 2025 05:27:08 -0700 (PDT)
+	id 1uuVX9-00000001gnF-3EP0
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 12:27:16 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32bc286bc1eso1418553a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 05:27:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757075227; x=1757680027; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2ClMPDF0HluOKzI+GNmsNWO4LtH4Zjjqg5QR4CqPXIM=;
-        b=fzZe3AsYb9PrJDmbWyjr+d9hT8cC5/iXFpHM/+QLXl2OO6+koJ9bUJ6N0tS36k1MmX
-         mdNk7EiKNm1ZTErGxCcdA/0IzNHp4/emskX3zTSkEaenBhBDrMPu6LgLPNML/vx4Gptr
-         3fxBzOutwzdV9WI4VQ/z0M5yIEeOMpIVb7340LMZaJJwu906SsWl7ojay7mNz+j2keXj
-         rTnIGg5BsxlOD2PzZVITPryg3+zmgBuQXy0geB0XtlOKmed6KQdkW64loU8rdN89jzh8
-         DCe+n5Kl6WvwRLs2nO+3mgTgekcE85PF4N5BcwnHzjrqNoU+BSh7NB+rpTb3ptpi7AqV
-         yc4w==
+        d=google.com; s=20230601; t=1757075234; x=1757680034; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uEtLYmY8JOalgrgOv2U5MLx2Oeht0cmwE/ZJBlYZqa4=;
+        b=Fov6lNziR9lwkggIilujHMP10/BZTA9Ixo5ybJY2TSa2SUOypv/3d+67HQSnkT8cLC
+         fInJ7QY1Gu8JF9KbhtH+Ydf1/7/GJwRkYjKECjIK8CE5Z8UqZsKmPbsJynw89WRIxvzb
+         kT8eO5jborlqRcJe6X2mK/7KtIKXOfAW9a6anCsTttsHIpkLbk63rEoIFv0SZWJtDzk0
+         nn+yDRx7KKUJt+WEMsCGU2r5AvfjLnG/wpF0zEAZXh0XyFzX3gRVm6ozkOkmVFXadmTX
+         XDpFXpIZDBAs1Xmrq0aP27a3DpdiYb89hHCZGPNkAQgL/dopD54H33DlVJlVaFMq98oq
+         j5DQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757075227; x=1757680027;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2ClMPDF0HluOKzI+GNmsNWO4LtH4Zjjqg5QR4CqPXIM=;
-        b=B1c0W4L0l4+yCFwDTTjBBSMJZLcyubuo81idKSpjlmuHxkm+7V0Sb2aIaHW5+8C3us
-         P053DtpK0FceK7CBoKWS6tFLjva/aWq5NBh5AZvi/x3ZPk/m2z8xGda937PU04Ej0qBd
-         GeD/H/Bgg/X4tJeYK+7x+UbYJ7aVutIZH9yD3RZFjsXeKoAjoKe7bfPwnHqRekZl7YZy
-         cqztvR0iCJ5WhArQPuXN9qFSLU8EDbWGeelyizNA/w18UHmT30TjWY+uYuCB+zeQJJcT
-         EgscH5Src+AjCTXHgmoLCjHrdXq2lQwZqZthNNyfb4GK6ZJJrbL+3ilyph1/mFkqVOfi
-         qfoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUcDNy2A/BlOhfojpX5CP3LacfTKpkZO8uNvKgtagTULL4vY3RqXW/o0iBGxFySEhxw/gSFHfwcmFWXZxp51HU=@lists.infradead.org, AJvYcCWhr8KnPNNS5OgJgDBlOT8/tz4uqcdmD33aujxzxuiijGj7YlHic3SXOPObU9bBksCqWIOA5mU+RNFVcxD9S5xq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyX4GOX985zGHfEK0Fs4ZFgelgExEf6n8tLuFFww3MH7niVLnkp
-	aEQT0pE8hm8vqk/IHMH5hjsS2Y3sJQyX75O7Pm8nARgBgnfw3vBWZavkWsSLas99Eu30uM2AO+k
-	kdHjwhcQeIx4e56+sWjZjaw2FqvdlNzo=
-X-Gm-Gg: ASbGncuqK8cJjxKhG8JiZm5u61mRe5Zj18pnE6ggZqjLke5vnGzx5/+xaVou1AOi8ch
-	LBZv/12di+2clY4joXBJ9gMelNj/QxrntyvvSGO0OB2Gv1LtlczMWttiRsJO782XgPtkauQYrIv
-	v1fYFPlFx/qcZyoKG/X/0xZWaBoZUfvah//laJfbu2KesKIPcDu2mxmcxZIq/b/FU1wq6wd5yWt
-	crbXDAXM6DtSgqAlg==
-X-Google-Smtp-Source: AGHT+IEVNnP/U7LUIDN6Mt8LbSIFuDZj1YfEJa6iYw06p0ZNddA0TQZZkmZqSMAeaPrBEuNv6h+hGZaxwhQit2BdnWI=
-X-Received: by 2002:a05:6402:27cf:b0:621:b7ba:ef76 with SMTP id
- 4fb4d7f45d1cf-621b7baf1e6mr1486424a12.35.1757075226560; Fri, 05 Sep 2025
- 05:27:06 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250905025632.222422-1-cn.liweihao@gmail.com>
- <20250905025632.222422-4-cn.liweihao@gmail.com> <2267196.NgBsaNRSFp@diego>
-In-Reply-To: <2267196.NgBsaNRSFp@diego>
-From: =?UTF-8?B?5p2O57u06LGq?= <cn.liweihao@gmail.com>
-Date: Fri, 5 Sep 2025 20:26:54 +0800
-X-Gm-Features: Ac12FXwgzlnAMSQyI-WpHzpeUd7ApymhPLAVoBjM7YjSfL1afRnvVV71jtX5KA8
-Message-ID: <CAPEOAkS4gPiXddXi2=RqY7oJW60ewwA54=OX_Ljf1zpAgUf+_Q@mail.gmail.com>
-Subject: Re: [PATCH v2 3/8] dt-bindings: clock: rk3368: Add SCLK_MIPIDSI_24M
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: robh@kernel.org, hjc@rock-chips.com, andy.yan@rock-chips.com, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1757075234; x=1757680034;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=uEtLYmY8JOalgrgOv2U5MLx2Oeht0cmwE/ZJBlYZqa4=;
+        b=C0Av1R0fsEnFF+1jHBbzYBpbgD6XhtV5zKGAdfguRgAiAzgFfT/B/yrbqtbWLu9sAz
+         Q6j7rpMgaAwgA7vGIhUU2hbtbJ8tf435daf3QCCdIA6TNfv3bB1xaiLpBO6nkWNeFjy0
+         owlHdS85swgqEJ2Yvvi3jraBNucI5OiHcSXBEQT/GPcFhF/4eFDgw/0hALgVanJqa34Q
+         3XmV6GzylP5SPhb1sc/H8KIS9/415EHAZVeThwyylhYU1i8UljU250BOjJ1gJU3ELChM
+         dEpQeeuAwWy2PzzKOYo17mWn1s1wDIcCSYmxxxE7+kBuoc9K65HEe130bkqKakkjrG6w
+         QY2g==
+X-Forwarded-Encrypted: i=1; AJvYcCWqvZqvWfUqGwiaVNWrVyFp6302m6p6zpib55g2b+suBirtXXan5dhUCUQOelWLX47p2DjxvJ9V+f1zAM9nkiy4@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywjsa68NXXi7eTTKopoBzbhbohvQXmGwNS4qsZvGnovfGJhbrTR
+	tvxwXTOm1Ce50kXUzRxKarH2dcla8f4cDHtCM8gWGb3OzOGDb+TyiRzWXFjm/MurGaqUpjqNufv
+	SBr8kKA==
+X-Google-Smtp-Source: AGHT+IGL6U3Es4ziofS/w8+rJpx7HwQEqsdYgzJc5tlMCihXPtFAaEH2AeP3MpoxcgsR8e9ya+5ty4Rf6kk=
+X-Received: from pjbmf13.prod.google.com ([2002:a17:90b:184d:b0:32b:35fb:187f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1a8b:b0:32b:b26e:1569
+ with SMTP id 98e67ed59e1d1-32bb26e2965mr6479994a91.15.1757075233964; Fri, 05
+ Sep 2025 05:27:13 -0700 (PDT)
+Date: Fri, 5 Sep 2025 05:27:01 -0700
+In-Reply-To: <CADrL8HVxvwB4JrnUf6QtDCyzZojEvR4tr-ELEn+fL8=1cnbMQQ@mail.gmail.com>
+Mime-Version: 1.0
+References: <20250618042424.330664-1-jthoughton@google.com>
+ <de7da4d8-0e9d-46f2-88ec-cfd5dc14421c@amazon.com> <CADrL8HVxvwB4JrnUf6QtDCyzZojEvR4tr-ELEn+fL8=1cnbMQQ@mail.gmail.com>
+Message-ID: <aLrXFWDgDkHqPQda@google.com>
+Subject: Re: [PATCH v3 00/15] KVM: Introduce KVM Userfault
+From: Sean Christopherson <seanjc@google.com>
+To: James Houghton <jthoughton@google.com>
+Cc: kalyazin@amazon.com, Paolo Bonzini <pbonzini@redhat.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Yan Zhao <yan.y.zhao@intel.com>, Anish Moorthy <amoorthy@google.com>, 
+	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
+	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_052708_606568_4FC8865D 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250905_052715_805170_1ED76712 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +97,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Sep 04, 2025, James Houghton wrote:
+> On Thu, Sep 4, 2025 at 9:43=E2=80=AFAM Nikita Kalyazin <kalyazin@amazon.c=
+om> wrote:
+> > Are there any blockers for merging this series?  We would like to use
+> > the functionality in Firecracker for restoring guest_memfd-backed VMs
+> > from snapshots via UFFD [1].  [2] is a Firecracker feature branch that
+> > builds on top of KVM userfault, along with direct map removal [3], writ=
+e
+> > syscall [4] and UFFD support [5] in guest_memfd (currently in discussio=
+n
+> > with MM at [6]) series.
+>=20
+> Glad to hear that you need this series. :)
 
-Heiko St=C3=BCbner <heiko@sntech.de> =E4=BA=8E2025=E5=B9=B49=E6=9C=885=E6=
-=97=A5=E5=91=A8=E4=BA=94 13:53=E5=86=99=E9=81=93=EF=BC=9A
->
-> Hi,
->
-> Am Freitag, 5. September 2025, 04:56:27 Mitteleurop=C3=A4ische Sommerzeit=
- schrieb WeiHao Li:
-> > Add a clock id for mipi dsi reference clock, mipi dsi node used it.
-> >
-> > Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
->
-> another process-related comment :-) .
->
-> (1) You already got in v1 the
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
->
-> So when sending a v2, please include such received tags
-> (if there are no major changes to the relevant code)
->
-> This prevents people from reviewing things needlessly multiple times.
-> So patch 3 would look something like:
->
-> ------------
-> Add a clock id for mipi dsi reference clock, mipi dsi node used it.
->
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
-> ------------
->
-> (2) As can be seen in
-> https://lore.kernel.org/linux-rockchip/175690195013.3771488.4358707862248=
-73257.b4-ty@sntech.de/
->
-> I already applied the two clock patches, so in newer versions don't
-> send them anymore.
+Likewise (though I had slightly-advanced warning from Patrick that Firecrac=
+ker
+wants KVM Userfault).  The main reason I haven't pushed harder on this seri=
+es is
+that I didn't think anyone wanted to use it within the next ~year.
 
-Got it and thanks for your patient explain.
+> I am on the hook to get some QEMU patches to demonstrate that KVM
+> Userfault can work well with it. I'll try to get that done ASAP now
+> that you've expressed interest. The firecracker patches are a nice
+> demonstration that this could work too... (I wish the VMM I work on
+> was open-source).
+>=20
+> I think the current "blocker" is the kvm_page_fault stuff[*]; KVM
+> Userfault will be the first user of this API. I'll review that series
+> in the next few days. I'm pretty sure Sean doesn't have any conceptual
+> issues with KVM Userfault as implemented in this series.
 
-Yours,
-Weihao
+Yep, Oliver and I (and anyone else that has an opinion) just need to align =
+on the
+interface for arch-neutral code.  I think that's mostly on me to spin a v2,=
+ and
+maybe to show how it all looks when integrated with the userfault stuff.
 
