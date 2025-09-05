@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09DF5CAC580
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82D6CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZGW/ungxqDBJW9YXMQpQD4nhCcnvrpn3JZwjvrh6Cg0=; b=xRqTzvaluRACmB1uJCWO4v3x4O
-	bBScQXe/AL1IsXL6646kwXEvSsjzV1KV/p5d2aWUn4oka8QfiLwYqPRYQxvY8SOZZ92866zt3K3Ny
-	Drw5YCrhbwLv44oGJlPm/uD0xKvI2trJPRI9sX030cnG73IYZGjLC+kbsebrKLUKpCZhMI1Bsclr2
-	isEiVDvMFPK0Jl+pHpd/HJ4s0YIqcV7g4Syr7ycTaaTXXU3i+XEMEpkcIMX06vYNTOYSMV/L4iIk9
-	t5eF42PcJyHAd7Hy1I+g0anXDl+aHZcO00SlVIcE+DVbTD23NxweZomwuXqTCx9FPAdSeK20gRLJd
-	n3RB8bOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=s1+ZRgZ8NFWXGjG74F/7TbrdsNHWGEdENKKfbf9kS00=; b=WZcymmuxuPVLF9
+	TYm0Qetu5DBLNRnfqmUMMwRWpHY0HBcugS5hWuJogqcBdEuvibHj9pDQNu1HO0b3MlORmxNG1WaZF
+	wRv7t82rrQm1F7AaQGQq0P6DHnCI0QreG40S80HtDACmFZaCuq/XelN3BeaIw6ajOjek/7p6HOTIV
+	rwqLH/4ZyWj8WLY3bGgRgpewqScZpfKOLVUjgVYLIyBDK6MLnAjus/XS+QxHQ9X5UHa2WBKB/A26I
+	Ih6QDRVwhhaA8J1r3ULX//wVR0ModPQcVwzrgwveV+flOKq4cLTwy7O0uNid6GBxUB9BnpidnUynV
+	5jIuQB32wc+rbNBaPXbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYEr-00000002hOq-3MWb;
-	Fri, 05 Sep 2025 15:20:33 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1uuYEs-00000002hQD-2MaD;
+	Fri, 05 Sep 2025 15:20:34 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuUxz-00000001UVx-2ZUr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 11:50:57 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	id 1uuUzA-00000001UiC-1kZg;
+	Fri, 05 Sep 2025 11:52:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757073124;
+	bh=dST/8xVStC32ekP6gB7vITv41T5xV6Hei4eA5fX+3yk=;
+	h=From:Subject:Date:To:Cc:From;
+	b=KoNu/PZBVwQxyJw4U588Dtr1MZVIUtmtJ0zC3OZg2rcIFGvpNpdECWp7wcJgYpP9k
+	 e2Pd8w1XmR//tjpTp+D8wHXDsB/ox+1DfSB1VJm01fgXWxdS30Cfaz7SXIZcjoU8/a
+	 dlD3vb/uPlMB+pL0/eFx5ocaDodu0Z0VzRR4jOC8a7J76x62xAC220tmVssnkqC4NE
+	 UwAgInY549BINS5QjwXywrc7GdGqkCXrHBSNhCXR64TofvGvpwqHA2loICcu1K2RDQ
+	 YMYb2rOxGmHqECW3b7bKlno5gKINxEBOp0o/6rRaFBa8BM434PCAQTeY6lpSse2Osl
+	 9Egf+jiNiGQaA==
+Received: from localhost-live.home (2a01cb0892F2D600c8F85cf092D4Af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cJF6K5HQ3z9sps;
-	Fri,  5 Sep 2025 13:50:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757073049;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZGW/ungxqDBJW9YXMQpQD4nhCcnvrpn3JZwjvrh6Cg0=;
-	b=r62uWWWhiP+/TNFM9ojD9hGOynWoFijOzN0tq8G8HZ+DH/2n3Pw/zLcSbKG1tuQh15S/4U
-	vYHUt9u0M4vxS4Lq7D8jIFgpMuguuMGAPnhJw8KSZ+G6B9xywnWbwIDYMK/6KZxCREjcaD
-	MKufHBi/U2WL0I1I3TjEoiiyl94sFHp+EVJVYSZ2JklUhf8m7dZ13fEFrFRyeaf1CPAvE+
-	MHbJOB2FZd/rW3nFItO7Y9ArvnRYCanrtJD8CEwe8fmifsMQjjVJcFYJHcwcr/AjTRG7bp
-	VPeACTxdXHSuSPuRELq2FzUw2tlmD4Gn76UvfqMVzpFVG8KyW+c3s8lg+RJGKA==
-Message-ID: <82c9133b-050d-443f-afa5-31cb31c9e858@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757073047;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZGW/ungxqDBJW9YXMQpQD4nhCcnvrpn3JZwjvrh6Cg0=;
-	b=W6wzAmKEzXq3BtGTj/djFy2owFTO21A6RLHkXJCc369J1pED64e2IMAZ2sgP7OuQuRnt5r
-	WHHY5XizfwW1eW/pLMK86HCW2NduJZtzCbja5jq8dHi5sggtmtnxsqYU/8D3Y32h89/f9O
-	wB1widfF2KK8Tqvc82m2OEvFrVAat8IkoDTKtfAktnAFmxOvH9Hmwyjw7Hc2D2BBFeg3JP
-	eLMFpRXPa4YDeq/QB4uYG2U0y8zq64tcIc+E3DmbbL/tWwN7EqTd00Ee6HMJ5AYnMSTzOZ
-	cYOc13vzgnETEEBeLQIKQZPdrTtWV0z8y4JhvqwlPWw+sKx9fLkYujfpzG2f7g==
-Date: Fri, 5 Sep 2025 13:50:45 +0200
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 25A8417E0100;
+	Fri,  5 Sep 2025 13:52:04 +0200 (CEST)
+From: Julien Massot <julien.massot@collabora.com>
+Subject: [PATCH v3 0/3] Radxa NIO 12L: Add GPIO keys and LED support
+Date: Fri, 05 Sep 2025 13:51:57 +0200
+Message-Id: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] arm64: dts: renesas: r8a779g3: Add RPi Display 2 DTO
- to Retronix R-Car V4H Sparrow Hawk
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20250904202838.172579-1-marek.vasut+renesas@mailbox.org>
- <CAMuHMdWnusjKE8FNQWX-0arcdbV-18KTCHKZmhs5r5kRXn46ZA@mail.gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdWnusjKE8FNQWX-0arcdbV-18KTCHKZmhs5r5kRXn46ZA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 3wqf1r8wd9xns1m3kdf8exxcee66ncs1
-X-MBO-RS-ID: 82a828f7ef46ba3f18d
+X-B4-Tracking: v=1; b=H4sIAN3OumgC/33NSwrCMBCA4auUrB1JJo0GV95DXKR5tIHalERCp
+ eTupl0Jirv5B+ablSQbvU3k0qwk2uyTD1MNfmiIHtTUW/CmNkGKgkrKICqzKJh8AIYwQj/XSbQ
+ OqdQoOOekXs7ROr/s6u1ee/DpGeJrf5LZtv3vZQYUDJUtdVIY1PKqwziqLkR11OFBNjPjh4On3
+ w5W5+yYdIq7zn07pZQ3mAz0zwIBAAA=
+X-Change-ID: 20250801-radxa-nio-12-l-gpio-54f208c25333
+To: kernel@collabora.com, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, Julien Massot <julien.massot@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_045055_800030_4E0DB35D 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250905_045208_615120_BF09764E 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +82,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/5/25 11:25 AM, Geert Uytterhoeven wrote:
+This patchset adds support for the GPIO-connected red and blue LEDs,
+as well as the various hardware buttons present on the Radxa NIO 12L
+board.
 
-Hello Geert,
+It also includes a fix for the missing release (key-up) interrupt
+handling for PMIC-managed GPIO keys.
 
->> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-7in.dtso
-> 
->> +&i2c0_mux3 {
->> +       #address-cells = <1>;
->> +       #size-cells = <0>;
->> +
->> +       mcu: gpio@45 {
->> +               compatible = "raspberrypi,touchscreen-panel-regulator-v2";
->> +               reg = <0x45>;
->> +               gpio-controller;
->> +               #gpio-cells = <2>;
->> +               #pwm-cells = <3>;
-> 
-> make dtbs_check:
-> 
->      arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-5in.dtb:
-> gpio@45 (raspberrypi,touchscreen-panel-regulator-v2): '#gpio-cells',
-> '#pwm-cells', 'gpio-controller' do not match any of the regexes:
-> '^pinctrl-[0-9]+$'
->              from schema $id:
-> http://devicetree.org/schemas/regulator/raspberrypi,7inch-touchscreen-panel-regulator.yaml#
-> 
-> I noticed you posted patches to fix all other issues in DT bindings
-> triggered by this series, so I assume you just forgot to post the
-> fixes for this one (which you authored ;-)?
-I think the following patch handles this:
+Signed-off-by: Julien Massot <julien.massot@collabora.com>
+---
+Changes in v3:
+Patch 3/3: drop the deprecated LEDs label property
+- Link to v2: https://lore.kernel.org/r/20250826-radxa-nio-12-l-gpio-v2-0-7f18fa3fbfc8@collabora.com
 
-[PATCH] regulator: dt-bindings: rpi-panel: Split 7" Raspberry Pi 
-720x1280 v2 binding
+Changes in v2:
+PATCH 1/3
+- Add Fixes tag
+- Drop Angelo's Reviewed-By since I'm now introducing the
+'key_release_irq' member that was missing in v1.
+- Link to v1: https://lore.kernel.org/r/20250801-radxa-nio-12-l-gpio-v1-0-d0840f85d2c8@collabora.com
+
+---
+Julien Massot (3):
+      Input: mtk-pmic-keys - MT6359 has a specific release irq
+      arm64: dts: mediatek: mt8395-nio-12l: add PMIC and GPIO keys support
+      arm64: dts: mediatek: mt8395-nio-12l: add support for blue and red LEDs
+
+ .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 65 ++++++++++++++++++++++
+ drivers/input/keyboard/mtk-pmic-keys.c             |  5 +-
+ 2 files changed, 69 insertions(+), 1 deletion(-)
+---
+base-commit: 6c68f4c0a147c025ae0b25fab688c7c47964a02f
+change-id: 20250801-radxa-nio-12-l-gpio-54f208c25333
+
+Best regards,
+-- 
+Julien Massot <julien.massot@collabora.com>
+
 
