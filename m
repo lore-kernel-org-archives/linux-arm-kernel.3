@@ -4,132 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A76CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317FCCAC584
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mCfoUYLMC6HNsYLC2Cmci4imZfw/WsROhnMAP3rAWN8=; b=B1/bhwRH4WmasZzpxQnxQ7JbzV
-	zRu4k3/eSwMU5OguP0ket2TchTN5YjiB7Gg7nVtzloWPZs7Rei1+x9jWGE5F2K8Mq39+pren/adKk
-	GAqtwJ3eWHmg491vaLM9yh6GujPTp2NS2cHHe+hPp0VzbwvP5M1I0KmniyqtaiFks3hHKEBMU0Qs4
-	MeHP3QpHWT79YYBmx6slP/b4+KTJlj6xfRPKZgYA4SbDUjB03Tf1D5Oh4V5tYCgfZFEFsNkS3qtxf
-	BHrlJ9PaRx6NE6WgEXaEOP6Lf6tRGrV6rwLjo7rskRtHYqKzG0LIwjMcM1e7rK07viKMi3cc+SkZN
-	gHkD9m/A==;
+	bh=oGu6cRTes100LufEy7NXONVuRKrDYaXL+M6/Ecw5QSg=; b=xWvdoYpEjByEKud711WaD8+7C7
+	ol3Jp1PfHAEszjci0blZDgU1di5+hWO9R8TqSy2wdM0uyczBybwT1KEmGwnzg8kdmDGCq1z/5H8J6
+	tl2qDrVkNzWykYSp4iyMJ0WvCiJuJeNdWRaRBlnckOP6YRkEokhrDWDYAnR62GaPcKVBKmY1uvLZb
+	Dh+BBUQp3Hs2v0doBzI5xofuGL+Inp7UtRr+kNYFqBYRE0KdyBTnsufGzV7tXad6781OqYjFGlguk
+	f9+wlmIKxDBZ+BbgnK/9C+AB+wnxaOChZW79mVZqdDe7VaSJJ3a1wVbCh8sucqroRN74+w637UEVC
+	WuXbkX5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugV8-00000005QuT-2Vz0;
-	Sat, 06 Sep 2025 00:09:55 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1uugVi-00000005RvM-3tN7;
+	Sat, 06 Sep 2025 00:10:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYgQ-00000002si3-4C0D
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 15:49:04 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 585AgQoa017948;
-	Fri, 5 Sep 2025 15:48:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=mCfoUYLMC6HNsYLC2Cmci4imZfw/Ws
-	ROhnMAP3rAWN8=; b=DRFTEJUzUMLxbxYuAXuLuwNqrzv8c+DrkFqe89wjY27c9F
-	HPKmwnL0ffbZLOY3Rz5gz7HsHuFYQX6DqipN3T17S7pXXoPQ0OUX26rpw2bM2Ta4
-	HCoGI8+peE6wgvdwt4ZhOwwGmSI9acpU5CBc496pJ6Kl9gzxQDChu/+1O6PlEWaS
-	HHHSSQvfm9GSge31HtdVFwim+meO0SH5sOxV9j5RYTRpeOEqPos2duD1GYvhAUwk
-	Y1ASxol3ifR8yNeQRkjgWqPhocL/iRqrC9el8+zCXSORnp/lvdaNXU7o8ETDqd86
-	PWf/tQ2g4yPndZLt/k4Lq6iGIW8zebN60vYAGngw==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48usurhfn9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 05 Sep 2025 15:48:31 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 585FkhKr005421;
-	Fri, 5 Sep 2025 15:48:30 GMT
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48usurhfmf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 05 Sep 2025 15:48:30 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 585D0Hpj019442;
-	Fri, 5 Sep 2025 15:48:29 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 48vd4na0hb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 05 Sep 2025 15:48:29 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 585FmRQ252298180
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 5 Sep 2025 15:48:27 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CB1582004E;
-	Fri,  5 Sep 2025 15:48:26 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4EE2320043;
-	Fri,  5 Sep 2025 15:48:25 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.48.240])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri,  5 Sep 2025 15:48:25 +0000 (GMT)
-Date: Fri, 5 Sep 2025 17:48:23 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        Andreas Larsson <andreas@gaisler.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        David Hildenbrand <david@redhat.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
-        Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
-        xen-devel@lists.xenproject.org
-Subject: Re: [PATCH 4/7] x86/xen: support nested lazy_mmu sections (again)
-Message-ID: <d3adc2a0-5888-411e-ac7c-9df45e3389c9-agordeev@linux.ibm.com>
-References: <20250904125736.3918646-1-kevin.brodsky@arm.com>
- <20250904125736.3918646-5-kevin.brodsky@arm.com>
+	id 1uuaUk-00000003Z32-295w;
+	Fri, 05 Sep 2025 17:45:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0351444EBD;
+	Fri,  5 Sep 2025 17:45:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BACB9C4CEF4;
+	Fri,  5 Sep 2025 17:45:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757094305;
+	bh=IPNf+uj9SwG7V/HqvpgImlpeKFozAwz0O2IbujFna2o=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=lzyi46qJ8z8SSmnuN6eSFC8fsENvLGZKQIoz3l+oZiQ5zbEpeW87DXlg8+fL9b5m/
+	 D6ESW9bnIXtEHHE30zNZFn7OwHzHmbbh11k/5dxyaS8X4NpG93WouApo6/080orBsG
+	 8sg1Kqn8mxcCjJqoKlD+iqWTOr2Pb92pBGmtclgNav4M2zDPGeoNrCVvOgpuzLGZbr
+	 ClWh/jRUICF5GjHRSaxmSAqfP6auKs6ipL+M9ifKtlpoF1EB2wa7lbqgTDs9L0ZoA7
+	 Djc6lZKFUiHLk16YphYGbxj3ztUC1TObz/wLtgaYlXmXtJsj965Wj8wE5dHh5Nv9g1
+	 EMlzwLJWdvDVg==
+Date: Fri, 05 Sep 2025 12:45:05 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250904125736.3918646-5-kevin.brodsky@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAzMCBTYWx0ZWRfX5iXkXHtPokV2
- s58RZ7e813edv+vWWoqJUrrtWQXbub6NiX58yP1v9mbmzE5GTo4wfrfFkR/YZ/MbCR+iaBSdaCX
- adCNlkxNA/nEsZ3agSOH3KgEWq38b6wGZtWAzoLq+mKBzCvbn/uEMkBgl3O9f5obeDeeWy94B3P
- LgKQGohc5o/PIli23EYmnTGZI+Oj8pYgiOworIhg3wrM4u606YHplewCbIn1zTW8AdxtJuUJDYA
- iMBC7cL5Ca1p2IQg+1kqXYCy73F3DoQq/aCn8/pSszhndcjXi11V8uX0tGswVehF3dhVd7AerLt
- JrqhsabJDFJw5fzoqnl1EhDRooO7y32BwqH5cYOjZy4q0rOcELXv53bz54YHJ9HbXtIGc4qdlip
- ckpxcnXd
-X-Proofpoint-GUID: u6h_butZCR90wxuVu6ifBPi5r4KK37UM
-X-Proofpoint-ORIG-GUID: HU44fewV-eZEBpYhS3NFrN8FS6mJ4q6n
-X-Authority-Analysis: v=2.4 cv=Ao/u3P9P c=1 sm=1 tr=0 ts=68bb064f cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=36QzpkCBnVJsay_x71QA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-05_05,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 impostorscore=0 priorityscore=1501 spamscore=0
- suspectscore=0 bulkscore=0 adultscore=0 malwarescore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508300030
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+ kernel@collabora.com, linux-mediatek@lists.infradead.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, devicetree@vger.kernel.org
+To: Julien Massot <julien.massot@collabora.com>
+In-Reply-To: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
+References: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
+Message-Id: <175709416307.988711.14636876024281997557.robh@kernel.org>
+Subject: Re: [PATCH v3 0/3] Radxa NIO 12L: Add GPIO keys and LED support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_084903_042242_C81D3944 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20250905_104506_593616_EB32B652 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,40 +76,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 01:57:33PM +0100, Kevin Brodsky wrote:
-...
-> -static void xen_enter_lazy_mmu(void)
-> +static lazy_mmu_state_t xen_enter_lazy_mmu(void)
->  {
-> +	if (this_cpu_read(xen_lazy_mode) == XEN_LAZY_MMU)
-> +		return LAZY_MMU_NESTED;
-> +
->  	enter_lazy(XEN_LAZY_MMU);
-> +	return LAZY_MMU_DEFAULT;
->  }
->  
->  static void xen_flush_lazy_mmu(void)
-> @@ -2167,11 +2171,12 @@ static void __init xen_post_allocator_init(void)
->  	pv_ops.mmu.write_cr3 = &xen_write_cr3;
->  }
->  
-> -static void xen_leave_lazy_mmu(void)
-> +static void xen_leave_lazy_mmu(lazy_mmu_state_t state)
->  {
->  	preempt_disable();
->  	xen_mc_flush();
-> -	leave_lazy(XEN_LAZY_MMU);
-> +	if (state != LAZY_MMU_NESTED)
-> +		leave_lazy(XEN_LAZY_MMU);
 
-Based on xen_enter_lazy_mmu(), whether this condition needs to be
-executed with the preemption disabled?
+On Fri, 05 Sep 2025 13:51:57 +0200, Julien Massot wrote:
+> This patchset adds support for the GPIO-connected red and blue LEDs,
+> as well as the various hardware buttons present on the Radxa NIO 12L
+> board.
+> 
+> It also includes a fix for the missing release (key-up) interrupt
+> handling for PMIC-managed GPIO keys.
+> 
+> Signed-off-by: Julien Massot <julien.massot@collabora.com>
+> ---
+> Changes in v3:
+> Patch 3/3: drop the deprecated LEDs label property
+> - Link to v2: https://lore.kernel.org/r/20250826-radxa-nio-12-l-gpio-v2-0-7f18fa3fbfc8@collabora.com
+> 
+> Changes in v2:
+> PATCH 1/3
+> - Add Fixes tag
+> - Drop Angelo's Reviewed-By since I'm now introducing the
+> 'key_release_irq' member that was missing in v1.
+> - Link to v1: https://lore.kernel.org/r/20250801-radxa-nio-12-l-gpio-v1-0-d0840f85d2c8@collabora.com
+> 
+> ---
+> Julien Massot (3):
+>       Input: mtk-pmic-keys - MT6359 has a specific release irq
+>       arm64: dts: mediatek: mt8395-nio-12l: add PMIC and GPIO keys support
+>       arm64: dts: mediatek: mt8395-nio-12l: add support for blue and red LEDs
+> 
+>  .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 65 ++++++++++++++++++++++
+>  drivers/input/keyboard/mtk-pmic-keys.c             |  5 +-
+>  2 files changed, 69 insertions(+), 1 deletion(-)
+> ---
+> base-commit: 6c68f4c0a147c025ae0b25fab688c7c47964a02f
+> change-id: 20250801-radxa-nio-12-l-gpio-54f208c25333
+> 
+> Best regards,
+> --
+> Julien Massot <julien.massot@collabora.com>
+> 
+> 
+> 
 
-Or may be this_cpu_read(xen_lazy_mode) + enter_lazy(XEN_LAZY_MMU)
-should be executed with the preemption disabled?
 
->  	preempt_enable();
->  }
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-Thanks!
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit 6c68f4c0a147c025ae0b25fab688c7c47964a02f
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com:
+
+arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dtb: gpio-leds (gpio-leds): 'rgb-blue' does not match any of the regexes: '(^led-[0-9a-f]$|led)', '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/leds/leds-gpio.yaml#
+
+
+
+
+
 
