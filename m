@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF12CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B72DCA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZsROv5dMPlTRseUFed2DQIQDmI+zmlM+eHGw/139pU=; b=3owqqimDaNDUK4I0BBt4Xkwg88
-	Aut2xUxT9FAif1B9OfM1DVeYQNya3k5t37T0O1VTvEz5+RT7xHX4YIwBv7g+YECGb2RQYE4zGjY8v
-	LR67A7148JF+69Cyi5uv61Wt63xEyEwFpORKFDYECyX6Rc6I6LAvbLC8HLfTBamFIifsOxpgSr18r
-	3BY+lbIs3DBGnIQ67L30cT3IldNBWApGkULA9uGkfP/OGU5jGILZe4vtSPJONYJ7TRqBjkAc0UuEg
-	L37QLGDukxbhU2dvNlHidv6oXhoReXBVc3xP9SiaHOIOtqd1aOu3nqsQSF0OlNlVBAas6uEa5YC9O
-	vpJac+og==;
+	bh=rtlqzVw9oP351Po4jCg7tIPa6qenYQGCHl/HIjKIIzo=; b=VieHhvILu4FLfeU6anhDvNFzmM
+	VLmdQaMmgvwma72WDlu4VDLPuYqK9OQ49ir+0QliSbS5p9xmRoy/AwgLyNgVXd7CS/nt9Ybfgxh48
+	Wi+KPVE/IniLd8xCk47Q+TE1qHcrAhY3VUmNgs1EhqbqcSScedPlSgn4Grz6h3n5hFg/iuas6CeKA
+	knBw4ln1f13hJXeiJbzJ0Y2EFAtVj8uobBG1n37ROaEUiyvff10yn7zwuZqcrG4vPLHtnzaSPCm+s
+	QtF2+WMlGuo44z+ibq+Qp2jVFvDobsGHqgVrFfjdK6MO70GZ9EiOomHTWdo2Ez+mO307gbbBQenqv
+	KH4Cei4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugXE-00000005UtQ-1j0B;
-	Sat, 06 Sep 2025 00:12:05 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uubVF-00000003upc-2IdG
+	id 1uugXI-00000005UzO-1uCi;
+	Sat, 06 Sep 2025 00:12:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uubVJ-00000003utR-2ggD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 18:49:43 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cJQ5G0lxkz9sq0;
-	Fri,  5 Sep 2025 20:35:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757097330;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JZsROv5dMPlTRseUFed2DQIQDmI+zmlM+eHGw/139pU=;
-	b=wSA1qxOQ+B5OJr41dcgkZmuhOTiychl0t9gOaUn7ogSa8gIUiH9dW6JZ8B162DXzy3ILvd
-	0Xhp9WuEtlgSXYRAOytyyVYl8T2RqB4oqTqlw/vyGgIQcn/bJC1uVas7YP26Q+3tUlTdH9
-	H7TBlwpONHAUlTMGOghGNumalKlSQC3DnKZMnjTFAEewldEA1LN31OAIM3cycG1fIlcTnX
-	Glx8mK6rnJ7jn5VE3qGM6DiDHn23EiQxnF8WtfUA5Sl+lqKQFsz/YzwSxSbaesug68cDQh
-	91Hwj1GSW3NFaC9RLkYv27W1QQVmvrpC/JI53g3bREd9lyupZ4X4Zvi/+j9vtA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=x0QyrUWO;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-Message-ID: <273d5067-4c9d-4c8c-8633-7f2d7c708216@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757097328;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JZsROv5dMPlTRseUFed2DQIQDmI+zmlM+eHGw/139pU=;
-	b=x0QyrUWOzMPakvYxi/Zbh5R5bygqUzCDTJYvPKP8/FqgDkYQCCzFp4EXHsOu9quW+x4/5z
-	wdivkVL2ZkVk1m1mpFlfjkJOfwRqR/Qu3bfmnH6QEEol6An0CT1tskwG5X/h6VLQforpc1
-	NU92T1MSc2SeEo89qi1UpFDiSERlqoedGE/RJCl1ykcw7WXnWpVgpR0uWUp/fThPlbz+jQ
-	3wuTN7U3UwyA/Rlv6zmRcHpxpcDxuI/wqYwvjh8VxJhQwAJv0JpSRzSiD2VPbRbAzH6p+z
-	Ly/lSrveoFofuNyYYfIm3qikjSsVGg0I2DOsRK5QXEV68eZM4Or9qrQcK5AUxA==
-Date: Fri, 5 Sep 2025 20:35:25 +0200
+	Fri, 05 Sep 2025 18:49:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0223152B;
+	Fri,  5 Sep 2025 11:49:36 -0700 (PDT)
+Received: from [10.1.197.69] (unknown [10.1.197.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 398943F63F;
+	Fri,  5 Sep 2025 11:49:39 -0700 (PDT)
+Message-ID: <8265943b-536f-47ce-af05-129edd417863@arm.com>
+Date: Fri, 5 Sep 2025 19:49:37 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] arm64: dts: renesas: r8a779g3: Add Argon40 fan HAT DTO
- to Retronix R-Car V4H Sparrow Hawk
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20250905020149.257459-1-marek.vasut+renesas@mailbox.org>
- <aLrXzl38OUhTJgxP@shikoro>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aLrXzl38OUhTJgxP@shikoro>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
+ kbuild boiler plate
+To: Dave Martin <Dave.Martin@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-11-james.morse@arm.com>
+ <aLWBqNMKoTl9VDIS@e133380.arm.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <aLWBqNMKoTl9VDIS@e133380.arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 16010d7b6e6bae5f7f9
-X-MBO-RS-META: s9b7313iouson6bdjrfi5inu7cjzpbyt
-X-Rspamd-Queue-Id: 4cJQ5G0lxkz9sq0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_114941_750938_850CF7FF 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250905_114945_792537_B68868E1 
+X-CRM114-Status: GOOD (  62.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,39 +86,540 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/5/25 2:30 PM, Wolfram Sang wrote:
-> Hi Marek,
+Hi Dave,
 
-Hello Wolfram,
+On 01/09/2025 12:21, Dave Martin wrote:
+> On Fri, Aug 22, 2025 at 03:29:51PM +0000, James Morse wrote:
+>> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+>> only be accessible from those CPUs, and they may not be online.
+>> Touching the hardware early is pointless as MPAM can't be used until
+>> the system-wide common values for num_partid and num_pmg have been
+>> discovered.
+>>
+>> Start with driver probe/remove and mapping the MSC.
+>> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+>> new file mode 100644
+>> index 000000000000..dff7b87280ab
+>> --- /dev/null
+>> +++ b/drivers/resctrl/Kconfig
+>> @@ -0,0 +1,11 @@
+>> +# Confusingly, this is everything but the CPU bits of MPAM. CPU here means
+>> +# CPU resources, not containers or cgroups etc.
+>
+> Drop confusing comment?
+>
+> CPUs are not mentioned other than in the comment -- I think the
+> descriptions are sufficiently self-explanatory that they don't read
+> onto CPUs.
 
->> + * r8a779g3-sparrow-hawk$ grep -H . /sys/class/hwmon/hwmon?/name
->> + * /sys/class/hwmon/hwmon0/name:sensor1_thermal
->> + * /sys/class/hwmon/hwmon1/name:sensor2_thermal
->> + * /sys/class/hwmon/hwmon2/name:sensor3_thermal
->> + * /sys/class/hwmon/hwmon3/name:sensor4_thermal
->> + * /sys/class/hwmon/hwmon4/name:pwmfan
->> + *                       ^      ^^^^^^
-> 
-> For me, the output looks different, though:
-> 
-> /sys/class/hwmon/hwmon0/name:pwmfan
-> /sys/class/hwmon/hwmon1/name:sensor1_thermal
-> /sys/class/hwmon/hwmon2/name:sensor2_thermal
-> /sys/class/hwmon/hwmon3/name:sensor3_thermal
-> /sys/class/hwmon/hwmon4/name:sensor4_thermal
-> /sys/class/hwmon/hwmon5/name:pwmfan
-> 
-> hwmon0 is the Argon, hwmon5 the (unpopulated) on board connector.
-> 
-> I hope the naming is stable, but in any case, the docs need to be
-> reworked a little, I guess?
+This used to add ARM_CPU_RESCTRL, to mirror X86_CPU_RESCTRL.
+It's been tidied up since then, but the comment remains.
+I'll remove it.
 
-The hwmon devices are allocated first come first served, so the list can 
-look different for you. You need to look up the fan you want to control, 
-of course. Look up by name is simplest, if there are more fans, it might 
-be a bit more involved to find the right one.
 
--- 
-Best regards,
-Marek Vasut
+
+>> +config ARM64_MPAM_DRIVER
+>> +	bool "MPAM driver for System IP, e,g. caches and memory controllers"
+>> +	depends on ARM64_MPAM && EXPERT
+>> +
+>> +config ARM64_MPAM_DRIVER_DEBUG
+>> +	bool "Enable debug messages from the MPAM driver."
+>
+> Nit: spurious full stop.
+>
+> (i.e., people don't add one in these one-line descriptions.
+> They are title-like and self-delimiting, even when the text is a valid
+> sentence.)
+
+/me waves hands around
+
+
+>> +	depends on ARM64_MPAM_DRIVER
+>> +	help
+>> +	  Say yes here to enable debug messages from the MPAM driver.
+
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> new file mode 100644
+>> index 000000000000..a0d9a699a6e7
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -0,0 +1,336 @@
+
+>> +/*
+>> + * mpam_list_lock protects the SRCU lists when writing. Once the
+>> + * mpam_enabled key is enabled these lists are read-only,
+>> + * unless the error interrupt disables the driver.
+>> + */
+>> +static DEFINE_MUTEX(mpam_list_lock);
+>> +static LIST_HEAD(mpam_all_msc);
+>> +
+>> +static struct srcu_struct mpam_srcu;
+>> +
+>> +/* MPAM isn't available until all the MSC have been probed. */
+>
+> Comment doesn't really explain the variable.
+>
+> Maybe something like "Number of MSCs that need to be probed for MPAM
+> to be usable" ?
+
+Its the count not the remainder. I went with:
+| * Number of MSCs that have been probed. Once all MSC have been probed MPAM
+| * can be enabled.
+
+
+>> +static u32 mpam_num_msc;
+>
+> Any particular reason this is u32 and not unsigned int?
+u32 is less typing!
+
+
+> How are accesses to this protected against data races?
+
+It's under the list-lock, but after Rob's feedback I've made it an atomic_t and stopped
+using it as an id for all the print messages.
+
+
+> If there are supposed to be locks to protect globals in the MPAM driver,
+> is it worth wrapping them in access functions with a lockdep assert?
+> Otherwise, it feels rather easy to get this wrong -- I think I've found
+> at least one bug (see mpam_msc_drv_probe().)
+Broadly: everything is protected by the list_lock when things are being discovered.
+Once everything has been discovered, these things can become read-only.
+
+It's not until everything has been discovered that interrupts get registered, and things
+like a potential PMU driver could make calls in a strange context.
+
+Adding helpers would need some global state variable, if (state == foo) lockdep_assert...
+I had that early on, but figured it was overkill.
+
+
+>> +static void mpam_discovery_complete(void)
+>> +{
+>> +	pr_err("Discovered all MSC\n");
+>> +}
+
+> As others have commented, if this is non-functional code that gets
+> removed later on, it's probably best to drop this up-front?
+It's illustrating that something happens after all the MSC have been discovered.
+Knowing that from the beginning of the series is supposed to make the insertion of the
+cpuhp notifiers in the middle easier to think about...
+
+
+>> +static int mpam_dt_parse_resource(struct mpam_msc *msc, struct device_node *np,
+>> +				  u32 ris_idx)
+>> +{
+>> +	int err = 0;
+>> +	u32 level = 0;
+>> +	unsigned long cache_id;
+>> +	struct device_node *cache;
+>> +
+>> +	do {
+>> +		if (of_device_is_compatible(np, "arm,mpam-cache")) {
+>> +			cache = of_parse_phandle(np, "arm,mpam-device", 0);
+>> +			if (!cache) {
+>> +				pr_err("Failed to read phandle\n");
+>> +				break;
+>> +			}
+>> +		} else if (of_device_is_compatible(np->parent, "cache")) {
+>> +			cache = of_node_get(np->parent);
+>> +		} else {
+>> +			/* For now, only caches are supported */
+>> +			cache = NULL;
+>> +			break;
+>> +		}
+>> +
+>> +		err = of_property_read_u32(cache, "cache-level", &level);
+>> +		if (err) {
+>> +			pr_err("Failed to read cache-level\n");
+>> +			break;
+>> +		}
+>> +
+>> +		cache_id = cache_of_calculate_id(cache);
+>> +		if (cache_id == ~0UL) {
+>
+> The type of cache_id may change if the return type of
+> cache_of_calculate_id() changes (see comments on patch 1).
+
+Yup,
+
+> Possible #define for the exceptional value.
+
+I don't think its any more surprising than '-1' as an error value, and its only got one
+caller, which is pretty obviously an error path.
+
+
+>> +			err = -ENOENT;
+>> +			break;
+>
+> The lack of a diagnostic here is inconsistent with the level of
+> diagnostics in the rest of the loop.
+
+I've never needed to debug that one because its already visible to user-space. If the
+cache-id's are missing, you can tell that in sysfs, you don't need to instrument the kernel.
+
+I'll add one if you think its important. They can all be _once, and as its related to
+the probing of a particular device, can use the dev_ print helpers.
+
+
+>> +		}
+>> +
+>> +		err = mpam_ris_create(msc, ris_idx, MPAM_CLASS_CACHE, level,
+>> +				      cache_id);
+>> +	} while (0);
+>
+> Abuse of do ... while () here?
+>
+> There is no loop.  The breaks are stealth "goto"s to this statement:
+Yes. The alternative would be actual gotos - which is surely worse!
+It just wasn't worth pulling this out as a separate function.
+
+
+>> +	of_node_put(cache);
+>
+> (It works either way, but maybe gotos to an explicit label would be
+> more readable, as well as avoiding an unnecessary level of indentation.)
+As the cleanup magic has become fashionable, I'll switch to using that...
+
+
+>> +
+>> +	return err;
+>> +}
+>
+> [...]
+>
+>> +/*
+>> + * An MSC can control traffic from a set of CPUs, but may only be accessible
+>> + * from a (hopefully wider) set of CPUs. The common reason for this is power
+>> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
+>> + * the corresponding cache may also be powered off. By making accesses from
+>
+> Nit: the the
+
+Fixed,
+
+
+>> + * one of those CPUs, we ensure this isn't the case.
+>> + */
+
+>> +static int fw_num_msc;
+>
+> Does this need to be protected against data races?
+>
+> If individual mpam_msc_drv_probe() calls may execute on different CPUs
+> from mpam_msc_driver_init(), then seem to be potential races here.
+
+Incrementing was under the list-lock, but not the last 'are they all done' read. Following
+Rob's comments I've made this an atomic_t.
+
+
+>> +
+>> +static void mpam_pcc_rx_callback(struct mbox_client *cl, void *msg)
+>> +{
+>> +	/* TODO: wake up tasks blocked on this MSC's PCC channel */
+>
+> So, is this broken in this commit?>
+> (If the series does not get broken up or applied piecemail, that's not
+> such a concern, though.)
+Unsupported - or at least only enough to not mistake them for MMIO devices.
+I've pulled this out to a later patch in the tree that isn't in this series.
+
+The platforms that need this haven't yet materialised, (and may not!).
+There is a prototype for DT/SCMI, but nothing I've seen yet for ACPI.
+
+
+>> +}
+>> +
+>> +static void mpam_msc_drv_remove(struct platform_device *pdev)
+>> +{
+>
+> The MPAM driver cannot currently be built as a module.
+>
+> Is it possible to exercise the driver remove paths, today?
+Yes, through the sysfs unbind interface.
+
+It doesn't make a lot of sense for MPAM as the moment you unbind the driver from one MSC
+it has to work out if it needs to teardown resctrl...
+
+
+>> +	struct mpam_msc *msc = platform_get_drvdata(pdev);
+>> +
+>> +	if (!msc)
+>> +		return;
+>> +
+>> +	mutex_lock(&mpam_list_lock);
+>> +	mpam_num_msc--;
+>> +	platform_set_drvdata(pdev, NULL);
+>> +	list_del_rcu(&msc->glbl_list);
+>> +	synchronize_srcu(&mpam_srcu);
+>> +	devm_kfree(&pdev->dev, msc);
+>> +	mutex_unlock(&mpam_list_lock);
+>> +}
+>> +
+>> +static int mpam_msc_drv_probe(struct platform_device *pdev)
+>> +{
+>> +	int err;
+>> +	struct mpam_msc *msc;
+>> +	struct resource *msc_res;
+>> +	void *plat_data = pdev->dev.platform_data;
+>> +
+>> +	mutex_lock(&mpam_list_lock);
+>> +	do {
+>> +		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+>> +		if (!msc) {
+>> +			err = -ENOMEM;
+>> +			break;
+>> +		}
+>> +
+>> +		mutex_init(&msc->probe_lock);
+>> +		mutex_init(&msc->part_sel_lock);
+>> +		mutex_init(&msc->outer_mon_sel_lock);
+>> +		raw_spin_lock_init(&msc->inner_mon_sel_lock);
+>> +		msc->id = mpam_num_msc++;
+>> +		msc->pdev = pdev;
+>> +		INIT_LIST_HEAD_RCU(&msc->glbl_list);
+>> +		INIT_LIST_HEAD_RCU(&msc->ris);
+>> +
+>> +		err = update_msc_accessibility(msc);
+>> +		if (err)
+>> +			break;
+>> +		if (cpumask_empty(&msc->accessibility)) {
+>> +			pr_err_once("msc:%u is not accessible from any CPU!",
+>> +				    msc->id);
+>> +			err = -EINVAL;
+>> +			break;
+>> +		}
+>> +
+>> +		if (device_property_read_u32(&pdev->dev, "pcc-channel",
+>> +					     &msc->pcc_subspace_id))
+>> +			msc->iface = MPAM_IFACE_MMIO;
+>> +		else
+>> +			msc->iface = MPAM_IFACE_PCC;
+>> +
+>> +		if (msc->iface == MPAM_IFACE_MMIO) {
+>> +			void __iomem *io;
+>> +
+>> +			io = devm_platform_get_and_ioremap_resource(pdev, 0,
+>> +								    &msc_res);
+>> +			if (IS_ERR(io)) {
+>> +				pr_err("Failed to map MSC base address\n");
+>> +				err = PTR_ERR(io);
+>> +				break;
+>> +			}
+>> +			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>> +			msc->mapped_hwpage = io;
+>> +		} else if (msc->iface == MPAM_IFACE_PCC) {
+>> +			msc->pcc_cl.dev = &pdev->dev;
+>> +			msc->pcc_cl.rx_callback = mpam_pcc_rx_callback;
+>> +			msc->pcc_cl.tx_block = false;
+>> +			msc->pcc_cl.tx_tout = 1000; /* 1s */
+>> +			msc->pcc_cl.knows_txdone = false;
+>> +
+>> +			msc->pcc_chan = pcc_mbox_request_channel(&msc->pcc_cl,
+>> +								 msc->pcc_subspace_id);
+>> +			if (IS_ERR(msc->pcc_chan)) {
+>> +				pr_err("Failed to request MSC PCC channel\n");
+>> +				err = PTR_ERR(msc->pcc_chan);
+>> +				break;
+>> +			}
+>> +		}
+
+> Should the lock be held across initialisation of the msc fields?
+
+The msc isn't visible until its added to the list, so provided all that inialisation is
+done 'before' its added to the list, it doesn't matter.
+
+
+> list_add_rcu() might imply sufficient barriers to ensure that the
+> initialisations are visible to other threads that obtain the msc
+> pointer by iterating over mpam_all_msc.
+>
+> It's probably cleaner to hold the lock explicitly, though.
+
+The list lock? We do.
+But the readers don't need to take the list lock, its only there to prevent concurrent
+writers.
+
+
+> What other ways of obtaining the msc pointer exist?
+The class/component/device structures in a subsequent patch, protected in the same way.
+Once MPAM is enabled all that can be sprayed through resctrl - at which point no
+modifications are allowed, and teardown for fatal errors depends on the static-key.
+
+
+>> +
+>> +		list_add_rcu(&msc->glbl_list, &mpam_all_msc);
+>> +		platform_set_drvdata(pdev, msc);
+>> +	} while (0);
+>> +	mutex_unlock(&mpam_list_lock);
+>> +
+>> +	if (!err) {
+>> +		/* Create RIS entries described by firmware */
+>> +		if (!acpi_disabled)
+>> +			err = acpi_mpam_parse_resources(msc, plat_data);
+>> +		else
+>> +			err = mpam_dt_parse_resources(msc, plat_data);
+>> +	}
+>> +
+>> +	if (!err && fw_num_msc == mpam_num_msc)
+
+> Unlocked read of mpam_num_msc?
+Fixed as an atomic_t flavoured thing.
+
+
+>> +		mpam_discovery_complete();
+>> +
+>> +	if (err && msc)
+>> +		mpam_msc_drv_remove(pdev);
+>> +
+>> +	return err;
+>> +}
+>> +/*
+>> + * MSC that are hidden under caches are not created as platform devices
+>> + * as there is no cache driver. Caches are also special-cased in
+>> + * update_msc_accessibility().
+>> + */
+>
+> Can you elaborate?  I don't understand quite what this is doing.
+
+/ {
+    my_thing {
+        compatible = "my_thing";
+        msc {
+           compatible = "arm,mpam-msc";
+        };
+    };
+
+    other_thing {
+        compatible = "other_thing";
+    };
+
+    msc {
+       compatible = "arm,mpam-msc";
+       arm,mpam-device = <&other_thing>;
+    };
+
+
+    l2-cache {
+      compatible = "cache";
+        msc {
+           compatible = "arm,mpam-msc";
+        };
+    };
+};
+
+my_thing and other_thing's MSC will have devices created - but the cache will not, because
+it's a cache not a device, and anything below it is ignored.
+
+
+>> +static void mpam_dt_create_foundling_msc(void)
+>> +{
+>> +	int err;
+>> +	struct device_node *cache;
+>> +
+>> +	for_each_compatible_node(cache, NULL, "cache") {
+>> +		err = of_platform_populate(cache, mpam_of_match, NULL, NULL);
+>> +		if (err)
+>> +			pr_err("Failed to create MSC devices under caches\n");
+>> +	}
+>> +}
+>
+> [...]
+>
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> new file mode 100644
+>> index 000000000000..07e0f240eaca
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -0,0 +1,62 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +// Copyright (C) 2024 Arm Ltd.
+>> +
+>> +#ifndef MPAM_INTERNAL_H
+>> +#define MPAM_INTERNAL_H
+>> +
+>> +#include <linux/arm_mpam.h>
+>> +#include <linux/cpumask.h>
+>> +#include <linux/io.h>
+>> +#include <linux/mailbox_client.h>
+>> +#include <linux/mutex.h>
+>> +#include <linux/resctrl.h>
+>> +#include <linux/sizes.h>
+>> +
+>> +struct mpam_msc {
+>> +	/* member of mpam_all_msc */
+>> +	struct list_head        glbl_list;
+
+> It is worth making these names less mismatched?
+
+all_msc_list ?
+
+It's because its global. The pattern otherwise is parent has a list foo, and all the
+children have a member 'foo_list'.
+
+
+>> +
+>> +	int			id;
+>> +	struct platform_device *pdev;
+>> +
+>> +	/* Not modified after mpam_is_enabled() becomes true */
+>> +	enum mpam_msc_iface	iface;
+>> +	u32			pcc_subspace_id;
+>> +	struct mbox_client	pcc_cl;
+>> +	struct pcc_mbox_chan	*pcc_chan;
+>> +	u32			nrdy_usec;
+>> +	cpumask_t		accessibility;
+>> +
+>> +	/*
+>> +	 * probe_lock is only take during discovery. After discovery these
+>> +	 * properties become read-only and the lists are protected by SRCU.
+>> +	 */
+>> +	struct mutex		probe_lock;
+>
+> Can we have more clarify about the locking strategy, including details
+> of which things each lock is supposed to apply to and when, and how (if
+> at all) the locks are intended to nest?
+
+The comment above is supposed to describe that. A rule of thumb is its all the stuff
+'below' it in the struct, there is also a comment for each order. This one is a bit of a
+catch all for the values in this struct that can be written.
+
+The purpose of the part_sel_lock and mon_sel_lock arrangement becomes much more obvious in
+subsequent patches when the driver starts accessing the registers of those names.
+
+
+> (Similarly for the global locks.)
+>
+>> +	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+>> +	u32			ris_max;
+
+> nrdy_usec, ris_idxs and ris_max appear unused in this patch (though I
+> suppose they get initialised by virtue of kzalloc()).  Is this
+> intentional?
+
+To reduce the amount of churn in the series the bulk of the structure is added here, then
+the stuff that build more complicated structures, accesses hardware, deals with interrupts
+etc.
+
+
+>> +
+>> +	/* mpam_msc_ris of this component */
+>> +	struct list_head	ris;
+>> +
+>> +	/*
+>> +	 * part_sel_lock protects access to the MSC hardware registers that are
+>> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
+>> +	 * by RIS).
+>> +	 * If needed, take msc->lock first.
+>> +	 */
+
+> What's msc->lock ?
+
+The old name for probe_lock, before it was necessary to lock the hardware registers
+separately. I've fixed the name.
+
+
+
+Thanks,
+
+James
 
