@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8EFCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 06:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF062CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 06:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PhVFUXd2wHVd4WJ6eHJtIkupEd4YoON8Be6DruPRCvU=; b=Jnbry3LEtzhtypQZjnYHJW0FVs
-	rcVLHkEwOVo2d4PRUBW7GY7ath54eOtptx+F2Qw1q7CN6W8TFnfd5cq42X8tGHhwOmsOPG8IBYrjE
-	4Xv1BSXJj8s9CIphJrbtM7V04qrjItQ0XEPpcW9n0T1vD90qhht6VkaMmoFDFua/iTC+iRALrzQU0
-	tHygFa2zHw9PfeGOyx7YG5iqVvJ/E05ir3fybS6SLRMQI/ZdKro+1pAHgYneJMwOHzPFS1xyIhube
-	yIAut9vdLzDLNmEYQxnl8QHCXt+KtHJVki94+4KhHVNx0r+VtqicLo2GLIkZ6itkBhN5fKIImUcSZ
-	cEnbOQ+A==;
+	bh=A9fThXWyz4P9om+uWqHmLbCB5XXGZxrc4CDimZXFd7E=; b=spaKvP+yI947gBcTPm35Rsd4QY
+	D80bCimswKbJvFDBNryD9Obxqw8nQZGDQmsW5kBu67wUfrv/okujcIGqSCILGwrA4Nv6w17pep1TL
+	4Qmz8E5GZOItZ6gGXBP2wBwUUmAEc0Wl0YVK1yq+B7hNmmYVl71Ec+Z8aq6p12kY9zwzpbUK+E0XU
+	nvrJOnTpcgandCv7HUujCVJLqhV+QnkwzAkpEWhvrqf92g0F3qsL49QA8uniSQw1cohT3x7SpzDES
+	woSUo/Oa20tYA9E3IeB+jvbgSvV6GcPEGu8/w6PTgzypX5judliHoaUSyjrXDMphSZbA+ylMisSNi
+	yqkAVuyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuPgt-0000000HD3K-1sSB;
-	Fri, 05 Sep 2025 06:12:55 +0000
+	id 1uuPjZ-0000000HDkU-2vyI;
+	Fri, 05 Sep 2025 06:15:41 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuOri-0000000Gx1J-1lng
+	id 1uuOro-0000000Gx3u-27ZV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 05:20:03 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5855K0ji3637374;
-	Fri, 5 Sep 2025 00:20:00 -0500
+	Fri, 05 Sep 2025 05:20:09 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5855K5sG3637518;
+	Fri, 5 Sep 2025 00:20:05 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757049600;
-	bh=PhVFUXd2wHVd4WJ6eHJtIkupEd4YoON8Be6DruPRCvU=;
+	s=ti-com-17Q1; t=1757049605;
+	bh=A9fThXWyz4P9om+uWqHmLbCB5XXGZxrc4CDimZXFd7E=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=P3+LLW8GEAU7XWLoHupMh81ao/KufotZWPfUZpg+hs7RF/VRuoI/N9rdmBLB/qlmE
-	 JZLNkE0d3z5p+hAD9Qhl6WpvRXOInVvYNByKLqWOd6RoLBlyagefLQ8HwCPWmDpoBc
-	 i7GwoeyLQZakaJzqRw0QKR2c7LeJRXPq9huSV+NM=
-Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5855JxAx1405039
+	b=wE39hKqdTBliNOcMo1sZuNfcj/0DFijsgFxP0QKinUPWlpDu+qtO6io4IZBQoeP9u
+	 Rt4rFqQWUfdwJAk5tVcfAD440LAvhCM5+B1A64zMQhgwLeaNo8SPhmaMX0cIxgbBZn
+	 3+2GKFVdpvIHDLl2w3ZyRzK/DAiISoIVo/7zkLmU=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5855K57B688977
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 5 Sep 2025 00:20:00 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 5 Sep 2025 00:20:05 -0500
+Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 5
- Sep 2025 00:19:59 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 00:20:05 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 5 Sep 2025 00:19:59 -0500
+ Frontend Transport; Fri, 5 Sep 2025 00:20:05 -0500
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5855Ioih220581;
-	Fri, 5 Sep 2025 00:19:54 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5855Ioii220581;
+	Fri, 5 Sep 2025 00:20:00 -0500
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
@@ -62,13 +62,17 @@ CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
  De Franco <hiago.franco@toradex.com>,
         Francesco Dolcini
 	<francesco.dolcini@toradex.com>,
-        Emanuele Ghidoli
-	<emanuele.ghidoli@toradex.com>,
-        Parth Pancholi <parth.pancholi@toradex.com>,
-        Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>
-Subject: [PATCH v3 14/33] arm64: dts: ti: k3-am62p-verdin: Add missing cfg for TI IPC Firmware
-Date: Fri, 5 Sep 2025 10:48:27 +0530
-Message-ID: <20250905051846.1189612-15-b-padhi@ti.com>
+        Jo_o Paulo Gon_alves
+	<joao.goncalves@toradex.com>,
+        Stefan Eichenberger
+	<stefan.eichenberger@toradex.com>,
+        Max Krummenacher
+	<max.krummenacher@toradex.com>,
+        Andrejs Cainikovs
+	<andrejs.cainikovs@toradex.com>
+Subject: [PATCH v3 15/33] arm64: dts: ti: k3-am62-verdin: Add missing cfg for TI IPC Firmware
+Date: Fri, 5 Sep 2025 10:48:28 +0530
+Message-ID: <20250905051846.1189612-16-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250905051846.1189612-1-b-padhi@ti.com>
 References: <20250905051846.1189612-1-b-padhi@ti.com>
@@ -77,8 +81,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_222002_560029_974849A1 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250904_222008_635229_5033F570 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,75 +102,91 @@ sections of the Device Manager (DM) firmware itself and is necessary for
 platform boot. Whereas the wkup_r5fss0_core0_dma_memory_region is used
 for allocating the Virtio buffers needed for IPC with the DM core which
 could be optional. The labels were incorrectly used in the
-k3-am62p-verdin.dtsi file. Correct the firmware memory region label.
+k3-am62-verdin.dtsi file. Correct the firmware memory region label.
 
-Currently, only mailbox node is enabled with FIFO assignment. However,
-there are no users of the enabled mailboxes. Add the missing carveouts
-for WKUP and MCU R5F remote processors, and enable those by associating
-to the above carveout and mailboxes. This config aligns with other AM62P
-boards and can be refactored out later.
+Currently, only mailbox node is enabled with FIFO assignment for a
+single M4F remote core. However, there are no users of the enabled
+mailboxes. Add the missing carveouts for WKUP R5F and MCU M4F remote
+processors, and enable those by associating to the above carveout and
+mailboxes. This config aligns with other AM62 boards and can be
+refactored out later.
 
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Verdin AM62P
+Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Verdin AM62
 ---
 Cc: Francesco Dolcini <francesco.dolcini@toradex.com>
-Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-Cc: Parth Pancholi <parth.pancholi@toradex.com>
-Cc: Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>
 Cc: Hiago De Franco <hiago.franco@toradex.com>
-Requesting for a review/test.
+Cc: Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>
+Cc: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Cc: Max Krummenacher <max.krummenacher@toradex.com>
+Cc: Andrejs Cainikovs <andrejs.cainikovs@toradex.com>
+Requesting for review/test of this patch
 
 v3: Changelog:
 1. Changed carveout node names to memory@addr.
 
 Link to v2:
-https://lore.kernel.org/all/20250823160901.2177841-15-b-padhi@ti.com/
+https://lore.kernel.org/all/20250823160901.2177841-16-b-padhi@ti.com/
 
 v2: Changelog:
-1. Re-ordered patch from [PATCH 16/33] to [PATCH v2 14/33].
+1. Re-ordered patch from [PATCH 18/33] to [PATCH v2 15/33].
 2. Added T/B tag.
 
 Link to v1:
-https://lore.kernel.org/all/20250814223839.3256046-17-b-padhi@ti.com/
+https://lore.kernel.org/all/20250814223839.3256046-19-b-padhi@ti.com/
 
- arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 42 ++++++++++++++++++++-
- 1 file changed, 41 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi | 43 +++++++++++++++++++++-
+ 1 file changed, 42 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-index 6a04b370d149..671d367b40d1 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-@@ -162,7 +162,25 @@ secure_ddr: optee@9e800000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+index cbbcb96e2e24..5ecdd833587e 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+@@ -206,7 +206,25 @@ secure_ddr: optee@9e800000 {
  			no-map;
  		};
  
--		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-+		mcu_r5fss0_core0_dma_memory_region: memory@9b800000 {
+-		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9db00000 {
++		mcu_m4fss_dma_memory_region: memory@9cb00000 {
 +			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b800000 0x00 0x100000>;
++			reg = <0x00 0x9cb00000 0x00 0x100000>;
 +			no-map;
 +		};
 +
-+		mcu_r5fss0_core0_memory_region: memory@9b900000 {
++		mcu_m4fss_memory_region: memory@9cc00000 {
 +			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b900000 0x00 0xf00000>;
++			reg = <0x00 0x9cc00000 0x00 0xe00000>;
 +			no-map;
 +		};
 +
-+		wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
++		wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
 +			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c800000 0x00 0x100000>;
++			reg = <0x00 0x9da00000 0x00 0x100000>;
 +			no-map;
 +		};
 +
-+		wkup_r5fss0_core0_memory_region: memory@9c900000 {
++		wkup_r5fss0_core0_memory_region: memory@9db00000 {
  			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9c900000 0x00 0x01e00000>;
+ 			reg = <0x00 0x9db00000 0x00 0xc00000>;
  			no-map;
-@@ -848,6 +866,28 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
+@@ -1323,6 +1341,29 @@ mbox_m4_0: mbox-m4-0 {
+ 		ti,mbox-rx = <0 0 0>;
+ 		ti,mbox-tx = <1 0 0>;
  	};
- };
- 
++
++	mbox_r5_0: mbox-r5-0 {
++		ti,mbox-rx = <2 0 0>;
++		ti,mbox-tx = <3 0 0>;
++	};
++};
++
++&mcu_m4fss {
++	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
++	memory-region = <&mcu_m4fss_dma_memory_region>,
++			<&mcu_m4fss_memory_region>;
++	status = "okay";
++};
++
 +&wkup_r5fss0 {
 +	status = "okay";
 +};
@@ -176,22 +196,9 @@ index 6a04b370d149..671d367b40d1 100644
 +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
 +			<&wkup_r5fss0_core0_memory_region>;
 +	status = "okay";
-+};
-+
-+&mcu_r5fss0 {
-+	status = "okay";
-+};
-+
-+&mcu_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-+	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-+			<&mcu_r5fss0_core0_memory_region>;
-+	status = "okay";
-+};
-+
- &main0_alert {
- 	temperature = <95000>;
  };
+ 
+ /* Verdin CAN_1 */
 -- 
 2.34.1
 
