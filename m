@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06011CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 16:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D40CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 16:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TiD0ztAYBx9E9SUw2ZkK+7GRp8lmydCYGDQ/Q/xGvNA=; b=DTgmazhPYqC5iH29ImXeCtapyA
-	3sT9n0Xt9CY4UcuIhGiAQ+kY09NREwoluHS4VV3QGRs0+JVVcwtwDeqfwlHPLPn243Gc5kaKW0/vL
-	DSd7rMHjJCHtsYq+rfHU3miqdaoxW7qXCO0V6Rc78Ua6x6AQ8+bSdchhVUHWzxzGBs+AOgM450CY4
-	WQJxPyxw9BE0a6Q767Y+9Xhmd7zmw8ROK/AKvbgudXGc/L2uQuXRgUmDd/TMzVGVKetJOrmfDXfud
-	tDJGSAiRxPp+JDwhZmzZfjGj+uWtXie9Vxg0kuuPNyK96740kr7uSngBP11EVP8jc1AR0v22m9kMd
-	yI9aLIZQ==;
+	bh=gBeAk2sjxmY/uEVHB23tfdxj5hBAvOnytP2zFDexAwg=; b=tilhKL4BdC2qNvi/u2knVtbwzq
+	JiV3Fr6KSS88Pt54eDKKhFx1VZ2lOfK4DnQvemsgXrGC4kMOfpeMaNvWCgttdtsFgErSlnzCOCywD
+	dHjy1kl8sMHv9a2d15/7Ha6mZ7lK48tq/Y63pjerRz+IcE8E5fBVOiVhGkqADKzFNTBcEpL2bs11d
+	OiO0cTJ2y13rdnK8R5XriTrtE/G4LGVldpYeH6LkC6c9c77Qd8Fdh8k8qznmfoIf8z++35PlXhwO4
+	KGb+vqpXMEM8ZlCmvhmRmLNDQu6k5/QvB469sccFhm73Q44ga2qmbrpQFi2Upq2ll+IRtu5skCPKW
+	YBDNiu5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZEh-000000035dG-0ofx;
-	Fri, 05 Sep 2025 16:24:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuVld-00000001kqj-0RiB
+	id 1uuZHV-000000036jL-0Od2;
+	Fri, 05 Sep 2025 16:27:21 +0000
+Received: from mail.8bytes.org ([85.214.250.239])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuVqr-00000001mOx-1Amm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 12:42:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 58D8D4394C;
-	Fri,  5 Sep 2025 12:42:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C9E5C4CEF1;
-	Fri,  5 Sep 2025 12:42:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757076131;
-	bh=/3OeXZlr4xjhyb0qagsOeB6JIKiHR9LeiB/2F0p8kqw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Ie2JrDBsJNYABvpbzAUardYKHdtGGtGTygDlq+6KVM2Y7jajaL16rL4hWCWy+gTmi
-	 KS5OOOjFwdK430dpbxDS91B+7Q/k6qH1S9rHeL49wxT7svyjlNvXfi/+vlA9FkFmR2
-	 A8uUSS+aiWkIJVPEIXsm6i7SHnDO+Sh3I9D86/NO8lG2QHhr5PdgfvP/jSIZvjE3LR
-	 3SyME7NMXoKVn2iz3/Vu/L40GGIuPgIc3H6Nl25pHqidcDg5t+K9ximl51E+pvep48
-	 pY/IHZ9QXYoquBYXd2Hjr+hS4PhD7fJnatrt2+I3lFY9GMJA9AqGtc2WEit/Aa262X
-	 RYp0UkKzbk21g==
-Received: from [131.175.126.3] (helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uuVlY-00000003dl7-3MD5;
-	Fri, 05 Sep 2025 12:42:08 +0000
-Date: Fri, 05 Sep 2025 13:42:07 +0100
-Message-ID: <87ms79ystc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: kvmarm@lists.linux.dev,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	lkft-triage@lists.linaro.org,
-	Linux Regressions <regressions@lists.linux.dev>,
-	Fuad Tabba <tabba@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Ben Copeland <benjamin.copeland@linaro.org>,
-	Mark Brown <broonie@kernel.org>,
-	Aishwarya TCV <Aishwarya.TCV@arm.com>
-Subject: Re: kvm-unit-tests hang on Arm FVP with protected mode
-In-Reply-To: <CA+G9fYsT3b3Qd-m6tSDOgAXpgLPWz0QD_Z6a+_ff4oTecA85PQ@mail.gmail.com>
-References: <CA+G9fYsT3b3Qd-m6tSDOgAXpgLPWz0QD_Z6a+_ff4oTecA85PQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 131.175.126.3
-X-SA-Exim-Rcpt-To: naresh.kamboju@linaro.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, lkft-triage@lists.linaro.org, regressions@lists.linux.dev, tabba@google.com, pbonzini@redhat.com, oliver.upton@linux.dev, james.morse@arm.com, catalin.marinas@arm.com, will@kernel.org, suzuki.poulose@arm.com, anders.roxell@linaro.org, arnd@arndb.de, dan.carpenter@linaro.org, benjamin.copeland@linaro.org, broonie@kernel.org, Aishwarya.TCV@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 05 Sep 2025 12:47:38 +0000
+Received: from 8bytes.org (p54921b16.dip0.t-ipconnect.de [84.146.27.22])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id 035C254B38;
+	Fri,  5 Sep 2025 14:47:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1757076456;
+	bh=QEQQVhBJr9vTGUqxLLbGROAdD9ATWKivXMfcUsVX360=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nb8iuz9ARztuzTmOcRKnAzfrKUCGJ/Fc+ZsvXMwokcue6P8JrZitKrkILOM4b7AgF
+	 xCqOV3yArN/7bWpSYYbI5weW8PcmqSX4HO8dw0efTuCmqjvHg5NUqiU86qK7H0H9u5
+	 hEKbPt4UN5uY1i6tPQ4QyslY2eO7lW3KKluDkXHsUUTTFL+iAd8uzqEoIQwQ1p5dFN
+	 J3uuQ/Kv/8/OGV553xtsHqRkdfipIF0oZKx++hOgIdlkRRdMa2fBn78j7sMTPiRfh6
+	 XmuRL8gKN0y+CQNGrOnGSAdyldpV01hwoY9WK5NoQRWvnVCFDgOtjwuZoRJs58sEmv
+	 +toBN7N892Xew==
+Date: Fri, 5 Sep 2025 14:47:34 +0200
+From: Joerg Roedel <joro@8bytes.org>
+To: Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH] iommu/apple-dart: Clear stream error indicator bits for
+ T8110 DARTs
+Message-ID: <aLrb5kt7imDLdZpm@8bytes.org>
+References: <20250826-dart-t8110-stream-error-v1-1-e33395112014@jannau.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250826-dart-t8110-stream-error-v1-1-e33395112014@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_054213_187827_36323839 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250905_054737_461990_3D3905BA 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +76,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 05 Sep 2025 13:28:45 +0100,
-Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
+On Tue, Aug 26, 2025 at 12:57:18PM +0200, Janne Grunau wrote:
+> From: Hector Martin <marcan@marcan.st>
 > 
-> kvm-unit-tests consistently hang on Arm FVP when booted with
-> kvm-arm.mode=protected across both 4K and 64K page-size kernel builds.
+> These registers exist and at least on the t602x variant the IRQ only
+> clears when theses are cleared.
 > 
-> Running the same tests with kvm-arm.mode=vhe completes successfully.
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> ---
+> I've overlooked this change for the 4 level page table / t6020 support
+> series [1]. There are no dependencies to series so this can go in on its
+> own.
+> 
+> Janne
+> 
+> 1: https://lore.kernel.org/asahi/20250821-apple-dart-4levels-v2-0-e39af79daa37@jannau.net/
+> ---
+>  drivers/iommu/apple-dart.c | 5 +++++
+>  1 file changed, 5 insertions(+)
 
-Do you realise that "kvm-arm.mode=vhe" is not a valid option?
-
-> 
-> Anders, bisected and identified the first bad commit as:
-> 
->   066daa8d3bc2694c392e14091978043aed7b1f23
->   KVM: arm64: Initialize HCRX_EL2 traps in pKVM
-> 
-> Regression Analysis:
-> - Reproducibility? yes
-> 
-> Test regression: kvm-unit-tests hang on Arm FVP with kvm-arm.mode=protected
-> 
-> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> 
-> Environment:
-> Platform: Arm FVP base-revc
-> Kernel: arm64 (tested with 4K and 64K page sizes)
-> Mode: kvm-arm.mode=protected (hangs) vs kvm-arm.mode=vhe (passes)
-> Test suite: kvm-unit-tests (./run_tests.sh -a -t -v)
-> Cmdline args : kvm-arm.mode=protected
-> Kernel: Mainline master and Linux next master
-> 
-> Test run log:
-> INFO: running kvm unit tests ...
-> + [ True = false ]
-> + ./run_tests.sh -a -t -v
-> + tee -a /lava-1/0/tests/0_kvm-unit-tests/automated/linux/kvm-unit-tests/output/result_log.txt
-> TAP version 13
-
-What do you expect us to do with such a non-report? Can you please, at
-the very least, identify which test in that test suite triggers the
-failure?
-
-> Links:
-> https://regressions.linaro.org/lkft/linux-mainline-master/v6.17-rc4/lava/kvm-unit-tests/history/?page=1
-
-What is there? This link requires a login, and goes to 11 on the
-scale of being useless.
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+Applied, thanks.
 
