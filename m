@@ -4,103 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6070DCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1AACA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mlJOYlx/z1k0Vlh+9uQQpTUfAOydkzaaPUhFUkrjdUk=; b=kG/NFMGuc6MCk774rY8w7T+vxc
-	93oGkag9foIhsCSWfjMAt90JCJ51xe7eti4d+JXPr7tUUsN1i2kQkjwH2DxIvFwsHWJrOUNGt0Hd0
-	K/PjYU2guYAY7Djn0MSzUBz511WgrnJG5B1UbmTAleqqMzOR/HInVr3TbTsajL+jZ51CcRjmyPuSP
-	cjJXuM1BLAWAw1lokxMua0/mzdymNkx7DGzDHrRQUGgmJg9A600gZdUZ8IeiwKVSrufk2PmWEGsfd
-	RW5FcPbLNK3ep71+Aan6s2gC+pKaqkil7qNrewn3j1oxHYAZ3UV55KLPQReCG8LRzSQb30x3V1kce
-	t93wjEmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R+Lpf7yZ9aS/yOm66isk+kAfhb/g8eE+sSJhc6oWqLw=; b=dtzmNwWRJXXkqJdAa+AF5zqc8F
+	GRXYI/ke1uqcQIMDfvkc9iKypvdNrYAnEKIWLhBM2LpTJaD5Q8N3muZT0qVyG8fHO8gIVHqCiQrvJ
+	yzgXaCFbNZ8+ydTsBZvmRnBhcY0ZMWi5Snlyqvu1mY2IQHTJVNxycHLuOkm8O8C+XGKL91W46OCb1
+	nW7drnmM93dATCvny/0jO+K/+ruZfKlF4RcW9yXYQrCzUVM2tNx+8aVoUAMZ4fpee3dJ9m17MiR2q
+	VPs8AKWgzbms0kqTTu3wbIUIzwlIykZfg+DZcHMEseBj+/1CwUnuowEzTA+Vw48qluBfwvWpidLGz
+	Ay5xMnsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXWq-00000002McN-29qM;
-	Fri, 05 Sep 2025 14:35:04 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uuXWu-00000002Mhk-0l1i;
+	Fri, 05 Sep 2025 14:35:08 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuTH1-00000000uyR-2qgm;
-	Fri, 05 Sep 2025 10:02:28 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7724cacc32bso1567677b3a.0;
-        Fri, 05 Sep 2025 03:02:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757066546; x=1757671346; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mlJOYlx/z1k0Vlh+9uQQpTUfAOydkzaaPUhFUkrjdUk=;
-        b=TibPARTwfQz7ZZZQn7wC3As/AP9d/DQB2288CJUiOvuVbhzlck0pVt9bTorhXyysTH
-         5dHs7W96xERrfS/ozlKt8El/PLoT2klIt7rF2Z3LFukcLHSTQq3zVkrqX6k7Febk34cQ
-         94Wy8oFIM6mAv7V4hhzuUBG76VCZT6eVMKLoQazyL1FTtokJ7cEOzBXhecmZ+3deUpDw
-         JzTpvnSMOrnK6LIg0rVE5ZboZPHrz2spau8HJ2B2lFqUxN6jo5bPw9yyoDWMrlicQf8B
-         YpaXOW+waQzmkDAFQ/vyGc532w+XW2FbIJ4dVqTGUxlY2w7JV9dBjpYSXuzFTb3fcz++
-         8uzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757066546; x=1757671346;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mlJOYlx/z1k0Vlh+9uQQpTUfAOydkzaaPUhFUkrjdUk=;
-        b=AwOo4ZNvJ4vek3mLEnFNxfzIZKDWccqqhs93FclYVteqO0mjC83uMqMI4CqEEmxxwU
-         0EL6Il2EmUKs2e5eL/fMSSQgdg2JnI/LoHceJPH0R4ZY2+ijW+TlGgZyfNCKdqdk4hfJ
-         zkoTyS7ZhpAVl4fY4Oqx1lIrQVQnZ3ucSJCAaD0HQGe9KL0oxZmFCsD/MpSfDi7GCI7P
-         NxAF2TNCK7jNLBGr6VBKxXk6XRXM3jOMro5j1NkQ6/7QU81oSj75Hu5yP/fYGfx3SSHG
-         0yU8eZhV+mWLIfAszY8XiQ4vU9/7r2G4aH1bf7PVOVyWOaRLyjxMX9HPFq2ZItUrdRn5
-         FKNw==
-X-Forwarded-Encrypted: i=1; AJvYcCXId+L6xyPJLdgTY5Cy1cz3GF/eOW2xWyDWZ3KNNeJr/k6UtZvqikJ1wgBcW9NEEvYK2PZRuH1l+ZlwqtpfuX0=@lists.infradead.org, AJvYcCXUmTFowHrE+WyRnGdC/hpcMdE763tnTxfT6pwnD0iTITpvYss4PlUkII0d3pOUyQbzXdtNyb4qQt0KC/Uc00/l@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRjkE99okO2k+DOExmlho19KXY+3gUZg1ybmG43dF98IpMhEbx
-	nVqpcohZ/3b34wA9auHjvrgRGiiJLfSF32C9vuVmyZQPRw7cmD3sz/6i
-X-Gm-Gg: ASbGncttqVa8kuuPLMHhP0lie4r5TN74nFO7eRPYJudicl/CVrP9JYDfR5rFMqyGne3
-	3GUP6j+yvxwS2NZSlVXJCEIQARfTaLCIX+0qrtxow+s9HGyyWQX5ok5FaSV5kmj3UffltQvAvkf
-	3xIarIT/bvjnAlMkLlbMT4KcuNKR9j/FxdYQt+DwVybGE1QUoWuqgVVEEOf5p62TJKL2kb9noob
-	cDyudsn/fFIv97cLKDFv3Uy5i/dueqDIhw145Me/rFou5BUrYkH2ZyxRVvbsyOpMb1VPWlbtL5v
-	V9jOqbio6T1D1pxnRwD5fUxGTQpHwzt39DVkiHR0sp68/Fi9IBYpQcCCdpZTvl5L3+rEAtTlGLn
-	6RYiNrFdnw02v2zvR+6dbRVs=
-X-Google-Smtp-Source: AGHT+IEZFsGwp0kL92yq64dCob62/5/Te5BujmP7PaehTnILj7OwdceaDPf5lu2ogbouVgnk8eNmNg==
-X-Received: by 2002:a05:6a00:b47:b0:772:51f6:3518 with SMTP id d2e1a72fcca58-77251f65041mr25029357b3a.14.1757066546096;
-        Fri, 05 Sep 2025 03:02:26 -0700 (PDT)
-Received: from google.com ([2620:15c:9d:2:5133:5770:79e8:362b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7722a269e9csm21898326b3a.17.2025.09.05.03.02.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 03:02:25 -0700 (PDT)
-Date: Fri, 5 Sep 2025 03:02:21 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Ariel D'Alessandro <ariel.dalessandro@collabora.com>, 
-	airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch, 
-	andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com, broonie@kernel.org, 
-	chunkuang.hu@kernel.org, ck.hu@mediatek.com, conor+dt@kernel.org, davem@davemloft.net, 
-	edumazet@google.com, flora.fu@mediatek.com, houlong.wei@mediatek.com, 
-	jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com, krzk+dt@kernel.org, 
-	kuba@kernel.org, kyrie.wu@mediatek.corp-partner.google.com, lgirdwood@gmail.com, 
-	louisalexis.eyraud@collabora.com, maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com, 
-	mchehab@kernel.org, minghsiu.tsai@mediatek.com, mripard@kernel.org, 
-	p.zabel@pengutronix.de, pabeni@redhat.com, robh@kernel.org, sean.wang@kernel.org, 
-	simona@ffwll.ch, support.opensource@diasemi.com, tiffany.lin@mediatek.com, 
-	tzimmermann@suse.de, yunfei.dong@mediatek.com, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, 
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v1 13/14] dt-bindings: input/touchscreen: Convert MELFAS
- MIP4 Touchscreen to YAML
-Message-ID: <caguo7ud4dapb4yupeq2x4ocwoh4dt5nedwjsyuqsaratugcgz@ozajhsqwfzq6>
-References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-14-ariel.dalessandro@collabora.com>
- <CACRpkdbpKqKyebADj0xPFq3g0biPh-vm4d6C3sd8r0URyfyYRg@mail.gmail.com>
+	id 1uuTHp-00000000vNW-0vhj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 10:03:18 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJBdh2c9dz6L5kC;
+	Fri,  5 Sep 2025 17:59:20 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 37EE21402F1;
+	Fri,  5 Sep 2025 18:03:14 +0800 (CST)
+Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 5 Sep
+ 2025 12:02:49 +0200
+Date: Fri, 5 Sep 2025 11:02:48 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>
+CC: "Rafael J . wysocki" <rafael@kernel.org>, Viresh Kumar
+	<viresh.kumar@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, Srinivas Pandruvada
+	<srinivas.pandruvada@linux.intel.com>, Michael Ellerman <mpe@ellerman.id.au>,
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+	Thierry Reding <thierry.reding@gmail.com>, MyungJoo Ham
+	<myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>, "Jani Nikula"
+	<jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko
+ Ursulin <tursulin@ursulin.net>, "David Airlie" <airlied@gmail.com>, Simona
+ Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, Eduardo
+ Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>, Ben Horgan
+	<ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>, Zhang Rui
+	<rui.zhang@intel.com>, Len Brown <lenb@kernel.org>, Lukasz Luba
+	<lukasz.luba@arm.com>, "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+	Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
+	<festevam@gmail.com>, Pavel Machek <pavel@kernel.org>, "Sumit Gupta"
+	<sumitg@nvidia.com>, Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Sudeep
+ Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+	<linux-pm@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
+	<intel-gfx@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+	<imx@lists.linux.dev>, <linux-omap@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 06/10] drm/i915: Use scope-based cleanup helper
+Message-ID: <20250905110248.000058e9@huawei.com>
+In-Reply-To: <20250903131733.57637-7-zhangzihuan@kylinos.cn>
+References: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
+	<20250903131733.57637-7-zhangzihuan@kylinos.cn>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACRpkdbpKqKyebADj0xPFq3g0biPh-vm4d6C3sd8r0URyfyYRg@mail.gmail.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_030227_714718_8D2CB9A4 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20250905_030317_552027_AAE15EFD 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,29 +95,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 01:56:24PM +0200, Linus Walleij wrote:
-> Hi Ariel,
-> 
-> thanks for your patch!
-> 
-> On Wed, Aug 20, 2025 at 7:17 PM Ariel D'Alessandro
-> <ariel.dalessandro@collabora.com> wrote:
-> 
-> > +  ce-gpios:
-> > +    description: GPIO connected to the CE (chip enable) pin of the chip
-> > +    maxItems: 1
-> 
-> Mention that this should always have the flag GPIO_ACTIVE_HIGH
-> as this is required by the hardware.
-> 
-> Unfortunately we have no YAML syntax for enforcing flags :/
+On Wed,  3 Sep 2025 21:17:29 +0800
+Zihuan Zhang <zhangzihuan@kylinos.cn> wrote:
 
-Theoretically there can be an inverter on the line, so from the AP point
-of view the line is active low while from the peripheral POV the pin is
-active high... 
+> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+> annotation for policy references. This reduces the risk of reference
+> counting mistakes and aligns the code with the latest kernel style.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
+FWIW this one is fine if low impact.
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> ---
+>  drivers/gpu/drm/i915/gt/intel_llc.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/i915/gt/intel_llc.c b/drivers/gpu/drm/i915/gt/intel_llc.c
+> index 1d19c073ba2e..f15e4c0fa54b 100644
+> --- a/drivers/gpu/drm/i915/gt/intel_llc.c
+> +++ b/drivers/gpu/drm/i915/gt/intel_llc.c
+> @@ -29,13 +29,11 @@ static struct intel_gt *llc_to_gt(struct intel_llc *llc)
+>  
+>  static unsigned int cpu_max_MHz(void)
+>  {
+> -	struct cpufreq_policy *policy;
+> +	struct cpufreq_policy *policy __free(put_cpufreq_policy) = cpufreq_cpu_get(0);
+>  	unsigned int max_khz;
+>  
+> -	policy = cpufreq_cpu_get(0);
+>  	if (policy) {
+>  		max_khz = policy->cpuinfo.max_freq;
+> -		cpufreq_cpu_put(policy);
+>  	} else {
+>  		/*
+>  		 * Default to measured freq if none found, PCU will ensure we
 
-Thanks.
-
--- 
-Dmitry
 
