@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47908CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 01:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16AADCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 01:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mGJBj/GRvOfBT0wlhpAWudAskhOegbCz3cK9dilliCM=; b=mmoVEevhO+xwtrsos30Uy3D4Nn
-	j+v2ursaN695v858V/JTPbKCLmlzYgAfeOcjt+pUqUGaXkvxVOCMscH5JUS4YftZ5F5U3EtDtAyHr
-	fY8AsuLa1/KcDKvhV9wxcPf8v2vNXAK69JY1VGMjQ12M9BRwS7yTerDknpdTUJWnl6yj4cGOUrpOU
-	ucci2Lei3qAvM93Tg1BIa/9MOlczUA2fUCpcSpUw+Va6GniRclNw8CId2gHLRLbwtBjxEJQ/tKvoJ
-	fcbuA9fznQxyYILFRQD1Uqr77oXEMDIUWAqW146020ofLkkvk+8WcMdoa01SEO/uC4ZU9Ij/Zt+rQ
-	m0Mo8Ouw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mHVpcKB7Cb/uEraG7GIWsCqlkcZPuKQD5lJglnay43Q=; b=3UUzyvXQao4avbp/uv0veM5Gp4
+	DTJkYm3cOJKPTPvtQ2xRKPMy+X6k54gGLWmnY1k2mTPQ2yUMODowEachdDj9Bbw9v90OCMP8iYInv
+	keeZOEW36M7QQLs5WuVxwkjHzp5dTQ/ZQCoMfqPe4wjh6MLLiQe9mEU3zvoCYxp+t3uSX0ZLwkkJe
+	UriMF/g6gDTnFCuriDHg+iDVUoXtH87Ak3f9l54eIZc4bkwaibktn6nvy0Pk93ID97lTQfQ9Ug/1+
+	gHgRkUDhG5MMMOMFZxo1SsXDmYQQCDFowSA4/hWs1Wkxp3nSok7FVbw2ibTqwHa8jxs4J3OE3QKV0
+	nm4nKqqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuhgz-00000005s1R-0PMG;
-	Sat, 06 Sep 2025 01:26:13 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uuhh0-00000005s1e-07WP;
+	Sat, 06 Sep 2025 01:26:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uubLd-00000003rNA-2LOa
+	id 1uucI0-00000004Dk4-2lT0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 18:39:47 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 585IdY5W3313075;
-	Fri, 5 Sep 2025 13:39:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757097574;
-	bh=mGJBj/GRvOfBT0wlhpAWudAskhOegbCz3cK9dilliCM=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=FjnEWZYH72JSSKQx+/ZbbVotXU7wwK2hOeViOvs1yKx3vbfZetF59W4meWTMm6iPb
-	 WbtIBMat+5WuwxxpKx6n/uxlKASEDvhUKlQZSSQQZ9zHQQnl2Mh9m/aHM763JLAnla
-	 UkiKDwTP1Ku62PfmtfQPFI+GIQWvLrlfHVcpZKsI=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 585IdXaA1103704
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 5 Sep 2025 13:39:33 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 5
- Sep 2025 13:39:33 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 5 Sep 2025 13:39:33 -0500
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 585IdWrv862745;
-	Fri, 5 Sep 2025 13:39:32 -0500
-Date: Sat, 6 Sep 2025 00:09:31 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Kendall Willis <k-willis@ti.com>
-CC: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>,
-        <ulf.hansson@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <vishalm@ti.com>,
-        <sebin.francis@ti.com>, <msp@baylibre.com>, <khilman@baylibre.com>,
-        <a-kaur@ti.com>
-Subject: Re: [PATCH] pmdomain: ti_sci: Handle wakeup constraint if device has
- pinctrl wakeup state
-Message-ID: <20250905183931.qfqnnvmwqqvo3emy@lcpd911>
-References: <20250904211607.3725897-1-k-willis@ti.com>
+	Fri, 05 Sep 2025 19:40:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1814A445B9
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 19:40:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECA0CC4CEFA
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 19:40:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757101204;
+	bh=EW5E1DsoS/eP0Xpaway7kFwsFpD+pL719m9UghXWG4E=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ZqXRFlbgP5QwPcBxU6eNLL/08iwuclbpMhHj5f112VJ0D0CRs+uAOZZt9/eSU+oYH
+	 FOKxLZNfYfeCUuY691CYi9oaDczKB9oJxUx3sRU+YTC0hMmU7aj7i6icx+GswFUP2R
+	 IFwTEwP7LFbGxUg/I7SAjo0DENXd43ZHbeobRhQywFakWAs9/enQGWBOfoAuIelFBb
+	 wogoGak56kUdv1oV5wP9PLMDQRhAVNRB8Qk4NYGffSXcIWD99Y+pR+l0VNOqodu/Yf
+	 429lN+Si30NngrGAeTbmA/uuc+3zujKhmh+809qGxXm2EsqsYlM68fd6X/hgvyGAM6
+	 l4P6r3BqgQXRw==
+Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-74526ca79c2so1127778a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 12:40:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX5ou2AquEDDiHmdAiagxrGcVcQ8NVmd/jB6LvH6a3wU3uPuiI54V6GXEGAhn3vS0TJKdBMoEGrd70w2WbBjh5m@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQpGXDuMpCjwUo120mS21Ca3I9zAUAWRocXFMooQewTb79A81t
+	LZtA4UNO7wj3oFoYYX6ShkOPGwN2xmi2ltvg1EdDF9Jp3x85in921Kxnworfq7oMLAa+ouy6EVt
+	bXB7afhh/RpJge9CSz4zZEleQRocx/As=
+X-Google-Smtp-Source: AGHT+IEWhcvcPUmMTXw08ZtZH4mqK1uKC0R7GjcFC8PVlsyyD61c2ek06n5Ch8ecLJvX8w2zR6AjPrAE5CMEF+OJ57Q=
+X-Received: by 2002:a05:6830:700a:b0:74b:f9de:34dd with SMTP id
+ 46e09a7af769-74bf9de3edfmr235939a34.15.1757101203180; Fri, 05 Sep 2025
+ 12:40:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250904211607.3725897-1-k-willis@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250905132413.1376220-1-zhangzihuan@kylinos.cn> <20250905132413.1376220-5-zhangzihuan@kylinos.cn>
+In-Reply-To: <20250905132413.1376220-5-zhangzihuan@kylinos.cn>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Fri, 5 Sep 2025 21:39:52 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0jvskvxgUhxKJLN89A+s7Mruz1_tewHZfKgC7sUGLi9cw@mail.gmail.com>
+X-Gm-Features: Ac12FXws29Av_URAHgjbe1keBVsNp0-87UjpP4EeoBVUVvSgtWfWbkUI32D7vRk
+Message-ID: <CAJZ5v0jvskvxgUhxKJLN89A+s7Mruz1_tewHZfKgC7sUGLi9cw@mail.gmail.com>
+Subject: Re: [PATCH v5 4/6] PM / devfreq: Use scope-based cleanup helper
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>
+Cc: "Rafael J . wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, 
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Thierry Reding <thierry.reding@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>, Ben Horgan <ben.horgan@arm.com>, 
+	zhenglifeng <zhenglifeng1@huawei.com>, Zhang Rui <rui.zhang@intel.com>, 
+	Len Brown <lenb@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Beata Michalska <beata.michalska@arm.com>, 
+	Fabio Estevam <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>, Sumit Gupta <sumitg@nvidia.com>, 
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Yicong Yang <yangyicong@hisilicon.com>, linux-pm@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_113945_781655_3D871419 
-X-CRM114-Status: GOOD (  38.20  )
+X-CRM114-CacheID: sfid-20250905_124004_747558_68977439 
+X-CRM114-Status: GOOD (  26.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,122 +104,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sep 04, 2025 at 16:16:07 -0500, Kendall Willis wrote:
-> In TI K3 SoCs the PM co-processor (device manager or DM) will decide
-> which low power state to suspend into based off of constraints given by
-> Linux. If a device is marked as a wakeup source in Linux, Linux will add
-> a constraint that the wakeup source has to be on. The DM will enter the
-> deepest low power state based off of the constraint.
-> 
-> In cases like UARTs, IO daisy-chaining can be used to wakeup the system,
-> however if the UART is marked as a wakeup source, the system is not able
-> to enter any low power mode.
-> 
-> IO daisy-chain wakeup can use the pinctrl wakeup state instead of using
-> wake IRQs. For example, the serial driver on K3 platforms uses a wakeup
-
-I think this statement will only make sense to someone who's worked on
-io daisychain and wake IRQs on our SoCs.
-I don't think it's coming out very clearly why wake IRQs are needed for
-IO Daisychain in the first place.
-
-You could probably just reference commit b06bc47279919 ("pmdomain:
-ti_sci: handle wake IRQs for IO daisy chain wakeups") from Kevin where
-we explain whats io daisychain and need for wake IRQ. Talk in this patch
-with relation to that patch - what you're doing that the other one
-missed.
-
-> pinctrl state to be able to resume from suspend.
-
-Perhaps I am missing the order in which the patches are being applied.
-But if it's like the 1 -> 2 -> 3 order you mentioned below then this
-reference to serial drv won't really make sense right?
-
-If we're going in the order of applying the series that you
-specified, there's no guarantee that the UART patch makes it in
-along with this patch, so I'd say let's skip mentioning the serial
-driver to avoid sending people in search for how the serial driver is
-doing this atall.
-
-In Kevin's earlier commit it made sense, because he was talking about
-daisychaining, here we're not. So the 8250 driver doesn't actually have
-the changes we're talking about in this patch.
-
-> 
-> Devices that are marked as a wakeup source and use pinctrl wakeup state
-> should not set wakeup constraints since these can happen even from deepest
-> low power state, so the DM should not be prevented from picking deep power
-> states.
-> 
-> Detect the pinctrl wakeup state in the suspend path, and if it exists,
-> skip sending the constraint.
-> 
-> Signed-off-by: Kendall Willis <k-willis@ti.com>
+On Fri, Sep 5, 2025 at 3:25=E2=80=AFPM Zihuan Zhang <zhangzihuan@kylinos.cn=
+> wrote:
+>
+> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+> annotation for policy references. This reduces the risk of reference
+> counting mistakes and aligns the code with the latest kernel style.
+>
+> No functional change intended.
+>
+> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
 > ---
-> This series is intended to be implemented along with the following
-> series:
-> 
-> 1. "pmdomain: ti_sci: Handle wakeup constraint if device has pinctrl
->    wakeup state": (this patch) skips setting constraints for wakeup
->    sources that use pinctrl state 'wakeup'.
-> 
-> 2. "serial: 8250: omap: Add wakeup support": Implements wakeup from
->    the UARTs for TI K3 SoCs
-> 
-> 3. "arm64: dts: ti: k3-am62: Support Main UART wakeup": Implements the
->    functionality to wakeup the system from the Main UART
-> 
-> Testing
-> -------
-> Tested on a SK-AM62B-P1 board with all series and dependencies
-> implemented. Suspend/resume verified with the Main UART wakeup source
-> by entering a keypress on the console.
-> 
-> ---
->  drivers/pmdomain/ti/ti_sci_pm_domains.c | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
-> 
-> diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-> index 82df7e44250bb..884905fd0686c 100644
-> --- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
-> +++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-> @@ -10,6 +10,7 @@
->  #include <linux/err.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> +#include <linux/pinctrl/consumer.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_domain.h>
->  #include <linux/pm_qos.h>
-> @@ -84,9 +85,24 @@ static inline void ti_sci_pd_set_wkup_constraint(struct device *dev)
->  	struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
->  	struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
->  	const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
-> +	struct pinctrl *pinctrl = devm_pinctrl_get(dev);
-> +	struct pinctrl_state *pinctrl_state_wakeup;
->  	int ret;
->  
->  	if (device_may_wakeup(dev)) {
-> +		/*
-> +		 * If device can wakeup using pinctrl wakeup state,
-> +		 * we do not want to set a constraint
-> +		 */
-> +		if (!IS_ERR_OR_NULL(pinctrl)) {
-> +			pinctrl_state_wakeup = pinctrl_lookup_state(pinctrl, "wakeup");
-> +			if (!IS_ERR_OR_NULL(pinctrl_state_wakeup)) {
-> +				dev_dbg(dev, "%s: has wake pinctrl wakeup state, not setting " \
-> +						"constraints\n", __func__);
-> +				return;
-> +			}
-> +		}
+>  drivers/devfreq/governor_passive.c | 60 +++++++++++-------------------
+>  1 file changed, 22 insertions(+), 38 deletions(-)
+>
+> diff --git a/drivers/devfreq/governor_passive.c b/drivers/devfreq/governo=
+r_passive.c
+> index 953cf9a1e9f7..5afaea39377e 100644
+> --- a/drivers/devfreq/governor_passive.c
+> +++ b/drivers/devfreq/governor_passive.c
+> @@ -80,24 +80,23 @@ static int get_target_freq_with_cpufreq(struct devfre=
+q *devfreq,
+>         struct devfreq_passive_data *p_data =3D
+>                                 (struct devfreq_passive_data *)devfreq->d=
+ata;
+>         struct devfreq_cpu_data *parent_cpu_data;
+> -       struct cpufreq_policy *policy;
+>         unsigned long cpu, cpu_cur, cpu_min, cpu_max, cpu_percent;
+>         unsigned long dev_min, dev_max;
+>         unsigned long freq =3D 0;
+>         int ret =3D 0;
+>
+>         for_each_online_cpu(cpu) {
+
+I'd rather move the code in this loop to a separate function in the
+first place and then do a __free()-based simplification of it.  I'd
+suggest doing each step in a separate patch to avoid mistakes.
+
+> -               policy =3D cpufreq_cpu_get(cpu);
+> +               struct cpufreq_policy *policy __free(put_cpufreq_policy) =
+=3D
+> +                       cpufreq_cpu_get(cpu);
 > +
+>                 if (!policy) {
+>                         ret =3D -EINVAL;
+>                         continue;
+>                 }
+>
+>                 parent_cpu_data =3D get_parent_cpu_data(p_data, policy);
+> -               if (!parent_cpu_data) {
+> -                       cpufreq_cpu_put(policy);
+> +               if (!parent_cpu_data)
+>                         continue;
+> -               }
+>
+>                 /* Get target freq via required opps */
+>                 cpu_cur =3D parent_cpu_data->cur_freq * HZ_PER_KHZ;
+> @@ -106,7 +105,6 @@ static int get_target_freq_with_cpufreq(struct devfre=
+q *devfreq,
+>                                         devfreq->opp_table, &cpu_cur);
+>                 if (freq) {
+>                         *target_freq =3D max(freq, *target_freq);
+> -                       cpufreq_cpu_put(policy);
+>                         continue;
+>                 }
+>
+> @@ -121,7 +119,6 @@ static int get_target_freq_with_cpufreq(struct devfre=
+q *devfreq,
+>                 freq =3D dev_min + mult_frac(dev_max - dev_min, cpu_perce=
+nt, 100);
+>
+>                 *target_freq =3D max(freq, *target_freq);
+> -               cpufreq_cpu_put(policy);
+>         }
+>
+>         return ret;
+> @@ -255,8 +252,6 @@ static int cpufreq_passive_register_notifier(struct d=
+evfreq *devfreq)
+>                         =3D (struct devfreq_passive_data *)devfreq->data;
+>         struct device *dev =3D devfreq->dev.parent;
+>         struct opp_table *opp_table =3D NULL;
+> -       struct devfreq_cpu_data *parent_cpu_data;
+> -       struct cpufreq_policy *policy;
+>         struct device *cpu_dev;
+>         unsigned int cpu;
+>         int ret;
+> @@ -273,37 +268,34 @@ static int cpufreq_passive_register_notifier(struct=
+ devfreq *devfreq)
+>         }
+>
+>         for_each_possible_cpu(cpu) {
 
-Not much objections to the code itself, as it makes sense that we want
-to ignore the constraint for wakeup pinctrl similar to how we did for the
-wake IRQ one.
+And analogously here.  I'd use separate two patches for updating this code.
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+> -               policy =3D cpufreq_cpu_get(cpu);
+> -               if (!policy) {
+> -                       ret =3D -EPROBE_DEFER;
+> -                       goto err;
+> -               }
+> +               struct cpufreq_policy *policy __free(put_cpufreq_policy) =
+=3D
+> +                       cpufreq_cpu_get(cpu);
+>
+> -               parent_cpu_data =3D get_parent_cpu_data(p_data, policy);
+> -               if (parent_cpu_data) {
+> -                       cpufreq_cpu_put(policy);
+> +               if (!policy)
+> +                       return -EPROBE_DEFER;
+> +
+> +               struct devfreq_cpu_data *initial_parent_cpu_data =3D
+> +                       get_parent_cpu_data(p_data, policy);
+> +
+> +               if (initial_parent_cpu_data)
+>                         continue;
+> -               }
+>
+> -               parent_cpu_data =3D kzalloc(sizeof(*parent_cpu_data),
+> -                                               GFP_KERNEL);
+> -               if (!parent_cpu_data) {
+> -                       ret =3D -ENOMEM;
+> -                       goto err_put_policy;
+> -               }
+> +               struct devfreq_cpu_data *parent_cpu_data __free(kfree) =
+=3D
+> +                       kzalloc(sizeof(*parent_cpu_data), GFP_KERNEL);
+> +
+> +               if (!parent_cpu_data)
+> +                       return -ENOMEM;
+>
+>                 cpu_dev =3D get_cpu_device(cpu);
+>                 if (!cpu_dev) {
+>                         dev_err(dev, "failed to get cpu device\n");
+> -                       ret =3D -ENODEV;
+> -                       goto err_free_cpu_data;
+> +                       return -ENODEV;
+>                 }
+>
+>                 opp_table =3D dev_pm_opp_get_opp_table(cpu_dev);
+>                 if (IS_ERR(opp_table)) {
+>                         dev_err(dev, "failed to get opp_table of cpu%d\n"=
+, cpu);
+> -                       ret =3D PTR_ERR(opp_table);
+> -                       goto err_free_cpu_data;
+> +                       return PTR_ERR(opp_table);
+>                 }
+>
+>                 parent_cpu_data->dev =3D cpu_dev;
+> @@ -313,8 +305,8 @@ static int cpufreq_passive_register_notifier(struct d=
+evfreq *devfreq)
+>                 parent_cpu_data->min_freq =3D policy->cpuinfo.min_freq;
+>                 parent_cpu_data->max_freq =3D policy->cpuinfo.max_freq;
+>
+> -               list_add_tail(&parent_cpu_data->node, &p_data->cpu_data_l=
+ist);
+> -               cpufreq_cpu_put(policy);
+> +               list_add_tail(&(no_free_ptr(parent_cpu_data)->node,
+> +                       &p_data->cpu_data_list);
+>         }
+>
+>         mutex_lock(&devfreq->lock);
+> @@ -324,14 +316,6 @@ static int cpufreq_passive_register_notifier(struct =
+devfreq *devfreq)
+>                 dev_err(dev, "failed to update the frequency\n");
+>
+>         return ret;
+> -
+> -err_free_cpu_data:
+> -       kfree(parent_cpu_data);
+> -err_put_policy:
+> -       cpufreq_cpu_put(policy);
+> -err:
+> -
+> -       return ret;
+>  }
+>
+>  static int devfreq_passive_notifier_call(struct notifier_block *nb,
+> --
 
