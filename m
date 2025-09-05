@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE99BCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B476CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LSXdQvhjLqn/cnLmBxmZ8XUh4olkXbYzp0sAqc3/Ow4=; b=TYOwRcS13Y77JVj/4IHCBdC3os
-	zL8qJHpv/bWai1PIas96gTiFtlIIeIBgGA3KKbEdC4xt6RxD1BspKvhUii2/t72Ay7iazNob7sxGb
-	MATAJf16Gn9amImGm5fUq0iJBqb4sMzvwG9pKQpNu2Bv88Lfq1YzR/nzgMLGMQWLy+pZhuY9gKxsI
-	UWeLWDQc7e+xI/ic1PR2macPVOegoettUfN+qpoqMOaVEo1SH23ZITCTxNdSm6a7YDTNKbHnPVlcA
-	BGG513J0npPGfuV0yqK4pNrxHQzq2wDSP8ZyXV7MQu54p5khnSKlnS/qrxabkXdn1oFfhLdTzStww
-	kHeMPmfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LyeDu2i+o9HDa3/kwwKLQ3zkEkc/YK3lZMNTzfpm8EU=; b=Xjy3VrQNdtC6BcC0CFo7IaAe6b
+	hoPTLhVjOcZ6Gs4HC2nx9MqVh5s9fRVIu4krnYJ6rWQbmygDRRMR6NS5FJ8PwYrZityqol/9oecBa
+	YS9bfJ9GeaYAn933sm7bnOtpC3Og5R5VlkJFDpd/HdxqR2sQ5lY6mJYZ9DttoIu9/v2juhcgU9hcv
+	tdwlOBH7LcXf4Ur/NPkJq+OhlNUYnvm6QlY/xHWPk2mHkNWMVckTL+/kPmXtqsXW3IfHYioq1dVwP
+	7z+Jv20hoMxFGYj/wsxPweH5v2izxMkYa9gIkbC6/yXlLNaiOuxlLT0gEAgca3bNbp8pQP9lFSG+3
+	ys4EqxVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugW7-00000005SrQ-3As8;
-	Sat, 06 Sep 2025 00:10:56 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+	id 1uugWE-00000005T5z-2bAy;
+	Sat, 06 Sep 2025 00:11:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuao5-00000003fU3-2KDL
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 18:05:09 +0000
-Message-ID: <3e113599-2d99-4585-af14-a93cafe11d33@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1757095500;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LSXdQvhjLqn/cnLmBxmZ8XUh4olkXbYzp0sAqc3/Ow4=;
-	b=dfTqhICYs5bofpSfYNxjoM/fGywq3OzgNiQFG5yvYF11d9CeT3Vr10t4WSBJ0QFkHWxCX+
-	xtx8N7PkiYSt1x6cDmZo5fRgu9Ab7wTZ0C/m1nJZEJ/OleEqCkOlIQC2A2mqiX0dbDBwqy
-	HNi1WtovwHMzIWb4Vjc8YqoPllsRUcc=
-Date: Fri, 5 Sep 2025 11:04:55 -0700
+	id 1uub8w-00000003mV2-186B;
+	Fri, 05 Sep 2025 18:26:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5DD09601AA;
+	Fri,  5 Sep 2025 18:26:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2770C4CEF1;
+	Fri,  5 Sep 2025 18:26:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757096797;
+	bh=LyeDu2i+o9HDa3/kwwKLQ3zkEkc/YK3lZMNTzfpm8EU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lr94/cIuJT3cZOFrv+NriZvDh0IBH7VOJn7CT/KUMfAUQDE8iLCaJtLXo4eT1m88d
+	 AZHs84jECVBUSd+0oFEPmter5XOTuZdNlaaHKbmKunMTFPEDeg/WNHYUeRelnaWvQq
+	 E89pKiOCUVfEC19gjzIgWORGIM+aHE9OoQUG+hyQkhEMwn+SBrtfvaJk5mERqGRobt
+	 mrEyfLa4PNybctRdzkie6d19QhJJxUnLa6ORrl1VcjnjD6GPWgV3FUCOYoObIU428b
+	 QKqIVGv2LYyhYl+qkrLfh1eDnLaGhWUxwk43oLyUkS7/tFVDmqVTyb1194vWvSK+oG
+	 fWlmeHZSW9ypg==
+Date: Fri, 5 Sep 2025 19:26:32 +0100
+From: Conor Dooley <conor@kernel.org>
+To: WeiHao Li <cn.liweihao@gmail.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 3/4] dt-bindings: phy: rockchip,inno-usb2phy: Document
+ rk3368 usb phy
+Message-ID: <20250905-crumb-district-ca69a00cf6ee@spud>
+References: <20250905125318.7956-1-cn.liweihao@gmail.com>
+ <20250905125318.7956-4-cn.liweihao@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH] drivers/perf: riscv: Remove redundant ternary operators
-To: Liao Yuanhong <liaoyuanhong@vivo.com>, Anup Patel <anup@brainfault.org>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- "open list:RISC-V PMU DRIVERS" <linux-riscv@lists.infradead.org>,
- "moderated list:ARM PMU PROFILING AND DEBUGGING"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM PMU PROFILING AND DEBUGGING"
- <linux-perf-users@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
-References: <20250828122510.30843-1-liaoyuanhong@vivo.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-Content-Language: en-US
-In-Reply-To: <20250828122510.30843-1-liaoyuanhong@vivo.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_110507_728419_FA525075 
-X-CRM114-Status: GOOD (  13.22  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="JICgwRvRS9Ky+b8v"
+Content-Disposition: inline
+In-Reply-To: <20250905125318.7956-4-cn.liweihao@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +73,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 8/28/25 5:25 AM, Liao Yuanhong wrote:
-> For ternary operators in the form of "a ? true : false", if 'a' itself
-> returns a boolean result, the ternary operator can be omitted. Remove
-> redundant ternary operators to clean up the code.
->
-> Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
-> ---
->   drivers/perf/riscv_pmu_sbi.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 698de8ddf895..c18dbffa9834 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -339,7 +339,7 @@ static bool pmu_sbi_ctr_is_fw(int cidx)
->   	if (!info)
->   		return false;
->   
-> -	return (info->type == SBI_PMU_CTR_TYPE_FW) ? true : false;
-> +	return info->type == SBI_PMU_CTR_TYPE_FW;
->   }
->   
->   /*
+--JICgwRvRS9Ky+b8v
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
+--JICgwRvRS9Ky+b8v
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLsrWAAKCRB4tDGHoIJi
+0l5zAP9FcI/1JClbYyW8Ww/u1FjWaaTZPlI37QTxc3eyTNDk1gD/X+NwruBP7g7o
+k0a2fGxRECLLi6BGWP4ublx6JyltjAw=
+=gGkB
+-----END PGP SIGNATURE-----
+
+--JICgwRvRS9Ky+b8v--
 
