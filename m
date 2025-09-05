@@ -4,182 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD26CAC580
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 19:26:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 139C9CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 19:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kliRin4QiexKHktvU9gtBkvMNPW/7hVVt3BDB/9+9Xw=; b=D8baCPzgwMkZR5T+vJOEtxbyZt
-	tVQMHOvEbUXXnKzszCo9qmehim3M2VluBFR42j61gUxlNqIxYHBoJdIH+7lGV/4+6XCPo4lbhy6m9
-	3OOo10z8JQtBdsY8KEwVxwMv6XCD3JpqboiX3hQgcBujD3hiVtxHaX0nDEdDLJX0jfeW55rttM5Jh
-	sOeOlKXoDWzz138DTvnBo+yafLDvLepEFLm6CxFW2Qjia9E5sQX3mUZfAejYP5DfBBzDmfKvfV+QO
-	YXRMQJTJQVQsGpSbrKwHwE/cQZW1uMa1Xnsx9QeeDg7AUVaIWX2xX/k+QUQK3KPYL+TaLfu6FoYv5
-	u083SP1Q==;
+	bh=gwsaUsiPTz6C0FNobEgQ77nTd1Kw9HiUyiggzzyF+Pg=; b=uLBc/lKAm0T+4aCok5kz+yd5oa
+	pUrZ9kRaDHBX4D4QwqmVJl2/fVf1+kugsE0Thb/2p9KFsVTdiO5WGyq6OdKN6328Q4rkRil9xGMf9
+	6N+2euaWFuzPAeE7+/FtcPhOWzw4nCnFi1v7aMWaFyOhBk86s4Cj6zAIRR28DYJ9uMpuo1QuydnO0
+	dBUMz2UvAahelPPZ2YVamYXcdsjmHxL7FYUAeWxA7iwgtchBREVthDk/juAOAZrSY5fBJanve4UfA
+	DQZkEMpTsTU7ntQQCc8PpTFxkQ//zsd44e0CDl15+eM0VrhHdRvN5d3WPbxBrESMFsVq3p4yNHDtU
+	b1Arc/gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuc52-000000046tS-3iw1;
-	Fri, 05 Sep 2025 19:26:41 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uuc5J-000000047Dn-2oyO;
+	Fri, 05 Sep 2025 19:26:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuWvL-00000002820-2MCa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 13:56:22 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 585Drjtm012018;
-	Fri, 5 Sep 2025 15:56:05 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	kliRin4QiexKHktvU9gtBkvMNPW/7hVVt3BDB/9+9Xw=; b=bcK6xcB0tYWIo6Ew
-	pPB6LJWWr5Huo/6IWHPoJnAqeXuqbSk84H0zVFlfTNfymd9i05HbL0dGfsnFvbiY
-	0Ha7FDC3SPyWQHCNcroVxJs89uMALSiBc/oXFYmRgrF8BeidNTl6Dd/IjdFs0Udc
-	YEZcTc1L4hkY72tT2Cxa/fQDB2iSQVJejDJteEl5zW+f2UmkCgND/QwokqDqcd3U
-	DV1NJZnif89Ga0nyJb5pRFKBWl/kAqRCPaGIJeA8Hjx8OycFA0uv0hAKb86ZeS2Z
-	lFe6C4gYbkmeM0mZfuOOzJXdbQPcPMg1uxDzrhFF78lzns+q/Q56miwYVDUnvbDp
-	5hf0Jw==
-Received: from duzpr83cu001.outbound.protection.outlook.com (mail-northeuropeazon11012011.outbound.protection.outlook.com [52.101.66.11])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48upe7ts1t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 05 Sep 2025 15:56:05 +0200 (MEST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yHAvByBBz0lImmkdyLfusVOCUBn80G1bUjNO38KtQQGHSJ7bwFKT1WPp7MRIvmx1r/Wy1M4qSR+INh+Xwq+tp92k00aR04bbB7Hq9qBrKMQnV31M5OaBkXLUe32zrZNlCyczzICjIxLKxqC1I63NCV8upjGTn0HPiT5YQ1DcEK0F1fI9EMdfk/ziA/OEsBgQvTebarPEEaXPK5rbRqUsMRHFZQigIGo5CHnnLR80Ih5CXd15R4P+QwSuMX4iC5LrffzUyP+Uy0VOUL7OmAQlbvb39XrYEn1kb89UpQOBJMATN8twOQe1VwKbBaTRZN38eiXcujI9S4AnqLUf1nw2PQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kliRin4QiexKHktvU9gtBkvMNPW/7hVVt3BDB/9+9Xw=;
- b=lMQzXyVFRoKBGW8Q+AADfTa+PsWbaZZ9KDmrQpRwF4D5R95AScgT2Fk0ei+b6OndaceDUNqEblSz9Y8Bdvr4w4vW116hvoTCrY5OAv/nZvuKooL+eVaVf8I00HTDLCl6GIu/+UAShmSMjO2jvQfB3mHbRVZD4Oqg138nRmIPO0h/RUjPZRTnZzTInY4LFgFAcRwcqJWyBUx6D0YE841yGhVnRBnbE9b7PHMhE1z9ifPDsM7q+MtTbIT3jscvh+X2bWewfEyKDi3luz3AWMeDRoUcbDw+T9pX+G9JHZ+H2nLcCkBFonoUDtgvoBOPHjXWXNmmoeJIrOvW/i71Jm6QfA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.43) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=stmicroelectronics.onmicrosoft.com;
- s=selector2-stmicroelectronics-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kliRin4QiexKHktvU9gtBkvMNPW/7hVVt3BDB/9+9Xw=;
- b=h5VibSLQ9TFsUeJJl47Ev+ZrhI73ZuGtzVeaVLCX1y/xFPb6b4HKzHB3hp6LjlX2veiasPHencyzAgzERKDRtMaVFkYa5Ba+VLjBCXXKisDB/+Tai5kqphyg9f4WUUsVUO1w+dXv1RImBXQWrN/t3SJ2D6EPzUlzgTVgLiJ3So0=
-Received: from AM0PR10CA0106.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:208:e6::23)
- by AS8PR10MB5832.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:508::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Fri, 5 Sep
- 2025 13:56:00 +0000
-Received: from AM3PEPF0000A78D.eurprd04.prod.outlook.com
- (2603:10a6:208:e6:cafe::4d) by AM0PR10CA0106.outlook.office365.com
- (2603:10a6:208:e6::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.20 via Frontend Transport; Fri,
- 5 Sep 2025 13:56:00 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.43)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.43 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.43; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.43) by
- AM3PEPF0000A78D.mail.protection.outlook.com (10.167.16.116) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.14 via Frontend Transport; Fri, 5 Sep 2025 13:56:00 +0000
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
- (10.250.44.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Fri, 5 Sep
- 2025 15:53:41 +0200
-Received: from localhost (10.48.86.11) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Fri, 5 Sep
- 2025 15:55:59 +0200
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-CC: Antonio Borneo <antonio.borneo@foss.st.com>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>,
-        Fabien Dessenne
-	<fabien.dessenne@foss.st.com>,
-        Valentin Caron <valentin.caron@foss.st.com>
-Subject: [PATCH v2 1/9] pinctrl: pinconf-generic: Add property "skew-delay-direction"
-Date: Fri, 5 Sep 2025 15:55:39 +0200
-Message-ID: <20250905135547.934729-2-antonio.borneo@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250905135547.934729-1-antonio.borneo@foss.st.com>
-References: <20250905135547.934729-1-antonio.borneo@foss.st.com>
-MIME-Version: 1.0
+	id 1uuXxr-00000002Zrb-0SfX;
+	Fri, 05 Sep 2025 15:02:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 694CC602B2;
+	Fri,  5 Sep 2025 15:02:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0750C4CEF1;
+	Fri,  5 Sep 2025 15:02:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757084578;
+	bh=fXAlkg6U4rjB2T88uzlB0xsdi6LWa2QU3tBer2f0tLE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=nrXh5JC8NNluI3p5jaLqySzGJpmeKgwV9Zu67Olq4VBiL2OHhcKZp17i1qxOAByjZ
+	 IZ4BCOyAB4ZZgxu5fMVQ+gBrLQb/M77HHt6Pfvdmmbrb0gC5kFv2DggICl9HnpqV02
+	 iVXgMMfQUTS64BpH9F8/DUQ0kpxwpbRoVVZsdjWg3YbcIJmoiqRkfxX56L+OSBGI8w
+	 MNd7Gk13vdIAKKNRRKjk8kHQ5BkwPmP6Fzka3zSdZjAnlil3fc0Y7eeGv9JKI3sGys
+	 Jx6VoHtvtf3rU5cudLlcScxlSJT+J4E1IOSyA/AjtvsJypal4QQDn9r61B6dFx9KXV
+	 8T6H4OovQB4+g==
+Date: Fri, 05 Sep 2025 10:02:57 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.86.11]
-X-ClientProxiedBy: SAFCAS1NODE1.st.com (10.75.90.11) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM3PEPF0000A78D:EE_|AS8PR10MB5832:EE_
-X-MS-Office365-Filtering-Correlation-Id: ff6146d8-0c02-4e6c-0d51-08ddec83f235
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?m+2Qtk14Q1b4gpu+erwrHNk3Us/VueiGI2aTGMLBEv2LZcYmDL56UIV9rDQL?=
- =?us-ascii?Q?nSw774VEUheacXoxMHFMVNcV31VyUkeX8uUoF9Y+qvl7SeVBtjrQ9ftPp9b+?=
- =?us-ascii?Q?C6nd11c4OtENDmijNnOJ5f2YfgqYk+DpswepdORT8NrjOu9UO+qCtMMeZ7q6?=
- =?us-ascii?Q?hzrz34AXpwc80DIIqmj7bm4mWXNED10Ll7qIv4zPWjMSOlFTV2cjtb2XGGEd?=
- =?us-ascii?Q?fTBQwf3USQIPjfw0JtvIY51Z/icTB2BI1HQFscVmuz/Ucp980j2m7zJaWjys?=
- =?us-ascii?Q?Bv+4cqGl8hKBD4VpIGTcdF4dePxZPzJATeec2LI2Ils9cRAGnqnqn6spA5p6?=
- =?us-ascii?Q?tmnPmY4RoAx0rP7itHuuHLJze1z6FbrhY4bHokyZRYewwv+wPAjKYWx3mook?=
- =?us-ascii?Q?8e063lwCFDAey0mUaIZ18aRrgx5VlouT0bVtLy9ljhwY3R3VF5lhOpw6npCb?=
- =?us-ascii?Q?1+k5/MOMqAyzv/Mw5tklckTq3uOfqrwGu3HfRKIZW6jr9+yVyt6bEFh2yG2c?=
- =?us-ascii?Q?5vxZ1BPWo/MdFBvxHkjjLo39QHnNiUM8UbDa7CrEWavhzQM5I6dlDp/6EJRq?=
- =?us-ascii?Q?AJ28exJQ/Dp6dzCg556pdxhYEF4TTdAgl352bS4HLem2wrwvzFkkoRNmFVi0?=
- =?us-ascii?Q?wtPWPs+3CvJVWrg8P190mvqANK7sqkyVPy9hsm9vbWPsoP5lVtZmvvb0lovH?=
- =?us-ascii?Q?zbYcG3ygL0cxQQCZet/kbgUYqGUhIuoyr5npx4hq9HuI8HbJXUYd/o7GEASR?=
- =?us-ascii?Q?s/zKDMf69xqA/FAghTILHHieqp69VVP4Ltl2/K3J7w3XoIqIx2BuoAbqz6yL?=
- =?us-ascii?Q?PpE692aZK5ResiCY43fLaB3LZVJJ6JRMnwX6M17qPXciN8GM7b42Y4g0imFQ?=
- =?us-ascii?Q?IZWnzeDbPzxRDRt9gasA5gvkZqRTNpu9bkIzyOZ6FOTVXNWVJf+zdOQNu0c1?=
- =?us-ascii?Q?6MA4MaGG5GJqZrE83UnOXlyT514RhlFEz3H0+meLvepDtTtpiq65GJXNx/38?=
- =?us-ascii?Q?2M+ENah9ySCgCcK02+wH14OGDORGEijYuoKtuUINfMHMKWUusQ7icMwNb2+G?=
- =?us-ascii?Q?ar7O/W6793XE2dWYyuWiW1i1iAWZj474vO2UWpG2uE2kN064pe9gA0ZQGWbc?=
- =?us-ascii?Q?4qY4laXHc4ld5RZv2800uWiNEtJLjYVXS8G9HC518UTnzTkNwm8XqpR2+irv?=
- =?us-ascii?Q?SQIQHOlDFq+JO9y1K9ja8QkWMb7oT1magt8uW6pR/cRe6pJMmPYQGo/SQ15N?=
- =?us-ascii?Q?04jXzGaQAM+fvjWLfoHNRLTqn28ApLiaYfHefqLCkivJg6YKVZo4u8Vvq/Hc?=
- =?us-ascii?Q?lOIgTKI94Ug/3SovsbIbi9uSTJshMdERTAxWKd01nits/Y7suN3oLJa5v4xM?=
- =?us-ascii?Q?TZOhQAlQuHmlIGQHn3VEKOsVEMLAHk9RRxUUNPSo2EXEQkAjToSANFXFtMGa?=
- =?us-ascii?Q?GaFebO9BkKRRlp1iuXDk8+1jNEuHb+kk9Z4ZLf6km3EgBwXk2jn1wyRphG8i?=
- =?us-ascii?Q?3U9rYHJGt5q8TiRaW35XWkYkQigVbcyd9WN/riwSQHAfQgnPnB+aHw83gQ?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.43;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2025 13:56:00.4016
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ff6146d8-0c02-4e6c-0d51-08ddec83f235
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.43];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A78D.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB5832
-X-Proofpoint-GUID: b9V5UPdadA21bueLA2m0bKmkSI84umv-
-X-Proofpoint-ORIG-GUID: b9V5UPdadA21bueLA2m0bKmkSI84umv-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI5MDIyMCBTYWx0ZWRfX06xGFul2obWM b8S3drXuIZOIsERqe0m7G/52EtFZ3XPA0DqEPar+9f52W22sj2V4a2/KZxQdqpYHbSgC6QkS+3b PTSbmxPk/yvUV8Y4ywLFLFZcpF91nd0gPry7e4InTxeJAU7y62GESvRkrnrtYA7SrhHZItNm15S
- wpKBMsyT/Gq10yUSwe/LCVgdLkruatubafsgWc4Cp252cpjbY/slFHZFZ8b9BMcoBvsEOc4YoFD JFWz9elJDTWTGe13pw1FOnw65TlNkh4OrvmZQNd3bgK/Teo9MJdtNiGRvXeJoGBFlrT2/ltDx33 Xtilcy5p0ns1BJJPivrXriQu+NC3Rx+zAtJPJlUeMxOEipMMz0gNk//hs2QUSWggvAnwLSEIGJ4 3rZIM3IZ
-X-Authority-Analysis: v=2.4 cv=Vq0jA/2n c=1 sm=1 tr=0 ts=68baebf5 cx=c_pps a=ZPycPb/c0f+ZTB6yQ4jH7Q==:117 a=peP7VJn1Wk7OJvVWh4ABVQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=y9YUpebZf6kA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=FUbXzq8tPBIA:10 a=8b9GpE9nAAAA:8 a=xf320qtOAoSKBp3c5q0A:9 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-05_04,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 priorityscore=1501 malwarescore=0
- impostorscore=0 spamscore=0 suspectscore=0 adultscore=0 clxscore=1011
- bulkscore=0 phishscore=0 classifier=typeunknown authscore=0 authtc=
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508290220
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_065619_861895_5BA472D1 
-X-CRM114-Status: GOOD (  13.67  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Chris Lu <chris.lu@mediatek.com>, 
+ linux-mediatek <linux-mediatek@lists.infradead.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Sean Wang <sean.wang@mediatek.com>, Marcel Holtmann <marcel@holtmann.org>, 
+ Jiande Lu <jiande.lu@mediatek.com>, 
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+ linux-bluetooth <linux-bluetooth@vger.kernel.org>, 
+ linux-kernel <linux-kernel@vger.kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hao Qin <Hao.qin@mediatek.com>, 
+ Luiz Von Dentz <luiz.dentz@gmail.com>, 
+ devicetree <devicetree@vger.kernel.org>, Deren Wu <deren.Wu@mediatek.com>
+To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+In-Reply-To: <20250905084433.26999-1-ot_zhangchao.zhang@mediatek.com>
+References: <20250905084433.26999-1-ot_zhangchao.zhang@mediatek.com>
+Message-Id: <175708448180.930634.147702031291534747.robh@kernel.org>
+Subject: Re: [PATCH v7] dt-bindings: net: mediatek,mt7925-bluetooth.yaml
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,66 +76,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the property "skew-delay-direction" to the generic parameters
-used for parsing DT files. This allows to specify the direction
-(either input, output or both) on which the existing property
-"skew-delay" applies.
-For backward compatibility, set default to 0, equivalent to "both
-input and output directions".
-This enables drivers that use the generic pin configuration to get
-the value passed through this new property.
 
-Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
----
- drivers/pinctrl/pinconf-generic.c       | 2 ++
- include/linux/pinctrl/pinconf-generic.h | 6 ++++++
- 2 files changed, 8 insertions(+)
+On Fri, 05 Sep 2025 16:44:33 +0800, Zhangchao Zhang wrote:
+> Reset BT via BT_KILL_1V2_L hardware pin.
+> 
+> On the M.2 standard hardware pin interface, the MTK chip
+> has a pin called BT_KILL_1V2_L or W_DISABLE#2, it uses
+> function-level device reset (FLDR) to reset Bluetooth.
+> When it is pulled low, it can external shut down the BT
+> function, it is defined as 5 on the MT7925 chip, and is
+> defined as 248 on the device tree pio controller.
+> 
+> Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+> ---
+>  .../bluetooth/mediatek,mt7925-bluetooth.yaml  | 47 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 48 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
+> 
 
-diff --git a/drivers/pinctrl/pinconf-generic.c b/drivers/pinctrl/pinconf-generic.c
-index d67838afb0857..d2713fce0ab0f 100644
---- a/drivers/pinctrl/pinconf-generic.c
-+++ b/drivers/pinctrl/pinconf-generic.c
-@@ -54,6 +54,7 @@ static const struct pin_config_item conf_items[] = {
- 	PCONFDUMP(PIN_CONFIG_SLEEP_HARDWARE_STATE, "sleep hardware state", NULL, false),
- 	PCONFDUMP(PIN_CONFIG_SLEW_RATE, "slew rate", NULL, true),
- 	PCONFDUMP(PIN_CONFIG_SKEW_DELAY, "skew delay", NULL, true),
-+	PCONFDUMP(PIN_CONFIG_SKEW_DELAY_DIRECTION, "skew delay direction", NULL, true),
- };
- 
- static void pinconf_generic_dump_one(struct pinctrl_dev *pctldev,
-@@ -190,6 +191,7 @@ static const struct pinconf_generic_params dt_params[] = {
- 	{ "sleep-hardware-state", PIN_CONFIG_SLEEP_HARDWARE_STATE, 0 },
- 	{ "slew-rate", PIN_CONFIG_SLEW_RATE, 0 },
- 	{ "skew-delay", PIN_CONFIG_SKEW_DELAY, 0 },
-+	{ "skew-delay-direction", PIN_CONFIG_SKEW_DELAY_DIRECTION, 0 },
- };
- 
- /**
-diff --git a/include/linux/pinctrl/pinconf-generic.h b/include/linux/pinctrl/pinconf-generic.h
-index 1bcf071b860eb..7e49d4e60b9fb 100644
---- a/include/linux/pinctrl/pinconf-generic.h
-+++ b/include/linux/pinctrl/pinconf-generic.h
-@@ -108,6 +108,11 @@ struct pinctrl_map;
-  *	or latch delay (on outputs) this parameter (in a custom format)
-  *	specifies the clock skew or latch delay. It typically controls how
-  *	many double inverters are put in front of the line.
-+ * @PIN_CONFIG_SKEW_DELAY_DIRECTION: this will configure the direction of the
-+ *	skew rate or latch delay. If not present or it's 0, latch delay (on
-+ *	outputs) and/or skew rate (on inputs) is applied. If it's 1, then only
-+ *	latch delay on outputs is applied. If it's 2, then only skew rate on
-+ *	inputs is applied.
-  * @PIN_CONFIG_SLEEP_HARDWARE_STATE: indicate this is sleep related state.
-  * @PIN_CONFIG_SLEW_RATE: if the pin can select slew rate, the argument to
-  *	this parameter (on a custom format) tells the driver which alternative
-@@ -143,6 +148,7 @@ enum pin_config_param {
- 	PIN_CONFIG_PERSIST_STATE,
- 	PIN_CONFIG_POWER_SOURCE,
- 	PIN_CONFIG_SKEW_DELAY,
-+	PIN_CONFIG_SKEW_DELAY_DIRECTION,
- 	PIN_CONFIG_SLEEP_HARDWARE_STATE,
- 	PIN_CONFIG_SLEW_RATE,
- 	PIN_CONFIG_END = 0x7F,
--- 
-2.34.1
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.example.dtb: bluetooth (mediatek,mt7925-bluetooth): Unevaluated properties are not allowed ('#gpio-cells' was unexpected)
+	from schema $id: http://devicetree.org/schemas/net/bluetooth/mediatek,mt7925-bluetooth.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250905084433.26999-1-ot_zhangchao.zhang@mediatek.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
