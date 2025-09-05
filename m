@@ -4,90 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C72CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 10:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CA5CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 12:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mGHoIy1u5YwF44RSJWPpqSfDEUJvtheqWLknK2zHyFU=; b=YaudmXaLIJeLTAb3oNEnDW3Xwi
-	1V99rdeNR/GIhQyOHdKgVaYT+Kc44XkvG3XVsLWYxg7kig6UTEzk14rFcoyIrWgyQPP27IDvFvR3k
-	D7iPEDtTzDZxtPteV8+lbQgI9OtV5tNIC1TgHEsEmWj0/BeI86zDvFGE48ozMR7nQ0alpXkvR7L6G
-	tJtOR4rbgb9XNPHO8QI0aBoGzhu6Donp6UEWSPvHCatNcT28OaUjYJv9VpoixJzq3A/X/mD1itcDk
-	ZH8CYCtjKga9d8nVlAoncR0RRwG4mcKmY7YvUKQNfOpB0DVez7oTQMfhKtNqMBs6TX4ApQnaQffK0
-	2S9V5juQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KVYwjpkk7VyCs/iI618+bXC4RwqsGT+qSSBLktkm758=; b=SeIckep6WO9hr0UloLJEsc9U+l
+	ESZsnLwt/QJkCPxvxm5YqfBy+0TLYHXxXY9roQRCpQsbCpdFMcBwl4WN6pW/Yj4hkUahcSjWeqAPh
+	R6jv307x4hVh3IHhNni6UUu3YEHYCckxsuQyTCtVFXk/my405pea0ZXLkezRhF8uEtkxsflh9hP+i
+	hEehTa7ZjYq5K3wEJN1DEjJtWXLDBIl3daG+YxmNVuGRTRN7EcTyhieXtx60stwtk2pWqaNUYVMi/
+	5+6mUe8lywJ1uEcKsT1eToeuFP3EnywYxuIxidFJZuL6kcEZC9aBh7+1NZYya+y+EiKdxeTFE8wsN
+	oGx0OPhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuTqw-0000000170M-01zx;
-	Fri, 05 Sep 2025 10:39:34 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1uuW1k-00000001phK-0LM1;
+	Fri, 05 Sep 2025 12:58:52 +0000
+Received: from mail-co1nam11on20618.outbound.protection.outlook.com ([2a01:111:f403:2416::618] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuS6p-00000000Tbx-3JpS
+	id 1uuS8z-00000000UOs-2q9L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 08:47:53 +0000
-Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250905084744epoutp026be13e435d00e987c508f8b182ea70d7~iVqNRr23A0851908519epoutp02R
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 08:47:44 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250905084744epoutp026be13e435d00e987c508f8b182ea70d7~iVqNRr23A0851908519epoutp02R
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1757062064;
-	bh=mGHoIy1u5YwF44RSJWPpqSfDEUJvtheqWLknK2zHyFU=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=VokOjQNRa8qIcm/dtJHJLnFz4cy+2SXpSsrUeiIjUgZb52kFbUykbkZSNSPzbAbpK
-	 JskakR2E3dhwPWqjxKeaJ7obpfG0rmiJLZoVzkCT6YyyodrgQJeq8uqzTMY0Z4Ywax
-	 4WlxLolGlOritOGvJtNx2tTBdqjH62OcyBmCan/A=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250905084743epcas2p1209d3973b38799f3420a2824b3332e6b~iVqM0BAPM2283222832epcas2p11;
-	Fri,  5 Sep 2025 08:47:43 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.36.68]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cJ8zC2rZ7z6B9mB; Fri,  5 Sep
-	2025 08:44:23 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250905084422epcas2p3adcac9df0246c693fccd56c6321633a0~iVnRzknAo1169711697epcas2p3z;
-	Fri,  5 Sep 2025 08:44:22 +0000 (GMT)
-Received: from KORCO115296 (unknown [12.36.150.221]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250905084422epsmtip1c3a98abb7296146ebad52327dc761bfb~iVnRuW2Wo1642316423epsmtip1R;
-	Fri,  5 Sep 2025 08:44:22 +0000 (GMT)
-From: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
-Cc: "'Bartlomiej Zolnierkiewicz'" <bzolnier@gmail.com>, "'Rafael J .
- Wysocki'" <rafael@kernel.org>, "'Daniel Lezcano'"
-	<daniel.lezcano@linaro.org>, "'Zhang Rui'" <rui.zhang@intel.com>, "'Lukasz
- Luba'" <lukasz.luba@arm.com>, "'Rob Herring'" <robh@kernel.org>, "'Conor
- Dooley'" <conor+dt@kernel.org>, "'Alim Akhtar'" <alim.akhtar@samsung.com>,
-	<linux-pm@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Fri, 05 Sep 2025 08:50:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SVwqJhnd7BKYu2MDfnzztVJMivcBqPOu3CBJAujpthgPyw2/OX31+btJnpC51kk3iVn/0lvF180QhIm6bvvDVD7k3wlb1TLggnD7deTW2l4uEL/eqy2+eekcNV6QPUvC9g4N4r4oKKvaZ9d2KDSfv5U6mPH4BcBwEJQc/SN/A/h7VhjByQTAP7Hv/Sv3cKE7ovsMzy3Ksao0ICNMPznfUIBpq3F3jdh1eTAKnWxeZ55paEqNnV84t//uOrWFTRs7blRmbGmliXLuCfUhCAWQGOOFdmQwK8n3bl7QthYvb+TG8whscVjaU10JeAoY7MzK5XvWGnrHtZ/9bSO07ZBivA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KVYwjpkk7VyCs/iI618+bXC4RwqsGT+qSSBLktkm758=;
+ b=Vvf01mLNZbIL59bcLbhGU1GV9fNSFZ/0KedIxyr1CjiSyu0J4Ya5KKvNR53MaNboU2Vzpg7N6Gl8C9CPD87sF2NGOsoEGi8mTjnvHfUuK6B0SYejSx/nvG+UjrHnpRyyt1nSTbWIM7jxl/En86jaVofCF3AaMgv2hFHwXQxnuwVM/iBbNGOUrmd3cpyrTKpfAOHXG1fKtIfVuuhXAkdYMr72i1sKKiwqB+NTnX/suUzQxB1F6sdF2fJjYFCu7EfRGKYqecqeyRFSlOX8B5OJL86cwKCyn3AYsyOlPlMqARCM/6KUa2h7BZLkww1s19UGkN2YEW6aYsBXvWPV8NwZOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KVYwjpkk7VyCs/iI618+bXC4RwqsGT+qSSBLktkm758=;
+ b=3yMiORiJtD+mvs5mFYRZfIE24qp8CzV0tyMRRUlA/raZX6EGXS0/0k8WGyh8uKn/GcRHp+cvGCIvMQm9/tMqExnq9SyJYAm/t+xDV2rhZJHNGyxnlzZiPTHilHLdiCUUu/ex/6OjurNsUe0NGNGX9QPOoWDSnBTVwmfW1LK/oeY=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by CH2PR12MB9494.namprd12.prod.outlook.com (2603:10b6:610:27f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Fri, 5 Sep
+ 2025 08:50:00 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c%6]) with mapi id 15.20.9073.026; Fri, 5 Sep 2025
+ 08:50:00 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>, "vkoul@kernel.org"
+	<vkoul@kernel.org>, "Simek, Michal" <michal.simek@amd.com>
+CC: "dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
 	<linux-kernel@vger.kernel.org>
-In-Reply-To: <20250904-chocolate-kangaroo-of-order-2cced3@kuoka>
-Subject: RE: [PATCH v2 1/3] dt-bindings: thermal: samsung: Add tmu-name and
- sensor-index-ranges properties
-Date: Fri, 5 Sep 2025 17:44:22 +0900
-Message-ID: <022001dc1e41$46f7ba60$d4e72f20$@samsung.com>
-MIME-Version: 1.0
+Subject: RE: [PATCH] dmaengine: xilinx_dma: Fix uninitialized addr_width when
+ "xlnx,addrwidth" property is missing
+Thread-Topic: [PATCH] dmaengine: xilinx_dma: Fix uninitialized addr_width when
+ "xlnx,addrwidth" property is missing
+Thread-Index: AQHcHjET1tYIM1lSnk6JdPNQMRAdLrSER2Cg
+Date: Fri, 5 Sep 2025 08:50:00 +0000
+Message-ID: <MN0PR12MB5953092ADFCB9B5D7B1BE807B703A@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20250905064811.1887086-1-suraj.gupta2@amd.com>
+In-Reply-To: <20250905064811.1887086-1-suraj.gupta2@amd.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-09-05T08:48:41.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|CH2PR12MB9494:EE_
+x-ms-office365-filtering-correlation-id: 6c7a9ff4-7c7b-45a8-e9d2-08ddec5932aa
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7053199007|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?2LlAhZitUmLKrqYe8eWer4ymXwIxjYvpCkowbFxKv8LzdmbybWHl/vOtn4A6?=
+ =?us-ascii?Q?YpJxhlha5V8HWPz3NlQXvvS7KMcWBo3UKl0l/Dx5XBTLFBniLQZt1qZThCa4?=
+ =?us-ascii?Q?0KW8MrbRnzbpxEezfhvEnmTi3W2WhQmGX2B+DA/NPWSWqbbWMcEzc9s70Koa?=
+ =?us-ascii?Q?GFtCoqsVc00JRXUyLzcW0JKmFdkGZPiuENjWp6EXjisc9Lu4vizpvsnm2pKI?=
+ =?us-ascii?Q?7de2P1E0xyT/Zd00BaXrc06P10edBUmfFgN+oFJ5LOsF7BWCQUzmjnOJCCVB?=
+ =?us-ascii?Q?1Rx1Gx3ZZphlupNuKA3OyBgO+iBizj3iZZm5zE5YIs3/qG9mLwu89tmzVeYV?=
+ =?us-ascii?Q?aTTjNNdqaXmGRRYntGRw99MmQzXx+Ph2c0uBF7TCZRCMwEX8PD7Zz4WiyGyw?=
+ =?us-ascii?Q?HwhejjH5s8w69MjrcPktHez2s9m7T49yq722BaJ0fRgCUPbT/JF2sB9mWNUZ?=
+ =?us-ascii?Q?owJSdCmgoNFn0LygGB3bvYuzZSO2IUcPP9Pff3vWRhelhFGNFcsfqo14ne2t?=
+ =?us-ascii?Q?5NUk1Z3E43iiG6+qyKqjB+TkqqXeX2cof6rDqRIns1dhc5LioQd8BBS9Q13G?=
+ =?us-ascii?Q?MyKW+78+DF2rzhJj5un8aupGciBwZOFttMypo0IjWDYv/wICnHa04avkiV2m?=
+ =?us-ascii?Q?bprDS0wcTHgC8zns91o0YRJFgDpf+gUUmUlpoaAWqPxJTgBMiMZhAEwomP4o?=
+ =?us-ascii?Q?m509IN1N3QHWmslPS0murlOsgK7nSc3iLyvjHMAehn5YdAt5LgtWHtr7h+vH?=
+ =?us-ascii?Q?zW08j8RfKClJtAcC5PYkEzJm2upnGaNNH1LDhYLFzzE/2OsL8uZi7QZpfujH?=
+ =?us-ascii?Q?Mm6txaN377rdkQXYlxfxFmk9kz/P9wjAEDSLoIEudy039ut/hHPLAl5Rm/s5?=
+ =?us-ascii?Q?8/A2qFU3HoUDZimSLXeErv1pYashHmTYMk5ndDmiLJ7Nff4ytdOGd9SWqXcp?=
+ =?us-ascii?Q?u8XvGleLJm0/+J5RGi8hKy4ENTfKdsI3Pvbmi5ZjKSej4/crj0HU66TFdJNL?=
+ =?us-ascii?Q?FO4crOQVNdZeM1yPBSdoarrvEasIFcOtXttV2UMHbhMnIqOTpl/2kx4iRPKl?=
+ =?us-ascii?Q?eb+fdmz2cJKrUbNpR8dYiU+lcfUdpMyOR+csxUVCq4YxVFGG98FsKmYNWMdq?=
+ =?us-ascii?Q?Udk0k+yn9dTbtHj8qIJACcU6mcP3v7mi79lpb5oaXsjo7qgVwtcsTsoHkzi7?=
+ =?us-ascii?Q?butB9kmyoVMhlxG+tBAPX8Cemz7j4Fl3empnIylXIUeemPvivC/rThmf27Mq?=
+ =?us-ascii?Q?6o4BnbvM5BPay9HB5b6YXJXgWp2isB7W0Fkiy6Q2BVwKKQ7IlKn4/Mrhl2i6?=
+ =?us-ascii?Q?MjKbPINT17YQA99Zij6RnI+W/aAOJquVH7irL7PMv0LgUxLLc5Vt+YPQzShO?=
+ =?us-ascii?Q?LEPtAWIuu0lVozgT0bq3xSycS6ysn4UXfkDoh2bFglAPvaHy5Ls5ODLYuZBk?=
+ =?us-ascii?Q?ki8Klp4ODNCXxkowsmkxv2UpBB8Xo9pYHtCdE7FiJi+S77Fi+YLzqZF9pvr9?=
+ =?us-ascii?Q?VEaRG+ABxZFiQ+s=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7053199007)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?u4EvxoFfbmRyBAxFcymIvqdfBWc1fpVc1wUdEifU53008ui6egKZXHUAsiUk?=
+ =?us-ascii?Q?x6+b6TphzldyH+msIGcnZ4FOpOn1nabg+dHV/tRJa5FbAY5odRSgQOj1l/v9?=
+ =?us-ascii?Q?aHyOH9xJ9mya64fcd5pDXjhEvXMFfLWzfM+bE7651yhVCcWtHYjB8J659rjz?=
+ =?us-ascii?Q?Dk5eLgIOmhg+/uI20OcydDDdCO6ztV//jSWr+RxoJqWu/JoaWnUe9+fW2/IS?=
+ =?us-ascii?Q?ckJpcdJFqi38EDEtpWlXZfo1RN0LhyvxcGJZxD8UNXgGGtRIfd35GxV3qPoj?=
+ =?us-ascii?Q?iqvQDh2F9E16ZRok5gOnRBg11QrW2e5+YnqISdDow8YNOusohAkLTgCYSY+c?=
+ =?us-ascii?Q?2aniJoQhwWEzf/j3KX8OTy72WL/sDC1l9IXRYA8yCrv8EVMU6/EUmy73iB2L?=
+ =?us-ascii?Q?nMmIK49hdLd8WZtHhqz6xBYjfSxIyFk0k9FK7rYZ1BpLicWtjPF0nnPqfgP/?=
+ =?us-ascii?Q?mWbp4K0AwsfGblxBvwykxtsEhybYrXr0M1LO1oagQzyToHYh7sncxK5yR4Ft?=
+ =?us-ascii?Q?onzOmhN5ibloQImI9H4tx2nqFi67Wdi8Anlt8JKbjHhGk+3SJWw2FGwy8DAe?=
+ =?us-ascii?Q?JjfKxpjKgCLDZwFdP0FBFtVarrpGy0o+9z9CfSCcvZkHf22+9+lMHahENC50?=
+ =?us-ascii?Q?8zVpMR4hwPhVLpnWheg5aVob06AFlYFPIAGapvi06qlJxld03TdzOjw2ACwp?=
+ =?us-ascii?Q?fc48ubOiI4JKTJUObLdyxkjryaytzO8b2/DnH2HN7c3tfneeCUpMllkVZ6i+?=
+ =?us-ascii?Q?TMGFBjjAVMvEVB2yEQSI4X84DBz/yogXYZ1fzaEGTWlLoHtE8pXprQU5GW22?=
+ =?us-ascii?Q?BKIT5ffguqcYE8JulYEH1iEmF5WaH2u+EsDK/wmW1T5QMc3lksL0Vb5EE9bO?=
+ =?us-ascii?Q?QIPFeiMjk9fS14T14GcrPuQJAC3TUU37QQ+OXKo1f1a78gtGC4kRp1RVJHcv?=
+ =?us-ascii?Q?nY2A3R75G65rRtanzJ0vOZpuWYXJ1ENa4GbUqS+Xg084CowQ1wJHj/9Uy2cl?=
+ =?us-ascii?Q?0TQAt4DTjrReJxZXssjSxEV7VpR8c2mE925ux0O9w2EVQvdq2sti5BXlV4vi?=
+ =?us-ascii?Q?i25Y5DTGfCDpWLLM1PkCKOByJfrhgHOkw4x6UTdnbDefgxcawg7hpsCexxgh?=
+ =?us-ascii?Q?EfKIM7Vsbb0/KWW0cuzRckXyS1RTArsGMhJyLq5oDQOObBx/vMe2GWvPTIv9?=
+ =?us-ascii?Q?ET+FRuwfyGWpGF8LezAC0BmkM8nKs5306y2Ybt9LDoCdH/WOwXXM5DmHk1h2?=
+ =?us-ascii?Q?nQeg9Kr1Up/+Xydaq0hvV7WMZLuoKaV/6L9EGE29DiRXJWgYxdIztd5HBGdj?=
+ =?us-ascii?Q?qDRyqlinQbKQzaFqZtICl1ZH8CYONVlJN32HjU0WZjoSKKp46by8qdMYY23t?=
+ =?us-ascii?Q?LZYjrPnAKapyabYiirCwx73KjjuVzHcj0WPohTsRVQ8xfwwnnd/BJNUq5cNw?=
+ =?us-ascii?Q?ImC6irCb201F8lL6OS2qBnnqTr9S9pas9rK9f/CMWXNH7vp+v8zG0/x7II/I?=
+ =?us-ascii?Q?H4FTFscpBy0pJV7baWGzvgTgssXPBGiqwZdL39vATzo1c7xviiT+EW1r9vhc?=
+ =?us-ascii?Q?VpxJmuTu+ghQBucXKx8=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 15.0
-Thread-Index: AQJcDpuT0zWDya8nliyk6vzs/32vBQIURjbqAvLO/ccDYiYaWLNA+7WQ
-Content-Language: ko
-X-CMS-MailID: 20250905084422epcas2p3adcac9df0246c693fccd56c6321633a0
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250903073653epcas2p4cb25058c97aab9a30c7e68ef5f10fb91
-References: <20250903073634.1898865-1-shin.son@samsung.com>
-	<CGME20250903073653epcas2p4cb25058c97aab9a30c7e68ef5f10fb91@epcas2p4.samsung.com>
-	<20250903073634.1898865-2-shin.son@samsung.com>
-	<20250904-chocolate-kangaroo-of-order-2cced3@kuoka>
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6c7a9ff4-7c7b-45a8-e9d2-08ddec5932aa
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Sep 2025 08:50:00.2748
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: uwL1trrIYcsNQz/MCP5h4G32WoaQPU/+2qwozan+DoGNEJpaAxzYX/019PwhWi36
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB9494
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_014752_155792_446A56E7 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20250905_015005_728200_EA3621D6 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,101 +167,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzysztof Kozlowski,
+[AMD Official Use Only - AMD Internal Distribution Only]
 
 > -----Original Message-----
-> From: Krzysztof Kozlowski =5Bmailto:krzk=40kernel.org=5D
-> Sent: Thursday, September 4, 2025 5:00 PM
-> To: Shin Son <shin.son=40samsung.com>
-> Cc: Bartlomiej Zolnierkiewicz <bzolnier=40gmail.com>; Rafael J . Wysocki
-> <rafael=40kernel.org>; Daniel Lezcano <daniel.lezcano=40linaro.org>; Zhan=
-g Rui
-> <rui.zhang=40intel.com>; Lukasz Luba <lukasz.luba=40arm.com>; Rob Herring
-> <robh=40kernel.org>; Conor Dooley <conor+dt=40kernel.org>; Alim Akhtar
-> <alim.akhtar=40samsung.com>; linux-pm=40vger.kernel.org; linux-samsung-
-> soc=40vger.kernel.org; devicetree=40vger.kernel.org; linux-arm-
-> kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org
-> Subject: Re: =5BPATCH v2 1/3=5D dt-bindings: thermal: samsung: Add tmu-na=
-me
-> and sensor-index-ranges properties
->=20
-> On Wed, Sep 03, 2025 at 04:36:32PM +0900, Shin Son wrote:
-> > The exynosautov920 TMU requires per-sensor interrupt enablement for
-> > its critical trip points.
-> > Add a DT property to the Samsung thermal bindings to support this
-> > requirement:
->=20
-> That's pretty redundant sentence.
+> From: Suraj Gupta <suraj.gupta2@amd.com>
+> Sent: Friday, September 5, 2025 12:18 PM
+> To: vkoul@kernel.org; Simek, Michal <michal.simek@amd.com>; Pandey, Radhe=
+y
+> Shyam <radhey.shyam.pandey@amd.com>
+> Cc: dmaengine@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linu=
+x-
+> kernel@vger.kernel.org
+> Subject: [PATCH] dmaengine: xilinx_dma: Fix uninitialized addr_width when
+> "xlnx,addrwidth" property is missing
+>
+> When device tree lacks optional "xlnx,addrwidth" property, the addr_width
+> variable remained uninitialized with garbage values, causing incorrect
+> DMA mask configuration and subsequent probe failure. The fix ensures a
+> fallback to the default 32-bit address width when this property is missin=
+g.
+>
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> Fixes: b72db4005fe4 ("dmaengine: vdma: Add 64 bit addressing support to t=
+he
+> driver")
 
-I'll remove this sentence.
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
 
-> >
-> > - **samsung,hw-sensor-indices**: Defines the sensors currently
-> >                                  mapped to the TMU hardware.
-> > 				 Indices not listed are absent or fused off
->=20
-> Don't write here any code, but concise prose dxescribing hardware.
->=20
-> If sensors are fused out, you certainly can read their status from efuse,
-> no?
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
+dma.c
+> index fabff602065f..89a8254d9cdc 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -131,6 +131,7 @@
+>  #define XILINX_MCDMA_MAX_CHANS_PER_DEVICE    0x20
+>  #define XILINX_DMA_MAX_CHANS_PER_DEVICE              0x2
+>  #define XILINX_CDMA_MAX_CHANS_PER_DEVICE     0x1
+> +#define XILINX_DMA_DFAULT_ADDRWIDTH          0x20
+>
+>  #define XILINX_DMA_DMAXR_ALL_IRQ_MASK        \
+>               (XILINX_DMA_DMASR_FRM_CNT_IRQ | \
+> @@ -3159,7 +3160,7 @@ static int xilinx_dma_probe(struct platform_device =
+*pdev)
+>       struct device_node *node =3D pdev->dev.of_node;
+>       struct xilinx_dma_device *xdev;
+>       struct device_node *child, *np =3D pdev->dev.of_node;
+> -     u32 num_frames, addr_width, len_width;
+> +     u32 num_frames, addr_width =3D XILINX_DMA_DFAULT_ADDRWIDTH,
+> len_width;
+>       int i, err;
+>
+>       /* Allocate and initialize the DMA engine structure */
+> @@ -3235,7 +3236,9 @@ static int xilinx_dma_probe(struct platform_device =
+*pdev)
+>
+>       err =3D of_property_read_u32(node, "xlnx,addrwidth", &addr_width);
+>       if (err < 0)
+> -             dev_warn(xdev->dev, "missing xlnx,addrwidth property\n");
+> +             dev_warn(xdev->dev,
+> +                      "missing xlnx,addrwidth property, using default va=
+lue %d\n",
+> +                      XILINX_DMA_DFAULT_ADDRWIDTH);
+>
+>       if (addr_width > 32)
+>               xdev->ext_addr =3D true;
+> --
+> 2.25.1
 
-=22fused out=22 was a wrong expression =E2=80=94=20sensors=20are=20not=20in=
-dicated=20in=20any=20register.=20Sorry=20for=20the=20confusion.=0D=0AThe=20=
-hardware=20does=20not=20provide=20a=20bitmask=20of=20present=20sensors.=0D=
-=0ATherefore,=20the=20DT=20must=20explicitly=20list=20which=20indices=20bel=
-ong=20to=20this=20TMU=20instance.=0D=0A=0D=0AAdditionally,=20I'll=20rephras=
-e=20this=20sentence=20to=20clearly=20describe=20the=20TMU=20hardware=20only=
-.=0D=0A=0D=0A>=20=0D=0A>=20This=20is=20really=20vague=20description=20of=20=
-hardware.=20I=20don't=20understand=20why=20you=0D=0A>=20are=20changing=20se=
-nsor-cells,=20why=20older=20variants=20of=20tmu=20gets=20now=20cells=3D1=0D=
-=0A>=20(missing=20constraints?).=0D=0A>=20=0D=0A>=20Why=20older=20variants=
-=20also=20get=20that=20property=20for=20sensors?=20It=20does=20not=20make=
-=0D=0A>=20sense=20there,=20because=20they=20have=20one-to-one=20mapping=20b=
-etween=20TMU=20and=20sensor.=0D=0A=0D=0AOlder=20variants=20should=20be=20fi=
-xed=20to=200,=0D=0Abut=20my=20patch=20mistakenly=20opened=20it=20with=20an=
-=20enum=20so=20that=201=20was=20also=20allowed=20there,=20I'll=20fix=20this=
-.=0D=0AI'll=20also=20restrict=20the=20sensor=20indices=20property=20to=20v9=
-20=20only.=0D=0A=0D=0A>=20=0D=0A>=20>=0D=0A>=20>=20Additionally,=20add=20my=
-self=20to=20the=20bindings'=20maintainers=20list,=20as=20I=20plan=0D=0A>=20=
->=20to=20actively=20work=20on=20the=20exynosautov920=20TMU=20support=20and=
-=20handle=20further=0D=0A>=20>=20updates=20in=20this=20area.=0D=0A>=20>=0D=
-=0A>=20>=20Signed-off-by:=20Shin=20Son=20<shin.son=40samsung.com>=0D=0A>=20=
->=20---=0D=0A>=20>=20=20.../bindings/thermal/samsung,exynos-thermal.yaml=20=
-=7C=2016=0D=0A>=20>=20+++++++++++++++-=0D=0A>=20>=20=201=20file=20changed,=
-=2015=20insertions(+),=201=20deletion(-)=0D=0A>=20>=0D=0A>=20>=20diff=20--g=
-it=0D=0A>=20>=20a/Documentation/devicetree/bindings/thermal/samsung,exynos-=
-thermal.yam=0D=0A>=20>=20l=0D=0A>=20>=20b/Documentation/devicetree/bindings=
-/thermal/samsung,exynos-thermal.yam=0D=0A>=20>=20l=20index=2029a08b0729ee..=
-abd89902d33a=20100644=0D=0A>=20>=20---=0D=0A>=20>=20a/Documentation/devicet=
-ree/bindings/thermal/samsung,exynos-thermal.yam=0D=0A>=20>=20l=0D=0A>=20>=
-=20+++=20b/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal=
-=0D=0A>=20>=20+++=20.yaml=0D=0A>=20>=20=40=40=20-8,6=20+8,7=20=40=40=20titl=
-e:=20Samsung=20Exynos=20SoC=20Thermal=20Management=20Unit=0D=0A>=20>=20(TMU=
-)=0D=0A>=20>=0D=0A>=20>=20=20maintainers:=0D=0A>=20>=20=20=20=20-=20Krzyszt=
-of=20Kozlowski=20<krzk=40kernel.org>=0D=0A>=20>=20+=20=20-=20Shin=20Son=20<=
-shin.son=40samsung.com>=0D=0A>=20>=0D=0A>=20>=20=20description:=20=7C=0D=0A=
->=20>=20=20=20=20For=20multi-instance=20tmu=20each=20instance=20should=20ha=
-ve=20an=20alias=20correctly=0D=0A>=20>=20numbered=20=40=40=20-27,6=20+28,7=
-=20=40=40=20properties:=0D=0A>=20>=20=20=20=20=20=20=20=20-=20samsung,exyno=
-s5420-tmu-ext-triminfo=0D=0A>=20>=20=20=20=20=20=20=20=20-=20samsung,exynos=
-5433-tmu=0D=0A>=20>=20=20=20=20=20=20=20=20-=20samsung,exynos7-tmu=0D=0A>=
-=20>=20+=20=20=20=20=20=20-=20samsung,exynosautov920-tmu=0D=0A>=20>=0D=0A>=
-=20>=20=20=20=20clocks:=0D=0A>=20>=20=20=20=20=20=20minItems:=201=0D=0A>=20=
->=20=40=40=20-62,11=20+64,22=20=40=40=20properties:=0D=0A>=20>=20=20=20=20=
-=20=20minItems:=201=0D=0A>=20>=0D=0A>=20>=20=20=20=20'=23thermal-sensor-cel=
-ls':=0D=0A>=20>=20-=20=20=20=20const:=200=0D=0A>=20>=20+=20=20=20=20enum:=
-=0D=0A>=20>=20+=20=20=20=20=20=20-=200=0D=0A>=20>=20+=20=20=20=20=20=20-=20=
-1=0D=0A>=20>=0D=0A>=20>=20=20=20=20vtmu-supply:=0D=0A>=20>=20=20=20=20=20=
-=20description:=20The=20regulator=20node=20supplying=20voltage=20to=20TMU.=
-=0D=0A>=20>=0D=0A>=20>=20+=20=20samsung,hw-sensor-indices:=0D=0A>=20>=20+=
-=20=20=20=20description:=20=7C=0D=0A>=20=0D=0A>=20Drop=20=7C=0D=0A=0D=0AI'l=
-l=20drop=20this.=0D=0A=0D=0A>=20=0D=0A>=20>=20+=20=20=20=20=20=20List=20of=
-=20hardware=20sensor=20indices=20that=20are=20physically=20present=20and=0D=
-=0A>=20usable=0D=0A>=20>=20+=20=20=20=20=20=20in=20this=20TMU=20instance.=
-=20Indices=20not=20listed=20are=20either=20unmapped=20or=0D=0A>=20unused.=
-=0D=0A>=20>=20+=20=20=20=20=24ref:=20/schemas/types.yaml=23/definitions/uin=
-t32-array=0D=0A>=20>=20+=20=20=20=20minItems:=201=0D=0A>=20>=20+=20=20=20=
-=20maxItems:=2016=0D=0A>=20>=20+=20=20=20=20uniqueItems:=20true=0D=0A>=20=
-=0D=0A>=20Best=20regards,=0D=0A>=20Krzysztof=0D=0A=0D=0AThanks.=0D=0A=0D=0A=
-Best=20regards,=0D=0AShin=20Son=0D=0A=0D=0A
 
