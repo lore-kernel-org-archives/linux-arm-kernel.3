@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EB0CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649E6CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7zAwIHul+G7hJa9UKdi3gwcydcwd+CNJiZMlBMy6ooM=; b=mYQ3Us/C98bQjrSsycJ515VMR9
-	zG4kdhS4GIikBelruuqld/l8RlbdkcqbPS9CnUpBMqwkJNL6w5a0UHURRmYOloV4H/wwtU3OVBt+V
-	gGMReSDy4iog2mkyMNt1hkuOMq6PrSfmzx1vIeURiaURWXnohDxXs+UapFgiWWl3XSLS1Cb7piO1L
-	urQzRQ6KTrJl+vAARfVo5y9JPF93MwL+R1BPWOB84eFR/Q+0sMvcxk+JSs6Nc0hOZ0tpBFsJJHDxx
-	JARZDJuVaCmrCXaKzvD1QLPRXNeYzees/4usCu5wuwpSPYpC6uhc8hbVNE/r1tjktR3KEFAxi737v
-	C3NPeBQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vPBR/G1y7xyavSQpDAIp0nog4SwQ2XUBPu6qeNurwdE=; b=TwUktPKunVoDvrEhoeThsTN7x3
+	iU2SWUrqF7PtfPywIwyqhso4yW9hIrRxkv/UUExgRgDy5Za/gopvBmu/PO9/t1g5NaL+fhUXBIhhr
+	vTG0azzBmt4tXOnz2HeSGvlLc8R+IzKSIBqvm4A1S6tyjuJtOfxJpJMRcytrpy4NvLudZfEmRPuS7
+	9jmH5rbBGjHjt3fDPIvREFtJUIkKOsXkJDNIB/jbE5j4C5Lh2zt9dg6b/Mon2QmzihfSR1IF6JgM7
+	3ayGCQP38Z9IF7vBu7GD7BOLgwj9vj5NC6iSzYj8Zzzgi4L+WS3napPkClkzbRIEWnjdIEAHmhDBz
+	o91Smy4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVD-00000005QxM-3Lpk;
-	Sat, 06 Sep 2025 00:09:59 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uugVJ-00000005R1z-24QL;
+	Sat, 06 Sep 2025 00:10:05 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZ96-0000000339K-16jP
+	id 1uuZAs-0000000341m-224P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 16:18:41 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJM2643hSz6L4wb;
-	Sat,  6 Sep 2025 00:17:34 +0800 (CST)
-Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id BAAD01402F1;
-	Sat,  6 Sep 2025 00:18:33 +0800 (CST)
-Received: from a2303103017.china.huawei.com (10.202.66.105) by
- frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 5 Sep 2025 18:18:31 +0200
-From: Alireza Sanaee <alireza.sanaee@huawei.com>
-To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <coresight@lists.linaro.org>, <dianders@chromium.org>,
-	<james.clark@linaro.org>, <jonathan.cameron@huawei.com>, <krzk@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
-	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
-	<suzuki.poulose@arm.com>
-Subject: [PATCH v4 0/6] Refactoring finding CPU phandles in DT
-Date: Fri, 5 Sep 2025 17:18:23 +0100
-Message-ID: <20250905161830.37-1-alireza.sanaee@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 05 Sep 2025 16:20:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
+ t=1757089230; bh=vPBR/G1y7xyavSQpDAIp0nog4SwQ2XUBPu6qeNurwdE=;
+ b=N6xvGcAAQVn6CcP7pUybmoAl/TlXJ7pMqNDQp2Wp1eoGTRR0dSsg7BWOVNpVnzdgQDbgzcUyG
+ phO6g0kz3AnW80eMMhUFX3f1AQpViFGYIP++iw46F/ZpuPARKSsVGI+qGFbkG+pDl1pmVqQ/HP8
+ XLgZQr/I/vlziVgq0uXnjTR+8VsnLp5bym4OifKd68Pw7m4/+e1u51e87OysiWMzeUFSLODueI/
+ 5U30cNSOC4ZFN2L5sObMh0CQaaKioacSyn8QIMyXIVKPeXvBSLZfMnMFwDMUtm6VQ/yhPNOV3FU
+ X24ol41iXitwpN9gD8xN/ELfSKuYVj0Uz1vsFY6OwsVA==
+X-Forward-Email-ID: 68bb0dc690d039a4fd84d704
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.2.13
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Alex Bee <knaerzche@gmail.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 6/7] media: dt-bindings: rockchip,vdec: Add RK3288 compatible
+Date: Fri,  5 Sep 2025 16:19:24 +0000
+Message-ID: <20250905161942.3759717-7-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250905161942.3759717-1-jonas@kwiboo.se>
+References: <20250905161942.3759717-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.202.66.105]
-X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
- frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_091840_439589_5E56F0FF 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20250905_092030_579892_CE8084C2 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,57 +87,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series refactor the way CPU IDs are retrieved from the device
-tree.
+Add a RK3288 compatible for a version of the Rockchip VDEC IP that only
+support HEVC decoding.
 
-Usually, there is a for loop that goes over every single CPU that can be
-avoided. This also reduces the amount of NULL pointer checks in drivers.
-I have abstracted away that loop and introduced a new function
-(of_cpu_node_to_id) for this.
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes in v3:
+- No change
 
-This patchset is a subset of [1], where I removed content and patches
-relevant to hyper-threaded cores for DT. Based on the discussion, the
-code refactor is still useful, hence this patchset.
+Changes in v2:
+- Collect a-b tag
+---
+ Documentation/devicetree/bindings/media/rockchip,vdec.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-[1]
-https://lore.kernel.org/all/20250512080715.82-1-alireza.sanaee@huawei.co
-
-Changes since v3:
-    - Rebased to d69eb204c255c35abd9e8cb621484e8074c75eaa
-
-Changes since v2:
-    - Addressed Jonathan Cameron's comments.
-    - Added reviewed-by tags.
-    - Added a new commit where I suggest simplfing the code in
-      arch_topology.c to remove the use of cpu_node on failure path.
-    - Improve documentation.
-    - Caught a bug in patch 1.
-    - Commit message fixed for patch 2.
-
-Changes since v1:
-    - Rebased on top of the latest mainline.
-    - Addressed Krzysztof Kozlowski's comments -- Hopefully :-)
-    - Addressed Jonathan Cameron's comments.
-
-
-Alireza Sanaee (6):
-  of: add infra for finding CPU id from phandle
-  arch_topology: drop the use of cpu_node in the pr_info
-  arch_topology: update CPU map to use of_cpu_phandle_to_id
-  coresight: cti: Use of_cpu_phandle_to_id for grabbing CPU id
-  coresight: Use of_cpu_phandle_to_id for grabbing CPU ID
-  perf/arm-dsu: refactor cpu id retrieval via new API
-    of_cpu_phandle_to_id
-
- drivers/base/arch_topology.c                  | 22 ++++-----
- .../coresight/coresight-cti-platform.c        | 13 +----
- .../hwtracing/coresight/coresight-platform.c  | 15 +-----
- drivers/of/cpu.c                              | 48 +++++++++++++++++++
- drivers/perf/arm_dsu_pmu.c                    |  7 +--
- include/linux/of.h                            |  9 ++++
- 6 files changed, 71 insertions(+), 43 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+index 96b6c8938768..809fda45b3bd 100644
+--- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+@@ -16,6 +16,7 @@ description: |-
+ properties:
+   compatible:
+     oneOf:
++      - const: rockchip,rk3288-vdec
+       - const: rockchip,rk3399-vdec
+       - const: rockchip,rk3576-vdec
+       - const: rockchip,rk3588-vdec
 -- 
-2.43.0
+2.51.0
 
 
