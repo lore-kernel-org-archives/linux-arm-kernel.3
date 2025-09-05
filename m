@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CE7CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CAEFCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f9FAMAwKb9GlFbqFePz07zPDAIQCDZGG7K5Xfr8FjoY=; b=iu/vA9yjZbcXJEsMFoQ+c0A6+S
-	pS5G8Qamk2k7mUPvCKyc4Xuc2UKHbRs3cFCY3qG7gkw+4qQIR5gbqfXEW1qzKYIM/NfIs6ddqf/EM
-	oOYCGPnc/42soZj09/31fOzwfA7r0Thnh1rU/fzIUTpYuTBuCLcqHxneb69+XtWQMRt/Yv0D+xqWr
-	wLIrvHvl8cU8bTDlh+ObhlLXU5aV2rph+TU1xZ8yGqKZUD0YjEeQnVLSThfWpN5m5EDtX3AvbBWcl
-	VX4vSBNL/VZQFw8coMFga7GaAK/RRbolyB3acQMFFlXDRGOyFh4qyPCIini5DC/5MRQboy+CXifnd
-	xJ7RCAsA==;
+	bh=WtPxATsEFobK/hegi1Hzd9WvYZN2goxvoyMyFG5Binw=; b=LAnPu4Hbr6oMJLna+zu5OroyA5
+	6qY/JQZYmSB4ZUmMMhm76dNwLobLmcP0JovQZCzPaclu1DKTZ/AAankl6BN0JVxWp0uH702vHtAch
+	rL8BmaENensIXIpGpEioWejWzCIs32LYMau8SltCXnlLWWK8IzOGTXjMrNsTzxwGGDU7ehKgwVdht
+	ESCoyrBVAheqZWC0bNh1jsj/wDGRBMTaQMp7xF9QGb1k//LkAJhmuGdaxStHBUryVTlpvKxmEg8IP
+	7ZlXsODBDTjAGlvv7ukGkz7NcX3k7BmhFYiHfi3yDy9dretYo4xihqOHW+IvJ8g8hI9OLkNpmG/RP
+	VoZRUAGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugXv-00000005W9l-0yvD;
-	Sat, 06 Sep 2025 00:12:47 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1uugY6-00000005WTM-2a1H;
+	Sat, 06 Sep 2025 00:12:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uucD8-00000004CFU-2gXG
+	id 1uucOe-00000004Fkb-42zJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 19:35:04 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-32bb1132c11so1159150a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 12:35:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1757100902; x=1757705702; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f9FAMAwKb9GlFbqFePz07zPDAIQCDZGG7K5Xfr8FjoY=;
-        b=gO5u3P5mFhdDuTf6XQSVSb9xWxq7q4lN0ZP3bR050ZwIUWI0z2Iji0SPLirYO+ffph
-         P0fD3+SW7WjTy2fJ0wsnC6jzZERoi8ttJZaS17g65y2m3wJaV6JRKo5IbDncbSUGYvMB
-         hQ7AZVWthMmy1rE8OH3DVeziPa8P1flZIbC4aucYCDNQqilmyTKIEQ/bi4KRMB3ypz8R
-         4MoURq4opA7ExNjFCPnExXp4LkDxagQRyYxLullDzqQzeIqtEkXvuqo4TJrIkvX0shLU
-         MVm6t4vGALM5fXdAXRXcL6Nah1ckylPVnHgH1o3RdqmsswB10BYyynFHPQU9ZnTdgkZO
-         2wFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757100902; x=1757705702;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f9FAMAwKb9GlFbqFePz07zPDAIQCDZGG7K5Xfr8FjoY=;
-        b=NNkUpQqYrBliMXPqiQGqRFRV014ozswJGHxU0btIu9N7OE0GnEhCM5kWGjepxVd/RN
-         RqwJeaYADu4Z7hbl6CBB4nXq3+THUu2uD97zZ/QyccOQBL+cKyCVQXK6wtToujwU18ev
-         JmEz5hND/TPdUz6IW3Y3/ERftRkcRM79XZkn3S4x+u6dv7weMKDgIInmaRP/9QvFdiby
-         abRL2STidJp65L092ID6yNICuQSe0KFy22ZDww6TqfdZPhhYGmU/nTsk3jDxy19Tproh
-         akCzyw/rgJAOt/PZv12hv9L2KeEcIr1X+TaDXP/WgszJfaCJptBEPWuBFKowytUpkTPv
-         s04g==
-X-Forwarded-Encrypted: i=1; AJvYcCXBC26Y/5HmHtov14aMF2N32/Cc9XDhKs0lECpFpNrVvLF7ZjV4cQprCfjRisIZLvKFkkL52WXhwV/83nODaO17@lists.infradead.org
-X-Gm-Message-State: AOJu0YyItZq89wpcRHRE2EvkLDD+QS1wxWZ9uHcYflLWM1YoQliyMN95
-	NwhfthYrckOv4tA5MgiMin3Fv2XBHrnqWpU6sMGfZF8Dp8EWYEGYvBAqg1f0w5He08H/nra0v11
-	OkcU6T/ZMN7zxVSxFN2v2p5W5/QPaMMi1wQabYao5BQ==
-X-Gm-Gg: ASbGncsw/fJOJBPUWSHTua8I5/6AjubY+KJY90smVBaaKDsuJiljb2+M57eVmb6IpGF
-	yDYt61NjGKqWXdzYfup4Dny5J9zEg+sAis4+FUbYWEVAurNJ901GHE/jo6UtreziWyt/T8APueL
-	7N2oBAH1cqWVLGcuVMMbiQPakjDMDb1ZGpHWsZsNbOW4z/v241Pp8QOTlCbE5kP2v3ILcDzzVoq
-	azHr4PKOG0ZFi9wUuQ4y8J2ugzNGg==
-X-Google-Smtp-Source: AGHT+IHqWqyZqFIuzyIZvE/SUKQfYYN6g516wmc4GuFbgQsfUPht0NsXKsfItF2EyucT/HQ/Jt/iNNsDf0c9xrLH2sg=
-X-Received: by 2002:a17:90b:3c44:b0:32b:6223:262 with SMTP id
- 98e67ed59e1d1-32bbcb945aemr5935479a91.3.1757100901459; Fri, 05 Sep 2025
- 12:35:01 -0700 (PDT)
+	Fri, 05 Sep 2025 19:46:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F6FD44C96
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 19:46:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F9BDC113D0
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 19:46:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757101616;
+	bh=H8MVjkz4o17difHvr2cD8D+8FZU1fUcKjhpmn4rwijw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=G9qmJFw1HIMkEhpfwD6F7o3JbvpRO1V95WZ/oUz3+r2CZmbDws6CbBgur6Wekx+qi
+	 ldlGPU37Uj/fIsJfq8C0T5mwgtAEI7Vqo36+np24YoWw6Q+UqAD0c8vsYKdD1WmilJ
+	 I5H7EyGxJaGj6hrAng2kuUlTjEtq88UjwDYdjemQkTgF2roSvOtH1g1Vers9Vmn/8H
+	 hFTpK0+yBM6BJf93iSTpneRiwZTgqB03L5VCqcDIKq1c7x0wnA4m2OtzWFieeGFXd2
+	 UYnynJnuCo/OhHIYLgJZetquSD940EGwlIBAqodji7zBapVVl2I0pI39J7QYdGVk0c
+	 YFNdRZkp+5nBw==
+Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-61e4c824615so1088339eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 12:46:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXySBgzbfIYY3fjLYerDXn7mSJcqT+lSPC5FmrGVs0dI1rfIqFM1KtoWdxVltChzQGvlbVVE3klJWVKNhmi2Bjv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOeDSG1X0YDtIOq97rbv5G82xk9wVB7a11eKIWS8GrW60n6Byh
+	+cXx0HJ0prhUK+61pd8kLgX8WPPtoVaR3/TIM0tOPpw7GkOd+NW2Wjk0cnhABYd3pra0uF6fmVl
+	IZLp0e+lAWHCw1ttlBcLyGaW8lm+F1Sk=
+X-Google-Smtp-Source: AGHT+IEKuvslbgpS+jFT9kCZO9ZHrI6mBjYptsMiCaePE1pyVsHfodMLw3nmAqVy7Bw/fuUlRNZZYUO91WEjIayPMsY=
+X-Received: by 2002:a05:6820:548:b0:621:71c3:eab8 with SMTP id
+ 006d021491bc7-62171c3ecffmr1197889eaf.3.1757101615563; Fri, 05 Sep 2025
+ 12:46:55 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250829-pmu_event_info-v5-0-9dca26139a33@rivosinc.com>
- <20250829-pmu_event_info-v5-6-9dca26139a33@rivosinc.com> <aLIR3deQPxVI2VrE@google.com>
- <CAHBxVyHFkNtFdX-vciPvYnTOH=GXvHVW7hjFrLA4MFr9wqWVvQ@mail.gmail.com> <aLqd9bKB6ucarR3e@google.com>
-In-Reply-To: <aLqd9bKB6ucarR3e@google.com>
-From: Atish Kumar Patra <atishp@rivosinc.com>
-Date: Fri, 5 Sep 2025 12:34:48 -0700
-X-Gm-Features: Ac12FXzDuYbaevvtu1cjWIBdIgE-JZvhAwCG0_v0qb1Ic8gyKF3DjAY5IEIX5wM
-Message-ID: <CAHBxVyE7Tp97GfbH=deaA7gqWQXByno3O3OHbHDJCJ=J7FUQvw@mail.gmail.com>
-Subject: Re: [PATCH v5 6/9] KVM: Add a helper function to check if a gpa is in
- writable memselot
-To: Sean Christopherson <seanjc@google.com>
-Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org
+References: <20250905132413.1376220-1-zhangzihuan@kylinos.cn> <20250905132413.1376220-7-zhangzihuan@kylinos.cn>
+In-Reply-To: <20250905132413.1376220-7-zhangzihuan@kylinos.cn>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Fri, 5 Sep 2025 21:46:43 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0izu1_xVe_pGeJiXZqEXLxg_o30NkEjMiwzDgeU4mOGmA@mail.gmail.com>
+X-Gm-Features: Ac12FXylOWQRbtZy4tXGis9fcvrx9xAWhEYFwKXiKvA-TbpGOjwSaXBXEfvwt6M
+Message-ID: <CAJZ5v0izu1_xVe_pGeJiXZqEXLxg_o30NkEjMiwzDgeU4mOGmA@mail.gmail.com>
+Subject: Re: [PATCH v5 6/6] PM: EM: Use scope-based cleanup helper
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>
+Cc: "Rafael J . wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, 
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Thierry Reding <thierry.reding@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>, Ben Horgan <ben.horgan@arm.com>, 
+	zhenglifeng <zhenglifeng1@huawei.com>, Zhang Rui <rui.zhang@intel.com>, 
+	Len Brown <lenb@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Beata Michalska <beata.michalska@arm.com>, 
+	Fabio Estevam <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>, Sumit Gupta <sumitg@nvidia.com>, 
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Yicong Yang <yangyicong@hisilicon.com>, linux-pm@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_123502_726333_B4786A56 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20250905_124657_048163_4B6A10AB 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,86 +104,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 5, 2025 at 1:23=E2=80=AFAM Sean Christopherson <seanjc@google.c=
-om> wrote:
+On Fri, Sep 5, 2025 at 3:25=E2=80=AFPM Zihuan Zhang <zhangzihuan@kylinos.cn=
+> wrote:
 >
-> On Wed, Sep 03, 2025, Atish Kumar Patra wrote:
-> > On Fri, Aug 29, 2025 at 1:47=E2=80=AFPM Sean Christopherson <seanjc@goo=
-gle.com> wrote:
-> > >
-> > > On Fri, Aug 29, 2025, Atish Patra wrote:
-> > > > +static inline bool kvm_is_gpa_in_writable_memslot(struct kvm *kvm,=
- gpa_t gpa)
-> > > > +{
-> > > > +     bool writable;
-> > > > +     unsigned long hva =3D gfn_to_hva_prot(kvm, gpa_to_gfn(gpa), &=
-writable);
-> > > > +
-> > > > +     return !kvm_is_error_hva(hva) && writable;
-> > >
-> > > I don't hate this API, but I don't love it either.  Because knowing t=
-hat the
-> > > _memslot_ is writable doesn't mean all that much.  E.g. in this usage=
-:
-> > >
-> > >         hva =3D kvm_vcpu_gfn_to_hva_prot(vcpu, shmem >> PAGE_SHIFT, &=
-writable);
-> > >         if (kvm_is_error_hva(hva) || !writable)
-> > >                 return SBI_ERR_INVALID_ADDRESS;
-> > >
-> > >         ret =3D kvm_vcpu_write_guest(vcpu, shmem, &zero_sta, sizeof(z=
-ero_sta));
-> > >         if (ret)
-> > >                 return SBI_ERR_FAILURE;
-> > >
-> > > the error code returned to the guest will be different if the memslot=
- is read-only
-> > > versus if the VMA is read-only (or not even mapped!).  Unless every r=
-ead-only
-> > > memslot is explicitly communicated as such to the guest, I don't see =
-how the guest
-> > > can *know* that a memslot is read-only, so returning INVALID_ADDRESS =
-in that case
-> > > but not when the underlying VMA isn't writable seems odd.
-> > >
-> > > It's also entirely possible the memslot could be replaced with a read=
--only memslot
-> > > after the check, or vice versa, i.e. become writable after being reje=
-cted.  Is it
-> > > *really* a problem to return FAILURE if the guest attempts to setup s=
-teal-time in
-> > > a read-only memslot?  I.e. why not do this and call it good?
-> > >
-> >
-> > Reposting the response as gmail converted my previous response as
-> > html. Sorry for the spam.
-> >
-> > From a functionality pov, that should be fine. However, we have
-> > explicit error conditions for read only memory defined in the SBI STA
-> > specification[1].
-> > Technically, we will violate the spec if we return FAILURE instead of
-> > INVALID_ADDRESS for read only memslot.
+> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+> annotation for policy references. This reduces the risk of reference
+> counting mistakes and aligns the code with the latest kernel style.
 >
-> But KVM is already violating the spec, as kvm_vcpu_write_guest() redoes t=
-he
-> memslot lookup and so could encounter a read-only memslot (if it races wi=
-th
-> a memslot update), and because the underlying memory could be read-only e=
-ven if
-> the memslot is writable.
+> No functional change intended.
+>
+> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
+> ---
+>  kernel/power/energy_model.c | 9 ++-------
+>  1 file changed, 2 insertions(+), 7 deletions(-)
+>
+> diff --git a/kernel/power/energy_model.c b/kernel/power/energy_model.c
+> index ea7995a25780..5ec63b3e7d85 100644
+> --- a/kernel/power/energy_model.c
+> +++ b/kernel/power/energy_model.c
+> @@ -451,7 +451,6 @@ static void
+>  em_cpufreq_update_efficiencies(struct device *dev, struct em_perf_state =
+*table)
+>  {
+>         struct em_perf_domain *pd =3D dev->em_pd;
+> -       struct cpufreq_policy *policy;
+>         int found =3D 0;
+>         int i, cpu;
+>
+> @@ -465,7 +464,7 @@ em_cpufreq_update_efficiencies(struct device *dev, st=
+ruct em_perf_state *table)
+>                 return;
+>         }
+>
+> -       policy =3D cpufreq_cpu_get(cpu);
+> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpuf=
+req_cpu_get(cpu);
+>         if (!policy) {
+>                 dev_warn(dev, "EM: Access to CPUFreq policy failed\n");
+>                 return;
+> @@ -479,8 +478,6 @@ em_cpufreq_update_efficiencies(struct device *dev, st=
+ruct em_perf_state *table)
+>                         found++;
+>         }
+>
+> -       cpufreq_cpu_put(policy);
+> -
+>         if (!found)
+>                 return;
 >
 
-Ahh. Thanks for clarifying that.
+The above changes are fine now and can be a separate patch.
 
-> Why not simply return SBI_ERR_INVALID_ADDRESS on kvm_vcpu_write_guest() f=
-ailure?
-> The only downside of that is KVM will also return SBI_ERR_INVALID_ADDRESS=
- if the
-> userspace mapping is completely missing, but AFAICT that doesn't seem to =
-be an
-> outright spec violation.
+> @@ -787,21 +784,19 @@ static void em_check_capacity_update(void)
+>
+>         /* Check if CPUs capacity has changed than update EM */
+>         for_each_possible_cpu(cpu) {
 
-Yes. That's correct. That can still be considered as invalid address.
-I will revise the patch according to this.
-Thanks for the suggestions.
+But I'd prefer the code in this loop to be moved into a separate
+function, in a separate patch, before the __free()-based
+simplification of it.
+
+> -               struct cpufreq_policy *policy;
+>                 struct em_perf_domain *pd;
+>                 struct device *dev;
+>
+>                 if (cpumask_test_cpu(cpu, cpu_done_mask))
+>                         continue;
+>
+> -               policy =3D cpufreq_cpu_get(cpu);
+> +               struct cpufreq_policy *policy __free(put_cpufreq_policy) =
+=3D cpufreq_cpu_get(cpu);
+>                 if (!policy) {
+>                         pr_debug("Accessing cpu%d policy failed\n", cpu);
+>                         schedule_delayed_work(&em_update_work,
+>                                               msecs_to_jiffies(1000));
+>                         break;
+>                 }
+> -               cpufreq_cpu_put(policy);
+>
+>                 dev =3D get_cpu_device(cpu);
+>                 pd =3D em_pd_get(dev);
+> --
 
