@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DFBCA101C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 03:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96580CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 03:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p/YNtLDVOMImYKYloFFu88omEQ5fOigX0mfZT8+GuSQ=; b=iWuPSHqESipJbzavRy/2YK6m0w
-	115hq+WtK5eVEPPyMTaVuplH/SO+61q4lUKa3g0KslJKMB7EfTw4+Ps2NYwMe1If/T9dWekjqdRq0
-	Gu/MKS2KD3GwLnIzFHjs2it61YqtqwNyQVBgAm7hIoBz5lGvS/nch0kVGRr29tsoH6eFfJryaAoMT
-	Vm+bcP9MXm1uj4Y4ZgXlXn9KXFoZN9Dbv74kfujko9v/OC17pJTlO/1EwjVmy1biVxQ0fp2dFzk0J
-	lzYWJS9mDSPeqpVpnLfYz44H5OFWPk3pYglwpmKfzZTwGaYxO2zkE1FpBjxyDRXBICXEddxmV8N9z
-	tyqHSAAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=liXWa7dh6ReZC09ODku+7XeyTsswVi++oqxCWlYHPHI=; b=Ris1AOBjmLdNqaS6M0LIZU3egK
+	4q2Hf/xV4eHGYPkvwjUHmifHb5n0wiuK3M5fNewbWFi2ZTPI186ln95Gzz2rX119aSBwleOVX/fzQ
+	QvxhScWjV4OQ260oLf3G3ypUsGZsUigxXXIIycvHHY00nG16mITjlpXbhEOTS+TSk+6Np6RdBILgR
+	8M6ncTq4jXVtycwmcgiqWPGpKbEKyqEJqT86QQ18a9X+ESyjyf1A3sVqAGYGdZOsVr4GAw3MlxBus
+	9o208KlgeW1d+YZ+1BMyY5HVj9EcRz8NZHNMNvmYlFvg0vfSGMyrwfnBKcFYaKu0Tn2pCK3BpNc2c
+	WgjTXDPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuN5S-0000000GR2h-2a9Q;
-	Fri, 05 Sep 2025 03:26:06 +0000
-Received: from mout-p-103.mailbox.org ([80.241.56.161])
+	id 1uuN5X-0000000GR7y-0FKW;
+	Fri, 05 Sep 2025 03:26:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuGZj-0000000EFey-1VqY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 20:28:56 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cHrfY4zLgz9tNq;
-	Thu,  4 Sep 2025 22:28:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757017733;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=p/YNtLDVOMImYKYloFFu88omEQ5fOigX0mfZT8+GuSQ=;
-	b=nJZgik7QtIgmHmVnk/nk4vZxZ4ASnlX8gSmbPEqlLtRK2P/Ccm02kuO2Q0f2mEhUvhUp52
-	iJbs44lLxVf/ABlukvpIQ4RXiJ7/J5k2QEUt4lfToKplofRdmvn7+drrdppFTzdKKhpMdl
-	Ylc92v9Vi8C7DSZ9nayX8e0mrxvhhPljR1CbIaREpwwpeoCelfCduO4mbREM0tTkHc/Fzh
-	LH4nekrIbJNXnd6bXztc9l84hCkncd82lZMZztjhYQX3cqAzjbsBYcGmH9lDKRVPym9syl
-	tuUiHhqp1w4+TWtV6SF7tAdxw8BRLbOJcGPKtVEYa5P87bmz5TgujVzaHS2aeg==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=j0zXGg+4;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1757017731;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=p/YNtLDVOMImYKYloFFu88omEQ5fOigX0mfZT8+GuSQ=;
-	b=j0zXGg+4ZWfXoDV4iVLfIAj8yREXDTz/SRpaNVW3JRKQQGZOUIw2NUin8D6FrwWK94ztWg
-	XX9PxfBtk+PHaFl8IgGfAO2xVUXY1rySpyhqWpjqOL+DJ/8J1+wKCw/f26rIjv1D6LjwU7
-	L5yVXJ7FD1mKnVCRdwIa+mC71n9nsAXCkG5/Cmq04yMfiA3IIAzKsHZ/mIj4bxFhAZmmiy
-	oXHNOKyNp9IsouZImTVfI2y/m0jazh8GDgFHNvffod8HZu5JMOf4e3EeV3AS8YofPKA5Kk
-	TpnLCzdLdRYASVBzAQlBjpk2nACYD41PFDdN/zYsOdfRy5CDo7cGGCxoQJ4r2w==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: renesas: r8a779g3: Add RPi Display 2 DTO to Retronix R-Car V4H Sparrow Hawk
-Date: Thu,  4 Sep 2025 22:28:06 +0200
-Message-ID: <20250904202838.172579-1-marek.vasut+renesas@mailbox.org>
+	id 1uuLkB-0000000FtIb-2I0U;
+	Fri, 05 Sep 2025 02:00:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 62AC444891;
+	Fri,  5 Sep 2025 02:00:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 297EBC4AF0B;
+	Fri,  5 Sep 2025 02:00:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757037602;
+	bh=6WrSKGMcklSN3roHjGk3yFcw/fLf1SGPFW5yr0SuEYA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=keIR4MolXDCuDAQ4tpQuRfXkj9XNWYKqGDp4fRkc61kQInngXYCgqRhI6cwQ+G2KI
+	 WHaiElr2nXUMWbBrIWQAHLGc6y/JM7K0tIvmNAehAsJwMt2fKui0y4RljvXxBefdxF
+	 +1j5Xj/d1fJIHjCaUpOcQVGyh/JS5B5bHVYBfK+jxbrEdZhgkQnyfBxD4S/UUSPdYI
+	 ton3QP+6YF/XdXMfaYrOHwC++lCqsVGyIZqMdmr7vu6sSrOunyn3/K51gk6W8UGK1w
+	 VhdIkXlGWz+Sz1peFjS0rQXq1PYYNKHIMY2h4OqY3hDZP2WopJmHUKRIl0SSge6WCV
+	 RONgPnl0iGlRg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADEEB383BF6C;
+	Fri,  5 Sep 2025 02:00:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 33ed0958b3b835f3985
-X-MBO-RS-META: gu4i9da77xhmrij33sg7ki75rej7wk9c
-X-Rspamd-Queue-Id: 4cHrfY4zLgz9tNq
+Subject: Re: [PATCH v2 0/5] dd ethernet support for RPi5
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175703760650.2006573.13109159782302004132.git-patchwork-notify@kernel.org>
+Date: Fri, 05 Sep 2025 02:00:06 +0000
+References: <20250822093440.53941-1-svarbanov@suse.de>
+In-Reply-To: <20250822093440.53941-1-svarbanov@suse.de>
+To: Stanimir Varbanov <svarbanov@suse.de>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, florian.fainelli@broadcom.com, andrea.porta@suse.com,
+ nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev, phil@raspberrypi.com,
+ jonathan@raspberrypi.com, dave.stevenson@raspberrypi.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_132855_542619_DCA6599D 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20250904_190003_604006_BC17C19D 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,185 +80,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT overlay to bind RPi Display 2, both 5" and 7" variant, on
-Retronix R-Car V4H Sparrow Hawk board. All of display output, the
-touch controller, and backlight control have been tested.
+Hello:
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-V2: Build also the plain DTBO for each DTO. Each new DTO entry in the
-    Makefile has three lines, the DTBO, combined and DTB targets. This
-    is easy to miss, so note this down for myself.
----
- arch/arm64/boot/dts/renesas/Makefile          |  6 ++
- ...a779g3-sparrow-hawk-rpi-display-2-5in.dtso | 13 +++
- ...a779g3-sparrow-hawk-rpi-display-2-7in.dtso | 13 +++
- .../r8a779g3-sparrow-hawk-rpi-display-2.dtsi  | 90 +++++++++++++++++++
- 4 files changed, 122 insertions(+)
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-5in.dtso
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-7in.dtso
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2.dtsi
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
-index d8c9237624664..bef624636d58b 100644
---- a/arch/arm64/boot/dts/renesas/Makefile
-+++ b/arch/arm64/boot/dts/renesas/Makefile
-@@ -99,6 +99,12 @@ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk.dtb
- dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-fan-pwm.dtbo
- r8a779g3-sparrow-hawk-fan-pwm-dtbs := r8a779g3-sparrow-hawk.dtb r8a779g3-sparrow-hawk-fan-pwm.dtbo
- dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-fan-pwm.dtb
-+dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-rpi-display-2-5in.dtbo
-+r8a779g3-sparrow-hawk-rpi-display-2-5in-dtbs := r8a779g3-sparrow-hawk.dtb r8a779g3-sparrow-hawk-rpi-display-2-5in.dtbo
-+dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-rpi-display-2-5in.dtb
-+dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-rpi-display-2-7in.dtbo
-+r8a779g3-sparrow-hawk-rpi-display-2-7in-dtbs := r8a779g3-sparrow-hawk.dtb r8a779g3-sparrow-hawk-rpi-display-2-7in.dtbo
-+dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-rpi-display-2-7in.dtb
- 
- dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-white-hawk-single.dtb
- r8a779g3-white-hawk-single-ard-audio-da7212-dtbs := r8a779g3-white-hawk-single.dtb white-hawk-ard-audio-da7212.dtbo
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-5in.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-5in.dtso
-new file mode 100644
-index 0000000000000..bf7b531ae9d9b
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-5in.dtso
-@@ -0,0 +1,13 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Device Tree Overlay for the RPi Display 2 5" MIPI DSI panel connected
-+ * to J4:DSI on R-Car V4H ES3.0 Sparrow Hawk board
-+ *
-+ * Copyright (C) 2025 Marek Vasut <marek.vasut+renesas@mailbox.org>
-+ */
-+
-+#include "r8a779g3-sparrow-hawk-rpi-display-2.dtsi"
-+
-+&panel {
-+	compatible = "raspberrypi,dsi-5inch", "ilitek,ili9881c";
-+};
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-7in.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-7in.dtso
-new file mode 100644
-index 0000000000000..6ec47f213c0ff
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-7in.dtso
-@@ -0,0 +1,13 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Device Tree Overlay for the RPi Display 2 7" MIPI DSI panel connected
-+ * to J4:DSI on R-Car V4H ES3.0 Sparrow Hawk board
-+ *
-+ * Copyright (C) 2025 Marek Vasut <marek.vasut+renesas@mailbox.org>
-+ */
-+
-+#include "r8a779g3-sparrow-hawk-rpi-display-2.dtsi"
-+
-+&panel {
-+	compatible = "raspberrypi,dsi-7inch", "ilitek,ili9881c";
-+};
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2.dtsi b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2.dtsi
-new file mode 100644
-index 0000000000000..733333b85a9d2
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2.dtsi
-@@ -0,0 +1,90 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Device Tree Overlay for the RPi Display 2 MIPI DSI panel connected
-+ * to J4:DSI on R-Car V4H ES3.0 Sparrow Hawk board
-+ *
-+ * Copyright (C) 2025 Marek Vasut <marek.vasut+renesas@mailbox.org>
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&{/} {
-+	display_bl: backlight {
-+		compatible = "pwm-backlight";
-+		pwms = <&mcu 0 255 0>;
-+	};
-+
-+	reg_display: regulator-display {
-+		compatible = "regulator-fixed";
-+		regulator-name = "rpi-display";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	reg_dsi_touch: regulator-dsi-touch {
-+		compatible = "regulator-fixed";
-+		gpio = <&mcu 1 GPIO_ACTIVE_HIGH>;
-+		regulator-name = "rpi-touch";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		startup-delay-us = <50000>;
-+		enable-active-high;
-+	};
-+};
-+
-+&i2c0_mux3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	mcu: gpio@45 {
-+		compatible = "raspberrypi,touchscreen-panel-regulator-v2";
-+		reg = <0x45>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		#pwm-cells = <3>;
-+	};
-+
-+	touchscreen@5d {
-+		compatible = "goodix,gt911";
-+		reg = <0x5d>;
-+		AVDD28-supply = <&reg_dsi_touch>;
-+		touchscreen-size-x = <720>;
-+		touchscreen-size-y = <1280>;
-+	};
-+};
-+
-+&dsi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			dsi0_out: endpoint {
-+				remote-endpoint = <&panel_in>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+
-+	panel: panel@0 {
-+		reg = <0>;
-+		backlight = <&display_bl>;
-+		power-supply = <&reg_display>;
-+		reset-gpios = <&mcu 0 GPIO_ACTIVE_LOW>;
-+
-+		port {
-+			panel_in: endpoint {
-+				remote-endpoint = <&dsi0_out>;
-+			};
-+		};
-+	};
-+};
+On Fri, 22 Aug 2025 12:34:35 +0300 you wrote:
+> Hello,
+> 
+> Changes in v2:
+>  - In 1/5 updates according to review comments (Nicolas)
+>  - In 1/5 added Fixes tag (Nicolas)
+>  - Added Reviewed-by and Acked-by tags.
+> 
+> [...]
+
+Here is the summary with links:
+  - [v2,1/5] net: cadence: macb: Set upper 32bits of DMA ring buffer
+    (no matching commit)
+  - [v2,2/5] dt-bindings: net: cdns,macb: Add compatible for Raspberry Pi RP1
+    https://git.kernel.org/netdev/net-next/c/d9c74e6f8125
+  - [v2,3/5] net: cadence: macb: Add support for Raspberry Pi RP1 ethernet controller
+    (no matching commit)
+  - [v2,4/5] arm64: dts: rp1: Add ethernet DT node
+    (no matching commit)
+  - [v2,5/5] arm64: dts: broadcom: Enable RP1 ethernet for Raspberry Pi 5
+    (no matching commit)
+
+You are awesome, thank you!
 -- 
-2.50.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
