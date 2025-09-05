@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC22CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0390BCA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zabr4izodvM0NLvpzUp1pSHNTxcY22KRnJgx4e5O7ko=; b=dEFhIjpsSlj4o4gXtk68NBmtMt
-	Mn+WIb+IkWgNm0L6BRAQ388Fmppfu9TH8onA8mDrPtzhE95y7ugWgtSyjf6IqNiXHqvPY48n4p9j8
-	0S9LeNJd61FwxH8tDydtWoxUVBje6a0OO9eEolMi1sWuTiH0CbldEVBYBIzWPrJYqsfslMV3l2tLW
-	Icsi98CiqbcDCzPsun2RRCam4flGw5elpZbRzeguwAR7cBIoEqiRZjjKzQnahTDEyCtdSucu/nFde
-	6U+XWgRvOyVukInk1KyzUAtchiiiYLrIUZHz0KW+t5LIV2tWRNC1XD9SiGaGLVxXPx3oFCTUiPdpW
-	/UlmSxSg==;
+	bh=S4Z4pi2vstaCY5LFpKxEjHRuqlRGNHBr99kO/RP0amE=; b=clMh2GGOtd+x7a9eCSzCef2+2E
+	Rd8fIjsz0iACeqFG4lWJEtime48bY+NH0BIvEChutbLBf6KKKzIFiss+zBaTU6j0eaJbG/eEdSFIm
+	KpHazdSPhL9oNvQjm6OtsMrWrz7/Akl0mftxfDhltTZjbEWuVVehp+wXIs5s5KLNV/iMASR0kplgy
+	+qY/rGFRgiApws/FBZjoNDju6J9SYjnzUFg6K8PexikvkwoDhJ8IYMq8zVN4P31y+LgdDExz9meE8
+	wjiILT5GM/U+CEuAsPEyBCRFSZH3YgKGVIrP7g2k4/VfV8AgwGO4dJApWioTTQYUAKMLZ+xEUNp56
+	EUxT7g/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXWW-00000002MBg-0geW;
-	Fri, 05 Sep 2025 14:34:44 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uuXWa-00000002MHC-0RO4;
+	Fri, 05 Sep 2025 14:34:48 +0000
+Received: from www522.your-server.de ([195.201.215.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuT50-00000000qxR-44fo
+	id 1uuT6e-00000000rW8-2pQU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 09:50:04 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJBPj4s43z6JBLl;
-	Fri,  5 Sep 2025 17:48:57 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 172721402E9;
-	Fri,  5 Sep 2025 17:49:56 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 5 Sep
- 2025 11:49:54 +0200
-Date: Fri, 5 Sep 2025 10:49:52 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Zihuan Zhang <zhangzihuan@kylinos.cn>
-CC: "Rafael J . wysocki" <rafael@kernel.org>, Viresh Kumar
-	<viresh.kumar@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, Srinivas Pandruvada
-	<srinivas.pandruvada@linux.intel.com>, Michael Ellerman <mpe@ellerman.id.au>,
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Thierry Reding <thierry.reding@gmail.com>, MyungJoo Ham
-	<myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>, "Jani Nikula"
-	<jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko
- Ursulin <tursulin@ursulin.net>, "David Airlie" <airlied@gmail.com>, Simona
- Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, Eduardo
- Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>, Ben Horgan
-	<ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>, Zhang Rui
-	<rui.zhang@intel.com>, Len Brown <lenb@kernel.org>, Lukasz Luba
-	<lukasz.luba@arm.com>, "Pengutronix Kernel Team" <kernel@pengutronix.de>,
-	Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
-	<festevam@gmail.com>, Pavel Machek <pavel@kernel.org>, "Sumit Gupta"
-	<sumitg@nvidia.com>, Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Sudeep
- Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
-	<linux-pm@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
-	<intel-gfx@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	<imx@lists.linux.dev>, <linux-omap@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 04/10] cpufreq: powernv: Use scope-based cleanup
- helper
-Message-ID: <20250905104952.00002f58@huawei.com>
-In-Reply-To: <20250903131733.57637-5-zhangzihuan@kylinos.cn>
-References: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
-	<20250903131733.57637-5-zhangzihuan@kylinos.cn>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
- frapeml500008.china.huawei.com (7.182.85.71)
+	Fri, 05 Sep 2025 09:51:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=folker-schwesinger.de; s=default2212; h=In-Reply-To:References:To:From:Cc:
+	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=S4Z4pi2vstaCY5LFpKxEjHRuqlRGNHBr99kO/RP0amE=; b=fdHhu5+tculIUWKwtIyzxXqTKn
+	tr5L6aJmOMRaiUEnRzoIQn+5165zUajK6YOcUepLbPk1BscOZJTdye0+k8qlrCKTxiNRF3VrkwEHN
+	IbIAcPw2AcIEQ0I0tdFBtjU/nyE5fj2Y6VcUW6tthn/IGAWXsyUBaWxc5aaZkscyereORb8py+sfx
+	B5sJXT3IlsxWJEhOkOEnHEA2qTwA9ZLH3l1xl2rJPaFANi5hJ5p/KC48NxWEYaBFqZFL3xhtokOuJ
+	TN/RjVCMQhvlbvLWyq8Jb1Ii8QYOQk4ZQixj28m11Qeolgm7Xvu7OosAeNuA5bjeq/mbJ/P/Il7bf
+	CaExittA==;
+Received: from sslproxy08.your-server.de ([78.47.166.52])
+	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1uuT6X-000AAb-24;
+	Fri, 05 Sep 2025 11:51:37 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1uuT5s-0006sD-0e;
+	Fri, 05 Sep 2025 11:51:37 +0200
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 05 Sep 2025 09:51:36 +0000
+Message-Id: <DCKRVLG0RDPF.2HIFAQSB8UF3H@folker-schwesinger.de>
+Subject: Re: [PATCH] dmaengine: xilinx_dma: Fix uninitialized addr_width
+ when "xlnx,addrwidth" property is missing
+Cc: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Folker Schwesinger" <dev@folker-schwesinger.de>
+To: "Suraj Gupta" <suraj.gupta2@amd.com>, <vkoul@kernel.org>,
+ <michal.simek@amd.com>, <radhey.shyam.pandey@amd.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20250905064811.1887086-1-suraj.gupta2@amd.com>
+In-Reply-To: <20250905064811.1887086-1-suraj.gupta2@amd.com>
+X-Virus-Scanned: Clear (ClamAV 1.0.7/27753/Thu Sep  4 10:26:09 2025)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_025003_287699_995CDE52 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20250905_025145_010377_E397810B 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,73 +83,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  3 Sep 2025 21:17:27 +0800
-Zihuan Zhang <zhangzihuan@kylinos.cn> wrote:
+On Fri Sep 5, 2025 at 8:48 AM CEST, Suraj Gupta wrote:
+> When device tree lacks optional "xlnx,addrwidth" property, the addr_width
+> variable remained uninitialized with garbage values, causing incorrect
+> DMA mask configuration and subsequent probe failure. The fix ensures a
+> fallback to the default 32-bit address width when this property is missin=
+g.
+>
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> Fixes: b72db4005fe4 ("dmaengine: vdma: Add 64 bit addressing support to t=
+he driver")
 
-> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
-> annotation for policy references. This reduces the risk of reference
-> counting mistakes and aligns the code with the latest kernel style.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
-This one is a little more weak wrt to justification.  Kernel style
-isn't to use __free() where there isn't a significant benefit.
-
-Up to maintainer of the driver on this one so I'll not offer
-a tag.
+Reviewed-by: Folker Schwesinger <dev@folker-schwesinger.de>
 
 > ---
->  drivers/cpufreq/powernv-cpufreq.c | 11 +++++------
->  1 file changed, 5 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/cpufreq/powernv-cpufreq.c b/drivers/cpufreq/powernv-cpufreq.c
-> index 7d9a5f656de8..811fdbf398fa 100644
-> --- a/drivers/cpufreq/powernv-cpufreq.c
-> +++ b/drivers/cpufreq/powernv-cpufreq.c
-> @@ -892,15 +892,15 @@ static int powernv_cpufreq_reboot_notifier(struct notifier_block *nb,
->  				unsigned long action, void *unused)
->  {
->  	int cpu;
-> -	struct cpufreq_policy *cpu_policy;
->  
->  	rebooting = true;
->  	for_each_online_cpu(cpu) {
-> -		cpu_policy = cpufreq_cpu_get(cpu);
-> +		struct cpufreq_policy *cpu_policy __free(put_cpufreq_policy) =
-> +			cpufreq_cpu_get(cpu);
-> +
->  		if (!cpu_policy)
->  			continue;
->  		powernv_cpufreq_target_index(cpu_policy, get_nominal_index());
-> -		cpufreq_cpu_put(cpu_policy);
->  	}
->  
->  	return NOTIFY_DONE;
-> @@ -913,7 +913,6 @@ static struct notifier_block powernv_cpufreq_reboot_nb = {
->  static void powernv_cpufreq_work_fn(struct work_struct *work)
->  {
->  	struct chip *chip = container_of(work, struct chip, throttle);
-> -	struct cpufreq_policy *policy;
->  	unsigned int cpu;
->  	cpumask_t mask;
->  
-> @@ -928,14 +927,14 @@ static void powernv_cpufreq_work_fn(struct work_struct *work)
->  	chip->restore = false;
->  	for_each_cpu(cpu, &mask) {
->  		int index;
-> +		struct cpufreq_policy *policy __free(put_cpufreq_policy) =
-> +			cpufreq_cpu_get(cpu);
->  
-> -		policy = cpufreq_cpu_get(cpu);
->  		if (!policy)
->  			continue;
->  		index = cpufreq_table_find_index_c(policy, policy->cur, false);
->  		powernv_cpufreq_target_index(policy, index);
->  		cpumask_andnot(&mask, &mask, policy->cpus);
-> -		cpufreq_cpu_put(policy);
->  	}
->  out:
->  	cpus_read_unlock();
+>  drivers/dma/xilinx/xilinx_dma.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
+dma.c
+> index fabff602065f..89a8254d9cdc 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -131,6 +131,7 @@
+>  #define XILINX_MCDMA_MAX_CHANS_PER_DEVICE	0x20
+>  #define XILINX_DMA_MAX_CHANS_PER_DEVICE		0x2
+>  #define XILINX_CDMA_MAX_CHANS_PER_DEVICE	0x1
+> +#define XILINX_DMA_DFAULT_ADDRWIDTH		0x20
+> =20
+>  #define XILINX_DMA_DMAXR_ALL_IRQ_MASK	\
+>  		(XILINX_DMA_DMASR_FRM_CNT_IRQ | \
+> @@ -3159,7 +3160,7 @@ static int xilinx_dma_probe(struct platform_device =
+*pdev)
+>  	struct device_node *node =3D pdev->dev.of_node;
+>  	struct xilinx_dma_device *xdev;
+>  	struct device_node *child, *np =3D pdev->dev.of_node;
+> -	u32 num_frames, addr_width, len_width;
+> +	u32 num_frames, addr_width =3D XILINX_DMA_DFAULT_ADDRWIDTH, len_width;
+>  	int i, err;
+> =20
+>  	/* Allocate and initialize the DMA engine structure */
+> @@ -3235,7 +3236,9 @@ static int xilinx_dma_probe(struct platform_device =
+*pdev)
+> =20
+>  	err =3D of_property_read_u32(node, "xlnx,addrwidth", &addr_width);
+>  	if (err < 0)
+> -		dev_warn(xdev->dev, "missing xlnx,addrwidth property\n");
+> +		dev_warn(xdev->dev,
+> +			 "missing xlnx,addrwidth property, using default value %d\n",
+> +			 XILINX_DMA_DFAULT_ADDRWIDTH);
+> =20
+>  	if (addr_width > 32)
+>  		xdev->ext_addr =3D true;
 
 
