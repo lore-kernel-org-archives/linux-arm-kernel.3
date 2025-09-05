@@ -4,84 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D9FCA1013
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A607BCA101F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Blt+mD1ZPbeHPH5EjTRyezIVpAOH95R/2L+UzkbONyw=; b=lubG1HX/cdgKKLtDmcOvUjS1Kw
-	ts4CYsuiOZUrfbwkL2oRbiXM7fzslMbsKR4fUxqa3utyZgZ54J4/mfyt6CXGDt6Bn0v+lCinFY5BU
-	wo1FfZM705e1+RWhtR3quBANe6NRdzh5xrXTRCbULZFhfH80No35aLeKeC2on6gXD4DPSI81BElub
-	kWp/zVwmn/t9X/POiQjn41wLpuf3pLpRFqeKv5rJOSYrP2KQFj1CTZHpquB73H1x8bBNtqmL9otVu
-	DEY0sSdmrTr03kbQTgeUvlFSzre9lIjv/ICeuTF/H2NGAUFaPoDtQ//GlMS2kHqlN1zEGclQlg9jd
-	S8ogynwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uqGmq+/tciN/X02OS0kFJpbQdadqAWQTqIRmXPCqGYs=; b=pxEcmQNXBerHXpAeooDqE+BHdo
+	r7jmYpG1EjHdny7eO42G+TUlwnHWroQj/rB407RVdR7W43Q0mWAT+6gGEVOzDgdYUtgMQwsaGNBVb
+	EXtnyhzbh/tvp5ofAbFF7XD8b7A+SKSi+TNYA5ebYyCsSG2AN3xxcb6AclqvzejP5gbsXp5F93uY9
+	kC6407ZkhE8IjwyBvV8jDBrbGhqfZkcF5xEKAVBTTJRtqJ8Y6n94JvvbHCgP0dS9TYzTayfty2MbK
+	jNQN+aGjNgc3ekL70XqafhTj8Yz3Of5N8mImiF3AlUmVQWdWzFK/ufICyz2jvNXn0CggWxDM5ygPo
+	fu0YZ94A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYEq-00000002hN1-28JV;
-	Fri, 05 Sep 2025 15:20:32 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1uuYEr-00000002hNj-0ZE1;
+	Fri, 05 Sep 2025 15:20:33 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuUnZ-00000001RJ8-1aG6;
-	Fri, 05 Sep 2025 11:40:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757072409; x=1788608409;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=sx2wz53gv4OIUWMCEXeNS8i0YplTPAB4OZ9qODA9qog=;
-  b=fRMXcTtJPiwsmWmgGpYLKGjNyC/2wv5qZE/3vl3u3zFqlvH5wvqo8nY7
-   YgnpmaFP484/TufyOOizdeVHkbZv5NZil89vcYE3hbpQEyf6jofQJX8sa
-   TGlwz5PTrh3snTIlCEfwbTFdFzbaNQ3NZtvzZZSMieLBwN2QAu5ZGqzbr
-   2emF/6J81ssYv7xYm9bCSZL8mysAnqsVJFByACRbS5vS3A6ltpqW/MrM3
-   MHxQZeU2yQnYC4oCgXLMyrMlyyRgxrP7DyNC/rhklTgY59X3pmxgxtpLB
-   xABRWl9kqqy4/drG664rdbgAjHyqklyClSJzxVsOtmFe64l+1hpYxS9GZ
-   Q==;
-X-CSE-ConnectionGUID: ArmKiuowRxCnJwfPabMeRw==
-X-CSE-MsgGUID: GpMWsEivRI+y3lxy2I02Tg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11543"; a="63064748"
-X-IronPort-AV: E=Sophos;i="6.18,241,1751266800"; 
-   d="scan'208";a="63064748"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2025 04:40:06 -0700
-X-CSE-ConnectionGUID: 7ivWf5SiTburyJTsZYw9/Q==
-X-CSE-MsgGUID: Mm1LtjFKRfexLBEV4Qw4+w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,241,1751266800"; 
-   d="scan'208";a="171710329"
-Received: from kuha.fi.intel.com ([10.237.72.152])
-  by fmviesa007.fm.intel.com with SMTP; 05 Sep 2025 04:40:01 -0700
-Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Fri, 05 Sep 2025 14:40:00 +0300
-Date: Fri, 5 Sep 2025 14:40:00 +0300
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org, Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH RFC 15/22] usb: typec: tipd: Update partner identity when
- power status was updated
-Message-ID: <aLrMEL_St_0JlZYG@kuha.fi.intel.com>
-References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
- <20250821-atcphy-6-17-v1-15-172beda182b8@kernel.org>
+	id 1uuUrO-00000001SUP-1XBU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 11:44:08 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id C02154E440;
+	Fri,  5 Sep 2025 11:44:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1757072642; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uqGmq+/tciN/X02OS0kFJpbQdadqAWQTqIRmXPCqGYs=;
+	b=JmF/Scg+6OLJ+HjL08exUUQWkL3dkcCmpCHobuPze67W32iNvfeayZgBBtXwoTMTXnUUMo
+	vNUiih25jAU6ZH98n0cA/IOGTYXlr41QPRVNNZzMLv/u2tQXvuSduY+T1qRuA73udPwTSG
+	4wpqz2qqF1/LnDgYtVoP2vkDYG8sKwY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1757072642;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uqGmq+/tciN/X02OS0kFJpbQdadqAWQTqIRmXPCqGYs=;
+	b=0yH5OsCcQHpkeCegKTHMMsW+mYK9nyzTahKp7a72BZqvHrUFMStoTYENaVX32I4v5RtZma
+	OtRxu4qlxiskNrBQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1757072642; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uqGmq+/tciN/X02OS0kFJpbQdadqAWQTqIRmXPCqGYs=;
+	b=JmF/Scg+6OLJ+HjL08exUUQWkL3dkcCmpCHobuPze67W32iNvfeayZgBBtXwoTMTXnUUMo
+	vNUiih25jAU6ZH98n0cA/IOGTYXlr41QPRVNNZzMLv/u2tQXvuSduY+T1qRuA73udPwTSG
+	4wpqz2qqF1/LnDgYtVoP2vkDYG8sKwY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1757072642;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uqGmq+/tciN/X02OS0kFJpbQdadqAWQTqIRmXPCqGYs=;
+	b=0yH5OsCcQHpkeCegKTHMMsW+mYK9nyzTahKp7a72BZqvHrUFMStoTYENaVX32I4v5RtZma
+	OtRxu4qlxiskNrBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9A665139B9;
+	Fri,  5 Sep 2025 11:44:01 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 1qPKIgHNumgiVQAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Fri, 05 Sep 2025 11:44:01 +0000
+Message-ID: <8574e531-fc4d-4f36-886b-6e7fc0656da3@suse.de>
+Date: Fri, 5 Sep 2025 14:43:57 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250821-atcphy-6-17-v1-15-172beda182b8@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/5] dd ethernet support for RPi5
+To: Jakub Kicinski <kuba@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Stanimir Varbanov <svarbanov@suse.de>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Phil Elwell
+ <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
+References: <20250822093440.53941-1-svarbanov@suse.de>
+ <06017779-f03b-4006-8902-f0eb66a1b1a1@broadcom.com>
+ <20250904184757.1f7fb839@kernel.org> <20250904184941.207518c8@kernel.org>
+Content-Language: en-US
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <20250904184941.207518c8@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TAGGED_RCPT(0.00)[dt,netdev];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_044009_454614_6D33DE47 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20250905_044406_552336_EB7456B0 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,51 +148,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Jacub,
 
-On Thu, Aug 21, 2025 at 03:39:07PM +0000, Sven Peter wrote:
-> From: Hector Martin <marcan@marcan.st>
+On 9/5/25 4:49 AM, Jakub Kicinski wrote:
+> On Thu, 4 Sep 2025 18:47:57 -0700 Jakub Kicinski wrote:
+>>> netdev maintainers, I took patches 4 and 5 through the Broadcom ARM SoC 
+>>> tree, please take patches 1 through 3 inclusive, or let me know if I 
+>>> should take patch 2 as well.  
+>>
+>> Thanks for the heads up! Let me take patch 3 right now.
 > 
-> Whenever the power status is changed make sure to also update the
-> partner identity to be able to detect changes once de-bouncing and mode
-> changes arre added for CD321x.
-
-s/arre/are/
-
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  drivers/usb/typec/tipd/core.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
+> s/patch 3/patch 2/
 > 
-> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-> index e369897bfa017ca96e559a8bd70da11207d4513a..b0fdd4dddd3a490dbc2a8ced21ea0803658f36a7 100644
-> --- a/drivers/usb/typec/tipd/core.c
-> +++ b/drivers/usb/typec/tipd/core.c
-> @@ -636,9 +636,16 @@ static irqreturn_t cd321x_interrupt(int irq, void *data)
->  	if (!tps6598x_read_status(tps, &status))
->  		goto err_unlock;
->  
-> -	if (event & APPLE_CD_REG_INT_POWER_STATUS_UPDATE)
-> +	if (event & APPLE_CD_REG_INT_POWER_STATUS_UPDATE) {
->  		if (!tps6598x_read_power_status(tps))
->  			goto err_unlock;
-> +		if (TPS_POWER_STATUS_PWROPMODE(tps->pwr_status) == TYPEC_PWR_MODE_PD) {
-> +			if (tps6598x_read_partner_identity(tps)) {
-> +				dev_err(tps->dev, "%s: failed to partner identity\n", __func__);
+>> I'm a bit unclear on where we landed with the parallel efforts to add
+>> the >32b address support :(
+> 
 
-				dev_err(tps->dev, "failed to read partner identity\n");
+If you talk about 1/5 from this series, you can ignore it for now. I'll
+monitor the fixes series from Théo Lebrun and will resend it if needed.
 
-> +				tps->partner_identity = (struct usb_pd_identity) {0};
-> +			}
-> +		}
-> +	}
->  
->  	if (event & APPLE_CD_REG_INT_DATA_STATUS_UPDATE)
->  		if (!tps->data->read_data_status(tps))
-
-thanks,
-
--- 
-heikki
+regards,
+~Stan
 
