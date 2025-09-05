@@ -4,64 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC0DCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:37:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C845ECA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MR0mGwVaP63tprA30EW/NWo/9dDiP1xCdBvs4/l8hWc=; b=lCx4uHycXRzIEbyoi3Hnfg/aKO
-	hoDNFeFu/IaoloxBEJy0u9uuQzCvixD3O0uoilE8LYhCUGUSKqqd0PD3O8BlZCjwLbZW4RLTgFCtF
-	qk80nXQTFWU7Y/Y//mrcsOFB5TYaUpraDAVSeWEFikP1kN9E7fLBE0KDwVCzAnpDkpqWwDPiIh6Fr
-	4zVgTIF3+2oDSYaElTxU84Jhzd7lCVFC5oWzd2x/jmipXj3QLlnDrDVlD7Mum7AnSvfBRgQJyuUkx
-	LVbLiyswJtXZKJ8mDzXJvs6G0HT7Gk6Eb7OLWAb4WefrPYHFdm/TfvNxxAtJQLAhH6Kx9LcIFry7O
-	oDsCo22g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1oSC0kNBv7BoSPdls046nuojznr/FbahhYJ6jZNsacQ=; b=Ymh9A6AhjVuSgF7t6g8gtXVmiV
+	VOPd6Mw2Nn1GwJFj/wz8C8O9/+ZOrQP+DQILWv0H/MyHV3+ETk2YfcWUp+BtrZJPGQ4t3Sz51b9Pt
+	UpTwP8vfOxFAVsV8WDKmJe9CWnkz1tSpW4fz/taLjs2ZDHVIeOuYer4mOV3PzazkzhK3QIrsSED4z
+	0z8EPizhr8eAoZOR9bfJr4nnGbqUvhg+Vf/H6va8Iz+ji4mNGE33OEKPJ1mDqU9wBD8pqGSQ9B6Oi
+	i9g/RXdWvAsUaqp4o3IDijF1hneFyRAwcpxJ9MAPyiO1QZEi/3XfJBM6zqGxJkUS8/9cSDaThPlP/
+	h9sokeTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSt7-00000000mwx-0zu3;
-	Fri, 05 Sep 2025 09:37:45 +0000
+	id 1uuSvm-00000000nnx-3zjO;
+	Fri, 05 Sep 2025 09:40:30 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuRcb-00000000IBt-3MwS
+	id 1uuQnY-0000000HaMX-2pZO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 08:16:39 +0000
+	Fri, 05 Sep 2025 07:23:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88FCE4020F;
-	Fri,  5 Sep 2025 08:16:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDA29C4CEF1;
-	Fri,  5 Sep 2025 08:16:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F57443E55;
+	Fri,  5 Sep 2025 07:23:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E92D6C4CEF1;
+	Fri,  5 Sep 2025 07:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757060197;
-	bh=0+i54Si2cMI9nBtLp8I1HNyZ8djprDv/KS3WoyWPmOE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=D8bJ3+ykwQH5VksbMEcM5VcdAdKja9Ie/6gP3kW3ShfMCYvV54eoW/lUuryOeqoZ5
-	 WzObbEp5u6lQOLzmhqRwMlvOQcINIQdnrJDQmcSFacwlirQv6BzJuq2Mms9r1iR20L
-	 qaOpx7kRJksiamSajB5X73CLtcajkWyOC/Fnd7U2Yb1bFWMiDFLX+lWZcNThiWpck3
-	 dncnKrdemaBMYWDMdcotIGiqEnIBapC/m/MC+4BYHe+OPvKn34IlVTXj5aPuWDXz4u
-	 1P1TlUMQidi+x2eKCTNhqgGY5w9BLDKRBjEsE3kq6yQz1FaoHlQ0pxIIkUjdV438xB
-	 Dzsg9mNvLZfQQ==
-Date: Fri, 5 Sep 2025 10:16:34 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au, 
-	linus.walleij@linaro.org, brgl@bgdev.pl, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, BMC-SW@aspeedtech.com
-Subject: Re: [PATCH v2 2/4] dt-bindings: pinctrl: aspeed: Add support for
- AST27xx
-Message-ID: <20250905-monumental-camouflaged-butterfly-01faed@kuoka>
-References: <20250904103401.88287-1-billy_tsai@aspeedtech.com>
- <20250904103401.88287-3-billy_tsai@aspeedtech.com>
+	s=k20201202; t=1757057032;
+	bh=XRDAGJO3J7xfVFZ68FR2LEPnLTAvZtxytqz1IEgOaKc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kx18sxkfbY7IWN0m6R7S4C99w7nk6D8MH0ICf8AvGbCecK9veRLOzjFdCAEZZG1E0
+	 qVKhP0G1kJsORAk8EPU8nLI9eXqpFhPw3ERK6EsdSSOkroZppSV8GOTQSdaS/YFH9t
+	 jBWBWNpi9pV+WRXMNqnWBsSJ+6CgEeOjDUz+3Hl+kFO/7r7e+T9MHg1h942T6Wbd0G
+	 vDItsLGzsbBmMQHTnhrScPE1KzIsrZN/HxqV79by/2Ozb0U50SZzq3crUjpttwATDi
+	 kprl2xgfzd3rEbfp+KIa+kL9erD1o6e2283XIuVSk6U2HwNZhThZ+ZEXJuYso5XLVj
+	 JgPl4qA+unZsQ==
+Message-ID: <179f19c0-d9fc-4efb-bc78-8dc1e7505b13@kernel.org>
+Date: Fri, 5 Sep 2025 09:23:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250904103401.88287-3-billy_tsai@aspeedtech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/8] arm64: dts: bst: add support for Black Sesame
+ Technologies C1200 CDCU1.0 board
+To: Albert Yang <yangzh0906@thundersoft.com>
+Cc: adrian.hunter@intel.com, arnd@arndb.de, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, gordon.ge@bst.ai, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org
+References: <05665d48-72d7-4304-9dd1-1f337235ecd4@kernel.org>
+ <20250903070609.3475214-1-yangzh0906@thundersoft.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250903070609.3475214-1-yangzh0906@thundersoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_011637_881029_9F825113 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20250905_002352_766719_414EBD5E 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,154 +120,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 06:33:59PM +0800, Billy Tsai wrote:
-> Add bindings for the pin controller found in the ASPEED AST27xx SoC.
-> The ASPEED AST2700 SoC contains two separate pin controllers, each
-> managed by a distinct System Control Unit (SCU).
-> Because these two controllers have different register maps, control
-> different sets of pins, support different pin configuration options, and
-> implement different multi-function switch logic, they are not compatible.
-> Therefore, two separate device tree bindings,'aspeed,ast2700-soc0-pinctrl'
-> and 'aspeed,ast2700-soc1-pinctrl', are introduced.
+On 03/09/2025 09:06, Albert Yang wrote:
+>>
+>> No, you need to finally read and follow DTS coding style.
+>>
+>>>             gic: interrupt-controller@32800000 {
+>>>                     compatible = "arm,gic-v3";
+>>>
 > 
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> ---
->  .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml  | 115 +++++
->  .../pinctrl/aspeed,ast2700-soc1-pinctrl.yaml  | 435 ++++++++++++++++++
->  2 files changed, 550 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc1-pinctrl.yaml
+> Thank you for pointing out the DTS coding style requirements. I have now
+> carefully reviewed the documentation and updated the GIC node as follows.
 > 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
-> new file mode 100644
-> index 000000000000..0fee62259250
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
-> @@ -0,0 +1,115 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ASPEED AST2700 SoC0 Pin Controller
-> +
-> +maintainers:
-> +  - Billy Tsai <billy_tsai@aspeedtech.com>
-> +
-> +description: |
+> I have a question regarding the property ordering. According to the DTS
+> coding style documentation at:
+> https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
+> 
+> The preferred order of properties in device nodes is:
+> 
+> 1.“compatible”
+> 2.“reg”
+> 3.“ranges”
+> 4.Standard/common properties (defined by common bindings, e.g. without vendor-prefixes)
+> 5.Vendor-specific properties
+> 6.“status” (if applicable)
+> 7.Child nodes, where each node is preceded with a blank line
+> 
+> However, I'm uncertain about how to order properties that start with "#".
+> I have treated them as standard/common properties and updated the node as follows.
+> Could you please confirm if this approach is correct?
 
-Drop |
+They go as standard common properties. Whether you group all '#'
+together or sort by name skipping '#' is up to you, because common style
+does not define that.
 
-> +  Bindings for the ASPEED AST2700 SoC0 Pin Controller.
+> 
+> 
+> 		gic: interrupt-controller@32800000 {
+> 			compatible = "arm,gic-v3";
+> 			reg = <0x0 0x32800000 0x0 0x10000>,
+> 			      <0x0 0x32880000 0x0 0x100000>;
+> 			ranges;
+> 			#address-cells = <2>;
+> 			#interrupt-cells = <3>;
+> 			interrupt-controller;
+> 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
+> 			#size-cells = <2>;
 
-You should explain here hardware, not say what bindings are (we know
-what bindings are) or copy title, either.
+I would keep #size-cells after #address-cells, because they describe
+same thing - addressing of children.
 
-> +
-> +properties:
-> +  compatible:
-> +    const: aspeed,ast2700-soc0-pinctrl
-> +
-> +additionalProperties:
-
-You should restrict nodes with pattern to common suffix or prefix, e.g.
-group, state, pins. See other pinctrl bindings for examples.
-
-
-> +  $ref: pinmux-node.yaml#
-> +  additionalProperties: false
-> +
-> +  properties:
-> +    function:
-> +      enum:
-> +        - EMMC
-> +        - VGADDC
-> +        - USB3A
-> +        - USB2A
-> +        - USB3B
-> +        - USB2B
-> +        - JTAG0
-> +        - PCIERC
-> +
-> +    groups:
-> +      enum:
-> +        - EMMCG1
-> +        - EMMCG4
-> +        - EMMCG8
-> +        - EMMCWPN
-> +        - EMMCCDN
-> +        - VGADDC
-> +        - USB3AXHD
-> +        - USB3AXHPD
-> +        - USB3AXH
-> +        - USB3AXHP
-> +        - USB3AXH2B
-> +        - USB3AXHP2B
-> +        - USB2AXHD1
-> +        - USB2AXHPD1
-> +        - USB2AD1
-> +        - USB2AXH
-> +        - USB2AXHP
-> +        - USB2AXH2B
-> +        - USB2AXHP2B
-> +        - USB2AHPD0
-> +        - USB2AD0
-> +        - USB2AH
-> +        - USB2AHP
-> +        - USB3BXHD
-> +        - USB3BXHPD
-> +        - USB3BXH
-> +        - USB3BXHP
-> +        - USB3BXH2A
-> +        - USB3BXHP2A
-> +        - USB2BXHD1
-> +        - USB2BXHPD1
-> +        - USB2BD1
-> +        - USB2BXH
-> +        - USB2BXHP
-> +        - USB2BXH2A
-> +        - USB2BXHP2A
-> +        - USB2BHPD0
-> +        - USB2BD0
-> +        - USB2BH
-> +        - USB2BHP
-> +        - JTAGM0
-> +        - PSP
-> +        - SSP
-> +        - TSP
-> +        - DDR
-> +        - USB3A
-> +        - USB3B
-> +        - PCIEA
-> +        - PCIEB
-> +        - PCIERC0PERST
-> +        - PCIERC1PERST
-> +
-> +    pins:
-> +      $ref: /schemas/types.yaml#/definitions/string-array
-> +    drive-strength:
-> +      minimum: 0
-> +      maximum: 15
-> +
-> +allOf:
-> +  - $ref: pinctrl.yaml#
-> +
-> +required:
-> +  - compatible
-> +
-> +examples:
-> +  - |
-> +    pinctrl0: pinctrl{
-
-DTS coding style - missing space.
-
-Unused label.
-
-And you did not implement Rob's comment.
 
 
 Best regards,
 Krzysztof
-
 
