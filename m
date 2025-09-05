@@ -4,108 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C845ECA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8233FCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1oSC0kNBv7BoSPdls046nuojznr/FbahhYJ6jZNsacQ=; b=Ymh9A6AhjVuSgF7t6g8gtXVmiV
-	VOPd6Mw2Nn1GwJFj/wz8C8O9/+ZOrQP+DQILWv0H/MyHV3+ETk2YfcWUp+BtrZJPGQ4t3Sz51b9Pt
-	UpTwP8vfOxFAVsV8WDKmJe9CWnkz1tSpW4fz/taLjs2ZDHVIeOuYer4mOV3PzazkzhK3QIrsSED4z
-	0z8EPizhr8eAoZOR9bfJr4nnGbqUvhg+Vf/H6va8Iz+ji4mNGE33OEKPJ1mDqU9wBD8pqGSQ9B6Oi
-	i9g/RXdWvAsUaqp4o3IDijF1hneFyRAwcpxJ9MAPyiO1QZEi/3XfJBM6zqGxJkUS8/9cSDaThPlP/
-	h9sokeTw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NScMNYGJTrwVse4UWLw7JWj4Wk4QUY3V8e72K6L26qw=; b=vwJd12jBvukQLPlz5VZz0628dy
+	4K2rOsKHehnEHk4TuUVFnBRP3l1PGQqjusUOgk8bt//06/tF/HmZF45w1hbAUQtVUu42FmrzV8h0p
+	61BzCgnEDVMrNQujIbTX9kQgJF/Ufahb+/DCRvZmBaPMKCCXXhdTXWBBIwtrr99MKEDkuFbTYGGp/
+	iR/jctif5xPNpNUKKHwwl9dkuSWp62xGcjvEBl1GtCJAXstisPby2ks98VL06PDFIst/aYp3MvNm7
+	hkko8EK4vz9a52/gD/2ChDjs9lJpNxZFpT4IGmHHWelyIf968OUgPYYbVG6thK2A/io+7MzL5UHic
+	jP7B/zUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSvm-00000000nnx-3zjO;
-	Fri, 05 Sep 2025 09:40:30 +0000
+	id 1uuSyV-00000000p4P-3X7D;
+	Fri, 05 Sep 2025 09:43:19 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQnY-0000000HaMX-2pZO
+	id 1uuQsa-000000001h8-43Mq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 07:23:53 +0000
+	Fri, 05 Sep 2025 07:29:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5F57443E55;
-	Fri,  5 Sep 2025 07:23:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E92D6C4CEF1;
-	Fri,  5 Sep 2025 07:23:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AE2A14034F;
+	Fri,  5 Sep 2025 07:29:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D324C4CEF1;
+	Fri,  5 Sep 2025 07:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757057032;
-	bh=XRDAGJO3J7xfVFZ68FR2LEPnLTAvZtxytqz1IEgOaKc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kx18sxkfbY7IWN0m6R7S4C99w7nk6D8MH0ICf8AvGbCecK9veRLOzjFdCAEZZG1E0
-	 qVKhP0G1kJsORAk8EPU8nLI9eXqpFhPw3ERK6EsdSSOkroZppSV8GOTQSdaS/YFH9t
-	 jBWBWNpi9pV+WRXMNqnWBsSJ+6CgEeOjDUz+3Hl+kFO/7r7e+T9MHg1h942T6Wbd0G
-	 vDItsLGzsbBmMQHTnhrScPE1KzIsrZN/HxqV79by/2Ozb0U50SZzq3crUjpttwATDi
-	 kprl2xgfzd3rEbfp+KIa+kL9erD1o6e2283XIuVSk6U2HwNZhThZ+ZEXJuYso5XLVj
-	 JgPl4qA+unZsQ==
-Message-ID: <179f19c0-d9fc-4efb-bc78-8dc1e7505b13@kernel.org>
-Date: Fri, 5 Sep 2025 09:23:48 +0200
+	s=k20201202; t=1757057344;
+	bh=yVy1f3yKmPmzFcw9VKqDyY9YboyVtGIYlwJrQrV2qog=;
+	h=From:To:Cc:Subject:Date:From;
+	b=oGuR7LOdCqpTVIeg+Y1AtdcT434yJI73d6FnTZh8Ibgz6vjBV+WB2H1zg7zyA8Q3X
+	 4uZ61Bvtmm9/OU65Kg4MeJAzI9AoeM4UJnAW9Yl2zfvURlKc54UDDFl3BmXsepJIFf
+	 P8Q9juSPgRsENh5jbPAzr2C0LdpcHd63f++ybzmoTlZjMhuCwmuyMiPaw1t3Lzg2RK
+	 iDf1mBgpf2+rM79po6E0bMX8KRCPq5Kc0VPAYDf/tPTA361hbOao+jIyGeaymAT9JQ
+	 3dPB/R3UgXUd4Lr6YRaW8KVDpqEmuFoHJvEvy8+2+GOv96t7TPxgPTAMyJx4v2P4OO
+	 9T3NUhB0jcahA==
+Received: from [131.175.126.3] (helo=lobster-girl.dot1x.polimi.it)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uuQsY-00000003Y39-0yts;
+	Fri, 05 Sep 2025 07:29:02 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH] KVM: arm64: Mark freed S2 MMUs as invalid
+Date: Fri,  5 Sep 2025 08:28:59 +0100
+Message-ID: <20250905072859.211369-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/8] arm64: dts: bst: add support for Black Sesame
- Technologies C1200 CDCU1.0 board
-To: Albert Yang <yangzh0906@thundersoft.com>
-Cc: adrian.hunter@intel.com, arnd@arndb.de, conor+dt@kernel.org,
- devicetree@vger.kernel.org, gordon.ge@bst.ai, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- robh@kernel.org
-References: <05665d48-72d7-4304-9dd1-1f337235ecd4@kernel.org>
- <20250903070609.3475214-1-yangzh0906@thundersoft.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250903070609.3475214-1-yangzh0906@thundersoft.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 131.175.126.3
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_002352_766719_414EBD5E 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20250905_002905_024099_A5C6F75C 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,57 +83,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2025 09:06, Albert Yang wrote:
->>
->> No, you need to finally read and follow DTS coding style.
->>
->>>             gic: interrupt-controller@32800000 {
->>>                     compatible = "arm,gic-v3";
->>>
-> 
-> Thank you for pointing out the DTS coding style requirements. I have now
-> carefully reviewed the documentation and updated the GIC node as follows.
-> 
-> I have a question regarding the property ordering. According to the DTS
-> coding style documentation at:
-> https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
-> 
-> The preferred order of properties in device nodes is:
-> 
-> 1.“compatible”
-> 2.“reg”
-> 3.“ranges”
-> 4.Standard/common properties (defined by common bindings, e.g. without vendor-prefixes)
-> 5.Vendor-specific properties
-> 6.“status” (if applicable)
-> 7.Child nodes, where each node is preceded with a blank line
-> 
-> However, I'm uncertain about how to order properties that start with "#".
-> I have treated them as standard/common properties and updated the node as follows.
-> Could you please confirm if this approach is correct?
+When freeing an S2 MMU, we free the associated pgd, but omit to
+mark the structure as invalid. Subsequently, a call to
+kvm_nested_s2_unmap() would pick these invalid S2 MMUs and
+pass them down the teardown path.
 
-They go as standard common properties. Whether you group all '#'
-together or sort by name skipping '#' is up to you, because common style
-does not define that.
+This ends up with a nasty warning as we try to unmap an unallocated
+set of page tables.
 
-> 
-> 
-> 		gic: interrupt-controller@32800000 {
-> 			compatible = "arm,gic-v3";
-> 			reg = <0x0 0x32800000 0x0 0x10000>,
-> 			      <0x0 0x32880000 0x0 0x100000>;
-> 			ranges;
-> 			#address-cells = <2>;
-> 			#interrupt-cells = <3>;
-> 			interrupt-controller;
-> 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
-> 			#size-cells = <2>;
+Fix this by making the S2 MMU invalid on freeing the pgd by calling
+kvm_init_nested_s2_mmu().
 
-I would keep #size-cells after #address-cells, because they describe
-same thing - addressing of children.
+Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/mmu.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 9a45daf817bf..315aaadfda30 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1074,6 +1074,10 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+ 		mmu->pgt = NULL;
+ 		free_percpu(mmu->last_vcpu_ran);
+ 	}
++
++	if (kvm_is_nested_s2_mmu(kvm, mmu))
++		kvm_init_nested_s2_mmu(mmu);
++		
+ 	write_unlock(&kvm->mmu_lock);
+ 
+ 	if (pgt) {
+-- 
+2.47.2
 
-
-Best regards,
-Krzysztof
 
