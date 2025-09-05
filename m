@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62697CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F1ACA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4UsSZ81znAIH2BHQxQH7893DTnd5tXkUeyvZxL3R4IU=; b=q+sc+YuwZE+88h9Qp3VpJlTOlG
-	h5OMqLMCUyEjpLb653o0rNyxYX7q+z+/nT4lOlYbaJdCKELd8prvYaS8t9tSM3ODE/peom2iy73W/
-	DespQEwb9Q7ZoK2aEYOoB8UrNrvaaFx9FG7CoZ5CabTupw2FdWeVaD91gZ6HklGCwrF312BmDl95y
-	bx7duDZoGbnLbUU/c1OOvdg/VLi4TxxwQCxHrkhedx+kggXr/Oi6hjPaHw8/jY/gbr0uDJqHoLYHk
-	+StY6ZoDCt8XfcaOz6+yAhwe5MSe23ipK52mzf8VW+mCNof2mbrF2uBe/D17eQvZIVDWyv63Re4sG
-	bMMrMbXg==;
+	bh=AQ/hGYfiv7kd9VOw7q4LVFYHiVXh15fd+Z6Ilpmqcgo=; b=XiehkfTUyJaEG7czh1gPq9zX6c
+	CosClHOo5FiZ52bn/bqg5sfZNvKHXUh8A7AZV5Ls7dLxUmqY0cA/F2DJyoHELZ434VCIg2IZLIXXO
+	tWEhKdPnn6ugt1871SdECoW6wkFoDc85tlVJzD4drzfdmyxNCgXBZqK3TDZ4RVcAWWvBZsr7v0KER
+	yCFjUvgS/b55DnnyETSizLfDAQxJ9SS+mbHHYdbhOFG3XXHR3ddeUt72/NauSyLcLRKxufBJ3T02n
+	yWFpForXDP08jMP+2VbO3U2nqB1CBYv4Pr0mx1g3PztRsirfAgVn0sgmUezEi5gkzoxRQPuEvyLJZ
+	W5V/i7KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZxm-00000003NeJ-0Og5;
-	Fri, 05 Sep 2025 17:11:02 +0000
+	id 1uua0a-00000003Oaq-3lxo;
+	Fri, 05 Sep 2025 17:13:56 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuWR5-00000001xOk-0N3f
+	id 1uuWR6-00000001xOk-3qfZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 13:25:04 +0000
-X-UUID: b687c5d88a5b11f0b29709d653e92f7d-20250905
+	Fri, 05 Sep 2025 13:25:06 +0000
+X-UUID: b8db92f68a5b11f0b29709d653e92f7d-20250905
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:2f63b8d2-1ead-4757-b66c-86b8c1049e1d,IP:0,U
+X-CID-O-INFO: VERSION:1.1.45,REQID:646670e5-e5c7-40b1-b28a-3ee5e8c5af3a,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:3fcc3bb2746cc7389702de1a6e732580,BulkI
+X-CID-META: VersionHash:6493067,CLOUDID:f6a8c23197cabdb3bff5558c69d77a16,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: b687c5d88a5b11f0b29709d653e92f7d-20250905
+X-UUID: b8db92f68a5b11f0b29709d653e92f7d-20250905
 Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
 	(envelope-from <zhangzihuan@kylinos.cn>)
 	(Generic MTA)
-	with ESMTP id 2010186639; Fri, 05 Sep 2025 21:24:55 +0800
+	with ESMTP id 530252194; Fri, 05 Sep 2025 21:24:59 +0800
 Received: from mail.kylinos.cn (localhost [127.0.0.1])
-	by mail.kylinos.cn (NSMail) with SMTP id 6372FE008FA3;
-	Fri,  5 Sep 2025 21:24:55 +0800 (CST)
-X-ns-mid: postfix-68BAE4A7-2095376
+	by mail.kylinos.cn (NSMail) with SMTP id 4D67FE008FA3;
+	Fri,  5 Sep 2025 21:24:59 +0800 (CST)
+X-ns-mid: postfix-68BAE4AB-1181537
 Received: from localhost.localdomain (unknown [172.25.120.24])
-	by mail.kylinos.cn (NSMail) with ESMTPA id 7B73DE008FA4;
-	Fri,  5 Sep 2025 21:24:51 +0800 (CST)
+	by mail.kylinos.cn (NSMail) with ESMTPA id 70239E008FA7;
+	Fri,  5 Sep 2025 21:24:55 +0800 (CST)
 From: Zihuan Zhang <zhangzihuan@kylinos.cn>
 To: "Rafael J . wysocki" <rafael@kernel.org>,
 	Viresh Kumar <viresh.kumar@linaro.org>,
@@ -100,17 +100,17 @@ Cc: Ben Horgan <ben.horgan@arm.com>,
 	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Zihuan Zhang <zhangzihuan@kylinos.cn>
-Subject: [PATCH v5 5/6] drm/i915: Use scope-based cleanup helper
-Date: Fri,  5 Sep 2025 21:24:12 +0800
-Message-Id: <20250905132413.1376220-6-zhangzihuan@kylinos.cn>
+Subject: [PATCH v5 6/6] PM: EM: Use scope-based cleanup helper
+Date: Fri,  5 Sep 2025 21:24:13 +0800
+Message-Id: <20250905132413.1376220-7-zhangzihuan@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250905132413.1376220-1-zhangzihuan@kylinos.cn>
 References: <20250905132413.1376220-1-zhangzihuan@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_062503_429738_56B0DCF3 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250905_062505_255220_12FE84DC 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,33 +132,68 @@ counting mistakes and aligns the code with the latest kernel style.
 No functional change intended.
 
 Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 ---
- drivers/gpu/drm/i915/gt/intel_llc.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ kernel/power/energy_model.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/gpu/drm/i915/gt/intel_llc.c b/drivers/gpu/drm/i915/g=
-t/intel_llc.c
-index 1d19c073ba2e..f15e4c0fa54b 100644
---- a/drivers/gpu/drm/i915/gt/intel_llc.c
-+++ b/drivers/gpu/drm/i915/gt/intel_llc.c
-@@ -29,13 +29,11 @@ static struct intel_gt *llc_to_gt(struct intel_llc *l=
-lc)
-=20
- static unsigned int cpu_max_MHz(void)
+diff --git a/kernel/power/energy_model.c b/kernel/power/energy_model.c
+index ea7995a25780..5ec63b3e7d85 100644
+--- a/kernel/power/energy_model.c
++++ b/kernel/power/energy_model.c
+@@ -451,7 +451,6 @@ static void
+ em_cpufreq_update_efficiencies(struct device *dev, struct em_perf_state =
+*table)
  {
+ 	struct em_perf_domain *pd =3D dev->em_pd;
 -	struct cpufreq_policy *policy;
-+	struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq_cp=
-u_get(0);
- 	unsigned int max_khz;
+ 	int found =3D 0;
+ 	int i, cpu;
 =20
--	policy =3D cpufreq_cpu_get(0);
- 	if (policy) {
- 		max_khz =3D policy->cpuinfo.max_freq;
+@@ -465,7 +464,7 @@ em_cpufreq_update_efficiencies(struct device *dev, st=
+ruct em_perf_state *table)
+ 		return;
+ 	}
+=20
+-	policy =3D cpufreq_cpu_get(cpu);
++	struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq_cp=
+u_get(cpu);
+ 	if (!policy) {
+ 		dev_warn(dev, "EM: Access to CPUFreq policy failed\n");
+ 		return;
+@@ -479,8 +478,6 @@ em_cpufreq_update_efficiencies(struct device *dev, st=
+ruct em_perf_state *table)
+ 			found++;
+ 	}
+=20
+-	cpufreq_cpu_put(policy);
+-
+ 	if (!found)
+ 		return;
+=20
+@@ -787,21 +784,19 @@ static void em_check_capacity_update(void)
+=20
+ 	/* Check if CPUs capacity has changed than update EM */
+ 	for_each_possible_cpu(cpu) {
+-		struct cpufreq_policy *policy;
+ 		struct em_perf_domain *pd;
+ 		struct device *dev;
+=20
+ 		if (cpumask_test_cpu(cpu, cpu_done_mask))
+ 			continue;
+=20
+-		policy =3D cpufreq_cpu_get(cpu);
++		struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq_c=
+pu_get(cpu);
+ 		if (!policy) {
+ 			pr_debug("Accessing cpu%d policy failed\n", cpu);
+ 			schedule_delayed_work(&em_update_work,
+ 					      msecs_to_jiffies(1000));
+ 			break;
+ 		}
 -		cpufreq_cpu_put(policy);
- 	} else {
- 		/*
- 		 * Default to measured freq if none found, PCU will ensure we
+=20
+ 		dev =3D get_cpu_device(cpu);
+ 		pd =3D em_pd_get(dev);
 --=20
 2.25.1
 
