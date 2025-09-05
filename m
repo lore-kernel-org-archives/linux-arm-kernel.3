@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04805CAC580
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EB0CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QwHcCldPQ4qAjzal1xk6MUkE2gKMVBa7LeiAC0EfbGg=; b=bvxRI1Rui6JXgXcTcSHb6DavkR
-	vPoEzDT7zTnOoSQsQP2FK8XC2PrsjXsK66JXohL3C5xFTn14cYqUa9x/tcngfHbLYrFkOutKZHiFf
-	Rvuz6QPTUJ7wMEZCiQFR/ZdiQZgI0zBKcrzcOeupeBeM94tK8jHEssFtkcUqbis55fje0Xw0ADd7S
-	UAnYt/tgb5oh/4aFsdhvgkZb3JJ+04LOPF5PrxFxc9LvhQpWlx3zkY0T36w5yvHdQ+T7hJZ/b5//7
-	cmVBNDE0ar92qpi6MT9h9i1Rpvqi6WHnALjmEvkTPQ1QPqdIBzXWH+TGdne4YuLI4swGdtRglsH90
-	YxFXi9eg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7zAwIHul+G7hJa9UKdi3gwcydcwd+CNJiZMlBMy6ooM=; b=mYQ3Us/C98bQjrSsycJ515VMR9
+	zG4kdhS4GIikBelruuqld/l8RlbdkcqbPS9CnUpBMqwkJNL6w5a0UHURRmYOloV4H/wwtU3OVBt+V
+	gGMReSDy4iog2mkyMNt1hkuOMq6PrSfmzx1vIeURiaURWXnohDxXs+UapFgiWWl3XSLS1Cb7piO1L
+	urQzRQ6KTrJl+vAARfVo5y9JPF93MwL+R1BPWOB84eFR/Q+0sMvcxk+JSs6Nc0hOZ0tpBFsJJHDxx
+	JARZDJuVaCmrCXaKzvD1QLPRXNeYzees/4usCu5wuwpSPYpC6uhc8hbVNE/r1tjktR3KEFAxi737v
+	C3NPeBQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVF-00000005QyJ-0LuI;
-	Sat, 06 Sep 2025 00:10:01 +0000
+	id 1uugVD-00000005QxM-3Lpk;
+	Sat, 06 Sep 2025 00:09:59 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZA7-000000033eR-2Men
+	id 1uuZ96-0000000339K-16jP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 16:19:44 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJM3Q6vwsz6L51J;
-	Sat,  6 Sep 2025 00:18:42 +0800 (CST)
+	Fri, 05 Sep 2025 16:18:41 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJM2643hSz6L4wb;
+	Sat,  6 Sep 2025 00:17:34 +0800 (CST)
 Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2803F1401DC;
-	Sat,  6 Sep 2025 00:19:42 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id BAAD01402F1;
+	Sat,  6 Sep 2025 00:18:33 +0800 (CST)
 Received: from a2303103017.china.huawei.com (10.202.66.105) by
  frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 5 Sep 2025 18:19:39 +0200
+ 15.1.2507.39; Fri, 5 Sep 2025 18:18:31 +0200
 From: Alireza Sanaee <alireza.sanaee@huawei.com>
 To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
 CC: <coresight@lists.linaro.org>, <dianders@chromium.org>,
@@ -45,12 +45,10 @@ CC: <coresight@lists.linaro.org>, <dianders@chromium.org>,
 	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
 	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
 	<suzuki.poulose@arm.com>
-Subject: [PATCH v4 2/6] arch_topology: drop the use of cpu_node in the pr_info
-Date: Fri, 5 Sep 2025 17:18:25 +0100
-Message-ID: <20250905161830.37-3-alireza.sanaee@huawei.com>
+Subject: [PATCH v4 0/6] Refactoring finding CPU phandles in DT
+Date: Fri, 5 Sep 2025 17:18:23 +0100
+Message-ID: <20250905161830.37-1-alireza.sanaee@huawei.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250905161830.37-1-alireza.sanaee@huawei.com>
-References: <20250905161830.37-1-alireza.sanaee@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -58,8 +56,8 @@ X-Originating-IP: [10.202.66.105]
 X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
  frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_091943_745744_7681BBFA 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250905_091840_439589_5E56F0FF 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +72,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the use of cpu_node in the pr_info(). When of_cpu_node_to_id() fails,
-it may set a pointer, cpu_node, and the get_cpu_for_node() function uses that
-pointer to log further in the fail scenario.
+This series refactor the way CPU IDs are retrieved from the device
+tree.
 
-Also, change the structure to exit early in fail scenarios which will
-help enabling code unification that follows in this series.
+Usually, there is a for loop that goes over every single CPU that can be
+avoided. This also reduces the amount of NULL pointer checks in drivers.
+I have abstracted away that loop and introduced a new function
+(of_cpu_node_to_id) for this.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
----
- drivers/base/arch_topology.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+This patchset is a subset of [1], where I removed content and patches
+relevant to hyper-threaded cores for DT. Based on the discussion, the
+code refactor is still useful, hence this patchset.
 
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 1037169abb45..6fafd86f608a 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -481,12 +481,13 @@ static int __init get_cpu_for_node(struct device_node *node)
- 		return -1;
- 
- 	cpu = of_cpu_node_to_id(cpu_node);
--	if (cpu >= 0)
--		topology_parse_cpu_capacity(cpu_node, cpu);
--	else
--		pr_info("CPU node for %pOF exist but the possible cpu range is :%*pbl\n",
--			cpu_node, cpumask_pr_args(cpu_possible_mask));
-+	if (cpu < 0) {
-+		pr_info("CPU node exist but the possible cpu range is :%*pbl\n",
-+			cpumask_pr_args(cpu_possible_mask));
-+		return cpu;
-+	}
- 
-+	topology_parse_cpu_capacity(cpu_node, cpu);
- 	return cpu;
- }
- 
+[1]
+https://lore.kernel.org/all/20250512080715.82-1-alireza.sanaee@huawei.co
+
+Changes since v3:
+    - Rebased to d69eb204c255c35abd9e8cb621484e8074c75eaa
+
+Changes since v2:
+    - Addressed Jonathan Cameron's comments.
+    - Added reviewed-by tags.
+    - Added a new commit where I suggest simplfing the code in
+      arch_topology.c to remove the use of cpu_node on failure path.
+    - Improve documentation.
+    - Caught a bug in patch 1.
+    - Commit message fixed for patch 2.
+
+Changes since v1:
+    - Rebased on top of the latest mainline.
+    - Addressed Krzysztof Kozlowski's comments -- Hopefully :-)
+    - Addressed Jonathan Cameron's comments.
+
+
+Alireza Sanaee (6):
+  of: add infra for finding CPU id from phandle
+  arch_topology: drop the use of cpu_node in the pr_info
+  arch_topology: update CPU map to use of_cpu_phandle_to_id
+  coresight: cti: Use of_cpu_phandle_to_id for grabbing CPU id
+  coresight: Use of_cpu_phandle_to_id for grabbing CPU ID
+  perf/arm-dsu: refactor cpu id retrieval via new API
+    of_cpu_phandle_to_id
+
+ drivers/base/arch_topology.c                  | 22 ++++-----
+ .../coresight/coresight-cti-platform.c        | 13 +----
+ .../hwtracing/coresight/coresight-platform.c  | 15 +-----
+ drivers/of/cpu.c                              | 48 +++++++++++++++++++
+ drivers/perf/arm_dsu_pmu.c                    |  7 +--
+ include/linux/of.h                            |  9 ++++
+ 6 files changed, 71 insertions(+), 43 deletions(-)
+
 -- 
 2.43.0
 
