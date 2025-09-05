@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F848CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC1F2CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HyPlNd55CkHvdkXUPw7m6CaGKtqeaO4UdJmxjPWlG3E=; b=o7OeIgMv3wo+v17EGA5iXgd65+
-	NQgViYxpjQ/xVSX8rU76uGeF62l8E7K02EPO8Q3+c1t7LOoUJWM/K7wbKNitRGDe1o/Q/LPcebdHf
-	R0lJqNkkV1H1kDUjRnw9eN04I1TuwO9Qo6EDmQZkL6/4EHxk4T6612jjQp6dhtJPST1Hp4l+gUqf4
-	1nPB3MVHiZCPDA7GAio62YdU4FVraaBdTixQS/2N7r6CNCliiJHtgMrWXJxfaWeumPN9BjSset6S3
-	JiEHd1zOpXliNGKVHWr2BwiJ/tqH6nE5un4eRFP5zVA0LfbxLQOTScwBaMobAAA7W9cebfVxgwsgM
-	ZSXRlJmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LqrJFDIp3Qk8Daspity93aOZRCLtvYxKedurcvKPi2w=; b=W3QEvS+z6qE24NAojGFzRILdpw
+	UeTBskk6plnROS70G7T97iv28Dt/EFmgwebGFX8U+TVM/RBLZqe3RNcaGVldFb64AOG5kuWMcnju3
+	vGf9uF4CGRWCaRgFjIsJ0I1i+MyaPmzclD9y6EehyxW7JSJm41YhkWT2s+elIqb1Yb341BktOvVZ4
+	7YNYU77zdPa51bE9aGA92A/JzGLnRR473FfCHzYPNSVcu58ZL4ElcVt3Q7kLaReXKezFREZtQdOs+
+	kK3jWC5/LigMxlQzT2m+rmUrYrB1ZGQO20cjmDem4s4i3ItKT7BhM+5lywXScwBzbE8z2Q6wlpgIi
+	RF9Xs7Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSiN-00000000ji9-0CuQ;
-	Fri, 05 Sep 2025 09:26:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uuSl3-00000000kNx-0eYo;
+	Fri, 05 Sep 2025 09:29:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuRY4-00000000GZ8-15PW;
-	Fri, 05 Sep 2025 08:11:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757059914;
-	bh=UIitS/BrAV5TC2kzay8yvqoEA1Xou313F2oKC/IdHNs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Cou6lLEcxEINkpQGfimSKKIWWcAbo+MdxXQjYZFPNNR2yIAlRw8uyMHj4oWSylfiN
-	 28Pn9kh9sOM4k5PVEtEa7zx5p7NgEAImXzEplalngZKZuHAeS8jaPeeG6NrxMj2fJk
-	 CzuIrGyAxM5Izl1GrzQoctTgWFQCaGU6JFjd1WaBJvX2d+NI5/ptpaOQemXGLGbVUt
-	 smiqE15JQ+xrl+PDad4IWGoYdXS15vco7rK8mtto8oSTjj0YaI9QsAj6QNFdAZpA8f
-	 vATYKCAkU+G6Xz6HRV84OFT1Iqs64MFkA802+usc8pAI+O2HPnq+p3xNMCUFNc+LIm
-	 bFpry9LDd9K5g==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5D5FB17E12B9;
-	Fri,  5 Sep 2025 10:11:53 +0200 (CEST)
-Message-ID: <2c681013-ca03-4f0f-8fe9-44475a97dfef@collabora.com>
-Date: Fri, 5 Sep 2025 10:11:52 +0200
+	id 1uuRYC-00000000Gcp-0Z7h
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 08:12:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B513442CA;
+	Fri,  5 Sep 2025 08:12:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0666C4CEF1;
+	Fri,  5 Sep 2025 08:12:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757059923;
+	bh=mNHu3Dq59LBMQxbgLxMaQI+8a9Nh6j71J6ILlJhwpkI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rjBIK5wn6f7pd2b8kgpHsnktswpp0jsDZKR+mzoJkrpRqXsGOQ8Hq09cIY3lkFHJg
+	 nzUh8vJeVvCdy9sg3kNocvcU8WKjE48Xzke8Ix1mGA+L6jOujXWlGqEKQiScJzXtiT
+	 5hu0HdszSfr9/RVGP78AH7xeJ5J0/kP61EnA1qETBh7gigujUy74ck5aukJnDbbpdo
+	 ceEGFRzCva4VFLytCgA8BZFa31Uh77McjxyDjNeh9C9WbrRs7irDuQZ2wO9B2dsW3q
+	 R4hHdZ5RcHXuB6vVQasltt21cL+OyQihQpV+b/IXU6ogkDBDmcHSHfmCi11schly5c
+	 SSVP5k2l+rypA==
+Date: Fri, 5 Sep 2025 10:12:00 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au, 
+	linus.walleij@linaro.org, brgl@bgdev.pl, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, BMC-SW@aspeedtech.com
+Subject: Re: [PATCH v2 0/4] Add pinctrl support for AST2700 SoC
+Message-ID: <20250905-rough-notorious-leech-dd7a0d@kuoka>
+References: <20250904103401.88287-1-billy_tsai@aspeedtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 14/27] clk: mediatek: Add MT8196 peripheral clock
- support
-To: Chen-Yu Tsai <wenst@chromium.org>, Laura Nao <laura.nao@collabora.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
- p.zabel@pengutronix.de, richardcochran@gmail.com,
- guangjie.song@mediatek.com, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, kernel@collabora.com
-References: <20250829091913.131528-1-laura.nao@collabora.com>
- <20250829091913.131528-15-laura.nao@collabora.com>
- <CAGXv+5Fj9Hwmk2y_bZhGX0EUEY42tm3t0nTrjtV-sYhD_B-xVg@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <CAGXv+5Fj9Hwmk2y_bZhGX0EUEY42tm3t0nTrjtV-sYhD_B-xVg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250904103401.88287-1-billy_tsai@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_011156_474818_2C99BF52 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250905_011204_196843_6369ED09 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +75,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 05/09/25 07:05, Chen-Yu Tsai ha scritto:
-> On Fri, Aug 29, 2025 at 5:21 PM Laura Nao <laura.nao@collabora.com> wrote:
->>
->> Add support for the MT8196 peripheral clock controller, which provides
->> clock gate control for dma/flashif/msdc/pwm/spi/uart.
->>
->> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+On Thu, Sep 04, 2025 at 06:33:57PM +0800, Billy Tsai wrote:
+> Document and add the pinctrl driver for AST2700 SoC.
 > 
-> Not sure why CLK_OPS_PARENT_ENABLE was removed, but it does seem like the
-> right thing to do, since this block is always on and doesn't require a
-> clock to be enabled before accessing the registers.
-> 
-> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org> # CLK_OPS_PARENT_ENABLE change
-> 
-> Note that I did not go through the bit definitions. I assume the other
-> Collabora folks did a good job of reviewing those.
+> Changes since v1:
+> - Update pinctrl aspeed binding files.
 
-Yes, I did :-)
+Anything is an update.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Really too vague and some time ago I am sure I complained about this to
+Aspeed.
 
-Cheers,
-Angelo
+Best regards,
+Krzysztof
+
 
