@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2FCCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADECCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lGnEjjbaS1OmPNQ8V5HQyZUVH5+J/3jA4HeWoaYuixw=; b=NZmE+YXJkfTj1Hn9aYKpn6ql0Z
-	eBIOoxUHLCumOd4p+KUcOTDeycSZbiZXN9q9ugH++GulMqWroffdY2pNyt5TSc2PGb0g8WIbLJvJt
-	grMuqd5BYCVwdqM4ZeqroFN3t2OtcnOLTsdSUy7TV01bCG2PSiYEKbukqva1y1fgFhxX3M7icbU1A
-	7ZYdgPU4J5PjZXMD1VkbGZFKshAS1lUxk+k9YS2GLKKWmkSJlEtYbIP+ovgaY2dr1bRP1Derk7ZBf
-	rSo2NcUjseE53HoAHm8I9l/Q6mzoyd9QuMNUH6q5AutKHAHBeZsxCzzCzUzHF9N4rn3a9wVcNYaqc
-	TW5aabhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5FPGflrxjZym8ZY2z4bNy4EwBxYh8zse7/OpV6jx/HE=; b=G0T8/Y0uCXnCj5ew/gqqC0JwUO
+	IpO9HMQlkOYgSHJufHfn+O3FNFa0KaHWVgEeEw4FF3CVpl7JMQFhoietpgtdalrxMuU8Zx1Y8N5FH
+	YARNV8FRoO8XYCukdrxULVfJDxycQKvuKIyj/2y5gHPLPKGkRmUFAQOunxAe8nyZFBzFObzaR0JWv
+	m7xRfY6jp9VoI0NzWR3rEKkI7rTY4eieGer5lLjZQ3Pf54GDe726Y7g+J51XZ/EmrOaCoQ5eoY+nt
+	wdfnwwOW1dKgeRoaL2I9d75cB3sQ49e2mHrvm2MKmmntTRVPwgXsvp5v1MQ9tZC/rLw/exk+K4i/f
+	SSyzIrcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXYn-00000002Oua-2PgT;
-	Fri, 05 Sep 2025 14:37:05 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1uuXYr-00000002Oy7-0MhE;
+	Fri, 05 Sep 2025 14:37:09 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuU8E-00000001DIu-2faN
+	id 1uuUAo-00000001E8T-3rf4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 10:57:29 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250905105715epoutp01d749acdae539d21a4bff2ed16316040f~iXbTZ-Hnt2761827618epoutp01b
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Sep 2025 10:57:15 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250905105715epoutp01d749acdae539d21a4bff2ed16316040f~iXbTZ-Hnt2761827618epoutp01b
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1757069836;
-	bh=lGnEjjbaS1OmPNQ8V5HQyZUVH5+J/3jA4HeWoaYuixw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Zaby/7yiaFcQrKx54lHPtwy2b1avPMjshfxTOgPuSP3xI77v9frni0pNLIsSsZ/1Z
-	 RPKLKuFAb3jJ3WQ5GRFU2hlQmQ3rpFfxdNJ9fTrImlIR6g7fxDWF+qlddMua0iAFtw
-	 76zqHRQLTMRwKcuT4nugaJZKl2q4S5U4bccy5GCE=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250905105715epcas5p3525197234eca0bff4fb9264d60431b2c~iXbTFLUet0553305533epcas5p33;
-	Fri,  5 Sep 2025 10:57:15 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.89]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cJCwV4gwGz6B9m9; Fri,  5 Sep
-	2025 10:57:14 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250905105714epcas5p4bb26e232702a9dff37e87dfd07da3946~iXbRtr0H72481624816epcas5p4E;
-	Fri,  5 Sep 2025 10:57:14 +0000 (GMT)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250905105712epsmtip2945c1e7aa059913f7664206cbb887168~iXbQHHdeh0831308313epsmtip2U;
-	Fri,  5 Sep 2025 10:57:12 +0000 (GMT)
-From: Devang Tailor <dev.tailor@samsung.com>
-To: alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, alim.akhtar@samsung.com, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	henrik@grimler.se, faraz.ata@samsung.com
-Cc: Devang Tailor <dev.tailor@samsung.com>
-Subject: [PATCH v3 3/3] arm64: dts: exynosautov9: add RTC DT node
-Date: Fri,  5 Sep 2025 16:35:54 +0530
-Message-Id: <20250905110554.2212304-4-dev.tailor@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250905110554.2212304-1-dev.tailor@samsung.com>
+	Fri, 05 Sep 2025 11:00:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757070007; x=1788606007;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xWFG9IcSFRaAzKyA5Lio/LJJoAzp+33hlHZFKOaExJw=;
+  b=iooWAwvVJlJwvGNK3gnPs2jTnToGQmKVb7nTvikUoLASODUNLsHWg9zC
+   URoETuQ88EISCZJkgW6KncYxEbU3ohhQUPka4TmEztX+R8xSjiSNqDAmF
+   0YR/wJhBtE1kqfnHajOQW+bHxmENUsJXZ19hwf6ysV9xFR0fG0buQYZUN
+   inZ4eu26/OdvXHfAYR+eQwrz30iqWnxt04d+5KhSHit8uhFcs+AM0GnXS
+   oE3cJlzVSgbf0X/KtIs6j9qxYGH2Jvhg7py5JsGXPsbjxk3HabQqV9mJG
+   ASvFaKQoz5RwJIL59Hjx/+PxMBiMjAGwbQwiOAlYdl+x1cWDto7iU9jCk
+   A==;
+X-CSE-ConnectionGUID: ed651Aj7SvK7/7B9kYaz/Q==
+X-CSE-MsgGUID: AArdt5OoSniEh3lsv5TCIg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11543"; a="59118970"
+X-IronPort-AV: E=Sophos;i="6.18,241,1751266800"; 
+   d="scan'208";a="59118970"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2025 04:00:01 -0700
+X-CSE-ConnectionGUID: zgDOmaF0S/+OTUlsH0/d9g==
+X-CSE-MsgGUID: 7w6td42BQWaRq1lJzsfd3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,241,1751266800"; 
+   d="scan'208";a="172579445"
+Received: from kuha.fi.intel.com ([10.237.72.152])
+  by fmviesa009.fm.intel.com with SMTP; 05 Sep 2025 03:59:58 -0700
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Fri, 05 Sep 2025 13:59:57 +0300
+Date: Fri, 5 Sep 2025 13:59:57 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Fedor Pchelkin <boddah8794@gmail.com>,
+	"Christian A. Ehrhardt" <lk@c--e.de>,
+	Al Viro <viro@zeniv.linux.org.uk>, linux-usb@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] usb: ucsi: stm32: Use min() to improve
+ ucsi_stm32g0_fw_cb()
+Message-ID: <aLrCrQOdLsqq0U37@kuha.fi.intel.com>
+References: <20250830110426.10007-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250905105714epcas5p4bb26e232702a9dff37e87dfd07da3946
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250905105714epcas5p4bb26e232702a9dff37e87dfd07da3946
-References: <20250905110554.2212304-1-dev.tailor@samsung.com>
-	<CGME20250905105714epcas5p4bb26e232702a9dff37e87dfd07da3946@epcas5p4.samsung.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250830110426.10007-2-thorsten.blum@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_035726_991267_D7F9215A 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20250905_040007_007991_DF2F23B5 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,52 +91,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT node for on-chip RTC for ExynosAutov9
+On Sat, Aug 30, 2025 at 01:04:20PM +0200, Thorsten Blum wrote:
+> Use min() to improve ucsi_stm32g0_fw_cb() and avoid calculating
+> 'end - data' twice.
+> 
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 
-Signed-off-by: Devang Tailor <dev.tailor@samsung.com>
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
----
- arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts |  4 ++++
- arch/arm64/boot/dts/exynos/exynosautov9.dtsi     | 10 ++++++++++
- 2 files changed, 14 insertions(+)
+Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts b/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-index de2c1de51a76..5f5167571f7a 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-+++ b/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-@@ -106,6 +106,10 @@ &pwm {
- 	status = "okay";
- };
- 
-+&rtc {
-+	status = "okay";
-+};
-+
- &serial_0 {
- 	pinctrl-0 = <&uart0_bus_dual>;
- 	status = "okay";
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-index 66628cb32776..afa6b258153c 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-@@ -1633,6 +1633,16 @@ pwm: pwm@103f0000 {
- 			clock-names = "timers";
- 			status = "disabled";
- 		};
-+
-+		rtc: rtc@10540000 {
-+			compatible = "samsung,exynosautov9-rtc";
-+			reg = <0x10540000 0x100>;
-+			interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&xtcxo>;
-+			clock-names = "rtc";
-+			status = "disabled";
-+		};
- 	};
- };
- 
+> ---
+>  drivers/usb/typec/ucsi/ucsi_stm32g0.c | 7 ++-----
+>  1 file changed, 2 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/usb/typec/ucsi/ucsi_stm32g0.c b/drivers/usb/typec/ucsi/ucsi_stm32g0.c
+> index 57ef7d83a412..838ac0185082 100644
+> --- a/drivers/usb/typec/ucsi/ucsi_stm32g0.c
+> +++ b/drivers/usb/typec/ucsi/ucsi_stm32g0.c
+> @@ -10,6 +10,7 @@
+>  #include <linux/firmware.h>
+>  #include <linux/i2c.h>
+>  #include <linux/interrupt.h>
+> +#include <linux/minmax.h>
+>  #include <linux/module.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/unaligned.h>
+> @@ -523,11 +524,7 @@ static void ucsi_stm32g0_fw_cb(const struct firmware *fw, void *context)
+>  	data = fw->data;
+>  	end = fw->data + fw->size;
+>  	while (data < end) {
+> -		if ((end - data) < STM32G0_I2C_BL_SZ)
+> -			size = end - data;
+> -		else
+> -			size = STM32G0_I2C_BL_SZ;
+> -
+> +		size = min(end - data, STM32G0_I2C_BL_SZ);
+>  		ret = ucsi_stm32g0_bl_write(g0->ucsi, addr, data, size);
+>  		if (ret) {
+>  			dev_err(g0->dev, "Write failed %d\n", ret);
+> -- 
+> 2.50.1
+
 -- 
-2.34.1
-
+heikki
 
