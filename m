@@ -4,189 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED1B0CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBA1CAC585
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=; b=3xAEjhr0xB/iUfxDZN0LJkfi4L
-	g/vyAfHdze+0yGBQ9Yy3LTZkJUo+749UfAzvhcKu5ILdYLk8idmQv3HNuEK5RD+Ve8DosCGs0zAlB
-	+zFrJ5NhkaIcaIZBHB6xPJ0UfOoHy0v6eG6I3yF6vxLkLCuOk0K8kEMsOjYVRvfmrl93iwiFWtcY2
-	HQOWY3lKK6/APSOBr5JUryqiuhCysxL6xF3QrO7HNRL7xxDY/g36ZaGySMns1Z1aGteYeCPGnk0/Z
-	GOMAaJG1mzR7GnL9cDZpuM0f04l9Zi0S5EaQ3J3qanSLWqQPy4Iy7xvcUagN72f2uRufkA///4eWJ
-	KviSN/TQ==;
+	bh=zGd6i3xz483vd0UzMUy9QsV7SH1lsiwhB/BFvb77FMo=; b=49RxfKnN7N6+2Dwa/g0k1QxOZ1
+	5GdZMc60msAM3yDn7kZK0Vkx+kIXmBLUPZg8IRjIMBqm1mTi1KZFtBSIx4cTzgRk1VsG107QdmvuC
+	+7pbnTGOUZote4rxYdTUS7kZHRkRHtBsicHax2vRYDoQahWpfrY5o8LnirzB3o7CSs7O1tCjgap2W
+	5ge0S8E1XnnyLE6ew62gzl0sHBKAZllR6gvTC0yaHF9zce722CxyMT/YhnlioSbMhCQbH9VVl1XB4
+	4rSq90GiuVQGRYSm59MoxxysWICeYe9WNwo3d8MYL1yUL1eoAEwLTwKViOVClHsvRgThx0mZKlfT5
+	wpRU4frw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugV7-00000005Qtb-3TAh;
-	Sat, 06 Sep 2025 00:09:54 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYdQ-00000002rZv-1yGF
+	id 1uugVQ-00000005RBZ-3x75;
+	Sat, 06 Sep 2025 00:10:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuZSf-000000039uV-21MF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 15:45:58 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=E4C2C5nt81+qv0ErPFWGz4JHQM7PYXnY+enTbCgFdVgmyNmf2cK8Zv6lyE0pIVNOCu+fJxkdVIYkC64WVlv8L0DUnLITVcYCxR9zGJqXUOb1PpxRJnwHId9aR49d9+ckgKKSVatb9JVAjf0auG0sLqhhSmTGEH7Jho3nSkVOfDmU+S223J4tl7Ek4I5RGrFlxIQbJgEtsBKbjt0l0VpyGRxo8KV4FX0sBCC5X8EjTJlB5h7PT5Qd1Yxvks5QK0KoVkJwHHdr2l/MEHcuDiPWz5hfQtC7smxzFF7+JvKP5Oub0pH9bXJKBXTAHf+pNnvsMo3sG28lMJS6qboQyi1MqQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=;
- b=Fkd0V97uTWbPnQEmpl7H0vDYPQtjl3CM/0F2CZ7+ATBLmJFz8G9r5JTh4d3BWCsDE+3/PAArN6V/LZSM/9gTvZAcnlqj6NbjBTGTWiRRcT1ADtPSXWOHXe2HmauuElmcrOiWnNQTAGKE2wdVyhlsoTytxk8+DYd+7xiX57so0rnm+a/k/lVLnG9lEQnHa+wQ+xINhadGSMhWQp2pS2koRXYE0eIKz+KaHN2jPpaCpZuciJkKW2xxZTu+AFnNq7Xc+lh0ZMGJNBSOcLJIXCF7JJmTwz0UfOx1Hw6pXUihoKJ1IURYdmxu4ze8RZXE+HcVuQlQCDYIJYx1VJ3oh1hgcw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=google.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=;
- b=lRDZpA6odgv8ONgBEPBInl/RnaMkLVrgFHjSMlFHBDKixlx4t5lQ17yRJTqA64jaV504g1xqRymnXl8jq9PRy3RTB1ld/Ap7yAo6tVAIWPqjJR36fXRnCVS6EBDqCDYC90fxeQyFDdDrnu1Ejwk/8ggrWiTnRxFSpSacCit0pxo=
-Received: from AM6PR04CA0069.eurprd04.prod.outlook.com (2603:10a6:20b:f0::46)
- by DB8PR08MB5356.eurprd08.prod.outlook.com (2603:10a6:10:f9::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.18; Fri, 5 Sep
- 2025 15:45:45 +0000
-Received: from AM4PEPF00027A67.eurprd04.prod.outlook.com
- (2603:10a6:20b:f0:cafe::6e) by AM6PR04CA0069.outlook.office365.com
- (2603:10a6:20b:f0::46) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.20 via Frontend Transport; Fri,
- 5 Sep 2025 15:45:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00027A67.mail.protection.outlook.com (10.167.16.84) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.14
- via Frontend Transport; Fri, 5 Sep 2025 15:45:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b3yYIsy7JUl7Hr+10ciTNKS+W71fDgXbegO2aNsbsL7M3N0p468H37A0wYE7xMemzL7w0am1laVsARicxbxB+CTwk6Aqq1QmYR3vxesM2u1xiKVsBEr2m6p5Db8vQmQBAlrXErOAk9TnIjiKlj1f8N937SaKM6zuJ8elCXxiDOuJWR70a//q1Kz0rBiTyDdfuSpVm03035GJqw9YzhXgKlasjs9x/7ssU8HxHC7HzTfmDyfWlZHV/rBT8WMiMOoaa8a11uN6ag2wHo909Id0t8VmEpm0kU7hXQTP0Sg7D06ZQEUW7NsjOsPmQy6DyfflJMVxK9IGFYIaDlrX1CKU4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=;
- b=byrOjpiHnqYkKqqJ8rfF+TI64JypWXvlZWdeHuVJ7QF2hISu8bv4J7bhR0CReVyh3GJTAomN+tTwHUAbBh16dukqdjyWPZZgbWxMSw/anS49lmOVjzB6fqHOcdqwu5oKA6xAZNRqXLDLezw65fQZzr5FO5bAi0wJVEsYjgcH34nsyeVOGAvRmd7P6FKJ8HN3X6d1e6osPjwx/m/VOk8F9u62tR89vTtTRy1Jw4HcRjkBptk2EY3XiASz2w6XvLoohvnsHFHsgYWW52M3L0H8GYNyyB6qxvzX4zD6yOZwph+AAL0iy0+3aRbanvHJQPU1rwyB6fTk7Goa1ptb1ObMDQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Kml+z2YaOGVFQRRqN5Be1BeDW3Wx+k6y0RAjj7TZSeA=;
- b=lRDZpA6odgv8ONgBEPBInl/RnaMkLVrgFHjSMlFHBDKixlx4t5lQ17yRJTqA64jaV504g1xqRymnXl8jq9PRy3RTB1ld/Ap7yAo6tVAIWPqjJR36fXRnCVS6EBDqCDYC90fxeQyFDdDrnu1Ejwk/8ggrWiTnRxFSpSacCit0pxo=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DU0PR08MB7541.eurprd08.prod.outlook.com
- (2603:10a6:10:312::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Fri, 5 Sep
- 2025 15:45:12 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9094.017; Fri, 5 Sep 2025
- 15:45:12 +0000
-Date: Fri, 5 Sep 2025 16:45:09 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>
-Subject: Re: [PATCH v2 0/7] arm64: Make EFI calls preemptible
-Message-ID: <aLsFhe/whtmKyFus@e129823.arm.com>
-References: <20250905133035.275517-9-ardb+git@google.com>
+	Fri, 05 Sep 2025 16:38:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F10D5152B;
+	Fri,  5 Sep 2025 09:38:43 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AEEA3F63F;
+	Fri,  5 Sep 2025 09:38:46 -0700 (PDT)
+Date: Fri, 5 Sep 2025 17:38:43 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com, lcherian@marvell.com,
+	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+	dfustini@baylibre.com, amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH 08/33] ACPI / MPAM: Parse the MPAM table
+Message-ID: <aLsSE3IFh9xaaMJM@e133380.arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-9-james.morse@arm.com>
+ <aK8sxLITHD9KeZyl@e133380.arm.com>
+ <38177077-53d9-4cb8-99ed-f6e637d72e5e@arm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250905133035.275517-9-ardb+git@google.com>
-X-ClientProxiedBy: LO6P123CA0058.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:310::19) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DU0PR08MB7541:EE_|AM4PEPF00027A67:EE_|DB8PR08MB5356:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8416a9a2-f256-4994-0431-08ddec934734
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?Pu0jQOJWrVj+730WjAOoAfMTIWXynW7JmjRQFRviPbK3wlRgtiF0+Z2fX+bc?=
- =?us-ascii?Q?bsVoA0zWGGb/0BNvovOdUHEgAdEFpmbKi0bgHnJSp9u35sAHtRQbxQ7Rihvz?=
- =?us-ascii?Q?iTdr1JK/JM0iOzGIWYw5keUnAPTcjw+G5hBwUQXhuXVNaPOpB0Q9kUmMwTxu?=
- =?us-ascii?Q?0l19UPgM+IdgnkbUPkZqoUhQO2WJahDHKacCWOfjaqMklrivWm0d3ouEX6J9?=
- =?us-ascii?Q?BhsMPklTfkVtCKIRLRym+1u/p9E/+FkizlfAsZQfSEFMO15ibwvPR7opoNa5?=
- =?us-ascii?Q?ySVUGlQMBHx8DQKbtOH4uSEBRHyS1nNuiTFWz3/ZEkg+5ejpKZt00289UVR3?=
- =?us-ascii?Q?sKOOVzCPBaa6vzCdDBwH4D7w68s6Llbdgb1lqcCmqTjW1FmlIA12l43bfYZl?=
- =?us-ascii?Q?n/Ga25UJyByBep+5plqf7h9s8yljnuYRySSY56HrVLfVy4SoUn2sIUpDUXnj?=
- =?us-ascii?Q?UJRNmviK76YiGo6+aKOhtqGzazJwxMLSwSS8lWgS2YWFAh72Yf9NAIkV4PBi?=
- =?us-ascii?Q?NG4wOs+IQyluxpOSYDUfwtLDmdcaYh9OThBavuixIvLNo/28f65WYbGOH4YO?=
- =?us-ascii?Q?vym697MHjzwNu30CxYtHTiz5G0YIRmlZUldT9MsMtHP6O1GH5Dhk5FwyX2kW?=
- =?us-ascii?Q?8fP9FhQcFsjhTXFDLz1kNRWYMRM5t2Fo8qb1cxfUjbfmwakL0dp1vX99GHLR?=
- =?us-ascii?Q?uFHD9Or+YyxGyFsWg2bRZlY5mqhPjtXJ7axPmvhxo8TTqRHqHLiZLjM/w1xj?=
- =?us-ascii?Q?5BVHaUz7EmGrZSOojjOOmiFYsFBJiMwbOhFLn0xwIK+jaOPzqgF5Ylq1TQGe?=
- =?us-ascii?Q?jqfTtpvrlqpk5W577gtIXHwaInTRmbYegMGm3G2Xtha4xXG7OkG5yfWxkuUH?=
- =?us-ascii?Q?a+I7Z5gdfkhFKtHpJ08Oh4bli/Nw6uhNsRyC2i4a54saWHoVcepj2oqRxg4q?=
- =?us-ascii?Q?+8bGTKE6tKKH6CSygTO55CVk/F3RWcn6ozI1Wrb6MrGgwRRcGlJ/j0jeCrIj?=
- =?us-ascii?Q?+3/TurN4I1s2SFVyY4m8ixZLtMoygVnhDlfl5+tLxgaSWbtzix/I3rNr+TwD?=
- =?us-ascii?Q?Sl/9HFPfWyAUs4avDoWU7huAIhARBOQPKoAo05xZEVd+JT6yNYGNMp1zZaee?=
- =?us-ascii?Q?q+JMUtmB7lcxsGDcXYBD6AwnOVHGWYGwtyFp2o6SluV87o6wOlXS0rB2I+3o?=
- =?us-ascii?Q?0FD8q40MA/+XzkRQeB4JoNQcpYlzv/3lAwXVYhnCq5Uqb5C3XotaWjIpJb8g?=
- =?us-ascii?Q?03m3DRRmwkV4HHrvgvXkROFF425H4OaubCSV5QyPO3KYiJT+1BURJPWynSLo?=
- =?us-ascii?Q?bQM4Rt+84hNpDaRLkbaj62SI7XMhaYCjVV2SgpYQ/+lF6Mb7GCruItF0Ti8+?=
- =?us-ascii?Q?2SXeurmHBbvwY+fhVSqj7XzHQCPzpdagAgMKGkPl8Be/I3g8t+sKStPROF3U?=
- =?us-ascii?Q?Z71KpOOTq78=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB7541
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A67.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: e718d70c-4d30-4e91-093c-08ddec933359
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|35042699022|1800799024|14060799003|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9SaJ/bMdhXPniksqWp44yh6Q2TCgkgGBqgf8gK4t1unm+vJAO4nKIjgk34y3?=
- =?us-ascii?Q?ipZ5f8+oW6qvBHfBFr6RKfsWtBGM5YnzeK6MuZy3k1JSdPqmSO2vUocbWeyO?=
- =?us-ascii?Q?S6RIjC0ixb/SnOvX7juXtvv1hIb0lAtEAenm74/Gvn9hy7s0QFegx61H7FXq?=
- =?us-ascii?Q?0UoqupfaOasvLFU9xub28IopAWIDVB3D1fVdFVecns/79pQX5ffJDdfBq7m5?=
- =?us-ascii?Q?7pnuGI6LUSg6xezSczx/VucswHKb5Wrc9B0KtFliQ+nK3JxOxrs/MEKwl5oW?=
- =?us-ascii?Q?XB/apcmGHIN4PzbCCX6NG8mix3+T+m/1cKyDuzekKQDXwZUa06h8/+QXybVL?=
- =?us-ascii?Q?AWbCvIek5pysZ0tvUgRiwqyK0baziY4gfC7BykNDgRl03SIOuHYiVs43NcfF?=
- =?us-ascii?Q?AwWt2y9fb83K0FAiI54pghY25wh4c5DUD6Enp8r+7kgG+n2m3FWKDJFSL9Gq?=
- =?us-ascii?Q?vUFnygmDnCosqMV0z0ct94NDHRHZhizoMDfM2P4D2aW3mrXVf7tqBrIUnrbU?=
- =?us-ascii?Q?bBK0yltTYpHz6uuA2z0S1FF/4xUwzWmTZOk8ndKgsOyWpC0ewZKoaAQ6Css5?=
- =?us-ascii?Q?3KEZFA1jdeCtx/u1+xeW/SKKBe2HE+3uArcXhjGvPeTRis4scNOEzuGoOq8x?=
- =?us-ascii?Q?836JNJIIlSH9weUgJ2WOzLs1NQMr2gfD/whwBnnCDxIcM1uO7zT2A4KhQMvl?=
- =?us-ascii?Q?zvAskbW3wrZtZe9S5GvMGEEvWTFenV3D7tgBCqOFgYql2ah8p1KoZt6HIc/b?=
- =?us-ascii?Q?9RJQ7WLdlHBbiypH0Y5Wb6CncMsCwrAiWkY7SqfU/CgbLzYJvzsa07tn1sex?=
- =?us-ascii?Q?+YPTs7NOX4xJ+U2kBh2H599UpCwmHaiax/NCvFRppv6NfrmE8ein8TscMCT+?=
- =?us-ascii?Q?N3KJ2Ly/zdzXE8hbgH9mMGv9RxjlbM14DiBKavEITMcVDnZgRyG/6iok7MTf?=
- =?us-ascii?Q?01lZFydVTeB07mRqiOmY3r8GXU5Z4flXml45eaqisfcjIKuSVMmZim5ekJFB?=
- =?us-ascii?Q?JMivo6/LHRiuscreiJUMNTfBRvByq3WQFOj7QumVl9RalgPmBCCzmipQc1dc?=
- =?us-ascii?Q?A0cnlGzWKhOP1WcAGxpxjaFMNFVNwASrJZu6jfGemAlzNzZg5J5NtL1TASSQ?=
- =?us-ascii?Q?80Br4oklBPDnFzjK651lOFYmKPh95C1kF1orhKwtcV2/Fw7gG9IGPMZw9uJY?=
- =?us-ascii?Q?nM+G6yRja1Fi5LEwe20EjKmLx8Q+eL6vrelSZ1UCD1hRGOuZR2XLZcTv07dI?=
- =?us-ascii?Q?a8UIilMcV/T5nKkZeaRqVycG6gEdR8Kx76/EbEjDjgfV533XC8sTkJomjd6Q?=
- =?us-ascii?Q?PRBwTJbl2XJiKhc/3wSiJC7PpFqtifhMAOtuRteMB5qGqY1WjkcHoJWLZv6Y?=
- =?us-ascii?Q?Zhievtt/CboojmRx5n2nSqGy5SSv8I957YSeTtKI5t4Ej7qT9pytKRmAJgMK?=
- =?us-ascii?Q?pZ3lm4w4eFuHNnNln832+CpdntUDrQsbkByL57meter7eEmDQFAZkLOitTng?=
- =?us-ascii?Q?FVFnY+c0Vdoh2g/9BDAa08Tqcw0FWp/OSCNq?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(35042699022)(1800799024)(14060799003)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2025 15:45:45.4370
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8416a9a2-f256-4994-0431-08ddec934734
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A67.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR08MB5356
+In-Reply-To: <38177077-53d9-4cb8-99ed-f6e637d72e5e@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_084556_778559_FF86521E 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20250905_093853_689056_60711D25 
+X-CRM114-Status: GOOD (  88.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,80 +87,942 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series looks good to me.
+Hi James,
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+On Thu, Sep 04, 2025 at 06:28:17PM +0100, James Morse wrote:
+> Hi Dave,
+> 
+> On 27/08/2025 17:05, Dave Martin wrote:
+> > On Fri, Aug 22, 2025 at 03:29:49PM +0000, James Morse wrote:
+> >> Add code to parse the arm64 specific MPAM table, looking up the cache
+> >> level from the PPTT and feeding the end result into the MPAM driver.
+> > 
+> > Might be worth mentioning that the hook for feeding the parsed factoids
+> > into the driver (mpam_ris_create()) is not implemented for now.
+> 
+> Sure,
+> 
+> >> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
 
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> The arm64 port permits the use of the baseline FP/SIMD register file in
-> kernel mode, and no longer requires preemption to be disabled. Now that
-> the EFI spec is being clarified to state that EFI runtime services may
-> only use baseline FP/SIMD, the fact that EFI may code may use FP/SIMD
-> registers (while executing at the same privilege level as the kernel) is
-> no longer a reason to disable preemption when invoking them.
->
-> This means that the only remaining reason for disabling preemption is
-> the fact that the active mm is swapped out and replaced with efi_mm in a
-> way that is hidden from the scheduler, and so scheduling is not
-> supported currently. However, given that virtually all (*) EFI runtime
-> calls are made from the efi_rts_wq workqueue, the efi_mm can simply be
-> loaded into the workqueue worker kthread while the call is in progress,
-> and this does not require preemption to be disabled.
->
-> Note that this is only a partial solution in terms of RT guarantees,
-> given that the runtime services execute at the same privilege level as
-> the kernel, and can therefore disable interrupts (and therefore
-> preemption) directly. But it should prevent scheduling latency spikes
-> for EFI calls that simply take a long time to run to completion.
->
-> Changes since v1/RFC:
-> - Disable uaccess for SWPAN before updating the preserved TTBR0 value
-> - Document why disabling migration is needed
-> - Rebase onto v6.17-rc1
->
-> (*) only efi_reset_system() and EFI pstore invoke EFI runtime services
->     without going through the workqueue, and the latter only when saving
->     a kernel oops log to the EFI varstore
->
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> Cc: Peter Zijlstra <peterz@infradead.org>
->
-> Ard Biesheuvel (7):
->   efi: Add missing static initializer for efi_mm::cpus_allowed_lock
->   efi/runtime: Return success/failure from arch_efi_call_virt_setup()
->   efi/runtime: Deal with arch_efi_call_virt_setup() returning failure
->   arm64/fpsimd: Don't warn when EFI execution context is preemptible
->   arm64/efi: Use a semaphore to protect the EFI stack and FP/SIMD state
->   arm64/efi: Move uaccess en/disable out of efi_set_pgd()
->   arm64/efi: Call EFI runtime services without disabling preemption
->
->  arch/arm/include/asm/efi.h              |  2 +-
->  arch/arm64/include/asm/efi.h            | 15 ++----
->  arch/arm64/kernel/efi.c                 | 57 +++++++++++++++++---
->  arch/arm64/kernel/fpsimd.c              |  4 +-
->  arch/loongarch/include/asm/efi.h        |  2 +-
->  arch/riscv/include/asm/efi.h            |  2 +-
->  arch/x86/include/asm/efi.h              |  2 +-
->  arch/x86/platform/efi/efi_32.c          |  3 +-
->  arch/x86/platform/efi/efi_64.c          |  3 +-
->  arch/x86/platform/uv/bios_uv.c          |  3 +-
->  drivers/firmware/efi/efi.c              |  3 ++
->  drivers/firmware/efi/riscv-runtime.c    |  3 +-
->  drivers/firmware/efi/runtime-wrappers.c | 20 ++++---
->  include/linux/efi.h                     |  8 +--
->  14 files changed, 89 insertions(+), 38 deletions(-)
->
->
-> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-> --
-> 2.51.0.355.g5224444f11-goog
->
->
+[...]
 
---
-Sincerely,
-Yeoreum Yun
+> >> +static bool frob_irq(struct platform_device *pdev, int intid, u32 flags,
+> >> +		     int *irq, u32 processor_container_uid)
+> > 
+> > Can this have a name, please?
+> 
+> parse_irq()? (but not all of it - only the bits that are duplicated)
+> How about parse_irq_common().
+
+That is inoffensive, but since this is where the interrupt is validated
+as usable and an attempt is made to reqister it -- and this is
+basically all the function seems to do right now, would
+
+	acpi_mpam_register_irq()
+
+or similar make sense, here?
+
+> >> +{
+> >> +	int sense;
+> >> +
+> >> +	if (!intid)
+> >> +		return false;
+> >> +
+> >> +	if (FIELD_GET(ACPI_MPAM_MSC_IRQ_TYPE_MASK, flags) !=
+> >> +	    ACPI_MPAM_MSC_IRQ_TYPE_WIRED)
+> >> +		return false;
+> >> +
+> >> +	sense = FIELD_GET(ACPI_MPAM_MSC_IRQ_MODE_MASK, flags);
+> 
+> > Do we handle cross-endian ACPI tables?
+> 
+> ACPI depends on UEFI, which is little endian only.
+> 
+> 
+> > ACPI defers to the relevant specification regarding the endianness of
+> > externally defined tables, but as of v3.0 (beta) of for MPAM ACPI
+> > spec [1], no statement is made about this.
+> > 
+> > Following the spirit of the ACPI core specs, I suspect that the
+> > "correct" answer is that MPAM tables are always little-endian, even if
+> > it not written down anywhere.
+> > 
+> > If the kernel is big-endian, we lose.
+> > 
+> > Maybe it is sufficient to make CONFIG_ACPI_MPAM depend on
+> > !CONFIG_CPU_BIG_ENDIAN for now.
+> > 
+> > 
+> > I haven't tried to understand how this is handled for other tables.
+> 
+> There is no way to hand the tables to the OS. I don't think this needs explict handling,
+> it all just falls out in the wash.
+
+(I'm not sure what you mean by not being able to hand tables to the OS.
+How did Linux get them?)
+
+But in any case, if the BE case is not handled by the Linux ACPI code
+in general then it almost certainly doesn't make sense to handle it
+here.
+
+(There are a lot of BE-handling macros in the imported ACPICA headers
+in the kernel tree, which made me wonder whether this was a thing.)
+
+> >> +
+> >> +	/*
+> >> +	 * If the GSI is in the GIC's PPI range, try and create a partitioned
+> >> +	 * percpu interrupt.
+> > 
+> > But actually we don't even try?  Or did I miss something?
+> 
+> Ah - I ripped that out on the assumption no-one was using it. I'll drop the comment.
+> No-one has squealed yet!
+>
+> It's works out the box on DT systems, and can be described in the MPAM ACPI table - but
+> without a platform, there is no need for the irqchip juggling to make it work. Hence the
+> pr_err_once().
+
+OK.  I've no strong feeling about that.
+
+
+> >> +	 */
+> >> +	if (16 <= intid && intid < 32 && processor_container_uid != ~0) {
+> > 
+> > checkpatch.pl says:
+> > 
+> >  | WARNING: Comparisons should place the constant on the right side of the test
+> >  | #108: FILE: drivers/acpi/arm64/mpam.c:45:
+> >  | +       if (16 <= intid && intid < 32 && processor_container_uid != ~0) {
+> > 
+> > (Dubious whether this is "wrong" IMHO, but still probably best avoided
+> > since it is not what people are used to seeing.)
+> 
+> If it were a single comparison I'd agree, but as its two, I find this a lot easier to read
+> as 'intid is between 16 and 32' than the alternative.
+
+Sure, just flagging it.
+
+(There is a slight temptation with this idiom to accidentally write
+e.g., 16 <= intid < 32, which means something very different.
+But although the (correct) idiom appears uncommon in the kernel, there
+is some precedent.  Either way, it works.)
+
+> >> +		pr_err_once("Partitioned interrupts not supported\n");
+> >> +		return false;
+> >> +	}
+> >> +
+> >> +	*irq = acpi_register_gsi(&pdev->dev, intid, sense, ACPI_ACTIVE_HIGH);
+> >> +	if (*irq <= 0) {
+> >> +		pr_err_once("Failed to register interrupt 0x%x with ACPI\n",
+> >> +			    intid);
+> > 
+> > Are we going to get a lot of duplicate error messages with the same
+> > interrupt?  If not, perhaps make this a pr_err() so that all the
+> > affected interrupts are notified?
+> > 
+> > (Either way, hopefully the user will take the hint that they messed
+> > something up though.)
+> 
+> The hardware people figured they could get the OS to distribute the configuration to all
+> the nodes in the mesh, so there are platforms with hundreds of MSC. They also like to
+> share the interrupts, so if you mess the interrupt description up - you get hundreds of
+> messages.
+> To avoid spamming the log for what is likely to be a frequently repeated mistake, these
+> are all 'once'.
+
+OK, fair enough.
+
+1 error message is better than none, either way.
+
+> 
+> >> +		return false;
+> >> +	}
+> >> +
+> >> +	return true;
+> >> +}
+> >> +
+> >> +static void acpi_mpam_parse_irqs(struct platform_device *pdev,
+> >> +				 struct acpi_mpam_msc_node *tbl_msc,
+> >> +				 struct resource *res, int *res_idx)
+> >> +{
+> >> +	u32 flags, aff;
+> >> +	int irq;
+> 
+> > We may still get in here if MPAMF_IDR.HAS_ERR_MSI and/or
+> > MPAMF_MSMON_IDR.HAS_OFLW_MSI is set.
+> 
+> (this code can't know that)
+> 
+> 
+> > If so, there is no wired
+> > interrupt.  Does it matter if we still parse and allocate the wired
+> > interrupts here?
+> 
+> I don't think we do - frob_irq() will return false if the 'wired' flag is not set in the
+> table, so the 'res[(*res_idx)++]' step will be skipped, and the callers array is left
+> unmodified. The struct property_entry array is null-terminated, and gets copied anyway.
+> 
+> 
+> >> +	flags = tbl_msc->overflow_interrupt_flags;
+> >> +	if (flags & ACPI_MPAM_MSC_IRQ_AFFINITY_VALID &&
+> >> +	    flags & ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER)
+> >> +		aff = tbl_msc->overflow_interrupt_affinity;
+> >> +	else
+> >> +		aff = ~0;
+> > 
+> > (u32)~0 is used as an exceptional UID all over the place.  If this is
+> > not a pre-existing convention, it could be worth having a #define for
+> > this.  (grep '~0' drivers/acpi/ suggests that this is new.)
+> 
+> It's not normal to describe the affinity of an interrupt in tables like this...
+> The MPAM ACPI spec allows you to describe the PPI affinity because the MSC can be local to
+> a CPU, (e.g. the L2 cache), and the MPAM architecture spec says it can be a PPI.
+> We have support for this on DT systems, so it wasn't possible to argue "no one would ever
+> do that"!
+
+I guess this is OK.
+
+(My misgivings about ~0 are partly due to the way C evaluates expressions.
+The conversion to the destination type occus only after the ~ is evaulated,
+so if the affected type is changed to a 64-bit type during maintenance
+(or by copy-pasting into another context), then it's easy to end up with
+with wrong values in the high bits.  The definition
+
+	u64 x = ~0;
+
+does indeed set x to all ones, but I find the reason _why_ this works
+counterintuitive, and superficially similar expressions can go wrong.
+Having a #define only requires this to be got right in one place.)
+
+
+> >> +	if (frob_irq(pdev, tbl_msc->overflow_interrupt, flags, &irq, aff))
+> >> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "overflow");
+> > 
+> > I couldn't find a statement in the spec of how the table can specify
+> > that there is no interrupt.
+> 
+> With zero in the GSI field, from the spec:
+> | If this MSC does not support overflow interrupts or monitors, this field must be set
+> | to 0.
+> 
+> Which is detected in frob_irq() as:
+> |	if (!intid)
+> |		return false;
+> 
+> 
+> > Are the interrupts always required for ACPI-based MPAM systems?
+> 
+> In practice they're optional.
+> 
+> 
+> > overflow_interrupt and error_interrupt are GSIVs, which seems to be an
+> > ACPI thing.
+> 
+> It's a flat space of interrupt IDs - no need to shift the values around for the
+> SGI/PPI/SPI range. (aka IPI, percpu interrupt or plain old wired interrupt)
+> 
+> 
+> > The examples in the ACPI spec suggest that 0 can be a valid value.
+> > No exceptional value seems to be defined.
+> > 
+> > The flags fields have some invalid encodings, but no explicit "no
+> > interrupt" encoding that I can see.
+> 
+> I think you missed it hidden as 'and another thing' in the description of the field.
+
+I was being diplomatic.  I meant: "explicitly uses this as an example
+of a valid value."
+
+> Pretty sure its not - it would be a secure SGI. The MPAM spec uses it as 'invalid'.
+
+I guess that's is a Arm-ism, then.  So long as this is standard for
+ACPI on Arm systems, then I guess there is no problem -- and anyway,
+the ACPI MPAM spec would take precedence for interpreting this field.
+
+Now I look more closely, you're right: the ACPI MPAM spec says, e.g.:
+"If the MSC supports MSI, as indicated by the
+MPAMF_MSMON_IDR.HAS_OFLW_MSI bit, then this field must be set to 0 and
+ignored by the OS.  If this MSC does not support overflow interrupts or
+monitors, this field must be set to 0".
+
+This does not say that the value 0 means there is no wired interrupt,
+but that seems to be the intention.
+
+It could be better worded, but the intention does seem to be that 0
+means "no (wired) interrupt", here...
+
+> >> +
+> >> +	flags = tbl_msc->error_interrupt_flags;
+> >> +	if (flags & ACPI_MPAM_MSC_IRQ_AFFINITY_VALID &&
+> >> +	    flags & ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER)
+> >> +		aff = tbl_msc->error_interrupt_affinity;
+> >> +	else
+> >> +		aff = ~0;
+> >> +	if (frob_irq(pdev, tbl_msc->error_interrupt, flags, &irq, aff))
+> >> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
+
+intid 0 gets ignored by frob_irq(), so I guess we are OK in the MSI
+case (the spec says we must ignore it, but also says that it must be
+zero).
+
+It would be onerous to have to map the MSC and examine its ID regs
+here assuming that the intid really is 0 in the MSI case seems
+reasonable.
+
+> >> +}
+> >> +
+> >> +static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+> >> +				    struct acpi_mpam_resource_node *res)
+> >> +{
+> >> +	int level, nid;
+> >> +	u32 cache_id;
+> >> +
+> >> +	switch (res->locator_type) {
+> >> +	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
+> >> +		cache_id = res->locator.cache_locator.cache_reference;
+> >> +		level = find_acpi_cache_level_from_id(cache_id);
+> >> +		if (level <= 0) {
+> >> +			pr_err_once("Bad level (%u) for cache with id %u\n", level, cache_id);
+> >> +			return -EINVAL;
+> >> +		}
+> >> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
+> >> +				       level, cache_id);
+> >> +	case ACPI_MPAM_LOCATION_TYPE_MEMORY:
+> >> +		nid = pxm_to_node(res->locator.memory_locator.proximity_domain);
+> >> +		if (nid == NUMA_NO_NODE)
+> >> +			nid = 0;
+> >> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
+> >> +				       255, nid);
+> >> +	default:
+> >> +		/* These get discovered later and treated as unknown */
+> >> +		return 0;
+> >> +	}
+> >> +}
+> >> +
+> >> +int acpi_mpam_parse_resources(struct mpam_msc *msc,
+> >> +			      struct acpi_mpam_msc_node *tbl_msc)
+> >> +{
+> >> +	int i, err;
+> >> +	struct acpi_mpam_resource_node *resources;
+> >> +
+> >> +	resources = (struct acpi_mpam_resource_node *)(tbl_msc + 1);
+> 
+> > Should we check that we don't go out of the bounds of the MSC node
+> > (or, at the very least, of the MPAM table)?
+> > 
+> > If tbl_msc->length was already validated, that can be used for the
+> > bounds check.
+> 
+> I'm not a fan of trying to validate the APCI tables - its extra work for something that
+> just has to be right. e.g. we can't check the base-address, we just have to trust its correct.
+> 
+> I didn't want to pass the table in here, and grabbing another reference means I'd have to
+> work out if its the same mapping...
+> 
+> But as tbl_msc->length is to hand...
+
+That gets my vote, except that it would be trivial to validate length
+in length in acpi_mpam_parse().  Checking against length without first
+validating length woule be completely pointless.
+
+I agree that there are things that we can't validate and things that it
+is redundant or pointless to check.  But it feels a bit lazy not to
+care whether the parser wanders out of the table while trying to parse
+it.
+
+If the rest of the ACPI code takes a similarly relaxed attitude (I've
+not checked) then I guess it is pointless to be more careful here.
+
+But otherwise, I would prefer to see all the bounds checks done.
+This is not hard, and there are not many things to check.  (In my
+experience, it requires far fewer brain cycles to just make these things
+correct by construction than to try to figure out the situations in
+which the corner-cutting might or might not matter.)
+
+> >> +	for (i = 0; i < tbl_msc->num_resource_nodes; i++) {
+> >> +		err = acpi_mpam_parse_resource(msc, &resources[i]);
+> > 
+> > Isn't the length of each resource node variable?  According to [2],
+> > the length depends on the num_functional_deps field.  It looks like the
+> > functional dependency descriptors (if any) are appended contiguously to
+> > the resource node, unless I've misunderstood something.
+> 
+> No - it proably is that broken. They forgot to include a length field, painting themselves
+> into a corner if they ever want to modify this!
+
+The spec doesn't look particularly broken -- i.e., it can be compatibly
+extended, albeit in a more awkward way that would be ideal.  The main
+impact is that the list of resources has to be parsed sequentially, but
+that's all code is ever likely to do with the table anyway.
+
+> I was ignoring the 'functional dependencies' until someone comes up with a platform that
+> needs it. But yes, this assumes that field is zero.
+> 
+> I'm not entirely clear what the MPAM driver is supposed to do with functional
+> dependencies: 'make up a configuration' ... but when the controls formats are different,
+> its going to get exciting.
+> 
+> I'ved fixed that up:
+> | int acpi_mpam_parse_resources(struct mpam_msc *msc,
+> | 			      struct acpi_mpam_msc_node *tbl_msc)
+> | {
+> | 	int i, err;
+> |	char *ptr, *last_byte;
+> | 	struct acpi_mpam_resource_node *resource;
+> |
+> | 	ptr = (char *)(tbl_msc + 1);
+> | 	last_byte = ptr + tbl_msc->length;
+
+Nit: misnomer.  This is not the address of the last byte.
+
+(I tend to call similar pointers something like "limit".)
+
+> | 	for (i = 0; i < tbl_msc->num_resource_nodes; i++) {
+> | 		if (ptr + sizeof(*resource) > last_byte)
+> | 			return -EINVAL;
+> |
+> | 		resource = (struct acpi_mpam_resource_node *)ptr;
+> | 		err = acpi_mpam_parse_resource(msc, resource);
+> | 		if (err)
+> | 			return err;
+> |
+> | 		ptr += sizeof(*resource);
+> | 		ptr += resource->num_functional_deps * sizeof(struct acpi_mpam_func_deps);
+
+This mostly looks sane.
+
+But unless ptr is guaranteed to be less than 0xffffffff00000002 (?),
+then the bounds check at the start of the loop may bogusly pass.
+
+Would a check like this before advancing ptr across the functional deps
+be reasonable? (untested)
+
+	if (resource->num_functional_deps >
+	    (last_byte - ptr) / sizeof(struct acpi_mpam_func_deps)
+		return -EINVAL;
+
+(Why the table allows more functional dependencies to be declared than
+could possibly fit in an MSC node is a mystery.)
+
+[...]
+
+> >> +		if (err)
+> >> +			return err;
+> >> +	}
+> >> +
+> >> +	return 0;
+> >> +}
+> >> +
+> >> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
+> >> +				     struct platform_device *pdev,
+> >> +				     u32 *acpi_id)
+> >> +{
+> >> +	bool acpi_id_valid = false;
+> >> +	struct acpi_device *buddy;
+> >> +	char hid[16], uid[16];
+> >> +	int err;
+> >> +
+> >> +	memset(&hid, 0, sizeof(hid));
+> >> +	memcpy(hid, &tbl_msc->hardware_id_linked_device,
+> >> +	       sizeof(tbl_msc->hardware_id_linked_device));
+> > 
+> > This is safe by semi-accident, since 16 > 8.
+> > 
+> > It might be cleaner to declare
+> > 
+> > 	char hid[sizeof(tbl_msc->hardware_id_linked_device)];
+> > 
+> > which can never be wrong.
+> 
+> But can be too precise!
+
+But only when the correct length was unknown.  So you are saying that
+this can only be correct when it is not known to be correct? ;)
+
+Sometimes an oversized array has useful defensive value against future
+mis-maintenance, but since the ACPI fields are all fixed-size, I don't
+see any benefit here.
+
+> > memset()+memcpy() might be better replaced with strscpy() (or just use
+> > snprintf again, since this avoids having to think about multiple
+> > different ways of avoiding buffer overflows at the same time.  This is
+> > not a fast path.)
+> 
+> snprintf() demands space for a NULL byte - but these APCI tables fields are fixed width,
+> so don't have them.
+> 
+> The array sizes picked are the next larger power of 2, and the memset is ensure there is a
+> NULL byte after the fixed size region is copied in.
+> 
+> Where snprintf() is being used - its to convert from integer to string. For the hid, what
+> we really want is a fixed size memcpy() ... its possible to cook up a format string that
+> will do that, but its going to be an eye sore.
+
+Well, it's a matter of style.
+
+> 
+> I can change this to;
+> | char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1];
+
+Can do (and this would probably have shut me up), but:
+
+> 
+> But I don't think this is better... How about a comment?!
+> |	/*
+> |	 * tbl_msc->hardware_id_linked_device is an 8 byte fixed width string.
+> |	 * hid[] is the next larger power of 2, and is zero'd to give us a
+> |	 * null terminated string for acpi_dev_get_first_match_dev().
+> |	 */
+
+this doesn't explain why the size needs to be a power of two, or what
+the wasted bytes are for.
+
+(Either way, this is obviously no big deal...)
+
+> 
+> 
+> This is all because the MPAM stuff was forced into a static table, even though it needs to
+> refer to stuff in the namespace.
+> 
+> 
+> >> +
+> >> +	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
+> >> +		*acpi_id = tbl_msc->instance_id_linked_device;
+> >> +		acpi_id_valid = true;
+> >> +	}
+> >> +
+> >> +	err = snprintf(uid, sizeof(uid), "%u",
+> > 
+> > char uid[11]; would be sufficient, here.  The instance ID is strictly
+> > 32-bit.  Adding a safety margin is worthless here, since snprintf()
+> > checks the bounds -- either the size is sufficient for all possible u32
+> > values, or it isn't.
+> 
+> I just plumped for the next largest power of 2.
+
+This is harmless, but since the only way to know that this is
+sufficient is to know what the correct value would have been, it seems
+pointless (as above) to lie to the compiler about how much space can
+be used.
+
+> 
+> 
+> >> +		       tbl_msc->instance_id_linked_device);
+> > 
+> > Can snprintf() return < 0 on error?
+> 
+> Documented as returning a positive number.
+
+Not in C23, and never standard for the printf() family in general.  But
+it does appear that this is true for the kernel's snprintf(), and this
+assmuption is widely relied upon in the kernel.  So, a check here would
+be pointless compilexity after all.
+
+(The only documented error condition in C23 seems the case of a
+multibyte encoding error, which is not relevant here although it does
+not rule out other error conditions -- the wording is
+characteristically ambiguous.)
+
+[...]
+
+> >> +	if (err >= sizeof(uid))
+> >> +		return acpi_id_valid;
+> > 
+> > Possibly return true on error?  Why?
+> 
+> (this is an error case that will never happen - but error handling is important!)
+> 
+> The acpi_id was parsed out of the table and returned to the caller. Hence true is
+> returned. This gets used to find the CPU-affinity, which is how the driver avoids
+> accessing caches that might not be on. There are sanity checks around this value. It can't
+> be present for some caches and not others.
+> 
+> Due to this error, the link to the buddy device was not added - which is silently ignored.
+> If it matters, it will show up as an access to a device that didn't get turned on by the
+> power-management code, because of that missing link.
+> 
+> Because I don't think this can happpen, I didn't try to handle it explicitly - just carry
+> on like nothing is wrong.
+
+What I meant was, if the MPAM table contains garbage, why not just flag
+this and give up?  That feels semantically simpler than trying to limp on,
+with possibly undiagnosed invalid results.
+
+[...]
+
+> >> +static int __init acpi_mpam_parse(void)
+> >> +{
+> >> +        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+> > 
+> > checkpatch.pl says:
+> > 
+> >  | ERROR: code indent should use tabs where possible
+> >  | #240: FILE: drivers/acpi/arm64/mpam.c:177:
+> >  | +        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);$
+> >  | 
+> >  | WARNING: please, no spaces at the start of a line
+> >  | #240: FILE: drivers/acpi/arm64/mpam.c:177:
+> >  | +        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);$
+> 
+> Pff, I copied that from Jonathan's email because of its rune like nature.
+
+[...]
+
+> >> +	while (table_offset < table_end) {
+> >> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+> >> +		table_offset += tbl_msc->length;
+> >> +
+> >> +		/*
+> >> +		 * If any of the reserved fields are set, make no attempt to
+> >> +		 * parse the msc structure. This will prevent the driver from
+> >> +		 * probing all the MSC, meaning it can't discover the system
+> >> +		 * wide supported partid and pmg ranges. This avoids whatever
+> >> +		 * this MSC is truncating the partids and creating a screaming
+> > 
+> > Mangled sentence?
+> 
+> just hard to parse:
+> "whatever this MSC is" "truncating the parids..."
+> 
+> Fixed as
+> | This avoids this MSC truncating the partids and creating a screaming error interrupt.
+> 
+> (although its not strictly the MSC that does that)
+
+The critical thing here seems to be that we prevent the driver from
+ever being enabled.  The comment doesn't seem to say that we are
+actually disabling the MPAM driver by giving up here (it only explains
+why).
+
+For the benefit of people who are less familiar with the code, Would
+something like this be better: [*]
+
+--8<--
+
+If the reserved fields are set then the meaning of the rest of the
+entry is unknown, so leave the MSC marked as unprobed and give up.
+This means that the MPAM driver will never be enabled.  There is no way
+to enable it safely, because we cannot determine safe system-wide
+partid and pmg ranges in this situation.
+
+-->8--
+
+> 
+> 
+> > I have not so far found any reference in [2] to the reset value of the
+> > MPAMF_ECR.INTEN bit.  Do we rely on the error interrupt(s) for all MSCs
+> > to be disabled at the interrupt controller?  If the same interrupt may
+> > be shared by multiple MSCs, that's bad.
+> 
+> They are anticipated as shared because the ESR register lets us know if this MSC triggered
+> the error.
+>
+> The interrupt won't be delivered until the driver requests it - it'll just stay pending.
+> 
+> Yes - if some firwmare component used an out-of-range PARTID then linux will believe that
+> this was caused by linux and disable MPAM. Not much we can do about that.
+> 
+> (I've even seen a platform where this happens!)
+
+Ah, right -- I'd missed the ESR.
+
+This is inherently racy even without interrupt sharing, so I guess
+sharing the interrupt doesn't make things worse (except for having to
+poll multiple ESRs on interrupt -- but if that hardware vendor made us
+do that, it's on them.)
+
+> >> +		 * error interrupt.
+> >> +		 */
+> >> +		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2)
+> >> +			continue;
+> 
+> > The specs are not clear about how backwards compatibility is supposed
+> > to work.
+> 
+> How about that!
+> 
+> The spec people thought this would allow them to add things that aren't MSC in, re-using
+> one of these reserved fields as a type.
+> But - the architecture spec mandates the OS run around the MSC and collect the minimum
+> PARTID/PMG values (so people don't have to build an SoC where everything fits together
+> nicely). Because of that, the OS needs to know how many MSC there are, so that it knows it
+> has probed them all.
+
+See my suggestion at [*], above.
+
+The reader doesn't need to understand about future architecture
+directions, here.  The only thing that matters is that the kernel does
+not make any assumptions about the meaning of the MSC entry if these
+fields are set.  I'm not sure that we need to justify this position --
+simply stating it is probably enough.
+
+> > I would feel a bit uneasy about silently throwing away MSCs based on
+> > critera that may not indicate incompatibility, and without even a
+> > diagnostic.
+> 
+> Yes the MSC gets thrown away - but it was still counted by acpi_mpam_count_msc(). The MPAM
+> driver will never probe all the MSC, so it will never call mpam_enable().
+> 
+> (you used to be able to see which cpuhp callback was registeered, to know it was stuck in
+> discovery, but now a helper does that which always uses the same name. I may fix that)
+> 
+> 
+> I think its fine for MPAM to silently fail to probe like this. The system still works, all
+> the known hardware gets probed and none of the unknown hardware is touched. (so it can't
+> blow us up). You don't get resctrl - but we can't know if the unknown hardware was going
+> to be important to supporting MPAM. e.g. it lowers the minimum usable PARTID/PMG.
+> 
+> It's between a rock and a hard place - I think this  behaviour is the best we can do.
+> 
+> 
+> Regarding it being silent - whatever happens it needs a kernel upgrade to learn about the
+> newly described hardware. I don't think its worth printing anything out in this case.
+
+I would still vote for a basic
+
+	"Unrecognised MSC, MPAM not usable"
+
+message or similar.  This costs us nothing, and at least gives a clue
+that missing kernel support or a corrupt ACPI table are likely causes
+for resctrl not showing up.
+
+It partly depends on how likely we think this scenario os -- or how
+likely it is that people will insist on using an old kernel with a
+botched stack of backports on new hardware.  I don't have a strong
+sense on this.
+
+> >> +
+> >> +		if (!tbl_msc->mmio_size)
+> >> +			continue;
+> >> +
+> >> +		if (decode_interface_type(tbl_msc, &iface))
+> >> +			continue;
+> > 
+> > Ditto regarding diagnostics.
+> 
+> A third interface type will result in those MSC being untouched, and MPAM unavailable.
+> I don't think printing "maybe upgrade your kernel?" is going to help anyone.
+> I'll chuck some pr_debug() in here so someone could find out which of these it is.
+> 
+
+pr_debug() for sub-diagnosing the error may be helpful, but these feel
+like an addition to the basic "MPAM unusable" error rather than as a
+replacement for it...
+
+> >> +
+> >> +		next_res = 0;
+> >> +		next_prop = 0;
+> >> +		memset(res, 0, sizeof(res));
+> >> +		memset(props, 0, sizeof(props));
+> >> +
+> >> +		pdev = platform_device_alloc("mpam_msc", tbl_msc->identifier);
+> > 
+> > If the tbl_msc->identifier values contain duplicates, we will get a
+> > platform device with a duplicate name here.  I don't know whether it
+> > matters.
+> 
+> The identifiers must be unique. I don't think this is the sort of table validation we need
+> to do for the firmware vendor.
+
+My question was really: "what goes wrong?"  I suppose that if
+platform_device_alloc() doesn't like this then
+> 
+> 
+> >> +		if (!pdev) {
+> >> +			err = -ENOMEM;
+> >> +			break;
+> >> +		}
+
+we call the caller we ran out of memory.  While not exactly helpful,
+this is better than blowing up.  If this is the only consequence of
+duplicate IDs here (and this anyway Should Not Happen), then I guess
+this is adequate.
+
+If platform_device_alloc() doesn't care about duplicate names, then I
+guess we can just trust it to have done something sensible.
+
+> >> +
+> >> +		if (tbl_msc->length < sizeof(*tbl_msc)) {
+> >> +			err = -EINVAL;
+> >> +			break;
+> >> +		}
+> 
+> > No check for oversized tbl_msc->length?
+> 
+> You want it to parse the whole thing to check if firmware got the length field right?
+> I don't think we can know that. If its wrong, firmware may just have easily got the number
+> of RIS, or some other field wrong.
+
+We can't know that the table is "wrong" (since it is authoritative),
+but we can know whether it so internally inconsistent that it is not
+parseable.
+
+> Historically x86 using to rummage around in memory to see if it could find something that
+> looked like ACPI tables. I'd imagine it was important to parse those carefully, as they
+> may never have been APCI table. We don't have this problem on arm64 - the ACPI tables were
+> handed over from UEFI. If the value is wrong - the firmware vendor meant it to be wrong.
+
+See above for my rationale.
+
+This is more about maintainability and cleanliness than trying to
+defend ourselves against broken firmware.
+
+
+Note: if the ACPI code in general doesn't bother to do these kind of
+checks then we can probably follow the established culture.  I'm not so
+familiar with this codebase.
+
+[...]
+
+> >> +
+> >> +		/* Some power management is described in the namespace: */
+> >> +		err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
+> >> +		if (err > 0 && err < sizeof(uid)) {
+> >> +			companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
+> > 
+> > Diagnostic?
+> > 
+
+Ping
+
+
+[...]
+
+> >> +int acpi_mpam_count_msc(void)
+> >> +{
+> >> +        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+> > 
+> > checkpatch.pl says:
+> > 
+> >  | ERROR: code indent should use tabs where possible
+> >  | #359: FILE: drivers/acpi/arm64/mpam.c:296:
+> >  | +        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);$
+> >  | 
+> >  | WARNING: please, no spaces at the start of a line
+> >  | #359: FILE: drivers/acpi/arm64/mpam.c:296:
+> >  | +        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);$
+> > 
+> 
+> Yup, runes copied from Jonathan's email.
+
+Ack
+
+> >> +	char *table_end, *table_offset = (char *)(table + 1);
+> >> +	struct acpi_mpam_msc_node *tbl_msc;
+> >> +	int count = 0;
+> >> +
+> >> +	if (IS_ERR(table))
+> >> +		return 0;
+> >> +
+> >> +	if (table->revision < 1)
+> >> +		return 0;
+> >> +
+> >> +	tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+> > 
+> > Can this be moved into the loop?  It looks like it just duplicates the
+> > update to tbl_msc at the end of the loop; the loop termination
+> > condition does not depend on this variable.
+> 
+> Yup - looks like this used to be a do {} while () ; loop.
+
+OK
+
+> >> +	table_end = (char *)table + table->length;
+> >> +
+> >> +	while (table_offset < table_end) {
+> >> +		if (!tbl_msc->mmio_size)
+> >> +			continue;
+> > 
+> > This is 0 for non-usable PCC-based MSCs, right?
+> > 
+> > (Why explicitly unusable MSCs are listed in the table at all is a
+> > mystery to me, but that's what the spec says.  I guess there must be a
+> > reason.)
+
+(I guess PCC was added after the size field was named.  I suppose we
+don't really need a comment for that -- it's fairly clear why this bit
+of code is here.  We could rename the field in our struct, but this
+would probably just move confusion around rather than solving it.)
+
+> Some firmwware stacks have pre-built ACPI tables, then go knock out the enabled bits based
+> on what the platform actually has. This is easier than rebuilding the table...
+
+Right, that makes sense.
+
+> >> +
+> >> +		if (tbl_msc->length < sizeof(*tbl_msc))
+> >> +			return -EINVAL;
+> > 
+> > Should we also have something like (not tested):
+> > 
+> > if (tbl_msc->length > table_end - table_offset)
+> > 	return -EINVAL;
+> 
+> Sure,
+> 
+> 
+> > Also, is it an error if a length is not a multiple of four bytes?
+> 
+> Hmmm, because all the subtables in the sepc are multiples of four bytes?
+> I think this falls in the bucket of 'table validation the OS shouldn't have to do'.
+> If the ACPI tables are that wrong, we're going to have bigger problems.
+
+So long as we don't fault on unaligned access in the kernel (which I'm
+pretty sure we don't do), then nothing goes wrong in the unaligned case
+-- so, fine.  Otherwise we'll get a clean Oops, which would at least be
+a decent place to start debugging.
+
+> > (I'm guessing that the core ACPI code doesn't try to understand the
+> > contents of the MPAM table and so doesn't check this.)
+> 
+> It doesn't.
+
+Ack.
+
+> >> +
+> >> +		count++;
+> >> +
+> >> +		table_offset += tbl_msc->length;
+> >> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+> >> +	}
+> >> +
+> >> +	return count;
+> >> +}
+> 
+> >> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+> >> new file mode 100644
+> >> index 000000000000..0edefa6ba019
+> >> --- /dev/null
+> >> +++ b/include/linux/arm_mpam.h
+> >> @@ -0,0 +1,46 @@
+> >> +// SPDX-License-Identifier: GPL-2.0
+> >> +/* Copyright (C) 2025 Arm Ltd. */
+> > 
+> > checkpatch.pl says:
+> > 
+> >  | WARNING: Improper SPDX comment style for 'include/linux/arm_mpam.h', please use '/*' instead
+> >  | #414: FILE: include/linux/arm_mpam.h:1:
+> >  | +// SPDX-License-Identifier: GPL-2.0
+> >  | 
+> >  | WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+> >  | #414: FILE: include/linux/arm_mpam.h:1:
+> >  | +// SPDX-License-Identifier: GPL-2.0
+> > 
+> > (That's probably the same error twice.)
+> > 
+> > (I never understood why the SPDX folks couldn't have allowed either
+> > type of comment -- or at least, the same style in .c and .h files.
+> > But I'm sure they had a reason that they believed was good.)
+> 
+> Fixed,
+> 
+> Thanks,
+> 
+> James
+> 
+
+OK
+
+Cheers
+---Dave
 
