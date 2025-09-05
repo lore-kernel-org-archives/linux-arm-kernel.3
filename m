@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B476CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BDD6CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LyeDu2i+o9HDa3/kwwKLQ3zkEkc/YK3lZMNTzfpm8EU=; b=Xjy3VrQNdtC6BcC0CFo7IaAe6b
-	hoPTLhVjOcZ6Gs4HC2nx9MqVh5s9fRVIu4krnYJ6rWQbmygDRRMR6NS5FJ8PwYrZityqol/9oecBa
-	YS9bfJ9GeaYAn933sm7bnOtpC3Og5R5VlkJFDpd/HdxqR2sQ5lY6mJYZ9DttoIu9/v2juhcgU9hcv
-	tdwlOBH7LcXf4Ur/NPkJq+OhlNUYnvm6QlY/xHWPk2mHkNWMVckTL+/kPmXtqsXW3IfHYioq1dVwP
-	7z+Jv20hoMxFGYj/wsxPweH5v2izxMkYa9gIkbC6/yXlLNaiOuxlLT0gEAgca3bNbp8pQP9lFSG+3
-	ys4EqxVw==;
+	bh=v+M9XlNis07KpTAkkQrP3znn5sFqicxG8ze3SLTNWwE=; b=Cfn+R0OI9I+tNG2xOtc7piB8G7
+	6WJsxZIzitGqxr12WJSyUGHUwc9GPaFv7GX2ax/lK3Uj2HIK0F9H/OYdqB7S4K9+AXlXYGZN38ysV
+	NLLoCLWe74vpKj6FykOQUgs1rOshd67diKXuxEWzXcvi8jt9QD9Gyl/crOm2jEUExXa5dtJAauJpr
+	9tehuyrDVTUxRNEagj3wuPm45dlChOMpM1sS20X6Hy+GpWSkw2ifUwFA3BWnaArKUuXnx6ObjOPII
+	D0Gq0OtcNkfCXOLXSFodsj+9FJixqrgyaats5E9gCuEt13SnUfhHU9RCG00ohuylQlMrE1fucrgyI
+	u3H7yARw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugWE-00000005T5z-2bAy;
-	Sat, 06 Sep 2025 00:11:02 +0000
+	id 1uugWD-00000005T4J-3WlI;
+	Sat, 06 Sep 2025 00:11:01 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uub8w-00000003mV2-186B;
-	Fri, 05 Sep 2025 18:26:38 +0000
+	id 1uuaxA-00000003iZo-3Hyy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 18:14:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5DD09601AA;
-	Fri,  5 Sep 2025 18:26:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2770C4CEF1;
-	Fri,  5 Sep 2025 18:26:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5AADC601AA;
+	Fri,  5 Sep 2025 18:14:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1290C4CEF1;
+	Fri,  5 Sep 2025 18:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757096797;
-	bh=LyeDu2i+o9HDa3/kwwKLQ3zkEkc/YK3lZMNTzfpm8EU=;
+	s=k20201202; t=1757096066;
+	bh=sKIzohfHjobHO7SXpKvZ0tTHicEsp56cVztJWhm/0V0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lr94/cIuJT3cZOFrv+NriZvDh0IBH7VOJn7CT/KUMfAUQDE8iLCaJtLXo4eT1m88d
-	 AZHs84jECVBUSd+0oFEPmter5XOTuZdNlaaHKbmKunMTFPEDeg/WNHYUeRelnaWvQq
-	 E89pKiOCUVfEC19gjzIgWORGIM+aHE9OoQUG+hyQkhEMwn+SBrtfvaJk5mERqGRobt
-	 mrEyfLa4PNybctRdzkie6d19QhJJxUnLa6ORrl1VcjnjD6GPWgV3FUCOYoObIU428b
-	 QKqIVGv2LYyhYl+qkrLfh1eDnLaGhWUxwk43oLyUkS7/tFVDmqVTyb1194vWvSK+oG
-	 fWlmeHZSW9ypg==
-Date: Fri, 5 Sep 2025 19:26:32 +0100
-From: Conor Dooley <conor@kernel.org>
-To: WeiHao Li <cn.liweihao@gmail.com>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 3/4] dt-bindings: phy: rockchip,inno-usb2phy: Document
- rk3368 usb phy
-Message-ID: <20250905-crumb-district-ca69a00cf6ee@spud>
-References: <20250905125318.7956-1-cn.liweihao@gmail.com>
- <20250905125318.7956-4-cn.liweihao@gmail.com>
+	b=BrZE0Gs8hnOSpo716jzKc1BTmUzos1aJ87JdO5xXPyuHu6KcqaAO5UmJKZVnTfFOy
+	 RxiN41dvEz6I1MLYuj165bTcE2o08YexQxpbnq2P0JRNmKWNmN4iMg0NEi4Ya5yyLl
+	 T5S4i41W8HDmxU4hE+52aa6bgyIx1Q2eBz+oi+riZqsuKuRLZq50F1E0Zt5+9AQqF5
+	 rA6rMB4cn/MAhjJ8Xq6T9COQDe5G8j5ZODXbg7a57q+Pwu3gJlfHopnqHtVHT5HNAt
+	 /478erheEcLcXvjd7GTqYipC5EjMr0co/a9GUpmq11NcNpL93j2M3vwsxrK7C0Yeby
+	 Gvj6MCZJBmRug==
+Date: Fri, 5 Sep 2025 13:14:25 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Vladimir Zapolskiy <vz@mleia.com>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Roland Stigge <stigge@antcom.de>, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 1/7] dt-bindings: arm: nxp: lpc: Assign myself as
+ maintainer of NXP LPC32xx platforms
+Message-ID: <175709605970.1054226.866828735436779531.robh@kernel.org>
+References: <20250904184647.397104-1-vz@mleia.com>
+ <20250904184647.397104-2-vz@mleia.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JICgwRvRS9Ky+b8v"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250905125318.7956-4-cn.liweihao@gmail.com>
+In-Reply-To: <20250904184647.397104-2-vz@mleia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,22 +75,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---JICgwRvRS9Ky+b8v
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Thu, 04 Sep 2025 21:46:41 +0300, Vladimir Zapolskiy wrote:
+> Make a formal change to reflect the actual NXP LPC32xx maintainership
+> for the last years.
+> 
+> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+> Cc: Roland Stigge <stigge@antcom.de>
+> ---
+>  Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
---JICgwRvRS9Ky+b8v
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLsrWAAKCRB4tDGHoIJi
-0l5zAP9FcI/1JClbYyW8Ww/u1FjWaaTZPlI37QTxc3eyTNDk1gD/X+NwruBP7g7o
-k0a2fGxRECLLi6BGWP4ublx6JyltjAw=
-=gGkB
------END PGP SIGNATURE-----
-
---JICgwRvRS9Ky+b8v--
 
