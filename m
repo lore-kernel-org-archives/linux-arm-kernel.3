@@ -4,55 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24094CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAFBCAC580
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7T9ByWmMMJebbZjDXRbQOQnNd97Y+j9iLlMNFoM/WIE=; b=3rRJJjbXJVM0l5t7ZBmztkuTWF
-	ZiDa6sZgo29oqTQ73WZH8ZS8tE+Plq0ym8LKesNnARXatd8GqRV9dHgUtXDI2sl4cbfbRFuBHkC5u
-	vuk0OOwlMpFRRVYVELoibK1kPCYNaSYGa9LD1rWbuGB9EVi6cT6aY/pe+J93k/rVa3+tQyW1Pcl9T
-	dX9YaoTo+H+4Jarak9FQkIRN2/S3lkGRwLoL77ofyIZw5cUQevXkNMaCpxOShJ54RlWhy/bSsHlAc
-	AaE8sNv6ei6jNXY8GdyZpKkQMFOlHYG8tAWRmFHbtVVXN3W+UoUTPuZboGfuBXbZcpeshZYdn2X3b
-	lGb+mNew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sBSpQ8ZRm6jb4tNdcmggvd2P095dWooz1uDNAN/Fzc4=; b=2fa8kl1D5DSpY3wk6m5H5vTl8N
+	oGHbVWpoQCddtI7QXZqNBHSMZ2+NtIl7D9eUDl23NbF03gar3bhMSqGrILo7yOAMAQKRbuHcpTbQg
+	DfXLLHHgoYBSIe/QxA0WX9k1mLfjnxlOoE/lexd4/KxZr89NEQKM+mwsr4Ep55aQQBdRbKwaR5VH1
+	HemueIbdaWTpO+uYoyj6EeQvr3eqWw+/g67EqKBpoi4LsIZLu79mzT8wkLzykBiTjfKNkVmxRXaZv
+	f4nC09nRknNnTpioxXUE7LPGX8RQvQ+DHYxvaQFODRi3IvamsWtVGP0hpLP6fURPCmMESFvcwl7jb
+	yAvEDNBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXUW-00000002JNO-473G;
-	Fri, 05 Sep 2025 14:32:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSQC-00000000bjd-0Dqm
+	id 1uuXUY-00000002JPr-3faB;
+	Fri, 05 Sep 2025 14:32:42 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuSVJ-00000000eM5-0wEG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 09:07:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F6B6152B;
-	Fri,  5 Sep 2025 02:07:41 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4798D3F694;
-	Fri,  5 Sep 2025 02:07:46 -0700 (PDT)
-Date: Fri, 5 Sep 2025 10:07:39 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: panfan <panfan@qti.qualcomm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, rostedt@goodmis.org,
-	mhiramat@kernel.org, samitolvanen@google.com, song@kernel.org,
-	ardb@kernel.org, dylanbhatch@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, kdong@qti.qualcomm.com,
-	haijianc@qti.qualcomm.com
-Subject: Re: [PATCH v2] arm64: ftrace: fix unreachable PLT for ftrace_caller
- in init_module with CONFIG_DYNAMIC_FTRACE
-Message-ID: <aLqoWwLvGIo_qz6h@J2N7QTR9R3>
-References: <20250905032236.3220885-1-panfan@qti.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250905032236.3220885-1-panfan@qti.qualcomm.com>
+	Fri, 05 Sep 2025 09:13:10 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3dabec38299so1212550f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 02:13:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757063587; x=1757668387; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=sBSpQ8ZRm6jb4tNdcmggvd2P095dWooz1uDNAN/Fzc4=;
+        b=vmdSZgWMR6gABf4e53WAfZ8gkej/jxnKSgYhJ/L00HYFFZBitkm1Jpa0bTKGF/ROR3
+         Afj89Ud3YS1NlmJEy+oMYLxJkNogdoc9vSrrsgrJv6r7tFBQNBymSgWme8yyJ91CAQNo
+         RDr0w8svY+I17r8D90ZK/hTazBNV1M3dgX3kY+Wed+jq83g46RH9/N6pEPMYKf0tWEtM
+         TsMbzpUeix84ttrJbf4K7xOegXnOww/kG5wZw8OoESRL03pWKMcqpOKbRsLpab+IX7iO
+         JeNn7n/UB9QV6gSnCHfFveikIcvYmlw4iB7RaorhB4Y3GTgP2bGCymHj7TylZyu50KDO
+         hG4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757063587; x=1757668387;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sBSpQ8ZRm6jb4tNdcmggvd2P095dWooz1uDNAN/Fzc4=;
+        b=fgNuqgp2rOYBBf0+FPnhgI//7Zb7iaUTyHYnuoWTQ/PsOrbm8V7K4XV/NtLp659ZlN
+         m31fvLfZdE3sFY2wyXLzbJjP3pNLIncGIUJs1xNhFa2kk5FMts3BylxKPcYgwozIEbXH
+         ElcUTEJxUliVpnOJfhNfdReE5rgXQkAH3ZVYSL6Tvu/wW58HaiWTcsCijZZR7Q39ROe/
+         W6RiWbFkMbyPu2GeLEgoPs/dOIHvTcXFQK8vcYOu3moHS2s1QPgy46LT0yyAZwycLaZ4
+         hWLuLx5o3dGHRBCMgdchV8Q9ubAJE0PUUkeBYnD+btSStN3Uctc2fvpIKqw0Vfj4cTz/
+         gqAw==
+X-Forwarded-Encrypted: i=1; AJvYcCWYJRZ4lmGvnuib4sU38Qt8EJbYtX4luwOjhMtPTw30t3obVyQi6Rkvk3y+QmYjqA7KuwTI4KOZ3SlnXigIuMwo@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJdp8iyB5Z7g2t5SKKOJ+9tRlgQ9BeW3Vf6Sn6tmeH3/6CjRDK
+	cPilJshdFKNVSjhEOZVCQEMb8JM7n8xE16jeMu/DC9hwofwwqT0v5ckxoL7QhzlV0n6/EGj3weQ
+	00R+kIrtPjLFatU4oJQ==
+X-Google-Smtp-Source: AGHT+IEwNpYtanMPGC3mKG9+dfs7GkoY0bb6zXivMXVtiUjkjgaYNYh142quSHeIfKG42UCVPz8Dde6RKOCNb/g=
+X-Received: from wrjo18.prod.google.com ([2002:adf:cf12:0:b0:3d9:b79f:e8b7])
+ (user=verhaegen job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:2486:b0:3e2:804b:bfe9 with SMTP id ffacd0b85a97d-3e2805b0742mr2921328f8f.15.1757063586869;
+ Fri, 05 Sep 2025 02:13:06 -0700 (PDT)
+Date: Fri,  5 Sep 2025 10:12:53 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.0.355.g5224444f11-goog
+Message-ID: <20250905091301.2711705-1-verhaegen@google.com>
+Subject: [PATCH v5 0/3] ALSA: compress_offload: Add 64-bit safe timestamp API
+From: Joris Verhaegen <verhaegen@google.com>
+To: Vinod Koul <vkoul@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Cezary Rojewski <cezary.rojewski@intel.com>, Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+	Bard Liao <yung-chuan.liao@linux.intel.com>, 
+	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, Srinivas Kandagatla <srini@kernel.org>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Joris Verhaegen <verhaegen@google.com>, kernel-team@android.com, 
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org, 
+	sound-open-firmware@alsa-project.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_020752_181056_CEAE8542 
-X-CRM114-Status: GOOD (  28.96  )
+X-CRM114-CacheID: sfid-20250905_021309_265496_D6B38167 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,170 +98,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 08:22:36PM -0700, panfan wrote:
-> On arm64, it has been possible for a module's sections to be placed more
-> than 128M away from each other since commit:
-> 
->   commit 3e35d303ab7d ("arm64: module: rework module VA range selection")
-> 
-> Due to this, an ftrace callsite in a module's .init.text section can be
-> out of branch range for the module's ftrace PLT entry (in the module's
-> .text section). Any attempt to enable tracing of that callsite will
-> result in a BRK being patched into the callsite, resulting in a fatal
-> exception when the callsite is later executed.
-> 
-> Fix this by adding an additional trampoline for .init.text, which will
-> be within range.
-> 
-> No additional trampolines are necessary due to the way a given
-> module's executable sections are packed together. Any executable
-> section beginning with ".init" will be placed in MOD_INIT_TEXT,
-> and any other executable section, including those beginning with ".exit",
->  will be placed in MOD_TEXT.
-> 
-> Fixes: 3e35d303ab7d ("arm64: module: rework module VA range selection")
-> 
-> Signed-off-by: panfan <panfan@qti.qualcomm.com>
+The current compress offload timestamping API relies on struct
+snd_compr_tstamp, whose cumulative counters like copied_total are
+defined as __u32. On long-running high-resolution audio streams, these
+32-bit counters can overflow, causing incorrect availability
+calculations.
 
-Thanks for respinning this! This looks good to me, so:
+This patch series transitions to a 64-bit safe API to solve the problem
+while maintaining perfect backward compatibility with the existing UAPI.
+The pointer operation is reworked to use a new timestamp struct with
+64-bit fields for the cumulative counters, named snd_compr_tstamp64.
+ASoC drivers are updated to use the 64-bit structures. Corresponding
+ioctls are added to expose them to user-space.
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
+The series is structured as follows:
 
-Catalin, Will, I assume you'll add a CC stable when picking this up.
+Patch 1: Updates the pointer op, refactors the core logic and ASoC
+drivers to use it, and defines the new UAPI structs.
 
-Mark.
+Patch 2: Exposes the SNDRV_COMPRESS_TSTAMP64 ioctl.
 
-> ---
-> v2:
->    - Add an explicit check to ensure the address is within MOD_INIT_TEXT
->      or MOD_TEXT.
->    - Simplify the commit message.
-> 
-> Link: https://lore.kernel.org/all/20250819063418.1263119-1-panfan@qti.qualcomm.com/   # v1
-> ---
->  arch/arm64/include/asm/module.h     |  1 +
->  arch/arm64/include/asm/module.lds.h |  1 +
->  arch/arm64/kernel/ftrace.c          | 13 ++++++++++---
->  arch/arm64/kernel/module-plts.c     | 12 +++++++++++-
->  arch/arm64/kernel/module.c          | 11 +++++++++++
->  5 files changed, 34 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/module.h b/arch/arm64/include/asm/module.h
-> index 79550b22ba19..fb9b88eebeb1 100644
-> --- a/arch/arm64/include/asm/module.h
-> +++ b/arch/arm64/include/asm/module.h
-> @@ -19,6 +19,7 @@ struct mod_arch_specific {
->  
->  	/* for CONFIG_DYNAMIC_FTRACE */
->  	struct plt_entry	*ftrace_trampolines;
-> +	struct plt_entry	*init_ftrace_trampolines;
->  };
->  
->  u64 module_emit_plt_entry(struct module *mod, Elf64_Shdr *sechdrs,
-> diff --git a/arch/arm64/include/asm/module.lds.h b/arch/arm64/include/asm/module.lds.h
-> index b9ae8349e35d..fb944b46846d 100644
-> --- a/arch/arm64/include/asm/module.lds.h
-> +++ b/arch/arm64/include/asm/module.lds.h
-> @@ -2,6 +2,7 @@ SECTIONS {
->  	.plt 0 : { BYTE(0) }
->  	.init.plt 0 : { BYTE(0) }
->  	.text.ftrace_trampoline 0 : { BYTE(0) }
-> +	.init.text.ftrace_trampoline 0 : { BYTE(0) }
->  
->  #ifdef CONFIG_KASAN_SW_TAGS
->  	/*
-> diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
-> index 5a890714ee2e..5adad37ab4fa 100644
-> --- a/arch/arm64/kernel/ftrace.c
-> +++ b/arch/arm64/kernel/ftrace.c
-> @@ -258,10 +258,17 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
->  	return ftrace_modify_code(pc, 0, new, false);
->  }
->  
-> -static struct plt_entry *get_ftrace_plt(struct module *mod)
-> +static struct plt_entry *get_ftrace_plt(struct module *mod, unsigned long addr)
->  {
->  #ifdef CONFIG_MODULES
-> -	struct plt_entry *plt = mod->arch.ftrace_trampolines;
-> +	struct plt_entry *plt = NULL;
-> +
-> +	if (within_module_mem_type(addr, mod, MOD_INIT_TEXT))
-> +		plt = mod->arch.init_ftrace_trampolines;
-> +	else if (within_module_mem_type(addr, mod, MOD_TEXT))
-> +		plt = mod->arch.ftrace_trampolines;
-> +	else
-> +		return NULL;
->  
->  	return &plt[FTRACE_PLT_IDX];
->  #else
-> @@ -332,7 +339,7 @@ static bool ftrace_find_callable_addr(struct dyn_ftrace *rec,
->  	if (WARN_ON(!mod))
->  		return false;
->  
-> -	plt = get_ftrace_plt(mod);
-> +	plt = get_ftrace_plt(mod, pc);
->  	if (!plt) {
->  		pr_err("ftrace: no module PLT for %ps\n", (void *)*addr);
->  		return false;
-> diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-plts.c
-> index bde32979c06a..7afd370da9f4 100644
-> --- a/arch/arm64/kernel/module-plts.c
-> +++ b/arch/arm64/kernel/module-plts.c
-> @@ -283,7 +283,7 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
->  	unsigned long core_plts = 0;
->  	unsigned long init_plts = 0;
->  	Elf64_Sym *syms = NULL;
-> -	Elf_Shdr *pltsec, *tramp = NULL;
-> +	Elf_Shdr *pltsec, *tramp = NULL, *init_tramp = NULL;
->  	int i;
->  
->  	/*
-> @@ -298,6 +298,9 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
->  		else if (!strcmp(secstrings + sechdrs[i].sh_name,
->  				 ".text.ftrace_trampoline"))
->  			tramp = sechdrs + i;
-> +		else if (!strcmp(secstrings + sechdrs[i].sh_name,
-> +				 ".init.text.ftrace_trampoline"))
-> +			init_tramp = sechdrs + i;
->  		else if (sechdrs[i].sh_type == SHT_SYMTAB)
->  			syms = (Elf64_Sym *)sechdrs[i].sh_addr;
->  	}
-> @@ -363,5 +366,12 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
->  		tramp->sh_size = NR_FTRACE_PLTS * sizeof(struct plt_entry);
->  	}
->  
-> +	if (init_tramp) {
-> +		init_tramp->sh_type = SHT_NOBITS;
-> +		init_tramp->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
-> +		init_tramp->sh_addralign = __alignof__(struct plt_entry);
-> +		init_tramp->sh_size = NR_FTRACE_PLTS * sizeof(struct plt_entry);
-> +	}
-> +
->  	return 0;
->  }
-> diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
-> index 40148d2725ce..d6d443c4a01a 100644
-> --- a/arch/arm64/kernel/module.c
-> +++ b/arch/arm64/kernel/module.c
-> @@ -466,6 +466,17 @@ static int module_init_ftrace_plt(const Elf_Ehdr *hdr,
->  	__init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
->  
->  	mod->arch.ftrace_trampolines = plts;
-> +
-> +	s = find_section(hdr, sechdrs, ".init.text.ftrace_trampoline");
-> +	if (!s)
-> +		return -ENOEXEC;
-> +
-> +	plts = (void *)s->sh_addr;
-> +
-> +	__init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
-> +
-> +	mod->arch.init_ftrace_trampolines = plts;
-> +
->  #endif
->  	return 0;
->  }
-> -- 
-> 2.34.1
-> 
+Patch 3: Exposes the corresponding SNDRV_COMPRESS_AVAIL64 ioctl.
+
+This series has been tested on a Pixel 9 device. All compress offload
+use cases, including long-running playback, were verified to work
+correctly with the new 64-bit API.
+
+Thanks,
+Joris (George) Verhaegen
+
+Signed-off-by: Joris Verhaegen <verhaegen@google.com>
+
+---
+Changes in v2:
+  - Corrected author and Signed-off-by to be consistent (Mark Brown).
+Changes in v3:
+  - Rework pointer op to return 64-bit timestamp, rather than adding a
+    parallel pointer64 op (Charles Keepax, Takashi Iwai, Vinod Koul)
+  - Bump the protocol version for ABI change (Takashi Iwai)
+  -Fix linker error on Intel Atom (lkp@intel.com)
+  -Rebase on latest for-next sound tree (Takashi Iwai)
+  -Avoid changing return error code for ioctl (internal)
+  -ASoC: Replace u64 % u32 by do_div(u64, u32) (internal)
+  -ASoC: sprd: change current_data_offset to u64 (internal)
+Changes in v4:
+  -Fix compiler error on Intel AVS (lkp@intel.com)
+Changes in v5:
+  -Revert formatting change in compress_offload.c (Vinod Koul)
+
+Joris Verhaegen (3):
+  ALSA: compress_offload: Add 64-bit safe timestamp infrastructure
+  ALSA: compress_offload: Add SNDRV_COMPRESS_TSTAMP64 ioctl
+  ALSA: compress_offload: Add SNDRV_COMPRESS_AVAIL64 ioctl
+
+ include/sound/compress_driver.h               |  2 +-
+ include/sound/soc-component.h                 |  4 +-
+ include/sound/soc-dai.h                       |  7 +-
+ include/uapi/sound/compress_offload.h         | 35 ++++++-
+ sound/core/compress_offload.c                 | 98 +++++++++++++------
+ sound/soc/codecs/wm_adsp.c                    |  4 +-
+ sound/soc/codecs/wm_adsp.h                    |  2 +-
+ .../intel/atom/sst-mfld-platform-compress.c   | 12 ++-
+ sound/soc/intel/atom/sst-mfld-platform.h      |  2 +-
+ sound/soc/intel/atom/sst/sst_drv_interface.c  |  9 +-
+ sound/soc/intel/avs/probes.c                  |  2 +-
+ sound/soc/qcom/qdsp6/q6apm-dai.c              | 26 +++--
+ sound/soc/qcom/qdsp6/q6asm-dai.c              | 26 +++--
+ sound/soc/soc-component.c                     |  2 +-
+ sound/soc/soc-compress.c                      |  2 +-
+ sound/soc/soc-dai.c                           |  2 +-
+ sound/soc/sof/amd/acp-probes.c                |  2 +-
+ sound/soc/sof/compress.c                      |  2 +-
+ sound/soc/sof/intel/hda-probes.c              |  2 +-
+ sound/soc/sof/sof-client-probes.c             |  2 +-
+ sound/soc/sof/sof-client-probes.h             |  4 +-
+ sound/soc/sprd/sprd-pcm-compress.c            |  6 +-
+ sound/soc/sprd/sprd-pcm-dma.h                 |  4 +-
+ sound/soc/uniphier/aio-compress.c             |  2 +-
+ 24 files changed, 172 insertions(+), 87 deletions(-)
+
+-- 
+2.51.0.355.g5224444f11-goog
+
 
