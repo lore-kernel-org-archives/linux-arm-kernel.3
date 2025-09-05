@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F4ECA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62EE7CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZBOxxe9LjsMKrI/zU1/E1LAyNYtyHYJb+/CBUi0jO4=; b=oLmp9STTmzWa8tX7Op/xGCgyNa
-	/w723PvKEjNjhYRP9gWZM507Wm+TFNuZ/dFlt7+4bemlzZPir+5ZxlU26MR0QJRXIOR87M7K9lTXh
-	A1CEurOS3eidbu9neBgiVs39Ph8+6Aa8gdjp+PFu338gchkWg6xbdebjriVF3C4vK2FSYW9ABs1+l
-	OxT+szU4qcl7gCIQuaJ9T1eIrpaD7i3dGBWrmgH01UHEehUgHpqnBWNzrn1FVRhSoq1zVwc3Q0x20
-	kUVf5Pjo17jT2UZ3RfMBfswSHqj9IV15P5UPlo43RpBYhFwLleTR6IpXwXEPwS/AL2ZtspvnpMTTs
-	sij0xCpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0neehA6rWnJrcx6MkH4VfamD3BiVxY7Hu6WTFKx4mII=; b=0WEBDJsu7RZgzqKjPCAKAVchE2
+	IhQ1y3DOma/m50p1kYfPO81t99AA11Xg6jkEbVt82xKRCoGXLhRteRJu7067qKMPlDPHHjoVfFWQ8
+	oVBmNs1X6ywvXGlXPJ7vxRYRiwz0Ff/PjfRmN2vLj1q3Hjw5dNB2Y9c785q0whvLM/4CFQjwWKHae
+	QuJu5uGIwXIn5qhVel4YzeS8dDWBfGY9lTVAhekrd1tfR5H1M/YO3YG2coTBITe6P4hkSZ+uV7QoE
+	5roj4SnP5t4TEFsHo0vsUxLw/ktHxN+dba5J6jybdmAZPlosXsWbedP4Sm/MYyI4qqIm14lc3UCld
+	Lbs9DIWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugWv-00000005UL9-0YaK;
-	Sat, 06 Sep 2025 00:11:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uubSb-00000003tbo-1dxV;
-	Fri, 05 Sep 2025 18:46:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JZBOxxe9LjsMKrI/zU1/E1LAyNYtyHYJb+/CBUi0jO4=; b=Dsz8X+Dg1XLm85OZ4O9Ziq6UqF
-	gI3/2OnVJMBnj/YGchHntfBoePrdTWvx/GQAqQoNBSzXF6G3Bkb4enSHK3FzeftZF0jKVvr4/E+na
-	PNW8nIzMyz9cm9d4RC5wD2Bi09AG8guDjQAT/X4H1RH4iJDRzR53unDWozQG33WCyXTTrU6S7fHhj
-	zIFjBBpJBEzZ4zVfWDP5obJPWDSDAaAN47TZAyhfbm4V5e8MoCCRa87Cftv3Ivn3lrLl6fIL3HBEd
-	B1+QrDDsplai/9FwjaMpKEwp2XwJP1IBqzRy/J7b642pwDR/6omU0rgt1oXRmcagU+LKzdz8TvLbi
-	Hdc+Y1GQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uubSY-00000004fiT-0Kni;
-	Fri, 05 Sep 2025 18:46:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E80543D26;
-	Fri,  5 Sep 2025 18:46:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74F18C4CEF1;
-	Fri,  5 Sep 2025 18:46:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757098004;
-	bh=c8XeQ8AHKcUAr6EHs6+PRSWtjO1mvJ0xUlTR7B+dyj8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OuctfBdCL5a7s7Wae/HcmUrDnLIPVkl9jtf37ZUWtzkgxH8ZtSEDJ6betPnlQq6Kn
-	 gXK+kRSQcThuJ0hZn7QCHLly79NPRzxb2AkQAgpALXtorYzQq74D7KtFSJ7bJDfHyG
-	 z/i1sw7jxDyNrIZzigR/qL4BO/JmCf9dvdQ7qlsgSUyjfg2d1h7g8GELM/Nsx4HGj4
-	 /tny3Lkgzqf4d/614ih4nUQzBIL4O2i8Z8MoM1g+vwZX+FU5jZL3J4EYRRib/P/vU3
-	 HXlnx9706K1rVcFjIgxZP5wKzaPinHCqMDAhLRBeAl/M9Z0F9qSg81qz3XYUF3nn+P
-	 vdryKfMyoSwrw==
-Date: Fri, 5 Sep 2025 19:46:39 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] regulator: dt-bindings: rpi-panel: Split 7" Raspberry Pi
- 720x1280 v2 binding
-Message-ID: <20250905-humble-framing-3d9b786c87a2@spud>
-References: <20250904200036.168222-1-marek.vasut+renesas@mailbox.org>
+	id 1uugX3-00000005Ua0-3bjH;
+	Sat, 06 Sep 2025 00:11:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uubUI-00000003uSZ-0ITQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 18:48:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17137152B;
+	Fri,  5 Sep 2025 11:48:31 -0700 (PDT)
+Received: from [10.1.197.69] (unknown [10.1.197.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C6113F63F;
+	Fri,  5 Sep 2025 11:48:33 -0700 (PDT)
+Message-ID: <c129a5ca-066b-4a78-a1fe-be474b592022@arm.com>
+Date: Fri, 5 Sep 2025 19:48:25 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8NT7fW0b+w7vAM07"
-Content-Disposition: inline
-In-Reply-To: <20250904200036.168222-1-marek.vasut+renesas@mailbox.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
+ kbuild boiler plate
+To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-11-james.morse@arm.com>
+ <120b4049-a28d-40ad-9def-c901e12c7a68@arm.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <120b4049-a28d-40ad-9def-c901e12c7a68@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_194654_530496_C30F105A 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20250905_114842_205194_FD114C32 
+X-CRM114-Status: GOOD (  30.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,169 +87,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ben,
 
---8NT7fW0b+w7vAM07
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 27/08/2025 14:03, Ben Horgan wrote:
+> On 8/22/25 16:29, James Morse wrote:
+>> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+>> only be accessible from those CPUs, and they may not be online.
+>> Touching the hardware early is pointless as MPAM can't be used until
+>> the system-wide common values for num_partid and num_pmg have been
+>> discovered.
+>>
+>> Start with driver probe/remove and mapping the MSC.
 
-On Thu, Sep 04, 2025 at 09:58:26PM +0200, Marek Vasut wrote:
-> The 5" and 7" Raspberry Pi 720x1280 Display 2 MCU is a bit more
-> complex than the original Display 1 ATTINY88 and the binding is
-> also a bit more demanding. Split the binding into separate file
-> and fill in required gpio-controller, #gpio-cells and #pwm-cells
-> which must be present for the V2 MCU. Include mention of the 5"
-> panel in the description of Display 2, as the 5" panel uses the
-> same MCU.
->=20
-> Fixes: 6d09c6e474bd ("regulator: dt-bindings: rpi-panel: Add regulator fo=
-r 7" Raspberry Pi 720x1280")
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> ---
-> Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadc=
-om.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Liam Girdwood <lgirdwood@gmail.com>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-rpi-kernel@lists.infradead.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
->  ...,7inch-touchscreen-panel-regulator-v2.yaml | 61 +++++++++++++++++++
->  ...ypi,7inch-touchscreen-panel-regulator.yaml |  7 +--
->  2 files changed, 63 insertions(+), 5 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/regulator/raspberry=
-pi,7inch-touchscreen-panel-regulator-v2.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/regulator/raspberrypi,7inc=
-h-touchscreen-panel-regulator-v2.yaml b/Documentation/devicetree/bindings/r=
-egulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml
-> new file mode 100644
-> index 0000000000000..efc7815a136b4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touch=
-screen-panel-regulator-v2.yaml
-> @@ -0,0 +1,61 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/regulator/raspberrypi,7inch-touchscre=
-en-panel-regulator-v2.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RaspberryPi 5" and 7" display V2 MCU-based regulator/backlight co=
-ntroller
-> +
-> +maintainers:
-> +  - Marek Vasut <marek.vasut+renesas@mailbox.org>
-> +
-> +description: |
-> +  The RaspberryPi 5" and 7" display 2 has an MCU-based regulator, PWM
-> +  backlight and GPIO controller on the PCB, which is used to turn the
-> +  display unit on/off and control the backlight.
-> +
-> +allOf:
-> +  - $ref: regulator.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: raspberrypi,touchscreen-panel-regulator-v2
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  gpio-controller: true
-> +  "#gpio-cells":
-> +    const: 2
-> +    description:
-> +      The first cell is the pin number, and the second cell is used to
-> +      specify the gpio polarity (GPIO_ACTIVE_HIGH or GPIO_ACTIVE_LOW).
-> +
-> +  "#pwm-cells":
-> +    const: 3
-> +    description: See ../../pwm/pwm.yaml for description of the cell form=
-ats.
-> +
-> +additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - gpio-controller
-> +  - "#gpio-cells"
-> +  - "#pwm-cells"
-> +
-> +examples:
-> +  - |
-> +    i2c {
-> +      #address-cells =3D <1>;
-> +      #size-cells =3D <0>;
-> +      gpio@45 {
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> new file mode 100644
+>> index 000000000000..a0d9a699a6e7
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -0,0 +1,336 @@
 
-ngl, seems strange to classify the device as a regulator in directory
-and name, but use gpio as the node name in the example.
+>> +static int mpam_dt_parse_resource(struct mpam_msc *msc, struct device_node *np,
+>> +				  u32 ris_idx)
+>> +{
+>> +	int err = 0;
+>> +	u32 level = 0;
+>> +	unsigned long cache_id;
+>> +	struct device_node *cache;
+>> +
+>> +	do {
+>> +		if (of_device_is_compatible(np, "arm,mpam-cache")) {
+>> +			cache = of_parse_phandle(np, "arm,mpam-device", 0);
+>> +			if (!cache) {
+>> +				pr_err("Failed to read phandle\n");
+>> +				break;
+>> +			}
+> This looks like this allows "arm,mpam-cache" and "arm,mpam-device" to be
+> used on an msc node when there are no ris children. This usage could be
+> reasonable but doesn't match the schema in the previous patch. Should
+> this usage be rejected or the schema extended?
 
-Otherwise, this seems fine - if you feel that the hardware is
-substantively differentially to what's in the "v1" regulator then
-keeping them apart is valid.
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+The DT/ACPI stuff is only going to describe the things that make sense at a high level,
+e.g. the controls for the L3. There may be other controls for stuff that doesn't make
+sense in the hardware - these get discovered, grouped as 'unknown' and left alone.
 
-> +        compatible =3D "raspberrypi,touchscreen-panel-regulator-v2";
-> +        reg =3D <0x45>;
-> +        gpio-controller;
-> +        #gpio-cells =3D <2>;
-> +        #pwm-cells =3D <3>;
-> +      };
-> +    };
-> +
-> +...
-> diff --git a/Documentation/devicetree/bindings/regulator/raspberrypi,7inc=
-h-touchscreen-panel-regulator.yaml b/Documentation/devicetree/bindings/regu=
-lator/raspberrypi,7inch-touchscreen-panel-regulator.yaml
-> index 18944d39d08fc..41678400e63fa 100644
-> --- a/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touch=
-screen-panel-regulator.yaml
-> +++ b/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touch=
-screen-panel-regulator.yaml
-> @@ -12,17 +12,14 @@ maintainers:
->  description: |
->    The RaspberryPi 7" display has an ATTINY88-based regulator/backlight
->    controller on the PCB, which is used to turn the display unit on/off
-> -  and control the backlight. The V2 supports 5" and 7" panels and also
-> -  offers PWM backlight control.
-> +  and control the backlight.
-> =20
->  allOf:
->    - $ref: regulator.yaml#
-> =20
->  properties:
->    compatible:
-> -    enum:
-> -      - raspberrypi,7inch-touchscreen-panel-regulator
-> -      - raspberrypi,touchscreen-panel-regulator-v2
-> +    const: raspberrypi,7inch-touchscreen-panel-regulator
-> =20
->    reg:
->      maxItems: 1
-> --=20
-> 2.50.1
->=20
+Another angle on this is where there is an MSC that the OS will never make use of, but
+needs to know about to find the system wide minimum value. (there is a comment about
+this in the ACPI spec...)
 
---8NT7fW0b+w7vAM07
-Content-Type: application/pgp-signature; name="signature.asc"
+I don't think its a problem if the magic dt-binding machinery is overly restrictive, that
+is about validating DTB files...
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLswDwAKCRB4tDGHoIJi
-0tzQAPwIq5ZowCj5YDo5tdlwNeaRrtS/3b7s6nLfM0aAapmsgwD+IXNaBK3GbYBL
-HkLI14b80zT4kJRYP61NmE5POzpW0gw=
-=IvvS
------END PGP SIGNATURE-----
+>> +		} else if (of_device_is_compatible(np->parent, "cache")) {
+>> +			cache = of_node_get(np->parent);
+>> +		} else {
+>> +			/* For now, only caches are supported */
+>> +			cache = NULL;
+>> +			break;
+>> +		}
+>> +
+>> +		err = of_property_read_u32(cache, "cache-level", &level);
+>> +		if (err) {
+>> +			pr_err("Failed to read cache-level\n");
+>> +			break;
+>> +		}
+>> +
+>> +		cache_id = cache_of_calculate_id(cache);
+>> +		if (cache_id == ~0UL) {
+>> +			err = -ENOENT;
+>> +			break;
+>> +		}
+>> +
+>> +		err = mpam_ris_create(msc, ris_idx, MPAM_CLASS_CACHE, level,
+>> +				      cache_id);
+>> +	} while (0);
+>> +	of_node_put(cache);
+>> +
+>> +	return err;
+>> +}
 
---8NT7fW0b+w7vAM07--
+>> +static int mpam_msc_drv_probe(struct platform_device *pdev)
+>> +{
+>> +	int err;
+>> +	struct mpam_msc *msc;
+>> +	struct resource *msc_res;
+>> +	void *plat_data = pdev->dev.platform_data;
+>> +
+>> +	mutex_lock(&mpam_list_lock);
+>> +	do {
+>> +		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+>> +		if (!msc) {
+>> +			err = -ENOMEM;
+>> +			break;
+>> +		}
+>> +
+>> +		mutex_init(&msc->probe_lock);
+>> +		mutex_init(&msc->part_sel_lock);
+>> +		mutex_init(&msc->outer_mon_sel_lock);
+>> +		raw_spin_lock_init(&msc->inner_mon_sel_lock);
+>> +		msc->id = mpam_num_msc++;
+>> +		msc->pdev = pdev;
+>> +		INIT_LIST_HEAD_RCU(&msc->glbl_list);
+>> +		INIT_LIST_HEAD_RCU(&msc->ris);
+>> +
+>> +		err = update_msc_accessibility(msc);
+>> +		if (err)
+>> +			break;
+>> +		if (cpumask_empty(&msc->accessibility)) {
+>> +			pr_err_once("msc:%u is not accessible from any CPU!",
+>> +				    msc->id);
+>> +			err = -EINVAL;
+>> +			break;
+>> +		}
+>> +
+>> +		if (device_property_read_u32(&pdev->dev, "pcc-channel",
+>> +					     &msc->pcc_subspace_id))
+>> +			msc->iface = MPAM_IFACE_MMIO;
+>> +		else
+>> +			msc->iface = MPAM_IFACE_PCC;
+>> +
+>> +		if (msc->iface == MPAM_IFACE_MMIO) {
+>> +			void __iomem *io;
+>> +
+>> +			io = devm_platform_get_and_ioremap_resource(pdev, 0,
+>> +								    &msc_res);
+>> +			if (IS_ERR(io)) {
+>> +				pr_err("Failed to map MSC base address\n");
+>> +				err = PTR_ERR(io);
+>> +				break;
+>> +			}
+>> +			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>> +			msc->mapped_hwpage = io;
+>> +		} else if (msc->iface == MPAM_IFACE_PCC) {
+>> +			msc->pcc_cl.dev = &pdev->dev;
+>> +			msc->pcc_cl.rx_callback = mpam_pcc_rx_callback;
+>> +			msc->pcc_cl.tx_block = false;
+>> +			msc->pcc_cl.tx_tout = 1000; /* 1s */
+>> +			msc->pcc_cl.knows_txdone = false;
+>> +
+>> +			msc->pcc_chan = pcc_mbox_request_channel(&msc->pcc_cl,
+>> +								 msc->pcc_subspace_id);
+>> +			if (IS_ERR(msc->pcc_chan)) {
+>> +				pr_err("Failed to request MSC PCC channel\n");
+>> +				err = PTR_ERR(msc->pcc_chan);
+>> +				break;
+>> +			}
+> I don't see pcc support added in this series. Should we fail the probe
+> if this interface is specified?
+
+I've got patches from Andre P to support it on DT - but the platforms that need it keeping
+popping in and out of existence. I'll pull these bits out - they were intended to check
+the ACPI table wasn't totally rotten...
+
+
+> (If keeping, there is a missing pcc_mbox_free_channel() on the error path.)
+
+When pcc_mbox_request_channel() fails? It already called mbox_free_channel() itself.
+
+
+>> +		}
+>> +
+>> +		list_add_rcu(&msc->glbl_list, &mpam_all_msc);
+>> +		platform_set_drvdata(pdev, msc);
+>> +	} while (0);
+>> +	mutex_unlock(&mpam_list_lock);
+>> +
+>> +	if (!err) {
+>> +		/* Create RIS entries described by firmware */
+>> +		if (!acpi_disabled)
+>> +			err = acpi_mpam_parse_resources(msc, plat_data);
+>> +		else
+>> +			err = mpam_dt_parse_resources(msc, plat_data);
+>> +	}
+>> +
+>> +	if (!err && fw_num_msc == mpam_num_msc)
+>> +		mpam_discovery_complete();
+>> +
+>> +	if (err && msc)
+>> +		mpam_msc_drv_remove(pdev);
+>> +
+>> +	return err;
+>> +}
+
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> new file mode 100644
+>> index 000000000000..07e0f240eaca
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -0,0 +1,62 @@
+
+>> +struct mpam_msc {
+>> +	/* member of mpam_all_msc */
+>> +	struct list_head        glbl_list;
+>> +
+>> +	int			id;
+>> +	struct platform_device *pdev;
+>> +
+>> +	/* Not modified after mpam_is_enabled() becomes true */
+>> +	enum mpam_msc_iface	iface;
+>> +	u32			pcc_subspace_id;
+>> +	struct mbox_client	pcc_cl;
+>> +	struct pcc_mbox_chan	*pcc_chan;
+>> +	u32			nrdy_usec;
+>> +	cpumask_t		accessibility;
+>> +
+>> +	/*
+>> +	 * probe_lock is only take during discovery. After discovery these
+> nit: s/take/taken/
+
+Fixed,
+
+>> +	 * properties become read-only and the lists are protected by SRCU.
+>> +	 */
+>> +	struct mutex		probe_lock;
+>> +	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+>> +	u32			ris_max;
+>> +
+>> +	/* mpam_msc_ris of this component */
+>> +	struct list_head	ris;
+>> +
+>> +	/*
+>> +	 * part_sel_lock protects access to the MSC hardware registers that are
+>> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
+>> +	 * by RIS).
+>> +	 * If needed, take msc->lock first.
+>> +	 */
+>> +	struct mutex		part_sel_lock;
+>> +
+>> +	/*
+>> +	 * mon_sel_lock protects access to the MSC hardware registers that are
+>> +	 * affeted by MPAMCFG_MON_SEL.
+> nit: s/affeted/affected/
+Fixed,
+
+
+>> +	 * If needed, take msc->lock first.
+>> +	 */
+>> +	struct mutex		outer_mon_sel_lock;
+>> +	raw_spinlock_t		inner_mon_sel_lock;
+>> +	unsigned long		inner_mon_sel_flags;
+>> +
+>> +	void __iomem		*mapped_hwpage;
+>> +	size_t			mapped_hwpage_sz;
+>> +};
+>> +
+>> +#endif /* MPAM_INTERNAL_H */
+
+Thanks,
+
+James
 
