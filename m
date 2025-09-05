@@ -4,92 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38991CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61512CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MNTVaRidqIqXgAKjCzr+BWLK86N6w+7fH73KgXvjBA0=; b=JLRP4jVqWXGkOpC9CMjMxxFdA9
-	aRgZQEmWtWLsCfADn5JsiO4sQFgEdFWuoSVuGFLwRH+WTjY7RGvk0GuCczdXrVwJohaLbWjwNQyD8
-	T+OMfFbBpxO+Zp00SFbjjRFArj0uRZN34EIekHpfNYAcgP0yLhj6W1Fhv+ZXz+YAXa9d86JnYV7gP
-	B9ZpLVwOsu2ler7pvyZ7UwimpdqRIXShetHhqALpssM7s0KwHJ2azg/9Q2FytqwjHe1AQdiRgE58k
-	eLPOu72ef3tdCEodr3l81HwZAez7v0TZFRtQIAlhc347x4R+n0YHZabmay2vhnxHnZ00dx9dO0XG1
-	LeWN60NQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BzF69i8sbsV4lHhMGJFDV0kULvsuOaaNGSx928va4PQ=; b=O4GKwlFDqdY4optef8SVh8HdBX
+	CSy1erdX2N5mnMvW8kH83ocHlPF6oiRFO8CSdbALTKRmh/0I5x5kqim4bjm6BY0Evgyryj+rqJZ+F
+	5pyRX+smz6DXD2klS3/GUfDK+yXykSVqzh08TnglmWFI3G7cDe51GxKv2yRMSYmow2cmtlFzfbQYD
+	wBjXvFyeP9OloonWr7J61r2Lgw37PG1UE0yHyDIWpB+botPiGVafzBt4gZ1hH0Q9G+irgotCABDr2
+	6ihHurbWttgoq8ZLYrEY6iDnO/pK0EtqetYeLoU5Ast0QHq1UQLLNbQcM+GPSdKAwntR02Jpv8cz4
+	EQeIpvQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugYZ-00000005XBJ-07Wq;
-	Sat, 06 Sep 2025 00:13:27 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1uugYd-00000005XHQ-0V1P;
+	Sat, 06 Sep 2025 00:13:31 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uudld-00000004exn-3Y3B
+	id 1uudmP-00000004f4Q-0m04
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 21:14:48 +0000
-Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 585LEe1h000688;
-	Fri, 5 Sep 2025 21:14:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=corp-2025-04-25; bh=MNTVaRidqIqXgAKjCzr+BWLK86N6w
-	+7fH73KgXvjBA0=; b=dKugqIPhq9ZC+89Ri9k61+v/Yno3dFKMTAsRVWZHfTcQW
-	j6VnbAulUJW4u6GsEP4VG9nbIWCLrhJEFevcbtHge8ppYtqASWh2BifrpqNRITaS
-	hE8RFhZUVZDk0wulv+mxPtTvUHIrK5rAWb/FXkc3xrDakp2u3F8GTeK7Ux4Bd56T
-	1hMZpR+buEhGlmgZINmDiB7TVNPT63icoryfDQPO6alWbcfOxSwi1K1gnL6y2OHT
-	NcnNvqRf5Y3wKA7aKylL6oceZhF16jnb+QJRT3GuPadC8/S88sVeZc6vZAxKZbrX
-	trnovOtZUBlrox6fNfbqOfv/SAkmgHmuyyiufEkOQ==
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4907ktg004-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 05 Sep 2025 21:14:40 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 585JoCav033333;
-	Fri, 5 Sep 2025 21:14:39 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 48uqrd4qvc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 05 Sep 2025 21:14:39 +0000
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 585LEcuq038219;
-	Fri, 5 Sep 2025 21:14:38 GMT
-Received: from ca-dev112.us.oracle.com (ca-dev112.us.oracle.com [10.129.136.47])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 48uqrd4quv-1;
-	Fri, 05 Sep 2025 21:14:38 +0000
-From: Alok Tiwari <alok.a.tiwari@oracle.com>
-To: vigneshr@ti.com, s-vadapalli@ti.com, lpieralisi@kernel.org,
-        kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-        bhelgaas@google.com, linux-omap@vger.kernel.org,
-        linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: alok.a.tiwari@oracle.com, linux-kernel@vger.kernel.org
-Subject: [PATCH] PCI: j721e: Fix incorrect error message in probe
-Date: Fri,  5 Sep 2025 14:14:34 -0700
-Message-ID: <20250905211436.3048282-1-alok.a.tiwari@oracle.com>
-X-Mailer: git-send-email 2.50.1
+	Fri, 05 Sep 2025 21:15:35 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4C0E64E405BB;
+	Fri,  5 Sep 2025 21:15:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 066BC6060B;
+	Fri,  5 Sep 2025 21:15:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9EC41102F27C5;
+	Fri,  5 Sep 2025 23:15:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1757106929; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references:autocrypt;
+	bh=BzF69i8sbsV4lHhMGJFDV0kULvsuOaaNGSx928va4PQ=;
+	b=TWvEoZeEoOT6wH092I3ZUStRLUzYTVzALG9QlbXYsl8XSZyduJ0n7+cN5j0xNzkn576Yvv
+	8Y1ktU4lftXn7wKshiVwTWkuZ7zMbTObazX15NXT4yGLc/JqUY2fd3jdSmypv5Jc1/B2pG
+	fGftNkteL50Mp7mXkG9nwdjDjhk6F18Nnqoyw/wIsQsQxrL2hBw6jYqweexeSBYQB3xcKY
+	dccx7pNvh9KJFtK/etQjfnluTd7lyclUrY2QaQiYe65zZcCzQrTw3en6OX3s/Eiv9bOaTw
+	L6HycEYIEFXHJvTI116bURJey5xQpz1YgceE8bmTwGGCibs3Wz27dy8PQCkj6g==
+Message-ID: <0c8f0331-13a8-492c-980e-3af17ecf0fdc@bootlin.com>
+Date: Fri, 5 Sep 2025 23:15:07 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 14/58] dyndbg: hoist classmap-filter-by-modname up to
+ ddebug_add_module
+To: Jim Cromie <jim.cromie@gmail.com>, linux-kernel@vger.kernel.org,
+ jbaron@akamai.com, gregkh@linuxfoundation.org, ukaszb@chromium.org
+Cc: dri-devel@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
+ intel-gvt-dev@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ daniel.vetter@ffwll.ch, tvrtko.ursulin@linux.intel.com,
+ jani.nikula@intel.com, ville.syrjala@linux.intel.com, seanpaul@chromium.org,
+ robdclark@gmail.com, groeck@google.com, yanivt@google.com,
+ bleung@google.com, quic_saipraka@quicinc.com, will@kernel.org,
+ catalin.marinas@arm.com, quic_psodagud@quicinc.com, maz@kernel.org,
+ arnd@arndb.de, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, mingo@redhat.com
+References: <20250803035816.603405-1-jim.cromie@gmail.com>
+ <20250803035816.603405-15-jim.cromie@gmail.com>
+Content-Language: en-US
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
+ xsFNBGCG5KEBEAD1yQ5C7eS4rxD0Wj7JRYZ07UhWTbBpbSjHjYJQWx/qupQdzzxe6sdrxYSY
+ 5K81kIWbtQX91pD/wH5UapRF4kwMXTAqof8+m3XfYcEDVG31Kf8QkJTG/gLBi1UfJgGBahbY
+ hjP40kuUR/mr7M7bKoBP9Uh0uaEM+DuKl6bSXMSrJ6fOtEPOtnfBY0xVPmqIKfLFEkjh800v
+ jD1fdwWKtAIXf+cQtC9QWvcdzAmQIwmyFBmbg+ccqao1OIXTgu+qMAHfgKDjYctESvo+Szmb
+ DFBZudPbyTAlf2mVKpoHKMGy3ndPZ19RboKUP0wjrF+Snif6zRFisHK7D/mqpgUftoV4HjEH
+ bQO9bTJZXIoPJMSb+Lyds0m83/LYfjcWP8w889bNyD4Lzzzu+hWIu/OObJeGEQqY01etOLMh
+ deuSuCG9tFr0DY6l37d4VK4dqq4Snmm87IRCb3AHAEMJ5SsO8WmRYF8ReLIk0tJJPrALv8DD
+ lnLnwadBJ9H8djZMj24+GC6MJjN8dDNWctpBXgGZKuCM7Ggaex+RLHP/+14Vl+lSLdFiUb3U
+ ljBXuc9v5/9+D8fWlH03q+NCa1dVgUtsP2lpolOV3EE85q1HdMyt5K91oB0hLNFdTFYwn1bW
+ WJ2FaRhiC1yV4kn/z8g7fAp57VyIb6lQfS1Wwuj5/53XYjdipQARAQABzSlMb3VpcyBDaGF1
+ dmV0IDxsb3Vpcy5jaGF1dmV0QGJvb3RsaW4uY29tPsLBlAQTAQgAPgIbAwULCQgHAgYVCgkI
+ CwIEFgIDAQIeAQIXgBYhBItxBK6aJy1mk/Un8uwYg/VeC0ClBQJod7hIBQkJ0gcjAAoJEOwY
+ g/VeC0ClghwP/RQeixyghRVZEQtZO5/UsHkNkRRUWeVF9EoFXqFFnWqh4XXKos242btk5+Ew
+ +OThuqDx9iLhLJLUc8XXuVw6rbJEP5j5+z0jI40e7Y+kVWCli/O2H/CrK98mGWwicBPEzrDD
+ 4EfRgD0MeQ9fo2XJ3Iv+XiiZaBFQIKMAEynYdbqECIXxuzAnofhq2PcCrjZmqThwu8jHSc55
+ KwdknZU3aEKSrTYiCIRrsHHi1N6vwiTZ098zL1efw7u0Q8rcqxHu3OWNIAeKHkozsMy9yo1h
+ h3Yc7CA1PrKDGcywuY4MrV726/0VlrWcypYOCM1XG+/4ezIChYizpAiBNlAmd7witTK0d2HT
+ UNSZF8KAOQRlHsIPrkA5qLr94OrFHYx6Ek07zS8LmVTtHricbYxFAXnQ5WbugNSE0uwRyrL/
+ Kies5F0Sst2PcVYguoWcHfoNxes6OeU3xDmzclnpYQTanIU7SBzWXB1fr5WgHF7SAcAVxPY8
+ wAlJBe+zMeA6oWidrd1u37eaEhHfpKX38J1VaSDTNRE+4SPQ+hKGDuMrDn0mXfcqR5wO7n1Z
+ Q6uhKj3k6SJNksAWh1u13NP0DRS6rpRllvGWIyp+653R03NN8TE9JNRWAtSqoGvsiryhQyCE
+ FlPOsv6+Ed/5a4dfLcO1qScJwiuP/XjFHAaWFK9RoOX52lR4zsFNBGCG6KUBEADZhvm9TZ25
+ JZa7wbKMOpvSH36K8wl74FhuVuv7ykeFPKH2oC7zmP1oqs1IF1UXQQzNkCHsBpIZq+TSE74a
+ mG4sEhZP0irrG/w3JQ9Vbxds7PzlQzDarJ1WJvS2KZ4AVnwc/ucirNuxinAuAmmNBUNF8w6o
+ Y97sdgFuIZUP6h972Tby5bu7wmy1hWL3+2QV+LEKmRpr0D9jDtJrKfm25sLwoHIojdQtGv2g
+ JbQ9Oh9+k3QG9Kh6tiQoOrzgJ9pNjamYsnti9M2XHhlX489eXq/E6bWOBRa0UmD0tuQKNgK1
+ n8EDmFPW3L0vEnytAl4QyZEzPhO30GEcgtNkaJVQwiXtn4FMw4R5ncqXVvzR7rnEuXwyO9RF
+ tjqhwxsfRlORo6vMKqvDxFfgIkVnlc2KBa563qDNARB6caG6kRaLVcy0pGVlCiHLjl6ygP+G
+ GCNfoh/PADQz7gaobN2WZzXbsVS5LDb9w/TqskSRhkgXpxt6k2rqNgdfeyomlkQnruvkIIjs
+ Sk2X68nwHJlCjze3IgSngS2Gc0NC/DDoUBMblP6a2LJwuF/nvaW+QzPquy5KjKUO2UqIO9y+
+ movZqE777uayqmMeIy4cd/gg/yTBBcGvWVm0Dh7dE6G6WXJUhWIUtXCzxKMmkvSmZy+gt1rN
+ OyCd65HgUXPBf+hioCzGVFSoqQARAQABwsOyBBgBCAAmAhsuFiEEi3EErponLWaT9Sfy7BiD
+ 9V4LQKUFAmh3uH8FCQnSA1kCQMF0IAQZAQgAHRYhBE+PuD++eDwxDFBZBCCtLsZbECziBQJg
+ huilAAoJECCtLsZbECziB8YQAJwDRdU16xtUjK+zlImknL7pyysfjLLbfegZyVfY/ulwKWzn
+ nCJXrLAK1FpdYWPO1iaSVCJ5pn/Or6lS5QO0Fmj3mtQ/bQTnqBhXZcUHXxZh56RPAfl3Z3+P
+ 77rSIcTFZMH6yAwS/cIQaKRQGPuJoxfYq1oHWT0r7crp3H+zUpbE4KUWRskRX+2Z6rtNrwuL
+ K1Az1vjJjnnS3MLSkQR4VwsVejWbkpwlq5icCquU5Vjjw0WkVR32gBl/8/OnegSz7Of/zMrY
+ 8GtlkIPoCGtui1HLuKsTl6KaHFywWbX4wbm5+dpBRYetFhdW4WG+RKipnyMY+A8SkWivg2NH
+ Jf88wuCVDtLmyeS8pyvcu6fjhrJtcQer/UVPNbaQ6HqQUcUU49sy/W+gkowjOuYOgNL7EA23
+ 8trs7CkLKUKAXq32gcdNMZ8B/C19hluJ6kLroUN78m39AvCQhd4ih5JLU7jqsl0ZYbaQe2FQ
+ z64htRtpElbwCQmnM/UzPtOJ5H/2M7hg95Sb20YvmQ/bLI23MWKVyg56jHU1IU0A/P7M9yi9
+ WbEBpIMZxLOFBUlWWTzE+JvyDh+cjyoncaPvHLDwP13PGEJHYMgWZkvzgSc3tGP6ThUgZjsz
+ 9xW/EvzWOVswYwREyZv3oK5r3PVE6+IYDUd7aBsc5ynqqYs27eemuV4bw8tlCRDsGIP1XgtA
+ pT1zD/0dT+clFbGoCMaIQ5qXypYoO0DYLmBD1aFjJy1YLsS1SCzuwROy4qWWaFMNBoDMF2cY
+ D+XbM+C/4XBS8/wruAUrr+8RSbABBI/rfiVmqv0gPQWDm676V8iMDgyyvMG2DotMjnG/Dfxj
+ w9WVnQUs/kQSPD8GZCZZ3AcycFmxN24ibGHo4zC947VKR5ZYdFHknX+Dt92TdNDkmoBg2CEm
+ 9S2Skki9Pwyvb/21zCYq/o4pRMfKmQgpF2LT2m51rdtmNg9oj9F4+BJUmkgyNxMyGEA1V1jM
+ xQaVX4mRY61O4CimPByUDp2EH2VaEr2rEwvHszaWqFJdSQE8hdSDc4cqhik7rznNBjwgZAzq
+ cefLctAVnKjasfKEWp0VhgkIVB8/Sos4S8YaG4qbeGviSfIQJ2GO1Vd9WQ2n1XGth3cY2Qwk
+ dIo13GCFJF7b6y0J13bm+siRpPZQ3aOda7pn07GXqREjFsfq5gF04/9am5x/haehPse2yzcP
+ wDN7ORknPndzxrq3CyB7b/Tk1e8Qx+6HU/pnMb4ZqwwMwZAMk24TZpsgg28o9MQiUNzad0h2
+ gIszbeej9ryrtLHxMzyK8yKhHoI2i2ovxy5O+hsWeAoCPE9xwbqnAjLjOn4Jzd/pPovizrq/
+ kUoX66YgvCuHfQMC/aBPLnVunZSP23J2CrkTrnsUzw==
+In-Reply-To: <20250803035816.603405-15-jim.cromie@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-05_07,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 mlxscore=0 spamscore=0
- malwarescore=0 mlxlogscore=999 phishscore=0 suspectscore=0 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2508110000
- definitions=main-2509050209
-X-Proofpoint-GUID: yjoYByN9Zdo31DNY6AEfeu0WOeY1RLep
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA1MDIwOSBTYWx0ZWRfX7Dv9FNCmvvf3
- in+cAPNtPOam6g7FcUOaEcgI3VwbLkiSCe/oFlLyTSltTsosiFhdfA3mlqQ1W2qnIIyYLNaA9lA
- EUMuGNdm7e7yy8MzV7ZQbOH+g9C124Njm6iHHx7Z1UgzM3sFb6kIre95FiPEeY0JmSgkuYxZuu8
- U6RqbJ3t8zpLiONRxnpHnfCXu9NS6AHIr4pE2fZMvxKLY3Y1PQnpotyD2D6ZyUTJ0tZg9ywein3
- MyHxJR2gsfsDorJy6WdkkHk+sKyofb9KEcdz9fsZzIeJ5IqfFsGpWplyjKYsHK2+osRVJh3bauL
- eC1maQsYSv0c71zxSdAXCe7QBP2c66EXq/PweM4Y/U+UGJmRNl9Cpf+w2qrcMXUrFcac0f7BQzG
- qlybUAoN
-X-Proofpoint-ORIG-GUID: yjoYByN9Zdo31DNY6AEfeu0WOeY1RLep
-X-Authority-Analysis: v=2.4 cv=P9Y6hjAu c=1 sm=1 tr=0 ts=68bb52c0 cx=c_pps
- a=OOZaFjgC48PWsiFpTAqLcw==:117 a=OOZaFjgC48PWsiFpTAqLcw==:17
- a=yJojWOMRYYMA:10 a=yPCof4ZbAAAA:8 a=kyFhivpCSvuUZvO-LAYA:9
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_141445_892188_32225EE8 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250905_141533_365456_F49F3245 
+X-CRM114-Status: GOOD (  25.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,35 +140,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The probe function printed "pm_runtime_get_sync failed" when
-j721e_pcie_ctrl_init() returned an error. This is misleading since
-the failure was not from pm_runtime but from the controller init
-routine. Update the error message to correctly reflect the source.
 
-No functional changes.
 
-Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
-Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
----
-Not sure if a Fixes tag is required here
----
- drivers/pci/controller/cadence/pci-j721e.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Le 03/08/2025 à 05:57, Jim Cromie a écrit :
+> The body of ddebug_attach_module_classes() is dominated by a
+> code-block that finds the contiguous subrange of classmaps matching on
+> modname, and saves it into the ddebug_table's info record.
+> 
+> Implement this block in a macro to accommodate different component
+> vectors in the "box" (as named in the for_subvec macro).
+> 
+> And hoist its invocation out of ddebug_attach_module_classes() up into
+> ddebug_add_module().  This moves the filtering step up closer to
+> dynamic_debug_init(), which effectively does the same for builtin
+> pr_debug descriptors; segmenting them into subranges by modname.
+> 
+> Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+> ---
+>   lib/dynamic_debug.c | 56 ++++++++++++++++++++++++++-------------------
+>   1 file changed, 32 insertions(+), 24 deletions(-)
+> 
+> diff --git a/lib/dynamic_debug.c b/lib/dynamic_debug.c
+> index 53ce282554266..bbbdb8aba0716 100644
+> --- a/lib/dynamic_debug.c
+> +++ b/lib/dynamic_debug.c
+> @@ -161,8 +161,8 @@ static void vpr_info_dq(const struct ddebug_query *query, const char *msg)
+>   }
+>   
+>   static struct _ddebug_class_map *ddebug_find_valid_class(struct ddebug_table const *dt,
+> -							const char *class_string,
+> -							int *class_id)
+> +							 const char *class_string,
+> +							 int *class_id)
+>   {
+>   	struct _ddebug_class_map *map;
+>   	int i, idx;
+> @@ -1224,30 +1224,34 @@ static const struct proc_ops proc_fops = {
+>   
+>   static void ddebug_attach_module_classes(struct ddebug_table *dt, struct _ddebug_info *di)
+>   {
+> -	struct _ddebug_class_map *cm;
+> -	int i, nc = 0;
+> -
+> -	/*
+> -	 * Find this module's classmaps in a subrange/wholerange of
+> -	 * the builtin/modular classmap vector/section.  Save the start
+> -	 * and length of the subrange at its edges.
+> -	 */
+> -	for_subvec(i, cm, di, maps) {
+> -		if (!strcmp(cm->mod_name, dt->mod_name)) {
+> -			if (!nc) {
+> -				v2pr_info("start subrange, class[%d]: module:%s base:%d len:%d ty:%d\n",
+> -					  i, cm->mod_name, cm->base, cm->length, cm->map_type);
+> -				dt->info.maps.start = cm;
+> -			}
+> -			nc++;
+> -		}
+> -	}
+> -	if (nc) {
+> -		dt->info.maps.len = nc;
+> -		vpr_info("module:%s attached %d classes\n", dt->mod_name, nc);
+> -	}
+> +	vpr_info("module:%s attached %d classes\n", dt->mod_name, dt->info.maps.len);
+>   }
+>   
+> +/*
+> + * Walk the @_box->@_vec member, over @_vec.start[0..len], and find
+> + * the contiguous subrange of elements matching on ->mod_name.  Copy
+> + * the subrange into @_dst.  This depends on vars defd by caller.
+> + *
+> + * @_i:   caller provided counter var, init'd by macro
+> + * @_sp:  cursor into @_vec.
+> + * @_box: contains member named @_vec
+> + * @_vec: an array-ref, with: .start .len fields.
+> + * @_dst: an array-ref: to remember the module's subrange
 
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index 6c93f39d0288..5e445a7bda33 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -549,7 +549,7 @@ static int j721e_pcie_probe(struct platform_device *pdev)
- 
- 	ret = j721e_pcie_ctrl_init(pcie);
- 	if (ret < 0) {
--		dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
-+		dev_err_probe(dev, ret, "j721e_pcie_ctrl_init failed\n");
- 		goto err_get_sync;
- 	}
- 
+Can you change to:
+
+@_dst: an array-rf: to remember the module's subrange, with: .info.@_vec 
+.mod_name fields
+
+With this: Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+
+> + */
+> +#define dd_mark_vector_subrange(_i, _dst, _sp, _box, _vec) ({		\
+> +	int nc = 0;							\
+> +	for_subvec(_i, _sp, _box, _vec) {				\
+> +		if (!strcmp((_sp)->mod_name, (_dst)->mod_name)) {	\
+> +			if (!nc++)					\
+> +				(_dst)->info._vec.start = (_sp);	\
+> +		} else {						\
+> +			if (nc)						\
+> +				break; /* end of consecutive matches */ \
+> +		}							\
+> +	}								\
+> +	(_dst)->info._vec.len = nc;					\
+> +})
+> +
+>   /*
+>    * Allocate a new ddebug_table for the given module
+>    * and add it to the global list.
+> @@ -1255,6 +1259,8 @@ static void ddebug_attach_module_classes(struct ddebug_table *dt, struct _ddebug
+>   static int ddebug_add_module(struct _ddebug_info *di, const char *modname)
+>   {
+>   	struct ddebug_table *dt;
+> +	struct _ddebug_class_map *cm;
+> +	int i;
+>   
+>   	if (!di->descs.len)
+>   		return 0;
+> @@ -1277,6 +1283,8 @@ static int ddebug_add_module(struct _ddebug_info *di, const char *modname)
+>   
+>   	INIT_LIST_HEAD(&dt->link);
+>   
+> +	dd_mark_vector_subrange(i, dt, cm, di, maps);
+> +
+>   	if (di->maps.len)
+>   		ddebug_attach_module_classes(dt, di);
+>   
+
 -- 
-2.50.1
+Louis Chauvet, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
