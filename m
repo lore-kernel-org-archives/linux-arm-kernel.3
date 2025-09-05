@@ -4,133 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB24CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2814BCA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9ntjK0000JxML8T0CJ9N/J2iPUwrgd3ulvER+ZPDg9A=; b=jqdGDAKwRVACG6UbV6DvS8V+Bk
-	o5j4zpiUEtEnrTUETIm4vRTq0zpERNpOcX8WyS2chdNNAcmQZlFmf39zSTlgkfGWUOV7jnayC4iVo
-	QrgbLdZzo8zL6jBgCz8GAnqivdbaRLwk9ooML4T6N7LPwfur3LoxUR7zk+HsptnLb81nlpL9R+Hxf
-	k+cMA76FM/hGQVNJkvJQ1Veu8KPYd6j/Ng2jG5kJAOkX27cRmgu3fMXP3TaNCn4MsqtFvyrJvphxi
-	3vdlpQdjdO+cgiDrMK2u0G/mDXqmJmyxTRRc83oD5bXmI7BouIWX7x48q0FRXpzdBBOyuQwXKHhAe
-	gTGP5bzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7pLX9mNLE1Old2BsaUGh3Hjem0q5L//LE3ZX0hufywI=; b=GZc7qNKMwWaq0xbtafjsSR7iBx
+	rVOJuk7tnnGNZ89DHWUauKiRLljbtDDcL4g/9mQfRMfCWoX/x17noeRAA5mkBdvmZEf9qgmPS8l3o
+	rqgvawVDs2L3TVOOuPwvtVRzPLEQhw0lavFhf0KS/bYhYqdTT6QPKnt2bDn5q2dD5SabaqiGyXjJ4
+	VU+bLcHdAtL1qz89W6RpoGR3/9/wN6uLiB6ODgpaLJwYP0bhT7I1VHicsqcvLQGQXiVL5HalA44Jg
+	4ZV4v8I2CdxSJaxXtEXBXNGPgjF2Y1oNocca8BU2uo7nWzEWplHD+lj5duUHNn7rKnLyc+47nUzJT
+	WUPJhPqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugZm-00000005Z1j-1Rve;
-	Sat, 06 Sep 2025 00:14:42 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uugZq-00000005ZA5-2KjG;
+	Sat, 06 Sep 2025 00:14:46 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugFH-00000005NAL-3IEl
+	id 1uugJc-00000005OBG-0ogn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 23:53:33 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 585HkN2Z014923
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 5 Sep 2025 23:53:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=9ntjK0000JxML8T0CJ9N/J
-	2iPUwrgd3ulvER+ZPDg9A=; b=MIj6edrGuFKiPnFwSdcROUHqHFrXNBnPyFZcUJ
-	YYU8zEaaT1PVFQn3YfwtAo5v7y9NVv1QbW2Ug68vl/Fdqz055Fj+P+NVX8F1wK9f
-	uJyDhcOMEfuDuac7D/6hMWcr7Mfs6awxT/GdlwNat91fQ/D2DMpWhY7FV+zlkSOX
-	0rzujJmoHH7pNwbIhBqfEE7QaqdEu8CLC1c92XUrQvrjrknTrrWm/u7Cnhd894tT
-	yZetz38p8dQ6479snc9BBIBmthyXfg7lya/IIQWzxeeMMqFP1IeDfgdu53pZrOBe
-	KmNiKcuMU9cfBB8GiBM5CHGzM0cB+U0pxwZ/lkIybRl2IVqA==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48ush3cpfg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 23:53:30 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-244581953b8so29908355ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 16:53:30 -0700 (PDT)
+	Fri, 05 Sep 2025 23:58:01 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-772627dd50aso4202957b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 16:57:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1757116674; x=1757721474; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7pLX9mNLE1Old2BsaUGh3Hjem0q5L//LE3ZX0hufywI=;
+        b=XF24soqjxgtdPcBeYvwJq8iROgMTz5vmKB2j1boIvAJa8/2LbPHZ2TJAyGp1hHdlLZ
+         F9sv+UoFsFay4jc4XPYuDgCOEzFRcLf8CSsqntcsdC47O8cDA4Uyv4PBRrRJfV50D63r
+         /LZASSN5F2jZCwo1gCTFvWkiAyZf4dt+zuEHk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757116409; x=1757721209;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9ntjK0000JxML8T0CJ9N/J2iPUwrgd3ulvER+ZPDg9A=;
-        b=VEk4J/fGAphUNMLi4lA+SE2hHJW1xRXUeBa51P9AZ+vupoLQ5nr5pBpj6XaopR90Zp
-         EWJa5eb4x8a+/f3NMYCC+aMge7WmLu4DF7Ip1qotrwyFKOl/PHCKBLAsTbs9JfXYSE28
-         vSUOsO0SrRROTVCBfkc9NxYSm8LZ+KktbZ7EI+wWv9P6c566nJbiqIh6cYXGgwjVHfOD
-         6brqDr4+iQ7WRY5VwvX0kevbsKjHyBwdpD40Nh/Ql4UrDv7/XQKuxxgzZsXyYaiWqQxy
-         NEdL5VxIdKjGqt88mEMQSwU5Pyrr/Qr+8cH+NAUZseSrSjKbe8Es44JmcWcJdQP8AoPK
-         d9yg==
-X-Forwarded-Encrypted: i=1; AJvYcCXAW8ZjsMg7986Od1sQKrsWQwntjEBVTqeQ0joY7oRxSTel8liIuMhaXVNKEXxOYznf+9Njnmlvvkggw34iCMeB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2yqYw6d0ikFQXZBXwwAUMsAIGt0s7hb5QfDNz4gGzcWk9iGuy
-	DGxnbM9MDauyQVm+h2D+/iRdtqm0i0a7Lv3SqvLT4DD/e+6QiEIHh0PAQt5Ps38qvIZZ9RK8JJa
-	PPV03qnWGncsUv4dn2gwbI8x24g4c0cZMKSXsaMKrOTPwOvmq/5/wFxRLCytHhjzBLKP2yemgwn
-	+S9Q==
-X-Gm-Gg: ASbGnctVMzz5zQJ9oiM8mOYBPQZbB16aP+ddL3k8/yXTTyYneFzTTMacVS5dFmNFerM
-	48Z1wxoniNyOwNYznMtKh6GDbqWZ75dyYQRS8TppcWH/5gX9jujw+1c3QQjUbOfQ0ny5UPD1ygP
-	b3VwYJWGdh2m25VHi6kG19D5FLQR1geSw1AEBUWogdRurQysC0Vzf6izs2/qJJjYyr/aUcOogNy
-	sXsWCibwZ6WS8K6/j4w4ZZn6eZtRxIFUiV8I7cdpes4bDV4U2k7SZ0vVFq8Tmuew7zOJ/j6+Fu1
-	Aexy8suE5IW1kWncmLU8Bk7+cPLykf5eTOqyzqjtzvBfkHgyg3rk7U6c1CeyrS9gTrMXtmy94Tl
-	sESQbbmxnjknBeIYjKhxGMrIBUoY=
-X-Received: by 2002:a17:903:22c7:b0:24e:47ea:951e with SMTP id d9443c01a7336-2516fdc9797mr5867025ad.19.1757116409282;
-        Fri, 05 Sep 2025 16:53:29 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG8QUpGniq1OUMLLIgaeWGxmpKOQZNOr5ydhxok8F8J8LWqbW8BLwCURfP79S7LrHEK9DsS9w==
-X-Received: by 2002:a17:903:22c7:b0:24e:47ea:951e with SMTP id d9443c01a7336-2516fdc9797mr5866655ad.19.1757116408785;
-        Fri, 05 Sep 2025 16:53:28 -0700 (PDT)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24b2570cfc8sm102015245ad.76.2025.09.05.16.53.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 16:53:28 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Sat, 06 Sep 2025 07:53:04 +0800
-Subject: [PATCH v2] coresight: tpda: fix the logic to setup the element
- size
+        d=1e100.net; s=20230601; t=1757116674; x=1757721474;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7pLX9mNLE1Old2BsaUGh3Hjem0q5L//LE3ZX0hufywI=;
+        b=QpHsDMF8N4oSiCXOF0HfgBPrlWZxDnWPO/WQVOzQLUwmlrTNMAj+VO7KGNRPC+9XLu
+         VyxtXl3W2XM9nc8JvI67Pbbk8qJwIiORElPexSL8CLyAbTTBp6ltZFhJrIHPUY+HVD/Q
+         kseLEFtd+4btJbMl4w3x8+1eO3Mn141tEu1qUME7upNsd/DuuoEkyiaQVfEJYoXsxmpd
+         +7I2LkCW3c4Fr19w0s8TYpDK2oZRE4xKJLJqBwzzTZKhrbhLyWa7Cs+wN4D/RvUntfIE
+         PSUL/sfndsFtqyHQQAg9JOaYMbZHoAew8h9vOkNpzqZv4qkfTuHTetgc49uht7ccOcTX
+         tdlw==
+X-Forwarded-Encrypted: i=1; AJvYcCVjuwXZ7F0AlJlIMUr1WfUAacfcswDQX3jBNyzNvBpoVInx5Bfvfc9wH/fBEMC0Yiz6/tuUMlVGHL8M+FrbWeeM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKd/sfJY/KHk/KlKFsQrbRSd2DpZ0hBy6y6AoKeYgqJ2466rnR
+	/7r1hfapOObTh4U0u7WqbKq/mSRrFh6NIKkZROQHjBNARVOlozg8zChgAeKLYJ7LuPLlIwpVWlk
+	otA8=
+X-Gm-Gg: ASbGncu+opb/H/HbMnPuiotkdHKRbSg+5FfFQet/9/qNw8W42ByJYgzJZvlt+2AVrOq
+	eQ8bYEbeLpeHoFmh7Al/IPNCgveN/ymciq+n9QGwQyqbrjXCJqHurFqPSdyvZZJI8T/G0GfVQvj
+	oyWG+tnlCDksi4cibl3UhVkgsVooMjAMZceuyirPNVGuf1RBRRUOm2rVS/1HG9yrSJvlmmK3L5d
+	wIPUz4Y0OOkLm6OSa7HcutjcuMFwYPM9X5PBkIU4BUTFy9aUUQgFa1KsWsrKBd+T+dV0VH5dUaN
+	H8cdOZ9RFK17L1/myDOZ+Z5rxSML1OvmynPKk2dNnaHiIReMSk6/p6+rXkOOhrduRBFH0lUJxFp
+	1/fxA/dpQbpE3H/MgF/0xK4//vohm8+VE0J8wtj2Yuc4Kr7xp0+86JE659zaZCITPCw==
+X-Google-Smtp-Source: AGHT+IHyjclkMXKpfvQB6q0WKi4BpBEnZTAPMTQNfFT5WMpZQnyQzVfnz6EuXyKuScfUvmJKXvEhUw==
+X-Received: by 2002:a05:6a21:3287:b0:243:6f68:a2f6 with SMTP id adf61e73a8af0-24e852695demr6463737637.20.1757116673737;
+        Fri, 05 Sep 2025 16:57:53 -0700 (PDT)
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com. [209.85.215.172])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4fb15f50d6sm7109257a12.0.2025.09.05.16.57.50
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Sep 2025 16:57:52 -0700 (PDT)
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-b4c29d2ea05so2673651a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 16:57:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWvdMA04sF4A0NXzBFNu1tAdGtaOip2DUv4ytjOIWxBVsDiAMk7+N7tsMt6HhL/9fuM6NI8yF5ZJZ6qX3/Elqmb@lists.infradead.org
+X-Received: by 2002:a17:90b:4fd0:b0:325:15bf:4dc2 with SMTP id
+ 98e67ed59e1d1-32d44f86e71mr623965a91.0.1757116669514; Fri, 05 Sep 2025
+ 16:57:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250906-fix_element_size_issue-v2-1-dbb0ac2541a9@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAOB3u2gC/x2MXQqDMBAGryL7bGAN/tReRSSIfupCTUtWRRTv3
- uDjwMxcpAgCpXdyUcAuKl8fwaYJ9XPnJxgZIpNlW3DNpRnlcPhggV+dygknqhsMqpz5Vdo6Gzu
- K8S8gms+4ae/7D0GOwF9oAAAA
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>,
-        Tao Zhang <quic_taozha@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        Jie Gan <jie.gan@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757116405; l=1920;
- i=jie.gan@oss.qualcomm.com; s=20240927; h=from:subject:message-id;
- bh=QqdQLIajWoiM08KJ43uCFk6GXl5SlPD6hgGGW00Hh34=;
- b=5Ad5QfoQp2FDsdLvjG/YA5o8B8oW2b70yf175ycH3GNbzdR5c/Gmgz442CiNcw0KfK6Mlhg5a
- amBabxrvU3BBE1OG5yVI9LqInzQUDK3CXL8qPxh5aQK0/LSwcdBACJq
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=OZh7JyRifqJh4xmrcGgmwa8/LCS8O11Q+mtx4aZGmi4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAzMiBTYWx0ZWRfXwTjSaJw+rycP
- p7gogh9wkqb23PVpCqlZom67boZKaYoU18/lTw9IvI3iNYw9lLuyrPxqTAaih4k5SbB3os/trCr
- LZiIsM8bczjs37yd6lO54hYOeS5KxFsGa2ZKyDoQbrSss0HRxUwwGX7uk6AGkkeAkfYTwOEaovq
- jB3TCuiXnCH6j1O1ewJORSpYDyG499+tSR9oylY56zCs0tjsCiORGMwGPg2/HzDna7cUkPU1n9I
- zeVIXucbrklIsQypdJ1PkO6WHEcQc1K+UGRGZ8GPuBl8tL+ghXzVG1Bl9er8I4VB3HqROEXMHG/
- ieVScsacNmyowcCdT3YNH/VArVK9m5AWFgCJuFur1lYXJb2p2CJONieozuG4OqrFIRp5xaH8usX
- IAkayZLs
-X-Proofpoint-ORIG-GUID: faybUmARUX0Le7aQSDkaTiBlupJUGfX7
-X-Proofpoint-GUID: faybUmARUX0Le7aQSDkaTiBlupJUGfX7
-X-Authority-Analysis: v=2.4 cv=M9NNKzws c=1 sm=1 tr=0 ts=68bb77fa cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=KKAkSRfTAAAA:8 a=eYArMgjR2MFx1z2CNlUA:9 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-05_08,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 spamscore=0 priorityscore=1501 malwarescore=0
- clxscore=1015 suspectscore=0 phishscore=0 bulkscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508300032
+References: <20250827100959.83023-1-cuiyunhui@bytedance.com>
+ <20250827100959.83023-2-cuiyunhui@bytedance.com> <CAD=FV=WiZ5=4Ck3G2gme=ey6uYQhi-3Wo32DpLj9P53wxGCojw@mail.gmail.com>
+ <CAEEQ3wmBvevbkP8XmwR0_q_1QWQsie5g0UUxTFm6ovS1m41pEQ@mail.gmail.com>
+ <CAD=FV=UzUCPtwuQRFR0SkAkh63MbzMefxNYmiOBxCemL3P_+EQ@mail.gmail.com> <CAEEQ3wmLOjZxVh_vBhmctH-u_ZSxnyg0GiN-_e_4v8_pfxcbSw@mail.gmail.com>
+In-Reply-To: <CAEEQ3wmLOjZxVh_vBhmctH-u_ZSxnyg0GiN-_e_4v8_pfxcbSw@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Fri, 5 Sep 2025 16:57:37 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=XaSP2A7Dufrxt1DUUznF9Yk-qdBY3wbE03x4_L8HJLSQ@mail.gmail.com>
+X-Gm-Features: Ac12FXzUu2N-pcZbzJSHRvrPWYA7cVEhjyHs0eCe7xSTQbillcbYzLxLmPy77G0
+Message-ID: <CAD=FV=XaSP2A7Dufrxt1DUUznF9Yk-qdBY3wbE03x4_L8HJLSQ@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH 1/2] watchdog: refactor watchdog_hld functionality
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, 
+	mark.rutland@arm.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, catalin.marinas@arm.com, 
+	masahiroy@kernel.org, suzuki.poulose@arm.com, maz@kernel.org, 
+	zhanjie9@hisilicon.com, yangyicong@hisilicon.com, mingo@kernel.org, 
+	lihuafei1@huawei.com, akpm@linux-foundation.org, jpoimboe@kernel.org, 
+	rppt@kernel.org, kees@kernel.org, thomas.weissschuh@linutronix.de
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_165331_845963_04D91C5E 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250905_165800_263800_7F224E8D 
+X-CRM114-Status: GOOD (  31.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,57 +115,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some TPDM devices support both CMB and DSB datasets, requiring
-the system to enable the port with both corresponding element sizes.
+Hi,
 
-Currently, the logic treats tpdm_read_element_size as successful if
-the CMB element size is retrieved correctly, regardless of whether
-the DSB element size is obtained. This behavior causes issues
-when parsing data from TPDM devices that depend on both element sizes.
+On Wed, Sep 3, 2025 at 4:56=E2=80=AFAM yunhui cui <cuiyunhui@bytedance.com>=
+ wrote:
+>
+> Hi Doug=EF=BC=8C
+>
+> On Wed, Sep 3, 2025 at 1:04=E2=80=AFAM Doug Anderson <dianders@chromium.o=
+rg> wrote:
+> >
+> > Hi,
+> >
+> > On Sun, Aug 31, 2025 at 10:57=E2=80=AFPM yunhui cui <cuiyunhui@bytedanc=
+e.com> wrote:
+> > >
+> > > Hi Doug,
+> > >
+> > > On Sat, Aug 30, 2025 at 5:34=E2=80=AFAM Doug Anderson <dianders@chrom=
+ium.org> wrote:
+> > > >
+> > > > Hi,
+> > > >
+> > > > On Wed, Aug 27, 2025 at 3:10=E2=80=AFAM Yunhui Cui <cuiyunhui@byted=
+ance.com> wrote:
+> > > > >
+> > > > > Move watchdog_hld.c to kernel/, and rename arm_pmu_irq_is_nmi()
+> > > > > to arch_pmu_irq_is_nmi() for cross-arch reusability.
+> > > > >
+> > > > > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> > > > > ---
+> > > > >  arch/arm64/kernel/Makefile                   | 1 -
+> > > > >  drivers/perf/arm_pmu.c                       | 2 +-
+> > > > >  include/linux/nmi.h                          | 1 +
+> > > > >  include/linux/perf/arm_pmu.h                 | 2 --
+> > > > >  kernel/Makefile                              | 2 +-
+> > > > >  {arch/arm64/kernel =3D> kernel}/watchdog_hld.c | 8 ++++++--
+> > > > >  6 files changed, 9 insertions(+), 7 deletions(-)
+> > > > >  rename {arch/arm64/kernel =3D> kernel}/watchdog_hld.c (97%)
+> > > >
+> > > > I'm not a huge fan of the perf hardlockup detector and IMO we shoul=
+d
+> > > > maybe just delete it. Thus spreading it to support a new architectu=
+re
+> > > > isn't my favorite thing to do. Can't you use the buddy hardlockup
+> > > > detector?
+> > >
+> > > Why is there a plan to remove CONFIG_HARDLOCKUP_DETECTOR_PERF? Could
+> > > you explain the specific reasons? Is the community's future plan to
+> > > favor CONFIG_HARDLOCKUP_DETECTOR_BUDDY?
+> >
+> > I don't think there are any concrete plans, but there was some discussi=
+on here:
+> >
+> > https://lore.kernel.org/all/CAD=3DFV=3DWWUiCi6bZCs_gseFpDDWNkuJMoL6XCft=
+Eo6W7q6jRCkg@mail.gmail.com/
+> >
+> > -Doug
+> >
+>
+> I=E2=80=99ve read your linked content, which details the pros and cons of=
+ perf
+> watchdog and buddy watchdog.
+> I think everyone will agree on choosing one as the default.
+> It seems there=E2=80=99s no kernel/watchdog entry in MAINTAINERS=E2=80=94=
+what=E2=80=99s next
+> for these two approaches?
 
-To address this, the function should explicitly fail if the DSB
-element size cannot be read correctly.
+I guess to start, someone (you?) should send some patches to the list.
+Maybe one patch to make buddy the default and one to change the
+description of the "perf" lockup detector say that its usage is
+discouraged, that it might be removed, that people should use the
+"buddy" detector instead, and that if there's a reason someone needs
+the "perf" detector instead of the buddy one then they should make
+some loud noises.
 
-Fixes: e6d7f5252f73 ("coresight-tpda: Add support to configure CMB element")
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
-Changes in V2:
-1. rebased the patch.
-2. Add James's reviewed-by tag.
-Link to V1 - https://lore.kernel.org/all/20250806080931.14322-1-jie.gan@oss.qualcomm.com/
----
- drivers/hwtracing/coresight/coresight-tpda.c | 3 +++
- 1 file changed, 3 insertions(+)
+You'd want to CC folks who were involved in recent watchdog changes
+and make sure to CC Andrew (akpm). If folks react positive and Andrew
+agrees then he'll likely land the the patches and we'll have made
+forward progress. :-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-index 0633f04beb24..333b3cb23685 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.c
-+++ b/drivers/hwtracing/coresight/coresight-tpda.c
-@@ -71,6 +71,8 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
- 	if (tpdm_data->dsb) {
- 		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
- 				"qcom,dsb-element-bits", &drvdata->dsb_esize);
-+		if (rc)
-+			goto out;
- 	}
- 
- 	if (tpdm_data->cmb) {
-@@ -78,6 +80,7 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
- 				"qcom,cmb-element-bits", &drvdata->cmb_esize);
- 	}
- 
-+out:
- 	if (rc)
- 		dev_warn_once(&csdev->dev,
- 			"Failed to read TPDM Element size: %d\n", rc);
-
----
-base-commit: 5d50cf9f7cf20a17ac469c20a2e07c29c1f6aab7
-change-id: 20250906-fix_element_size_issue-e740086291fa
-
-Best regards,
--- 
-Jie Gan <jie.gan@oss.qualcomm.com>
-
+-Doug
 
