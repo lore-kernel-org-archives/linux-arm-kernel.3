@@ -4,76 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FCBCAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1381ACA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KU+KPVxjuWcb8+Ftu8hkp3enfmZs1BcIrkcMoU4CLGQ=; b=djPeWZu+M6u7/T6d6BqVEka/nn
-	c9S/t4w5S8VUvbxHnTbdZPfu80hPYW1jIVO+UWTg4pBBKMTH/cQbdEVRloBEtu1KzrXM/UorzNzKn
-	bI1jOFAbkn6AWug+7q0dKSFWYATNuuKy1cunBNEO52CqtGSHOrbmiAkLeKwUf3vfQvBZlOu1V5Lv0
-	XdkzmefSV9BREPkx5mcDvTDDFcFmIfrYbjXcwwIZlgJIHtPmt3ycpsRBZkwjE4fsEO5DXUDfqgQO1
-	cRsIvhoayl7esxb1SOcJEXCtWCqdT1WgYnsokTMr2z6w/foBLI7J1rprH+LySdEN/rpp9TrNlwfTC
-	jDNTKnFg==;
+	bh=yrKzRKvPlqc1QwFwyTNKlG24n0S3B0erGWAU2bVkVqg=; b=alDSWC0FRip7QJH2opL5aJwZFk
+	koxAVfdsid/HSYqJ0sQv9aaVnZHc9EFB4OoAe3+pvrqRNixLeBjDbAQb9e1VnJRiup0IY1k80+h9o
+	Zw6dzmw+US09G/2tYp0kWcMQ6hQsvJ9lyuqGZDn6L7qS2jJNEbL6/rVVh4mp85fYxojmSxeCB5F6u
+	G3fJ2wid2ifX58a3JzcTkQVHQWv+32Vkrhg0BLvwmQEsT2VJqeL1+g0GsN0X9fa1H6XQO952ThDyd
+	G93R+Yk46BdIXaiyXamOuWOwywmyGF0zaM/r7d1tm9fOnEfjXhrMzmnkN3UWyRIIL1FtzsQKwAVsB
+	DvTuFpZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVM-00000005R5y-3p1U;
-	Sat, 06 Sep 2025 00:10:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZEm-000000035hT-3JqF
+	id 1uugVA-00000005Qv2-1eQS;
+	Sat, 06 Sep 2025 00:09:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuYkt-00000002uN4-2qwD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 05 Sep 2025 15:53:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=yrKzRKvPlqc1QwFwyTNKlG24n0S3B0erGWAU2bVkVqg=; b=Cud1tWjW4zyt4JYA0fBGVHyslB
+	AZMYzeWhO+TqI3IqN/lbl4aWbdJqRCivavZnFmpGJpllHqKuG/fnd4FREouRpBoXPTbGHJYjuKws/
+	kj4VlDjjycugh9ndU9AlvUT9m43WSHoTsnJcpB0Mg0SOekiUisCKozd3P7QpvkEJHRHa+5Si1VJtv
+	AXZi00vUVJ89cmJL6fmsD2MIut+hP7eygn4GBLJRJV8Lpz3xIG73Qmpp32KgmAHj74gO7+mZ3xmYs
+	kRnTSTegj2q3Q66qPdQhd3p6YG8PU9Y2in3yU2WbfdnH7TncSPqqI1369LYkh7YRQnNLX/QcvUmbw
+	U2WU3lPQ==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuYkq-00000004eCF-3Ath
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 16:24:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DCB75152B;
-	Fri,  5 Sep 2025 09:24:23 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 873AA3F63F;
-	Fri,  5 Sep 2025 09:24:26 -0700 (PDT)
-Date: Fri, 5 Sep 2025 17:24:23 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 03/33] ACPI / PPTT: Add a helper to fill a cpumask from a
- processor container
-Message-ID: <aLsOt5Tr+ThuHmSS@e133380.arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-4-james.morse@arm.com>
- <aK7id14+Spr2VIqR@e133380.arm.com>
- <29d0a34d-71d3-42ac-ba66-b5536f576f3a@arm.com>
+	Fri, 05 Sep 2025 15:53:38 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5858qiX8001199;
+	Fri, 5 Sep 2025 15:52:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=yrKzRKvPlqc1QwFwyTNKlG24n0S3B0
+	erGWAU2bVkVqg=; b=qnifUl96cq8S6mdWIUWZY6BIWU8yF2upNweBx/YvMVrUqk
+	RurxzzOfjdHTO1vZruHBUGw3vkJ3WeEmWzLy0ib2dt0fUdi9302JluZSn5voqpb9
+	tt+K2LZopne4AXw3OGAsBjWP8De3MBm1hwH4/INAMOLsTRAjDmX8jUJ/gKxB4XAc
+	KrIlZNUzwzjCaqkU+ZOpln4XrPIJTWESS5y/saIRobaltfDoOVm72NdzSHeS2nKf
+	hGMYLo6HZzSBX5xdzjXsfqIsGIlRMWccKTKAhN9S2rP+bQ/qPKUMPRNpVA8A/v6E
+	L8fXKTqpSJEYDa6i80pdzLQ72TamFaiRukB8PM0g==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48wshfcpx3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 05 Sep 2025 15:52:50 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 585Fmcsp012235;
+	Fri, 5 Sep 2025 15:52:49 GMT
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48wshfcpwy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 05 Sep 2025 15:52:49 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 585FmxfV019937;
+	Fri, 5 Sep 2025 15:52:48 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 48vbmujcy7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 05 Sep 2025 15:52:48 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 585Fqke750659768
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 5 Sep 2025 15:52:46 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8C56520043;
+	Fri,  5 Sep 2025 15:52:46 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1DCE620040;
+	Fri,  5 Sep 2025 15:52:45 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.48.240])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri,  5 Sep 2025 15:52:45 +0000 (GMT)
+Date: Fri, 5 Sep 2025 17:52:43 +0200
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        Andreas Larsson <andreas@gaisler.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        David Hildenbrand <david@redhat.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+        Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+        xen-devel@lists.xenproject.org
+Subject: Re: [PATCH 5/7] powerpc/mm: support nested lazy_mmu sections
+Message-ID: <074ff6ab-5868-4fde-b5bb-9e17632ad817-agordeev@linux.ibm.com>
+References: <20250904125736.3918646-1-kevin.brodsky@arm.com>
+ <20250904125736.3918646-6-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <29d0a34d-71d3-42ac-ba66-b5536f576f3a@arm.com>
+In-Reply-To: <20250904125736.3918646-6-kevin.brodsky@arm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: lCd6YOMsS3DuDBadSx3AqoWK9sgWIwBw
+X-Authority-Analysis: v=2.4 cv=do3bC0g4 c=1 sm=1 tr=0 ts=68bb0752 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=j0AthGTrb4EvYsEn83oA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: f87PfJay9odLOn37oqVwjr2CAlcWWHn1
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTAyMDA0MCBTYWx0ZWRfX6sVQx3QDeZVb
+ n0/AHQXDAd1IPDvrbQDAZqWNvYoji1vUEPP9JAjcx2sdZwqxFNT8P6jKDiqCdhkxMnGuyNq6xN0
+ S8g8X6OMzE3gSb6sI+vSPcwT7zIQgnHlzsA9jiitgokDLD2w11I2lobQd0RzFFdQVPBFq7gLH2W
+ w3OGrenK+wBn0voMSBbmNjp1Fjlqy/CSo5Vh9PvP5VNsOgQXuA9fqz0KJ8mfFGOfUfce75STf2p
+ eu65lI0DTVxqmjYKeyaFdLRjc3SxwtmZeh1Pe6KdSGdqawAHM6zOfs0r4Yils+ob60NU/kRnAup
+ 7+9DLLEmBuvBzuYqwqF9czbkIes2bGJOe8p5YqMQ0X/8i+oJ9lIUH4tj2BythK5q2hT0kmdi9nq
+ KtlUPSlt
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-05_05,2025-09-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 impostorscore=0 bulkscore=0 suspectscore=0
+ malwarescore=0 spamscore=0 priorityscore=1501 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509020040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_092432_919935_B8279E40 
-X-CRM114-Status: GOOD (  49.18  )
+X-CRM114-CacheID: sfid-20250905_165337_102423_517EB4C8 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,176 +159,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Thu, Sep 04, 2025 at 01:57:34PM +0100, Kevin Brodsky wrote:
+...
+>  static inline lazy_mmu_state_t arch_enter_lazy_mmu_mode(void)
+>  {
+>  	struct ppc64_tlb_batch *batch;
+> +	int lazy_mmu_nested;
+>  
+>  	if (radix_enabled())
+>  		return LAZY_MMU_DEFAULT;
+> @@ -39,9 +40,14 @@ static inline lazy_mmu_state_t arch_enter_lazy_mmu_mode(void)
+>  	 */
+>  	preempt_disable();
+>  	batch = this_cpu_ptr(&ppc64_tlb_batch);
+> -	batch->active = 1;
+> +	lazy_mmu_nested = batch->active;
+>  
+> -	return LAZY_MMU_DEFAULT;
+> +	if (!lazy_mmu_nested) {
 
-On Thu, Aug 28, 2025 at 04:57:06PM +0100, James Morse wrote:
-> Hi Dave,
-> 
-> On 27/08/2025 11:48, Dave Martin wrote:
-> > On Fri, Aug 22, 2025 at 03:29:44PM +0000, James Morse wrote:
-> >> The PPTT describes CPUs and caches, as well as processor containers.
-> >> The ACPI table for MPAM describes the set of CPUs that can access an MSC
-> >> with the UID of a processor container.
-> >>
-> >> Add a helper to find the processor container by its id, then walk
-> >> the possible CPUs to fill a cpumask with the CPUs that have this
-> >> processor container as a parent.
-> 
-> > Nit: The motivation for the change is not clear here.
-> > 
-> > I guess this boils down to the need to map the MSC topology information
-> > in the the ACPI MPAM table to a cpumask for each MSC.
-> > 
-> > If so, a possible rearrangement and rewording might be, say:
-> > 
-> > --8<--
-> > 
-> > The ACPI MPAM table uses the UID of a processor container specified in
-> > the PPTT, to indicate the subset of CPUs and upstream cache topology
-> > that can access each MPAM Memory System Component (MSC).
-> > 
-> > This information is not directly useful to the kernel.  The equivalent
-> > cpumask is needed instead.
-> > 
-> > Add a helper to find the processor container by its id, then [...]
-> > 
-> > -->8--
-> 
-> Thanks, that is clearer!
+Why not just?
 
-Thanks
+	if (!batch->active) {
 
-> >> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> +		batch->active = 1;
+> +		return LAZY_MMU_DEFAULT;
+> +	} else {
+> +		return LAZY_MMU_NESTED;
+> +	}
+>  }
+>  
+>  static inline void arch_leave_lazy_mmu_mode(lazy_mmu_state_t state)
+> @@ -54,7 +60,10 @@ static inline void arch_leave_lazy_mmu_mode(lazy_mmu_state_t state)
+>  
+>  	if (batch->index)
+>  		__flush_tlb_pending(batch);
+> -	batch->active = 0;
+> +
+> +	if (state != LAZY_MMU_NESTED)
+> +		batch->active = 0;
+> +
+>  	preempt_enable();
+>  }
 
-[...]
-
-> >> @@ -298,6 +298,92 @@ static struct acpi_pptt_processor *acpi_find_processor_node(struct acpi_table_he
-
-[...]
-
-> >> +static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
-> >> +				     struct acpi_pptt_processor *parent_node,
-> >> +				     cpumask_t *cpus)
-> >> +{
-> >> +	struct acpi_pptt_processor *cpu_node;
-> >> +	u32 acpi_id;
-> >> +	int cpu;
-> >> +
-> >> +	cpumask_clear(cpus);
-> >> +
-> >> +	for_each_possible_cpu(cpu) {
-> >> +		acpi_id = get_acpi_id_for_cpu(cpu);
-> 
-> > ^ Presumably this can't fail?
-> 
-> It'll return something! This could only be a problem if this raced with a CPU becoming
-> impossible, and there is no mechanism to do that.
-
-Yep, now I go and look more closely at that function, my question looks
-misguided.
-
-[...]
-
-> >> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
-> >> +{
-> >> +	struct acpi_pptt_processor *cpu_node;
-> >> +	struct acpi_table_header *table_hdr;
-> >> +	struct acpi_subtable_header *entry;
-> >> +	unsigned long table_end;
-> >> +	acpi_status status;
-> >> +	bool leaf_flag;
-> >> +	u32 proc_sz;
-> >> +
-> >> +	cpumask_clear(cpus);
-> >> +
-> >> +	status = acpi_get_table(ACPI_SIG_PPTT, 0, &table_hdr);
-> >> +	if (ACPI_FAILURE(status))
-> >> +		return;
-> 
-> > Is acpi_get_pptt() applicable here?
-> 
-> Oh, that is new, and would let me chuck the reference counting.
-> I guess this replaces Jonthan's magic table free'ing cleanup thing!
-
-Ah, rightho.
-
-> > (That function is not thread-safe, but then, perhaps most/all of these
-> > functions are not thread safe.  If we are still on the boot CPU at this
-> > point (?) then this wouldn't be a concern.)
-> 
-> I think that relies on the first caller being from somewhere that can't race.
-> In this case its the architecture's smp_prepare_cpus() call to setup the acpi topology.
-> That is sufficiently early its not a concern.
-
-I guess so.
-
-[...]
-
-> >> +		cpu_node = (struct acpi_pptt_processor *)entry;
-> >> +		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR &&
-> >> +		    cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID) {
-> >> +			leaf_flag = acpi_pptt_leaf_node(table_hdr, cpu_node);
-> >> +			if (!leaf_flag) {
-> >> +				if (cpu_node->acpi_processor_id == acpi_cpu_id)
-> 
-> 
-> > Is there any need to distinguish processor containers from (leaf) CPU
-> > nodes, here?  If not, dropping the distinction might simplify the code
-> > here (even if callers do not care).
-> 
-> In the namespace the object types are different, so I assumed they have their own UID
-> space. The PPTT holds both - hence the check for which kind of thing it is. The risk is
-> looking for processor-container-4 and finding CPU-4 instead...
->
-> The relevant ACPI bit is "8.4.2.1 Processor Container Device", its says:
-> | A processor container declaration must supply a _UID method returning an ID that is
-> | unique in the processor container hierarchy.
-> 
-> Which doesn't quite let me combine them here.
-
-I was going by the PPTT spec, where the types are not distinct --
-you're probably right, though.
-
-According to that, isn't it the "ACPI Processor ID valid" flag, not the
-"Node is a Leaf" flag, that says whether this field is meaningful?
-
-It's reasonable not to bother to try to enumerate the children of a
-node that claims to be a leaf (even if there actually are children),
-but I wonder what happens if acpi_processor_id is not declared to be
-valid and matches by accident.  That's probably not a valid table (?)
-but does anything bad happen on the kernel side?
-
-> > Otherwise, maybe eliminate leaf_flag and collapse these into a single
-> > if(), as suggested by Ben [1].
-> > 
-> >> +					acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
-> > 
-> > Can there ever be multiple matches?
-> > 
-> > The possibility of duplicate processor IDs in the PPTT sounds weird to
-> > me, but then I'm not an ACPI expert.
-> 
-> Multiple processor-containers with the same ID? That would be a corrupt table.
-> acpi_pptt_get_child_cpus() then walks the tree again to find the CPUs below this
-> processor-container - those have a different kind of id.
-
-Does anything bad happen if we encounter duplicates?
-
-(Other then the MPAM driver never getting enabled, or not working as
-advertised, that is.)
-
-I haven't tried to think through all the implications, here.
-
-> > If there can only be a single match, though, then we may as well break
-> > out of the loop here, unless we want to be paranoid and report
-> > duplicates as an error -- but that would require extra implementation,
-> > so I'm not sure that would be worth it.
-> 
-> Hmmm, the PPTT node should map to only one processor or processor-container.
-> I'll chuck the break in.
-
-Ack
-
-Cheers
----Dave
+Thanks!
 
