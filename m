@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B71CCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 027E5CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MkYWzHpFQx56PCq0kzOmVnbtp46Z39Q5G8KktrMhdZs=; b=nphR5+ZoHRN8Nl7BpzJWdzJvby
-	22xQrrTSNzUZCKbfPgwzrUL7YRcyqsZZ4iLKa3jjmBC752wCQPIO9aIgHwYYiMZnMm8m9npygtQLu
-	ecY9sg2YRAngvpe0n0FQKaGjesoonyL6ouK7MHsmPjInEn+mgrfI/OXflBAJI3EoMp461dis7jn3s
-	Liyi1Lr+temotT4rbJoFslt47UymJvdZ65TTY5ruYODnS1r/YylmD1u2L6V8hejAbasMwW1klOkhn
-	q2sqsvjlL8cwkl1IO+rq/oLvtxxpf+ZmUEGZZfJMvnnqz8pXTS7b41aY2Lx6dlvaoIL8R+sCDh4Q3
-	tihpeoxw==;
+	bh=93HDDhnPlJoUIuv0aOxFs6Hwi8PNmcmVMfTrVyv9Am0=; b=MOTHZ/ZkaTfBiC8/4FWlP1RdwJ
+	mm916HlKxFYw+aad4sHP6gtYgb4RHWnPjeNXsYJA8jhY11tWAksyavMpFRYukU7CLUthIbNpGQydc
+	QgqRRJZovQroBEVxTOuBSsq4ZcCukqVmdg9dgNBFeZUl3YPWGT8thgWMYDyWH4swlWBZkA5aSSv9W
+	dGjf8OoKAvZ7JJsFP+zvbFOnybIj1uezWMs6BZxhItkNXuClCE+G8NyXwvyTPmGPStHvVZj0ZwMFf
+	+qtRnvnizgRtLo388+XhlKbam6G2f3EQE8j7xuvGDXVchO/Bu55QlYyTnHRhrx156K2xacefBwMq4
+	BelQPFzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQQO-0000000HRWp-2aSh;
-	Fri, 05 Sep 2025 06:59:56 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uuQT4-0000000HSSE-29cg;
+	Fri, 05 Sep 2025 07:02:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuOt1-0000000GxUk-2xWU
-	for linux-arm-kernel@lists.infradead.org;
+	id 1uuOt1-0000000GxUp-3uZY;
 	Fri, 05 Sep 2025 05:21:25 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5855LKYf3637733;
-	Fri, 5 Sep 2025 00:21:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757049680;
-	bh=MkYWzHpFQx56PCq0kzOmVnbtp46Z39Q5G8KktrMhdZs=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=hC6BfZRSeI0PDWIo/DnHwYLs9iX37pVOtIvbH60KTLATkYZS2UhJGSz1j7Rt0Ies8
-	 shF5aV8LVcE5m3FL7TBXKlsWQD8aTNVneKCJLxBuAjTufu43Lg6C1D+AnlA69BUwGY
-	 StNJplh3rnq2yechEY4ILYxzR7/XwXHbXp4wSZnE=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5855LKrV689791
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 5 Sep 2025 00:21:20 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 5
- Sep 2025 00:21:19 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 5 Sep 2025 00:21:19 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5855Ioj1220581;
-	Fri, 5 Sep 2025 00:21:15 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
-        <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Wadim
- Egorov <w.egorov@phytec.de>
-Subject: [PATCH v3 32/33] arm64: dts: ti: k3-am64-ti-ipc-firmware: Refactor IPC cfg into new dtsi
-Date: Fri, 5 Sep 2025 10:48:45 +0530
-Message-ID: <20250905051846.1189612-33-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250905051846.1189612-1-b-padhi@ti.com>
-References: <20250905051846.1189612-1-b-padhi@ti.com>
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9A3C444300;
+	Fri,  5 Sep 2025 05:21:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26279C4CEF5;
+	Fri,  5 Sep 2025 05:21:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757049683;
+	bh=mqIISEo7LPLprFNDEUcKEaTHvMz7CvLt6reLpOwI+yU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p0CmTSirH7yBCDozYoC9DlsvzZCfvAFIewxsKM229y/tgJZn5KvA0nn3sSZy76qey
+	 0S5HgHbORGIloKt+m8EPv9nwzjEz43zvj3GBh53cftXZ8LLcH2zIdfbPPrP54KB6BQ
+	 Y2h836z0EzbOsronUrzBLoG3jbU4WNYmVjvqvhHWcF1NTZg3/tqWeUc2cGUFYxeukL
+	 kfQqw2XDwWAaZUdqwkQ76KnorupCoWqE331UKGXqY7Fus4/Dm24wxaW1aZzCZRbE2e
+	 gkSyeEO9z828d4a56/6cKYREIuv1xIUvsIvs2LWAKAjEAlx31YF3I/J3fbDyUTP1PM
+	 JQ3SWIjkiqXVQ==
+Date: Fri, 5 Sep 2025 10:51:12 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Jacky Chou <jacky_chou@aspeedtech.com>, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, bhelgaas@google.com, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	joel@jms.id.au, andrew@codeconstruct.com.au, vkoul@kernel.org, kishon@kernel.org, 
+	linus.walleij@linaro.org, p.zabel@pengutronix.de, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, openbmc@lists.ozlabs.org, 
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v3 03/10] dt-bindings: PCI: Add ASPEED PCIe RC support
+Message-ID: <xg5avkbsoux7rw7dg67bhf7rupgr66nzak27y2jmcerrqhlb4u@l63vz3jaie2g>
+References: <20250901055922.1553550-1-jacky_chou@aspeedtech.com>
+ <20250901055922.1553550-4-jacky_chou@aspeedtech.com>
+ <20250902211221.GA1179675-robh@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250902211221.GA1179675-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_222123_854405_E5221B2D 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250904_222124_014132_EAA62485 
+X-CRM114-Status: GOOD (  26.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,1125 +78,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TI K3 AM64 SoCs have multiple programmable remote processors like
-R5F, M4F etc. The TI SDKs for AM64 SoCs offer sample firmwares which
-could be run on these cores to demonstrate an "echo" IPC test. Those
-firmware require certain memory carveouts to be reserved from system
-memory, timers to be reserved, and certain mailbox configurations for
-interrupt based messaging. These configurations could be different for a
-different firmware.
+On Tue, Sep 02, 2025 at 04:12:21PM GMT, Rob Herring wrote:
+> On Mon, Sep 01, 2025 at 01:59:15PM +0800, Jacky Chou wrote:
+> > ASPEED AST2600 provides one PCIe RC for Gen2 and AST2700 provides three
+> > PCIe RC for two Gen4 and one Gen2. All of these RCs have just one root
+> > port to connect to PCIe device. And also have Mem, I/O access, legacy
+> > interrupt and MSI.
+> > 
+> > Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> > ---
+> >  .../bindings/pci/aspeed,ast2600-pcie.yaml     | 179 ++++++++++++++++++
+> >  1 file changed, 179 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml b/Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
+> > new file mode 100644
+> > index 000000000000..fe75bf2961c8
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
+> > @@ -0,0 +1,179 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/pci/aspeed,ast2600-pcie.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: ASPEED PCIe Root Complex Controller
+> > +
+> > +maintainers:
+> > +  - Jacky Chou <jacky_chou@aspeedtech.com>
+> > +
+> > +description:
+> > +  The ASPEED PCIe Root Complex controller provides PCI Express Root Complex
+> > +  functionality for ASPEED SoCs, such as the AST2600 and AST2700.
+> > +  This controller enables connectivity to PCIe endpoint devices, supporting
+> > +  memory and I/O windows, MSI and legacy interrupts, and integration with
+> > +  the SoC's clock, reset, and pinctrl subsystems.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - aspeed,ast2600-pcie
+> > +      - aspeed,ast2700-pcie
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  ranges:
+> > +    minItems: 2
+> > +    maxItems: 2
+> > +
+> > +  interrupts:
+> > +    maxItems: 1
+> > +    description: IntX and MSI interrupt
+> > +
+> > +  resets:
+> > +    items:
+> > +      - description: PCIe controller reset
+> > +
+> > +  reset-names:
+> > +    items:
+> > +      - const: h2x
+> > +
+> > +  msi-parent: true
+> > +
+> > +  aspeed,ahbc:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle
+> > +    description:
+> > +      Phandle to the ASPEED AHB Controller (AHBC) syscon node.
+> > +      This reference is used by the PCIe controller to access
+> > +      system-level configuration registers related to the AHB bus.
+> > +      To enable AHB access for the PCIe controller.
+> > +
+> > +  aspeed,pciecfg:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle
+> > +    description:
+> > +      Phandle to the ASPEED PCIe configuration syscon node.
+> > +      This reference allows the PCIe controller to access
+> > +      SoC-specific PCIe configuration registers. There are the others
+> > +      functions such PCIe RC and PCIe EP will use this common register
+> > +      to configure the SoC interfaces.
+> > +
 
-While DT is not meant for system configurations, at least refactor these
-configurations from board level DTS into a dtsi for now. This dtsi for
-TI IPC firmware is board-independent and can be applied to all boards
-from the same SoC Family. This gets rid of code duplication and allows
-more freedom for users developing custom firmware (or no firmware) to
-utilize system resources better; easily by swapping out this dtsi. To
-maintain backward compatibility, the dtsi is included in all boards.
+So these config registers are part of the PCIe domain? Is so, accessing them as
+syscon is wrong. You should configure the registers directly from the RC and EP
+controller drivers.
 
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-Reviewed-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am64x
-Tested-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am64x
-Tested-by: Hari Nagalla <hnagalla@ti.com>
----
-v3: Changelog:
-1. Carried R/B, T/B tags.
+> > +  interrupt-controller:
+> > +    description: Interrupt controller node for handling legacy PCI interrupts.
 
-Link to v2:
-https://lore.kernel.org/all/20250823160901.2177841-33-b-padhi@ti.com/
+s/legacy PCI interrupts/INTx
 
-v2: Changelog:
-1. Re-ordered patch from [PATCH 30/33] to [PATCH v2 32/33].
+> > +    type: object
+> > +    properties:
+> > +      '#address-cells':
+> > +        const: 0
+> > +      '#interrupt-cells':
+> > +        const: 1
+> > +      interrupt-controller: true
+> > +
+> > +    required:
+> > +      - '#address-cells'
+> > +      - '#interrupt-cells'
+> > +      - interrupt-controller
+> > +
+> > +    additionalProperties: false
+> > +
+> > +allOf:
+> > +  - $ref: /schemas/pci/pci-host-bridge.yaml#
+> > +  - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            const: aspeed,ast2600-pcie
+> > +    then:
+> > +      required:
+> > +        - aspeed,ahbc
+> > +    else:
+> > +      properties:
+> > +        aspeed,ahbc: false
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            const: aspeed,ast2700-pcie
+> > +    then:
+> > +      required:
+> > +        - aspeed,pciecfg
+> > +    else:
+> > +      properties:
+> > +        aspeed,pciecfg: false
+> > +
+> > +required:
+> > +  - reg
+> > +  - interrupts
+> > +  - bus-range
+> > +  - ranges
+> > +  - resets
+> > +  - reset-names
+> > +  - msi-parent
+> > +  - msi-controller
+> > +  - interrupt-map-mask
+> > +  - interrupt-map
+> > +  - interrupt-controller
+> > +
+> > +unevaluatedProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +    #include <dt-bindings/clock/ast2600-clock.h>
+> > +
+> > +    apb {
+> > +      #address-cells = <1>;
+> > +      #size-cells = <1>;
+> 
+> No need to show this node.
+> 
+> > +
+> > +      pcie0: pcie@1e770000 {
+> > +        compatible = "aspeed,ast2600-pcie";
+> > +        device_type = "pci";
+> > +        reg = <0x1e770000 0x100>;
+> > +        linux,pci-domain = <0>;
+> > +        #address-cells = <3>;
+> > +        #size-cells = <2>;
+> > +        interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
+> > +        bus-range = <0x80 0xff>;
 
-Link to v1:
-https://lore.kernel.org/all/20250814223839.3256046-31-b-padhi@ti.com/
+Why bus number starts from 128?
 
- .../boot/dts/ti/k3-am64-phycore-som.dtsi      | 160 +----------------
- .../boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi  | 162 ++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am642-evm.dts       | 156 +----------------
- arch/arm64/boot/dts/ti/k3-am642-sk.dts        | 156 +----------------
- arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi   | 156 +----------------
- .../arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi | 156 +----------------
- 6 files changed, 172 insertions(+), 774 deletions(-)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi
+> > +
+> > +        ranges = <0x01000000 0x0 0x00018000 0x00018000 0x0 0x00008000
+> > +            0x02000000 0x0 0x70000000 0x70000000 0x0 0x10000000>;
+> > +
+> > +        status = "disabled";
+> 
+> Examples should be enabled. Drop.
+> 
+> > +
+> > +        resets = <&syscon ASPEED_RESET_H2X>;
+> > +        reset-names = "h2x";
+> > +
+> > +        #interrupt-cells = <1>;
+> > +        msi-parent = <&pcie0>;
+> 
+> There shouldn't be any need to point to yourself.
+> 
+> > +        msi-controller;
+> > +
+> > +        aspeed,ahbc = <&ahbc>;
+> > +
+> > +        interrupt-map-mask = <0 0 0 7>;
+> > +        interrupt-map = <0 0 0 1 &pcie_intc0 0>,
+> > +                        <0 0 0 2 &pcie_intc0 1>,
+> > +                        <0 0 0 3 &pcie_intc0 2>,
+> > +                        <0 0 0 4 &pcie_intc0 3>;
+> > +        pcie_intc0: interrupt-controller {
+> > +          interrupt-controller;
+> > +          #address-cells = <0>;
+> > +          #interrupt-cells = <1>;
+> > +        };
+> > +
+> > +        pcie@8,0 {
+> > +          reg = <0x804000 0 0 0 0>;
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
-index 1efd547b2ba6..af0fed6124e2 100644
---- a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
-@@ -52,60 +52,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
- 		};
--
--		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4000000 0x00 0x100000>;
--			no-map;
--		};
--
--		mcu_m4fss_memory_region: m4f-memory@a4100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		rtos_ipc_memory_region: ipc-memories@a5000000 {
--			reg = <0x00 0xa5000000 0x00 0x00800000>;
--			alignment = <0x1000>;
--			no-map;
--		};
- 	};
- 
- 	leds {
-@@ -238,67 +184,6 @@ &cpsw_port1 {
- 	status = "okay";
- };
- 
--&mailbox0_cluster2 {
--	status = "okay";
--
--	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster4 {
--	status = "okay";
--
--	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster6 {
--	status = "okay";
--
--	mbox_m4_0: mbox-m4-0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--};
--
--/* main_timer8 is used by r5f0-0 */
--&main_timer8 {
--	status = "reserved";
--};
--
--/* main_timer9 is used by r5f0-1 */
--&main_timer9 {
--	status = "reserved";
--};
--
--/* main_timer10 is used by r5f1-0 */
--&main_timer10 {
--	status = "reserved";
--};
--
--/* main_timer11 is used by r5f1-1 */
--&main_timer11 {
--	status = "reserved";
--};
--
--&main_r5fss0 {
--	status = "okay";
--};
--
- &main_i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_i2c0_pins_default>;
-@@ -373,49 +258,6 @@ &main_pktdma {
- 	bootph-all;
- };
- 
--&main_r5fss0 {
--	status = "okay";
--};
--
--&main_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
--	memory-region = <&main_r5fss0_core0_dma_memory_region>,
--			<&main_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss0_core1 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
--	memory-region = <&main_r5fss0_core1_dma_memory_region>,
--			<&main_r5fss0_core1_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1 {
--	status = "okay";
--};
--
--&main_r5fss1_core0 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
--	memory-region = <&main_r5fss1_core0_dma_memory_region>,
--			<&main_r5fss1_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1_core1 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
--	memory-region = <&main_r5fss1_core1_dma_memory_region>,
--			<&main_r5fss1_core1_memory_region>;
--	status = "okay";
--};
--
--&mcu_m4fss {
--	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
--	memory-region = <&mcu_m4fss_dma_memory_region>,
--			<&mcu_m4fss_memory_region>;
--	status = "okay";
--};
--
- &ospi0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&ospi0_pins_default>;
-@@ -451,3 +293,5 @@ adc {
- 		ti,adc-channels = <0 1 2 3 4 5 6 7>;
- 	};
- };
-+
-+#include "k3-am64-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi
-new file mode 100644
-index 000000000000..847495f76831
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi
-@@ -0,0 +1,162 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/**
-+ * Device Tree Source for enabling IPC using TI SDK firmware on AM64 SoCs
-+ *
-+ * Copyright (C) 2024-2025 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+&reserved_memory {
-+	main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xa1000000 0x00 0x100000>;
-+		no-map;
-+	};
-+
-+	main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xa1100000 0x00 0xf00000>;
-+		no-map;
-+	};
-+
-+	main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xa2000000 0x00 0x100000>;
-+		no-map;
-+	};
-+
-+	main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xa2100000 0x00 0xf00000>;
-+		no-map;
-+	};
-+
-+	main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xa3000000 0x00 0x100000>;
-+		no-map;
-+	};
-+
-+	main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xa3100000 0x00 0xf00000>;
-+		no-map;
-+	};
-+
-+	mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xa4000000 0x00 0x100000>;
-+		no-map;
-+	};
-+
-+	mcu_m4fss_memory_region: m4f-memory@a4100000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xa4100000 0x00 0xf00000>;
-+		no-map;
-+	};
-+
-+	rtos_ipc_memory_region: ipc-memories@a5000000 {
-+		reg = <0x00 0xa5000000 0x00 0x00800000>;
-+		alignment = <0x1000>;
-+		no-map;
-+	};
-+};
-+
-+&mailbox0_cluster2 {
-+	status = "okay";
-+
-+	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
-+		ti,mbox-rx = <0 0 2>;
-+		ti,mbox-tx = <1 0 2>;
-+	};
-+
-+	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
-+		ti,mbox-rx = <2 0 2>;
-+		ti,mbox-tx = <3 0 2>;
-+	};
-+};
-+
-+&mailbox0_cluster4 {
-+	status = "okay";
-+
-+	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
-+		ti,mbox-rx = <0 0 2>;
-+		ti,mbox-tx = <1 0 2>;
-+	};
-+
-+	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
-+		ti,mbox-rx = <2 0 2>;
-+		ti,mbox-tx = <3 0 2>;
-+	};
-+};
-+
-+&mailbox0_cluster6 {
-+	status = "okay";
-+
-+	mbox_m4_0: mbox-m4-0 {
-+		ti,mbox-rx = <0 0 2>;
-+		ti,mbox-tx = <1 0 2>;
-+	};
-+};
-+
-+/* main_timer8 is used by r5f0-0 */
-+&main_timer8 {
-+	status = "reserved";
-+};
-+
-+/* main_timer9 is used by r5f0-1 */
-+&main_timer9 {
-+	status = "reserved";
-+};
-+
-+/* main_timer10 is used by r5f1-0 */
-+&main_timer10 {
-+	status = "reserved";
-+};
-+
-+/* main_timer11 is used by r5f1-1 */
-+&main_timer11 {
-+	status = "reserved";
-+};
-+
-+&main_r5fss0 {
-+	status = "okay";
-+};
-+
-+&main_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
-+	memory-region = <&main_r5fss0_core0_dma_memory_region>,
-+			<&main_r5fss0_core0_memory_region>;
-+	status = "okay";
-+};
-+
-+&main_r5fss0_core1 {
-+	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
-+	memory-region = <&main_r5fss0_core1_dma_memory_region>,
-+			<&main_r5fss0_core1_memory_region>;
-+	status = "okay";
-+};
-+
-+&main_r5fss1 {
-+	status = "okay";
-+};
-+
-+&main_r5fss1_core0 {
-+	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
-+	memory-region = <&main_r5fss1_core0_dma_memory_region>,
-+			<&main_r5fss1_core0_memory_region>;
-+	status = "okay";
-+};
-+
-+&main_r5fss1_core1 {
-+	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
-+	memory-region = <&main_r5fss1_core1_dma_memory_region>,
-+			<&main_r5fss1_core1_memory_region>;
-+	status = "okay";
-+};
-+
-+&mcu_m4fss {
-+	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
-+	memory-region = <&mcu_m4fss_dma_memory_region>,
-+			<&mcu_m4fss_memory_region>;
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-index 7640c5efe9b8..05b7cdd25a8c 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-@@ -64,60 +64,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
- 		};
--
--		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4000000 0x00 0x100000>;
--			no-map;
--		};
--
--		mcu_m4fss_memory_region: m4f-memory@a4100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		rtos_ipc_memory_region: ipc-memories@a5000000 {
--			reg = <0x00 0xa5000000 0x00 0x00800000>;
--			alignment = <0x1000>;
--			no-map;
--		};
- 	};
- 
- 	evm_12v0: regulator-0 {
-@@ -727,106 +673,6 @@ partition@3fc0000 {
- 	};
- };
- 
--&mailbox0_cluster2 {
--	status = "okay";
--
--	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster4 {
--	status = "okay";
--
--	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster6 {
--	status = "okay";
--
--	mbox_m4_0: mbox-m4-0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--};
--
--&main_r5fss0 {
--	status = "okay";
--};
--
--&main_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
--	memory-region = <&main_r5fss0_core0_dma_memory_region>,
--			<&main_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss0_core1 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
--	memory-region = <&main_r5fss0_core1_dma_memory_region>,
--			<&main_r5fss0_core1_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1 {
--	status = "okay";
--};
--
--&main_r5fss1_core0 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
--	memory-region = <&main_r5fss1_core0_dma_memory_region>,
--			<&main_r5fss1_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1_core1 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
--	memory-region = <&main_r5fss1_core1_dma_memory_region>,
--			<&main_r5fss1_core1_memory_region>;
--	status = "okay";
--};
--
--&mcu_m4fss {
--	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
--	memory-region = <&mcu_m4fss_dma_memory_region>,
--			<&mcu_m4fss_memory_region>;
--	status = "okay";
--};
--
--/* main_timer8 is used by r5f0-0 */
--&main_timer8 {
--	status = "reserved";
--};
--
--/* main_timer9 is used by r5f0-1 */
--&main_timer9 {
--	status = "reserved";
--};
--
--/* main_timer10 is used by r5f1-0 */
--&main_timer10 {
--	status = "reserved";
--};
--
--/* main_timer11 is used by r5f1-1 */
--&main_timer11 {
--	status = "reserved";
--};
--
- &serdes_ln_ctrl {
- 	idle-states = <AM64_SERDES0_LANE0_PCIE0>;
- };
-@@ -890,3 +736,5 @@ &icssg1_iep0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&icssg1_iep0_pins_default>;
- };
-+
-+#include "k3-am64-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-sk.dts b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
-index fb8bd66f2f94..cc1569a6519b 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
-@@ -62,60 +62,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
- 		};
--
--		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4000000 0x00 0x100000>;
--			no-map;
--		};
--
--		mcu_m4fss_memory_region: m4f-memory@a4100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		rtos_ipc_memory_region: ipc-memories@a5000000 {
--			reg = <0x00 0xa5000000 0x00 0x00800000>;
--			alignment = <0x1000>;
--			no-map;
--		};
- 	};
- 
- 	vusb_main: regulator-0 {
-@@ -642,106 +588,6 @@ partition@3fc0000 {
- 	};
- };
- 
--&mailbox0_cluster2 {
--	status = "okay";
--
--	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster4 {
--	status = "okay";
--
--	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster6 {
--	status = "okay";
--
--	mbox_m4_0: mbox-m4-0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--};
--
--&main_r5fss0 {
--	status = "okay";
--};
--
--&main_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
--	memory-region = <&main_r5fss0_core0_dma_memory_region>,
--			<&main_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss0_core1 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
--	memory-region = <&main_r5fss0_core1_dma_memory_region>,
--			<&main_r5fss0_core1_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1 {
--	status = "okay";
--};
--
--&main_r5fss1_core0 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
--	memory-region = <&main_r5fss1_core0_dma_memory_region>,
--			<&main_r5fss1_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1_core1 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
--	memory-region = <&main_r5fss1_core1_dma_memory_region>,
--			<&main_r5fss1_core1_memory_region>;
--	status = "okay";
--};
--
--&mcu_m4fss {
--	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
--	memory-region = <&mcu_m4fss_dma_memory_region>,
--			<&mcu_m4fss_memory_region>;
--	status = "okay";
--};
--
--/* main_timer8 is used by r5f0-0 */
--&main_timer8 {
--	status = "reserved";
--};
--
--/* main_timer9 is used by r5f0-1 */
--&main_timer9 {
--	status = "reserved";
--};
--
--/* main_timer10 is used by r5f1-0 */
--&main_timer10 {
--	status = "reserved";
--};
--
--/* main_timer11 is used by r5f1-1 */
--&main_timer11 {
--	status = "reserved";
--};
--
- &ecap0 {
- 	status = "okay";
- 	/* PWM is available on Pin 1 of header J3 */
-@@ -755,3 +601,5 @@ &eqep0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_eqep0_pins_default>;
- };
-+
-+#include "k3-am64-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
-index 8cb61f831734..ce23362b88c3 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
-@@ -126,60 +126,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
- 		};
--
--		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4000000 0x00 0x100000>;
--			no-map;
--		};
--
--		mcu_m4fss_memory_region: m4f-memory@a4100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		rtos_ipc_memory_region: ipc-memories@a5000000 {
--			reg = <0x00 0xa5000000 0x00 0x00800000>;
--			alignment = <0x1000>;
--			no-map;
--		};
- 	};
- 
- 	vdd_mmc0: regulator-vdd-mmc0 {
-@@ -281,63 +227,6 @@ ethernet_phy2: ethernet-phy@f {
- 	};
- };
- 
--&mailbox0_cluster2 {
--	status = "okay";
--
--	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster4 {
--	status = "okay";
--
--	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster6 {
--	status = "okay";
--
--	mbox_m4_0: mbox-m4-0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--};
--
--/* main_timer8 is used by r5f0-0 */
--&main_timer8 {
--	status = "reserved";
--};
--
--/* main_timer9 is used by r5f0-1 */
--&main_timer9 {
--	status = "reserved";
--};
--
--/* main_timer10 is used by r5f1-0 */
--&main_timer10 {
--	status = "reserved";
--};
--
--/* main_timer11 is used by r5f1-1 */
--&main_timer11 {
--	status = "reserved";
--};
--
- &main_i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_i2c0_default_pins>;
-@@ -535,49 +424,6 @@ AM64X_IOPAD(0x02a8, PIN_OUTPUT, 0) /* USB0_DRVVBUS.USB0_DRVVBUS */
- 	};
- };
- 
--&main_r5fss0 {
--	status = "okay";
--};
--
--&main_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
--	memory-region = <&main_r5fss0_core0_dma_memory_region>,
--			<&main_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss0_core1 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
--	memory-region = <&main_r5fss0_core1_dma_memory_region>,
--			<&main_r5fss0_core1_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1 {
--	status = "okay";
--};
--
--&main_r5fss1_core0 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
--	memory-region = <&main_r5fss1_core0_dma_memory_region>,
--			<&main_r5fss1_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1_core1 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
--	memory-region = <&main_r5fss1_core1_dma_memory_region>,
--			<&main_r5fss1_core1_memory_region>;
--	status = "okay";
--};
--
--&mcu_m4fss {
--	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
--	memory-region = <&mcu_m4fss_dma_memory_region>,
--			<&mcu_m4fss_memory_region>;
--	status = "okay";
--};
--
- /* SoC default UART console */
- &main_uart0 {
- 	pinctrl-names = "default";
-@@ -656,3 +502,5 @@ &usbss0 {
- 	ti,vbus-divider;
- 	ti,usb2-only;
- };
-+
-+#include "k3-am64-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-index 860b79aa5ef5..e752fc8b0a88 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-@@ -42,60 +42,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
- 		};
--
--		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa1100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa2100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3000000 0x00 0x100000>;
--			no-map;
--		};
--
--		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa3100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4000000 0x00 0x100000>;
--			no-map;
--		};
--
--		mcu_m4fss_memory_region: m4f-memory@a4100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xa4100000 0x00 0xf00000>;
--			no-map;
--		};
--
--		rtos_ipc_memory_region: ipc-memories@a5000000 {
--			reg = <0x00 0xa5000000 0x00 0x00800000>;
--			alignment = <0x1000>;
--			no-map;
--		};
- 	};
- 
- 	reg_1v8: regulator-1v8 {
-@@ -142,106 +88,6 @@ eeprom1: eeprom@54 {
- 	};
- };
- 
--&mailbox0_cluster2 {
--	status = "okay";
--
--	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster4 {
--	status = "okay";
--
--	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--
--	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
--		ti,mbox-rx = <2 0 2>;
--		ti,mbox-tx = <3 0 2>;
--	};
--};
--
--&mailbox0_cluster6 {
--	status = "okay";
--
--	mbox_m4_0: mbox-m4-0 {
--		ti,mbox-rx = <0 0 2>;
--		ti,mbox-tx = <1 0 2>;
--	};
--};
--
--/* main_timer8 is used by r5f0-0 */
--&main_timer8 {
--	status = "reserved";
--};
--
--/* main_timer9 is used by r5f0-1 */
--&main_timer9 {
--	status = "reserved";
--};
--
--/* main_timer10 is used by r5f1-0 */
--&main_timer10 {
--	status = "reserved";
--};
--
--/* main_timer11 is used by r5f1-1 */
--&main_timer11 {
--	status = "reserved";
--};
--
--&main_r5fss0 {
--	status = "okay";
--};
--
--&main_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
--	memory-region = <&main_r5fss0_core0_dma_memory_region>,
--			<&main_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss0_core1 {
--	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
--	memory-region = <&main_r5fss0_core1_dma_memory_region>,
--			<&main_r5fss0_core1_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1 {
--	status = "okay";
--};
--
--&main_r5fss1_core0 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
--	memory-region = <&main_r5fss1_core0_dma_memory_region>,
--			<&main_r5fss1_core0_memory_region>;
--	status = "okay";
--};
--
--&main_r5fss1_core1 {
--	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
--	memory-region = <&main_r5fss1_core1_dma_memory_region>,
--			<&main_r5fss1_core1_memory_region>;
--	status = "okay";
--};
--
--&mcu_m4fss {
--	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
--	memory-region = <&mcu_m4fss_dma_memory_region>,
--			<&mcu_m4fss_memory_region>;
--	status = "okay";
--};
--
- &ospi0 {
- 	status = "okay";
- 	pinctrl-names = "default";
-@@ -315,3 +161,5 @@ AM64X_IOPAD(0x0008, PIN_INPUT, 0)
- 		>;
- 	};
- };
-+
-+#include "k3-am64-ti-ipc-firmware.dtsi"
+Why the device number starts from 8?
+
+If there are platform specific reasons behind this numbering scheme, it should
+be mentioned in the description.
+
+- Mani
+
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
