@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA151CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 06:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F60ECA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 06:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4jwzAQ9Rfk+Pi5ON+jYzcRibF8KiH8LJTsIUs7mU30I=; b=GZTfcukmgPJTted4uu1CSwD4MC
-	BhxUBIs7pDAovK3uJBFg6xgRrUbCKJdymLH0kx7Lp05bzdoC8P5EjPwTsDeXTSe6BHU2s1qKgNs/K
-	bOZJd60/bzGC+16AFg8b6poh82OCUNPoUBo0XGilQhtM4xDgmCt5qkmr80cWl1cBZHuWI/L9Te+bi
-	dxObLI2xguGxPFyfGbDbqX42HXsmVZLdSsf8i5Cv+CRGsFmvGCynZ1s0Hg9EG4MC4ct81yHToQsyS
-	y7Jt5jaNHHU8+gmotx4Ft4zDfnLA3ajeE682Wu0wxl30jN+hVEEK+02Hd2x2ViNlGE8+rf6crPAk7
-	q0xYhBHA==;
+	bh=YpinV5VlvUHE4JAwBc5KTSnoSKpJ5hOUCOjUAw+Qq5o=; b=oEgEG/qk1udzyAtKlAwl9lBpNt
+	69LU1hN1RP0T/012aEcKkJmuNYf9/XdPlO3cSl239eDd4rvyy8HeopgnlntjBptuy58rUMZ0i9dyC
+	Da4yGfonnFqyak7AaYW0T+DKXTDWKx8/PTwiILRHqmDXX9K0oO7Mb2FFN8sN7GUfchmwh4x5mkSvj
+	776UUdv6pC3m9s/JCZ8jR/W5zAFDFJ4UcELSJCvDLJn0zDkN52J/0HLTlSKDmEB194UyWGtwSTNZA
+	Zsgg1jB1rFO7Ib0T1bw3B20StC0uVPFNcwcqsuoBFP0d7TG5TmqYXAcXZ7CEW40m4G/cPrln90OAB
+	LvQ0Rdfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuPbW-0000000HBZ0-3lJz;
-	Fri, 05 Sep 2025 06:07:22 +0000
+	id 1uuPeD-0000000HCSl-2hTO;
+	Fri, 05 Sep 2025 06:10:09 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuOrY-0000000Gwwb-3dMf
+	id 1uuOre-0000000GwzQ-3l5u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 05:19:54 +0000
+	Fri, 05 Sep 2025 05:20:00 +0000
 Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5855Jobi3637286;
-	Fri, 5 Sep 2025 00:19:50 -0500
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5855Jslh3637318;
+	Fri, 5 Sep 2025 00:19:54 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757049590;
-	bh=4jwzAQ9Rfk+Pi5ON+jYzcRibF8KiH8LJTsIUs7mU30I=;
+	s=ti-com-17Q1; t=1757049594;
+	bh=YpinV5VlvUHE4JAwBc5KTSnoSKpJ5hOUCOjUAw+Qq5o=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=JzRhC9LOUejPd5KQ7UHZEXPCdB5Mv3Ay7uSinhqM6zz/HQm7fy4M5CQawa1vr8xhu
-	 YZiAo4jxJXRS3fPn7kdYHwyWefAgo4qQ/loYuvpGbsG3pi+YM58Ef6fS0bjzskmGNg
-	 1QJm+7zqeQci0EmovOtVCX3CsAmN5yp7MEbfK7K0=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5855Jomn655334
+	b=WhC4Mr/miQouBtX/eAnpSn+1lk+FCeDMdmmeKVeQolWD4K2r8XRmSA3ZgVbgmaljE
+	 Hd3JKvJiOB1dDp15qraxWXxtR93bPmm/liNgu56BeJUNvTBrbkycqLXYkYiKR4cC3Q
+	 GeAcnfXYKApKSH+4+AhXNf4hajJvGDzR0GfFSVKo=
+Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5855Jsl8655357
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 5 Sep 2025 00:19:50 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 5 Sep 2025 00:19:54 -0500
+Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 5
- Sep 2025 00:19:49 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 00:19:54 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 5 Sep 2025 00:19:49 -0500
+ Frontend Transport; Fri, 5 Sep 2025 00:19:54 -0500
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5855Ioif220581;
-	Fri, 5 Sep 2025 00:19:46 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5855Ioig220581;
+	Fri, 5 Sep 2025 00:19:50 -0500
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
 CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
         <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 12/33] arm64: dts: ti: k3-am6*-boards: Add label to reserved-memory node
-Date: Fri, 5 Sep 2025 10:48:25 +0530
-Message-ID: <20250905051846.1189612-13-b-padhi@ti.com>
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Robert Nelson <robertcnelson@gmail.com>
+Subject: [PATCH v3 13/33] arm64: dts: ti: k3-j721e-beagleboneai64: Add missing cfg for TI IPC FW
+Date: Fri, 5 Sep 2025 10:48:26 +0530
+Message-ID: <20250905051846.1189612-14-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250905051846.1189612-1-b-padhi@ti.com>
 References: <20250905051846.1189612-1-b-padhi@ti.com>
@@ -69,8 +70,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_221952_993110_910BDF99 
-X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-CacheID: sfid-20250904_221959_022435_93711F08 
+X-CRM114-Status: UNSURE (   9.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,210 +87,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the label name 'reserved_memory' to the reserved-memory node in all
-K3 AM6* board level dts files. This is done so that the node can be
-referenced and extended to add more carveout entries as needed in future
-refactoring patches.
+The TI IPC Firmwares running on J721E SoCs use certain MAIN domain
+timers as tick. Reserve those at board level DT to avoid remote
+processor crashes. This config aligns with other J721E boards and can
+be refactored out later.
 
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-Acked-by: Andrew Davis <afd@ti.com>
 ---
+Cc: Robert Nelson <robertcnelson@gmail.com>
+Requesting for review/test of this patch.
+
 v3: Changelog:
-1. Carried A/B tag.
+1. None
 
 Link to v2:
-https://lore.kernel.org/all/20250823160901.2177841-13-b-padhi@ti.com/
+https://lore.kernel.org/all/20250823160901.2177841-14-b-padhi@ti.com/
 
 v2: Changelog:
-1. Re-ordered patch from [PATCH 15/33] to [PATCH v2 12/33].
+1. Split [PATCH 06/33] into [PATCH v2 13/33] and [PATCH v2 22/33].
+This patch only reserves the timer nodes used by rproc firmware.
 
 Link to v1:
-https://lore.kernel.org/all/20250814223839.3256046-16-b-padhi@ti.com/
+https://lore.kernel.org/all/20250814223839.3256046-7-b-padhi@ti.com/
 
- arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi         | 2 +-
- arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi   | 2 +-
- arch/arm64/boot/dts/ti/k3-am62a7-sk.dts            | 2 +-
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts           | 2 +-
- arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi        | 2 +-
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts            | 2 +-
- arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi     | 2 +-
- arch/arm64/boot/dts/ti/k3-am642-evm.dts            | 2 +-
- arch/arm64/boot/dts/ti/k3-am642-sk.dts             | 2 +-
- arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi        | 2 +-
- arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi     | 2 +-
- arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi | 2 +-
- arch/arm64/boot/dts/ti/k3-am654-base-board.dts     | 2 +-
- 13 files changed, 13 insertions(+), 13 deletions(-)
+ .../boot/dts/ti/k3-j721e-beagleboneai64.dts   | 29 +++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-index bbf2d630b305..cbbcb96e2e24 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-@@ -189,7 +189,7 @@ reg_usb0_vbus: regulator-usb0-vbus {
- 		regulator-name = "USB_1_EN";
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+index 0d1a313a7d10..2ff4cdf1300f 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+@@ -935,6 +935,35 @@ mbox_c71_0: mbox-c71-0 {
  	};
+ };
  
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-index 403adfbf7dce..3108e9b0c804 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-@@ -45,7 +45,7 @@ memory@80000000 {
- 		bootph-all;
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-index 03291862f07a..7ebcfe8edfe1 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-@@ -39,7 +39,7 @@ memory@80000000 {
- 		bootph-all;
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-index d45fc42b03f3..41860ac42f3c 100644
---- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-@@ -39,7 +39,7 @@ memory@80000000 {
- 		bootph-all;
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-index a2fdc6741da2..6a04b370d149 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-@@ -147,7 +147,7 @@ reg_vsodimm: regulator-vsodimm {
- 		regulator-name = "+V_SODIMM";
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index 2755598fd1f5..c5b5b00c42b9 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -44,7 +44,7 @@ memory@80000000 {
- 		bootph-pre-ram;
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-index 840772060cb1..03b8e246d8c2 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-@@ -36,7 +36,7 @@ memory@80000000 {
- 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-index a07503b192c9..7640c5efe9b8 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-@@ -42,7 +42,7 @@ memory@80000000 {
- 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-sk.dts b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
-index ae4a6552644c..fb8bd66f2f94 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
-@@ -40,7 +40,7 @@ memory@80000000 {
- 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
-index d0c1e4dc1da7..81adae0a8e55 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
-@@ -105,7 +105,7 @@ memory@80000000 {
- 		device_type = "memory";
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-index 876cbb21961d..40b619c9a6c9 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-@@ -20,7 +20,7 @@ memory@80000000 {
- 
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
-index 73936994a156..6cd499ea53e7 100644
---- a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
-@@ -36,7 +36,7 @@ chosen {
- 		stdout-path = "serial3:115200n8";
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
-diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-index 39c2d46801de..e532ea0a22b2 100644
---- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-@@ -39,7 +39,7 @@ memory@80000000 {
- 		      <0x00000008 0x80000000 0x00000000 0x80000000>;
- 	};
- 
--	reserved-memory {
-+	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
++/* Timers are used by Remoteproc firmware */
++&main_timer0 {
++	status = "reserved";
++};
++
++&main_timer1 {
++	status = "reserved";
++};
++
++&main_timer2 {
++	status = "reserved";
++};
++
++&main_timer12 {
++	status = "reserved";
++};
++
++&main_timer13 {
++	status = "reserved";
++};
++
++&main_timer14 {
++	status = "reserved";
++};
++
++&main_timer15 {
++	status = "reserved";
++};
++
+ &mcu_r5fss0 {
+ 	status = "okay";
+ };
 -- 
 2.34.1
 
