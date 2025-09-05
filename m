@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8068CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A849CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pzt7qrENbx/8j/QYtoZElmLzncNQBAh6Evzi2YZaWyc=; b=egrgdUVg+go94Oa19qNxp2cMCA
-	+En2MxNMMLmzK0LaLdtzsVXeR6KwsVxWQPf0I6KSpSBud7uD3Q1hc3VexjkePsn14k404JkPbPezD
-	cV1BoXgOXHVb116W82tVifVNRJcGs/4EXK0bTPl7XmExxVPrFc1lzF9bRQ3ozN/krSuVVY01zeccw
-	JE+YXVAq2FR+/LMTETliNF5hVfvfAwRGHGQqahcu2IzPGQPqJxDwU3fxk2Bv4EfA2Jv6CODK0CepE
-	9LhCw7sRTa7BBXxlFJoN68yiLvTtrLOAQO5ABEu6+JWKvfbIMxnDZ2owO7liSyaHRE9+zo8LZ1Yua
-	JdyRiNyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6vsOOo1Dh/5faLhmv68ZRtREyyxaQnkJhUnEnuAMyqc=; b=PPu01EDke7S6HANBA8vZ4Pke4G
+	dwmdlGTvfyhvMURihTPlpe/zG7Yc0cnfCaCt4ZDRuVHSQJQVfFPD65j4vkuajicb7aZyUSJTnqqzB
+	lw4OQp1C7gNRWLZAeky3z0Doi+5/RksWru3e1PyS4i4eGuOinXmgESdyEJChRqBn3HAWv3aM/3LJP
+	dmKGqPbJa7FiP1pW0lrHRMIWrro86IxlljTazK1g1eWUl0GgDx2QCvEnsutOgqpOY80yFzdTj0nP0
+	5ErYit8Zrrk1/eXma8iqXZXjK67Uf+Ppfrkcz1myFikZS66EkO6JpnAvfW0TFZ7JS73PkHNA1+fdp
+	MKVoTAKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuaQw-00000003Xij-21VZ;
-	Fri, 05 Sep 2025 17:41:10 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1uuaTZ-00000003YSo-1Dxm;
+	Fri, 05 Sep 2025 17:43:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuVxi-00000001oNl-399M;
-	Fri, 05 Sep 2025 12:54:43 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3277c603b83so1229544a91.2;
-        Fri, 05 Sep 2025 05:54:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757076882; x=1757681682; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pzt7qrENbx/8j/QYtoZElmLzncNQBAh6Evzi2YZaWyc=;
-        b=Zz9Qe8IGdFxZGq1vJDC816N8K9AvYbTSepJ3aAIaXQvjWoLhbX/E7K1jwNgqS/t/Pc
-         eaWjgR8s4ehPED0T56Ub25g/AtyJgLT3p2WDzmzAzpIIsAVUM5zcEp1nMegj5F0hk33A
-         0VdaFiqwyrvHBRJKtYudz3TgBftaacS9T2mRpU7CcOSw7oKlWkl8GcsfoNO4BRLjM49S
-         tcUHMGddBw3hfhMkAQIkCMbjc0BCoHu4kNty4nQJAIUuZ+V17+wVUwPS35xJFROYl0Yz
-         rFeEGlvDDxPdeEAUY/DaNIe8Jx86ksqxIWgeMglhp7g/6RzQYlDshkhzwm4uQLeUN0S0
-         5Cjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757076882; x=1757681682;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Pzt7qrENbx/8j/QYtoZElmLzncNQBAh6Evzi2YZaWyc=;
-        b=n/NBj6JoVmas9DpxvmVQRvHenZpfcswVntvCn55LoHgTtxPPPwP/Bq61B75WMWCvYO
-         Te7BW+RziyhxA2Nvjrxtc6EqhFtDgmorxR672z2Q3dka1h6Zi92+7pZdVJvDkfghDeWP
-         E+f+2Rism7ykxpv80F8+dwl/kXPbG8jerEUnld5ksbTqQqKzlApjAoRby+wzpgh8fx8Y
-         oHtgWBcn6QpDOp71rRMvOua2LzOa2Dk8cc6+oOgGKJSbehwx67l+FK1+YVN3fl3DkyBo
-         Wjhjrc0fU3ZvzuJd9yGmg/5s8wX5Ki2ISO8/SGEyscn83jryfSWL0+E6/n3kg+dKKMXo
-         RN3A==
-X-Forwarded-Encrypted: i=1; AJvYcCUQxY7Kgado4CDmkc8h+jHZvaaWMXaAg3Brs7DAVs23tBv+qgX4NicNq0xrATu65E5mb/lq5GWzjE299hTX35gP@lists.infradead.org, AJvYcCUZUjZ1OXJHCAXh18ZPkmAIY8g0mOznkS7SGQ58SwSqiQCiSM8VXBLePPz1LQCjbixr89Z9KKZegT0LiNkJn0s=@lists.infradead.org, AJvYcCVmNuxn5SxpNNY6nczXQdd9vfLmclNHvzX4o+dffYFXRs5sY9FkT7PVKn+rLhxx3MzCOAzr1pr2VgU0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEs1xIe4oUaG6VZLY07v5gBNgcx+NiNj7H/1QlG1NCfA/YF/qo
-	H9ODa3CeoX1fayCxiI+oZNiXPIM2J650ZxmhbsIL1/rypUXJnCcpMLHA
-X-Gm-Gg: ASbGncvjqMF4yk+6atgl8/BU7uDkDA1cjAk6ql5juodZn4HT+ZaCk1Da+KgsyEWdYrL
-	r2CLoYDtgbf2cnOpMYkqjcVRS7RTuFwECDshnA4vVbVjKd2i26FVB1xlkzWDRSfF72ojSjJd0cB
-	vu9ZjztmxBylCCP4r2Adzg9uzzTnySd7AnGoskFujxyLonBcMS+NbV1TennZcL2oxtVWR1VvBJP
-	GAIq8n2hqxPD274LYciWMLIQYEQUG4uUrpJgmLaAWG2S/3D09Xqg/PTM8ECJa+6zLTZIgyAg0i4
-	nCvr3tOvPx5YW1A3Kja/AGSXleIZ9/SrJDLWhaaCdSnIkwovzu6DRGZcmQWnDFCiePF8VpOYuqu
-	3z6G2oi0GyrNdKDsjPZYGHdobv9Ay18RZ
-X-Google-Smtp-Source: AGHT+IGwaXpMS2RTd/sFuAtY1Bq+6bu9GKob5Mqjz6hbplf9JNkChNQZjJMmG8KUui+rta/1CzzCVA==
-X-Received: by 2002:a17:90b:5865:b0:313:1c7b:fc62 with SMTP id 98e67ed59e1d1-328156c62c2mr25634481a91.22.1757076881888;
-        Fri, 05 Sep 2025 05:54:41 -0700 (PDT)
-Received: from localhost.localdomain ([2401:ce20:10::d4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4fb98f9f6asm4992305a12.8.2025.09.05.05.54.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 05:54:41 -0700 (PDT)
-From: WeiHao Li <cn.liweihao@gmail.com>
-To: heiko@sntech.de,
-	robh@kernel.org
-Cc: krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	WeiHao Li <cn.liweihao@gmail.com>
-Subject: [PATCH v1 2/4] arm64: dts: rockchip: Add USB2.0 PHY for RK3368
-Date: Fri,  5 Sep 2025 20:53:15 +0800
-Message-ID: <20250905125318.7956-3-cn.liweihao@gmail.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250905125318.7956-1-cn.liweihao@gmail.com>
-References: <20250905125318.7956-1-cn.liweihao@gmail.com>
+	id 1uuWeO-000000022Gh-3MvO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 13:38:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F7AD44CB7;
+	Fri,  5 Sep 2025 13:38:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45B7FC4CEF1;
+	Fri,  5 Sep 2025 13:38:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757079528;
+	bh=+RfIeCiYHGfOQAYZpOBH5xFxrQIjFV5rbqolCOJUiVQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=goqvWAluxfzf8BkxFwUH6Ln7miVt6sUnhYEjzlJ0bfEm6Z+hkN7Vbm+5YeSyn4CZq
+	 nfc/ZWNn4ruTbxMbNZUqC/HtAnC6ie9u7NgP+pl4PTtHfQIkHasEbxJQCEIuZG7c6G
+	 3YJH26/oE9qL2Xkghwa6/0lf4A3/FEFYpnEgDsQvJkjT2T2ftwdCzOHTphbw1NRKn8
+	 HV1egnOIdjeyvJpeDSdBn/jomeNlNAN6ZnNGOsiwu7EutupADa1bHHpkcN4zKF34qr
+	 Xi/Xfb07GAaelXX5R9irbB92nla6CsdO+hpRpj2iAnhtRUIGi52egIr9m97RUdDx7h
+	 3YfsrU1YqhEGA==
+Date: Fri, 5 Sep 2025 14:38:41 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Naresh Kamboju <naresh.kamboju@linaro.org>, kvmarm@lists.linux.dev,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	lkft-triage@lists.linaro.org,
+	Linux Regressions <regressions@lists.linux.dev>,
+	Fuad Tabba <tabba@google.com>, Paolo Bonzini <pbonzini@redhat.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Ben Copeland <benjamin.copeland@linaro.org>,
+	Aishwarya TCV <Aishwarya.TCV@arm.com>
+Subject: Re: kvm-unit-tests hang on Arm FVP with protected mode
+Message-ID: <345e42db-eabd-4e34-abf5-d9974dfe55d1@sirena.org.uk>
+References: <CA+G9fYsT3b3Qd-m6tSDOgAXpgLPWz0QD_Z6a+_ff4oTecA85PQ@mail.gmail.com>
+ <87ms79ystc.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ftKo7STfvoWEjFz0"
+Content-Disposition: inline
+In-Reply-To: <87ms79ystc.wl-maz@kernel.org>
+X-Cookie: He who laughs, lasts.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_055442_786536_5377C25B 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250905_063848_878969_EC9CD72E 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,60 +88,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RK3368 has one USB2.0 PHY with two ports, This adds device tree node for
-it.
 
-Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3368.dtsi | 29 ++++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
+--ftKo7STfvoWEjFz0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3368.dtsi b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-index 1b21787269..b09e431a64 100644
---- a/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-@@ -766,11 +766,40 @@ cru: clock-controller@ff760000 {
- 	grf: syscon@ff770000 {
- 		compatible = "rockchip,rk3368-grf", "syscon", "simple-mfd";
- 		reg = <0x0 0xff770000 0x0 0x1000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
- 
- 		io_domains: io-domains {
- 			compatible = "rockchip,rk3368-io-voltage-domain";
- 			status = "disabled";
- 		};
-+
-+		u2phy: usb2-phy@700 {
-+			compatible = "rockchip,rk3368-usb2phy";
-+			reg = <0x700 0x2c>;
-+			clocks = <&cru SCLK_OTGPHY0>;
-+			clock-names = "phyclk";
-+			clock-output-names = "usb480m_phy";
-+			#clock-cells = <0>;
-+			status = "disabled";
-+
-+			u2phy_otg: otg-port {
-+				interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>,
-+					     <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>,
-+					     <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
-+				interrupt-names = "otg-bvalid", "otg-id",
-+						  "linestate";
-+				#phy-cells = <0>;
-+				status = "disabled";
-+			};
-+
-+			u2phy_host: host-port {
-+				interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
-+				interrupt-names = "linestate";
-+				#phy-cells = <0>;
-+				status = "disabled";
-+			};
-+		};
- 	};
- 
- 	wdt: watchdog@ff800000 {
--- 
-2.39.5
+On Fri, Sep 05, 2025 at 01:42:07PM +0100, Marc Zyngier wrote:
+> Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
 
+> > INFO: running kvm unit tests ...
+> > + [ True = false ]
+> > + ./run_tests.sh -a -t -v
+> > + tee -a /lava-1/0/tests/0_kvm-unit-tests/automated/linux/kvm-unit-tests/output/result_log.txt
+> > TAP version 13
+
+> What do you expect us to do with such a non-report? Can you please, at
+> the very least, identify which test in that test suite triggers the
+> failure?
+
+Looking at the log file that isn't password protected that's the last
+line of output so it'll have hung trying to do the first test, based on
+the log from another machine:
+
+   https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250905/testrun/29777055/suite/kvm-unit-tests/test/debug-bp-migration-timeout-duration90s/log
+
+it seems that should be
+
+   ok 1 - selftest-setup: selftest: setup: smp: number of CPUs matches expectation
+
+that's died for the version they're using.
+
+> > Links:
+> > https://regressions.linaro.org/lkft/linux-mainline-master/v6.17-rc4/lava/kvm-unit-tests/history/?page=1
+
+> What is there? This link requires a login, and goes to 11 on the
+> scale of being useless.
+
+My Linaro account appears to have been disabled at some point so I
+can't access it either.  If this is affecting mainline presumably it's
+been an issue in at least -next for a while.
+
+--ftKo7STfvoWEjFz0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmi65+AACgkQJNaLcl1U
+h9DLewf+Ls/00LL8UkAstP2PfYnm8MYv7sEGvfU6pcxX76rmhhoo+wHh/P4hYxIc
+GnEmWTawHaooNeTHseqYhjmZExdIu4kjBFLylfnR0kl70I7Z9fj2lNke/I5l6esd
+y6+T8DWSATVhQTebL9S/tmeQ223uLeJxoWU3o2Cex5787ehN5TMly7bqCBleQNrE
+C6WrgNNVDCffoSsFFv+CCCRtptBgSIUmJTox4dxFIAvmJ3NLhe9yB2SCvQGGWIRr
+mp9DPS9eygW3mJsa3IWwmUhpA1nVrUbcmI+KFXgTdDwP36xjlLGj0E0o41TL8NiJ
+O1/Rrzn/W690wZtEzwjotbV4+hBASg==
+=/HVR
+-----END PGP SIGNATURE-----
+
+--ftKo7STfvoWEjFz0--
 
