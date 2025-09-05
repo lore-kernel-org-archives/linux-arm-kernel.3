@@ -4,108 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2609CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 04:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49441CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 04:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6CDKUZ+NfM3JX1RChza494Nr3RLvFGvqX6wYQsX8aNA=; b=jb+ILd+BADGqsDoLmob2nPoPvX
-	g3819SLd5aURXhKXOds3t4Eh1uaifknh+sGft8TwkQvz5LCoQ80873kvWObpulhLOGe0akVw9sl4o
-	2zPwSc8JiXoY4fV0tDc/+bJOV8ribi1qtx++LJgo6W8j9cyJ1TdARFsco1ZtbrsSsIaiBmw1NNwhc
-	OljUxZUnPmdf4ByEdFq8F6dlSRddFsDHb1mli4dLXktFscM1vvP/ctMPfmyGUvcpT1RSVKRDW4Ykq
-	RbGBquEW/o5dHs4NAg1DHdzSpkRHj11nMUiD4kN6rjYADXnXYif8sEqcUn0DnbkEuKKt0CJpfxqAh
-	CFzMXgtA==;
+	bh=KLKUHPIcRB0O4muuVCBP8C+yFYqPCsP1VfYmF9nYOvI=; b=fBNBb/5llxuQ24htA25qaflQQm
+	cjnrMh50TFTRYR5YvPJpaGyUxtpMskVOCDWtEf0Mz/1cvr/yCBCTgK98cVrFBOdA5vA3aslw1AbQ0
+	NLisEnqb9zqkAIL8wn2GMJl1LnjFS/TbNoFKgEb4w/Tao2u7CfrzqBnqLdxnIMVcov7xRHbSw+rUv
+	rhPxJ6HCXm+QaKjyWmMsWrubpEvdIgiUEUPvYTp80K6xKIefO7zQ8B18CxYj7c+3HKcMdap0CHXnV
+	Fp2QNqByvv8v6LAKEnDtl8bevjTbeZ2/KngMzEI9pTXro0VlH07MhuNANu9lUQP0PizO0lNsCromc
+	w6xYnTzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuNmz-0000000GecU-0yMC;
-	Fri, 05 Sep 2025 04:11:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uuNoo-0000000GfGa-1BPO;
+	Fri, 05 Sep 2025 04:12:58 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuMdd-0000000GIOg-1B8a;
-	Fri, 05 Sep 2025 02:57:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=6CDKUZ+NfM3JX1RChza494Nr3RLvFGvqX6wYQsX8aNA=; b=i6J5YwPZRciAF8rT4oJTr+Mta0
-	V4kxmGdBDGu6Jpx+gNCYbMGXpuzO3+9ubpaKOluEiCSayqfhZc2zIwVxvJUlMJXHCYwRz5dibX1y0
-	NRpL+qMTIiZvJfu5M6XYsHo7AvkI96+kJsYdzKzXMr1DQ6w54Srqn297gd0Mh3LaVGfVzXbzhHO1X
-	QzxXh2II1bzfo1lj4AhZjxn2rIxmG4Yh+isblE3nlpUpAJpeS+AdMmyCXqwEmipSKnAHVyAn02UCe
-	p5PQj0eLoIepqi0X1XWFB5tz3CG2isg4GriYoC3w17X90E41dOiHxOqWL+IBo+xA5gRHW9p10tMHB
-	wCo4MF3w==;
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuMda-00000004SWr-1BPp;
-	Fri, 05 Sep 2025 02:57:20 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-32326e5f0bfso1430941a91.3;
-        Thu, 04 Sep 2025 19:57:17 -0700 (PDT)
+	id 1uuNm3-0000000GeJI-1Sgj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 04:10:09 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55f6507bd53so1841670e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 21:10:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757041035; x=1757645835; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1757045405; x=1757650205; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6CDKUZ+NfM3JX1RChza494Nr3RLvFGvqX6wYQsX8aNA=;
-        b=PHLuUs0ISFhHAisHeWxtDQL8mCH4xZ7TwVsTHDBTMFBhWx87S0du6TbeyoGLgUgsWr
-         PN26JeWoz3uGpMhBb3qKj5eyr3BCMKfktSNlJtizu2wtq/hfQWnzHKIpJblfAAoo0O4U
-         aHl9BpKVcd0oqHKJ4hv2t/Po3/d9Q2Jw9pihIUix9k1XkMHVEZwW1SCZ+bcSrq3shW+E
-         2oIIsgCfhvaEnTMoT5JZ7TulKtxIVEtPkaMMIEH8X5UDdEkeAMRvq1og89a3tz3Niw+n
-         7MhX9BdHV8aqm485i9ddNNMFca3R4wqxqa+EQLvj+SLBVFe71sQOrTAA+QfiqP5RVvxF
-         YRhg==
+        bh=KLKUHPIcRB0O4muuVCBP8C+yFYqPCsP1VfYmF9nYOvI=;
+        b=LxbLkjFeGp0kXGm+biVSgQVXYyM5JlrIhgy9Ixcr8NWFhnY3SAi7alKZFtl6Y++GYj
+         IGmSbdIHLuSsI9GirVZSYoYN9KP4hMqYt1d0n+4NygL/loAoxDLo+wZHCBZYN3w4BZ/V
+         WhpLaZ99bFD9ePzW4hJC2M9LxGvgMJ6BlTAYw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757041035; x=1757645835;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1757045405; x=1757650205;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6CDKUZ+NfM3JX1RChza494Nr3RLvFGvqX6wYQsX8aNA=;
-        b=fk7/CJu2K/C4VOGVabGdScxhizXjXMhnhdH3kyNTl/Qr203jhFe1owiudMEVGbsTgZ
-         l/L7ve0vb+e8KJatWfaLaKutPtT0VpPT+vVONkaJgIY87PvpVxro1fSFFOps1KUa2klu
-         kfQu+9Ytm6cYENPHEXDBDBjGKPDoq222NNMTEL+HroLfxZezSqza+G5wsTTa6te06g1L
-         uSbK6I5Jhd4sZSlTCO/ZKs7+W/t0GCcGrc5HLKMEw1OEy4b1f8S4tY15ioFRn/M8NN5P
-         /cQHZUa6BWEs7elfYDeHO+evnNNWRCGDR3BJ+S3LkcxgsFcZzT1nrBEZ+y2nTa4r6qn4
-         uYcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVirKaUd3fRuSZu2mOeUzpz/40m9NcF3x6bCvoodXwv9OAimNtnnSyKBewn+ufi/m8x2AwxyqRGd9DxOanHAIQ5@lists.infradead.org, AJvYcCWHfAw3Pi+kM43DsYVGFeuhbzI2kKoGGetl2+MR0z0p3Vdpi0GWlvNHIrvA/nxBK7meVAa8YjmRtvu31x2P2kw=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeRdeK/9ZHAv0o+6VoYDbzAwYOALIscXpzZ8kXUorQCi/dCER7
-	ydXMa7lvYglTiOFmjdF3Zej2CrxniSRKhC87DvvlJRpleETgNgNZvSNQ
-X-Gm-Gg: ASbGncugKdugDcDqN9HONZS9s9mtRRRNhfCF0lolQgJxq/X1b5QMhqRDtIjMHFL/975
-	LNerIlpY3L91VpUXbv3gLqYeLBuNWthb3wlm/BZvjkhIGlMG4K/j/LSQpokNDEtlnxEpBRydzTm
-	pmqeVjEcPMghzTqBifetK/Ch6Ui3F7i0qO01uJ4NyGznxRbwgYXxQ0bHhAmW5/Pywvm35icecBl
-	nqDab75ewYsfOH/kNe3ooCTDAl+Owy0mj5BRTLyHagAM//lS/+d26aC8VTGHASqyutcfLX6BaFz
-	eSGo1z0rWnQW54v0gyYQuV0lpRp3mNyg0rj3i5Y6clDm5oFWzpGpqjGGkr0KY4JbIbEtBmY5ImF
-	5TTFDLn0Hmj4=
-X-Google-Smtp-Source: AGHT+IGJPBg0Z3/hlijieYcTeCP5A88enc8PD4RQPi19VQkilqYW0HhiucmQtmvJoPxoGBg88j1vrA==
-X-Received: by 2002:a17:90b:3d87:b0:32b:65e6:ec39 with SMTP id 98e67ed59e1d1-32b65e6f260mr8994261a91.21.1757041035560;
-        Thu, 04 Sep 2025 19:57:15 -0700 (PDT)
-Received: from localhost.localdomain ([2401:ce20:10::d4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-329e1c8e07bsm9428588a91.4.2025.09.04.19.57.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 19:57:15 -0700 (PDT)
-From: WeiHao Li <cn.liweihao@gmail.com>
-To: heiko@sntech.de,
-	robh@kernel.org
-Cc: hjc@rock-chips.com,
-	andy.yan@rock-chips.com,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	WeiHao Li <cn.liweihao@gmail.com>
-Subject: [PATCH v2 4/8] clk: rockchip: use clock ids for SCLK_MIPIDSI_24M on rk3368
-Date: Fri,  5 Sep 2025 10:56:28 +0800
-Message-Id: <20250905025632.222422-5-cn.liweihao@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250905025632.222422-1-cn.liweihao@gmail.com>
-References: <20250905025632.222422-1-cn.liweihao@gmail.com>
+        bh=KLKUHPIcRB0O4muuVCBP8C+yFYqPCsP1VfYmF9nYOvI=;
+        b=ZGvb+uBpFvViOLZQCMC24m+hpYPgSaBNbTc7fT/oog8y01QH14fl2HolEwGPZslRkh
+         MoIslDMfdl6voyfb99SSH4TNFLzNmH1JZo6OnaZoabyVdzU84pOQ8+1EXAGPOR5aDOh9
+         0nchEXCK/97z0VAXyszgMamTGmLilF07H9VJNSx3TGIwUKsdsytStmFzXXO1zaBQ+O8y
+         u4XNdlVBYwkVmtC7eGaZT93RO1LPsKm9wCW63RJCkFFlYUngvAn0nyTh5+ngsMMher9a
+         TnV2uDH6BeWc1z1EpRLtTd6nEr612Vhc4aO//+linFDf81GQCOCRP8b+AeD2pZMyg0Ov
+         JLww==
+X-Forwarded-Encrypted: i=1; AJvYcCXEn6hkf6UUNt9WbI8JZqRz6RUX6dlmVCMfwJNEPccCmPk8nA1Nnv/gENQ5ivcNOKYpoIZvTZghx308dlsrf69n@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBArlRuVjOwqm3prdeNkPuM9Vwr0DBUlH4eTBvoZT2BU5jNx5U
+	elqtVhSqTD59VNQnvLtAO9Ywz+kQpEbCXe6r8E4HZHc4I35FTC9cobTjI33C+B+Au+3gG28BHlL
+	ZUK4BBweGCLeKpa0AlPjCVpHTlmXtOTIEK0ti6ADn
+X-Gm-Gg: ASbGnctb9VBx0fckvGpaQFX1CMtjVyeSrHyKe/vIGxf5oLoriPNIdtszE6rQQgUb99e
+	SPkpUkxjB6yjOdsO0UC7Ax5da6PY1nfGS3tT8TuFEoEjPRdkq56SD+9kRwn86vMf95pv42aNvZK
+	Emsredqa1N+qIwdaFp2quMfJDEEh5p2aCkdf+sHa/3wV8+w1C6xUd9cke7bPDo05povWCHIJG8V
+	HD+7rRvZiJtgcHcUlJybIkPZ5c5HldEZyCqqQ==
+X-Google-Smtp-Source: AGHT+IH7HKhnxC6o9ewQ28R2ZzX9RmDQokY2C+2i+wMjE8WlWqsz+BTU++rL/6Yzgiv59B7OTvBGnUhQzmndeoe72TQ=
+X-Received: by 2002:a05:6512:650f:b0:55f:65f9:512e with SMTP id
+ 2adb3069b0e04-55f708a2a7fmr4251279e87.6.1757045405415; Thu, 04 Sep 2025
+ 21:10:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250829091913.131528-1-laura.nao@collabora.com> <20250829091913.131528-4-laura.nao@collabora.com>
+In-Reply-To: <20250829091913.131528-4-laura.nao@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 5 Sep 2025 12:09:54 +0800
+X-Gm-Features: Ac12FXx6pAx7CiAA-H5MAQbshXKRXROm_6MtHlpf5-g4LpJf9Fu8XFakXK69rOQ
+Message-ID: <CAGXv+5ELv9vR7i_Xd7XCC7gBciMXPfQfDAD1WyNy89=pJaLC_w@mail.gmail.com>
+Subject: Re: [PATCH v5 03/27] clk: mediatek: clk-mux: Add ops for mux gates
+ with set/clr/upd and FENC
+To: Laura Nao <laura.nao@collabora.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
+	richardcochran@gmail.com, guangjie.song@mediatek.com, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+	kernel@collabora.com, =?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_035718_499340_89F2B786 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250904_211007_426708_68691985 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,27 +100,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Export the clocks via the newly added clock-ids.
+On Fri, Aug 29, 2025 at 5:20=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
+ wrote:
+>
+> MT8196 uses set/clr/upd registers for mux gate enable/disable control,
+> along with a FENC bit to check the status. Add new set of mux gate
+> clock operations with support for set/clr/upd and FENC status logic.
+>
+> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
 
-Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
----
- drivers/clk/rockchip/clk-rk3368.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/clk/rockchip/clk-rk3368.c b/drivers/clk/rockchip/clk-rk3368.c
-index 04391e4e2..95e6996ad 100644
---- a/drivers/clk/rockchip/clk-rk3368.c
-+++ b/drivers/clk/rockchip/clk-rk3368.c
-@@ -526,7 +526,7 @@ static struct rockchip_clk_branch rk3368_clk_branches[] __initdata = {
- 	GATE(ACLK_PERI, "aclk_peri", "aclk_peri_src", CLK_IGNORE_UNUSED,
- 			RK3368_CLKGATE_CON(3), 1, GFLAGS),
- 
--	GATE(0, "sclk_mipidsi_24m", "xin24m", 0, RK3368_CLKGATE_CON(4), 14, GFLAGS),
-+	GATE(SCLK_MIPIDSI_24M, "sclk_mipidsi_24m", "xin24m", 0, RK3368_CLKGATE_CON(4), 14, GFLAGS),
- 
- 	/*
- 	 * Clock-Architecture Diagram 4
--- 
-2.39.5
-
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 
