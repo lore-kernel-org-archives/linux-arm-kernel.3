@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9860CCA1010
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D934CCA1016
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xJDFnVvMBGp0ssnHfwN1wWO5gqMs/oZsQPyIp11iV0U=; b=MVQVn5eJamZMOEZt9virfBSj6S
-	cNNk6nNB96i665XZFYAEa4Avt11TBbB5+dXgnPuKmUSia3F40M68epBHVgnbvK4WLkPd5uuVyNRSK
-	drUU/qAWUmC/btfCYIYmHNfm4zrOptRHbyag7rRN7kyzjADgO3PnaIi7y7i9+UX2xM0r6UqgtdOs0
-	/QYas8K2LXHcW8PkagH5Y8/32RmbX7JP2p64VXDbed73AReSNUY4bRVULtBYRkfiDI6N2QUb1lA3i
-	SeocjxS9rATXL+J404cHSYfptBazWb4oHH6RjEwbinz86OZjDBwpMkEiyB/ijaDEwNZA5dWA9PGVs
-	lLoDxmgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jWjfStJ6xVgrWeWyv/waZRzeET/q2kIvfT9KYMUeqWo=; b=ANByN1KfWwOAclRoYYfqC/+apU
+	cveYKrnii8Xw8fUnle/S3SZH98aNKdHI91EEUJDxY6xU6/h6sya4Ea0SyETi9am6WjHsOozO68QCP
+	IgpSsRhTob16fC5L86eVUPeor8Mv4QeS43X9n+b7v775C0t86Zm9ww06IbR48+Gy/OqgtK7GhjHrc
+	CoWOVClaWnH274su0yzrq1iKR7RFoyJH+U/cwQ00VxMadD35wyLkVJKZHYiA2H/MJ7LIHHimFxxqo
+	0V3yDtvUINzmp/kRSHovGY3p9SwHuKNkuspDat4vmjyqoAQWrLyWcZcbwesV5JjdFN1ipqiyt60D7
+	e9c3TqVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYYp-00000002pEV-1NmP;
+	id 1uuYYp-00000002pEw-2X24;
 	Fri, 05 Sep 2025 15:41:11 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuTbx-0000000124c-0eRM;
-	Fri, 05 Sep 2025 10:24:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757067830; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=hkH1JYAHlf6zYePcwkDs61WrJEaI2U8t/sNwWsVY11sa6gvljLXFKRyq23txh7Y0Yv/uK19wlrT3e4SXgdCBDWXxCGU2f/oJATnXFjxrS1Xyh56URnRI0fPrXndq6Tjl8qjX+VBIhDeUp5bM1Ci0OK9TjEX3DZ5WB30W1mUPVlw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757067830; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=xJDFnVvMBGp0ssnHfwN1wWO5gqMs/oZsQPyIp11iV0U=; 
-	b=oHxzZdt1XRFdsUMU9mwdgeHf/jr+YHjl9c1yoeJhH+tc2SygADI4O/gLUbezcJx/4RVn3lZiQr1206srArcmv1rbc1ptKdtZPqI1aabaJNbwK+63CtNPKpYv2MW1qIdseCmoIZuA+DsbGfpOyEGX52kh7FAuB+SL7+qcKW5byHg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757067830;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=xJDFnVvMBGp0ssnHfwN1wWO5gqMs/oZsQPyIp11iV0U=;
-	b=g3iqPgC0yF5eeVlbjETcewPUummZO+BM/mR5xuxysw/iJzhR3Nwxq4zw7SVT78kb
-	SEqjPanpnv74k+zqvlst6WUHmNUjdT2b0kHoX29/2dt6rOSdoiFAaT9RyxU5Xo+CA/D
-	nqSkQnfZird48/prsZJb/VBo245LgQdYiapYjiI0=
-Received: by mx.zohomail.com with SMTPS id 1757067828625770.7656618316871;
-	Fri, 5 Sep 2025 03:23:48 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 05 Sep 2025 12:22:58 +0200
-Subject: [PATCH RFC 02/10] dt-bindings: devfreq: add mt8196-gpufreq binding
+	id 1uuUBl-00000001EUV-065T
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 11:01:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CACB4442A6;
+	Fri,  5 Sep 2025 11:01:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2257C4CEF1;
+	Fri,  5 Sep 2025 11:00:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757070063;
+	bh=YZ1wTIYoB930tSA5MeqtdhO0LxdCLchTUQFtsum00QY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U7+DnpZ0s1JKbZszxSjLy0wzG4FuSPqezXeI+JVM+MWhXKMk7hbSMLMR/Ap70xViw
+	 Grd6dhed7yIRR8Yu73fJN0N7pkSYFsDBBJo92L9gty0NMlP0j/ofYzR8Udwhhqz0oh
+	 CUbTDNzSsrto9aiXPTcXZ/bGs5k+wjoB6qyCquH8g/JPTbP7OqDNsG+bte2OrVpi4n
+	 zx6H4iTAqk8cmGshjWzK/jnlqFQq/hJysU/x9N1c9QnwDh2XIGq4oxaydCWq1cwWGV
+	 2fRPyoqYacVZpZfy0SFEibM7KjqfNwOBpyIxsFAfubouuDw7Z5Ombt9MKgcN6WzQfQ
+	 4CK8xb4S08BQg==
+Date: Fri, 5 Sep 2025 14:00:50 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+	Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>, Nicholas Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org
+Subject: Re: [PATCH 1/7] mm: remove arch_flush_lazy_mmu_mode()
+Message-ID: <aLrC4reKPAz6YFn1@kernel.org>
+References: <20250904125736.3918646-1-kevin.brodsky@arm.com>
+ <20250904125736.3918646-2-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250905-mt8196-gpufreq-v1-2-7b6c2d6be221@collabora.com>
-References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
-In-Reply-To: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- MyungJoo Ham <myungjoo.ham@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>, 
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>, 
- kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250904125736.3918646-2-kevin.brodsky@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_032405_261073_7C0A875F 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20250905_040105_109300_21826C9E 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,152 +95,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the MediaTek MT8196 SoC, the GPU has its power and frequency
-dynamically controlled by an embedded special-purpose MCU. This MCU is
-in charge of powering up the GPU silicon. It also provides us with a
-list of available OPPs at runtime, and is fully in control of all the
-regulator and clock fiddling it takes to reach a certain level of
-performance. It's also in charge of enforcing limits on power draw or
-temperature.
+On Thu, Sep 04, 2025 at 01:57:30PM +0100, Kevin Brodsky wrote:
+> This function has only ever been used in arch/x86, so there is no
+> need for other architectures to implement it. Remove it from
+> linux/pgtable.h and all architectures besides x86.
+> 
+> The arm64 implementation is not empty but it is only called from
+> arch_leave_lazy_mmu_mode(), so we can simply fold it there.
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
-Add a binding for this device in the devfreq subdirectory, where it
-seems to fit in best considering its tasks.
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-The functions of many of the mailbox channels are unknown. This is not
-the fault of this binding's author; we've never received adequate
-documentation for this hardware, and the downstream code does not make
-use of them in a way that'd reveal their purpose. They are kept in the
-binding as the binding should be complete.
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- .../bindings/devfreq/mediatek,mt8196-gpufreq.yaml  | 116 +++++++++++++++++++++
- 1 file changed, 116 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/devfreq/mediatek,mt8196-gpufreq.yaml b/Documentation/devicetree/bindings/devfreq/mediatek,mt8196-gpufreq.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..1fe43c9fc94bb603b1fb77e9a97a27e92fea1ae8
---- /dev/null
-+++ b/Documentation/devicetree/bindings/devfreq/mediatek,mt8196-gpufreq.yaml
-@@ -0,0 +1,116 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/devfreq/mediatek,mt8196-gpufreq.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MFlexGraphics Performance Controller
-+
-+maintainers:
-+  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-+
-+properties:
-+  $nodename:
-+    pattern: '^performance-controller@[a-f0-9]+$'
-+
-+  compatible:
-+    enum:
-+      - mediatek,mt8196-gpufreq
-+
-+  reg:
-+    items:
-+      - description: GPR memory area
-+      - description: RPC memory area
-+      - description: SoC variant ID register
-+
-+  reg-names:
-+    items:
-+      - const: gpr
-+      - const: rpc
-+      - const: e2_id
-+
-+  clocks:
-+    items:
-+      - description: main clock of the embedded controller (EB)
-+      - description: core PLL
-+      - description: stack 0 PLL
-+      - description: stack 1 PLL
-+
-+  clock-names:
-+    items:
-+      - const: eb
-+      - const: mfgpll
-+      - const: mfgpll_sc0
-+      - const: mfgpll_sc1
-+
-+  mboxes:
-+    items:
-+      - description: FastDVFS events
-+      - description: frequency control
-+      - description: sleep control
-+      - description: timer control
-+      - description: frequency hopping control
-+      - description: hardware voter control
-+      - description: gpumpu (some type of memory control, unknown)
-+      - description: FastDVFS control
-+      - description: Unknown
-+      - description: Unknown
-+      - description: Unknown, but likely controls some boosting behaviour
-+      - description: Unknown
-+
-+  mbox-names:
-+    items:
-+      - const: fast_dvfs_event
-+      - const: gpufreq
-+      - const: sleep
-+      - const: timer
-+      - const: fhctl
-+      - const: ccf
-+      - const: gpumpu
-+      - const: fast_dvfs
-+      - const: ipir_c_met
-+      - const: ipis_c_met
-+      - const: brisket
-+      - const: ppb
-+
-+  shmem:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: phandle to the shared memory region of the GPUEB MCU
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - clocks
-+  - clock-names
-+  - mboxes
-+  - mbox-names
-+  - shmem
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+
-+    gpufreq: performance-controller@4b09fd00 {
-+        compatible = "mediatek,mt8196-gpufreq";
-+        reg = <0x4b09fd00 0x80>,
-+              <0x4b800000 0x1000>,
-+              <0x4b860128 0x4>;
-+        reg-names = "gpr", "rpc", "e2_id";
-+        clocks = <&topckgen CLK_TOP_MFG_EB>,
-+                 <&mfgpll CLK_MFG_AO_MFGPLL>,
-+                 <&mfgpll_sc0 CLK_MFGSC0_AO_MFGPLL_SC0>,
-+                 <&mfgpll_sc1 CLK_MFGSC1_AO_MFGPLL_SC1>;
-+        clock-names = "eb", "mfgpll", "mfgpll_sc0",
-+                      "mfgpll_sc1";
-+        mboxes = <&gpueb_mbox 0>, <&gpueb_mbox 1>, <&gpueb_mbox 2>,
-+                 <&gpueb_mbox 3>, <&gpueb_mbox 4>, <&gpueb_mbox 5>,
-+                 <&gpueb_mbox 6>, <&gpueb_mbox 7>, <&gpueb_mbox 8>,
-+                 <&gpueb_mbox 9>, <&gpueb_mbox 10>, <&gpueb_mbox 11>;
-+        mbox-names = "fast_dvfs_event", "gpufreq", "sleep", "timer", "fhctl",
-+                     "ccf", "gpumpu", "fast_dvfs", "ipir_c_met", "ipis_c_met",
-+                     "brisket", "ppb";
-+        shmem = <&gpufreq_shmem>;
-+    };
+> ---
+>  arch/arm64/include/asm/pgtable.h                   | 9 +--------
+>  arch/powerpc/include/asm/book3s/64/tlbflush-hash.h | 2 --
+>  arch/sparc/include/asm/tlbflush_64.h               | 1 -
+>  arch/x86/include/asm/pgtable.h                     | 3 ++-
+>  include/linux/pgtable.h                            | 1 -
+>  5 files changed, 3 insertions(+), 13 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index abd2dee416b3..728d7b6ed20a 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -101,21 +101,14 @@ static inline void arch_enter_lazy_mmu_mode(void)
+>  	set_thread_flag(TIF_LAZY_MMU);
+>  }
+>  
+> -static inline void arch_flush_lazy_mmu_mode(void)
+> +static inline void arch_leave_lazy_mmu_mode(void)
+>  {
+>  	if (in_interrupt())
+>  		return;
+>  
+>  	if (test_and_clear_thread_flag(TIF_LAZY_MMU_PENDING))
+>  		emit_pte_barriers();
+> -}
+> -
+> -static inline void arch_leave_lazy_mmu_mode(void)
+> -{
+> -	if (in_interrupt())
+> -		return;
+>  
+> -	arch_flush_lazy_mmu_mode();
+>  	clear_thread_flag(TIF_LAZY_MMU);
+>  }
+>  
+> diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+> index 146287d9580f..176d7fd79eeb 100644
+> --- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+> +++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+> @@ -55,8 +55,6 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>  	preempt_enable();
+>  }
+>  
+> -#define arch_flush_lazy_mmu_mode()      do {} while (0)
+> -
+>  extern void hash__tlbiel_all(unsigned int action);
+>  
+>  extern void flush_hash_page(unsigned long vpn, real_pte_t pte, int psize,
+> diff --git a/arch/sparc/include/asm/tlbflush_64.h b/arch/sparc/include/asm/tlbflush_64.h
+> index 8b8cdaa69272..cd144eb31bdd 100644
+> --- a/arch/sparc/include/asm/tlbflush_64.h
+> +++ b/arch/sparc/include/asm/tlbflush_64.h
+> @@ -44,7 +44,6 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end);
+>  void flush_tlb_pending(void);
+>  void arch_enter_lazy_mmu_mode(void);
+>  void arch_leave_lazy_mmu_mode(void);
+> -#define arch_flush_lazy_mmu_mode()      do {} while (0)
+>  
+>  /* Local cpu only.  */
+>  void __flush_tlb_all(void);
+> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+> index e33df3da6980..14fd672bc9b2 100644
+> --- a/arch/x86/include/asm/pgtable.h
+> +++ b/arch/x86/include/asm/pgtable.h
+> @@ -117,7 +117,8 @@ extern pmdval_t early_pmd_flags;
+>  #define pte_val(x)	native_pte_val(x)
+>  #define __pte(x)	native_make_pte(x)
+>  
+> -#define arch_end_context_switch(prev)	do {} while(0)
+> +#define arch_end_context_switch(prev)	do {} while (0)
+> +#define arch_flush_lazy_mmu_mode()	do {} while (0)
+>  #endif	/* CONFIG_PARAVIRT_XXL */
+>  
+>  static inline pmd_t pmd_set_flags(pmd_t pmd, pmdval_t set)
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 4c035637eeb7..8848e132a6be 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -234,7 +234,6 @@ static inline int pmd_dirty(pmd_t pmd)
+>  #ifndef __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+>  #define arch_enter_lazy_mmu_mode()	do {} while (0)
+>  #define arch_leave_lazy_mmu_mode()	do {} while (0)
+> -#define arch_flush_lazy_mmu_mode()	do {} while (0)
+>  #endif
+>  
+>  #ifndef pte_batch_hint
+> -- 
+> 2.47.0
+> 
 
 -- 
-2.51.0
-
+Sincerely yours,
+Mike.
 
