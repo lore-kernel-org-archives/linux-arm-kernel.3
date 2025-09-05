@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95182CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A814ACA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PNxvDOvd8G1m64AE609EAEi6RrdNbV19NmADyoCJTq4=; b=oOuGzGHKpYf0ycbSv8VhhmKTVD
-	tQVxVWd+QqYfbPU2nH47Tb8RNZz75yWbzxXak/xzZWUTRYe/itSb9/E7TqhL/ej4pLErk5pMmnGft
-	e6+2AJZpusl0kkh52TvieqnmCNGlc1PcyL+MZuvueqfYX/Jlxo/qjW5dvUvMSyGmA1awSfO9RBsZP
-	7qMHZ3f9YIcxC/Z9ensCzbweWoUgj32a5A9MPcAlTOw0GbMN7UObNh3g7oUR7aCSBdLPCdwVZPTCb
-	FNex/gbiUR8ybJ2GIu4XX6hOYk5B2WiVGQ3PD4g3VJ6+0WoTpQMsX/2Bk+nZ6XN6h89wbHkCvcBkx
-	StXs3vug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m7eCumLJRVxXkVrrCzfdq48+hh6xilH+s0pYgrmlgbE=; b=zJ08KaBtwr5PaCoHfWLlfKac+4
+	qE6Z4/BQV3j845ls/KVDK2X0E28mjWRuOZCfuQ3WOIAwWmCxgPvlsAB+PEACRdWBYfh6iQkzk52ln
+	iMQUSm8KZJ9uggxEJKR9K+7AYOBaRXFv03VZlDTnsj/BMUs1Doz0G1MMlZirCaad56XTW5F9s8eUj
+	ZN2VpcIK1kgR7j3mwlwoAltfQQWFkiMWjBOvKDUSqLln1ds0EaWOZtOxJYvox44xQp/KSPQVoqa33
+	RhDtNY9ZP4jERYoO240JKNy9uDJX9K1OXPywsBoDiXguHXvbY7kT1yTCiwSebCfzo+X7h1nXMTDlN
+	2mMQi+oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQts-0000000021S-3OYi;
-	Fri, 05 Sep 2025 07:30:24 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uuQwZ-0000000036j-01Ou;
+	Fri, 05 Sep 2025 07:33:11 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQ02-0000000HIfk-40XP;
-	Fri, 05 Sep 2025 06:32:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757053958;
-	bh=+7T7YDi0eC3wFyrqKUeCl1oFOAZDbzc81FLfZBDTU+k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=e6uAehnCU3Tqg7vgAX2kr5jkq6WsX55n8IXGAc6naznjJwO31ev0KLB4nHeIga/u6
-	 s/Tw5J83/aamEgYEr9O7VKjAh9gltJ1IcMeZg+n5z3jqlsy7T9p/xGZuDALzsm1Lx/
-	 sJRg5riQaNwg4JEWscp3bkG13Ema7go57AwL6s9VuebsvlpMUVs/I8bNGNY6LfCB6I
-	 mYumHDp7L+YBH46ak/A+NsEk8egyxk7fPwNMzKhNQDrNfBlrxcCay25FfBfxxY8Nw3
-	 W2Ygtj5WKMrphzQO4jV+7AH/Sg+9JSq6xklGpvL8DJkKetA8dF+7Zfzdh7azuq9Oxr
-	 2nUbBnORDUv9Q==
-Received: from [192.168.1.90] (unknown [82.79.138.60])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 64EFA17E0EB8;
-	Fri,  5 Sep 2025 08:32:37 +0200 (CEST)
-Message-ID: <b8d068ef-d083-4bb1-b34e-b8ddaa62b436@collabora.com>
-Date: Fri, 5 Sep 2025 09:32:36 +0300
+	id 1uuQ2L-0000000HJUR-11jr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 06:35:07 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 732A7245EC;
+	Fri,  5 Sep 2025 08:34:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1757054094;
+	bh=m7eCumLJRVxXkVrrCzfdq48+hh6xilH+s0pYgrmlgbE=; h=From:To:Subject;
+	b=MTr7dAou1BzD/n5kZvgWpUlcsxUSShVIOKD577/anK6dZbyF1uWzkF/XNu7r3lr4C
+	 BCNDa7/CudLSQsB06MB72d19JQU7Rh2FFO9ju9yOphO0uKfUIVYnxrZwrHKaVCDs8z
+	 G2FgZHlb3f4fCDm4jhYEwblST1EqUkW72OWVvkzZ9RrB5dDJ0qH/lzvOtPDjb/CnRE
+	 3B00jxIi2imWCxG9CVCCS/971hgJbbvre+VrLLvZbnuu7v98OdSdmmpMGNPsfWH6pX
+	 /enfx1K6l2vtQ7n8CCKthU+xiOUC5N2Mz8UFmDq0Hc1H3FIbG83Nryb0qXZUI5OePn
+	 B/4PzjVqfLMbg==
+Date: Fri, 5 Sep 2025 08:34:49 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Beleswar Padhi <b-padhi@ti.com>
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, afd@ti.com,
+	u-kumar1@ti.com, hnagalla@ti.com, jm@ti.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Josua Mayer <josua@solid-run.com>,
+	Logan Bristol <logan.bristol@utexas.edu>,
+	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Subject: Re: [PATCH v3 17/33] arm64: dts: ti: k3-am642-sr-som: Add missing
+ cfg for TI IPC Firmware
+Message-ID: <20250905063449.GA6194@francesco-nb>
+References: <20250905051846.1189612-1-b-padhi@ti.com>
+ <20250905051846.1189612-18-b-padhi@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/6] Add HDMI CEC support to Rockchip RK3588/RK3576
- SoCs
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Algea Cao <algea.cao@rock-chips.com>,
- Derek Foreman <derek.foreman@collabora.com>,
- Daniel Stone <daniels@collabora.com>
-References: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
- <ncmsmxdcvhj4jec6wmqf5abrb7nijx7ac2i33tvvcc2prljez3@uks2cb6aunnx>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <ncmsmxdcvhj4jec6wmqf5abrb7nijx7ac2i33tvvcc2prljez3@uks2cb6aunnx>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250905051846.1189612-18-b-padhi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_233243_154284_690A4235 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20250904_233506_315916_8C150768 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +76,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
-
-On 9/5/25 2:48 AM, Dmitry Baryshkov wrote:
-> On Wed, Sep 03, 2025 at 09:50:58PM +0300, Cristian Ciocaltea wrote:
->> The first patch in the series implements the CEC capability of the
->> Synopsys DesignWare HDMI QP TX controller found in RK3588 & RK3576 Socs.
->> This is based on the downstream code, but rewritten on top of the CEC
->> helpers added recently to the DRM HDMI connector framework.
->>
->> The second patch is needed for RK3576 in order to fixup the timer base
->> setup according to the actual reference clock rate, which differs
->> slightly from RK3588.
->>
->> The following three patches setup platform data with the new information
->> expected by the HDMI QP transmitter library, while improving the error
->> handling in the probe path.
->>
->> Please note the CEC helpers were affected by a resource deallocation
->> issue which could crash the kernel and freeze the system under certain
->> test conditions.  This has been already fixed in v6.17-rc1 via commit
->> 19920ab98e17 ("drm/display: hdmi-cec-helper: Fix adapter
->> unregistration").
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+On Fri, Sep 05, 2025 at 10:48:30AM +0530, Beleswar Padhi wrote:
+> Currently, only R5F remote processors are enabled for k3-am642-sr SoMs,
+> whereas the M4F in MCU domain is disabled. Enable the M4F remote
+> processor at board level by reserving memory carveouts and assigning
+> mailboxes.
 > 
-> Cristian, I'm sorry for almost off-topic, but as you are working on this
-> driver: would it be possible to support HDMI (vendor-specific) and SPD
-> InfoFrames in the dw-hdmi-qp driver?
+> While at it, reserve the MAIN domain timers that are used by R5F remote
+> processors for ticks to avoid rproc crashes. This config aligns with
+> other AM64 boards and can be refactored out later.
+> 
+> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+> ---
+> Cc: Josua Mayer <josua@solid-run.com>
+> Cc: Logan Bristol <logan.bristol@utexas.edu>
+> Cc: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> Requesting for review/test of this patch.
+> 
+> v3: Changelog:
+> 1. None
+> 
+> Link to v2:
+> https://lore.kernel.org/all/20250823160901.2177841-18-b-padhi@ti.com/
+> 
+> v2: Changelog:
+> 1. Re-ordered patch from [PATCH 27/33] to [PATCH v2 17/33].
+> 
+> Link to v1:
+> https://lore.kernel.org/all/20250814223839.3256046-28-b-padhi@ti.com/
+> 
+>  arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi | 54 +++++++++++++++++++++
+>  1 file changed, 54 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
+> index 81adae0a8e55..8cb61f831734 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
+> @@ -162,6 +162,24 @@ main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
+>  			reg = <0x00 0xa3100000 0x00 0xf00000>;
+>  			no-map;
+>  		};
+> +
+> +		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
 
-Sure, no worries.  I'll be on leave for the next two weeks, but I can handle
-it on my return.
+this must be
 
-Regards,
-Cristian
+mcu_m4fss_dma_memory_region: memory@a4000000
+
+the device tree specification requires generic node names, my comment [1]
+had nothing specific on verdin am62/am62p.
+
+Francesco
+
+[1] https://lore.kernel.org/all/20250821060629.GB7503@francesco-nb/
 
