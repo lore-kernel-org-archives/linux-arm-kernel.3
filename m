@@ -4,82 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C59BECA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 05:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9413DCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 05:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g/CjdO2oLUs6Kl6KrkstjG0mM0TAx6J8bSMY2vPc0j8=; b=eJzhGrj//AJ0MxdeRkzq1+3KdX
-	8uBmdRCzv95yS5FViK8gN5JeCK5KBoCf4NLACKGS/1YTarMQq6Ewg9JOOrcZBXUaa9sjPv/Ku6PgT
-	gJvKjy4hxAN/AYwx7eJ5GcpAOYpJeGXH4Z/FlYxbfFpbUxG6Ea6VtOk/6EU0LkXV0debNdXBFG08B
-	lEstu5BeQrbYAmsVGCewt35Y36Td16RyeduQZIk3aik95cle0B5n84n8Bi00G3o2braCviZWAR1z1
-	z95Pz745pwKabfbyS0C87MLKFvf4Q9hwljhrLhqlP875V3+Mt5ogPn/kbuGoqg6iP09M+ZiQITZ42
-	X9Kb9rXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mt85MC02LFQ7xn6r0Pgl82alynes79oEBg/yND7jvjc=; b=PkPdet16lJKUlaG6YFeQM9/c9o
+	nnitNZ4zc0YpWEg/sb1eNLM8GQJ7wwYaIa6MKCiiLdF0jYW+RcH3Ya+J598T++E5q6mzLcPRm8Jmc
+	S5+sbudjqwuDeElxkFbqu/NhhspdY28NURD+//pjiEqIJxdte0ua/5/hGKKFGSQy2yoZhZDstwBzr
+	XP2kqFpP3x3nbRQYo9FQt803rI8gbKynqCLFmaHlqaPlYxjTiqJ4fuhwyWzJlKI6zyV4tpY+XQxht
+	EoAskS/MPkBxjTCPizZ00LXD/rDKNaH2QCYyrhpcPWIdOKuC6Gb9Jv3yn60cqYGqXezLq9oEEJ3+q
+	spCZhTUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuP2s-0000000H1J1-0OcH;
-	Fri, 05 Sep 2025 05:31:34 +0000
+	id 1uuP5W-0000000H1vE-3quL;
+	Fri, 05 Sep 2025 05:34:18 +0000
 Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuOqh-0000000GwTu-2ATR
+	id 1uuOqp-0000000GwXq-0wWU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 05:19:00 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5855IuWq3246080;
-	Fri, 5 Sep 2025 00:18:56 -0500
+	Fri, 05 Sep 2025 05:19:08 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5855J4Y93246096;
+	Fri, 5 Sep 2025 00:19:04 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757049536;
-	bh=g/CjdO2oLUs6Kl6KrkstjG0mM0TAx6J8bSMY2vPc0j8=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=acMGw2xddVqQt7//RKIZrvQ6Lu9HqXwl3RonGQ1UWoivS39hj/O9pO6gKzXmLR4zE
-	 G6YWaKA72SxroV0q2K7SvM0cl9Q5WMaPFaE+q6uGgUrjMM1/44/qkrTSwUWeEfGuNE
-	 mumn1EULm8kavxfXEPK9ZYHCh9OHKdyUAdKLrRbc=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5855IuvW688344
+	s=ti-com-17Q1; t=1757049544;
+	bh=mt85MC02LFQ7xn6r0Pgl82alynes79oEBg/yND7jvjc=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=OyWGSN7flyjvNm43c1o6AcMPdnq/esSE1xBjIhOoFLtXoW/OHkI4vhOuzrSf1pelL
+	 4p0yJtfcBMBsrLk7lVEIFUTWrvqXnzbo3an+s3QNhIywSLBalykjzXy54RhXRM42lb
+	 gleHPHxIBd+gxRVaM5J0r/wJMtQ84FVKLIPLxdOg=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5855J32W1404484
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 5 Sep 2025 00:18:56 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 5 Sep 2025 00:19:03 -0500
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 5
- Sep 2025 00:18:56 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 00:19:03 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 5 Sep 2025 00:18:55 -0500
-Received: from [10.24.68.177] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5855IpZV4124087;
-	Fri, 5 Sep 2025 00:18:52 -0500
-Message-ID: <9e0c355c-8b19-438e-98d9-d6290a562863@ti.com>
-Date: Fri, 5 Sep 2025 10:48:51 +0530
+ Frontend Transport; Fri, 5 Sep 2025 00:19:03 -0500
+Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5855IoiU220581;
+	Fri, 5 Sep 2025 00:18:59 -0500
+From: Beleswar Padhi <b-padhi@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
+        <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v3 01/33] arm64: dts: ti: k3-j7200: Enable R5F remote processors at board level
+Date: Fri, 5 Sep 2025 10:48:14 +0530
+Message-ID: <20250905051846.1189612-2-b-padhi@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250905051846.1189612-1-b-padhi@ti.com>
+References: <20250905051846.1189612-1-b-padhi@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining
- macros
-To: "Kumar, Udit" <u-kumar1@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
-        <afd@ti.com>, <vigneshr@ti.com>, <d-gole@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>
-References: <20250902071917.1616729-1-a-kaur@ti.com>
- <20250902071917.1616729-4-a-kaur@ti.com>
- <b946af38-abf9-4b34-bf44-3ba9bc64bff7@ti.com>
- <b0ccb51f-14f4-43c9-9646-296d6e9d559c@ti.com>
- <f2e60ec2-5a1f-4cff-a8ee-c2555d835946@ti.com>
- <1a20e784-d2d7-46d7-b705-67e460b6ae33@ti.com>
- <8f0dc883-7bab-4ad8-8db2-6c8f8377fdb3@ti.com>
-Content-Language: en-US
-From: Akashdeep Kaur <a-kaur@ti.com>
-In-Reply-To: <8f0dc883-7bab-4ad8-8db2-6c8f8377fdb3@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_221859_640659_B510691A 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20250904_221907_347922_1AB3C55B 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,73 +85,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/09/25 10:27, Kumar, Udit wrote:
-> 
-> On 9/4/2025 7:16 PM, Akashdeep Kaur wrote:
->> Hi Udit,
->>
->> On 04/09/25 18:06, Kumar, Udit wrote:
->>>
->>
->> ...
->>
->>>> ...
->>>>>>   #define PULLTYPESEL_SHIFT    (17)
->>>>>>   #define RXACTIVE_SHIFT        (18)
->>>>>> +#define DRV_STR_SHIFT           (19)
->>>>>
->>>>> referring to above TRM mentioned in commit message
->>>>>
->>>>> Bit 20-19 are for DRV_STR, and description says
->>>>>
->>>>> 0 - Default
->>>>> 1 - Reserved
->>>>> 2 - Reserved
->>>>> 3 - Reserved
->>>>>
->>>>> Not sure, is there some additional document to be referred for 
->>>>> PIN_DRIVE_STRENGTH
->>>>
->>>> This information will be updated in TRM in coming cycles.
->>>
->>>
->>> Sorry ,
->>>
->>> can not ack before TRM update
->>
->> The information can be found at https://www.ti.com/lit/ug/spruj83b/ 
->> spruj83b.pdf in Table 14-8769. Description Of The Pad Configuration 
->> Register Bit
-> 
-> 
-> Then please give correct reference in commit message
+Remote Processors defined in top-level J7200 SoC dtsi files are
+incomplete without the memory carveouts and mailbox assignments which
+are only known at board integration level.
 
-Updated the commit message!
+Therefore, disable the remote processors at SoC level and enable them at
+board level where above information is available.
 
-> 
-> 
-> 
->>
->>>
->>>
->>>
->>>>>
->>>>>
->>>>>> +#define DS_ISO_OVERRIDE_SHIFT (22)
->>>>>> +#define DS_ISO_BYPASS_EN_SHIFT  (23)
->>>>>
->>
->> ...
->>
->>>>>
->>>>>>   /* Default mux configuration for gpio-ranges to use with pinctrl */
->>>>>>   #define PIN_GPIO_RANGE_IOPAD    (PIN_INPUT | 7)
->>>>
->>>> Regards,
->>>> Akashdeep Kaur
->>
->> Thanks,
->> Akashdeep Kaur
->>
+Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+Acked-by: Andrew Davis <afd@ti.com>
+---
+v3: Changelog:
+1. Carried A/B tag.
+2. Updated $subject to include R5F remote processors.
+
+Link to v2:
+https://lore.kernel.org/all/20250823160901.2177841-2-b-padhi@ti.com/
+
+v2: Changelog:
+1. None
+
+Link to v1:
+https://lore.kernel.org/all/20250814223839.3256046-2-b-padhi@ti.com/
+
+ arch/arm64/boot/dts/ti/k3-j7200-main.dtsi       | 3 +++
+ arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi | 3 +++
+ arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi     | 9 +++++++++
+ 3 files changed, 15 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
+index 5ce5f0a3d6f5..628ff89dd72f 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
+@@ -1516,6 +1516,7 @@ main_r5fss0: r5fss@5c00000 {
+ 		ranges = <0x5c00000 0x00 0x5c00000 0x20000>,
+ 			 <0x5d00000 0x00 0x5d00000 0x20000>;
+ 		power-domains = <&k3_pds 243 TI_SCI_PD_EXCLUSIVE>;
++		status = "disabled";
+ 
+ 		main_r5fss0_core0: r5f@5c00000 {
+ 			compatible = "ti,j7200-r5f";
+@@ -1530,6 +1531,7 @@ main_r5fss0_core0: r5f@5c00000 {
+ 			ti,atcm-enable = <1>;
+ 			ti,btcm-enable = <1>;
+ 			ti,loczrama = <1>;
++			status = "disabled";
+ 		};
+ 
+ 		main_r5fss0_core1: r5f@5d00000 {
+@@ -1545,6 +1547,7 @@ main_r5fss0_core1: r5f@5d00000 {
+ 			ti,atcm-enable = <1>;
+ 			ti,btcm-enable = <1>;
+ 			ti,loczrama = <1>;
++			status = "disabled";
+ 		};
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
+index 56ab144fea07..692c4745040e 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
+@@ -612,6 +612,7 @@ mcu_r5fss0: r5fss@41000000 {
+ 		ranges = <0x41000000 0x00 0x41000000 0x20000>,
+ 			 <0x41400000 0x00 0x41400000 0x20000>;
+ 		power-domains = <&k3_pds 249 TI_SCI_PD_EXCLUSIVE>;
++		status = "disabled";
+ 
+ 		mcu_r5fss0_core0: r5f@41000000 {
+ 			compatible = "ti,j7200-r5f";
+@@ -626,6 +627,7 @@ mcu_r5fss0_core0: r5f@41000000 {
+ 			ti,atcm-enable = <1>;
+ 			ti,btcm-enable = <1>;
+ 			ti,loczrama = <1>;
++			status = "disabled";
+ 		};
+ 
+ 		mcu_r5fss0_core1: r5f@41400000 {
+@@ -641,6 +643,7 @@ mcu_r5fss0_core1: r5f@41400000 {
+ 			ti,atcm-enable = <1>;
+ 			ti,btcm-enable = <1>;
+ 			ti,loczrama = <1>;
++			status = "disabled";
+ 		};
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
+index 291ab9bb414d..90befcdc8d08 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
+@@ -254,20 +254,27 @@ mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
+ 	};
+ };
+ 
++&mcu_r5fss0 {
++	status = "okay";
++};
++
+ &mcu_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core0>;
+ 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+ 			<&mcu_r5fss0_core0_memory_region>;
++	status = "okay";
+ };
+ 
+ &mcu_r5fss0_core1 {
+ 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core1>;
+ 	memory-region = <&mcu_r5fss0_core1_dma_memory_region>,
+ 			<&mcu_r5fss0_core1_memory_region>;
++	status = "okay";
+ };
+ 
+ &main_r5fss0 {
+ 	ti,cluster-mode = <0>;
++	status = "okay";
+ };
+ 
+ /* Timers are used by Remoteproc firmware */
+@@ -287,12 +294,14 @@ &main_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core0>;
+ 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+ 			<&main_r5fss0_core0_memory_region>;
++	status = "okay";
+ };
+ 
+ &main_r5fss0_core1 {
+ 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core1>;
+ 	memory-region = <&main_r5fss0_core1_dma_memory_region>,
+ 			<&main_r5fss0_core1_memory_region>;
++	status = "okay";
+ };
+ 
+ &main_i2c0 {
+-- 
+2.34.1
 
 
