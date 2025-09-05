@@ -4,80 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ECF5CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 03:59:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1880CCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 03:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYRsnu1zQIxv1Gvs6bfNQCy9syx23j16FxOMbpuMt9Y=; b=LKjFZSBw77TGGtp7Dl1qxtfNJT
-	cGNqBjOLh0kB5S4VwpZaxj7wtRHMo54EjslGCcuhAddQgeHWWFWyiuBC9j6w3SvP+6CyqaBJf/Lcu
-	eY2Bf7U3NudTPU5g+B2tz0yz1YE392CWgeig68zPZBZxNGEXiMemLZN5ytcrF/g+rlsQcvkMVNomX
-	S/S/W57deEVqrnDv3UHCLDupoauAljSU2tgC7krCnPTUD0OkksPasnAd2gVYdi42ZuyyICJ8vCqPl
-	3jkpucIAVhiATLiAgxxJtD5j10fXlW7zjvFr3xgLdHPj+u4tDBUi5vxTbFj202eHivqLP71A2T6oE
-	+Lwtpqbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bZY1FQK+PTrKFmQKdUegMKhl+tdKa5m24gfzDGZOIcE=; b=Goy1On8hnbBdgw9qUu4nacDkMz
+	FWkNoWM57aERlRShTprSvOwUplPQUFQZ9boig5qrnGdCS/iXMOdWvPaB7J9GtdwL9mnX7IEHb1m5M
+	/+ftsptOBWrOPqzqN6xHUI1xkUS4zLMX+QTdEf0Sm3LZuHwz8bs9Xm0Nsd5OQdPL3sPqIO9Rz4FlG
+	qfDPiSTb6/NJ8pj09HxM4VmXcMY4SLfYqXL3Vz4r3kljRmAr5QD4ve1HvXVoo1YOGlZn2sMDgB+Dm
+	z0v5JHXZV61BBs/0yIQtpSiniH6pRaLRw6ZujfvYYCqB93tlkGOpqGtogBZHWcZfvvtaI1QtrJyeO
+	SGKciX9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuNbM-0000000GaJX-0zaS;
-	Fri, 05 Sep 2025 03:59:04 +0000
-Received: from mail-m3298.qiye.163.com ([220.197.32.98])
+	id 1uuNbS-0000000GaQe-0ldm;
+	Fri, 05 Sep 2025 03:59:10 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuMmm-0000000GLSF-38Cg;
-	Fri, 05 Sep 2025 03:06:50 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 21c51f9ff;
-	Fri, 5 Sep 2025 11:06:41 +0800 (GMT+08:00)
-Message-ID: <22a5119c-01da-4a7a-bafb-f657b1552a56@rock-chips.com>
-Date: Fri, 5 Sep 2025 11:06:40 +0800
+	id 1uuN33-0000000GQ3X-0J3B
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 03:23:38 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 584IrD3U022162;
+	Fri, 5 Sep 2025 03:23:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=bZY1FQK+PTrKFmQKdUegMK
+	hl+tdKa5m24gfzDGZOIcE=; b=UVkwHsRQ4kbjhtfYmVj+Kw3hAdfeAHrI/0JO0x
+	/XryTSaVGnavS5TjxtPAYcK/NuhRjWKnVdcPNI6KTPNKsoW96MXn9Z8DWb67Fm/B
+	hI5BU9bYljm9Wztc2CFKv8RQ5ag9ZwZJLINvcaq+JUnbSGs2JdtmhOrqFbh3CQF9
+	uHJwffeVikNJ4CAmmOzonC/IwOvXehLJV8HuKqR2F51GhoOZlpXnv0YVm+Knz778
+	Jp8TZEbe/OGc+t6Y+A1XD00AGfTGmp6P5qbPKaZimU2mKSr3Xx1vi/xwod9aX87z
+	+15KjOArvK+F4lwvQNhM83/XAyS0oysVPJ317QbgsHNeJlzA==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48utk99gfh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 05 Sep 2025 03:23:28 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5853NRLL015294
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 5 Sep 2025 03:23:27 GMT
+Received: from hu-panfan-lv.qualcomm.com (10.49.16.6) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.24; Thu, 4 Sep 2025 20:23:26 -0700
+From: panfan <panfan@qti.qualcomm.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <rostedt@goodmis.org>,
+        <mhiramat@kernel.org>, <mark.rutland@arm.com>,
+        <panfan@qti.qualcomm.com>, <samitolvanen@google.com>,
+        <song@kernel.org>, <ardb@kernel.org>, <dylanbhatch@google.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-trace-kernel@vger.kernel.org>, <kdong@qti.qualcomm.com>,
+        <haijianc@qti.qualcomm.com>
+Subject: [PATCH v2] arm64: ftrace: fix unreachable PLT for ftrace_caller in init_module with CONFIG_DYNAMIC_FTRACE
+Date: Thu, 4 Sep 2025 20:22:36 -0700
+Message-ID: <20250905032236.3220885-1-panfan@qti.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/13] Apply drm_bridge_connector and panel_bridge
- helper for the Analogix DP driver
-To: Marek Szyprowski <m.szyprowski@samsung.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org,
- dmitry.baryshkov@oss.qualcomm.com
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- l.stach@pengutronix.de, dianders@chromium.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-References: <CGME20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264@eucas1p2.samsung.com>
- <20250814104753.195255-1-damon.ding@rock-chips.com>
- <a3a2f8be-2c3c-49e7-b27a-72364ea48b06@samsung.com>
- <7cb50c9c-ac41-43b6-8c69-5f184e7c94cf@samsung.com>
- <1ccd3889-5f13-4609-9bd8-2c208e17fc96@rock-chips.com>
- <f2ebfff1-08ab-4f26-98f3-6d6415d58a5e@samsung.com>
- <a5e613ba-b404-40ae-b467-0f6f223f5d4c@rock-chips.com>
- <461daea4-5582-4aa2-bfea-130d2fb93717@samsung.com>
- <46f9137e-402d-4c0f-a224-10520f80c8b4@rock-chips.com>
- <ea57ca6e-4000-49f7-8e0b-899f34b7693a@samsung.com>
- <825ff59f-0a97-49a1-a210-a7ee275364bc@rock-chips.com>
- <4939d55e-b560-4235-8295-adf8e48d9b74@samsung.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <4939d55e-b560-4235-8295-adf8e48d9b74@samsung.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9917d72c0e03a3kunmbaa24fa91f77c7
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh5IGVYeGEJMTkJKTU8fTE5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=BwtbmYMNkLOfYppAy+wuG3dRf3rgy/c5fhy0xfkxwjm4IP/EavUY+x5tkpRceqRJiBu+2UIRw4usYHfbUd9Y/L0yFePemizYbPmz3Q8nZ8ysLJ0O3T7nBxiPvA/aIkc9b4hwf3HatRCTgkqwI47m9DmdxumhhRdXH5+51C+XPQc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=yYRsnu1zQIxv1Gvs6bfNQCy9syx23j16FxOMbpuMt9Y=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: HV9T0RRsknncE9UG9d85IRGELm2k2ifG
+X-Proofpoint-ORIG-GUID: HV9T0RRsknncE9UG9d85IRGELm2k2ifG
+X-Authority-Analysis: v=2.4 cv=ccnSrmDM c=1 sm=1 tr=0 ts=68ba57b0 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=3H110R4YSZwA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=XwCMDglm2lP2NyoYPEUA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDA0MiBTYWx0ZWRfX+dwZZouyTGrj
+ ys6+5wyqui1ZsAbllT4z/35qC9p/6NCMt8aPxQvUYeVTPKpQhaF61XTzOfSUHyEnQOUHUKf2yL8
+ LSe4kK/BpSJ4lfw7cfQwKRGPSLg0/zIeJQKdnuuAw+EDU/s1ptolM09BQqr/E+RKaaxUZQC5eX8
+ bTdtJHkgUnpeW5byEQtqDOTnX/ladChzPTrGzEH2YSAAr54qNdf6qYuz7Z3aTP8d3kYgQOm22le
+ P9rG9uZrlVkgupUsrn7bz4agJIaXY4dEGQHMwEDag0Tce33rpBv/ASB2wpUIz/gXDOiuzv1IcBe
+ 5WjeEW7sB64R64EUKm2yA8Ooibp/WiwVdW0NauEe4b/JBxC390nzwVukj87HbIZPVNS6ejsVcoh
+ WppNg2bh
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-05_01,2025-09-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
+ clxscore=1015 suspectscore=0 spamscore=0 bulkscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508300042
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_200649_409838_1012C5DC 
-X-CRM114-Status: GOOD (  34.69  )
+X-CRM114-CacheID: sfid-20250904_202337_119292_4E3D9A5A 
+X-CRM114-Status: GOOD (  20.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,173 +109,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On arm64, it has been possible for a module's sections to be placed more
+than 128M away from each other since commit:
 
-On 9/4/2025 9:27 PM, Marek Szyprowski wrote:
-> On 04.09.2025 05:19, Damon Ding wrote:
->> On 9/1/2025 6:25 PM, Marek Szyprowski wrote:
->>> On 01.09.2025 05:41, Damon Ding wrote:
->>>> On 8/29/2025 4:23 PM, Marek Szyprowski wrote:
->>>>> On 29.08.2025 10:08, Damon Ding wrote:
->>>>>> On 8/20/2025 5:20 AM, Marek Szyprowski wrote:
->>>>>>> On 15.08.2025 04:59, Damon Ding wrote:
->>>>>>>> On 2025/8/15 5:16, Marek Szyprowski wrote:
->>>>>>>>> On 14.08.2025 16:33, Marek Szyprowski wrote:
->>>>>>>>>> On 14.08.2025 12:47, Damon Ding wrote:
->>>>>>>>>>> PATCH 1 is a small format optimization for struct
->>>>>>>>>>> analogid_dp_device.
->>>>>>>>>>> PATCH 2 is to perform mode setting in
->>>>>>>>>>> &drm_bridge_funcs.atomic_enable.
->>>>>>>>>>> PATCH 3-6 are preparations for apply drm_bridge_connector
->>>>>>>>>>> helper.
->>>>>>>>>>> PATCH 7 is to apply the drm_bridge_connector helper.
->>>>>>>>>>> PATCH 8-10 are to move the panel/bridge parsing to the Analogix
->>>>>>>>>>> side.
->>>>>>>>>>> PATCH 11-12 are preparations for apply panel_bridge helper.
->>>>>>>>>>> PATCH 13 is to apply the panel_bridge helper.
->>>>>>>>>> ...
->>>>>>>
->>>>>>
->>>>>> Could you please provide the related DTS file for the test? I will
->>>>>> also try to find out the reason for this unexpected issue. ;-)
->>>>>
->>>>> Unfortunately I didn't find enough time to debug this further. The
->>>>> above
->>>>> log is from Samsung Snow Chromebook,
->>>>> arch/arm/boot/dts/samsung/exynos5250-snow.dts
->>>>>
->>>>>
->>>>
->>>> I compare the differences in the following display path before and
->>>> after this patch series:
->>>>
->>>> exynos_dp -> nxp-ptn3460 -> panel "auo,b116xw03"
->>>>
->>>> The issue is likely caused by the &drm_connector_funcs.detect()
->>>> related logic. Before this patch series, the nxp-ptn3460 connector is
->>>> always connector_status_connected because there is not available
->>>> &drm_connector_funcs.detect(). After it, the DRM_BRIDGE_OP_DETECT flag
->>>> make the connection status depend on analogix_dp_bridge_detect().
->>>>
->>>> Could you please add the following patches additionally and try again?
->>>> (Not the final solution, just validation)
->>>>
->>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>>> b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>>> index a93ff8f0a468..355911c47354 100644
->>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>>> @@ -1491,9 +1491,11 @@ int analogix_dp_bind(struct analogix_dp_device
->>>> *dp, struct drm_device *drm_dev)
->>>>                   }
->>>>           }
->>>>
->>>> -       bridge->ops = DRM_BRIDGE_OP_DETECT |
->>>> -                     DRM_BRIDGE_OP_EDID |
->>>> +       bridge->ops = DRM_BRIDGE_OP_EDID |
->>>>                         DRM_BRIDGE_OP_MODES;
->>>> +       if (drm_bridge_is_panel(dp->plat_data->next_bridge))
->>>> +               bridge->ops |= DRM_BRIDGE_OP_DETECT;
->>>> +
->>>>           bridge->of_node = dp->dev->of_node;
->>>>           bridge->type = DRM_MODE_CONNECTOR_eDP;
->>>>           ret = devm_drm_bridge_add(dp->dev, &dp->bridge);
->>>
->>> It is better. Now the display panel is detected and reported to
->>> userspace, but it looks that something is not properly initialized,
->>> because there is garbage instead of the proper picture.
->>>
->>
->> I simulated the display path mentioned above on my RK3588S EVB1 Board.
->> To my slight surprise, it displayed normally with the reported
->> connector type DRM_MODE_CONNECTOR_LVDS. ;-)
->>
->> The modifications included:
->> 1.Synchronized the Analogix DP ralated DT configurations with Samsung
->> Snow Chromebook.
->> 2.Skipped the I2C transfers and GPIO operations in nxp-ptn3460 driver.
->> 3.Set the EDID to that of eDP Panel LP079QX1-SP0V forcibly.
->>
->> Additionally, I added debug logs to verify whether the functions in
->> ptn3460_bridge_funcs were actually called.
->>
->> Did you encounter any unexpected logs during your investigation? I'd
->> like to perform additional tests on this issue. :-)
-> 
-> 
-> Okay, I've finally went to the office and tested manually all 3
-> Chromebook boards witch use exynos-dp based display hardware. Previously
-> I only did the remote tests and observed result on a webcam, which was
-> not directed directly at the tested displays, so I only saw the glare
-> from the display panel.
-> 
-> The results are as follows:
-> 
-> 1. Snow (arch/arm/boot/dts/samsung/exynos5250-snow.dts) - exynos-dp ->
-> nxp-ptn3460 1366x768 lvds panel - works fine with the above mentioned
-> change.
-> 
-> 2. Peach-Pit (arch/arm/boot/dts/samsung/exynos5420-peach-pit.dts) -
-> exynos-dp -> parade,ps8625 -> auo,b116xw03 1366x768 lvds panel -
-> displays garbage, this was the only board I previously was able to see
-> partially on the webcam.
-> 
-> 3. Peach-Pi (arch/arm/boot/dts/samsung/exynos5800-peach-pi.dts) -
-> exynos-dp -> auo,b133htn01 1920x1080 edp panel - also displays garbage.
-> 
-> Then I found why both Peach boards displays garbage on boot - the
-> framebuffer emulation is initialized for 1024x786 resolution, which is
-> not handled by those panels. This is a bit strange, because the
-> connector implemented by the panel reports proper native mode to drm and
-> userspace. 'modetest -c' shows the right resolution. Also when I run
-> 'modetest -s' with the panel's native resolution then the test pattern
-> is correctly displayed on all three boards.
-> 
-> 
-> Then I've played a bit with the analogix code and it looks that this
-> 1024x768 mode is some kind default mode which comes from
-> analogix_dp_bridge_edid_read() function, which has been introduced by
-> this patchset. When I removed DRM_BRIDGE_OP_EDID flag from bridge->ops,
-> then I got it finally working again properly on all three boards. I hope
-> this helps fixing this issue.
-> 
+  commit 3e35d303ab7d ("arm64: module: rework module VA range selection")
 
-Thank you for your help with the investigation. :-)
+Due to this, an ftrace callsite in a module's .init.text section can be
+out of branch range for the module's ftrace PLT entry (in the module's
+.text section). Any attempt to enable tracing of that callsite will
+result in a BRK being patched into the callsite, resulting in a fatal
+exception when the callsite is later executed.
 
-Based on your helpful findings and Dmitry's earlier suggestions[0], it 
-is better to distinguish the &drm_bridge->ops of Analogix bridge based 
-on whether the downstream device is a panel, a bridge or neither.
+Fix this by adding an additional trampoline for .init.text, which will
+be within range.
 
-1. If there is a panel after, the &drm_bridge->ops should be set to 
-DRM_BRIDGE_OP_MODES | DRM_BRIDGE_OP_DETECT.
+No additional trampolines are necessary due to the way a given
+module's executable sections are packed together. Any executable
+section beginning with ".init" will be placed in MOD_INIT_TEXT,
+and any other executable section, including those beginning with ".exit",
+ will be placed in MOD_TEXT.
 
-Since the &drm_bridge->ops of panel_bridge is DRM_BRIDGE_OP_MODES and 
-the panel-edp driver reads EDID in &drm_panel_funcs.get_modes(), the 
-DRM_BRIDGE_OP_EDID should be removed to ensure proper invocation for the 
-&drm_bridge_funcs.get_modes() of panel_bridge.
+Fixes: 3e35d303ab7d ("arm64: module: rework module VA range selection")
 
-2. If there is a bridge after, the &drm_bridge->ops should be set to NULL.
+Signed-off-by: panfan <panfan@qti.qualcomm.com>
+---
+v2:
+   - Add an explicit check to ensure the address is within MOD_INIT_TEXT
+     or MOD_TEXT.
+   - Simplify the commit message.
 
-The OP_EDID and OP_MODES supports depends on the next bridge rather than 
-the Analogix bridge. According to your investigation, nxp-ptn3460 
-supports &drm_bridge_funcs.edid_read() while parade-ps8625 do not.
+Link: https://lore.kernel.org/all/20250819063418.1263119-1-panfan@qti.qualcomm.com/   # v1
+---
+ arch/arm64/include/asm/module.h     |  1 +
+ arch/arm64/include/asm/module.lds.h |  1 +
+ arch/arm64/kernel/ftrace.c          | 13 ++++++++++---
+ arch/arm64/kernel/module-plts.c     | 12 +++++++++++-
+ arch/arm64/kernel/module.c          | 11 +++++++++++
+ 5 files changed, 34 insertions(+), 4 deletions(-)
 
-Additionally, since some bridges does not support 
-&drm_bridge_funcs.detect(), which regards as connector_status_connected 
-by default according to 
-drm_helper_probe_detect()(drivers/gpu/drm_probe_helper.c), the 
-connection status should also depends on the next bridge rather than the 
-Analogix bridge.
-
-3. If there is neither a panel nor a bridge, the &drm_bridge->ops should 
-be set to DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT.
-
-In this case, the Analogix DP driver may work in the DP mode, so the 
-OP_EDID and OP_DETECT supports should be helpful.
-
-Best regards,
-Damon
-
-[0]https://lore.kernel.org/all/incxmqneeurgli5h6p3hn3bgztxrzyk5eq2h5nq4lgzalohslq@mvehvr4cgyim/
+diff --git a/arch/arm64/include/asm/module.h b/arch/arm64/include/asm/module.h
+index 79550b22ba19..fb9b88eebeb1 100644
+--- a/arch/arm64/include/asm/module.h
++++ b/arch/arm64/include/asm/module.h
+@@ -19,6 +19,7 @@ struct mod_arch_specific {
+ 
+ 	/* for CONFIG_DYNAMIC_FTRACE */
+ 	struct plt_entry	*ftrace_trampolines;
++	struct plt_entry	*init_ftrace_trampolines;
+ };
+ 
+ u64 module_emit_plt_entry(struct module *mod, Elf64_Shdr *sechdrs,
+diff --git a/arch/arm64/include/asm/module.lds.h b/arch/arm64/include/asm/module.lds.h
+index b9ae8349e35d..fb944b46846d 100644
+--- a/arch/arm64/include/asm/module.lds.h
++++ b/arch/arm64/include/asm/module.lds.h
+@@ -2,6 +2,7 @@ SECTIONS {
+ 	.plt 0 : { BYTE(0) }
+ 	.init.plt 0 : { BYTE(0) }
+ 	.text.ftrace_trampoline 0 : { BYTE(0) }
++	.init.text.ftrace_trampoline 0 : { BYTE(0) }
+ 
+ #ifdef CONFIG_KASAN_SW_TAGS
+ 	/*
+diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
+index 5a890714ee2e..5adad37ab4fa 100644
+--- a/arch/arm64/kernel/ftrace.c
++++ b/arch/arm64/kernel/ftrace.c
+@@ -258,10 +258,17 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
+ 	return ftrace_modify_code(pc, 0, new, false);
+ }
+ 
+-static struct plt_entry *get_ftrace_plt(struct module *mod)
++static struct plt_entry *get_ftrace_plt(struct module *mod, unsigned long addr)
+ {
+ #ifdef CONFIG_MODULES
+-	struct plt_entry *plt = mod->arch.ftrace_trampolines;
++	struct plt_entry *plt = NULL;
++
++	if (within_module_mem_type(addr, mod, MOD_INIT_TEXT))
++		plt = mod->arch.init_ftrace_trampolines;
++	else if (within_module_mem_type(addr, mod, MOD_TEXT))
++		plt = mod->arch.ftrace_trampolines;
++	else
++		return NULL;
+ 
+ 	return &plt[FTRACE_PLT_IDX];
+ #else
+@@ -332,7 +339,7 @@ static bool ftrace_find_callable_addr(struct dyn_ftrace *rec,
+ 	if (WARN_ON(!mod))
+ 		return false;
+ 
+-	plt = get_ftrace_plt(mod);
++	plt = get_ftrace_plt(mod, pc);
+ 	if (!plt) {
+ 		pr_err("ftrace: no module PLT for %ps\n", (void *)*addr);
+ 		return false;
+diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-plts.c
+index bde32979c06a..7afd370da9f4 100644
+--- a/arch/arm64/kernel/module-plts.c
++++ b/arch/arm64/kernel/module-plts.c
+@@ -283,7 +283,7 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 	unsigned long core_plts = 0;
+ 	unsigned long init_plts = 0;
+ 	Elf64_Sym *syms = NULL;
+-	Elf_Shdr *pltsec, *tramp = NULL;
++	Elf_Shdr *pltsec, *tramp = NULL, *init_tramp = NULL;
+ 	int i;
+ 
+ 	/*
+@@ -298,6 +298,9 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 		else if (!strcmp(secstrings + sechdrs[i].sh_name,
+ 				 ".text.ftrace_trampoline"))
+ 			tramp = sechdrs + i;
++		else if (!strcmp(secstrings + sechdrs[i].sh_name,
++				 ".init.text.ftrace_trampoline"))
++			init_tramp = sechdrs + i;
+ 		else if (sechdrs[i].sh_type == SHT_SYMTAB)
+ 			syms = (Elf64_Sym *)sechdrs[i].sh_addr;
+ 	}
+@@ -363,5 +366,12 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 		tramp->sh_size = NR_FTRACE_PLTS * sizeof(struct plt_entry);
+ 	}
+ 
++	if (init_tramp) {
++		init_tramp->sh_type = SHT_NOBITS;
++		init_tramp->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
++		init_tramp->sh_addralign = __alignof__(struct plt_entry);
++		init_tramp->sh_size = NR_FTRACE_PLTS * sizeof(struct plt_entry);
++	}
++
+ 	return 0;
+ }
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 40148d2725ce..d6d443c4a01a 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -466,6 +466,17 @@ static int module_init_ftrace_plt(const Elf_Ehdr *hdr,
+ 	__init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
+ 
+ 	mod->arch.ftrace_trampolines = plts;
++
++	s = find_section(hdr, sechdrs, ".init.text.ftrace_trampoline");
++	if (!s)
++		return -ENOEXEC;
++
++	plts = (void *)s->sh_addr;
++
++	__init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
++
++	mod->arch.init_ftrace_trampolines = plts;
++
+ #endif
+ 	return 0;
+ }
+-- 
+2.34.1
 
 
