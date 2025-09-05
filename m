@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED10CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 18:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51BD8CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 19:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RnWShrZLR7vPEU2B78j7+Lb7nzOaNYK0ui51c7MAe+o=; b=jlRSSihWjeT3UUt+NIhpoCdVvF
-	/LN8N1gx2qa+Dy1hJKzMZIICl9eyrP6yCcvYD4zaahCDx/KFXknqdRkZcGZfizeYEqKP3aeszJMDb
-	aqN8elosr9InK+lCi8EADETMLQj4AYRGg2EEQ3QAtDlXscVTnpziW4tUsNTViDzeOWwPypcvMuZgk
-	MruQFYa5H9sofHCjmsdiCZZwcPVkyb2VaEA1IWBmUEnzQ2ycQZMwGowSBSeZbyL4G2lY1slbEfdwK
-	+gf7eoUwyNWpm9qmiPxIztK6FxLKae6VD+7JPANy7uuqiQaotgES9NMiaTDWt3GoxNMed5VNzmkew
-	GC8tfFyg==;
+	bh=6+gwoCjWfTju3sP/jVtuc7/g8X3wct7nCOhB3h1yVAQ=; b=VesU+x5og97OeFqX3NHO1Ukn4/
+	JxC7LSe2Qv+TyB3NthhJqTjkguz+MazCvFyqj9uEw9+79ccfEe+dWYWGSjhZhiUZ7ypqyMTvbbMwF
+	Mv+2ObECRotSRt8pqYZPmEwInjc+c1xiPMjulJV+irO9/96LQmAr/4sdFKUXC0zaKKM7uQvwvnc7S
+	vUyMtboRmJLmvZuBO71Oi+vkTMZLkMz8RUu5+vpS0L/rUWjiSPOAGrOTvrCdF2ueZ+gu5qUxJkKBj
+	6aYfkTNkZu2l7eDKCYQIuAzOppdZfxk7NOQnYS59ONnFXpsu8Pl7X7ZKSU5FlkYwy5fJlnXvA0UVt
+	wfMhjVCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uubUB-00000003uQk-2BHy;
-	Fri, 05 Sep 2025 18:48:35 +0000
+	id 1uuc52-000000046tM-1Ngf;
+	Fri, 05 Sep 2025 19:26:40 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuWWf-00000001zP0-1ETt
+	id 1uuWWg-00000001zPP-1VhK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 13:30:50 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45cb4f23156so12199125e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 06:30:48 -0700 (PDT)
+	Fri, 05 Sep 2025 13:30:51 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45b9912a07dso15339365e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 06:30:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757079048; x=1757683848; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1757079049; x=1757683849; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RnWShrZLR7vPEU2B78j7+Lb7nzOaNYK0ui51c7MAe+o=;
-        b=fc30cKWT1Mdmfg18b+dRJRTTvPZ5w1mRmVglsWUWmOskFmsCKOBiakyi7L74v/qs7s
-         C3R4+EASHwZzY1TgglWs71MmNzC2cgu+F8SlsCxKC4HNWfHdK6Tle1xb5oD+f6QVGfC5
-         rYtydju9r48O1y2e5TEhJHcL7c+ZALzHG8D2Cnw5KYVOLkx1f9+Jz32N5fJCj4sHD6+6
-         8s+ygNn8PSlOC3w8s/9W6hYGHZQkYbF34TNpEm2uqkMIKjJEEk5gvdA1fVjbI+CsX7+v
-         DX+vwSGw+Od+yjFV97vwdgZ5Loo/rteCefM4Mj8sbJsjMLYW9P5gzWp+J+WGgmduuR0N
-         fx6g==
+        bh=6+gwoCjWfTju3sP/jVtuc7/g8X3wct7nCOhB3h1yVAQ=;
+        b=UPW3izUUAHbU8zEBnMscX73UYMfH096FqJQe11i7okcJUNC0bPvTxeUktxmMpbQQWy
+         rCBlz5W0v0bHCvpv/EwPz2yvtbdle2znkgeZydih1hAAj7SHxZ1Le5OuwYz2U6bNV+Qx
+         M3AeUmcYxAOEw1jSWL7Ne15c2PBdXsruim+011SG4EWmtCo6fQkw5oeCAcmdCRTBeF2z
+         appLTuXTLcvsLVMCs1AgX5N1YGt3r/BSLJZRxC4N3NjXl3s3tgMAmMN1PF9JyZOPxTOt
+         BIhj2RlXQuKmF5sxZqgQf16mt0PuurR95CELlhnFopmddUEHwjNlO7pIC8MrujdRCzu/
+         x1VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757079048; x=1757683848;
+        d=1e100.net; s=20230601; t=1757079049; x=1757683849;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RnWShrZLR7vPEU2B78j7+Lb7nzOaNYK0ui51c7MAe+o=;
-        b=vQSOZ/6ABNMrlqCyHmlb8/Cf8FItJ8wyOU0550roj5NiRbuzeSZuE5z1m9KuBihK5t
-         1rIPIMScGR09d/UcxAct+DQEKoSNAwo//FMWIl1bkJ05ZT6KZehNRDmGmMSo/lg+LSWi
-         D52Z4JKrWjSMziAib4u4WmK2DV1bAW2WA1EoklK+LT+0Za9VZEzS9oLFq8tkikbl36Fd
-         uCgAjXdG/5PpG5eNaeA4nCQvcXASmfMHiHbnbrJjM1+gaG0lDxi8MAqTnqn9YA4kbVLQ
-         Muz5uOlP8Z5kq9ebzkDA3agaPI3gKk6CrpsTXTaEV2DkbNGyOZynXdGv6EoG5hMWVh0S
-         ZOjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV0akIWFOsj3E53Lt3v3YiU99FG03BxI6JZnDboosbnfNOhq0ID/1dh0VTyIUzGiAdppoP3qnksLEHtcRCd2MaO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdHvNHURGDoWTFk3AmS/EBKNyGshrMjRq6jhU9WesYAK6xNhsP
-	Rjds+VBDRZWj39KjRHfKwrG1vJLtoSQxbJh8RbpsVehegmlNZwIUSd/txefvAOQVI1l68lBy0w=
+        bh=6+gwoCjWfTju3sP/jVtuc7/g8X3wct7nCOhB3h1yVAQ=;
+        b=esMxUh+AP9SHuZ1ix7aapKa1EE3AXklXDOyZVWYEh28oAHX4NnM3taCgwg8Bcc2TlM
+         sIgZd0cgpzgX7USYNTPvjmnAYpU9BE51Ba0/JU2e42z6rzlDGuYdH8O6eb3Hi0LJ4mCR
+         lwvAcsO7c5WWijAgATSkVWnG8d8cjxSQFq9/JSwAYD6kSRA1mS1H9xkB21y8CFtEHY2o
+         +fefm8LWxWM19omzl/TC2UUy/gZgkIeaIYvcM/Oy49PFWEuMc89F3sEZLiclxMCVgUq9
+         5l+h+XEC1vp/E/aFevDAytN/1sqBQJVTmf98+E29FBizdROYFTeGurx40auxqasiT47W
+         TMcg==
+X-Forwarded-Encrypted: i=1; AJvYcCVjeEsTkA1fCVFRpIApjKJikuGGHq6EC6pBOLI8qAAJLlPKPUonRMP4toAwdD5xMWl7DjLJpgVEbQA5fN0rLOle@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcPbX7jbsUik0CoYrgVngbUPO0ezX8pdwasEe6rvSMimdjp0vq
+	3m/VYy3NXS6i1wqdg5Vx8WsRRpYqdRPyLhE17QZqgkknVXQ1B1M4NssgYCfSOR5Qnb4LsfC10A=
 	=
-X-Google-Smtp-Source: AGHT+IElALc0lZ+KzdRQ2dRMVCGqhkLpgISWWuaMfOGta1rBFF8GrBs1+cH4A40kb4E6vXjqoOQHmNcF
-X-Received: from wmbhj7.prod.google.com ([2002:a05:600c:5287:b0:45b:883d:4704])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8b22:b0:45b:4a98:91cf
- with SMTP id 5b1f17b1804b1-45b8554fa14mr221341505e9.15.1757079047829; Fri, 05
- Sep 2025 06:30:47 -0700 (PDT)
-Date: Fri,  5 Sep 2025 15:30:38 +0200
+X-Google-Smtp-Source: AGHT+IFopEjOcoNJYtItMHOege0+1Lpxw3R3ZwN0yI0iXz4fJJsgWwvzjjGw2Y/Y7xXxRt/ZprPJuGNY
+X-Received: from wmqd18.prod.google.com ([2002:a05:600c:34d2:b0:459:d8e5:ae9d])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1e87:b0:45b:47e1:ef68
+ with SMTP id 5b1f17b1804b1-45b855bec6emr184837055e9.35.1757079048728; Fri, 05
+ Sep 2025 06:30:48 -0700 (PDT)
+Date: Fri,  5 Sep 2025 15:30:39 +0200
 In-Reply-To: <20250905133035.275517-9-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20250905133035.275517-9-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5534; i=ardb@kernel.org;
- h=from:subject; bh=j5/ecr8uALf7Q3nJBo6TOOBIUrCfY89Wx0Sfg11CrLo=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIWPX03/PGg7Hc66b+swzatZ//hyxHTtL6q8f+id1TzVOs
- mP7n33eHaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAij+8yMhyzX+Fb8tmx1cBh
- ubWomssPdta0xuBQ/kRP/ZqzT5JMDzAy/D6vknj/wtZNKmIrLhlwyp7sfPve3XVZjKvxH7cjZzi KGAE=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4130; i=ardb@kernel.org;
+ h=from:subject; bh=zNP081W6ZhtW0flsDQ3N/BMuwKS0QOlu9XU/sv9Pxgo=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIWPX03+yk0xKTJwl38T/f51SZBqVXMC0s9Fo/qwXrmWqL
+ PG3gzd3lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgIloZjP8FXQxVZrZNXWLnZXB
+ Ow1ze94vX/Zzz2VK+c92/LwAi+f1BQz/q3YrzN9To71e2LlDVqzuLIftb65dFrlRy2baqk/8tUa YDQA=
 X-Mailer: git-send-email 2.51.0.355.g5224444f11-goog
-Message-ID: <20250905133035.275517-11-ardb+git@google.com>
-Subject: [PATCH v2 2/7] efi/runtime: Return success/failure from arch_efi_call_virt_setup()
+Message-ID: <20250905133035.275517-12-ardb+git@google.com>
+Subject: [PATCH v2 3/7] efi/runtime: Deal with arch_efi_call_virt_setup()
+ returning failure
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-efi@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -80,8 +81,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Peter Zijlstra <peterz@infradead.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_063049_338580_13240BCB 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20250905_063050_398782_DA5D1962 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,160 +99,122 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Permit the arch glue to signal failure from arch_efi_call_virt_setup().
-This permits the use of sleeping locks in the call wrappers, and this
-will allow EFI runtime services to be invoked without the need for
-disabling preemption.
+Deal with arch_efi_call_virt_setup() returning failure, by giving up and
+returning an appropriate error code to the caller.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm/include/asm/efi.h           | 2 +-
- arch/arm64/include/asm/efi.h         | 2 +-
- arch/arm64/kernel/efi.c              | 3 ++-
- arch/loongarch/include/asm/efi.h     | 2 +-
- arch/riscv/include/asm/efi.h         | 2 +-
- arch/x86/include/asm/efi.h           | 2 +-
- arch/x86/platform/efi/efi_32.c       | 3 ++-
- arch/x86/platform/efi/efi_64.c       | 3 ++-
- drivers/firmware/efi/riscv-runtime.c | 3 ++-
- 9 files changed, 13 insertions(+), 9 deletions(-)
+ arch/x86/platform/uv/bios_uv.c          |  3 ++-
+ drivers/firmware/efi/runtime-wrappers.c | 20 +++++++++++++-------
+ include/linux/efi.h                     |  8 ++++----
+ 3 files changed, 19 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm/include/asm/efi.h b/arch/arm/include/asm/efi.h
-index e408399d5f0e..0809a69bb579 100644
---- a/arch/arm/include/asm/efi.h
-+++ b/arch/arm/include/asm/efi.h
-@@ -23,7 +23,7 @@ void arm_efi_init(void);
- int efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md);
- int efi_set_mapping_permissions(struct mm_struct *mm, efi_memory_desc_t *md, bool);
+diff --git a/arch/x86/platform/uv/bios_uv.c b/arch/x86/platform/uv/bios_uv.c
+index bf31af3d32d6..a442bbe5b1c2 100644
+--- a/arch/x86/platform/uv/bios_uv.c
++++ b/arch/x86/platform/uv/bios_uv.c
+@@ -32,7 +32,8 @@ static s64 __uv_bios_call(enum uv_bios_cmd which, u64 a1, u64 a2, u64 a3,
+ 		 */
+ 		return BIOS_STATUS_UNIMPLEMENTED;
  
--#define arch_efi_call_virt_setup()	efi_virtmap_load()
-+#define arch_efi_call_virt_setup()	(efi_virtmap_load(), true)
- #define arch_efi_call_virt_teardown()	efi_virtmap_unload()
+-	ret = efi_call_virt_pointer(tab, function, (u64)which, a1, a2, a3, a4, a5);
++	ret = efi_call_virt_pointer(tab, function, BIOS_STATUS_UNIMPLEMENTED,
++				    (u64)which, a1, a2, a3, a4, a5);
  
- #ifdef CONFIG_CPU_TTBR0_PAN
-diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
-index bcd5622aa096..decf87777f57 100644
---- a/arch/arm64/include/asm/efi.h
-+++ b/arch/arm64/include/asm/efi.h
-@@ -37,7 +37,7 @@ int efi_set_mapping_permissions(struct mm_struct *mm, efi_memory_desc_t *md,
- extern u64 *efi_rt_stack_top;
- efi_status_t __efi_rt_asm_wrapper(void *, const char *, ...);
- 
--void arch_efi_call_virt_setup(void);
-+bool arch_efi_call_virt_setup(void);
- void arch_efi_call_virt_teardown(void);
- 
- /*
-diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-index 6c371b158b99..9b03f3d77a25 100644
---- a/arch/arm64/kernel/efi.c
-+++ b/arch/arm64/kernel/efi.c
-@@ -167,11 +167,12 @@ asmlinkage efi_status_t efi_handle_corrupted_x18(efi_status_t s, const char *f)
- 
- static DEFINE_RAW_SPINLOCK(efi_rt_lock);
- 
--void arch_efi_call_virt_setup(void)
-+bool arch_efi_call_virt_setup(void)
- {
- 	efi_virtmap_load();
- 	raw_spin_lock(&efi_rt_lock);
- 	__efi_fpsimd_begin();
-+	return true;
+ 	return ret;
  }
+diff --git a/drivers/firmware/efi/runtime-wrappers.c b/drivers/firmware/efi/runtime-wrappers.c
+index 708b777857d3..82a27b414485 100644
+--- a/drivers/firmware/efi/runtime-wrappers.c
++++ b/drivers/firmware/efi/runtime-wrappers.c
+@@ -219,7 +219,10 @@ static void __nocfi efi_call_rts(struct work_struct *work)
+ 	efi_status_t status = EFI_NOT_FOUND;
+ 	unsigned long flags;
  
- void arch_efi_call_virt_teardown(void)
-diff --git a/arch/loongarch/include/asm/efi.h b/arch/loongarch/include/asm/efi.h
-index eddc8e79b3fa..84cf2151123f 100644
---- a/arch/loongarch/include/asm/efi.h
-+++ b/arch/loongarch/include/asm/efi.h
-@@ -14,7 +14,7 @@ void efifb_setup_from_dmi(struct screen_info *si, const char *opt);
+-	arch_efi_call_virt_setup();
++	if (!arch_efi_call_virt_setup()) {
++		status = EFI_NOT_READY;
++		goto out;
++	}
+ 	flags = efi_call_virt_save_flags();
  
- #define ARCH_EFI_IRQ_FLAGS_MASK  0x00000004  /* Bit 2: CSR.CRMD.IE */
+ 	switch (efi_rts_work.efi_rts_id) {
+@@ -308,6 +311,7 @@ static void __nocfi efi_call_rts(struct work_struct *work)
+ 	efi_call_virt_check_flags(flags, efi_rts_work.caller);
+ 	arch_efi_call_virt_teardown();
  
--#define arch_efi_call_virt_setup()
-+#define arch_efi_call_virt_setup()	true
- #define arch_efi_call_virt_teardown()
++out:
+ 	efi_rts_work.status = status;
+ 	complete(&efi_rts_work.efi_rts_comp);
+ }
+@@ -444,8 +448,8 @@ virt_efi_set_variable_nb(efi_char16_t *name, efi_guid_t *vendor, u32 attr,
+ 	if (down_trylock(&efi_runtime_lock))
+ 		return EFI_NOT_READY;
  
- #define EFI_ALLOC_ALIGN		SZ_64K
-diff --git a/arch/riscv/include/asm/efi.h b/arch/riscv/include/asm/efi.h
-index 46a355913b27..a7b4d719e7be 100644
---- a/arch/riscv/include/asm/efi.h
-+++ b/arch/riscv/include/asm/efi.h
-@@ -40,7 +40,7 @@ static inline unsigned long efi_get_kimg_min_align(void)
+-	status = efi_call_virt_pointer(efi.runtime, set_variable, name, vendor,
+-				       attr, data_size, data);
++	status = efi_call_virt_pointer(efi.runtime, set_variable, EFI_NOT_READY,
++				       name, vendor, attr, data_size, data);
+ 	up(&efi_runtime_lock);
+ 	return status;
+ }
+@@ -481,9 +485,9 @@ virt_efi_query_variable_info_nb(u32 attr, u64 *storage_space,
+ 	if (down_trylock(&efi_runtime_lock))
+ 		return EFI_NOT_READY;
  
- #define EFI_KIMG_PREFERRED_ADDRESS	efi_get_kimg_min_align()
- 
--void arch_efi_call_virt_setup(void);
-+bool arch_efi_call_virt_setup(void);
- void arch_efi_call_virt_teardown(void);
- 
- unsigned long stext_offset(void);
-diff --git a/arch/x86/include/asm/efi.h b/arch/x86/include/asm/efi.h
-index f227a70ac91f..879c8402e024 100644
---- a/arch/x86/include/asm/efi.h
-+++ b/arch/x86/include/asm/efi.h
-@@ -140,7 +140,7 @@ extern void efi_delete_dummy_variable(void);
- extern void efi_crash_gracefully_on_page_fault(unsigned long phys_addr);
- extern void efi_free_boot_services(void);
- 
--void arch_efi_call_virt_setup(void);
-+bool arch_efi_call_virt_setup(void);
- void arch_efi_call_virt_teardown(void);
- 
- extern u64 efi_setup;
-diff --git a/arch/x86/platform/efi/efi_32.c b/arch/x86/platform/efi/efi_32.c
-index b2cc7b4552a1..215f16ce84ab 100644
---- a/arch/x86/platform/efi/efi_32.c
-+++ b/arch/x86/platform/efi/efi_32.c
-@@ -141,10 +141,11 @@ void __init efi_runtime_update_mappings(void)
+-	status = efi_call_virt_pointer(efi.runtime, query_variable_info, attr,
+-				       storage_space, remaining_space,
+-				       max_variable_size);
++	status = efi_call_virt_pointer(efi.runtime, query_variable_info,
++				       EFI_NOT_READY, attr, storage_space,
++				       remaining_space, max_variable_size);
+ 	up(&efi_runtime_lock);
+ 	return status;
+ }
+@@ -509,12 +513,14 @@ virt_efi_reset_system(int reset_type, efi_status_t status,
+ 		return;
  	}
+ 
+-	arch_efi_call_virt_setup();
++	if (!arch_efi_call_virt_setup())
++		goto out;
+ 	efi_rts_work.efi_rts_id = EFI_RESET_SYSTEM;
+ 	arch_efi_call_virt(efi.runtime, reset_system, reset_type, status,
+ 			   data_size, data);
+ 	arch_efi_call_virt_teardown();
+ 
++out:
+ 	up(&efi_runtime_lock);
  }
  
--void arch_efi_call_virt_setup(void)
-+bool arch_efi_call_virt_setup(void)
- {
- 	efi_fpu_begin();
- 	firmware_restrict_branch_speculation_start();
-+	return true;
- }
+diff --git a/include/linux/efi.h b/include/linux/efi.h
+index a98cc39e7aaa..325d892e559b 100644
+--- a/include/linux/efi.h
++++ b/include/linux/efi.h
+@@ -1181,19 +1181,19 @@ static inline void efi_check_for_embedded_firmwares(void) { }
+  *    Restores the usual kernel environment once the call has returned.
+  */
  
- void arch_efi_call_virt_teardown(void)
-diff --git a/arch/x86/platform/efi/efi_64.c b/arch/x86/platform/efi/efi_64.c
-index b4409df2105a..d4b1e70f41fa 100644
---- a/arch/x86/platform/efi/efi_64.c
-+++ b/arch/x86/platform/efi/efi_64.c
-@@ -443,12 +443,13 @@ static void efi_leave_mm(void)
- 	unuse_temporary_mm(efi_prev_mm);
- }
+-#define efi_call_virt_pointer(p, f, args...)				\
++#define efi_call_virt_pointer(p, f, busy, args...)			\
+ ({									\
+-	typeof((p)->f(args)) __s;					\
++	typeof((p)->f(args)) __s = (busy);				\
+ 	unsigned long __flags;						\
+ 									\
+-	arch_efi_call_virt_setup();					\
++	if (!arch_efi_call_virt_setup()) goto __out;			\
+ 									\
+ 	__flags = efi_call_virt_save_flags();				\
+ 	__s = arch_efi_call_virt(p, f, args);				\
+ 	efi_call_virt_check_flags(__flags, NULL);			\
+ 									\
+ 	arch_efi_call_virt_teardown();					\
+-									\
++__out:									\
+ 	__s;								\
+ })
  
--void arch_efi_call_virt_setup(void)
-+bool arch_efi_call_virt_setup(void)
- {
- 	efi_sync_low_kernel_mappings();
- 	efi_fpu_begin();
- 	firmware_restrict_branch_speculation_start();
- 	efi_enter_mm();
-+	return true;
- }
- 
- void arch_efi_call_virt_teardown(void)
-diff --git a/drivers/firmware/efi/riscv-runtime.c b/drivers/firmware/efi/riscv-runtime.c
-index fa71cd898120..07e04b8f982a 100644
---- a/drivers/firmware/efi/riscv-runtime.c
-+++ b/drivers/firmware/efi/riscv-runtime.c
-@@ -142,10 +142,11 @@ static void efi_virtmap_unload(void)
- 	preempt_enable();
- }
- 
--void arch_efi_call_virt_setup(void)
-+bool arch_efi_call_virt_setup(void)
- {
- 	sync_kernel_mappings(efi_mm.pgd);
- 	efi_virtmap_load();
-+	return true;
- }
- 
- void arch_efi_call_virt_teardown(void)
 -- 
 2.51.0.355.g5224444f11-goog
 
