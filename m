@@ -4,75 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BB8CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D64CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZ0Ulce0kaM8VNdePBdckrICFLg2CqjgRYS+JAgj81c=; b=szuOKQm2qwZLAF/LmJ5OYDzewh
-	oWhyl4B6s7HXpSVV96Uy6vedo/UXNq/7KY0XeOwSkz5DIimf/bL24l0KsVC2TfYfNx5vxleE6FeYz
-	ngufg6FTwTq+VlHbRO53Ss2kMciZJ0KTh/lERB/3D7uNLERnMBsZCrSfQamr1LatveqoSQpotlNb5
-	Fg3UE2jbHvP3lkLb1oqt7YprM+bqQRKoM2mWr2cw3F36Hv6VKgaoNHptn7mcZlNiPSgO7JpbAeIPC
-	vnnV7sltCsnWqoWr9zS4O7wd59Kgr7GVv1PhQIFkyj0/3/kY0uH2HkXx4uKtdQiyyH4wyt+KNwV36
-	9RUtEg7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8UQ4Sv5hr+qDXWsY4YVbZSLi/OMElcJ/2IeSdoJbQ9k=; b=F5Uvqb9mvONYtmtJ0+DeSf/5EJ
+	raIGXDpP4cPAOFWGQgfx3v1mB94sZwb1u52SRdJP4XHx7bJQA/MnsLftsBx2uGCDRLE2ePPtghZAS
+	2SWYy/HvWRzWCUIJGZzxTUGHXa4GEIQyiPagSqZ04ieJaHxksa5RfkeQXnMN+bfP99UskVIIoDenV
+	DKdRqL0TS0RrpILy3SnPoDso4HuJyrmQpRwh3bXanqBz88x4B8K+DDP/eapYRWpiz9ivmk7pCiGTS
+	fzb5mbpPaqa5oOoyPIH9S5E8b+iaA8tzw+k/MxvhlbUZmOVhvD0/gUMEvjKQO6UDsHPt1MT0caTpw
+	FsOtJqGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQoV-0000000Haq2-26Av;
-	Fri, 05 Sep 2025 07:24:51 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uuQrB-00000000106-3vhd;
+	Fri, 05 Sep 2025 07:27:37 +0000
+Received: from mail-bn7nam10on20730.outbound.protection.outlook.com ([2a01:111:f403:2009::730] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuPpj-0000000HFpf-32cA
+	id 1uuPxk-0000000HHwT-2TUM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 06:22:04 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5856LxN33648440;
-	Fri, 5 Sep 2025 01:21:59 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757053320;
-	bh=MZ0Ulce0kaM8VNdePBdckrICFLg2CqjgRYS+JAgj81c=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=gvGkw8UR3+5qalvJHjmNi/k3xYSo1sfPmw6LcNjQQIGHB0aExCvNiprbnpsQWzMEt
-	 G6gi4JbLemQVc1RHX5VGCbtF5frreJj6WOaAX9h8X8C330GH8HgKEXKn/Ml1JP/ix1
-	 4ijgIAVMetSiGKHFfc3jp1VJFQ14ebMRpzaft4Z8=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5856Lx721436980
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 5 Sep 2025 01:21:59 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 5
- Sep 2025 01:21:59 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 5 Sep 2025 01:21:59 -0500
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5856Lwx3302558;
-	Fri, 5 Sep 2025 01:21:58 -0500
-Date: Fri, 5 Sep 2025 11:51:57 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Akashdeep Kaur <a-kaur@ti.com>
-CC: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
-        <u-kumar1@ti.com>, <sebin.francis@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <vishalm@ti.com>
-Subject: Re: [PATCH v5 4/4] arm64: dts: ti: k3-pinctrl: Fix the bug in
- existing macros
-Message-ID: <20250905062157.s32xwnyfbphyupfa@lcpd911>
-References: <20250905051448.2836237-1-a-kaur@ti.com>
- <20250905051448.2836237-5-a-kaur@ti.com>
+	Fri, 05 Sep 2025 06:30:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ir3843tCL/HRrjR5Snz7qv3TaZ2o2KSm/gtRtd2UnZpKV39pGnq6RNFTaISx8P8n3zWc6fCTwRloKrcj2wo83YnT/0LBIya1S473HZBxZuz3T/VMRNGBm/lmY4GYACj2/gT7IKTTsh0NMqJLUmn1r6waWwYAGzy/l4VvFP237Qv+FRPIcUxBPIhNRGGbodx7b1bcKEJduHMeHKMwAB+VQJGdN0ruwjJoiFFHl6wRoGRmPm/619pr+FfRzJXnXu5+1s9jHAp6PCPaSGGQ6NqNL3cCW4HIR+eX0kDFliv5c0p8BDvAQdhbIzn+aGBPNuw9I+wDlouE5mcXJsCBx+SOzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8UQ4Sv5hr+qDXWsY4YVbZSLi/OMElcJ/2IeSdoJbQ9k=;
+ b=OSvFYbn4xgjL0GCd7o6nSBkDbonjLGsAVth3Xs7/VzbnBcZouKFO44ywLHEVX3QNFQb4fV2is2O2IG4pPY7OTULFs6t6mrEFuzRPuyR9qPk4UYjbZNYYOPePnciw1AncOqTj2oh0bu1etEXppWYE5pTlqmfCZxI7WGvC0Btomh0xu8MKqOIVWmfV1ScQxVJ2PxJfoFArrmMgADEU0AHT75tfFVlvt89XHsJa+WGT8WrMOkRijmXjSwps07Yy8d24xM97s36HVSfy2nZ5bpy5nd9gBZtihqCx8s52YC5YmpMv8rSA/3CWCdcvL8sY4KKqCfnlRYijfg6Nl1CvG8Xstw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8UQ4Sv5hr+qDXWsY4YVbZSLi/OMElcJ/2IeSdoJbQ9k=;
+ b=R2BtP6LF6ZEr8Qh1ca83qWX+iuc4JMyNjHr3kWUvbgadCHBLLet0B1xWLnksALlYZWkvgwZDp2J8XWajrlAorI0nv9/CPBUx733NoXCwSnITrdNcqlbQ5OncZnohDTgyrwxijtp0epJmg2HSARjcujh4aOH8Zb4epss4xwO9Wgs=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ SJ2PR01MB8506.prod.exchangelabs.com (2603:10b6:a03:561::21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9073.27; Fri, 5 Sep 2025 06:30:11 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%2]) with mapi id 15.20.9094.016; Fri, 5 Sep 2025
+ 06:30:11 +0000
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+To: kvmarm@lists.cs.columbia.edu,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: maz@kernel.org,
+	oliver.upton@linux.dev,
+	darren@os.amperecomputing.com,
+	scott@os.amperecomputing.com,
+	cl@gentwo.org,
+	gankulkarni@os.amperecomputing.com,
+	gklkml16@gmail.com
+Subject: [PATCH] KVM: arm64: nv: Optimize unmapping of shadow S2-MMU tables
+Date: Thu,  4 Sep 2025 23:29:29 -0700
+Message-ID: <20250905062929.1741536-1-gankulkarni@os.amperecomputing.com>
+X-Mailer: git-send-email 2.50.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: CH0PR07CA0001.namprd07.prod.outlook.com
+ (2603:10b6:610:32::6) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250905051448.2836237-5-a-kaur@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|SJ2PR01MB8506:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1cfd4421-b7ce-48b8-a114-08ddec45aa20
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?30PG4SZJiTCsN9of3HIe4gt/G5MwUZY8tO6KU/qIovT27fbVd5ToZtlezIPY?=
+ =?us-ascii?Q?F+sorhWeG24FDHw+G6y3jVvz+Gks+BtfwMsXSK7Z0iq7Yz+HFwzcRJhljlSn?=
+ =?us-ascii?Q?DXCOO/jrS4G84800IhnXovtQkZJxP2goqH2KAUr8xSI8n1bG0MoYFRqUztuw?=
+ =?us-ascii?Q?uaR9z8cbb+bzRmwBC6vZCyUdoRAbelTXdrA6WSlY7dT/2Z2suCXQ5CIcYgRb?=
+ =?us-ascii?Q?aqTtMCQFwlIy/RgUAL8foFs9AlIVdwCW9NnB4fdYqpnXgq9lpcDKciz+/4Oi?=
+ =?us-ascii?Q?E1rYT+gwnna2BsMV68vdQsj5F/rco6+iA30KWsu5Fc3GD7nF7o/edj/EIjQ/?=
+ =?us-ascii?Q?Z9zRphQgtIgSYukLSiPNiPYop5/vvfDF3ipZRzG6oDXhPKepBUkjNa4BNjkq?=
+ =?us-ascii?Q?Ra95DKr4dl1Rm3Ng/HinZhx4CmuxYBRoR80dYULSPXAMWX/IlsLPqGO6xGTY?=
+ =?us-ascii?Q?D6WqdyrhJsXaLzokKyI5kfFQa3odczrV5wygRyb4VwZfCxp/EoMPiOuZlW5A?=
+ =?us-ascii?Q?u3dgtILCSZbbZa2hXuU0atBYxPokj+9q7EXVoWcXlzQwYmtpI0XkVfhJMNAY?=
+ =?us-ascii?Q?AFp6w2zQdWET3E1SEQwwm5m2tICFhTnzapH5G0o5X4zvi292EoGXH5zcW2ZU?=
+ =?us-ascii?Q?Fog9jgqTOfKsxrN3A/xxvw8ppc1Y6hE47TTA6Vs3+E69NKyf5GFuBkIejL6J?=
+ =?us-ascii?Q?Pxsl/4X8NsbmiC3fm2JWy4fNSNkLog+Un1gm3qflgRGACdgvzTEMIVjy6XYM?=
+ =?us-ascii?Q?zwunuOY/TcV/g5f6ykZthsMc39nGUc3BDbLzuIkCqcuZQZG09Yk+OZcPZVmA?=
+ =?us-ascii?Q?NFBhpsmnuvzUsWNlcQ0HsTuGeC3WJIhJJT1tWAxPnYb98c7FgDSe2wp4JT5w?=
+ =?us-ascii?Q?CX5/E55EeAtJQLsO7jyEkXlkb3aTxeBqzewJt2vLY5I1Afkqq9KHrVOwH4Cq?=
+ =?us-ascii?Q?ipcKPYMA91O/npdnuSZBDCrdkGpZNwiRv7Dp1uPgYbKurcOOtNp1ep/P/Ypm?=
+ =?us-ascii?Q?HqMzaTfcx9mTQPLwoH+pm0S8AqJ9Z2BCLW8eWX07+HBHv6980c5jZFfaVJmz?=
+ =?us-ascii?Q?LCJhiJTEi9K0cMaRV9IUCsFVoQl9WivFIKQngWEOZAH7Bn9j/jkZw5a1qHWc?=
+ =?us-ascii?Q?Ief3sAXpox7+zS7R3eV2t3amGICA0BnBhqjFfL2VGfHYUPnskQ8ImUcFC/9k?=
+ =?us-ascii?Q?7Wy2EqoUrESLXeTU5iGHnD15joKFYwNNBlelXtoh1MPZ8Omletpa4mSAqiUE?=
+ =?us-ascii?Q?fPq+ow27X2rpa2yWpGjWshH0njpI1ORMpuQod2RyFGSnHyi7LTXmAN3OcEE9?=
+ =?us-ascii?Q?noLszuyX6QCh1s6GRrm+N9/vUxpeBd5806tH3EcG9mYDi6NAaWgInQ83jRhM?=
+ =?us-ascii?Q?usndXhawK+mL33J5u4H36XDKD7jNp9rnyHcGlPFPtvbEZayRZ4DgMU2upmzE?=
+ =?us-ascii?Q?hncpdA7hIsE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yHm21FgKCyUZNccst0DP5vG5kPHG25BorpsMy3d0+o1PQXTlnEO01bDJObHj?=
+ =?us-ascii?Q?CIsYzaPiwiB/93RDyjQscMSG+IHPw1hhO+XP9AeSI+zKPndG1ZtoknA51jGv?=
+ =?us-ascii?Q?UEd26A06RdEJHQmcXnxJr9Dzmg6QIUup3t9TtMtf75Z+dBSOvnBmLNUrIu7x?=
+ =?us-ascii?Q?wV2BFiGDNQnkMpo5PgkfMjOcUowwkKQ7P1rK7vDj67/Wj0NoLsY1bmAz15xW?=
+ =?us-ascii?Q?Wrj6YZ9I8C9tjNZ8U+ecgnm+SEp+GfeUUtD8Z2/+VEVvqycCu3vxakHuNMZE?=
+ =?us-ascii?Q?vUDUU1qL+TSRT+T/8MxULhr5Y4afjkMMdmVg/f4EWC425EXdcC5PN+dssI3K?=
+ =?us-ascii?Q?tJTqFpXwnrzQqQXB42aob5xYtpVFteX1sdXu6YPvFzglGmVQtBTh+D6TlMOh?=
+ =?us-ascii?Q?kMDNK1nbaWER3n6gJypmmL/slkLr6BhLVnQSeEil+JXdUVr+KDX3453cWS9J?=
+ =?us-ascii?Q?XcNeGynU7xPjHIN1E58zvHtJ/twdHiVJ2bI3iqRulZ9maDMxavuDGNJfztHd?=
+ =?us-ascii?Q?bDMYu7mYif8jdh6nJnFH3QX5RIF2Nz4OYQ/ORuJBuCsFZbieTArU+jZZJ6XB?=
+ =?us-ascii?Q?cgrFWpfOJwWaAFiRDf3kTI00SDYzMH8EUVCV+BfPLIhoNzC+8hCVK1Flm/Gr?=
+ =?us-ascii?Q?LV9KdNDTXUwL9W3rgJghWX9bNrQbU+9O+vo89azzaiV0FEsq5vILaNw5YSSC?=
+ =?us-ascii?Q?6J9pGpT4QqtwQN9IRx2QO94TLAZoxyTx2crDFlRYTkeVyafkkUEfySiZv5sR?=
+ =?us-ascii?Q?Ohyoa02/JYEejwIuuFc3jh9DmChdAkKNaGxPxBZEUE9UR0nDD7NXdEG57jjo?=
+ =?us-ascii?Q?W8t/QczfGgKqk50mylJtlXczPtCO+DlEfc+WDGg08YwNICSM5TlTim1EYp3P?=
+ =?us-ascii?Q?Koj+u+g1DR19sGKoXzXsiIvEScr2o6QRavWopgO/dNb0fvF5gPQbQZ/Mo2tw?=
+ =?us-ascii?Q?mA174CXJiP/C9c25d5P5rvTrJVcut4IJ6X/FfgTeezws+qSgQu+2CjikA6aN?=
+ =?us-ascii?Q?+KzrwdV1Qarw6E2+TIgI6d/5Xsjq2qAhyFpjsgOvxOXDEhAsjzXXLZTWfvFk?=
+ =?us-ascii?Q?695NOfF6Zj2t7LcCeuXC9A+BPTMyAKnr4Z3X+nsAddCkCnfyVIuHbzk0zIMF?=
+ =?us-ascii?Q?1DnmSy9vNIidARhzRK8vX3HFITRGyYLW0StxQyli9LiXRe0JGBVvIiaqUTG3?=
+ =?us-ascii?Q?2zz6g7dv425s1sMV2aGkZxLCQOMW4NSVfdhtik25RP/AsHftRGqvYCfRvFXJ?=
+ =?us-ascii?Q?YtmgrKbFbiecaUBqeaFHDlh4YQd9SFf+yLMaaRnjLqrV9WJlcYRUfdrTUROm?=
+ =?us-ascii?Q?fQT3Te8TApLluqz1UGzqKtSOmicsf8F+lMjiuwrloVxZgAV4WNUPRmoZroAk?=
+ =?us-ascii?Q?DqF0NJavYkvOXDYnVxDUzvrzd5aHGqTwbAE6+75WKMs1kWH4sVCBZzkDiUNo?=
+ =?us-ascii?Q?UsHKE3gNZMs3ccK9SPx4DBiJriSduWQY+rdQRpAZoJku5kaNYBvTf0ag8ZMD?=
+ =?us-ascii?Q?ACBv3Cf+kEYANAfetUVFXcapn9SdTHPDta5bYNqO9o1vAUn4R464fg4sY2vy?=
+ =?us-ascii?Q?gC1zTJHGtcU+JHon/N76qtoRgDBPQ9FswjcDk0fdYqPazk1agXj4DlSlA2I0?=
+ =?us-ascii?Q?8gcKYLf16oAuxUCneV4QykY=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1cfd4421-b7ce-48b8-a114-08ddec45aa20
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2025 06:30:11.0159
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RzC3BnmGueYAKYMId8VBSspPENFbU+5QfSRL+VzeY8AzzlRnEhXIOWXes9sUTf1Zvf4aM4iiDv3454myxbx+TKj+RJhdUtjxnTKeIdCAnR/We16Odv7aKWIQWsNj7n5b
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR01MB8506
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_232203_806599_D550C919 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250904_233020_722447_DF833384 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +165,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sep 05, 2025 at 10:44:48 +0530, Akashdeep Kaur wrote:
-> Currently, DS_IO_OVERRIDE_EN_SHIFT macro is not defined anywhere but
-> used for defining other macro.
-> Replace this undefined macro with valid macro. Rename the existing macro
-> to reflect the actual behavior.
-> 
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-pinctrl.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> index 8ce37ace94c9..e46f7bf52701 100644
-> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> @@ -88,8 +88,8 @@
->  
->  #define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
->  #define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
-> -#define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
-> -#define PIN_DS_IO_OVERRIDE_ENABLE	(1 << DS_IO_OVERRIDE_EN_SHIFT)
-> +#define PIN_DS_ISO_OVERRIDE_DISABLE     (0 << ISO_OVERRIDE_EN_SHIFT)
-> +#define PIN_DS_ISO_OVERRIDE_ENABLE      (1 << ISO_OVERRIDE_EN_SHIFT)
+As of commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow
+stage 2 page tables"), an unmap of a canonical IPA range mapped at L1
+triggers invalidation in L1 S2-MMU and in all active shadow (L2) S2-MMU
+tables. Because there is no direct mapping to locate the corresponding
+shadow IPAs, the code falls back to a full S2-MMU page-table walk and
+invalidation across the entire L1 address space.
 
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
+For 4K pages this causes roughly 256K loop iterations (about 8M for
+64K pages) per unmap, which can severely impact performance on large
+systems and even cause soft lockups during NV (L1/L2) boots with many
+CPUs and large memory. It also causes long delays during L1 reboot.
 
+This patch adds a maple-tree-based lookup that records canonical-IPA to
+shadow-IPA mappings whenever a page is mapped into any shadow (L2)
+table. On unmap, the lookup is used to target only those shadow IPAs
+which are fully or partially mapped in shadow S2-MMU tables, avoiding
+a full-address-space walk and unnecessary unmap/flush operations.
+
+The lookup is updated on map/unmap operations so entries remain
+consistent with shadow table state. Use it during unmap to invalidate
+only affected shadow IPAs, avoiding unnecessary CPU work and reducing
+latency when shadow mappings are sparse.
+
+Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+---
+
+Changes since RFC v1:
+		Added maple tree based lookup and updated with review
+		comments from [1].
+
+[1] https://lkml.indiana.edu/2403.0/03801.html
+
+ arch/arm64/include/asm/kvm_host.h   |   3 +
+ arch/arm64/include/asm/kvm_nested.h |   9 +++
+ arch/arm64/kvm/mmu.c                |  18 +++--
+ arch/arm64/kvm/nested.c             | 102 ++++++++++++++++++++++++++--
+ 4 files changed, 121 insertions(+), 11 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 2f2394cce24e..eac9405aee48 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -227,6 +227,9 @@ struct kvm_s2_mmu {
+ 	 * >0: Somebody is actively using this.
+ 	 */
+ 	atomic_t refcnt;
++
++	/* For IPA to shadow IPA lookup */
++	struct maple_tree nested_mmu_mt;
+ };
+ 
+ struct kvm_arch_memory_slot {
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index 7fd76f41c296..89f91164bc4c 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -69,6 +69,8 @@ extern void kvm_init_nested(struct kvm *kvm);
+ extern int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu);
+ extern void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu);
+ extern struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu);
++extern int add_to_ipa_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa, u64 ipa,
++		u64 size);
+ 
+ union tlbi_info;
+ 
+@@ -93,6 +95,12 @@ struct kvm_s2_trans {
+ 	u64 desc;
+ };
+ 
++struct shadow_ipa_map {
++	u64 shadow_ipa;
++	u64 ipa;
++	u64 size;
++};
++
+ static inline phys_addr_t kvm_s2_trans_output(struct kvm_s2_trans *trans)
+ {
+ 	return trans->output;
+@@ -130,6 +138,7 @@ extern int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu,
+ extern int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2);
+ extern void kvm_nested_s2_wp(struct kvm *kvm);
+ extern void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block);
++extern void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size, bool may_block);
+ extern void kvm_nested_s2_flush(struct kvm *kvm);
+ 
+ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 1c78864767c5..e9bbc8275a51 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1784,6 +1784,11 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
+ 					     __pfn_to_phys(pfn), prot,
+ 					     memcache, flags);
++
++		/* Add to lookup, if canonical IPA range mapped to shadow mmu */
++		if (nested)
++			add_to_ipa_shadow_ipa_lookup(pgt, ALIGN_DOWN(fault_ipa, PAGE_SIZE),
++					ipa, vma_pagesize);
+ 	}
+ 
+ out_unlock:
+@@ -1995,14 +2000,15 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 
+ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+ {
++	gpa_t start = range->start << PAGE_SHIFT;
++	gpa_t end = (range->end - range->start) << PAGE_SHIFT;
++	bool may_block = range->may_block;
++
+ 	if (!kvm->arch.mmu.pgt)
+ 		return false;
+ 
+-	__unmap_stage2_range(&kvm->arch.mmu, range->start << PAGE_SHIFT,
+-			     (range->end - range->start) << PAGE_SHIFT,
+-			     range->may_block);
+-
+-	kvm_nested_s2_unmap(kvm, range->may_block);
++	__unmap_stage2_range(&kvm->arch.mmu, start, end, may_block);
++	kvm_nested_s2_unmap_range(kvm, start, end, may_block);
+ 	return false;
+ }
+ 
+@@ -2280,7 +2286,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+ 
+ 	write_lock(&kvm->mmu_lock);
+ 	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, true);
+-	kvm_nested_s2_unmap(kvm, true);
++	kvm_nested_s2_unmap_range(kvm, gpa, size, true);
+ 	write_unlock(&kvm->mmu_lock);
+ }
+ 
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 153b3e11b115..07b7bd3f66fc 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -7,6 +7,7 @@
+ #include <linux/bitfield.h>
+ #include <linux/kvm.h>
+ #include <linux/kvm_host.h>
++#include <linux/maple_tree.h>
+ 
+ #include <asm/fixmap.h>
+ #include <asm/kvm_arm.h>
+@@ -725,6 +726,7 @@ void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
+ 	mmu->tlb_vttbr = VTTBR_CNP_BIT;
+ 	mmu->nested_stage2_enabled = false;
+ 	atomic_set(&mmu->refcnt, 0);
++	mt_init_flags(&mmu->nested_mmu_mt, MM_MT_FLAGS);
+ }
+ 
+ void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
+@@ -1067,17 +1069,94 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+ 	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+ }
+ 
++/*
++ * Store range of canonical IPA mapped to a nested stage 2 mmu table.
++ * Canonical IPA used as pivot in maple tree for the lookup later
++ * while IPA unmap/flush.
++ */
++int add_to_ipa_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa,
++		u64 ipa, u64 size)
++{
++	struct kvm_s2_mmu *mmu;
++	struct shadow_ipa_map *entry;
++	unsigned long start, end;
++
++	start = ipa;
++	end = ipa + size;
++	mmu = pgt->mmu;
++
++	entry = kzalloc(sizeof(struct shadow_ipa_map), GFP_KERNEL_ACCOUNT);
++	entry->ipa = ipa;
++	entry->shadow_ipa = shadow_ipa;
++	entry->size = size;
++	mtree_store_range(&mmu->nested_mmu_mt, start, end - 1, entry,
++			  GFP_KERNEL_ACCOUNT);
++	return 0;
++}
++
++static void mtree_erase_nested(struct maple_tree *mt, unsigned long start,
++		unsigned long size)
++{
++	void *entry = NULL;
++
++	MA_STATE(mas, mt, start, start + size - 1);
++
++	mtree_lock(mt);
++	entry = mas_erase(&mas);
++	mtree_unlock(mt);
++	kfree(entry);
++}
++
++void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size,
++		bool may_block)
++{
++	int i;
++	struct shadow_ipa_map *entry;
++	unsigned long start = ipa;
++	unsigned long end = ipa + size;
++
++	lockdep_assert_held_write(&kvm->mmu_lock);
++
++	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
++		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
++
++		if (!kvm_s2_mmu_valid(mmu))
++			continue;
++
++		do {
++			entry = mt_find(&mmu->nested_mmu_mt, &start, end - 1);
++			if (!entry)
++				break;
++
++			kvm_stage2_unmap_range(mmu, entry->shadow_ipa,
++							entry->size, may_block);
++			start = entry->ipa + entry->size;
++			mtree_erase_nested(&mmu->nested_mmu_mt, entry->ipa,
++							entry->size);
++		} while (start < end);
++	}
++}
++
+ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+ {
+ 	int i;
++	unsigned long start = 0;
+ 
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+ 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+ 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
++		struct shadow_ipa_map *entry;
+ 
+-		if (kvm_s2_mmu_valid(mmu))
+-			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
++		if (!kvm_s2_mmu_valid(mmu))
++			continue;
++
++		mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu)) {
++			kvm_stage2_unmap_range(mmu, entry->shadow_ipa, entry->size,
++					may_block);
++			kfree(entry);
++		}
++		mtree_destroy(&mmu->nested_mmu_mt);
+ 	}
+ 
+ 	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+@@ -1086,14 +1165,19 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+ void kvm_nested_s2_flush(struct kvm *kvm)
+ {
+ 	int i;
++	unsigned long start = 0;
+ 
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+ 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+ 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
++		struct shadow_ipa_map *entry;
+ 
+-		if (kvm_s2_mmu_valid(mmu))
+-			kvm_stage2_flush_range(mmu, 0, kvm_phys_size(mmu));
++		if (!kvm_s2_mmu_valid(mmu))
++			continue;
++
++		mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu))
++			kvm_stage2_flush_range(mmu, entry->shadow_ipa, entry->size);
+ 	}
+ }
+ 
+@@ -1737,10 +1821,18 @@ void check_nested_vcpu_requests(struct kvm_vcpu *vcpu)
+ {
+ 	if (kvm_check_request(KVM_REQ_NESTED_S2_UNMAP, vcpu)) {
+ 		struct kvm_s2_mmu *mmu = vcpu->arch.hw_mmu;
++		unsigned long start = 0;
+ 
+ 		write_lock(&vcpu->kvm->mmu_lock);
+ 		if (mmu->pending_unmap) {
+-			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), true);
++			struct shadow_ipa_map *entry;
++
++			mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu)) {
++				kvm_stage2_unmap_range(mmu, entry->shadow_ipa, entry->size,
++						true);
++				kfree(entry);
++			}
++			mtree_destroy(&mmu->nested_mmu_mt);
+ 			mmu->pending_unmap = false;
+ 		}
+ 		write_unlock(&vcpu->kvm->mmu_lock);
 -- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+2.48.1
+
 
