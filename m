@@ -4,84 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1466CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6835CCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 17:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k7SGgiq8e0ibQjNE492pNxUn28Q/j5kSsNWzW80icFw=; b=bY+Sq/q3c5bSRGz2H6Mzz3md7Y
-	5LHhp8u0rrVtiMROnlGYSxp2pNwimY+Y/gN8qLYVGteHaSbD2woKvQqIWO3E6VZeaHCiv+hd3C/f+
-	3yCBvBtvlq4xFxEGmD5fGJmU+JiNCsbWGHNnGSgBCRayGHvgqpVeLTdELnIJkj7hHWryl6UH2MY8/
-	q0XwmI3P7G7nTjhkJqsarHuvsCodwjs4qjxtd5uyzKu8IWJJRaqk1FUleajTGB+N0YRtJK6hi/jvy
-	kpoIXuLGcJoRh4eQ+hQwZBi9roC2PXz/at9RtdhNGn/8SoUsxkjPut47cP+x9Ek9e7d0yKQs+wZGW
-	D46+olgQ==;
+	bh=+aB+iZJnL8ozb2pDFXduEFu8qABJrtYdff1K70ebeAQ=; b=yk5d6cbk+ew0cqELOXTL54GLx0
+	8OYvPyPOenGsmXE7gFJkkuwWhUFIoO0LW2vatyP9SiHDo1P18VvnZmlKS1L6s3o5Ft7d4bLlTU4nt
+	+oaQTNyytxLU+kIQSd/thujCQ9B33fdRsxI6Is1OdeQN2r2+PHaDFrjPIPnxZc7MMRGHWNHtus26M
+	peqk6p+//jEylxXlrYm7hzsWjl3DcCEl9zeAVesntZbtqODizRnGQFQIHE0Q+swnCNLTJyavDVqpZ
+	KkYh3sBAheWEP50YGwH5OUoe5xsVR9HI884xr9Q1XvFHwrFfaf0z8s99YGXACjG+1phfJMfcf7XKG
+	aJNl0xgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuaL4-00000003W2G-0fd9;
-	Fri, 05 Sep 2025 17:35:06 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1uuaNu-00000003WhR-0CbY;
+	Fri, 05 Sep 2025 17:38:02 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuWWm-00000001zTQ-2RSm
+	id 1uuWXE-00000001zdZ-23xv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 13:30:58 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45ddbdb92dfso2306345e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 06:30:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757079055; x=1757683855; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=k7SGgiq8e0ibQjNE492pNxUn28Q/j5kSsNWzW80icFw=;
-        b=zRls/mr7PDZ7uXhoDsnJ4Ea22IGNFlg6fbAY/l7XeFglACIOOXxL9OFBn3gatZe8p8
-         tbnSIdBc8zE8dYP3wvzrDn3BXcoVL1sy5EuCSVtalMUvzKJqB8JnKR7QoUfXY4Im1/Nw
-         YaTDwDQteccYJAEnHDWtsjMF7E+t9hZp70EyLhRJsrZfnIagrgMbQaFQPyjw/gI005we
-         cCEc1+PhFl1RQ3JTyjnel5xYzZRW/4nzLiaR4Czx8Q37pSKbhvgl2L79WIuVpmHfV5eE
-         BZbDGEhJeO/CFtR50Rfk8CPKjHcQtHXn5DXUmnQqUgtV54qtk4qnlyzhyyexsRxivwaH
-         H68Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757079055; x=1757683855;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k7SGgiq8e0ibQjNE492pNxUn28Q/j5kSsNWzW80icFw=;
-        b=ux9CFzeLDg6nhM3JqLUbsEs6JRVTP6UOg7u5ogTK1LqnAnAGGz36ySQHgakLSjeQ8R
-         sp5ZCywZshnObOb+QMVyYFkIdz+KzXfGlGFlBRLvE+33dzK2ZY8y2WunWzAFFsZgoLnD
-         dGZoTnAUNFGgxcQqk8aQpg7Ot9OCf72laT8GkMp4n6vFuoc5ptYwsdzhg5XRXdjBcfAS
-         IxPjkFGUXRmM4tcJy5vM0nu+2UqsIpXOKa94wdfDZtbP5WFEu33IsoiW0TAOIicCUbe9
-         EdE6fM/bdbPZBCMXomqOBxYKsuvAYZDdHtnfqoCVT/YxA/L7cGnHV6/3m1uM0ML4iVeP
-         pn+w==
-X-Forwarded-Encrypted: i=1; AJvYcCXJM3VECtCwMgDCqVyx0D1rNZsIjju+gnUz2uciPz9xpbVQVpGMnvrJ2F4BpsspXv7c/cWG+7jgScwZfRXYOmaw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxJTGY/BWEwA/Ow1GSLdFN/WcpHbX6Yl8nTylaTgDxm2yMwiho
-	jjDwVn1SVPvwqaI1jaese97TWIWTiPXuYKD8uF7hfNP2QX0YjW+cLIaVEEfIu6XOlbkd9xvq6w=
-	=
-X-Google-Smtp-Source: AGHT+IFvcFnuIOuoqBisDROlcvYmwSXQfsXo7xa1mO1oe2SxbUKBbSt14Xcgr/JdOQQx2fY9o0Bwyd8Z
-X-Received: from wmbds17.prod.google.com ([2002:a05:600c:6291:b0:45d:cf67:3908])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1584:b0:45d:d609:117f
- with SMTP id 5b1f17b1804b1-45dd60912c7mr22883895e9.8.1757079055152; Fri, 05
- Sep 2025 06:30:55 -0700 (PDT)
-Date: Fri,  5 Sep 2025 15:30:43 +0200
-In-Reply-To: <20250905133035.275517-9-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20250905133035.275517-9-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3214; i=ardb@kernel.org;
- h=from:subject; bh=p0S4tXXYoOutiRiXN4g5SW9wNTpd5LNBz7e6ejjtylE=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIWPXM6a5x+oyuYWeVatHRHPziD3YeKNUdPtTxXs12SJnl
- Od3eJl2lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgImomjH8U0s6sDv2b+D/4x6C
- tWKuAms0VPqiFj35WPi5XDr/7YONqowMx9Vfi//Ymfzk8RSXx5mrF5VGb3q0ap1LTp9bBVtGypV SdgA=
-X-Mailer: git-send-email 2.51.0.355.g5224444f11-goog
-Message-ID: <20250905133035.275517-16-ardb+git@google.com>
-Subject: [PATCH v2 7/7] arm64/efi: Call EFI runtime services without disabling preemption
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-efi@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Peter Zijlstra <peterz@infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 05 Sep 2025 13:31:26 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5857JQJ3013602;
+	Fri, 5 Sep 2025 13:31:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=+aB+iZJnL8ozb2pDFXduEFu8
+	qABJrtYdff1K70ebeAQ=; b=I2iDrcK2MtkwVOPA+dlHtSA5J7zfQxu0rYmziqH+
+	cbcPv2FznN/UqiPECDfEjy2+99U/vtjuRm/mOLxKIjwofbuMn+2P5ISX3p8sjdL5
+	7qSnITFbD7hRQ5ShNQKxqOjFRMkrL5nu9JgSWvOjNH6hqNovIE3xLIpOe5PZ612N
+	/olG8fUXjIudIjG8fveehNl4AjElKTEQNBJwyg+bWm2UIG1xzdWtUgESRocyamEW
+	ov4MKhunL6PY+xQXMy8BZYFJgWij9N9kdVHfDOjLbgdHBQp1+QZcJCZuDRYJLZ5C
+	nDgX/1qn1WUhXq1NdMHvlBTUqB9CNSxtjm+iL6PWiwqF8A==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48w8wyf709-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 05 Sep 2025 13:31:08 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 585DV7hH029888
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 5 Sep 2025 13:31:07 GMT
+Received: from quicinc.com (10.80.80.8) by nasanex01c.na.qualcomm.com
+ (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Fri, 5 Sep
+ 2025 06:31:03 -0700
+Date: Fri, 5 Sep 2025 19:00:59 +0530
+From: Mohd Ayaan Anwar <quic_mohdayaa@quicinc.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+CC: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
+        Paolo Abeni
+	<pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 00/11] net: stmmac: mdio cleanups
+Message-ID: <aLrmEzyxzo1DRBNG@quicinc.com>
+References: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=Ycq95xRf c=1 sm=1 tr=0 ts=68bae61c cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=PHq6YzTAAAAA:8
+ a=COk6AnOGAAAA:8 a=UbDMmHRTMWTSUy5J07AA:9 a=CjuIK1q_8ugA:10
+ a=ZKzU8r6zoKMcqsNulkmm:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: YCkfEWMsAiv0yIOvixc3HIKlFi2tOG5r
+X-Proofpoint-ORIG-GUID: YCkfEWMsAiv0yIOvixc3HIKlFi2tOG5r
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTAxMDEwMSBTYWx0ZWRfX7Sk9AX65HGTR
+ +yaae3yNsjsCY8k3TeqkbgczQendvtlfhcSXhcwyCwSe1GYsvrkmA4xgyRtzMFFmCdtFstBtwnJ
+ CEqL2jpzTOtyexlVDjO/w8wBR0pds4NfMBr5ZQtqrfE5RuzClfvkHhVPOVrQuQAaX0U2GKH4pYa
+ lnoU3A1yJTGde98s12J038RTVu1oHLIKHVtsThYO8Al5BR6UuytlJN4bzWhgxK5n/NClbKOm5LE
+ Ar76YeNMBLBC5jr0qrb89AQITGVR97610xG3uxbI7sCDbB8UcWzqJHNhNbcmcM7Bw5Qxhr0w5dm
+ smqkb3iQo6N4fkfWGYNnYdl38Nu+QdNmxkO/7w4/42S3jOWGMr3DDL+mNgPHGvVh3Ekl7Qx3K+C
+ fQ0hZScY
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-05_04,2025-09-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 priorityscore=1501 adultscore=0 phishscore=0 malwarescore=0
+ bulkscore=0 suspectscore=0 impostorscore=0 spamscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509010101
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_063056_634265_8C9AD2F2 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20250905_063124_669282_F066F3F6 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,92 +118,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On Thu, Sep 04, 2025 at 01:10:42PM +0100, Russell King (Oracle) wrote:
+> On Wed, Sep 03, 2025 at 01:38:57PM +0100, Russell King (Oracle) wrote:
+> Hi,
+> 
+> Clean up the stmmac MDIO code:
+> - provide an address register formatter to avoid repeated code
+> - provide a common function to wait for the busy bit to clear
+> - pre-compute the CR field (mdio clock divider)
+> - move address formatter into read/write functions
+> - combine the read/write functions into a common accessor function
+> - move runtime PM handling into common accessor function
+> - rename register constants to better reflect manufacturer names
+> - move stmmac_clk_csr_set() into stmmac_mdio
+> - make stmmac_clk_csr_set() return the CR field value and remove
+>   priv->clk_csr
+> - clean up if() range tests in stmmac_clk_csr_set()
+> - use STMMAC_CSR_xxx definitions in initialisers
+> 
+> Untested on hardware; would be grateful for any testing people can do.
+> 
 
-The only remaining reason why EFI runtime services are invoked with
-preemption disabled is the fact that the mm is swapped out behind the
-back of the context switching code.
+Picked this series on top of net-next and was able to test on the
+Qualcomm QCS9100 Ride R3 board with the AQR115C Phy. No issues seen with
+C45 MDIO operations, so:
 
-The kernel no longer disables preemption in kernel_neon_begin().
-Furthermore, the EFI spec is being clarified to explicitly state that
-only baseline FP/SIMD is permitted in EFI runtime service
-implementations, and so the existing kernel mode NEON context switching
-code is sufficient to preserve and restore the execution context of an
-in-progress EFI runtime service call.
+Tested-by: Mohd Ayaan Anwar <quic_mohdayaa@quicinc.com>
 
-Most EFI calls are made from the efi_rts_wq, which is serviced by a
-kthread. As kthreads never return to user space, they usually don't have
-an mm, and so we can use the existing infrastructure to swap in the
-efi_mm while the EFI call is in progress. This is visible to the
-scheduler, which will therefore reactivate the selected mm when
-switching out the kthread and back in again.
+	Ayaan
 
-Given that the EFI spec explicitly permits runtime services to be called
-with interrupts enabled, firmware code is already required to tolerate
-interruptions. So rather than disable preemption, disable only migration
-so that EFI runtime services are less likely to cause scheduling delays.
-To avoid potential issues where runtime services are interrupted while
-polling the secure firmware for async completions, keep migration
-disabled so that a runtime service invocation does not resume on a
-different CPU from the one it was started on.
-
-Note, though, that the firmware executes at the same privilege level as
-the kernel, and is therefore able to disable interrupts altogether.
-
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/kernel/efi.c | 23 ++++++++++++++++++--
- 1 file changed, 21 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-index ece046bcf0db..cf62980006ea 100644
---- a/arch/arm64/kernel/efi.c
-+++ b/arch/arm64/kernel/efi.c
-@@ -10,6 +10,7 @@
- #include <linux/efi.h>
- #include <linux/init.h>
- #include <linux/kmemleak.h>
-+#include <linux/kthread.h>
- #include <linux/screen_info.h>
- #include <linux/vmalloc.h>
- 
-@@ -177,7 +178,19 @@ bool arch_efi_call_virt_setup(void)
- 	if (WARN_ON(down_trylock(&efi_rt_lock)))
- 		return false;
- 
--	efi_virtmap_load();
-+	if (preemptible() && (current->flags & PF_KTHREAD)) {
-+		/*
-+		 * Disable migration to ensure that a preempted EFI runtime
-+		 * service call will be resumed on the same CPU. This avoids
-+		 * potential issues with EFI runtime calls that are preempted
-+		 * while polling for an asynchronous completion of a secure
-+		 * firmware call, which may not permit the CPU to change.
-+		 */
-+		migrate_disable();
-+		kthread_use_mm(&efi_mm);
-+	} else {
-+		efi_virtmap_load();
-+	}
- 
- 	/*
- 	 * Enable access to the valid TTBR0_EL1 and invoke the errata
-@@ -203,7 +216,13 @@ void arch_efi_call_virt_teardown(void)
- 	 */
- 	uaccess_ttbr0_disable();
- 
--	efi_virtmap_unload();
-+	if (preemptible() && (current->flags & PF_KTHREAD)) {
-+		kthread_unuse_mm(&efi_mm);
-+		migrate_enable();
-+	} else {
-+		efi_virtmap_unload();
-+	}
-+
- 	up(&efi_rt_lock);
- }
- 
--- 
-2.51.0.355.g5224444f11-goog
-
+> v2: add "Return:" to patch 1 and 9
+> 
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c  |   5 +-
+>  .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   |   3 +-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac.h       |   2 +-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |  82 -----
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c  | 345 ++++++++++++---------
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c   |   5 +-
+>  6 files changed, 207 insertions(+), 235 deletions(-)
+> 
+> -- 
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> 
 
