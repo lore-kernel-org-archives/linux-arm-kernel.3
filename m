@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C0ACA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 06:04:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA151CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 06:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i5PPJwen9T/ohLDnoaqZRyHxcc+0PM7Tk8XcjREbXZk=; b=ebE9B55X8KheH/UFSmHIcfbAM5
-	3E9kpVmnSGZRAnriRxfNIzwz7ZF0HxJz3QK83vPLvSbaIsC/EU89nMbq3SaEzEalHQ6HHQXK6Cc8d
-	O2YXznCqKx1q5EFDGywA1jGC2S4YbCRhH88vldbO5XfoFWI2QqmqtutmCI//p58lDnjwOn65z2Vqa
-	IZYl0NY70Vp2R+n+/9gvqeufUIMpgGunV4ZjhZR0VF+xWgpGAref78pGdAsuKskpGydEd0Chssbxs
-	yTo0WX3yfrk9dbjwrqvPO92WNMvcvEoGuwRaa3YSj770fLLSqK9O2RmhbdfkkyOPW6a8knO1+/NZZ
-	E60iMQ5g==;
+	bh=4jwzAQ9Rfk+Pi5ON+jYzcRibF8KiH8LJTsIUs7mU30I=; b=GZTfcukmgPJTted4uu1CSwD4MC
+	BhxUBIs7pDAovK3uJBFg6xgRrUbCKJdymLH0kx7Lp05bzdoC8P5EjPwTsDeXTSe6BHU2s1qKgNs/K
+	bOZJd60/bzGC+16AFg8b6poh82OCUNPoUBo0XGilQhtM4xDgmCt5qkmr80cWl1cBZHuWI/L9Te+bi
+	dxObLI2xguGxPFyfGbDbqX42HXsmVZLdSsf8i5Cv+CRGsFmvGCynZ1s0Hg9EG4MC4ct81yHToQsyS
+	y7Jt5jaNHHU8+gmotx4Ft4zDfnLA3ajeE682Wu0wxl30jN+hVEEK+02Hd2x2ViNlGE8+rf6crPAk7
+	q0xYhBHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuPYq-0000000HAxS-02Tr;
-	Fri, 05 Sep 2025 06:04:36 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uuPbW-0000000HBZ0-3lJz;
+	Fri, 05 Sep 2025 06:07:22 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuOrU-0000000Gwuq-2R6r
+	id 1uuOrY-0000000Gwwb-3dMf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 05:19:49 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5855JkfG3678902;
-	Fri, 5 Sep 2025 00:19:46 -0500
+	Fri, 05 Sep 2025 05:19:54 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5855Jobi3637286;
+	Fri, 5 Sep 2025 00:19:50 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757049586;
-	bh=i5PPJwen9T/ohLDnoaqZRyHxcc+0PM7Tk8XcjREbXZk=;
+	s=ti-com-17Q1; t=1757049590;
+	bh=4jwzAQ9Rfk+Pi5ON+jYzcRibF8KiH8LJTsIUs7mU30I=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=W32AFFFAikeBZaLHAE1xdKyqp5C5t66PU0/Qom6g2mrU98k8VuvYaOSB3HtwUt7DB
-	 zxm2GUxhSJqBjvsQ8zEFAEx/C1GprvUMkziwLtkJLqUBnAOKl7tW4BSAaO7foqyPKA
-	 kkbr6HFlFOcKXJOQaagQzcO8XGgW6+AQqyyLYW4o=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5855Jket136257
+	b=JzRhC9LOUejPd5KQ7UHZEXPCdB5Mv3Ay7uSinhqM6zz/HQm7fy4M5CQawa1vr8xhu
+	 YZiAo4jxJXRS3fPn7kdYHwyWefAgo4qQ/loYuvpGbsG3pi+YM58Ef6fS0bjzskmGNg
+	 1QJm+7zqeQci0EmovOtVCX3CsAmN5yp7MEbfK7K0=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5855Jomn655334
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 5 Sep 2025 00:19:46 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 5 Sep 2025 00:19:50 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 5
- Sep 2025 00:19:45 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 00:19:49 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 5 Sep 2025 00:19:45 -0500
+ Frontend Transport; Fri, 5 Sep 2025 00:19:49 -0500
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5855Ioie220581;
-	Fri, 5 Sep 2025 00:19:41 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5855Ioif220581;
+	Fri, 5 Sep 2025 00:19:46 -0500
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
 CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
         <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 11/33] arm64: dts: ti: k3-am62a: Enable Mailbox nodes at the board level
-Date: Fri, 5 Sep 2025 10:48:24 +0530
-Message-ID: <20250905051846.1189612-12-b-padhi@ti.com>
+Subject: [PATCH v3 12/33] arm64: dts: ti: k3-am6*-boards: Add label to reserved-memory node
+Date: Fri, 5 Sep 2025 10:48:25 +0530
+Message-ID: <20250905051846.1189612-13-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250905051846.1189612-1-b-padhi@ti.com>
 References: <20250905051846.1189612-1-b-padhi@ti.com>
@@ -69,8 +69,9 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_221948_707862_8323A8A8 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20250904_221952_993110_910BDF99 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +86,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mailbox nodes defined in the top-level AM62A SoC dtsi files are
-incomplete and may not be functional unless they are extended with a
-chosen interrupt and connection to a remote processor.
-
-As the remote processors depend on memory nodes which are only known at
-the board integration level, these nodes should only be enabled when
-provided with the above information.
-
-Disable the Mailbox nodes in the dtsi files and only enable the ones
-that are actually used on a given board.
+Add the label name 'reserved_memory' to the reserved-memory node in all
+K3 AM6* board level dts files. This is done so that the node can be
+referenced and extended to add more carveout entries as needed in future
+refactoring patches.
 
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 Acked-by: Andrew Davis <afd@ti.com>
-Tested-by: Judith Mendez <jm@ti.com>
 ---
 v3: Changelog:
-1. Carried A/B, T/B tag.
+1. Carried A/B tag.
 
 Link to v2:
-https://lore.kernel.org/all/20250823160901.2177841-12-b-padhi@ti.com/
+https://lore.kernel.org/all/20250823160901.2177841-13-b-padhi@ti.com/
 
 v2: Changelog:
-1. Re-ordered patch from [PATCH 23/33] to [PATCH v2 11/33].
+1. Re-ordered patch from [PATCH 15/33] to [PATCH v2 12/33].
 
 Link to v1:
-https://lore.kernel.org/all/20250814223839.3256046-24-b-padhi@ti.com/
+https://lore.kernel.org/all/20250814223839.3256046-16-b-padhi@ti.com/
 
- arch/arm64/boot/dts/ti/k3-am62a-main.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi         | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi   | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts            | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts           | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi        | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts            | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi     | 2 +-
+ arch/arm64/boot/dts/ti/k3-am642-evm.dts            | 2 +-
+ arch/arm64/boot/dts/ti/k3-am642-sk.dts             | 2 +-
+ arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi        | 2 +-
+ arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi     | 2 +-
+ arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi | 2 +-
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts     | 2 +-
+ 13 files changed, 13 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
-index 9cad79d7bbc1..d5f018768981 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
-@@ -804,6 +804,7 @@ mailbox0_cluster0: mailbox@29000000 {
- 		#mbox-cells = <1>;
- 		ti,mbox-num-users = <4>;
- 		ti,mbox-num-fifos = <16>;
-+		status = "disabled";
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+index bbf2d630b305..cbbcb96e2e24 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+@@ -189,7 +189,7 @@ reg_usb0_vbus: regulator-usb0-vbus {
+ 		regulator-name = "USB_1_EN";
  	};
  
- 	mailbox0_cluster1: mailbox@29010000 {
-@@ -813,6 +814,7 @@ mailbox0_cluster1: mailbox@29010000 {
- 		#mbox-cells = <1>;
- 		ti,mbox-num-users = <4>;
- 		ti,mbox-num-fifos = <16>;
-+		status = "disabled";
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+index 403adfbf7dce..3108e9b0c804 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+@@ -45,7 +45,7 @@ memory@80000000 {
+ 		bootph-all;
  	};
  
- 	mailbox0_cluster2: mailbox@29020000 {
-@@ -822,6 +824,7 @@ mailbox0_cluster2: mailbox@29020000 {
- 		#mbox-cells = <1>;
- 		ti,mbox-num-users = <4>;
- 		ti,mbox-num-fifos = <16>;
-+		status = "disabled";
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+index 03291862f07a..7ebcfe8edfe1 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+@@ -39,7 +39,7 @@ memory@80000000 {
+ 		bootph-all;
  	};
  
- 	mailbox0_cluster3: mailbox@29030000 {
-@@ -831,6 +834,7 @@ mailbox0_cluster3: mailbox@29030000 {
- 		#mbox-cells = <1>;
- 		ti,mbox-num-users = <4>;
- 		ti,mbox-num-fifos = <16>;
-+		status = "disabled";
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+index d45fc42b03f3..41860ac42f3c 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+@@ -39,7 +39,7 @@ memory@80000000 {
+ 		bootph-all;
  	};
  
- 	main_mcan0: can@20701000 {
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+index a2fdc6741da2..6a04b370d149 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+@@ -147,7 +147,7 @@ reg_vsodimm: regulator-vsodimm {
+ 		regulator-name = "+V_SODIMM";
+ 	};
+ 
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+index 2755598fd1f5..c5b5b00c42b9 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+@@ -44,7 +44,7 @@ memory@80000000 {
+ 		bootph-pre-ram;
+ 	};
+ 
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+index 840772060cb1..03b8e246d8c2 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+@@ -36,7 +36,7 @@ memory@80000000 {
+ 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
+ 	};
+ 
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+index a07503b192c9..7640c5efe9b8 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+@@ -42,7 +42,7 @@ memory@80000000 {
+ 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
+ 	};
+ 
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-sk.dts b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
+index ae4a6552644c..fb8bd66f2f94 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
+@@ -40,7 +40,7 @@ memory@80000000 {
+ 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
+ 	};
+ 
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
+index d0c1e4dc1da7..81adae0a8e55 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
+@@ -105,7 +105,7 @@ memory@80000000 {
+ 		device_type = "memory";
+ 	};
+ 
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
+index 876cbb21961d..40b619c9a6c9 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
+@@ -20,7 +20,7 @@ memory@80000000 {
+ 
+ 	};
+ 
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
+index 73936994a156..6cd499ea53e7 100644
+--- a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
+@@ -36,7 +36,7 @@ chosen {
+ 		stdout-path = "serial3:115200n8";
+ 	};
+ 
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+index 39c2d46801de..e532ea0a22b2 100644
+--- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+@@ -39,7 +39,7 @@ memory@80000000 {
+ 		      <0x00000008 0x80000000 0x00000000 0x80000000>;
+ 	};
+ 
+-	reserved-memory {
++	reserved_memory: reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
 -- 
 2.34.1
 
