@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A61F7CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E9ECA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqzIvvFC+BrxEI6IGIMLmoy28OTKBIYxHR8NJC86crE=; b=LAFcOqe/iF2IfaWH5IxZB0v9Lq
-	GnFjQDmr6HmR5mmzkhwILxe/QtvUTIuT7ewCXFq5T2jud/2jZfIst9kvjzXK1mn742Ft/PctDKaUp
-	V5TwQO7sZePtmvZHVxMYaThDqKS7EnN3Fq2tv+9UJ/JTz0maMi6lR1xFrxsMWGyO5c3ruIcdg0OqY
-	OBhkar4b5LZspcCSwiCVZF8+HuxcKgSdV8zhRl0V24jI6SwRZZhRsZWbhdoUiOzM8WQWTijiT9IE2
-	a+VLQmEUL/2h3KPV0sz64IqD/rIUnqT8BsKb1UKUP7Y5ocIFb2bwO8EgYY2qt4Q7NLiJ8gFonQqnk
-	zzS0JKsA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jMAXIdnYVxleMChf2/qG6/ru4xaGe53QynIZ8eE+vyo=; b=FaKo0z3qM8EXMC/kVoSXZ2Drx5
+	2HvND9gMRn/00sopU3hwRHfkotUnixNewxs8dj+ozXZCyqfk0dfAQ3AXH5UUcU6FMtn2Emafclpj5
+	M5L04u5o7Ae06nYlnNwITHFcTdSBk28N2O/dqSnZ2i8q6voBZx5OQ85RZkjCC2IzT0PLKU5/lLLjO
+	EpTswDphLZvk1EWonnYZuS43Xk7d45v7SQT61oqLmbXWjPXca+CNr8p8tPWxf6LIWbbHYThCVYKcz
+	S7rI15/l3wu7bKdR6+hcvnEO3qEIUcuwQWSxc4rTtXVNtHXQqNBbcrmV6C5NoxjXjZrA56D/lqMgh
+	I9wiibrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuRFN-000000009qe-1jJY;
-	Fri, 05 Sep 2025 07:52:49 +0000
+	id 1uuRI3-00000000Amw-1dNm;
+	Fri, 05 Sep 2025 07:55:23 +0000
 Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQMV-0000000HPev-0JOT
+	id 1uuQMV-0000000HPer-0JG1
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 05 Sep 2025 06:55:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=vqzIvvFC+BrxEI6IGIMLmoy28OTKBIYxHR8NJC86crE=; b=C+jZY1ZFewpAbAWGnwrnijTis2
-	ACB6tWcCzRIxqrCPI+PbkX03oZGKalheEEFaXqw4qM8w5sNn/oFwBrw/VdaM8V5MK7kZ5tqWTmQ1v
-	Z3V7Ff6ygriGMEU5YbPaHiXXj/sa0xbs8A7egbZoh/9Dq80692MUFhZTHJ3lwdmZLUuD7qBpvL1lK
-	3TkAtXqzU2z2Jg8Iu4krP3Urn/6S4AzniqQrnNo6HtEJO9a7mQ2vk3delJ3MSMm0KubnbdWLOPSAM
-	XvN8r56geO/c436+galq0tXjlqwtKgiP2mjPpbTm8GhAiGk3pwbsr4XX6wRL0f6hXc4Lk2f5LxGQX
-	b3XngPXQ==;
+	bh=jMAXIdnYVxleMChf2/qG6/ru4xaGe53QynIZ8eE+vyo=; b=QeTu9MFvsp0wse4ccpInF920ov
+	HAPbTbEojWg+k2RpXVWEIAIetG9bJsFU+0D8c0wH+M+IwGYpNlbzUPQehpXL43zRWiXJ4+mLWCljj
+	Fl9QzUiPIU3zNYMNC4nb3pJuZ+nEGz9SSAl5RJnJfk3lvDfUg31O84pSo/TSr2Q+Z2BxFCYBHOIq1
+	7jxUo5GKEQHa9+fkpCWtPLxngLZ+UuIYTy64s2nH/Tne8Lds3AkIM5RpU6COYWm0qEqTz3DcmQhGN
+	MV3VbqXSdCkVasAVtoE1fvVPR7qCDH1MdIcLtWr0SVBcW0YXWhowGGlSE7YJ9lGizwIYQcfZBj4to
+	l4jEPMtg==;
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:37248 helo=localhost.localdomain)
 	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1uuQLi-00000004eMg-2638;
-	Fri, 05 Sep 2025 08:55:06 +0200
+	id 1uuQLi-00000004eMg-1RMD;
+	Fri, 05 Sep 2025 08:55:05 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Peter Rosin <peda@axentia.se>,
 	Jonathan Cameron <jic23@kernel.org>,
@@ -64,12 +64,10 @@ Cc: linux-iio@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v2 2/2] arm64: dts: freescale: imx93-phyboard-nash: Current sense via iio-hwmon
-Date: Fri,  5 Sep 2025 08:55:03 +0200
-Message-Id: <20250905065503.3022107-2-primoz.fiser@norik.com>
+Subject: [PATCH v2 1/2] dt-bindings: iio: afe: current-sense-amplifier: Add io-channel-cells
+Date: Fri,  5 Sep 2025 08:55:02 +0200
+Message-Id: <20250905065503.3022107-1-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250905065503.3022107-1-primoz.fiser@norik.com>
-References: <20250905065503.3022107-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -83,8 +81,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_235555_264122_76B1A9CC 
-X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-CacheID: sfid-20250904_235555_261921_4C387A93 
+X-CRM114-Status: UNSURE (   5.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,50 +98,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 21179eae56de ("arm64: dts: freescale: imx93-phyboard-nash: Add
-current sense amplifier") added information about the current sensing
-circuitry found on the board. Now, lets provide current sense reading
-also via IIO-hwmon subsystem. This way, SoM current can be read directly
-via sysfs property more conveniently for the customers. No need for them
-to manually apply scaling factor calculations anymore.
+The current-sense-amplifier is an IIO provider thus can be referenced by
+IIO consumers (via "io-channels" property in consumer device node). Such
+provider is required to describe number of cells used in phandle lookup
+with "io-channel-cells" property.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
-Changes in v2:                                                                  
-- no changes
-            
-Link to v1: https://lore.kernel.org/all/20250903113700.3079626-2-primoz.fiser@norik.com/
+Changes in v2:
+- refactor commit msg drop warnings introduced by commit #2
+- drop Fixes: tag
 
- arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+Link to v1: https://lore.kernel.org/all/20250903113700.3079626-1-primoz.fiser@norik.com/
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
-index 71a0e9f270af..d05645f25bba 100644
---- a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
-@@ -27,8 +27,9 @@ chosen {
- 		stdout-path = &lpuart1;
- 	};
+ .../devicetree/bindings/iio/afe/current-sense-amplifier.yaml  | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/iio/afe/current-sense-amplifier.yaml b/Documentation/devicetree/bindings/iio/afe/current-sense-amplifier.yaml
+index 527501c1d695..bcf4ddcfd13b 100644
+--- a/Documentation/devicetree/bindings/iio/afe/current-sense-amplifier.yaml
++++ b/Documentation/devicetree/bindings/iio/afe/current-sense-amplifier.yaml
+@@ -24,6 +24,9 @@ properties:
+     description: |
+       Channel node of a voltage io-channel.
  
--	current-sense {
-+	curr_sens: current-sense {
- 		compatible = "current-sense-amplifier";
-+		#io-channel-cells = <0>;
- 		io-channels = <&adc1 1>;
- 		sense-gain-div = <2>;
- 		sense-gain-mult = <50>;
-@@ -44,6 +45,11 @@ flexcan1_tc: can-phy0 {
- 		standby-gpios = <&gpio4 16 GPIO_ACTIVE_HIGH>;
- 	};
- 
-+	iio-hwmon {
-+		compatible = "iio-hwmon";
-+		io-channels = <&curr_sens 0>;
-+	};
++  "#io-channel-cells":
++    const: 0
 +
- 	reg_usdhc2_vmmc: regulator-usdhc2 {
- 		compatible = "regulator-fixed";
- 		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+   sense-resistor-micro-ohms:
+     description: The sense resistance.
+ 
+@@ -46,6 +49,7 @@ examples:
+   - |
+     sysi {
+         compatible = "current-sense-amplifier";
++        #io-channel-cells = <0>;
+         io-channels = <&tiadc 0>;
+ 
+         sense-resistor-micro-ohms = <20000>;
 -- 
 2.34.1
 
