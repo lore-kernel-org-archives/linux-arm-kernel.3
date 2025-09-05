@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18778CA1013
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D4C8CAC580
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 01:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:CC:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mgtZsM4/gv/n/MCIHJaPiEDs0QtkD5yuqCAVz5GbCoM=; b=e+Gtzx9Jy+f1jRz9WAirNAlN6A
-	sZa4O84cHoFpBIMNY2HpO9padpG/XBiTAUnxEbEDiRXKwfjKp4vUI120C6x+lDNN2a14CpkudeI0p
-	8GEbn4Ye1Zeucjf09OkP8Tmydh1GtWrcC1sJhTYL8mmMa0QEDeAmfHxvUL/Ckld6BLX+mQDGJ8HzD
-	Ln18fx9Ym7suAVNLGjCJ79vMbRkZL9E0tWGkwc48H5zerjQU62lNst3VOX55XhGdV/FH/3X9qYcot
-	5azXAxa3DmaWK5m2ypWXGh1DDgb4GV4yNLMyWEVGA14SPx9ca+bfPLRQyFXM3PClDnl/csaRAYc2x
-	c5J4WIgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FIqAuAlL8F2b5zg0kPwNOiW88NC18gskGb7XFX68fOM=; b=vC//bh4eYLE8sMtcwyHpm0SMTr
+	tQt4IujgyTRHiQaDN0uGjDJOEgHL76n6HLAw1tlnd8+oSAa9wjPr2nqJZDXuFZIinIn9Oc/ysy9Yg
+	wSed9N7JDCv65dn0SZVVPaAn9kKROChvgYWguotpGfMSVF/ZE1gITze+Xro45ThCQbgYjWKSdgs1t
+	jibEVS+gU5ZT6Z9jxdBeKvRvcJ+An1WWg/icZ0cR7X5mjfDrk7bFnLpR5WBIG66r4xVP8QDTaew/f
+	03HcG40uhfNb8mXKgKlQSSrH/Jibns1M1U6Lrlg+wICP6rGzt8EyhRKPEHbGqxPFmEjaZc5L9KVEW
+	CKrtcNTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuhh0-00000005s1p-1D5O;
-	Sat, 06 Sep 2025 01:26:14 +0000
-Received: from mx01.omp.ru ([90.154.21.10])
+	id 1uuhh1-00000005s3V-2fPL;
+	Sat, 06 Sep 2025 01:26:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuciS-00000004MHe-3zIQ;
-	Fri, 05 Sep 2025 20:07:27 +0000
-Received: from [192.168.2.102] (213.87.137.226) by msexch01.omp.ru
- (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Fri, 5 Sep
- 2025 23:07:13 +0300
-Message-ID: <bd8764c5-c43c-4bca-996d-65367805ad5a@omp.ru>
-Date: Fri, 5 Sep 2025 23:07:12 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-Subject: [PATCH] serial: 8250_mtk: correct max baud rate in the set_termios()
- method
-Organization: Open Mobile Platform
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
-	<jirislaby@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	id 1uufqs-00000005Gfd-0Qhp;
+	Fri, 05 Sep 2025 23:28:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B7F7601AE;
+	Fri,  5 Sep 2025 23:28:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D40DBC4CEF1;
+	Fri,  5 Sep 2025 23:28:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757114896;
+	bh=sHDzQNR+4667hi5yiXtnj/s70kNPk7kjxozWctS/6wg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eyF/8o2Wy9POeXCaDjWYs/9R6CSYmeh9r/M2PRpfA4L9DGcUBwEUEbI6X26kA61LU
+	 yCDjRjNRuNAVtBjI0yKApZGnoKrQoW5prezgO6vG7QcW8ufhPAdYS6cW/oFw618sVf
+	 AOUfK2s9ZdvAHQrqKe+3PK4dWD7kUsLfFXdYqfrYBtgrg/dkVHGzApS+dWHf9xiWSx
+	 7idD8L5Zm1fLgge50y279bTRqys4e+pZXl2r7u3Q/2d1TaNrBEFcuJoCnIoOAQVZO5
+	 TgRG8bZwL7EnAfB3io/hw/RoAWiEOSM60SVMAgH3mH1EQQdmi4NAhAr/+cSsWzH4wl
+	 yPxOqH5Fc6tDg==
+Date: Fri, 5 Sep 2025 18:28:15 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Liviu Dudau <liviu.dudau@arm.com>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Simona Vetter <simona@ffwll.ch>, Kees Cook <kees@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-mediatek@lists.infradead.org,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	David Airlie <airlied@gmail.com>, Chia-I Wu <olvaffe@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	linux-pm@vger.kernel.org, Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	linux-hardening@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	<linux-serial@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [213.87.137.226]
-X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
- (10.188.4.12)
-X-KSE-ServerInfo: msexch01.omp.ru, 9
-X-KSE-AntiSpam-Interceptor-Info: scan successful
-X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 09/05/2025 19:27:58
-X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
-X-KSE-AntiSpam-Method: none
-X-KSE-AntiSpam-Rate: 0
-X-KSE-AntiSpam-Info: Lua profiles 196074 [Sep 05 2025]
-X-KSE-AntiSpam-Info: Version: 6.1.1.11
-X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
-X-KSE-AntiSpam-Info: LuaCore: 66 0.3.66
- fc5dda3b6b70d34b3701db39319eece2aeb510fb
-X-KSE-AntiSpam-Info: {rep_avail}
-X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
-X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
-X-KSE-AntiSpam-Info: 127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;omp.ru:7.1.1
-X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
-X-KSE-AntiSpam-Info: FromAlignment: s
-X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.137.226
-X-KSE-AntiSpam-Info: Rate: 0
-X-KSE-AntiSpam-Info: Status: not_detected
-X-KSE-AntiSpam-Info: Method: none
-X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
- smtp.mailfrom=omp.ru;dkim=none
-X-KSE-Antiphishing-Info: Clean
-X-KSE-Antiphishing-ScanningType: Heuristic
-X-KSE-Antiphishing-Method: None
-X-KSE-Antiphishing-Bases: 09/05/2025 19:35:00
-X-KSE-Antivirus-Interceptor-Info: scan successful
-X-KSE-Antivirus-Info: Clean, bases: 9/5/2025 6:47:00 PM
-X-KSE-Attachment-Filter-Triggered-Rules: Clean
-X-KSE-Attachment-Filter-Triggered-Filters: Clean
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_130724_998576_3C859919 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+	Steven Price <steven.price@arm.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, kernel@collabora.com,
+	Chen-Yu Tsai <wenst@chromium.org>
+Subject: Re: [PATCH RFC 03/10] dt-bindings: sram: Add compatible for
+ mediatek,mt8196-gpufreq-sram
+Message-ID: <175711489460.1508247.14844222484675872512.robh@kernel.org>
+References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
+ <20250905-mt8196-gpufreq-v1-3-7b6c2d6be221@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250905-mt8196-gpufreq-v1-3-7b6c2d6be221@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +90,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As is obvious from the code calculating the divisor in the set_termios()
-method, the Mediatek UART driver uses 256-time oversampling for the high
-baud rates, so passing port->uartclk to uart_get_baud_rate() for the max
-acceptable baud rate makes no sense, we should divide by 256 first (this
-should also prevent overflow when some arbitrary baud rate is passed via
-termios->c_ospeed)...
 
-Found by Linux Verification Center (linuxtesting.org) with the Svace static
-analysis tool.
+On Fri, 05 Sep 2025 12:22:59 +0200, Nicolas Frattaroli wrote:
+> This compatible is used for an SRAM section that's shared between the
+> MT8196's application processor cores and the embedded GPUEB MCU that
+> controls the GPU frequency.
+> 
+> Through this SRAM section, things about the GPU frequency controller
+> like the OPP table can be read.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/sram/sram.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-Fixes: 81bb549fdf14 ("serial: 8250_mtk: support big baud rate.")
-Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
----
-The patch is against the master branch of Linus Torvalds' linux.git repo.
-
- drivers/tty/serial/8250/8250_mtk.c |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-Index: linux/drivers/tty/serial/8250/8250_mtk.c
-===================================================================
---- linux.orig/drivers/tty/serial/8250/8250_mtk.c
-+++ linux/drivers/tty/serial/8250/8250_mtk.c
-@@ -358,7 +358,7 @@ mtk8250_set_termios(struct uart_port *po
- 	 */
- 	baud = uart_get_baud_rate(port, termios, old,
- 				  port->uartclk / 16 / UART_DIV_MAX,
--				  port->uartclk);
-+				  port->uartclk / 256);
- 
- 	if (baud < 115200) {
- 		serial_port_out(port, MTK_UART_HIGHS, 0x0);
 
