@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BABACA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FD2CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CS7/+88GKvPz+RzdqbRIb2EPsCndRz2p9qUkq+VGtSU=; b=1Oo72DLlmJ4cxZdjORjHT9f78g
-	3UTT/UWIfF9myp8+afFpE+8F6iSCSqC9RjwM/4PreHoeYhGM2DxU1cXGXmqG4ollOSWK5dMPESZMy
-	LnGLFPAuF7g171Dyv0UkEST7lA9udyDEVEgzoxRaB3PFyAMbN5Ab/cut0xmEFbTINMQJJ/Jf5GAwP
-	s86HYVz5kaHiMSpQfugb/jXtpbGwGtLdJWr234o7lXIzS6U15v9UnuGGfD3J2PVivI0l0RY/9Mzyl
-	ysx4xt0shPhLrhQ94QA8FhHRO4PYd0pLs7Lvlqj6EU6FVegby2mQ94nI57ZM4+nseICETDpHduUj5
-	T6ByWz9g==;
+	bh=vSe61z5BayeoSR86wiQVMBpcSVw9JUSiFDv132hHJEw=; b=KTTqZP9Ayrmqjy4p8EGs0+ZjMB
+	L+KL6olFx72oOGuxH7l5nHD2aXXkrjmHjbdPJq3BaHsOB646b4znW1UKnHi0qfHRZDwWSp50FEa5p
+	KheEcIW+MFEy0JKaLDLKaTRumqeGzX6ACo9btnBAC9iOYf+HKlmsUIlLnCZABjio1SgdjHx5Kyzhk
+	YrOgUCAoLB3D2eYk92C3u6LjWRLUzEXSdoEdpJvzn5z5Sz82dMzah8nvyL20v0qf3Gb9HBzJmIAsu
+	ZvQoprR4oog9F7cPTwCNHF9wyfqijjTcMyqpiizyWqQVR1wjz//KQbRRSCNkWdnTQsq0RMav/Z8uc
+	h3EdF8vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXZS-00000002PhF-3t5t;
-	Fri, 05 Sep 2025 14:37:46 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1uuXZV-00000002PlX-0sRs;
+	Fri, 05 Sep 2025 14:37:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuUPi-00000001JTh-2c6n;
-	Fri, 05 Sep 2025 11:15:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757070931; x=1788606931;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3akFC5IMed+fG2KKB0KQf9NBmC17zIW/9AU0DfJiD7Q=;
-  b=evMVsjKRo24QhgqTHmUogHH7LKfCmEX34atlZNYejTiiEj0N5Ca/rcFd
-   cH+6oOKOVEzo6DU1BK5gHoJbqYZb/v772DJ4c8DLMGeMu5JWuGhDo2iZc
-   mdtwrzrTlrQl6AFnSzAJKVZkvs6yMiL3vi4Qcc/TGRpDTDq0QVzYvSHCN
-   T9cHkLfSormHSSP49CmzdPafgKLgYG1AFd42QyLI7xXKCaRp+kYAUINs5
-   G7QATflKakHJO3+HV7AXdS15fQwmSLeYLM/Wycy7zWSLiINzUw5RK7cma
-   mHk08Um1SEf/RTCFZ/f63DSK/xIi23K0mp1V87G+plKmDVRIdyWiBOdj3
-   Q==;
-X-CSE-ConnectionGUID: k0yHEqaOT4S1pJxU/d7+ZQ==
-X-CSE-MsgGUID: zdYGVnCtRTCgHFsMb0Tyhw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="63251836"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="63251836"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2025 04:15:24 -0700
-X-CSE-ConnectionGUID: +3HgtWUMTAaK3lJguvuAiQ==
-X-CSE-MsgGUID: 0bI3GIRWSgi/mUctC2BkUA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,241,1751266800"; 
-   d="scan'208";a="172069602"
-Received: from kuha.fi.intel.com ([10.237.72.152])
-  by fmviesa006.fm.intel.com with SMTP; 05 Sep 2025 04:15:17 -0700
-Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Fri, 05 Sep 2025 14:15:16 +0300
-Date: Fri, 5 Sep 2025 14:15:16 +0300
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH RFC 12/22] usb: typec: tipd: Add cd321x struct with
- separate size
-Message-ID: <aLrGRGTjyMhKV9hd@kuha.fi.intel.com>
-References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
- <20250821-atcphy-6-17-v1-12-172beda182b8@kernel.org>
+	id 1uuUTV-00000001L05-0aOs
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 11:19:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 89B416027B;
+	Fri,  5 Sep 2025 11:19:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4C27C4CEF1;
+	Fri,  5 Sep 2025 11:19:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757071164;
+	bh=RHLqjtmoQ09sM+x+rrDllENxQeIkKdioDv+JW9P+Aos=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A/QIh2ddmPQW9GbhkGscvwZJAOdlvRvh05eTseLWqDi0NqX5VoUz3c+rFGi5te6gs
+	 FeVf6cxesM0g4NssvOVujDWyj9mrdK8LpKlTGDp/6FZss2dq4STW6zOMrER9uue5m7
+	 gYM0YJqrGGelTJTg/Wae0ezZ+Ln5Z9a7rQdsrtvsC5aJMkzJDUejnZeo9niA5S9ZsO
+	 rAiiZhiID4hhFyLR0EPR+sXVy1LHpEREWSJ9XWSwcd0WYCKy66BICmsJmvPOks/99s
+	 KUtvAv0iw5WXUoAptM66b1336WnWvdA8iRqYrawyqjKazn3DqpgdPmx5ld20pIZHkT
+	 94jShf4NQqhcQ==
+Date: Fri, 5 Sep 2025 14:19:11 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+	Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>, Nicholas Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org
+Subject: Re: [PATCH 2/7] mm: introduce local state for lazy_mmu sections
+Message-ID: <aLrHL-C_UXfUbCd9@kernel.org>
+References: <20250904125736.3918646-1-kevin.brodsky@arm.com>
+ <20250904125736.3918646-3-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250821-atcphy-6-17-v1-12-172beda182b8@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_041530_811276_CC5222D6 
-X-CRM114-Status: GOOD (  20.29  )
+In-Reply-To: <20250904125736.3918646-3-kevin.brodsky@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,109 +92,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 03:39:04PM +0000, Sven Peter wrote:
-> We're about to add more fields to struct tps6598x which are only relevant
-> for Apple's CD321x and to ensure that we don't waste memory everywhere for
-> those add a separate struct for cd321x and prepare to allocate more space
-> inside probe.
+On Thu, Sep 04, 2025 at 01:57:31PM +0100, Kevin Brodsky wrote:
+> arch_{enter,leave}_lazy_mmu_mode() currently have a stateless API
+> (taking and returning no value). This is proving problematic in
+> situations where leave() needs to restore some context back to its
+> original state (before enter() was called). In particular, this
+> makes it difficult to support the nesting of lazy_mmu sections -
+> leave() does not know whether the matching enter() call occurred
+> while lazy_mmu was already enabled, and whether to disable it or
+> not.
 > 
-> Signed-off-by: Sven Peter <sven@kernel.org>
+> This patch gives all architectures the chance to store local state
+> while inside a lazy_mmu section by making enter() return some value,
+> storing it in a local variable, and having leave() take that value.
+> That value is typed lazy_mmu_state_t - each architecture defining
+> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is free to define it as it sees fit.
+> For now we define it as int everywhere, which is sufficient to
+> support nesting.
+> 
+> The diff is unfortunately rather large as all the API changes need
+> to be done atomically. Main parts:
+> 
+> * Changing the prototypes of arch_{enter,leave}_lazy_mmu_mode()
+>   in generic and arch code, and introducing lazy_mmu_state_t.
+> 
+> * Introducing LAZY_MMU_{DEFAULT,NESTED} for future support of
+>   nesting. enter() always returns LAZY_MMU_DEFAULT for now.
+>   (linux/mm_types.h is not the most natural location for defining
+>   those constants, but there is no other obvious header that is
+>   accessible where arch's implement the helpers.)
+> 
+> * Changing all lazy_mmu sections to introduce a lazy_mmu_state
+>   local variable, having enter() set it and leave() take it. Most of
+>   these changes were generated using the Coccinelle script below.
+> 
+> @@
+> @@
+> {
+> + lazy_mmu_state_t lazy_mmu_state;
+> ...
+> - arch_enter_lazy_mmu_mode();
+> + lazy_mmu_state = arch_enter_lazy_mmu_mode();
+> ...
+> - arch_leave_lazy_mmu_mode();
+> + arch_leave_lazy_mmu_mode(lazy_mmu_state);
+> ...
+> }
+> 
+> Note: it is difficult to provide a default definition of
+> lazy_mmu_state_t for architectures implementing lazy_mmu, because
+> that definition would need to be available in
+> arch/x86/include/asm/paravirt_types.h and adding a new generic
+>  #include there is very tricky due to the existing header soup.
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-
-> ---
->  drivers/usb/typec/tipd/core.c | 20 +++++++++++++++-----
->  1 file changed, 15 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-> index 19d713937870304e68325a441b0de63eb5db3b80..51b0f3be8b66a743ddc3ea96c1b25f597a1e8f6c 100644
-> --- a/drivers/usb/typec/tipd/core.c
-> +++ b/drivers/usb/typec/tipd/core.c
-> @@ -113,6 +113,7 @@ struct tps6598x;
->  struct tipd_data {
->  	irq_handler_t irq_handler;
->  	u64 irq_mask1;
-> +	size_t tps_struct_size;
->  	int (*register_port)(struct tps6598x *tps, struct fwnode_handle *node);
->  	void (*trace_data_status)(u32 status);
->  	void (*trace_power_status)(u16 status);
-> @@ -148,6 +149,10 @@ struct tps6598x {
->  	const struct tipd_data *data;
->  };
->  
-> +struct cd321x {
-> +	struct tps6598x tps;
-> +};
-> +
->  static enum power_supply_property tps6598x_psy_props[] = {
->  	POWER_SUPPLY_PROP_USB_TYPE,
->  	POWER_SUPPLY_PROP_ONLINE,
-> @@ -1297,18 +1302,24 @@ tps25750_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
->  
->  static int tps6598x_probe(struct i2c_client *client)
->  {
-> +	const struct tipd_data *data;
->  	struct tps6598x *tps;
->  	struct fwnode_handle *fwnode;
->  	u32 status;
->  	u32 vid;
->  	int ret;
->  
-> -	tps = devm_kzalloc(&client->dev, sizeof(*tps), GFP_KERNEL);
-> +	data = i2c_get_match_data(client);
-> +	if (!data)
-> +		return -EINVAL;
-> +
-> +	tps = devm_kzalloc(&client->dev, data->tps_struct_size, GFP_KERNEL);
->  	if (!tps)
->  		return -ENOMEM;
->  
->  	mutex_init(&tps->lock);
->  	tps->dev = &client->dev;
-> +	tps->data = data;
->  
->  	tps->reset = devm_gpiod_get_optional(tps->dev, "reset", GPIOD_OUT_LOW);
->  	if (IS_ERR(tps->reset))
-> @@ -1334,10 +1345,6 @@ static int tps6598x_probe(struct i2c_client *client)
->  	if (i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
->  		tps->i2c_protocol = true;
->  
-> -	tps->data = i2c_get_match_data(client);
-> -	if (!tps->data)
-> -		return -EINVAL;
-> -
->  	if (tps->data->switch_power_state) {
->  		ret = tps->data->switch_power_state(tps, TPS_SYSTEM_POWER_STATE_S0);
->  		if (ret)
-> @@ -1521,6 +1528,7 @@ static const struct tipd_data cd321x_data = {
->  	.irq_mask1 = APPLE_CD_REG_INT_POWER_STATUS_UPDATE |
->  		     APPLE_CD_REG_INT_DATA_STATUS_UPDATE |
->  		     APPLE_CD_REG_INT_PLUG_EVENT,
-> +	.tps_struct_size = sizeof(struct cd321x),
->  	.register_port = tps6598x_register_port,
->  	.trace_data_status = trace_cd321x_data_status,
->  	.trace_power_status = trace_tps6598x_power_status,
-> @@ -1535,6 +1543,7 @@ static const struct tipd_data tps6598x_data = {
->  	.irq_mask1 = TPS_REG_INT_POWER_STATUS_UPDATE |
->  		     TPS_REG_INT_DATA_STATUS_UPDATE |
->  		     TPS_REG_INT_PLUG_EVENT,
-> +	.tps_struct_size = sizeof(struct tps6598x),
->  	.register_port = tps6598x_register_port,
->  	.trace_data_status = trace_tps6598x_data_status,
->  	.trace_power_status = trace_tps6598x_power_status,
-> @@ -1549,6 +1558,7 @@ static const struct tipd_data tps25750_data = {
->  	.irq_mask1 = TPS_REG_INT_POWER_STATUS_UPDATE |
->  		     TPS_REG_INT_DATA_STATUS_UPDATE |
->  		     TPS_REG_INT_PLUG_EVENT,
-> +	.tps_struct_size = sizeof(struct tps6598x),
->  	.register_port = tps25750_register_port,
->  	.trace_data_status = trace_tps6598x_data_status,
->  	.trace_power_status = trace_tps25750_power_status,
-> 
-> -- 
-> 2.34.1
-> 
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
 -- 
-heikki
+Sincerely yours,
+Mike.
 
