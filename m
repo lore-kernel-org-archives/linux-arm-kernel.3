@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1AACA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15BACA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R+Lpf7yZ9aS/yOm66isk+kAfhb/g8eE+sSJhc6oWqLw=; b=dtzmNwWRJXXkqJdAa+AF5zqc8F
-	GRXYI/ke1uqcQIMDfvkc9iKypvdNrYAnEKIWLhBM2LpTJaD5Q8N3muZT0qVyG8fHO8gIVHqCiQrvJ
-	yzgXaCFbNZ8+ydTsBZvmRnBhcY0ZMWi5Snlyqvu1mY2IQHTJVNxycHLuOkm8O8C+XGKL91W46OCb1
-	nW7drnmM93dATCvny/0jO+K/+ruZfKlF4RcW9yXYQrCzUVM2tNx+8aVoUAMZ4fpee3dJ9m17MiR2q
-	VPs8AKWgzbms0kqTTu3wbIUIzwlIykZfg+DZcHMEseBj+/1CwUnuowEzTA+Vw48qluBfwvWpidLGz
-	Ay5xMnsA==;
+	bh=DZRjwvYd2kR1+eHnoX/XoTY11O6bDfzKSNBqHcg6KTI=; b=f5Ma8yA32fEYC2rbUvyg9f6q1W
+	vyum1tO8SNNw0hMDlkgcMvXEw+5EDMgts01HkNkRGAcwsETavIkeDegnQV8OYTTdAjFQFhwjJV8Vz
+	Cv/yI2K/XEUINJhTsfwdNkLbAgdLdv9PLq6kvLKw2/dVCtfokNOgvv0/Vp/q5gQviJ4A8l9wBIXR/
+	mTivbkIIm9CXlHd8zx4QYPB/H7kv1priImpXAde5qJdhjA6i7XvE4HwTZrOfDXyiPyQjfSzCqebQj
+	jR7i6hPHaCIz2A/GGG7EctjawqWFQc6u/2YaDekwctZkKjSxIuQfj/V9C4z0XOUB8cmJkoQSfAP2B
+	CDUZbW1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXWu-00000002Mhk-0l1i;
-	Fri, 05 Sep 2025 14:35:08 +0000
+	id 1uuXWx-00000002Mm7-2lFJ;
+	Fri, 05 Sep 2025 14:35:11 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuTHp-00000000vNW-0vhj
+	id 1uuTKW-00000000w96-24uy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 10:03:18 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJBdh2c9dz6L5kC;
-	Fri,  5 Sep 2025 17:59:20 +0800 (CST)
+	Fri, 05 Sep 2025 10:06:05 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cJBhn0xyXz6L5ly;
+	Fri,  5 Sep 2025 18:02:01 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 37EE21402F1;
-	Fri,  5 Sep 2025 18:03:14 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 03F6A1402CB;
+	Fri,  5 Sep 2025 18:05:55 +0800 (CST)
 Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
  (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 5 Sep
- 2025 12:02:49 +0200
-Date: Fri, 5 Sep 2025 11:02:48 +0100
+ 2025 12:05:53 +0200
+Date: Fri, 5 Sep 2025 11:05:51 +0100
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Zihuan Zhang <zhangzihuan@kylinos.cn>
 CC: "Rafael J . wysocki" <rafael@kernel.org>, Viresh Kumar
@@ -66,11 +66,11 @@ CC: "Rafael J . wysocki" <rafael@kernel.org>, Viresh Kumar
 	<intel-gfx@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
 	<imx@lists.linux.dev>, <linux-omap@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 06/10] drm/i915: Use scope-based cleanup helper
-Message-ID: <20250905110248.000058e9@huawei.com>
-In-Reply-To: <20250903131733.57637-7-zhangzihuan@kylinos.cn>
+Subject: Re: [PATCH v4 08/10] thermal: imx: Use scope-based cleanup helper
+Message-ID: <20250905110551.00006588@huawei.com>
+In-Reply-To: <20250903131733.57637-9-zhangzihuan@kylinos.cn>
 References: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
-	<20250903131733.57637-7-zhangzihuan@kylinos.cn>
+	<20250903131733.57637-9-zhangzihuan@kylinos.cn>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -79,8 +79,8 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_030317_552027_AAE15EFD 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20250905_030604_826327_76C60174 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,7 +95,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  3 Sep 2025 21:17:29 +0800
+On Wed,  3 Sep 2025 21:17:31 +0800
 Zihuan Zhang <zhangzihuan@kylinos.cn> wrote:
 
 > Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
@@ -105,30 +105,61 @@ Zihuan Zhang <zhangzihuan@kylinos.cn> wrote:
 > No functional change intended.
 > 
 > Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
-FWIW this one is fine if low impact.
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+This radically changes the lifetime of the reference to policy.
+If that is valid, then I'd expect a lot more description of why!
+
 > ---
->  drivers/gpu/drm/i915/gt/intel_llc.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
+>  drivers/thermal/imx_thermal.c | 14 +++++---------
+>  1 file changed, 5 insertions(+), 9 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/i915/gt/intel_llc.c b/drivers/gpu/drm/i915/gt/intel_llc.c
-> index 1d19c073ba2e..f15e4c0fa54b 100644
-> --- a/drivers/gpu/drm/i915/gt/intel_llc.c
-> +++ b/drivers/gpu/drm/i915/gt/intel_llc.c
-> @@ -29,13 +29,11 @@ static struct intel_gt *llc_to_gt(struct intel_llc *llc)
+> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+> index 38c993d1bcb3..cd1d9d419275 100644
+> --- a/drivers/thermal/imx_thermal.c
+> +++ b/drivers/thermal/imx_thermal.c
+> @@ -201,7 +201,6 @@ static struct thermal_soc_data thermal_imx7d_data = {
 >  
->  static unsigned int cpu_max_MHz(void)
->  {
+>  struct imx_thermal_data {
+>  	struct device *dev;
 > -	struct cpufreq_policy *policy;
+>  	struct thermal_zone_device *tz;
+>  	struct thermal_cooling_device *cdev;
+>  	struct regmap *tempmon;
+> @@ -541,22 +540,20 @@ MODULE_DEVICE_TABLE(of, of_imx_thermal_match);
+>  static int imx_thermal_register_legacy_cooling(struct imx_thermal_data *data)
+>  {
+>  	struct device_node *np;
 > +	struct cpufreq_policy *policy __free(put_cpufreq_policy) = cpufreq_cpu_get(0);
->  	unsigned int max_khz;
+>  	int ret = 0;
 >  
-> -	policy = cpufreq_cpu_get(0);
->  	if (policy) {
->  		max_khz = policy->cpuinfo.max_freq;
-> -		cpufreq_cpu_put(policy);
->  	} else {
->  		/*
->  		 * Default to measured freq if none found, PCU will ensure we
+> -	data->policy = cpufreq_cpu_get(0);
+> -	if (!data->policy) {
+> +	if (!policy) {
+>  		pr_debug("%s: CPUFreq policy not found\n", __func__);
+>  		return -EPROBE_DEFER;
+>  	}
+>  
+> -	np = of_get_cpu_node(data->policy->cpu, NULL);
+> +	np = of_get_cpu_node(policy->cpu, NULL);
+>  
+>  	if (!np || !of_property_present(np, "#cooling-cells")) {
+> -		data->cdev = cpufreq_cooling_register(data->policy);
+> -		if (IS_ERR(data->cdev)) {
+> +		data->cdev = cpufreq_cooling_register(policy);
+> +		if (IS_ERR(data->cdev))
+>  			ret = PTR_ERR(data->cdev);
+> -			cpufreq_cpu_put(data->policy);
+> -		}
+>  	}
+>  
+>  	of_node_put(np);
+> @@ -567,7 +564,6 @@ static int imx_thermal_register_legacy_cooling(struct imx_thermal_data *data)
+>  static void imx_thermal_unregister_legacy_cooling(struct imx_thermal_data *data)
+>  {
+>  	cpufreq_cooling_unregister(data->cdev);
+> -	cpufreq_cpu_put(data->policy);
+>  }
+>  
+>  #else
 
 
