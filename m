@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64777CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 08:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB029CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 08:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OyKNmBG7aY30CUsH6LThft0vL3sOjRv4PBRyIA8/9NY=; b=HpvrRgI+vWU+tX4UQGmy+6xiH6
-	l3OC0y+15r3HJMSEDe+sFE/UUktAhQVREKX/l3wVxchE8J0pikAIjNTS7YjQPwa/pszZXVNko+vfH
-	EQkB15IsOFpkP3a1lggh7gw0m1CIZ27w3gHbN4zAOG1M9G/b7NBknfDcAisjHEk/CxuXZI/YCs4v/
-	1GiPCTwf1AFkmEj1/YtFbkMLoF6NKxFqbb+u4lSVwRfhNzRBOLeuBVvefRs87UJPamRwuRpPABfhO
-	Jrp7/dABxInLNDiQrvRz72Ups25pu+XIDRUM3aYcozDXFvk+Q4QksFf+U56BaQjKLdljoOG9j5Zyc
-	mlGjnJFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xOHHMrs5il1Ee3qXOsEQyuYL0/RSXvJc2Iaulc2GucI=; b=YVv/4hrekA/0N4vnxjlsY+g1ZP
+	nYdsDc69ubqHj7B2dYFFWb/QyQDR1l9+/A5Gsb3+dceiYMy5MGklqtqjRtELVI106I2k7WMDe/V1T
+	N5qq5S2/nwuvJr0aoGMeK1j4DfdqPZ4SL1/dXkv49ZfsZf6bXKhFLzxfspJ3uGuv3+MmUo0eujn9Y
+	acR9+BLKORVb99RJMj39GlEeaISsZEhaB2J3sATx/BoPuwDR5OOJ+XHZhTlkX4eQPY7PxYdPqt/EO
+	YdkfyaUOKgoqDSDgbsQj8Tcm8DHJTz4yEOG6kzSwdrwZsFPIdQ3pWIs9+43QW2W6wE+jE/qmpR745
+	8pCn/FlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuS9t-00000000UVd-1FLW;
-	Fri, 05 Sep 2025 08:51:01 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQoG-0000000HahQ-3CLv
+	id 1uuSEC-00000000WoX-0wIK;
+	Fri, 05 Sep 2025 08:55:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuQvA-000000002W1-0Y6b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 07:24:37 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-55f6ad5146eso1733255e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 00:24:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1757057075; x=1757661875; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OyKNmBG7aY30CUsH6LThft0vL3sOjRv4PBRyIA8/9NY=;
-        b=V7Sermg6XtTM9qTfMZ+R3jKM3CN49UkVGOBYLKE8xRmWU4UohceSU0reRe9t/+u5gV
-         4DeDShfDCn4GNPh+6jswH54us9ORMj/nBk3WZHLE308naCT0jQwEOZrGnK0MW3R68fFL
-         uUr2WuevVHu/3qoLGg/Lj32cat0ahl4aj2U64=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757057075; x=1757661875;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OyKNmBG7aY30CUsH6LThft0vL3sOjRv4PBRyIA8/9NY=;
-        b=b3ixTfAQQcMcbE060LHiiIZ4vpCBEt2LtDYX1boBq5JMee6PzbwnYDORyHRtxCkMlk
-         WOH7Gk3cPUH/bycPEvSWUk1fvKS6Mo5lWSc5DJ/DM1IiZcFFfjTWD6UK9IlqhRI1LxTG
-         QtUjJpL3reDhQd3TmxzEWL31XfNVrgSvf1hrN+gDNUl059X2jp/0s7x691Csmpz+0RWe
-         Yq1VDbTwzwNsAFJ/nEqaPnbk7ACzfBRuk7PqJJyttEncrtq3MEYpz2yyfs1DfnPFjvpV
-         zdGDxh5E7RWRi6JPUwP/F0WE3rmRYfOpz20tnSrXU2e5h8hooOM2QaJHBeoEsySxBYvc
-         pQ9w==
-X-Forwarded-Encrypted: i=1; AJvYcCUbncFyyK64xMtTxIOn+i732/ttoqCA+qq06+NxuIoq51YV6VlgLV7qJgizs3xBpaHcUKz8iU8Kzh95csuCdLTD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTbPJKiTkKL564mK714SIffsbqQj0nClQntU3FZnsUa+x5TnrV
-	0Y3CsPX5h25hcpb3CXvHqZMiSdB+ngWFi752HJgZyaVoDlwfiqnAfm1HIof3nQ30Rw1ZZIfDph2
-	b3wBpsCGktVaZFLyZIwCXITYONJPMh2mlo+vx4Wc9
-X-Gm-Gg: ASbGncunFxjk6w1M6eNOZuYagiYo5LnxEO5UJXqAt/bAVGUZhYOjeCDC+htZm2XUKiv
-	i2lLxP0e5/TxDaHbnshEQ521GL2mbwdD7K2v001r38z8g4SlgT42qtv3X/AK6y6h5t5/dW+xfaT
-	J7U0DgPyak1nDq1LH2NoYP3I/os5b7HSVpDvd+/xjRvWop/+Y8svdpgPh9Kmb74kMYu0zre81Op
-	mvqdQ7Aky+yRxdm7bTKSzW47kF6NBxfOBdepVRzgR7NOZ0l
-X-Google-Smtp-Source: AGHT+IHsGV8p2LrSQ+5ebPuG3MwZsxnB0+XdK0d6HB4AboER/GhIXoUDzaGFZTbCNnePZ5YQiB7vHJZTSeMi3MgtzZg=
-X-Received: by 2002:a05:6512:3d11:b0:55f:4e8a:199c with SMTP id
- 2adb3069b0e04-55f708c2538mr6024739e87.20.1757057074896; Fri, 05 Sep 2025
- 00:24:34 -0700 (PDT)
+	Fri, 05 Sep 2025 07:31:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5207153B;
+	Fri,  5 Sep 2025 00:31:32 -0700 (PDT)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1747E3F694;
+	Fri,  5 Sep 2025 00:31:36 -0700 (PDT)
+Date: Fri, 5 Sep 2025 09:31:03 +0200
+From: Beata Michalska <beata.michalska@arm.com>
+To: Ionela Voinescu <ionela.voinescu@arm.com>
+Cc: Lifeng Zheng <zhenglifeng1@huawei.com>, catalin.marinas@arm.com,
+	will@kernel.org, rafael@kernel.org, viresh.kumar@linaro.org,
+	sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linuxarm@huawei.com, jonathan.cameron@huawei.com,
+	vincent.guittot@linaro.org, yangyicong@hisilicon.com,
+	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com,
+	zhangpengjie2@huawei.com, linhongye@h-partners.com
+Subject: Re: [PATCH v5 3/3] arm64: topology: Setup AMU FIE for online CPUs
+ only
+Message-ID: <aLqRt0K2-UH8cOcI@arm.com>
+References: <20250819072931.1647431-1-zhenglifeng1@huawei.com>
+ <20250819072931.1647431-4-zhenglifeng1@huawei.com>
+ <aLVJdy3M1NRBR5LF@arm.com>
 MIME-Version: 1.0
-References: <20250829091913.131528-1-laura.nao@collabora.com> <20250829091913.131528-17-laura.nao@collabora.com>
-In-Reply-To: <20250829091913.131528-17-laura.nao@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 5 Sep 2025 15:24:23 +0800
-X-Gm-Features: Ac12FXxXPTzm9nG4j13NbvkvAJ8eK4LgCQVwRNdKf80aBqhtT_PDYtc5qR-IPds
-Message-ID: <CAGXv+5HjrwPJBC-wina4ZrQe_3FBWcyZc3e+iaCCmNOKfMicsg@mail.gmail.com>
-Subject: Re: [PATCH v5 16/27] clk: mediatek: Add MT8196 pextpsys clock support
-To: Laura Nao <laura.nao@collabora.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
-	richardcochran@gmail.com, guangjie.song@mediatek.com, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aLVJdy3M1NRBR5LF@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_002436_823800_E1169569 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250905_003144_247368_5F95BA43 
+X-CRM114-Status: GOOD (  38.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,18 +71,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 5:21=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
- wrote:
->
-> Add support for the MT8196 pextpsys clock controller, which provides
-> clock gate control for PCIe.
->
-> Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@co=
-llabora.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+Hi Ionela,
+On Mon, Sep 01, 2025 at 08:29:26AM +0100, Ionela Voinescu wrote:
+> Hi,
+> 
+> On Tuesday 19 Aug 2025 at 15:29:31 (+0800), Lifeng Zheng wrote:
+> > When boot with maxcpu=1 restrict, and LPI(Low Power Idle States) is on,
+> > only CPU0 will go online. The support AMU flag of CPU0 will be set but the
+> > flags of other CPUs will not. This will cause AMU FIE set up fail for CPU0
+> > when it shares a cpufreq policy with other CPU(s). After that, when other
+> > CPUs are finally online and the support AMU flags of them are set, they'll
+> > never have a chance to set up AMU FIE, even though they're eligible.
+> > 
+> > To solve this problem, the process of setting up AMU FIE needs to be
+> > modified as follows:
+> > 
+> > 1. Set up AMU FIE only for the online CPUs.
+> > 
+> > 2. Try to set up AMU FIE each time a CPU goes online and do the
+> > freq_counters_valid() check. If this check fails, clear scale freq source
+> > of all the CPUs related to the same policy, in case they use different
+> > source of the freq scale.
+> > 
+> > At the same time, this change also be applied to cpufreq when calling
+> > arch_set_freq_scale.
+> > 
+> > Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> > ---
+> >  arch/arm64/kernel/topology.c | 54 ++++++++++++++++++++++++++++++++++--
+> >  drivers/cpufreq/cpufreq.c    |  4 +--
+> >  2 files changed, 54 insertions(+), 4 deletions(-)
+> > 
+> [..]
+> >  
+> > diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+> > index 78ca68ea754d..d1890a2af1af 100644
+> > --- a/drivers/cpufreq/cpufreq.c
+> > +++ b/drivers/cpufreq/cpufreq.c
+> > @@ -417,7 +417,7 @@ void cpufreq_freq_transition_end(struct cpufreq_policy *policy,
+> >  
+> >  	cpufreq_notify_post_transition(policy, freqs, transition_failed);
+> >  
+> > -	arch_set_freq_scale(policy->related_cpus,
+> > +	arch_set_freq_scale(policy->cpus,
+> >  			    policy->cur,
+> >  			    arch_scale_freq_ref(policy->cpu));
+> >  
+> > @@ -2219,7 +2219,7 @@ unsigned int cpufreq_driver_fast_switch(struct cpufreq_policy *policy,
+> >  		return 0;
+> >  
+> >  	policy->cur = freq;
+> > -	arch_set_freq_scale(policy->related_cpus, freq,
+> > +	arch_set_freq_scale(policy->cpus, freq,
+> >  			    arch_scale_freq_ref(policy->cpu));
+> 
+> I think it might be good to keep these calls to arch_set_freq_scale() for
+> all related CPUs and not only online ones. This can result in CPUs coming
+> out of hotplug with a wrong scale factor, because while they were out, any
+> frequency transitions of the policy only modified the scale factor of
+> online CPUs. When they come out of hotplug, arch_set_freq_scale() will not
+> be called for them until there's a new frequency transition.
+> 
+> I understand that if this is not changed to only pass online CPUs,
+> supports_scale_freq_counters() will now fail when called in
+> topology_set_freq_scale() for scenarios when only some CPUs in a policy
+> are online - e.g. the scenario in your commit message. But I think a
+> simple change in supports_scale_freq_counters() that instead checks that
+> at least one CPU in the policy supports AMU-based FIE, instead of all,
+> is a better fix that does not break the cpufreq-based FIE. If at least
+> one CPU is marked as supporting AMUs for FIE we know that the AMU setup
+> path is in progress and we should bail out of
+> topology_set_freq_scale()/arch_set_freq_scale(). 
+> 
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org> # CLK_OPS_PARENT_ENABLE remo=
-val
+Thank you for pointing that out - that indeed might be an issue, and the
+solution you have suggested should do the trick.
+
+---
+BR
+Beata
+
+> Hope it helps,
+> Ionela.
+> 
+> >  	cpufreq_stats_record_transition(policy, freq);
+> >  
+> > -- 
+> > 2.33.0
+> > 
+> > 
 
