@@ -4,147 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1381ACA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E87CAC584
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yrKzRKvPlqc1QwFwyTNKlG24n0S3B0erGWAU2bVkVqg=; b=alDSWC0FRip7QJH2opL5aJwZFk
-	koxAVfdsid/HSYqJ0sQv9aaVnZHc9EFB4OoAe3+pvrqRNixLeBjDbAQb9e1VnJRiup0IY1k80+h9o
-	Zw6dzmw+US09G/2tYp0kWcMQ6hQsvJ9lyuqGZDn6L7qS2jJNEbL6/rVVh4mp85fYxojmSxeCB5F6u
-	G3fJ2wid2ifX58a3JzcTkQVHQWv+32Vkrhg0BLvwmQEsT2VJqeL1+g0GsN0X9fa1H6XQO952ThDyd
-	G93R+Yk46BdIXaiyXamOuWOwywmyGF0zaM/r7d1tm9fOnEfjXhrMzmnkN3UWyRIIL1FtzsQKwAVsB
-	DvTuFpZw==;
+	bh=hdEPLvEjyzwutXa1vJA1nZXuqv6b4zrFGZ+8cJRYLeM=; b=3Jiy4wss0fVtHVItD8+YwAu4wh
+	qRPoOB5wcARz3I/E6751Ey4TrBR4vO3qr2i9+S+ZzTjKqoo68yujMVUmfORDtOZLdPMlD8XRqVJmz
+	zInYHGJnGm6DapYX+df3w5ETEZHGCWqu8zAruEzJ5XfJlfzonZF/KLNomps3KhmI3ZbeRqroyqD4/
+	yC/QLQWjLLkhNv5qjHsGwfwyWSSh8nBeTKos/YuCdrL+vbk3lnlTvisW/IdyIoYlde5USq9PMQCyM
+	hxT4OsY4bHA4+RE9qCIyYmKme5oBlMNU8mWQ6iqyoLSVIrkWkWbWkdzHd05A6MDlADxvaOKlPdkA9
+	jNZpuQDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVA-00000005Qv2-1eQS;
-	Sat, 06 Sep 2025 00:09:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYkt-00000002uN4-2qwD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 05 Sep 2025 15:53:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yrKzRKvPlqc1QwFwyTNKlG24n0S3B0erGWAU2bVkVqg=; b=Cud1tWjW4zyt4JYA0fBGVHyslB
-	AZMYzeWhO+TqI3IqN/lbl4aWbdJqRCivavZnFmpGJpllHqKuG/fnd4FREouRpBoXPTbGHJYjuKws/
-	kj4VlDjjycugh9ndU9AlvUT9m43WSHoTsnJcpB0Mg0SOekiUisCKozd3P7QpvkEJHRHa+5Si1VJtv
-	AXZi00vUVJ89cmJL6fmsD2MIut+hP7eygn4GBLJRJV8Lpz3xIG73Qmpp32KgmAHj74gO7+mZ3xmYs
-	kRnTSTegj2q3Q66qPdQhd3p6YG8PU9Y2in3yU2WbfdnH7TncSPqqI1369LYkh7YRQnNLX/QcvUmbw
-	U2WU3lPQ==;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYkq-00000004eCF-3Ath
+	id 1uugVR-00000005RCk-3C2p;
+	Sat, 06 Sep 2025 00:10:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuZTy-00000003AXg-3OFr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 15:53:38 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5858qiX8001199;
-	Fri, 5 Sep 2025 15:52:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=yrKzRKvPlqc1QwFwyTNKlG24n0S3B0
-	erGWAU2bVkVqg=; b=qnifUl96cq8S6mdWIUWZY6BIWU8yF2upNweBx/YvMVrUqk
-	RurxzzOfjdHTO1vZruHBUGw3vkJ3WeEmWzLy0ib2dt0fUdi9302JluZSn5voqpb9
-	tt+K2LZopne4AXw3OGAsBjWP8De3MBm1hwH4/INAMOLsTRAjDmX8jUJ/gKxB4XAc
-	KrIlZNUzwzjCaqkU+ZOpln4XrPIJTWESS5y/saIRobaltfDoOVm72NdzSHeS2nKf
-	hGMYLo6HZzSBX5xdzjXsfqIsGIlRMWccKTKAhN9S2rP+bQ/qPKUMPRNpVA8A/v6E
-	L8fXKTqpSJEYDa6i80pdzLQ72TamFaiRukB8PM0g==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48wshfcpx3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 05 Sep 2025 15:52:50 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 585Fmcsp012235;
-	Fri, 5 Sep 2025 15:52:49 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48wshfcpwy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 05 Sep 2025 15:52:49 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 585FmxfV019937;
-	Fri, 5 Sep 2025 15:52:48 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 48vbmujcy7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 05 Sep 2025 15:52:48 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 585Fqke750659768
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 5 Sep 2025 15:52:46 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8C56520043;
-	Fri,  5 Sep 2025 15:52:46 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1DCE620040;
-	Fri,  5 Sep 2025 15:52:45 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.48.240])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri,  5 Sep 2025 15:52:45 +0000 (GMT)
-Date: Fri, 5 Sep 2025 17:52:43 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        Andreas Larsson <andreas@gaisler.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        David Hildenbrand <david@redhat.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
-        Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
-        xen-devel@lists.xenproject.org
-Subject: Re: [PATCH 5/7] powerpc/mm: support nested lazy_mmu sections
-Message-ID: <074ff6ab-5868-4fde-b5bb-9e17632ad817-agordeev@linux.ibm.com>
-References: <20250904125736.3918646-1-kevin.brodsky@arm.com>
- <20250904125736.3918646-6-kevin.brodsky@arm.com>
+	Fri, 05 Sep 2025 16:40:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E1970152B;
+	Fri,  5 Sep 2025 09:40:05 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6442A3F63F;
+	Fri,  5 Sep 2025 09:40:08 -0700 (PDT)
+Date: Fri, 5 Sep 2025 17:40:05 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com, lcherian@marvell.com,
+	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+	dfustini@baylibre.com, amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Lecopzer Chen <lecopzerc@nvidia.com>
+Subject: Re: [PATCH 14/33] arm_mpam: Add cpuhp callbacks to probe MSC hardware
+Message-ID: <aLsSZWUlbrEzbx6O@e133380.arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-15-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250904125736.3918646-6-kevin.brodsky@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: lCd6YOMsS3DuDBadSx3AqoWK9sgWIwBw
-X-Authority-Analysis: v=2.4 cv=do3bC0g4 c=1 sm=1 tr=0 ts=68bb0752 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=j0AthGTrb4EvYsEn83oA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: f87PfJay9odLOn37oqVwjr2CAlcWWHn1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTAyMDA0MCBTYWx0ZWRfX6sVQx3QDeZVb
- n0/AHQXDAd1IPDvrbQDAZqWNvYoji1vUEPP9JAjcx2sdZwqxFNT8P6jKDiqCdhkxMnGuyNq6xN0
- S8g8X6OMzE3gSb6sI+vSPcwT7zIQgnHlzsA9jiitgokDLD2w11I2lobQd0RzFFdQVPBFq7gLH2W
- w3OGrenK+wBn0voMSBbmNjp1Fjlqy/CSo5Vh9PvP5VNsOgQXuA9fqz0KJ8mfFGOfUfce75STf2p
- eu65lI0DTVxqmjYKeyaFdLRjc3SxwtmZeh1Pe6KdSGdqawAHM6zOfs0r4Yils+ob60NU/kRnAup
- 7+9DLLEmBuvBzuYqwqF9czbkIes2bGJOe8p5YqMQ0X/8i+oJ9lIUH4tj2BythK5q2hT0kmdi9nq
- KtlUPSlt
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-05_05,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1015 impostorscore=0 bulkscore=0 suspectscore=0
- malwarescore=0 spamscore=0 priorityscore=1501 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509020040
+In-Reply-To: <20250822153048.2287-15-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_165337_102423_517EB4C8 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20250905_094014_943403_E9114EC0 
+X-CRM114-Status: GOOD (  42.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,48 +86,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 01:57:34PM +0100, Kevin Brodsky wrote:
-...
->  static inline lazy_mmu_state_t arch_enter_lazy_mmu_mode(void)
+Hi James,
+
+On Fri, Aug 22, 2025 at 03:29:55PM +0000, James Morse wrote:
+> Because an MSC can only by accessed from the CPUs in its cpu-affinity
+> set we need to be running on one of those CPUs to probe the MSC
+> hardware.
+> 
+> Do this work in the cpuhp callback. Probing the hardware will only
+> happen before MPAM is enabled, walk all the MSCs and probe those we can
+> reach that haven't already been probed.
+
+It may be worth mentioning that the low-level MSC register accessors
+are added by this patch.
+
+> Later once MPAM is enabled, this cpuhp callback will be replaced by
+> one that avoids the global list.
+
+I misread this is as meaning "later in the patch series" and got
+confused.
+
+Perhaps, something like the following? (though this got a bit verbose)
+
+--8<--
+
+Once all MSCs reported by the firmware have been probed from a CPU in
+their respective cpu-affinity set, the probe-time cpuhp callbacks are
+replaced.  The replacement callbacks will ultimately need to handle
+save/restore of the runtime MSC state across power transitions, but for
+now there is nothing to do in them: so do nothing.
+
+-->8--
+
+> Enabling a static key will also take the cpuhp lock, so can't be done
+
+What static key?
+
+None in this patch that I can see.
+
+> from the cpuhp callback. Whenever a new MSC has been probed schedule
+> work to test if all the MSCs have now been probed.
+> 
+> CC: Lecopzer Chen <lecopzerc@nvidia.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/resctrl/mpam_devices.c  | 144 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |   8 +-
+>  2 files changed, 147 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+
+[...]
+
+> @@ -511,9 +539,84 @@ int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+
+[...]
+
+> +static int mpam_cpu_online(unsigned int cpu)
 >  {
->  	struct ppc64_tlb_batch *batch;
-> +	int lazy_mmu_nested;
->  
->  	if (radix_enabled())
->  		return LAZY_MMU_DEFAULT;
-> @@ -39,9 +40,14 @@ static inline lazy_mmu_state_t arch_enter_lazy_mmu_mode(void)
->  	 */
->  	preempt_disable();
->  	batch = this_cpu_ptr(&ppc64_tlb_batch);
-> -	batch->active = 1;
-> +	lazy_mmu_nested = batch->active;
->  
-> -	return LAZY_MMU_DEFAULT;
-> +	if (!lazy_mmu_nested) {
+> -	pr_err("Discovered all MSC\n");
 
-Why not just?
+I guess this disappears later?
 
-	if (!batch->active) {
+If we print anything, it feels like it should be in the
+mpam_enable_once() path, otherwise it looks like dmesg is going to get
+spammed on every hotplug.  I might have missed something, here.
 
-> +		batch->active = 1;
-> +		return LAZY_MMU_DEFAULT;
-> +	} else {
-> +		return LAZY_MMU_NESTED;
+> +	return 0;
+> +}
+> +
+> +/* Before mpam is enabled, try to probe new MSC */
+> +static int mpam_discovery_cpu_online(unsigned int cpu)
+> +{
+> +	int err = 0;
+> +	struct mpam_msc *msc;
+> +	bool new_device_probed = false;
+> +
+> +	mutex_lock(&mpam_list_lock);
+
+I take it nothing breaks if we sleep here?
+
+Pending cpuhp callbacks for this CPU look to be blocked while we sleep,
+at the very least.
+
+Since this only happens during the probing phase, maybe that's not such
+a big deal.
+
+Is it likely that some late CPUs might be left offline indefinitely?
+
+If so, we might end up doing futile work here forever.
+
+
+> +	list_for_each_entry(msc, &mpam_all_msc, glbl_list) {
+> +		if (!cpumask_test_cpu(cpu, &msc->accessibility))
+> +			continue;
+> +
+> +		mutex_lock(&msc->probe_lock);
+> +		if (!msc->probed)
+> +			err = mpam_msc_hw_probe(msc);
+> +		mutex_unlock(&msc->probe_lock);
+> +
+> +		if (!err)
+> +			new_device_probed = true;
+> +		else
+> +			break; // mpam_broken
+
+What's the effect of returning a non-zero value to the CPU hotplug
+callback dispatcher here?
+
+Do we want to tear anything down if MPAM is unusable?
+
 > +	}
->  }
->  
->  static inline void arch_leave_lazy_mmu_mode(lazy_mmu_state_t state)
-> @@ -54,7 +60,10 @@ static inline void arch_leave_lazy_mmu_mode(lazy_mmu_state_t state)
->  
->  	if (batch->index)
->  		__flush_tlb_pending(batch);
-> -	batch->active = 0;
+> +	mutex_unlock(&mpam_list_lock);
 > +
-> +	if (state != LAZY_MMU_NESTED)
-> +		batch->active = 0;
+> +	if (new_device_probed && !err)
+> +		schedule_work(&mpam_enable_work);
 > +
->  	preempt_enable();
->  }
+> +	return err;
+> +}
+> +
+> +static int mpam_cpu_offline(unsigned int cpu)
+> +{
+> +	return 0;
+> +}
+> +
+> +static void mpam_register_cpuhp_callbacks(int (*online)(unsigned int online),
+> +					  int (*offline)(unsigned int offline))
+> +{
+> +	mutex_lock(&mpam_cpuhp_state_lock);
+> +	if (mpam_cpuhp_state) {
+> +		cpuhp_remove_state(mpam_cpuhp_state);
+> +		mpam_cpuhp_state = 0;
+> +	}
+> +
+> +	mpam_cpuhp_state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "mpam:online",
+> +					     online, offline);
+> +	if (mpam_cpuhp_state <= 0) {
+> +		pr_err("Failed to register cpuhp callbacks");
 
-Thanks!
+Should an error code be returned to the caller if this fails?
+
+> +		mpam_cpuhp_state = 0;
+> +	}
+> +	mutex_unlock(&mpam_cpuhp_state_lock);
+>  }
+>  
+>  static int mpam_dt_count_msc(void)
+> @@ -772,7 +875,7 @@ static int mpam_msc_drv_probe(struct platform_device *pdev)
+>  	}
+>  
+>  	if (!err && fw_num_msc == mpam_num_msc)
+> -		mpam_discovery_complete();
+> +		mpam_register_cpuhp_callbacks(&mpam_discovery_cpu_online, NULL);
+
+Abandon probing the MSC if this fails?
+
+(However, the next phase of probing hangs off CPU hotplug, so it just
+won't happen if the callbacks can't be registered -- but it looks like
+MPAM may be left in a half-probed state.  I'm not entirely convinced
+that this matters if the MPAM driver is not unloadable anyway...)
+
+Nit: redundant &
+
+(You don't have it in the similar call in mpam_enable_once().)
+
+
+>  
+>  	if (err && msc)
+>  		mpam_msc_drv_remove(pdev);
+> @@ -795,6 +898,41 @@ static struct platform_driver mpam_msc_driver = {
+>  	.remove = mpam_msc_drv_remove,
+>  };
+>  
+> +static void mpam_enable_once(void)
+> +{
+> +	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline);
+
+Should it be fatal if this fails?
+
+> +
+> +	pr_info("MPAM enabled\n");
+> +}
+> +
+> +/*
+> + * Enable mpam once all devices have been probed.
+> + * Scheduled by mpam_discovery_cpu_online() once all devices have been created.
+> + * Also scheduled when new devices are probed when new CPUs come online.
+> + */
+> +void mpam_enable(struct work_struct *work)
+> +{
+> +	static atomic_t once;
+
+Nit: possibly unnecessary atomic_t?  This is slow-path code, and we
+already have to take mpam_list_lock.  Harmless, though.
+
+> +	struct mpam_msc *msc;
+> +	bool all_devices_probed = true;
+> +
+> +	/* Have we probed all the hw devices? */
+> +	mutex_lock(&mpam_list_lock);
+> +	list_for_each_entry(msc, &mpam_all_msc, glbl_list) {
+> +		mutex_lock(&msc->probe_lock);
+> +		if (!msc->probed)
+> +			all_devices_probed = false;
+> +		mutex_unlock(&msc->probe_lock);
+> +
+> +		if (!all_devices_probed)
+> +			break;
+
+WARN()?
+
+We counted the MSCs in via the mpam_discovery_cpu_online(), so I think
+we shouldn't get in here if some failed to probe?
+
+> +	}
+> +	mutex_unlock(&mpam_list_lock);
+> +
+> +	if (all_devices_probed && !atomic_fetch_inc(&once))
+> +		mpam_enable_once();
+> +}
+
+[...]
+
+Cheers
+---Dave
 
