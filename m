@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C86A3CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E66CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 14:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7ln8P+DHAxBwCpQDfGzLne0u3DWsqU8bYXaDKc4isJY=; b=GwcfvHHZwqVODtIqVua5Im7LjL
-	cnukNc5juY7spmBfvwxIdC0QSqKxFYUeDOes+WFo4EechqIYQfJ4weF6lCfahjyrH7uPCB89BVsxt
-	tUZdkzLUvXx6nWwdREEJ2qwK/x5P8jDPZKdbkahIcSj44ZZYiVqxNNdBoeF+dpBvairPgVA6AvAe5
-	UYnGoOZdCtu9uVJOGgUGQl8xusH+7UjhOf3To57OhxjBDOa+FxcPEZXpbT+WrCdo+vGKK39duk212
-	arE1RNHBAmnrKYaeKG/CqmHspcWJk3Tupd1oNAHitU0g8VX37WcFehLDwFYub9hmqtqBI81R49sGL
-	UvjZLDgQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FmoYqDjzv2+QqqSAR3yea7iQxchNSjXjSil2oqdNXUc=; b=Dx516FmJJf8Gr/0GMeR5BIFkyN
+	JHXnqUOi8eprbs7sr+SiwePRq+JbLbcq9A00wcmNGQd1pV4ZQjiqgNjPaAWFhFP4+mHLLUQ26DOaq
+	kJDwYUyiyOgWnT2heA8CUpGacRVQFHRWbonMlNFnABcqgcL1Xi+kKPusF7BtQ21tugLJUfF+ukFue
+	5OpFOp+5UsGQEfJsR9LZcVs17H6b+6S8LzwjfqP34ZFktCjocnzywoCbA8HjekVEdVkqQnrj5zVrM
+	m5/R9Tq6Su4RCoQAl+K1pEdyoFTTbyQLrcadmV3i1X4oI5FUAXeQTxeQRYy8qmkoA/JPQ9onjcwUA
+	brpflBww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXW7-00000002Lg0-2tES;
-	Fri, 05 Sep 2025 14:34:19 +0000
+	id 1uuXWC-00000002LmP-3LSU;
+	Fri, 05 Sep 2025 14:34:24 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSwt-00000000oIK-1jOc
+	id 1uuSwv-00000000oIK-0DTV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 09:41:40 +0000
+	Fri, 05 Sep 2025 09:41:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1757065299; x=1788601299;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=uxBvIG6JS93Piz5bucjuuXb7Y1x/9XP0tXEguRFykwE=;
-  b=ZYOvXMG755Aif55kO3/13+hJtcH0O6ijkigYUxvde4TBiMVrRpSvEDC8
-   ZLLWSEB4M3mrWOeExHLyno2NC7dzHFpb4EqjjMbLTG8eCj/1x8cC3AwIC
-   6rYCa9T/ygD9EOVlaKUc3wxVHwtC0YPkx2DH2fsqUc0ak9H0hooiG5Qd8
-   twG1wKN1HVfAkd6mZ4yoOOEz5BD1AqBFCYRfBpjpXteOIJTNp88nGPMOh
-   aaz3ayz2U7A2s/lxXkSPtoLMaLvfZF3Pb8yTtnin66aF6v6GypWBkzWcH
-   QS4teNS9de2ao4QOALRdMfvn/4SSEnsmYHGz0/6m+b2y8kNR9hvLCj1KA
-   w==;
+  t=1757065301; x=1788601301;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=TWlOD5JXXoZNqvz8QV1CVTOyMCxc0QRwYAvXeE6WEKc=;
+  b=TXyiRfjPPPB/2hUVz9pPriMriYcZzLgMdyqf/tHkILsJyrp8XYxIiFE4
+   cogoAK0eL9/dMrye1OibnJqRPgnKFqOBAs4Y8FB9+7iS7A4XUgcRRZ30x
+   bQvpQVkUVOvypFr3Y4cGNeD4IMatfHK7rROF+h/GHOGC2lktYXN3EgYvE
+   CvywRfrwFCK8MuA8PqjSstsQcqLtFT9sRCWi1+zkNE/osSyA1Pzv83dpA
+   8dwOkQrpQNfyk6UiOqzsNV7ra5BqqQNKFMH/RQk7ACF2RfZ3N3Bx5tSpX
+   +1vcwOQ0iLUZUWDRcaM4ayb5FPMvOVGve6W7Clo1WLac8V3Npl+4WZ18Q
+   g==;
 X-CSE-ConnectionGUID: V3vcaq34T5mcK/flcDdNQQ==
-X-CSE-MsgGUID: o6GtJDsEQ62AaBY3LPcuLw==
+X-CSE-MsgGUID: TK0c2vcETQKZ5tXxhj0VwA==
 X-IronPort-AV: E=Sophos;i="6.18,240,1751266800"; 
-   d="scan'208";a="46672956"
+   d="scan'208";a="46672958"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Sep 2025 02:41:38 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Fri, 5 Sep 2025 02:41:27 -0700
+ 15.1.2507.44; Fri, 5 Sep 2025 02:41:29 -0700
 Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Fri, 5 Sep 2025 02:41:26 -0700
+ 15.1.2507.44 via Frontend Transport; Fri, 5 Sep 2025 02:41:27 -0700
 From: <nicolas.ferre@microchip.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
 	<claudiu.beznea@tuxon.dev>
 CC: Ryan Wanner <ryan.wanner@microchip.com>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, Nicolas Ferre
 	<nicolas.ferre@microchip.com>
-Subject: [PATCH 1/2] ARM: debug: at91: add UART0 for sama5d2 DEBUG_LL
-Date: Fri, 5 Sep 2025 11:41:11 +0200
-Message-ID: <20250905094113.27480-1-nicolas.ferre@microchip.com>
+Subject: [PATCH 2/2] ARM: debug: at91: add sama7d65 debug uarts for DEBUG_LL
+Date: Fri, 5 Sep 2025 11:41:12 +0200
+Message-ID: <20250905094113.27480-2-nicolas.ferre@microchip.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250905094113.27480-1-nicolas.ferre@microchip.com>
+References: <20250905094113.27480-1-nicolas.ferre@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_024139_509964_42B651E7 
-X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-CacheID: sfid-20250905_024141_150348_4CA91F49 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,49 +89,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-Add the UART0 that is by default console on some boards
-like the SAMA5D29-Curiosity.
+Add USART6 on Flexcom6 for AT91 DEBUG_LL with associated physical and
+virtual addresses. It's the debug console on SAMA765 Curiosity board.
+Add the possibility to use USART3 as well because it's the debug console
+on some other SAMA7D65 boards.
 
 Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+Reviewed-by: Ryan Wanner <ryan.wanner@microchip.com>
 ---
- arch/arm/Kconfig.debug | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/arm/Kconfig.debug | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
 diff --git a/arch/arm/Kconfig.debug b/arch/arm/Kconfig.debug
-index 366f162e147d..c941adbc850b 100644
+index c941adbc850b..1f4c473b81ac 100644
 --- a/arch/arm/Kconfig.debug
 +++ b/arch/arm/Kconfig.debug
-@@ -174,6 +174,14 @@ choice
- 		    at91sam9263, at91sam9g45, at91sam9m10,
- 		    sama5d3
+@@ -207,6 +207,22 @@ choice
+ 		  their output to the USART1 port on SAMV7 based
+ 		  machines.
  
-+	config DEBUG_AT91_SAMA5D2_UART0
-+		bool "Kernel low-level debugging on SAMA5D2 UART0"
++	config DEBUG_AT91_SAMA7D65_FLEXCOM3
++		bool "Kernel low-level debugging on SAMA7D65 FLEXCOM3"
 +		select DEBUG_AT91_UART
-+		depends on SOC_SAMA5D2
++		depends on SOC_SAMA7D65
 +		help
 +		  Say Y here if you want kernel low-level debugging support
-+		  on the UART0 port of sama5d2.
++		  on the FLEXCOM3 port IOSET 1 of SAMA7D65.
 +
- 	config DEBUG_AT91_SAMA5D2_UART1
- 		bool "Kernel low-level debugging on SAMA5D2 UART1"
++	config DEBUG_AT91_SAMA7D65_FLEXCOM6
++		bool "Kernel low-level debugging on SAMA7D65 FLEXCOM6"
++		select DEBUG_AT91_UART
++		depends on SOC_SAMA7D65
++		help
++		  Say Y here if you want kernel low-level debugging support
++		  on the FLEXCOM6 port IOSET 4 of SAMA7D65.
++
+ 	config DEBUG_AT91_SAMA7G5_FLEXCOM3
+ 		bool "Kernel low-level debugging on SAMA7G5 FLEXCOM3"
  		select DEBUG_AT91_UART
-@@ -1635,6 +1643,7 @@ config DEBUG_UART_PHYS
- 	default 0xf1012000 if DEBUG_MVEBU_UART0_ALTERNATE
- 	default 0xf1012100 if DEBUG_MVEBU_UART1_ALTERNATE
- 	default 0xf7fc9000 if DEBUG_BERLIN_UART
-+	default 0xf801c000 if DEBUG_AT91_SAMA5D2_UART0
- 	default 0xf8020000 if DEBUG_AT91_SAMA5D2_UART1
- 	default 0xf8b00000 if DEBUG_HIX5HD2_UART
- 	default 0xf991e000 if DEBUG_QCOM_UARTDM
-@@ -1707,6 +1716,7 @@ config DEBUG_UART_VIRT
- 	default 0xf7000400 if DEBUG_S3C64XX_UART && DEBUG_S3C_UART1
- 	default 0xf7000800 if DEBUG_S3C64XX_UART && DEBUG_S3C_UART2
- 	default 0xf7000c00 if DEBUG_S3C64XX_UART && DEBUG_S3C_UART3
-+	default 0xf701c000 if DEBUG_AT91_SAMA5D2_UART0
- 	default 0xf7020000 if DEBUG_AT91_SAMA5D2_UART1
- 	default 0xf7fc9000 if DEBUG_BERLIN_UART
- 	default 0xf8007000 if DEBUG_HIP04_UART
+@@ -1627,6 +1643,8 @@ config DEBUG_UART_PHYS
+ 	default 0xd4018000 if DEBUG_MMP_UART3
+ 	default 0xe0000000 if DEBUG_SPEAR13XX
+ 	default 0xe0064200 if DEBUG_AT91_LAN966_FLEXCOM
++	default 0xe182c200 if DEBUG_AT91_SAMA7D65_FLEXCOM3
++	default 0xe2020200 if DEBUG_AT91_SAMA7D65_FLEXCOM6
+ 	default 0xe1824200 if DEBUG_AT91_SAMA7G5_FLEXCOM3
+ 	default 0xe4007000 if DEBUG_HIP04_UART
+ 	default 0xe6c40000 if DEBUG_RMOBILE_SCIFA0
+@@ -1690,6 +1708,8 @@ config DEBUG_UART_VIRT
+ 	default 0xc8821000 if DEBUG_RV1108_UART1
+ 	default 0xc8912000 if DEBUG_RV1108_UART0
+ 	default 0xe0010fe0 if ARCH_RPC
++	default 0xfc82c200 if DEBUG_AT91_SAMA7D65_FLEXCOM3
++	default 0xfd020200 if DEBUG_AT91_SAMA7D65_FLEXCOM6
+ 	default 0xe0824200 if DEBUG_AT91_SAMA7G5_FLEXCOM3
+ 	default 0xf0010000 if DEBUG_ASM9260_UART
+ 	default 0xf0100000 if DEBUG_DIGICOLOR_UA0
 -- 
 2.43.0
 
