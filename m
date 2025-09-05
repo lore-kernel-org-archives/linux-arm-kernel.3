@@ -4,83 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4900ECAC581
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE76CAC580
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Sa4pK2HiFVq0V3IW5nFLIvvG4Ckdsl8UUh8ALJALKdQ=; b=h+bwoI4FutwIBE
-	i+4r+uLZO0nve2+qUkDZrHVVJO4hIBx7+0uJAqVrW0eeNFy8IzYRAMEpZF21N7Y/Uy3ZdAiWz9wz7
-	BMVUouRn8hRf+54yp9XgJE8qeAzt5e8xfWcQXkpWkzByCLpDTpGKTfox+8uK+Am+cZGOZuNp6Eau4
-	6++8nth/9iQ0t9STAbxaX6vMQ5N8Wl13Jt6WjatAr/Qsqnv96JB5Kkaz0cQdDd/IWzZw1MPM3oRF6
-	ZWX5zmyOfa5Jb3LnBqPh28JX62llKVrsAwczmvgpzpBDPRnZiWjNEXl4zGmy9HFJFddd+R3orEeXo
-	gctiZCOxhtITzwyF/77g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=luQGhz3W9bQvvWBMkQH/XO40AxL9T26r0ebxy/p3+ys=; b=0GUcKhrd00o02brMJQC9IMyZ7t
+	FqqiF+Sos0CuSSFHjXBT/YO8bA/1iH3LKQiErI5PiqfC0iJ+JF/HUdVjQR25ka+uHUUm7eO1eB47p
+	Wx9AqVui0rfe6h1Xgn6wCFkrSrC0DW/5pBkvHrxpwudyzN968U7+2DYSbbbbpCOV82EDNevKPXwv7
+	GNDHOvj9257d/ZYXp91h3FGZCSd2yHGfcM3soJXwF9eY9DupnZIXpMFy9WDG6mx3PLOuskuJjtEeG
+	bp3Nonrr36KE4m7epknlGzpc640KAOSR77iHVx6qYsPObbX/4uBW2jeuuX1nDIi4ufnUN6EqwMrXC
+	7KPA+l8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYEp-00000002hLN-0lvX;
+	id 1uuYEp-00000002hM7-3LCD;
 	Fri, 05 Sep 2025 15:20:31 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuTbi-000000011ym-1DI1;
-	Fri, 05 Sep 2025 10:23:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757067816; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GybpDjWYrcHzyhe7ld9X+plIzRLFThL2vVRB4HOE39LPhEWo7G76wejJkddedYND5EPpQ9rgJaOp7EXZOdAo/Gx7y6sP/7AwDkDaoIu8oF8/wJL1R3NIuDrBFXJOWn1TFpXNI5Yi2h+ARaHSMJPSUmiP4hecLToZf9uVK06a+sM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757067816; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Sa4pK2HiFVq0V3IW5nFLIvvG4Ckdsl8UUh8ALJALKdQ=; 
-	b=kKnaR4pJBgM3+SeWyb52P6PTtYt804ke+MagQ44d46HPexHfGUR1TIMbeW5zhYKRPMug4qUTlbF7OVFmGt3sJQskTC+6ywtLpGbnjer9NVl83NuXJXKTRhLPR3KEXbQXQ2nrSHjqD0xhdfqW3OWWuG4qeYEkOO1cAjIGboZcX7I=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757067816;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=Sa4pK2HiFVq0V3IW5nFLIvvG4Ckdsl8UUh8ALJALKdQ=;
-	b=BvgBdHW4mre870EH86Py7ypKynt0qstx69dUFNQp7WUqIWhAOuSBhGluDwu2/8+D
-	oWRANoyyeXRnkSP+vEp0Mrig+Y3UUKyxJO/ChrCHo3JM1spMW0RnOxLDsh6wLJAQRoj
-	oT7zANmrPAe6hp2zMBRDn7sPcu6n8cGXUwp/n9HM=
-Received: by mx.zohomail.com with SMTPS id 1757067815022812.3069983849073;
-	Fri, 5 Sep 2025 03:23:35 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH RFC 00/10] MT8196 GPU Frequency/Power Control Support
-Date: Fri, 05 Sep 2025 12:22:56 +0200
-Message-Id: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
+	id 1uuUmA-00000001QmD-3JiV
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 11:38:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757072320;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=luQGhz3W9bQvvWBMkQH/XO40AxL9T26r0ebxy/p3+ys=;
+	b=aaLcGdT1r55TJJMBX4ssSc/InUyPLWTTWxc+2l6zvBL8OJWDT6KoZ5INjrgokCayYJwhMi
+	283Y/mNvrCsrgO8uEsHArFibi+mD8Nk2J2m9yDH9q/aIHMMpiBNk1TSNuZOS2fRfjkuSpZ
+	vOtxzH0CzqkJVn+RgUSoVYo08Vm+95A=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-531-CxMRz2hXOHqrpHAZqVO2NQ-1; Fri, 05 Sep 2025 07:38:38 -0400
+X-MC-Unique: CxMRz2hXOHqrpHAZqVO2NQ-1
+X-Mimecast-MFC-AGG-ID: CxMRz2hXOHqrpHAZqVO2NQ_1757072317
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3df19a545c2so1305484f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 04:38:37 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757072317; x=1757677117;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=luQGhz3W9bQvvWBMkQH/XO40AxL9T26r0ebxy/p3+ys=;
+        b=hxmvuVrms4ACSLjklBlr89+1If/OpSV0ZOaQbdPboGvV8XHOqOL+sLGL46g4mNLIyv
+         9AB1x2DnyXhZxTcnxHa1fVTds6RGeFv6cl5CSWwAPdJA4mNG+L2nPIH/8KyysX/xWDgD
+         ZqHquJGANGb26LoY2ZkbbhkMu/nzYNCeKWaWqxRYd0HE5zDwNYqiZ8rMXkIYvTtN71ju
+         1jeFlwyFbuOdFMfXOZBGY2Jq9ZTG5OYQIdIVHStGLNsAHfhHVs8cxSs12QbczGE6wlMl
+         /HXEu/pOWKOxhqiyvvubJv5gap9Y46DrmCqyuVSGZp8QXA4wG3/zDsOM4klRlXGsEdq5
+         Y7Lw==
+X-Forwarded-Encrypted: i=1; AJvYcCUIHdEpGUyIWPc3WNFjcVpj3msZ4rJAfkGu7MkTjamt575XKXHulIllB/Vg3VsF0V6rr57XMPp75clf5/CNp2u7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZZCHdoKdlWsU4rR7n7GgQLNHkGq1gzlw3hmXv7+PreFN/0a7H
+	VaOlvapMKezQrkUxOWGSkWXrP6TbO6GNomjxFMEZdmiOqq324CvY1j5FRuIb8xIvCZv69Jbsq9z
+	nUFl1Cj01P7FzUkDhhal7gwmNE94wxzLAFpWK+TeuC1GL3OaissFqBLEfSaJ4WIrldZCS6PPkdJ
+	nb
+X-Gm-Gg: ASbGncsMTTEaHaIhn6KFEnYS/2HycB9DIOOCKvUG34nnSqj1obdqvRyC2hgmoXDPoeu
+	xnDwWkLqHp+AMRb4xNxRYKXqLxcFsUYjc06mhJ+HvX0AnEyV201GB7U5GTN5MLFicFAVui5in9+
+	mcupH9xbqZI37928kE382spq/sJFJiByJrEwTSg3cLxFIysaoA4T7v/b5LjXaahczI9JdHRrZJW
+	68aJlPJw4IQW1sDRwfJJTX6/jmJjVPN0wKXlaIbU/BAC+iqd9WP2pcmLT0w8mKp5TGxHdCKXjug
+	m9s9crEl6sRIjHHlMrcqSYCAkCOiklupbIa2D5FsACUR3k06OnGbm08wAopV977PaZZaSGsY9Yw
+	z9C9+TESMrj4pWqzu+jLDRKj4zTfaQNxvFFq6VqPNbTOTkwSSzNUyr7qh
+X-Received: by 2002:a05:6000:1789:b0:3e0:43f0:b7b6 with SMTP id ffacd0b85a97d-3e043f0be07mr5028682f8f.52.1757072316745;
+        Fri, 05 Sep 2025 04:38:36 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFo8MNleTLRHLacoeKcQ93i9Gk8ZDv5dPOPJ5nfQMIibIGfmFimYQBfp9bCIqgP6uhYUdcj5w==
+X-Received: by 2002:a05:6000:1789:b0:3e0:43f0:b7b6 with SMTP id ffacd0b85a97d-3e043f0be07mr5028644f8f.52.1757072316181;
+        Fri, 05 Sep 2025 04:38:36 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f4d:e00:298:59cc:2514:52? (p200300d82f4d0e00029859cc25140052.dip0.t-ipconnect.de. [2003:d8:2f4d:e00:298:59cc:2514:52])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45dda2021dfsm19061165e9.24.2025.09.05.04.38.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Sep 2025 04:38:34 -0700 (PDT)
+Message-ID: <9fe9f8c7-f59d-4a4b-9668-d3cd2c5a5fc9@redhat.com>
+Date: Fri, 5 Sep 2025 13:38:32 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+References: <20250901150359.867252-1-david@redhat.com>
+ <20250901150359.867252-20-david@redhat.com>
+ <5090355d-546a-4d06-99e1-064354d156b5@redhat.com>
+ <b7544f6d-beac-46af-aa43-27da6d96467e@lucifer.local>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <b7544f6d-beac-46af-aa43-27da6d96467e@lucifer.local>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: MrU-BULjf61PYCGXGAdZ8lfMR9SlVc4kKxwKiRwez6s_1757072317
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAG6umgC/zWN3QqCMBhAX0W+6ybbTN0kIgh6gG7Di6mfNVBn2
- wxBfPeW1eX5fs5ZwKHV6KCIFrD40k6bIQDbRVA/1HBHopvAwClPqeCS9F4wmZH7OLUWn0Tl2T7
- NctowwSE8jRZbPW/CG1wvZyi/w3A7Bbn/bSrlkNSm77UvogFnT7aApOlH0qNzaksX0eFfppJJl
- sQsYSkXhJFOTVbFgzKn2nSdqkygYDxCua5vazWHD9cAAAA=
-X-Change-ID: 20250829-mt8196-gpufreq-a7645670d182
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- MyungJoo Ham <myungjoo.ham@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>, 
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>, 
- kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_032350_369351_403F5A8D 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20250905_043842_937316_884B1B7E 
+X-CRM114-Status: GOOD (  30.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,106 +180,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series, currently an RFC, introduces two new drivers to accomplish
-controlling the frequency and power of the Mali GPU on MediaTek MT8196
-SoCs.
+On 05.09.25 13:34, Lorenzo Stoakes wrote:
+> On Fri, Sep 05, 2025 at 08:41:23AM +0200, David Hildenbrand wrote:
+>> On 01.09.25 17:03, David Hildenbrand wrote:
+>>> We can just cleanup the code by calculating the #refs earlier,
+>>> so we can just inline what remains of record_subpages().
+>>>
+>>> Calculate the number of references/pages ahead of times, and record them
+>>> only once all our tests passed.
+>>>
+>>> Signed-off-by: David Hildenbrand <david@redhat.com>
+> 
+> So strange I thought I looked at this...!
+> 
+>>> ---
+>>>    mm/gup.c | 25 ++++++++-----------------
+>>>    1 file changed, 8 insertions(+), 17 deletions(-)
+>>>
+>>> diff --git a/mm/gup.c b/mm/gup.c
+>>> index c10cd969c1a3b..f0f4d1a68e094 100644
+>>> --- a/mm/gup.c
+>>> +++ b/mm/gup.c
+>>> @@ -484,19 +484,6 @@ static inline void mm_set_has_pinned_flag(struct mm_struct *mm)
+>>>    #ifdef CONFIG_MMU
+>>>    #ifdef CONFIG_HAVE_GUP_FAST
+>>> -static int record_subpages(struct page *page, unsigned long sz,
+>>> -			   unsigned long addr, unsigned long end,
+>>> -			   struct page **pages)
+>>> -{
+>>> -	int nr;
+>>> -
+>>> -	page += (addr & (sz - 1)) >> PAGE_SHIFT;
+>>> -	for (nr = 0; addr != end; nr++, addr += PAGE_SIZE)
+>>> -		pages[nr] = page++;
+>>> -
+>>> -	return nr;
+>>> -}
+>>> -
+>>>    /**
+>>>     * try_grab_folio_fast() - Attempt to get or pin a folio in fast path.
+>>>     * @page:  pointer to page to be grabbed
+>>> @@ -2967,8 +2954,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+>>>    	if (pmd_special(orig))
+>>>    		return 0;
+>>> -	page = pmd_page(orig);
+>>> -	refs = record_subpages(page, PMD_SIZE, addr, end, pages + *nr);
+>>> +	refs = (end - addr) >> PAGE_SHIFT;
+>>> +	page = pmd_page(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
+>>>    	folio = try_grab_folio_fast(page, refs, flags);
+>>>    	if (!folio)
+>>> @@ -2989,6 +2976,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+>>>    	}
+>>>    	*nr += refs;
+>>> +	for (; refs; refs--)
+>>> +		*(pages++) = page++;
+>>>    	folio_set_referenced(folio);
+>>>    	return 1;
+>>>    }
+>>> @@ -3007,8 +2996,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+>>>    	if (pud_special(orig))
+>>>    		return 0;
+>>> -	page = pud_page(orig);
+>>> -	refs = record_subpages(page, PUD_SIZE, addr, end, pages + *nr);
+>>> +	refs = (end - addr) >> PAGE_SHIFT;
+>>> +	page = pud_page(orig) + ((addr & ~PUD_MASK) >> PAGE_SHIFT);
+>>>    	folio = try_grab_folio_fast(page, refs, flags);
+>>>    	if (!folio)
+>>> @@ -3030,6 +3019,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+>>>    	}
+>>>    	*nr += refs;
+>>> +	for (; refs; refs--)
+>>> +		*(pages++) = page++;
+>>>    	folio_set_referenced(folio);
+>>>    	return 1;
+>>>    }
+>>
+>> Okay, this code is nasty. We should rework this code to just return the nr and receive a the proper
+>> pages pointer, getting rid of the "*nr" parameter.
+>>
+>> For the time being, the following should do the trick:
+>>
+>> commit bfd07c995814354f6b66c5b6a72e96a7aa9fb73b (HEAD -> nth_page)
+>> Author: David Hildenbrand <david@redhat.com>
+>> Date:   Fri Sep 5 08:38:43 2025 +0200
+>>
+>>      fixup: mm/gup: remove record_subpages()
+>>      pages is not adjusted by the caller, but idnexed by existing *nr.
+>>      Signed-off-by: David Hildenbrand <david@redhat.com>
+>>
+>> diff --git a/mm/gup.c b/mm/gup.c
+>> index 010fe56f6e132..22420f2069ee1 100644
+>> --- a/mm/gup.c
+>> +++ b/mm/gup.c
+>> @@ -2981,6 +2981,7 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+>>                  return 0;
+>>          }
+>> +       pages += *nr;
+>>          *nr += refs;
+>>          for (; refs; refs--)
+>>                  *(pages++) = page++;
+>> @@ -3024,6 +3025,7 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+>>                  return 0;
+>>          }
+>> +       pages += *nr;
+>>          *nr += refs;
+>>          for (; refs; refs--)
+>>                  *(pages++) = page++;
+> 
+> This looks correct.
+> 
+> But.
+> 
+> This is VERY nasty. Before we'd call record_subpages() with pages + *nr, where
+> it was clear we were offsetting by this, now we're making things imo way more
+> confusing.
+> 
+> This makes me less in love with this approach to be honest.
+> 
+> But perhaps it's the least worst thing for now until we can do a bigger
+> refactor...
+> 
+> So since this seems correct to me, and for the sake of moving things forward
+> (was this one patch dropped from mm-new or does mm-new just have an old version?
+> Confused):
+> 
+> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> 
+> For this patch obviously with the fix applied.
+> 
+> But can we PLEASE revisit this :)
 
-It's marked as an RFC as I want feedback on the general approach, and
-because there is a clock series I need to send out first but that's
-waiting for the other clock series to be accepted first in order to not
-create needless confusion and conflicts.
+Yeah, I already asked someone internally if he would have time to do 
+some refactorings in mm/gup.c.
 
-The reason why it's not as straightforward as with other SoCs is that
-the MT8196 has quite complex glue logic. There's an additional MCU
-running a specialised firmware, which communicates with the application
-processor through a mailbox and some SRAM, and is in charge of
-controlling the regulators, the PLL clocks, and the power gating of the
-GPU, all while also being in charge of any DVFS control.
+If that won't work out I shall do it at some point (and the same time 
+reworking follow_page_mask() to just consume the array as well like gup 
+does)
 
-This set of drivers is enough to communicate desired OPP index limits to
-the aforementioned MCU, referred to as "GPUEB" from here on out. The
-GPUEB is still free to lower the effective frequency if the GPU has no
-jobs going on at all, even when a higher OPP is set. There's also
-several more powerful OPPs it seemingly refuses to apply, possibly
-because those are boost levels.
-
-The frequency control driver lives in panthor's subdirectory, as it
-registers a devfreq device for the panthor GPU device, and needs to
-mingle with it somewhat closely. I've kept the tie-in parts generic
-enough however to not make this a complete hack; mediatek_mfg (the
-frequency control driver) registers itself as a "devfreq provider" with
-panthor, and panthor picks it up during its probe function (or defers if
-mediatek_mfg is not ready yet, after adding a device link first).
-
-The mailbox driver is a fairly bog-standard common mailbox framework
-driver, just specific to the firmware that runs on the GPUEB. Most of
-its channels are not known, as they're either not really used apart from
-debug references in downstream code, or have indecipherable downstream
-code, and I lacked the necessary documentation.
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
-Nicolas Frattaroli (10):
-      dt-bindings: gpu: mali-valhall-csf: add mediatek,mt8196-mali variant
-      dt-bindings: devfreq: add mt8196-gpufreq binding
-      dt-bindings: sram: Add compatible for mediatek,mt8196-gpufreq-sram
-      dt-bindings: mailbox: Add MT8196 GPUEB Mailbox
-      mailbox: add MediaTek GPUEB IPI mailbox
-      drm/panthor: call into devfreq for current frequency
-      drm/panthor: move panthor_devfreq struct to header
-      drm/panthor: devfreq: expose get_dev_status and make it more generic
-      drm/panthor: devfreq: add pluggable devfreq providers
-      drm/panthor: add support for MediaTek MFlexGraphics
-
- .../bindings/devfreq/mediatek,mt8196-gpufreq.yaml  |  116 +++
- .../bindings/gpu/arm,mali-valhall-csf.yaml         |   36 +-
- .../mailbox/mediatek,mt8196-gpueb-mbox.yaml        |   64 ++
- Documentation/devicetree/bindings/sram/sram.yaml   |    1 +
- drivers/gpu/drm/panthor/Kconfig                    |   13 +
- drivers/gpu/drm/panthor/Makefile                   |    2 +
- drivers/gpu/drm/panthor/mediatek_mfg.c             | 1053 ++++++++++++++++++++
- drivers/gpu/drm/panthor/panthor_devfreq.c          |  136 ++-
- drivers/gpu/drm/panthor/panthor_devfreq.h          |   57 +-
- drivers/gpu/drm/panthor/panthor_device.h           |    3 -
- drivers/gpu/drm/panthor/panthor_drv.c              |    4 +-
- drivers/mailbox/Kconfig                            |   10 +
- drivers/mailbox/Makefile                           |    2 +
- drivers/mailbox/mtk-gpueb-mailbox.c                |  330 ++++++
- 14 files changed, 1788 insertions(+), 39 deletions(-)
----
-base-commit: 87a9e300217e33b2388b9c1ffe99ec454eb6e983
-change-id: 20250829-mt8196-gpufreq-a7645670d182
-prerequisite-message-id: <20250829091913.131528-1-laura.nao@collabora.com>
-prerequisite-patch-id: 441c4c2e3d22f83a41241a1ab5c9be1a442f742e
-prerequisite-patch-id: 852bfc3d13e2bccc4d6f4813a71c42f329dadb0c
-prerequisite-patch-id: 0bc5b7bf268e88a6ef22e46c91db7645e2ce6189
-prerequisite-patch-id: 442533e316e46ecd47cd0b7fb410b58fad2b3bf9
-prerequisite-patch-id: 6d6d70ccb7d718b3bcca6662cdaf1e8b64b6ddc2
-prerequisite-patch-id: d61046e2cd2f33024092e96e8a987b9c34c24e73
-prerequisite-patch-id: c27ca28bb3df435c98fe02438264188d6fa52b7c
-prerequisite-patch-id: 27fadb12ce15099a684c08d4f8c785bedc87cef2
-prerequisite-patch-id: 7796ec9a0162ae96b708ea513742016657c69e14
-prerequisite-patch-id: f7549078f3702acdf1e6dcd36ddebab0e543b5db
-prerequisite-patch-id: b123fb15cb8c97cf0896b826820f4ce33085170c
-prerequisite-patch-id: fa96e18eae90efc14e4b9f13534c013b448a3f84
-prerequisite-patch-id: 1e53ad7341ddb67c9788252456068cc14ab2f610
-prerequisite-patch-id: ffff2977d8f2a3a44c3606f77d38f8745cb3c60a
-prerequisite-patch-id: 71d23f4f096e424ae3aa59a23695f5b1e488fab0
-prerequisite-patch-id: 3c12631f22a39d6def9340ed840e9e55e1a76304
-prerequisite-patch-id: caec6572d5d9a37183601b8e38f50af797df635e
-prerequisite-patch-id: d5b3d5719675a1e3be26e028b5596d39e839bc09
-prerequisite-patch-id: da7b826d56ac70b3b72be58d64e7c2107445478f
-prerequisite-patch-id: f3f789e0d919dd92b7d811a4e11c57bb05f71617
-prerequisite-patch-id: 79cca92633ca3d9cc2f1f38b6fc977a8d8543d60
-prerequisite-patch-id: f663f8f3bddf198d0cab083bac7ebb88689ffc82
-prerequisite-patch-id: a0ffc5b88c5eb88c491f6187672012c621bd520c
-prerequisite-patch-id: e6c6d67b034d06b6158a0e0f8299ad28f0e59134
-prerequisite-patch-id: 25f658fbd1238bd57e05ff299d0436f942bdcc4d
-prerequisite-patch-id: 7be8439e241a320b0eb0a264a8a59a9beef383d6
-prerequisite-patch-id: b903714dbe7d6a44fbe18faa02d59862ceadf217
-
-Best regards,
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cheers
+
+David / dhildenb
 
 
