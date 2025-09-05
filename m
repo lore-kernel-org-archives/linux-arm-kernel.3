@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA61CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59847CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Cc:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xkWeTb8lOsbwxHBNQAiLG/GOYrFmBBfRltFTpI+7WeM=; b=jVop0vqqx3pN5iQxG5E2ZbqBju
-	zmfWcIlg16JIzPrDCTKZ0Rtzcl4Kdvzj0yO3DOjN5J5dtBq5G8QC3Gq43wuW7IZ7M6a1TziUORqEl
-	PIGtPBTptNN9v5do+4WO0kk9feN25byLBWrRABjcOjvVtDiPlRTqK0jM8QPkgFAx8Rcl6kzgcgzhb
-	yFm+zkJZnmLUenowbticjnx4brnVhdGl2JhV+S3uCej2UO5UCwLW8UeRArdrAHpIhK/Nl/WdNPR8w
-	CBGx7HGU0VmLXGYRvshxRV/aGCU1xLAsoypIh3xrduDaBF/ZA6qQ0rvDEPzMA8koW2WD2WNMp3E9g
-	TornqM9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rBtkAe6H+jyGj4tt5HXrxDOSNwUiyry3aDabLs2QBuI=; b=PhYIoGt3X9VJf8iR4cVEp/rW31
+	cagF5GrAKBwjaekgDmdvMBHTIGh5bZJy4F9Diq4PNsw8bLooJal2IVuvuLZKcyXovUtW+uaR3Pf5V
+	C9AsKLGFyyQygiLfVO/HxO6/Lg1T2UD8JTzhyT6dv4X7XbnzaTQzX+Ngd8ET+xs73kw1Xy/L7bG+R
+	VG0kDO8FudEJjTteYFxmcfK/Gmh44Neil1iLL9synwf2Nm/mCn++laItQhG+DOFd5AkojoUOu12w8
+	VS3qyHO6CJkHFwyvOx4e9V3pcEfR6MFBGVUZ2ftUr+dfvQoEVxJ51Lyf8GO9uz5pJZU7j8Fi4/rRY
+	lNv2YDgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSMT-00000000aI2-2V6M;
-	Fri, 05 Sep 2025 09:04:01 +0000
-Received: from proxima.lasnet.de ([2a01:4f8:121:31eb:3::1])
+	id 1uuSPA-00000000bRk-39Do;
+	Fri, 05 Sep 2025 09:06:48 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuR8f-000000007Dn-3QHb
+	id 1uuRAi-000000008Av-3ntd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 07:45:43 +0000
-Received: from [192.168.2.30] (unknown [45.118.184.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: stefan@datenfreihafen.org)
-	by proxima.lasnet.de (Postfix) with ESMTPSA id 0689BC0488;
-	Fri,  5 Sep 2025 09:45:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=datenfreihafen.org;
-	s=2021; t=1757058327;
+	Fri, 05 Sep 2025 07:47:50 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1757058467;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=xkWeTb8lOsbwxHBNQAiLG/GOYrFmBBfRltFTpI+7WeM=;
-	b=jkH2JhTlc3PgelBVDX5sr4jT/CL6PhAkkZdJOddka0LABnij0/XsXaCjyoUYwP2oOxCc1d
-	zmsfMyOORa3rkDhMHBEvuB6O3NpvP7Iz/RtXddbVPZBceefiFSELJQklV1z7XAx2Pfop4/
-	l87zZcva+wNvTcX7tfeWY12F8AiXZjVm6l8JqoJ95lH3d+QJ3R9CAZOu4uMUJmZYjUnjql
-	WtASpzUH2B9H0/YLmg6Sc0Rg5TXaqAupLnf4UIlGPdNgt32apBXe63tWWIbefHqcM81uUt
-	7oiKJ5dEYEHFIyE7ikB+Ri7wRybfom7u/kRtFNjS84bmkKE2HsMCqz0VQbyP7Q==
-Message-ID: <2a353817-f1da-4e7c-8b2c-0853779ec054@datenfreihafen.org>
-Date: Fri, 5 Sep 2025 09:45:26 +0200
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rBtkAe6H+jyGj4tt5HXrxDOSNwUiyry3aDabLs2QBuI=;
+	b=wbJMk1A9M/sLp/JYaMOxP5tGNweS3NYiR5ynw15kjZMAZ5rUMMSzHOnG1xBv+8gq4Vxhj+
+	oI1zFvBrXNGizVzbHofs4WCKcyD7In5isJOgPj+8Vc8aIWO2wap9DplKViLeXEQvFB8dPm
+	7gY5pnY/L4llUs8PDxJdWy3PUK7IXezT+B8lUw59CJpDwBlURZ2PzaLH6DlsQOawbKMPvJ
+	guPWRrINA9tUjXJ9RppdoorgcwTpGQJ3k7WnJkAgcttp7blEXkozcrCNWGk+LIl2jBelZk
+	J66iUGfBnBHmZecbdPkARyTfSWWr6SglxrlRTY/2RM77NlSX7RQ+PPrxzTIH6Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1757058467;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rBtkAe6H+jyGj4tt5HXrxDOSNwUiyry3aDabLs2QBuI=;
+	b=NJs6nJbEfespe8MIIJCa7ECvbrIBkCIhMite81FenHjk7bkCHnKDVUp/y1C6hXCIANO45v
+	SdDXOIvxzzqVzYBg==
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Eddie James
+ <eajames@linux.ibm.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel
+ Stanley <joel@jms.id.au>, Andrew
+ Jeffery <andrew@codeconstruct.com.au>, Lee Jones <lee@kernel.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v2 4/4] irqchip/aspeed-scu-ic: Add support AST2700 SCU
+ interrupt controllers
+In-Reply-To: <OS8PR06MB7541CD16E659666868EAECB9F203A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+References: <20250831021438.976893-1-ryan_chen@aspeedtech.com>
+ <20250831021438.976893-5-ryan_chen@aspeedtech.com> <87y0qx0zqu.ffs@tglx>
+ <OS8PR06MB7541CD16E659666868EAECB9F203A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Date: Fri, 05 Sep 2025 09:47:46 +0200
+Message-ID: <87tt1hwdb1.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Stefan Schmidt <stefan@datenfreihafen.org>
-Content-Language: en-US
-Cc: Jan Lubbe <jlu@pengutronix.de>, stefan.schmidt@linaro.org
-Subject: Call for Participation: Embedded & IoT micro-conference at Linux
- Plumbers 2025
-To: linux-arm-kernel@lists.infradead.org, linux-embedded@vger.kernel.org,
- linux-arm-msm@vger.kernel.org,
- "linux-wpan@vger.kernel.org" <linux-wpan@vger.kernel.org>,
- BlueZ development <linux-bluetooth@vger.kernel.org>,
- linux-can <linux-can@vger.kernel.org>,
- devicetree <devicetree@vger.kernel.org>,
- "yocto@lists.yoctoproject.org" <yocto@lists.yoctoproject.org>,
- openembeded-devel <openembedded-devel@lists.openembedded.org>,
- boot-architecture@lists.linaro.org
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_004542_363092_236E6552 
-X-CRM114-Status: UNSURE (   3.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250905_004749_091658_F83EEAB3 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We are happy to announce that the Embedded & IoT micro-conference was
-again accepted for Linux Plumbers this year. Hosted in beautiful Tokyo,
-Japan December 11-13.
-https://lpc.events/event/19/contributions/2005/
+On Fri, Sep 05 2025 at 05:55, Ryan Chen wrote:
+>> So you have two different handlers. Why can't you provide two different
+>> mask/unmask/ functions along with a seperate irq chip instead of cluttering
+>> the code with conditionals. Thes two variants share no code at all.
+>
+> I will add irq_chip in SCU_VARIANT, like following.
+>
+> struct aspeed_scu_ic_variant {
+> ..
+> +	struct irq_chip	*irq_chip;	
+> };
+>
+> #define SCU_VARIANT(_compat, _shift, _enable, _num,  +_irq_chip, _split, _ier, _isr) { \
+> +	.irq_chip		=	_irq_chip,	\
+> .....
+> }
+>
+> static const struct aspeed_scu_ic_variant scu_ic_variants[]	__initconst = {
+> 	SCU_VARIANT("aspeed,ast2400-scu-ic",	0, GENMASK(15, 0),	7, &aspeed_scu_ic_chip_combined,	false,	0,	0),
+> 	SCU_VARIANT("aspeed,ast2500-scu-ic",	0, GENMASK(15, 0),	7, &aspeed_scu_ic_chip_combined,	false,	0,	0),
+> 	SCU_VARIANT("aspeed,ast2600-scu-ic0",	0, GENMASK(5, 0),	6, &aspeed_scu_ic_chip_combined,	false,	0,	0),
+> 	SCU_VARIANT("aspeed,ast2600-scu-ic1",	4, GENMASK(5, 4),	2, &aspeed_scu_ic_chip_combined,	false,	0,	0),
+> 	SCU_VARIANT("aspeed,ast2700-scu-ic0",	0, GENMASK(3, 0),	4, &aspeed_scu_ic_chip_split,	true,	0x00, 0x04),
+> 	SCU_VARIANT("aspeed,ast2700-scu-ic1",	0, GENMASK(3, 0),	4, &aspeed_scu_ic_chip_split,	true,	0x00, 0x04),
+> 	SCU_VARIANT("aspeed,ast2700-scu-ic2",	0, GENMASK(3, 0),	4, &aspeed_scu_ic_chip_split,	true,	0x04, 0x00),
+> 	SCU_VARIANT("aspeed,ast2700-scu-ic3",	0, GENMASK(1, 0),	2, &aspeed_scu_ic_chip_split,	true,	0x04, 0x00),
+> };
 
-Topics cover all things embedded and IoT. Boot time to kernel size, low
-power communication, telemetry and also RTOS. Devicetree and build
-system have their own MC and we can move sessions between them as needed.
+You have this split_ier_isr field already, which should be good enough
+to select the chip to assign, similar to what you do with the handler, no?
 
-As with all MC's at Plumbers we are not looking for talks, but rather
-discussing current problems and working towards their solution. If your
-proposal has a specific stakeholder (maintainer, developer, company)
-that would be needed for a fruitful discussion, please mention it in
-your submission.
+Thanks,
 
-The CfP is open now and will run until October 3rd. Please do not wait
-until the end with your submissions as we are going to accept good
-proposals even before the end, so the MC might be filled up before 
-October 3rd.
-
-Jan & Stefan
+        tglx
 
