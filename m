@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317FCCAC584
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC4DCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGu6cRTes100LufEy7NXONVuRKrDYaXL+M6/Ecw5QSg=; b=xWvdoYpEjByEKud711WaD8+7C7
-	ol3Jp1PfHAEszjci0blZDgU1di5+hWO9R8TqSy2wdM0uyczBybwT1KEmGwnzg8kdmDGCq1z/5H8J6
-	tl2qDrVkNzWykYSp4iyMJ0WvCiJuJeNdWRaRBlnckOP6YRkEokhrDWDYAnR62GaPcKVBKmY1uvLZb
-	Dh+BBUQp3Hs2v0doBzI5xofuGL+Inp7UtRr+kNYFqBYRE0KdyBTnsufGzV7tXad6781OqYjFGlguk
-	f9+wlmIKxDBZ+BbgnK/9C+AB+wnxaOChZW79mVZqdDe7VaSJJ3a1wVbCh8sucqroRN74+w637UEVC
-	WuXbkX5g==;
+	bh=kZHBuItl0ozZkBzFRArPWW9Vsl4ds/W9C4z84aEo38k=; b=yAgv0LU74GTASAEmqZ4tdo2uOO
+	Q23PrK6edFQZKYtIGB143aZ2giHb92edXPlcQlA4PbJs6y1USwBD43XZmSZvs/AZ8/T5q7JaS0s+X
+	4RPljlkw2h5MIcdDPt67KsFydH1yRwhN82n6aQd4MZSqBQmKaKkmCdNjJrCMmG56HRuLkOSFRaF+9
+	aqOszaD1LGwBzdG3j+9+jU1YPD9cceIHNVHDrjGDrJsdQWiPU9pJp7urr/cYOHGUGM637L/KcQD66
+	2uRS2v668mFrcxXytwaWYJvCEA4ERnNJoNZkB9EdqpngcnzzHIzxYxGetUAccV70tMLJXHIKCyqiw
+	QANkcSaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVi-00000005RvM-3tN7;
-	Sat, 06 Sep 2025 00:10:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uugVl-00000005S0t-1q46;
+	Sat, 06 Sep 2025 00:10:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuaUk-00000003Z32-295w;
-	Fri, 05 Sep 2025 17:45:07 +0000
+	id 1uuaUl-00000003Z3U-0ZF3;
+	Fri, 05 Sep 2025 17:45:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0351444EBD;
+	by sea.source.kernel.org (Postfix) with ESMTP id DC20344EBF;
 	Fri,  5 Sep 2025 17:45:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BACB9C4CEF4;
-	Fri,  5 Sep 2025 17:45:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E92DC4CEF1;
+	Fri,  5 Sep 2025 17:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757094305;
-	bh=IPNf+uj9SwG7V/HqvpgImlpeKFozAwz0O2IbujFna2o=;
+	s=k20201202; t=1757094306;
+	bh=qTi3deyURA+o4yjmNVEYbTqALgAHIt7cNmW+V7nDrPQ=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=lzyi46qJ8z8SSmnuN6eSFC8fsENvLGZKQIoz3l+oZiQ5zbEpeW87DXlg8+fL9b5m/
-	 D6ESW9bnIXtEHHE30zNZFn7OwHzHmbbh11k/5dxyaS8X4NpG93WouApo6/080orBsG
-	 8sg1Kqn8mxcCjJqoKlD+iqWTOr2Pb92pBGmtclgNav4M2zDPGeoNrCVvOgpuzLGZbr
-	 ClWh/jRUICF5GjHRSaxmSAqfP6auKs6ipL+M9ifKtlpoF1EB2wa7lbqgTDs9L0ZoA7
-	 Djc6lZKFUiHLk16YphYGbxj3ztUC1TObz/wLtgaYlXmXtJsj965Wj8wE5dHh5Nv9g1
-	 EMlzwLJWdvDVg==
-Date: Fri, 05 Sep 2025 12:45:05 -0500
+	b=Ugt0Gko+03jwdaV6Miq6KVIAwzYFR6iqsRO9o5y9GQYZfyAiaNQcZs1/cX1yj3d11
+	 iJ2l0iqV1qLbzMpFceBhP9G8pMRUpUeSHvNdlyf62QZP9Cq0BhWeI79lGZHLpgg/pX
+	 mKmBQFapHk/enEo1HFX3G9z10MfRIv7vvmZW4ff4NyihaNM6KvWvvhAjnKqdvENbdT
+	 UV1eHVeUx9Xk9W7QmNDndZ61rYa09P21sVd5c7KRNuVBI3GpFBnQw3/4uuCRLHIpqj
+	 qFfr2j+d6tY7rYEUfgs2v0FVbkPxgI9WY5+0uEJVvrzcPvh52ScV5gM9fVftVoOccw
+	 j2ZLmGPN/QHeg==
+Date: Fri, 05 Sep 2025 12:45:06 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
- kernel@collabora.com, linux-mediatek@lists.infradead.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, devicetree@vger.kernel.org
-To: Julien Massot <julien.massot@collabora.com>
-In-Reply-To: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
-References: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
-Message-Id: <175709416307.988711.14636876024281997557.robh@kernel.org>
-Subject: Re: [PATCH v3 0/3] Radxa NIO 12L: Add GPIO keys and LED support
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>
+In-Reply-To: <de71cbe5db3347756d3173245d01e091d3ad1b50.1757062843.git.marcin@juszkiewicz.com.pl>
+References: <de71cbe5db3347756d3173245d01e091d3ad1b50.1757062843.git.marcin@juszkiewicz.com.pl>
+Message-Id: <175709416351.988787.3563603110895477506.robh@kernel.org>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add vcc supply for SPI Flash on
+ NanoPC-T6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_104506_593616_EB32B652 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20250905_104507_218848_5C27112D 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +74,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 05 Sep 2025 13:51:57 +0200, Julien Massot wrote:
-> This patchset adds support for the GPIO-connected red and blue LEDs,
-> as well as the various hardware buttons present on the Radxa NIO 12L
-> board.
+On Fri, 05 Sep 2025 11:18:59 +0200, Marcin Juszkiewicz wrote:
+> FriendlyELEC NanoPC-T6 LTS schematics shows VCC_1V8_S3 being used to
+> power SPI NOR chip.
 > 
-> It also includes a fix for the missing release (key-up) interrupt
-> handling for PMIC-managed GPIO keys.
+> This fixes the following kernel message:
 > 
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
+> spi-nor spi5.0: supply vcc not found, using dummy regulator
+> 
+> Signed-off-by: Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>
 > ---
-> Changes in v3:
-> Patch 3/3: drop the deprecated LEDs label property
-> - Link to v2: https://lore.kernel.org/r/20250826-radxa-nio-12-l-gpio-v2-0-7f18fa3fbfc8@collabora.com
-> 
-> Changes in v2:
-> PATCH 1/3
-> - Add Fixes tag
-> - Drop Angelo's Reviewed-By since I'm now introducing the
-> 'key_release_irq' member that was missing in v1.
-> - Link to v1: https://lore.kernel.org/r/20250801-radxa-nio-12-l-gpio-v1-0-d0840f85d2c8@collabora.com
-> 
-> ---
-> Julien Massot (3):
->       Input: mtk-pmic-keys - MT6359 has a specific release irq
->       arm64: dts: mediatek: mt8395-nio-12l: add PMIC and GPIO keys support
->       arm64: dts: mediatek: mt8395-nio-12l: add support for blue and red LEDs
-> 
->  .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 65 ++++++++++++++++++++++
->  drivers/input/keyboard/mtk-pmic-keys.c             |  5 +-
->  2 files changed, 69 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 6c68f4c0a147c025ae0b25fab688c7c47964a02f
-> change-id: 20250801-radxa-nio-12-l-gpio-54f208c25333
-> 
-> Best regards,
-> --
-> Julien Massot <julien.massot@collabora.com>
-> 
-> 
+>  arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
 
@@ -134,15 +104,28 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: using specified base-commit 6c68f4c0a147c025ae0b25fab688c7c47964a02f
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250904 (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for de71cbe5db3347756d3173245d01e091d3ad1b50.1757062843.git.marcin@juszkiewicz.com.pl:
 
-arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dtb: gpio-leds (gpio-leds): 'rgb-blue' does not match any of the regexes: '(^led-[0-9a-f]$|led)', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/leds/leds-gpio.yaml#
+vcc-supply: size (14) error for type phandle
+vcc-supply: size (14) error for type phandle
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: flash@0 (jedec,spi-nor): vcc-supply: 'oneOf' conditional failed, one must be fixed:
+	b'<&vcc_1v8_s3>\x00' is not of type 'object'
+	b'<&vcc_1v8_s3>\x00' is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: flash@0 (jedec,spi-nor): vcc-supply: b'<&vcc_1v8_s3>\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: flash@0 (jedec,spi-nor): vcc-supply: 'oneOf' conditional failed, one must be fixed:
+	b'<&vcc_1v8_s3>\x00' is not of type 'object'
+	b'<&vcc_1v8_s3>\x00' is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: flash@0 (jedec,spi-nor): vcc-supply: b'<&vcc_1v8_s3>\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
 
 
 
