@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE2B5CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758E8CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 15:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W1H0+tH8aowTcmCbj+ABXp44J9R1eCjrHPG/cYgc/+Y=; b=PNMi8SUoI11acUGI65M3u/cuwR
-	Y/7u4chQ/amT5QF2yyNNp/IRSnBW6ZjGTi5tK1OVgGMGkLT+ugLZF1GunexevmCAbZ0H5kem9Fx9Z
-	HIzNUhfkCOzWU4eM8+nHyXj8Sv4iDDoRudHAy14kFjXKWLQQDPNJ3wObEEEyYDdBfAxTU8J4HIgkx
-	8vzAdwGKooZEcocQzu3VylZublcpMUJdH4u/Gw8vnUqBD3VOGVUi5QMos3VG9wtGJ4OXdsD3SY/mc
-	LCgAnMUU5lGQjTyZSiQjtMHdbWOL7+Q4bKxatwsiUwyAFIUhKOoKEGHs6X6lncajfw9T/CDCTqlJo
-	A/yZQL4g==;
+	bh=oMyWamVKzEWPuYp/iPJjMZuT8t44F1WV8f2A4rH/vko=; b=RDqHy2CZNrJzAmK/4S0rtF0FJr
+	L1tuUWAwmXtXyyYZ7Pfhnh9PlQ6i6h/ajFKloGfMwU8oVl/leJ8JS31Q5aCLjj7lwf90s/yfe8AIt
+	aRiiMV7oUmj+J3XX58tZjyITqegv8gbeoXD8Tupwc36B5JoaOs1FNcOkJhfN1pHcL24apLjuujv9d
+	hCgZVxvi7vwLqyv4q5M+RbdnnPsF60NC3QGRLnflxuzeK+fUavpI3pyye8GQo0FvbiTPak03fLVcR
+	aynSD+5RlRYlPnEhosh8z2bqhM/81RNcWxAzCs1M9ZJn6Kp0zgkoy7BA/JU24VcZ+FmlzQJrvNqDk
+	Vrsb+oWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYnJ-00000002vGh-2nSb;
-	Fri, 05 Sep 2025 15:56:09 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuUzA-00000001UjD-3q0P;
-	Fri, 05 Sep 2025 11:52:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757073127;
-	bh=zIcPzz4+ZUV4cxLri5m6RzjiaeHPYd2Q0gnoN2653mA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=n/5wTmOJizcJeU4glq9D89n5nNLNFkbZpRFaDOEH34cQ50NB3U7c1CU0/O7JwaNTA
-	 3Tt+eCqbDpu5MR4mScsm9u8LtOv5L/G/8INm66hPFwxrp18SuBwA+BdeNhx2bIKJRo
-	 VV1EIuzzgtiQ6xmiHuutnDmFJ1TcHf7G1N9MBe+E0+qfRTB9tMNRo8uXIez0Mg0Slz
-	 0SUKxGqewoDknKev/GpFeDBSW2fsPpKhadKKBn0YIO/wRqhkc78QPzA9jiGd0ue0T9
-	 LGgxDyuSfyMbaHCd/k0Amvp0oE8PtmATzKMD7Wfm26Vjr5AyJNV/2Y+1Q4fwTvcWrx
-	 J1JXqIApbA5VQ==
-Received: from localhost-live.home (2a01cb0892F2D600c8F85cf092D4Af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8FE6017E12BA;
-	Fri,  5 Sep 2025 13:52:06 +0200 (CEST)
-From: Julien Massot <julien.massot@collabora.com>
-Date: Fri, 05 Sep 2025 13:52:00 +0200
-Subject: [PATCH v3 3/3] arm64: dts: mediatek: mt8395-nio-12l: add support
- for blue and red LEDs
+	id 1uuYpR-00000002w4d-050R;
+	Fri, 05 Sep 2025 15:58:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuVOK-00000001dWS-0V3W
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Sep 2025 12:18:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4BA8153B;
+	Fri,  5 Sep 2025 05:17:56 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A8C223F63F;
+	Fri,  5 Sep 2025 05:18:03 -0700 (PDT)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 00/10] coresight: Fix and improve clock usage
+Date: Fri,  5 Sep 2025 13:17:53 +0100
+Message-ID: <175707466024.1601998.6971273893151391969.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250731-arm_cs_fix_clock_v4-v6-0-1dfe10bb3f6f@arm.com>
+References: <20250731-arm_cs_fix_clock_v4-v6-0-1dfe10bb3f6f@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250905-radxa-nio-12-l-gpio-v3-3-40f11377fb55@collabora.com>
-References: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
-In-Reply-To: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
-To: kernel@collabora.com, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- devicetree@vger.kernel.org, Julien Massot <julien.massot@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_045209_100195_FE80C440 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20250905_051808_199234_2B46206A 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Radxa NIO 12L board has an RGB LED, of which only red and blue
-are controllable.
 
-Red and blue LEDs: no need to choose, both are enabled.
+On Thu, 31 Jul 2025 13:23:36 +0100, Leo Yan wrote:
+> This series fixes and improves clock usage in the Arm CoreSight drivers.
+> 
+> Based on the DT binding documents, the trace clock (atclk) is defined in
+> some CoreSight modules, but support is absent. In most cases, the issue
+> is hidden because the atclk clock is shared by multiple CoreSight
+> modules and the clock is enabled anyway by other drivers. The first
+> three patches address this issue.
+> 
+> [...]
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Julien Massot <julien.massot@collabora.com>
----
- .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 29 ++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
+Applied, thanks!
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-index fd596e2298285361ad7c2fb828feec598d75a73e..0ea36e7c960fc0b2607833d743c5e2e806864600 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-@@ -10,6 +10,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/leds/common.h>
- #include <dt-bindings/pinctrl/mt8195-pinfunc.h>
- #include <dt-bindings/regulator/mediatek,mt6360-regulator.h>
- #include <dt-bindings/spmi/spmi.h>
-@@ -73,6 +74,26 @@ button-volume-up {
- 		};
- 	};
- 
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+		pinctrl-0 = <&gpio_leds_pins>;
-+		pinctrl-names = "default";
-+
-+		/*
-+		 * This board has a RGB LED, of which only R and B
-+		 * are controllable.
-+		 */
-+		rgb-blue {
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&pio 6 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_RED>;
-+			gpios = <&pio 7 GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+
- 	wifi_vreg: regulator-wifi-3v3-en {
- 		compatible = "regulator-fixed";
- 		regulator-name = "wifi_3v3_en";
-@@ -647,6 +668,14 @@ pins {
- 		};
- 	};
- 
-+	gpio_leds_pins: gpio-leds-pins {
-+		pins {
-+			pinmux = <PINMUX_GPIO6__FUNC_GPIO6>,
-+				 <PINMUX_GPIO7__FUNC_GPIO7>;
-+			output-low;
-+		};
-+	};
-+
- 	i2c2_pins: i2c2-pins {
- 		pins-bus {
- 			pinmux = <PINMUX_GPIO12__FUNC_SDA2>,
+[01/10] coresight: tmc: Support atclk
+        https://git.kernel.org/coresight/c/cbcf4373629d
+[02/10] coresight: catu: Support atclk
+        https://git.kernel.org/coresight/c/d2d97e8a0700
+[03/10] coresight: etm4x: Support atclk
+        https://git.kernel.org/coresight/c/7787ef97c205
+[04/10] coresight: Appropriately disable programming clocks
+        https://git.kernel.org/coresight/c/e0e41ef8c77c
+[05/10] coresight: Appropriately disable trace bus clocks
+        https://git.kernel.org/coresight/c/f4eb5567107c
+[06/10] coresight: Avoid enable programming clock duplicately
+        https://git.kernel.org/coresight/c/7529307188a1
+[07/10] coresight: Consolidate clock enabling
+        https://git.kernel.org/coresight/c/3fd383a81052
+[08/10] coresight: Refactor driver data allocation
+        https://git.kernel.org/coresight/c/e95ed1a3434e
+[09/10] coresight: Make clock sequence consistent
+        https://git.kernel.org/coresight/c/8d4432949012
+[10/10] coresight: Refactor runtime PM
+        https://git.kernel.org/coresight/c/70104caa4f29
 
+Best regards,
 -- 
-2.51.0
-
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
