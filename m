@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A814ACA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA08BCA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 07:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m7eCumLJRVxXkVrrCzfdq48+hh6xilH+s0pYgrmlgbE=; b=zJ08KaBtwr5PaCoHfWLlfKac+4
-	qE6Z4/BQV3j845ls/KVDK2X0E28mjWRuOZCfuQ3WOIAwWmCxgPvlsAB+PEACRdWBYfh6iQkzk52ln
-	iMQUSm8KZJ9uggxEJKR9K+7AYOBaRXFv03VZlDTnsj/BMUs1Doz0G1MMlZirCaad56XTW5F9s8eUj
-	ZN2VpcIK1kgR7j3mwlwoAltfQQWFkiMWjBOvKDUSqLln1ds0EaWOZtOxJYvox44xQp/KSPQVoqa33
-	RhDtNY9ZP4jERYoO240JKNy9uDJX9K1OXPywsBoDiXguHXvbY7kT1yTCiwSebCfzo+X7h1nXMTDlN
-	2mMQi+oQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wFJS1RHxYpPdjfElWjyoww5Tm6gmIS00MsIdtooweP0=; b=ukno4SXIj6ZJpCKjOjzH7HuBi3
+	L1JrtEPPFYupvPXUnh2FTgpbwjegqAHexYuJVVSw0asU3HEp6ydTzY23OAT/UT3YXVcXPf9xDBKCc
+	vkV4Lpnl7tOu/r7u01oBojPSWe++B9AoImvZISpztLeLc7WVrYS3Q6BCAChgSb85cKfQ+wgTOLczK
+	B8XC6AwXfBNJE1LxjSXlM5VSBEGYA75XpP4EA31kwNbnQdSKC051L7e9ok4z+dHxbshhk/sbB6jek
+	Yrkm5NhRzeBVdYPxXFfFwicQGFfJGDBGiOjnmJ5FT0NgX53u6tSOQDGsjAo1d+rLnkVfI0qe7Tg3Z
+	XfGfd7Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQwZ-0000000036j-01Ou;
-	Fri, 05 Sep 2025 07:33:11 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1uuQzD-000000003oN-0eFt;
+	Fri, 05 Sep 2025 07:35:55 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQ2L-0000000HJUR-11jr
+	id 1uuQ42-0000000HK05-2LkD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 06:35:07 +0000
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 732A7245EC;
-	Fri,  5 Sep 2025 08:34:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1757054094;
-	bh=m7eCumLJRVxXkVrrCzfdq48+hh6xilH+s0pYgrmlgbE=; h=From:To:Subject;
-	b=MTr7dAou1BzD/n5kZvgWpUlcsxUSShVIOKD577/anK6dZbyF1uWzkF/XNu7r3lr4C
-	 BCNDa7/CudLSQsB06MB72d19JQU7Rh2FFO9ju9yOphO0uKfUIVYnxrZwrHKaVCDs8z
-	 G2FgZHlb3f4fCDm4jhYEwblST1EqUkW72OWVvkzZ9RrB5dDJ0qH/lzvOtPDjb/CnRE
-	 3B00jxIi2imWCxG9CVCCS/971hgJbbvre+VrLLvZbnuu7v98OdSdmmpMGNPsfWH6pX
-	 /enfx1K6l2vtQ7n8CCKthU+xiOUC5N2Mz8UFmDq0Hc1H3FIbG83Nryb0qXZUI5OePn
-	 B/4PzjVqfLMbg==
-Date: Fri, 5 Sep 2025 08:34:49 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Beleswar Padhi <b-padhi@ti.com>
-Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, afd@ti.com,
-	u-kumar1@ti.com, hnagalla@ti.com, jm@ti.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Josua Mayer <josua@solid-run.com>,
-	Logan Bristol <logan.bristol@utexas.edu>,
-	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Subject: Re: [PATCH v3 17/33] arm64: dts: ti: k3-am642-sr-som: Add missing
- cfg for TI IPC Firmware
-Message-ID: <20250905063449.GA6194@francesco-nb>
-References: <20250905051846.1189612-1-b-padhi@ti.com>
- <20250905051846.1189612-18-b-padhi@ti.com>
+	Fri, 05 Sep 2025 06:36:52 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-336e44ca0e4so15001331fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 23:36:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1757054206; x=1757659006; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wFJS1RHxYpPdjfElWjyoww5Tm6gmIS00MsIdtooweP0=;
+        b=nkS10T9SZDBXutscHni/1/oGzIofds+BZjRoWmPIZbYs+eHFCU14QOUv9MScDbYhIu
+         EivVq7zXRFXT3orPusN04jyT5arFNgS/HLPdZytHZzk6Lpa3RomxN8+bsDPiZkVDagTi
+         mQd6ce04R+ic5PzbyVtYLcmO8OuDhBunhqhNs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757054206; x=1757659006;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wFJS1RHxYpPdjfElWjyoww5Tm6gmIS00MsIdtooweP0=;
+        b=jBWYsX1oOhu2B0hyOLWaPSFukCXYc0MmjwRH6kBfac5c+ud//prrwLhErmTy/PISOY
+         dA1l1niydFAaIWZ/aUHc1bAT3XdG5B34FkhsJzNeJpd1OpmVtFP2iJ/e+wcV55u0nLrQ
+         L8O9ZnXOyPYkEt21/Nx2Kc1eFqa1bKJkKkHZcwgiYZe7b2JLEumVCgngKy8koFu9z5dt
+         dcUnaPxqbHf+hc5KGaiEichRweekMZeAEVR287iLVx4d/Lb8qnKIerrAs+bZX1KHZIGu
+         bKXuRA+vqE9JOfCFvluwTT+v4EIr6EDAbS6Ak34t10/qXSC90ej5AWb/WGpoTAi3PiPI
+         OOXA==
+X-Forwarded-Encrypted: i=1; AJvYcCW+kggbuy0+4eQZu2nBWWXMjVxt8O+z8A9GlhTBm5O7wiuXTX7M403xKJ/unax9gAkjA0GHxGFx3VEXGvgJG6m5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyYBp5cP9tZwuIbjZo3nYSGTxz/YeljGCDcqpTgV0AMCNxIDu+
+	ov9p5JqSvjh76aKxhrS+uU/N2lOzvB3LxJ2sySjEynei+WUCT9/mE2TT6kqE1YQlQRqhdsKTEI9
+	f3y1ELTsmDxTtNRxOuN41b+AtuQ1+CcDT+al2zcE3
+X-Gm-Gg: ASbGnctG0xepBreTok3CaqImwtcnJ9V7QGn2xSCQKu7IPdSPGew9O2ZQepjfbUsiZuJ
+	zGOyb13lH+WEZyJJsXz5ojGCDci7NGfLnFJbSuLmZl06A5vFpGINBNJ3S/0AAGBdoY7TZ1VTaRo
+	or/MPOccQCvImlUXcCvjcqxWF7D9fBlWmSHR+4G6BCDJ9MEtCLMNgmMiRiGDCDtidlGL1WkFWMz
+	L2GK7ariHHGkmuHgPDBIn9GGpJf5CrzbzdaXQ==
+X-Google-Smtp-Source: AGHT+IEgVbxQy/DxXsDzvdrcOfC49jBWiMtOAGepTowcEVXECREwr9aIaRDx8B4CTbXxL/deN9wUH95NSxy3a5X8TKE=
+X-Received: by 2002:a05:651c:20cd:10b0:337:d2e2:d467 with SMTP id
+ 38308e7fff4ca-337d2e2dcfbmr42859621fa.43.1757054206408; Thu, 04 Sep 2025
+ 23:36:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250905051846.1189612-18-b-padhi@ti.com>
+References: <20250829091913.131528-1-laura.nao@collabora.com> <20250829091913.131528-16-laura.nao@collabora.com>
+In-Reply-To: <20250829091913.131528-16-laura.nao@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 5 Sep 2025 14:36:35 +0800
+X-Gm-Features: Ac12FXwXWypau4EdANuUrgXmxAn5bymNrHkP7HBNlw9rFp2Nbb7jmA3VYZ8UsYk
+Message-ID: <CAGXv+5GjZusKNCe+EshMktmyDcfjm6i5oD+h8LvObymvD9QXqg@mail.gmail.com>
+Subject: Re: [PATCH v5 15/27] clk: mediatek: Add MT8196 ufssys clock support
+To: Laura Nao <laura.nao@collabora.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
+	richardcochran@gmail.com, guangjie.song@mediatek.com, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+	kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_233506_315916_8C150768 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20250904_233650_873497_001A367F 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,57 +98,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 05, 2025 at 10:48:30AM +0530, Beleswar Padhi wrote:
-> Currently, only R5F remote processors are enabled for k3-am642-sr SoMs,
-> whereas the M4F in MCU domain is disabled. Enable the M4F remote
-> processor at board level by reserving memory carveouts and assigning
-> mailboxes.
-> 
-> While at it, reserve the MAIN domain timers that are used by R5F remote
-> processors for ticks to avoid rproc crashes. This config aligns with
-> other AM64 boards and can be refactored out later.
-> 
-> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-> ---
-> Cc: Josua Mayer <josua@solid-run.com>
-> Cc: Logan Bristol <logan.bristol@utexas.edu>
-> Cc: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-> Requesting for review/test of this patch.
-> 
-> v3: Changelog:
-> 1. None
-> 
-> Link to v2:
-> https://lore.kernel.org/all/20250823160901.2177841-18-b-padhi@ti.com/
-> 
-> v2: Changelog:
-> 1. Re-ordered patch from [PATCH 27/33] to [PATCH v2 17/33].
-> 
-> Link to v1:
-> https://lore.kernel.org/all/20250814223839.3256046-28-b-padhi@ti.com/
-> 
->  arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi | 54 +++++++++++++++++++++
->  1 file changed, 54 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
-> index 81adae0a8e55..8cb61f831734 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
-> @@ -162,6 +162,24 @@ main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
->  			reg = <0x00 0xa3100000 0x00 0xf00000>;
->  			no-map;
->  		};
-> +
-> +		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
+On Fri, Aug 29, 2025 at 5:21=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
+ wrote:
+>
+> Add support for the MT8196 ufssys clock controller, which provides clock
+> gate control for UFS.
+>
+> Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@co=
+llabora.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
 
-this must be
+Assuming the previous reviews for the bits are correct, the removal
+of CLK_OPS_PARENT_ENABLE IMO is the right thing to do.
 
-mcu_m4fss_dma_memory_region: memory@a4000000
+However if the hardware ends up does having a requirement that _some_
+clock be enabled before touching the registers, then I think the
+MTK clock library needs to be refactored, so that a register access
+clock can be tied to the regmap. That might also require some work
+on the syscon API.
 
-the device tree specification requires generic node names, my comment [1]
-had nothing specific on verdin am62/am62p.
-
-Francesco
-
-[1] https://lore.kernel.org/all/20250821060629.GB7503@francesco-nb/
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 
