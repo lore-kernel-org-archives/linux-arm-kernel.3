@@ -4,86 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E54CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E757CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 09:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gPfnz/o3iNaHytOqe7truOjcGer8WrwACGpoW942gks=; b=kD9SVi07us+VIXeQATdCGp+aM9
-	jvzr8X0nlBXrwYoye/yAWqTU2tW6ZHeYVSMxjnM/3T/xdx4YYUrg0JmgNfQi443kNmHz26boOpa38
-	IYuBvL3jp+Ch1pkXaPytDsi3gS6z6hHIgo+uQypWBi+dNOgJManhzEr6mtIUkjV4sQhfxfdW/9Qh0
-	p5TYeWXDVGrODFQTgWmDK0M/2iAFdvjyEAJZfxmzRRjZP4KGBmxVx4UfsE6Az41CF/cDizOMFvKmy
-	Cpo2ROsXpAanJ3vgklifjeLvDFitStib8ppGjiwsYZAp2o84b3bPyZS36UKF/xqyREKIv++l0ybUP
-	QBYMzjTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mEyqxPQTlvHE7Rb9nf0Ka5S6ku97HAqdoQLaDQei9o8=; b=kiJgSNG+NT5KS0uY/p2iQyizwn
+	rnd2udJwAKkh41tGIeJKLNBUyuib0VnCHEy5MhuXEsLQWPs4n2RDGi5kFwBYMzdegeMg4Z1WIiX9v
+	coVO2bxcj1ZbYiu3DOAocOd2qmtZ16rZVQoEApJAW4iJiAjHAr1Uulmt8zMD58+6K47BXpJWqjGFK
+	PcbVn7jCB7jLIfg5YZv6aHGBdnVniyOy9JgIyMTvZVtYejWWUi0NjTaYtiumPEqRlEBvedbDqt3Zy
+	h4yWMjTQdUwAVAIYizQ7nOe3pwWmPAUjtcKmIC7+uir6infD7qUiASCMaljsFBas0c4kG0hhFUuzH
+	9xNRqmOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuSce-00000000hVW-2oNH;
-	Fri, 05 Sep 2025 09:20:44 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1uuSfM-00000000ibO-3GEd;
+	Fri, 05 Sep 2025 09:23:32 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuRQY-00000000E53-3Woj
+	id 1uuRQo-00000000ECf-0ffE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 08:04:12 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-336d3e4df3eso16718341fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 01:04:10 -0700 (PDT)
+	Fri, 05 Sep 2025 08:04:27 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45b9c35bc0aso16765905e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 01:04:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1757059449; x=1757664249; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gPfnz/o3iNaHytOqe7truOjcGer8WrwACGpoW942gks=;
-        b=Wibob7VPCeqKIjR6QKihQPUFZivA+1+kSAQw3OGd3K+93RTEs8XCslJhFK13bFvDT2
-         uNqKymmuMN4Jj5hQl0HhB91E8iWQ87pFNsn9Om+PFmhjTy4rbFw2p7sEul4Nevrx0OKV
-         zk/5aRnx8Uo8URLkgU+Q0Idsucu1y6csEmB5s=
+        d=linaro.org; s=google; t=1757059465; x=1757664265; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mEyqxPQTlvHE7Rb9nf0Ka5S6ku97HAqdoQLaDQei9o8=;
+        b=ETROF4dsni8H/NAerxueWrBLetWZmRtdohLXCM3s41aICwvtbHvBj6wESe3PJSS1Ii
+         9MqJKvXzKqA0Bvm6JDCgzPFKlCcIWobPXPSIC+Spfh1OQzokx0ElBM6gb4sebeip/pFC
+         UkODQdRPPso+m0xBaEqMdSilqxUZSfEMINgadc2kbHD0CE44qV3pLYYtS9WvBAf+Dkzy
+         pDGwJkfEpI/CUeTQD1ztm5ywarIiO1urM7fcv+vvpLLWL/BfdLy6LuwGCuTGzq5lxdFi
+         1xDz/Jtc0Kirdxz7fek6t6xJVEGdgFsTSs2xVOSMEwAwAs7ZV+CqOQBP6XdLWlh2BARy
+         RTYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757059449; x=1757664249;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gPfnz/o3iNaHytOqe7truOjcGer8WrwACGpoW942gks=;
-        b=T5HmtMx9V/dm1GYjaZWtu7/ng7tS+X8Cu3bH4Xdb3xvc/umi+Gs5ymI3/faG25lOyy
-         GVOC2lkVugs9XxdvNo9amRKpqrkp6pXWDP7cRkEKIsVTV9DxpO+eCzV9BtnO+vggC2sm
-         uVTAJSk4oyrQo/eZhve4nIgN7XfM5F2OjeIaZm36N2ExwuxOVlTU9fwztFMtWhldWlo7
-         opIXR4LP4cELT3y98b3f43T3qk4MkfWqtqRqiBeeNcHFVCtu3PbWL+8pZIubOS1EVij/
-         vJlmRy6R8c17uclIYITXmUjzzONDBaHfWceYXbbcPh57vh0qqdKTTrd3v57zL/UCkxX6
-         2ICg==
-X-Forwarded-Encrypted: i=1; AJvYcCU7zgCSd+L5A3OEasF397/LOUi0TyhafqGX7cwBmTMmtU+Sr6LhIkR5jDCn7nDUk57WgUOJ1MAFBxhAixlc8+gx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDEKpuzMysI+IhYuPxZB6dbvQhlU9abQkEUFXfUbITrNMay9xs
-	dTHKTAN88mEngOTxbmEoGZWH0GHO9DPUvc899rBZ6ae+RQv2RS3qLMcdtDwjWWElp3A1/5j63WU
-	p1GWhQoC8aNyC68l8fu3CODWpvGq4XCvm9JdvAktV
-X-Gm-Gg: ASbGncvGMKzegiwgcbO1Z8T8qoF49y9YAb+g9WYRL1mxCDA+Et71bkRvCmZ8awfZaBo
-	3WhR3gv7JzvJbadatv0D2iSWAdHExZEweOClrcXgxz5tTqa64tBxsspG0G0AKz1uc6lX2BriQYx
-	rEK5PzKQkwfnijg8A60oissBDuykmx10m4ILRoQynjRppcXAXJb9yMmqqDa5i6p7fJutUlJXo/C
-	I1JQ9W5n83aYcoxutkSYzc/pffIYMwnv/0bKQ==
-X-Google-Smtp-Source: AGHT+IHT043Y/TruREpGKZ+/QRl4lPJ5bvgN3xV40J/rToLhwUaxJ8c7vgtH50x+X4YlPrhw0jN/shKQPrGCvcazPsI=
-X-Received: by 2002:a05:651c:1a0c:b0:339:1b58:b199 with SMTP id
- 38308e7fff4ca-3391b58bbc2mr3260661fa.36.1757059449029; Fri, 05 Sep 2025
- 01:04:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757059465; x=1757664265;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mEyqxPQTlvHE7Rb9nf0Ka5S6ku97HAqdoQLaDQei9o8=;
+        b=QACarnpjt0Q+EoBvq2+mO1VJSpEXSDmrAJOBQ89RO6w2ucn9vQBMqLSFs/CdjtBFoI
+         Fqigjk2MRN6gnFSdTbcbov6WoLfzQHkwJZ0Nmb/FZGZCVhzWktVMVfV8IcXV55cCo3I3
+         tzHklluvmA8NsRq2dqNKXekx7wnqA+sjxajCbdfwvYCQOVH25+hGoU70BVx0WWoCMU1B
+         R6wm81DZ4Xks41xKa0fJTHyDiyxhlY6SOKsnGwsm3rOVcB9sdnUuybG+YB1sJ21q9dxK
+         M5PTVPqvHRAS8IYHCKqDDqYn4pxMZefChJRf/bNgu87Pqh+pSYt+CndYR4mNty1yZ0k/
+         j1iw==
+X-Forwarded-Encrypted: i=1; AJvYcCUmCMQJ99ZKiE359J6wDiVh9tFRXHZH53kOmyLgh0mJvlu7/I7x80ai4gPxR6v2yapKTQd3k6hZnnFs/WUfC6F/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqbmC8iqGoD4Ofp+IttojaaXuFWst2V497JOjZrZ73ePT0J/DZ
+	mIyxo3c6+ZG77BSm7dzeDCceYJINYL4Da0CuSN+XfURadeBWU2qFnhKVGRREMgBN5k0=
+X-Gm-Gg: ASbGncv7n8gnK6OZRd6CcgdOuY0CrBgF/OfAt0pPjNApIr6eDLdRe+iHKmokVajUGLX
+	S30aYGL+vKg6506lVo/vqRbaYfj1uTNIFzmE9l5e84D0xSqsMM+qNkw4KZL3xXMtadXdkQ0VmlQ
+	YhsxUoujBl7IKK08A5AOhSwSUlHOqmGLOL42pFCk9i+op7nZ0b33LsyW7iye4Eri6l1mmFVvnP2
+	+Asw/WALnGweOS7ZJQjgA4ab1MMutDQFoXK18SvLxyMZKdeAjYWjQvQqWd2jCphrRg54AOVBwrE
+	p0CvT/zSAAzVlUVEqjC5GCNlOh9yPgRcgwm9P1+OTcmr3HzXOw3Y6Tt+4vlXpxsNkrq9Ehy1rQQ
+	sgATaMXr56tcfbYad+gcotqyhKrhmbK4zFzkDQUtqRaXZ2mxE
+X-Google-Smtp-Source: AGHT+IFg31bO3+yEGrU5RDt0pIsHa2/S7Tm9NAlDysnLBMH3Sorox3ujEfiAyqMx4B2CxZfrtHTl2w==
+X-Received: by 2002:a05:600c:35c5:b0:45d:cf5f:cff8 with SMTP id 5b1f17b1804b1-45dcf67429bmr53251585e9.11.1757059464523;
+        Fri, 05 Sep 2025 01:04:24 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3cf276d204asm30777648f8f.24.2025.09.05.01.04.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Sep 2025 01:04:24 -0700 (PDT)
+Date: Fri, 5 Sep 2025 11:04:20 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH] PCI: stm32: clean up some error handling in probe()
+Message-ID: <aLqZhL-DV4LOnHlD@stanley.mountain>
 MIME-Version: 1.0
-References: <20250829091913.131528-1-laura.nao@collabora.com> <20250829091913.131528-23-laura.nao@collabora.com>
-In-Reply-To: <20250829091913.131528-23-laura.nao@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 5 Sep 2025 16:03:58 +0800
-X-Gm-Features: Ac12FXzqjLPg1snoakkIHpjZL3gjVDvpLkfu1BDJJWXmMZBGn3rIna_U1tSPpG8
-Message-ID: <CAGXv+5GreKJSz76EiHYzX-ByfyxuYNYB6OyBJk9ZhsKCapPjRA@mail.gmail.com>
-Subject: Re: [PATCH v5 22/27] clk: mediatek: Add MT8196 disp1 clock support
-To: Laura Nao <laura.nao@collabora.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
-	richardcochran@gmail.com, guangjie.song@mediatek.com, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_010410_903602_757367A6 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250905_010426_201099_72D969B8 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,27 +102,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 5:21=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
- wrote:
->
-> Add support for the MT8196 disp1 clock controller, which provides clock
-> gate control for the display system. It is integrated with the mtk-mmsys
-> driver, which registers the disp1 clock driver via
-> platform_device_register_data().
->
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+Smatch complains that the other error paths use gotos to clean up and
+these two don't.  Generally, the implication with that warning is that
+the error handly has been ommitted.  In this case, the error handling is
+fine, but we can avoid a bit of code duplication by using gotos to clean
+up.
 
-IMO removing CLK_OPS_PARENT_ENABLE is the right thing to do.
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/pci/controller/dwc/pcie-stm32.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-However if the hardware ends up does having a requirement that _some_
-clock be enabled before touching the registers, then I think the
-MTK clock library needs to be refactored, so that a register access
-clock can be tied to the regmap. That might also require some work
-on the syscon API.
+diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
+index 964fa6f674c8..96a5fb893af4 100644
+--- a/drivers/pci/controller/dwc/pcie-stm32.c
++++ b/drivers/pci/controller/dwc/pcie-stm32.c
+@@ -287,18 +287,16 @@ static int stm32_pcie_probe(struct platform_device *pdev)
+ 
+ 	ret = pm_runtime_set_active(dev);
+ 	if (ret < 0) {
+-		clk_disable_unprepare(stm32_pcie->clk);
+-		stm32_remove_pcie_port(stm32_pcie);
+-		return dev_err_probe(dev, ret, "Failed to activate runtime PM\n");
++		dev_err_probe(dev, ret, "Failed to activate runtime PM\n");
++		goto err_disable_clk;
+ 	}
+ 
+ 	pm_runtime_no_callbacks(dev);
+ 
+ 	ret = devm_pm_runtime_enable(dev);
+ 	if (ret < 0) {
+-		clk_disable_unprepare(stm32_pcie->clk);
+-		stm32_remove_pcie_port(stm32_pcie);
+-		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
++		dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
++		goto err_disable_clk;
+ 	}
+ 
+ 	ret = dw_pcie_host_init(&stm32_pcie->pci.pp);
+-- 
+2.47.2
 
-Whether the hardware needs such a clock or not, we would need some input
-from MediaTek. There's nothing in the datasheet on this.
-
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org> # CLK_OPS_PARENT_ENABLE remo=
-val
 
