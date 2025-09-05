@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992E7CA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 05:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B0B4CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 05:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6alpJTsdiL+3pTmNUIBFVveDiDnMtePODNHGXEbcrY0=; b=yEEl2Yt4+ow8s5U8vuJS4C2urK
-	kb9mObscj1ydYciXDJyUjwSe3mFv+QDVvUbHysi6om2Hol6+w41nwBLvCaV9FFci0r22gq0Ua/92R
-	dstW+p23hQTJzr8QfyHy+d8+hpSd7TnFByviKDNiS3MlbfeB5aim4DUUlqzA6RbbSoN9ORYGXFcG2
-	nFAoHrr0dSOPusV2Z3bsUJ5SM0e1//jfya2uyZjRYABkekw/KWsMN14E5O+di+rC9r88vA30x5s0X
-	XQUwsk+6LzsSfOBw0TFace6Mg1eIoiMn9GuldP0fWXAhf+nx9DaqM03hz3NN4rk9NFgm0W5Hw/EJj
-	/tODDwLA==;
+	bh=I3pbQnf8CUqRojAhpUlOIMWVPCuywXIR601pJXOx+Vk=; b=yI3u4PDkgfPfSlHMQMbCz7U1lh
+	a+mbPUIVjIUoqV5qOMZwvmCiVBHpZ1uCh9ghpipCgILBDPsxCZN9f2zP3glyPzTCSYe/79olAM2G5
+	qZSQYZ0R+GLVG5M+9tqgg5PpgVcQxXF3bNDwSfHNPlRipwBUnwjxrP/WEsLObQqQQ8LqhUkoLivjr
+	kIM4njwNAMhhlnRu4Q1kulE3JWy9CH2S3qc7Xu5qgNeYLYrruqEctI8oPAtaartZ3oEju1CdTqli0
+	CBlOLTo79BeFUNpWMqCgVDKEnrGVIGz1CcZPhluQgKMvw1CMZIVN4ci24O8bxZls5ITnx1kXs838D
+	MBv5vKMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuOYo-0000000GrOE-1yFm;
-	Fri, 05 Sep 2025 05:00:30 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uuOcU-0000000GsKA-1GkO;
+	Fri, 05 Sep 2025 05:04:18 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuOW3-0000000GqpY-2FgN
+	id 1uuOZl-0000000GrkB-2szs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 04:57:41 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5854vZBA3175159;
-	Thu, 4 Sep 2025 23:57:35 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757048255;
-	bh=6alpJTsdiL+3pTmNUIBFVveDiDnMtePODNHGXEbcrY0=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=mlQVVkhIUVdgS4R5Yc/CrCNR08h3M2sxZYI4vNXDniUSMK4p+yF+dT+4qmFXfcRov
-	 VYjxxdMgL02v0lQeiWO/kRnuxa0H/yG2ln17Zyb2m/eUjkaDuVrAKwOv3XVxgVcdjm
-	 veW4J4SLtraYzt6uFQW3OHDCefM0zFsYY5MeVOr8=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5854vZo4672405
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 4 Sep 2025 23:57:35 -0500
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
- Sep 2025 23:57:35 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 4 Sep 2025 23:57:35 -0500
-Received: from [172.24.20.139] (lt5cd2489kgj.dhcp.ti.com [172.24.20.139])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5854vUAT190793;
-	Thu, 4 Sep 2025 23:57:31 -0500
-Message-ID: <8f0dc883-7bab-4ad8-8db2-6c8f8377fdb3@ti.com>
-Date: Fri, 5 Sep 2025 10:27:30 +0530
+	Fri, 05 Sep 2025 05:01:30 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-333f92a69d4so16444981fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 22:01:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1757048488; x=1757653288; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=I3pbQnf8CUqRojAhpUlOIMWVPCuywXIR601pJXOx+Vk=;
+        b=n2sL7LgWwxATxAuATFAHOfaRy60xKSCdzCDl1gROpf35CpP3xa44hkJ3pjQW6u3QAZ
+         ZGeuaVHOgCPKAgIrCnQBV+DsXxM7mHza587W8i9JvJxdXBsNUgB9BFOD9MLWA/XGL+2h
+         8AnYi5TZf3Cy/MyvSCYtUgx8eLsa+NCSctTRc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757048488; x=1757653288;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=I3pbQnf8CUqRojAhpUlOIMWVPCuywXIR601pJXOx+Vk=;
+        b=pOsC2JeveQEMvxl33jee6/pRn2/yTOJ9U2BZOsV/eQF/OlZX90IZRMxUyjvuRD9cqq
+         WG0kUSB9Q3YlCqi8iZuqZ87j8qz8zcHgzQUtFvnXJMfpBmDdNR72J5Fkv+/B+kska1Fh
+         8bpoBOhoKHL6karVVFqPROKJaE+9Km69D8rDaHog6ld0LsrMNpZDeD9SWVmX3g9Vo1wL
+         GMhUB8T7XXeTiM6jRPk7+5ny2nKlhZGIKMALdbEMcUi0FYfaA6xuFYFB38c4PkSwON4a
+         I/vuuE9wY/DMc221ngoFx7XRp+6EuzFZ+HVBNgMB1nBrD6zRW8Xvf8sDBaixBNKukmtm
+         RsUg==
+X-Forwarded-Encrypted: i=1; AJvYcCUNcB9CLmo7CsJFDLXCjWD3mP4SnJ9VpX7FmNrHjcDiE28x9sN++W0SNbHKfYkFU7uvXapTWQTDMJDhWWkCpHub@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq8sWF9vhnel7aaQT1azi04zAgyiFUJOm+/+z8Q94V46ngi650
+	vaTBaTGYYGYEm1BI7HbOOnQ/aRUYFbDoqZ2+l/SuSxRv5VSOH50ANwrUQHcTj31Iz+Ww8mGBuP8
+	CcPB1+FNTlj/TVd4IJZDc/c7xGBXf6H6fY26LjXGt
+X-Gm-Gg: ASbGncv9tCmNvj4yTbGRhvdlEi9QB398VQTCKvP/rcIj95pd7uvm0MPJWuBt7UwEXwz
+	ocH44KNWuXI87V0dLnUaufG6vUc5SlPmtkdb1pzU6i+Vjpdgncnc/9HzKo7ozWEP5HWqyTW9zBe
+	YHP7iL42BUk2SveHlzSBemmG5i7SdE5xJ2gi24uo7qyvPCejmpzp1bpaz2WtSorkbyFBpRNAjD+
+	zeE09ZIKRtQHOhWFJNoISSf6SxabS1pIhTWJw==
+X-Google-Smtp-Source: AGHT+IG10f/KUXsl9teEaeQj7H79dcAZoPGx48y81i6F/mMxgob5Z7ShaCVyVzMRSRmKn/PqDEFL3jvm3MNUmJiY2p8=
+X-Received: by 2002:a2e:be1d:0:b0:336:dd88:6a02 with SMTP id
+ 38308e7fff4ca-336dd886e73mr50101251fa.43.1757048487955; Thu, 04 Sep 2025
+ 22:01:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining
- macros
-To: Akashdeep Kaur <a-kaur@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
-        <afd@ti.com>, <vigneshr@ti.com>, <d-gole@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>, <u-kumar1@ti.com>
-References: <20250902071917.1616729-1-a-kaur@ti.com>
- <20250902071917.1616729-4-a-kaur@ti.com>
- <b946af38-abf9-4b34-bf44-3ba9bc64bff7@ti.com>
- <b0ccb51f-14f4-43c9-9646-296d6e9d559c@ti.com>
- <f2e60ec2-5a1f-4cff-a8ee-c2555d835946@ti.com>
- <1a20e784-d2d7-46d7-b705-67e460b6ae33@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <1a20e784-d2d7-46d7-b705-67e460b6ae33@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250829091913.131528-1-laura.nao@collabora.com> <20250829091913.131528-14-laura.nao@collabora.com>
+In-Reply-To: <20250829091913.131528-14-laura.nao@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 5 Sep 2025 13:01:16 +0800
+X-Gm-Features: Ac12FXxt8YDULnOSESMbWAKIOZ29Yui3hZN9Zs_7tmp-v_md5T4Hs_0EWckqSKk
+Message-ID: <CAGXv+5E-EM6aMR3M=rk2HMT8qCn5J-zuqFtPJP0G1x7+Lj1gEg@mail.gmail.com>
+Subject: Re: [PATCH v5 13/27] clk: mediatek: Add MT8196 vlpckgen clock support
+To: Laura Nao <laura.nao@collabora.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
+	richardcochran@gmail.com, guangjie.song@mediatek.com, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+	kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_215739_681022_6B93A0D1 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250904_220129_750349_D3C33F3F 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,68 +98,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Aug 29, 2025 at 5:21=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
+ wrote:
+>
+> Add support for the MT8196 vlpckgen clock controller, which provides
+> muxes and dividers for clock selection in other IP blocks.
+>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+> ---
+>  drivers/clk/mediatek/Makefile              |   2 +-
+>  drivers/clk/mediatek/clk-mt8196-vlpckgen.c | 729 +++++++++++++++++++++
+>  2 files changed, 730 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/clk/mediatek/clk-mt8196-vlpckgen.c
+>
+> diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefil=
+e
+> index c415453e02fd..031e7ac38804 100644
+> --- a/drivers/clk/mediatek/Makefile
+> +++ b/drivers/clk/mediatek/Makefile
+> @@ -151,7 +151,7 @@ obj-$(CONFIG_COMMON_CLK_MT8195_VENCSYS) +=3D clk-mt81=
+95-venc.o
+>  obj-$(CONFIG_COMMON_CLK_MT8195_VPPSYS) +=3D clk-mt8195-vpp0.o clk-mt8195=
+-vpp1.o
+>  obj-$(CONFIG_COMMON_CLK_MT8195_WPESYS) +=3D clk-mt8195-wpe.o
+>  obj-$(CONFIG_COMMON_CLK_MT8196) +=3D clk-mt8196-apmixedsys.o clk-mt8196-=
+topckgen.o \
+> -                                  clk-mt8196-topckgen2.o
+> +                                  clk-mt8196-topckgen2.o clk-mt8196-vlpc=
+kgen.o
+>  obj-$(CONFIG_COMMON_CLK_MT8365) +=3D clk-mt8365-apmixedsys.o clk-mt8365.=
+o
+>  obj-$(CONFIG_COMMON_CLK_MT8365_APU) +=3D clk-mt8365-apu.o
+>  obj-$(CONFIG_COMMON_CLK_MT8365_CAM) +=3D clk-mt8365-cam.o
+> diff --git a/drivers/clk/mediatek/clk-mt8196-vlpckgen.c b/drivers/clk/med=
+iatek/clk-mt8196-vlpckgen.c
+> new file mode 100644
+> index 000000000000..c38d1e80a5ba
+> --- /dev/null
+> +++ b/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
 
-On 9/4/2025 7:16 PM, Akashdeep Kaur wrote:
-> Hi Udit,
->
-> On 04/09/25 18:06, Kumar, Udit wrote:
->>
->
-> ...
->
->>> ...
->>>>>   #define PULLTYPESEL_SHIFT    (17)
->>>>>   #define RXACTIVE_SHIFT        (18)
->>>>> +#define DRV_STR_SHIFT           (19)
->>>>
->>>> referring to above TRM mentioned in commit message
->>>>
->>>> Bit 20-19 are for DRV_STR, and description says
->>>>
->>>> 0 - Default
->>>> 1 - Reserved
->>>> 2 - Reserved
->>>> 3 - Reserved
->>>>
->>>> Not sure, is there some additional document to be referred for 
->>>> PIN_DRIVE_STRENGTH
->>>
->>> This information will be updated in TRM in coming cycles.
->>
->>
->> Sorry ,
->>
->> can not ack before TRM update
->
-> The information can be found at 
-> https://www.ti.com/lit/ug/spruj83b/spruj83b.pdf in Table 14-8769. 
-> Description Of The Pad Configuration Register Bit
+[...]
 
+> +static const char * const vlp_audio_h_parents[] =3D {
+> +       "clk26m",
+> +       "vlp_clk26m",
+> +       "vlp_apll1",
+> +       "vlp_apll2"
+> +};
+> +
+> +static const char * const vlp_aud_engen1_parents[] =3D {
+> +       "clk26m",
+> +       "vlp_clk26m",
+> +       "apll1_d8",
+> +       "apll1_d4"
+> +};
+> +
+> +static const char * const vlp_aud_engen2_parents[] =3D {
+> +       "clk26m",
+> +       "vlp_clk26m",
+> +       "apll2_d8",
+> +       "apll2_d4"
+> +};
+> +
+> +static const char * const vlp_aud_intbus_parents[] =3D {
+> +       "clk26m",
+> +       "vlp_clk26m",
+> +       "mainpll_d7_d4",
+> +       "mainpll_d4_d4"
+> +};
 
-Then please give correct reference in commit message
+The above parents lists are incorrect. What we want is to exclude the
+"clk26m" parent and only have the latter three parents. That is why
+we have the parent index table below.
 
+So please remove "clk26m" from the lists that are used together with
+vlp_aud_parent_index.
 
+I apologize if my previous explanation wasn't clear. The index table
+is meant for "skipping" parent mux values when the values don't start
+from 0 and/or the values aren't contiguous. The number of values still
+has to match the number of parents given. The index list below is
+essentially saying that "parent 0" is actually at "mux value 1".
 
->
->>
->>
->>
->>>>
->>>>
->>>>> +#define DS_ISO_OVERRIDE_SHIFT (22)
->>>>> +#define DS_ISO_BYPASS_EN_SHIFT  (23)
->>>>
->
-> ...
->
->>>>
->>>>>   /* Default mux configuration for gpio-ranges to use with pinctrl */
->>>>>   #define PIN_GPIO_RANGE_IOPAD    (PIN_INPUT | 7)
->>>
->>> Regards,
->>> Akashdeep Kaur
->
-> Thanks,
-> Akashdeep Kaur
->
+> +static const u8 vlp_aud_parent_index[] =3D { 1, 2, 3 };
+
+After this is fixed,
+
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+
+[...]
 
