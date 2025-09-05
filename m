@@ -4,75 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25029CA1017
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18778CA1013
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 01:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HB2FSA5K3huoF11BiRo8a6gZMsCNJizJgehQIXyoQAA=; b=bLKgXE5HsMVpnHii5bRe+T3+1t
-	AHDZjJUvIx4qWy6f8xDVhHvTEfjVW3gsmr9NYNjyU56sa0/3WP+zy4ZY1o7aSrOdlYjTiBQzsce9J
-	YH6YLJovor8KMkgzGJxQTWBQvm34lW7WT0mh6DEMdtlqDhL+HBTblBgPg04b99NKCMpVItwRdmFcg
-	9OiSqOAo/lMcxtFv7gg+27zjcnInti/uLIkEM1Xbo8JsEBmrO8YmALfvWJhsgMdTphlhfvJ4RQnwj
-	UJOXbgbcOVqrLJ/Bhp5/yZK72+4sKaQcmVoto86nQCyzRpP/fnBdgjqw28s0JGg/Fce5zqnYzZ5lY
-	FkIQqXhA==;
+	Content-Type:CC:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mgtZsM4/gv/n/MCIHJaPiEDs0QtkD5yuqCAVz5GbCoM=; b=e+Gtzx9Jy+f1jRz9WAirNAlN6A
+	sZa4O84cHoFpBIMNY2HpO9padpG/XBiTAUnxEbEDiRXKwfjKp4vUI120C6x+lDNN2a14CpkudeI0p
+	8GEbn4Ye1Zeucjf09OkP8Tmydh1GtWrcC1sJhTYL8mmMa0QEDeAmfHxvUL/Ckld6BLX+mQDGJ8HzD
+	Ln18fx9Ym7suAVNLGjCJ79vMbRkZL9E0tWGkwc48H5zerjQU62lNst3VOX55XhGdV/FH/3X9qYcot
+	5azXAxa3DmaWK5m2ypWXGh1DDgb4GV4yNLMyWEVGA14SPx9ca+bfPLRQyFXM3PClDnl/csaRAYc2x
+	c5J4WIgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuhgz-00000005s1c-3Ddw;
-	Sat, 06 Sep 2025 01:26:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uubUr-00000003uiU-32gM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Sep 2025 18:49:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B94FF152B;
-	Fri,  5 Sep 2025 11:49:08 -0700 (PDT)
-Received: from [10.1.197.69] (unknown [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA9A23F63F;
-	Fri,  5 Sep 2025 11:49:10 -0700 (PDT)
-Message-ID: <6a050b35-1b4d-4ea1-aa40-974aafa89b52@arm.com>
-Date: Fri, 5 Sep 2025 19:49:08 +0100
+	id 1uuhh0-00000005s1p-1D5O;
+	Sat, 06 Sep 2025 01:26:14 +0000
+Received: from mx01.omp.ru ([90.154.21.10])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuciS-00000004MHe-3zIQ;
+	Fri, 05 Sep 2025 20:07:27 +0000
+Received: from [192.168.2.102] (213.87.137.226) by msexch01.omp.ru
+ (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Fri, 5 Sep
+ 2025 23:07:13 +0300
+Message-ID: <bd8764c5-c43c-4bca-996d-65367805ad5a@omp.ru>
+Date: Fri, 5 Sep 2025 23:07:12 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
- kbuild boiler plate
-To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-11-james.morse@arm.com>
- <e5b2fa8d-c77e-49ac-a328-1363e472cc42@arm.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <e5b2fa8d-c77e-49ac-a328-1363e472cc42@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Language: en-US
+From: Sergey Shtylyov <s.shtylyov@omp.ru>
+Subject: [PATCH] serial: 8250_mtk: correct max baud rate in the set_termios()
+ method
+Organization: Open Mobile Platform
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
+	<jirislaby@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<linux-serial@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [213.87.137.226]
+X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
+ (10.188.4.12)
+X-KSE-ServerInfo: msexch01.omp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 09/05/2025 19:27:58
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 0
+X-KSE-AntiSpam-Info: Lua profiles 196074 [Sep 05 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
+X-KSE-AntiSpam-Info: LuaCore: 66 0.3.66
+ fc5dda3b6b70d34b3701db39319eece2aeb510fb
+X-KSE-AntiSpam-Info: {rep_avail}
+X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: 127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;omp.ru:7.1.1
+X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.137.226
+X-KSE-AntiSpam-Info: Rate: 0
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
+ smtp.mailfrom=omp.ru;dkim=none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Heuristic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 09/05/2025 19:35:00
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 9/5/2025 6:47:00 PM
+X-KSE-Attachment-Filter-Triggered-Rules: Clean
+X-KSE-Attachment-Filter-Triggered-Filters: Clean
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_114917_855263_FD92C65A 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20250905_130724_998576_3C859919 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,85 +100,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+As is obvious from the code calculating the divisor in the set_termios()
+method, the Mediatek UART driver uses 256-time oversampling for the high
+baud rates, so passing port->uartclk to uart_get_baud_rate() for the max
+acceptable baud rate makes no sense, we should divide by 256 first (this
+should also prevent overflow when some arbitrary baud rate is passed via
+termios->c_ospeed)...
 
-On 01/09/2025 10:11, Ben Horgan wrote:
-> On 8/22/25 16:29, James Morse wrote:
->> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
->> only be accessible from those CPUs, and they may not be online.
->> Touching the hardware early is pointless as MPAM can't be used until
->> the system-wide common values for num_partid and num_pmg have been
->> discovered.
->>
->> Start with driver probe/remove and mapping the MSC.
+Found by Linux Verification Center (linuxtesting.org) with the Svace static
+analysis tool.
 
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> new file mode 100644
->> index 000000000000..07e0f240eaca
->> --- /dev/null
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -0,0 +1,62 @@
+Fixes: 81bb549fdf14 ("serial: 8250_mtk: support big baud rate.")
+Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
 
->> +struct mpam_msc {
->> +	/* member of mpam_all_msc */
->> +	struct list_head        glbl_list;
->> +
->> +	int			id;
->> +	struct platform_device *pdev;
->> +
->> +	/* Not modified after mpam_is_enabled() becomes true */
->> +	enum mpam_msc_iface	iface;
->> +	u32			pcc_subspace_id;
->> +	struct mbox_client	pcc_cl;
->> +	struct pcc_mbox_chan	*pcc_chan;
->> +	u32			nrdy_usec;
->> +	cpumask_t		accessibility;
->> +
->> +	/*
->> +	 * probe_lock is only take during discovery. After discovery these
->> +	 * properties become read-only and the lists are protected by SRCU.
->> +	 */
->> +	struct mutex		probe_lock;
->> +	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+---
+The patch is against the master branch of Linus Torvalds' linux.git repo.
 
-> Why is this sized this way? RIS_MAX is 4 bits and so there are at most
-> 16 RIS per msc.
+ drivers/tty/serial/8250/8250_mtk.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Hmmm, lost in time - I agree with the 16 reasoning. Fixed.
-(It's likely due to RES0 space above the field - but that has been filled in with other
- stuff since then. RIS was added as a 'backward compatible feature' - I was wary of them
- extending it)
-
-
->> +	u32			ris_max;
->> +
->> +	/* mpam_msc_ris of this component */
->> +	struct list_head	ris;
->> +
->> +	/*
->> +	 * part_sel_lock protects access to the MSC hardware registers that are
->> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
->> +	 * by RIS).
->> +	 * If needed, take msc->lock first.
->> +	 */
->> +	struct mutex		part_sel_lock;
->> +
->> +	/*
->> +	 * mon_sel_lock protects access to the MSC hardware registers that are
->> +	 * affeted by MPAMCFG_MON_SEL.
->> +	 * If needed, take msc->lock first.
->> +	 */
->> +	struct mutex		outer_mon_sel_lock;
->> +	raw_spinlock_t		inner_mon_sel_lock;
->> +	unsigned long		inner_mon_sel_flags;
->> +
->> +	void __iomem		*mapped_hwpage;
->> +	size_t			mapped_hwpage_sz;
->> +};
->> +
->> +#endif /* MPAM_INTERNAL_H */
-
-Thanks,
-
-James
+Index: linux/drivers/tty/serial/8250/8250_mtk.c
+===================================================================
+--- linux.orig/drivers/tty/serial/8250/8250_mtk.c
++++ linux/drivers/tty/serial/8250/8250_mtk.c
+@@ -358,7 +358,7 @@ mtk8250_set_termios(struct uart_port *po
+ 	 */
+ 	baud = uart_get_baud_rate(port, termios, old,
+ 				  port->uartclk / 16 / UART_DIV_MAX,
+-				  port->uartclk);
++				  port->uartclk / 256);
+ 
+ 	if (baud < 115200) {
+ 		serial_port_out(port, MTK_UART_HIGHS, 0x0);
 
