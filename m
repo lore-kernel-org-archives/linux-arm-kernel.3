@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA0FCA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 11:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136DBCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 11:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OADmKvkdhRGWuXD6uv1y/uNpD600wLMePta/OUvP8ys=; b=btLe4WcG7pB6F8XYyoWXuvWF0j
-	I/PStIPjPKyZzFo2xj+0GxfCtkCdv1IW2iSLkmCFDlcQGT64SQRD8bAsFbKeF3SSF1I+2aib5r0Q5
-	9PumTpsVk5dVE2a0f079CLFUUZIwSJZmndjfpOyO56fMSeaJI3Ob5j9P74pL/IIeL51k0LGJ9qMLJ
-	jfVo51h5A5fSPXqh1lda8OYb4N9c17lUj9oNy4ACD46yPikvEz8JqRThpQpLnop/b65/M8JmZ9+0q
-	8+HK6Vr7wE+Nf4iyBP1OFmZwxVXEInh6YFvvQBfTa4Vqhzji689LiE2xVOg7GfI7zU7p6nRTDjGqq
-	zFjDTEPQ==;
+	bh=b+Du9TeIxlEbNhvp61SYY8KuLIZkAqncV6TyBj9h6w4=; b=ac2tAHd7717Af5y0hBIBl/gMi8
+	BI6fW+9ZHOFxr629ntqd6OBkZa9Vxm/yBvrmh4Ciw6NmHLgzyLtlWzqBm6YNnn1KU7BQy4NJTIX3s
+	qNBQyv5nnYHSerwF0h91ox/ar8QpLyKufmUFOKjUd0DoQpqcbGE+38vNWfsG8hokcHudntDJSG4qs
+	amSnMJp9Jz4xcHD3NLBXthLvfhDtPkwtHBEB0xVXIxlLWG5Cn1rV30fauegLAUZlt0a1S056Ts1ez
+	e7X0H8jO0HIbOQVaMbQxl6Xy/0t8pZMKx9No7Z9TU/KVAlu6bDNd82/KmD/U0aYhq9aonrH2WH1UZ
+	W2nIjGnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uur7m-00000007goJ-2rGM;
-	Sat, 06 Sep 2025 11:30:30 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1uurE6-00000007hGE-3HRy;
+	Sat, 06 Sep 2025 11:37:02 +0000
+Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uur4w-00000007gR7-3Ugm;
-	Sat, 06 Sep 2025 11:27:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757158055; x=1788694055;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gtt+QkW89qQ/xiE4F1ORAwE6JL5LfqecUfOhg9hp7B8=;
-  b=nTOeL49+Hz1HWapD7r13kQOIgtMvYevFIGa2KDpHU2Jk5UW2TJUI2wiN
-   qQq0FvH+a6BXLBIGvdKChMfmnM6Wu3ABhmGinpV56tKaj9F86kB132L69
-   WQPnAxINJ5EfzmTfBn+AGuBygp/2X58NJ9B8xIv56he8jqlpr75WdTESK
-   cbAcXgt/rQT0F4XE2n7RL0AB4j3dDgMShmuR3K8WBn/TR+AKwXrMs3ljj
-   6sXub9bcjWm/VEu4DkjxAcxWgV3kF+GAkWsYWM4x1E5zdCtwW6j4PwAuw
-   rtAon/ieGcZdcJRsu6miPAJ3b196gOkQvNVuWA/GVQWHIZU86FCq7faEX
-   w==;
-X-CSE-ConnectionGUID: QoLUj17tSCSAzCw24JHRfw==
-X-CSE-MsgGUID: kH4Mf/yeQwOYk9j/WAar7w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11544"; a="58525533"
-X-IronPort-AV: E=Sophos;i="6.18,244,1751266800"; 
-   d="scan'208";a="58525533"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Sep 2025 04:27:34 -0700
-X-CSE-ConnectionGUID: OWRVGH4MTcqWp+tpytIhAw==
-X-CSE-MsgGUID: P4w+HXhvSIeDmXPIiyKcPw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,244,1751266800"; 
-   d="scan'208";a="177626327"
-Received: from lkp-server01.sh.intel.com (HELO 114d98da2b6c) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 06 Sep 2025 04:27:30 -0700
-Received: from kbuild by 114d98da2b6c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uur4p-0001O3-18;
-	Sat, 06 Sep 2025 11:27:27 +0000
-Date: Sat, 6 Sep 2025 19:26:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Chuan Liu <chuan.liu@amlogic.com>
-Subject: Re: [PATCH v3 2/2] clk: amlogic: add video-related clocks for S4 SoC
-Message-ID: <202509061948.3VcIfqLx-lkp@intel.com>
-References: <20250905-add_video_clk-v3-2-8304c91b8b94@amlogic.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250905-add_video_clk-v3-2-8304c91b8b94@amlogic.com>
+	id 1uurBH-00000007gzt-2EEI
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 06 Sep 2025 11:34:09 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1757158442;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=b+Du9TeIxlEbNhvp61SYY8KuLIZkAqncV6TyBj9h6w4=;
+	b=dyFLZBBFQ3+fJrBybmZ30Ba9rVjhUCsCr/fFpHSIuXFcfGEdnYs6CsyuB+nkg/q+SYdDiM
+	awuWCwVrXjZMBp2hNApyssaAvyMC9X67o/GyMrWC1nbqHBkius1OHU/6jEMgBGWLDWCzIF
+	p423/DIc7w/h0l4nBj1SASmAsOeKs7gDdwezyyYloch8+IUpKPDs+P/JodR3ZQULROR1sE
+	uyunYJfcZ0RxF2SJJpV7RRo9xP5LUK9p0FWF8EnAsklMQhPMN0vYzZ0G+63l8ShA+d1gY9
+	no8sG2t+eyxEqYUOPIlroUM64WnMFUw8EuFl9NP5PujRF+RIKATjkEISR7LYGA==
+Content-Type: multipart/signed;
+ boundary=71e10b725da0bb370e79d95e44ae5bd5e7d2c935e23050771e2938286b81;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Sat, 06 Sep 2025 13:33:52 +0200
+Message-Id: <DCLOOFYCU4G3.TRKM9VIKO4BX@cknow.org>
+Cc: "Alex Bee" <knaerzche@gmail.com>
+Subject: Re: [PATCH v2 1/2] arm64: dts: rockchip: add GPU powerdomain, opps,
+ and cooling to rk3328
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Christian Hewitt" <christianshewitt@gmail.com>, "Rob Herring"
+ <robh+dt@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250906112030.1829706-1-christianshewitt@gmail.com>
+In-Reply-To: <20250906112030.1829706-1-christianshewitt@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_042734_908581_E519693B 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250906_043407_951735_B25B26E1 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,75 +74,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chuan,
+--71e10b725da0bb370e79d95e44ae5bd5e7d2c935e23050771e2938286b81
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-kernel test robot noticed the following build errors:
+On Sat Sep 6, 2025 at 1:20 PM CEST, Christian Hewitt wrote:
+> From: Alex Bee <knaerzche@gmail.com>
+>
+> Add GPU powerdomain, opp-table, and cooling map nodes for the Mali
+> GPU on the RK3328 SoC. Opp-table frequencies are sourced from the
+> Rockchip Linux v4.4 vendor kernel while voltages have been derived
+> from practical use and support work: keeping voltage above 1075mV
+> and disabling the 500MHz opp-point avoids instability and crashes.
+>
+> Signed-off-by: Alex Bee <knaerzche@gmail.com>
+> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+> ---
+> Changes since v1:
+> - Use opp_table_gpu not gpu_opp_table to fix dtb schema warnings
+>
+>  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39 +++++++++++++++++++++++-
+>  1 file changed, 38 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/d=
+ts/rockchip/rk3328.dtsi
+> index 6438c969f9d7..01ed2bfa7ee1 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+> @@ -331,6 +331,11 @@ power: power-controller {
+>  			#address-cells =3D <1>;
+>  			#size-cells =3D <0>;
+> =20
+> +			power-domain@RK3328_PD_GPU {
+> +				reg =3D <RK3328_PD_GPU>;
+> +				clocks =3D <&cru ACLK_GPU>;
+> +				#power-domain-cells =3D <0>;
+> +			};
+>  			power-domain@RK3328_PD_HEVC {
+>  				reg =3D <RK3328_PD_HEVC>;
+>  				clocks =3D <&cru SCLK_VENC_CORE>;
+> @@ -570,9 +575,13 @@ map0 {
+>  							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+>  					contribution =3D <4096>;
+>  				};
+> +				map1 {
+> +					trip =3D <&target>;
+> +					cooling-device =3D <&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+> +					contribution =3D <4096>;
+> +				};
+>  			};
+>  		};
+> -
+>  	};
+> =20
+>  	tsadc: tsadc@ff250000 {
+> @@ -651,7 +660,35 @@ gpu: gpu@ff300000 {
+>  				  "ppmmu1";
+>  		clocks =3D <&cru ACLK_GPU>, <&cru ACLK_GPU>;
+>  		clock-names =3D "bus", "core";
+> +		operating-points-v2 =3D <&opp_table_gpu>;
+> +		power-domains =3D <&power RK3328_PD_GPU>;
+>  		resets =3D <&cru SRST_GPU_A>;
+> +		#cooling-cells =3D <2>;
+> +	};
+> +
+> +	opp_table_gpu: opp-table-gpu {
+> +		compatible =3D "operating-points-v2";
+> +		opp-200000000 {
+> +			opp-hz =3D /bits/ 64 <200000000>;
+> +			opp-microvolt =3D <1075000>;
+> +		};
+> +
+> +		opp-300000000 {
+> +			opp-hz =3D /bits/ 64 <300000000>;
+> +			opp-microvolt =3D <1075000>;
+> +		};
+> +
+> +		opp-400000000 {
+> +			opp-hz =3D /bits/ 64 <400000000>;
+> +			opp-microvolt =3D <1075000>;
+> +		};
+> +
+> +		opp-500000000 {
+> +			/* causes stability issues */
+> +			opp-hz =3D /bits/ 64 <500000000>;
+> +			opp-microvolt =3D <1150000>;
+> +			status =3D "disabled";
+> +		};
 
-[auto build test ERROR on 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf]
+The opp-table-gpu should be moved downwards, right above the pinctrl
+node. But maybe that can be done by Heiko when committing?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Chuan-Liu-via-B4-Relay/dt-bindings-clock-add-video-clock-indices-for-Amlogic-S4-SoC/20250905-171121
-base:   01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
-patch link:    https://lore.kernel.org/r/20250905-add_video_clk-v3-2-8304c91b8b94%40amlogic.com
-patch subject: [PATCH v3 2/2] clk: amlogic: add video-related clocks for S4 SoC
-config: arm64-randconfig-002-20250906 (https://download.01.org/0day-ci/archive/20250906/202509061948.3VcIfqLx-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 12.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250906/202509061948.3VcIfqLx-lkp@intel.com/reproduce)
+Cheers,
+  Diederik
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509061948.3VcIfqLx-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/clk/meson/s4-peripherals.c:1135:26: error: 'mux_table_cts_sel' undeclared here (not in a function)
-    1135 |                 .table = mux_table_cts_sel,
-         |                          ^~~~~~~~~~~~~~~~~
->> drivers/clk/meson/s4-peripherals.c:1140:31: error: 's4_cts_parent_hws' undeclared here (not in a function); did you mean 's4_cts_parents'?
-    1140 |                 .parent_hws = s4_cts_parent_hws,
-         |                               ^~~~~~~~~~~~~~~~~
-         |                               s4_cts_parents
-   In file included from include/linux/build_bug.h:5,
-                    from include/linux/bits.h:30,
-                    from include/linux/bitops.h:6,
-                    from include/linux/of.h:15,
-                    from include/linux/clk-provider.h:9,
-                    from drivers/clk/meson/s4-peripherals.c:9:
-   include/linux/compiler.h:197:82: error: expression in static assertion is not an integer
-     197 | #define __BUILD_BUG_ON_ZERO_MSG(e, msg, ...) ((int)sizeof(struct {_Static_assert(!(e), msg);}))
-         |                                                                                  ^
-   include/linux/compiler.h:202:33: note: in expansion of macro '__BUILD_BUG_ON_ZERO_MSG'
-     202 | #define __must_be_array(a)      __BUILD_BUG_ON_ZERO_MSG(!__is_array(a), \
-         |                                 ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/array_size.h:11:59: note: in expansion of macro '__must_be_array'
-      11 | #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
-         |                                                           ^~~~~~~~~~~~~~~
-   drivers/clk/meson/s4-peripherals.c:1141:32: note: in expansion of macro 'ARRAY_SIZE'
-    1141 |                 .num_parents = ARRAY_SIZE(s4_cts_parent_hws),
-         |                                ^~~~~~~~~~
+>  	};
+> =20
+>  	h265e_mmu: iommu@ff330200 {
 
 
-vim +/mux_table_cts_sel +1135 drivers/clk/meson/s4-peripherals.c
+--71e10b725da0bb370e79d95e44ae5bd5e7d2c935e23050771e2938286b81
+Content-Type: application/pgp-signature; name="signature.asc"
 
-  1129	
-  1130	static struct clk_regmap s4_cts_encl_sel = {
-  1131		.data = &(struct clk_regmap_mux_data){
-  1132			.offset = CLKCTRL_VIID_CLK_DIV,
-  1133			.mask = 0xf,
-  1134			.shift = 12,
-> 1135			.table = mux_table_cts_sel,
-  1136		},
-  1137		.hw.init = &(struct clk_init_data){
-  1138			.name = "cts_encl_sel",
-  1139			.ops = &clk_regmap_mux_ops,
-> 1140			.parent_hws = s4_cts_parent_hws,
-  1141			.num_parents = ARRAY_SIZE(s4_cts_parent_hws),
-  1142			.flags = CLK_SET_RATE_PARENT,
-  1143		},
-  1144	};
-  1145	
+-----BEGIN PGP SIGNATURE-----
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaLwcIwAKCRDXblvOeH7b
+br56AQCWWWvp8dGJgHCWZPupIEljTv62eHRRlJgagXNls350nAD9EjoJ2samkkdH
+662TWxKU0z5ftvwqQy8+keNZBlbmpgA=
+=SwUq
+-----END PGP SIGNATURE-----
+
+--71e10b725da0bb370e79d95e44ae5bd5e7d2c935e23050771e2938286b81--
 
