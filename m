@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D67CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 07:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B96CA101C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 07:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L6tGEJtsV2fGESmuOzTCSOuSbgKCGjd3mut7lEpQyk8=; b=ooC3R9/10kWf1i8/Vd5hYI1jrd
-	5HTkVmRZAx+g1XgQkTrYMXPYyDGzrUL3SI8gJ75bsRpjoXZRhDWOBXJ7GPRuFCjFX05WOmpLuP33O
-	pKbRNKSLBW2u45G89lKgLgwKOQjJrYdDhXtfDSFAzraQd01r227QzZklxluaig+KVFELGgJbDHNyX
-	Mtu1sq+Oz2V0Ad9gK+qEjCuBBXieEdGHElE97gl70wupuiowbA1LEvugqBO1GJF5rZbikV8REiD9w
-	HyQTe20h6I+2XoZDBxDSJSl08JRt+U4x4i4fJyyLpo84etvtcOJvL1OIoCC710fLhcS+WMtaCk1dw
-	KHdve0zA==;
+	bh=kX+F7j3TRYknT5yVzx+O3TkXZAFnQ34hhqzij28qxdY=; b=q3R7Gq/gv8YcTJ9yO+BJw0J9zE
+	kP/OLVChSdJRA/qL5hOiup4KoPWP3wA7klrKe3/4SuD1uT0swwf1DUI7KxcfjGcb9xnSp3gbM/mPi
+	PbpldCwwTlic9RvS+88T358mDJcoN/9WPz+l0qQfE7znZXOkuudBwKSKCj+BsocVkbskPP7mBEGDF
+	dxofZe2lI/zDhvFLgu4PjoQmJJe/t6XxeHqpi0g8YTxT09D9VkH7wTN2Lqc0lzgGdRSCi7C5LUZue
+	Ic9OvFa0SAp0mkDtjjjChdmSLdbaoVsUWbbb5CJzbKAgJ8bpEavHcfC6gVVNhK0IJlHsTcaFp597Q
+	yR4VDQ4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uun3f-000000075dZ-3CHO;
-	Sat, 06 Sep 2025 07:09:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uunCK-000000076op-04o0;
+	Sat, 06 Sep 2025 07:18:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uun0s-000000075V7-382U
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 07:07:07 +0000
+	id 1uun9V-000000076E1-2NV7;
+	Sat, 06 Sep 2025 07:16:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E56A40C25;
-	Sat,  6 Sep 2025 07:07:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97EE9C4CEE7;
-	Sat,  6 Sep 2025 07:07:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A9CE2601BD;
+	Sat,  6 Sep 2025 07:16:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D94FC4CEE7;
+	Sat,  6 Sep 2025 07:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757142426;
-	bh=zwUvickVCM+ZhAxLgR4H3PvoKPhot7jbWmSR67igzyw=;
+	s=k20201202; t=1757142960;
+	bh=48WfLyxBdPPFUaU6BIhe6s3CGo0PCs0tkHoG79/gQJs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tBE5+xMnoAoUFdGYTMOW9wKiSEH2McQdJ9yJRSDLRMH4MwTgoKnmmwqdaaVe93eqL
-	 i7hZeUrsiCtnuREkcQNFIC4IJE2m50X7iYbbyaATa9iiUxM5Aza1SxSdeN2/gwPUBM
-	 ejwomEnK5mbrJDuaWtWMiPdtqnUva6npypYh69qTX2MSgVazinubyggeN7fhqOzHwy
-	 B0voPFh0iQenq5Eh9G3yGineBffTquTNn2Yg1QRMKiyIm/gNEyBuouwMsKcs88PXMC
-	 AEudpL+KsDFtcH80fxm1e04EvUoDHkzgriFdQRfxI4FG9KOOlmib+t1BPR/p3EEiZm
-	 3rn44yTRoZQOA==
-Message-ID: <84332e77-cfd2-4090-a3c0-114a9eb5422a@kernel.org>
-Date: Sat, 6 Sep 2025 09:07:02 +0200
+	b=m3i8BBq8I4ts5m9rIz8i55qkpsq58G++OTNRGZq0B92v0eHlma/mt7FpeKcTzSXyy
+	 knaFXDGC7xppE8dw35LEkZUPMWFg9FFCxSamFtWUkyaQ51BaPcW3XXM5CtiAKwr/cT
+	 uflS1OqCavMKXzYEZn/ZvbYLyJAHHfSsCo4x+lwdLEbIA0uFqE4HGQKanZhR2GiijI
+	 +gHkbFo9Yfy64AnEMuyjF4brs9coEi1fJnCXAwETLuOWKnOfRPqS8sE7d1hlr9ksmW
+	 jBggg/FHsZtwKEQR8dsOUG7dH0a7pDURobDKb2Eu+KNG+UIi2I7Z4X5s8doXTnGNfU
+	 51CzC5TJTMA+Q==
+Message-ID: <12269301-f7e1-4eb6-afa3-a301453c50f6@kernel.org>
+Date: Sat, 6 Sep 2025 09:15:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: samsung: exynos-pmu: Fix for CONFIG_DEBUG_PREEMPT
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, alim.akhtar@samsung.com,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-References: <20250905162446.88987-1-smostafa@google.com>
- <19a6f296-eb40-49cf-9571-2d7964cd3313@kernel.org>
- <aLshJ11k3c2T-MRs@google.com>
+Subject: Re: [PATCH v7] dt-bindings: net: mediatek,mt7925-bluetooth.yaml
+To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>,
+ Marcel Holtmann <marcel@holtmann.org>, Luiz Von Dentz
+ <luiz.dentz@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Sean Wang <sean.wang@mediatek.com>, Jiande Lu <jiande.lu@mediatek.com>,
+ Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>,
+ Hao Qin <Hao.qin@mediatek.com>,
+ linux-bluetooth <linux-bluetooth@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-mediatek <linux-mediatek@lists.infradead.org>,
+ devicetree <devicetree@vger.kernel.org>
+References: <20250905084433.26999-1-ot_zhangchao.zhang@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +104,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aLshJ11k3c2T-MRs@google.com>
+In-Reply-To: <20250905084433.26999-1-ot_zhangchao.zhang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_000706_828197_56E04762 
-X-CRM114-Status: GOOD (  17.96  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,61 +121,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/09/2025 19:43, Mostafa Saleh wrote:
->>>
->>> As this value is only read once, it doesn't require to be stable, so
->>
->> Why it does not need to be stable? Onlining wrong CPU number is not
->> desired...
->>
->>> just use "raw_smp_processor_id" instead.
->>
->> You might be just hiding some other real issue, because above stacktrace
->> is from gs101_cpuhp_pmu_online() which IRQs disabled and preemption
->> disabled. Provide analysis of the warning, instead of just making it
->> disappear.
+On 05/09/2025 10:44, Zhangchao Zhang wrote:
+> Reset BT via BT_KILL_1V2_L hardware pin.
 > 
-> Not sure I understand, how is preemption disabled? that wouldn't fire
-> in that case.
-
-Because there is explicit preempt_disable().
-
-So far you did not present any code analysis, any actual arguments, so
-deflecting reviewer's comment like above will get you nowhere. Instead
-of replying with a question, bring arguments that the code path does not
-disable the preemption.
-
-My call is that you run all this on some other kernel, just like usually
-happens in Google.
-
+> On the M.2 standard hardware pin interface, the MTK chip
+> has a pin called BT_KILL_1V2_L or W_DISABLE#2, it uses
+> function-level device reset (FLDR) to reset Bluetooth.
+> When it is pulled low, it can external shut down the BT
+> function, it is defined as 5 on the MT7925 chip, and is
+> defined as 248 on the device tree pio controller.
 > 
-> I am not familiar with this driver, but as I see the value is used
-> only once, it would be stable, for example using get/put_cpu won't
-> really matter, because next access doesn't depend on the current CPU.
-> Otherwise, if you imply that this might not be enough, that means
-> the driver is already broken even without CONFIG_DEBUG_PREEMP
-> (which is beyond my knowledge at this point)
-> 
->>
->>>
->>> Cc: Peter Griffin <peter.griffin@linaro.org>
->>> Cc: André Draszik <andre.draszik@linaro.org>
->>>
->>
->> No blank lines between tags.
->>
->> Missing Fixes tag... and then Cc is not necessary. Please follow
->> standard kernel process.
-> 
-> I will add the Fixes.
-> 
-> I am working with Peter and André, so I thought Cc is fine
-> (according to the process) in:
-> https://docs.kernel.org/process/5.Posting.html
-
-Please learn how Fixes and get_maintainers.pl work.
+> Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+> ---
+>  .../bluetooth/mediatek,mt7925-bluetooth.yaml  | 47 +++++++++++++++++++
 
 
+You need to finally read submitting patches document.
+
+You already got comments before, multiple times, but you still ignoring
+them.
 
 Best regards,
 Krzysztof
