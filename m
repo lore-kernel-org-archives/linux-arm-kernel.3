@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B96CA101C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 07:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD4FCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 07:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kX+F7j3TRYknT5yVzx+O3TkXZAFnQ34hhqzij28qxdY=; b=q3R7Gq/gv8YcTJ9yO+BJw0J9zE
-	kP/OLVChSdJRA/qL5hOiup4KoPWP3wA7klrKe3/4SuD1uT0swwf1DUI7KxcfjGcb9xnSp3gbM/mPi
-	PbpldCwwTlic9RvS+88T358mDJcoN/9WPz+l0qQfE7znZXOkuudBwKSKCj+BsocVkbskPP7mBEGDF
-	dxofZe2lI/zDhvFLgu4PjoQmJJe/t6XxeHqpi0g8YTxT09D9VkH7wTN2Lqc0lzgGdRSCi7C5LUZue
-	Ic9OvFa0SAp0mkDtjjjChdmSLdbaoVsUWbbb5CJzbKAgJ8bpEavHcfC6gVVNhK0IJlHsTcaFp597Q
-	yR4VDQ4g==;
+	bh=PmUZPtQsX04Nw+fP451WjvxflXUvpo2w36dGncgyl20=; b=qZi/8sq1Dowz7Min2n0BxKmC3f
+	pZChgkdlPMAcE4e4k7pFaUZ3QK0OuJTC+m425RMGswJc+qorjP8PVrgq6mHJwVPlwacHgCv5SK5wE
+	s2CqGKgXXT1xy/CWoy9hai5XfiHKOWib3pKvPRL8DtvTnV7yy8j95FqHgoMO5amjJ3hVmpfWspHNk
+	hu9QPKxqZzEBedsfr+DQr3D93X0Q4ipM3WQ0+pjtXD7BAUb728dj3wJtEy61ClAslfTNLxufU9Xxs
+	AQ1cCeQxB119Fzd6TFA2nHNjJYKqDtfvVBQeIgmEp5sO/R/aF6SwyviMsLBVtKKq8h6hqdIC1yD0L
+	b3zuYyAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uunCK-000000076op-04o0;
-	Sat, 06 Sep 2025 07:18:56 +0000
+	id 1uunHi-000000077rh-1auJ;
+	Sat, 06 Sep 2025 07:24:30 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uun9V-000000076E1-2NV7;
-	Sat, 06 Sep 2025 07:16:01 +0000
+	id 1uunEu-000000077Ho-2SCa;
+	Sat, 06 Sep 2025 07:21:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A9CE2601BD;
-	Sat,  6 Sep 2025 07:16:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D94FC4CEE7;
-	Sat,  6 Sep 2025 07:15:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8255860293;
+	Sat,  6 Sep 2025 07:21:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEEBCC4CEE7;
+	Sat,  6 Sep 2025 07:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757142960;
-	bh=48WfLyxBdPPFUaU6BIhe6s3CGo0PCs0tkHoG79/gQJs=;
+	s=k20201202; t=1757143295;
+	bh=1vf2uE44kUXhBmJjEDqAjCxyn0j1zb8VmMho+cmnE3Q=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=m3i8BBq8I4ts5m9rIz8i55qkpsq58G++OTNRGZq0B92v0eHlma/mt7FpeKcTzSXyy
-	 knaFXDGC7xppE8dw35LEkZUPMWFg9FFCxSamFtWUkyaQ51BaPcW3XXM5CtiAKwr/cT
-	 uflS1OqCavMKXzYEZn/ZvbYLyJAHHfSsCo4x+lwdLEbIA0uFqE4HGQKanZhR2GiijI
-	 +gHkbFo9Yfy64AnEMuyjF4brs9coEi1fJnCXAwETLuOWKnOfRPqS8sE7d1hlr9ksmW
-	 jBggg/FHsZtwKEQR8dsOUG7dH0a7pDURobDKb2Eu+KNG+UIi2I7Z4X5s8doXTnGNfU
-	 51CzC5TJTMA+Q==
-Message-ID: <12269301-f7e1-4eb6-afa3-a301453c50f6@kernel.org>
-Date: Sat, 6 Sep 2025 09:15:54 +0200
+	b=hVwnbvQ0GyGsk9CV7Y/bDk88/07Z/1RInKhzz/lVezZPebsoSNm6PNjbskRTi2OC3
+	 MZ/tqBGzbWdQRATDynJweGlEm1U9SFFWSuLRLYqHP3MNh/bVQ7VUhts4ClE6UVmu0b
+	 ROKtXp8uXzl9BR5uCjV7UXut4nz+W6a8XyhCy1k1MYL9Ur+hq35CkapZ5uHaqhEJFM
+	 9pERv8RjCy8kNFl0i9jZNCb8GPgE1rWW6fDH4cKr2CJliRR16cboPbEONNlngPowBI
+	 Xt1SPjaIWcdpWd4TgwyA+BIWScba9iUqAUSAMDtYP85o2b7rkX0tAUiNTCMwGVwbAb
+	 EQ/GfDQvGH74w==
+Message-ID: <58b638c8-b27e-49a6-b79e-f078135c575b@kernel.org>
+Date: Sat, 6 Sep 2025 09:21:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7] dt-bindings: net: mediatek,mt7925-bluetooth.yaml
-To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>,
- Marcel Holtmann <marcel@holtmann.org>, Luiz Von Dentz
- <luiz.dentz@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Sean Wang <sean.wang@mediatek.com>, Jiande Lu <jiande.lu@mediatek.com>,
- Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>,
- Hao Qin <Hao.qin@mediatek.com>,
- linux-bluetooth <linux-bluetooth@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-mediatek <linux-mediatek@lists.infradead.org>,
- devicetree <devicetree@vger.kernel.org>
-References: <20250905084433.26999-1-ot_zhangchao.zhang@mediatek.com>
+Subject: Re: [PATCH v1 2/4] dt-bindings: clock: rk3368: add CLK_I2S_8CH_PRE
+ and CLK_I2S_8CH_FRAC
+To: =?UTF-8?B?5p2O57u06LGq?= <cn.liweihao@gmail.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+References: <20250905132328.9859-1-cn.liweihao@gmail.com>
+ <20250905132328.9859-3-cn.liweihao@gmail.com>
+ <707aad1d-fcdb-4c66-8d96-41cf1a1b02ce@kernel.org>
+ <CAPEOAkRTVtKBsmiGTbKOCar0oNS-C3dRXqdpuowroRPH1bFS7g@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +101,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250905084433.26999-1-ot_zhangchao.zhang@mediatek.com>
+In-Reply-To: <CAPEOAkRTVtKBsmiGTbKOCar0oNS-C3dRXqdpuowroRPH1bFS7g@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,25 +118,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/09/2025 10:44, Zhangchao Zhang wrote:
-> Reset BT via BT_KILL_1V2_L hardware pin.
+On 06/09/2025 03:34, 李维豪 wrote:
+> Hi,
 > 
-> On the M.2 standard hardware pin interface, the MTK chip
-> has a pin called BT_KILL_1V2_L or W_DISABLE#2, it uses
-> function-level device reset (FLDR) to reset Bluetooth.
-> When it is pulled low, it can external shut down the BT
-> function, it is defined as 5 on the MT7925 chip, and is
-> defined as 248 on the device tree pio controller.
+> Krzysztof Kozlowski <krzk@kernel.org> 于2025年9月5日周五 22:13写道：
+>>
+>> On 05/09/2025 15:23, WeiHao Li wrote:
+>>> We need a clock id to assign clock parent when use i2s 8ch as audio
+>>> device, CLK_I2S_8CH_FRAC should be CLK_I2S_8CH_PRE parent so we can get
+>>> frequency we want.
+>>>
+>>> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
+>>> ---
+>>>  include/dt-bindings/clock/rk3368-cru.h | 3 +++
+>>>  1 file changed, 3 insertions(+)
+>>>
+>>> diff --git a/include/dt-bindings/clock/rk3368-cru.h b/include/dt-bindings/clock/rk3368-cru.h
+>>> index b951e29069..795e721957 100644
+>>> --- a/include/dt-bindings/clock/rk3368-cru.h
+>>> +++ b/include/dt-bindings/clock/rk3368-cru.h
+>>> @@ -183,6 +183,9 @@
+>>>  #define HCLK_BUS             477
+>>>  #define HCLK_PERI            478
+>>>
+>>> +#define CLK_I2S_8CH_PRE              500
+>>
+>> 479
+>>
+>>> +#define CLK_I2S_8CH_FRAC     501
+>>
+>> 480, no?
+>>
 > 
-> Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-> ---
->  .../bluetooth/mediatek,mt7925-bluetooth.yaml  | 47 +++++++++++++++++++
+> Neither of these clocks belong to the previous grouping in terms of
+> type, so I chose to start with a new integer id here.
 
-
-You need to finally read submitting patches document.
-
-You already got comments before, multiple times, but you still ignoring
-them.
+I don't know what is "previous grouping" here, but IDs are abstract and
+are incremented by 1.
 
 Best regards,
 Krzysztof
