@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53584CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684ADCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMJiDJbKP/etSvCuwnuuixi3lvLXAUo5LVfiKg0BtMM=; b=m4AiHqzMtr2XeEVd2pBmicgJSk
-	eBURa+bMP6nfuXvpH4SN33ZfSBHRp4kEeszCiJa5PWuTERav2pFE+3P4GJAKOrKpJFfzaLeqZJ9a1
-	ptZEdP7nSfFk7vVSa3zSIpaRIwYVl7Lpz7uy5HcHN/mtv7lOre5k04OWvsUOlmlE12SDrLlUolXKj
-	KKDA1F/NhldIftwbXIUZasuIZZ3FDmHJK7B7ebkKZOZWNCB2vHdeCQRiToH1TVobD72xTMcQwqS75
-	47y31yEIqVy0HhsQeUYv7kY0SJLLdyTFLkxxfoRdf2bi45v2VVu6RL0EPr4hdt8f9ky1WnXfPIjfj
-	szXY7XtQ==;
+	bh=vADT7opWRct2rqiVIZqiOBr/+HV23dbzmDRf/TThZaM=; b=A5fdQmL6wN/w/qym4FcHZte7QB
+	Yo26bninXpUJiNgFqu/P3Hg9NzlwHhRdf2eHCm27mVBViuWPf2dsYfv+s4EOyax/ozmacfkWfwKWK
+	vtPBJGhcieawPdqeYaHUl1vEbTRgjaxcBomzSdP/EUUsb5A9GgjYaXZ3QtkM7+xHGCqa/aMLRgE2h
+	fFH7KjqwKFGA8fF8ydxxWGpBXkCozlIKpDepcDykcjjYD6SzdZB8USktBfBXt9FkjLQTtby9ahivB
+	WHEugIP199NMiHYwU0sXzq3IpXoekkFP7wMDmrcE7eL9K+2b6CnIhHw+T2sj2zeAa9+VxoDOt4K17
+	p1+IOsQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuroW-00000007k8a-02Dz;
-	Sat, 06 Sep 2025 12:14:40 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1uurrL-00000007kKD-0uk9;
+	Sat, 06 Sep 2025 12:17:35 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuriP-00000007jct-0RCl;
-	Sat, 06 Sep 2025 12:08:22 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3dae49b117bso2447529f8f.1;
-        Sat, 06 Sep 2025 05:08:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757160499; x=1757765299; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lMJiDJbKP/etSvCuwnuuixi3lvLXAUo5LVfiKg0BtMM=;
-        b=e9MI/qhyw3YOUXhfcj2OQZS1gkcQjHGvypw9GITBk1P4f2Uo33WCJaySd2qvMncg+T
-         /QP2TNc4eWwSmpGZQDrZtl7EaT9WoY1XV8yfZrsGo2oScB31oJhQcdVmpFwoClLWoPWr
-         Q4QRHS4sZVR52eCfQ6Esd6Z/Ob/fFzKXbDbEUoSvxLbeK21kCtpdSNXOmJxphdoDqpnF
-         JzynH53NvImIka04Y7mMzpDXu/SCJKo4d3gOLYp+k+2KkF7vh24KuHoQB2Bhj9V7K3BR
-         gUW4D2zTrlmXpbXdwWjh9gcoGIbp0lYJZU2Z8IU54zll9faoSL9FTAkVlc1crJuPSxRn
-         OgkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757160499; x=1757765299;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lMJiDJbKP/etSvCuwnuuixi3lvLXAUo5LVfiKg0BtMM=;
-        b=HlT4E/ooAwpyvz8h5rblL+uNJK12G+HL2ZJRsyimTXbq462NoNQgKwfRHFP9/AdNgU
-         TSLvbJ0kKj1JpxhpkiuaU9VaIIkD6INDE/Q18wXheirX2w8tbtPv66qz08Uq9pru14EF
-         qrI6RiKY/pboTk0YZzAlT1RMfnAJvFmT1xqZa5wDyGlIK997L5K2buCH0ZimyZ7fJAQl
-         LSktrEovn4eoS4+HSmgn/wI44sMeLZxTwGITNgnDwuwRsDH3LQ72Jhf3GdZk0SVJUxvb
-         K9G3vMJEPq2kzY/DOoShGdeUPxv4YvJJuKFalsghtQjDbhBh375Cx14/wfLE5qsVMwsE
-         AKjw==
-X-Forwarded-Encrypted: i=1; AJvYcCU6MCA2pPig84cwhWGPkVVH46GffDw0rZ2doboj8iTK6RdbbXcb1frrmglPWmUqNILfl8RhPp3TSqfOr9m5QLdn@lists.infradead.org, AJvYcCU8jMDUA9VD6MhimfqiylESvYKTYSUv+w8LeFcH3A8PwYgvfDwY4kTHXPsT6rO+Nhov18ASlZyAh2dJpvrnsz0=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQlXlovu34nbiHjzSkUVLWqhtmrgE0o6ajvLTGzboIH4FHn+rF
-	hkNZBwVMRKF6WsK+bnkHBxNCSGkACFN9Hx03l3ICMmvL6WwMTOnTC7uc
-X-Gm-Gg: ASbGncvmw76wn9QjCrPlJqok9UqYAcw/C+bZQiYd2GuysuDp3eMinSMTfiQ+El7/9kE
-	q9DbqCnt//RGrv9RpPlFtV9Ds3Q7pBaPYEkLlRiYTcjpMeoOQEuxmKCPvdSyGQ5DIUkrVuakr82
-	a4Wtba7hD7my+Rh61fF+iNw1QV/KtqwNgBLa89hpPwQrs4QdlnhHqthSbWvIMnohSevJzpZmhuP
-	P4LFnn94PZWmxJ7hZBOqqm7ssLoXGQDUX4biVp6gIzW0dVgM506wqddKU7J8HNpUukq8FTbWAae
-	savLjUi7UokHCeCISU+Ip5sk+mi8uFstMt0iS8TgwkuYpB56sjtTAxKwj6J4WouK6iUpRQmVc+0
-	6IldBUVc8V+66GqtAbC81e9ZB2Og=
-X-Google-Smtp-Source: AGHT+IHBJYiQh+I1y35iAqJpgfRb8U4m0E/9PkidxB03WfHyJamTMIisTixcjF4m3yIucg+v2jdCiA==
-X-Received: by 2002:a05:6000:2005:b0:3e4:f71e:2d7e with SMTP id ffacd0b85a97d-3e64317ccb9mr1420659f8f.23.1757160499394;
-        Sat, 06 Sep 2025 05:08:19 -0700 (PDT)
-Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45dd058ed5esm60978455e9.1.2025.09.06.05.08.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 06 Sep 2025 05:08:19 -0700 (PDT)
-From: Christian Hewitt <christianshewitt@gmail.com>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alex Bee <knaerzche@gmail.com>
-Subject: [PATCH v3 2/2] arm64: dts: rockchip: enable the Mali GPU on RK3328 boards
-Date: Sat,  6 Sep 2025 12:08:10 +0000
-Message-Id: <20250906120810.1833016-2-christianshewitt@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250906120810.1833016-1-christianshewitt@gmail.com>
-References: <20250906120810.1833016-1-christianshewitt@gmail.com>
+	id 1uurkQ-00000007jq3-1e4T;
+	Sat, 06 Sep 2025 12:10:27 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1757160623;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vADT7opWRct2rqiVIZqiOBr/+HV23dbzmDRf/TThZaM=;
+	b=I2WNNwF4OGGTvLxzCQRJVFYSr9v8AEMmTidkPl7lrNUOX9p+fRjbSL5qlvuEvadMuVGNw/
+	8+qMS1iCO2Ju4h/qCAtQVAJHq8ygoMPUAfoNUwdBS/5Rh6X+saNi6xCfSka8zUXt/HQybP
+	f3ZBdJoupsOKXgY1LWZtQrGnQS8lwq0Ykmu8prGC3CXyVfOsf0DifWm02nqn3C14f3WbTY
+	bG7BXzqk21FEktYf42VV8m4rVGmt6zIiP7BMywYJ4brQNtCgwFGpRqJB4BgBJeHNkI8wnn
+	5FoSF3/zb3Xe05M+c2Alm5YApbRXiF2IOGYNe4nkeMZXFRDbCB22BG2VTbOppw==
+Date: Sat, 06 Sep 2025 14:10:22 +0200
+From: Dragan Simic <dsimic@manjaro.org>
+To: Diederik de Haas <didi.debian@cknow.org>
+Cc: linux-rockchip@lists.infradead.org, heiko@sntech.de, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Make RK3588 GPU OPP table naming
+ uniform
+In-Reply-To: <DCLOTR9Y380M.22GZYL11XXZM2@cknow.org>
+References: <355c16ab070688fc6285e0d4419eb54a3f699eee.1757152740.git.dsimic@manjaro.org>
+ <DCLOTR9Y380M.22GZYL11XXZM2@cknow.org>
+Message-ID: <47cf50f2f497108a923815c12b1f8c9b@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_050821_144801_3D587960 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20250906_051026_814662_A84CA1FF 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,71 +75,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alex Bee <knaerzche@gmail.com>
+Hello Diederik,
 
-Add a gpu node to the rock64 board to enable the Mali GPU and
-move the existing node from roc-pc to the shared roc dtsi to
-enable it also for the roc-cc board.
+On 2025-09-06 13:40, Diederik de Haas wrote:
+> On Sat Sep 6, 2025 at 12:01 PM CEST, Dragan Simic wrote:
+>> Unify the naming of the existing GPU OPP table nodes found in the 
+>> RK3588
+>> and RK3588J SoC dtsi files with the other SoC's GPU OPP nodes, 
+>> following
+>> the more "modern" node naming scheme.
+> 
+> Like we discussed in private (without an agreement), I think it would 
+> be
+> beneficial if the (gpu) opp naming would be made consistent across SoC
+> series as right now there are several different naming schemes applied.
+> They're all valid, but inconsistent. And if consistency is improved,
+> which I like, then let's go 'all the way'?
 
-Signed-off-by: Alex Bee <knaerzche@gmail.com>
-Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
----
-Changes since v2:
-- No changes
-Changes since v1:
-- No changes
+As we discussed it already in private, I fully agree about performing
+the "opp-table-X => opp-table-{clusterX,gpu}" naming cleanup 
+consistently
+for all Rockchip SoCs, but I'm afraid it would be seen as an unnecessary
+"code churn" at this point, especially because my upcoming Rockchip SoC
+binning patch series is a good candidate for such a cleanup.
 
- arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts | 4 ----
- arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi   | 4 ++++
- arch/arm64/boot/dts/rockchip/rk3328-rock64.dts | 4 ++++
- 3 files changed, 8 insertions(+), 4 deletions(-)
+On top of that, I'd be a bit weary about performing at least some of the
+testing associated with such a platform-wide cleanup, despite actually
+performing no functional changes and being a safe change.  On the other
+hand, "bundling" such a cleanup with the Rockchip SoC binning patches
+would get us detailed testing for free, so to speak.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts b/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
-index 329d03172433..c0b7b98ff788 100644
---- a/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
-@@ -44,10 +44,6 @@ &codec {
- 	mute-gpios = <&grf_gpio 0 GPIO_ACTIVE_LOW>;
- };
- 
--&gpu {
--	mali-supply = <&vdd_logic>;
--};
--
- &pinctrl {
- 	ir {
- 		ir_int: ir-int {
-diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-index b5bd5e7d5748..7eef6f7f108f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-@@ -160,6 +160,10 @@ &gmac2io {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&vdd_logic>;
-+};
-+
- &hdmi {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
-index 5367e5fa9232..592fd8ca21df 100644
---- a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
-@@ -152,6 +152,10 @@ &gmac2io {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&vdd_logic>;
-+};
-+
- &hdmi {
- 	avdd-0v9-supply = <&vdd_10>;
- 	avdd-1v8-supply = <&vcc_18>;
--- 
-2.34.1
+Of course, if the maintainers see this as a good opportunity to perform
+a platform-wide cleanup at this point, instead of seeing it as a "code
+churn", I'll still be happy to extend this small patch into a platform-
+wide naming cleanup of the "opp-table-X" nodes.  On the other hand, if
+this patch remains as-is, it may hit a good balance between resolving
+the currently present naming ambiguity and the amount of introduced
+changes.
 
+>> Fixes: a7b2070505a2 ("arm64: dts: rockchip: Split GPU OPPs of RK3588 
+>> and RK3588j")
+>> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
+>> ---
+>>  arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi | 2 +-
+>>  arch/arm64/boot/dts/rockchip/rk3588j.dtsi    | 2 +-
+>>  2 files changed, 2 insertions(+), 2 deletions(-)
+>> 
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi 
+>> b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+>> index 0f1a77697351..b5d630d2c879 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+>> @@ -115,7 +115,7 @@ opp-2400000000 {
+>>  		};
+>>  	};
+>> 
+>> -	gpu_opp_table: opp-table {
+>> +	gpu_opp_table: opp-table-gpu {
+>>  		compatible = "operating-points-v2";
+>> 
+>>  		opp-300000000 {
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi 
+>> b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
+>> index 9884a5df47df..e1e0e3fc0ca7 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
+>> @@ -66,7 +66,7 @@ opp-1608000000 {
+>>  		};
+>>  	};
+>> 
+>> -	gpu_opp_table: opp-table {
+>> +	gpu_opp_table: opp-table-gpu {
+>>  		compatible = "operating-points-v2";
+>> 
+>>  		opp-300000000 {
 
