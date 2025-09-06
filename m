@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7055FCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0E5CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbc+e30e0MUh9asbJbjsGXkfnGDR6CzS77W8SEyyVAU=; b=3wujwyaoujIWYg0MAXrgvPrql/
-	GAf/RhMKrl+ozEd+BIpFw1OpT07zPTb4Ou1bd4cGjKFJwPGiGzHpu50Wt8BOwAzBiGKA++JLJWwPb
-	Ve5e64qiK3jNo/zHgFTDENw/fv7hShMGAlQHJSlLsM30PUGlI6pWWbiSHkeApk8WKS286equ+2/p6
-	osiju8etAXduH6BzcP0pq23CruGz/g/J+anVUNMrP4B2M58jOiLMW/WBCUOIgnr068390n/7UdGEA
-	SY6e6xfR1x/lmfQoyc/Ot/RJyn0Lk8v0+lzKs/P8kttRli7trUEXRx0MrCx5IOf4uEo4Q18Eh1dft
-	Y5IpB16w==;
+	bh=/HbP1MKiIRwHG1bhAPUFAk0WPA1rYPvAhi+7feFSOG0=; b=bcwiZsXee/OvgXvoHwhhOHIYTA
+	Mjzlnsaitxs4DBHNaBX/k2OAwvrsuhorPLcLVKxnk5Zhx6OTgvOYAXB/JbQiDJxw6bX+4Fktji0kH
+	HLe5B5uMo0eE7kHXzvQlqr3Gc7KhNsF0/0nrezy2Vsl5hzRfG/QE3dAbof/hJ5Dyo8sU26SuZDfh3
+	JI3xUa85hZg5O39SidG95FkSkkJldWrGNgni+AhqErTJ5ZVHDiU8sa+4pRnDnqr6rfm3Ml+jCqYLm
+	AaelEt+bZB0YobpoVAYdv8QZ2CviufLKcIHrUUpGkpBVFWZsgVfReQ3z3qTxNYdEZ+e3a5S3NC84l
+	ye+qtMzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uurw6-00000007kkb-1wIg;
-	Sat, 06 Sep 2025 12:22:30 +0000
+	id 1uuryt-00000007kzl-1UUP;
+	Sat, 06 Sep 2025 12:25:23 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uurtK-00000007kTz-0Mni
+	id 1uurua-00000007kcM-2T4g
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 12:19:38 +0000
+	Sat, 06 Sep 2025 12:20:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 05E26601DC;
-	Sat,  6 Sep 2025 12:19:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35922C4CEE7;
-	Sat,  6 Sep 2025 12:19:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 02E966032D;
+	Sat,  6 Sep 2025 12:20:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 411AFC4CEE7;
+	Sat,  6 Sep 2025 12:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757161176;
-	bh=d66CE2BRrsDc0bqtOkhjXylbJKf0aWTKrq3qcYiY2E4=;
+	s=k20201202; t=1757161255;
+	bh=tj2qaoX0X4TgcNXLGb5/BwqEER/Qx4Bs9TmgYBUu/vg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=g44EHU0ehuspt3mnBw9EvdTY81A2GC/jYf7Yvf30uz14xdN9jMbhoueLvworsLcoB
-	 jeB/FJOhbGAMWWa98RJi3gjjmYOU8gfLr9OyRNovm+uNTV1CkuZaMDJuUfTWzDyJMI
-	 HIFUd63kPWIw+uTrguwVsoCKPIpGLISKP+XRDv0UkVTzcHk7CYLRb7LTG+2LeZqZQv
-	 ePOJa/5MREA6yDLWSjodn0Yx7oFVEWwcUWNIrhruqNobBxi4YdBnpTbKphs2Xn6gn8
-	 +uN87UloA7oLdfuqdZRenQ1Bhy2yF8HSTss/5DBcU9tfMYR3vkcI4ON9qkkVbYvXmO
-	 tPxD6qTdbF7BQ==
-Message-ID: <eafb409d-5b5f-4791-939a-5a3c1eb00b9b@kernel.org>
-Date: Sat, 6 Sep 2025 14:19:30 +0200
+	b=LneFQRDjv//hBKwYIOfuAeZS26z2XACGJrDB8xTO3LSKmRRDCRwty7TCQrM+KLapR
+	 3uAqg20tT3OZuJTH58jyZ++yEsSfmWWV5gDpnTVZw81ruvE4goyuInK39JsRy1M59C
+	 8c+Cozat0J/+ftjqfa8nPOul/F630EdfsfpfMo4zrGThqqeTlfoyT//SZILAmfrL9a
+	 RHQRaS/JXtdMWyCEZmG3VqRyaRXHHdaftQyVvbZ6mzCB/CdFFtchADTI97t90jjsCB
+	 75K10SXV1+56xC6X9YEb/VnC21CJoEsFY2bP2RH3fzjyAQWEDPfLBuxrLSzj7oX5Kb
+	 6odKzo4myA6/Q==
+Message-ID: <700967d0-ad8b-471b-b2cf-6544727db26d@kernel.org>
+Date: Sat, 6 Sep 2025 14:20:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/5] clk: samsung: add Exynos ACPM clock driver
+Subject: Re: [PATCH v3 4/5] firmware: exynos-acpm: register ACPM clocks pdev
 To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
@@ -60,7 +60,7 @@ Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
 References: <20250903-acpm-clk-v3-0-65ecd42d88c7@linaro.org>
- <20250903-acpm-clk-v3-3-65ecd42d88c7@linaro.org>
+ <20250903-acpm-clk-v3-4-65ecd42d88c7@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250903-acpm-clk-v3-3-65ecd42d88c7@linaro.org>
+In-Reply-To: <20250903-acpm-clk-v3-4-65ecd42d88c7@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,96 +124,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/09/2025 15:56, Tudor Ambarus wrote:
-> +
-> +static int acpm_clk_probe(struct platform_device *pdev)
-> +{
-> +	enum acpm_clk_dev_type type = platform_get_device_id(pdev)->driver_data;
-> +	const struct acpm_clk_driver_data *drv_data;
-> +	const struct acpm_handle *acpm_handle;
-> +	struct clk_hw_onecell_data *clk_data;
-> +	struct clk_hw **hws;
-> +	struct device *dev = &pdev->dev;
-> +	struct acpm_clk *aclks;
-> +	unsigned int mbox_chan_id;
-> +	int i, err, count;
-> +
-> +	switch (type) {
-> +	case GS101_ACPM_CLK_ID:
-> +		drv_data = &acpm_clk_gs101;
+> Register by hand a platform device for the ACPM clocks.
+> The ACPM clocks are not modeled as a DT child of ACPM because:
+> 1/ they don't have their own resources.
+> 2/ they are not a block that can be reused. The clock identifying
+>    data is reduced (clock ID, clock name and mailbox channel ID)
+>    and may differ from a SoC to another.
 
-Just use acpm_clk_gs101 directly (see also further comment).
-
-> +		break;
-> +	default:
-> +		return dev_err_probe(dev, -EINVAL, "Invalid device type\n");
-> +	}
-> +
-> +	acpm_handle = devm_acpm_get_by_node(dev, dev->parent->of_node);
-> +	if (IS_ERR(acpm_handle))
-> +		return dev_err_probe(dev, PTR_ERR(acpm_handle),
-> +				     "Failed to get acpm handle.\n");
-> +
-> +	count = drv_data->nr_clks;
-> +	mbox_chan_id = drv_data->mbox_chan_id;
-> +
-> +	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, count),
-> +				GFP_KERNEL);
-> +	if (!clk_data)
-> +		return -ENOMEM;
-> +
-> +	clk_data->num = count;
-> +	hws = clk_data->hws;
-> +
-> +	aclks = devm_kcalloc(dev, count, sizeof(*aclks), GFP_KERNEL);
-> +	if (!aclks)
-> +		return -ENOMEM;
-> +
-> +	for (i = 0; i < count; i++) {
-> +		const struct acpm_clk_variant *variant = &drv_data->clks[i];
-> +		unsigned int id = variant->id;
-> +		struct acpm_clk *aclk;
-> +
-> +		if (id >= count)
-
-This is not possible. You control the IDs build time, so this must be
-either build time check or no check. I vote for no check, because I
-don't think the ID is anyhow related to number of clocks. What if (not
-recommended but what if) the IDs have a gap and next ID is 1000. I see
-your code using ID:
-
-
-> +			return dev_err_probe(dev, -EINVAL,
-> +					     "Invalid ACPM clock ID.\n");
-> +
-> +		aclk = &aclks[id];
-> +		aclk->id = id;
-> +		aclk->handle = acpm_handle;
-> +		aclk->mbox_chan_id = mbox_chan_id;
-> +
-> +		hws[id] = &aclk->hw;
-
-^^^ here, but why do you need it? Why it cannot be hws[i]?
-
-> +
-> +		err = acpm_clk_ops_init(dev, aclk, variant->name);
-> +		if (err)
-> +			return dev_err_probe(dev, err,
-> +					     "Failed to register clock.\n");
-> +	}
-> +
-> +	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
-> +					   clk_data);
-> +}
-> +
-> +static const struct platform_device_id acpm_clk_id[] = {
-> +	{ "gs101-acpm-clk", GS101_ACPM_CLK_ID },
-
-Please drop GS101_ACPM_CLK_ID here and in other places. It's dead code
-now. It should be introduced with next users/devices.
-
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(platform, acpm_clk_id);
+If I understand patchset correctly (and your cover letter supports
+that), this does not depend on patch #3, so please move it before that
+one, so both firmware patches are one after another.
 
 Best regards,
 Krzysztof
