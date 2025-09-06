@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC28CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 10:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1082CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 11:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWcMbbpWIN+FZp/dqVtxO/yiBkqQjBf3ubyVT6lX0jE=; b=mODOLN2HWblEK5PkGHsJhdVHIc
-	GOyW/qV0L4uouxh6PAXVLaRwQYj/snsZ3T8RqDPvxeMQRc4pmDEpAceYS1YOh5f+PLivAbUD4uU+l
-	bHU81IIE7khpBnQNpLR0hNyDTJe5I+wMTqa4QBxHU6B8GMQ9h4w6C9RAjcjNB/9a5qyN61KhBccv+
-	lVJUzmQzcIVDO2q48eYx8menkyGH+oUUDG65yc+Hm2p7eD2RNVMSTbtqeJJ5sWBWTUk64wrtJNDfD
-	4MapJkzVE0QwpRBJcIyenANlUQGXOBwP0xmWm4t4862MU364CdQnvEX6jxFOSYWrqwyX+Y8egjjb1
-	8hwto+Lg==;
+	bh=u+EAM0XQQoLVEORwNHeMrdT+RATLgROribnJQCWjWOk=; b=Hv5qW+x7HU1dbd2g8jRS8Qg8O7
+	7rIriV1pQp1mPSqeBaJn/NtMyKFToDP/SFhqFNnevBbj9VZiOv2DBFYp8sknE+YWXoD2rPwuyzGQF
+	fVfveRFhJQruAmYwrKWhw76dl9ukms0eTYgTZkCELexWhlYQNTEPvZE4vO9Z2o1PPINDs4ju0XAr1
+	fOA9oSNz7kfrbbMyV2ffav9YKaccVqy186T33Lv5SSXHIQq8BiCqegHfBICiE6mh9xf6mUPY4dOQ8
+	HZ8O/FuG9dRlB8vWay9q74BI/Q9XW/rrIMBvuys5vPbrTn0G2LnHZnMNI3Au+c+bRHwdpCZITuHXM
+	GkraUjSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuqT1-00000007ZES-3Evi;
-	Sat, 06 Sep 2025 10:48:23 +0000
-Received: from out-189.mta0.migadu.com ([91.218.175.189])
+	id 1uuqmi-00000007cMd-35t7;
+	Sat, 06 Sep 2025 11:08:44 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuqQD-00000007Y3I-3vFE
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 10:45:31 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1757155517;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KWcMbbpWIN+FZp/dqVtxO/yiBkqQjBf3ubyVT6lX0jE=;
-	b=g5Xe0hbOmiJ+4Tjxwyrb9wHVFPZAeIvFOXNm43tHbO9XszKd6RANE7DdKnW8nWJM056AFd
-	52Oq41xklhYtBjFGPBR4A5dLBH3YXP7mgm0Kca9iEzzAXGwvkiryhMvIc5+qFmJe5bgi3m
-	IaTNf49fsmKuOSFX11WOvIvOslV4O7NqZWHkrIE+1KF6Dp73q6dW64Mo3Yg52xyuYiIyOo
-	eHWPcpE0cIFdpYZJGAVPAB6GpIEr+sL/l9ZkH6CU1aATXErZb5Ut+rq8BP5y7HKcZiabN7
-	s9D4VrcRZPXEMjmOSjYZE9CXrDAxGLnqoT9ghw76EWam51aeK7giff7jWUSUuw==
-Content-Type: multipart/signed;
- boundary=aa8f6cab7102cb8c9f5c1de5473582a640e558b7c971361d91f09e28c3f1;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Sat, 06 Sep 2025 12:45:08 +0200
-Message-Id: <DCLNN4LYO8CS.1BHUZRHOVX9IA@cknow.org>
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: add GPU powerdomain, opps,
- and cooling to rk3328
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Alex
- Bee" <knaerzche@gmail.com>
-To: "Christian Hewitt" <christianshewitt@gmail.com>, "Rob Herring"
- <robh+dt@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-References: <20250830115135.3549305-1-christianshewitt@gmail.com>
-In-Reply-To: <20250830115135.3549305-1-christianshewitt@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	id 1uuqjq-00000007bsc-0zhC;
+	Sat, 06 Sep 2025 11:05:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757156746; x=1788692746;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=qMYBvVdJ1HSlHVvYz/hS01oKPmqpmnjHlzwp0s/H3Mk=;
+  b=T6Ki+ZCnSvS8o3eXPJ1wuNx9lEwDWVz5GJPmorBH3zulQo8/+7u+h+zY
+   BM2Sfts3Q8Q+KJQw6OTeo++U9inE88XtQthPAarq3xWwGX431/g8jj+L7
+   i63a3PhCHOyZ1MSCw5SFAK9wQizhrkl2hnHV8xNHmgFeoJX5ZjiD/srl2
+   ASlbRnwDdGKJRNdWr3ctO74my9oLJhkdgBLuy38kFN8fUShXW5dScDar7
+   clmnxunP85/m3OrhCGPp3+PVAw3kG0dPXBFvBOTYXHKksbXk2OVOyrygm
+   Tfz8BgnkMpGBD4snTJOX8NnGwR1HKFeehbw8R+sD0aRdi45VJ7kc0uPe6
+   w==;
+X-CSE-ConnectionGUID: dIhbGkB2SeaLAwgE9SCGsA==
+X-CSE-MsgGUID: ZUFjnsOeRHarAaOgeZFx+w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11544"; a="47058314"
+X-IronPort-AV: E=Sophos;i="6.18,244,1751266800"; 
+   d="scan'208";a="47058314"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Sep 2025 04:05:31 -0700
+X-CSE-ConnectionGUID: nGcxIybSS1qxAhsECIbVLQ==
+X-CSE-MsgGUID: /xIRjD2aS3+C7ekmIsiaOQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,244,1751266800"; 
+   d="scan'208";a="196028943"
+Received: from lkp-server01.sh.intel.com (HELO 114d98da2b6c) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 06 Sep 2025 04:05:27 -0700
+Received: from kbuild by 114d98da2b6c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uuqjV-0001NR-1N;
+	Sat, 06 Sep 2025 11:05:25 +0000
+Date: Sat, 6 Sep 2025 19:04:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Luiz Von Dentz <luiz.dentz@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Sean Wang <sean.wang@mediatek.com>,
+	Jiande Lu <jiande.lu@mediatek.com>,
+	Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>,
+	Hao Qin <Hao.qin@mediatek.com>,
+	linux-bluetooth <linux-bluetooth@vger.kernel.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-mediatek <linux-mediatek@lists.infradead.org>,
+	Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+Subject: Re: [PATCH v7 1/1] Bluetooth: mediatek: add gpio pin to reset bt
+Message-ID: <202509061837.tyzBvcs9-lkp@intel.com>
+References: <20250905084059.26959-2-ot_zhangchao.zhang@mediatek.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250905084059.26959-2-ot_zhangchao.zhang@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_034530_121012_D846D86C 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250906_040546_288029_B65EC130 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,116 +99,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---aa8f6cab7102cb8c9f5c1de5473582a640e558b7c971361d91f09e28c3f1
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Hi Zhangchao,
 
-Hi Christian,
+kernel test robot noticed the following build errors:
 
-On Sat Aug 30, 2025 at 1:51 PM CEST, Christian Hewitt wrote:
-> From: Alex Bee <knaerzche@gmail.com>
->
-> Add GPU powerdomain, opp-table, and cooling map nodes for the Mali
-> GPU on the RK3328 SoC. Opp-table frequencies are sourced from the
+[auto build test ERROR on bluetooth/master]
+[also build test ERROR on bluetooth-next/master linus/master v6.17-rc4 next-20250905]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-I very recently saw a patch somewhere with these changes and wondered
-why it wouldn't be sent upstream, so thanks for doing exactly that!
+url:    https://github.com/intel-lab-lkp/linux/commits/Zhangchao-Zhang/Bluetooth-mediatek-add-gpio-pin-to-reset-bt/20250905-164341
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth.git master
+patch link:    https://lore.kernel.org/r/20250905084059.26959-2-ot_zhangchao.zhang%40mediatek.com
+patch subject: [PATCH v7 1/1] Bluetooth: mediatek: add gpio pin to reset bt
+config: x86_64-buildonly-randconfig-001-20250906 (https://download.01.org/0day-ci/archive/20250906/202509061837.tyzBvcs9-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250906/202509061837.tyzBvcs9-lkp@intel.com/reproduce)
 
-> Signed-off-by: Alex Bee <knaerzche@gmail.com>
-> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
-> ---
->
->  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39 +++++++++++++++++++++++-
->  1 file changed, 38 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/d=
-ts/rockchip/rk3328.dtsi
-> index 7d992c3c01ce..b99c78ecc4a9 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-> @@ -331,6 +331,11 @@ power: power-controller {
->  			#address-cells =3D <1>;
->  			#size-cells =3D <0>;
-> =20
-> +			power-domain@RK3328_PD_GPU {
-> +				reg =3D <RK3328_PD_GPU>;
-> +				clocks =3D <&cru ACLK_GPU>;
-> +				#power-domain-cells =3D <0>;
-> +			};
->  			power-domain@RK3328_PD_HEVC {
->  				reg =3D <RK3328_PD_HEVC>;
->  				clocks =3D <&cru SCLK_VENC_CORE>;
-> @@ -570,9 +575,13 @@ map0 {
->  							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
->  					contribution =3D <4096>;
->  				};
-> +				map1 {
-> +					trip =3D <&target>;
-> +					cooling-device =3D <&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-> +					contribution =3D <4096>;
-> +				};
->  			};
->  		};
-> -
->  	};
-> =20
->  	tsadc: tsadc@ff250000 {
-> @@ -651,7 +660,35 @@ gpu: gpu@ff300000 {
->  				  "ppmmu1";
->  		clocks =3D <&cru ACLK_GPU>, <&cru ACLK_GPU>;
->  		clock-names =3D "bus", "core";
-> +		operating-points-v2 =3D <&gpu_opp_table>;
-> +		power-domains =3D <&power RK3328_PD_GPU>;
->  		resets =3D <&cru SRST_GPU_A>;
-> +		#cooling-cells =3D <2>;
-> +	};
-> +
-> +	gpu_opp_table: gpu-opp-table {
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509061837.tyzBvcs9-lkp@intel.com/
 
-As noticed by Rob's bot, this node name is incorrect.
-If you do ``s/gpu-opp-table/opp-table-gpu/`` and move it to above the
-'pinctrl' node, then DTB validation succeeds.
+All errors (new ones prefixed by >>):
 
-Cheers,
-  Diederik
-
-> +		compatible =3D "operating-points-v2";
-> +		opp-200000000 {
-> +			opp-hz =3D /bits/ 64 <200000000>;
-> +			opp-microvolt =3D <1075000>;
-> +		};
-> +
-> +		opp-300000000 {
-> +			opp-hz =3D /bits/ 64 <300000000>;
-> +			opp-microvolt =3D <1075000>;
-> +		};
-> +
-> +		opp-400000000 {
-> +			opp-hz =3D /bits/ 64 <400000000>;
-> +			opp-microvolt =3D <1075000>;
-> +		};
-> +
-> +		opp-500000000 {
-> +			/* causes stability issues */
-> +			opp-hz =3D /bits/ 64 <500000000>;
-> +			opp-microvolt =3D <1150000>;
-> +			status =3D "disabled";
-> +		};
->  	};
-> =20
->  	h265e_mmu: iommu@ff330200 {
+>> drivers/bluetooth/btmtk.c:370:34: error: incompatible pointer types passing 'struct device_node *' to parameter of type 'struct device *' [-Werror,-Wincompatible-pointer-types]
+     370 |         reset_gpio = gpiod_get_optional(hdev->dev.of_node, "reset", GPIOD_OUT_HIGH);
+         |                                         ^~~~~~~~~~~~~~~~~
+   include/linux/gpio/consumer.h:72:66: note: passing argument to parameter 'dev' here
+      72 | struct gpio_desc *__must_check gpiod_get_optional(struct device *dev,
+         |                                                                  ^
+   1 error generated.
 
 
---aa8f6cab7102cb8c9f5c1de5473582a640e558b7c971361d91f09e28c3f1
-Content-Type: application/pgp-signature; name="signature.asc"
+vim +370 drivers/bluetooth/btmtk.c
 
------BEGIN PGP SIGNATURE-----
+   363	
+   364	static int btmtk_hw_gpio_reset(struct hci_dev *hdev, struct btmtk_data *reset_work)
+   365	{
+   366		struct gpio_desc *reset_gpio;
+   367	
+   368		/* Find device node*/
+   369		hdev->dev.of_node = of_find_compatible_node(NULL, NULL, "mediatek,mt7925-bluetooth");
+ > 370		reset_gpio = gpiod_get_optional(hdev->dev.of_node, "reset", GPIOD_OUT_HIGH);
+   371		if (IS_ERR(reset_gpio))
+   372			return PTR_ERR(reset_gpio);
+   373	
+   374		if (!reset_gpio)
+   375			return -ENODEV;
+   376	
+   377		if (test_and_set_bit(BTMTK_HW_RESET_ACTIVE, &reset_work->flags)) {
+   378			bt_dev_err(hdev, "last reset failed? Not resetting again");
+   379			gpiod_put(reset_gpio);
+   380			return -EBUSY;
+   381		}
+   382		gpiod_set_value_cansleep(reset_gpio, 0);
+   383		msleep(100);
+   384		gpiod_set_value_cansleep(reset_gpio, 1);
+   385		gpiod_put(reset_gpio);
+   386		return 0;
+   387	}
+   388	
 
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaLwQtgAKCRDXblvOeH7b
-btXoAP4/UMRYf+nXwetnS1zQ9fI3fAREyIDXC4JH8ippVgrJ5wEA9miNplHhC+yJ
-G40zy0Diz9zovrvVlpTv1lv02bOUwws=
-=GMNc
------END PGP SIGNATURE-----
-
---aa8f6cab7102cb8c9f5c1de5473582a640e558b7c971361d91f09e28c3f1--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
