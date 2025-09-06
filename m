@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A02CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 09:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9293BCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 09:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5r7laUgK6UaSZduibPms9snwduks49CsbJNlWcZQvtQ=; b=O4bMQPDSgH8yfLTRhWKEDZzlZE
-	RVMt7fyXqXGLcQNi6p2rmtiBTVe6KYlt76QOKx4kq5KzkItzlpJ8ao1M8RHCFgGTW8LnVD9X+3Gjs
-	aL+GvGXThz6kP2FOcwCmhsalfglXUNDNbzRky18dJC2Qp1hwaW7UzJLCCv7ck2mFonjX67nEi5Six
-	WCjUmAx8omZOD6tLMJbmxllsGTYlacdnK16Q4BGux1XL1RvoHK6vmgF3chjDUxwhMFHEQ5e7xsma1
-	GBG4CYZm7ecRzWMyobFkNl/aw6zzXJ+EXv4SBm5vBJDv+ZyCC41YxyWJPHDT7q/JVlUkxvbP+1+r5
-	rT/lY+Zg==;
+	bh=4LIf++vky/mZdruJs92MQ/7hPyFzWg3DNKZtEWYkl6o=; b=tyC7r3IJltTLj4b5kNWk3Y1uxh
+	yU+LPVgkj0Y3pArclT30sbTfvvNBvgGShRT/7ByH7GIx4hRq2udzWLlj14ALaE5ep6I7q92/cnd2E
+	arWUxdCrCQFAmYiEQafPY89/ewH7iX+igMtCvnpnzKuPwatRarqEGmOtMy5NSTC23XBwPFSI/XadL
+	LNXM/UaqEHKZT6dALIev3WTa6My3c7frFDQX0EYI+QAG3EbwOv4kX5HFq/ECVrCuXa4WDakTgDsFl
+	ulW7DrQasjXatjGdiwwjq+ylnB5rySidKX5KiijqWy0zkMCoZG85lRHOxu3xTThTC/Hmg/EhZj2so
+	v6QoZUbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uup75-00000007K70-2ur8;
-	Sat, 06 Sep 2025 09:21:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uup9v-00000007Kgq-2EZW;
+	Sat, 06 Sep 2025 09:24:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuovv-00000007HSh-0fUx
+	id 1uuovz-00000007HUN-2G61
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 09:10:08 +0000
+	Sat, 06 Sep 2025 09:10:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E482245134;
-	Sat,  6 Sep 2025 09:10:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8212C4CEF9;
-	Sat,  6 Sep 2025 09:10:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A1583601D4;
+	Sat,  6 Sep 2025 09:10:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ED41C4CEF4;
+	Sat,  6 Sep 2025 09:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757149806;
-	bh=msEvFUeisbWsJc6bi1by+MeXaWzZWt4ywptS+2LY1cc=;
+	s=k20201202; t=1757149810;
+	bh=n7BaLx5oCoMZmaq4FFR+ACT0mdO1lnO5qbl1jAWEp2Q=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kkkU5gVqUfZJcXEKrsU0vjRRCs93ObZOOdvb/2Ir4sweO4xVcDHaK1+85a3Bi/F1p
-	 HD0DCKCVdacG0LnIM6+pWq/HEuUFJ02yNpqdbXN/YfPZ9dB3a1RK0DhZDpeUAY1+mv
-	 qrTyb8fnycaXtj70UNPpqRVaQQu+W4f7W+g64bdFO6AaR+j64tl5lAKw52i/djKgVl
-	 EOMM/oJctUiG4PAKkxndQA4lYf6gvHKmbjyNg1kFUt4Yq6/QMQJ0c+nPqWlyge0OEv
-	 8r+AdES5UDDCVpug/WIocnhY23vXngjbQbbS2oHpHrMlf4AakQtr610B8QmIyErYxN
-	 8eqfesb7JoKZA==
+	b=a9tJUrFAagBKbyPjXV3/d0t7wE/INc6tjYGqLwaErDO7RyA0or12RCNquhWJQNMu5
+	 aDCj9uq4lFaLQ2TPqkPu7nrcNINxuuqn+7eTqPycG5mS07dc8u5yo7oTq0R0fqNCR9
+	 LfKOirgyJEhD9vBcZThVsZVmMee3ohCUnyMQFNi1yzvgsAU8LGVDa/XeXHnHXhG4zs
+	 +9khMFURFcJrKao8oz/49o2t92XVEc/mn80eSw916Qvke5dYGiMdXrSYshJsiiUat7
+	 Zog31XG0fO7LcJRYkP/CDxwu7QGoQUTvA7CrvxrVRCJuiWTvSGe0gNBpuE7qUWAPLU
+	 BNE1IpKOe+0dw==
 From: Andreas Kemnade <akemnade@kernel.org>
-Date: Sat, 06 Sep 2025 11:09:14 +0200
-Subject: [PATCH 3/4] regulator: sy7636a: add gpios and input regulator
+Date: Sat, 06 Sep 2025 11:09:15 +0200
+Subject: [PATCH 4/4] ARM: dts: imx: e70k02: add sy7636
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250906-sy7636-rsrc-v1-3-e2886a9763a7@kernel.org>
+Message-Id: <20250906-sy7636-rsrc-v1-4-e2886a9763a7@kernel.org>
 References: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
 In-Reply-To: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -63,17 +63,14 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Andreas Kemnade <akemnade@kernel.org>
 X-Mailer: b4 0.15-dev-50721
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2073; i=akemnade@kernel.org;
- h=from:subject:message-id; bh=msEvFUeisbWsJc6bi1by+MeXaWzZWt4ywptS+2LY1cc=;
- b=owGbwMvMwCEm/rzkS6lq2x3G02pJDBm7fwUuqNWOnBQgvK/Jrv5Vprr5Mb7sDzIy3y69lQ6zt
- p36PuNrRykLgxgHg6yYIssvawW3TyrPcoOnRtjDzGFlAhnCwMUpABMRfMDw32399+sOxpUN+0IX
- Z6+3XSA/pUEuwz14pat2fg7X7Jzycwz/I240bth+Zet+t/0byvhjkp+IajZbXpRljlA5fSws9eI
- LHgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4828; i=akemnade@kernel.org;
+ h=from:subject:message-id; bh=n7BaLx5oCoMZmaq4FFR+ACT0mdO1lnO5qbl1jAWEp2Q=;
+ b=owGbwMvMwCEm/rzkS6lq2x3G02pJDBm7fyXICnhyTshu6ZCy+OtrE1nseop3kkeQQVHVk6fa+
+ y/fti7qKGVhEONgkBVTZPllreD2SeVZbvDUCHuYOaxMIEMYuDgFYCInsxgZjok4yEzkD5Ir5pz0
+ aJfoifSEr6aL/Pb2H++Mfl+7SGptMMP/TM4MY8O7Vz+3qhWbtvJyH/pZ6Rxx+cSV1uBDd3Iez+F
+ gBAA=
 X-Developer-Key: i=akemnade@kernel.org; a=openpgp;
  fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_021007_242665_CA7CFAD6 
-X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,66 +85,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initialize input regulator and gpios to proper values to have things
-basically working as well as in the case when these things are
-hardwired.
+Add the EPD PMIC for the e70k02 based devices as a step towards full EPD
+support.
 
 Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
 ---
- drivers/regulator/sy7636a-regulator.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+ arch/arm/boot/dts/nxp/imx/e70k02.dtsi              | 25 +++++++++++++++++++++-
+ .../arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts | 24 +++++++++++++++++++++
+ .../arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts | 24 +++++++++++++++++++++
+ 3 files changed, 72 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/regulator/sy7636a-regulator.c b/drivers/regulator/sy7636a-regulator.c
-index 27e3d939b7bb9..bd8739624c727 100644
---- a/drivers/regulator/sy7636a-regulator.c
-+++ b/drivers/regulator/sy7636a-regulator.c
-@@ -12,6 +12,7 @@
- #include <linux/mfd/sy7636a.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/regulator/driver.h>
- #include <linux/regulator/machine.h>
- #include <linux/regmap.h>
-@@ -19,6 +20,8 @@
- struct sy7636a_data {
- 	struct regmap *regmap;
- 	struct gpio_desc *pgood_gpio;
-+	struct gpio_desc *en_gpio;
-+	struct gpio_desc *vcom_en_gpio;
+diff --git a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
+index dcc3c9d488a88..5f6b7545a0c0c 100644
+--- a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
+@@ -69,6 +69,14 @@ memory@80000000 {
+ 		reg = <0x80000000 0x20000000>;
+ 	};
+ 
++	epd_pmic_supply: regulator-epd-pmic-in {
++		compatible = "regulator-fixed";
++		regulator-name = "epd_pmic_supply";
++		gpio = <&gpio2 14 GPIO_ACTIVE_HIGH>;
++		startup-delay-us = <20000>;
++		enable-active-high;
++	};
++
+ 	reg_wifi: regulator-wifi {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "SD3_SPWR";
+@@ -133,7 +141,22 @@ touchscreen@24 {
+ 		vdd-supply = <&ldo5_reg>;
+ 	};
+ 
+-	/* TODO: SY7636 PMIC for E Ink at 0x62 */
++	sy7636: pmic@62 {
++		compatible = "silergy,sy7636a";
++		reg = <0x62>;
++		en-gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>;
++		vcom-en-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
++		epd-pwr-good-gpios = <&gpio2 13 GPIO_ACTIVE_HIGH>;
++		vin-supply = <&epd_pmic_supply>;
++
++		#thermal-sensor-cells = <0>;
++
++		regulators {
++			reg_epdpmic: vcom {
++				regulator-name = "vcom";
++			};
++		};
++	};
+ 
  };
  
- static int sy7636a_get_vcom_voltage_op(struct regulator_dev *rdev)
-@@ -98,6 +101,29 @@ static int sy7636a_regulator_probe(struct platform_device *pdev)
- 	data->regmap = regmap;
- 	data->pgood_gpio = gdp;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
+index a2534c422a522..f8709a9524093 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
+@@ -26,6 +26,11 @@ / {
+ 	compatible = "kobo,tolino-vision5", "fsl,imx6sl";
+ };
  
-+	ret = devm_regulator_get_enable_optional(&pdev->dev, "vin");
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to get vin regulator\n");
++&epd_pmic_supply {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_epd_pmic_supply>;
++};
 +
-+	data->en_gpio = devm_gpiod_get_optional(&pdev->dev, "en",
-+						GPIOD_OUT_HIGH);
-+	if (IS_ERR(data->en_gpio))
-+		return dev_err_probe(&pdev->dev,
-+				     PTR_ERR(data->en_gpio),
-+				     "failed to get en gpio\n");
-+
-+	/* Let VCOM just follow the default power on sequence */
-+	data->vcom_en_gpio = devm_gpiod_get_optional(&pdev->dev,
-+						     "vcom-en", GPIOD_OUT_LOW);
-+	if (IS_ERR(data->vcom_en_gpio))
-+		return dev_err_probe(&pdev->dev,
-+				     PTR_ERR(data->en_gpio),
-+				     "failed to get en gpio\n");
-+
-+	if (data->en_gpio)
-+		usleep_range(2500, 4000);
-+
- 	platform_set_drvdata(pdev, data);
+ &gpio_keys {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_gpio_keys>;
+@@ -59,6 +64,12 @@ MX6SL_PAD_FEC_RXD1__GPIO4_IO18          0x10059 /* TP_RST */
+ 		>;
+ 	};
  
- 	ret = regmap_write(regmap, SY7636A_REG_POWER_ON_DELAY_TIME, 0x0);
++	pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
++		fsl,pins = <
++			MX6SL_PAD_EPDC_PWRWAKEUP__GPIO2_IO14    0x40010059
++		>;
++	};
++
+ 	pinctrl_gpio_keys: gpio-keysgrp {
+ 		fsl,pins = <
+ 			MX6SL_PAD_FEC_CRS_DV__GPIO4_IO25	0x17059	/* PWR_SW */
+@@ -159,6 +170,14 @@ MX6SL_PAD_KEY_COL2__GPIO3_IO28		0x1b8b1 /* ricoh619 bat_low_int */
+ 		>;
+ 	};
+ 
++	pinctrl_sy7636_gpio: sy7636-gpiogrp {
++		fsl,pins = <
++			MX6SL_PAD_EPDC_VCOM0__GPIO2_IO03        0x40010059 /* VCOM_CTRL */
++			MX6SL_PAD_EPDC_PWRCTRL1__GPIO2_IO08     0x40010059 /* EN */
++			MX6SL_PAD_EPDC_PWRSTAT__GPIO2_IO13      0x17059 /* PWR_GOOD */
++		>;
++	};
++
+ 	pinctrl_uart1: uart1grp {
+ 		fsl,pins = <
+ 			MX6SL_PAD_UART1_TXD__UART1_TX_DATA 0x1b0b1
+@@ -329,6 +348,11 @@ &ricoh619 {
+ 	pinctrl-0 = <&pinctrl_ricoh_gpio>;
+ };
+ 
++&sy7636 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_sy7636_gpio>;
++};
++
+ &uart1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_uart1>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
+index 660620d226f71..19bbe60331b36 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
+@@ -36,6 +36,11 @@ &cpu0 {
+ 	soc-supply = <&dcdc1_reg>;
+ };
+ 
++&epd_pmic_supply {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_epd_pmic_supply>;
++};
++
+ &gpio_keys {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_gpio_keys>;
+@@ -69,6 +74,12 @@ MX6SLL_PAD_GPIO4_IO18__GPIO4_IO18	0x10059 /* TP_RST */
+ 		>;
+ 	};
+ 
++	pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
++		fsl,pins = <
++			MX6SLL_PAD_EPDC_PWR_WAKE__GPIO2_IO14    0x40010059
++		>;
++	};
++
+ 	pinctrl_gpio_keys: gpio-keysgrp {
+ 		fsl,pins = <
+ 			MX6SLL_PAD_GPIO4_IO25__GPIO4_IO25	0x17059	/* PWR_SW */
+@@ -169,6 +180,14 @@ MX6SLL_PAD_KEY_COL2__GPIO3_IO28		0x1b8b1 /* ricoh619 bat_low_int */
+ 		>;
+ 	};
+ 
++	pinctrl_sy7636_gpio: sy7636-gpiogrp {
++		fsl,pins = <
++			MX6SLL_PAD_EPDC_VCOM0__GPIO2_IO03       0x40010059 /* VCOM_CTRL */
++			MX6SLL_PAD_EPDC_PWR_CTRL1__GPIO2_IO08   0x40010059 /* EN */
++			MX6SLL_PAD_EPDC_PWR_STAT__GPIO2_IO13    0x17059 /* PWR_GOOD */
++		>;
++	};
++
+ 	pinctrl_uart1: uart1grp {
+ 		fsl,pins = <
+ 			MX6SLL_PAD_UART1_TXD__UART1_DCE_TX 0x1b0b1
+@@ -319,6 +338,11 @@ &ricoh619 {
+ 	pinctrl-0 = <&pinctrl_ricoh_gpio>;
+ };
+ 
++&sy7636 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_sy7636_gpio>;
++};
++
+ &uart1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_uart1>;
 
 -- 
 2.39.5
