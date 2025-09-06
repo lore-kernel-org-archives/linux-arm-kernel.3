@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A49CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 22:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F03CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 22:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0loSirdJm0+UmbFWEnZy2DDOFCg9ZtH/cihZ/PGTtx4=; b=rs2PjtkKs/mfqpNJWSiFMweMeR
-	Zxb92SwnFhhHMuvsOXX1K4fgViB9Z13XjH8inrMguSK9J4teNCfHzkwACtnp/jXqUXcUfUVaFg1j7
-	4xuiFNl7LMZh5PaoHq/W/lNCIx0K1WuOLLG00JtnV48/5fFujzWZFmUlOCZmBQZlLEW9wAPHg7zPR
-	c1QLJ4+Kt+bhA/sDHUM+pzWySlI7h7nbed5yVT8RQHOUVOcNLAahotcgUFDyFiuVygE/+70KAEuXD
-	Go/KKNHEJMKhdSnDFtXXYdcnUy1OZ7th56k50o4UoHGUBrHcmNdoimBDIiYFJ1i8GehKzDjLU0iR9
-	CFQOlnfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h4Id+FF5G7L/WRAYGMf/Z4zMGstEk+5riYZDe/qxmKo=; b=NbGJsRvFUlAtJL/pojsAsKV85/
+	zEivDE5v1IfVluqH1GlKnghcGjYgjACjLMU2ChwCiXCFcJAZZrROGNhfq1LGtk5S+vZ3UnEXXhbFr
+	fK5OetJG45TF1keRIu2YhD4mxVJePPHqxI/n+T5qjuePn67nnN3mgjpIpTyVHP0PgYtQQQT72CuG4
+	K6+rjdsUiBB9aC2VB6g1RpHFPHHCXgHE+wx7+NHi6T2PbF1UfLsd+OdBExv561aqiGed2NnCGiQBo
+	Y85FEKMNfkJ3uLbcjiKs83R2E6y1VepNYQqrLc/wA6jV6I18Fiw1M8+kWMi+TV91hKPbM5hbUXG2l
+	HfI3h1Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uv1Ft-00000008ZsE-17IE;
-	Sat, 06 Sep 2025 22:19:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uv1Ia-00000008a4A-03hw;
+	Sat, 06 Sep 2025 22:22:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uv0iA-00000008WT8-0EI4
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 21:44:43 +0000
+	id 1uv0id-00000008WXP-3MLt;
+	Sat, 06 Sep 2025 21:45:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE280416A0;
-	Sat,  6 Sep 2025 21:44:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B986C4CEE7;
-	Sat,  6 Sep 2025 21:44:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757195081;
-	bh=gwfh68oMkRTSH1R3N9Af4GojEV1OW8M+fSIxaenodpY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MDvStL0MkcXoDiDngrcrLj3boAtY+1gBPvlYqJQ0Rn9NlZEIQs3ZZTSv6KOH8n/rU
-	 PXYZd8KRklvq9m8m0v6RphoTy9CxCw4aBz1WAhnqzOvIIGiklHNxOqESf+AfuXvUQA
-	 Rye3yextOdB7pwDioAIyTNWZoP8sIbJL2EY1G4Uzy6ayiopkGIm8typPw+k3aCCs2a
-	 tyDNhKhPoZK3yoc8/fRg/usd8PtEPVCoMzocdBB4EL8PQroxJigerVE5QRwvNDW4rN
-	 sqT57q5JDP0/ycdkeZb6ArspBA/lJJlDsiiMVEMkbFmwCJRH/Hgw52ApU3yI6jNLET
-	 oAFi1XpStfsDg==
-Date: Sat, 6 Sep 2025 14:44:39 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 00/12] ChaCha and BLAKE2s cleanups
-Message-ID: <20250906214439.GA47837@quark>
-References: <20250827151131.27733-1-ebiggers@kernel.org>
+	by sea.source.kernel.org (Postfix) with ESMTP id C10C445247;
+	Sat,  6 Sep 2025 21:45:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7860AC4CEF8;
+	Sat,  6 Sep 2025 21:45:10 +0000 (UTC)
+Received: by venus (Postfix, from userid 1000)
+	id C88E1180B26; Sat, 06 Sep 2025 23:45:07 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Sebastian Reichel <sre@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Waqar Hameed <waqar.hameed@axis.com>
+Cc: kernel@axis.com, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <pndzfcekt8w.a.out@axis.com>
+References: <pndzfcekt8w.a.out@axis.com>
+Subject: Re: [PATCH v2] power: supply: Remove error prints for
+ devm_add_action_or_reset()
+Message-Id: <175719510781.45380.7018471850966283088.b4-ty@collabora.com>
+Date: Sat, 06 Sep 2025 23:45:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250827151131.27733-1-ebiggers@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_144442_117668_11D70CFF 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20250906_144511_870423_44141E15 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,41 +68,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 08:11:19AM -0700, Eric Biggers wrote:
-> This series is targeting libcrypto-next.  It can also be retrieved from:
-> 
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git chacha-blake2s-v1
-> 
-> This series consolidates how the ChaCha and BLAKE2s code is organized.
-> This is essentially the same change that I made to the other algorithms,
-> so this should be fairly boring by now.
-> 
-> These algorithms were the last two users of
-> lib/crypto/$(SRCARCH)/{Makefile,Kconfig}.  So this series removes all
-> those files, finishing the transition to the centralized build process
-> (at least for the algorithms supported by lib/crypto/ so far).
-> 
-> This series also makes the arch-optimized BLAKE2s code start being
-> enabled by default, again following the pattern of the other algorithms.
-> 
-> Finally, it adds a KUnit test suite for BLAKE2s and deletes the older
-> blake2s-selftest.
-> 
-> Eric Biggers (12):
->   arm: configs: Remove obsolete assignments to CRYPTO_CHACHA20_NEON
->   crypto: chacha - register only "-lib" drivers
->   lib/crypto: chacha: Remove unused function chacha_is_arch_optimized()
->   lib/crypto: chacha: Rename chacha.c to chacha-block-generic.c
->   lib/crypto: chacha: Rename libchacha.c to chacha.c
->   lib/crypto: chacha: Consolidate into single module
->   lib/crypto: x86/blake2s: Reduce size of BLAKE2S_SIGMA2
->   lib/crypto: blake2s: Remove obsolete self-test
->   lib/crypto: blake2s: Always enable arch-optimized BLAKE2s code
->   lib/crypto: blake2s: Move generic code into blake2s.c
->   lib/crypto: blake2s: Consolidate into single C translation unit
->   lib/crypto: tests: Add KUnit tests for BLAKE2s
 
-Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
+On Tue, 05 Aug 2025 11:33:35 +0200, Waqar Hameed wrote:
+> When `devm_add_action_or_reset()` fails, it is due to a failed memory
+> allocation and will thus return `-ENOMEM`. `dev_err_probe()` doesn't do
+> anything when error is `-ENOMEM`. Therefore, remove the useless call to
+> `dev_err_probe()` when `devm_add_action_or_reset()` fails, and just
+> return the value instead.
+> 
+> 
+> [...]
 
-- Eric
+Applied, thanks!
+
+[1/1] power: supply: Remove error prints for devm_add_action_or_reset()
+      commit: 32f350d58544e2529dc8798275684e97f0a2df6f
+
+Best regards,
+-- 
+Sebastian Reichel <sebastian.reichel@collabora.com>
+
 
