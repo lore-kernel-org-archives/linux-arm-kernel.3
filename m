@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F7E4CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 19:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6C8CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 19:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g+g0XX9J8t8Nqb+uRU32vvhFxMEa0z6b7cNxVe9VKeo=; b=vHkkgifj5tkE0xuza7itl2AXbh
-	RaKyFiEG3CNjdm3DwVVGBUI/mWW6xNDTJ1+lQmWZSIUthsVPkeSOqd7HTz4p4MY1mlubzt5mKGZ+5
-	UbKfhhh3ZQalhGzlAfA0hwSrO1jPKIwbafB6mxdCmJYzSwSnVqX9nMhG6pcrvIUcRLRs5xUIAzlQ8
-	1hsoNJZxH9W/sOCUFI6pWakNxlVwVOT+d9ft83dpUOHUKAlyAQqWrdTgGUpR7pzdU2wvRejFHKXvW
-	ZEgWwhLUUjB+2MpkvsN06MBUORvDU3y517HItQqdV+ExrhR4qlPac96mEGaHUsRHNAQQb5oB0Tppq
-	JQXOTQyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FzYoPBV1TwgFlHltcxFw4KPza8jbsfJi3V/Uo8JU8Kc=; b=CCd0kkQep3u9tcc3nv2wXhZdEN
+	l4XRgq27BWuqtvEzjWqVJa/slfeYyXcaMN7UzhSB30LkR+syPHKBNHgyzhTjd4UMreDIC/2irSCSb
+	K+nnokCeKDiRYDj00N6A3t1krDBcyiwA+BbHX7XpCh9Pj8839Wye9ZM67UVm9RkFgGYFojjv/5Fvk
+	R+sflTgIHh86SGKQ6AW16EeMguJcKU6907OFRKgzErtaFej8i72lrKrbBVlaVsevMZodFn4XN0V8x
+	xB4ov1nMrWPVgu5ogf72+71IQXl6a0fwUev17OsUCom4brTEHIhmmwEqIYHQzJGG15HxoPGetiwEG
+	uF19BhVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuyH2-00000008KyM-16xy;
-	Sat, 06 Sep 2025 19:08:32 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uuyJq-00000008LCH-2294;
+	Sat, 06 Sep 2025 19:11:26 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuxnk-00000008Gr4-0Pru;
-	Sat, 06 Sep 2025 18:38:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=g+g0XX9J8t8Nqb+uRU32vvhFxMEa0z6b7cNxVe9VKeo=; b=nWYjEPyeVmOOKhYOXkH2Wm+4xK
-	Lsofo0YkbSTFpL34whsCZ1ncc/Wr5VHDHc4DV2TH03/iXMzXyjnKXIUA+ev2CRQ9FmwiYotp55gi6
-	NZ+4QC3iHyLsWtP6fedoAPMwxvxDw4124kRLj724Nkcs5VIN9OBTZ0TISD3ETQcXL53/94PLuxwee
-	ejLvW1iye+oQljoJXH9cU9ssBTuh3BCmwyHOp1C8gWCBG2/RuthsfBSi6MJiB+lA+0v6PROVlBA26
-	sQ/R+O0CGdRJ/kL7WdHwt8KBpKvIZcxLXk90b36G2hCa67ZFcxFlU2NPk7krBTh7rJV0W2miV5FVQ
-	lntim3VQ==;
-Received: from i53875a53.versanet.de ([83.135.90.83] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uuxnc-0006tH-5x; Sat, 06 Sep 2025 20:38:08 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Chanwoo Choi <chanwoo@kernel.org>
-Cc: Chanwoo Choi <cw00.choi@samsung.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] PM / devfreq: rockchip-dfi: add support for LPDDR5
-Date: Sat, 06 Sep 2025 20:38:07 +0200
-Message-ID: <24752023.ouqheUzb2q@diego>
-In-Reply-To: <CAGTfZH1DzC9odJVDfYCYw4+Ph5_1CjmrpqR_NUFh1SsVVVLM0g@mail.gmail.com>
-References: <20250530-rk3588-dfi-improvements-v1-0-6e077c243a95@collabora.com>
- <20250530-rk3588-dfi-improvements-v1-2-6e077c243a95@collabora.com>
- <CAGTfZH1DzC9odJVDfYCYw4+Ph5_1CjmrpqR_NUFh1SsVVVLM0g@mail.gmail.com>
+	id 1uuxp9-00000008Gyd-07pa
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 06 Sep 2025 18:39:44 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45b4d89217aso19924825e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Sep 2025 11:39:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1757183982; x=1757788782; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=FzYoPBV1TwgFlHltcxFw4KPza8jbsfJi3V/Uo8JU8Kc=;
+        b=bCvGF++0UpNYqHwTFZscKJStkbsSAHW6n+8T95L4E38zYOLILmZ5F4sO8BL9YnxiVg
+         Jrw0kAxhDpigNxFlQsAra8y0BrLZIamrOAs/hIGwN8Z7RCLpERG9HWbPob/h3e+mW9lU
+         B0hNgap/zdA9arMeG2BwmuKOs1Gj4VFSjPg0L/p/+V3fSEp9a/lrCOg9F4xW0LWaZ9eH
+         +DfMTp/ghd5zk4sTx01UNJ3oD7m9CsL7/5S7aZEp2ct2AFyN+zMrU1DWxwbbbAmymyuO
+         I+EpgWYKIX14TS9Wykh+4Nyq1H8HIDOugPigCzoX5FdNBkt+YzLcF7GzAUpjO4SCn9tX
+         5LIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757183982; x=1757788782;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FzYoPBV1TwgFlHltcxFw4KPza8jbsfJi3V/Uo8JU8Kc=;
+        b=FzPdmvigdltZ/uiUmoX7BUBRUydVcjNUcE8TPlpD2F9G6XYFcrpcNJYx1+kWSumGpL
+         Jj9pCAA7wQ0p8G8Vjp6fNYSk28tljx57+hfrYjZPFmq4hx13HJaeLyU5SXZQnTEpjoqM
+         4wwYfqMn/2OBY7OXwiFewfkoUcLei3OHd6XrlUynDOFzKlvfdjBcLmdktUnX/iDK9/tO
+         JOXJrsttTyWBnZyvpuQ/9xumXpo/dkARjqoi7hlKNrxgJdW9Ie+5KE5IaZ6BbfX7abqk
+         NJM8s9W7aVJ7cnvGUtL2d4DIF0d3HmoBCvJx8aNGLJfqjjQTM70ZwVIBE+h6sW36TMsN
+         IOmw==
+X-Forwarded-Encrypted: i=1; AJvYcCVyPXjmCD6mi/qIoI+3oYn9zorIiv3PcOqZKSL5+dIgpnol0eEnZNqqZJ3d+c+ZTijnBoArHzAKhxQ0lRPlgayh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJhfe3RReiqJ/aYyQv4ADslBL0h/tURXe5raPs5w19ebSgDUVl
+	ujJ4oF4lschmNHPoPfRZQumHrZtYWTmzHedKprrpg0v9Ni+NZtsCHTZmosbmCtHeCgk=
+X-Gm-Gg: ASbGncscue4VMruBFcmwOVD5Rt2sCHIt2buMlWeZEhgqbOHrACirzNBPZh7JdXA6sZJ
+	E5yjHqeBYqSZ4FChG8Hj2JfaqVf6ywS+ZX26xS4bCyl58cmoaZWwfgfrPbexD13kOpERDDPx8ye
+	aP9VRa5AbFx9jHlosGf0KUFV8zvQ2v9+NnUKz0Luq+GPUdX/4aNEvv/wwvMUorQAjvKcnJMW0M8
+	54EaE2HZnga6o4QAFXd1NSlgswJl6+prkGB+sSGCH3A67ZXJJps7FKsU6d984XQrbJzQfSdcX5O
+	v0Qcr8XK6uaCnq+UHb0IC6xnibzouHusyKd6GS5nJG8Qes1Rtv4+zoNHTzD7n/dOudCc0oOIwqb
+	U6R07HFUAmxKmt6+O7HTOj294l3EXrEM=
+X-Google-Smtp-Source: AGHT+IEok3JkRuMAdY7AX3j0CwwrHcGk5yIN66Gyo2mCztRV7/vmj7BLBPHvxLpcqnHCDGsjiMhyVg==
+X-Received: by 2002:a05:600c:1d07:b0:45d:d609:1199 with SMTP id 5b1f17b1804b1-45ddded6ef0mr31784415e9.30.1757183981627;
+        Sat, 06 Sep 2025 11:39:41 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.139])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e8ab832sm373687575e9.23.2025.09.06.11.39.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 06 Sep 2025 11:39:41 -0700 (PDT)
+Message-ID: <2377eaff-6142-45ef-a966-0176c147c094@tuxon.dev>
+Date: Sat, 6 Sep 2025 21:39:40 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: claudiu beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [PATCH v3 13/32] clk: at91: sama7d65: switch to parent_hw and
+ parent_data
+To: Ryan.Wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com
+Cc: varshini.rajendran@microchip.com, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org
+References: <cover.1752176711.git.Ryan.Wanner@microchip.com>
+ <676e618850df0db8dd880c36cd9b6dcef7b17b8b.1752176711.git.Ryan.Wanner@microchip.com>
+Content-Language: en-US
+In-Reply-To: <676e618850df0db8dd880c36cd9b6dcef7b17b8b.1752176711.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_113816_287551_6C0DC697 
-X-CRM114-Status: GOOD (  51.33  )
+X-CRM114-CacheID: sfid-20250906_113943_083353_171691AE 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,275 +104,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Am Samstag, 6. September 2025, 18:09:53 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Chanwoo Choi:
-> I'm sorry for late reply.
->=20
-> Looks good to me. But, this patch contains the change of following header.
-> If there are ACK about change in include/soc/rockchip, I'll merge this se=
-ries.
->=20
-> include/soc/rockchip/rk3588_grf.h    |  8 +++-
-> include/soc/rockchip/rockchip_grf.h  |  1 +
-
-done :-)
-
-Thanks
-Heiko
 
 
-> On Fri, May 30, 2025 at 10:39=E2=80=AFPM Nicolas Frattaroli
-> <nicolas.frattaroli@collabora.com> wrote:
-> >
-> > The Rockchip RK3588 SoC can also support LPDDR5 memory. This type of
-> > memory needs some special case handling in the rockchip-dfi driver.
-> >
-> > Add support for it in rockchip-dfi, as well as the needed GRF register
-> > definitions.
-> >
-> > This has been tested as returning both the right cycle count and
-> > bandwidth on a LPDDR5 board where the CKR bit is 1. I couldn't test
-> > whether the values are correct on a system where CKR is 0, as I'm not
-> > savvy enough with the Rockchip tooling to know whether this can be set
-> > in the DDR init blob.
-> >
-> > Downstream has some special case handling for a hardware version where
-> > not just the control bits differ, but also the register. Since I don't
-> > know whether that hardware version is in any production silicon, it's
-> > left unimplemented for now, with an error message urging users to report
-> > if they have such a system.
-> >
-> > There is a slight change of behaviour for non-LPDDR5 systems: instead of
-> > writing 0 as the control flags to the control register and pretending
-> > everything is alright if the memory type is unknown, we now explicitly
-> > return an error.
-> >
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >  drivers/devfreq/event/rockchip-dfi.c | 84 ++++++++++++++++++++++++++++=
-=2D-------
-> >  include/soc/rockchip/rk3588_grf.h    |  8 +++-
-> >  include/soc/rockchip/rockchip_grf.h  |  1 +
-> >  3 files changed, 73 insertions(+), 20 deletions(-)
-> >
-> > diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/eve=
-nt/rockchip-dfi.c
-> > index 54effb63519653d20b40eed88681330983399a77..5a2c9badcc64c552303c2f5=
-5c52e5420dec5ffc1 100644
-> > --- a/drivers/devfreq/event/rockchip-dfi.c
-> > +++ b/drivers/devfreq/event/rockchip-dfi.c
-> > @@ -34,15 +34,18 @@
-> >
-> >  /* DDRMON_CTRL */
-> >  #define DDRMON_CTRL    0x04
-> > +#define DDRMON_CTRL_LPDDR5             BIT(6)
-> >  #define DDRMON_CTRL_DDR4               BIT(5)
-> >  #define DDRMON_CTRL_LPDDR4             BIT(4)
-> >  #define DDRMON_CTRL_HARDWARE_EN                BIT(3)
-> >  #define DDRMON_CTRL_LPDDR23            BIT(2)
-> >  #define DDRMON_CTRL_SOFTWARE_EN                BIT(1)
-> >  #define DDRMON_CTRL_TIMER_CNT_EN       BIT(0)
-> > -#define DDRMON_CTRL_DDR_TYPE_MASK      (DDRMON_CTRL_DDR4 | \
-> > +#define DDRMON_CTRL_DDR_TYPE_MASK      (DDRMON_CTRL_LPDDR5 | \
-> > +                                        DDRMON_CTRL_DDR4 | \
-> >                                          DDRMON_CTRL_LPDDR4 | \
-> >                                          DDRMON_CTRL_LPDDR23)
-> > +#define DDRMON_CTRL_LP5_BANK_MODE_MASK GENMASK(8, 7)
-> >
-> >  #define DDRMON_CH0_WR_NUM              0x20
-> >  #define DDRMON_CH0_RD_NUM              0x24
-> > @@ -116,13 +119,60 @@ struct rockchip_dfi {
-> >         int buswidth[DMC_MAX_CHANNELS];
-> >         int ddrmon_stride;
-> >         bool ddrmon_ctrl_single;
-> > +       u32 lp5_bank_mode;
-> > +       bool lp5_ckr;   /* true if in 4:1 command-to-data clock ratio m=
-ode */
-> >         unsigned int count_multiplier;  /* number of data clocks per co=
-unt */
-> >  };
-> >
-> > +static int rockchip_dfi_ddrtype_to_ctrl(struct rockchip_dfi *dfi, u32 =
-*ctrl,
-> > +                                       u32 *mask)
-> > +{
-> > +       u32 ddrmon_ver;
-> > +
-> > +       *mask =3D DDRMON_CTRL_DDR_TYPE_MASK;
-> > +
-> > +       switch (dfi->ddr_type) {
-> > +       case ROCKCHIP_DDRTYPE_LPDDR2:
-> > +       case ROCKCHIP_DDRTYPE_LPDDR3:
-> > +               *ctrl =3D DDRMON_CTRL_LPDDR23;
-> > +               break;
-> > +       case ROCKCHIP_DDRTYPE_LPDDR4:
-> > +       case ROCKCHIP_DDRTYPE_LPDDR4X:
-> > +               *ctrl =3D DDRMON_CTRL_LPDDR4;
-> > +               break;
-> > +       case ROCKCHIP_DDRTYPE_LPDDR5:
-> > +               ddrmon_ver =3D readl_relaxed(dfi->regs);
-> > +               if (ddrmon_ver < 0x40) {
-> > +                       *ctrl =3D DDRMON_CTRL_LPDDR5 | dfi->lp5_bank_mo=
-de;
-> > +                       *mask |=3D DDRMON_CTRL_LP5_BANK_MODE_MASK;
-> > +                       break;
-> > +               }
-> > +
-> > +               /*
-> > +                * As it is unknown whether the unpleasant special case
-> > +                * behaviour used by the vendor kernel is needed for any
-> > +                * shipping hardware, ask users to report if they have
-> > +                * some of that hardware.
-> > +                */
-> > +               dev_err(&dfi->edev->dev,
-> > +                       "unsupported DDRMON version 0x%04X, please let =
-linux-rockchip know!\n",
-> > +                       ddrmon_ver);
-> > +               return -EOPNOTSUPP;
-> > +       default:
-> > +               dev_err(&dfi->edev->dev, "unsupported memory type 0x%X\=
-n",
-> > +                       dfi->ddr_type);
-> > +               return -EOPNOTSUPP;
-> > +       }
-> > +
-> > +       return 0;
-> > +}
-> > +
-> >  static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
-> >  {
-> >         void __iomem *dfi_regs =3D dfi->regs;
-> >         int i, ret =3D 0;
-> > +       u32 ctrl;
-> > +       u32 ctrl_mask;
-> >
-> >         mutex_lock(&dfi->mutex);
-> >
-> > @@ -136,8 +186,11 @@ static int rockchip_dfi_enable(struct rockchip_dfi=
- *dfi)
-> >                 goto out;
-> >         }
-> >
-> > +       ret =3D rockchip_dfi_ddrtype_to_ctrl(dfi, &ctrl, &ctrl_mask);
-> > +       if (ret)
-> > +               goto out;
-> > +
-> >         for (i =3D 0; i < dfi->max_channels; i++) {
-> > -               u32 ctrl =3D 0;
-> >
-> >                 if (!(dfi->channel_mask & BIT(i)))
-> >                         continue;
-> > @@ -147,21 +200,7 @@ static int rockchip_dfi_enable(struct rockchip_dfi=
- *dfi)
-> >                                DDRMON_CTRL_SOFTWARE_EN | DDRMON_CTRL_HA=
-RDWARE_EN),
-> >                                dfi_regs + i * dfi->ddrmon_stride + DDRM=
-ON_CTRL);
-> >
-> > -               /* set ddr type to dfi */
-> > -               switch (dfi->ddr_type) {
-> > -               case ROCKCHIP_DDRTYPE_LPDDR2:
-> > -               case ROCKCHIP_DDRTYPE_LPDDR3:
-> > -                       ctrl =3D DDRMON_CTRL_LPDDR23;
-> > -                       break;
-> > -               case ROCKCHIP_DDRTYPE_LPDDR4:
-> > -               case ROCKCHIP_DDRTYPE_LPDDR4X:
-> > -                       ctrl =3D DDRMON_CTRL_LPDDR4;
-> > -                       break;
-> > -               default:
-> > -                       break;
-> > -               }
-> > -
-> > -               writel_relaxed(HIWORD_UPDATE(ctrl, DDRMON_CTRL_DDR_TYPE=
-_MASK),
-> > +               writel_relaxed(HIWORD_UPDATE(ctrl, ctrl_mask),
-> >                                dfi_regs + i * dfi->ddrmon_stride + DDRM=
-ON_CTRL);
-> >
-> >                 /* enable count, use software mode */
-> > @@ -652,6 +691,7 @@ static int rockchip_ddr_perf_init(struct rockchip_d=
-fi *dfi)
-> >                 break;
-> >         case ROCKCHIP_DDRTYPE_LPDDR4:
-> >         case ROCKCHIP_DDRTYPE_LPDDR4X:
-> > +       case ROCKCHIP_DDRTYPE_LPDDR5:
-> >                 dfi->burst_len =3D 16;
-> >                 break;
-> >         }
-> > @@ -730,7 +770,7 @@ static int rk3568_dfi_init(struct rockchip_dfi *dfi)
-> >  static int rk3588_dfi_init(struct rockchip_dfi *dfi)
-> >  {
-> >         struct regmap *regmap_pmu =3D dfi->regmap_pmu;
-> > -       u32 reg2, reg3, reg4;
-> > +       u32 reg2, reg3, reg4, reg6;
-> >
-> >         regmap_read(regmap_pmu, RK3588_PMUGRF_OS_REG2, &reg2);
-> >         regmap_read(regmap_pmu, RK3588_PMUGRF_OS_REG3, &reg3);
-> > @@ -757,6 +797,14 @@ static int rk3588_dfi_init(struct rockchip_dfi *df=
-i)
-> >         dfi->ddrmon_stride =3D 0x4000;
-> >         dfi->count_multiplier =3D 2;
-> >
-> > +       if (dfi->ddr_type =3D=3D ROCKCHIP_DDRTYPE_LPDDR5) {
-> > +               regmap_read(regmap_pmu, RK3588_PMUGRF_OS_REG6, &reg6);
-> > +               dfi->lp5_bank_mode =3D FIELD_GET(RK3588_PMUGRF_OS_REG6_=
-LP5_BANK_MODE, reg6) << 7;
-> > +               dfi->lp5_ckr =3D FIELD_GET(RK3588_PMUGRF_OS_REG6_LP5_CK=
-R, reg6);
-> > +               if (dfi->lp5_ckr)
-> > +                       dfi->count_multiplier *=3D 2;
-> > +       }
-> > +
-> >         return 0;
-> >  };
-> >
-> > diff --git a/include/soc/rockchip/rk3588_grf.h b/include/soc/rockchip/r=
-k3588_grf.h
-> > index 630b35a550640e57f1b5a50dfbe362653a7cbcc1..02a7b2432d9942e15a77424=
-c44fefec189faaa33 100644
-> > --- a/include/soc/rockchip/rk3588_grf.h
-> > +++ b/include/soc/rockchip/rk3588_grf.h
-> > @@ -12,7 +12,11 @@
-> >  #define RK3588_PMUGRF_OS_REG3_DRAMTYPE_INFO_V3         GENMASK(13, 12)
-> >  #define RK3588_PMUGRF_OS_REG3_SYSREG_VERSION           GENMASK(31, 28)
-> >
-> > -#define RK3588_PMUGRF_OS_REG4           0x210
-> > -#define RK3588_PMUGRF_OS_REG5           0x214
-> > +#define RK3588_PMUGRF_OS_REG4                          0x210
-> > +#define RK3588_PMUGRF_OS_REG5                          0x214
-> > +#define RK3588_PMUGRF_OS_REG6                          0x218
-> > +#define RK3588_PMUGRF_OS_REG6_LP5_BANK_MODE            GENMASK(2, 1)
-> > +/* Whether the LPDDR5 is in 2:1 (=3D 0) or 4:1 (=3D 1) CKR a.k.a. DQS =
-mode */
-> > +#define RK3588_PMUGRF_OS_REG6_LP5_CKR                  BIT(0)
-> >
-> >  #endif /* __SOC_RK3588_GRF_H */
-> > diff --git a/include/soc/rockchip/rockchip_grf.h b/include/soc/rockchip=
-/rockchip_grf.h
-> > index e46fd72aea8d1f649768a3269b85176dacceef0e..41c7bb26fd5387df85e5b58=
-186b67bf74706f360 100644
-> > --- a/include/soc/rockchip/rockchip_grf.h
-> > +++ b/include/soc/rockchip/rockchip_grf.h
-> > @@ -13,6 +13,7 @@ enum {
-> >         ROCKCHIP_DDRTYPE_LPDDR3 =3D 6,
-> >         ROCKCHIP_DDRTYPE_LPDDR4 =3D 7,
-> >         ROCKCHIP_DDRTYPE_LPDDR4X =3D 8,
-> > +       ROCKCHIP_DDRTYPE_LPDDR5 =3D 9,
-> >  };
-> >
-> >  #endif /* __SOC_ROCKCHIP_GRF_H */
-> >
-> > --
-> > 2.49.0
-> >
-> >
->=20
->=20
->=20
+On 7/10/25 23:07, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> Switch the system clocks to use parent_hw and parent_data. Having this
+> allows the driver to conform to the new clk-system API.
+> 
+> The parent registration is after the USBCK registration due to one of
+> the system clocks being dependent on USBCK.
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>   drivers/clk/at91/sama7d65.c | 37 +++++++++++++++++++++++--------------
+>   1 file changed, 23 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
+> index f10faabc7ffe..1553dc3152a4 100644
+> --- a/drivers/clk/at91/sama7d65.c
+> +++ b/drivers/clk/at91/sama7d65.c
+> @@ -533,23 +533,23 @@ static struct {
+>   /*
+>    * System clock description
+>    * @n:	clock name
+> - * @p:	clock parent name
+> + * @p:	clock parent hw
+>    * @id: clock id
+>    */
+> -static const struct {
+> +static struct {
+>   	const char *n;
+> -	const char *p;
+> +	struct clk_hw *parent_hw;
+>   	u8 id;
+>   } sama7d65_systemck[] = {
+> -	{ .n = "uhpck",		.p = "usbck", .id = 6 },
+> -	{ .n = "pck0",		.p = "prog0", .id = 8, },
+> -	{ .n = "pck1",		.p = "prog1", .id = 9, },
+> -	{ .n = "pck2",		.p = "prog2", .id = 10, },
+> -	{ .n = "pck3",		.p = "prog3", .id = 11, },
+> -	{ .n = "pck4",		.p = "prog4", .id = 12, },
+> -	{ .n = "pck5",		.p = "prog5", .id = 13, },
+> -	{ .n = "pck6",		.p = "prog6", .id = 14, },
+> -	{ .n = "pck7",		.p = "prog7", .id = 15, },
+> +	{ .n = "uhpck",		.id = 6 },
+> +	{ .n = "pck0",		.id = 8, },
+> +	{ .n = "pck1",		.id = 9, },
+> +	{ .n = "pck2",		.id = 10, },
+> +	{ .n = "pck3",		.id = 11, },
+> +	{ .n = "pck4",		.id = 12, },
+> +	{ .n = "pck5",		.id = 13, },
+> +	{ .n = "pck6",		.id = 14, },
+> +	{ .n = "pck7",		.id = 15, },
+>   };
+>   
+>   /* Mux table for programmable clocks. */
+> @@ -1283,10 +1283,19 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+>   
+>   		sama7d65_pmc->pchws[i] = hw;
+>   	}
+> -
 
+Worth keeping this blank line.
 
-
+> +	/* Set systemck parent hws. */
+> +	sama7d65_systemck[0].parent_hw = usbck_hw;
+> +	sama7d65_systemck[1].parent_hw = sama7d65_pmc->pchws[0];
+> +	sama7d65_systemck[2].parent_hw = sama7d65_pmc->pchws[1];
+> +	sama7d65_systemck[3].parent_hw = sama7d65_pmc->pchws[2];
+> +	sama7d65_systemck[4].parent_hw = sama7d65_pmc->pchws[3];
+> +	sama7d65_systemck[5].parent_hw = sama7d65_pmc->pchws[4];
+> +	sama7d65_systemck[6].parent_hw = sama7d65_pmc->pchws[5];
+> +	sama7d65_systemck[7].parent_hw = sama7d65_pmc->pchws[6];
+> +	sama7d65_systemck[8].parent_hw = sama7d65_pmc->pchws[7];
+>   	for (i = 0; i < ARRAY_SIZE(sama7d65_systemck); i++) {
+>   		hw = at91_clk_register_system(regmap, sama7d65_systemck[i].n,
+> -					      sama7d65_systemck[i].p, NULL,
+> +					      NULL, &AT91_CLK_PD_HW(sama7d65_systemck[i].parent_hw),
+>   					      sama7d65_systemck[i].id, 0);
+>   		if (IS_ERR(hw))
+>   			goto err_free;
 
 
