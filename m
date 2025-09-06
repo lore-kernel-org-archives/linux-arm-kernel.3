@@ -4,114 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1439CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:08:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA85CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5o0Lc7tHeb/XcDNrBsU4rId8xv92WWzNNwMOr8SaKj0=; b=xL/pFHikMHrMQw1zNV7qc4qy+h
-	09JhKpC34XQ+dJkjg2KyWy2+cdsCLhUN3MLLVOHFb3tdmaS3DGgxtno8DfGACo77LSJnG2iWaJWaM
-	T3B01vwbLOFqYYgQ+f1oMw+VJch+QBmyiOSdf9C+uSuHQBAtKcfHgAQnaVJWmV7LcY0Lf517oxqq/
-	RV3iqreNmhXVLBbCra1crUD9HfORt7YzN9WA0mbDhyl5q0zEcNd5UXth/gZdtFYuhk1x7TSvfvrS5
-	h4ILiq+AE3iZ+nbvD9NMmENII8If+nqWs7feg5FxkCRBp72zYIKsp23wYwa6aYXIWMkvvFkic8BdJ
-	g7j2O7sg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D8Mr/6zv4AcMMEkuwvT+ySaDwWnup/zkHcnhD+HTewc=; b=hDK8DePFrhF6TX2yan5NeUUJV4
+	OaPWrGEtRoEayYfTgN0t35WUNGX1/PvrhKwOovXl7gNay2YgP7xBckTzfkinNWR1UeKDy9vSlLbOc
+	t9ozLkqa46e2EGBQ1e6mkz0sjKGg6PpMUchcO4M96dPSdfJu8XFFQIW//PcoWOHPmdU9Jbw7uyVxJ
+	3nY6ds+yroe0VMCNNGiCeqahUTGFBm4TUort1Wrn7BuXfzrBNXBAONHzKkdiBjetgtBuCddyHIFrD
+	4+Ngp/OPIOVCBMYagDkyJ/86TpboPXCW9tylcPmpkbyu484pUa5M3H6+LlBLA+1lH0kd1FxxJmUYT
+	fdy+N17w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uurit-00000007ji9-2tbZ;
-	Sat, 06 Sep 2025 12:08:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uurlg-00000007juJ-3lFX;
+	Sat, 06 Sep 2025 12:11:44 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uurg4-00000007jXn-3b2e
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 12:05:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C4B54484C;
-	Sat,  6 Sep 2025 12:05:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83B90C4CEE7;
-	Sat,  6 Sep 2025 12:05:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757160356;
-	bh=MMBOJfs68xGaCYdH1zeRaD61flhQMDRGdp6pvXusXas=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RIpit8ShleSdOcRjrgtbMXLoN+2MSg5APLeyBoh6uGM0YMxVfirKfOLtqwkt8dSAP
-	 pp0HNYYfEF+i/8hreGzgVMdyQOFqmcAEFN2qHpVB/mJ+eB9Ie0Q5QyPkxIH5+WB49j
-	 gEmeSfJMxVDUHN4ZDsnO55gAuaR2dcRY9lQhIV9zvxgrTYg+LVASzx2xeM2XwT4U7s
-	 s+UEwYQgsPgpDNuis2cplmpZDHiTiJ2tb+Ex03qOVQZBABXQ/ys2urCgj5/KKbuMdm
-	 1yiM5vM+RLsLmZBo/hnVCl/jnpoDNEyrlaP9We6UmaJQbZGsK/lDbTH4qodo2gozw3
-	 fhscmLlbBnGtw==
-Message-ID: <e71e6f3d-af02-4910-91ae-acf41692ac5b@kernel.org>
-Date: Sat, 6 Sep 2025 14:05:50 +0200
+	id 1uuriL-00000007jcV-3Mt3;
+	Sat, 06 Sep 2025 12:08:18 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45de2132c49so156895e9.1;
+        Sat, 06 Sep 2025 05:08:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757160496; x=1757765296; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=D8Mr/6zv4AcMMEkuwvT+ySaDwWnup/zkHcnhD+HTewc=;
+        b=KGwx3yaqw71wMpg5o8mjmrfujw7Hpu0693QF7R7M/sop/fJu3IrTXRa0Qc5JApI1ek
+         wjcYBcXHDo/Rp+SyG4Apr5Mq47fxd7jn6C1Z0c+tJtFwCHONmXP27KxiQpPgB6Lu29Is
+         arAs4BnCPckwxMTlVvOf7TFoSJXVAGEXAVNIaLJfnl0lI4z//T+fmjJUnV1mmwpzrZVZ
+         REHhOZmKx/yJhI9vLoNGSDgSpVzXUReqkxoz5X3HD0NXOLV3fHQ0kWeSA0AieVQT98LT
+         OA2bEr/75FYiDcMrKqcZ29NmsNI7dXT3sCQL8yVsZFk0CA7x2y5DhV7Ny1g+2N9+sEdN
+         smbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757160496; x=1757765296;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=D8Mr/6zv4AcMMEkuwvT+ySaDwWnup/zkHcnhD+HTewc=;
+        b=twVjumRt6fJ7y59zCUJ9bUEA7KU1YNzI9LxJZeHT7RKc1ePq1qtz0JlAPeY+bevCIR
+         htd1fSWy432KBsAxIhM1UEbYHiax5mtvylrrS63V43Gg6GeZT/UH64fnohTw4uSKjXtX
+         HuOLG9+UJb59c9IulwiPHtxb/npJmXCBsMGT66BNhjZ5jDYe14p4A5L9Z/04MiZYRb+T
+         q+TFUa31kPX1QnWV+v3pP1FjtoihT9xkNG52asojEZiQl9+5JB8PiYp7VME5g4QELw6O
+         J4yUdm4DPUowbr9cPEvDLEYtZzDXw6YqDzs/bivTk/EwDdUV7Yz0Y75QCJooI+2wLGSe
+         1Mjw==
+X-Forwarded-Encrypted: i=1; AJvYcCV544k7ARg6sBSha8QblrFPPYDCajYmwP/rCZg2SHtyrEKtq1La5XxqOuj8TGaHCc3LoRKlyEZk3WeI0tNXV+c=@lists.infradead.org, AJvYcCX6y9BgcM9VbpJg4OcG6XVyGZcIO14d1P4eIN91EymU+ZUwCNArxu+g9tD4E4W0Ui9ZDAZfoeYh2AHOhxfg9H6A@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5LsjoPPGg6JxanErN2aHOiHw6iYPBf86ILxDf96zngtDSuM1g
+	c2/rKMc0KWisaDjcP4M0NsJN68qpTXXRWQLHHcnll7hmcZ6CZe1OnMCW
+X-Gm-Gg: ASbGnctHuoxsSuG71eMyvymEqh49JmRJU64UoifgHyrBX3nL7XPjvxR+hYPVrQ/UpmZ
+	xmYHoK74aXHW+S6xACSjM7PC86jcgkEsnZAbaJDhHutkIIi0J5DKsIQltuQemLKmf5kHRi2Na4q
+	OhBjcKl+1vvW/GvbaxetSCINM5mfuuft5yFDZ+dPb3bsxjoxn1JQ8idQSNS3bqMRu/QYg28yWfy
+	jFBcBe52EkmGYdpYV6fIGEEriVAJYIBlWSoM68yp4mVQfil84Prwu/XbdG0vOuAKNXFTGILGIbV
+	qWlFA9vDU4k3IKqNkSP+2Y9wVqhC+c7Azv1xnyqb4uQRzUXloABfS+pg592B9obqH4uGgWeqw5e
+	VgAieFsp5AeFFusrKCTDKe8rrewHHMdnHWFvMgg==
+X-Google-Smtp-Source: AGHT+IEGnMuR1OcLq5hi6KejZJYg5UBBpTJ9CwU7pKvWahTivnfLTRqyzm4V0K2QWcSXvSQ2S/JUpw==
+X-Received: by 2002:a05:600c:8b71:b0:45d:d903:beea with SMTP id 5b1f17b1804b1-45dde034574mr20619905e9.30.1757160496089;
+        Sat, 06 Sep 2025 05:08:16 -0700 (PDT)
+Received: from toolbox.. ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45dd058ed5esm60978455e9.1.2025.09.06.05.08.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 06 Sep 2025 05:08:15 -0700 (PDT)
+From: Christian Hewitt <christianshewitt@gmail.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alex Bee <knaerzche@gmail.com>
+Subject: [PATCH v3 1/2] arm64: dts: rockchip: add GPU powerdomain, opps, and cooling to rk3328
+Date: Sat,  6 Sep 2025 12:08:09 +0000
+Message-Id: <20250906120810.1833016-1-christianshewitt@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: samsung: Add tmu-name and
- sensor-index-ranges properties
-To: Shin Son <shin.son@samsung.com>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250903073634.1898865-1-shin.son@samsung.com>
- <CGME20250903073653epcas2p4cb25058c97aab9a30c7e68ef5f10fb91@epcas2p4.samsung.com>
- <20250903073634.1898865-2-shin.son@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250903073634.1898865-2-shin.son@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_050556_938233_ABAD1E4F 
-X-CRM114-Status: UNSURE (   6.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250906_050817_863347_62DA2CA3 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,25 +100,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2025 09:36, Shin Son wrote:
->  > +  samsung,hw-sensor-indices:
-> +    description: |
-> +      List of hardware sensor indices that are physically present and usable
-> +      in this TMU instance. Indices not listed are either unmapped or unused.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    minItems: 1
-> +    maxItems: 16
-> +    uniqueItems: true
+From: Alex Bee <knaerzche@gmail.com>
 
+Add GPU powerdomain, opp-table, and cooling map nodes for the Mali
+GPU on the RK3328 SoC. Opp-table frequencies are sourced from the
+Rockchip Linux v4.4 vendor kernel while voltages have been derived
+from practical use and support work: keeping voltage above 1075mV
+and disabling the 500MHz opp-point avoids instability and crashes.
 
-For v3 you also need:
+Signed-off-by: Alex Bee <knaerzche@gmail.com>
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+---
+Changes since v2:
+- Revert to gpu_opp_table but retain opp-table-gpu $nodename
+Changes since v1:
+- Use opp_table_gpu not gpu_opp_table to fix dtb schema warnings
 
-  items:
-    maximum: 16
-(or whatever values are actually correct)
+ arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39 +++++++++++++++++++++++-
+ 1 file changed, 38 insertions(+), 1 deletion(-)
 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+index 6438c969f9d7..610c1c27b798 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+@@ -331,6 +331,11 @@ power: power-controller {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 
++			power-domain@RK3328_PD_GPU {
++				reg = <RK3328_PD_GPU>;
++				clocks = <&cru ACLK_GPU>;
++				#power-domain-cells = <0>;
++			};
+ 			power-domain@RK3328_PD_HEVC {
+ 				reg = <RK3328_PD_HEVC>;
+ 				clocks = <&cru SCLK_VENC_CORE>;
+@@ -570,9 +575,13 @@ map0 {
+ 							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+ 					contribution = <4096>;
+ 				};
++				map1 {
++					trip = <&target>;
++					cooling-device = <&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++					contribution = <4096>;
++				};
+ 			};
+ 		};
+-
+ 	};
+ 
+ 	tsadc: tsadc@ff250000 {
+@@ -651,7 +660,35 @@ gpu: gpu@ff300000 {
+ 				  "ppmmu1";
+ 		clocks = <&cru ACLK_GPU>, <&cru ACLK_GPU>;
+ 		clock-names = "bus", "core";
++		operating-points-v2 = <&gpu_opp_table>;
++		power-domains = <&power RK3328_PD_GPU>;
+ 		resets = <&cru SRST_GPU_A>;
++		#cooling-cells = <2>;
++	};
++
++	gpu_opp_table: opp-table-gpu {
++		compatible = "operating-points-v2";
++		opp-200000000 {
++			opp-hz = /bits/ 64 <200000000>;
++			opp-microvolt = <1075000>;
++		};
++
++		opp-300000000 {
++			opp-hz = /bits/ 64 <300000000>;
++			opp-microvolt = <1075000>;
++		};
++
++		opp-400000000 {
++			opp-hz = /bits/ 64 <400000000>;
++			opp-microvolt = <1075000>;
++		};
++
++		opp-500000000 {
++			/* causes stability issues */
++			opp-hz = /bits/ 64 <500000000>;
++			opp-microvolt = <1150000>;
++			status = "disabled";
++		};
+ 	};
+ 
+ 	h265e_mmu: iommu@ff330200 {
+-- 
+2.34.1
 
-
-Best regards,
-Krzysztof
 
