@@ -4,56 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E35E4CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 02:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2911CCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 02:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bK7p234lG+b2Ng+atiVxbx81EhacjnuxO0rrD4cOxQ4=; b=2sjdBX0gJerhDvdvwTFwBNXje0
-	rhJJRO/UxE65zsRrgdbMto6YSj/V4UO/C59EGK/1Kvj0n0d0qohY6UutWBMLOQkQwaXSboPCUjDFj
-	K5iOhWcWq6hxQ1HvEUbQEKNr+trFcU+1J4cpENVBz3Imf8h0KJNPQpy+GwaBgQTnhjZ9+YLg6kEvE
-	E5Z27eY2Qbul2etPXnUPXqrPJbSwVT0bRTLUs4BCAybTOVd5g0lB8oZvdvsCqOhZodPt3b81LIXcf
-	j1RW07IABpg4sgd2eqJd58ioLAhGErTHl7lSK6HVjhtIPm2Dgdpdz79rsI0EY0hLgot3NQ2SHRq7b
-	e0EEN1Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9T8mhgY9nX4b1GTDoanzs4NGx5M5/HhR9wB18Kbszzk=; b=UAQCwmMb1fU1zwzYPH/ovPyQRn
+	ZJQHwe9r8NJ/8j6VPDe5ShYrMSzmK2Rmuq/ANuYdUp3C7d0y4LaaPG0Xgj8RWayyuaS6RBRJbCtgx
+	NfAESGMFxmQhGNo5WMhHw1N0pVfEF32i2ZsMDOkF7/LAk432ljLF7m+S04sWs2TwQliP+HCFL1Knv
+	IfFwrynYSlbK4+Aij+m4Tpa1tNZiZpwbyjHH3SHspMxwf3Wk6uiMZMIN4T15a1jpKFlSUx2Qqu8Eo
+	/5cnofKr4jem6tnCkgdrhgBbS4UGNZupPUxG/xTILpC19EnUHKU4a89B1xmj1FHnJkjms2fgdqPl4
+	6iOzzoVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuiIr-000000062IB-39Qx;
-	Sat, 06 Sep 2025 02:05:21 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1uuiLe-000000062w0-2Qtu;
+	Sat, 06 Sep 2025 02:08:14 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uui32-00000005xYS-1SNQ
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 01:49:01 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Sat, 6 Sep
- 2025 09:48:46 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Sat, 6 Sep 2025 09:48:46 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: ryan_chen <ryan_chen@aspeedtech.com>, Eddie James <eajames@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Lee Jones <lee@kernel.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 4/4] irqchip/aspeed-scu-ic: Add support AST2700 SCU interrupt controllers
-Date: Sat, 6 Sep 2025 09:48:46 +0800
-Message-ID: <20250906014846.861368-5-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250906014846.861368-1-ryan_chen@aspeedtech.com>
-References: <20250906014846.861368-1-ryan_chen@aspeedtech.com>
+	id 1uui4I-00000005yQs-0kEJ;
+	Sat, 06 Sep 2025 01:50:19 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3e249a4d605so1954528f8f.3;
+        Fri, 05 Sep 2025 18:50:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757123416; x=1757728216; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9T8mhgY9nX4b1GTDoanzs4NGx5M5/HhR9wB18Kbszzk=;
+        b=jPndKpKciuG48QxOk5fC4oXsbFg3c0z2GEdJ2brUSuCT1V9AZLY4sxv3r8b13N0dX1
+         3Ve7FGaj+p4bUdpHz/5oi/jRhV/WCI4kPbGI6ViiM5bMPFXRd9EkSOvfD9mT2pd1J3Dz
+         GL14jwet+4tsk5S1vqT0PhqkjgPFrPjzh/ybsxdH3BWfJJ6m9Txz3QZ/pPsjh22synf3
+         UFcEtaIZdobRiLixcUmLmvkdFJLwMUjOwxuujEgAY8ghSnP98qfm0CVl8zKiKiQhx2mA
+         SYhJsP093wXU66TQ1Jo8wkBXM9iSdkybeqbEzpaR4M58QpAT3TfQMeuxOLhOO/8GJO6A
+         3BUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757123416; x=1757728216;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9T8mhgY9nX4b1GTDoanzs4NGx5M5/HhR9wB18Kbszzk=;
+        b=RvTgIabfIuivc5mHLpWX6sErpEPs8l9OcLpHlCb/Ce39XBTU9rXFGHcrgJmvmklxgE
+         XtNPXVQrmtyl5qImukOIY4Ygk/4wIDBchWHesXhH9KFvyNFGZ48EdoIRvOxs0I/vEVcx
+         C7OPC6Y4M3lmK++32au2Fe2odPZ5V1DgTy7PD4KlA2FEUQDcdUaPxYQyzUzP1G7QlPuM
+         HwnLo7FJWzVxot0DGK/biYjcgXo33J2HYozRssBli8eMBmvv5SSlBy2+cQzeCvRIIjQ+
+         13whlqexBtoqJ+UAObvzNz/g+SE6xwc8KUDSO0Pu/6t7EGf0cIoYvUBgblxhpBa+zOIr
+         hVSw==
+X-Forwarded-Encrypted: i=1; AJvYcCUXb2Jay6iAhs/mmQucntGqUzCeQ9frvJzuRlOkiSUCE9q8/5ORHclMpgmH8b95V8bNeV9f7bk60BK4NoGMc+t6@lists.infradead.org, AJvYcCUY14qgRIFL39jvJDUsCBNFhAcP/W9LULLuE8VIqKCKwgYXt13q3Gg4hay0lnlGubriupVBWX49Lf4V8dYhmig=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCagBFIZdStFAx7ibTwBJco8DrOTgqCPsGeGxNAXSOxLglUujx
+	sITjHbsLDg6VISFLIEhy+2vzmrvgAhwZAanlyRJFeiNJHwv7wsEwXtsT+GnkKI5hVhiOeVfdr6I
+	k/nibMUaBRu8nMMB92Y1B83hTAJXdoSo=
+X-Gm-Gg: ASbGncsryNFDxYIRdr2OTrDgSNN+r2GXwNHtLYHN7cc80+PgbVLofYLS/9nOkZxZM+p
+	PT4Gge5pX9uYmUP2Dyi6Pb4iWimlwY+1sFeoZrw2vzBlTn6fGBrhjoRfcb3+LotzmHAplwHyJdw
+	GsWGT2ynD2PrAFxRwL0+4S8L7FDnRGl+bUtyKLfDp114hJjGe82+sMtYBbUPHQ9H1IJurkzOwrW
+	ri+Yba5jxqkf3yQDgEbNS6rWn2jK5LJzIjYmRzCdsyPHFM=
+X-Google-Smtp-Source: AGHT+IG6oix8mLMZHDuSE3WNnpjGJG/3AhhOv3u2JxvodBrLWsljciM9kQJmzeRwfNEpuDP8Q7Dg/c797dvznUQWxEc=
+X-Received: by 2002:a05:6000:2883:b0:3e3:f332:73f0 with SMTP id
+ ffacd0b85a97d-3e64c693923mr284627f8f.49.1757123415784; Fri, 05 Sep 2025
+ 18:50:15 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <20250905090115.718622-1-dkx@t-chip.com.cn>
+In-Reply-To: <20250905090115.718622-1-dkx@t-chip.com.cn>
+From: Jimmy Hon <honyuenkwun@gmail.com>
+Date: Fri, 5 Sep 2025 20:50:04 -0500
+X-Gm-Features: Ac12FXwbiLHfVMuDhY7SOkXke4RxqgSQCIhrk8FrjSiEnCfjNXAuJcrVNoPzTFc
+Message-ID: <CALWfF7+6dTqLRHYKHL1iBf9YknLQ5yTrwPur8VySmjiy3mzh0Q@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add devicetree for the ROC-RK3588-RT
+To: Kaison Deng <dkx@t-chip.com.cn>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Wayne Chou <zxf@t-chip.com.cn>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Dragan Simic <dsimic@manjaro.org>, 
+	Jonas Karlman <jonas@kwiboo.se>, FUKAUMI Naoki <naoki@radxa.com>, Peter Robinson <pbrobinson@gmail.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_184900_391056_15F3AE62 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20250905_185018_218323_4D366F8C 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,242 +98,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2700 continues the multi-instance SCU interrupt controller model
-introduced in the AST2600, with four independent interrupt domains
-(scu-ic0 to 3).
+On Fri, Sep 5, 2025 at 9:32=E2=80=AFAM Kaison Deng <dkx@t-chip.com.cn> wrot=
+e:
+>
+> The Firefly ROC-RK3588-RT is RK3588 based SBC featuring:
+>
+> - TF card slot
+> - NVME 2242 socket
+Could you update the commit description to match device tree. It looks
+like the M.2 2242 socket is configured as a SATA (i.e. "sata2")
+instead of NVME.
 
-Unlike earlier generations that combine interrupt enable and status bits
-into a single register, the AST2700 separates these into distinct IER and
-ISR registers. Support for this layout is implemented by using register
-offsets and separate chained IRQ handlers.
+Is the M.2 slot also wired for NVME operation? If so, will you be
+providing a DT overlay to use it in that mode?
 
-The variant table is extended to cover AST2700 IC instances, enabling
-shared initialization logic while preserving support for previous SoCs.
+https://wiki.t-firefly.com/en/ROC-RK3588-RT/usage_sata.html#software-config=
+uration
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- drivers/irqchip/irq-aspeed-scu-ic.c | 119 +++++++++++++++++++++++-----
- 1 file changed, 101 insertions(+), 18 deletions(-)
+> - 1x USB 3.0 Port, 1x USB 2.0 Port, 1x Typec Port
+> - 1x HDMI 2.1 out, 1x HDMI 2.0 out
+> - 2x Gigabit Ethernet, 1x 2.5G Ethernet
+> - M.2 E-KEY for Extended WiFI and Bluetoolh
+> - ES8388 on-board sound codec - jack in/out
+> - RTC
+> - LED: WORK, DIY
+> - BTB connector for PCie, UART, USB, CAN, SARADC, GPIO
+>
+> Signed-off-by: Kaison Deng <dkx@t-chip.com.cn>
+> ---
+>  arch/arm64/boot/dts/rockchip/Makefile         |    1 +
+>  .../arm64/boot/dts/rockchip/rk3588-roc-rt.dts | 1120 +++++++++++++++++
+>  2 files changed, 1121 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-roc-rt.dts
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/=
+rockchip/Makefile
+> index 9d56d4146b20..ad684e3831bc 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -181,6 +181,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-orangepi-5-ma=
+x.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-orangepi-5-plus.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-orangepi-5-ultra.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-quartzpro64.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-roc-rt.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-rock-5-itx.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-rock-5b.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-rock-5b-pcie-ep.dtbo
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-roc-rt.dts b/arch/arm64/=
+boot/dts/rockchip/rk3588-roc-rt.dts
+> new file mode 100644
+> index 000000000000..1d50009d3153
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-roc-rt.dts
 
-diff --git a/drivers/irqchip/irq-aspeed-scu-ic.c b/drivers/irqchip/irq-aspeed-scu-ic.c
-index 24d3d3fa5c4b..8c2df72353be 100644
---- a/drivers/irqchip/irq-aspeed-scu-ic.c
-+++ b/drivers/irqchip/irq-aspeed-scu-ic.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Aspeed AST24XX, AST25XX, and AST26XX SCU Interrupt Controller
-+ * Aspeed AST24XX, AST25XX, AST26XX, and AST27XX SCU Interrupt Controller
-  * Copyright 2019 IBM Corporation
-  *
-  * Eddie James <eajames@linux.ibm.com>
-@@ -17,26 +17,37 @@
- 
- #define ASPEED_SCU_IC_STATUS		GENMASK(28, 16)
- #define ASPEED_SCU_IC_STATUS_SHIFT	16
-+#define AST2700_SCU_IC_STATUS		GENMASK(15, 0)
- 
- struct aspeed_scu_ic_variant {
- 	const char		*compatible;
- 	unsigned long	irq_enable;
- 	unsigned long	irq_shift;
- 	unsigned int	num_irqs;
-+	bool		split_ier_isr;
-+	unsigned long	ier;
-+	unsigned long	isr;
- };
- 
--#define SCU_VARIANT(_compat, _shift, _enable, _num) { \
-+#define SCU_VARIANT(_compat, _shift, _enable, _num, _split, _ier, _isr) { \
- 	.compatible		=	_compat,	\
- 	.irq_shift		=	_shift,		\
- 	.irq_enable		=	_enable,	\
- 	.num_irqs		=	_num,		\
-+	.split_ier_isr		=	_split,		\
-+	.ier			=	_ier,		\
-+	.isr			=	_isr,		\
- }
- 
- static const struct aspeed_scu_ic_variant scu_ic_variants[]	__initconst = {
--	SCU_VARIANT("aspeed,ast2400-scu-ic",	0,	GENMASK(15, 0),	7),
--	SCU_VARIANT("aspeed,ast2500-scu-ic",	0,	GENMASK(15, 0), 7),
--	SCU_VARIANT("aspeed,ast2600-scu-ic0",	0,	GENMASK(5, 0),	6),
--	SCU_VARIANT("aspeed,ast2600-scu-ic1",	4,	GENMASK(5, 4),	2),
-+	SCU_VARIANT("aspeed,ast2400-scu-ic",	0, GENMASK(15, 0),	7, false,	0,	0),
-+	SCU_VARIANT("aspeed,ast2500-scu-ic",	0, GENMASK(15, 0),	7, false,	0,	0),
-+	SCU_VARIANT("aspeed,ast2600-scu-ic0",	0, GENMASK(5, 0),	6, false,	0,	0),
-+	SCU_VARIANT("aspeed,ast2600-scu-ic1",	4, GENMASK(5, 4),	2, false,	0,	0),
-+	SCU_VARIANT("aspeed,ast2700-scu-ic0",	0, GENMASK(3, 0),	4, true,	0x00, 0x04),
-+	SCU_VARIANT("aspeed,ast2700-scu-ic1",	0, GENMASK(3, 0),	4, true,	0x00, 0x04),
-+	SCU_VARIANT("aspeed,ast2700-scu-ic2",	0, GENMASK(3, 0),	4, true,	0x04, 0x00),
-+	SCU_VARIANT("aspeed,ast2700-scu-ic3",	0, GENMASK(1, 0),	2, true,	0x04, 0x00),
- };
- 
- struct aspeed_scu_ic {
-@@ -45,9 +56,12 @@ struct aspeed_scu_ic {
- 	unsigned int		num_irqs;
- 	void __iomem		*base;
- 	struct irq_domain	*irq_domain;
-+	bool			split_ier_isr;
-+	unsigned long		ier;
-+	unsigned long		isr;
- };
- 
--static void aspeed_scu_ic_irq_handler(struct irq_desc *desc)
-+static void aspeed_scu_ic_irq_handler_combined(struct irq_desc *desc)
- {
- 	struct aspeed_scu_ic *scu_ic = irq_desc_get_handler_data(desc);
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
-@@ -84,7 +98,33 @@ static void aspeed_scu_ic_irq_handler(struct irq_desc *desc)
- 	chained_irq_exit(chip, desc);
- }
- 
--static void aspeed_scu_ic_irq_mask(struct irq_data *data)
-+static void aspeed_scu_ic_irq_handler_split(struct irq_desc *desc)
-+{
-+	struct aspeed_scu_ic *scu_ic = irq_desc_get_handler_data(desc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	unsigned long bit, enabled, max, status;
-+	unsigned int sts, mask;
-+
-+	chained_irq_enter(chip, desc);
-+
-+	mask = scu_ic->irq_enable;
-+	sts = readl(scu_ic->base + scu_ic->isr);
-+	enabled = sts & scu_ic->irq_enable;
-+	sts = readl(scu_ic->base + scu_ic->isr);
-+	status = sts & enabled;
-+
-+	bit = scu_ic->irq_shift;
-+	max = scu_ic->num_irqs + bit;
-+
-+	for_each_set_bit_from(bit, &status, max) {
-+		generic_handle_domain_irq(scu_ic->irq_domain, bit - scu_ic->irq_shift);
-+		writel(BIT(bit), scu_ic->base + scu_ic->isr); // clear interrupt
-+	}
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static void aspeed_scu_ic_irq_mask_combined(struct irq_data *data)
- {
- 	struct aspeed_scu_ic *scu_ic = irq_data_get_irq_chip_data(data);
- 	unsigned int mask = BIT(data->hwirq + scu_ic->irq_shift) |
-@@ -98,7 +138,7 @@ static void aspeed_scu_ic_irq_mask(struct irq_data *data)
- 	writel(readl(scu_ic->base) & ~mask, scu_ic->base);
- }
- 
--static void aspeed_scu_ic_irq_unmask(struct irq_data *data)
-+static void aspeed_scu_ic_irq_unmask_combined(struct irq_data *data)
- {
- 	struct aspeed_scu_ic *scu_ic = irq_data_get_irq_chip_data(data);
- 	unsigned int bit = BIT(data->hwirq + scu_ic->irq_shift);
-@@ -113,6 +153,22 @@ static void aspeed_scu_ic_irq_unmask(struct irq_data *data)
- 	writel((readl(scu_ic->base) & ~mask) | bit, scu_ic->base);
- }
- 
-+static void aspeed_scu_ic_irq_mask_split(struct irq_data *data)
-+{
-+	struct aspeed_scu_ic *scu_ic = irq_data_get_irq_chip_data(data);
-+
-+	writel(readl(scu_ic->base) & ~BIT(data->hwirq + scu_ic->irq_shift),
-+	       scu_ic->base + scu_ic->ier);
-+}
-+
-+static void aspeed_scu_ic_irq_unmask_split(struct irq_data *data)
-+{
-+	struct aspeed_scu_ic *scu_ic = irq_data_get_irq_chip_data(data);
-+	unsigned int bit = BIT(data->hwirq + scu_ic->irq_shift);
-+
-+	writel(readl(scu_ic->base) | bit, scu_ic->base + scu_ic->ier);
-+}
-+
- static int aspeed_scu_ic_irq_set_affinity(struct irq_data *data,
- 					  const struct cpumask *dest,
- 					  bool force)
-@@ -120,17 +176,29 @@ static int aspeed_scu_ic_irq_set_affinity(struct irq_data *data,
- 	return -EINVAL;
- }
- 
--static struct irq_chip aspeed_scu_ic_chip = {
--	.name			= "aspeed-scu-ic",
--	.irq_mask		= aspeed_scu_ic_irq_mask,
--	.irq_unmask		= aspeed_scu_ic_irq_unmask,
--	.irq_set_affinity	= aspeed_scu_ic_irq_set_affinity,
-+static struct irq_chip aspeed_scu_ic_chip_combined = {
-+	.name                   = "aspeed-scu-ic",
-+	.irq_mask               = aspeed_scu_ic_irq_mask_combined,
-+	.irq_unmask             = aspeed_scu_ic_irq_unmask_combined,
-+	.irq_set_affinity       = aspeed_scu_ic_irq_set_affinity,
-+};
-+
-+static struct irq_chip aspeed_scu_ic_chip_split = {
-+	.name                   = "ast2700-scu-ic",
-+	.irq_mask               = aspeed_scu_ic_irq_mask_split,
-+	.irq_unmask             = aspeed_scu_ic_irq_unmask_split,
-+	.irq_set_affinity       = aspeed_scu_ic_irq_set_affinity,
- };
- 
- static int aspeed_scu_ic_map(struct irq_domain *domain, unsigned int irq,
- 			     irq_hw_number_t hwirq)
- {
--	irq_set_chip_and_handler(irq, &aspeed_scu_ic_chip, handle_level_irq);
-+	struct aspeed_scu_ic *scu_ic = domain->host_data;
-+
-+	if (scu_ic->split_ier_isr)
-+		irq_set_chip_and_handler(irq, &aspeed_scu_ic_chip_split, handle_level_irq);
-+	else
-+		irq_set_chip_and_handler(irq, &aspeed_scu_ic_chip_combined, handle_level_irq);
- 	irq_set_chip_data(irq, domain->host_data);
- 
- 	return 0;
-@@ -151,8 +219,14 @@ static int aspeed_scu_ic_of_init_common(struct aspeed_scu_ic *scu_ic,
- 		rc = PTR_ERR(scu_ic->base);
- 		goto err;
- 	}
--	writel(ASPEED_SCU_IC_STATUS, scu_ic->base);
--	writel(0, scu_ic->base);
-+
-+	if (scu_ic->split_ier_isr) {
-+		writel(AST2700_SCU_IC_STATUS, scu_ic->base + scu_ic->isr);
-+		writel(0, scu_ic->base + scu_ic->ier);
-+	} else {
-+		writel(ASPEED_SCU_IC_STATUS, scu_ic->base);
-+		writel(0, scu_ic->base);
-+	}
- 
- 	irq = irq_of_parse_and_map(node, 0);
- 	if (!irq) {
-@@ -167,7 +241,9 @@ static int aspeed_scu_ic_of_init_common(struct aspeed_scu_ic *scu_ic,
- 		goto err;
- 	}
- 
--	irq_set_chained_handler_and_data(irq, aspeed_scu_ic_irq_handler,
-+	irq_set_chained_handler_and_data(irq, scu_ic->split_ier_isr ?
-+					 aspeed_scu_ic_irq_handler_split :
-+					 aspeed_scu_ic_irq_handler_combined,
- 					 scu_ic);
- 
- 	return 0;
-@@ -205,6 +281,9 @@ static int __init aspeed_scu_ic_of_init(struct device_node *node, struct device_
- 	scu_ic->irq_enable	= variant->irq_enable;
- 	scu_ic->irq_shift	= variant->irq_shift;
- 	scu_ic->num_irqs	= variant->num_irqs;
-+	scu_ic->split_ier_isr	= variant->split_ier_isr;
-+	scu_ic->ier	= variant->ier;
-+	scu_ic->isr	= variant->isr;
- 
- 	return aspeed_scu_ic_of_init_common(scu_ic, node);
- }
-@@ -213,3 +292,7 @@ IRQCHIP_DECLARE(ast2400_scu_ic, "aspeed,ast2400-scu-ic", aspeed_scu_ic_of_init);
- IRQCHIP_DECLARE(ast2500_scu_ic, "aspeed,ast2500-scu-ic", aspeed_scu_ic_of_init);
- IRQCHIP_DECLARE(ast2600_scu_ic0, "aspeed,ast2600-scu-ic0", aspeed_scu_ic_of_init);
- IRQCHIP_DECLARE(ast2600_scu_ic1, "aspeed,ast2600-scu-ic1", aspeed_scu_ic_of_init);
-+IRQCHIP_DECLARE(ast2700_scu_ic0, "aspeed,ast2700-scu-ic0", aspeed_scu_ic_of_init);
-+IRQCHIP_DECLARE(ast2700_scu_ic1, "aspeed,ast2700-scu-ic1", aspeed_scu_ic_of_init);
-+IRQCHIP_DECLARE(ast2700_scu_ic2, "aspeed,ast2700-scu-ic2", aspeed_scu_ic_of_init);
-+IRQCHIP_DECLARE(ast2700_scu_ic3, "aspeed,ast2700-scu-ic3", aspeed_scu_ic_of_init);
--- 
-2.34.1
+[snip]
 
+> +
+> +&hdmi0 {
+> +       status =3D "okay";
+> +};
+> +
+> +&hdmi0_in {
+> +       hdmi0_in_vp0: endpoint {
+> +               remote-endpoint =3D <&vp0_out_hdmi0>;
+> +       };
+> +};
+> +
+> +&hdmi0_out {
+> +       hdmi0_out_con: endpoint {
+> +               remote-endpoint =3D <&hdmi0_con_in>;
+> +       };
+> +};
+Does the board support hdmi0_sound and hdmi1_sound (and the
+corresponding i2s5_8ch and i2s6_8ch)?
+
+> +
+> +&hdmi1 {
+> +       status =3D "okay";
+> +};
+
+[snip]
+
+> +
+> +&sdhci {
+> +       bus-width =3D <8>;
+> +       no-sdio;
+> +       no-sd;
+> +       non-removable;
+> +       max-frequency =3D <200000000>;
+> +       mmc-hs400-1_8v;
+> +       mmc-hs400-enhanced-strobe;
+These properties should be in alphabetical order.
+
+> +       status =3D "okay";
+> +};
+> +
+> +&sdmmc {
+> +       bus-width =3D <4>;
+> +       cap-sd-highspeed;
+> +       disable-wp;
+> +       max-frequency =3D <150000000>;
+> +       no-sdio;
+> +       no-mmc;
+> +       sd-uhs-sdr104;
+> +       vmmc-supply =3D <&vcc3v3_sd_s0>;
+> +       vqmmc-supply =3D <&vccio_sd_s0>;
+> +       status =3D "okay";
+> +};
+
+Jimmy
 
