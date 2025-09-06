@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3372CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 11:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1DCCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 11:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=phOTkO8Gp6UOyxxexRbWZlNYnHe4XUhUoNN0wC8w1EE=; b=LiAJ+O9iBxG+pMwNF6kdXu+WAF
-	vIoXX0WsAsY7HBjUQHTpyYWBKlvrESfm1LwAc9rlUL5+xMM7t7JfAugROxyH9vVD68qb4pmpCti00
-	vqmboRWBIh7YIfHgX36EuHtN3go3vhrh+FseDt+Qtj/jNCpFpGzmYPhZOOrVnI/Z0yRm8yr2N2Aza
-	WdJZbqipN9xIdhpGM5rUtJNwiKaWRILL6DpenDvnthMGXq1UnUEVwhu7B0oKqot/nZMt3n8++f/U0
-	Ys1TITcxXbVpF+3A9ggGtejLHq9ef5K+Y6uTVsfNKih6G6GN+zwj4OVqQ220v+sGYAiq8dgsVMdry
-	7Qbr2/lw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sKcui5kqlHLRoGonq2UNIvF4/eUOOrD4c41D8AoISsY=; b=RocpPm4HGFYNnwOCfIGqu6dQIC
+	YF3lZvaSCWVnkRp+OlZMrfDLkrpFzq0uPc06Spy7J2tr53fyA4E3VsOlCg26xjs0vt3lP9gL5EtdZ
+	fzREb/2qZwigHeZW4cNmHC5wJPiRzYcklDOK7BZHrzuIrW21pHCVGEI8ew5YnSeoPELE2UjlGQHRI
+	JxrO0LxoznCPeTFO6zFrG1aDfj6VOwm2YXRiZPYUzc1Za0TLUsODr1brId+BK73iS1ltNxwGXGAC8
+	RnloHg+MRaDxt3/BjdrNC4GWg64g6axam2qztHbXA2dgJo5YfPRrTDKGGALoqC9CpBtrsanEqeyhK
+	sq5bvkog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uur10-00000007fL3-2kRj;
-	Sat, 06 Sep 2025 11:23:30 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uur3o-00000007g5m-0NsO;
+	Sat, 06 Sep 2025 11:26:24 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuqyC-00000007ejQ-1ZJ3;
-	Sat, 06 Sep 2025 11:20:37 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45b79ec2fbeso19848385e9.3;
-        Sat, 06 Sep 2025 04:20:35 -0700 (PDT)
+	id 1uuqyD-00000007ek9-1dUd;
+	Sat, 06 Sep 2025 11:20:38 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45dddfaeb21so3251825e9.1;
+        Sat, 06 Sep 2025 04:20:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757157634; x=1757762434; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=phOTkO8Gp6UOyxxexRbWZlNYnHe4XUhUoNN0wC8w1EE=;
-        b=B8XGHph5hrCSQMoZbFln3bj4kQkJK41TZtncZyjWNhrorc5pzKE9OwvASISPjmr11G
-         E+mfokwlp31R6a3/ivka2AXEj6WP8GC6CVqdhUduONNSpLp5A6ny3CfRC1G5GBpZaa/+
-         U4CqbiJQ7gOA9N/SG/Uzi5MTnYKdUdxSNS5hpd5dIbUkCR2azwamCCv5vr9ab492lucL
-         3ZJT09w4Ecf/Dn0oclnYrSXaemQIkzoaSPgnAuV/PpGtAOtipSRu4cn1ArezyWcrNLK2
-         0+zF1HS48btXwIIkHOtrBsXIuRAwiGIuZLsLQSpGw0akfdwJgaKNFGfmG4wyvY0OSTdt
-         Q0lQ==
+        d=gmail.com; s=20230601; t=1757157636; x=1757762436; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sKcui5kqlHLRoGonq2UNIvF4/eUOOrD4c41D8AoISsY=;
+        b=F1TDamLsGmADstCKMqZDzozAuCCozTnplL0c905XxPtv2vmF3KJIRTkCu4h2EvgUiC
+         saNpaj3AGjp+nH2uaFUMTkTbIdknaiNcpUF7d3uQrgwUewoVtpMAL/QkzLWNIwdfO4ef
+         UzbsemC9KY7BE8ZGuJp8SHR9xAUErBTlMuly5tQITzEJv40v3VvinUg2/Y+H8OsJYqe3
+         2cEI4R87cM6Ll+JA3NDYdlLfDtoeb2VjoG6OKzwYiNWk7f6FqSddjmZBuagw8UBwzuWu
+         kVzG74X82cbE9ocrDdLmpgw8ebrBelxhBK85EbsMcBSpz5PkLAoCITyFoIOtT9zWaZn5
+         qr1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757157634; x=1757762434;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=phOTkO8Gp6UOyxxexRbWZlNYnHe4XUhUoNN0wC8w1EE=;
-        b=dsvnzTW+WZwt8HAtQbVSU949VTbfKn6z+8+dJiAoAGtxeYR9zLc4dxtoBmC5+SltJL
-         0y1GrSc7WBIJRHqb/h2k6EfHxATY3+MYZpbmgAuLlHiNUEzMDa3nq0+/U26lW9Knhu9M
-         yy9uf6Oveblab67KetDLO+I/ZBGACjCGb/RAXWPg9GLq7L2O7hhuuTuUCD5saZ/rFaWb
-         mbHnf2o0lOsgLQ/202EH7K71NJeEkBOZbYJ2WyD/b/lhnncLYbGWuz2BD6vpVLJC5LBS
-         D1aEWIlF8kj+Il2LqAlSXCBEzv292qHiGu29o9P1LkAVGzKE1Wc2mIm6t6TZRAVr/TRW
-         vZvw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwJHh1iV0n2k1Hg2OBXgV0X/Kuhgm60GAFy/sG7SNRaJG9Vayr2YpY7mCD4qj85TD9nTaDoG/wJOEYin3l0kI=@lists.infradead.org, AJvYcCWtlMyJ4oSnyT3aSD/DXcCDZTs+ilEoT0CFWrWNiczjGzGIHtOM5Nc4NH9egXCOKTfTzj+zVQX4XiP1HhHdjwf4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7iE/iqpjYAdYjZUbIL5CwoAKH3cQT7Ye4N2AXFbbcQm1gn3a2
-	3ivHA3Czz7QrmIylVVWC7CW4pjATdiotnhYwGK2ubPMpbNf4bFgiARhN
-X-Gm-Gg: ASbGncs05OJ/3aw8Gric+tODjQd0RJrCFL89tEc3KMa/30HpkEqrGkuB17bqEwIfSeA
-	zQdvEhrP4tcUjkBGONO/hhqL2sTI5zY6HAUMxg2QQkNaz/pSed26tLYUeH3RXfu5EkV1eGaiS7K
-	bCstuecacl27gmKssks0eIGs1/oeNKI6i28tlnI7jF4/mMK7/hiE967v+sWplbDpOrVjSzHvQrQ
-	7vOruEMW2VAy+oUiiy6kwMmvDpZ7wC2kya89WfvDYTWgTaEyuG+oZmuBFQrtTXjrUM64iJtCMLM
-	sjjOZ6w86IlzA4SFF7seNGxAOmqbKC3v385WoaDNtvvDLgNE6m8TVVTZeexbFTCd9UkxFTl8KB8
-	W2fo0u1ezpU+cvGiNDIHC3+/vf6NWCQUXfT0WoQ==
-X-Google-Smtp-Source: AGHT+IHT2DCsTdLyK7hMXnyf7nuV8L5ZvBVobCadVxozJnday1OLD/JOCxtfevqmsVo0tPUhkWbrSw==
-X-Received: by 2002:a05:600c:3516:b0:456:1824:4808 with SMTP id 5b1f17b1804b1-45dddedde1amr15969715e9.32.1757157633669;
-        Sat, 06 Sep 2025 04:20:33 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757157636; x=1757762436;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sKcui5kqlHLRoGonq2UNIvF4/eUOOrD4c41D8AoISsY=;
+        b=tAsCuuHPtPU9ALGPZ8VfIa8d/r4JMdNCHkKJk5prJpaiFGZt7NmcrA+lF5mBVbqekg
+         PVYirb/wVUYdVDOAwzj0Ed8D1LjcnbCaWIof0opxnFgA6Lm0f2QSdsq8k4C1F7Q+lra+
+         mVXLHG6LqtzAnszEYIZEK0DZ9hbxjiNAMBp+lJZ4IUNpcVaGJEKiYn5B63Wn1Xu1X2i0
+         aYSWurxbtRbJC8v5spf+Q0Zu/EF5CclcGNBiGYVy/+pcPaBXTWLK337/jIcTwUSCR6Yo
+         /On5iLGVjA5YJpkjS2hDIBB8TkA4D77f+jOykqftfaQjmbNtFyPD+UGpX0ZZKZcfKkHu
+         vTFg==
+X-Forwarded-Encrypted: i=1; AJvYcCU21J1RDKfCmTi+4yXxlx+JKWXchs0huJhFiSyRqlaTyBazH5Bfijav00nKnwDlHpExnOVckIIlAoscbSYczBqy@lists.infradead.org, AJvYcCWVk0bykc/ECoEcIbj7R5DTUYjNlsgnFfA9h68f0Rzkz3Mxo2jypd/EZJBRoYxCQTN0fwGbpxcZJQoljueF6lM=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxxw5pg7n/Wg0U98/mLzQnUPlEEXHDZBfDmqFIJdBChCYzve0/i
+	nS9TYilWd0YsMKgXSP+qnhANhg6FKnChaNLKMoq8jrqSkw6oT8tQmb0AXPI76HAd
+X-Gm-Gg: ASbGncufjofh1S9DBvv3TFJO4RnP+VvB3drbuUVx8h0Lzqs6wJqLQHuRspA6oorMt2r
+	0s4RUn9y5iP1LMIiFpAVlak9JSes3c2JDG9eDZi7YQ0sqUFUyKWqIR0fYDayZFk+k8eQNNM0VjO
+	hN7vIjjIj4yGowhsWKEvwIA8S1w2J6pNIP1qW+5xAttydfvCpz0nnrD68RMo6IiZHCPSZQMAWmW
+	QSS+woC+7IYetEWA5yufvLbVcKvhrCQck6v/A3o962uk/0E4DJlbIdn0rikPf93k8c85vJ1QHa+
+	H3EbbTTspp9OT3kvJsr1f0xWaTQzGFJQrXdEfsD1m+dgrabr2u+0+zQ+rMukmIgdUo9bNIN87Xw
+	XrAW3hsy6EQwQ2c3y6rOOakKYnpVofOelROw8ng==
+X-Google-Smtp-Source: AGHT+IFv8cE90LFD5yJ/sYFcSqb8G8+DIxE6PJiMga9p7H+75K2qsCzvml9epgjQGTdfAnAhHf5Ufg==
+X-Received: by 2002:a05:600c:1c0d:b0:45b:9961:9c01 with SMTP id 5b1f17b1804b1-45ddde832ebmr18317335e9.16.1757157635521;
+        Sat, 06 Sep 2025 04:20:35 -0700 (PDT)
 Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45de18f4824sm6646655e9.10.2025.09.06.04.20.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45de18f4824sm6646655e9.10.2025.09.06.04.20.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 06 Sep 2025 04:20:33 -0700 (PDT)
+        Sat, 06 Sep 2025 04:20:35 -0700 (PDT)
 From: Christian Hewitt <christianshewitt@gmail.com>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -77,15 +78,17 @@ To: Rob Herring <robh+dt@kernel.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Alex Bee <knaerzche@gmail.com>
-Subject: [PATCH v2 1/2] arm64: dts: rockchip: add GPU powerdomain, opps, and cooling to rk3328
-Date: Sat,  6 Sep 2025 11:20:29 +0000
-Message-Id: <20250906112030.1829706-1-christianshewitt@gmail.com>
+Subject: [PATCH v2 2/2] arm64: dts: rockchip: enable the Mali GPU on RK3328 boards
+Date: Sat,  6 Sep 2025 11:20:30 +0000
+Message-Id: <20250906112030.1829706-2-christianshewitt@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250906112030.1829706-1-christianshewitt@gmail.com>
+References: <20250906112030.1829706-1-christianshewitt@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_042036_422162_7561B22F 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250906_042037_430912_3DAB09C8 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,88 +105,66 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alex Bee <knaerzche@gmail.com>
 
-Add GPU powerdomain, opp-table, and cooling map nodes for the Mali
-GPU on the RK3328 SoC. Opp-table frequencies are sourced from the
-Rockchip Linux v4.4 vendor kernel while voltages have been derived
-from practical use and support work: keeping voltage above 1075mV
-and disabling the 500MHz opp-point avoids instability and crashes.
+Add a gpu node to the rock64 board to enable the Mali GPU and
+move the existing node from roc-pc to the shared roc dtsi to
+enable it also for the roc-cc board.
 
 Signed-off-by: Alex Bee <knaerzche@gmail.com>
 Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
 ---
 Changes since v1:
-- Use opp_table_gpu not gpu_opp_table to fix dtb schema warnings
+- No changes
 
- arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39 +++++++++++++++++++++++-
- 1 file changed, 38 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts | 4 ----
+ arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi   | 4 ++++
+ arch/arm64/boot/dts/rockchip/rk3328-rock64.dts | 4 ++++
+ 3 files changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-index 6438c969f9d7..01ed2bfa7ee1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-@@ -331,6 +331,11 @@ power: power-controller {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts b/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
+index 329d03172433..c0b7b98ff788 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
+@@ -44,10 +44,6 @@ &codec {
+ 	mute-gpios = <&grf_gpio 0 GPIO_ACTIVE_LOW>;
+ };
  
-+			power-domain@RK3328_PD_GPU {
-+				reg = <RK3328_PD_GPU>;
-+				clocks = <&cru ACLK_GPU>;
-+				#power-domain-cells = <0>;
-+			};
- 			power-domain@RK3328_PD_HEVC {
- 				reg = <RK3328_PD_HEVC>;
- 				clocks = <&cru SCLK_VENC_CORE>;
-@@ -570,9 +575,13 @@ map0 {
- 							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
- 					contribution = <4096>;
- 				};
-+				map1 {
-+					trip = <&target>;
-+					cooling-device = <&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+					contribution = <4096>;
-+				};
- 			};
- 		};
+-&gpu {
+-	mali-supply = <&vdd_logic>;
+-};
 -
- 	};
+ &pinctrl {
+ 	ir {
+ 		ir_int: ir-int {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+index b5bd5e7d5748..7eef6f7f108f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+@@ -160,6 +160,10 @@ &gmac2io {
+ 	status = "okay";
+ };
  
- 	tsadc: tsadc@ff250000 {
-@@ -651,7 +660,35 @@ gpu: gpu@ff300000 {
- 				  "ppmmu1";
- 		clocks = <&cru ACLK_GPU>, <&cru ACLK_GPU>;
- 		clock-names = "bus", "core";
-+		operating-points-v2 = <&opp_table_gpu>;
-+		power-domains = <&power RK3328_PD_GPU>;
- 		resets = <&cru SRST_GPU_A>;
-+		#cooling-cells = <2>;
-+	};
++&gpu {
++	mali-supply = <&vdd_logic>;
++};
 +
-+	opp_table_gpu: opp-table-gpu {
-+		compatible = "operating-points-v2";
-+		opp-200000000 {
-+			opp-hz = /bits/ 64 <200000000>;
-+			opp-microvolt = <1075000>;
-+		};
-+
-+		opp-300000000 {
-+			opp-hz = /bits/ 64 <300000000>;
-+			opp-microvolt = <1075000>;
-+		};
-+
-+		opp-400000000 {
-+			opp-hz = /bits/ 64 <400000000>;
-+			opp-microvolt = <1075000>;
-+		};
-+
-+		opp-500000000 {
-+			/* causes stability issues */
-+			opp-hz = /bits/ 64 <500000000>;
-+			opp-microvolt = <1150000>;
-+			status = "disabled";
-+		};
- 	};
+ &hdmi {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
+index 5367e5fa9232..592fd8ca21df 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
+@@ -152,6 +152,10 @@ &gmac2io {
+ 	status = "okay";
+ };
  
- 	h265e_mmu: iommu@ff330200 {
++&gpu {
++	mali-supply = <&vdd_logic>;
++};
++
+ &hdmi {
+ 	avdd-0v9-supply = <&vdd_10>;
+ 	avdd-1v8-supply = <&vcc_18>;
 -- 
 2.34.1
 
