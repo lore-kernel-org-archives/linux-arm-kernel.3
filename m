@@ -4,127 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315BFCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 19:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA3D8CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 20:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MTEK0pkDHJjciIVxHN9OmhQINcjLjs9n3rxGq729tTE=; b=PZESWpYvL9QefjeYDNJX5hoXAX
-	z5oN6eY7eGox2YWrp7Bm2Umm4i/vjDtfYEwpJkPQfIwBx7RTvCFRFCktFm+YZ8oo9Xx+ydD2QgcU0
-	g2cbkLKV9V+OYPlyJqUVggt1WeyNh03bo0lvo+yVVl9GtIENLachmWLdH8ONVxuWptSULGF+vy4su
-	eWgPRAWFRLcnuyr8If8Nroq0iRBaomwLuG1V9BLn0C+lEzTBHM/tKUNNuYzmxZ+KHAVQFys2junGz
-	x440yIuVLmwWufIwr5tJzAmngAdUFfno+CezDn8mQlsrKDgckiGmglmrqMDnTgHrXdU07bvbFpPAx
-	rvdcOD9g==;
+	bh=gaueM132UXDRu16dNJaiRHmHlASjwQR0RfI2PxcL64g=; b=C5pbH/WRKZqJwMPVZy2lXsm9Dg
+	I8WOaZ+lolugEUDcW1xcysl1AKGmKJ4xLiLvhW9JX2yWkxoYDbWvSEp6GzJK8NdrLsAAU2IQdT4y9
+	xrNduEOflQy3hm5HqLp+uSE0bufQYkX9WwnM8YmmlbKNKZoqiqDIr79dengONij+SZpNV8ERfUwjP
+	IRROav7dSMDGAGePD7Nl+enTZvMbCu25w7V2x4jyrTvg1Xrs77lccpuK18w/uE4w49umJSAS651YU
+	H13MccVxQ1zWs+X9q5yzqLKyCXbehcupfnZzACULExZsqiupQAqcxE0yFCVI9m4H2HLsMdmjlUdK7
+	WumzPqhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuyaf-00000008MpV-1fPd;
-	Sat, 06 Sep 2025 19:28:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uuzWf-00000008QXN-18oA;
+	Sat, 06 Sep 2025 20:28:45 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuyWy-00000008MHJ-1LlG
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 19:25:02 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5863Qwc3021360
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 6 Sep 2025 19:24:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=MTEK0pkDHJjciIVxHN9OmhQI
-	NcjLjs9n3rxGq729tTE=; b=DdPwKsIYMWvg8x8N76/OFmxu4st7+i6Xm7nNHoSw
-	xxhOS07Bd2FmXKrePMmNQYdbHYKjQoPCG3umm6WMnxbKVxSwvf75vSmEh/gnQgDt
-	cGcN5iQf5KAl/fIsxs+Bt54Nv5Fn4wB/CCns3U9e7jfMq1WvIsOOADJz1WBk6T+a
-	tdm3OwCm3rhaL1SMvkjAEhPrSdyXbEsmgn/ug47MTLMBZ4magi4oHWuETK7yLL4k
-	uibp/5MTko3mD+NBYFBhLiONtePX0VgTV/nrDBHST/kZ4USRH1LLyJoutVDJe97V
-	HrcemKRKeA56msJcbfWqZ4SC6mdRryL5cWZJr+AOOnkc5Q==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490aap9asp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Sep 2025 19:24:58 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-72631c2c2f7so69400096d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Sep 2025 12:24:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757186698; x=1757791498;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MTEK0pkDHJjciIVxHN9OmhQINcjLjs9n3rxGq729tTE=;
-        b=OS9iIsYx7jqGHpM2dqiKNCMN2TLjbtUGX/p5+BVYeCw2tHhEf5q79ptGqWSbeqWfk0
-         BQPTCHVfLQmNTBGtdXDNeAvQGhSxqnL/JEwkoL7F78rCiOUFu2uXf+XhF8GU/c/WuIdW
-         OwsG14Qrcjdgjfb9xlg9VxHyDGy5IA/8EYT3aoJuaGisdFctvXlLnrcJejTHgE5IqCEG
-         +FonBUXL7dIZZt/ShPx0xu4TJJzcQVW/YoHLTsAwNOunPIWuPZ7zj8V7z48wWyW1CfsI
-         1lkPMr7FjAuQaGFCql1zKaduRQScD9oTy2TQO7YsBNgFfvFAldeFMNNAyUWiGKBJdFkn
-         QvHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJstW9wA8ayMqlMTYXX43VBeZH6wQdxyHt9vqkHx5iEeor9EoHw7OfcKy0NDkkbhWb17M9HsuZ8MkZzp2ftZyL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpL5LzmIPh4bH2V2gvfYfILMkVI2u5c3PQ+iDt44WN4EWioUTQ
-	RIkE/cD7vRPGFWiHOytCywHiXpxnQKjE3YngoQZPYw/QQjFwJoGAuzFgNbfDv9otjbKil6N5KQp
-	i2QWT4tPN6M/UeXmCskDsoLUOU7uqNNJHe5Z9qYB62DBbIc9KCTv9HDdDIWOmFOEflEER9pYwaS
-	KlFQ==
-X-Gm-Gg: ASbGncvn6jDOIz9+9wjx6f3MtbY2BV/IeJMQaRpiMaDgScvcgLziUYCZecgOo4ToILg
-	smjXYcLAWK8V9bDZgEqMRAnkJJc2doMjqgOiL3bs36Gw0pIL+nhc/oH5YpJ+FUM4bOTu4HMPOTE
-	uD+oyZOxxnhNKyVww6pD6whkAIxnYIp3tISwDe1yZX1S+nyGcEbCkbP3L/1hDb9CJPZ/+3taef2
-	6dOQhTZfBvr4j52FPLoY8Z+y5icb0imqeBHXMLmPxzhqcHmOkltNuNbQvl34zF65PSlvnH3KmDi
-	Ikflfyr4icwG4VSDrmx4IQwmeNHxiny9OKa2UR0Ho1bbjGfmifEI1I4ju2PBPOb4a7YZKw6IG3R
-	LJaRtgs1kkbtgvz/YaDRhlwvF/9TIEDkgG7xxN3fDmNbEIzlU0SSH
-X-Received: by 2002:ad4:5f07:0:b0:728:4af1:e4f9 with SMTP id 6a1803df08f44-739435cf288mr38553286d6.47.1757186698182;
-        Sat, 06 Sep 2025 12:24:58 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFrz7N2428ImzsvEUQElMBkqhCweROuKesIV1+3pYGl1R0oId7O3XdYr9aAYzNEBMgDXflUUA==
-X-Received: by 2002:ad4:5f07:0:b0:728:4af1:e4f9 with SMTP id 6a1803df08f44-739435cf288mr38553016d6.47.1757186697694;
-        Sat, 06 Sep 2025 12:24:57 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5608acfd2ffsm2500187e87.107.2025.09.06.12.24.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 06 Sep 2025 12:24:56 -0700 (PDT)
-Date: Sat, 6 Sep 2025 22:24:54 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-        Frank Wang <frank.wang@rock-chips.com>,
-        Zhang Yubing <yubing.zhang@rock-chips.com>,
-        Andy Yan <andyshrk@163.com>,
-        Maud Spierings <maud_spierings@hotmail.com>,
-        linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 1/2] dt-bindings: phy: rockchip-usbdp: add improved
- ports scheme
-Message-ID: <aLyKhngeksG2SKdq@umbar.lan>
-References: <20250904-rock5b-dp-alt-mode-v1-0-23df726b31ce@collabora.com>
- <20250904-rock5b-dp-alt-mode-v1-1-23df726b31ce@collabora.com>
+	id 1uuzTo-00000008QLk-1wKV;
+	Sat, 06 Sep 2025 20:25:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1757190330; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AIJzMu/ZRJXDGonBMSOiXh0RNaH/kR5wwozxFNW5ko/qSgZ+3JfO5njNY2dHaDp4LRUhilC7Q15M6zJBmrJKy29LIy73sRpBBBPFYKhnkwuBtZMRCu3ZeaVYV2l3XLRIFI9N1Bdx5K8IrJdZybA2T0YiCl9ZLWXk3+rXYOr8hWc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1757190330; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=gaueM132UXDRu16dNJaiRHmHlASjwQR0RfI2PxcL64g=; 
+	b=CdVDiyJlzEQixCLxnf9+h6LmfnlzvvqXyXrKmrbl8+aD6pNzwHSv0iZx04Wl61XOvVucl/GGgCZQFG4c9cCOfDIY32CEjEpQD/3qNCrL6//emlX33zOthl/vFfQIeMklMnBIKbSLFiHJ9IB0gAlUT8e2NFvORCJU+Pvm5lCqxUU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757190330;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=gaueM132UXDRu16dNJaiRHmHlASjwQR0RfI2PxcL64g=;
+	b=cJVc4ZpmICLZ3Rn0dxvIMumpZwhP+wuCBDR2ZrLy7dhJZXc8vTbhFcTF9V+E4Xmm
+	3dzIfiYaogrkXjsNO+R7zL/LrKY9/kMwY0Lr5wRxbOib7vc8cyQeNs6kVzzjDq3qhKM
+	PTmIIYhIPPCSPdOpHDyKo6OzeHCw0BkgpfeQ0Nz0=
+Received: by mx.zohomail.com with SMTPS id 1757190327049402.40879686448466;
+	Sat, 6 Sep 2025 13:25:27 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id A89F6180B18; Sat, 06 Sep 2025 22:25:20 +0200 (CEST)
+Date: Sat, 6 Sep 2025 22:25:20 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Yao Zi <ziyao@disroot.org>, 
+	"Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	David Wu <david.wu@rock-chips.com>, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net] net: stmmac: dwmac-rk: Ensure clk_phy doesn't
+ contain invalid address
+Message-ID: <wgau7accvif4pcblnkpppyve4isstvmxyljlojt2yu4cwnyqvf@od4zasgpwdjr>
+References: <20250904031222.40953-3-ziyao@disroot.org>
+ <aLlwv3v8ACha8b-3@shell.armlinux.org.uk>
+ <b5fbeb3f-9962-444d-85b3-3b8a11f69266@rock-chips.com>
+ <aLlyb6WvoBiBfUx3@shell.armlinux.org.uk>
+ <aLly7lJ05xQjqCWn@shell.armlinux.org.uk>
+ <aLvIbPfWWNa6TwNv@pie>
+ <5d691f5b-460e-46cb-9658-9c391058342f@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="h6lnwepm5yz4el3j"
 Content-Disposition: inline
-In-Reply-To: <20250904-rock5b-dp-alt-mode-v1-1-23df726b31ce@collabora.com>
-X-Authority-Analysis: v=2.4 cv=eMETjGp1 c=1 sm=1 tr=0 ts=68bc8a8b cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=JfrnYn6hAAAA:8 a=QX4gbG5DAAAA:8 a=OfM26ny4dbP1suOavW4A:9
- a=CjuIK1q_8ugA:10 a=pJ04lnu7RYOZP9TFuWaZ:22 a=1CNFftbPRP8L7MoqJWF3:22
- a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-GUID: dphwztBexD9Ssq---6Ey4kF-WA9fcZW6
-X-Proofpoint-ORIG-GUID: dphwztBexD9Ssq---6Ey4kF-WA9fcZW6
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAwMCBTYWx0ZWRfXztSOyB+90Vln
- PFkfg0iRZsKKPuSdCvYgqVxH0aQ2x5K8yfEq9AKgrEAZQ8C6Klb6SqgK4FVD2iI4oBDVkqhiuHs
- 0d4UilaJTgFByGi9WwBQ6NOhHtvwtYFpqz1J+gzkJ6BR5ymABJGwTXETXYsmVuDf9FIF5oSd+jp
- rkhk61UXrXlNlc+xUoAgDzgEpQEYzodP9T+ebgEHXI+8nQFoRIyklpicHH0ohjB1NuIx0W55aCp
- Tka6LF/Q6MZm9BIPTCtwGYfy88nIYwhAeJcSuR15JqUrNYPA6wGzAXJCRee2bZ3i70O92YpBGIB
- mxY6ieUivGDgAfmTtbPueNc/eX0Y3dHzkm53dq5SsePZV6ntFOO+YRoCmGMYrMgDXrevyauu1Ch
- Gu6BbOgf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-06_07,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0
- bulkscore=0 phishscore=0 spamscore=0 suspectscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509060000
+In-Reply-To: <5d691f5b-460e-46cb-9658-9c391058342f@rock-chips.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.3/257.176.7
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_122500_480600_C3F56B9B 
-X-CRM114-Status: GOOD (  30.67  )
+X-CRM114-CacheID: sfid-20250906_132548_585815_CAF11DA6 
+X-CRM114-Status: GOOD (  37.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,81 +93,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 08:26:02PM +0200, Sebastian Reichel wrote:
-> Currently the Rockchip USBDP PHY as a very simply port scheme: It just
-> offers a single port, which is supposed to point towards the connector.
-> Usually with 2 endpoints, one for the USB-C superspeed port and one for
-> the USB-C SBU port.
-> 
-> This scheme is not good enough to properly handle DP AltMode, so add
-> a new scheme, which has separate ports for everything. This has been
-> modelled after the Qualcomm QMP USB4-USB3-DP PHY controller binding
-> with a slight difference that there is an additional port for the
-> USB-C SBU port as the Rockchip USB-DP PHY also contains the mux.
-> 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../bindings/phy/phy-rockchip-usbdp.yaml           | 23 ++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
-> index 8b7059d5b1826fdec5170cf78d6e27f2bd6766bb..f728acf057e4046a4d254ee687af3451f17bcd01 100644
-> --- a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
-> +++ b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
-> @@ -114,6 +114,29 @@ properties:
->        A port node to link the PHY to a TypeC controller for the purpose of
->        handling orientation switching.
->  
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description:
-> +          Output endpoint of the PHY for USB (or DP when configured into 4 lane
-> +          mode), which should point to the superspeed port of a USB connector.
 
-What abourt USB+DP mode, where each one gets 2 lanes?
+--h6lnwepm5yz4el3j
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH net] net: stmmac: dwmac-rk: Ensure clk_phy doesn't
+ contain invalid address
+MIME-Version: 1.0
 
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Incoming endpoint from the USB controller
-> +
-> +      port@2:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Incoming endpoint from the DisplayPort controller
-> +
-> +      port@3:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description:
-> +          Output endpoint of the PHY for DP, which should either point to the
-> +          SBU port of a USB-C connector or a DisplayPort connector input port.
+Hi,
 
-I would suggest describing this port as 'DisplayPort AUX signals to be
-connected to the SBU port of a USB-C connector (maybe through the
-additinal mux, switch or retimer)'. It should not be confused with the
-actual DisplayPort signals (as those go through the port@0).
+On Sat, Sep 06, 2025 at 02:26:31PM +0800, Chaoyi Chen wrote:
+> On 9/6/2025 1:36 PM, Yao Zi wrote:
+>=20
+> > On Thu, Sep 04, 2025 at 12:07:26PM +0100, Russell King (Oracle) wrote:
+> > > On Thu, Sep 04, 2025 at 12:05:19PM +0100, Russell King (Oracle) wrote:
+> > > > On Thu, Sep 04, 2025 at 07:03:10PM +0800, Chaoyi Chen wrote:
+> > > > > On 9/4/2025 6:58 PM, Russell King (Oracle) wrote:
+> > > > > > On Thu, Sep 04, 2025 at 03:12:24AM +0000, Yao Zi wrote:
+> > > > > > >    	if (plat->phy_node) {
+> > > > > > >    		bsp_priv->clk_phy =3D of_clk_get(plat->phy_node, 0);
+> > > > > > >    		ret =3D PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+> > > > > > > -		/* If it is not integrated_phy, clk_phy is optional */
+> > > > > > > +		/*
+> > > > > > > +		 * If it is not integrated_phy, clk_phy is optional. But w=
+e must
+> > > > > > > +		 * set bsp_priv->clk_phy to NULL if clk_phy isn't proivded=
+, or
+> > > > > > > +		 * the error code could be wrongly taken as an invalid poi=
+nter.
+> > > > > > > +		 */
+> > > > > > I'm concerned by this. This code is getting the first clock fro=
+m the DT
+> > > > > > description of the PHY. We don't know what type of PHY it is, o=
+r what
+> > > > > > the DT description of that PHY might suggest that the first clo=
+ck would
+> > > > > > be.
+> > > > > >=20
+> > > > > > However, we're geting it and setting it to 50MHz. What if the c=
+lock is
+> > > > > > not what we think it is?
+> > > > > We only set integrated_phy to 50M, which are all known targets. F=
+or external PHYs, we do not perform frequency settings.
+> > > > Same question concerning enabling and disabling another device's cl=
+ock
+> > > > that the other device should be handling.
+> > > Let me be absolutely clear: I consider *everything* that is going on
+> > > with clk_phy here to be a dirty hack.
+> > >=20
+> > > Resources used by a device that has its own driver should be managed
+> > > by _that_ driver alone, not by some other random driver.
+> > Agree on this. Should we drop the patch, or fix it up for now to at
+> > least prevent the oops? Chaoyi, I guess there's no user of the feature
+> > for now, is it?
+>=20
+> This at least needs fixing. Sorry, I have no idea how to implement
+> this in the PHY.
 
-In the Qualcomm world we currently do not describe this link from the
-PHY to the gpio-mux or retimer, but I think we will have to do that
-soon.
+I think the proper fix is to revert da114122b8314 ("net: ethernet:
+stmmac: dwmac-rk: Make the clk_phy could be used for external phy"),
+which has only recently been merged. External PHYs should reference
+their clocks themself instead of the MAC doing it.
 
-> +
->  required:
->    - compatible
->    - reg
-> 
-> -- 
-> 2.50.1
-> 
-> 
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+Chaoyi Chen: Have a look at the ROCK 4D devicetree:
 
--- 
-With best wishes
-Dmitry
+&mdio0 {
+	rgmii_phy0: ethernet-phy@1 {
+		compatible =3D "ethernet-phy-id001c.c916";
+		reg =3D <0x1>;
+		clocks =3D <&cru REFCLKO25M_GMAC0_OUT>;
+		assigned-clocks =3D <&cru REFCLKO25M_GMAC0_OUT>;
+		assigned-clock-rates =3D <25000000>;
+        ...
+    };
+};
+
+The clock is enabled by the RTL8211F PHY driver (check for
+devm_clk_get_optional_enabled in drivers/net/phy/realtek/realtek_main.c),
+as the PHY is the one needing the clock and not the Rockchip MAC. For
+this to work it is important to set the right compatible string, so
+that the kernel can probe the right driver without needing to read the
+identification registers (as that would require the clock to be already
+configured before the driver is being probed).
+
+Greetings,
+
+-- Sebastian
+
+--h6lnwepm5yz4el3j
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmi8mKwACgkQ2O7X88g7
++ppSnA/+Ms1Z3gR5BjMQO2fm9plU7SLZz3gyjXx/ZSEY3eFXQD1CAWUJxwvs744K
+T+KWiaF3oAMez0hYw2TqEnAg0dr84oUocN20+TBw34vhLes8+el1sHWEggUlIMek
+pnDi7A51K56YtqMhI1sJttSKi2i54oupF8NU861kZtdCQ28YYgwoY6Nd1TkxUXkX
+yajonEzmjcnFZr40V5/VE6QQaG+P+tXwN/tIuRG/9sAVurIzEse8tWYz/vLuL0wf
+QIyJy3OqP4X/HERft8xN0x9NYbEoyw+RfajAAs7/OBER7SGHwViFdTXMNZ6CahHO
+ROn0kIuEWz4DEoy05m7bTlXlYSBYl7RTs52H4GaX6ClP9UV2EHhli/YxfNGt7cQr
+h+lABlRV9wt6RoZJVuoUOlRVgf8d76c/kbKNCV475IJ7luQTF4GXruX+EQDUE45O
+gEpz2hvmwFXg1UhcaPlNNlL7uT3zxALR7tcfEXIZriXOmyL+1+pGGR0fflFkoaSr
+cipZsP/fgzgvZl3pL6ZKjPdm0ygIgfqu3aOpg4AwdLdGG6B+pRMe5uBkvUdaiiKq
+qtEAHlFSX02ZgFgZrTkgsgOlA8x/k49ODMIkY5O12QUVKJy+/9z5QkllvMTb9nJs
+ZOqsndKePDI4p+WkZY+xB4nZsmtZjoYc89PK8MgZ4Tcmqaw9g+E=
+=fhP2
+-----END PGP SIGNATURE-----
+
+--h6lnwepm5yz4el3j--
 
