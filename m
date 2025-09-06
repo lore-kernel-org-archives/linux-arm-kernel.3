@@ -4,63 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684ADCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7055FCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vADT7opWRct2rqiVIZqiOBr/+HV23dbzmDRf/TThZaM=; b=A5fdQmL6wN/w/qym4FcHZte7QB
-	Yo26bninXpUJiNgFqu/P3Hg9NzlwHhRdf2eHCm27mVBViuWPf2dsYfv+s4EOyax/ozmacfkWfwKWK
-	vtPBJGhcieawPdqeYaHUl1vEbTRgjaxcBomzSdP/EUUsb5A9GgjYaXZ3QtkM7+xHGCqa/aMLRgE2h
-	fFH7KjqwKFGA8fF8ydxxWGpBXkCozlIKpDepcDykcjjYD6SzdZB8USktBfBXt9FkjLQTtby9ahivB
-	WHEugIP199NMiHYwU0sXzq3IpXoekkFP7wMDmrcE7eL9K+2b6CnIhHw+T2sj2zeAa9+VxoDOt4K17
-	p1+IOsQw==;
+	bh=fbc+e30e0MUh9asbJbjsGXkfnGDR6CzS77W8SEyyVAU=; b=3wujwyaoujIWYg0MAXrgvPrql/
+	GAf/RhMKrl+ozEd+BIpFw1OpT07zPTb4Ou1bd4cGjKFJwPGiGzHpu50Wt8BOwAzBiGKA++JLJWwPb
+	Ve5e64qiK3jNo/zHgFTDENw/fv7hShMGAlQHJSlLsM30PUGlI6pWWbiSHkeApk8WKS286equ+2/p6
+	osiju8etAXduH6BzcP0pq23CruGz/g/J+anVUNMrP4B2M58jOiLMW/WBCUOIgnr068390n/7UdGEA
+	SY6e6xfR1x/lmfQoyc/Ot/RJyn0Lk8v0+lzKs/P8kttRli7trUEXRx0MrCx5IOf4uEo4Q18Eh1dft
+	Y5IpB16w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uurrL-00000007kKD-0uk9;
-	Sat, 06 Sep 2025 12:17:35 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1uurw6-00000007kkb-1wIg;
+	Sat, 06 Sep 2025 12:22:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uurkQ-00000007jq3-1e4T;
-	Sat, 06 Sep 2025 12:10:27 +0000
+	id 1uurtK-00000007kTz-0Mni
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 06 Sep 2025 12:19:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 05E26601DC;
+	Sat,  6 Sep 2025 12:19:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35922C4CEE7;
+	Sat,  6 Sep 2025 12:19:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757161176;
+	bh=d66CE2BRrsDc0bqtOkhjXylbJKf0aWTKrq3qcYiY2E4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=g44EHU0ehuspt3mnBw9EvdTY81A2GC/jYf7Yvf30uz14xdN9jMbhoueLvworsLcoB
+	 jeB/FJOhbGAMWWa98RJi3gjjmYOU8gfLr9OyRNovm+uNTV1CkuZaMDJuUfTWzDyJMI
+	 HIFUd63kPWIw+uTrguwVsoCKPIpGLISKP+XRDv0UkVTzcHk7CYLRb7LTG+2LeZqZQv
+	 ePOJa/5MREA6yDLWSjodn0Yx7oFVEWwcUWNIrhruqNobBxi4YdBnpTbKphs2Xn6gn8
+	 +uN87UloA7oLdfuqdZRenQ1Bhy2yF8HSTss/5DBcU9tfMYR3vkcI4ON9qkkVbYvXmO
+	 tPxD6qTdbF7BQ==
+Message-ID: <eafb409d-5b5f-4791-939a-5a3c1eb00b9b@kernel.org>
+Date: Sat, 6 Sep 2025 14:19:30 +0200
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1757160623;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vADT7opWRct2rqiVIZqiOBr/+HV23dbzmDRf/TThZaM=;
-	b=I2WNNwF4OGGTvLxzCQRJVFYSr9v8AEMmTidkPl7lrNUOX9p+fRjbSL5qlvuEvadMuVGNw/
-	8+qMS1iCO2Ju4h/qCAtQVAJHq8ygoMPUAfoNUwdBS/5Rh6X+saNi6xCfSka8zUXt/HQybP
-	f3ZBdJoupsOKXgY1LWZtQrGnQS8lwq0Ykmu8prGC3CXyVfOsf0DifWm02nqn3C14f3WbTY
-	bG7BXzqk21FEktYf42VV8m4rVGmt6zIiP7BMywYJ4brQNtCgwFGpRqJB4BgBJeHNkI8wnn
-	5FoSF3/zb3Xe05M+c2Alm5YApbRXiF2IOGYNe4nkeMZXFRDbCB22BG2VTbOppw==
-Date: Sat, 06 Sep 2025 14:10:22 +0200
-From: Dragan Simic <dsimic@manjaro.org>
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: linux-rockchip@lists.infradead.org, heiko@sntech.de, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Make RK3588 GPU OPP table naming
- uniform
-In-Reply-To: <DCLOTR9Y380M.22GZYL11XXZM2@cknow.org>
-References: <355c16ab070688fc6285e0d4419eb54a3f699eee.1757152740.git.dsimic@manjaro.org>
- <DCLOTR9Y380M.22GZYL11XXZM2@cknow.org>
-Message-ID: <47cf50f2f497108a923815c12b1f8c9b@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] clk: samsung: add Exynos ACPM clock driver
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20250903-acpm-clk-v3-0-65ecd42d88c7@linaro.org>
+ <20250903-acpm-clk-v3-3-65ecd42d88c7@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20250903-acpm-clk-v3-3-65ecd42d88c7@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_051026_814662_A84CA1FF 
-X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,78 +123,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Diederik,
+On 03/09/2025 15:56, Tudor Ambarus wrote:
+> +
+> +static int acpm_clk_probe(struct platform_device *pdev)
+> +{
+> +	enum acpm_clk_dev_type type = platform_get_device_id(pdev)->driver_data;
+> +	const struct acpm_clk_driver_data *drv_data;
+> +	const struct acpm_handle *acpm_handle;
+> +	struct clk_hw_onecell_data *clk_data;
+> +	struct clk_hw **hws;
+> +	struct device *dev = &pdev->dev;
+> +	struct acpm_clk *aclks;
+> +	unsigned int mbox_chan_id;
+> +	int i, err, count;
+> +
+> +	switch (type) {
+> +	case GS101_ACPM_CLK_ID:
+> +		drv_data = &acpm_clk_gs101;
 
-On 2025-09-06 13:40, Diederik de Haas wrote:
-> On Sat Sep 6, 2025 at 12:01 PM CEST, Dragan Simic wrote:
->> Unify the naming of the existing GPU OPP table nodes found in the 
->> RK3588
->> and RK3588J SoC dtsi files with the other SoC's GPU OPP nodes, 
->> following
->> the more "modern" node naming scheme.
-> 
-> Like we discussed in private (without an agreement), I think it would 
-> be
-> beneficial if the (gpu) opp naming would be made consistent across SoC
-> series as right now there are several different naming schemes applied.
-> They're all valid, but inconsistent. And if consistency is improved,
-> which I like, then let's go 'all the way'?
+Just use acpm_clk_gs101 directly (see also further comment).
 
-As we discussed it already in private, I fully agree about performing
-the "opp-table-X => opp-table-{clusterX,gpu}" naming cleanup 
-consistently
-for all Rockchip SoCs, but I'm afraid it would be seen as an unnecessary
-"code churn" at this point, especially because my upcoming Rockchip SoC
-binning patch series is a good candidate for such a cleanup.
+> +		break;
+> +	default:
+> +		return dev_err_probe(dev, -EINVAL, "Invalid device type\n");
+> +	}
+> +
+> +	acpm_handle = devm_acpm_get_by_node(dev, dev->parent->of_node);
+> +	if (IS_ERR(acpm_handle))
+> +		return dev_err_probe(dev, PTR_ERR(acpm_handle),
+> +				     "Failed to get acpm handle.\n");
+> +
+> +	count = drv_data->nr_clks;
+> +	mbox_chan_id = drv_data->mbox_chan_id;
+> +
+> +	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, count),
+> +				GFP_KERNEL);
+> +	if (!clk_data)
+> +		return -ENOMEM;
+> +
+> +	clk_data->num = count;
+> +	hws = clk_data->hws;
+> +
+> +	aclks = devm_kcalloc(dev, count, sizeof(*aclks), GFP_KERNEL);
+> +	if (!aclks)
+> +		return -ENOMEM;
+> +
+> +	for (i = 0; i < count; i++) {
+> +		const struct acpm_clk_variant *variant = &drv_data->clks[i];
+> +		unsigned int id = variant->id;
+> +		struct acpm_clk *aclk;
+> +
+> +		if (id >= count)
 
-On top of that, I'd be a bit weary about performing at least some of the
-testing associated with such a platform-wide cleanup, despite actually
-performing no functional changes and being a safe change.  On the other
-hand, "bundling" such a cleanup with the Rockchip SoC binning patches
-would get us detailed testing for free, so to speak.
+This is not possible. You control the IDs build time, so this must be
+either build time check or no check. I vote for no check, because I
+don't think the ID is anyhow related to number of clocks. What if (not
+recommended but what if) the IDs have a gap and next ID is 1000. I see
+your code using ID:
 
-Of course, if the maintainers see this as a good opportunity to perform
-a platform-wide cleanup at this point, instead of seeing it as a "code
-churn", I'll still be happy to extend this small patch into a platform-
-wide naming cleanup of the "opp-table-X" nodes.  On the other hand, if
-this patch remains as-is, it may hit a good balance between resolving
-the currently present naming ambiguity and the amount of introduced
-changes.
 
->> Fixes: a7b2070505a2 ("arm64: dts: rockchip: Split GPU OPPs of RK3588 
->> and RK3588j")
->> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
->> ---
->>  arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi | 2 +-
->>  arch/arm64/boot/dts/rockchip/rk3588j.dtsi    | 2 +-
->>  2 files changed, 2 insertions(+), 2 deletions(-)
->> 
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi 
->> b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
->> index 0f1a77697351..b5d630d2c879 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
->> +++ b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
->> @@ -115,7 +115,7 @@ opp-2400000000 {
->>  		};
->>  	};
->> 
->> -	gpu_opp_table: opp-table {
->> +	gpu_opp_table: opp-table-gpu {
->>  		compatible = "operating-points-v2";
->> 
->>  		opp-300000000 {
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi 
->> b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
->> index 9884a5df47df..e1e0e3fc0ca7 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
->> +++ b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
->> @@ -66,7 +66,7 @@ opp-1608000000 {
->>  		};
->>  	};
->> 
->> -	gpu_opp_table: opp-table {
->> +	gpu_opp_table: opp-table-gpu {
->>  		compatible = "operating-points-v2";
->> 
->>  		opp-300000000 {
+> +			return dev_err_probe(dev, -EINVAL,
+> +					     "Invalid ACPM clock ID.\n");
+> +
+> +		aclk = &aclks[id];
+> +		aclk->id = id;
+> +		aclk->handle = acpm_handle;
+> +		aclk->mbox_chan_id = mbox_chan_id;
+> +
+> +		hws[id] = &aclk->hw;
+
+^^^ here, but why do you need it? Why it cannot be hws[i]?
+
+> +
+> +		err = acpm_clk_ops_init(dev, aclk, variant->name);
+> +		if (err)
+> +			return dev_err_probe(dev, err,
+> +					     "Failed to register clock.\n");
+> +	}
+> +
+> +	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
+> +					   clk_data);
+> +}
+> +
+> +static const struct platform_device_id acpm_clk_id[] = {
+> +	{ "gs101-acpm-clk", GS101_ACPM_CLK_ID },
+
+Please drop GS101_ACPM_CLK_ID here and in other places. It's dead code
+now. It should be introduced with next users/devices.
+
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(platform, acpm_clk_id);
+
+Best regards,
+Krzysztof
 
