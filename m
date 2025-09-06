@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A20CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBB7CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G2GecS14OE5pYB3wA/KaPnBgiY+PXotKUMg2eYGF9Iw=; b=zWtt8/0jQXnXwAtxvW6MZoTgei
-	adl/AbmIph0ZSQ9Jq1WRdXKKxqXnA7NzSokXMTc0TB7l0dHqbEq99LYdyqrumsF1AMxkxy21Q0lgi
-	KoSuefOYMwcJekUYjtoG54/1ATj3+WPaxWTUysrtR8IX2Kn/Nt0JCU8UVmVpPPPWfOXKgSHxc6zNC
-	1PqBLD2/rLTi+na34Rg85wW86QO/d6gSCx4z2895B4GpRJ8uZ/JFLXM5sXqvFO+XZdzUOTiunBhU/
-	x6ms12TaNJuBLMMqMoF8j3ZmnCEWN/U4ehUP98LTiEZXX7xYE53HWYQLFjDsbnw74+tlFcvLWFfoh
-	QxO5hteQ==;
+	bh=bBUT1ZwXTlUvQ88/wkuJR+6/e3jUTe9SKsFowlAS4Kk=; b=r7ZYfMAUFrJtiVXB7tD+b4gXV5
+	KHj0cFPKVr+6B+1snIYmO2p0uLUZylmvuGC9BNHwX/T0Yrng+eJlKR1B6SCCUCk2Ubzo360ZXZVf/
+	jPzUXviCwq1vLY082YliSOkgsAJPnwxW2rApiBT+2nvFBPOaQ28RrQQ9d9W8CIN7XRYtNL2QneafE
+	zYT/A558xtsd5z3CZp6JRBHiBtGDudro5bXQ+SC1LEAztc0nfboJ0AROcVzDBIu5Mpi/306SjTdn7
+	7EcYvIwJNUyQ83UQz0xzHP1DvqGL9c8KpcRsAAzLY6NW1Opd+BTkhlMch87Ak8/8o7XdLGBWcB/7V
+	BnO9qvHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uukl1-00000006dtp-1Ro5;
-	Sat, 06 Sep 2025 04:42:35 +0000
+	id 1uuknp-00000006eP9-0mNO;
+	Sat, 06 Sep 2025 04:45:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uukJ6-00000006W42-23F7
+	id 1uukJ8-00000006W5c-0w8d
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 06 Sep 2025 04:13:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E14745088;
+	by sea.source.kernel.org (Postfix) with ESMTP id A75CF450A0;
 	Sat,  6 Sep 2025 04:13:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFCF3C4CEFB;
-	Sat,  6 Sep 2025 04:13:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BD2BC4CEFA;
+	Sat,  6 Sep 2025 04:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1757132024;
-	bh=k8chtkdd/C7iCwiNiHHjJu/kaYcxaJejVp0B1FUTyf8=;
+	bh=zJ4rq1A7rDmdHeQfB8ynFE9503F7ovKFxfivFN/5hPw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kU7nmGmr9GrP4fcgHMZu/lxXC++AHKUEE8K4NSMilL6KWWJHUJ9wuxuCFSj9jvhnH
-	 dOytLE1oxMFdarHdgiDBcLuZm9bLBNLfdi4zpFcPyGUfPi2NJD4ilLbrOO2aN4Poeh
-	 /7nrVE5RldkgxTaQSjXJpwt46djfnLx2kaOrIEZVCT+TvnOwqka3Ww/X2pVv3Z44uE
-	 FvLB0YppLtE29Yjubq6mGkpo4aPCiRyK4CEonGSrW79MYbKhogDkttLylFZl65zrXD
-	 PNaXajXRZORwYHKmuVb6btnZhB72mt5G/uvT+ni2bt9ND+KTa1OrnG19UJLXsFHWYB
-	 47eSJPfIPhDRA==
+	b=VbR0ETCUU5YXKOI/JSjxXA7DY30F2AY9PMf4cVATlrMDMmtUoZ/WgIbnTeXMrUcOc
+	 okbhJLTOmdIYaPITRU/ngiebOfcGVH4OoqAFihK+Aqa7dVwIysDt4q2nqkVSfjHq0s
+	 DXz5OzghxZ/Ry/xpjFhdiKnBG85PAfrIYSfTn8Gz1ES651wN4lgaqIrTphPpgfBzNU
+	 oRw/guM/hoSO8VS5sUC2WqAm0qAkikRLryt5pkLIB/4bCM6aAJHS2P417HK08LbZu1
+	 Jd2MdUQ4XVgNRy5fpRY09ighAACxqCV/2Ue4vfAtUWJzOfbLArRWiHJxV8JI9Vg6X+
+	 u+YT88w5EntvQ==
 Received: by wens.tw (Postfix, from userid 1000)
-	id CBFBC5FEEF; Sat, 06 Sep 2025 12:13:38 +0800 (CST)
+	id 1B6A55FF0D; Sat, 06 Sep 2025 12:13:39 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -63,17 +63,18 @@ Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Andre Przywara <andre.przywara@arm.com>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH net-next v3 05/10] arm64: dts: allwinner: a523: Add GMAC200 ethernet controller
-Date: Sat,  6 Sep 2025 12:13:28 +0800
-Message-Id: <20250906041333.642483-6-wens@kernel.org>
+Subject: [PATCH net-next v3 10/10] arm64: dts: allwinner: t527: orangepi-4a: Enable Ethernet port
+Date: Sat,  6 Sep 2025 12:13:33 +0800
+Message-Id: <20250906041333.642483-11-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250906041333.642483-1-wens@kernel.org>
 References: <20250906041333.642483-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_211344_569406_266C59F3 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250905_211346_298077_77D625A3 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,95 +91,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-The A523 SoC family has a second ethernet controller, called the
-GMAC200. It is not exposed on all the SoCs in the family.
+On the Orangepi 4A board, the second Ethernet controller, aka the GMAC200,
+is connected to an external Motorcomm YT8531 PHY. The PHY uses an external
+25MHz crystal, has the SoC's PI15 pin connected to its reset pin, and
+the PI16 pin for its interrupt pin.
 
-Add a device node for it. All the hardware specific settings are from
-the vendor BSP.
+Enable it.
 
 Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
 
 Changes since v1:
-- Fixed typo in tx-queues-config
+- Switch to generic (tx|rx)-internal-delay-ps properties
 ---
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 55 +++++++++++++++++++
- 1 file changed, 55 insertions(+)
+ .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 23 +++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 6b6f2296bdff..449bcafbddcd 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -180,6 +180,16 @@ rgmii0_pins: rgmii0-pins {
- 				bias-disable;
- 			};
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+index 38cd8c7e92da..7afd6e57fe86 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+@@ -15,6 +15,7 @@ / {
+ 	compatible = "xunlong,orangepi-4a", "allwinner,sun55i-t527";
  
-+			rgmii1_pins: rgmii1-pins {
-+				pins = "PJ0", "PJ1", "PJ2", "PJ3", "PJ4",
-+				       "PJ5", "PJ6", "PJ7", "PJ8", "PJ9",
-+				       "PJ11", "PJ12", "PJ13", "PJ14", "PJ15";
-+				allwinner,pinmux = <5>;
-+				function = "gmac1";
-+				drive-strength = <40>;
-+				bias-disable;
-+			};
-+
- 			uart0_pb_pins: uart0-pb-pins {
- 				pins = "PB9", "PB10";
- 				allwinner,pinmux = <2>;
-@@ -601,6 +611,51 @@ mdio0: mdio {
- 			};
- 		};
+ 	aliases {
++		ethernet0 = &gmac1;
+ 		serial0 = &uart0;
+ 	};
  
-+		gmac1: ethernet@4510000 {
-+			compatible = "allwinner,sun55i-a523-gmac200",
-+				     "snps,dwmac-4.20a";
-+			reg = <0x04510000 0x10000>;
-+			clocks = <&ccu CLK_BUS_EMAC1>, <&ccu CLK_MBUS_EMAC1>;
-+			clock-names = "stmmaceth", "mbus";
-+			resets = <&ccu RST_BUS_EMAC1>;
-+			reset-names = "stmmaceth";
-+			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&rgmii1_pins>;
-+			power-domains = <&pck600 PD_VO1>;
-+			syscon = <&syscon>;
-+			snps,fixed-burst;
-+			snps,axi-config = <&gmac1_stmmac_axi_setup>;
-+			snps,mtl-rx-config = <&gmac1_mtl_rx_setup>;
-+			snps,mtl-tx-config = <&gmac1_mtl_tx_setup>;
-+			status = "disabled";
+@@ -95,11 +96,33 @@ &ehci1 {
+ 	status = "okay";
+ };
+ 
++&gmac1 {
++	phy-mode = "rgmii-id";
++	phy-handle = <&ext_rgmii_phy>;
++	phy-supply = <&reg_cldo4>;
 +
-+			mdio1: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
++	tx-internal-delay-ps = <0>;
++	rx-internal-delay-ps = <300>;
 +
-+			gmac1_mtl_rx_setup: rx-queues-config {
-+				snps,rx-queues-to-use = <1>;
++	status = "okay";
++};
 +
-+				queue0 {};
-+			};
+ &gpu {
+ 	mali-supply = <&reg_dcdc2>;
+ 	status = "okay";
+ };
+ 
++&mdio1 {
++	ext_rgmii_phy: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++		interrupts-extended = <&pio 8 16 IRQ_TYPE_LEVEL_LOW>; /* PI16 */
++		reset-gpios = <&pio 8 15 GPIO_ACTIVE_LOW>; /* PI15 */
++		reset-assert-us = <10000>;
++		reset-deassert-us = <150000>;
++	};
++};
 +
-+			gmac1_stmmac_axi_setup: stmmac-axi-config {
-+				snps,wr_osr_lmt = <0xf>;
-+				snps,rd_osr_lmt = <0xf>;
-+				snps,blen = <256 128 64 32 16 8 4>;
-+			};
-+
-+			gmac1_mtl_tx_setup: tx-queues-config {
-+				snps,tx-queues-to-use = <1>;
-+
-+				queue0 {};
-+			};
-+		};
-+
- 		ppu: power-controller@7001400 {
- 			compatible = "allwinner,sun55i-a523-ppu";
- 			reg = <0x07001400 0x400>;
+ &mmc0 {
+ 	vmmc-supply = <&reg_cldo3>;
+ 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
 -- 
 2.39.5
 
