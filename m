@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBB7CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72263CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bBUT1ZwXTlUvQ88/wkuJR+6/e3jUTe9SKsFowlAS4Kk=; b=r7ZYfMAUFrJtiVXB7tD+b4gXV5
-	KHj0cFPKVr+6B+1snIYmO2p0uLUZylmvuGC9BNHwX/T0Yrng+eJlKR1B6SCCUCk2Ubzo360ZXZVf/
-	jPzUXviCwq1vLY082YliSOkgsAJPnwxW2rApiBT+2nvFBPOaQ28RrQQ9d9W8CIN7XRYtNL2QneafE
-	zYT/A558xtsd5z3CZp6JRBHiBtGDudro5bXQ+SC1LEAztc0nfboJ0AROcVzDBIu5Mpi/306SjTdn7
-	7EcYvIwJNUyQ83UQz0xzHP1DvqGL9c8KpcRsAAzLY6NW1Opd+BTkhlMch87Ak8/8o7XdLGBWcB/7V
-	BnO9qvHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+AaGa4KY4O7VR1L+5lz7LhtoM1ACUjc5l1vLXnV94tY=; b=dKLIEa+4PGRn/S
+	pB2TDK5Du75/AspPeYcDqTGUYx3S+2nPTwLExLSdHYUPmjXN24ewL4ghdc8p8GFqpcff7LgEpoIu1
+	FiaFYnODWv7T0w82P4m8lJtpvIRAsDFZ8n+QHdgQyAYM5Y/4mp1XB2dxANhxCDKJkDhPbgA8Jk0af
+	z66So0p0ObMshrEaESqx+Z95kQ69YoJ1eWMhSF3jWPfk4WoBWdcVX7ACUjtBFnakrq5qxu3rfdeIW
+	EO80Ml6ftPpQkpm5XjJHpRiLrqGb4a1JFPN3EdGUUdsdotq0+HTTXeKpvwl12YZf/CMm4eZ21DXSG
+	kf0gF74annc0ZPJsc9hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuknp-00000006eP9-0mNO;
-	Sat, 06 Sep 2025 04:45:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uukqb-00000006fjt-48eB;
+	Sat, 06 Sep 2025 04:48:21 +0000
+Received: from mail-lf1-f43.google.com ([209.85.167.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uukJ8-00000006W5c-0w8d
+	id 1uukLV-00000006Wzl-3psi
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 04:13:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A75CF450A0;
-	Sat,  6 Sep 2025 04:13:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BD2BC4CEFA;
-	Sat,  6 Sep 2025 04:13:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757132024;
-	bh=zJ4rq1A7rDmdHeQfB8ynFE9503F7ovKFxfivFN/5hPw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VbR0ETCUU5YXKOI/JSjxXA7DY30F2AY9PMf4cVATlrMDMmtUoZ/WgIbnTeXMrUcOc
-	 okbhJLTOmdIYaPITRU/ngiebOfcGVH4OoqAFihK+Aqa7dVwIysDt4q2nqkVSfjHq0s
-	 DXz5OzghxZ/Ry/xpjFhdiKnBG85PAfrIYSfTn8Gz1ES651wN4lgaqIrTphPpgfBzNU
-	 oRw/guM/hoSO8VS5sUC2WqAm0qAkikRLryt5pkLIB/4bCM6aAJHS2P417HK08LbZu1
-	 Jd2MdUQ4XVgNRy5fpRY09ighAACxqCV/2Ue4vfAtUWJzOfbLArRWiHJxV8JI9Vg6X+
-	 u+YT88w5EntvQ==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 1B6A55FF0D; Sat, 06 Sep 2025 12:13:39 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH net-next v3 10/10] arm64: dts: allwinner: t527: orangepi-4a: Enable Ethernet port
-Date: Sat,  6 Sep 2025 12:13:33 +0800
-Message-Id: <20250906041333.642483-11-wens@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250906041333.642483-1-wens@kernel.org>
-References: <20250906041333.642483-1-wens@kernel.org>
+	Sat, 06 Sep 2025 04:16:15 +0000
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-55f7cd8ec2cso3590660e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 21:16:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757132171; x=1757736971;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+AaGa4KY4O7VR1L+5lz7LhtoM1ACUjc5l1vLXnV94tY=;
+        b=GZ0XQxp1MM8niUQ4L4j638BVs0UlHRhdqxX3zYSJbOCIvRiMz86WnFmRQ61uTf28On
+         Dj6SovQIOD3NbeoxdmmnrdJBzMBde5MMwWL+CWvNgtM7ziQ0GeM0tnoYcI2jmzMXUagf
+         HvUexNsXitBlj3Vw5C2GQM/Ex07yMksIDVAFY46kbmFJwrv1Nj8dQ51VYvWEOTtU7XwQ
+         wYuIiPFPXBfQdiG+24voTkfob8KBiyKK1XL+45DHzuhx0/Xd9DvIHL8ViYK8cFoaSuew
+         I8zMtMcYaO4BBzbDITyFtf2BBI2Mma/ZJ51uCHsRHmc1PW+RSX02EeBRh17dzTPgR/bF
+         v9xQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU9Zhr13l5oGoli9aswzXMKRzMcZGA8vIU70H0OZHStzrtFhBIXiJT+QhfGiucmpdg37RZlWv0vslk6umwYYn/g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzc8845qAJF3fxn5/1X7pt/LyGKXyhQGzI/IoiiLqiC8j29ABGq
+	YwaNuAyOBF1Xg/5/I5q2Jqp33wEkTAweEpTgBOVIl8hjv2s3n5lJUMdwBEeOVZn1lLE=
+X-Gm-Gg: ASbGncs8x7emT/RDeSmZITcpFq8eZKyuz/4hl+tUGQetAJLp1oIfLhRKYDgf6CaKY2u
+	FLhM5ULOvPq51bzefo/CTOVSI9+nLMHquTaq5gtZ/utAmYyPWPHSWPvnPHs00gA8vsoWwYFB1kE
+	5jx2JtHvZ8bA60ED2CkrtDGXiijHH6w0LwV1wpH7ofyrnPgG+n9IZlWm+1hLteBsAYmB15cQC7E
+	w0AnUgoUFYz7SXgTQzURGLftzKaQnKBxCfJcGJHdvvl7nXCoPY/REiDX6dp6BN3tV8E9+7ScDn1
+	6p+BLmkJm+3BczPhMdKVQTn6ocQttfbW2oteS9Zt8lRZJnyQSz/nAqz1RTnOuc8y0KIq90680UQ
+	bakoPoKqBjtRrFkoGvkq2JPGyoix4rT7Ql6VnaHFVCO7t5OOi3vF14hc=
+X-Google-Smtp-Source: AGHT+IFY9/33+PnQHq8RI1gY4IRRzW8mc2U6UQKekPtDZiqFYnGxE37q5rY9tWj1Au4gIjPAb4TYPA==
+X-Received: by 2002:a05:6512:691:b0:55f:56db:7648 with SMTP id 2adb3069b0e04-5625f535aafmr355681e87.19.1757132171092;
+        Fri, 05 Sep 2025 21:16:11 -0700 (PDT)
+Received: from mail-lj1-f173.google.com (mail-lj1-f173.google.com. [209.85.208.173])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5608ab5e46fsm2141488e87.3.2025.09.05.21.16.10
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Sep 2025 21:16:10 -0700 (PDT)
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-33ca74c62acso368811fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 21:16:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXXqHWdNkLtnSzKBCHV3W7/K227UGBIe60HXzWrL7w2pyRrAAfMY1E/QRdKRE+dj14fY8f2p1hodRwJnKuZ/fml@lists.infradead.org
+X-Received: by 2002:a2e:a547:0:b0:337:f786:2f4a with SMTP id
+ 38308e7fff4ca-33b4d8cb2bbmr3431571fa.18.1757132169950; Fri, 05 Sep 2025
+ 21:16:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250903000910.4860-1-andre.przywara@arm.com> <20250903000910.4860-3-andre.przywara@arm.com>
+In-Reply-To: <20250903000910.4860-3-andre.przywara@arm.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Sat, 6 Sep 2025 12:15:57 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65rRqTWvn2NR-OSeP-zVJzheJ=L0YeG5DOrCTPJ8Haiyg@mail.gmail.com>
+X-Gm-Features: Ac12FXxA73ZfGI4H5Rgtw7dq1dOBGNO-B8ktFeY3H3nm-PBpHd0UB2GulbKMsHM
+Message-ID: <CAGb2v65rRqTWvn2NR-OSeP-zVJzheJ=L0YeG5DOrCTPJ8Haiyg@mail.gmail.com>
+Subject: Re: [PATCH 2/5] clk: sunxi-ng: generalise update bit
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	Mikhail Kalashnikov <iuncuim@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_211346_298077_77D625A3 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250905_211613_952601_EAB3643B 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,75 +96,32 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+On Wed, Sep 3, 2025 at 8:09=E2=80=AFAM Andre Przywara <andre.przywara@arm.c=
+om> wrote:
+>
+> A few of the Allwinner A523 CCU clock registers introduced an "update" bi=
+t,
+> which must be set for changes to the other bits to take effect.
+> Of the three clocks where this was used, it was always bit 27, so we just
+> encoded this as a single bit feature flag.
+>
+> Now the CPU PLL also features the update bit, but puts it at bit 26, so
+> this flag trick won't work anymore.
+>
+> Add an "update_bit" field to the common sunxi clock struct, which takes a
+> bitmask, so we can encode any bit to use, even potentially multiple of
+> them. As uninitialised fields are set to 0, we can use this as a default
+> bitmask to set, so can OR this in unconditionally.
+>
+> Change the existing update bit users to use this new encoding, and add
+> support for the ccu_nm clock on the way, since we will need it there
+> shortly.
+>
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-On the Orangepi 4A board, the second Ethernet controller, aka the GMAC200,
-is connected to an external Motorcomm YT8531 PHY. The PHY uses an external
-25MHz crystal, has the SoC's PI15 pin connected to its reset pin, and
-the PI16 pin for its interrupt pin.
-
-Enable it.
-
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
-
-Changes since v1:
-- Switch to generic (tx|rx)-internal-delay-ps properties
----
- .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 23 +++++++++++++++++++
- 1 file changed, 23 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-index 38cd8c7e92da..7afd6e57fe86 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-@@ -15,6 +15,7 @@ / {
- 	compatible = "xunlong,orangepi-4a", "allwinner,sun55i-t527";
- 
- 	aliases {
-+		ethernet0 = &gmac1;
- 		serial0 = &uart0;
- 	};
- 
-@@ -95,11 +96,33 @@ &ehci1 {
- 	status = "okay";
- };
- 
-+&gmac1 {
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ext_rgmii_phy>;
-+	phy-supply = <&reg_cldo4>;
-+
-+	tx-internal-delay-ps = <0>;
-+	rx-internal-delay-ps = <300>;
-+
-+	status = "okay";
-+};
-+
- &gpu {
- 	mali-supply = <&reg_dcdc2>;
- 	status = "okay";
- };
- 
-+&mdio1 {
-+	ext_rgmii_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <1>;
-+		interrupts-extended = <&pio 8 16 IRQ_TYPE_LEVEL_LOW>; /* PI16 */
-+		reset-gpios = <&pio 8 15 GPIO_ACTIVE_LOW>; /* PI15 */
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <150000>;
-+	};
-+};
-+
- &mmc0 {
- 	vmmc-supply = <&reg_cldo3>;
- 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
--- 
-2.39.5
-
+Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 
