@@ -4,64 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6088CCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 13:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CF5CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 13:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gBvknfRADrFTmcYESe6FCG/DDohCJeCBYoa6CBvKIBU=; b=5DHdoP/AGN4FU/lANhX+fjAkaj
-	Hk1QeVwSHnY11LoehJA3LvtUY5dEfeDjzlb/srbp3vD7q1bup502AjVcTH7nlucRFhyYNkacMvI4m
-	4/AEkhgJD0AgIS5db6ntOIK5lGeeaxmVq0HXSGPLJ6Q0ncZIOVC92pKiX80CNcgbzJdA6ZeYzhtt/
-	5eoUQlskECImYowfBxZ+3uXp8YqQQAtScgywML/5DNcDH1isZoJ7hsVReTH1zitgnKTSkS8NYXhRu
-	eLjlox9qOV+z0UYILbfo6a/rLI5hVan83KjoWrJabzkZsXEP3wlc6ZEpFq7gnLHyPsNlB3xERn9fI
-	qm+2VHgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=32BGebImINYcrPc+Aooy1umDxbxy78s1cEToN4QuUPU=; b=hSCQZj6UfDzHpc6Nz4Arv4viQP
+	6y9QyUtKMpDTIxC2bAfBqDPo3QjTkH2XxUfrCUB0viTfbSh62BwYxWceJx26bBgh0N5PlCzyG/q6m
+	uYmpRjyz46eOmCPoBfI2nnLxnk3LGtEuhDgfva4whGwdD2+5XshUSNRF3RQCxViuodrw4Vdzo77NL
+	KAtA4F1Vz6/oH3MrrTeLD+tt7EyflGSTfUn73xqzzNI43SNmNmCX5BQa4gDbHPyUBZP27uVIaVi9q
+	o1erJu3HrSqZskbhWOUJANaolC5RvrYo+7P9/qkL8UnFqP73Gpff8ZvDFqbY8H4FLJQHeuZc/u0O9
+	BJkmOAMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uusXG-00000007nGq-1695;
-	Sat, 06 Sep 2025 13:00:54 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1uusu7-00000007obh-3dC9;
+	Sat, 06 Sep 2025 13:24:31 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uusUP-00000007n8Z-3M1B;
-	Sat, 06 Sep 2025 12:57:59 +0000
+	id 1uusrH-00000007oOl-2S9k
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 06 Sep 2025 13:21:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QXhHVshjxLIi+d0rpS96fbPOEF7rXLcesz6zgj28EImkLk7c4/XPk8YlM7z8sdQR1n5L8D+RxKcFTnHxpszy3Il/uOTqFhvDYtfcr7YU72n/S7g2B5MRdi3SOa/gSZVbUor9IGDaak98pZjzr0hXW6hQTPyAPDA/EZE5BZyXkacpJyynVaIsep1lQu19b/zCpKkQSehZzdvbvCdy+is602+WuK2qScI5p+b0RaMuoOQFvAMlEbIDYo3ng6nevfJz7904fyHqFlJ1c5p50LBcc8oyv5NTGRGA/iSl0KjuwtfKRmG2vgigaw1cYPqyU943qHRMQaFg+WjRL/vUioIJ5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=32BGebImINYcrPc+Aooy1umDxbxy78s1cEToN4QuUPU=;
+ b=XeyrmOYFWFQ6qRppNgff1kVRLir0JJPO633vHi35kZwUi+oZBO203G5J+S6Mrr34xiDMmNA0PVkZINP1PVLnWTGUBxZKDeKXiTD+cR25mXS1/1y/PdNn5r1MNB4T6AFs2jhTE+xKdnghUiwGKlkINAEfWHtgQNRYYWwEKsGYkzghwLac1Gn1kfgTQp8BFrqkj9VndcxQUDYKpyCqE85oI2INLIXIH71vvYIbzJLSSJIpYPgd1jYDJmEwktEMG5WA5ZGsEzJ9Z6Cu+q6h/pPthWxQ53FftipOi6iEyTv+WVCtE9HBvww7NJznS92vwFmf5YHOyoI/bXOlt5Vy3pm3WA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=32BGebImINYcrPc+Aooy1umDxbxy78s1cEToN4QuUPU=;
+ b=KMlKKjehhus/6c8gLl5AGrNcnflNXEPHuYpvtYqYgOT3AA0ekh01daWMnw6ZXRa4096mBzNFz9xQBo/x1HqucDsJEPtkaUnBymKPMxGlhKzms6B6BZMzKJW9sfV1Ey/2gAJhzAl08cWaFdmKu5mk9j6TcDs38Qr/yvMNzX2ac0FCxJAYz9BEtbq9pDRpp/odKrLSrsh7+yscVXUmzxqs5fiubYrEpCRlSOhFG03Q1ruj4CU2ibvDdR2eht4/c7FFqptMFXfD+A1UcPCROTb9qxj+LRY+sAHG9fRatRjoL9k58OmBIFBJKGEULLFp43LCKmoiKE1Nfq6zBwu3inFJNw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS8PR04MB8056.eurprd04.prod.outlook.com (2603:10a6:20b:288::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.19; Sat, 6 Sep
+ 2025 13:21:22 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9094.018; Sat, 6 Sep 2025
+ 13:21:21 +0000
+Date: Sat, 6 Sep 2025 22:32:40 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Andreas Kemnade <akemnade@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alistair Francis <alistair@alistair23.me>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/4] regulator: sy7636a: add gpios and input regulator
+Message-ID: <20250906143240.GA12656@nxa18884-linux.ap.freescale.net>
+References: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
+ <20250906-sy7636-rsrc-v1-3-e2886a9763a7@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250906-sy7636-rsrc-v1-3-e2886a9763a7@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SGXP274CA0011.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::23)
+ To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1757163476;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gBvknfRADrFTmcYESe6FCG/DDohCJeCBYoa6CBvKIBU=;
-	b=XkpDbGiOFHdQgB47WOPXPYIS3DTQy0c5jxkWEfob9EfgzYFSNRP9rSKd1v0AIi9ihAVPdx
-	aZjIX4ENRCw9Qb+7f9vDATzWkRvOPjT3RqdIZ9/LYiXqGBX7fl5d4aBQh7ANwssBHKcWkL
-	DzZQR3TYyHg0/PgBKf6mgXezWu2W4fPkYZlKZwbecZGYkWZEBi/NMhE8lcE1KAMN0f2M7W
-	DK8rTMFX8t0t3ZfY44BlmrlUwtBULe4ON2qDeWalDoKKQj4Hh1Lz2oshs8X0s1jEzHIyZA
-	KoMUppZZvNgrdQw9KCVfaqmHItrj6uqcIyPIBCSlTjgStWa0lLx0cKVZGml6kQ==
-Date: Sat, 06 Sep 2025 14:57:55 +0200
-From: Dragan Simic <dsimic@manjaro.org>
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Diederik de Haas <didi.debian@cknow.org>,
- linux-rockchip@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Make RK3588 GPU OPP table naming
- uniform
-In-Reply-To: <3169011.CbtlEUcBR6@diego>
-References: <355c16ab070688fc6285e0d4419eb54a3f699eee.1757152740.git.dsimic@manjaro.org>
- <DCLOTR9Y380M.22GZYL11XXZM2@cknow.org>
- <47cf50f2f497108a923815c12b1f8c9b@manjaro.org> <3169011.CbtlEUcBR6@diego>
-Message-ID: <f34b6fad7768dd88b40284fa330af4f2@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB8056:EE_
+X-MS-Office365-Filtering-Correlation-Id: 82b5d78d-49ae-43ad-4341-08dded484462
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|19092799006|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IgEiCyn7ggNzLcv9AYkqghYhKm9n+PKd2SOEfaEdYpoAde9HN96j+RKuvbDF?=
+ =?us-ascii?Q?URMY426946norr0W/so2a0H3Jb666xbY8NR3Cz49oUs64aLyb2jLC9MfrqJL?=
+ =?us-ascii?Q?0JuvZLKDjerUiguDatNGajgtUZGvXrJj89VF/v0nASNgRVsnQz/cyvLNnuSF?=
+ =?us-ascii?Q?Nfj+CgziVGXJY4T0yZpLCQT5ayQfpBTUhuyLSLJ9fov6bIfGtgpeb/jmvFzS?=
+ =?us-ascii?Q?e3GpP5o76H6bgznTb1GSLA5oMwCRgWSrxWRbINIGcjkexDinj9fdjzUNlJIa?=
+ =?us-ascii?Q?0VzF3gZKjPWhA7JdInvJTwi3daCDPGbRYVHndwge+CW+WlwJraeJsq+p7+7X?=
+ =?us-ascii?Q?548BKskrfbuZ3eCnGG4XSx5ui33cAu263Yr8IJUBiNqHY5hXJ/5J23BM8nPz?=
+ =?us-ascii?Q?5rrLu5GWbGcFaL5xYq+Yk/mGhvZAA9GLc5pbNArhQEybIthpEaYDBWis4P+q?=
+ =?us-ascii?Q?QdzNUTkmimyCyeEqCnrD3GcoqMJ9deS5Asiq+ton2YJAy+dwbPPDJBDIORUM?=
+ =?us-ascii?Q?ydx9JC7vG/cRWJ9WS1hREF8qDpDud7Bpurrq/pacjSgYo2JBypMGSa4GhaF2?=
+ =?us-ascii?Q?Eh4wMh+4jj9610V63y0aoMrvKQl+ShZ2w42oWsYs4qYOb0xmGAWkUm/DY7c+?=
+ =?us-ascii?Q?C/3kZBbHanw1TeYW8A1aBaK8lGGT8eORlncVygBQpZ+0HZ6tgqBFJUVtXeP+?=
+ =?us-ascii?Q?9KGwyAwUuXQdco4ZG177++gIjsScpGxNSzPNMbaT/1UojV6RiJZAHAsw+WB8?=
+ =?us-ascii?Q?gm7O+TdD/ranWEWKkKb1hidcU2u0VQtdVNSpEwRb+8dskTmL5L9SduknUZuu?=
+ =?us-ascii?Q?pDf8Tas6malMtSjv16i11Hrw4T4LZgUVij00HRewyBMGTZKbLkRXazmVFpkb?=
+ =?us-ascii?Q?ABx2ibXEAooSLKa8JBE5ecHYgG7Lra3k6svk0eK2NWnzkzLFP9FqXYds+1D6?=
+ =?us-ascii?Q?HfNYLFnW+y1C6LtnvgG2XUTEV6e4vErsfGKeLRVUTmVoUD8V7Z8NBs6IlpQH?=
+ =?us-ascii?Q?o+7wgkUzeQZyDHSLnj5YeMcKZKWGurx2YH5zdkvjsGYxhUO5g2IMj/q2Guj5?=
+ =?us-ascii?Q?8BveJ7+WjoXmOo2uUpZydCtBXKoeH8E5Js4dfMoc1NRYwbZZx6lOZgcakGWm?=
+ =?us-ascii?Q?iRIgzCqpGOgN4O3bqX54r8LewDP2MYG/I0yxKSOB+3cWe3EyqPOxxeqLxusE?=
+ =?us-ascii?Q?vhpkh+AsrSlDiafP8ZUIGI0c1ZydnkLoVqt/bSsxuxGVMDrwEfgOrPoQHnOw?=
+ =?us-ascii?Q?0uT++x0OSTq0MDn0Azp/o74oebIO58KVdpthzfyvBQ9LwZd2Jlrl/wrKF8gV?=
+ =?us-ascii?Q?ixCUUNalU1lD9TdoX70eXTed7FsyzTKVkOEA+qSZK9cZyXcVic6NeEhkOImp?=
+ =?us-ascii?Q?mPc/S88glQTRfrZRwgAauvXy7dUCZDB0W4VLuxzZCWONWlLxfw1VOli0rFVb?=
+ =?us-ascii?Q?2ByKfY/vkZGKATL3C1/AsUH3AymCqnx0gg2yi/ro96xMjuTFeESYog=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(19092799006)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LBEygINxYNmmgu2EMEQXRkjLt29ARloBfCsVZL0LU+UhZro9SCnSLrwZuPWH?=
+ =?us-ascii?Q?t1pYWRt9omgkP9exXHi1OV97K7XDjMibNwBlihtclDKT+Eeft7ndMDueh5pi?=
+ =?us-ascii?Q?ddRH8qiaiMNdGfs5/Seqrtnotrk9nd87Co19utf4zva5EBTOe0xZV6ozgWWK?=
+ =?us-ascii?Q?rgCPTPXgCWmQC2oCCkR5U+r9IHGoZ1OPL69bpfwYelaZyiBRaFLxFmWsg8Ra?=
+ =?us-ascii?Q?9BvXMWjmvsmtSWMVvXRsIcHoG2p7ds1/4+uS5AM548JXqjAarWk/bOzQ/SIU?=
+ =?us-ascii?Q?GN8t40uec9jhrIW7/mXFkhv06potaRXkH6NdQLIJ+PaTouoKQgXrXSUoS3aT?=
+ =?us-ascii?Q?8K3hBQCEhZqIkgv374yEOC3CDExjjlNl4x9IRVCwgSKg/y21nkrcL1w+pliv?=
+ =?us-ascii?Q?lHoSvM88bCKGyyNDGFNIe69CaJQyZAtbdwAtMKP/UVDGfFJLLza+fo3ORDwP?=
+ =?us-ascii?Q?3Bn0UGlQqAyvIEZsXWZK0LiT1GypSjPVgHuKnB2WLZPSt428SRxSHr2bMHH7?=
+ =?us-ascii?Q?PLEVzK3wAXZVgCEUQ1dWxIajlJtdLV036KpXTBe58b/VrXWckEVQSiHoQNZo?=
+ =?us-ascii?Q?35Z2ZJ2ujL3D7J4Zv0N9Tc+xCsb3EyUtmU3Ns6y3IZ/OA3Nz5IeKE0UomZvJ?=
+ =?us-ascii?Q?n1f6wph8CjWvsar+SLFZh1oAWCyE442Q9lnz1R5zR/7RT9EYbaYbgaKhD4v3?=
+ =?us-ascii?Q?vQhm3GYuL1i7ucL6zgvj58DMzG83UEdB6dYJafIHZXRNMUJlE00rUiNhHZ2G?=
+ =?us-ascii?Q?hk7B/ezwfkEEo4TGGEPORCGe/JB5QNYYXPr8yg05gMBa0aqVjPZmuP58+Jbm?=
+ =?us-ascii?Q?IyR5LUkZrOWEhzSVKJUALYEDjnDrk9w8ttZyB9pNsa6xRzGE4+9VCEfBxaIV?=
+ =?us-ascii?Q?Ef05w5iB6UaZ0HCzNz5iaJYKEJXX0SfTeHU2QAM1GmP2EzVEbPaahfJZ0ZYv?=
+ =?us-ascii?Q?t0dOa6Vg05tHkH3rfKV7d9n9oarCs1rv/lMdhHXU3D5IhZ4kEwaVnzQrf9mP?=
+ =?us-ascii?Q?1UZZNiXfZulNiIjGo95j/3qScYOkBqFrpNEVUgxCIgbtRsPqVP9nrw52z7RW?=
+ =?us-ascii?Q?43lTr1uEWqbq1mBObsm19sQWUh8XvaZgPMqLgtkv4JWm08r4OUvwefITUYxD?=
+ =?us-ascii?Q?dgsAoqo64Z6bOVY1S2HSasJxIiLuWR+p1SNgo5hsgp9B6cKnLhz0ZsNluv6V?=
+ =?us-ascii?Q?4k+bSypOR5rKKqL+Km68n3sx5FruM0mqpinf4DGP2V2LH0/YGqbuJTfF0og3?=
+ =?us-ascii?Q?hreoLoChbFds/wdbP+3ytevDi1DsS9qdPSWXWMbfOLss59rJIPoWD9TJDGBh?=
+ =?us-ascii?Q?r4iAoGmMU45SzYJsYW4bLicTIwBvv2OvFI9V5NEz3fv5tQgvnegIPeNeWhxz?=
+ =?us-ascii?Q?ImPHDh6NjdehhqhxEULmm2CefEtYJdvPp0IR8194BYnWlgCbT/KBWwnhqVqP?=
+ =?us-ascii?Q?oH0YBSuS1CKGeZ21FqCPi1qXIKd8BlDGakJ1pdy+78iY1MtIxp4stdAAmsGo?=
+ =?us-ascii?Q?BekTObKJWfe64WqsDP8NLmwefqtrgbeUrlGwLQuBT6824JqOUXmVM4SikKRH?=
+ =?us-ascii?Q?jqozlbqpgdRrQshFQc+1ZrdE+ecUdX3VJOcBwwzp?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 82b5d78d-49ae-43ad-4341-08dded484462
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Sep 2025 13:21:21.8890
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FNsABBGVR7sloh6dftYYxAtU86JAJvhNOTbB7ne/vODihI8AjXwBEI8VLaydWwyU+903EqInZEQKsqkTU5hgNw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_055758_185789_F3961683 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20250906_062135_642201_1534A1DE 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,64 +168,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Heiko,
-
-On 2025-09-06 14:21, Heiko Stübner wrote:
-> Am Samstag, 6. September 2025, 14:10:22 Mitteleuropäische Sommerzeit
-> schrieb Dragan Simic:
->> On 2025-09-06 13:40, Diederik de Haas wrote:
->> > On Sat Sep 6, 2025 at 12:01 PM CEST, Dragan Simic wrote:
->> >> Unify the naming of the existing GPU OPP table nodes found in the
->> >> RK3588
->> >> and RK3588J SoC dtsi files with the other SoC's GPU OPP nodes,
->> >> following
->> >> the more "modern" node naming scheme.
->> >
->> > Like we discussed in private (without an agreement), I think it would
->> > be
->> > beneficial if the (gpu) opp naming would be made consistent across SoC
->> > series as right now there are several different naming schemes applied.
->> > They're all valid, but inconsistent. And if consistency is improved,
->> > which I like, then let's go 'all the way'?
->> 
->> As we discussed it already in private, I fully agree about performing
->> the "opp-table-X => opp-table-{clusterX,gpu}" naming cleanup
->> consistently
->> for all Rockchip SoCs, but I'm afraid it would be seen as an 
->> unnecessary
->> "code churn" at this point, especially because my upcoming Rockchip 
->> SoC
->> binning patch series is a good candidate for such a cleanup.
->> 
->> On top of that, I'd be a bit weary about performing at least some of 
->> the
->> testing associated with such a platform-wide cleanup, despite actually
->> performing no functional changes and being a safe change.  On the 
->> other
->> hand, "bundling" such a cleanup with the Rockchip SoC binning patches
->> would get us detailed testing for free, so to speak.
->> 
->> Of course, if the maintainers see this as a good opportunity to 
->> perform
->> a platform-wide cleanup at this point, instead of seeing it as a "code
->> churn", I'll still be happy to extend this small patch into a 
->> platform-
->> wide naming cleanup of the "opp-table-X" nodes.  On the other hand, if
->> this patch remains as-is, it may hit a good balance between resolving
->> the currently present naming ambiguity and the amount of introduced
->> changes.
+On Sat, Sep 06, 2025 at 11:09:14AM +0200, Andreas Kemnade wrote:
+>Initialize input regulator and gpios to proper values to have things
+>basically working as well as in the case when these things are
+>hardwired.
+>
+>Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
+>---
+> drivers/regulator/sy7636a-regulator.c | 26 ++++++++++++++++++++++++++
+> 1 file changed, 26 insertions(+)
+>
+>diff --git a/drivers/regulator/sy7636a-regulator.c b/drivers/regulator/sy7636a-regulator.c
+>index 27e3d939b7bb9..bd8739624c727 100644
+>--- a/drivers/regulator/sy7636a-regulator.c
+>+++ b/drivers/regulator/sy7636a-regulator.c
+>@@ -12,6 +12,7 @@
+> #include <linux/mfd/sy7636a.h>
+> #include <linux/module.h>
+> #include <linux/platform_device.h>
+>+#include <linux/regulator/consumer.h>
+> #include <linux/regulator/driver.h>
+> #include <linux/regulator/machine.h>
+> #include <linux/regmap.h>
+>@@ -19,6 +20,8 @@
+> struct sy7636a_data {
+> 	struct regmap *regmap;
+> 	struct gpio_desc *pgood_gpio;
+>+	struct gpio_desc *en_gpio;
+>+	struct gpio_desc *vcom_en_gpio;
+> };
 > 
-> Personally I'm always for the "we strive to get there eventually" 
-> thing.
-> If there is an established goal to reach, steps can be incremental :-) 
-> .
+> static int sy7636a_get_vcom_voltage_op(struct regulator_dev *rdev)
+>@@ -98,6 +101,29 @@ static int sy7636a_regulator_probe(struct platform_device *pdev)
+> 	data->regmap = regmap;
+> 	data->pgood_gpio = gdp;
 > 
-> And also short and scope-limited patches are easier to review anyway.
+>+	ret = devm_regulator_get_enable_optional(&pdev->dev, "vin");
+>+	if (ret)
+>+		return dev_err_probe(&pdev->dev, ret,
+>+				     "failed to get vin regulator\n");
+>+
+>+	data->en_gpio = devm_gpiod_get_optional(&pdev->dev, "en",
+>+						GPIOD_OUT_HIGH);
+>+	if (IS_ERR(data->en_gpio))
+>+		return dev_err_probe(&pdev->dev,
+>+				     PTR_ERR(data->en_gpio),
+>+				     "failed to get en gpio\n");
+>+
+>+	/* Let VCOM just follow the default power on sequence */
+>+	data->vcom_en_gpio = devm_gpiod_get_optional(&pdev->dev,
+>+						     "vcom-en", GPIOD_OUT_LOW);
+>+	if (IS_ERR(data->vcom_en_gpio))
+>+		return dev_err_probe(&pdev->dev,
+>+				     PTR_ERR(data->en_gpio),
+>+				     "failed to get en gpio\n");
 
-I see.  After thinking a bit more about it, I'll turn this patch into
-a small series, in which this patch becomes the 1/2, and the 2/2 is
-a new, larger patch that extends the "opp-table-X" naming cleanup to
-the entire platform.  That way, the 1/2 kind of fixes something, while
-the 2/2 performs a cleanup, which may be helpful in the unlikely case
-that some regression is found down the road.
+Nit: s/en/vcom en/
+
+>+
+>+	if (data->en_gpio)
+>+		usleep_range(2500, 4000);
+
+It would be better to add a comment on this delay.
+
+Regards
+Peng
 
