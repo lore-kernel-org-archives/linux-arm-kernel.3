@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DECBCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1046CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3OgMINll73XBrG3q26ddKjgiA7dmpakzqrUBqujaCaE=; b=sJW8CQHkWlQzgqWpMbsDvGAIhQ
-	5uD/Qm58by+Wc5+u9GDxVSeWN0PcLPUD3TSCEkqP3ZpIZmHZeh5XBmTdDSncGbg0uuIzLuLsgcv4U
-	9s+E+jsF7BkqpRebNhdwVQFgrgR2e/fBQSVadQCoTav2VaUaD76H88BwViEGSCRXN4oAw2zhqI8WZ
-	u0dPv18H6loyXOR/n0mnaD0XAdeJLxPaIDU/t0QZfZfZlHr/X6xHIQydu0IulL1JyqfdYZMjNZjNu
-	fDWaQkfBhEN4BLjOfqJlLaKKYaQ0euzLIChdGLYJt/72ACuBpJbZIiYZGVIqzqvzmiIV6xoedebVT
-	1t1DlY2Q==;
+	bh=VWy4H00nxt6ZFJ7PNTEYRArS+QazwmiNe8xLqoVnTv0=; b=qhUE0PF9PlGVa6AD25vPGW5nb+
+	pheFibP15M+DKXlP5uoMvUXM3doWVQ6gxLr1gLawrto+uou4um3yCXQgAOYXlFkCjRZUSh2JsFljX
+	KDhGVt0tks0oxwaz6eDwUztju5SaAd7HogwYmzmTf/TgEtRXnPJpKRVVW5ArL8O2CKb+stXOrLp37
+	VD4AOhh3Vrum81w+q6kjwJy0F0ylcaXJIuMNVaSHN4BZmlNIBOKze224e+7HXxYlL9EIvz7QrzrtL
+	WEncYLT7yGOU0HgbkoH2vseMe2A4+rTVmcoabrKaO0DQBdxd8iDb/j8Ag/cUOIn6mKuAtLTAKpEWS
+	stzvNc2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uukX2-00000006aMC-2pcZ;
-	Sat, 06 Sep 2025 04:28:08 +0000
+	id 1uukZq-00000006b5o-05lK;
+	Sat, 06 Sep 2025 04:31:02 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uukJ5-00000006W33-3X5h
+	id 1uukJ7-00000006W4S-0ozO
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 06 Sep 2025 04:13:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C3D34507E;
-	Sat,  6 Sep 2025 04:13:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8831C4CEF9;
-	Sat,  6 Sep 2025 04:13:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 400D645089;
+	Sat,  6 Sep 2025 04:13:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02421C4CEFE;
+	Sat,  6 Sep 2025 04:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757132022;
-	bh=cGn/A6pv5/QIRUIvcflPGOg7C3keUUcnpZ16rUvo3ZA=;
+	s=k20201202; t=1757132024;
+	bh=1u87rs46+m5wL1Xw7aZOQ0O0nwgjPdStsou5RO+mPyc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jMCqmG8XhfdDjFQNrGIYpHAZwpEOfwxAuRgcq+VvwROzExK7lxf2jGIYMpWJ9kolL
-	 dj3HKl8NrOGySD/8VYF0MeV/ym5LqniQZta7ErM9hJ+4CJ9+L58wlgKLmy+EcaTyUA
-	 1SDV+kTWklP/zVYJJmNbiHohB3SG9nUV1lVvSA7JqQ3q5QE2lLLxTc2KH/B9zpvjZY
-	 iwbFnaexBWjXTSvk7B14sfD27IRCifWT2MzzWXY1dgtokWCyaZpdi99VOSmdWz/vng
-	 3dbYNog0DhcRBRqbtFaoxknytNM2NTGDX9oVhTABUvzbIgIAFHs6mqXTUmSBk4hkC1
-	 QFKijWspFTJBg==
+	b=dKv/t1mIARtg/Pk7uvV2k04TohqX82g0g1CslFnScuHvlRnMJ0oAbw897cb/4iJ7T
+	 FlzO+I6g9dae4s3Agz5cwFapOF0P4pFUtmID6z7reQsxIAQx48sg1bW9NdNYkImeMz
+	 RioQBYpZtJV2/fr4YjNtKMwpJbTaAJNFml3NN+cSd5sL9QsqhK/Mxt82hsuKdfgAzf
+	 z2aqlq2likSRvMlOcw/x0bTOJX93qJPKLqNegi6AuyAdvhGb4xKV88NS+LKQswXKHA
+	 VuHidAOAyqlICR+Dl4iJ83cK781fdVYYQvcaOPfyOtcHnkz58y3o6OcixE8hxaXO0t
+	 KfZvMdV/wpzYg==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 9F1A05FAC5; Sat, 06 Sep 2025 12:13:38 +0800 (CST)
+	id E91555FF44; Sat, 06 Sep 2025 12:13:38 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -61,18 +61,19 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH net-next v3 01/10] dt-bindings: net: sun8i-emac: Add A523 GMAC200 compatible
-Date: Sat,  6 Sep 2025 12:13:24 +0800
-Message-Id: <20250906041333.642483-2-wens@kernel.org>
+	Andre Przywara <andre.przywara@arm.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH net-next v3 07/10] arm64: dts: allwinner: a527: cubie-a5e: Enable second Ethernet port
+Date: Sat,  6 Sep 2025 12:13:30 +0800
+Message-Id: <20250906041333.642483-8-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250906041333.642483-1-wens@kernel.org>
 References: <20250906041333.642483-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_211343_928077_6D1426D7 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20250905_211345_286054_7B1B0B29 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,169 +90,100 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-The Allwinner A523 SoC family has a second Ethernet controller, called
-the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
-numbering. This controller, according to BSP sources, is fully
-compatible with a slightly newer version of the Synopsys DWMAC core.
-The glue layer around the controller is the same as found around older
-DWMAC cores on Allwinner SoCs. The only slight difference is that since
-this is the second controller on the SoC, the register for the clock
-delay controls is at a different offset. Last, the integration includes
-a dedicated clock gate for the memory bus and the whole thing is put in
-a separately controllable power domain.
+On the Radxa Cubie A5E board, the second Ethernet controller, aka the
+GMAC200, is connected to a second external Maxio MAE0621A PHY. The PHY
+uses an external 25MHz crystal, and has the SoC's PJ16 pin connected to
+its reset pin.
 
-Add a compatible string entry for it, and work in the requirements for
-a second clock and a power domain.
+Enable the second Ethernet port. Also fix up the label for the existing
+external PHY connected to the first Ethernet port. An enable delay for the
+PHY supply regulator is added to make sure the PHY's internal regulators
+are fully powered and the PHY is operational.
 
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
-Changes since v2:
-- Added "select" to avoid matching against all dwmac entries
+
 Changes since v1:
 - Switch to generic (tx|rx)-internal-delay-ps properties
+- Add PHY regulator delay
 ---
- .../net/allwinner,sun8i-a83t-emac.yaml        | 96 ++++++++++++++++++-
- 1 file changed, 94 insertions(+), 2 deletions(-)
+ .../dts/allwinner/sun55i-a527-cubie-a5e.dts   | 28 +++++++++++++++++--
+ 1 file changed, 26 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-index 2ac709a4c472..9d205c5d93ca 100644
---- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-+++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-@@ -10,6 +10,21 @@ maintainers:
-   - Chen-Yu Tsai <wens@csie.org>
-   - Maxime Ripard <mripard@kernel.org>
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+index d4cee2222104..e96a419faf21 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+@@ -14,6 +14,7 @@ / {
  
-+# We need a select here so we don't match all nodes with 'snps,dwmac'
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - allwinner,sun8i-a83t-emac
-+          - allwinner,sun8i-h3-emac
-+          - allwinner,sun8i-r40-gmac
-+          - allwinner,sun8i-v3s-emac
-+          - allwinner,sun50i-a64-emac
-+          - allwinner,sun55i-a523-gmac200
-+  required:
-+    - compatible
+ 	aliases {
+ 		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
+ 		serial0 = &uart0;
+ 	};
+ 
+@@ -76,7 +77,7 @@ &ehci1 {
+ 
+ &gmac0 {
+ 	phy-mode = "rgmii-id";
+-	phy-handle = <&ext_rgmii_phy>;
++	phy-handle = <&ext_rgmii0_phy>;
+ 	phy-supply = <&reg_cldo3>;
+ 
+ 	allwinner,tx-delay-ps = <300>;
+@@ -85,13 +86,24 @@ &gmac0 {
+ 	status = "okay";
+ };
+ 
++&gmac1 {
++	phy-mode = "rgmii-id";
++	phy-handle = <&ext_rgmii1_phy>;
++	phy-supply = <&reg_cldo4>;
 +
- properties:
-   compatible:
-     oneOf:
-@@ -26,6 +41,9 @@ properties:
-               - allwinner,sun50i-h616-emac0
-               - allwinner,sun55i-a523-gmac0
-           - const: allwinner,sun50i-a64-emac
-+      - items:
-+          - const: allwinner,sun55i-a523-gmac200
-+          - const: snps,dwmac-4.20a
- 
-   reg:
-     maxItems: 1
-@@ -37,14 +55,19 @@ properties:
-     const: macirq
- 
-   clocks:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
- 
-   clock-names:
--    const: stmmaceth
-+    minItems: 1
-+    maxItems: 2
- 
-   phy-supply:
-     description: PHY regulator
- 
-+  power-domains:
-+    maxItems: 1
++	tx-internal-delay-ps = <300>;
++	rx-internal-delay-ps = <400>;
 +
-   syscon:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description:
-@@ -191,6 +214,45 @@ allOf:
-             - mdio-parent-bus
-             - mdio@1
++	status = "okay";
++};
++
+ &gpu {
+ 	mali-supply = <&reg_dcdc2>;
+ 	status = "okay";
+ };
  
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: allwinner,sun55i-a523-gmac200
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 2
-+        clock-names:
-+          items:
-+            - const: stmmaceth
-+            - const: mbus
-+        tx-internal-delay-ps:
-+          default: 0
-+          minimum: 0
-+          maximum: 700
-+          multipleOf: 100
-+          description:
-+            External RGMII PHY TX clock delay chain value in ps.
-+        rx-internal-delay-ps:
-+          default: 0
-+          minimum: 0
-+          maximum: 3100
-+          multipleOf: 100
-+          description:
-+            External RGMII PHY TX clock delay chain value in ps.
-+      required:
-+        - power-domains
-+    else:
-+      properties:
-+        clocks:
-+          maxItems: 1
-+        clock-names:
-+          items:
-+            - const: stmmaceth
-+        power-domains: false
-+
-+
- unevaluatedProperties: false
+ &mdio0 {
+-	ext_rgmii_phy: ethernet-phy@1 {
++	ext_rgmii0_phy: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+ 		reg = <1>;
+ 		reset-gpios = <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
+@@ -100,6 +112,16 @@ ext_rgmii_phy: ethernet-phy@1 {
+ 	};
+ };
  
- examples:
-@@ -323,4 +385,34 @@ examples:
-         };
-     };
++&mdio1 {
++	ext_rgmii1_phy: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++		reset-gpios = <&pio 9 16 GPIO_ACTIVE_LOW>; /* PJ16 */
++		reset-assert-us = <10000>;
++		reset-deassert-us = <150000>;
++	};
++};
++
+ &mmc0 {
+ 	vmmc-supply = <&reg_cldo3>;
+ 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
+@@ -240,6 +262,8 @@ reg_cldo4: cldo4 {
+ 				regulator-min-microvolt = <3300000>;
+ 				regulator-max-microvolt = <3300000>;
+ 				regulator-name = "vcc-pj-phy";
++				/* enough time for the PHY to fully power on */
++				regulator-enable-ramp-delay = <150000>;
+ 			};
  
-+  - |
-+    ethernet@4510000 {
-+        compatible = "allwinner,sun55i-a523-gmac200",
-+                     "snps,dwmac-4.20a";
-+        reg = <0x04510000 0x10000>;
-+        clocks = <&ccu 117>, <&ccu 79>;
-+        clock-names = "stmmaceth", "mbus";
-+        resets = <&ccu 43>;
-+        reset-names = "stmmaceth";
-+        interrupts = <0 47 4>;
-+        interrupt-names = "macirq";
-+        pinctrl-names = "default";
-+        pinctrl-0 = <&rgmii1_pins>;
-+        power-domains = <&pck600 4>;
-+        syscon = <&syscon>;
-+        phy-handle = <&ext_rgmii_phy_1>;
-+        phy-mode = "rgmii-id";
-+        snps,fixed-burst;
-+        snps,axi-config = <&gmac1_stmmac_axi_setup>;
-+
-+        mdio {
-+            compatible = "snps,dwmac-mdio";
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            ext_rgmii_phy_1: ethernet-phy@1 {
-+                reg = <1>;
-+            };
-+        };
-+    };
- ...
+ 			reg_cpusldo: cpusldo {
 -- 
 2.39.5
 
