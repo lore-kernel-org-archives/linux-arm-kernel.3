@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4729CCA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4463CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M/SW60XuvWVs4JyTRLIRiu2EpF7OaSYs1B49vP+EcrQ=; b=Ui+8EpmcQgdsHbtwdaJitB8T9s
-	E+lbSrfjvyglD6ZhzRnWHW/0T2tP1ce2ufsQD/Ii1ShRX0fdadtQ9V8e0cAsRMnpEF+F/se+l6Qxa
-	9Flj8woFaQ0oJii1I8bmuphi587hXpoM/Ss8heXFJpzfv/ddtNuZC8cEWGqgtncnDiiOVLBgR9Wik
-	eAK229OdtTn5UxCaCPcW2ix3keRTtYs1Z+fSTxIrdlhglEOB+T/QHAWHi0u9oVIPG95CSlkbyDEr2
-	+Nr+MhWCMRlHJ0AwwKNTRyAslGSxWbDp+UJR4ul6y8pYr1dgmM8OSbP5xzm6CDPwlvRMshiCNKMCM
-	YRyvgZzA==;
+	bh=MLTrOwwkQusxtacuXjxnsLaKiZR8tl4afo2sZ/AtH4Y=; b=VIVnfGmSXs+6ygicw5C+9vzXK4
+	WkHGtlXYAk9YY4b/wuymasz4cH5IVmZJGbyfyCnp8pLDq6MonhXK+ICjZ8bqAO863O1NVtTJRZGhR
+	oKJBEG+mDv8et74IIl6kszoDpbDMaHWTsrTPrlhxLX25cTB37Jile17+5RNJuZB07bHBorb5MYWu/
+	sFki8BtCq9dNlUbFNr+eBHmBNJ4aL3ehf4/prNpobT5RcsGvAu4gln1lauCs8RSlQEiZxPlghcWeU
+	lzNWHGN8v1FtMwsoucxsBt2kG4s8wk369scrWzbPdTha3Fml5glVdbXps6hoYE+FWtpjjur7T/cZT
+	vxHfL1KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uukcc-00000006bn1-3rhY;
-	Sat, 06 Sep 2025 04:33:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uukfO-00000006cM3-2zxQ;
+	Sat, 06 Sep 2025 04:36:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uukJ7-00000006W4R-0kKw
+	id 1uukJ7-00000006W4e-1dv8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 04:13:46 +0000
+	Sat, 06 Sep 2025 04:13:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 43FF04508E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 476174508D;
 	Sat,  6 Sep 2025 04:13:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04BB9C4CEF7;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09206C4CEF8;
 	Sat,  6 Sep 2025 04:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1757132024;
-	bh=tDfUpZExKmJMXStQh2fTARqlHOrlMBEVmIQj8qTNpp8=;
+	bh=coKgeanaUZ3X4I0jziHLWfdNIN3UjLw9i/nP+qWcjHY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qxcX3hDdhIcHU3lc6DId6MV315Sk7yYxVfYARSA80aE259q6UGqWfhpcdvQ0sSDMW
-	 vw1uu7EhOf86FWBcj70eUuJ9tjOsPY6MCZNGXZRQUxX85V0Q0y4d+/lujPNMTEhnNt
-	 0LZLQY8AuPtKB/8N3aoy/aEzMmwa6iQ6EQfJ07B0Uyxx9tzWn6CJZYsrzpkLhglHqK
-	 sLJoe7ZZuMUA4hpYoh0MsrEFY8XOkCSc6pMjCrkFNoKnPKoi+tm1U1V3r/+LTuHmEo
-	 XGnTuepdldm36U+VNpLSWxlkPOre2hll8LTqd30iQligkWtmm/w16k591RYns7Xenv
-	 RuVsh29ymcmcQ==
+	b=coau5L4VcUBh0pb7ft7mpwoSZY/nZgwM8Umvnx01Nwbm1ZUwnwRH77dcw2XJN3rZD
+	 RD7USlnj4bsrb+YF1AFycelE5v12xACcnlkDYSSJTAP4Iq/mglQZ7B9X70KTjaHAFv
+	 ThofGXaZJH+gM6tDAliipZa1Y94iXBjLed94C2aNVyXwRSjnYV2ZPlcNBEfmdrVNP5
+	 phiBVWBhO4wAJtlIZsNnvPbanxBywMqbUeaWhCERI+eJETInsXiDE5n+fWs2k9a6wg
+	 IfngRvqzL0glUpW6RJmab9E727RyXFywaJLBvFb9jmyEcidrVdlkJ2k8vZxO+bSGb/
+	 E84OJY7fVm2fg==
 Received: by wens.tw (Postfix, from userid 1000)
-	id D59155FEF5; Sat, 06 Sep 2025 12:13:38 +0800 (CST)
+	id F1BF75FF75; Sat, 06 Sep 2025 12:13:38 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -61,18 +61,19 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH net-next v3 06/10] arm64: dts: allwinner: a527: cubie-a5e: Add ethernet PHY reset setting
-Date: Sat,  6 Sep 2025 12:13:29 +0800
-Message-Id: <20250906041333.642483-7-wens@kernel.org>
+	Andre Przywara <andre.przywara@arm.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH net-next v3 08/10] arm64: dts: allwinner: t527: avaota-a1: Add ethernet PHY reset setting
+Date: Sat,  6 Sep 2025 12:13:31 +0800
+Message-Id: <20250906041333.642483-9-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250906041333.642483-1-wens@kernel.org>
 References: <20250906041333.642483-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_211345_259251_4745F56C 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20250905_211345_472012_D44E88A5 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,17 +95,18 @@ It is missing from the original submission.
 
 Add it to complete the description.
 
-Fixes: acca163f3f51 ("arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E board")
+Fixes: c6800f15998b ("arm64: dts: allwinner: t527: add EMAC0 to Avaota-A1 board")
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts | 3 +++
+ arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-index 70d439bc845c..d4cee2222104 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-@@ -94,6 +94,9 @@ &mdio0 {
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index b9eeb6753e9e..e7713678208d 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -85,6 +85,9 @@ &mdio0 {
  	ext_rgmii_phy: ethernet-phy@1 {
  		compatible = "ethernet-phy-ieee802.3-c22";
  		reg = <1>;
