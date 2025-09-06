@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62065CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB2CCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 04:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rgj00ZQJ6YXpmj/Fkl8OSXbBHLLgoWXgDDmBKRr58+k=; b=aqjvS2rXuBs/W/EaUkxbAFHdnM
-	lNGm6Wlr5Bv7xfXziPxoHJ46hKQ1N6b6h6S5XOEotoKUnDGmz8NjKdHVYH4yhG83nxiFqLNnRC585
-	Buunee6Gqzt44l+IFgEAyEikIDJPg4VbXv2WUNFE3PLWj46TiBPduhtbtstRgLtRL9MnrWuDZ8DnS
-	MvGbie+Elax2e7BVCbaCtSacAJh8r4qoD9uN1j/WtTBU6mgLfibqRjAvbDy0ge+zaHt3ek3BlxB7y
-	0++BuSLi57YnrmfkgImgoRTEI2l/B0SPkcfb1Sl8vi14j+rczXoDhrVsSN9iKlsJpdcMdBY7gr7Ws
-	1+t3IYjw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l9RLkhBvn3Li30QY5Z5vDNerjPnK4LF4NsAQt2NgzFQ=; b=Jc9LmU0CM/mSv08PY+f6LLhijD
+	b3gT0lkeVCGz/mqSA2ToJ/UqLzG3FHWnAltlyZ48WoTTBt9BWZVdw3++lOUwSI2IFmu3k1vUwl7UF
+	WuYT1ArkTqefsTVEuC5eICVicnSRKovaThq9PfuxE8kmm5iF+NuX4S4FyGgq7R69svyg/HkJP9UI7
+	aTnwn8V8JnvcnFPXwQTvPfmJxK1+tWcsZ9VPs1BdGyNamLbMuZmym8dt1PekWwkt+uQPQVrCKx6C2
+	OzLbEuIj4O7nGUQmJ5plFKCEKjqgidEwOH1N5uj6FaBb+kTyW+o6BIKHI8wHO+YCZ8wRbiDKGusL1
+	IVHe/BsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uukGo-00000006VRC-1Bop;
-	Sat, 06 Sep 2025 04:11:22 +0000
-Received: from p-west1-cluster1-host3-snip4-10.eps.apple.com ([57.103.64.113] helo=outbound.pv.icloud.com)
+	id 1uukLw-00000006XEO-1OjL;
+	Sat, 06 Sep 2025 04:16:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uukE0-00000006Uyd-0HhQ
+	id 1uukJ6-00000006W41-2wJ8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 04:08:29 +0000
-Received: from outbound.pv.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-1a-10-percent-0 (Postfix) with ESMTPS id 59B9E180011B;
-	Sat,  6 Sep 2025 04:08:23 +0000 (UTC)
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sswd.pw; s=sig1; bh=Rgj00ZQJ6YXpmj/Fkl8OSXbBHLLgoWXgDDmBKRr58+k=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=qMKSDCw1cdIj3DK2yvZ++TbDoBlx8E+r7bG3YQzzyzKEMXHV0lqNhfDmgasQIh2b5q814XJWqVgNnlADr7tlTho3V3ihCmkLNpl63m0TP9SeePSEu6HgG3BI9eJWvzDjhv5GAPnFMbR7Zqy8iBObZynQ57h9Z2yAFtlBiCPylfCWNpGBShN/yyYIPy8YdrjDXLld9AtzjyORftHYnTVJX5C1sZDWPkqicvfpxjVhB1oiCfA5TeMBzkuF+u+K/WIQTXbmvP9RyK6+n4LijaWMM7PWIXJ8aC468RyDUs4FSKlxYpP0BWaGmzfdq6OPNN85J9oAyAEhI8y5qABQeGYUTw==
-mail-alias-created-date: 1750314795890
-Received: from localhost.localdomain (pv-asmtp-me-k8s.p00.prod.me.com [17.56.9.36])
-	by p00-icloudmta-asmtp-us-west-1a-10-percent-0 (Postfix) with ESMTPSA id A7B551800102;
-	Sat,  6 Sep 2025 04:08:20 +0000 (UTC)
-From: p@sswd.pw
-To: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org,
+	Sat, 06 Sep 2025 04:13:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4AAE7601B7;
+	Sat,  6 Sep 2025 04:13:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDF74C4CEF7;
+	Sat,  6 Sep 2025 04:13:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757132021;
+	bh=7ezgqWe8YoIYR8sACxy16DNlijdxVUU1e6mgg+928iI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RDnLlab7YBU8jClTxmQGNK2Es6Ckohx4WlyZuhAOnDiKQhODx9wU7IYq/pVnGHeaV
+	 1NNBCVIRD2oDqe4cns9gOz9GjVpnAvm8YQT940222JiRlU6PHPz0z0nQtt4s06JJEK
+	 P+xGNmd+7PpvWRRfarAIxGFa4FT6wguzMFPeyMFsKqWw0BayyKEMrctgri2I9ONBlX
+	 ocmuxk0n+Aqftge5w+LSEnQb9g+9RbzDn+bEdpnM7t+dIB7IQbasRwJe/bS+slD7Cw
+	 /H+tuuQTflkJJjHY2tLpcOgMDG3teP6DQyHNslNwyjT+j180UVexxfVDNzR5h0xOWw
+	 gaRZnhcWGYSRw==
+Received: by wens.tw (Postfix, from userid 1000)
+	id AB84B5FE30; Sat, 06 Sep 2025 12:13:38 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	Dongha Lee <p@sswd.pw>
-Subject: [PATCH v3] KVM: arm64: nv: Fix incorrect VNCR invalidation range calculation
-Date: Sat,  6 Sep 2025 13:07:24 +0900
-Message-ID: <20250906040724.72960-1-p@sswd.pw>
-X-Mailer: git-send-email 2.43.0
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH net-next v3 02/10] net: stmmac: Add support for Allwinner A523 GMAC200
+Date: Sat,  6 Sep 2025 12:13:25 +0800
+Message-Id: <20250906041333.642483-3-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250906041333.642483-1-wens@kernel.org>
+References: <20250906041333.642483-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: CqaMxTFjajy8dA-UyRm0ZEXba6kx_oHN
-X-Proofpoint-GUID: CqaMxTFjajy8dA-UyRm0ZEXba6kx_oHN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAzNCBTYWx0ZWRfX9PZK9Wz6rt0n
- CE09kUIpMHLBa7OozCr9w46ADwN5eDD3MC05FwNijOOzeqch9TcEd1ryPhDeZ3STgZwdArsVIE+
- i7V9VaZ+1xet7G3gfR4t4J6RKM+GZTrv7BjkynuvbG6waWsaN5Kxrh2xHXo13cwjAfeBm2+HX1Q
- OUhb4J+WUlcTpObtt+c1cp8GhING1FpbvIkR78VChyeQrqsrKPDn6kGgPl+dvPGShIGAy56yD/L
- lDPrlHrRlQw1QCMGAUYaE0+4mMoiTRl6pJsFsm/X9EDiu3sTbZ5YgUMhPvh4+VcMMJc8KYSD8=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-05_09,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0
- bulkscore=0 clxscore=1030 spamscore=0 adultscore=0 mlxlogscore=950
- suspectscore=0 phishscore=0 malwarescore=0 classifier=spam adjust=0
- reason=mlx scancount=1 engine=8.22.0-2506270000 definitions=main-2509060034
-X-JNJ: AAAAAAAByC4YvtSmVYqoO4If7rP+IrxCnQ7wtVXyGE65JkouCZYcHsuqwvg2gFZBkntax+8sgc45lKq7V+tQv7+SMx02IVytv3h4/O7jm0b3oM0SX0hhiC4/M5BO2rCX2VIv89Z6CPeINH5V+iub+mnauRU1Y5p96dWh5vdKW1Jhqx98lEJinxs7j6jqosgNFonmAQQMfq0s/EfpGa29I9xEtXw+d2b2QMIW602T8y8sijbvRwlrI+eL9sZiHDIGEt7iLrr6obY2dpNMvYl5Oy/jfeKRJYR1B5tCMZw2T55sKSzJLHU5lmCkiNX/LB32/8a35gP1L+A1vg5qlIE4ZalqILtSR9YAJ2CoX7yFv4bva5BbdwLlIovFiq82rJCt6Ig68wdDa0nxROeq2PCSJ4l+c9b208YkOrKXb78Aog3UdcjJn9fyEnDyzL9I+V0G4EWsGGTpYFGgdKyRBlbyNj4bx5XB3ZqhjtnAIkhzOH0H4zXB5qvzkzDeTA0zcB876crugnlEtZ9VlOliULiWT9N+wbADtmk/n8JLVzEZN7kqKN2BE+a8+TDX5+vRx569oW9DIwFvIbzOsQpeVvyfWpnt8HAwMMzsj7oBJirrVzBOet7Ux0hI8VS8KQiA7JSwxC9Tt9wrcuuTqTTbVmm64S879DZ93NEN2WSRUvDvgs+VBvyY6b8KoE2Um3wLkWI1rQtRrMcTJ3M71Iky/tatX4s1AcKrjsM7HonhQE4Lwg==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_210828_414161_F1650A04 
-X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +84,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dongha Lee <p@sswd.pw>
+From: Chen-Yu Tsai <wens@csie.org>
 
-The code for invalidating VNCR entries in both kvm_invalidate_vncr_ipa()
-and invalidate_vncr_va() incorrectly uses a bitwise AND with `(size - 1)`
-instead of `~(size - 1)` to align the start address. This results
-in masking the address bits instead of aligning them down to the start
-of the block.
+The Allwinner A523 SoC family has a second Ethernet controller, called
+the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
+numbering. This controller, according to BSP sources, is fully
+compatible with a slightly newer version of the Synopsys DWMAC core.
+The glue layer around the controller is the same as found around older
+DWMAC cores on Allwinner SoCs. The only slight difference is that since
+this is the second controller on the SoC, the register for the clock
+delay controls is at a different offset. Last, the integration includes
+a dedicated clock gate for the memory bus and the whole thing is put in
+a separately controllable power domain.
 
-This bug may cause stale VNCR TLB entries to remain valid even after a
-TLBI or MMU notifier, leading to incorrect memory translation and
-unexpected guest behavior.
+Add a new driver for this hardware supporting the integration layer.
 
-Credit
-Team 0xB6 in bob14:
-DongHa Lee (@GAP-dev)
-Gyujeong Jin (@gyutrange)
-Daehyeon Ko (@4ncienth)
-Geonha Lee (@leegn4a)
-Hyungyu Oh (@ohhyungyu)
-Jaewon Yang (@R4mbb)
-
-Link: https://lore.kernel.org/r/20250903123949.24858-1-p@sswd.pw
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Dongha Lee <p@sswd.pw>
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- arch/arm64/kvm/nested.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Changes since v2 (all suggested by Russell King):
+- Include "ps" unit in "... must be multiple of ..." error message
+- Use FIELD_FIT to check if delay value is in range and FIELD_MAX to get
+  the maximum value
+- Reword error message for delay value exceeding maximum
+- Drop MASK_TO_VAL
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 77db81bae86f..d0ddce877b5d 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -847,7 +847,7 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
+Changes since v1:
+- Switch to generic (tx|rx)-internal-delay-ps properties
+- Change dev_err() + return to dev_err_probe()
+- Check return value from syscon regmap write
+- Change driver name to match file name
+---
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-sun55i.c    | 159 ++++++++++++++++++
+ 3 files changed, 172 insertions(+)
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index 67fa879b1e52..38ce9a0cfb5b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -263,6 +263,18 @@ config DWMAC_SUN8I
+ 	  stmmac device driver. This driver is used for H3/A83T/A64
+ 	  EMAC ethernet controller.
  
- 		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
- 							    vt->wr.level));
--		ipa_start = vt->wr.pa & (ipa_size - 1);
-+		ipa_start = vt->wr.pa & ~(ipa_size - 1);
- 		ipa_end = ipa_start + ipa_size;
- 
- 		if (ipa_end <= start || ipa_start >= end)
-@@ -887,7 +887,7 @@ static void invalidate_vncr_va(struct kvm *kvm,
- 
- 		va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
- 							   vt->wr.level));
--		va_start = vt->gva & (va_size - 1);
-+		va_start = vt->gva & ~(va_size - 1);
- 		va_end = va_start + va_size;
- 
- 		switch (scope->type) {
++config DWMAC_SUN55I
++	tristate "Allwinner sun55i GMAC200 support"
++	default ARCH_SUNXI
++	depends on OF && (ARCH_SUNXI || COMPILE_TEST)
++	select MDIO_BUS_MUX
++	help
++	  Support for Allwinner A523/T527 GMAC200 ethernet controllers.
++
++	  This selects Allwinner SoC glue layer support for the
++	  stmmac device driver. This driver is used for A523/T527
++	  GMAC200 ethernet controller.
++
+ config DWMAC_THEAD
+ 	tristate "T-HEAD dwmac support"
+ 	depends on OF && (ARCH_THEAD || COMPILE_TEST)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+index b591d93f8503..51e068e26ce4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Makefile
++++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+@@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
+ obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
+ obj-$(CONFIG_DWMAC_SUNXI)	+= dwmac-sunxi.o
+ obj-$(CONFIG_DWMAC_SUN8I)	+= dwmac-sun8i.o
++obj-$(CONFIG_DWMAC_SUN55I)	+= dwmac-sun55i.o
+ obj-$(CONFIG_DWMAC_THEAD)	+= dwmac-thead.o
+ obj-$(CONFIG_DWMAC_DWC_QOS_ETH)	+= dwmac-dwc-qos-eth.o
+ obj-$(CONFIG_DWMAC_INTEL_PLAT)	+= dwmac-intel-plat.o
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
+new file mode 100644
+index 000000000000..fb127e7a297d
+--- /dev/null
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
+@@ -0,0 +1,159 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * dwmac-sun55i.c - Allwinner sun55i GMAC200 specific glue layer
++ *
++ * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
++ *
++ * syscon parts taken from dwmac-sun8i.c, which is
++ *
++ * Copyright (C) 2017 Corentin Labbe <clabbe.montjoie@gmail.com>
++ */
++
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/phy.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/regulator/consumer.h>
++#include <linux/stmmac.h>
++
++#include "stmmac.h"
++#include "stmmac_platform.h"
++
++#define SYSCON_REG		0x34
++
++/* RMII specific bits */
++#define SYSCON_RMII_EN		BIT(13) /* 1: enable RMII (overrides EPIT) */
++/* Generic system control EMAC_CLK bits */
++#define SYSCON_ETXDC_MASK		GENMASK(12, 10)
++#define SYSCON_ERXDC_MASK		GENMASK(9, 5)
++/* EMAC PHY Interface Type */
++#define SYSCON_EPIT			BIT(2) /* 1: RGMII, 0: MII */
++#define SYSCON_ETCS_MASK		GENMASK(1, 0)
++#define SYSCON_ETCS_MII		0x0
++#define SYSCON_ETCS_EXT_GMII	0x1
++#define SYSCON_ETCS_INT_GMII	0x2
++
++static int sun55i_gmac200_set_syscon(struct device *dev,
++				     struct plat_stmmacenet_data *plat)
++{
++	struct device_node *node = dev->of_node;
++	struct regmap *regmap;
++	u32 val, reg = 0;
++	int ret;
++
++	regmap = syscon_regmap_lookup_by_phandle(node, "syscon");
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap), "Unable to map syscon\n");
++
++	if (!of_property_read_u32(node, "tx-internal-delay-ps", &val)) {
++		if (val % 100)
++			return dev_err_probe(dev, -EINVAL,
++					     "tx-delay must be a multiple of 100ps\n");
++		val /= 100;
++		dev_dbg(dev, "set tx-delay to %x\n", val);
++		if (!FIELD_FIT(SYSCON_ETXDC_MASK, val))
++			return dev_err_probe(dev, -EINVAL,
++					     "TX clock delay exceeds maximum (%d00ps > %d00ps)\n",
++					     val, FIELD_MAX(SYSCON_ETXDC_MASK));
++
++		reg |= FIELD_PREP(SYSCON_ETXDC_MASK, val);
++	}
++
++	if (!of_property_read_u32(node, "rx-internal-delay-ps", &val)) {
++		if (val % 100)
++			return dev_err_probe(dev, -EINVAL,
++					     "rx-delay must be a multiple of 100ps\n");
++		val /= 100;
++		dev_dbg(dev, "set rx-delay to %x\n", val);
++		if (!FIELD_FIT(SYSCON_ERXDC_MASK, val))
++			return dev_err_probe(dev, -EINVAL,
++					     "RX clock delay exceeds maximum (%d00ps > %d00ps)\n",
++					     val, FIELD_MAX(SYSCON_ERXDC_MASK));
++
++		reg |= FIELD_PREP(SYSCON_ERXDC_MASK, val);
++	}
++
++	switch (plat->mac_interface) {
++	case PHY_INTERFACE_MODE_MII:
++		/* default */
++		break;
++	case PHY_INTERFACE_MODE_RGMII:
++	case PHY_INTERFACE_MODE_RGMII_ID:
++	case PHY_INTERFACE_MODE_RGMII_RXID:
++	case PHY_INTERFACE_MODE_RGMII_TXID:
++		reg |= SYSCON_EPIT | SYSCON_ETCS_INT_GMII;
++		break;
++	case PHY_INTERFACE_MODE_RMII:
++		reg |= SYSCON_RMII_EN;
++		break;
++	default:
++		return dev_err_probe(dev, -EINVAL, "Unsupported interface mode: %s",
++				     phy_modes(plat->mac_interface));
++	}
++
++	ret = regmap_write(regmap, SYSCON_REG, reg);
++	if (ret < 0)
++		return dev_err_probe(dev, ret, "Failed to write to syscon\n");
++
++	return 0;
++}
++
++static int sun55i_gmac200_probe(struct platform_device *pdev)
++{
++	struct plat_stmmacenet_data *plat_dat;
++	struct stmmac_resources stmmac_res;
++	struct device *dev = &pdev->dev;
++	struct clk *clk;
++	int ret;
++
++	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
++	if (ret)
++		return ret;
++
++	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
++	if (IS_ERR(plat_dat))
++		return PTR_ERR(plat_dat);
++
++	/* BSP disables it */
++	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
++	plat_dat->host_dma_width = 32;
++
++	ret = sun55i_gmac200_set_syscon(dev, plat_dat);
++	if (ret)
++		return ret;
++
++	clk = devm_clk_get_enabled(dev, "mbus");
++	if (IS_ERR(clk))
++		return dev_err_probe(dev, PTR_ERR(clk),
++				     "Failed to get or enable MBUS clock\n");
++
++	ret = devm_regulator_get_enable_optional(dev, "phy");
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to get or enable PHY supply\n");
++
++	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
++}
++
++static const struct of_device_id sun55i_gmac200_match[] = {
++	{ .compatible = "allwinner,sun55i-a523-gmac200" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, sun55i_gmac200_match);
++
++static struct platform_driver sun55i_gmac200_driver = {
++	.probe  = sun55i_gmac200_probe,
++	.driver = {
++		.name           = "dwmac-sun55i",
++		.pm		= &stmmac_pltfr_pm_ops,
++		.of_match_table = sun55i_gmac200_match,
++	},
++};
++module_platform_driver(sun55i_gmac200_driver);
++
++MODULE_AUTHOR("Chen-Yu Tsai <wens@csie.org>");
++MODULE_DESCRIPTION("Allwinner sun55i GMAC200 specific glue layer");
++MODULE_LICENSE("GPL");
 -- 
-2.43.0
+2.39.5
 
 
