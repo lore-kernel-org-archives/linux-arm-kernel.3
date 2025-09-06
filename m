@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA06BCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 07:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9477CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 07:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vne0EVwrnVHw6NJLJyd+zZpE6+oJG9x8TCUx1n8W1nw=; b=k95e5Njjjijw7EjObPj/1G0hgX
-	naqHiEj94v8+f9/OuOQ7tQToMK3FWtIR2u1Fw4Kt84SBDe70h+HFoAizF6gYU0tYL1VPJxsAAAzm/
-	r5wTzC4leQoE8b0q9ce2RKnYqPkbvvgL+Dx4i5E8KDCtNB4ZaVwWvKcM1M+xdthGTFxhOMH0Zgz3m
-	9krhz/rbkPjN54laH9ZdL9nuSV92zZVBTXXvx0cNEQNIvBtQxPE2fvRAUlxvtadjKwbZPWQV+otjh
-	hRct2eXmkZTrT43dwd6Y+AeMLCSDAFH7WBBO2iTMa86+/KF223xkaw9FoR9uiLJMCjTI26El39PPI
-	ViZQsW+g==;
+	bh=CCJs31gS3SmY6gT03ZW9SqmlSjC26seB+xyCx6US3Ag=; b=SYaFnS8TYCvTStBsXv2KlUlep4
+	8RRKOLo7e8tSS3nk8O5ijzX8kIsj/TQXiqqtGb5o3TiIOXLLzEcwi/UXaVItpcIcrW2a7+gD2RP6Z
+	ZvUoH9uLG9ntqJ48X448KZtWvlIDip2+wBcMLCjwn/FEWDb5iLIx4xDu2VQcdPci9Mlll+ZxySuC+
+	mtsEY8fug/YrLb13imPxtPB5gVKGSsNoXFMEyQXBdEOKoj6wXbvqgVcKU+U8maHZjFV+eYSxD4AeC
+	awJc2FlJwjWiC3wMTMUt+4gHmWHQEEns1ohdqyPXR3hr+1eh2xcXDdNP2/8OuodVT5qZDnqYd4ITh
+	Y2LdXkUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uumu0-000000073su-1Bma;
-	Sat, 06 Sep 2025 07:00:00 +0000
+	id 1uumwq-000000074tp-1jkb;
+	Sat, 06 Sep 2025 07:02:56 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uumr9-0000000734d-0ALt
+	id 1uumrr-000000073MO-1uqI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 06:57:05 +0000
+	Sat, 06 Sep 2025 06:57:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757141821;
+	s=mimecast20190719; t=1757141866;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Vne0EVwrnVHw6NJLJyd+zZpE6+oJG9x8TCUx1n8W1nw=;
-	b=elTxqCaB+pJeTamdMxuMnfqm40j51r6cuo3MYT9nhUdeApOxHeNtGHGVgAXgDf14/cWn5Z
-	o7jLnEAxsJudDysU9ePbUm17sGDTNmIwCOoIqfMj7PmWPL/kNqaENuwL5cPasAQr6LB6YY
-	/CEuZTGEF1nlhTCX8tEm5w2t3VSF43g=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=CCJs31gS3SmY6gT03ZW9SqmlSjC26seB+xyCx6US3Ag=;
+	b=Fsl0pMTIjli9RtJ/0QlserxQSq7s+Lu7pP9MoKbXclXzGjAZKmIMyedBVJbWxE+GSNlbSo
+	oUPAiOjzDGbVFl2Lsz6+bIU+fxcNNm97cGgD3D8S/BXhOj1n11hUKeo0ndAdur3zkB6qE/
+	cxLt6Y0elozfD71nepu4/ub0J7WLCsE=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-307-qvR96rd2M8a-j2lS62y4Ew-1; Sat, 06 Sep 2025 02:57:00 -0400
-X-MC-Unique: qvR96rd2M8a-j2lS62y4Ew-1
-X-Mimecast-MFC-AGG-ID: qvR96rd2M8a-j2lS62y4Ew_1757141819
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3e4a8e6df10so553706f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 23:56:59 -0700 (PDT)
+ us-mta-551-ZAYo_Ed7NxCeKQLo1CZAyA-1; Sat, 06 Sep 2025 02:57:43 -0400
+X-MC-Unique: ZAYo_Ed7NxCeKQLo1CZAyA-1
+X-Mimecast-MFC-AGG-ID: ZAYo_Ed7NxCeKQLo1CZAyA_1757141862
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-45dde353979so1323815e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Sep 2025 23:57:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757141819; x=1757746619;
+        d=1e100.net; s=20230601; t=1757141862; x=1757746662;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Vne0EVwrnVHw6NJLJyd+zZpE6+oJG9x8TCUx1n8W1nw=;
-        b=ZUCdv4wPGygWqtTTUQ3IDM1RwlSQ5ABpJK0ZSDcIqzJ8oLdNoJgDjWyvHIPbB8UZ8J
-         EzyV8ajf2DS/O5SvAFjFpFn41E9WU94CQy1IiSzDN0LzkxzkNZmF1OnXN7zGDylmzmWf
-         5Pvf4parqNDz6xxNBY/Pveif1PxAylxqRwJxiBCm/Rb1TJtQQQIC5LfdOU2LpbSgeGfO
-         p+zjfmyeYW9KZ6qFpX0uHnmyZwNbfhFxWKcTWMGdFnnmonVYbxJudNT3B96ZF/QzH1eh
-         tYJ5snJLBEPlv5X1iRHA0Cwks+xcqzEP4HkHvjm08GgthCLcdwYQX91en1g9+IAeL6Qg
-         qFrA==
-X-Forwarded-Encrypted: i=1; AJvYcCXQetes0sTfEKPIgRMAa2NuMS3AVY44DfcN1xIpCneEkcc8LHgUR9KiibqGu8DZLxDr9/ImueebUdaU1/x82fLn@lists.infradead.org
-X-Gm-Message-State: AOJu0YybN6fzWGc7sNoTk0Kunkd0VjnmJLo/k/dbmLMvAzJ+O9Ekszk5
-	+a25GidKBqMF5rMmz1woOLOsODQrq8FGvYgpKNm+FzlUAY7bhlMj1Qrpxf9dqYR5K34StBlGH7U
-	q4y4a4bqARTbOP0fW3A2GMwvgjSokPJoC2ROXpflN0Ul+EdOu4fO42Ltn0qIJ6q1gDGQ/GkoAUF
-	9W
-X-Gm-Gg: ASbGnctHqkF/IfjRDsgRCrqe52Uh403hRYVhXVdGRhn/icmaTQs8MiEmKUf9bHiR1Oy
-	NFLtNHbzGecnEe0TDt+/r7GHa09asGsWRZi1PQau7/FPEKofNhcVimOsX4fFkT6jqzE9+MNIhYW
-	lPrb8uLjxgYYUlz7aaw0AqMiFoCm3TnhV68p08L34F7QoxnqIO2jXI9xrYr7BpjDsnu0BdnTs44
-	YZIwQkeshuYn1OFopNCJtGGMnZIeDUW37kwHNkSYuDxTvMWqcd0hTYdtc/9mEau8f4uGliCCSzD
-	9Sze+I+pAPzAX2Fy0DiKkIiiQUBe8sjFw44UO3VwTXzXzzq7AoIQAsnHCuO0UOFl7v/nlF/22ZC
-	LlvLn+rlj0FT8xJIF353Y5rAnL6S2cVoX+Sq9ASsz3J6FVihpEfJS525vP1PjRbb17LU=
-X-Received: by 2002:a05:6000:4406:b0:3e7:404f:6b9 with SMTP id ffacd0b85a97d-3e7404f0ad9mr25524f8f.24.1757141818668;
-        Fri, 05 Sep 2025 23:56:58 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHTOe1nfTlzU6tKtOOERnuEGL0krwza2F9vwEf5QifLuwYgeR9BVKfnULAEyM/P+fsTi5oZpw==
-X-Received: by 2002:a05:6000:4406:b0:3e7:404f:6b9 with SMTP id ffacd0b85a97d-3e7404f0ad9mr25486f8f.24.1757141818148;
-        Fri, 05 Sep 2025 23:56:58 -0700 (PDT)
+        bh=CCJs31gS3SmY6gT03ZW9SqmlSjC26seB+xyCx6US3Ag=;
+        b=lOnPL9EM94gDDlQoknYhPm0/5aSqzR5S7tWx5Xk2YoYiGjDB9duScjlVaB5s6iZ2eT
+         7fwfo99OMxD5VXQadRa3VlRAVzFQdx8h2yeNZz1083zpGIGd6itMI/byqtOaEI737YLX
+         rgFopYClc5klzQDUI1tGfc993PGzVkqff4W5/1oC0DThlcZS2YrnSSy4rrnHLyPhGIWL
+         U4aUV5XYVt41Aoyrf835w5B1uNVLRhC9P81/EwxyWM0QdtmerSKPC4ci6CU11WFbMFS3
+         wYd2VKOO/KBquCHa4sbfaF1qfADfD1ehhy42/l0Wj9Cd5aKDhb5gaejaMRLpmNLfQLMn
+         8X3A==
+X-Forwarded-Encrypted: i=1; AJvYcCWKK0HNHgG+KxqIMjy/0y8tm4h39dJUSNCVxvcbqMB54jt4OdqoQDEK6qE7ZmIIJvMPAHzrUaMvuiFDgTBdwNov@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7V8sExDgmjr2Bq2OZDVFz0wIm+v+kHppkLsAr4gP7MSeut/ir
+	03TgOceH+NRf9+iZunWOSrGrzN0bKGfqCgK9RyyucusJHclIweHPmTR0VS5ZFQJT3KWiqpnVzKM
+	VgddQKNwNopf4ESaAHgJiwR/Nk8D9wZLa7w3O+2MjHok080vG8J0zW+4cH6xHyn6RCELJ4tY7kr
+	HG
+X-Gm-Gg: ASbGncslgq4jjGEhf2E6ygZ01De0IZVHUxxolvZQsMdK35SaNBgjJBK7Gt1CCvSF6fr
+	2IIhyCXcCaQ+4/G001290F990WebqI5fwU22OuEau3RinIH0uoUaBfeZAcU44w9IDv2UvR7cMch
+	w750GJnfPuEeWtll6KSA7PiTgiPlL+AQOevJx+h0eaZIOCFiZ+0xAsiljY2YAhXng0O9e0NnEsC
+	hym5TNUxgm7aMJs0Q4go+XHzR7K5jHKKZFHRYSVRJAHyNpJ4FoQetzY0LlOUjotLus8EKULUA9I
+	3tRoETqW+Wx7dcKO6xUIXM6HeEqxmSiINaCezJJ8421qiDxNnaJqXO7H33nb3K8SizaEJqkR/9a
+	jDrtdNq5FO+2QTvU/Ek725cGpW4obwyeQkDwD9zz2Q8ElXMg/375dZ4WqYUjxotdwMLU=
+X-Received: by 2002:a05:600c:a43:b0:45d:d944:e763 with SMTP id 5b1f17b1804b1-45dddef8abemr11582575e9.33.1757141861915;
+        Fri, 05 Sep 2025 23:57:41 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG9de71akgKQMTH3Yad6UmnskyHOcTJBFrvjc1jDcnRZYiXZrAsp4/fGMOazHSvHvTFxb0cMA==
+X-Received: by 2002:a05:600c:a43:b0:45d:d944:e763 with SMTP id 5b1f17b1804b1-45dddef8abemr11582145e9.33.1757141861401;
+        Fri, 05 Sep 2025 23:57:41 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f30:de00:8132:f6dc:cba2:9134? (p200300d82f30de008132f6dccba29134.dip0.t-ipconnect.de. [2003:d8:2f30:de00:8132:f6dc:cba2:9134])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3df4fd372ccsm11959114f8f.32.2025.09.05.23.56.49
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e740369f1esm87090f8f.11.2025.09.05.23.57.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Sep 2025 23:56:53 -0700 (PDT)
-Message-ID: <85e760cf-b994-40db-8d13-221feee55c60@redhat.com>
-Date: Sat, 6 Sep 2025 08:56:48 +0200
+        Fri, 05 Sep 2025 23:57:40 -0700 (PDT)
+Message-ID: <64fe4c61-f9cc-4a5a-9c33-07bd0f089e94@redhat.com>
+Date: Sat, 6 Sep 2025 08:57:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
-To: John Hubbard <jhubbard@nvidia.com>, linux-kernel@vger.kernel.org
-Cc: Alexander Potapenko <glider@google.com>,
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
  Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
  dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
  iommu@lists.linux.dev, io-uring@vger.kernel.org,
  Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, kasan-dev@googlegroups.com,
- kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
  Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
  linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
  linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
@@ -109,7 +110,7 @@ Cc: Alexander Potapenko <glider@google.com>,
  Zi Yan <ziy@nvidia.com>
 References: <20250901150359.867252-1-david@redhat.com>
  <20250901150359.867252-20-david@redhat.com>
- <016307ba-427d-4646-8e4d-1ffefd2c1968@nvidia.com>
+ <5090355d-546a-4d06-99e1-064354d156b5@redhat.com> <20250905230006.GA1776@sol>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -155,16 +156,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <016307ba-427d-4646-8e4d-1ffefd2c1968@nvidia.com>
+In-Reply-To: <20250905230006.GA1776@sol>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: _hQ9MfL1iFrm_qnW-GJ8A7WV-TOZfaPzpeGbH7dX7gc_1757141819
+X-Mimecast-MFC-PROC-ID: b1m-jfl3Id-RgOuhNxb507gBtsVwqn8I2-S-9Wl80TM_1757141862
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_235703_239003_A691B0AA 
-X-CRM114-Status: GOOD (  33.80  )
+X-CRM114-CacheID: sfid-20250905_235747_564947_3A9414F0 
+X-CRM114-Status: GOOD (  22.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,347 +180,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06.09.25 03:05, John Hubbard wrote:
-> On 9/1/25 8:03 AM, David Hildenbrand wrote:
->> We can just cleanup the code by calculating the #refs earlier,
->> so we can just inline what remains of record_subpages().
+On 06.09.25 01:00, Eric Biggers wrote:
+> On Fri, Sep 05, 2025 at 08:41:23AM +0200, David Hildenbrand wrote:
+>> On 01.09.25 17:03, David Hildenbrand wrote:
+>>> We can just cleanup the code by calculating the #refs earlier,
+>>> so we can just inline what remains of record_subpages().
+>>>
+>>> Calculate the number of references/pages ahead of times, and record them
+>>> only once all our tests passed.
+>>>
+>>> Signed-off-by: David Hildenbrand <david@redhat.com>
+>>> ---
+>>>    mm/gup.c | 25 ++++++++-----------------
+>>>    1 file changed, 8 insertions(+), 17 deletions(-)
+>>>
+>>> diff --git a/mm/gup.c b/mm/gup.c
+>>> index c10cd969c1a3b..f0f4d1a68e094 100644
+>>> --- a/mm/gup.c
+>>> +++ b/mm/gup.c
+>>> @@ -484,19 +484,6 @@ static inline void mm_set_has_pinned_flag(struct mm_struct *mm)
+>>>    #ifdef CONFIG_MMU
+>>>    #ifdef CONFIG_HAVE_GUP_FAST
+>>> -static int record_subpages(struct page *page, unsigned long sz,
+>>> -			   unsigned long addr, unsigned long end,
+>>> -			   struct page **pages)
+>>> -{
+>>> -	int nr;
+>>> -
+>>> -	page += (addr & (sz - 1)) >> PAGE_SHIFT;
+>>> -	for (nr = 0; addr != end; nr++, addr += PAGE_SIZE)
+>>> -		pages[nr] = page++;
+>>> -
+>>> -	return nr;
+>>> -}
+>>> -
+>>>    /**
+>>>     * try_grab_folio_fast() - Attempt to get or pin a folio in fast path.
+>>>     * @page:  pointer to page to be grabbed
+>>> @@ -2967,8 +2954,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+>>>    	if (pmd_special(orig))
+>>>    		return 0;
+>>> -	page = pmd_page(orig);
+>>> -	refs = record_subpages(page, PMD_SIZE, addr, end, pages + *nr);
+>>> +	refs = (end - addr) >> PAGE_SHIFT;
+>>> +	page = pmd_page(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
+>>>    	folio = try_grab_folio_fast(page, refs, flags);
+>>>    	if (!folio)
+>>> @@ -2989,6 +2976,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+>>>    	}
+>>>    	*nr += refs;
+>>> +	for (; refs; refs--)
+>>> +		*(pages++) = page++;
+>>>    	folio_set_referenced(folio);
+>>>    	return 1;
+>>>    }
+>>> @@ -3007,8 +2996,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+>>>    	if (pud_special(orig))
+>>>    		return 0;
+>>> -	page = pud_page(orig);
+>>> -	refs = record_subpages(page, PUD_SIZE, addr, end, pages + *nr);
+>>> +	refs = (end - addr) >> PAGE_SHIFT;
+>>> +	page = pud_page(orig) + ((addr & ~PUD_MASK) >> PAGE_SHIFT);
+>>>    	folio = try_grab_folio_fast(page, refs, flags);
+>>>    	if (!folio)
+>>> @@ -3030,6 +3019,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+>>>    	}
+>>>    	*nr += refs;
+>>> +	for (; refs; refs--)
+>>> +		*(pages++) = page++;
+>>>    	folio_set_referenced(folio);
+>>>    	return 1;
+>>>    }
 >>
->> Calculate the number of references/pages ahead of times, and record them
->> only once all our tests passed.
+>> Okay, this code is nasty. We should rework this code to just return the nr and receive a the proper
+>> pages pointer, getting rid of the "*nr" parameter.
 >>
->> Signed-off-by: David Hildenbrand <david@redhat.com>
->> ---
->>   mm/gup.c | 25 ++++++++-----------------
->>   1 file changed, 8 insertions(+), 17 deletions(-)
+>> For the time being, the following should do the trick:
+>>
+>> commit bfd07c995814354f6b66c5b6a72e96a7aa9fb73b (HEAD -> nth_page)
+>> Author: David Hildenbrand <david@redhat.com>
+>> Date:   Fri Sep 5 08:38:43 2025 +0200
+>>
+>>      fixup: mm/gup: remove record_subpages()
+>>      pages is not adjusted by the caller, but idnexed by existing *nr.
+>>      Signed-off-by: David Hildenbrand <david@redhat.com>
 >>
 >> diff --git a/mm/gup.c b/mm/gup.c
->> index c10cd969c1a3b..f0f4d1a68e094 100644
+>> index 010fe56f6e132..22420f2069ee1 100644
 >> --- a/mm/gup.c
 >> +++ b/mm/gup.c
->> @@ -484,19 +484,6 @@ static inline void mm_set_has_pinned_flag(struct mm_struct *mm)
->>   #ifdef CONFIG_MMU
->>   
->>   #ifdef CONFIG_HAVE_GUP_FAST
->> -static int record_subpages(struct page *page, unsigned long sz,
->> -			   unsigned long addr, unsigned long end,
->> -			   struct page **pages)
->> -{
->> -	int nr;
->> -
->> -	page += (addr & (sz - 1)) >> PAGE_SHIFT;
->> -	for (nr = 0; addr != end; nr++, addr += PAGE_SIZE)
->> -		pages[nr] = page++;
->> -
->> -	return nr;
->> -}
->> -
->>   /**
->>    * try_grab_folio_fast() - Attempt to get or pin a folio in fast path.
->>    * @page:  pointer to page to be grabbed
->> @@ -2967,8 +2954,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
->>   	if (pmd_special(orig))
->>   		return 0;
->>   
->> -	page = pmd_page(orig);
->> -	refs = record_subpages(page, PMD_SIZE, addr, end, pages + *nr);
->> +	refs = (end - addr) >> PAGE_SHIFT;
->> +	page = pmd_page(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
->>   
->>   	folio = try_grab_folio_fast(page, refs, flags);
->>   	if (!folio)
->> @@ -2989,6 +2976,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
->>   	}
->>   
->>   	*nr += refs;
->> +	for (; refs; refs--)
->> +		*(pages++) = page++;
->>   	folio_set_referenced(folio);
->>   	return 1;
->>   }
->> @@ -3007,8 +2996,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
->>   	if (pud_special(orig))
->>   		return 0;
->>   
->> -	page = pud_page(orig);
->> -	refs = record_subpages(page, PUD_SIZE, addr, end, pages + *nr);
->> +	refs = (end - addr) >> PAGE_SHIFT;
->> +	page = pud_page(orig) + ((addr & ~PUD_MASK) >> PAGE_SHIFT);
->>   
->>   	folio = try_grab_folio_fast(page, refs, flags);
->>   	if (!folio)
->> @@ -3030,6 +3019,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
->>   	}
->>   
->>   	*nr += refs;
->> +	for (; refs; refs--)
->> +		*(pages++) = page++;
+>> @@ -2981,6 +2981,7 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+>>                  return 0;
+>>          }
+>> +       pages += *nr;
+>>          *nr += refs;
+>>          for (; refs; refs--)
+>>                  *(pages++) = page++;
+>> @@ -3024,6 +3025,7 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+>>                  return 0;
+>>          }
+>> +       pages += *nr;
+>>          *nr += refs;
+>>          for (; refs; refs--)
+>>                  *(pages++) = page++;
 > 
-> Hi David,
+> Can this get folded in soon?  This bug is causing crashes in AF_ALG too.
 
-Hi!
-
-> 
-> Probably a similar sentiment as Lorenzo here...the above diffs make the code
-> *worse* to read. In fact, I recall adding record_subpages() here long ago,
-> specifically to help clarify what was going on.
-
-Well, there is a lot I dislike about record_subpages() to go back there.
-Starting with "as Willy keeps explaining, the concept of subpages do
-not exist and ending with "why do we fill out the array even on failure".
-
-:)
-
-> 
-> Now it's been returned to it's original, cryptic form.
-> 
-
-The code in the caller was so uncryptic that both me and Lorenzo missed
-that magical addition. :P
-
-> Just my take on it, for whatever that's worth. :)
-
-As always, appreciated.
-
-I could of course keep the simple loop in some "record_folio_pages"
-function and clean up what I dislike about record_subpages().
-
-But I much rather want the call chain to be cleaned up instead, if possible.
-
-
-Roughly, what I am thinking (limiting it to pte+pmd case) about is the following:
-
-
- From d6d6d21dbf435d8030782a627175e36e6c7b2dfb Mon Sep 17 00:00:00 2001
-From: David Hildenbrand <david@redhat.com>
-Date: Sat, 6 Sep 2025 08:33:42 +0200
-Subject: [PATCH] tmp
-
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
-  mm/gup.c | 79 ++++++++++++++++++++++++++------------------------------
-  1 file changed, 36 insertions(+), 43 deletions(-)
-
-diff --git a/mm/gup.c b/mm/gup.c
-index 22420f2069ee1..98907ead749c0 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -2845,12 +2845,11 @@ static void __maybe_unused gup_fast_undo_dev_pagemap(int *nr, int nr_start,
-   * also check pmd here to make sure pmd doesn't change (corresponds to
-   * pmdp_collapse_flush() in the THP collapse code path).
-   */
--static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
--		unsigned long end, unsigned int flags, struct page **pages,
--		int *nr)
-+static unsigned long gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages)
-  {
-  	struct dev_pagemap *pgmap = NULL;
--	int ret = 0;
-+	unsigned long nr_pages = 0;
-  	pte_t *ptep, *ptem;
-  
-  	ptem = ptep = pte_offset_map(&pmd, addr);
-@@ -2908,24 +2907,20 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-  		 * details.
-  		 */
-  		if (flags & FOLL_PIN) {
--			ret = arch_make_folio_accessible(folio);
--			if (ret) {
-+			if (arch_make_folio_accessible(folio)) {
-  				gup_put_folio(folio, 1, flags);
-  				goto pte_unmap;
-  			}
-  		}
-  		folio_set_referenced(folio);
--		pages[*nr] = page;
--		(*nr)++;
-+		pages[nr_pages++] = page;
-  	} while (ptep++, addr += PAGE_SIZE, addr != end);
-  
--	ret = 1;
--
-  pte_unmap:
-  	if (pgmap)
-  		put_dev_pagemap(pgmap);
-  	pte_unmap(ptem);
--	return ret;
-+	return nr_pages;
-  }
-  #else
-  
-@@ -2938,21 +2933,24 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-   * get_user_pages_fast_only implementation that can pin pages. Thus it's still
-   * useful to have gup_fast_pmd_leaf even if we can't operate on ptes.
-   */
--static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
--		unsigned long end, unsigned int flags, struct page **pages,
--		int *nr)
-+static unsigned long gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages)
-  {
-  	return 0;
-  }
-  #endif /* CONFIG_ARCH_HAS_PTE_SPECIAL */
-  
--static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
--		unsigned long end, unsigned int flags, struct page **pages,
--		int *nr)
-+static unsigned long gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages)
-  {
-+	const unsigned long nr_pages = (end - addr) >> PAGE_SHIFT;
-  	struct page *page;
-  	struct folio *folio;
--	int refs;
-+	unsigned long i;
-+
-+	/* See gup_fast_pte_range() */
-+	if (pmd_protnone(orig))
-+		return 0;
-  
-  	if (!pmd_access_permitted(orig, flags & FOLL_WRITE))
-  		return 0;
-@@ -2960,33 +2958,30 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
-  	if (pmd_special(orig))
-  		return 0;
-  
--	refs = (end - addr) >> PAGE_SHIFT;
-  	page = pmd_page(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
-  
--	folio = try_grab_folio_fast(page, refs, flags);
-+	folio = try_grab_folio_fast(page, nr_pages, flags);
-  	if (!folio)
-  		return 0;
-  
-  	if (unlikely(pmd_val(orig) != pmd_val(*pmdp))) {
--		gup_put_folio(folio, refs, flags);
-+		gup_put_folio(folio, nr_pages, flags);
-  		return 0;
-  	}
-  
-  	if (!gup_fast_folio_allowed(folio, flags)) {
--		gup_put_folio(folio, refs, flags);
-+		gup_put_folio(folio, nr_pages, flags);
-  		return 0;
-  	}
-  	if (!pmd_write(orig) && gup_must_unshare(NULL, flags, &folio->page)) {
--		gup_put_folio(folio, refs, flags);
-+		gup_put_folio(folio, nr_pages, flags);
-  		return 0;
-  	}
-  
--	pages += *nr;
--	*nr += refs;
--	for (; refs; refs--)
-+	for (i = 0; i < nr_pages; i++)
-  		*(pages++) = page++;
-  	folio_set_referenced(folio);
--	return 1;
-+	return nr_pages;
-  }
-  
-  static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
-@@ -3033,11 +3028,11 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
-  	return 1;
-  }
-  
--static int gup_fast_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr,
--		unsigned long end, unsigned int flags, struct page **pages,
--		int *nr)
-+static unsigned long gup_fast_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages)
-  {
--	unsigned long next;
-+	unsigned long cur_nr_pages, next;
-+	unsigned long nr_pages = 0;
-  	pmd_t *pmdp;
-  
-  	pmdp = pmd_offset_lockless(pudp, pud, addr);
-@@ -3046,23 +3041,21 @@ static int gup_fast_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr,
-  
-  		next = pmd_addr_end(addr, end);
-  		if (!pmd_present(pmd))
--			return 0;
-+			break;
-  
--		if (unlikely(pmd_leaf(pmd))) {
--			/* See gup_fast_pte_range() */
--			if (pmd_protnone(pmd))
--				return 0;
-+		if (unlikely(pmd_leaf(pmd)))
-+			cur_nr_pages = gup_fast_pmd_leaf(pmd, pmdp, addr, next, flags, pages);
-+		else
-+			cur_nr_pages = gup_fast_pte_range(pmd, pmdp, addr, next, flags, pages);
-  
--			if (!gup_fast_pmd_leaf(pmd, pmdp, addr, next, flags,
--				pages, nr))
--				return 0;
-+		nr_pages += cur_nr_pages;
-+		pages += cur_nr_pages;
-  
--		} else if (!gup_fast_pte_range(pmd, pmdp, addr, next, flags,
--					       pages, nr))
--			return 0;
-+		if (nr_pages != (next - addr) >> PAGE_SIZE)
-+			break;
-  	} while (pmdp++, addr = next, addr != end);
-  
--	return 1;
-+	return nr_pages;
-  }
-  
-  static int gup_fast_pud_range(p4d_t *p4dp, p4d_t p4d, unsigned long addr,
--- 
-2.50.1
-
-
-
-Oh, I might even have found a bug moving away from that questionable
-"ret==1 means success" handling in gup_fast_pte_range()? Will
-have to double-check, but likely the following is the right thing to do.
-
-
-
- From 8f48b25ef93e7ef98611fd58ec89384ad5171782 Mon Sep 17 00:00:00 2001
-From: David Hildenbrand <david@redhat.com>
-Date: Sat, 6 Sep 2025 08:46:45 +0200
-Subject: [PATCH] mm/gup: fix handling of errors from
-  arch_make_folio_accessible() in follow_page_pte()
-
-In case we call arch_make_folio_accessible() and it fails, we would
-incorrectly return a value that is "!= 0" to the caller, indicating that
-we pinned all requested pages and that the caller can keep going.
-
-follow_page_pte() is not supposed to return error values, but instead
-0 on failure and 1 on success.
-
-That is of course wrong, because the caller will just keep going pinning
-more pages. If we happen to pin a page afterwards, we're in trouble,
-because we essentially skipped some pages.
-
-Fixes: f28d43636d6f ("mm/gup/writeback: add callbacks for inaccessible pages")
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
-  mm/gup.c | 3 +--
-  1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/mm/gup.c b/mm/gup.c
-index 22420f2069ee1..cff226ec0ee7d 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -2908,8 +2908,7 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-  		 * details.
-  		 */
-  		if (flags & FOLL_PIN) {
--			ret = arch_make_folio_accessible(folio);
--			if (ret) {
-+			if (arch_make_folio_accessible(folio)) {
-  				gup_put_folio(folio, 1, flags);
-  				goto pte_unmap;
-  			}
--- 
-2.50.1
-
+Andrew immediately dropped the original patch, so it's gone from 
+mm-unstable and should be gone from next soon (today?).
 
 -- 
 Cheers
