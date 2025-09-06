@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 600A0CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 16:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0251CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 17:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gEnwrOV3MXxfnmmoGy1WCr0zVelqqHdj4W6eSVNaxZs=; b=e33TYa9bHnXsaZiHEX79QD7D9E
-	GjQIZhu8soyzE0E3iaBXbkoYZHaNfWo7rOsSOu/pQrh4mumdnzZMK4fxIvP8b6NzW6g+uuvCoNcTE
-	20vOcwVTUJYkcvA7QvuQiA7OMFL1785/6mEHtSkuTMNEF/BaDXb7D/y91WXDJsJgkxfZP2h89bcB2
-	I99Ihr/v+P1gldeMFL0wkIOKzMZ92Z1lzq/Uf0h2fq+9Pva7lTFt1UPelawaNf2PpxKoJBqLgKkkv
-	k440Qen0hZI+tliGLaGxapTcFeW43T44ga4YnAWYC4aCnYaBUJp7cVfuyMmhXWiTztScuJHG5kuYI
-	HztM8R+A==;
+	bh=QeLnel44jgOiYNiaqvGTFJsZYpBvv9pN2W15LbKBpBs=; b=zfQxwurXeCWLu8jJoz4exg8QOz
+	AFi7SZDPjMt/PfStkeT0qcJIeArLsh1VB9HU6TDM8XK15J549U1/xc80YQIG0D8dfO4YPsa89iYfq
+	BOZzjlf3ovR/auQBCAbGKN5p/fFH+q9bM5xyyyLfqVTu8+FNfRGfM7okJ7HR8R4r0Yad1WmdtdwTR
+	Zcqp6aftl0NmRzNt7eHDrK84odkv2/j55d7G2nRpcuxr6z583b7ar9Lf6npoowPMYAuD+gdFZ4Rvw
+	tB/Df5vpqLojCm9DJFXsng/kHluuMIjYmig1lY/s1GkhPmV18qR+y8mwRaJ++XyO9wwREI0TKNK9p
+	9YgJephA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuwFj-00000008ABR-09iB;
-	Sat, 06 Sep 2025 16:59:03 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1uuwWG-00000008B5r-1Spj;
+	Sat, 06 Sep 2025 17:16:08 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuvjK-000000086ql-3qZB;
-	Sat, 06 Sep 2025 16:25:36 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-24cdbeca71eso16883255ad.2;
-        Sat, 06 Sep 2025 09:25:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757175934; x=1757780734; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gEnwrOV3MXxfnmmoGy1WCr0zVelqqHdj4W6eSVNaxZs=;
-        b=nKQ90sHxsveghVUfGPJ5vABC5X0iZrdf63BL7YXj7Xxrmdt5wthSXSDmq2uoe9SsZj
-         gN0QjHj4t9HCvX7NhE5pS2Am0PcRf5tmMyFOQzSaMe4mmGsQbKd+26Z7LWWQp/T+t5AK
-         gTxHtv7veTigsR2Ax2bJTj1MIDqefMllQLt+Tteu0cqJa1SqwZiMi/XCh1pWoKkcUpEh
-         GqmOBsTRVILaqet/7xcz9wL9e9Qb3r15q+GM4GFG2oUVl4C6nESFamZOZT6SciLSTI5B
-         H7+wR7IQZV6BU5yKOMctPs/rKn9Eyl0f0BOVDDv4izENqO32z4m3lriyydRV43TKc8JS
-         3Ubg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757175934; x=1757780734;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gEnwrOV3MXxfnmmoGy1WCr0zVelqqHdj4W6eSVNaxZs=;
-        b=evs4Yabm6QspvXEldjRIaTTvjo1LKYofTOJ8w/5vdM9WOPBfGmsEe9U+6Vi1cu8NLI
-         KOj52DVGREIT/vx99oEZkLYODm3N8euQOvbqf8XIjdoUAhG2tMzq85IG8PupPpm6lZPX
-         anBwH/jYsr93fVhqp/HwtKdWPi5WBqCR3VneYgSMMk2SdQbSRqilEZ6nYGwJTonXw9Q2
-         b9F8bqT8mRb2iQqNh328FbiEvKshMhrDWKwU6TEowweDQYOvVU4M160jx2cFRV/2etVp
-         Xil9+QisAS4OXuVc5a3+GfgXEP7qLWDzY8luQVoBStQ/VP0xNAAhozaeMFn1mkVSzi+D
-         ++Mg==
-X-Forwarded-Encrypted: i=1; AJvYcCUlid3KQMWqwOG7K04hDEYhCje3xhNP6tJlnfUfcTSHZjAFD7wXHzDGyc+sLUUY38Dl0XFYzSQqUTyp2q4/9fZF@lists.infradead.org, AJvYcCWIS4y5g1eW1mZlxaG1WUMRl2DB0XncNmRPDYXTdvZONlzrzd9/1z+ktrCFIw83G3yqXT8K+02k7mFI+cmUkAQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZdyjmSPAGrUC+5vi6oi2mdZoUGxGLKyEWp+nYEooS/6b8+O39
-	3IjW6Vtr6ZwT3ZusNY4F/CahV1VUEQt+nZKx3DBifm+60NNf+WhtLRNc
-X-Gm-Gg: ASbGncuxCPxYPCwVDrSf7oprfF8G8HZGCpGBQq7QKXxEx2NzDchG4BId0jn5FlvQslT
-	d1czeAQACd2Wo3pjxhp+tHP9eJimqTF8lL6NSkt8yXQnO8SAnq+ozvUB3hsewAfWFJuWY7Yv2d3
-	x3lclzGmJAffKKirX4lKgdwxwBsqC0+LaJZvtgDGGFNKK1ebz4NXJM/8gEgwUjvjObkueTySyxH
-	chvc9PZUDqoVTryUiObsfyUxWuI4dqGd72I9GIU7y5JTbACzQma6tEhYuyeNQwP3px6fS3CB9ls
-	/fHfhjdRCgHM0OXarfTk7lc6VEwXOsoQsXR+G0baJ1692xOZBSIFtzTGLm4u0YdMWtexTuJ3Zeb
-	QlfAIBpHP1DXVq46vQepM4WWHb1IlgZrIt0c+FIdczJ3k
-X-Google-Smtp-Source: AGHT+IGUGHGUXwC+KGN4jPZ3eUoPjDhKK1q5TM0NAklHLJQagkflBBhklqliToGCEeYKq03hd3Y0tA==
-X-Received: by 2002:a17:903:2b05:b0:24c:a617:1185 with SMTP id d9443c01a7336-25170c477e7mr36953315ad.29.1757175933847;
-        Sat, 06 Sep 2025 09:25:33 -0700 (PDT)
-Received: from google.com ([2620:15c:9d:2:e08d:5959:e7ec:1beb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24ccfc7f988sm67193645ad.144.2025.09.06.09.25.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 06 Sep 2025 09:25:33 -0700 (PDT)
-Date: Sat, 6 Sep 2025 09:25:30 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Julien Massot <julien.massot@collabora.com>
-Cc: kernel@collabora.com, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] Input: mtk-pmic-keys - MT6359 has a specific
- release irq
-Message-ID: <odrofximcdjjwwowzlpheug5t4pwx5gylfyzr6mqcb5gz3vtud@c2hcoac3svyx>
-References: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
- <20250905-radxa-nio-12-l-gpio-v3-1-40f11377fb55@collabora.com>
+	id 1uuwTR-00000008Arh-1B6t
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 06 Sep 2025 17:13:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757178794; x=1788714794;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Mv/Y3kvQFgparfIlQNQwNiMV1wrcDKs1S8/YH+Ac6po=;
+  b=PexXLg99DL8eReMnD6xcW0xDZhsQgmVnsByH0yoGABYhMzbgMKY+6Cjz
+   6lA9hlWsJvbljte4g4W6X7ATBjDlRrnk+xKF4vpp4GtQk9R1Vgfh87JzM
+   0Nm/l14Jor0njexWG8LYMj2ZRL0xNe4TtJZidgOMzrZgZXqd3tDA5S9z4
+   NQnBvJ3Q0XtYGlkogTZYtxTjndBoql8Yorx/ysC6mWqdVMrnJEEyFOJJV
+   omkJQ21r2BMiODipCtlbmYFVRH8lIcRTBEF+1h/Zot4oaE3Mgx1c97a+c
+   bRZCYZ0YsSsRenUn89/Bf7VtETC2PxtR7D0TpKVId1IxM+C035N9E1lpE
+   g==;
+X-CSE-ConnectionGUID: Di5oHj3cQQK11uc7tJ0fyQ==
+X-CSE-MsgGUID: GjYFfv8MTT2XHee3l5NKJw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11545"; a="70926737"
+X-IronPort-AV: E=Sophos;i="6.18,244,1751266800"; 
+   d="scan'208";a="70926737"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Sep 2025 10:13:11 -0700
+X-CSE-ConnectionGUID: 3WS+ZCjMTFaHD/3JOA6TTw==
+X-CSE-MsgGUID: 0iif958RTK6QdgJj0vJWIQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,244,1751266800"; 
+   d="scan'208";a="172298134"
+Received: from lkp-server01.sh.intel.com (HELO 114d98da2b6c) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 06 Sep 2025 10:13:07 -0700
+Received: from kbuild by 114d98da2b6c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uuwTI-0001g7-1o;
+	Sat, 06 Sep 2025 17:13:04 +0000
+Date: Sun, 7 Sep 2025 01:12:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>,
+	Eddie James <eajames@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Lee Jones <lee@kernel.org>, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v3 1/4] irqchip/aspeed-scu-ic: Refactor driver to support
+ variant-based initialization
+Message-ID: <202509070058.3Z4AtICl-lkp@intel.com>
+References: <20250906014846.861368-2-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250905-radxa-nio-12-l-gpio-v3-1-40f11377fb55@collabora.com>
+In-Reply-To: <20250906014846.861368-2-ryan_chen@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_092534_976238_B27E43D5 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250906_101313_394645_BC8EE0ED 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,24 +95,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 05, 2025 at 01:51:58PM +0200, Julien Massot wrote:
-> Support for MT6359 PMIC keys has been added recently.
-> However, the key release event is not properly handled:
-> only key press events are generated, leaving key states
-> stuck in "pressed".
-> 
-> This patch ensures that both key press and key release events
-> are properly emitted by handling the release logic correctly.
-> 
-> Introduce a 'key_release_irq' member to the 'mtk_pmic_regs',
-> to identify the devices that have a separate irq for the
-> release event.
-> 
-> Fixes: bc25e6bf032e ("Input: mtk-pmic-keys - add support for MT6359 PMIC keys")
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
+Hi Ryan,
 
-Applied, thank you.
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on tip/irq/core]
+[also build test WARNING on robh/for-next lee-mfd/for-mfd-next lee-mfd/for-mfd-fixes linus/master v6.17-rc4 next-20250905]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/irqchip-aspeed-scu-ic-Refactor-driver-to-support-variant-based-initialization/20250906-095043
+base:   tip/irq/core
+patch link:    https://lore.kernel.org/r/20250906014846.861368-2-ryan_chen%40aspeedtech.com
+patch subject: [PATCH v3 1/4] irqchip/aspeed-scu-ic: Refactor driver to support variant-based initialization
+config: arm-randconfig-001-20250906 (https://download.01.org/0day-ci/archive/20250907/202509070058.3Z4AtICl-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7fb1dc08d2f025aad5777bb779dfac1197e9ef87)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250907/202509070058.3Z4AtICl-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509070058.3Z4AtICl-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/irqchip/irq-aspeed-scu-ic.c:79:34: warning: variable 'mask' is uninitialized when used here [-Wuninitialized]
+      79 |                 writel((readl(scu_ic->base) & ~mask) |
+         |                                                ^~~~
+   drivers/irqchip/irq-aspeed-scu-ic.c:55:24: note: initialize the variable 'mask' to silence this warning
+      55 |         unsigned int sts, mask;
+         |                               ^
+         |                                = 0
+   1 warning generated.
+
+
+vim +/mask +79 drivers/irqchip/irq-aspeed-scu-ic.c
+
+    49	
+    50	static void aspeed_scu_ic_irq_handler(struct irq_desc *desc)
+    51	{
+    52		struct aspeed_scu_ic *scu_ic = irq_desc_get_handler_data(desc);
+    53		struct irq_chip *chip = irq_desc_get_chip(desc);
+    54		unsigned long bit, enabled, max, status;
+    55		unsigned int sts, mask;
+    56	
+    57		chained_irq_enter(chip, desc);
+    58	
+    59		/*
+    60		 * The SCU IC has just one register to control its operation and read
+    61		 * status. The interrupt enable bits occupy the lower 16 bits of the
+    62		 * register, while the interrupt status bits occupy the upper 16 bits.
+    63		 * The status bit for a given interrupt is always 16 bits shifted from
+    64		 * the enable bit for the same interrupt.
+    65		 * Therefore, perform the IRQ operations in the enable bit space by
+    66		 * shifting the status down to get the mapping and then back up to
+    67		 * clear the bit.
+    68		 */
+    69		sts = readl(scu_ic->base);
+    70		enabled = sts & scu_ic->irq_enable;
+    71		status = (sts >> ASPEED_SCU_IC_STATUS_SHIFT) & enabled;
+    72	
+    73		bit = scu_ic->irq_shift;
+    74		max = scu_ic->num_irqs + bit;
+    75	
+    76		for_each_set_bit_from(bit, &status, max) {
+    77			generic_handle_domain_irq(scu_ic->irq_domain,
+    78						  bit - scu_ic->irq_shift);
+  > 79			writel((readl(scu_ic->base) & ~mask) |
+    80			       BIT(bit + ASPEED_SCU_IC_STATUS_SHIFT),
+    81			       scu_ic->base);
+    82		}
+    83	
+    84		chained_irq_exit(chip, desc);
+    85	}
+    86	
 
 -- 
-Dmitry
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
