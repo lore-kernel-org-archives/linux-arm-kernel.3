@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9293BCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 09:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E9CCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 10:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4LIf++vky/mZdruJs92MQ/7hPyFzWg3DNKZtEWYkl6o=; b=tyC7r3IJltTLj4b5kNWk3Y1uxh
-	yU+LPVgkj0Y3pArclT30sbTfvvNBvgGShRT/7ByH7GIx4hRq2udzWLlj14ALaE5ep6I7q92/cnd2E
-	arWUxdCrCQFAmYiEQafPY89/ewH7iX+igMtCvnpnzKuPwatRarqEGmOtMy5NSTC23XBwPFSI/XadL
-	LNXM/UaqEHKZT6dALIev3WTa6My3c7frFDQX0EYI+QAG3EbwOv4kX5HFq/ECVrCuXa4WDakTgDsFl
-	ulW7DrQasjXatjGdiwwjq+ylnB5rySidKX5KiijqWy0zkMCoZG85lRHOxu3xTThTC/Hmg/EhZj2so
-	v6QoZUbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZmgR8hdgtrNlI67KeHYucu9rjYmA/NUmX4FdH8skoWU=; b=SDT4GJbAQBa1ObeJkw3i5ArJr6
+	Qc5hozSNeZ2Nm5MXh8avTKEIJWGu8GkLvrBr6uqmvnqUA2ATof6yo9X7nR2fbRUkgeeROyhqd4Q9F
+	7aaC/DIZdbvLY+S8D6niGrOGeplxonKsedbCBUSlAa2fopAdjZXLSmTgzhOWsNrlrqv5IcqLV41wn
+	px9ly6feMYMs3PU/3n+f17B6i/ei4flh/yuxiIVVa6IaalmiOvATqoPSzMg9NO+wa4lU4nnktkE9M
+	xpFuj6qWLYF2bTkeSLFqpL7nV/qpIyZeICK9+/VYuGyrsB1kfqmy6wB4z8/0JoOix7OqyjdY0XKvr
+	K7H1xDUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uup9v-00000007Kgq-2EZW;
-	Sat, 06 Sep 2025 09:24:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uupmg-00000007RP2-1c8y;
+	Sat, 06 Sep 2025 10:04:38 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuovz-00000007HUN-2G61
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 09:10:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A1583601D4;
-	Sat,  6 Sep 2025 09:10:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ED41C4CEF4;
-	Sat,  6 Sep 2025 09:10:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757149810;
-	bh=n7BaLx5oCoMZmaq4FFR+ACT0mdO1lnO5qbl1jAWEp2Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=a9tJUrFAagBKbyPjXV3/d0t7wE/INc6tjYGqLwaErDO7RyA0or12RCNquhWJQNMu5
-	 aDCj9uq4lFaLQ2TPqkPu7nrcNINxuuqn+7eTqPycG5mS07dc8u5yo7oTq0R0fqNCR9
-	 LfKOirgyJEhD9vBcZThVsZVmMee3ohCUnyMQFNi1yzvgsAU8LGVDa/XeXHnHXhG4zs
-	 +9khMFURFcJrKao8oz/49o2t92XVEc/mn80eSw916Qvke5dYGiMdXrSYshJsiiUat7
-	 Zog31XG0fO7LcJRYkP/CDxwu7QGoQUTvA7CrvxrVRCJuiWTvSGe0gNBpuE7qUWAPLU
-	 BNE1IpKOe+0dw==
-From: Andreas Kemnade <akemnade@kernel.org>
-Date: Sat, 06 Sep 2025 11:09:15 +0200
-Subject: [PATCH 4/4] ARM: dts: imx: e70k02: add sy7636
+	id 1uupjq-00000007Qnd-4Bos;
+	Sat, 06 Sep 2025 10:01:44 +0000
+From: Dragan Simic <dsimic@manjaro.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1757152893;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ZmgR8hdgtrNlI67KeHYucu9rjYmA/NUmX4FdH8skoWU=;
+	b=Xd3P8MYD2wgVHWudwHHxa2XNU4NbBnpT7XvFAmkF5w3Mp2uHK7uxgbBQ4v7EDxsc/PWN4k
+	DAW/EEW4nWw9tl+KpgY98fxqLmTDdMQWAovv0hAE2gQlJ2K8P9xTi7hER9ecAG/ndLT5Qv
+	wJx2pYxW5vmWMsGF1CWwkH8miGBTk5+97ZFIwzi15IWdKiqWDEX2876MEwKmWsF/+w/xXQ
+	DrxFTZAsqYJWRVLhSsq6/6SgwhC836thHoEz3EQIwOMd6hdSJSPPJzr4QpANOF6Fvivi8n
+	P+kQZJjLZGrjcb/4Zp5Aa902R7pcFjzyIX3bwaM2Zb/SA4xO+ADMvl+DgzLOSA==
+To: linux-rockchip@lists.infradead.org
+Cc: heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Make RK3588 GPU OPP table naming uniform
+Date: Sat,  6 Sep 2025 12:01:22 +0200
+Message-Id: <355c16ab070688fc6285e0d4419eb54a3f699eee.1757152740.git.dsimic@manjaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250906-sy7636-rsrc-v1-4-e2886a9763a7@kernel.org>
-References: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
-In-Reply-To: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alistair Francis <alistair@alistair23.me>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Andreas Kemnade <akemnade@kernel.org>
-X-Mailer: b4 0.15-dev-50721
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4828; i=akemnade@kernel.org;
- h=from:subject:message-id; bh=n7BaLx5oCoMZmaq4FFR+ACT0mdO1lnO5qbl1jAWEp2Q=;
- b=owGbwMvMwCEm/rzkS6lq2x3G02pJDBm7fyXICnhyTshu6ZCy+OtrE1nseop3kkeQQVHVk6fa+
- y/fti7qKGVhEONgkBVTZPllreD2SeVZbvDUCHuYOaxMIEMYuDgFYCInsxgZjok4yEzkD5Ir5pz0
- aJfoifSEr6aL/Pb2H++Mfl+7SGptMMP/TM4MY8O7Vz+3qhWbtvJyH/pZ6Rxx+cSV1uBDd3Iez+F
- gBAA=
-X-Developer-Key: i=akemnade@kernel.org; a=openpgp;
- fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250906_030143_248999_E0018B66 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,173 +71,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the EPD PMIC for the e70k02 based devices as a step towards full EPD
-support.
+Unify the naming of the existing GPU OPP table nodes found in the RK3588
+and RK3588J SoC dtsi files with the other SoC's GPU OPP nodes, following
+the more "modern" node naming scheme.
 
-Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
+Fixes: a7b2070505a2 ("arm64: dts: rockchip: Split GPU OPPs of RK3588 and RK3588j")
+Signed-off-by: Dragan Simic <dsimic@manjaro.org>
 ---
- arch/arm/boot/dts/nxp/imx/e70k02.dtsi              | 25 +++++++++++++++++++++-
- .../arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts | 24 +++++++++++++++++++++
- .../arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts | 24 +++++++++++++++++++++
- 3 files changed, 72 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi | 2 +-
+ arch/arm64/boot/dts/rockchip/rk3588j.dtsi    | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
-index dcc3c9d488a88..5f6b7545a0c0c 100644
---- a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
-@@ -69,6 +69,14 @@ memory@80000000 {
- 		reg = <0x80000000 0x20000000>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+index 0f1a77697351..b5d630d2c879 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+@@ -115,7 +115,7 @@ opp-2400000000 {
+ 		};
  	};
  
-+	epd_pmic_supply: regulator-epd-pmic-in {
-+		compatible = "regulator-fixed";
-+		regulator-name = "epd_pmic_supply";
-+		gpio = <&gpio2 14 GPIO_ACTIVE_HIGH>;
-+		startup-delay-us = <20000>;
-+		enable-active-high;
-+	};
-+
- 	reg_wifi: regulator-wifi {
- 		compatible = "regulator-fixed";
- 		regulator-name = "SD3_SPWR";
-@@ -133,7 +141,22 @@ touchscreen@24 {
- 		vdd-supply = <&ldo5_reg>;
+-	gpu_opp_table: opp-table {
++	gpu_opp_table: opp-table-gpu {
+ 		compatible = "operating-points-v2";
+ 
+ 		opp-300000000 {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
+index 9884a5df47df..e1e0e3fc0ca7 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
+@@ -66,7 +66,7 @@ opp-1608000000 {
+ 		};
  	};
  
--	/* TODO: SY7636 PMIC for E Ink at 0x62 */
-+	sy7636: pmic@62 {
-+		compatible = "silergy,sy7636a";
-+		reg = <0x62>;
-+		en-gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>;
-+		vcom-en-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
-+		epd-pwr-good-gpios = <&gpio2 13 GPIO_ACTIVE_HIGH>;
-+		vin-supply = <&epd_pmic_supply>;
-+
-+		#thermal-sensor-cells = <0>;
-+
-+		regulators {
-+			reg_epdpmic: vcom {
-+				regulator-name = "vcom";
-+			};
-+		};
-+	};
+-	gpu_opp_table: opp-table {
++	gpu_opp_table: opp-table-gpu {
+ 		compatible = "operating-points-v2";
  
- };
- 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
-index a2534c422a522..f8709a9524093 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
-@@ -26,6 +26,11 @@ / {
- 	compatible = "kobo,tolino-vision5", "fsl,imx6sl";
- };
- 
-+&epd_pmic_supply {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_epd_pmic_supply>;
-+};
-+
- &gpio_keys {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_gpio_keys>;
-@@ -59,6 +64,12 @@ MX6SL_PAD_FEC_RXD1__GPIO4_IO18          0x10059 /* TP_RST */
- 		>;
- 	};
- 
-+	pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
-+		fsl,pins = <
-+			MX6SL_PAD_EPDC_PWRWAKEUP__GPIO2_IO14    0x40010059
-+		>;
-+	};
-+
- 	pinctrl_gpio_keys: gpio-keysgrp {
- 		fsl,pins = <
- 			MX6SL_PAD_FEC_CRS_DV__GPIO4_IO25	0x17059	/* PWR_SW */
-@@ -159,6 +170,14 @@ MX6SL_PAD_KEY_COL2__GPIO3_IO28		0x1b8b1 /* ricoh619 bat_low_int */
- 		>;
- 	};
- 
-+	pinctrl_sy7636_gpio: sy7636-gpiogrp {
-+		fsl,pins = <
-+			MX6SL_PAD_EPDC_VCOM0__GPIO2_IO03        0x40010059 /* VCOM_CTRL */
-+			MX6SL_PAD_EPDC_PWRCTRL1__GPIO2_IO08     0x40010059 /* EN */
-+			MX6SL_PAD_EPDC_PWRSTAT__GPIO2_IO13      0x17059 /* PWR_GOOD */
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX6SL_PAD_UART1_TXD__UART1_TX_DATA 0x1b0b1
-@@ -329,6 +348,11 @@ &ricoh619 {
- 	pinctrl-0 = <&pinctrl_ricoh_gpio>;
- };
- 
-+&sy7636 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sy7636_gpio>;
-+};
-+
- &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
-index 660620d226f71..19bbe60331b36 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
-@@ -36,6 +36,11 @@ &cpu0 {
- 	soc-supply = <&dcdc1_reg>;
- };
- 
-+&epd_pmic_supply {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_epd_pmic_supply>;
-+};
-+
- &gpio_keys {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_gpio_keys>;
-@@ -69,6 +74,12 @@ MX6SLL_PAD_GPIO4_IO18__GPIO4_IO18	0x10059 /* TP_RST */
- 		>;
- 	};
- 
-+	pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_EPDC_PWR_WAKE__GPIO2_IO14    0x40010059
-+		>;
-+	};
-+
- 	pinctrl_gpio_keys: gpio-keysgrp {
- 		fsl,pins = <
- 			MX6SLL_PAD_GPIO4_IO25__GPIO4_IO25	0x17059	/* PWR_SW */
-@@ -169,6 +180,14 @@ MX6SLL_PAD_KEY_COL2__GPIO3_IO28		0x1b8b1 /* ricoh619 bat_low_int */
- 		>;
- 	};
- 
-+	pinctrl_sy7636_gpio: sy7636-gpiogrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_EPDC_VCOM0__GPIO2_IO03       0x40010059 /* VCOM_CTRL */
-+			MX6SLL_PAD_EPDC_PWR_CTRL1__GPIO2_IO08   0x40010059 /* EN */
-+			MX6SLL_PAD_EPDC_PWR_STAT__GPIO2_IO13    0x17059 /* PWR_GOOD */
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX6SLL_PAD_UART1_TXD__UART1_DCE_TX 0x1b0b1
-@@ -319,6 +338,11 @@ &ricoh619 {
- 	pinctrl-0 = <&pinctrl_ricoh_gpio>;
- };
- 
-+&sy7636 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sy7636_gpio>;
-+};
-+
- &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
-
--- 
-2.39.5
-
+ 		opp-300000000 {
 
