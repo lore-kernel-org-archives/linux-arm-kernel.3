@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ECA4CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 16:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3552ACA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 16:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oRUnVVwkTzhlp52SpHfJTBS58hnI1XYX2uQ7kYv5hBI=; b=ztXpa5Vj3FloAMU3YgmTFwuqOT
-	W8AWwZGl7FDboQXgXcwMgwDaX5VPk8BcrHLPNJMfXylofmasvkgk4uGJArmcsFCudEfk31ZReY3a4
-	PpTl3Tc/DJn+MDkqej+4dLz9tzk3FPj6cfhZjSP98dwXi6HtBsf5BwmVJN4LRdt/2bwVXzPwHD6Vy
-	OrHJodkB1uj/NwdjwGIgwLEyZxM4Le6jfkI9F8UQEG7mUg94jrD7BCvOXJUzDYOo/Lbns3cgfFdbv
-	/+dM3yfdSz8hSSEIvRJ6rmT7yMV8aGftlxwkyIqXci3LxYNKBpiCIuwTKiKn0TV5C868jWyt5tFXz
-	/8PE/VoQ==;
+	bh=0XfACnGCjHL6ki4pxBf3yG7aXplsbOg1Nxf8/aDaKJA=; b=axoOZA5flY2ak5mvMejftzGSaj
+	6wDZ2C4EtlI1DuwFnVG6cq/cMpQFxwVQhW/DRAF8LcyFDlFXyNU5TFQjwoMMVAp5LcJ6JkecqahRy
+	X+vz40wHM+KX/mjkBwoiWrCzfGXCw6zTMCwAKMYiww9NZJl3UZuAS4kLe0iQljj1ciXM93Ky2W1cS
+	7htX/fPDx+/u/fWKwcsYgC1CiKxGKkGQ+QXxVgPCjpAhl43Y7CCO1OoVVGPbD4efYwXT28md5DcKo
+	df/3zYqq2BTOmhKmERimwRjwBvDb3tH+Q8te4If4K5Q68wJKiPsmyBDnkU8mNA7HEGjQyrQ/cOD72
+	6x/VyZKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuviC-000000086hz-13v8;
-	Sat, 06 Sep 2025 16:24:24 +0000
+	id 1uuvl1-000000086xW-2fqf;
+	Sat, 06 Sep 2025 16:27:19 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuv4o-000000081hr-3Ghu;
+	id 1uuv4p-000000081gW-0t5W;
 	Sat, 06 Sep 2025 15:43:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0861C45214;
+	by sea.source.kernel.org (Postfix) with ESMTP id 537EE451CF;
 	Sat,  6 Sep 2025 15:43:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D9DB4C4CEFE;
-	Sat,  6 Sep 2025 15:43:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2BED2C4CEF9;
+	Sat,  6 Sep 2025 15:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757173419;
-	bh=sNTZAaAEhZ4bZmshDMImxkogVK30dZbNtflvQruejvE=;
+	s=k20201202; t=1757173420;
+	bh=vTOzT8r2YeUKns548xNws17SI6VqxW0xAr9JLLUMYnA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kmOayccZkJJMb63vm0aS7JLNNdJhS6PbG3OWEQwS8KtzMkIr77criH2f8uyMJpDrH
-	 bK3motw7FPQBK3kRkcmv0tznlgxFgClAas3laNJPGqHl7CBKTnb9yWTjOEWW/lT7oh
-	 cq39FCWN5mZmbTCvnHfUAM0surpmUkVglT+S8HOGWj4FrZp7xGuCiMvx4oAvkFPbLQ
-	 Bfcxi/rXbVRbgjhn1fRjMvqzqD18T5liFhM4uwCdPeBeDhRhWqAuBLZBU2JxczEmo6
-	 maUIJM1XYh6/xZ9OpMjQjiIn7ASGILssKhUtfqJNp/CsjKNW5gvwmL9DMEf2c+CWXb
-	 ESR37MuJDPVOA==
+	b=KDt9SkZjLUsy7OTrLX65YM7bIhj1wMiItq7ko9UyFER6tv5tVDfWDnju/ajw43/t9
+	 zKeuuQIErMR/e5cOaq7Knqoxgl6uYg74XEUclhJlNsjWe84whZpNh30cBC0FHsn7L/
+	 9tlG5f/NdkraHPdsCHpA7Geoiuhe0ZH4H0jhhLjwjBi/taLG3R9vRC0XgBnjwM0/to
+	 vvItIUHo/M0LL4ybEjSTlGjCS9FXYFqnQHj7S0sucK0IvYaZ4WH3f4Hyar762PIATm
+	 TzcPaRF5mRK414n6XUJikNcf6zMqvN1Oj7aj9dE59YDJtBB8/QglAlFg0FKY4PZTby
+	 TZUS+vERIlDVQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D0183CA1012;
-	Sat,  6 Sep 2025 15:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 22DE1CAC582;
+	Sat,  6 Sep 2025 15:43:40 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sat, 06 Sep 2025 15:43:24 +0000
-Subject: [PATCH v2 11/22] usb: typec: tipd: Register DisplayPort and
- Thunderbolt altmodes for cd321x
+Date: Sat, 06 Sep 2025 15:43:28 +0000
+Subject: [PATCH v2 15/22] usb: typec: tipd: Handle mode transitions for
+ CD321x
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250906-atcphy-6-17-v2-11-52c348623ef6@kernel.org>
+Message-Id: <20250906-atcphy-6-17-v2-15-52c348623ef6@kernel.org>
 References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
 In-Reply-To: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -67,22 +67,22 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
- Sven Peter <sven@kernel.org>
+ Sven Peter <sven@kernel.org>, Hector Martin <marcan@marcan.st>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5545; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=16156; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=sNTZAaAEhZ4bZmshDMImxkogVK30dZbNtflvQruejvE=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ8aesAWq7/26v3KU6b/5FV7sJCgg+cC670702QUWsgt/i
- shbd+zvKGVhEONgkBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenAExEso/hf23UuqatXw5m7eMV
- UzawcguYtjD8tOoJLe31k1wCLy0sWsjwP/7XzPnr76v6H9bQmBo+OY1j4/nveuzZFsxG7123xh1
- LZAUA
+ bh=BPw90ansI4AI6ftYUAHh2O+6y+Wx73TtD8G3wAHsLlM=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ8aesMUpE37xvbJastc1QXE/Y3vUhM6FPL/TWoRnst6bw
+ m710PtORykLgxgHg6yYIsv2/famTx6+EVy66dJ7mDmsTCBDGLg4BWAiASmMDJO2Fzf8nbv9xF3/
+ og2TAvfoTG4xFA1ZlaujsOL52vNPdJgY/vvtLde0WW1yc25EuIRt4MTKx9+Njnb8NlhUcvFtxes
+ lp5kB
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
  auth_id=407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_084342_891690_2EA26BBF 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20250906_084343_353173_30CA4B7F 
+X-CRM114-Status: GOOD (  29.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,167 +97,471 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ports equipped with a CD321x are only found on Apple Silicon machines
-and always support DisplayPort, Thunderbolt and USB4. Register these
-port modes unconditionally.
+From: Hector Martin <marcan@marcan.st>
 
+On Apple Silicon machines there is no control over which alt mode is
+chosen. The CD321x' firmware negotiates the target mode on its own and
+only lets the main CPU know after the mode has already been chosen.
+Especially after plugging a new cable in this can result to quick mode
+changes from e.g. power only -> USB3 only -> USB3+DisplayPort in a short
+time. It is not possile to influence this in any way and we also do not
+get direct access to the PDOs or VDOs exchanged via USB PD.
+
+Additionally, mode changes must be tightly synchronized between DWC3 and
+the Type C PHY and most mode changes require a full reset of DWC3 to
+make the port work correctly.
+On the machines the usb role change is used to reset the controller.
+The role change is additionally done synchronously from the callback
+instead of relying on a workqueue as usual in order to avoid any races
+which can, in the worst case, result in resetting the entire SoC if
+Type-C PHY and DWC3 are out of sync.
+
+To be able to control all this we trigger the entire process in the
+correct order directly from the TIPD driver and de-bounce any mode
+changes to avoid tearing down and re-setting DWC3 back up multiple times
+any time a new connection is made.
+
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Co-developed-by: Sven Peter <sven@kernel.org>
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- drivers/usb/typec/tipd/core.c | 85 +++++++++++++++++++++++++++++++++++++++++--
- 1 file changed, 82 insertions(+), 3 deletions(-)
+ drivers/usb/typec/tipd/core.c | 297 +++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 293 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-index afd11b3e1ae596c7f3283e4336aaa57874c9378d..c7cf936e5a61a331271c05b68ff1b77b89c0f643 100644
+index b558fc5ecbc35a9dabbf33c444f38173740af7c3..95218e8be65dbbb594465961b1fda76eed1e266c 100644
 --- a/drivers/usb/typec/tipd/core.c
 +++ b/drivers/usb/typec/tipd/core.c
-@@ -16,6 +16,8 @@
- #include <linux/interrupt.h>
+@@ -17,6 +17,7 @@
  #include <linux/usb/typec.h>
  #include <linux/usb/typec_altmode.h>
-+#include <linux/usb/typec_dp.h>
-+#include <linux/usb/typec_tbt.h>
+ #include <linux/usb/typec_dp.h>
++#include <linux/usb/typec_mux.h>
+ #include <linux/usb/typec_tbt.h>
  #include <linux/usb/role.h>
  #include <linux/workqueue.h>
- #include <linux/firmware.h>
-@@ -144,6 +146,7 @@ struct tipd_data {
+@@ -120,6 +121,9 @@ struct tps6598x_intel_vid_status_reg {
+ #define TPS_TASK_TIMEOUT		1
+ #define TPS_TASK_REJECTED		3
+ 
++/* Debounce delay for mode changes, in milliseconds */
++#define CD321X_DEBOUNCE_DELAY_MS 500
++
+ enum {
+ 	TPS_MODE_APP,
+ 	TPS_MODE_BOOT,
+@@ -145,6 +149,7 @@ struct tipd_data {
+ 	irq_handler_t irq_handler;
  	u64 irq_mask1;
  	size_t tps_struct_size;
++	void (*remove)(struct tps6598x *tps);
  	int (*register_port)(struct tps6598x *tps, struct fwnode_handle *node);
-+	void (*unregister_port)(struct tps6598x *tps);
+ 	void (*unregister_port)(struct tps6598x *tps);
  	void (*trace_data_status)(u32 status);
- 	void (*trace_power_status)(u16 status);
- 	void (*trace_status)(u32 status);
-@@ -185,6 +188,9 @@ struct cd321x {
- 	struct tps6598x_dp_sid_status_reg dp_sid_status;
- 	struct tps6598x_intel_vid_status_reg intel_vid_status;
- 	struct tps6598x_usb4_status_reg usb4_status;
+@@ -155,6 +160,7 @@ struct tipd_data {
+ 	int (*switch_power_state)(struct tps6598x *tps, u8 target_state);
+ 	bool (*read_data_status)(struct tps6598x *tps);
+ 	int (*reset)(struct tps6598x *tps);
++	int (*connect)(struct tps6598x *tps, u32 status);
+ };
+ 
+ struct tps6598x {
+@@ -183,6 +189,17 @@ struct tps6598x {
+ 	const struct tipd_data *data;
+ };
+ 
++struct cd321x_status {
++	u32 status;
++	u32 pwr_status;
++	u32 data_status;
++	u32 status_changed;
++	struct usb_pd_identity partner_identity;
++	struct tps6598x_dp_sid_status_reg dp_sid_status;
++	struct tps6598x_intel_vid_status_reg intel_vid_status;
++	struct tps6598x_usb4_status_reg usb4_status;
++};
 +
-+	struct typec_altmode *port_altmode_dp;
-+	struct typec_altmode *port_altmode_tbt;
+ struct cd321x {
+ 	struct tps6598x tps;
+ 
+@@ -192,6 +209,13 @@ struct cd321x {
+ 
+ 	struct typec_altmode *port_altmode_dp;
+ 	struct typec_altmode *port_altmode_tbt;
++
++	struct typec_mux *mux;
++	struct typec_mux_state state;
++
++	struct cd321x_status update_status;
++	struct delayed_work update_work;
++	struct usb_pd_identity cur_partner_identity;
  };
  
  static enum power_supply_property tps6598x_psy_props[] = {
-@@ -964,6 +970,76 @@ tps6598x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+@@ -613,9 +637,229 @@ static void tps6598x_handle_plug_event(struct tps6598x *tps, u32 status)
+ 	}
+ }
+ 
++static void cd321x_typec_update_mode(struct tps6598x *tps, struct cd321x_status *st)
++{
++	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
++
++	if (!(st->data_status & TPS_DATA_STATUS_DATA_CONNECTION)) {
++		if (cd321x->state.mode == TYPEC_STATE_SAFE)
++			return;
++		cd321x->state.alt = NULL;
++		cd321x->state.mode = TYPEC_STATE_SAFE;
++		cd321x->state.data = NULL;
++		typec_mux_set(cd321x->mux, &cd321x->state);
++	} else if (st->data_status & TPS_DATA_STATUS_DP_CONNECTION) {
++		struct typec_displayport_data dp_data;
++		unsigned long mode;
++
++		switch (TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT(st->data_status)) {
++		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_A:
++			mode = TYPEC_DP_STATE_A;
++			break;
++		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_B:
++			mode = TYPEC_DP_STATE_B;
++			break;
++		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_C:
++			mode = TYPEC_DP_STATE_C;
++			break;
++		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_D:
++			mode = TYPEC_DP_STATE_D;
++			break;
++		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_E:
++			mode = TYPEC_DP_STATE_E;
++			break;
++		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_F:
++			mode = TYPEC_DP_STATE_F;
++			break;
++		default:
++			dev_err(tps->dev, "Invalid DP pin assignment\n");
++			return;
++		}
++
++		if (cd321x->state.alt == cd321x->port_altmode_dp &&
++		   cd321x->state.mode == mode) {
++			return;
++		}
++
++		dp_data.status = le32_to_cpu(st->dp_sid_status.status_rx);
++		dp_data.conf = le32_to_cpu(st->dp_sid_status.configure);
++		cd321x->state.alt = cd321x->port_altmode_dp;
++		cd321x->state.data = &dp_data;
++		cd321x->state.mode = mode;
++		typec_mux_set(cd321x->mux, &cd321x->state);
++	} else if (st->data_status & TPS_DATA_STATUS_TBT_CONNECTION) {
++		struct typec_thunderbolt_data tbt_data;
++
++		if (cd321x->state.alt == cd321x->port_altmode_tbt &&
++		   cd321x->state.mode == TYPEC_TBT_MODE)
++			return;
++
++		tbt_data.cable_mode = le16_to_cpu(st->intel_vid_status.cable_mode);
++		tbt_data.device_mode = le16_to_cpu(st->intel_vid_status.device_mode);
++		tbt_data.enter_vdo = le16_to_cpu(st->intel_vid_status.enter_vdo);
++		cd321x->state.alt = cd321x->port_altmode_tbt;
++		cd321x->state.mode = TYPEC_TBT_MODE;
++		cd321x->state.data = &tbt_data;
++		typec_mux_set(cd321x->mux, &cd321x->state);
++	} else if (st->data_status & CD321X_DATA_STATUS_USB4_CONNECTION) {
++		struct enter_usb_data eusb_data;
++
++		if (cd321x->state.alt == NULL && cd321x->state.mode == TYPEC_MODE_USB4)
++			return;
++
++		eusb_data.eudo = le32_to_cpu(st->usb4_status.eudo);
++		eusb_data.active_link_training =
++			!!(st->data_status & TPS_DATA_STATUS_ACTIVE_LINK_TRAIN);
++
++		cd321x->state.alt = NULL;
++		cd321x->state.data = &eusb_data;
++		cd321x->state.mode = TYPEC_MODE_USB4;
++		typec_mux_set(cd321x->mux, &cd321x->state);
++	} else {
++		if (cd321x->state.alt == NULL && cd321x->state.mode == TYPEC_STATE_USB)
++			return;
++		cd321x->state.alt = NULL;
++		cd321x->state.mode = TYPEC_STATE_USB;
++		cd321x->state.data = NULL;
++		typec_mux_set(cd321x->mux, &cd321x->state);
++	}
++}
++
++static void cd321x_update_work(struct work_struct *work)
++{
++	struct cd321x *cd321x = container_of(to_delayed_work(work),
++					    struct cd321x, update_work);
++	struct tps6598x *tps = &cd321x->tps;
++	struct cd321x_status st;
++
++	guard(mutex)(&tps->lock);
++
++	st = cd321x->update_status;
++	cd321x->update_status.status_changed = 0;
++
++	bool old_connected = !!tps->partner;
++	bool new_connected = st.status & TPS_STATUS_PLUG_PRESENT;
++	bool was_disconnected = st.status_changed & TPS_STATUS_PLUG_PRESENT;
++
++	bool usb_connection = st.data_status &
++			      (TPS_DATA_STATUS_USB2_CONNECTION | TPS_DATA_STATUS_USB3_CONNECTION);
++
++	enum usb_role old_role = usb_role_switch_get_role(tps->role_sw);
++	enum usb_role new_role = USB_ROLE_NONE;
++	enum typec_pwr_opmode pwr_opmode = TYPEC_PWR_MODE_USB;
++	enum typec_orientation orientation = TYPEC_ORIENTATION_NONE;
++
++	if (usb_connection) {
++		if (tps->data_status & TPS_DATA_STATUS_USB_DATA_ROLE)
++			new_role = USB_ROLE_DEVICE;
++		else
++			new_role = USB_ROLE_HOST;
++	}
++
++	if (new_connected) {
++		pwr_opmode = TPS_POWER_STATUS_PWROPMODE(st.pwr_status);
++		orientation = TPS_STATUS_TO_UPSIDE_DOWN(st.status) ?
++			TYPEC_ORIENTATION_REVERSE : TYPEC_ORIENTATION_NORMAL;
++	}
++
++	bool is_pd = pwr_opmode == TYPEC_PWR_MODE_PD;
++	bool partner_changed = old_connected && new_connected &&
++		(was_disconnected ||
++		 (is_pd && memcmp(&st.partner_identity,
++				  &cd321x->cur_partner_identity, sizeof(struct usb_pd_identity))));
++
++	/* If we are switching from an active role, transition to USB_ROLE_NONE first */
++	if (old_role != USB_ROLE_NONE && (new_role != old_role || was_disconnected))
++		usb_role_switch_set_role(tps->role_sw, USB_ROLE_NONE);
++
++	/* Process partner disconnection or change */
++	if (!new_connected || partner_changed) {
++		if (!IS_ERR(tps->partner))
++			typec_unregister_partner(tps->partner);
++		tps->partner = NULL;
++	}
++
++	/* If there was a disconnection, set PHY to off */
++	if (!new_connected || was_disconnected) {
++		cd321x->state.alt = NULL;
++		cd321x->state.mode = TYPEC_STATE_SAFE;
++		cd321x->state.data = NULL;
++		typec_set_mode(tps->port, TYPEC_STATE_SAFE);
++	}
++
++	/* Update Type-C properties */
++	typec_set_pwr_opmode(tps->port, pwr_opmode);
++	typec_set_pwr_role(tps->port, TPS_STATUS_TO_TYPEC_PORTROLE(st.status));
++	typec_set_vconn_role(tps->port, TPS_STATUS_TO_TYPEC_VCONN(st.status));
++	typec_set_orientation(tps->port, orientation);
++	typec_set_data_role(tps->port, TPS_STATUS_TO_TYPEC_DATAROLE(st.status));
++	power_supply_changed(tps->psy);
++
++	/* If the plug is disconnected, we are done */
++	if (!new_connected)
++		return;
++
++	/* Set up partner if we were previously disconnected (or changed). */
++	if (!tps->partner) {
++		struct typec_partner_desc desc;
++
++		desc.usb_pd = is_pd;
++		desc.accessory = TYPEC_ACCESSORY_NONE; /* XXX: handle accessories */
++		desc.identity = NULL;
++
++		if (desc.usb_pd)
++			desc.identity = &st.partner_identity;
++
++		tps->partner = typec_register_partner(tps->port, &desc);
++		if (IS_ERR(tps->partner))
++			dev_warn(tps->dev, "%s: failed to register partnet\n", __func__);
++
++		if (desc.identity) {
++			typec_partner_set_identity(tps->partner);
++			cd321x->cur_partner_identity = st.partner_identity;
++		}
++	}
++
++	/* Update the TypeC MUX/PHY state */
++	cd321x_typec_update_mode(tps, &st);
++
++	/* Launch the USB role switch */
++	usb_role_switch_set_role(tps->role_sw, new_role);
++
++	power_supply_changed(tps->psy);
++}
++
++static void cd321x_queue_status(struct tps6598x *tps)
++{
++	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
++
++	cd321x->update_status.status_changed |= cd321x->update_status.status ^ tps->status;
++
++	cd321x->update_status.status = tps->status;
++	cd321x->update_status.pwr_status = tps->pwr_status;
++	cd321x->update_status.data_status = tps->data_status;
++
++	cd321x->update_status.partner_identity = tps->partner_identity;
++	cd321x->update_status.dp_sid_status = cd321x->dp_sid_status;
++	cd321x->update_status.intel_vid_status = cd321x->intel_vid_status;
++	cd321x->update_status.usb4_status = cd321x->usb4_status;
++}
++
++static int cd321x_connect(struct tps6598x *tps, u32 status)
++{
++	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
++
++	tps->status = status;
++	cd321x_queue_status(tps);
++	schedule_delayed_work(&cd321x->update_work, msecs_to_jiffies(CD321X_DEBOUNCE_DELAY_MS));
++
++	return 0;
++}
++
+ static irqreturn_t cd321x_interrupt(int irq, void *data)
+ {
+ 	struct tps6598x *tps = data;
++	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+ 	u64 event = 0;
+ 	u32 status;
+ 	int ret;
+@@ -652,9 +896,15 @@ static irqreturn_t cd321x_interrupt(int irq, void *data)
+ 		if (!tps->data->read_data_status(tps))
+ 			goto err_unlock;
+ 
+-	/* Handle plug insert or removal */
+-	if (event & APPLE_CD_REG_INT_PLUG_EVENT)
+-		tps6598x_handle_plug_event(tps, status);
++	tps->status = status;
++	cd321x_queue_status(tps);
++
++	/*
++	 * Cancel pending work if not already running.
++	 * We will requeue the work after CD321X_DEBOUNCE_DELAY_MS regardless.
++	 */
++	cancel_delayed_work(&cd321x->update_work);
++	schedule_delayed_work(&cd321x->update_work, msecs_to_jiffies(CD321X_DEBOUNCE_DELAY_MS));
+ 
+ err_unlock:
+ 	mutex_unlock(&tps->lock);
+@@ -1014,6 +1264,13 @@ cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+ 	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+ 	int ret;
+ 
++	/*
++	 * This is only called from _probe such that update_work can be
++	 * initialized and then scheduled for the first time to handle
++	 * plugs already connected at boot time.
++	 */
++	INIT_DELAYED_WORK(&cd321x->update_work, cd321x_update_work);
++
+ 	ret = tps6598x_register_port(tps, fwnode);
+ 	if (ret)
+ 		return ret;
+@@ -1022,10 +1279,26 @@ cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+ 	if (ret)
+ 		goto err_unregister_port;
+ 
++	cd321x->mux = fwnode_typec_mux_get(fwnode);
++	if (IS_ERR(cd321x->mux)) {
++		ret = PTR_ERR(cd321x->mux);
++		goto err_unregister_altmodes;
++	}
++
++	cd321x->state.alt = NULL;
++	cd321x->state.mode = TYPEC_STATE_SAFE;
++	cd321x->state.data = NULL;
+ 	typec_set_mode(tps->port, TYPEC_STATE_SAFE);
+ 
+ 	return 0;
+ 
++err_unregister_altmodes:
++	if (cd321x->port_altmode_dp)
++		typec_unregister_altmode(cd321x->port_altmode_dp);
++	if (cd321x->port_altmode_tbt)
++		typec_unregister_altmode(cd321x->port_altmode_tbt);
++	cd321x->port_altmode_dp = NULL;
++	cd321x->port_altmode_tbt = NULL;
+ err_unregister_port:
+ 	typec_unregister_port(tps->port);
+ 	return ret;
+@@ -1042,6 +1315,8 @@ cd321x_unregister_port(struct tps6598x *tps)
+ {
+ 	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+ 
++	if (cd321x->mux)
++		typec_mux_put(cd321x->mux);
+ 	typec_unregister_altmode(cd321x->port_altmode_dp);
+ 	cd321x->port_altmode_dp = NULL;
+ 	typec_unregister_altmode(cd321x->port_altmode_tbt);
+@@ -1454,6 +1729,13 @@ tps25750_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
  	return 0;
  }
  
-+static int cd321x_register_port_altmodes(struct cd321x *cd321x)
-+{
-+	struct typec_altmode_desc desc;
-+	struct typec_altmode *amode;
-+
-+	memset(&desc, 0, sizeof(desc));
-+	desc.svid = USB_TYPEC_DP_SID;
-+	desc.mode = USB_TYPEC_DP_MODE;
-+	desc.vdo = DP_CONF_SET_PIN_ASSIGN(BIT(DP_PIN_ASSIGN_C) | BIT(DP_PIN_ASSIGN_D));
-+	desc.vdo |= DP_CAP_DFP_D;
-+	amode = typec_port_register_altmode(cd321x->tps.port, &desc);
-+	if (IS_ERR(amode))
-+		return PTR_ERR(amode);
-+	cd321x->port_altmode_dp = amode;
-+
-+	memset(&desc, 0, sizeof(desc));
-+	desc.svid = USB_TYPEC_TBT_SID;
-+	desc.mode = TYPEC_ANY_MODE;
-+	amode = typec_port_register_altmode(cd321x->tps.port, &desc);
-+	if (IS_ERR(amode)) {
-+		typec_unregister_altmode(cd321x->port_altmode_dp);
-+		cd321x->port_altmode_dp = NULL;
-+		return PTR_ERR(amode);
-+	}
-+	cd321x->port_altmode_tbt = amode;
-+
-+	return 0;
-+}
-+
-+static int
-+cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
-+{
-+	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
-+	int ret;
-+
-+	ret = tps6598x_register_port(tps, fwnode);
-+	if (ret)
-+		return ret;
-+
-+	ret = cd321x_register_port_altmodes(cd321x);
-+	if (ret)
-+		goto err_unregister_port;
-+
-+	typec_set_mode(tps->port, TYPEC_STATE_SAFE);
-+
-+	return 0;
-+
-+err_unregister_port:
-+	typec_unregister_port(tps->port);
-+	return ret;
-+}
-+
-+static void
-+tps6598x_unregister_port(struct tps6598x *tps)
-+{
-+	typec_unregister_port(tps->port);
-+}
-+
-+static void
-+cd321x_unregister_port(struct tps6598x *tps)
++static void cd321x_remove(struct tps6598x *tps)
 +{
 +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
 +
-+	typec_unregister_altmode(cd321x->port_altmode_dp);
-+	cd321x->port_altmode_dp = NULL;
-+	typec_unregister_altmode(cd321x->port_altmode_tbt);
-+	cd321x->port_altmode_tbt = NULL;
-+	typec_unregister_port(tps->port);
++	cancel_delayed_work_sync(&cd321x->update_work);
 +}
 +
- static int tps_request_firmware(struct tps6598x *tps, const struct firmware **fw,
- 				const char **firmware_name)
+ static int tps6598x_probe(struct i2c_client *client)
  {
-@@ -1505,7 +1581,7 @@ static int tps6598x_probe(struct i2c_client *client)
- err_disconnect:
- 	tps6598x_disconnect(tps, 0);
- err_unregister_port:
--	typec_unregister_port(tps->port);
-+	tps->data->unregister_port(tps);
- err_role_put:
- 	usb_role_switch_put(tps->role_sw);
- err_fwnode_put:
-@@ -1529,7 +1605,7 @@ static void tps6598x_remove(struct i2c_client *client)
+ 	const struct tipd_data *data;
+@@ -1555,7 +1837,7 @@ static int tps6598x_probe(struct i2c_client *client)
+ 			goto err_unregister_port;
+ 		if (!tps->data->read_data_status(tps))
+ 			goto err_unregister_port;
+-		ret = tps6598x_connect(tps, status);
++		ret = tps->data->connect(tps, status);
+ 		if (ret)
+ 			dev_err(&client->dev, "failed to register partner\n");
+ 	}
+@@ -1612,6 +1894,9 @@ static void tps6598x_remove(struct i2c_client *client)
+ 	else
  		devm_free_irq(tps->dev, client->irq, tps);
  
++	if (tps->data->remove)
++		tps->data->remove(tps);
++
  	tps6598x_disconnect(tps, 0);
--	typec_unregister_port(tps->port);
-+	tps->data->unregister_port(tps);
+ 	tps->data->unregister_port(tps);
  	usb_role_switch_put(tps->role_sw);
- 
- 	/* Reset PD controller to remove any applied patch */
-@@ -1598,7 +1674,8 @@ static const struct tipd_data cd321x_data = {
+@@ -1682,6 +1967,7 @@ static const struct tipd_data cd321x_data = {
  		     APPLE_CD_REG_INT_DATA_STATUS_UPDATE |
  		     APPLE_CD_REG_INT_PLUG_EVENT,
  	.tps_struct_size = sizeof(struct cd321x),
--	.register_port = tps6598x_register_port,
-+	.register_port = cd321x_register_port,
-+	.unregister_port = cd321x_unregister_port,
++	.remove = cd321x_remove,
+ 	.register_port = cd321x_register_port,
+ 	.unregister_port = cd321x_unregister_port,
  	.trace_data_status = trace_cd321x_data_status,
- 	.trace_power_status = trace_tps6598x_power_status,
- 	.trace_status = trace_tps6598x_status,
-@@ -1615,6 +1692,7 @@ static const struct tipd_data tps6598x_data = {
- 		     TPS_REG_INT_PLUG_EVENT,
- 	.tps_struct_size = sizeof(struct tps6598x),
- 	.register_port = tps6598x_register_port,
-+	.unregister_port = tps6598x_unregister_port,
- 	.trace_data_status = trace_tps6598x_data_status,
- 	.trace_power_status = trace_tps6598x_power_status,
- 	.trace_status = trace_tps6598x_status,
-@@ -1631,6 +1709,7 @@ static const struct tipd_data tps25750_data = {
- 		     TPS_REG_INT_PLUG_EVENT,
- 	.tps_struct_size = sizeof(struct tps6598x),
- 	.register_port = tps25750_register_port,
-+	.unregister_port = tps6598x_unregister_port,
- 	.trace_data_status = trace_tps6598x_data_status,
- 	.trace_power_status = trace_tps25750_power_status,
- 	.trace_status = trace_tps25750_status,
+@@ -1691,6 +1977,7 @@ static const struct tipd_data cd321x_data = {
+ 	.read_data_status = cd321x_read_data_status,
+ 	.reset = cd321x_reset,
+ 	.switch_power_state = cd321x_switch_power_state,
++	.connect = cd321x_connect,
+ };
+ 
+ static const struct tipd_data tps6598x_data = {
+@@ -1708,6 +1995,7 @@ static const struct tipd_data tps6598x_data = {
+ 	.init = tps6598x_init,
+ 	.read_data_status = tps6598x_read_data_status,
+ 	.reset = tps6598x_reset,
++	.connect = tps6598x_connect,
+ };
+ 
+ static const struct tipd_data tps25750_data = {
+@@ -1725,6 +2013,7 @@ static const struct tipd_data tps25750_data = {
+ 	.init = tps25750_init,
+ 	.read_data_status = tps6598x_read_data_status,
+ 	.reset = tps25750_reset,
++	.connect = tps6598x_connect,
+ };
+ 
+ static const struct of_device_id tps6598x_of_match[] = {
 
 -- 
 2.34.1
