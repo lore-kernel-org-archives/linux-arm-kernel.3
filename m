@@ -4,61 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253F7CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 11:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61733CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yfQBX96q75WukPmdamWvcC99q02KYHkltaQomzZiIA0=; b=r42wp3Ktrzdi5OFUyn8l+fZQxs
-	39CK/MtJb4pJtmgQHITy4H6XbTjBJQprUrO77n/ln3uLHTBu5nIp7eWQJTbvxuwfKWu9XAx8XfmBB
-	PszFIzoP+DGoLJYsFL2KX6kthiiD0A1Sw9fczP9HKw7vEAaEKBi8FHypXS34SoYLPVpugymq0vnmQ
-	1Z6n+q5dzDSBeelH3IPqKuXJ3OpI1KEggmHd9zyaxWB7w/7kfCkD9svDnjk6OQr1lkiTfVr5K8z6d
-	EU8J02r/MUUz0nQ8eOvqq0NsLLacvMJjTAJY6tY2/lFTNEZq3Lbfgj4BMWQoNfWjsMVOE6tMAFM2V
-	KVC01AEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2VRkDRSNb/7X+HSsvla2TGMRSFSd2qy0QoIJDbB1B5o=; b=4atWDwjZt1pSms/fe053v1NozI
+	oe1jJJT4xWhgMUc2UhAzGFrgmM6G+XGkTakp+706xnVdbx3C21YVlhoUzyyII2Ppo3YYBMSJAqa9r
+	O2BvS7jHDIqavtdR6vTU6srvzhpSvUFrA9z9VC/X+qWyaM6hv3qEusF+U/1XwL5OyRQOhohh8qQcj
+	bwENJIfzdDi06MP3XnrSsd55XDl8EiFN8OC81IEijWZ6urPM0JzI9jtjIAUNJjlRL+qqksDztHgvo
+	99cs7zoi/OgpbQqsT/6oidK5Dj3yPfA0PBqSUBBCXKA4klDNwy/rEpR34CcNxtqKZCROmjx9a8y6y
+	SK8rkaag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uurL0-00000007hmd-18z1;
-	Sat, 06 Sep 2025 11:44:11 +0000
-Received: from out-189.mta1.migadu.com ([95.215.58.189])
+	id 1uureb-00000007jPS-3YlW;
+	Sat, 06 Sep 2025 12:04:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uurHt-00000007hUF-3WgR
+	id 1uurbo-00000007jFj-0Hsz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 11:40:59 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1757158853;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yfQBX96q75WukPmdamWvcC99q02KYHkltaQomzZiIA0=;
-	b=mi5XoFBzicBGnLVlSDcOo95Ouwxq3hQXvFEG/N59/ZuVymYMt3CqV4k89TDrxD7B9u22Sz
-	qhkzNWunTvNWqXkQjvdkE+TVv9mjX0pdXArzBVZjL1zuVE4RSthFUKOgmaGe3ILG96npde
-	GV2mwYZBhCbzQ0tb90WY9z9Sbc4pBgrU4+Fv9SpcB2w4ujXPKdH0JnAzQxPVpZSm3vuBvO
-	p8tTXQ9suDUkspEgJ9GSSv1ZTRc7reyBBWsjzc19+DXGtk2foDoWJ/A0kA0TuFIzsiUiKy
-	yqlLwgWgziTPIDeb+5eVEmaWzZmj7VVAgcfc4zSKXLOBnyaBLy3e+PS1TRc80A==
-Content-Type: multipart/signed;
- boundary=50bc71c862d7f174e8c42d86cf14d62df090490c913e2b0c228b0aaba3a8;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Sat, 06 Sep 2025 13:40:48 +0200
-Message-Id: <DCLOTR9Y380M.22GZYL11XXZM2@cknow.org>
-Cc: <heiko@sntech.de>, <robh@kernel.org>, <krzk+dt@kernel.org>,
- <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH] arm64: dts: rockchip: Make RK3588 GPU OPP table naming
- uniform
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Dragan Simic" <dsimic@manjaro.org>,
- <linux-rockchip@lists.infradead.org>
-References: <355c16ab070688fc6285e0d4419eb54a3f699eee.1757152740.git.dsimic@manjaro.org>
-In-Reply-To: <355c16ab070688fc6285e0d4419eb54a3f699eee.1757152740.git.dsimic@manjaro.org>
-X-Migadu-Flow: FLOW_OUT
+	Sat, 06 Sep 2025 12:01:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E69B840802;
+	Sat,  6 Sep 2025 12:01:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 398BAC4CEE7;
+	Sat,  6 Sep 2025 12:01:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757160090;
+	bh=H+js8WLuHfcNY6HqZd4U4ex2F4rnKaf6udYX1HgmcR8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=B/nh5H6cH553rNiW29Irs3iF8FIzSwYwUTFzChtrFU844vMa4Blyo4p8yAY+paCSB
+	 mITb5bEq0L8PfbgltOq3dh/BvXfv9dNhtijWRKYn7VinqIQaEldSiHoTX2ndPwCOgj
+	 Xmlr5rkkt1sYRsIqYvnQU307H4qsYN5IjbIX6JbEwktOAhKtf88kQYpajVy4JdogAQ
+	 8v6gZF5lMKcedaoQw3lZtrpQLixX2P7vFgoUFCsw0Bckdw4kmiZJy1NF8hGxKLjVfq
+	 xRA1BPB9eZqVhAE77HqgscgvMr03L2qypXF+rWYvwf42bQj3TXBHDpxvfaf8WB7pb/
+	 SlRVgUQOplGFQ==
+Message-ID: <288f0cf1-1ee4-4eba-b059-641120bb93f3@kernel.org>
+Date: Sat, 6 Sep 2025 14:01:25 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: mfd: sy7636a: Add missing gpio pins and
+ supply
+To: Andreas Kemnade <akemnade@kernel.org>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alistair Francis
+ <alistair@alistair23.me>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
+ <20250906-sy7636-rsrc-v1-1-e2886a9763a7@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20250906-sy7636-rsrc-v1-1-e2886a9763a7@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_044058_040211_6C4D63C8 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20250906_050132_163398_1FC165AE 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,79 +125,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---50bc71c862d7f174e8c42d86cf14d62df090490c913e2b0c228b0aaba3a8
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-Hi,
-
-On Sat Sep 6, 2025 at 12:01 PM CEST, Dragan Simic wrote:
-> Unify the naming of the existing GPU OPP table nodes found in the RK3588
-> and RK3588J SoC dtsi files with the other SoC's GPU OPP nodes, following
-> the more "modern" node naming scheme.
-
-Like we discussed in private (without an agreement), I think it would be
-beneficial if the (gpu) opp naming would be made consistent across SoC
-series as right now there are several different naming schemes applied.
-They're all valid, but inconsistent. And if consistency is improved,
-which I like, then let's go 'all the way'?
-
-Cheers,
-  Diederik
-
-> Fixes: a7b2070505a2 ("arm64: dts: rockchip: Split GPU OPPs of RK3588 and =
-RK3588j")
-> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
+On 06/09/2025 11:09, Andreas Kemnade wrote:
+> To be able to fully describe how the SY7636A is connected to the system,
+> add properties for the EN and VCOM_EN pins. To squeeze out every bit
+> of unused current, in many devices it is possible to power off the
+> complete chip. Add an input regulator to allow that.
+> 
+> Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi | 2 +-
->  arch/arm64/boot/dts/rockchip/rk3588j.dtsi    | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi b/arch/arm64/bo=
-ot/dts/rockchip/rk3588-opp.dtsi
-> index 0f1a77697351..b5d630d2c879 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
-> @@ -115,7 +115,7 @@ opp-2400000000 {
->  		};
->  	};
-> =20
-> -	gpu_opp_table: opp-table {
-> +	gpu_opp_table: opp-table-gpu {
->  		compatible =3D "operating-points-v2";
-> =20
->  		opp-300000000 {
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi b/arch/arm64/boot/=
-dts/rockchip/rk3588j.dtsi
-> index 9884a5df47df..e1e0e3fc0ca7 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
-> @@ -66,7 +66,7 @@ opp-1608000000 {
->  		};
->  	};
-> =20
-> -	gpu_opp_table: opp-table {
-> +	gpu_opp_table: opp-table-gpu {
->  		compatible =3D "operating-points-v2";
-> =20
->  		opp-300000000 {
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+>  .../devicetree/bindings/mfd/silergy,sy7636a.yaml         | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml b/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
+> index ee0be32ac0204..08ad593e237f1 100644
+> --- a/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
+> @@ -32,6 +32,22 @@ properties:
+>        Specifying the power good GPIOs.
+>      maxItems: 1
+>  
+> +  en-gpios:
+
+enable-gpios, unless it is something else, but then please explain in
+the description.
+
+> +    description:
+> +      If EN pin is not hardwired, specify it here to have it set up.
+> +    maxItems: 1
 
 
---50bc71c862d7f174e8c42d86cf14d62df090490c913e2b0c228b0aaba3a8
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaLwdxQAKCRDXblvOeH7b
-bl8uAQCv2yOKmsclZY8nGsdJiOVLqZigZRQbZaQzwRqAc/HnAgD/XLnZRoy4wD3U
-MNxjXlh/Uf2Ygv/VZJ0ev9xXDbI2aQo=
-=ThN1
------END PGP SIGNATURE-----
-
---50bc71c862d7f174e8c42d86cf14d62df090490c913e2b0c228b0aaba3a8--
+Best regards,
+Krzysztof
 
