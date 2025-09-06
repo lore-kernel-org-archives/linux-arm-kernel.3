@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E03DCA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 16:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F59CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 16:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XFce9J9lxDYUdbD+M3Jtnbplnyolw4UW52XXRPc/IEc=; b=qLQE2NG9VLZW+jE1ebISMEJEBN
-	wUx51gLE5j2cfxOmIh5WDER2YXT0VsPxo/G/JDpt9EK2DlqwXDQJXvF96vy5xChKTJ4gTiOSy9WdT
-	+5acnIihvuZZZNcmZQw/Hyyh9P9WARt6lvLqkgpHO5uFcuBC2dgRAgB5Cmg5Hpsdkv5745IsvkTfh
-	E6GuE8H68EML+0UKKKUqa1u3B86JR6hqV1u9rp1bT3Clz1g3wKmOMYAPTOvZRihcOG5DRAYrIPu39
-	Rxi9AV07VwTnjrQZ+OIPWwHQ0zayRvzF5Skmt5mNsqZQTqvisqYos76/LodjkCUH4TGkAuTizzGzM
-	B+TGfBYg==;
+	bh=1G54v6TiPc+U/fCQbocoPE3RC3yhsE0vJovdrhl3t4Y=; b=cSE4ghVa4y7r4WE7ZPwk6nsjJs
+	vCtfdK8IKOx/XLuyLUp2NQ2mIZSrOo+HooEfWz4f5oYTLoyyuoy/UnSGHzDcee9TT4Is/lDTCcPSl
+	J3hGRLyHeSW6F2ARE1lGTJrTsgA545DrVlgh0e8z1wj872u3hbPRTlW8V5GZPsp7nCdQtxFe1CfDo
+	jYWuts1aPSWIsOmYdIRf3Jx5oxQKVOehAA2Orvxf20t4dluKaewBgRY56CJ4NhXT+xsfKQ5nMzwXs
+	LWW6INe19jF9r4Ajv6EQzj70Z3rGHRN+NmnlOzR9+X+rH5b+DceJrnIqnh6fibOSsS+u8QG+d+C1X
+	gO54+Qbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuvnn-000000087NG-3y96;
-	Sat, 06 Sep 2025 16:30:11 +0000
+	id 1uuvqb-000000087sW-0ZJ1;
+	Sat, 06 Sep 2025 16:33:05 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuv4p-000000081j3-1tBj;
-	Sat, 06 Sep 2025 15:43:45 +0000
+	id 1uuv4o-000000081hx-41gW;
+	Sat, 06 Sep 2025 15:43:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6891A43E6C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D3B245223;
 	Sat,  6 Sep 2025 15:43:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B8C8C4AF10;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0CAD0C4CEFC;
 	Sat,  6 Sep 2025 15:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1757173420;
-	bh=osM0eVhm5EoDlyY0FaSY3Lj8njN0B4a30sboZPHWvdE=;
+	bh=6hJc+1Kc7zJ4dqjuwSYvv6Ldou9XTFOwmoh/VJLGXVA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uNlgs0cgIfXVTqUOgzBPJyDbsBhQ5DgX8JsXcG5fxshtzIkJbR6KTgFdguI4+YX7X
-	 gldL7olsKsz+941SFtMWC/8G2NhbkmtS67EfPSMO+8Ay3nLOtsB0fQkGZAwP6/YQt/
-	 /oq5oZ7ejnATZcX4g7iCIfjeuxWf5dUjZKB4f7ybLAD+QjKstelg5liiXoSpacdf+5
-	 o23W9Xzj+s7PdXa8ARh8fAoIHiinMzdnmlRRzsYrg7/iPfrwmqA3Aq397BCjiFrJZk
-	 14jZWORpn+ztYMYw2qsH1V5tXoPrYmUQZHQGwGGYySFW9axJd2ZJc7zkcX1tae433W
-	 ilp1fS7jg125A==
+	b=bC8B3EAwHvLt7mvv0lnE0JCLeq6XG7U7HmYMonRKsp0U+npLmfFVobfxBSnQ127yA
+	 7hFjgaMyA3XS/n3DZEIfK45gkhY1kbsb0YH9EG8wTGfefDLMManF7TJQi/QNjSuiit
+	 TJTDzlOb6rFc6hjpJNLRbMu54yOsWCM33fB05ZJ8syVZximB02gpPtdsnV/+9t9V/X
+	 1MdxeI1HOC6VcKT5lALzhOkm4xTtXPGH7Vi+5adbMvRWSOo1nSOQAGytgxxXEZMAEI
+	 RENzVAcZjOTo6LQtAg2kkxnnHmhd7XVWNGhp9D/Rtq4+5XEBybFf5lESJUySmxe442
+	 OlojJBGuIwwKA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 32424CA1012;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 04D0DCAC581;
 	Sat,  6 Sep 2025 15:43:40 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sat, 06 Sep 2025 15:43:29 +0000
-Subject: [PATCH v2 16/22] dt-bindings: phy: Add Apple Type-C PHY
+Date: Sat, 06 Sep 2025 15:43:26 +0000
+Subject: [PATCH v2 13/22] usb: typec: tipd: Use read_power_status function
+ in probe
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250906-atcphy-6-17-v2-16-52c348623ef6@kernel.org>
+Message-Id: <20250906-atcphy-6-17-v2-13-52c348623ef6@kernel.org>
 References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
 In-Reply-To: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -66,22 +67,22 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
- Sven Peter <sven@kernel.org>
+ Sven Peter <sven@kernel.org>, Hector Martin <marcan@marcan.st>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7993; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1231; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=osM0eVhm5EoDlyY0FaSY3Lj8njN0B4a30sboZPHWvdE=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ8aesCX61T8PcMzoLs+VkV5dP5frQfnk3W+9O7tu5Rqym
- 5w9XZ3aUcrCIMbBICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZjI5zUM//TaEk33/1SYHdl7
- 1jrvbWsfS4JT/4SHRTpuK2xS/rf3/WZkmJB/WfqI+Pyz3y9GGxqEepqknuhviFXqWipx2fLxrhU
- lDAA=
+ bh=a8r41F+GXMooCUu+KjgVBdiu8UWVrFpb7Loq9EHEDqI=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ8aesIV/d0vKnJ/dnraFIay9qvF9XIIp29ULZyyCEpu2G
+ 5X6hhR3lLIwiHEwyIopsmzfb2/65OEbwaWbLr2HmcPKBDKEgYtTACayOZrhv9NakSfS94v+J8+5
+ ErajgbnGc2f2u9PfX8a9/K6t/GXHSmWGv9IPOr6nP56efXPBXW/RpVsfSBtPOXuwN/ffv375ivc
+ T5fkB
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
  auth_id=407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_084343_569820_16588D19 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20250906_084343_070240_E6CF6A60 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,250 +97,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple's Type-C PHY (ATCPHY) is a PHY for USB 2.0, USB 3.x,
-USB4/Thunderbolt, and DisplayPort connectivity found in Apple Silicon
-SoCs.
+From: Hector Martin <marcan@marcan.st>
 
-The PHY handles muxing between these different protocols and also provides
-the reset controller for the attached dwc3 USB controller.
+We need the initial power status to be able to reliably detect connector
+changes once we introduce de-bouncing for CD321x next. read_power_status
+takes care of this and also forwards the status to the trace subsystem
+so let's use that instead of open-coding it inside probe.
 
+Signed-off-by: Hector Martin <marcan@marcan.st>
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- .../devicetree/bindings/phy/apple,atcphy.yaml      | 213 +++++++++++++++++++++
- MAINTAINERS                                        |   1 +
- 2 files changed, 214 insertions(+)
+ drivers/usb/typec/tipd/core.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/apple,atcphy.yaml b/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..a863fe3a8f6d80a113e495e8425775c91e4cd10c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
-@@ -0,0 +1,213 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/apple,atcphy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Apple Type-C PHY (ATCPHY)
-+
-+maintainers:
-+  - Sven Peter <sven@kernel.org>
-+
-+description:
-+  The Apple Type-C PHY (ATCPHY) is a PHY for USB 2.0, USB 3.x,
-+  USB4/Thunderbolt, and DisplayPort connectivity found in Apple Silicon SoCs.
-+
-+  The PHY handles muxing between these different protocols and also provides the
-+  reset controller for the attached DWC3 USB controller.
-+
-+  The PHY is designed for USB4 operation and does not handle individual
-+  differential pairs as distinct DisplayPort lanes. Any reference to lane in
-+  this binding hence refers to two differential pairs (RX and TX) as used in USB
-+  terminology.
-+
-+allOf:
-+  - $ref: /schemas/usb/usb-switch.yaml#
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - apple,t6000-atcphy
-+              - apple,t6020-atcphy
-+              - apple,t8112-atcphy
-+          - const: apple,t8103-atcphy
-+      - const: apple,t8103-atcphy
-+
-+  reg:
-+    items:
-+      - description: Common controls for all PHYs (USB2/3/4, DisplayPort, Thunderbolt)
-+      - description: DisplayPort Alternate Mode PHY specific controls
-+      - description: AXI to Apple Fabric interconnect controls, only modified by tunables
-+      - description: USB2 PHY specific controls
-+      - description: USB3 PIPE interface controls
-+
-+  reg-names:
-+    items:
-+      - const: core
-+      - const: lpdptx
-+      - const: axi2af
-+      - const: usb2phy
-+      - const: pipehandler
-+
-+  "#phy-cells":
-+    const: 1
-+
-+  "#reset-cells":
-+    const: 0
-+
-+  mode-switch: true
-+  orientation-switch: true
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Output endpoint of the PHY to the Type-C connector
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Incoming endpoint from the USB3 controller
-+
-+      port@2:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Incoming endpoint from the DisplayPort controller
-+
-+      port@3:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Incoming endpoint from the USB4/Thunderbolt controller
-+
-+  apple,tunable-axi2af:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      AXI2AF tunables.
-+
-+      This array is filled with 3-tuples each containing three 32-bit values
-+      <register offset>, <mask>, and <value> by the bootloader.
-+      The driver will use these to configure the PHY by reading from each
-+      register, ANDing it with <mask>, ORing it with <value>, and storing the
-+      result back to the register.
-+      These values slightly differ even between different chips of the same
-+      generation and are likely calibration values determined by Apple at
-+      manufacturing time.
-+
-+  apple,tunable-common:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      Common tunables required for all modes, see apple,tunable-axi2af for details.
-+
-+  apple,tunable-fuses:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      Fuse based tunables required for all modes, see apple,tunable-axi2af for details.
-+
-+  apple,tunable-lane0-usb:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      USB tunables on lane 0, see apple,tunable-axi2af for details.
-+
-+  apple,tunable-lane1-usb:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      USB tunables on lane 1, see apple,tunable-axi2af for details.
-+
-+  apple,tunable-lane0-cio:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      USB4/Thunderbolt ("converged IO") tunables on lane 0, see apple,tunable-axi2af for details.
-+
-+  apple,tunable-lane1-cio:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      USB4/Thunderbolt ("converged IO") tunables on lane 1, see apple,tunable-axi2af for details.
-+
-+  apple,tunable-lane0-dp:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      DisplayPort tunables on lane 0, see apple,tunable-axi2af for details.
-+
-+      Note that lane here refers to a USB RX and TX pair re-used for DisplayPort
-+      and not to an individual DisplayPort differential lane.
-+
-+  apple,tunable-lane1-dp:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      DisplayPort tunables on lane 1, see apple,tunable-axi2af for details.
-+
-+      Note that lane here refers to a USB RX and TX pair re-used for DisplayPort
-+      and not to an individual DisplayPort differential lane.
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - "#phy-cells"
-+  - "#reset-cells"
-+  - orientation-switch
-+  - mode-switch
-+  - power-domains
-+  - ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    phy@83000000 {
-+      compatible = "apple,t8103-atcphy";
-+      reg = <0x83000000 0x4c000>,
-+            <0x83050000 0x8000>,
-+            <0x80000000 0x4000>,
-+            <0x82a90000 0x4000>,
-+            <0x82a84000 0x4000>;
-+      reg-names = "core", "lpdptx", "axi2af", "usb2phy",
-+                  "pipehandler";
-+
-+      #phy-cells = <1>;
-+      #reset-cells = <0>;
-+
-+      orientation-switch;
-+      mode-switch;
-+      power-domains = <&ps_atc0_usb>;
-+
-+      ports {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        port@0 {
-+          reg = <0>;
-+
-+          endpoint {
-+            remote-endpoint = <&typec_connector_ss>;
-+          };
-+        };
-+
-+        port@1 {
-+          reg = <1>;
-+
-+          endpoint {
-+            remote-endpoint = <&dwc3_ss_out>;
-+          };
-+        };
-+
-+        port@2 {
-+          reg = <2>;
-+
-+          endpoint {
-+            remote-endpoint = <&dcp_dp_out>;
-+          };
-+        };
-+
-+        port@3 {
-+          reg = <3>;
-+
-+          endpoint {
-+            remote-endpoint = <&acio_tbt_out>;
-+          };
-+        };
-+      };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e147e1b919d5737a34e684ec587872ce591c641a..c4cbae63b0c0d42042e12d366e4a32d7ca3711ea 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2393,6 +2393,7 @@ F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
- F:	Documentation/devicetree/bindings/nvmem/apple,efuses.yaml
- F:	Documentation/devicetree/bindings/nvmem/apple,spmi-nvmem.yaml
- F:	Documentation/devicetree/bindings/pci/apple,pcie.yaml
-+F:	Documentation/devicetree/bindings/phy/apple,atcphy.yaml
- F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
- F:	Documentation/devicetree/bindings/power/apple*
- F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
+diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+index cd427eecd8a594b7e609a20de27a9722055307d8..e6e9730ee6dacd8c1271b1d52a02da49ff248d3e 100644
+--- a/drivers/usb/typec/tipd/core.c
++++ b/drivers/usb/typec/tipd/core.c
+@@ -1549,11 +1549,8 @@ static int tps6598x_probe(struct i2c_client *client)
+ 		goto err_role_put;
+ 
+ 	if (status & TPS_STATUS_PLUG_PRESENT) {
+-		ret = tps6598x_read16(tps, TPS_REG_POWER_STATUS, &tps->pwr_status);
+-		if (ret < 0) {
+-			dev_err(tps->dev, "failed to read power status: %d\n", ret);
++		if (!tps6598x_read_power_status(tps))
+ 			goto err_unregister_port;
+-		}
+ 		ret = tps6598x_connect(tps, status);
+ 		if (ret)
+ 			dev_err(&client->dev, "failed to register partner\n");
 
 -- 
 2.34.1
