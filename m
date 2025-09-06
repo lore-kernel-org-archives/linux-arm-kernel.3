@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0251CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 17:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7C8CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 17:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QeLnel44jgOiYNiaqvGTFJsZYpBvv9pN2W15LbKBpBs=; b=zfQxwurXeCWLu8jJoz4exg8QOz
-	AFi7SZDPjMt/PfStkeT0qcJIeArLsh1VB9HU6TDM8XK15J549U1/xc80YQIG0D8dfO4YPsa89iYfq
-	BOZzjlf3ovR/auQBCAbGKN5p/fFH+q9bM5xyyyLfqVTu8+FNfRGfM7okJ7HR8R4r0Yad1WmdtdwTR
-	Zcqp6aftl0NmRzNt7eHDrK84odkv2/j55d7G2nRpcuxr6z583b7ar9Lf6npoowPMYAuD+gdFZ4Rvw
-	tB/Df5vpqLojCm9DJFXsng/kHluuMIjYmig1lY/s1GkhPmV18qR+y8mwRaJ++XyO9wwREI0TKNK9p
-	9YgJephA==;
+	bh=IP7rUBaz1mvKnSQijXZkfLhmJRgyKEeoaWImepnoHPM=; b=HV8AbWCGZeLNDdIdfl4ktUV1iL
+	P6KIsAME+/XWlAFo5h79VpclNGT7PsANYExfUpt47o7KEFuY8DblWnGtnWSAhJ5wum00puKKC//C+
+	pj1UJ+8ZL+ANyOxWeYTVXiikbx4geAgRz/q0GWBf7oCGiVezW5J7koxxLNf3ewtuBgDf1CBZ0SOVF
+	qHbm3fkDWJuLlXthHrCdN7gHBqyqRDHWiTEdYO20jMMmu8lD40rcwXXQsm2syUezw4sxBo86X73aw
+	ZAl1nZiK5YTq/En8qRCyfygFBrCIJ/WkId5b9Jfmih2AbCCtd4k24cc66GvR1kyqB/x47+gU/tket
+	nDWEelcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuwWG-00000008B5r-1Spj;
-	Sat, 06 Sep 2025 17:16:08 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1uuxB7-00000008EQC-1Pkq;
+	Sat, 06 Sep 2025 17:58:21 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuwTR-00000008Arh-1B6t
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 17:13:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757178794; x=1788714794;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Mv/Y3kvQFgparfIlQNQwNiMV1wrcDKs1S8/YH+Ac6po=;
-  b=PexXLg99DL8eReMnD6xcW0xDZhsQgmVnsByH0yoGABYhMzbgMKY+6Cjz
-   6lA9hlWsJvbljte4g4W6X7ATBjDlRrnk+xKF4vpp4GtQk9R1Vgfh87JzM
-   0Nm/l14Jor0njexWG8LYMj2ZRL0xNe4TtJZidgOMzrZgZXqd3tDA5S9z4
-   NQnBvJ3Q0XtYGlkogTZYtxTjndBoql8Yorx/ysC6mWqdVMrnJEEyFOJJV
-   omkJQ21r2BMiODipCtlbmYFVRH8lIcRTBEF+1h/Zot4oaE3Mgx1c97a+c
-   bRZCYZ0YsSsRenUn89/Bf7VtETC2PxtR7D0TpKVId1IxM+C035N9E1lpE
-   g==;
-X-CSE-ConnectionGUID: Di5oHj3cQQK11uc7tJ0fyQ==
-X-CSE-MsgGUID: GjYFfv8MTT2XHee3l5NKJw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11545"; a="70926737"
-X-IronPort-AV: E=Sophos;i="6.18,244,1751266800"; 
-   d="scan'208";a="70926737"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Sep 2025 10:13:11 -0700
-X-CSE-ConnectionGUID: 3WS+ZCjMTFaHD/3JOA6TTw==
-X-CSE-MsgGUID: 0iif958RTK6QdgJj0vJWIQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,244,1751266800"; 
-   d="scan'208";a="172298134"
-Received: from lkp-server01.sh.intel.com (HELO 114d98da2b6c) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 06 Sep 2025 10:13:07 -0700
-Received: from kbuild by 114d98da2b6c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uuwTI-0001g7-1o;
-	Sat, 06 Sep 2025 17:13:04 +0000
-Date: Sun, 7 Sep 2025 01:12:31 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Lee Jones <lee@kernel.org>, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v3 1/4] irqchip/aspeed-scu-ic: Refactor driver to support
- variant-based initialization
-Message-ID: <202509070058.3Z4AtICl-lkp@intel.com>
-References: <20250906014846.861368-2-ryan_chen@aspeedtech.com>
+	id 1uux8A-00000008EDm-0N9i;
+	Sat, 06 Sep 2025 17:55:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1757181295; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=WNxEioriaEs/u+KCseNI2dB68EOHRgf0F+l9UmkTxpaMjOTaqo7u92cu+ELDxOq6VauP91oW2ZnCuFdGdIQG226W+TRDWmCwA6K1lZfffMI7N5jNd0xsoKMeTVR1IK7VMxAMZB0evgvqsPZF3Nuz8Jix1RWyYjfVfQelO0JUG6g=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1757181295; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=IP7rUBaz1mvKnSQijXZkfLhmJRgyKEeoaWImepnoHPM=; 
+	b=mM+byTotFb+OP9BafKuB5zHSQdFPMwb3RQYFI8+0FJmDjAyweLe7SNCFmWy+36m5UCxNSlRPRyu0GAm8QbEmAmilnIpWvS5mwtSI5Vs3PEYrSxv5JBfOOaVstU2l2TGJaQBFEzZvZOkP023kXkSiEAzAJ3ZZKPwVhvEWRN0EGdc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757181295;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=IP7rUBaz1mvKnSQijXZkfLhmJRgyKEeoaWImepnoHPM=;
+	b=Vo8En1fHBjlORqqr4nwH2t1Ko4oGKDiIZXye5dpPTJTXQ0z0uomJitKJBaxlGxz0
+	Hyf/qh7Sf5IUbhGDXsb0Bl7OJakZbjMGKA4FFAayKBvo3sM8/nDtjSqFD7NHQPPAjTa
+	lnvN1396nqMaHKXIkhA6srQFSndnyRG4BHZ+RY68=
+Received: by mx.zohomail.com with SMTPS id 1757181293913862.8978758635274;
+	Sat, 6 Sep 2025 10:54:53 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Rob Herring <robh@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH RFC 01/10] dt-bindings: gpu: mali-valhall-csf: add
+ mediatek,mt8196-mali variant
+Date: Sat, 06 Sep 2025 19:54:46 +0200
+Message-ID: <13801600.O9o76ZdvQC@workhorse>
+In-Reply-To: <20250905232657.GA1497794-robh@kernel.org>
+References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
+ <20250905-mt8196-gpufreq-v1-1-7b6c2d6be221@collabora.com>
+ <20250905232657.GA1497794-robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250906014846.861368-2-ryan_chen@aspeedtech.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_101313_394645_BC8EE0ED 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20250906_105518_157540_5F29FD22 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,83 +93,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+Hi Rob,
 
-kernel test robot noticed the following build warnings:
+On Saturday, 6 September 2025 01:26:57 Central European Summer Time Rob Herring wrote:
+> On Fri, Sep 05, 2025 at 12:22:57PM +0200, Nicolas Frattaroli wrote:
+> > The Mali-based GPU on the MediaTek MT8196 SoC is shackled to its concept
+> > of "MFlexGraphics", which in this iteration includes an embedded MCU
+> > that needs to be poked to power on the GPU, and is in charge of
+> > controlling all the clocks and regulators.
+> > 
+> > In return, it lets us omit the OPP tables from the device tree, as those
+> > can now be enumerated at runtime from the MCU.
+> > 
+> > Add the mediatek,mt8196-mali compatible, and a performance-controller
+> > property which points to a node representing such setups. It's required
+> > on mt8196 devices.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 36 +++++++++++++++++++++-
+> >  1 file changed, 35 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> > index a5b4e00217587c5d1f889094e2fff7b76e6148eb..6df802e900b744d226395c29f8d87fb6d3282d26 100644
+> > --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> > +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> > @@ -19,6 +19,7 @@ properties:
+> >        - items:
+> >            - enum:
+> >                - rockchip,rk3588-mali
+> > +              - mediatek,mt8196-mali
+> >            - const: arm,mali-valhall-csf   # Mali Valhall GPU model/revision is fully discoverable
+> >  
+> >    reg:
+> > @@ -53,6 +54,13 @@ properties:
+> >    opp-table:
+> >      type: object
+> >  
+> > +  performance-controller:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle
+> > +    description:
+> > +      A phandle of a device that controls this GPU's power and frequency,
+> > +      if any. If present, this is usually in the form of some specialised
+> > +      embedded MCU.
+> 
+> We already abuse power-domains binding with both power and performance. 
+> There's a performance-domain binding too, but only used on one platform 
+> for CPUs (Mediatek too IIRC). Or perhaps you could just point to an 
+> empty OPP table. I don't think you have anything new here, so don't 
+> invent something new.
 
-[auto build test WARNING on tip/irq/core]
-[also build test WARNING on robh/for-next lee-mfd/for-mfd-next lee-mfd/for-mfd-fixes linus/master v6.17-rc4 next-20250905]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Oops, yeah, I forgot about performance-domain already existing. I agree
+that it looks like a good fit; iirc I initially disregarded it because
+I thought it was an actual heterogenous core cpufreq-y thing I'd be
+overloading with new meaning, but I see now that this is not so, and
+aside from mediatek, Apple appears to be the only user.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/irqchip-aspeed-scu-ic-Refactor-driver-to-support-variant-based-initialization/20250906-095043
-base:   tip/irq/core
-patch link:    https://lore.kernel.org/r/20250906014846.861368-2-ryan_chen%40aspeedtech.com
-patch subject: [PATCH v3 1/4] irqchip/aspeed-scu-ic: Refactor driver to support variant-based initialization
-config: arm-randconfig-001-20250906 (https://download.01.org/0day-ci/archive/20250907/202509070058.3Z4AtICl-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7fb1dc08d2f025aad5777bb779dfac1197e9ef87)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250907/202509070058.3Z4AtICl-lkp@intel.com/reproduce)
+Thanks for the fast review.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509070058.3Z4AtICl-lkp@intel.com/
+Kind regards,
+Nicolas Frattaroli
 
-All warnings (new ones prefixed by >>):
-
->> drivers/irqchip/irq-aspeed-scu-ic.c:79:34: warning: variable 'mask' is uninitialized when used here [-Wuninitialized]
-      79 |                 writel((readl(scu_ic->base) & ~mask) |
-         |                                                ^~~~
-   drivers/irqchip/irq-aspeed-scu-ic.c:55:24: note: initialize the variable 'mask' to silence this warning
-      55 |         unsigned int sts, mask;
-         |                               ^
-         |                                = 0
-   1 warning generated.
+> 
+> Rob
+> 
 
 
-vim +/mask +79 drivers/irqchip/irq-aspeed-scu-ic.c
 
-    49	
-    50	static void aspeed_scu_ic_irq_handler(struct irq_desc *desc)
-    51	{
-    52		struct aspeed_scu_ic *scu_ic = irq_desc_get_handler_data(desc);
-    53		struct irq_chip *chip = irq_desc_get_chip(desc);
-    54		unsigned long bit, enabled, max, status;
-    55		unsigned int sts, mask;
-    56	
-    57		chained_irq_enter(chip, desc);
-    58	
-    59		/*
-    60		 * The SCU IC has just one register to control its operation and read
-    61		 * status. The interrupt enable bits occupy the lower 16 bits of the
-    62		 * register, while the interrupt status bits occupy the upper 16 bits.
-    63		 * The status bit for a given interrupt is always 16 bits shifted from
-    64		 * the enable bit for the same interrupt.
-    65		 * Therefore, perform the IRQ operations in the enable bit space by
-    66		 * shifting the status down to get the mapping and then back up to
-    67		 * clear the bit.
-    68		 */
-    69		sts = readl(scu_ic->base);
-    70		enabled = sts & scu_ic->irq_enable;
-    71		status = (sts >> ASPEED_SCU_IC_STATUS_SHIFT) & enabled;
-    72	
-    73		bit = scu_ic->irq_shift;
-    74		max = scu_ic->num_irqs + bit;
-    75	
-    76		for_each_set_bit_from(bit, &status, max) {
-    77			generic_handle_domain_irq(scu_ic->irq_domain,
-    78						  bit - scu_ic->irq_shift);
-  > 79			writel((readl(scu_ic->base) & ~mask) |
-    80			       BIT(bit + ASPEED_SCU_IC_STATUS_SHIFT),
-    81			       scu_ic->base);
-    82		}
-    83	
-    84		chained_irq_exit(chip, desc);
-    85	}
-    86	
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
