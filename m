@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 813B3CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 01:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDE4CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 01:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CqNxXQ4nHpsF+qXR4Dx8odJeFWSsZU+70lFnX5QCDhY=; b=t+5Uukd7CAlq7jsXYxBo80Qq5R
-	5o15OcnOFIxQ/XVqGl1Q1ZATZ+ZU09UbhdX2GdqMtgSVeg4alWPxPY/R8pQ1P9Y0GBZ+bNBE+kFT9
-	fiVXOnRYTFlS3XlFW11rR2gzNxx/+hIVcVKEbyo7dq/YWvbdNzWo+ENkdjPvZSYCaa4qbeaKAqrfz
-	rkMAj/UaT2Fz/V58mY8C969CSbVzqZW25QbPZC/y3x+x2L2Pu4E/M5Q8ddxpOtYt9MCbXkbOqXs+D
-	xTzo+BGKdQaVbVSVn15Pifgs8lPu5LIJ3+6qTCTcZsuqGqKQlzVaNrYjGYqHYiucJ+5qZM9pl2Opz
-	gRPlFR+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L7F0n7D432kI/8TDM2zzfMQeAXcSFxDGIcCb60S29Ag=; b=zPOSDp5eb78I1OW/PScFfH0Sik
+	PDemvZLElbwDsSoDx0uoKmbLrRAhrgfPPkiiOGL51gjY/fSyapWluo1BfFYCJ+VXRwFFA8A7SWMj/
+	veyGQYunVtw6gsawhwpU8GIYMaDgzSDdK1LKk3k7C020uLx1M6B1KoSycIpcvWwVjEQG44icXPjkw
+	ozk0oXDytEUgCPgu+mMJdjw0HBUHdi40IL66j/Bpp6KDFC4LmSNE/AgSCQxtTeSDQZKAAdgVmfEDJ
+	u4zlkNlUWr73t8KuIyz+AUHglFbZCmDrorxw9j2N1uo5M2qKDSZXlGHcIqjBG/AOlpYZYbo3R+0P1
+	GRNZHw1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuhsV-00000005ujm-20VV;
-	Sat, 06 Sep 2025 01:38:07 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1uui4s-00000005yWX-0WBf;
+	Sat, 06 Sep 2025 01:50:54 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuhpd-00000005u9c-0Uyr;
-	Sat, 06 Sep 2025 01:35:10 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6228de280ccso1461164a12.3;
-        Fri, 05 Sep 2025 18:35:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757122507; x=1757727307; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CqNxXQ4nHpsF+qXR4Dx8odJeFWSsZU+70lFnX5QCDhY=;
-        b=MRJXptyMgn4DZMV5pOQFGnzQ6C/jWVcbbSs8tkEBA5jIpJzhPpvG2JiIJqUkARL2zg
-         et9NSp4lBNIYx5E8yCFvzmNzVlMbSUMSQslSkFnui13lrwxeejVGu7MV/m/Cs4QuVgO0
-         v3xoS5KdQkdvJQEPwOoi54JNjQev8Y2eqLAK4kTW6gJMqdGV7K0beE3LqmGPxOtcrJpj
-         aAG+CeuNIRpAHn7G5xv6F9yXUyaOd+4vJ1jLai4Q8zK9BIFUvHldvQs09er1ID598ESq
-         7Bhyl7bWrFshPjUW2HfVrbkmMkGP6MFXO20qWc4cV4rC1orEQsseGrSoC4IdIcNPD/db
-         sZuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757122507; x=1757727307;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CqNxXQ4nHpsF+qXR4Dx8odJeFWSsZU+70lFnX5QCDhY=;
-        b=sBD2Mv++NOMxwAig+ZAu66UPoIxrbXvwxSe/DeDWSnfAJRKhBskzazVQ+1KMMC+d4B
-         Nzr+ALVSGFomE2Si+Bd/XGuHqNRAycyQnlG+BkFX6y+ErejCJ55VCs7sQ6p4zHY1UHas
-         ebfJ/JBkxB6c8KcOCfrBo9QdEicFvPCTgTOGpW9LbrqVq+8tFnXRvqOIdSTSC/JY0877
-         5xI+oo1B/8//KnAo19LYAzoGbd/1PaA5Z6E+gVe1ANPhA/orW3woprK0agb8LDrs2jh7
-         2q+9OLq7lf8o9yX4Gmx2KWbA5xddXUsR6iYD1bxRy+rQ0jeizQyVvD/pOpx83l7ALILx
-         o6RQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUuiPBwUaBCSFIimbl0THMst5xa8D2NGbmT3ORglbchbl4SEykYZG0ov9itEODeOZX9B9s7bBKjwQiHI67KELM=@lists.infradead.org, AJvYcCWVxMY+f1gheAat53qqMuMQRFaPmNAlyGAUymKLkxGCkpxx2rYmv+0duAQ6O2CxkYQ8yO8TKTSHF2Gv1M1gjBHW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+eXu+9wqVlv7rMg9vvt4aBgZ3i4Mi5gy2XIQ/g5/AMlBSMcH8
-	R+UmiAtUgETXVhXvY6tV+IuF/WECmGLsyKk9hJA09PxJxLvbbrVCZXFuMsW3lrBv3AYPUuH1Lan
-	TKLvbwnLGN///zqej3WwQqUr0LOsZKAI=
-X-Gm-Gg: ASbGnctdZ4ILQM1RTS2Zu2oiXv/WxJlD6A2h9tqzE55Ldf9RYr60jvaETmSfAMJd+IY
-	NpId5t9/gJ55FxkGisOGCCUE9+NwunTc1vsSgvqZm31gr65PVn2CwsdFzDfVevTaPt7gjKg+mCo
-	avl7HtlK9bn7fLqVjQ+V/GOV3xkU0nvmL1awljhKHQB07mHZxG+j8F+fPBmguxCPnmEwFQKgtwp
-	h6A0TNxi4dzkXwePA==
-X-Google-Smtp-Source: AGHT+IHUk2XfEP3oZ1qlnnJyiPfNm42Q4P5RUupaRScX2mRrTgQl+/WpyWfrV8JDjZaSVCFI462i2vBCUsBzJ3JREIg=
-X-Received: by 2002:a05:6402:370d:b0:61c:5cac:2963 with SMTP id
- 4fb4d7f45d1cf-6237f944ec1mr747810a12.29.1757122507114; Fri, 05 Sep 2025
- 18:35:07 -0700 (PDT)
+	id 1uui22-00000005x7f-0wg0
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 06 Sep 2025 01:47:59 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5861lplt3440581;
+	Fri, 5 Sep 2025 20:47:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757123271;
+	bh=L7F0n7D432kI/8TDM2zzfMQeAXcSFxDGIcCb60S29Ag=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=aMPgdkMyU0tQsAXg6Z67kzB+8r9scFyKT3o5TgOgy+IJrss8I7NQAhNyKI/MWV8vt
+	 licxwf4EraFKp2U2gpVfNpe7cAhm/8w4RWzyZsTVqHYGHC1AWqA61xaWzIXMtAef78
+	 SPKmKULN0QmAOJ2JKPUMkCzqH6Wj24BMCBoDRzSk=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5861lpko2051501
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 5 Sep 2025 20:47:51 -0500
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 5
+ Sep 2025 20:47:51 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Fri, 5 Sep 2025 20:47:51 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5861lnUb1300100;
+	Fri, 5 Sep 2025 20:47:50 -0500
+Date: Sat, 6 Sep 2025 07:17:49 +0530
+From: s-vadapalli <s-vadapalli@ti.com>
+To: Alok Tiwari <alok.a.tiwari@oracle.com>
+CC: <vigneshr@ti.com>, <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <linux-omap@vger.kernel.org>,
+        <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] PCI: j721e: Fix incorrect error message in probe
+Message-ID: <22e63c06-ec7f-4afe-8fc2-f90d49004ce9@ti.com>
+References: <20250905211436.3048282-1-alok.a.tiwari@oracle.com>
 MIME-Version: 1.0
-References: <20250905132328.9859-1-cn.liweihao@gmail.com> <20250905132328.9859-3-cn.liweihao@gmail.com>
- <707aad1d-fcdb-4c66-8d96-41cf1a1b02ce@kernel.org>
-In-Reply-To: <707aad1d-fcdb-4c66-8d96-41cf1a1b02ce@kernel.org>
-From: =?UTF-8?B?5p2O57u06LGq?= <cn.liweihao@gmail.com>
-Date: Sat, 6 Sep 2025 09:34:51 +0800
-X-Gm-Features: Ac12FXz_ebvQ7hvtXykd69gMxtD2syeHiyJATPrpJ61FnCFXWiMfi64X3YV7b4Q
-Message-ID: <CAPEOAkRTVtKBsmiGTbKOCar0oNS-C3dRXqdpuowroRPH1bFS7g@mail.gmail.com>
-Subject: Re: [PATCH v1 2/4] dt-bindings: clock: rk3368: add CLK_I2S_8CH_PRE
- and CLK_I2S_8CH_FRAC
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250905211436.3048282-1-alok.a.tiwari@oracle.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_183509_161209_79799101 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250905_184758_306151_231CBAB5 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Sep 05, 2025 at 02:14:34PM -0700, Alok Tiwari wrote:
+> The probe function printed "pm_runtime_get_sync failed" when
+> j721e_pcie_ctrl_init() returned an error. This is misleading since
+> the failure was not from pm_runtime but from the controller init
+> routine. Update the error message to correctly reflect the source.
+> 
+> No functional changes.
+> 
+> Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
+> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+> ---
+> Not sure if a Fixes tag is required here
+> ---
+>  drivers/pci/controller/cadence/pci-j721e.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+> index 6c93f39d0288..5e445a7bda33 100644
+> --- a/drivers/pci/controller/cadence/pci-j721e.c
+> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> @@ -549,7 +549,7 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+>  
+>  	ret = j721e_pcie_ctrl_init(pcie);
+>  	if (ret < 0) {
+> -		dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
+> +		dev_err_probe(dev, ret, "j721e_pcie_ctrl_init failed\n");
+>  		goto err_get_sync;
+>  	}
 
-Krzysztof Kozlowski <krzk@kernel.org> =E4=BA=8E2025=E5=B9=B49=E6=9C=885=E6=
-=97=A5=E5=91=A8=E4=BA=94 22:13=E5=86=99=E9=81=93=EF=BC=9A
->
-> On 05/09/2025 15:23, WeiHao Li wrote:
-> > We need a clock id to assign clock parent when use i2s 8ch as audio
-> > device, CLK_I2S_8CH_FRAC should be CLK_I2S_8CH_PRE parent so we can get
-> > frequency we want.
-> >
-> > Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
-> > ---
-> >  include/dt-bindings/clock/rk3368-cru.h | 3 +++
-> >  1 file changed, 3 insertions(+)
-> >
-> > diff --git a/include/dt-bindings/clock/rk3368-cru.h b/include/dt-bindin=
-gs/clock/rk3368-cru.h
-> > index b951e29069..795e721957 100644
-> > --- a/include/dt-bindings/clock/rk3368-cru.h
-> > +++ b/include/dt-bindings/clock/rk3368-cru.h
-> > @@ -183,6 +183,9 @@
-> >  #define HCLK_BUS             477
-> >  #define HCLK_PERI            478
-> >
-> > +#define CLK_I2S_8CH_PRE              500
->
-> 479
->
-> > +#define CLK_I2S_8CH_FRAC     501
->
-> 480, no?
->
+Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-Neither of these clocks belong to the previous grouping in terms of
-type, so I chose to start with a new integer id here.
-
-Yours,
-WeiHao
+Regards,
+Siddharth.
 
