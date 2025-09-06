@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61733CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1439CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 12:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2VRkDRSNb/7X+HSsvla2TGMRSFSd2qy0QoIJDbB1B5o=; b=4atWDwjZt1pSms/fe053v1NozI
-	oe1jJJT4xWhgMUc2UhAzGFrgmM6G+XGkTakp+706xnVdbx3C21YVlhoUzyyII2Ppo3YYBMSJAqa9r
-	O2BvS7jHDIqavtdR6vTU6srvzhpSvUFrA9z9VC/X+qWyaM6hv3qEusF+U/1XwL5OyRQOhohh8qQcj
-	bwENJIfzdDi06MP3XnrSsd55XDl8EiFN8OC81IEijWZ6urPM0JzI9jtjIAUNJjlRL+qqksDztHgvo
-	99cs7zoi/OgpbQqsT/6oidK5Dj3yPfA0PBqSUBBCXKA4klDNwy/rEpR34CcNxtqKZCROmjx9a8y6y
-	SK8rkaag==;
+	bh=5o0Lc7tHeb/XcDNrBsU4rId8xv92WWzNNwMOr8SaKj0=; b=xL/pFHikMHrMQw1zNV7qc4qy+h
+	09JhKpC34XQ+dJkjg2KyWy2+cdsCLhUN3MLLVOHFb3tdmaS3DGgxtno8DfGACo77LSJnG2iWaJWaM
+	T3B01vwbLOFqYYgQ+f1oMw+VJch+QBmyiOSdf9C+uSuHQBAtKcfHgAQnaVJWmV7LcY0Lf517oxqq/
+	RV3iqreNmhXVLBbCra1crUD9HfORt7YzN9WA0mbDhyl5q0zEcNd5UXth/gZdtFYuhk1x7TSvfvrS5
+	h4ILiq+AE3iZ+nbvD9NMmENII8If+nqWs7feg5FxkCRBp72zYIKsp23wYwa6aYXIWMkvvFkic8BdJ
+	g7j2O7sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uureb-00000007jPS-3YlW;
-	Sat, 06 Sep 2025 12:04:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uurit-00000007ji9-2tbZ;
+	Sat, 06 Sep 2025 12:08:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uurbo-00000007jFj-0Hsz
+	id 1uurg4-00000007jXn-3b2e
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 12:01:33 +0000
+	Sat, 06 Sep 2025 12:05:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E69B840802;
-	Sat,  6 Sep 2025 12:01:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 398BAC4CEE7;
-	Sat,  6 Sep 2025 12:01:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C4B54484C;
+	Sat,  6 Sep 2025 12:05:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83B90C4CEE7;
+	Sat,  6 Sep 2025 12:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757160090;
-	bh=H+js8WLuHfcNY6HqZd4U4ex2F4rnKaf6udYX1HgmcR8=;
+	s=k20201202; t=1757160356;
+	bh=MMBOJfs68xGaCYdH1zeRaD61flhQMDRGdp6pvXusXas=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B/nh5H6cH553rNiW29Irs3iF8FIzSwYwUTFzChtrFU844vMa4Blyo4p8yAY+paCSB
-	 mITb5bEq0L8PfbgltOq3dh/BvXfv9dNhtijWRKYn7VinqIQaEldSiHoTX2ndPwCOgj
-	 Xmlr5rkkt1sYRsIqYvnQU307H4qsYN5IjbIX6JbEwktOAhKtf88kQYpajVy4JdogAQ
-	 8v6gZF5lMKcedaoQw3lZtrpQLixX2P7vFgoUFCsw0Bckdw4kmiZJy1NF8hGxKLjVfq
-	 xRA1BPB9eZqVhAE77HqgscgvMr03L2qypXF+rWYvwf42bQj3TXBHDpxvfaf8WB7pb/
-	 SlRVgUQOplGFQ==
-Message-ID: <288f0cf1-1ee4-4eba-b059-641120bb93f3@kernel.org>
-Date: Sat, 6 Sep 2025 14:01:25 +0200
+	b=RIpit8ShleSdOcRjrgtbMXLoN+2MSg5APLeyBoh6uGM0YMxVfirKfOLtqwkt8dSAP
+	 pp0HNYYfEF+i/8hreGzgVMdyQOFqmcAEFN2qHpVB/mJ+eB9Ie0Q5QyPkxIH5+WB49j
+	 gEmeSfJMxVDUHN4ZDsnO55gAuaR2dcRY9lQhIV9zvxgrTYg+LVASzx2xeM2XwT4U7s
+	 s+UEwYQgsPgpDNuis2cplmpZDHiTiJ2tb+Ex03qOVQZBABXQ/ys2urCgj5/KKbuMdm
+	 1yiM5vM+RLsLmZBo/hnVCl/jnpoDNEyrlaP9We6UmaJQbZGsK/lDbTH4qodo2gozw3
+	 fhscmLlbBnGtw==
+Message-ID: <e71e6f3d-af02-4910-91ae-acf41692ac5b@kernel.org>
+Date: Sat, 6 Sep 2025 14:05:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: mfd: sy7636a: Add missing gpio pins and
- supply
-To: Andreas Kemnade <akemnade@kernel.org>, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alistair Francis
- <alistair@alistair23.me>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
- <20250906-sy7636-rsrc-v1-1-e2886a9763a7@kernel.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: samsung: Add tmu-name and
+ sensor-index-ranges properties
+To: Shin Son <shin.son@samsung.com>,
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250903073634.1898865-1-shin.son@samsung.com>
+ <CGME20250903073653epcas2p4cb25058c97aab9a30c7e68ef5f10fb91@epcas2p4.samsung.com>
+ <20250903073634.1898865-2-shin.son@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +105,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250906-sy7636-rsrc-v1-1-e2886a9763a7@kernel.org>
+In-Reply-To: <20250903073634.1898865-2-shin.son@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_050132_163398_1FC165AE 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20250906_050556_938233_ABAD1E4F 
+X-CRM114-Status: UNSURE (   6.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +126,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/09/2025 11:09, Andreas Kemnade wrote:
-> To be able to fully describe how the SY7636A is connected to the system,
-> add properties for the EN and VCOM_EN pins. To squeeze out every bit
-> of unused current, in many devices it is possible to power off the
-> complete chip. Add an input regulator to allow that.
-> 
-> Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
-> ---
->  .../devicetree/bindings/mfd/silergy,sy7636a.yaml         | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml b/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
-> index ee0be32ac0204..08ad593e237f1 100644
-> --- a/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
-> @@ -32,6 +32,22 @@ properties:
->        Specifying the power good GPIOs.
->      maxItems: 1
->  
-> +  en-gpios:
+On 03/09/2025 09:36, Shin Son wrote:
+>  > +  samsung,hw-sensor-indices:
+> +    description: |
+> +      List of hardware sensor indices that are physically present and usable
+> +      in this TMU instance. Indices not listed are either unmapped or unused.
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 1
+> +    maxItems: 16
+> +    uniqueItems: true
 
-enable-gpios, unless it is something else, but then please explain in
-the description.
 
-> +    description:
-> +      If EN pin is not hardwired, specify it here to have it set up.
-> +    maxItems: 1
+For v3 you also need:
+
+  items:
+    maximum: 16
+(or whatever values are actually correct)
+
 
 
 Best regards,
