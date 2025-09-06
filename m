@@ -4,73 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDE4CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 01:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8DECA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 01:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L7F0n7D432kI/8TDM2zzfMQeAXcSFxDGIcCb60S29Ag=; b=zPOSDp5eb78I1OW/PScFfH0Sik
-	PDemvZLElbwDsSoDx0uoKmbLrRAhrgfPPkiiOGL51gjY/fSyapWluo1BfFYCJ+VXRwFFA8A7SWMj/
-	veyGQYunVtw6gsawhwpU8GIYMaDgzSDdK1LKk3k7C020uLx1M6B1KoSycIpcvWwVjEQG44icXPjkw
-	ozk0oXDytEUgCPgu+mMJdjw0HBUHdi40IL66j/Bpp6KDFC4LmSNE/AgSCQxtTeSDQZKAAdgVmfEDJ
-	u4zlkNlUWr73t8KuIyz+AUHglFbZCmDrorxw9j2N1uo5M2qKDSZXlGHcIqjBG/AOlpYZYbo3R+0P1
-	GRNZHw1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UzDVRuCah7NxKez4DJgHs0IE76L3D8WM+eGIV7r7Tcc=; b=2nFfRr78Cu9H9D
+	zxBNosbGzWjdw4QtvhxAQK9pYCbctpw29VEVAupGlCekYO5vqxILWQXRc8V8YgZ90ZqEjO1kHeiGT
+	0wZ8+OKjbFI9TqEXsxs94A3V9ACCv38p5WHPb4G60uBDe1NYwskSS5hbl0mU2hgCFOaK9Ywnf698D
+	J0QI0ZBM7cakjjFbvanulsy8dWejuPljfOn0RVxVY191HmXaReZAxQtVriVTCSl32Z2AkS4nRSX02
+	8AYBa+Mx03S7BSb7ehOVxFRSa5vY/GRlEh6cLS2FO+W/yq4i3I5jxwHWAqMmGEc4qIjs0+bA+2RkW
+	Q9BLfyhFDwnb0m0i3kwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uui4s-00000005yWX-0WBf;
-	Sat, 06 Sep 2025 01:50:54 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uui7g-00000005zTC-1oRn;
+	Sat, 06 Sep 2025 01:53:48 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uui22-00000005x7f-0wg0
+	id 1uui2w-00000005xYS-18TF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 01:47:59 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5861lplt3440581;
-	Fri, 5 Sep 2025 20:47:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757123271;
-	bh=L7F0n7D432kI/8TDM2zzfMQeAXcSFxDGIcCb60S29Ag=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=aMPgdkMyU0tQsAXg6Z67kzB+8r9scFyKT3o5TgOgy+IJrss8I7NQAhNyKI/MWV8vt
-	 licxwf4EraFKp2U2gpVfNpe7cAhm/8w4RWzyZsTVqHYGHC1AWqA61xaWzIXMtAef78
-	 SPKmKULN0QmAOJ2JKPUMkCzqH6Wj24BMCBoDRzSk=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5861lpko2051501
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 5 Sep 2025 20:47:51 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 5
- Sep 2025 20:47:51 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 5 Sep 2025 20:47:51 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5861lnUb1300100;
-	Fri, 5 Sep 2025 20:47:50 -0500
-Date: Sat, 6 Sep 2025 07:17:49 +0530
-From: s-vadapalli <s-vadapalli@ti.com>
-To: Alok Tiwari <alok.a.tiwari@oracle.com>
-CC: <vigneshr@ti.com>, <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <linux-omap@vger.kernel.org>,
-        <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] PCI: j721e: Fix incorrect error message in probe
-Message-ID: <22e63c06-ec7f-4afe-8fc2-f90d49004ce9@ti.com>
-References: <20250905211436.3048282-1-alok.a.tiwari@oracle.com>
+	Sat, 06 Sep 2025 01:48:55 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Sat, 6 Sep
+ 2025 09:48:46 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Sat, 6 Sep 2025 09:48:46 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: ryan_chen <ryan_chen@aspeedtech.com>, Eddie James <eajames@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Lee Jones <lee@kernel.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v3 0/4] irqchip: Add support for Aspeed AST2700 SCU interrupt controller
+Date: Sat, 6 Sep 2025 09:48:42 +0800
+Message-ID: <20250906014846.861368-1-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250905211436.3048282-1-alok.a.tiwari@oracle.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_184758_306151_231CBAB5 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20250905_184854_311945_46DE89D8 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +66,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 05, 2025 at 02:14:34PM -0700, Alok Tiwari wrote:
-> The probe function printed "pm_runtime_get_sync failed" when
-> j721e_pcie_ctrl_init() returned an error. This is misleading since
-> the failure was not from pm_runtime but from the controller init
-> routine. Update the error message to correctly reflect the source.
-> 
-> No functional changes.
-> 
-> Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
-> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
-> ---
-> Not sure if a Fixes tag is required here
-> ---
->  drivers/pci/controller/cadence/pci-j721e.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-> index 6c93f39d0288..5e445a7bda33 100644
-> --- a/drivers/pci/controller/cadence/pci-j721e.c
-> +++ b/drivers/pci/controller/cadence/pci-j721e.c
-> @@ -549,7 +549,7 @@ static int j721e_pcie_probe(struct platform_device *pdev)
->  
->  	ret = j721e_pcie_ctrl_init(pcie);
->  	if (ret < 0) {
-> -		dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
-> +		dev_err_probe(dev, ret, "j721e_pcie_ctrl_init failed\n");
->  		goto err_get_sync;
->  	}
+This series adds support for the SCU (System Control Unit) interrupt
+controllers on the Aspeed AST2700 SoC.
 
-Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+AST2700 follows the same multi-instance SCU interrupt controller design
+as AST2600, with four independent interrupt domains (scu-ic0 to 3).
+However, unlike previous SoCs that use a single register for both enable
+and status bits, AST2700 splits them into separate IER (Interrupt Enable)
+and ISR (Interrupt Status) registers.
 
-Regards,
-Siddharth.
+To support this, the driver is refactored to use a variant-based init
+structure, selected by compatible string. Register access is also
+converted from regmap to MMIO (via `of_iomap()`), and a per-variant
+IRQ handler is used depending on register layout.
+
+v3:
+- irq-aspeed-scu-ic.c
+ - update for bracket-rules.
+ - update TAB not spaces to align.
+ - remove stray TAB.
+ - update end up aligned.
+ - add missing _ier, _isr in SCU_VARIANT.
+ - add two different mask/unmask/ functions for split and combined.
+
+v2:
+- Refactor SCU IC driver to support variant-based initialization
+- Add AST2700 compatible strings to YAML and header files
+- Extend DT bindings in mfd and irqchip for AST2700
+- Add IRQ handler logic for separate IER/ISR layout
+
+Ryan Chen (4):
+  irqchip/aspeed-scu-ic: Refactor driver to support variant-based
+    initialization
+  dt-bindings: mfd: aspeed: Add AST2700 SCU compatibles
+  dt-bindings: interrupt-controller: aspeed: Add AST2700 SCU IC
+    compatibles
+  irqchip/aspeed-scu-ic: Add support AST2700 SCU interrupt controllers
+
+ .../aspeed,ast2500-scu-ic.yaml                |   6 +-
+ .../bindings/mfd/aspeed,ast2x00-scu.yaml      |   4 +
+ drivers/irqchip/irq-aspeed-scu-ic.c           | 242 +++++++++++-------
+ .../interrupt-controller/aspeed-scu-ic.h      |  14 +
+ 4 files changed, 173 insertions(+), 93 deletions(-)
+
+-- 
+2.34.1
+
 
