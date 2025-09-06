@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 336DFCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 15:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D21D0CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Sep 2025 15:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/6GfpxvqDVkOU3zBhesBRt10Y9kMWHkPFGAlHHI+Hhw=; b=phTLfEaikngqQX
-	+OQ+KOWHx+dzAJhMFeIRd4O7dVI90oT+KTTp31lzl5vKszQve+9A0Vdz4KHlnYSIqEBZkiEQK3/rB
-	opb6Kv+Vi0PzRR0TjO6pkuVOKViv45jgCd0NUEbfxaRc3iMINOebTz6eNAthpS/5gR+FN2ARETssS
-	xXAJGNSoYbsLqz3Txg+jA2JGASqnRVj/GsOR4nXvBe3xT4CkF/Qcl83+DOQPyuTQTrvK0xLczb2mb
-	cSsJ3+eBcVvYb6shGo++jBiIVFvKupmnSnT84rTGrHArRVIZj+jXl8BBL/SDdu2uS7NyW7mVjiUb+
-	meXfWLEXUkc0NSSJndqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bozM0xzkLHyi3SfbjBTY8MlVfwH2fRc9MnCeh3xWIdc=; b=NtWIoSn5uuN+FX
+	MRyb/Cu0cf7H5NLA+rbv3C867Wtd+rzuWsVFFMxxzMi88WZQvRCpMJWyprwDfaVHSNOQFvlOGPTEO
+	PxKxPW5ZEXaHx+re+Mt/48JANzt0/fhe5XjggP3bKl1leOcp3Y3R1OuDBvs10q+QGs7utJRdLni62
+	NQQvHcBG0KZvCCdK2gqFMKcsNMMu/9RQTsX9oavhP49D7nyNmnYDeZ54XXmHiAZ8yUORZk0oDiM+j
+	CymDiS5FxvHF2Wqm6WIw71hibWr01Cs5ABL+uTDgKKn1cZRtCRS6vXj1rMXjLWkNbf9nIb7jumAgv
+	G/UU7aS7D1oh3pIHyaRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuukg-000000080Jd-15BW;
-	Sat, 06 Sep 2025 15:22:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uuv7c-000000082Dv-3l0n;
+	Sat, 06 Sep 2025 15:46:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuuhr-000000080CA-1XX5
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Sep 2025 15:19:59 +0000
+	id 1uuv4m-000000081ew-1Zws;
+	Sat, 06 Sep 2025 15:43:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 720EE601DD
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  6 Sep 2025 15:19:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EED8C4CEF8
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  6 Sep 2025 15:19:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9302F601D7;
+	Sat,  6 Sep 2025 15:43:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2F90FC4CEE7;
+	Sat,  6 Sep 2025 15:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757171998;
-	bh=3iOPrN74xVEBO/vjQdWGykSlHCyKwX8oXZwsfk42NFQ=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=gkjD6QR7YJzsrUwSIaXUj90MJ3QfIW6WOmF4eIkOrWl2CMY8fuurur0OkhQdg3Xq4
-	 NHZre41UYop/d7lmQ8LonzvT/5iKf5fkE9+cERJKBja0qmIkB9wapmg/obtZVIznxr
-	 qYyUxzcaKmIQYGHC/ZZfsbfHgWZ9xDhV5o6VZ2XNJ45JhxsBofwuL7hedTJs3MsZPA
-	 HfTcUuyBuL4e0tYt3ylMhCe2pbYg7pv42JRRjYbekEY1pNBGAn5YR56xUq2lONN80c
-	 59eMwWlnfFsVXDMP8bwdtCW4Z5BhlzCDGRDwzaEID5NhQxnMHsHPXgfhvMjHrF59HA
-	 DpvC8FPzdWWzw==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-55f6bdcc195so3494647e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Sep 2025 08:19:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXBdsne0i9bWq5zYGbFz5f/rnGf6udDEVYVt50M4autYSyDNWhK8X8lWRCJCkG/EgezDA5e/kqFHeJFAj6EbS+i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsMds9yyIwlvZcC8N0f6EPqoUIdgr2lrPMPv8GZs7wZ+op/lYp
-	DF2Uh6GVaEfMLRa6Ok6Xl+1hFFjeQspYjIi+rX+lmx/CkP8jdQ2eEcThYivNeaASFe6emqf0F23
-	0zulQDKn/q75viwB6IwvB4lSi5ie5Wp4=
-X-Google-Smtp-Source: AGHT+IHpDYVkVnfYFDnax1QMKGYderiLaGjKlKTAyHREe9npSmqRYhhRbtxlMlcuC4mrm2GRTCrRggKSNMNWOBmjBaQ=
-X-Received: by 2002:a05:651c:20cc:20b0:32b:a9a4:cd58 with SMTP id
- 38308e7fff4ca-33baef74c92mr4112521fa.15.1757171996500; Sat, 06 Sep 2025
- 08:19:56 -0700 (PDT)
+	s=k20201202; t=1757173419;
+	bh=B2PmqO8jFsYcp9IfYjXmvUC+hdyx9Na0xGIpQfiCq3E=;
+	h=From:Subject:Date:To:Cc:From;
+	b=h6MZJCsO3bY+g0PaDB3Jo/YumM41bXU4GFkK8br8wcMHwX2ucGQMQ1teTnlpgK2Nx
+	 DtiHEndmhKIC5WkvLNktB/ngDwqwgemSW7mrVBCqLaLVZhEj8T3lYjuZxY/nWMu6b8
+	 HM2TRzxAhODw+oYIW4KbuepEjmmabms12hDkESOtG+4KGgPh+cQMLCuzh5oKqS2Utt
+	 LQy9MKm8Ffx/Rst4euC55clR10WEogAo1tje25DL9Rx77qAI+RlDN+BI0BbPPGBmHp
+	 Y/m2j0WZFe+0n2hSjcJCghGvX6Ew7nJww+w374mUQOras5mecxTfT5GdwvyIjiFUEK
+	 MP68H778hDStg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 19EB6CA0FED;
+	Sat,  6 Sep 2025 15:43:39 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Subject: [PATCH v2 00/22] Apple Silicon USB3 support
+Date: Sat, 06 Sep 2025 15:43:13 +0000
+Message-Id: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
 MIME-Version: 1.0
-References: <20250906041333.642483-1-wens@kernel.org> <20250906041333.642483-11-wens@kernel.org>
- <DU0P190MB244586AE96B47F85AFE7A702BC02A@DU0P190MB2445.EURP190.PROD.OUTLOOK.COM>
-In-Reply-To: <DU0P190MB244586AE96B47F85AFE7A702BC02A@DU0P190MB2445.EURP190.PROD.OUTLOOK.COM>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sat, 6 Sep 2025 23:19:43 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64w0Hr+hrDoNjSOx=m8hZ37-jM=jDseygmxiRQmtNszEg@mail.gmail.com>
-X-Gm-Features: Ac12FXz53VnrcQofrnLM0LEbOU6QTn8gTf2cydyfh9lYODHUFGAWC0ZWxvt-xSQ
-Message-ID: <CAGb2v64w0Hr+hrDoNjSOx=m8hZ37-jM=jDseygmxiRQmtNszEg@mail.gmail.com>
-Subject: Re: arm64: allwinner: a523: Enable MCU PRCM and NPU
-To: Muhammed Subair <msubair@hotmail.com>
-Cc: Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Andre Przywara <andre.przywara@arm.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJJWvGgC/1XMQQrDIBCF4auEWdeiU1qlq94jZKFmEqVFgwZpC
+ N69NtBFV8M/8L4dMiVPGe7dDomKzz6GFnjqwDodZmJ+bA3I8coVcqZXu7iN3ZiQzEjSE14MCWm
+ hLZZEk38fWj+0dj6vMW0HXsT3+3PEn1ME4+2ioVELhUY9npQCvc4xzTDUWj/mE1lwpwAAAA==
+X-Change-ID: 20250820-atcphy-6-17-b7eaf23be17c
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>, 
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
+ Ran Wang <ran.wang_1@nxp.com>, Peter Chen <peter.chen@nxp.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ Sven Peter <sven@kernel.org>, stable@kernel.org, 
+ Hector Martin <marcan@marcan.st>, R <rqou@berkeley.edu>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10497; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=B2PmqO8jFsYcp9IfYjXmvUC+hdyx9Na0xGIpQfiCq3E=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ8aesMlmluHV2zTUZB173myaePexf/uspYEqlw47XHrSw
+ vPrRlxYRykLgxgHg6yYIsv2/famTx6+EVy66dJ7mDmsTCBDGLg4BWAiCVwM/3OWcm7WeaoboSbN
+ OKvVIqXK+lNLnl6WXW/gfKs1EQeXXWb4w98TGXD49Mbirn5d2ecfD34x2D5z6zr52RvXl0qmxlo
+ kMwAA
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,149 +93,217 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dropping network and DT folks and mailing lists. Please report issues on
-the relevant thread.
+Hi,
 
-On Sat, Sep 6, 2025 at 3:30=E2=80=AFPM Muhammed Subair <msubair@hotmail.com=
-> wrote:
->
-> Hello
->
-> I have a board with A527 chip , and NPU is detected in  legacy while the =
-new patches shows below message
->
-> upstream 6.17-rc4
-> # dmesg | grep [   21.988215] etnaviv-gpu 7122000.npu: probe with driver =
-etnaviv-gpu failed with error -110
->  7122000
-> [   21.988173] etnaviv-gpu 7122000.npu: deferred probe timeout, ignoring =
-dependency
-> [   21.988215] etnaviv-gpu 7122000.npu: probe with driver etnaviv-gpu fai=
-led with error -110
+With the dwc3 glue approach this is starting to look reasonable to me.
 
-This shows that the driver is waiting for some resource to appear and timed
-out. Do you have all needed device drivers enabled? I think you need to hav=
-e
-the power domain drivers and the MCU clk driver enabled.
+There's still one issue (SuperSpeed devices have a 5 second delay before
+they come up; This has been known for ages and we haven't been able to
+identify the root cause) but otherwise both host and device mode have
+been working quite well across a number of different devices (usb3 only,
+usb3+dp, dp-only, usb4, and the first two combined with a broken c-to-a
+adapter that can trigger a lot of quick plug/unplug events ;)) for me.
 
-ChenYu
+With the dwc3 glue driver this series can now also be merged independently
+once it's ready: Patches 1-4 can go through the dwc3 tree, 5-15 through
+tipd, 16-18 should go together through the phy tree, and I'll take the
+DTS changes through my tree. If everyone's happy with the overall
+approach here I can also just send these as individual series.
+
+A tree for testing is again available as apple-usb3-v2 at [5]. 
+
+Changes in v2:
+- Link to v1: https://lore.kernel.org/r/20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org
+- Fixed dt-binding warnings
+- Extended the glue layer to allow control over mode switching
+- Removed quirks added to dwc3 and implemented them as a glue
+  driver instead as suggested by Thinh
+- Dropped snps,dwc3 fallback compatible since this is neither compatible
+  with the glue driver approach nor is this hardware truly compatible
+  with snps,dwc3 unless the bootloader did a lot of heavy-lifting and
+  left everything in just the right state
+- Dropped atcphy dp-only compatible since this can be detected in other
+  ways or just be driven from the dp controller once we upstream that
+- Fixed duplicate #define in TIPD
+- Use ioremap_np when required instead of just skipping
+  dwc3_power_off_all_roothub_ports
+- Dropped the change that added the USB role to typec_mux_state since
+  the new glue driver approach no longer requires this.
+- Cleaned up some leftover TODOs in atcphy and ran clang-format
+- Reworked tunables.c to use a variable sized member and alloc the
+  entire struct directly
+- Shortened debug messages in atcphy
+- Added DTS changes for t8112 and t600x
+- Call typec_unregister_altmode unconditionally as it's NULL-safe
+- Fixed arre -> arr typo in commit message
+- Drop __func__ from cd321x_interrupt debug print
+- Picked up Heikki's r-b tags
+
+Original cover letter:
+
+This series includes changes to dwc3, tipd and a new phy driver to enable
+USB3 on these machines. There's also some preparations to eventually enable
+DisplayPort AltMode and Thunderbolt but those need future work.
+Overall, this entire setup is quite a mess and we've tried to make it work
+for quite a while now and finally came up with this solution here.
+
+The USB3 controller is a very special kind of broken: It never sees any port
+plug/unplug events that should normally arrive directly at dwc3.
+Additionally, it needs to go through a full hard reset for every new connection
+and most mode change. Details on why this is required are in the commit
+description.
+
+On top of that we need to keep the Type-C PHY bringup and dwc3 bringup tightly
+synchronized. If there's a race between the two systems at best the port stops
+working until a system reboot and at worst there's a watchdog somewhere that
+forcefully resets the entire SoC after ~5 seconds. I've only seen the latter
+when bringing up thunderbolt so far but wouldn't be surprised if it happens
+with just usb3 as well.
+
+The entire bringup/bringup is orchestrated by a TIPD variant called CD321x
+found on these machines. Unlike the original chips we however get no control
+over which mode is negotiated or are even able to see the PDOs or VDOs. We only
+get to know once the mode has been negotiated and have to act accordingly. I
+even went as far as dumping the firmware from the chip to confirm this [1][2].
+
+Hector wrote another summary of this early in January as well [3] and this
+series is the only way we've been able to bring these ports up reliably.
+It's not pretty in some places but I have no other idea how to implement this,
+hence the RFC tag. Happy to discuss other approaches as well.
+
+Both the PHY and the TIPD driver already include changes for DisplayPort
+AltMode and USB4/Thunderbolt. These need additional work though but
+since we can't control the mode devices end up in we can already merge
+them now.
+
+I used phy/qcom,sc8280xp-qmp-usb43dp-phy.yaml as a template for the dt-binding
+for atcphy (especially the ports). That was the most recent binding I found for
+a PHY with similar features.
+
+In order to test this you need to run the latest m1n1 master [4] because the
+1.5.0 release does not include the code that lifts the tunables from Apple's
+device tree. A kernel tree for testing is also tagged as apple-usb3-v1 at [5].
+
+If the overall approach here is fine and no one can think of a better way to
+support this SoC I'll drop the RFC and include the dts changes for the other
+M1 and M2 machines as well.
+
+Best,
+
+Sven
+
+[1] https://social.treehouse.systems/@sven/111092587315536174
+[2] https://social.treehouse.systems/@sven/111096589846468888
+[3] https://lore.kernel.org/all/fda8b831-1ffc-4087-8e7b-d97779b3ecc5@marcan.st/
+[4] https://github.com/AsahiLinux/m1n1
+[5] https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux.git
+
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+To: Sven Peter <sven@kernel.org>
+To: Janne Grunau <j@jannau.net>
+To: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: Neal Gompa <neal@gompa.dev>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+To: Frank Li <Frank.Li@nxp.com>
+To: Ran Wang <ran.wang_1@nxp.com>
+To: Peter Chen <peter.chen@nxp.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Vinod Koul <vkoul@kernel.org>
+To: Kishon Vijay Abraham I <kishon@kernel.org>
+Cc: asahi@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-usb@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-phy@lists.infradead.org
+
+---
+Hector Martin (5):
+      usb: typec: tipd: Update partner identity when power status was updated
+      usb: typec: tipd: Use read_power_status function in probe
+      usb: typec: tipd: Read data status in probe and cache its value
+      usb: typec: tipd: Handle mode transitions for CD321x
+      arm64: dts: apple: t8103: Mark ATC USB AON domains as always-on
+
+Janne Grunau (2):
+      arm64: dts: apple: t8112: Add Apple Type-C PHY and dwc3 nodes
+      arm64: dts: apple: t600x: Add Apple Type-C PHY and dwc3 nodes
+
+Sven Peter (15):
+      dt-bindings: usb: Add Apple dwc3
+      usb: dwc3: dwc3_power_off_all_roothub_ports: Use ioremap_np when required
+      usb: dwc3: glue: Allow more fine grained control over mode switches
+      usb: dwc3: Add Apple Silicon DWC3 glue layer driver
+      usb: typec: tipd: Clear interrupts first
+      usb: typec: tipd: Move initial irq mask to tipd_data
+      usb: typec: tipd: Move switch_power_state to tipd_data
+      usb: typec: tipd: Trace data status for CD321x correctly
+      usb: typec: tipd: Add cd321x struct with separate size
+      usb: typec: tipd: Read USB4, Thunderbolt and DisplayPort status for cd321x
+      usb: typec: tipd: Register DisplayPort and Thunderbolt altmodes for cd321x
+      dt-bindings: phy: Add Apple Type-C PHY
+      soc: apple: Add hardware tunable support
+      phy: apple: Add Apple Type-C PHY
+      arm64: dts: apple: t8103: Add Apple Type-C PHY and dwc3 nodes
+
+ .../devicetree/bindings/phy/apple,atcphy.yaml      |  213 ++
+ .../devicetree/bindings/usb/apple,dwc3.yaml        |   80 +
+ MAINTAINERS                                        |    4 +
+ arch/arm64/boot/dts/apple/t6001.dtsi               |    1 +
+ arch/arm64/boot/dts/apple/t6002-j375d.dts          |  197 +-
+ arch/arm64/boot/dts/apple/t6002.dtsi               |    1 +
+ arch/arm64/boot/dts/apple/t600x-dieX.dtsi          |  212 ++
+ arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi     |  236 +++
+ arch/arm64/boot/dts/apple/t600x-j375.dtsi          |  275 +++
+ arch/arm64/boot/dts/apple/t8103-j274.dts           |   12 +
+ arch/arm64/boot/dts/apple/t8103-j293.dts           |   12 +
+ arch/arm64/boot/dts/apple/t8103-j313.dts           |   12 +
+ arch/arm64/boot/dts/apple/t8103-j456.dts           |   12 +
+ arch/arm64/boot/dts/apple/t8103-j457.dts           |   12 +
+ arch/arm64/boot/dts/apple/t8103-jxxx.dtsi          |  137 ++
+ arch/arm64/boot/dts/apple/t8103-pmgr.dtsi          |    2 +
+ arch/arm64/boot/dts/apple/t8103.dtsi               |  105 +
+ arch/arm64/boot/dts/apple/t8112-j413.dts           |   12 +
+ arch/arm64/boot/dts/apple/t8112-j473.dts           |   11 +
+ arch/arm64/boot/dts/apple/t8112-j493.dts           |   12 +
+ arch/arm64/boot/dts/apple/t8112-jxxx.dtsi          |  137 ++
+ arch/arm64/boot/dts/apple/t8112.dtsi               |  105 +
+ drivers/phy/Kconfig                                |    1 +
+ drivers/phy/Makefile                               |    1 +
+ drivers/phy/apple/Kconfig                          |   14 +
+ drivers/phy/apple/Makefile                         |    4 +
+ drivers/phy/apple/atc.c                            | 2214 ++++++++++++++++++++
+ drivers/soc/apple/Kconfig                          |    4 +
+ drivers/soc/apple/Makefile                         |    3 +
+ drivers/soc/apple/tunable.c                        |   71 +
+ drivers/usb/dwc3/Kconfig                           |   11 +
+ drivers/usb/dwc3/Makefile                          |    1 +
+ drivers/usb/dwc3/core.c                            |   16 +-
+ drivers/usb/dwc3/dwc3-apple.c                      |  425 ++++
+ drivers/usb/dwc3/gadget.c                          |    2 +
+ drivers/usb/dwc3/glue.h                            |   14 +
+ drivers/usb/dwc3/host.c                            |    7 +-
+ drivers/usb/typec/tipd/core.c                      |  564 ++++-
+ drivers/usb/typec/tipd/tps6598x.h                  |    5 +
+ drivers/usb/typec/tipd/trace.h                     |   39 +
+ include/linux/soc/apple/tunable.h                  |   60 +
+ 41 files changed, 5192 insertions(+), 64 deletions(-)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250820-atcphy-6-17-b7eaf23be17c
+
+Best regards,
+-- 
+Sven Peter <sven@kernel.org>
 
 
-> legacy 5.15
->
-> [   13.887892] npu[106][106] vipcore, platform device compatible=3Dallwin=
-ner,npu
-> [   13.890322] npu[106][106] vipcore, platform driver device=3D0xffffff80=
-c1a11c10
-> [   13.890394] npu[106][106] vipcore irq number is 116.
-> [   13.890471] vipcore 7122000.npu: supply npu not found, using dummy reg=
-ulator
-> [   13.892589] npu[106][106] NPU Use VF3, use freq 696
-> [   13.892754] npu[106][106] Get NPU Regulator Control FAIL!
-> [   13.892766] npu[106][106] Want set npu vol(1000000) now vol(-22)
-> [   13.938664] npu[106][106] core_0, request irqline=3D116, name=3Dvipcor=
-e_0
-> [   13.938889] npu[106][106] vipcore, allocate page for video memory, siz=
-e: 0x2000000bytes
-> [   13.938900] npu[106][106] vipcore, video memory heap size is more than=
- 4Mbyte,only can allocate 4M byte from page
-> [   13.938948] npu[106][106] vipcore, cpu_physical=3D0x10cc00000, vip_phy=
-sical=3D0x10cc00000, vip_memsize=3D0x400000
-> [   13.940230] npu[106][106] VIPLite driver version 1.13.0.0-AW-2023-01-0=
-9
-> [   25.090905] sunxi:sunxi_pd_test-0.pd-npu-test:[WARN]: runtime_suspend =
-disable clock
->
-> -----Original Message-----
-> From: Chen-Yu Tsai <wens@kernel.org>
-> Sent: Saturday, 6 September 2025 8:14 AM
-> To: Andrew Lunn <andrew+netdev@lunn.ch>; David S. Miller <davem@davemloft=
-.net>; Eric Dumazet <edumazet@google.com>; Jakub Kicinski <kuba@kernel.org>=
-; Paolo Abeni <pabeni@redhat.com>; Rob Herring <robh@kernel.org>; Krzysztof=
- Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Chen-Y=
-u Tsai <wens@csie.org>; Jernej Skrabec <jernej@kernel.org>; Samuel Holland =
-<samuel@sholland.org>
-> Cc: netdev@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-kernel@=
-lists.infradead.org; linux-sunxi@lists.linux.dev; linux-kernel@vger.kernel.=
-org; Andre Przywara <andre.przywara@arm.com>; Jernej Skrabec <jernej.skrabe=
-c@gmail.com>
-> Subject: [PATCH net-next v3 10/10] arm64: dts: allwinner: t527: orangepi-=
-4a: Enable Ethernet port
->
-> From: Chen-Yu Tsai <wens@csie.org>
->
-> On the Orangepi 4A board, the second Ethernet controller, aka the GMAC200=
-, is connected to an external Motorcomm YT8531 PHY. The PHY uses an externa=
-l 25MHz crystal, has the SoC's PI15 pin connected to its reset pin, and the=
- PI16 pin for its interrupt pin.
->
-> Enable it.
->
-> Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
-> ---
->
-> Changes since v1:
-> - Switch to generic (tx|rx)-internal-delay-ps properties
-> ---
->  .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 23 +++++++++++++++++++
->  1 file changed, 23 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/=
-arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-> index 38cd8c7e92da..7afd6e57fe86 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-> @@ -15,6 +15,7 @@ / {
->         compatible =3D "xunlong,orangepi-4a", "allwinner,sun55i-t527";
->
->         aliases {
-> +               ethernet0 =3D &gmac1;
->                 serial0 =3D &uart0;
->         };
->
-> @@ -95,11 +96,33 @@ &ehci1 {
->         status =3D "okay";
->  };
->
-> +&gmac1 {
-> +       phy-mode =3D "rgmii-id";
-> +       phy-handle =3D <&ext_rgmii_phy>;
-> +       phy-supply =3D <&reg_cldo4>;
-> +
-> +       tx-internal-delay-ps =3D <0>;
-> +       rx-internal-delay-ps =3D <300>;
-> +
-> +       status =3D "okay";
-> +};
-> +
->  &gpu {
->         mali-supply =3D <&reg_dcdc2>;
->         status =3D "okay";
->  };
->
-> +&mdio1 {
-> +       ext_rgmii_phy: ethernet-phy@1 {
-> +               compatible =3D "ethernet-phy-ieee802.3-c22";
-> +               reg =3D <1>;
-> +               interrupts-extended =3D <&pio 8 16 IRQ_TYPE_LEVEL_LOW>; /=
-* PI16 */
-> +               reset-gpios =3D <&pio 8 15 GPIO_ACTIVE_LOW>; /* PI15 */
-> +               reset-assert-us =3D <10000>;
-> +               reset-deassert-us =3D <150000>;
-> +       };
-> +};
-> +
->  &mmc0 {
->         vmmc-supply =3D <&reg_cldo3>;
->         cd-gpios =3D <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 =
-*/
-> --
-> 2.39.5
->
->
 
