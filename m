@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A574CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 14:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EEFCA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 14:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oukDpaS+uQqfcVkvyqZdLUiFXATfOVv8cluQMdiSVWE=; b=HkWhX/KEnOgNOS7NMMUjB5p4ri
-	IMAKlO/2fPtFHjb4SogNQFIooR2JKqMEx+in7RpBVo3zvAWFsBytfg6keg345qI7AzmA6PDYNMoaZ
-	GqmM+YLv75O/6sacmgehdvCf4snF+uf3mdgpSqQROxfoG7MwSJMgG++NadS/v0UkxBy7UkD2hF9Lk
-	iAVX+HGaFJSg0gu+BJ8BdkZY6yUpMeXyc+pMFFoPos/CDlFWxN0nJr5sokLs+CsmN8e15HXIZF7L0
-	1Ndbipq5/tFDszAlwIx0NrcWXeaIu5ABO4BdKvca41o0F+kMAzOjdh89vABilx6hopOP71OEWvTqp
-	aQgIH20w==;
+	bh=HABxEvQyJK0R9CLJi/lOyrdwH6VtU+tq1uPecCvVqSw=; b=mV9N3figLhqsaCRTCffelvrGlp
+	idZx8F47AKuD5IwHq6hnUgpVbK0OOi0jaOtMc5LFJ9K7qMAH/ILwvRogvxme/B3SjUgG3IYBeSpD4
+	JTzlG7XE5IG07JbRBUzvKWeMeuQ4bmVy8JVjNChrIbEFs7Pz7giM9MYGvL9eGwTsfhI5dzNlIvjFP
+	7CI+C1NG9q6wRHeg3M0VqD4lu5Px7wg7A3vpf7sDj4CVzKGqC9H+WHohWlBXkaEcddVc70PxeyeVM
+	9Mv6/vmecADNUWLkT90grvpw3JUdJAT7ilKHSJA/LMImXgqHOCglVA9yLNkKWitBfiv3/M6WSuyI9
+	g/Q56Lhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvGDR-0000000BRh1-2XYd;
-	Sun, 07 Sep 2025 14:18:01 +0000
+	id 1uvGGD-0000000BS3y-1alL;
+	Sun, 07 Sep 2025 14:20:53 +0000
 Received: from mx.olsak.net ([37.205.8.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvFua-0000000BN6x-1US1
+	id 1uvFua-0000000BN6s-1Ns9
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 07 Sep 2025 13:58:33 +0000
-DKIM-Signature: a=rsa-sha256; bh=oukDpaS+uQqfcVkvyqZdLUiFXATfOVv8cluQMdiSVWE=;
+DKIM-Signature: a=rsa-sha256; bh=HABxEvQyJK0R9CLJi/lOyrdwH6VtU+tq1uPecCvVqSw=;
  c=relaxed/relaxed; d=dujemihanovic.xyz;
  h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
- i=@dujemihanovic.xyz; s=default; t=1757253360; v=1; x=1757685360;
- b=jVmUZxFOgn0W2IlJ7J9Y/4aN5e0+IN/0d/LXnysY+M8LCLjBpDXgQihbKnwlFy/zFxO1qKA8
- kZ+613p+Lq86p/VoHnFD/yLMA5HxY0oqhERRmSZ1v4jijPmOxlpuj2N+TzZgPtFGHwyiXzV1dlk
- WNxUY8P57kmTOoyU9OXQJolbdr24wbHNDKLW3kirXK/3/LdvpRsoeLU/KRbxsf+gb/OXyEg8j/n
- mKzBr1g0bDk6fouio1IV6cS542lEoGBf79qAO6CiwqKgXfcg6d8ALbQcqvdEAXUzO2lo/njUEOK
- ulf5UCPf2jjMXMUCTIagHNZgoXa9iF9fnVscZJxXPc3fA==
+ i=@dujemihanovic.xyz; s=default; t=1757253366; v=1; x=1757685366;
+ b=DUHC9pkNTY4IiaYE2EvNjNjVniiwrVbtNFUB5GW0Kx3PtUAZEPWNcjzyY2dvYAESZaC/f2nI
+ AZt6MK6m5h3LNCAH+G/j3UhhLcTAAHk8/IMp40/MwsNBY2pT/ytPhYuk02bXBbudtdHAzsXXwhH
+ Q+FOMRVshwtswT5jhQH6HHilUR6b/NLNZAz5CnD2P8ZQrU7aXdA1xu7GEcErfR0UV0KvpmS/Y+C
+ XWu5cZUGgATaJkQaqO3Th+paZ5Da+50DnwXbh4y6mU9+67p7Epw4Qp7RwlHmNKeBbkzr7tRt6fa
+ C7MMFMy3PbdSrUtXIgmXEe87whr6Mmi5r8c89LBC3R+3A==
 Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
- ESMTPS id b2549ea8; Sun, 07 Sep 2025 15:56:00 +0200
+ ESMTPS id bd31aaf8; Sun, 07 Sep 2025 15:56:06 +0200
 From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-Date: Sun, 07 Sep 2025 15:55:14 +0200
-Subject: [PATCH 1/9] arm64: dts: marvell: samsung,coreprimevelte: Add
- backlight
+Date: Sun, 07 Sep 2025 15:55:20 +0200
+Subject: [PATCH 7/9] arm64: dts: marvell: samsung,coreprimevelte: Drop some
+ reserved memory
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250907-pxa1908-dts-v1-1-da776eb29e45@dujemihanovic.xyz>
+Message-Id: <20250907-pxa1908-dts-v1-7-da776eb29e45@dujemihanovic.xyz>
 References: <20250907-pxa1908-dts-v1-0-da776eb29e45@dujemihanovic.xyz>
 In-Reply-To: <20250907-pxa1908-dts-v1-0-da776eb29e45@dujemihanovic.xyz>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -58,18 +58,18 @@ Cc: Karel Balej <balejk@matfyz.cz>, David Wronek <david@mainlining.org>,
  linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
  =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=895; i=duje@dujemihanovic.xyz;
- s=20240706; h=from:subject:message-id;
- bh=3n1cVAjfm4iMd5ytnRCe0bLiwYBnKiHaKl8qPthmrxY=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDBl7+949Koj3se+zmrD72+kNXZPyJW4ruaZ7ukbGuXx72
- 7tyfvGpjlIWBjEuBlkxRZbc/47XeD+LbN2evcwAZg4rE8gQBi5OAZjIszWMDBuk982uPM+7nP1G
- oFPJ9VutD7vXfdUzLnt7/9uk9toVgUUM/ytzWeafPvL870ne7mC3p45KBeHdK39bf+O+U/kxL/f
- NOU4A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1150;
+ i=duje@dujemihanovic.xyz; s=20240706; h=from:subject:message-id;
+ bh=AOTuIRkZ7qxukusobcqK/hGoYlqb/lfC8O75aryw37k=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDBl7+959srfgSt5Zdch3QoByA6M/I3uYtuDTAKM0c7u8C
+ j6JzSYdpSwMYlwMsmKKLLn/Ha/xfhbZuj17mQHMHFYmkCEMXJwCMJHwtYwM17K/Jj4Kv7W8rXny
+ hdtupnO0Fjps2hr29l7N9wkcM/jKtjMyvLu/y0/6Q8aevk3Mq+f+VljE8WjVsX/Sz+InBRvuTvy
+ TwwIA
 X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
  fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_065832_546201_5851991A 
-X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-CacheID: sfid-20250907_065832_528902_4E5EC40C 
+X-CRM114-Status: UNSURE (   6.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,30 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a node for the KTD2801 backlight chip found on the board.
+Most of the memory marked as reserved is actually usable. Delete its
+reserved-memory nodes so that the memory can be used.
 
 Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
 ---
- arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts  | 17 -----------------
+ 1 file changed, 17 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-index 47a4f01a7077bfafe2cc50d0e59c37685ec9c2e9..b9628b1f59f2f749804799e3d9faa48e3036e81a 100644
+index dc58b19ef5d11c69f52ea7804323fe2fb2257ca7..13a726d86e65ad836166325e0958a6ec3e6d022e 100644
 --- a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
 +++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-@@ -115,6 +115,12 @@ key-voldown {
- 			gpios = <&gpio 17 GPIO_ACTIVE_LOW>;
+@@ -41,23 +41,6 @@ framebuffer@17000000 {
+ 			reg = <0 0x17000000 0 0x1800000>;
+ 			no-map;
  		};
+-
+-		gpu@9000000 {
+-			reg = <0 0x9000000 0 0x1000000>;
+-		};
+-
+-		/* Communications processor, aka modem */
+-		cp@5000000 {
+-			reg = <0 0x5000000 0 0x3000000>;
+-		};
+-
+-		cm3@a000000 {
+-			reg = <0 0xa000000 0 0x80000>;
+-		};
+-
+-		seclog@8000000 {
+-			reg = <0 0x8000000 0 0x100000>;
+-		};
  	};
-+
-+	backlight {
-+		compatible = "kinetic,ktd2801";
-+		ctrl-gpios = <&gpio 97 GPIO_ACTIVE_HIGH>;
-+		max-brightness = <210>;
-+	};
- };
  
- &smmu {
+ 	i2c-muic {
 
 -- 
 2.51.0
