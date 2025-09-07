@@ -4,92 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFADDCA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 20:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5538CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 21:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nmDlQERdSOXnir4NGhI1dR5qcwx02qQwlCj5SprR4PM=; b=ixLQrpuXQgYSYOeOB3ga1va/3b
-	DsJAM3fZ6Y6IxuHXRns/nkH73iH/6nAK7ABchL9S/7i7N9ruLEkfLhAaRbjp8jLDRjVq9twPiboCw
-	KSXUzlxj8uHBvVjAfGcgC1cqkhCvmHLopdXf86B5XA/CSSUbc7ng7nx0t96jPsw2lztdmuDUEs+iA
-	Up/2Fzzq4E73GQxFQi6wgLybMcDKNA7ua0Nbq5iRPsQUwoZ9y3LhDUlgrnApLduduvg5cfvsoNEz0
-	06ozDH9W9LiyYYsg2eOyWunuA/blaaKne/ohSAdlYzfTpfcZp+/3PGUU7nU2YlGxiEjz2vxZXKn/m
-	5fDTI2JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uAYcMOHgP8dzrRCqSWqHz21ZqOya4M26f6YLrK42GGU=; b=hpihyOKSjTYKyM
+	JAyFD1x7kpFG0MXZzUU67jKvVm1KzXRTJSh1v062j+tYOyiC3oPimktRhymJL59ZyNQgD6MNvDQJv
+	YtsvYEA64Bz3u9NtEy5vr/U0RTAyHwmMiWrkrd3x8ZlmFRC1bUcCDp7z/y609LykkGhjNv0Mhp9ME
+	d7EqvFc7vTtn5VyjtVkygcwTtRXn+S6hllMLJ2BeOXci4MUOdRI2Z85Cb+PCforFqMwh0MmwZukxB
+	YWwOvFhriCkzKxaK/w+Aq8ekE+YtuPR2HOot9O6StcIo1w05Xx9e7oyhUD0jKI9bNpnFWLDkiBIG8
+	AcKf2idWbDM6AEcvKS1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvM2H-0000000Cj3u-1Gfq;
-	Sun, 07 Sep 2025 20:30:53 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1uvN4N-0000000Cwrz-1S1Q;
+	Sun, 07 Sep 2025 21:37:07 +0000
+Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvLzT-0000000CiQ8-3C9m
+	id 1uvN1Y-0000000Cw14-3hpG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Sep 2025 20:28:01 +0000
-Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 587JQfDe002038;
-	Sun, 7 Sep 2025 20:27:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=corp-2025-04-25; bh=nmDlQERdSOXnir4NGhI1dR5qcwx02
-	qQwlCj5SprR4PM=; b=SDa86pr5p08rwjFbqFrEiUUEBBMoeG8BEb744iL7RK99n
-	6DDpkFz3Dpd89nGiidlhlSginJuhssWO8qQg43FeIf/Qkn6ktRDbsJksT8AJYeNs
-	srBu0SgYq6badZ910cDVt3Ovkjz69UL9dSCAc7tlLJP118x4L11LAsfgQ4Vy0PGl
-	jlzz5+NFKcjdD+sD8/4+Notrh7K2adkakT1VUMG5HzYPQuzVg0pXojaeo678mSX3
-	aGRrhtYyPgqTrM7xIql+5FbE48HE8TksTtNJF2v+hzw3onxX9m9yKly+ty0E9nky
-	jXE6gTkGOCKlh6ORs5y/Wi4NkGV7IcqhvLE9WxP4A==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 491fnug1nq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 07 Sep 2025 20:27:56 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 587H3mNL025916;
-	Sun, 7 Sep 2025 20:27:55 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 490bd7d581-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 07 Sep 2025 20:27:55 +0000
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 587KRtUA017327;
-	Sun, 7 Sep 2025 20:27:55 GMT
-Received: from ca-dev112.us.oracle.com (ca-dev112.us.oracle.com [10.129.136.47])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 490bd7d57v-1;
-	Sun, 07 Sep 2025 20:27:55 +0000
-From: Alok Tiwari <alok.a.tiwari@oracle.com>
-To: alim.akhtar@samsung.com, krzk@kernel.org, peter.griffin@linaro.org,
-        martin.petersen@oracle.com, linux-samsung-soc@vger.kernel.org,
-        linux-scsi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: alok.a.tiwari@oracle.com, linux-kernel@vger.kernel.org
-Subject: [PATCH] scsi: ufs: exynos: correct sync pattern mask timing comment
-Date: Sun,  7 Sep 2025 13:27:49 -0700
-Message-ID: <20250907202752.3613183-1-alok.a.tiwari@oracle.com>
-X-Mailer: git-send-email 2.50.1
+	Sun, 07 Sep 2025 21:34:13 +0000
+Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-70ddadde2e9so29931536d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Sep 2025 14:34:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757280851; x=1757885651; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uAYcMOHgP8dzrRCqSWqHz21ZqOya4M26f6YLrK42GGU=;
+        b=Tb8m1xnD5dDiXCimkQd5IHPCfNhW0/v46eEs74Rm3WW3ZeJjxUYKDSa7IFVJyLDl0t
+         L83TjlxLe+RLcjwUr6Fq2LmPYdhm79A6IN0nnnkIwVSuoR7Rz3mF6kBloF8+uBElpsh6
+         ZyGA8WzowgPGzDzA/HdYUMi/uprs8cpkvxFCErsSdSE1FeMN95jppKEbYu3QLUnP05X0
+         EqPRY3xHDMXh97wsvXzi6fWM/YicSEwYIOFASQMHxcTgKnAC2/6VZqa30NSA4StEq8hX
+         TLDpGCCT5IU+GIp0O+QlZBfFjEl4r+2DxZsQdRQHpP3Bpx1cdoC7E33vsr8UfZp4yUHl
+         FXFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757280851; x=1757885651;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uAYcMOHgP8dzrRCqSWqHz21ZqOya4M26f6YLrK42GGU=;
+        b=buwL9D5um5NPyuAVye0wqJuKqsPSe8Wv5fCrWnJ4Q8X7jZ8tXoEZwa5+9pN9gcUJmT
+         1o2M5slKi62ROouPl6AdtogGA+Bk+bPBK8ijbZmJ9g1GGlhFYmuF3WLfS5gxZ/0EBcHp
+         VMk41wDpLaw+tll1LShfBZSv9K7gQrIgfv/C/Yw+G+FiYdR3QgVy7LWjwNSiYXUf4XYl
+         OPY0ZWZZ57OhD/c98YGxXThMkcMo/+uaq2dkNMauMRMj8E8CsF6wAQ3q+mbUh3KLZLVA
+         0KUROyYUq9uzdL4K4gJygTGJ7L3nm4JIjieznJCTyyDrgek0cL+0RqEwCqy5RgIxA5c9
+         1+sA==
+X-Forwarded-Encrypted: i=1; AJvYcCV1GhfSMEYy83eaW48MFS1e7bQeyUPryCJAi+m2H0i+CxwEGR5H5o45FJEnMKxWOZG/5r15Lvw/QX9MaJjwkxxk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCuS3nPmV9+aOu2jISNqoLgZDaX32JiUL0/rpdr+fznDtp29bo
+	dBapEVxyxsUcP/c5EzsE+JNekgNnYfo+MoVCTnutIlYnPMK8PBoaIwBT
+X-Gm-Gg: ASbGncuGNiGT7kCcBrMUNLeWc0q6SVSaIGYRlZ19YxX/LMvOeKTRgu52KR/zX6GutCM
+	s9bR9cxHou982KCVtO9icOPAuH2aRx+neyKxqauRx5qZSaTWQfEEFFPyhYV06CoSoNWHsdRpSBW
+	KkD8xkoLeVrC7DGEP1/GiRd8veVkC7ymp6XjqD3P23ylfDuAiyl9NoU25vEPMMKd39/keDFN0lG
+	FBKeSX972Rw2C6XrOk7aftgL+O9Fip53l3Htufh2asdvWIXlHVMi+mv9AtgVi/5QRpqOZwRm9qW
+	LWBuqD7ATbQZ+i1M6xVJNGRZQLsWQTHZVAoA2qikhVFtI8ZJQphBpszDAHGMJyEOZ34YRbAjkcK
+	8XCC4zNyUxhGbIe1uzxuuL4TBKPD3r8VwT8pOo9QbPg==
+X-Google-Smtp-Source: AGHT+IGuZkEOOo9P/4LuWTMMM8+83KFMkIZI+a8A8P22ll3sk7nlM2ZrZnCuedhaJdnefckXJka6DA==
+X-Received: by 2002:a05:6214:19ca:b0:70d:f76c:b218 with SMTP id 6a1803df08f44-7393950f865mr73376806d6.31.1757280851300;
+        Sun, 07 Sep 2025 14:34:11 -0700 (PDT)
+Received: from [127.0.0.1] ([135.237.130.226])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-720b46660e5sm108637486d6.45.2025.09.07.14.34.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Sep 2025 14:34:10 -0700 (PDT)
+From: Denzeel Oliva <wachiturroxd150@gmail.com>
+Subject: [PATCH 0/8] arm64: dts: exynos990: Add PERIC0/1 USI, UART and
+ HSI2C support
+Date: Sun, 07 Sep 2025 21:33:56 +0000
+Message-Id: <20250907-perics-add-usinodes-v1-0-ae7600491a7f@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-07_08,2025-09-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 phishscore=0 suspectscore=0
- mlxscore=0 adultscore=0 bulkscore=0 malwarescore=0 mlxlogscore=999
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2508110000
- definitions=main-2509070212
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA3MDE5NiBTYWx0ZWRfXwal4JroHskso
- IM9j+47Jpo4He0948KKf4t46KtJc66BNgZ0rtqIfB/XOxmEJWAvTO4cz1lIphAKfie5DXkXA3GS
- P5iLSH/eF89HYcnjwWNU1qZPmQd4d6ndeQbDQdr5SOwiu4RpRwMY1eVWNe3Z/lPq7O721itIu9w
- X4S/iwDavIbe398v4N2nj9aJhziBc49lzwPmoNRdL4JsFHGOz9f5j+58HyZCPWN0dHTDPj4rH0l
- sd7mAt7mDwpXefYQ2H+ZgEgokZbsNI34GL1Nmt10D6bVv+6q3Kb2iTNNKoK2sqeeC1xaFdmvkrm
- fO1z+fI2VyydGN3evUDhIzpf0EbKBh2UOVdfnU4Nw8R+rY74TufV5TIjn4lPJGSNvYdebwI1IDN
- JzqFz6j0r1QoVuh8bkeKh0lWQU7eLw==
-X-Proofpoint-GUID: h9X0dUTol4snrS75rdOUG_br4sshWGXU
-X-Proofpoint-ORIG-GUID: h9X0dUTol4snrS75rdOUG_br4sshWGXU
-X-Authority-Analysis: v=2.4 cv=LdI86ifi c=1 sm=1 tr=0 ts=68bdeacc b=1 cx=c_pps
- a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
- a=yJojWOMRYYMA:10 a=yPCof4ZbAAAA:8 a=xlVCHxDqw-qt9YOnf0sA:9 cc=ntf
- awl=host:13602
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAET6vWgC/x2MwQqAIBAFfyX23IJZEvUr0SHyVXuxcCkC8d+Tj
+ gMzk0gRBUpjlSjiEZUzFGjqitZjCTtYfGGyxjozmJ6v4q/Ki/d8q4TTQ9kB1g2d6Rq0VMorYpP
+ 3v05zzh/8QpkmZQAAAA==
+X-Change-ID: 20250907-perics-add-usinodes-5ee2594041e3
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Andi Shyti <andi.shyti@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-serial@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757280850; l=1485;
+ i=wachiturroxd150@gmail.com; s=20250831; h=from:subject:message-id;
+ bh=qjSX1+MoG33BAIPxSwZgmmm9PAPIWHsGmHS5ZkL4/AI=;
+ b=FPmZCdmoS60rMwEKqLRYEvGn5axehswCuPXciOqsCp1swUWAOnYvUlk+fYTFsloLDowoOiMbW
+ Z4gcQYdsiKfDVZzrY8kvukSiaRpUFrHUsFqhTYgOSuuMP9/9ufpbGcG
+X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
+ pk=3fZmF8+BzoNPhZuzL19/BkBXzCDwLBPlLqQYILU0U5k=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_132759_922320_CCC23CD0 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250907_143412_928848_92727874 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +116,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the comment for SYNC_LEN_G2 in exynos_ufs_config_sync_pattern_mask().
-The actual value is 40us, not 44us, matching the configured mask timing.
-This change improves code clarity and avoids potential confusion for
-readers and maintainers.
+Hi,
 
-No functional changes.
+This series adds device tree support for PERIC0/1 blocks:
 
-Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+- Add sysreg nodes required for peripheral configuration
+- Add USI, UART and HSI2C controller nodes
+- Update bindings with Exynos990 compatibles
+
+These changes enable serial communication interfaces
+(I2C, UART) for Exynos990 SoC.
+
+Denzeel Oliva
+
+Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 ---
- drivers/ufs/host/ufs-exynos.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Denzeel Oliva (8):
+      dt-bindings: soc: samsung: exynos-sysreg: Add Exynos990 PERIC0/1 compatibles
+      arm64: dts: exynos990: Add sysreg nodes for PERIC0 and PERIC1
+      dt-bindings: soc: samsung: Add Exynos990 USI compatible
+      arm64: dts: exynos990: Add USI nodes for PERIC0 and PERIC1
+      dt-bindings: serial: samsung: Add Exynos990 UART compatible
+      arm64: dts: exynos990: Add UART nodes for PERIC0/1
+      dt-bindings: i2c: exynos5: Add exynos990-hsi2c compatible
+      arm64: dts: exynos990: Add HSI2C nodes for PERIC0/1
 
-diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 513cbcfa10ac..70d195179eba 100644
---- a/drivers/ufs/host/ufs-exynos.c
-+++ b/drivers/ufs/host/ufs-exynos.c
-@@ -776,7 +776,7 @@ static void exynos_ufs_config_sync_pattern_mask(struct exynos_ufs *ufs,
- 	u32 mask, sync_len;
- 	enum {
- 		SYNC_LEN_G1 = 80 * 1000, /* 80us */
--		SYNC_LEN_G2 = 40 * 1000, /* 44us */
-+		SYNC_LEN_G2 = 40 * 1000, /* 40us */
- 		SYNC_LEN_G3 = 20 * 1000, /* 20us */
- 	};
- 	int i;
+ .../devicetree/bindings/i2c/i2c-exynos5.yaml       |    1 +
+ .../devicetree/bindings/serial/samsung_uart.yaml   |    1 +
+ .../bindings/soc/samsung/exynos-usi.yaml           |    1 +
+ .../soc/samsung/samsung,exynos-sysreg.yaml         |    4 +
+ arch/arm64/boot/dts/exynos/exynos990.dtsi          | 1423 ++++++++++++++++++++
+ 5 files changed, 1430 insertions(+)
+---
+base-commit: 98ee0e036cfedf543c4728a604fd7870d0000efd
+change-id: 20250907-perics-add-usinodes-5ee2594041e3
+
+Best regards,
 -- 
-2.50.1
+Denzeel Oliva <wachiturroxd150@gmail.com>
 
 
