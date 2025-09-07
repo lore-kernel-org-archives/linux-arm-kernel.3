@@ -4,93 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D7CCCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 10:27:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605CBCA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 11:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=heEi416LkX8py4ejS5ZQNBKZJw/dtjDhd+4HdFbuaRE=; b=kdkozJxVho1CD1veWzywVAhN+M
-	CZigOWVRLm/SO0E/ea7LefhL7oTtC8Xy1+NDDqeurz3fpJZik1r7BWlGJpqqwS6CsctoXrNiu3dbT
-	F4Vu8j+6c6Bm5VZ8oQH8MX97AmFlFiuXNlY4Cgr7dzWwVOANhaAAB9CqOE6xlw3+cGJEOMr3tVszR
-	SVDeIutJnM1SwFZ4Mu+bJGZcQlXADoqodnRi+gikMvwZG2c1N9kGQEjlhtVBtvw1Fj+ijs3gNNloi
-	1mIIxz6TU8rCiHaI2C8us8Jh0eQozRZeFdD+B/yBOtxciSQv5685TLbcQf8cijiGwqQbcs/YAj5Uq
-	y2t7UNag==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1Czx2eU4pmBOj1uB61N886Er/ocYFYwRqZXYBAxfJrQ=; b=TlGdd0nE/ve3hkLGiaGQxk6cHa
+	mJYMwwrbdduGJm8YzCi5TdOiIYJqyxkkQ83unOSEYE9QVq96YavR0tuYRJuTxn175+AIPmCcVuLEH
+	A3BFAnf1Uv+IfqjJlHNvD51eYhaWZ/mL0hvbnKxe0Y/ci8K0LZi13rTNMsCas+QUgP1faTg5lc7Nk
+	ctOa1LxK3fdMlcl9ryst4GUr+KEmK2V4ng+14gwl7ivN+nqLP3OT2+1v0wEdJWMB5GiR6bKnl74Oc
+	uiUKaVHweapxVcTX4Tz3OSdSwQoCOMmhXkpqVOW20LCnsitjSB0tJY7QmZLSVRLnKoxXnov4BTL8t
+	KGeRh2cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvCbm-0000000Adcy-1kF0;
-	Sun, 07 Sep 2025 10:26:54 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uvDYT-0000000AqHG-1NNR;
+	Sun, 07 Sep 2025 11:27:33 +0000
+Received: from mx4.wp.pl ([212.77.101.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvCZ0-0000000Acs2-2cUx
+	id 1uvDVa-0000000ApPW-190j
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Sep 2025 10:24:04 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45de2b517a3so4476465e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Sep 2025 03:24:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757240641; x=1757845441; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=heEi416LkX8py4ejS5ZQNBKZJw/dtjDhd+4HdFbuaRE=;
-        b=HqF9tIR9++Ku407VDlw4jJLgFnK4CDrf+vPL5BKL8tqyxpp5pAkb+nO4TQqBD/Uyb8
-         3cFiQddNlaG2gJ1GUPnnBWlgsHz5tkDIZ5Ws7VBJF44nB2n5I2n9k5ivJwfq5PD8WeZV
-         7hdqk5KCHQu2NfwRDmRPIH1sbzXWOB7RsCP+lXlTuanH+6jvaYbZ5h2PCVOkZ/WJcn+H
-         u0rkB20IxHJm/FkPV7XGOnXdwpbEiKGVWhozk/n3357i8DYcVjdSxvprw2l3sjA5pTtr
-         rV5umw6h3c8CtW1esEp9QhkJOoEhNiRX8ZU+UDTnRrDu2mDG0A5i1TNRiGW3DUUBk6Eq
-         viGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757240641; x=1757845441;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=heEi416LkX8py4ejS5ZQNBKZJw/dtjDhd+4HdFbuaRE=;
-        b=c3xZIJAJISobheGJWqaTMrGwMEafr92r69bpsBeU5hNCN8XpU+6wb/6cMeColFvZ7Y
-         IK7nc/J3qoXzdGlDpheiA+mFxWWxzLwSPfpXX4QPf12MwULKDJF5XmSVKmTz74QMusQ4
-         MOXX1bAelV9t0x9x8x3MLm0qmDMUAbwaTHVQ0p8raT/9YpcfBvskp3pnpcUtCAB4ySzP
-         l6mn8wV8XJWHpH45XCHwJ8jEGAQsr/y4ohaIoHI488aEzPzv718sJEtwI/j92ZKb9Y2g
-         lfm7zD3P79ohe4WBYMkrno9Ve+fNxxnTi8qHGO68YiJRUO5V3tmhFOcVpt5ZWPuhUbVw
-         AKzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWxWjc0H1ZfdDNnF9Pq4d2NTwQkhERgA4U8uXCRM2H/rEhJDZPmmkQaRQ5uiNZ2WBsbAoTGgc3lcGqc/kB68bsN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUsDU1iqNpWZJYRJA3er/iYpE1jaSj+Q67ChGphqP4To58XbEN
-	qLlglnEafptTDR5UIri4sa4t0Y5eNSxoPieVRwUUhij2ghM8GrQphvpHLdrtl07g
-X-Gm-Gg: ASbGncsmvylqF5pjYP4KmWtj3HpFFeNzsWNfua7crhq47uTTn+6gHBF5aFhDrg/Dn9m
-	PdfYslqST1SsNd4pmAJf/SQhTVZty5fBDlV1taULvvt8djO6BOfn8YFTmBqsDty237AlkytsbJB
-	dy2wQSLiYOzDdfXyK0iezDLJronRlIhwBfZ/NCn+7EB8OcSsg7KI28wfvUkaRl6QtmEUb84a9YZ
-	BvXgr7AJyXZvLJOuuFccRr4xqQvgbZ5HKppLA0NJOyjMqzvwEU4OavK30rdX2w2wd31sZR6IyxD
-	L9Sx84rU59ErmVDAmNnu/Ir4pNQkN2uFrXszCF+/YPP3GadlNVwayh/zDFb6CuIVqRBGBdCepKW
-	qj8KrB6QCYBvTsqlp+KhHnY++23eU6epCaxS7wQ==
-X-Google-Smtp-Source: AGHT+IGAQugrVy2ibYrudSntWDB/4r6Xm95+Vcag6ocvEAnmm7jKzg6q+K6hmYLhYl6fHTFJ/LNoPw==
-X-Received: by 2002:a05:6000:4027:b0:3e7:42e5:63dd with SMTP id ffacd0b85a97d-3e742e56a53mr1926383f8f.56.1757240640977;
-        Sun, 07 Sep 2025 03:24:00 -0700 (PDT)
-Received: from mars ([2a02:168:6806:0:267e:37:6a88:3fc5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33fb9dbfsm37655439f8f.43.2025.09.07.03.24.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Sep 2025 03:24:00 -0700 (PDT)
-From: Klaus Kudielka <klaus.kudielka@gmail.com>
-To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	linux-pci@vger.kernel.org,
+	Sun, 07 Sep 2025 11:24:36 +0000
+Received: (wp-smtpd smtp.wp.pl 25405 invoked from network); 7 Sep 2025 13:17:46 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1757243866; bh=1Czx2eU4pmBOj1uB61N886Er/ocYFYwRqZXYBAxfJrQ=;
+          h=From:To:Cc:Subject;
+          b=bzxGOcGy7Z/+wTbNHxVaRjRAuZv320kdengLw5JnETPXEnquJQdv79jZg4L55V2pK
+           fZLUmh9igePuvD4NkArGachhvybjIDsSx4u3wT/O4nCHTCnZjPAkZycgyvrDQDindB
+           b21PUqttlIvder7aiDlNurfaFV2Ht3ovEFOxcdCcXoe0aCDyTLaWBMuczgrgE5YvqV
+           XEciil14KBWp19oZk7pJSLqT+99n3Mv0JgQS3GpUylu0/CSSBxUDZnSzOvBPy0GQKx
+           4EkOew2xYnTnyn8T5d+rSPw4SjWQrgRvNP52yClBUJmUUyiz+tYT6KBIRpG3YTjWIv
+           RunVfsYoIpzjA==
+Received: from 83.24.123.254.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.123.254])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
+          for <robh@kernel.org>; 7 Sep 2025 13:17:46 +0200
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Klaus Kudielka <klaus.kudielka@gmail.com>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	Jan Palus <jpalus@fastmail.com>
-Subject: [PATCH v2] PCI: mvebu: Fix use of for_each_of_range() iterator
-Date: Sun,  7 Sep 2025 12:21:46 +0200
-Message-ID: <20250907102303.29735-1-klaus.kudielka@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	linux-mediatek@lists.infradead.org
+Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
+Subject: [PATCH v5 1/1] arm64: dts: mediatek: add thermal sensor support on mt7981
+Date: Sun,  7 Sep 2025 13:15:09 +0200
+Message-ID: <20250907111742.23195-2-olek2@wp.pl>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20250907111742.23195-1-olek2@wp.pl>
+References: <20250907111742.23195-1-olek2@wp.pl>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-WP-DKIM-Status: good (id: wp.pl)                                                      
+X-WP-MailID: 24360e36277411bda771a55fa12e8a08
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000000 [4XOB]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_032402_663896_3E43C8D0 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20250907_042434_467508_29B93EB5 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,88 +82,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The blamed commit simplifies code, by using the for_each_of_range()
-iterator. But it results in no pci devices being detected anymore on
-Turris Omnia (and probably other mvebu targets).
+The temperature sensor in the MT7981 is same as in the MT7986.
 
-Issue #1:
-
-To determine range.flags, of_pci_range_parser_one() uses bus->get_flags(),
-which resolves to of_bus_pci_get_flags(). That function already returns an
-IORESOURCE bit field, and NOT the original flags from the "ranges"
-resource.
-
-Then mvebu_get_tgt_attr() attempts the very same conversion again.
-But this is a misinterpretation of range.flags.
-
-Remove the misinterpretation of range.flags in mvebu_get_tgt_attr(),
-to restore the intended behavior.
-
-Issue #2:
-
-The driver needs target and attributes, which are encoded in the raw
-address values of the "/soc/pcie/ranges" resource. According to
-of_pci_range_parser_one(), the raw values are stored in range.bus_addr
-and range.parent_bus_addr, respectively. range.cpu_addr is a translated
-version of range.parent_bus_addr, and not relevant here.
-
-Use the correct range structure member, to extract target and attributes.
-This restores the intended behavior.
-
-Signed-off-by: Klaus Kudielka <klaus.kudielka@gmail.com>
-Fixes: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
-Reported-by: Bjorn Helgaas <helgaas@kernel.org>
-Closes: https://lore.kernel.org/r/20250820184603.GA633069@bhelgaas/
-Reported-by: Jan Palus <jpalus@fastmail.com>
-Closes: https://bugzilla.kernel.org/show_bug.cgi?id=220479
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 ---
-v2: Fix issue #2, as well.
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 31 ++++++++++++++++++++++-
+ 1 file changed, 30 insertions(+), 1 deletion(-)
 
- drivers/pci/controller/pci-mvebu.c | 21 ++++-----------------
- 1 file changed, 4 insertions(+), 17 deletions(-)
-
-diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
-index 755651f338..a72aa57591 100644
---- a/drivers/pci/controller/pci-mvebu.c
-+++ b/drivers/pci/controller/pci-mvebu.c
-@@ -1168,12 +1168,6 @@ static void __iomem *mvebu_pcie_map_registers(struct platform_device *pdev,
- 	return devm_ioremap_resource(&pdev->dev, &port->regs);
- }
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+index 5cbea9cd411f..277c11247c13 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+@@ -76,7 +76,7 @@ watchdog: watchdog@1001c000 {
+ 			#reset-cells = <1>;
+ 		};
  
--#define DT_FLAGS_TO_TYPE(flags)       (((flags) >> 24) & 0x03)
--#define    DT_TYPE_IO                 0x1
--#define    DT_TYPE_MEM32              0x2
--#define DT_CPUADDR_TO_TARGET(cpuaddr) (((cpuaddr) >> 56) & 0xFF)
--#define DT_CPUADDR_TO_ATTR(cpuaddr)   (((cpuaddr) >> 48) & 0xFF)
--
- static int mvebu_get_tgt_attr(struct device_node *np, int devfn,
- 			      unsigned long type,
- 			      unsigned int *tgt,
-@@ -1189,19 +1183,12 @@ static int mvebu_get_tgt_attr(struct device_node *np, int devfn,
- 		return -EINVAL;
+-		clock-controller@1001e000 {
++		apmixedsys: clock-controller@1001e000 {
+ 			compatible = "mediatek,mt7981-apmixedsys";
+ 			reg = <0 0x1001e000 0 0x1000>;
+ 			#clock-cells = <1>;
+@@ -184,6 +184,31 @@ spi@1100b000 {
+ 			status = "disabled";
+ 		};
  
- 	for_each_of_range(&parser, &range) {
--		unsigned long rtype;
- 		u32 slot = upper_32_bits(range.bus_addr);
++		thermal@1100c800 {
++			compatible = "mediatek,mt7981-thermal",
++				     "mediatek,mt7986-thermal";
++			reg = <0 0x1100c800 0 0x800>;
++			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&infracfg CLK_INFRA_THERM_CK>,
++				 <&infracfg CLK_INFRA_ADC_26M_CK>;
++			clock-names = "therm", "auxadc";
++			nvmem-cells = <&thermal_calibration>;
++			nvmem-cell-names = "calibration-data";
++			#thermal-sensor-cells = <1>;
++			mediatek,auxadc = <&auxadc>;
++			mediatek,apmixedsys = <&apmixedsys>;
++		};
++
++		auxadc: adc@1100d000 {
++			compatible = "mediatek,mt7981-auxadc",
++				     "mediatek,mt7986-auxadc";
++			reg = <0 0x1100d000 0 0x1000>;
++			clocks = <&infracfg CLK_INFRA_ADC_26M_CK>;
++			clock-names = "main";
++			#io-channel-cells = <1>;
++			status = "disabled";
++		};
++
+ 		pio: pinctrl@11d00000 {
+ 			compatible = "mediatek,mt7981-pinctrl";
+ 			reg = <0 0x11d00000 0 0x1000>,
+@@ -211,6 +236,10 @@ efuse@11f20000 {
+ 			reg = <0 0x11f20000 0 0x1000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
++
++			thermal_calibration: thermal-calib@274 {
++				reg = <0x274 0xc>;
++			};
+ 		};
  
--		if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_IO)
--			rtype = IORESOURCE_IO;
--		else if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_MEM32)
--			rtype = IORESOURCE_MEM;
--		else
--			continue;
--
--		if (slot == PCI_SLOT(devfn) && type == rtype) {
--			*tgt = DT_CPUADDR_TO_TARGET(range.cpu_addr);
--			*attr = DT_CPUADDR_TO_ATTR(range.cpu_addr);
-+		if (slot == PCI_SLOT(devfn) &&
-+		    type == (range.flags & IORESOURCE_TYPE_BITS)) {
-+			*tgt = (range.parent_bus_addr >> 56) & 0xFF;
-+			*attr = (range.parent_bus_addr >> 48) & 0xFF;
- 			return 0;
- 		}
- 	}
+ 		clock-controller@15000000 {
 -- 
-2.50.1
+2.47.3
 
 
