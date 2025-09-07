@@ -4,139 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05D5CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 15:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3867DCA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 16:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4t1NPXSpsgumuAbcGzE1EyiDPKl7vf9eJ/hyZgqkMpM=; b=b+PzIAeM7mgR41sS4uO2uHs+ck
-	k2jicyS7zK+iN19WRmuDgBErAfZhQ3rMtrmaSOHpH5HmI6i86yENV9s/InKWCE9zIPsypXz2jd1Pt
-	QULZkp746NNOj7YjBwThg/566FRtBsUXhn3DLEn01MpysqJSvFYb/OLHSTbca3cPcIos6mXvg2HL+
-	2jFOJdRlRgEgN3Q4ZuGT4NKY0tE/SHvuAaV490U3aQGBerre2pYxMVl8AxdRaeE/LI1PVZnwHHFtd
-	hZ6yHqqGqWy0ol4SoDA3/+B4nMlggQQOCqWfROJNQCJBO3MvaBVKZR2MbINmvg/3fMHdUKKSeRzER
-	qRLkMnQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z/JuR+/4PnQWakm3YwFnqVG9W3eOVnOiXBXWphPR1hk=; b=CzJjO4FD1T7Rnl22fvGVqv3nr0
+	i6YFH8HurS+3vMD2au7QdgkvHf1+P7GinIXz2Jgsoz5dqFZ6o4RPOn9mEeIVA5MbK/TC+3Cc1PeCW
+	+Jm+88141B7zMkbm0q4l8Dvw7qPxzfz6JXB5m7MZp0locmB6lmW6nG05gKKHzwhfXYEMjbP2BcIEg
+	Y82Rqcfuf61DT41JmRwxCGMLg2Lvi43lJ8+zh5nwzhgnECYkCqdmDbhp1fQc17FwrELTYlfJBCEJI
+	n/C06PdOtqsxwdf1imvjEizyFIvlw2GV5fBtFjf0colqwPbqfDsfniX1nslsdzqo6PJzJtF+HzV6o
+	LgtVvYGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvHMO-0000000Bgnl-1WcG;
-	Sun, 07 Sep 2025 15:31:20 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1uvI0y-0000000BqPt-2KSj;
+	Sun, 07 Sep 2025 16:13:16 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvHJW-0000000BgLr-38KW
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Sep 2025 15:28:23 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-77251d7cca6so2900525b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Sep 2025 08:28:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757258902; x=1757863702; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=4t1NPXSpsgumuAbcGzE1EyiDPKl7vf9eJ/hyZgqkMpM=;
-        b=ZQLFlKyMmJWFOCCqExWu3V37U2sOzRw08DjDlVGYlk39UMg8XIRYa2vkFGXixuB1CQ
-         kyH6w0AWsX22BNHQutI+4yVA6IGcjN6R1GqePSuPSNFxdy3e8TIpGrtHV0iq28Oz9aFh
-         Sd7g1AMKI2ACnCaXx+HOAMJhSc/XfPS5KLbrKRilyo30Am/xLiCwBe1dmZujNfHm2DOL
-         3PP2lMH2iyfzcxkywX6THSvtWxNyuk3B7N8RasXoGyj2NEqv7XTBvRAcwdZzFNQm7p+7
-         /nPUUkWAbn4n89n9APJlvvev4vFR6ajo63mDcxOYKpaB7gGWVvzKhvfboHGgXIDCKHdy
-         /P/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757258902; x=1757863702;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4t1NPXSpsgumuAbcGzE1EyiDPKl7vf9eJ/hyZgqkMpM=;
-        b=bwYyt72IZhjzbt1abSlmsYvjqPS7rPK2h1akqJUn9xtOFDuuyhdGvx2G9E0hkPRxBp
-         PxH78lqbJdBla0FZxTZLxGE70VWwkUcoB5mHh3x4NTILQEN4Dw4rCMim0ds0CowXhCSY
-         hJUYeN8ifL/FA710i197CWx8RcZvcbAaVegyNp8eM77ToIv+lp0JZAnV0ioASxIB1S+7
-         gAmTI59eo70nytUCGr8Lo55c4TMP9UE/VbvC4I5J7+mjCOAVPRwsRo2PiVcHNbq87QNe
-         yp+ImsA0RB2lJbAu4YLvKww53EmpNMxpo2xA2tIrO7TwjRL4+7NcJyDDaGjLTGQR2pIT
-         JHyw==
-X-Gm-Message-State: AOJu0YzzXK680GyN/+gqccvAy5ATC9Qlb2ttd64hTADgUIZcU6fd7kgQ
-	y0ij0WwxC1gqi3cxjm9v7H3hefX7jo90zqfGIW1Cq6ZSKS6Ek32OsM2E
-X-Gm-Gg: ASbGncvCjmVQdi7z81RylaelscRgIi3R5AAhiBs/u/rmA+R59MutsHWf35/+egksT4f
-	CNnQ0C6ufEJE+/PTQwIs9xDTb+Gs336AuPDCvtIABtEbw2sY18yNuVFT0K47aWmehH8pySvsjQK
-	s1vNhxFsr5hrRHF2PMTefp0/W6mPVysF3nOLi0s5qyZKYFnfLL24Zl2zPlHzSqxfS6rrXfAaCnz
-	kwKc8GAhwohCz2p8wm7aJnE3KONsSxm8mQ09jVoK57laISNpPssJ2Ar+O57jtYdnNHw232BqZ7V
-	mlrlnqvIwmAwqxGUvFGD6OSQUv8HBOaMc3IL8MLpXMYrY/7ahK+Ra6p6vXUtMDSeWsam7dWTTbw
-	HhHudHhfGSUNF2ggQ71yspNOg8HoSpAb6k2hJlUaUoffpkgOGRdhKIHSqpAjQ5PKn65Rr20D3K0
-	5cQPHh+w==
-X-Google-Smtp-Source: AGHT+IGE6MiuigF2nMYzx+KzSDUOLA3WaN9Jrarc3HfPkx+hCejQIAa0ADWq74RTvhd9q/v/3azFVQ==
-X-Received: by 2002:a05:6a20:9183:b0:246:9192:2789 with SMTP id adf61e73a8af0-2534441fa83mr7672424637.49.1757258901631;
-        Sun, 07 Sep 2025 08:28:21 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4f8a0a2851sm15985846a12.37.2025.09.07.08.28.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 07 Sep 2025 08:28:21 -0700 (PDT)
-Message-ID: <83189bf7-6831-4373-a352-2a3a05526e08@roeck-us.net>
-Date: Sun, 7 Sep 2025 08:28:19 -0700
+	id 1uvHy6-0000000BpAj-1ZT4;
+	Sun, 07 Sep 2025 16:10:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757261418; x=1788797418;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3Zl6AVEGt9WisPqSWtg4X6buSc0QYXVLZOjy94tByxw=;
+  b=VpezvTXOwZfHrgdKKP0duzQ+K42ExCN7x3L0Zpet9i/SkCL5GGYp2kxb
+   VZo6gu9IT003yltT3bEiKoZ7hXqugrAmGliFPJ5FS3skx3UyDAemJ+KIO
+   mekgvtUs0536mlDnH7dXCh/VJR+BmMd2m0WMM47rVPOoONfiwXxtaZUgw
+   4e7tys0bkUZAs4oskofm95diYPOcbgwI4sBps16GMVvPEQSiRaQ19M9dY
+   Q6lOT62EkJnBF9vAnzBVYKzBoCKkcmZRfn9MaUMYBnEnkKjxgN0Pc49st
+   P8vgRWwyf5lY80il/BWOUpTDO/SPGoESLot+/VQjtHQ8WbrfUDwtDZ2Aq
+   w==;
+X-CSE-ConnectionGUID: CYuEiBmxQziHoSr1aAN2pg==
+X-CSE-MsgGUID: yeBBlJuxRwuHs+KdUUuIqw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="59462262"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="59462262"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Sep 2025 09:10:17 -0700
+X-CSE-ConnectionGUID: Wh9M8o7RQ9iMYMUnx7+mHg==
+X-CSE-MsgGUID: SztYKZBBSQ+peDyIbxLBCQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,246,1751266800"; 
+   d="scan'208";a="172951477"
+Received: from lkp-server01.sh.intel.com (HELO 114d98da2b6c) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 07 Sep 2025 09:10:14 -0700
+Received: from kbuild by 114d98da2b6c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uvHy0-0002MN-0C;
+	Sun, 07 Sep 2025 16:10:12 +0000
+Date: Mon, 8 Sep 2025 00:09:25 +0800
+From: kernel test robot <lkp@intel.com>
+To: WeiHao Li <cn.liweihao@gmail.com>, heiko@sntech.de, robh@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	WeiHao Li <cn.liweihao@gmail.com>
+Subject: Re: [PATCH v1 1/4] phy: rockchip: inno-usb2: Add usb2 phy support
+ for RK3368
+Message-ID: <202509072227.wBI6dBl4-lkp@intel.com>
+References: <20250905125318.7956-2-cn.liweihao@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 6/7] hwmon: sl28cpld: add SMARC-sAM67 support
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>,
- Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-References: <20250822131531.1366437-1-mwalle@kernel.org>
- <20250822131531.1366437-7-mwalle@kernel.org>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20250822131531.1366437-7-mwalle@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250905125318.7956-2-cn.liweihao@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_082822_794764_730746F3 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20250907_091018_491616_99A0A77D 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,28 +90,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/22/25 06:15, Michael Walle wrote:
-> The on-board uC on the SMARC-sAM67 board is compatible with the older
-> CPLD implementation on the SMARC-sAL28 board, but has different sensors,
-> namely two voltage sensors and one temperature sensor. Add support for it.
-> 
-> Signed-off-by: Michael Walle <mwalle@kernel.org>
-> ---
->   drivers/hwmon/sl28cpld-hwmon.c | 76 ++++++++++++++++++++++++++++++++--
+Hi WeiHao,
 
-Documentation/hwmon/sl28cpld.rst would have to be updated as well.
+kernel test robot noticed the following build warnings:
 
-...
+[auto build test WARNING on rockchip/for-next]
+[also build test WARNING on robh/for-next arm/for-next arm/fixes arm64/for-next/core clk/clk-next kvmarm/next shawnguo/for-next soc/for-next linus/master v6.17-rc4 next-20250905]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
->   static const struct of_device_id sl28cpld_hwmon_of_match[] = {
-> -	{ .compatible = "kontron,sl28cpld-fan" },
-> +	{ .compatible = "kontron,sl28cpld-fan", .data = &sl28cpld_hwmon_chip_info },
-> +	{ .compatible = "kontron,sa67mcu-hwmon", .data = &sa67mcu_hwmon_chip_info },
+url:    https://github.com/intel-lab-lkp/linux/commits/WeiHao-Li/phy-rockchip-inno-usb2-Add-usb2-phy-support-for-RK3368/20250905-205804
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git for-next
+patch link:    https://lore.kernel.org/r/20250905125318.7956-2-cn.liweihao%40gmail.com
+patch subject: [PATCH v1 1/4] phy: rockchip: inno-usb2: Add usb2 phy support for RK3368
+config: arc-randconfig-r132-20250907 (https://download.01.org/0day-ci/archive/20250907/202509072227.wBI6dBl4-lkp@intel.com/config)
+compiler: arc-linux-gcc (GCC) 15.1.0
+reproduce: (https://download.01.org/0day-ci/archive/20250907/202509072227.wBI6dBl4-lkp@intel.com/reproduce)
 
-Effectively this means that the two chips have completely different functionality.
-One reports fan speeds, the other reports voltages and current.
-This should be a separate driver.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509072227.wBI6dBl4-lkp@intel.com/
 
-Guenter
+sparse warnings: (new ones prefixed by >>)
+>> drivers/phy/rockchip/phy-rockchip-inno-usb2.c:1867:34: sparse: sparse: Initializer entry defined twice
+   drivers/phy/rockchip/phy-rockchip-inno-usb2.c:1873:34: sparse:   also defined here
 
+vim +1867 drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+
+  1849	
+  1850	static const struct rockchip_usb2phy_cfg rk3368_phy_cfgs[] = {
+  1851		{
+  1852			.reg = 0x700,
+  1853			.num_ports	= 2,
+  1854			.clkout_ctl	= { 0x0724, 15, 15, 1, 0 },
+  1855			.port_cfgs	= {
+  1856				[USB2PHY_PORT_OTG] = {
+  1857					.phy_sus	= { 0x0700, 8, 0, 0, 0x1d1 },
+  1858					.bvalid_det_en	= { 0x0680, 3, 3, 0, 1 },
+  1859					.bvalid_det_st	= { 0x0690, 3, 3, 0, 1 },
+  1860					.bvalid_det_clr = { 0x06a0, 3, 3, 0, 1 },
+  1861					.idfall_det_en	= { 0x0680, 6, 6, 0, 1 },
+  1862					.idfall_det_st	= { 0x0690, 6, 6, 0, 1 },
+  1863					.idfall_det_clr	= { 0x06a0, 6, 6, 0, 1 },
+  1864					.idrise_det_en	= { 0x0680, 5, 5, 0, 1 },
+  1865					.idrise_det_st	= { 0x0690, 5, 5, 0, 1 },
+  1866					.idrise_det_clr	= { 0x06a0, 5, 5, 0, 1 },
+> 1867					.ls_det_en	= { 0x0680, 2, 2, 0, 1 },
+  1868					.ls_det_st	= { 0x0690, 2, 2, 0, 1 },
+  1869					.ls_det_clr	= { 0x06a0, 2, 2, 0, 1 },
+  1870					.utmi_bvalid	= { 0x04bc, 23, 23, 0, 1 },
+  1871					.utmi_id	= { 0x04bc, 26, 26, 0, 1 },
+  1872					.utmi_ls	= { 0x04bc, 25, 24, 0, 1 },
+  1873					.ls_det_en	= { 0x079c, 15, 15, 1, 0 },
+  1874				},
+  1875				[USB2PHY_PORT_HOST] = {
+  1876					.phy_sus	= { 0x0728, 8, 0, 0, 0x1d1 },
+  1877					.ls_det_en	= { 0x0680, 4, 4, 0, 1 },
+  1878					.ls_det_st	= { 0x0690, 4, 4, 0, 1 },
+  1879					.ls_det_clr	= { 0x06a0, 4, 4, 0, 1 }
+  1880				}
+  1881			},
+  1882			.chg_det = {
+  1883				.opmode		= { 0x0700, 8, 0, 0, 0x1d7 },
+  1884				.cp_det		= { 0x04b8, 30, 30, 0, 1 },
+  1885				.dcp_det	= { 0x04b8, 29, 29, 0, 1 },
+  1886				.dp_det		= { 0x04b8, 31, 31, 0, 1 },
+  1887				.idm_sink_en	= { 0x0718, 8, 8, 0, 1 },
+  1888				.idp_sink_en	= { 0x0718, 7, 7, 0, 1 },
+  1889				.idp_src_en	= { 0x0718, 9, 9, 0, 1 },
+  1890				.rdm_pdwn_en	= { 0x0718, 10, 10, 0, 1 },
+  1891				.vdm_src_en	= { 0x0718, 12, 12, 0, 1 },
+  1892				.vdp_src_en	= { 0x0718, 11, 11, 0, 1 },
+  1893			},
+  1894		},
+  1895		{ /* sentinel */ }
+  1896	};
+  1897	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
