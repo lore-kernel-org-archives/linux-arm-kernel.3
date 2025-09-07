@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15256CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 17:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6703CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 17:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HI7cBrf/VB0tvEUFj8M36AcWOsz9VdohrYv1q3umpTQ=; b=uhmO4TnNd76bzFMIq418Qh8of/
-	MfPNeum89357Helven9JFpTHJ5xf67H4ErSSD+erGUlSRg0xOYcLlbuumWqOkQI12kx0zyeyhBZf3
-	BtFjSEyH/PISrtdUZcyER8/eINHGTA1KuM0Ydre4DgXQM8Wc7CFfmqt6bTcmjtIablbyC8EQvtIQO
-	hAGUfsqWEioMXD12yQRtPUCZO9wt4/yJXabo4jSYyr66H7YlzYV6C7owa89e7HQmaZ+A1PbhQeyb5
-	p0RxhGyMcOzS9fLD2ygOh6Ru+ff4/eQRCLKYOhstcr8F/rSIZURR6HSNLOTZxNv8uoPO3Ze8GptRx
-	BEcBIn3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nmQllN2pDw8NXAbKMZpYQ4Kj+bbL5tYdmA6gAXvP1Kw=; b=jfVAnwB88rIm1SxsBAyidFOTIS
+	lQKGBFgdw8lHJt0UEp+Xgyph2bFmr75yPgYyqWb1cGb+50Mwf0jMgCiSJE92R5rGiGpuebdui/EhN
+	CnrUjw0UCuQEvZWOaZoHVgltlhty8B1u9RGy4P+MSXmzH893vqVdqXeXjPfglKYenm84O9P+w7ucF
+	r2WIO+3eQkDPtxXpuQyTBmtXyEs+6kKmJn/2aV/TRqD/x9OXGZuF6c6ZwPhPcGTvo+s8+2oyQ2Two
+	Tp91jSxyxy2dSepL7OwChCxexizVpZMg86V1/Lz/UfJXIXelkXub4UQpL2dM2k32EHGv669L+HheG
+	gel+pZqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvJF8-0000000C6bK-0G0k;
-	Sun, 07 Sep 2025 17:31:58 +0000
+	id 1uvJHv-0000000C7AG-0t8O;
+	Sun, 07 Sep 2025 17:34:51 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvJCI-0000000C5xf-0G6H;
-	Sun, 07 Sep 2025 17:29:03 +0000
+	id 1uvJDg-0000000C67m-3wyG;
+	Sun, 07 Sep 2025 17:30:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=HI7cBrf/VB0tvEUFj8M36AcWOsz9VdohrYv1q3umpTQ=; b=LDvPL+9w8nffgf51qfs60Ztwj/
-	SjwY2Qk0KC/THjpsUX/8//wPP9CySwk7/KOAX7S4J2UTGyX2Zst3xjpsekLLhMutltVyAIxGHEd4S
-	aJ3z466Q5+VdG8h/Car/C3QCy88WoX6yYqwH5o7o65ByqutRcOhuz/1UEq7UDuHveqwpseOaba8z3
-	2ozi1TpRxZ9F7IBFM/HVKBpPwFWK1u3MTZdHhEJPUMy9T0minU5+KWCd4o1Krw6rR7fjdawfT35mr
-	fnpkUKJ3ZrHdLM5CguuRxplZnjkpVpI6faWfKmCM3fBCSs9u7zFdB8B3KUWf8Ax5XhRWNDQdwfy9r
-	vBYKsJaw==;
-Received: from [61.8.147.163] (helo=phil.localnet)
+	bh=nmQllN2pDw8NXAbKMZpYQ4Kj+bbL5tYdmA6gAXvP1Kw=; b=G0idjGkbwbq6im9iS0jIsINwRj
+	y30L1G7MTUyr5KSI5JzrP1ieKW3hs979GPPFohd4fGA9ROaNa7ZV9scjmBHoJd634Mo9oqrtTKuiH
+	J2tHF2A5lbRhaCgEi0essNw4XpHR8Ea4xWNxOQztjhKlgRHqtu4ybFDqk/NK5ooXVp5bk6poL7PvF
+	4gQNA1SSlKR1ou2Lhw2odab4GjazaSo/X9fMxBfxiwg+fw2vcqGw09C7nJfML1R60sViTViHBCsR1
+	e107BnMuJ03h5j+MGdfeO/RYGG+6DCqr+aiEqsVtNBwpjpnc4jg3ERSRfie8muGPP8G5QTnWsj76+
+	k46Z/1Xg==;
+Received: from [61.8.147.163] (helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uvJC8-0004IN-3o; Sun, 07 Sep 2025 19:28:52 +0200
+	id 1uvJDb-0004Ii-OF; Sun, 07 Sep 2025 19:30:23 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
- Sergey Shtylyov <s.shtylyov@omp.ru>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] pinctrl: rockchip: fix NULL ptr deref in
- rockchip_pinctrl_parse_groups()
-Date: Sun, 07 Sep 2025 19:28:50 +0200
-Message-ID: <6789547.RUnXabflUD@phil>
-In-Reply-To: <179c9e8c-8760-41e6-aad7-7a128df60984@omp.ru>
-References: <179c9e8c-8760-41e6-aad7-7a128df60984@omp.ru>
+To: Jimmy Hon <honyuenkwun@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Cenk Uluisik <cenk.uluisik@googlemail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix the headphone detection on the orangepi 5
+Date: Sun,  7 Sep 2025 19:30:10 +0200
+Message-ID: <175726620394.195224.4863527121598491124.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250904030150.986042-1-honyuenkwun@gmail.com>
+References: <20250904030150.986042-1-honyuenkwun@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_102902_105391_27271D19 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20250907_103028_979876_ADA3C1A8 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,59 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 3. September 2025, 21:48:54 Mitteleurop=C3=A4ische Sommerzeit =
-schrieb Sergey Shtylyov:
-> In the Rockchip driver, rockchip_pinctrl_parse_groups() assumes that the
-> "rockchip,pins" property will always be present in the DT node it parses
-> and so doesn't check the result of of_get_property() for NULL. If the DT
-> passed to the kernel happens to have such property missing, then we will
-> get a kernel oops when the pointer is dereferenced in the *for* loop just
-> a few lines after the call.  I think it's better to play safe by checking
-> the list variable for NULL (and reporting error if so), like we check the
-> size variable for validity further down...
->=20
-> Found by Linux Verification Center (linuxtesting.org) with the Svace stat=
-ic
-> analysis tool.
->=20
-> Fixes: d3e5116119bd ("pinctrl: add pinctrl driver for Rockchip SoCs")
-> Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
 
-Assuming that the DT is our friend, really is a bad assumption :-) .
+On Thu, 04 Sep 2025 03:01:50 +0000, Jimmy Hon wrote:
+> The logic of the headphone detect pin seems to be inverted, with this
+> change headphones actually output sound when plugged in.
+> 
+> Does not need workaround of using pin-switches to enable output.
+> 
+> Verified by checking /sys/kernel/debug/gpio.
+> 
+> [...]
 
-While I can't imagine what 12-year-ago-me was thinking then, simply
-checking the return value really is the better way
+Applied, thanks!
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+[1/1] arm64: dts: rockchip: Fix the headphone detection on the orangepi 5
+      commit: 0f860eef417df93eb0ae70bbfa8d26cb7e29244d
 
-
->=20
-> ---
-> The patch is against the master branch of Linus Torvalds' linux.git repo.
->=20
->  drivers/pinctrl/pinctrl-rockchip.c |    4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->=20
-> Index: linux/drivers/pinctrl/pinctrl-rockchip.c
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> --- linux.orig/drivers/pinctrl/pinctrl-rockchip.c
-> +++ linux/drivers/pinctrl/pinctrl-rockchip.c
-> @@ -3488,7 +3488,9 @@ static int rockchip_pinctrl_parse_groups
->  	 * do sanity check and calculate pins number
->  	 */
->  	list =3D of_get_property(np, "rockchip,pins", &size);
-> -	/* we do not check return since it's safe node passed down */
-> +	if (!list)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "%pOF: no rockchip,pins property\n", np);
->  	size /=3D sizeof(*list);
->  	if (!size || size % 4)
->  		return dev_err_probe(dev, -EINVAL,
->=20
-
-
-
-
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
