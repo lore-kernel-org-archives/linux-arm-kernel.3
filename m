@@ -4,75 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CC9CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 01:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71128CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 05:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T8PZoTFdcE9zyvzVpjQCoxqrcqxVo1RB0SBT1ExD8z0=; b=DneQjiYWmKawUYqD71J8IbnYFC
-	Nf1KDcuxR++PZFGJ+yIKIBT6FJMlF/5XG0T+aaoEqK7FDH3UkVQzWExC07iuYP+2cLrs5hR1Ke6Ge
-	9dHpn1h8mXDQYQwcIslMQ+KCG4ZKgnl1InD8bi4rDju4QQ5gMP1bqXAqCv4/MM7Rh1Qq5pKmoGXl2
-	pp0OfDiwU4gT80dI0V5hkuB9dyi129GGlS3FTuV+as+FJWg91LsT8UOGTHhW+dMnmqqs3mH5XVNfI
-	T6Jy3OADMAv456SjBaTYi+5QwtVGE/lIIbhVBfCYXiqZwTuA9QuL4V2Tz2y6fuuz0sfxJ4Fog3pFT
-	dT61bYSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZBp52V91Gxr27f7RudT0aNk9Xj8vFIecZ5YmKsPh8yA=; b=yHOgI36ymPclebiCy+dMGRotC6
+	saMPSCdjey4phRst7KmnGDRwRau5N7j4gvWnhifSloKxKzDleoGfsowrU3e/x6Ho3cPoj5eyYoEDL
+	oCYIIu1ws1nsYbmO3VYVVIs8h5wjBeyDqriiIllK5s5bUHtQ2mS4i5qR72n/o9uCBCW/4CpZES+OO
+	LhWgr/L4Rwu7atN2UV21sc13fcBVNw8nQXEjqpAY3oNdsc2Xr7BpAGtbaEHv/ZGD8AD/3wztzkiCu
+	yOQWbB8wd3QiT9u2C0vh1sECiH8JRD0aSjVJ6+Bf9S2VUENcRQY4nU01HFlqwoutbLsbOWJmk3WD9
+	5vFq3+mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uv4Lk-00000008mFi-1O8R;
-	Sun, 07 Sep 2025 01:37:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uv7mR-00000009XFr-3wNC;
+	Sun, 07 Sep 2025 05:17:35 +0000
+Received: from mail-bn7nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2009::600] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uv4Iy-00000008lTl-323Y;
-	Sun, 07 Sep 2025 01:34:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C9C144E81;
-	Sun,  7 Sep 2025 01:34:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72691C4CEF9;
-	Sun,  7 Sep 2025 01:34:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757208895;
-	bh=YvrMVck9GuxvJbknpdd53Wuad3w7da3ygVsD0daNaFU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=txGJve11Mwh7eufsDkQ6YhkkhUh94pIrBGtVPdAnzbntW7hbiIXW4e8lPUKfm/P4t
-	 Ml4xYGAuWZVSAUUylGknI1s46OjUfeZOuamp7JzzDncBM34j/kLEJiwrDI7LwNbQeJ
-	 1XBKGX0Omk9dGHrd+i92FDg/DqysEHCnGK+Qy4sqQ2wkJLLeQMmMQQOksYilVqKn2J
-	 9OCNaJvKGaFYlJh9QuLngXCZ4zI6Jmif1VNlqsSnzAB2CemiVXVfZ2aqOPR0AJ3mhI
-	 0EBxBw0U6QTOUxWywc1vfid0FLjiZ7+sHg5KwWTO36jVcUjKmrMaDQoBnSsDZixuX9
-	 sXaXf2Pipopug==
-Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-30cce534a91so1419059fac.0;
-        Sat, 06 Sep 2025 18:34:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVgKeM6mCPi+CFuEMkbGnwuzTHI2x241q2LivdZF7CxKjwiPMag9WtGwuMO4EQJDtmcdQzwzChABLhsAXuHa+8=@lists.infradead.org, AJvYcCXHDWOZ0+655G5SQ875PgPSTciIMz1i7LQIvXXOKRlyjjvN+hPfa93/nTPxWF5Z65vOwgr3qeSJLsrxWRdB2pah@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6rPaZ9X/tV0oJj5im37KLnpBhUFJq0PeJ+quORi/DDb/y1V7l
-	Zc/VOZaeuWYET1Bc5lHm1IHjrJtZA590kWZKqfT6hE99XbTioxHoQkuaBd201mPcam3W2PU9S2l
-	QdlWbQPIM5GFXqxwmnw5ENMY5QWFYADU=
-X-Google-Smtp-Source: AGHT+IGVjcrk3nT2danIlz7M5YYs7s1I1c3e4MPWm1eVrv+/cRM7jUsuwRVAQ3f8OvC5Mf7Lx0jfXbVvOb81naROdro=
-X-Received: by 2002:a05:6808:3095:b0:439:af0a:dc9e with SMTP id
- 5614622812f47-43b29bed1e4mr1448155b6e.12.1757208894866; Sat, 06 Sep 2025
- 18:34:54 -0700 (PDT)
+	id 1uv7jY-00000009WIo-2Y4q;
+	Sun, 07 Sep 2025 05:14:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yUBsZoa48ubr5UfQCm1JGG4S8RpaYQuK3qinFtfTVoIyblstuFvs1UtepWrL6qmhVxym1pIpbEsbMAvn8OLpFtnGKLdFRogzsXju1CrLLfxBypz+Hkszu+T6TOwyetB17oSLAcgJzki+fDcVYN+oiTtl/ehsF6gZlXmpmGbHNSDpgD44y8PNgeLafTwUoVPHuULARbhwZIgo3c8tKzUiTcLIbjk9SxJ0Ts4DKpyC1PPtY5Ts15C7DoSWyHHrOZcmwjhmNkBgLbdBHDWKr41d/hH0Iq4wl03K3165j0jxtSFnMsVtfLQLsKI5Op+VEBMmGm8nEPF6cEUtHrz9CFbJvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZBp52V91Gxr27f7RudT0aNk9Xj8vFIecZ5YmKsPh8yA=;
+ b=GGSMAlpnRrdP4a44ktU29+KpniQMk+UW6Gda+8KCQog3qwPiGbBpp73s+/BJXgR5l5bJpq0nocNaVsitWzZ27gkvAs7+LxMqwmYUV2xlKVIBVq5LtnfXWkMzSe/DZQIkP8OYzgKltBhzt4+fC0FDtL1N5BxRrHQ6eiPyq6WPHX7Mw70yooOKJZYN8RX93Z/eXOoJCFvUeMmcLM1q/RmGzGzlKZ0t8Hie845b//12OtmTUXi4bBsLE8ZzjltETh8kwzNO/DLMfeCGMi39ZmzVvGlWny5kJms7IhwCe7n+ssvUIfmauKp8Nas/sp0t4pEIwgYbDOC5YTUN1q3j61eICw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZBp52V91Gxr27f7RudT0aNk9Xj8vFIecZ5YmKsPh8yA=;
+ b=GJCW+3DSmriH1MADLp7VlsqRk2CVBWqYaaZCnkrNj9TbrTt6BEgQdv1kl/bPCLxxWONcA5b3HSE64EHr5tjCu6yjJpMegbjJgswtpzQdoqLvQOiiujYIZT3K0YBRTycLIXZ6Ou7WG3XMLHyTM/e0/txaULr9tJCar2wjSGunmmp/paDLnohvQsoxjL2yYEpwgWaCnYt3R61pMuTiBf7SZU14mP6PbMIiMe96MNr5AzKQ1lYjYeivnO3lExo92w7ONdvD0naIzzrKG43FmjQU26Y1sHC7eistWEzdn2W5ldnyprC9DRSDIom6a/g/qJD3t2BQfO6vC9HdWZQheuBdjg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV2PR12MB5968.namprd12.prod.outlook.com (2603:10b6:408:14f::7)
+ by DS5PPFDF2DDE6CD.namprd12.prod.outlook.com (2603:10b6:f:fc00::665) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.19; Sun, 7 Sep
+ 2025 05:14:26 +0000
+Received: from LV2PR12MB5968.namprd12.prod.outlook.com
+ ([fe80::e6dd:1206:6677:f9c4]) by LV2PR12MB5968.namprd12.prod.outlook.com
+ ([fe80::e6dd:1206:6677:f9c4%6]) with mapi id 15.20.9094.016; Sun, 7 Sep 2025
+ 05:14:25 +0000
+Message-ID: <0a28adde-acaf-4d55-96ba-c32d6113285f@nvidia.com>
+Date: Sat, 6 Sep 2025 22:14:19 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
+To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
+Cc: Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, kasan-dev@googlegroups.com,
+ kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+ Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+ Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
+ Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
+ Zi Yan <ziy@nvidia.com>
+References: <20250901150359.867252-1-david@redhat.com>
+ <20250901150359.867252-20-david@redhat.com>
+ <016307ba-427d-4646-8e4d-1ffefd2c1968@nvidia.com>
+ <85e760cf-b994-40db-8d13-221feee55c60@redhat.com>
+Content-Language: en-US
+From: John Hubbard <jhubbard@nvidia.com>
+In-Reply-To: <85e760cf-b994-40db-8d13-221feee55c60@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR05CA0048.namprd05.prod.outlook.com
+ (2603:10b6:a03:33f::23) To LV2PR12MB5968.namprd12.prod.outlook.com
+ (2603:10b6:408:14f::7)
 MIME-Version: 1.0
-References: <20250903121452.387023-1-liaoyuanhong@vivo.com>
-In-Reply-To: <20250903121452.387023-1-liaoyuanhong@vivo.com>
-From: Chanwoo Choi <chanwoo@kernel.org>
-Date: Sun, 7 Sep 2025 10:34:16 +0900
-X-Gmail-Original-Message-ID: <CAGTfZH2ch56uca-x7TLTYu3Q0q-j+1nCsSOjUV0R7XQ3XLQ7CA@mail.gmail.com>
-X-Gm-Features: Ac12FXycPiT7p52rG1BVVS6XsIIvHEkvuEPHCNNS6J9fihNz-L7KMPQrOiCUex0
-Message-ID: <CAGTfZH2ch56uca-x7TLTYu3Q0q-j+1nCsSOjUV0R7XQ3XLQ7CA@mail.gmail.com>
-Subject: Re: [PATCH] PM / devfreq: mtk-cci: avoid redundant conditions
-To: Liao Yuanhong <liaoyuanhong@vivo.com>
-Cc: MyungJoo Ham <myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"open list:DEVICE FREQUENCY (DEVFREQ)" <linux-pm@vger.kernel.org>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR12MB5968:EE_|DS5PPFDF2DDE6CD:EE_
+X-MS-Office365-Filtering-Correlation-Id: 89b9ab1e-80e3-48bd-897d-08ddedcd6976
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|376014|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?N3VhS0huWjQ4a3lsVHYzQ0ZwUFpBUjlPQjE2VXV6aS8zdmFuZzZLajVkaXpz?=
+ =?utf-8?B?bEpMMWxBZ1BOWVU3QjZRaVpkNFA2dFdMTXJ0VmJCc0tSYmJTd1ZSQjhWS0NR?=
+ =?utf-8?B?L2JCYU5wYXhNU2tweXhzcFUwQlVkSTgwQjRaSCsxUWdwSHpvU1NqYWo3eWlN?=
+ =?utf-8?B?YWphSzhUcWxUU1dsY2VtdDdvZmRHRC92Sk1nSmZCeW1tTFQ3YUVia0pxZGtv?=
+ =?utf-8?B?aTRMa2hmMEYzVEZTejRBck5nSXdWb2tHbnNaOWkyMDNmV1FTWUNYNVRHMmFw?=
+ =?utf-8?B?cUJmdGM5WmJDTk1SWkREeTlUR2E5cFpRTjFDTHdkSFRLZ3FNNFVXQmtyMnZY?=
+ =?utf-8?B?MlZCS1JScTJPWWNjaWRnYSt3STA1Nm94bGorSHlkZ05iM1RrQmNVaFRzRjM2?=
+ =?utf-8?B?b0s5MnUwV0w4RVArdXVLcmFtUW9JT0VORFpqbEFOYnROZDQ0Uk1idHNnSnZQ?=
+ =?utf-8?B?TzdIVHZpRExrMFRjV2Y0YUtKU0NJRnRxR3hhbHIxQ0RmNG1rczd1NWtDWVZs?=
+ =?utf-8?B?ZTdJQTZGSmFHczhaWHRCVjVQWjdiVnA3MW9wdXNPQVp6djJVU3lFTTcybFNo?=
+ =?utf-8?B?UFNHTkg3Z2RCZEYyTVVFSUVna2thM3Jwd3hZYkFuUm1oZlFtUDRnRTZxVGVq?=
+ =?utf-8?B?N1ZDVjk0UE9seTRvTmxDTVYrUFJ0Uy9yV2xROEliWk51eEtDdXU0Z3pYWXJp?=
+ =?utf-8?B?anBGUkt5bnRwSFo2a2ljNmVxTEIwKys2T2lQSFhwTkQrdkVvY2hxU0VUWThS?=
+ =?utf-8?B?OHgweUV2elJuR2VmYU1kb0VBRHNnYXpyODFueFEzSktNQUNMTnRzTkRKbDdP?=
+ =?utf-8?B?RlBvWGVvMm1uV0tlcmc4cTlRMllKTGYvUEpmMmVVTTNnWFJrMjhMSlRtNzBG?=
+ =?utf-8?B?ZDArTVhwaHJZdXVoOXhFYXA1QVJRWFRJd1NkTnBmdngrWGxnVWNhUUVSUmov?=
+ =?utf-8?B?K1RLQnNvQUM2NzM0WE1ONzNjUzdFeUl2RjB1NmFVRDR6VlJLTHpMdTNlOHNB?=
+ =?utf-8?B?SVNXa05oOUw2UDhkWWZmZmpLd215c3lubnphcWUrMHpKSkxSR21MOEJDMllY?=
+ =?utf-8?B?aWFVbEd2cnc4WGhkcEdMTnJKaVFBNHl0YVBVV0FxclZEb0JoVjlEV1AxNHFh?=
+ =?utf-8?B?Kzh5d1JQcmNoRmlpalRrc2ljTGtKQVc2aUJJdlZML1pGVVVCZTByTGFFWW5N?=
+ =?utf-8?B?eTRIOE5Nb2Y3OGFucVZSVGtMaW5xeHdwV0tad1E4cE9GUk12MDJOU0w1U25N?=
+ =?utf-8?B?dDgrdzZWbUd4VjFXZTk1OFZMZmxMbi93cXp5c0Z2UHBWOXc3OHpJUEhCOHFQ?=
+ =?utf-8?B?MUk5RG5DeWs1MXVLOHE5TTRCMkl3cXFTRHA0WWxxNWhVV0gwa3phRitqTlNC?=
+ =?utf-8?B?c2pTdlpFdW9wblI3c3AyYmQrNDFvNWFYT0dzM3YwRnZXUk9SUHFEUTJqM1pp?=
+ =?utf-8?B?M1FJRUVVOWpEd1hTOWYwUjAzVjJpcnlNZkhWTnhIdGJ4NzhlTGJIK2NabTgv?=
+ =?utf-8?B?OGxGNUQ0cU43UTZuNXErdGVnanJuTEd2M0VFaTlDNzJOZXQwOTVYQ2tkWnlO?=
+ =?utf-8?B?K0cyMEFKUGFzL1R2ZXlYLzVRbWpTNUZMeU5qSGVVYXpCOTV5OFcrdlFrL0JT?=
+ =?utf-8?B?cEFROEViM1JtN3FySDd4b0xJbXpyemgyN0x6QmkxYWpZUlprU3VMR0oyYlVQ?=
+ =?utf-8?B?M1FNY1lpVjhhYmlhVVl3U1JBTUJ4SjFVOUdURFZDVm1RdFB2Q1hMS0lCeEY4?=
+ =?utf-8?B?NUtsMjNRa0NQUHJHU1MvMURkK3BEcEEzY0ZUcDBjR1N1Qit6RTJHU1kreEVr?=
+ =?utf-8?B?MUxxZW11V1JCSGR2R0w0RTRzNENkeEc5dGtFWDZKanBZaGNGVDBsL0VjdzQy?=
+ =?utf-8?B?U0FKMWs2N3lqR2txMkI0Sm5kMEdkeGpSN3U1dDhHZzg4Qnc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5968.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z2FmbGhrTlFWREJvWjdCU1VYNHgya0haRTlqdUtTa0c0Z2VPbG4rS3NOQ3VP?=
+ =?utf-8?B?aTc3dURUbGo5WXg3ZXNRWEJQVWdabGRxOWw4R2RUS3UwczltdmtmdnZlUlRz?=
+ =?utf-8?B?OVp6R3NaazB0RXVzZUxHTld4Ny9jU3BxMWd2ZVF6YlFhV2lYQnVrK3orK2pZ?=
+ =?utf-8?B?aWMvOFN2UG1DTDVZaDFtUVVkQ3pRV08yTVNYRTdkMTIvbTB1OWh0Sm1HMCs3?=
+ =?utf-8?B?WUpNTnVkSytmdHZmOVZvR2tVbTNxQjlkb29xZnB1bzhObzliaU84UG92RW9E?=
+ =?utf-8?B?M0lzeXUvYnpkelJiQk1zLzhWazN1dThSN0JnRzkyQWZMSVdnMjY3cnViQjhZ?=
+ =?utf-8?B?QkhxUVpFZHpGRDRObnkzbTA5QnJlMlhnaXYrSCtWMXBQZ0V2MktGVTJhbTRn?=
+ =?utf-8?B?bGJFeU5EUlpPVGwyd3hxc0JSa3ZOUTh3NmxZdkkrOUZRVUR4ck0zVTh4dzlY?=
+ =?utf-8?B?YTdUTXBtZHhMdUQxRzJwdDB1YmFiRUQ0YzFCa0JjQ08zU1V4N0tVUGJjTmVo?=
+ =?utf-8?B?RE5JTUV5VFlOaVlTMEFzaU03UitTVnprSXZoOWxwU0doN0ZsK0JCRlJMaitY?=
+ =?utf-8?B?UmFHeXV0ekg3QVZoNENJaEc2QjQ5WUpaMWp5bTBwMnllTGs1Z20xZ0x3a0Fs?=
+ =?utf-8?B?Q2NKblU2NUVEV0lqQjZBUUYzN0w0RE9kUk9ySlM2eDVqTG1ERzlTOWUzMjJj?=
+ =?utf-8?B?M0JrZXN1MmxoU1RLNFZMK0pwLzA3NHdCUTNmazZJM01zYTcrNGsrYXNIZWVM?=
+ =?utf-8?B?TlBlT245aDZ1VHlVcVlDdUxEMWw2QXRNU1BFVW5UajduclBnenMrNXBRNUMr?=
+ =?utf-8?B?NWFyQ3FsVzhuNGNmSnY1Mi9ISndPWjliWW0rS0xJc2V5QzVKSTRvalA2aFUw?=
+ =?utf-8?B?SE1KTkVpTEVFQmtKUTg2VmkvbXF2L1NLdFBMRzNDS1I2MDAwKzZuZmtzd1FV?=
+ =?utf-8?B?TjhreGszMlJkdFJyK3RRbnpQZ0RxVzEranZVNS9kRmNQUHIzNzBNNWVOUHVi?=
+ =?utf-8?B?RGYyVU9qVStQQXUzR0lYaXlKOENCV0RWOFVDT1dOZ01tRGNRdHhVazNKKzdB?=
+ =?utf-8?B?Q25OT3FaNThIV3RWVmVDV0paV2FJU01sb3IwTTVrRzZEaWRzY3pBUmJlRit1?=
+ =?utf-8?B?MmhJbmp4ajI5OENiYTNra2RlaEZjRmhiRmFPVDZZdGN6YUFyc1N1MDlrVlJ2?=
+ =?utf-8?B?TnpqdWJpVWxyRTFXN09MSDMvUUdjZ1lrdGZhN2xEeldEQjRGRjA1RWV4cGdS?=
+ =?utf-8?B?eTBMZWRFU3NLMnYrTXdTMGFEbXI2V2M1SU1KZVVIVGF0dFkxV0xMNmdWNWhF?=
+ =?utf-8?B?dDBUZ0l1Mm4zU3Y1UWR0dnVsWExuL0Z2bHVEQ21ML09TWlgwQXJRTzhaQTJr?=
+ =?utf-8?B?SDVvQ001cFV1NmdNaGF0ZUJneEFlam1zWlAwY0lzTWVjelEzNnFscGhZbGtv?=
+ =?utf-8?B?S0crbnF2MDc3U1QxLy9WS1ZvSUdqc0cyK2wyWk9mRnZXWGIxaGE5WWFwbWlZ?=
+ =?utf-8?B?UjNMT0hIQTRhUHV3MFNVVFNjSEtmbklKamVzMDZpOVdNRGdnNG8wbVpKakdo?=
+ =?utf-8?B?eXpGaDZobXM5NWVTZnY2VUcvN1dJek1YT0w1UFduazVqOUR2RjVHQ3lZOG5E?=
+ =?utf-8?B?cHhzSHpmeXBQYmEvTHNEdWlFVjVtdTFoMzZpVVVZaGxQc2oxNUt4bFBIT0do?=
+ =?utf-8?B?SEhDMDRJK2NHOUZpaVNqWkxxNFF1WkNRTlZ5amJhcXBIS1BDYzVhcnVVNUI0?=
+ =?utf-8?B?Vy9vOWFWWG1HcHNOWEtCRHR5L2JqM2drU2pFSHZmcVJ0Wm53Q1NGdktNMDl1?=
+ =?utf-8?B?dU9VUUdMaldtdkQyVTJRLysvR3ZKZHZmem85alRmUGtzSlQxZlFOdkZHVlJy?=
+ =?utf-8?B?OHBkYTZ4OWdia2tXTXk5dE5EZkdTQVNrSmc5QXlDNUdDU1BQbmo2c3ZaNEY1?=
+ =?utf-8?B?YTBlelUxU0F3Z2h5alpQNUdkM3pwNDFwSHRkV2lUbWIrTUVscVljeUVlbUsy?=
+ =?utf-8?B?eWkwdDF1Vk5uUDB6N1pDU2UzSVVoZXUvU2JWRjhTK0NMZFppUzhLbEgrTkUy?=
+ =?utf-8?B?NXo3KzBPdkFPNXpTSUZaY0R4Z2hMbkZpaXhpeWxCbzVhWExlZUtxUmM5T0Ri?=
+ =?utf-8?B?NmNoNmZJdXZTRU04OGRJWjhMU1FDZTZDUGlhVHRxYm8zZzRVQWtQamFCdm41?=
+ =?utf-8?B?a1E9PQ==?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 89b9ab1e-80e3-48bd-897d-08ddedcd6976
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5968.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2025 05:14:25.2162
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nMH9E6FIAuGh537ODX0TA1FL8Y+H+9s2oVS0wOHG+o0yolAQXZ6PgvaRmfySFg15SGYvEm2Bjkc1N1v56jE8Fw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPFDF2DDE6CD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_183456_800565_CA6126E5 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20250906_221436_776218_95C15665 
+X-CRM114-Status: GOOD (  31.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,52 +198,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 9/5/25 11:56 PM, David Hildenbrand wrote:
+> On 06.09.25 03:05, John Hubbard wrote:
+>> On 9/1/25 8:03 AM, David Hildenbrand wrote:
+...> Well, there is a lot I dislike about record_subpages() to go back 
+there.
+> Starting with "as Willy keeps explaining, the concept of subpages do
+> not exist and ending with "why do we fill out the array even on failure".
+> 
+> :)
 
-Applied it.
+I am also very glad to see the entire concept of subpages disappear.
 
-Thanks.
+>>
+>> Now it's been returned to it's original, cryptic form.
+>>
+> 
+> The code in the caller was so uncryptic that both me and Lorenzo missed
+> that magical addition. :P
+> 
+>> Just my take on it, for whatever that's worth. :)
+> 
+> As always, appreciated.
+> 
+> I could of course keep the simple loop in some "record_folio_pages"
+> function and clean up what I dislike about record_subpages().
+> 
+> But I much rather want the call chain to be cleaned up instead, if 
+> possible.
+> 
 
-On Wed, Sep 3, 2025 at 9:15=E2=80=AFPM Liao Yuanhong <liaoyuanhong@vivo.com=
-> wrote:
->
-> While 'if (i <=3D 0) ... else if (i > 0) ...' is technically equivalent t=
-o
-> 'if (i <=3D 0) ... else ...', the latter is vastly easier to read because
-> it avoids writing out a condition that is unnecessary. Let's drop such
-> unnecessary conditions.
->
-> Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
+Right! The primary way that record_subpages() helped was in showing
+what was going on: a function call helps a lot to self-document,
+sometimes.
+
+> 
+> Roughly, what I am thinking (limiting it to pte+pmd case) about is the 
+> following:
+
+The code below looks much cleaner, that's great!
+
+thanks,
+-- 
+John Hubbard
+
+> 
+> 
+>  From d6d6d21dbf435d8030782a627175e36e6c7b2dfb Mon Sep 17 00:00:00 2001
+> From: David Hildenbrand <david@redhat.com>
+> Date: Sat, 6 Sep 2025 08:33:42 +0200
+> Subject: [PATCH] tmp
+> 
+> Signed-off-by: David Hildenbrand <david@redhat.com>
 > ---
->  drivers/devfreq/mtk-cci-devfreq.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/devfreq/mtk-cci-devfreq.c b/drivers/devfreq/mtk-cci-=
-devfreq.c
-> index 22fe9e631f8a..693c59c8037a 100644
-> --- a/drivers/devfreq/mtk-cci-devfreq.c
-> +++ b/drivers/devfreq/mtk-cci-devfreq.c
-> @@ -86,7 +86,7 @@ static int mtk_ccifreq_set_voltage(struct mtk_ccifreq_d=
-rv *drv, int new_voltage)
->                                                       soc_data->sram_max_=
-volt);
->                                 return ret;
->                         }
-> -               } else if (pre_voltage > new_voltage) {
-> +               } else {
->                         voltage =3D max(new_voltage,
->                                       pre_vsram - soc_data->max_volt_shif=
-t);
->                         ret =3D regulator_set_voltage(drv->proc_reg, volt=
-age,
-> --
-> 2.34.1
->
->
+>   mm/gup.c | 79 ++++++++++++++++++++++++++------------------------------
+>   1 file changed, 36 insertions(+), 43 deletions(-)
+> 
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 22420f2069ee1..98907ead749c0 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -2845,12 +2845,11 @@ static void __maybe_unused 
+> gup_fast_undo_dev_pagemap(int *nr, int nr_start,
+>    * also check pmd here to make sure pmd doesn't change (corresponds to
+>    * pmdp_collapse_flush() in the THP collapse code path).
+>    */
+> -static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
+> -        unsigned long end, unsigned int flags, struct page **pages,
+> -        int *nr)
+> +static unsigned long gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, 
+> unsigned long addr,
+> +        unsigned long end, unsigned int flags, struct page **pages)
+>   {
+>       struct dev_pagemap *pgmap = NULL;
+> -    int ret = 0;
+> +    unsigned long nr_pages = 0;
+>       pte_t *ptep, *ptem;
+> 
+>       ptem = ptep = pte_offset_map(&pmd, addr);
+> @@ -2908,24 +2907,20 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t 
+> *pmdp, unsigned long addr,
+>            * details.
+>            */
+>           if (flags & FOLL_PIN) {
+> -            ret = arch_make_folio_accessible(folio);
+> -            if (ret) {
+> +            if (arch_make_folio_accessible(folio)) {
+>                   gup_put_folio(folio, 1, flags);
+>                   goto pte_unmap;
+>               }
+>           }
+>           folio_set_referenced(folio);
+> -        pages[*nr] = page;
+> -        (*nr)++;
+> +        pages[nr_pages++] = page;
+>       } while (ptep++, addr += PAGE_SIZE, addr != end);
+> 
+> -    ret = 1;
+> -
+>   pte_unmap:
+>       if (pgmap)
+>           put_dev_pagemap(pgmap);
+>       pte_unmap(ptem);
+> -    return ret;
+> +    return nr_pages;
+>   }
+>   #else
+> 
+> @@ -2938,21 +2933,24 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t 
+> *pmdp, unsigned long addr,
+>    * get_user_pages_fast_only implementation that can pin pages. Thus 
+> it's still
+>    * useful to have gup_fast_pmd_leaf even if we can't operate on ptes.
+>    */
+> -static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
+> -        unsigned long end, unsigned int flags, struct page **pages,
+> -        int *nr)
+> +static unsigned long gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, 
+> unsigned long addr,
+> +        unsigned long end, unsigned int flags, struct page **pages)
+>   {
+>       return 0;
+>   }
+>   #endif /* CONFIG_ARCH_HAS_PTE_SPECIAL */
+> 
+> -static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+> -        unsigned long end, unsigned int flags, struct page **pages,
+> -        int *nr)
+> +static unsigned long gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, 
+> unsigned long addr,
+> +        unsigned long end, unsigned int flags, struct page **pages)
+>   {
+> +    const unsigned long nr_pages = (end - addr) >> PAGE_SHIFT;
+>       struct page *page;
+>       struct folio *folio;
+> -    int refs;
+> +    unsigned long i;
+> +
+> +    /* See gup_fast_pte_range() */
+> +    if (pmd_protnone(orig))
+> +        return 0;
+> 
+>       if (!pmd_access_permitted(orig, flags & FOLL_WRITE))
+>           return 0;
+> @@ -2960,33 +2958,30 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t 
+> *pmdp, unsigned long addr,
+>       if (pmd_special(orig))
+>           return 0;
+> 
+> -    refs = (end - addr) >> PAGE_SHIFT;
+>       page = pmd_page(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
+> 
+> -    folio = try_grab_folio_fast(page, refs, flags);
+> +    folio = try_grab_folio_fast(page, nr_pages, flags);
+>       if (!folio)
+>           return 0;
+> 
+>       if (unlikely(pmd_val(orig) != pmd_val(*pmdp))) {
+> -        gup_put_folio(folio, refs, flags);
+> +        gup_put_folio(folio, nr_pages, flags);
+>           return 0;
+>       }
+> 
+>       if (!gup_fast_folio_allowed(folio, flags)) {
+> -        gup_put_folio(folio, refs, flags);
+> +        gup_put_folio(folio, nr_pages, flags);
+>           return 0;
+>       }
+>       if (!pmd_write(orig) && gup_must_unshare(NULL, flags, &folio- 
+>  >page)) {
+> -        gup_put_folio(folio, refs, flags);
+> +        gup_put_folio(folio, nr_pages, flags);
+>           return 0;
+>       }
+> 
+> -    pages += *nr;
+> -    *nr += refs;
+> -    for (; refs; refs--)
+> +    for (i = 0; i < nr_pages; i++)
+>           *(pages++) = page++;
+>       folio_set_referenced(folio);
+> -    return 1;
+> +    return nr_pages;
+>   }
+> 
+>   static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+> @@ -3033,11 +3028,11 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t 
+> *pudp, unsigned long addr,
+>       return 1;
+>   }
+> 
+> -static int gup_fast_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr,
+> -        unsigned long end, unsigned int flags, struct page **pages,
+> -        int *nr)
+> +static unsigned long gup_fast_pmd_range(pud_t *pudp, pud_t pud, 
+> unsigned long addr,
+> +        unsigned long end, unsigned int flags, struct page **pages)
+>   {
+> -    unsigned long next;
+> +    unsigned long cur_nr_pages, next;
+> +    unsigned long nr_pages = 0;
+>       pmd_t *pmdp;
+> 
+>       pmdp = pmd_offset_lockless(pudp, pud, addr);
+> @@ -3046,23 +3041,21 @@ static int gup_fast_pmd_range(pud_t *pudp, pud_t 
+> pud, unsigned long addr,
+> 
+>           next = pmd_addr_end(addr, end);
+>           if (!pmd_present(pmd))
+> -            return 0;
+> +            break;
+> 
+> -        if (unlikely(pmd_leaf(pmd))) {
+> -            /* See gup_fast_pte_range() */
+> -            if (pmd_protnone(pmd))
+> -                return 0;
+> +        if (unlikely(pmd_leaf(pmd)))
+> +            cur_nr_pages = gup_fast_pmd_leaf(pmd, pmdp, addr, next, 
+> flags, pages);
+> +        else
+> +            cur_nr_pages = gup_fast_pte_range(pmd, pmdp, addr, next, 
+> flags, pages);
+> 
+> -            if (!gup_fast_pmd_leaf(pmd, pmdp, addr, next, flags,
+> -                pages, nr))
+> -                return 0;
+> +        nr_pages += cur_nr_pages;
+> +        pages += cur_nr_pages;
+> 
+> -        } else if (!gup_fast_pte_range(pmd, pmdp, addr, next, flags,
+> -                           pages, nr))
+> -            return 0;
+> +        if (nr_pages != (next - addr) >> PAGE_SIZE)
+> +            break;
+>       } while (pmdp++, addr = next, addr != end);
+> 
+> -    return 1;
+> +    return nr_pages;
+>   }
+> 
+>   static int gup_fast_pud_range(p4d_t *p4dp, p4d_t p4d, unsigned long addr,
 
 
---=20
-Best Regards,
-Chanwoo Choi
-Samsung Electronics
+
 
