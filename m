@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B68FCA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 09:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25293CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 09:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7XB3+EZyHStMbJWyfu9oUjul9eDNETGU8O8plme6nr8=; b=ukthChAxksVbkBE7YNyJzRVorV
-	tUTpGtjfFXc3DCSMRvwlrwGDMcHLTr2W1R7Vijme4GDLsGgnfCqV3BxtK04+kdMztCMYK7poZ3b4K
-	lr+6c0VjJgo9MZ63HNb8APyVvGhW7mmfVQTf8+2Tn3akjz2toP8Wv8ApZTr70+nTrekQB9/lZtvnt
-	FHYyK8RB6C5HKJcG4VLsh4gg/HdnPku8Lu8zAgGfOsIxGnpUvk1+G/5sDbqzTWEDFWvwYPtz+N6pJ
-	TMHjCZz/Hhva1KrcbodJEMv9x+L82941KmxNEjGShN7obtP2qW/TxXI1qN3bhT3hg9NTAlyy4ydG5
-	9GHBiQiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tBu1bs4aRFXXM2hwyueRO+bUFFMnZxfxSLLqElKyz0E=; b=x6vPyrjaxaZCCViwJF36NxtoVl
+	L+2bVYViZCIpxXi3jq4MEi6LLpdvnhc5Sx5AC8nhVE1owrqBehH9ee+WDBX4R86Dd4Wr8wZNxgnkU
+	Wo4qmQtlJgL8PIBT/FNZqh2BMtn0s4a/dss0rDm93JAUPU0bnEoizn2B3L+qItzAO2GABKSxC5BEn
+	IHzFkLdtjoBcUL2LvL135gg42AKtFIliB9ZNNKFh5ysiASOp+EiDwJq7G9E/9ARu6kKu2TNvoam3b
+	q9GVOdgkKkqPshUpqZOAotWfuEiOVitjLlkLdYFHEq5ibUlVlk+3YGlPYCukUKJdnAqw+wQ2sL6MW
+	67ki9qcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvBjd-0000000APtg-3zDB;
-	Sun, 07 Sep 2025 09:30:57 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uvBrR-0000000AS8j-30y4;
+	Sun, 07 Sep 2025 09:39:01 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvBgt-0000000APGG-2D28
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Sep 2025 09:28:08 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45dcfecdc0fso28901645e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Sep 2025 02:28:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757237285; x=1757842085; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=7XB3+EZyHStMbJWyfu9oUjul9eDNETGU8O8plme6nr8=;
-        b=cMaMZi2ZWX2hIhLr0szriNgiT4eCKM1RLy9FJFTeFiE03oIFzgpxEN/pbNIq7NaTrs
-         p3zo/2r1x1cGIzdW03AE1mVvcU2SSQloxnjXfaX/V1IHJ7wylGKPnoRapfHKi4L3ZWEl
-         sQsnPsgjHb3zJ3aF17Lv3oGlPEorynds2lZtU5wqwN4fAxw7FfV6gwCpk5WQx1hFFd9j
-         KSS5mEhIOThybqitJUIkmIrqkS7kuuabQbTog+C0jCmYoO43VPexPJwHRup4VqeHTwcb
-         g9VZiABFgLa+gOyhEFOsM3mKzPoMLI74l0VvATq3FFXK9euQ6J7ODNv2CS9l3voMtFBZ
-         9TGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757237285; x=1757842085;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7XB3+EZyHStMbJWyfu9oUjul9eDNETGU8O8plme6nr8=;
-        b=f6huuurVt1LjCINKUbYQoNWQ5yuGfsHbh7C51mq2gfdVN89+UAvbE2F/TZg/sAQxvn
-         O23Dsx1wUjHj8LimBriT5HAhSezwGA2210LJtEqaXL5XBfa+413I8A4eHpnve1kTnJDR
-         IDBBfTwtW3aBDJg6aZhykPzKJ4e7G0qoeHJYQgptP1CZ6Ekr2S977eaGq0/KAy2Clmeu
-         SEfC4kpoKhpLaO8TkO5xdbTbsZrVHtQ/EjBqDt/X/93D9WhFTbo0jLgx+38ZyXfE/ktf
-         UrZJuoJdkO33sVpLTmL1RE99+DGbdp47pf2F/B9jw+0a2yQQJbPSzKAwvrphBZB3oPP7
-         0ySQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVwb9h4ypweDuJRcBEtIXqr8kPb4q1LrQblCSt/o/gbKgrVCq4kDHQKo4WJd2GnechTLr0Qj3IWnqYxrEee+Az4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBYP9AjFzGEuQT0zBtQWFqnJOUX1r3aN3HoT5dFYiosbxuMo3G
-	Uvr2QcdWb4GpZSHxlYghxrYCBdjG9PYG25dZJp4VHG+r48j1zpMvGgbZ
-X-Gm-Gg: ASbGncven3a8PwKKItyKZ2N3fn0U7AaWfpYnaKzzUSs5oXOaZdmxkbfwWmaoDmfx+JU
-	3TrZlM5rI3Xq1LJJBx0FAisCvDPaz5H37ITwK3V+Wv5GeRlpKAC9iElzhTj9tyOTpJD3HJJBdkc
-	33znC4reYoMpgLItbJvXByN0h1oEoEJB2qZyDqT0N/X6VIVWKA7d4YttnwzsM5T3kabIXViCFxD
-	x5FIJwyM30IyXfBFWTBdRurveYUBDusd2jWn4B4mZsDAYDgf4Wy5HjtONW/qIwKJD5WA4TNmRPy
-	rgQ+8lFpV8Aw30EQ3pNVBUEEh6Ds118NK4nZ0DfDsM4QqNPKow+veMw8EcnRY4owvSCbdELhB2z
-	Nj4oENjgmpixsW2rFW+Ves5M1NGuK9SrdaaGRx9D4QD/hvxHoJoJCZL29PVVrdXXE
-X-Google-Smtp-Source: AGHT+IFQqN1xdf8yX2rXwR72QToKnSI/WjPbg116r2WIKGc/6EtoIOWfniY52wX2yGeNBiMugvz2yw==
-X-Received: by 2002:a05:600c:1548:b0:45b:88d6:8ddb with SMTP id 5b1f17b1804b1-45dddf0234emr35756295e9.37.1757237285381;
-        Sun, 07 Sep 2025 02:28:05 -0700 (PDT)
-Received: from ?IPv6:2a02:168:6806:0:267e:37:6a88:3fc5? ([2a02:168:6806:0:267e:37:6a88:3fc5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e74893acecsm45931f8f.36.2025.09.07.02.28.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Sep 2025 02:28:04 -0700 (PDT)
-Message-ID: <34a23816bf125c577a03ba68f251e7a77db9805b.camel@gmail.com>
-Subject: Re: [PATCH] PCI: mvebu: Fix the use of the for_each_of_range()
- iterator
-From: Klaus Kudielka <klaus.kudielka@gmail.com>
-To: Jan Palus <jpalus@fastmail.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali
- =?ISO-8859-1?Q?Roh=E1r?=	 <pali@kernel.org>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=	
- <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob
- Herring	 <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Bjorn Helgaas <helgaas@kernel.org>
-Date: Sun, 07 Sep 2025 11:28:04 +0200
-In-Reply-To: <hiu2ouj4f7zak2ovtwtigf6fylz4c7fdyyqiqezsddoouzr4n5@bfs7kudjfnp5>
-References: <20250902151543.147439-1-klaus.kudielka@gmail.com>
-	 <hiu2ouj4f7zak2ovtwtigf6fylz4c7fdyyqiqezsddoouzr4n5@bfs7kudjfnp5>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+b1 
+	id 1uvBoh-0000000ARVF-0o76;
+	Sun, 07 Sep 2025 09:36:13 +0000
+X-UUID: 12a45a528bce11f09f706fa2197c6ceb-20250907
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=tBu1bs4aRFXXM2hwyueRO+bUFFMnZxfxSLLqElKyz0E=;
+	b=uni4au8DUwwhf1STbU8f9ZWOZAor2fRvhQuGLjnGQbvCTATzNRmXoZzNoO8X+/YwljlhmHzaaUXd+NQILT0Cl01u7wh5UFNbQ1JlbpBWY5q03eUU4MH2w1b+6gHHGH1+9DDGdaO9Lv4NfnWMECaqcpJwEX4Vx1d1Izta1H7REWQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:076387be-7ac7-4719-b10c-814b8178fb48,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:f1326cf,CLOUDID:e1420ca9-24df-464e-9c88-e53ab7cf7153,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
+	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 12a45a528bce11f09f706fa2197c6ceb-20250907
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <irui.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 692609872; Sun, 07 Sep 2025 02:36:04 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Sun, 7 Sep 2025 17:36:00 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Sun, 7 Sep 2025 17:35:58 +0800
+From: Irui Wang <irui.wang@mediatek.com>
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <nicolas.dufresne@collabora.com>,
+	Tiffany Lin <tiffany.lin@mediatek.com>, Yunfei Dong
+	<yunfei.dong@mediatek.com>, Qianfeng Rong <rongqianfeng@vivo.com>
+CC: Maoguang Meng <maoguang.meng@mediatek.com>, Longfei Wang
+	<longfei.wang@mediatek.com>, Irui Wang <irui.wang@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+Subject: [PATCH v3 0/2] initialize vcodec scalar variable
+Date: Sun, 7 Sep 2025 17:35:55 +0800
+Message-ID: <20250907093557.8008-1-irui.wang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_022807_568439_0CE7F19B 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20250907_023611_239580_3A359F35 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,62 +91,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-09-03 at 14:44 +0200, Jan Palus wrote:
->=20
-> Thanks for the patch Klaus! While it does improve situation we're not
-> quite there yet. It appears that what used to be stored in `cpuaddr` var
-> is also very different from `range.cpu_addr` value so the results
-> in both `*tgt` and `*attr` are both wrong.
->=20
-> Previously `cpuaddr` had a value like ie 0x8e8000000000000 or
-> 0x4d0000000000000. Now `range.cpu_addr` is always 0xffffffffffffffff.
-> Luckily what used to be stored in `cpuaddr`:
->=20
-> u64 cpuaddr =3D of_read_number(range + na, pna)
->=20
-> appears to be stored in range.pci_bus_addr now. I can't make any
-> informed comment about this discrepancy however I can confirm following
-> change (in addition to your patch) makes mvebu driver work again (or at
-> least like it used to work in 6.15, it still needs Pali's patches to
-> have some devices working):
->=20
-> -			*tgt =3D DT_CPUADDR_TO_TARGET(range.cpu_addr);
-> -			*attr =3D DT_CPUADDR_TO_ATTR(range.cpu_addr);
-> +			*tgt =3D DT_CPUADDR_TO_TARGET(range.parent_bus_addr);
-> +			*attr =3D DT_CPUADDR_TO_ATTR(range.parent_bus_addr);
+Initialize vcodec structures:
+patch 1 add missing initialization to fix the encoder's UNINIT checker
+issue.
+
+patch 2 converts memset() to = { } for other vcodec structures.
+
+Changes in v3:
+ - Converts memset() to = { }
+ - Combined with Qianfeng's patch as v3
+ - Link to v2: https://patchwork.linuxtv.org/project/linux-media/patch/20250715081547.18076-1-irui.wang@mediatek.com/
+ - Link to Qianfeng's v1: https://patchwork.linuxtv.org/project/linux-media/patch/20250803135514.118892-1-rongqianfeng@vivo.com/
+
+Changes in v2:
+ - Add Fixes tag, update commit message
+ - Remove unnecessary memset
+ - Move memset to before the first usage
 
 
-Oh well, a CPU address that is not a CPU address....
+Irui Wang (1):
+  media: mediatek: encoder: Fix uninitialized scalar variable issue
 
-Looking again at of_range_parser_one() - which I assume to be "correct" her=
-e:
+Qianfeng Rong (1):
+  media: mediatek: vcodec: use = { } instead of memset()
 
-	range->flags =3D parser->bus->get_flags(parser->range);
+ .../mediatek/vcodec/decoder/vdec/vdec_vp9_if.c    |  3 +--
+ .../mediatek/vcodec/decoder/vdec_vpu_if.c         | 12 ++++--------
+ .../mediatek/vcodec/encoder/mtk_vcodec_enc.c      | 12 +++++-------
+ .../mediatek/vcodec/encoder/venc_vpu_if.c         | 15 +++++----------
+ 4 files changed, 15 insertions(+), 27 deletions(-)
 
-	range->bus_addr =3D of_read_number(parser->range + busflag_na, na - busfla=
-g_na);
+-- 
+2.45.2
 
-	if (parser->dma)
-		range->cpu_addr =3D of_translate_dma_address(parser->node,
-				parser->range + na);
-	else
-		range->cpu_addr =3D of_translate_address(parser->node,
-				parser->range + na);
-
-	range->parent_bus_addr =3D of_read_number(parser->range + na, parser->pna)=
-;
-
-Indeed, range.cpu_addr is a translated version of range.parent_bus_addr, an=
-d does
-not seem to be relevant to pci-mvebu.
-
-The driver previously interpreted the raw part of the "/soc/pcie/ranges" re=
-source
-(storing it in a local variable called cpuaddr).
-
-To restore the behavior completely, we thus can use range.parent_bus_addr -=
---
-confirming your test.
-
-I'll prepare a patch version 2, including this second fix.
 
