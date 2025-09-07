@@ -4,72 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E308CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 19:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFA1CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 20:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGiD7u1OVqxLoIgagJEWZlXCrDyPcwTp/aq1Nm2Dzc4=; b=QYkdKYSaAXWnLmgIGZUmVE7ebl
-	E5TUJpfWQM2wjRljenZgjT1IgbK7XaLZERAm0ThWJ+BHVcFs8hyfaf6Qbqa+Ui9OFC1FmLhr2Xm8z
-	SJ35T3boSfO+ZlTpWTKd4gPMEVVahZdQ5YOG/KDxNg0vvC7GUZt4S128cEqSY3ialULbTlbrP/DK7
-	rswsKRIGTZNYvSblQ4wL3wgf4XqG7IimxVcE4LsP/m+aY7eX9bANmqIqlT/MaTYGigBZcfNr0KAQ3
-	7hpjR7lNbY2yQh+IW9ekeTCtdTHjTDQ62XDcOx/9SX0YbrQUC34Ns5Us76KoGBbH3mbXtPsaL7Rxf
-	BVj/xmMA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yM0Vnuw61hBJNTZ8/foS1QpgJsoSPiaVg+C7UGUfKdo=; b=g/5LsF+DZ1stbFjNutFgU4Jeji
+	pmbQmicua+PsF0rZ6A3nqyLRWWAy+COPkS/RVXMhnxEcLGBQcHukmCCEWg35Vn4UH7f3CyZlTn1dC
+	uFbpYgYs2xsNGMhqn4paZkB+2LLQGKFUYBXjISQLI7KMFvWQIgXkQN8uwG+aydPCyVAuB8+YRBQSN
+	vuUnVjLs2zDDhhESwi+xixSNHSwywS/C3GUTn2ImhSw/TVnbJorClpZ7vzzL2IXHo26H4uM9mJi0Y
+	fHY+snnySAuhxEwUwdUyMF456oxoNXbaxAUyCcZjdb+4HYcOsURuZquuY/LEjcXKbM1AAmNhakSEU
+	Xp4kAVwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvKkT-0000000CRhp-3hme;
-	Sun, 07 Sep 2025 19:08:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uvLpd-0000000Cftd-2J3I;
+	Sun, 07 Sep 2025 20:17:49 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvKew-0000000CQSq-2ZK8;
-	Sun, 07 Sep 2025 19:02:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A237F6020A;
-	Sun,  7 Sep 2025 19:02:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79608C4CEF5;
-	Sun,  7 Sep 2025 19:02:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757271761;
-	bh=oCLELgIBeep9ZVlxy13VvPQGLOoUE9donTEF1yMVwJ8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qPghQDwEBlowBEth9fyjp4vjY5wZh04XJFkbFxS85DYfRxVSLTclt0Tm0PbzqVlNX
-	 M935vCEYzcsbk4iD6E6BJkMIxuRPGwFpTQGJghxOJ5/zjCrGjecLpDofYagYrA8t56
-	 bh2yzv4UA53Zaj1A5kF81C23Nll8suCUaR4U/EHhmtOKptRSeLdswBtR3iqxq9vixk
-	 nkATV7LU5KAJrv4DvdjClLWYAqdXkygCO3aHjCXv4nI/fj2xamFy5LE+ghMUy0eO9r
-	 zR7TaQXYAXIpjaqiQhBi6L5ilXeIuBrvZqDXOylAv2LCZ7nBkztRas9+ZO6389TevX
-	 ep8IsixfMLrMw==
-Message-ID: <2b950163-dc2e-4753-b411-5c694d55eafd@kernel.org>
-Date: Sun, 7 Sep 2025 21:02:34 +0200
+	id 1uvLmm-0000000CfBb-34Bf
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 07 Sep 2025 20:14:55 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 587K9g7B011397;
+	Sun, 7 Sep 2025 20:14:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2025-04-25; bh=yM0Vnuw61hBJNTZ8/foS1QpgJsoSP
+	iaVg+C7UGUfKdo=; b=CRZOsZs4Umaab65N2HvsFSoHdkfOaQ6YwDhOXPIdXOe5j
+	qptWipHdo//n6l3CVevCRK59/ulPtqqhOfDXBR9aqbDfMPN/I6ymJeUax5rm2hcn
+	Whxy1tjZ8gwWWfRsCge67y0XysHaa33jcwHFgKd3TiLMq7OYssiiQugTpIteiABN
+	/71sgU6klI3Fa3EqL3lTzz+58MsF7vbyALFPJYfIFXkUFgnCU8qV7Qvc5WptiElG
+	P7IJrTnFrAwwSf3Wc3kafONU4kPBCV13+lwbkVHAFTfEzDfiieIpJhOoCWdP9ZPV
+	Tk2jhxGwjgruskcI03GbsQOKQXar4u+1kb5jq/TxA==
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 491gua801u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 07 Sep 2025 20:14:26 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 587EFFwd030698;
+	Sun, 7 Sep 2025 20:14:25 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 490bd7cyuy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 07 Sep 2025 20:14:25 +0000
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 587KEOmf039410;
+	Sun, 7 Sep 2025 20:14:24 GMT
+Received: from ca-dev112.us.oracle.com (ca-dev112.us.oracle.com [10.129.136.47])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 490bd7cyus-1;
+	Sun, 07 Sep 2025 20:14:24 +0000
+From: Alok Tiwari <alok.a.tiwari@oracle.com>
+To: julien.thierry@arm.com, marc.zyngier@arm.com, jintack@cs.columbia.edu,
+        christoffer.dall@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: alok.a.tiwari@oracle.com, linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: arm64: vgic: fix incorrect spinlock API usage
+Date: Sun,  7 Sep 2025 13:14:13 -0700
+Message-ID: <20250907201421.3612784-1-alok.a.tiwari@oracle.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 20/22] arm64: dts: apple: t8103: Add Apple Type-C PHY
- and dwc3 nodes
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
- Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
- Ran Wang <ran.wang_1@nxp.com>, Peter Chen <peter.chen@nxp.com>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- Hector Martin <marcan@marcan.st>
-References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
- <20250906-atcphy-6-17-v2-20-52c348623ef6@kernel.org>
- <20250907-zippy-auburn-koel-d6da32@kuoka>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20250907-zippy-auburn-koel-d6da32@kuoka>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-07_08,2025-09-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 adultscore=0
+ suspectscore=0 spamscore=0 phishscore=0 bulkscore=0 mlxscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2508110000 definitions=main-2509070211
+X-Authority-Analysis: v=2.4 cv=UatRSLSN c=1 sm=1 tr=0 ts=68bde7a2 cx=c_pps
+ a=OOZaFjgC48PWsiFpTAqLcw==:117 a=OOZaFjgC48PWsiFpTAqLcw==:17
+ a=yJojWOMRYYMA:10 a=yPCof4ZbAAAA:8 a=WX6EjEeCYAaawmOpSx8A:9
+X-Proofpoint-GUID: vn0JFs1aucJtM4zfA_naB14cPmViid_P
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA3MDIxMCBTYWx0ZWRfXyi7y69tKHa/g
+ OdCGom5mn8xjL4lwkli87rAIotIGbro6CPGkq69LNDmEjn5Z6d+qpjiIdE8wb83bNPFX5aX4f2K
+ 22UNd2JS2hu51WMCLPaROobhkZb/LE6E/48T6hK6UFjKmE8YWG/4fuv3q8cFsY4dYplrqwaR3Ok
+ 3fLbMUMu+JE10plW+ShEL/83BpWO2oATFbNPYAiRCtOvr3+lXmF5qTLSjRduPwPuVVM2sfyQ7fS
+ CwccXkZXhBkA11jETac59OMenO/1CnWV4prAo9XrgLx7938XzjNNgphDcgif5SeYO+0uaoU60UJ
+ FDVypMuGuBQkQVOHaPo/CjwEbatVxJwWT6HG4wh1hCmUeOFF9K1NpmE4uDInpj5ZQ11Qa8joMDZ
+ bXL8fhbz
+X-Proofpoint-ORIG-GUID: vn0JFs1aucJtM4zfA_naB14cPmViid_P
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250907_131452_886374_47380105 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,34 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07.09.25 11:47, Krzysztof Kozlowski wrote:
-> On Sat, Sep 06, 2025 at 03:43:33PM +0000, Sven Peter wrote:
->> Add all nodes and connections required to make USB3 work on M1-based
->> Apple machines.
->>
->> Co-developed-by: Hector Martin <marcan@marcan.st>
->> Signed-off-by: Hector Martin <marcan@marcan.st>
->> Signed-off-by: Sven Peter <sven@kernel.org>
->> ---
->>   arch/arm64/boot/dts/apple/t8103-j274.dts  |  12 +++
->>   arch/arm64/boot/dts/apple/t8103-j293.dts  |  12 +++
->>   arch/arm64/boot/dts/apple/t8103-j313.dts  |  12 +++
->>   arch/arm64/boot/dts/apple/t8103-j456.dts  |  12 +++
->>   arch/arm64/boot/dts/apple/t8103-j457.dts  |  12 +++
->>   arch/arm64/boot/dts/apple/t8103-jxxx.dtsi | 137 ++++++++++++++++++++++++++++++
->>   arch/arm64/boot/dts/apple/t8103.dtsi      | 105 +++++++++++++++++++++++
->>   7 files changed, 302 insertions(+)
-> 
-> Please do not combine DTS patches in patchsets for Greg (e.g. USB). Greg
-> expressed that many times, that he takes all or nothing, and DTS cannot
-> go via driver branches/trees.
+The function vgic_flush_lr_state() was calling _raw_spin_unlock()
+instead of the proper raw_spin_unlock().
 
-Okay, thanks for the hint. I wasn't aware that he prefers related 
-patches that go through a different tree to be split off.
+_raw_spin_unlock() is an internal low-level API and should not
+be used directly; using raw_spin_unlock() ensures proper locking
+semantics in the vgic code.
 
+This change replaces low-level API usage with the general kernel
+spinlock API, avoiding misuse of internal functions and aligning
+with kernel locking conventions.
 
-Best,
+Fixes: 8fa3adb8c6be ("KVM: arm/arm64: vgic: Make vgic_irq->irq_lock a raw_spinlock")
+Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+---
+ arch/arm64/kvm/vgic/vgic.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Sven
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index f5148b38120a..c74d6120a12c 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -818,7 +818,7 @@ static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
+ 		 * the AP list has been sorted already.
+ 		 */
+ 		if (multi_sgi && irq->priority > prio) {
+-			_raw_spin_unlock(&irq->irq_lock);
++			raw_spin_unlock(&irq->irq_lock);
+ 			break;
+ 		}
+ 
+-- 
+2.50.1
 
 
