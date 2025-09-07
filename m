@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C98CCA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 09:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2039CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 09:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gsp0bK/nuIonUnBqY9AKagtiSrgSRD7fcSEn1YN+5DI=; b=rRSvfPt6yXOTHtrrYc46H4qtZx
-	UOc/2sLWlV2acd0qPzFx+p94Lw8wyXNOdhP1St7nqBOm/OC3c8hIyLQO/K0EEu9t3QyOze6ekPMv4
-	U8rnrIEZhV71xtIBozr3v0vN30kNJ8vAbyQfLhc+4eHvNGfksq8+5MVqyzNk46x9ZptKUNXNNO1OB
-	7WRqUqhr4PAgBMo3oj2Ev2eof8a3dtHkRExXl4uX9ZdyORck1YtOBROm2E/QZOL9JbrIIIoccItVt
-	NfjQDYrGAgNsFyh3FEpkSPQgbbd6XCqzPyeBJgL1Qyv8fAq12TBT7Wqwd35ryfSpep3QRoKAH3A1o
-	ccXezU+A==;
+	bh=JCLQAsYpR6U6YXx5WXyyNz/et5qkwEIQ90qwDmcTRHU=; b=tMjJ4MEqcreig11N4cDZH6EOoe
+	IOcKyXXSnM7UQQdQWCu4KE3XyDHlHweCxQn0on2si6JcX5sg0tIghc1URpJmQtaUZnW3Ae87ANLi0
+	NfeYdz5C6EGSz4hiXVMYwPeV5UHRvBSbzRGl0tLtkTjsMM6ZMZeuvd61PC6jrtALKewsXtTz3Thky
+	Mp7ROVCRMZpM1fIqB/kHQWJpAqLZvO6oVo8bqvqrU7te4mlK+y+J82ma6aZKY8zcQckV9t5/ts+Zh
+	sdRW7FGoVNB4CGq5US1yBTV0GqATaU7v2T6aqxr8ngiBxkouDULSeJhs8O6jjmWWPPf0jv5ihUdfd
+	uamq9WLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvBZw-0000000ANv8-09fN;
-	Sun, 07 Sep 2025 09:20:56 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1uvBcb-0000000AOGg-3RoA;
+	Sun, 07 Sep 2025 09:23:41 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvBTL-0000000AMII-3zZS
+	id 1uvBTN-0000000AMIt-1q1r
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Sep 2025 09:14:09 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3cd151c38ceso348805f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Sep 2025 02:14:07 -0700 (PDT)
+	Sun, 07 Sep 2025 09:14:10 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45ddfe0b66dso1583455e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Sep 2025 02:14:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757236446; x=1757841246; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1757236448; x=1757841248; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gsp0bK/nuIonUnBqY9AKagtiSrgSRD7fcSEn1YN+5DI=;
-        b=GrcnwUXoXrBbJY6K+UJkPQ8Ja139U2isHv3CgFteiSADQfefLuWRnrcJc3gMOob98P
-         a3dvbWNFCzu8JdeBcld7koaenMIiLigUfhd6udk7dmW4mgOPz1ATW8ju2rHPEr01suLR
-         skYe0eiuR9f1jP+nwyFkZCBhH7a9dgYBtm9Cq6j5LOJhCMPZ2rx/KswaY3dImli2kjf1
-         R0RPy4xRUlGtbtEaEuoe9QtnG96bBfFYjvr1iqgIT62pc6CeJ8jic6O+x5E+kySDpktA
-         iPPgsg+WAegSbTcvUnta8Ggr/KI/wGApFON/EvlC81GrK30N/xfI3lnMTt91ONgTelXk
-         XzAw==
+        bh=JCLQAsYpR6U6YXx5WXyyNz/et5qkwEIQ90qwDmcTRHU=;
+        b=cp7CHpmxO5OYsexjAsDStNoOWlgbz97ghcIdWPHY3IR+r7briCg9JyQ/mXP2dEB4mD
+         9rP7SzrRAx1hvQ92rLN8ZpmCJk6Kk3NF1vP3upFX94zgVhuehhO/7dKjOMSZR5fByYFk
+         HMFGDw0wLiepvCBwZ21ZN/WBFYk6R/ZZUggwGEmtK7fGD/gL95X96tOGKRWKe8IHNhRG
+         wofpNwuMrts+Y8U2h3JuihtkV8sQakouILkQ7UNB1FFfpfYIYmPa3LuhCn3FrHCsEc4D
+         e0u/1gH6OuEOjU/OhWKNrH2y2187dMU7K7ndwwNvJLCZdZmWLOMW+OVnDoG1HryHb1mU
+         ZZ3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757236446; x=1757841246;
+        d=1e100.net; s=20230601; t=1757236448; x=1757841248;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gsp0bK/nuIonUnBqY9AKagtiSrgSRD7fcSEn1YN+5DI=;
-        b=FjOjh4Em52bfj5Omw8lgivPRoEQ7QuEHdY9zzMsYOgq6GO7gVR6jFcMIeNlwIar24U
-         8rUNpN1xxLIXZvK2xVEwMNnELdYZJWElYbetCw9GE31X8kdNs/YLZMsEVF2TJfowy22+
-         +l2UfknTq1SHKBjZmOXMeq4dCeh7AFKtH/9QelFoVINbafdwoNmDE34nqPp+mmdUog6o
-         YyC2Ng64kHEEXeF1tM4QnaN7PQKl+YShTaZaN/PQIdmsvAX9VuiL+a4qU/qGn+3VZbve
-         L5d1dUPJKnBNzyi4WBzbx3uc8E4i0RmUKsbQXcfLv2675fOMm91avAlh/lnvah4FUhaS
-         E4gA==
-X-Forwarded-Encrypted: i=1; AJvYcCXgCtuPiQ9jzW145Qp4+hl2ZUMl/MzvGh0GVCjPemPa2ig4XZJ+oaoCw7jCwgh2mSbaB/AZ9A3+v88ItMffUv8i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKcVsF6klAIRgOacLe65iSV8fw9aYhe65Z+8Xbp50CXZ/EfR++
-	wupdFbfQ9tPuoZVLWyE6m8gfwT3qlh0j4QRIB3tLwbkTFMy/TtqkkCHcAWWV5yA6+OU=
-X-Gm-Gg: ASbGnctzRG4T1nxwJ01hb4fdwNcqmLbuYU+exQpR+BCQxGq4whVpUx/+ll8NXB4C6x9
-	sIiL7XpkEWgw6HixVlSayMnOX+x6eI8qSC/+UysnM5/wwVaZvW7qxEJDjcMSw+tsESmZsogikzf
-	vui3Ud5kaiBdV1ZX/k/1h5IUV7YSOTjDQsF+P+hlXpgVG3cDJeNxVEOJqSdvLuJUJg7NfANb7Yo
-	EROW9gZndY00HUhWP6GXjGlGGa/aTrk+kk0FWWwYMi8vThNuayYcDTlFS+Oudjsk6vr2Z9XqlLI
-	P/BO4iREwn8SOEUDQnjDqzHlXX9/qkmqYYcjFbyEpoZneYS5mS0OP8Pr6gBvhqlPdzFMY58B9G0
-	0YkMTjtGtE1ctlVd/zIHjwBIWYs3fT7vFKKfE7+Nz/PqaPPwbfw==
-X-Google-Smtp-Source: AGHT+IFQImOn+iq/yUmUyBTZk4IQaF9iLgVYYsVIQC7hi6Y7Hlt3FPdtOjJo41ClE7NuPr3IM92ZKw==
-X-Received: by 2002:a5d:5d12:0:b0:3d4:6abb:7de1 with SMTP id ffacd0b85a97d-3e63736f694mr1567362f8f.3.1757236446397;
-        Sun, 07 Sep 2025 02:14:06 -0700 (PDT)
+        bh=JCLQAsYpR6U6YXx5WXyyNz/et5qkwEIQ90qwDmcTRHU=;
+        b=E3OtOlSl+EwIIahNyIh2JlOwnATCJ6RiiCumt6QouylO3ZviInNBOG0voivbCNXCkF
+         l4kG2EG6bdePl+U8TuW26XJa0YQKhQL6W2eyHJAxKFkJpQsHtM0s84Xn15flwhJMKKk5
+         DlwZQNPIXrUVdpyif1hwjeWIteX9sOxl54np/vKa+BnQz7jcGRGyb3BQ7FM9fCG+7MJv
+         UqNBFdrxVy0LdeZJKNzEqinec7oiEw4ZIWNVecZud3XkRyJ+LavLaelmBxzxTobi1mJj
+         aR0ya3tiiW4EDUMSSEjoGmELIlNAg1DrWO/UP4rf2uON24dNYR6iPkhguBcKi6t9YSux
+         30uQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV/sB8yAHr7RPQ5GV+7OplYfVh5bvtKg+HwLf/SgnmnvX6xapNlg1ipsGXq11BBfn4i83IJsHZ07cmwID2HDub0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzh8UZAH6mZMiydOYqlHfy+Onj0ltzFejfEo1rwmt8lOnmA+qcn
+	JzsAvw2p5iCMurBA9Y3NvVOrYUOwKSwZRTD7B0zzwXLJkgMec1VNGu34zhCIAEYAG7Y=
+X-Gm-Gg: ASbGnctBZWoxrXihFNb7JanCHWkcij/Oxh4Kj19JpK9EDE2Q2VdQAKiIjHLAUe4Pi21
+	WKWTlLNUp+ROBA+LMdVwK/chVARmpIRi3XBPoFMo6JKKFlhwzZbjeI3EXE8bUMC7hJ9Ydth2ldX
+	xv6UjuViYR79y0g+JBO+SinlWbkZpRwsv+xb5JDL09CPGY5+pdBDzKzmzrwU7QpeDrodxyKQOJK
+	jR/XbK23Kd72ID/8XLMGWuDKyjg7k/BoAjvB34aNH37ntRwLFjg9ELi5BdCZ5PkuTlzBpP9wEta
+	JOk8LP8hH70kxJXqmdWN7dsC3swj5AWEtKr+8+PtDJE1CEqdn8bf01sR47FuY1Hv8Pxk6goHt8d
+	ve39lKhI6+ZMnQ5+8A5vKTcPoHLxF6s/W3cTPJKA=
+X-Google-Smtp-Source: AGHT+IG78HXO5H3PNHPON4QM2B7kxOdyJOW/vdjAFNFZeNRnZqCYRuJ044SQo+Ov8yokKCplK6e9pw==
+X-Received: by 2002:a05:600c:6388:b0:45c:b565:11f4 with SMTP id 5b1f17b1804b1-45ddde84ff1mr18221295e9.1.1757236447894;
+        Sun, 07 Sep 2025 02:14:07 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e21e4c0e6fsm10918962f8f.17.2025.09.07.02.14.04
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e21e4c0e6fsm10918962f8f.17.2025.09.07.02.14.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Sep 2025 02:14:05 -0700 (PDT)
+        Sun, 07 Sep 2025 02:14:07 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
  Sylwester Nawrocki <s.nawrocki@samsung.com>, 
@@ -83,20 +83,20 @@ To: Krzysztof Kozlowski <krzk@kernel.org>,
 Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
-In-Reply-To: <20250904-perics-usi-v3-3-3ea109705cb6@gmail.com>
+In-Reply-To: <20250904-perics-usi-v3-4-3ea109705cb6@gmail.com>
 References: <20250904-perics-usi-v3-0-3ea109705cb6@gmail.com>
- <20250904-perics-usi-v3-3-3ea109705cb6@gmail.com>
-Subject: Re: (subset) [PATCH v3 3/4] clk: samsung: exynos990: Add PERIC0
- and PERIC1 clock support
-Message-Id: <175723644487.30719.10030399153447295312.b4-ty@linaro.org>
-Date: Sun, 07 Sep 2025 11:14:04 +0200
+ <20250904-perics-usi-v3-4-3ea109705cb6@gmail.com>
+Subject: Re: (subset) [PATCH v3 4/4] arm64: dts: exynos990: Enable PERIC0
+ and PERIC1 clock controllers
+Message-Id: <175723644648.30719.8043699953915235210.b4-ty@linaro.org>
+Date: Sun, 07 Sep 2025 11:14:06 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_021408_009310_4A98758F 
-X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-CacheID: sfid-20250907_021409_479070_638FF130 
+X-CRM114-Status: UNSURE (   7.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,20 +113,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 04 Sep 2025 14:07:13 +0000, Denzeel Oliva wrote:
-> Add clock controller support for Peripheral Connectivity 0 and 1 blocks.
-> These provide clocks for USI, I2C and UART peripherals.
-> 
-> Some clocks need to be marked as critical to prevent system hang when
-> disabled.
+On Thu, 04 Sep 2025 14:07:14 +0000, Denzeel Oliva wrote:
+> Add clock controller nodes for PERIC0 and PERIC1 blocks for USI nodes.
 > 
 > 
-> [...]
 
 Applied, thanks!
 
-[3/4] clk: samsung: exynos990: Add PERIC0 and PERIC1 clock support
-      https://git.kernel.org/krzk/linux/c/b3b314ef13e46dce1cdd97a856bd0250dac8feb9
+[4/4] arm64: dts: exynos990: Enable PERIC0 and PERIC1 clock controllers
+      https://git.kernel.org/krzk/linux/c/44b0a8e433aaad8aac51593a052f043aeb9a18d1
 
 Best regards,
 -- 
