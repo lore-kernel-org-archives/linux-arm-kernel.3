@@ -4,102 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0036CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 08:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46263CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 09:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ta1cFo0XDUArRgBS4UrHkNCAuCKCm6jMm0yBvo/F4kU=; b=b0JqEM5c0jP+wKbLA8r9k0XtjH
-	nKLSPRPJOJqLAsC8t4VnEXkImfZfn5PLQcJqW2SXuCQl20+mK9vFQwfbwCsoGXFFzy3I46OzeBR5q
-	xlqyWIdcXYGY6EpgV/nJwELL8Np++ENUfls2bINZH3ctwwi/eqmxutuLJdFZQFN+sFBe9Au+SJHJ0
-	terQNPKcN3OeJzVOuJosib/O2mnbGnN6abgebGdmbb6AfwZ59gSxgxHDEZ4mG1h9qpksweypbtnMu
-	GcIpMwE6JtXoLhdXzNgusOpzHV0GroiEfbdego2HmGUIkfWikrOdY+4WLY2TJZj4wakhTZvSw8Dq0
-	U/L7RviQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xe42vBQMCuhgRuQ2UM2O+6uyWRhcGpGXk0bD6Ud0svk=; b=zrh1QBs+Gd0WFs
+	a/Brgh0t4UCQeh60AGjCeLB9s5b4zsI4w+bXhtZzswfozXCeEdb4Eg68AiG2R1200DaqffNP82/jP
+	VG2TWKsRWlXRrKd2MoU2NARl0aZw4lsPq9mzgfeH0l1BbWI7qs8LAxOoZHpekMf/S3OJIdB8DHZ1D
+	z1F1YhohDOYkp6kenzJ5laCev9Iy5r4iykCmHcxsfTb2o9C/nI3cXBgWDICfIwZ+qSlDQ16nbpSvB
+	HjD5vbqebm7j01LB9VTSnk3GldosKnaMALlN81ysyoUpUtkZg3hRy+RqQVr+llW3i3o7VMREmzH+6
+	p0L4AxHNcTPBd+rAc1EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvBDI-0000000AIZx-0JwA;
-	Sun, 07 Sep 2025 08:57:32 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1uvBGV-0000000AJc0-0YU8;
+	Sun, 07 Sep 2025 09:00:51 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvBAT-0000000AI4r-1XX4;
-	Sun, 07 Sep 2025 08:54:38 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-55f78e3cdf9so4232569e87.1;
-        Sun, 07 Sep 2025 01:54:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757235275; x=1757840075; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ta1cFo0XDUArRgBS4UrHkNCAuCKCm6jMm0yBvo/F4kU=;
-        b=P0C9DzI3Wdm4CIDAwbgOfq7td1fPTjvoDkCTca4v+vF3CyriGJGLoqe1AcjK22H2lE
-         wDj+U7vJunStzRoROt7iSi1mvgobAp9GZB0bgVt5mr1mjgOOuApTMirz4yUdIR1kg/I4
-         etb+E42HqU3TvJXAm+kiCfvgBV2MzRhqIKQJZTIiLhdoke3ZfK86QzplOgmnJRXA7p96
-         5lN+PdebMkEClqzNotYijw1BPivfCfXGHGbeKfIla3fPwVtut0u/f9Oz1Xs+H7YbiowO
-         UGZu+LsX/0qCpPXXwJqlkOmYJ8dYFNVRT4eJD4I7BhgvS74zWH5YlJsj+sEBNNdlAGwh
-         lrOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757235275; x=1757840075;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ta1cFo0XDUArRgBS4UrHkNCAuCKCm6jMm0yBvo/F4kU=;
-        b=aBp8LaFoFBgg/niMoER67FEy7H+VMIdH2JNiYZixDIYluMITpmKMUWriGrtRmohXBy
-         Lv11UIdOOL4e5GOa82gcbI12xJHE1uKAlHhMBo0rHwcTSdrvIVqD79FR26XqcLtPhQbV
-         GITFk3f56U+wi5Dzs+yS67ZzsT1i1QDN+zwwpjkzVPadDZiEMItBKq9JJYRCo7xSSNY8
-         EytUj6VPdZkmcKXzgwJjfqT8mGVkDx2+ezZYZcvtyAJiBowtsYEC1iWwRIX6MtleOrrO
-         5g6qPv5Jh/VM9BwtGYkQoUk28F2wF4C9Fr2SnIOVBgjvEqDkpUQ5Vp1oBA/g9oKvhGem
-         BaGw==
-X-Forwarded-Encrypted: i=1; AJvYcCWo+bdma+wOEPbmuTcWi4H8f/FiUOweuCsxM2W41s/G3FRzM8KiWvLC/D+C569RPwzG5YR0RySbOkjAq9IFgDlx@lists.infradead.org, AJvYcCXZ0ph+YhJ6dnbQVn355DKm9VQ3Gpb5agQt3UbCbIKswHHKennNy+4BS2QBUMjvgdiIkhICbAiHzoDx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2yd8qfodsKc5mZaHhifxvOaVKfvAXOvPt/X+RGhEhonQ4CJHI
-	Y09XjKxNrDFlsD2g92Y1VU8taJr22oX7bQ0VW8zKKXO0PR30o/eUbbez
-X-Gm-Gg: ASbGnctcWzAUytRnp5XDuJEQXktsiuL07AfdpMKeJIWj2rtsOjXAuf7szzjd9nwZWqe
-	oEqcD/vf6OxS6GSot+Wb9IKLcG1RAZVcT5b79gCCB9usNrmGZb8bCvBfx+ngYp4lz4Y/DxmzhkG
-	CfJgufhwcsJkLMcPYt7jS3z+xcnEefP+SkkicleSygwVavZ08KO1dxFJmJ4NjEbRM5mZb7glruz
-	zYpBFSXcMBl13PPXpM1+6ygv6//wOnZH/hSJjmVK6jY6qXUISONdL99uGVla5daWZehfYvJaVDR
-	QZ1lZ0bwqJ4ATlgA02e3yOxU8ZMvIcAd25BmX3OFD2JVN4PBghm3ovyehHCa6fNnoEGWn46CF6t
-	ppl3aGSgxj41vPh7+fd+zxhv+c8MYrdcEn6CYQniDZMghE/aUzqZWbkURlBoIh/zj6Fl9lwSJrq
-	Pm
-X-Google-Smtp-Source: AGHT+IFiJ49HQNMd/IFx7xIzrrtqMETUdaxARpaq6+DVUgUYdtERBew8emcGESiiMQvJ8usHN1vC9A==
-X-Received: by 2002:a05:6512:3e25:b0:55f:6759:a792 with SMTP id 2adb3069b0e04-562636d6328mr1074855e87.34.1757235275009;
-        Sun, 07 Sep 2025 01:54:35 -0700 (PDT)
-Received: from ?IPV6:2a00:1fa0:730:6bf5:b6a:8710:4129:8b95? ([2a00:1fa0:730:6bf5:b6a:8710:4129:8b95])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5608ace8121sm2814508e87.84.2025.09.07.01.54.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 07 Sep 2025 01:54:33 -0700 (PDT)
-Message-ID: <f09dedfc-1f1b-4416-b854-9c4059ba264a@gmail.com>
-Date: Sun, 7 Sep 2025 11:54:31 +0300
+	id 1uvBDi-0000000AIdH-2Yv0;
+	Sun, 07 Sep 2025 08:58:00 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c67:84a2:d86d:fcf7:24b4:e467])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B734E156F;
+	Sun,  7 Sep 2025 10:56:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1757235402;
+	bh=m/UHy/ZLrHUE5XV08ED24MSjRUavmbTkg1b809+RU8k=;
+	h=From:Subject:Date:To:Cc:From;
+	b=T19QGUw7UlW8ym1Uk9jeflpbJ0wV7oLmLHJUIzjZRlPsvJzRSrXVRownXT4OLqJKL
+	 5VKcb90+Iz7cJEizdLWAYG7H2VzBJJnUIQeggBj8OEFS5SoSTYfidFIQjGjhVZMDHF
+	 g5haGaLtnYQlnfpMNzY8ptJ+nDkhB9/nlRa+qhMg=
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Subject: [PATCH v2 0/5] staging: Destage VCHIQ interface and MMAL
+Date: Sun, 07 Sep 2025 14:26:20 +0530
+Message-Id: <20250907-vchiq-destage-v2-0-6884505dca78@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/22] usb: typec: tipd: Update partner identity when
- power status was updated
-To: Sven Peter <sven@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
- Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
- Ran Wang <ran.wang_1@nxp.com>, Peter Chen <peter.chen@nxp.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- Hector Martin <marcan@marcan.st>
-References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
- <20250906-atcphy-6-17-v2-12-52c348623ef6@kernel.org>
-Content-Language: en-US
-From: Sergey Shtylyov <sergei.shtylyov@gmail.com>
-In-Reply-To: <20250906-atcphy-6-17-v2-12-52c348623ef6@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALRIvWgC/3WMMQ4CIRBFr7KZWgygyGrlPcwWyIwyhaCwIZoNd
+ xe3t3z/570FCmWmAqdhgUyVC6fYQW8G8MHFOwnGzqClNnLUVlQf+CWQyuz6uTsiKTpYYyxCd56
+ Zbvxee5epc+Ayp/xZ81X91n+lqoQURhrtJI7K7/WZkVxJ8Zpcxq1PD5haa1/q7yECsQAAAA==
+X-Change-ID: 20250827-vchiq-destage-39de1e67557d
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
+Cc: linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com, 
+ Stefan Wahren <wahrenst@gmx.net>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Jai Luthra <jai.luthra@ideasonboard.com>, 
+ Umang Jain <umang.jain@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4287;
+ i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
+ bh=m/UHy/ZLrHUE5XV08ED24MSjRUavmbTkg1b809+RU8k=;
+ b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBovUkFefTa9sxVPoan3sf14F8HxeMoyHhT0YFvN
+ ZNF5857Q7CJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaL1JBQAKCRBD3pH5JJpx
+ RSPeEACPrBHdgfZT6tFgQOYwtqOzPQREVps+92zZIoOJ5pvGZsE+8wS9apRuYO8XIZEiht51P0s
+ hrBKXuCekn7r+x/KU2Fuawuozr2aGCRbMPa74OxPl1ZdUr0IK7nWRPdy4x4hbHPMtgga3eCUq7F
+ YJBHpg0TFd0blqFj1FkCt1pjQXN7Ub0gTZsEw/HkJa38L8tDgE2XkekBSfOnpPN9zn+BYZpMViu
+ Z/PQ7bGEQMbMZBGlK6rC4g2RJgsJ+gAocqqhcAlzjXkixWYa1ouGZUP3qM2uMxSaFjdXl7jngOT
+ 1UxDsAbwri7V25/MRKw6W8vviM58qcwfPJ2a7/9tDFDVmrY9XCXUaaqMjj181H5VB95wsb1UggE
+ nYuzdtoE63DrVBe3kVbcr37bHsP38NwGyqoZLQS2yW0RKfArRFcJkf/UhHuwJJ/fYuBdzdyoisC
+ xMywOqdw1mGmzReqRUTk697u4AwhW+F3qQB/b7T2gjfp604EUA8Mj6LWawkKvMlPEETPIDflHMX
+ os4F96CvdxVMNz0F+MA3Rmeu3kWnhkrXMYmMA57Bi8WYLoGtebPRiJJlJp3Hh6cx5iQl62rMnAm
+ CvRwxkadfqTFrwZ2DUZR0F6Zk5U8uE44znnHT9/gdkRy89PSWF1H9S248eV2u3HrTRclZxVko3o
+ zJKf4eV9h/AVoCg==
+X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
+ fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_015437_411737_50386E5A 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20250907_015759_090270_E83A83D0 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,40 +94,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/6/25 6:43 PM, Sven Peter wrote:
+Hi,
 
-> From: Hector Martin <marcan@marcan.st>
-> 
-> Whenever the power status is changed make sure to also update the
-> partner identity to be able to detect changes once de-bouncing and mode
-> changes are added for CD321x.
-> 
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  drivers/usb/typec/tipd/core.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-> index c7cf936e5a61a331271c05b68ff1b77b89c0f643..cd427eecd8a594b7e609a20de27a9722055307d8 100644
-> --- a/drivers/usb/typec/tipd/core.c
-> +++ b/drivers/usb/typec/tipd/core.c
-> @@ -635,9 +635,16 @@ static irqreturn_t cd321x_interrupt(int irq, void *data)
->  	if (!tps6598x_read_status(tps, &status))
->  		goto err_unlock;
->  
-> -	if (event & APPLE_CD_REG_INT_POWER_STATUS_UPDATE)
-> +	if (event & APPLE_CD_REG_INT_POWER_STATUS_UPDATE) {
->  		if (!tps6598x_read_power_status(tps))
->  			goto err_unlock;
-> +		if (TPS_POWER_STATUS_PWROPMODE(tps->pwr_status) == TYPEC_PWR_MODE_PD) {
-> +			if (tps6598x_read_partner_identity(tps)) {
-> +				dev_err(tps->dev, "failed to partner identity\n");
+The goal of this series is to begin the destaging and upstreaming
+process for various Raspberry Pi peripherals that currently interact
+with the firmware using the VCHIQ interface present in the staging tree.
 
-    Perhaps "failed to read partner identity\n"?
+While destaging the interface to drivers/platform/raspberrypi, also move
+the VCHIQ memory abstraction layer (MMAL) driver. Secondly, drop the
+bcm2835-camera driver, as the bcm2835-unicam driver using V4L2 framework
+is the recommended way to capture from CSI sensors on this platform.
 
-[...]
+The bcm2835-audio driver is left as-is in the staging tree, as I am not
+an expert on ALSA. Volunteers are welcome :)
 
-MBR, Sergey
+In (a) subsequent series, I will upstream the following components that
+use VCHIQ interface:
+- vc-sm-cma driver
+- bcm2835-isp driver
+
+Thanks,
+	Jai
+
+Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+---
+Changes in v2:
+- Destage to drivers/platform/raspberrypi instead
+- Move BCM_VIDECORE menuconfig definition to the new directory's Kconfig
+  along with BCM2835_VCHIQ and VCHIQ_CDEV
+- Link to v1: https://lore.kernel.org/r/20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com
+
+---
+Jai Luthra (4):
+      staging: vc04_services: Cleanup VCHIQ TODO entries
+      platform/broadcom: Destage VCHIQ interface
+      media: staging: Drop bcm2835-camera driver
+      platform/broadcom: Destage VCHIQ MMAL driver
+
+Umang Jain (1):
+      include: linux: Destage VCHIQ interface headers
+
+ MAINTAINERS                                        |    2 +
+ drivers/platform/Kconfig                           |    2 +
+ drivers/platform/Makefile                          |    1 +
+ drivers/platform/raspberrypi/Kconfig               |   52 +
+ drivers/platform/raspberrypi/Makefile              |   15 +
+ .../raspberrypi/vchiq-interface}/TESTING           |    0
+ drivers/platform/raspberrypi/vchiq-interface/TODO  |    4 +
+ .../raspberrypi/vchiq-interface}/vchiq_arm.c       |    9 +-
+ .../raspberrypi/vchiq-interface}/vchiq_bus.c       |    4 +-
+ .../raspberrypi/vchiq-interface}/vchiq_core.c      |    4 +-
+ .../raspberrypi/vchiq-interface}/vchiq_debugfs.c   |    6 +-
+ .../raspberrypi/vchiq-interface}/vchiq_dev.c       |    7 +-
+ .../raspberrypi/vchiq-interface}/vchiq_ioctl.h     |    3 +-
+ .../raspberrypi}/vchiq-mmal/Kconfig                |    0
+ .../raspberrypi}/vchiq-mmal/Makefile               |    0
+ .../raspberrypi}/vchiq-mmal/mmal-common.h          |    0
+ .../raspberrypi}/vchiq-mmal/mmal-encodings.h       |    0
+ .../raspberrypi}/vchiq-mmal/mmal-msg-common.h      |    0
+ .../raspberrypi}/vchiq-mmal/mmal-msg-format.h      |    0
+ .../raspberrypi}/vchiq-mmal/mmal-msg-port.h        |    0
+ .../raspberrypi}/vchiq-mmal/mmal-msg.h             |    0
+ .../raspberrypi}/vchiq-mmal/mmal-parameters.h      |    0
+ .../raspberrypi}/vchiq-mmal/mmal-vchiq.c           |    5 +-
+ .../raspberrypi}/vchiq-mmal/mmal-vchiq.h           |    0
+ drivers/staging/vc04_services/Kconfig              |   49 -
+ drivers/staging/vc04_services/Makefile             |   14 -
+ .../vc04_services/bcm2835-audio/bcm2835-vchiq.c    |    5 +-
+ .../staging/vc04_services/bcm2835-audio/bcm2835.c  |    3 +-
+ .../staging/vc04_services/bcm2835-audio/bcm2835.h  |    3 +-
+ .../staging/vc04_services/bcm2835-camera/Kconfig   |   13 -
+ .../staging/vc04_services/bcm2835-camera/Makefile  |    6 -
+ drivers/staging/vc04_services/bcm2835-camera/TODO  |   17 -
+ .../vc04_services/bcm2835-camera/bcm2835-camera.c  | 2011 --------------------
+ .../vc04_services/bcm2835-camera/bcm2835-camera.h  |  142 --
+ .../vc04_services/bcm2835-camera/controls.c        | 1399 --------------
+ drivers/staging/vc04_services/interface/TODO       |   28 -
+ .../include => include}/linux/raspberrypi/vchiq.h  |    0
+ .../linux/raspberrypi}/vchiq_arm.h                 |    0
+ .../linux/raspberrypi}/vchiq_bus.h                 |    0
+ .../linux/raspberrypi}/vchiq_cfg.h                 |    0
+ .../linux/raspberrypi}/vchiq_core.h                |    2 +-
+ .../linux/raspberrypi}/vchiq_debugfs.h             |    0
+ 42 files changed, 103 insertions(+), 3703 deletions(-)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250827-vchiq-destage-39de1e67557d
+
+Best regards,
+-- 
+Jai Luthra <jai.luthra@ideasonboard.com>
 
 
