@@ -4,186 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71128CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 05:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0036CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Sep 2025 08:57:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZBp52V91Gxr27f7RudT0aNk9Xj8vFIecZ5YmKsPh8yA=; b=yHOgI36ymPclebiCy+dMGRotC6
-	saMPSCdjey4phRst7KmnGDRwRau5N7j4gvWnhifSloKxKzDleoGfsowrU3e/x6Ho3cPoj5eyYoEDL
-	oCYIIu1ws1nsYbmO3VYVVIs8h5wjBeyDqriiIllK5s5bUHtQ2mS4i5qR72n/o9uCBCW/4CpZES+OO
-	LhWgr/L4Rwu7atN2UV21sc13fcBVNw8nQXEjqpAY3oNdsc2Xr7BpAGtbaEHv/ZGD8AD/3wztzkiCu
-	yOQWbB8wd3QiT9u2C0vh1sECiH8JRD0aSjVJ6+Bf9S2VUENcRQY4nU01HFlqwoutbLsbOWJmk3WD9
-	5vFq3+mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ta1cFo0XDUArRgBS4UrHkNCAuCKCm6jMm0yBvo/F4kU=; b=b0JqEM5c0jP+wKbLA8r9k0XtjH
+	nKLSPRPJOJqLAsC8t4VnEXkImfZfn5PLQcJqW2SXuCQl20+mK9vFQwfbwCsoGXFFzy3I46OzeBR5q
+	xlqyWIdcXYGY6EpgV/nJwELL8Np++ENUfls2bINZH3ctwwi/eqmxutuLJdFZQFN+sFBe9Au+SJHJ0
+	terQNPKcN3OeJzVOuJosib/O2mnbGnN6abgebGdmbb6AfwZ59gSxgxHDEZ4mG1h9qpksweypbtnMu
+	GcIpMwE6JtXoLhdXzNgusOpzHV0GroiEfbdego2HmGUIkfWikrOdY+4WLY2TJZj4wakhTZvSw8Dq0
+	U/L7RviQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uv7mR-00000009XFr-3wNC;
-	Sun, 07 Sep 2025 05:17:35 +0000
-Received: from mail-bn7nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2009::600] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1uvBDI-0000000AIZx-0JwA;
+	Sun, 07 Sep 2025 08:57:32 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uv7jY-00000009WIo-2Y4q;
-	Sun, 07 Sep 2025 05:14:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yUBsZoa48ubr5UfQCm1JGG4S8RpaYQuK3qinFtfTVoIyblstuFvs1UtepWrL6qmhVxym1pIpbEsbMAvn8OLpFtnGKLdFRogzsXju1CrLLfxBypz+Hkszu+T6TOwyetB17oSLAcgJzki+fDcVYN+oiTtl/ehsF6gZlXmpmGbHNSDpgD44y8PNgeLafTwUoVPHuULARbhwZIgo3c8tKzUiTcLIbjk9SxJ0Ts4DKpyC1PPtY5Ts15C7DoSWyHHrOZcmwjhmNkBgLbdBHDWKr41d/hH0Iq4wl03K3165j0jxtSFnMsVtfLQLsKI5Op+VEBMmGm8nEPF6cEUtHrz9CFbJvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZBp52V91Gxr27f7RudT0aNk9Xj8vFIecZ5YmKsPh8yA=;
- b=GGSMAlpnRrdP4a44ktU29+KpniQMk+UW6Gda+8KCQog3qwPiGbBpp73s+/BJXgR5l5bJpq0nocNaVsitWzZ27gkvAs7+LxMqwmYUV2xlKVIBVq5LtnfXWkMzSe/DZQIkP8OYzgKltBhzt4+fC0FDtL1N5BxRrHQ6eiPyq6WPHX7Mw70yooOKJZYN8RX93Z/eXOoJCFvUeMmcLM1q/RmGzGzlKZ0t8Hie845b//12OtmTUXi4bBsLE8ZzjltETh8kwzNO/DLMfeCGMi39ZmzVvGlWny5kJms7IhwCe7n+ssvUIfmauKp8Nas/sp0t4pEIwgYbDOC5YTUN1q3j61eICw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZBp52V91Gxr27f7RudT0aNk9Xj8vFIecZ5YmKsPh8yA=;
- b=GJCW+3DSmriH1MADLp7VlsqRk2CVBWqYaaZCnkrNj9TbrTt6BEgQdv1kl/bPCLxxWONcA5b3HSE64EHr5tjCu6yjJpMegbjJgswtpzQdoqLvQOiiujYIZT3K0YBRTycLIXZ6Ou7WG3XMLHyTM/e0/txaULr9tJCar2wjSGunmmp/paDLnohvQsoxjL2yYEpwgWaCnYt3R61pMuTiBf7SZU14mP6PbMIiMe96MNr5AzKQ1lYjYeivnO3lExo92w7ONdvD0naIzzrKG43FmjQU26Y1sHC7eistWEzdn2W5ldnyprC9DRSDIom6a/g/qJD3t2BQfO6vC9HdWZQheuBdjg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV2PR12MB5968.namprd12.prod.outlook.com (2603:10b6:408:14f::7)
- by DS5PPFDF2DDE6CD.namprd12.prod.outlook.com (2603:10b6:f:fc00::665) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.19; Sun, 7 Sep
- 2025 05:14:26 +0000
-Received: from LV2PR12MB5968.namprd12.prod.outlook.com
- ([fe80::e6dd:1206:6677:f9c4]) by LV2PR12MB5968.namprd12.prod.outlook.com
- ([fe80::e6dd:1206:6677:f9c4%6]) with mapi id 15.20.9094.016; Sun, 7 Sep 2025
- 05:14:25 +0000
-Message-ID: <0a28adde-acaf-4d55-96ba-c32d6113285f@nvidia.com>
-Date: Sat, 6 Sep 2025 22:14:19 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, kasan-dev@googlegroups.com,
- kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
- Zi Yan <ziy@nvidia.com>
-References: <20250901150359.867252-1-david@redhat.com>
- <20250901150359.867252-20-david@redhat.com>
- <016307ba-427d-4646-8e4d-1ffefd2c1968@nvidia.com>
- <85e760cf-b994-40db-8d13-221feee55c60@redhat.com>
-Content-Language: en-US
-From: John Hubbard <jhubbard@nvidia.com>
-In-Reply-To: <85e760cf-b994-40db-8d13-221feee55c60@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SJ0PR05CA0048.namprd05.prod.outlook.com
- (2603:10b6:a03:33f::23) To LV2PR12MB5968.namprd12.prod.outlook.com
- (2603:10b6:408:14f::7)
+	id 1uvBAT-0000000AI4r-1XX4;
+	Sun, 07 Sep 2025 08:54:38 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-55f78e3cdf9so4232569e87.1;
+        Sun, 07 Sep 2025 01:54:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757235275; x=1757840075; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ta1cFo0XDUArRgBS4UrHkNCAuCKCm6jMm0yBvo/F4kU=;
+        b=P0C9DzI3Wdm4CIDAwbgOfq7td1fPTjvoDkCTca4v+vF3CyriGJGLoqe1AcjK22H2lE
+         wDj+U7vJunStzRoROt7iSi1mvgobAp9GZB0bgVt5mr1mjgOOuApTMirz4yUdIR1kg/I4
+         etb+E42HqU3TvJXAm+kiCfvgBV2MzRhqIKQJZTIiLhdoke3ZfK86QzplOgmnJRXA7p96
+         5lN+PdebMkEClqzNotYijw1BPivfCfXGHGbeKfIla3fPwVtut0u/f9Oz1Xs+H7YbiowO
+         UGZu+LsX/0qCpPXXwJqlkOmYJ8dYFNVRT4eJD4I7BhgvS74zWH5YlJsj+sEBNNdlAGwh
+         lrOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757235275; x=1757840075;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ta1cFo0XDUArRgBS4UrHkNCAuCKCm6jMm0yBvo/F4kU=;
+        b=aBp8LaFoFBgg/niMoER67FEy7H+VMIdH2JNiYZixDIYluMITpmKMUWriGrtRmohXBy
+         Lv11UIdOOL4e5GOa82gcbI12xJHE1uKAlHhMBo0rHwcTSdrvIVqD79FR26XqcLtPhQbV
+         GITFk3f56U+wi5Dzs+yS67ZzsT1i1QDN+zwwpjkzVPadDZiEMItBKq9JJYRCo7xSSNY8
+         EytUj6VPdZkmcKXzgwJjfqT8mGVkDx2+ezZYZcvtyAJiBowtsYEC1iWwRIX6MtleOrrO
+         5g6qPv5Jh/VM9BwtGYkQoUk28F2wF4C9Fr2SnIOVBgjvEqDkpUQ5Vp1oBA/g9oKvhGem
+         BaGw==
+X-Forwarded-Encrypted: i=1; AJvYcCWo+bdma+wOEPbmuTcWi4H8f/FiUOweuCsxM2W41s/G3FRzM8KiWvLC/D+C569RPwzG5YR0RySbOkjAq9IFgDlx@lists.infradead.org, AJvYcCXZ0ph+YhJ6dnbQVn355DKm9VQ3Gpb5agQt3UbCbIKswHHKennNy+4BS2QBUMjvgdiIkhICbAiHzoDx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2yd8qfodsKc5mZaHhifxvOaVKfvAXOvPt/X+RGhEhonQ4CJHI
+	Y09XjKxNrDFlsD2g92Y1VU8taJr22oX7bQ0VW8zKKXO0PR30o/eUbbez
+X-Gm-Gg: ASbGnctcWzAUytRnp5XDuJEQXktsiuL07AfdpMKeJIWj2rtsOjXAuf7szzjd9nwZWqe
+	oEqcD/vf6OxS6GSot+Wb9IKLcG1RAZVcT5b79gCCB9usNrmGZb8bCvBfx+ngYp4lz4Y/DxmzhkG
+	CfJgufhwcsJkLMcPYt7jS3z+xcnEefP+SkkicleSygwVavZ08KO1dxFJmJ4NjEbRM5mZb7glruz
+	zYpBFSXcMBl13PPXpM1+6ygv6//wOnZH/hSJjmVK6jY6qXUISONdL99uGVla5daWZehfYvJaVDR
+	QZ1lZ0bwqJ4ATlgA02e3yOxU8ZMvIcAd25BmX3OFD2JVN4PBghm3ovyehHCa6fNnoEGWn46CF6t
+	ppl3aGSgxj41vPh7+fd+zxhv+c8MYrdcEn6CYQniDZMghE/aUzqZWbkURlBoIh/zj6Fl9lwSJrq
+	Pm
+X-Google-Smtp-Source: AGHT+IFiJ49HQNMd/IFx7xIzrrtqMETUdaxARpaq6+DVUgUYdtERBew8emcGESiiMQvJ8usHN1vC9A==
+X-Received: by 2002:a05:6512:3e25:b0:55f:6759:a792 with SMTP id 2adb3069b0e04-562636d6328mr1074855e87.34.1757235275009;
+        Sun, 07 Sep 2025 01:54:35 -0700 (PDT)
+Received: from ?IPV6:2a00:1fa0:730:6bf5:b6a:8710:4129:8b95? ([2a00:1fa0:730:6bf5:b6a:8710:4129:8b95])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5608ace8121sm2814508e87.84.2025.09.07.01.54.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 07 Sep 2025 01:54:33 -0700 (PDT)
+Message-ID: <f09dedfc-1f1b-4416-b854-9c4059ba264a@gmail.com>
+Date: Sun, 7 Sep 2025 11:54:31 +0300
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR12MB5968:EE_|DS5PPFDF2DDE6CD:EE_
-X-MS-Office365-Filtering-Correlation-Id: 89b9ab1e-80e3-48bd-897d-08ddedcd6976
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|376014|7416014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?N3VhS0huWjQ4a3lsVHYzQ0ZwUFpBUjlPQjE2VXV6aS8zdmFuZzZLajVkaXpz?=
- =?utf-8?B?bEpMMWxBZ1BOWVU3QjZRaVpkNFA2dFdMTXJ0VmJCc0tSYmJTd1ZSQjhWS0NR?=
- =?utf-8?B?L2JCYU5wYXhNU2tweXhzcFUwQlVkSTgwQjRaSCsxUWdwSHpvU1NqYWo3eWlN?=
- =?utf-8?B?YWphSzhUcWxUU1dsY2VtdDdvZmRHRC92Sk1nSmZCeW1tTFQ3YUVia0pxZGtv?=
- =?utf-8?B?aTRMa2hmMEYzVEZTejRBck5nSXdWb2tHbnNaOWkyMDNmV1FTWUNYNVRHMmFw?=
- =?utf-8?B?cUJmdGM5WmJDTk1SWkREeTlUR2E5cFpRTjFDTHdkSFRLZ3FNNFVXQmtyMnZY?=
- =?utf-8?B?MlZCS1JScTJPWWNjaWRnYSt3STA1Nm94bGorSHlkZ05iM1RrQmNVaFRzRjM2?=
- =?utf-8?B?b0s5MnUwV0w4RVArdXVLcmFtUW9JT0VORFpqbEFOYnROZDQ0Uk1idHNnSnZQ?=
- =?utf-8?B?TzdIVHZpRExrMFRjV2Y0YUtKU0NJRnRxR3hhbHIxQ0RmNG1rczd1NWtDWVZs?=
- =?utf-8?B?ZTdJQTZGSmFHczhaWHRCVjVQWjdiVnA3MW9wdXNPQVp6djJVU3lFTTcybFNo?=
- =?utf-8?B?UFNHTkg3Z2RCZEYyTVVFSUVna2thM3Jwd3hZYkFuUm1oZlFtUDRnRTZxVGVq?=
- =?utf-8?B?N1ZDVjk0UE9seTRvTmxDTVYrUFJ0Uy9yV2xROEliWk51eEtDdXU0Z3pYWXJp?=
- =?utf-8?B?anBGUkt5bnRwSFo2a2ljNmVxTEIwKys2T2lQSFhwTkQrdkVvY2hxU0VUWThS?=
- =?utf-8?B?OHgweUV2elJuR2VmYU1kb0VBRHNnYXpyODFueFEzSktNQUNMTnRzTkRKbDdP?=
- =?utf-8?B?RlBvWGVvMm1uV0tlcmc4cTlRMllKTGYvUEpmMmVVTTNnWFJrMjhMSlRtNzBG?=
- =?utf-8?B?ZDArTVhwaHJZdXVoOXhFYXA1QVJRWFRJd1NkTnBmdngrWGxnVWNhUUVSUmov?=
- =?utf-8?B?K1RLQnNvQUM2NzM0WE1ONzNjUzdFeUl2RjB1NmFVRDR6VlJLTHpMdTNlOHNB?=
- =?utf-8?B?SVNXa05oOUw2UDhkWWZmZmpLd215c3lubnphcWUrMHpKSkxSR21MOEJDMllY?=
- =?utf-8?B?aWFVbEd2cnc4WGhkcEdMTnJKaVFBNHl0YVBVV0FxclZEb0JoVjlEV1AxNHFh?=
- =?utf-8?B?Kzh5d1JQcmNoRmlpalRrc2ljTGtKQVc2aUJJdlZML1pGVVVCZTByTGFFWW5N?=
- =?utf-8?B?eTRIOE5Nb2Y3OGFucVZSVGtMaW5xeHdwV0tad1E4cE9GUk12MDJOU0w1U25N?=
- =?utf-8?B?dDgrdzZWbUd4VjFXZTk1OFZMZmxMbi93cXp5c0Z2UHBWOXc3OHpJUEhCOHFQ?=
- =?utf-8?B?MUk5RG5DeWs1MXVLOHE5TTRCMkl3cXFTRHA0WWxxNWhVV0gwa3phRitqTlNC?=
- =?utf-8?B?c2pTdlpFdW9wblI3c3AyYmQrNDFvNWFYT0dzM3YwRnZXUk9SUHFEUTJqM1pp?=
- =?utf-8?B?M1FJRUVVOWpEd1hTOWYwUjAzVjJpcnlNZkhWTnhIdGJ4NzhlTGJIK2NabTgv?=
- =?utf-8?B?OGxGNUQ0cU43UTZuNXErdGVnanJuTEd2M0VFaTlDNzJOZXQwOTVYQ2tkWnlO?=
- =?utf-8?B?K0cyMEFKUGFzL1R2ZXlYLzVRbWpTNUZMeU5qSGVVYXpCOTV5OFcrdlFrL0JT?=
- =?utf-8?B?cEFROEViM1JtN3FySDd4b0xJbXpyemgyN0x6QmkxYWpZUlprU3VMR0oyYlVQ?=
- =?utf-8?B?M1FNY1lpVjhhYmlhVVl3U1JBTUJ4SjFVOUdURFZDVm1RdFB2Q1hMS0lCeEY4?=
- =?utf-8?B?NUtsMjNRa0NQUHJHU1MvMURkK3BEcEEzY0ZUcDBjR1N1Qit6RTJHU1kreEVr?=
- =?utf-8?B?MUxxZW11V1JCSGR2R0w0RTRzNENkeEc5dGtFWDZKanBZaGNGVDBsL0VjdzQy?=
- =?utf-8?B?U0FKMWs2N3lqR2txMkI0Sm5kMEdkeGpSN3U1dDhHZzg4Qnc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5968.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z2FmbGhrTlFWREJvWjdCU1VYNHgya0haRTlqdUtTa0c0Z2VPbG4rS3NOQ3VP?=
- =?utf-8?B?aTc3dURUbGo5WXg3ZXNRWEJQVWdabGRxOWw4R2RUS3UwczltdmtmdnZlUlRz?=
- =?utf-8?B?OVp6R3NaazB0RXVzZUxHTld4Ny9jU3BxMWd2ZVF6YlFhV2lYQnVrK3orK2pZ?=
- =?utf-8?B?aWMvOFN2UG1DTDVZaDFtUVVkQ3pRV08yTVNYRTdkMTIvbTB1OWh0Sm1HMCs3?=
- =?utf-8?B?WUpNTnVkSytmdHZmOVZvR2tVbTNxQjlkb29xZnB1bzhObzliaU84UG92RW9E?=
- =?utf-8?B?M0lzeXUvYnpkelJiQk1zLzhWazN1dThSN0JnRzkyQWZMSVdnMjY3cnViQjhZ?=
- =?utf-8?B?QkhxUVpFZHpGRDRObnkzbTA5QnJlMlhnaXYrSCtWMXBQZ0V2MktGVTJhbTRn?=
- =?utf-8?B?bGJFeU5EUlpPVGwyd3hxc0JSa3ZOUTh3NmxZdkkrOUZRVUR4ck0zVTh4dzlY?=
- =?utf-8?B?YTdUTXBtZHhMdUQxRzJwdDB1YmFiRUQ0YzFCa0JjQ08zU1V4N0tVUGJjTmVo?=
- =?utf-8?B?RE5JTUV5VFlOaVlTMEFzaU03UitTVnprSXZoOWxwU0doN0ZsK0JCRlJMaitY?=
- =?utf-8?B?UmFHeXV0ekg3QVZoNENJaEc2QjQ5WUpaMWp5bTBwMnllTGs1Z20xZ0x3a0Fs?=
- =?utf-8?B?Q2NKblU2NUVEV0lqQjZBUUYzN0w0RE9kUk9ySlM2eDVqTG1ERzlTOWUzMjJj?=
- =?utf-8?B?M0JrZXN1MmxoU1RLNFZMK0pwLzA3NHdCUTNmazZJM01zYTcrNGsrYXNIZWVM?=
- =?utf-8?B?TlBlT245aDZ1VHlVcVlDdUxEMWw2QXRNU1BFVW5UajduclBnenMrNXBRNUMr?=
- =?utf-8?B?NWFyQ3FsVzhuNGNmSnY1Mi9ISndPWjliWW0rS0xJc2V5QzVKSTRvalA2aFUw?=
- =?utf-8?B?SE1KTkVpTEVFQmtKUTg2VmkvbXF2L1NLdFBMRzNDS1I2MDAwKzZuZmtzd1FV?=
- =?utf-8?B?TjhreGszMlJkdFJyK3RRbnpQZ0RxVzEranZVNS9kRmNQUHIzNzBNNWVOUHVi?=
- =?utf-8?B?RGYyVU9qVStQQXUzR0lYaXlKOENCV0RWOFVDT1dOZ01tRGNRdHhVazNKKzdB?=
- =?utf-8?B?Q25OT3FaNThIV3RWVmVDV0paV2FJU01sb3IwTTVrRzZEaWRzY3pBUmJlRit1?=
- =?utf-8?B?MmhJbmp4ajI5OENiYTNra2RlaEZjRmhiRmFPVDZZdGN6YUFyc1N1MDlrVlJ2?=
- =?utf-8?B?TnpqdWJpVWxyRTFXN09MSDMvUUdjZ1lrdGZhN2xEeldEQjRGRjA1RWV4cGdS?=
- =?utf-8?B?eTBMZWRFU3NLMnYrTXdTMGFEbXI2V2M1SU1KZVVIVGF0dFkxV0xMNmdWNWhF?=
- =?utf-8?B?dDBUZ0l1Mm4zU3Y1UWR0dnVsWExuL0Z2bHVEQ21ML09TWlgwQXJRTzhaQTJr?=
- =?utf-8?B?SDVvQ001cFV1NmdNaGF0ZUJneEFlam1zWlAwY0lzTWVjelEzNnFscGhZbGtv?=
- =?utf-8?B?S0crbnF2MDc3U1QxLy9WS1ZvSUdqc0cyK2wyWk9mRnZXWGIxaGE5WWFwbWlZ?=
- =?utf-8?B?UjNMT0hIQTRhUHV3MFNVVFNjSEtmbklKamVzMDZpOVdNRGdnNG8wbVpKakdo?=
- =?utf-8?B?eXpGaDZobXM5NWVTZnY2VUcvN1dJek1YT0w1UFduazVqOUR2RjVHQ3lZOG5E?=
- =?utf-8?B?cHhzSHpmeXBQYmEvTHNEdWlFVjVtdTFoMzZpVVVZaGxQc2oxNUt4bFBIT0do?=
- =?utf-8?B?SEhDMDRJK2NHOUZpaVNqWkxxNFF1WkNRTlZ5amJhcXBIS1BDYzVhcnVVNUI0?=
- =?utf-8?B?Vy9vOWFWWG1HcHNOWEtCRHR5L2JqM2drU2pFSHZmcVJ0Wm53Q1NGdktNMDl1?=
- =?utf-8?B?dU9VUUdMaldtdkQyVTJRLysvR3ZKZHZmem85alRmUGtzSlQxZlFOdkZHVlJy?=
- =?utf-8?B?OHBkYTZ4OWdia2tXTXk5dE5EZkdTQVNrSmc5QXlDNUdDU1BQbmo2c3ZaNEY1?=
- =?utf-8?B?YTBlelUxU0F3Z2h5alpQNUdkM3pwNDFwSHRkV2lUbWIrTUVscVljeUVlbUsy?=
- =?utf-8?B?eWkwdDF1Vk5uUDB6N1pDU2UzSVVoZXUvU2JWRjhTK0NMZFppUzhLbEgrTkUy?=
- =?utf-8?B?NXo3KzBPdkFPNXpTSUZaY0R4Z2hMbkZpaXhpeWxCbzVhWExlZUtxUmM5T0Ri?=
- =?utf-8?B?NmNoNmZJdXZTRU04OGRJWjhMU1FDZTZDUGlhVHRxYm8zZzRVQWtQamFCdm41?=
- =?utf-8?B?a1E9PQ==?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 89b9ab1e-80e3-48bd-897d-08ddedcd6976
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5968.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2025 05:14:25.2162
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nMH9E6FIAuGh537ODX0TA1FL8Y+H+9s2oVS0wOHG+o0yolAQXZ6PgvaRmfySFg15SGYvEm2Bjkc1N1v56jE8Fw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPFDF2DDE6CD
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 12/22] usb: typec: tipd: Update partner identity when
+ power status was updated
+To: Sven Peter <sven@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+ Ran Wang <ran.wang_1@nxp.com>, Peter Chen <peter.chen@nxp.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+ Hector Martin <marcan@marcan.st>
+References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
+ <20250906-atcphy-6-17-v2-12-52c348623ef6@kernel.org>
+Content-Language: en-US
+From: Sergey Shtylyov <sergei.shtylyov@gmail.com>
+In-Reply-To: <20250906-atcphy-6-17-v2-12-52c348623ef6@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250906_221436_776218_95C15665 
-X-CRM114-Status: GOOD (  31.88  )
+X-CRM114-CacheID: sfid-20250907_015437_411737_50386E5A 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,247 +114,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/5/25 11:56 PM, David Hildenbrand wrote:
-> On 06.09.25 03:05, John Hubbard wrote:
->> On 9/1/25 8:03 AM, David Hildenbrand wrote:
-...> Well, there is a lot I dislike about record_subpages() to go back 
-there.
-> Starting with "as Willy keeps explaining, the concept of subpages do
-> not exist and ending with "why do we fill out the array even on failure".
-> 
-> :)
+On 9/6/25 6:43 PM, Sven Peter wrote:
 
-I am also very glad to see the entire concept of subpages disappear.
-
->>
->> Now it's been returned to it's original, cryptic form.
->>
+> From: Hector Martin <marcan@marcan.st>
 > 
-> The code in the caller was so uncryptic that both me and Lorenzo missed
-> that magical addition. :P
+> Whenever the power status is changed make sure to also update the
+> partner identity to be able to detect changes once de-bouncing and mode
+> changes are added for CD321x.
 > 
->> Just my take on it, for whatever that's worth. :)
-> 
-> As always, appreciated.
-> 
-> I could of course keep the simple loop in some "record_folio_pages"
-> function and clean up what I dislike about record_subpages().
-> 
-> But I much rather want the call chain to be cleaned up instead, if 
-> possible.
-> 
-
-Right! The primary way that record_subpages() helped was in showing
-what was going on: a function call helps a lot to self-document,
-sometimes.
-
-> 
-> Roughly, what I am thinking (limiting it to pte+pmd case) about is the 
-> following:
-
-The code below looks much cleaner, that's great!
-
-thanks,
--- 
-John Hubbard
-
-> 
-> 
->  From d6d6d21dbf435d8030782a627175e36e6c7b2dfb Mon Sep 17 00:00:00 2001
-> From: David Hildenbrand <david@redhat.com>
-> Date: Sat, 6 Sep 2025 08:33:42 +0200
-> Subject: [PATCH] tmp
-> 
-> Signed-off-by: David Hildenbrand <david@redhat.com>
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Sven Peter <sven@kernel.org>
 > ---
->   mm/gup.c | 79 ++++++++++++++++++++++++++------------------------------
->   1 file changed, 36 insertions(+), 43 deletions(-)
+>  drivers/usb/typec/tipd/core.c | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
 > 
-> diff --git a/mm/gup.c b/mm/gup.c
-> index 22420f2069ee1..98907ead749c0 100644
-> --- a/mm/gup.c
-> +++ b/mm/gup.c
-> @@ -2845,12 +2845,11 @@ static void __maybe_unused 
-> gup_fast_undo_dev_pagemap(int *nr, int nr_start,
->    * also check pmd here to make sure pmd doesn't change (corresponds to
->    * pmdp_collapse_flush() in the THP collapse code path).
->    */
-> -static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-> -        unsigned long end, unsigned int flags, struct page **pages,
-> -        int *nr)
-> +static unsigned long gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, 
-> unsigned long addr,
-> +        unsigned long end, unsigned int flags, struct page **pages)
->   {
->       struct dev_pagemap *pgmap = NULL;
-> -    int ret = 0;
-> +    unsigned long nr_pages = 0;
->       pte_t *ptep, *ptem;
-> 
->       ptem = ptep = pte_offset_map(&pmd, addr);
-> @@ -2908,24 +2907,20 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t 
-> *pmdp, unsigned long addr,
->            * details.
->            */
->           if (flags & FOLL_PIN) {
-> -            ret = arch_make_folio_accessible(folio);
-> -            if (ret) {
-> +            if (arch_make_folio_accessible(folio)) {
->                   gup_put_folio(folio, 1, flags);
->                   goto pte_unmap;
->               }
->           }
->           folio_set_referenced(folio);
-> -        pages[*nr] = page;
-> -        (*nr)++;
-> +        pages[nr_pages++] = page;
->       } while (ptep++, addr += PAGE_SIZE, addr != end);
-> 
-> -    ret = 1;
-> -
->   pte_unmap:
->       if (pgmap)
->           put_dev_pagemap(pgmap);
->       pte_unmap(ptem);
-> -    return ret;
-> +    return nr_pages;
->   }
->   #else
-> 
-> @@ -2938,21 +2933,24 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t 
-> *pmdp, unsigned long addr,
->    * get_user_pages_fast_only implementation that can pin pages. Thus 
-> it's still
->    * useful to have gup_fast_pmd_leaf even if we can't operate on ptes.
->    */
-> -static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-> -        unsigned long end, unsigned int flags, struct page **pages,
-> -        int *nr)
-> +static unsigned long gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, 
-> unsigned long addr,
-> +        unsigned long end, unsigned int flags, struct page **pages)
->   {
->       return 0;
->   }
->   #endif /* CONFIG_ARCH_HAS_PTE_SPECIAL */
-> 
-> -static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
-> -        unsigned long end, unsigned int flags, struct page **pages,
-> -        int *nr)
-> +static unsigned long gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, 
-> unsigned long addr,
-> +        unsigned long end, unsigned int flags, struct page **pages)
->   {
-> +    const unsigned long nr_pages = (end - addr) >> PAGE_SHIFT;
->       struct page *page;
->       struct folio *folio;
-> -    int refs;
-> +    unsigned long i;
-> +
-> +    /* See gup_fast_pte_range() */
-> +    if (pmd_protnone(orig))
-> +        return 0;
-> 
->       if (!pmd_access_permitted(orig, flags & FOLL_WRITE))
->           return 0;
-> @@ -2960,33 +2958,30 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t 
-> *pmdp, unsigned long addr,
->       if (pmd_special(orig))
->           return 0;
-> 
-> -    refs = (end - addr) >> PAGE_SHIFT;
->       page = pmd_page(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
-> 
-> -    folio = try_grab_folio_fast(page, refs, flags);
-> +    folio = try_grab_folio_fast(page, nr_pages, flags);
->       if (!folio)
->           return 0;
-> 
->       if (unlikely(pmd_val(orig) != pmd_val(*pmdp))) {
-> -        gup_put_folio(folio, refs, flags);
-> +        gup_put_folio(folio, nr_pages, flags);
->           return 0;
->       }
-> 
->       if (!gup_fast_folio_allowed(folio, flags)) {
-> -        gup_put_folio(folio, refs, flags);
-> +        gup_put_folio(folio, nr_pages, flags);
->           return 0;
->       }
->       if (!pmd_write(orig) && gup_must_unshare(NULL, flags, &folio- 
->  >page)) {
-> -        gup_put_folio(folio, refs, flags);
-> +        gup_put_folio(folio, nr_pages, flags);
->           return 0;
->       }
-> 
-> -    pages += *nr;
-> -    *nr += refs;
-> -    for (; refs; refs--)
-> +    for (i = 0; i < nr_pages; i++)
->           *(pages++) = page++;
->       folio_set_referenced(folio);
-> -    return 1;
-> +    return nr_pages;
->   }
-> 
->   static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
-> @@ -3033,11 +3028,11 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t 
-> *pudp, unsigned long addr,
->       return 1;
->   }
-> 
-> -static int gup_fast_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr,
-> -        unsigned long end, unsigned int flags, struct page **pages,
-> -        int *nr)
-> +static unsigned long gup_fast_pmd_range(pud_t *pudp, pud_t pud, 
-> unsigned long addr,
-> +        unsigned long end, unsigned int flags, struct page **pages)
->   {
-> -    unsigned long next;
-> +    unsigned long cur_nr_pages, next;
-> +    unsigned long nr_pages = 0;
->       pmd_t *pmdp;
-> 
->       pmdp = pmd_offset_lockless(pudp, pud, addr);
-> @@ -3046,23 +3041,21 @@ static int gup_fast_pmd_range(pud_t *pudp, pud_t 
-> pud, unsigned long addr,
-> 
->           next = pmd_addr_end(addr, end);
->           if (!pmd_present(pmd))
-> -            return 0;
-> +            break;
-> 
-> -        if (unlikely(pmd_leaf(pmd))) {
-> -            /* See gup_fast_pte_range() */
-> -            if (pmd_protnone(pmd))
-> -                return 0;
-> +        if (unlikely(pmd_leaf(pmd)))
-> +            cur_nr_pages = gup_fast_pmd_leaf(pmd, pmdp, addr, next, 
-> flags, pages);
-> +        else
-> +            cur_nr_pages = gup_fast_pte_range(pmd, pmdp, addr, next, 
-> flags, pages);
-> 
-> -            if (!gup_fast_pmd_leaf(pmd, pmdp, addr, next, flags,
-> -                pages, nr))
-> -                return 0;
-> +        nr_pages += cur_nr_pages;
-> +        pages += cur_nr_pages;
-> 
-> -        } else if (!gup_fast_pte_range(pmd, pmdp, addr, next, flags,
-> -                           pages, nr))
-> -            return 0;
-> +        if (nr_pages != (next - addr) >> PAGE_SIZE)
-> +            break;
->       } while (pmdp++, addr = next, addr != end);
-> 
-> -    return 1;
-> +    return nr_pages;
->   }
-> 
->   static int gup_fast_pud_range(p4d_t *p4dp, p4d_t p4d, unsigned long addr,
+> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+> index c7cf936e5a61a331271c05b68ff1b77b89c0f643..cd427eecd8a594b7e609a20de27a9722055307d8 100644
+> --- a/drivers/usb/typec/tipd/core.c
+> +++ b/drivers/usb/typec/tipd/core.c
+> @@ -635,9 +635,16 @@ static irqreturn_t cd321x_interrupt(int irq, void *data)
+>  	if (!tps6598x_read_status(tps, &status))
+>  		goto err_unlock;
+>  
+> -	if (event & APPLE_CD_REG_INT_POWER_STATUS_UPDATE)
+> +	if (event & APPLE_CD_REG_INT_POWER_STATUS_UPDATE) {
+>  		if (!tps6598x_read_power_status(tps))
+>  			goto err_unlock;
+> +		if (TPS_POWER_STATUS_PWROPMODE(tps->pwr_status) == TYPEC_PWR_MODE_PD) {
+> +			if (tps6598x_read_partner_identity(tps)) {
+> +				dev_err(tps->dev, "failed to partner identity\n");
 
+    Perhaps "failed to read partner identity\n"?
 
+[...]
+
+MBR, Sergey
 
 
