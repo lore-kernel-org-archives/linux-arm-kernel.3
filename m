@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 478DFCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58733CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mo2EFkzOaChPuvJidrt2tQqO/I5DDfDOd/qxOfVZ3Nk=; b=0/jLUUCmJJs/KoU5+THthmeRms
-	jmmDZtt8o/ObBSRVziDhV07Blw2Pds/W/TCLcUJ/bSuSpcml+TDNKM9L6c503UbNmxWdvAGvK1u5K
-	Xsg8fKiBnshjlNMxrdxcWKnGA7a1wy3ACKqm8Fo5NtzwQNdtym8bvrOHN8lp8OFv0sKQdRsXU5ctk
-	RtIAkSibmADWA4nojPrAOsvxflatN9VE7N8nk9UwqUQPKILAizn5+niBEYxim/rH8Jg1uLo5N5QUN
-	/+voZL22PRZd4M/kJqry82++L+dcRFp4xfNSiGH3+7fJ+JcVmFSA1weJVGB7E4pk90umoncbJ/Z/U
-	cjB4OPgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=RZFjES2k2kBsAkAviByrospglkEep/Rk5p+P1xEzAd0=; b=KZChjU5W4bwLmK
+	DMNYN7M1BJmE26z08GwI320tWhZMkfjRLSTAw1pj2dAlEBkw9B4D9YWiL5H3pWB0yk+PpBlbZFass
+	F1P9Z6mvOSJBbMb8sNVaUvzlXkihBlAT/eQamQ4EtT+qOJgBpll+kXC1qPfLnbQfFPwTMFggRV7pj
+	U22pMO8x6Jw1DcpDg9xSyQppkuwms5HrFHYBojROKuU02yjTcwF/ktNlWBrZy+cDk5FSHX75ZgDPS
+	ZCmDQkzk4pt1EUg7dnI7sT5s0RyvH03WN+jBs5mOohzu45VRSR5LqJl3+zKw88qGTfDJwg5WyS5l3
+	Mgn0tF15j/miQAtRuKMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsCc-00000004qUo-0nvb;
-	Tue, 09 Sep 2025 06:51:42 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uvsCl-00000004qgU-271N;
+	Tue, 09 Sep 2025 06:51:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvjat-00000002XDC-0KnC
+	id 1uvjpQ-00000002bLk-1KYF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 21:40:12 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588Le7wl3878309;
-	Mon, 8 Sep 2025 16:40:07 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757367607;
-	bh=Mo2EFkzOaChPuvJidrt2tQqO/I5DDfDOd/qxOfVZ3Nk=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=VG5JY9JKGvbSfigMkJ1Ng1EGEa0XjeiPKmqSGSrvSAQuPfDCTgemWX/1BmT4xwexn
-	 nSTuUn7Dv6IKX+XV/QVkZK1kq3SebifpKlTK/auVS/Uy6NL7glAU4r/TszA/p2/d8H
-	 QsEbhCf4DWvQrnfiBEk2dMSWO+3K9wSeFsl+0/eQ=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588Le7L12683429
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 16:40:07 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 16:40:06 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 16:40:06 -0500
-Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588Le6T11545093;
-	Mon, 8 Sep 2025 16:40:06 -0500
-Message-ID: <aef2df4a-7266-4e81-add2-3e35a081f5b0@ti.com>
-Date: Mon, 8 Sep 2025 16:40:06 -0500
+	Mon, 08 Sep 2025 21:55:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 077BB405BC;
+	Mon,  8 Sep 2025 21:55:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6B7AC4CEF1;
+	Mon,  8 Sep 2025 21:55:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757368511;
+	bh=+nYJPbuKlpnqlu3CLLJjdFbOtA1lzkZavy4yOLM+sGc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=kiDbdfAuo9J++rxAYt2nbuOgNET0a6aGGKZyM1O70K6sKUOOBtjNGuP5/jiU0a2O7
+	 kgDOBgNSMfStFqgdYWCblaRMhdw7xF1V8/WBdswaXIMObwyEyCKJLFMb13dwZc07rt
+	 IjUSn7k/xbQQ3go5vh6EUy5WulEkff8YPQDzVBRI8kU5AuNWVfVPKUSSmrRtP1AYuR
+	 vx04Rru42xQY6+u2WSM0ZRr3xwOBqnxcctWQgasngIzjADGtKq7Iq4oQtMXlawR9kx
+	 yE3u9L6fsekFx4PQ4yK6olQo65pW1Ed4I3YxMTsa2Xwpa2lAJ+vPB3bRE/Tn/bCc2e
+	 nz5PYilemvA6Q==
+Date: Mon, 8 Sep 2025 16:55:10 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
+Cc: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, bhelgaas@google.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	yuji2.ishikawa@toshiba.co.jp
+Subject: Re: [PATCH v3 2/2] PCI: dwc: visconti: Remove cpu_addr_fix() after
+ DTS fix ranges
+Message-ID: <20250908215510.GA1467223@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/4] arm64: dts: ti: k3-am62x-sk-common: Remove the
- unused cfg in USB1_DRVVBUS
-To: Akashdeep Kaur <a-kaur@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
-        <afd@ti.com>, <vigneshr@ti.com>, <d-gole@ti.com>, <u-kumar1@ti.com>,
-        <sebin.francis@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>
-References: <20250905051448.2836237-1-a-kaur@ti.com>
- <20250905051448.2836237-3-a-kaur@ti.com>
-Content-Language: en-US
-From: Kendall Willis <k-willis@ti.com>
-In-Reply-To: <20250905051448.2836237-3-a-kaur@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1757298848-15154-3-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_144011_211360_4880EBED 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20250908_145512_379054_9720D5A1 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +75,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/5/25 00:14, Akashdeep Kaur wrote:
-> After the SoC has entered the DeepSleep low power mode, USB1 can be
-> used to wakeup the SoC based on USB events triggered by USB devices.
-> This requires that the pin corresponding to the Type-A connector
-> remains pulled up even after the SoC has entered the DeepSleep low power
-> mode.
-> For that, either DeepSleep pullup configuration can be selected or the pin
-> can have the same configuration that it had when SoC was in active mode.
-> But, in order for DeepSleep configuration to take effect, the DeepSleep
-> control bit has to be enabled.
-> Remove the unnecessary DeepSleep state configuration from USB1_DRVBUS pin,
-> as the DeepSleep control bit is not set and the active configuration is
-> sufficient to keep the pin pulled up. This simplifies the setup and removes
-> redundant configuration.
+In subject, s/PCI: dwc: visconti:/PCI: visconti:/ to match previous
+history.
+
+On Mon, Sep 08, 2025 at 11:34:08AM +0900, Nobuhiro Iwamatsu wrote:
+> From: Frank Li <Frank.Li@nxp.com>
 > 
-> This reverts commit 527f884d2d94981016e181dcbd4c4b5bf597c0ad.
+> Remove cpu_addr_fix() since it is no longer needed. The PCIe ranges
+> property has been corrected in the DTS, and the DesignWare common code now
+> handles address translation properly without requiring this workaround.
+
+As Mani pointed out, the driver has to continue working correctly with
+any old DTs in the field.
+
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
 > 
-> Reviewed-by: Dhruva Gole <d-gole@ti.com>
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-
-Verified USB disconnect, USB connect, and USB remote wakeup on SK-AM62B-P1.
-
-Tested-by: Kendall Willis <k-willis@ti.com>
-
 > ---
->   arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> v3:
+>   Add pci->use_parent_dt_ranges fixes.
+>   Update Signed-off-by address, because my company email address haschanged.
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> index 13e1d36123d5..d3bed23134ca 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> @@ -249,7 +249,7 @@ AM62X_IOPAD(0x12c, PIN_OUTPUT, 0) /* (AD19/V15) RGMII1_TX_CTL */
->   
->   	main_usb1_pins_default: main-usb1-default-pins {
->   		pinctrl-single,pins = <
-> -			AM62X_IOPAD(0x0258, PIN_OUTPUT | PIN_DS_PULLUD_ENABLE | PIN_DS_PULL_UP, 0) /* (F18/E16) USB1_DRVVBUS */
-> +			AM62X_IOPAD(0x0258, PIN_OUTPUT, 0) /* (F18/E16) USB1_DRVVBUS */
->   		>;
->   	};
->   
-
+> v2:
+>   No Update.
+> ---
+>  drivers/pci/controller/dwc/pcie-visconti.c | 15 ++-------------
+>  1 file changed, 2 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-visconti.c b/drivers/pci/controller/dwc/pcie-visconti.c
+> index cdeac6177143c..d8765e57147af 100644
+> --- a/drivers/pci/controller/dwc/pcie-visconti.c
+> +++ b/drivers/pci/controller/dwc/pcie-visconti.c
+> @@ -171,20 +171,7 @@ static void visconti_pcie_stop_link(struct dw_pcie *pci)
+>  	visconti_mpu_writel(pcie, val | MPU_MP_EN_DISABLE, PCIE_MPU_REG_MP_EN);
+>  }
+>  
+> -/*
+> - * In this SoC specification, the CPU bus outputs the offset value from
+> - * 0x40000000 to the PCIe bus, so 0x40000000 is subtracted from the CPU
+> - * bus address. This 0x40000000 is also based on io_base from DT.
+> - */
+> -static u64 visconti_pcie_cpu_addr_fixup(struct dw_pcie *pci, u64 cpu_addr)
+> -{
+> -	struct dw_pcie_rp *pp = &pci->pp;
+> -
+> -	return cpu_addr & ~pp->io_base;
+> -}
+> -
+>  static const struct dw_pcie_ops dw_pcie_ops = {
+> -	.cpu_addr_fixup = visconti_pcie_cpu_addr_fixup,
+>  	.link_up = visconti_pcie_link_up,
+>  	.start_link = visconti_pcie_start_link,
+>  	.stop_link = visconti_pcie_stop_link,
+> @@ -310,6 +297,8 @@ static int visconti_pcie_probe(struct platform_device *pdev)
+>  
+>  	platform_set_drvdata(pdev, pcie);
+>  
+> +	pci->use_parent_dt_ranges = true;
+> +
+>  	return visconti_add_pcie_port(pcie, pdev);
+>  }
+>  
+> -- 
+> 2.51.0
+> 
+> 
 
