@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B35CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 07:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4A7CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 07:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vjpt8Wfk2LLSDqvXhNKwiJHgJRa+rYaAGISREh5isEU=; b=PxzQ2mj2m2VdNOe8vHwJH4gFxn
-	6OHwdZhXq6auECYnj/49b2kSh00090ALkMX/X1UT7TRO4+Pdoc+oArz83WJuajVFwgKsu2z81w9wb
-	RwZWUmuxOhChOv3FTz889ul8FNZSPtdQqKDuAV8Nfl8GbhplPJqkN1CBjuQj68GzZp4p8mzrZVltZ
-	CHFbcAFJNrJPP/vThq4PFk4mw94YH8LSzoh7CZOmEQ8TFZPWAuVfwfoAt55tsdFTjNG/JC3LM3mmj
-	YP6sfchEAEBetIaXntUSf5z6iRy7TmdgGmlNtM9MpvRscaHviyI5/a8B33ekMJS1CRn2RMX/OfKBm
-	f6D/yKOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vLDn/qK+a+vpmqkmaq+pHsB5onP0P49qK5MAJD9qW9k=; b=2hxGiLA6HFhdme3GJvycCBMzAv
+	1d0k+IuurVGczG7SZyE4BLXC7DaHUcWamlVevQMfcAd9kshPlPZuJkI88dIkllYvCYdXnBTK3Syjk
+	gGxl1KqEnkqk2ZP/V5gjbMNRlb/3W4KW+EUQZEKSZY6mBBiVtqDdKnhpcAYSc1jxVJaNJtTg+WeXg
+	Hp+68iK64lgmZ4Ddbu+YBBPxu7ZFyV5ry4dOCnHDyVObgPyVyK2OPcyrpovMeOJMngBBsf5I9FoTh
+	p0cDmiEv26SBMU+rEfsGYulxcwzZwuHt+i8nPZfzd8HJr2w4IoyGV9R6L1TLFc3cMGQUBCl613IiT
+	XghHn1AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvWNg-0000000FKNd-0Lov;
-	Mon, 08 Sep 2025 07:33:40 +0000
-Received: from out-183.mta0.migadu.com ([91.218.175.183])
+	id 1uvWQT-0000000FLCc-3aMD;
+	Mon, 08 Sep 2025 07:36:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvWI2-0000000FHxb-2epa
+	id 1uvWJ9-0000000FIgS-3DRs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 07:27:51 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grimler.se; s=key1;
-	t=1757316459;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vjpt8Wfk2LLSDqvXhNKwiJHgJRa+rYaAGISREh5isEU=;
-	b=cSwe7GFmvaTFQOm0oDcdoeV857jqy/DP++daEEF2HzKkEOuEi4Le/uQ9S8igvHxrNo746m
-	T3LBE9GDv0SzZXw+jDfu8DpalxI2/5k/uGT2YBI2AE9G6AxtDiAGz+U+NgWyupSG8NtOWq
-	3k4fo/99OCliTWqMStrI++nfcGCBdm8=
-From: Henrik Grimler <henrik@grimler.se>
-Date: Mon, 08 Sep 2025 09:26:55 +0200
-Subject: [PATCH v2 1/3] ARM: dts: samsung: exynos5410: use multiple tuples
- for sromc ranges
+	Mon, 08 Sep 2025 07:28:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2EB9C601A4;
+	Mon,  8 Sep 2025 07:28:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0EB2C4CEF1;
+	Mon,  8 Sep 2025 07:28:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757316538;
+	bh=RDvvo3xdx4TsaQjK5xSMvu9RP3KZphhm9dRO9PYFaHE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P8/g5uyVIQHXN0e5mPL9I3N+5Fn6il5f2SU5KOSKgX89LWRmezpwmscDnBQlomDrA
+	 aEBCNkVUN1lBdnEclWHE3VhOKuYCntWCldDEu7gJ74ZJ9iay1o8qfCECrOKrtsjbGl
+	 bGirtqLfDtyXx11f2dN0SAZzmnwm/DDg3vBpdgF0GvG6VOktkr+VY9TvNLQVO7esmr
+	 j0srYDy770j88l60UxOBdJi20ZbMBqydj40KYf73dg1BBvfz7YVDkKQ6iQegnXPX/f
+	 9y4eynU6UU84qnbeQYveWvRhShVUzT4Fb/JsxJgLihah1qp66vbvLIcB1kCz9GfyQ9
+	 RYU+pKsc7qzsg==
+Date: Mon, 8 Sep 2025 12:58:51 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	bhelgaas@google.com, helgaas@kernel.org, kishon@kernel.org, vigneshr@ti.com, 
+	stable@vger.kernel.org, linux-pci@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v3] PCI: j721e: Fix programming sequence of "strap"
+ settings
+Message-ID: <wvrouqouhrpoexmggwbc6vjz4xflnylzxrb2ffw3ai7656ehrt@keb53gb2tm2o>
+References: <oztilfun77apxtjxumx4tydkcd2gsalsak4m2rvsry2oooqjna@2yvcx6cnuemm>
+ <b2fb9252-6bfc-45da-973a-31cdfcc86b3d@ti.com>
+ <z3ubracmtlq23yicbrhqjgnzrfoqheffm6cvhfnawlvbu4cmmp@ddu2o7xhw5tz>
+ <48e9d897-2cd3-48ef-b46a-635ae75f5ac6@ti.com>
+ <3wc3t6y5gzzspgfeklsqo3bupfp6gsfy6mls6t66hflcqlqsfk@cu26wv3sow4y>
+ <9d2bba15-52e4-432a-8f7f-a0f5d7c2e4ad@ti.com>
+ <7hxdcjm7evlphkldct7seytno4is7rjkx5vquvtfhpdkzxdhu6@yocrjgzciwu3>
+ <08b87b5f-838b-4f40-ae90-10ded134356e@ti.com>
+ <whinfqhjgqbbvlnuzgbukklqi6gocjji4gakqyycovrse4qq6s@6xq5imqbzvux>
+ <a0e1d273-239b-44e5-8ccc-0ba83b2b5839@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250908-smdk5250-sromc-v2-1-e91b2375d4e1@grimler.se>
-References: <20250908-smdk5250-sromc-v2-0-e91b2375d4e1@grimler.se>
-In-Reply-To: <20250908-smdk5250-sromc-v2-0-e91b2375d4e1@grimler.se>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Henrik Grimler <henrik@grimler.se>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=999; i=henrik@grimler.se;
- h=from:subject:message-id; bh=jTp6dX+KTbrPXH64j5P/UlCrVJyk8SPU7cS21XqAE9Y=;
- b=owGbwMvMwMG4gT3Pk7swMZvxtFoSQ8a+1rhbF+a+sLAvf7GJLXJ+xbaHlw8mXdjoIuGbmdcSv
- fZR58kDnYz+LAyMHAyWYoosOvWa66Z3yqdIrnx0FmYQKxPIFGmRBgYgYGHgy03MKzXSMdIz1TbU
- MzTUMdYxYuDiFICp7o3kYJi0ccZT72fXpnm2X7Roi5HSy7Wvm5VgPNHz9ub9/DnfF70J0eCe84t
- fkn3ea1k1tcqPSamuQo5fNVYvLBM+WZSUeN3+4cIH4jclCs7vKn9S0qB5iDeQ5ZuBwZa4wBMfzT
- Z6s4txL5G9c5VrX8XM9qRedV6L1KADj64+/3e82Ml7pZFqn/fNNUv6O/0+RX91eXjwkV+f5ZtGj
- R3bLRZXrYjQjixfuSJKomWprZexLr+7a97SpaUL3v2QbP/IKPuadY9JjFhmzgNW1VXx0w6e+Zx8
- oX9HTvx15pgFJ6pkT1vfZPujeOb7p7+KT266skqWBl+OS5X5fkFM6ORScyXZ1MNlW7LtVVhsXq5
- Q+pHCCAA=
-X-Developer-Key: i=henrik@grimler.se; a=openpgp;
- fpr=2C7F29AE97891F6419A9E2CDB0076E490B71616B
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_002750_823824_CCEC1490 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <a0e1d273-239b-44e5-8ccc-0ba83b2b5839@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +81,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Preferred style is to have comma separated tuples when multiple
-addresses and sizes are defined in ranges. Therefore, change the
-format to clarify the node.
+On Thu, Sep 04, 2025 at 11:33:00AM GMT, Siddharth Vadapalli wrote:
+> On Wed, Sep 03, 2025 at 06:51:14PM +0530, Manivannan Sadhasivam wrote:
+> 
+> [...]
+> 
+> > 
+> > I thought put_noidle() will just reduce the refcount and not invoke the
+> > idle/suspend callbacks, but I seem to be wrong here.
+> > 
+> > Anyway, I guess we have no option here other than to drop the
+> > pm_runtime_put_noidle() call. This will keep refcount as 1 and will prevent the
+> > parent (genpd) to not enter runtime suspend, but we have to live with it (this
+> > was also the previous beahvior as well).
+> > 
+> > Btw, pm_runtime_set_active/enable change belongs to a separate patch.
+> 
+> I will work on and post the v4 patch with the following change:
+> - The commit message and the comment in the code will be updated to
+>   indicate that the runtime PM APIs are used to cause 'genpd' to power off
+>   and power on the controller.
+> 
+> I assume that the driver changes can remain as they are in this patch given
+> that the existing behavior has to be preserved. As j721e_pcie_ctrl_init()
+> programs the strap settings, powering off the controller via
+> pm_runtime_put_sync() and powering it on via pm_runtime_get_sync() shall
+> be implemented within j721e_pcie_ctrl_init() itself leaving the rest of the
+> probe function as-is. To summarize, the driver changes will be:
+> 
+> 	j721e_pcie_ctrl_init()
+> 		...Existing code...
+> 	+	Add pm_runtime_put_sync() here to power off controller
+> 		...Existing code to program strap settings...
+> 	+	Add pm_runtime_get_sync() here to power on controller
+> 		...Existing code...
+> 
+> Please let me know what you think.
 
-Signed-off-by: Henrik Grimler <henrik@grimler.se>
----
- arch/arm/boot/dts/samsung/exynos5410.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+I would've preferred changing the runtime PM calls as I suggested initially, but
+still we would keep it incremented which brings the net effect to the same.
 
-diff --git a/arch/arm/boot/dts/samsung/exynos5410.dtsi b/arch/arm/boot/dts/samsung/exynos5410.dtsi
-index 546035e78f404d764cb653ce25b73778c53fac0b..350bc8d6aa5ce8cc7c28606fb56bbcd748fdbf68 100644
---- a/arch/arm/boot/dts/samsung/exynos5410.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos5410.dtsi
-@@ -372,10 +372,10 @@ &sss {
- &sromc {
- 	#address-cells = <2>;
- 	#size-cells = <1>;
--	ranges = <0 0 0x04000000 0x20000
--		  1 0 0x05000000 0x20000
--		  2 0 0x06000000 0x20000
--		  3 0 0x07000000 0x20000>;
-+	ranges = <0 0 0x04000000 0x20000>,
-+		 <1 0 0x05000000 0x20000>,
-+		 <2 0 0x06000000 0x20000>,
-+		 <3 0 0x07000000 0x20000>;
- };
- 
- &trng {
+So you can drop my initial comment and post just this patch with improved patch
+description.
+
+- Mani
 
 -- 
-2.50.1
-
+மணிவண்ணன் சதாசிவம்
 
