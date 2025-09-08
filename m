@@ -4,58 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F09CAC586
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B47CAC588
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=P1UVHGPHfUIyxNabBaNQuKtasOtALBq5EAMGLACTLMI=; b=OCwqJBGqKKVNpBRLSD1mKP6TBy
-	SCVxSzPJoypUnkgi31HcxnBbx9w4FVcwOSxhKiOE39ypmRVL7nOq+JRg/OF7EUe78R1/H45HlrS0n
-	Q1Y+vy8SXtoJ61ls7fGaAZWlCgUJG88iE7CJXZCGc/ZiAfH6gh6liZlwpB1YJ/me8uA5ojnks+D3R
-	blsoumXyYXTXUeEJ4lK1Hsz3SWlxhPx77Rj70tbmslpkN+Lrko6V4lGs9okhtd3yVRj+jjtHHcPYX
-	02tcu4elzB8GVDN5DmHJGplw2WKOcz60azYmPoDAqEUfPhNO0Cx8H0fGOV+ad0uNyZf4Vb5/69ZMu
-	nyz5HRKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v7IroGFfuMHil+70rPWoixnASrFWM1LVOm0U4Tub+go=; b=24DFNy5oDGRA0sHMEi2uWNWfsy
+	WbZBY2vGfLva1AFBpZfDsHbkAuh9qjbPGD7rTLn+bXczjpwIMkWic+suOg97GFYkeHweUGZwS79Tm
+	C/YrWZ4KKGPoZKGG9B47M/Edz2nfrnHsohf+fWPlRzlvb4rYQEGUlyH8J3tNWF+SRcf5l/Dnx3wHt
+	dU69WiYHOr1Sey0kDOFEziAcqiYTtcjPN59SWMA8e3EId5ebAXLAxru4BggijH2jtclRtNobRSCFP
+	9G1FEsKUBZ+9xFttw72zpbq0kVKoywvlrCH/FLF2c5tc+uYx6fLg6gG3eRl9K1P/sP3lyE9XDkt8w
+	44dBk17Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvabe-0000000GqAu-2vtO;
-	Mon, 08 Sep 2025 12:04:22 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uvabn-0000000GqL3-3ra4;
+	Mon, 08 Sep 2025 12:04:31 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvYOE-0000000G75P-1WiZ;
-	Mon, 08 Sep 2025 09:42:24 +0000
-Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:c241:40fd:9e5d:437c])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id A397310BE;
-	Mon,  8 Sep 2025 11:41:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1757324464;
-	bh=rnd6RDB+ozLJ6GnyO0aYYhAe1Suo1G2ATJAAjchaT4k=;
-	h=From:To:Cc:Subject:Date:From;
-	b=dQ4NJpI5PqVhdipK9jmKPgYLgosjlgb1nWZtjezh3jmh7178lplS4hxGh+eXpqkO0
-	 W9MkAw4pnUxJBO9FfcZNU4Ypcr43Sg0OA/A3VxHHbB0d1NXDjDa5iUIrOm+D79CeZs
-	 U2knWweIh4ly9rdszHBoD/BuLpn1y2eweOHPcR40=
-From: Stefan Klug <stefan.klug@ideasonboard.com>
-To: linux-media@vger.kernel.org,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Stefan Klug <stefan.klug@ideasonboard.com>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] media: rkisp1: Improve frame sequence correctness on stats and params buffers
-Date: Mon,  8 Sep 2025 11:41:48 +0200
-Message-ID: <20250908094200.48002-1-stefan.klug@ideasonboard.com>
-X-Mailer: git-send-email 2.48.1
+	id 1uvYg4-0000000GDgY-1hYT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 10:00:49 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b4c72885c8bso3399789a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 03:00:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757325648; x=1757930448; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=v7IroGFfuMHil+70rPWoixnASrFWM1LVOm0U4Tub+go=;
+        b=LFXVRrwdRUuT98O0jVcstoK2ojVi4Gt/Ld+2eiNN4d+AVksnxhBkqlMjEKJZ8L4liM
+         l5rFImvf5oT6lPlOQLc2lfXSMlWnrc3mEdJlMmKSBiv4Zj8mnQ0Sv9D8M8l8oZAK+PER
+         0RUJkXAPYObc/0Xbnn3dcWqveMPMNxa1DYl8xdRW3KQTTQenvIdmoYMgfPzHjZ3U8cxi
+         DB7gMYIRZtkMaTQzycmTbwhepTizLeu2L/OBJzOHZZroOdyDT4mMDyHQqLD0TVukYSqk
+         5dkJpTvZ3Tq8oa+aggFRWcdfBsKf01/ebwFOASFXfszgKOrTCaOWniz8FTBPu3YH4FSP
+         T6Ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757325648; x=1757930448;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=v7IroGFfuMHil+70rPWoixnASrFWM1LVOm0U4Tub+go=;
+        b=BZQFoFzHbZdU4NLu0dgF6S2YSkJI6t58N0Cp192cgWxCEM79mj9eMzFUWlkT+qyVNX
+         U9VYCoVDyqNph5OaWwSamK7f0VXOc8OqEGyb+QEXl3w3WfPP9oqCzCDLNE8nepRL3W1P
+         wH1kYW7o41uAW249UllF0WoCliFmLIF8PTYZqyNAbZLcgSDx9uLBFU7qo9OfImQ1XXfI
+         JRMEVJvWrXgVi0Uw3NN9Z143Q8fnJ0Hr9oZTgBu7w1+ArU/ZbHye5uANR4cnXU+sfPTU
+         grwGcA4kzxFrk4xYd/Rym2gvTUMJegh/3LuTKsC+KYnGJWjCtq0WRpkZswl6ZVRWvRYk
+         /PVw==
+X-Forwarded-Encrypted: i=1; AJvYcCUf0Kb58AV/xooLZuf3JaYjJawh7iKIjB6aJDQX4G2RIjeIgcfWOBE8OJiYjR5zyUbhvx0dHx3JcQLNy+7tcney@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhliME9Hhgz1auzxyEAQUQAbwl23VrOielAvNn2ApxkYYWMnMK
+	zHz0EsIrglTJROpaYj5K+563zTdoy7aSSTYl29Tywo/S5CF7VtCti/09
+X-Gm-Gg: ASbGnctE4TRGQ86t+VA+B/jh2KDMxaGq4NQ8PXqlT+g40F5+j7sUnaaVZsvE50gou30
+	Bdq9exJuSlEXuqKrVTqfDEG9bROeFUw9beUpxOrYPxB24egl8UnAk9Xe8IMF7IS2dc4xZ1YxEpb
+	eoAQuMsLNBaCGX26IKp1p2+VvqFMovHd1+8KFNpxH4GH5XJUjBQRr3j50jlmnd3IlhieNxGizJj
+	D7xYY670mKJ8DnzwJ5AcnXPavNm7R2Bn29DTFoLP/gB56rZbXW9/YMALP63G/aMMBShbzi7NgN0
+	B6qhwgkKHQiDlDu6qhcvonRrO/AUFAOqgqB/9p4RjJrqValCYi5xH8CX9xO1bVE8sNv6VqIfY+r
+	GU/6yaJ40540h7Lpw5VZUBr80tFdmWM+Hy4ZP8w==
+X-Google-Smtp-Source: AGHT+IFsPZJGbWQibtI69hZHXu8fKVk5G6jBIPDZggi8j75kOe9U45Z2azxmFroNNw3gmJ/V7Ni/Eg==
+X-Received: by 2002:a17:902:ec90:b0:24c:7bc6:7ac7 with SMTP id d9443c01a7336-2516fdc7190mr101918085ad.18.1757325647510;
+        Mon, 08 Sep 2025 03:00:47 -0700 (PDT)
+Received: from [127.0.1.1] ([59.188.211.98])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-24ccfc7f993sm107826545ad.63.2025.09.08.03.00.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Sep 2025 03:00:47 -0700 (PDT)
+From: Nick Chan <towinchenmi@gmail.com>
+Date: Mon, 08 Sep 2025 17:58:25 +0800
+Subject: [PATCH RESEND v8 01/21] dt-bindings: arm: pmu: Add Apple A7-A11
+ SoC CPU PMU compatibles
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250908-apple-cpmu-v8-1-d83b4544dc14@gmail.com>
+References: <20250908-apple-cpmu-v8-0-d83b4544dc14@gmail.com>
+In-Reply-To: <20250908-apple-cpmu-v8-0-d83b4544dc14@gmail.com>
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Sven Peter <sven@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Nick Chan <towinchenmi@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1102; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=octx4ZTnNO/R4DCoPqgavGVNNjwOBSkdB0RJJeuCRxU=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBovqlChNFI3mthcIeTlCYyHJhPM7C5e6BjzCC1N
+ tL6LoHRUq2JAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaL6pQgAKCRABygi3psUI
+ JNUTD/0YnBxui5mvov2K8mWd9O1tHzRdmwtmrjY7djVyJI5LorUssKVMdKsrPFSkBwwilP42wqq
+ KKLZwunYeSkkC+QRtBrgWnK0Dnk0V4GgAx0Zxz/5R2K8Tb8HWN/Tl/Wp8OYPmBZig9UosPdVLT0
+ tRZQo+1EhuMsr6WGqsGVDG16LP7rlqmBK2+yipL7LBZgGNM9DP6VUR3NZ1ji794Bo/zvxWPK6S2
+ 2INBnCWOCPmbj3Y7ucHBjqQ5Wqo6s+ZUWDmPAt5qty6Pi9rS4IdDUHQd8RNiDCRse+HWqaMWuPH
+ VdlCbRmMSZWzkRtNamANXo/d4ByNcC9mmGlpx3GQa2scfPhATeFipJwNm9WqwRdxswkqGUUiyqm
+ Eu62wk88oVRSdAJxJUtHZ3iiTlbnkWpc7w3sXb5U941oBDcAhCbbdqVVXGBeDMJY7l27HOK/INi
+ Pkm8Ji+xmY3aKOh4ccjw4oYiIZ7A3OZrzCK/Gsfj/eecxPlR84cu2i8OqqRtvficgTiIih+ULMU
+ VvDtFCWNaGNn7OoObj93WI5B9VWzWi6s7SmA/cSe9sQ1gsoRO6Idfb/fIkQGZjSNorSbmiTeYRY
+ SfbZuf+0pflYNFivXnZu0AlkZdhHQQIMJPDgL5Z2QkDvIvMjALrX28eDsTFmA2b0PDHgiyZvNyp
+ /OYG76R7YW+Sz8A==
+X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
+ fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_024222_542697_51A58DA3 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20250908_030048_447618_40BB50D7 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,110 +125,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the rkisp1 (in my case on a NXP i.MX8 M Plus) the ISP interrupt
-handler is sometimes called with RKISP1_CIF_ISP_V_START (start of frame)
-and RKISP1_CIF_ISP_FRAME (end of frame) being set at the same time. In
-commit 8524fa22fd2f ("media: staging: rkisp1: isp: add a warning and
-debugfs var for irq delay") a warning was added for that. There are two
-cases where this condition can occur:
+Document the compatibles for Apple A7-A11 SoC CPU PMU.
 
-1. The v-sync and the frame-end belong to the same frame. This means,
-   the irq was heavily delayed and the warning is likely appropriate.
-
-2. The v-sync belongs to the next frame. This can happen if the vertical
-   blanking between two frames is very short.
-
-The current code always handles case 1 although case 2 is in my
-experience the more common case and happens in regular usage. This leads
-to incorrect sequence numbers on stats and params buffers which in turn
-breaks the regulation in user space. Fix that by adding a frame_active
-flag to distinguish between these cases and handle the start of frame
-either at the beginning or at the end of the rkisp1_isp_isr().
-
-Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
- .../platform/rockchip/rkisp1/rkisp1-common.h    |  1 +
- .../media/platform/rockchip/rkisp1/rkisp1-isp.c | 17 +++++++++++++----
- 2 files changed, 14 insertions(+), 4 deletions(-)
+ Documentation/devicetree/bindings/arm/pmu.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-index ca952fd0829b..adf23416de9a 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-@@ -222,6 +222,7 @@ struct rkisp1_isp {
- 	struct media_pad pads[RKISP1_ISP_PAD_MAX];
- 	const struct rkisp1_mbus_info *sink_fmt;
- 	__u32 frame_sequence;
-+	bool frame_active;
- };
- 
- /*
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-index 8c29a1c9309a..1469075b2d45 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-@@ -965,6 +965,7 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd, int enable)
- 	}
- 
- 	isp->frame_sequence = -1;
-+	isp->frame_active = false;
- 
- 	sd_state = v4l2_subdev_lock_and_get_active_state(sd);
- 
-@@ -1086,12 +1087,15 @@ void rkisp1_isp_unregister(struct rkisp1_device *rkisp1)
-  * Interrupt handlers
-  */
- 
--static void rkisp1_isp_queue_event_sof(struct rkisp1_isp *isp)
-+static void rkisp1_isp_sof(struct rkisp1_isp *isp)
- {
- 	struct v4l2_event event = {
- 		.type = V4L2_EVENT_FRAME_SYNC,
- 	};
- 
-+	isp->frame_sequence++;
-+	isp->frame_active = true;
-+
- 	event.u.frame_sync.frame_sequence = isp->frame_sequence;
- 	v4l2_event_queue(isp->sd.devnode, &event);
- }
-@@ -1112,14 +1116,15 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
- 	rkisp1_write(rkisp1, RKISP1_CIF_ISP_ICR, status);
- 
- 	/* Vertical sync signal, starting generating new frame */
--	if (status & RKISP1_CIF_ISP_V_START) {
--		rkisp1->isp.frame_sequence++;
--		rkisp1_isp_queue_event_sof(&rkisp1->isp);
-+	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
-+		status &= ~RKISP1_CIF_ISP_V_START;
-+		rkisp1_isp_sof(&rkisp1->isp);
- 		if (status & RKISP1_CIF_ISP_FRAME) {
- 			WARN_ONCE(1, "irq delay is too long, buffers might not be in sync\n");
- 			rkisp1->debug.irq_delay++;
- 		}
- 	}
-+
- 	if (status & RKISP1_CIF_ISP_PIC_SIZE_ERROR) {
- 		/* Clear pic_size_error */
- 		isp_err = rkisp1_read(rkisp1, RKISP1_CIF_ISP_ERR);
-@@ -1138,6 +1143,7 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
- 	if (status & RKISP1_CIF_ISP_FRAME) {
- 		u32 isp_ris;
- 
-+		rkisp1->isp.frame_active = false;
- 		rkisp1->debug.complete_frames++;
- 
- 		/* New frame from the sensor received */
-@@ -1152,5 +1158,8 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
- 		rkisp1_params_isr(rkisp1);
- 	}
- 
-+	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active)
-+		rkisp1_isp_sof(&rkisp1->isp);
-+
- 	return IRQ_HANDLED;
- }
+diff --git a/Documentation/devicetree/bindings/arm/pmu.yaml b/Documentation/devicetree/bindings/arm/pmu.yaml
+index 295963a3cae799a54560557137dd6b3cf4bd00f9..3726e1b78c42f150cf1dc68a6b3aa3541517c311 100644
+--- a/Documentation/devicetree/bindings/arm/pmu.yaml
++++ b/Documentation/devicetree/bindings/arm/pmu.yaml
+@@ -22,8 +22,14 @@ properties:
+           - apm,potenza-pmu
+           - apple,avalanche-pmu
+           - apple,blizzard-pmu
++          - apple,cyclone-pmu
+           - apple,firestorm-pmu
++          - apple,fusion-pmu
+           - apple,icestorm-pmu
++          - apple,monsoon-pmu
++          - apple,mistral-pmu
++          - apple,twister-pmu
++          - apple,typhoon-pmu
+           - arm,armv8-pmuv3 # Only for s/w models
+           - arm,arm1136-pmu
+           - arm,arm1176-pmu
+
 -- 
-2.48.1
+2.51.0
 
 
