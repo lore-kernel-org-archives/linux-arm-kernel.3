@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A5CCAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 02:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B7B5CAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 02:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNiJoZ4QWly/KKvQRA2zpDh1zo/FXO7FdLLjYNaY9w0=; b=WAZh3tVF+4txpSdbl7tS6iYAGt
-	rIZF7Kr6/L/RHnlHg+enKwfK2a8U7zTWpizfObZLsN2y7+tVyBezc+hz0huyNfu2Cs+S9oK/xxoFo
-	jrmn+2DoW5Gf2xOlMfBsApHQs+mekaC+GB/n1HGJQi+2NwpxMu/J5h458Vc0Ywv/0dzdqYWQxXos0
-	iBnNjsDU5I7F3VgRGe1/xAeyM587sd7zgi5ZwLDlmCUaRm7nyVIod+aS8AC0URi0XsPBPyNWjFhfL
-	VhWE1Sm9EQZLo1G/VNpVBjXwzyWF2RW+gSTXNfMBfb6YAt8OISLEPr1PeWAJDm2rIC55dhSHte1kO
-	mBHhi9ag==;
+	bh=TSFMz1YsRrecVdcFsDR2zMYv9+JcraECHD1VyUZRDF8=; b=cGtjNm5nikZQgE93JWabmsqAoY
+	UeZD6E2sq+ctiWyvkd9W9xhn6P2ECb6gv/HpOc3H+8DSLlr4ljz3Yjo9fU2yruvX9q8wiD5CZ1Tch
+	ZrybF+OfF5GSFO2W2E4KsSTiC/yADorDU3YxbueX3uEpu9i8ZstK6yqvGr7E+Da7cZ5jTpVCUSDTR
+	pqLoM3ogTV+TQ5SnElvw6YULuOjUYFVqAGNLti5b0XsLf+zf68a5Kimm+LbxB14U+CORk1WDSaG0J
+	TVf45feePs+o1g/XNvn8P2Tq8rILzAiEoBhTntpTQnCAvROVcbjCSBgKURZLc1NWbLJsf8HufW3oy
+	z4cbww5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvo6P-00000003i06-3A8K;
-	Tue, 09 Sep 2025 02:29:01 +0000
+	id 1uvo6R-00000003i39-23dX;
+	Tue, 09 Sep 2025 02:29:03 +0000
 Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhQV-00000001quB-3myC
+	id 1uvhSP-00000001rmp-06cp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 19:21:21 +0000
+	Mon, 08 Sep 2025 19:23:18 +0000
 Received: from francesco-nb (xdsl-188-155-97-38.adslplus.ch [188.155.97.38])
-	by mail11.truemail.it (Postfix) with ESMTPA id 6037A233EF;
-	Mon,  8 Sep 2025 21:21:17 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id 75263233E8;
+	Mon,  8 Sep 2025 21:23:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1757359278;
-	bh=vNiJoZ4QWly/KKvQRA2zpDh1zo/FXO7FdLLjYNaY9w0=; h=From:To:Subject;
-	b=AEva1hBP1OMIUEQmEmbb/BEeW/1N3lzEYFQ/yHSmH1NCRGcDJ61jbFBXYb9p8Qe8P
-	 pcGpKwQB7OIC5vh5Wh2NdODeFMQUjo9y8HvNQ6XqTvnO3kDinHoD25KEwtpctoviHC
-	 oO/5AgJC5Kx91lZ9EohwAOdl1OdAlgUuDOgeKUTOMMZkQvzQSTedfu0AODGaAiGBX5
-	 k6H/SPoZFyFVPnpT23pA2dXYf8vIv+B3M7CqDUf0M6QVAFCu0RB8VI/cAuw7Roq4SX
-	 JGFawAW+pTiQdOqII2v9cOFqMzwdnF1EgDe5YVq/zFurwvq1897567PewOk3CbmlZH
-	 03xTFxkjNLyaw==
-Date: Mon, 8 Sep 2025 21:21:16 +0200
+	s=default; t=1757359395;
+	bh=TSFMz1YsRrecVdcFsDR2zMYv9+JcraECHD1VyUZRDF8=; h=From:To:Subject;
+	b=j1Fm6HelbfVbg7SK5RjhBl2NR05zf+V/t89C6ar3l+BQ8F5E8tu1hNAvi0IYcD1Bz
+	 TgbeG1pXuw/t87/CbnuPMQVu7aB5GEds2LxUQSndzxJl1Uz2bcN6RPqcUPOflKimkB
+	 TucXL8JW0H8XyDEA6hO2DMUWEmAZrka1dNsZpN+fLqb+eLVF2qTzgvBGfPTXFnpuy7
+	 tf3sgMHRAMw/sbNsJ1V8Rrn/3zg+acU1bTkWT38hZIpvutVk9b26aFb7Uy/otU9sBG
+	 iBEIgOUy54m2YOaw48kaj+KHoAUUZu1WjUtO7WCZ8sHDK7s+b322K1Gf/OtNWT+cI0
+	 0mh4JvxlZfE0Q==
+Date: Mon, 8 Sep 2025 21:23:13 +0200
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Beleswar Padhi <b-padhi@ti.com>
 Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
@@ -47,24 +47,39 @@ Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
 	u-kumar1@ti.com, hnagalla@ti.com, jm@ti.com, d-gole@ti.com,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Hiago De Franco <hiago.franco@toradex.com>,
 	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Robert Nelson <robertcnelson@gmail.com>,
 	Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	Parth Pancholi <parth.pancholi@toradex.com>,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
+	Logan Bristol <logan.bristol@utexas.edu>,
+	Josua Mayer <josua@solid-run.com>, John Ma <jma@phytec.com>,
+	Nathan Morrisson <nmorrisson@phytec.com>,
+	Garrett Giordano <ggiordano@phytec.com>,
+	Matt McKee <mmckee@phytec.com>, Wadim Egorov <w.egorov@phytec.de>,
+	Andrejs Cainikovs <andrejs.cainikovs@toradex.com>,
 	Max Krummenacher <max.krummenacher@toradex.com>,
-	Andrejs Cainikovs <andrejs.cainikovs@toradex.com>
-Subject: Re: [PATCH v4 16/34] arm64: dts: ti: k3-am62-verdin: Add missing cfg
- for TI IPC Firmware
-Message-ID: <20250908192116.GB4217@francesco-nb>
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Diogo Ivo <diogo.ivo@siemens.com>,
+	Li Hua Qian <huaqian.li@siemens.com>,
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	Baocheng Su <baocheng.su@siemens.com>,
+	Benedikt Niedermayr <benedikt.niedermayr@siemens.com>
+Subject: Re: [PATCH v4 13/34] arm64: dts: ti: k3: Rename rproc reserved-mem
+ nodes to 'memory@addr'
+Message-ID: <20250908192313.GC4217@francesco-nb>
 References: <20250908142826.1828676-1-b-padhi@ti.com>
- <20250908142826.1828676-17-b-padhi@ti.com>
+ <20250908142826.1828676-14-b-padhi@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250908142826.1828676-17-b-padhi@ti.com>
+In-Reply-To: <20250908142826.1828676-14-b-padhi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_122120_099448_E3A9CB69 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20250908_122317_216028_649F2535 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +94,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 08, 2025 at 07:58:08PM +0530, Beleswar Padhi wrote:
-> The wkup_r5fss0_core0_memory_region is used to store the text/data
-> sections of the Device Manager (DM) firmware itself and is necessary for
-> platform boot. Whereas the wkup_r5fss0_core0_dma_memory_region is used
-> for allocating the Virtio buffers needed for IPC with the DM core which
-> could be optional. The labels were incorrectly used in the
-> k3-am62-verdin.dtsi file. Correct the firmware memory region label.
-> 
-> Currently, only mailbox node is enabled with FIFO assignment for a
-> single M4F remote core. However, there are no users of the enabled
-> mailboxes. Add the missing carveouts for WKUP R5F and MCU M4F remote
-> processors, and enable those by associating to the above carveout and
-> mailboxes. This config aligns with other AM62 boards and can be
-> refactored out later.
+On Mon, Sep 08, 2025 at 07:58:05PM +0530, Beleswar Padhi wrote:
+> Currently, the reserved memory carveouts used by remote processors are
+> named like 'rproc-name-<dma>-memory-region@addr'. While it is
+> descriptive, the node label already serves that purpose. Rename reserved
+> memory nodes to generic 'memory@addr' to align with the device tree
+> specifications. This is done for all TI K3 based boards.
 > 
 > Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-> Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Verdin AM62
 
-Acked-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+Reviewed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
 
