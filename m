@@ -4,97 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E2ECA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 23:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CB8CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 23:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gk4zQ1AMb6Oi8x2H/9hI9B4kuWghu9H8dMMYPZBZZ9E=; b=bXBPtAclsAEIuddjfdZCTNergm
-	q6crwUbPHrKTpDMfgxXLXuLmcDqd/V2wbYKIg4epyUEiMvr9JD3Q1PFqscdpq27m+6n7zMF37z8w7
-	dSQOO2oqRCwLdwngeWHLLy1TYafKDknUZnglXPthrRmTWFDRiDehulsy7sS1PkXBarekPurZaiw/T
-	13SVnkUhE2FGnzm7KHAbPcaOJfA/twALFaEYiqwrlfmkkHUOniPywskHqz0kxPGB6BzSH8vCz+333
-	4cRgKfaVtVTW8jtD4vUSxz+mEpzGjEG42dLkh/u2lSnNbWUNmmRIyXUBhRXq3lLdVH0m5Owan1IyV
-	rRwDcTtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dGhIMXrxXUZbqCTzrfXXsA9Gb+8o8bWSQ8JxykHGfP8=; b=NY0uVEr5oYGe7n0zOqgrBl7aYp
+	gLxLezbEeoj2w53eQndlyHaQH/ASB0WOhJXNJ77anWoumKHGX7DtKmr8dxzq0xkIH40D0gV3vNqK3
+	Y+d0ByT0SEINvUPAy4ioft/nz7WShywHyIFtMuDCSBjy+FZl/KYLFUCC/wFFsErYkpmYeoiRJmfuh
+	nT6YZumZDedPKE8M9WOZJ4NfxVP16Q3j598fshACjIK3SOuUxkbSv1zJkjGdc8HOWgqNd5HVkAkQo
+	YfkJexIgupw96xzIcjQzVzD4P3c9A2c9PcObGfksPtPDvuHirCF2DyaWu4/Kx8u5y6fj2GQIExTU1
+	0qHXspcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvlfi-000000034x7-2lA3;
-	Mon, 08 Sep 2025 23:53:18 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uvlgf-000000035zl-3Y09;
+	Mon, 08 Sep 2025 23:54:17 +0000
+Received: from mail-bn8nam11on20624.outbound.protection.outlook.com ([2a01:111:f403:2414::624] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgSf-00000001UFr-2zVz
+	id 1uvgTs-00000001UpV-3z4U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 18:19:31 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-244582738b5so39316835ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 11:19:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1757355569; x=1757960369; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gk4zQ1AMb6Oi8x2H/9hI9B4kuWghu9H8dMMYPZBZZ9E=;
-        b=DoAE1ncAl8VsOrdTsXNaKH0bbxbdzR6zlr91s/HVW3CfkkcFMgSAw6uDF6xICWKTZ4
-         RaXlHYvAlym83r1penc5Kr2emwYKqOfrH9tbJozvqYm/JUqrTNscIbs5UhiR9UNha5b/
-         Az6F8zyciPe1L+/lrMh56ycS672WcBnWT/oik1X/TJFZgj4rS0E3rSech1YcjawXFcvx
-         bz5rp9FGM63YnoceU+K1wjy+F7n9D9NRa0rGFV3yq1eXiwqeCci7CWST6vZVYfDGup0/
-         3O4qpYwzIE5ZIuFJ5I0hZxosvbg68XalBoTMdBvekzAyY5Mhs4t0hKPnWU0sBDku296A
-         DjZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757355569; x=1757960369;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gk4zQ1AMb6Oi8x2H/9hI9B4kuWghu9H8dMMYPZBZZ9E=;
-        b=YHHhgtK/t96RbNjV+dN8B7HqkUeNe84mRxsKPjDWJiqY8EBy4/nlSwrRbGuyYi9lC7
-         vfubUZumlSVMpT9Rhmxi5AJPCVSGkrnlqcI0a/Ai7qKGDL7pGSsPuZ+ZFk4GdRNsg2UH
-         sDdcGi67LzigYP6pUfRMKcOeg3/riuJmN8tXvtZgNMBb1oa/Cj3uSxXmCFA16DrRNpVs
-         OTYvRMBISAeDW5ckjBaQ+uIRLEXAdamiIY7WxT7r/MF5iQ+6lyNAVSvwPabODlYAwu8N
-         FBg0yErztRX2QUmohoMG+YOT9+7FTathfl4Gqtu1v9CmMou7bff4YF5ZKK/CLo+4Dwwj
-         pWvA==
-X-Forwarded-Encrypted: i=1; AJvYcCWn85lE4AJpZPcEUQ7m2HHaaJWNT03QvTjLXCeK+/6qaLfDJxLu4mZoZVsBA2T+dS82PzlXjvCA5RGGQZn38d2T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaBpxmpIRdv4oB6QrV5tF1EGP/tbCIOrQM5RFlAQ6xpjGEAIlN
-	hLbHYp99PoqVdAB+QQTQk9eEsISmCGmJo4mhT+a9i41nxoqxoUraoiTF1OOjCo8n2iI=
-X-Gm-Gg: ASbGncvO6Q52ocVU8mvNAKkNxnxBuMGDeFVvBNiy9tmpudchcbSC7+Hlg0O6u+BSlRK
-	NifxGKQHSTQJavWljDcVLaBIQpYQ4cNkmdavU/tGE4+WbpZk7hAdIhwk74/n40JRijVwPSdI/x/
-	Pn68abY5DmB1Fjxsx7VbVbOd61H1is9li+JiVwBoYhGS9n9qhh6oqQ+T4WgPLQEa8Z6MxTSNrBY
-	MW+voo9Fncj8eaBHHtRd6suo52uqMxuShct+1AlKlbz68bCjd9WMzdIvbHIqe1RFNT1/B2NCQoM
-	/pCC8v8mnEdB/Wcco4qoJbAVmseL7frwtnIAU7a3wWZ+TwlVEOsNHBS1zAcUTLVL7D7EuqmLKXs
-	K7pU=
-X-Google-Smtp-Source: AGHT+IGp56WXdQv6Bjj6PWmCZdyDxS5/Iilcz4D1q0oTR6IRl28o3n2FdFfFg6AHDOXy4c9oxkyPPg==
-X-Received: by 2002:a17:902:fc84:b0:249:34b:29fe with SMTP id d9443c01a7336-25173118df4mr104526735ad.32.1757355568842;
-        Mon, 08 Sep 2025 11:19:28 -0700 (PDT)
-Received: from cleger.eu.int ([2001:41d0:420:f300::])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24ccd763948sm117012755ad.118.2025.09.08.11.19.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 11:19:28 -0700 (PDT)
-From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Himanshu Chauhan <hchauhan@ventanamicro.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Xu Lu <luxu.kernel@bytedance.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v7 3/5] drivers: firmware: add riscv SSE support
-Date: Mon,  8 Sep 2025 18:17:05 +0000
-Message-ID: <20250908181717.1997461-4-cleger@rivosinc.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250908181717.1997461-1-cleger@rivosinc.com>
-References: <20250908181717.1997461-1-cleger@rivosinc.com>
+	Mon, 08 Sep 2025 18:20:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e3QhMrLci8/QDP4Je9qa7uk5p9lbP1vbAhoxsNfPRghSEqWCjJjvzUYXaTVXIhxDziXUx/C2yLGZ2asoBw/HWBswowtZOJGAQ/KwGVGnHag67THakhQ/eaZ0lRJA2io4CxfxrqBjUk33NOXog+YS+Wo0POQq/L273qr+7mBwPUcEP+00k9dVo588kF6uV8CB/dH5xoUS1WiVZeDcoU46ReB6DVsnaI2j0JbaBCWmm8h3LKbbqm94FEUHUkrosMboOviYvHz1Cn8FqzA61jS1IDtluGcMMdSepG/9qe/cpe5GF77GFoK0D2TKwmkQu0i4D2NL54ToYFtcW2UKp+zEWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dGhIMXrxXUZbqCTzrfXXsA9Gb+8o8bWSQ8JxykHGfP8=;
+ b=sGbI69o5n5t0ii9xf4BX3ndGl4g6Z9d0h6lDkPvgTi4vdoXqm/q/P2fN4HZTTnK1QjL/bZDtVHwGcJQa3ScpA4Imlrv8sl2R364rf1WWimvcNfUhlVnMUpwxRqWRKhy6rsFMHvfeaEfvREGQroCCFYQ2E2Y8SO5jtONJ3t/FAoEqyPgz36cDQQfa7FMd7a898X6yqG+58G9w4c1oOiTst2O45FJuvv1wzHR49jWbzzaWy3neUrC4ZlfwbcHft99vMHhTFey/9ce2UlS0R28cttOpneiky801talbaccCsJUjSNBaVIWXyCwj5sb/UI96Uc2LyxW6s57UK8CQFFIlpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dGhIMXrxXUZbqCTzrfXXsA9Gb+8o8bWSQ8JxykHGfP8=;
+ b=dYIviKrr19u5sUO571tbC1Q2ZaHvDjJgC+wPe1LkV7LafL+EVQpvJNlXJeqvoPYFahG8NYTtsKK6qEuRnlDeePcT7jvxCKyGxvTYqMSDstk9xVY0jmzPJd5AUtZqgP2do4y032ndOIrdIqqahJ/KxU0rCMviTrX5DNsaXJuGwMlgc89/0EDvO8vOkpQX8RTkTamIr2E4+PfoXUk2jF7TswzQLVtxYGFFbaYCqpfHdB3UxwZC5LMMQLKr5g2ck/U+WFFfPsrGH5Kw3iX/t9f4Xc6x380fnuvjmeNs62LIVNyXvU3MpuAgz1ybo0HnbPmM0r3dAbV6BJ+1S3tXVBp64w==
+Received: from SN4PR0501CA0116.namprd05.prod.outlook.com
+ (2603:10b6:803:42::33) by DM4PR12MB5889.namprd12.prod.outlook.com
+ (2603:10b6:8:65::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Mon, 8 Sep
+ 2025 18:20:23 +0000
+Received: from SA2PEPF000015C8.namprd03.prod.outlook.com
+ (2603:10b6:803:42:cafe::67) by SN4PR0501CA0116.outlook.office365.com
+ (2603:10b6:803:42::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.13 via Frontend Transport; Mon,
+ 8 Sep 2025 18:20:23 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SA2PEPF000015C8.mail.protection.outlook.com (10.167.241.198) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9115.13 via Frontend Transport; Mon, 8 Sep 2025 18:20:22 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 8 Sep
+ 2025 11:19:46 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 8 Sep
+ 2025 11:19:45 -0700
+Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Mon, 8 Sep 2025 11:19:42 -0700
+Date: Mon, 8 Sep 2025 11:19:40 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jean-philippe@linaro.org>, <miko.lenczewski@arm.com>, <balbirs@nvidia.com>,
+	<peterz@infradead.org>, <smostafa@google.com>, <kevin.tian@intel.com>,
+	<praan@google.com>, <zhangzekun11@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
+Subject: Re: [PATCH rfcv1 7/8] iommu/arm-smmu-v3: Add arm_smmu_invs based
+ arm_smmu_domain_inv_range()
+Message-ID: <aL8ePHvQ25LUU81J@nvidia.com>
+References: <cover.1755131672.git.nicolinc@nvidia.com>
+ <8c4c5aec144f65cfd1fcef2eafb395876dac97ec.1755131672.git.nicolinc@nvidia.com>
+ <20250827184923.GC2206304@nvidia.com>
+ <aLvs8WrxEHpykCT/@nvidia.com>
+ <20250908153911.GC789684@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250908153911.GC789684@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015C8:EE_|DM4PR12MB5889:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0faa90e1-8910-46bb-0bf9-08ddef04603f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|7416014|3613699012;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/ibXEekYgiSGEYCQFkPaft1Z7NkpuG4hGBcR1gYDx4CuUl55UoQE2CM6ThUL?=
+ =?us-ascii?Q?uHiu5Ti2CjnhebE2S5FkRAQOWv+o9w4KEqNRngAtlotFqnkZXkcdOfDdQRiF?=
+ =?us-ascii?Q?cSDb9E5SEKL1C6hcpwTt9fqkjO++unQ7mk+4hB6ms4PJHGpYJgJhqszG7qZG?=
+ =?us-ascii?Q?b/BN18lWCwj+7bheN6ntGNgaC2/aDW7DSoWcsBY1NcskYBCySZe0TtMV1GjY?=
+ =?us-ascii?Q?9EkbLoOGiKrjPctUkBUOkegXJHahW3aJPTuugcz/vR5FLdxlHg+JyP4n3oj1?=
+ =?us-ascii?Q?FOu80HvO3WQb2WlnP8HEQoYqSkUDbb/cji4zlwNh5o8GQDQr2+cjBZ/v1mKY?=
+ =?us-ascii?Q?1nbk2e/u/lcPm5/QEJZ5+7ndkFclo6iLxzSICMHqJO+JSX4yqH+l56TblRbb?=
+ =?us-ascii?Q?AR0HQQ3SV/+eS+3eLf9+xNLtdE64FgEga3vU3RpDsC9dBykg7qZf+WiAmueR?=
+ =?us-ascii?Q?dMM3RaeyQ/aF5SU6kRex42yusmddBHbu2BdRjBv/dHz0kMFhEnID0jK2Y7lH?=
+ =?us-ascii?Q?LyzfBMrYs8VPnWmV0k6LUdPUFTcw0DYPMO1pGwisIdp4ydmiRwVOJwPJiRoB?=
+ =?us-ascii?Q?+ayTpGTHW7p/2q5fAUZynKDfGiUshe2rs3ahGnLzlVE95/qcFGlMT3CtGzn+?=
+ =?us-ascii?Q?I05qBtBQP0A91HVrh8tfjPSnwCy2D/cu9ToQnI6QR5gotYXta2q+UrenRLyS?=
+ =?us-ascii?Q?yjBzmHJrMpQ9foHG/iUGWDzMJhXuhoCTZ1zz94Ui7RsuK7FDWZpcwv+pXVzt?=
+ =?us-ascii?Q?ZoLQcgICpzG3DEqarYYPCSPq4WelREENTSxCTskDboURH3gmgYILAOLxyOja?=
+ =?us-ascii?Q?Y/A470nYQeCj5Dy/VxGXq9R1MDeltCj2eAzMI8kgIokhCpTI8BSYs7p3/coO?=
+ =?us-ascii?Q?niSgh3hVZnMMmxlsRIy/4014/kJf0Rfk8VJWpGQIR2xT0sKiJvktl39s0jKt?=
+ =?us-ascii?Q?ZmPQeNTb8hM5Nm54/CIeRwvLStDA+NK8LMRbuJvuSbNtQBXxi4ylVNCAAzQB?=
+ =?us-ascii?Q?EYxFmf9Kh6xWGTz4a2WH1+sMVNdhP8sjzYxdpg441FHnixuQv29g3W5EvWQ5?=
+ =?us-ascii?Q?0pmGB8aX8g63S7GWOwpL8bdSMvTdMwdUgsHesUttg6wOQjsGowr3QrcBj9qA?=
+ =?us-ascii?Q?DuuOK9STJc1usVaTPICUMxHD9iFY//tt6yaYuLb/IvQ41SIWT41lzZP4asmf?=
+ =?us-ascii?Q?cC3IZs4boakS0Dh8BwRXjQc03lEce25xZxGTW4CSUtm+UgvP1Betq2vflxyv?=
+ =?us-ascii?Q?2HRxMF3kxHWIEctWGtt00TdROa9vg44ijFO6LFl4MMijIjzTlAm40++exP7v?=
+ =?us-ascii?Q?B9XOzXhAHZhvuzhFKHIHB0dbGkINZmr9xdF6zcxBlpZgTLAw9yBVoCx3mhD5?=
+ =?us-ascii?Q?vCoHmq/48cj4XmJVCxOSdnnI+xLwnK8oGFWXBtVrCDQC/9RgRgcHYoC8vKQB?=
+ =?us-ascii?Q?stnIBaMY49tnnDbdLeZZV6tPh85F1/TL+tCXLpDZhTtxwkZGmFW8vDRa0wUi?=
+ =?us-ascii?Q?AK9T8AxXpErKci/o3ntiU5Zx2XXGYSDQGjnfkFUhFM8mHeIf6JFbPtJfnV+Y?=
+ =?us-ascii?Q?Ykwv1Bl5tt3UGS4n6zo=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(7416014)(3613699012);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2025 18:20:22.7986
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0faa90e1-8910-46bb-0bf9-08ddef04603f
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015C8.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5889
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_111929_782902_AA97D30A 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20250908_112044_982360_A78968F4 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,886 +159,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add driver level interface to use RISC-V SSE arch support. This interface
-allows registering SSE handlers, and receive them. This will be used by
-PMU and GHES driver.
+On Mon, Sep 08, 2025 at 12:39:11PM -0300, Jason Gunthorpe wrote:
+> On Sat, Sep 06, 2025 at 01:12:33AM -0700, Nicolin Chen wrote:
+> 
+> > I know that performance-wise, this piece will be a quick respin,
+> > as the attach side releases the lock very fast. It still looks
+> > a bit complicated. And practically, it would respin even if the
+> > attachment removes a non-PCI device, right?
+> 
+> If you are paying the cost of taking the lock then it should become
+> fully locked and consistent.
 
-Co-developed-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
-Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
-Signed-off-by: Clément Léger <cleger@rivosinc.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
----
- MAINTAINERS                            |  15 +
- drivers/firmware/Kconfig               |   1 +
- drivers/firmware/Makefile              |   1 +
- drivers/firmware/riscv/Kconfig         |  15 +
- drivers/firmware/riscv/Makefile        |   3 +
- drivers/firmware/riscv/riscv_sbi_sse.c | 701 +++++++++++++++++++++++++
- include/linux/riscv_sbi_sse.h          |  57 ++
- 7 files changed, 793 insertions(+)
- create mode 100644 drivers/firmware/riscv/Kconfig
- create mode 100644 drivers/firmware/riscv/Makefile
- create mode 100644 drivers/firmware/riscv/riscv_sbi_sse.c
- create mode 100644 include/linux/riscv_sbi_sse.h
+Well, the point is that the reader doesn't know if an ATS entry
+is getting removed, and it can only speculate by looking at the
+full list.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fe168477caa4..684d23f852c3 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21648,6 +21648,13 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
- F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
- F:	drivers/iommu/riscv/
- 
-+RISC-V FIRMWARE DRIVERS
-+M:	Conor Dooley <conor@kernel.org>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+T:	git git://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git
-+F:	drivers/firmware/riscv/*
-+
- RISC-V MICROCHIP FPGA SUPPORT
- M:	Conor Dooley <conor.dooley@microchip.com>
- M:	Daire McNamara <daire.mcnamara@microchip.com>
-@@ -21712,6 +21719,14 @@ F:	arch/riscv/boot/dts/spacemit/
- N:	spacemit
- K:	spacemit
- 
-+RISC-V SSE DRIVER
-+M:	Clément Léger <cleger@rivosinc.com>
-+R:	Himanshu Chauhan <himanshu@thechauhan.dev>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	drivers/firmware/riscv/riscv_sse.c
-+F:	include/linux/riscv_sse.h
-+
- RISC-V THEAD SoC SUPPORT
- M:	Drew Fustini <fustini@kernel.org>
- M:	Guo Ren <guoren@kernel.org>
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index bbd2155d8483..1894df87b08e 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -294,6 +294,7 @@ source "drivers/firmware/meson/Kconfig"
- source "drivers/firmware/microchip/Kconfig"
- source "drivers/firmware/psci/Kconfig"
- source "drivers/firmware/qcom/Kconfig"
-+source "drivers/firmware/riscv/Kconfig"
- source "drivers/firmware/samsung/Kconfig"
- source "drivers/firmware/smccc/Kconfig"
- source "drivers/firmware/tegra/Kconfig"
-diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
-index 4ddec2820c96..6cdd84570ea7 100644
---- a/drivers/firmware/Makefile
-+++ b/drivers/firmware/Makefile
-@@ -34,6 +34,7 @@ obj-y				+= efi/
- obj-y				+= imx/
- obj-y				+= psci/
- obj-y				+= qcom/
-+obj-y				+= riscv/
- obj-y				+= samsung/
- obj-y				+= smccc/
- obj-y				+= tegra/
-diff --git a/drivers/firmware/riscv/Kconfig b/drivers/firmware/riscv/Kconfig
-new file mode 100644
-index 000000000000..ed5b663ac5f9
---- /dev/null
-+++ b/drivers/firmware/riscv/Kconfig
-@@ -0,0 +1,15 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+menu "Risc-V Specific firmware drivers"
-+depends on RISCV
-+
-+config RISCV_SBI_SSE
-+	bool "Enable SBI Supervisor Software Events support"
-+	depends on RISCV_SBI
-+	default y
-+	help
-+	  The Supervisor Software Events support allows the SBI to deliver
-+	  NMI-like notifications to the supervisor mode software. When enabled,
-+	  this option provides support to register callbacks on specific SSE
-+	  events.
-+
-+endmenu
-diff --git a/drivers/firmware/riscv/Makefile b/drivers/firmware/riscv/Makefile
-new file mode 100644
-index 000000000000..c8795d4bbb2e
---- /dev/null
-+++ b/drivers/firmware/riscv/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+obj-$(CONFIG_RISCV_SBI_SSE)		+= riscv_sbi_sse.o
-diff --git a/drivers/firmware/riscv/riscv_sbi_sse.c b/drivers/firmware/riscv/riscv_sbi_sse.c
-new file mode 100644
-index 000000000000..57b6dad92482
---- /dev/null
-+++ b/drivers/firmware/riscv/riscv_sbi_sse.c
-@@ -0,0 +1,701 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2024 Rivos Inc.
-+ */
-+
-+#define pr_fmt(fmt) "sse: " fmt
-+
-+#include <linux/cpu.h>
-+#include <linux/cpuhotplug.h>
-+#include <linux/cpu_pm.h>
-+#include <linux/hardirq.h>
-+#include <linux/list.h>
-+#include <linux/percpu-defs.h>
-+#include <linux/reboot.h>
-+#include <linux/riscv_sbi_sse.h>
-+#include <linux/slab.h>
-+
-+#include <asm/sbi.h>
-+#include <asm/sse.h>
-+
-+struct sse_event {
-+	struct list_head list;
-+	u32 evt_id;
-+	u32 priority;
-+	sse_event_handler_fn *handler;
-+	void *handler_arg;
-+	/* Only valid for global events */
-+	unsigned int cpu;
-+
-+	union {
-+		struct sse_registered_event *global;
-+		struct sse_registered_event __percpu *local;
-+	};
-+};
-+
-+static int sse_hp_state;
-+static bool sse_available __ro_after_init;
-+static DEFINE_SPINLOCK(events_list_lock);
-+static LIST_HEAD(events);
-+static DEFINE_MUTEX(sse_mutex);
-+
-+struct sse_registered_event {
-+	struct sse_event_arch_data arch;
-+	struct sse_event *event;
-+	unsigned long attr;
-+	bool is_enabled;
-+};
-+
-+void sse_handle_event(struct sse_event_arch_data *arch_event,
-+		      struct pt_regs *regs)
-+{
-+	int ret;
-+	struct sse_registered_event *reg_evt =
-+		container_of(arch_event, struct sse_registered_event, arch);
-+	struct sse_event *evt = reg_evt->event;
-+
-+	ret = evt->handler(evt->evt_id, evt->handler_arg, regs);
-+	if (ret)
-+		pr_warn("event %x handler failed with error %d\n", evt->evt_id, ret);
-+}
-+
-+static struct sse_event *sse_event_get(u32 evt)
-+{
-+	struct sse_event *event = NULL;
-+
-+	scoped_guard(spinlock, &events_list_lock) {
-+		list_for_each_entry(event, &events, list) {
-+			if (event->evt_id == evt)
-+				return event;
-+		}
-+	}
-+
-+	return NULL;
-+}
-+
-+static phys_addr_t sse_event_get_attr_phys(struct sse_registered_event *reg_evt)
-+{
-+	phys_addr_t phys;
-+	void *addr = &reg_evt->attr;
-+
-+	if (sse_event_is_global(reg_evt->event->evt_id))
-+		phys = virt_to_phys(addr);
-+	else
-+		phys = per_cpu_ptr_to_phys(addr);
-+
-+	return phys;
-+}
-+
-+static struct sse_registered_event *sse_get_reg_evt(struct sse_event *event)
-+{
-+	if (sse_event_is_global(event->evt_id))
-+		return event->global;
-+	else
-+		return per_cpu_ptr(event->local, smp_processor_id());
-+}
-+
-+static int sse_sbi_event_func(struct sse_event *event, unsigned long func)
-+{
-+	struct sbiret ret;
-+	u32 evt = event->evt_id;
-+	struct sse_registered_event *reg_evt = sse_get_reg_evt(event);
-+
-+	ret = sbi_ecall(SBI_EXT_SSE, func, evt, 0, 0, 0, 0, 0);
-+	if (ret.error) {
-+		pr_warn("Failed to execute func %lx, event %x, error %ld\n",
-+			func, evt, ret.error);
-+		return sbi_err_map_linux_errno(ret.error);
-+	}
-+
-+	if (func == SBI_SSE_EVENT_DISABLE)
-+		reg_evt->is_enabled = false;
-+	else if (func == SBI_SSE_EVENT_ENABLE)
-+		reg_evt->is_enabled = true;
-+
-+	return 0;
-+}
-+
-+int sse_event_disable_local(struct sse_event *event)
-+{
-+	return sse_sbi_event_func(event, SBI_SSE_EVENT_DISABLE);
-+}
-+EXPORT_SYMBOL_GPL(sse_event_disable_local);
-+
-+int sse_event_enable_local(struct sse_event *event)
-+{
-+	return sse_sbi_event_func(event, SBI_SSE_EVENT_ENABLE);
-+}
-+EXPORT_SYMBOL_GPL(sse_event_enable_local);
-+
-+static int sse_event_attr_get_no_lock(struct sse_registered_event *reg_evt,
-+				      unsigned long attr_id, unsigned long *val)
-+{
-+	struct sbiret sret;
-+	u32 evt = reg_evt->event->evt_id;
-+	unsigned long phys;
-+
-+	phys = sse_event_get_attr_phys(reg_evt);
-+
-+	sret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_READ, evt, attr_id, 1,
-+			 phys, 0, 0);
-+	if (sret.error) {
-+		pr_debug("Failed to get event %x attr %lx, error %ld\n", evt,
-+			 attr_id, sret.error);
-+		return sbi_err_map_linux_errno(sret.error);
-+	}
-+
-+	*val = reg_evt->attr;
-+
-+	return 0;
-+}
-+
-+static int sse_event_attr_set_nolock(struct sse_registered_event *reg_evt,
-+				     unsigned long attr_id, unsigned long val)
-+{
-+	struct sbiret sret;
-+	u32 evt = reg_evt->event->evt_id;
-+	unsigned long phys;
-+
-+	reg_evt->attr = val;
-+	phys = sse_event_get_attr_phys(reg_evt);
-+
-+	sret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_WRITE, evt, attr_id, 1,
-+			 phys, 0, 0);
-+	if (sret.error)
-+		pr_debug("Failed to set event %x attr %lx, error %ld\n", evt,
-+			 attr_id, sret.error);
-+
-+	return sbi_err_map_linux_errno(sret.error);
-+}
-+
-+static void sse_global_event_update_cpu(struct sse_event *event,
-+					unsigned int cpu)
-+{
-+	struct sse_registered_event *reg_evt = event->global;
-+
-+	event->cpu = cpu;
-+	arch_sse_event_update_cpu(&reg_evt->arch, cpu);
-+}
-+
-+static int sse_event_set_target_cpu_nolock(struct sse_event *event,
-+					   unsigned int cpu)
-+{
-+	unsigned long hart_id = cpuid_to_hartid_map(cpu);
-+	struct sse_registered_event *reg_evt = event->global;
-+	u32 evt = event->evt_id;
-+	bool was_enabled;
-+	int ret;
-+
-+	if (!sse_event_is_global(evt))
-+		return -EINVAL;
-+
-+	was_enabled = reg_evt->is_enabled;
-+	if (was_enabled)
-+		sse_event_disable_local(event);
-+
-+	ret = sse_event_attr_set_nolock(reg_evt, SBI_SSE_ATTR_PREFERRED_HART,
-+					hart_id);
-+	if (ret == 0)
-+		sse_global_event_update_cpu(event, cpu);
-+
-+	if (was_enabled)
-+		sse_event_enable_local(event);
-+
-+	return 0;
-+}
-+
-+int sse_event_set_target_cpu(struct sse_event *event, unsigned int cpu)
-+{
-+	int ret;
-+
-+	scoped_guard(mutex, &sse_mutex) {
-+		scoped_guard(cpus_read_lock) {
-+			if (!cpu_online(cpu))
-+				return -EINVAL;
-+
-+			ret = sse_event_set_target_cpu_nolock(event, cpu);
-+		}
-+	}
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(sse_event_set_target_cpu);
-+
-+static int sse_event_init_registered(unsigned int cpu,
-+				     struct sse_registered_event *reg_evt,
-+				     struct sse_event *event)
-+{
-+	reg_evt->event = event;
-+
-+	return arch_sse_init_event(&reg_evt->arch, event->evt_id, cpu);
-+}
-+
-+static void sse_event_free_registered(struct sse_registered_event *reg_evt)
-+{
-+	arch_sse_free_event(&reg_evt->arch);
-+}
-+
-+static int sse_event_alloc_global(struct sse_event *event)
-+{
-+	int err;
-+	struct sse_registered_event *reg_evt;
-+
-+	reg_evt = kzalloc(sizeof(*reg_evt), GFP_KERNEL);
-+	if (!reg_evt)
-+		return -ENOMEM;
-+
-+	event->global = reg_evt;
-+	err = sse_event_init_registered(smp_processor_id(), reg_evt, event);
-+	if (err)
-+		kfree(reg_evt);
-+
-+	return err;
-+}
-+
-+static int sse_event_alloc_local(struct sse_event *event)
-+{
-+	int err;
-+	unsigned int cpu, err_cpu;
-+	struct sse_registered_event *reg_evt;
-+	struct sse_registered_event __percpu *reg_evts;
-+
-+	reg_evts = alloc_percpu(struct sse_registered_event);
-+	if (!reg_evts)
-+		return -ENOMEM;
-+
-+	event->local = reg_evts;
-+
-+	for_each_possible_cpu(cpu) {
-+		reg_evt = per_cpu_ptr(reg_evts, cpu);
-+		err = sse_event_init_registered(cpu, reg_evt, event);
-+		if (err) {
-+			err_cpu = cpu;
-+			goto err_free_per_cpu;
-+		}
-+	}
-+
-+	return 0;
-+
-+err_free_per_cpu:
-+	for_each_possible_cpu(cpu) {
-+		if (cpu == err_cpu)
-+			break;
-+		reg_evt = per_cpu_ptr(reg_evts, cpu);
-+		sse_event_free_registered(reg_evt);
-+	}
-+
-+	free_percpu(reg_evts);
-+
-+	return err;
-+}
-+
-+static struct sse_event *sse_event_alloc(u32 evt, u32 priority,
-+					 sse_event_handler_fn *handler, void *arg)
-+{
-+	int err;
-+	struct sse_event *event;
-+
-+	event = kzalloc(sizeof(*event), GFP_KERNEL);
-+	if (!event)
-+		return ERR_PTR(-ENOMEM);
-+
-+	event->evt_id = evt;
-+	event->priority = priority;
-+	event->handler_arg = arg;
-+	event->handler = handler;
-+
-+	if (sse_event_is_global(evt))
-+		err = sse_event_alloc_global(event);
-+	else
-+		err = sse_event_alloc_local(event);
-+
-+	if (err) {
-+		kfree(event);
-+		return ERR_PTR(err);
-+	}
-+
-+	return event;
-+}
-+
-+static int sse_sbi_register_event(struct sse_event *event,
-+				  struct sse_registered_event *reg_evt)
-+{
-+	int ret;
-+
-+	ret = sse_event_attr_set_nolock(reg_evt, SBI_SSE_ATTR_PRIO,
-+					event->priority);
-+	if (ret)
-+		return ret;
-+
-+	return arch_sse_register_event(&reg_evt->arch);
-+}
-+
-+static int sse_event_register_local(struct sse_event *event)
-+{
-+	int ret;
-+	struct sse_registered_event *reg_evt;
-+
-+	reg_evt = per_cpu_ptr(event->local, smp_processor_id());
-+	ret = sse_sbi_register_event(event, reg_evt);
-+	if (ret)
-+		pr_debug("Failed to register event %x: err %d\n", event->evt_id,
-+			 ret);
-+
-+	return ret;
-+}
-+
-+static int sse_sbi_unregister_event(struct sse_event *event)
-+{
-+	return sse_sbi_event_func(event, SBI_SSE_EVENT_UNREGISTER);
-+}
-+
-+struct sse_per_cpu_evt {
-+	struct sse_event *event;
-+	unsigned long func;
-+	cpumask_t error;
-+};
-+
-+static void sse_event_per_cpu_func(void *info)
-+{
-+	int ret;
-+	struct sse_per_cpu_evt *cpu_evt = info;
-+
-+	if (cpu_evt->func == SBI_SSE_EVENT_REGISTER)
-+		ret = sse_event_register_local(cpu_evt->event);
-+	else
-+		ret = sse_sbi_event_func(cpu_evt->event, cpu_evt->func);
-+
-+	if (ret)
-+		cpumask_set_cpu(smp_processor_id(), &cpu_evt->error);
-+}
-+
-+static void sse_event_free(struct sse_event *event)
-+{
-+	unsigned int cpu;
-+	struct sse_registered_event *reg_evt;
-+
-+	if (sse_event_is_global(event->evt_id)) {
-+		sse_event_free_registered(event->global);
-+		kfree(event->global);
-+	} else {
-+		for_each_possible_cpu(cpu) {
-+			reg_evt = per_cpu_ptr(event->local, cpu);
-+			sse_event_free_registered(reg_evt);
-+		}
-+		free_percpu(event->local);
-+	}
-+
-+	kfree(event);
-+}
-+
-+static int sse_on_each_cpu(struct sse_event *event, unsigned long func,
-+			   unsigned long revert_func)
-+{
-+	struct sse_per_cpu_evt cpu_evt;
-+
-+	cpu_evt.event = event;
-+	cpumask_clear(&cpu_evt.error);
-+	cpu_evt.func = func;
-+	on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
-+	/*
-+	 * If there are some error reported by CPUs, revert event state on the
-+	 * other ones
-+	 */
-+	if (!cpumask_empty(&cpu_evt.error)) {
-+		cpumask_t revert;
-+
-+		cpumask_andnot(&revert, cpu_online_mask, &cpu_evt.error);
-+		cpu_evt.func = revert_func;
-+		on_each_cpu_mask(&revert, sse_event_per_cpu_func, &cpu_evt, 1);
-+
-+		return -EIO;
-+	}
-+
-+	return 0;
-+}
-+
-+int sse_event_enable(struct sse_event *event)
-+{
-+	int ret = 0;
-+
-+	scoped_guard(mutex, &sse_mutex) {
-+		scoped_guard(cpus_read_lock) {
-+			if (sse_event_is_global(event->evt_id)) {
-+				ret = sse_event_enable_local(event);
-+			} else {
-+				ret = sse_on_each_cpu(event,
-+						      SBI_SSE_EVENT_ENABLE,
-+						      SBI_SSE_EVENT_DISABLE);
-+			}
-+		}
-+	}
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(sse_event_enable);
-+
-+static int sse_events_mask(void)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_HART_MASK, 0, 0, 0, 0, 0, 0);
-+
-+	return sbi_err_map_linux_errno(ret.error);
-+}
-+
-+static int sse_events_unmask(void)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_HART_UNMASK, 0, 0, 0, 0, 0, 0);
-+
-+	return sbi_err_map_linux_errno(ret.error);
-+}
-+
-+static void sse_event_disable_nolock(struct sse_event *event)
-+{
-+	struct sse_per_cpu_evt cpu_evt;
-+
-+	if (sse_event_is_global(event->evt_id)) {
-+		sse_event_disable_local(event);
-+	} else {
-+		cpu_evt.event = event;
-+		cpu_evt.func = SBI_SSE_EVENT_DISABLE;
-+		on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
-+	}
-+}
-+
-+void sse_event_disable(struct sse_event *event)
-+{
-+	scoped_guard(mutex, &sse_mutex) {
-+		scoped_guard(cpus_read_lock) {
-+			sse_event_disable_nolock(event);
-+		}
-+	}
-+}
-+EXPORT_SYMBOL_GPL(sse_event_disable);
-+
-+struct sse_event *sse_event_register(u32 evt, u32 priority,
-+				     sse_event_handler_fn *handler, void *arg)
-+{
-+	struct sse_event *event;
-+	int cpu;
-+	int ret = 0;
-+
-+	if (!sse_available)
-+		return ERR_PTR(-EOPNOTSUPP);
-+
-+	guard(mutex)(&sse_mutex);
-+	if (sse_event_get(evt))
-+		return ERR_PTR(-EEXIST);
-+
-+	event = sse_event_alloc(evt, priority, handler, arg);
-+	if (IS_ERR(event))
-+		return event;
-+
-+	scoped_guard(cpus_read_lock) {
-+		if (sse_event_is_global(evt)) {
-+			unsigned long preferred_hart;
-+
-+			ret = sse_event_attr_get_no_lock(event->global,
-+							SBI_SSE_ATTR_PREFERRED_HART,
-+							&preferred_hart);
-+			if (ret)
-+				goto err_event_free;
-+
-+			cpu = riscv_hartid_to_cpuid(preferred_hart);
-+			sse_global_event_update_cpu(event, cpu);
-+
-+			ret = sse_sbi_register_event(event, event->global);
-+			if (ret)
-+				goto err_event_free;
-+
-+		} else {
-+			ret = sse_on_each_cpu(event, SBI_SSE_EVENT_REGISTER,
-+					      SBI_SSE_EVENT_DISABLE);
-+			if (ret)
-+				goto err_event_free;
-+		}
-+	}
-+
-+	scoped_guard(spinlock, &events_list_lock)
-+		list_add(&event->list, &events);
-+
-+	return event;
-+
-+err_event_free:
-+	sse_event_free(event);
-+
-+	return ERR_PTR(ret);
-+}
-+EXPORT_SYMBOL_GPL(sse_event_register);
-+
-+static void sse_event_unregister_nolock(struct sse_event *event)
-+{
-+	struct sse_per_cpu_evt cpu_evt;
-+
-+	if (sse_event_is_global(event->evt_id)) {
-+		sse_sbi_unregister_event(event);
-+	} else {
-+		cpu_evt.event = event;
-+		cpu_evt.func = SBI_SSE_EVENT_UNREGISTER;
-+		on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
-+	}
-+}
-+
-+void sse_event_unregister(struct sse_event *event)
-+{
-+	scoped_guard(mutex, &sse_mutex) {
-+		scoped_guard(cpus_read_lock)
-+			sse_event_unregister_nolock(event);
-+
-+		scoped_guard(spinlock, &events_list_lock)
-+			list_del(&event->list);
-+
-+		sse_event_free(event);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(sse_event_unregister);
-+
-+static int sse_cpu_online(unsigned int cpu)
-+{
-+	struct sse_event *event;
-+
-+	scoped_guard(spinlock, &events_list_lock) {
-+		list_for_each_entry(event, &events, list) {
-+			if (sse_event_is_global(event->evt_id))
-+				continue;
-+
-+			sse_event_register_local(event);
-+			if (sse_get_reg_evt(event))
-+				sse_event_enable_local(event);
-+		}
-+	}
-+
-+	/* Ready to handle events. Unmask SSE. */
-+	return sse_events_unmask();
-+}
-+
-+static int sse_cpu_teardown(unsigned int cpu)
-+{
-+	int ret = 0;
-+	unsigned int next_cpu;
-+	struct sse_event *event;
-+
-+	/* Mask the sse events */
-+	ret = sse_events_mask();
-+	if (ret)
-+		return ret;
-+
-+	scoped_guard(spinlock, &events_list_lock) {
-+		list_for_each_entry(event, &events, list) {
-+			if (!sse_event_is_global(event->evt_id)) {
-+				if (event->global->is_enabled)
-+					sse_event_disable_local(event);
-+
-+				sse_sbi_unregister_event(event);
-+				continue;
-+			}
-+
-+			if (event->cpu != smp_processor_id())
-+				continue;
-+
-+			/* Update destination hart for global event */
-+			next_cpu = cpumask_any_but(cpu_online_mask, cpu);
-+			ret = sse_event_set_target_cpu_nolock(event, next_cpu);
-+		}
-+	}
-+
-+	return ret;
-+}
-+
-+static void sse_reset(void)
-+{
-+	struct sse_event *event;
-+
-+	list_for_each_entry(event, &events, list) {
-+		sse_event_disable_nolock(event);
-+		sse_event_unregister_nolock(event);
-+	}
-+}
-+
-+static int sse_pm_notifier(struct notifier_block *nb, unsigned long action,
-+			   void *data)
-+{
-+	WARN_ON_ONCE(preemptible());
-+
-+	switch (action) {
-+	case CPU_PM_ENTER:
-+		sse_events_mask();
-+		break;
-+	case CPU_PM_EXIT:
-+	case CPU_PM_ENTER_FAILED:
-+		sse_events_unmask();
-+		break;
-+	default:
-+		return NOTIFY_DONE;
-+	}
-+
-+	return NOTIFY_OK;
-+}
-+
-+static struct notifier_block sse_pm_nb = {
-+	.notifier_call = sse_pm_notifier,
-+};
-+
-+/*
-+ * Mask all CPUs and unregister all events on panic, reboot or kexec.
-+ */
-+static int sse_reboot_notifier(struct notifier_block *nb, unsigned long action,
-+			       void *data)
-+{
-+	cpuhp_remove_state(sse_hp_state);
-+	sse_reset();
-+
-+	return NOTIFY_OK;
-+}
-+
-+static struct notifier_block sse_reboot_nb = {
-+	.notifier_call = sse_reboot_notifier,
-+};
-+
-+static int __init sse_init(void)
-+{
-+	int ret;
-+
-+	if (sbi_probe_extension(SBI_EXT_SSE) <= 0) {
-+		pr_err("Missing SBI SSE extension\n");
-+		return -EOPNOTSUPP;
-+	}
-+	pr_info("SBI SSE extension detected\n");
-+
-+	ret = cpu_pm_register_notifier(&sse_pm_nb);
-+	if (ret) {
-+		pr_warn("Failed to register CPU PM notifier...\n");
-+		return ret;
-+	}
-+
-+	ret = register_reboot_notifier(&sse_reboot_nb);
-+	if (ret) {
-+		pr_warn("Failed to register reboot notifier...\n");
-+		goto remove_cpupm;
-+	}
-+
-+	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/sse:online",
-+				sse_cpu_online, sse_cpu_teardown);
-+	if (ret < 0)
-+		goto remove_reboot;
-+
-+	sse_hp_state = ret;
-+	sse_available = true;
-+
-+	return 0;
-+
-+remove_reboot:
-+	unregister_reboot_notifier(&sse_reboot_nb);
-+
-+remove_cpupm:
-+	cpu_pm_unregister_notifier(&sse_pm_nb);
-+
-+	return ret;
-+}
-+arch_initcall(sse_init);
-diff --git a/include/linux/riscv_sbi_sse.h b/include/linux/riscv_sbi_sse.h
-new file mode 100644
-index 000000000000..a1b58e89dd19
---- /dev/null
-+++ b/include/linux/riscv_sbi_sse.h
-@@ -0,0 +1,57 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2024 Rivos Inc.
-+ */
-+
-+#ifndef __LINUX_RISCV_SBI_SSE_H
-+#define __LINUX_RISCV_SBI_SSE_H
-+
-+#include <linux/types.h>
-+#include <linux/linkage.h>
-+
-+struct sse_event;
-+struct pt_regs;
-+
-+typedef int (sse_event_handler_fn)(u32 event_num, void *arg,
-+				   struct pt_regs *regs);
-+
-+#ifdef CONFIG_RISCV_SBI_SSE
-+
-+struct sse_event *sse_event_register(u32 event_num, u32 priority,
-+				     sse_event_handler_fn *handler, void *arg);
-+
-+void sse_event_unregister(struct sse_event *evt);
-+
-+int sse_event_set_target_cpu(struct sse_event *sse_evt, unsigned int cpu);
-+
-+int sse_event_enable(struct sse_event *sse_evt);
-+
-+void sse_event_disable(struct sse_event *sse_evt);
-+
-+int sse_event_enable_local(struct sse_event *sse_evt);
-+int sse_event_disable_local(struct sse_event *sse_evt);
-+
-+#else
-+static inline struct sse_event *sse_event_register(u32 event_num, u32 priority,
-+						   sse_event_handler_fn *handler,
-+						   void *arg)
-+{
-+	return ERR_PTR(-EOPNOTSUPP);
-+}
-+
-+static inline void sse_event_unregister(struct sse_event *evt) {}
-+
-+static inline int sse_event_set_target_cpu(struct sse_event *sse_evt,
-+					   unsigned int cpu)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline int sse_event_enable(struct sse_event *sse_evt)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline void sse_event_disable(struct sse_event *sse_evt) {}
-+#endif
-+#endif /* __LINUX_RISCV_SBI_SSE_H */
--- 
-2.43.0
+So, would it be better to just always take the read lock, while
+applying the ATS condition to the writer side:
 
+[Reader]
++	/* A concurrent attachment has changed the array. Do a respin */
++	if (unlikely(!read_trylock(&invs->rwlock)))
++		goto again;
++	if (unlikely(!invs->old)) {
++		read_unlock(&invs->rwlock);
++		goto again;
++	}
+...
++	read_unlock(&invs->rwlock);
+
+[Writer]
++	bool ats_disabled = master->ats_enabled && !state->ats_enabled;
+...
++	if (ats_disabled)
++		write_lock_irqsave(&old_invs->rwlock, flags);
++	WRITE_ONCE(old_invs->old, true);
++	if (ats_disabled)
++		write_unlock_irqrestore(&old_invs->rwlock, flags);
+
+?
+
+Thanks
+Nicolin
 
