@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DD8CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 23:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9339CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 23:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LIElx5qF61apSsdG1Fx3DhG/2w7M7nxVDbU41a9FSDY=; b=t13lps2r1pvakuUA5O/J07yTXM
-	lPrWqDmSTx2TzjhliIuL9NwpmwfxZAP7Fyr9Xk+Tax8JyTH3ToYhgovrCdy9DQV5clFnWQdMlRAyR
-	o0MSqVI32VfxHglZIvFiwv4Zhsi/fF1uTuhH3qsuV36wJleX7SFYFPpVkq2k24v19bmfKJL8jnBcj
-	3frcCp/zB1C7nydfjxfCsiKVU3xN4ZVCdgA9N+4Z5k4S7rUOPe50PKUvREx6nJa9BerDKaVq1qIhz
-	s243S1QqfjLRzvHnvGO8mRT6m3UKab/QGCLqn6Nohx1ar3o6jcI1efR7liMXFufjiHxDOXDygnFTe
-	JJJdRJJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FXrk3maW/kVjpHXzMbzrhVPMUli2gn2TlRN4WQMNS40=; b=zeopenJ/DobNab5IbC6OSzHJ7+
+	a0F1qbk84tzMzNoCb/GNcQ+menjUSl9IXbsTqLb7yD8k2jAnTdQ66kouo8TJyulPcSbQMn288mHl4
+	kY8/j1n3Ww8mB2ZkOxC00sc3z/AljHhqK571Dkl3khnCsovEhngy4NjxEVINwJEP+LWGh90A6XsKs
+	rzyLNIawCA14L08fX9GGywMHExVVR3VTMEpvpsTV6SV/TL+yfr7soxHdGcRQIOH3Ly3O8dJsFtPr8
+	px517AzjkQAMsIFNszHs9ogAI/Et9Gqge2DN20gfBz6l2bXb0+cAYwhr9ws2fN5jkDnXGvXfFiAEN
+	+pgz0qig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvlef-000000033Bd-3XzC;
-	Mon, 08 Sep 2025 23:52:13 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uvlf2-000000033ip-3Y0L;
+	Mon, 08 Sep 2025 23:52:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvemI-00000000lLz-1war
+	id 1uvgKe-00000001RHS-3MDs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 16:31:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=LIElx5qF61apSsdG1Fx3DhG/2w7M7nxVDbU41a9FSDY=; b=W9Mo7MdWsP4e5bRYUNvEvzYlUn
-	xImUsquQ2nZLKTBnAY/64ACPI0qwoUi3eMvFHmcmUa0LhS4UAboIMfE5tRfu83zkyk6nGuY0SFQEm
-	zAxaBzN+3YSn8ROG2FLsbNvkyqHsqDtFMx/YTw2ph+xGD2q+MS1i60MCU1MJHUcHKgrY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uvem9-007glG-Vj; Mon, 08 Sep 2025 18:31:29 +0200
-Date: Mon, 8 Sep 2025 18:31:29 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: netdev@vger.kernel.org, Sunil Goutham <sgoutham@marvell.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Mon, 08 Sep 2025 18:11:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2525644AE4;
+	Mon,  8 Sep 2025 18:11:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC6C8C4CEF9;
+	Mon,  8 Sep 2025 18:11:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757355071;
+	bh=e0tQSO9pJI2jVvlvL9W4OBbAj83puHTjG+o0KV+3bdg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XGfuiBknyZewEytJ/+sWeCVFnZqN99cWs8KQAMSWVX2/XB7wV2n64s5ROdA62JhqR
+	 KKtEEZ/ZLQQpfU6N8wJpYtSca+N88owhvtfBytXnInqufA4EK/og1+MmVdTz8WH7d9
+	 5kXTctapjv6J0Bs7F7vdvegV6PAnddgqiEcYjT2/1mHbh8ftEuBK/JXmSEGzF/470O
+	 sQpaJpjCeD9YUKES5Na8l69N/gSoFIm3ZoLdxmRW1Csa6uCUxCknH4OZcxOhSc44/9
+	 9T4PIJZDmP648eKZWZtuP2EXiTsTkssAkmRzGI7DHrXgXKv0xx4lWLz7FDAJVXPybM
+	 X5OEvD5qwQZkQ==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 342895FEF5; Tue, 09 Sep 2025 02:11:08 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	"moderated list:ARM/CAVIUM THUNDER NETWORK DRIVER" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCHv2 net-next 2/2] net: thunder_bgx: use OF loop instead of
- fwnode
-Message-ID: <002d8e1a-ca2e-41e7-8751-429c2ee728c3@lunn.ch>
-References: <20250904213228.8866-1-rosenp@gmail.com>
- <20250904213228.8866-3-rosenp@gmail.com>
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH net-next v4 03/10] soc: sunxi: sram: add entry for a523
+Date: Tue,  9 Sep 2025 02:10:52 +0800
+Message-Id: <20250908181059.1785605-4-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250908181059.1785605-1-wens@kernel.org>
+References: <20250908181059.1785605-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250904213228.8866-3-rosenp@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_093138_500953_9AA1840C 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20250908_111112_860043_77567264 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 02:32:28PM -0700, Rosen Penev wrote:
-> This is implemented under CONFIG_OF_MDIO, which already assumes an OF
-> node.
+From: Chen-Yu Tsai <wens@csie.org>
 
-I'm not sure that is correct.
+The A523 has two Ethernet controllers. So in the system controller
+address space, there are two registers for Ethernet clock delays,
+one for each controller.
 
-bgx_probe() -> bgx_init_phy() -> bgx_init_of_phy()
+Add a new entry for the A523 system controller that allows access to
+the second register.
 
-static int bgx_init_phy(struct bgx *bgx)
-{
-	if (!acpi_disabled)
-		return bgx_init_acpi_phy(bgx);
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+ drivers/soc/sunxi/sunxi_sram.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-	return bgx_init_of_phy(bgx);
-}
+diff --git a/drivers/soc/sunxi/sunxi_sram.c b/drivers/soc/sunxi/sunxi_sram.c
+index 08e264ea0697..4f8d510b7e1e 100644
+--- a/drivers/soc/sunxi/sunxi_sram.c
++++ b/drivers/soc/sunxi/sunxi_sram.c
+@@ -320,6 +320,10 @@ static const struct sunxi_sramc_variant sun50i_h616_sramc_variant = {
+ 	.has_ths_offset = true,
+ };
+ 
++static const struct sunxi_sramc_variant sun55i_a523_sramc_variant = {
++	.num_emac_clocks = 2,
++};
++
+ #define SUNXI_SRAM_THS_OFFSET_REG	0x0
+ #define SUNXI_SRAM_EMAC_CLOCK_REG	0x30
+ #define SUNXI_SYS_LDO_CTRL_REG		0x150
+@@ -440,6 +444,10 @@ static const struct of_device_id sunxi_sram_dt_match[] = {
+ 		.compatible = "allwinner,sun50i-h616-system-control",
+ 		.data = &sun50i_h616_sramc_variant,
+ 	},
++	{
++		.compatible = "allwinner,sun55i-a523-system-control",
++		.data = &sun55i_a523_sramc_variant,
++	},
+ 	{ },
+ };
+ MODULE_DEVICE_TABLE(of, sunxi_sram_dt_match);
+-- 
+2.39.5
 
-There is no check made to see if this is an ACPI node and so
-bgx_init_acpi_phy() is called. So it might be an ACPI node is passed
-to bgx_init_of_phy().
-
-How have you tested this code? On an ACPI machine, or only a DT
-machine?
-
-	Andrew
 
