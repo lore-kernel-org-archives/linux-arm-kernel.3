@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D404DCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDB0CAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtuFE8fz0uXe9VtzwZec8xI+z6SKpPfaDmAZDtJxuFo=; b=ALK7bd8aWdzxjLYIuIbJsJB9tG
-	JlgiEValwTo9vgxhAeD2adEs8T3u+c4mwThV4Tq5I+4HkjDBLMW0QnrfyIYsFKkNm8lYQanEqQZb9
-	CDQjS5YQ/dtjm/FQ2ycdvlOgZJX/U8Hb6vBLauGbZtGu69KVVNj+ZrrJtH4uBC8t0Qu0kQe7Ax5oF
-	mzLFAr41dyogbY0SoMRGCjI11yU6pLj1r5LgtGjAcxWKl5pPawLMUC3v3pMQbxUvnuQwJwix54WIJ
-	ynSo2gTyr6hRQyOgfiChX9JI6BboA7r3SaZ5K31idWzoVF8UMhEhWt44XN2eJAYejlbnYgk5wnrKR
-	xDz/ckDg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OwlWDc9HsT0dfJHWEYI5wkS0XuBRiuAZGmVjr3F473s=; b=PW4/wLy+WAnN6IiQDj2mQ0ydjk
+	vH9W6bQgfIfCYY6ej4Vsx1RU2ixYDbMLpEmuCEY4YtZjdT7ZddBdzndFnYi/PjaR1usAFlrQ8WxUg
+	YmRAXZanuU5ZNH6/fPhrxKs2PehTNCkv07gkNnz8oUcMT1kXHzpxC2Uclx7kB5OVkc7IDWcEz9bbR
+	b1T1UoOMLDHr9RnQgs2wFsB5hujvXsZE1qbORNG5kkVeDk6eHaALzb0e6qU8oBWEM/At4o56G+EKd
+	fsqgXnazmMcktT+C4qbVPlJt+5jx15KNqe5g48uQjh5p4EhO3jyJ+WD/KU//XYV3Q7aGvPeLTZz0P
+	STmBb56A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBU-00000004ocI-2fdJ;
-	Tue, 09 Sep 2025 06:50:32 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1uvsBW-00000004oem-0lv5;
+	Tue, 09 Sep 2025 06:50:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhp6-00000001z8j-3PXl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 19:46:46 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-24c9304b7bcso50573865ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 12:46:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757360803; x=1757965603; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OtuFE8fz0uXe9VtzwZec8xI+z6SKpPfaDmAZDtJxuFo=;
-        b=KxbP1FswEYmB2l2heHpCUc2uNKZJQV5FmIwGainP2eASSKPFY+SDYvRYhbQjwsVO1g
-         yeihlbXGmEpLfqLuT7eqxKWrHzQ+84RQM3OmRYsyW5aQH7Yr8H0n2IpZ2f9vFYtmAGa7
-         GJkLf2Lpoe/abADToydHR5N8a0KO/S1ajr/0sOoTGp0dQSMu9GG/aaQRIazY9G/UZDAs
-         Lc39IUB5F5sPZziNmYYaxFCd+vq1vYiupGrfnVaXzKQPVD9IHuNgrsdEGM91C2YltFj4
-         51VPHaOhaF8EUodelr2RZDCR8bfkWNr+F1RTeDsjdEzxCO7HA8u6zGDe5DFHn9zWhb09
-         ThYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757360803; x=1757965603;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OtuFE8fz0uXe9VtzwZec8xI+z6SKpPfaDmAZDtJxuFo=;
-        b=qzftjkAO73DAsUXYvIcT2Cewx6LmwQzRJBjVbcWTVVXK8ruH2t8NtkM0e4vsL/TMqt
-         STh6C+ub0wx3LmIX+/wdQbXM6xFAKMJ57oPY/N1B2L5hzLGpBUCU/70X76YFQmFcWbXl
-         nfGqydK1IZzfPMHozUlYqP2fGUMBY4rAXjdFImLqCnMbd35JNc8lErGL19V5jfoE75ML
-         mMzcxB2q7mN+9zjJsS8i1Z2JPnlGdpTu2t+WHCwvh1k0rO90esa0uzBUVnmGj8PswjHm
-         F09DQFZnP8FXjuG7RvFEKB4BlT59KAMNzgJ9UA2FoiOP9i++sVkYV+B1COuYR8rfdRXe
-         c9jw==
-X-Gm-Message-State: AOJu0Yz8hmf79CJRktAl5Kxz3CCQB6VrEuhWhFqimB+lxE742DZwvtIg
-	ADsEQvov/DUx3vKoFvVRX1vE8M9QWfokNdC3g1xoL+G4da3gq+pxxhhSGZbffOwb7NpiCGC3SSt
-	vR2vw/Q==
-X-Google-Smtp-Source: AGHT+IFb1neEFkxq+1aKM895lwflQXUWxZfzQ3TkgAtLxYrbO6zawNDmMq2mZAuMldFhSu9Kf+nu0tLZnJY=
-X-Received: from pjeb1.prod.google.com ([2002:a17:90a:10c1:b0:32b:b3c4:a304])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:ec8e:b0:24e:e5c9:ed14
- with SMTP id d9443c01a7336-251734f2fbemr125000785ad.35.1757360803162; Mon, 08
- Sep 2025 12:46:43 -0700 (PDT)
-Date: Mon, 8 Sep 2025 12:46:41 -0700
-In-Reply-To: <20250819090853.3988626-4-keirf@google.com>
-Mime-Version: 1.0
-References: <20250819090853.3988626-1-keirf@google.com> <20250819090853.3988626-4-keirf@google.com>
-Message-ID: <aL8yoZLK73svpYv7@google.com>
-Subject: Re: [PATCH v3 3/4] KVM: Implement barriers before accessing
- kvm->buses[] on SRCU read paths
-From: Sean Christopherson <seanjc@google.com>
-To: Keir Fraser <keirf@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_124644_851146_EBFEC621 
-X-CRM114-Status: GOOD (  26.13  )
+	id 1uvhsh-000000020Hd-3cER;
+	Mon, 08 Sep 2025 19:50:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F2B7B60051;
+	Mon,  8 Sep 2025 19:50:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 97FBCC4CEF1;
+	Mon,  8 Sep 2025 19:50:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757361026;
+	bh=Xa2A8wUs8DU/Qpi2eBoE6S8SjRM3jIuTJh0HvFOCRxg=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=oTzG4AlDbpncPrHEebeStdQ+k/OZYSVISXsp0J8Ti0XyTpL8mYdFX7GqqOTijrHnj
+	 PC7zEqRFkWk+SCisRBfiue6QvyXrr+EAFA3oLof3us3TFPjReLHjO38YW9xKyZM3b3
+	 1FCw1pZ8v5dcbU3kNuiwNY7jPCAPaIQMtG3okicuHft5Us1vQ7EQ+rzpsrwzji3Onn
+	 Lr7qa2YwlQHQzF6gAolmL6p+IMdP2m4bF0Hjz7vG12HcMhMgjtme9JWQsnxx1JjyL4
+	 FgT5QHTfEiixv/qoY6NqrNaDhG6ikTr1xb+cTHOtZQ/Ul+ryhtI81kHKRAA+WHmDGG
+	 nWChdMTLZ+v1Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F232CAC582;
+	Mon,  8 Sep 2025 19:50:26 +0000 (UTC)
+From: Valerio Setti via B4 Relay <devnull+vsetti.baylibre.com@kernel.org>
+Date: Mon, 08 Sep 2025 21:50:03 +0200
+Subject: [PATCH v2] arm64: dts: amlogic: gxbb-odroidc2: remove UHS
+ capability for SD card
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250908-fix-reboot-v2-1-354d0e57c855@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAGozv2gC/23MTQqDMBCG4avIrDtlEvwhXfUe4iKmYx1oTUkkV
+ CR3b3Td5TvD9+wQOQhHuFU7BE4SxS8l9KUCN9vlySiP0qBJN2Sow0m+GHj0fkWqmSZnlLFMUAa
+ fwOV7Yv1Qepa4+rCddlLH9S+TFCrsWmoPSzc130e7vWQMfHX+DUPO+QcGgIQ9pwAAAA==
+X-Change-ID: 20250907-fix-reboot-04e0fc919ae0
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Valerio Setti <vsetti@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2045;
+ i=vsetti@baylibre.com; h=from:subject:message-id;
+ bh=BJc4SXxGYBhMfaPaAFk61MykLFrvMDIrqRdHH0rt9IY=;
+ b=owGbwMvMwCF2z3ty7kUrRgbG02pJDBn7jRuDXn3+sOHcgT2cDKu9ThrvSJgZ9VuAP9956mm9K
+ rNPfIqNHaUsDGIcDLJiiiws0+/9LihVe2iccLIAZg4rE8gQBi5OAZiIdhUjQ8eu7/dYbVV89FJ8
+ JDoFqtsmSq7tVWzIrV2loFGjF6IjzvDfZ97m1ZYLFvRJ2yT5vAq8z7zmp3f339s5Zzv4zBP3y/5
+ jAQA=
+X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
+ fpr=0497DEFB707526E13360C970DE4B936DD13A0100
+X-Endpoint-Received: by B4 Relay for vsetti@baylibre.com/default with
+ auth_id=515
+X-Original-From: Valerio Setti <vsetti@baylibre.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,105 +88,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: vsetti@baylibre.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025, Keir Fraser wrote:
-> This ensures that, if a VCPU has "observed" that an IO registration has
-> occurred, the instruction currently being trapped or emulated will also
-> observe the IO registration.
-> 
-> At the same time, enforce that kvm_get_bus() is used only on the
-> update side, ensuring that a long-term reference cannot be obtained by
-> an SRCU reader.
-> 
-> Signed-off-by: Keir Fraser <keirf@google.com>
-> ---
->  arch/x86/kvm/vmx/vmx.c   |  7 +++++++
->  include/linux/kvm_host.h | 10 +++++++---
->  virt/kvm/kvm_main.c      | 33 +++++++++++++++++++++++++++------
->  3 files changed, 41 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index aa157fe5b7b3..2d3c8cb4f860 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -5785,6 +5785,13 @@ static int handle_invalid_guest_state(struct kvm_vcpu *vcpu)
->  		if (kvm_test_request(KVM_REQ_EVENT, vcpu))
->  			return 1;
->  
-> +		/*
-> +		 * Ensure that any updates to kvm->buses[] observed by the
-> +		 * previous instruction (emulated or otherwise) are also
-> +		 * visible to the instruction we are about to emulate.
+From: Valerio Setti <vsetti@baylibre.com>
 
-Please avoid pronouns, e.g.
+This is meant to resolve reboot not working on this board.
 
-		 * visible to the instruction KVM is about to emulate.
+The problem is as follows. In order to be able to switch from HS to UHS
+mode the bus voltage needs to be reduced from 3.3V down to 1.8V and this
+is achieved by the "vqmmc-supply" regulator. The ROM bootloader is only
+able to manage the card in HS mode (3.3V) and the switch HS->UHS happen
+at boottime in the kernel. The problem appears when the reboot command
+is issued or watchdog expires because in this case the "vqmmc-supply"
+voltage is not returned back at 3.3V before rebooting the board so the
+ROM bootloader will be completely stuck.
 
-> +		 */
-> +		smp_rmb();
+Therefore this commit removes all UHS modes which would cause
+"vqmmc-summply" to switch from 3.3V to 1.8V.
 
-...
+In terms of performance the main drawback of this commit is limiting the
+SD card bus speed to HS (25 MB/s) instead of UHS DDR50 (50 MB/s). However
+this comes with the benefit of being able to reboot the board, so it
+sounds like a reasonable compromise.
 
->  static inline struct kvm_vcpu *kvm_get_vcpu(struct kvm *kvm, int i)
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 6c07dd423458..4f35ae23ee5a 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -1103,6 +1103,15 @@ void __weak kvm_arch_create_vm_debugfs(struct kvm *kvm)
->  {
->  }
->  
-> +/* Called only on cleanup and destruction paths when there are no users. */
-> +static inline struct kvm_io_bus *kvm_get_bus_for_destruction(struct kvm *kvm,
-> +							     enum kvm_bus idx)
-> +{
-> +	return rcu_dereference_protected(kvm->buses[idx],
-> +					 !refcount_read(&kvm->users_count));
-> +}
-> +
+Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
+Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+---
+Changes in v2:
+- Re-added vqmmc-supply to sd_emmc_b node.
+- Link to v1: https://lore.kernel.org/r/20250907-fix-reboot-v1-1-7606fc91254e@baylibre.com
+---
+ arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts | 4 ----
+ 1 file changed, 4 deletions(-)
 
-Extra newline.
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
+index 959bd8d77a82ebc78c5e0592d7613e692e4ede4e..12e26f99d4f080a216e305981dc4291a49063b60 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
+@@ -348,10 +348,6 @@ &sd_emmc_b {
+ 
+ 	bus-width = <4>;
+ 	cap-sd-highspeed;
+-	sd-uhs-sdr12;
+-	sd-uhs-sdr25;
+-	sd-uhs-sdr50;
+-	sd-uhs-ddr50;
+ 	max-frequency = <100000000>;
+ 	disable-wp;
+ 
 
-> +
->  static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
->  {
->  	struct kvm *kvm = kvm_arch_alloc_vm();
-> @@ -1228,7 +1237,7 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
->  out_err_no_arch_destroy_vm:
->  	WARN_ON_ONCE(!refcount_dec_and_test(&kvm->users_count));
->  	for (i = 0; i < KVM_NR_BUSES; i++)
-> -		kfree(kvm_get_bus(kvm, i));
-> +		kfree(kvm_get_bus_for_destruction(kvm, i));
->  	kvm_free_irq_routing(kvm);
->  out_err_no_irq_routing:
->  	cleanup_srcu_struct(&kvm->irq_srcu);
-> @@ -1276,7 +1285,7 @@ static void kvm_destroy_vm(struct kvm *kvm)
->  
->  	kvm_free_irq_routing(kvm);
->  	for (i = 0; i < KVM_NR_BUSES; i++) {
-> -		struct kvm_io_bus *bus = kvm_get_bus(kvm, i);
-> +		struct kvm_io_bus *bus = kvm_get_bus_for_destruction(kvm, i);
->  
->  		if (bus)
->  			kvm_io_bus_destroy(bus);
-> @@ -5843,6 +5852,18 @@ static int __kvm_io_bus_write(struct kvm_vcpu *vcpu, struct kvm_io_bus *bus,
->  	return -EOPNOTSUPP;
->  }
->  
-> +static struct kvm_io_bus *kvm_get_bus_srcu(struct kvm *kvm, enum kvm_bus idx)
-> +{
-> +	/*
-> +	 * Ensure that any updates to kvm_buses[] observed by the previous VCPU
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250907-fix-reboot-04e0fc919ae0
 
-s/VCPU/vCPU to match KVM's preferred/typical style.
+Best regards,
+-- 
+Valerio Setti <vsetti@baylibre.com>
 
-> +	 * machine instruction are also visible to the VCPU machine instruction
-> +	 * that triggered this call.
-> +	 */
-> +	smp_mb__after_srcu_read_lock();
-> +
-> +	return srcu_dereference(kvm->buses[idx], &kvm->srcu);
-> +}
+
 
