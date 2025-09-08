@@ -4,96 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 955E9CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B10CAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UkedwrzQI0rdKjNe52sGXdchQDXaBvZiPmkIP1sVIaA=; b=Oy42YVZDJiZdH6mS4azH1KjSdD
-	qh+SCTK2n+Xizc7oYui5LLvixbaKzcuPrlZ7ub+zVnZuqYy8qWqSli44pbfgyjUIas0dvsC2miiXs
-	/P2WjOKV2oJW9n56Iwv5zoRIUS5ZmN4f/HYmnQma7ff3c1LAxrUKqMkVEL+Bm1VGFVtQSsNZ+IxTg
-	Q3pWgOhc8tmJL3e/KBvIUAIdZFqI7KJM1FEk5P81AhUtBGRZGPy7ZmVaZ70j7lbxPXfH6+fUAcu+P
-	iDuJ6xRK20q3/7UDv1Oqev6qGbgKqYlKaFj4Frxq3Avdam/rlRb0kzZjxI8TE9ejeECdaALv+geHp
-	eVFpZFUw==;
+	bh=9HAwj1OxHTCCQy9bYmOg3NKIPsb30ZbA5RjhYkaT/CQ=; b=REZTvv9F4TLFnPRCcHga5FtfHj
+	clqw06SbqNIEJG/9hK/lKyxGk8rCqgqbh/OXTtVPhzEJ2kRHvcKttE69pRU419bB+PVIdUan+twUZ
+	v4XU7PGxxeW3WufrkGjEl8O/Hnx7k49Cx0vS+7CPJaumtnopFahFOCK24eVj3Jn1WAIYp58yG5aRg
+	Yj4gpi5Pp8Ih/c+QXAaICDmPFrttEqlJktwQv1PdOZsIRgRWABpxQZMywm4IIR4KyuY1mHazqp60S
+	yFL380pEo4O1aef7uddGTz1zoSTdyAhMFsDYbVVAWtMrs4VPGDUaMln6SH0DL36NVdfd1e6JvwQtR
+	REcIRlfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfLW-000000010QL-11Rq;
-	Mon, 08 Sep 2025 17:08:02 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1uvfMH-000000011j8-3FKm;
+	Mon, 08 Sep 2025 17:08:49 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvaho-0000000GvBV-3hTm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 12:10:46 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3da4c14a5f9so3378821f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 05:10:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757333443; x=1757938243; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UkedwrzQI0rdKjNe52sGXdchQDXaBvZiPmkIP1sVIaA=;
-        b=DHD4Uepzm6oATC2aTHKPzCQzoildIsiclrAh4F/yqhAQZ1Mk1FXc1ZjXtizzm2yYQS
-         bx/UAvYEJ12cH44vl5taTIMQOn3ydqpLcLpbQtXPSC7i/gFVWkMep2ImNFmg2M4MSVVm
-         0BCYSups4ZBH8mDgBsLuc/xKYMCk4H/Cr93OJGQdMgWbmiHa0RXnCB+UmaddQwNqa1ad
-         ElCDKchrToMtluGHubwOyku6ipgvpgmAtumIULNCrjrN8GBQR3NNTa2kFTR7jE8j2nM8
-         gehdV1coDV14JUSn5riqvUuRKK1vWDrUHLQ3CR85BZusy8XExk6voyezQiT9OfVjTIGB
-         n/ZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757333443; x=1757938243;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UkedwrzQI0rdKjNe52sGXdchQDXaBvZiPmkIP1sVIaA=;
-        b=cvpN1/FyXxc8pZJtkHEXHy+fC181vYM6gnnSnshp6Fvm/fgNx/s08nzfHnY0ITzGZ1
-         /MYI0d8WJwSmYxlp7+ypw7m4s8JmCkXa1OAvfSae50TxNvfAzLXvMDvK3N/9wJEBG8di
-         wWOkDETShZcfrIPyBkueE9k36JpwKRkiIqJlh8vs+1McVLOvSmZBXJZXe7x/Bq+zYazp
-         TLy+8NzGCz5NJ4y35RuJ1fW2E4zQ+9QqBKzC+fAIbBbyNeeHcsRhiKUyEfNuwtEaVcbE
-         bGCYhKlzwXmjoHrQGsvLgqMbw2Khj38EV0InKNINZTsLLZuxwZzqlcqM4fjGZAmuExSp
-         t3kw==
-X-Gm-Message-State: AOJu0Yyh+CXtkRYUYwoW8m1LD87ILTonDJKgVkaIyTjVCEVVPk32e9a5
-	spRfUy1MltLKcYYzQmvCURKkJ9JBtdFVvU/v3+Kabksxpq70bHnoVcNKAdpZDKG1VV0=
-X-Gm-Gg: ASbGncuM2S9zZOXtxN5fAshkbxjva1LJ26AKNFxApB33Fv2BXghxZqPS42Dvqcm0j9q
-	URshmdvBM9t2bWo4I03JigHTkFoDHsot6EVZrRhqJEp1t4UtvsNHsT84kEwSgAMsYVOCI9UGuLx
-	y6d8PFGYheIFdb4XHDyPBR9ICiU90GvL5qs41aJ7Mu89sHHWCf4Xc+xY5nJQzpofQ2R4+4AMeeR
-	tb8pCnX3vx+uACX78GdK8+kdhdwRvhQ1I8Zhl/4wy7yPc+mTR7caz+jxxciaRI9xbhBF/fZNcvz
-	c1mzac1yUXj+Z+KZQRuS/wJ0GxzFSzAHtbntsimHUmchYLgsfYyKdTrIZvW3IxxnDsh5L4zXDGZ
-	uhfC4eVFMo9taoAKEPjXiRMtrc/vBD7BBNbhOznq4Jw==
-X-Google-Smtp-Source: AGHT+IGak0uuuS5pIGUifYYsbhCa22YIqe9IhScFSAOd21dRmiIc9QfW//Nsn1rfDOPnEaB1ex4tYg==
-X-Received: by 2002:a05:6000:2385:b0:3e1:a74f:f847 with SMTP id ffacd0b85a97d-3e627a7c83cmr6685253f8f.6.1757333443258;
-        Mon, 08 Sep 2025 05:10:43 -0700 (PDT)
-Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33fba9fbsm41397825f8f.50.2025.09.08.05.10.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 05:10:42 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Mon, 08 Sep 2025 13:10:20 +0100
-Subject: [PATCH 3/4] perf arm-spe: Display --itrace period warnings for all
- sample types
+	id 1uvbJE-0000000H8Uc-3oNh;
+	Mon, 08 Sep 2025 12:49:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757335763;
+	bh=BW9QqUTnxdImH2dw+lKf1PJLRVjcmqu6EdnalgtPi08=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VhFZMXKm3QcD+UiicvaqWjZjZTESYw6AGmLRQTY/VDOfpcPn/rvE76yqFgBa+zMRv
+	 qmUZnj5gWjzOLg7eLR1xb5jED0/vnN9o7XK05FUbAybkB9E6fZjscI7yeqctu5A6Fu
+	 KyVo7eMIn/giIRYJXe2dbvNOlI0dwhUdxLxEswOShmW4p6hoRXCwHGCxdiusmsgSSX
+	 26WV1OMpW2pBoQ9Ya4hHjXvpUBqarKPF7t1OaPo5jo9A5VD+RW4vkAmYP6U0UbLzJ1
+	 Y0rIUPColxIRQY/ESvaVjAdnRJi1KdkzPr9Qq8lnmif0F2XloPTvmgQhfmucwnjK1k
+	 Kc2jLmNKkYgQw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3462417E0C96;
+	Mon,  8 Sep 2025 14:49:22 +0200 (CEST)
+Message-ID: <0b31377d-70b4-4a51-84d9-1a568c8be5df@collabora.com>
+Date: Mon, 8 Sep 2025 14:49:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 02/10] dt-bindings: devfreq: add mt8196-gpufreq
+ binding
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
+ <20250905-mt8196-gpufreq-v1-2-7b6c2d6be221@collabora.com>
+ <751d3abc-cf40-40a2-a580-7c0ba425ac25@collabora.com>
+ <13857717.uLZWGnKmhe@workhorse>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <13857717.uLZWGnKmhe@workhorse>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250908-james-perf-spe-period-v1-3-7ccd805af461@linaro.org>
-References: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
-In-Reply-To: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
-To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, George Wort <George.Wort@arm.com>, 
- Graham Woodward <Graham.Woodward@arm.com>, Ben Gainey <Ben.Gainey@arm.com>, 
- Michael Williams <Michael.Williams@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_051044_957669_8B4E0FF0 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20250908_054925_253184_F86AA93E 
+X-CRM114-Status: GOOD (  50.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,63 +92,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently we only display the warning when the instructions group is
-requested. Instructions are on by default, and the period applies to all
-sample types anyway so always check the options and show the warning.
+Il 08/09/25 13:39, Nicolas Frattaroli ha scritto:
+> On Monday, 8 September 2025 13:15:03 Central European Summer Time AngeloGioacchino Del Regno wrote:
+>> Il 05/09/25 12:22, Nicolas Frattaroli ha scritto:
+>>> On the MediaTek MT8196 SoC, the GPU has its power and frequency
+>>> dynamically controlled by an embedded special-purpose MCU. This MCU is
+>>> in charge of powering up the GPU silicon. It also provides us with a
+>>> list of available OPPs at runtime, and is fully in control of all the
+>>> regulator and clock fiddling it takes to reach a certain level of
+>>> performance. It's also in charge of enforcing limits on power draw or
+>>> temperature.
+>>>
+>>> Add a binding for this device in the devfreq subdirectory, where it
+>>> seems to fit in best considering its tasks.
+>>>
+>>> The functions of many of the mailbox channels are unknown. This is not
+>>> the fault of this binding's author; we've never received adequate
+>>> documentation for this hardware, and the downstream code does not make
+>>> use of them in a way that'd reveal their purpose. They are kept in the
+>>> binding as the binding should be complete.
+>>>
+>>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>>> ---
+>>>    .../bindings/devfreq/mediatek,mt8196-gpufreq.yaml  | 116 +++++++++++++++++++++
+>>>    1 file changed, 116 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/devfreq/mediatek,mt8196-gpufreq.yaml b/Documentation/devicetree/bindings/devfreq/mediatek,mt8196-gpufreq.yaml
+>>> new file mode 100644
+>>> index 0000000000000000000000000000000000000000..1fe43c9fc94bb603b1fb77e9a97a27e92fea1ae8
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/devfreq/mediatek,mt8196-gpufreq.yaml
+>>> @@ -0,0 +1,116 @@
+>>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/devfreq/mediatek,mt8196-gpufreq.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: MediaTek MFlexGraphics Performance Controller
+>>
+>> Doesn't MFG stand for MediaTek Flexible Graphics? (or did they update the name?)
+>>
+>> Perhaps it's a good idea to also add that reference... I think it's a little more
+>> readable and understandable compared to "MFlexGraphics" :-)
+> 
+> "MFlexGraphics" is what the abbreviation section in the datasheet calls "MFG".
+> I don't see "Flexible Graphics" at all in the datasheet, but it's an obvious
+> inference of what the name means.
+> 
+> I think keeping "MFlexGraphics" is better for people grepping for what
+> the datasheet calls it.
+> 
 
-Reword the messages to be more explicit about which flags the warnings
-apply to.
+Okay in MT8196 that was updated then.
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/util/arm-spe.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+On any other SoC previous to MT8196, the datasheet name is
+"MediaTek Flexible Graphics (MFG)".
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 4c81518a033a..228ed52e653d 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -1742,14 +1742,6 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
- 	}
- 
- 	if (spe->synth_opts.instructions) {
--		if (spe->synth_opts.period_type != PERF_ITRACE_PERIOD_INSTRUCTIONS) {
--			pr_warning("Only instruction-based sampling period is currently supported by Arm SPE.\n");
--			goto synth_instructions_out;
--		}
--		if (spe->synth_opts.period > 1)
--			pr_warning("Arm SPE has a hardware-based sample period.\n"
--				   "Additional instruction events will be discarded by --itrace\n");
--
- 		spe->sample_instructions = true;
- 		attr.config = PERF_COUNT_HW_INSTRUCTIONS;
- 
-@@ -1759,7 +1751,6 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
- 		spe->instructions_id = id;
- 		arm_spe_set_event_name(evlist, id, "instructions");
- 	}
--synth_instructions_out:
- 
- 	return 0;
- }
-@@ -1877,6 +1868,15 @@ int arm_spe_process_auxtrace_info(union perf_event *event,
- 		spe->synth_opts.period = 1;
- 	}
- 
-+	if (spe->synth_opts.period_type != PERF_ITRACE_PERIOD_INSTRUCTIONS) {
-+		ui__error("You must only use i (instructions) --itrace period with Arm SPE. e.g --itrace=i1i\n");
-+		err = -EINVAL;
-+		goto err_free_queues;
-+	}
-+	if (spe->synth_opts.period > 1)
-+		ui__warning("Arm SPE has a hardware-based sampling period.\n\n"
-+			    "--itrace periods > 1i downsample by an interval of n SPE samples rather than n instructions.\n");
-+
- 	err = arm_spe_synth_events(spe, session);
- 	if (err)
- 		goto err_free_queues;
+If you want to keep "MFlexGraphics" in MT8196-style, it's still a good idea to also
+reference somewhere the old "MediaTek Flexible Graphics" name, as that was used for
+more than 10 years. Really.
 
--- 
-2.34.1
+>>
+>>> +
+>>> +maintainers:
+>>> +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>>> +
+>>> +properties:
+>>> +  $nodename:
+>>> +    pattern: '^performance-controller@[a-f0-9]+$'
+>>> +
+>>> +  compatible:
+>>> +    enum:
+>>> +      - mediatek,mt8196-gpufreq
+>>> +
+>>> +  reg:
+>>> +    items:
+>>> +      - description: GPR memory area
+>>> +      - description: RPC memory area
+>>> +      - description: SoC variant ID register
+>>> +
+>>> +  reg-names:
+>>> +    items:
+>>> +      - const: gpr
+>>> +      - const: rpc
+>>> +      - const: e2_id
+>>
+>> We should find a better name for that "e2_id".
+> 
+> Agreed, but we don't have a register map that includes this address
+> and would give us a different name.
 
+Yeah but still, it feels like this naming is MT8196-specific, and this driver is
+not entirely specific to this SoC (this version is, but with minor modifications
+this can work on other chips as well).
+
+ > I think it's some sort of silicon revision.
+
+It is. And there's a broad range of names that you can use in place of "e2_id"...
+
+If there's no precise name, always go with something that is generic enough but
+that resembles what can be found inside of the mmio that you're specifying.
+
+>>
+>>> +
+>>> +  clocks:
+>>> +    items:
+>>> +      - description: main clock of the embedded controller (EB)
+>>> +      - description: core PLL
+>>> +      - description: stack 0 PLL
+>>> +      - description: stack 1 PLL
+>>> +
+>>> +  clock-names:
+>>> +    items:
+>>> +      - const: eb
+>>> +      - const: mfgpll
+>>> +      - const: mfgpll_sc0
+>>> +      - const: mfgpll_sc1
+>>> +
+>>> +  mboxes:
+>>> +    items:
+>>> +      - description: FastDVFS events
+>>> +      - description: frequency control
+>>> +      - description: sleep control
+>>> +      - description: timer control
+>>> +      - description: frequency hopping control
+>>> +      - description: hardware voter control
+>>> +      - description: gpumpu (some type of memory control, unknown)
+>>> +      - description: FastDVFS control
+>>> +      - description: Unknown
+>>> +      - description: Unknown
+>>> +      - description: Unknown, but likely controls some boosting behaviour
+>>> +      - description: Unknown
+>>> +
+>>> +  mbox-names:
+>>> +    items:
+>>> +      - const: fast_dvfs_event
+>>
+>> Any problem if we avoid underscores in names?
+>>
+> 
+> No but I'm not sure what the canonical naming style is for mailbox
+> channels. "fastdvfsevent" is hard to read.
+> 
+
+"fast-dvfs-event" would be good, wouldn't it? :-)
+
+>>> +      - const: gpufreq
+>>> +      - const: sleep
+>>> +      - const: timer
+>>> +      - const: fhctl
+>>> +      - const: ccf
+>>> +      - const: gpumpu
+>>
+>> "some type of memory control" .. it's really a MPU. For memory protection. :-)
+>> Besides, I don't think we have to touch anything in the gpumpu for freq control
+>> via gpueb.
+>>
+> 
+> Gotcha, so should I leave it out of the GPUFreq binding's used channels?
+> 
+> Would leave a gap, but that's probably fine.
+> 
+
+I really doubt that this is ever getting used at all for GPUFreq, so yes, leave it
+out.
+
+>>> +      - const: fast_dvfs
+>>> +      - const: ipir_c_met
+>>> +      - const: ipis_c_met
+>>
+>> MET is a hardware event tracer / profiler... and I'm fairly sure that we have no
+>> real reason to support it (at least, not like that, and not in a first submission).
+>>
+>> Ah btw: ipir ipis .. ipi-receive ipi-send
+>>
+> 
+> Gotcha, will remove those as well.
+> 
+
+P.S.: of course I was implying that if we ever need to support those, we can always
+add them later (but I still really doubt that we're ever going to use MET at all,
+even though it would be *really* nice to).
+
+>>> +      - const: brisket
+>>
+>> Brisket is... something. There's one for the GPU, one for CPU, and one for APU.
+>> Not sure what it exactly does, but seems to be or control a FLL (freq locked loop).
+>>
+>>> +      - const: ppb
+>>
+>> PPB = Peak Power Budget
+>>
+>> The PPB needs its own "big" driver (the PBM - Power Budget Manager) in order to do
+>> anything - as in - this manages a SoC-global peak power setting based on the
+>> available maximum deliverable instantaneous (and/or sustainable) power from the
+>> board's power source and it is mainly used for smartphone usecase (battery!).
+>>
+>> In order to work, the PPB HW (yet another mcu) needs to be initialized with tables
+>> for CPU and GPU (and APU? and something else too?), and with other data explaining
+>> the maximum instantaneous power that can delivered at a certain battery percentage.
+>>
+>> Important point is... I doubt that PPB is being initialized by the bootloader, on
+>> all of Genio, Kompanio and Dimensity chips, so this should be disabled by default.
+>>
+>> You can keep it, especially now that you have a description for it - and because it
+>> does indeed exist, but I doubt that we're using this anytime soon.
+> 
+> If it's going to be used by a separate driver, wouldn't it be better if we don't make
+> this channel part of the channels the GPUFreq driver uses?
+> 
+
+Not sure if gpufreq needs to poke that channel to tell to the ppb "I'm setting this
+frequency here", or if the MCUs can communicate that stuff on their own.
+I didn't do any research about that.
+
+Since adding stuff is kinda easier than removing, I guess avoiding to add this for
+now is a sensible option. Let's do just that then.
+
+>>
+>> Cheers,
+>> Angelo
+>>
+> 
+> Kind regards,
+> Nicolas Frattaroli
+> 
+>>> +
+>>> +  shmem:
+>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>> +    description: phandle to the shared memory region of the GPUEB MCU
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +  - reg-names
+>>> +  - clocks
+>>> +  - clock-names
+>>> +  - mboxes
+>>> +  - mbox-names
+>>> +  - shmem
+>>> +
+>>> +additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
+>>> +
+>>> +    gpufreq: performance-controller@4b09fd00 {
+>>> +        compatible = "mediatek,mt8196-gpufreq";
+>>> +        reg = <0x4b09fd00 0x80>,
+>>> +              <0x4b800000 0x1000>,
+>>> +              <0x4b860128 0x4>;
+>>> +        reg-names = "gpr", "rpc", "e2_id";
+>>> +        clocks = <&topckgen CLK_TOP_MFG_EB>,
+>>> +                 <&mfgpll CLK_MFG_AO_MFGPLL>,
+>>> +                 <&mfgpll_sc0 CLK_MFGSC0_AO_MFGPLL_SC0>,
+>>> +                 <&mfgpll_sc1 CLK_MFGSC1_AO_MFGPLL_SC1>;
+>>> +        clock-names = "eb", "mfgpll", "mfgpll_sc0",
+>>> +                      "mfgpll_sc1";
+>>> +        mboxes = <&gpueb_mbox 0>, <&gpueb_mbox 1>, <&gpueb_mbox 2>,
+>>> +                 <&gpueb_mbox 3>, <&gpueb_mbox 4>, <&gpueb_mbox 5>,
+>>> +                 <&gpueb_mbox 6>, <&gpueb_mbox 7>, <&gpueb_mbox 8>,
+>>> +                 <&gpueb_mbox 9>, <&gpueb_mbox 10>, <&gpueb_mbox 11>;
+>>> +        mbox-names = "fast_dvfs_event", "gpufreq", "sleep", "timer", "fhctl",
+>>> +                     "ccf", "gpumpu", "fast_dvfs", "ipir_c_met", "ipis_c_met",
+>>> +                     "brisket", "ppb";
+>>> +        shmem = <&gpufreq_shmem>;
+>>> +    };
+>>>
+>>
+>>
+> 
+> 
+> 
+> 
 
