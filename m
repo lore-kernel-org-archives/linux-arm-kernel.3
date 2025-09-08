@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A13B4CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4667DCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WmM4LftI21357OgeVjH332v8ir12kSjHUiMiWxV6Jy4=; b=3YfntGdX8d+ox/cxRnECRBXEAz
-	L3ARoIOxjzoQ/wUWRU4Z9XMuK2skMP70uRv2ySq/bhvGGx1HP6RCWVp2HUWzF6HwBU3SmTyYch3yb
-	fSvTsRPVtBpoY/089YX0WK4QdnLuFU0bw8LVLTXQAqZER5uU2HR4DgHKXe1b+lQ9IbTgJ9kP/EM6N
-	zDxrKM4SrMI5IPhJY3U2AxkPvqXbEI2An+FYBr3cDxrewC9XjxX0RZh3hUOuCAgb4dKbjrFNwz+v9
-	jkhQjnIDFuoU3T3DML1ByZxislW5QMvsPx4TGTLLfTJSZDx+O6EQ5r2qEk4DO1kz1zLL3Z01ImleD
-	co9NoXqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tIo+HgFDBSGjk+ryK4PE8d8TpiiCG+5aEmtrJp8mr2Y=; b=TWtzXiY8WHf4uNeWk2Q1D7NO+a
+	kDXJx3gwEELDgqP+DziDrVpdHuPxXcTEPBrtfPQhd0A79l2uDTiz9APpzqDZrUfTmxcDBSF2kfra3
+	NtKFxM9cLxudESRRaqiVOKAnS56NYSGLB2nyfRUdl6gyv+SYMCFdX0aQGeAyw5z2we/bxlNz+wuyz
+	Z5oKxHDxZaFVvIEGC/4WgFU9xbzgNJpu7hK13hSmdLzGwzD/Wd+4jCR8R9gOxGpWKOy0ifBc392Po
+	y7U3wXip1Ce66ToneF3ylaC1g3SrW3ejQW+IbmRpFAuIPJa5+RyLzGSVZeGPVtknJ480mswt6KMIO
+	jWDQOG4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uviIh-000000028B5-2Edx;
-	Mon, 08 Sep 2025 20:17:19 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1uviLP-000000029Lp-1UdB;
+	Mon, 08 Sep 2025 20:20:07 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uveqX-00000000n4n-01H1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 16:36:02 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-3d3d2472b92so2596836f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 09:35:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757349359; x=1757954159; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=WmM4LftI21357OgeVjH332v8ir12kSjHUiMiWxV6Jy4=;
-        b=vvVmTvmiK8B4ELrQ/5fa4S+U3OA3LjJqScblIpp+rS1ztzq/4VWRgzaLwegOng+xje
-         FJ5hr9fstCgHObHgWzt0oZezgSeB62LdhXT82f2Zo0yWPfHpC0s6h6MPLkc9lTbNYT39
-         H+d5APEk/WAeR/DvHJ5dvMdVbGOlTDQV6R96sNuLdQ0DJFnkHC2rfuTLs2lG+IoA0JKw
-         cY9iX10PQWG0Tjt//L9aQPYMP7EEicI7JY/bEOtLEUcD/7Rb/ZPz9GEedYW3JOkAhWsy
-         oqMcH3JEAkP/D1VjpdyLoigeQq4jrMWOUYq40JyP8B+4nRertR7qBtiG5iK3ijMh0yKf
-         cuNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757349359; x=1757954159;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WmM4LftI21357OgeVjH332v8ir12kSjHUiMiWxV6Jy4=;
-        b=nQJfOUQxCeytdbeOZ+wuXC7zO3LzFeOtOBnhOR7hXfGu9tdhBOpo4OLS/LiKlXAtzx
-         l8h1ikaXOh1Mu1g7FUOzW9qWZeHNm7W2c8I34nvgH1ZYcMlobYIXE1hhwaU7t7bOUgcd
-         cCVT/XNDDkcU4FOWQhDN0x+fSZxHPBqzOJal/n9kq2GOPxeEdpDErfuFlKtmdH1tF+yi
-         k1UdI/ZO0bmb8C5kXn47DhMMxn8s5EWORAudcbRjguPymHQ0t/oaMe61hTMmN1TQD/Q6
-         6mLzIbxHw9Z6rYNM3ZEAp6qHpYa21WeWlq2zbbSi0SmndjyNCQ+JHmTae4FtsAKrefNP
-         vaEg==
-X-Forwarded-Encrypted: i=1; AJvYcCUukqR2P81yv9Dq6B25VM7Fub8/AaWFu49q8pl1nflrbcCwD5zKlhwEky+4tnigzCOLBFWwXVEoqGVamhhXYcb5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0yMec/Xv0Dmsa/nGEJYOnZAcNUv7Dj9xDfUW+sbgnfPhEL/CQ
-	MFKt0McoxLVukqF4UaboES9CQBEvVBE85flHatpUE6hNfo4ANOVtIUSgqdyjSoDhhxmXIQ9vh+8
-	haw==
-X-Google-Smtp-Source: AGHT+IEPtQhZHhaSSiFrRywARpqA9kmZE1Y6TE2e26K2tyWQbsjjS1YtpIf0he6IaQ2gQJGqetaDUms3uQ==
-X-Received: from wrbet15.prod.google.com ([2002:a05:6000:230f:b0:3c3:cdfb:e634])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:184d:b0:3e7:4265:66de
- with SMTP id ffacd0b85a97d-3e742656b0emr4522585f8f.8.1757349358812; Mon, 08
- Sep 2025 09:35:58 -0700 (PDT)
-Date: Mon,  8 Sep 2025 17:35:57 +0100
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.51.0.355.g5224444f11-goog
-Message-ID: <20250908163557.2419780-1-tabba@google.com>
-Subject: [PATCH] KVM: arm64: Fix parameter ordering for VBAR_EL1 assignment
-From: Fuad Tabba <tabba@google.com>
-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	id 1uverP-00000000nPO-3P5x;
+	Mon, 08 Sep 2025 16:36:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=tIo+HgFDBSGjk+ryK4PE8d8TpiiCG+5aEmtrJp8mr2Y=; b=W8XWzjn0JY78XM1rjlNQr5OpUY
+	dXHyf6I+qj/yv6fEtIh9ljgEs0tYlnNlsu1SvcJJ8I83bEcJYaeJZRYsMjy7K6SlgnS9ba9ghfGfC
+	akZnwBMaDbsPGXKjbbs6qDtvRfDJxQgfdXCWXDWbymYozZsfUKUTwC8Kbzdk7wW6MOH0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uver6-007gmH-9h; Mon, 08 Sep 2025 18:36:36 +0200
+Date: Mon, 8 Sep 2025 18:36:36 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Kaison Deng <dkx@t-chip.com.cn>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Wayne Chou <zxf@t-chip.com.cn>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Add devicetree for the
+ ROC-RK3588-RT
+Message-ID: <153e5099-ee64-4ce9-b70e-feb24d8731cb@lunn.ch>
+References: <20250905090115.718622-1-dkx@t-chip.com.cn>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250905090115.718622-1-dkx@t-chip.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_093601_043242_A3AA4499 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20250908_093655_854553_64DC2403 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,38 +75,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The __vcpu_assign_sys_reg() helper expects the register ID as the second
-argument and the value to be assigned as the third. However, the
-existing code was passing these parameters in the incorrect order.
+> +&gmac0 {
+> +	clock_in_out = "output";
+> +	phy-handle = <&rgmii_phy0>;
+> +	phy-mode = "rgmii-rxid";
 
-Fix the function call to properly read the live value of VBAR_EL1 from
-the guest and update the vCPU value immediately before pending the
-exception. This ensures the vCPU's value is the same as the guest's and
-that the exception will be handled at the correct address upon resuming
-the guest.
+The usual problem with rockchip boards. rgmii-rxid is probably wrong,
+unless you have a very odd PCB.
 
-Fixes: 798eb5978700 ("KVM: arm64: Sync protected guest VBAR_EL1 on injecting an undef exception")
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/kvm/hyp/nvhe/sys_regs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 71d2fc97f004..82da9b03692d 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -253,7 +253,7 @@ static void inject_undef64(struct kvm_vcpu *vcpu)
- 
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
- 	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
--	__vcpu_assign_sys_reg(vcpu, read_sysreg_el1(SYS_VBAR), VBAR_EL1);
-+	__vcpu_assign_sys_reg(vcpu, VBAR_EL1, read_sysreg_el1(SYS_VBAR));
- 
- 	kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
- 
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac0_miim
+> +		     &gmac0_tx_bus2
+> +		     &gmac0_rx_bus2
+> +		     &gmac0_rgmii_clk
+> +		     &gmac0_rgmii_bus>;
+> +	tx_delay = <0x47>;
 
-base-commit: 76eeb9b8de9880ca38696b2fb56ac45ac0a25c6c
--- 
-2.51.0.355.g5224444f11-goog
+Please try rgmii-id, and small values here.
 
+> +	clock_in_out = "output";
+> +	phy-handle = <&rgmii_phy1>;
+> +	phy-mode = "rgmii-rxid";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac1_miim
+> +		     &gmac1_tx_bus2
+> +		     &gmac1_rx_bus2
+> +		     &gmac1_rgmii_clk
+> +		     &gmac1_rgmii_bus>;
+> +	tx_delay = <0x42>;
+
+Same here.
+
+	Andrew
 
