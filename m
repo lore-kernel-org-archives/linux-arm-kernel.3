@@ -4,96 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C005CAC586
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16042CAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqo1+7mglImJW3/ESP2sAU0K/vghCbEUc7ur867asyY=; b=LauhHVbO+xDtN0pi24WT9OzQA4
-	deTygEtusjg+a3Cg2Ews6vwzF02oG2iJm5abhBEH3GkC6kBuYBuVWFgvl7lU73YQaRWg2qHVaJ6QI
-	avrP1EcYMDbYOOZNa2ZAxRs7kExfDUGkzlVffVYv65ZX1A5wRGanNXrVHfiymmvTmlk8sRml+tVRm
-	Z9BOKpNpn2d3RqL8Dmz5ob87QMdBQ6KQgcf9tjpj87/1Gm53BcB/ZczHBmm69TNBBHiVDEIFUFDUu
-	LQV5fQ0xSVzDbafwXMj2t4M6dj8fLCwYZI/mi9c72hdSqsCnm3vjpIur7LO58ML/mKJL2VlswGh1s
-	BDYn4yOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OLEsv3J3Kq1CN12rIPFxcle1rGi1xSKzDbJ+T8kiiFs=; b=bbZ20y4pc4KvlnyLg0s9k1BNqB
+	dNEJF7JaVTaOTWla1uOoXHjphji036y1zSTeQWgdyq1MSZSCdhDbc/UvIPd/pAD3ud0wsn+bLRNCd
+	gAtxU+Zs9zkLWVX3UfywaxzA5mOyYpKDmJED44KdBKEnJNRpFM92QbLJO30p7tN9S5R3q0qUjfsxz
+	JwVj83EK/1IrdAo6tFD/M5kqnTQBcP8mYDGjNXodYkV4tmN0pX3SIKQKyTj7934sOciaE6EWlTjjk
+	63SDD8C7rfgB+bmaZnT2pjmOwMtaPz3pcrpWbundZJ60yNd7/0SudXWVdKAgNv6lCjZIydhHvA15v
+	1go4qn9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfLW-000000010QV-3D7h;
-	Mon, 08 Sep 2025 17:08:02 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1uvfLv-0000000115u-2Q6C;
+	Mon, 08 Sep 2025 17:08:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvahq-0000000GvDL-0e1g
+	id 1uvb8j-0000000H4Xi-0pe3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 12:10:47 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3e2055ce973so2268186f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 05:10:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757333445; x=1757938245; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qqo1+7mglImJW3/ESP2sAU0K/vghCbEUc7ur867asyY=;
-        b=epChbiyXTKDTgCLtmN1tQ9Qcrh4XOhJyulF57mPTw7kAOP8dsxDiCDB2xp2FAx40yg
-         wC7ykMSsxYYEKwO6ONeZz9XQYfsbqx+atg7dpAMwqfs9ingV8wUER9R1OpCN+i18EY9j
-         E6C2VYHxUwzirvwbupNjfUVDbDpQo95oNw68hgReArmjKkJX/LmyQh7dFyznzjGnB0mv
-         abOSGiC3ES4bcFMJhKqtTBqb/KEElNN/UQu10ad6Xrny8CXKPqBn1tU6OIFBB8d7MU4F
-         +Boy4k8HsI1HsTZzrFEb5H5zo173PPUCBmKF2AlgPcQ/9HsK4rq0CerI1GFHUwmmhPxe
-         rU7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757333445; x=1757938245;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qqo1+7mglImJW3/ESP2sAU0K/vghCbEUc7ur867asyY=;
-        b=IAcO75LD4hNByib93z3RQBtI0FKWIA0TT1AFkNDINOAHHz1IJ+AH35UmV90PCMLPxg
-         m36XJ+Rgqob5jV46qzRv8upCCFqpj7s4SY9Gv6975YZ27VaoV5n4jCwKC6Vu0z/gOowi
-         okTp+E7++DvTGm0TA1qdxiM3+/sOfG/4sliQP6VTAPVirG8QXHH0maCC7nhDwv8Tq0dc
-         hTPIAGqPMNh+CLYAlMC8wOvH7qEiNLHBtNbHh2o5QoMHwaAQ7oNBWyHUjQkvxYCBXxKD
-         l+s1jMCfet9tTbeHjFFHn7nB41FTAdNy1RxQnTY9OyLZa3OhydsyBnZ2v+2gtbEWUOlK
-         /oMA==
-X-Gm-Message-State: AOJu0YwwCRAQxJkQfW1sZ5trPlDU3uGUqqWx7OO5UfsWhA0uR2Jsh6gm
-	9SLQFlbvW6BDn9xSLYLzC3BleXPI+g3c9VHYvxmom/LVI9Yb3ApeySxJ2Od80HYN/9A=
-X-Gm-Gg: ASbGnctayZZ2eLfvu7jAbw1rRjzi7h3jAlRX641L4n72icmTUbmynnCACtWAabCCwTC
-	+oL8fKBocBIF6+zgzqwixBobfjHRjLge8UUlGEu1wA3lgeEw2Wcc+gLOIRsK4P1JEkWiTv5gBFz
-	yurfuAanKVt1x2cWwkN5TlsBk6zaMBwXaV0e0HcTGMvQ6odpJMV7UsELOJf9RjApPxHNm5CQHIk
-	r3fDaiE8KPIriE22K9pyACCb+NQrFPJB4BL2SReNRPNR5JiEMBcFfvNEXVwdX2ivR0B1PjmevU7
-	xlVgDq43rB1TFEQ4FzYmEzKi66yCxMQAm8vPyBUivPMF3F04ChHsZy9/gDNMh4GEoSZX1fsioBB
-	LwuOhTV4CRp7+VS3TUHBFzmgkx5oJq5U=
-X-Google-Smtp-Source: AGHT+IGBWxzyRFeeGevfk44/JfpKxel/pd+hKUi5ugftmEIb0KfQdxCQwGM4PG30BiUOferaK3FuAg==
-X-Received: by 2002:a5d:5848:0:b0:3e2:5d59:4868 with SMTP id ffacd0b85a97d-3e643e07d6amr5074970f8f.46.1757333444701;
-        Mon, 08 Sep 2025 05:10:44 -0700 (PDT)
-Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33fba9fbsm41397825f8f.50.2025.09.08.05.10.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 05:10:43 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Mon, 08 Sep 2025 13:10:21 +0100
-Subject: [PATCH 4/4] perf docs: Update SPE doc to include default
- instructions group
+	Mon, 08 Sep 2025 12:38:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8304F601CF;
+	Mon,  8 Sep 2025 12:38:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62BFFC4CEF1;
+	Mon,  8 Sep 2025 12:38:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757335112;
+	bh=u/aSpq/tYI23caay5KQ+gDiq/maVvqHIQQw80mCFn3c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p+1Jw5QJyiyJodrRlHhDg3F8S0oQOxQpM6sq+lJgHPJRsFH/9qXp37SfULYDNstZQ
+	 YEjX6PgRPC/uWE5fOcUMF8gCKGHf9lnvsBHrfHs1VnIGT6pYwy7bOwb0OaqdWU/ZL2
+	 n9yAvPUdlzF8zCl+Rc/LhrzAiOnTVzw09lMhDahFsQVIaD6g0mJS3gYgXf+lRld2Oe
+	 ynGKPo2qqdxvQLuLpjHWMtowk43XtkB1aHtXWn5NzkYTYtL0QEpJmFFLhjO2GKp33m
+	 OToNakbvsd1SVG2IFzxlN+xrC+VJYxsvApsELK2aZW8LDgZnVQ8HQuuo5eYXtPH9TX
+	 ahdbbFP4y4Nxw==
+Date: Mon, 8 Sep 2025 18:08:24 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
+Cc: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	bhelgaas@google.com, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, yuji2.ishikawa@toshiba.co.jp
+Subject: Re: [PATCH v3 2/2] PCI: dwc: visconti: Remove cpu_addr_fix() after
+ DTS fix ranges
+Message-ID: <etltxzybqmhkst3324knpofx46lyp2vju43wvfu47oovfbmo5r@4v4nniat4sx5>
+References: <1757298848-15154-1-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
+ <1757298848-15154-3-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250908-james-perf-spe-period-v1-4-7ccd805af461@linaro.org>
-References: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
-In-Reply-To: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
-To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, George Wort <George.Wort@arm.com>, 
- Graham Woodward <Graham.Woodward@arm.com>, Ben Gainey <Ben.Gainey@arm.com>, 
- Michael Williams <Michael.Williams@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_051046_198239_7CE7AC9A 
-X-CRM114-Status: GOOD (  14.24  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1757298848-15154-3-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,46 +73,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The instructions group is now generated by default so update the doc to
-reflect this. Also explain the period/downsampling mechanism in more
-detail.
+On Mon, Sep 08, 2025 at 11:34:08AM GMT, Nobuhiro Iwamatsu wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+> 
+> Remove cpu_addr_fix() since it is no longer needed. The PCIe ranges
+> property has been corrected in the DTS, and the DesignWare common code now
+> handles address translation properly without requiring this workaround.
+> 
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/Documentation/perf-arm-spe.txt | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+What about the old DTs? Wouldn't this driver fail to work if you use it with old
+DTs as cpu_addr_fixup() no longer exists?
 
-diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Documentation/perf-arm-spe.txt
-index 37afade4f1b2..cda8dd47fc4d 100644
---- a/tools/perf/Documentation/perf-arm-spe.txt
-+++ b/tools/perf/Documentation/perf-arm-spe.txt
-@@ -191,14 +191,20 @@ groups:
-   36 branch
-   0 remote-access
-   900 memory
-+  1800 instructions
- 
- The arm_spe// and dummy:u events are implementation details and are expected to be empty.
- 
--To get a full list of unique samples that are not sorted into groups, set the itrace option to
--generate 'instruction' samples. The period option is also taken into account, so set it to 1
--instruction unless you want to further downsample the already sampled SPE data:
-+The instructions group contains the full list of unique samples that are not
-+sorted into other groups. To generate only this group use --itrace=i1i.
- 
--  perf report --itrace=i1i
-+1i (1 instruction interval) signifies no further downsampling. Rather than an
-+instruction interval, this generates a sample every n SPE samples. For example
-+to generate the default set of events for every 100 SPE samples:
-+
-+  perf report --itrace==bxofmtMai100i
-+
-+Other period types, for example nanoseconds (ns) are not currently supported.
- 
- Memory access details are also stored on the samples and this can be viewed with:
- 
+- Mani
+
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
+> 
+> ---
+> v3:
+>   Add pci->use_parent_dt_ranges fixes.
+>   Update Signed-off-by address, because my company email address haschanged.
+> 
+> v2:
+>   No Update.
+> ---
+>  drivers/pci/controller/dwc/pcie-visconti.c | 15 ++-------------
+>  1 file changed, 2 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-visconti.c b/drivers/pci/controller/dwc/pcie-visconti.c
+> index cdeac6177143c..d8765e57147af 100644
+> --- a/drivers/pci/controller/dwc/pcie-visconti.c
+> +++ b/drivers/pci/controller/dwc/pcie-visconti.c
+> @@ -171,20 +171,7 @@ static void visconti_pcie_stop_link(struct dw_pcie *pci)
+>  	visconti_mpu_writel(pcie, val | MPU_MP_EN_DISABLE, PCIE_MPU_REG_MP_EN);
+>  }
+>  
+> -/*
+> - * In this SoC specification, the CPU bus outputs the offset value from
+> - * 0x40000000 to the PCIe bus, so 0x40000000 is subtracted from the CPU
+> - * bus address. This 0x40000000 is also based on io_base from DT.
+> - */
+> -static u64 visconti_pcie_cpu_addr_fixup(struct dw_pcie *pci, u64 cpu_addr)
+> -{
+> -	struct dw_pcie_rp *pp = &pci->pp;
+> -
+> -	return cpu_addr & ~pp->io_base;
+> -}
+> -
+>  static const struct dw_pcie_ops dw_pcie_ops = {
+> -	.cpu_addr_fixup = visconti_pcie_cpu_addr_fixup,
+>  	.link_up = visconti_pcie_link_up,
+>  	.start_link = visconti_pcie_start_link,
+>  	.stop_link = visconti_pcie_stop_link,
+> @@ -310,6 +297,8 @@ static int visconti_pcie_probe(struct platform_device *pdev)
+>  
+>  	platform_set_drvdata(pdev, pcie);
+>  
+> +	pci->use_parent_dt_ranges = true;
+> +
+>  	return visconti_add_pcie_port(pcie, pdev);
+>  }
+>  
+> -- 
+> 2.51.0
+> 
+> 
 
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
