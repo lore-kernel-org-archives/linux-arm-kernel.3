@@ -4,80 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B10CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D06DECAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9HAwj1OxHTCCQy9bYmOg3NKIPsb30ZbA5RjhYkaT/CQ=; b=REZTvv9F4TLFnPRCcHga5FtfHj
-	clqw06SbqNIEJG/9hK/lKyxGk8rCqgqbh/OXTtVPhzEJ2kRHvcKttE69pRU419bB+PVIdUan+twUZ
-	v4XU7PGxxeW3WufrkGjEl8O/Hnx7k49Cx0vS+7CPJaumtnopFahFOCK24eVj3Jn1WAIYp58yG5aRg
-	Yj4gpi5Pp8Ih/c+QXAaICDmPFrttEqlJktwQv1PdOZsIRgRWABpxQZMywm4IIR4KyuY1mHazqp60S
-	yFL380pEo4O1aef7uddGTz1zoSTdyAhMFsDYbVVAWtMrs4VPGDUaMln6SH0DL36NVdfd1e6JvwQtR
-	REcIRlfw==;
+	bh=nqKqSNT26uK0ctF10EJrKeCsL0Ppf+8ee2pPXGgNN7Q=; b=AjL5iuCl/ahzb3ffSh5X6dEVPX
+	zKYUcLL1ENrsxEYbdk0d6t3m2e7j6VS5jAqz+33vWh3vcXrp1tl9E6rilJgiLvOVneDLkBXkDEaa4
+	xTLD1/KMhUPR4YXVRiL9hFDhTECmIfKD+lcYN4LhSbHLgOxWqJZZcGmWyAyRIrcMV0swybOVWYeFz
+	NBRi3E58GzuSKf4CHvZ1+XosrUW/W3CUrcLYrnrK5+kV0wBvEQBdyrCaFXTSzFIS9l/zpfcXtAQ2h
+	mMzLsYHctpnCMgEKl0Sq8GK6xSSl016fKPKUBhOJt/K9qVU13rnP4Q45xMeNrnanWUXiMi3hM9LjF
+	X9u+MX3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfMH-000000011j8-3FKm;
-	Mon, 08 Sep 2025 17:08:49 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uvfMW-0000000124Y-26kj;
+	Mon, 08 Sep 2025 17:09:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvbJE-0000000H8Uc-3oNh;
-	Mon, 08 Sep 2025 12:49:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757335763;
-	bh=BW9QqUTnxdImH2dw+lKf1PJLRVjcmqu6EdnalgtPi08=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VhFZMXKm3QcD+UiicvaqWjZjZTESYw6AGmLRQTY/VDOfpcPn/rvE76yqFgBa+zMRv
-	 qmUZnj5gWjzOLg7eLR1xb5jED0/vnN9o7XK05FUbAybkB9E6fZjscI7yeqctu5A6Fu
-	 KyVo7eMIn/giIRYJXe2dbvNOlI0dwhUdxLxEswOShmW4p6hoRXCwHGCxdiusmsgSSX
-	 26WV1OMpW2pBoQ9Ya4hHjXvpUBqarKPF7t1OaPo5jo9A5VD+RW4vkAmYP6U0UbLzJ1
-	 Y0rIUPColxIRQY/ESvaVjAdnRJi1KdkzPr9Qq8lnmif0F2XloPTvmgQhfmucwnjK1k
-	 Kc2jLmNKkYgQw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3462417E0C96;
-	Mon,  8 Sep 2025 14:49:22 +0200 (CEST)
-Message-ID: <0b31377d-70b4-4a51-84d9-1a568c8be5df@collabora.com>
-Date: Mon, 8 Sep 2025 14:49:21 +0200
+	id 1uvbMs-0000000HAbh-0vAO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 12:53:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757335989;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=nqKqSNT26uK0ctF10EJrKeCsL0Ppf+8ee2pPXGgNN7Q=;
+	b=N4Hrvzudaif4fQsb+J1HvUBwt3k3eEAmU0nHkTseoQajAl2N2RM2kYKcOXWV2pz07HIlIw
+	2skI2WYvAEC71QnFrhS+q65gYJ5bzzMwSeSW2dsR7Bpxo386iatreVCEbGDINCTS7gznx6
+	e0IvJBHFJ++iEdNxOdGKwlu96u3+S70=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-662-k6Fgc8ZpNsmDdk7e8lS40g-1; Mon, 08 Sep 2025 08:53:06 -0400
+X-MC-Unique: k6Fgc8ZpNsmDdk7e8lS40g-1
+X-Mimecast-MFC-AGG-ID: k6Fgc8ZpNsmDdk7e8lS40g_1757335985
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3e26b5e3f41so1730978f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 05:53:06 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757335985; x=1757940785;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nqKqSNT26uK0ctF10EJrKeCsL0Ppf+8ee2pPXGgNN7Q=;
+        b=am8W/+GjWqODZy40SLqLl4G1DrC6APGkYVP4LYouQ81M3iupp5YJthcmDfAmW47Rxx
+         JoWOqykSZYfkhyq3wm3ZG/OpaMUrix/DGoiCCeKlNYkSKGFe15/Cr6tbXhpKAhj2wPNc
+         MyQtW6SLPjs4EvgN4vNs5MncEpp0EOuBY7wwoQBjkmhXW8W1QDdKjidYLX7e+uXuWji7
+         fscefc5F3B3GcvuQCGlSENqpbr9tMAfnXtrI6i2Ttvzp2EHSuK1OyCYch7x/+3bkd/fk
+         xS0trxaKUDHklIySipKQ7hCMa1PM0AA2U7CXgjhwKU/buSVBUyO36TpNiolYEP2mPXgs
+         O0hQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU/fmvPXb98TgLsjjit77uvgWnj7R9qa/SIyJcrxXaBu1OfFLdCNofMuJ5DlxpaGm8hYhQUlNRGQ30crOp3k8XT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPa2C/bpUV7iJfTgiW6sL2PDW1LOIhCctb9lkT8HJOnmAaxgTm
+	vEPx0N+pnTn4braEQfOLdhT9nyAK4Zgc2PcBCvwi+EKKztSvANN/blNmK4G40vxI+5tc+abs4w3
+	AheSj2OkSKc8MWFJr7xNJAK9pkVoFjrjPlvUD0M3FeYNICqKnBVhd17hPkL3LD0/231PxUgcCVA
+	Mx
+X-Gm-Gg: ASbGnctRS/QtjtYUllX45NIR2BUOUkDo98AUr37EpdCMEDrxMBswaDgv1eDCj9b0wHI
+	uBGEmzICx+exYLlK9NT4OL5kxUQ0vPfMUJOfaMvdqBpLFi8+nRSXRP/RKchUPxmvH5CjQi2x/5q
+	eDOgwDnF9okMk6IdPX+7YCYDZdXOm7akX4teFiWe80HOBiFOvq+GHzAX1+xXtyfbBp89IKzsX0H
+	XbmavTwgUGlc+/KMeBDpBrmhoFy3rglV/ApB9tyteCLF/NCvnbaGdDNNnnf8mtd9PsHy+GLIW6w
+	NY2fu1bymyPYTkVu77j6YEpx9Ir9Vw3Z8nYWoUct46rRjvCAkUc/i31GGt3fz4AltYbxE17T6La
+	ey1/KKXm0FrdAL6uqtMVuajM9VYmutWL6p5ewxGY+IoutkMdOcpNXs3B+MkxTgz4b
+X-Received: by 2002:a5d:64e4:0:b0:3df:58c5:efd1 with SMTP id ffacd0b85a97d-3e6427d6e15mr6188459f8f.25.1757335984608;
+        Mon, 08 Sep 2025 05:53:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFCDxFquotzqnajJLjBsVtEGOKTyR3mfE6vqo6/1C+mdI526t5VUp3r/8RO80kgSz2c6+Q56w==
+X-Received: by 2002:a5d:64e4:0:b0:3df:58c5:efd1 with SMTP id ffacd0b85a97d-3e6427d6e15mr6188391f8f.25.1757335984032;
+        Mon, 08 Sep 2025 05:53:04 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f25:700:d846:15f3:6ca0:8029? (p200300d82f250700d84615f36ca08029.dip0.t-ipconnect.de. [2003:d8:2f25:700:d846:15f3:6ca0:8029])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d1007c0dc8sm40030772f8f.53.2025.09.08.05.53.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 Sep 2025 05:53:03 -0700 (PDT)
+Message-ID: <7ee0b58a-8fe4-46fe-bfef-f04f900f3040@redhat.com>
+Date: Mon, 8 Sep 2025 14:53:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 02/10] dt-bindings: devfreq: add mt8196-gpufreq
- binding
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
-References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
- <20250905-mt8196-gpufreq-v1-2-7b6c2d6be221@collabora.com>
- <751d3abc-cf40-40a2-a580-7c0ba425ac25@collabora.com>
- <13857717.uLZWGnKmhe@workhorse>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: John Hubbard <jhubbard@nvidia.com>, linux-kernel@vger.kernel.org,
+ Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, kasan-dev@googlegroups.com,
+ kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+References: <20250901150359.867252-1-david@redhat.com>
+ <20250901150359.867252-20-david@redhat.com>
+ <016307ba-427d-4646-8e4d-1ffefd2c1968@nvidia.com>
+ <85e760cf-b994-40db-8d13-221feee55c60@redhat.com>
+ <727cabec-5ee8-4793-926b-8d78febcd623@lucifer.local>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
+ ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZoEEwEIAEQCGwMCF4ACGQEFCwkIBwICIgIG
+ FQoJCAsCBBYCAwECHgcWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaJzangUJJlgIpAAKCRBN
+ 3hD3AP+DWhAxD/9wcL0A+2rtaAmutaKTfxhTP0b4AAp1r/eLxjrbfbCCmh4pqzBhmSX/4z11
+ opn2KqcOsueRF1t2ENLOWzQu3Roiny2HOU7DajqB4dm1BVMaXQya5ae2ghzlJN9SIoopTWlR
+ 0Af3hPj5E2PYvQhlcqeoehKlBo9rROJv/rjmr2x0yOM8qeTroH/ZzNlCtJ56AsE6Tvl+r7cW
+ 3x7/Jq5WvWeudKrhFh7/yQ7eRvHCjd9bBrZTlgAfiHmX9AnCCPRPpNGNedV9Yty2Jnxhfmbv
+ Pw37LA/jef8zlCDyUh2KCU1xVEOWqg15o1RtTyGV1nXV2O/mfuQJud5vIgzBvHhypc3p6VZJ
+ lEf8YmT+Ol5P7SfCs5/uGdWUYQEMqOlg6w9R4Pe8d+mk8KGvfE9/zTwGg0nRgKqlQXrWRERv
+ cuEwQbridlPAoQHrFWtwpgYMXx2TaZ3sihcIPo9uU5eBs0rf4mOERY75SK+Ekayv2ucTfjxr
+ Kf014py2aoRJHuvy85ee/zIyLmve5hngZTTe3Wg3TInT9UTFzTPhItam6dZ1xqdTGHZYGU0O
+ otRHcwLGt470grdiob6PfVTXoHlBvkWRadMhSuG4RORCDpq89vu5QralFNIf3EysNohoFy2A
+ LYg2/D53xbU/aa4DDzBb5b1Rkg/udO1gZocVQWrDh6I2K3+cCs7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <727cabec-5ee8-4793-926b-8d78febcd623@lucifer.local>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZN1OO6peaKCM2LfoQTdQ_9aBYE36gtU8uvTafTeRX7Q_1757335985
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-In-Reply-To: <13857717.uLZWGnKmhe@workhorse>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_054925_253184_F86AA93E 
-X-CRM114-Status: GOOD (  50.32  )
+X-CRM114-CacheID: sfid-20250908_055310_330022_B1A206AB 
+X-CRM114-Status: GOOD (  35.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,279 +181,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 08/09/25 13:39, Nicolas Frattaroli ha scritto:
-> On Monday, 8 September 2025 13:15:03 Central European Summer Time AngeloGioacchino Del Regno wrote:
->> Il 05/09/25 12:22, Nicolas Frattaroli ha scritto:
->>> On the MediaTek MT8196 SoC, the GPU has its power and frequency
->>> dynamically controlled by an embedded special-purpose MCU. This MCU is
->>> in charge of powering up the GPU silicon. It also provides us with a
->>> list of available OPPs at runtime, and is fully in control of all the
->>> regulator and clock fiddling it takes to reach a certain level of
->>> performance. It's also in charge of enforcing limits on power draw or
->>> temperature.
+On 08.09.25 14:25, Lorenzo Stoakes wrote:
+> On Sat, Sep 06, 2025 at 08:56:48AM +0200, David Hildenbrand wrote:
+>> On 06.09.25 03:05, John Hubbard wrote:
 >>>
->>> Add a binding for this device in the devfreq subdirectory, where it
->>> seems to fit in best considering its tasks.
+>>> Probably a similar sentiment as Lorenzo here...the above diffs make the code
+>>> *worse* to read. In fact, I recall adding record_subpages() here long ago,
+>>> specifically to help clarify what was going on.
+>>
+>> Well, there is a lot I dislike about record_subpages() to go back there.
+>> Starting with "as Willy keeps explaining, the concept of subpages do
+>> not exist and ending with "why do we fill out the array even on failure".
+> 
+> Yes
+> 
+>>
+>> :)
+>>
 >>>
->>> The functions of many of the mailbox channels are unknown. This is not
->>> the fault of this binding's author; we've never received adequate
->>> documentation for this hardware, and the downstream code does not make
->>> use of them in a way that'd reveal their purpose. They are kept in the
->>> binding as the binding should be complete.
->>>
->>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
->>> ---
->>>    .../bindings/devfreq/mediatek,mt8196-gpufreq.yaml  | 116 +++++++++++++++++++++
->>>    1 file changed, 116 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/devfreq/mediatek,mt8196-gpufreq.yaml b/Documentation/devicetree/bindings/devfreq/mediatek,mt8196-gpufreq.yaml
->>> new file mode 100644
->>> index 0000000000000000000000000000000000000000..1fe43c9fc94bb603b1fb77e9a97a27e92fea1ae8
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/devfreq/mediatek,mt8196-gpufreq.yaml
->>> @@ -0,0 +1,116 @@
->>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/devfreq/mediatek,mt8196-gpufreq.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: MediaTek MFlexGraphics Performance Controller
->>
->> Doesn't MFG stand for MediaTek Flexible Graphics? (or did they update the name?)
->>
->> Perhaps it's a good idea to also add that reference... I think it's a little more
->> readable and understandable compared to "MFlexGraphics" :-)
-> 
-> "MFlexGraphics" is what the abbreviation section in the datasheet calls "MFG".
-> I don't see "Flexible Graphics" at all in the datasheet, but it's an obvious
-> inference of what the name means.
-> 
-> I think keeping "MFlexGraphics" is better for people grepping for what
-> the datasheet calls it.
-> 
-
-Okay in MT8196 that was updated then.
-
-On any other SoC previous to MT8196, the datasheet name is
-"MediaTek Flexible Graphics (MFG)".
-
-If you want to keep "MFlexGraphics" in MT8196-style, it's still a good idea to also
-reference somewhere the old "MediaTek Flexible Graphics" name, as that was used for
-more than 10 years. Really.
-
->>
->>> +
->>> +maintainers:
->>> +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
->>> +
->>> +properties:
->>> +  $nodename:
->>> +    pattern: '^performance-controller@[a-f0-9]+$'
->>> +
->>> +  compatible:
->>> +    enum:
->>> +      - mediatek,mt8196-gpufreq
->>> +
->>> +  reg:
->>> +    items:
->>> +      - description: GPR memory area
->>> +      - description: RPC memory area
->>> +      - description: SoC variant ID register
->>> +
->>> +  reg-names:
->>> +    items:
->>> +      - const: gpr
->>> +      - const: rpc
->>> +      - const: e2_id
->>
->> We should find a better name for that "e2_id".
-> 
-> Agreed, but we don't have a register map that includes this address
-> and would give us a different name.
-
-Yeah but still, it feels like this naming is MT8196-specific, and this driver is
-not entirely specific to this SoC (this version is, but with minor modifications
-this can work on other chips as well).
-
- > I think it's some sort of silicon revision.
-
-It is. And there's a broad range of names that you can use in place of "e2_id"...
-
-If there's no precise name, always go with something that is generic enough but
-that resembles what can be found inside of the mmio that you're specifying.
-
->>
->>> +
->>> +  clocks:
->>> +    items:
->>> +      - description: main clock of the embedded controller (EB)
->>> +      - description: core PLL
->>> +      - description: stack 0 PLL
->>> +      - description: stack 1 PLL
->>> +
->>> +  clock-names:
->>> +    items:
->>> +      - const: eb
->>> +      - const: mfgpll
->>> +      - const: mfgpll_sc0
->>> +      - const: mfgpll_sc1
->>> +
->>> +  mboxes:
->>> +    items:
->>> +      - description: FastDVFS events
->>> +      - description: frequency control
->>> +      - description: sleep control
->>> +      - description: timer control
->>> +      - description: frequency hopping control
->>> +      - description: hardware voter control
->>> +      - description: gpumpu (some type of memory control, unknown)
->>> +      - description: FastDVFS control
->>> +      - description: Unknown
->>> +      - description: Unknown
->>> +      - description: Unknown, but likely controls some boosting behaviour
->>> +      - description: Unknown
->>> +
->>> +  mbox-names:
->>> +    items:
->>> +      - const: fast_dvfs_event
->>
->> Any problem if we avoid underscores in names?
->>
-> 
-> No but I'm not sure what the canonical naming style is for mailbox
-> channels. "fastdvfsevent" is hard to read.
-> 
-
-"fast-dvfs-event" would be good, wouldn't it? :-)
-
->>> +      - const: gpufreq
->>> +      - const: sleep
->>> +      - const: timer
->>> +      - const: fhctl
->>> +      - const: ccf
->>> +      - const: gpumpu
->>
->> "some type of memory control" .. it's really a MPU. For memory protection. :-)
->> Besides, I don't think we have to touch anything in the gpumpu for freq control
->> via gpueb.
->>
-> 
-> Gotcha, so should I leave it out of the GPUFreq binding's used channels?
-> 
-> Would leave a gap, but that's probably fine.
-> 
-
-I really doubt that this is ever getting used at all for GPUFreq, so yes, leave it
-out.
-
->>> +      - const: fast_dvfs
->>> +      - const: ipir_c_met
->>> +      - const: ipis_c_met
->>
->> MET is a hardware event tracer / profiler... and I'm fairly sure that we have no
->> real reason to support it (at least, not like that, and not in a first submission).
->>
->> Ah btw: ipir ipis .. ipi-receive ipi-send
->>
-> 
-> Gotcha, will remove those as well.
-> 
-
-P.S.: of course I was implying that if we ever need to support those, we can always
-add them later (but I still really doubt that we're ever going to use MET at all,
-even though it would be *really* nice to).
-
->>> +      - const: brisket
->>
->> Brisket is... something. There's one for the GPU, one for CPU, and one for APU.
->> Not sure what it exactly does, but seems to be or control a FLL (freq locked loop).
->>
->>> +      - const: ppb
->>
->> PPB = Peak Power Budget
->>
->> The PPB needs its own "big" driver (the PBM - Power Budget Manager) in order to do
->> anything - as in - this manages a SoC-global peak power setting based on the
->> available maximum deliverable instantaneous (and/or sustainable) power from the
->> board's power source and it is mainly used for smartphone usecase (battery!).
->>
->> In order to work, the PPB HW (yet another mcu) needs to be initialized with tables
->> for CPU and GPU (and APU? and something else too?), and with other data explaining
->> the maximum instantaneous power that can delivered at a certain battery percentage.
->>
->> Important point is... I doubt that PPB is being initialized by the bootloader, on
->> all of Genio, Kompanio and Dimensity chips, so this should be disabled by default.
->>
->> You can keep it, especially now that you have a description for it - and because it
->> does indeed exist, but I doubt that we're using this anytime soon.
-> 
-> If it's going to be used by a separate driver, wouldn't it be better if we don't make
-> this channel part of the channels the GPUFreq driver uses?
-> 
-
-Not sure if gpufreq needs to poke that channel to tell to the ppb "I'm setting this
-frequency here", or if the MCUs can communicate that stuff on their own.
-I didn't do any research about that.
-
-Since adding stuff is kinda easier than removing, I guess avoiding to add this for
-now is a sensible option. Let's do just that then.
-
->>
->> Cheers,
->> Angelo
->>
-> 
-> Kind regards,
-> Nicolas Frattaroli
-> 
->>> +
->>> +  shmem:
->>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>> +    description: phandle to the shared memory region of the GPUEB MCU
->>> +
->>> +required:
->>> +  - compatible
->>> +  - reg
->>> +  - reg-names
->>> +  - clocks
->>> +  - clock-names
->>> +  - mboxes
->>> +  - mbox-names
->>> +  - shmem
->>> +
->>> +additionalProperties: false
->>> +
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
->>> +
->>> +    gpufreq: performance-controller@4b09fd00 {
->>> +        compatible = "mediatek,mt8196-gpufreq";
->>> +        reg = <0x4b09fd00 0x80>,
->>> +              <0x4b800000 0x1000>,
->>> +              <0x4b860128 0x4>;
->>> +        reg-names = "gpr", "rpc", "e2_id";
->>> +        clocks = <&topckgen CLK_TOP_MFG_EB>,
->>> +                 <&mfgpll CLK_MFG_AO_MFGPLL>,
->>> +                 <&mfgpll_sc0 CLK_MFGSC0_AO_MFGPLL_SC0>,
->>> +                 <&mfgpll_sc1 CLK_MFGSC1_AO_MFGPLL_SC1>;
->>> +        clock-names = "eb", "mfgpll", "mfgpll_sc0",
->>> +                      "mfgpll_sc1";
->>> +        mboxes = <&gpueb_mbox 0>, <&gpueb_mbox 1>, <&gpueb_mbox 2>,
->>> +                 <&gpueb_mbox 3>, <&gpueb_mbox 4>, <&gpueb_mbox 5>,
->>> +                 <&gpueb_mbox 6>, <&gpueb_mbox 7>, <&gpueb_mbox 8>,
->>> +                 <&gpueb_mbox 9>, <&gpueb_mbox 10>, <&gpueb_mbox 11>;
->>> +        mbox-names = "fast_dvfs_event", "gpufreq", "sleep", "timer", "fhctl",
->>> +                     "ccf", "gpumpu", "fast_dvfs", "ipir_c_met", "ipis_c_met",
->>> +                     "brisket", "ppb";
->>> +        shmem = <&gpufreq_shmem>;
->>> +    };
+>>> Now it's been returned to it's original, cryptic form.
 >>>
 >>
+>> The code in the caller was so uncryptic that both me and Lorenzo missed
+>> that magical addition. :P
+> 
+> :'(
+> 
 >>
+>>> Just my take on it, for whatever that's worth. :)
+>>
+>> As always, appreciated.
+>>
+>> I could of course keep the simple loop in some "record_folio_pages"
+>> function and clean up what I dislike about record_subpages().
+>>
+>> But I much rather want the call chain to be cleaned up instead, if possible.
+>>
+>>
+>> Roughly, what I am thinking (limiting it to pte+pmd case) about is the following:
 > 
+> I cannot get the below to apply even with the original patch here applied + fix.
 > 
+> It looks like (in mm-new :) commit e73f43a66d5f ("mm/gup: remove dead pgmap
+> refcounting code") by Alastair has conflicted here, but even then I can't make
+> it apply, with/without your fix...!
+
+To be clear: it was never intended to be applied, because it wouldn't 
+even compile in the current form.
+
+It was based on this nth_page submission + fix.
+
+
+[...]
+
+>>   }
+>>   static int gup_fast_pud_range(p4d_t *p4dp, p4d_t p4d, unsigned long addr,
 > 
+> OK I guess you intentionally left the rest as a TODO :)
 > 
+> So I'll wait for you to post it before reviewing in-depth.
+> 
+> This generally LGTM as an approach, getting rid of *nr is important that's
+> really horrible.
+
+Yes. Expect a cleanup in that direction soonish (again, either from me 
+or someone else I poke)
+
+> 
+>> --
+>> 2.50.1
+>>
+>>
+>>
+>> Oh, I might even have found a bug moving away from that questionable
+>> "ret==1 means success" handling in gup_fast_pte_range()? Will
+>> have to double-check, but likely the following is the right thing to do.
+>>
+>>
+>>
+>>  From 8f48b25ef93e7ef98611fd58ec89384ad5171782 Mon Sep 17 00:00:00 2001
+>> From: David Hildenbrand <david@redhat.com>
+>> Date: Sat, 6 Sep 2025 08:46:45 +0200
+>> Subject: [PATCH] mm/gup: fix handling of errors from
+>>   arch_make_folio_accessible() in follow_page_pte()
+>>
+>> In case we call arch_make_folio_accessible() and it fails, we would
+>> incorrectly return a value that is "!= 0" to the caller, indicating that
+>> we pinned all requested pages and that the caller can keep going.
+>>
+>> follow_page_pte() is not supposed to return error values, but instead
+>> 0 on failure and 1 on success.
+>>
+>> That is of course wrong, because the caller will just keep going pinning
+>> more pages. If we happen to pin a page afterwards, we're in trouble,
+>> because we essentially skipped some pages.
+>>
+>> Fixes: f28d43636d6f ("mm/gup/writeback: add callbacks for inaccessible pages")
+>> Signed-off-by: David Hildenbrand <david@redhat.com>
+>> ---
+>>   mm/gup.c | 3 +--
+>>   1 file changed, 1 insertion(+), 2 deletions(-)
+>>
+>> diff --git a/mm/gup.c b/mm/gup.c
+>> index 22420f2069ee1..cff226ec0ee7d 100644
+>> --- a/mm/gup.c
+>> +++ b/mm/gup.c
+>> @@ -2908,8 +2908,7 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
+>>   		 * details.
+>>   		 */
+>>   		if (flags & FOLL_PIN) {
+>> -			ret = arch_make_folio_accessible(folio);
+>> -			if (ret) {
+>> +			if (arch_make_folio_accessible(folio)) {
+> 
+> Oh Lord above. Lol. Yikes.
+> 
+> Yeah I think your fix is valid...
+
+I sent it out earlier today. Fortunately that function shouldn't usually 
+really fail IIUC.
+
+-- 
+Cheers
+
+David / dhildenb
+
 
