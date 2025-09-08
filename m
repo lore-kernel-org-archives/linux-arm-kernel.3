@@ -4,53 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E743CAC586
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1FCCAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=36riWVZaI/SBIjc5Jjs7zqIpnkymBhbeOM8oHEnXB+M=; b=4KprzbvMn6Pf9sYC4Lk0PX5ums
-	GIkATmP0fsL8ud5dc0gUV46v4U6RM7gDdZAVJ+1BUSNc828qoguJLOmlyaS/MrPzQj6OjhkvYjCdj
-	+qADcat4aJKxH6Z+g6zZn6Hc7mUb8CpHBHT5i51hvtLpsdv3fTCYkGETssAywc5YA5dL5w6dM5WVx
-	vUsbJ4ZZKF188RCBLcJGhSJP62dJEsTD5g/KHC21fUJPhz4CLueGCy62o74NMGGqAs49AfIp9FBR9
-	v+Mely9XCWFOAACwYJcVLcTp1FNe1JSrO0WhhyE3E9fl+jrse97kjnDvfsP8KIyXJWU/ETe/J2cm3
-	nVRGWz9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QUGJP8x3EPh02gJ+Eu+rTxfR3Hj7+dBYi80c01SB4eM=; b=CHAnPgQH0VDuq4J94aoBuhCuy5
+	pEdveRzhFbMTEZYMEAuMLhkLIINCAaFAqeCwwLALDmC7M74TOoFVaykewC+IA4oAZZKd3BfHm+/uH
+	wy+HMth78w5yHoRcPzxD4yayqi2wcTg0Z/WHUcGWeRrRxz3AsWm/PtXtYcZIv1fd3vCLk6XtuaGRZ
+	8gxp6KCL0brcPRfhHs3ZbPKRV+/1g1KR+9NfWdvLOsSYN7ZCFwdagxG9k9qanHyz4gFQW4pFYQKT7
+	pHv/W4oJ8O3YMnLRwjWJCfVVdOjPLkM9UBJyvNR1a5XsAWjQWyDKzvlKgyShBn6BmIWqImf+rPAhS
+	cQTLZCAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvb1r-0000000H1u2-2Ny3;
-	Mon, 08 Sep 2025 12:31:27 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uvb4Y-0000000H2tM-1zOn;
+	Mon, 08 Sep 2025 12:34:14 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvZqo-0000000Gbda-34IE;
-	Mon, 08 Sep 2025 11:15:59 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c66:c9e9:75f9:f434:33cd:e4fe])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 51346725;
-	Mon,  8 Sep 2025 13:14:42 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1757330082;
-	bh=+8Z8atAnfriG15S5k0i4V2/xNbQzXkz5PziUTXcBQe0=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=MtEXD2U+aGfOqJspEKZo5QXwh0CeOGPsQ6sDmV/H/A1CAZLTVzuXptUKRuZMD3SnG
-	 +TXeXaSYNUpKi8TskBfd15Y0DSIe6wMuGNtFr7LysZfxv249kQCL5TwL2gcBtseZqX
-	 DU+BOYzHlhbl2YlEpmH49f6HE4HvR34NDSlv6P64=
-Content-Type: text/plain; charset="utf-8"
+	id 1uvZxu-0000000GeGW-1aE5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 11:23:20 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=pOfcSSmqNlUaEkhIpzJ3/9Z8zERqETyiECRqAkoIWN2wqlx1qr0cC6n1BFTXk5AWXqjgPsGBPMcpKPD1sGBIhZbo5L6AdGGuyIiMdZp0fQB2WkHWCBdN/kslrsfyzEKzcszC2sX/cGw20gVBKRBIdFm/KV2ND12p+Aw5bKkq4ZAJKRTPHEJGdtLsu102Xb0LE7Vl5ke+cdRnk9U5FkUw6iTo2M5qczY4Sh8HDXNKysoX+x/fyPFxNIMuWOgnteFSow009MMMo29cO/nVgPE4q2/fLguYsrIkdAnov6MZOErIjb+g9+UKMoPzyiUS2pXO8UMSQb4I5HVCLlMfU6lneA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QUGJP8x3EPh02gJ+Eu+rTxfR3Hj7+dBYi80c01SB4eM=;
+ b=R/qDqIaPBJv/6vb8Oavv8vMHigXhKCJSRX7WJGv44PobZ/kmWFk67+trvrWiu6OdcJ4Gz5nIFEb2Lgjjkrg0OuMpGob94m9ZzikB6mkjERdQqZ5jSRJflrbQ2cmqwvjiAA7F1v0amVBNMXXuVidbNd3HzKTfjlbYidbBtIb0eIF45yeKd3h3CO/RkJ/GoAHiENRZkGstbM1oI9o5g1wXCCiUz9xr8wLFHVDLMIvcOtvuAkcM8dOMw+n/Ze88XoOn7rhRs9HyvLcXKFHA+rtQnuJtKUSkF39FprEaAiFWUFwgsABKZ2vb5S21t9m0xymxvYlIzU7pdoNB3BBmxSAGww==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QUGJP8x3EPh02gJ+Eu+rTxfR3Hj7+dBYi80c01SB4eM=;
+ b=ElvvUGQm31fJts0FjFZ5F+84bJqS09ZDIL8+XAcszah9KeNO5ldmnDnnKQKn+YksAayASj8jxposL7M/gtCokYXAFfRMcpeqgSS0dEwbiIl7qfu3GeQ4rCRiwkBnWuRtw1MobWuQKHhABItJGA5mMbWiixzfjpNwNaTqtPl1H6c=
+Received: from DU7P189CA0008.EURP189.PROD.OUTLOOK.COM (2603:10a6:10:552::10)
+ by DU4PR08MB11077.eurprd08.prod.outlook.com (2603:10a6:10:576::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Mon, 8 Sep
+ 2025 11:23:12 +0000
+Received: from DU2PEPF00028D00.eurprd03.prod.outlook.com
+ (2603:10a6:10:552:cafe::ca) by DU7P189CA0008.outlook.office365.com
+ (2603:10a6:10:552::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.22 via Frontend Transport; Mon,
+ 8 Sep 2025 11:23:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF00028D00.mail.protection.outlook.com (10.167.242.184) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.13
+ via Frontend Transport; Mon, 8 Sep 2025 11:23:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p/QyDsLfzMCyukn3syV1TwmZIq3ADtHf3+MeVtsnS5em6v6pA4FqH0s3uQBswM0qQ5Q4gFgkZZjkPK8mE76wlO3wfgjFJhk7v6l6rVwaKj4WFsnB1MuhU64jIx/+Hy3NZPYq5q1eDBRCT+KRr/NBgI84w/2Z41FlE+Y1zKVjkGYFqrCPUfrlQ3Q/mYQBiIQv2SQX1u8QpSNghdeSLHmhOnX2CPkZQuCzm4hkFUgejByoesdctRIG00JaDt+YrqmL6FBZiSx9Ky1ZCSU4Urz4Le4Lih01IEHZBXpFRJbhI1Z1R6CpqVqyeYPC10v0YfPSayqiE9GuiKjzTmuvHUw84w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QUGJP8x3EPh02gJ+Eu+rTxfR3Hj7+dBYi80c01SB4eM=;
+ b=tcesV2wT+7D3HAv2QellxU2NjCtRLLQLOIa1uhtR163SRpfraOVNJFVB8hqe6JGuHjBzSbrjQ7xVkUnLn1kz6VP5dNBttEaVw0UUG6mse8PJtH9loyrW0BeZj+Qp4RZYyKlm6Ja8B5EY1FUeh5CFOE4TWV+/V60n93Qn6oyeA/HUazdAXrLlOqYmpPhk761DiquyQFO2Hd7kRlh753VjuKvOhDN77KujX/3+dQhsODpultUUs0izQeIi3+eyoleQhzip9g4qmnC+TkH8LkSPSoG96kN6SrvygGxEGF6y1kYF1+TKEsgqUOV0CQ6z4ibN58btiqYQho1JbM09FZwCZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QUGJP8x3EPh02gJ+Eu+rTxfR3Hj7+dBYi80c01SB4eM=;
+ b=ElvvUGQm31fJts0FjFZ5F+84bJqS09ZDIL8+XAcszah9KeNO5ldmnDnnKQKn+YksAayASj8jxposL7M/gtCokYXAFfRMcpeqgSS0dEwbiIl7qfu3GeQ4rCRiwkBnWuRtw1MobWuQKHhABItJGA5mMbWiixzfjpNwNaTqtPl1H6c=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by AS2PR08MB8748.eurprd08.prod.outlook.com
+ (2603:10a6:20b:544::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.18; Mon, 8 Sep
+ 2025 11:22:38 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9094.018; Mon, 8 Sep 2025
+ 11:22:37 +0000
+Date: Mon, 8 Sep 2025 12:22:34 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Dave Martin <Dave.Martin@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
+	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
+	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
+	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com, mbenes@suse.cz,
+	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
+	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
+	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v4 0/5] initialize SCTRL2_ELx
+Message-ID: <aL68enBTkmsjJGPy@e129823.arm.com>
+References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
+ <aLW5OIgv8/bvvY9E@e133380.arm.com>
+ <aLXjVNCbT6YeWlSS@e129823.arm.com>
+ <aLgd0/7peYBA4z87@e133380.arm.com>
+ <aLgvzKeEPn325aRO@e129823.arm.com>
+ <aL630WeBwWoUGTBp@e133380.arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aL630WeBwWoUGTBp@e133380.arm.com>
+X-ClientProxiedBy: LO2P265CA0072.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:60::36) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <aL5uKTiEYZP68xLd@stanley.mountain>
-References: <20250907-vchiq-destage-v2-0-6884505dca78@ideasonboard.com> <aL5uKTiEYZP68xLd@stanley.mountain>
-Subject: Re: [PATCH v2 0/5] staging: Destage VCHIQ interface and MMAL
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com, Stefan Wahren <wahrenst@gmx.net>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Umang Jain <umang.jain@ideasonboard.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Date: Mon, 08 Sep 2025 16:45:46 +0530
-Message-ID: <175733014607.8095.7451233410776368088@freya>
-User-Agent: alot/0.12.dev28+gd2c823fe
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS2PR08MB8748:EE_|DU2PEPF00028D00:EE_|DU4PR08MB11077:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9022ace6-a29a-4ec3-1252-08ddeeca188f
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?86TCVSm8xvOEFHkfBxBX5ba0i4J+QCJj6DIRklTZfxf4HZHq6aIQNnQaYfi8?=
+ =?us-ascii?Q?mG5NLRLMWE1yHnjmtsOR43wBqcC/O7o3wnLnc3sc6tvkfS5e+GvkY76nJ3kg?=
+ =?us-ascii?Q?mBa/tl5n54qn5GfZd09a9hGCu0dQrK0QaH6CBt8J6pzNZibtA7Z4/0QD7hC+?=
+ =?us-ascii?Q?u1sgcQdog8a1qJpt9Dmg68Qm5P17hLzSo5a73Tw+2NnyiyVYIc78rIop4Mqe?=
+ =?us-ascii?Q?8021uF9pUamtL9i6qu7G37s5Od1zOB9rMF8X1F3r//ewEK6mhhSmvw7ndZU/?=
+ =?us-ascii?Q?ZTpTEFOyfxIHtELeb0gNdp3L1kdWb5gTw8KchVkLUgNy6hMqqTK273XwyDVV?=
+ =?us-ascii?Q?VntbJKixhU1ZTIzKto6E2l3IQjh0EQIxiNZb4GRfFNF0cQszRxw8lZvmKDt/?=
+ =?us-ascii?Q?y+3D5OUl/Tle0JYdW3uHHcPcqR1VMFd4iuFNkv29zbPNEAm0N7XbA8gavyFN?=
+ =?us-ascii?Q?fhpKpt/7Bv1sadvRGTLiemIh4B9Y7f+6+cLWrh0TOY9DAvWubKZhS6H4rE89?=
+ =?us-ascii?Q?oSmQ78s3tdHt2hd5/LgiAoCI/Ud1pSb57SomOAbM3WVoIrXF/nGo/GYmKar0?=
+ =?us-ascii?Q?HlE5VlNyZwPsHO3c0VoJc19Ou/8GL8LGm8DvgGjK4Gkyqg99G6wUjoLx/cLc?=
+ =?us-ascii?Q?LM5ytHM/LuherU3EXDhWhzwGn7kA+3tA3z2H2lFoKCZG3Q+0Ri1vsE3Z1Lsu?=
+ =?us-ascii?Q?V6fQFJi/pIUKVjn1QW7lqG4E9L+0x/4unHLbLSnt5mNe/+K1QtSBjoaiHzhh?=
+ =?us-ascii?Q?q1Zb0Y63egdVN8/baBNbBQUCYHbdu0Araj+EmdFlafmmCKkYoGeG4/97xTd5?=
+ =?us-ascii?Q?KN70SWkMI7ppF+jMQrGJC+booG8FSSIi3xUxOGBMfOL7KaBFb0xL2ND8jd+X?=
+ =?us-ascii?Q?cqZlmWdNfXQfd7iHhg5iGmTRni1LLoaQerQ3Sp9MEaAWKICgI2EgHH24Oq4K?=
+ =?us-ascii?Q?kFkStEuVO6oPVMgEfZlmYEUQoQ7X5rEan/k21fZ/VVmEDzOc08g5SdIzuO9P?=
+ =?us-ascii?Q?gx3kJYUAX5uMxIQMBHBPHhf1S25BYLnC/Y5orEnPJK718kKUPhq1lpnwCXJ2?=
+ =?us-ascii?Q?4SY2QSYt//QTkDsFEeFxQ6G0lE0Atksx+Dd/0TvvvtHlUhkkboxQd2CUo+wW?=
+ =?us-ascii?Q?mnrsiDfPXEfkcHI2hmoRfBNv60USDTaBjLqyQp3PcN/WfzCJimtKcMiZTdju?=
+ =?us-ascii?Q?e9EnW7xjPMM5bn0NA++Vop69EL+vHuGTNP0TwTXorViW24lQGYmkSjPIeVwi?=
+ =?us-ascii?Q?MP0BY5tAfmsRdRHVVas91Myk34Pj2n4kKQvTlp4U3m4LGV3/x0/NisNYjk5I?=
+ =?us-ascii?Q?sbhGe/hgQJHZO+aik3EBDky7+pfu8+iIgK1kN+5LL1t6azKKhMO9qrHhOd3L?=
+ =?us-ascii?Q?LXs9DnAXnU5pW4CRmALl5Rd6VUfTEhdebgMN9ef+YBKelkISKxL4r+7jRlgw?=
+ =?us-ascii?Q?oGZC0NgmguA=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8748
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D00.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 49b1b88b-d7e4-40c6-c2b8-08ddeeca040a
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|14060799003|1800799024|35042699022|82310400026|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kk8+EkQEhLdn9Kttnz7oFIbmNLw6IDPrIySrLAKvYRHyYcHEJYgbfTOO4vQz?=
+ =?us-ascii?Q?kOKxVvCkbv+cpG2s6o/WLh2SHuNhebPTEIam5Z2n5b37HnyqeM4dpX333JHB?=
+ =?us-ascii?Q?ICMj75ceW2rgroqrOTXYf7zq+p0N8KThoH/w15DkUBEBwf47XIkPEvlfSPvq?=
+ =?us-ascii?Q?gQWQL2INhCdr8zj6fDThwStopNUW2DKZkGqgnt5CGQyh8DDr4z/2XktxWciY?=
+ =?us-ascii?Q?v4DZHDo9Oue/yHArSdKA3B4NqzJv4pvbwvt65vH4acqQLfJuIXUWaka6PghA?=
+ =?us-ascii?Q?I9sDMggoUschyE3D3Q35toWS8s4lCz7Wnbxra1uXNfdXI+Wz93ou1AaalbdM?=
+ =?us-ascii?Q?qGJ6Zy4vWhEZpXMVrYw+hQ7wvA9dM/OGkQJOnoFoQksFuoFsCXL0n6z2+4Li?=
+ =?us-ascii?Q?58q8A4kmM8brbp/UU1G0n5L3uXP/lOvmEJCk9Axv5cq0AUzGWLA5ioiSyAuF?=
+ =?us-ascii?Q?VNh3tUmR6z5lMXMYlBXMVj6Yt7nkz6orU2skeUyXMdYFKiFPcT2lnT07607Z?=
+ =?us-ascii?Q?nQuFof5ANgiRadyr7jg7QzMClxfsjlVjDnnhrntrdDRFeuzWfersn/Qcuc5V?=
+ =?us-ascii?Q?jh+YkBHh8R09QNJGXGUwLeSkJ3ErrhR8RTeBrHNiRTfahG0FLtnOuhCMS22z?=
+ =?us-ascii?Q?3/Xi2JZoqZ2wI3stBAcZAjWdUdm3axGJbSdXL0Mu8AT7I+elBrwrd2eLRP/i?=
+ =?us-ascii?Q?/TjuFa1T2AIe253L9N+zXy/Jm6GgB1COWOC/4yKArjlGPuj9KvkOmSdCMNfP?=
+ =?us-ascii?Q?FVmMFC38kzKJOhnhpUIZlNOeA8rkwajX4B+cfhdeIRDFj1Jr7ELzSqwPtZV5?=
+ =?us-ascii?Q?2BA7SDPJm3ZZ2wmtBlLdlhSGNO14VLexWvC3qAqR9MzxjGvGi9bB2u83zr1x?=
+ =?us-ascii?Q?dN56EVDS8zqLKebtLDSjBf05wDMLWz3kHUyy4Q8T7TT8q3fmRM4Kqz26Xh1o?=
+ =?us-ascii?Q?hXjUVbhnt2BYYrwaSioI9czjkeikPco27UtuFdj4Q8QTsGGBw1pXrxcJ6k1i?=
+ =?us-ascii?Q?LLg806EzOeH8NO9vBtj81qsp5Fdqb7TOmy1GlBUYOcQ3IQR03GlvJV4r3VZg?=
+ =?us-ascii?Q?hkz7ZZ4idr4lLGyjA8pVeZEeb7sSy5ngQrufhvs8ycczwhlKnVPe7MQtwd7w?=
+ =?us-ascii?Q?VaUnJmtBFuPUdyn3IUV498inPHUl7NBy543TIVp6o1I89T3QRN1n0tTsmoNE?=
+ =?us-ascii?Q?J0JPPgQSMJWxtZ7Sk2gdLkMDu5duRGJUZCRZrQtCoYZYeCuYWnDNh5tetsWN?=
+ =?us-ascii?Q?A/e1LN8udBvZ4FI71zrM4HbVGbYQnaiP53tlym9B/xTzwyw2eE029hXQU9Vn?=
+ =?us-ascii?Q?fpKgXktAO6ppEnlL7vWoQoMVSRW+gBQ0FJQTyPtEbWXPKPn7C41R8Mk1pX8i?=
+ =?us-ascii?Q?PJqMZLSvE9aIJuRUh6c6opWhAdP5sKefSb873aVpgh0qJBgS4czB5gacZWhG?=
+ =?us-ascii?Q?ANw6kAn28umhAa9Sgm9FRC+oDx33FN40OOUww2Wmfj3fQ9gg1/O1xqNQZ7dX?=
+ =?us-ascii?Q?09JI3IfKW5dIKNny3JZSwF+WHpj/wFAO97Fe?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(14060799003)(1800799024)(35042699022)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2025 11:23:11.8317
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9022ace6-a29a-4ec3-1252-08ddeeca188f
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D00.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR08MB11077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_041558_903646_975E9B5E 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20250908_042318_581923_1F64727D 
+X-CRM114-Status: GOOD (  33.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,31 +210,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
+Hi,
 
-Quoting Dan Carpenter (2025-09-08 11:18:25)
-> It's really hard to review the code when it's just sigle line like
-> this:
->=20
-> >  .../raspberrypi/vchiq-interface}/vchiq_arm.c       |    9 +-
->=20
-> It's also a head ache to do a cat -n filename and then copy and paste
-> it into an email message...  I thought there was a trick to make the
-> diff show up in the email?
->=20
-
-I am not sure how to configure b4 to give the full file path instead of
-shortening it after the first file in a list.
-
-Does git-format-patch already have some option? I can use that to ease
-reviews till b4 adds support for this feature.
-
-Or did I misunderstand your problem?
-
-> regards,
-> dan carpenter
+> [...]
 >
+> > > > > Have you tested all the code paths, or are there some things that have
+> > > > > not been tested?
+> > > >
+> > > > I've tested for pKVM, nested and nhve and crash path
+> > > > (I do my best what can I do for modified path).
+> > >
+> > > Was that just confirming that the kernel boots / does not crash?
+> >
+> > Not only that, since the my last mistake, I've check it with debugger
+> > too -- set the SCTLR2_ELx as I expected.
+> >
+> > >
+> > > What about CPU suspend/resume and hotplug?
+> >
+> > Of course It's done both enter/exit idle and hotplug with related kselftest test.
+>
+> Were you able to step through these paths, too?
 
-Thanks,
-    Jai
+Yes. with debugger and some trick with:
+  asm volatile("b ." ::: "memory");
+
+checking a cpu idle (by not loading any work) without any load and
+checking cpu-hotplug with kselftest's cpu-on-off-test.sh.
+
+So, by hitting the "b .", I've stepped in and confirm the SCTLR2_ELx set
+as it intended.
+
+>
+> > > My concern is that most of the defined SCTLR2_ELx bits won't affect
+> > > kernel execution unless the corresponding hardware features are
+> > > actively being used -- so while we know that the patches don't break
+> > > the kernel, this may not prove that SCTLR2_ELx is really being
+> > > initialised / saved / restored / reset correctly.
+> >
+> > That's why I've confirmed with debugger whether the SCTLR2_ELx value
+> > sets as I expected... personally I've done as much as I can for
+> > test related for SCTLR2_ELx.
+>
+> OK
+>
+> > > > > Since this code is not useful by itself, it may make sense to delay
+> > > > > merging it until we have patches for a feature that depends on SCTLR2.
+> > > >
+> > > > Whatever I pass this detiermination for maintainer.
+> > >
+> > > Sure, that's just my opinion.
+> > >
+> > > Either way, this doesn't stop anyone from building support for specific
+> > > features on top of this series before it gets merged.
+>
+>
+> Looking again through this series, I realised that the requirements for
+> this feature are not documented in booting.rst.
+>
+> Does the following patch look good to you?  If so, feel free to append
+> it to the series (with your Reviewed-by, if you're happy with the
+> changes).
+>
+> It's probably worth double-checking the bit numbers etc.  I wrote this
+> some weeks ago and then forgot about it.
+
+I've missed this and Thanks for your efforts.
+The bits you documented have no problem as far as I checked.
+Let me include this too in next series.
+
+(I'm still checking your suggestion to use .ifc. as soon as finish
+this. I'll repost it according to your suggestion)
+
+
+Thanks!
+
+[...]
+
+--
+Sincerely,
+Yeoreum Yun
 
