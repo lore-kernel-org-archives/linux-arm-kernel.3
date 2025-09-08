@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB23FCA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9973CCAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 23:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vZ1M0/j+tol6OkxMr0hlVrmoHe7gz9INi+eTrspZDLs=; b=Hh9MqquE9CHHGejv48Rk+ENlgv
-	XsnwvS+UNeIjqe047vN3r9Q3xt3XBbC6OQAxPVowMwryCwPnnfxKpSH0wC8SWntwW+dyXcA1BZmEs
-	irI1aoYOHPrOT2EGtUZK4t9YbZ/icouKOC2qM828InVAUhLeYmXt8WnTO4uRxK/A47q9AFF13+Rx9
-	hhfX6BzcmFYTzNtFreEWT0vLhFgZjyB/mag/y7jc8WBhN+6JrwwhtgJ7R9YfLihS/y3/jf5zXYzEt
-	pJOB9HqGWPVDI3v5cJqJbhm4m62sA6uaPiIJg2MSoUEnyu8IdvOVtJZgv+BLr8BJMcXCgoji9LuTL
-	k16ROMLQ==;
+	bh=BXRd9cNajXgMoXFnQ8H+Mp9quCpzNS7bOq38PRnGCFA=; b=26m6wNW21lM8hTiMqFU4u8YNzf
+	boH/MQcNsu7PnLyjkYGOjwBDGfRAm9tsZ6vmtlMgwNgNE3ytaqA/r5dR/Vaun4X+5uF2eNNc6Z2Wz
+	6DCVOSBjk/WTuc6YgQQigqag8Xe6s5Lddqypn89hzQyU3z+tlRc9HXVaSoq+PmkXYNrCm5/W6gAUS
+	iYLRskF3M/MsEW8+FKb3KMkUwR+6vgqDXF6Gt4CgZ3CUt42XogofHddDPtzg5QudV94Zd1MsYzlX7
+	MIfiiYPSrtHpZPkMr362RxuzfsvxQoZ7YWcYztNDwOfI2LtHTCjvOeQmfmIVsyNFOyzcvtPnj2P3Q
+	G2Z4upnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uviuV-00000002KBX-3eil;
-	Mon, 08 Sep 2025 20:56:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uvlek-000000033EH-1AFd;
+	Mon, 08 Sep 2025 23:52:18 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfcl-00000001BtT-0A93;
-	Mon, 08 Sep 2025 17:25:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F3B1401A5;
-	Mon,  8 Sep 2025 17:25:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DB2AC4CEF1;
-	Mon,  8 Sep 2025 17:25:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757352350;
-	bh=vZ1M0/j+tol6OkxMr0hlVrmoHe7gz9INi+eTrspZDLs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ua8VMQm28MuAxhVBQeMUZ/kS/mwfNcTKJVtB+tmxhMSSPfmmvYX473fO0xDcXAkUV
-	 r3XuAzKa00wPhcEQWFiNdK5DtNogesLL27y5ZE2UEGscjc7/mZYCtvoWsacwfmRaBL
-	 dlAQrYL7qHDRArakhLBvrjT/OmLOPp/xoFwcR25OcmHKw10TUdChRjHSlwo9+pIjjz
-	 KUre8tIzV8gM2WMrikSXjU+ujqhYtuqywPxz5+DnHgi2yALDG8MJwKzSqBDpjNbVfG
-	 RWOKc0ZtU2rdPg85cWhYmn1N4yHWOWL0DdQ7+dscYE9bN9kPKijevMCfQk7SmUZkQn
-	 BM6GSz9zfjktw==
-Date: Mon, 8 Sep 2025 18:25:45 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2] regulator: dt-bindings: rpi-panel: Split 7" Raspberry
- Pi 720x1280 v2 binding
-Message-ID: <20250908-punisher-doorbell-b616682bc682@spud>
-References: <20250905191637.147141-1-marek.vasut+renesas@mailbox.org>
+	id 1uvfp5-00000001G1O-2dbO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 17:38:37 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588HcVv13916327;
+	Mon, 8 Sep 2025 12:38:32 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757353112;
+	bh=BXRd9cNajXgMoXFnQ8H+Mp9quCpzNS7bOq38PRnGCFA=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=naIkQAf/a2+zDLCEwuJ3VGpzUF+Mh81yb7+BtFxDtLFaqlDDi6SuejZmM1qcmpU6d
+	 JcohdWI3KftukvgUwlmsPYnzFR2Dg1YFwwK+zQL4MJltFJYm6/OjXPOEZkGh4hoS8x
+	 sxH8taLaZZ/JN13VCbBfLHIoy7qN/6LEgcYbKIhw=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588HcVKf3122914
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 12:38:31 -0500
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 12:38:31 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 12:38:31 -0500
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588HcVVo1281123;
+	Mon, 8 Sep 2025 12:38:31 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
+CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2 1/2] arm64: dts: ti: k3-am62p/j722s: Remove HS400 support from common
+Date: Mon, 8 Sep 2025 12:38:30 -0500
+Message-ID: <20250908173831.269039-2-jm@ti.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250908173831.269039-1-jm@ti.com>
+References: <20250908173831.269039-1-jm@ti.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="z5hG/Mj9q8vHDhMA"
-Content-Disposition: inline
-In-Reply-To: <20250905191637.147141-1-marek.vasut+renesas@mailbox.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_102551_100167_42B752E0 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250908_103835_753794_450FFA7C 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since eMMC HS400 has been descoped for J722s due to errata i2478 [0]
+and is supported for AM62Px device, remove eMMC HS400 support from
+common-main.dtsi and include only in am62p-main.dtsi.
 
---z5hG/Mj9q8vHDhMA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[0] https://www.ti.com/lit/pdf/sprz575
+Signed-off-by: Judith Mendez <jm@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 ---
+ arch/arm64/boot/dts/ti/k3-am62p-main.dtsi              | 6 ++++++
+ 2 files changed, 6 insertions(+), 3 deletions(-)
 
-On Fri, Sep 05, 2025 at 09:16:30PM +0200, Marek Vasut wrote:
-> The 5" and 7" Raspberry Pi 720x1280 Display 2 MCU is a bit more
-> complex than the original Display 1 ATTINY88 and the binding is
-> also a bit more demanding. Split the binding into separate file
-> and fill in required gpio-controller, #gpio-cells and #pwm-cells
-> which must be present for the V2 MCU. Include mention of the 5"
-> panel in the description of Display 2, as the 5" panel uses the
-> same MCU.
->=20
-> Fixes: 6d09c6e474bd ("regulator: dt-bindings: rpi-panel: Add regulator fo=
-r 7" Raspberry Pi 720x1280")
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+index 4427b12058a6..0c05bcf1d776 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+@@ -576,15 +576,12 @@ sdhci0: mmc@fa10000 {
+ 		bus-width = <8>;
+ 		mmc-ddr-1_8v;
+ 		mmc-hs200-1_8v;
+-		mmc-hs400-1_8v;
+ 		ti,clkbuf-sel = <0x7>;
+-		ti,strobe-sel = <0x77>;
+ 		ti,trm-icp = <0x8>;
+ 		ti,otap-del-sel-legacy = <0x1>;
+ 		ti,otap-del-sel-mmc-hs = <0x1>;
+ 		ti,otap-del-sel-ddr52 = <0x6>;
+ 		ti,otap-del-sel-hs200 = <0x8>;
+-		ti,otap-del-sel-hs400 = <0x5>;
+ 		ti,itap-del-sel-legacy = <0x10>;
+ 		ti,itap-del-sel-mmc-hs = <0xa>;
+ 		ti,itap-del-sel-ddr52 = <0x3>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+index 6aea9d3f134e..90afe21e972b 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+@@ -31,6 +31,12 @@ usb1: usb@31100000 {
+ 			snps,usb2-lpm-disable;
+ 		};
+ 	};
++
++	sdhci0: mmc@fa10000 {
++		mmc-hs400-1_8v;
++		ti,strobe-sel = <0x77>;
++		ti,otap-del-sel-hs400 = <0x5>;
++	};
+ };
+ 
+ &oc_sram {
+-- 
+2.51.0
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---z5hG/Mj9q8vHDhMA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaL8RmQAKCRB4tDGHoIJi
-0tNSAQDHvTZVxppVac9hVI+YGFCfXJ0VH5h0bbcu57iFtmsfBAEAxIMkY/eVkpPB
-xh7DfBxcfZiL8+fcNFfZu5DnY8J4GA4=
-=MQSa
------END PGP SIGNATURE-----
-
---z5hG/Mj9q8vHDhMA--
 
