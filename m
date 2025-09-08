@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4147CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 19:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B555DCA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 19:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MDLH8KDavbhElvYEeGASjt3b59nw3BEYffUz2BhRUhU=; b=nhERh12z6E1lNuKh7ornkXSyHk
-	Y061PlgIifRo6MQJKE1E26NzYehd8isyUe3h/fQ4lVwhfV8V/gX4dkjP1FNdDdQlRNZIPLkD4gaGN
-	dDtWn4I/HRAiZnTf/4eF3yaqDY30uSqYsjpp+Ur4oG1gXQnQtXLFdf/Vsj2BHxrPh4+ylfZgk8HgJ
-	cBHEq6I2x5XULXb/o6utnnLC+7ecU2gBbimWkTSm7v+XzKY1OK/so8WZLOChUMBHIfYoTbzsO2XBg
-	fbxJU+3qCeFQCFc5UIadKG+jZ7bKy8uY6MtLBuYtESnB15lOmejfTzabke8gFJmLDBx/rXVdpq697
-	RAcJ/ZCw==;
+	bh=rkDbB/VBy9iyBcDcJYo6n2nktDCqpFN+gYQUVC2mCCk=; b=PyItDCBP/tC/FA9CS5V6td+k4L
+	Oor3+tUVbfjBSqQGR97Xq8QCwlU7IH90C2tSgh6lxvMKj/8o4nyfeanCTQrqJC+F0oSSiBjn6eDPq
+	FtPgPvBhss8C2oUTNruulO6dRa2Wyq7iSdtnmvNAaDgkKWUTyNlAtXlSbpd0STMIebChr2bTm3Ubc
+	vf7ds4x5aSPrVa1vcfkGLbAyi//hP94Q6/fj9bUKN0K6QN68AyantKrfH8m5gKkt4BLGdW3cK2wg5
+	D6tBcLFribXUU0KfqLxwu5Qti6ThwUHc3+XXrwbv+DFNYJ+9Et4ZkXCiBUTU91m3n/V2i21vz/8J+
+	Qeaqj0Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhAZ-00000001le7-3E9e;
-	Mon, 08 Sep 2025 19:04:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uvhDG-00000001mXw-2EAz;
+	Mon, 08 Sep 2025 19:07:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uveDW-00000000aiD-0SeJ
+	id 1uveDX-00000000ajw-387K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 15:55:42 +0000
+	Mon, 08 Sep 2025 15:55:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 84EB2601FD;
+	by sea.source.kernel.org (Postfix) with ESMTP id 73957449AA;
+	Mon,  8 Sep 2025 15:55:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2182C4CEF5;
 	Mon,  8 Sep 2025 15:55:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B1B5C4CEF7;
-	Mon,  8 Sep 2025 15:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757346941;
-	bh=DizzKg5VIDcP8L+ZEfS/2/xa/RROiz4nTvz9DInCpd8=;
+	s=k20201202; t=1757346943;
+	bh=BBOLuMQBpbMciZQldTFaNC14ABYsHLR+ucy6qxVuflA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Z38RrBL9jOJYM/P5tXNOiS2jkhaKwHC++0XXyY4dJwVsQoZEhoPnL6VRhO1z7JIjl
-	 gi7CMBaaseAKOPFPvNc4UOFiCIM+t0V5lh3CwNOYYDA2SJY/3Um/FcmfDWfy1hwQ7H
-	 xrOPQQLlx8HKtnAaJKPbeNWQRHPFzbZKP19T7giN/qOaq1wh9/dBn52gnuItDY7ouO
-	 5XrOCkQaj6S37PiKUHES/udqHEvUbJ1c4pYH0A6A1npZGyJP4GD0U8f6JO5ycUSWsA
-	 5esj0uCbcmB9Ou6e7e9J91dN0YsxhCFJIeWCvDGpAhFId8RJGLSKhyaX/P7J/myefr
-	 uNo4v4BXjdFvA==
+	b=M2EeJRJZjrCo832k4yhx0UNmvmT+xgE+UprMnC8RMlOLifl505tfT/vwenOftdXs+
+	 QpOsKPF2aQ5NQM8k+Td7++payF7d/Ibl8EFPXkCinqQ+e9azH7xZCNUOIWJ19fJFBz
+	 jBjsEgbvgs2r2Rbmhhh6iL51I4XRty7thSCs3hrGfmNd1HCgMRc7dzvNM6Bhou5sdL
+	 OdNJjKp5NMCydbnYLsFB4pTVjAd5FCCrCNx2lo1TEO7KvyxGSrKkLU7CfIL6CDj7Uq
+	 E1m2YqxdewLGyN/GmdhrDx/Omsi2qaRBdO2toplYwP01tYNJH68mG0qYolnFKYcER3
+	 dRVnGuoDhxxiQ==
 From: Will Deacon <will@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
 	Mark Brown <broonie@kernel.org>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/sme: Drop inaccurate documentation of streaming mode switches
-Date: Mon,  8 Sep 2025 16:55:27 +0100
-Message-Id: <175733401206.91195.12940628509924658208.b4-ty@kernel.org>
+Subject: Re: [PATCH] kselftest/arm64: Log error codes in sve-ptrace
+Date: Mon,  8 Sep 2025 16:55:28 +0100
+Message-Id: <175734043843.134886.2856924752419188882.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250723-arm64-sme-mode-switch-doc-v1-1-702bb484b4f4@kernel.org>
-References: <20250723-arm64-sme-mode-switch-doc-v1-1-702bb484b4f4@kernel.org>
+In-Reply-To: <20250812-arm64-fp-ptrace-perror-v1-1-7ce62d33709d@kernel.org>
+References: <20250812-arm64-fp-ptrace-perror-v1-1-7ce62d33709d@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250908_085543_799707_F5B87F4C 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,18 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Jul 2025 13:27:45 +0100, Mark Brown wrote:
-> The SME ABI documentation contains an inaccurate description of the
-> architectural streaming mode entry/exit behaviour, just remove it since
-> this is better documented by the architecture or with the rest of the
-> documentation for the specific software interfaces concerned.
+On Tue, 12 Aug 2025 15:37:00 +0100, Mark Brown wrote:
+> Use ksft_perror() to report error codes from failing ptrace operations to
+> make it easier to interpret logs when things go wrong.
 > 
 > 
 
-Applied to arm64 (for-next/docs), thanks!
+Applied to arm64 (for-next/selftests), thanks!
 
-[1/1] arm64/sme: Drop inaccurate documentation of streaming mode switches
-      https://git.kernel.org/arm64/c/3c0979c64481
+[1/1] kselftest/arm64: Log error codes in sve-ptrace
+      https://git.kernel.org/arm64/c/791d703baddd
 
 Cheers,
 -- 
