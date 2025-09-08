@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A189DCAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E17CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+iPaxs0OMSsl9HV+0VRMpYRIp05dc08EzgPjEp/mJ68=; b=kaRY+YhUk6NWoW9MRmCZaHRTOV
-	GAesf3uGntuhXH0WTWm1ip+veik4Q7dUEuQYZ/zihON50dZHi6V0nC1Xpnccjr6rEfq5dDXebTsDH
-	BhT4lD5r6ldYKb7M06ELApqXMfUww8N55NKEK1IhsTs6uqlH6yQ/DMGleFT4ubdycadTd5fEgt7og
-	4Tk+vGDsu7ubHwGqnXIYg0JI8UoM2EOJP5B5j51VRNDJmm2TSO1go1jn1RnHuFFsYxNXxgU0P6got
-	0KZ6Hx2UoynRoekIpXlNbIkASzHVor839RILnFH1UcuIf7Id0Ep0T6L4by6otv0GLAnhJsPcq1Xb3
-	UaYLz/eQ==;
+	bh=rX0FbXwgpvRNNI/2UkQ8kqjFikT1nbRId3r+WqD3Yz8=; b=svn40pD1/7bYBSVP6Hz5iehxfX
+	ZuXns8NGeK/OnuJlU0eKw72WFp3TmHzIFQ3cGKdBjPrkFOsNUpFjNZjCyBVQA7azHM9ixrV6W6JIM
+	YUrvh+3aRMxMGAqf/LrleF5r9228D8ED20+SECQFUm98UjmyY181kbnOm5+lcHnBv8ezKIlT3HJAK
+	xWUvzfq134Tw6WLVTWxklC2VRcZxKV1NRhBsGRORX1DtZ0i3p7+i8soRSPBisY7DaqfoPdgkwlh9j
+	i29BUdEcFlf2ntXbp3sBouBMdnaaKHSu/lbjIR1qU7Z+J32ANu8QtSQ42wwcsmt2GEie/S0G8KHWv
+	XLnPSGqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgUg-00000001VAA-1WO4;
-	Mon, 08 Sep 2025 18:21:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uvgUh-00000001VBx-2zJ5;
+	Mon, 08 Sep 2025 18:21:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvcMp-0000000HXqY-2eSg
+	id 1uvcR8-0000000HZBC-0O5M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 13:57:11 +0000
+	Mon, 08 Sep 2025 14:01:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 124D560051;
-	Mon,  8 Sep 2025 13:57:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2CF6C4CEF1;
-	Mon,  8 Sep 2025 13:57:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BDD78424BD;
+	Mon,  8 Sep 2025 14:01:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66B4FC4CEF1;
+	Mon,  8 Sep 2025 14:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757339830;
-	bh=050zbUZX1lnVnrMNgmCKX02vHOtiXrBiIjwWED3DpuM=;
+	s=k20201202; t=1757340097;
+	bh=rX0FbXwgpvRNNI/2UkQ8kqjFikT1nbRId3r+WqD3Yz8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XUabbPRwfEBXndLNsMWxIK5NGsZgzdZi2OaT2+ht3OsmFNCuXhgn+DLQVeDcxst5c
-	 Y//VSxfLF72FUx6Dvs2xUUGABvQxuQ6k7yHRPT1MZ9ZsWzoaILJyYknsEYHCwXeNo9
-	 a3XpWofRVVFemKbniVZVJzlBmxplmncRAoAA0/rwXN58E4620OafXmOU/yqgiPAGtd
-	 w8IpPu1i3dSu+48L6lYgaUJWVigfte6p5XIijSnVA2MfptHCkUcUJLOBkvkFmPRvJP
-	 UiJGrLryrDVyq1jNOYCF5OstoxsEDhnD64Izy/Nj66JHk2V/fj0xeSUIamXOVLxI03
-	 jJmVYpuf0tWWg==
-Date: Mon, 8 Sep 2025 14:57:05 +0100
+	b=sZnvjZ/6dgon0zsoULePF5c8f62g8NAPL6JWkKXEMW+rTzzOo/B6eTVtOChBRUZ2v
+	 BzoEEfbqIejDwVxlD0jCkQOQqeBrBLUkVPLKEcsr6kgbVH7Dg8rk+aEHKGO0yatpoV
+	 HJXVk6PigWEBgxmG2G+Kz1UoHsjXyn5T3SZLkxftWl27M44J4l2siBT2FizGpx0Gz6
+	 wB9iuarryw5uO2bE+K7STq6QB/4cBmn1n9KYZlO2HqKu7ozPMDlmMgeBo4XQFlC7jg
+	 eFYDIr23rW4dRi2bVFhjXKWwZGcXVlmW5jeoj+P2MP14r9Am2OrnnnngEyqaaCjM+C
+	 r8K6wRtBA4OfA==
+Date: Mon, 8 Sep 2025 15:01:32 +0100
 From: Will Deacon <will@kernel.org>
 To: James Clark <james.clark@linaro.org>
 Cc: Mark Rutland <mark.rutland@arm.com>,
@@ -53,18 +53,20 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	Suzuki Poulose <Suzuki.Poulose@arm.com>,
 	Robin Murphy <Robin.Murphy@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] perf: arm_spe: Add barrier before enabling profiling
- buffer
-Message-ID: <aL7gsXbr_-k4q-i5@willie-the-truck>
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	maz@kernel.org
+Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
+ PMBPTR_EL1 or PMBSR_EL1
+Message-ID: <aL7hvEXjXpoyDCQf@willie-the-truck>
 References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <20250701-james-spe-vm-interface-v1-1-52a2cd223d00@linaro.org>
- <aL7dFIzEgiEETcIb@willie-the-truck>
- <b4bcb7cf-da03-4263-9101-feec6d0e0d8d@linaro.org>
+ <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b4bcb7cf-da03-4263-9101-feec6d0e0d8d@linaro.org>
+In-Reply-To: <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250908_070138_147908_B5763B0D 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,69 +81,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 08, 2025 at 02:54:32PM +0100, James Clark wrote:
-> 
-> 
-> On 08/09/2025 2:41 pm, Will Deacon wrote:
-> > On Tue, Jul 01, 2025 at 04:31:57PM +0100, James Clark wrote:
-> > > DEN0154 states that PMBPTR_EL1 must not be modified while the profiling
-> > > buffer is enabled. Ensure that enabling the buffer comes after setting
-> > > PMBPTR_EL1 by inserting an isb().
-> > > 
-> > > This only applies to guests for now, but in future versions of the
-> > > architecture the PE will be allowed to behave in the same way.
-> > > 
-> > > Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
-> > > Signed-off-by: James Clark <james.clark@linaro.org>
-> > > ---
-> > >   drivers/perf/arm_spe_pmu.c | 1 +
-> > >   1 file changed, 1 insertion(+)
-> > > 
-> > > diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> > > index 3efed8839a4e..6235ca7ecd48 100644
-> > > --- a/drivers/perf/arm_spe_pmu.c
-> > > +++ b/drivers/perf/arm_spe_pmu.c
-> > > @@ -537,6 +537,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
-> > >   	limit += (u64)buf->base;
-> > >   	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
-> > >   	write_sysreg_s(base, SYS_PMBPTR_EL1);
-> > > +	isb();
-> > 
-> > 
-> > Hmm.
-> > 
-> > arm_spe_perf_aux_output_begin() is only called in two places:
-> > 
-> > 1. From arm_spe_pmu_start()
-> > 2. From arm_spe_pmu_irq_handler()
-> > 
-> > For (1), we know that profiling is disabled by PMSCR_EL1.ExSPE.
-> > For (2), we know that profiling is disabled by PMBSR_EL1.S.
-> > 
-> > In both cases, we already have an isb() before enabling profiling again
-> > so I don't understand what this additional isb() is achieving.
-> > 
-> 
-> It's to prevent PMBPTR_EL1 from being written to after the PMBLIMITR_EL1
-> write than enables the buffer again. So you're right it's already disabled
-> up to this point, which is why we didn't need to add another isb(). This
-> change is only for the re-enabling bit.
-> 
-> If the instructions were reordered you could get this ordering at the end of
-> arm_spe_perf_aux_output_begin():
-> 
->   write_sysreg_s(limit, SYS_PMBLIMITR_EL1); // Enables buffer
-> 
->   write_sysreg_s(base, SYS_PMBPTR_EL1);  // Invalid write to PMBPTR
-> 
-> Instead of the new version with the barrier where PMBPTR must come before:
-> 
->   write_sysreg_s(base, SYS_PMBPTR_EL1);
->   isb()
->   write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
+On Tue, Jul 01, 2025 at 04:31:58PM +0100, James Clark wrote:
+> DEN0154 states that writes to PMBPTR_EL1 or PMBSR_EL1 must be done while
+> the buffer is disabled (PMBLIMITR_EL1.E == 0). Re-arrange the interrupt
+> handler to always disable the buffer for non-spurious interrupts before
+> doing either.
 
-... but my point is that profiling is still disabled after writing to
-PMBLIMITR_EL1.
+Why is DEN0154 not part of the Arm ARM?
+
+Trying to tighten the programmers model retrospectively in a separate
+spec is a lovely idea but I'm not hugely interested in it. The driver is
+written to the text in the Arm ARM and is going to stay that way. Any
+future changes in the architecture need to be backwards compatible.
+
+If we have to poke the thing differently in a VM, we might as well use
+hypercalls/PV.
 
 Will
 
