@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC77CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DEDCAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w9Oh42yLjcQJ7y4ZfW/BobTIW+tMtYU6hx//43sSG+s=; b=HTHYmRFmVdMDzZHaNzDUxYPuWt
-	LDP+jyqThA5lTYvCQ8v4s2gxZkUJnz018a6BDcjvim8MTwNk+opQVmR8osgG/78PiO0A+qv0AvVID
-	qLD1Zr6hT40x3IeXZU6UJznZMdGfWSnDjnI0LBSIEpEnNt96kM5JKsmqSvYWgNcO9sHz0iBcsFH1x
-	t6QAh1MmFTWVPUodOoh1hDOMjPs+ogb3kVW9i+XbN4/a6DCyxDMf8hKqJs39RHIY4LruT+NWxn7WU
-	87mf70oP0lTyCJ8Bjka1NhDpCjp0N1qm+pcnZ1TpxAZubSygSw6HoYkEAU5ixmsU2NQpa3hXMEyPR
-	spj6leNg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h/2yDxRkiXpcGqh+0F/COvb1XbPbG82EF1F55jsRTFo=; b=l5t6TgfQ97UxEbzcInX0xi/pSd
+	+MkayRVVSo1qp49cuZxLhse3puN+VpTLjFePHGLYiyUmPwmro3464swDV3u6TC3pC75n3AfTe9SZB
+	ITO+7prNFuHVMlWIN6cLv8xJrp2F5AOLu+ZCqE9dY1ZXnidVOnRwJ+Lysf0LrmIQCwkbqF6/f/e2J
+	+GQLHlUHo9f7z916RiK0nu8dENSR0+Jmd7oRraVqBVd0OKsrsT2b3B7AkMPQki4fElFQ/ynUmJGNG
+	02boUHrdiTzIMH6ssr+fQ8WNbSWZirDZxBIe/EoB25dsjduaZKlzAZfSvQktpZ78o+kljbHJos0lV
+	7aacPULQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsDC-00000004rCY-3rqI;
-	Tue, 09 Sep 2025 06:52:18 +0000
+	id 1uvsDE-00000004rDm-0wmc;
+	Tue, 09 Sep 2025 06:52:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvkSW-00000002kpZ-2OU0
+	id 1uvkSW-00000002kpG-1hTk
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 08 Sep 2025 22:35:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC5EF2F9D;
-	Mon,  8 Sep 2025 15:35:27 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8AE3F1691;
+	Mon,  8 Sep 2025 15:35:24 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B88E03F694;
-	Mon,  8 Sep 2025 15:35:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 84A4B3F694;
+	Mon,  8 Sep 2025 15:35:31 -0700 (PDT)
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -45,17 +45,16 @@ Cc: linux-kernel@vger.kernel.org,
 	sudeep.holla@arm.com,
 	steven.price@arm.com,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v2 2/3] arm64: Enable EFI secret area Securityfs support
-Date: Mon,  8 Sep 2025 23:35:18 +0100
-Message-ID: <20250908223519.1759020-3-suzuki.poulose@arm.com>
+Subject: [PATCH v2 0/3] arm64: realm: Add support for encrypted data from firmware
+Date: Mon,  8 Sep 2025 23:35:16 +0100
+Message-ID: <20250908223519.1759020-1-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250908223519.1759020-1-suzuki.poulose@arm.com>
-References: <20250908223519.1759020-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_153536_643028_B04A6E50 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250908_153536_480459_9669ADA1 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,50 +69,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable EFI COCO secrets support. Provide the ioremap_encrypted() support required
-by the driver.
+Confidential compute firmware may provide secret data via reserved memory regions
+(e.g., ACPI CCEL, EFI Coco secret area). These must be ioremap'ed() as encrypted.
+As of now, realm only maps "trusted devices" (RIPAS = RSI_RIPAS_DEV) as encrypted.
+This series adds support for mapping areas that are protected
+(i.e., RIPAS = RSI_RIPAS_RAM) as encrypted. Also, extrapolating that, we can map
+anything that is not RIPAS_EMPTY as protected, as it is guaranteed to be "protected".
 
-Cc: Sami Mujawar <sami.mujawar@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-Cc: Steven Price <steven.price@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Sami Mujawar <sami.mujawar@arm.com>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
----
- arch/arm64/include/asm/io.h          | 4 ++++
- drivers/virt/coco/efi_secret/Kconfig | 2 +-
- 2 files changed, 5 insertions(+), 1 deletion(-)
+With this in place, we can naturally map any firmware provided area based on the
+RIPAS value. If the firmware provides a shared region (not trusted), it must have
+set the RIPAS accordingly, before placing the data, as the transition is always
+destructive.
 
-diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-index 82276282a3c7..83e03abbb2ca 100644
---- a/arch/arm64/include/asm/io.h
-+++ b/arch/arm64/include/asm/io.h
-@@ -274,6 +274,10 @@ int arm64_ioremap_prot_hook_register(const ioremap_prot_hook_t hook);
- #define ioremap_np(addr, size)	\
- 	ioremap_prot((addr), (size), __pgprot(PROT_DEVICE_nGnRnE))
- 
-+
-+#define ioremap_encrypted(addr, size)	\
-+	ioremap_prot((addr), (size), PAGE_KERNEL)
-+
- /*
-  * io{read,write}{16,32,64}be() macros
-  */
-diff --git a/drivers/virt/coco/efi_secret/Kconfig b/drivers/virt/coco/efi_secret/Kconfig
-index 4404d198f3b2..94d88e5da707 100644
---- a/drivers/virt/coco/efi_secret/Kconfig
-+++ b/drivers/virt/coco/efi_secret/Kconfig
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
- config EFI_SECRET
- 	tristate "EFI secret area securityfs support"
--	depends on EFI && X86_64
-+	depends on EFI && (X86_64 || ARM64)
- 	select EFI_COCO_SECRET
- 	select SECURITYFS
- 	help
+Confidential Compute Event Log is exposed as EFI_ACPI_MEMORY_NVS, which is
+reserved for firmware use even after the firmware exits the boot services [0].
+Thus map the region as READ only in the kernel.
+
+[0] https://uefi.org/specs/UEFI/2.10/07_Services_Boot_Services.html#memory-type-usage-before-exitbootservices
+
+Changes since v1: 
+  https://lkml.kernel.org/r/20250613111153.1548928-1-suzuki.poulose@arm.com/
+ - Collect tags
+ - Map EFI_MEMORY_ACPI_NVS as READ-ONLY, update comment and commit description
+
+
+Suzuki K Poulose (3):
+  arm64: realm: ioremap: Allow mapping memory as encrypted
+  arm64: Enable EFI secret area Securityfs support
+  arm64: acpi: Enable ACPI CCEL support
+
+ arch/arm64/include/asm/io.h          |  6 +++++-
+ arch/arm64/include/asm/rsi.h         |  2 +-
+ arch/arm64/kernel/acpi.c             | 11 +++++++++++
+ arch/arm64/kernel/rsi.c              | 26 ++++++++++++++++++++++----
+ drivers/virt/coco/efi_secret/Kconfig |  2 +-
+ 5 files changed, 40 insertions(+), 7 deletions(-)
+
 -- 
 2.43.0
 
