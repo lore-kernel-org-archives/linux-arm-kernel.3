@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80504CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10435CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6jA0maJ2/cbrQIjQjmb6P8Q2JEEnLmcjnUmsx4PEvs=; b=BtXcrgPh5c3ygJrlyap+p9cJRp
-	s3SCnzrG3JYW6gKlVdlFLeG7SOtMIBm0xjkKPrS+Qgy6oTcniRsVwW+H7dZceCqpT9N8JUNa/Z422
-	EfpU62vnEhfEzyxsecPQGDyooD2iKL1U9dwXvEfuaLZi/6/WfsrTjLbrGsHm+9G9/M/BmYj4g5D5j
-	++TuZ2/slSI9OG3Y4FI/qBxJm7zG8TPEWmaueO6uj0Y69/16QgGEvuWWilwqinP8PqikuW82GvR76
-	NqXZ7V5YDdFljMlUzAnKsdI42o2YqF5l1u71sW/VnpI61v4W1l9T6yvPt1cmeTFkPkY26cRg/6/s/
-	OYBE6+kw==;
+	bh=Pj5jeNFrqMJ9iLEsWEXtk/dXDgsiyM2wZqLSz72IzAY=; b=pvl56JdZ1Qd/RtNSMa2dRhsMvt
+	ctLt8TT0XIfa6B92+ku9mJR61RiZ4axK5YUUmFIHXy2B7zVyRgDc/15od9ZDONtXCyKY/DkHGxeD1
+	2RFqaR237AelIjyTBq3pbCvetT3UNmd+2VI3tTKwLNHXsYoHTBty/7KypOQOZgzTHNrMxs4UH7hXL
+	/qxH/ukKXyXjV4sYSdBjSWeo05lHPQ4mFsobmdJ0NZyPg2rCoSDKcEQEDbtSKnxB788GrvhlR681d
+	TbP7DcopTxxxhGs91glf01N+DVJXVh8AM18U9GJKgLgafTb8PcWf+XqKdkHR/IgTKndObLGV90wOn
+	kRilk8eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsE9-00000004sJ7-2ntY;
-	Tue, 09 Sep 2025 06:53:17 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uvsEF-00000004sQv-11nk;
+	Tue, 09 Sep 2025 06:53:23 +0000
+Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvlNP-00000002yuI-3z8k
+	id 1uvlOQ-00000002zB6-3rAr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 23:34:25 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588NYKXA155036;
-	Mon, 8 Sep 2025 18:34:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757374460;
-	bh=f6jA0maJ2/cbrQIjQjmb6P8Q2JEEnLmcjnUmsx4PEvs=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=tRH5BmqremEApuhcHphQXzGzMOlMusbJ9G5UFMNuS+NOVnkwZsj9lltL2Z7UgvSz6
-	 B8Vefl1L+hDK2V3JCL8C0SnhXuPttDwaI1T2E2X9G43eYXrfZBv8YhXvUNQsRaZytv
-	 v53AHuyZ5EcGlXzbac72dQ8xkUb6dMmiqflwcd8w=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588NYKmx3294758
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 18:34:20 -0500
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 18:34:19 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 18:34:19 -0500
-Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588NYJ5I1364923;
-	Mon, 8 Sep 2025 18:34:19 -0500
-Message-ID: <a89f9e4f-5306-4943-a70f-f6a60a4537d3@ti.com>
-Date: Mon, 8 Sep 2025 18:34:19 -0500
+	Mon, 08 Sep 2025 23:35:28 +0000
+Received: from omf19.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay05.hostedemail.com (Postfix) with ESMTP id 76607587E5;
+	Mon,  8 Sep 2025 23:35:23 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf19.hostedemail.com (Postfix) with ESMTPA id D82D620025;
+	Mon,  8 Sep 2025 23:35:19 +0000 (UTC)
+Date: Mon, 8 Sep 2025 19:36:05 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ aneesh.kumar@kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 03/24] tracing: Introduce trace remotes
+Message-ID: <20250908193606.47143d09@gandalf.local.home>
+In-Reply-To: <20250821081412.1008261-4-vdonnefort@google.com>
+References: <20250821081412.1008261-1-vdonnefort@google.com>
+	<20250821081412.1008261-4-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] arm64: dts: ti: k3-pinctrl: Add the remaining
- macros
-To: Akashdeep Kaur <a-kaur@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
-        <afd@ti.com>, <vigneshr@ti.com>, <d-gole@ti.com>, <u-kumar1@ti.com>,
-        <sebin.francis@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>
-References: <20250905051448.2836237-1-a-kaur@ti.com>
- <20250905051448.2836237-4-a-kaur@ti.com>
-Content-Language: en-US
-From: Kendall Willis <k-willis@ti.com>
-In-Reply-To: <20250905051448.2836237-4-a-kaur@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Stat-Signature: xtst64tqoj6xjbmrgzuhtq7zud5fp9as
+X-Rspamd-Server: rspamout03
+X-Rspamd-Queue-Id: D82D620025
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/3BmdESBq9p494ClBbvWR0lF9SP2rHtf8=
+X-HE-Tag: 1757374519-315858
+X-HE-Meta: U2FsdGVkX18HK0U95OOl89BG5VQk6Kg6LVWbCl2CSVbrRvvl0YewdCSxa2DMdr13EvJ36GqGgAb6i5dTOnngrPPskeRf/ygEGARJOHoyjR92z/s4KlkYwQ0+DovGgFCn+m4yIDXhWN7EwuSDh1iED41HI2KBatpqMccYhffxFanar2pH/0PBqgVWIwTFUT6HfY4gcYbpBZ5RdTK136SiOfTDWQLwfH1GYKNhlMl8HnNGJfyGPEV6umjeSskEpfNTFrYJ5ulfZOh8mL9TtACyIp1EX+FzZQrlRFT7+xXhWIfjcoINLWtJ8UNg3Ys91GTJTQI7e02RE/MYgB7xq/lIVjKRi64GpTn/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_163424_091365_B4843AFE 
-X-CRM114-Status: GOOD (  21.96  )
+X-CRM114-CacheID: sfid-20250908_163527_022259_66984BFD 
+X-CRM114-Status: GOOD (  25.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,143 +75,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/5/25 00:14, Akashdeep Kaur wrote:
-> Add the drive strength, schmitt trigger enable macros to pinctrl file.
-> Add the missing macros for DeepSleep configuration control referenced
-> from "Table 14-6172. Description Of The Pad Configuration Register Bits"
+On Thu, 21 Aug 2025 09:13:51 +0100
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-The Table number should be 14-8769 for the AM62P TRM.
-
-> in AM625 TRM[0].
-
-You should reference both the AM62X and AM62P TRMs because in the AM62P 
-TRM the ISO_OVERRIDE_EN bit is reserved, whereas in the AM62X TRM it is 
-defined.
-
-> Add some DeepSleep macros to provide combinations that can be used
-> directly in device tree files example PIN_DS_OUTPUT_LOW that
-> configures pin to be output and also sets its value to 0.
+> A trace remote relies on ring-buffer remotes to read and control
+> compatible tracing buffers, written by entity such as firmware or
+> hypervisor.
 > 
-> [0] https://www.ti.com/lit/pdf/SPRUJ83
+> Add a Tracefs directory remotes/ that contains all instances of trace
+> remotes. Each instance follows the same hierarchy as any other to ease
+> the support by existing user-space tools.
 > 
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-> ---
->   arch/arm64/boot/dts/ti/k3-pinctrl.h | 47 ++++++++++++++++++++++++++++-
->   1 file changed, 46 insertions(+), 1 deletion(-)
+> This currently does not provide any event support, which will come
+> later.
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> index c0f09be8d3f9..8ce37ace94c9 100644
-> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> @@ -3,15 +3,20 @@
->    * This header provides constants for pinctrl bindings for TI's K3 SoC
->    * family.
->    *
-> - * Copyright (C) 2018-2024 Texas Instruments Incorporated - https://www.ti.com/
-> + * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
->    */
->   #ifndef DTS_ARM64_TI_K3_PINCTRL_H
->   #define DTS_ARM64_TI_K3_PINCTRL_H
->   
-> +#define WKUP_LVL_EN_SHIFT       (7)
-> +#define WKUP_LVL_POL_SHIFT      (8)
->   #define ST_EN_SHIFT		(14)
->   #define PULLUDEN_SHIFT		(16)
->   #define PULLTYPESEL_SHIFT	(17)
->   #define RXACTIVE_SHIFT		(18)
-> +#define DRV_STR_SHIFT           (19)
-> +#define ISO_OVERRIDE_EN_SHIFT   (22)
-> +#define ISO_BYPASS_EN_SHIFT     (23)
->   #define DEBOUNCE_SHIFT		(11)
->   #define FORCE_DS_EN_SHIFT	(15)
->   #define DS_EN_SHIFT		(24)
-> @@ -19,6 +24,7 @@
->   #define DS_OUT_VAL_SHIFT	(26)
->   #define DS_PULLUD_EN_SHIFT	(27)
->   #define DS_PULLTYPE_SEL_SHIFT	(28)
-> +#define WKUP_EN_SHIFT           (29)
->   
->   /* Schmitt trigger configuration */
->   #define ST_DISABLE		(0 << ST_EN_SHIFT)
-> @@ -33,6 +39,29 @@
->   #define INPUT_EN		(1 << RXACTIVE_SHIFT)
->   #define INPUT_DISABLE		(0 << RXACTIVE_SHIFT)
->   
-> +#define DS_PULL_DISABLE         (1 << DS_PULLUD_EN_SHIFT)
-> +#define DS_PULL_ENABLE          (0 << DS_PULLUD_EN_SHIFT)
-
-nit: IMO either keep the format of these macros to ENABLE or EN unless 
-there is a good reason to change the format.
-
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> diff --git a/include/linux/trace_remote.h b/include/linux/trace_remote.h
+> new file mode 100644
+> index 000000000000..de043a6f2fe0
+> --- /dev/null
+> +++ b/include/linux/trace_remote.h
+> @@ -0,0 +1,21 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
 > +
-> +#define DS_PULL_UP              (1 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
-> +#define DS_PULL_DOWN            (0 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
+> +#ifndef _LINUX_TRACE_REMOTE_H
+> +#define _LINUX_TRACE_REMOTE_H
 > +
-> +#define DS_STATE_EN             (1 << DS_EN_SHIFT)
-> +#define DS_STATE_DISABLE        (0 << DS_EN_SHIFT)
+> +#include <linux/ring_buffer.h>
+> +
+> +struct trace_remote_callbacks {
+> +	struct trace_buffer_desc *
+> +		(*load_trace_buffer)(unsigned long size, void *priv);
 
-nit: Is there anyway this could be more descriptive? Like 
-DS_IO_OVERRIDE_EN or DS_OVERRIDE_CTRL. It is hard to tell what these 
-bits do unless you look at the TRM, whereas the other macros are easier 
-to deduce their function.
+I believe this is one of those cases where the 80 char limit is more of a
+guildline than a rule. It looks better to keep the above as one line.
+
+> +	void	(*unload_trace_buffer)(struct trace_buffer_desc *desc, void *priv);
+
+Heck, this is already passed 80 characters ;-)
+
+> +	int	(*enable_tracing)(bool enable, void *priv);
+> +	int	(*swap_reader_page)(unsigned int cpu, void *priv);
+> +};
+> +
+> +int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv);
+> +int trace_remote_alloc_buffer(struct trace_buffer_desc *desc, size_t size,
+> +			      const struct cpumask *cpumask);
+> +void trace_remote_free_buffer(struct trace_buffer_desc *desc);
+> +
+> +#endif
+> diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
+> index d2c79da81e4f..99af56d39eaf 100644
+> --- a/kernel/trace/Kconfig
+> +++ b/kernel/trace/Kconfig
+> @@ -1238,4 +1238,7 @@ config HIST_TRIGGERS_DEBUG
+>  
+
 
 > +
-> +#define DS_INPUT_EN             (1 << DS_OUT_DIS_SHIFT | DS_STATE_EN)
-> +#define DS_INPUT_DISABLE        (0 << DS_OUT_DIS_SHIFT | DS_STATE_EN)
+> +int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv)
+> +{
+> +	struct trace_remote *remote;
+> +
+> +	remote = kzalloc(sizeof(*remote), GFP_KERNEL);
+> +	if (!remote)
+> +		return -ENOMEM;
+> +
+> +	remote->cbs = cbs;
+> +	remote->priv = priv;
+> +	remote->trace_buffer_size = 7 << 10;
+> +	remote->poll_ms = 100;
 
-By looking at the TRM it looks like this disables or enables output, not 
-input. Shifting a 1 to DS_OUT_DIS_SHIFT should disable output.
+What's with the magic numbers?
+
+> +	mutex_init(&remote->lock);
+> +
+> +	if (trace_remote_init_tracefs(name, remote)) {
+> +		kfree(remote);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +void trace_remote_free_buffer(struct trace_buffer_desc *desc)
+> +{
+> +	struct ring_buffer_desc *rb_desc;
+> +	int cpu;
+> +
+> +	for_each_ring_buffer_desc(rb_desc, cpu, desc) {
+> +		unsigned int id;
+> +
+> +		free_page(rb_desc->meta_va);
+> +
+> +		for (id = 0; id < rb_desc->nr_page_va; id++)
+> +			free_page(rb_desc->page_va[id]);
+> +	}
+> +}
+> +
+> +int trace_remote_alloc_buffer(struct trace_buffer_desc *desc, size_t size,
+> +			      const struct cpumask *cpumask)
+> +{
+> +	int nr_pages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
+> +	struct ring_buffer_desc *rb_desc;
+> +	int cpu;
+> +
+> +	desc->nr_cpus = 0;
+> +	desc->struct_len = offsetof(struct trace_buffer_desc, __data);
+
+The above is better as:
+
+	desc->struct_len = struct_size(desc, __data, 0);
+
+As it also does some other checks, like make sure __data is a flexible
+array.
 
 > +
-> +#define DS_OUT_VALUE_ZERO       (0 << DS_OUT_VAL_SHIFT)
-> +#define DS_OUT_VALUE_ONE        (1 << DS_OUT_VAL_SHIFT)
+> +	rb_desc = (struct ring_buffer_desc *)&desc->__data[0];
 > +
-> +/* Configuration to enable wake-up on pin activity */
-> +#define WKUP_ENABLE             (1 << WKUP_EN_SHIFT)
-> +#define WKUP_DISABLE            (0 << WKUP_EN_SHIFT)
-> +#define WKUP_ON_LEVEL           (1 << WKUP_LVL_EN_SHIFT)
-> +#define WKUP_ON_EDGE            (0 << WKUP_LVL_EN_SHIFT)
-> +#define WKUP_LEVEL_LOW          (0 << WKUP_LVL_POL_SHIFT)
-> +#define WKUP_LEVEL_HIGH         (1 << WKUP_LVL_POL_SHIFT)
+> +	for_each_cpu(cpu, cpumask) {
+> +		unsigned int id;
 > +
->   /* Only these macros are expected be used directly in device tree files */
->   #define PIN_OUTPUT		(INPUT_DISABLE | PULL_DISABLE)
->   #define PIN_OUTPUT_PULLUP	(INPUT_DISABLE | PULL_UP)
-> @@ -53,6 +82,10 @@
->   #define PIN_DEBOUNCE_CONF5	(5 << DEBOUNCE_SHIFT)
->   #define PIN_DEBOUNCE_CONF6	(6 << DEBOUNCE_SHIFT)
->   
-> +#define PIN_DRIVE_STRENGTH_NOMINAL      (0 << DRV_STR_SHIFT)
-> +#define PIN_DRIVE_STRENGTH_SLOW         (1 << DRV_STR_SHIFT)
+> +		rb_desc->cpu = cpu;
+> +		rb_desc->nr_page_va = 0;
+> +		rb_desc->meta_va = (unsigned long)__get_free_page(GFP_KERNEL);
+> +		if (!rb_desc->meta_va)
+> +			goto err;
+> +
+> +		for (id = 0; id < nr_pages; id++) {
+> +			rb_desc->page_va[id] = (unsigned long)__get_free_page(GFP_KERNEL);
+> +			if (!rb_desc->page_va[id])
 
-DRV_STR value of 1 is reserved in both AM62X and AM62P TRMs
+What exactly are these pages allocated for? Is this what the remote will
+use to write to? There should be more comments about how this is used.
 
-> +#define PIN_DRIVE_STRENGTH_FAST         (2 << DRV_STR_SHIFT)
+> +				goto err;
 > +
->   #define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
->   #define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
->   #define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
-> @@ -65,6 +98,18 @@
->   #define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
->   #define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
->   #define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
-> +#define PIN_DS_ISO_BYPASS               (1 << ISO_BYPASS_EN_SHIFT)
-> +#define PIN_DS_ISO_BYPASS_DISABLE       (0 << ISO_BYPASS_EN_SHIFT)
-> +
-> +#define PIN_DS_OUTPUT_LOW               (DS_INPUT_DISABLE | DS_OUT_VALUE_ZERO)
-> +#define PIN_DS_OUTPUT_HIGH              (DS_INPUT_DISABLE | DS_OUT_VALUE_ONE)
-> +#define PIN_DS_INPUT                    (DS_INPUT_EN | DS_PULL_DISABLE)
-> +#define PIN_DS_INPUT_PULLUP             (DS_INPUT_EN | DS_PULL_UP)
-> +#define PIN_DS_INPUT_PULLDOWN           (DS_INPUT_EN | DS_PULL_DOWN)
-> +
-> +#define PIN_WKUP_EN_LEVEL_LOW           (WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_LOW)
-> +#define PIN_WKUP_EN_LEVEL_HIGH          (WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
-> +#define PIN_WKUP_EN                     (WKUP_ENABLE | WKUP_ON_EDGE)
->   
->   /* Default mux configuration for gpio-ranges to use with pinctrl */
->   #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
+> +			rb_desc->nr_page_va++;
+> +		}
+> +		desc->nr_cpus++;
+> +		desc->struct_len += offsetof(struct ring_buffer_desc, page_va);
+> +		desc->struct_len += sizeof(rb_desc->page_va[0]) * rb_desc->nr_page_va;
 
-Best,
-Kendall
+Shouldn't the above be:
+
+		desc->struct_len += struct_size(rb_desc, page_va, rb_desc->nr_page_va);
+
+?
+
+> +		rb_desc = __next_ring_buffer_desc(rb_desc);
+
+Is there no check to make sure that the cpu mask matches what the rb_desc
+will have?
+
+-- Steve
+
+> +	}
+> +
+> +	return 0;
+> +
+> +err:
+> +	trace_remote_free_buffer(desc);
+> +	return -ENOMEM;
+> +}
 
 
