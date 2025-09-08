@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08EECAC586
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88C9CAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vcR3l8/O8LRSAPd+LbEIyEmJcEWs9HVTUs22X8Fpny4=; b=JxeceSbfL/pIDtNGwyM703/Knz
-	GMd0jGRjQ3HhUEo2YmQWyUlKvPdhL6wpNlDnYtcR7xB/7S6n7GJjHs3XU9wmkibhv72OFEF0N4NI8
-	fpNNyE4+AhWP6SeMj++Yi9anuqk0beXolrENpU17a4jcFBY2LyXi44CMI1pDKIa2G65RxnPrqqd/z
-	PSuzDSUAssITUPQWY6fhpV4C4ItbyNP6umi60OIxvulWQPt+CC+JUkyFXwl8yGqXOsqBv3Hq+C/K9
-	Ip/jDbsyrA+X9TRCPZKlotCoeQkOGWyzVnO4pZNnhY2ebi5Ae/oRj68g8f4jf240mG09BUe8H0mgm
-	4ajUQF+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3JFsZ9+YKTnrhkakgaIYMEKoDfFk5f5bJk4s8F2eCHU=; b=a+JVeaWR35vyBuFouby5cysSdK
+	ul5uLOEHMSRT6bvO206K7gkCdGdLYYjpZNjlBgDu+DtFnNdAZFOU5l3rcUyQX8toepzGbCmUu+QSq
+	rPT9DaKe87VTSUdHVZmffdy6KqBvhlau6vQb2LBGPc5Mr4Ov1TPM+BLVTbfKUvrguI59+WHcEyeAn
+	ewzgxgC+UvPL7bjBhmc02kFRWrQiNoss487FenXpxyDztBoFap2o7Q1LVGdKRaK9qrbxkPei2XmIi
+	Mb3wEt47cFOPlkIRFFS3qvreIhdOJ4tgLb2kHxf0M4zxDpeh535ueR9qHHkFnmFox0t/fxuJFxwmk
+	7qN82BAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvatp-0000000GzGO-09aX;
-	Mon, 08 Sep 2025 12:23:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvZku-0000000GZ3E-2jwZ
+	id 1uvawU-0000000H03M-3Xpt;
+	Mon, 08 Sep 2025 12:25:54 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvZoD-0000000GaaC-3kkV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 11:09:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C02B01692;
-	Mon,  8 Sep 2025 04:09:43 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 37BA43F63F;
-	Mon,  8 Sep 2025 04:09:50 -0700 (PDT)
-Date: Mon, 8 Sep 2025 12:09:47 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, <arm-scmi@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 0/6] firmware: arm_scmi: imx: Dump syslog and
- system_info
-Message-ID: <20250908-brave-umber-spider-eb68bd@sudeepholla>
-References: <20250904-sm-misc-api-v1-v4-0-0bf10eaabdf1@nxp.com>
+	Mon, 08 Sep 2025 11:13:18 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45cb5e1adf7so34872485e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 04:13:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757329996; x=1757934796; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3JFsZ9+YKTnrhkakgaIYMEKoDfFk5f5bJk4s8F2eCHU=;
+        b=RFMX1kQNn0eMn2GyNQaHhqWseVIVwJo2X+S03V0cznhvHcBGLftxcR3X54LG0PDcD0
+         qDpz/mObRgseb5upHCCohUYgPlI9gXYVG2WLeNlKUiM1dSdXqD411AzkgHh1SZXVV/e0
+         92jRoaEJ9rNpnBMqCjr8G0mzSMflksMvKKKpw/NKfUA+ziKHC9gjdkBLbF5QCz0FvV3H
+         LYruNB9FXUNuLichfnsXNVoRimtff91LJAdteqw3PMntcGx+0J+5Tq0JpvUkH0o5bYgB
+         lfUf5ZyhzQptNhgKQJBjtRtpr7E5IjwbreJLuD9NhNn57g3c4z6iURgj7sL8zQvXvGZT
+         6sXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757329996; x=1757934796;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3JFsZ9+YKTnrhkakgaIYMEKoDfFk5f5bJk4s8F2eCHU=;
+        b=Un1Sc7rMd/iR5WbaJ2oOgoj6o4qf+6rN8BheGmJk5h8Drwr49NV/G3T27hFc4OOxxr
+         0SDkWPQXM0tQLCG7/k4/SoxiGcojMQ36MDAEKZffPPBrIW9SPqecOX5Z4EfB5qBHYCj0
+         8lggyveKqLoSuplNDYnWD1esWc1QlyH51TDXMS4WHe6E0QMfRf0XDmbuWQiFpRL7szZU
+         8+oeRYheQ41ygeyyQ8iAFWjw/ro/Z3eiZGA5yhwDxLBRR5JFSgyaZcKR/AJ9/8brLgjf
+         I95qp5s5vFcSpqMT/wO6qWkXB7KYIW0LwlJHJ7UICk0g3+Avefa2bE7gjirhcuJ9w5Bp
+         d30w==
+X-Forwarded-Encrypted: i=1; AJvYcCWHplxH9miB/xkGPRq4sDoFQrv7G7ed+f7N0AtAvmF3tvEnGrclmfO783jxv/AdIOnd3QrgdwBPPnyYZ87Txa7V@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHsyaDKVvdHZaLZHGG1odWR/aYcjjk2QZ2+k7Zz6Cpq3Dky41J
+	AJG3zKxp9BoyrhTuGB/t5at1eVZ+ZxL15W6PdMKIbK9gvf6yPxMUSR2L
+X-Gm-Gg: ASbGncvY/ETW8hvExdtEg3N/msnsxcWxHv5y8+1GawGY+V3cMk1j1yqhRv6RJSUKdw+
+	Mf1/obHlCU1Rt6XGdsgm/xwG4/ciRZS8R9EebMMAPSlJTO2/vsUg+c0EqskZucKhQab1Z+xY5w+
+	0ExtTi9rAEz6R92k8h7wHpDiZTb7y/nZUH5yrKkbRl1t4c3jgcjeBKtaoR4ygJiJlABq55M4Nq+
+	PnU7rchbv3Wk0QwRZOY0nVtPlyzt8o+R6B4udpdaj02QLXpzo9/Q3LG/Ry4W+8kmkyAiSuXtqN/
+	0zLCMvsnSrC65ZAt+OrGC80f2GQMudeVPuwXO/kzrd4sgeYCeFokn/tJCxtSHa3BWXAfieJFK/Y
+	KrYOC7UdpBM91AdaZmfOVE43v
+X-Google-Smtp-Source: AGHT+IG5uQOiOoQhJJ/mhTQdnV7nSQkKRpmjvrrmU/zTkJX7X66L4LIULBGIcjgXcCeKAsh4gyVJsw==
+X-Received: by 2002:a05:600c:3586:b0:45d:d56c:4ab5 with SMTP id 5b1f17b1804b1-45ddde9583bmr63031115e9.5.1757329996041;
+        Mon, 08 Sep 2025 04:13:16 -0700 (PDT)
+Received: from gmail.com ([147.161.145.84])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45dd6891d23sm141671515e9.4.2025.09.08.04.13.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Sep 2025 04:13:15 -0700 (PDT)
+From: hariconscious@gmail.com
+To: shuah@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: HariKrishna S <hariconscious@gmail.com>
+Subject: [PATCH v2] documentation/arm64 : kdump fixed typo errors (review comment addressed)
+Date: Mon,  8 Sep 2025 16:41:19 +0530
+Message-ID: <20250908111118.46666-2-hariconscious@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250904-sm-misc-api-v1-v4-0-0bf10eaabdf1@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_040952_734544_79AEE2D9 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20250908_041317_932244_0C1B440D 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,30 +100,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 06:40:41PM +0800, Peng Fan wrote:
-> System Manager firmware provides API to dump board, silicon, firmware
-> information. It also provides API to dump system sleep, wakeup
-> information. So add the interface for Linux to retrieve the information:
-> 
-> patch 1 is to add doc for board information which was missed before.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
-> Changes in v4:
-> - Patch 1: Typo in commit log, state the attribute is set to 0 by firmware
->            add NOT SUPPORTED return value for syslog
-> - Patch 2: rename to scmi_imx_misc_build_info_discover, add -EOPNOTSUPP check
-> - Patch 3: rename to scmi_imx_misc_cfg_info_get, correct command order,
->            add -EOPNOTSUPP check.
-> - Patch 4: correct command order, add -EOPNOTSUPP check.
+From: HariKrishna S <hariconscious@gmail.com>
 
-I will queue 1-4/6 from this series as it is ready. So repost 5-6/6 when
-ready. Also I notices some inconsistency with CONTROL vs CTRL in the code
-and document. Please choose either CONTROL or CTRL and use the same
-in both document and code for the command names and send a patch to fix
-the inconsistency.
+Signed-off-by: HariKrishna S <hariconscious@gmail.com>
+---
+Changes in v2:
+	- Review comment from Jonathan Corbet addressed
 
+ Documentation/arch/arm64/kdump.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Documentation/arch/arm64/kdump.rst b/Documentation/arch/arm64/kdump.rst
+index d3195a93a066..36701262ccaf 100644
+--- a/Documentation/arch/arm64/kdump.rst
++++ b/Documentation/arch/arm64/kdump.rst
+@@ -5,7 +5,7 @@ crashkernel memory reservation on arm64
+ Author: Baoquan He <bhe@redhat.com>
+ 
+ Kdump mechanism is used to capture a corrupted kernel vmcore so that
+-it can be subsequently analyzed. In order to do this, a preliminary
++it can be subsequently analyzed. In order to do this, a previously
+ reserved memory is needed to pre-load the kdump kernel and boot such
+ kernel if corruption happens.
+ 
 -- 
-Regards,
-Sudeep
+2.43.0
+
 
