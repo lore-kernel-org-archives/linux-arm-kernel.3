@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45FBCAC582
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01006CA1016
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 23:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P0oadEFhyKw8xNX02oSrKVOwP9QjJ5m1LgbJY0yE+Oo=; b=SJt0FURq/tjPuBBZPT+tEDgWoO
-	Bl7m04Dq0EBBpvohntm33zd//xJnX1QTFv+PFjgNF5Pdjj5wDjnyTdswsQZMOsJIzZY5qoYmNcImY
-	O+zGHxrP9mjNz02XSIOlgrJ7UiSZFhZV5YX8b4jg+r03MUpQcjYLdeKAEQhVk+5p7F3UBOk46caL/
-	VP8ldbUa6VbCrsymy1wKCVA33j2KT1I8H5PyKc8YRDS1xXz1TrW3I++/SvFVrOT4P3uDxaS6azDgF
-	ZurmfjnwrLLB+tpnINIso22CjblVe42tC9nbtIQ6mds6ZFUNVKK9uSN4R+4oEFgjq6+PJJF09Whdu
-	tp12+N8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bBUT1ZwXTlUvQ88/wkuJR+6/e3jUTe9SKsFowlAS4Kk=; b=D6U2Fk6+U3Lcc8RlhxxAC9DqdP
+	H7XuF9j1t8CJ+1Eu18wjCFnMu6aVnaZ+Z4Z1A5nTqP2N7pHfQsc8+oHvRMWPlxgFXrGeM+DTJbbhL
+	NwtkaRgsnVP8FuxvnJqKgFE1zh0seEdruNGjjB2exyjL/XYXyjX5TYHEPJhT56GP7fnMQCNPmvsjI
+	gFmJtbMx01sq157a2S9AgghgEo/NChNIberpkZwIHNlEciLhI3izPYixxKfH5BuGScuoyv37dfQDy
+	c6ayi7VA4Dg8TvKzzBHtBEouVyjguCAz7A9KxhXpojzTOyAmpwzQpYDinMz9M7g55gfenhoH4NUYr
+	Ed2EzcUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvlej-000000033Dt-2mYM;
-	Mon, 08 Sep 2025 23:52:17 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uvlfF-00000003415-1XWA;
+	Mon, 08 Sep 2025 23:52:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfp5-00000001G0p-2PqX
+	id 1uvgKg-00000001RJ1-11X2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 17:38:36 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588HcVCY3916323;
-	Mon, 8 Sep 2025 12:38:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757353111;
-	bh=P0oadEFhyKw8xNX02oSrKVOwP9QjJ5m1LgbJY0yE+Oo=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=yqMzfXgSQL6Y7ytZL5GytIt2q/pn8UtZfYV4IfkkSod4FR4sFf1ESDpC1JCfTY0wS
-	 hxPJ/tYXSC0ts85MoX28Vv5vAMRtNCkgxFl+TYg+P/Fal+HqQ3Mx+b0ijrno3ELU6r
-	 sfm6N82qg+D5H/yeU+gw37ycdEl9W6P2jG2c3kFk=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588HcVZW2565880
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 12:38:31 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 12:38:31 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 12:38:31 -0500
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588HcVVp1281123;
-	Mon, 8 Sep 2025 12:38:31 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 2/2] arm64: dts: ti: k3-am62p: Update eMMC HS400 STRB value
-Date: Mon, 8 Sep 2025 12:38:31 -0500
-Message-ID: <20250908173831.269039-3-jm@ti.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250908173831.269039-1-jm@ti.com>
-References: <20250908173831.269039-1-jm@ti.com>
+	Mon, 08 Sep 2025 18:11:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 003B744B0E;
+	Mon,  8 Sep 2025 18:11:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5601C4CEFC;
+	Mon,  8 Sep 2025 18:11:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757355073;
+	bh=zJ4rq1A7rDmdHeQfB8ynFE9503F7ovKFxfivFN/5hPw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hQ7y1IxUPVquvYgy5yUlyXqwhJc6iLQCwcSIFcqEjolAZNOyLB6+v3SRR2bxwaYTP
+	 dn0GnEftM+3JCtzI28l+z6EtBy2t2V6M8qGgtDu2XsnUSIndOr5LBM5CrRiHyydBaa
+	 TIg6n5G33v5pQ3tM7uVIf5GiGEXvIbGmX/+3Ece2SGgRMdinljCU6As5Kipc/H9xL7
+	 1/dxb+RAntzX9qc8L12Z5ARFPiZvngI4B9DbAd6h+8DdXN7peM19tvbGyUens0F9KP
+	 21lN9HzQQNf4b6c52XDkRRmKGzgGQpDPabLAx5UYqUM9TZJSga7yj07X5355fSPi98
+	 x8R6mDUh6svYQ==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 68C9B5FFA1; Tue, 09 Sep 2025 02:11:09 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH net-next v4 10/10] arm64: dts: allwinner: t527: orangepi-4a: Enable Ethernet port
+Date: Tue,  9 Sep 2025 02:10:59 +0800
+Message-Id: <20250908181059.1785605-11-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250908181059.1785605-1-wens@kernel.org>
+References: <20250908181059.1785605-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_103835_656178_39E27F77 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250908_111114_297652_58CD2151 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +88,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-STRB setting for eMMC HS400 have been updated in device datasheet [0],
-so update for am62p in k3-am62p-main.
+From: Chen-Yu Tsai <wens@csie.org>
 
-[0] https://www.ti.com/lit/gpn/am62p
-Signed-off-by: Judith Mendez <jm@ti.com>
+On the Orangepi 4A board, the second Ethernet controller, aka the GMAC200,
+is connected to an external Motorcomm YT8531 PHY. The PHY uses an external
+25MHz crystal, has the SoC's PI15 pin connected to its reset pin, and
+the PI16 pin for its interrupt pin.
+
+Enable it.
+
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- arch/arm64/boot/dts/ti/k3-am62p-main.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-index 90afe21e972b..a1ce2fc8d947 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-@@ -34,7 +34,7 @@ usb1: usb@31100000 {
+Changes since v1:
+- Switch to generic (tx|rx)-internal-delay-ps properties
+---
+ .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 23 +++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+index 38cd8c7e92da..7afd6e57fe86 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+@@ -15,6 +15,7 @@ / {
+ 	compatible = "xunlong,orangepi-4a", "allwinner,sun55i-t527";
  
- 	sdhci0: mmc@fa10000 {
- 		mmc-hs400-1_8v;
--		ti,strobe-sel = <0x77>;
-+		ti,strobe-sel = <0x66>;
- 		ti,otap-del-sel-hs400 = <0x5>;
+ 	aliases {
++		ethernet0 = &gmac1;
+ 		serial0 = &uart0;
  	};
+ 
+@@ -95,11 +96,33 @@ &ehci1 {
+ 	status = "okay";
  };
+ 
++&gmac1 {
++	phy-mode = "rgmii-id";
++	phy-handle = <&ext_rgmii_phy>;
++	phy-supply = <&reg_cldo4>;
++
++	tx-internal-delay-ps = <0>;
++	rx-internal-delay-ps = <300>;
++
++	status = "okay";
++};
++
+ &gpu {
+ 	mali-supply = <&reg_dcdc2>;
+ 	status = "okay";
+ };
+ 
++&mdio1 {
++	ext_rgmii_phy: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++		interrupts-extended = <&pio 8 16 IRQ_TYPE_LEVEL_LOW>; /* PI16 */
++		reset-gpios = <&pio 8 15 GPIO_ACTIVE_LOW>; /* PI15 */
++		reset-assert-us = <10000>;
++		reset-deassert-us = <150000>;
++	};
++};
++
+ &mmc0 {
+ 	vmmc-supply = <&reg_cldo3>;
+ 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
 -- 
-2.51.0
+2.39.5
 
 
