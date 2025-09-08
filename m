@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3230CCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 09:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A528CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 09:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3eqZ7rpGHnWGTdG2usMMNA7kfqLF0/rBNEOxDorL39Y=; b=IYzpHRCqeJ0uO1v5Sdn3Rh5Gnk
-	3uEHYgXBB2WOhvg2e1rphPEYxH3et1zXWDBi5Jyn0TgCqY8qSTlDwEzFBkybxilTnfmm0EfotQGOT
-	qpeWqkCJWp7M0O//BMWXerovcChLynxGon4K3NkiYbIWiIwQHefYxmEd5bFvhhDlmnHOgcy1uMAwz
-	HqCc/fT71QP751fx/oFdTus2vIH+cgWoEGUOwPtW3DmLuVt3MhMbNGkf16ovuCZBQu36ieijQG46g
-	yHNnPB5o3IhydKLFi2z1f4RYdkn/eQltCQfUhIqN96LPW9rlLJ9fEbyNzb4VmHgJxQNxwLaxlTjdV
-	2mzU/Xow==;
+	bh=Bblp97OOL1aWrtKopF8NdvsXkogfbkqEK3YE6s8LSRM=; b=SPGxjoR4DpPZQinvhXvXRybAlt
+	e+e8Tk2s9Q9UESxney3Veo5sVAuLtGB9q9DXZteKC3PRQv9fAAeAGJf8zSF+4/Gv+mg0kPQv7h/Hj
+	5T8oG+hiBZIuCErfVruH5ANRpxtFjoQHrZqoA+/jy816OWLiVsvzfKyC+ipkA7blreQ6/DmCpz893
+	WvQJMdOM+Gdyg3WANen0Bf9Kl0Mto1VjlgBCVVeCyE89QpjFBwEkTkHSSdzrMa35109bv5hD3r4dP
+	TBr6JoyrBTvsZFBUKCSfpO93AJ7+j6tnkkcR46gPHDtvIzRovU4n+9DnDf4Vl+TJUOZp0yRRBPsQM
+	58xOvckg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvY3P-0000000Fyxo-21xP;
-	Mon, 08 Sep 2025 09:20:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uvY6A-0000000G07D-16lB;
+	Mon, 08 Sep 2025 09:23:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvXE8-0000000FhRh-01aW
+	id 1uvXEA-0000000FhSu-0uTc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 08:27:53 +0000
+	Mon, 08 Sep 2025 08:27:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B6ED7446C5;
+	by sea.source.kernel.org (Postfix) with ESMTP id F1D3044733;
+	Mon,  8 Sep 2025 08:27:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29F76C4CEF5;
 	Mon,  8 Sep 2025 08:27:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE866C4CEF1;
-	Mon,  8 Sep 2025 08:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757320071;
-	bh=UwIstvxlYtiqE5m/jyDtG8VwOO9aujtFcYAYcLjppC8=;
+	s=k20201202; t=1757320073;
+	bh=P/vlG6t4K0nRMEfMtDS6pVBd3+VY1KFLZviC+h88F5I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SgaBK3gRy2pLYt8ZO3EQDqsT3Gc3hI3gu8GAFXRe+nvpnn3Rz+RfkmwCL1IjO6q3t
-	 Fcr9ZwTjB/HapA7mU/JHzk9CiQdif0bai96AKu12fZWwzJE0SSm0TjyAV3qB7ruQfF
-	 8lw/RJ6zxOoD9Ms0VMXbthWyw/aUGw+KRoqXTFhG1OUzGCJE0c/Oc4r5bQ0Ak3nveu
-	 v4U0HNYlUYfmZudcY4dzNglU48bGHSaI6X2GtbY64aL0bj5E3XPmK0sxnLMAXwV2au
-	 5FzGMbVKgRlzpmwdBGOWiJSS087v4YawcpCbgEHGuxMKGYxMpd1qnUnH5phdrxPLWD
-	 sAl3Bp1H6OjLg==
+	b=JUhJopxZVT0XDCNhhdmGwvnjr5AQ++YQD87Z5jb/6SjmVJkLJo37/tKfhl0NOFw0m
+	 ikYD4dJRS1uXcK/+coDje9w8jchfyBXBKBdkrkscxIkXknclhJPHHcKZQ9LdCj2n9s
+	 wA+CCfn97QsArsl4FtosaA0gwbSJtUN/iYjmneda2ABluTgPS98Q9tLqV019rN1Ua0
+	 vYnk2hOAyrd4lieVwva8//OIZ1CY3xTO0cXGKz7HGQoGnvhngp5rdJosD1pDAVDWKH
+	 kVWyq4zPmy5lLhgId+45y4urANQwajoNIB09Z7tgDexSVY3pF7fQjEP/9B3q9JqbTG
+	 /ESCYn9Kr5DeQ==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -49,17 +49,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 RESEND 1/3] irqchip/gic-v5: Delete a stray tab
-Date: Mon,  8 Sep 2025 10:27:43 +0200
-Message-ID: <20250908082745.113718-2-lpieralisi@kernel.org>
+Subject: [PATCH v2 RESEND 2/3] irqchip/gic-v5: Fix loop in gicv5_its_create_itt_two_level() cleanup path
+Date: Mon,  8 Sep 2025 10:27:44 +0200
+Message-ID: <20250908082745.113718-3-lpieralisi@kernel.org>
 X-Mailer: git-send-email 2.48.0
 In-Reply-To: <20250908082745.113718-1-lpieralisi@kernel.org>
 References: <20250908082745.113718-1-lpieralisi@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_012752_067244_E63E8352 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250908_012754_276691_5AB40DFC 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,32 +76,37 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dan Carpenter <dan.carpenter@linaro.org>
 
-Delete a stray tab that is indenting the code erroneously.
+The "i" variable in gicv5_its_create_itt_two_level() needs to be signed
+otherwise it would cause a forever loop in the function cleanup path.
 
-[lpieralisi: reworded log message]
+[lpieralisi: reworded commit log]
 
+Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
 Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-gic-v5-irs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/irqchip/irq-gic-v5-its.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-index 13c035727e32..ce2732d649a3 100644
---- a/drivers/irqchip/irq-gic-v5-irs.c
-+++ b/drivers/irqchip/irq-gic-v5-irs.c
-@@ -571,7 +571,7 @@ static void __init gicv5_irs_init_bases(struct gicv5_irs_chip_data *irs_data,
- 			FIELD_PREP(GICV5_IRS_CR1_IST_RA, GICV5_NO_READ_ALLOC)	|
- 			FIELD_PREP(GICV5_IRS_CR1_IC, GICV5_NON_CACHE)		|
- 			FIELD_PREP(GICV5_IRS_CR1_OC, GICV5_NON_CACHE);
--			irs_data->flags |= IRS_FLAGS_NON_COHERENT;
-+		irs_data->flags |= IRS_FLAGS_NON_COHERENT;
- 	} else {
- 		cr1 = FIELD_PREP(GICV5_IRS_CR1_VPED_WA, GICV5_WRITE_ALLOC)	|
- 			FIELD_PREP(GICV5_IRS_CR1_VPED_RA, GICV5_READ_ALLOC)	|
+diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+index 9290ac741949..4701ef62b8b2 100644
+--- a/drivers/irqchip/irq-gic-v5-its.c
++++ b/drivers/irqchip/irq-gic-v5-its.c
+@@ -191,9 +191,9 @@ static int gicv5_its_create_itt_two_level(struct gicv5_its_chip_data *its,
+ 					  unsigned int num_events)
+ {
+ 	unsigned int l1_bits, l2_bits, span, events_per_l2_table;
+-	unsigned int i, complete_tables, final_span, num_ents;
++	unsigned int complete_tables, final_span, num_ents;
+ 	__le64 *itt_l1, *itt_l2, **l2ptrs;
+-	int ret;
++	int i, ret;
+ 	u64 val;
+ 
+ 	ret = gicv5_its_l2sz_to_l2_bits(itt_l2sz);
 -- 
 2.48.0
 
