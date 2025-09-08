@@ -4,88 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 877E9CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:22:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31BAECAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FTDiYUkL2CUr9l6jV622a3f8KP7BPruwWZ5gte8PmvI=; b=IBbY2kRdP5wOrJ9Q97G8pHlruD
-	dZ+jT7zERABhZEgF2m+Vcw2zCJlCKKNU4i5J4FC987zb0c4gDAw21an6J1oZKtA3jRUQV2CerfGPG
-	2Q3oG9Tb3Vuw6MjuLyhZVHFWN1/tsRIGhaSWIJk815DHKqzK6a7cbPJDa0YzBebswRkosedqn1E0E
-	BLyWBBTwptYrSl7ybE94Jn5UKt6gE0us2rXjHAsLzAaDq11DHMr5PIXcVPMzJKXO9SIKDBaVYGwaU
-	MfBhUe2TrqDh3BMsJSO9t4wQC78MrX4UpbjB23YMNHzJm/0SqFgSOr0mv/rndk30mOc/lXWXkifKz
-	Qq/jkNsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lHuXjtnGIwA8Zzr3bT7RPQh03xIe4TvMRJ0gk9Qtcas=; b=PYbNj3Wi3DyAg9bcoT+ngXFyEa
+	YVlg5OYr9iMJXMg/JXCb484e0ZjIGn02mtlyK6fv4Me90XJ+492dm49wLdEFXbxsigvRBVeFkKq+p
+	zI76PCkMUBs+hNETdW/e6ovlL8r5p0F7q2M82f+fkK11mUoWi/dhM0UXA2xLEZvClQOOjDEBFFg/q
+	bTcLgcUhzJOUncNM3+oVnkf+BS5GN1fOghIEskZ/zxKB0xx9a0Q7clvz49QfuTtKZ6Sr9AkywluW4
+	QqsepYnWt671EP1DeS+FK3/lvuNG8zC9qX88I17UQhZH5RIQ1r2t8ApFVIdngVskaf/ltB9nBEoCb
+	Z0cdqHkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uviO5-00000002AHp-2Drk;
-	Mon, 08 Sep 2025 20:22:53 +0000
-Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
+	id 1uviQm-00000002BGq-1AaS;
+	Mon, 08 Sep 2025 20:25:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvezB-00000000qC3-1yrF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 16:44:58 +0000
-Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-52a73cc9f97so1382488137.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 09:44:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757349896; x=1757954696; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FTDiYUkL2CUr9l6jV622a3f8KP7BPruwWZ5gte8PmvI=;
-        b=RlZXOVeL7DsfihQmUj3sVyA6SwfCL8BXcU2lNCQnzGUvvaJhI7WBD/f3btAVZg8nuk
-         b5lH0WTJ+2TJbH7keLNMAKfRWskBTPHfaJSIQoYDwjh0kGOwAKiOHeHHtE9ZX5UJVMzT
-         RzBL9Pr3X3EGb3KchOsZmG5H302232JOZqgq9ysoKpnerxwhIO0kYxxLzFrrUkma8vl4
-         iNsgZkpSUAqNcvnapA2Kph6GNTQzMf6i1bQ8xIAZQKQ7Pa00OhY3txU4Kt5mQlDt6Egg
-         EfD3R4PxaCw7S0GC3Rocfbkqrp3JoTwxzCZ4xyRpod8kTpum6lN9S2/0NxZtVq2mHTU4
-         j4dA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757349896; x=1757954696;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FTDiYUkL2CUr9l6jV622a3f8KP7BPruwWZ5gte8PmvI=;
-        b=R6cdjN/T1PoNjXFvjECQfsMLUnlW76EOh66A975CuE7TNSNcU6jZ2VREab+sfODpyB
-         iBG9BV3WFqhbX5lsG2JiXRDJNHXfy+6jonatjdqtb0IfgL8QI3h2LCgYz2wG9TaGg9JK
-         Zdbkec50HLYwu1NDYbIlAwZ98yl9S78uW7CQYec6w71cgCJtO8zgh3SYejuodUjJbEui
-         ae++b8faUZUV3O8RA3bZLVM4J8H7eLorM1C9QXnpmcymWDX/MbdtavIjS2mSVrWJo9c9
-         0yMafQGNn+0YY3ZPuv/bPHYAv59ILGO6z0HRh0BarhgNcb8SlZe45PV6b+Rsz39qAHG/
-         uTTg==
-X-Forwarded-Encrypted: i=1; AJvYcCXeeXJBuXGzJ4VvvW7pokk5ljrAmoSrE+ZYMfoxgto+Y3RoOH/+KOkyWLMwltC7+p+ZVqzMUlU/KAgz4eryV16p@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2KsR71QP1rPXh1sxiGSKc5eB51UIENgiY0t7KJuFJ3oLScXVA
-	JWE5QVpcjFYNq8i4OLX4aKUDIYZlbQCH21zBA58W4Zw+eTTZWnXm0tKn
-X-Gm-Gg: ASbGncuHNn5NMi0p2jJepJP4DEy70ByKHFl/nFC1jOsf2FZUWe7BLODaD+Fgr+MZerY
-	h5JZJTyjJImSVdKPm17ErG8OBXvPHTBuSrtpQtknVrzc4258hN0byVl3AuBEpS7cQbiHCM1VjRr
-	DsZrIdjW14ci8Wy7kZUmXJ3hWoM+Ov+s5f6eH3E0EtglZpVidqYVW9JdYZvjK5vfiIPncAcUwnH
-	QGclu5vBUiENX+ugKdDvi8Hc1QP775gqjzz1DwnzFiZT2hRmS/vyYUI4kG6fL//58umY/czzFOP
-	z51sIJqz13aWKm1MDWTLV0ICQly4YB9rfo1Rjq2l1NjtZJ57yDXT4l/aqqEeePozkDG1ZxVV3TQ
-	6OK3AbiEBN3MU19TBR5kxLcYHoWvDUH255Vdr
-X-Google-Smtp-Source: AGHT+IEaTNiP+f9nKLoXBeh5yoJCXM8uvjtKSeIiQ7v3ifbHJ4bT4AcLveiBFitDVMsUfEgSA1p9QQ==
-X-Received: by 2002:a05:6102:ccf:b0:51e:92cc:6e6a with SMTP id ada2fe7eead31-53d160d3f9cmr2416721137.33.1757349895788;
-        Mon, 08 Sep 2025 09:44:55 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:c727:aee6:b2e8:7953])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-52aef458d62sm10689214137.3.2025.09.08.09.44.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 09:44:55 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH] ARM: dts: imx6sll: Use 'dma-names'
-Date: Mon,  8 Sep 2025 13:44:31 -0300
-Message-Id: <20250908164431.67052-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uvf1e-00000000r5f-2OGq;
+	Mon, 08 Sep 2025 16:47:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EAEE944147;
+	Mon,  8 Sep 2025 16:47:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75A49C4CEF9;
+	Mon,  8 Sep 2025 16:47:29 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="Xljewnqu"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1757350042;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lHuXjtnGIwA8Zzr3bT7RPQh03xIe4TvMRJ0gk9Qtcas=;
+	b=Xljewnquq+YctTo5JATPHR1MZHDXoI79+kGomlCc1eCG+TF1KFpPNGPjgGgJ2eyL9t7Zjn
+	9biPRJbSKpqslyEKR3leW33R1mqvnTuz7Lwht5N6SjYJEP2YGAgAppqfCHzPAnVKAINjLL
+	MsEGjyeUnvWaxgUSVvlw0rheoasfYJI=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 333beb9e (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Mon, 8 Sep 2025 16:47:22 +0000 (UTC)
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-621706e28faso553215eaf.2;
+        Mon, 08 Sep 2025 09:47:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXTO9ID1ATJfTSoERCVhRVKTQUDAfQyk4oq6lvIpKPJcXN1d+V3efJpPno6Y/ENTNsbHjLp0Dlp+Jp+R7c=@lists.infradead.org, AJvYcCXZjrZvoXHLvHclDWEdjJADAHEmCU7SvUnAbQGWwdRkfoRz1HJsFdvpnPj+l91XLCqqCt+MBhWzlw9qxTH3Nd90@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyu8pzyW2ELrt79Vck0y5SvbzGpcTfo5qqTf7cuMO7N8/1QQl1s
+	NvqDB13vODHSsaiTRGilCePCbx6XCxdqJCmNwKTlSxWaGK2BdLMjN/Yn7d6/u9JWbRmroUXzlyr
+	C7Xnij6Elukcu3X/3s/M/esYluevtnIg=
+X-Google-Smtp-Source: AGHT+IG1lksSpt4e4b7wpOLuoBOgU4CtzIVFITSYKRy7vIMNnTgG60R226zI8so9rVaf/KD14awSBHuCM8l64s4kZfU=
+X-Received: by 2002:a05:6808:2e4b:b0:438:37eb:62b2 with SMTP id
+ 5614622812f47-43b29b952ffmr4287499b6e.44.1757350039548; Mon, 08 Sep 2025
+ 09:47:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250821200701.1329277-1-david@redhat.com> <20250821200701.1329277-6-david@redhat.com>
+In-Reply-To: <20250821200701.1329277-6-david@redhat.com>
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Date: Mon, 8 Sep 2025 18:47:08 +0200
+X-Gmail-Original-Message-ID: <CAHmME9pO-g4qUUsbF+XZqcPcwfP3-N7AxR+MX6G73adc2-NAkA@mail.gmail.com>
+X-Gm-Features: AS18NWDayNVnEOpkO7Cmy5o2hUWkz6cio8gfE7ZsOxyaASSZD8l09i-KslFVPvE
+Message-ID: <CAHmME9pO-g4qUUsbF+XZqcPcwfP3-N7AxR+MX6G73adc2-NAkA@mail.gmail.com>
+Subject: Re: [PATCH RFC 05/35] wireguard: selftests: remove
+ CONFIG_SPARSEMEM_VMEMMAP=y from qemu kernel config
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Shuah Khan <shuah@kernel.org>, 
+	Alexander Potapenko <glider@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>, 
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org, 
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev, 
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>, 
+	Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com, 
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com, 
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
+	linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
+	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>, 
+	Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>, 
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, 
+	x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_094457_511381_8326C6F8 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20250908_094730_643834_7602E963 
+X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +104,5 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-'dma-name' is not a valid property and causes the following dt-schema
-warning:
-
-dma-name: b'rx\x00tx\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-
-Fix it by using 'dma-names' instead.
-
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
----
- arch/arm/boot/dts/nxp/imx/imx6sll.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
-index 8c5ca4f9b87f..704870e8c10c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
-@@ -309,7 +309,7 @@ uart3: serial@2034000 {
- 					reg = <0x02034000 0x4000>;
- 					interrupts = <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
- 					dmas = <&sdma 29 4 0>, <&sdma 30 4 0>;
--					dma-name = "rx", "tx";
-+					dma-names = "rx", "tx";
- 					clocks = <&clks IMX6SLL_CLK_UART3_IPG>,
- 						 <&clks IMX6SLL_CLK_UART3_SERIAL>;
- 					clock-names = "ipg", "per";
--- 
-2.34.1
-
+Applied, thanks.
 
