@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01014CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 02:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B371CAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 02:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h6kVRdondwSJrag3cb1J8HZz+w7m+s5/4jN9ETfvjhs=; b=SW10puUE4j1qrcjLgPluwk6ewn
-	OsQBJr/nJ/wiZrIFMRdB1CYoY73TNIJ5XZEKIPktEAULJC8GO2iAxZp0O3Hz3QFCrvkBiZvYPLPli
-	nF80oau2QU31DPM3Omxst67madweiizbRm9s3JhH0Pw9Fz/LZ8KSvi7Np1UjSm1PpgZ8av9ZOrfpd
-	GA6gsjWJrQNdQUhkSjkfeetofsbP+pVi1IPDKEGBbg86n1uAbaiB8WFNHniybGJ1ce1Zo+c/4RYMm
-	/eNRwkujEqg4b1jE4rCd6C0OLi1lw1znTAjxUyKaszZdk8cACqCyph4tk+LI/I20i3h2mzEhpa3y7
-	eSTftqew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9MgYqtRoBr/2qp11LOWM/GYSlYKgusfClGb6GchRJyk=; b=TbEm/dF9Z+4oWN3muozocSjWml
+	mZDcxusB6LMeNzuND0qyIDpzmPk0K0XS1r4XVxODehL+4H/ZX9DuRh33p6hpxT8aHEgsZ8mBgJB++
+	WQ9m7BFcbVc1ZFV2C1Glr2RoasKz7vZsXJpfqn21ymN2GRROV4iNlzXtYt2zCiMtt2rC5/JM2WN5l
+	kdlitUK2/JLNo7geaOe8uDnUnYWH0Jrq9cs4C7aIuG0/SJHNG6eG4KFR/3NxewHrDOGZB4VGmPqV8
+	8XoSZ8lrpPRtF930mv/Ef6txT/DInI5mFJXBvWdNQq/4xBXmBje8HASHK3E7xuBzuq0p3YPFhwxXP
+	FJ1heB6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvo62-00000003hHW-39rg;
-	Tue, 09 Sep 2025 02:28:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uvo6B-00000003hWr-0fFH;
+	Tue, 09 Sep 2025 02:28:47 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgyH-00000001ggB-1S99
+	id 1uvhNp-00000001pxU-3IAo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 18:52:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C396541964;
-	Mon,  8 Sep 2025 18:52:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9710AC4CEF1;
-	Mon,  8 Sep 2025 18:52:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757357528;
-	bh=m68Pt8x6Gn2SMxw3EHoWKD57HOEBiJN6VoL6dEjKCmY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PfXlh9Wt3uLCHIQwCbJQ1AFsSlCFT02O0yKivlP00jueALrQTy1gJ/abqUQIWyTSx
-	 tsZ2rdHv3+CB1BCOremg+o21YgtdsScUBx+bWZ/MUmGaz+19r+hZ/KSWpzDL736z7C
-	 Zm3iA/T1M/adp7a6BvyFX9hQtFYB2MG2Mmvv5ySlqBn0nSybPKQdbQF73rLs/AAOVo
-	 cmrvoMYWX6k3TqqR9vB/4lA/etwNklkBhx1puWo3e+3/mFdAzIqVRvSdgPucbe+X0J
-	 KoPnghRafy9CtOrcwg5FjsKgMoIrn/xExfjAaYL+WI3LLzdX7X90Nrk3znsuXJFvDl
-	 DjfdOJN6Omtfg==
-Date: Mon, 8 Sep 2025 19:52:02 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
-	mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com,
-	vdonnefort@google.com, qperret@google.com, sebastianene@google.com,
-	keirf@google.com, smostafa@google.com
-Subject: Re: [PATCH v3 9/9] KVM: arm64: Reserve pKVM handle during
- pkvm_init_host_vm()
-Message-ID: <22a563c0-886a-4ccd-84e5-3093986b164b@sirena.org.uk>
-References: <20250827101949.4089456-1-tabba@google.com>
- <20250827101949.4089456-10-tabba@google.com>
- <1a248f14-60f2-4f8f-8b4d-3c63e602fd54@sirena.org.uk>
+	Mon, 08 Sep 2025 19:18:34 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=hIo7vUCnNY2//I9ef15F+E9SgNi6e5JG1OVrEjYJN0vcAkGI4wLoWf03fJorImNa5xgaKLVd+U31H1vjMc/QJ53mQShn+cfKf/hN1mYsqbShF0s7vfBfZrqLywyLr91rRHRL8v9qbPwLmLqVPrQea0MLBJXFwLT8rRQWkoGy52FH5ueRtcweub9gf2tQxkn42lihPQ5MGVgKdUIykXDa26fHqXTMWgHKWSPbjOuM96gf87l/lzfyAOF/ZpFuetwlu3y+uP58QFPg2zMP73bCc4y2DCuL8vq2G7Rkc2uSHd4X//hLOD+3nr+Nrwe+zF7IeBKV24L/xixFqQZRUDqZXw==; s=purelymail2; d=purelymail.com; v=1; bh=fz5+hC0k8fKdAq/kcs2/S7hp4i321hoQaekwrPmVsBc=; h=Feedback-ID:Received:From:Date:Subject:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 292196779;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Mon, 08 Sep 2025 19:18:12 +0000 (UTC)
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Date: Mon, 08 Sep 2025 21:17:56 +0200
+Subject: [PATCH 2/4] pinctrl: mediatek: Add support for eh bit
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="i0zjPKqI1O/A7XsB"
-Content-Disposition: inline
-In-Reply-To: <1a248f14-60f2-4f8f-8b4d-3c63e602fd54@sirena.org.uk>
-X-Cookie: All celebrity voices impersonated.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250908-mt6878-pinctrl-support-v1-2-3fb78c8ab4e8@mentallysanemainliners.org>
+References: <20250908-mt6878-pinctrl-support-v1-0-3fb78c8ab4e8@mentallysanemainliners.org>
+In-Reply-To: <20250908-mt6878-pinctrl-support-v1-0-3fb78c8ab4e8@mentallysanemainliners.org>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@kernel.org>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757359086; l=7133;
+ i=igor.belwon@mentallysanemainliners.org; s=20250908;
+ h=from:subject:message-id; bh=fz5+hC0k8fKdAq/kcs2/S7hp4i321hoQaekwrPmVsBc=;
+ b=uHH+kPHBczdt1S8MuHANUHg6xc/V8nPAANx362qza7nJhNXBxboj5kDxim59UaGMtzFGUPFf+
+ 7EqkBL+gsMCDrIV7tdQb6TU3LBfcCe6LFvZ572QcVuVt3dHenln9QYD
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=t9Kz6B3jEwJD7YAKcp8XftfEz7SUSlGbrsfFlbrrFwA=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_115209_405630_37650609 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20250908_121833_903897_CAC93C40 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,59 +78,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The eh bit is used for setting drive mode for i2c pins on recent SoCs.
+Add support for it.
 
---i0zjPKqI1O/A7XsB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+---
+ drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c | 60 ++++++++++++++++++++++++
+ drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h | 24 ++++++++++
+ drivers/pinctrl/mediatek/pinctrl-paris.c         | 30 +++++++++---
+ 3 files changed, 108 insertions(+), 6 deletions(-)
 
-On Mon, Sep 08, 2025 at 05:05:56PM +0100, Mark Brown wrote:
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
+index 4918d38abfc29de1f27ee75bc6a51c32b3ca1ac5..51fbdbdf61c901bb7ee43405d36f2c1602b3616f 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
+@@ -249,6 +249,58 @@ static int mtk_xt_find_eint_num(struct mtk_pinctrl *hw, unsigned long eint_n)
+ 	return EINT_NA;
+ }
+ 
++/*
++ * The eh register determines the selection of the driving control
++ * for i2c pins.
++ * eh = 0: Non-i2c mode.
++ * eh = 1: i2c mode.
++ */
++int mtk_eh_ctrl(struct mtk_pinctrl *hw, const struct mtk_pin_desc *desc,
++		u16 mode)
++{
++	const struct mtk_eh_pin_pinmux *p = hw->soc->eh_pin_pinmux;
++	u32 eh_info_num = hw->soc->neh_pins;
++	u32 val = 0, on = 0, found = 0, i = 0;
++	int err;
++
++	while (i < eh_info_num) {
++		if (desc->number == p[i].pin) {
++			found = 1;
++			if (mode == p[i].pinmux) {
++				on = 1;
++				break;
++			}
++		}
++		/*
++		 * It is possible that one pin may have more than one pinmux
++		 *   that shall enable eh.
++		 * Besides, we assume that hw->soc->eh_pin_pinmux is sorted
++		 *   according to field 'pin'.
++		 * So when desc->number < p->pin, it mean no match will be
++		 *   found and we can leave.
++		 */
++		if (desc->number < p[i].pin)
++			break;
++
++		i++;
++	}
++
++	if (!found)
++		return 0;
++
++	err = mtk_hw_get_value(hw, desc, PINCTRL_PIN_REG_DRV_EH, &val);
++	if (err)
++		return err;
++
++	if (on)
++		val |= on;
++	else
++		val &= MTK_EH_ENABLE_MASK;
++
++	return mtk_hw_set_value(hw, desc, PINCTRL_PIN_REG_DRV_EH, val);
++}
++EXPORT_SYMBOL_GPL(mtk_eh_ctrl);
++
+ /*
+  * Virtual GPIO only used inside SOC and not being exported to outside SOC.
+  * Some modules use virtual GPIO as eint (e.g. pmif or usb).
+@@ -1231,6 +1283,10 @@ int mtk_pinconf_adv_drive_set(struct mtk_pinctrl *hw,
+ 	int e0 = !!(arg & 2);
+ 	int e1 = !!(arg & 4);
+ 
++	err = mtk_hw_set_value(hw, desc, PINCTRL_PIN_REG_DRV_EH, arg);
++	if (!err)
++		return 0;
++
+ 	err = mtk_hw_set_value(hw, desc, PINCTRL_PIN_REG_DRV_EN, en);
+ 	if (err)
+ 		return err;
+@@ -1256,6 +1312,10 @@ int mtk_pinconf_adv_drive_get(struct mtk_pinctrl *hw,
+ 	u32 en, e0, e1;
+ 	int err;
+ 
++	err = mtk_hw_get_value(hw, desc, PINCTRL_PIN_REG_DRV_EH, val);
++	if (!err)
++		return 0;
++
+ 	err = mtk_hw_get_value(hw, desc, PINCTRL_PIN_REG_DRV_EN, &en);
+ 	if (err)
+ 		return err;
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h
+index fa7c0ed49346486ba32ec615aa2b3483217f5077..a2ff8ae5ba43e5be87c8b478c07d9d4640c2e8ec 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h
++++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h
+@@ -35,6 +35,8 @@
+ 				 MTK_PULL_PUPD_R1R0_TYPE |\
+ 				 MTK_PULL_RSEL_TYPE)
+ 
++#define MTK_EH_ENABLE_MASK	0xfffffffe
++
+ #define EINT_NA	U16_MAX
+ #define NO_EINT_SUPPORT	EINT_NA
+ 
+@@ -67,6 +69,11 @@
+ 		.down_rsel = _down_rsel,				\
+ 	}
+ 
++#define PIN_MUX_EH(_pin, _pinmux) {						\
++		.pin = _pin,						\
++		.pinmux = _pinmux,					\
++	}
++
+ /* List these attributes which could be modified for the pin */
+ enum {
+ 	PINCTRL_PIN_REG_MODE,
+@@ -88,6 +95,7 @@ enum {
+ 	PINCTRL_PIN_REG_IES,
+ 	PINCTRL_PIN_REG_PULLEN,
+ 	PINCTRL_PIN_REG_PULLSEL,
++	PINCTRL_PIN_REG_DRV_EH,
+ 	PINCTRL_PIN_REG_DRV_EN,
+ 	PINCTRL_PIN_REG_DRV_E0,
+ 	PINCTRL_PIN_REG_DRV_E1,
+@@ -204,6 +212,17 @@ struct mtk_eint_desc {
+ 	u16 eint_n;
+ };
+ 
++/**
++ * struct mtk_eh_pin_pinmux - entry recording (pin, pinmux) whose
++ *			      eh can be enabled
++ * @pin:                pin number
++ * @pinmux:             pinmux number
++ */
++struct mtk_eh_pin_pinmux {
++	u16 pin;
++	u16 pinmux;
++};
++
+ /**
+  * struct mtk_pin_desc - the structure that providing information
+  *			       for each pin of chips
+@@ -252,6 +271,8 @@ struct mtk_pin_soc {
+ 	const unsigned int		*pull_type;
+ 	const struct mtk_pin_rsel	*pin_rsel;
+ 	unsigned int			npin_rsel;
++	const struct mtk_eh_pin_pinmux  *eh_pin_pinmux;
++	unsigned int			neh_pins;
+ 
+ 	/* Specific pinconfig operations */
+ 	int (*bias_disable_set)(struct mtk_pinctrl *hw,
+@@ -311,6 +332,9 @@ int mtk_hw_set_value(struct mtk_pinctrl *hw, const struct mtk_pin_desc *desc,
+ int mtk_hw_get_value(struct mtk_pinctrl *hw, const struct mtk_pin_desc *desc,
+ 		     int field, int *value);
+ 
++int mtk_eh_ctrl(struct mtk_pinctrl *hw, const struct mtk_pin_desc *desc,
++		u16 mode);
++
+ int mtk_build_eint(struct mtk_pinctrl *hw, struct platform_device *pdev);
+ 
+ int mtk_pinconf_bias_disable_set(struct mtk_pinctrl *hw,
+diff --git a/drivers/pinctrl/mediatek/pinctrl-paris.c b/drivers/pinctrl/mediatek/pinctrl-paris.c
+index 3e714554789d0e7e31ecce92388f53b906bdf122..f87447d6f879a3f7b57db44ed97cc91f8e93b425 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-paris.c
++++ b/drivers/pinctrl/mediatek/pinctrl-paris.c
+@@ -104,13 +104,21 @@ static int mtk_pinmux_gpio_request_enable(struct pinctrl_dev *pctldev,
+ 					  struct pinctrl_gpio_range *range,
+ 					  unsigned int pin)
+ {
++	int err;
+ 	struct mtk_pinctrl *hw = pinctrl_dev_get_drvdata(pctldev);
+ 	const struct mtk_pin_desc *desc;
+ 
+ 	desc = (const struct mtk_pin_desc *)&hw->soc->pins[pin];
+ 
+-	return mtk_hw_set_value(hw, desc, PINCTRL_PIN_REG_MODE,
+-				hw->soc->gpio_m);
++	err = mtk_hw_set_value(hw, desc, PINCTRL_PIN_REG_MODE,
++			       hw->soc->gpio_m);
++	if (err)
++		return err;
++
++	if (hw->soc->eh_pin_pinmux)
++		err = mtk_eh_ctrl(hw, desc, hw->soc->gpio_m);
++
++	return err;
+ }
+ 
+ static int mtk_pinmux_gpio_set_direction(struct pinctrl_dev *pctldev,
+@@ -749,10 +757,10 @@ static int mtk_pmx_set_mux(struct pinctrl_dev *pctldev,
+ 	struct mtk_pinctrl_group *grp = hw->groups + group;
+ 	const struct mtk_func_desc *desc_func;
+ 	const struct mtk_pin_desc *desc;
+-	bool ret;
++	int err;
+ 
+-	ret = mtk_pctrl_is_function_valid(hw, grp->pin, function);
+-	if (!ret) {
++	err = mtk_pctrl_is_function_valid(hw, grp->pin, function);
++	if (!err) {
+ 		dev_err(hw->dev, "invalid function %d on group %d .\n",
+ 			function, group);
+ 		return -EINVAL;
+@@ -763,7 +771,17 @@ static int mtk_pmx_set_mux(struct pinctrl_dev *pctldev,
+ 		return -EINVAL;
+ 
+ 	desc = (const struct mtk_pin_desc *)&hw->soc->pins[grp->pin];
+-	return mtk_hw_set_value(hw, desc, PINCTRL_PIN_REG_MODE, desc_func->muxval);
++
++	err = mtk_hw_set_value(hw, desc, PINCTRL_PIN_REG_MODE,
++			       desc_func->muxval);
++
++	if (!err)
++		return err;
++
++	if (hw->soc->eh_pin_pinmux)
++		err = mtk_eh_ctrl(hw, desc, desc_func->muxval);
++
++	return err;
+ }
+ 
+ static const struct pinmux_ops mtk_pmxops = {
 
-> I'm seeing the KVM selftests failing in -next on multiple nVHE
-> platforms (pretty sure it's all of them) which bisect down to this
-> commit, when booted in standard nVHE mode the selftests are all failing
-> to initialise with:
+-- 
+2.51.0
 
-I'm seeing a different failure on the same commit with qemu in VHE mode,
-we fault during pkvm_init_host():
-
-<12>[  112.802609] kselftest: Running tests in kvm
-TAP version 13
-1..34
-# timeout set to 120
-# selftests: kvm: demand_paging_test
-<2>[  113.800187] Unhandled 64-bit el1h sync exception on CPU0, ESR 0x000000005a000000 -- HVC (AArch64)
-...
-<4>[  113.812056] Call trace:
-<4>[  113.812571]  show_stack+0x18/0x24 (C)
-<4>[  113.813078]  dump_stack_lvl+0x60/0x80
-<4>[  113.813448]  dump_stack+0x18/0x24
-<4>[  113.813711]  vpanic+0x124/0x2ec
-<4>[  113.813965]  abort+0x0/0x4
-<4>[  113.814198]  arm64_exit_nmi.isra.0+0x0/0x94
-<4>[  113.814517]  el1h_64_sync_handler+0x2c/0xac
-<4>[  113.814812]  el1h_64_sync+0x6c/0x70
-<4>[  113.815266]  pkvm_init_host_vm+0x20/0x48 (P)
-<4>[  113.815629]  kvm_dev_ioctl+0x264/0x80c
-<4>[  113.815960]  __arm64_sys_ioctl+0xac/0x104
-
-Full log:
-
-   https://lava.sirena.org.uk/scheduler/job/1794785#L2258
-
---i0zjPKqI1O/A7XsB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmi/JdIACgkQJNaLcl1U
-h9Cvvwf+Ku5H3aGiM3kg/odyEYKyIW4ICYg1jzmGniLupkXuokO0cH1M366JiPzT
-ZC9GuQ3A254VEX5dtn5tmrqunRSdw5Bg56ZQGrv5Vm5L9CYfJOKZYFXeLGl6RVoG
-80tGrMayx0aEBZe7LnJfBrdsueaic4wZgpy/BwZOk4IEJoTe9ZGnuJS0nAITdQL0
-jW95c0sv1Xwou087X3A0keW8BvK+rBkfChvOlKwZZYfqqr5eGxrGUuY95zSovG02
-jv2RgxU4jyvBjE09PGVaXefRD2a2V9LPi4Od2buIjFflquoopAV1936DJ9FnjSLb
-Yc784pyDabfwRQcOoup/T+fkRcBkyA==
-=nG4j
------END PGP SIGNATURE-----
-
---i0zjPKqI1O/A7XsB--
 
