@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 900CECA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 05:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C554ACA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 05:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bK4xCCUkJgHnNsrWJUX5n2h3qweAwpi9anD1X6vMswc=; b=cOIykD/qBXMt2EtNttQy/fdtpm
-	VU2OL6kpsNd9XiUBXz8ltdFQXttY4lDyix64u7Z/eN1n8LaGk0+8XE4gReDA+NmrbqOUy4gAZjsdo
-	y3bTPvqEAZlIBcciPP8/TY1pY9LB4ufBqigqF+ghaVMJy7z0lmUQWijBKaYTklQsA5Ua01Klx9t7q
-	tb1YG31ArBiUdhryJC9yzk6QFPPrbTvRY2hFuCA6OyU08hXLuvjvF4ohzv8N9BVnkiXb7dpAJYnYb
-	mmNBZicHG1Y+o/O+jllor+9MS6GjAjWCsy2mCcixOUT6Lm5JdvfCqEjXeURISqm2sHuqxkdrLk1fq
-	aaIExOIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WghS31MiwYpivW711VFPt8EhJLI8G/psFT7p1MbEpbQ=; b=VGifRETpvFbf+u
+	qo6RsdcTFZOeBopFRefXGmIElSDu60WvUFkm7i4qWdMUL0qw5uaIqhgBO0YmZHWFH7RTD76e6/BQp
+	xavzmV0gge0Cai/3aKBeZ+j03CqbrTFFzB639voX8TUKnQ/Kp8dUKRbuwEOONhKzwNsrd281yQ7K7
+	X5tD3NqN9VCilHJ4Nmu55u8QdueVpbHdbklsTH4WLosaIQIFcFRwDvAmJzmVytuvbGr9ySF0EDBNL
+	ReI6QApdmUi5q9MQ8aq/2OSUdeWT2WV/LBi/axXFA9VtYrNA2iQfMIxylVHh8Zd20UEDmabR9Ln4W
+	1PkyVA4PrYzIqo205bxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvUoN-0000000Ep57-1a31;
-	Mon, 08 Sep 2025 05:53:07 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1uvUrt-0000000Epig-1WRG;
+	Mon, 08 Sep 2025 05:56:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvUju-0000000EnES-48KY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 05:48:32 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3e2055ce973so2010215f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Sep 2025 22:48:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757310509; x=1757915309; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bK4xCCUkJgHnNsrWJUX5n2h3qweAwpi9anD1X6vMswc=;
-        b=bN4Vs+pgMugmH3T7K9jNpu53XGjPZuoBxgOsw+kInVOynHLjqQSyYbdttdQepiLbqH
-         e+d1JYyOXTgqlgqcXdgJwOs01YOFpltZOWRWv7oLtZsWdodR1jeJWEmMjkAA/5mQkMKb
-         P14D9ADIWCq9SL1QFpFTtln3pu28rLSfV1HgPYcsDA5lx+1Vlr+dfkTpJFYy0OVfThgm
-         VauNfrZnn2LuMtC9UaKi5RnHpDqQa9mjUCh50E9M+CTLzZgHfUgO+RmO5ZedHiW4oHmB
-         UMZ+yLCAy/lkH9ZeTw9+swXmvAv9hmB6xJsWaO4wk3iwR5dC98rXm5ZrpUMI8gu2Oiv1
-         1fVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757310509; x=1757915309;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bK4xCCUkJgHnNsrWJUX5n2h3qweAwpi9anD1X6vMswc=;
-        b=Bc/28Nk1icNFwlIIrZns/FidI7S9kTocSraQSmKREqykdAbG6B8MRw4DQKqYSpHJp3
-         nhQUH2pTmX2MzcnVbVt3EPzTiKEiP9Ce98D3mtYZ4IfsSXyzBqpciGFIKqoaOCSKjVYc
-         CfjmP85neKfD+eCRR+Uyxwroz1kWjCoS4jAFQhqV8ihDXNaeyeRDgOMXH76SePHrfl/d
-         wLo3bqHmLhh2+axRNzBKquB8c/3b4qGNHiN4LE20K+iPqfip4o74ySoE+xDN5TRL3Auc
-         3AMuo963v9YnX7m+D1vQlIzX4sPYHAEEkAeMJ93P4g7W8IXOzPfIQsg43bRnBTwqlYKv
-         v41w==
-X-Forwarded-Encrypted: i=1; AJvYcCX5vWxpN+OAO0Hy1t1Jrr16+7v2xy7WT7fba3vxqgA66U0mgo17h0Fx7mpLNOv7yD64+sv0Foi8bCvnSzONbn5I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhmPqZs6+p7N8hGputLlUzZIQPb10pCfBUSn85F9e5gjEkK/3f
-	1bXIWNWmypJBHzJ1W2MdCPWWbd4Crvh9Vmj5h2xH9CaGRSHdzS2ULbEt//AsNU0mb9M=
-X-Gm-Gg: ASbGnctZ9+67bSfaPY5NSy1bm2hK5gN8vJia6628BdHxhOt4ZOlRPZcOkQyUZESG+I5
-	oT2+y71jkvpWr4bj/IJP8u+Msb/cHFZ+jtDZNr/Yiok8TvqNUDWJbW4nCocM23RFfeYDA37lQfD
-	wcDBrpbSuB/v98HKGPzWs9SKYL6woz353MgkEWUGWMTNcxNkoyjFNNgEPXYlW+7AV5YwQsxniw/
-	lDYccX6MCB2+VTRnpx50k5+tk1kuJV5uZn5E2is+Yy+tG6ffC9IWlFK6lxgZC8xbFX3jbKDgcgK
-	K1gpBn1q0mXS4hYRaXgaZztRUrQPqp3FkZUigJBjaXs3a9juVyjRxpNVukB2Vw5KA7l/nsZ6dsC
-	T43XEQHTLqIqIxwcvJ5PN1aibbZL/Hlwiu5Z05g==
-X-Google-Smtp-Source: AGHT+IEEWpQsJ4943vbis4w2dbJY/QBn55s5lkkvnQbqeLGZJhfjukVhzvhNNq/IsiNBzEyJkqP93A==
-X-Received: by 2002:a5d:6e46:0:b0:3e7:46bf:f8bd with SMTP id ffacd0b85a97d-3e746bfff15mr1956825f8f.23.1757310509421;
-        Sun, 07 Sep 2025 22:48:29 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3d95df59e50sm25155604f8f.23.2025.09.07.22.48.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Sep 2025 22:48:29 -0700 (PDT)
-Date: Mon, 8 Sep 2025 08:48:25 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Umang Jain <umang.jain@ideasonboard.com>
-Subject: Re: [PATCH v2 0/5] staging: Destage VCHIQ interface and MMAL
-Message-ID: <aL5uKTiEYZP68xLd@stanley.mountain>
-References: <20250907-vchiq-destage-v2-0-6884505dca78@ideasonboard.com>
+	id 1uvUp6-0000000EpKS-43vZ;
+	Mon, 08 Sep 2025 05:53:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E179601A4;
+	Mon,  8 Sep 2025 05:53:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6E6EC4CEF9;
+	Mon,  8 Sep 2025 05:53:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757310831;
+	bh=ZqrX17bonRAwjOTuMiYVq+TPaLNTG6ggeRB6AoUMNaU=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=gAzQLqNvEwFvLyv+u+YkhomHi0XARpr8yUzeYEVBLuTOyUVr7jrj3wJnt6zLMmjd/
+	 ngYVzt+Uq+ULc6DUl7JbPvS+AE72YHdL2r+g3Dqk3KAWWb/IZJhxyBJlxpwyhh+uZG
+	 bAUU78kS233inPdjrHCsFq726T/hdrKUVTTrymfWJ9/XWSeLCmsU0f9z6GH3NsopyB
+	 SeHuxgPIofBW3IINC25vd97iYZVEXVXPFRBd2f8TAoZ4A8d7V9Q+Op2IPxZmNbPGSc
+	 wai6i+VmRw0i9UrbxEvkq6Sw6p8BuuXFCk9xjLHxUW8h92qjjJNRLmCVMtspx8cbqD
+	 fzbdzS+CcF8mA==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-336dc57f562so35385501fa.1;
+        Sun, 07 Sep 2025 22:53:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWG3EGuxofnhvkdfYdsN4/mCT4z3oK85UZgEuoHolL3Ip29Q/9yzj7nP042h1vtMkz9ujjXymxTF5SRnHjfP10=@lists.infradead.org, AJvYcCXGYWEQw7Zh7DemitwFo9ABh21m1tAlWufm4Mrbam4LtEaH8q7eTYT+PxM4V0vrPZZ2dndfIEbFd7+DQE4UCbvf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1h4mLS0/WOKNE9/ZA7+4HaNeILfKXnTk9ghWRKnCCi4HYfqec
+	pAVVkln3UxvAslByfCFYDJwggAMBz66V8ZQYz4hSNwMIuFirJXQ5ylMOokBJBMCbUV4Rqdw9uEh
+	dT8rhrWNR5WSOSXlW8X0PtaTIkGjp0zY=
+X-Google-Smtp-Source: AGHT+IFoIRqBP+beoRTtdEhddDMBEkPHoidtmb9upgIqwtKQKv7AfSn8jlVDO+Lv30NWUzvwXcrdYgDkKWvsvnC3um8=
+X-Received: by 2002:a05:651c:1117:10b0:336:cf86:d405 with SMTP id
+ 38308e7fff4ca-33bb00c67dcmr14316821fa.18.1757310830040; Sun, 07 Sep 2025
+ 22:53:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250907-vchiq-destage-v2-0-6884505dca78@ideasonboard.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_224831_029523_5BA278A7 
-X-CRM114-Status: GOOD (  10.88  )
+References: <179c9e8c-8760-41e6-aad7-7a128df60984@omp.ru> <6789547.RUnXabflUD@phil>
+In-Reply-To: <6789547.RUnXabflUD@phil>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Mon, 8 Sep 2025 13:53:37 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67ihFehEwSc-rX=U-KJdvao_588G8iVEoSXuJ_-gnd50w@mail.gmail.com>
+X-Gm-Features: Ac12FXyVWZLt2noIJdj4yJ6V9YrgLg44Go_24vJRtuEdKpX8GT8MNMLbwaZezyo
+Message-ID: <CAGb2v67ihFehEwSc-rX=U-KJdvao_588G8iVEoSXuJ_-gnd50w@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: rockchip: fix NULL ptr deref in rockchip_pinctrl_parse_groups()
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org, 
+	Sergey Shtylyov <s.shtylyov@omp.ru>, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,19 +77,84 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It's really hard to review the code when it's just sigle line like
-this:
+On Mon, Sep 8, 2025 at 1:32=E2=80=AFAM Heiko Stuebner <heiko@sntech.de> wro=
+te:
+>
+> Am Mittwoch, 3. September 2025, 21:48:54 Mitteleurop=C3=A4ische Sommerzei=
+t schrieb Sergey Shtylyov:
+> > In the Rockchip driver, rockchip_pinctrl_parse_groups() assumes that th=
+e
+> > "rockchip,pins" property will always be present in the DT node it parse=
+s
+> > and so doesn't check the result of of_get_property() for NULL. If the D=
+T
+> > passed to the kernel happens to have such property missing, then we wil=
+l
+> > get a kernel oops when the pointer is dereferenced in the *for* loop ju=
+st
+> > a few lines after the call.  I think it's better to play safe by checki=
+ng
+> > the list variable for NULL (and reporting error if so), like we check t=
+he
+> > size variable for validity further down...
+> >
+> > Found by Linux Verification Center (linuxtesting.org) with the Svace st=
+atic
+> > analysis tool.
+> >
+> > Fixes: d3e5116119bd ("pinctrl: add pinctrl driver for Rockchip SoCs")
+> > Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
+>
+> Assuming that the DT is our friend, really is a bad assumption :-) .
 
->  .../raspberrypi/vchiq-interface}/vchiq_arm.c       |    9 +-
+If this is invalid, perhaps you should make the "rockchip,pins" property
+required in the binding?
 
-It's also a head ache to do a cat -n filename and then copy and paste
-it into an email message...  I thought there was a trick to make the
-diff show up in the email?
+> While I can't imagine what 12-year-ago-me was thinking then, simply
+> checking the return value really is the better way
 
-regards,
-dan carpenter
+I think some of us have thought that guarding against incorrect DTs
+is not what the kernel is supposed to do.
 
+ChenYu
+
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+>
+>
+> >
+> > ---
+> > The patch is against the master branch of Linus Torvalds' linux.git rep=
+o.
+> >
+> >  drivers/pinctrl/pinctrl-rockchip.c |    4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> >
+> > Index: linux/drivers/pinctrl/pinctrl-rockchip.c
+> > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > --- linux.orig/drivers/pinctrl/pinctrl-rockchip.c
+> > +++ linux/drivers/pinctrl/pinctrl-rockchip.c
+> > @@ -3488,7 +3488,9 @@ static int rockchip_pinctrl_parse_groups
+> >        * do sanity check and calculate pins number
+> >        */
+> >       list =3D of_get_property(np, "rockchip,pins", &size);
+> > -     /* we do not check return since it's safe node passed down */
+> > +     if (!list)
+> > +             return dev_err_probe(dev, -EINVAL,
+> > +                                  "%pOF: no rockchip,pins property\n",=
+ np);
+> >       size /=3D sizeof(*list);
+> >       if (!size || size % 4)
+> >               return dev_err_probe(dev, -EINVAL,
+> >
+>
+>
+>
+>
+>
 
