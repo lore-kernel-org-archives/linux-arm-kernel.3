@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74F9CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C81DACA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=472qNEhPpJBtpQXWPAA67Hvyd9m8FpDTVGwTd9jdzNA=; b=KSeU7LEfhTY3557uVaflo7F4Kr
-	0klTw2rqnflpdgC4IfQhcidqye/mGk1cIHWKdKFD1EzXTcGlEX30N80HPvKNsyICmPX8jFgB0+lEH
-	5+VOWjyLnnojGeNQdx9MQlAo8TIXhCRS+NRHHCAuI6Qlei69TdaoOZGceoF1f0hOv9apbkHx4Br/3
-	rRkQ105zC+Sq31Ubfnuh+UOp06RKlcy7C38enFSt2xya4tTmAafWK10mer9ChZRYk9kWC4Ep78z0M
-	pjWw1cinav4bweeUL0vHsFtsToe/0+XPVJ3VRJaujMNOPO1jUk5WpLYNjvI8NPMAF6nqFoNf5ngHr
-	rpPSlwXw==;
+	bh=5Fw4uR5QXWsFCxr67i5Lils6Jy5yWW6LOeuKX7d910Y=; b=dg1RUaFBiNOcUIaVMBXPRFgUmv
+	/ZmTHMaZfqWFPLgxPm5S0wOQJbQbavN0lDWrgm7MRlnfY13u1WVFXXl+OswsPtaPJ3GCZpvqppTx5
+	3p7VJEoSFMrPjIilp4X9GpHXhc9vf93IPffkVEzXZUrwN7MH9QQgCcFQ5R641IU+BGc21nohbnwAn
+	ZTksteMygyT0wENTP1RVNQIkkZ9vCn4K+oZk117SJVooGh5baqa2HPlMqW7QOOdvPgymLIHEdg2Sg
+	pJDil+p8XdGeeb9b059TOVKBPTBt3GqYGsWy4A9ElJdA88u2iqqplz+MSUo/jFaizK6SIdXcq1WhE
+	N2jaYs3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgUm-00000001VIJ-0Mhj;
-	Mon, 08 Sep 2025 18:21:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uvgUs-00000001VQF-20vC;
+	Mon, 08 Sep 2025 18:21:46 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvci2-000000003go-0CnZ
+	id 1uvcsj-0000000077r-0iMm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 14:19:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1FA6438AB;
-	Mon,  8 Sep 2025 14:19:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DEA8C4CEF1;
-	Mon,  8 Sep 2025 14:19:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757341145;
-	bh=yiJn6yvEIzXcaVGJDrahppkN2NuhubqGe8lDQpynQCo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Iubh/eA1nyg+Vit19I/0vMWi+wjsMmtMa/qL9jI6QjHzaoAuTHU3LiSSGvHn6ktvR
-	 t9upV2MtJmetCjNvpwCFVrewdRWDQA8fieLrAGQaFcmEaFA1DEBR8S1VGMftYIjgZH
-	 QPl/FB2GkpUT3OELCHZ/GL1s72wb49qgXR8KeinGluMaoKjq3KSkQGYqYovQnwhygD
-	 JBKZNB/0Zp7v/pw9uQHdv+atGXR/v/PcadSA0QRKk5q70+9qUT2yEQ8plupNlMoJFK
-	 QnZYC5Wk+Lz3oGhZAoH+CpbDZAIsMkgFkAuDNDcB40X8smUjSPuy73rRMAklqv7wxb
-	 tzefnLAttKAJw==
-Date: Mon, 8 Sep 2025 15:19:00 +0100
-From: Will Deacon <will@kernel.org>
-To: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2] KVM: arm64: ptdump: Don't test PTE_VALID alongside
- other attributes
-Message-ID: <aL7l1NImpMfwTVfu@willie-the-truck>
-References: <20250809135356.1003520-1-r09922117@csie.ntu.edu.tw>
+	Mon, 08 Sep 2025 14:30:10 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588EU5qd071480;
+	Mon, 8 Sep 2025 09:30:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757341805;
+	bh=5Fw4uR5QXWsFCxr67i5Lils6Jy5yWW6LOeuKX7d910Y=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=h+v9/1RU8nxoL6QnVmVY3uI7xUzZxSAYHS6CzUjqs37OQIaQ4kpMGh/d2lMHgL08M
+	 JVFbEram/8jJdkwFpR+kqB7KerhQ0H577eJDoBbUgD+/EBWdBagRytSZXO2Yvxh1SO
+	 78BhBxd/UOWkRQzJP/FHW4HaS/GnPxHgWeygTiK8=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588EU4WL2465100
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 09:30:05 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 09:30:04 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 09:30:04 -0500
+Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588ESecq1037553;
+	Mon, 8 Sep 2025 09:29:59 -0500
+From: Beleswar Padhi <b-padhi@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
+        <d-gole@ti.com>, <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Robert Nelson <robertcnelson@gmail.com>
+Subject: [PATCH v4 14/34] arm64: dts: ti: k3-j721e-beagleboneai64: Add missing cfg for TI IPC FW
+Date: Mon, 8 Sep 2025 19:58:06 +0530
+Message-ID: <20250908142826.1828676-15-b-padhi@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250908142826.1828676-1-b-padhi@ti.com>
+References: <20250908142826.1828676-1-b-padhi@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250809135356.1003520-1-r09922117@csie.ntu.edu.tw>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_071906_108380_25D2A40D 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250908_073009_306349_0EDF6BFF 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,39 +86,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 09, 2025 at 09:53:56PM +0800, Wei-Lin Chang wrote:
-> The attribute masks and test values in the ptdump code are meant for
-> individual attributes, however for stage-2 ptdump we included PTE_VALID
-> while testing for R, W, X, and AF. This led to some confusion and the
-> flipped output for the executable attribute.
-> 
-> Remove PTE_VALID from all attribute masks and values so that each test
-> matches only the relevant bits.
-> 
-> Additionally, the executable attribute printing is updated to align with
-> stage-1 ptdump, printing "NX" for non-executable regions and "x " for
-> executable ones.
-> 
-> Suggested-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Suggested-by: Sebastian Ene <sebastianene@google.com>
-> Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-> ---
-> Tested on QEMU.
-> 
-> Changes in v2, thanks to those listed in the Suggested-by tags:
->   - remove PTE_VALID from .mask and .val
->   - make executable attribute output format identical to stage-1 ptdump
->   - Link to v1: https://lore.kernel.org/kvmarm/20250802104021.3076621-1-r09922117@csie.ntu.edu.tw/
-> ---
->  arch/arm64/kvm/ptdump.c | 20 ++++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
+The TI IPC Firmwares running on J721E SoCs use certain MAIN domain
+timers as tick. Reserve those at board level DT to avoid remote
+processor crashes. This config aligns with other J721E boards and can
+be refactored out later.
 
-Acked-by: Will Deacon <will@kernel.org>
+Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+---
+Cc: Robert Nelson <robertcnelson@gmail.com>
+Requesting for review/test of this patch.
 
-I assume Oliver or Marc will pick this up via the kvmarm tree.
+v4: Changelog:
+1. None
 
-Cheers,
+Link to v3:
+https://lore.kernel.org/all/20250905051846.1189612-14-b-padhi@ti.com/
 
-Will
+v3: Changelog:
+1. None
+
+Link to v2:
+https://lore.kernel.org/all/20250823160901.2177841-14-b-padhi@ti.com/
+
+v2: Changelog:
+1. Split [PATCH 06/33] into [PATCH v2 13/33] and [PATCH v2 22/33].
+This patch only reserves the timer nodes used by rproc firmware.
+
+Link to v1:
+https://lore.kernel.org/all/20250814223839.3256046-7-b-padhi@ti.com/
+
+ .../boot/dts/ti/k3-j721e-beagleboneai64.dts   | 29 +++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+index ac4d90e82aab..66c4614f9e42 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+@@ -935,6 +935,35 @@ mbox_c71_0: mbox-c71-0 {
+ 	};
+ };
+ 
++/* Timers are used by Remoteproc firmware */
++&main_timer0 {
++	status = "reserved";
++};
++
++&main_timer1 {
++	status = "reserved";
++};
++
++&main_timer2 {
++	status = "reserved";
++};
++
++&main_timer12 {
++	status = "reserved";
++};
++
++&main_timer13 {
++	status = "reserved";
++};
++
++&main_timer14 {
++	status = "reserved";
++};
++
++&main_timer15 {
++	status = "reserved";
++};
++
+ &mcu_r5fss0 {
+ 	status = "okay";
+ };
+-- 
+2.34.1
+
 
