@@ -4,141 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF12BCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 07:54:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E00D6CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 07:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XXmCmYpRcmR454J1XuMwAB8IJ2C3TnOhXXVXUPOrdX4=; b=XCouw3VCcCOufLpYmcWJRaKjYu
-	n1ebnv8t8ox4BcsgTK5bu2x2+LnC9P9SIWpHKQqGJ0ap8zWgBy8HuFYz2DrFJ+jU6BpbWZv9FiKO0
-	gVEA4d7aJ7Gr5kPHRoRyiwfiK+9a8IQ/MDUMBfyP0yW8dvO0HHlEvO8KLis3YdUmQ1cXTeDc0R/NI
-	UW7u6chtnYmLtTKSZDlBPW8o5r4kQ9je3+vTseFanC+fSXTsp26ekvrdl+bU6vjlsL0Jgn429/C4m
-	F7ZQcKgekJb6PDWk8ftLlVZvAbWY3cIzKjdHKB0sILaUKZc3VtXxxp/xwRluPaeDsCXLigsmE4nKp
-	u+kqDrCQ==;
+	bh=zWJ6uU5pCF6dgIVJ4Q9Uk/hJonz1T5nxiDI1HcIHGI8=; b=N3Hlp/o7dxl0KvBjVCWmP4WZgg
+	fn+JOLu+Rrl6F8UfBkzXiyHQQ65T+bpOMyAYL/96ygpad9Ldm9jLUzBI5nnFFnA9aN/YkoTwz0wNz
+	pURudUGZhjE/8Zz+83XChX9cluS1wasyYoC3GQSzmoASRA3PCVM6CA1wD1JN3M2OfGSD1+33L4c64
+	vYSUqd41ZOijPck22vojwGwCN2+KikdHKOaV7cnge+WVWYo76IQngvwGAgeFn6dON6yF6xqTQ4WeI
+	mozVXHBIzRwS8NXH0y+Kz3h/hF14nKAIkxgkFK04FNcJYi5CAxNPeS+jLDZsZbZ6pUR201TUa8zFS
+	KAE4ckFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvWhQ-0000000FTq7-2P5Q;
-	Mon, 08 Sep 2025 07:54:04 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1uvWkG-0000000FVD5-1sOT;
+	Mon, 08 Sep 2025 07:57:00 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvWOD-0000000FKcU-2w5I
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 07:34:14 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 7CC866C115;
-	Mon,  8 Sep 2025 07:34:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1757316850; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XXmCmYpRcmR454J1XuMwAB8IJ2C3TnOhXXVXUPOrdX4=;
-	b=V5Afb/IzTiegSQEBSas9z3E1boJkkAa/v+ka/GSXXaWipPXUFa49f5+noHIWS69+4vCvRB
-	GNmlXrTsMQezZNPscwdj23yPfkuVOeuGf4FJLVlMO77KAXttz4LFrHg4sA09JGaYN9g5sm
-	Y0I4wdKL7lT5FvzPoiynGrzzsDQCYLY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1757316850;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XXmCmYpRcmR454J1XuMwAB8IJ2C3TnOhXXVXUPOrdX4=;
-	b=w+Tn5AgpBG8EU923Gn/SXAsHyfXeaYXJTx79Y4WLOljzSv0vUDocBU0F30vJsoKx48lgbh
-	cjZypZpNMMOseFCQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1757316850; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XXmCmYpRcmR454J1XuMwAB8IJ2C3TnOhXXVXUPOrdX4=;
-	b=V5Afb/IzTiegSQEBSas9z3E1boJkkAa/v+ka/GSXXaWipPXUFa49f5+noHIWS69+4vCvRB
-	GNmlXrTsMQezZNPscwdj23yPfkuVOeuGf4FJLVlMO77KAXttz4LFrHg4sA09JGaYN9g5sm
-	Y0I4wdKL7lT5FvzPoiynGrzzsDQCYLY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1757316850;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XXmCmYpRcmR454J1XuMwAB8IJ2C3TnOhXXVXUPOrdX4=;
-	b=w+Tn5AgpBG8EU923Gn/SXAsHyfXeaYXJTx79Y4WLOljzSv0vUDocBU0F30vJsoKx48lgbh
-	cjZypZpNMMOseFCQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D577713869;
-	Mon,  8 Sep 2025 07:34:09 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 5/C2MvGGvmgzRAAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Mon, 08 Sep 2025 07:34:09 +0000
-Date: Mon, 08 Sep 2025 09:34:09 +0200
-Message-ID: <87y0qpl7ny.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Joris Verhaegen <verhaegen@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	kernel-team@android.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	linux-arm-msm@vger.kernel.org,
-	sound-open-firmware@alsa-project.org,
+	id 1uvWPu-0000000FKzY-3cK2;
+	Mon, 08 Sep 2025 07:36:00 +0000
+Received: from pendragon.ideasonboard.com (230.215-178-91.adsl-dyn.isp.belgacom.be [91.178.215.230])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 2046F520;
+	Mon,  8 Sep 2025 09:34:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1757316883;
+	bh=bcRCmFlg5SOPgDN+bOPwmmHJztDkdYthhsyUM1TV+dY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UGJgzRdVUwPFtBgFroIVWgH0NewDne1KlizfDDgGd0Ye4TqaTQDaEP0Bv/YE1QhAF
+	 kPVdCYpOI2I+JQiXtL0c2vNo3jjN1hTJiX8CXK3WSCGWCjpqACGtBzRI7vRXWK8zCo
+	 ijdpYH6AWujODGfQAR3KcquTsjpwUTpRQBxA4e4Q=
+Date: Mon, 8 Sep 2025 09:35:34 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dan Scally <dan.scally@ideasonboard.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 0/3] ALSA: compress_offload: Add 64-bit safe timestamp API
-In-Reply-To: <20250905091301.2711705-1-verhaegen@google.com>
-References: <20250905091301.2711705-1-verhaegen@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-1.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[26];
-	TAGGED_RCPT(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[kernel.org,perex.cz,suse.com,gmail.com,intel.com,linux.intel.com,linux.dev,nxp.com,linux.alibaba.com,socionext.com,android.com,vger.kernel.org,opensource.cirrus.com,alsa-project.org,lists.infradead.org];
-	R_RATELIMIT(0.00)[to_ip_from(RLtwg9tyn6faipwn1aqsxq4m86)];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[intel.com:email,imap1.dmz-prg2.suse.org:helo,suse.de:mid]
+Subject: Re: [PATCH v4 1/8] media: uapi: Introduce V4L2 extensible params
+Message-ID: <20250908073534.GD4105@pendragon.ideasonboard.com>
+References: <20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com>
+ <20250820-extensible-parameters-validation-v4-1-30fe5a99cb1f@ideasonboard.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250820-extensible-parameters-validation-v4-1-30fe5a99cb1f@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_003413_882498_2672660A 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20250908_003559_047185_DE2971D1 
+X-CRM114-Status: GOOD (  50.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,66 +72,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 05 Sep 2025 11:12:53 +0200,
-Joris Verhaegen wrote:
+Hi Jacopo,
+
+Thank you for the patch.
+
+On Wed, Aug 20, 2025 at 02:58:09PM +0200, Jacopo Mondi wrote:
+> Introduce v4l2-extensible-params.h in the Linux kernel uAPI.
+
+I expect more ISP-related helpers, such as extensible statistics
+formats, and more. How about already moving this to v4l2-isp.h ?
+
+> The header defines two types that all drivers that use the extensible
+> parameters format for ISP configuration shall use to build their own
+> format versions.
 > 
-> The current compress offload timestamping API relies on struct
-> snd_compr_tstamp, whose cumulative counters like copied_total are
-> defined as __u32. On long-running high-resolution audio streams, these
-> 32-bit counters can overflow, causing incorrect availability
-> calculations.
+> The newly introduce type v4l2_params_block represent the
+
+"The v4l2_params_block structure represents the"
+
+except the structure name is v4l2_params_block_header.
+
+> header to be prepend to each ISP configuration block and the
+> v4l2_params_buffer type represent the base type for the configuration
+> parameters buffer.
 > 
-> This patch series transitions to a 64-bit safe API to solve the problem
-> while maintaining perfect backward compatibility with the existing UAPI.
-> The pointer operation is reworked to use a new timestamp struct with
-> 64-bit fields for the cumulative counters, named snd_compr_tstamp64.
-> ASoC drivers are updated to use the 64-bit structures. Corresponding
-> ioctls are added to expose them to user-space.
+> The v4l2_params_buffer represents the container for the ISP
+> configuration data block. The generic type is defined with a 0-sized
+> data block that specific ISP implementation shall properly size
+> according to their capabilities.
 > 
-> The series is structured as follows:
-> 
-> Patch 1: Updates the pointer op, refactors the core logic and ASoC
-> drivers to use it, and defines the new UAPI structs.
-> 
-> Patch 2: Exposes the SNDRV_COMPRESS_TSTAMP64 ioctl.
-> 
-> Patch 3: Exposes the corresponding SNDRV_COMPRESS_AVAIL64 ioctl.
-> 
-> This series has been tested on a Pixel 9 device. All compress offload
-> use cases, including long-running playback, were verified to work
-> correctly with the new 64-bit API.
-> 
-> Thanks,
-> Joris (George) Verhaegen
-> 
-> Signed-off-by: Joris Verhaegen <verhaegen@google.com>
-> 
+> [Add v4l2_params_buffer_size()]
+> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 > ---
-> Changes in v2:
->   - Corrected author and Signed-off-by to be consistent (Mark Brown).
-> Changes in v3:
->   - Rework pointer op to return 64-bit timestamp, rather than adding a
->     parallel pointer64 op (Charles Keepax, Takashi Iwai, Vinod Koul)
->   - Bump the protocol version for ABI change (Takashi Iwai)
->   -Fix linker error on Intel Atom (lkp@intel.com)
->   -Rebase on latest for-next sound tree (Takashi Iwai)
->   -Avoid changing return error code for ioctl (internal)
->   -ASoC: Replace u64 % u32 by do_div(u64, u32) (internal)
->   -ASoC: sprd: change current_data_offset to u64 (internal)
-> Changes in v4:
->   -Fix compiler error on Intel AVS (lkp@intel.com)
-> Changes in v5:
->   -Revert formatting change in compress_offload.c (Vinod Koul)
+>  MAINTAINERS                                       |   6 +
+>  include/uapi/linux/media/v4l2-extensible-params.h | 146 ++++++++++++++++++++++
+>  2 files changed, 152 insertions(+)
 > 
-> Joris Verhaegen (3):
->   ALSA: compress_offload: Add 64-bit safe timestamp infrastructure
->   ALSA: compress_offload: Add SNDRV_COMPRESS_TSTAMP64 ioctl
->   ALSA: compress_offload: Add SNDRV_COMPRESS_AVAIL64 ioctl
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index fe168477caa45799dfe07de2f54de6d6a1ce0615..67216d1e92d7ac81617bb3c4329e4096aa205706 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -26380,6 +26380,12 @@ F:	drivers/media/i2c/vd55g1.c
+>  F:	drivers/media/i2c/vd56g3.c
+>  F:	drivers/media/i2c/vgxy61.c
+>  
+> +V4L2 EXTENSIBLE PARAMETERS FORMAT
+> +M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> +L:	linux-media@vger.kernel.org
+> +S:	Maintained
+> +F:	include/uapi/linux/media/v4l2-extensible-params.h
+> +
+>  VF610 NAND DRIVER
+>  M:	Stefan Agner <stefan@agner.ch>
+>  L:	linux-mtd@lists.infradead.org
+> diff --git a/include/uapi/linux/media/v4l2-extensible-params.h b/include/uapi/linux/media/v4l2-extensible-params.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..aca643f505f2705eeca7337f0dd182bcfd1ea60d
+> --- /dev/null
+> +++ b/include/uapi/linux/media/v4l2-extensible-params.h
+> @@ -0,0 +1,146 @@
+> +/* SPDX-License-Identifier: ((GPL-2.0+ WITH Linux-syscall-note) OR MIT) */
 
-Applied all patches now to for-next branch for 6.18.
+Why the MIT license ? And why GPL-2.0+ instead of GPL-2.0 ?
 
+> +/*
+> + * Video4Linux2 extensible configuration parameters base types
+> + *
+> + * Copyright (C) 2025 Ideas On Board Oy
+> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> + */
+> +
+> +#ifndef _UAPI_V4L2_PARAMS_H_
+> +#define _UAPI_V4L2_PARAMS_H_
+> +
+> +#include <linux/stddef.h>
+> +#include <linux/types.h>
+> +
+> +#define V4L2_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
+> +#define V4L2_PARAMS_FL_BLOCK_ENABLE	(1U << 1)
+> +
+> +/*
+> + * Reserve the first 8 bits for V4L2_PARAMS_FL_* flag.
+> + *
+> + * Platform-specific flags should be defined as:
+> + * #define PLATFORM_SPECIFIC_FLAG0     ((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(0))
+> + * #define PLATFORM_SPECIFIC_FLAG1     ((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(1))
+> + */
+> +#define V4L2_PARAMS_FL_PLATFORM_FLAGS(n)       ((n) + 8)
 
-thanks,
+s/PLATFORM/DRIVER/
 
-Takashi
+> +
+> +/**
+> + * struct v4l2_params_block_header - V4L2 extensible parameters block header
+> + *
+> + * This structure represents the common part of all the ISP configuration
+> + * blocks. Each parameters block shall embed an instance of this structure type
+> + * as its first member, followed by the block-specific configuration data. The
+> + * driver inspects this common header to discern the block type and its size and
+> + * properly handle the block content by casting it to the correct block-specific
+> + * type.
+
+The last sentence is not relevant for the userspace API.
+
+> + *
+> + * The @type field is one of the values enumerated by each platform-specific ISP
+> + * block types which specifies how the data should be interpreted by the driver.
+> + * The @size field specifies the size of the parameters block and is used by the
+> + * driver for validation purposes.
+
+ * The @type field is an ISP driver-specific value that identifies the block type.
+ * The @size field specifies the size of the parameters block.
+
+but that seems to duplicate the documentation of the fields below. I'd
+move the field documentation up, and then only add additional paragraphs
+when they contain extra information.
+
+> + *
+> + * The @flags field is a bitmask of per-block flags V4L2_PARAMS_FL_* and
+> + * platform-specific flags specified by the platform-specific header.
+
+It's not platform-specific but ISP driver-specific (or you could just
+write driver-specific).
+
+> + *
+> + * Documentation of the platform-specific flags handling is specified by the
+> + * platform-specific block header type:
+> + *
+> + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_block_type`
+> + * - Amlogic C3: :c:type:`c3_isp_params_block_type`
+
+I wouldn't mention specific platforms here, that won't really scale.
+
+> + *
+> + * Userspace is responsible for correctly populating the parameters block header
+> + * fields (@type, @flags and @size) and the block-specific parameters.
+
+This is the kind of information I think I would expect in
+Documentation/userspace-api/media/v4l/extensible-parameters.rst more
+than here. We usually keep documentation minimal in header files for the
+userspace API, and document the behaviour in .rst files. This being
+said, if you think having more documentation in the headers is better,
+that could work too.
+
+> + *
+> + * @type: The parameters block type (platform-specific)
+> + * @flags: A bitmask of block flags (platform-specific)
+> + * @size: Size (in bytes) of the parameters block, including this header
+> + */
+> +struct v4l2_params_block_header {
+> +	__u16 type;
+> +	__u16 flags;
+> +	__u32 size;
+> +} __attribute__((aligned(8)));
+> +
+> +/**
+> + * v4l2_params_buffer_size - Calculate size of v4l2_params_buffer for a platform
+> + *
+> + * Users of the v4l2 extensible parameters will have differing sized data arrays
+> + * depending on their specific parameter buffers. Drivers and userspace will
+> + * need to be able to calculate the appropriate size of the struct to
+> + * accommodate all ISP configuration blocks provided by the platform.
+> + * This macro provides a convenient tool for the calculation.
+> + *
+> + * Each driver shall provide a definition of their extensible parameters
+> + * implementation data buffer size. As an example:
+> + *
+> + * #define PLATFORM_BLOCKS_MAX_SIZE		\
+> + *	sizeof(platform_block_0)	+	\
+> + *	sizeof(platform_block_1)
+> + *
+> + * #define PLATFORM_BUFFER_SIZE			\
+> + *	v4l2_params_buffer_size(PLATFORM_BLOCKS_MAX_SIZE)
+> + *
+> + * Drivers are then responsible for allocating buffers of the proper size
+> + * by assigning PLATFORM_BUFFER_SIZE to the per-plane size of the videobuf2
+> + * .queue_setup() operation and userspace shall use PLATFORM_BUFFER_SIZE
+> + * when populating the ISP configuration data buffer.
+
+Most if not all of this also seems to be information for drivers, not
+for userspace. I doesn't belong in the UAPI documentation.
+
+> + *
+> + * @max_params_size: The total size of the ISP configuration blocks
+> + */
+> +#define v4l2_params_buffer_size(max_params_size) \
+> +	(offsetof(struct v4l2_params_buffer, data) + (max_params_size))
+> +
+> +/**
+> + * struct v4l2_params_buffer - V4L2 extensible parameters configuration
+> + *
+> + * This struct contains the configuration parameters of the ISP algorithms,
+> + * serialized by userspace into a data buffer. Each configuration parameter
+> + * block is represented by a block-specific structure which contains a
+> + * :c:type:`v4l2_params_block_header` entry as first member. Userspace populates
+> + * the @data buffer with configuration parameters for the blocks that it intends
+> + * to configure. As a consequence, the data buffer effective size changes
+> + * according to the number of ISP blocks that userspace intends to configure and
+> + * is set by userspace in the @data_size field.
+> + *
+> + * The parameters buffer is versioned by the @version field to allow modifying
+> + * and extending its definition. Userspace shall populate the @version field to
+> + * inform the driver about the version it intends to use. The driver will parse
+> + * and handle the @data buffer according to the data layout specific to the
+> + * indicated version and return an error if the desired version is not
+> + * supported.
+
+How does userspace know which versions are supported ?
+
+> + *
+> + * For each ISP block that userspace wants to configure, a block-specific
+> + * structure is appended to the @data buffer, one after the other without gaps
+> + * in between nor overlaps. Userspace shall populate the @data_size field with
+> + * the effective size, in bytes, of the @data buffer.
+> + *
+> + * Drivers shall take care of properly sizing of the extensible parameters
+> + * buffer @data array. The v4l2_params_buffer type is defined with a
+> + * flexible-array-member at the end, which resolves to a size of 0 bytes when
+> + * inspected with sizeof(struct v4l2_params_buffer). This of course is not
+> + * suitable for neither buffer allocation in the kernel driver nor for proper
+> + * handling in userspace of the @data buffer it has to populate.
+> + *
+> + * Drivers using this type in their userspace API definition are responsible
+> + * for providing the exact definition of the @data buffer size using the
+> + * v4l2_params_buffer_size() macro. The size shall be used
+> + * by the driver for buffers allocation and by userspace for populating the
+> + * @data buffer before queueing it to the driver
+
+Most of those two paragraphs are driver documentation too.
+
+> + *
+> + * Drivers that were already using extensible-parameters before the introduction
+> + * of this file define their own type-convertible implementation of this
+> + * type, see:
+> + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_cfg`
+> + * - Amlogic C3: :c:type:`c3_isp_params_cfg`
+
+Drop this too.
+
+> + *
+> + * @version: The parameters buffer version (platform-specific)
+> + * @data_size: The configuration data effective size, excluding this header
+> + * @data: The configuration data
+> + */
+> +struct v4l2_params_buffer {
+> +	__u32 version;
+> +	__u32 data_size;
+> +	__u8 data[] __counted_by(data_size);
+> +};
+> +
+> +#endif /* _UAPI_V4L2_PARAMS_H_ */
+
+-- 
+Regards,
+
+Laurent Pinchart
 
