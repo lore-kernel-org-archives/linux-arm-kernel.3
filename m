@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7560ACAC58C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D76CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6FP9F2q4zhy2+XABfevv7bpqLyqifn1jlp8vzcsdIhc=; b=oLY261ZefeyevPJBk8efUZjStM
-	MLHAU3Y7xJzjRBPIan42ec1ghvojgmz1vSBr1dCwQvcaEU8Y0wcqiw3jNCEixBbMA0uJ1H79CwtkH
-	2XjoqCZKhwhEgOI3ASHjFT8JtoRKONkc5ardYwpXcXH/rvub/SALMT2Ig9p72x3fdS1Wk+K+Vq145
-	8CvnhSa8124rDRduPlS3D09t6p/wmLirapVamIq9VHJuA4UZotPOtU80IWuvD2vmYxxkFZLAx2CIf
-	642KXG5cj1dYvtdf3OSUV2y2ivDPn/K8JzbpHl50aWymARlqtXnlF+VlENVAJYN/8O1X1F+D0HnxC
-	3sjCvf3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u1DCsCbvVvlHL3i6YEowOEl+lxD9y4IQf2zVVjbdl4k=; b=wsM67D3Uq6YIGiXC5VjLswX/J5
+	UsyS+bEO/cctL0r51I+T0HL2RegSW7ySC8v0pJMwQ3BXFVU80tHHKy4rVUXmLOMckCVPmseSjKJSg
+	oRSVbdAPXefEcliyaAayxHmpdDXe+uxz2y3BgefD1bxVs2UKBBAI6cNxdudVhvVomcXp6B0ATszJA
+	iJj2bcQaXOa1opkYATkqPWtV1pirZWnhSaGamIN83cGkUPJzGsbC5b1lnR9NVhqBQg45SGB2QsyNF
+	g1COC8okTuHkzTA+o6sMGLoU8vBS1wOKcMngaQZor93UhD7Niqqo7okzXxccnTSF2CtnvUCMXlU1s
+	9G5jgn1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsC3-00000004plV-3LZw;
-	Tue, 09 Sep 2025 06:51:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uvsC6-00000004prm-1wIU;
+	Tue, 09 Sep 2025 06:51:10 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvjEG-00000002Pn2-1iX9
+	id 1uvjIV-00000002Qxq-1U0V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 21:16:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 68EF3601BD;
-	Mon,  8 Sep 2025 21:16:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96706C4CEF7;
-	Mon,  8 Sep 2025 21:16:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757366207;
-	bh=J5y9anpPbcZnzbPgCVt9jP6JmKsctgV7OtX+n3Hj8X8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rf9r8XOhD3mO2RluD/ZLcZMFnqDiIyrxGHxxsMC3onceoyCLbXetm8qjOAWzQ+D3r
-	 edoqlwKMbjHlFHq0Fvatii33cblSIErw94ODgYtQnvqHA7gomIgPEg9WvECGewxGM5
-	 89pxeGbis1brBj6vkZAEXreXiL6zuU9oqYkpsne+n2QkkRCLWioh0Tdgx2FSbWzz4D
-	 lCDlDiHAcLkhjEHSR3RtzLoX1tTuMORw+V2lvOl0eNKC3iUGIJ+s8r3/VgEKkFgfu5
-	 b/kgWh6FYD7SEPW9++bpDdPcPs7j4vPcTZ2BT+FYRN6UDXCbHGzOnRIfsFN0JlNPG0
-	 yGQaKEu7jhnaA==
-Date: Mon, 8 Sep 2025 18:16:44 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	George Wort <George.Wort@arm.com>,
-	Graham Woodward <Graham.Woodward@arm.com>,
-	Ben Gainey <Ben.Gainey@arm.com>,
-	Michael Williams <Michael.Williams@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/4] perf arm-spe: Improve --itrace options
-Message-ID: <aL9HvOl-n_IM0qiB@x1>
-References: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
+	Mon, 08 Sep 2025 21:21:13 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588LL6p5187077;
+	Mon, 8 Sep 2025 16:21:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757366466;
+	bh=u1DCsCbvVvlHL3i6YEowOEl+lxD9y4IQf2zVVjbdl4k=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=dbZteMeQS7PgyjkbQWiDyX0T4wpwCyTRUp2rWhq1y0jWdHaesQyYkDWVeJjd66v5x
+	 w5s62NwinNziLv96Tam22Hb3lq9o5vMWbkgktVsdNqXLEOOrbEPE5VEII2mraPZCIw
+	 +i8zTmYuHdKszc7PUDAbMzoNNk190ny73xOxH0ro=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588LL5li4052299
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 16:21:05 -0500
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 16:21:05 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 16:21:05 -0500
+Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588LL4XN1230396;
+	Mon, 8 Sep 2025 16:21:05 -0500
+Message-ID: <5f5d78e2-5aec-4412-b900-3281c391a444@ti.com>
+Date: Mon, 8 Sep 2025 16:21:04 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/4] arm64: dts: ti: k3-am62p5-sk: Remove the unused
+ cfg in USB1_DRVVBUS
+To: Akashdeep Kaur <a-kaur@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
+        <afd@ti.com>, <vigneshr@ti.com>, <d-gole@ti.com>, <u-kumar1@ti.com>,
+        <sebin.francis@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <vishalm@ti.com>
+References: <20250905051448.2836237-1-a-kaur@ti.com>
+ <20250905051448.2836237-2-a-kaur@ti.com>
+Content-Language: en-US
+From: Kendall Willis <k-willis@ti.com>
+In-Reply-To: <20250905051448.2836237-2-a-kaur@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250908_142111_530957_B0CE268B 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +90,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 08, 2025 at 01:10:17PM +0100, James Clark wrote:
-> Most people also want all the SPE samples (instructions group), not just
-> the flagged samples that are put into the various memory groups. These
-> should have been shown by default but weren't because the default
-> interval type wasn't supported.
-> 
-> Also when looking at this, it appears that the downsampling was behaving
-> in a way that would discard samples from one group but not another.
-> Improve that and the warning messages.
-> 
-> I don't want to put fixes tags on these because it's only changing the
-> defaults and the behavior, but I don't think the previous behavior was
-> incorrect necessarily, just copied from tracing techs but not ideal for
-> SPE.
+On 9/5/25 00:14, Akashdeep Kaur wrote:
+> After the SoC has entered the DeepSleep low power mode, USB1 can be used
+> to wakeup the SoC based on USB events triggered by USB devices. This
+> requires that the pin corresponding to the Type-A connector remains pulled
+> up even after the SoC has entered the DeepSleep low power mode.
+> For that, either DeepSleep pullup configuration can be selected or the pin
+> can have the same configuration that it had when SoC was in active mode.
+> But, in order for DeepSleep configuration to take effect, the DeepSleep
+> control bit has to be enabled.
 
-I keep trying to find some hardware to have in my homelab to test these
-series, but till then I depend on people having access to such hardware
-for acks or better, tested-by, so waiting a bit for those to appear.
+The last sentence wording is confusing because it sounds like a 
+DeepSleep control bit still needs to be enabled which is not seen in the 
+patch. If possible, drop this sentence and do the same for the other 
+similar patch in this series.
 
-- Arnaldo
- 
-> Signed-off-by: James Clark <james.clark@linaro.org>
+> Remove the unnecessary DeepSleep state configuration from USB1_DRVBUS pin,
+> as the DeepSleep control bit is not set and the active configuration is
+> sufficient to keep the pin pulled up. This simplifies the setup and removes
+> redundant configuration.
+> 
+> This reverts commit 115290c112952db27009668aa7ae2f29920704f0.
+> 
+> Reviewed-by: Dhruva Gole <d-gole@ti.com>
+> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+
+Verified USB disconnect, USB connect, and USB remote wakeup on AM62P SKEVM.
+
+Tested-by: Kendall Willis <k-willis@ti.com>
+
 > ---
-> James Clark (4):
->       perf arm-spe: Show instruction sample types by default
->       perf arm-spe: Downsample all sample types equally
->       perf arm-spe: Display --itrace period warnings for all sample types
->       perf docs: Update SPE doc to include default instructions group
+>   arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
->  tools/perf/Documentation/perf-arm-spe.txt | 14 +++++---
->  tools/perf/util/arm-spe.c                 | 53 ++++++++++++++++---------------
->  2 files changed, 37 insertions(+), 30 deletions(-)
-> ---
-> base-commit: 75a7b9d29215c5aa813b9620f3c56817918f9f8c
-> change-id: 20250908-james-perf-spe-period-4711a566cba4
-> 
-> Best regards,
-> -- 
-> James Clark <james.clark@linaro.org>
-> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> index 899da7896563..e8f0ac2c55e2 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> @@ -360,7 +360,7 @@ AM62PX_IOPAD(0x01b0, PIN_OUTPUT, 2) /* (G20) MCASP0_ACLKR.UART1_TXD */
+>   
+>   	main_usb1_pins_default: main-usb1-default-pins {
+>   		pinctrl-single,pins = <
+> -			AM62PX_IOPAD(0x0258, PIN_INPUT | PIN_DS_PULLUD_ENABLE | PIN_DS_PULL_UP, 0) /* (G21) USB1_DRVVBUS */
+> +			AM62PX_IOPAD(0x0258, PIN_INPUT, 0) /* (G21) USB1_DRVVBUS */
+>   		>;
+>   	};
+>   
+
 
