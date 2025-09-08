@@ -4,84 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D98CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 09:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62772CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 09:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5100fgc6dG24IM2sWni8imeShu+6586F+2SnyRoG2QM=; b=IPaKrkyANVCJ3d7xNZQwMdcE/E
-	QW0A5lyCG8yQ1gkiYfT0NU6cULHrS+niTdg4IkePKIT8k8MxPVU3s2poRcpgAnY/BhrJ7KaQjXAEy
-	u8opt8+zUYoaPNiC1BXDNsdyG3NdxL02saOlUmO9uXjlLgWnFlqpQcxo1smqsEb92l84QCtXkUzoK
-	icdjh2pJ2U4dE4hERVzUA/dMIYa7ORYuixlENXRa4BpmJFJhBp2SWVwOabVUcGnrUbDodl2OgwlzE
-	cIJN6KE2Ny8Vqubg+5WFRP5bR0DX6E9zzUxPE4uRZyd1PZRq3YbKM4kcABuYW6Ts/toW3zC+4NAYj
-	t41Skt6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8/KiIeOfWlwkq2YgY2/wAs61qLE1m4TRL6dAU7ZZx34=; b=Ezn+YhPHG6co414UqBEgnzVHva
+	WAsilB4f3SMptw4AdRi2Rd3ylOTLekFmgGYt2VrOegrg6HD52ftkslWPFqwQShNFczoKzGWnL9x2W
+	O6ZOViMiGxCNNn6Z35O0FERNsw8lRiDexLukruDgVprEz/xsP5zz5ZVxf0IT26l3I8FwelH5qKJQW
+	1dSe80XkWajIls3qH9YUKSE/VwruPUA94afzJTbB6ZoMP086y+95WAeycvbctRQOlk/udVkTZcYgj
+	rLfEerdhXFoEu/w1RZ87dgY32FJdbbFwXQlDe0xXf3e/xeyLXIWHHaDBfgmWqShkIAN5IFpxbaSDv
+	2uPu8GQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvXmI-0000000Ft4Q-2G2H;
-	Mon, 08 Sep 2025 09:03:10 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uvXpB-0000000FttY-1Yrv;
+	Mon, 08 Sep 2025 09:06:09 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvWtH-0000000FZng-0fns
+	id 1uvWuI-0000000FaPJ-36ZA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 08:06:20 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58886BF8009467;
-	Mon, 8 Sep 2025 03:06:11 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757318771;
-	bh=5100fgc6dG24IM2sWni8imeShu+6586F+2SnyRoG2QM=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=qCVR9ClpjJQu9QVcDplCWEXMZM6+VSGyNZRyzZ9Tfx9I3VLcDobIhc117PBYWVPMz
-	 VUZFOqc8U2vqfgHV0fxKRM86qLVnMMEx/jjtXtA+91lUptuRcSTn0b3jTljOQ+/kk2
-	 wtRtEyoU0+B7jjVmOxgWNZQ6qje5RrsQ/lzYHCi8=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58886BHa3621244
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 03:06:11 -0500
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 03:06:11 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 03:06:11 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58886AW6553673;
-	Mon, 8 Sep 2025 03:06:10 -0500
-Date: Mon, 8 Sep 2025 13:36:09 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Manivannan Sadhasivam <mani@kernel.org>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
-        <helgaas@kernel.org>, <kishon@kernel.org>, <vigneshr@ti.com>,
-        <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-omap@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-Subject: Re: [PATCH v3] PCI: j721e: Fix programming sequence of "strap"
- settings
-Message-ID: <578e5125-21d8-40c8-aaeb-389599cdd32b@ti.com>
-References: <b2fb9252-6bfc-45da-973a-31cdfcc86b3d@ti.com>
- <z3ubracmtlq23yicbrhqjgnzrfoqheffm6cvhfnawlvbu4cmmp@ddu2o7xhw5tz>
- <48e9d897-2cd3-48ef-b46a-635ae75f5ac6@ti.com>
- <3wc3t6y5gzzspgfeklsqo3bupfp6gsfy6mls6t66hflcqlqsfk@cu26wv3sow4y>
- <9d2bba15-52e4-432a-8f7f-a0f5d7c2e4ad@ti.com>
- <7hxdcjm7evlphkldct7seytno4is7rjkx5vquvtfhpdkzxdhu6@yocrjgzciwu3>
- <08b87b5f-838b-4f40-ae90-10ded134356e@ti.com>
- <whinfqhjgqbbvlnuzgbukklqi6gocjji4gakqyycovrse4qq6s@6xq5imqbzvux>
- <a0e1d273-239b-44e5-8ccc-0ba83b2b5839@ti.com>
- <wvrouqouhrpoexmggwbc6vjz4xflnylzxrb2ffw3ai7656ehrt@keb53gb2tm2o>
+	Mon, 08 Sep 2025 08:07:23 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 381231D000F9;
+	Mon,  8 Sep 2025 04:07:21 -0400 (EDT)
+Received: from phl-imap-06 ([10.202.2.83])
+  by phl-compute-04.internal (MEProxy); Mon, 08 Sep 2025 04:07:21 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alistair23.me;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1757318841; x=1757405241; bh=8/KiIeOfWlwkq2YgY2/wAs61qLE1m4TR
+	L6dAU7ZZx34=; b=r8mQNiWbO3w82AkN+xjB7tULa0XYQETxf/Qinw8qpGRTMTSP
+	aP/PwDu5aEn13Vm5QJsTZEL2BUZqQs6+2W7u68XmObKMwqHTbrOn2er6nOjQKtKQ
+	I5wx4d4SqMnXGBdpYFUPnb8dAzbmgTvQcEbn6/EE/4UfI0bsOj5dtO+U0anZ3lDw
+	yToAtj1JoYgShdNKjZ6hNquCNOLRCS55hd/mgJHaP5EWhfT3M6a0K66JACCToQve
+	beED4muhk/wxpkXFpVxw7aPjvzeIdWCGvg3gy3Va3s1DhXwIIIV45Cqd4Ex3pHe0
+	S8aT/KFgDgUdWiPK6uci9X5q03i1sdT6n4Jlxw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1757318841; x=
+	1757405241; bh=8/KiIeOfWlwkq2YgY2/wAs61qLE1m4TRL6dAU7ZZx34=; b=I
+	KVsXk+dt/ufVeuoh0t1y8HfdnPSS7SCpAMWue+EqOFP5LthB28su8PK6JtXNjo1K
+	RXhJIkOzvm1rKmuoEqXgISo01meyKdJR9DJ7JVXczu3p+DP5H6o+lxWFul16jlfw
+	rh5duRAD9hxqLNxhq9prN1pqNRmid//uyhDKCDrGuzRFJHvQ0Ya8eIK8RY8b2CWK
+	u9P+qzJRBxm+my7E/0Sa9XPlfKrZhtWnS46NJksJrmIjEQVldhjNF1Gr/9cQ0R0l
+	Qu31SL0+VN3IwjBF1vJjaa0ZcL/eUH6VdCXDTZwdAaW7BUWU51m7KMrF7sVS8IoF
+	Cuut32IOpYnSSkwdkz/DQ==
+X-ME-Sender: <xms:uI6-aLHqJBZw58D0QFEmOJW3CVCjquRrxkGwwQPlszJcj9m5aKoxMQ>
+    <xme:uI6-aIUPtbkEKExUHpUif0NVixo-RZsUKP4X-1t_z-23guuH0MhL28XtSfMqCICqR
+    zjN-tyRpBxjtWTqxjY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddujedttdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomheptehlihhsthgr
+    ihhruceorghlihhsthgrihhrsegrlhhishhtrghirhdvfedrmhgvqeenucggtffrrghtth
+    gvrhhnpeehjeffgeellefgfffhteehvedvhfekfeefleeuvdehudeitdduveeggfeigfeg
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrlh
+    hishhtrghirhesrghlihhsthgrihhrvdefrdhmvgdpnhgspghrtghpthhtohepudehpdhm
+    ohguvgepshhmthhpohhuthdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtg
+    homhdprhgtphhtthhopehlghhirhgufihoohgusehgmhgrihhlrdgtohhmpdhrtghpthht
+    oheprghkvghmnhgruggvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegsrhhoohhnih
+    gvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpth
+    htoheplhgvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:uI6-aKNzRcQv-eRS2ujwJGTvK4Epx8qKA1pRkjuG2DLA9Cl2U6wZfQ>
+    <xmx:uI6-aA25ZQZUWLM6IjKKJcXUhPCQtqan1FMiGbDG-C0Lge2XsmhhYQ>
+    <xmx:uI6-aArYQK-qESDCDtkLKK2Je3-LMSENVH4iR-v8Cmx4eMyUCXfKww>
+    <xmx:uI6-aCeAPsoZ0poy7mH6DhQIBa5oELDWaLCECAQSuQq6S3NLIyWdqg>
+    <xmx:uY6-aHfPBcb6BsgOV72jBy8FlBd9xqDRh8CR7txj0P1BdZJvH5r8VS8d>
+Feedback-ID: ifd214418:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id A449B2400098; Mon,  8 Sep 2025 04:07:20 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <wvrouqouhrpoexmggwbc6vjz4xflnylzxrb2ffw3ai7656ehrt@keb53gb2tm2o>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-ThreadId: Aus85q1JlVYk
+Date: Mon, 08 Sep 2025 18:07:20 +1000
+From: Alistair <alistair@alistair23.me>
+To: "Andreas Kemnade" <akemnade@kernel.org>, "Lee Jones" <lee@kernel.org>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Liam Girdwood" <lgirdwood@gmail.com>,
+ "Mark Brown" <broonie@kernel.org>, "Shawn Guo" <shawnguo@kernel.org>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Fabio Estevam" <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+ "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Message-Id: <d4589e3c-ebda-471d-8ddd-6c5dd45b918e@app.fastmail.com>
+In-Reply-To: <20250906-sy7636-rsrc-v1-4-e2886a9763a7@kernel.org>
+References: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
+ <20250906-sy7636-rsrc-v1-4-e2886a9763a7@kernel.org>
+Subject: Re: [PATCH 4/4] ARM: dts: imx: e70k02: add sy7636
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_010619_386399_B3A1AFDD 
-X-CRM114-Status: GOOD (  30.58  )
+X-CRM114-CacheID: sfid-20250908_010722_841303_B20B140F 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +121,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 08, 2025 at 12:58:51PM +0530, Manivannan Sadhasivam wrote:
-> On Thu, Sep 04, 2025 at 11:33:00AM GMT, Siddharth Vadapalli wrote:
-> > On Wed, Sep 03, 2025 at 06:51:14PM +0530, Manivannan Sadhasivam wrote:
-> > 
-> > [...]
-> > 
-> > > 
-> > > I thought put_noidle() will just reduce the refcount and not invoke the
-> > > idle/suspend callbacks, but I seem to be wrong here.
-> > > 
-> > > Anyway, I guess we have no option here other than to drop the
-> > > pm_runtime_put_noidle() call. This will keep refcount as 1 and will prevent the
-> > > parent (genpd) to not enter runtime suspend, but we have to live with it (this
-> > > was also the previous beahvior as well).
-> > > 
-> > > Btw, pm_runtime_set_active/enable change belongs to a separate patch.
-> > 
-> > I will work on and post the v4 patch with the following change:
-> > - The commit message and the comment in the code will be updated to
-> >   indicate that the runtime PM APIs are used to cause 'genpd' to power off
-> >   and power on the controller.
-> > 
-> > I assume that the driver changes can remain as they are in this patch given
-> > that the existing behavior has to be preserved. As j721e_pcie_ctrl_init()
-> > programs the strap settings, powering off the controller via
-> > pm_runtime_put_sync() and powering it on via pm_runtime_get_sync() shall
-> > be implemented within j721e_pcie_ctrl_init() itself leaving the rest of the
-> > probe function as-is. To summarize, the driver changes will be:
-> > 
-> > 	j721e_pcie_ctrl_init()
-> > 		...Existing code...
-> > 	+	Add pm_runtime_put_sync() here to power off controller
-> > 		...Existing code to program strap settings...
-> > 	+	Add pm_runtime_get_sync() here to power on controller
-> > 		...Existing code...
-> > 
-> > Please let me know what you think.
+On Sat, 6 Sep 2025, at 7:09 PM, Andreas Kemnade wrote:
+> Add the EPD PMIC for the e70k02 based devices as a step towards full EPD
+> support.
 > 
-> I would've preferred changing the runtime PM calls as I suggested initially, but
-> still we would keep it incremented which brings the net effect to the same.
+> Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
+
+Acked-by: Alistair Francis <alistair@alistair23.me>
+
+Alistair
+
+> ---
+> arch/arm/boot/dts/nxp/imx/e70k02.dtsi              | 25 +++++++++++++++++++++-
+> .../arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts | 24 +++++++++++++++++++++
+> .../arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts | 24 +++++++++++++++++++++
+> 3 files changed, 72 insertions(+), 1 deletion(-)
 > 
-> So you can drop my initial comment and post just this patch with improved patch
-> description.
-
-Thank you for the clarification. I will implement the above in the v4
-patch.
-
-Regards,
-Siddharth.
+> diff --git a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
+> index dcc3c9d488a88..5f6b7545a0c0c 100644
+> --- a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
+> +++ b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
+> @@ -69,6 +69,14 @@ memory@80000000 {
+> reg = <0x80000000 0x20000000>;
+> };
+>  
+> + epd_pmic_supply: regulator-epd-pmic-in {
+> + compatible = "regulator-fixed";
+> + regulator-name = "epd_pmic_supply";
+> + gpio = <&gpio2 14 GPIO_ACTIVE_HIGH>;
+> + startup-delay-us = <20000>;
+> + enable-active-high;
+> + };
+> +
+> reg_wifi: regulator-wifi {
+> compatible = "regulator-fixed";
+> regulator-name = "SD3_SPWR";
+> @@ -133,7 +141,22 @@ touchscreen@24 {
+> vdd-supply = <&ldo5_reg>;
+> };
+>  
+> - /* TODO: SY7636 PMIC for E Ink at 0x62 */
+> + sy7636: pmic@62 {
+> + compatible = "silergy,sy7636a";
+> + reg = <0x62>;
+> + en-gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>;
+> + vcom-en-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
+> + epd-pwr-good-gpios = <&gpio2 13 GPIO_ACTIVE_HIGH>;
+> + vin-supply = <&epd_pmic_supply>;
+> +
+> + #thermal-sensor-cells = <0>;
+> +
+> + regulators {
+> + reg_epdpmic: vcom {
+> + regulator-name = "vcom";
+> + };
+> + };
+> + };
+>  
+> };
+>  
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
+> index a2534c422a522..f8709a9524093 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
+> @@ -26,6 +26,11 @@ / {
+> compatible = "kobo,tolino-vision5", "fsl,imx6sl";
+> };
+>  
+> +&epd_pmic_supply {
+> + pinctrl-names = "default";
+> + pinctrl-0 = <&pinctrl_epd_pmic_supply>;
+> +};
+> +
+> &gpio_keys {
+> pinctrl-names = "default";
+> pinctrl-0 = <&pinctrl_gpio_keys>;
+> @@ -59,6 +64,12 @@ MX6SL_PAD_FEC_RXD1__GPIO4_IO18          0x10059 /* TP_RST */
+> >;
+> };
+>  
+> + pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
+> + fsl,pins = <
+> + MX6SL_PAD_EPDC_PWRWAKEUP__GPIO2_IO14    0x40010059
+> + >;
+> + };
+> +
+> pinctrl_gpio_keys: gpio-keysgrp {
+> fsl,pins = <
+> MX6SL_PAD_FEC_CRS_DV__GPIO4_IO25 0x17059 /* PWR_SW */
+> @@ -159,6 +170,14 @@ MX6SL_PAD_KEY_COL2__GPIO3_IO28 0x1b8b1 /* ricoh619 bat_low_int */
+> >;
+> };
+>  
+> + pinctrl_sy7636_gpio: sy7636-gpiogrp {
+> + fsl,pins = <
+> + MX6SL_PAD_EPDC_VCOM0__GPIO2_IO03        0x40010059 /* VCOM_CTRL */
+> + MX6SL_PAD_EPDC_PWRCTRL1__GPIO2_IO08     0x40010059 /* EN */
+> + MX6SL_PAD_EPDC_PWRSTAT__GPIO2_IO13      0x17059 /* PWR_GOOD */
+> + >;
+> + };
+> +
+> pinctrl_uart1: uart1grp {
+> fsl,pins = <
+> MX6SL_PAD_UART1_TXD__UART1_TX_DATA 0x1b0b1
+> @@ -329,6 +348,11 @@ &ricoh619 {
+> pinctrl-0 = <&pinctrl_ricoh_gpio>;
+> };
+>  
+> +&sy7636 {
+> + pinctrl-names = "default";
+> + pinctrl-0 = <&pinctrl_sy7636_gpio>;
+> +};
+> +
+> &uart1 {
+> pinctrl-names = "default";
+> pinctrl-0 = <&pinctrl_uart1>;
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
+> index 660620d226f71..19bbe60331b36 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
+> @@ -36,6 +36,11 @@ &cpu0 {
+> soc-supply = <&dcdc1_reg>;
+> };
+>  
+> +&epd_pmic_supply {
+> + pinctrl-names = "default";
+> + pinctrl-0 = <&pinctrl_epd_pmic_supply>;
+> +};
+> +
+> &gpio_keys {
+> pinctrl-names = "default";
+> pinctrl-0 = <&pinctrl_gpio_keys>;
+> @@ -69,6 +74,12 @@ MX6SLL_PAD_GPIO4_IO18__GPIO4_IO18 0x10059 /* TP_RST */
+> >;
+> };
+>  
+> + pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
+> + fsl,pins = <
+> + MX6SLL_PAD_EPDC_PWR_WAKE__GPIO2_IO14    0x40010059
+> + >;
+> + };
+> +
+> pinctrl_gpio_keys: gpio-keysgrp {
+> fsl,pins = <
+> MX6SLL_PAD_GPIO4_IO25__GPIO4_IO25 0x17059 /* PWR_SW */
+> @@ -169,6 +180,14 @@ MX6SLL_PAD_KEY_COL2__GPIO3_IO28 0x1b8b1 /* ricoh619 bat_low_int */
+> >;
+> };
+>  
+> + pinctrl_sy7636_gpio: sy7636-gpiogrp {
+> + fsl,pins = <
+> + MX6SLL_PAD_EPDC_VCOM0__GPIO2_IO03       0x40010059 /* VCOM_CTRL */
+> + MX6SLL_PAD_EPDC_PWR_CTRL1__GPIO2_IO08   0x40010059 /* EN */
+> + MX6SLL_PAD_EPDC_PWR_STAT__GPIO2_IO13    0x17059 /* PWR_GOOD */
+> + >;
+> + };
+> +
+> pinctrl_uart1: uart1grp {
+> fsl,pins = <
+> MX6SLL_PAD_UART1_TXD__UART1_DCE_TX 0x1b0b1
+> @@ -319,6 +338,11 @@ &ricoh619 {
+> pinctrl-0 = <&pinctrl_ricoh_gpio>;
+> };
+>  
+> +&sy7636 {
+> + pinctrl-names = "default";
+> + pinctrl-0 = <&pinctrl_sy7636_gpio>;
+> +};
+> +
+> &uart1 {
+> pinctrl-names = "default";
+> pinctrl-0 = <&pinctrl_uart1>;
+> 
+> -- 
+> 2.39.5
+> 
+> 
 
