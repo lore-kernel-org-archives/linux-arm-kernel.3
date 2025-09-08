@@ -4,110 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E664BCAC589
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F09CAC586
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8imCO2VyYcb1j5phQLrLVVRIepCgCLAAPrEPMDTG34Y=; b=Z9wRhIzuDGBKHy
-	AxJx/x0gqF+3e5HYAKFyqZdAFM1irDJk9XNKCrR5URjGC/1eIEmRIQzUnSrBPRucQqtywQRc0HiMe
-	KLjl9acnAR9+D1aVgMYyS+q587oXQcd6D7y1ejfSuWjmL0JXTzOOtAfhdydECaLR6L9jFMiElBEn7
-	wZyKCAj+zVzoThM+nD7myMJ5uGiJHZU99SyBCiRG3r6TBS+Gms2LCXosvkv4gcewszLBB+eyUu551
-	UnVug128FeXjWv6cjmm55kr+AOyEisA4tsAf9XmQJuEo136ifuYS8Kn9sZXgNZgWMnoZ2r2pTpMA/
-	JD5hViCyRKUXD14Fxs2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P1UVHGPHfUIyxNabBaNQuKtasOtALBq5EAMGLACTLMI=; b=OCwqJBGqKKVNpBRLSD1mKP6TBy
+	SCVxSzPJoypUnkgi31HcxnBbx9w4FVcwOSxhKiOE39ypmRVL7nOq+JRg/OF7EUe78R1/H45HlrS0n
+	Q1Y+vy8SXtoJ61ls7fGaAZWlCgUJG88iE7CJXZCGc/ZiAfH6gh6liZlwpB1YJ/me8uA5ojnks+D3R
+	blsoumXyYXTXUeEJ4lK1Hsz3SWlxhPx77Rj70tbmslpkN+Lrko6V4lGs9okhtd3yVRj+jjtHHcPYX
+	02tcu4elzB8GVDN5DmHJGplw2WKOcz60azYmPoDAqEUfPhNO0Cx8H0fGOV+ad0uNyZf4Vb5/69ZMu
+	nyz5HRKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvabm-0000000GqJc-3UHN;
-	Mon, 08 Sep 2025 12:04:30 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1uvabe-0000000GqAu-2vtO;
+	Mon, 08 Sep 2025 12:04:22 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvYg0-0000000GDeN-0Rr1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 10:00:45 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2445826fd9dso50042235ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 03:00:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757325643; x=1757930443; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=8imCO2VyYcb1j5phQLrLVVRIepCgCLAAPrEPMDTG34Y=;
-        b=JjHyAuA+csb5P+2ZZer1jLwl28ejPsNIU/DFGQQMyy6I1eP7CViK20gCsh4Otu3g64
-         M26EL9BGqWsFeoXnVPlS67iJXEKCypIYGrUxOT3KIuwr6rQPwobkGEWtoKSRHtZw/pR6
-         /K94HnzNjVS5aZcF8/+ftJmdxCrZ/Kw1ZBQytCrOxm7HVWpGlvIoFy68SV8/jOE2oDAu
-         VLOc9QHrND4fv7cJK6y2obeELxxv8ho3fNhXVwSSZKHsP4H4TLzvAvcLIKGrZqCY+j9i
-         EtYy/yKNMgol1TS1xBxiJYsOwuHxWUfnwCyYxUKhBwBZmmyeIp60s4fmpCaYYBAYhxgQ
-         DoFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757325643; x=1757930443;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8imCO2VyYcb1j5phQLrLVVRIepCgCLAAPrEPMDTG34Y=;
-        b=ir1fo1lTT8DRPtP/m4+VLvz8ItkC3sxzEtyCbAFw2Bd9iwIVTsymIrVf2nKUjbTgI2
-         /wwx6iYabyxS6VmdJEUCT5I0UaePqYd/1jkJ21mc7/v6uier4QSxgMoSVBSHs8/lSsRQ
-         NY1nyPZUoh/1xA3EhK9ZFkjVatesEGknrIh6AGw2d9OL5N/0GogwrMmy4944WbJAV0c/
-         zZXXfQr7IQEui8/lEtEmd6FlnnAQEUhKrdhwOv4a5tntzAvnMsgl7SpzKBxgvfFBGoWa
-         vuQwp2pD/ybVBq2imGyMwJ9BqHu/XbwsQsE7If6c5rdKVw6yrWJ36HWvhKtNJ8s+2cWM
-         X5DA==
-X-Forwarded-Encrypted: i=1; AJvYcCXC5g+klssGE/cRuhLxvS8bd1yYAllvfnCwkmQqwbYA7tvlMEAQEO+urffMo/9UpbZfN3HgEwSmB0m4bZjuwJT0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxij0CheyAqtUZ+t7wVqEMP6DGh27qjnxWHLv4yJLsC9dbdnKq0
-	Rtvp264fcqh0w5RS9zW8R/qPn0g/EgvMgqWzTDoOu2jS9iz6/LXD0TE3M6hV/wazZ6Y=
-X-Gm-Gg: ASbGnctE0JqyVMHcfigAU8N+UhMimtqGDRGAJWRV+iWrzk47zb02J1PqZ2x84viaCsR
-	6u3b++mFbVh5iw2jrqhQieHT38nnEzPkHZdyStQGHeO/uNchTp8Euo5vsFjm0+m0NxLKu76pXVx
-	Al5Stv9v89Fy34bjpkb8jWvyrUb/pGSpjp6xq2Cw7mW16owzjiolMXyzPYvlWqQ8wTk6F2Kxp/r
-	ballAM8eTHLK+QYLQE5G4CqJ5sqP/JD0V4SAAb3oMIDD+LVXYEl3OMgd3O8Pti/xxxovhSxvAVp
-	NT752QfkBBTBY+xV5RlI56qd8Em1Wh8dyIwzU5+VaeFstlUHDe8gzwbfosrlTs7hK0DyD9HaNmM
-	n4HQJUcSCEM01Xnde+86zc2p3x8NpUWEGdffutQ==
-X-Google-Smtp-Source: AGHT+IEZb8enaTAgcy3PKy19tewnYb0cV0Lsum67cTjohRrkEFZOPERorSxB/CUny9AKPTfHG4lprg==
-X-Received: by 2002:a17:903:18b:b0:24d:37fb:6f38 with SMTP id d9443c01a7336-25170395983mr103298955ad.20.1757325642793;
-        Mon, 08 Sep 2025 03:00:42 -0700 (PDT)
-Received: from [127.0.1.1] ([59.188.211.98])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-24ccfc7f993sm107826545ad.63.2025.09.08.03.00.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 03:00:42 -0700 (PDT)
-From: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH RESEND v8 00/21] drivers/perf: apple_m1: Add Apple A7-A11,
- T2 SoC support
-Date: Mon, 08 Sep 2025 17:58:24 +0800
-Message-Id: <20250908-apple-cpmu-v8-0-d83b4544dc14@gmail.com>
+	id 1uvYOE-0000000G75P-1WiZ;
+	Mon, 08 Sep 2025 09:42:24 +0000
+Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:c241:40fd:9e5d:437c])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id A397310BE;
+	Mon,  8 Sep 2025 11:41:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1757324464;
+	bh=rnd6RDB+ozLJ6GnyO0aYYhAe1Suo1G2ATJAAjchaT4k=;
+	h=From:To:Cc:Subject:Date:From;
+	b=dQ4NJpI5PqVhdipK9jmKPgYLgosjlgb1nWZtjezh3jmh7178lplS4hxGh+eXpqkO0
+	 W9MkAw4pnUxJBO9FfcZNU4Ypcr43Sg0OA/A3VxHHbB0d1NXDjDa5iUIrOm+D79CeZs
+	 U2knWweIh4ly9rdszHBoD/BuLpn1y2eweOHPcR40=
+From: Stefan Klug <stefan.klug@ideasonboard.com>
+To: linux-media@vger.kernel.org,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Dafna Hirschfeld <dafna@fastmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Stefan Klug <stefan.klug@ideasonboard.com>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] media: rkisp1: Improve frame sequence correctness on stats and params buffers
+Date: Mon,  8 Sep 2025 11:41:48 +0200
+Message-ID: <20250908094200.48002-1-stefan.klug@ideasonboard.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Sven Peter <sven@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
- asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Nick Chan <towinchenmi@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4373; i=towinchenmi@gmail.com;
- h=from:subject:message-id; bh=+LAKu174f1xhSbC2VdiHkWIZYXz3wYKQPJAQC4FzNig=;
- b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBovqkTtL7kDRdJXZf7Bq4gh7VfG/iXETTlRfC+O
- gEURdMqqiSJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaL6pEwAKCRABygi3psUI
- JNzWEACqUePWP9/3y8oeVTH4hpFlV4h5LKJ2MdY/2vUZRXl+Mf7isTGEsrSe+ywZxIzu7iiIz3T
- WwdRaae72juKh+C+JTa5TC8k5pYM4ZzTzl3W+NVoYYQ9Gcy3ej/1EOJc6uSsMsm19m88FYo31IC
- k3gx2LI26i9sCX8gVX4znkZELyRg2LZ1MFHz9wkp/UFH/YWD62jUwe2+EJgOulzNB3qZAWAXuMi
- IoHk5P8ElmEj8kOE/Hy1tSh4Bek5rvAUgaZq9FJDTwnadV5lI7qAg3E2EMfKHsxmMWf/ZjkP/2B
- 3WhOJsBT5E/3j+wHMbnxoaV4PXyVFX4qzcjCNAqPOFjfo/neTF+/AwLLr5wt1v7CS0lgXcF3wju
- /T1E8H9wemtsdwTQMPdliJBE9zphWN/fpwtrLbOFDtYUCparvWxDmRue2nVG0gp9AwazwyBGLEO
- luma2Yi0VmpGabZuIDCHjOtaHI0tNj4rjINcq9faeoViOf645MKPNsmUBjvvArMTM2YWyhzgROR
- oH921F5PSJDwzvYUhIwsvYLYDqTru2cXxHN29bgwlxIBbRcB+L5m5lcLi/ysNsvMjy9yJfbpG0a
- joEq3xET3uLp/tJ+zsLjoDqtk6erYCWz5/ExOqUA8OIdpYs2geUoa9xNLb4wqMNBiFxKmr0EzgV
- ZAiSd2w2vwWe/gw==
-X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
- fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_030044_151246_0DA2CAAD 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20250908_024222_542697_51A58DA3 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,100 +70,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the CPU PMU in the older Apple A7-A11, T2
-SoCs. These PMUs may have a different event layout, less counters, or
-deliver their interrupts via IRQ instead of a FIQ. Since some of those
-older SoCs support 32-bit EL0, counting for 32-bit EL0 also need to
-be enabled by the driver where applicable.
+On the rkisp1 (in my case on a NXP i.MX8 M Plus) the ISP interrupt
+handler is sometimes called with RKISP1_CIF_ISP_V_START (start of frame)
+and RKISP1_CIF_ISP_FRAME (end of frame) being set at the same time. In
+commit 8524fa22fd2f ("media: staging: rkisp1: isp: add a warning and
+debugfs var for irq delay") a warning was added for that. There are two
+cases where this condition can occur:
 
-Patch 1 adds the DT bindings.
-Patch 2-7 prepares the driver to allow adding support for those
-older SoCs.
-Patch 8-12 adds support for the older SoCs.
-Patch 13-21 are the DT changes.
+1. The v-sync and the frame-end belong to the same frame. This means,
+   the irq was heavily delayed and the warning is likely appropriate.
 
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+2. The v-sync belongs to the next frame. This can happen if the vertical
+   blanking between two frames is very short.
+
+The current code always handles case 1 although case 2 is in my
+experience the more common case and happens in regular usage. This leads
+to incorrect sequence numbers on stats and params buffers which in turn
+breaks the regulation in user space. Fix that by adding a frame_active
+flag to distinguish between these cases and handle the start of frame
+either at the beginning or at the end of the rkisp1_isp_isr().
+
+Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
 ---
-Changes in v8:
-- Rebased on top of v6.17-rc1
-- Collect Ivaylo's Tested-by
-- Drop #define PMCR1_COUNT_A64_EL3_0_7
-- Reword reason to not initialize PMUv3 remap in EL1
-- Link to v7: https://lore.kernel.org/r/20250510-apple-cpmu-v7-0-bd505cb6c520@gmail.com
+ .../platform/rockchip/rkisp1/rkisp1-common.h    |  1 +
+ .../media/platform/rockchip/rkisp1/rkisp1-isp.c | 17 +++++++++++++----
+ 2 files changed, 14 insertions(+), 4 deletions(-)
 
-Changes in v7:
-- Fix a W=1 compile warning in apple_pmu_get_event_idx() as appearently using GENMASK()
-in a function prototype causes a warning in GCC.
-- Link to v6: https://lore.kernel.org/r/20250407-apple-cpmu-v6-0-ae8c2f225c1f@gmail.com
-
-Changes in v6:
-- Rebased on top of v6.15-rc1 (Conflict with FEAT_PMUv3 support for KVM on Apple Hardware)
-- Add patch to skip initialization of PMUv3 remap in EL1 even though not strictly needed
-- Include DT patches
-- Link to v5: https://lore.kernel.org/r/20250228-apple-cpmu-v5-0-9e124cd28ed4@gmail.com
-
-Changes in v5:
-- Slightly change "drivers/perf: apple_m1: Add Apple A11 Support", to keep things in
-chronological order.
-- Link to v4: https://lore.kernel.org/r/20250214-apple-cpmu-v4-0-ffca0e45147e@gmail.com
-
-Changes in v4:
-- Support per-implementation event attr group
-- Fix Apple A7 event attr groups
-- Link to v3: https://lore.kernel.org/r/20250213-apple-cpmu-v3-0-be7f8aded81f@gmail.com
-
-Changes in v3:
-- Configure PMC8 and PMC9 for 32-bit EL0
-- Remove redundant _common suffix from shared functions
-- Link to v2: https://lore.kernel.org/r/20250213-apple-cpmu-v2-0-87b361932e88@gmail.com
-
-Changes in v2:
-- Remove unused flags parameter from apple_pmu_init_common()
-- Link to v1: https://lore.kernel.org/r/20250212-apple-cpmu-v1-0-f8c7f2ac1743@gmail.com
-
----
-Nick Chan (21):
-      dt-bindings: arm: pmu: Add Apple A7-A11 SoC CPU PMU compatibles
-      drivers/perf: apple_m1: Only init PMUv3 remap when EL2 is available
-      drivers/perf: apple_m1: Support per-implementation event tables
-      drivers/perf: apple_m1: Support a per-implementation number of counters
-      drivers/perf: apple_m1: Support configuring counters for 32-bit EL0
-      drivers/perf: apple_m1: Support per-implementation PMU startup
-      drivers/perf: apple_m1: Support per-implementation event attr group
-      drivers/perf: apple_m1: Add Apple A7 support
-      drivers/perf: apple_m1: Add Apple A8/A8X support
-      drivers/perf: apple_m1: Add A9/A9X support
-      drivers/perf: apple_m1: Add Apple A10/A10X/T2 Support
-      drivers/perf: apple_m1: Add Apple A11 Support
-      arm64: dts: apple: s5l8960x: Add CPU PMU nodes
-      arm64: dts: apple: t7000: Add CPU PMU nodes
-      arm64: dts: apple: t7001: Add CPU PMU nodes
-      arm64: dts: apple: s800-0-3: Add CPU PMU nodes
-      arm64: dts: apple: s8001: Add CPU PMU nodes
-      arm64: dts: apple: t8010: Add CPU PMU nodes
-      arm64: dts: apple: t8011: Add CPU PMU nodes
-      arm64: dts: apple: t8012: Add CPU PMU nodes
-      arm64: dts: apple: t8015: Add CPU PMU nodes
-
- Documentation/devicetree/bindings/arm/pmu.yaml |   6 +
- arch/arm64/boot/dts/apple/s5l8960x.dtsi        |   8 +
- arch/arm64/boot/dts/apple/s800-0-3.dtsi        |   8 +
- arch/arm64/boot/dts/apple/s8001.dtsi           |   8 +
- arch/arm64/boot/dts/apple/t7000.dtsi           |   8 +
- arch/arm64/boot/dts/apple/t7001.dtsi           |   9 +
- arch/arm64/boot/dts/apple/t8010.dtsi           |   8 +
- arch/arm64/boot/dts/apple/t8011.dtsi           |   9 +
- arch/arm64/boot/dts/apple/t8012.dtsi           |   8 +
- arch/arm64/boot/dts/apple/t8015.dtsi           |  24 +
- arch/arm64/include/asm/apple_m1_pmu.h          |   2 +
- drivers/perf/apple_m1_cpu_pmu.c                | 807 +++++++++++++++++++++++--
- 12 files changed, 870 insertions(+), 35 deletions(-)
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250211-apple-cpmu-5a5a3da39483
-
-Best regards,
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+index ca952fd0829b..adf23416de9a 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+@@ -222,6 +222,7 @@ struct rkisp1_isp {
+ 	struct media_pad pads[RKISP1_ISP_PAD_MAX];
+ 	const struct rkisp1_mbus_info *sink_fmt;
+ 	__u32 frame_sequence;
++	bool frame_active;
+ };
+ 
+ /*
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+index 8c29a1c9309a..1469075b2d45 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+@@ -965,6 +965,7 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd, int enable)
+ 	}
+ 
+ 	isp->frame_sequence = -1;
++	isp->frame_active = false;
+ 
+ 	sd_state = v4l2_subdev_lock_and_get_active_state(sd);
+ 
+@@ -1086,12 +1087,15 @@ void rkisp1_isp_unregister(struct rkisp1_device *rkisp1)
+  * Interrupt handlers
+  */
+ 
+-static void rkisp1_isp_queue_event_sof(struct rkisp1_isp *isp)
++static void rkisp1_isp_sof(struct rkisp1_isp *isp)
+ {
+ 	struct v4l2_event event = {
+ 		.type = V4L2_EVENT_FRAME_SYNC,
+ 	};
+ 
++	isp->frame_sequence++;
++	isp->frame_active = true;
++
+ 	event.u.frame_sync.frame_sequence = isp->frame_sequence;
+ 	v4l2_event_queue(isp->sd.devnode, &event);
+ }
+@@ -1112,14 +1116,15 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+ 	rkisp1_write(rkisp1, RKISP1_CIF_ISP_ICR, status);
+ 
+ 	/* Vertical sync signal, starting generating new frame */
+-	if (status & RKISP1_CIF_ISP_V_START) {
+-		rkisp1->isp.frame_sequence++;
+-		rkisp1_isp_queue_event_sof(&rkisp1->isp);
++	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
++		status &= ~RKISP1_CIF_ISP_V_START;
++		rkisp1_isp_sof(&rkisp1->isp);
+ 		if (status & RKISP1_CIF_ISP_FRAME) {
+ 			WARN_ONCE(1, "irq delay is too long, buffers might not be in sync\n");
+ 			rkisp1->debug.irq_delay++;
+ 		}
+ 	}
++
+ 	if (status & RKISP1_CIF_ISP_PIC_SIZE_ERROR) {
+ 		/* Clear pic_size_error */
+ 		isp_err = rkisp1_read(rkisp1, RKISP1_CIF_ISP_ERR);
+@@ -1138,6 +1143,7 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+ 	if (status & RKISP1_CIF_ISP_FRAME) {
+ 		u32 isp_ris;
+ 
++		rkisp1->isp.frame_active = false;
+ 		rkisp1->debug.complete_frames++;
+ 
+ 		/* New frame from the sensor received */
+@@ -1152,5 +1158,8 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+ 		rkisp1_params_isr(rkisp1);
+ 	}
+ 
++	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active)
++		rkisp1_isp_sof(&rkisp1->isp);
++
+ 	return IRQ_HANDLED;
+ }
 -- 
-Nick Chan <towinchenmi@gmail.com>
+2.48.1
 
 
