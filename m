@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A16ACAC58C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF099CAC58D
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40U/JwkNhbsZHZiHuydqGbPDLeGHS8HCU5gpBRM8kIw=; b=tuAq1WFw8RvVoX197BSByd7GbQ
-	1rdiG5F94cktpg4KgP378zVUhwOa8NAmYfG/xXNQkciwari8T+YRO8Fknlwxd0wBnuIJOu3sR8jIb
-	oxibzfS7Erzdk7UVxfXDwX6WhTpyeKWV3TGmcgYtbnplGcKUhyEYkMveLFo4C/m8rhgSu2RA8h2nt
-	MZNGoNJ1swFdewxUB2FZbB1ASlIcXRB+OJWAHQkz6dNZbtJIBDYrN+KA8KDXzPJrHrzXx/Q/TFkkP
-	sSOckSybNNJPvgOIer1yKlc79nQw3GKeD01qR9OcRE4nA+wwyDOuUk3BGd9JMuKyEsuR+tkQv2TrS
-	PgEcvPQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+BN9f9TRNhPzZGbZcN/O3Z0X+3jX9IGhyykVuk72IV0=; b=Rzvxalt1vBJHskq6/1WlssL4NP
+	jtXGC3qK2f1ay9cvhWLrvrNHwmtCddVw4t8Cux+d9LJNVDxINo4w4nfmZeeu5dM2mCbvW13gDqnyY
+	z/A6tX1pNLR+q3Z4pihfOQsUmP1rnbn06CQi4OaT2R704o55o01N2mZEu/EceayPY9CWFN537IGrB
+	OxcA52N9FEN40KmxBY2IgHby8GUwdCRCD0OH6VjUNZ9kK06dJhJQDK3Go8/wxEc47L4JI6L/PvQ3p
+	j8ybkADkCGTADzWFfBvjcxudBTklMJro1rObF5OQo5pgKaGgilyZblqPTRFQ6G7JfTCFunOKzpCsL
+	/9U2gBCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBS-00000004oYT-1Es5;
-	Tue, 09 Sep 2025 06:50:30 +0000
-Received: from mx01.omp.ru ([90.154.21.10])
+	id 1uvsBT-00000004oav-3X6n;
+	Tue, 09 Sep 2025 06:50:31 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhiL-00000001wrz-3zgv
+	id 1uvhnI-00000001yVi-46db
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 19:39:47 +0000
-Received: from [192.168.2.102] (213.87.154.55) by msexch01.omp.ru
- (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Mon, 8 Sep
- 2025 22:39:36 +0300
-Message-ID: <877641ca-aadb-4510-9ed7-cc23cf666653@omp.ru>
-Date: Mon, 8 Sep 2025 22:39:35 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: prevent division by 0 in
- stmmac_init_tstamp_counter()
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	<netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <58116e65-1bca-4d87-b165-78989e1aa195@omp.ru>
- <c3183a23-21da-435d-b599-7003ae7ba79b@lunn.ch>
-Content-Language: en-US
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-Organization: Open Mobile Platform
-In-Reply-To: <c3183a23-21da-435d-b599-7003ae7ba79b@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [213.87.154.55]
-X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
- (10.188.4.12)
-X-KSE-ServerInfo: msexch01.omp.ru, 9
-X-KSE-AntiSpam-Interceptor-Info: scan successful
-X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 09/08/2025 18:59:50
-X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
-X-KSE-AntiSpam-Method: none
-X-KSE-AntiSpam-Rate: 0
-X-KSE-AntiSpam-Info: Lua profiles 196103 [Sep 08 2025]
-X-KSE-AntiSpam-Info: Version: 6.1.1.11
-X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
-X-KSE-AntiSpam-Info: LuaCore: 66 0.3.66
- fc5dda3b6b70d34b3701db39319eece2aeb510fb
-X-KSE-AntiSpam-Info: {rep_avail}
-X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
-X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
-X-KSE-AntiSpam-Info: omp.ru:7.1.1;127.0.0.199:7.1.2;www.kernel.org:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1
-X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
-X-KSE-AntiSpam-Info: FromAlignment: s
-X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.154.55
-X-KSE-AntiSpam-Info: Rate: 0
-X-KSE-AntiSpam-Info: Status: not_detected
-X-KSE-AntiSpam-Info: Method: none
-X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
- smtp.mailfrom=omp.ru;dkim=none
-X-KSE-Antiphishing-Info: Clean
-X-KSE-Antiphishing-ScanningType: Heuristic
-X-KSE-Antiphishing-Method: None
-X-KSE-Antiphishing-Bases: 09/08/2025 19:03:00
-X-KSE-Antivirus-Interceptor-Info: scan successful
-X-KSE-Antivirus-Info: Clean, bases: 9/8/2025 5:23:00 PM
-X-KSE-Attachment-Filter-Triggered-Rules: Clean
-X-KSE-Attachment-Filter-Triggered-Filters: Clean
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+	Mon, 08 Sep 2025 19:44:54 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-329ee69e7f1so4102970a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 12:44:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757360692; x=1757965492; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+BN9f9TRNhPzZGbZcN/O3Z0X+3jX9IGhyykVuk72IV0=;
+        b=ooHJzkGZ2nXYCruv03KJmuJ2qehC9grYmt+3b/SIIF+d2W6dU3YiH6N5HZEsFE/QSx
+         bwW3tvbPSBb1XW5J6rc5KOMqWMlDzxpqgjp8wCRv2fWadiQpV70MRje9dG5q7EmG7yaJ
+         yzrs6PJylon46KbF1jjGhYx/bCl5stpSodfyenC0Xj0s+jjddrl55kd/2AXXyyLQpnzc
+         IhbHrgBJ+iUX7mW0AJId7esUMOGSw89L9oXoMp2kcXgV2+fiJPe/xoQ67LxqKSsj2W1R
+         vK0OG/8GmdOYpm2HT6p3tJjDFOo2jB6nudBxO8z5IFnlvnuTHpvoyIAwL0A1avp77JUz
+         Fzxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757360692; x=1757965492;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+BN9f9TRNhPzZGbZcN/O3Z0X+3jX9IGhyykVuk72IV0=;
+        b=RPYVfYmknCaQodL+sli1jL5Iai8OEIwDaavxmKfwkfvAraYv3qmYg+2sQijifUdteK
+         iGq9TQE5jTApj3iD0PCX7g0ctkKpcH1h8/JZjKD3UdXPNBL5NqI8Z4z8P2yD3v/HaX29
+         oP46fr2wrs/mK48ugMaTvI8V7F4sTMJ2iv+OME8LeG3JeHSIvAzDmkZmkNe7X92wFUB3
+         7YubieFixzv6wT1Urv2EHPZ3PN1rzK+xiKiUJDxhE4cb3hD/p/Amz8feicVS5IJDKfFX
+         7y+fFbbsADoQddA/Hz/H1apqgklTcS/xw506bppdRQAcRsAGBQV2Zk6JHqGK1ad1hLAd
+         YWhQ==
+X-Gm-Message-State: AOJu0YzOPurAf+jrQ0ODNJFNtswZIcgcjeiG6AL77YjOrH1hJFleH0s6
+	iLzUax239zCbikoAYkm+iYjx/zZ/LP5eM7QR2RGRaoTD1Z8m2WxtcbPHwzbNUjCeVhstqDYGcAP
+	it/i+qw==
+X-Google-Smtp-Source: AGHT+IFxCnWEFD2vXNWgOPEAttN5OOtAqn765A51cfCV4FQPi8e13adf6at6Ei8q1uZLTqO9SeFgLpD0kRY=
+X-Received: from pjbsq16.prod.google.com ([2002:a17:90b:5310:b0:329:ccdd:e725])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1dc4:b0:327:e9f4:4dd8
+ with SMTP id 98e67ed59e1d1-32d43f2f4b6mr13695527a91.10.1757360691927; Mon, 08
+ Sep 2025 12:44:51 -0700 (PDT)
+Date: Mon, 8 Sep 2025 12:44:50 -0700
+In-Reply-To: <20250819090853.3988626-5-keirf@google.com>
+Mime-Version: 1.0
+References: <20250819090853.3988626-1-keirf@google.com> <20250819090853.3988626-5-keirf@google.com>
+Message-ID: <aL8yMum27Qw_Wkkw@google.com>
+Subject: Re: [PATCH v3 4/4] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
+From: Sean Christopherson <seanjc@google.com>
+To: Keir Fraser <keirf@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_123945_994680_A7ADBF76 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20250908_124453_015061_87307641 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,64 +89,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/8/25 7:47 PM, Andrew Lunn wrote:
-
->> In stmmac_init_tstamp_counter(), the sec_inc variable is initialized to 0,
->> and if stmmac_config_sub_second_increment() fails to set it to some non-0
->> value, the following div_u64() call would cause a kernel oops (because of
->> the divide error exception).  Let's check sec_inc for 0 before dividing by
->> it and just return -EINVAL if so...
->>
->> Found by Linux Verification Center (linuxtesting.org) with the Svace static
->> analysis tool.
->>
->> Fixes: df103170854e ("net: stmmac: Avoid sometimes uninitialized Clang warnings")
->> Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
->>
->> ---
->> The patch is against the master branch of Linus Torvalds' linux.git repo.
+On Tue, Aug 19, 2025, Keir Fraser wrote:
+> Device MMIO registration may happen quite frequently during VM boot,
+> and the SRCU synchronization each time has a measurable effect
+> on VM startup time. In our experiments it can account for around 25%
+> of a VM's startup time.
 > 
-> Wrong tree. Please see:
+> Replace the synchronization with a deferred free of the old kvm_io_bus
+> structure.
 > 
-> https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
-
-   Well, formerly being a reviewer for the Renesas drivers (before Greg KH
-threw me out of MAINTAINERS last year), I kinda know this! :-)
-   The real problem is that I've lost the ability to pull from git.kernel.org
-(first using git:// protocol and later using https:// as well)... Sometimes
-the ability used to return (along with Facebook/LinkedIn -- which are actually
-blocked in .ru) but that hasn't happened for more than a week now. I can now
-pull from Linus' tree at github. I strongly suspect some interaction between
-the .ru blocking and the Anubis program that is now used on git.kernel.org --
-I've also lost access to lore.kernel.org (sometimes it works -- but not now)
-and also elixir.bootlin.com, both of which seem to use the darn Anubis as
-well... :-(
-
-> This also needs reviewing by somebody who know the STMMAC
-> hardware. There is a comment:
+> Signed-off-by: Keir Fraser <keirf@google.com>
+> ---
+>  include/linux/kvm_host.h |  1 +
+>  virt/kvm/kvm_main.c      | 10 ++++++++--
+>  2 files changed, 9 insertions(+), 2 deletions(-)
 > 
-> 	/* For GMAC3.x, 4.x versions, in "fine adjustement mode" set sub-second
-                                               ^ Look, a typo! :-)
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index e7d6111cf254..103be35caf0d 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -206,6 +206,7 @@ struct kvm_io_range {
+>  struct kvm_io_bus {
+>  	int dev_count;
+>  	int ioeventfd_count;
+> +	struct rcu_head rcu;
+>  	struct kvm_io_range range[];
+>  };
+>  
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 4f35ae23ee5a..9144a0b4a268 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -5953,6 +5953,13 @@ int kvm_io_bus_read(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx, gpa_t addr,
+>  }
+>  EXPORT_SYMBOL_GPL(kvm_io_bus_read);
+>  
+> +static void __free_bus(struct rcu_head *rcu)
+> +{
+> +	struct kvm_io_bus *bus = container_of(rcu, struct kvm_io_bus, rcu);
+> +
+> +	kfree(bus);
+> +}
+> +
+>  int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
+>  			    int len, struct kvm_io_device *dev)
+>  {
+> @@ -5991,8 +5998,7 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
+>  	memcpy(new_bus->range + i + 1, bus->range + i,
+>  		(bus->dev_count - i) * sizeof(struct kvm_io_range));
+>  	rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
+> -	synchronize_srcu_expedited(&kvm->srcu);
+> -	kfree(bus);
+> +	call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
 
-> 	 * increment to twice the number of nanoseconds of a clock cycle.
-> 	 * The calculation of the default_addend value by the caller will set it
-> 	 * to mid-range = 2^31 when the remainder of this division is zero,
-> 	 * which will make the accumulator overflow once every 2 ptp_clock
-> 	 * cycles, adding twice the number of nanoseconds of a clock cycle :
-> 	 * 2000000000ULL / ptp_clock.
-> 
-> So i'm wondering if the subsecond adjustment is sufficient, the
-> sec_inc might be zero, and rather than returning an error, the
-> hardware just needs programming differently?
+To address the syzkaller splat, KVM needs to call srcu_barrier() prior to freeing
+the structure.
 
-   Sorry, I don't readily see how the data var in config_sub_second_increment()
-can wrap to 0. I agree that a look of a more knowledgeable person would be good
-though... :-)
-
->     Andrew
-
-[...]
-
-MBR, Sergey
-
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 9144a0b4a268..62693f18ecf4 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -1321,6 +1321,7 @@ static void kvm_destroy_vm(struct kvm *kvm)
+                kvm_free_memslots(kvm, &kvm->__memslots[i][1]);
+        }
+        cleanup_srcu_struct(&kvm->irq_srcu);
++       srcu_barrier(&kvm->srcu);
+        cleanup_srcu_struct(&kvm->srcu);
+ #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
+        xa_destroy(&kvm->mem_attr_array);
 
