@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB5ECA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 07:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E79EECA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 07:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I/bE+d5VSY+cf7ZgHRif9dw6SgLFB5EQIZMFFFDkmJw=; b=A6LzF0SA6/HSFe6+QCwYzeXmEp
-	EKc9oqMeL+hhe3OysOvhfV0Ajn6P6Dqbhx0A/vUwEIuW/QOCCU0JHmdVS5kh8Cx3OkJHtC4/Jh8sz
-	wTsXQpBgEg/+YfEU5uVuyCvDPByhyGSqoRzu31RByp+Qk2SS5FY420mnoT6Ph6jlX7bCYx02ZGbOq
-	HhMdyoRbJd0FVe02zvx385dmWB029ea9R/p+GwcGHWTUvDye6JPhFhY5Zt0MHT/fQ9OWbBT3qX7FM
-	6O7IHf9WOeDw6aI5xG+B+D7ov7N0N5ahdHQrldMlMg+waH3TFrhL9rnvqf7O8b/45YY4wD7/bDSMr
-	PFM1BZRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=INGtYHjQfpr0I5BpFzHQqufbow0F/EqArjbMwO9sRLw=; b=XeE4TTJH63Mcmy+yZsWpSJPPb7
+	KQ8LMGeXljGQBUChHXVs5njHC4ez1dzE0lIvIrc+BQi5sQfNrS2OQ4BykZvYTpcm1ng1KgqvaQpoL
+	acUHdOTqJDRk0nKlmGhrbiVgdT2nQCo5bsKY+d8VvqK77FtYQCOMFV+9ITC3uxuKZ46jG1A8PCBPa
+	KybApqd6EuIjnqU5oG+O/JfwjOLnTw7bqbuCnMAqqGSiM7Snv+PyfhXlSD95nho4HjdDhXTXf27/p
+	J40d9nH15CQIjI2VEAtbrT+1u/+tb1SXmaJnG/LHp2zX6Lgtj0NHbVSHW64xJ1eeBj0m1bZUnUYv0
+	Zl2pCmGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvW6M-0000000FDAn-3nhJ;
-	Mon, 08 Sep 2025 07:15:46 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uvW9A-0000000FEJ8-08ov;
+	Mon, 08 Sep 2025 07:18:40 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvW17-0000000FBkL-2z39
+	id 1uvW4Z-0000000FCtQ-35kG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 07:10:23 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cKyk42QfCztTbY;
-	Mon,  8 Sep 2025 15:09:16 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id D4C3B18006C;
-	Mon,  8 Sep 2025 15:10:11 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 8 Sep 2025 15:10:11 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 8 Sep 2025 15:10:10 +0800
-CC: <yangyicong@hisilicon.com>, <jonathan.cameron@huawei.com>,
-	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>, <wangyushan12@huawei.com>,
-	<hejunhao3@h-partners.com>
-Subject: Re: [PATCH v6 0/3] drivers/perf: hisi: Add support for HiSilicon NOC
- and MN PMU driver
-To: <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250814091622.23269-1-yangyicong@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <5b727add-e48e-5857-42a4-97586e1e02e1@huawei.com>
-Date: Mon, 8 Sep 2025 15:10:10 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Mon, 08 Sep 2025 07:13:56 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5887DPKv3737891;
+	Mon, 8 Sep 2025 02:13:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757315605;
+	bh=INGtYHjQfpr0I5BpFzHQqufbow0F/EqArjbMwO9sRLw=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=irxHTRSuhFggDIGqPEk3fMSzFmzFNJ1qxO+PSh9Lz7t0kFo9qPudWy2jApW0RHuyY
+	 B6KucuhyE3Knxbp9Rz4PrVUFYWRU9h5uq5EEQHfP9aHZfknneXTOtkd7U6O+Mu5hHC
+	 0wE1BS43NS3GTJN9B4sRrC+XHYS0He3YPYdkocJQ=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5887DPNw2822048
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 02:13:25 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 02:13:25 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 02:13:24 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5887DN9T485025;
+	Mon, 8 Sep 2025 02:13:24 -0500
+Date: Mon, 8 Sep 2025 12:43:23 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
+        <jingoohan1@gmail.com>, <fan.ni@samsung.com>,
+        <quic_wenbyao@quicinc.com>, <namcao@linutronix.de>,
+        <mayank.rana@oss.qualcomm.com>, <thippeswamy.havalige@amd.com>,
+        <quic_schintav@quicinc.com>, <shradha.t@samsung.com>,
+        <inochiama@gmail.com>, <cassel@kernel.org>, <kishon@kernel.org>,
+        <18255117159@163.com>, <rongqianfeng@vivo.com>, <jirislaby@kernel.org>,
+        <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH 00/11] PCI: Keystone: Enable loadable module support
+Message-ID: <5825153e-833b-4aed-bbd5-e0f58e922aa0@ti.com>
+References: <20250903124505.365913-1-s-vadapalli@ti.com>
+ <2gzqupa7i7qhiscwm4uin2jmdb6qowp55mzk7w4o3f73ob64e7@taf5vjd7lhc5>
 MIME-Version: 1.0
-In-Reply-To: <20250814091622.23269-1-yangyicong@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <2gzqupa7i7qhiscwm4uin2jmdb6qowp55mzk7w4o3f73ob64e7@taf5vjd7lhc5>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_001021_919157_6CC8A39C 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250908_001355_866024_5B7D9207 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +91,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-a gentle ping...
+On Mon, Sep 08, 2025 at 09:09:08AM +0530, Manivannan Sadhasivam wrote:
+> On Wed, Sep 03, 2025 at 06:14:41PM GMT, Siddharth Vadapalli wrote:
+> > Hello,
+> > 
+> > This series enables support for the 'pci-keystone.c' driver to be built
+> > as a loadable module. The motivation for the series is that PCIe is not
+> > a necessity for booting Linux due to which the 'pci-keystone.c' driver
+> > does not need to be built-in.
+> > 
+> 
+> There are concerns from the irqchip maintainers that unloading an irqchip
+> controller is a bad idea. We had a lot of previous discussions on this topic.
 
-On 2025/8/14 17:16, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+Ok, I wasn't aware of this. Thank you for pointing this out.
+
 > 
-> Add support for two new Uncore PMUs to monitor the events of the system bus
-> (by NoC PMU) and the DVM operations (by MN PMU).
+> But I would certainly welcome the idea of building a controller driver as a
+> module (tristate) and prevent unloading it during runtime (by keeping it as
+> builtin_platform_driver).
+
+I will update the series to retain 'builtin_platform_driver' while
+enabling tristate support. Since the intent of the series is primarily
+to convert the driver to support being built as a loadable module, and
+unloading it is only a secondary requirement which is optional, I agree
+with your suggestion.
+
 > 
-> Change since v5:
-> - Rebase on 6.17-rc1 and update the maintainer entry
-> Link: https://lore.kernel.org/linux-arm-kernel/20250717121727.61057-1-yangyicong@huawei.com/
+> > Series is based on linux-next tagged next-20250903.
+> > 
 > 
-> Change since v4:
-> - Rename ovflow_status to .overflow_status with Jonathan's Tag, thanks!
-> Link: https://lore.kernel.org/linux-arm-kernel/20250717074138.39903-1-yangyicong@huawei.com/
-> 
-> Change since v3:
-> - Use ACPI driver data to retrieve the hardware capabilities
-> Link: https://lore.kernel.org/linux-arm-kernel/20250619125557.57372-1-yangyicong@huawei.com/
-> 
-> Junhao He (1):
->   drivers/perf: hisi: Add support for HiSilicon MN PMU driver
-> 
-> Yicong Yang (2):
->   drivers/perf: hisi: Add support for HiSilicon NoC PMU
->   MAINTAINERS: Remove myself from HiSilicon PMU maintainers
-> 
->  Documentation/admin-guide/perf/hisi-pmu.rst  |  11 +
->  MAINTAINERS                                  |   1 -
->  drivers/perf/hisilicon/Makefile              |   3 +-
->  drivers/perf/hisilicon/hisi_uncore_mn_pmu.c  | 411 +++++++++++++++++
->  drivers/perf/hisilicon/hisi_uncore_noc_pmu.c | 443 +++++++++++++++++++
->  5 files changed, 867 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
->  create mode 100644 drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-> 
+> No need to base your patches on top of linux-next. Either do it on top of -rc1
+> or pci/next.
+
+I will keep this in mind when I post the v2 series.
+
+Thank you for your feedback.
+
+Regards,
+Siddharth.
 
