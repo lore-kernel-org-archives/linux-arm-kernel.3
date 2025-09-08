@@ -4,87 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8059CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCB5CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RwHTVi+PZizs+OV4gI3ySDrmg4AiYXrmj6y0oc0TQk0=; b=ioLArIi/ILJfJl
-	ndhwAmjzULT1DSETfNxnW6Pg3Jmzx8ZbGmHAb0vPMeNzSwBIUEErw/vW+Mwo+aLNSo/bJObBjhllM
-	BcF0XU07RLfU7hRkvSwTVvN0GV2BPR6nxaSh1aBbH9252v2jsbJuuEidTtLFQU1UGr7uSSIxhzgBq
-	hTYejg4NQClHJS//TNKjZkUX0nOg7vya8ffzMs9x/u0ijChmiM5rp6Gdzgq9hd5Uz9rPbJ/2WGIc+
-	s3IApe1fcGzbIjI92g9ctLTVz/WUejEyQyIF5g5TUXVWYYrNuaXms4VriNqSv0Svpb0loRTFSsd+U
-	1Xsohiw0CSKkY2Kcc7pw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IkJpnEdF2AR5pZWNxC8vkTD4aF8YgTu/vkMdhoB98rQ=; b=MJ1IEVAFZL17Res9O6sDeokHhP
+	VRfM0f5nZCri+Wg33RZmnccPofUkQpJlqLXoofF5Ogel2xwj6TDcwCWfZ1FSJnec6JKyC0R5IfU9O
+	AfG27yBE7jBOGQy1nHe9YWTsqLd90YkX9/B6sACCBVCWOgjQ0u+lK/mzpv3HbCDASQIqNpn0aaYgx
+	3MvjdAFtHjfij72uNLGq86/4vI4ydkmz4UlfvvtzEwHYxBHwNunGLq/HcBcTvG07ZRJC/k7599y3f
+	FuyJU8NxKwIt+E2L4/vgIX1L/xb+NX16HgNCULxkIVKPCUiQs/bAa5O60cAjTESLpLrdAAJjTOBY3
+	ercE8FuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgF1-00000001Ot8-1VnC;
-	Mon, 08 Sep 2025 18:05:23 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1uvgHj-00000001Ps0-10xb;
+	Mon, 08 Sep 2025 18:08:11 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvdD8-00000000Ed2-1icH
+	id 1uvdGw-00000000Fbv-2aW0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 14:51:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=RwHTVi+PZizs+OV4gI3ySDrmg4AiYXrmj6y0oc0TQk0=; b=FWdgS11tTW2FrsBTA33kGxMseO
-	2hxuaDQJNQX0m+psQxLqNUbQ80jTTeH5FtQGcZKYp3oubAx8OI2NGrRvoIsFkk/ST+WciC1t5Nwip
-	DU2rbZbrkpTUvzV8VzecBb6z2DbY1c8VWLCqb5uS3d/hx4aLSgVXZSMDXuw3JrqvhksdRZKd6OgEa
-	UpYPkd0z9iBZ7PsqtdzYHPNv1fPipuVELxLOWnbz2wAFna2ULbdohzG6tndYfND8tlSKFMpBDdY+B
-	eflnKZ8oaUlPtWpO9G5xFyU6gsMxAcB6T7QImo/1TEk1d6m6dW1I+9XW9BKmjzeAuJKhBLIib9BSS
-	ov0asiIA==;
-Received: from [122.175.9.182] (port=63034 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1uvdCP-0000000G7f7-2Izr;
-	Mon, 08 Sep 2025 10:50:30 -0400
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id C652D1781F3C;
-	Mon,  8 Sep 2025 20:20:20 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 968B41783FF8;
-	Mon,  8 Sep 2025 20:20:20 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id oaVUIR3lcc0B; Mon,  8 Sep 2025 20:20:20 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 44B6B1781F3C;
-	Mon,  8 Sep 2025 20:20:20 +0530 (IST)
-Date: Mon, 8 Sep 2025 20:20:20 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: kuba <kuba@kernel.org>
-Message-ID: <974157264.314549.1757343020136.JavaMail.zimbra@couthit.local>
-In-Reply-To: <20250905183151.6a0d832a@kernel.org>
-References: <20250904101729.693330-1-parvathi@couthit.com> <20250905183151.6a0d832a@kernel.org>
-Subject: Re: [PATCH net-next v15 0/5] PRU-ICSSM Ethernet Driver
+	Mon, 08 Sep 2025 14:55:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fhvBV5vn/80XbUxRi7aK92NHoxTN3gEsBudYuZQ6UMPZcJXh/7BO49SbPMdgKppE1yq8jXRJsToKF1sPZE6qy50EHadgx10Uxk225jjP0yE8wVP4FUhO+agqCnn6p1v2tsTS3e0OJOOQ5d03YpjiwSxjVr8cQtRJpToxUFr0zhh32KsNxbiUZBJDmaODM7NGrrRumNamsV8eAv/e9qRcWS2UaE8/WkZ2d3wbzWM0+uLxPg+KDyxeeKHB7UFUKXaqc/S629KioM76Ylksb6yr3zMjxaJFz51BCO3g0ipFPXKtE+DbOECILf0HDjWwfW7l9hsKMIL+EOj12gtkozbeOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IkJpnEdF2AR5pZWNxC8vkTD4aF8YgTu/vkMdhoB98rQ=;
+ b=ENl81DUgrUJfOe4z1+smlV9opD6XHZjN2rcCgb9eBBWWO8Ue2TXmN3eGbutKv2fcn2UPT3+aDzd39mYZRz/SzYDjwFjLCqBixQAw6K75vuYhW+VSWUU8MKzhrgNSh908PbcpU4ZXgThzzZ0IR2JWBS59ICSj+HIxWBmTRygxMrJbWby84jA5chBHqgDxZ7/5tsMhGLWW3JK41FaL+RVxfpVxQinfIqB472T/zCcB9Amx0iAKR1PJ44uWKTlztdSgGSFTyAmtIqKGapN8tzcgEkO4AMS9ZGSZe3jXKuPiByTD44Hp4l8rjsdA7Np3VctgKeV1bbF1rECfSse/mqtP4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IkJpnEdF2AR5pZWNxC8vkTD4aF8YgTu/vkMdhoB98rQ=;
+ b=Y2EnEtT5iV+J5vkV3PH+BK12JYaJT5v1e9W8ty4xNI++9LVKc03Qo54JgA9kkZo8utIuojOaH8o/vpO+qIJMJPRlc851LhoRJCmprxJgxTZPc3yyzXQ8x9uS6rtlkXaVjs8oEuWwQUBbPV19G+H4G1sAvkcdwVJxCJpPlrjLV9Gho5iSFWj6OEvtWrNw2ZxMQcWnND3yrIYxHGqkZ6okrLC/7l+XfohfcCzPFJPNN7FaG2zHt1nHFbQ6kglIw7Gk2hFpjamxfrgbYVaGwJ2Yn2oGfzqBAKepGBQ2CSSUoum8qyd6hGwHGhK/3fZOINUR7sP40J+VjtYOSpeIybQzlg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by VE1PR04MB7390.eurprd04.prod.outlook.com (2603:10a6:800:1aa::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.13; Mon, 8 Sep
+ 2025 14:55:01 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%5]) with mapi id 15.20.9115.010; Mon, 8 Sep 2025
+ 14:55:00 +0000
+Date: Mon, 8 Sep 2025 10:54:51 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/6] remoteproc: imx_rproc: Introduce
+ start/stop/detect_mode ops for imx_rproc_dcfg
+Message-ID: <aL7uOybn0ssJnVhr@lizhi-Precision-Tower-5810>
+References: <20250908-imx-rproc-cleanup-v1-0-e838cb14436c@nxp.com>
+ <20250908-imx-rproc-cleanup-v1-1-e838cb14436c@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250908-imx-rproc-cleanup-v1-1-e838cb14436c@nxp.com>
+X-ClientProxiedBy: PH2PEPF00003854.namprd17.prod.outlook.com
+ (2603:10b6:518:1::74) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
-Thread-Topic: PRU-ICSSM Ethernet Driver
-Thread-Index: lBuvfkt+lp1JesCVjb5URBl/aXb/jg==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|VE1PR04MB7390:EE_
+X-MS-Office365-Filtering-Correlation-Id: d800496b-8755-4aae-27b5-08ddeee7af63
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|366016|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ToPSgIFXATeoSmqrcj8QEefjrx+27j8jp5bmiZlbOrU57RY5hHwnEDCulqiX?=
+ =?us-ascii?Q?aFEm7kJ17Lqi3Szl4nLuSz5fYrQQhL1UY+xBSR67rSnU2a0ss8oBrOL3VLq1?=
+ =?us-ascii?Q?n8vZ+0DCOmsb2iPVGspYTc2JGZFaYiygpgAp572S4KqGHSf94TXtBGGAzq3c?=
+ =?us-ascii?Q?SxSlp+nY/y+jspOiQKrtlC70TP34qVXW30FiAeaM3LG3hzmLgANO0N5EFsGV?=
+ =?us-ascii?Q?KLKhQqthTVXAmCHwKBAtQkPEje/BE3lAhBG0U+H5mO001rxrfRJ8xIdt2uBy?=
+ =?us-ascii?Q?WuOlqTllB73k+ChmWJmm5xgwns049ugN+yQFAmjmTYEaN1rkcG7IjcHgeQ2B?=
+ =?us-ascii?Q?NvOxvXdugK1L6XhugvlvuJcGpRU1eYDaI46u7GdnDm0HsPkGvERvsoGW+TYy?=
+ =?us-ascii?Q?a4gyc7af2GFTRIc6loR2yE85wrQJu7Wr4JN0xXDe/z4cnb/9JY9du+VqjFpL?=
+ =?us-ascii?Q?1h2vFznM85GqTTeaDFLspltFwQst3uzLDi9pQtMdrxXZQKzoBJ9YKlwtdqHS?=
+ =?us-ascii?Q?gkk/r7FuRQ0Nx/e3MRSCCVsY7n3XvDFIoTmDTgXfqZuzEODmKo7bleY6Sv0B?=
+ =?us-ascii?Q?l4vH+FcHtmm07QTgulOFkhwebwj05b2fKX8S4Cd5XxnlwSzIC8d77zhc5WkG?=
+ =?us-ascii?Q?h5U/Z6OAO3I2jtBzAUTfzoV9NmSzKQfoThV9Sb20eCoT7rgapezthRCR9w9w?=
+ =?us-ascii?Q?ZvD8XXCyc2af9r7ccO0F97WGv2MMDSwlcbPqoqSTFHrdnm6qeYIyeELPVqhe?=
+ =?us-ascii?Q?BJX8Cc6TE2BJYrArYKWLEJD3QqowfCzCXZV5Tf95gthZ1AgYEd+3Lcl8KBJa?=
+ =?us-ascii?Q?sidVfJecUHPtiFmOGxuul+bA1j2m419+Pj8P5r09EGgd9ryDkk12J8I0Qqs+?=
+ =?us-ascii?Q?KPOLd1xQF3VEnHhxwnZe7IHlrLy5fXJy0dHj+lEL1jBUcaFTEcVoAtwWd4qZ?=
+ =?us-ascii?Q?PmCuiwTB2g3VpCbfm0bZwuXM9pzyd8u4y6Gz5/jDHe9steLfp58wcWAw47+M?=
+ =?us-ascii?Q?Ku6Vm3mstIxDZaGucPCb21fKGrIF8825CSqC92ck0OlW/BTV1dlmAw1ilRbK?=
+ =?us-ascii?Q?xgQyf+jINj2G6ne7XLY9Al6k+HZzGvVRhduxJMJikOm+8R7BEwCTu93FWdKz?=
+ =?us-ascii?Q?5MI49ROGZ2Ea+1KMOnS2MMe6E/4QjmpG5kLEnRa1lOA/tUw4nDYnqcAZxnqa?=
+ =?us-ascii?Q?PT9hPCQhdbKIr+gf/DXjLfBMxzaOJIiI9cG44iDxDLoolVREC4eJksWyXxZt?=
+ =?us-ascii?Q?8pyXUURYy7HKNbctwxoQGR68PdnfcxNEMTGf+Hj3QKUVjA+P5DXLkK/DcjW7?=
+ =?us-ascii?Q?1HqWXw26swGEl2T322jOx28UakNyuVl8CHcmmdUjFRVsKfFKajPkQWsrCXdg?=
+ =?us-ascii?Q?stlk3qc+L4j/QAPHvYhFYOOpbiiawTElsDk7Sb01kCdft4yKBilvjsr7mzrc?=
+ =?us-ascii?Q?Xq8xjebJsxHJ32S2GdarWUs5mW5Xfwi7B0CkjEto+Pxdxbuq5+26gA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(366016)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zRRzqpVBlbXC/VsDL0OQDNw/RzlWJF8PTEuxjY//xXsBrEjFPX2l1pk8Q8cD?=
+ =?us-ascii?Q?g2sefMaOcNlqkaN1s5rtVY0in9AfCvAKDAy2NLfRdKw26G4pq/Z/7vFqisNK?=
+ =?us-ascii?Q?HtlFQVXizGeg4HIvbDsOFBZjqDfMT92ijjgMiwEP6TtZ/GMw2/qZnQ4ms3pt?=
+ =?us-ascii?Q?cY48VdZkkqh0atxnEdNLaqiKGz3GMlNMYNkNtLBXF9MT3F4r9gJ2SR0mX0L1?=
+ =?us-ascii?Q?lwpsb7Vqxm9LhqEvs7+28Dz6NgkEEXONvNy0LVZUrdFfMfCw4yHOWhS3HnzX?=
+ =?us-ascii?Q?xnOs6O+ugoibuS9jyWmCnYd0cadwflq5uterTxM73kocRDR9TSf+0gZTMYbD?=
+ =?us-ascii?Q?2HuccB8XstyNr5KM8/FF+OqJ0qP38NCreltxKWF8lMGb2nkbwAoaFHbH5AFV?=
+ =?us-ascii?Q?oVDGEqdHcchcHHY60T3+R+sDjFslrkgvE6WD7Lr+HVorRPH2TrLU22b/MaUz?=
+ =?us-ascii?Q?kkqFopv2hfvQKrt2bbuNCZf3z5KwLp1Y9mlMp8HKEq8JzMBjsbCjHHqAjYlg?=
+ =?us-ascii?Q?2AHp9pIttluKjvSroUpTgZfXxDUu54FRqqSld9U3Pz74PpI9hokdZ+DYxLgo?=
+ =?us-ascii?Q?f0w3UlXKZeipIFTxe7Oj8G/DcA3+KGi5Oo7pBkPelXKtm8esWNjOtZTMqn7E?=
+ =?us-ascii?Q?r0p+P4mfsVq4v1cKfuQGkUUXLfNJDEuX94zltnFdPcA1Ipo1yqweWUcS5wAT?=
+ =?us-ascii?Q?R6vQFy3U4NU1Qehxta4Xk99Jr1fh65IGfCKIX8NJjk2GxXU9rCw9haYuBLtX?=
+ =?us-ascii?Q?asazKZOCUtKOdOLONkolQ7gYH2FfPeECRSmPe9FI28f6HoNCr3qNbrIDR3XW?=
+ =?us-ascii?Q?+F6kNiShrDO/iu6SGD1QoDN6IbuLi6IxWlfITtei/IX/XFcRY/WbXztzh/S8?=
+ =?us-ascii?Q?81WioW0Azb5c08ezYik2TCyDFb7koS8oOt3nv78MvNjRwwlehY4vAliOcBtE?=
+ =?us-ascii?Q?Fp1AM7OLEWwlnDAToxRgeuSDOq+Zuiomtr3m0aI0TNWi8EW2TjvNmy9ze2gv?=
+ =?us-ascii?Q?9r/I18lGfLdlVAHdY7SWbEQdqHqYGpbP/CDylgfZDB7piU4tuUx4/5RCTwkD?=
+ =?us-ascii?Q?dqudM3aDm5MiSNchlg0Jo4oEkmutLnyaSd9EDob3oG0hGB95JJDs4wihBxKe?=
+ =?us-ascii?Q?uwcRmEx+ZmzP00+BOgvzM2QmGArHTlCLxO/hljR/gyaFhI4Sf8KkBoAFoHxE?=
+ =?us-ascii?Q?HMZ5vZaVDn0NCHJrw+9YvFi5V76xx1eqfOzf8isJ0uSGLriTh44Rjk+5uElK?=
+ =?us-ascii?Q?+YjmRJp2B8fLaLVHeR5MUS6nQRAt3zSIqylBNKX9Yv08AeJhbJFCgpa2F+fq?=
+ =?us-ascii?Q?k1p9ISsWkyKp6mTxFYaOlWGHCMfngZvzZ02vFWJD79yl4SEymZvpfqRLKHAN?=
+ =?us-ascii?Q?yca1Ich4lMEQSn1mNDvH9EUC8c1J6mm84EOIz88O3ram0TEPt6UhJ6/iDAhq?=
+ =?us-ascii?Q?xs5oAsLt5zbalOoj/8k5I7HKmxdaq+vN39RgBdz1nsGZ52+fgTHQR5H84AYZ?=
+ =?us-ascii?Q?TzCZgb7SOSp8LlIq1Oxsgbjmya4un9NtO+GcP60dMTuOfZpiu2A1SpwnqMnd?=
+ =?us-ascii?Q?7iWaIfApx7UNtwMsqOM=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d800496b-8755-4aae-27b5-08ddeee7af63
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2025 14:55:00.6985
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Rg8DMROPqlfYQgOwrB9Apu3Pg+EcT5dCvH3TuK8Z9VY/XUxTAGnM5AfkmWQJUhkqoIMXFGw35dYGBK+pdHT0yA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7390
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_075114_474115_C1A5F7AB 
-X-CRM114-Status: UNSURE (   5.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250908_075510_679671_8442A3A2 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,27 +162,118 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: pratheesh <pratheesh@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, krishna <krishna@couthit.com>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag <saikrishnag@marvell.com>, m-karicheri2 <m-karicheri2@ti.com>, Bastien Curutchet <bastien.curutchet@bootlin.com>, mohan <mohan@couthit.com>, jacob e keller <jacob.e.keller@intel.com>, pabeni <pabeni@redhat.com>, s hauer <s.hauer@pengutronix.de>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, ALOK TIWARI <alok.a.tiwari@oracle.com>, richardcochran <richardcochran@gmail.com>, johan <johan@kernel.org>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, kory maincent <kory.maincent@bootlin.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, michal swiatkowski <michal.swiatkowski@linux.intel.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Sep 08, 2025 at 09:07:34PM +0800, Peng Fan wrote:
+> Simplify the logic in imx_rproc_start(), imx_rproc_stop() and
+> imx_rproc_detect_mode(), introduce start, stop and detect_mode ops for the
+> imx_rproc_dcfg structure. Allows each platform to provide its own
+> implementation of start/stop/detect_mode operations, and prepares to
+> eliminate the need for multiple switch-case statements.
+>
 
-> On Thu,  4 Sep 2025 15:45:37 +0530 Parvathi Pudi wrote:
->> The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
->> is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
->> Megabit ICSS (ICSSM).
-> 
-> Looks like the new code is not covered by the existing MAINTAINERS
-> entries. Who is expected to be maintaining the new driver?
-> Please consult:
-> https://docs.kernel.org/next/maintainer/feature-and-driver-maintainers.html
+Nit:
+s/Allows/Allow
+s/prepares/prepare
 
+> Improves code readability and maintainability by encapsulating
 
-We will update the MAINTAINERS information in a separate patch to this series and share
-the next version soon.
+s/Improves/Improve
 
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Thanks and Regards,
-Parvathi.
+> platform-specific behavior.
+>
+> No functional changes.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/remoteproc/imx_rproc.c | 15 +++++++++++++++
+>  drivers/remoteproc/imx_rproc.h |  7 +++++++
+>  2 files changed, 22 insertions(+)
+>
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index a6eef0080ca9e46efe60dcb3878b9efdbdc0f08e..5cdc5045e57566e817170ed3c708dad6108d2e46 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -376,6 +376,11 @@ static int imx_rproc_start(struct rproc *rproc)
+>  	if (ret)
+>  		return ret;
+>
+> +	if (dcfg->ops && dcfg->ops->start) {
+> +		ret = dcfg->ops->start(rproc);
+> +		goto start_ret;
+> +	}
+> +
+>  	switch (dcfg->method) {
+>  	case IMX_RPROC_MMIO:
+>  		if (priv->gpr) {
+> @@ -398,6 +403,7 @@ static int imx_rproc_start(struct rproc *rproc)
+>  		return -EOPNOTSUPP;
+>  	}
+>
+> +start_ret:
+>  	if (ret)
+>  		dev_err(dev, "Failed to enable remote core!\n");
+>
+> @@ -412,6 +418,11 @@ static int imx_rproc_stop(struct rproc *rproc)
+>  	struct arm_smccc_res res;
+>  	int ret;
+>
+> +	if (dcfg->ops && dcfg->ops->stop) {
+> +		ret = dcfg->ops->stop(rproc);
+> +		goto stop_ret;
+> +	}
+> +
+>  	switch (dcfg->method) {
+>  	case IMX_RPROC_MMIO:
+>  		if (priv->gpr) {
+> @@ -440,6 +451,7 @@ static int imx_rproc_stop(struct rproc *rproc)
+>  		return -EOPNOTSUPP;
+>  	}
+>
+> +stop_ret:
+>  	if (ret)
+>  		dev_err(dev, "Failed to stop remote core\n");
+>  	else
+> @@ -933,6 +945,9 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
+>  	u32 val;
+>  	u8 pt;
+>
+> +	if (dcfg->ops && dcfg->ops->detect_mode)
+> +		return dcfg->ops->detect_mode(priv->rproc);
+> +
+>  	switch (dcfg->method) {
+>  	case IMX_RPROC_NONE:
+>  		priv->rproc->state = RPROC_DETACHED;
+> diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
+> index cfd38d37e1467d1d9e6f89be146c0b53262b92a0..3a9adaaf048b396102feeb45488cd2ff125a807a 100644
+> --- a/drivers/remoteproc/imx_rproc.h
+> +++ b/drivers/remoteproc/imx_rproc.h
+> @@ -31,6 +31,12 @@ enum imx_rproc_method {
+>  /* dcfg flags */
+>  #define IMX_RPROC_NEED_SYSTEM_OFF	BIT(0)
+>
+> +struct imx_rproc_plat_ops {
+> +	int (*start)(struct rproc *rproc);
+> +	int (*stop)(struct rproc *rproc);
+> +	int (*detect_mode)(struct rproc *rproc);
+> +};
+> +
+>  struct imx_rproc_dcfg {
+>  	u32				src_reg;
+>  	u32				src_mask;
+> @@ -42,6 +48,7 @@ struct imx_rproc_dcfg {
+>  	size_t				att_size;
+>  	enum imx_rproc_method		method;
+>  	u32				flags;
+> +	const struct imx_rproc_plat_ops	*ops;
+>  };
+>
+>  #endif /* _IMX_RPROC_H */
+>
+> --
+> 2.37.1
+>
 
