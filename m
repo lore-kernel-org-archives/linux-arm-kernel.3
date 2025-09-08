@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C50BECAC586
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA68ACAC581
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,71 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gfwDPpCiVyJ0buY5NGtfte2dcu4mrKn89k8yErLBKTw=; b=QQjD14CCL2bknRHdRQkpDRALVm
-	1X/I5y1lZS4Sv0IB1MxKdD4NyaBA6YjPTg6+TZAd4IJFjC6UPw9YQZ8QzNZDPwxdFAC9i95+3XdtM
-	MUjOZKA3qQfYE+5Mb1NGAHBoKtht32tyxssCT278JA9SLlGQ61pID1kJi0Q5hV9Zyh82Bf4J4nrOk
-	Z+z7cTDqdD6fqM4LWn9uLacNIjL65Zo80ITII89eDL+5MZzWFpYMb3t21Ye+wpQchJEiJpM5Z7vgX
-	Y1lBstM640NZM+KA2Ot0jtUSaldQYjEppjlH+2dwuZfv1cuMqOupEZBTxZFM9D158KfgDMs7xRa3f
-	mEufx1kA==;
+	bh=16lNfyPp2lVpupbRAD1MY+eMmDibLLbMsLULc43CNdM=; b=OJCmgT6UXthpnK/hKloT9cmTA7
+	InxqRBsBc65n1yekpkut+sHhRNxcJ0DyCzhq7m0I71eD+hsIK6BsTaREAO88lrolTRR1WnY6HnhRH
+	V6bfFyc0vFfESBO1emk8xqabTA44tqdgdxj4eu8h7WEBUYSMqE0FugBmgTTYRVNDDrgxTFbSeZGpw
+	s+VSndc6lTlAo1rQhgr8YCi+EFOckBmPcLGEDAAWCyBLAksl+YLTl8fuUjlYEFlnXNkG2wRii5Bq/
+	cficpZB78cNK0hzX2WgolMcdXL53sYh+QZaR9MVq9QE8DH5XAQR+KTSNLOfePBpV9IIfpIzCsoyX9
+	qR1J99Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvabs-0000000GqSC-1ywX;
-	Mon, 08 Sep 2025 12:04:36 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uvabr-0000000GqR6-3Kfc;
+	Mon, 08 Sep 2025 12:04:35 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvYgW-0000000GDwY-1Eir
+	id 1uvYgR-0000000GDsn-3ZrM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 10:01:17 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-24c8ef94e5dso34326415ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 03:01:16 -0700 (PDT)
+	Mon, 08 Sep 2025 10:01:12 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-24af8cd99ddso53160935ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 03:01:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757325675; x=1757930475; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757325671; x=1757930471; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gfwDPpCiVyJ0buY5NGtfte2dcu4mrKn89k8yErLBKTw=;
-        b=WtpZvWnKY1SI7FzMi1pSmkMIL40tgMkJ5D1SeIXSvjKnTIz1/N95LQGGaqN3FpG589
-         jCpr7j8XFAikphkHvkaMr8+1MOeygz/kF1m0nFyEdEkrhH94dwn2CmwK+xtJsF/A3Ydk
-         zZ1orIDbiEogM+Thv4IcsNefU9xEZfZluIVk6BD+bbTsrbKg/T0u+Ujl4W+qczs/S/Jl
-         jhPc5CzEBHZtKq4apg/4FWlmevGOK/aS9PAjDoSDhk08chTK5Qbw5UgPqelKAMscfK7E
-         jd9xFAB7jvmG4ag6+pM1L3RtHQ/a4i2V0MkSMCjPY2QdfugNRU+m6rRRiuxYlWPSbMx7
-         ykBA==
+        bh=16lNfyPp2lVpupbRAD1MY+eMmDibLLbMsLULc43CNdM=;
+        b=GCDdiMDEUpvf0kT+K76zUhDzHpGNJfjImpC4cWEF4jKspcYRYXCveSoXGMlQKw41Tq
+         w7o6TP5aXf2nDcKg83HHORgO3PjwElEIvpSOuxRRTqB6dmO1nFm++85T9b9n8tS+AZ2p
+         1DKb+792KYmh9jxZZEzo8JtkoIaUSulw3kj1svYOLXzhnxobC/vZ8tDAVXyxlc1Uv+0w
+         f/G4g7Bzplb7PqhQJRuaEBvs8l5bJKWp6T1dhylBdo2vPonxPlKx14DioKUDyl9LKmM2
+         Z5smewJooXu0qr113NlljlZNs81ScYrPD0R9uU9re/HpRkAAP+XU3q3F/vBb8Ua+bdFD
+         Q2LA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757325675; x=1757930475;
+        d=1e100.net; s=20230601; t=1757325671; x=1757930471;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gfwDPpCiVyJ0buY5NGtfte2dcu4mrKn89k8yErLBKTw=;
-        b=jLslv48GqatkGI9QbTc8z28YBNIPL1jkZuWtWdiZc2Q+4hrERzzRIYG2n9z0R72N78
-         TYFZsp0CYQvP8TIlqxIVAUGQZ6dhOaAyDy7jkNSX12UbIBCJ+2UXcHGLQ3DKIPxwwZcr
-         7i+DY78EYG5aqdrk2gkDyL8VRSHInF6yMwE2SpDrGlMAQrhUhKaePFzx1/NdSdqPMY++
-         1wCpiDIjUDD8mJs/UEpn5i/hLsva0zBJOO3J0LmWvF6OF2cFrtBhuh08zwGPcGoAYGAA
-         21a7cnGHSLn8OvTbSpwmLYzopMfaur0K0piTEExQzga7gOSoFqfiFXGrepr4O5dCE/k7
-         3twA==
-X-Forwarded-Encrypted: i=1; AJvYcCVpQDm2PmpOhqtkK0iziEXkRjatpqwKozWQrdyOBXsorFpvamTtbzRQDPyoAcsDkP9hfPCdE4un+H5MXXk6k8JL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8jTMCtEcxq+xRFS8igwdQo7LP+pIrTQ2+TIs/up/wNhEK4jDL
-	D9/m8mZf+ru7P9oTvV/3pOKyA5aIgY4tHZQFA1e3KKJIzTxAhAOsduUR
-X-Gm-Gg: ASbGncuCk5qtnoxOyrNneiThX+kOpxk4SKLGz5a2fKWrvv368xGOpcT/Kt7eKUKAlI+
-	Lr3jLszgH6EHRbdLsVE5gApe73uMzrSgL9gP7oxyk6B8S60YarGNlqBqOw7tVGhDd7rXakr54/U
-	r31CbK/giZ2AQ2z8hg8Z4/q4RAeQwInXdTEkAHr+9UXuSLtJF0tK5tgKvBxYRC5ufcaQm1Pvw86
-	l1ziqQLRBAmYivj4i4iAx8rqQZByvFOPOscytArL7lU5ttsnAw7dORjy5mqi9YnNg5htTl7Ikp5
-	apGYYCTnf+q07KBOlyICogPfM5JIpHDDji2NIzuye154b2HofUyFl75j/1TDRy5Ys/XWnZ58fUq
-	kK0BzsP/n5PeXN0oOHYwfsH2LTy4eMSKA3Jwurg==
-X-Google-Smtp-Source: AGHT+IGLk7qlbfVScOMCIeIb42XcLnwpLlMwiHFaoZOJPZ+XNLGGX7CNUjJexYFNYFgrdXDdh8bXbA==
-X-Received: by 2002:a17:902:c653:b0:24e:7af7:111b with SMTP id d9443c01a7336-2517427bc46mr80800895ad.6.1757325675347;
-        Mon, 08 Sep 2025 03:01:15 -0700 (PDT)
+        bh=16lNfyPp2lVpupbRAD1MY+eMmDibLLbMsLULc43CNdM=;
+        b=UI5Z6iAHSWcBhU3swSrXoFW8xSiZ3n56BD9T/qoMmmXFZQxjNFJRUdtm2m8OfVi0C5
+         mRKfEkwTurWdkFCW2Pa194gq9OP9ELnIUf1vlIgy334cKWD0mbZvXGWVvX0lY+zJT4ei
+         ZAfD5o6BoTEeTmQH1FyFswBrsd0iom00GeB0rDP3v1iJzIJM/HKViSSkQJf22Is33JSL
+         LDbBVhExCsJYW3U0l9xVQmEOG8aK+L5kBiIK357AiyXXotNWvJwYak3RFPZ3gW5LXvoF
+         R8xVeDy1Nml8LcW63p2QiR7qCescMpqUC4LhJi24uCwKuUC6pvAAeqEvWslU13RGVvIv
+         MabQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4jMH0g2llJhUsKqhAq4apyWERhmUvWoNvMfC+Xbn3fI7SrJiINfqqtSuouyFdNqyWUecpSu3cE2sFprVKfbBS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyr9V3w3SsPZ1yOA0w8y60/L7I9Y/829IWx+YWNLo2w4Epqg2HK
+	JXc17uUs/xcpVZZvYHwZTBsDtKREWzKn2oZUpD08LPQpdUng3M30IDih
+X-Gm-Gg: ASbGncvIGBo3YTOVijrI7LAU8ld1g1OJf+4g/SS+HFjXrOBg5RAFDCqZwqAe5lvQ/JB
+	9w7RvSUrPxmM5ud94DH2AKhhQwshYjr4E+ZXL0J2RJtuJlbwiqz+VTQmTWyr+t8uC0gQAqrVFWS
+	D5AX4yLuG/x4EZ+1/MbuANzsKp+Lljoo7ZKM2tOwzbXZQ8iPunCCx1/u0MkaeYtFpNShwO1My5i
+	0UvRiTXrGSJXTBUv2jdpXk4ztWq5K5kN18i0y5iNe7wYxXcDO9TGFu2pvlNIDduvuzEwajq/SCS
+	fXTdhRBV98BOIvmURe+nYCEFFfYoAMiJbd2fTe/q2n5eVub25ODxOFtkNa9pd7sCdzEnV17WaRq
+	vjUJwvriUwM1tN89Rj12p+4pTVKHh4PlfhKbSnw==
+X-Google-Smtp-Source: AGHT+IFG8nlBga9cu765ON1HNtnAJSKtln2AiuFotPMwkoUfxyXOesYWBBY5/ceXgicQjppuNNDlcg==
+X-Received: by 2002:a17:902:d2c4:b0:24c:e6a6:9e59 with SMTP id d9443c01a7336-2516d81a0b3mr106521115ad.6.1757325670620;
+        Mon, 08 Sep 2025 03:01:10 -0700 (PDT)
 Received: from [127.0.1.1] ([59.188.211.98])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-24ccfc7f993sm107826545ad.63.2025.09.08.03.01.11
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-24ccfc7f993sm107826545ad.63.2025.09.08.03.01.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 03:01:14 -0700 (PDT)
+        Mon, 08 Sep 2025 03:01:10 -0700 (PDT)
 From: Nick Chan <towinchenmi@gmail.com>
-Date: Mon, 08 Sep 2025 17:58:31 +0800
-Subject: [PATCH RESEND v8 07/21] drivers/perf: apple_m1: Support
- per-implementation event attr group
+Date: Mon, 08 Sep 2025 17:58:30 +0800
+Subject: [PATCH RESEND v8 06/21] drivers/perf: apple_m1: Support
+ per-implementation PMU startup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250908-apple-cpmu-v8-7-d83b4544dc14@gmail.com>
+Message-Id: <20250908-apple-cpmu-v8-6-d83b4544dc14@gmail.com>
 References: <20250908-apple-cpmu-v8-0-d83b4544dc14@gmail.com>
 In-Reply-To: <20250908-apple-cpmu-v8-0-d83b4544dc14@gmail.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -90,25 +90,25 @@ Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
  asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Nick Chan <towinchenmi@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2222; i=towinchenmi@gmail.com;
- h=from:subject:message-id; bh=HNTQqQJemqX0WI0eYRGH+l+1PjBhJi/4JkQ/C04BuCI=;
- b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBovqlD34FCamS7+BvFxzQI9pN7EpC0Hbp6D6ALC
- y9ge2t7aEmJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaL6pQwAKCRABygi3psUI
- JCtPD/9Ufjt9jmDhmxNUAxoA2V2hfzWrlQmETddcge9lzhC2G+4lt9vtNcKyoJqjbR9EcVuuH+N
- 0SF1IYHPgbVm6HiVcUf9sAvi7pQpj3D0tXtvx1y3IIUONGg2MrYDjqbvQyRehoWYfc5c0DzNfRX
- 9T3FDbDuaHmQWVLEz4H++z6nnstjCLImgqVDK4WC+QqD3R9vs4QHpkeYvyYKWG5cGm202IL66+Q
- 3zfH37A0bK0eRn8dMahrHxWmRImZ8Us1Nm+Q2mVwXDbjHJ8h3PPyuCvggNGXgSk9sz+EuMYRuT+
- EAucmWITr9kYf6lKOZLN4aKXS8Gv66Us+OMTMBEkHjP0cm4s25JZtX7k85vC/SQ0+dNP5mJCITY
- IlA4Dvg1scmk5byxkrCRR1T5BiEdangbWzRvbr/JQpb0bb8fHGxqR+AkeEvf6IELA5cnelHEG9b
- pFXm5yUYNcvOWCJkls3XGyLILQGnP5s/suOebq6BSXb4G4f1qiU56y8kggJ+zRafdDKIzicZ4pa
- bYcNDSgadB939lrENMqO0DQ3yJrLCSTFPX/aEtqdqQ7YQ8WNr83VZJlbcxswJiQfIKTLfEJS7Sf
- T4Kr+YsEgfgZ1sN4PjE+SkVKbuUVPFy1lcD4Rd2t/p85VynzhTwijW/Pir/6Z/qyFdOZVcVPBg2
- UJkGyS4ezYQjliw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2178; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=HTqUsRXqv0uayXlXxBww3HqeknMt/byBk1GhhunGYGY=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBovqlDETZgMV+/MDSD5BsxF9IFaobbIfNhofPoV
+ +IcAuRUXBKJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaL6pQwAKCRABygi3psUI
+ JCbzD/47Ps4GiPxo5vmMsl9FdVJxhCkkddSC8f6nDjwiU6Uoo4+9iniHA/la6Wsqo5kMop7B8m1
+ jnWyUbA74cLg6IShxozfTVhrHgqLTi4m0lH+wvGX9yywsSyIvM0vqZ+q2D6ZzfkHszNlhqVFS1Y
+ jwTEbBVTJ3Jnp7JbeZCSXxuReIUYn3nF4gRIJ2xUQaMIVtbjjN2boRFbYOsebNR2PClLUlxilXz
+ b5JNoBopmGVTD2W4xUin6DpNPAqMFiFeIuV85zgLDvs34jtlrxjTZPMBxuCWmHrdEQ8mIvuIder
+ iHez3j6nHY2ZMwCh3fHWTDv2Puvwks2onUPRAmfqSs2+Sg5miSj9mko3chyvdvzXRK9X5/r5aXo
+ 5pQ39e8R319HRDja2LibYoiS8OD45CS2GpMMYyqQD/s5sVOg9AKKWNpaMMLk4Cb3qL7eEo/extD
+ TWzyhVZx1+fK8dwQuoGLjor8k2BeMR1fDObLUHw6jroeevMxjKZ5zN/SPCFVQl9XffiHf5jsUBm
+ C13RnAnhSRrJ2siY7CZL16widt7oDmzHquniHTD9jeLFeyrW7B8HhWjMVsnvAAjycR3ORBftw2x
+ oTJoJU4LaYLqYGzhTmeXBFkgpFb1eNyi582FQb/bPNTRGXBxdT9I74q5J1gvBnHbL0xFfzeuycf
+ ErbyjMhO0s5pRzA==
 X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
  fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_030116_340457_A471F546 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250908_030111_895408_E3AB677D 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,8 +123,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To support implementations with different event numbers for cycles or
-instruction events, event attr groups needs to be per-implementation.
+Support for implementations that deliver its interrupts in ways other than
+FIQ will be added, which requires a per-implementation startup function.
 
 Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
@@ -132,46 +132,46 @@ Signed-off-by: Nick Chan <towinchenmi@gmail.com>
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
-index 303c0e62432281e899a33fc197365c70078d6ac1..d0362a1813788776f4210523efe33a3018cfef2a 100644
+index fb2759069fe9e47146f0342fa46e40f3ab836926..303c0e62432281e899a33fc197365c70078d6ac1 100644
 --- a/drivers/perf/apple_m1_cpu_pmu.c
 +++ b/drivers/perf/apple_m1_cpu_pmu.c
-@@ -668,7 +668,6 @@ static int apple_pmu_init(struct arm_pmu *cpu_pmu, u32 counters)
- 	}
+@@ -659,7 +659,6 @@ static int apple_pmu_init(struct arm_pmu *cpu_pmu, u32 counters)
+ 	cpu_pmu->read_counter	  = m1_pmu_read_counter;
+ 	cpu_pmu->write_counter	  = m1_pmu_write_counter;
+ 	cpu_pmu->clear_event_idx  = m1_pmu_clear_event_idx;
+-	cpu_pmu->start		  = m1_pmu_start;
+ 	cpu_pmu->stop		  = m1_pmu_stop;
+ 	cpu_pmu->set_event_filter = m1_pmu_set_event_filter;
  
- 	bitmap_set(cpu_pmu->cntr_mask, 0, counters);
--	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
- 	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_FORMATS] = &m1_pmu_format_attr_group;
- 	return 0;
- }
 @@ -681,6 +680,7 @@ static int m1_pmu_ice_init(struct arm_pmu *cpu_pmu)
+ 	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
  	cpu_pmu->map_event	  = m1_pmu_map_event;
  	cpu_pmu->reset		  = m1_pmu_reset;
- 	cpu_pmu->start		  = m1_pmu_start;
-+	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
++	cpu_pmu->start		  = m1_pmu_start;
  	return apple_pmu_init(cpu_pmu, M1_PMU_NR_COUNTERS);
  }
  
-@@ -691,6 +691,7 @@ static int m1_pmu_fire_init(struct arm_pmu *cpu_pmu)
+@@ -690,6 +690,7 @@ static int m1_pmu_fire_init(struct arm_pmu *cpu_pmu)
+ 	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
  	cpu_pmu->map_event	  = m1_pmu_map_event;
  	cpu_pmu->reset		  = m1_pmu_reset;
- 	cpu_pmu->start		  = m1_pmu_start;
-+	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
++	cpu_pmu->start		  = m1_pmu_start;
  	return apple_pmu_init(cpu_pmu, M1_PMU_NR_COUNTERS);
  }
  
-@@ -701,6 +702,7 @@ static int m2_pmu_avalanche_init(struct arm_pmu *cpu_pmu)
+@@ -699,6 +700,7 @@ static int m2_pmu_avalanche_init(struct arm_pmu *cpu_pmu)
+ 	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
  	cpu_pmu->map_event	  = m2_pmu_map_event;
  	cpu_pmu->reset		  = m1_pmu_reset;
- 	cpu_pmu->start		  = m1_pmu_start;
-+	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
++	cpu_pmu->start		  = m1_pmu_start;
  	return apple_pmu_init(cpu_pmu, M1_PMU_NR_COUNTERS);
  }
  
-@@ -711,6 +713,7 @@ static int m2_pmu_blizzard_init(struct arm_pmu *cpu_pmu)
+@@ -708,6 +710,7 @@ static int m2_pmu_blizzard_init(struct arm_pmu *cpu_pmu)
+ 	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
  	cpu_pmu->map_event	  = m2_pmu_map_event;
  	cpu_pmu->reset		  = m1_pmu_reset;
- 	cpu_pmu->start		  = m1_pmu_start;
-+	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
++	cpu_pmu->start		  = m1_pmu_start;
  	return apple_pmu_init(cpu_pmu, M1_PMU_NR_COUNTERS);
  }
  
