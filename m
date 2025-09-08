@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A528CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 09:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B46CAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 09:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bblp97OOL1aWrtKopF8NdvsXkogfbkqEK3YE6s8LSRM=; b=SPGxjoR4DpPZQinvhXvXRybAlt
-	e+e8Tk2s9Q9UESxney3Veo5sVAuLtGB9q9DXZteKC3PRQv9fAAeAGJf8zSF+4/Gv+mg0kPQv7h/Hj
-	5T8oG+hiBZIuCErfVruH5ANRpxtFjoQHrZqoA+/jy816OWLiVsvzfKyC+ipkA7blreQ6/DmCpz893
-	WvQJMdOM+Gdyg3WANen0Bf9Kl0Mto1VjlgBCVVeCyE89QpjFBwEkTkHSSdzrMa35109bv5hD3r4dP
-	TBr6JoyrBTvsZFBUKCSfpO93AJ7+j6tnkkcR46gPHDtvIzRovU4n+9DnDf4Vl+TJUOZp0yRRBPsQM
-	58xOvckg==;
+	bh=cCazFPuhW5L/KqlKt9Vg6Yl5L2NNsSE2VZbRusAqs50=; b=BdxKdnZLIIqp32Qc5+Te19XEdK
+	947gYHwaXNET1JPSrbNpdC2O8282N5QkV7bvo75hBJ6Kw6R+oQBuzMl1Azac+6j4dXjy47x9k2OZv
+	N/0TJ9Ke4F8Cl6GMGMZIJsFdVqT8BzI7GQDvkaawLhnGM3dEliQg4tqUZmiX3+uLdGBW4gHZqpPMp
+	SbEVtgYFjBLlM1hDiQ3WUKj0VAGn5hLE7q52pCWTBlS5dHox5SBnPIFu8ebi+lG8Ix6zrjCTF84KX
+	FUk1RWSIrSuIZwg/dqf0cm2iPU5kyzBrvjyoLcIRkViGMEwyD55slpRBEYpEX4AUZnkoW09Ksgwsz
+	istz8Yiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvY6A-0000000G07D-16lB;
-	Mon, 08 Sep 2025 09:23:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uvY8t-0000000G11F-0NGu;
+	Mon, 08 Sep 2025 09:26:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvXEA-0000000FhSu-0uTc
+	id 1uvXED-0000000FhUk-0djc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 08:27:55 +0000
+	Mon, 08 Sep 2025 08:27:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F1D3044733;
-	Mon,  8 Sep 2025 08:27:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29F76C4CEF5;
-	Mon,  8 Sep 2025 08:27:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 91E9E601BD;
+	Mon,  8 Sep 2025 08:27:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89D98C4CEF5;
+	Mon,  8 Sep 2025 08:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757320073;
-	bh=P/vlG6t4K0nRMEfMtDS6pVBd3+VY1KFLZviC+h88F5I=;
+	s=k20201202; t=1757320076;
+	bh=CFvvTrfa1t92F7NxctUBMm3QJnsOF0WWxyPhVXxwhCc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JUhJopxZVT0XDCNhhdmGwvnjr5AQ++YQD87Z5jb/6SjmVJkLJo37/tKfhl0NOFw0m
-	 ikYD4dJRS1uXcK/+coDje9w8jchfyBXBKBdkrkscxIkXknclhJPHHcKZQ9LdCj2n9s
-	 wA+CCfn97QsArsl4FtosaA0gwbSJtUN/iYjmneda2ABluTgPS98Q9tLqV019rN1Ua0
-	 vYnk2hOAyrd4lieVwva8//OIZ1CY3xTO0cXGKz7HGQoGnvhngp5rdJosD1pDAVDWKH
-	 kVWyq4zPmy5lLhgId+45y4urANQwajoNIB09Z7tgDexSVY3pF7fQjEP/9B3q9JqbTG
-	 /ESCYn9Kr5DeQ==
+	b=LnXTGIP3pULjVEAepJ6qCrd3NuT65KHO7JLgPYCK6GiyxGGYrjnWF6Ox2dxar9Lca
+	 i4z/sEg/UtTUZoC9gi488+kRJ3j8liXpyILqPJo69l08TFMSlcZFeVAkWB2lvIZkU6
+	 tvLP5ljWIokQmgVfkhfcieOQg0Y0Mc7U/lAgAPOGskryGwdef+naU19kHGFnLf3nFd
+	 9W8SIQ26Fa9FeabH022g5Nyq5oftskXyMo4qzCjMfZ2mBIB4B1pHkcagYiAzZIpee2
+	 T/cG27wqP1z/4003cPjWGsyJ9Baw3KXaKsFLBAgVdChIdU8B3pOpV9LG+fyaEHtrs2
+	 xJe+nThBVRFYg==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -49,17 +49,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 RESEND 2/3] irqchip/gic-v5: Fix loop in gicv5_its_create_itt_two_level() cleanup path
-Date: Mon,  8 Sep 2025 10:27:44 +0200
-Message-ID: <20250908082745.113718-3-lpieralisi@kernel.org>
+Subject: [PATCH v2 RESEND 3/3] irqchip/gic-v5: Fix error handling in gicv5_its_irq_domain_alloc()
+Date: Mon,  8 Sep 2025 10:27:45 +0200
+Message-ID: <20250908082745.113718-4-lpieralisi@kernel.org>
 X-Mailer: git-send-email 2.48.0
 In-Reply-To: <20250908082745.113718-1-lpieralisi@kernel.org>
 References: <20250908082745.113718-1-lpieralisi@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_012754_276691_5AB40DFC 
-X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,8 +73,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dan Carpenter <dan.carpenter@linaro.org>
 
-The "i" variable in gicv5_its_create_itt_two_level() needs to be signed
-otherwise it would cause a forever loop in the function cleanup path.
+Code in gicv5_its_irq_domain_alloc() has two issues:
+
+- it checks the wrong return value/variable when calling gicv5_alloc_lpi()
+- The cleanup code does not take previous loop iterations into account
+
+Fix both issues at once by adding the right gicv5_alloc_lpi() variable
+check and by reworking the function cleanup code to take into account
+current and previous iterations.
 
 [lpieralisi: reworded commit log]
 
@@ -88,25 +91,52 @@ Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
 Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-gic-v5-its.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/irqchip/irq-gic-v5-its.c | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-index 9290ac741949..4701ef62b8b2 100644
+index 4701ef62b8b2..2fb58d76f521 100644
 --- a/drivers/irqchip/irq-gic-v5-its.c
 +++ b/drivers/irqchip/irq-gic-v5-its.c
-@@ -191,9 +191,9 @@ static int gicv5_its_create_itt_two_level(struct gicv5_its_chip_data *its,
- 					  unsigned int num_events)
- {
- 	unsigned int l1_bits, l2_bits, span, events_per_l2_table;
--	unsigned int i, complete_tables, final_span, num_ents;
-+	unsigned int complete_tables, final_span, num_ents;
- 	__le64 *itt_l1, *itt_l2, **l2ptrs;
--	int ret;
-+	int i, ret;
- 	u64 val;
+@@ -949,15 +949,18 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
+ 	device_id = its_dev->device_id;
  
- 	ret = gicv5_its_l2sz_to_l2_bits(itt_l2sz);
+ 	for (i = 0; i < nr_irqs; i++) {
+-		lpi = gicv5_alloc_lpi();
++		ret = gicv5_alloc_lpi();
+ 		if (ret < 0) {
+ 			pr_debug("Failed to find free LPI!\n");
+-			goto out_eventid;
++			goto out_free_irqs;
+ 		}
++		lpi = ret;
+ 
+ 		ret = irq_domain_alloc_irqs_parent(domain, virq + i, 1, &lpi);
+-		if (ret)
+-			goto out_free_lpi;
++		if (ret) {
++			gicv5_free_lpi(lpi);
++			goto out_free_irqs;
++		}
+ 
+ 		/*
+ 		 * Store eventid and deviceid into the hwirq for later use.
+@@ -977,8 +980,13 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
+ 
+ 	return 0;
+ 
+-out_free_lpi:
+-	gicv5_free_lpi(lpi);
++out_free_irqs:
++	while (--i >= 0) {
++		irqd = irq_domain_get_irq_data(domain, virq + i);
++		gicv5_free_lpi(irqd->parent_data->hwirq);
++		irq_domain_reset_irq_data(irqd);
++		irq_domain_free_irqs_parent(domain, virq + i, 1);
++	}
+ out_eventid:
+ 	gicv5_its_free_eventid(its_dev, event_id_base, nr_irqs);
+ 	return ret;
 -- 
 2.48.0
 
