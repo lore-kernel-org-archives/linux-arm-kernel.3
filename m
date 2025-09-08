@@ -4,64 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE1FCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDDFCAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w1EwyTie/h44Yv/fBjzwXChmTw4VRBobXct3dwrWQS4=; b=jClTH3vaVjohVWPCy+E6ACogby
-	nKBlVg5S1J6tep0UsBfMILmsxo7XlcJCliPXYpZ4O8sba7OG+ILWsXTJE65XN++LExfUHFhmhLjVP
-	blYvTMRUDknGpodFyD4VMdfOhvQE6ktmHcnhW7V+hr6Xv2vjDfR7zmGR6eM0oEkJ4Xq70mjmODHGP
-	KXBxrGjwgt4Po+5bfe+SUPoVPxnWJ6Md+3Z4pneT9N4m5T4dnqu4QdS3fqqHSlAQCruKbHsKDxbCc
-	AMBBLwcXEp9GIFo0FzUVR34UEAIDteMwJktR7NGEGADP9Lx7pylDGZcuP1Us9rdu4AyRCTYgse4yt
-	ikYYGwHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jjQ5+oMfNA1z8X7OxHRV6oMq0vnVY8/Ms0Vhwhb2pfo=; b=b7aYad2E+iubb8bPahJUnTN1C8
+	m186414j9IDMHBnR+suFWYjdlu6MkDNcro2+HWrdl9ybKcjinLCWU9whdIRu1oxMqVTJivbhRvicd
+	qY5JWok6VgpTQO6gouWMoFRouWqnzCgXnjdKR39SkAr5BxOIp6PxdzC/ou+SccMTGRzqapgVnzwqU
+	/bc+Zn1UALpc/JxvbRLDgIXfQZg2f33cbWPgQeM/ukaGKKyhS4ayu6sAfniqdfP09RhmmlDLcsBrP
+	uDD7R+d87PLgqZW2vZm4+PN4FctpEXsS8Frpca7EhHiOH6ZhQp3EEQbzek1Ss1eZD6R5bDeE6utVz
+	CxM+I/wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBj-00000004p5I-2HU2;
-	Tue, 09 Sep 2025 06:50:47 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uvsBl-00000004pA1-2UH0;
+	Tue, 09 Sep 2025 06:50:49 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvi9M-000000025SE-1qGK;
-	Mon, 08 Sep 2025 20:07:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=w1EwyTie/h44Yv/fBjzwXChmTw4VRBobXct3dwrWQS4=; b=BHl1k5w/fsuK6Mj33b29YF4MIw
-	eA1CdklxrPNPohLDsJNrwVCyvYiOGdUefvcSJaltG3XQdjFwwLrye4/96faDnNb+OvaQncNEehOXE
-	ffqq3hE9ySuCYsdNheSOwmCJ3V0O04HYoBIw4O86rpReEGHhVUlBJI3xmtrcRfXESDvQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uvi9E-007iQO-Dl; Mon, 08 Sep 2025 22:07:32 +0200
-Date: Mon, 8 Sep 2025 22:07:32 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benjamin Larsson <benjamin.larsson@genexis.eu>,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: airoha: fix wrong MDIO function bitmaks
-Message-ID: <f271a9bf-e6c2-45ca-afc7-7f6ac683572a@lunn.ch>
-References: <20250908113723.31559-1-ansuelsmth@gmail.com>
- <583981f9-b2ed-45fe-a327-4fd8218dc23e@lunn.ch>
- <68bf16e5.df0a0220.2e182c.b822@mx.google.com>
- <d1bc3887-5b88-4fb9-8f89-4b520427ccdc@lunn.ch>
- <68bf2b2d.050a0220.7d5a6.b11c@mx.google.com>
+	id 1uviGd-000000027a1-35p1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 20:15:13 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45de2b517a3so17224055e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 13:15:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1757362510; x=1757967310; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jjQ5+oMfNA1z8X7OxHRV6oMq0vnVY8/Ms0Vhwhb2pfo=;
+        b=Qt1ykCOYomvr2R/kquBXMB6C6vFvmSU+/yhD1HhanMrcvWqTC+jdxMsP5EIW13Btti
+         XdQWJcRJcxyVZCc3MHQCSJveWV89B3TJ4UBW6CNLXo3R6QOzDjF+PgCfYQwwKtZ0KEtD
+         dQc+Qk6wRDi/s7Hrn+Xx+79+9VwWGDmq+HseEzKjn6+BNLJKsXA3yrNXaYWxxT/Gn/JX
+         Ncn/c++ZluB2fzHnsfPZ3f/PxCUXTgGYiu8Mrn48+dkv4fgaScvsXRKX0HD46FdDuYwu
+         Cf1kdm7m3EkWt77bRqJTqZkw7iB2qzMMn4HkG7WIImeO+8L098ApFyYq5q265ikC+wOK
+         agpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757362510; x=1757967310;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jjQ5+oMfNA1z8X7OxHRV6oMq0vnVY8/Ms0Vhwhb2pfo=;
+        b=J8ku0n/FfIQyv8/ritemIlhUXxN9tXpLKtTMngwlz1KX/MeZ/oj9n42BATQJRAWvou
+         lKaflkaKervvArleyKe7bpkmrVtBEkdwUY05yv5Oz7oblZ1zmLoQfOExR0GG0yuDbquE
+         3KVNSLvMTxQhs4UUHyec+J+6OSz2awX3IJ3PVDFIuTO1AfqURjguFaMvrSe3FdKdp3AM
+         nJv2f6JQ6EtTLnEUL5oOX2sRz7FWR8oOWUqp2bvIfgmQtoRuU80rB43RdxEMqKqjJjDh
+         NH505LCO4NVbCKhHCGrCRAK6sr4HSAwfEkUpzcJafZcDiwXQ+b2ETt5C8nQ0Ia+eFcEj
+         O1vQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVSDgKl/JKHiiVEUnTpRliq0t6f4+SmGLGRzEmVeu6OM5VGtFFO3jaKBlcYF+naDrdGfX+NAK6uPXhA+qGGvLoy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3pSa9euBXBZyWJroGg7lbTyW921G94YsNyshyqnRkxQE3Fn9r
+	TnoyOGRXoOH0cTXFoZutwsq+xbBqEiVOiXPdahvSVAD4jXSzD2iTE13rbyT2C0G5wHg=
+X-Gm-Gg: ASbGncutbn7LomVI16iCCNwKpXEqA50Tnxdt0gUh1izXuE1/zSqkXAoPkty06ISAA2v
+	kQSvzOacYif24e3nJZ9Qx3gJT6gcjwlFL3aNXm5+ybsuFSvKl5VE8mrJO5T6oiAPWpTkoBAWS2Y
+	w2WdiY4df4wv6gMYtZ6md+GSOTD9jA9ivpOFtzR6WDe7HnGAFdjbtgAIxDbmxbtO8m/SEwBQAUu
+	FFW9CLYpJQMbvzx88ou2jkHIsk14PWPIAXVJrJc/arVliBAbD8Dz/i393kWQCmpC4N8UzjC8kwS
+	Fpca1C5F8JTPR/xFyyG9WWq5I4KPsufao3m8KRKkhUT943BFyo8p+S7NQQOwLN5YtyB76YTmrSK
+	Eko83Aac/qUN04oB/JpLB+dYyWg==
+X-Google-Smtp-Source: AGHT+IEUXK+5uzEYEeWM2C4ugYvoTxY9jWpw3+DQwWpEwD7U8BI+a4nggbRKv+GtES+a6PSycdGhyA==
+X-Received: by 2002:a5d:5f87:0:b0:3e2:804b:bfed with SMTP id ffacd0b85a97d-3e64c1c2183mr8374205f8f.42.1757362509754;
+        Mon, 08 Sep 2025 13:15:09 -0700 (PDT)
+Received: from [192.168.3.100] ([151.42.66.169])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e411219ddfsm13631814f8f.57.2025.09.08.13.15.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 Sep 2025 13:15:09 -0700 (PDT)
+Message-ID: <29a776da-cd28-46e4-8b64-400f462d8670@baylibre.com>
+Date: Mon, 8 Sep 2025 22:15:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <68bf2b2d.050a0220.7d5a6.b11c@mx.google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: amlogic: gxbb-odroidc2: remove UHS capability
+ for SD card
+Content-Language: en-US
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250907-fix-reboot-v1-1-7606fc91254e@baylibre.com>
+ <1jecsi3ywb.fsf@starbuckisacylon.baylibre.com>
+From: Valerio Setti <vsetti@baylibre.com>
+In-Reply-To: <1jecsi3ywb.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_130740_476373_15764D49 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20250908_131511_892545_2E4AB23F 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +107,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 08, 2025 at 09:14:49PM +0200, Christian Marangi wrote:
-> On Mon, Sep 08, 2025 at 09:06:03PM +0200, Andrew Lunn wrote:
-> > On Mon, Sep 08, 2025 at 07:48:17PM +0200, Christian Marangi wrote:
-> > > On Mon, Sep 08, 2025 at 06:54:15PM +0200, Andrew Lunn wrote:
-> > > > On Mon, Sep 08, 2025 at 01:37:19PM +0200, Christian Marangi wrote:
-> > > > > With further testing with an attached Aeonsemi it was discovered that
-> > > > > the pinctrl MDIO function applied the wrong bitmask. The error was
-> > > > > probably caused by the confusing documentation related to these bits.
-> > > > > 
-> > > > > Inspecting what the bootloader actually configure, the SGMII_MDIO_MODE
-> > > > > is never actually set but instead it's set force enable to the 2 GPIO
-> > > > > (gpio 1-2) for MDC and MDIO pin.
-> > > > 
-> > > > Is the MDIO bus implemented using the GPIO bitbanging driver?
-> > > > 
-> > > 
-> > > No it does use the MDIO bus integrated in the MT7530 Switch. It's just
-> > > that the MDIO pin can be muxed as GPIO usage.
-> > 
-> > Then i do not understand this patch. Why configure the pinmux for GPIO
-> > when you want it connected to the MDIO bus device?
-> >
+Thanks a lot for the review!
+
+> The above should be enough.
 > 
-> The usage of GPIO might be confusing but this is just to instruct the
-> SoC to not mess with those 2 PIN and as Benjamin reported it's also an
-> Errata of 7581. The FORCE_GPIO_EN doesn't set them as GPIO function
-> (that is configured by a different register) but it's really to actually
-> ""enable"" those lines.
+>>   	max-frequency = <100000000>;
+>>   	disable-wp;
+>>   
+>>   	cd-gpios = <&gpio CARD_6 GPIO_ACTIVE_LOW>;
+>>   
+>>   	vmmc-supply = <&tflash_vdd>;
+>> -	vqmmc-supply = <&tf_io>;
+> 
+> ... but do not remove that.
+> 
+> That way the description is complete and the kernel is able to verify
+> the regulator is properly configured.
 
-So please extent the commit message: FORCE_GPIO_EN does not actually
-force the pin to GPIO, but really means....
+Thanks for the hint! I didn't thought about this while working on it, 
+but I tried it today and it worked perfectly.
 
-The commit message is the correct place to try to explain why the
-patch makes no sense, because FORCE_GPIO_EN is wrongly named.
+> It is also easier for a bootloader to alter DT to add the UHS modes back
+> (it is safe to do so if booting from another device that SD, such as
+> eMMC)
 
-	 Andrew
+This sounds like a nice improvement as well.
+
+-- 
+Valerio
+
 
