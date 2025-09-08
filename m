@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FD5CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 23:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F3ECAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 23:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KSksadtDQ4SZKCqFYzCkUEWGD/mEZRjDmwcA2QJlaww=; b=EFwF6TNQCnYsKEeS4g+NDkUenP
-	6HjweSKi3HS6UOnkS1OlkzVAc6fviEfq17iyte/bF71YwdY971ZLdONPOooWaCM1RGEWBS5iJOSJa
-	VGswqneabbT8WsIiyXt/W7pAjLwUTObEm52dd1o8x1TxHVY1HQ98b5DQcCTd7OlJBWVbsANIZ2poL
-	rJU/rJkBADPNd4donrb24QnU4Fd5F9bczUa+uCiZo2VcZlhpANzhSlMlSZAApi4dUe+EJzIZIxuoX
-	JjiB5VtQrAimtak54upwS/sQOt6nOWUwKc6cJZsCl2KRho7biM61oqoXw7XV3rsOvjK7r4bbTYFw4
-	kAnnxJ3g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Gvfc1Iz0nE71iFyrDfLCzdho+9INvh3b39JFa+yZSCg=; b=jYRXdnS5nCw8tAQyMZ438JBHJ/
+	zPk93Eo9t0kSydIKy6gSc/c6v979+BYPvfVtxFhrumTOBs6FcneIgryAAOdLRMqboZ2IJumag9Y1t
+	3tdk/VvOW1CgWoR1f/fQI8bHy48OThaJ6xi4S2WnNDSsy+aWLbAoxjhmf59GRje+tpbsp/tKme03m
+	n7YBz3mRBTLX3gLhsxUwTO+zR4LV1CAbkLI+d3S4P3KTgBNlLtOJRtcNiPlcas2QinkirS0Pz+2hH
+	vEK2h7PKJgF4U115d7nV8kU4Y1dMcSrxhTNAVmJ6I5yz2CaUZT2dJn/zP2+WZAGt5/US4DjGmPhVf
+	5EHv/ZMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvlep-000000033Lw-2P5E;
-	Mon, 08 Sep 2025 23:52:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvg7l-00000001MTG-2Vp2
+	id 1uvles-000000033Qx-1RKB;
+	Mon, 08 Sep 2025 23:52:26 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvgEF-00000001Ocl-3qKT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 17:57:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D36AC1BCA;
-	Mon,  8 Sep 2025 10:57:44 -0700 (PDT)
-Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 045BC3F694;
-	Mon,  8 Sep 2025 10:57:44 -0700 (PDT)
-Message-ID: <ff73df9c-8e77-471d-b0fb-205701b4d6d3@arm.com>
-Date: Mon, 8 Sep 2025 18:57:41 +0100
+	Mon, 08 Sep 2025 18:04:38 +0000
+Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 588Hg5FR018214;
+	Mon, 8 Sep 2025 18:04:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2025-04-25; bh=Gvfc1Iz0nE71iFyrDfLCzdho+9INv
+	h3b39JFa+yZSCg=; b=HmlB72x3mAG2OTF+mpFYTPWxWJAedUblKs0adiSA/9+FV
+	Eq032MZm7ZQHamSMLi2+11tSrTARtNIZ73cZBGGreh9CjWQajTVommebx+Ts4zyB
+	4Z2x2KtFPAkYBp6jMGux8zfFFncWMBSAvWXS90r+vovBjYPDSHg9sl5B9YSlAkIK
+	8NgY5Hmi1Eai9C/0tdHj0IXLkevpLlyoqjK8/+oR8W1w/nwqturpMeyD93ti5R3X
+	jhx3iHpmZ55ZRX3LoKuYBAckanzmNQUS//DTRLIScxcEiD2uBRpmL9gsI6jb2UUj
+	kKzM9mf5gFSrZ1u3xoAh5mfxT4vUgo++MN5Ps4J6Q==
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4921pe8bd4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 08 Sep 2025 18:04:17 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 588GfmaV030651;
+	Mon, 8 Sep 2025 18:04:17 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 490bd8hetg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 08 Sep 2025 18:04:17 +0000
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 588I4GZh026431;
+	Mon, 8 Sep 2025 18:04:16 GMT
+Received: from ca-dev112.us.oracle.com (ca-dev112.us.oracle.com [10.129.136.47])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 490bd8hesq-1;
+	Mon, 08 Sep 2025 18:04:16 +0000
+From: Alok Tiwari <alok.a.tiwari@oracle.com>
+To: julien.thierry@arm.com, marc.zyngier@arm.com, jintack@cs.columbia.edu,
+        christoffer.dall@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: alok.a.tiwari@oracle.com, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] KVM: arm64: vgic: fix incorrect spinlock API usage
+Date: Mon,  8 Sep 2025 11:04:11 -0700
+Message-ID: <20250908180413.3655546-1-alok.a.tiwari@oracle.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/33] arm_mpam: Add the class and component structures
- for ris firmware described
-To: Dave Martin <Dave.Martin@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-13-james.morse@arm.com>
- <aLV++1PELhKBeKR7@e133380.arm.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <aLV++1PELhKBeKR7@e133380.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-08_06,2025-09-08_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 adultscore=0
+ suspectscore=0 spamscore=0 phishscore=0 bulkscore=0 mlxscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2508110000 definitions=main-2509080179
+X-Proofpoint-GUID: FW9NxWmtgJYneDA1syrnrDHum9ilFNl9
+X-Proofpoint-ORIG-GUID: FW9NxWmtgJYneDA1syrnrDHum9ilFNl9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA4MDE1MiBTYWx0ZWRfX1vkUAsbAZHAR
+ 8uD8FsEVyUc+aywSroPjXmMDYlWgwX+nmT1PWjNI9flpbQwmsYceTrUOKMbFjHBXPPe7eymXY/M
+ 0ucDTo42rK3jwhpXEXy7fPq/mg/13FWT0/GM1oZiFGGuIqGG0GvL7N84moIL7MwqgrCkYnUPy6Y
+ /HY2TrMFnsFhSf6kZXD5RvkS0qEO/iB1HVo2w4O4XxqBMdqz/OTmn0TSjtYykT4ZoIRyfZY8NXc
+ AQSlTIlTOaM+WPRLdph7xPQbEy772cXsWat9O+yHea1mkC4DVJDKxvBZz3Bw/Gq5YmO/6M7Cf+W
+ rrY0s5eAtxbzjX9Msn4+JvW6NLRPSN5SH+CxVuIucGa9E7imICW3pwUvvoIDZH6kM1U0oCtti9m
+ 0OtVFDre
+X-Authority-Analysis: v=2.4 cv=b9Oy4sGx c=1 sm=1 tr=0 ts=68bf1aa1 cx=c_pps
+ a=OOZaFjgC48PWsiFpTAqLcw==:117 a=OOZaFjgC48PWsiFpTAqLcw==:17
+ a=yJojWOMRYYMA:10 a=yPCof4ZbAAAA:8 a=VwQbUJbxAAAA:8 a=gWKObWcHZHFoBn1Bvp0A:9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_105753_723655_AE9B8BD4 
-X-CRM114-Status: GOOD (  70.19  )
+X-CRM114-CacheID: sfid-20250908_110436_200170_49C9BAA0 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,279 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+The function vgic_flush_lr_state() is calling _raw_spin_unlock()
+instead of the proper raw_spin_unlock().
 
-On 01/09/2025 12:09, Dave Martin wrote:
->> Subject: arm_mpam: Add the class and component structures for ris firmware described
-> 
-> Mangled subject line?
+_raw_spin_unlock() is an internal low-level API and should not
+be used directly; using raw_spin_unlock() ensures proper locking
+semantics in the vgic code.
 
-order words hard is.
+Fixes: 8fa3adb8c6be ("KVM: arm/arm64: vgic: Make vgic_irq->irq_lock a raw_spinlock")
+Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+Acked-by: Marc Zyngier <maz@kernel.org>
+---
+v1 -> v2
+Dropped extra paragraph and added Acked-by Marc
+---
+ arch/arm64/kvm/vgic/vgic.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index f5148b38120a..c74d6120a12c 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -818,7 +818,7 @@ static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
+ 		 * the AP list has been sorted already.
+ 		 */
+ 		if (multi_sgi && irq->priority > prio) {
+-			_raw_spin_unlock(&irq->irq_lock);
++			raw_spin_unlock(&irq->irq_lock);
+ 			break;
+ 		}
+ 
+-- 
+2.50.1
 
-> There is a fair intersection between the commit message and what the
-> patch does, but they don't quite seem to match up.
-> 
-> Some key issues like locking / object lifecycle management
-> and DT parsing (a bit of which, it appears, lives here too) are not
-> mentioned at all.
-
-I don't think everything needs mentioning - you have the diff for that.This should capture
-the motivation, what you have and what you need to find, the grouping etc.
-
-
-> In lieu of a complete rewrite, it might be best to discard the
-> explanation of the various object types.  The comment in the code
-> speaks for itself, and looks clearer.
-
-Fair enough,
-
-> [...]
-> 
-> On Fri, Aug 22, 2025 at 03:29:53PM +0000, James Morse wrote:
->> An MSC is a container of resources, each identified by their RIS index.
->> Some RIS are described by firmware to provide their position in the system.
->> Others are discovered when the driver probes the hardware.
->>
->> To configure a resource it needs to be found by its class, e.g. 'L2'.
->> There are two kinds of grouping, a class is a set of components, which
->> are visible to user-space as there are likely to be multiple instances
->> of the L2 cache. (e.g. one per cluster or package)
->>
->> struct mpam_components are a set of struct mpam_vmsc. A vMSC groups the
->> RIS in an MSC that control the same logical piece of hardware. (e.g. L2).
->> This is to allow hardware implementations where two controls are presented
->> as different RIS. Re-combining these RIS allows their feature bits to
->> be or-ed. This structure is not visible outside mpam_devices.c
->>
->> struct mpam_vmsc are then a set of struct mpam_msc_ris, which are not
->> visible as each L2 cache may be composed of individual slices which need
->> to be configured the same as the hardware is not able to distribute the
->> configuration.
->>
->> Add support for creating and destroying these structures.
->> A gfp is passed as the structures may need creating when a new RIS entry
->> is discovered when probing the MSC.
-
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index 71a1fb1a9c75..5baf2a8786fb 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -20,7 +20,6 @@
-> 
-> [...]
-> 
->> @@ -35,11 +34,483 @@
->>  static DEFINE_MUTEX(mpam_list_lock);
->>  static LIST_HEAD(mpam_all_msc);
->>  
->> -static struct srcu_struct mpam_srcu;
->> +struct srcu_struct mpam_srcu;
-
-> Why expose this here?  This patch makes no use of the exposed symbol.
-
-The mpam_resctrl code needs to take it when it walks these lists. I don't want to change
-it then because its just additional churn.
-
-
->>  /* MPAM isn't available until all the MSC have been probed. */
->>  static u32 mpam_num_msc;
->>  
->> +/*
->> + * An MSC is a physical container for controls and monitors, each identified by
->> + * their RIS index. These share a base-address, interrupts and some MMIO
->> + * registers. A vMSC is a virtual container for RIS in an MSC that control or
->> + * monitor the same thing. Members of a vMSC are all RIS in the same MSC, but
->> + * not all RIS in an MSC share a vMSC.
->> + * Components are a group of vMSC that control or monitor the same thing but
->> + * are from different MSC, so have different base-address, interrupts etc.
->> + * Classes are the set components of the same type.
->> + *
->> + * The features of a vMSC is the union of the RIS it contains.
->> + * The features of a Class and Component are the common subset of the vMSC
->> + * they contain.
->> + *
->> + * e.g. The system cache may have bandwidth controls on multiple interfaces,
->> + * for regulating traffic from devices independently of traffic from CPUs.
->> + * If these are two RIS in one MSC, they will be treated as controlling
->> + * different things, and will not share a vMSC/component/class.
->> + *
->> + * e.g. The L2 may have one MSC and two RIS, one for cache-controls another
->> + * for bandwidth. These two RIS are members of the same vMSC.
->> + *
->> + * e.g. The set of RIS that make up the L2 are grouped as a component. These
->> + * are sometimes termed slices. They should be configured the same, as if there
->> + * were only one.
->> + *
->> + * e.g. The SoC probably has more than one L2, each attached to a distinct set
->> + * of CPUs. All the L2 components are grouped as a class.
->> + *
->> + * When creating an MSC, struct mpam_msc is added to the all mpam_all_msc list,
->> + * then linked via struct mpam_ris to a vmsc, component and class.
->> + * The same MSC may exist under different class->component->vmsc paths, but the
->> + * RIS index will be unique.
->> + */
-> 
-> This description of the structures and how they relate to each other
-> seems OK (bearing in mind that I am already familiar with this stuff --
-> I can't speak for other people).
-
-Great!
-
-
-> [...]
-> 
->> +#define add_to_garbage(x)				\
->> +do {							\
->> +	__typeof__(x) _x = x;				\
-> 
-> Nit:
-> 
-> = (x)
-> 
-> (for the paranoid)
-
-Fixed,
-
-
->> +	(_x)->garbage.to_free = (_x);			\
-> 
-> _x->garbage.to_free = _x;
-> 
-> (_x is an identifier, not a macro argument.  It can't get re-parsed as
-> something else -- assuming that there is not a #define for _x, but then
-> all bets would be off anyway.)
-
->> +	llist_add(&(_x)->garbage.llist, &mpam_garbage);	\
-> 
-> &_x->...
-
-Fixed,
-
-
-> [...]
-> 
->> +static void mpam_ris_destroy(struct mpam_msc_ris *ris)
->> +{
->> +	struct mpam_vmsc *vmsc = ris->vmsc;
->> +	struct mpam_msc *msc = vmsc->msc;
->> +	struct platform_device *pdev = msc->pdev;
->> +	struct mpam_component *comp = vmsc->comp;
->> +	struct mpam_class *class = comp->class;
->> +
->> +	lockdep_assert_held(&mpam_list_lock);
->> +
->> +	cpumask_andnot(&comp->affinity, &comp->affinity, &ris->affinity);
->> +	cpumask_andnot(&class->affinity, &class->affinity, &ris->affinity);
-> 
-> This is not the inverse of the cpumask_or()s in mpam_ris_create_locked(),
-> unless the the ris associated with each class and each component have
-> strictly disjoint affinity masks.  Is that checked anywhere, or should
-> it be impossible by construction?
-
-They should be disjoint. These bitmaps are built from firmware description of the cache
-hierarchy. I don't think its possible to describe a situation where there are overlaps.
-
-You can build a nonsense cache hierarchy, e.g. where CPU-0's L3 is CPU-6's L2, but if you
-do the scheduler is going to complain when it tries to chose the scheduler domains. I
-think this should be filed under "you've got bigger problems".  There is a check that
-catches this in mpam_resctrl_pick_caches(), to see that all the CPUs are accounted for,
-which is to avoid tasks that get lucky with task-placement managing to escape their
-resource limit.
-
-
-> But, thinking about it:
-> 
-> I wonder why we ever really need to do the teardown.  If we get an
-> error interrupt then we can just go into a sulk, spam dmesg a bit, put
-> the hardware into the most vanilla state that we can, and refuse to
-> manipulate it further.  But this only happens in the case of a software
-> or hardware *bug* (or, in a future world where we might implement
-> virtualisation, an uncontainable MPAM error triggered by a guest -- for
-> which tearing down the host MPAM would be an overreaction).
-
-The good news is guests can't escape the PARTID virtualisation that the CPU does, so any
-mess a guest manages to make is confined to that guest's PARTID range.
-
-
-> Trying to cleanly tear the MPAM driver down after such an error seems a
-> bit futile.
-> 
-> The MPAM resctrl glue could eventually be made into a module (though
-> not needed from day 1) -- which would allow for unloading resctrlfs if
-> that is eventually module-ised.  I think this wouldn't require the MPAM
-> devices backend to be torn down at any point, though (?)
-
-It would certainly be optional. kernfs->resctrl->mpam is the reason all this has to be
-built-in. If that changes I'd aim for this to be a module.
-
-All this free()ing was added so that the driver doesn't end up sitting on memory when it
-isn't providing any usable feature. I have seen a platform where the error interrupt goes
-off during boot, (I suspect firmware configures an out-of-range PARTID). On such a
-platform any memory that isn't free()d is a waste.
-
-But I agree its a small amount of memory.
-
-
-> If we can simplify or eliminate the teardown, does it simplify the
-> locking at all?  The garbage collection logic can also be dispensed
-> with if there is never any garbage.
-
-It wouldn't simplify the locking, only remove that deferred free()ing which is needed
-because of SRCU.
-
-
-> Since MSCs etc. never disappear from the hardware, it feels like it
-> ought not to be necessary ever to remove items from any of these lists
-> except when trying to do a teardown (?)
-
-Unbinding the driver from an MSC is another case where this may be triggered via
-mpam_msc_drv_remove(). If you look at the whole thing, mpam_ris_destroy() pokes
-mpam_resctrl_teardown_class() to see if resctrl needs to be torn down.
-
-I don't anticipate folk actually needing to do that. One Reasons is for VFIO - but this
-kind of stuff has a performance impact on the hypervisor, so its unlikely to ever allow a
-guest direct access to this kind of thing. Another reason is to load a more specific
-driver, which sounds unlikely.
-
-
-Ultimately this memory free-ing code is here because its the right thing to do.
-I'd prefer to keep it as making this a loadable module would mean we have to do this.
-
-
-> (Putting the hardware into a quiecent state is not the same thing as
-> tearing down the data structures -- we do want to quiesce MPAM when
-> shutting down the kernel, as least for the kexec scenario.)
-
-> [...]
-> 
->> +static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
->> +				  enum mpam_class_types type, u8 class_id,
->> +				  int component_id, gfp_t gfp)
->> +{
->> +	int err;
->> +	struct mpam_vmsc *vmsc;
->> +	struct mpam_msc_ris *ris;
->> +	struct mpam_class *class;
->> +	struct mpam_component *comp;
->> +
->> +	lockdep_assert_held(&mpam_list_lock);
->> +
->> +	if (test_and_set_bit(ris_idx, msc->ris_idxs))
->> +		return -EBUSY;
-> 
-> Is it impossible by construction to get in here with an out-of-range
-> ris_idx?
-> 
-> To avoid the callers (i.e., ACPI) needing to understand the internal
-> limitations of this code, maybe it is worth having a check here (even
-> if technically redundant).
-
-It's possible - but only if you mess up the firmware tables.
-I'll add a check for this as its easy enough.
-
-
-Thanks,
-
-James
 
