@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E258BCAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E991CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:11:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jE0T/fmVHyiTTnqmMQr0pMsurg8GrSTzaCZsztr/3Cc=; b=UnwE9K6gNhiAU2FdDGUgrO8cYs
-	NYP/UawkbqRtmBCfwBpg43pRYl5i89OCamSaN+G8FzEi6MAPq9kD7mywCqigv8WojWmCEj3QtVilz
-	inQbqrZHNs0kNdRCjqsxzvSOrtG354DOHMc7Y94VqJrk59D8lM56Q39uWXPzRG2pjFIEuzq3tdQye
-	DVOnUPbLBxsWsZAr77XAfJRkr1iKfvYFY/VAd1y9sKOLtu72WBPnEm6LUuPCVsS8O03fa4ma+cQ0/
-	OehMQENVJuPTrmvSqE6LQTn2ArYLMC2TiK8Xgu5YZeVU6LiXh49amUTLd949PZWCtdJaXJK/N863v
-	er8kWY0A==;
+	bh=Tkcu8uPHbEXRcb2a56j7ZJ/z6mbAMTK+VhMf9lAZ9Pg=; b=KpN16zEpgO2szQgkK93fqMvKJY
+	ZadPbcQKAL1qNp1eYOVQEJ6E+f1wtfxJZMjPwW0sluahItyWE2zXloj+InK9alapEHNLPBconKH8D
+	ZmXzgqPZ9rulax2LHCok2SP3fYA3/LevBF2Rt63XAa64XYrf2XHVP5BBrMiT7NP//g4d5ur9RPzX0
+	M6KlPLgQqKQIRGpZAp7SphngdcrcOK2fQx6YU98WZ12O6599YSpZe0veEh66yojgRDaIbMn12znHI
+	ZlXXLaCgOoo4tV2RP82bntGLFoMDQyRbaznxwoLk5hPytoM04ivB2YVtYmvXeI3pgbP7JPJcl4z0L
+	XUCxaj6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfOU-000000014r8-1gwx;
-	Mon, 08 Sep 2025 17:11:06 +0000
-Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
+	id 1uvfOV-000000014t9-3nac;
+	Mon, 08 Sep 2025 17:11:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvbq0-0000000HLeW-3JIj
+	id 1uvbtb-0000000HMkW-2Rdb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 13:23:17 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 4ED5440506
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1757337790; bh=jE0T/fmVHyiTTnqmMQr0pMsurg8GrSTzaCZsztr/3Cc=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=OcwfbR0rby34GzfIxaov168IheTrZ+ikAV3382xRCrGMWfTAjdqQXDm0IkI+U74cI
-	 vk465Qd6Lu3MfdA8wLw9iIjKnB/5tMtlds2arjrrdEajdYy9raICA0VexG3g7GOELm
-	 /ORjRT8Is7SBQNrMvVYte2jM2Q8AtUUnGKGtxf82MfuYtXvnwwxw9cuecSPwFsaAUK
-	 yLr75Sfsx+wQ+QW7X2wAeup6ugtw6Acc7AQNvEwtpEGCusrkrBb2jVHXelS9K2dUfA
-	 bi+uS/sTiKw7s4XJ2SZM+yG6L60yW9s7cR4D2f9DpSkLgvN6CaAoDsP/E5XpEFMhm/
-	 a4nGwUYlIEMxQ==
-Received: from localhost (unknown [IPv6:2601:280:4600:2da9::1fe])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 4ED5440506;
-	Mon,  8 Sep 2025 13:23:10 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: hariconscious@gmail.com
-Cc: catalin.marinas@arm.com, hariconscious@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, shuah@kernel.org, will@kernel.org
-Subject: Re:
-In-Reply-To: <20250908095450.42929-1-hariconscious@gmail.com>
-References: <871pp8a9ze.fsf@trenco.lwn.net>
- <20250908095450.42929-1-hariconscious@gmail.com>
-Date: Mon, 08 Sep 2025 07:23:09 -0600
-Message-ID: <875xdtyt6q.fsf@trenco.lwn.net>
+	Mon, 08 Sep 2025 13:26:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0960A601A4;
+	Mon,  8 Sep 2025 13:26:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0101CC4CEF1;
+	Mon,  8 Sep 2025 13:26:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757338018;
+	bh=K5YU/SfllwjVRMTHft5NGcsCbcC7qR5QHQ2I/4K/QBs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n7k3WpDhlg6x0fgsmQLBmhKS3oYCqbOYBc21up4iOhWkKFzjJg261RsJwZxcHmGxj
+	 QaClm1dXvCcJgyUsWYUuAqo+gFjAXFY1egBqWyu4J9P+4bKpxnqBdv8xHYnZ49CLbB
+	 iHRGKT214MIZG6jKQKnr/xDXql7TMdyAlLEyvSFDcXG0yaerWmF/Nd5VX3a9JF19yz
+	 kLsboesKeznkfg7jkzpaAs5nulSxvQWaj0Sux3PWTwiJfnZH6CmilNcM4XhKoAGeAl
+	 Dn2TkRuvHdj+ideEQpPmdBz8jDkrqOqS/qH+cS5FHH7r8qoEWaRKxtJchPcyVLDYyS
+	 ObT7LvzWhmsvw==
+Date: Mon, 8 Sep 2025 15:26:54 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] irqchip/gic-v5: Fix kmemleak L2 IST table entries false
+ positives
+Message-ID: <aL7Znv7XgqFPq2Jb@lpieralisi>
+References: <20250811135001.1333684-1-lpieralisi@kernel.org>
+ <aK4MQ3dur0cyluGl@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_062316_826719_B7ECEC06 
-X-CRM114-Status: UNSURE (   6.66  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aK4MQ3dur0cyluGl@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,15 +71,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hariconscious@gmail.com writes:
+On Tue, Aug 26, 2025 at 08:34:27PM +0100, Catalin Marinas wrote:
+> On Mon, Aug 11, 2025 at 03:50:01PM +0200, Lorenzo Pieralisi wrote:
+> > diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+> > index ad1435a858a4..e8a576f66366 100644
+> > --- a/drivers/irqchip/irq-gic-v5-irs.c
+> > +++ b/drivers/irqchip/irq-gic-v5-irs.c
+> > @@ -5,6 +5,7 @@
+> >  
+> >  #define pr_fmt(fmt)	"GICv5 IRS: " fmt
+> >  
+> > +#include <linux/kmemleak.h>
+> >  #include <linux/log2.h>
+> >  #include <linux/of.h>
+> >  #include <linux/of_address.h>
+> > @@ -117,6 +118,7 @@ static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data
+> >  		kfree(ist);
+> >  		return ret;
+> >  	}
+> > +	kmemleak_ignore(ist);
+> 
+> Nit: if you ever respin, please add a short comment on why this is a
+> false positive (easier to see it in the code than the git logs).
 
-> Thanks for the suggestion, will correct and send the patch again.
-> And my real name is "HariKrishna" and see that it is mentioned in Signed-off-by tag.
-> Do I need to add surname as well ? Please let me know.
-
-Yes, signoffs should give your full name.
+It was merged as-is (have been away for a couple of weeks) but I can send a
+patch adding the comments to clarify the code as a follow-up.
 
 Thanks,
+Lorenzo
 
-jon
+> >  
+> >  	return 0;
+> >  }
+> > @@ -232,6 +234,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
+> >  		kfree(l2ist);
+> >  		return ret;
+> >  	}
+> > +	kmemleak_ignore(l2ist);
+> 
+> Same here.
+> 
+> -- 
+> Catalin
 
