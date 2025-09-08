@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94EACA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83314CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nc/vcmy+EaSL+RZZSsVeBJ6JjsLMgp1Qvyb0IgIZr+8=; b=Hy129VxBm7pjWMaG4tU3jfd81S
-	OCO1P6UY5iBs0lMypmq2mm9YnAe4okKa58fCt8n9V7S65SkS46+q9WdifZ0M/BMWCxBN4lIeQuu+o
-	y1n+n0GsVDPp7zSlyaf0carrjOIsa5ZYuKaua9HwdR2nvGbt9vsCgxOKXbWe7RXenE+zT9ZIXV4as
-	udBOTS+CEKz0VSliRobPc+0ZhiFEhMCmWeqptjkUbLHejxiM6KRnNTG0REDXTndUQ80zA3K0YgNqO
-	DFsfIH5C093YEAI4Tk9pajd+N3ry74hPPJ00wc4mRBSO3Zsb+2IROifP3u7oPkdGTQrxH8qYc/P5s
-	RzSxef8w==;
+	bh=07LtSeWo/AmLZHtl6LX+u3Mr0O3ybeIZifoEkYMgMgM=; b=Tpf+3ygV4cgsPvPFV+TlhwnzqW
+	nkJ7Cqu97WjtKo27ryQnuZ8QmV6a75HQF57vql2bXuhUc5/cigAgTA/UgrTHXhDIIEZBOviMw7+dj
+	GAYyVWGiwiKaC7+20TeuTJoDeM//bQ12F0miRSbvFSbW83digl9RYX34TwLgazXlzS3yE74v5QIGq
+	m2tz1gK+oTOz0vRCZHP9oXpQzLOuqF4W80A/yKBu0EJbcq7de25484TWwAwSU0dc0mTGhHPkKWtPr
+	IOyUC0SF7OA2NpmLXUnpXrSwsSWyhIwK3g8usn6fiY+YJkGtVScHD8ZB30k9mUqdIW/+PmzL3YsPU
+	AB1j86CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBM-00000004oQZ-1mwl;
-	Tue, 09 Sep 2025 06:50:24 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1uvsBO-00000004oSy-1b0R;
+	Tue, 09 Sep 2025 06:50:26 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvh0m-00000001iHK-3YU6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 18:54:46 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-4b5d6ce4ed7so955601cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 11:54:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757357684; x=1757962484; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nc/vcmy+EaSL+RZZSsVeBJ6JjsLMgp1Qvyb0IgIZr+8=;
-        b=yrtcDuH5n4FAmOkfyc5IEug2CObLtdGzO2dQLnz9OaZZ7vwW7vnx7XLhnXiXS8qNe2
-         /OHxazQahCrUBes1IJSOosPdlfFf5Fxjpt3kHSuZdKMVvruJFYMhfDKCyjrUpOCuT2MQ
-         57h4wGNZnsKlsg3oGmPACFGvVvcAbs63GPL+jixo0gvPfA7T10LEEomkVZB0cpatgnYn
-         VpMAKqyihz9qUsp20oDSDd3cjHRzrSAqH4DGL3E6gb+GlbG5VhtBLUdW8P/RPevz/L6I
-         neETc6u9rZq4VOOYreiBjNjI4QbmYQxmZamV83gZ7XoTRF3VpV0lVgosDQwRup3eJXIZ
-         zjZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757357684; x=1757962484;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Nc/vcmy+EaSL+RZZSsVeBJ6JjsLMgp1Qvyb0IgIZr+8=;
-        b=VwxMg3Sc6/sTlzwyQOAL/ghkW6VwKyE0ZZyGdWtpVH53+ajNHPKnGKBGc/cYdeUeCi
-         oeOjjTdSR2OZ6ro+6gpHVc1LimJ92rCXtTkjWVVTRm63e1jWveaGl4AZcVh2NUfflKQ/
-         KZarAznU9j0/iykCjjZGnds5xUC9ihUs4EwjrojkNsj04dhzBosvjDUgD9AYnEZEgfVf
-         kk+FR975fe/yOYdaxt4bsbqR6LJIJeP+G3hBbAseNkFhogGHaA5US3/EcjPZ0KDMmNe9
-         1+4Y8YwKU2WMi3i9RX2W9XPQ5vixEsZ5mR/LrLacJF8TbKVjHjalrmT2HHCK3v7HoMjT
-         6Pfw==
-X-Forwarded-Encrypted: i=1; AJvYcCVW83jLaak5YUIJPRADvIdBHFFAYoFOJgEeO80YeKh5jUWvHVVNkYBQJJhqynSnk7zX7LTyfrIB5u9k8l/S05PM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfEaVi1Pg46P32ebC+KR4WqUbmVFm+CVajNxunaPniJYI+a5nO
-	r5HwY6grl4/HEOofI1RLuqXnXvF1N8AJ47hdEWDg4zPrRu3NyXqoh3XWLYffJAO56NW45fRA1H/
-	Yob6uxdNHmbO7xej/mxHk1/OlfiDMWvwFWrFGzhzUGwwck1TBq0L7V7HH
-X-Gm-Gg: ASbGncuvFUASUE7WPdxcsREAvvIOhKlomK+XQmjuxo4N/JRHf+2g8j8IttGpNPD8D+c
-	SPSDQbYjWV/9DokkbJ8p28dUz2Rwqe+3XrDqSbxREhuqyLdYNtg46TyFw8EGVtYAFfvYXATzbfZ
-	tZiJV0KXhse+OuP+a30ViHnuDG3Rta39KMdNpXj0JP7329aQk3sviNdfINKqFKUZjmuWOWv3mR3
-	V9xyIXUo2ezE7AjKbDWNnGOeLjfoczz41wY
-X-Google-Smtp-Source: AGHT+IHxJBSO7w5Xmh8kn2r/iMDjRfetjUilgPPiP9j+i2xhVrg37GnxGDxWNGuAz/flz/3JXZQ6OFIXSnc5YcieRWI=
-X-Received: by 2002:ac8:59c9:0:b0:4b3:8ee:521b with SMTP id
- d75a77b69052e-4b5f6d1d109mr12322211cf.0.1757357683401; Mon, 08 Sep 2025
- 11:54:43 -0700 (PDT)
+	id 1uvhBq-00000001mEP-3kO9;
+	Mon, 08 Sep 2025 19:06:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=07LtSeWo/AmLZHtl6LX+u3Mr0O3ybeIZifoEkYMgMgM=; b=KClgd9bhUawW8/SwsL/AD4WJe8
+	mMGpaecMywwKaJtk1DDS8s+hN2JLX2eStBVdYpymdA0NS7wP3vSmeJoGLFyoz7hwCL9joAkJQkY6Q
+	MUBHr89CzbDUc8m/E0fKYpPC45i3/W6zumMPEPO7RrxSQ0wlyv4ywyxTU4BrGQw/VfLM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uvhBj-007i1L-4F; Mon, 08 Sep 2025 21:06:03 +0200
+Date: Mon, 8 Sep 2025 21:06:03 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benjamin Larsson <benjamin.larsson@genexis.eu>,
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] pinctrl: airoha: fix wrong MDIO function bitmaks
+Message-ID: <d1bc3887-5b88-4fb9-8f89-4b520427ccdc@lunn.ch>
+References: <20250908113723.31559-1-ansuelsmth@gmail.com>
+ <583981f9-b2ed-45fe-a327-4fd8218dc23e@lunn.ch>
+ <68bf16e5.df0a0220.2e182c.b822@mx.google.com>
 MIME-Version: 1.0
-References: <20250827101949.4089456-1-tabba@google.com> <20250827101949.4089456-10-tabba@google.com>
- <1a248f14-60f2-4f8f-8b4d-3c63e602fd54@sirena.org.uk> <22a563c0-886a-4ccd-84e5-3093986b164b@sirena.org.uk>
-In-Reply-To: <22a563c0-886a-4ccd-84e5-3093986b164b@sirena.org.uk>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 8 Sep 2025 19:54:06 +0100
-X-Gm-Features: AS18NWDbGDcURy5P5Xe8dqaGtypth_Kq4WFhaOlejGW8eCU1PI2j12fC_WRCJiQ
-Message-ID: <CA+EHjTwR-PFQLkH5ECPc0Ak6RpnqJjV-j8Phjf9XrRqWo1+=vw@mail.gmail.com>
-Subject: Re: [PATCH v3 9/9] KVM: arm64: Reserve pKVM handle during pkvm_init_host_vm()
-To: Mark Brown <broonie@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, mark.rutland@arm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, vdonnefort@google.com, qperret@google.com, 
-	sebastianene@google.com, keirf@google.com, smostafa@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <68bf16e5.df0a0220.2e182c.b822@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_115444_949180_E62ED568 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250908_120610_934236_4C70E48F 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +74,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On Mon, Sep 08, 2025 at 07:48:17PM +0200, Christian Marangi wrote:
+> On Mon, Sep 08, 2025 at 06:54:15PM +0200, Andrew Lunn wrote:
+> > On Mon, Sep 08, 2025 at 01:37:19PM +0200, Christian Marangi wrote:
+> > > With further testing with an attached Aeonsemi it was discovered that
+> > > the pinctrl MDIO function applied the wrong bitmask. The error was
+> > > probably caused by the confusing documentation related to these bits.
+> > > 
+> > > Inspecting what the bootloader actually configure, the SGMII_MDIO_MODE
+> > > is never actually set but instead it's set force enable to the 2 GPIO
+> > > (gpio 1-2) for MDC and MDIO pin.
+> > 
+> > Is the MDIO bus implemented using the GPIO bitbanging driver?
+> > 
+> 
+> No it does use the MDIO bus integrated in the MT7530 Switch. It's just
+> that the MDIO pin can be muxed as GPIO usage.
 
-On Mon, 8 Sept 2025 at 19:52, Mark Brown <broonie@kernel.org> wrote:
->
-> On Mon, Sep 08, 2025 at 05:05:56PM +0100, Mark Brown wrote:
->
-> > I'm seeing the KVM selftests failing in -next on multiple nVHE
-> > platforms (pretty sure it's all of them) which bisect down to this
-> > commit, when booted in standard nVHE mode the selftests are all failing
-> > to initialise with:
->
-> I'm seeing a different failure on the same commit with qemu in VHE mode,
-> we fault during pkvm_init_host():
+Then i do not understand this patch. Why configure the pinmux for GPIO
+when you want it connected to the MDIO bus device?
 
-I can reproduce this too. It's the same issue. Fix coming soon.
-
-Cheers,
-/fuad
-
-> <12>[  112.802609] kselftest: Running tests in kvm
-> TAP version 13
-> 1..34
-> # timeout set to 120
-> # selftests: kvm: demand_paging_test
-> <2>[  113.800187] Unhandled 64-bit el1h sync exception on CPU0, ESR 0x000000005a000000 -- HVC (AArch64)
-> ...
-> <4>[  113.812056] Call trace:
-> <4>[  113.812571]  show_stack+0x18/0x24 (C)
-> <4>[  113.813078]  dump_stack_lvl+0x60/0x80
-> <4>[  113.813448]  dump_stack+0x18/0x24
-> <4>[  113.813711]  vpanic+0x124/0x2ec
-> <4>[  113.813965]  abort+0x0/0x4
-> <4>[  113.814198]  arm64_exit_nmi.isra.0+0x0/0x94
-> <4>[  113.814517]  el1h_64_sync_handler+0x2c/0xac
-> <4>[  113.814812]  el1h_64_sync+0x6c/0x70
-> <4>[  113.815266]  pkvm_init_host_vm+0x20/0x48 (P)
-> <4>[  113.815629]  kvm_dev_ioctl+0x264/0x80c
-> <4>[  113.815960]  __arm64_sys_ioctl+0xac/0x104
->
-> Full log:
->
->    https://lava.sirena.org.uk/scheduler/job/1794785#L2258
+     Andrew
 
