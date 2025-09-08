@@ -4,98 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A383CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A715CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jGYytEnMw+6xuEh78CWcB0+W8fGeyKd2M/PYTH6aJS0=; b=eFW8TGWHTruwh8yEVk5uVl8mc8
-	SavX5LgeJpvOaAnJgPsGFHx1ISvtVF0BPeQguUGHnSlsMaoyBxyHiQ1mmsxS3ksTWBtfm5kdy0qYw
-	4zR7y7SAL36zZ7FG945k0C2c9DQRrDUpQykohm+j022xNVR5HHOs0WZ0PsQpu1vCSPiY2YlvNHmWl
-	e5Kk5fCMqvo+oZ6KpiL2qTPoieg5arkHfF937JMsvHQPR/9Bt1mNL8oOgBgnoMiECsSOG1bk8otCu
-	FF9aWfhj/8gw9D8Nn30bk4NtTkKbV81Yt3fkkd4vaD4dPIzoByCcaL6T+FxQWa8k0Zr+iYHIsj/ts
-	yqS0lIGQ==;
+	bh=/2CCwIzjqLQqY7DIoO/AOOHSykrEgWWjGr2uC6CkQgo=; b=fwMykRT4XL409TxaLlFMS4zUgC
+	S00C800yWYZwB8+pJHn6uQPgq9sTachNVFs8WuAdO7BKw/io4/r7VM2Az45UpeD9Ya35vzVirhFM9
+	MeCgo0LnsHKCYQOyJsP0DKWbyvXez4HKEMxD+t80V13/VZl3P9Il7Usp9zX3xUYhFXGdG9Lkn10kp
+	cK8aaya4X1NdQ1K37rSAelTyKg5B55QnpqaXXkUxc3B4ju8im45IweCO1i/XUne9T6pRSiF/wvyOf
+	sYVQkxTnsLhTuKJweSrE4dvZp6oy+Es0kMSaDl4GvfJXpJaLohQ9KghCCzCOBWgtbd+KwwU4xHqL/
+	iUNLg6vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfUx-000000019RM-07Bm;
-	Mon, 08 Sep 2025 17:17:47 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uvfXf-00000001APq-1dre;
+	Mon, 08 Sep 2025 17:20:35 +0000
+Received: from [90.154.21.10] (helo=mx01.omp.ru)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvcyJ-000000009Ka-025u
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 14:35:56 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45cb659e858so30983895e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 07:35:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757342153; x=1757946953; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jGYytEnMw+6xuEh78CWcB0+W8fGeyKd2M/PYTH6aJS0=;
-        b=TdDTcQbD0XwoHWGLwouKtn2jEL9C/SVdC+Ucbvir441WohbRynNKLYbFEZHLFpyKmr
-         HkR5LQKeQ54UNRzepniX+kc4WZY1mVQ2S8syZft9ojnQa3RzBfhy3rO5LgvbtNUsIPuH
-         FuH5pR98nKKZkDhlSboMqoaByqadf5UVgTZHTCMwteN8XsA7v7PQg3w1yAPYEj2r9qLx
-         NhDtZWB0MzS66GCX4ZPdReXa94sMvAypGwIAv/Xmlit95yRadFk1W/Y3024sesspwaAW
-         mv21bbFuBGjh/WBUO+4cTuzXR9sXFO+Aw9XuBvhzoGPXYbaA3v7MCnF+NqELDIO1vu4t
-         +8uA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757342153; x=1757946953;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jGYytEnMw+6xuEh78CWcB0+W8fGeyKd2M/PYTH6aJS0=;
-        b=ss3ZdW2jgIvsOCChvVI/PNZzMyyQn/EFscoy1EHyxVupVHhbWIDmwCCQeBrijp+nyv
-         W93rYbLJtLy3HZF1SF8eyhhlshL9sGpUAQY4matwg211GMHH6m5CWb7kpO0bBYndAsLr
-         c6Co/qsMXeOBpY6vC3qUD0Ks8N6Kq+MLbdi3byXuQYHweSNp4Fd/ygDaSEOXQbRCBS20
-         lhvJAW7Pl5rY/2GsDkcNjykS0FaKB8Rq/WJ3X4bKIoN+2iCRB9oXZ+5EbMMpTCOwdzxE
-         DN41souS9jWDEgm0YADP1UzvNGU4LL8y82C7CUJs7LhsAZyaZR15459KErVBA4yhzHQw
-         qqtw==
-X-Forwarded-Encrypted: i=1; AJvYcCXVHx4mdVLhliqPSUTV5njcClpa//LD5F0Kio7DW9yLleug4I+MRluGuBhaYB8mHz8czcT5Vlg5tp1lrmO32QT7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTC1mP5cHoGEUAbEeH1jyP29W1d+4Q0jxg9LZz1k1DbM3IwYOv
-	AGFkU1cSjEYto7gpHQBCRagz0qFFYXQoAGXkIceiatjmMskmklyCMn/h0wo+QMwco1dkGmwoiqp
-	8Z6ijjYtg5A==
-X-Gm-Gg: ASbGncsroaMKQdhi7ZhWJgMKCPxz1+/PIXcVeuY5VlhDUsdreO4xcrQmk2EcQopPyk5
-	eWDvaVRZ8+VpjwsbXkWZ3DA2GVhPNLU5z90H2Ef5PCs+3dpmfuzybMBeBYQ2sUegSPX70uuKyxg
-	D3eLr+C7ORQpw2Qi9SvRrFtM+gY9rHlcUWLen2jUlwblWiQNZItbAc1TuD4F+1Hfu6m1s9ERQ7H
-	+c7blSDQScsOqQJ1hx0fWcdU1DWgo5hTmK/brXB6wbPF+EiHbB/1lYcVmwXb4EXplPb37YM/2on
-	JXxweT/X9i0XxJyB1fPS9juxgMiMmezQa7L6l0BhMDrYGXkUJFKkolefdaW4R0SWFBj4Bl7DhpN
-	YUJHXpcz4NN1O5iWKCFVAjkzU66lCww7slxT7jw==
-X-Google-Smtp-Source: AGHT+IHqTDAEvQOt+q1sz1oM/FMn4xs+DKIlODRGS8+cELpR8JABY1klHI4WNO8R4+DbWuABkVVF1g==
-X-Received: by 2002:a05:6000:2a85:b0:3e6:b06c:5b2e with SMTP id ffacd0b85a97d-3e6b06c622fmr3645332f8f.57.1757342153210;
-        Mon, 08 Sep 2025 07:35:53 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d0a1f807f9sm40948664f8f.38.2025.09.08.07.35.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Sep 2025 07:35:52 -0700 (PDT)
-Message-ID: <ff94b709-2861-445d-81c4-9ed98125fe94@linaro.org>
-Date: Mon, 8 Sep 2025 15:35:51 +0100
+	id 1uvcys-000000009Rp-1imH;
+	Mon, 08 Sep 2025 14:36:32 +0000
+Received: from [192.168.2.102] (213.87.154.55) by msexch01.omp.ru
+ (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Mon, 8 Sep
+ 2025 17:36:13 +0300
+Message-ID: <6cb84280-9290-4cf1-91cf-ccece1a0bb27@omp.ru>
+Date: Mon, 8 Sep 2025 17:36:12 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] perf: arm_spe: Add barrier before enabling profiling
- buffer
-To: Will Deacon <will@kernel.org>, Alexandru Elisei <Alexandru.Elisei@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Anshuman Khandual <Anshuman.Khandual@arm.com>,
- Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
- Robin Murphy <Robin.Murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <20250701-james-spe-vm-interface-v1-1-52a2cd223d00@linaro.org>
- <aL7dFIzEgiEETcIb@willie-the-truck>
- <b4bcb7cf-da03-4263-9101-feec6d0e0d8d@linaro.org>
- <aL7gsXbr_-k4q-i5@willie-the-truck>
+Subject: Re: [PATCH] pinctrl: rockchip: fix NULL ptr deref in
+ rockchip_pinctrl_parse_groups()
+To: <wens@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+CC: Linus Walleij <linus.walleij@linaro.org>, <linux-gpio@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-rockchip@lists.infradead.org>
+References: <179c9e8c-8760-41e6-aad7-7a128df60984@omp.ru>
+ <6789547.RUnXabflUD@phil>
+ <CAGb2v67ihFehEwSc-rX=U-KJdvao_588G8iVEoSXuJ_-gnd50w@mail.gmail.com>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <aL7gsXbr_-k4q-i5@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: Sergey Shtylyov <s.shtylyov@omp.ru>
+Organization: Open Mobile Platform
+In-Reply-To: <CAGb2v67ihFehEwSc-rX=U-KJdvao_588G8iVEoSXuJ_-gnd50w@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [213.87.154.55]
+X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
+ (10.188.4.12)
+X-KSE-ServerInfo: msexch01.omp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 09/08/2025 14:22:47
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 19
+X-KSE-AntiSpam-Info: Lua profiles 196099 [Sep 08 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
+X-KSE-AntiSpam-Info: LuaCore: 66 0.3.66
+ fc5dda3b6b70d34b3701db39319eece2aeb510fb
+X-KSE-AntiSpam-Info: {rep_avail}
+X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: {SMTP from is not routable}
+X-KSE-AntiSpam-Info: {Found in DNSBL: 213.87.154.55 in (user)
+ b.barracudacentral.org}
+X-KSE-AntiSpam-Info: omp.ru:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2
+X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.154.55
+X-KSE-AntiSpam-Info: {DNS response errors}
+X-KSE-AntiSpam-Info: Rate: 19
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
+ smtp.mailfrom=omp.ru;dkim=none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Heuristic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 09/08/2025 14:26:00
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 9/8/2025 12:29:00 PM
+X-KSE-Attachment-Filter-Triggered-Rules: Clean
+X-KSE-Attachment-Filter-Triggered-Filters: Clean
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_073555_067039_2F440FE4 
-X-CRM114-Status: GOOD (  28.77  )
+X-CRM114-CacheID: sfid-20250908_073630_455204_D5FE26E4 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,105 +104,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 9/8/25 8:53 AM, Chen-Yu Tsai wrote:
+[...]
 
-
-On 08/09/2025 2:57 pm, Will Deacon wrote:
-> On Mon, Sep 08, 2025 at 02:54:32PM +0100, James Clark wrote:
->>
->>
->> On 08/09/2025 2:41 pm, Will Deacon wrote:
->>> On Tue, Jul 01, 2025 at 04:31:57PM +0100, James Clark wrote:
->>>> DEN0154 states that PMBPTR_EL1 must not be modified while the profiling
->>>> buffer is enabled. Ensure that enabling the buffer comes after setting
->>>> PMBPTR_EL1 by inserting an isb().
->>>>
->>>> This only applies to guests for now, but in future versions of the
->>>> architecture the PE will be allowed to behave in the same way.
->>>>
->>>> Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
->>>> Signed-off-by: James Clark <james.clark@linaro.org>
->>>> ---
->>>>    drivers/perf/arm_spe_pmu.c | 1 +
->>>>    1 file changed, 1 insertion(+)
->>>>
->>>> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
->>>> index 3efed8839a4e..6235ca7ecd48 100644
->>>> --- a/drivers/perf/arm_spe_pmu.c
->>>> +++ b/drivers/perf/arm_spe_pmu.c
->>>> @@ -537,6 +537,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
->>>>    	limit += (u64)buf->base;
->>>>    	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
->>>>    	write_sysreg_s(base, SYS_PMBPTR_EL1);
->>>> +	isb();
+>> Am Mittwoch, 3. September 2025, 21:48:54 Mitteleuropäische Sommerzeit schrieb Sergey Shtylyov:
+>>> In the Rockchip driver, rockchip_pinctrl_parse_groups() assumes that the
+>>> "rockchip,pins" property will always be present in the DT node it parses
+>>> and so doesn't check the result of of_get_property() for NULL. If the DT
+>>> passed to the kernel happens to have such property missing, then we will
+>>> get a kernel oops when the pointer is dereferenced in the *for* loop just
+>>> a few lines after the call.  I think it's better to play safe by checking
+>>> the list variable for NULL (and reporting error if so), like we check the
+>>> size variable for validity further down...
 >>>
+>>> Found by Linux Verification Center (linuxtesting.org) with the Svace static
+>>> analysis tool.
 >>>
->>> Hmm.
->>>
->>> arm_spe_perf_aux_output_begin() is only called in two places:
->>>
->>> 1. From arm_spe_pmu_start()
->>> 2. From arm_spe_pmu_irq_handler()
->>>
->>> For (1), we know that profiling is disabled by PMSCR_EL1.ExSPE.
->>> For (2), we know that profiling is disabled by PMBSR_EL1.S.
->>>
->>> In both cases, we already have an isb() before enabling profiling again
->>> so I don't understand what this additional isb() is achieving.
->>>
+>>> Fixes: d3e5116119bd ("pinctrl: add pinctrl driver for Rockchip SoCs")
+>>> Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
 >>
->> It's to prevent PMBPTR_EL1 from being written to after the PMBLIMITR_EL1
->> write than enables the buffer again. So you're right it's already disabled
->> up to this point, which is why we didn't need to add another isb(). This
->> change is only for the re-enabling bit.
->>
->> If the instructions were reordered you could get this ordering at the end of
->> arm_spe_perf_aux_output_begin():
->>
->>    write_sysreg_s(limit, SYS_PMBLIMITR_EL1); // Enables buffer
->>
->>    write_sysreg_s(base, SYS_PMBPTR_EL1);  // Invalid write to PMBPTR
->>
->> Instead of the new version with the barrier where PMBPTR must come before:
->>
->>    write_sysreg_s(base, SYS_PMBPTR_EL1);
->>    isb()
->>    write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
+>> Assuming that the DT is our friend, really is a bad assumption :-) .
 > 
-> ... but my point is that profiling is still disabled after writing to
-> PMBLIMITR_EL1.
-> 
-> Will
+> If this is invalid, perhaps you should make the "rockchip,pins" property
+> required in the binding?
 
-Oh I see what you mean, I misunderstood that.
+   Looking at Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.txt
+in 5.10.y, it was marked as required. The modern YAML bindings don't seem to
+say that, at least explicitly...
 
-You might be right, but I'm looking at statement SFDXJJ and it only says 
-"...PMBLIMITR_EL1.E is 0b1, meaning the Profiling Buffer is enabled...", 
-so it's just the buffer rather than "profiling is enabled" which would 
-require both bits PMBLIMITR_EL1.E = 1 and PMBSR_EL1.S = 0:
+[...]
 
-   SFDXJJ
-
-   When PMBLIMITR_EL1.E is 0b1, meaning the Profiling Buffer is enabled,
-   software must behave as if the PE can do all of the following:
-
-   * Ignore writes to the Profiling Buffer controls, other than a write
-     to PMBLIMITR_EL1.E that disables the Profiling Buffer. The
-     Statistical Profiling Unit registers affected are:
-
-    - PMBPTR_EL1.
-    - PMBLIMITR_EL1.
-    - PMBSR_EL1.
-    - If FEAT_SPE_nVM is implemented, PMBMAR_EL1.
-
-I'm trying to read Alex's other reply to this patch with it in mind that 
-profiling is still disabled, and it feels like your same point might 
-apply. Even if it's incorrectly programmed according to the existing Arm 
-ARM it doesn't matter if it's disabled.
-
-We did discuss internally about the difference between just the buffer 
-being enabled or profiling altogether being enabled. Looks like I need 
-to check again.
-
-James
+MBR, Sergey
 
 
