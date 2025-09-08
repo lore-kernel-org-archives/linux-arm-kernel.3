@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA6CBCA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC3CCAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KNDeTcriY+g/ZMvH40cW+600x4qCRysa7bksKPsxzYc=; b=ON2h8RM1ycEOToRlNzEOWGShxf
-	8UrxM+22pqXwh1Li8x1S3tN71wss9WhjxxX/GlanuP9QVtLsOM/wfGH4Zt/xny4bidoXELCKxkLsy
-	wwTY19wNCNSfhHOAcHcB95Im3H56Ua520Y82KyE9vCapcjpMlhtENYtA8sUSXOjCPn6b/ToxmOexE
-	cD9lLLj5gA6go0iSzVEmHgYZ4vJXeFiFt023aeYFgjn057qpH0nC93ufzTwGqHyJZ8wAPtAMqCVH9
-	fLTBgVOe+YgGBDSIUqo0ZvIWywR78VgaZK1YBIgF9jbqieXsbbXHh/Ns9ptHKjZKSSXX0Qtmu7Jiq
-	O20O+UiQ==;
+	bh=Zo14xNjz2r9AcMZBRCHyJE0PzkloRDSfzfKMBl+WDBg=; b=0H9e4uTtBrqGlxY4YL7pFh7xXF
+	ZuZbvU+DkXh62dfqfiVZNfCBaaLFEfdAIiJckl/y8LSQfc3u43kWartMthSnAKZ/2yTgpHh29Nml+
+	+5QR9KpH3JubakmfAdTs4Jz0a1apyHO9tWKxvMr1j63ORsb64E1Sl4YWhYte36581vB5Zt/m7kuUD
+	kI5L9m6Pg11GoZcsPZ4Z7n2G2MW8JbDItC/LByf7JGH0zyCsmgo/3W1zBsGSRzanHey4HcqmX1Dko
+	yrpiAC7IKBB0v27SvyXW+GYEC7DRf1afh861xwkYOlHz0LIcyo0hpaIdDEqNI5V5e2JHNKCbYtyG4
+	jJxp1Pkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgUt-00000001VRK-1B5K;
-	Mon, 08 Sep 2025 18:21:47 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uvgUv-00000001VTr-3Nf8;
+	Mon, 08 Sep 2025 18:21:49 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvctG-000000007NA-2XC3
+	id 1uvctJ-000000007Os-1ml6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 14:30:43 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588EUcvQ3883548;
-	Mon, 8 Sep 2025 09:30:38 -0500
+	Mon, 08 Sep 2025 14:30:47 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588EUhc7071678;
+	Mon, 8 Sep 2025 09:30:43 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757341838;
-	bh=KNDeTcriY+g/ZMvH40cW+600x4qCRysa7bksKPsxzYc=;
+	s=ti-com-17Q1; t=1757341843;
+	bh=Zo14xNjz2r9AcMZBRCHyJE0PzkloRDSfzfKMBl+WDBg=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=UnJ1mXmx6SP/xzO9f4GflYr+OkuIkhAFZlonhryotMII6/UknpuTLMQ9ZRJ0MqxIM
-	 tIGne+4N0E1HnOj/xUmiZL8q9dWKFbIloEaunNSHAFY3Piu1ITfSlu0G9zDgm8m0sv
-	 hthmET8aWnsUMvGGzIbE+BIxs5rSxX9So/UAsCdU=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588EUcUL3021101
+	b=hnHWpCrudUoYB99ijoB+UAS3NaWVv5XYOZqQasiEsl42XXa5rUONUMLHqV+YrXTqr
+	 TjMtD07o5pnXSzU44wO7PifMZWExjoJncgD53jbXi5PP/vVucR2kWZu2CJgIStl71b
+	 aER03IyFykKoSJ61Ds5qd+Tu9P0Js3ErYy9AXIbU=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588EUhoU2466049
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 09:30:38 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 8 Sep 2025 09:30:43 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 09:30:38 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 09:30:42 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 09:30:38 -0500
+ Frontend Transport; Mon, 8 Sep 2025 09:30:42 -0500
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588ESecw1037553;
-	Mon, 8 Sep 2025 09:30:33 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588ESecx1037553;
+	Mon, 8 Sep 2025 09:30:38 -0500
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
 CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
         <d-gole@ti.com>, <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Subject: [PATCH v4 20/34] arm64: dts: ti: k3-am642-tqma64xxl: Add missing cfg for TI IPC Firmware
-Date: Mon, 8 Sep 2025 19:58:12 +0530
-Message-ID: <20250908142826.1828676-21-b-padhi@ti.com>
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v4 21/34] Revert "arm64: dts: ti: k3-j721e-sk: Fix reversed C6x carveout locations"
+Date: Mon, 8 Sep 2025 19:58:13 +0530
+Message-ID: <20250908142826.1828676-22-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250908142826.1828676-1-b-padhi@ti.com>
 References: <20250908142826.1828676-1-b-padhi@ti.com>
@@ -70,8 +69,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_073042_730836_D41328B5 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20250908_073045_555694_6C48352C 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,105 +85,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, only R5F remote processors are enabled for k3-am642-tqma64xxl
-whereas the M4F in MCU domain is disabled. Enable the M4F remote
-processor at board level by reserving memory carveouts and assigning
-mailboxes.
+This reverts commit 9f3814a7c06b7c7296cf8c1622078ad71820454b.
 
-While at it, reserve the MAIN domain timers that are used by R5F remote
-processors for ticks to avoid rproc crashes. This config aligns with
-other AM64 boards and can be refactored out later.
+The C6x carveouts are reversed intentionally. This is due to the
+requirement to keep the DMA memory region as non-cached, however the
+minimum granular cache region for C6x is 16MB. So, C66x_0 marks the
+entire C66x_1 16MB memory carveouts as non-cached, and uses the DMA
+memory region of C66x_1 as its own, and vice-versa.
 
+This was also called out in the original commit which introduced these
+reversed carveouts:
+	"The minimum granularity on the Cache settings on C66x DSP cores
+	is 16MB, so the DMA memory regions are chosen such that they are
+	in separate 16MB regions for each DSP, while reserving a total
+	of 16 MB for each DSP and not changing the overall DSP
+	remoteproc carveouts."
+
+Fixes: 9f3814a7c06b ("arm64: dts: ti: k3-j721e-sk: Fix reversed C6x carveout locations")
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 ---
-Cc: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Request for review/test of this patch.
-
 v4: Changelog:
 1. Updated carveout node names to generic 'memory@addr'
 
 Link to v3:
-https://lore.kernel.org/all/20250905051846.1189612-20-b-padhi@ti.com/
+https://lore.kernel.org/all/20250905051846.1189612-21-b-padhi@ti.com/
 
 v3: Changelog:
 1. None
 
 Link to v2:
-https://lore.kernel.org/all/20250823160901.2177841-20-b-padhi@ti.com/
+https://lore.kernel.org/all/20250823160901.2177841-21-b-padhi@ti.com/
 
 v2: Changelog:
-1. Re-ordered patch from [PATCH 29/33] to [PATCH v2 19/33].
+1. Re-ordered patch from [PATCH 03/33] to [PATCH v2 20/33].
 
 Link to v1:
-https://lore.kernel.org/all/20250814223839.3256046-30-b-padhi@ti.com/
+https://lore.kernel.org/all/20250814223839.3256046-4-b-padhi@ti.com/
+ arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
- .../arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi | 39 +++++++++++++++++++
- 1 file changed, 39 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-index 4068d2c2b10c..f6d1e980d32f 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-@@ -79,6 +79,18 @@ main_r5fss1_core1_memory_region: memory@a3100000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+index 0f05e65f7bf7..37bc33f2cc26 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+@@ -120,7 +120,8 @@ main_r5fss1_core1_memory_region: memory@a5100000 {
  			no-map;
  		};
  
-+		mcu_m4fss_dma_memory_region: memory@a4000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa4000000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		mcu_m4fss_memory_region: memory@a4100000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa4100000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
- 		rtos_ipc_memory_region: memory@a5000000 {
- 			reg = <0x00 0xa5000000 0x00 0x00800000>;
- 			alignment = <0x1000>;
-@@ -167,6 +179,26 @@ mbox_m4_0: mbox-m4-0 {
- 	};
- };
+-		c66_0_dma_memory_region: memory@a6000000 {
++		/* Carveout locations are flipped due to caching */
++		c66_1_dma_memory_region: memory@a6000000 {
+ 			compatible = "shared-dma-pool";
+ 			reg = <0x00 0xa6000000 0x00 0x100000>;
+ 			no-map;
+@@ -132,7 +133,8 @@ c66_0_memory_region: memory@a6100000 {
+ 			no-map;
+ 		};
  
-+/* main_timer8 is used by r5f0-0 */
-+&main_timer8 {
-+	status = "reserved";
-+};
-+
-+/* main_timer9 is used by r5f0-1 */
-+&main_timer9 {
-+	status = "reserved";
-+};
-+
-+/* main_timer10 is used by r5f1-0 */
-+&main_timer10 {
-+	status = "reserved";
-+};
-+
-+/* main_timer11 is used by r5f1-1 */
-+&main_timer11 {
-+	status = "reserved";
-+};
-+
- &main_r5fss0 {
- 	status = "okay";
- };
-@@ -203,6 +235,13 @@ &main_r5fss1_core1 {
- 	status = "okay";
- };
- 
-+&mcu_m4fss {
-+	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
-+	memory-region = <&mcu_m4fss_dma_memory_region>,
-+			<&mcu_m4fss_memory_region>;
-+	status = "okay";
-+};
-+
- &ospi0 {
- 	status = "okay";
- 	pinctrl-names = "default";
+-		c66_1_dma_memory_region: memory@a7000000 {
++		/* Carveout locations are flipped due to caching */
++		c66_0_dma_memory_region: memory@a7000000 {
+ 			compatible = "shared-dma-pool";
+ 			reg = <0x00 0xa7000000 0x00 0x100000>;
+ 			no-map;
 -- 
 2.34.1
 
