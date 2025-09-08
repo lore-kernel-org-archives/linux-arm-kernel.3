@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 794FDCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FF5CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=01PM7n+6a8Quec8ZksW9AvkTShxGPfHFL14LpJE4rDU=; b=qiNaSdM96KZEm2CgJd66BeEbxc
-	aE+avoA2e0mTM6LgSda5bEFpXywDjzWZ2ooCV5EhtATi6/yciWCRDchkaWcrSV7H6ibGnQ5noaL5F
-	hASa34/Q2PV7DiGlBbDWOODuJ3o0nkJUmeHO02RkRnVJ/qDN4oWJ2l/REe1f2I/Ab0FcZBgzyoXWp
-	RvdjdPn+iJ7yu6YfOejHElI6xJBTBE4z7K+mFDnQJelGUhGBjWgZ/kfxBk++PTwX7bxiU2hhQHL/v
-	2I/TsRrrdK/OsoxuVwxa7M7JN7u5ICVBkS6BffZbYkR18c5rL13PRkz6LRWFhc4jW5IvPbFwCh9f+
-	XDig2NRA==;
+	bh=Ic9o+VndUXPRx8kTEScNKikd2uC1KP5uDpqoGdmWmrU=; b=T3cDVC6IhIrKL1D8sXCPU8p6YE
+	91leH+t4ISbFxZFoSVN6JwfPYNGRtFv36QgsbbayyASp48R2+0wDZAtfbS37DHvpJOCQUeVvNsWg7
+	XNxNtwtklg7isqrfBTuLjhgeKso20h9657+QLUlN8Obyc2m0UlPQKNL5eC24k8UmWJ2fL3FFjVwLi
+	aWhje5uMzsDZ82ywC4ztrf1mV3RdU1AI7PWI7xZ3hPMYhqfrNPlJc0RWWyfYQYKzpGmhieTRVANNv
+	BUOSaYBb6Ty3kajr4tJ+6NJBFnwvU8fw0+8mxyAhLHn8P3lKvUY+5D1CfMBQmMSy+6eA8TqHal/0J
+	D8Mr4xtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvs6t-00000004mL6-3TwH;
-	Tue, 09 Sep 2025 06:45:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uvs6s-00000004mKZ-2xnF;
+	Tue, 09 Sep 2025 06:45:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvemU-00000000lOb-2GJV
+	id 1uvemU-00000000lOQ-16pP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 16:31:52 +0000
+	Mon, 08 Sep 2025 16:31:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24C8C44A8C;
-	Mon,  8 Sep 2025 16:31:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07844C4CEF7;
-	Mon,  8 Sep 2025 16:31:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5DB4744A28;
+	Mon,  8 Sep 2025 16:31:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BD22C113D0;
+	Mon,  8 Sep 2025 16:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757349110;
-	bh=hcTRxpX9qydE6c0M6SiJkgotsgvSQLYSwolxDoJawY4=;
+	s=k20201202; t=1757349109;
+	bh=jQHOrUvrdulPrMOQtn05zaOApqc5lhkt4nBzVAEvlWw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E+By+vs2uH3WX2TdZxlAnscUHM7nb6lslD3pfimdi/HZXVzxyYOEZC79HuxnYKau6
-	 GD9o5c46Ww/nHRBk+0Xj+jg8p3doV1VXS08HwSgppdw5X6NIOXsITmcBpbA/AKyjSm
-	 6i+3SH4SniGWUyOS/uTSkzaayOUR54/n6ovU3fhVleQ2BOBvPSj3Rqiomi369Stxrk
-	 lN4YOg+ZfYcMIHsNlnW/BdZhLP4vOEtl1dN3o7ALvL6EJGNDlCDoyI5A7I4UIsSnXw
-	 8paPNWR2aezWc/Kl8WzaYiHXhLsbEpLNg+wkzFZpxyx66+Y081izuxen++mEU2ScYO
-	 8HWdRaaKv4Rbw==
+	b=czBXERcPZ33eoypWE2xIzk9HQjHljbDix3cn36Hh2mK5gUF1VODYSJBFYDAUJ6FfN
+	 Xao2Jr7HDWzJbhTYQeiuhScA9+g1QYJFXD0XuoA3aJyI+bDM2kdcmlDEdl8dqw99r7
+	 k2lmphqCUS7LLR16vmtfF7f0crh3jq0ztn+KDnZjZ0o5F8CoMs6mW1oZAsCAIYAk27
+	 UutSHwagfgmzCShbT/X/w6S1a3lPOh2AamN33Hxj1huPARni8NJjs084ST8cnZz7wr
+	 3uUMmZbPs582U9/20z/SQXmsbCIIFkgnt6+Ec8uL2AXa9uTfgbXqxp4xIWkcCjD043
+	 KeTlQw941xp+Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1uvemS-00000004NTm-0vcu;
-	Mon, 08 Sep 2025 16:31:48 +0000
+	id 1uvemR-00000004NTm-1fwn;
+	Mon, 08 Sep 2025 16:31:47 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -63,9 +63,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Janne Grunau <j@jannau.net>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>
-Subject: [PATCH 10/25] perf: arm_pmu: Add PMU/CPU affinity tracking
-Date: Mon,  8 Sep 2025 17:31:12 +0100
-Message-Id: <20250908163127.2462948-11-maz@kernel.org>
+Subject: [PATCH 07/25] coresight: trbe: Convert to new IRQ affinity retrieval API
+Date: Mon,  8 Sep 2025 17:31:09 +0100
+Message-Id: <20250908163127.2462948-8-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250908163127.2462948-1-maz@kernel.org>
 References: <20250908163127.2462948-1-maz@kernel.org>
@@ -76,8 +76,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_093150_659240_72DD1A28 
-X-CRM114-Status: GOOD (  26.38  )
+X-CRM114-CacheID: sfid-20250908_093150_346305_06F0EB4C 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,187 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM PMU code is built around the assumption that different CPU
-affinities (either a single CPU in the case of an SPI, or a group
-of CPUs for a PPI) must result in different IRQ numbers.
-
-This scheme is about to be removed, so the driver must be able to match
-the new behaviour.
-
-For this purpose, add a new per-CPU variable that tracks the PMU
-affinities on a per-CPU basis, so that the driver can, from any CPU,
-find out which other CPUs it is sharing an interrupt number with.
-
-It is likely that some simplifications could result from this scheme,
-but this is good enough to get started.
+Now that the relevant interrupt controllers are equipped with
+a callback returning the affinity of per-CPU interrupts, switch
+the TRBE driver over to this new method.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/perf/arm_pmu.c          | 37 +++++++++++++++++++++++++--------
- drivers/perf/arm_pmu_acpi.c     |  5 +++++
- drivers/perf/arm_pmu_platform.c |  4 ++++
- include/linux/perf/arm_pmu.h    |  1 +
- 4 files changed, 38 insertions(+), 9 deletions(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-index 5c310e803dd78..6e3c72e9b41cd 100644
---- a/drivers/perf/arm_pmu.c
-+++ b/drivers/perf/arm_pmu.c
-@@ -26,7 +26,7 @@
- 
- #include <asm/irq_regs.h>
- 
--static int armpmu_count_irq_users(const int irq);
-+static int armpmu_count_irq_users(const int this_cpu, const int irq);
- 
- struct pmu_irq_ops {
- 	void (*enable_pmuirq)(unsigned int irq);
-@@ -64,7 +64,7 @@ static void armpmu_enable_percpu_pmuirq(unsigned int irq)
- static void armpmu_free_percpu_pmuirq(unsigned int irq, int cpu,
- 				   void __percpu *devid)
- {
--	if (armpmu_count_irq_users(irq) == 1)
-+	if (armpmu_count_irq_users(cpu, irq) == 1)
- 		free_percpu_irq(irq, devid);
- }
- 
-@@ -89,7 +89,7 @@ static void armpmu_disable_percpu_pmunmi(unsigned int irq)
- static void armpmu_free_percpu_pmunmi(unsigned int irq, int cpu,
- 				      void __percpu *devid)
- {
--	if (armpmu_count_irq_users(irq) == 1)
-+	if (armpmu_count_irq_users(cpu, irq) == 1)
- 		free_percpu_nmi(irq, devid);
- }
- 
-@@ -100,11 +100,20 @@ static const struct pmu_irq_ops percpu_pmunmi_ops = {
- };
- 
- DEFINE_PER_CPU(struct arm_pmu *, cpu_armpmu);
-+static DEFINE_PER_CPU(const struct cpumask *, pmu_affinity);
- static DEFINE_PER_CPU(int, cpu_irq);
- static DEFINE_PER_CPU(const struct pmu_irq_ops *, cpu_irq_ops);
- 
- static bool has_nmi;
- 
-+void armpmu_register_affinity_group(const struct cpumask *aff_grp)
-+{
-+	int cpu;
-+
-+	for_each_cpu(cpu, aff_grp)
-+		per_cpu(pmu_affinity, cpu) = aff_grp;
-+}
-+
- static inline u64 arm_pmu_event_max_period(struct perf_event *event)
- {
- 	if (event->hw.flags & ARMPMU_EVT_64BIT)
-@@ -580,11 +589,16 @@ static const struct attribute_group armpmu_common_attr_group = {
- 	.attrs = armpmu_common_attrs,
- };
- 
--static int armpmu_count_irq_users(const int irq)
-+static int armpmu_count_irq_users(const int this_cpu, const int irq)
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 8267dd1a2130d..c512f8faa6012 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -1472,9 +1472,10 @@ static void arm_trbe_remove_cpuhp(struct trbe_drvdata *drvdata)
+ static int arm_trbe_probe_irq(struct platform_device *pdev,
+ 			      struct trbe_drvdata *drvdata)
  {
 +	const struct cpumask *affinity;
- 	int cpu, count = 0;
+ 	int ret;
  
--	for_each_possible_cpu(cpu) {
-+	affinity = per_cpu(pmu_affinity, this_cpu);
-+	if (WARN_ON(!affinity))
-+		return 0;
-+
-+	for_each_cpu(cpu, affinity) {
- 		if (per_cpu(cpu_irq, cpu) == irq)
- 			count++;
- 	}
-@@ -592,12 +606,17 @@ static int armpmu_count_irq_users(const int irq)
- 	return count;
- }
- 
--static const struct pmu_irq_ops *armpmu_find_irq_ops(int irq)
-+static const struct pmu_irq_ops *armpmu_find_irq_ops(int this_cpu, int irq)
- {
- 	const struct pmu_irq_ops *ops = NULL;
-+	const struct cpumask *affinity;
- 	int cpu;
- 
--	for_each_possible_cpu(cpu) {
-+	affinity = per_cpu(pmu_affinity, this_cpu);
-+	if (!affinity)
-+		return NULL;
-+
-+	for_each_cpu(cpu, affinity) {
- 		if (per_cpu(cpu_irq, cpu) != irq)
- 			continue;
- 
-@@ -658,7 +677,7 @@ int armpmu_request_irq(int irq, int cpu)
- 			has_nmi = true;
- 			irq_ops = &pmunmi_ops;
- 		}
--	} else if (armpmu_count_irq_users(irq) == 0) {
-+	} else if (armpmu_count_irq_users(cpu, irq) == 0) {
- 		err = request_percpu_nmi(irq, handler, "arm-pmu", &cpu_armpmu);
- 
- 		/* If cannot get an NMI, get a normal interrupt */
-@@ -672,7 +691,7 @@ int armpmu_request_irq(int irq, int cpu)
- 		}
- 	} else {
- 		/* Per cpudevid irq was already requested by another CPU */
--		irq_ops = armpmu_find_irq_ops(irq);
-+		irq_ops = armpmu_find_irq_ops(cpu, irq);
- 
- 		if (WARN_ON(!irq_ops))
- 			err = -EINVAL;
-diff --git a/drivers/perf/arm_pmu_acpi.c b/drivers/perf/arm_pmu_acpi.c
-index 05dda19c5359a..a5956fa728070 100644
---- a/drivers/perf/arm_pmu_acpi.c
-+++ b/drivers/perf/arm_pmu_acpi.c
-@@ -212,6 +212,11 @@ static int arm_pmu_acpi_parse_irqs(void)
- 			pr_warn("No ACPI PMU IRQ for CPU%d\n", cpu);
- 		}
- 
-+		if (irq_is_percpu_devid(irq))
-+			armpmu_register_affinity_group(cpu_possible_mask);
-+		else
-+			armpmu_register_affinity_group(cpumask_of(cpu));
-+
- 		/*
- 		 * Log and request the IRQ so the core arm_pmu code can manage
- 		 * it. We'll have to sanity-check IRQs later when we associate
-diff --git a/drivers/perf/arm_pmu_platform.c b/drivers/perf/arm_pmu_platform.c
-index 9c0494d8a867a..0c7d5065e9074 100644
---- a/drivers/perf/arm_pmu_platform.c
-+++ b/drivers/perf/arm_pmu_platform.c
-@@ -53,6 +53,8 @@ static int pmu_parse_percpu_irq(struct arm_pmu *pmu, int irq,
- 	for_each_cpu(cpu, &pmu->supported_cpus)
- 		per_cpu(hw_events->irq, cpu) = irq;
- 
-+	armpmu_register_affinity_group(&pmu->supported_cpus);
-+
- 	return 0;
- }
- 
-@@ -152,6 +154,8 @@ static int pmu_parse_irqs(struct arm_pmu *pmu)
- 		cpumask_set_cpu(cpu, &pmu->supported_cpus);
+-	drvdata->irq = platform_get_irq(pdev, 0);
++	drvdata->irq = platform_get_irq_affinity(pdev, 0, &affinity);
+ 	if (drvdata->irq < 0) {
+ 		pr_err("IRQ not found for the platform device\n");
+ 		return drvdata->irq;
+@@ -1485,8 +1486,7 @@ static int arm_trbe_probe_irq(struct platform_device *pdev,
+ 		return -EINVAL;
  	}
  
-+	armpmu_register_affinity_group(&pmu->supported_cpus);
-+
- 	return 0;
- }
+-	if (irq_get_percpu_devid_partition(drvdata->irq, &drvdata->supported_cpus))
+-		return -EINVAL;
++	cpumask_copy(&drvdata->supported_cpus, affinity);
  
-diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
-index 93c9a26492fcf..7bf548678b288 100644
---- a/include/linux/perf/arm_pmu.h
-+++ b/include/linux/perf/arm_pmu.h
-@@ -171,6 +171,7 @@ struct pmu_probe_info {
- int arm_pmu_device_probe(struct platform_device *pdev,
- 			 const struct of_device_id *of_table,
- 			 const struct pmu_probe_info *probe_table);
-+void armpmu_register_affinity_group(const struct cpumask *);
- 
- #ifdef CONFIG_ACPI
- int arm_pmu_acpi_probe(armpmu_init_fn init_fn);
+ 	drvdata->handle = alloc_percpu(struct perf_output_handle *);
+ 	if (!drvdata->handle)
 -- 
 2.39.2
 
