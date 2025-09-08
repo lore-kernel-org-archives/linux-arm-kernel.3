@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068DACAC586
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6624FCAC586
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+EF7HYYakpjft9NB35kDZMTTQSaA0d6L7zjHJnSI+Sk=; b=yq0+aIaMvdvlUJbzlXdmmXbBby
-	lmMKt/uv9i+ohgLzrj9aU+BMntHDZzdjE0gYFP6r+Djlqi4F4BssbWV/DvPLli215jVUZQxYwfBnE
-	BvVEV8XIRCa8b6W/y4S4v6/qTdYrqcoPepKIXaTEiw8M8ZwAubOyqTZrlpU93BCyG+XL+8XXT+Iv7
-	9QqADkDFCjNuOw8GHOJcQ/JBFkS+G2K6xNgfGToiOu5+XTvSgU8rsO++zzcIfe3lKThg4M2on254e
-	OjZn19SBYWhva/eS4M7KfxUgMPk90wCgV4bl5WcHvZs5rx4WxsRQxv32LaJb9rli6nzixG9C9MqO4
-	GHVDi5zQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0BqDeeLR0uUmM7C0k54IlZeBl9ozo62JGf6aTcx1wuY=; b=i4GdGteQgw2Yk0DX+r8bRcdUOA
+	Z7+r6CToQ5ABlt1FfzrOHmUcOXW3O1eoYqEKV3f6TX8lriupAuogjF0tZN8F3z4HLN6x0zzzki1X9
+	WxBLCAhga8wxKGcJuh+Pjz4m2DGf1CgufTvNdbAXVaGCpgYP7xrtSI3eR8kLiZbU/J8Gwc59anmGX
+	8wHjGer82qzxOw0ewzpaqO0epZ32UPmeCXmog3i0xHatxLE4NhtXJ4uBJvLf0fc5OPNw1szQeoT5r
+	UVVSHJKLuo6WJO3MMtS+LMyBnLyJAKHS3XvByd8gbS1B1MQ3WKHacDLdrMKWZ+RWhlMjECzKdCurO
+	/hFmy7Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvb9v-0000000H4nD-0V7u;
-	Mon, 08 Sep 2025 12:39:47 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uvbCc-0000000H5pc-10Jf;
+	Mon, 08 Sep 2025 12:42:34 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvaB7-0000000Ghxm-2sYk;
-	Mon, 08 Sep 2025 11:36:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757331414;
-	bh=I6Ct7QSfsb2a9mw4d/2CXNoZn43ncDeWvUzisVJqmmQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JNQqV+Vnjs1Dxd1EtX4PPTlKmtQwxCDb/AQgr8shMEFalu8USKWWhlJsPwZsVd4tK
-	 gAiFpxVnuYm7yRt0XtVeHIbJAWTLopQRL2GYFWTHlJ8ouEriWtaZKvkR04T0QmCPBw
-	 CR1usZ2oOFpAfkxZOgJ+IDXpPg1+aqMbVEsnOk+WfDg/cnXIugkfalEh/Et4NRGmud
-	 rDuVIVRrxJtTdR1kBrS63nW2H/YRw7PNQOrF7xhCf5eMLPcwifMBAfLsmWEfaNaJ+T
-	 C0ZyXXat54wei7+pXSgw3VcLeSemvIfVVyv7JG3eeuBJwr/XcbPiPGuUi67C8ftwRm
-	 DPbUAegLYxVFw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4787517E0DD7;
-	Mon,  8 Sep 2025 13:36:54 +0200 (CEST)
-Message-ID: <104d8128-26fb-4eb6-ac3f-3abbb35245b2@collabora.com>
-Date: Mon, 8 Sep 2025 13:36:53 +0200
+	id 1uvaBh-0000000GiES-3ltB;
+	Mon, 08 Sep 2025 11:37:35 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3df15fdf0caso3354866f8f.0;
+        Mon, 08 Sep 2025 04:37:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757331452; x=1757936252; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0BqDeeLR0uUmM7C0k54IlZeBl9ozo62JGf6aTcx1wuY=;
+        b=gx70rZOigAfMPYHoRjRjRKAIf4HZD4rNW61KseO732SZrw0CpSmNm9+bGFSx9iXMwt
+         LdElZ75OF2yUiG78jfpZcB4kAkib5L17w1MZbjN98MGh4Z7boFA0vedXD3QVqkTAJPID
+         zRaJ/McvAEtzOihIwBUWSUofjudGLlHBOyx+DfjJuwypRJQnYdqEa9kyBYCS/oTZ3gQt
+         zZSUu24LpvF5exEmzRKN7fvkrMDBER66dX+BA3m0Lwaj83lDt1gjlD0yKpzYd38lwi5f
+         i2sCmFIBwEJyzPx6zGD8pmOsNApMskXCwpiVTSyLKDlKZlKUJgxDZZIzdxrixpmXamn8
+         2rLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757331452; x=1757936252;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0BqDeeLR0uUmM7C0k54IlZeBl9ozo62JGf6aTcx1wuY=;
+        b=uG5eYClosI+ye8PQhxH/6ntTN6M01ign92BjI8iktS/kCmISYDELhQW+RpUqCHyqly
+         lQn6rCF90YvxbnWRQ5f5q2x/zZ1+RJ8F88Y/oPczA2ODq2JaiuRyhBS02EkOnYiRoa5J
+         uegBMbezJws6vst4OofpRLG54ijXTMw/8UllatwenfVAIfCkllv9pMKm2IQ0bW9Gald/
+         1a9sw56bEfHv5CyRoMhcNu0Nxyx1n7iMZIo/SlVfY5j1nH5rE4aC3ZVGl9MStMBX6qjn
+         3URJST4QUbLDXD4qXff592R9LfSty9vzauVKfQ24acYT1ou+8ZlWw05C+ob4Sj4Bocl/
+         0nfg==
+X-Forwarded-Encrypted: i=1; AJvYcCUEMvrxyYfcp2x/rn83+XVBbb+291gfoYn3sM95GlNdByNZDJlq0F8tB5tk7V4lc0nHQAejkuaB7PavR8W8bwA=@lists.infradead.org, AJvYcCUpO2l9Iw8AxBQJ4ea6XoHJk1sRskQH04Tq1UVH5hTS35nMxj6zppxR6DuywGk3S/I/aHVOSF+wAiqPnvYw2NoD@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywt3wBIGiA7DfOqw81Cny7F9Yr/i1A1eG8ndSmKiX6r/fF0lqsg
+	01MQ9D94HWdLVIkU/9O1UA7+iSW+xhscWiAYH3EGe5Z4TnMTdrUQRhXVhWsVEw==
+X-Gm-Gg: ASbGncv+RY000obufdeV0V9OSKxTQ5tfH2uKmexS2vmcADTCFFUdX9Smmm/+xW7hzW9
+	cMxrGc14hzSZoodh3PIz9iO8IXN5P+hI7YIucmBz92p8+DupEgmvAaJhlY+Uoty9ri11TxE6rja
+	JFcd47poMMvKAv3ifj3s7TddhpmbI/ujz3/zo5+/5GGnWhZFift+j4RiH5NVuK901fGEaizFhKa
+	rwfgPkNarZTqZb6iqIQd5miS5bCSptQ2iFwRB2J84gUfNR0H7e0Sskigczb1uhBObfUlWNHHozv
+	/aJ/5GatsxIDxdPF5T6H7lHaMjpFoqi70Vx/U2eHfnmyP+gYMVvFTSo1QlJV++lAJ+tqpakt10/
+	eSQ8O5Kg+LFQG9oXi0negr8Tf+JkjX81+oAZ/0g9vnAa19j7tpGmHYbrvBC+zMr2WzlaJa1BtJ8
+	GgCHmEXg==
+X-Google-Smtp-Source: AGHT+IFrUOxvTJ9AYf/YKS8fAGRSCkemugao7SAvxFhArk8O3Bfk9qqs7HkwmxNa2NacfsANFOZUEQ==
+X-Received: by 2002:a05:6000:178e:b0:3d8:3eca:a978 with SMTP id ffacd0b85a97d-3e642e99b04mr5127314f8f.21.1757331451640;
+        Mon, 08 Sep 2025 04:37:31 -0700 (PDT)
+Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45b7e8ab14esm476249525e9.21.2025.09.08.04.37.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Sep 2025 04:37:31 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benjamin Larsson <benjamin.larsson@genexis.eu>,
+	linux-mediatek@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Christian Marangi <ansuelsmth@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] pinctrl: airoha: fix wrong MDIO function bitmaks
+Date: Mon,  8 Sep 2025 13:37:19 +0200
+Message-ID: <20250908113723.31559-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] Input: mtk-pmic-keys - MT6359 has a specific
- release irq
-To: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
- <20250905-radxa-nio-12-l-gpio-v3-1-40f11377fb55@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250905-radxa-nio-12-l-gpio-v3-1-40f11377fb55@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_043657_909630_990DC481 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250908_043733_936457_415C8147 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +104,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 05/09/25 13:51, Julien Massot ha scritto:
-> Support for MT6359 PMIC keys has been added recently.
-> However, the key release event is not properly handled:
-> only key press events are generated, leaving key states
-> stuck in "pressed".
-> 
-> This patch ensures that both key press and key release events
-> are properly emitted by handling the release logic correctly.
-> 
-> Introduce a 'key_release_irq' member to the 'mtk_pmic_regs',
-> to identify the devices that have a separate irq for the
-> release event.
-> 
-> Fixes: bc25e6bf032e ("Input: mtk-pmic-keys - add support for MT6359 PMIC keys")
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
+With further testing with an attached Aeonsemi it was discovered that
+the pinctrl MDIO function applied the wrong bitmask. The error was
+probably caused by the confusing documentation related to these bits.
 
-Please clarify the commit title.
+Inspecting what the bootloader actually configure, the SGMII_MDIO_MODE
+is never actually set but instead it's set force enable to the 2 GPIO
+(gpio 1-2) for MDC and MDIO pin.
 
-Input: mtk-pmic-keys - Use platform data for release irq support
+Applying this configuration permits correct functionality of any
+externally attached PHY.
 
-...or something like that.
+Cc: stable@vger.kernel.org
+Fixes: 1c8ace2d0725 ("pinctrl: airoha: Add support for EN7581 SoC")
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/pinctrl/mediatek/pinctrl-airoha.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
 
-After which:
+diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/mediatek/pinctrl-airoha.c
+index f7f8fd2f35fc..d89da9581c55 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
++++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
+@@ -108,6 +108,9 @@
+ #define JTAG_UDI_EN_MASK			BIT(4)
+ #define JTAG_DFD_EN_MASK			BIT(3)
+ 
++#define REG_FORCE_GPIO_EN			0x0228
++#define FORCE_GPIO_EN(n)			BIT(n)
++
+ /* LED MAP */
+ #define REG_LAN_LED0_MAPPING			0x027c
+ #define REG_LAN_LED1_MAPPING			0x0280
+@@ -718,17 +721,17 @@ static const struct airoha_pinctrl_func_group mdio_func_group[] = {
+ 	{
+ 		.name = "mdio",
+ 		.regmap[0] = {
+-			AIROHA_FUNC_MUX,
+-			REG_GPIO_PON_MODE,
+-			GPIO_SGMII_MDIO_MODE_MASK,
+-			GPIO_SGMII_MDIO_MODE_MASK
+-		},
+-		.regmap[1] = {
+ 			AIROHA_FUNC_MUX,
+ 			REG_GPIO_2ND_I2C_MODE,
+ 			GPIO_MDC_IO_MASTER_MODE_MODE,
+ 			GPIO_MDC_IO_MASTER_MODE_MODE
+ 		},
++		.regmap[1] = {
++			AIROHA_FUNC_MUX,
++			REG_FORCE_GPIO_EN,
++			FORCE_GPIO_EN(1) | FORCE_GPIO_EN(2),
++			FORCE_GPIO_EN(1) | FORCE_GPIO_EN(2)
++		},
+ 		.regmap_size = 2,
+ 	},
+ };
+-- 
+2.51.0
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-Cheers,
-Angelo
 
