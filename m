@@ -4,93 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDFACA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 02:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D34CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 02:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KBZSHyx9apIkaw7ShYo4VJfLB7XMr5QhEj/9f+kzjZI=; b=RgxsFIwoTlnlLFCQsc1CNOL9E7
-	DVfSfZNVTg9T7gnL1pai3TdlQG5dU6wTZbON4tLDFSBZM9j8ByKbEbJP1Vl1jwKuo/BxFs+JV7AJD
-	CTou3KQN8U+0P7wI6IkfcrVl6hoFjKrShmWw9SEMK7hYieQDLw/a2tB2n25N6ObiRqg6foa71D52a
-	3zmWVjLSbtGJVPKwO1OrvMhyFXH0c7rAqzHaTZGPulFxIIXEdi4DuSdz4nHIg0QkiE4EdTakA8MiV
-	cADHax9HzcC8QU9jZT7CGXi3cPbSN/939UEogKZzTqG8wH5ub1Lkaucytt4oNbFGVpYfwh0iEzK+E
-	fjwTx9Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mq+8ESmA2jrfpQZOjprCU5gaKWY1crGMxvXWMhJyF9s=; b=A8/Vsipuy0g1DcV2Wmw2r5nyTe
+	CT5zzgP3HMfewO5OwgpagFf6/BQ5ATmePXj/6BG1AZqnzjJOQGn7L83RI+M2wkv/x4MTJpj4eISte
+	gCzw+Z688QS9vWkaxHbP4kV8oRr3Pd2VpgkqeHeI6AT4Xg79gBOJkeZwtCEURN0TLynuHzV8waYF+
+	FbUmcCTLTPIPwF55hx7ChpCNUdnmgBPOikf0SJp0EgP7ub8+7voO+a3dLXGTu7ApAuMTlfUvlLgVb
+	eUiXSd4TXBXuHWWv4NNKSkBjwriLtNKt1CKZhlrGSxrKuJ8BlxV8HvVgz4Y7PPb9Qbx7/ZSHYNs+B
+	9ixJPNDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvo5x-00000003h7G-1Foy;
-	Tue, 09 Sep 2025 02:28:33 +0000
-Received: from mx01.omp.ru ([90.154.21.10])
+	id 1uvo5z-00000003hBJ-1MaN;
+	Tue, 09 Sep 2025 02:28:35 +0000
+Received: from mail-mw2nam10on20612.outbound.protection.outlook.com ([2a01:111:f403:2412::612] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgqH-00000001dSD-0iOu
+	id 1uvgsj-00000001eDd-1I2B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 18:43:54 +0000
-Received: from [192.168.2.102] (213.87.154.55) by msexch01.omp.ru
- (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Mon, 8 Sep
- 2025 21:43:49 +0300
-Message-ID: <d5ba9af3-6e61-4206-9eb0-7d3349807d23@omp.ru>
-Date: Mon, 8 Sep 2025 21:43:48 +0300
+	Mon, 08 Sep 2025 18:46:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=imMEB4FRJfs8PaFSqdtxzDE1ntamWrOz2IuDPyxAlhBGSIoPVO1Ddnu/SRO9n9PgXXoHprDJH+MxqFWCsd1HGm2qZgESZdLy+sZksxg7MIRnDPMCb0qnlyN9ODOG/xbYQhYmsa0530//Id8u394kIvOjm3sKayciUEl8RFIRn20XoXqoot7GmWOcjm8UG+hT/jc+bnOLQr8U+WoZOS51EmaMw/GkSmxnaVcpszVBVj70OGmrfvO+zCrMGOQd5Khe/PPrWgAA4DOsJPPkPiRpeA7BCNEWkrdnVsDaGjOEczJ4IVAa537TC5QrzrEWWEkH3iYzccRMr3ib8CAeR25cXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Mq+8ESmA2jrfpQZOjprCU5gaKWY1crGMxvXWMhJyF9s=;
+ b=Yz8fUgTvHKAGSWgSDJBQd7PlxYWo6yDkKnwXLUPkHpKmdSrisBMRLyoaYfrpM0yHGc0DDLclMIwky9RMZ7dwHHkEN8twayN4tEGPern5A1IoNCQyfHtCLAMNpifodUb2WByAKLEN1vyXogoLDK3aA3BxFTPhhua/g6+kptrOvfIIu6W6uv4up02rwRWYXCrw1OxLBpW6LNXfO7NqP8lcIkELnPf0XtSvOxaew979KJEGFacW/PZKYMFNC/0k5q3wE9vX7ZQuXuQjEs1uILaLJHdzkVGrKRTEfQpE307hCsjWoQWrufasdJCn+dsJ0HTx97zLahxUsK6IHrmELzqTuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Mq+8ESmA2jrfpQZOjprCU5gaKWY1crGMxvXWMhJyF9s=;
+ b=hvPb7nkoG/AP3RDj9m+a5Aab0aTZTylUWFGePtEwhAKRRS20QC/IhQiVOFlzsuJMytAMJ+uoY8POQM+VP8vNK655oVEhTR1SBKLD7tjSVXnKvyjugVAbZ4d0sYQGGJfs0HQ42uK6cky4D77gFnKcnC3PeRINN54KQwcSrnm4cDuZS4kAeeoBmRjuo1ox6rflgbYjAnvSyu0q5U601XZ9ETvQHUDFUL8C+/2o9imEcVh6Ijt1OjY0fx+qYHNRDetdvZTfykKFLzKyF3dxDf/V5WXKc/Mh9ohFzihw1ki1UTaB0np4AIWPDKh2lUwhwgZy4S9SFU0BpTHpS/hjvnfX8Q==
+Received: from BN9PR03CA0285.namprd03.prod.outlook.com (2603:10b6:408:f5::20)
+ by DM6PR12MB4058.namprd12.prod.outlook.com (2603:10b6:5:21d::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Mon, 8 Sep
+ 2025 18:46:17 +0000
+Received: from BN3PEPF0000B06E.namprd21.prod.outlook.com
+ (2603:10b6:408:f5:cafe::2e) by BN9PR03CA0285.outlook.office365.com
+ (2603:10b6:408:f5::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.22 via Frontend Transport; Mon,
+ 8 Sep 2025 18:46:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BN3PEPF0000B06E.mail.protection.outlook.com (10.167.243.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.0 via Frontend Transport; Mon, 8 Sep 2025 18:46:16 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 8 Sep
+ 2025 11:46:00 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Mon, 8 Sep 2025 11:46:00 -0700
+Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.126.190.180)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Mon, 8 Sep 2025 11:45:57 -0700
+Date: Mon, 8 Sep 2025 11:45:54 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jean-philippe@linaro.org>, <miko.lenczewski@arm.com>, <balbirs@nvidia.com>,
+	<peterz@infradead.org>, <smostafa@google.com>, <kevin.tian@intel.com>,
+	<praan@google.com>, <zhangzekun11@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
+Subject: Re: [PATCH rfcv1 7/8] iommu/arm-smmu-v3: Add arm_smmu_invs based
+ arm_smmu_domain_inv_range()
+Message-ID: <aL8kYo1cHHNg1H3N@nvidia.com>
+References: <cover.1755131672.git.nicolinc@nvidia.com>
+ <8c4c5aec144f65cfd1fcef2eafb395876dac97ec.1755131672.git.nicolinc@nvidia.com>
+ <20250827184923.GC2206304@nvidia.com>
+ <aLvs8WrxEHpykCT/@nvidia.com>
+ <20250908153911.GC789684@nvidia.com>
+ <aL8ePHvQ25LUU81J@nvidia.com>
+ <20250908182404.GH789684@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: prevent division by 0 in
- stmmac_init_tstamp_counter()
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-To: Vadim Fedorenko <vadim.fedorenko@linux.dev>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, <netdev@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>
-CC: <linux-arm-kernel@lists.infradead.org>
-References: <58116e65-1bca-4d87-b165-78989e1aa195@omp.ru>
- <a49cff49-3fe5-417d-8f71-7ec63a68112d@linux.dev>
- <d92071a9-471e-47f3-8dff-069f9dc6f10c@omp.ru>
-Content-Language: en-US
-Organization: Open Mobile Platform
-In-Reply-To: <d92071a9-471e-47f3-8dff-069f9dc6f10c@omp.ru>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [213.87.154.55]
-X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
- (10.188.4.12)
-X-KSE-ServerInfo: msexch01.omp.ru, 9
-X-KSE-AntiSpam-Interceptor-Info: scan successful
-X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 09/08/2025 18:17:41
-X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
-X-KSE-AntiSpam-Method: none
-X-KSE-AntiSpam-Rate: 0
-X-KSE-AntiSpam-Info: Lua profiles 196103 [Sep 08 2025]
-X-KSE-AntiSpam-Info: Version: 6.1.1.11
-X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
-X-KSE-AntiSpam-Info: LuaCore: 66 0.3.66
- fc5dda3b6b70d34b3701db39319eece2aeb510fb
-X-KSE-AntiSpam-Info: {rep_avail}
-X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
-X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
-X-KSE-AntiSpam-Info: omp.ru:7.1.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1
-X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
-X-KSE-AntiSpam-Info: FromAlignment: s
-X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.154.55
-X-KSE-AntiSpam-Info: Rate: 0
-X-KSE-AntiSpam-Info: Status: not_detected
-X-KSE-AntiSpam-Info: Method: none
-X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
- smtp.mailfrom=omp.ru;dkim=none
-X-KSE-Antiphishing-Info: Clean
-X-KSE-Antiphishing-ScanningType: Heuristic
-X-KSE-Antiphishing-Method: None
-X-KSE-Antiphishing-Bases: 09/08/2025 18:20:00
-X-KSE-Antivirus-Interceptor-Info: scan successful
-X-KSE-Antivirus-Info: Clean, bases: 9/8/2025 5:23:00 PM
-X-KSE-Attachment-Filter-Triggered-Rules: Clean
-X-KSE-Attachment-Filter-Triggered-Filters: Clean
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250908182404.GH789684@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B06E:EE_|DM6PR12MB4058:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0823ee2d-3ba6-4a9a-5451-08ddef07fe66
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|36860700013|3613699012;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yfLBmfWPqqUhGic3ZSy4sAa6f5q2eFtLOM2fjBa1aQPyfsA6Rc6ZKk2Wg/4/?=
+ =?us-ascii?Q?kfIQh6DCddHa13O+XoLu/1EJDtgqJqIIOi7M1ex9rWaRBc40vgXc/dR/npce?=
+ =?us-ascii?Q?HmagAUSDbAGUQHl4/sANnrCPePEVsVIgHOJm8tOaUckbL+aPpI87rapUQXux?=
+ =?us-ascii?Q?m+IxBiJBsV/+BYNXKkEvQEwQF7hd9M/sNa+0QMYtuxrL+gjeuxC3Ag4ONePV?=
+ =?us-ascii?Q?wnq9VVzp8v3N5rO3CpXKI9q2sBRqhSWG+Lc7myq1ycO2SyVXdC8uRSjAq2sX?=
+ =?us-ascii?Q?yYFppAYuC+DJ3hLesCNGeu3EWb/RA/4soZCdf6le5ducx4SFNGg+iDGEN3WH?=
+ =?us-ascii?Q?8Xy7K9+Fhfz9yx04ZY7a40zMH/bAnk7xqXQNCTRCbrQXxoNvYI3m1T30l/pk?=
+ =?us-ascii?Q?CZBGQlOMQ1Qjdq9z1qfi5AJTDB4w7c/C2QXKLpKALI9LZIkuNtI6zHcSyMEF?=
+ =?us-ascii?Q?fQ9omWnhRm++YCA4srdAeozsBepQXCNCI6oHSoc8i80CbElbXzcppJvC+/uV?=
+ =?us-ascii?Q?AwN5yt1bt9RwZaOREigU6oyMNoMMVViMGJFMwTssXBF10iGneRbAHd5sSVP9?=
+ =?us-ascii?Q?Aib7RoxRGcCMy5aLndmj6o824cPNU6UJmMa4Igou4SW7l+ka39LhvVJN8f9o?=
+ =?us-ascii?Q?v8GlBq02hZZuzCP7omSMMoRI0qsI834+BIbp65qTRGhfPx/00JKGfjuZKd4J?=
+ =?us-ascii?Q?/m+MweZgFJ6JPBvW7p2TN759XjkdqxZBsEMgyx+a26YKLc2bseABqYe/DRGd?=
+ =?us-ascii?Q?1uWJKo1uY6ccCKFHzd0hBSAj8v0bbg0lN7fMJkRG6p2GxXAJ7w09VSm/QvLN?=
+ =?us-ascii?Q?DhSffPhk6lUCTRGffSoOa6dzaU4mPLvOsfjOarBXLm3KuXRcR87pMCaEQM5U?=
+ =?us-ascii?Q?TnsQLcJAeKiIeXNH/bDqtFTC9gA6F7xtexeT118NTj+XoMc6+7vPJZSEP6MK?=
+ =?us-ascii?Q?bN9HybF177P05jOyQQk6ujC1Rvbhjf7SrTZzq3ZfGuRIQXyPKA0051t+UK7T?=
+ =?us-ascii?Q?bywprZiQ/HrLHmcIsWBm71gE4k8ndNpiDVBquwx626yidTRTkbQYcRpjKnvO?=
+ =?us-ascii?Q?ZIkyIt3uzXeJFaaWuiRYtOHhDykuLeTqmqJ3gxElKJ02b3/Ml0EBVnW2bwQJ?=
+ =?us-ascii?Q?VJTRdBmax65FdrJjpZkXuDKp4Ip8KGmlG68JqkXWKQzZJoDn+SuMb+IrQ4L3?=
+ =?us-ascii?Q?D5Ir9W5KsXJPXYFLliq3e02HmhSMJYcj3weiTGqSGPGpCGZItNyjzazOUk9X?=
+ =?us-ascii?Q?h3K6euEEQ0QC0hrDqz2sO2HH6DVnmrx2X3m00sh4/S/hC8vXBNBWBGftAhLc?=
+ =?us-ascii?Q?630IcfHBsPF19orHCVGHeFJIJC7qyY+iyMQCumJY6A6sKgBKBSzlWQUdAYVH?=
+ =?us-ascii?Q?KQVIoEi00HMvppwsyrlTOvfZvVFTk7mS+Ysn7czD5cm32TPLTigDBzIsNYq1?=
+ =?us-ascii?Q?I3qQuRi+2HrRD1SvOne6UiQHN4p00A53tWsYmsrvK/7kgcLkU+nXXlkgeUgl?=
+ =?us-ascii?Q?bB/Rdtu1qZoZwN9aH3vk8vzv/w4HvoGLjLxLolvH4zzZlcfu38bS8fYe3+e/?=
+ =?us-ascii?Q?uLxOxxQSKjja7OovK1E=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(36860700013)(3613699012);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2025 18:46:16.6653
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0823ee2d-3ba6-4a9a-5451-08ddef07fe66
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B06E.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_114353_213829_C29700F8 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20250908_114625_345148_BE5E0ABA 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +161,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/8/25 9:26 PM, Sergey Shtylyov wrote:
-[...]
+On Mon, Sep 08, 2025 at 03:24:04PM -0300, Jason Gunthorpe wrote:
+> On Mon, Sep 08, 2025 at 11:19:40AM -0700, Nicolin Chen wrote:
+> > So, would it be better to just always take the read lock, while
+> > applying the ATS condition to the writer side:
+> 
+> No, the whole optimization is to avoid read side locking on the fairly
+> common no-ATS case.
+> 
+> Always taking the lock destroys that.
 
->>> In stmmac_init_tstamp_counter(), the sec_inc variable is initialized to 0,
->>> and if stmmac_config_sub_second_increment() fails to set it to some non-0
->>
->> How that can happen?
-> 
->    Let's see what the commit in my Fixes tag said about the problem it fixed:
-> 
-> ---
-> When building with -Wsometimes-uninitialized, Clang warns:
-> 
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:495:3: warning: variable 'ns' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:495:3: warning: variable 'ns' is used uninitialized whenever '&&' condition is false [-Wsometimes-uninitialized]
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:532:3: warning: variable 'ns' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:532:3: warning: variable 'ns' is used uninitialized whenever '&&' condition is false [-Wsometimes-uninitialized]
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:741:3: warning: variable 'sec_inc' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:741:3: warning: variable 'sec_inc' is used uninitialized whenever '&&' condition is false [-Wsometimes-uninitialized]
-> 
-> Clang is concerned with the use of stmmac_do_void_callback (which
-> stmmac_get_timestamp and stmmac_config_sub_second_increment wrap),
-> as it may fail to initialize these values if the if condition was ever
-> false (meaning the callbacks don't exist). It's not wrong because the
-> callbacks (get_timestamp and config_sub_second_increment respectively)
-> are the ones that initialize the variables. While it's unlikely that the
-> callbacks are ever going to disappear and make that condition false, we
-> can easily avoid this warning by zero initialize the variables.
-> ---
-> 
->    I think the original commit was just somewhat incomplete, as (adding 0-
-> initializer into picture) it missed to add checking of sec_inc for 0 before
-> invoking do_div()...
+OK. I skimmed through the lock_acquire(). It seems to be a bit
+heavier than I expected. Perhaps this is the part we wanted to
+avoid.
 
-   Oops, it was div_u64()! :-)
-
-MBR, Sergey
-
+Thanks
+Nicolin
 
