@@ -4,72 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56BECA1016
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12DA1CAC581
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 02:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ltzTi+I6kPPm3F0lLcLlkqmygrdjRSVDeW/ROJ50BY=; b=qC6iB4jKg6HX1YbBmh8eakRw/V
-	zS3ypK5zRUabGagx6OaOkdpRZ5rjKVxk8wT02mG8gDZTqqLTHu5omJU1UDimk0L6vXunpl3S4DPJN
-	awdnz2Vn6fwyFCp37hWN4yG067pF+mKYqJInUUWEoVoSSRtjwWrZr0Llyhywg8n+au8PuYuBWVZzp
-	kkj+hQAJ0sUOE0esjkNxsBHoOK5HDAB1nHGCZOo2bprEEyco8y+3mqpPU+9YWxZaHeqDaBcIw9kl3
-	ckwjKwR6VbkRH13AiTOe+JBDRUWXcq/YdcZtCVWgkLMheETacTgsvuFFymsmX2xCJ1LzycTU3y2fT
-	k/riF6Yw==;
+	bh=lGqmJCTfz7/cKwQclf+HTvAr3QWJAfmL7UhABadMsgI=; b=MseeJLXEZ8b7U4PqBjXsEn/YI+
+	MNvGj1wSn+DVciVTbGEfoZf07FXBaZ+0hSrV3lXzOKf7M8JSyu20lk1AUMYgv/lDjWi7Kwd95rztT
+	l1jb72Ysgklz0L/hxnsdVW63BB9q2GmX7wGr1oV2mB21Jwy6esbNKBTwUuBS21L1k1qiXqEJlQJV7
+	YWtnctVwuMvJaj3giOBVcEkPkSrbAim0/3yZnfLGV6t+045xhlgYP/8jTac/f20Cz6NL8z/IjJ/tC
+	C6WarWdOstSMLNPbrW/hRTaTXZp1d5SneqmRpt4ZCJb38AyBxwSA0NZDj1gw/FFFTANR6fRgTxwvK
+	teZsE/zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvo5s-00000003h0m-0W09;
-	Tue, 09 Sep 2025 02:28:28 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uvo5q-00000003gxg-02RT;
+	Tue, 09 Sep 2025 02:28:26 +0000
+Received: from mx01.omp.ru ([90.154.21.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgfl-00000001a8M-1T0w;
-	Mon, 08 Sep 2025 18:33:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757356371; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mP1gqjkdiUExNbEz/+ZLOQQRp/VIvy2jg6mCgwuNQvpld/C57PjRbvmWiRJhWc0OyzbbB65Ymt4tCkSYA9iTx0hgW3c/zRMmuSUC8zl97O1/jjklh4OHqQJDJoHNK0R4ACGeg0kxbnkIhx2Ma0ccXKkD73BObWmkSZFEX9n5L0g=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757356371; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=6ltzTi+I6kPPm3F0lLcLlkqmygrdjRSVDeW/ROJ50BY=; 
-	b=nEU6mm47QxW+KIhbYWdgDGNME8hkZ19fI0B+ngC/O/wyYyU6MvQ6q8A5rSx+wdNH7x7gCh1pnpcl9yY5tshNPPawa23W+z7SELy+UOrDk/G6efLfRRUpodfHJjrxVXAeQ06p6gXjZKl5wvWqmx6ZPos7dCZh4RPSv1mo6ah+cjE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757356371;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=6ltzTi+I6kPPm3F0lLcLlkqmygrdjRSVDeW/ROJ50BY=;
-	b=gmdHZEpjqx+Qs0N9zbN7Mgz3VYtN9gkYEaDT2OQegj86gUyG0C+igfYzxfo69760
-	P6q8Y0ULhZPp/AskthsyD20oYxulxBHfDGLyTvGcNu83D/XLEiWWVN98eEW489zYcYs
-	uLSd90pCQs2vD5VVk7y3fPyi/DeL9IgdV7qMC430=
-Received: by mx.zohomail.com with SMTPS id 1757356367793396.9789493803712;
-	Mon, 8 Sep 2025 11:32:47 -0700 (PDT)
-Message-ID: <c05ea992-b0d8-4ea4-8a11-660b9cae4820@collabora.com>
-Date: Mon, 8 Sep 2025 14:32:45 -0400
+	id 1uvgZO-00000001Y0d-3Jng
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 18:26:28 +0000
+Received: from [192.168.2.102] (213.87.154.55) by msexch01.omp.ru
+ (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Mon, 8 Sep
+ 2025 21:26:11 +0300
+Message-ID: <d92071a9-471e-47f3-8dff-069f9dc6f10c@omp.ru>
+Date: Mon, 8 Sep 2025 21:26:10 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] media: rkvdec: Add variants support
-To: Jonas Karlman <jonas@kwiboo.se>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Alex Bee <knaerzche@gmail.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250905161942.3759717-1-jonas@kwiboo.se>
- <20250905161942.3759717-3-jonas@kwiboo.se>
-Content-Language: en-US, fr-CA
-From: Detlev Casanova <detlev.casanova@collabora.com>
-In-Reply-To: <20250905161942.3759717-3-jonas@kwiboo.se>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Sergey Shtylyov <s.shtylyov@omp.ru>
+Subject: Re: [PATCH net] net: stmmac: prevent division by 0 in
+ stmmac_init_tstamp_counter()
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, <netdev@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>
+CC: <linux-arm-kernel@lists.infradead.org>
+References: <58116e65-1bca-4d87-b165-78989e1aa195@omp.ru>
+ <a49cff49-3fe5-417d-8f71-7ec63a68112d@linux.dev>
+Content-Language: en-US
+Organization: Open Mobile Platform
+In-Reply-To: <a49cff49-3fe5-417d-8f71-7ec63a68112d@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+X-Originating-IP: [213.87.154.55]
+X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
+ (10.188.4.12)
+X-KSE-ServerInfo: msexch01.omp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 09/08/2025 18:09:39
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 19
+X-KSE-AntiSpam-Info: Lua profiles 196103 [Sep 08 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
+X-KSE-AntiSpam-Info: LuaCore: 66 0.3.66
+ fc5dda3b6b70d34b3701db39319eece2aeb510fb
+X-KSE-AntiSpam-Info: {rep_avail}
+X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: {SMTP from is not routable}
+X-KSE-AntiSpam-Info: {Found in DNSBL: 213.87.154.55 in (user)
+ b.barracudacentral.org}
+X-KSE-AntiSpam-Info: {Found in DNSBL: 213.87.154.55 in (user)
+ dbl.spamhaus.org}
+X-KSE-AntiSpam-Info: www.ispras.ru:7.1.1;omp.ru:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2
+X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.154.55
+X-KSE-AntiSpam-Info: {DNS response errors}
+X-KSE-AntiSpam-Info: Rate: 19
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
+ smtp.mailfrom=omp.ru;dkim=none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Heuristic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 09/08/2025 18:14:00
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 9/8/2025 5:23:00 PM
+X-KSE-Attachment-Filter-Triggered-Rules: Clean
+X-KSE-Attachment-Filter-Triggered-Filters: Clean
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_113301_456734_986B3B5E 
-X-CRM114-Status: GOOD (  25.88  )
+X-CRM114-CacheID: sfid-20250908_112626_834082_BEF9AAB6 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,167 +111,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonas,
+Hello!
 
-On 9/5/25 12:19, Jonas Karlman wrote:
-> From: Alex Bee <knaerzche@gmail.com>
->
-> Different versions of the Rockchip VDEC IP exists and one way they can
-> differ is what decoding formats are supported.
->
-> Add a variant implementation in order to support flagging different
-> capabilities.
->
-> Signed-off-by: Alex Bee <knaerzche@gmail.com>
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> ---
-> Changes in v3:
-> - Use a reference to rkvdec_variant
-> - Add num_regs field
+On 9/7/25 8:41 PM, Vadim Fedorenko wrote:
+[...]
+>> In stmmac_init_tstamp_counter(), the sec_inc variable is initialized to 0,
+>> and if stmmac_config_sub_second_increment() fails to set it to some non-0
+> 
+> How that can happen?
 
-Why are you adding this field ? I don't see it being used in a later patch.
+   Let's see what the commit in my Fixes tag said about the problem it fixed:
 
-Would that be useful for writing the right amount of registers later 
-when switching to structs and memcpy ?
+---
+When building with -Wsometimes-uninitialized, Clang warns:
 
-I haven't checked how different the register maps are between those 
-different variants.
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:495:3: warning: variable 'ns' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:495:3: warning: variable 'ns' is used uninitialized whenever '&&' condition is false [-Wsometimes-uninitialized]
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:532:3: warning: variable 'ns' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:532:3: warning: variable 'ns' is used uninitialized whenever '&&' condition is false [-Wsometimes-uninitialized]
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:741:3: warning: variable 'sec_inc' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:741:3: warning: variable 'sec_inc' is used uninitialized whenever '&&' condition is false [-Wsometimes-uninitialized]
 
-> - Collect r-b tag
->
-> Changes in v2:
-> - No change
-> ---
->   .../media/platform/rockchip/rkvdec/rkvdec.c   | 22 ++++++++++++++++++-
->   .../media/platform/rockchip/rkvdec/rkvdec.h   | 11 ++++++++++
->   2 files changed, 32 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> index c15fc238d6af..daf6d9ab2d1d 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> @@ -14,6 +14,7 @@
->   #include <linux/iommu.h>
->   #include <linux/module.h>
->   #include <linux/of.h>
-> +#include <linux/of_device.h>
->   #include <linux/platform_device.h>
->   #include <linux/pm.h>
->   #include <linux/pm_runtime.h>
-> @@ -327,6 +328,7 @@ static const struct rkvdec_coded_fmt_desc rkvdec_coded_fmts[] = {
->   		.ops = &rkvdec_hevc_fmt_ops,
->   		.num_decoded_fmts = ARRAY_SIZE(rkvdec_hevc_decoded_fmts),
->   		.decoded_fmts = rkvdec_hevc_decoded_fmts,
-> +		.capability = RKVDEC_CAPABILITY_HEVC,
->   	},
->   	{
->   		.fourcc = V4L2_PIX_FMT_H264_SLICE,
-> @@ -343,6 +345,7 @@ static const struct rkvdec_coded_fmt_desc rkvdec_coded_fmts[] = {
->   		.num_decoded_fmts = ARRAY_SIZE(rkvdec_h264_decoded_fmts),
->   		.decoded_fmts = rkvdec_h264_decoded_fmts,
->   		.subsystem_flags = VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
-> +		.capability = RKVDEC_CAPABILITY_H264,
->   	},
->   	{
->   		.fourcc = V4L2_PIX_FMT_VP9_FRAME,
-> @@ -358,6 +361,7 @@ static const struct rkvdec_coded_fmt_desc rkvdec_coded_fmts[] = {
->   		.ops = &rkvdec_vp9_fmt_ops,
->   		.num_decoded_fmts = ARRAY_SIZE(rkvdec_vp9_decoded_fmts),
->   		.decoded_fmts = rkvdec_vp9_decoded_fmts,
-> +		.capability = RKVDEC_CAPABILITY_VP9,
->   	}
->   };
->   
-> @@ -1186,8 +1190,18 @@ static void rkvdec_watchdog_func(struct work_struct *work)
->   	}
->   }
->   
-> +static const struct rkvdec_variant rk3399_rkvdec_variant = {
-> +	.num_regs = 78,
-> +	.capabilities = RKVDEC_CAPABILITY_HEVC |
-> +			RKVDEC_CAPABILITY_H264 |
-> +			RKVDEC_CAPABILITY_VP9,
-> +};
-> +
->   static const struct of_device_id of_rkvdec_match[] = {
-> -	{ .compatible = "rockchip,rk3399-vdec" },
-> +	{
-> +		.compatible = "rockchip,rk3399-vdec",
-> +		.data = &rk3399_rkvdec_variant,
-> +	},
->   	{ /* sentinel */ }
->   };
->   MODULE_DEVICE_TABLE(of, of_rkvdec_match);
-> @@ -1198,16 +1212,22 @@ static const char * const rkvdec_clk_names[] = {
->   
->   static int rkvdec_probe(struct platform_device *pdev)
->   {
-> +	const struct rkvdec_variant *variant;
->   	struct rkvdec_dev *rkvdec;
->   	unsigned int i;
->   	int ret, irq;
->   
-> +	variant = of_device_get_match_data(&pdev->dev);
-> +	if (!variant)
-> +		return -EINVAL;
-> +
->   	rkvdec = devm_kzalloc(&pdev->dev, sizeof(*rkvdec), GFP_KERNEL);
->   	if (!rkvdec)
->   		return -ENOMEM;
->   
->   	platform_set_drvdata(pdev, rkvdec);
->   	rkvdec->dev = &pdev->dev;
-> +	rkvdec->variant = variant;
->   	mutex_init(&rkvdec->vdev_lock);
->   	INIT_DELAYED_WORK(&rkvdec->watchdog_work, rkvdec_watchdog_func);
->   
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> index 209dd79ce9bd..c47457c954e5 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> @@ -22,6 +22,10 @@
->   #include <media/videobuf2-core.h>
->   #include <media/videobuf2-dma-contig.h>
->   
-> +#define RKVDEC_CAPABILITY_HEVC		BIT(0)
-> +#define RKVDEC_CAPABILITY_H264		BIT(1)
-> +#define RKVDEC_CAPABILITY_VP9		BIT(2)
-> +
->   struct rkvdec_ctx;
->   
->   struct rkvdec_ctrl_desc {
-> @@ -63,6 +67,11 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
->   			    base.vb.vb2_buf);
->   }
->   
-> +struct rkvdec_variant {
-> +	unsigned int num_regs;
-> +	unsigned int capabilities;
-> +};
-> +
->   struct rkvdec_coded_fmt_ops {
->   	int (*adjust_fmt)(struct rkvdec_ctx *ctx,
->   			  struct v4l2_format *f);
-> @@ -98,6 +107,7 @@ struct rkvdec_coded_fmt_desc {
->   	unsigned int num_decoded_fmts;
->   	const struct rkvdec_decoded_fmt_desc *decoded_fmts;
->   	u32 subsystem_flags;
-> +	unsigned int capability;
->   };
->   
->   struct rkvdec_dev {
-> @@ -111,6 +121,7 @@ struct rkvdec_dev {
->   	struct mutex vdev_lock; /* serializes ioctls */
->   	struct delayed_work watchdog_work;
->   	struct iommu_domain *empty_domain;
-> +	const struct rkvdec_variant *variant;
->   };
->   
->   struct rkvdec_ctx {
+Clang is concerned with the use of stmmac_do_void_callback (which
+stmmac_get_timestamp and stmmac_config_sub_second_increment wrap),
+as it may fail to initialize these values if the if condition was ever
+false (meaning the callbacks don't exist). It's not wrong because the
+callbacks (get_timestamp and config_sub_second_increment respectively)
+are the ones that initialize the variables. While it's unlikely that the
+callbacks are ever going to disappear and make that condition false, we
+can easily avoid this warning by zero initialize the variables.
+---
 
-Regards,
+   I think the original commit was just somewhat incomplete, as (adding 0-
+initializer into picture) it missed to add checking of sec_inc for 0 before
+invoking do_div()...
 
-Detlev
+> Do you have real kernel oops log?
 
+   No, this was just flagged by Svace (the static analyzer):
+
+https://www.ispras.ru/en/technologies/svace/
+
+MBR, Sergey
 
