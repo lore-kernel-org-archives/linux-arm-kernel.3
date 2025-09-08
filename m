@@ -4,140 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2218CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9148CAC585
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I0l71D8MFHugq5TyO2rGPUzHlXMYD/GEMQn83W+FG2Y=; b=x9VqwV7bcDjusLJvzjGOoYxFj3
-	CbY5TvdrlMY0+V46qeWhTZGShJKVn4m7IIHdU4SixOPIdiyLTxG+7eZgNxItz0J10X2UBTLU33rjZ
-	7pIGUiaLoIY9Ow/+fMSTV0k65HeKJ+9Mi5KaKBVC/c2ymboD3eCJ+XdPjoUDuUE8h9kXDZ/eWy/zi
-	jleU92TGMyuBtCm8tuZQgbx8k10/rjIDJO7lONWCgxf65NPQNFSW1rEAk8wrSdiEoEkZ3Ty9AY0Gh
-	b3dhIa9SoWvKgMBtw+UHA0fToJKU3vV2DOZsTEyABh/tZ657wAqSdY2Uevby1QHzo8VrYO5PttwsM
-	/Sm3D68w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oNMNm/d/jCXefib072cH1jjpOoDHvBd27GEHqnZpOJI=; b=jJ6jQuEqw/yj2D/Afynuy1f0YO
+	Ga1DMfR4Xs3Tr44GhryHT/zYpfy40rh/pWZscqpaKTh+Q4sZqwPPs9x/P1KqkALvheyqNBTVMWtcq
+	pyQZRBIrlCFmghiXYPq15XXMrRfNF31GFYq9ckqr+RdO+fgfPjYWGyKW/5sQogrXTt/cDOgMBA3jN
+	RfygAFrJ8qNUe4U7gDGAil1bHZENKlX7G5aKcrLNHrpYkHdODE4BpxI+ZrGOAoAJfpvwOrJhjmftO
+	cbm6yOzgwXLVv3ZFOaV4krciPBWCOG7Etfh+TbEl6b+tNj/oPcMmnq4Qa9UN2+2Oc3XJ/UghcvAkb
+	XOHLvMmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfOb-000000014zF-1cA9;
-	Mon, 08 Sep 2025 17:11:13 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1uvfOg-0000000155d-3Ul7;
+	Mon, 08 Sep 2025 17:11:18 +0000
+Received: from mail-dm6nam11on20626.outbound.protection.outlook.com ([2a01:111:f403:2415::626] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvbu8-0000000HMy7-0mwO
+	id 1uvc0y-0000000HPM8-0pC4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 13:27:33 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-77251d7cca6so3635441b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 06:27:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757338051; x=1757942851; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=I0l71D8MFHugq5TyO2rGPUzHlXMYD/GEMQn83W+FG2Y=;
-        b=Gpm2gfN7faHXFsGqv3zRyQEZXmrWu91pzbF2jCB0/6GEICkxo/5UI/UPfPS8MqvS2g
-         7w15eoRraKCnAcBcHtV+rwuOJYcZiEw0Ve7zG0keWCO3EgAvm/2YZvia9fccQsS3oknq
-         13rNSRiR2qebzw9s4tQxHW0lNUDwyZxztgKnSQxaF3AHShx4XmV01+Oqa6EfXU70/A5f
-         6392R90KBfqvoCdxZ0NQnzjhfmDNVLHt7OU9xwKb1+2//3iHuGM9w+/H/li07MwwW6SY
-         A/vV9mwrrmWa2ZDe4JV+htEs5fDox5LsZ0RV+BhaTirbNHpobG0xJJ8eYb3jnHZg9egI
-         7zNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757338051; x=1757942851;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I0l71D8MFHugq5TyO2rGPUzHlXMYD/GEMQn83W+FG2Y=;
-        b=IzefQABtyaNMt5VfgJNbZ7k7U9exgOS1GSP6pR2IEcOH5t37rYxp5h3CYOLNpwJG5F
-         UHAcvjhi190vNjXFBBsZe7l+E5ilC69pcGXY2NOdk/wkykrQCcqJ9bHHBKim6gUhc8HS
-         pAk6g1SnVZNC0Hj+zK4BdK8Q3TO06RBt50Yn/RgFjFs7nuNtmsdoKeaPCVwwNUC0rS1A
-         hXVVtSNfpfMIj2bnqZQr+eFU1Onf5FeNJlMBWkKxFT9kaptaGO9kTjoQGZjMvzYPA9t5
-         MqRY/z//w3lGihBIbIKowWTTxoUFMMbYZf3Yt3sHytWFULWyguTQ5xoQtLgh77cmbJdR
-         U0FQ==
-X-Gm-Message-State: AOJu0YyZgy30PeUp2N1dSmYwJ3Kk+PbrcMvPY7UCCbq4EFcOd6aHZBnT
-	YS7vLB0TExaEDdusiCUFCYCErqC/bRUjEoGZ2SUj1E5sRKQa/M3wbw5v
-X-Gm-Gg: ASbGncvQxrkDFXLVM23lCGgtDus11W3jGlcImaq30/YJAopQUTma6XIMZSzyeH/l66Q
-	w+04dn99k84LxdlhpWpE3MvATYDrJwP/CwsBrryRUoKpRKA9kWOudXGxXXyPXnH1d7/GN+PhWum
-	chZvENDffGazwNsmlwdjLXlc8VHXr7lUZP5s6Kg5KprUzt82USYTDPAdYCVenOL+ip7idFI3lOB
-	dKovh9MYvuxrLYfHrFiVztCai+eTK7TNrmReVKOjztbBX7u/mYmKtkTG9WYKreVrOY9jIMhfQos
-	qvCNOFa1b6bgG2XfdOtv+A2eFXscbaNQU+waRu39Kn9Yh8OxJ6gOBWyssxD3VAtGbL0tkElnt8B
-	Zl3eKE7780ylyu4WzLiXCaFbjB1iDAM+y1MRlOeiD2GP05JK5NBjzeTBMq0PC/wlHF0HS+Sc=
-X-Google-Smtp-Source: AGHT+IG5mHu1wEH4bpvsyLlzH1twN75NRcxvdgvbm4gluUQV37+2bxa2wzMIMNShSDalyUmEmo85uQ==
-X-Received: by 2002:a05:6a20:939d:b0:243:fe1e:2f9e with SMTP id adf61e73a8af0-2533d6029c4mr12013727637.4.1757338051281;
-        Mon, 08 Sep 2025 06:27:31 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7722a501a94sm29908945b3a.93.2025.09.08.06.27.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Sep 2025 06:27:30 -0700 (PDT)
-Message-ID: <b6cf6192-faf5-4e69-aa62-b3cacfa38f4d@roeck-us.net>
-Date: Mon, 8 Sep 2025 06:27:29 -0700
+	Mon, 08 Sep 2025 13:34:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BEj2xQ4ISL+rQJLZuJ0dTjz5bd0TLxpmcT5U6PutpWYEjdDVWLGFyFmT0RdmmlP5UovaTntt0ZxwKXCNBoYnXGEp2ond3Ny5SnIf0o1uKRgv01ppk0aB4zxoV75T/4CY8qI0Yc952TJl89QgkmtiiD5on8Wofjgew0UoSARRhH+LL97SUNX1ep8jnFttiUxp/6tRzoWcMBvuiCBs1jriuuZj5lUXuUodjtOlFgA8msWcxigfAbFU13gE8XIK+vT9m2ffT6TzebHRIiYYvvv6HVO5S46vC2hTU/Gq42kFULboPtOzDChq9KbAqK4OoK6OUFRWpyeQOn25HeAofHd+hw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oNMNm/d/jCXefib072cH1jjpOoDHvBd27GEHqnZpOJI=;
+ b=osL95TI6p43alCy4zHkWVTgIowPz0t9DWUVrtn/SPOCWi8YNTqaT4IWRkBfCEyhZwEWxRq46B4vz7wYfSy1Xy6a4K1z913SrMauYAwlXBm3+/Q8Ju1KyyBU0z+h7XdTW1njz4Rid5XoWbRgNp1wqPRnt3MTKnobMTkbpRK7+ikmNzwK9eQ95dpns2C/3krP+V1sDtHs8IvzTZ5dP2lnb+0iUnif8RQUpu4/PD0wTtNYwbi2bCBfoou5AeK941kG+BJpPB1wQq7yUW4jBZnjQaftoisya7nv9qfpQAKWOw3kHhUeI0SeosAf5/Id3vY0WO+yFD3HH5zIerKIxDdsnPQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oNMNm/d/jCXefib072cH1jjpOoDHvBd27GEHqnZpOJI=;
+ b=GKNUZWl+3HdYiiqSCcnigomwzoKzZwk03nEBnI7d49f3Ex34mnKMST7OMs18vEITwQWv8UTZJXDpPSFzR+ujXlb9crEn88dsbEOXD9l6/IjmF0QNszUOnr2z1E4+v8aaNVIPG7mhYNS+uHpYU2PmS784Msmn/hUr3gPxIt5jetI=
+Received: from SN7PR04CA0119.namprd04.prod.outlook.com (2603:10b6:806:122::34)
+ by CH1PR12MB9623.namprd12.prod.outlook.com (2603:10b6:610:2b3::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Mon, 8 Sep
+ 2025 13:34:23 +0000
+Received: from SA2PEPF000015CC.namprd03.prod.outlook.com
+ (2603:10b6:806:122:cafe::98) by SN7PR04CA0119.outlook.office365.com
+ (2603:10b6:806:122::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.22 via Frontend Transport; Mon,
+ 8 Sep 2025 13:34:23 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SA2PEPF000015CC.mail.protection.outlook.com (10.167.241.202) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9115.13 via Frontend Transport; Mon, 8 Sep 2025 13:34:23 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 8 Sep
+ 2025 06:34:08 -0700
+Received: from localhost (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17 via Frontend
+ Transport; Mon, 8 Sep 2025 06:34:07 -0700
+From: Michal Simek <michal.simek@amd.com>
+To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
+	<michal.simek@xilinx.com>, <git@xilinx.com>
+CC: Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, "open list:OPEN FIRMWARE
+ AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, "moderated
+ list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v2] arm64: versal-net: Describe L1/L2/L3/LLC caches
+Date: Mon, 8 Sep 2025 15:33:48 +0200
+Message-ID: <f740bf2d0af1e7e50d76196ec050c0fdbeceb049.1757338426.git.michal.simek@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 6/7] hwmon: sl28cpld: add SMARC-sAM67 support
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>,
- Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-References: <20250822131531.1366437-1-mwalle@kernel.org>
- <20250822131531.1366437-7-mwalle@kernel.org>
- <83189bf7-6831-4373-a352-2a3a05526e08@roeck-us.net>
- <DCN86WR0CPF1.38V3X1O08VYJG@kernel.org>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
- RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
- nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
- 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
- gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
- IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
- kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
- VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
- jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
- BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
- ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
- CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAmgrMyQFCSbODQkACgkQyx8mb86fmYGcWRAA
- oRwrk7V8fULqnGGpBIjp7pvR187Yzx+lhMGUHuM5H56TFEqeVwCMLWB2x1YRolYbY4MEFlQg
- VUFcfeW0OknSr1s6wtrtQm0gdkolM8OcCL9ptTHOg1mmXa4YpW8QJiL0AVtbpE9BroeWGl9v
- 2TGILPm9mVp+GmMQgkNeCS7Jonq5f5pDUGumAMguWzMFEg+Imt9wr2YA7aGen7KPSqJeQPpj
- onPKhu7O/KJKkuC50ylxizHzmGx+IUSmOZxN950pZUFvVZH9CwhAAl+NYUtcF5ry/uSYG2U7
- DCvpzqOryJRemKN63qt1bjF6cltsXwxjKOw6CvdjJYA3n6xCWLuJ6yk6CAy1Ukh545NhgBAs
- rGGVkl6TUBi0ixL3EF3RWLa9IMDcHN32r7OBhw6vbul8HqyTFZWY2ksTvlTl+qG3zV6AJuzT
- WdXmbcKN+TdhO5XlxVlbZoCm7ViBj1+PvIFQZCnLAhqSd/DJlhaq8fFXx1dCUPgQDcD+wo65
- qulV/NijfU8bzFfEPgYP/3LP+BSAyFs33y/mdP8kbMxSCjnLEhimQMrSSo/To1Gxp5C97fw5
- 3m1CaMILGKCmfI1B8iA8zd8ib7t1Rg0qCwcAnvsM36SkrID32GfFbv873bNskJCHAISK3Xkz
- qo7IYZmjk/IJGbsiGzxUhvicwkgKE9r7a1rOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
- 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
- pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
- J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
- pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
- 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
- ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
- I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
- nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
- HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
- JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAmgrMyQFCSbODQkACgkQyx8mb86fmYHlgg/9
- H5JeDmB4jsreE9Bn621wZk7NMzxy9STxiVKSh8Mq4pb+IDu1RU2iLyetCY1TiJlcxnE362kj
- njrfAdqyPteHM+LU59NtEbGwrfcXdQoh4XdMuPA5ADetPLma3YiRa3VsVkLwpnR7ilgwQw6u
- dycEaOxQ7LUXCs0JaGVVP25Z2hMkHBwx6BlW6EZLNgzGI2rswSZ7SKcsBd1IRHVf0miwIFYy
- j/UEfAFNW+tbtKPNn3xZTLs3quQN7GdYLh+J0XxITpBZaFOpwEKV+VS36pSLnNl0T5wm0E/y
- scPJ0OVY7ly5Vm1nnoH4licaU5Y1nSkFR/j2douI5P7Cj687WuNMC6CcFd6j72kRfxklOqXw
- zvy+2NEcXyziiLXp84130yxAKXfluax9sZhhrhKT6VrD45S6N3HxJpXQ/RY/EX35neH2/F7B
- RgSloce2+zWfpELyS1qRkCUTt1tlGV2p+y2BPfXzrHn2vxvbhEn1QpQ6t+85FKN8YEhJEygJ
- F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
- FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <DCN86WR0CPF1.38V3X1O08VYJG@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Developer-Signature: v=1; a=openpgp-sha256; l=17906; i=michal.simek@amd.com; h=from:subject:message-id; bh=lAcBb2o+ARELk8yGn199HCcilo9zAgThtJdG4+fQ5tY=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWTsu23nt3fRVXNGnijf26XbzwqpqVsX9/FM39J+pUlpQ Xt2pBNnRykLgxgHg6yYIst0Jh2HNd+uLRVbHpkPM4eVCWQIAxenAExEsZCRoYs3pO2tve6bl7WR VuJPL2tLKO+YkOW/Tf7PiauT5mRMc2T4H/T25i/2wJ0mM1d7feP6wfjpTtgV2/1rS/+n/zTL8P+ izAIA
+X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CC:EE_|CH1PR12MB9623:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0742c671-2218-4dcf-3d89-08ddeedc6c3e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yhTkxHs0Ow9EddBmW29CWXSfJ9z9qS5vhN6vJOfQ55DzUEpk0JI1cxuhaw6T?=
+ =?us-ascii?Q?VzMVGSRGV9rbXcio4UVbFFMWHyEZbfGWHxZu5nWhOoQgyHIHm3L1+tsOnaZN?=
+ =?us-ascii?Q?40Nz1lBGS9BlR7LoxqDwigPcokijllxrh3SBnLA7pmZsG2qRf4nA0SPHnTSH?=
+ =?us-ascii?Q?vd2Hwr7d2/gDObuycuvgC3vu4WpXDDqcvitUpHUUpOEm8A41k3Nn0Tgh3NTF?=
+ =?us-ascii?Q?IqXaauWSsPnHH3m9n1JD2uY9JTff+y5ymo4b1T6U24oME0NwsAys0eKCL9mX?=
+ =?us-ascii?Q?7XIMwylR1l+6T+hn82uFMMMrNeA4UajbcjWeeeQG+CDdWWhmrDYGHfrPqCNC?=
+ =?us-ascii?Q?CqwHU3GLD8EbKVl2vhEUfjw2bEGe/SoBOysvSf6UNAjVrc7AxvpVZlo31SR+?=
+ =?us-ascii?Q?K+lxQZe3gIHNnVVG2tNRHJr+4tJsUegVdDS8qwiygdZDeGvMHG+/U2N8wgsn?=
+ =?us-ascii?Q?Vv2bWQjVyLcxM3gXfOepoJqNE82Qd5VqRtq2pixRMrLAupY7cN1aOVGMQAX0?=
+ =?us-ascii?Q?YBoEk8xL3/FXpi/RLtc4asjDHm7hde6+0Dp/4eNomGuEsXGIVq4Qw2A1g5fc?=
+ =?us-ascii?Q?SFFk2AbaAdcQKDkf1XEUZWNfovfUlHfluqt/anQL1QuidATqfhgHqea/69Av?=
+ =?us-ascii?Q?h6kxy4wOUb6heCflXxtnwh1cq9gEnFEvx7Qbb79AtRrQtoB84XQdA44hlALE?=
+ =?us-ascii?Q?LegMSagoI45lNEqm4lclWeGMEDtw82RmaTV6zqwD8Kgjsjf9wcWEJN5T7y65?=
+ =?us-ascii?Q?uxVNiL4HL2r5wZMgk+0z7+4fX4kK1bFoY0dbNVD5Fq3D7Jzz21K1VMKN9APh?=
+ =?us-ascii?Q?RbspayIsiyu/4Jto3pzx90ryi+/0lUFr9+We9IwnyZ/cIdV6HEC11MYRdctN?=
+ =?us-ascii?Q?YbfLQoSU9I7bKbWyM3plmZTmKQWnHrgXUclHO1OOEFUG2TLiVY3//0QBIMcv?=
+ =?us-ascii?Q?hbrMIvxQylVQhjLjHlnb1dgpVG3Tf+30s6Qjm306SoWqiT/DlWM0pcV1XURP?=
+ =?us-ascii?Q?fk0B0laMRm+vuw3NVR6zSFixcZJM3zhVbH0h/HTu3f6cIZpJI7Plnuj8urkf?=
+ =?us-ascii?Q?11X+q7qOHG4by15Qi5iV9B2zzr0xTaFi/UjC1Byou+G6LByY4OLS5tLaU+HE?=
+ =?us-ascii?Q?3QfbTUbKCbr4Y23kQkW0T218ge3HFo6tYv56cqPqkRVrL1Hv5aIGtnHbHDQ+?=
+ =?us-ascii?Q?yksjbX8mWjxVvYcAVpalJlYU/bdx4jBJ/2GSmO6703HMxk4We9YZwpf3rLRW?=
+ =?us-ascii?Q?NTvevYVFTPjCOjLd834jbxbSUnz/8RIohRbfu01vSKBJw6dm3XtTyqPUe2Jh?=
+ =?us-ascii?Q?td/+cJTZhl4DdSnrkcIzhfDa2EUCXWQ5MWLsqeHUvk049IkkiqYXaonY7eSV?=
+ =?us-ascii?Q?F8QP48yb8THGp+6+aaIEJUqMP12QIKUYCb1gBThAiVuz7eoSHTfjtZoRcEpf?=
+ =?us-ascii?Q?hdvglC3zQ9iLw5oUE8U5hQwHiRqzucRO0JTV7Bw8tue+jKElbaTcmA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2025 13:34:23.1971
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0742c671-2218-4dcf-3d89-08ddeedc6c3e
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CC.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9623
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_062732_247398_075C500C 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20250908_063436_296395_FF69010B 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,27 +146,557 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/8/25 00:04, Michael Walle wrote:
-> Hi Guenter,
-> 
->>>    static const struct of_device_id sl28cpld_hwmon_of_match[] = {
->>> -	{ .compatible = "kontron,sl28cpld-fan" },
->>> +	{ .compatible = "kontron,sl28cpld-fan", .data = &sl28cpld_hwmon_chip_info },
->>> +	{ .compatible = "kontron,sa67mcu-hwmon", .data = &sa67mcu_hwmon_chip_info },
->>
->> Effectively this means that the two chips have completely different functionality.
->> One reports fan speeds, the other reports voltages and current.
->> This should be a separate driver.
-> 
-> Fair enough. I wasn't sure, the reason why I've chosen to add it to
-> the sl28cpld driver was that I don't want to clutter the directory
-> with many small board specific drivers. They all have the simple-mfd
-> parent driver in common. In the end it's up to you of course, so
-> separate driver?
-> 
+Add missing cache layout description.
 
-Yes, please. The parent is irrelevant. Functionality isn't.
-Thanks,
-Guenter
+Signed-off-by: Michal Simek <michal.simek@amd.com>
+---
 
+Changes in v2:
+- Also describe L1 caches
+- Add L1 to subject too
+
+v1:
+https://lore.kernel.org/r/f2ee23526349a0674149c969a2176c906e529402.1756825388.git.michal.simek@amd.com
+
+> lscpu --cache
+NAME ONE-SIZE ALL-SIZE WAYS TYPE        LEVEL SETS PHY-LINE COHERENCY-SIZE
+L1d       64K       1M    4 Data            1  256                      64
+L1i       64K       1M    4 Instruction     1  256                      64
+L2       512K       8M    8 Unified         2 1024                      64
+L3         2M       8M   16 Unified         3 2048                      64
+L4        16M      16M      Unified         4
+
+---
+ arch/arm64/boot/dts/xilinx/versal-net.dtsi | 408 +++++++++++++++++++++
+ 1 file changed, 408 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/xilinx/versal-net.dtsi b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
+index c037a7819967..412af9a394aa 100644
+--- a/arch/arm64/boot/dts/xilinx/versal-net.dtsi
++++ b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
+@@ -104,6 +104,28 @@ cpu0: cpu@0 {
+ 			reg = <0>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_00>;
++			l2_00: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_0>;
++			};
+ 		};
+ 		cpu100: cpu@100 {
+ 			compatible = "arm,cortex-a78";
+@@ -112,6 +134,28 @@ cpu100: cpu@100 {
+ 			reg = <0x100>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_01>;
++			l2_01: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_0>;
++			};
+ 		};
+ 		cpu200: cpu@200 {
+ 			compatible = "arm,cortex-a78";
+@@ -120,6 +164,28 @@ cpu200: cpu@200 {
+ 			reg = <0x200>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_02>;
++			l2_02: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_0>;
++			};
+ 		};
+ 		cpu300: cpu@300 {
+ 			compatible = "arm,cortex-a78";
+@@ -128,6 +194,28 @@ cpu300: cpu@300 {
+ 			reg = <0x300>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_03>;
++			l2_03: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_0>;
++			};
+ 		};
+ 		cpu10000: cpu@10000 {
+ 			compatible = "arm,cortex-a78";
+@@ -136,6 +224,28 @@ cpu10000: cpu@10000 {
+ 			reg = <0x10000>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_10>;
++			l2_10: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_1>;
++			};
+ 		};
+ 		cpu10100: cpu@10100 {
+ 			compatible = "arm,cortex-a78";
+@@ -144,6 +254,28 @@ cpu10100: cpu@10100 {
+ 			reg = <0x10100>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_11>;
++			l2_11: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_1>;
++			};
+ 		};
+ 		cpu10200: cpu@10200 {
+ 			compatible = "arm,cortex-a78";
+@@ -152,6 +284,28 @@ cpu10200: cpu@10200 {
+ 			reg = <0x10200>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_12>;
++			l2_12: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_1>;
++			};
+ 		};
+ 		cpu10300: cpu@10300 {
+ 			compatible = "arm,cortex-a78";
+@@ -160,6 +314,28 @@ cpu10300: cpu@10300 {
+ 			reg = <0x10300>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_13>;
++			l2_13: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_1>;
++			};
+ 		};
+ 		cpu20000: cpu@20000 {
+ 			compatible = "arm,cortex-a78";
+@@ -168,6 +344,28 @@ cpu20000: cpu@20000 {
+ 			reg = <0x20000>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_20>;
++			l2_20: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_2>;
++			};
+ 		};
+ 		cpu20100: cpu@20100 {
+ 			compatible = "arm,cortex-a78";
+@@ -176,6 +374,28 @@ cpu20100: cpu@20100 {
+ 			reg = <0x20100>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_21>;
++			l2_21: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_2>;
++			};
+ 		};
+ 		cpu20200: cpu@20200 {
+ 			compatible = "arm,cortex-a78";
+@@ -184,6 +404,28 @@ cpu20200: cpu@20200 {
+ 			reg = <0x20200>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_22>;
++			l2_22: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_2>;
++			};
+ 		};
+ 		cpu20300: cpu@20300 {
+ 			compatible = "arm,cortex-a78";
+@@ -192,6 +434,28 @@ cpu20300: cpu@20300 {
+ 			reg = <0x20300>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_23>;
++			l2_23: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_2>;
++			};
+ 		};
+ 		cpu30000: cpu@30000 {
+ 			compatible = "arm,cortex-a78";
+@@ -200,6 +464,28 @@ cpu30000: cpu@30000 {
+ 			reg = <0x30000>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_30>;
++			l2_30: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_3>;
++			};
+ 		};
+ 		cpu30100: cpu@30100 {
+ 			compatible = "arm,cortex-a78";
+@@ -208,6 +494,28 @@ cpu30100: cpu@30100 {
+ 			reg = <0x30100>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_31>;
++			l2_31: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_3>;
++			};
+ 		};
+ 		cpu30200: cpu@30200 {
+ 			compatible = "arm,cortex-a78";
+@@ -216,6 +524,28 @@ cpu30200: cpu@30200 {
+ 			reg = <0x30200>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_32>;
++			l2_32: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_3>;
++			};
+ 		};
+ 		cpu30300: cpu@30300 {
+ 			compatible = "arm,cortex-a78";
+@@ -224,7 +554,85 @@ cpu30300: cpu@30300 {
+ 			reg = <0x30300>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP_0>;
++			d-cache-size = <0x10000>; /* 64kB */
++			d-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			d-cache-sets = <256>;
++			i-cache-size = <0x10000>; /* 64kB */
++			i-cache-line-size = <64>;
++			/* 4 ways set associativity */
++			/* cache_size / (line_size / associativity) */
++			i-cache-sets = <256>;
++			next-level-cache = <&l2_33>;
++			l2_33: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-size = <0x80000>; /* 512kB */
++				cache-line-size = <64>;
++				/* 8 ways set associativity */
++				/* cache_size / (line_size/associativity) */
++				cache-sets = <1024>;
++				cache-unified;
++				next-level-cache = <&l3_3>;
++			};
++		};
++
++		l3_0: l3-0-cache { /* cluster private */
++			compatible = "cache";
++			cache-level = <3>;
++			cache-size = <0x200000>; /* 2MB */
++			cache-line-size = <64>;
++			/* 16 ways set associativity */
++			/* cache_size / (line_size/associativity) */
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&llc>;
++		};
++
++		l3_1: l3-1-cache { /* cluster private */
++			compatible = "cache";
++			cache-level = <3>;
++			cache-size = <0x200000>; /* 2MB */
++			cache-line-size = <64>;
++			/* 16 ways set associativity */
++			/* cache_size / (line_size/associativity) */
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&llc>;
++		};
++
++		l3_2: l3-2-cache { /* cluster private */
++			compatible = "cache";
++			cache-level = <3>;
++			cache-size = <0x200000>; /* 2MB */
++			cache-line-size = <64>;
++			/* 16 ways set associativity */
++			/* cache_size / (line_size/associativity) */
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&llc>;
++		};
++
++		l3_3: l3-3-cache { /* cluster private */
++			compatible = "cache";
++			cache-level = <3>;
++			cache-size = <0x200000>; /* 2MB */
++			cache-line-size = <64>;
++			/* 16 ways set associativity */
++			/* cache_size / (line_size/associativity) */
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&llc>;
++		};
++
++		llc: l4-cache { /* LLC inside CMN */
++			compatible = "cache";
++			cache-level = <4>;
++			cache-size = <0x1000000>; /* 16MB */
++			cache-unified;
+ 		};
++
+ 		idle-states {
+ 			entry-method = "psci";
+ 
+-- 
+2.43.0
+
+base-commit: 3160658ea2c4dd09a1d68918271177cf55437a8f
 
