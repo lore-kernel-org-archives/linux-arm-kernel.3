@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AFE4CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 19:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E72C3CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 19:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=88rIo6vELC32LvJTx8+Gk8qrbM1QYH+yJn5uAujrpoc=; b=THgtPzJULafX5tisqMKcKsy+9o
-	yuENEeoGFgZZXKee9vvCi7XNTIhRWNMAVhhTNQ+mR46ZEtfcYK5L0pjAV0Nrkw6d8tXGagj5tzYqq
-	0aBFki1JekDGT8xmVDLqeHLotvwyjn1GgnjU/sr9X3WLHAgKpcu6LM1VIM5kiHRtaNsJPneNHnfMk
-	qYRmEmOFo7sN/b7qSLp0lVMIsfj53sTzdY+Z9ECR6XUwCKmHZoLD8gRsKappcTnLKASB9k8w/hfrE
-	7ajGOzWuTTsVFp/xP1/IPcp/VJ2Zv2FO5z1bNRInQ2QrspICCqRo18nTpQw8mqwemkx3tibaBCIs1
-	RpkfK/Jw==;
+	bh=n5l6wg9In98Sp1cT3+vqavGTtoTmprMYlqUOKy2UyFE=; b=zgxyzGHJwIv6oFjHmUW7JV3c28
+	QsaafbHcD6KdOf2XQKTitBjl2rrNHaS4xgZ1o3MulIxoiA75mvPwxBBGX+m/tkNCMb+wcWQ7uM26C
+	C9ZIivqO8VHREyuep6ArQOjaBO/R1TpGtbLfDxCwu1N/hj29qmqpA0CduQG83hZqAAFAVvV0XDrGI
+	UErTgvv0ZSxSRlb5rvWBIwozxBy2DGLciN+4hNZIYWmN+PJ5PWNTGK/TkKMEP1uf6ahXjbygIPxV0
+	eK/9m5h3I83uazoYQhZwF24SDhkcpcqExouemnjkGDusCI8IV+YxnPLMYPCHbm76OI8oL44bSQrPs
+	mXFMerUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhIh-00000001oG2-0ptE;
-	Mon, 08 Sep 2025 19:13:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uvhLP-00000001pFV-05zq;
+	Mon, 08 Sep 2025 19:16:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uveDc-00000000anq-2MNk
+	id 1uveDf-00000000apo-30MF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 15:55:49 +0000
+	Mon, 08 Sep 2025 15:55:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 455C0449BA;
+	by tor.source.kernel.org (Postfix) with ESMTP id 28276601FD;
+	Mon,  8 Sep 2025 15:55:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEB94C4CEF1;
 	Mon,  8 Sep 2025 15:55:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D2E6C4CEF5;
-	Mon,  8 Sep 2025 15:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757346948;
-	bh=ugkOsd8Tovfe1b2/cCJ9AsQbL5PP91uhRU2ifNevKdY=;
+	s=k20201202; t=1757346950;
+	bh=MIQXdTqzCuyImVdiOhE8rNTbwPNyhkIPQlXgimdMFS4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WezdQvLf9cxcGTdiY3msxIaKRJ9B/gBJl0uJUROY91bPAlGWSRIPvkMpP1icHedgO
-	 uzpvWZAU80NmCYIP4v7e0ks3EL2QjPxgmIy2ffmMV7LIwZGPsqhYpk4JKQ1iH2v/v2
-	 CEJ2qyYq4jOu3zxnQre6Nu+5hW5LpmmwAHEnlSzAkFWC7d2awhh8rA5N4ty5y0VN6x
-	 3ZyyiMY6M32UI8HxVOUPEcwJO0CQoBmIty82ffCSA3rAjwI3qkgB+oZvAWg3vm7PsU
-	 Tac52Jne1H/KZZuayeEBxrVIswQf4C6D4dA0+BBEQco4vkp+hDtdCK6LNIJJmtcykp
-	 bans5EHjlOi1Q==
+	b=eS8VLBBREUZo0Z+fEkRclXc/Ugf9tnzjnb2Mkkf9ZH7jb8pD/bE2s98uC9ORSn4ny
+	 eJZ9C4bOHme7m0M7Mv/BMq9ShLGnf7mVmOBlb0Q9FAtwa9qAIjgXlcoim7zO83OTxH
+	 Rsqyffu0poYiAYBWvZC2gkP4W/ef/qgGHCIe6Q67gPcWgbHuyoMPwao9RO/apcnasm
+	 bxQzlT0wBKTasoOvFqexeJrmdx4WjaBD+shC1OY8nwXs77VvFbpq2P7r8uMmLPFTcM
+	 Rr8DWhQU7nkNQ854Ci0VY0vziXP3u7NsgDVXfq3erdZjH4fflhl1LRAxLi67QsYvPB
+	 gOocdgx62KnXQ==
 From: Will Deacon <will@kernel.org>
-To: broonie@kernel.org,
+To: anshuman.khandual@arm.com,
 	Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	shuah@kernel.org,
 	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] selftests: arm64: Check fread return value in exec_target
-Date: Mon,  8 Sep 2025 16:55:30 +0100
-Message-Id: <175734023581.133744.8096458683777089384.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	shuah@kernel.org,
+	broonie@kernel.org,
+	yeoreum.yun@arm.com
+Subject: Re: [PATCH v2] selftests: arm64: Fix -Waddress warning in tpidr2 test
+Date: Mon,  8 Sep 2025 16:55:31 +0100
+Message-Id: <175734146103.139506.13467439064813237125.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250808080955.41735-1-reddybalavignesh9979@gmail.com>
-References: <a72e8741-a63a-487e-838e-daeed3458c0f@sirena.org.uk> <20250808080955.41735-1-reddybalavignesh9979@gmail.com>
+In-Reply-To: <20250807114247.5915-2-reddybalavignesh9979@gmail.com>
+References: <005af416-66fa-4222-964d-e20bd2eccb7f@arm.com> <20250807114247.5915-1-reddybalavignesh9979@gmail.com> <20250807114247.5915-2-reddybalavignesh9979@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_085548_616798_129E97F8 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,21 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 08 Aug 2025 13:38:30 +0530, Bala-Vignesh-Reddy wrote:
-> Fix -Wunused-result warning generated when compiled with gcc 13.3.0,
-> by checking fread's return value and handling errors, preventing
-> potential failures when reading from stdin.
+On Thu, 07 Aug 2025 17:12:29 +0530, Bala-Vignesh-Reddy wrote:
+> Resolve compiler warning about always true condition in ksft_test_result
+> in tpidr2, passing actual function.
 > 
-> Fixes compiler warning:
-> warning: ignoring return value of 'fread' declared with attribute
-> 'warn_unused_result' [-Wunused-result]
+> This silences -Waddress warning while maintaining test functionality.
+> 
+> Fixes compiler warning (similar for other functions):
+> warning: the address of 'write_read' will always evaluate as
+> 'true' [-Waddress]
 > 
 > [...]
 
 Applied to arm64 (for-next/selftests), thanks!
 
-[1/1] selftests: arm64: Check fread return value in exec_target
-      https://git.kernel.org/arm64/c/a679e5683d3e
+[1/1] selftests: arm64: Fix -Waddress warning in tpidr2 test
+      https://git.kernel.org/arm64/c/50af02425afc
 
 Cheers,
 -- 
