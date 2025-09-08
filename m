@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F139CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 01:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4EB8CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 01:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xUkwLhvxo+qlP8q48NozHmrayNsql7bqJa9Izys7F4Q=; b=Uz4VG0yYo6SlcCudeqKFEP2Jf2
-	2+25hSVY3BgxwK/JDBqdIT4Vr/4wEPDmV4+hS65wD6+UHf9UmedNxdc481q6RVf1FZbNZUlMLKa13
-	U4o3XYoSJa0dvrM/I2Q1amQVnekHbWm57qSTSiWGcotBK2U/9lx36kYCRx0K1bXTTk+Y+dDLW9rt4
-	RW2kPNwEUOXB7NLkbxJHJOk5Esc7Ayx9JRPVlGUugR0El7eV4C2zjQnjiIMU8H6e5FO3xDNQtygJW
-	VVVMIscluJQ9KEiBdUwv/u9YelZOkYjF236OK0QZ36gmA5MgXWwnlp4b1M/hRIZ8R8+Nw4DrZTj1/
-	NjvOxh3g==;
+	bh=oc9QtlnivrmyRdWiEc2S9LYTB9UqgUtEatt5XHUCLvY=; b=QOjDXCYD8AfGSWYqjBMa+z6nhJ
+	pRFvnEdl+WWMwGVCC45Q7cAw5n2ghnt8vtlFMxENE77lHCJQoduBogMVtq58u3N4PMODJtk1rYMF8
+	P1JtriJXBqa/JewX0a4d2PljVfTwYTZ3519TU14Ro9nL6TF784tYld7gt86mmtdteDnWMp2WzogTv
+	qz8NZWvtPRKlRG3mV7RblbW1ikskW8XV0N6/zXQdmyprBGU5vd67p9jstulYebzcAz76IgmiCun2X
+	F+JY1q/4D4bx4sbJ9Um3HMljD5joY8HcYRn7u7Y1agspJQmFBvZzUYIiynnvUdtysa95wkAVzIWXc
+	BjpWIkiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvQes-0000000Dm9O-2OxE;
-	Mon, 08 Sep 2025 01:27:02 +0000
+	id 1uvQhe-0000000Dmjr-1m6z;
+	Mon, 08 Sep 2025 01:29:54 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvQWV-0000000DjcM-47kA
+	id 1uvQWX-0000000DjcM-1L9C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 01:18:25 +0000
+	Mon, 08 Sep 2025 01:18:26 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 8 Sep
@@ -42,9 +42,9 @@ To: ryan_chen <ryan_chen@aspeedtech.com>, Eddie James <eajames@linux.ibm.com>,
 	Lee Jones <lee@kernel.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v4 2/4] dt-bindings: mfd: aspeed: Add AST2700 SCU compatibles
-Date: Mon, 8 Sep 2025 09:18:10 +0800
-Message-ID: <20250908011812.1033858-3-ryan_chen@aspeedtech.com>
+Subject: [PATCH v4 3/4] dt-bindings: interrupt-controller: aspeed: Add AST2700 SCU IC compatibles
+Date: Mon, 8 Sep 2025 09:18:11 +0800
+Message-ID: <20250908011812.1033858-4-ryan_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250908011812.1033858-1-ryan_chen@aspeedtech.com>
 References: <20250908011812.1033858-1-ryan_chen@aspeedtech.com>
@@ -52,9 +52,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_181824_014940_230D4A31 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250907_181825_349906_79F7958C 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,31 +68,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SCU interrupt controller compatible strings for the AST2700 SoC:
-scu-ic0 to 3. This extends the MFD binding to support AST2700-based
-platforms.
+Add compatible strings for the four SCU interrupt controller instances
+on the AST2700 SoC (scu-ic0 to 3), following the multi-instance model used
+on AST2600.
+
+Also define interrupt indices in the binding header.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../aspeed,ast2500-scu-ic.yaml                     |  6 +++++-
+ .../interrupt-controller/aspeed-scu-ic.h           | 14 ++++++++++++++
+ 2 files changed, 19 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-index 5eccd10d95ce..67be6d095fe4 100644
---- a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-+++ b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-@@ -75,6 +75,10 @@ patternProperties:
-             - aspeed,ast2500-scu-ic
-             - aspeed,ast2600-scu-ic0
-             - aspeed,ast2600-scu-ic1
-+            - aspeed,ast2700-scu-ic0
-+            - aspeed,ast2700-scu-ic1
-+            - aspeed,ast2700-scu-ic2
-+            - aspeed,ast2700-scu-ic3
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2500-scu-ic.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2500-scu-ic.yaml
+index d5287a2bf866..d998a9d69b91 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2500-scu-ic.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2500-scu-ic.yaml
+@@ -5,7 +5,7 @@
+ $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2500-scu-ic.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
  
-   '^silicon-id@[0-9a-f]+$':
-     description: Unique hardware silicon identifiers within the SoC
+-title: Aspeed AST25XX and AST26XX SCU Interrupt Controller
++title: Aspeed AST25XX, AST26XX, AST27XX SCU Interrupt Controller
+ 
+ maintainers:
+   - Eddie James <eajames@linux.ibm.com>
+@@ -16,6 +16,10 @@ properties:
+       - aspeed,ast2500-scu-ic
+       - aspeed,ast2600-scu-ic0
+       - aspeed,ast2600-scu-ic1
++      - aspeed,ast2700-scu-ic0
++      - aspeed,ast2700-scu-ic1
++      - aspeed,ast2700-scu-ic2
++      - aspeed,ast2700-scu-ic3
+ 
+   reg:
+     maxItems: 1
+diff --git a/include/dt-bindings/interrupt-controller/aspeed-scu-ic.h b/include/dt-bindings/interrupt-controller/aspeed-scu-ic.h
+index f315d5a7f5ee..7dd04424afcc 100644
+--- a/include/dt-bindings/interrupt-controller/aspeed-scu-ic.h
++++ b/include/dt-bindings/interrupt-controller/aspeed-scu-ic.h
+@@ -20,4 +20,18 @@
+ #define ASPEED_AST2600_SCU_IC1_LPC_RESET_LO_TO_HI	0
+ #define ASPEED_AST2600_SCU_IC1_LPC_RESET_HI_TO_LO	1
+ 
++#define ASPEED_AST2700_SCU_IC0_PCIE_PERST_LO_TO_HI	3
++#define ASPEED_AST2700_SCU_IC0_PCIE_PERST_HI_TO_LO	2
++
++#define ASPEED_AST2700_SCU_IC1_PCIE_RCRST_LO_TO_HI	3
++#define ASPEED_AST2700_SCU_IC1_PCIE_RCRST_HI_TO_LO	2
++
++#define ASPEED_AST2700_SCU_IC2_PCIE_PERST_LO_TO_HI	3
++#define ASPEED_AST2700_SCU_IC2_PCIE_PERST_HI_TO_LO	2
++#define ASPEED_AST2700_SCU_IC2_LPC_RESET_LO_TO_HI	1
++#define ASPEED_AST2700_SCU_IC2_LPC_RESET_HI_TO_LO	0
++
++#define ASPEED_AST2700_SCU_IC3_LPC_RESET_LO_TO_HI	1
++#define ASPEED_AST2700_SCU_IC3_LPC_RESET_HI_TO_LO	0
++
+ #endif /* _DT_BINDINGS_INTERRUPT_CONTROLLER_ASPEED_SCU_IC_H_ */
 -- 
 2.34.1
 
