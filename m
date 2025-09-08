@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B555DCA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 19:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1055ECAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 19:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rkDbB/VBy9iyBcDcJYo6n2nktDCqpFN+gYQUVC2mCCk=; b=PyItDCBP/tC/FA9CS5V6td+k4L
-	Oor3+tUVbfjBSqQGR97Xq8QCwlU7IH90C2tSgh6lxvMKj/8o4nyfeanCTQrqJC+F0oSSiBjn6eDPq
-	FtPgPvBhss8C2oUTNruulO6dRa2Wyq7iSdtnmvNAaDgkKWUTyNlAtXlSbpd0STMIebChr2bTm3Ubc
-	vf7ds4x5aSPrVa1vcfkGLbAyi//hP94Q6/fj9bUKN0K6QN68AyantKrfH8m5gKkt4BLGdW3cK2wg5
-	D6tBcLFribXUU0KfqLxwu5Qti6ThwUHc3+XXrwbv+DFNYJ+9Et4ZkXCiBUTU91m3n/V2i21vz/8J+
-	Qeaqj0Kg==;
+	bh=1A242F6LfkMbc7L4IW0Lla+LHdWaqDIFPQEBb+TOmAo=; b=405hjAP4uDQNhEbgnyhZ5HzUHw
+	/Frkp8Ah7uCBJ7kR2X2zUDbUx022fdyFNLFJ1BxI2P7JU6sMUIokU1EsPRkxP3aFM4Xtyls+ddu7g
+	OdNcaslrsifwqQLurvjTMGcS4an3jmiT/2XslyFaVI61tmwuvVIKBnkj0+mE7jnAplpg7u6vryaQH
+	uC9pYEcXS7lwNomV/s9J4t/6Khn2yfukltUW8g6HENn3UnmVAXD1D6GP3VoUX5QP9Y+J+4XYVLo0K
+	GU2l10T/SunjZSAa27gjwmkxcdp/mukfDJuZEhLks4ZRvFa3/QVUi84pvP1uCbDy+sAacyH9vrsz1
+	kWaA+GhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhDG-00000001mXw-2EAz;
-	Mon, 08 Sep 2025 19:07:38 +0000
+	id 1uvhFz-00000001nYK-1hw2;
+	Mon, 08 Sep 2025 19:10:27 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uveDX-00000000ajw-387K
+	id 1uveDa-00000000am7-0seF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 15:55:45 +0000
+	Mon, 08 Sep 2025 15:55:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 73957449AA;
+	by sea.source.kernel.org (Postfix) with ESMTP id EE8BB449C5;
+	Mon,  8 Sep 2025 15:55:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9A34C4CEF9;
 	Mon,  8 Sep 2025 15:55:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2182C4CEF5;
-	Mon,  8 Sep 2025 15:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757346943;
-	bh=BBOLuMQBpbMciZQldTFaNC14ABYsHLR+ucy6qxVuflA=;
+	s=k20201202; t=1757346945;
+	bh=TrbhHDclZj61VL4BpfvLM7YtJx5kSeqUFFlWu2MxTDk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=M2EeJRJZjrCo832k4yhx0UNmvmT+xgE+UprMnC8RMlOLifl505tfT/vwenOftdXs+
-	 QpOsKPF2aQ5NQM8k+Td7++payF7d/Ibl8EFPXkCinqQ+e9azH7xZCNUOIWJ19fJFBz
-	 jBjsEgbvgs2r2Rbmhhh6iL51I4XRty7thSCs3hrGfmNd1HCgMRc7dzvNM6Bhou5sdL
-	 OdNJjKp5NMCydbnYLsFB4pTVjAd5FCCrCNx2lo1TEO7KvyxGSrKkLU7CfIL6CDj7Uq
-	 E1m2YqxdewLGyN/GmdhrDx/Omsi2qaRBdO2toplYwP01tYNJH68mG0qYolnFKYcER3
-	 dRVnGuoDhxxiQ==
+	b=pI+TL0QoFGcDCtPXmvuSrq4sPxGAinw8UCXjrNFhdGOSTL7UO3B8NulAQgg2t4FSn
+	 WmqPrgz5Yag7/O3hIxk6dsuZH07Y2YoQDX67q9LbKaHzAn2Ky3lQrX/XyqeswF88vv
+	 lbTuo1DiglMRV9fMFBMY2rtJLgkdeZUAVlEm/9DvHVOqeyMHN2yZNhbjl83mLD9E+6
+	 0Akfzmz82TPFwQpLZvwoxg5zSQ76nEa6xuiE5sKsa4Rt9wWDdee5ue1DO2uxgbG3iY
+	 hUhpeB6vezPyeQ9ZPHKLly9vvdjABBZuYZCxxXRIevBsuvaAQ76ZzOzt1yBlehhdk6
+	 exy0dXqsYyoLA==
 From: Will Deacon <will@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Shuah Khan <shuah@kernel.org>,
-	Mark Brown <broonie@kernel.org>
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Mark Brown <broonie@kernel.org>,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] kselftest/arm64: Log error codes in sve-ptrace
-Date: Mon,  8 Sep 2025 16:55:28 +0100
-Message-Id: <175734043843.134886.2856924752419188882.b4-ty@kernel.org>
+Subject: Re: [PATCH 0/2] kselftest/arm64/gcs: Cleanups for basic-gcs.c
+Date: Mon,  8 Sep 2025 16:55:29 +0100
+Message-Id: <175734328051.148062.3197193591970753500.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250812-arm64-fp-ptrace-perror-v1-1-7ce62d33709d@kernel.org>
-References: <20250812-arm64-fp-ptrace-perror-v1-1-7ce62d33709d@kernel.org>
+In-Reply-To: <20250821-nolibc-gcs-fixes-v1-0-88519836c915@weissschuh.net>
+References: <20250821-nolibc-gcs-fixes-v1-0-88519836c915@weissschuh.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_085543_799707_F5B87F4C 
-X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-CacheID: sfid-20250908_085546_285886_E6B0A191 
+X-CRM114-Status: UNSURE (   6.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,16 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Aug 2025 15:37:00 +0100, Mark Brown wrote:
-> Use ksft_perror() to report error codes from failing ptrace operations to
-> make it easier to interpret logs when things go wrong.
+On Thu, 21 Aug 2025 17:13:01 +0200, Thomas Weißschuh wrote:
+> Two small cleanups.
 > 
 > 
 
 Applied to arm64 (for-next/selftests), thanks!
 
-[1/1] kselftest/arm64: Log error codes in sve-ptrace
-      https://git.kernel.org/arm64/c/791d703baddd
+[1/2] kselftest/arm64/gcs: Correctly check return value when disabling GCS
+      https://git.kernel.org/arm64/c/740cdafd0d99
+[2/2] kselftest/arm64/gcs: Use nolibc's getauxval()
+      https://git.kernel.org/arm64/c/a985fe638344
 
 Cheers,
 -- 
