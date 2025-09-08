@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4BDCA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:09:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9AAFCAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5BpttAHpJbHjU5zlElKTAX1nmzmhusdG1v06go3DFc=; b=NP0XKG+O1jIcvJT+GfYRl1elU4
-	6oCpTKmvOuQutf97PTTEDPIExPKo3FcNcK9DgAQ/R26m0rFYjUIEzndPAURpChNquXYJ5krskmPrP
-	aaE0SZV8EMdR3XrsurX85t83UquJexcR5+lUTjCJi/q5mb6KZLE0v8EqxT7Gpn15RgGJhhkwMq8w5
-	N+OaZ1iotaNa/4JMXxzYlUqVXwZ2zf38VTzIpS7oOUjNUC0CDPQDK/mgNbO9A/9mjjudE18aEs6v3
-	Z6wX4PjwNseKSBA2vP2tFWKOrbXp08/ak89iiF/otv3duS+aKqLr7wwBoVuVSutK9L2jAh6UO2wDQ
-	CcxurzVQ==;
+	bh=tF31xmJcbc0qseWIsNrqZ2L4YD6Ay+rKlY4qBWnaoK0=; b=iYwEXcCk7FoBVRMCNkjrfqWXv9
+	jjNTLPPM9s6pFGuyxx2BMdP4XkvfFgXbP9vR+jltS9ss4074ZBbNf+H+I9OMWcpK6j4+qRGOynux7
+	hUKRX+2x22fAigdtZUsoGJ9pC+6QdeAuw90TdYbp7m0fGyNQL2Mna9C7rYLko0yKUv59Ds+iuP3Gc
+	EqmoTqf0k0sM5uq+Yiu722bZ6HlQpFvdesgVT6ux6E76TbD+j23mcuNB7T/x9G20zr12U2TVO2IbW
+	00WDZvn2CYWXqItO1/AKQ64R+0vUB6Ht4Q2VHfhX2C/9nzWf0f7+V67AWP7sIJNrhhiWX1k6Nk4tQ
+	3ZjclgnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfN3-000000012mX-1AFe;
-	Mon, 08 Sep 2025 17:09:37 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1uvfNB-000000012xS-2HRp;
+	Mon, 08 Sep 2025 17:09:45 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvbT5-0000000HDG8-0qvD
+	id 1uvbVg-0000000HEJk-2T2x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 12:59:36 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-33c9efd65eeso12773801fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 05:59:34 -0700 (PDT)
+	Mon, 08 Sep 2025 13:02:17 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-336b071e7e5so35212351fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 06:02:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757336373; x=1757941173; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1757336535; x=1757941335; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=J5BpttAHpJbHjU5zlElKTAX1nmzmhusdG1v06go3DFc=;
-        b=g3XRc5r2mUa+/fwBX+fXeFjvj+Ygr9TI8xgNgYZ6ZVbgzdlkL3CjjLHpLEOZ4NuMO+
-         sTB40aO0poX1IUSGAnow+r2t6H0U8KJ42ASHCZc3CSzqTzO7TyHmMQv3rTmALHbM2Gt+
-         zRNkaK+M6TFFewe8tt5u+RA5CO07DfSbvFrVXSvleGI0a+ghINpuIC0ZRS5hefHBomNT
-         WEDvtYLoBH/HYPOBl5LXFqkISMU1TJZlyX2IHqY0b58wvsQ4G5LeTsbCCWQ8W1zeOUd2
-         pZ7vRDAzZz6dc+7A55PJ2lChg6Ow4AVh/kkRu7xYBCIAQmWmhN4Kg6Vz1jukM58t1bxD
-         5PzQ==
+        bh=tF31xmJcbc0qseWIsNrqZ2L4YD6Ay+rKlY4qBWnaoK0=;
+        b=K4PaeHAMctpiAF0fYM5mb8DRoyehqcd4ugl2rl/fvk3WLSPRIUNola6bMYT095Rl1K
+         16vVD1Q98REac7bUtSYBWYuUwqKZbxK9ZK2wejRU1uLr5DKqARf2MvZR01yTjq7l6IV8
+         PYhuMC9SKDlZez3HYBdXyRewERGgOfkPZpfsdz3Es91+KYcvkpPVAxiaXIwDRl8ubZ/6
+         PieufsXpn1nkm/g/sgE0Hdn68aIoH2lsnTMs8dwuxsFrzP+Bk8RBVJnKOEJelmGrNpE6
+         HIYBjEwXuKmEdBZeV5VKyO/nR9xQLrUAAisq+Bzinm0ffo5E6okLS0Xu9d8MDI0UL64P
+         8IhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757336373; x=1757941173;
+        d=1e100.net; s=20230601; t=1757336535; x=1757941335;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=J5BpttAHpJbHjU5zlElKTAX1nmzmhusdG1v06go3DFc=;
-        b=uROm2q8pKtWRNeMunzfbuxTCCURzotgg6m2+7ajELNVMIiA4XB1GT9OnR74l9zfwzK
-         JcoTBsamqjwWF/C+bTPk0nzkDmFh/cwbhm2UfJUL1Z4AUOQ+z9qZVWGqOz5s0ASGWktp
-         nVvkWtKvg74zaarOugdYWGQJLJASCv4AzXoNY4fX5v/AAOEXInz5sNJNXtolkNxF4mcn
-         pwbKlhDRxhFBBXk5MItvU5Gub8XHUuYURNWpR3i3NGJqNSKZevM4BxUqRBq7VH3UiuXL
-         BiKriBaUz5OQcgvTRBMdzw8N4DBEImfZe89Ak237zRO8NPaZWQGEBw1/9sOyJgYPyhqn
-         tocw==
-X-Forwarded-Encrypted: i=1; AJvYcCUk3WhLFdFEg/tiRvWKrocVFXeCPJZKUdo887WY2GP88vHe3hGuSLY3xtrLgF6oHjsx1akPyZKU/m2KCxQGV2nx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyMEdileGiW1OcfGWb5noA19AI4eCi9zfR16sp1AMx+1OML82B
-	hmXAdR0xlVmh2809g5vuE38nLqj1PkLFwCYMX8WAV7cz5KNJZlNU8GPiP/BmEHaVHxaOtr/ARcB
-	ngB99yzFn1kwDQXVy7N3q8ASuJ4BPUoxmzhgWIBTlet+csiGPdtGV
-X-Gm-Gg: ASbGncujdu/3v7ysGKlyn+BIBzAC1kLPH4IdcfHdfplGVwK3DokFW8nzZF9SEq2NZRw
-	WueAn17vCZLIkZ/eg/jU/5lNmT9Agi19dqEZcWNNBRiqLfcVrhX+pIYQ7Bzn2PNlDyHohBX965x
-	Ag5hu33SZcMZzPSa2cG8+b369vW4xebunBlYca4KnXARCpQ9g+5I9qPNMUmPHCVL0P7CXw5fIvy
-	ExI18Ir/YpJKfAQlBALxKQ3vnEJ
-X-Google-Smtp-Source: AGHT+IHxkO5Trw9x8IQx8FMGDMwnUY1eThHnZXuMivELDVJEriHgjq/E/h355l8gaJCNCLOfPlh87yQTWfxAaUQ+yRQ=
-X-Received: by 2002:a05:651c:542:b0:337:f84a:6ded with SMTP id
- 38308e7fff4ca-33b5fe33199mr21312101fa.40.1757336372950; Mon, 08 Sep 2025
- 05:59:32 -0700 (PDT)
+        bh=tF31xmJcbc0qseWIsNrqZ2L4YD6Ay+rKlY4qBWnaoK0=;
+        b=rR9a/E0Oof9kkWh6DrP25Dlv7h9g9c/ukwPjPt/HgG0ghS+0BAdOzrkeBi7j8Szuke
+         4EgM+hgv7m/JoVVz3WOLaosGkIn2MP3nalUEzgm3pIpxqWTr9gs/gyAUqeUPcmPKEx1H
+         DR7KDmrDM8ec5B6fqV315gEzYutzLzAn0hsw6hypVs2iL7KIZSKmpkHgSNydp0vtRnn4
+         fwJsCCHL38rKHXpHjfjiaUf4PrIuH5H1wt70A972JbctDwyZoZsFujPWcV+Kw1spyr+i
+         hWqUK7JxfW9XghSzrVMz+ASgn0RjREwdo703LVZxJ1Bb1fr/X4Lvl6oNRAMDd0TA0JSF
+         YrtA==
+X-Forwarded-Encrypted: i=1; AJvYcCV9BdjG+B0Mjf7YrCTongck1O9+C10flSu2uVOALabmURZ87syDiC85Bi+HYf5tY9A8HXhC81FWJhBn1vt5FyAk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaFTu8xKMDo6bQGHqnohqYSwinFRAujLDn1PYKfovG5pi22pMI
+	PGqWIL2tPLGe+E3GRbCdG5yRnW5CKsAD/iVe9vUDEpRjogQh2HQSplcxLuNLN2Us0dqp2Gq3FeL
+	EEYWKs3ety1dO5DAcG/ZIF2clCv7/LtIakyzDjnxkwg==
+X-Gm-Gg: ASbGnctFldRtj7llzctT7cWBl54EZskhlGT3jHpNXIA9MKy01SVnz4CpKL0Uij66JrC
+	VBCxLGjDTMNSeHnwyQ07YBlKZo9/gTX8S/0QX5mLfNpNrw0rEO2882KzKugMeGMo+tSg3ruTOBq
+	Y+01kGsMBKiiDyzmH4mblQXv8wIMzoazP64Eq+ir46pzHLzA05CElfIPVm+4u2sbazCNAj2g3LE
+	R3nSFCwdQVIZRJl4A==
+X-Google-Smtp-Source: AGHT+IEDQrNGIVJ+srnhccYYtb5VT5e/nczDh/a0UTBab1jQ6lcNoipDjpuZsUUuvBbVHlbzfGsEUZMyzV5z27NtBG4=
+X-Received: by 2002:a05:651c:b0b:b0:337:88c9:4e00 with SMTP id
+ 38308e7fff4ca-33b4d6e156cmr26649511fa.18.1757336534706; Mon, 08 Sep 2025
+ 06:02:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <179c9e8c-8760-41e6-aad7-7a128df60984@omp.ru>
-In-Reply-To: <179c9e8c-8760-41e6-aad7-7a128df60984@omp.ru>
+References: <20250908113425.31002-1-ansuelsmth@gmail.com>
+In-Reply-To: <20250908113425.31002-1-ansuelsmth@gmail.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 8 Sep 2025 14:59:21 +0200
-X-Gm-Features: Ac12FXwB3hkNayk_jKlRJHBwnE7MZt7LhknFIIwvxH7yn6EzRdVpugXhQZOilew
-Message-ID: <CACRpkdbzEmZN=-FPvax4z_iq7u6pHyHGJ213QtpxqFL98-Ou5Q@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: rockchip: fix NULL ptr deref in rockchip_pinctrl_parse_groups()
-To: Sergey Shtylyov <s.shtylyov@omp.ru>
-Cc: Heiko Stuebner <heiko@sntech.de>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Date: Mon, 8 Sep 2025 15:02:03 +0200
+X-Gm-Features: Ac12FXwmkJnm8MDVmgkMoi1FgB_EyiAfRHJw-rYt80JRUULYhM8CUT2H32uFUK4
+Message-ID: <CACRpkdZJtHU_pne=48UDBgpfM-9FnJsC8sfN6c4zV4KmDWs4Pg@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: airoha: fix wrong PHY LED mux value for LED1 GPIO46
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Benjamin Larsson <benjamin.larsson@genexis.eu>, linux-mediatek@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_055935_251156_A40EDC50 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250908_060216_629649_9FE6B0E8 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +99,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 3, 2025 at 9:49=E2=80=AFPM Sergey Shtylyov <s.shtylyov@omp.ru> =
-wrote:
+On Mon, Sep 8, 2025 at 1:34=E2=80=AFPM Christian Marangi <ansuelsmth@gmail.=
+com> wrote:
 
-> In the Rockchip driver, rockchip_pinctrl_parse_groups() assumes that the
-> "rockchip,pins" property will always be present in the DT node it parses
-> and so doesn't check the result of of_get_property() for NULL. If the DT
-> passed to the kernel happens to have such property missing, then we will
-> get a kernel oops when the pointer is dereferenced in the *for* loop just
-> a few lines after the call.  I think it's better to play safe by checking
-> the list variable for NULL (and reporting error if so), like we check the
-> size variable for validity further down...
+> In all the MUX value for LED1 GPIO46 there is a Copy-Paste error where
+> the MUX value is set to LED0_MODE_MASK instead of LED1_MODE_MASK.
 >
-> Found by Linux Verification Center (linuxtesting.org) with the Svace stat=
-ic
-> analysis tool.
+> This wasn't notice as there were no board that made use of the
+> secondary PHY LED but looking at the internal Documentation the actual
+> value should be LED1_MODE_MASK similar to the other GPIO entry.
 >
-> Fixes: d3e5116119bd ("pinctrl: add pinctrl driver for Rockchip SoCs")
-> Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
+> Fix the wrong value to apply the correct MUX configuration.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: 1c8ace2d0725 ("pinctrl: airoha: Add support for EN7581 SoC")
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-Patch applied!
+Patch applied for fixes.
 
 Yours,
 Linus Walleij
