@@ -4,80 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BFD7CAC582
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F07CAC58D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 23:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPL/T9MJDRvhlfgHYVGEi8eEZQ7MtmOhMakmS9mQOAs=; b=T8Uqbr8A9xJemr7IEzln8axo9o
-	yr/3HZcZ5to7KyZG5gdUSBM43e8DG6buOXY40knzoi7T9Ec2GyQggKxGAS9Km2dcuhg6HPvM6ADks
-	R81gRlYg1tGJH4vEqJM/6c+1x49dtFbDr3vmxbBVr+zsD3XGQ7efOpp00xXQOyf/UOP0kjJ5rq3D3
-	3uFRY5iRQFF2ihQ5Ui0szZhekS/8qxtqHNFReY5qq4zZnGoHTKpZSzFUncxCo/IGvkVg6RaOiEXlN
-	2s4Ff/pUn+pqdTUMbKxHLDepLKwpV9S7M8B5e37XXp9yMg3ivMD7pRbyGU67SUEgyKzoKG218eFYO
-	ROzWvr5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YzWt09t66PnxW4ZNO0Sq+mv9KKFp7SaT/uzaJMYLojA=; b=UbQVfAQwXV+3GajusSMV9JndJq
+	mQXEOi1uC7iwjgFGI0Cc+R5Uy+cu3H5W+ao1K9KGyfg0JchVSkJwKr3jz+X/Heuh4hgPrG1/IlNHX
+	A54di+XbTIzMloT8QIPXkEMTy+jF29YihguD8w7dvb6d9M+c40Zmdv9NaAxEN1IJsW+Ol6F6sbRWX
+	LdD3B20NAK5Ss5ooojauN7kZVFWauuhDkqWFy7Ywxl1WFIf+ofhx0WC6r9kUuT9Ck6OOn/ohJo0wQ
+	eaBtrcpE7jw99LvGoCDA0I6NnsUABniobD/NNVGfcQDxN19GHG8aHRjm/D7cNr+fer/KWjm/LRzQs
+	BoAi6hbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvleg-000000033CB-3o3h;
-	Mon, 08 Sep 2025 23:52:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uvlek-000000033G1-40g8;
+	Mon, 08 Sep 2025 23:52:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvemS-00000000lN4-3fyQ
+	id 1uvfpJ-00000001G93-0Nzk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 08 Sep 2025 17:38:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=YzWt09t66PnxW4ZNO0Sq+mv9KKFp7SaT/uzaJMYLojA=; b=k1fgBC3eFF9kUDqoGfdz+neZD4
+	2erpGzn7Xb2qg+Egqfuz75MreKzhqXog52hlp2Bv38ETBWsuXuSxzt3n2WjKBNG2Ret7ksUMLLVeG
+	/Q15qDZWOQoJIy/H1qK5I/icoI1Hw3c87vY7zIGsH4F9hcz6vRg7LBaRqCteuGVZDGv4BQs5cxPj1
+	ano7u3+oLgVcYfRgeaiQMgbkBn+lj8+kan63Q4GnUzVRPZiDjFmsD++H8F6a/Yy1eI23AX8A72QYV
+	kpKQ0htTkSgnrj1895QsTngynQ9Ndyy7Y+oosA2A64WB2e0c6QZLfXSaCdtlr6N9BxXxwtIziCasm
+	ZIkXjIfQ==;
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvfpF-000000056vK-1cWx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 16:31:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12846449ED;
-	Mon,  8 Sep 2025 16:31:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E15F3C4CEF7;
-	Mon,  8 Sep 2025 16:31:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757349107;
-	bh=Lv3GRGs3DimrxVS28LUoV3CfVPD+bzvWL5eodR8hBFc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ox1wwNZrXuwyba95P9bL0MHZO+RzRqhEVepB5DhUSl0oVrnIpTw/T04e/BqqeQNIC
-	 lqxVfrCMTpm54VczvYkCFhW0N9OCfIfAJVTnUqT6nF+oV2nyKREwssQErTrSm9eSjF
-	 t4yc97wEKJ7XXQVUyVyeB//ChdBxYXJI2Je8Znmbg35jxDCbGTY5sxpi0XXOtgVThB
-	 SYVSdE5GN4AwNzXi7/fh4gkdpqq8YBJsMKEn1pcs5h6hG1J9WXRuLy8IZaMJ45QZEh
-	 9dTyAxrxnwQHceAbmC9iAuYYEIpQpDL6Ck1aLydHGs0SImiae2PsjLGbRgMp0x7eK5
-	 p/oxISkJSBSRQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uvemP-00000004NTm-3JAc;
-	Mon, 08 Sep 2025 16:31:45 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>
-Subject: [PATCH 01/25] irqdomain: Add firmware info reporting interface
-Date: Mon,  8 Sep 2025 17:31:03 +0100
-Message-Id: <20250908163127.2462948-2-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250908163127.2462948-1-maz@kernel.org>
-References: <20250908163127.2462948-1-maz@kernel.org>
+	Mon, 08 Sep 2025 17:38:47 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588HcVwi152685;
+	Mon, 8 Sep 2025 12:38:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757353111;
+	bh=YzWt09t66PnxW4ZNO0Sq+mv9KKFp7SaT/uzaJMYLojA=;
+	h=From:To:CC:Subject:Date;
+	b=NR8t3jeGOO+2X+H/OxHY/HSyXb6cZmAjJ1KyZtrMbq1wgqlkTMeHuC8IIkXRPJD/T
+	 5GaphZgpqtYDwMXzd/dR2gq5t8AZjHssTFgNe23WrdZIOtEDfIPM6owW0ndb6il4Ne
+	 tuGUdqWI/o3xAluTBrE5DYMeVJjR8xJHwXmhw6u4=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588HcVOE3169826
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 12:38:31 -0500
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 12:38:31 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 12:38:31 -0500
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588HcVVn1281123;
+	Mon, 8 Sep 2025 12:38:31 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
+CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2 0/2]  Remove HS400 support from common
+Date: Mon, 8 Sep 2025 12:38:29 -0500
+Message-ID: <20250908173831.269039-1-jm@ti.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_093148_970203_33B909F0 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20250908_183845_693907_1559B3B8 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,144 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow an irqdomain callback to report firmware-provided information
-that is otherwise not available in a generic way. This is reported
-using a new data structure (struct irq_fwspec_info).
+Since eMMC HS400 has been descoped for j722s due to errata i2478 [0]
+and is supported by default for AM62Px device, remove sdhci0 node from
+common-main.dtsi and include instead only for AM62Px in am62p-main.dtsi.
 
-This callback is optional and the only information that can be
-reported currently is the affinity of an interrupt. However, the
-containing structure is designed to be extensible, allowing other
-potentially relevant information to be reported in the future.
+Also, update the STRB value for am62p eMMC sdhci0 node.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- include/linux/irqdomain.h | 30 ++++++++++++++++++++++++++++++
- kernel/irq/irqdomain.c    | 33 ++++++++++++++++++++++++++++-----
- 2 files changed, 58 insertions(+), 5 deletions(-)
+Tested on am62p SK board.
 
-diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
-index 4a86e6b915dd6..9ec93fb2f5753 100644
---- a/include/linux/irqdomain.h
-+++ b/include/linux/irqdomain.h
-@@ -44,6 +44,27 @@ struct irq_fwspec {
- 	u32			param[IRQ_DOMAIN_IRQ_SPEC_PARAMS];
- };
- 
-+/**
-+ * struct irq_fwspec_info - firmware provided IRQ information structure
-+ *
-+ * @fwspec:		IRQ specifier
-+ * @cpumask:		Affinity mask for this interrupt
-+ * @flags:		Information validity flags
-+ *
-+ * This structure reports firmware-specific information about an
-+ * interrupt. The only significant information is the affinity of a
-+ * per-CPU interrupt, but this is designed to be extended as required.
-+ */
-+struct irq_fwspec_info {
-+	struct irq_fwspec	fwspec;
-+	const struct cpumask	*affinity;
-+
-+#define IRQ_FWSPEC_INFO_FWSPEC_VALID	BIT(0)
-+#define IRQ_FWSPEC_INFO_AFFINITY_VALID	BIT(1)
-+
-+	unsigned long		flags;
-+};
-+
- /* Conversion function from of_phandle_args fields to fwspec  */
- void of_phandle_args_to_fwspec(struct device_node *np, const u32 *args,
- 			       unsigned int count, struct irq_fwspec *fwspec);
-@@ -69,6 +90,8 @@ void of_phandle_args_to_fwspec(struct device_node *np, const u32 *args,
-  * @translate:	Given @fwspec, decode the hardware irq number (@out_hwirq) and
-  *		linux irq type value (@out_type). This is a generalised @xlate
-  *		(over struct irq_fwspec) and is preferred if provided.
-+ * @get_info: Given @info, report additional firmware-provided information.
-+ *            Optional.
-  * @debug_show:	For domains to show specific data for an interrupt in debugfs.
-  *
-  * Functions below are provided by the driver and called whenever a new mapping
-@@ -96,6 +119,7 @@ struct irq_domain_ops {
- 	void	(*deactivate)(struct irq_domain *d, struct irq_data *irq_data);
- 	int	(*translate)(struct irq_domain *d, struct irq_fwspec *fwspec,
- 			     unsigned long *out_hwirq, unsigned int *out_type);
-+	int (*get_info)(struct irq_fwspec_info *info);
- #endif
- #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
- 	void	(*debug_show)(struct seq_file *m, struct irq_domain *d,
-@@ -602,6 +626,8 @@ void irq_domain_free_irqs_parent(struct irq_domain *domain, unsigned int irq_bas
- 
- int irq_domain_disconnect_hierarchy(struct irq_domain *domain, unsigned int virq);
- 
-+int irq_populate_fwspec_info(struct irq_fwspec_info *info);
-+
- static inline bool irq_domain_is_hierarchy(struct irq_domain *domain)
- {
- 	return domain->flags & IRQ_DOMAIN_FLAG_HIERARCHY;
-@@ -685,6 +711,10 @@ static inline bool irq_domain_is_msi_device(struct irq_domain *domain)
- 	return false;
- }
- 
-+static inline int irq_populate_fwspec_info(struct irq_fwspec_info *info)
-+{
-+	return -EINVAL;
-+}
- #endif	/* CONFIG_IRQ_DOMAIN_HIERARCHY */
- 
- #ifdef CONFIG_GENERIC_MSI_IRQ
-diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
-index dc473faadcc81..f857606e3ffbe 100644
---- a/kernel/irq/irqdomain.c
-+++ b/kernel/irq/irqdomain.c
-@@ -867,13 +867,9 @@ void of_phandle_args_to_fwspec(struct device_node *np, const u32 *args,
- }
- EXPORT_SYMBOL_GPL(of_phandle_args_to_fwspec);
- 
--unsigned int irq_create_fwspec_mapping(struct irq_fwspec *fwspec)
-+static struct irq_domain *fwspec_to_domain(struct irq_fwspec *fwspec)
- {
- 	struct irq_domain *domain;
--	struct irq_data *irq_data;
--	irq_hw_number_t hwirq;
--	unsigned int type = IRQ_TYPE_NONE;
--	int virq;
- 
- 	if (fwspec->fwnode) {
- 		domain = irq_find_matching_fwspec(fwspec, DOMAIN_BUS_WIRED);
-@@ -883,6 +879,33 @@ unsigned int irq_create_fwspec_mapping(struct irq_fwspec *fwspec)
- 		domain = irq_default_domain;
- 	}
- 
-+	return domain;
-+}
-+
-+#ifdef	CONFIG_IRQ_DOMAIN_HIERARCHY
-+int irq_populate_fwspec_info(struct irq_fwspec_info *info)
-+{
-+	struct irq_domain *domain;
-+
-+	domain = fwspec_to_domain(&info->fwspec);
-+	if (!domain || !domain->ops->get_info) {
-+		info->flags = 0;
-+		return 0;
-+	}
-+
-+	return domain->ops->get_info(info);
-+}
-+#endif
-+
-+unsigned int irq_create_fwspec_mapping(struct irq_fwspec *fwspec)
-+{
-+	struct irq_domain *domain;
-+	struct irq_data *irq_data;
-+	irq_hw_number_t hwirq;
-+	unsigned int type = IRQ_TYPE_NONE;
-+	int virq;
-+
-+	domain = fwspec_to_domain(fwspec);
- 	if (!domain) {
- 		pr_warn("no irq domain found for %s !\n",
- 			of_node_full_name(to_of_node(fwspec->fwnode)));
+[0] https://www.ti.com/lit/pdf/sprz575
+
+Link to v1:
+https://lore.kernel.org/linux-arm-kernel/20250904004723.2856005-1-jm@ti.com/
+
+Changes from v1:
+- Keep the common node and only remove hs400 support from the common
+  node. Enable instead HS400 support only for AM62Px in am62p-main.dtsi.
+- Fixup commit mesages according to new changes.
+
+Judith Mendez (2):
+  arm64: dts: ti: k3-am62p/j722s: Remove HS400 support from common
+  arm64: dts: ti: k3-am62p: Update eMMC HS400 STRB value
+
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 ---
+ arch/arm64/boot/dts/ti/k3-am62p-main.dtsi              | 6 ++++++
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+
 -- 
-2.39.2
+2.51.0
 
 
