@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A36CAC58C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF85CAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:06:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=obcEsUMNT41HmKlq/F4o2va7yeuwFKc2luR4LLZxcbg=; b=xDnGCqcdiv47+CoxoQ3L9PKD9r
-	0xX+VcZI7V9IVjwAji+nqFE5qOHCMyijoElV7Lt/y81oFD+MdzSeITrcGI6wPUGT036WeCNc649kM
-	6N+6ZiNSTseG/mwL/OdwmbK4seyGWKCWH1tNYSlUpNh21QOFceo1izbREQtwVWR9G8C734TEfmTTj
-	VWkELiKiTIeMn2Ro9OHowc3lPmTx6iLklJg/Dez0te7RqYH4gRrzoqYsFHg21Tpda2Pey/5+fhF+h
-	2sWok7BthE/TCADbO1Mb/eeAFHtbsGqZwvYxjLziLHNBATt6QEjfnHLiSH+2T4fTLxohBiqJIUAke
-	pHy77rKw==;
+	bh=CEbZ+I5Gax1pbF+ot+GrzdHUbVfgmhN6ToYQ/7joaBs=; b=qNItGEWRtoE+h0TsxGEBPTE8T6
+	LAWR6xAy/46O1WKsTo4Gl3SVE4x2PH/yAhWnfru49h+xUHIoK76XGs9NyR80YQPrErubd+fnfgca+
+	x9TwYb4mpIvUQ0s/frGKgC7N+jdpVMqY6an9t54SWjTtn2VA3aBYDVihSg22CAzLN7Md0zAUDf/hh
+	5A1Qyf3HOelsc2OY6N/qj3JCPwrM06rB3/fq158f/SLMCxVC1Up3oA3tIPGVr+1kC9NGP1RbtjI+1
+	M1xeQWodA1+YeEIiOIa4GzDscqNLWXQa8Pcr6LlI5Oyhm7QhsnOQeCSVR2mqUN737pca+YYUkJlUg
+	BsDk/P0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvtN1-00000005R57-2jPh;
-	Tue, 09 Sep 2025 08:06:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uvtN0-00000005R4O-3ctR;
+	Tue, 09 Sep 2025 08:06:30 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvmTj-00000003IIf-1pmf
+	id 1uvlek-000000033Di-003Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 00:45:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1366A43408;
-	Tue,  9 Sep 2025 00:44:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE810C4CEF1;
-	Tue,  9 Sep 2025 00:44:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757378698;
-	bh=U5Udt4w7yPFZCT86OGl/Ot0b/JCIBL+lIFPb2Y9M3mg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CFz8lzgqGVfGRr5nutYDK/3Kh8HMv+XMb5BfgLSQEu0yDv3DNZdB3+h8q5tctyFD9
-	 z5t4FOz4PRe4sjNaWr5XnKYHoqxUX6nJKqBEBrwTqe8EoDsG0N4wzFzeiIuBe9msM6
-	 ikBy20p3NPYTQLPUX6bbLH+q+nPxwY7JcSsz5wQwGFaaTrnIEeymaaKlcwMMEEBjs4
-	 cAEcqR/ULuIffRnK28Gq2lhmEz0gN11/ruIVWjopQKvvMfJfMYpBkKLUrSj942qso7
-	 /GYEyIkkoHMcFYjVtI0XLiDQBAWElJy1lR04j77LSlcwqX2gEIRG7rODy9cvbkvcWW
-	 emrAeX3JwQDwg==
-Date: Mon, 8 Sep 2025 19:44:58 -0500
-From: Rob Herring <robh@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Andreas Kemnade <akemnade@kernel.org>, Lee Jones <lee@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alistair Francis <alistair@alistair23.me>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/4] dt-bindings: mfd: sy7636a: Add missing gpio pins and
- supply
-Message-ID: <20250909004458.GA2311693-robh@kernel.org>
-References: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
- <20250906-sy7636-rsrc-v1-1-e2886a9763a7@kernel.org>
- <288f0cf1-1ee4-4eba-b059-641120bb93f3@kernel.org>
- <c879f3e1-f64c-4cbd-97ec-646d06488d8e@sirena.org.uk>
+	Mon, 08 Sep 2025 23:52:19 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588Nq8Co3970607;
+	Mon, 8 Sep 2025 18:52:08 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757375528;
+	bh=CEbZ+I5Gax1pbF+ot+GrzdHUbVfgmhN6ToYQ/7joaBs=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=ejwVWK/pxmaHtPgekY/s4O/LvfezaIhnEaIa9s3/Fvv6U+GcCAD+/dUrDtQtE6+dg
+	 w6eLFQvgfSimH1WtoYpg7YT5n9hENm7WNtKeaQQ1jMWu0ktPJwue7Jnui6AVOI0nm2
+	 pnJbZip+i57LtK2dk9GUp0vh6eb0F8qhQDv2NOd4=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588Nq8Ft3353620
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 18:52:08 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 18:52:07 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 18:52:07 -0500
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588Nq7WW1677746;
+	Mon, 8 Sep 2025 18:52:07 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
+CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        Andrew
+ Davis <afd@ti.com>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v3 1/2] arm64: dts: ti: k3-am62p/j722s: Remove HS400 support from common
+Date: Mon, 8 Sep 2025 18:52:06 -0500
+Message-ID: <20250908235207.473628-2-jm@ti.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250908235207.473628-1-jm@ti.com>
+References: <20250908235207.473628-1-jm@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c879f3e1-f64c-4cbd-97ec-646d06488d8e@sirena.org.uk>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_174459_493827_25D4C8D5 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250908_165218_128002_7A91CCB3 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,26 +90,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 08, 2025 at 03:34:00PM +0100, Mark Brown wrote:
-> On Sat, Sep 06, 2025 at 02:01:25PM +0200, Krzysztof Kozlowski wrote:
-> > On 06/09/2025 11:09, Andreas Kemnade wrote:
-> 
-> > > +  en-gpios:
-> 
-> > enable-gpios, unless it is something else, but then please explain in
-> > the description.
-> 
-> > > +    description:
-> > > +      If EN pin is not hardwired, specify it here to have it set up.
-> > > +    maxItems: 1
-> 
-> It seems reasonable to name the property after the pin on the device?
+Since eMMC HS400 has been descoped for J722s due to errata i2478 [0]
+and is supported for AM62Px device, remove eMMC HS400 support from
+common-main.dtsi and include only in am62p-main.dtsi.
 
-Yes, but in general we've standardized on reset, enable, powerdown, etc. 
-rather than all the possible variations of those names. At least with 
-'reset', standardizing it has bought us the ability to handle it with 
-the reset framework rather than every driver implementing its own GPIO 
-twiddling.
+[0] https://www.ti.com/lit/pdf/sprz575
+Signed-off-by: Judith Mendez <jm@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 ---
+ arch/arm64/boot/dts/ti/k3-am62p-main.dtsi              | 6 ++++++
+ 2 files changed, 6 insertions(+), 3 deletions(-)
 
-Rob
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+index 4427b12058a6..0c05bcf1d776 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+@@ -576,15 +576,12 @@ sdhci0: mmc@fa10000 {
+ 		bus-width = <8>;
+ 		mmc-ddr-1_8v;
+ 		mmc-hs200-1_8v;
+-		mmc-hs400-1_8v;
+ 		ti,clkbuf-sel = <0x7>;
+-		ti,strobe-sel = <0x77>;
+ 		ti,trm-icp = <0x8>;
+ 		ti,otap-del-sel-legacy = <0x1>;
+ 		ti,otap-del-sel-mmc-hs = <0x1>;
+ 		ti,otap-del-sel-ddr52 = <0x6>;
+ 		ti,otap-del-sel-hs200 = <0x8>;
+-		ti,otap-del-sel-hs400 = <0x5>;
+ 		ti,itap-del-sel-legacy = <0x10>;
+ 		ti,itap-del-sel-mmc-hs = <0xa>;
+ 		ti,itap-del-sel-ddr52 = <0x3>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+index 6aea9d3f134e..020bd121a6a3 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+@@ -74,3 +74,9 @@ &main_gpio1 {
+ 	gpio-reserved-ranges = <32 10>;
+ 	ti,ngpio = <52>;
+ };
++
++&sdhci0 {
++	mmc-hs400-1_8v;
++	ti,strobe-sel = <0x77>;
++	ti,otap-del-sel-hs400 = <0x5>;
++};
+-- 
+2.51.0
+
 
