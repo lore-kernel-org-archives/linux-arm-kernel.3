@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E72C3CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 19:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7630DCA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 19:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n5l6wg9In98Sp1cT3+vqavGTtoTmprMYlqUOKy2UyFE=; b=zgxyzGHJwIv6oFjHmUW7JV3c28
-	QsaafbHcD6KdOf2XQKTitBjl2rrNHaS4xgZ1o3MulIxoiA75mvPwxBBGX+m/tkNCMb+wcWQ7uM26C
-	C9ZIivqO8VHREyuep6ArQOjaBO/R1TpGtbLfDxCwu1N/hj29qmqpA0CduQG83hZqAAFAVvV0XDrGI
-	UErTgvv0ZSxSRlb5rvWBIwozxBy2DGLciN+4hNZIYWmN+PJ5PWNTGK/TkKMEP1uf6ahXjbygIPxV0
-	eK/9m5h3I83uazoYQhZwF24SDhkcpcqExouemnjkGDusCI8IV+YxnPLMYPCHbm76OI8oL44bSQrPs
-	mXFMerUw==;
+	bh=2YC5WyR/0pHBGYN1nLq3nwS1skDVZEaBbuR/oWhp1n8=; b=IQGcYJ4b79urGrpubS3lfXThFh
+	20pH601eUkiScJAOOg77yD8QLw+Y6u8OMaUx6FYaQjXRDH66w1rN+DZeAGFaBsl+hACBdlF0fkMXV
+	cK6KNBW/PSJkDXbwJ9WisIbwzhC3A7f0dRMVirZhkhAiVEq7W3/7jVTnrStVJuHCSOl2+7OX12TjZ
+	hlhG8gmx65wLDGFZPOjzJYsW1FMbqlxrH+M9dBgYOqAzrbe/EFGn3eNfvFbm7nEP77C/JrZU969rL
+	Tmuid+XYEijhmjE5FMoEFcxZQ3/+XY2/Op7CpknKjyBjKGbeDE2AtmGLKDAp0ERry9cLTN5y/k1GP
+	dIKdHTHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhLP-00000001pFV-05zq;
-	Mon, 08 Sep 2025 19:16:03 +0000
+	id 1uvhO7-00000001q66-3CGB;
+	Mon, 08 Sep 2025 19:18:51 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uveDf-00000000apo-30MF
+	id 1uveDi-00000000aqo-1Zc7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 15:55:51 +0000
+	Mon, 08 Sep 2025 15:55:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 28276601FD;
+	by tor.source.kernel.org (Postfix) with ESMTP id C8D6660054;
+	Mon,  8 Sep 2025 15:55:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C017C4CEF7;
 	Mon,  8 Sep 2025 15:55:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEB94C4CEF1;
-	Mon,  8 Sep 2025 15:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757346950;
-	bh=MIQXdTqzCuyImVdiOhE8rNTbwPNyhkIPQlXgimdMFS4=;
+	s=k20201202; t=1757346953;
+	bh=lLhbPcuccrh2iWdqlw6avv6jjc/4//fhsw+RixeJ94U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eS8VLBBREUZo0Z+fEkRclXc/Ugf9tnzjnb2Mkkf9ZH7jb8pD/bE2s98uC9ORSn4ny
-	 eJZ9C4bOHme7m0M7Mv/BMq9ShLGnf7mVmOBlb0Q9FAtwa9qAIjgXlcoim7zO83OTxH
-	 Rsqyffu0poYiAYBWvZC2gkP4W/ef/qgGHCIe6Q67gPcWgbHuyoMPwao9RO/apcnasm
-	 bxQzlT0wBKTasoOvFqexeJrmdx4WjaBD+shC1OY8nwXs77VvFbpq2P7r8uMmLPFTcM
-	 Rr8DWhQU7nkNQ854Ci0VY0vziXP3u7NsgDVXfq3erdZjH4fflhl1LRAxLi67QsYvPB
-	 gOocdgx62KnXQ==
+	b=NuYrAMMWtM7HuqBx808w83itr50EZcctk4Z/E20AFT532ebIk+lM3pt3v2BLIX97h
+	 nGkjP55Np3GxsQFYZuo+tzXv9PPcTAg0AnK5pWBpSk9PY9JbJ7VMvF/fzTMq4UI8MX
+	 cg7+x9gVmMIx9r26sDTGcZXsu19HbNLkaDharc81foxF0Hq3+2OFSgDIL/bMhHuYpU
+	 a23RpTdGvgohZIueqDgVqZMcQbz0QHfo8QW7lUgnjpHZDL1EWcLyvzZpz6ai7ll1SX
+	 /5/0u0/Q/lT8pQ0UW7fUbG3BYQSUB8/RUhnsNOvJqL5d3xHBzuTVitCHyB7kHuJ4/r
+	 A/AtuSdVXWUVA==
 From: Will Deacon <will@kernel.org>
-To: anshuman.khandual@arm.com,
-	Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andy Lutomirski <luto@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
+	John Stultz <jstultz@google.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	shuah@kernel.org,
-	broonie@kernel.org,
-	yeoreum.yun@arm.com
-Subject: Re: [PATCH v2] selftests: arm64: Fix -Waddress warning in tpidr2 test
-Date: Mon,  8 Sep 2025 16:55:31 +0100
-Message-Id: <175734146103.139506.13467439064813237125.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] arm64: uapi: Provide correct __BITS_PER_LONG for the compat vDSO
+Date: Mon,  8 Sep 2025 16:55:32 +0100
+Message-Id: <175734490190.158300.1463560749148120421.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250807114247.5915-2-reddybalavignesh9979@gmail.com>
-References: <005af416-66fa-4222-964d-e20bd2eccb7f@arm.com> <20250807114247.5915-1-reddybalavignesh9979@gmail.com> <20250807114247.5915-2-reddybalavignesh9979@gmail.com>
+In-Reply-To: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
+References: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,22 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 07 Aug 2025 17:12:29 +0530, Bala-Vignesh-Reddy wrote:
-> Resolve compiler warning about always true condition in ksft_test_result
-> in tpidr2, passing actual function.
+On Thu, 21 Aug 2025 09:56:43 +0200, Thomas Weißschuh wrote:
+> The generic vDSO library uses the UAPI headers. On arm64 __BITS_PER_LONG is
+> always '64' even when used from the compat vDSO. In that case __GENMASK()
+> does an illegal bitshift, invoking undefined behaviour.
 > 
-> This silences -Waddress warning while maintaining test functionality.
+> The first patch should go into the 6.17 tree.
 > 
-> Fixes compiler warning (similar for other functions):
-> warning: the address of 'write_read' will always evaluate as
-> 'true' [-Waddress]
 > 
 > [...]
 
-Applied to arm64 (for-next/selftests), thanks!
+Applied to arm64 (for-next/vdso), thanks!
 
-[1/1] selftests: arm64: Fix -Waddress warning in tpidr2 test
-      https://git.kernel.org/arm64/c/50af02425afc
+[2/3] arm64: vdso32: Stop suppressing warnings
+      https://git.kernel.org/arm64/c/80c4e1948908
+[3/3] arm64: vdso32: Respect -Werror from kbuild
+      https://git.kernel.org/arm64/c/281817dffe28
 
 Cheers,
 -- 
