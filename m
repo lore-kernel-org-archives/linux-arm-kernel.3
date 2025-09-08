@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0597FCA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A13B4CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9vgkd0DO9ld4CriXjJK1r7oGUIIiZc0S6wFO0Z8nf8=; b=rKHqhWOQu8DdItJWkUI9P0Mdl0
-	cTiZgtwJbd6OrGdEM+Ws63g4xWNzb/Ek7ncWdvOwnkkw55pj+9cGCx5BC3XvT4Gf8TclhrBGBDGDc
-	RTbKuM9m4tiJkbVJI2LlNbWpRWqFd6gZaRKVuELDw613pD4QXFEpNXCFCO/zNQcNa7rmu2mJIvZ2b
-	86igJDYVt+lPSEN4NwnTKgf1ic/JW/m7WH9fvjQH+wgfoM1zd5bc6opw+0nBoRtq3NVF3BLziJZSY
-	pX/10L3wQznSZ4AMU8/MBEqoKksM6UoO7AMBuG6YSJfgGLtLhPChtJq2/3s/bT4ZyApyebbOYaAkI
-	9wlOJ3wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WmM4LftI21357OgeVjH332v8ir12kSjHUiMiWxV6Jy4=; b=3YfntGdX8d+ox/cxRnECRBXEAz
+	L3ARoIOxjzoQ/wUWRU4Z9XMuK2skMP70uRv2ySq/bhvGGx1HP6RCWVp2HUWzF6HwBU3SmTyYch3yb
+	fSvTsRPVtBpoY/089YX0WK4QdnLuFU0bw8LVLTXQAqZER5uU2HR4DgHKXe1b+lQ9IbTgJ9kP/EM6N
+	zDxrKM4SrMI5IPhJY3U2AxkPvqXbEI2An+FYBr3cDxrewC9XjxX0RZh3hUOuCAgb4dKbjrFNwz+v9
+	jkhQjnIDFuoU3T3DML1ByZxislW5QMvsPx4TGTLLfTJSZDx+O6EQ5r2qEk4DO1kz1zLL3Z01ImleD
+	co9NoXqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uviG1-000000027MJ-28a1;
-	Mon, 08 Sep 2025 20:14:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uviIh-000000028B5-2Edx;
+	Mon, 08 Sep 2025 20:17:19 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvepu-00000000mlf-0mlL
+	id 1uveqX-00000000n4n-01H1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 16:35:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 96FAB60054
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Sep 2025 16:35:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E6CC4CEF5
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Sep 2025 16:35:20 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="QUfi6Qg2"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1757349317;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=G9vgkd0DO9ld4CriXjJK1r7oGUIIiZc0S6wFO0Z8nf8=;
-	b=QUfi6Qg2IxLpxxdufJ8nhrwlM+UciMtybS+upuJV4RnioYi3nUU/LbBcdRHTFkl4cD/Cm5
-	FI+6Sp1I1MjmV13sQv9vUvmnGfdewY58Nple6Ewof9hEZKqH/cwKU6ZZf1YaCXQ1WOit46
-	gttqiuepPPNnRr0QC3AXp2XgwqsLSSA=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 12355a5b (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO)
-	for <linux-arm-kernel@lists.infradead.org>;
-	Mon, 8 Sep 2025 16:35:17 +0000 (UTC)
-Received: by mail-oi1-f170.google.com with SMTP id 5614622812f47-43835f74960so180507b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 09:35:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX0ciHYFbyhD9xi8nRvUBxPzb0NzIbtzqk1m/4dyjrXInNcU4gsJNPJjT3erS0GCtKmWnIB+oXjQGiafvvWWyge@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxN4glng/LF6rpymYa/AM1VNTE6RGG5CcN4zW7Eg9kLV3SVDN0
-	6k8dQ/4ReBheq9NJF3lR2IAPwQo7515MjbR+FQvDT+pG2M5HyPwkMWjjR8s7FXiHZZRPQJ3I4Ae
-	WOitP6SRpgHb4Mv9XHH41MEQcHrqTHBo=
-X-Google-Smtp-Source: AGHT+IE7fQgFT2M5TfL6hfVQrredcaZ/GbV/THM8Yume1F79jQqGz4wG7cG1y5QelnlSxkfYukb++fwfMciaqG7ZTM8=
-X-Received: by 2002:a05:6808:1991:b0:437:d800:3c1e with SMTP id
- 5614622812f47-43b29ad403amr4222584b6e.23.1757349316183; Mon, 08 Sep 2025
- 09:35:16 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250906213523.84915-1-ebiggers@kernel.org> <20250906213523.84915-13-ebiggers@kernel.org>
-In-Reply-To: <20250906213523.84915-13-ebiggers@kernel.org>
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Date: Mon, 8 Sep 2025 18:35:04 +0200
-X-Gmail-Original-Message-ID: <CAHmME9qyfbn539Um9xoFJu2Mm9mM0zuOxyLgeOjF-R5nktbz4w@mail.gmail.com>
-X-Gm-Features: AS18NWC3VPTUIVFps2V911IsRcGv2esz89Ld1bpphWm6ntSx0SQwkxhIkBDwZbk
-Message-ID: <CAHmME9qyfbn539Um9xoFJu2Mm9mM0zuOxyLgeOjF-R5nktbz4w@mail.gmail.com>
-Subject: Re: [PATCH v2 12/12] wireguard: kconfig: Simplify crypto kconfig selections
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Zhiqi Song <songzhiqi1@huawei.com>, 
-	Longfang Liu <liulongfang@huawei.com>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+	Mon, 08 Sep 2025 16:36:02 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-3d3d2472b92so2596836f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 09:35:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757349359; x=1757954159; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WmM4LftI21357OgeVjH332v8ir12kSjHUiMiWxV6Jy4=;
+        b=vvVmTvmiK8B4ELrQ/5fa4S+U3OA3LjJqScblIpp+rS1ztzq/4VWRgzaLwegOng+xje
+         FJ5hr9fstCgHObHgWzt0oZezgSeB62LdhXT82f2Zo0yWPfHpC0s6h6MPLkc9lTbNYT39
+         H+d5APEk/WAeR/DvHJ5dvMdVbGOlTDQV6R96sNuLdQ0DJFnkHC2rfuTLs2lG+IoA0JKw
+         cY9iX10PQWG0Tjt//L9aQPYMP7EEicI7JY/bEOtLEUcD/7Rb/ZPz9GEedYW3JOkAhWsy
+         oqMcH3JEAkP/D1VjpdyLoigeQq4jrMWOUYq40JyP8B+4nRertR7qBtiG5iK3ijMh0yKf
+         cuNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757349359; x=1757954159;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WmM4LftI21357OgeVjH332v8ir12kSjHUiMiWxV6Jy4=;
+        b=nQJfOUQxCeytdbeOZ+wuXC7zO3LzFeOtOBnhOR7hXfGu9tdhBOpo4OLS/LiKlXAtzx
+         l8h1ikaXOh1Mu1g7FUOzW9qWZeHNm7W2c8I34nvgH1ZYcMlobYIXE1hhwaU7t7bOUgcd
+         cCVT/XNDDkcU4FOWQhDN0x+fSZxHPBqzOJal/n9kq2GOPxeEdpDErfuFlKtmdH1tF+yi
+         k1UdI/ZO0bmb8C5kXn47DhMMxn8s5EWORAudcbRjguPymHQ0t/oaMe61hTMmN1TQD/Q6
+         6mLzIbxHw9Z6rYNM3ZEAp6qHpYa21WeWlq2zbbSi0SmndjyNCQ+JHmTae4FtsAKrefNP
+         vaEg==
+X-Forwarded-Encrypted: i=1; AJvYcCUukqR2P81yv9Dq6B25VM7Fub8/AaWFu49q8pl1nflrbcCwD5zKlhwEky+4tnigzCOLBFWwXVEoqGVamhhXYcb5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0yMec/Xv0Dmsa/nGEJYOnZAcNUv7Dj9xDfUW+sbgnfPhEL/CQ
+	MFKt0McoxLVukqF4UaboES9CQBEvVBE85flHatpUE6hNfo4ANOVtIUSgqdyjSoDhhxmXIQ9vh+8
+	haw==
+X-Google-Smtp-Source: AGHT+IEPtQhZHhaSSiFrRywARpqA9kmZE1Y6TE2e26K2tyWQbsjjS1YtpIf0he6IaQ2gQJGqetaDUms3uQ==
+X-Received: from wrbet15.prod.google.com ([2002:a05:6000:230f:b0:3c3:cdfb:e634])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:184d:b0:3e7:4265:66de
+ with SMTP id ffacd0b85a97d-3e742656b0emr4522585f8f.8.1757349358812; Mon, 08
+ Sep 2025 09:35:58 -0700 (PDT)
+Date: Mon,  8 Sep 2025 17:35:57 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.0.355.g5224444f11-goog
+Message-ID: <20250908163557.2419780-1-tabba@google.com>
+Subject: [PATCH] KVM: arm64: Fix parameter ordering for VBAR_EL1 assignment
+From: Fuad Tabba <tabba@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250908_093601_043242_A3AA4499 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,16 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eric,
+The __vcpu_assign_sys_reg() helper expects the register ID as the second
+argument and the value to be assigned as the third. However, the
+existing code was passing these parameters in the incorrect order.
 
-Just a small nit -- would you commit this with the subject line all
-lower case, like the other wireguard commits?
+Fix the function call to properly read the live value of VBAR_EL1 from
+the guest and update the vCPU value immediately before pending the
+exception. This ensures the vCPU's value is the same as the guest's and
+that the exception will be handled at the correct address upon resuming
+the guest.
 
-By the way, I have been reading every single one of your patches. It
-didn't seem like it'd be useful for me to respond endlessly with
-Acked-by/Reviewed-by, so I haven't. But I have quite actively been
-looking through these series. Thanks for doing these cleanups and
-reorganizations. This patch here especially is quite the relief...
+Fixes: 798eb5978700 ("KVM: arm64: Sync protected guest VBAR_EL1 on injecting an undef exception")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Jason
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index 71d2fc97f004..82da9b03692d 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -253,7 +253,7 @@ static void inject_undef64(struct kvm_vcpu *vcpu)
+ 
+ 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
+ 	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
+-	__vcpu_assign_sys_reg(vcpu, read_sysreg_el1(SYS_VBAR), VBAR_EL1);
++	__vcpu_assign_sys_reg(vcpu, VBAR_EL1, read_sysreg_el1(SYS_VBAR));
+ 
+ 	kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
+ 
+
+base-commit: 76eeb9b8de9880ca38696b2fb56ac45ac0a25c6c
+-- 
+2.51.0.355.g5224444f11-goog
+
 
