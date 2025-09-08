@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9354ECAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF613CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iUiA6fxcXUKSJaWYaaDgfDZskuzN62xZP78qNVsUopI=; b=aoWrD3E9j54ga+EvbrKH7N/SDv
-	pSL3FUQMPffKIGMrFmK3xq3p2kZSTzQN99PtKKhPN9yRf30DLGs5TCHwOc9aq3ivIIzFfanNfMYKP
-	KNzqlCpzwPSNufr3E/Q4qOeWJz2loxHfHQVxlV7EHNZgf3VGvad9r93w/QQXzgmeRT9LMc8riUFf5
-	2iHZ5gbEqWRfmEJyb41DUXMzo5YcMmcGeaW7url37G8j2s6rPp8GaDE/rYL+zTBW09hQhnpEOZ/34
-	PCBe89X+Qq3NeWiiYzV3nAnFuEA1mPYhG02NwDxDJPIBREzSQ8pwz8Eid7vXqn5eL8EWjdNLTlz6r
-	ddm1EUWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rSlmjzGGVUOZJIl/wxQDRj8Hhxo+nr4fa4rHU2LMt4Y=; b=aZvE8ytuRUstekiod49l+TzoiK
+	gdOf8LNSnf6/AelAJRf8Yc4DtEHMl6SGGnh3S0fnMK9AvZsDvRdsEHaO6WX2pmtzs0O589LZm7kQP
+	77sqU+ntqmPFGs7X6ZjNmfycXQ04w0uCe8Ht0WzzPurhnqMnO5nSqHEVyC0MZUZ43fgNoT+NKPz47
+	t8ppEfFG0Nt0I+bncg5+aFuq+I7Gz4f3Q3DMYTXHTMxDG9/s21JXR11VeeZMt7mKs5tPjXmHN9h6p
+	WoD9c0+Yxdu6v5rD6IRUacqOPXCQXcGh5qgcmfVSW2ak99wo/N6sKLAZIieW3FcVQIWrg9KxnGlKH
+	1APcjItw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfLT-000000010Ow-3Bfu;
-	Mon, 08 Sep 2025 17:07:59 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uvfLX-000000010Ql-1H54;
+	Mon, 08 Sep 2025 17:08:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvafo-0000000GuGt-29Of
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 12:08:42 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588C8YIe3786822;
-	Mon, 8 Sep 2025 07:08:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757333314;
-	bh=iUiA6fxcXUKSJaWYaaDgfDZskuzN62xZP78qNVsUopI=;
-	h=From:To:CC:Subject:Date;
-	b=cH41MGOTqPOq8g4rFFlUK6slXVV+xVPMk7aqdvjodB0h2LGYeSc6jJK7ifqNsC6SV
-	 X07uwSp9mqzo+8e8/Tsh1ekquN80Sv/vZgAHuj2hi05qFq1+AlfJnwYMamdt5VOCqa
-	 eEDAuc887IR1s7MNb7CAb9407GyTvg/efucW4hoo=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588C8Yxq2390582
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 07:08:34 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 07:08:33 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 07:08:33 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588C8S0P867319;
-	Mon, 8 Sep 2025 07:08:29 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <helgaas@kernel.org>,
-        <kishon@kernel.org>, <vigneshr@ti.com>
-CC: <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-omap@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH v4] PCI: j721e: Fix programming sequence of "strap" settings
-Date: Mon, 8 Sep 2025 17:38:27 +0530
-Message-ID: <20250908120828.1471776-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uvai3-0000000GvIX-2JK9;
+	Mon, 08 Sep 2025 12:11:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757333457;
+	bh=eA5IKwm86oh4IC1IXrQrqhzod5aEjDjQZFgET/xLfw4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HvgEiEVxha2G4nrYPRMoeQJlBcWs8at9+NXvCVaPZtv2CB2svqxMXSqSskJ32glJF
+	 CjMMFTIwdNUyKVDkDBzMLaKu1lWHHhRfzID5rakeRs6DDtKx7pW+RMhgIxmZDSlgai
+	 nWqXObB9X8B9UUy3WyZsTLtBkk3akgoHSC/iK1FJ39tptv2eF4nhVPSXr7NWpqfPVc
+	 bozlTu4kwTnxat9lImfqN7HGKaPlmOob+uB+DVQk4v1dCh+mFiVTYgqBt1aEadZSOK
+	 YN9EUWoUdrPeXBTQ/7wpKPpDs78SOVO7Ul9/QiZf7bnMDt5RLEqjyKW9u+Kd42YC+R
+	 uuCa2NDDN6bKg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 241BB17E00A6;
+	Mon,  8 Sep 2025 14:10:57 +0200 (CEST)
+Message-ID: <aded7865-870a-4ba6-82b8-459150b7d1c7@collabora.com>
+Date: Mon, 8 Sep 2025 14:10:56 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/2] initialize vcodec scalar variable
+To: Irui Wang <irui.wang@mediatek.com>,
+ Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, nicolas.dufresne@collabora.com,
+ Tiffany Lin <tiffany.lin@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>, Qianfeng Rong <rongqianfeng@vivo.com>
+Cc: Maoguang Meng <maoguang.meng@mediatek.com>,
+ Longfei Wang <longfei.wang@mediatek.com>,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250907093557.8008-1-irui.wang@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250907093557.8008-1-irui.wang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_050840_643981_88D45C16 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250908_051059_769817_C9644225 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,104 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Cadence PCIe Controller integrated in the TI K3 SoCs supports both
-Root-Complex and Endpoint modes of operation. The Glue Layer allows
-"strapping" the Mode of operation of the Controller, the Link Speed
-and the Link Width. This is enabled by programming the "PCIEn_CTRL"
-register (n corresponds to the PCIe instance) within the CTRL_MMR
-memory-mapped register space. The "reset-values" of the registers are
-also different depending on the mode of operation.
+Il 07/09/25 11:35, Irui Wang ha scritto:
+> Initialize vcodec structures:
+> patch 1 add missing initialization to fix the encoder's UNINIT checker
+> issue.
+> 
+> patch 2 converts memset() to = { } for other vcodec structures.
+> 
+> Changes in v3:
+>   - Converts memset() to = { }
+>   - Combined with Qianfeng's patch as v3
+>   - Link to v2: https://patchwork.linuxtv.org/project/linux-media/patch/20250715081547.18076-1-irui.wang@mediatek.com/
+>   - Link to Qianfeng's v1: https://patchwork.linuxtv.org/project/linux-media/patch/20250803135514.118892-1-rongqianfeng@vivo.com/
+> 
+> Changes in v2:
+>   - Add Fixes tag, update commit message
+>   - Remove unnecessary memset
+>   - Move memset to before the first usage
+> 
+> 
+> Irui Wang (1):
+>    media: mediatek: encoder: Fix uninitialized scalar variable issue
+> 
+> Qianfeng Rong (1):
+>    media: mediatek: vcodec: use = { } instead of memset()
+> 
+>   .../mediatek/vcodec/decoder/vdec/vdec_vp9_if.c    |  3 +--
+>   .../mediatek/vcodec/decoder/vdec_vpu_if.c         | 12 ++++--------
+>   .../mediatek/vcodec/encoder/mtk_vcodec_enc.c      | 12 +++++-------
+>   .../mediatek/vcodec/encoder/venc_vpu_if.c         | 15 +++++----------
+>   4 files changed, 15 insertions(+), 27 deletions(-)
+> 
 
-Since the PCIe Controller latches onto the "reset-values" immediately
-after being powered on, if the Glue Layer configuration is not done while
-the PCIe Controller is off, it will result in the PCIe Controller latching
-onto the wrong "reset-values". In practice, this will show up as a wrong
-representation of the PCIe Controller's capability structures in the PCIe
-Configuration Space. Some such capabilities which are supported by the PCIe
-Controller in the Root-Complex mode but are incorrectly latched onto as
-being unsupported are:
-- Link Bandwidth Notification
-- Alternate Routing ID (ARI) Forwarding Support
-- Next capability offset within Advanced Error Reporting (AER) capability
+Whole series is
 
-Fix this by powering off the PCIe Controller before programming the "strap"
-settings and powering it on after that. The runtime PM APIs namely
-pm_runtime_put_sync() and pm_runtime_get_sync() will decrement and
-increment the usage counter respectively, causing GENPD to power off and
-power on the PCIe Controller.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
-
-Hello,
-
-This patch is based on commit
-76eeb9b8de98 Linux 6.17-rc5
-of Mainline Linux.
-
-v3 of this patch is at:
-https://lore.kernel.org/r/20250829091707.2990211-1-s-vadapalli@ti.com/
-Changes since v3:
-- The commit message and the comment have been updated to state that the
-  runtime PM APIs being added by the patch change the usage counter for the
-  PCIe Controller causing GENPD to power it off and power it on.
-
-This patch has been tested on the J7200-EVM since the issue being fixed
-by the patch is seen on the J7200 SoC. Test Logs:
-https://gist.github.com/Siddharth-Vadapalli-at-TI/38b403f4bb974c51ebf3d0d2ad0fa7b8
-
-Regards,
-Siddharth.
-
- drivers/pci/controller/cadence/pci-j721e.c | 25 ++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
-
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index 6c93f39d0288..29ffaf2bae10 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -284,6 +284,25 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
- 	if (!ret)
- 		offset = args.args[0];
- 
-+	/*
-+	 * The PCIe Controller's registers have different "reset-values"
-+	 * depending on the "strap" settings programmed into the PCIEn_CTRL
-+	 * register within the CTRL_MMR memory-mapped register space.
-+	 * The registers latch onto a "reset-value" based on the "strap"
-+	 * settings sampled after the PCIe Controller is powered on.
-+	 * To ensure that the "reset-values" are sampled accurately, power
-+	 * off the PCIe Controller before programming the "strap" settings
-+	 * and power it on after that. The runtime PM APIs namely
-+	 * pm_runtime_put_sync() and pm_runtime_get_sync() will decrement and
-+	 * increment the usage counter respectively, causing GENPD to power off
-+	 * and power on the PCIe Controller.
-+	 */
-+	ret = pm_runtime_put_sync(dev);
-+	if (ret < 0) {
-+		dev_err(dev, "Failed to power off PCIe Controller\n");
-+		return ret;
-+	}
-+
- 	ret = j721e_pcie_set_mode(pcie, syscon, offset);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to set pci mode\n");
-@@ -302,6 +321,12 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
- 		return ret;
- 	}
- 
-+	ret = pm_runtime_get_sync(dev);
-+	if (ret < 0) {
-+		dev_err(dev, "Failed to power on PCIe Controller\n");
-+		return ret;
-+	}
-+
- 	/* Enable ACSPCIE refclk output if the optional property exists */
- 	syscon = syscon_regmap_lookup_by_phandle_optional(node,
- 						"ti,syscon-acspcie-proxy-ctrl");
--- 
-2.43.0
-
+Cheers,
+Angelo
 
