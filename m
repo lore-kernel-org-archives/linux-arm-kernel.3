@@ -4,111 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD54CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:05:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34553CAC586
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kj7fG7XAER68na8hgLjfPolxfyD9eQkGEiz9N4R6m0U=; b=4lSKNqYQvXH3ndDncNaVyKXBa+
-	naw+Tu/eSCnP9p8c8GZO/ZqpAUupvTQnjZcTNOYz1cBYKGUljCaSGOay3bqtcKpqMUPMSDS1qMUgH
-	1l2P2L/v9QLCCDnubk55INLPAZmA0gUCsKo9PzKeBHTULvGvFlDVf0J3ILyXnQlnw0ibJ8BlPL64E
-	k/99TYHfvCT1sBFLxhe2ZdOkaUp3Y5YKNf1hw8dYaeyM6rRMxBOD1dnhKQQQ5TWEBXQCmz4bxN75D
-	B5CAxXMk5J8DKIrKA5Y6+xQPEHe4LDiLmtMZ5tDhHbkbVwMEOB9iWvnAPmj8av7w7NlWU9R3NXM1i
-	+6ICPJ7g==;
+	bh=GGgXI1Ho6z29hf45Zyx4NpZm9qgAHIRHiRtnsBXIV+s=; b=mYY7M9rTjzHL04OoifB4YPILjc
+	6CvSTMfDDM6cb0RrWzxJ73fDTbWLfsH8u1HiW9zJO8DHjarAdLyqz+iQuY6ptttfZLPx1yMFWUT1Z
+	FRX0EOu9gv1A8bYxrkDtz/ZN0CQPTHVK6GAhwoqcXAt1uf9t477Wc0A+eODB374SaGHTXP7qEVJSi
+	PUQcg/UjNUqB2Q6lwxS8kbCHcDjqv7r6oo0SOHrdgPr1r3qm8W7j0QyVpF8GtlaJkshxzhYX/PinO
+	SRjy+NdPsvv/qJ60knwmxY3vvV38tn+5Xc2Bnba5l76cIiz91Vs/iu66jx7ZQPfH2u5NX7v/FTeTB
+	vK7J/NkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvacD-0000000Gr5i-1cVy;
-	Mon, 08 Sep 2025 12:04:57 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1uvacE-0000000Gr8h-3ThZ;
+	Mon, 08 Sep 2025 12:04:58 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvYhZ-0000000GEWB-1Y91
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 10:02:22 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b47475cf8ecso2753834a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 03:02:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757325741; x=1757930541; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kj7fG7XAER68na8hgLjfPolxfyD9eQkGEiz9N4R6m0U=;
-        b=H99d1DfN/aYqafb4JuT4/ZaOZzXiEYCegaVzOxL7leHYaNMyjij4b/DpN1SzkYCa4s
-         knnuZK/weGUzh1TLa+HtrB4/8fe2FC0GOc7VsZXT1NtiLojhFHYmiaLiHqiuS9s1ykf0
-         tL609hWFcER/3qfv9CDVz5Cxf3roJpqTLIftzf72Q7qA6lWYAQh3cw7TKo5lIRWOBzEV
-         pvsQpQp3G20dPCS1pvvwSWsziIlVuuSFRj2Cb7e9kyNekQL3i2c1sX0z/HP9A8YT9nu+
-         jn1GDcAky0mm5XpoJrLHTPUAOpYSSU13I5jYUKTfTwLL8GYq3Y4kegQc13OoY3g87Eg6
-         zHlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757325741; x=1757930541;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kj7fG7XAER68na8hgLjfPolxfyD9eQkGEiz9N4R6m0U=;
-        b=C/3v+aU7igD1/lBk46MyqeaKj+LOHrYsN/NbWLxalrYC4BbO5RUZtWSH7QGFG0sYOD
-         UBMLcjdF20plkzS3uWmnmCkicRWPWvXMOriuwWkmRnrON/BNeaqUr2uc1E1zkJ28TyfP
-         +a3x6ZE/xbjLasq2dmcQfUcGZmRkMMrA9BbIH9fLlE8n7ye7N1Kmf0cDEYKejcx0VKDc
-         E4eP+T8UmzeYuN86C6nnx7PayW/Zm+IV66lmT1S/6Fru7uGme6wHNPWNkw94QA1A4wTQ
-         OnuQ5yIfzf3A6NTT9yH5RLhFW7OBQ43RlW6RIcxdnvXWj6dJBLlFSozcaItJ3V3Gni1E
-         EgGA==
-X-Forwarded-Encrypted: i=1; AJvYcCWglimkgcRFWf1QXn1cFZFplOBY8T84ql/0quFxEw8NTnU6leZZ093BVLyGuvQ+0K7KHVxoV0acQZqzkoRKBXyN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzet/ZRVrOhEaNQDDW51VXHeWgZ308fD9qcoH01Zbq9oNhXk6p4
-	+3ZR9fpZrv1mLPf6bGazBIE0HfZKt64bnch5mwH+rmwbncvbWfX1Ghve
-X-Gm-Gg: ASbGncvd1LeGhUTzl+hSNf3+e4VsvZ/du789ebMifjQijjLfsjPsO5pmHhfz5xAPB2l
-	Rudel0Of7p8Gk4ghCKqf93UPZjHWwi4slMxt/cJKt61vNnoO94Kwjo71J5bc2tssunkgbVTXu+4
-	WLZSE9YSS619Rq+BWJ5y4O/5VxLFwW2fSqSk4SKDwTVQo5sMz70vSWrtv1k+QdVwGzFEu1RGjZB
-	F73BK647loxAE0ia2+q7XGciVCM+40KTvHuFKzHiNGRNYsZc0FfB8oDHk/J2Yu7VgHvS7DO04uU
-	OFDuBt0FieFMzNErEBOzjs6GIOyLac+oVenU7xlUiGIgn8d+DZ4ZjQD5hxxUg7OBSSLbsr5ZOdr
-	zDEOssSqwRdiGxbu4dCXyi+ReYF6lzUnQV6X56SBgiB6r6U9h
-X-Google-Smtp-Source: AGHT+IFzBnyCeoSUT4/jKqak6Ru0Kvj/hbUWjk5gn0379Y2ihPn96fH4hCkaATJ2yH9Os2NuxascEQ==
-X-Received: by 2002:a17:903:1a26:b0:24d:4a96:7b30 with SMTP id d9443c01a7336-25170e41046mr103171265ad.35.1757325740700;
-        Mon, 08 Sep 2025 03:02:20 -0700 (PDT)
-Received: from [127.0.1.1] ([59.188.211.98])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-24ccfc7f993sm107826545ad.63.2025.09.08.03.02.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 03:02:20 -0700 (PDT)
-From: Nick Chan <towinchenmi@gmail.com>
-Date: Mon, 08 Sep 2025 17:58:45 +0800
-Subject: [PATCH RESEND v8 21/21] arm64: dts: apple: t8015: Add CPU PMU
- nodes
+	id 1uvYlB-0000000GFqz-0T5n;
+	Mon, 08 Sep 2025 10:06:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757325963;
+	bh=RZ6ERkolVtqdo+HQOO/D6aEOMFArKRn06pluiLPKJv8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MrD0nV35k8OfUXt9xIDA3TfmGywuqtDuU+oW+xmBErO5QqTaNoAs1z+OeftLufYLG
+	 KvhqgeD+PFJrHLFcCYdhqF2qS50Sweh5knLGyNEkTXMMstOAE5KQOul5JNkkMQVpNV
+	 HCwsRYt/yqvrChLJuaYHC4971nPbaUyz5PVRJ+YcXiwuYDO2GmIZbBJG/yYFJu/POP
+	 mkR6M0jN7k3Dn3PHPUidKif8ElNWJYRLWD69XO/lPnAy7/3yYO0OxCRAwzqf/NnCUj
+	 tPgNp4su79YvZrDj6GV+e5Prcrd0CHvwMQLjF5UF9tbHwtnypA+rWirhf+QzT0vSWD
+	 nrDlPUH5HD1TQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0BF6817E0E20;
+	Mon,  8 Sep 2025 12:06:02 +0200 (CEST)
+Message-ID: <27159dc0-96f1-4d99-bf5e-cda0f9c7d307@collabora.com>
+Date: Mon, 8 Sep 2025 12:06:01 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 05/10] mailbox: add MediaTek GPUEB IPI mailbox
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
+ <20250905-mt8196-gpufreq-v1-5-7b6c2d6be221@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250905-mt8196-gpufreq-v1-5-7b6c2d6be221@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250908-apple-cpmu-v8-21-d83b4544dc14@gmail.com>
-References: <20250908-apple-cpmu-v8-0-d83b4544dc14@gmail.com>
-In-Reply-To: <20250908-apple-cpmu-v8-0-d83b4544dc14@gmail.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Sven Peter <sven@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
- asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Nick Chan <towinchenmi@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1462; i=towinchenmi@gmail.com;
- h=from:subject:message-id; bh=NgiaadnBWzmQWHLVGXTkghr12q4e2Z2pGwu46CpKaLI=;
- b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBovqlFI+V4GoFFzmg6iekYjO3wUQsQ2NoToVu02
- /eVS2sSy3OJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaL6pRQAKCRABygi3psUI
- JAaID/9rrnrkkgZNvzI0FIXkGSX4gBtvI+S+ZUhZpHoHLNx5mYa6SzSgxgGtFVh/RB3Ws6QCf2v
- QGDci6rsLtSmWAjeQ+uCoaMJcuSXbGTSiTxM2apn/N3Qa4oRhy96wHLRUCOq+zCdg9ST0POvKGD
- MU2QrOVTS/xAzulU2W6Veml9cV05aLbPnSgAdmlom+gXmZqWsicFUuun1bQzeP4YNj3tYfN85gL
- Kofv7w0kuwRAr6gePgu0je9RzyJZGzY8PhjJho1XYqKM2sboHNKtJOwjHQaOu9zKp1YysVomMA7
- a7x3EwE1STEqEZK3KFwIHFQvYNzVPSSbZJX2thGtvHTmjmdfgEJN3RoO+6YFRclhBoR3YY5l+Ez
- 10S/GLNWdQ7MVEbO4C8mBHFrrc370ZfIoqyP3UgvZZFP5itHr/ByW8ENdblvZRvHL1WeCQKZGQE
- 3UdpaW3pj2RP417YZdpur7CQmv8YdTxdj0v6EXOxqE+e+IZMp3Jda2PHs2jWOpFfT2QCRfFeQ/7
- RajECtYAJvCdQpNmkemfRYw+APevsJeyXEQhKifsPYISo2NkHZXg/lBZB7UQDBY5v2KPjf54Jk5
- a6R8wk8dredST8Wb+UBF5e028+i6SkVwrsnKOjn/zcu/fu42nEfKXCQJ4bEBlHwf6eIcMY4iqzH
- DF9ti+Uugiot7DA==
-X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
- fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_030221_410763_ED24F2ED 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20250908_030605_474940_BA2D899D 
+X-CRM114-Status: GOOD (  48.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,57 +89,466 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add CPU PMU nodes for Apple A11 SoC.
+Il 05/09/25 12:23, Nicolas Frattaroli ha scritto:
+> The MT8196 SoC uses an embedded MCU to control frequencies and power of
+> the GPU. This controller is referred to as "GPUEB".
+> 
+> It communicates to the application processor, among other ways, through
+> a mailbox.
+> 
+> The mailbox exposes one interrupt, which appears to only be fired when a
+> response is received, rather than a transaction is completed. For us,
+> this means we unfortunately need to poll for txdone.
+> 
+> The mailbox also requires the EB clock to be on when touching any of the
+> mailbox registers.
+> 
+> Add a simple driver for it based on the common mailbox framework.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
----
- arch/arm64/boot/dts/apple/t8015.dtsi | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+Only a few nits in this, check below.
 
-diff --git a/arch/arm64/boot/dts/apple/t8015.dtsi b/arch/arm64/boot/dts/apple/t8015.dtsi
-index 12acf8fc8bc6bcde6b11773cadd97e9ee115f510..9bf5157f0e504b7394ef5354411d3d37e8d5760a 100644
---- a/arch/arm64/boot/dts/apple/t8015.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8015.dtsi
-@@ -284,6 +284,18 @@ aic: interrupt-controller@232100000 {
- 			#interrupt-cells = <3>;
- 			interrupt-controller;
- 			power-domains = <&ps_aic>;
-+
-+			affinities {
-+				e-core-pmu-affinity {
-+					apple,fiq-index = <AIC_CPU_PMU_E>;
-+					cpus = <&cpu_e0 &cpu_e1 &cpu_e2 &cpu_e3>;
-+				};
-+
-+				p-core-pmu-affinity {
-+					apple,fiq-index = <AIC_CPU_PMU_P>;
-+					cpus = <&cpu_p0 &cpu_p1>;
-+				};
-+			};
- 		};
- 
- 		pmgr: power-management@232000000 {
-@@ -412,6 +424,18 @@ timer {
- 		interrupts = <AIC_FIQ AIC_TMR_GUEST_PHYS IRQ_TYPE_LEVEL_HIGH>,
- 			     <AIC_FIQ AIC_TMR_GUEST_VIRT IRQ_TYPE_LEVEL_HIGH>;
- 	};
-+
-+	pmu-e {
-+		compatible = "apple,mistral-pmu";
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_FIQ AIC_CPU_PMU_E IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	pmu-p {
-+		compatible = "apple,monsoon-pmu";
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_FIQ AIC_CPU_PMU_P IRQ_TYPE_LEVEL_HIGH>;
-+	};
- };
- 
- #include "t8015-pmgr.dtsi"
+> ---
+>   drivers/mailbox/Kconfig             |  10 ++
+>   drivers/mailbox/Makefile            |   2 +
+>   drivers/mailbox/mtk-gpueb-mailbox.c | 330 ++++++++++++++++++++++++++++++++++++
+>   3 files changed, 342 insertions(+)
+> 
+> diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+> index 02432d4a5ccd46a16156a09c7f277fb03e4013f5..2016defda1fabb5c0fcc8078f84a52d4e4e00167 100644
+> --- a/drivers/mailbox/Kconfig
+> +++ b/drivers/mailbox/Kconfig
+> @@ -294,6 +294,16 @@ config MTK_CMDQ_MBOX
+>   	  critical time limitation, such as updating display configuration
+>   	  during the vblank.
+>   
+> +config MTK_GPUEB_MBOX
+> +	tristate "MediaTek GPUEB Mailbox Support"
+> +	depends on ARCH_MEDIATEK || COMPILE_TEST
+> +	help
+> +	  The MediaTek GPUEB mailbox is used to communicate with the embedded
+> +	  controller in charge of GPU frequency and power management on some
+> +	  MediaTek SoCs, such as the MT8196.
+> +	  Say Y or m here if you want to support the MT8196 SoC in your kernel
+> +	  build.
+> +
+>   config ZYNQMP_IPI_MBOX
+>   	tristate "Xilinx ZynqMP IPI Mailbox"
+>   	depends on ARCH_ZYNQMP && OF
+> diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
+> index 98a68f838486eed117d24296138bf59fda3f92e4..564d06e71313e6d1972e4a6036e1e78c8c7ec450 100644
+> --- a/drivers/mailbox/Makefile
+> +++ b/drivers/mailbox/Makefile
+> @@ -63,6 +63,8 @@ obj-$(CONFIG_MTK_ADSP_MBOX)	+= mtk-adsp-mailbox.o
+>   
+>   obj-$(CONFIG_MTK_CMDQ_MBOX)	+= mtk-cmdq-mailbox.o
+>   
+> +obj-$(CONFIG_MTK_GPUEB_MBOX)	+= mtk-gpueb-mailbox.o
+> +
+>   obj-$(CONFIG_ZYNQMP_IPI_MBOX)	+= zynqmp-ipi-mailbox.o
+>   
+>   obj-$(CONFIG_SUN6I_MSGBOX)	+= sun6i-msgbox.o
+> diff --git a/drivers/mailbox/mtk-gpueb-mailbox.c b/drivers/mailbox/mtk-gpueb-mailbox.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..0236fb358136e434a09a21ef293fe949ced94123
+> --- /dev/null
+> +++ b/drivers/mailbox/mtk-gpueb-mailbox.c
+> @@ -0,0 +1,330 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * MediaTek GPUEB mailbox driver for SoCs such as the MT8196
+> + *
+> + * Copyright (C) 2025, Collabora Ltd.
+> + *
+> + * Developers harmed in the making of this driver:
 
--- 
-2.51.0
+lol
+
+> + *  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> + */
+> +
+> +#include <linux/atomic.h>
+> +#include <linux/clk.h>
+> +#include <linux/device.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/mailbox_controller.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +
+> +#define MBOX_CTL_TX_STS 0x0000
+> +#define MBOX_CTL_IRQ_SET 0x0004
+> +#define MBOX_CTL_IRQ_CLR 0x0074
+> +#define MBOX_CTL_RX_STS 0x0078
+> +
+> +#define MBOX_FULL BIT(0) /* i.e. we've received data */
+> +#define MBOX_CLOGGED BIT(1) /* i.e. the channel is shutdown */
+> +
+> +struct mtk_gpueb_mbox {
+> +	struct device *dev;
+> +	struct clk *clk;
+> +	void __iomem *mbox_mmio;
+> +	void __iomem *mbox_ctl;
+> +	void **rx_buf;
+> +	atomic_t *rx_status;
+> +	struct mbox_controller mbox;
+> +	unsigned int *chn;
+> +	int irq;
+> +	const struct mtk_gpueb_mbox_variant *v;
+> +};
+> +
+> +struct mtk_gpueb_mbox_ch {
+> +	const char *name;
+> +	const int num;
+
+8 bits are enough for `num`....
+
+> +	const unsigned int tx_offset;
+
+You don't need more than 16 bits for the tx/rx offset, do you?
+
+> +	const unsigned int tx_len;
+
+...and I'm sure that it's unrealistic to think that we could ever see any future
+gpueb mailbox with tx/rx len that is more than 255 bytes, so you don't need more
+than 8 bits for the length.
+
+> +	const unsigned int rx_offset;
+> +	const unsigned int rx_len;
+> +	const bool no_response;
+> +};
+> +
+> +struct mtk_gpueb_mbox_variant {
+> +	unsigned int num_channels;
+> +	const struct mtk_gpueb_mbox_ch channels[] __counted_by(num_channels);
+> +};
+> +
+> +/**
+> + * mtk_gpueb_mbox_read_rx - read RX buffer from MMIO into ebm's RX buffer
+> + * @ebm: pointer to &struct mtk_gpueb_mbox instance
+> + * @channel: number of channel to read
+> + */
+> +static void mtk_gpueb_mbox_read_rx(struct mtk_gpueb_mbox *ebm,
+> +				   unsigned int channel)
+> +{
+> +	const struct mtk_gpueb_mbox_ch *ch;
+
+Just initialize it during declaration, it's shorter.
+
+> +
+> +	ch = &ebm->v->channels[channel];
+> +
+> +	memcpy_fromio(ebm->rx_buf[channel], ebm->mbox_mmio + ch->rx_offset,
+> +		      ch->rx_len);
+
+Please use a single line, 89 columns is fine :-)
+
+> +
+> +}
+> +
+> +static irqreturn_t mtk_gpueb_mbox_isr(int irq, void *data)
+> +{
+> +	struct mtk_gpueb_mbox *ebm = data;
+> +	u32 rx_handled = 0;
+> +	u32 rx_sts;
+> +	int i;
+> +
+> +	rx_sts = readl(ebm->mbox_ctl + MBOX_CTL_RX_STS);
+> +
+> +	for (i = 0; i < ebm->v->num_channels; i++) {
+> +		if (rx_sts & BIT(i)) {
+> +			if (!atomic_cmpxchg(&ebm->rx_status[i], 0,
+> +					    MBOX_FULL | MBOX_CLOGGED))
+> +				rx_handled |= BIT(i);
+> +		}
+> +	}
+> +
+> +	writel(rx_handled, ebm->mbox_ctl + MBOX_CTL_IRQ_CLR);
+> +
+> +	if (!(rx_sts ^ rx_handled))
+> +		return IRQ_WAKE_THREAD;
+> +
+> +	dev_warn_ratelimited(ebm->dev, "spurious interrupts on 0x%04X\n",
+> +			     rx_sts ^ rx_handled);
+> +	return IRQ_NONE;
+> +}
+> +
+> +static irqreturn_t mtk_gpueb_mbox_thread(int irq, void *data)
+> +{
+> +	struct mtk_gpueb_mbox *ebm = data;
+> +	irqreturn_t ret = IRQ_NONE;
+> +	int status;
+> +	int i;
+> +
+> +	for (i = 0; i < ebm->v->num_channels; i++) {
+> +		status = atomic_cmpxchg(&ebm->rx_status[i],
+> +					MBOX_FULL | MBOX_CLOGGED, MBOX_FULL);
+> +		if (status == (MBOX_FULL | MBOX_CLOGGED)) {
+> +			mtk_gpueb_mbox_read_rx(ebm, i);
+> +			mbox_chan_received_data(&ebm->mbox.chans[i],
+> +						ebm->rx_buf[i]);
+> +			/* FIXME: When does MBOX_FULL get cleared? Here? */
+> +			atomic_set(&ebm->rx_status[i], 0);
+
+I say that you're right and it has to get cleared here.
+You got (and handled) the message, so the info in the mbox is not needed anymore.
+
+> +			ret = IRQ_HANDLED;
+> +		}
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int mtk_gpueb_mbox_send_data(struct mbox_chan *chan, void *data)
+> +{
+> +	struct mtk_gpueb_mbox *ebm = dev_get_drvdata(chan->mbox->dev);
+> +	unsigned int *num = chan->con_priv;
+> +	int i;
+
+int i, j;
+
+> +	u32 *values = data;
+> +
+> +	if (*num >= ebm->v->num_channels)
+> +		return -ECHRNG;
+> +
+> +	if (!ebm->v->channels[*num].no_response &&
+> +	    atomic_read(&ebm->rx_status[*num]))
+> +		return -EBUSY;
+> +
+> +	writel(BIT(*num), ebm->mbox_ctl + MBOX_CTL_IRQ_CLR);
+> +
+> +	/*
+> +	 * We don't want any fancy nonsense, just write the 32-bit values in
+> +	 * order. memcpy_toio/__iowrite32_copy don't work here, because fancy.
+> +	 */
+> +	for (i = 0; i < ebm->v->channels[*num].tx_len; i += 4) {
+
+Just use an additional `j` index, so that you can avoid division.
+
+> +		writel(values[i / 4],
+> +		       ebm->mbox_mmio + ebm->v->channels[*num].tx_offset + i);
+> +	}
+> +
+> +	writel(BIT(*num), ebm->mbox_ctl + MBOX_CTL_IRQ_SET);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_gpueb_mbox_startup(struct mbox_chan *chan)
+> +{
+> +	struct mtk_gpueb_mbox *ebm = dev_get_drvdata(chan->mbox->dev);
+> +	unsigned int *num = chan->con_priv;
+> +
+> +	if (*num >= ebm->v->num_channels)
+> +		return -ECHRNG;
+> +
+> +	atomic_set(&ebm->rx_status[*num], 0);
+> +
+> +	return 0;
+> +}
+> +
+> +static void mtk_gpueb_mbox_shutdown(struct mbox_chan *chan)
+> +{
+> +	struct mtk_gpueb_mbox *ebm = dev_get_drvdata(chan->mbox->dev);
+> +	unsigned int *num = chan->con_priv;
+> +
+> +	atomic_set(&ebm->rx_status[*num], MBOX_CLOGGED);
+> +}
+> +
+> +static bool mtk_gpueb_mbox_last_tx_done(struct mbox_chan *chan)
+> +{
+> +	struct mtk_gpueb_mbox *ebm = dev_get_drvdata(chan->mbox->dev);
+> +	unsigned int *num = chan->con_priv;
+> +
+> +	return !(readl(ebm->mbox_ctl + MBOX_CTL_TX_STS) & BIT(*num));
+> +}
+> +
+> +const struct mbox_chan_ops mtk_gpueb_mbox_ops = {
+> +	.send_data = mtk_gpueb_mbox_send_data,
+> +	.startup = mtk_gpueb_mbox_startup,
+> +	.shutdown = mtk_gpueb_mbox_shutdown,
+> +	.last_tx_done = mtk_gpueb_mbox_last_tx_done,
+> +};
+> +
+> +static struct mbox_chan *
+> +mtk_gpueb_mbox_of_xlate(struct mbox_controller *mbox,
+> +			const struct of_phandle_args *sp)
+> +{
+> +	struct mtk_gpueb_mbox *ebm = dev_get_drvdata(mbox->dev);
+> +
+> +	if (!sp->args_count)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	if (sp->args[0] >= ebm->v->num_channels)
+> +		return ERR_PTR(-ECHRNG);
+> +
+> +	return &mbox->chans[sp->args[0]];
+> +}
+> +
+> +static int mtk_gpueb_mbox_probe(struct platform_device *pdev)
+> +{
+> +	struct mtk_gpueb_mbox *ebm;
+> +	unsigned int rx_buf_sz;
+> +	void *buf;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	ebm = devm_kzalloc(&pdev->dev, sizeof(*ebm), GFP_KERNEL);
+> +	if (!ebm)
+> +		return -ENOMEM;
+> +
+> +	ebm->dev = &pdev->dev;
+> +	ebm->v = of_device_get_match_data(ebm->dev);
+> +
+> +	dev_set_drvdata(ebm->dev, ebm);
+
+My preference is to set drvdata after all of the paths that can fail (or anyway
+before anything that uses it), but it's your own choice.
+
+> +
+> +	ebm->clk = devm_clk_get_enabled(ebm->dev, NULL);
+> +	if (IS_ERR(ebm->clk))
+> +		return dev_err_probe(ebm->dev, PTR_ERR(ebm->clk),
+> +				     "Failed to get 'eb' clock\n");
+> +
+> +	ebm->mbox_mmio = devm_platform_ioremap_resource_byname(pdev, "mbox");
+
+I'd say that "chan" and "ctl" are more descriptive as resource names, but then,
+do we really need to search by name?
+
+Doing that by index is also an option, as you can write the MMIO names and their
+full description in the bindings instead.
+
+> +	if (IS_ERR(ebm->mbox_mmio))
+> +		return dev_err_probe(ebm->dev, PTR_ERR(ebm->mbox_mmio),
+> +				     "Couldn't map mailbox registers\n");
+> +
+> +	ebm->mbox_ctl = devm_platform_ioremap_resource_byname(pdev, "mbox_ctl");
+> +	if (IS_ERR(ebm->mbox_ctl))
+> +		return dev_err_probe(
+> +			ebm->dev, PTR_ERR(ebm->mbox_ctl),
+> +			"Couldn't map mailbox control registers\n");
+> +
+> +	rx_buf_sz = (ebm->v->channels[ebm->v->num_channels - 1].rx_offset +
+> +		     ebm->v->channels[ebm->v->num_channels - 1].rx_len);
+> +
+> +	buf = devm_kzalloc(ebm->dev, rx_buf_sz, GFP_KERNEL);
+> +	if (!buf)
+> +		return -ENOMEM;
+> +
+> +	ebm->rx_buf = devm_kmalloc_array(ebm->dev, ebm->v->num_channels,
+> +					 sizeof(*ebm->rx_buf), GFP_KERNEL);
+> +	if (!ebm->rx_buf)
+> +		return -ENOMEM;
+> +
+> +	ebm->mbox.chans = devm_kcalloc(ebm->dev, ebm->v->num_channels,
+> +				       sizeof(struct mbox_chan), GFP_KERNEL);
+> +	if (!ebm->mbox.chans)
+> +		return -ENOMEM;
+> +
+> +	ebm->rx_status = devm_kcalloc(ebm->dev, ebm->v->num_channels,
+> +				      sizeof(atomic_t), GFP_KERNEL);
+> +	if (!ebm->rx_status)
+> +		return -ENOMEM;
+> +
+> +	ebm->chn = devm_kcalloc(ebm->dev, ebm->v->num_channels,
+> +				sizeof(*ebm->chn), GFP_KERNEL);
+
+Two things:
+  1. You missed error checking, oops!
+  2. chn is fully initialized later, you can devm_kmalloc_array() here instead,
+     so that you can avoid double initialization (you don't need zeroing).
+
+> +
+> +	for (i = 0; i < ebm->v->num_channels; i++) {
+> +		ebm->rx_buf[i] = buf + ebm->v->channels[i].rx_offset;
+> +		spin_lock_init(&ebm->mbox.chans[i].lock);
+> +		/* the things you do to avoid explicit casting void* */
+> +		ebm->chn[i] = i;
+> +		ebm->mbox.chans[i].con_priv = &ebm->chn[i];
+> +		atomic_set(&ebm->rx_status[i], MBOX_CLOGGED);
+> +	}
+> +
+> +	ebm->mbox.dev = ebm->dev;
+> +	ebm->mbox.num_chans = ebm->v->num_channels;
+> +	ebm->mbox.txdone_poll = true;
+> +	ebm->mbox.txpoll_period = 0; /* minimum hrtimer interval */
+> +	ebm->mbox.of_xlate = mtk_gpueb_mbox_of_xlate;
+> +	ebm->mbox.ops = &mtk_gpueb_mbox_ops;
+> +
+> +	ebm->irq = platform_get_irq(pdev, 0);
+> +	if (ebm->irq < 0)
+> +		return ebm->irq;
+
+Please move the platform_get_irq() up a bit, before all those expensive memory
+allocations - if it fails, at least it fails faster in that case.
+
+> +
+> +	ret = devm_request_threaded_irq(ebm->dev, ebm->irq, mtk_gpueb_mbox_isr,
+> +					mtk_gpueb_mbox_thread, 0, NULL, ebm);
+> +	if (ret)
+> +		return dev_err_probe(ebm->dev, ret, "failed to request IRQ\n");
+> +
+> +	ret = devm_mbox_controller_register(ebm->dev, &ebm->mbox);
+
+error check
+
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct mtk_gpueb_mbox_variant mtk_gpueb_mbox_mt8196 = {
+> +	.num_channels = 12,
+> +	.channels = {
+> +		{ "fast_dvfs_event", 0, 0x0000, 16, 0x00e0, 16, false },
+> +		{ "gpufreq",         1, 0x0010, 32, 0x00f0, 32, false },
+> +		{ "sleep",           2, 0x0030, 12, 0x0110,  4, true  },
+> +		{ "timer",           3, 0x003c, 24, 0x0114,  4, false },
+> +		{ "fhctl",           4, 0x0054, 36, 0x0118,  4, false },
+> +		{ "ccf",             5, 0x0078, 16, 0x011c, 16, false },
+> +		{ "gpumpu",          6, 0x0088, 24, 0x012c,  4, false },
+> +		{ "fast_dvfs",       7, 0x00a0, 24, 0x0130, 24, false },
+> +		{ "ipir_c_met",      8, 0x00b8,  4, 0x0148, 16, false },
+> +		{ "ipis_c_met",      9, 0x00bc, 16, 0x0158,  4, false },
+> +		{ "brisket",        10, 0x00cc, 16, 0x015c, 16, false },
+> +		{ "ppb",            11, 0x00dc,  4, 0x016c,  4, false },
+> +	},
+> +};
+> +
+> +static const struct of_device_id mtk_gpueb_mbox_of_ids[] = {
+> +	{ .compatible = "mediatek,mt8196-gpueb-mbox",
+> +	  .data = &mtk_gpueb_mbox_mt8196 },
+
+single line please
+
+> +	{ /* Sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, mtk_gpueb_mbox_of_ids);
+> +
+> +static struct platform_driver mtk_gpueb_mbox_drv = {
+> +	.probe = mtk_gpueb_mbox_probe,
+> +	.driver = {
+> +		.name = "mtk-gpueb-mbox",
+> +		.of_match_table = mtk_gpueb_mbox_of_ids,
+> +	}
+> +};
+> +module_platform_driver(mtk_gpueb_mbox_drv);
+> +
+> +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
+> +MODULE_DESCRIPTION("MediaTek GPUEB mailbox driver for SoCs such as the MT8196");
+
+Just "MediaTek GPUEB Mailbox driver" is fine - there are other SoCs that can make
+use of this driver (whether you're implementing support for those in this moment
+is not important), and the others are very-very-very-very similar to how it's done
+in 8196.
+
+> +MODULE_LICENSE("GPL");
+> 
+
 
 
