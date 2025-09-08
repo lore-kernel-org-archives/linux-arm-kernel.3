@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3E5CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4F0CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bnNSETYlaaPKTpf5DnhPX7H/U4rfvB+0sEbvfZou6yw=; b=qrQZW41Q8/yls0zyeF/SWf60wj
-	K8NJFFU1Ba80sNyf4Q3u63bKDzgnXtrEXFkR5ULgEryHCw9X3it+GNZn3eWCp7R6yW+06Kw8uGc4N
-	kyj9v93ysoRIVuxLagHwYjxlsBMz++5CDHDwedlzOVC19XURf88/FqTanArfPMcDgPgzHXlmIdUkH
-	syfad2dZTxj8iTeLBFOMoSVnDS/RrkR4+kdCipdnpYHtMYDprARk8nyvM/iiBYaBLKvZ8N/UejUBm
-	dTzJfCS3wGZNl7vikL2iE4SKAqgLymmv+0gQ3Q3XiYkpynX1ztNzOTvuAgC4Rl8EZ5O6h2ZxB+Yp9
-	fGWCrbqg==;
+	bh=75t8gUXqDkMVSTXxQWJbT39KD1G/2RxpZCQY37fgf94=; b=D0no5KKFiNvLrm/KMOE/yTqyac
+	8sIVEZh8VChfszhcNCgcR4ajYJoc52b/VBlsy4yF9EVzoDqvonjBR2GWumqe9kmAYS0YNh4dy9NEa
+	gdUh4hsUIVBN49KRlI6Mi5dm54IvKtn19JniI7H16wyOHXPQoq9UBS5jOeeqlLAZx7AyfG3LZu67U
+	pAfpoc8fBIjrlVAwR3ZJHrikwvnTQ9jk3x2ols+qD+2c0Nfr9B7PQQcNLg+SN53yYX0RC9Q5K1WMc
+	2verhtBVqlwd6NlriuT4WUMSSaT7pDmLr4DVfvBRj/92DN7FUUqLCoLCOwrtEa6xYN/F6aQSHYKEN
+	wPQX2svw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBo-00000004pFx-29Df;
-	Tue, 09 Sep 2025 06:50:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uvsBs-00000004pOz-2qVt;
+	Tue, 09 Sep 2025 06:50:56 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uviRN-00000002BOx-3ysA
+	id 1uvijT-00000002GkI-0mmd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 20:26:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F303A601B9;
-	Mon,  8 Sep 2025 20:26:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 572C8C4CEF1;
-	Mon,  8 Sep 2025 20:26:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757363176;
-	bh=RTlIU2xCbD8I8E2KxfqW+zB3CNk6WHDCJMHR2w9OKjo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bDD6UaPBhu/yHDtS7NvKJP1T0QKq12q7id9L1S4qMpVSJHprzwNlVf/oTUBzLu7/e
-	 Flvr++ri/ZYAjLZK5z8vLY7AvogDPLKjzvs3M80SATKNVPqe2nsQT4fwpE9ISaNNuK
-	 /FTukwJhPohg/487WxAaEx4gfSZf5tRuIg63DAd3Y4GXT6XPgoUYlcXt10uvJZSDxA
-	 gvReQha+MHSqAwNMpJUqiM+CZzS9nhuTGwZ7humIGzTiwQFyjfWvlkUVkcg3zP6cVw
-	 PhAyfiJBasbe73fzHe2sLb8umBxs45I+crDlGO2wZPgBq20F43EeaA2HjNz2cDu7Tt
-	 ma9f2vCzJ/uKg==
-Date: Mon, 8 Sep 2025 13:26:15 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Conley Lee <conleylee@foxmail.com>, vkoul@kernel.org
-Cc: davem@davemloft.net, wens@csie.org, mripard@kernel.org,
- netdev@vger.kernel.org, dmaengine@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: ethernet: sun4i-emac: free dma descriptor
-Message-ID: <20250908132615.6a2507ed@kernel.org>
-In-Reply-To: <tencent_D434891410B0717BB0BDCB1434969E6EB50A@qq.com>
-References: <20250904072446.5563130d@kernel.org>
-	<tencent_D434891410B0717BB0BDCB1434969E6EB50A@qq.com>
+	Mon, 08 Sep 2025 20:45:00 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588Kis44131929;
+	Mon, 8 Sep 2025 15:44:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757364294;
+	bh=75t8gUXqDkMVSTXxQWJbT39KD1G/2RxpZCQY37fgf94=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=pGvmfmPIExQEr+k8ySt//Eut7ANLX5mntUXxQiVgtWdWcYahiiB7r4MtnJ32ElbWl
+	 xr6CZMbMxQi+k60/Oiue3wr8MWLAZ78DhLSOFGa5hMjEZZgPfWC+3XNeHzPJdKfzRe
+	 v4ETJ55gON2vVAVre06KaHBRrQekJlrI+cPIeUxA=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588KisMi3260231
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 15:44:54 -0500
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 15:44:53 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 15:44:53 -0500
+Received: from [10.247.30.162] (ula0226330.dhcp.ti.com [10.247.30.162])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588Kirlu1191331;
+	Mon, 8 Sep 2025 15:44:53 -0500
+Message-ID: <363878df-528b-4959-945f-3b531f156679@ti.com>
+Date: Mon, 8 Sep 2025 15:44:53 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] arm64: dts: ti: k3-am62p/j722s: Remove HS400
+ support from common
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
+CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20250908173831.269039-1-jm@ti.com>
+ <20250908173831.269039-2-jm@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250908173831.269039-2-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250908_134459_323703_E5160535 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,19 +92,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun,  7 Sep 2025 19:29:30 +0800 Conley Lee wrote:
-> In the current implementation of the sun4i-emac driver, when using DMA to
-> receive data packets, the descriptor for the current DMA request is not
-> released in the rx_done_callback.
-
-I wish you elaborated more on the reuse flag not being set :\
-
-> Fix this by properly releasing the descriptor.
+On 9/8/25 12:38 PM, Judith Mendez wrote:
+> Since eMMC HS400 has been descoped for J722s due to errata i2478 [0]
+> and is supported for AM62Px device, remove eMMC HS400 support from
+> common-main.dtsi and include only in am62p-main.dtsi.
 > 
-> Fixes: 47869e82c8b8 ("sun4i-emac.c: add dma support")
-> Signed-off-by: Conley Lee <conleylee@foxmail.com>
+> [0] https://www.ti.com/lit/pdf/sprz575
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 ---
+>   arch/arm64/boot/dts/ti/k3-am62p-main.dtsi              | 6 ++++++
+>   2 files changed, 6 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> index 4427b12058a6..0c05bcf1d776 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> @@ -576,15 +576,12 @@ sdhci0: mmc@fa10000 {
+>   		bus-width = <8>;
+>   		mmc-ddr-1_8v;
+>   		mmc-hs200-1_8v;
+> -		mmc-hs400-1_8v;
+>   		ti,clkbuf-sel = <0x7>;
+> -		ti,strobe-sel = <0x77>;
+>   		ti,trm-icp = <0x8>;
+>   		ti,otap-del-sel-legacy = <0x1>;
+>   		ti,otap-del-sel-mmc-hs = <0x1>;
+>   		ti,otap-del-sel-ddr52 = <0x6>;
+>   		ti,otap-del-sel-hs200 = <0x8>;
+> -		ti,otap-del-sel-hs400 = <0x5>;
+>   		ti,itap-del-sel-legacy = <0x10>;
+>   		ti,itap-del-sel-mmc-hs = <0xa>;
+>   		ti,itap-del-sel-ddr52 = <0x3>;
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+> index 6aea9d3f134e..90afe21e972b 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+> @@ -31,6 +31,12 @@ usb1: usb@31100000 {
+>   			snps,usb2-lpm-disable;
+>   		};
+>   	};
+> +
+> +	sdhci0: mmc@fa10000 {
 
-Hi Vinod, could you TAL? Is this fix legit or there's something wrong
-with how the DMA engine API is used on this platform?
-https://lore.kernel.org/all/tencent_D434891410B0717BB0BDCB1434969E6EB50A@qq.com/
+The node already has a label where it is defined, so you could just use:
+
+&sdhci0 {
+    ...
+
+here at the base level, and not have it inside cbass_main.
+
+Andrew
+
+> +		mmc-hs400-1_8v;
+> +		ti,strobe-sel = <0x77>;
+> +		ti,otap-del-sel-hs400 = <0x5>;
+> +	};
+>   };
+>   
+>   &oc_sram {
+
 
