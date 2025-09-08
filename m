@@ -4,95 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A46E4CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 632C0CAC585
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rvTf8Il6f/mqfra/iGYvNWp4kf3icOzgbKsdoIlAr9k=; b=o/mTZBVbGflLuX
-	2+R78jEA9kjlqyOWzMBylOccdvQdHTCAR+NuF1If3YDN2H0aC4V1GQJTI0K9APjbnZ0No0l/Lti9R
-	k4g0tC/ks3p5wpCh4yNWPueeJq8oegMDJIT9+E+AtmaEHWoGSnOAx8DjSyUWZnlslWFwfnDjDIS2S
-	tTpLMuOq0Iqma4W2C0q06ztSQGtGTOi5va6cG5zACILqtdQfsI8rstskX8LyNqKt62tPSOR94Qgi6
-	3qhB4lAofjH2HguXugAZz2qJ3d7l69gwgB2mCGAeix5Dd6Q8CVdNgSeYs/FgRNL8gkJrKafHVXAK3
-	hsjlvWrGkbK43Qrd9kBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lqyllpnym2WNHN8ocFk5S/4SKt3E7oWCVj9gkUsf4IE=; b=rPH29+Ar1j+lUiq6EfOJ5I8eUt
+	IcXduW4kAsSM9g9FfvMF+YbAr4F1mLXabFAoS22p21MCn3jn7t4ZzHEehQChSkoXLw3QGFZtMu775
+	k1WzxKCmSEp3dwAb1xqkfp7/NnD9ReSyvpEQHPB5ZMBTj/6QxoOkj+BpAo0vWAPCjsI19sJoaoDsa
+	JIrVG03WrdUu8IvBZ+aroLRNhnKi54ht2q63PZgDGgUDEue1mwtu2tYCMS/X1PKQMkAQwai2CyRoj
+	8bSdhxeyih/0OS6AuTaC3+fwrJL+ZhZBsRmIE5gTtTIPkjja96rITBx0UzR0Jg4S+hTKupYpomviy
+	NM2xkt7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfLU-000000010PJ-1YAD;
-	Mon, 08 Sep 2025 17:08:00 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uvfLa-000000010UR-05Ng;
+	Mon, 08 Sep 2025 17:08:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvahl-0000000Gv9B-25tS
+	id 1uvank-0000000GxLm-2gt8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 12:10:42 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3c6abcfd142so2122937f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 05:10:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757333440; x=1757938240; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rvTf8Il6f/mqfra/iGYvNWp4kf3icOzgbKsdoIlAr9k=;
-        b=LKnckcWWc8N2fkzy2r6tlqG6e5ySzkAweIXuDM6p0THGjkSdhfFfS2KT14Wg50fn6g
-         nGuIeHuhfRfOUFGkKGTBVbV38gpusI8d2n28D/S8kMzDKj/C7GA2/MLiteL/TN/YM7ua
-         ZqArrM8fwFzCfZedjnkcUTkUHJ80yFRSqK0h4CI4++QfRbWp5n/8N9ObBB43oNz3Sti9
-         e4PTeH3IxgSv3HLnLmHUZ1elPrumRRFb5SzmVpZfVB34c//8TPq1i7gYpMVPXDvcZcdw
-         bWRTJavh05JGfML2wOLtgTMmWKIzonwgOSlkt6aO31IdFHQY1RmkdwHZUj7EfGEgTUDm
-         kdHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757333440; x=1757938240;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rvTf8Il6f/mqfra/iGYvNWp4kf3icOzgbKsdoIlAr9k=;
-        b=pRIKWBoaEuDhoflyP6EKz4ASUg17q+lgap5pCMwTMzSLzmgpjvpE51IHYW4RiiyDRa
-         m176dXV8ad+ZcxqfSMJHamPuC/9qd5Mzj2Wqh/d2bVhKFcj4kivuTT4ng9ztQyEV4MQi
-         s8b/9B7VwH1QuQaROGfSJvFWGUpS4/IGMAAZ5Bhwas2QugMGJ+DDHXVyC1KTIhBP6NOI
-         8krtFLAnMMrParW8CYd/3i4eDXYC5ro+S5NsT+75+sDzEsURCuHB/2rdN0ayh/GDg2NO
-         X1OwuLiAJD/gLexgY69mRlWR0gX1A9yv3w0SCGBnIMDZRpKMR1h+HbfjqVyH8nSnC41j
-         cDfQ==
-X-Gm-Message-State: AOJu0Yx/uCtDMbY0/lC6cG57m3uMru1Pm8mZqgVqAIXLL8Rr0dRljhSR
-	pJacThV4kWyaj6f/arzV91B3s57opDIMDM9MnwasJUUgD7y1tUb8+koJtPWTznrrVQ8=
-X-Gm-Gg: ASbGncsVasIFxKneV0DZALM2B7IiN2pLNmncYW6UId8ZmAupBS1qFpLb1s8EgQen+mu
-	XhKIMmVC1XaKB2C9tKZtdczAB7Ou+h3xe8Sksf7MwFqhKFN0U/D8xHe0pFep6FlixJv+Hg/cxgD
-	b2Dh+JD6B1Cu5LCI2vXa27syRAryxID8vHlB7LdqTxTtG1blsqcXZDhzq05klCAdqqKgvlS3mlv
-	3HQOwoQdPd9XOR4bueuu9IIZwfCLLbkw7Z45u2rV8Mn9AsZaRUWgzjtCJirRvAY75eewRBSQMFq
-	gCMQcmjPfQ/5fL6hgQ5jRdBenR2FGSVzOzDJyEHqJChlNAuOc8p1GHPl4sDIURSAbUWfU9f3DjC
-	RTPus3r7OSF1Imuhr1rtS8Ae/cKo4nir3ZVguK/JLZQ==
-X-Google-Smtp-Source: AGHT+IFEyhgsQFK+8cAvwVvaOJyzzhjwcI+1heh5zPX3kbpjk/o0y5jOw3y2xWOVWDMeF85EgycT/A==
-X-Received: by 2002:a5d:64c3:0:b0:3d7:618b:293c with SMTP id ffacd0b85a97d-3e641c4d63fmr6143479f8f.16.1757333439535;
-        Mon, 08 Sep 2025 05:10:39 -0700 (PDT)
-Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33fba9fbsm41397825f8f.50.2025.09.08.05.10.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 05:10:39 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Subject: [PATCH 0/4] perf arm-spe: Improve --itrace options
-Date: Mon, 08 Sep 2025 13:10:17 +0100
-Message-Id: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
+	Mon, 08 Sep 2025 12:16:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1565D60051;
+	Mon,  8 Sep 2025 12:16:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8193FC4CEF1;
+	Mon,  8 Sep 2025 12:16:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757333811;
+	bh=JeLtMr5mbqMvT4H9vUGBXZD2zJiawG8cSjyIWuyr4gU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MD+YBum7Mx2eaGyAQVN3pLSwfpOjSDtqxERnPq8HaEktORlVu7mh4KhuhpdrT76ni
+	 VJ7/fy6w0B7vArsp7kKuthIvVpT3ny8Vrzfjvf/nPmI5pP2b7wVLoH+JJOcDC46eT5
+	 4lvew7YzSY4ZEVHbKN0bwiF9vikmw4FGzy7bZjAvyv9t7IpMvBXMiCUvT/zDnkptTk
+	 83eNBoK2+Vz6D5RActWo9crw0M8NxzEqOI8/i8i0rLzezIrYqw3xGuNWtu/zZ89iAZ
+	 v0OGV6WTM569w6k8xvBwhJSQMJ0moc9ggg7z1VlSF70sEXHHOnNAZxHG8D2YAaDAUT
+	 sOpADMT1o+0Rg==
+Date: Mon, 8 Sep 2025 13:16:45 +0100
+From: Will Deacon <will@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, catalin.marinas@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, qperret@google.com, keirf@google.com
+Subject: Re: [PATCH 1/2] KVM: arm64: Dump instruction on hyp panic
+Message-ID: <aL7JLbljvX1JATP3@willie-the-truck>
+References: <20250717234744.2254371-1-smostafa@google.com>
+ <20250717234744.2254371-2-smostafa@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKnHvmgC/x2MSQqAMAwAvyI5G2il1uUr4qFqqhHU0oAI4t+t3
- mYOMzcIRSaBNrsh0snCx55E5xmMi9tnQp6SQ6GKUjWqxtVtJBgoepRAH/Axoam0dqW14+AMpDZ
- E8nz9365/nhfqGFC9ZwAAAA==
-To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, George Wort <George.Wort@arm.com>, 
- Graham Woodward <Graham.Woodward@arm.com>, Ben Gainey <Ben.Gainey@arm.com>, 
- Michael Williams <Michael.Williams@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_051041_551719_D759D448 
-X-CRM114-Status: GOOD (  13.25  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250717234744.2254371-2-smostafa@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +72,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Most people also want all the SPE samples (instructions group), not just
-the flagged samples that are put into the various memory groups. These
-should have been shown by default but weren't because the default
-interval type wasn't supported.
+On Thu, Jul 17, 2025 at 11:47:43PM +0000, Mostafa Saleh wrote:
+> Similar to the kernel panic, where the instruction code is printed,
+> we can do the same for hypervisor panics.
+> 
+> This patch does that only in case of “CONFIG_NVHE_EL2_DEBUG” or nvhe.
+> 
+> The next patch adds support for pKVM.
+> 
+> Also, remove the hardcoded argument dump_kernel_instr().
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/include/asm/traps.h |  1 +
+>  arch/arm64/kernel/traps.c      | 20 +++++++++++++-------
+>  arch/arm64/kvm/handle_exit.c   |  5 +++++
+>  3 files changed, 19 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/traps.h b/arch/arm64/include/asm/traps.h
+> index 82cf1f879c61..0d7e86a95d62 100644
+> --- a/arch/arm64/include/asm/traps.h
+> +++ b/arch/arm64/include/asm/traps.h
+> @@ -30,6 +30,7 @@ void arm64_force_sig_mceerr(int code, unsigned long far, short lsb, const char *
+>  void arm64_force_sig_ptrace_errno_trap(int errno, unsigned long far, const char *str);
+>  
+>  int early_brk64(unsigned long addr, unsigned long esr, struct pt_regs *regs);
+> +void dump_instr(unsigned long addr);
+>  
+>  /*
+>   * Move regs->pc to next instruction and do necessary setup before it
+> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+> index 9bfa5c944379..d692c05e3686 100644
+> --- a/arch/arm64/kernel/traps.c
+> +++ b/arch/arm64/kernel/traps.c
+> @@ -149,15 +149,11 @@ pstate_check_t * const aarch32_opcode_cond_checks[16] = {
+>  
+>  int show_unhandled_signals = 0;
+>  
+> -static void dump_kernel_instr(const char *lvl, struct pt_regs *regs)
+> +void dump_instr(unsigned long addr)
+>  {
+> -	unsigned long addr = instruction_pointer(regs);
+>  	char str[sizeof("00000000 ") * 5 + 2 + 1], *p = str;
+>  	int i;
+>  
+> -	if (user_mode(regs))
+> -		return;
+> -
+>  	for (i = -4; i < 1; i++) {
+>  		unsigned int val, bad;
 
-Also when looking at this, it appears that the downsampling was behaving
-in a way that would discard samples from one group but not another.
-Improve that and the warning messages.
+I'm a little worried that this function might be used to try and dump
+instructions from userspace now that it just takes an address.
 
-I don't want to put fixes tags on these because it's only changing the
-defaults and the behavior, but I don't think the previous behavior was
-incorrect necessarily, just copied from tracing techs but not ideal for
-SPE.
+Maybe we could:
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
-James Clark (4):
-      perf arm-spe: Show instruction sample types by default
-      perf arm-spe: Downsample all sample types equally
-      perf arm-spe: Display --itrace period warnings for all sample types
-      perf docs: Update SPE doc to include default instructions group
+  - Keep the name unchanged, e.g. void dump_kernel_instr(unsigned long kaddr)
+  - Inline the user_mode(regs) and instruction_pointer(regs) calls into
+    __die()
+  - Check is_ttbr1_addr(kaddr) in dump_kernel_instr()
 
- tools/perf/Documentation/perf-arm-spe.txt | 14 +++++---
- tools/perf/util/arm-spe.c                 | 53 ++++++++++++++++---------------
- 2 files changed, 37 insertions(+), 30 deletions(-)
----
-base-commit: 75a7b9d29215c5aa813b9620f3c56817918f9f8c
-change-id: 20250908-james-perf-spe-period-4711a566cba4
+WDYT?
 
-Best regards,
--- 
-James Clark <james.clark@linaro.org>
-
+Will
 
