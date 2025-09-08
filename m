@@ -4,79 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CDBDCAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C005CAC586
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3qT/ocmbs1vEK4d1d0DEwOVs07LOQ8krH9Q+t8Vd3Oc=; b=JV30JC2U680zXa9OYJvmyo3ZUP
-	IxQV2cHwJsFUtG22Fehgh8GyYi9e5SyP+LHuzdfL4JcJKqTAKxyJ7WjnPIKn8oTpdX4uZJtS/XHO7
-	ZXtg3iI/sLP/rOCDMLOGQBopeFadNY0VeateQ4rqZst14TGCchM+WgYrC8M5qjRDe45QR/x+vM6eO
-	y2YzQjW+BLz5kTmo5kf0/KmVeUNWJ4p3TO4GaNPC9o09hhRyupuK64yEnSXCS4jhDhmzAFqLsRfQc
-	54Ru7NVPNy0LPQKqbps0cvxkwwGZFs41Vk9ms2F5a/UhatZYuHMHWuvVn1H+5SAPAjKJD/JnROM+/
-	mPsbkHFw==;
+	bh=qqo1+7mglImJW3/ESP2sAU0K/vghCbEUc7ur867asyY=; b=LauhHVbO+xDtN0pi24WT9OzQA4
+	deTygEtusjg+a3Cg2Ews6vwzF02oG2iJm5abhBEH3GkC6kBuYBuVWFgvl7lU73YQaRWg2qHVaJ6QI
+	avrP1EcYMDbYOOZNa2ZAxRs7kExfDUGkzlVffVYv65ZX1A5wRGanNXrVHfiymmvTmlk8sRml+tVRm
+	Z9BOKpNpn2d3RqL8Dmz5ob87QMdBQ6KQgcf9tjpj87/1Gm53BcB/ZczHBmm69TNBBHiVDEIFUFDUu
+	LQV5fQ0xSVzDbafwXMj2t4M6dj8fLCwYZI/mi9c72hdSqsCnm3vjpIur7LO58ML/mKJL2VlswGh1s
+	BDYn4yOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfLj-000000010ib-0dGX;
-	Mon, 08 Sep 2025 17:08:15 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uvfLW-000000010QV-3D7h;
+	Mon, 08 Sep 2025 17:08:02 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvb4O-0000000H2sE-1Fbp;
-	Mon, 08 Sep 2025 12:34:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757334842;
-	bh=C5fSnNKxeY3RHoKZlxT9QiIlEbKodP31EJG0RmKqlQE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K0tO+RKvONw47Vb6DcOEq59vOaCyXmscg2CA4ZtFGWOr+kOsn4z5I6Y/5nye3nj5x
-	 LIQkCsADIKbTfKmWxugl7PUUoE9k9GjU9lG1U/TNHHiQyEpODpCLEtTWaC8t08F2mA
-	 NnY19Wqro/E/f0txJMaaq/7V795XW556Rj5x9EMcQBbPeczz/5llghCZkN3fKWwKpS
-	 wjyc2NZCzrswtqgj+5E4Ez+IyKbPzRI7BMpLdHC29gq5MkPbzDAEHq/CYCtltk/kJB
-	 4MWA28eIrhWlADVINLGFtj3ZOwWeuLeaVQL+j+0AZ2aJMPiO/uQiIIH63uvoWvsRHY
-	 sW/q6swCEb7zA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8847717E0199;
-	Mon,  8 Sep 2025 14:34:01 +0200 (CEST)
-Message-ID: <c03e55a0-0d82-4e07-86cc-9738066df45b@collabora.com>
-Date: Mon, 8 Sep 2025 14:34:00 +0200
+	id 1uvahq-0000000GvDL-0e1g
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 12:10:47 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3e2055ce973so2268186f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 05:10:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757333445; x=1757938245; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qqo1+7mglImJW3/ESP2sAU0K/vghCbEUc7ur867asyY=;
+        b=epChbiyXTKDTgCLtmN1tQ9Qcrh4XOhJyulF57mPTw7kAOP8dsxDiCDB2xp2FAx40yg
+         wC7ykMSsxYYEKwO6ONeZz9XQYfsbqx+atg7dpAMwqfs9ingV8wUER9R1OpCN+i18EY9j
+         E6C2VYHxUwzirvwbupNjfUVDbDpQo95oNw68hgReArmjKkJX/LmyQh7dFyznzjGnB0mv
+         abOSGiC3ES4bcFMJhKqtTBqb/KEElNN/UQu10ad6Xrny8CXKPqBn1tU6OIFBB8d7MU4F
+         +Boy4k8HsI1HsTZzrFEb5H5zo173PPUCBmKF2AlgPcQ/9HsK4rq0CerI1GFHUwmmhPxe
+         rU7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757333445; x=1757938245;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qqo1+7mglImJW3/ESP2sAU0K/vghCbEUc7ur867asyY=;
+        b=IAcO75LD4hNByib93z3RQBtI0FKWIA0TT1AFkNDINOAHHz1IJ+AH35UmV90PCMLPxg
+         m36XJ+Rgqob5jV46qzRv8upCCFqpj7s4SY9Gv6975YZ27VaoV5n4jCwKC6Vu0z/gOowi
+         okTp+E7++DvTGm0TA1qdxiM3+/sOfG/4sliQP6VTAPVirG8QXHH0maCC7nhDwv8Tq0dc
+         hTPIAGqPMNh+CLYAlMC8wOvH7qEiNLHBtNbHh2o5QoMHwaAQ7oNBWyHUjQkvxYCBXxKD
+         l+s1jMCfet9tTbeHjFFHn7nB41FTAdNy1RxQnTY9OyLZa3OhydsyBnZ2v+2gtbEWUOlK
+         /oMA==
+X-Gm-Message-State: AOJu0YwwCRAQxJkQfW1sZ5trPlDU3uGUqqWx7OO5UfsWhA0uR2Jsh6gm
+	9SLQFlbvW6BDn9xSLYLzC3BleXPI+g3c9VHYvxmom/LVI9Yb3ApeySxJ2Od80HYN/9A=
+X-Gm-Gg: ASbGnctayZZ2eLfvu7jAbw1rRjzi7h3jAlRX641L4n72icmTUbmynnCACtWAabCCwTC
+	+oL8fKBocBIF6+zgzqwixBobfjHRjLge8UUlGEu1wA3lgeEw2Wcc+gLOIRsK4P1JEkWiTv5gBFz
+	yurfuAanKVt1x2cWwkN5TlsBk6zaMBwXaV0e0HcTGMvQ6odpJMV7UsELOJf9RjApPxHNm5CQHIk
+	r3fDaiE8KPIriE22K9pyACCb+NQrFPJB4BL2SReNRPNR5JiEMBcFfvNEXVwdX2ivR0B1PjmevU7
+	xlVgDq43rB1TFEQ4FzYmEzKi66yCxMQAm8vPyBUivPMF3F04ChHsZy9/gDNMh4GEoSZX1fsioBB
+	LwuOhTV4CRp7+VS3TUHBFzmgkx5oJq5U=
+X-Google-Smtp-Source: AGHT+IGBWxzyRFeeGevfk44/JfpKxel/pd+hKUi5ugftmEIb0KfQdxCQwGM4PG30BiUOferaK3FuAg==
+X-Received: by 2002:a5d:5848:0:b0:3e2:5d59:4868 with SMTP id ffacd0b85a97d-3e643e07d6amr5074970f8f.46.1757333444701;
+        Mon, 08 Sep 2025 05:10:44 -0700 (PDT)
+Received: from ho-tower-lan.lan ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33fba9fbsm41397825f8f.50.2025.09.08.05.10.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Sep 2025 05:10:43 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Mon, 08 Sep 2025 13:10:21 +0100
+Subject: [PATCH 4/4] perf docs: Update SPE doc to include default
+ instructions group
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 05/10] mailbox: add MediaTek GPUEB IPI mailbox
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
-References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
- <20250905-mt8196-gpufreq-v1-5-7b6c2d6be221@collabora.com>
- <27159dc0-96f1-4d99-bf5e-cda0f9c7d307@collabora.com>
- <7865698.EvYhyI6sBW@workhorse>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <7865698.EvYhyI6sBW@workhorse>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250908-james-perf-spe-period-v1-4-7ccd805af461@linaro.org>
+References: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
+In-Reply-To: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
+To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, George Wort <George.Wort@arm.com>, 
+ Graham Woodward <Graham.Woodward@arm.com>, Ben Gainey <Ben.Gainey@arm.com>, 
+ Michael Williams <Michael.Williams@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_053404_507240_A3AAEA66 
-X-CRM114-Status: GOOD (  28.00  )
+X-CRM114-CacheID: sfid-20250908_051046_198239_7CE7AC9A 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,113 +108,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 08/09/25 14:05, Nicolas Frattaroli ha scritto:
-> On Monday, 8 September 2025 12:06:01 Central European Summer Time AngeloGioacchino Del Regno wrote:
->> Il 05/09/25 12:23, Nicolas Frattaroli ha scritto:
->>> The MT8196 SoC uses an embedded MCU to control frequencies and power of
->>> the GPU. This controller is referred to as "GPUEB".
->>>
->>> It communicates to the application processor, among other ways, through
->>> a mailbox.
->>>
->>> The mailbox exposes one interrupt, which appears to only be fired when a
->>> response is received, rather than a transaction is completed. For us,
->>> this means we unfortunately need to poll for txdone.
->>>
->>> The mailbox also requires the EB clock to be on when touching any of the
->>> mailbox registers.
->>>
->>> Add a simple driver for it based on the common mailbox framework.
->>>
->>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
->>
->> Only a few nits in this, check below.
->>
->> [...]
->>> +
->>> +static int mtk_gpueb_mbox_send_data(struct mbox_chan *chan, void *data)
->>> +{
->>> +	struct mtk_gpueb_mbox *ebm = dev_get_drvdata(chan->mbox->dev);
->>> +	unsigned int *num = chan->con_priv;
->>> +	int i;
->>
->> int i, j;
->>
->>> +	u32 *values = data;
->>> +
->>> +	if (*num >= ebm->v->num_channels)
->>> +		return -ECHRNG;
->>> +
->>> +	if (!ebm->v->channels[*num].no_response &&
->>> +	    atomic_read(&ebm->rx_status[*num]))
->>> +		return -EBUSY;
->>> +
->>> +	writel(BIT(*num), ebm->mbox_ctl + MBOX_CTL_IRQ_CLR);
->>> +
->>> +	/*
->>> +	 * We don't want any fancy nonsense, just write the 32-bit values in
->>> +	 * order. memcpy_toio/__iowrite32_copy don't work here, because fancy.
->>> +	 */
->>> +	for (i = 0; i < ebm->v->channels[*num].tx_len; i += 4) {
->>
->> Just use an additional `j` index, so that you can avoid division.
-> 
-> The `/ 4` division here is equivalent to a `>> 2` which comes free with
-> almost every instruction on arm64, I don't think having two separate
-> indices makes the code any clearer?
+The instructions group is now generated by default so update the doc to
+reflect this. Also explain the period/downsampling mechanism in more
+detail.
 
-> Unless I misunderstand how you'd
-> want me to use j here.
-> 
-> Like this?
-> 
->    j = 0;
->    for (i = 0; i < ebm->v->channels[*num].tx_len; i += 4) {
->      writel(values[j++], ebm->mbox_mmio + ebm->v->channels[*num].tx_offset + i);
->    }
-> 
-> This makes the relationship between the values index and i less clear. (And
-> in my rendition, assumes the reader knows how postincrement works, but I
-> think assuming people know C is fine.)
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ tools/perf/Documentation/perf-arm-spe.txt | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
-I guess assuming people know that compilers will auto-optimize that is okay then.
+diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Documentation/perf-arm-spe.txt
+index 37afade4f1b2..cda8dd47fc4d 100644
+--- a/tools/perf/Documentation/perf-arm-spe.txt
++++ b/tools/perf/Documentation/perf-arm-spe.txt
+@@ -191,14 +191,20 @@ groups:
+   36 branch
+   0 remote-access
+   900 memory
++  1800 instructions
+ 
+ The arm_spe// and dummy:u events are implementation details and are expected to be empty.
+ 
+-To get a full list of unique samples that are not sorted into groups, set the itrace option to
+-generate 'instruction' samples. The period option is also taken into account, so set it to 1
+-instruction unless you want to further downsample the already sampled SPE data:
++The instructions group contains the full list of unique samples that are not
++sorted into other groups. To generate only this group use --itrace=i1i.
+ 
+-  perf report --itrace=i1i
++1i (1 instruction interval) signifies no further downsampling. Rather than an
++instruction interval, this generates a sample every n SPE samples. For example
++to generate the default set of events for every 100 SPE samples:
++
++  perf report --itrace==bxofmtMai100i
++
++Other period types, for example nanoseconds (ns) are not currently supported.
+ 
+ Memory access details are also stored on the samples and this can be viewed with:
+ 
 
-> 
->> [...]
->>
->>> +
->>> +	ebm->clk = devm_clk_get_enabled(ebm->dev, NULL);
->>> +	if (IS_ERR(ebm->clk))
->>> +		return dev_err_probe(ebm->dev, PTR_ERR(ebm->clk),
->>> +				     "Failed to get 'eb' clock\n");
->>> +
->>> +	ebm->mbox_mmio = devm_platform_ioremap_resource_byname(pdev, "mbox");
->>
->> I'd say that "chan" and "ctl" are more descriptive as resource names, but then,
->> do we really need to search by name?
-> 
-> In the binding, it was proposed to change "mbox" to something like "data",
-> which is fine by me, and to drop the "mbox" prefix of "ctl".
-> 
-
-Heh, didn't see that comment. data and ctl are also fine for me, go with those :-)
-
->>
->> Doing that by index is also an option, as you can write the MMIO names and their
->> full description in the bindings instead.
-> 
-> Yeah in the driver I think I'll switch to doing indices until some second
-> compatible forces us to actually rely on names because it adds a bunch of
-> other ranges.
-> 
->> [...]
-> 
-> thanks for the feedback, assume that anything I didn't directly respond
-> to will be fixed in the next revision.
-
-Perfect.
-
-Cheers,
-Angelo
+-- 
+2.34.1
 
 
