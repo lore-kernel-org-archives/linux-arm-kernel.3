@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76ADECA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 02:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7671FCA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 02:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fOGihsR+2JZnyd1bIX/cqtdxz8sWBUYderONs+SBjZg=; b=ERf1jLCEwVGMmuAqQLrX6I+FM8
-	qm/cGiKEwLh490qqd935H6C5rKF9Y6pNR4miSpV7T6/Io532W/JOWUEmvaBWWoV196ce+VzLkTYft
-	s5HgnjJ7sapUS6Z07UjG5bdgG/IBKlUux8Iloi80OcN1A5PA9EnVwdva2h60CU07FUAKnzgUEF07n
-	t/QZ+3O30vgaBT3JG6A2pFLrCiFWtLZ5OBopnTyKAEta6xwKNh5mZhg7ziIuZQzLNzfB9n8AwcIQ7
-	vR/PxIqEDKpekLb6SSjJRjoqtZZcyzMKgn++lHM0JXldVX2RpJ2tVM478kxzLnuYdIvWDV9hhIVE7
-	Qbn6JE/Q==;
+	bh=mmrEmFTMxg84eXRvylgPXjTGj2u1nEfxmypzMMZc/rM=; b=MkTKwM010E96V6vTaqjjQZRibo
+	d0JsDW5YyEjkOvXXMqUE81YuhfdjSWpiqwa/Fw6p8ICou9jTADFDJuMSieGI8cmiR+tDyT3yuXstr
+	gGdRd5mBJoFIBjjWKg3XTqBpt4v9UMazTH/NfW3QpF78NXYjnRQrM0fFYtmeqoc0SMSNAA72vPvqh
+	2Ies9RoMehcU0ROS74uyEQ+kJRbsbOv+OO+JuXtHC5DKQioWIeN6kBx1jKx3858iBxsS5PILdmyEI
+	mO5pTDkjm5oDeUJZHMFn/bkATJRpH8KW08mF23DcpmmkIKgaBJ7TI7qyxFky1EAUCRv7Gi0sZLa8+
+	6UNivyBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvRIs-0000000DwY9-1F8L;
-	Mon, 08 Sep 2025 02:08:22 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uvRLe-0000000Dwzj-0lgR;
+	Mon, 08 Sep 2025 02:11:14 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvRDG-0000000DuhK-0Pa8
+	id 1uvRDK-0000000DuiS-3Lwm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 02:02:35 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5880TsU8004353
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 8 Sep 2025 02:02:33 GMT
+	Mon, 08 Sep 2025 02:02:40 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 587LtDOw016168
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 8 Sep 2025 02:02:38 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fOGihsR+2JZnyd1bIX/cqtdxz8sWBUYderONs+SBjZg=; b=HsBIkjfba6BrFK9M
-	f5PrcVXbEMYws3OZNAZ87xm3/12htmJF0CGZRkMWVLzvL7nzYxIpjOh/PQr6WnDQ
-	QsMbsb135aTucZQs0E/+MxyaH2n12aksuZOOBlFv3SPRvGMusLOK39MLgUpcQ3Sz
-	e5T386OWYWh1Yl70qr9lTXkcSOUaejPaFcpG9RS13wljN35uLA4IpZUUBLk8f23l
-	Y3IU396HfTLLlAqKeUstybDF4jZcgV3/xQmm5opt2TmqX8YLPex3g2mTvS3T8zvv
-	0xF9y3z3+6iqq3prb/Ne0yhlek2RR4b1iqePOjYXF2276a5OKRELxSK3Uwnwau8W
-	W9M5tw==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490e4ktu5v-1
+	mmrEmFTMxg84eXRvylgPXjTGj2u1nEfxmypzMMZc/rM=; b=SAbt/Bc2JoIaPY45
+	59j0UsyvnCnYOylZEbH2gVACRNpOPn+Tj0yk8AuBs9qpG/tgFtNpjQhTFvIdte2b
+	OFuME9rCEkfqQp3bRQiR1cpy/4Rw5I4bee29vRnMm11R7YdwBceeR2DQ6aKm/n78
+	BJWDW/XS72Gz1xG7ofwGyT4sj3FceVqPV8Bao0F7SOyCK+lbY5r0HJjJ2hL7Fox7
+	Y7GylWa2V+3O7W9kvxUrAmOORulAB3EBskwYknoB07jfE4CJA/Hy0c2UwDIVGfnB
+	2/zXAUGasCYRnEoZfyTp4A9H/6MiruSYRKNWTYKVS94ZKkreuoOJuKy9WSvwNoLq
+	1oz67A==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490d1vaxsp-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 02:02:33 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-24cc4458e89so86362535ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Sep 2025 19:02:33 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 02:02:37 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-772248bb841so6997967b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Sep 2025 19:02:37 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757296952; x=1757901752;
+        d=1e100.net; s=20230601; t=1757296956; x=1757901756;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fOGihsR+2JZnyd1bIX/cqtdxz8sWBUYderONs+SBjZg=;
-        b=AUlE+DuoglM4dySZ77LmHNkHCtGCo+mtCD82LYsY9KhfYzmt2qNH+kscVBHWByh5PE
-         hExTf33TJoEHFMhlXgOEXN0CHfPWDOL7n7oq+8PZ58J2NkOyccfn73+eIsZN8IxY4Kdc
-         koLz3bBMnyEGd1bpC2ujfN38pR5icU1/y8OC86dKO7j4ovZlT5AgnjQWgZsH6tcgTL2k
-         ph+8VppXJEFNSW0N7R/wUqR2JaYXnR2hoPlagabx3+Cd1H6QRkboFAD7pwuYaIYMm5Dv
-         BeZxUXW0ZIegbHTdPH4lHfk9W5eKbodIE1qtiVdolBMf9azISqpKEQxz+9lTo8MqUZK/
-         mHuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUIlRrXrqZ98qqEq7YRMQkZVVuQu6wUFO5XDXd+sPhInvS4t7bhNoiGnczd0LzwywsXkLpT9vxMSYt3LPpXYEFt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsinUri7KD4BcrF8Wu5Lci/v5RLfRq2lILtZKrHKf4jMba/XxD
-	rCSvpbjck2qjKrj+qpCQVDAY9+/p0DiYAnzzqdrFlF/MhDJDXDKXMVuUveIFayldO+TijDXUum4
-	PiL3rjrHPJukVUaYAfD5lWgfCt5TZs+vm0B+eDVmAk6OBBW44zuFFyyAHXKAgDd/3HvKPD1g+3t
-	X4vdP+5Lp+iUFD
-X-Gm-Gg: ASbGncsnSXdlDubX8JugA86ok1t7g3su4inoWjyj/I2Qt4eGygbhthIiO3/5MBAutul
-	Fb3Y40G9fhvwv+hCvvQvw3x/fBHEdb7a/CWY/NLZtdKzRWDrws93Kcy4YJWcwvEDJ/y+wOPvRwn
-	USoCyOe/YokqQsgVZpK6HcaDCM+q6ecX81dSBmQs+/FKurgOix7UuruOLQdpKrkX+/PkWV88JbV
-	6IDjRKxTy+cew+WnocFQwYp1a+xmWFOwoU3TiBiv5qa1VZlyBLdD4SLNfIghiIusGFH9ybw/Bmu
-	EcX9uM1YfYTWPavPnRaWIf/VOeX3n+oFiPTkDha+9BCEEGhGU/+ag/A506JaUaXOz7Xk+WHDEEy
-	I70Kzu1iVI30wgaM7RYHUAj5/BDo=
-X-Received: by 2002:a17:902:f549:b0:24e:e5c9:ecfd with SMTP id d9443c01a7336-251728629c4mr80558955ad.42.1757296952422;
-        Sun, 07 Sep 2025 19:02:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHEPMBDMwU4ZeTYAGNAbVmG2Eswoq+QPv2lxOCPjVREgO/b1eKZg4RlBnYo9ANXpCxNn+uZ6Q==
-X-Received: by 2002:a17:902:f549:b0:24e:e5c9:ecfd with SMTP id d9443c01a7336-251728629c4mr80557685ad.42.1757296951163;
-        Sun, 07 Sep 2025 19:02:31 -0700 (PDT)
+        bh=mmrEmFTMxg84eXRvylgPXjTGj2u1nEfxmypzMMZc/rM=;
+        b=gRCHlNDMt76ZMjB4WfopMufwLOrAAdlcohu17G0w9ljtsy9iWtaAwGL/myF5XPj4sk
+         T7Qkyx2MrrQXa8nXErQ4eSqTp2u8sgABv1WVeHKbvpKHGn4+COKQOhpCB26HRKxWsR0f
+         I/2kR3JeWKUzueL6QVanBcURMdJsc89Hnp1hIig8wGycsLDo7GeqsRSe71ol7YStd2uQ
+         ojNlK2vjsdoa1CMUCGJLBiYV4+n7e6XxepGEjVtaNGKvPPNQN51xYqevA+DG1MOhdt49
+         EjpJbja8Tjq7b2Yf0mVHGDIgxoeyYpDO9vdXHAmL8/Pfd9zQ1id+iGIeEbbL+hXBTNI2
+         jEIg==
+X-Forwarded-Encrypted: i=1; AJvYcCVs8hzviM6d2jiJwt2wtAwiZcSajQN+cpVFX9Hn0DxfAtLi7vPNL7rElkubwULmiVt5Js3ighmzgViVUl3w2iaa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfixDEqq4IH0cgDjSuvlroY/xoncIoCA/kuwGQLhHKT2myv4I5
+	+AtUdMTy3HYGHSE3Iva+CtuC33z3X+mz6uS2SHiNsEPr7+qASWTAEbMYMzLSyTh70ciu6wsvzbQ
+	1okkWsbgO6cOU4Tf2dXj9jNu1BZKhe3CKnPcCNie0NL6YtTacCMKL5tfrxdbXM8/l2ukK0DG9T2
+	fG4v3tdGkLb/nl
+X-Gm-Gg: ASbGncsABG4HQiHK2NU7CRd/WZZt61HUcNGckGbpfVpJOY96k2uwuxXg7T63igSqqPl
+	8SIJL74hKuvaMmxK5wbIVG9HGsz9NLUyDYzTMHZ386G28OVERVnctCv9RPXd7VQrQWNwkRiUyo/
+	K4NS1A5Cc4qTgRCg/mDU+FA6N4YElnsGQqJ2Kwl6VMn/ky6BOK9zUpKaYVQcpowW0HRBkGYSyM2
+	tdC0a3TSFrBzbjW41SLz9mOqIXfvsryNvHYR0SsAScqzTkPEc9euv8ywL07DkUkGI3NiDqDapnh
+	vKyBid8zguI9+jUxX0dmENlimcR/xNaPNl0S8OynbdVFyFcF7ctysXLpmIvhBse1439z1OmyW7z
+	Z9MbC0v3YIs9caAbfOQpgQxsKo48=
+X-Received: by 2002:a05:6a20:939e:b0:243:78a:82a7 with SMTP id adf61e73a8af0-25345579b43mr7587410637.47.1757296956469;
+        Sun, 07 Sep 2025 19:02:36 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHpz91qpajdyoSqIcc47npMEE1FkO9LwTqg9ZWKouQV8RyNp0nC1V+LGbeoE3r4URiIgPkNgw==
+X-Received: by 2002:a05:6a20:939e:b0:243:78a:82a7 with SMTP id adf61e73a8af0-25345579b43mr7587375637.47.1757296955935;
+        Sun, 07 Sep 2025 19:02:35 -0700 (PDT)
 Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7723f4858e6sm24285076b3a.4.2025.09.07.19.02.26
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7723f4858e6sm24285076b3a.4.2025.09.07.19.02.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Sep 2025 19:02:30 -0700 (PDT)
+        Sun, 07 Sep 2025 19:02:35 -0700 (PDT)
 From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Mon, 08 Sep 2025 10:01:53 +0800
-Subject: [PATCH v6 1/9] coresight: core: Refactoring ctcu_get_active_port
- and make it generic
+Date: Mon, 08 Sep 2025 10:01:54 +0800
+Subject: [PATCH v6 2/9] coresight: core: add a new API to retrieve the
+ helper device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250908-enable-byte-cntr-for-tmc-v6-1-1db9e621441a@oss.qualcomm.com>
+Message-Id: <20250908-enable-byte-cntr-for-tmc-v6-2-1db9e621441a@oss.qualcomm.com>
 References: <20250908-enable-byte-cntr-for-tmc-v6-0-1db9e621441a@oss.qualcomm.com>
 In-Reply-To: <20250908-enable-byte-cntr-for-tmc-v6-0-1db9e621441a@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -103,38 +103,38 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
         devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
 X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757296940; l=3773;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757296940; l=2649;
  i=jie.gan@oss.qualcomm.com; s=20240927; h=from:subject:message-id;
- bh=qzd5gVviJkuX4BcigfW/YZdkjwAG5WVRtPg9BE+cAXU=;
- b=D0xPJj+TDYxZODNsXVWs49Rwgvy06gQZ21co8dTaDv+o6EHqbig8HL8glyKgk99jan8igO+zi
- 8TViphBaah7BKBeEaTX3CM8ekMKd1bM/McOqMljiaqCMiW5jrdeW3PM
+ bh=QFpFMOUZf/2SBDLxhrsEj1Eto2xysYNZ7RxKlu5EyYo=;
+ b=bi+tUi3A8/0GEEoeIWtWZ7na0uNDvTr9BROFOck5sTnvMXnTbiYnJxMCb3pPyOarEUn1dR8Kj
+ rl4N7CvjIGgDyH59hczXqMiQtklb4wJquhOR2XH0lTt3flB7xAbZl2K
 X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
  pk=OZh7JyRifqJh4xmrcGgmwa8/LCS8O11Q+mtx4aZGmi4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAzOCBTYWx0ZWRfX3hdK8lvEMKH2
- UnUhsGeX9ti3D4QIf/lI3suNqWLNdzfgNpCjgHFC4SN/3ecFtz4aYgiP3vO/ocwRUoXAcr9hgqq
- 1wLJcN7G8Bk0dK70gamOl2t9CT4noEsx2TpsxEN/PMWD2tMxz65rNOkP4s2KgPzwQ0y+xMNjDFr
- Szp7u75yLK9N4HBKS4JweWKTtQTlLn6SpvXFcFdgyEUR9pMFLdL2nGk5FPP8FiUGPcy0LVtK9h8
- tRrm3FCzKIt4ueUGAKp8QZ0F6w6F3vVy52KeANWoa9N4EaoMx4fyz94NPNYY8NH6v5p8bwFnjsW
- BLVhFbj1gxfg3ZjLOtvVlX66DtjP5hfc7HtW3fH83B/1zSnrHVl5JetCCO2Lah23Fet+YS55XvF
- cSm9XKI7
-X-Authority-Analysis: v=2.4 cv=J66q7BnS c=1 sm=1 tr=0 ts=68be3939 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Proofpoint-ORIG-GUID: rBWlI3BcfG0q2BcjITYF4pYQYgvT1S7a
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAyNyBTYWx0ZWRfX/OAE3LdRtV+0
+ qJaNFcUn2YdwjRzU2w8CMOTD2aplB5sdKEjiPd7mBTN73WrQTgNWsoMQPVFJIiYTEbga9R5wMXF
+ pdl1qSmX3hBvmptbQGbBqWmsdzl5MZJe+6MTlw8K6iZKn+C/XkRC4Gjn2vTyWzSZfiPJDStiqSo
+ iz2amJ5Ud52ZdjJzAg2wqW+WsZdWF8y3jxZNODfr1rmwlGtY6dhbzpXAEi0W44ODoX15R7TwHFC
+ M3oxlHNy/P1ZjgtCrSEQpWaTJ72M0ICVq8l1Uab2zdMvM37qxp5ha2nBE4mPwp6vKSkGUcq2w7b
+ 3c9rjIDTh04NeaqHV4pDciH/BpDy5G4zOgEbCxckQncG+tT3m7KUptJyAT4WFHuIbi7XbvREK3+
+ a71Zd43/
+X-Authority-Analysis: v=2.4 cv=cYXSrmDM c=1 sm=1 tr=0 ts=68be393e cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
- a=qQZ2XtAyJf2dEkEvaVsA:9 a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
+ a=WErVAGsNQcrMbPXGsVkA:9 a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
  a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: K6XZgr-CndLhG0tiszKQU9SNGn9gw3lV
-X-Proofpoint-ORIG-GUID: K6XZgr-CndLhG0tiszKQU9SNGn9gw3lV
+X-Proofpoint-GUID: rBWlI3BcfG0q2BcjITYF4pYQYgvT1S7a
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-09-07_10,2025-09-04_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 clxscore=1015 spamscore=0 phishscore=0
- adultscore=0 priorityscore=1501 suspectscore=0 bulkscore=0
+ bulkscore=0 adultscore=0 impostorscore=0 clxscore=1015 malwarescore=0
+ phishscore=0 spamscore=0 suspectscore=0 priorityscore=1501
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060038
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_190234_146303_37228BC6 
-X-CRM114-Status: GOOD (  23.44  )
+X-CRM114-CacheID: sfid-20250907_190238_965977_947894AE 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,103 +149,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove ctcu_get_active_port from CTCU module and add it to the core
-framework.
-
-The port number is crucial for the CTCU device to identify which ETR
-it serves. With the port number we can correctly get required parameters
-of the CTCU device in TMC module.
+Retrieving the helper device of the specific coresight device based on
+its helper_subtype because a single coresight device may has multiple types
+of the helper devices.
 
 Reviewed-by: Mike Leach <mike.leach@linaro.org>
 Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c      | 24 +++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-ctcu-core.c | 19 +-----------------
- drivers/hwtracing/coresight/coresight-priv.h      |  2 ++
- 3 files changed, 27 insertions(+), 18 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 35 ++++++++++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-priv.h |  2 ++
+ 2 files changed, 37 insertions(+)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 1accd7cbd54b..042c4fa39e55 100644
+index 042c4fa39e55..018b1119c48a 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -580,6 +580,30 @@ struct coresight_device *coresight_get_sink(struct coresight_path *path)
+@@ -580,6 +580,41 @@ struct coresight_device *coresight_get_sink(struct coresight_path *path)
  }
  EXPORT_SYMBOL_GPL(coresight_get_sink);
  
 +/**
-+ * coresight_get_in_port_dest: get the in-port number of the dest device
-+ * that is connected to the src device.
++ * coresight_get_helper: find the helper device of the assigned csdev.
 + *
-+ * @src: csdev of the source device.
-+ * @dest: csdev of the destination device.
++ * @csdev: The csdev the helper device is conntected to.
++ * @type:  helper_subtype of the expected helper device.
 + *
-+ * Return: port number upon success or -EINVAL for fail.
++ * Retrieve the helper device for the specific csdev based on its
++ * helper_subtype.
++ *
++ * Return: the helper's csdev upon success or NULL for fail.
 + */
-+int coresight_get_in_port_dest(struct coresight_device *src,
-+			       struct coresight_device *dest)
++struct coresight_device *coresight_get_helper(struct coresight_device *csdev,
++					      int type)
 +{
-+	struct coresight_platform_data *pdata = dest->pdata;
 +	int i;
++	struct coresight_device *helper;
 +
-+	for (i = 0; i < pdata->nr_inconns; ++i) {
-+		if (pdata->in_conns[i]->src_dev == src)
-+			return pdata->in_conns[i]->dest_port;
++	/* protect the connections */
++	mutex_lock(&coresight_mutex);
++	for (i = 0; i < csdev->pdata->nr_outconns; ++i) {
++		helper = csdev->pdata->out_conns[i]->dest_dev;
++		if (!helper || !coresight_is_helper(helper))
++			continue;
++
++		if (helper->subtype.helper_subtype == type) {
++			mutex_unlock(&coresight_mutex);
++			return helper;
++		}
 +	}
++	mutex_unlock(&coresight_mutex);
 +
-+	return -EINVAL;
++	return NULL;
 +}
-+EXPORT_SYMBOL_GPL(coresight_get_in_port_dest);
++EXPORT_SYMBOL_GPL(coresight_get_helper);
 +
- u32 coresight_get_sink_id(struct coresight_device *csdev)
- {
- 	if (!csdev->ea)
-diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-index c6bafc96db96..3bdedf041390 100644
---- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-+++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-@@ -118,23 +118,6 @@ static int __ctcu_set_etr_traceid(struct coresight_device *csdev, u8 traceid, in
- 	return 0;
- }
- 
--/*
-- * Searching the sink device from helper's view in case there are multiple helper devices
-- * connected to the sink device.
-- */
--static int ctcu_get_active_port(struct coresight_device *sink, struct coresight_device *helper)
--{
--	struct coresight_platform_data *pdata = helper->pdata;
--	int i;
--
--	for (i = 0; i < pdata->nr_inconns; ++i) {
--		if (pdata->in_conns[i]->src_dev == sink)
--			return pdata->in_conns[i]->dest_port;
--	}
--
--	return -EINVAL;
--}
--
- static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight_path *path,
- 				bool enable)
- {
-@@ -147,7 +130,7 @@ static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight
- 		return -EINVAL;
- 	}
- 
--	port_num = ctcu_get_active_port(sink, csdev);
-+	port_num = coresight_get_in_port_dest(sink, csdev);
- 	if (port_num < 0)
- 		return -EINVAL;
- 
+ /**
+  * coresight_get_in_port_dest: get the in-port number of the dest device
+  * that is connected to the src device.
 diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 33e22b1ba043..e51b22b8ebde 100644
+index e51b22b8ebde..f80122827934 100644
 --- a/drivers/hwtracing/coresight/coresight-priv.h
 +++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -156,6 +156,8 @@ void coresight_remove_links(struct coresight_device *orig,
- u32 coresight_get_sink_id(struct coresight_device *csdev);
- void coresight_path_assign_trace_id(struct coresight_path *path,
+@@ -158,6 +158,8 @@ void coresight_path_assign_trace_id(struct coresight_path *path,
  				   enum cs_mode mode);
-+int coresight_get_in_port_dest(struct coresight_device *src,
-+			       struct coresight_device *dest);
+ int coresight_get_in_port_dest(struct coresight_device *src,
+ 			       struct coresight_device *dest);
++struct coresight_device *coresight_get_helper(struct coresight_device *csdev,
++					      int type);
  
  #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
  int etm_readl_cp14(u32 off, unsigned int *val);
