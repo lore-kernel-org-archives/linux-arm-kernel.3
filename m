@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDDFCAC589
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5846CCAC58C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jjQ5+oMfNA1z8X7OxHRV6oMq0vnVY8/Ms0Vhwhb2pfo=; b=b7aYad2E+iubb8bPahJUnTN1C8
-	m186414j9IDMHBnR+suFWYjdlu6MkDNcro2+HWrdl9ybKcjinLCWU9whdIRu1oxMqVTJivbhRvicd
-	qY5JWok6VgpTQO6gouWMoFRouWqnzCgXnjdKR39SkAr5BxOIp6PxdzC/ou+SccMTGRzqapgVnzwqU
-	/bc+Zn1UALpc/JxvbRLDgIXfQZg2f33cbWPgQeM/ukaGKKyhS4ayu6sAfniqdfP09RhmmlDLcsBrP
-	uDD7R+d87PLgqZW2vZm4+PN4FctpEXsS8Frpca7EhHiOH6ZhQp3EEQbzek1Ss1eZD6R5bDeE6utVz
-	CxM+I/wQ==;
+	bh=VY5vW/TBFhiKiObWKD3QATMgCx/mPhcn8MxelvsDWwI=; b=epRPHZcLO539x6CAKKc/ob/p4J
+	o6Rh5JDnigpXU42UvK7IimfLV/tas+4X+z90lnlj/Wm9CdBDDs9S3KDEElJDHRTMFvBFwD0B8SyHh
+	fi+dP+Nb9Pgp57VBFl8S7srMEPdLjTFaEJ54xvNRvDvXx8dOQW6vEaKQ/bTVKCZv3IxfHLJzHaB4T
+	mHsslL9xG3NSolyHBUjrLJ1coTZUhvL/fMsg7gwsXnQ6favn7XZCYUpe0bbFI5pjltncZaybiJkiZ
+	6hY557Y2pEJYUvce5sHfN8a1uNS74n/CV92N2Xggd1NmcsOzco+LyXoGJtQpoQ1yCb0hLYtJz9u/L
+	x1YQGPKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBl-00000004pA1-2UH0;
-	Tue, 09 Sep 2025 06:50:49 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uvsBn-00000004pDQ-1hRQ;
+	Tue, 09 Sep 2025 06:50:51 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uviGd-000000027a1-35p1
+	id 1uviKs-0000000294S-45t2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 20:15:13 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45de2b517a3so17224055e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 13:15:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1757362510; x=1757967310; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jjQ5+oMfNA1z8X7OxHRV6oMq0vnVY8/Ms0Vhwhb2pfo=;
-        b=Qt1ykCOYomvr2R/kquBXMB6C6vFvmSU+/yhD1HhanMrcvWqTC+jdxMsP5EIW13Btti
-         XdQWJcRJcxyVZCc3MHQCSJveWV89B3TJ4UBW6CNLXo3R6QOzDjF+PgCfYQwwKtZ0KEtD
-         dQc+Qk6wRDi/s7Hrn+Xx+79+9VwWGDmq+HseEzKjn6+BNLJKsXA3yrNXaYWxxT/Gn/JX
-         Ncn/c++ZluB2fzHnsfPZ3f/PxCUXTgGYiu8Mrn48+dkv4fgaScvsXRKX0HD46FdDuYwu
-         Cf1kdm7m3EkWt77bRqJTqZkw7iB2qzMMn4HkG7WIImeO+8L098ApFyYq5q265ikC+wOK
-         agpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757362510; x=1757967310;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jjQ5+oMfNA1z8X7OxHRV6oMq0vnVY8/Ms0Vhwhb2pfo=;
-        b=J8ku0n/FfIQyv8/ritemIlhUXxN9tXpLKtTMngwlz1KX/MeZ/oj9n42BATQJRAWvou
-         lKaflkaKervvArleyKe7bpkmrVtBEkdwUY05yv5Oz7oblZ1zmLoQfOExR0GG0yuDbquE
-         3KVNSLvMTxQhs4UUHyec+J+6OSz2awX3IJ3PVDFIuTO1AfqURjguFaMvrSe3FdKdp3AM
-         nJv2f6JQ6EtTLnEUL5oOX2sRz7FWR8oOWUqp2bvIfgmQtoRuU80rB43RdxEMqKqjJjDh
-         NH505LCO4NVbCKhHCGrCRAK6sr4HSAwfEkUpzcJafZcDiwXQ+b2ETt5C8nQ0Ia+eFcEj
-         O1vQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVSDgKl/JKHiiVEUnTpRliq0t6f4+SmGLGRzEmVeu6OM5VGtFFO3jaKBlcYF+naDrdGfX+NAK6uPXhA+qGGvLoy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3pSa9euBXBZyWJroGg7lbTyW921G94YsNyshyqnRkxQE3Fn9r
-	TnoyOGRXoOH0cTXFoZutwsq+xbBqEiVOiXPdahvSVAD4jXSzD2iTE13rbyT2C0G5wHg=
-X-Gm-Gg: ASbGncutbn7LomVI16iCCNwKpXEqA50Tnxdt0gUh1izXuE1/zSqkXAoPkty06ISAA2v
-	kQSvzOacYif24e3nJZ9Qx3gJT6gcjwlFL3aNXm5+ybsuFSvKl5VE8mrJO5T6oiAPWpTkoBAWS2Y
-	w2WdiY4df4wv6gMYtZ6md+GSOTD9jA9ivpOFtzR6WDe7HnGAFdjbtgAIxDbmxbtO8m/SEwBQAUu
-	FFW9CLYpJQMbvzx88ou2jkHIsk14PWPIAXVJrJc/arVliBAbD8Dz/i393kWQCmpC4N8UzjC8kwS
-	Fpca1C5F8JTPR/xFyyG9WWq5I4KPsufao3m8KRKkhUT943BFyo8p+S7NQQOwLN5YtyB76YTmrSK
-	Eko83Aac/qUN04oB/JpLB+dYyWg==
-X-Google-Smtp-Source: AGHT+IEUXK+5uzEYEeWM2C4ugYvoTxY9jWpw3+DQwWpEwD7U8BI+a4nggbRKv+GtES+a6PSycdGhyA==
-X-Received: by 2002:a5d:5f87:0:b0:3e2:804b:bfed with SMTP id ffacd0b85a97d-3e64c1c2183mr8374205f8f.42.1757362509754;
-        Mon, 08 Sep 2025 13:15:09 -0700 (PDT)
-Received: from [192.168.3.100] ([151.42.66.169])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e411219ddfsm13631814f8f.57.2025.09.08.13.15.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Sep 2025 13:15:09 -0700 (PDT)
-Message-ID: <29a776da-cd28-46e4-8b64-400f462d8670@baylibre.com>
-Date: Mon, 8 Sep 2025 22:15:08 +0200
+	Mon, 08 Sep 2025 20:19:36 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588KJQSI128506;
+	Mon, 8 Sep 2025 15:19:26 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757362766;
+	bh=VY5vW/TBFhiKiObWKD3QATMgCx/mPhcn8MxelvsDWwI=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=g2t1wIjuysolhs1oTACUr4ABdO8JNL4Ls3LkXTVH6pAQfFJd8GouZrCDpJZfdTNKh
+	 ZiBhoo9b0aUXHR5JN2S48VpEkQLcwKCUqRChzz9hiK+DKCLaBFhdXoSHEG4B6un+i+
+	 HdcsVjuRjVmDUZNRNs+njbtaVtctvpGj0sLSURu0=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588KJQqO4016603
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 15:19:26 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 15:19:26 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 15:19:26 -0500
+Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588KJQlq1163717;
+	Mon, 8 Sep 2025 15:19:26 -0500
+Message-ID: <48ad21a2-6562-4568-aace-68d163116ddd@ti.com>
+Date: Mon, 8 Sep 2025 15:19:26 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: amlogic: gxbb-odroidc2: remove UHS capability
- for SD card
+Subject: Re: [PATCH] pmdomain: ti_sci: Handle wakeup constraint if device has
+ pinctrl wakeup state
+To: Dhruva Gole <d-gole@ti.com>
+CC: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>,
+        <ulf.hansson@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <vishalm@ti.com>,
+        <sebin.francis@ti.com>, <msp@baylibre.com>, <khilman@baylibre.com>,
+        <a-kaur@ti.com>
+References: <20250904211607.3725897-1-k-willis@ti.com>
+ <20250905183931.qfqnnvmwqqvo3emy@lcpd911>
 Content-Language: en-US
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250907-fix-reboot-v1-1-7606fc91254e@baylibre.com>
- <1jecsi3ywb.fsf@starbuckisacylon.baylibre.com>
-From: Valerio Setti <vsetti@baylibre.com>
-In-Reply-To: <1jecsi3ywb.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Kendall Willis <k-willis@ti.com>
+In-Reply-To: <20250905183931.qfqnnvmwqqvo3emy@lcpd911>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_131511_892545_2E4AB23F 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20250908_131935_211356_BDF42C88 
+X-CRM114-Status: GOOD (  36.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +89,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks a lot for the review!
+Hi Dhruva,
 
-> The above should be enough.
+On 9/5/25 13:39, Dhruva Gole wrote:
+> On Sep 04, 2025 at 16:16:07 -0500, Kendall Willis wrote:
+>> In TI K3 SoCs the PM co-processor (device manager or DM) will decide
+>> which low power state to suspend into based off of constraints given by
+>> Linux. If a device is marked as a wakeup source in Linux, Linux will add
+>> a constraint that the wakeup source has to be on. The DM will enter the
+>> deepest low power state based off of the constraint.
+>>
+>> In cases like UARTs, IO daisy-chaining can be used to wakeup the system,
+>> however if the UART is marked as a wakeup source, the system is not able
+>> to enter any low power mode.
+>>
+>> IO daisy-chain wakeup can use the pinctrl wakeup state instead of using
+>> wake IRQs. For example, the serial driver on K3 platforms uses a wakeup
 > 
->>   	max-frequency = <100000000>;
->>   	disable-wp;
+> I think this statement will only make sense to someone who's worked on
+> io daisychain and wake IRQs on our SoCs.
+> I don't think it's coming out very clearly why wake IRQs are needed for
+> IO Daisychain in the first place.
+> 
+> You could probably just reference commit b06bc47279919 ("pmdomain:
+> ti_sci: handle wake IRQs for IO daisy chain wakeups") from Kevin where
+> we explain whats io daisychain and need for wake IRQ. Talk in this patch
+> with relation to that patch - what you're doing that the other one
+> missed.
+> 
+>> pinctrl state to be able to resume from suspend.
+> 
+> Perhaps I am missing the order in which the patches are being applied.
+> But if it's like the 1 -> 2 -> 3 order you mentioned below then this
+> reference to serial drv won't really make sense right?
+> 
+> If we're going in the order of applying the series that you
+> specified, there's no guarantee that the UART patch makes it in
+> along with this patch, so I'd say let's skip mentioning the serial
+> driver to avoid sending people in search for how the serial driver is
+> doing this atall.
+> 
+> In Kevin's earlier commit it made sense, because he was talking about
+> daisychaining, here we're not. So the 8250 driver doesn't actually have
+> the changes we're talking about in this patch.
+
+In v2, I will add references to commit b06bc47279919 ("pmdomain: ti_sci: 
+handle wake IRQs for IO daisy chain wakeups") and I will remove the 
+reference to the UART driver.
+
+Thanks,
+Kendall
+
+> 
+>>
+>> Devices that are marked as a wakeup source and use pinctrl wakeup state
+>> should not set wakeup constraints since these can happen even from deepest
+>> low power state, so the DM should not be prevented from picking deep power
+>> states.
+>>
+>> Detect the pinctrl wakeup state in the suspend path, and if it exists,
+>> skip sending the constraint.
+>>
+>> Signed-off-by: Kendall Willis <k-willis@ti.com>
+>> ---
+>> This series is intended to be implemented along with the following
+>> series:
+>>
+>> 1. "pmdomain: ti_sci: Handle wakeup constraint if device has pinctrl
+>>     wakeup state": (this patch) skips setting constraints for wakeup
+>>     sources that use pinctrl state 'wakeup'.
+>>
+>> 2. "serial: 8250: omap: Add wakeup support": Implements wakeup from
+>>     the UARTs for TI K3 SoCs
+>>
+>> 3. "arm64: dts: ti: k3-am62: Support Main UART wakeup": Implements the
+>>     functionality to wakeup the system from the Main UART
+>>
+>> Testing
+>> -------
+>> Tested on a SK-AM62B-P1 board with all series and dependencies
+>> implemented. Suspend/resume verified with the Main UART wakeup source
+>> by entering a keypress on the console.
+>>
+>> ---
+>>   drivers/pmdomain/ti/ti_sci_pm_domains.c | 16 ++++++++++++++++
+>>   1 file changed, 16 insertions(+)
+>>
+>> diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+>> index 82df7e44250bb..884905fd0686c 100644
+>> --- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
+>> +++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+>> @@ -10,6 +10,7 @@
+>>   #include <linux/err.h>
+>>   #include <linux/module.h>
+>>   #include <linux/of.h>
+>> +#include <linux/pinctrl/consumer.h>
+>>   #include <linux/platform_device.h>
+>>   #include <linux/pm_domain.h>
+>>   #include <linux/pm_qos.h>
+>> @@ -84,9 +85,24 @@ static inline void ti_sci_pd_set_wkup_constraint(struct device *dev)
+>>   	struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
+>>   	struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
+>>   	const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
+>> +	struct pinctrl *pinctrl = devm_pinctrl_get(dev);
+>> +	struct pinctrl_state *pinctrl_state_wakeup;
+>>   	int ret;
 >>   
->>   	cd-gpios = <&gpio CARD_6 GPIO_ACTIVE_LOW>;
->>   
->>   	vmmc-supply = <&tflash_vdd>;
->> -	vqmmc-supply = <&tf_io>;
+>>   	if (device_may_wakeup(dev)) {
+>> +		/*
+>> +		 * If device can wakeup using pinctrl wakeup state,
+>> +		 * we do not want to set a constraint
+>> +		 */
+>> +		if (!IS_ERR_OR_NULL(pinctrl)) {
+>> +			pinctrl_state_wakeup = pinctrl_lookup_state(pinctrl, "wakeup");
+>> +			if (!IS_ERR_OR_NULL(pinctrl_state_wakeup)) {
+>> +				dev_dbg(dev, "%s: has wake pinctrl wakeup state, not setting " \
+>> +						"constraints\n", __func__);
+>> +				return;
+>> +			}
+>> +		}
+>> +
 > 
-> ... but do not remove that.
+> Not much objections to the code itself, as it makes sense that we want
+> to ignore the constraint for wakeup pinctrl similar to how we did for the
+> wake IRQ one.
 > 
-> That way the description is complete and the kernel is able to verify
-> the regulator is properly configured.
-
-Thanks for the hint! I didn't thought about this while working on it, 
-but I tried it today and it worked perfectly.
-
-> It is also easier for a bootloader to alter DT to add the UHS modes back
-> (it is safe to do so if booting from another device that SD, such as
-> eMMC)
-
-This sounds like a nice improvement as well.
-
--- 
-Valerio
 
 
