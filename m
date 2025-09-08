@@ -4,79 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F08ECA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 05:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10465CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 05:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FD10PMU1TzZU6qCBI/H3X2vWuvtCsYpb/SWrbhwPDQ8=; b=J6jqVo05sbv983nX1vcQjaWDKE
-	DnghNN74sMCoOTL0vRGNYgx4SDNXePOVlQGXR5yMu+itR6X81B0HgUZCd1ML8xA7zqentrTDuEP/v
-	B+fR/Al/xYDKHdHfNPe/OL+T3hdL8ec+N+fbalQPPawzq2jhVrdKuzVdCurxKZYCJIF0hh6k9q19L
-	fArD2pn0ous8Ef28+vz3d9KE+yPcDm2ZIoRpwd7XqpwnKVPjkusi0ZUux/F+zsdbjS3HFcB632DN/
-	Sy/IAD+WfkeixRhop/bR90OXb8+RSYl5NXvOk23IhFg5ockX4bFQAoUC8hbF1JfPDi8Y2p2JpX7hZ
-	PVYBvB7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PQgewxOwQlVJkV06gQC/AqaYb6lZIuRmv0IHqd57520=; b=VY87RDdPR9CJNZjmqAXCOY8mvw
+	gmNqfG+oCxRtPg36mcF20WhGkYbD7OYFUdeg4x3+TcVZIEEXQPoDENC+0CA72OcWsnFQAU40lJr5p
+	tvD4ty5tKqhvWwy1RyMPKRuaRgRw4IS+bls33V1CR0XQ/XqmKeHmlRiNOpwj+pZWYpKLkodHvwEgF
+	j1OYsjFGuTn/Ck4JX1Ojn5sKRjQO17RxX1Y7DWOvXpd5KJLNtFw3k6DgDTSCAhdCNIa7p0HF8+nHl
+	GCHQPEhy7s6mADvs36JuFj5Wl9Wz5OAASce+Pf7MlSAcnOls9y0vFUxIGQtCWo6D3dSqhhIy5X0hQ
+	jpkPJNBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvUCR-0000000EfXD-0vdu;
-	Mon, 08 Sep 2025 05:13:55 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uvUlY-0000000EnXP-0iT7;
+	Mon, 08 Sep 2025 05:50:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvU9b-0000000Eefx-0f3b
+	id 1uvUij-0000000Empu-0hqf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 05:11:00 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5885ArRM3786043;
-	Mon, 8 Sep 2025 00:10:53 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757308253;
-	bh=FD10PMU1TzZU6qCBI/H3X2vWuvtCsYpb/SWrbhwPDQ8=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=dvxxrrk9D331FhpRWuIikGj76xo/4pAV7N2GxyErr1r2HW5eKp/bwaLsVNP02OO+6
-	 uJBWXK14Z16FZUEaFE0TH6Ui1iaxs1LC1DybjPcDY2nXwEK7czzr+/mKLyQfIhTcp1
-	 QnOkZvIIkFhjQZG4ev7QN51hrQI34PnggWvfuuI4=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5885AruF2752898
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 00:10:53 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 00:10:52 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 00:10:52 -0500
-Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5885Am0H019772;
-	Mon, 8 Sep 2025 00:10:48 -0500
-Message-ID: <ca85e58d-7c5a-4327-8c2b-e0f9143fb0d8@ti.com>
-Date: Mon, 8 Sep 2025 10:39:43 +0530
+	Mon, 08 Sep 2025 05:47:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 96AFC60007;
+	Mon,  8 Sep 2025 05:47:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 681CAC4CEF5;
+	Mon,  8 Sep 2025 05:47:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757310436;
+	bh=+DHv5K7x5Zki24ku10wUAB+lb3qUxD+Z6s1puPCmfY4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bwPmLzhwd1dzRc6PwRyjdCCDbb225leQScVwdBe702q/6RYoAkLXW3g9ZA+8ZXJaH
+	 HL6u6rZJwtonfy4K5YPBpK2MBANo4YKJN39xR82lLhStYUtdtgSiAUgEhygmdSqPJo
+	 4D9Iynm+o279EbEXJwdslmSRGJrEwfb8mKm6vucWF3YTbPG/cSrmEfGfKCuT53LNOU
+	 vl8Rl2pD7jItxhYWqiPjfbhWDXOsf27du7tzOe+I0gs5WII4E9vXbFTC+NMHZFpE+6
+	 6Y91c5g6IhHZDyKyIWKpTRVcL4XPM1ZQlfdJv4LhCMorOkcntLoNM2DY8ArJ0VqIZ1
+	 7LRlL4OC1L69A==
+Date: Mon, 8 Sep 2025 11:17:11 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Joris Verhaegen <verhaegen@google.com>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
+	sound-open-firmware@alsa-project.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 0/3] ALSA: compress_offload: Add 64-bit safe timestamp
+ API
+Message-ID: <aL5t33Ztwse6HoQP@vaman>
+References: <20250905091301.2711705-1-verhaegen@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] arm64: dts: ti: k3-pinctrl: Add the remaining
- macros
-To: Akashdeep Kaur <a-kaur@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
-        <afd@ti.com>, <d-gole@ti.com>, <u-kumar1@ti.com>,
-        <sebin.francis@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>
-References: <20250904112538.529857-1-a-kaur@ti.com>
- <20250904112538.529857-4-a-kaur@ti.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <20250904112538.529857-4-a-kaur@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_221059_246071_4A7EB140 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250905091301.2711705-1-verhaegen@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +87,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 04/09/25 16:55, Akashdeep Kaur wrote:
-> Add the drive strength, schmitt trigger enable macros to pinctrl file.
-> Add the missing macros for DeepSleep configuration control referenced
-> from "Table 14-6172. Description Of The Pad Configuration Register Bits"
-> in AM625 TRM[0].
-> Add some DeepSleep macros to provide combinations that can be used
-> directly in device tree files example PIN_DS_OUTPUT_LOW that
-> configures pin to be output and also sets its value to 0.
+On 05-09-25, 10:12, Joris Verhaegen wrote:
+> The current compress offload timestamping API relies on struct
+> snd_compr_tstamp, whose cumulative counters like copied_total are
+> defined as __u32. On long-running high-resolution audio streams, these
+> 32-bit counters can overflow, causing incorrect availability
+> calculations.
 > 
-> [0] https://www.ti.com/lit/ug/spruiv7b/spruiv7b.pdf
+> This patch series transitions to a 64-bit safe API to solve the problem
+> while maintaining perfect backward compatibility with the existing UAPI.
+> The pointer operation is reworked to use a new timestamp struct with
+> 64-bit fields for the cumulative counters, named snd_compr_tstamp64.
+> ASoC drivers are updated to use the 64-bit structures. Corresponding
+> ioctls are added to expose them to user-space.
 > 
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-pinctrl.h | 47 ++++++++++++++++++++++++++++-
->  1 file changed, 46 insertions(+), 1 deletion(-)
+> The series is structured as follows:
+> 
+> Patch 1: Updates the pointer op, refactors the core logic and ASoC
+> drivers to use it, and defines the new UAPI structs.
+> 
+> Patch 2: Exposes the SNDRV_COMPRESS_TSTAMP64 ioctl.
+> 
+> Patch 3: Exposes the corresponding SNDRV_COMPRESS_AVAIL64 ioctl.
+> 
+> This series has been tested on a Pixel 9 device. All compress offload
+> use cases, including long-running playback, were verified to work
+> correctly with the new 64-bit API.
 
-Reviewed-by: Vignesh Raghavendra <vigneshr@ti.com>
+Acked-by: Vinod Koul <vkoul@kernel.org>
 
+Please updated tinycompress changes with this once this is picked up by
+Takashi-san
 
 -- 
-Regards
-Vignesh
-https://ti.com/opensource
-
+~Vinod
 
