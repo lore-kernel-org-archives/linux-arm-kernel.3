@@ -4,108 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E42CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 312D5CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f5u862f+33I0ToIg9z8vAxXZhZpYtuEC4meBODLVdsg=; b=dnlA/2mbtjaT65g4mgGiwiFJc0
-	rOlufKe0lH9IJM6VjQtdPQZpf9qVrAPD69DhVIgA2waWWuHVnFGJwL4HX0V2QkzNSsl+gc571a3Qu
-	4pgqJnJpDzaJfWqw6TdzUNgkc5Ron9pW+qpVXMLPA48tQf3lcA8pkdU+OpTQS+OrbtEqbhPecGGxK
-	gdo/AVA4fDwKxbDKjLZTHrYCc9YJwn2VoYQLx6z3rrr204o7ojfDy7mFmc0t0muYKE6jid/aPlXXd
-	eWXvrppETHNoARJkuFs0+bOR0NLUgdHNL0IgX6nbh4hN7YIPW89Og+NthOQNlLaecazTBmH2OY8Cl
-	4CiXLfJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VCKAONdfc9/0Y5v2kv/17pa0WJYsF9qbdvhNx5w68jE=; b=nfH4sGehmm+g+RU6nHOsF7RYvT
+	TbzCiCvZJmr0MWVNduXOWexB9gadmchIQjHvPaGcK2VGvHYJ0qkt4ElKwndAvSf0nYpVw+UU52MTW
+	CNOlm3OOQtzEk6lOyiX/xI2VTLT7iiL6EUam5y/5duvctl1+EXmF/8d1p1ZRcyrs9D5DiGq3zaoNM
+	cWy3KVYX+Ezu5aTaXE56qXmdd80HrHWCnzVHCE9cbWNJ4/SgDGifJ6Yv5G4u3JTgeYPUdGpfpeOXc
+	TgoVtc28CYd/haL255kcqbwUze0V7EicGTk1MAqhko4h2ssAjp+ZTukHStxv7dlNGDG3a5NUvhiwa
+	OqFc+Ybw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvip8-00000002IWD-1Aqf;
-	Mon, 08 Sep 2025 20:50:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uvirp-00000002JLv-1sXj;
+	Mon, 08 Sep 2025 20:53:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfQt-000000018DD-3hvy
+	id 1uvfXY-00000001ANF-3TBR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 17:13:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757351615;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=f5u862f+33I0ToIg9z8vAxXZhZpYtuEC4meBODLVdsg=;
-	b=TfJQxYHB7l7KDDURxBPpIH30XGO4ymo6MB3/92HdIeoAoZEtg4U/I2UWM6lwrP4l2BTnK2
-	wcOBRjMSQwp2hKut/wNjnyWUR9dtKzgBF2EwHMouImHATmOHilKmJZkOxo4p5nQr3BcWx0
-	YBKoI83gPpamAmV2iwvyI6JspTs1Jew=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-631-lWZ4uKkOPuKHmEcdUvaOsg-1; Mon, 08 Sep 2025 13:13:33 -0400
-X-MC-Unique: lWZ4uKkOPuKHmEcdUvaOsg-1
-X-Mimecast-MFC-AGG-ID: lWZ4uKkOPuKHmEcdUvaOsg_1757351613
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8031e10621aso1225019085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 10:13:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757351613; x=1757956413;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f5u862f+33I0ToIg9z8vAxXZhZpYtuEC4meBODLVdsg=;
-        b=IrM+MPkQGxuOM7Ag8nIJQiAhjeIMXXvyHbsxiTIfZ9YG3XIzxO9+etJAr0A6RZzUQi
-         ktSlsT7b7rwPk6tbl6T6tCTJPr3zTFEjCPMOnCnAfFjUz3n9CdVu6nGdUXDgiYLIh36z
-         sInZM/Hy9sMoQqstmLyPMOyzrd7LF8pwYPHmfFSpeLtxCaCemNRnFLPO8ZUgpHCs/2TM
-         TY2VYPOBUAZtq3abN4cDDZK0w5rffIY+VYcO24r4HMHrOfQcdRskoSgLEY9Uko/2TGtL
-         GShaST+CpzmKnf2MeqXFyIqEmEVNEO67JQRkrXHDoMdJCyl0KwmspMsKcasJgg9WaxIf
-         QPAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU9yaFrxM3J0ll+rymZoMTIKpTgihGX4/ToyfH6ywuh4CxEZFbRMwsMl36PL4cZZaHCxsnkAnvC0W5AkKkvmfsY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxskPFYMijnWOtwP2ZgDD3wXc6YrcRsUBgeICVvVm7H6v0Ez00
-	NaLIpEAzJXW1HDjYjm6PuljFL+mFz1ci6v3Y4pHVKXAH+Apaq8/MdkeASU9Iuws8wkpB4ml1HNT
-	9CUOvKR0bgzBSPFdAMingY4sPRxWyj7XC9E9TdMH6ZhaCjOM2nveI2OELLGiHV9y8peiQIHShxL
-	Em
-X-Gm-Gg: ASbGncvd0ovE6DUO9f6tTb7gIoV3xQifdMeiZ2/nvQ4Iq6svr+gic3Kb6bIs9/m9tsP
-	xDQXIkLlNeCjWZY1n4hh+iTiDmaKgwhNUjRuk/7ulpeBND5G6KwimdquPiaGkHLQSzWOTrhofhF
-	JoMU0bG9rIq+cnVZhsG6WXb8TfEnXQEt3AIhoO+qc27fyN8uo5WDN9+9OaqOIz6aBy238Wft5Ms
-	Kodeo7Jy1G97cjNMblQIwqEItj5FLX8P0g10k9oh3+nboTi53IHaYgh4nuoO5x3x/VdJB5gl0Si
-	nPcpnIeiY1cVMDvpZj8MX4zAU7D+N1ZXmGING9BMRbZK5zi7P6et0v9IhUg=
-X-Received: by 2002:a05:620a:4589:b0:7e8:1d4b:b00e with SMTP id af79cd13be357-813c31ef062mr818167285a.30.1757351613096;
-        Mon, 08 Sep 2025 10:13:33 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHjCX6nGjgyfHMIgtZhE/2SgJwH/cNIdfnPyghhVtQtsXFicJtDPEijNhBgIwhV/6KVPSFsmg==
-X-Received: by 2002:a05:620a:4589:b0:7e8:1d4b:b00e with SMTP id af79cd13be357-813c31ef062mr818162785a.30.1757351612499;
-        Mon, 08 Sep 2025 10:13:32 -0700 (PDT)
-Received: from x1 ([2600:382:8507:870e:b6f8:ee72:4f09:a16a])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-80aabf586c5sm1108360485a.60.2025.09.08.10.13.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 10:13:31 -0700 (PDT)
-Date: Mon, 8 Sep 2025 13:13:29 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH 0/8] clk: convert drivers from deprecated round_rate() to
- determine_rate()
-Message-ID: <aL8OuWjlswr95xcB@x1>
-References: <20250828-clk-round-rate-v2-v1-0-b97ec8ba6cc4@redhat.com>
+	Mon, 08 Sep 2025 17:20:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F241944A34
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Sep 2025 17:20:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4C9DC4CEFA
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Sep 2025 17:20:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757352027;
+	bh=WG6cG0RC7lf6sWYUt9oDwjKz1esgUSQzcQgi7vvimIU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=a29NeqFSGpEF+96xbTO1WNJwcaERIetmb81Xgnn4IU83YBoLk8Rutt4IWOwFALEE0
+	 Alo/yrF5Txar4LbjfsLU96+5JIOUdLTBbOWWhj863dRSEotYftRw8791NUViEN37uH
+	 7vL5SDt8lxvdJgFnXs8yyk5LmDGIhAqer9EnM8XSTbl9he/b2vz7jBdIztMdZ26zOW
+	 j7J5aPbexf2saw4lZKNoquB5ePSISpTgK86xUvgoCV98gqE2ZZaswqTjzpouutGG+Z
+	 JZZF8UXIBG4kOyYZQKC8Xcwpe9a9BxIFcAWHPiQ0O9LXBnyQ3FExVITht/Di+oXYzE
+	 U7DGVsfPwYeGA==
+Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-7459fa1ef2aso4603790a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 10:20:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW885+ulxtS8Lx184OLvMVjWWS1RwSv8Dih/euMldUpIaR2ennoe1QAIDJJ5rv1D2buqAPcHTHMR6gSJAhuj3I2@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqmIuLtLwFDnlArLyyuE7gXe7fbs1NTuM3Kw+Tlkzj2j9hqvYp
+	6TJ4RZNkVmeYw1eY4YYHLrVmQD0JzXt73hqQBAISmzMxGNEBGeJTSj4XZBaPgc+U49EZdY7fm/T
+	ThzIPwP899F9wa/I7+YSgGG/Taa5imZ0=
+X-Google-Smtp-Source: AGHT+IGXpy+OU2UasaskUg2nePmnXAYN4fXokbNZNAf4Iw8rD1AI0zGefB9ESZkm15LcjA+jXp80pFZFT6EmdeISh+o=
+X-Received: by 2002:a05:6808:181a:b0:43a:2e17:3ba8 with SMTP id
+ 5614622812f47-43b2988c314mr4081572b6e.0.1757352027077; Mon, 08 Sep 2025
+ 10:20:27 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20250828-clk-round-rate-v2-v1-0-b97ec8ba6cc4@redhat.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: KLNLvDuo94k74AuVUy7J2oDvY9afFPg_kg63847HxtA_1757351613
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20250908163127.2462948-1-maz@kernel.org> <20250908163127.2462948-3-maz@kernel.org>
+In-Reply-To: <20250908163127.2462948-3-maz@kernel.org>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Mon, 8 Sep 2025 19:20:15 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0hSJ6yMnfZgYDSZRqL_KMLc6f4kcY06dWGSPCFYjdcbfg@mail.gmail.com>
+X-Gm-Features: Ac12FXwlVf4kn-tU9YEBjTnrid6i7WBV3fExLJM7cADt4nyooosqwvUywi8aWZo
+Message-ID: <CAJZ5v0hSJ6yMnfZgYDSZRqL_KMLc6f4kcY06dWGSPCFYjdcbfg@mail.gmail.com>
+Subject: Re: [PATCH 02/25] ACPI: irq: Add IRQ affinity reporting interface
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-acpi@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>, 
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_101336_017185_7AFECCC1 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20250908_102028_908554_7C3484DB 
+X-CRM114-Status: GOOD (  22.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,19 +88,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 08:38:19PM -0400, Brian Masney wrote:
-> Here's a minor v2 to my larger 114 patch series at
-> https://lore.kernel.org/linux-clk/20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com/
-> that only includes 8 patches where a v2 was needed. To reduce the noise
-> in everyone's mailboxes I'm not including the other 106 patches that are
-> still valid. I will supply a 'b4 am --cherry-pick xxx' command on the
-> other cover letter to exclude the patches in this series.
-> 
-> This series has no dependencies and can be applied in any order.
+On Mon, Sep 8, 2025 at 6:31=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote:
+>
+> Plug the irq_populate_fwspec_info() helper into the ACPI layer
+> to offer an IRQ affinity reporting function. This is currently
+> only supported for the CONFIG_ACPI_GENERIC_GSI configurations,
+> but could later be extended to legacy architectures if necessary.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  drivers/acpi/irq.c   | 15 +++++++++++++++
+>  include/linux/acpi.h |  7 +++++++
+>  2 files changed, 22 insertions(+)
+>
+> diff --git a/drivers/acpi/irq.c b/drivers/acpi/irq.c
+> index 76a856c32c4d0..22f93fe23ddce 100644
+> --- a/drivers/acpi/irq.c
+> +++ b/drivers/acpi/irq.c
+> @@ -300,6 +300,21 @@ int acpi_irq_get(acpi_handle handle, unsigned int in=
+dex, struct resource *res)
+>  }
+>  EXPORT_SYMBOL_GPL(acpi_irq_get);
+>
+> +const struct cpumask *acpi_irq_get_affinity(acpi_handle handle,
+> +                                           unsigned int index)
+> +{
+> +       struct irq_fwspec_info info;
+> +       unsigned long flags;
+> +
+> +       if (!acpi_irq_parse_one(handle, index, &info.fwspec, &flags)) {
+> +               if (!irq_populate_fwspec_info(&info) &&
+> +                   info.flags & IRQ_FWSPEC_INFO_AFFINITY_VALID)
+> +                       return info.affinity;
+> +       }
 
-I included a subset of these patches in this pull request to Stephen:
-https://lore.kernel.org/linux-clk/aL8MXYrR5uoBa4cB@x1/T/#u
+I would prefer fewer logical negations to be used in this, for instance:
 
-Brian
+if (acpi_irq_parse_one(handle, index, &info.fwspec, &flags))
+      return NULL;
 
+if (irq_populate_fwspec_info(&info))
+       return NULL;
+
+if (info.flags & IRQ_FWSPEC_INFO_AFFINITY_VALID)
+       return info.affinity;
+
+return NULL;
+
+> +
+> +       return NULL;
+> +}
+> +
+>  /**
+>   * acpi_set_irq_model - Setup the GSI irqdomain information
+>   * @model: the value assigned to acpi_irq_model
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index 1c5bb1e887cd1..c506ae4bacc86 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -1509,12 +1509,19 @@ static inline int acpi_parse_spcr(bool enable_ear=
+lycon, bool enable_console)
+>
+>  #if IS_ENABLED(CONFIG_ACPI_GENERIC_GSI)
+>  int acpi_irq_get(acpi_handle handle, unsigned int index, struct resource=
+ *res);
+> +const struct cpumask *acpi_irq_get_affinity(acpi_handle handle,
+> +                                           unsigned int index);
+>  #else
+>  static inline
+>  int acpi_irq_get(acpi_handle handle, unsigned int index, struct resource=
+ *res)
+>  {
+>         return -EINVAL;
+>  }
+> +static inline const struct cpumask *acpi_irq_get_affinity(acpi_handle ha=
+ndle,
+> +                                                         unsigned int in=
+dex)
+> +{
+> +       return NULL;
+> +}
+>  #endif
+>
+>  #ifdef CONFIG_ACPI_LPIT
+> --
 
