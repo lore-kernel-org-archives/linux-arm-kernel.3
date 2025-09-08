@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF835CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A16ACAC58C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=82DQuFCXh8YO2rtBkOqPySEJ+o6VhkmuvailxMJ7KeA=; b=bk49TvKbINMVv8
-	F4cRoWA0Ko2J7V4dIlR2cJrp/IWzSxcQpaDWIJF30uIYC/tSVu85l0iGrhXC5lY1W+DMKWz2leRn9
-	gVelZ+ONosV61WKXvqfCHnqEuGuhq4wB50jorK50mcs9ZEGJBVUGabFqU0j1VwH6Luvyp+2VlC1g9
-	yPBnDzENfAbQEwyPn4VuI7aDEG6ZRbaHJDlA5+dNAvWLAe1SWUx49genkv1oDODqjLk0ksRVlyV2x
-	+IZNHsXW4W2OXm52PivZJwTgtcumu9SoWecuIbeCdt14X/K/8JLdS2aWvUIFo6LiwOGxwUYj2t6jA
-	pFE6QLI691029nwLxSNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=40U/JwkNhbsZHZiHuydqGbPDLeGHS8HCU5gpBRM8kIw=; b=tuAq1WFw8RvVoX197BSByd7GbQ
+	1rdiG5F94cktpg4KgP378zVUhwOa8NAmYfG/xXNQkciwari8T+YRO8Fknlwxd0wBnuIJOu3sR8jIb
+	oxibzfS7Erzdk7UVxfXDwX6WhTpyeKWV3TGmcgYtbnplGcKUhyEYkMveLFo4C/m8rhgSu2RA8h2nt
+	MZNGoNJ1swFdewxUB2FZbB1ASlIcXRB+OJWAHQkz6dNZbtJIBDYrN+KA8KDXzPJrHrzXx/Q/TFkkP
+	sSOckSybNNJPvgOIer1yKlc79nQw3GKeD01qR9OcRE4nA+wwyDOuUk3BGd9JMuKyEsuR+tkQv2TrS
+	PgEcvPQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBR-00000004oXY-2fYd;
-	Tue, 09 Sep 2025 06:50:29 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1uvsBS-00000004oYT-1Es5;
+	Tue, 09 Sep 2025 06:50:30 +0000
+Received: from mx01.omp.ru ([90.154.21.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhNm-00000001pvO-3CTo
+	id 1uvhiL-00000001wrz-3zgv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 19:18:32 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=Tnu7FzlNRrvAkepIltGvjpu9EdsiMA10UkZXaZVXkcnFa1peLRj3E8wl6ynPkTwOwMxQEQSt7xTF+kh0S40yBzp5lJ/He13/W07ehhlM7oD5YrpbYqsSp4/gaVGa/4bBsnk5ODMI+3c2/OyI+Yq2MC9FiwbNfpAoYLOPr98MAj0ijI3Z9x25zkgg7YVn7F55kZHVOlUfQL86k9K0qWS5Vr02VvFjle7t0EHmSTjsvh4O0Dk9mwqK1xVE9lkEd5JgFllDbV9+uf/stStJkuebRcPYoXUZiyhVgyp/jHiOGwYawBbn68O53kZFbbtmH219JW8BczfN/dwfeaFnsul7sQ==; s=purelymail2; d=purelymail.com; v=1; bh=9F2TNgdH1pNDHLwB0pIr1YxFZjkobiXp5n7/OLvFJn0=; h=Feedback-ID:Received:From:Subject:Date:To;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 292196779;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Mon, 08 Sep 2025 19:18:08 +0000 (UTC)
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Subject: [PATCH 0/4] Add support for mt6878 pinctrl
-Date: Mon, 08 Sep 2025 21:17:54 +0200
-Message-Id: <20250908-mt6878-pinctrl-support-v1-0-3fb78c8ab4e8@mentallysanemainliners.org>
+	Mon, 08 Sep 2025 19:39:47 +0000
+Received: from [192.168.2.102] (213.87.154.55) by msexch01.omp.ru
+ (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Mon, 8 Sep
+ 2025 22:39:36 +0300
+Message-ID: <877641ca-aadb-4510-9ed7-cc23cf666653@omp.ru>
+Date: Mon, 8 Sep 2025 22:39:35 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: stmmac: prevent division by 0 in
+ stmmac_init_tstamp_counter()
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	<netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <58116e65-1bca-4d87-b165-78989e1aa195@omp.ru>
+ <c3183a23-21da-435d-b599-7003ae7ba79b@lunn.ch>
+Content-Language: en-US
+From: Sergey Shtylyov <s.shtylyov@omp.ru>
+Organization: Open Mobile Platform
+In-Reply-To: <c3183a23-21da-435d-b599-7003ae7ba79b@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOIrv2gC/x3MywqEMAxA0V+RrA004qP6KzILH1EDM7WkHRHEf
- 7e4PIt7LwiswgG67ALlQ4LsLoHyDKZtcCujzMlQmKIyrbH4i7VtLHpxU9Qvhr/3u0YcaCZqqDS
- 8jJBir7zI+Y77z30/5GtqiWgAAAA=
-X-Change-ID: 20250908-mt6878-pinctrl-support-a1d117140efb
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sean Wang <sean.wang@kernel.org>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757359086; l=1603;
- i=igor.belwon@mentallysanemainliners.org; s=20250908;
- h=from:subject:message-id; bh=9F2TNgdH1pNDHLwB0pIr1YxFZjkobiXp5n7/OLvFJn0=;
- b=wI4YdYlwNvX69+y3MzJHzF6UO6pNEeWKFAjvc+aSn8WWJDIMJQsllOvMaB2EBg5KV3E3rULTy
- L1mHuP3micEDVGsrwXEWOIfrNFSLazxHtZeK84LMp02aFUXnREqFYo8
-X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
- pk=t9Kz6B3jEwJD7YAKcp8XftfEz7SUSlGbrsfFlbrrFwA=
+X-Originating-IP: [213.87.154.55]
+X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
+ (10.188.4.12)
+X-KSE-ServerInfo: msexch01.omp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 09/08/2025 18:59:50
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 0
+X-KSE-AntiSpam-Info: Lua profiles 196103 [Sep 08 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
+X-KSE-AntiSpam-Info: LuaCore: 66 0.3.66
+ fc5dda3b6b70d34b3701db39319eece2aeb510fb
+X-KSE-AntiSpam-Info: {rep_avail}
+X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: omp.ru:7.1.1;127.0.0.199:7.1.2;www.kernel.org:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1
+X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.154.55
+X-KSE-AntiSpam-Info: Rate: 0
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
+ smtp.mailfrom=omp.ru;dkim=none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Heuristic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 09/08/2025 19:03:00
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 9/8/2025 5:23:00 PM
+X-KSE-Attachment-Filter-Triggered-Rules: Clean
+X-KSE-Attachment-Filter-Triggered-Filters: Clean
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_121830_885402_9A854B10 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250908_123945_994680_A7ADBF76 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +104,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On 9/8/25 7:47 PM, Andrew Lunn wrote:
 
-This patchset adds support for the pin controller found in the MediaTek
-MT6878 SoC. This SoC has 9 pinctrl groups, and 4 EINT controller
-instances.
+>> In stmmac_init_tstamp_counter(), the sec_inc variable is initialized to 0,
+>> and if stmmac_config_sub_second_increment() fails to set it to some non-0
+>> value, the following div_u64() call would cause a kernel oops (because of
+>> the divide error exception).  Let's check sec_inc for 0 before dividing by
+>> it and just return -EINVAL if so...
+>>
+>> Found by Linux Verification Center (linuxtesting.org) with the Svace static
+>> analysis tool.
+>>
+>> Fixes: df103170854e ("net: stmmac: Avoid sometimes uninitialized Clang warnings")
+>> Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
+>>
+>> ---
+>> The patch is against the master branch of Linus Torvalds' linux.git repo.
+> 
+> Wrong tree. Please see:
+> 
+> https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
 
-This SoC also uses the new "eh" bit for controlling i2c driving, support
-for which is also added here.
+   Well, formerly being a reviewer for the Renesas drivers (before Greg KH
+threw me out of MAINTAINERS last year), I kinda know this! :-)
+   The real problem is that I've lost the ability to pull from git.kernel.org
+(first using git:// protocol and later using https:// as well)... Sometimes
+the ability used to return (along with Facebook/LinkedIn -- which are actually
+blocked in .ru) but that hasn't happened for more than a week now. I can now
+pull from Linus' tree at github. I strongly suspect some interaction between
+the .ru blocking and the Anubis program that is now used on git.kernel.org --
+I've also lost access to lore.kernel.org (sometimes it works -- but not now)
+and also elixir.bootlin.com, both of which seem to use the darn Anubis as
+well... :-(
 
-Kind regards,
-Igor
+> This also needs reviewing by somebody who know the STMMAC
+> hardware. There is a comment:
+> 
+> 	/* For GMAC3.x, 4.x versions, in "fine adjustement mode" set sub-second
+                                               ^ Look, a typo! :-)
 
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
----
-Igor Belwon (4):
-      dt-bindings: pinctrl: mediatek: Document MT6878 pin controller bindings
-      pinctrl: mediatek: Add support for eh bit
-      pinctrl: mediatek: Add debounce times for MT6878
-      pinctrl: mediatek: Add support for MT6878 pinctrl
+> 	 * increment to twice the number of nanoseconds of a clock cycle.
+> 	 * The calculation of the default_addend value by the caller will set it
+> 	 * to mid-range = 2^31 when the remainder of this division is zero,
+> 	 * which will make the accumulator overflow once every 2 ptp_clock
+> 	 * cycles, adding twice the number of nanoseconds of a clock cycle :
+> 	 * 2000000000ULL / ptp_clock.
+> 
+> So i'm wondering if the subsecond adjustment is sufficient, the
+> sec_inc might be zero, and rather than returning an error, the
+> hardware just needs programming differently?
 
- .../bindings/pinctrl/mediatek,mt6878-pinctrl.yaml  |  209 ++
- drivers/pinctrl/mediatek/Kconfig                   |   10 +
- drivers/pinctrl/mediatek/Makefile                  |    1 +
- drivers/pinctrl/mediatek/mtk-eint.c                |    5 +
- drivers/pinctrl/mediatek/mtk-eint.h                |    1 +
- drivers/pinctrl/mediatek/pinctrl-mt6878.c          | 1559 ++++++++++++++
- drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c   |   60 +
- drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h   |   24 +
- drivers/pinctrl/mediatek/pinctrl-mtk-mt6878.h      | 2248 ++++++++++++++++++++
- drivers/pinctrl/mediatek/pinctrl-paris.c           |   30 +-
- include/dt-bindings/pinctrl/mt6878-pinfunc.h       | 1201 +++++++++++
- 11 files changed, 5342 insertions(+), 6 deletions(-)
----
-base-commit: 64074b8d93abdc35ae90e38ab5135f0b13ccdf68
-change-id: 20250908-mt6878-pinctrl-support-a1d117140efb
+   Sorry, I don't readily see how the data var in config_sub_second_increment()
+can wrap to 0. I agree that a look of a more knowledgeable person would be good
+though... :-)
 
-Best regards,
--- 
-Igor Belwon <igor.belwon@mentallysanemainliners.org>
+>     Andrew
+
+[...]
+
+MBR, Sergey
 
 
