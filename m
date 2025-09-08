@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82018CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 955E9CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdcfAjivuhmexx1p6Y/99vRI059zLGTWwE6ntQss+MQ=; b=ViAa4BW0Q2a/X1RfzErajcE2Tq
-	D4+mm5bGDZn6tohgDw10KoMF0UHtFcZ+TiRHucFLBuwNWHa4rl7J+RdSwmFgjR+ixcwuJJ9wxdTDJ
-	x/wahb9msBZxNYBgqPf2hgys6mBYKr3uXG84BzdYdKhHjHRVTuFPhdfKqoXy2cKHPT4OMtnI6emy2
-	hRqCxpysqPthO+OdXHZRuKu3rblztWBks51jtOqIGu18MEgbkn4JsKe8ywZ5VomUDkWajV48olD/T
-	vo2Xx0//rToF1KgGasDxfYsbCxhHwBwlQNjEVAU5XQT5owW3JaW2RslAuKgfPNKGiIHu/qVF7Q7Jp
-	jtzUIbcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UkedwrzQI0rdKjNe52sGXdchQDXaBvZiPmkIP1sVIaA=; b=Oy42YVZDJiZdH6mS4azH1KjSdD
+	qh+SCTK2n+Xizc7oYui5LLvixbaKzcuPrlZ7ub+zVnZuqYy8qWqSli44pbfgyjUIas0dvsC2miiXs
+	/P2WjOKV2oJW9n56Iwv5zoRIUS5ZmN4f/HYmnQma7ff3c1LAxrUKqMkVEL+Bm1VGFVtQSsNZ+IxTg
+	Q3pWgOhc8tmJL3e/KBvIUAIdZFqI7KJM1FEk5P81AhUtBGRZGPy7ZmVaZ70j7lbxPXfH6+fUAcu+P
+	iDuJ6xRK20q3/7UDv1Oqev6qGbgKqYlKaFj4Frxq3Avdam/rlRb0kzZjxI8TE9ejeECdaALv+geHp
+	eVFpZFUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfM6-000000011Pm-2SGT;
-	Mon, 08 Sep 2025 17:08:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvbJB-0000000H8Oy-1ERU
+	id 1uvfLW-000000010QL-11Rq;
+	Mon, 08 Sep 2025 17:08:02 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvaho-0000000GvBV-3hTm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 12:49:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 131D31692;
-	Mon,  8 Sep 2025 05:49:12 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72A663F694;
-	Mon,  8 Sep 2025 05:49:16 -0700 (PDT)
-Date: Mon, 8 Sep 2025 13:49:13 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 0/5] initialize SCTRL2_ELx
-Message-ID: <aL7QySSGoI5p0B70@e133380.arm.com>
-References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
- <aLW5OIgv8/bvvY9E@e133380.arm.com>
- <aLXjVNCbT6YeWlSS@e129823.arm.com>
- <aLgd0/7peYBA4z87@e133380.arm.com>
- <aLgvzKeEPn325aRO@e129823.arm.com>
- <aL630WeBwWoUGTBp@e133380.arm.com>
- <aL68enBTkmsjJGPy@e129823.arm.com>
+	Mon, 08 Sep 2025 12:10:46 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3da4c14a5f9so3378821f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 05:10:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757333443; x=1757938243; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UkedwrzQI0rdKjNe52sGXdchQDXaBvZiPmkIP1sVIaA=;
+        b=DHD4Uepzm6oATC2aTHKPzCQzoildIsiclrAh4F/yqhAQZ1Mk1FXc1ZjXtizzm2yYQS
+         bx/UAvYEJ12cH44vl5taTIMQOn3ydqpLcLpbQtXPSC7i/gFVWkMep2ImNFmg2M4MSVVm
+         0BCYSups4ZBH8mDgBsLuc/xKYMCk4H/Cr93OJGQdMgWbmiHa0RXnCB+UmaddQwNqa1ad
+         ElCDKchrToMtluGHubwOyku6ipgvpgmAtumIULNCrjrN8GBQR3NNTa2kFTR7jE8j2nM8
+         gehdV1coDV14JUSn5riqvUuRKK1vWDrUHLQ3CR85BZusy8XExk6voyezQiT9OfVjTIGB
+         n/ZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757333443; x=1757938243;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UkedwrzQI0rdKjNe52sGXdchQDXaBvZiPmkIP1sVIaA=;
+        b=cvpN1/FyXxc8pZJtkHEXHy+fC181vYM6gnnSnshp6Fvm/fgNx/s08nzfHnY0ITzGZ1
+         /MYI0d8WJwSmYxlp7+ypw7m4s8JmCkXa1OAvfSae50TxNvfAzLXvMDvK3N/9wJEBG8di
+         wWOkDETShZcfrIPyBkueE9k36JpwKRkiIqJlh8vs+1McVLOvSmZBXJZXe7x/Bq+zYazp
+         TLy+8NzGCz5NJ4y35RuJ1fW2E4zQ+9QqBKzC+fAIbBbyNeeHcsRhiKUyEfNuwtEaVcbE
+         bGCYhKlzwXmjoHrQGsvLgqMbw2Khj38EV0InKNINZTsLLZuxwZzqlcqM4fjGZAmuExSp
+         t3kw==
+X-Gm-Message-State: AOJu0Yyh+CXtkRYUYwoW8m1LD87ILTonDJKgVkaIyTjVCEVVPk32e9a5
+	spRfUy1MltLKcYYzQmvCURKkJ9JBtdFVvU/v3+Kabksxpq70bHnoVcNKAdpZDKG1VV0=
+X-Gm-Gg: ASbGncuM2S9zZOXtxN5fAshkbxjva1LJ26AKNFxApB33Fv2BXghxZqPS42Dvqcm0j9q
+	URshmdvBM9t2bWo4I03JigHTkFoDHsot6EVZrRhqJEp1t4UtvsNHsT84kEwSgAMsYVOCI9UGuLx
+	y6d8PFGYheIFdb4XHDyPBR9ICiU90GvL5qs41aJ7Mu89sHHWCf4Xc+xY5nJQzpofQ2R4+4AMeeR
+	tb8pCnX3vx+uACX78GdK8+kdhdwRvhQ1I8Zhl/4wy7yPc+mTR7caz+jxxciaRI9xbhBF/fZNcvz
+	c1mzac1yUXj+Z+KZQRuS/wJ0GxzFSzAHtbntsimHUmchYLgsfYyKdTrIZvW3IxxnDsh5L4zXDGZ
+	uhfC4eVFMo9taoAKEPjXiRMtrc/vBD7BBNbhOznq4Jw==
+X-Google-Smtp-Source: AGHT+IGak0uuuS5pIGUifYYsbhCa22YIqe9IhScFSAOd21dRmiIc9QfW//Nsn1rfDOPnEaB1ex4tYg==
+X-Received: by 2002:a05:6000:2385:b0:3e1:a74f:f847 with SMTP id ffacd0b85a97d-3e627a7c83cmr6685253f8f.6.1757333443258;
+        Mon, 08 Sep 2025 05:10:43 -0700 (PDT)
+Received: from ho-tower-lan.lan ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33fba9fbsm41397825f8f.50.2025.09.08.05.10.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Sep 2025 05:10:42 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Mon, 08 Sep 2025 13:10:20 +0100
+Subject: [PATCH 3/4] perf arm-spe: Display --itrace period warnings for all
+ sample types
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aL68enBTkmsjJGPy@e129823.arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250908-james-perf-spe-period-v1-3-7ccd805af461@linaro.org>
+References: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
+In-Reply-To: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
+To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, George Wort <George.Wort@arm.com>, 
+ Graham Woodward <Graham.Woodward@arm.com>, Ben Gainey <Ben.Gainey@arm.com>, 
+ Michael Williams <Michael.Williams@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_054921_374780_5ECBF611 
-X-CRM114-Status: GOOD (  28.82  )
+X-CRM114-CacheID: sfid-20250908_051044_957669_8B4E0FF0 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,66 +108,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Currently we only display the warning when the instructions group is
+requested. Instructions are on by default, and the period applies to all
+sample types anyway so always check the options and show the warning.
 
-On Mon, Sep 08, 2025 at 12:22:34PM +0100, Yeoreum Yun wrote:
-> Hi,
-> 
-> > [...]
-> >
-> > > > > > Have you tested all the code paths, or are there some things that have
-> > > > > > not been tested?
-> > > > >
-> > > > > I've tested for pKVM, nested and nhve and crash path
-> > > > > (I do my best what can I do for modified path).
-> > > >
-> > > > Was that just confirming that the kernel boots / does not crash?
-> > >
-> > > Not only that, since the my last mistake, I've check it with debugger
-> > > too -- set the SCTLR2_ELx as I expected.
-> > >
-> > > >
-> > > > What about CPU suspend/resume and hotplug?
-> > >
-> > > Of course It's done both enter/exit idle and hotplug with related kselftest test.
-> >
-> > Were you able to step through these paths, too?
-> 
-> Yes. with debugger and some trick with:
->   asm volatile("b ." ::: "memory");
-> 
-> checking a cpu idle (by not loading any work) without any load and
-> checking cpu-hotplug with kselftest's cpu-on-off-test.sh.
-> 
-> So, by hitting the "b .", I've stepped in and confirm the SCTLR2_ELx set
-> as it intended.
+Reword the messages to be more explicit about which flags the warnings
+apply to.
 
-OK, that sounds reasonable comprehensive.
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ tools/perf/util/arm-spe.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-[...]
+diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+index 4c81518a033a..228ed52e653d 100644
+--- a/tools/perf/util/arm-spe.c
++++ b/tools/perf/util/arm-spe.c
+@@ -1742,14 +1742,6 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
+ 	}
+ 
+ 	if (spe->synth_opts.instructions) {
+-		if (spe->synth_opts.period_type != PERF_ITRACE_PERIOD_INSTRUCTIONS) {
+-			pr_warning("Only instruction-based sampling period is currently supported by Arm SPE.\n");
+-			goto synth_instructions_out;
+-		}
+-		if (spe->synth_opts.period > 1)
+-			pr_warning("Arm SPE has a hardware-based sample period.\n"
+-				   "Additional instruction events will be discarded by --itrace\n");
+-
+ 		spe->sample_instructions = true;
+ 		attr.config = PERF_COUNT_HW_INSTRUCTIONS;
+ 
+@@ -1759,7 +1751,6 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
+ 		spe->instructions_id = id;
+ 		arm_spe_set_event_name(evlist, id, "instructions");
+ 	}
+-synth_instructions_out:
+ 
+ 	return 0;
+ }
+@@ -1877,6 +1868,15 @@ int arm_spe_process_auxtrace_info(union perf_event *event,
+ 		spe->synth_opts.period = 1;
+ 	}
+ 
++	if (spe->synth_opts.period_type != PERF_ITRACE_PERIOD_INSTRUCTIONS) {
++		ui__error("You must only use i (instructions) --itrace period with Arm SPE. e.g --itrace=i1i\n");
++		err = -EINVAL;
++		goto err_free_queues;
++	}
++	if (spe->synth_opts.period > 1)
++		ui__warning("Arm SPE has a hardware-based sampling period.\n\n"
++			    "--itrace periods > 1i downsample by an interval of n SPE samples rather than n instructions.\n");
++
+ 	err = arm_spe_synth_events(spe, session);
+ 	if (err)
+ 		goto err_free_queues;
 
-> > Looking again through this series, I realised that the requirements for
-> > this feature are not documented in booting.rst.
-> >
-> > Does the following patch look good to you?  If so, feel free to append
-> > it to the series (with your Reviewed-by, if you're happy with the
-> > changes).
-> >
-> > It's probably worth double-checking the bit numbers etc.  I wrote this
-> > some weeks ago and then forgot about it.
-> 
-> I've missed this and Thanks for your efforts.
-> The bits you documented have no problem as far as I checked.
-> Let me include this too in next series.
-> 
-> (I'm still checking your suggestion to use .ifc. as soon as finish
-> this. I'll repost it according to your suggestion)
-> 
-> 
-> Thanks!
+-- 
+2.34.1
 
-OK, I'll take another look when you repost.
-
-Cheers
----Dave
 
