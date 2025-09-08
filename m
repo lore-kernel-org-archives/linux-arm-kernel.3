@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91625CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8873BCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ohW095cble1VBjqBQ22zn5QBKsPigYlkoooE98YHK0I=; b=wZQOoXsx23IhT3H9Bd0XbzPaKZ
-	RcG5YudsfT+Rqy6fOl6+KsbkpdLfzrr4Wo9g66bPK/5/mb15C72DY6OORMdjyi4q5NGcPshLQt5mK
-	LwDHsNyl6MIix2ANc3q+T6o+EPrgZGakrnh+PvNwtn4LtmbdlawGzN4XsOwvxqJVEDGO6hyi3b0ow
-	mh+nsKoY3++cXdyJ+rYyc1Q+mK1FtCz6DgVANjvTlBDaU0tQzpbj7LApzdMhBWB+k35cT93wZ9PV/
-	YGIDUWcvEV9YqdOLBU/ooZ03IJTqyo34/eeVDeVenoZK392NXTE6Yc/Nb3exDcVU01kljFwV7zj4g
-	MVRUFmYQ==;
+	bh=S6loKHnERR6UQJlGUtEQ3+3fogYBwTr8txF5Ji+qXuY=; b=E9GMCEkTccITNojBgOEQ9BtT2S
+	I7vrlgTqWFkbPjefCwH+9Blk77OQNtpnT4r9bSzzbjQ7IAbU6ePJpwTRIBCq+f7LyiLNP+NuRgHIi
+	m3ymUZrWzfU97AfpVdw882PH2AjbZweN3ryXoSmQVqMBdYs5fbs5p+XqGnuRpe8idQUfSE5NIexwh
+	FQxXjjFJ9Rvj+GH86gOL9tx263G20uPeLFGDGDBPlfDNMpg1n1veR++m0UEIyvsCp0sx7WNrcAieL
+	LpYFlMjcO5gS7D+qF+xVcOkHjYvBBbBYF1iECKn7yr1jmSj4MeAadFO+TNaT9DSdUPzyBsMZKrO1Q
+	AmYU3S7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsEM-00000004sb1-1RrX;
-	Tue, 09 Sep 2025 06:53:30 +0000
-Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
+	id 1uvsER-00000004sh3-3eNv;
+	Tue, 09 Sep 2025 06:53:35 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvlQD-00000002zVI-0svV
+	id 1uvlSH-0000000308I-23v0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 23:37:18 +0000
-Received: from omf07.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay01.hostedemail.com (Postfix) with ESMTP id 7F90A1DDB91;
-	Mon,  8 Sep 2025 23:37:14 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf07.hostedemail.com (Postfix) with ESMTPA id F243A20024;
-	Mon,  8 Sep 2025 23:37:10 +0000 (UTC)
-Date: Mon, 8 Sep 2025 19:37:57 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- jstultz@google.com, qperret@google.com, will@kernel.org,
- aneesh.kumar@kernel.org, kernel-team@android.com,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 04/24] tracing: Add reset to trace remotes
-Message-ID: <20250908193757.079aae76@gandalf.local.home>
-In-Reply-To: <20250821081412.1008261-5-vdonnefort@google.com>
-References: <20250821081412.1008261-1-vdonnefort@google.com>
-	<20250821081412.1008261-5-vdonnefort@google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Mon, 08 Sep 2025 23:39:26 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4cLNhP5g1xz9stK;
+	Tue,  9 Sep 2025 01:39:17 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1757374757;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=S6loKHnERR6UQJlGUtEQ3+3fogYBwTr8txF5Ji+qXuY=;
+	b=VXVBtK6mXUfaVqVUbAwXZk4vf3gBlosdFyQkADIFM7YPJD0BuXmyZtLP/gWnX49fLxLWmS
+	TvYWCqgevy3ANpxrGU1FuxPOfB02fv2PcckuuSfUtHsLqy9xmmdMFbY2v1e2Y98GOYUcGk
+	FbBB/kiOVrj+Jre+jYhGFch8aPLgcRrNCtjGRIsS8zWOzLYfw+RXT/fR+Z2rPBB3LZgcCC
+	S5QjAAzduh1mysaLLq6zphP+oa8kVMEVSASePJ+YwGA6tHUG2Qso8V+KUEMHf4/fQ1VLE1
+	N6sG0fUjP+5898B4FVmylOx1Jm6DnKBsCiFnCRkwZyEz8ZUrVap7cZC/z8lbOA==
+Message-ID: <afe58aa6-0c3e-4508-8133-8e7621a0484a@mailbox.org>
+Date: Tue, 9 Sep 2025 01:39:13 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Subject: Re: [PATCH v1] dts: arm64: freescale: move imx9*-clock.h
+ imx9*-power.h into dt-bindings
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
+ Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ E Shattow <e@freeshell.de>
+References: <20250831200516.522179-1-e@freeshell.de>
+ <20250901032203.GA393@nxa18884-linux.ap.freescale.net>
+ <3a165d77-3e36-4c0d-a193-aa9b27e0d523@mailbox.org>
+ <05f7d69a-9c05-4b47-ab04-594c37e975eb@kernel.org>
+ <51daddc4-1b86-4688-98cb-ef0f041d4126@mailbox.org>
+ <8920d24b-e796-4b02-b43b-8a5deed3e8fb@kernel.org>
+ <be2fc937-b7a6-49a7-b57d-6e3f16f4ccc3@mailbox.org>
+ <20250904093442.GA13411@nxa18884-linux.ap.freescale.net>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20250904093442.GA13411@nxa18884-linux.ap.freescale.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Stat-Signature: wdbcg9cmz9hgzbiksnz8z5e99z9oj6b5
-X-Rspamd-Server: rspamout07
-X-Rspamd-Queue-Id: F243A20024
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX18XbN7DKfTHTi5CaU0ETRtueyTq0Kn+udA=
-X-HE-Tag: 1757374630-126015
-X-HE-Meta: U2FsdGVkX1+EtvhnbdP2Gtp4noi9cwQOFuTgiBxTimh80Zt9R2I9RRFZOl6Ad9iETIg8Vo1wn0H3utT0IieAsllW9nATADRweoco0USuPbF/DP4mzyWeE7aIzDtTjPTMCyknsX9vb+/wfUw4RcDhTt6//E9Z3hqrulPr2olWCfWURJbu73yPFEi3lUwCRSODrbQJTtcFs9kbOy6wjiU0k5sLzN78GCaIrqX6j0uq3wxNHph6lidTpEKShX9mn39tAzBAhFD2JHB0HJDOgo8fyH/TPKH5N4qstseJVEKZysaLeFeVQlz4byE2opEgIDC69C7Sll18FkwB6E6vUWqaMXNqzjYegYIr
+X-MBO-RS-META: 6pky7gdj4zuqu4e5ou56mtyfkp7ssjjh
+X-MBO-RS-ID: fbc66ab64366b5ef5dd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_163717_314178_2302A099 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250908_163925_676631_337987B4 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,33 +94,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 Aug 2025 09:13:52 +0100
-Vincent Donnefort <vdonnefort@google.com> wrote:
+On 9/4/25 11:34 AM, Peng Fan wrote:
 
-> @@ -400,7 +436,9 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
->  	    !trace_create_file("buffer_size_kb", TRACEFS_MODE_WRITE, remote_d, remote,
->  			       &buffer_size_kb_fops) ||
->  	    !trace_create_file("trace_pipe", TRACEFS_MODE_READ, remote_d, remote,
-> -			       &trace_pipe_fops))
-> +			       &trace_pipe_fops) ||
-> +	    !trace_create_file("trace", 0200, remote_d, remote,
-> +			       &trace_fops))
->  		goto err;
->  
->  	percpu_d = tracefs_create_dir("per_cpu", remote_d);
-> @@ -422,7 +460,9 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
->  		}
->  
->  		if (!trace_create_cpu_file("trace_pipe", TRACEFS_MODE_READ, cpu_d, remote, cpu,
-> -					   &trace_pipe_fops))
-> +					   &trace_pipe_fops) ||
-> +		    !trace_create_cpu_file("trace", 0200, cpu_d, remote, cpu,
-> +					   &trace_fops))
->  			goto err;
->  	}
+Hi,
 
-I wonder if we should name the file "reset" to not be confusing to users
-when they cat the file and it doesn't produce any output.
+sorry for my late reply.
 
--- Steve
+>> Instead of playing this "I found this code somewhere, so I can do
+>>> whatever the same" answer the first implied question - why these are
+>>> bindings? Provide arguments what do they bind.
+>>
+>> I am not sure how to answer this, but what I can write is, that if I scramble
+>> these IDs in either the DT or the firmware (which provides the SCMI clock
+>> service), then the system cannot work. I am not sure if this is the answer
+>> you are looking for.
+> 
+> Marek,
+>    Some U-Boot code indeed directly use the IDs to configure the clock without
+>    relying on any drivers. Since the SCMI IDs could not be moved to dt-bindings,
+
+Why can they not be moved to DT bindings ?
+
+They are part of the ABI.
+
+This is the part I do not understand, the SCMI IDs are no different than 
+any other clock IDs used in DT, is that not so ?
+
+>    the possible method to do in U-Boot is to duplicate a copy of the file,
+
+No.
 
