@@ -4,81 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA70CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42DFCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JTskB/UCChEzoe+7IbsfNIUYnxNVPm3fPK+F6ahfQc=; b=sUvFB86jHlei76z5xAoePbfSLJ
-	YOqr4yZGqSWx8XRyF6ARIDApdxvqKDKYzWVSILh3w1hlgC+xh0bNiqrHOq8mJSubguhVlV1PfnjJR
-	CWubAvO6QBmfzAzJMQz4OSbEG8LcKshGYZFnUwh3NRsZNqi+N6DK0ydosYGcAkqdkHOml20YVTCLw
-	oMbYHCQyHw8VOFdf/o5IDLFiUH9MgsA39x+czg0EsUitqGbYmT7mmkGMEHyH97KDG4nkXvjCns3om
-	jn1+NcWAFcjE1Hm04gxyQF8mA1S7Rns4B0irgDFgDyKrsnJxQPZV6YrQSwrG+RX40X7PDMA0ikNNR
-	vv3st67A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n9tdY7vma3BZOIB/pf+qIbNyJWlUDjlUslTFVsNzYF4=; b=FBjE6PQZ7SSRd5e5ikazeNnmoe
+	g+ZpMeef/VXDCIUzSt68pS2MYUE74Y+9xGwTeVJoIzY+AA5pZk2j1k/3RYFRWc8TRx9Xmqncuqs0K
+	BXleFefHB+dwL+QgzN3EP8++tlDHvCQirbTyiWlydY1KSp1E1f9a8r6wC1473qT6R1M5LAwAQEdJJ
+	A/vn0qlKbvfkQHqsf40vbcBaFcP1d/BPwWEXdQfwnygMyXKSt2tdVREVCUX4kWmoRqcROhgvOn/Ls
+	i5imA9WQfsNQSMOLvxF7Btdbj536LqM8UHEAxLYwNjroEwfMHoywHmaXKvIJzEjlQuHnKre7IEE+i
+	joyJrkpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsDS-00000004rUG-3aXu;
-	Tue, 09 Sep 2025 06:52:34 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uvsDW-00000004rYp-3RBx;
+	Tue, 09 Sep 2025 06:52:38 +0000
+Received: from mail-mw2nam12on20630.outbound.protection.outlook.com ([2a01:111:f403:200a::630] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvlFD-00000002woX-2mbU
+	id 1uvlIG-00000002xNi-1FkY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 23:25:57 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588NPpHu3892219;
-	Mon, 8 Sep 2025 18:25:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757373951;
-	bh=1JTskB/UCChEzoe+7IbsfNIUYnxNVPm3fPK+F6ahfQc=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=UoddI0GYQB+zGqKKbu3v8TmBLU93NKVHzqxnPThLX+Q6NHiRI+6jz985GqMjUB+M8
-	 US7nT49t11ITmspasIhoQy4dfhjRApD7E4ql+ptXI9SkljRDlyeCZn9xcYts5JOGMN
-	 VvjNbU0megVyekf3ZkPNrLebttChTI6KGKA4QVy8=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588NPpbC2731831
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 18:25:51 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 18:25:51 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 18:25:51 -0500
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588NPphW1651879;
-	Mon, 8 Sep 2025 18:25:51 -0500
-Message-ID: <f6c8abba-75f6-4a68-846a-780d37bb94fe@ti.com>
-Date: Mon, 8 Sep 2025 18:25:51 -0500
+	Mon, 08 Sep 2025 23:29:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JxnjmIHgVaEMb0c4glzxE9fedltMdGEYq98NOx+POTXTS/35qm9HvNQlelnug5WiSSt+Gt/DNzS9xiTpWajDf69mtppCaf5VzhD3Akqy6omZN0yoyikb6I18OzrZ2mS1XlT+YCjCEHWp4JzkZQVHQVs9GC9hXA0KXM8H8k4XeP41PBl1THLihyd36mkA00E1+uwvNFt4jhkHdmH8zxreYc56OQbX4p70TMwydLRABmOnJEt60nK6aQCQzBtaVuAEaktdoqvYrOiYP91hewa9KUeSmUqZUkUbnl6HADWGNZKAEDhcqwhoBpzmxYDfp2ZzljgeO8qvf32lyNROWZY6fQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n9tdY7vma3BZOIB/pf+qIbNyJWlUDjlUslTFVsNzYF4=;
+ b=p3PkSrR/48X84qKDyOeYgiRVhvIRZMi+3/2pmTsfbZ6uyvCYtc5tQAMGAepqrGaf3t0dsbHl8rfRV10xtCXJFCWH3/BSnNA5dvb9XKolQICAtX3jSvzdic4QyQ72yVaVrY0pTuYITNzyxdEhPrSiF4QOVqClHhfEL5t98pgED+UXQXkPkDXnHczu3/TDMEn0nKqz8t9Muft6PQZLTkkgDZSaw81W+Yst/KJQc1LhQERDwRfdUpLOwyeMedtleAueeMqW0sO/divXw/ZIG0uOWBSQ59pSVbICZp1Al+Gwss2qVL4ETRcFxG9M4RPUY6YTwJVRlhHkFiKcZO0M/irWrw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=n9tdY7vma3BZOIB/pf+qIbNyJWlUDjlUslTFVsNzYF4=;
+ b=MFlssMZZW4PFlLIydI8253GR2cViNWpKjho0eoQUQKW8wIU89tCkkAf/x3rJKxzbmX8lQT5ZFYaTqrznvPld8TMtVgkPGRckGnrApKJIUErk/LvOnQAZLAhpMbQu+qPLKaVmOCpqjpupGtptBoYMmmb11sF6yMCctocLuhRBusNAhJDPwbhDC/Zf2KRb3xtldSbNFSaNSvCU8jP8vpmNzCGHmysq+nhpvA3/xL4oAbizy5Uw6/jysA816hwHR7UdtXaPTpy7ccWouz46HcWez4htyZaciIapu7K4kWFg8TtsiG9Jb8WqEGFCgvOpU8G+asTcgYt9P8HORTgFQxF8tQ==
+Received: from CY5PR15CA0237.namprd15.prod.outlook.com (2603:10b6:930:66::6)
+ by SA3PR12MB9160.namprd12.prod.outlook.com (2603:10b6:806:399::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Mon, 8 Sep
+ 2025 23:28:56 +0000
+Received: from CY4PEPF0000FCC3.namprd03.prod.outlook.com
+ (2603:10b6:930:66:cafe::f5) by CY5PR15CA0237.outlook.office365.com
+ (2603:10b6:930:66::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.22 via Frontend Transport; Mon,
+ 8 Sep 2025 23:28:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CY4PEPF0000FCC3.mail.protection.outlook.com (10.167.242.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9115.13 via Frontend Transport; Mon, 8 Sep 2025 23:28:56 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 8 Sep
+ 2025 16:28:41 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Mon, 8 Sep 2025 16:28:41 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Mon, 8 Sep 2025 16:28:40 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>
+CC: <joro@8bytes.org>, <jean-philippe@linaro.org>, <miko.lenczewski@arm.com>,
+	<balbirs@nvidia.com>, <peterz@infradead.org>, <smostafa@google.com>,
+	<kevin.tian@intel.com>, <praan@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
+Subject: [PATCH rfcv2 3/8] iommu/arm-smmu-v3: Add an inline arm_smmu_domain_free()
+Date: Mon, 8 Sep 2025 16:26:57 -0700
+Message-ID: <2066c45c004cde5c5e9f334c40e5683402e6deda.1757373449.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1757373449.git.nicolinc@nvidia.com>
+References: <cover.1757373449.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] arm64: dts: ti: k3-am62p/j722s: Remove HS400
- support from common
-To: Andrew Davis <afd@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250908173831.269039-1-jm@ti.com>
- <20250908173831.269039-2-jm@ti.com>
- <363878df-528b-4959-945f-3b531f156679@ti.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <363878df-528b-4959-945f-3b531f156679@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC3:EE_|SA3PR12MB9160:EE_
+X-MS-Office365-Filtering-Correlation-Id: e43cfac9-3310-4b49-237a-08ddef2f7aea
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DtD+q+JeFE4scypAE9wedycZktYHa7+x8OkDWCVwew4zo/TPndBrarHT4vbM?=
+ =?us-ascii?Q?MOxDEOMJUHsnOrhKNsU2npISyDvS0KkuNpd/NSmWy1dUs2y9WVMrV9fo/4i7?=
+ =?us-ascii?Q?aaJE2QEDw4isZWDjrq02N0S5YYGtfOW+K6qqNk54ZsSbRkKa7AcxytHxYfrp?=
+ =?us-ascii?Q?6otZKWsjpMcXkNP7ZT5u2hgRzked+rv9e3Fd+Yfo5Up7R2UNu6Xr6UOjntR1?=
+ =?us-ascii?Q?q9dqALCifrTtmhqwz+BGQQ4POpb3AvwdBLBo9blr2NTuuDOFpv1466jjBVH/?=
+ =?us-ascii?Q?g5Nn+878454Xp/0ox+snwbsDTN4SRsBsDdRSqG4iQ1WmWFAzCns3sNnJO+PR?=
+ =?us-ascii?Q?ItmD+NmOfuraw1eknd6cbbtKyhRYGRTj+RWDHRMW8jTAf1dyvGJo5c0sVEir?=
+ =?us-ascii?Q?qaxmtS1j/LjvQYUk3Saf4LssSVILckYtm6SEExkSCwTDHCh0BSsLDV3gBUuU?=
+ =?us-ascii?Q?qoCR3HXYvBs68xUWAppUSKMSzLl/ZNPERQw5z8NxRLqrB1R4K8cTotZKjbSu?=
+ =?us-ascii?Q?72WIqRIG3PKdn7x/ofTJP8oYsLyNnzvLyuniWuJGJBGR77XKv2szFZ5M0qIH?=
+ =?us-ascii?Q?dq3z5bslQsOl8c6u1Nzf4xD/Lyjsg97gWIlbj+26JKgNceDIKkz87jlow5gQ?=
+ =?us-ascii?Q?qapy2CRJ5J27Mx6wM1MGDaWMp52/ZmuEhNcEJS1ZeoNPlKQgPySEVLbkboda?=
+ =?us-ascii?Q?d9liSY0ZOTh0ecHCd21Xi/l935nMJTkLZS8zFYwcC3+axyU1TdxGrZKtnJd1?=
+ =?us-ascii?Q?OCvl8Nw33l8h8FaV/AgwqFOB5/MJzIKyAIPROK4LuSBNUMwJyGAXzTZtfd5q?=
+ =?us-ascii?Q?yXAkwas0qANoK+azYY2V8GL4hF6S3Qk3RwrQkDMLvCh4U90nV9QVu4uBMFg6?=
+ =?us-ascii?Q?B6pu3SNvwj8pKFhRvriyNur4xgThnE+8t086XWB4mheZWwOnajc9+ywyAgH0?=
+ =?us-ascii?Q?TNcnVGlXdaJU9eAP8wS2D/eEjAdpAC8ethH+UQguS6Rels2z2PjcUa7yEKcp?=
+ =?us-ascii?Q?m+7vCuz++PMY4sxsBJFSsMKaxnehuhgkiCU9SP3SoTZw4w28mj2Pe1bIKwcy?=
+ =?us-ascii?Q?kOTMRUOZjdb81Gv4OymLqTPuc+j4p0esp6ITH0l4tcNu3LTNzSP5Na0swGWo?=
+ =?us-ascii?Q?ngZbFtLAV6hv/KxPqZzbYw2ITBO9N/xcTdrObGYpFap9beC+R9oKDkWaBr17?=
+ =?us-ascii?Q?YMIMybBv7BMJfhfa+cQoME/t59lQ3Wuz4Y7YvXtGAXKZfqwO2vy/tILJb1z+?=
+ =?us-ascii?Q?aUjsiAM4lgl1WTpNIT/1SmAzpLeSAYTyNtTfAHZkZNOYBXulcW0L+XbPC/Yj?=
+ =?us-ascii?Q?mHWbh3scxx5ELoSWKOuIiPD+UwIDzesU8CPblRZfyZB1X4mqT6ZRSR154BVb?=
+ =?us-ascii?Q?LJ82aaREic5vuxhoSd9d7NDpHNdB7NWFGLVxJ7aegOcwPltsjeKDRiPBlh9h?=
+ =?us-ascii?Q?KypD3BiRg27zA1F6yWY2egV+uirwqtqurE6EpcNMRUFgxRoS50z8TaK6Bu43?=
+ =?us-ascii?Q?7+kytD8NNsis7MV774BirZWEWWRSYFhJbBeF?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2025 23:28:56.0165
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e43cfac9-3310-4b49-237a-08ddef2f7aea
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC3.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB9160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_162555_856003_586E8DE5 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250908_162904_536091_0C39CC68 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +152,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+There will be a bit more things to free than smmu_domain itself. So keep a
+simple inline function in the header to share aross files.
 
-On 9/8/25 3:44 PM, Andrew Davis wrote:
-> On 9/8/25 12:38 PM, Judith Mendez wrote:
->> Since eMMC HS400 has been descoped for J722s due to errata i2478 [0]
->> and is supported for AM62Px device, remove eMMC HS400 support from
->> common-main.dtsi and include only in am62p-main.dtsi.
->>
->> [0] https://www.ti.com/lit/pdf/sprz575
->> Signed-off-by: Judith Mendez <jm@ti.com>
->> ---
->>   arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 ---
->>   arch/arm64/boot/dts/ti/k3-am62p-main.dtsi              | 6 ++++++
->>   2 files changed, 6 insertions(+), 3 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/ 
->> arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->> index 4427b12058a6..0c05bcf1d776 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->> @@ -576,15 +576,12 @@ sdhci0: mmc@fa10000 {
->>           bus-width = <8>;
->>           mmc-ddr-1_8v;
->>           mmc-hs200-1_8v;
->> -        mmc-hs400-1_8v;
->>           ti,clkbuf-sel = <0x7>;
->> -        ti,strobe-sel = <0x77>;
->>           ti,trm-icp = <0x8>;
->>           ti,otap-del-sel-legacy = <0x1>;
->>           ti,otap-del-sel-mmc-hs = <0x1>;
->>           ti,otap-del-sel-ddr52 = <0x6>;
->>           ti,otap-del-sel-hs200 = <0x8>;
->> -        ti,otap-del-sel-hs400 = <0x5>;
->>           ti,itap-del-sel-legacy = <0x10>;
->>           ti,itap-del-sel-mmc-hs = <0xa>;
->>           ti,itap-del-sel-ddr52 = <0x3>;
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/ 
->> boot/dts/ti/k3-am62p-main.dtsi
->> index 6aea9d3f134e..90afe21e972b 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
->> @@ -31,6 +31,12 @@ usb1: usb@31100000 {
->>               snps,usb2-lpm-disable;
->>           };
->>       };
->> +
->> +    sdhci0: mmc@fa10000 {
-> 
-> The node already has a label where it is defined, so you could just use:
-> 
-> &sdhci0 {
->     ...
-> 
-> here at the base level, and not have it inside cbass_main.
-> 
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 5 +++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 2 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 4 ++--
+ 3 files changed, 8 insertions(+), 3 deletions(-)
 
-Oops, missed that detail, thanks Andrew. Will fix for v3.
-
-~ Judith
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 5c0b38595d209..96a23ca633cb6 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -954,6 +954,11 @@ extern struct mutex arm_smmu_asid_lock;
+ 
+ struct arm_smmu_domain *arm_smmu_domain_alloc(void);
+ 
++static inline void arm_smmu_domain_free(struct arm_smmu_domain *smmu_domain)
++{
++	kfree(smmu_domain);
++}
++
+ void arm_smmu_clear_cd(struct arm_smmu_master *master, ioasid_t ssid);
+ struct arm_smmu_cd *arm_smmu_get_cd_ptr(struct arm_smmu_master *master,
+ 					u32 ssid);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+index 6097f1f540d87..fc601b494e0af 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+@@ -365,6 +365,6 @@ struct iommu_domain *arm_smmu_sva_domain_alloc(struct device *dev,
+ err_asid:
+ 	xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
+ err_free:
+-	kfree(smmu_domain);
++	arm_smmu_domain_free(smmu_domain);
+ 	return ERR_PTR(ret);
+ }
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 0016ec699acfe..08af5f2d1235a 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2498,7 +2498,7 @@ static void arm_smmu_domain_free_paging(struct iommu_domain *domain)
+ 			ida_free(&smmu->vmid_map, cfg->vmid);
+ 	}
+ 
+-	kfree(smmu_domain);
++	arm_smmu_domain_free(smmu_domain);
+ }
+ 
+ static int arm_smmu_domain_finalise_s1(struct arm_smmu_device *smmu,
+@@ -3359,7 +3359,7 @@ arm_smmu_domain_alloc_paging_flags(struct device *dev, u32 flags,
+ 	return &smmu_domain->domain;
+ 
+ err_free:
+-	kfree(smmu_domain);
++	arm_smmu_domain_free(smmu_domain);
+ 	return ERR_PTR(ret);
+ }
+ 
+-- 
+2.43.0
 
 
