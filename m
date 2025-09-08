@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B44CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C90CAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AFXKLPNqRcZZrDvVKfr1wPjQMLq5JkCUAknP9xqaHrs=; b=VBr4QbadvqvR8SjHeSvp38/G5D
-	d6kAfrZBj4790yhS9PQVB6OauRzllbFCN8eB4I1OZ/s76pbB5S6anyfphzLMGwVRNG4YLkVTPjujq
-	NORxn8odTObqFDytmzQIex3JHezbG/IXty3vchzuaXUM0JKrhBPdcbM2yYVbCuyS9qjRaUv9QtQ40
-	uMWPCKZYaHB8ofFHBuNtZ4B69etk89tWVp+ck/BiWnrGVmBGHuFtG4ul7kvvX0v4YnkE8dRHSYxMk
-	5z4tyZoYBQ5V4ZlUVkbFbbi7RIRRGqh6P4c1BseNDQsSaBbtnEgRiayfRAFJE1q48Z7Cp5weEU9u6
-	P3c7hEKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qq7x/iZOuVzjlwuIGwyTrMvK8BMVcw6BDbfGkc/m2fA=; b=a23F7AfKO6IBbP3QLBCtcmK1W7
+	za8f2ABzJejOjmDXj80M1YeawMrs2Cvbwvn/hkWNYgefZVgKQhjabIYPFb0VA8LrMXyFuwrQtNA2X
+	OFQkzu1b1cHO02F09rawfcf5ynILvtXfcTthYDjOovkontp1iz2ENwuEJR1AMCIEDV4yjuSIrXFHq
+	vOHEA3DvoI/6oM7jQg4qNoYllPTxJfOXKiPU+UGqMtq10BoFlc3mcCRPd1Yh/DZsbxCyq6FjXBa2h
+	KfrZ8DdBOMeAEkmpdpJyv2ZCnuKfpkhxOrGM9zIur0/sjMY6uyBIUcY7Q19R1f6OXNgEV56Y61UdY
+	OXfLp2Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvs6v-00000004mNK-0AmV;
-	Tue, 09 Sep 2025 06:45:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvemW-00000000lRY-1yfA
+	id 1uvs6r-00000004mJr-2Iul;
+	Tue, 09 Sep 2025 06:45:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvekT-00000000kiA-1Ujn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 16:31:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DBF11601F9;
-	Mon,  8 Sep 2025 16:31:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F10C4CEFA;
-	Mon,  8 Sep 2025 16:31:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757349111;
-	bh=a5Pq4IyChIRNpCI1Y1MOptr/VB0oiXKYMj/CA7z9q3U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Gy95G8maMfmMge8QcGPbs+tYvH4MiN/OP8OT3gniHAqU2h5Ck5FJSgJ+QBhs0hqKw
-	 sRikmTOW7kvJWgzdo//bRwXLGAZdl/Hb4NlTkl6VrgZE7N46g8CdH9HqJ3/KgGz9i5
-	 5PEcIHYp3jbMyTm8mxarLTZRvjbaGRtsPMWdCESy5lrLSipzOQvlMxSZd6mvfsI4Ec
-	 nd56LJQkuA1gcYq4WwcoZbooFMEOrbUmb/0P/2Ot5/Ljaj74JaXmSdst5pZ8K+yevE
-	 O15J62feK2gLgIMi9xi390ijkPUq7MZLYnZjC9wq6PSSDbO2siBhBW0xZ37HKcEPZK
-	 bOJcEkIGAlHfg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uvemT-00000004NTm-3XkI;
-	Mon, 08 Sep 2025 16:31:49 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>,
+	Mon, 08 Sep 2025 16:29:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B14711692;
+	Mon,  8 Sep 2025 09:29:35 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 56E633F694;
+	Mon,  8 Sep 2025 09:29:38 -0700 (PDT)
+Date: Mon, 8 Sep 2025 17:29:35 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com, lcherian@marvell.com,
+	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+	dfustini@baylibre.com, amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>
-Subject: [PATCH 16/25] genirq: Add request_percpu_irq_affinity() helper
-Date: Mon,  8 Sep 2025 17:31:18 +0100
-Message-Id: <20250908163127.2462948-17-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250908163127.2462948-1-maz@kernel.org>
-References: <20250908163127.2462948-1-maz@kernel.org>
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH 15/33] arm_mpam: Probe MSCs to find the supported
+ partid/pmg values
+Message-ID: <aL8Eb3EDhJaalPc5@e133380.arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-16-james.morse@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250822153048.2287-16-james.morse@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250908_092945_506727_795914A5 
+X-CRM114-Status: GOOD (  56.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,41 +87,406 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While it would be nice to simply make request_percpu_irq() take
-an affinity mask, the churn is likely to be on the irritating side
-given that most drivers do not give a damn about affinities.
+Hi,
 
-So take the more innocuous path to provide a helper that parallels
-request_percpu_irq(), with an affinity as a bonus argument.
+On Fri, Aug 22, 2025 at 03:29:56PM +0000, James Morse wrote:
 
-Yes, request_percpu_irq_affinity() is a bit of a mouthful.
+> Subject: Re: [PATCH 15/33] arm_mpam: Probe MSCs to find the supported partid/pmg values
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- include/linux/interrupt.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
+Summary line does not describe the patch (i.e., the requestor
+registration interface is something different... and the probing of RIS
+properties has nothing architecturally to do with determining the max
+PARTID and PMG values.)
 
-diff --git a/include/linux/interrupt.h b/include/linux/interrupt.h
-index 2134e7c08c169..c8e6f4895782c 100644
---- a/include/linux/interrupt.h
-+++ b/include/linux/interrupt.h
-@@ -196,6 +196,15 @@ request_percpu_irq(unsigned int irq, irq_handler_t handler,
- 				    devname, NULL, percpu_dev_id);
- }
- 
-+static inline int __must_check
-+request_percpu_irq_affinity(unsigned int irq, irq_handler_t handler,
-+			    const char *devname, const cpumask_t *affinity,
-+			    void __percpu *percpu_dev_id)
-+{
-+	return __request_percpu_irq(irq, handler, 0,
-+				    devname, affinity, percpu_dev_id);
-+}
-+
- extern int __must_check
- request_percpu_nmi(unsigned int irq, irq_handler_t handler, const char *devname,
- 		   const struct cpumask *affinity, void __percpu *dev_id);
--- 
-2.39.2
+Even regarding the MSC probing, there is considerably more in this
+patch than just the determination of the ID limits.
 
+> CPUs can generate traffic with a range of PARTID and PMG values,
+> but each MSC may have its own maximum size for these fields.
+> Before MPAM can be used, the driver needs to probe each RIS on
+> each MSC, to find the system-wide smallest value that can be used.
+> 
+> While doing this, RIS entries that firmware didn't describe are create
+
+Nit: created
+
+> under MPAM_CLASS_UNKNOWN.
+
+What are the effects / implications of this?
+
+> While we're here, implement the mpam_register_requestor() call
+> for the arch code to register the CPU limits. Future callers of this
+> will tell us about the SMMU and ITS.
+
+This function seems to be dead in this series; registration of CPUs is
+"future" too. Does it make sense to boot this into the next series?
+
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/resctrl/mpam_devices.c  | 158 ++++++++++++++++++++++++++++++--
+>  drivers/resctrl/mpam_internal.h |   6 ++
+>  include/linux/arm_mpam.h        |  14 +++
+>  3 files changed, 171 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 9d6516f98acf..012e09e80300 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -6,6 +6,7 @@
+>  #include <linux/acpi.h>
+>  #include <linux/atomic.h>
+>  #include <linux/arm_mpam.h>
+> +#include <linux/bitfield.h>
+>  #include <linux/cacheinfo.h>
+>  #include <linux/cpu.h>
+>  #include <linux/cpumask.h>
+> @@ -44,6 +45,15 @@ static u32 mpam_num_msc;
+>  static int mpam_cpuhp_state;
+>  static DEFINE_MUTEX(mpam_cpuhp_state_lock);
+>  
+> +/*
+> + * The smallest common values for any CPU or MSC in the system.
+> + * Generating traffic outside this range will result in screaming interrupts.
+> + */
+> +u16 mpam_partid_max;
+> +u8 mpam_pmg_max;
+> +static bool partid_max_init, partid_max_published;
+> +static DEFINE_SPINLOCK(partid_max_lock);
+> +
+
+Can partid_max and pmg_max simply be statically initialised with the
+max value of the respective type instead? -1 or ~0 would be adequate
+initialisers.
+
+This would allow us to get rid of partid_max_init and the associated
+logic.
+
+This assumes that we don't enable MPAM (and start using nonzero values
+in MPAM[10]_EL1) unless at least one usable MSC was found, so that the
+initialiser is not left behing.
+
+I think that's true by construction -- if the firmware reports no MSCs,
+we probe nothing.  Otherwise, we require every MSC reported by the
+firmware to probe before enabling MPAM.
+
+>  /*
+>   * mpam is enabled once all devices have been probed from CPU online callbacks,
+>   * scheduled via this work_struct. If access to an MSC depends on a CPU that
+> @@ -106,6 +116,74 @@ static inline u32 _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg)
+>  
+>  #define mpam_read_partsel_reg(msc, reg)        _mpam_read_partsel_reg(msc, MPAMF_##reg)
+>  
+> +static void __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
+> +{
+> +	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
+> +	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+> +
+> +	writel_relaxed(val, msc->mapped_hwpage + reg);
+> +}
+> +
+> +static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
+> +{
+> +	lockdep_assert_held_once(&msc->part_sel_lock);
+> +	__mpam_write_reg(msc, reg, val);
+> +}
+> +#define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
+> +
+> +static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+> +{
+> +	u64 idr_high = 0, idr_low;
+> +
+> +	lockdep_assert_held(&msc->part_sel_lock);
+> +
+> +	idr_low = mpam_read_partsel_reg(msc, IDR);
+> +	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
+> +		idr_high = mpam_read_partsel_reg(msc, IDR + 4);
+> +
+> +	return (idr_high << 32) | idr_low;
+> +}
+> +
+> +static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
+> +{
+> +	lockdep_assert_held(&msc->part_sel_lock);
+> +
+> +	mpam_write_partsel_reg(msc, PART_SEL, partsel);
+> +}
+> +
+> +static void __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
+> +{
+> +	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
+> +		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
+> +
+> +	__mpam_part_sel_raw(partsel, msc);
+> +}
+> +
+> +int mpam_register_requestor(u16 partid_max, u8 pmg_max)
+> +{
+> +	int err = 0;
+> +
+> +	lockdep_assert_irqs_enabled();
+
+This is just because we don't use spin_lock_irqsave(), right?
+
+(Just checking my understanding.)
+
+> +
+> +	spin_lock(&partid_max_lock);
+> +	if (!partid_max_init) {
+> +		mpam_partid_max = partid_max;
+> +		mpam_pmg_max = pmg_max;
+> +		partid_max_init = true;
+> +	} else if (!partid_max_published) {
+> +		mpam_partid_max = min(mpam_partid_max, partid_max);
+> +		mpam_pmg_max = min(mpam_pmg_max, pmg_max);
+> +	} else {
+> +		/* New requestors can't lower the values */
+> +		if (partid_max < mpam_partid_max || pmg_max < mpam_pmg_max)
+> +			err = -EBUSY;
+
+What will actually happen here?  Will the arch code reject the
+offending late secondary?
+
+It feels a bit like we're reinventing part of cpufeatures here --
+though I suppose the split between early and late CPUs is not the same
+as for the kernel proper: the "MPAM early CPUs" are those that have
+appeared by the time the last MSC probes, which can be a different
+set than the kernel's early CPUs.  So I guess there is no choice but
+to have some special logic here.
+
+> +	}
+> +	spin_unlock(&partid_max_lock);
+> +
+> +	return err;
+> +}
+> +EXPORT_SYMBOL(mpam_register_requestor);
+
+As noted above, dead function (in this series)?
+
+Also, would it be better to split out the common core shared by this and
+the last stanza of mpam_msc_hw_probe()?
+
+(This common core would make sense in this series even if
+mpam_register_requestor() is deferred.)
+
+> +
+>  #define init_garbage(x)	init_llist_node(&(x)->garbage.llist)
+>  
+>  static struct mpam_vmsc *
+> @@ -520,6 +598,7 @@ static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
+>  	cpumask_or(&comp->affinity, &comp->affinity, &ris->affinity);
+>  	cpumask_or(&class->affinity, &class->affinity, &ris->affinity);
+>  	list_add_rcu(&ris->vmsc_list, &vmsc->ris);
+> +	list_add_rcu(&ris->msc_list, &msc->ris);
+>  
+>  	return 0;
+>  }
+> @@ -539,10 +618,37 @@ int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>  	return err;
+>  }
+>  
+> +static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
+> +						   u8 ris_idx)
+> +{
+> +	int err;
+> +	struct mpam_msc_ris *ris, *found = ERR_PTR(-ENOENT);
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	if (!test_bit(ris_idx, msc->ris_idxs)) {
+
+I was a bit puzzled by this.
+
+A comment somewhere might help: if ris_idx wasn't already seen while
+parsing firmware tables, then there is nothing to tell us what it
+controls in the hardware: mark it as MPAM_CLASS_UNKNOWN.
+
+(If I understood correctly, that is.)
+
+> +		err = mpam_ris_create_locked(msc, ris_idx, MPAM_CLASS_UNKNOWN,
+> +					     0, 0, GFP_ATOMIC);
+
+It's mildly unfortunate that these allocations are from the GFP_ATOMIC pool.
+I think we were in regular thread context until we started taking MPAM
+locks?
+
+But it's a finite amount of memory and not under userspace control, so
+not a huge deal.
+
+This could possibly be improved later; it doesn't feel critical right
+now.
+
+> +		if (err)
+> +			return ERR_PTR(err);
+> +	}
+> +
+> +	list_for_each_entry(ris, &msc->ris, msc_list) {
+> +		if (ris->ris_idx == ris_idx) {
+> +			found = ris;
+
+return ris; (?)
+
+(You could then also delete all the curlies.)
+
+> +			break;
+> +		}
+> +	}
+> +
+> +	return found;
+> +}
+> +
+>  static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  {
+>  	u64 idr;
+> -	int err;
+
+Churn?  (See patch 14.)
+
+> +	u16 partid_max;
+> +	u8 ris_idx, pmg_max;
+> +	struct mpam_msc_ris *ris;
+>  
+>  	lockdep_assert_held(&msc->probe_lock);
+>  
+> @@ -551,14 +657,42 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  	if ((idr & MPAMF_AIDR_ARCH_MAJOR_REV) != MPAM_ARCHITECTURE_V1) {
+>  		pr_err_once("%s does not match MPAM architecture v1.x\n",
+>  			    dev_name(&msc->pdev->dev));
+> -		err = -EIO;
+> -	} else {
+> -		msc->probed = true;
+> -		err = 0;
+> +		mutex_unlock(&msc->part_sel_lock);
+> +		return -EIO;
+>  	}
+> +
+> +	idr = mpam_msc_read_idr(msc);
+>  	mutex_unlock(&msc->part_sel_lock);
+> +	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
+> +
+> +	/* Use these values so partid/pmg always starts with a valid value */
+> +	msc->partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+> +	msc->pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+> +
+> +	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
+> +		mutex_lock(&msc->part_sel_lock);
+> +		__mpam_part_sel(ris_idx, 0, msc);
+> +		idr = mpam_msc_read_idr(msc);
+> +		mutex_unlock(&msc->part_sel_lock);
+> +
+> +		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+> +		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+> +		msc->partid_max = min(msc->partid_max, partid_max);
+> +		msc->pmg_max = min(msc->pmg_max, pmg_max);
+> +
+> +		ris = mpam_get_or_create_ris(msc, ris_idx);
+> +		if (IS_ERR(ris))
+> +			return PTR_ERR(ris);
+> +	}
+>  
+> -	return err;
+> +	spin_lock(&partid_max_lock);
+
+Can we get in here with partid_max_init = false?  Do we need to check /
+set it?  Or, maybe get rid of it; see mpam_partid_max etc.
+
+
+> +	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
+> +	mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
+> +	spin_unlock(&partid_max_lock);
+> +
+> +	msc->probed = true;
+> +
+> +	return 0;
+>  }
+>  
+>  static int mpam_cpu_online(unsigned int cpu)
+> @@ -900,9 +1034,18 @@ static struct platform_driver mpam_msc_driver = {
+>  
+>  static void mpam_enable_once(void)
+>  {
+> +	/*
+> +	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
+> +	 * longer change.
+> +	 */
+> +	spin_lock(&partid_max_lock);
+> +	partid_max_published = true;
+> +	spin_unlock(&partid_max_lock);
+> +
+>  	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline);
+>  
+> -	pr_info("MPAM enabled\n");
+> +	printk(KERN_INFO "MPAM enabled with %u partid and %u pmg\n",
+> +	       mpam_partid_max + 1, mpam_pmg_max + 1);
+
+Nit: Since this is the main advertisement in dmesg that MPAM has been
+successfully probed, maybe use the formal architectural terms here,
+e.g.:
+
+	printk(KERN_INFO "MPAM enabled with %u PARTIDs and %u PMGs\n",
+
+(Largely cosmetic, though.)
+
+>  }
+>  
+>  /*
+> @@ -972,4 +1115,5 @@ static int __init mpam_msc_driver_init(void)
+>  
+>  	return platform_driver_register(&mpam_msc_driver);
+>  }
+> +/* Must occur after arm64_mpam_register_cpus() from arch_initcall() */
+>  subsys_initcall(mpam_msc_driver_init);
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index a98cca08a2ef..a623f405ddd8 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -50,6 +50,8 @@ struct mpam_msc {
+>  	 */
+>  	struct mutex		probe_lock;
+>  	bool			probed;
+> +	u16			partid_max;
+> +	u8			pmg_max;
+
+Are these actually used for anything?
+
+mpam_msc_hw_probe() already merges these into mpam_partid_max etc., so
+we just leave the hardware-reported values here -- which we can't ever
+use, for fear of triggering error interrupts.
+
+(Keeping them would make it easier to migrate to merging these max
+values through the mpam_enable_merge_features() logic introduced in
+patch 18.  That's a possibly simplification, but it inessential to do
+that right now.
+
+>  	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+>  	u32			ris_max;
+
+[...]
+
+> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+> index 406a77be68cb..8af93794c7a2 100644
+> --- a/include/linux/arm_mpam.h
+> +++ b/include/linux/arm_mpam.h
+> @@ -39,4 +39,18 @@ static inline int acpi_mpam_count_msc(void) { return -EINVAL; }
+>  int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>  		    enum mpam_class_types type, u8 class_id, int component_id);
+>  
+> +/**
+> + * mpam_register_requestor() - Register a requestor with the MPAM driver
+> + * @partid_max:		The maximum PARTID value the requestor can generate.
+> + * @pmg_max:		The maximum PMG value the requestor can generate.
+> + *
+> + * Registers a requestor with the MPAM driver to ensure the chosen system-wide
+> + * minimum PARTID and PMG values will allow the requestors features to be used.
+> + *
+> + * Returns an error if the registration is too late, and a larger PARTID/PMG
+> + * value has been advertised to user-space. In this case the requestor should
+> + * not use its MPAM features. Returns 0 on success.
+> + */
+> +int mpam_register_requestor(u16 partid_max, u8 pmg_max);
+> +
+
+Remove if the declared function is punted from this series.
+
+Cheers
+---Dave
 
