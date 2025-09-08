@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDB0CAC589
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A68CAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OwlWDc9HsT0dfJHWEYI5wkS0XuBRiuAZGmVjr3F473s=; b=PW4/wLy+WAnN6IiQDj2mQ0ydjk
-	vH9W6bQgfIfCYY6ej4Vsx1RU2ixYDbMLpEmuCEY4YtZjdT7ZddBdzndFnYi/PjaR1usAFlrQ8WxUg
-	YmRAXZanuU5ZNH6/fPhrxKs2PehTNCkv07gkNnz8oUcMT1kXHzpxC2Uclx7kB5OVkc7IDWcEz9bbR
-	b1T1UoOMLDHr9RnQgs2wFsB5hujvXsZE1qbORNG5kkVeDk6eHaALzb0e6qU8oBWEM/At4o56G+EKd
-	fsqgXnazmMcktT+C4qbVPlJt+5jx15KNqe5g48uQjh5p4EhO3jyJ+WD/KU//XYV3Q7aGvPeLTZz0P
-	STmBb56A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5WmHxV7Lreaj5eVFu8hF6qzhJomNY/sSV63hQxdrkJQ=; b=rEldBBi+2iGdvRC0yyi7hLXNjP
+	/rT/2VupNHr46gmAzuFRYl3NNZ1BgDiUIMFJzviuVvhOiRvLjTxVdnSXadSkREb/CefikZKMRNTIl
+	VBL0W38dWpHJpe+d6rzajWJapPsHPrDxUnXbETnow2s+M0sQYCUBPSVVa3xTDb5NwMWJXREvW6Z8k
+	j2R4uYEwjRkPGS5E5cAmsOFbToGQJ/ZfIWbzb8tRoazqyA21VJH6UXA1uggpzjDdJWNbHC6vPSonV
+	0lZxxESDn7gTzDZ7YXU4gwb7alApxFWiR3vBAiviOcAL6JiYbNmsULWStWFIbm68qeYiWNT1ZuZGG
+	xeR6ZOjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBW-00000004oem-0lv5;
-	Tue, 09 Sep 2025 06:50:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uvsBX-00000004ogj-0aEF;
+	Tue, 09 Sep 2025 06:50:35 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhsh-000000020Hd-3cER;
-	Mon, 08 Sep 2025 19:50:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2B7B60051;
-	Mon,  8 Sep 2025 19:50:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 97FBCC4CEF1;
-	Mon,  8 Sep 2025 19:50:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757361026;
-	bh=Xa2A8wUs8DU/Qpi2eBoE6S8SjRM3jIuTJh0HvFOCRxg=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=oTzG4AlDbpncPrHEebeStdQ+k/OZYSVISXsp0J8Ti0XyTpL8mYdFX7GqqOTijrHnj
-	 PC7zEqRFkWk+SCisRBfiue6QvyXrr+EAFA3oLof3us3TFPjReLHjO38YW9xKyZM3b3
-	 1FCw1pZ8v5dcbU3kNuiwNY7jPCAPaIQMtG3okicuHft5Us1vQ7EQ+rzpsrwzji3Onn
-	 Lr7qa2YwlQHQzF6gAolmL6p+IMdP2m4bF0Hjz7vG12HcMhMgjtme9JWQsnxx1JjyL4
-	 FgT5QHTfEiixv/qoY6NqrNaDhG6ikTr1xb+cTHOtZQ/Ul+ryhtI81kHKRAA+WHmDGG
-	 nWChdMTLZ+v1Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F232CAC582;
-	Mon,  8 Sep 2025 19:50:26 +0000 (UTC)
-From: Valerio Setti via B4 Relay <devnull+vsetti.baylibre.com@kernel.org>
-Date: Mon, 08 Sep 2025 21:50:03 +0200
-Subject: [PATCH v2] arm64: dts: amlogic: gxbb-odroidc2: remove UHS
- capability for SD card
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250908-fix-reboot-v2-1-354d0e57c855@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAGozv2gC/23MTQqDMBCG4avIrDtlEvwhXfUe4iKmYx1oTUkkV
- CR3b3Td5TvD9+wQOQhHuFU7BE4SxS8l9KUCN9vlySiP0qBJN2Sow0m+GHj0fkWqmSZnlLFMUAa
- fwOV7Yv1Qepa4+rCddlLH9S+TFCrsWmoPSzc130e7vWQMfHX+DUPO+QcGgIQ9pwAAAA==
-X-Change-ID: 20250907-fix-reboot-04e0fc919ae0
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Valerio Setti <vsetti@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2045;
- i=vsetti@baylibre.com; h=from:subject:message-id;
- bh=BJc4SXxGYBhMfaPaAFk61MykLFrvMDIrqRdHH0rt9IY=;
- b=owGbwMvMwCF2z3ty7kUrRgbG02pJDBn7jRuDXn3+sOHcgT2cDKu9ThrvSJgZ9VuAP9956mm9K
- rNPfIqNHaUsDGIcDLJiiiws0+/9LihVe2iccLIAZg4rE8gQBi5OAZiIdhUjQ8eu7/dYbVV89FJ8
- JDoFqtsmSq7tVWzIrV2loFGjF6IjzvDfZ97m1ZYLFvRJ2yT5vAq8z7zmp3f339s5Zzv4zBP3y/5
- jAQA=
-X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
- fpr=0497DEFB707526E13360C970DE4B936DD13A0100
-X-Endpoint-Received: by B4 Relay for vsetti@baylibre.com/default with
- auth_id=515
-X-Original-From: Valerio Setti <vsetti@baylibre.com>
+	id 1uvhub-0000000210F-0JU5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 19:52:26 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-329ee88fb47so9074053a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 12:52:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757361144; x=1757965944; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5WmHxV7Lreaj5eVFu8hF6qzhJomNY/sSV63hQxdrkJQ=;
+        b=tb8Wn5HgkFfHH3WXrLG9cCOe+xQXgNBa3UCVRQ54THCIn9xUCHrAnzyvRXHqK2vItu
+         C2I36any4wDhoLCcorG7JRD4dgJq1ZFAk8skt4rTTdfYTXBTxZS9gcfZaoWlffMrCGSS
+         BLPgKz0i+upWpkm8bXTs8N+a2Qk3WvRT4qW6D5FHRTcZcNgbje8zOzU7ZSwXbY/FLd/e
+         Hck0T+Zh3cDn94vgfKmF9UH6dRIPXCAxExzKU6PmrV9cpn1bJoBhThOmuYPQqsmUQJs5
+         cVQxOal+rmZCtdph8688NY5XSFjT2zI/r2h6a+bzifh+cbXAtWNikGDDNk1DGiE5ZpNt
+         ppWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757361144; x=1757965944;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=5WmHxV7Lreaj5eVFu8hF6qzhJomNY/sSV63hQxdrkJQ=;
+        b=fcbbsE9hQs4Yfrey20zwk2W2aoE7xszAdEB+rnvw7NpQPmz/tU1XJ45K+zSfOSEy6t
+         UBsHbcwCzYQ+fUcoSaIif84L2yHYfg48rZKemiuxkOksIZ9jqfK6ohcf/lrJbF8EFiGK
+         0Q2DKcHmHZT5M96y70x+DHXUAWGisxX4OndHG9FhzZRrIXQ2ijeOlXFUHzkH+76ZmxWq
+         FKdQj1hH+q0hXN/AQU3yIk1O8xORLs9xTHyRjQX2G0BbYqNk21SgcawvIh3CCWI5n9qY
+         1rWEmO6TXvP+C4aV2eN6oyhcy5u2yJzHLI3ZHp9bdoPYJlCs8LPS6Ij0xdq/vJ+QAVsx
+         C98g==
+X-Gm-Message-State: AOJu0YwrSLT25vJ++h4a3doLZKoLjQxb6q1FrUXckZlbHSQL6XUN3dIm
+	b+I1eRH11NSdpIyfD6pPtUI8jrEcmxmeEZhJM2WRxsIkBZoWBkPx9vrVahut6ilpBbHP7A/WxjX
+	9V2Z4UQ==
+X-Google-Smtp-Source: AGHT+IExCPRBqVtXN8qVa8YjvqbzwvBpn9IxtzEsHXQ/2kgRMpC8TgSSgM/sP14o8i1EVRy2DO9MXQPJ5wU=
+X-Received: from pjbsj13.prod.google.com ([2002:a17:90b:2d8d:b0:328:116e:273])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5185:b0:32b:d851:be44
+ with SMTP id 98e67ed59e1d1-32d43f0b8e9mr11203024a91.11.1757361144105; Mon, 08
+ Sep 2025 12:52:24 -0700 (PDT)
+Date: Mon, 8 Sep 2025 12:52:22 -0700
+In-Reply-To: <20250819090853.3988626-1-keirf@google.com>
+Mime-Version: 1.0
+References: <20250819090853.3988626-1-keirf@google.com>
+Message-ID: <aL8z9vZOAeQvTBKF@google.com>
+Subject: Re: [PATCH v3 0/4] KVM: Speed up MMIO registrations
+From: Sean Christopherson <seanjc@google.com>
+To: Keir Fraser <keirf@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Content-Type: text/plain; charset="us-ascii"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250908_125225_115149_DEC4F0F5 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,64 +86,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: vsetti@baylibre.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Valerio Setti <vsetti@baylibre.com>
+On Tue, Aug 19, 2025, Keir Fraser wrote:
+> This is version 3 of the patches I previously posted here:
+> 
+>  https://lore.kernel.org/all/20250716110737.2513665-1-keirf@google.com/
+> 
+> Changes since v2:
+> 
+>  * Rebased to v6.17-rc2
 
-This is meant to resolve reboot not working on this board.
+Note, looks like you missed a tested tag from Li on patch 4:
 
-The problem is as follows. In order to be able to switch from HS to UHS
-mode the bus voltage needs to be reduced from 3.3V down to 1.8V and this
-is achieved by the "vqmmc-supply" regulator. The ROM bootloader is only
-able to manage the card in HS mode (3.3V) and the switch HS->UHS happen
-at boottime in the kernel. The problem appears when the reboot command
-is issued or watchdog expires because in this case the "vqmmc-supply"
-voltage is not returned back at 3.3V before rebooting the board so the
-ROM bootloader will be completely stuck.
+https://lkml.kernel.org/r/b778c98abb4b425186bfeb1f9bed0c7a%40baidu.com
 
-Therefore this commit removes all UHS modes which would cause
-"vqmmc-summply" to switch from 3.3V to 1.8V.
+Nits aside, this looks good to my eyes (though I haven't tested yet).
 
-In terms of performance the main drawback of this commit is limiting the
-SD card bus speed to HS (25 MB/s) instead of UHS DDR50 (50 MB/s). However
-this comes with the benefit of being able to reboot the board, so it
-sounds like a reasonable compromise.
+Marc/Oliver,
 
-Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
-Signed-off-by: Valerio Setti <vsetti@baylibre.com>
----
-Changes in v2:
-- Re-added vqmmc-supply to sd_emmc_b node.
-- Link to v1: https://lore.kernel.org/r/20250907-fix-reboot-v1-1-7606fc91254e@baylibre.com
----
- arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts | 4 ----
- 1 file changed, 4 deletions(-)
+Can you weigh in on the vgic changes when you get a chance?  And a more expert
+set of eyeballs on the memory ordering side of things would be nice to have, too :-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
-index 959bd8d77a82ebc78c5e0592d7613e692e4ede4e..12e26f99d4f080a216e305981dc4291a49063b60 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts
-@@ -348,10 +348,6 @@ &sd_emmc_b {
- 
- 	bus-width = <4>;
- 	cap-sd-highspeed;
--	sd-uhs-sdr12;
--	sd-uhs-sdr25;
--	sd-uhs-sdr50;
--	sd-uhs-ddr50;
- 	max-frequency = <100000000>;
- 	disable-wp;
- 
+As for landing this, I'd be happy to take this through a dedicated kvm-x86 topic
+branch, or I can provide an ack on patches 3 and 4 (there's basically zero chance
+of this causing a conflict in x86).
 
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250907-fix-reboot-04e0fc919ae0
-
-Best regards,
--- 
-Valerio Setti <vsetti@baylibre.com>
-
-
+> Keir Fraser (4):
+>   KVM: arm64: vgic-init: Remove vgic_ready() macro
+>   KVM: arm64: vgic: Explicitly implement vgic_dist::ready ordering
+>   KVM: Implement barriers before accessing kvm->buses[] on SRCU read
+>     paths
+>   KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
+> 
+>  arch/arm64/kvm/vgic/vgic-init.c | 14 +++--------
+>  arch/x86/kvm/vmx/vmx.c          |  7 ++++++
+>  include/kvm/arm_vgic.h          |  1 -
+>  include/linux/kvm_host.h        | 11 ++++++---
+>  virt/kvm/kvm_main.c             | 43 +++++++++++++++++++++++++++------
+>  5 files changed, 53 insertions(+), 23 deletions(-)
+> 
+> -- 
+> 2.51.0.rc1.193.gad69d77794-goog
+> 
 
