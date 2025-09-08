@@ -4,96 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C75D3CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B837CCAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qa2FDEzfrHnj9/Bgif488Zx3zsoWnSpMm3bjoJ5kMkM=; b=BKdAA/ew4bsSoly0zLqCZ8qgxW
-	KWKr1wVyW8Y39BBqVIvh2QyVX7RjcrAnaLLQJ9P8TooUZaUZKUM6DTrPGEJJ7i0tToa4rdcptCa9r
-	140mblEmbR5X3xBXiMF3ONV/Ey26y8mCnynbosQfmLBgG/kqGsC2jvSKqav1uJl/bdxrd2YOyTkff
-	3Z7/0od+0ne8d0wZzXM6cQpwhllHjSKnQeAQqihoYtQz4GHYyX899ubuuHVUhMYGTktO9MJTyk9Zd
-	8VE44mm3UOk4bkTmZoAS8LDxYgPf65VzHmjbJGD43jhNMWiu4LAkl1Uf1Kz+m/disZZz5zM0gbBdV
-	xHOVI8IQ==;
+	bh=Bi8yTXJoOBwCylt9q6MtHjP7YgyhzTMi3lxmixfzTvA=; b=oeXmgLDfz/4F/qw6Q8qJN76ats
+	YuaGvZjplHp0Ss8seJ8yj7zIZPCG/2gvf0kCWYNxoD2pjfRzK6CuxpM1QCGxMz6iwd038Vf/rBUYi
+	mvwnD8BVI9acNpPiQrzD3G6dcljfouds/rtfMy0zqIq3iriDD45j8S+/O0E817a6MbUnQ6CwngcIQ
+	iu0LlkhuFD1rQFHiWI17hVGFe66iitnRr4yETNR5gSyRJjpOYjqQRc3cu5ooCGGRND68NnfGNC4Nf
+	3u+iFJ8v75SR4XIYwxDdCPIvhnwY0ysLOqMi3FnQq0JME8xLqpEu6iThCFAGv8g0p8Af7jUrBfjVL
+	ZKbn8Lyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfnv-00000001FQT-2S7b;
-	Mon, 08 Sep 2025 17:37:23 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1uvfqd-00000001Gph-1xWz;
+	Mon, 08 Sep 2025 17:40:11 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvcB8-0000000HSTM-0cHu
+	id 1uvcJ0-0000000HWNb-1Il0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 13:45:07 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3e4b5aee522so1314986f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 06:45:05 -0700 (PDT)
+	Mon, 08 Sep 2025 13:53:15 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45cb5492350so28559615e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 06:53:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757339104; x=1757943904; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757339593; x=1757944393; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qa2FDEzfrHnj9/Bgif488Zx3zsoWnSpMm3bjoJ5kMkM=;
-        b=hnqzjG4Y5fsa3FbGxn15jIAlF8bKdQfyr8QkQmwC7d6FvNuP8QIyeNnTh0XTgBLta6
-         p62FIOmTE8k4fC1LYpON5siiKO2wCb6Ip4H1RZj3ROmpIeCxErfzCL7uZZVmXSQWfVbf
-         TrctECfiG1AvBPNhiqM2dssaww3yAfzLRoZ4BKQFkgflkv9XRRFhpfmR/yBDU3TXt933
-         FDsYkrvRDSh3MX2tItKW8P+wwES3jyuhcaf8cO9paglau66sDmCxfOzVLoOnvnI8VlbO
-         CVFylr2nu03//DD0+k1wxyzMREOOH9SMvCNs88OvSGFfrFNbd+DaMNfrc/c6ZjdkOEOw
-         n+3g==
+        bh=Bi8yTXJoOBwCylt9q6MtHjP7YgyhzTMi3lxmixfzTvA=;
+        b=fiM6E/jLXs5OCa25uiHTCQhwGkvtDC15pWF11oKyFnhcEzYvFLhGUYwFR20Mfg7hJ6
+         v1aydQisNbrPNjfRqkkZabWjoM4GMtP3pbJJUBP8vhRHGFpLR6Yz2ZnhYG4gf6W7clnM
+         XMNgWRH0sWrH5DaDe+yfSW9w5uuvc3JwcahwOn11kY1LQ3eh5pdl7Ug37aiX4otmA7Rt
+         VopLCVP7hY7ODTqkgZ1IwPEI7Xqxsm+aObmxDr0blcc5xSloGf7Jq+VnqR7QDFOr0m1U
+         3wLvqRxvDCAvzWkqpnGl6G6OIrOcu0IyoUix+Y9OZ/dNpSyda1pMTF9RTntzBW16utUg
+         EDfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757339104; x=1757943904;
+        d=1e100.net; s=20230601; t=1757339593; x=1757944393;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qa2FDEzfrHnj9/Bgif488Zx3zsoWnSpMm3bjoJ5kMkM=;
-        b=uNoObj9Bp5pInrm5iBzL4DdA0P5Uoaw+D9BVmzoaqbeWztC85X3wD0Fi/jsMxS7zll
-         r/9zrNFLfIZe1p/Cvyw3IInlEpoKFDOXgVE9UnWZkeK3uNJer5rZD36Sk9gTRJ5jLuD9
-         SYbrBDxC9YIf3ufQCSD7Rsuz6ajQcBbmfrGmCw2JM9DD7tIsailhkSnf0rs+1Kk9ke+3
-         q8gJS8uD0bD33/2Hglkl7ldlDPD4U+NMD5rS3n8Bk++lsRAJ3t8N5cMhedv9ONRkDlb1
-         MQFNPjMQWDntwSIWnJl2/GL2r2WxUJcdCLvrOtombVLEWEPbySPSOl2R2vyuIGxOhJ6B
-         V1EQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWEow7cNINt/tDUzRGOq8w+oCldIOnQA8tLGqsTbIOGBr6Yg5l7uFDGlRy2JD0eKjYXmG8Sl00JmpjA8e7Yjg/7@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywz8+iIR4DZv7CAAw+EmVHyZpFU9NR1RMCnqWWePbqi/e4tTrHF
-	lwSs0g8gwVVTWNqKWn/SvILmM3Agi5+l1Lo3XC6jg2+U8ACfeZnnQRUG
-X-Gm-Gg: ASbGncvYdTKTotmQe7EsdcL6AjcxOX/SmGlQKnFPXx5UvOiJkJXJsWywhjTc5P8oYi9
-	FWyo6dW/1f8sBGxcRlxjLo8JaefQyakgJ425d9/AU6X1TuMnFAqnWcw+V4UdfWaVy+uCR+Fl1qq
-	nQvNEWAEIRBRFZvqiex4DjERX6I3o90LPiwI3F1S+ISv0tECXaJhdaYGwq/KlG+4kxXXP/jMxgK
-	AgQ75w60FECB1LPsTGkGphH0VNAMskTVZjYOCKgNhNvqbjVXl6KEiMnJlc/4zBhFs5tMYwJIC6S
-	ik+gzzZgAa6U/qvvqpk5bscBmnbaGJCYo3iQUONhxQ18XRhSOQKWJrYad4uRwqcOX67hWl14fpA
-	nkjVqES7TDQtu205xiUC/xcP7Edq/InhdE5ePYBS2kNbwoQCL0HD4F+hb8uK4+kIA+Ers1YttV9
-	uYrmIU+8fAE2vzXpG1kN0=
-X-Google-Smtp-Source: AGHT+IF/bu6N4b17VGa4d32p6sVB8f7trrLvKQqSA5MvaDaYKtxhuslb1edIkbNaktRAD6ubBUZRfw==
-X-Received: by 2002:a05:6000:389:b0:3e6:fd4a:940d with SMTP id ffacd0b85a97d-3e6fd4a9c30mr6459105f8f.12.1757339104123;
-        Mon, 08 Sep 2025 06:45:04 -0700 (PDT)
+        bh=Bi8yTXJoOBwCylt9q6MtHjP7YgyhzTMi3lxmixfzTvA=;
+        b=TyyaQjp+c8SycTrXZaEamooQw0RCRKPjseTguaJj4L6iLzVRIRYa2dsjI5s5q97ixH
+         RxFic+kvWDeceggCKSdZ2fY/8lExEzYZLzqD+fDV73S2G6lh48SWOUiyw1X/tGbDAKNf
+         BGkZqKZ09HDKGPM9iSvxDhB7cS9rwJoZf56EFblUgFctvJ5SyOAtS9XUzIukjJMMa8In
+         1bG+AQ4wFUYU9Ydy2iVwZVdyJ7sF4iCFrDslSWhD4ijRXhfPMIznilvf8/ViugNkW3i3
+         Bbi4CSFki9CRq1Mls5Ge4HdHXSYpnhT138exuhtjtYJwBuxb1dqmgMuwrWuVW9QqJEuX
+         95XQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUfUIWsn4HhfFwflT8lDxEFpiRLOwr6vs10XOIeR4zKpc++iqapAyRftWVGFr6X4WA/2i+d1RcvPWcaSQ5DAm8o@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUUqLMpq+vbUCPvErMIL23n77DhXi/QlzY+VcbSGNXfcZ3asah
+	4DA2fTt7a/j1FO+oHGg+0+hyNm156QJhNJidU25ji6kThHUwH6hNXed/
+X-Gm-Gg: ASbGncu8DFRbL7YtlA+aEfNJwzopYWsieJME+Zw3X7c7YMDBI6WQry80xIt7YR48xXe
+	inGLRNJZ+PGsUohZ+Z7c94KGx6TNpp6CGHy+gai8b7rJ18sRe59VBx5P/nuv7GUzwrMv2e4KdyY
+	HBeFHr4bTmztLn8QdR/Sqex6LSQMqjw9wu4qP83vGX3ly6y8oSOwYJSjesJSbyJ9mucCh5Eqbud
+	KIymS1OhEje31rViI387DVqRWIaoSsmpRcQ/bZWj03LoxuTtPIumKx+lqEhzY11JlF0B5vG2Wnu
+	4E8NLLFBQciX+N2+I7VFUFQJ7VyL6lATiTTd2rsO1WA1fi5hc5rTpGb8VQWa82dw6sfN+B1JNwF
+	BD3E/6p6JdlJjK0nFfjK912o3nAlVXOe8mFfKeg5zfvwyssPG1LYGZbqOF3n8aLEFdhfvsLYPIY
+	M=
+X-Google-Smtp-Source: AGHT+IFymJM5Q/838u4sNcO2o9XEJ5qNZ4BhV9dGgjKVBrrKdv1vk6q5UfzwHAK51v7oPTW2ilOY8A==
+X-Received: by 2002:a05:600c:3b8b:b0:45d:d356:c358 with SMTP id 5b1f17b1804b1-45dddec3b92mr84964785e9.16.1757339592629;
+        Mon, 08 Sep 2025 06:53:12 -0700 (PDT)
 Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45dcfc3e11esm96635905e9.0.2025.09.08.06.45.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45d468dbf48sm206620575e9.11.2025.09.08.06.53.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 06:45:03 -0700 (PDT)
+        Mon, 08 Sep 2025 06:53:12 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Chen-Yu Tsai <wens@kernel.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v3 06/10] arm64: dts: allwinner: a527: cubie-a5e: Add
- ethernet PHY reset setting
-Date: Mon, 08 Sep 2025 15:45:01 +0200
-Message-ID: <2795513.mvXUDI8C0e@jernej-laptop>
-In-Reply-To: <20250906041333.642483-7-wens@kernel.org>
-References: <20250906041333.642483-1-wens@kernel.org>
- <20250906041333.642483-7-wens@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [RFC PATCH 1/9] pinctrl: sunxi: rename SUNXI_PINCTRL_NEW_REG_LAYOUT
+Date: Mon, 08 Sep 2025 15:53:11 +0200
+Message-ID: <5037008.31r3eYUQgx@jernej-laptop>
+In-Reply-To: <20250821004232.8134-2-andre.przywara@arm.com>
+References: <20250821004232.8134-1-andre.przywara@arm.com>
+ <20250821004232.8134-2-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_064506_188850_142BDE31 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20250908_065314_352771_47B87A4D 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,42 +103,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 6. september 2025 ob 06:13:29 Srednjeevropski poletni =C4=8Das =
-je Chen-Yu Tsai napisal(a):
-> From: Chen-Yu Tsai <wens@csie.org>
->=20
-> The external Ethernet PHY has a reset pin that is connected to the SoC.
-> It is missing from the original submission.
->=20
-> Add it to complete the description.
->=20
-> Fixes: acca163f3f51 ("arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E=
- board")
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+Dne =C4=8Detrtek, 21. avgust 2025 ob 02:42:24 Srednjeevropski poletni =C4=
+=8Das je Andre Przywara napisal(a):
+> After keeping the pinctrl IP mostly register compatible for almost a
+> decade, in 2021 Allwinner introduced some changes to the register
+> layout, which made us use a flag called SUNXI_PINCTRL_NEW_REG_LAYOUT.
+> Now with their latest SoC (A733), Allwinner changed the pinctrl IP
+> again, so "NEW" isn't really a fitting name anymore.
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+That was bound to happen.
+
+>=20
+> Rename the symbol to SUNXI_PINCTRL_NCAT2_REG_LAYOUT, with "NCAT2" being
+> a name often used in vendor source code to signify this "new" generation
+> of SoCs.
+>=20
+> Just a rename of the symbol, no actual code changes.
+>=20
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+
+Reviwed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
 Jernej
 
 > ---
->  arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts | 3 +++
->  1 file changed, 3 insertions(+)
+>  drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c     | 2 +-
+>  drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 2 +-
+>  drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   | 2 +-
+>  drivers/pinctrl/sunxi/pinctrl-sunxi.c         | 2 +-
+>  drivers/pinctrl/sunxi/pinctrl-sunxi.h         | 2 +-
+>  5 files changed, 5 insertions(+), 5 deletions(-)
 >=20
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/ar=
-ch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> index 70d439bc845c..d4cee2222104 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> @@ -94,6 +94,9 @@ &mdio0 {
->  	ext_rgmii_phy: ethernet-phy@1 {
->  		compatible =3D "ethernet-phy-ieee802.3-c22";
->  		reg =3D <1>;
-> +		reset-gpios =3D <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
-> +		reset-assert-us =3D <10000>;
-> +		reset-deassert-us =3D <150000>;
->  	};
->  };
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c b/drivers/pinctrl/=
+sunxi/pinctrl-sun20i-d1.c
+> index 8efe35b77af4d..37a60e5d1163b 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c
+> @@ -821,7 +821,7 @@ static const struct sunxi_pinctrl_desc d1_pinctrl_dat=
+a =3D {
+>  static int d1_pinctrl_probe(struct platform_device *pdev)
+>  {
+>  	return sunxi_pinctrl_init_with_flags(pdev, &d1_pinctrl_data,
+> -					     SUNXI_PINCTRL_NEW_REG_LAYOUT);
+> +					     SUNXI_PINCTRL_NCAT2_REG_LAYOUT);
+>  }
+> =20
+>  static const struct of_device_id d1_pinctrl_match[] =3D {
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pinc=
+trl/sunxi/pinctrl-sun55i-a523-r.c
+> index 69cd2b4ebd7d7..86a12bce0e335 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+> @@ -36,7 +36,7 @@ static int a523_r_pinctrl_probe(struct platform_device =
+*pdev)
+>  	return sunxi_pinctrl_dt_table_init(pdev, a523_r_nr_bank_pins,
+>  					   a523_r_irq_bank_muxes,
+>  					   &a523_r_pinctrl_data,
+> -					   SUNXI_PINCTRL_NEW_REG_LAYOUT);
+> +					   SUNXI_PINCTRL_NCAT2_REG_LAYOUT);
+>  }
+> =20
+>  static const struct of_device_id a523_r_pinctrl_match[] =3D {
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c b/drivers/pinctr=
+l/sunxi/pinctrl-sun55i-a523.c
+> index 7d2308c37d29e..0f703cacfe5e3 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+> @@ -35,7 +35,7 @@ static int a523_pinctrl_probe(struct platform_device *p=
+dev)
+>  	return sunxi_pinctrl_dt_table_init(pdev, a523_nr_bank_pins,
+>  					   a523_irq_bank_muxes,
+>  					   &a523_pinctrl_data,
+> -					   SUNXI_PINCTRL_NEW_REG_LAYOUT |
+> +					   SUNXI_PINCTRL_NCAT2_REG_LAYOUT |
+>  					   SUNXI_PINCTRL_ELEVEN_BANKS);
+>  }
+> =20
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunx=
+i/pinctrl-sunxi.c
+> index 0fb057a07dccb..0a5acbd978da9 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> @@ -1521,7 +1521,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_d=
+evice *pdev,
+>  	pctl->dev =3D &pdev->dev;
+>  	pctl->desc =3D desc;
+>  	pctl->variant =3D flags & SUNXI_PINCTRL_VARIANT_MASK;
+> -	if (flags & SUNXI_PINCTRL_NEW_REG_LAYOUT) {
+> +	if (flags & SUNXI_PINCTRL_NCAT2_REG_LAYOUT) {
+>  		pctl->bank_mem_size =3D D1_BANK_MEM_SIZE;
+>  		pctl->pull_regs_offset =3D D1_PULL_REGS_OFFSET;
+>  		pctl->dlevel_field_width =3D D1_DLEVEL_FIELD_WIDTH;
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunx=
+i/pinctrl-sunxi.h
+> index ad26e4de16a85..fb17fae2dab69 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> @@ -88,7 +88,7 @@
+>  #define SUN4I_FUNC_IRQ		6
+> =20
+>  #define SUNXI_PINCTRL_VARIANT_MASK	GENMASK(7, 0)
+> -#define SUNXI_PINCTRL_NEW_REG_LAYOUT	BIT(8)
+> +#define SUNXI_PINCTRL_NCAT2_REG_LAYOUT	BIT(8)
+>  #define SUNXI_PINCTRL_PORTF_SWITCH	BIT(9)
+>  #define SUNXI_PINCTRL_ELEVEN_BANKS	BIT(10)
 > =20
 >=20
 
