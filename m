@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E68CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 08:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9A3CAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 08:57:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7L/8llJEdSIG4Nfg2l+GvW6TEBvITMkZd39Mo6ER7CQ=; b=dTkGUcnwYo3sPmVizNIxAYLdR+
-	ClbZ1fQJbVsDl+sukcrsWxqtp44Q3HlBKS2kycQJK+QeibqbU0Bmz0KMwe+zcSBcpLyPZOJSGIuSc
-	9c2trkYVRSb2NPIhBkpJkHlpPVbreLEQT44Pjr6jb0Url16zGafDtaX3hnZEdbq1FX7nKZSZxDxwu
-	nFsGDfmTzU0xFWrOPtld27x0im5QdGXuhdRfGyB1HQ93UUc6xz+CNjo+wrLav8MoDJoJ6UWJUz39j
-	R7BMhQhJGMYUqTRa6MWX1iMaXCD1jc7cn5qjXqRfEaXiU4EpND5NkW70fMp3Gz/NL5EFsiwADewDB
-	70syDxYg==;
+	bh=1m1HPXvt7ktVSLEbN3p8RtTbvarkVCnLkg7YZFQj7Rk=; b=2mgpAUDz9JpjeFUowIu8sGV63P
+	wDF/LHnncNZ4h+PpWCXvSJpLo2zwYKHuNK6DzTf3nTALgPHetV7hNjS2Hyx+FY50VHHRfySxlGS97
+	olln3ah3SEooK8ivp3n5g8hAQGkQi9pihsz1QvadZWxW1Tej+HaVY519X6/dIbeKA7V1nn2GW/izv
+	KBfRZ59iCFMYqjOB56IUCL4XModWYzLsWHUz7qMI8Z3s/l5OvSWF3xYDc3KYcgMBDaKIWqFic6xT9
+	fM4GeZxxElDqo0c0+B5GMTHsohWXzJj70UG5pXWIC26jTNDaT8xdPfZynf77sWmWj4N+/cR6lzRQy
+	jtU3zFjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvXdd-0000000Fqab-3hnT;
-	Mon, 08 Sep 2025 08:54:13 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uvXgV-0000000FrK1-3Dqy;
+	Mon, 08 Sep 2025 08:57:11 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvWpf-0000000FYCK-3ojO
+	id 1uvWpj-0000000FYEw-03l5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 08:02:36 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-77250e45d36so3380054b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 01:02:35 -0700 (PDT)
+	Mon, 08 Sep 2025 08:02:40 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-76e2ea933b7so3421223b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 01:02:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757318555; x=1757923355; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757318558; x=1757923358; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7L/8llJEdSIG4Nfg2l+GvW6TEBvITMkZd39Mo6ER7CQ=;
-        b=QpWBAVb6KjQhF5DIpMXBwb1RxhLSpaeS7UgxulqNQvbZwrLSf9ID4JCvkOUHdJnf7q
-         UEYWCxEVlHyHUGUI/Vy2g6IPbI64p9uSTazrO0QWEDZxfqjrDjOyrBU4/TKLd1zvhsCw
-         7gjz3D07RZkJRb3TXfCfu5CovPs1sbudEwwP896S/kN0YT1CvUq/hvCEr0s+IXog3VNX
-         Dhnsmotsl3LETBmjqoRUXMUvitA04CmUdVFseHXJ77uk0cRSdhfVVKHJ7+46Wp5nokV+
-         Cf9oYn+A3tWm/NRZZhcNUT9AQo8Q0I5VH2DbBGTkgGRzEYvG6KzPLPzThlZfHVMeJFAK
-         G2/w==
+        bh=1m1HPXvt7ktVSLEbN3p8RtTbvarkVCnLkg7YZFQj7Rk=;
+        b=k3CUN029tsHaFXMt2GniRWwVSb9cGPnlrW5bNDXhFXByasRqaa7/00OkSnkjvsoROJ
+         ZnZ+nFeehT7sNV9J9etwlBHSUpRr9rfDjzE8fFh7+VELlOYDOzN1j9Icg8aS1Xx29CHL
+         LKFUtNfYCkCa+i8ok0rSMjTp1213WWeNSu1Cp8jGBAJCXMo2rjU6iMA+m14jJYyencWL
+         xWIrV3v4qxL9Ho5Ks4moTDcmjEotiU/DiSOF4SwEJLk0ghj0aYLi6hmbeP7GS1PBnOdI
+         cJYymvH790nA+30dHu/hOwAlI8HXmuMIx2sOc9zJ7qcYbq6jBH8sUmT6PzZ1YXeHiWRK
+         urNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757318555; x=1757923355;
+        d=1e100.net; s=20230601; t=1757318558; x=1757923358;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7L/8llJEdSIG4Nfg2l+GvW6TEBvITMkZd39Mo6ER7CQ=;
-        b=pNrOXvtlO9NYHD56+7X8KJXiuHhLrvbkZ0jollRtlve/3tXGiD+10ioFtsOC4qMmlS
-         ZjTASRkj0LClT3VFJpd9qO0cUx6Z5OjHYeWO/gr0dRwa0IyYu1lAOzoHHw4isWTCQv7O
-         ELaskpWvgSvp1+iUTYReBREXnUp+Q45a1D32W7Do3wwTzX7Kef1mJJjZf7da0mRCcX9D
-         Eey7h7P0Mb8sRb7FLhYe0yF8spu7MhEP54lPPMxH863oMTfx30hcM1aD4m139OxykC2S
-         Lt9UfQU8wWy6ttqWFytU55NYd+kTeEuqV80a1EuwLRf2ghKE+U88yMgT1M1YhbiQG7Ff
-         hTLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXks5/J7OSDuPpc72GZmv0OGmRwZWVeKBxF2CoLXwujSuksb2O8beKgKNqkQ/h8TxG0SWeCsf9KtzsvmhXHq7nq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJn9uECSK1lRDc5wKArSJ2PXmXIcwfwqpzZ7bASMla99hI/f3f
-	BTMalTZRuZnpDqc8yQiaFcko+m4sWjKus7UmVF2m3GkB31WS/PtM6pVqYPy12w==
-X-Gm-Gg: ASbGncuyXjtk0mggLkvBjstm0vk//JmY4LzEDf928LS1Nr1zPcGBMMYQzLap8czO2Nj
-	5esNFTI3loTXnbC5AvYgGeBjPD0g5JFURIboua0NOFm2kC6vUCaM2dYX+5M+4zuO2y1KKVwTRks
-	ekHT1HMd/Mc4GeLQwxn30Z9n7EOGgTY3TPaXbE1ZT9shXLhDNhETA4B36r00spoXiSA6l9z0wrA
-	TP3duVMxzaf1fNys4BhzG8G2gMN8zfjwDmjVU/VxqgMvhE6FKjCvUQCUpxqOF929Cv2BeCuBCWq
-	Tk8LfM6ObjXIuLmsXJk/RL5YwyYMx7sO5wQ+uuDSZl15EVGlWvV+3bf2DTf4lU0oySmMDy47H+5
-	lirFStWHV6zS/C+M5YI6XXsmvM9FNyJqU8OnGVGIrQpugSKhCP/jJMfrPTXPSO+DvueMC1zOFwD
-	nCB2QavbsfF4u2wMc5+hpAkknqVXS6I6c5rwHtsgw2I8znQmNzdXG4ZbZbuZBfwPdJQWaE4aycR
-	X7rYg==
-X-Google-Smtp-Source: AGHT+IGboyEkG9gWXFOkl88XKtiOMptf6/1xvI87ICp5Zjmw//pmeh9e60nsTnkc1Awdr15nSl0vZg==
-X-Received: by 2002:a05:6a00:181e:b0:774:1be4:dced with SMTP id d2e1a72fcca58-7742dccafdbmr9530181b3a.9.1757318555079;
-        Mon, 08 Sep 2025 01:02:35 -0700 (PDT)
+        bh=1m1HPXvt7ktVSLEbN3p8RtTbvarkVCnLkg7YZFQj7Rk=;
+        b=FtN26dK94QFRjIe+Vg2f33cCOz5nyq0HztT6lEZx+aZxC1cz+HQ2PZTfEc9ILgqTZR
+         bjQ2oSMva3qJAA4SbYkvmedflqEiRCfdboPZHgSLT59Z4s1J2n9wewpHqXWy/P457j2H
+         lQvvE2D/6czUzaG9d8/Mw6J38ad4PJAjyz8hVbKyqEKv00HRLMXK0CJjKfjpeEaH8kjv
+         vm+ikoNc1GFeWGAvdDYPEn6l5o1mmlmNSUbadmDVT2mhAC1kaflVTc0fFZjj64PKnkXe
+         hiPc3VoAWMUYWDAYLEuSkEIw2hcLCIr3p2ZQ9hYhZXCbMvGXJLssHsMMdQr4a9abKrMZ
+         XUQg==
+X-Forwarded-Encrypted: i=1; AJvYcCXObm/VkiBAgvRb7+fhcp3ohouYpgGwmq5xNfZYdb5RzZhbVJaVY5S2vRnqiAeGo85VLi3ys1j2sdf+YFrk0qhY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3CMlr70slB4kJI9N/psv62qCqB+PtX89UKC81QpvB7uq/zamy
+	86zcosmjb8FBKhaSD6WEQRMM2U5nwjv2l+rPpC7Blh2kIsl2TXenMa9o5byTKg==
+X-Gm-Gg: ASbGncuLS2S+m+dbRVBw5foAvEnmNFsflJYucTypDbECL6KMV5qDL6oawj063PNHqGe
+	NW6orIiE5w6ovSTO1wmpo4/I1iUvwJblWKp8aN4YUlnDnXeptdVbK300POl7A4DwBTgpx0cZFlW
+	eahaKLu2Fr0OGCiHTj3n7f/x5wcSBxCAk/1eDWIYUzxCR1k1F6I9Ig/c3p0Ckj5ya+z9X0aDpky
+	tVVWNj3Zo2IpUJz+R+hDpUkWAayGDlko+sgtuVkGsStpc1stvtV4YrcErRd9NWXsm+msRTgrHBH
+	tjMP3ULaRrKOHLRAFAPzjXBINwXal7jQKhJgrsAGv/TK5BCGJWhtPbTDBWjNRjHcEgr25URuav/
+	UaABBUVpo88ruJ58edQhpVKjbSM+RHxvoIi/I9Pfm3GHVQLqus7orJN8kIueJ9xIzd7UpH1C4eU
+	T3jXP7Waz+nIcM/cuVHZpAl6UYKf3iBOqf0ZohaQ5j4v+7BDpTVfubrDA2imUGm9/0vzbpVpGzH
+	0AX139SE/2aWs55
+X-Google-Smtp-Source: AGHT+IGGZJOWnBMUs56283wgft2cbmKqgdlDx4FfdiUkPllQ+scrxhIKHbQGrDZ1bM5Tn41ggy0nJQ==
+X-Received: by 2002:a05:6a00:852:b0:772:736e:656c with SMTP id d2e1a72fcca58-7742e3b5b6bmr7614551b3a.5.1757318558156;
+        Mon, 08 Sep 2025 01:02:38 -0700 (PDT)
 Received: from fred-System-Product-Name.. (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7727bce1b58sm15186600b3a.9.2025.09.08.01.02.33
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7727bce1b58sm15186600b3a.9.2025.09.08.01.02.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 01:02:34 -0700 (PDT)
+        Mon, 08 Sep 2025 01:02:37 -0700 (PDT)
 From: Fred Chen <fredchen.openbmc@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -81,17 +81,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/4] ARM: dts: aspeed: santabarbara: Adjust LED configuration
-Date: Mon,  8 Sep 2025 16:02:14 +0800
-Message-ID: <20250908080220.698158-4-fredchen.openbmc@gmail.com>
+Subject: [PATCH v3 4/4] ARM: dts: aspeed: santabarbara: add sgpio line name for leak detection
+Date: Mon,  8 Sep 2025 16:02:15 +0800
+Message-ID: <20250908080220.698158-5-fredchen.openbmc@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250908080220.698158-1-fredchen.openbmc@gmail.com>
 References: <20250908080220.698158-1-fredchen.openbmc@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_010235_949216_286FB67E 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20250908_010239_053915_DF5C987C 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,52 +106,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update LED definitions to match changes in the hardware spec. Add a
-power-fault LED on GPIOB5 and relocate the ID LED to GPIOQ4 via the
-CPLD. The ID LED now shares the power LED: it blinks when ID is active
-and otherwise indicates power state with logic controlled by the CPLD.
-Retain the 'fp_id_amber' label so /sys/class/leds/fp_id_amber remains
-valid for existing users.
-
-Add a 'bmc_ready_noled' LED on GPIOB3 with GPIO_TRANSITORY to ensure its
-state resets on BMC reboot.
+Add leak-related line names for the SGPIO inputs that report chassis
+leaks, so userspace can detect and handle leak events
 
 Signed-off-by: Fred Chen <fredchen.openbmc@gmail.com>
 ---
- .../dts/aspeed/aspeed-bmc-facebook-santabarbara.dts | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+ .../dts/aspeed/aspeed-bmc-facebook-santabarbara.dts  | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-index a453f8dc6b36..de624f4a33f3 100644
+index de624f4a33f3..c86471fc6314 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-@@ -94,7 +94,7 @@ led-0 {
- 		};
+@@ -1766,11 +1766,17 @@ &sgpiom0 {
+ 	"PRSNT_LEAK_CABLE_1_R_N","",
+ 	"PRSNT_LEAK_CABLE_2_R_N","",
+ 	"PRSNT_HDT_N","",
+-	"","",
++	"LEAK_SWB_COLDPLATE","",
+ 	/*P0-P3 line 240-247*/
+-	"","","","","","","","",
++	"LEAK_R3_COLDPLATE","",
++	"LEAK_R2_COLDPLATE","",
++	"LEAK_R1_COLDPLATE","",
++	"LEAK_R0_COLDPLATE","",
+ 	/*P4-P7 line 248-255*/
+-	"","","","","","","","";
++	"LEAK_MB_COLDPLATE","",
++	"LEAK_PDB1_RIGHT_MANIFOLD","",
++	"LEAK_PDB1_LEFT_MANIFOLD","",
++	"LEAK_MB_MANIFOLD","";
+ 	status = "okay";
+ };
  
- 		led-1 {
--			label = "fp_id_amber";
-+			label = "power_fault";
- 			default-state = "off";
- 			gpios = <&gpio0 ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
- 		};
-@@ -104,6 +104,17 @@ led-2 {
- 			default-state = "off";
- 			gpios = <&gpio0 ASPEED_GPIO(P, 4) GPIO_ACTIVE_HIGH>;
- 		};
-+
-+		led-3 {
-+			label = "fp_id_amber";
-+			default-state = "off";
-+			gpios = <&gpio0 ASPEED_GPIO(Q, 4) GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-4 {
-+			label = "bmc_ready_noled";
-+			gpios = <&gpio0 ASPEED_GPIO(B, 3) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
-+		};
- 	};
- 
- 	memory@80000000 {
 -- 
 2.49.0
 
