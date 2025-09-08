@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE01CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 06:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D8DDCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 06:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VPBQ6SsMUw9tDlL09SFghcqlqzCjiacGOO3EjLM8+Q8=; b=2LunRwumJJ/I8VTuT3c4QS1A1N
-	XrZSE8krfct+ArcjR1Fd1X4YOs5VJ0ixE0gfVHaMw1T2Vg3hcTDUHLh2hp8tmXgUfbKFRKFuH2KVT
-	0tkFBhE3cyMc9cSjCpzZFneqTFzbfUJY2FPDTb3NFf8NWG/C42+rZFKPMNowjs5cnu2M1Hfh79HgD
-	4a5+yqONsOoMjbdjn245+GS/FnIdxV32X0oE4S/OM8jSrgHCR1RKFjdzFFJRn5UbytSsKNp/r7jiH
-	3UKtSWolSjwQdFBNfohW58O3n/mBjmK1dLXo0wfdnnp6xd/sgqxPxGMiQ0SohSnNY43Fc+fBlimaH
-	sClB5ueg==;
+	bh=dwhkDjsm36GCrVNUIVmMHKmASNLgjC2ocORANoNajzg=; b=iWdxh4IyiSBD1LxnpNOfvUp3nm
+	tPOiZxbWBrTPYb8rF0Im0YJOQjfnL/M+1nJpLkBu+MbM/ug6xTRq9AeKwfgkTRPdBAqBVxss1u4pd
+	e6rIaK3Z4opfdGdv9kEao6hLxL7WlfYsqjaGS0S9prj/8OK8uP5jsNpkWir9P5MN5pVgOsw6NyUqj
+	XR6ndcHEY0ReyppQANekWoMeXCeWAaNMc6uyixcohl3SNKKTDKRKvb0CjH882H9xZSZE3YZ93yNe3
+	/zcvyre2Ie3YPvktf46uYq5jYGEdgfnmtBMyUKwQcQeDk+3aWqRtO+MhtjP0jAMydbtQ9tBX3WjfN
+	3cTzeFQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvVcJ-0000000F2ti-14Ok;
-	Mon, 08 Sep 2025 06:44:43 +0000
+	id 1uvVf6-0000000F3ut-1E50;
+	Mon, 08 Sep 2025 06:47:36 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvVZS-0000000F1zi-1QlN
+	id 1uvVZv-0000000F2Cd-22UT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 06:41:47 +0000
+	Mon, 08 Sep 2025 06:42:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 152F841919;
-	Mon,  8 Sep 2025 06:41:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED893C4CEF5;
-	Mon,  8 Sep 2025 06:41:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FCF6444E7;
+	Mon,  8 Sep 2025 06:42:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7E90C4CEF5;
+	Mon,  8 Sep 2025 06:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757313705;
-	bh=/LbZ9DwDbuOFAfK7FweBSqxdQ6kjSt39gsRdKh1+sW4=;
+	s=k20201202; t=1757313735;
+	bh=waxwksXGGRw+oNuAuE7zdOaAHM5Z9luVPrK2hbjGgjo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K6aZevnpbV3f7RXoei8hWJ++vrncIgrZJGyl5J14vN22y3KLaLQVFZzHMdi56Otch
-	 0I7shzInEtaNe70/QEoZvcVk4zVV+0CYJJzKWFUvl4SQUwf4+wRWU6QqdKxsD7Knum
-	 1Fg11CqRD1GJVxkhk8/6dM5nSpUwHozzpoOSNY2jZ3o99iPfAAnCz2ZPnfGfbXSY4B
-	 xHTYgehsC1il0Zu+qdtrbUA1EZ9MVA38KgaLpCMlypaw7UL4C7uqha2eqCEE/RdgML
-	 R/R5Bmyf0j+NVnXRW1rbVSM5SHbqCRaAvjaNodduwsvw28ap+uxRc+UN7T3dg7J6up
-	 0itKtXF4VYE7Q==
-Message-ID: <77ad8686-3ce4-4a6d-8a8c-c61d86cb7474@kernel.org>
-Date: Mon, 8 Sep 2025 08:41:39 +0200
+	b=PKGNfL4NovGzRl6U1v0PjmJ99OLkjWkk2Gy4Gg3xUuwxf18Rs6AoVHNq8Q5QzTrSW
+	 n/yVz/D8jYkq18UWg4tJT96WFfGYzWN3zxUSuV5Q0C1u+jAUF19fF+CTyBXw7+sIR8
+	 K4dq86vyQBhhqh0pc069cqOT+s/WXTsAg+ziveB9w6il8ymj4YLcQ8KiTVqRTyR9Gp
+	 l4QNMNxZ8EVqhK+hNgKMnk1FSoYuujPGpqUoJhCq+ymH3Ms/GjVgkoIZQIisaxMUlI
+	 YljXV/lNW9R23YPysiMInnm8pFGWQ72DofDwVgXsU+U6BNSNg96HirLBLE0Mta/ufi
+	 3yy9xspZxUQgw==
+Message-ID: <c380ffd0-17ec-4162-8d41-37c438c23f8e@kernel.org>
+Date: Mon, 8 Sep 2025 08:42:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/5] spi: atmel,quadspi: Document sam9x7 QSPI
@@ -56,8 +56,8 @@ Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
  linux-kernel@vger.kernel.org
 References: <20250902-microchip-qspi-v1-0-37af59a0406a@microchip.com>
  <20250902-microchip-qspi-v1-1-37af59a0406a@microchip.com>
- <20250902-bulky-chachalaca-of-superiority-d5caaf@kuoka>
- <a9968230-33af-432a-a5da-3d40b6f5d85a@microchip.com>
+ <20250902-macho-violet-orangutan-faac78@kuoka>
+ <7099b01b-2071-4561-b27b-0f1443f5856e@microchip.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <a9968230-33af-432a-a5da-3d40b6f5d85a@microchip.com>
+In-Reply-To: <7099b01b-2071-4561-b27b-0f1443f5856e@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_234146_424005_64C45948 
-X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-CacheID: sfid-20250907_234215_567589_5B9C0010 
+X-CRM114-Status: UNSURE (   8.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,21 +124,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/09/2025 05:51, Dharma.B@microchip.com wrote:
-> I think the maintainer that merged these commits missed reviewing 
-> subject prefix.
+On 08/09/2025 05:45, Dharma.B@microchip.com wrote:
+>>> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+>>> ---
+>>>   Documentation/devicetree/bindings/spi/atmel,quadspi.yaml | 1 +
+>>>   1 file changed, 1 insertion(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/spi/atmel,quadspi.yaml b/Documentation/devicetree/bindings/spi/atmel,quadspi.yaml
+>>> index b0d99bc10535..c17114123034 100644
+>>> --- a/Documentation/devicetree/bindings/spi/atmel,quadspi.yaml
+>>> +++ b/Documentation/devicetree/bindings/spi/atmel,quadspi.yaml
+>>> @@ -17,6 +17,7 @@ properties:
+>>>       enum:
+>>>         - atmel,sama5d2-qspi
+>>>         - microchip,sam9x60-qspi
+>>> +      - microchip,sam9x7-ospi
+>>
+>> ... but 9x7 here. Confusing.
 > 
-> and I see a mix of
+> It should be 9x7 only (qspi is common for sam9x7x), I will change it.
 > 
-> spi: dt-bindings:
-> dt-bindings: spi:
-> dt-bindings:
-> 
-> prefixes for this dir.
-> 
-> I will use "dt-bindings: spi:".
-
-Did you even bother to read the docs I pointed to?
+Hm? That's wildcard then. See writing bindings.
 
 Best regards,
 Krzysztof
