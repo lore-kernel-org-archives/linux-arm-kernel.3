@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89520CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A383CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wTY8sQJCWnwG3DrsJmtDo0CSWigP/nBZswIgk4m/C2E=; b=JxeyIhYCRlf+U5bl+Ah7nc0hPK
-	araRp4RHOr6JEBedPnbkiErVWE5s5zn4d3f966fQ0URpEtSFr5sX9j0RS2KAonY5NtRZ487OLtF3+
-	g0HBXmGeMgBVpocj0MYe23GI9N/gZPISK4iDp8vXf8Z3rnwsx7Lr+XGNKV63gSzWItVlLcUnsoOXM
-	W5ZK42r64YTQV2Iq7Bd7oICiX487E+e7t4quq5nTvBN1WjyMHBNSqIjZF2yFSGXsTwdST/+hVQOaR
-	ABMIYTjuDQ4zvi9I5WE4grTW9bZrbhFndXs/3TUqLikL/+yS7VhztUglVy9Rejwp3spSsbOdJkTos
-	KYj0ggmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jGYytEnMw+6xuEh78CWcB0+W8fGeyKd2M/PYTH6aJS0=; b=eFW8TGWHTruwh8yEVk5uVl8mc8
+	SavX5LgeJpvOaAnJgPsGFHx1ISvtVF0BPeQguUGHnSlsMaoyBxyHiQ1mmsxS3ksTWBtfm5kdy0qYw
+	4zR7y7SAL36zZ7FG945k0C2c9DQRrDUpQykohm+j022xNVR5HHOs0WZ0PsQpu1vCSPiY2YlvNHmWl
+	e5Kk5fCMqvo+oZ6KpiL2qTPoieg5arkHfF937JMsvHQPR/9Bt1mNL8oOgBgnoMiECsSOG1bk8otCu
+	FF9aWfhj/8gw9D8Nn30bk4NtTkKbV81Yt3fkkd4vaD4dPIzoByCcaL6T+FxQWa8k0Zr+iYHIsj/ts
+	yqS0lIGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfSG-000000018me-0dgl;
-	Mon, 08 Sep 2025 17:15:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uvfUx-000000019RM-07Bm;
+	Mon, 08 Sep 2025 17:17:47 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvcwZ-000000008ZY-1ybw
+	id 1uvcyJ-000000009Ka-025u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 14:34:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8D2FA60145;
-	Mon,  8 Sep 2025 14:34:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40984C4CEF7;
-	Mon,  8 Sep 2025 14:34:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757342046;
-	bh=jmLh3PuSVlUt+g2PX4Ay2Hb0ur+5MEG8C0HwO0GRTe4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HcFxI/a131+8oDxawx1vgEO2l2fI8fhcgz372G5G5qWIrT4kEPDpQAfrvhcTrL70T
-	 A5LBVSpJyb1F3Uq8C9ZRjO9+azCb12DfJiwC30UYnSCsU7sTNabI3iQHeJKHqi6Yob
-	 B6saoMyHoeKyFs7FMuemIGzuWC4BHJDKLMIdObhMWGPGEWEQbwvVGgDzw/RU6aZW95
-	 iGAt2MZUDSGJodtPbk6NuvBX4oHCb7eKR9/P9o3tN0+EKnmqZxuRg6x8q+ycwkOamR
-	 WDSIBjNrWUA1QvyPubTjP5yyadNE4flz9Mylz/G2Mf8Vh1wCqjRhkOmMowmXK4c2QA
-	 iyyePEmruZgVQ==
-Date: Mon, 8 Sep 2025 15:34:00 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andreas Kemnade <akemnade@kernel.org>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alistair Francis <alistair@alistair23.me>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/4] dt-bindings: mfd: sy7636a: Add missing gpio pins and
- supply
-Message-ID: <c879f3e1-f64c-4cbd-97ec-646d06488d8e@sirena.org.uk>
-References: <20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org>
- <20250906-sy7636-rsrc-v1-1-e2886a9763a7@kernel.org>
- <288f0cf1-1ee4-4eba-b059-641120bb93f3@kernel.org>
+	Mon, 08 Sep 2025 14:35:56 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45cb659e858so30983895e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 07:35:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757342153; x=1757946953; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jGYytEnMw+6xuEh78CWcB0+W8fGeyKd2M/PYTH6aJS0=;
+        b=TdDTcQbD0XwoHWGLwouKtn2jEL9C/SVdC+Ucbvir441WohbRynNKLYbFEZHLFpyKmr
+         HkR5LQKeQ54UNRzepniX+kc4WZY1mVQ2S8syZft9ojnQa3RzBfhy3rO5LgvbtNUsIPuH
+         FuH5pR98nKKZkDhlSboMqoaByqadf5UVgTZHTCMwteN8XsA7v7PQg3w1yAPYEj2r9qLx
+         NhDtZWB0MzS66GCX4ZPdReXa94sMvAypGwIAv/Xmlit95yRadFk1W/Y3024sesspwaAW
+         mv21bbFuBGjh/WBUO+4cTuzXR9sXFO+Aw9XuBvhzoGPXYbaA3v7MCnF+NqELDIO1vu4t
+         +8uA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757342153; x=1757946953;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jGYytEnMw+6xuEh78CWcB0+W8fGeyKd2M/PYTH6aJS0=;
+        b=ss3ZdW2jgIvsOCChvVI/PNZzMyyQn/EFscoy1EHyxVupVHhbWIDmwCCQeBrijp+nyv
+         W93rYbLJtLy3HZF1SF8eyhhlshL9sGpUAQY4matwg211GMHH6m5CWb7kpO0bBYndAsLr
+         c6Co/qsMXeOBpY6vC3qUD0Ks8N6Kq+MLbdi3byXuQYHweSNp4Fd/ygDaSEOXQbRCBS20
+         lhvJAW7Pl5rY/2GsDkcNjykS0FaKB8Rq/WJ3X4bKIoN+2iCRB9oXZ+5EbMMpTCOwdzxE
+         DN41souS9jWDEgm0YADP1UzvNGU4LL8y82C7CUJs7LhsAZyaZR15459KErVBA4yhzHQw
+         qqtw==
+X-Forwarded-Encrypted: i=1; AJvYcCXVHx4mdVLhliqPSUTV5njcClpa//LD5F0Kio7DW9yLleug4I+MRluGuBhaYB8mHz8czcT5Vlg5tp1lrmO32QT7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTC1mP5cHoGEUAbEeH1jyP29W1d+4Q0jxg9LZz1k1DbM3IwYOv
+	AGFkU1cSjEYto7gpHQBCRagz0qFFYXQoAGXkIceiatjmMskmklyCMn/h0wo+QMwco1dkGmwoiqp
+	8Z6ijjYtg5A==
+X-Gm-Gg: ASbGncsroaMKQdhi7ZhWJgMKCPxz1+/PIXcVeuY5VlhDUsdreO4xcrQmk2EcQopPyk5
+	eWDvaVRZ8+VpjwsbXkWZ3DA2GVhPNLU5z90H2Ef5PCs+3dpmfuzybMBeBYQ2sUegSPX70uuKyxg
+	D3eLr+C7ORQpw2Qi9SvRrFtM+gY9rHlcUWLen2jUlwblWiQNZItbAc1TuD4F+1Hfu6m1s9ERQ7H
+	+c7blSDQScsOqQJ1hx0fWcdU1DWgo5hTmK/brXB6wbPF+EiHbB/1lYcVmwXb4EXplPb37YM/2on
+	JXxweT/X9i0XxJyB1fPS9juxgMiMmezQa7L6l0BhMDrYGXkUJFKkolefdaW4R0SWFBj4Bl7DhpN
+	YUJHXpcz4NN1O5iWKCFVAjkzU66lCww7slxT7jw==
+X-Google-Smtp-Source: AGHT+IHqTDAEvQOt+q1sz1oM/FMn4xs+DKIlODRGS8+cELpR8JABY1klHI4WNO8R4+DbWuABkVVF1g==
+X-Received: by 2002:a05:6000:2a85:b0:3e6:b06c:5b2e with SMTP id ffacd0b85a97d-3e6b06c622fmr3645332f8f.57.1757342153210;
+        Mon, 08 Sep 2025 07:35:53 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d0a1f807f9sm40948664f8f.38.2025.09.08.07.35.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 Sep 2025 07:35:52 -0700 (PDT)
+Message-ID: <ff94b709-2861-445d-81c4-9ed98125fe94@linaro.org>
+Date: Mon, 8 Sep 2025 15:35:51 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1dMKtcdKROWDAugT"
-Content-Disposition: inline
-In-Reply-To: <288f0cf1-1ee4-4eba-b059-641120bb93f3@kernel.org>
-X-Cookie: Air is water with holes in it.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] perf: arm_spe: Add barrier before enabling profiling
+ buffer
+To: Will Deacon <will@kernel.org>, Alexandru Elisei <Alexandru.Elisei@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Anshuman Khandual <Anshuman.Khandual@arm.com>,
+ Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+ Robin Murphy <Robin.Murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
+ <20250701-james-spe-vm-interface-v1-1-52a2cd223d00@linaro.org>
+ <aL7dFIzEgiEETcIb@willie-the-truck>
+ <b4bcb7cf-da03-4263-9101-feec6d0e0d8d@linaro.org>
+ <aL7gsXbr_-k4q-i5@willie-the-truck>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <aL7gsXbr_-k4q-i5@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250908_073555_067039_2F440FE4 
+X-CRM114-Status: GOOD (  28.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +111,104 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---1dMKtcdKROWDAugT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-On Sat, Sep 06, 2025 at 02:01:25PM +0200, Krzysztof Kozlowski wrote:
-> On 06/09/2025 11:09, Andreas Kemnade wrote:
+On 08/09/2025 2:57 pm, Will Deacon wrote:
+> On Mon, Sep 08, 2025 at 02:54:32PM +0100, James Clark wrote:
+>>
+>>
+>> On 08/09/2025 2:41 pm, Will Deacon wrote:
+>>> On Tue, Jul 01, 2025 at 04:31:57PM +0100, James Clark wrote:
+>>>> DEN0154 states that PMBPTR_EL1 must not be modified while the profiling
+>>>> buffer is enabled. Ensure that enabling the buffer comes after setting
+>>>> PMBPTR_EL1 by inserting an isb().
+>>>>
+>>>> This only applies to guests for now, but in future versions of the
+>>>> architecture the PE will be allowed to behave in the same way.
+>>>>
+>>>> Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
+>>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>>> ---
+>>>>    drivers/perf/arm_spe_pmu.c | 1 +
+>>>>    1 file changed, 1 insertion(+)
+>>>>
+>>>> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+>>>> index 3efed8839a4e..6235ca7ecd48 100644
+>>>> --- a/drivers/perf/arm_spe_pmu.c
+>>>> +++ b/drivers/perf/arm_spe_pmu.c
+>>>> @@ -537,6 +537,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
+>>>>    	limit += (u64)buf->base;
+>>>>    	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
+>>>>    	write_sysreg_s(base, SYS_PMBPTR_EL1);
+>>>> +	isb();
+>>>
+>>>
+>>> Hmm.
+>>>
+>>> arm_spe_perf_aux_output_begin() is only called in two places:
+>>>
+>>> 1. From arm_spe_pmu_start()
+>>> 2. From arm_spe_pmu_irq_handler()
+>>>
+>>> For (1), we know that profiling is disabled by PMSCR_EL1.ExSPE.
+>>> For (2), we know that profiling is disabled by PMBSR_EL1.S.
+>>>
+>>> In both cases, we already have an isb() before enabling profiling again
+>>> so I don't understand what this additional isb() is achieving.
+>>>
+>>
+>> It's to prevent PMBPTR_EL1 from being written to after the PMBLIMITR_EL1
+>> write than enables the buffer again. So you're right it's already disabled
+>> up to this point, which is why we didn't need to add another isb(). This
+>> change is only for the re-enabling bit.
+>>
+>> If the instructions were reordered you could get this ordering at the end of
+>> arm_spe_perf_aux_output_begin():
+>>
+>>    write_sysreg_s(limit, SYS_PMBLIMITR_EL1); // Enables buffer
+>>
+>>    write_sysreg_s(base, SYS_PMBPTR_EL1);  // Invalid write to PMBPTR
+>>
+>> Instead of the new version with the barrier where PMBPTR must come before:
+>>
+>>    write_sysreg_s(base, SYS_PMBPTR_EL1);
+>>    isb()
+>>    write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
+> 
+> ... but my point is that profiling is still disabled after writing to
+> PMBLIMITR_EL1.
+> 
+> Will
 
-> > +  en-gpios:
+Oh I see what you mean, I misunderstood that.
 
-> enable-gpios, unless it is something else, but then please explain in
-> the description.
+You might be right, but I'm looking at statement SFDXJJ and it only says 
+"...PMBLIMITR_EL1.E is 0b1, meaning the Profiling Buffer is enabled...", 
+so it's just the buffer rather than "profiling is enabled" which would 
+require both bits PMBLIMITR_EL1.E = 1 and PMBSR_EL1.S = 0:
 
-> > +    description:
-> > +      If EN pin is not hardwired, specify it here to have it set up.
-> > +    maxItems: 1
+   SFDXJJ
 
-It seems reasonable to name the property after the pin on the device?
+   When PMBLIMITR_EL1.E is 0b1, meaning the Profiling Buffer is enabled,
+   software must behave as if the PE can do all of the following:
 
---1dMKtcdKROWDAugT
-Content-Type: application/pgp-signature; name="signature.asc"
+   * Ignore writes to the Profiling Buffer controls, other than a write
+     to PMBLIMITR_EL1.E that disables the Profiling Buffer. The
+     Statistical Profiling Unit registers affected are:
 
------BEGIN PGP SIGNATURE-----
+    - PMBPTR_EL1.
+    - PMBLIMITR_EL1.
+    - PMBSR_EL1.
+    - If FEAT_SPE_nVM is implemented, PMBMAR_EL1.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmi+6VcACgkQJNaLcl1U
-h9CLxwf7BQyHW20zqZG878E+egZPMLHOqAvNnwHpAnZh2j/C2o8dZP1Sutt2+VUa
-ClPzdsXzKZarDW9CCEktgoCyIrLV8k8pAE8sQuldBmxD6Mu3daLTB0wQVr2RpcBt
-K3p65WmmnAJERwUAxATQDdjJs+sRWWBgghOcdy6pIPIZmvdr5DUhyzBh5UfYFyCM
-C/JUDDPJtrnCmmVAsYP6p68+4fNHyWdnjnf5MM4xIbE/03ZmPVtZuOGLpyE9BqY2
-jM6WSKGu1NSf1BAd9+AjmGrjGLAwpNrerssP8ADjesrvhQkYR6ib71JScEjS0TaF
-z2sqtPhxcCdpn70FwcGyveIf6mwZBg==
-=ahy3
------END PGP SIGNATURE-----
+I'm trying to read Alex's other reply to this patch with it in mind that 
+profiling is still disabled, and it feels like your same point might 
+apply. Even if it's incorrectly programmed according to the existing Arm 
+ARM it doesn't matter if it's disabled.
 
---1dMKtcdKROWDAugT--
+We did discuss internally about the difference between just the buffer 
+being enabled or profiling altogether being enabled. Looks like I need 
+to check again.
+
+James
+
 
