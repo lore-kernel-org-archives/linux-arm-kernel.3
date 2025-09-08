@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F48CCAC586
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068DACAC586
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 12:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GXLcNSM3ychZCxZIN4Cp4NC04/o4PrChSZkGJhWTGXk=; b=XEUi56oOu8CuAZQ4QeDZMNWLsc
-	8+HgnETo6snKNt/DAbH7/NBy9c/OAol+bJ0HGA4GIuJ+U0gvXv85WTWHpNDU6mE9Pvlx3CB7NbjND
-	WaVzyRNu8urQ3HmNGGNTRS143gL12mvEbGuF5dYybV56j1X73eudMuDT+7yp+LML3zUHXPXmhFG4A
-	Zhq5PgotM8R4JPgv5lU9t4/c595TwZAb7zmq2/MYyEesTD1XFVnM0kwubpUCpQtHmyOyDQdpY5tl8
-	VJFVmalMR/OYG+FjDlFXiqLGAVYci3vzy6R2Ef76NABaJfgy5cOPaNSTymVeUjLPgbB7AsNeR/sh9
-	0rSGll8w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+EF7HYYakpjft9NB35kDZMTTQSaA0d6L7zjHJnSI+Sk=; b=yq0+aIaMvdvlUJbzlXdmmXbBby
+	lmMKt/uv9i+ohgLzrj9aU+BMntHDZzdjE0gYFP6r+Djlqi4F4BssbWV/DvPLli215jVUZQxYwfBnE
+	BvVEV8XIRCa8b6W/y4S4v6/qTdYrqcoPepKIXaTEiw8M8ZwAubOyqTZrlpU93BCyG+XL+8XXT+Iv7
+	9QqADkDFCjNuOw8GHOJcQ/JBFkS+G2K6xNgfGToiOu5+XTvSgU8rsO++zzcIfe3lKThg4M2on254e
+	OjZn19SBYWhva/eS4M7KfxUgMPk90wCgV4bl5WcHvZs5rx4WxsRQxv32LaJb9rli6nzixG9C9MqO4
+	GHVDi5zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvb7F-0000000H3oM-15VG;
-	Mon, 08 Sep 2025 12:37:01 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uvb9v-0000000H4nD-0V7u;
+	Mon, 08 Sep 2025 12:39:47 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uva8p-0000000GhCb-3mkM;
-	Mon, 08 Sep 2025 11:34:37 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45cb5e5e71eso21172245e9.2;
-        Mon, 08 Sep 2025 04:34:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757331274; x=1757936074; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GXLcNSM3ychZCxZIN4Cp4NC04/o4PrChSZkGJhWTGXk=;
-        b=aD2X+7H3p1wc9yFx/ph31Jbc+IIANHJ2ELueckeIg41zs+q5QRXVu2rJM1iDQp4DOo
-         TuOb/UX72G3JJEQsup+KG2AFSCgCdrJggWiPko3OGblOUOlGueHXa1kdgsoVbeZyHmBz
-         23+D/3md+JUF44fIITgn9XDOEPCu2/2zOOG85YMHvNMq94jkHidEi8oTJ23O2uMQ+pR0
-         Wa5FAM/HNeCesqm5+nsfCwSKlUWkQfbMGdKh8laxlRHxZhdaBhVlhX5zYi0/I52MUvQG
-         0EdKFWX7/oI+bHOBPEqNIBK/krMLL9XnFUyO2o1V8TUOj6JfKZJrvUOSOw8WyFd+ecgr
-         t9iQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757331274; x=1757936074;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GXLcNSM3ychZCxZIN4Cp4NC04/o4PrChSZkGJhWTGXk=;
-        b=LpTIglphf0dBeeLtpkJ/Vvy2qO68qG3K+IPs6Zp+vJjHVtPhjfZhUcNEvS/dVNVv56
-         HXRTgAuGz2TAHigu00pkYyiqKOVVgBe2QxBm5pV/653wujfqllbGqvBuRqxPAQ2gOdOq
-         x5sWhNN98s94EymD8vlIb04fyOSeK2hA4IkPWnNCAQdy1FsZMSiKBKI+BGbZv4AQSthf
-         I3f9T8EQVS1VCUP2l58ScWI4FSpPWOjS6qirQi/vC2O3AL2ublq+2ZRaJhTUHzxF3UGR
-         cl9GwHDPhyEwZfJRm/96hCAKU0dvaJsO+4mXiJDyyrgJ/+lN2fTfJTfQa0186KJOWciL
-         3llg==
-X-Forwarded-Encrypted: i=1; AJvYcCUFaRpDXXItnDmSJ4kmv05ncxNe+vaHu6LufaL4W5GNhf5UOhpiM2L/liZJPc22ya0lmEpZx39Hw4gvjonEL0c=@lists.infradead.org, AJvYcCUlLuQX8l/7btDwqCbwSEcalK8pvOPWk0Dlld8I3F86Ng7dwTUjtPgmkUTcLJahzbhN+c7hUhnh3T++pMnqbUuE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZfkGRNaIk/niEwB07Aog+BrXyqGOKikVqD+wclTxqfp0XMvLZ
-	8HsefjEZjnv+xHmBl36HwxikHgdCJ1RUGCzKgUGkOrYWZc3kfwV4Vtmn
-X-Gm-Gg: ASbGncu8VaRbgjFA/cKc9u+TsLdvyLet9yHt7pA6rFC89u8wT8uz8ZBYAj47vQJ2fBh
-	rkYA4pFFO40fa0/quKW9KRC6Pj5F+O1iA20nCJc2XSiZvUbQ2VPqdlWnDHHYvm5Sfco3t4QJ4kd
-	FYBupvpnJQPgxvcfU5PScItyekNWSo/V28A7TYD4yZ0HrHwlbcAn0wcoUQMW7Yng322tGtUFPUA
-	Nj1rwQG4/eX2MhSi4H8BE7g4M27cQDwEAR7/Ks9wyDQc7/kAHuZZgTNDBbmOjsNCkVhbJNZKBgt
-	SvwgDj2LrkZqfgeZbibBLLdNtFor+5lcDcDiVkjfWCFrOwKyCa0q2wHH38HluGuDSbdnz6YVcI9
-	RmV1jllhgvDPs8fAySmqwgh4jEVUnH1gJ1zQeOG9pxfj8XY/RQnMtFF+KYx81bosAnWoG6p+7Eh
-	03gVwe/A==
-X-Google-Smtp-Source: AGHT+IE65v8+Ze9QoGiKEzVRs4PA/d6RSnFM8u9pykGyKL2SGyoWipwe/h1BnWw8QIYeMI70RMST6A==
-X-Received: by 2002:a05:600c:4708:b0:45b:7782:b4a3 with SMTP id 5b1f17b1804b1-45ddde8289amr62827505e9.14.1757331273790;
-        Mon, 08 Sep 2025 04:34:33 -0700 (PDT)
-Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45de18f4824sm84683505e9.10.2025.09.08.04.34.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Sep 2025 04:34:33 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benjamin Larsson <benjamin.larsson@genexis.eu>,
-	linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] pinctrl: airoha: fix wrong PHY LED mux value for LED1 GPIO46
-Date: Mon,  8 Sep 2025 13:34:24 +0200
-Message-ID: <20250908113425.31002-1-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	id 1uvaB7-0000000Ghxm-2sYk;
+	Mon, 08 Sep 2025 11:36:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757331414;
+	bh=I6Ct7QSfsb2a9mw4d/2CXNoZn43ncDeWvUzisVJqmmQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JNQqV+Vnjs1Dxd1EtX4PPTlKmtQwxCDb/AQgr8shMEFalu8USKWWhlJsPwZsVd4tK
+	 gAiFpxVnuYm7yRt0XtVeHIbJAWTLopQRL2GYFWTHlJ8ouEriWtaZKvkR04T0QmCPBw
+	 CR1usZ2oOFpAfkxZOgJ+IDXpPg1+aqMbVEsnOk+WfDg/cnXIugkfalEh/Et4NRGmud
+	 rDuVIVRrxJtTdR1kBrS63nW2H/YRw7PNQOrF7xhCf5eMLPcwifMBAfLsmWEfaNaJ+T
+	 C0ZyXXat54wei7+pXSgw3VcLeSemvIfVVyv7JG3eeuBJwr/XcbPiPGuUi67C8ftwRm
+	 DPbUAegLYxVFw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4787517E0DD7;
+	Mon,  8 Sep 2025 13:36:54 +0200 (CEST)
+Message-ID: <104d8128-26fb-4eb6-ac3f-3abbb35245b2@collabora.com>
+Date: Mon, 8 Sep 2025 13:36:53 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] Input: mtk-pmic-keys - MT6359 has a specific
+ release irq
+To: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org
+References: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
+ <20250905-radxa-nio-12-l-gpio-v3-1-40f11377fb55@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250905-radxa-nio-12-l-gpio-v3-1-40f11377fb55@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_043435_940399_48D9803E 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20250908_043657_909630_990DC481 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,71 +81,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In all the MUX value for LED1 GPIO46 there is a Copy-Paste error where
-the MUX value is set to LED0_MODE_MASK instead of LED1_MODE_MASK.
+Il 05/09/25 13:51, Julien Massot ha scritto:
+> Support for MT6359 PMIC keys has been added recently.
+> However, the key release event is not properly handled:
+> only key press events are generated, leaving key states
+> stuck in "pressed".
+> 
+> This patch ensures that both key press and key release events
+> are properly emitted by handling the release logic correctly.
+> 
+> Introduce a 'key_release_irq' member to the 'mtk_pmic_regs',
+> to identify the devices that have a separate irq for the
+> release event.
+> 
+> Fixes: bc25e6bf032e ("Input: mtk-pmic-keys - add support for MT6359 PMIC keys")
+> Signed-off-by: Julien Massot <julien.massot@collabora.com>
 
-This wasn't notice as there were no board that made use of the
-secondary PHY LED but looking at the internal Documentation the actual
-value should be LED1_MODE_MASK similar to the other GPIO entry.
+Please clarify the commit title.
 
-Fix the wrong value to apply the correct MUX configuration.
+Input: mtk-pmic-keys - Use platform data for release irq support
 
-Cc: stable@vger.kernel.org
-Fixes: 1c8ace2d0725 ("pinctrl: airoha: Add support for EN7581 SoC")
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/pinctrl/mediatek/pinctrl-airoha.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+...or something like that.
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-index 5d84a778683d..f7f8fd2f35fc 100644
---- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-@@ -1752,8 +1752,8 @@ static const struct airoha_pinctrl_func_group phy1_led1_func_group[] = {
- 		.regmap[0] = {
- 			AIROHA_FUNC_MUX,
- 			REG_GPIO_2ND_I2C_MODE,
--			GPIO_LAN3_LED0_MODE_MASK,
--			GPIO_LAN3_LED0_MODE_MASK
-+			GPIO_LAN3_LED1_MODE_MASK,
-+			GPIO_LAN3_LED1_MODE_MASK
- 		},
- 		.regmap[1] = {
- 			AIROHA_FUNC_MUX,
-@@ -1816,8 +1816,8 @@ static const struct airoha_pinctrl_func_group phy2_led1_func_group[] = {
- 		.regmap[0] = {
- 			AIROHA_FUNC_MUX,
- 			REG_GPIO_2ND_I2C_MODE,
--			GPIO_LAN3_LED0_MODE_MASK,
--			GPIO_LAN3_LED0_MODE_MASK
-+			GPIO_LAN3_LED1_MODE_MASK,
-+			GPIO_LAN3_LED1_MODE_MASK
- 		},
- 		.regmap[1] = {
- 			AIROHA_FUNC_MUX,
-@@ -1880,8 +1880,8 @@ static const struct airoha_pinctrl_func_group phy3_led1_func_group[] = {
- 		.regmap[0] = {
- 			AIROHA_FUNC_MUX,
- 			REG_GPIO_2ND_I2C_MODE,
--			GPIO_LAN3_LED0_MODE_MASK,
--			GPIO_LAN3_LED0_MODE_MASK
-+			GPIO_LAN3_LED1_MODE_MASK,
-+			GPIO_LAN3_LED1_MODE_MASK
- 		},
- 		.regmap[1] = {
- 			AIROHA_FUNC_MUX,
-@@ -1944,8 +1944,8 @@ static const struct airoha_pinctrl_func_group phy4_led1_func_group[] = {
- 		.regmap[0] = {
- 			AIROHA_FUNC_MUX,
- 			REG_GPIO_2ND_I2C_MODE,
--			GPIO_LAN3_LED0_MODE_MASK,
--			GPIO_LAN3_LED0_MODE_MASK
-+			GPIO_LAN3_LED1_MODE_MASK,
-+			GPIO_LAN3_LED1_MODE_MASK
- 		},
- 		.regmap[1] = {
- 			AIROHA_FUNC_MUX,
--- 
-2.51.0
+After which:
 
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+Cheers,
+Angelo
 
