@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5611CAC589
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D28CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Qmtq2CeP5Jx7vZXKA2CMOipGElDjnWELU/7DNqKtTE=; b=q3w/QikwjwtgAP9lXld8CYbxHW
-	hHn2Iueolrk/bJf1INkSAXxCW6VwQoebAR1zP33RfAfvxFiN/ngwCro2qmQ5rOImycP9dRtwdNFKQ
-	BjRSog0iHPwHZvHcjlIA4KWvLfrdGX9VW2SAAo+lCMjl7aTlEPilwfViMZTaZpzpVeZDh6yBJ2NKs
-	6d8ke297xi8oozocHR0wa7tq+ZNgTvVLJ8x9PiIhKF4gc1wfDZ3XwGgpEmhQlWP7Q3i5VioHZ4/C5
-	YtBhtsj58FzWfYPnOjkNSk9/zTJ1WdR8vW7LuXAq6j4NDvGOr6EUwQPgQf2dEnFtgkaOMpC3jiuC/
-	PgTdB+/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rr9n/UgaFVHhF9CBGDdnyVDF3gsfRw6mucPwMNctvsE=; b=l084W0ay/I98W1quxoWliwVCcb
+	gfo4trkS0rlD0e8rMM0vS+JFQecFkMNZKRen4ML7k0SMMY+Vpq4DbuwzhTDZD9U3WLqS3Ihe52qvZ
+	g7i6tKK4KHSsgkLG79oVJsZ7tmqn9Yc6X3bggKO17dfxuMslBNz43z5RIVmeplH8kuMXxvGMGc1ud
+	mxlyl8KcWjSmiOukLO/ObonmEmGMK8XSXQjQg9isL+8bF1aaEcSnPJbfcRscMLk70FGfPasTlO720
+	k/e13KadkU2t93YOWMsjKSEoMBIlzEDfFXUG9RZeXswIghiM3iXm9GZtMhoWVZO+is5ZxdNqpbGaK
+	boZUHZ2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBd-00000004ota-0KGT;
-	Tue, 09 Sep 2025 06:50:41 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uvsBe-00000004oxE-2sgv;
+	Tue, 09 Sep 2025 06:50:42 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvi7T-000000024yA-2zE8;
-	Mon, 08 Sep 2025 20:05:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757361899; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=FBqZoto3NaNrr+QEk2kOlolOBw3muYFVoz92mSEsCqHEHx9bRDQVMBbpJvXLiEZn1Q7eNia7ROlo6ioobMA+XLoysc8dYZF2eB4bzoY2q4Mvdb1w+fUxt8QL5vlTMVEHXiU9sJF53nbHrsyPV3UhZpUZZNyk0Y2P5HGhidk7fn0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757361899; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8Qmtq2CeP5Jx7vZXKA2CMOipGElDjnWELU/7DNqKtTE=; 
-	b=MxHttsUDp1O7iL94CxpC4azMxrqzbdHtZMwsjWmfVfDp8Kmnr2njcXzIJ9sg+185/H7MVUIhbYTGKo2AvEKkeCrHmqcY0aJmhVSm9dlrtrpjzhe6/gvFYThXkLahFKnJupZ127Pgmdll3zTjB/HE7cv6WeXprzWlrH1t6Cdaqrk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757361899;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=8Qmtq2CeP5Jx7vZXKA2CMOipGElDjnWELU/7DNqKtTE=;
-	b=hM5q/qJMILxUA2nOZg1Nvj3qrcEKZCqnn9aoxyH8Z6+lErg0o9Y5rGzh7VrQQh5j
-	/Vq82lI51wz8mQvigoFmbhZv+IZco6nfWCamUyuuMcf08vsBx+PYt5RNWhKIKHVhwpk
-	R/LDv7vzYP2AP5Oo+otV7uUA0uLne4OUJJM8R37A=
-Received: by mx.zohomail.com with SMTPS id 1757361898233170.25250327031745;
-	Mon, 8 Sep 2025 13:04:58 -0700 (PDT)
-Message-ID: <d32af8e4-0771-4674-8317-78dd1e24c95b@collabora.com>
-Date: Mon, 8 Sep 2025 17:04:41 -0300
+	id 1uvi8s-000000025NL-41y4
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 20:07:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1757362031; x=1788898031;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=BoqMfXbExT7t634yESc/SibX5EIdQetlbFOZlCukLw0=;
+  b=F8GNcRKiGcQBIuDB/oKmGH07P8gHmc3HiPGVfuH6EEpj2GRwVmVLhz2I
+   yeL7Ks41PGJ7KxwriIrk5RBWjSz/LAhiddmlj/rKismXLhrjW86gaPlvp
+   v0FaNNTBRd5JzcfJyRfMD8kNeIKY2uLZLdXV3Yuaj4vnGRbg1mx089tw4
+   4XfgRt0QEmDPw+uZeETmUzx91uiNFojRwzz7PDSe8XdtJgpB9o+Dg8r8o
+   VI9US484ZKenMbpIpZF8Qe10ufHUVLxMuHaMAC469aR+4qzHhHUmNf26Y
+   9W5xrk+v1PpJ50zhbOWA4OqqTyvxE5pr8V0JH/ALcnUBtAST61cRIhOZf
+   Q==;
+X-CSE-ConnectionGUID: EMpCwBz3Ssqhzk3id+g8NQ==
+X-CSE-MsgGUID: Z2lHKD+gRSG+WU2V/cbPIA==
+X-IronPort-AV: E=Sophos;i="6.18,249,1751266800"; 
+   d="scan'208";a="277602015"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Sep 2025 13:07:08 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 8 Sep 2025 13:06:37 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Mon, 8 Sep 2025 13:06:37 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>
+CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
+Subject: [PATCH] clk: at91: clk-master: Add check for divide by 3
+Date: Mon, 8 Sep 2025 13:07:17 -0700
+Message-ID: <20250908200725.75364-1-Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 05/14] sound: dt-bindings: Convert MediaTek RT5650
- codecs bindings to YAML
-To: Rob Herring <robh@kernel.org>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
- andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
- broonie@kernel.org, chunkuang.hu@kernel.org, ck.hu@mediatek.com,
- conor+dt@kernel.org, davem@davemloft.net, dmitry.torokhov@gmail.com,
- edumazet@google.com, flora.fu@mediatek.com, houlong.wei@mediatek.com,
- jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com,
- krzk+dt@kernel.org, kuba@kernel.org,
- kyrie.wu@mediatek.corp-partner.google.com, lgirdwood@gmail.com,
- linus.walleij@linaro.org, louisalexis.eyraud@collabora.com,
- maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com,
- mchehab@kernel.org, minghsiu.tsai@mediatek.com, mripard@kernel.org,
- p.zabel@pengutronix.de, pabeni@redhat.com, sean.wang@kernel.org,
- simona@ffwll.ch, support.opensource@diasemi.com, tiffany.lin@mediatek.com,
- tzimmermann@suse.de, yunfei.dong@mediatek.com, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-sound@vger.kernel.org, netdev@vger.kernel.org
-References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-6-ariel.dalessandro@collabora.com>
- <20250822151415.GA3819434-robh@kernel.org>
-Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <20250822151415.GA3819434-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_130543_805798_CCAA226A 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20250908_130711_255545_523AAF14 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,106 +85,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rob,
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-On 8/22/25 12:14 PM, Rob Herring wrote:
-> On Wed, Aug 20, 2025 at 02:12:53PM -0300, Ariel D'Alessandro wrote:
->> Convert the existing text-based DT bindings for Mediatek MT8173 RT5650
->> codecs to a YAML schema.
->>
->> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> ---
->>   .../sound/mediatek,mt8173-rt5650.yaml         | 73 +++++++++++++++++++
->>   .../bindings/sound/mt8173-rt5650.txt          | 31 --------
->>   2 files changed, 73 insertions(+), 31 deletions(-)
->>   create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.yaml
->>   delete mode 100644 Documentation/devicetree/bindings/sound/mt8173-rt5650.txt
->>
->> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.yaml
->> new file mode 100644
->> index 0000000000000..36e4f9c4c3d62
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.yaml
->> @@ -0,0 +1,73 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/sound/mediatek,mt8173-rt5650.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Mediatek MT8173 with RT5650 codecs and HDMI via I2S
->> +
->> +maintainers:
->> +  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: "mediatek,mt8173-rt5650"
-> 
-> Drop quotes.
+A potential divider for the master clock is div/3. The register
+configuration for div/3 is MASTER_PRES_MAX. The current bit shifting
+method does not work for this case. Checking for MASTER_PRES_MAX will
+ensure the correct decimal value is stored in the system.
 
-Ack.
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ drivers/clk/at91/clk-master.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-> 
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  mediatek,audio-codec:
->> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->> +    description:
->> +      The phandles of rt5650 codecs and of the HDMI encoder node.
->> +    minItems: 2
->> +
->> +  mediatek,platform:
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description:
->> +      The phandle of MT8173 ASoC platform.
->> +
->> +  mediatek,mclk:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    description: |
->> +      The MCLK source.
->> +      0: external oscillator, MCLK = 12.288M
->> +      1: internal source from mt8173, MCLK = sampling rate * 256
->> +
->> +  codec-capture:
->> +    description: Subnode of rt5650 codec capture.
->> +    type: object
->> +
->> +    properties:
->> +      sound-dai:
->> +        maxItems: 1
->> +        description: phandle of the CPU DAI
->> +
->> +    additionalProperties: false
->> +
->> +required:
->> +  - compatible
->> +  - mediatek,audio-codec
->> +  - mediatek,platform
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    sound: sound {
-> 
-> Drop unused label.
-
-Ack.
-
-Thanks!
-
+diff --git a/drivers/clk/at91/clk-master.c b/drivers/clk/at91/clk-master.c
+index 7a544e429d34..d5ea2069ec83 100644
+--- a/drivers/clk/at91/clk-master.c
++++ b/drivers/clk/at91/clk-master.c
+@@ -580,6 +580,9 @@ clk_sama7g5_master_recalc_rate(struct clk_hw *hw,
+ {
+ 	struct clk_master *master = to_clk_master(hw);
+ 
++	if (master->div == MASTER_PRES_MAX)
++		return DIV_ROUND_CLOSEST_ULL(parent_rate, 3);
++
+ 	return DIV_ROUND_CLOSEST_ULL(parent_rate, (1 << master->div));
+ }
+ 
 -- 
-Ariel D'Alessandro
-Software Engineer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
+2.43.0
 
 
