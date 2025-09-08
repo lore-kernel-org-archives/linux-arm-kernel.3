@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F230CAC581
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB172CAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 17:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4u0lvHjlc8U/akjOeInsx86V+rcl7NsPZQywstkRW2I=; b=xwHFTkMg5lCxoGSnaCxgzvTtuJ
-	NzOp7lWvMWm5ZalGgIOQyi4C/oI+7dfTjjwvWKiH6MvPlxfEHigFAAtaSC7TRuqVDwBujPPB5TAK9
-	e4Zt0so9nLyEggJFka4SOBKtAw/7f2fsKKFGH2Non5Q2+0738V1rZ5vk6WP2c6WkV1SIens3kRlV0
-	5YbF2o0KJPG3JdT+mNll/yYqo6lvpnFy74dwukhbwn1LGAeFoWQIRybPeLNsLF8heXcQCaz/OWoiL
-	9gRIBqpGdN01PCdG/oSTJTJVwM+4spaAeJ2BpFko1c6+XAdz4yHQI1X72dVjQt8nael2f7VHH/WKh
-	R84pjHLw==;
+	bh=ss6K1t9MZnVM3gGsKbFVajXPZjSX/r2LbzvJd/Ytpnk=; b=gIMQ7/SSVasAQAzJ2XLSupqosz
+	AyOf1Xxl3CcQPqDbGP9rCnmcGc2uQEbtovYw3Gol4q+zOqqJcBAltea/e3YtOypGlYjKuKRqWnpWR
+	O//omnWjGb7vxfZANp2e3VQp/Ep4kcvme8I8c6ace2sKTC/OYgLWGt8nDEdoQUksIRMfQXNRmKx5i
+	eUWXZOr9AxLow5rtuQ2Jkh8nJfm9Oe+zoK/kiBj92uFKnza2NdU7O9+qDJ/aLfZw2/db+GjBPdrrT
+	IZAcdk9xpJ4Dn3kPAEqKRqxWrhuFMg1LokdNOJyDTz+KOoVR4TuHivW4WZngpno0E+FbG5jMI5cBe
+	MMAuS80A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvg1S-00000001KHD-3RWx;
-	Mon, 08 Sep 2025 17:51:22 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uvg4B-00000001LH5-2X76;
+	Mon, 08 Sep 2025 17:54:11 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvcu7-000000007mt-0z4V
+	id 1uvcuA-000000007oi-23Ss
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 14:31:36 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588EVVCi3811094;
-	Mon, 8 Sep 2025 09:31:31 -0500
+	Mon, 08 Sep 2025 14:31:39 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588EVZPI072058;
+	Mon, 8 Sep 2025 09:31:35 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757341891;
-	bh=4u0lvHjlc8U/akjOeInsx86V+rcl7NsPZQywstkRW2I=;
+	s=ti-com-17Q1; t=1757341896;
+	bh=ss6K1t9MZnVM3gGsKbFVajXPZjSX/r2LbzvJd/Ytpnk=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=IjcFm1NaNsZPlNdVHvgttM7ibIQnsmuVFvW4k7vfcsduYLn70SjMFCUiHJApxQtUE
-	 J7nkylN7XTIf8AdwSJmeHa+90E7+ITi+dSq3LOnVIeDY/k6Gd/WPAvNIO0MIySZ4ke
-	 fUra53o/B2TpTs3FDcaogB2wEQiPfLiI0nNBAQ00=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588EVV6P3836106
+	b=sO3lQ6dl6pXNl2oxVvVXGZzjyLsryoHTpZOgrWo6UH2HF84W6g/u95EQVc770+S8a
+	 /VAE6s+ky7STb4cFzWVNsA4tIZ6u0ocVKC+UYsWZGoHB8hGMp95NG2ZNgec9zD2qm2
+	 pbD/p2nWVskEyyDr/w3c+RJxl4oRLfjJdTKrPwKI=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588EVZTi2466622
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 09:31:31 -0500
-Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 8 Sep 2025 09:31:35 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 09:31:30 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 09:31:35 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 09:31:30 -0500
+ Frontend Transport; Mon, 8 Sep 2025 09:31:35 -0500
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588ESed91037553;
-	Mon, 8 Sep 2025 09:31:26 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588ESedA1037553;
+	Mon, 8 Sep 2025 09:31:31 -0500
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
 CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
         <d-gole@ti.com>, <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Wadim
- Egorov <w.egorov@phytec.de>
-Subject: [PATCH v4 31/34] arm64: dts: ti: k3-am62-ti-ipc-firmware: Refactor IPC cfg into new dtsi
-Date: Mon, 8 Sep 2025 19:58:23 +0530
-Message-ID: <20250908142826.1828676-32-b-padhi@ti.com>
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v4 32/34] arm64: dts: ti: k3-am62a-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+Date: Mon, 8 Sep 2025 19:58:24 +0530
+Message-ID: <20250908142826.1828676-33-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250908142826.1828676-1-b-padhi@ti.com>
 References: <20250908142826.1828676-1-b-padhi@ti.com>
@@ -71,8 +69,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_073135_364370_DF950CE5 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20250908_073138_621305_C36750E6 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,8 +85,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TI K3 AM62 SoCs have multiple programmable remote processors like
-R5F, M4F etc. The TI SDKs for AM62 SoCs offer sample firmwares which
+The TI K3 AM62A SoCs have multiple programmable remote processors like
+R5F, C7x etc. The TI SDKs for AM62A SoCs offer sample firmwares which
 could be run on these cores to demonstrate an "echo" IPC test. Those
 firmware require certain memory carveouts to be reserved from system
 memory, timers to be reserved, and certain mailbox configurations for
@@ -104,8 +102,7 @@ utilize system resources better; easily by swapping out this dtsi. To
 maintain backward compatibility, the dtsi is included in all boards.
 
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-Reviewed-by: Wadim Egorov <w.egorov@phytec.de>
-Tested-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am62x
+Tested-by: Judith Mendez <jm@ti.com>
 Reviewed-by: Dhruva Gole <d-gole@ti.com>
 ---
 v4: Changelog:
@@ -113,88 +110,139 @@ v4: Changelog:
 2. Carried R/B tag.
 
 Link to v3:
-https://lore.kernel.org/all/20250905051846.1189612-31-b-padhi@ti.com/
+https://lore.kernel.org/all/20250905051846.1189612-32-b-padhi@ti.com/
 
 v3: Changelog:
-1. Changed memory node name to memory@addr. 
-2. Carried R/B, T/B tags.
+1. Carried T/B tag.
 
 Link to v2:
-https://lore.kernel.org/all/20250823160901.2177841-31-b-padhi@ti.com/
+https://lore.kernel.org/all/20250823160901.2177841-32-b-padhi@ti.com/
 
 v2: Changelog:
-1. Re-ordered patch from [PATCH 22/33] to [PATCH v2 30/33].
+1. Re-ordered patch from [PATCH 25/33] to [PATCH v2 31/33].
 
 Link to v1:
-https://lore.kernel.org/all/20250814223839.3256046-23-b-padhi@ti.com/
+https://lore.kernel.org/all/20250814223839.3256046-26-b-padhi@ti.com/
 
- .../boot/dts/ti/k3-am62-phycore-som.dtsi      | 44 +---------------
- .../boot/dts/ti/k3-am62-pocketbeagle2.dts     | 46 +---------------
- .../boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi  | 52 +++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi    | 46 +---------------
- .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 46 +---------------
- 5 files changed, 59 insertions(+), 175 deletions(-)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
+ .../boot/dts/ti/k3-am62a-phycore-som.dtsi     | 90 +----------------
+ .../boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi | 98 +++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts       | 92 +----------------
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts      | 76 +-------------
+ 4 files changed, 102 insertions(+), 254 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-index 75b7e64f6659..eeca643fedbe 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-@@ -52,18 +52,6 @@ rtos_ipc_memory_region: memory@9c800000 {
- 			no-map;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+index 0406a43ff704..b3d012a5a26a 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+@@ -59,30 +59,6 @@ linux,cma {
+ 			linux,cma-default;
  		};
  
--		mcu_m4fss_dma_memory_region: memory@9cb00000 {
+-		c7x_0_dma_memory_region: memory@99800000 {
 -			compatible = "shared-dma-pool";
--			reg = <0x00 0x9cb00000 0x00 0x100000>;
+-			reg = <0x00 0x99800000 0x00 0x100000>;
 -			no-map;
 -		};
 -
--		mcu_m4fss_memory_region: memory@9cc00000 {
+-		c7x_0_memory_region: memory@99900000 {
 -			compatible = "shared-dma-pool";
--			reg = <0x00 0x9cc00000 0x00 0xe00000>;
+-			reg = <0x00 0x99900000 0x00 0xf00000>;
 -			no-map;
 -		};
 -
- 		wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
+-		mcu_r5fss0_core0_dma_memory_region: memory@9b800000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9b800000 0x00 0x100000>;
+-			no-map;
+-		};
+-
+-		mcu_r5fss0_core0_memory_region: memory@9b900000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9b900000 0x00 0xf00000>;
+-			no-map;
+-		};
+-
+ 		wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
  			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9da00000 0x00 0x100000>;
-@@ -245,20 +233,6 @@ cpsw3g_phy1: ethernet-phy@1 {
+ 			reg = <0x00 0x9c800000 0x00 0x100000>;
+@@ -209,13 +185,6 @@ opp-1400000000 {
  	};
+ };
+ 
+-&c7x_0 {
+-	mboxes = <&mailbox0_cluster1 &mbox_c7x_0>;
+-	memory-region = <&c7x_0_dma_memory_region>,
+-			<&c7x_0_memory_region>;
+-	status = "okay";
+-};
+-
+ &cpsw3g {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&main_rgmii1_pins_default>;
+@@ -246,33 +215,6 @@ &fss {
+ 	status = "okay";
  };
  
 -&mailbox0_cluster0 {
 -	status = "okay";
 -
--	mbox_m4_0: mbox-m4-0 {
+-	mbox_r5_0: mbox-r5-0 {
 -		ti,mbox-rx = <0 0 0>;
 -		ti,mbox-tx = <1 0 0>;
 -	};
+-};
 -
--	mbox_r5_0: mbox-r5-0 {
--		ti,mbox-rx = <2 0 0>;
--		ti,mbox-tx = <3 0 0>;
+-&mailbox0_cluster1 {
+-	status = "okay";
+-
+-	mbox_c7x_0: mbox-c7x-0 {
+-		ti,mbox-rx = <0 0 0>;
+-		ti,mbox-tx = <1 0 0>;
 -	};
 -};
 -
- &main_pktdma {
+-&mailbox0_cluster2 {
+-	status = "okay";
+-
+-	mbox_mcu_r5_0: mbox-mcu-r5-0 {
+-		ti,mbox-rx = <0 0 0>;
+-		ti,mbox-tx = <1 0 0>;
+-	};
+-};
+-
+ &main_i2c0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&main_i2c0_pins_default>;
+@@ -388,27 +330,6 @@ &main_pktdma {
  	bootph-all;
  };
-@@ -364,13 +338,6 @@ i2c_som_rtc: rtc@52 {
- 	};
- };
  
--&mcu_m4fss {
--	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
--	memory-region = <&mcu_m4fss_dma_memory_region>,
--			<&mcu_m4fss_memory_region>;
+-/* main_rti4 is used by C7x DSP */
+-&main_rti4 {
+-	status = "reserved";
+-};
+-
+-/* main_timer2 is used by C7x DSP */
+-&main_timer2 {
+-	status = "reserved";
+-};
+-
+-&mcu_r5fss0 {
+-	status = "okay";
+-};
+-
+-&mcu_r5fss0_core0 {
+-	mboxes = <&mailbox0_cluster2 &mbox_mcu_r5_0>;
+-	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+-			<&mcu_r5fss0_core0_memory_region>;
 -	status = "okay";
 -};
 -
  &ospi0 {
  	pinctrl-names = "default";
  	pinctrl-0 = <&ospi0_pins_default>;
-@@ -399,13 +366,4 @@ &sdhci0 {
+@@ -437,13 +358,4 @@ &sdhci0 {
  	status = "okay";
  };
  
@@ -203,110 +251,47 @@ index 75b7e64f6659..eeca643fedbe 100644
 -};
 -
 -&wkup_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+-	mboxes = <&mailbox0_cluster0  &mbox_r5_0>;
 -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
 -			<&wkup_r5fss0_core0_memory_region>;
 -	status = "okay";
 -};
-+#include "k3-am62-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-index 621fb6c52db1..7a4cffc27bda 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-@@ -54,18 +54,6 @@ linux,cma {
- 			linux,cma-default;
- 		};
- 
--		mcu_m4fss_dma_memory_region: memory@9cb00000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0x9cb00000 0x00 0x100000>;
--			no-map;
--		};
--
--		mcu_m4fss_memory_region: memory@9cc00000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0x9cc00000 0x00 0xe00000>;
--			no-map;
--		};
--
- 		secure_tfa_ddr: tfa@9e780000 {
- 			reg = <0x00 0x9e780000 0x00 0x80000>;
- 			alignment = <0x1000>;
-@@ -298,20 +286,6 @@ &epwm2 {
- 	pinctrl-0 = <&epwm2_pins_default>;
- };
- 
--&mailbox0_cluster0 {
--	status = "okay";
--
--	mbox_m4_0: mbox-m4-0 {
--		ti,mbox-rx = <0 0 0>;
--		ti,mbox-tx = <1 0 0>;
--	};
--
--	mbox_r5_0: mbox-r5-0 {
--		ti,mbox-rx = <2 0 0>;
--		ti,mbox-tx = <3 0 0>;
--	};
--};
--
- &main_uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart0_pins_default>;
-@@ -362,24 +336,6 @@ &main_i2c2 {
- 	status = "okay";
- };
- 
--&mcu_m4fss {
--	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
--	memory-region = <&mcu_m4fss_dma_memory_region>,
--			<&mcu_m4fss_memory_region>;
--	status = "okay";
--};
--
--&wkup_r5fss0 {
--	status = "okay";
--};
--
--&wkup_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
--	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
--			<&wkup_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
- &mcu_pmx0 {
- 	wkup_uart0_pins_default: wkup-uart0-default-pins {
- 		pinctrl-single,pins = <
-@@ -543,3 +499,5 @@ ldo4_reg: ldo4 {
- 		};
- 	};
- };
-+
-+#include "k3-am62-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
++#include "k3-am62a-ti-ipc-firmware.dtsi"
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi
 new file mode 100644
-index 000000000000..ea69fab9b52b
+index 000000000000..950f4f37d477
 --- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
-@@ -0,0 +1,52 @@
++++ b/arch/arm64/boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi
+@@ -0,0 +1,98 @@
 +// SPDX-License-Identifier: GPL-2.0-only OR MIT
 +/**
-+ * Device Tree Source for enabling IPC using TI SDK firmware on AM62 SoCs
++ * Device Tree Source for enabling IPC using TI SDK firmware on AM62A SoCs
 + *
-+ * Copyright (C) 2021-2025 Texas Instruments Incorporated - https://www.ti.com/
++ * Copyright (C) 2022-2025 Texas Instruments Incorporated - https://www.ti.com/
 + */
 +
 +&reserved_memory {
-+	mcu_m4fss_dma_memory_region: memory@9cb00000 {
++	c7x_0_dma_memory_region: memory@99800000 {
 +		compatible = "shared-dma-pool";
-+		reg = <0x00 0x9cb00000 0x00 0x100000>;
++		reg = <0x00 0x99800000 0x00 0x100000>;
 +		no-map;
 +	};
 +
-+	mcu_m4fss_memory_region: memory@9cc00000 {
++	c7x_0_memory_region: memory@99900000 {
 +		compatible = "shared-dma-pool";
-+		reg = <0x00 0x9cc00000 0x00 0xe00000>;
++		reg = <0x00 0x99900000 0x00 0xf00000>;
++		no-map;
++	};
++
++	mcu_r5fss0_core0_dma_memory_region: memory@9b800000 {
++		compatible = "shared-dma-pool";
++		reg = <0x00 0x9b800000 0x00 0x100000>;
++		no-map;
++	};
++
++	mcu_r5fss0_core0_memory_region: memory@9b900000 {
++		compatible = "shared-dma-pool";
++		reg = <0x00 0x9b900000 0x00 0xf00000>;
 +		no-map;
 +	};
 +};
@@ -314,22 +299,28 @@ index 000000000000..ea69fab9b52b
 +&mailbox0_cluster0 {
 +	status = "okay";
 +
-+	mbox_m4_0: mbox-m4-0 {
++	mbox_r5_0: mbox-r5-0 {
 +		ti,mbox-rx = <0 0 0>;
 +		ti,mbox-tx = <1 0 0>;
 +	};
++};
 +
-+	mbox_r5_0: mbox-r5-0 {
-+		ti,mbox-rx = <2 0 0>;
-+		ti,mbox-tx = <3 0 0>;
++&mailbox0_cluster1 {
++	status = "okay";
++
++	mbox_c7x_0: mbox-c7x-0 {
++		ti,mbox-rx = <0 0 0>;
++		ti,mbox-tx = <1 0 0>;
 +	};
 +};
 +
-+&mcu_m4fss {
-+	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
-+	memory-region = <&mcu_m4fss_dma_memory_region>,
-+			<&mcu_m4fss_memory_region>;
++&mailbox0_cluster2 {
 +	status = "okay";
++
++	mbox_mcu_r5_0: mbox-mcu-r5-0 {
++		ti,mbox-rx = <0 0 0>;
++		ti,mbox-tx = <1 0 0>;
++	};
 +};
 +
 +&wkup_r5fss0 {
@@ -337,57 +328,115 @@ index 000000000000..ea69fab9b52b
 +};
 +
 +&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
++	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
 +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
 +			<&wkup_r5fss0_core0_memory_region>;
 +	status = "okay";
 +};
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-index 5ecdd833587e..dc4b228a9fd7 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-@@ -206,18 +206,6 @@ secure_ddr: optee@9e800000 {
- 			no-map;
++
++&mcu_r5fss0 {
++	status = "okay";
++};
++
++&mcu_r5fss0_core0 {
++	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
++	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
++			<&mcu_r5fss0_core0_memory_region>;
++	status = "okay";
++};
++
++&c7x_0 {
++	mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
++	memory-region = <&c7x_0_dma_memory_region>,
++			<&c7x_0_memory_region>;
++	status = "okay";
++};
++
++/* main_rti4 is used by C7x DSP */
++&main_rti4 {
++	status = "reserved";
++};
++
++/* main_timer2 is used by C7x DSP */
++&main_timer2 {
++	status = "reserved";
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+index 312bdab28784..9f148b89e74d 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+@@ -53,30 +53,6 @@ linux,cma {
+ 			linux,cma-default;
  		};
  
--		mcu_m4fss_dma_memory_region: memory@9cb00000 {
+-		c7x_0_dma_memory_region: memory@99800000 {
 -			compatible = "shared-dma-pool";
--			reg = <0x00 0x9cb00000 0x00 0x100000>;
+-			reg = <0x00 0x99800000 0x00 0x100000>;
 -			no-map;
 -		};
 -
--		mcu_m4fss_memory_region: memory@9cc00000 {
+-		c7x_0_memory_region: memory@99900000 {
 -			compatible = "shared-dma-pool";
--			reg = <0x00 0x9cc00000 0x00 0xe00000>;
+-			reg = <0x00 0x99900000 0x00 0xf00000>;
 -			no-map;
 -		};
 -
- 		wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
+-		mcu_r5fss0_core0_dma_memory_region: memory@9b800000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9b800000 0x00 0x100000>;
+-			no-map;
+-		};
+-
+-		mcu_r5fss0_core0_memory_region: memory@9b900000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9b900000 0x00 0xf00000>;
+-			no-map;
+-		};
+-
+ 		wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
  			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9da00000 0x00 0x100000>;
-@@ -1334,38 +1322,6 @@ &main_i2c3 {
- 	status = "disabled";
+ 			reg = <0x00 0x9c800000 0x00 0x100000>;
+@@ -713,11 +689,6 @@ &main_uart1 {
+ 	status = "reserved";
+ };
+ 
+-/* main_timer2 is used by C7x DSP */
+-&main_timer2 {
+-	status = "reserved";
+-};
+-
+ &usbss0 {
+ 	status = "okay";
+ 	ti,vbus-divider;
+@@ -835,67 +806,6 @@ &epwm1 {
+ 	status = "okay";
  };
  
 -&mailbox0_cluster0 {
 -	status = "okay";
 -
--	mbox_m4_0: mbox-m4-0 {
+-	mbox_r5_0: mbox-r5-0 {
 -		ti,mbox-rx = <0 0 0>;
 -		ti,mbox-tx = <1 0 0>;
 -	};
+-};
 -
--	mbox_r5_0: mbox-r5-0 {
--		ti,mbox-rx = <2 0 0>;
--		ti,mbox-tx = <3 0 0>;
+-&mailbox0_cluster1 {
+-	status = "okay";
+-
+-	mbox_c7x_0: mbox-c7x-0 {
+-		ti,mbox-rx = <0 0 0>;
+-		ti,mbox-tx = <1 0 0>;
 -	};
 -};
 -
--&mcu_m4fss {
--	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
--	memory-region = <&mcu_m4fss_dma_memory_region>,
--			<&mcu_m4fss_memory_region>;
+-&mailbox0_cluster2 {
 -	status = "okay";
+-
+-	mbox_mcu_r5_0: mbox-mcu-r5-0 {
+-		ti,mbox-rx = <0 0 0>;
+-		ti,mbox-tx = <1 0 0>;
+-	};
 -};
 -
 -&wkup_r5fss0 {
@@ -395,89 +444,147 @@ index 5ecdd833587e..dc4b228a9fd7 100644
 -};
 -
 -&wkup_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+-	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
 -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
 -			<&wkup_r5fss0_core0_memory_region>;
 -	status = "okay";
 -};
 -
- /* Verdin CAN_1 */
- &main_mcan0 {
- 	pinctrl-names = "default";
-@@ -1549,3 +1505,5 @@ &wkup_uart0 {
- 	pinctrl-0 = <&pinctrl_wkup_uart0>;
- 	status = "disabled";
+-&mcu_r5fss0 {
+-	status = "okay";
+-};
+-
+-&mcu_r5fss0_core0 {
+-	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
+-	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+-			<&mcu_r5fss0_core0_memory_region>;
+-	status = "okay";
+-};
+-
+-&c7x_0 {
+-	mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
+-	memory-region = <&c7x_0_dma_memory_region>,
+-			<&c7x_0_memory_region>;
+-	status = "okay";
+-};
+-
+-/* main_rti4 is used by C7x DSP */
+-&main_rti4 {
+-	status = "reserved";
+-};
+-
+ &fss {
+ 	status = "okay";
+ };
+@@ -937,3 +847,5 @@ AM62AX_IOPAD(0x008, PIN_INPUT, 0) /* (J24) OSPI0_DQS */
+ 		>;
+ 	};
  };
 +
-+#include "k3-am62-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-index 05cba3cfc79e..241902fc1cf2 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-@@ -58,18 +58,6 @@ linux,cma {
- 			linux,cma-default;
++#include "k3-am62a-ti-ipc-firmware.dtsi"
+diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+index 289f52b3481f..c958a1c4a657 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+@@ -58,30 +58,6 @@ secure_tfa_ddr: tfa@80000000 {
+ 			no-map;
  		};
  
--		mcu_m4fss_dma_memory_region: memory@9cb00000 {
+-		c7x_0_dma_memory_region: memory@99800000 {
 -			compatible = "shared-dma-pool";
--			reg = <0x00 0x9cb00000 0x00 0x100000>;
+-			reg = <0x00 0x99800000 0x00 0x100000>;
 -			no-map;
 -		};
 -
--		mcu_m4fss_memory_region: memory@9cc00000 {
+-		c7x_0_memory_region: memory@99900000 {
 -			compatible = "shared-dma-pool";
--			reg = <0x00 0x9cc00000 0x00 0xe00000>;
+-			reg = <0x00 0x99900000 0x00 0xf00000>;
 -			no-map;
 -		};
 -
- 		wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
+-		mcu_r5fss0_core0_dma_memory_region: memory@9b800000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9b800000 0x00 0x100000>;
+-			no-map;
+-		};
+-
+-		mcu_r5fss0_core0_memory_region: memory@9b900000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9b900000 0x00 0xf00000>;
+-			no-map;
+-		};
+-
+ 		wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
  			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9da00000 0x00 0x100000>;
-@@ -477,38 +465,6 @@ cpsw3g_phy0: ethernet-phy@0 {
+ 			reg = <0x00 0x9c800000 0x00 0x100000>;
+@@ -551,66 +527,16 @@ cpsw3g_phy1: ethernet-phy@3 {
  	};
  };
  
 -&mailbox0_cluster0 {
 -	status = "okay";
 -
--	mbox_m4_0: mbox-m4-0 {
+-	mbox_r5_0: mbox-r5-0 {
 -		ti,mbox-rx = <0 0 0>;
 -		ti,mbox-tx = <1 0 0>;
 -	};
+-};
 -
--	mbox_r5_0: mbox-r5-0 {
--		ti,mbox-rx = <2 0 0>;
--		ti,mbox-tx = <3 0 0>;
+-&mailbox0_cluster1 {
+-	status = "okay";
+-
+-	mbox_c7x_0: mbox-c7x-0 {
+-		ti,mbox-rx = <0 0 0>;
+-		ti,mbox-tx = <1 0 0>;
 -	};
 -};
 -
--&mcu_m4fss {
--	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
--	memory-region = <&mcu_m4fss_dma_memory_region>,
--			<&mcu_m4fss_memory_region>;
+-&mailbox0_cluster2 {
 -	status = "okay";
+-
+-	mbox_mcu_r5_0: mbox-mcu-r5-0 {
+-		ti,mbox-rx = <0 0 0>;
+-		ti,mbox-tx = <1 0 0>;
+-	};
 -};
 -
 -&wkup_r5fss0 {
 -	status = "okay";
 -};
 -
--&wkup_r5fss0_core0 {
+ &wkup_r5fss0_core0 {
 -	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
 -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
 -			<&wkup_r5fss0_core0_memory_region>;
 -	status = "okay";
+ 	bootph-pre-ram;
+ };
+ 
+-&mcu_r5fss0 {
+-	status = "okay";
 -};
 -
- &usbss0 {
- 	bootph-all;
- 	status = "okay";
-@@ -601,3 +557,5 @@ &epwm1 {
- 	pinctrl-0 = <&main_epwm1_pins_default>;
- 	status = "okay";
+ &mcu_r5fss0_core0 {
+-	mboxes = <&mailbox0_cluster2 &mbox_mcu_r5_0>;
+-	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+-			<&mcu_r5fss0_core0_memory_region>;
+ 	firmware-name = "am62d-mcu-r5f0_0-fw";
+-	status = "okay";
  };
-+
-+#include "k3-am62-ti-ipc-firmware.dtsi"
+ 
+ &c7x_0 {
+-	mboxes = <&mailbox0_cluster1 &mbox_c7x_0>;
+-	memory-region = <&c7x_0_dma_memory_region>,
+-			<&c7x_0_memory_region>;
+ 	firmware-name = "am62d-c71_0-fw";
+-	status = "okay";
+ };
+ 
+-/* main_rti4 is used by C7x DSP */
+-&main_rti4 {
+-	status = "reserved";
+-};
++#include "k3-am62a-ti-ipc-firmware.dtsi"
 -- 
 2.34.1
 
