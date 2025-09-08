@@ -4,76 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC1CCA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431DCCA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TjthOufdzWFFEHDFMcp8mxMG7aNHuqp5Hl+PDdQnHY8=; b=iiYZkywrOvjhkpjOK/3sA42S7c
-	KipMHSL6UfKnBysKUHC5o3w466AHp3vlXzyNR/DNAcMQO8ZiyRYnBZb3rZFyGqxU0C7ugIQagOY4l
-	e3UCK2wVRre2im9KrSX9qvIiAcVzECOwB1sCnsCxcrngFkMv6OOLGCUfKKE1T8wnlNrVEx4jBLHAq
-	iO1kSVueVTO5FyTEgSfml7NMh4cm18PHEea4jGCYhwlOykM6+8FTi5DLrvZWzO6ZkwzDPZtgHyLYq
-	wjmGq4OOr6ALG5TJju3z2Q/EudIZ9aIWlCR9PlU1FLIXgqRqUhpQf6jbR33aoJb6Ra+Xp6MYVse4Q
-	BRgy7NoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Li1Adrjj4VVnlXoSqhzmWGYfj7zooVeMiJ3AjTpsi/A=; b=3wsAJotBtB/8dXzGCjKvsm9fNQ
+	dXxT4ZqMuRgn0TxeSNh61QCFdvxXSV3Q2nGPG+ozE/DcdCb6Sf44qwNvSypXRrYiOGpuIkkHooC4n
+	pUl6wS7rOtQ3DRxhZRuBJnwpZYWxw6MIsbQm/MBsufCdA+V/PBAN7KCAQKNycd+aJ9KDZbSZOy1fv
+	8jXy2X2mwpaKuSjAvknjkhpbYoso7jNw7TK+jdK+L7BRAGtKYhKOdqB8iX0VEP/Jz62VVVBunStoR
+	G+Qg8AhAD7f5UHp3srwg8IrBxkZHxuVcID/MlrOXW/dfPlomCi64rpCbZRRQSWnN/iuFZRCRybf5u
+	n3PpZyyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgr5-00000001dZZ-3pPZ;
-	Mon, 08 Sep 2025 18:44:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvdkT-00000000PRd-1QlS
+	id 1uvgto-00000001epH-3DeB;
+	Mon, 08 Sep 2025 18:47:32 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvdlI-00000000Pnx-3tZz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 15:25:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B0712D8E;
-	Mon,  8 Sep 2025 08:25:28 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D0153F740;
-	Mon,  8 Sep 2025 08:25:30 -0700 (PDT)
-Date: Mon, 8 Sep 2025 16:25:28 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
- kbuild boiler plate
-Message-ID: <aL71aP3qyyfD+T47@e133380.arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-11-james.morse@arm.com>
- <aLWBqNMKoTl9VDIS@e133380.arm.com>
- <8265943b-536f-47ce-af05-129edd417863@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Mon, 08 Sep 2025 15:26:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vIp2uHGINijMD7uvG16YeYoLHOHt6Wb1CWQ39+59Fqkzv+flHzbqxFAT0ZcQmBhihPjbr3Z1ffLxqp3LVdAqBtrppi0RvNlNTNfUHHGcOYSX5ndhOSUJ/izacCMd+o52TZUT9M7yhu2l1yJDZPOD6tUEhg/Q/nAhMnvj9vW+1qJnkpQS3XgQLZYFaz1kqEtbzn2o8kwo267eIkEsOxVYuCz6FVhBOPjYNBHpiGKf4fbcvguiwQA20iQi2mMy2Bx4d2n744U4qztJHE0X1Lddgcp61zGvfvBsDeqzhDNLusZaWP0Pg3IyclQjV7WzPJfl0p7i7z+txG2p6/ACAyrMhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Li1Adrjj4VVnlXoSqhzmWGYfj7zooVeMiJ3AjTpsi/A=;
+ b=UHZ0SCaWIDKaTMbjmrNqZnjxC9rjrBnyYX91C12jLgidOxBTS2821th2vp7w3B9xPLKp3TGoO73dbiluUHNoRTyrEBZ9qVYRPPruwaUKLKAy6YYqf8GtgqTvz2500CxdNVlFMFV20nOtjDZwCW2WE+0SD0B7zEs29kFb2wCAJNy9+6uVpFGXaUxAAsyRplLMwOylJ67gdcFSFXaD7FnwNaXzIfreAfKiS5i5yuNrgmZL6zV1yqQt+L5OF8q8Yvt5bg6lfaUnSXD5O2/iQINjJT6q110zrZo+iSv4keisBzAorskk4jK+GFwyI6JWIOFqBRo8OKKPSCkY1a2mUSVZRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Li1Adrjj4VVnlXoSqhzmWGYfj7zooVeMiJ3AjTpsi/A=;
+ b=SVMHBLENKsh7L8X+CXrem29B22jaxhW7SRc2wFY1znN3oDtHejJLXzPKGgICPQojFF57XF7JogCzZiBM9vBMyMpD9JZK+Avhvt0YN92YR9zdgv3DjXFSJiYnYMOVf/b/7p4odopOCXvq9Z3QhKdvJjIkP4GC+M+ScnES5QMHuwpF7ZWk60x6OM/uhsmNOa83kdlih9lFJFHSfD8U+GWeDfRbAgOwJ46aW6UgKQ9wV8pRCZNpwx6q9YjSGNAZpzztp4g0XOKGTkItxhrMr8cdOp7DEIWI185IBWr63/15NIvDpk6ExkURnDH2vFvkdwH91TiGkPl3nhTDwIASx69F+w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by VE1PR04MB7214.eurprd04.prod.outlook.com (2603:10a6:800:1a6::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.19; Mon, 8 Sep
+ 2025 15:26:19 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%5]) with mapi id 15.20.9115.010; Mon, 8 Sep 2025
+ 15:26:19 +0000
+Date: Mon, 8 Sep 2025 11:26:11 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 2/2] PCI: imx6: Add a method to handle CLKREQ#
+ override active low
+Message-ID: <aL71k+CeZEwTnn86@lizhi-Precision-Tower-5810>
+References: <20250820081048.2279057-1-hongxing.zhu@nxp.com>
+ <20250820081048.2279057-3-hongxing.zhu@nxp.com>
+ <ryvt2k2blew5wisy7edkjqdcmulrwey7lkeriasrmvaigpe3ku@vdgkod2bf7ma>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <8265943b-536f-47ce-af05-129edd417863@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ryvt2k2blew5wisy7edkjqdcmulrwey7lkeriasrmvaigpe3ku@vdgkod2bf7ma>
+X-ClientProxiedBy: PH7PR17CA0054.namprd17.prod.outlook.com
+ (2603:10b6:510:325::18) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|VE1PR04MB7214:EE_
+X-MS-Office365-Filtering-Correlation-Id: b0442a1a-dc41-4746-9883-08ddeeec0f4e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MEp2MVY2b2RPdlpremF6MkhlckowRWV1UlUrUUhJRUlsdUt3RWxnTTFjM3Rq?=
+ =?utf-8?B?c0lROVA2TFJ0NDM2TmlERzNnOWFJbWx5UFE2T094L3NzSWFndVNGTkpENGxh?=
+ =?utf-8?B?SGsvWmdRcVRocmlJamhvK3JnY20rOG1WSlZxa3V1S2FiOW5xNWxlbUlDZzBo?=
+ =?utf-8?B?QXRjR3Yrd21VQ3RaNldXdm5hUmxBSEdJWWdqZVhxSFlpNjQxZGNvdUE3L1Yw?=
+ =?utf-8?B?ZzBFL0djaURPcGJCYlJrL1k3OUxhQ3JDUk83djJOK3dacHBBTFR2ZW91b000?=
+ =?utf-8?B?OWdmWGtSQ1Fzc1ZwdllzeTlNZGJlQkFoUWJIK01FSEprR3lWenJ3OHpSSXdY?=
+ =?utf-8?B?VU54NWtWUnNXT0pWQ0xkZTl1aVBWTDFOcTFjb2l0NTFzMHFtd1VJZ3U5ME5U?=
+ =?utf-8?B?TDY1WlVQWjk5MVNaWVRCaFNoTEYxdW03YlpKUktKSlQ5ZVZOVmRVMTFWbHpV?=
+ =?utf-8?B?TjMvdlBPYmMyaWJsZWE4MTFkcGJYbVA5R1IvWGVNZmtBai9naWhQQXU0d0U0?=
+ =?utf-8?B?ZXRrUjl1NWlHKzJSbTRkeXJTNjNZSlJyNjZxeHdwLzBjT0hBdGUrdjF6UGJK?=
+ =?utf-8?B?MnhJRTVJSm4zenFab054bGdWQm5vYkhueEN3dUs5bTNkUCs4b1lmSXdybk1X?=
+ =?utf-8?B?Ujg4M0ZWTlhYY0NzOVdSYkZiRmpyV01rL0cwZ0xxdnFnNnZGTXhtYXJ2bG9E?=
+ =?utf-8?B?c0FnYzJVb3lIZW5EZWo0NDUwOXRzcFRzZlU2YVNyNlBndWd4TWFXTlVrSXVJ?=
+ =?utf-8?B?YmdRMXhSZTlmT0lWeXpqbFVhNGhieVU4dzlwSnlDK2ZpRFovR3RuT081QnNo?=
+ =?utf-8?B?N3MwbCszT2xRc3JsVnVNOG5KbWoyQ1RTRjg2NXhJQm9DL2tEcUdQZkU1dEhX?=
+ =?utf-8?B?bmt0anlhTmh3SmdQSEhRRkMyeVdNa3QxYVRZa3A5YVRHd3hTZ1ZGWEdQWDFJ?=
+ =?utf-8?B?OEljS3BTdUx0NXFuMS91aU5lbFpqYXg0U3NVUHU3UXhWeXo1YzFMelF3cXU2?=
+ =?utf-8?B?SEJ2Y0w3QWd2T1FnYlh1bFhlODU4N3EySlYxdU9wc24vUzYvQ1YzbHp3K2dU?=
+ =?utf-8?B?WXBzWlNCL3FiNTZIZTJvNXQzYWhEd2pBRXhLanhsOENOVGdiTGFqaWJVK0F0?=
+ =?utf-8?B?YjA1c3l5TzUwejNVbC9FMTA5a1dydWRWYVdkSC9OanBVbTljSkxqLythcmlB?=
+ =?utf-8?B?czRKeHFNMWRraTlabXQzd2xHZjFETTZqTUZ3SHBoR1c5cWc5SzZweTNyaGdO?=
+ =?utf-8?B?UmpYZG00YnVkK2t6aUprZ3ZaVys4ZW5RL2tTUDQycE05M21HbEdDMzVzQjNR?=
+ =?utf-8?B?VlBpQld5TStiM0RjOWM0aWJDL3prbFVPR1JhOUdpL2VRWThoclorcjFwS0tp?=
+ =?utf-8?B?SHVXeW9XRUVzeVd1U3NrNEJUSld4VENGaHNrQjRNZFE5cjZzQXhCd0FsWFYz?=
+ =?utf-8?B?VHRseTVEUy9pbUtCSnBZWXk4Zk1tSlRjZU5vNmNVZTk5K3ZvQ0hxOXZNOW5G?=
+ =?utf-8?B?NlJFRlhIdS9Lamw3cFBTejU4OHhwdXc3M3dnVmY0amRLL3VlRDdKK3pnbFZy?=
+ =?utf-8?B?Q0NXdVVoZ3VwcDdKZFVqT1FOQkpaVG0zdlNFTURDcWYwMTQ0SHh3Y0VXV1h4?=
+ =?utf-8?B?UXpUQlVlTTJUbjNQQkR6b1FtWnZXbnFrSnJMQW5JaG1HakpDb2lpWFZSTmlB?=
+ =?utf-8?B?MFdKRjhLcHVEMDVpY21kNXpqR1lFVzh2UzErWDJ0RXRoaFhUbndJKzJucUVs?=
+ =?utf-8?B?Z0Z2Z2J4RjdLQXVvRlNhWFJlNHZSc1lZWXZ6YW9vM0l2RXJ3ZmY2NFl0Umls?=
+ =?utf-8?B?MDJ3SitmK05Oa1VHWi9lUjFMaVUyOWEvUEVpRU5USEQ2L242R1o5c0swSzBK?=
+ =?utf-8?B?VzN6bWtKL1Q3WFlndkg0MXdSdEtqaXIxQ0ViZ1ZPbVUyME5nNDRpWERFeGFy?=
+ =?utf-8?B?SHMxRFNNVXpFSkIwMkdFRUUrR0llV2FhcnlXdDB5eW96VStibCtUMlI0SHZP?=
+ =?utf-8?B?dmpoZm1UemZnPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UDNsRTlrRVZ1VTI4SWFyWlBvQTVNTEJ1ZUYvVk1tU1JOcVdZMUxjRzRkSUtl?=
+ =?utf-8?B?MytFVlBUV2tpc3E4U0NGRTlxTGFPa2dCZ2R6N1c3bVBQTUQ5eXhqOG1Kdmhu?=
+ =?utf-8?B?TzZCV0ZEWm1Fdnk4cDVERDRGaXF0S1IvRE5IUC9mTkdEbUNNN0w1WmNKdzBZ?=
+ =?utf-8?B?TDRqdGxJdlM2UFBmUVRhY0VxMUMrVGx0Um9UUG1IdDA0V1VqTkhUL2g5R1Zu?=
+ =?utf-8?B?NlNWN21OZCtiV0ZZb3NZcE5nTlJxQ3dMT3ViNDdDYUJtNmFrUkt0T1FGRzV0?=
+ =?utf-8?B?YTlXTThkd3VzSGVYVW1XZUo0MisybDhUK1BDSFFhZ3JKc1IwZWlTbFg4RjBn?=
+ =?utf-8?B?V24xZVlZbThBcnVsTmloTGRPd2pna29LVXZuUWtOUG5zSzFqM2dnVmtVOVBR?=
+ =?utf-8?B?dGxXdWw1dVpJZkQwNkVkTWNvZUovVWpqcG9UTlg1UTlFRDlsZGVCQVZwZzUx?=
+ =?utf-8?B?OTF3dHNIcUdtcHpubmpZSzJUcGdmRERFdHJKQVMrZzlpYVFmNmpsOHl5RVV2?=
+ =?utf-8?B?WVNNc3g5NFhGbnI5T3htTUdMYk9VcWpOQm5OYTc1YXlnaEFEWHdSM3BCL0tO?=
+ =?utf-8?B?bFhQRmZ6YVB6Z1dqL3RUc1VyTTdhZTdMYWJQM1YxK0g0SCt1cmIyQXVrb1Nz?=
+ =?utf-8?B?eUgvT3JsR3dka2NqVDlFMWVaWWNMcnlBZk9QTVo3MlFMbmpGWmw5cVVhN2Vk?=
+ =?utf-8?B?L3Q2aWVnODByNWZkSVlsdmVPNWxIQXk2U2dsclN5TkM4ZmJNbGo2S2FkV2hu?=
+ =?utf-8?B?V28wS2R4NFE3a2VzZzI1dTdzai9NdlhMN0JFUGlncmZ0V1RqZmxxeldlaUpG?=
+ =?utf-8?B?WWVkZUJLaXIvc2lZN281M01KbkRRcXlSRUZHSEVZVFNpcUpqa0ZsS0JMTFZm?=
+ =?utf-8?B?ZTZwZmZsWFY5b2JwT0R6R3QyTVpWaGlyczYycjRXNXUzVFhiK21BR2JoM0s4?=
+ =?utf-8?B?UFFZME9lYWJKTW01Z3ZPR3VnQ2d4a2lQYlFBd0lOUFJXTEtCVis2OC9Cbitr?=
+ =?utf-8?B?WTJ5RGhzTCs5MkZRRDBKWlkzRUpqbVNqTGUxNG1ZOVhxd3Rqem5LdDZGdXJW?=
+ =?utf-8?B?SExqRVdSNllHNUFmc2V6Z2tieW5NS2xydWI1djIyZFNuV1dSSTZXQWRqNWlw?=
+ =?utf-8?B?MXJ5b3MvM1BLOW03VXRqMjJRTzJxRkF3TGdvNDBZUC9YenhTRTdUSytkOVZV?=
+ =?utf-8?B?RnZmMk1rQXNpeGgxK1hqNzc0Q0ZRckg3d1JnTFE1ZGFGYnBsK0tqUDJvM3BV?=
+ =?utf-8?B?c0tsWUZLdTBQblBaZTAvdE1CQkxEM3h1Sk9hNFVvdG1WZHBER1ArcUMvMzl5?=
+ =?utf-8?B?VEJYOEd4ZzBpTmhjdEJCNWZhcWdUcGc0aUh0QndzbzNrM2dXbkk0eDdmVFpn?=
+ =?utf-8?B?S3V2cnZzVlVPaXpmR1NBTUlDTWF0N0lJMCtRTktieDF3Sk8zajkwUkZId21s?=
+ =?utf-8?B?MkFmMnF6Yy9JNlZIMjgxbWVFMHdnbGxRQURhOTRqNWVBSnprQUt4TFVwbjFm?=
+ =?utf-8?B?c0JBN2VNZDU4SG1abGs2N0V3d0JScWFLTDRWbUJVK0NvaUxZMmRlN2FhbGlr?=
+ =?utf-8?B?WHpmMnRDWHAyYkpEdytIdFpQaFdudTlVR2JpaFQzckhIZkFrSFRhNkpLbUI4?=
+ =?utf-8?B?Z3BST0NiUVlrNXEvS1dRNGZhSHArVXZreHFrVWtsNVl1cFJlY1RSM0V3Z3BY?=
+ =?utf-8?B?R0xlV2lyZ1ZsckI4bmZ0U2RMUENCSDJBY3hScUpPSTlBL0JZbG9OUW8yd3Rj?=
+ =?utf-8?B?M0JFZWpIRDh5Z21YMTI1LzErMHlmR3hvdDJ4eit2TEsrYkMyYVJ6N25oeFlW?=
+ =?utf-8?B?TlFibmcxd0pQbnpvblBMRU5kR2lLWms3QmM0d1I4QTMrYlR1OGtIOVMzTFB0?=
+ =?utf-8?B?ZDNOYVArUXg5dDdHRzA0ZTZDQzVCS29kQk5CTzNNR3VaWno4WHNZQTJFS1pE?=
+ =?utf-8?B?NFVPUHBnQ05OajRDYmQ1emhTMnlzcm9XRkx5ZGR1Sk1QZUllNDRTdU1iYVlU?=
+ =?utf-8?B?NmtGSk03UlBsZC90NXlKWmJjeTdaUlFTQ1JGRFAyU0pwOTVzaDVzNWUrVmxQ?=
+ =?utf-8?B?d1A1cnN4SUNrVzFacWtmRVFaaVFQNUVSL0JLdHhkM3A0TjRPVzhZTjFSZ2lS?=
+ =?utf-8?Q?zYNvR/gG9LFs+RnDEmvGzS5oS?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0442a1a-dc41-4746-9883-08ddeeec0f4e
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2025 15:26:19.5544
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AEf3QRevjHl6QJ/HP0bxxTN3DDmqZtJTph5ma0oykqROwyTQ8tTi4MicjSiGEDlaGw8Jqe2MKQCGSBJkSFZV4w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7214
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_082542_276756_CFCE2186 
-X-CRM114-Status: GOOD (  91.65  )
+X-CRM114-CacheID: sfid-20250908_082633_115530_11464BCA 
+X-CRM114-Status: GOOD (  36.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,711 +181,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 05, 2025 at 07:49:37PM +0100, James Morse wrote:
-> Hi Dave,
-> 
-> On 01/09/2025 12:21, Dave Martin wrote:
-> > On Fri, Aug 22, 2025 at 03:29:51PM +0000, James Morse wrote:
-> >> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
-> >> only be accessible from those CPUs, and they may not be online.
-> >> Touching the hardware early is pointless as MPAM can't be used until
-> >> the system-wide common values for num_partid and num_pmg have been
-> >> discovered.
-> >>
-> >> Start with driver probe/remove and mapping the MSC.
-> >> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-> >> new file mode 100644
-> >> index 000000000000..dff7b87280ab
-> >> --- /dev/null
-> >> +++ b/drivers/resctrl/Kconfig
-> >> @@ -0,0 +1,11 @@
-> >> +# Confusingly, this is everything but the CPU bits of MPAM. CPU here means
-> >> +# CPU resources, not containers or cgroups etc.
+On Mon, Sep 08, 2025 at 11:36:02AM +0530, Manivannan Sadhasivam wrote:
+> On Wed, Aug 20, 2025 at 04:10:48PM GMT, Richard Zhu wrote:
+> > The CLKREQ# is an open drain, active low signal that is driven low by
+> > the card to request reference clock.
 > >
-> > Drop confusing comment?
+> > Since the reference clock may be required by i.MX PCIe host too.
+>
+> Add some info on why the refclk is needed by the host.
+>
+> > To make
+> > sure this clock is available even when the CLKREQ# isn't driven low by
+> > the card(e.x no card connected), force CLKREQ# override active low for
+> > i.MX PCIe host during initialization.
 > >
-> > CPUs are not mentioned other than in the comment -- I think the
-> > descriptions are sufficiently self-explanatory that they don't read
-> > onto CPUs.
-> 
-> This used to add ARM_CPU_RESCTRL, to mirror X86_CPU_RESCTRL.
-> It's been tidied up since then, but the comment remains.
-> I'll remove it.
-
-OK
-
-> >> +config ARM64_MPAM_DRIVER
-> >> +	bool "MPAM driver for System IP, e,g. caches and memory controllers"
-> >> +	depends on ARM64_MPAM && EXPERT
-> >> +
-> >> +config ARM64_MPAM_DRIVER_DEBUG
-> >> +	bool "Enable debug messages from the MPAM driver."
+>
+> CLKREQ# override is not a spec defined feature. So you need to explain what it
+> does first.
+>
+> > The CLKREQ# override can be cleared safely when supports-clkreq is
+> > present and PCIe link is up later. Because the CLKREQ# would be driven
+> > low by the card in this case.
 > >
-> > Nit: spurious full stop.
+>
+> Why do you need to depend on 'supports-clkreq' property? Don't you already know
+> if your platform supports CLKREQ# or not? None of the upstream DTS has the
+> 'supports-clkreq' property set and the NXP binding also doesn't enable this
+> property.
+
+It is history reason. Supposed all the boards which supports L1SS need set
+'supports-clkreq' in dts. L1SS require board design use open drain connect
+RC's clk-req and EP's clk-req together, which come from one ECN of PCI
+spec.
+
+But most M.2 slot now, which support L1SS, so most platform default enable
+L1SS or default 'supports-clkreq' on.
+
+Ideally, 'supports-clkreq' should use revert logic like 'clk-req-broken'.
+but 'supports-clkreq' already come into stardard PCIe binding now.
+
+One of i.MX95 boards use standard PCIe slot, PIN 12
+12	CLKREQ#	Ground	Clock Request Signal[26]
+which is reserved at old PCIe standard, so some old PCIe card float this
+pin.
+
+So I think most dts in kernel tree should add 'supports-clkreq' property
+if they use M.2 and connect CLK_REQ# as below [1]
+============================================
+              VCC
+              ---
+               |
+               R (10K)
+               |
+CLK_REQ# (RC)------ CLK_REQ#(EP)
+
+NOT add supports-clkreq if connect as below [2]
+==========================================
+
+CLK_REQ# (RC)  ---> |---------|
+                    | OR GATE | ---> control ref clock
+CLK_REQ#(EP)   ---> |-------- |
+
+
+>
+> So I'm wondering how you are suddenly using this property. The property implies
+> that when not set to true, CLKREQ# is not supported by the platform. So when the
+> driver starts using this property, all the old DTS based platforms are not going
+> to release CLKREQ# from driving low, so L1SS will not be entered for them. Do
+> you really want it to happen?
+
+Actually, some old board use [2]. we will add supports-clkreq if board
+design use [1], so correct reflect board design.
+
+Frank
+>
+> - Mani
+>
+> > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > ---
+> >  drivers/pci/controller/dwc/pci-imx6.c | 35 +++++++++++++++++++++++++++
+> >  1 file changed, 35 insertions(+)
 > >
-> > (i.e., people don't add one in these one-line descriptions.
-> > They are title-like and self-delimiting, even when the text is a valid
-> > sentence.)
-> 
-> /me waves hands around
-
-I did say "Nit" ;)  (This was mainly a "hmm, this doesn't look quite
-like the rest" thing.)
-
-
-> >> +	depends on ARM64_MPAM_DRIVER
-> >> +	help
-> >> +	  Say yes here to enable debug messages from the MPAM driver.
-> 
-> >> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> >> new file mode 100644
-> >> index 000000000000..a0d9a699a6e7
-> >> --- /dev/null
-> >> +++ b/drivers/resctrl/mpam_devices.c
-> >> @@ -0,0 +1,336 @@
-> 
-> >> +/*
-> >> + * mpam_list_lock protects the SRCU lists when writing. Once the
-> >> + * mpam_enabled key is enabled these lists are read-only,
-> >> + * unless the error interrupt disables the driver.
-> >> + */
-> >> +static DEFINE_MUTEX(mpam_list_lock);
-> >> +static LIST_HEAD(mpam_all_msc);
-> >> +
-> >> +static struct srcu_struct mpam_srcu;
-> >> +
-> >> +/* MPAM isn't available until all the MSC have been probed. */
+> > diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> > index 80e48746bbaf6..a73632b47e2d3 100644
+> > --- a/drivers/pci/controller/dwc/pci-imx6.c
+> > +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> > @@ -52,6 +52,8 @@
+> >  #define IMX95_PCIE_REF_CLKEN			BIT(23)
+> >  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
+> >  #define IMX95_PCIE_SS_RW_REG_1			0xf4
+> > +#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
+> > +#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
+> >  #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
 > >
-> > Comment doesn't really explain the variable.
+> >  #define IMX95_PE0_GEN_CTRL_1			0x1050
+> > @@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
+> >  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+> >  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
+> >  	int (*wait_pll_lock)(struct imx_pcie *pcie);
+> > +	void (*clr_clkreq_override)(struct imx_pcie *pcie);
+> >  	const struct dw_pcie_host_ops *ops;
+> >  };
 > >
-> > Maybe something like "Number of MSCs that need to be probed for MPAM
-> > to be usable" ?
-> 
-> Its the count not the remainder. I went with:
-> | * Number of MSCs that have been probed. Once all MSC have been probed MPAM
-> | * can be enabled.
-
-Thanks, that's clearer.
-
-> >> +static u32 mpam_num_msc;
+> > @@ -149,6 +152,7 @@ struct imx_pcie {
+> >  	struct gpio_desc	*reset_gpiod;
+> >  	struct clk_bulk_data	*clks;
+> >  	int			num_clks;
+> > +	bool			supports_clkreq;
+> >  	struct regmap		*iomuxc_gpr;
+> >  	u16			msi_ctrl;
+> >  	u32			controller_id;
+> > @@ -267,6 +271,13 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+> >  			   IMX95_PCIE_REF_CLKEN,
+> >  			   IMX95_PCIE_REF_CLKEN);
 > >
-> > Any particular reason this is u32 and not unsigned int?
-> u32 is less typing!
-
-But more effort for the reader / reviewer -- it's semantic noise.
-
-(It works either way though, obviosly.  It looks like this code may
-have caught fixed-size-itis off the resctrl code, to some degree.)
-
-
-> > How are accesses to this protected against data races?
-> 
-> It's under the list-lock, but after Rob's feedback I've made it an atomic_t and stopped
-> using it as an id for all the print messages.
-
-Converting to atomic_t reduces the chance of people asking the
-question, but doesn't really answer the question.
-
-Since mpam_num_msc shadows the contents of the lists and msc data
-structures, it may matter whether the two can be seen out of sync.
-
-Does it definitely not matter?
-
-> > If there are supposed to be locks to protect globals in the MPAM driver,
-> > is it worth wrapping them in access functions with a lockdep assert?
-> > Otherwise, it feels rather easy to get this wrong -- I think I've found
-> > at least one bug (see mpam_msc_drv_probe().)
-> Broadly: everything is protected by the list_lock when things are being discovered.
-> Once everything has been discovered, these things can become read-only.
-> 
-> It's not until everything has been discovered that interrupts get registered, and things
-> like a potential PMU driver could make calls in a strange context.
-> 
-> Adding helpers would need some global state variable, if (state == foo) lockdep_assert...
-> I had that early on, but figured it was overkill.
-
-I wonder whether it would be worth migrating this, so that the probe-
-time variables (which are read-write) can be kept separate from the
-run-time system description variables (which are mostly write-once).
-
-This would avoid having to support two different locking scenarios with
-a single mechanism.
-
-
-I have a bit of a concern that there are too many synchronisation
-mechanisms in use, with purposes that overlap and are in some cases
-not clealy described and not obvious -- at least, not to me.
-
-I don't think the fact that there have been few comments on this area
-necessarily indicates that other reviewers have fully understood the
-locking.
-
-> >> +static void mpam_discovery_complete(void)
-> >> +{
-> >> +	pr_err("Discovered all MSC\n");
-> >> +}
-> 
-> > As others have commented, if this is non-functional code that gets
-> > removed later on, it's probably best to drop this up-front?
-> It's illustrating that something happens after all the MSC have been discovered.
-> Knowing that from the beginning of the series is supposed to make the insertion of the
-> cpuhp notifiers in the middle easier to think about...
-
-So long as this was not unintentionally left behind when splitting the
-series, I guess it's OK to have it here -- as you say, it does motivate
-the shape that the code will eventually need to have.
-
-> >> +static int mpam_dt_parse_resource(struct mpam_msc *msc, struct device_node *np,
-> >> +				  u32 ris_idx)
-> >> +{
-> >> +	int err = 0;
-> >> +	u32 level = 0;
-> >> +	unsigned long cache_id;
-> >> +	struct device_node *cache;
-> >> +
-> >> +	do {
-> >> +		if (of_device_is_compatible(np, "arm,mpam-cache")) {
-> >> +			cache = of_parse_phandle(np, "arm,mpam-device", 0);
-> >> +			if (!cache) {
-> >> +				pr_err("Failed to read phandle\n");
-> >> +				break;
-> >> +			}
-> >> +		} else if (of_device_is_compatible(np->parent, "cache")) {
-> >> +			cache = of_node_get(np->parent);
-> >> +		} else {
-> >> +			/* For now, only caches are supported */
-> >> +			cache = NULL;
-> >> +			break;
-> >> +		}
-> >> +
-> >> +		err = of_property_read_u32(cache, "cache-level", &level);
-> >> +		if (err) {
-> >> +			pr_err("Failed to read cache-level\n");
-> >> +			break;
-> >> +		}
-> >> +
-> >> +		cache_id = cache_of_calculate_id(cache);
-> >> +		if (cache_id == ~0UL) {
+> > +	/* Force CLKREQ# low by override */
+> > +	regmap_update_bits(imx_pcie->iomuxc_gpr,
+> > +			   IMX95_PCIE_SS_RW_REG_1,
+> > +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
+> > +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
+> > +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
+> > +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL);
+> >  	return 0;
+> >  }
 > >
-> > The type of cache_id may change if the return type of
-> > cache_of_calculate_id() changes (see comments on patch 1).
-> 
-> Yup,
-> 
-> > Possible #define for the exceptional value.
-> 
-> I don't think its any more surprising than '-1' as an error value, and its only got one
-> caller, which is pretty obviously an error path.
-
-A #define is not essential.  (As I say elsewhere, I don't entirely
-trust uses of ~ where the types may be mixed.  But this case look low-
-isk for future maintenance.)
-
-> >> +			err = -ENOENT;
-> >> +			break;
+> > @@ -1298,6 +1309,18 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+> >  		regulator_disable(imx_pcie->vpcie);
+> >  }
 > >
-> > The lack of a diagnostic here is inconsistent with the level of
-> > diagnostics in the rest of the loop.
-> 
-> I've never needed to debug that one because its already visible to user-space. If the
-> cache-id's are missing, you can tell that in sysfs, you don't need to instrument the kernel.
-> 
-> I'll add one if you think its important. They can all be _once, and as its related to
-> the probing of a particular device, can use the dev_ print helpers.
-
-No, I guess that's fine.  I don't have a strong feel for which things a
-user is likely to have to debug in practice, and I accept that we
-shouldn't try to cover absolutely everything.
-
-> >> +		}
-> >> +
-> >> +		err = mpam_ris_create(msc, ris_idx, MPAM_CLASS_CACHE, level,
-> >> +				      cache_id);
-> >> +	} while (0);
+> > +static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+> > +{
+> > +	imx8mm_pcie_enable_ref_clk(imx_pcie, false);
+> > +}
+> > +
+> > +static void imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+> > +{
+> > +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
+> > +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
+> > +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL, 0);
+> > +}
+> > +
+> >  static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
+> >  {
+> >  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> > @@ -1322,6 +1345,12 @@ static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
+> >  		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
+> >  		dw_pcie_dbi_ro_wr_dis(pci);
+> >  	}
+> > +
+> > +	/* Clear CLKREQ# override if supports_clkreq is true and link is up */
+> > +	if (dw_pcie_link_up(pci) && imx_pcie->supports_clkreq) {
+> > +		if (imx_pcie->drvdata->clr_clkreq_override)
+> > +			imx_pcie->drvdata->clr_clkreq_override(imx_pcie);
+> > +	}
+> >  }
 > >
-> > Abuse of do ... while () here?
+> >  /*
+> > @@ -1745,6 +1774,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+> >  	pci->max_link_speed = 1;
+> >  	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
 > >
-> > There is no loop.  The breaks are stealth "goto"s to this statement:
-> Yes. The alternative would be actual gotos - which is surely worse!
-> It just wasn't worth pulling this out as a separate function.
-
-Again, it's semantic noise.  do ... while is a looping construct.
-If you write "do {", the reader expects a loop and has to analyse the
-code in order to conclude that there isn't.
-
-Using a loop in order to avoid giving a label to the sequence point at
-the closing bracket is a neat trick, but it's not helpful to someone
-reading the code.  I can live with it, but as an idiom this seems rare.
-
-Use of gotos for doing cleanup seems to be the most common idiom for
-this in the kernel.  It may be inelegant, but it is likely to be readily
-understood.  However...
-
-> 
-> 
-> >> +	of_node_put(cache);
+> > +	imx_pcie->supports_clkreq =
+> > +		of_property_read_bool(node, "supports-clkreq");
+> >  	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
+> >  	if (IS_ERR(imx_pcie->vpcie)) {
+> >  		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV)
+> > @@ -1873,6 +1904,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+> >  		.mode_mask[1] = IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE,
+> >  		.init_phy = imx8mq_pcie_init_phy,
+> >  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> > +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+> >  	},
+> >  	[IMX8MM] = {
+> >  		.variant = IMX8MM,
+> > @@ -1883,6 +1915,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+> >  		.mode_off[0] = IOMUXC_GPR12,
+> >  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+> >  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> > +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+> >  	},
+> >  	[IMX8MP] = {
+> >  		.variant = IMX8MP,
+> > @@ -1893,6 +1926,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+> >  		.mode_off[0] = IOMUXC_GPR12,
+> >  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+> >  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> > +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+> >  	},
+> >  	[IMX8Q] = {
+> >  		.variant = IMX8Q,
+> > @@ -1913,6 +1947,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+> >  		.core_reset = imx95_pcie_core_reset,
+> >  		.init_phy = imx95_pcie_init_phy,
+> >  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
+> > +		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
+> >  	},
+> >  	[IMX8MQ_EP] = {
+> >  		.variant = IMX8MQ_EP,
+> > --
+> > 2.37.1
 > >
-> > (It works either way, but maybe gotos to an explicit label would be
-> > more readable, as well as avoiding an unnecessary level of indentation.)
-> As the cleanup magic has become fashionable, I'll switch to using that...
-
-...I guess that works, too.
-
-(Not that I much like that clunky bolt-on extension to the language,
-but it should do the job and at least avoids arguments about precisely
-how or where the cleanup happens.)
-
-> >> +
-> >> +	return err;
-> >> +}
-> >
-> > [...]
-> >
-> >> +/*
-> >> + * An MSC can control traffic from a set of CPUs, but may only be accessible
-> >> + * from a (hopefully wider) set of CPUs. The common reason for this is power
-> >> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
-> >> + * the corresponding cache may also be powered off. By making accesses from
-> >
-> > Nit: the the
-> 
-> Fixed,
-> 
-> 
-> >> + * one of those CPUs, we ensure this isn't the case.
-> >> + */
-> 
-> >> +static int fw_num_msc;
-> >
-> > Does this need to be protected against data races?
-> >
-> > If individual mpam_msc_drv_probe() calls may execute on different CPUs
-> > from mpam_msc_driver_init(), then seem to be potential races here.
-> 
-> Incrementing was under the list-lock, but not the last 'are they all done' read. Following
-> Rob's comments I've made this an atomic_t.
-
-As with mpam_num_msc, this eliminates data races on fw_num_msc, but
-races between this variable and other data structures may remain.
-
-Can you explain what prevents such races, or why they don't
-matter?
-
-> 
-> 
-> >> +
-> >> +static void mpam_pcc_rx_callback(struct mbox_client *cl, void *msg)
-> >> +{
-> >> +	/* TODO: wake up tasks blocked on this MSC's PCC channel */
-> >
-> > So, is this broken in this commit?>
-> > (If the series does not get broken up or applied piecemail, that's not
-> > such a concern, though.)
-> Unsupported - or at least only enough to not mistake them for MMIO devices.
-> I've pulled this out to a later patch in the tree that isn't in this series.
-> 
-> The platforms that need this haven't yet materialised, (and may not!).
-> There is a prototype for DT/SCMI, but nothing I've seen yet for ACPI.
-
-OK; I guess deferring the introduction of this until there is more
-context for it makes sense.
-
-> >> +}
-> >> +
-> >> +static void mpam_msc_drv_remove(struct platform_device *pdev)
-> >> +{
-> >
-> > The MPAM driver cannot currently be built as a module.
-> >
-> > Is it possible to exercise the driver remove paths, today?
-> Yes, through the sysfs unbind interface.
-> 
-> It doesn't make a lot of sense for MPAM as the moment you unbind the driver from one MSC
-> it has to work out if it needs to teardown resctrl...
-
-Has to, but doesn't?  Have I missed something?
-
-Are we supposed to put the MSC back into a sane state, for e.g. the
-kexec path?
-
-For resctrl, one option would be to stub out the backend -- i.e.,
-we don't tell resctrl that the affected resources disappeared, but
-attempts to manipulate the affected MSC(s) are stubbed out (similarly
-to what happens to an open tty after a hangup).
-
-(Something along these lines may be done somewhere, but I'm not
-currently aware of it.)
-
-
-Is there an outstanding get on the device that prevents us from getting
-here until resctrl is shut down?  Thanks to the wisdom and restraint of
-systemd I'd expect resctrl to tangled up in some rat's nest of
-unremovable mounts by the time we try to shut down, but I hope I'm
-being pessimistic.  (Arguably that's not our bug, if so.)
-
-> >> +	struct mpam_msc *msc = platform_get_drvdata(pdev);
-> >> +
-> >> +	if (!msc)
-> >> +		return;
-> >> +
-> >> +	mutex_lock(&mpam_list_lock);
-> >> +	mpam_num_msc--;
-> >> +	platform_set_drvdata(pdev, NULL);
-> >> +	list_del_rcu(&msc->glbl_list);
-> >> +	synchronize_srcu(&mpam_srcu);
-> >> +	devm_kfree(&pdev->dev, msc);
-> >> +	mutex_unlock(&mpam_list_lock);
-> >> +}
-> >> +
-> >> +static int mpam_msc_drv_probe(struct platform_device *pdev)
-> >> +{
-> >> +	int err;
-> >> +	struct mpam_msc *msc;
-> >> +	struct resource *msc_res;
-> >> +	void *plat_data = pdev->dev.platform_data;
-> >> +
-> >> +	mutex_lock(&mpam_list_lock);
-> >> +	do {
-> >> +		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
-> >> +		if (!msc) {
-> >> +			err = -ENOMEM;
-> >> +			break;
-> >> +		}
-> >> +
-> >> +		mutex_init(&msc->probe_lock);
-> >> +		mutex_init(&msc->part_sel_lock);
-> >> +		mutex_init(&msc->outer_mon_sel_lock);
-> >> +		raw_spin_lock_init(&msc->inner_mon_sel_lock);
-> >> +		msc->id = mpam_num_msc++;
-> >> +		msc->pdev = pdev;
-> >> +		INIT_LIST_HEAD_RCU(&msc->glbl_list);
-
-msc->glbl_list is not a list head?  Does it need to be initialised at all?
-list_add_rcu() will just splat it, by the looks of it.
-
-> >> +		INIT_LIST_HEAD_RCU(&msc->ris);
-
-Maybe INIT_LIST_HEAD_RCU() isn't needed here.  Do we ever access this
-list without holding one of the MSC locks?
-
-This list is not used until a cpuhp hook comes in to probe the MSC, and
-then mpam_discovery_cpu_online() obtains a pointer via
-list_for_each_entry() -- but this is not RCU-protected.  The MSC probe
-lock is taken, there...
-
-> >> +
-> >> +		err = update_msc_accessibility(msc);
-> >> +		if (err)
-> >> +			break;
-> >> +		if (cpumask_empty(&msc->accessibility)) {
-> >> +			pr_err_once("msc:%u is not accessible from any CPU!",
-> >> +				    msc->id);
-> >> +			err = -EINVAL;
-> >> +			break;
-> >> +		}
-> >> +
-> >> +		if (device_property_read_u32(&pdev->dev, "pcc-channel",
-> >> +					     &msc->pcc_subspace_id))
-> >> +			msc->iface = MPAM_IFACE_MMIO;
-> >> +		else
-> >> +			msc->iface = MPAM_IFACE_PCC;
-> >> +
-> >> +		if (msc->iface == MPAM_IFACE_MMIO) {
-> >> +			void __iomem *io;
-> >> +
-> >> +			io = devm_platform_get_and_ioremap_resource(pdev, 0,
-> >> +								    &msc_res);
-> >> +			if (IS_ERR(io)) {
-> >> +				pr_err("Failed to map MSC base address\n");
-> >> +				err = PTR_ERR(io);
-> >> +				break;
-> >> +			}
-> >> +			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
-> >> +			msc->mapped_hwpage = io;
-> >> +		} else if (msc->iface == MPAM_IFACE_PCC) {
-> >> +			msc->pcc_cl.dev = &pdev->dev;
-> >> +			msc->pcc_cl.rx_callback = mpam_pcc_rx_callback;
-> >> +			msc->pcc_cl.tx_block = false;
-> >> +			msc->pcc_cl.tx_tout = 1000; /* 1s */
-> >> +			msc->pcc_cl.knows_txdone = false;
-
-... so, it feels like we may need to hold the probe lock, or ensure
-that all iterations over the msc list are RCU-protected (see below for
-counterexamples), or both.
-
-> >> +
-> >> +			msc->pcc_chan = pcc_mbox_request_channel(&msc->pcc_cl,
-> >> +								 msc->pcc_subspace_id);
-> >> +			if (IS_ERR(msc->pcc_chan)) {
-> >> +				pr_err("Failed to request MSC PCC channel\n");
-> >> +				err = PTR_ERR(msc->pcc_chan);
-> >> +				break;
-> >> +			}
-> >> +		}
-> 
-> > Should the lock be held across initialisation of the msc fields?
-> 
-> The msc isn't visible until its added to the list, so provided all that inialisation is
-> done 'before' its added to the list, it doesn't matter.
-
-Is it possible for other code to get a pointer to the new msc after
-this, other than by dereferencing the list?
-
-(The obvious case is the interrupt handlers, but it looks like the msc
-pointers used for registering the interrupts are indeed obtained
-through an RCU-protected iteration over mpam_all_msc.)
-
-Note, there seem to be non-RCU-protected iterations over mpam_all_msc
-in the mpam_discovery_cpu_online() (patch 14) and
-mpam_enable_merge_features() paths (patch 18).  The lack of symmetry
-between list maintenance and consumption look a little suspect for
-those -- is safety ensured in some other way?
-
-> > list_add_rcu() might imply sufficient barriers to ensure that the
-> > initialisations are visible to other threads that obtain the msc
-> > pointer by iterating over mpam_all_msc.
-> >
-> > It's probably cleaner to hold the lock explicitly, though.
-> 
-> The list lock? We do.
-> But the readers don't need to take the list lock, its only there to prevent concurrent
-> writers.
-
-I meant whatever lock is supposed to protect the fields of the specific
-msc.  The list lock is not that lock.
-
-> 
-> 
-> > What other ways of obtaining the msc pointer exist?
-> The class/component/device structures in a subsequent patch, protected in the same way.
-> Once MPAM is enabled all that can be sprayed through resctrl - at which point no
-> modifications are allowed, and teardown for fatal errors depends on the static-key.
-
-I'll bear this in mind as I review.
-
-> >> +
-> >> +		list_add_rcu(&msc->glbl_list, &mpam_all_msc);
-> >> +		platform_set_drvdata(pdev, msc);
-> >> +	} while (0);
-> >> +	mutex_unlock(&mpam_list_lock);
-> >> +
-> >> +	if (!err) {
-> >> +		/* Create RIS entries described by firmware */
-> >> +		if (!acpi_disabled)
-> >> +			err = acpi_mpam_parse_resources(msc, plat_data);
-> >> +		else
-> >> +			err = mpam_dt_parse_resources(msc, plat_data);
-> >> +	}
-> >> +
-> >> +	if (!err && fw_num_msc == mpam_num_msc)
-> 
-> > Unlocked read of mpam_num_msc?
-> Fixed as an atomic_t flavoured thing.
-
-Ditto comments above about whether it is a problem that mpam_num_msc
-can now be seen out of sync with the list.
-
-> >> +		mpam_discovery_complete();
-> >> +
-> >> +	if (err && msc)
-> >> +		mpam_msc_drv_remove(pdev);
-> >> +
-> >> +	return err;
-> >> +}
-> >> +/*
-> >> + * MSC that are hidden under caches are not created as platform devices
-> >> + * as there is no cache driver. Caches are also special-cased in
-> >> + * update_msc_accessibility().
-> >> + */
-> >
-> > Can you elaborate?  I don't understand quite what this is doing.
-> 
-> / {
->     my_thing {
->         compatible = "my_thing";
->         msc {
->            compatible = "arm,mpam-msc";
->         };
->     };
-> 
->     other_thing {
->         compatible = "other_thing";
->     };
-> 
->     msc {
->        compatible = "arm,mpam-msc";
->        arm,mpam-device = <&other_thing>;
->     };
-> 
-> 
->     l2-cache {
->       compatible = "cache";
->         msc {
->            compatible = "arm,mpam-msc";
->         };
->     };
-> };
-> 
-> my_thing and other_thing's MSC will have devices created - but the cache will not, because
-> it's a cache not a device, and anything below it is ignored.
-
-OK.  Maybe reword as something like:
-
---8<--
-
-MSCs that are declared by the firmware as being part of a cache may not
-be created automatically as platform devices, since there is no
-dedicated cache driver.
-
-Deal with those MSCs here.
-
--->8--
-
-Maybe add a comment at update_msc_accessibility() that references this
-comment, instead of a reader of that function just needing to know that
-this comment is here?
-
-> 
-> 
-> >> +static void mpam_dt_create_foundling_msc(void)
-> >> +{
-> >> +	int err;
-> >> +	struct device_node *cache;
-> >> +
-> >> +	for_each_compatible_node(cache, NULL, "cache") {
-> >> +		err = of_platform_populate(cache, mpam_of_match, NULL, NULL);
-> >> +		if (err)
-> >> +			pr_err("Failed to create MSC devices under caches\n");
-> >> +	}
-> >> +}
-> >
-> > [...]
-> >
-> >> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> >> new file mode 100644
-> >> index 000000000000..07e0f240eaca
-> >> --- /dev/null
-> >> +++ b/drivers/resctrl/mpam_internal.h
-> >> @@ -0,0 +1,62 @@
-> >> +/* SPDX-License-Identifier: GPL-2.0 */
-> >> +// Copyright (C) 2024 Arm Ltd.
-> >> +
-> >> +#ifndef MPAM_INTERNAL_H
-> >> +#define MPAM_INTERNAL_H
-> >> +
-> >> +#include <linux/arm_mpam.h>
-> >> +#include <linux/cpumask.h>
-> >> +#include <linux/io.h>
-> >> +#include <linux/mailbox_client.h>
-> >> +#include <linux/mutex.h>
-> >> +#include <linux/resctrl.h>
-> >> +#include <linux/sizes.h>
-> >> +
-> >> +struct mpam_msc {
-> >> +	/* member of mpam_all_msc */
-> >> +	struct list_head        glbl_list;
-> 
-> > It is worth making these names less mismatched?
-> 
-> all_msc_list ?
-> 
-> It's because its global. The pattern otherwise is parent has a list foo, and all the
-> children have a member 'foo_list'.
-
-"all_msc", then?
-
-I'm not sure that it's essential for the list head's name to have
-"list" in it: that's clear from the type and from how it is used.
-"all" seems sufficient to imply that this is a list (?)
-
-It doesn't get much more global than "all".
-
-(This is purely cosmetic, of course.)
-
-> 
-> 
-> >> +
-> >> +	int			id;
-> >> +	struct platform_device *pdev;
-> >> +
-> >> +	/* Not modified after mpam_is_enabled() becomes true */
-> >> +	enum mpam_msc_iface	iface;
-> >> +	u32			pcc_subspace_id;
-> >> +	struct mbox_client	pcc_cl;
-> >> +	struct pcc_mbox_chan	*pcc_chan;
-> >> +	u32			nrdy_usec;
-> >> +	cpumask_t		accessibility;
-> >> +
-> >> +	/*
-> >> +	 * probe_lock is only take during discovery. After discovery these
-> >> +	 * properties become read-only and the lists are protected by SRCU.
-> >> +	 */
-> >> +	struct mutex		probe_lock;
-> >
-> > Can we have more clarify about the locking strategy, including details
-> > of which things each lock is supposed to apply to and when, and how (if
-> > at all) the locks are intended to nest?
-> 
-> The comment above is supposed to describe that. A rule of thumb is its all the stuff
-> 'below' it in the struct, there is also a comment for each order. This one is a bit of a
-> catch all for the values in this struct that can be written.
-
-I get that, but the devil is in the detail.
-
-A lock that is "a bit of a catch-all" would always need to be taken,
-if safety is the goal.
-
-I guess we should try to close out the other discussions about locking
-before working out whether anything else is needed, here.
-
-> The purpose of the part_sel_lock and mon_sel_lock arrangement becomes much more obvious in
-> subsequent patches when the driver starts accessing the registers of those names.
-
-It's fair enough to defer that context until later -- though arguably
-these could be added later when they are actually used.  Not really
-worth resplitting the series just for that, though.
-
-> 
-> 
-> > (Similarly for the global locks.)
-> >
-> >> +	unsigned long		ris_idxs[128 / BITS_PER_LONG];
-> >> +	u32			ris_max;
-> 
-> > nrdy_usec, ris_idxs and ris_max appear unused in this patch (though I
-> > suppose they get initialised by virtue of kzalloc()).  Is this
-> > intentional?
-> 
-> To reduce the amount of churn in the series the bulk of the structure is added here, then
-> the stuff that build more complicated structures, accesses hardware, deals with interrupts
-> etc.
-
-Ack, just checking that something wasn't unintentionally dropped.
-
-> >> +
-> >> +	/* mpam_msc_ris of this component */
-> >> +	struct list_head	ris;
-> >> +
-> >> +	/*
-> >> +	 * part_sel_lock protects access to the MSC hardware registers that are
-> >> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
-> >> +	 * by RIS).
-> >> +	 * If needed, take msc->lock first.
-> >> +	 */
-> 
-> > What's msc->lock ?
-> 
-> The old name for probe_lock, before it was necessary to lock the hardware registers
-> separately. I've fixed the name.
-> 
-> Thanks,
-> 
-> James
-
-Ack
-
-Cheers
----Dave
-> 
-> 
+>
+> --
+> மணிவண்ணன் சதாசிவம்
 
