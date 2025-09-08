@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D506ECAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 02:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624EACAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 02:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mqorkaZP8K3w37+KQC5xsu9iciTdS53JJYYC8j1jjZY=; b=K/Njz6B9ZhL4H1POrSI9xxPW4L
-	njI1tzKcoR5fC9Rv3UEcZUI49AXnaqjQqm5CQ9fjEqKVPFzR5T2TQfADeqOCoyshXP1dr766hOuDe
-	80mZDdpOVNhn7ShXBqKB9daKDx4z4GjkB++zE1hyD7QXkINtWzqJL35+sOuihZ67ntVRYhnAR4JwX
-	PRfmSEzDDDiZntdBwQPZCdZq7FJyslR4e8idNoGX18rUkCnIjxYKTuPr18Se1icaRB6hf2nYjxQ9t
-	bBPIRsu0ettdPom0OQCWjOCD13+aJvehckPxeWbq6+JcLpzQFs688GdD9FqsCmpf6xFEmRZvVISOs
-	SBDyYigA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+vOLOY/ES6y+n0bV1YwjAU8JNMbf0bURlibxJdvRYOU=; b=oYYyFZ4uUeGpWf0tmhMZr93SZk
+	wWJ/Q1glTRD8V50TR7wqzxm07zZcqPt7nkFVLdXW0l2Mii0TxiaCEaDdtc+WkO8+/qzpy3q5houQ8
+	zbH+c8K7gBjokb2yovi8foE6XWgsOOQkuBqLWb2KeXO6c2PX8QmZW5kF6RrZz4hpDKIvmY0rO58z3
+	XZ/KEvzn2I5h9JZuSfpG6Tu9KqPusHsqaCpHWGX1R8fmMdEc77ga6vaU1Pl89tDsHSRxJVgZksmEw
+	X3BGn5hDpOiZQryQGw9MlF4HvD8Hl0qUWnUwY62S+TNJb6QmBh1RGmWKjxrWAaPA8FqdizCxP+7N/
+	aOILiwMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvo5t-00000003h1z-3Lr8;
-	Tue, 09 Sep 2025 02:28:29 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uvo5w-00000003h5b-2Ked;
+	Tue, 09 Sep 2025 02:28:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgjk-00000001bTk-1mtI;
-	Mon, 08 Sep 2025 18:37:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757356580; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cdVYgURB89dbHupAw4KMy46mfFbhabKB0fbmHFBgRBvBYvTtSQExrU1sKpfkpjcx1w/YUJ8oV4j9+YhGcpEjW7Zwj1jsW1OKgfubHjb4G2koqFAxMLoVYAz8Ccw0+lylg0YO1Htsg+KdPOqoubvi0rri2cAvyirq77JW+Ay5MYc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757356580; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=mqorkaZP8K3w37+KQC5xsu9iciTdS53JJYYC8j1jjZY=; 
-	b=lw0+9hG76wtgGAX2WMoklsJubSvxRXKF08iwS28xRKhrNx1q6Cy5o04wQBEzwFoYCfg3NXiHFcSLuWgyv23G8QKMtYdPesUVladZMLFYZLSp6+nayixftZ6vLJb3H28vG8XCLQdinZhZxABbk/hAEKpPDM5kWMqp0o6B9ah+w94=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757356580;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=mqorkaZP8K3w37+KQC5xsu9iciTdS53JJYYC8j1jjZY=;
-	b=UhaQwwTja7SFF9hVLfmnIc1Nk3Ao2vojsdkFkQ1NSXggwHTHU8YksUOjnlk+k/dQ
-	Zo810evf7Bf1W1IQVDWhYK4GEiE3z9tw0FTs6kDO5JCJJ8/no4Jni8fjICCwkBC3Oo8
-	n7wmxd995Nc2uwbGBP5jZdIa+Dk2ftPoB1SA5g1U=
-Received: by mx.zohomail.com with SMTPS id 1757356577657388.2831972624366;
-	Mon, 8 Sep 2025 11:36:17 -0700 (PDT)
-Message-ID: <79baaa0a-7cc4-44f0-bf71-38aff550b177@collabora.com>
-Date: Mon, 8 Sep 2025 15:35:58 -0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 02/14] media: dt-bindings: Convert MediaTek mt8173-vpu
- bindings to YAML
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
- andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
- broonie@kernel.org, chunkuang.hu@kernel.org, ck.hu@mediatek.com,
- conor+dt@kernel.org, davem@davemloft.net, dmitry.torokhov@gmail.com,
- edumazet@google.com, flora.fu@mediatek.com, houlong.wei@mediatek.com,
- jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com,
- krzk+dt@kernel.org, kuba@kernel.org,
- kyrie.wu@mediatek.corp-partner.google.com, lgirdwood@gmail.com,
- linus.walleij@linaro.org, louisalexis.eyraud@collabora.com,
- maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com,
- mchehab@kernel.org, minghsiu.tsai@mediatek.com, mripard@kernel.org,
- p.zabel@pengutronix.de, pabeni@redhat.com, robh@kernel.org,
- sean.wang@kernel.org, simona@ffwll.ch, support.opensource@diasemi.com,
- tiffany.lin@mediatek.com, tzimmermann@suse.de, yunfei.dong@mediatek.com,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-3-ariel.dalessandro@collabora.com>
- <20250821-piquant-rapid-bear-8cedc0@kuoka>
-Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <20250821-piquant-rapid-bear-8cedc0@kuoka>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_113708_521109_9320C8B6 
-X-CRM114-Status: GOOD (  15.65  )
+	id 1uvgpR-00000001dJK-2IOR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 18:43:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EA7D2601EA;
+	Mon,  8 Sep 2025 18:43:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 916A0C4CEF1;
+	Mon,  8 Sep 2025 18:43:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757356980;
+	bh=BZVL1wCaBWzQfdJch1ffdxC/Fe3h5D6JkG5PQqCRoEo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pUD1sI4lf9yVrcmuXxRcHKSwejJd8c7Pz3F4LcIN1L9q01ptztyLhz0L876ijAl4k
+	 vLhuoYjLukD+8FvAXwldQ1+Jo79G0dCTa6AU6rlHs7nyEOe6rE1ChxoMg2MmdeDa1w
+	 rFvN5+FkH/YQxm3hsZpOi6P1mDItF/kkMLvbUhwN4vr5C+cLhA8sTHEeVKGXuVO9ut
+	 cbEHg1ZKXV9h2nIJDiYoMltuktdMftCOroIsdwE+4BnCCKwubAlFDCt0p+ncfvbH34
+	 gU97IYcsuJFW9hr4TlVYhYHOi6Us93CwBsQ5F2Wowxf+0nPdBJvD3wmnC1l0W93GnS
+	 Vmr9kye74yOwA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uvgpO-00000004QJ8-15nD;
+	Mon, 08 Sep 2025 18:42:58 +0000
+Date: Mon, 08 Sep 2025 19:42:57 +0100
+Message-ID: <86segwdbv2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v15 4/6] KVM: arm64: Set PSTATE.EXLOCK when entering an exception
+In-Reply-To: <ac3b2d52-5b24-441b-bcdc-463ae9c78b3d@sirena.org.uk>
+References: <20250820-arm64-gcs-v15-0-5e334da18b84@kernel.org>
+	<20250820-arm64-gcs-v15-4-5e334da18b84@kernel.org>
+	<87ms7tk5y4.wl-maz@kernel.org>
+	<ac3b2d52-5b24-441b-bcdc-463ae9c78b3d@sirena.org.uk>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,106 +92,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Krzysztof,
-
-On 8/21/25 3:47 AM, Krzysztof Kozlowski wrote:
-> On Wed, Aug 20, 2025 at 02:12:50PM -0300, Ariel D'Alessandro wrote:
->> Convert the existing text-based DT bindings for Mediatek MT8173 Video Processor
->> Unit to a YAML schema.
+On Thu, 21 Aug 2025 21:44:21 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> DT schema, not YAML. Don't say YAML at all, neither here nor in subject.
-
-Ack.
-
+> On Wed, Aug 20, 2025 at 11:02:11PM +0100, Marc Zyngier wrote:
+> > Mark Brown <broonie@kernel.org> wrote:
 > 
-> Also looks not wrapped...
+> > > +	// EL, or to GCSCR_ELx.EXLOCKEN for an exception to the same
+> > > +	// exception level.  See ARM DDI 0487 RWTXBY, D.1.3.2 in K.a.
 
-Ack.
+nit: I think you can drop the section number in the ARM ARM. The rule
+"numbers" are stable across revision of the document, and K.a is
+already absolutely ancient (over a year old and two revisions behind).
 
+> > > +	new |= enter_exception64_gcs(vcpu, mode, target_mode);
+> > > +
+> > >  	new |= PSR_D_BIT;
+> > >  	new |= PSR_A_BIT;
+> > >  	new |= PSR_I_BIT;
 > 
->>
->> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> ---
->>   .../bindings/media/mediatek,mt8173-vpu.yaml   | 76 +++++++++++++++++++
->>   .../bindings/media/mediatek-vpu.txt           | 31 --------
->>   2 files changed, 76 insertions(+), 31 deletions(-)
->>   create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
->>   delete mode 100644 Documentation/devicetree/bindings/media/mediatek-vpu.txt
->>
->> diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
->> new file mode 100644
->> index 0000000000000..44f5d7cc44042
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
->> @@ -0,0 +1,76 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/media/mediatek,mt8173-vpu.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Mediatek MT8173 Video Processor Unit
->> +
->> +maintainers:
->> +  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> +
->> +description:
->> +  Video Processor Unit is a HW video controller. It controls HW Codec including
->> +  H.264/VP8/VP9 Decode, H.264/VP8 Encode and Image Processor (scale/rotate/color convert).
+> > But that's not the only case where we have to deal with EXLOCK, is it?
+> > What of ERET and its PAuth variants? R_TYTWB says:
 > 
-> Please wrap code according to the preferred limit expressed in Kernel
-> coding style (checkpatch is not a coding style description, but only a
-> tool).  However don't wrap blindly (see Kernel coding style).
-
-Thanks for the comment. Wrapped to 80 column width.
-
+> > <quote>
+> > If in AArch64 state, any of the following situations can cause an
+> > illegal exception return:
+> > 
+> > [...]
+> > 
+> > - If the Effective value of GCSCR_ELx.EXLOCKEN is 1 and PSTATE.EXLOCK
+> >   is 0, the execution of an exception return instruction to return to
+> >   the current Exception level ELx.
+> > </quote>
 > 
->> +
->> +properties:
->> +  compatible:
->> +    const: mediatek,mt8173-vpu
->> +
->> +  reg:
->> +    minItems: 2
+> > My reading of the spec is that this needs handling.
 > 
-> No, from where do you get such syntax?
+> Am I right in thinking that this handling is needed for the NV case
+> only?
 
-IIUC, what you mean is s/minItems/maxItems.
+So far, NV is indeed the only case where we have to emulate ERET.
 
-> 
->> +
->> +  reg-names:
->> +    items:
->> +      - const: tcm
->> +      - const: cfg_reg
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +  clock-names:
->> +    items:
->> +      - const: main
->> +
->> +  memory-region:
->> +    description:
->> +      phandle to a node describing reserved memory used by VPU
->> +      (see bindings/reserved-memory/reserved-memory.txt)
-> 
-> Drop, redundant description.
-
-Ack.
-
-Thanks a lot!
+	M.
 
 -- 
-Ariel D'Alessandro
-Software Engineer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
-
+Without deviation from the norm, progress is not possible.
 
