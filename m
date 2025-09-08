@@ -4,80 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE41CAC58E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BDACAC58C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6qKY0nCLPjAVj97JAJTEBY9a1IQX5ZGEgei29S7wJzg=; b=fOkpLJ8up4CUN8ZwwWXK0dwrNf
-	+aNRHW5CecIuZ7lYosot2G0AGwIECtFeGe00x23jadwcgBN2mQAxf1iWwfuPhs3HhioJw93Lr1P1Q
-	HBpz8v/ME6xpFccl7cLsKmkqVBSw4qU2JDvIQpICIcgfGonkMwkcSoGaJXpVPcLARKpwcZa3Qmfz5
-	gp8XJWkiBpgFlTAcHeH4DLN/rVgMH+XvnLwS4eTjx5l+ZW+KM4407dA5hkBF+LAMkH9FkfOAFOan3
-	u5qzp9iQLLm9jwlLemECuFyXBYQZFzIxXOmfJ9iv4HJzVVmGuFMku2c74VBZOvAu2anq7Ah/evimt
-	t0zIdudA==;
+	bh=OlSQveSkmHqeqOCz+8QD3cqQ+2CFh4AB3iYCoih56HI=; b=IZYUmfhpHE/C7mKAtn3Com9/OO
+	VYJdHxcziSdcKTarKdbIlf9D5sCgOdCmvjMNEEN0XMZV1/ct9GczVFbj7fd5CvQ7ZjwiVLffC3P6r
+	68uLvI19x1+QzXG2wH6hixUiVsoaHCdfFuIvv6I5PSL+XoeghnGtdwtyy2OsER2FrGbWi2LjBAhyM
+	c60TwiMjKppd0DgLUhMIaQ1cbi3Lcd5fVFjlmD9EOg6FeftJv59i2mtNcopuJgxOeCy/0ENUvpH5L
+	2lsMQnQiUCoD+7RHKqni9YKc+Ag1JyLq7rGC3xnt+mYMdvXZAZtnOB7vJNIJFDlZmLGVM/t/ngkRu
+	vonRhwzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvs6s-00000004mK5-0TnO;
-	Tue, 09 Sep 2025 06:45:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uvs6w-00000004mPR-3yat;
+	Tue, 09 Sep 2025 06:45:51 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvemT-00000000lNt-1xIJ
+	id 1uvgSn-00000001ULG-2nMx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 16:31:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 18A3944A20;
-	Mon,  8 Sep 2025 16:31:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E97C6C4CEFA;
-	Mon,  8 Sep 2025 16:31:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757349109;
-	bh=t2t1XQhmTu4QwWw1Mvj257XNXGFyRkE9ARKAhPe4oJM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PZGJjwXa4GgFgzXH4FhpcpgeXYYGFHaTE8JKKorNoWhuxqrV+ph71/Wxqz50OWlym
-	 fYMU32cIM91+bFkjMDOQh8oFz9ZMg7qtYCcw0Gh/feKnM2DcicJ3IXiX72tXZl6FtB
-	 oAqZh0l0J5XNQB5Eb/jRHZ/tdlktjD0U4tA8+UkfAFxgRj4Pi9lrXQEJtzahwgAcU5
-	 TXtMJRHerwY2TRCDoWozvylBTU3zuZmX/iOb5/cu3dMuqgWpFo1T7O9Yl9527BBE7g
-	 Z2JJIVGdpT0+j59lajuZtnE4WumAelcS87NXt2JF8JOiGAdRNzv9QZyfBLrb0T5pSY
-	 Qu7riyUNDJKTg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uvemQ-00000004NTm-3YV5;
-	Mon, 08 Sep 2025 16:31:46 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>
-Subject: [PATCH 05/25] irqchip/gic-v3: Add FW info retrieval support
-Date: Mon,  8 Sep 2025 17:31:07 +0100
-Message-Id: <20250908163127.2462948-6-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250908163127.2462948-1-maz@kernel.org>
-References: <20250908163127.2462948-1-maz@kernel.org>
+	Mon, 08 Sep 2025 18:19:38 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-77269d19280so4253020b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 11:19:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1757355577; x=1757960377; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OlSQveSkmHqeqOCz+8QD3cqQ+2CFh4AB3iYCoih56HI=;
+        b=JdjJEYOeuekQFShm45cHzL0AyvccLfcRybzVkmvo5LnGrb0A8hGhmh4fpZZdxuPm0d
+         aSaNAk+eGkaKwnTT2IpOMFKgiZZ/qQQNoLUuqdRCC6rxP4ZMnqNuG7U6aVkrijvY4lcZ
+         pPSAvjLG1UlEJxcqch7SaqGYzRipJeOGM3/z2oszUe+r2ZCP6J18BWIFb6PcUCV/4C+S
+         pz1yabrTdQ1jC7UsW4Iq0bkEVWX1ULZhyned/RXrXt5+QFgmEObmLUD1M8TilGPmbCfF
+         FAvpwqsl2l59FiWU+2eP6cnpIAcfvlq9FNPWVnVa4O4Q9sMorQbeC1Dm+dPdjwCJBtIV
+         ckLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757355577; x=1757960377;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OlSQveSkmHqeqOCz+8QD3cqQ+2CFh4AB3iYCoih56HI=;
+        b=SuJ9bnRGwdmQHBdxCdG024r4StqK2WuM4JUVi/VoUmtfnN7zPWJiiq2ckz36DaQFh3
+         G5rVtXl+sdeEJ9MsMj4g9gW7P9aD9SX9xxpbg3+pgKqr7/YSta5vndh3Fm1s8zflc35f
+         pMZ4nZsxqqrWVL+441qMtagcC945N+RkXfpMuvbxxQz3YjI2BnyFZtkShr/awuloC00g
+         a6wZ0GRX2uELdFj0CCnDTsPpdyW0LK/O1jzUsdb6NDuLSNDUfjxP011QFld8UK4rXqJo
+         J8mdeRJlKctEPBCzmqGzr0GTCzWbHA2lDQEnYLoEyE7Hm3peHMeRUpHQXAmzdH/Ejmnc
+         jxAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV3H9Oh0wizo2EWnhshncKrVr5QRd3payPAmiPDghj752HAwHZr2kppG0tO5tmObfXEd5zrfxMT3+vXHKMl5W1Y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+bVuWJqStdUkimahvy3EGH+ccJ3FJsZYrHV35+NftqjOUUCeo
+	j5a4EFxs+N90rOdLuadooMEThhVz4N7IFrhiRIoaspuwGoRUP02wSXxsze62anUgiPw=
+X-Gm-Gg: ASbGnct5mqafrMvQvPSp4ZfJv3U/ve9QZUI0123idie99+L5L3s1VFLPWi5TxZUAp15
+	bx3/nDUiOvn1u0wV+JAyfOxrFXncsHTEZqWqwp7AlHkb50yhY7N1aDYF+nI1hQ6KE70hjQ5nOTS
+	pMQikarBXVfoZvz2+AmiW72S8DSKmcRBJhUU6jKvjwZTK4b6YEDkS2JtYR4/PARb89/yjMheWvA
+	B7KHEEjprpyKIdBCq66JWne/5gkuyLh/YAwOdmtTBVENZXLvYmoGdtSCrSSk4XqfXkMpP6b7cjo
+	lLxZKL39xWnbVy04lM4nKZ1Yau/rCMvGirNOiQBaAI1Rw5ao8hEienHlhPh9Kyoa28y30c4tKwq
+	tPQRsUhwxqQU8kA==
+X-Google-Smtp-Source: AGHT+IGcxXdPyuA6sk3PlCCwbFJFwb57wOSa8X+xCQ07GgjSceHh/z87cR7mb6zcPGNFekV+LMmIPg==
+X-Received: by 2002:a17:902:a5c3:b0:24c:e9b8:c07 with SMTP id d9443c01a7336-25174374060mr81160125ad.43.1757355577047;
+        Mon, 08 Sep 2025 11:19:37 -0700 (PDT)
+Received: from cleger.eu.int ([2001:41d0:420:f300::])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24ccd763948sm117012755ad.118.2025.09.08.11.19.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Sep 2025 11:19:36 -0700 (PDT)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Himanshu Chauhan <hchauhan@ventanamicro.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Xu Lu <luxu.kernel@bytedance.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: [PATCH v7 4/5] perf: RISC-V: add support for SSE event
+Date: Mon,  8 Sep 2025 18:17:06 +0000
+Message-ID: <20250908181717.1997461-5-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250908181717.1997461-1-cleger@rivosinc.com>
+References: <20250908181717.1997461-1-cleger@rivosinc.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_093149_620990_701B88F2 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20250908_111937_710823_9C6702C4 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,107 +108,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Plug the new .get_info() callback into the GICv3 core driver,
-using some of the existing PPI affinity handling infrastructure.
+In order to use SSE within PMU drivers, register a SSE handler for the
+local PMU event. Reuse the existing overflow IRQ handler and pass
+appropriate pt_regs. Add a config option RISCV_PMU_SSE to select event
+delivery via SSE events.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Clément Léger <cleger@rivosinc.com>
 ---
- drivers/irqchip/irq-gic-v3.c | 55 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 55 insertions(+)
+ drivers/perf/Kconfig           | 10 +++++
+ drivers/perf/riscv_pmu.c       | 23 +++++++++++
+ drivers/perf/riscv_pmu_sbi.c   | 71 +++++++++++++++++++++++++++++-----
+ include/linux/perf/riscv_pmu.h |  5 +++
+ 4 files changed, 99 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index dbeb85677b08c..4a90dbf9daedb 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -69,6 +69,8 @@ struct gic_chip_data {
- 	bool			has_rss;
- 	unsigned int		ppi_nr;
- 	struct partition_desc	**ppi_descs;
-+	struct partition_affinity *parts;
-+	unsigned int		nr_parts;
- };
+diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+index a9188dec36fe..bea08d4689b1 100644
+--- a/drivers/perf/Kconfig
++++ b/drivers/perf/Kconfig
+@@ -105,6 +105,16 @@ config RISCV_PMU_SBI
+ 	  full perf feature support i.e. counter overflow, privilege mode
+ 	  filtering, counter configuration.
  
- #define T241_CHIPS_MAX		4
-@@ -1796,11 +1798,60 @@ static int gic_irq_domain_select(struct irq_domain *d,
- 	return d == partition_get_domain(gic_data.ppi_descs[ppi_idx]);
++config RISCV_PMU_SBI_SSE
++	depends on RISCV_PMU && RISCV_SBI_SSE
++	bool "RISC-V PMU SSE events"
++	default n
++	help
++	  Say y if you want to use SSE events to deliver PMU interrupts. This
++	  provides a way to profile the kernel at any level by using NMI-like
++	  SSE events. SSE events being really intrusive, this option allows
++	  to select it only if needed.
++
+ config STARFIVE_STARLINK_PMU
+ 	depends on ARCH_STARFIVE || COMPILE_TEST
+ 	depends on 64BIT
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index 7644147d50b4..dda2814801c0 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -13,6 +13,7 @@
+ #include <linux/irqdesc.h>
+ #include <linux/perf/riscv_pmu.h>
+ #include <linux/printk.h>
++#include <linux/riscv_sbi_sse.h>
+ #include <linux/smp.h>
+ #include <linux/sched_clock.h>
+ 
+@@ -254,6 +255,24 @@ void riscv_pmu_start(struct perf_event *event, int flags)
+ 	perf_event_update_userpage(event);
  }
  
-+static int gic_irq_get_info(struct irq_fwspec_info *info)
++#ifdef CONFIG_RISCV_PMU_SBI_SSE
++static void riscv_pmu_disable(struct pmu *pmu)
 +{
-+	struct irq_fwspec *fwspec = &info->fwspec;
-+	const struct cpumask *mask = NULL;
++	struct riscv_pmu *rvpmu = to_riscv_pmu(pmu);
 +
-+	info->flags = 0;
-+	info->affinity = NULL;
++	if (rvpmu->sse_evt)
++		sse_event_disable_local(rvpmu->sse_evt);
++}
 +
-+	/* ACPI is not capable of describing PPI affinity -- yet */
-+	if (!is_of_node(fwspec->fwnode))
-+		goto out;
++static void riscv_pmu_enable(struct pmu *pmu)
++{
++	struct riscv_pmu *rvpmu = to_riscv_pmu(pmu);
 +
-+	/* If the specifier provides an affinity, use it */
-+	if (fwspec->param_count == 4 && fwspec->param[3]) {
-+		struct fwnode_handle *fw;
++	if (rvpmu->sse_evt)
++		sse_event_enable_local(rvpmu->sse_evt);
++}
++#endif
 +
-+		switch (fwspec->param[0]) {
-+		case 1:			/* PPI */
-+		case 3:			/* EPPI */
-+			break;
-+		default:
-+			goto out;
-+		}
+ static int riscv_pmu_add(struct perf_event *event, int flags)
+ {
+ 	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+@@ -411,6 +430,10 @@ struct riscv_pmu *riscv_pmu_alloc(void)
+ 		.event_mapped	= riscv_pmu_event_mapped,
+ 		.event_unmapped	= riscv_pmu_event_unmapped,
+ 		.event_idx	= riscv_pmu_event_idx,
++#ifdef CONFIG_RISCV_PMU_SBI_SSE
++		.pmu_enable	= riscv_pmu_enable,
++		.pmu_disable	= riscv_pmu_disable,
++#endif
+ 		.add		= riscv_pmu_add,
+ 		.del		= riscv_pmu_del,
+ 		.start		= riscv_pmu_start,
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 698de8ddf895..a864a543ccc8 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -17,6 +17,7 @@
+ #include <linux/irqdomain.h>
+ #include <linux/of_irq.h>
+ #include <linux/of.h>
++#include <linux/riscv_sbi_sse.h>
+ #include <linux/cpu_pm.h>
+ #include <linux/sched/clock.h>
+ #include <linux/soc/andes/irq.h>
+@@ -948,10 +949,10 @@ static void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
+ 		pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
+ }
+ 
+-static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
++static irqreturn_t pmu_sbi_ovf_handler(struct cpu_hw_events *cpu_hw_evt,
++				       struct pt_regs *regs, bool from_sse)
+ {
+ 	struct perf_sample_data data;
+-	struct pt_regs *regs;
+ 	struct hw_perf_event *hw_evt;
+ 	union sbi_pmu_ctr_info *info;
+ 	int lidx, hidx, fidx;
+@@ -959,7 +960,6 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	struct perf_event *event;
+ 	u64 overflow;
+ 	u64 overflowed_ctrs = 0;
+-	struct cpu_hw_events *cpu_hw_evt = dev;
+ 	u64 start_clock = sched_clock();
+ 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
+ 
+@@ -969,13 +969,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	/* Firmware counter don't support overflow yet */
+ 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
+ 	if (fidx == RISCV_MAX_COUNTERS) {
+-		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
++		if (!from_sse)
++			csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+ 		return IRQ_NONE;
+ 	}
+ 
+ 	event = cpu_hw_evt->events[fidx];
+ 	if (!event) {
+-		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
++		if (!from_sse)
++			ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+ 		return IRQ_NONE;
+ 	}
+ 
+@@ -990,16 +992,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 
+ 	/*
+ 	 * Overflow interrupt pending bit should only be cleared after stopping
+-	 * all the counters to avoid any race condition.
++	 * all the counters to avoid any race condition. When using SSE,
++	 * interrupt is cleared when stopping counters.
+ 	 */
+-	ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
++	if (!from_sse)
++		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+ 
+ 	/* No overflow bit is set */
+ 	if (!overflow)
+ 		return IRQ_NONE;
+ 
+-	regs = get_irq_regs();
+-
+ 	for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
+ 		struct perf_event *event = cpu_hw_evt->events[lidx];
+ 
+@@ -1055,6 +1057,51 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	return IRQ_HANDLED;
+ }
+ 
++static irqreturn_t pmu_sbi_ovf_irq_handler(int irq, void *dev)
++{
++	return pmu_sbi_ovf_handler(dev, get_irq_regs(), false);
++}
 +
-+		fw = of_node_to_fwnode(of_find_node_by_phandle(fwspec->param[3]));
-+		if (!fw)
-+			goto out;
++#ifdef CONFIG_RISCV_PMU_SBI_SSE
++static int pmu_sbi_ovf_sse_handler(u32 evt, void *arg, struct pt_regs *regs)
++{
++	struct cpu_hw_events __percpu *hw_events = arg;
++	struct cpu_hw_events *hw_event = raw_cpu_ptr(hw_events);
 +
-+		for (int i = 0; i < gic_data.nr_parts; i++) {
-+			if (gic_data.parts[i].partition_id == fw) {
-+				mask = &gic_data.parts[i].mask;
-+				break;
-+			}
-+		}
++	pmu_sbi_ovf_handler(hw_event, regs, true);
 +
-+		if (!mask)
-+			goto out;
-+	} else {
-+		mask = cpu_possible_mask;
-+	}
-+
-+	info->affinity = mask;
-+	info->flags = (IRQ_FWSPEC_INFO_FWSPEC_VALID |
-+		       IRQ_FWSPEC_INFO_AFFINITY_VALID);
-+out:
 +	return 0;
 +}
 +
- static const struct irq_domain_ops gic_irq_domain_ops = {
- 	.translate = gic_irq_domain_translate,
- 	.alloc = gic_irq_domain_alloc,
- 	.free = gic_irq_domain_free,
- 	.select = gic_irq_domain_select,
-+	.get_info = gic_irq_get_info,
- };
++static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
++{
++	int ret;
++	struct sse_event *evt;
++	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
++
++	evt = sse_event_register(SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, 0,
++				 pmu_sbi_ovf_sse_handler, hw_events);
++	if (IS_ERR(evt))
++		return PTR_ERR(evt);
++
++	ret = sse_event_enable(evt);
++	if (ret) {
++		sse_event_unregister(evt);
++		return ret;
++	}
++
++	pr_info("using SSE for PMU event delivery\n");
++	pmu->sse_evt = evt;
++
++	return ret;
++}
++#else
++static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
++{
++	return -EOPNOTSUPP;
++}
++#endif
++
+ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+ 	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
+@@ -1105,6 +1152,10 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
+ 	struct irq_domain *domain = NULL;
  
- static int partition_domain_translate(struct irq_domain *d,
-@@ -1839,6 +1890,7 @@ static int partition_domain_translate(struct irq_domain *d,
- static const struct irq_domain_ops partition_domain_ops = {
- 	.translate = partition_domain_translate,
- 	.select = gic_irq_domain_select,
-+	.get_info = gic_irq_get_info,
- };
- 
- static bool gic_enable_quirk_msm8996(void *data)
-@@ -2231,6 +2283,9 @@ static void __init gic_populate_ppi_partitions(struct device_node *gic_node)
- 		part_idx++;
++	ret = pmu_sbi_setup_sse(pmu);
++	if (!ret)
++		return 0;
++
+ 	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+ 		riscv_pmu_irq_num = RV_IRQ_PMU;
+ 		riscv_pmu_use_irq = true;
+@@ -1139,7 +1190,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 		return -ENODEV;
  	}
  
-+	gic_data.parts = parts;
-+	gic_data.nr_parts = nr_parts;
+-	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, "riscv-pmu", hw_events);
++	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_irq_handler, "riscv-pmu", hw_events);
+ 	if (ret) {
+ 		pr_err("registering percpu irq failed [%d]\n", ret);
+ 		return ret;
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index 701974639ff2..cd493fcab9b3 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -28,6 +28,8 @@
+ 
+ #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
+ 
++struct sse_event;
 +
- 	for (i = 0; i < gic_data.ppi_nr; i++) {
- 		unsigned int irq;
- 		struct partition_desc *desc;
+ struct cpu_hw_events {
+ 	/* currently enabled events */
+ 	int			n_events;
+@@ -54,6 +56,9 @@ struct riscv_pmu {
+ 	char		*name;
+ 
+ 	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
++#ifdef CONFIG_RISCV_PMU_SBI_SSE
++	struct sse_event *sse_evt;
++#endif
+ 
+ 	unsigned long	cmask;
+ 	u64		(*ctr_read)(struct perf_event *event);
 -- 
-2.39.2
+2.43.0
 
 
