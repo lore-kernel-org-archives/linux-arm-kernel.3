@@ -4,153 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D5FCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE41CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAhTMtl4QhwrnpsEulXBwzvBUBMT8F32XlXR89f8he0=; b=qyZ+xp3SZ284JNDB3dMQx/HM3p
-	7XrPeSA3nhfmJ/07RHNcbgWIZhguQqFyaLdSCX2ljgkiQQ+4PoD0IN6lGaiFDfZ5qgm4Ysump/3oT
-	6bvVyZPUhQD2uSeRdvL/j1N/AZkUhvnomL4ZPGzdyK0QEpXUYp2gvN5HBYRkZz9tzO7HdtBxylCpP
-	xuE8B4oYJGUjBaQj2+FEcJQzFM3ESIpWoSXiwejz0OkSRPZId3rOrOT+JbYRUySBkC5jLCv7/6Ize
-	mcxvjjEcyYmeXqrLaPNcTCR+C8O64EV2DmeoprMVZ6axjCKUU1Rhxt1XraK7qa7/xVuH2JANtwFN5
-	4lE+7d0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6qKY0nCLPjAVj97JAJTEBY9a1IQX5ZGEgei29S7wJzg=; b=fOkpLJ8up4CUN8ZwwWXK0dwrNf
+	+aNRHW5CecIuZ7lYosot2G0AGwIECtFeGe00x23jadwcgBN2mQAxf1iWwfuPhs3HhioJw93Lr1P1Q
+	HBpz8v/ME6xpFccl7cLsKmkqVBSw4qU2JDvIQpICIcgfGonkMwkcSoGaJXpVPcLARKpwcZa3Qmfz5
+	gp8XJWkiBpgFlTAcHeH4DLN/rVgMH+XvnLwS4eTjx5l+ZW+KM4407dA5hkBF+LAMkH9FkfOAFOan3
+	u5qzp9iQLLm9jwlLemECuFyXBYQZFzIxXOmfJ9iv4HJzVVmGuFMku2c74VBZOvAu2anq7Ah/evimt
+	t0zIdudA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvs6q-00000004mJD-1oMG;
-	Tue, 09 Sep 2025 06:45:44 +0000
-Received: from mail-co1nam11on20608.outbound.protection.outlook.com ([2a01:111:f403:2416::608] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1uvs6s-00000004mK5-0TnO;
+	Tue, 09 Sep 2025 06:45:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvdug-00000000TSL-0JsT
+	id 1uvemT-00000000lNt-1xIJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 15:36:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AVl9EJu9XiCgsi+Qbt1ag4iS6PHq6tCeIH/bUKNRtpuM7q1RDsoQ7UNcePnvqU2qs+U72yPd9pazcOQa/b4U2xE7hbrC7RIU8g1ERn3xveVjqpxKVtpf6xwjA0AaQtyrhdzD8wu4pkVaA25KE3RbZjBhsW1aBMpPdqXNjt6BI1C+KTXw2XSjaIQwCWNYBeLHZ15XpIhRTpM0onMx/QXlRy18sqfpPMCCoc/es8rCA9eXay3IAWjeRTKLlt9Uc6QedpKJMGQ1UyTYfi4F4KgIUa0NkM0sG34jVrj/I01F2ZXxypAfc6/bHQq5mouTjiRSaefh/8mUebN13sCTU3Kj9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AAhTMtl4QhwrnpsEulXBwzvBUBMT8F32XlXR89f8he0=;
- b=vBO8HDJMwVK/RIWAI/4+oU7BGmD/MPY2q6qdWf+cxm2c69+Izn5trSqCuYLWUpJ3R6gKwCbscw3z0qB8qaAMoB/E9RpaNgA4ObRDzxubKmw6t2IBUnMjqkSKI4WOtFnkZZerSkpKn8M2zBcSqFmcyWhzHbHR4Ydq+tEFx64TaDMPL/j8c2ibsVg9JkZkmIUq/z7VduH7hWwxoYCa1j5gVMtMPvjm9+4p7j+Dr281GT52c1lILd6QsYvdJ2C2C/Nh5cgNbTxaeIp4/awVDYsws3VKt7GD7JHptEcwlgpoTnxzYvJGJmYmzQodx5NGoH25xalTx6F4nQzkCbhUiC5G9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AAhTMtl4QhwrnpsEulXBwzvBUBMT8F32XlXR89f8he0=;
- b=nsSfTPCFGJOKJecpnGLQhKgJFKihNzKaRstDJIV+wj8/z5KDmQaZ7F3znnsSkg8C9L2k3bBwF614Zrk/AcNf+eEsDOEBRaRvVbnaE3X+XF3yMkcAdehC/D5VWliD6yRfg6i1Af0fiJ1e5ECW9nzdwmT/uRK6JjlDljKJ4izRz+9oSKJhRJNbmNMQrnT+zlRxgZ4SPtNA1EtSaC3WzxMaSmdpOF2elvqzcKM7/aPL6HdjjFGmhn9LOToEOSHJ701iMsHyXF88T82RQ5SXpnyfpovKz4PB/vLqY0GxSlhbTNVwb1rY4AWLqdv4RrHzSCC7f7TCjTQz9e4/fsePgZczXg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL1PR12MB5753.namprd12.prod.outlook.com (2603:10b6:208:390::15)
- by MW4PR12MB6851.namprd12.prod.outlook.com (2603:10b6:303:20b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.21; Mon, 8 Sep
- 2025 15:36:06 +0000
-Received: from BL1PR12MB5753.namprd12.prod.outlook.com
- ([fe80::81e6:908a:a59b:87e2]) by BL1PR12MB5753.namprd12.prod.outlook.com
- ([fe80::81e6:908a:a59b:87e2%6]) with mapi id 15.20.9094.018; Mon, 8 Sep 2025
- 15:36:05 +0000
-Date: Mon, 8 Sep 2025 12:36:04 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	jean-philippe@linaro.org, miko.lenczewski@arm.com,
-	balbirs@nvidia.com, peterz@infradead.org, smostafa@google.com,
-	kevin.tian@intel.com, praan@google.com, zhangzekun11@huawei.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev
-Subject: Re: [PATCH rfcv1 5/8] iommu/arm-smmu-v3: Pre-allocate a per-master
- invalidation array
-Message-ID: <20250908153604.GB789684@nvidia.com>
-References: <cover.1755131672.git.nicolinc@nvidia.com>
- <2b55869f698340d5791210b9a7e542f81ad20bcb.1755131672.git.nicolinc@nvidia.com>
- <20250826195641.GB2151485@nvidia.com>
- <aLvmgXW8BpAyXMVV@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLvmgXW8BpAyXMVV@nvidia.com>
-X-ClientProxiedBy: YT1PR01CA0143.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:2f::22) To BL1PR12MB5753.namprd12.prod.outlook.com
- (2603:10b6:208:390::15)
+	Mon, 08 Sep 2025 16:31:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 18A3944A20;
+	Mon,  8 Sep 2025 16:31:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E97C6C4CEFA;
+	Mon,  8 Sep 2025 16:31:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757349109;
+	bh=t2t1XQhmTu4QwWw1Mvj257XNXGFyRkE9ARKAhPe4oJM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=PZGJjwXa4GgFgzXH4FhpcpgeXYYGFHaTE8JKKorNoWhuxqrV+ph71/Wxqz50OWlym
+	 fYMU32cIM91+bFkjMDOQh8oFz9ZMg7qtYCcw0Gh/feKnM2DcicJ3IXiX72tXZl6FtB
+	 oAqZh0l0J5XNQB5Eb/jRHZ/tdlktjD0U4tA8+UkfAFxgRj4Pi9lrXQEJtzahwgAcU5
+	 TXtMJRHerwY2TRCDoWozvylBTU3zuZmX/iOb5/cu3dMuqgWpFo1T7O9Yl9527BBE7g
+	 Z2JJIVGdpT0+j59lajuZtnE4WumAelcS87NXt2JF8JOiGAdRNzv9QZyfBLrb0T5pSY
+	 Qu7riyUNDJKTg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uvemQ-00000004NTm-3YV5;
+	Mon, 08 Sep 2025 16:31:46 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>
+Subject: [PATCH 05/25] irqchip/gic-v3: Add FW info retrieval support
+Date: Mon,  8 Sep 2025 17:31:07 +0100
+Message-Id: <20250908163127.2462948-6-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250908163127.2462948-1-maz@kernel.org>
+References: <20250908163127.2462948-1-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5753:EE_|MW4PR12MB6851:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4224be93-8068-47ab-02a2-08ddeeed6cc6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Sltn51kZL08+9x/JDBZwanDkScgntWmCIF1SRsHPCDwk8P5yc5RYqMBJopmb?=
- =?us-ascii?Q?x1JVpii/GZTox7lKD2yy2pWR0YKpxI+kZ9A8pVb3Le3PrKLX6/TisnbOoN57?=
- =?us-ascii?Q?4y9jWwBgHpGR83p5pZpHA+Adi/weYkRaAyUMhwbdP3nBpWN2Sh0hs/3zqfbe?=
- =?us-ascii?Q?zqYr706R0lX6o83EuGfqsk9v8rFDoc8HIz0tpToGLyIN7UR4mvUxsVsa6s3o?=
- =?us-ascii?Q?1dvR3styxxHZHI8BKaDDFfAfEq7+nd/GaJYzAp/OQ/J2f66pLobjGfVblNmW?=
- =?us-ascii?Q?ljt3Y5Q1Lke6E0CRZH7W2/b9MaUoRDAKjNG2gmimjQN82SpWVEfiO77MXSZC?=
- =?us-ascii?Q?qEc2cs4xK/5TIuhi5VgNJPjGw3zF19cqnhunxANtymsONNQmKK3NY18eMpqG?=
- =?us-ascii?Q?HBJca5i3/9Vojq887/jZ1p5QItiCXDc2Gz6RN0gPbd2X2uFZpARCmGQSnrH3?=
- =?us-ascii?Q?fYk3ndGbkN2GMB2XH6NCmL8ADf08A5+drKhFwVWAdqO1BQNpKa56IKfXAZj+?=
- =?us-ascii?Q?7QR7DfxO9YhYxFHXLaqxx12uY9EqINHcO72G1ddmjbZosVvo2fYF4tZz2lLJ?=
- =?us-ascii?Q?V+wl9dMI+eU9hW/GaQtHiJIee++jprqhSlJXbhdatfwMhQ7HnKRx+lcmm3wB?=
- =?us-ascii?Q?O/piTAeNWlaaaW//R6LRoRCPoccEhOnaVhq2500DB4oC6Deu2g4IsRhgOmg0?=
- =?us-ascii?Q?BaB6BEP5tUHfhcExXX9DqSNMCb4L+Tpmtm9TAHUEHWAdgBy/s+jLVW4udOtB?=
- =?us-ascii?Q?Lh7xymF0p64L1T2fYrR+Nz808A1hSVgkyx/Ma4tR4+0YXyyrhmc99QVEU1DT?=
- =?us-ascii?Q?8MuNxa3kkVvJ3stz5JRuB8UQ55lSmRsymJOVvRAlg/B+QPZTZQG8tCmInwAS?=
- =?us-ascii?Q?hOc7bO0tC9f9OuItT7/dE9GRUhYiVNUPj0gC6EcBgaxxR7oP5hC86K4v1AYZ?=
- =?us-ascii?Q?oLvXgSMkh1lZebsVHn79c/8FV7jf1iAvHs4jHzhfWiAH5sKgH3vTgfa/MWRk?=
- =?us-ascii?Q?YH4L/oJheuSCOMiuWJK0+DcERB+/SBpW1fEsbTX4LCX66C7Cxs3wqVuClKIm?=
- =?us-ascii?Q?LDG/yA8IaMwi4Y2hu/+ef9wIXF5ZUN6yr3x88lE5j14E/osnyQdCdJviNHlV?=
- =?us-ascii?Q?U8qAram/d6rxc7hQXNuaZ6Zlan27dc2DpnwDNInVzoP0x/Hytp3cARI/iJSG?=
- =?us-ascii?Q?NbD/li0bmYKKmSueWdV/UbXzZpj+rWuPKia4218N3YBya/0zc1OJdiTYz5Vn?=
- =?us-ascii?Q?qf3ohTAxMrXRwuGECntHf6fBhrhX7U3yxDqmFyRCDbzlCl8pVBAWC3aA5obt?=
- =?us-ascii?Q?tivfH42PpO6SGsWmLclylyd7bNaAu+KqGe68jjb5YDxt/KnC7N8M2Lwya+1X?=
- =?us-ascii?Q?ILMUr4YbiJPffpRcYfDOavv91fU40aangl++N5HhJ5SSju/v9lKJwOwqMUNT?=
- =?us-ascii?Q?WIHvDm1/v7Q=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5753.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0dzwkzOrOGS22Ap6YZWwZ0mjR5ES0V9Ejy3T5fRv4QOBSCV2CS4W54DBT/wo?=
- =?us-ascii?Q?eku3YoDFPhw5RAbf6mDY7JLURGpDyvELIbvteV6xNhiAyPnFPZ7lhfkEh/kO?=
- =?us-ascii?Q?6yVXO0hL7ZOU1HcwrY3/E0etQbjy653kfl92QWS3U9vjecnFvhRj/58dJug4?=
- =?us-ascii?Q?az1/KgW8Zp/nXi5PG2kmDM9YizQWh3FUf/fj6+TP31oARMHTUoUYyITbrBl0?=
- =?us-ascii?Q?OUvjo2HAIqeCo4SkOT+JhWq16aWmb8dKDFWsgq6+JTqPcDntL1krHLAqJsnu?=
- =?us-ascii?Q?oysWFT0HbqJX5XqrEcq6Cw4UaB9Qbs08GldorTMUB2Avqi4Z1H5l8xLlLh/9?=
- =?us-ascii?Q?JKevrGirbvDWqbx3UT+UQVgBCCqRYg81bkN4m4nX9eYhdEOc00BGSL+TscL7?=
- =?us-ascii?Q?1mTp9Dop6P8973Oktpt2xu/LfUnknmcTgY49sJrkIz0W9VuBt+vpJ3uY8GGI?=
- =?us-ascii?Q?AIApPR2VOjLDUaRmloAG+VNYk17Wuz6yc6Q9Owy2X9k/4BNMYngeRlv5sWR9?=
- =?us-ascii?Q?WQfVC//iS22MHMGqAgANtSO3zxc/Fb5LdHdmjrBYiHFuz+58KMPZWHi8snkn?=
- =?us-ascii?Q?9rtFx+ZFRP8dGWwepRivDDGfBCoh0mOy1Z3OvgLi4hd3cBeI/4/KxLfUE6PN?=
- =?us-ascii?Q?lV3nage4+zyCPbdPRy2cZNm7kg7hJ4nszk1QfjDrRnFvcx/o0ejRhssHuhZ0?=
- =?us-ascii?Q?RSOoSCmP7SQjvdriBcUtPneVgUF/v5Xld6T+PYZa27MMRIRzjC37MeRcdx9l?=
- =?us-ascii?Q?Y7LL71+R2FHncxvdEt1ypYCfdaAQtvH/POa7MK3r26glTrL61GPO0S7jznDu?=
- =?us-ascii?Q?T6pLuhJmXaqTIDrxDitSgWdKzGrJTtovLEoEHD1CsiUNumBb6/pdMrfxWG9Q?=
- =?us-ascii?Q?6bhwEzfWP9N/uqzH3SY7XdN1nAyzboApVlOUIR6Rla9GjAx1MYrs5w0eOmE/?=
- =?us-ascii?Q?IIjOPESKUYGKmrFfTdcW9+d8rX67liNg1JoGfKjSejoPjPorqJ4UJ4HHn2hp?=
- =?us-ascii?Q?U7fGuh4ko7VJ+P3cHNI7O748qcE7KSD2fFfurnrrPKGR8nHfFxdNFXeMxG4Y?=
- =?us-ascii?Q?btJo+x0AxRCKazergGQWAVkwjwbAW6jcbMY5vJYphHA9r+HeqzL6KQYEkxlx?=
- =?us-ascii?Q?gHds5ax1rn/k3LEzoOMN5/39Bzw5jMryMp8NpjYNp7YJwOUWv0LNIQKpO17v?=
- =?us-ascii?Q?l5ceVRVwluazF2x8Pu1NGooP8vzNTY0JqIwJUBz3T0vuD+ad847La18Mg+OP?=
- =?us-ascii?Q?85AzY3gLgnvVekD+1sfZcb3BOHvzZpIxyGRZBf++N9WYktd7IUv8SmcYXMTq?=
- =?us-ascii?Q?84uemk1RAPf+3JXLroKbFWfoVjN4fJhsQMgZBgMu/+MPqz224NoIhDM6uJ5+?=
- =?us-ascii?Q?XKghs+dVbLmhpOSFEDlrxUaHpJspL5IT+rJWw/QkxidXoWo4iMn+rkDmqo6A?=
- =?us-ascii?Q?PfKFilZ9i1zvn/ziufqmIwPTLEpKFXLRcl/sA+8ugRmPxIhKiA5RgHDnTJXD?=
- =?us-ascii?Q?oQ+hVS+7i8ZltMDEKx4mnqFK1uxlLAajUPNV1MPFtLtetq8agayWVAbiy+av?=
- =?us-ascii?Q?g1Es8zZOvMtNLV/AAdU=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4224be93-8068-47ab-02a2-08ddeeed6cc6
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5753.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2025 15:36:05.8052
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Hq/N7lbHSYSDsgLcQkSQ4QZ1Dr6bhqnc7bHcTtbl36DwcuEaZDG987bj3eEJbbtg
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6851
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_083614_114565_E5ED8D84 
-X-CRM114-Status: UNSURE (   8.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250908_093149_620990_701B88F2 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,14 +92,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 06, 2025 at 12:45:58AM -0700, Nicolin Chen wrote:
+Plug the new .get_info() callback into the GICv3 core driver,
+using some of the existing PPI affinity handling infrastructure.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/irqchip/irq-gic-v3.c | 55 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
+
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index dbeb85677b08c..4a90dbf9daedb 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -69,6 +69,8 @@ struct gic_chip_data {
+ 	bool			has_rss;
+ 	unsigned int		ppi_nr;
+ 	struct partition_desc	**ppi_descs;
++	struct partition_affinity *parts;
++	unsigned int		nr_parts;
+ };
  
-> One thing that I noticed is that group mutex alone isn't enough,
-> because there can be two arm_smmu_build_invs() calls during the
-> same attach_dev callback. And the second one would overwrite.
+ #define T241_CHIPS_MAX		4
+@@ -1796,11 +1798,60 @@ static int gic_irq_domain_select(struct irq_domain *d,
+ 	return d == partition_get_domain(gic_data.ppi_descs[ppi_idx]);
+ }
+ 
++static int gic_irq_get_info(struct irq_fwspec_info *info)
++{
++	struct irq_fwspec *fwspec = &info->fwspec;
++	const struct cpumask *mask = NULL;
++
++	info->flags = 0;
++	info->affinity = NULL;
++
++	/* ACPI is not capable of describing PPI affinity -- yet */
++	if (!is_of_node(fwspec->fwnode))
++		goto out;
++
++	/* If the specifier provides an affinity, use it */
++	if (fwspec->param_count == 4 && fwspec->param[3]) {
++		struct fwnode_handle *fw;
++
++		switch (fwspec->param[0]) {
++		case 1:			/* PPI */
++		case 3:			/* EPPI */
++			break;
++		default:
++			goto out;
++		}
++
++		fw = of_node_to_fwnode(of_find_node_by_phandle(fwspec->param[3]));
++		if (!fw)
++			goto out;
++
++		for (int i = 0; i < gic_data.nr_parts; i++) {
++			if (gic_data.parts[i].partition_id == fw) {
++				mask = &gic_data.parts[i].mask;
++				break;
++			}
++		}
++
++		if (!mask)
++			goto out;
++	} else {
++		mask = cpu_possible_mask;
++	}
++
++	info->affinity = mask;
++	info->flags = (IRQ_FWSPEC_INFO_FWSPEC_VALID |
++		       IRQ_FWSPEC_INFO_AFFINITY_VALID);
++out:
++	return 0;
++}
++
+ static const struct irq_domain_ops gic_irq_domain_ops = {
+ 	.translate = gic_irq_domain_translate,
+ 	.alloc = gic_irq_domain_alloc,
+ 	.free = gic_irq_domain_free,
+ 	.select = gic_irq_domain_select,
++	.get_info = gic_irq_get_info,
+ };
+ 
+ static int partition_domain_translate(struct irq_domain *d,
+@@ -1839,6 +1890,7 @@ static int partition_domain_translate(struct irq_domain *d,
+ static const struct irq_domain_ops partition_domain_ops = {
+ 	.translate = partition_domain_translate,
+ 	.select = gic_irq_domain_select,
++	.get_info = gic_irq_get_info,
+ };
+ 
+ static bool gic_enable_quirk_msm8996(void *data)
+@@ -2231,6 +2283,9 @@ static void __init gic_populate_ppi_partitions(struct device_node *gic_node)
+ 		part_idx++;
+ 	}
+ 
++	gic_data.parts = parts;
++	gic_data.nr_parts = nr_parts;
++
+ 	for (i = 0; i < gic_data.ppi_nr; i++) {
+ 		unsigned int irq;
+ 		struct partition_desc *desc;
+-- 
+2.39.2
 
-Well the group mutex is what makes it non-concurrent. Two things using
-it sequentially within the same thread are a different issue
-
-Jason
 
