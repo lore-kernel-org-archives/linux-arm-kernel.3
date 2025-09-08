@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4667DCAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 877E9CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tIo+HgFDBSGjk+ryK4PE8d8TpiiCG+5aEmtrJp8mr2Y=; b=TWtzXiY8WHf4uNeWk2Q1D7NO+a
-	kDXJx3gwEELDgqP+DziDrVpdHuPxXcTEPBrtfPQhd0A79l2uDTiz9APpzqDZrUfTmxcDBSF2kfra3
-	NtKFxM9cLxudESRRaqiVOKAnS56NYSGLB2nyfRUdl6gyv+SYMCFdX0aQGeAyw5z2we/bxlNz+wuyz
-	Z5oKxHDxZaFVvIEGC/4WgFU9xbzgNJpu7hK13hSmdLzGwzD/Wd+4jCR8R9gOxGpWKOy0ifBc392Po
-	y7U3wXip1Ce66ToneF3ylaC1g3SrW3ejQW+IbmRpFAuIPJa5+RyLzGSVZeGPVtknJ480mswt6KMIO
-	jWDQOG4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FTDiYUkL2CUr9l6jV622a3f8KP7BPruwWZ5gte8PmvI=; b=IBbY2kRdP5wOrJ9Q97G8pHlruD
+	dZ+jT7zERABhZEgF2m+Vcw2zCJlCKKNU4i5J4FC987zb0c4gDAw21an6J1oZKtA3jRUQV2CerfGPG
+	2Q3oG9Tb3Vuw6MjuLyhZVHFWN1/tsRIGhaSWIJk815DHKqzK6a7cbPJDa0YzBebswRkosedqn1E0E
+	BLyWBBTwptYrSl7ybE94Jn5UKt6gE0us2rXjHAsLzAaDq11DHMr5PIXcVPMzJKXO9SIKDBaVYGwaU
+	MfBhUe2TrqDh3BMsJSO9t4wQC78MrX4UpbjB23YMNHzJm/0SqFgSOr0mv/rndk30mOc/lXWXkifKz
+	Qq/jkNsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uviLP-000000029Lp-1UdB;
-	Mon, 08 Sep 2025 20:20:07 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uviO5-00000002AHp-2Drk;
+	Mon, 08 Sep 2025 20:22:53 +0000
+Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uverP-00000000nPO-3P5x;
-	Mon, 08 Sep 2025 16:36:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=tIo+HgFDBSGjk+ryK4PE8d8TpiiCG+5aEmtrJp8mr2Y=; b=W8XWzjn0JY78XM1rjlNQr5OpUY
-	dXHyf6I+qj/yv6fEtIh9ljgEs0tYlnNlsu1SvcJJ8I83bEcJYaeJZRYsMjy7K6SlgnS9ba9ghfGfC
-	akZnwBMaDbsPGXKjbbs6qDtvRfDJxQgfdXCWXDWbymYozZsfUKUTwC8Kbzdk7wW6MOH0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uver6-007gmH-9h; Mon, 08 Sep 2025 18:36:36 +0200
-Date: Mon, 8 Sep 2025 18:36:36 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Kaison Deng <dkx@t-chip.com.cn>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Wayne Chou <zxf@t-chip.com.cn>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org,
+	id 1uvezB-00000000qC3-1yrF
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 16:44:58 +0000
+Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-52a73cc9f97so1382488137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 09:44:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757349896; x=1757954696; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FTDiYUkL2CUr9l6jV622a3f8KP7BPruwWZ5gte8PmvI=;
+        b=RlZXOVeL7DsfihQmUj3sVyA6SwfCL8BXcU2lNCQnzGUvvaJhI7WBD/f3btAVZg8nuk
+         b5lH0WTJ+2TJbH7keLNMAKfRWskBTPHfaJSIQoYDwjh0kGOwAKiOHeHHtE9ZX5UJVMzT
+         RzBL9Pr3X3EGb3KchOsZmG5H302232JOZqgq9ysoKpnerxwhIO0kYxxLzFrrUkma8vl4
+         iNsgZkpSUAqNcvnapA2Kph6GNTQzMf6i1bQ8xIAZQKQ7Pa00OhY3txU4Kt5mQlDt6Egg
+         EfD3R4PxaCw7S0GC3Rocfbkqrp3JoTwxzCZ4xyRpod8kTpum6lN9S2/0NxZtVq2mHTU4
+         j4dA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757349896; x=1757954696;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FTDiYUkL2CUr9l6jV622a3f8KP7BPruwWZ5gte8PmvI=;
+        b=R6cdjN/T1PoNjXFvjECQfsMLUnlW76EOh66A975CuE7TNSNcU6jZ2VREab+sfODpyB
+         iBG9BV3WFqhbX5lsG2JiXRDJNHXfy+6jonatjdqtb0IfgL8QI3h2LCgYz2wG9TaGg9JK
+         Zdbkec50HLYwu1NDYbIlAwZ98yl9S78uW7CQYec6w71cgCJtO8zgh3SYejuodUjJbEui
+         ae++b8faUZUV3O8RA3bZLVM4J8H7eLorM1C9QXnpmcymWDX/MbdtavIjS2mSVrWJo9c9
+         0yMafQGNn+0YY3ZPuv/bPHYAv59ILGO6z0HRh0BarhgNcb8SlZe45PV6b+Rsz39qAHG/
+         uTTg==
+X-Forwarded-Encrypted: i=1; AJvYcCXeeXJBuXGzJ4VvvW7pokk5ljrAmoSrE+ZYMfoxgto+Y3RoOH/+KOkyWLMwltC7+p+ZVqzMUlU/KAgz4eryV16p@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2KsR71QP1rPXh1sxiGSKc5eB51UIENgiY0t7KJuFJ3oLScXVA
+	JWE5QVpcjFYNq8i4OLX4aKUDIYZlbQCH21zBA58W4Zw+eTTZWnXm0tKn
+X-Gm-Gg: ASbGncuHNn5NMi0p2jJepJP4DEy70ByKHFl/nFC1jOsf2FZUWe7BLODaD+Fgr+MZerY
+	h5JZJTyjJImSVdKPm17ErG8OBXvPHTBuSrtpQtknVrzc4258hN0byVl3AuBEpS7cQbiHCM1VjRr
+	DsZrIdjW14ci8Wy7kZUmXJ3hWoM+Ov+s5f6eH3E0EtglZpVidqYVW9JdYZvjK5vfiIPncAcUwnH
+	QGclu5vBUiENX+ugKdDvi8Hc1QP775gqjzz1DwnzFiZT2hRmS/vyYUI4kG6fL//58umY/czzFOP
+	z51sIJqz13aWKm1MDWTLV0ICQly4YB9rfo1Rjq2l1NjtZJ57yDXT4l/aqqEeePozkDG1ZxVV3TQ
+	6OK3AbiEBN3MU19TBR5kxLcYHoWvDUH255Vdr
+X-Google-Smtp-Source: AGHT+IEaTNiP+f9nKLoXBeh5yoJCXM8uvjtKSeIiQ7v3ifbHJ4bT4AcLveiBFitDVMsUfEgSA1p9QQ==
+X-Received: by 2002:a05:6102:ccf:b0:51e:92cc:6e6a with SMTP id ada2fe7eead31-53d160d3f9cmr2416721137.33.1757349895788;
+        Mon, 08 Sep 2025 09:44:55 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:c727:aee6:b2e8:7953])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-52aef458d62sm10689214137.3.2025.09.08.09.44.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Sep 2025 09:44:55 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Add devicetree for the
- ROC-RK3588-RT
-Message-ID: <153e5099-ee64-4ce9-b70e-feb24d8731cb@lunn.ch>
-References: <20250905090115.718622-1-dkx@t-chip.com.cn>
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH] ARM: dts: imx6sll: Use 'dma-names'
+Date: Mon,  8 Sep 2025 13:44:31 -0300
+Message-Id: <20250908164431.67052-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250905090115.718622-1-dkx@t-chip.com.cn>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_093655_854553_64DC2403 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250908_094457_511381_8326C6F8 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +100,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac0 {
-> +	clock_in_out = "output";
-> +	phy-handle = <&rgmii_phy0>;
-> +	phy-mode = "rgmii-rxid";
+'dma-name' is not a valid property and causes the following dt-schema
+warning:
 
-The usual problem with rockchip boards. rgmii-rxid is probably wrong,
-unless you have a very odd PCB.
+dma-name: b'rx\x00tx\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+Fix it by using 'dma-names' instead.
 
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac0_miim
-> +		     &gmac0_tx_bus2
-> +		     &gmac0_rx_bus2
-> +		     &gmac0_rgmii_clk
-> +		     &gmac0_rgmii_bus>;
-> +	tx_delay = <0x47>;
+Signed-off-by: Fabio Estevam <festevam@gmail.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx6sll.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Please try rgmii-id, and small values here.
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
+index 8c5ca4f9b87f..704870e8c10c 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6sll.dtsi
+@@ -309,7 +309,7 @@ uart3: serial@2034000 {
+ 					reg = <0x02034000 0x4000>;
+ 					interrupts = <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
+ 					dmas = <&sdma 29 4 0>, <&sdma 30 4 0>;
+-					dma-name = "rx", "tx";
++					dma-names = "rx", "tx";
+ 					clocks = <&clks IMX6SLL_CLK_UART3_IPG>,
+ 						 <&clks IMX6SLL_CLK_UART3_SERIAL>;
+ 					clock-names = "ipg", "per";
+-- 
+2.34.1
 
-> +	clock_in_out = "output";
-> +	phy-handle = <&rgmii_phy1>;
-> +	phy-mode = "rgmii-rxid";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac1_miim
-> +		     &gmac1_tx_bus2
-> +		     &gmac1_rx_bus2
-> +		     &gmac1_rgmii_clk
-> +		     &gmac1_rgmii_bus>;
-> +	tx_delay = <0x42>;
-
-Same here.
-
-	Andrew
 
