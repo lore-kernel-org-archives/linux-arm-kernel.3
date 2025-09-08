@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A68CAC589
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 056EECAC58C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5WmHxV7Lreaj5eVFu8hF6qzhJomNY/sSV63hQxdrkJQ=; b=rEldBBi+2iGdvRC0yyi7hLXNjP
-	/rT/2VupNHr46gmAzuFRYl3NNZ1BgDiUIMFJzviuVvhOiRvLjTxVdnSXadSkREb/CefikZKMRNTIl
-	VBL0W38dWpHJpe+d6rzajWJapPsHPrDxUnXbETnow2s+M0sQYCUBPSVVa3xTDb5NwMWJXREvW6Z8k
-	j2R4uYEwjRkPGS5E5cAmsOFbToGQJ/ZfIWbzb8tRoazqyA21VJH6UXA1uggpzjDdJWNbHC6vPSonV
-	0lZxxESDn7gTzDZ7YXU4gwb7alApxFWiR3vBAiviOcAL6JiYbNmsULWStWFIbm68qeYiWNT1ZuZGG
-	xeR6ZOjw==;
+	bh=g2sfWX5Agr9NLJVLwpach8+P3hXGVjKjXSbc6pGxJm0=; b=LuXCJcIHWVteDWyX+qJC2HM8uF
+	uSEL1IBCyBJPHcxTqzuIqJNkQNnlDlYu4AvLwTrV2IeKID4RTMo8aLXiTRPM8PIevsIpWVqn+ltDF
+	BhyH+7erZaIGU93uYNVaFUdQ+5bW90i3OIN7l2ZkBGeTkEnyFCFoUO1oQnreRMM4s7Riz8JX+nS4Y
+	uSn/5E7V6m0ra3DnW/EcWB8jle7adO3/yhExLst0Qdr1NqIxRtEuq2pF48T/E6wInzCwujSdnJz2V
+	PN9yLdbsQHkBn0QU+AP/0k0i54zR3cCmBDbe40HucJJuwx5Bm8/PmCfEjnKpg6XdQs36JsEz9MBBT
+	CbnVBaEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsBX-00000004ogj-0aEF;
-	Tue, 09 Sep 2025 06:50:35 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvhub-0000000210F-0JU5
+	id 1uvsBY-00000004ojh-2Q4k;
+	Tue, 09 Sep 2025 06:50:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvhui-0000000213p-0vYf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 19:52:26 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-329ee88fb47so9074053a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 12:52:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757361144; x=1757965944; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5WmHxV7Lreaj5eVFu8hF6qzhJomNY/sSV63hQxdrkJQ=;
-        b=tb8Wn5HgkFfHH3WXrLG9cCOe+xQXgNBa3UCVRQ54THCIn9xUCHrAnzyvRXHqK2vItu
-         C2I36any4wDhoLCcorG7JRD4dgJq1ZFAk8skt4rTTdfYTXBTxZS9gcfZaoWlffMrCGSS
-         BLPgKz0i+upWpkm8bXTs8N+a2Qk3WvRT4qW6D5FHRTcZcNgbje8zOzU7ZSwXbY/FLd/e
-         Hck0T+Zh3cDn94vgfKmF9UH6dRIPXCAxExzKU6PmrV9cpn1bJoBhThOmuYPQqsmUQJs5
-         cVQxOal+rmZCtdph8688NY5XSFjT2zI/r2h6a+bzifh+cbXAtWNikGDDNk1DGiE5ZpNt
-         ppWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757361144; x=1757965944;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5WmHxV7Lreaj5eVFu8hF6qzhJomNY/sSV63hQxdrkJQ=;
-        b=fcbbsE9hQs4Yfrey20zwk2W2aoE7xszAdEB+rnvw7NpQPmz/tU1XJ45K+zSfOSEy6t
-         UBsHbcwCzYQ+fUcoSaIif84L2yHYfg48rZKemiuxkOksIZ9jqfK6ohcf/lrJbF8EFiGK
-         0Q2DKcHmHZT5M96y70x+DHXUAWGisxX4OndHG9FhzZRrIXQ2ijeOlXFUHzkH+76ZmxWq
-         FKdQj1hH+q0hXN/AQU3yIk1O8xORLs9xTHyRjQX2G0BbYqNk21SgcawvIh3CCWI5n9qY
-         1rWEmO6TXvP+C4aV2eN6oyhcy5u2yJzHLI3ZHp9bdoPYJlCs8LPS6Ij0xdq/vJ+QAVsx
-         C98g==
-X-Gm-Message-State: AOJu0YwrSLT25vJ++h4a3doLZKoLjQxb6q1FrUXckZlbHSQL6XUN3dIm
-	b+I1eRH11NSdpIyfD6pPtUI8jrEcmxmeEZhJM2WRxsIkBZoWBkPx9vrVahut6ilpBbHP7A/WxjX
-	9V2Z4UQ==
-X-Google-Smtp-Source: AGHT+IExCPRBqVtXN8qVa8YjvqbzwvBpn9IxtzEsHXQ/2kgRMpC8TgSSgM/sP14o8i1EVRy2DO9MXQPJ5wU=
-X-Received: from pjbsj13.prod.google.com ([2002:a17:90b:2d8d:b0:328:116e:273])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5185:b0:32b:d851:be44
- with SMTP id 98e67ed59e1d1-32d43f0b8e9mr11203024a91.11.1757361144105; Mon, 08
- Sep 2025 12:52:24 -0700 (PDT)
-Date: Mon, 8 Sep 2025 12:52:22 -0700
-In-Reply-To: <20250819090853.3988626-1-keirf@google.com>
-Mime-Version: 1.0
-References: <20250819090853.3988626-1-keirf@google.com>
-Message-ID: <aL8z9vZOAeQvTBKF@google.com>
-Subject: Re: [PATCH v3 0/4] KVM: Speed up MMIO registrations
-From: Sean Christopherson <seanjc@google.com>
-To: Keir Fraser <keirf@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
+	Mon, 08 Sep 2025 19:52:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 115892F2E
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Sep 2025 12:52:20 -0700 (PDT)
+Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 29F683F694
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Sep 2025 12:52:28 -0700 (PDT)
+Date: Mon, 8 Sep 2025 20:51:58 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Steven Price <steven.price@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+	kernel@collabora.com, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH RFC 01/10] dt-bindings: gpu: mali-valhall-csf: add
+ mediatek,mt8196-mali variant
+Message-ID: <aL8z3go1ece81LQj@e110455-lin.cambridge.arm.com>
+References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
+ <20250905-mt8196-gpufreq-v1-1-7b6c2d6be221@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250905-mt8196-gpufreq-v1-1-7b6c2d6be221@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_125225_115149_DEC4F0F5 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20250908_125232_352297_D40E4A4B 
+X-CRM114-Status: GOOD (  24.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +85,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025, Keir Fraser wrote:
-> This is version 3 of the patches I previously posted here:
+On Fri, Sep 05, 2025 at 12:22:57PM +0200, Nicolas Frattaroli wrote:
+> The Mali-based GPU on the MediaTek MT8196 SoC is shackled to its concept
+> of "MFlexGraphics", which in this iteration includes an embedded MCU
+> that needs to be poked to power on the GPU, and is in charge of
+> controlling all the clocks and regulators.
 > 
->  https://lore.kernel.org/all/20250716110737.2513665-1-keirf@google.com/
+> In return, it lets us omit the OPP tables from the device tree, as those
+> can now be enumerated at runtime from the MCU.
 > 
-> Changes since v2:
+> Add the mediatek,mt8196-mali compatible, and a performance-controller
+> property which points to a node representing such setups. It's required
+> on mt8196 devices.
 > 
->  * Rebased to v6.17-rc2
-
-Note, looks like you missed a tested tag from Li on patch 4:
-
-https://lkml.kernel.org/r/b778c98abb4b425186bfeb1f9bed0c7a%40baidu.com
-
-Nits aside, this looks good to my eyes (though I haven't tested yet).
-
-Marc/Oliver,
-
-Can you weigh in on the vgic changes when you get a chance?  And a more expert
-set of eyeballs on the memory ordering side of things would be nice to have, too :-)
-
-As for landing this, I'd be happy to take this through a dedicated kvm-x86 topic
-branch, or I can provide an ack on patches 3 and 4 (there's basically zero chance
-of this causing a conflict in x86).
-
-> Keir Fraser (4):
->   KVM: arm64: vgic-init: Remove vgic_ready() macro
->   KVM: arm64: vgic: Explicitly implement vgic_dist::ready ordering
->   KVM: Implement barriers before accessing kvm->buses[] on SRCU read
->     paths
->   KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 36 +++++++++++++++++++++-
+>  1 file changed, 35 insertions(+), 1 deletion(-)
 > 
->  arch/arm64/kvm/vgic/vgic-init.c | 14 +++--------
->  arch/x86/kvm/vmx/vmx.c          |  7 ++++++
->  include/kvm/arm_vgic.h          |  1 -
->  include/linux/kvm_host.h        | 11 ++++++---
->  virt/kvm/kvm_main.c             | 43 +++++++++++++++++++++++++++------
->  5 files changed, 53 insertions(+), 23 deletions(-)
+> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> index a5b4e00217587c5d1f889094e2fff7b76e6148eb..6df802e900b744d226395c29f8d87fb6d3282d26 100644
+> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> @@ -19,6 +19,7 @@ properties:
+>        - items:
+>            - enum:
+>                - rockchip,rk3588-mali
+> +              - mediatek,mt8196-mali
+>            - const: arm,mali-valhall-csf   # Mali Valhall GPU model/revision is fully discoverable
+>  
+>    reg:
+> @@ -53,6 +54,13 @@ properties:
+>    opp-table:
+>      type: object
+>  
+> +  performance-controller:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      A phandle of a device that controls this GPU's power and frequency,
+> +      if any. If present, this is usually in the form of some specialised
+> +      embedded MCU.
+> +
+>    power-domains:
+>      minItems: 1
+>      maxItems: 5
+> @@ -91,7 +99,6 @@ required:
+>    - interrupts
+>    - interrupt-names
+>    - clocks
+> -  - mali-supply
+>  
+>  additionalProperties: false
+>  
+> @@ -105,9 +112,24 @@ allOf:
+>        properties:
+>          clocks:
+>            minItems: 3
+> +        performance-controller: false
+>          power-domains:
+>            maxItems: 1
+>          power-domain-names: false
+> +      required:
+> +        - mali-supply
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: rockchip,mt8196-mali
+
+s/rockchip/mediatek/
+
+Best regards,
+Liviu
+
+> +    then:
+> +      properties:
+> +        mali-supply: false
+> +        sram-supply: false
+> +        operating-points-v2: false
+> +      required:
+> +        - performance-controller
+>  
+>  examples:
+>    - |
+> @@ -143,5 +165,17 @@ examples:
+>              };
+>          };
+>      };
+> +  - |
+> +    gpu2: gpu@48000000 {
+> +        compatible = "mediatek,mt8196-mali", "arm,mali-valhall-csf";
+> +        reg = <0x48000000 0x480000>;
+> +        clocks = <&mfgpll 0>;
+> +        clock-names = "core";
+> +        interrupts = <GIC_SPI 606 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                     <GIC_SPI 605 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                     <GIC_SPI 604 IRQ_TYPE_LEVEL_HIGH 0>;
+> +        interrupt-names = "job", "mmu", "gpu";
+> +        performance-controller = <&gpufreq>;
+> +    };
+>  
+>  ...
 > 
 > -- 
-> 2.51.0.rc1.193.gad69d77794-goog
+> 2.51.0
 > 
+
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
