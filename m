@@ -4,94 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E20CCA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:31:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C9CCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 20:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uSnlDYAkih0wYrWYP/wGKkJTrA/JIOiBaO0koXzi78I=; b=4wUyqgCmz4jhWuGfXi6y5YF+Jd
-	FoLuXvwSy8sYXFRrMFPiBL29LhjZLI/HQLchmjoMw0PRc4CxHy7xANj+yGAixSDZmi0++JUoCT2kL
-	ZCcIwH4/sru7HJwk5OVX4t7XYDMFWHmVqsbQFsHqL3UGSfJ337K3qHSJqFJzcWF12WBF1eoMR4375
-	0harnPZXjnNtwCH+Cf+IxiXxWKaVm1uE+DnNef7K1/SRHwdlGmKl4LDWpyPuObqVm+yy0TueL+Rk1
-	xcpBXXXqEUc7nRhCyn4tNWq4v8IR3YGQpgh/rC3bE9uiQ3BFkAS0lRYXneG2BwtMGeQIru4e32VsJ
-	WUwHheIQ==;
+	bh=bEDyurSVkEEgaG+aWPBLXsNNKgorcG4Yu6vrLBcD5x4=; b=rJLPetKbqQ9DdaAz0udDVECCsT
+	6RLJicw9hlpxu4XVJzKGoCwLY/yR8HF0NSDlGZT4cl/vv++AwrgeZQJaHDAiDwqAHzsOVs6RUbYZx
+	hr3hEBUtq/79RQCv04/uxjar8yUFJu8WbIFUPul69Z0zkPLhIaCVY61MHnyphW6ItJhxj0uDdIhfU
+	7SU6Xh63SXDAwko5QM/dpIpmHyNm+/hePmTD7fihgH2KF8gixzYzt7oD/VPoiQhyVDzai+9YfMpVG
+	xhrtLZhXLc+dKG+54tZZu4jTLqKnka56NXmokf28MyQYQR/QaiEAh+/mwyFzoD7xXw8qpkylsVndw
+	Rcl/ajSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uviW9-00000002CiN-1f4z;
-	Mon, 08 Sep 2025 20:31:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uviYp-00000002DYC-3YNZ;
+	Mon, 08 Sep 2025 20:33:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvf2U-00000000rN5-0XAM;
-	Mon, 08 Sep 2025 16:48:23 +0000
+	id 1uvf2W-00000000rOD-2Zsd
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 16:48:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F44544712;
-	Mon,  8 Sep 2025 16:48:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32B09C4CEF1;
-	Mon,  8 Sep 2025 16:48:21 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="XK8UCkAO"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1757350098;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uSnlDYAkih0wYrWYP/wGKkJTrA/JIOiBaO0koXzi78I=;
-	b=XK8UCkAOFuRTAaMghbMkYhV8T2QJaLjrkIRbiSC744iVovTaic60Zp5rZ+bImztc351gHd
-	RfVyIShQIvu7iaNMFAfleIQgTZHVZIHMKALN8K7z4nH5u5CE2QvEyp5Ifj4Cu887WIjTUu
-	PPaVKxR6lJFHUjNXxFZY/txccNFdWt8=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 910e01c3 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Mon, 8 Sep 2025 16:48:18 +0000 (UTC)
-Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-7452b1964f3so4285899a34.1;
-        Mon, 08 Sep 2025 09:48:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWcX97IehutFm6O+k9jHr8SjBR802QnVuOr3EE0TvkTPuoceij3O+IqHipsSGOkn9IPlnQw1FpC0e5/NP8=@lists.infradead.org, AJvYcCWntZqVW6GgJxCWmQWtDeob3uQ/yEOqdL0pPX+spi+X+SlNW7wXmJOR6131oKpvYytzLs1aAVAlCnObIBxTfvOt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAXfSqew28QJ5VUuuhY70ZeRBVfYqAF4lOsttmNGzjLr1tOSK1
-	eFxS4ulVqk+2DgquM7TqoDOTBQaqTB3EfRHWvjglx5LwOjFRZk1/KDfwKSglfJHAaVaM4ubppZl
-	y4puSAJg21jq2ecbaF56M3uwtCljuNcM=
-X-Google-Smtp-Source: AGHT+IHX8XF6+e0fkSbHw/Gno/Iv8TyBoDNhQdZJKrK/fMw8uizEVVlHqvT1474ZbZbBOA/u0TsCp2SBgWidGOb2gVE=
-X-Received: by 2002:a05:6808:3447:b0:43b:2976:6080 with SMTP id
- 5614622812f47-43b29b4b108mr4340525b6e.23.1757350096055; Mon, 08 Sep 2025
- 09:48:16 -0700 (PDT)
+	by tor.source.kernel.org (Postfix) with ESMTP id E3B80601D4;
+	Mon,  8 Sep 2025 16:48:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E08FC4CEF5;
+	Mon,  8 Sep 2025 16:48:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757350103;
+	bh=s02kopzJSlYiqLDMIOwawddi1A/EA0OWXDvYYK5KGXo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OvVeuPPlqrgkwm4Pwfx2gBHC5PxzGc63nQRmK+0toXwiytOzIAQ4MkK7bBNEulbzg
+	 rLqfUwrk0xPM7YLnH+wBIxkurrkEZ4StvdPFDqeq1QNfzBHusy1WuUoZTo6II6CF4W
+	 J8gDrH5Bildq1JqbhzEXWsFG7q17Mw/EFt1OeF/GGDRMGX62WH2k+eIGhn8uJ4ZLvd
+	 bHlQByov+zZ5mLeHJqNB1EPHKspjAGQoHkzuI75fDGydkYku3i2Brjccrn32M+H4fx
+	 QD6C6N+YzGYrlZqVMOpZxhPdT/uBjp7zcvQxMY89q3ADIUfUjO2Qj5MLSCyj2QQJ5e
+	 K+99E/YRZhmAA==
+Date: Mon, 8 Sep 2025 09:47:06 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Zhiqi Song <songzhiqi1@huawei.com>,
+	Longfang Liu <liulongfang@huawei.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v2 12/12] wireguard: kconfig: Simplify crypto kconfig
+ selections
+Message-ID: <20250908164706.GA1331@sol>
+References: <20250906213523.84915-1-ebiggers@kernel.org>
+ <20250906213523.84915-13-ebiggers@kernel.org>
+ <CAHmME9qyfbn539Um9xoFJu2Mm9mM0zuOxyLgeOjF-R5nktbz4w@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250901150359.867252-1-david@redhat.com> <20250901150359.867252-6-david@redhat.com>
-In-Reply-To: <20250901150359.867252-6-david@redhat.com>
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Date: Mon, 8 Sep 2025 18:48:04 +0200
-X-Gmail-Original-Message-ID: <CAHmME9okig=9NVGS_vSt525C-kR0mAyCnzSn9iypvu8uj0zA_Q@mail.gmail.com>
-X-Gm-Features: AS18NWDEbovQfzN2Y035qma21yXmLeYwXyIh1FHAB52eeHDgW6bSgyj_MCTfArc
-Message-ID: <CAHmME9okig=9NVGS_vSt525C-kR0mAyCnzSn9iypvu8uj0zA_Q@mail.gmail.com>
-Subject: Re: [PATCH v2 05/37] wireguard: selftests: remove CONFIG_SPARSEMEM_VMEMMAP=y
- from qemu kernel config
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, 
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Shuah Khan <shuah@kernel.org>, 
-	Alexander Potapenko <glider@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>, 
-	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org, 
-	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev, 
-	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>, 
-	Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com, 
-	kvm@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>, 
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org, 
-	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>, 
-	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org, 
-	Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>, 
-	Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>, 
-	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, 
-	x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_094822_203212_491EEE05 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAHmME9qyfbn539Um9xoFJu2Mm9mM0zuOxyLgeOjF-R5nktbz4w@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,5 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Applied this one, actually. Thank you.
+On Mon, Sep 08, 2025 at 06:35:04PM +0200, Jason A. Donenfeld wrote:
+> Hi Eric,
+> 
+> Just a small nit -- would you commit this with the subject line all
+> lower case, like the other wireguard commits?
+
+Done.
+
+> By the way, I have been reading every single one of your patches. It
+> didn't seem like it'd be useful for me to respond endlessly with
+> Acked-by/Reviewed-by, so I haven't. But I have quite actively been
+> looking through these series. Thanks for doing these cleanups and
+> reorganizations. This patch here especially is quite the relief...
+
+Thanks!  I think Acks/Reviews would still be helpful, as it shows that
+someone else really read the patches.  Maybe you'd at least like to send
+those for the cleanups for the algorithms used by WireGuard?
+
+- Eric
 
