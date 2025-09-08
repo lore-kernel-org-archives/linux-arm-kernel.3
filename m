@@ -4,168 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D75CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07409CAC581
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 18:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w4KMjz9pZf6Gn5SDTmwCP/agoyxxfuBiYUtMKRyfuzo=; b=PAYerqo0F1TXXMFAyvp7e/AejU
-	m7tO8mNSBr4lo3dTj6kEP0tp0TML43WSKEzA2RmyxM8/PB99vWKwTV+iaAOx0/i038G7ydYX8JVFM
-	dEkQJPcXj/4jAUmBu9zEM42S+8J8Ak6vr91hf5e5XN2SKE8BSIuKtafyllF0/lOmRblmlPGhGoFeW
-	RhmSSi+Nfvx6DcC3f59AUVaztCsFj0SqEMK6FgObV6prhl20/YQ+RhVd/b+c4Cqc1wnB14GqRe2gr
-	rECUK02X/Pm5TcMbAsReGmfz+3sJ66WbgUR0tJa0o/VVqfZb1XtTRuya/2ZZNv1kQImHNwCUVrEK+
-	nQwdaAUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XYta3L6nkwNiikQFnf7CkmM+d3uzVr4q1ObSwoH0Nrw=; b=m+FBhQHGj1TybXixQ7GN0qT7wL
+	gxLvLJMxPEeabkhg/iDhyGWJ4RcnQ5Lt2RzVgcdd0BAFICiUXbmvc/ZAX6zQf3Sio9lwBl6vJ4zSj
+	6TCkRtJO/EexGKUYWV/3STCX0dHipcZ6cyhpLB1PiNfFQaNpB+Ufh3cyx/B5xNoPc2Am3sk+kmBur
+	ib7G/3EARZIIL1sPRK21qBnpxV+heXRoYPwI0VL9uaGRZSxWxcz55pBV1g5Q4OEU5jdrfxPemswdc
+	0w7tPQ5oyp+X+LHjyhf1Jh3cyvSF1l/zH429h1nnDpml/cVk0WjskpEXp8nNnTJemR1NJeLnANsSn
+	uttZY86A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgiy-00000001b7X-1j7B;
-	Mon, 08 Sep 2025 18:36:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uvglg-00000001c57-1LrX;
+	Mon, 08 Sep 2025 18:39:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvdhQ-00000000OGZ-0Wlw
+	id 1uvdkG-00000000PKW-0b6H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 15:22:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757344950;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=w4KMjz9pZf6Gn5SDTmwCP/agoyxxfuBiYUtMKRyfuzo=;
-	b=B+VTzXyi7V+Tf2jDC58RlR3q9cOdsYcSpsm8+lGDA39vIDrIxePyKl5JVYeB0cwENOrDa3
-	TWmsRe9o1PoQc7+QMnCpTZe12KR36FNRFLil66QnOVpAPjenoY2cgN4qFQ8F+0o9Ww/pcK
-	pedG8ZLnNTb+ZaIp34sk7McerhCz308=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-654-mRFVrw99NmGr7W--LKy4ZA-1; Mon, 08 Sep 2025 11:22:29 -0400
-X-MC-Unique: mRFVrw99NmGr7W--LKy4ZA-1
-X-Mimecast-MFC-AGG-ID: mRFVrw99NmGr7W--LKy4ZA_1757344948
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-45b99c18484so19336835e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Sep 2025 08:22:29 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757344948; x=1757949748;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=w4KMjz9pZf6Gn5SDTmwCP/agoyxxfuBiYUtMKRyfuzo=;
-        b=wc4cyMkauyL4hweoXXC2tyM0CR44q2uikzPK6Yb9B9Lst6aZi0rqPEBMjFKB0AuJ+k
-         FTqh1qFGApsGX7mht7dNhSMSYZ5iDxVa0cxqL96gb3+56NG/G2nxinbBWEcWRTx/wcd9
-         a4qgkCacXPVZHzb0FH65YVq5mu6k+L2lB2+6YQUOx8TTYiJhslrj1TsJ3Rm7XEYthOFw
-         dtUAaHAi11fnVHLw0sBEdCKhxERHWk/Loy+z6XrP46nuglTJ3hH9p1P9zly+w5OhGmpY
-         TXq3c7PSa/MdPfsX4nwoA6Jo6zmOut14zDqMeGpvhnbLKqH0O3G14A6mUirnpyBCy1wp
-         C+XQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW3kc3/L+jihiBSEKaZQlwEByGRSm39EWJkSh1wc59Cp2ZHlg5QElDiEdx8q0Io1as7hLlZU1tKYzo1xRhGNtsC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQI1cWBwlkvOwe+JnMRoFIn+xk7s3D9bfa0e6gDubb3nwsngyt
-	DkPhrghW62IueZy/BQVtFiXtTc4eiIejetuY0OmorJ5felPtD3LFjcvgjY44g3oRr69gY102/u4
-	52SHthDJ5uggfIHqLTfnG1YJZuKmr1dfM5aDQI3hsPR+jQrppRClvOxuh8hk4YgJKDSXOyctOjX
-	Lx
-X-Gm-Gg: ASbGnctzlurTl2jdQnVCb/GxeH5rtJ4mbzMBcYrCK9rQTeewx8o3FK9ZQFdZX5piX46
-	d3emJwmXaIWThI4AvQmn7ySlipmngdPXkGLwIZEs8dsO9eWu1Hg4fFwEkZqFVlGDS5VMkdIW5Le
-	eP4h1ynLJJgANWu0vlNvPL1at26gpOozeJsWQaavTHiQjRJbCoFoKfnO8sYDlYGRjHUP0lcH7jg
-	EABR9H93vWrCCLhqSZ7oix6y6o/wgIdSU0eLQdPffwnaTEOOFJksV5sUSxmvo76vvpzo4wntsfg
-	UINUNc9sQQELi5WebmlHjjYrCBJF/LmcYcfeV73VcZqxUj9y9I7EH7IBpBnYgyn9WAKcSUAiCn5
-	ubk6r+Spo1vH/184ajzFc9sACFirc9o8uZkj7oZXiageoDz4tK782uiVUFisLDWB4
-X-Received: by 2002:a05:600c:34cb:b0:45d:e0cf:41c9 with SMTP id 5b1f17b1804b1-45de0cf447fmr65101175e9.22.1757344947804;
-        Mon, 08 Sep 2025 08:22:27 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGHYVI7uetiSbrjm9XefV08PSiCwYstCNobj3gljiWL9Oji0Bqd7BtZyoiA+b/dW0fMqgLp+w==
-X-Received: by 2002:a05:600c:34cb:b0:45d:e0cf:41c9 with SMTP id 5b1f17b1804b1-45de0cf447fmr65100515e9.22.1757344947304;
-        Mon, 08 Sep 2025 08:22:27 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f25:700:d846:15f3:6ca0:8029? (p200300d82f250700d84615f36ca08029.dip0.t-ipconnect.de. [2003:d8:2f25:700:d846:15f3:6ca0:8029])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf276d5e5fsm42252142f8f.27.2025.09.08.08.22.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Sep 2025 08:22:26 -0700 (PDT)
-Message-ID: <83d3ef61-abc7-458d-b6ea-20094eeff6cd@redhat.com>
-Date: Mon, 8 Sep 2025 17:22:24 +0200
+	Mon, 08 Sep 2025 15:25:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8325260054;
+	Mon,  8 Sep 2025 15:25:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99800C4CEF1;
+	Mon,  8 Sep 2025 15:25:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757345127;
+	bh=xze1+fxvsPzdRtMPODz1XPQ0lxdL5slP1XUd9qQL0ws=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KyTU68Y+L8AxoUgOYplOYbRD7vcfIix5f1zj7y9rUsF0mCwiuVtMC51iUrXdh6Kio
+	 ffjp/kvxXdzVnq604zNpCEIWfzK/19XZo2gHHJqakbo9/GZFOKfRnaCk/0XJbxGjpw
+	 sGUOEAJwxO7AZBvrlQ5cDq0PyUVsi7zrMsOQbIdUQ3HifsTm1wyu/I4GMJYK0KUveV
+	 DSM0lcKrm5mk3A1Htr7dSnyVsWdkNVGpQOsMyLXPZf9n7TTvqIGfYDzfn409+Di0My
+	 QFXFC70/OORIVYFcRwFvyrb+9ROBhPszeSJAUiw8XT2p8m8/pSd7dd0Vtc3yc3FMeF
+	 pH1XDfrsdC8MQ==
+Date: Mon, 8 Sep 2025 20:55:15 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, bhelgaas@google.com, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, magnus.damm@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
+	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, lizhi.hou@amd.com, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>
+Subject: Re: [PATCH v3 5/9] PCI: rzg3s-host: Add Initial PCIe Host Driver for
+ Renesas RZ/G3S SoC
+Message-ID: <qghspbzkde5rftdtqmrqt4v5qkx4hakqwdklotlf6vaj55tpmb@aoixy7umnrqj>
+References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
+ <ddxayjj5wcuuish4kvyluzrujkes5seo7zlusmomyjfjcgzcyj@xe3zzzmy2zaj>
+ <8ef466aa-b470-4dcb-9024-0a9c36eb9a6a@tuxon.dev>
+ <zsgncwvhykw4ja3bbqaxwupppjsqq4pcrdgrsduahokmt72xsm@twekpse6uzzh>
+ <CAMuHMdUu0uXBJndcwWoZp8NNyBJox5dZw4aoB8Ex50vBDDtP7g@mail.gmail.com>
+ <6f2hpdkonomgrfzqoupcex2rpqtlhql4lmsqm7hqk25qakp7ax@bfrzflghmnev>
+ <CAMuHMdUEqKc+qtRXiPzgjhWaer5KLroZ+hCSVLCQ497h3BtOAw@mail.gmail.com>
+ <vdn4lomtgr6htab7uodgm75iphju6yyimhlnfonysxxdpudib7@qm4yettsvsrs>
+ <742cf1ae-1723-4cf5-8931-afd35699cc95@tuxon.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
- Zi Yan <ziy@nvidia.com>
-References: <20250901150359.867252-1-david@redhat.com>
- <20250901150359.867252-20-david@redhat.com>
- <f5032553-9ec0-494c-8689-0e3a6a73853c@sirena.org.uk>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
- ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZoEEwEIAEQCGwMCF4ACGQEFCwkIBwICIgIG
- FQoJCAsCBBYCAwECHgcWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaJzangUJJlgIpAAKCRBN
- 3hD3AP+DWhAxD/9wcL0A+2rtaAmutaKTfxhTP0b4AAp1r/eLxjrbfbCCmh4pqzBhmSX/4z11
- opn2KqcOsueRF1t2ENLOWzQu3Roiny2HOU7DajqB4dm1BVMaXQya5ae2ghzlJN9SIoopTWlR
- 0Af3hPj5E2PYvQhlcqeoehKlBo9rROJv/rjmr2x0yOM8qeTroH/ZzNlCtJ56AsE6Tvl+r7cW
- 3x7/Jq5WvWeudKrhFh7/yQ7eRvHCjd9bBrZTlgAfiHmX9AnCCPRPpNGNedV9Yty2Jnxhfmbv
- Pw37LA/jef8zlCDyUh2KCU1xVEOWqg15o1RtTyGV1nXV2O/mfuQJud5vIgzBvHhypc3p6VZJ
- lEf8YmT+Ol5P7SfCs5/uGdWUYQEMqOlg6w9R4Pe8d+mk8KGvfE9/zTwGg0nRgKqlQXrWRERv
- cuEwQbridlPAoQHrFWtwpgYMXx2TaZ3sihcIPo9uU5eBs0rf4mOERY75SK+Ekayv2ucTfjxr
- Kf014py2aoRJHuvy85ee/zIyLmve5hngZTTe3Wg3TInT9UTFzTPhItam6dZ1xqdTGHZYGU0O
- otRHcwLGt470grdiob6PfVTXoHlBvkWRadMhSuG4RORCDpq89vu5QralFNIf3EysNohoFy2A
- LYg2/D53xbU/aa4DDzBb5b1Rkg/udO1gZocVQWrDh6I2K3+cCs7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <f5032553-9ec0-494c-8689-0e3a6a73853c@sirena.org.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: QbBkwYRyTZM_0RDONGMGo6oAqUihF_YYOkbi9ntPU4E_1757344948
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_082232_242396_224B6094 
-X-CRM114-Status: GOOD (  14.23  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <742cf1ae-1723-4cf5-8931-afd35699cc95@tuxon.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,26 +84,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08.09.25 17:16, Mark Brown wrote:
-> On Mon, Sep 01, 2025 at 05:03:40PM +0200, David Hildenbrand wrote:
->> We can just cleanup the code by calculating the #refs earlier,
->> so we can just inline what remains of record_subpages().
->>
->> Calculate the number of references/pages ahead of times, and record them
->> only once all our tests passed.
+On Mon, Sep 08, 2025 at 04:06:50PM GMT, Claudiu Beznea wrote:
+> Hi, Manivannan,
 > 
-> I'm seeing failures in kselftest-mm in -next on at least Raspberry Pi 4
-> and Orion O6 which bisect to this patch.  I'm seeing a NULL pointer
-> dereference during the GUP test (which isn't actually doing anything as
-> I'm just using a standard defconfig rather than one with the mm
-> fragment):
+> On 9/1/25 18:54, Manivannan Sadhasivam wrote:
+> > On Mon, Sep 01, 2025 at 04:22:16PM GMT, Geert Uytterhoeven wrote:
+> >> Hi Mani,
+> >>
+> >> On Mon, 1 Sept 2025 at 16:04, Manivannan Sadhasivam <mani@kernel.org> wrote:
+> >>> On Mon, Sep 01, 2025 at 11:25:30AM GMT, Geert Uytterhoeven wrote:
+> >>>> On Sun, 31 Aug 2025 at 06:07, Manivannan Sadhasivam <mani@kernel.org> wrote:
+> >>>>> On Sat, Aug 30, 2025 at 02:22:45PM GMT, Claudiu Beznea wrote:
+> >>>>>> On 30.08.2025 09:59, Manivannan Sadhasivam wrote:
+> >>>>>>> On Fri, Jul 04, 2025 at 07:14:05PM GMT, Claudiu wrote:
+> >>>>>>>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >>>>>>>>
+> >>>>>>>> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
+> >>>>>>>> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
+> >>>>>>>> only as a root complex, with a single-lane (x1) configuration. The
+> >>>>>>>> controller includes Type 1 configuration registers, as well as IP
+> >>>>>>>> specific registers (called AXI registers) required for various adjustments.
+> >>>>>>>>
+> >>>>>>>> Hardware manual can be downloaded from the address in the "Link" section.
+> >>>>>>>> The following steps should be followed to access the manual:
+> >>>>>>>> 1/ Click the "User Manual" button
+> >>>>>>>> 2/ Click "Confirm"; this will start downloading an archive
+> >>>>>>>> 3/ Open the downloaded archive
+> >>>>>>>> 4/ Navigate to r01uh1014ej*-rzg3s-users-manual-hardware -> Deliverables
+> >>>>>>>> 5/ Open the file r01uh1014ej*-rzg3s.pdf
+> >>>>>>>>
+> >>>>>>>> Link: https://www.renesas.com/en/products/rz-g3s?queryID=695cc067c2d89e3f271d43656ede4d12
+> >>>>>>>> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> >>>>>>>> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >>>>
+> >>>>>>>> +  ret = pm_runtime_resume_and_get(dev);
+> >>>>>>>> +  if (ret)
+> >>>>>>>> +          return ret;
+> >>>>>>>> +
+> >>>>>>>
+> >>>>>>> Do you really need to do resume_and_get()? If not, you should do:
+> >>>>>>
+> >>>>>> It it's needed to enable the clock PM domain the device is part of.
+> >>>>>>
+> >>>>>
+> >>>>> I've replied below.
+> >>>>>
+> >>>>>>>
+> >>>>>>>     pm_runtime_set_active()
+> >>>>>>>     pm_runtime_no_callbacks()
+> >>>>>>>     devm_pm_runtime_enable()
+> >>>>
+> >>>>>>>> +static int rzg3s_pcie_suspend_noirq(struct device *dev)
+> >>>>>>>> +{
+> >>>>>>>> +  struct rzg3s_pcie_host *host = dev_get_drvdata(dev);
+> >>>>>>>> +  const struct rzg3s_pcie_soc_data *data = host->data;
+> >>>>>>>> +  struct regmap *sysc = host->sysc;
+> >>>>>>>> +  int ret;
+> >>>>>>>> +
+> >>>>>>>> +  ret = pm_runtime_put_sync(dev);
+> >>>>>>>> +  if (ret)
+> >>>>>>>> +          return ret;
+> >>>>>>>
+> >>>>>>> Since there are no runtime callbacks present, managing runtime PM in the driver
+> >>>>>>> makes no sense.
+> >>>>>>
+> >>>>>> The PCIe device is part of a clock power domain. Dropping
+> >>>>>> pm_runtime_enable()/pm_runtime_put_sync() in this driver will lead to this
+> >>>>>> IP failing to work as its clocks will not be enabled/disabled. If you don't
+> >>>>>> like the pm_runtime_* approach that could be replaced with:
+> >>>>>>
+> >>>>>> devm_clk_get_enabled() in probe and clk_disable()/clk_enable() on
+> >>>>>> suspend/resume. W/o clocks the IP can't work.
+> >>>>>
+> >>>>> Yes, you should explicitly handle clocks in the driver. Runtime PM makes sense
+> >>>>> if you have a power domain attached to the IP, which you also do as I see now.
+> >>>>> So to conclude, you should enable/disable the clocks explicitly for managing
+> >>>>> clocks and use runtime PM APIs for managing the power domain associated with
+> >>>>> clock controller.
+> >>>>
+> >>>> Why? For the past decade, we've been trying to get rid of explicit
+> >>>> module clock handling for all devices that are always part of a
+> >>>> clock domain.
+> >>>>
+> >>>> The Linux PM Domain abstraction is meant for both power and clock
+> >>>> domains.  This is especially useful when a device is present on multiple
+> >>>> SoCs, on some also part of a power domain,  and the number of module
+> >>>> clocks that needs to be enabled for it to function is not the same on
+> >>>> all SoCs.  In such cases, the PM Domain abstraction takes care of many
+> >>>> of the integration-specific differences.
+> >>>
+> >>> Hmm, my understanding was that we need to explicitly handle clocks from the
+> >>> consumer drivers. But that maybe because, the client drivers I've dealt with
+> >>> requires configuring the clocks (like setting the rate, re-parenting etc...) on
+> >>> their own. But if there is no such requirement, then I guess it is OK to rely on
+> >>> the PM core and clock controller drivers.
+> >>
+> >> When you need to know the actual clock rate, or change it, you
+> >> indeed have to handle the clock explicitly.  But it still may be enabled
+> >> automatically through the clock domain.
+> >>
+> > 
+> > Yeah!
+> > 
+> >>>>> But please add a comment above pm_runtime_resume_and_get() to make it clear as
+> >>>>> most of the controller drivers are calling it for no reason.
+> >>>>
+> >>>> Note that any child device that uses Runtime PM depends on all
+> >>>> its parents in the hierarchy to call pm_runtime_enable() and
+> >>>> pm_runtime_resume_and_get().
+> >>>
+> >>> Two things to note from your statement:
+> >>>
+> >>> 1. 'child device that uses runtime PM' - Not all child drivers are doing
+> >>> runtime PM on their own. So there is no need to do pm_runtime_resume_and_get()
+> >>> unless they depend on the parent for resource enablement as below.
+> >>
+> >> It indeed depends on the child device, and on the bus.  For e.g. an
+> >> Ethernet controller connected to a simple SoC expansion bus, the bus must
+> >> be powered and clock, which is what "simple-pm-bus" takes care of
+> >> ("simple-bus" does not).
+> >>
+> > 
+> > Right. But most of the PCI controller drivers call pm_runtime_resume_and_get()
+> > for no good reasons. They might have just copied the code from a driver that did
+> > it on purpose. So I tend to scrutinize these calls whenever they get added for a
+> > driver.
+> 
+> To be sure I will prepare the next version with something that was
+> requested: are you OK with keeping pm_runtime_resume_and_get() and add a
+> comment for it?
+> 
 
-On which -next label are you on? next-20250908 should no longer have 
-that commit.
+Yes!
+
+- Mani
 
 -- 
-Cheers
-
-David / dhildenb
-
+மணிவண்ணன் சதாசிவம்
 
