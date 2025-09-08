@@ -4,53 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE57CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 04:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A829CCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Sep 2025 04:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPnGEMHyTFmwcyosRsmyzdD7OEP+thDnPLyRPFIpD18=; b=RK1DyDBbgoX02x8AMlFw/+4hly
-	v5WTHhIZ1CJ6goJNaPrD6vGXELmaEimvsBtM3hK9dZs43w1hdcxbu3K0BBmmsAeqt+4SDiO5rkh2m
-	ZQWZne86UYm/k4cj/s++oMa+9TyXG5UYwRqk9kKc7hxapCmG0YlgTJCaQCQcQgz7GS/77lM4U2X+d
-	nY3nkxx36ubWYk+jI1N4+7xqtgl0MG0OB99GYp9V5k3odgRgal2t835x7BWPqc/HS2O1f5aEFWy9F
-	g49qlQE0X4P3D7AlO5Elru78KZ66X4kwfSOA8QLYXZwDNii8B5yg/K6zqjk7OKmfHs0Bwhfm29o5D
-	0IYDA3uA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fg9Q9+LRNIuQPV6XLANO6XaefOgzFhSoYBg7PINwgjE=; b=UdhGJsc56EFHq/2HW3uepTah7U
+	fl7YxkyA1QvnOFMkZVyYO7HJvu17HkDZnsCU/bvNEOX/xxd5MD/9nAhkJyOAjkGVjeamkbTfwusNl
+	O6uct3c6tGb8gXqeC7NwPBkbT749KPeNdwaa1aZu4AnHhvgpX8AWZA2PB6MwOH3XOLzvLSbRdpAwp
+	3gFhWXYgwjrXddrCdzAg2xjDfFOMUOWCl0MQf1eWXxZf9Ybtb/njofAIx1+xRuBD6ASKJOptLsAz3
+	6YXF8WTbu9Yu+jKPJA/lnj4yB+JSNEXiZh4UpNVSqhRCjf2ZzMX5ZujqmyvdCLiFjjoA0UQstO5jJ
+	zjS6noAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvTai-0000000EVJm-0GFm;
-	Mon, 08 Sep 2025 04:34:56 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uvTe4-0000000EWFO-2Nl2;
+	Mon, 08 Sep 2025 04:38:24 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvTLd-0000000ERvU-38M2;
-	Mon, 08 Sep 2025 04:19:23 +0000
-Received: from mail.ideasonboard.com (unknown [223.190.86.44])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 15649596;
-	Mon,  8 Sep 2025 06:18:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1757305086;
-	bh=/jDIWK7i1bkbhteZhSWWZQoiGd9c1D9oHm8aowMZKQs=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=KIwHQu87tkytX4QAfTXQG65ys8jzqvsky4JMDCf1MsVUeTzX+EveGlueSFAPkO+Z9
-	 YYf8loivxA4+msF6a2SBb/IG3myckK7LRGO+yGINw3TbJ0JUwQHhWMninpgaAPhSDH
-	 HI+9ecTX4XLjoduTpr+6KAFosE6iGeljPbSQ3vxc=
-Content-Type: text/plain; charset="utf-8"
+	id 1uvTbF-0000000EVPk-0zmI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Sep 2025 04:35:30 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5884Z5gA4164023;
+	Sun, 7 Sep 2025 23:35:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757306105;
+	bh=Fg9Q9+LRNIuQPV6XLANO6XaefOgzFhSoYBg7PINwgjE=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=ppx4sh1cXZ10ATftKwMmvzQj18X+ePsrioIZAJstQ2KOXcNSFh3jeV1vVV3h09r4C
+	 7ZklrMGgBrPHoFxG+SQdkXRnlea1eK5RaVjB/Z9KNKCk40Tgl1BCGtpACVsBykNfX2
+	 c6D2wRKZTOlWO4CTURC9Mqwtj4F38SW0w5803lYs=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5884Z5LF3499992
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Sun, 7 Sep 2025 23:35:05 -0500
+Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Sun, 7
+ Sep 2025 23:35:05 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Sun, 7 Sep 2025 23:35:05 -0500
+Received: from [172.24.234.212] (uda0510294.dhcp.ti.com [172.24.234.212])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5884Yxp0265890;
+	Sun, 7 Sep 2025 23:35:00 -0500
+Message-ID: <9769c59d-dd5e-495e-8056-0f513a78e1b3@ti.com>
+Date: Mon, 8 Sep 2025 10:04:59 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250907-vchiq-destage-v2-5-6884505dca78@ideasonboard.com>
-References: <20250907-vchiq-destage-v2-0-6884505dca78@ideasonboard.com> <20250907-vchiq-destage-v2-5-6884505dca78@ideasonboard.com>
-Subject: Re: [PATCH v2 5/5] platform/broadcom: Destage VCHIQ MMAL driver
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com, Stefan Wahren <wahrenst@gmx.net>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-Date: Mon, 08 Sep 2025 09:49:03 +0530
-Message-ID: <175730514393.8095.11390976339304146285@freya>
-User-Agent: alot/0.12.dev28+gd2c823fe
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] arm64: dts: ti: k3-j721e-main: Update DSS EDP
+ integration configuration register
+To: Harikrishna Shenoy <h-shenoy@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <r-ravikumar@ti.com>, <m-chawdhry@ti.com>,
+        <u-kumar1@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <tomi.valkeinen@ideasonboard.com>, <aradhya.bhatia@linux.dev>,
+        <devarsht@ti.com>, <s-jain1@ti.com>
+References: <20250907182806.1031544-1-h-shenoy@ti.com>
+ <20250907182806.1031544-2-h-shenoy@ti.com>
+Content-Language: en-US
+From: Beleswar Prasad Padhi <b-padhi@ti.com>
+In-Reply-To: <20250907182806.1031544-2-h-shenoy@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250907_211921_931005_5B843D02 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20250907_213529_415000_63D109C4 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,170 +90,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Jai Luthra (2025-09-07 14:26:25)
-> Destage the VCHIQ MMAL driver to drivers/platform/broadcom.
 
-s/broadcom/raspberrypi in the commit description and title as well
+On 07/09/25 23:58, Harikrishna Shenoy wrote:
+> Fix size of DSS_EDP0_INT_CFG_VP to 256B as stated in
+> TRM Table 2-1 MAIN Domain Memory Map.
+> Link: https://www.ti.com/lit/zip/spruil1/SPRUIL_DRA829_TDA4VM
 
-Will fix in next version
 
->=20
-> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> ---
->  MAINTAINERS                                                             =
-| 2 +-
->  drivers/platform/raspberrypi/Kconfig                                    =
-| 2 ++
->  drivers/platform/raspberrypi/Makefile                                   =
-| 1 +
->  .../{staging/vc04_services =3D> platform/raspberrypi}/vchiq-mmal/Kconfig=
-  | 0
->  .../{staging/vc04_services =3D> platform/raspberrypi}/vchiq-mmal/Makefil=
-e | 0
->  .../vc04_services =3D> platform/raspberrypi}/vchiq-mmal/mmal-common.h   =
-  | 0
->  .../vc04_services =3D> platform/raspberrypi}/vchiq-mmal/mmal-encodings.h=
-  | 0
->  .../vc04_services =3D> platform/raspberrypi}/vchiq-mmal/mmal-msg-common.=
-h | 0
->  .../vc04_services =3D> platform/raspberrypi}/vchiq-mmal/mmal-msg-format.=
-h | 0
->  .../vc04_services =3D> platform/raspberrypi}/vchiq-mmal/mmal-msg-port.h =
-  | 0
->  .../vc04_services =3D> platform/raspberrypi}/vchiq-mmal/mmal-msg.h      =
-  | 0
->  .../vc04_services =3D> platform/raspberrypi}/vchiq-mmal/mmal-parameters.=
-h | 0
->  .../vc04_services =3D> platform/raspberrypi}/vchiq-mmal/mmal-vchiq.c    =
-  | 0
->  .../vc04_services =3D> platform/raspberrypi}/vchiq-mmal/mmal-vchiq.h    =
-  | 0
->  drivers/staging/vc04_services/Kconfig                                   =
-| 2 --
->  drivers/staging/vc04_services/Makefile                                  =
-| 1 -
->  16 files changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index fc74a9e2e5a47b8c82cf68ef7c1fe3d37e2fe89b..856a2a489afbc95780769a708=
-540444aa5aa983a 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -4753,7 +4753,7 @@ S:        Maintained
->  T:     git https://github.com/broadcom/stblinux.git
->  F:     Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
->  F:     drivers/pci/controller/pcie-brcmstb.c
-> -F:     drivers/platform/raspberrypi/vchiq-interface
-> +F:     drivers/platform/raspberrypi/vchiq-*
->  F:     drivers/staging/vc04_services
->  F:     include/linux/raspberrypi/vchiq*
->  N:     bcm2711
-> diff --git a/drivers/platform/raspberrypi/Kconfig b/drivers/platform/rasp=
-berrypi/Kconfig
-> index 9085e7464ec348fce5ec9f41a9019ab12eee964b..2c928440a47c08e4d452fe838=
-fe4105c608995a4 100644
-> --- a/drivers/platform/raspberrypi/Kconfig
-> +++ b/drivers/platform/raspberrypi/Kconfig
-> @@ -47,4 +47,6 @@ config VCHIQ_CDEV
-> =20
->  endif
-> =20
-> +source "drivers/platform/raspberrypi/vchiq-mmal/Kconfig"
-> +
->  endif
-> diff --git a/drivers/platform/raspberrypi/Makefile b/drivers/platform/ras=
-pberrypi/Makefile
-> index a807571c59a47bb418cbb1dfcc389219d0d0ff22..2a7c9511e5d8bbe11c05680ee=
-a016ef40796b648 100644
-> --- a/drivers/platform/raspberrypi/Makefile
-> +++ b/drivers/platform/raspberrypi/Makefile
-> @@ -12,3 +12,4 @@ ifdef CONFIG_VCHIQ_CDEV
->  vchiq-objs +=3D vchiq-interface/vchiq_dev.o
->  endif
-> =20
-> +obj-$(CONFIG_BCM2835_VCHIQ_MMAL)       +=3D vchiq-mmal/
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/Kconfig b/drivers/p=
-latform/raspberrypi/vchiq-mmal/Kconfig
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/Kconfig
-> rename to drivers/platform/raspberrypi/vchiq-mmal/Kconfig
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/Makefile b/drivers/=
-platform/raspberrypi/vchiq-mmal/Makefile
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/Makefile
-> rename to drivers/platform/raspberrypi/vchiq-mmal/Makefile
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-common.h b/dri=
-vers/platform/raspberrypi/vchiq-mmal/mmal-common.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/mmal-common.h
-> rename to drivers/platform/raspberrypi/vchiq-mmal/mmal-common.h
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-encodings.h b/=
-drivers/platform/raspberrypi/vchiq-mmal/mmal-encodings.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/mmal-encodings.h
-> rename to drivers/platform/raspberrypi/vchiq-mmal/mmal-encodings.h
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-msg-common.h b=
-/drivers/platform/raspberrypi/vchiq-mmal/mmal-msg-common.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/mmal-msg-common.h
-> rename to drivers/platform/raspberrypi/vchiq-mmal/mmal-msg-common.h
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-msg-format.h b=
-/drivers/platform/raspberrypi/vchiq-mmal/mmal-msg-format.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/mmal-msg-format.h
-> rename to drivers/platform/raspberrypi/vchiq-mmal/mmal-msg-format.h
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-msg-port.h b/d=
-rivers/platform/raspberrypi/vchiq-mmal/mmal-msg-port.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/mmal-msg-port.h
-> rename to drivers/platform/raspberrypi/vchiq-mmal/mmal-msg-port.h
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-msg.h b/driver=
-s/platform/raspberrypi/vchiq-mmal/mmal-msg.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/mmal-msg.h
-> rename to drivers/platform/raspberrypi/vchiq-mmal/mmal-msg.h
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-parameters.h b=
-/drivers/platform/raspberrypi/vchiq-mmal/mmal-parameters.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/mmal-parameters.h
-> rename to drivers/platform/raspberrypi/vchiq-mmal/mmal-parameters.h
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c b/driv=
-ers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-> rename to drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.h b/driv=
-ers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.h
-> rename to drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.h
-> diff --git a/drivers/staging/vc04_services/Kconfig b/drivers/staging/vc04=
-_services/Kconfig
-> index b9e6f369f54c3af6225f181e08ac14e3de044062..2f6d1aaffdb2c1f11ec27e0fb=
-8050fef56e6a875 100644
-> --- a/drivers/staging/vc04_services/Kconfig
-> +++ b/drivers/staging/vc04_services/Kconfig
-> @@ -3,7 +3,5 @@ if BCM_VIDEOCORE
-> =20
->  source "drivers/staging/vc04_services/bcm2835-audio/Kconfig"
-> =20
-> -source "drivers/staging/vc04_services/vchiq-mmal/Kconfig"
-> -
->  endif
-> =20
-> diff --git a/drivers/staging/vc04_services/Makefile b/drivers/staging/vc0=
-4_services/Makefile
-> index 7a716a5c781530b673027b9f82ec94ebfd615f8a..ba15ec663af0fabaf0060456f=
-c997deb5e5e0533 100644
-> --- a/drivers/staging/vc04_services/Makefile
-> +++ b/drivers/staging/vc04_services/Makefile
-> @@ -1,4 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_SND_BCM2835)              +=3D bcm2835-audio/
-> -obj-$(CONFIG_BCM2835_VCHIQ_MMAL)       +=3D vchiq-mmal/
-> =20
->=20
-> --=20
-> 2.50.1
+Gives a 404 on the above link?
+
+Thanks,
+Beleswar
+
 >
+> Fixes: 92c996f4ceab ("arm64: dts: ti: k3-j721e-*: add DP & DP PHY")
+> Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
+> Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
+> ---
+>  arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> index ab3666ff4297..3fa7537d5414 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> @@ -1863,7 +1863,7 @@ mhdp: dp-bridge@a000000 {
+>  		 * the PHY driver.
+>  		 */
+>  		reg = <0x00 0x0a000000 0x00 0x030a00>, /* DSS_EDP0_V2A_CORE_VP_REGS_APB */
+> -		      <0x00 0x04f40000 0x00 0x20>;    /* DSS_EDP0_INTG_CFG_VP */
+> +		      <0x00 0x04f40000 0x00 0x100>;    /* DSS_EDP0_INTG_CFG_VP */
+>  		reg-names = "mhdptx", "j721e-intg";
+>  
+>  		clocks = <&k3_clks 151 36>;
 
