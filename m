@@ -4,122 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74061CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D31CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KmAXv5RN4xzWEkkqE7xhCId8sGR0ZDNZp4Q8OwYi4mM=; b=YrpfnJ5n9B9ctzvW6+P3eYoOh+
-	9Di0NO2XR4Iu1JOUkcLPVNohbHv7Xgi9bZQBMogkIVrbqMVo/Re5H8OGvme7EzVvDbPic/Hv6fIUI
-	EkX9oizf7sbbvMi0vfUNgj2Z2n4pxC5wnWe6PHBaMz5xpXLskUA40rZtmi0RzS6ayEmy8OHH46p15
-	mPTv3uDQ4lCemqKENQ+sorYPkNtugREduDFeX74Xan3VVVguoiYTI2sS1uMF6PbJl08jFqE3tVXI+
-	qLpKB7oKXaIzx+H1KSzH62LOmBsTYSb6NuF1m+rmgtgser9XBvPRnf+AQ/M5rEqz7Y2JIZMtWXJtP
-	gnaAIhfw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PiUrH4xoFLpy/PuZ9JloxTD7fWhTm5wGcBSZSp+4VjE=; b=WYmbnYx/jjU9N1qkTkucS1or0b
+	PK+3LGRazEtrHLN6OsDt8P62hmtxuqzFQ7wSX8Oc38fdweZ0YSFPIbu3PZpMAe9EKufXTLqjYNSLy
+	z8T8DKImHBsbcgS/DhrXNuiUwa47j7kErjPhO3NMoSiosL1vjL64iqk6ORiCDk0L6w57k0HXSGa9y
+	fd8YXPT4+dfcwoBabRr6/LEqgB5y3pTUYYHCe1W4jk44iBmzBO20Q8dI/3CRRyp1lZlicdrML69dI
+	mgkQ4jx4jEENk80yhDAcaLMrfPuW/CTVwBBmPdej5GymhdnXutR0RyYXB50n+nYHMZXIZeP8Xh+u5
+	/frDlRMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw5pe-0000000AN03-19Ck;
-	Tue, 09 Sep 2025 21:24:54 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	id 1uw5qg-0000000ANT3-2npt;
+	Tue, 09 Sep 2025 21:25:58 +0000
+Received: from mail-il1-x164.google.com ([2607:f8b0:4864:20::164])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw5pb-0000000AMwc-0v4j
+	id 1uw5qd-0000000ANRA-12ZO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 21:24:53 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id 535E01D0009D;
-	Tue,  9 Sep 2025 17:24:47 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Tue, 09 Sep 2025 17:24:48 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1757453087; x=1757539487; bh=Km
-	AXv5RN4xzWEkkqE7xhCId8sGR0ZDNZp4Q8OwYi4mM=; b=S5wTqYtMjI5GP+ybjz
-	l++URQMVSnvXfm2LVkJwzvT9iWvhlgeNQJIO1R6oZKi2eMjeXdMwltmibDshd7LK
-	T6Hk20+klGPnK9s5abxIINZ/10rB4VuCvLCsjYTDRmdIQcIrGfyp86iMa2X8hffD
-	6BuMe+NT08tZ/eMBVdj1RbSkp3ce+f6jeZKBMwCS0W1Fvo1lV8HKa1j0mdnsGV/I
-	ueKVQHFzmMvq9kZHcCgDoHRKhcutvXF/cnrHqY94Uw25zgRfvEVli4IkNbDnWNl0
-	ZlJM2Fnc0OylwbwC0Qt2Y9VmI6AUTL7VBGHhaizOOrpy051Wr7SaQ9p1ar7gV0iZ
-	a8iw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1757453087; x=1757539487; bh=KmAXv5RN4xzWEkkqE7xhCId8sGR0
-	ZDNZp4Q8OwYi4mM=; b=CnNoO4VJGS6ZHP/Ka7rEdezOyzdrHY8fuAWzu8X37tr6
-	IHHAlPeLFzVY2iuwtEv+RYU3H3SJPMzMETnB+n0JEFhBmGd1zQfI74HQ9WTaPxCV
-	FMKzQDPDf02PjHjCallACsg86j/oJfh/85r7CCDSlRLBBFiKVN29hQBM9SbXJQTe
-	aYS0nyf7cYv8b9R8g8qhf/1kk1gqOgiKmRn6dNL6z35Y9TpuYvrkOIvbPBanx8Xz
-	7Mu9euZ2ULJgmpY4oMyJT3UtflNwnpZ7DvpFKF2SRsU3rpLS6nMJ05mMKsYyTA+b
-	OqRoGf62l2o4h5lDE02G3V1qjkCH6mMBRZCiMUoR4Q==
-X-ME-Sender: <xms:HZvAaOk80-aIzLlc88R-gJ6Dbsr6p-CSisCWsOKNXn-4RU3c_vM0lg>
-    <xme:HZvAaF1hbI34vibTWFPzSWGi4ceFSikwvEhmxaMdzrw7BzZ43MRg_7mxP9P9k_V8R
-    MpoIDHe3Q2LTQ-Fo9g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvudeglecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcuuegv
-    rhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpe
-    eggeduleellefhteegvdetiefgffejtdfhtdejgfetveekheegtdejfefgteevgfenucff
-    ohhmrghinhepshgthhgvugdrtghomhdphihouhhtuhgsvgdrtghomhdplhifnhdrnhgvth
-    dpkhgvrhhnvghlrdhorhhgpdhlphgtrdgvvhgvnhhtshenucevlhhushhtvghrufhiiigv
-    pedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsg
-    gprhgtphhtthhopedvkedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptghhvghs
-    thgvrhdrrgdruhhnrghlsegrrhhinhgtledrtghomhdprhgtphhtthhopegthhhrihhsth
-    hophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdhrtghpthhtoheprghnughrvggr
-    shesghgrihhslhgvrhdrtghomhdprhgtphhtthhopehgvggvrhhtodhrvghnvghsrghsse
-    hglhhiuggvrhdrsggvpdhrtghpthhtoheprghlvgigrghnuggvrhdrshhvvghrughlihhn
-    sehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrhhgihhordhprghrrggtuhgvlhhloh
-    hssehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhurhgvnhgssehgohhoghhlvgdrtgho
-    mhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoh
-    epihhrrgdrfigvihhnhiesihhnthgvlhdrtghomh
-X-ME-Proxy: <xmx:HZvAaFgoo_DfPwniM_Ba_NRbjr-NAjUpEBl2hgLAezwds8DkZdW4qA>
-    <xmx:HZvAaE6lPLn2-QRvMEsIj-X5mf9tu625xuDInoNOznW8W6Zswp5Y8w>
-    <xmx:HZvAaGBWRtHuGb-d6P9akzthHK2lFP4CLOwsn4ylVI-r07KO_rit4Q>
-    <xmx:HZvAaBRl4yfkgjX-QCNs9pE-_5-4j1CMwgBapEaDS1idWbtZYs0nSg>
-    <xmx:H5vAaB_k0psbdKb-XOux5x39l6C7CTGwSMVHGHMsh5hVdXcIdz-BvKYw>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 171AC700065; Tue,  9 Sep 2025 17:24:45 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 09 Sep 2025 21:25:56 +0000
+Received: by mail-il1-x164.google.com with SMTP id e9e14a558f8ab-406630d3b17so27028005ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 14:25:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757453153; x=1758057953;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:dkim-signature:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=PiUrH4xoFLpy/PuZ9JloxTD7fWhTm5wGcBSZSp+4VjE=;
+        b=Q9AaQUV3zxHTcWOU9cT3a0zFW5fD1u7ovQtN0AY+o+DZ2VTEX+Kl9xnZoKSMdfXD7/
+         NLfLT4nrRgDIbMckdGxJfadAa5lzB+VcnjDOzEM5OdTKRrI4HYYRH1zu9RLuTXdY1gSW
+         6zW7SEclvkAJAz6VOMSledd7/gYSU6zmyyq8t/WcS1Y7BvputFXZA4+VWWqQBJ7unYPu
+         KdunE1v9cpkVVlW77M+pW55eOq32qG26rDybKAimH3y3ZS2c9blNBZWyKxWSJJ+gYL8f
+         LszBo+Q5Aad91x+RClN5XPqgF8Gbs+qfjQPSWLuIehSY5WQvwX3AsvjZA5Tn2EjiY6xc
+         wRPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVcImx1cbiXBa/bIkx6e5zJ6qt2MOX45kI2yYXwWZ72KMGExLpDwbeP2KRT7v16HGbYTMFSaq8Ibk5e/zcOnzHM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYZ7kAv+t4lS7EIlHZi9gdfAcWDijPRvbj3gk/90WQqdbHk/Jx
+	1zBARzlCG7s8oLWFiXo9h60F1OdffJcpkbBzhSA94+KhkyQ0HhlTOqLbHVtcdH105gI6NEdcqKK
+	iIMl9uzt7hZWdlfulTP9p2pnptbZOAKj7PzXAbp0MOmVXmEELgNHXFwPG+nKFPRQpOQoDd1El50
+	aD83QODGbZydMzLgFgbyGtoPz+aVwqWOmKnVH2JOsmnh2eQSKKJ9thoOJ0GaD1y3VCx/UWI2Wt4
+	iFnVHYMswjF34l/wcT9MoykOYj5zZDF+Cs=
+X-Gm-Gg: ASbGncvmyfnh3wKUSMjMnJnGKf9Za80CtbXmZRU7dDOcFKzj6OGTLj2Y7TqOUlUCrsv
+	k9x95MZ80+hM0bSCfequ/LAdl4nB/dVydu28R0ydUwjGJcOmhZmFQ45W0rsVvN0qyDh2eaYfLTi
+	/DXm0hZ3buF+KX8FcNT71nCuBOOKusb5fTnYsvNFZ0TEletRMk53MXJfDwQk75oywdEm3nzuaVW
+	a028qmnN5BVE1PAkn5CgYuf0Gxwngum4BUOOplHJMOCxOfyY2/lC6BLnWK0DXqapjGTqb61xiLq
+	zl5y8h8144qgWheRWfGK5R58za2uWcDZnfdHl48U1cXnCSh/fJ/dMehZCCABlyfZZ5gOXfbMog7
+	KjwNW7yO6qMP6MAziQGytYkSGSKc859eFvxIVF8qVhtfxdjecMkMDtC5Uwd0j9DyVspnNQF4q2l
+	O818C4
+X-Google-Smtp-Source: AGHT+IF5QLEehmFslAStvjagHN75d7aq4exIL44kQ0KrSzSqfWeRPkm4v9C36ElQ0P2GJ41e4UmudNzDnect
+X-Received: by 2002:a05:6e02:3788:b0:40f:7f8e:610c with SMTP id e9e14a558f8ab-40f7f8e6265mr82007745ab.3.1757453153538;
+        Tue, 09 Sep 2025 14:25:53 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-18.dlp.protect.broadcom.com. [144.49.247.18])
+        by smtp-relay.gmail.com with ESMTPS id e9e14a558f8ab-40f8f17ecb7sm2982375ab.20.2025.09.09.14.25.53
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 09 Sep 2025 14:25:53 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b522037281bso2928892a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 14:25:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1757453152; x=1758057952; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=PiUrH4xoFLpy/PuZ9JloxTD7fWhTm5wGcBSZSp+4VjE=;
+        b=YEkCfft9Cqlgm8e10BobJKTAw5TIA2QHtDEcM00RvVhncAaZqDs7/XHWx3ckg6PHCl
+         ADaYvtXng11J4PlwF6SVBDIWnS73vQtZdrWXvh988qoWTTA7+iIxTQUF92NQQerMct1s
+         gCRLhqhYFwqMjObZuHhH4uZnDz3TFB02mxRak=
+X-Forwarded-Encrypted: i=1; AJvYcCVYX5Iqo3nyvgE+3CcxpLcUm22iMWM42oDfXYZPgpKEYAzHtUirNVZeCzeX0QcoV5Fb1bGhCeO+F5p2tzHf0J94@lists.infradead.org
+X-Received: by 2002:a05:6300:210f:b0:24e:3b70:977f with SMTP id adf61e73a8af0-253469dbd3amr17194789637.57.1757453152117;
+        Tue, 09 Sep 2025 14:25:52 -0700 (PDT)
+X-Received: by 2002:a05:6300:210f:b0:24e:3b70:977f with SMTP id adf61e73a8af0-253469dbd3amr17194770637.57.1757453151765;
+        Tue, 09 Sep 2025 14:25:51 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-774660e67cbsm2994494b3a.6.2025.09.09.14.25.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 09 Sep 2025 14:25:50 -0700 (PDT)
+Message-ID: <be4cf5b5-b2ad-42be-834a-86985fa4aded@broadcom.com>
+Date: Tue, 9 Sep 2025 14:25:49 -0700
 MIME-Version: 1.0
-X-ThreadId: AmcCJOTBQ5ho
-Date: Tue, 09 Sep 2025 23:23:37 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: ksummit@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, imx@lists.linux.dev,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Richard Weinberger" <richard@nod.at>,
- "Lucas Stach" <l.stach@pengutronix.de>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Ankur Arora" <ankur.a.arora@oracle.com>,
- "David Hildenbrand" <david@redhat.com>,
- "Mike Rapoport" <rppt@kernel.org>,
- "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
- "Matthew Wilcox" <willy@infradead.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- "Vlastimil Babka" <vbabka@suse.cz>,
- "Suren Baghdasaryan" <surenb@google.com>,
- "Ira Weiny" <ira.weiny@intel.com>, "Nishanth Menon" <nm@ti.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- "Sergio Paracuellos" <sergio.paracuellos@gmail.com>,
- "Andreas Larsson" <andreas@gaisler.com>
-Message-Id: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
-Subject: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v2 1/2] arm64: dts: broadcom: rp1: Add USB nodes
+To: Andrea della Porta <andrea.porta@suse.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, iivanov@suse.de, svarbanov@suse.de,
+ mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
+ Phil Elwell <phil@raspberrypi.com>
+References: <16d753cb4bf37beb5e9c6f0e03576cf13708f27d.1757065053.git.andrea.porta@suse.com>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <16d753cb4bf37beb5e9c6f0e03576cf13708f27d.1757065053.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_142451_586383_DC2029F0 
-X-CRM114-Status: GOOD (  38.51  )
+X-CRM114-CacheID: sfid-20250909_142555_436190_B0655913 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,161 +156,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-High memory is one of the least popular features of the Linux kernel.
-Added in 1999 for linux-2.3.16 to support large x86 machines, there
-are very few systems that still need it. I talked about about this
-recently at the Embedded Linux Conference on 32-bit systems [1][2][3]
-and there were a few older discussions before[4][5][6].
+On 9/5/25 02:42, Andrea della Porta wrote:
+> The RaspberryPi 5 has RP1 chipset containing two USB host controller,
+> while presenting two USB 2.0 and two USB 3.0 ports to the outside.
+> 
+> Add the relevant USB nodes to the devicetree.
+> 
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 
-While removing a feature that is actively used is clearly a regression
-and not normally done, I expect removing highmem is going to happen
-at some point anyway when there are few enough users, but the question
-is when that time will be.
-
-I'm still collecting information about which of the remaining highmem
-users plan to keep updating their kernels and for what reason. Some
-users obviously are alarmed about potentially losing this ability,
-so I hope to get a broad consensus on a specific timeline for how long
-we plan to support highmem in the page cache and to give every user
-sufficient time to migrate to a well-tested alternative setup if that
-is possible, or stay on a highmem-enabled LTS kernel for as long
-as necessary.
-
-These are the assumptions I'm making, based on both what I have
-presented in my talk and feedback I have received so far, let me
-know if something is missing here:
-
-- Highmem in new kernels is almost exclusively an embedded Linux
-  topic. While there were a few late 32-bit desktop and laptop
-  systems that had more than 2GB of RAM, these were fairly short
-  lived and have long been unsupported by both the originally
-  shipping operating systems and most Linux distros. Notable
-  Examples include Pentium 4 "Northwood" desktops (sold 2003-2004),
-  Core Duo laptops (2006-2007), and Arm Chromebooks (rk3288,
-  Tegra k1, Exynos 5800, sold 2014-2017). Some PowerPC G4 Macs
-  and Atom Netbooks could be upgraded to 2GB.
-  There are a small number of users, but they really love these
-  devices and want to keep them alive, especially since they
-  mark the peak of the respective 32-bit product lines.
-
-- Within the embedded market, highmem is mostly used on ARMv7
-  based SoCs, but a few others also need it and still get kernel
-  updates:
-  PowerPC 85xx, 86xx and QoriQ P1/P2/P3/P4 (produced 2003-2021)
-  were used in some long-lived embedded systems with 2GB of RAM
-  or more. Mediatek MT7621 (MIPS32r3, introduced 2014 but still
-  sold) needs highmem to reach the upper 64MB of the 512MB physical
-  memory. Ingenic JZ4780 (MIPS32, released 2012) was used in the
-  short-lived MIPS Creator CI20 with 1GB of RAM (256MB lowmem)
-  and probably othes. Sparc32/LEON seems to be limited to 192MB of
-  lowmem as a kernel design choice. Vortex86DX3 supports 2GB
-  DDR3 memory.
-  The kernel also supports highmem on ARMv4, ARMv5, ARMv6,
-  PPC4xx, PPC82xx, PPC83xx, ARC, CSKY, Microblaze and Xtensa,
-  as well as additional MIPS SoCs,  but so far I could not find
-  any indication of any such machine with more than 1GB that
-  keeps getting kernel updates.
-
-- The vast majority of new embedded ARMv7 machines have 1GB of
-  RAM or less, which on many SoCs is a physical limitation
-  a narrow DDR3 memory interface, as well as a cost tradeoff.
-  The 1GB case is interesting because that usually means having
-  only 768MB of lowmem plus 256MB of highmem, as well as 3GB
-  of virtual addressing. I expect that almost all applications
-  on these work just as well with CONFIG_VMSPLIT_3G_OPT, changing
-  the limit to 1GB of lowmem and 2816MB of user address space.
-  The same thing should work on x86 and powerpc (CONFIG_LOWMEM_SIZE)
-  but not on mips and sparc where the limit is not configurable.
-
-- A few Arm SoCs have sparse physical address ranges for
-  their RAM, e.g. range per memory controllers like the Renesas
-  R-Car Gen 2 or Broadcom BCM4708. These currently require highmem
-  even on configurations with less than 1GB RAM, until we change
-  the way that sparsemem is handled to support rearranging the
-  linear map to fill all of lowmem. This still needs more work.
-
-- ARMv7 machines with 2GB remain in production, in particular
-  with the popular i.MX6Dual/Quad chip that has a 64-bit wide DDR3
-  interface and guaranteed manufacturer support until 2035.
-  This is the configuration I expect to see struggle the most.
-  Setting CONFIG_VMSPLIT_2G or CONFIG_VMSPLIT_2G_OPT should work
-  for most of the users but can break if an application runs out
-  of virtual address space, so this does require extensive testing,
-  and possibly user space changes. An example of possibly affected
-  userspace is Firefox, which needs more address space than other
-  applications but can perhaps be replaced with another embedded
-  browser.
-  
-- ARMv7 machines with 4GB and more exist and keep getting
-  kernel upgrades, but to my knowledge are not in production any
-  more. These are mainly 2010-2015 era chips based on rare
-  out-of-order cores like A15, A17 or PJ4 that were designed for
-  low-end servers, chromebooks and network equipment but replaced
-  with 64-bit chips shortly after. We had planned to bring a
-  CONFIG_VMSPLIT_4G_4G option to ARMv7VE to keep supporting the full
-  memory at a performance penalty, but currently have no plan to
-  finish this (volunteers welcome).
-  There is still some hope to keep them working with a combination
-  of CONFIG_VMSPLIT_2G and a modified ZRAM that can use high
-  pages without CONFIG_HIGHMEM, but whether this works depends
-  a lot on the application. I expect most of these products to
-  stop getting kernel updates in the next few years due to aging
-  hardware and increasing cost for updating out-of-tree patches
-  on platforms that are not fully upstream. I do not remember any
-  such devices with official support beyond 2030.
-
-My proposal based on the above assumptions is to gradually phase
-out highmem over the next 2 years for mainline kernels, obviously
-both the individual items and the timeline are completely up for
-debate:
-
-1. mark CONFIG_HIGHMEM as 'depends on EXPERT', updating the
-   Kconfig description to point to the kernel summit discussion
-   any any decisions made here.
-
-2. Change the ARMv7 Kconfig defaults to CONFIG_VMSPLIT_3G_OPT
-   and HIGHMEM=n, to make it more likely to find possible
-   regressions with that, without changing much for users.
-   Possibly do the same for x86 and powerpc.
-
-3. Start removing __GFP_HIGHMEM from in-kernel allocations
-   other than the page cache, in particular from individual
-   device drivers and filesystem metadata where there is
-   already little benefit.
-
-4. Remove HIGHMEM as an option from platforms that are thought
-   to no longer need it (arc, armv5, ppc4xx, ppc82xx, ppc83xx,
-   csky, microblaze, xtensa), mainly to validate the
-   assertion that these use only lowmem.
-
-5. Split highmem on zram out into a separate Kconfig option
-   that can be enabled without CONFIG_HIGHMEM or CONFIG_EXPERT
-
-6. Finish the "densemem" replacement for sparsemem, ideally
-   allowing both very sparse lowmem areas and a boot-time
-   vmsplit selection instead of the compile-time one.
-
-7. Finally, remove the highmem pagecache option, leaving only
-   zram and custom device drivers as a way to access high
-   pages.
-
-That last step should wait for an LTS kernel, ideally a version
-that the CIP project's SLTS kernel is planning to keep supporting
-for 10 years. The newest SLTS kernel was 6.12 last year, and the
-phb-crytal-ball suggests that the next one in December 2026 may
-be linux-7.4, the one after that in December 2028 (linux-7.15?)
-seems too far out to plan for but would be another option.
-
-Unless there is an easy consensus on this on the mailing list,
-I would like to lead a discussion session at the kernel summit
-in order to get closer to a decision.
-
-     Arnd 
-
-[1] https://osseu2025.sched.com/event/25VmZ/32-bit-linux-support-now-and-in-the-future-arnd-bergmann-linaro
-[2] https://www.youtube.com/watch?v=QiOMiyGCoTw
-[3] https://lwn.net/Articles/1035727/
-[4] https://lore.kernel.org/all/0047f565-ada4-491a-b157-f2d8dfde0ac0@app.fastmail.com/
-[5] https://lwn.net/Articles/813201/
-[6] https://lpc.events/event/16/contributions/1183/attachments/1062/2028/highmem-api-2022-09-12.pdf
+Applied to devicetree-arm64/next, thanks!
+-- 
+Florian
 
