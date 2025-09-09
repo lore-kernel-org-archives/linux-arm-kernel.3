@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4872CCA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0652CAC582
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 23:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jjNDafTG6cNgXgHQ+8bb/UvqEKCzTh/hfl+5pjYzOfI=; b=VuRfGgSuAxwgit06+UUnCv+hii
-	buFPT1HYBlZHOVmc9AB2TnpXQPRf8MiurAlG3KxQ9Lqp9xbKESsaJdmAF6IViNuZU6D21rO5bQfyy
-	N+G4qrtVxrcR6Xsse+HIE7GFnRv7m0g7bDj/enijY2J+S8Fd3HxQ0E6BS/pId3qSlG8Z14tDzGbRn
-	SMAAXmT9Brcg2NvG7J2THJtoSlhsF/YM+jUl5n5NLwxfVV0GnGhgPBkIAwbe2l3mpQP8QsnLwV31q
-	STXAh5fNRZJpHp8E1M64wViwgYNxwFHmfRgAxmqKwUOYrK2gGNftU9YMf3I45/Z8sz6SOEtwCf6oM
-	pYpnnKFw==;
+	bh=eglxigwX8QSFe42rBpscjojd5iJ9JU9AzXGtlxA/xJU=; b=zjzE4wpx/nh7obIfRmaJfx9k8l
+	yRpcuIZa8OLuPNgKhHkKswPdFFfUnvBolO6UtBmCgclpFvrysJL37fimUcpOjcs3ovQstwxPw/F9C
+	hB45pmofuygIySL5ilUSytljGO+f0hctQfDFaKAK2WvV9tWuXa13suPam4Rf1a/J9PISxVo2bndub
+	+cyMRiO9dggTXaYfrVnzlSd9Z3/1JvkQYQgHDEJAyfhMfKdVKFG4Rn6QFHSOx60OfVKb2yWSOd5at
+	VH/9mu17xtP5wS6xorkcMXFQ7xNDE93PHk+8+1XCyJKooUnVEbkFim7Mpk1GvFMbj7mO4S/NKe63X
+	wMyoLyRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw7Zh-0000000ArCP-1GVi;
+	id 1uw7Zh-0000000ArCh-2WK9;
 	Tue, 09 Sep 2025 23:16:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw7Zc-0000000Ar69-19Om
+	id 1uw7Zd-0000000Ar7l-37eF
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 09 Sep 2025 23:16:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC6BE44D71;
-	Tue,  9 Sep 2025 23:16:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 854C4C4CEF8;
-	Tue,  9 Sep 2025 23:16:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EE22760244;
+	Tue,  9 Sep 2025 23:16:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FD76C4CEF8;
+	Tue,  9 Sep 2025 23:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757459787;
-	bh=+jtPvEG9mqAA+HOHIx5a/x8gc0AqK7W2yRGI6eP50+8=;
+	s=k20201202; t=1757459788;
+	bh=yOte++q8p6jqC8tT4uRqUh3/T6hbvaXSszTlzpMDbXE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qdEk+uaFOdHaGiDPsTxBY7RpVY48whywiERdxCFE/N3bJzKqWolxFwS/BUhsFR5pX
-	 F5XDQszx6JgNe6yVCY4dV/pvdRyPuRuef/Si9wyxfP4QP+PFyGpJnYv1QKLQNApHBk
-	 qpu2cvprtfVcFxCwCXnorgXuLEvLDIwrUmpB986Kd8aGAwB5mnggFaoUodlhFz/62u
-	 ROmn62pPL2w3FFIRLhvoz40HkvqmYMPMi18RaXe+AWHJs3jnvvFIvp+Gxa+KhATbtr
-	 nOtxEtqGbawD7TGzOtNmyW1C/sVgYUci42C+1VEuRS2PBK1bfj4uiwWCyvobz9iaVi
-	 QqJKplc9Bwk/g==
+	b=qbnG4BZmy4Gd9CqiZ0/4goByTkMc81NLzxpH5RO5d77rJlwvJtBIuqLpfMArscktQ
+	 GH/Z8hkZPB+AeDzS2LcPlG1BDczphjAcf2zw9x/iIPAburg54ImTeN+qekb9WAVGol
+	 1iLndTVEDJ/QQwYmEw0VENiaMg4cHIwzGhT78vQ40LdFLw+VrwPPVCkeEoRFMdjHkM
+	 3ymXEPLartqtb1FUiSGe8eW8xiPAxdPQA7pyYKRgKYDDx1PSKce2nYjtkrn3zqWNB/
+	 bEBVCHg3Px6XdhTeQT1SIvBTZ69EXi8soBRYz0mHrETQphHrtU7mFB7z0Jcxwj1YDp
+	 MzS4tfChwsKdw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org,
 	fsverity@lists.linux.dev
@@ -53,17 +53,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Mikulas Patocka <mpatocka@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 4/6] lib/crypto: tests: Add tests and benchmark for sha256_finup_2x()
-Date: Tue,  9 Sep 2025 16:13:24 -0700
-Message-ID: <20250909231326.1074672-5-ebiggers@kernel.org>
+Subject: [PATCH 6/6] fsverity: Use 2-way interleaved SHA-256 hashing when supported
+Date: Tue,  9 Sep 2025 16:13:26 -0700
+Message-ID: <20250909231326.1074672-7-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250909231326.1074672-1-ebiggers@kernel.org>
 References: <20250909231326.1074672-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_161628_364247_D97D87F9 
-X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,227 +75,323 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update sha256_kunit to include test cases and a benchmark for the new
-sha256_finup_2x() function.
+When the crypto library provides an optimized implementation of
+sha256_finup_2x(), use it to interleave the hashing of pairs of data
+blocks.  On some CPUs this nearly doubles hashing performance.  The
+increase in overall throughput of cold-cache fsverity reads that I'm
+seeing on arm64 and x86_64 is roughly 35% (though this metric is hard to
+measure as it jumps around a lot).
+
+For now this is only done on the verification path, and only for data
+blocks, not Merkle tree blocks.  We could use sha256_finup_2x() on
+Merkle tree blocks too, but that is less important as there aren't as
+many Merkle tree blocks as data blocks, and that would require some
+additional code restructuring.  We could also use sha256_finup_2x() to
+accelerate building the Merkle tree, but verification performance is
+more important.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/tests/sha256_kunit.c | 184 ++++++++++++++++++++++++++++++++
- 1 file changed, 184 insertions(+)
+ fs/verity/verify.c | 173 ++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 139 insertions(+), 34 deletions(-)
 
-diff --git a/lib/crypto/tests/sha256_kunit.c b/lib/crypto/tests/sha256_kunit.c
-index 1cd4caee6010d..628981f0a7eff 100644
---- a/lib/crypto/tests/sha256_kunit.c
-+++ b/lib/crypto/tests/sha256_kunit.c
-@@ -3,10 +3,11 @@
-  * Copyright 2025 Google LLC
-  */
- #include <crypto/sha2.h>
- #include "sha256-testvecs.h"
+diff --git a/fs/verity/verify.c b/fs/verity/verify.c
+index d7d5f65700b03..6dd03468e2a26 100644
+--- a/fs/verity/verify.c
++++ b/fs/verity/verify.c
+@@ -8,10 +8,35 @@
+ #include "fsverity_private.h"
  
-+/* Generate the HASH_KUNIT_CASES using hash-test-template.h. */
- #define HASH sha256
- #define HASH_CTX sha256_ctx
- #define HASH_SIZE SHA256_DIGEST_SIZE
- #define HASH_INIT sha256_init
- #define HASH_UPDATE sha256_update
-@@ -19,13 +20,196 @@
- #define HMAC_FINAL hmac_sha256_final
- #define HMAC hmac_sha256
- #define HMAC_USINGRAWKEY hmac_sha256_usingrawkey
- #include "hash-test-template.h"
+ #include <linux/bio.h>
+ #include <linux/export.h>
  
-+static void free_guarded_buf(void *buf)
-+{
-+	vfree(buf);
-+}
++#define FS_VERITY_MAX_PENDING_BLOCKS 2
 +
-+/*
-+ * Allocate a KUnit-managed buffer that has length @len bytes immediately
-+ * followed by an unmapped page.
-+ */
-+static void *alloc_guarded_buf(struct kunit *test, size_t len)
-+{
-+	size_t full_len = round_up(len, PAGE_SIZE);
-+	void *buf = vmalloc(full_len);
++struct fsverity_pending_block {
++	const void *data;
++	u64 pos;
++	u8 real_hash[FS_VERITY_MAX_DIGEST_SIZE];
++};
 +
-+	KUNIT_ASSERT_NOT_NULL(test, buf);
-+	if (kunit_add_action_or_reset(test, free_guarded_buf, buf) != 0)
-+		return NULL;
-+	return buf + full_len - len;
-+}
++struct fsverity_verification_context {
++	struct inode *inode;
++	struct fsverity_info *vi;
++	unsigned long max_ra_pages;
 +
-+/*
-+ * Test for sha256_finup_2x().  Specifically, choose various data lengths and
-+ * salt lengths, and for each one, verify that sha256_finup_2x() produces the
-+ * same results as sha256_update() and sha256_final().
-+ *
-+ * Use guarded buffers for all inputs and outputs to reliably detect any
-+ * out-of-bounds reads or writes, even if they occur in assembly code.
-+ */
-+static void test_sha256_finup_2x(struct kunit *test)
-+{
-+	const size_t max_data_len = 16384;
-+	u8 *data1_buf, *data2_buf, *hash1, *hash2;
-+	u8 expected_hash1[SHA256_DIGEST_SIZE];
-+	u8 expected_hash2[SHA256_DIGEST_SIZE];
-+	u8 salt[SHA256_BLOCK_SIZE];
-+	struct sha256_ctx *ctx;
-+
-+	data1_buf = alloc_guarded_buf(test, max_data_len);
-+	data2_buf = alloc_guarded_buf(test, max_data_len);
-+	hash1 = alloc_guarded_buf(test, SHA256_DIGEST_SIZE);
-+	hash2 = alloc_guarded_buf(test, SHA256_DIGEST_SIZE);
-+	ctx = alloc_guarded_buf(test, sizeof(*ctx));
-+
-+	rand_bytes(data1_buf, max_data_len);
-+	rand_bytes(data2_buf, max_data_len);
-+	rand_bytes(salt, sizeof(salt));
-+
-+	for (size_t i = 0; i < 500; i++) {
-+		size_t salt_len = rand_length(sizeof(salt));
-+		size_t data_len = rand_length(max_data_len);
-+		const u8 *data1 = data1_buf + max_data_len - data_len;
-+		const u8 *data2 = data2_buf + max_data_len - data_len;
-+		struct sha256_ctx orig_ctx;
-+
-+		sha256_init(ctx);
-+		sha256_update(ctx, salt, salt_len);
-+		orig_ctx = *ctx;
-+
-+		sha256_finup_2x(ctx, data1, data2, data_len, hash1, hash2);
-+		KUNIT_ASSERT_MEMEQ_MSG(
-+			test, ctx, &orig_ctx, sizeof(*ctx),
-+			"sha256_finup_2x() modified its ctx argument");
-+
-+		sha256_update(ctx, data1, data_len);
-+		sha256_final(ctx, expected_hash1);
-+		sha256_update(&orig_ctx, data2, data_len);
-+		sha256_final(&orig_ctx, expected_hash2);
-+		KUNIT_ASSERT_MEMEQ_MSG(
-+			test, hash1, expected_hash1, SHA256_DIGEST_SIZE,
-+			"Wrong hash1 with salt_len=%zu data_len=%zu", salt_len,
-+			data_len);
-+		KUNIT_ASSERT_MEMEQ_MSG(
-+			test, hash2, expected_hash2, SHA256_DIGEST_SIZE,
-+			"Wrong hash2 with salt_len=%zu data_len=%zu", salt_len,
-+			data_len);
-+	}
-+}
-+
-+/* Test sha256_finup_2x() with ctx == NULL */
-+static void test_sha256_finup_2x_defaultctx(struct kunit *test)
-+{
-+	const size_t data_len = 128;
-+	struct sha256_ctx ctx;
-+	u8 hash1_a[SHA256_DIGEST_SIZE];
-+	u8 hash2_a[SHA256_DIGEST_SIZE];
-+	u8 hash1_b[SHA256_DIGEST_SIZE];
-+	u8 hash2_b[SHA256_DIGEST_SIZE];
-+
-+	rand_bytes(test_buf, 2 * data_len);
-+
-+	sha256_init(&ctx);
-+	sha256_finup_2x(&ctx, test_buf, &test_buf[data_len], data_len, hash1_a,
-+			hash2_a);
-+
-+	sha256_finup_2x(NULL, test_buf, &test_buf[data_len], data_len, hash1_b,
-+			hash2_b);
-+
-+	KUNIT_ASSERT_MEMEQ(test, hash1_a, hash1_b, SHA256_DIGEST_SIZE);
-+	KUNIT_ASSERT_MEMEQ(test, hash2_a, hash2_b, SHA256_DIGEST_SIZE);
-+}
-+
-+/*
-+ * Test that sha256_finup_2x() and sha256_update/final() produce consistent
-+ * results with total message lengths that require more than 32 bits.
-+ */
-+static void test_sha256_finup_2x_hugelen(struct kunit *test)
-+{
-+	const size_t data_len = 4 * SHA256_BLOCK_SIZE;
-+	struct sha256_ctx ctx = {};
-+	u8 expected_hash[SHA256_DIGEST_SIZE];
-+	u8 hash[SHA256_DIGEST_SIZE];
-+
-+	rand_bytes(test_buf, data_len);
-+	for (size_t align = 0; align < SHA256_BLOCK_SIZE; align++) {
-+		sha256_init(&ctx);
-+		ctx.ctx.bytecount = 0x123456789abcd00 + align;
-+
-+		sha256_finup_2x(&ctx, test_buf, test_buf, data_len, hash, hash);
-+
-+		sha256_update(&ctx, test_buf, data_len);
-+		sha256_final(&ctx, expected_hash);
-+
-+		KUNIT_ASSERT_MEMEQ(test, hash, expected_hash,
-+				   SHA256_DIGEST_SIZE);
-+	}
-+}
-+
-+/* Benchmark for sha256_finup_2x() */
-+static void benchmark_sha256_finup_2x(struct kunit *test)
-+{
 +	/*
-+	 * Try a few different salt lengths, since sha256_finup_2x() performance
-+	 * may vary slightly for the same data_len depending on how many bytes
-+	 * were already processed in the initial context.
++	 * This is the queue of data blocks that are pending verification.  When
++	 * the crypto layer supports interleaved hashing, we allow multiple
++	 * blocks to be queued up in order to utilize it.  This can improve
++	 * performance significantly vs. sequential hashing of each block.
 +	 */
-+	static const size_t salt_lens_to_test[] = { 0, 32, 64 };
-+	const size_t data_len = 4096;
-+	const size_t num_iters = 4096;
-+	struct sha256_ctx ctx;
-+	u8 hash1[SHA256_DIGEST_SIZE];
-+	u8 hash2[SHA256_DIGEST_SIZE];
-+	u64 t;
++	int num_pending;
++	int max_pending;
++	struct fsverity_pending_block
++		pending_blocks[FS_VERITY_MAX_PENDING_BLOCKS];
++};
 +
-+	if (!IS_ENABLED(CONFIG_CRYPTO_LIB_BENCHMARK))
-+		kunit_skip(test, "not enabled");
-+	if (!sha256_finup_2x_is_optimized())
-+		kunit_skip(test, "not relevant");
+ static struct workqueue_struct *fsverity_read_workqueue;
+ 
+ /*
+  * Returns true if the hash block with index @hblock_idx in the tree, located in
+  * @hpage, has already been verified.
+@@ -77,23 +102,24 @@ static bool is_hash_block_verified(struct fsverity_info *vi, struct page *hpage,
+ 	SetPageChecked(hpage);
+ 	return false;
+ }
+ 
+ /*
+- * Verify a single data block against the file's Merkle tree.
++ * Verify the hash of a single data block against the file's Merkle tree.
+  *
+  * In principle, we need to verify the entire path to the root node.  However,
+  * for efficiency the filesystem may cache the hash blocks.  Therefore we need
+  * only ascend the tree until an already-verified hash block is seen, and then
+  * verify the path to that block.
+  *
+  * Return: %true if the data block is valid, else %false.
+  */
+-static bool
+-verify_data_block(struct inode *inode, struct fsverity_info *vi,
+-		  const void *data, u64 data_pos, unsigned long max_ra_pages)
++static bool verify_data_block(struct inode *inode, struct fsverity_info *vi,
++			      const struct fsverity_pending_block *dblock,
++			      unsigned long max_ra_pages)
+ {
++	const u64 data_pos = dblock->pos;
+ 	const struct merkle_tree_params *params = &vi->tree_params;
+ 	const unsigned int hsize = params->digest_size;
+ 	int level;
+ 	u8 _want_hash[FS_VERITY_MAX_DIGEST_SIZE];
+ 	const u8 *want_hash;
+@@ -113,23 +139,27 @@ verify_data_block(struct inode *inode, struct fsverity_info *vi,
+ 	 * The index of the previous level's block within that level; also the
+ 	 * index of that block's hash within the current level.
+ 	 */
+ 	u64 hidx = data_pos >> params->log_blocksize;
+ 
+-	/* Up to 1 + FS_VERITY_MAX_LEVELS pages may be mapped at once */
+-	BUILD_BUG_ON(1 + FS_VERITY_MAX_LEVELS > KM_MAX_IDX);
++	/*
++	 * Up to FS_VERITY_MAX_PENDING_BLOCKS + FS_VERITY_MAX_LEVELS pages may
++	 * be mapped at once.
++	 */
++	static_assert(FS_VERITY_MAX_PENDING_BLOCKS + FS_VERITY_MAX_LEVELS <=
++		      KM_MAX_IDX);
+ 
+ 	if (unlikely(data_pos >= inode->i_size)) {
+ 		/*
+ 		 * This can happen in the data page spanning EOF when the Merkle
+ 		 * tree block size is less than the page size.  The Merkle tree
+ 		 * doesn't cover data blocks fully past EOF.  But the entire
+ 		 * page spanning EOF can be visible to userspace via a mmap, and
+ 		 * any part past EOF should be all zeroes.  Therefore, we need
+ 		 * to verify that any data blocks fully past EOF are all zeroes.
+ 		 */
+-		if (memchr_inv(data, 0, params->block_size)) {
++		if (memchr_inv(dblock->data, 0, params->block_size)) {
+ 			fsverity_err(inode,
+ 				     "FILE CORRUPTED!  Data past EOF is not zeroed");
+ 			return false;
+ 		}
+ 		return true;
+@@ -218,53 +248,110 @@ verify_data_block(struct inode *inode, struct fsverity_info *vi,
+ 		want_hash = _want_hash;
+ 		kunmap_local(haddr);
+ 		put_page(hpage);
+ 	}
+ 
+-	/* Finally, verify the data block. */
+-	fsverity_hash_block(params, data, real_hash);
+-	if (memcmp(want_hash, real_hash, hsize) != 0)
++	/* Finally, verify the hash of the data block. */
++	if (memcmp(want_hash, dblock->real_hash, hsize) != 0)
+ 		goto corrupted;
+ 	return true;
+ 
+ corrupted:
+-	fsverity_err(inode,
+-		     "FILE CORRUPTED! pos=%llu, level=%d, want_hash=%s:%*phN, real_hash=%s:%*phN",
+-		     data_pos, level - 1,
+-		     params->hash_alg->name, hsize, want_hash,
+-		     params->hash_alg->name, hsize, real_hash);
++	fsverity_err(
++		inode,
++		"FILE CORRUPTED! pos=%llu, level=%d, want_hash=%s:%*phN, real_hash=%s:%*phN",
++		data_pos, level - 1, params->hash_alg->name, hsize, want_hash,
++		params->hash_alg->name, hsize,
++		level == 0 ? dblock->real_hash : real_hash);
+ error:
+ 	for (; level > 0; level--) {
+ 		kunmap_local(hblocks[level - 1].addr);
+ 		put_page(hblocks[level - 1].page);
+ 	}
+ 	return false;
+ }
+ 
+-static bool
+-verify_data_blocks(struct folio *data_folio, size_t len, size_t offset,
+-		   unsigned long max_ra_pages)
++static void
++fsverity_init_verification_context(struct fsverity_verification_context *ctx,
++				   struct inode *inode,
++				   unsigned long max_ra_pages)
+ {
+-	struct inode *inode = data_folio->mapping->host;
+ 	struct fsverity_info *vi = inode->i_verity_info;
+-	const unsigned int block_size = vi->tree_params.block_size;
 +
-+	rand_bytes(test_buf, data_len * 2);
-+
-+	/* Warm-up */
-+	for (size_t i = 0; i < num_iters; i++)
-+		sha256_finup_2x(NULL, &test_buf[0], &test_buf[data_len],
-+				data_len, hash1, hash2);
-+
-+	for (size_t i = 0; i < ARRAY_SIZE(salt_lens_to_test); i++) {
-+		size_t salt_len = salt_lens_to_test[i];
-+
-+		/*
-+		 * Prepare the initial context.  The time to process the salt is
-+		 * not measured; we're just interested in sha256_finup_2x().
-+		 */
-+		sha256_init(&ctx);
-+		sha256_update(&ctx, test_buf, salt_len);
-+
-+		preempt_disable();
-+		t = ktime_get_ns();
-+		for (size_t j = 0; j < num_iters; j++)
-+			sha256_finup_2x(&ctx, &test_buf[0], &test_buf[data_len],
-+					data_len, hash1, hash2);
-+		t = ktime_get_ns() - t;
-+		preempt_enable();
-+		kunit_info(test, "data_len=%zu salt_len=%zu: %llu MB/s",
-+			   data_len, salt_len,
-+			   div64_u64((u64)data_len * 2 * num_iters * 1000,
-+				     t ?: 1));
-+	}
++	ctx->inode = inode;
++	ctx->vi = vi;
++	ctx->max_ra_pages = max_ra_pages;
++	ctx->num_pending = 0;
++	if (vi->tree_params.hash_alg->algo_id == HASH_ALGO_SHA256 &&
++	    sha256_finup_2x_is_optimized())
++		ctx->max_pending = 2;
++	else
++		ctx->max_pending = 1;
 +}
 +
- static struct kunit_case hash_test_cases[] = {
- 	HASH_KUNIT_CASES,
-+	KUNIT_CASE(test_sha256_finup_2x),
-+	KUNIT_CASE(test_sha256_finup_2x_defaultctx),
-+	KUNIT_CASE(test_sha256_finup_2x_hugelen),
- 	KUNIT_CASE(benchmark_hash),
-+	KUNIT_CASE(benchmark_sha256_finup_2x),
- 	{},
- };
++static void
++fsverity_clear_pending_blocks(struct fsverity_verification_context *ctx)
++{
++	int i;
++
++	for (i = ctx->num_pending - 1; i >= 0; i--) {
++		kunmap_local(ctx->pending_blocks[i].data);
++		ctx->pending_blocks[i].data = NULL;
++	}
++	ctx->num_pending = 0;
++}
++
++static bool
++fsverity_verify_pending_blocks(struct fsverity_verification_context *ctx)
++{
++	struct fsverity_info *vi = ctx->vi;
++	const struct merkle_tree_params *params = &vi->tree_params;
++	int i;
++
++	if (ctx->num_pending == 2) {
++		/* Implies algo_id == HASH_ALGO_SHA256 */
++		sha256_finup_2x(params->hashstate ? &params->hashstate->sha256 :
++						    NULL,
++				ctx->pending_blocks[0].data,
++				ctx->pending_blocks[1].data, params->block_size,
++				ctx->pending_blocks[0].real_hash,
++				ctx->pending_blocks[1].real_hash);
++	} else {
++		for (i = 0; i < ctx->num_pending; i++)
++			fsverity_hash_block(params, ctx->pending_blocks[i].data,
++					    ctx->pending_blocks[i].real_hash);
++	}
++
++	for (i = 0; i < ctx->num_pending; i++) {
++		if (!verify_data_block(ctx->inode, vi, &ctx->pending_blocks[i],
++				       ctx->max_ra_pages))
++			return false;
++	}
++	fsverity_clear_pending_blocks(ctx);
++	return true;
++}
++
++static bool fsverity_add_data_blocks(struct fsverity_verification_context *ctx,
++				     struct folio *data_folio, size_t len,
++				     size_t offset)
++{
++	struct fsverity_info *vi = ctx->vi;
++	const struct merkle_tree_params *params = &vi->tree_params;
++	const unsigned int block_size = params->block_size;
+ 	u64 pos = (u64)data_folio->index << PAGE_SHIFT;
  
- static struct kunit_suite hash_test_suite = {
- 	.name = "sha256",
+ 	if (WARN_ON_ONCE(len <= 0 || !IS_ALIGNED(len | offset, block_size)))
+ 		return false;
+ 	if (WARN_ON_ONCE(!folio_test_locked(data_folio) ||
+ 			 folio_test_uptodate(data_folio)))
+ 		return false;
+ 	do {
+-		void *data;
+-		bool valid;
+-
+-		data = kmap_local_folio(data_folio, offset);
+-		valid = verify_data_block(inode, vi, data, pos + offset,
+-					  max_ra_pages);
+-		kunmap_local(data);
+-		if (!valid)
++		ctx->pending_blocks[ctx->num_pending].data =
++			kmap_local_folio(data_folio, offset);
++		ctx->pending_blocks[ctx->num_pending].pos = pos + offset;
++		if (++ctx->num_pending == ctx->max_pending &&
++		    !fsverity_verify_pending_blocks(ctx))
+ 			return false;
+ 		offset += block_size;
+ 		len -= block_size;
+ 	} while (len);
+ 	return true;
+@@ -282,11 +369,19 @@ verify_data_blocks(struct folio *data_folio, size_t len, size_t offset,
+  *
+  * Return: %true if the data is valid, else %false.
+  */
+ bool fsverity_verify_blocks(struct folio *folio, size_t len, size_t offset)
+ {
+-	return verify_data_blocks(folio, len, offset, 0);
++	struct fsverity_verification_context ctx;
++
++	fsverity_init_verification_context(&ctx, folio->mapping->host, 0);
++
++	if (fsverity_add_data_blocks(&ctx, folio, len, offset) &&
++	    fsverity_verify_pending_blocks(&ctx))
++		return true;
++	fsverity_clear_pending_blocks(&ctx);
++	return false;
+ }
+ EXPORT_SYMBOL_GPL(fsverity_verify_blocks);
+ 
+ #ifdef CONFIG_BLOCK
+ /**
+@@ -303,10 +398,12 @@ EXPORT_SYMBOL_GPL(fsverity_verify_blocks);
+  * filesystems) must instead call fsverity_verify_page() directly on each page.
+  * All filesystems must also call fsverity_verify_page() on holes.
+  */
+ void fsverity_verify_bio(struct bio *bio)
+ {
++	struct inode *inode = bio_first_folio_all(bio)->mapping->host;
++	struct fsverity_verification_context ctx;
+ 	struct folio_iter fi;
+ 	unsigned long max_ra_pages = 0;
+ 
+ 	if (bio->bi_opf & REQ_RAHEAD) {
+ 		/*
+@@ -319,17 +416,25 @@ void fsverity_verify_bio(struct bio *bio)
+ 		 * reduces the number of I/O requests made to the Merkle tree.
+ 		 */
+ 		max_ra_pages = bio->bi_iter.bi_size >> (PAGE_SHIFT + 2);
+ 	}
+ 
++	fsverity_init_verification_context(&ctx, inode, max_ra_pages);
++
+ 	bio_for_each_folio_all(fi, bio) {
+-		if (!verify_data_blocks(fi.folio, fi.length, fi.offset,
+-					max_ra_pages)) {
+-			bio->bi_status = BLK_STS_IOERR;
+-			break;
+-		}
++		if (!fsverity_add_data_blocks(&ctx, fi.folio, fi.length,
++					      fi.offset))
++			goto ioerr;
+ 	}
++
++	if (!fsverity_verify_pending_blocks(&ctx))
++		goto ioerr;
++	return;
++
++ioerr:
++	fsverity_clear_pending_blocks(&ctx);
++	bio->bi_status = BLK_STS_IOERR;
+ }
+ EXPORT_SYMBOL_GPL(fsverity_verify_bio);
+ #endif /* CONFIG_BLOCK */
+ 
+ /**
 -- 
 2.50.1
 
