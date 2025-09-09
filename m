@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C425CA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CBEDCAC58E
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:25:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jtzDzkUv14rqdip4Y1gi77GlegBrcKG8mB/h5fAG9DI=; b=bowAEuHufbFpO5/ytQCf2r4/SJ
-	n8q3llrBNJSeURZo4tdEQxMXKss+dsV8opHwrbJtmUrjqufUYiAvDzA8Q8bagOZmqqDetUmW0I5Gy
-	pDCnioJ7RgkgXlU/CNUBFhiPsYQ2jphWgngU3JB5OZFvS4Is1gNRULyd1Yr1DyEP7CqDhSWcOFMEG
-	obDan+f+t36uiwUuRlGv2857r+vyI5P3V3nC1OkweVdaFIBzvkw+vV6oTnwsUH19jd8RnhDtaAcm0
-	4AkYaBL/ZPb2SI1beFD3YNB+jpjVLxoiwY4HhSjXC26zDNIhGNIJnA4oBafilX1JwBoT8UfuEVnQ+
-	6C6TFPNg==;
+	bh=UdoRsdyMOTc78Cd0P0GNhrsNzfijvHUwfMWwZIaDyhY=; b=tsiQ+u92j5d4aOn3icsynC1qRl
+	V6Y0aclZ9IuFLXPqcEL1PzWV4S6jFpIFpXDNPN6p4r8U2fp9ZnazDQ+VqknW/R5P8FK3xMMhM5zlo
+	qXp5miau8E0aEmfhyhsjfsIrkxfqV4xZB/sPGB2C+zpTzcqtbeaVPI7fDulyZl4f6F0mjtfSH1w4m
+	ZMzAY0ojv0CaZ/h/JSuMXcL9Nngkhjw88E30PTmCvZ/TrVJHgiWOL7RjjGy76K6/bAT70viYzUY21
+	PC2kASoM/lmxsJydm6VHOIMAkc6DoSwp48Ey94xFd0T1W9GyCW7E3uQ1dddxEXH5+7IvkPexiyq8u
+	7KZav4Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw26D-000000094Dr-0w3k;
+	id 1uw26D-000000094Ev-2THs;
 	Tue, 09 Sep 2025 17:25:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0Y2-00000008Fqn-3C49
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Sep 2025 15:46:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=jtzDzkUv14rqdip4Y1gi77GlegBrcKG8mB/h5fAG9DI=; b=VThZbXUKswsPz3HRIP2Hx/iQTS
-	sBu1P0KHqbEAyPa9wf2Jq/iXXQoCOLLvBVqPZDeaPEGQXyDaxenbIcidDSWVbnetdHfzk7d5GWv5T
-	vGTxOjQPLtYUyAXOD0vEfvJ7pfbIakd4NNK92xeVpecykRzUUplMiTACBxQNu8TaADSHG3tIudyLT
-	Vl3CQvgzI3Fw6s0i6jEDCbeT/SS49Az1/3Fo3/qHmvslPipVM9tv0e1KRKXdupebZ+sZU87iVN12h
-	ZVBy4IxcgQ/iN87GkoblwLBgK7MPJOvGTvA8tnUZHeUb3frvCpW7lIB4yCzLNl/oV3HX8V15aRKZI
-	a+dqiOeg==;
 Received: from linux.microsoft.com ([13.77.154.182])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0Xz-00000005PNw-1AT5
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uw0Y1-00000008FoO-2ifu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 15:46:21 +0000
+	Tue, 09 Sep 2025 15:46:23 +0000
 Received: from thinkpad-p16sg1.corp.microsoft.com (unknown [20.236.11.102])
-	by linux.microsoft.com (Postfix) with ESMTPSA id CB25E211AA0F;
-	Tue,  9 Sep 2025 08:46:07 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com CB25E211AA0F
+	by linux.microsoft.com (Postfix) with ESMTPSA id BCCED211AA16;
+	Tue,  9 Sep 2025 08:46:16 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BCCED211AA16
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1757432768;
-	bh=jtzDzkUv14rqdip4Y1gi77GlegBrcKG8mB/h5fAG9DI=;
+	s=default; t=1757432777;
+	bh=UdoRsdyMOTc78Cd0P0GNhrsNzfijvHUwfMWwZIaDyhY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rUgCjrMF9QQlMdbYFk8S6HEJ9YMMidqyd1MpKeSq2t53CdTLY9CXIIBtxDUa0nxIL
-	 N0FwYY9UQxX8NllwXScpVYsyfL6NneVprceN7kbS9/DpmKZHZdeozj0DGUGpWhiMcN
-	 dF1aNlaRRlwpqflEAX2VO5aAKQsBjgEBOuW7Nsgg=
+	b=riPcMkGm7Y+xm/7Zw0tmJOhg8wD9aaspyoNh0mYXzJjK/REhS5AujSJzTaJzpkehj
+	 scTYvMEzxaGeuYGPYrjlEMa3MtONhhgRSB5qVnI/yWton0n4S6yMn3EMOzWk7AuQVX
+	 UJDIv29/71y7WSs9lEMabiGfF+UBYiLH979bYW5A=
 From: Shyam Saini <shyamsaini@linux.microsoft.com>
 To: thierry.reding@gmail.com,
 	robin.murphy@arm.com,
@@ -75,17 +60,17 @@ Cc: iommu@lists.linux.dev,
 	conor+dt@kernel.org,
 	lizhi.hou@amd.com,
 	clement.leger@bootlin.com
-Subject: [PATCH v4 1/4] arm-smmu: move MSI_IOVA macro definitions
-Date: Tue,  9 Sep 2025 08:45:57 -0700
-Message-Id: <20250909154600.910110-2-shyamsaini@linux.microsoft.com>
+Subject: [PATCH v4 3/4] arm-smmu: select suitable MSI IOVA
+Date: Tue,  9 Sep 2025 08:45:59 -0700
+Message-Id: <20250909154600.910110-4-shyamsaini@linux.microsoft.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250909154600.910110-1-shyamsaini@linux.microsoft.com>
 References: <20250909154600.910110-1-shyamsaini@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_164619_802959_EF06BC36 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250909_084622_505985_66710672 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,73 +85,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MSI_IOVA* are common among different iommu/smu drivers,
-so move them to common iommu.h header file.
+Currently ARM SMMU drivers hardcode PCI MSI IOVA address.
+Not all the platform have same memory mappings and some platform
+could have this address already being mapped for something else.
+This can lead to collision and as a consequence the MSI IOVA addr
+range is never reserved.
 
-Suggested-by: Jacob Pan <jacob.pan@linux.microsoft.com>
+Fix this by reserving faulty IOVA range and selecting alternate MSI_IOVA
+suitable for the intended platform.
+
+Example of reserving faulty IOVA range for PCIE device in the DTS:
+
+reserved-memory {
+	#address-cells = <2>;
+	#size-cells = <2>;
+	faulty_iova: resv_faulty {
+		iommu-addresses = <&pcieX 0x0 0x8000000 0x0 0x100000>;
+	};
+};
+
+&pcieX {
+	memory-region = <&faulty_iova>;
+}
+
+Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
 Signed-off-by: Shyam Saini <shyamsaini@linux.microsoft.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 3 ---
- drivers/iommu/arm/arm-smmu/arm-smmu.c       | 3 ---
- drivers/iommu/virtio-iommu.c                | 2 --
- include/linux/iommu.h                       | 3 +++
- 4 files changed, 3 insertions(+), 8 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 29 +++++++++++++-----
+ drivers/iommu/arm/arm-smmu/arm-smmu.c       | 27 ++++++++++++-----
+ include/linux/iommu.h                       | 33 +++++++++++++++++++++
+ 3 files changed, 75 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index ae23aacc38402..16f5856b4c0e2 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -505,9 +505,6 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
- #define ARM_SMMU_POLL_TIMEOUT_US	1000000 /* 1s! */
- #define ARM_SMMU_POLL_SPIN_COUNT	10
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 2a8b46b948f05..748a5513c5dbb 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -3642,17 +3642,32 @@ static int arm_smmu_of_xlate(struct device *dev,
+ static void arm_smmu_get_resv_regions(struct device *dev,
+ 				      struct list_head *head)
+ {
+-	struct iommu_resv_region *region;
+ 	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
  
--#define MSI_IOVA_BASE			0x8000000
--#define MSI_IOVA_LENGTH			0x100000
+-	region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
+-					 prot, IOMMU_RESV_SW_MSI, GFP_KERNEL);
+-	if (!region)
+-		return;
 -
- enum pri_resp {
- 	PRI_RESP_DENY = 0,
- 	PRI_RESP_FAIL = 1,
+-	list_add_tail(&region->list, head);
++	static const u64 msi_bases[] = { MSI_IOVA_BASE, MSI_IOVA_BASE2 };
+ 
+ 	iommu_dma_get_resv_regions(dev, head);
++
++	/*
++	 * Use the first msi_base that does not intersect with a platform
++	 * reserved region. The SW MSI base selection is entirely arbitrary.
++	 */
++	for (int i = 0; i != ARRAY_SIZE(msi_bases); i++) {
++		struct iommu_resv_region *region;
++
++		if (resv_region_intersects(msi_bases[i], MSI_IOVA_LENGTH, head))
++			continue;
++
++		region = iommu_alloc_resv_region(msi_bases[i], MSI_IOVA_LENGTH, prot,
++						 IOMMU_RESV_SW_MSI, GFP_KERNEL);
++		if (!region) {
++			pr_warn("IOMMU: Failed to reserve MSI IOVA: No suitable MSI IOVA range available");
++			return;
++		}
++
++		list_add_tail(&region->list, head);
++		return;
++	}
+ }
+ 
+ /*
 diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-index 4ced4b5bee4df..4a07650911991 100644
+index 4a07650911991..84b74b8519386 100644
 --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
 +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-@@ -50,9 +50,6 @@
-  */
- #define QCOM_DUMMY_VAL -1
+@@ -1600,17 +1600,30 @@ static int arm_smmu_of_xlate(struct device *dev,
+ static void arm_smmu_get_resv_regions(struct device *dev,
+ 				      struct list_head *head)
+ {
+-	struct iommu_resv_region *region;
+ 	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
  
--#define MSI_IOVA_BASE			0x8000000
--#define MSI_IOVA_LENGTH			0x100000
+-	region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
+-					 prot, IOMMU_RESV_SW_MSI, GFP_KERNEL);
+-	if (!region)
+-		return;
 -
- static int force_stage;
- module_param(force_stage, int, S_IRUGO);
- MODULE_PARM_DESC(force_stage,
-diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
-index b39d6f134ab28..f3d830656cf29 100644
---- a/drivers/iommu/virtio-iommu.c
-+++ b/drivers/iommu/virtio-iommu.c
-@@ -24,8 +24,6 @@
+-	list_add_tail(&region->list, head);
++	static const u64 msi_bases[] = { MSI_IOVA_BASE, MSI_IOVA_BASE2 };
  
- #include "dma-iommu.h"
+ 	iommu_dma_get_resv_regions(dev, head);
++
++	/*
++	 * Use the first msi_base that does not intersect with a platform
++	 * reserved region. The SW MSI base selection is entirely arbitrary.
++	 */
++	for (int i = 0; i != ARRAY_SIZE(msi_bases); i++) {
++		struct iommu_resv_region *region;
++
++		if (resv_region_intersects(msi_bases[i], MSI_IOVA_LENGTH, head))
++			continue;
++
++		region = iommu_alloc_resv_region(msi_bases[i], MSI_IOVA_LENGTH, prot,
++						 IOMMU_RESV_SW_MSI, GFP_KERNEL);
++		if (!region)
++			return;
++
++		list_add_tail(&region->list, head);
++		return;
++	}
+ }
  
--#define MSI_IOVA_BASE			0x8000000
--#define MSI_IOVA_LENGTH			0x100000
- 
- #define VIOMMU_REQUEST_VQ		0
- #define VIOMMU_EVENT_VQ			1
+ static int arm_smmu_def_domain_type(struct device *dev)
 diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index c30d12e16473d..09a35af5a545d 100644
+index 09a35af5a545d..ce9d008b91ab5 100644
 --- a/include/linux/iommu.h
 +++ b/include/linux/iommu.h
-@@ -1554,6 +1554,9 @@ static inline void iommu_debugfs_setup(void) {}
- #endif
+@@ -1555,14 +1555,47 @@ static inline void iommu_debugfs_setup(void) {}
  
  #ifdef CONFIG_IOMMU_DMA
-+#define MSI_IOVA_BASE        0x8000000
-+#define MSI_IOVA_LENGTH      0x100000
+ #define MSI_IOVA_BASE        0x8000000
++#define MSI_IOVA_BASE2       0xA0000000
+ #define MSI_IOVA_LENGTH      0x100000
+ 
++/**
++ * resv_region_intersects - Check if address range overlaps with reserved regions
++ * @msi_base: Start address of the range to check
++ * @length: Length of the range to check
++ * @resv_region_list: List of reserved regions to check against
++ *
++ * Returns true if the specified address range overlaps with any reserved region
++ * in the list, false otherwise.
++ */
++static inline bool resv_region_intersects(phys_addr_t msi_base, size_t length,
++					  struct list_head *resv_region_list)
++{
++	struct iommu_resv_region *region;
++	phys_addr_t start, end, resv_region_end;
++
++	start = msi_base;
++	end = start + length - 1;
++	list_for_each_entry(region, resv_region_list, list) {
++		resv_region_end = region->start + region->length - 1;
++		if (!(start > resv_region_end || end < region->start))
++			return true; /* overlap detected */
++	}
++
++	return false;
++}
 +
  int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base);
  #else /* CONFIG_IOMMU_DMA */
  static inline int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
+ {
+ 	return -ENODEV;
+ }
++
++static inline bool resv_region_intersects(phys_addr_t msi_base, size_t length,
++					  struct list_head *resv_region_list)
++{
++	return false;
++}
+ #endif	/* CONFIG_IOMMU_DMA */
+ 
+ /*
 -- 
 2.34.1
 
