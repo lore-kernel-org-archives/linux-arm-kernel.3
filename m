@@ -4,134 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501FBCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220CFCAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8/RDSr3wxyj04sQTxGcHVZE/ZHAVLo1f9za9ix8zR4=; b=TKIJlavkmJ1DMg5jIK/kcFMADK
-	NhYQpjIO2+27hrevaoviwWw8JgJlb8Vqix/Fw/GsV2PnbH4nb41StrFoGkBg4h+JeKEmPcYQ4AOjK
-	WXQVgrg8sxFRRB6TEvnA6VEd6k1/ZLN+sG0p/V/jGz2XYXymEPA0And+4Q5kxzak0Rct+AMbL3UkG
-	5wBhhipl2T/SD2TNBVMmWAG/yGFr3R7mHWj5UfcbfWu845r60Ig/Foi1dWZiHVa9flshbAguBnPve
-	URUe/sH4bORkSqQ/IApFudxHjBKs6eGCHMiXr27L+kKITVN6sFi3jwAvdi8zmZw/fLRjlHpn8eZMo
-	cox9fsOQ==;
+	bh=Tu9JCVPAudNk1w3hXXh6HmFc7vzIsAZ5umos9e7k/Pw=; b=Msa0i9VkIlS65+VWfpK2DZ60pY
+	38C8vQOcodXZ4UI4Crv7FKbB+pCy1ZOJX2dUZ9tWRBVSGiHUlW8MmQ9/n9EDuzHWXW8xNtSgBODbU
+	bO0pWFVnpdeqMM1eWqbA2W1zUNRQTOH41bbLX0NCM2cd6tbp0dOJCTFrLJfhXp4/0MwQTLLpxhzJ5
+	k13H1D9ZCqgnz2h1RuVbQaaAl7yarWj28aHdHuNYlTFS4Lk0ZM8b7dJnWjuz6uhwhkTYywbgMnMiI
+	+XZ1j7ZwM3J7FtgkL3s+4DBGNqZKiW4o0XC5UkWFw/5+MPQeGGNYIqROOKCf+uK0quX+70ajGxutl
+	Nd6gnM8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1zs-00000008u7A-2WLv;
-	Tue, 09 Sep 2025 17:19:12 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uw1zl-00000008txP-3Q1s;
+	Tue, 09 Sep 2025 17:19:05 +0000
+Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvyZz-00000007SQX-2Huo
+	id 1uvyZa-00000007SJN-1HXs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 13:40:17 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5899LktO032157;
-	Tue, 9 Sep 2025 13:39:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	l8/RDSr3wxyj04sQTxGcHVZE/ZHAVLo1f9za9ix8zR4=; b=cLCN+Vtoy8W4IzcL
-	eNzhtnu8AryaJ/R/eGelaHYJ+Umg1WF87iEfh9Y54QUpIT6/E5arSPc4iUzrswDL
-	pDPUf9Rc9plBXFvl/wKJClIqR+M7apohqH+5ctNv6O3Yh1rstht52Iek9c38OFo8
-	/H0BO/8pEI/1xmmDe/+TaXnnnMxFMLR/pPtaZhp2jMQXSRDxf3Z2WoZgWP5h9f2r
-	m7a10q9v9dMBgMH/5eiL5jwFC+ZTBcEo685lzXR1wp9P3Acmyopusxtbm8C4CE7p
-	F3YEXmxoSFW5W72/X027CzucKeRZ7+tQT7V/RAD8UN52pyv04eyAuvZoo1cW0kho
-	ZvtiKA==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490bws8fs6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 13:39:34 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 589DdYEg020506
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 9 Sep 2025 13:39:34 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.24; Tue, 9 Sep 2025 06:39:28 -0700
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Tue, 9 Sep 2025 21:39:10 +0800
-Subject: [PATCH v5 01/10] clk: qcom: gcc-ipq5424: Correct the
- icc_first_node_id
+	Tue, 09 Sep 2025 13:39:51 +0000
+Received: from omf20.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay05.hostedemail.com (Postfix) with ESMTP id 324285951B;
+	Tue,  9 Sep 2025 13:39:44 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf20.hostedemail.com (Postfix) with ESMTPA id 900C62002A;
+	Tue,  9 Sep 2025 13:39:40 +0000 (UTC)
+Date: Tue, 9 Sep 2025 09:40:28 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ aneesh.kumar@kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 04/24] tracing: Add reset to trace remotes
+Message-ID: <20250909094028.3265b751@gandalf.local.home>
+In-Reply-To: <aMAZMaZJ1_Eny5Ku@google.com>
+References: <20250821081412.1008261-1-vdonnefort@google.com>
+	<20250821081412.1008261-5-vdonnefort@google.com>
+	<20250908193757.079aae76@gandalf.local.home>
+	<aMAZMaZJ1_Eny5Ku@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250909-qcom_ipq5424_nsscc-v5-1-332c49a8512b@quicinc.com>
-References: <20250909-qcom_ipq5424_nsscc-v5-0-332c49a8512b@quicinc.com>
-In-Reply-To: <20250909-qcom_ipq5424_nsscc-v5-0-332c49a8512b@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        "Varadarajan
- Narayanan" <quic_varada@quicinc.com>,
-        Georgi Djakov <djakov@kernel.org>, "Rob
- Herring" <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        "Conor
- Dooley" <conor+dt@kernel.org>,
-        Anusha Rao <quic_anusha@quicinc.com>,
-        "Manikanta Mylavarapu" <quic_mmanikan@quicinc.com>,
-        Devi Priya
-	<quic_devipriy@quicinc.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        "Richard
- Cochran" <richardcochran@gmail.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
-        <quic_leiwei@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_suruchia@quicinc.com>, Luo Jie
-	<quic_luoj@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757425161; l=1283;
- i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=XHI8VfssT8TXCoN4er/kyiGN6nl4rHF+YYu+JVq/pus=;
- b=zam1EripnsR9vgl6rZJYwN1dKZYirHmTZSHmnnCYVnzhOmZrFJezQb4Q6gVBI5ig5iUFrFEwy
- ayugn0sRcXSAMYAGDqPCe+3NjRvu6fkGIA6yPr1hc036ATwp0QSJtNb
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: LzReKnMoRqU0Hzv0BJcpPR7uiJsGCzxw
-X-Proofpoint-GUID: LzReKnMoRqU0Hzv0BJcpPR7uiJsGCzxw
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAxOCBTYWx0ZWRfXx1mbhu7F9xQA
- q0KRvEiDnD/7RcIuZAL4pLOHSJghCGkVz6kXL+eeH+l6FnY2EMsBX8M6wjFU87CvuqXwl1MIuYG
- LH5xov53E7u5Ssze09ViWs0lwrH95vC6ubGVmd00cuiUApA1RMARfOl2PwmtCRZWRVwd00WiPdb
- esm6HqwW2iV6a0xewlNgQATDp6ymdE1kXPVfAsvpg3Cv4WeWUcEoHwpIzAHFJEwUk85KopcuWjm
- Cyex3+RXd3KmXqLTwDpDMdCfw3CdV47fm8tzuZtea2RFV+shx/6B0ZbJgTlbRXUKbXzEg57ciZP
- vC87J1y789VfBplSDUtoqFkuP+8EBjEMDBEu0XEoNWhNnFAHadJI6bqrx7Luuacq0xS+PnA42+l
- pDMLUPMz
-X-Authority-Analysis: v=2.4 cv=G4kcE8k5 c=1 sm=1 tr=0 ts=68c02e16 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8
- a=COk6AnOGAAAA:8 a=yUHhXAd9wW1YfvQ6HRQA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-09_01,2025-09-08_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 bulkscore=0 suspectscore=0 clxscore=1015
- malwarescore=0 adultscore=0 impostorscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060018
+X-Rspamd-Queue-Id: 900C62002A
+X-Stat-Signature: wfa3mdrmcbzi14spidjppaqea6aw3qp1
+X-Rspamd-Server: rspamout02
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+E8T0HTQskMKNFMQEhwq4iyvDU75kvHts=
+X-HE-Tag: 1757425180-933823
+X-HE-Meta: U2FsdGVkX1+Wwks7b6yVoepNeV7TOzWudjuaDH2HvpSyApAYLfX3FbQwoINlsSIJNvKZcFkkzCa70xLZ8yV4M3RgoVBTMxN5wkAN4Tvsgw8YtAsvBOUnzzaGQoIagJtU8jlbuWu7YwTn4neLH9QVlsUmEnxOFj+Ce+XWBl2YeuaS2Co2nBtPDT2dppC4tUtOJR/BNg+CfKupetaSNKi+SIEiMtMc+wVlYX5nkohak+WdMCO/O577kVmfRGQBv0yYCqWaEXG1hBinQi1qPSUlt1pVhygCIsWRDJWGDRHVLOLUYn/A+q+kGxNNxzOWFpeRPlmy68ip0z5ZjM1JDFzumCv8TLnOFVx7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_064015_607227_00260F17 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20250909_063950_428546_C4316ECF 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,39 +77,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update to use the expected icc_first_node_id for registering the icc
-clocks, ensuring correct association of clocks with interconnect nodes.
+On Tue, 9 Sep 2025 13:10:25 +0100
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-Fixes: 170f3d2c065e ("clk: qcom: ipq5424: Use icc-clk for enabling NoC related clocks")
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
----
- drivers/clk/qcom/gcc-ipq5424.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> > I wonder if we should name the file "reset" to not be confusing to users
+> > when they cat the file and it doesn't produce any output.  
+> 
+> My idea was to keep the exact same interface as the rest of the tracing. I could
+> keep that /trace file for compatibility and add /reset?
+> 
+> "cat trace" could also just returns a text like *** not supported *** ?
 
-diff --git a/drivers/clk/qcom/gcc-ipq5424.c b/drivers/clk/qcom/gcc-ipq5424.c
-index 3d42f3d85c7a..71afa1b86b72 100644
---- a/drivers/clk/qcom/gcc-ipq5424.c
-+++ b/drivers/clk/qcom/gcc-ipq5424.c
-@@ -1,7 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-  * Copyright (c) 2018,2020 The Linux Foundation. All rights reserved.
-- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-  */
- 
- #include <linux/clk-provider.h>
-@@ -3284,6 +3284,7 @@ static const struct qcom_cc_desc gcc_ipq5424_desc = {
- 	.num_clk_hws = ARRAY_SIZE(gcc_ipq5424_hws),
- 	.icc_hws = icc_ipq5424_hws,
- 	.num_icc_hws = ARRAY_SIZE(icc_ipq5424_hws),
-+	.icc_first_node_id = IPQ_APPS_ID,
- };
- 
- static int gcc_ipq5424_probe(struct platform_device *pdev)
+If it's never going to be supported, I rather not add it. It not being
+there is a sure way of knowing it's not supported. Just adding it because
+the normal system has it is actually worse if it doesn't behave the same.
 
--- 
-2.34.1
-
+-- Steve
 
