@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FDA7CA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0184FCAC583
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xdzMewHPxt+AhPGdNNKdahj+Cs93RokZh483ei+i/DU=; b=DOdy97E2RAjL+HO/pmVZC+G0Tg
-	yDDV8vKMwiDCjdA/I3w+LO9sjhrlGdEUYM0JUO8YiCNETjI0h+Zb50vt3Os+dhajKXUfbar9lW+fv
-	4dqDg9pdRI+WJtnEchHUIIC2I5mE14EURgmtV+6OoqipBvsH48nSNwWK7z6oS231xSJXCKTpAADG0
-	12cALlal0TN7G47/eC77rsuAdkb3HF5ohOxOkaN0KneaDgh9cbc3rIc3YNTax9dbW5DXXkvhL4jcp
-	xX1yjAJYwr2H0s2WdJ7oiD8UvnvSgkOqyXxNGIVcP88WbuwUWB1Q8igU227LojIpiyYOut/FkQCzl
-	tgo0EQYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TILxIKRVPQJpP12ksT+ILWqU44FoU6j0tUzdymfZ1Tw=; b=alwgxZ8GA/0AFISmkp4TA9KN8c
+	ReoRwG6f5WkjlWgxSiGYcLR56r17Zl5B6sZkcYpHL2TUtxBAOg/nP2qKbLQaqCKHpvT2aHy8Axccp
+	ryipoden5Bq1UNNzuL4P0P+IL4HlC/9kXkBqe+CyT9tYZo3fCGdTM1Mughx0p0j3SBjuXwrs31Bll
+	OSi4f4yje2SNxtugcTGQbf0+Ii3W1IvRUIBhU50lALS0nUgGvoxUf12REH3V1zUqUdTdf5uhYlUbR
+	9jxV4UTEWHSq8BBbfdA3fSIDKt6LFKcNqYt1/8/AoNo1SlP1CbUMPAFXJnr6xBetq8CA2Z7EPLnsc
+	iYWT34Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1wj-00000008oyk-0Qwn;
-	Tue, 09 Sep 2025 17:15:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uw1wk-00000008p0e-0KHr;
+	Tue, 09 Sep 2025 17:15:58 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwXB-00000006k7K-042e
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Sep 2025 11:29:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=xdzMewHPxt+AhPGdNNKdahj+Cs93RokZh483ei+i/DU=; b=AHpZQU+DWI2srXF/UG75jh1pM4
-	+EDzSv7p7//R9igY+Ar5miQXSz+EfUR7F6aZd4YKOojOkOsAzlz+snCAozdN0rp3kP/3Ozsr4TVnQ
-	FQsey8x8TS6JlG9vUwIIKTOMe6RxiXjvH2xDGx/igAIIL2dGjeMWPmfK4asugdL8QEdIWIGB4Zkjm
-	7RCPRP8RK7SgWRzsqPGXbCFsZEtigGU4ColEqw4q5Sf4x1YDukAd4/P0IsU/yGKWhRTyv5kQvNQqg
-	wFvWFKOlYuR/7XqqUCrgnLt6sPVWxo+at3dGq5WrQ521tstEvVGwo9Wstp1dndRAU/wEx8VuH4N5c
-	JFq1KNbQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwX7-00000005JbS-3rmV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 11:29:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7FB25442BD;
-	Tue,  9 Sep 2025 11:29:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A351C4CEF4;
-	Tue,  9 Sep 2025 11:29:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757417348;
-	bh=UsvqM3BvXaxvpr7HcsqbbmUjuygpPNM05UVXcP+zk6M=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=JfGhZbUXLGpgm8rpE3DoAq1yWTgRZRTgHJPTRLXqaWMw5x+NPjdxYaU5ueXbro99R
-	 DeQptjkBcM7N4w8tArpGzS/0muKochPMZEQNfW5FVQYb5pbJMh5DyWXdUfYB+ljnwN
-	 t6Z64i4LIvmuUIsrbroo9IT//wPzeophVos2Nfs3jAgfYhc5ATzYDWNKbJqFVRTW+m
-	 BnccXopkxy8pwW7BThJqbWwZkB9+X3CVYQ9bblgC2yt4hKLtu7wzB1JayObQMOIFuX
-	 CE5dszNFhaSyZufKOD31e+LNPmeaqTQEPytWYGov1K5OdP2iY41xeUb1PXWXfpWWH0
-	 aUVQ+H8MUWVqA==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 09 Sep 2025 13:27:47 +0200
-Subject: [PATCH v3 28/39] drm/sun4i: Switch to
- drm_atomic_get_new_crtc_state()
+	id 1uvwZ7-00000006kg4-3mDW;
+	Tue, 09 Sep 2025 11:31:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757417474; x=1788953474;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rz+1WJdCMk4bw7MZU/uL3ew/4Ysn6aikcYLa1uqNyjk=;
+  b=a/q9vFW6FNsV4oaDRY9/kIPxOG++MWKmZk+gmCvASy6VETbGLEWqBVuF
+   W7tWS3x3V2/Uima/JFMn3hpksIKTL0zpSrFbLVX28LxRRRCViP8ykY1et
+   nr2tmzeCqrqJy6jBJ2yBZ1EZIXxKq2GAQAAy7Md+MHv/DfMhLqcLlOUsb
+   nhtC3xmgdzaY9lsf+p5djIM7oMD3W+toEo+PjbsXtUDMzmFR6draYiekj
+   K/sgMQ1vppX3znmW2ao2tH9vKOWraapqdqBPyuha4ND5tb12xiwYLzHp2
+   wHV774dJ2GL/vNJ8RQuNUJO7qGZ9ctZ0eURw2i+P5oowDY0kAHtxTX48n
+   A==;
+X-CSE-ConnectionGUID: g97xOJYgRdemMmctxA/N0A==
+X-CSE-MsgGUID: 4gxGXlgKR7yTTe3pifOetw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="59762844"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="59762844"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 04:31:11 -0700
+X-CSE-ConnectionGUID: kETrlqaUS7SDcC66+bpzQA==
+X-CSE-MsgGUID: d1Tczp/ZSi+Sia6+hUP0FQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="172980605"
+Received: from smile.fi.intel.com ([10.237.72.51])
+  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 04:31:05 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1uvwYw-00000001QM0-1JWn;
+	Tue, 09 Sep 2025 14:31:02 +0300
+Date: Tue, 9 Sep 2025 14:31:02 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 13/15] gpio: sodaville: use new generic GPIO chip API
+Message-ID: <aMAP9hAWars0T83r@smile.fi.intel.com>
+References: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
+ <20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250909-drm-no-more-existing-state-v3-28-1c7a7d960c33@kernel.org>
-References: <20250909-drm-no-more-existing-state-v3-0-1c7a7d960c33@kernel.org>
-In-Reply-To: <20250909-drm-no-more-existing-state-v3-0-1c7a7d960c33@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, Maxime Ripard <mripard@kernel.org>, 
- =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2306; i=mripard@kernel.org;
- h=from:subject:message-id; bh=UsvqM3BvXaxvpr7HcsqbbmUjuygpPNM05UVXcP+zk6M=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDBkH+PVW//rAxfWsP6XwVd5VZZ4XFodK3DlFEw79sZ20q
- e7d1Z+7OqayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBElkgyNmwNPC992y1tDldQ
- 39wwuXlV/H3y36JsupPczXg+3JoauNvJuEq6UXR9l0vGpk0m8nPLGOs07QxnpKyMv5GveSdJs+0
- /48LMc5+m1T/e9O4Z0y2B3TMeePe0rzyyc/WqbtsOtmezQ04BAA==
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_122910_375143_1C1941F4 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20250909_043113_975970_1D72F223 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,67 +103,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The sun4i atomic_check implementation uses the deprecated
-drm_atomic_get_existing_crtc_state() helper.
+On Tue, Sep 09, 2025 at 11:15:40AM +0200, Bartosz Golaszewski wrote:
+> 
+> Convert the driver to using the new generic GPIO chip interfaces from
+> linux/gpio/generic.h.
 
-This hook is called as part of the global atomic_check, thus before the
-states are swapped. The existing state thus points to the new state, and
-we can use drm_atomic_get_new_crtc_state() instead.
+...
 
-Reviewed-by: Ville Syrjälä <ville.syrjala@linux.intel.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
-To: Maxime Ripard <mripard@kernel.org>
-To: Chen-Yu Tsai <wens@csie.org>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Samuel Holland <samuel@sholland.org>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-sunxi@lists.linux.dev
----
- drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 3 +--
- drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 3 +--
- 2 files changed, 2 insertions(+), 4 deletions(-)
+> +	config = (typeof(config)){
 
-diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-index f97be0040aab29cb4e138fcceb20e90c72db0252..94ac6ad6f30688a048e594811d2ae72aaa44376d 100644
---- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-@@ -204,12 +204,11 @@ static int sun8i_ui_layer_atomic_check(struct drm_plane *plane,
- 	int min_scale, max_scale;
- 
- 	if (!crtc)
- 		return 0;
- 
--	crtc_state = drm_atomic_get_existing_crtc_state(state,
--							crtc);
-+	crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
- 	if (WARN_ON(!crtc_state))
- 		return -EINVAL;
- 
- 	min_scale = DRM_PLANE_NO_SCALING;
- 	max_scale = DRM_PLANE_NO_SCALING;
-diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-index a09ee4097537fca8b653f34a833b36b69e343ea5..1f77e1d2984548e746805f8323f537f3b4d93198 100644
---- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-@@ -325,12 +325,11 @@ static int sun8i_vi_layer_atomic_check(struct drm_plane *plane,
- 	int min_scale, max_scale;
- 
- 	if (!crtc)
- 		return 0;
- 
--	crtc_state = drm_atomic_get_existing_crtc_state(state,
--							crtc);
-+	crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
- 	if (WARN_ON(!crtc_state))
- 		return -EINVAL;
- 
- 	min_scale = DRM_PLANE_NO_SCALING;
- 	max_scale = DRM_PLANE_NO_SCALING;
+This looks unusual. Why can't properly formed compound literal be used as in
+many other places in the kernel?
+
+> +		.dev = &pdev->dev,
+> +		.sz = 4,
+> +		.dat = sd->gpio_pub_base + GPINR,
+> +		.set = sd->gpio_pub_base + GPOUTR,
+> +		.dirout = sd->gpio_pub_base + GPOER,
+> +	};
 
 -- 
-2.50.1
+With Best Regards,
+Andy Shevchenko
+
 
 
