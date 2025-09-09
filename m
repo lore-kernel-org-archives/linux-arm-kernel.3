@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D611CCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 23:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4872CCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 23:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+p8kQvQtdNDlB+smkLpCM7OTD44chpkvYQBqkqU+lfc=; b=la592IzdfybxVRKa8kEXld7L4X
-	p9cBfLzQKVl4UQd6kG77dabqTBcIg2xL38gU3E9JCAGd0bChp1WZQ8v0bFTJyOlFafK82N2WuAmuP
-	jjDV/eF2g+507+7YwdpdbIgz+lLL2e1asY9cnaswWdm27HHq22VIYk8DAA7Fqu1jbkI2VJ/kDwGX7
-	6F2cz0Td2FptDMd4yECwktzYHsAqGqV17/ddYZXQnuRTmvHtXrhsYbg+tGQhHOqM9mYsR/uxHCD5q
-	ZZ3FZFdaGzC4FWrfNDWva1bZOBJJAXfkXEkxeban6ATgA7WQdoKK4CeXe5oHqVdS7nDyAg1UnOC5s
-	0f1YceNA==;
+	bh=jjNDafTG6cNgXgHQ+8bb/UvqEKCzTh/hfl+5pjYzOfI=; b=VuRfGgSuAxwgit06+UUnCv+hii
+	buFPT1HYBlZHOVmc9AB2TnpXQPRf8MiurAlG3KxQ9Lqp9xbKESsaJdmAF6IViNuZU6D21rO5bQfyy
+	N+G4qrtVxrcR6Xsse+HIE7GFnRv7m0g7bDj/enijY2J+S8Fd3HxQ0E6BS/pId3qSlG8Z14tDzGbRn
+	SMAAXmT9Brcg2NvG7J2THJtoSlhsF/YM+jUl5n5NLwxfVV0GnGhgPBkIAwbe2l3mpQP8QsnLwV31q
+	STXAh5fNRZJpHp8E1M64wViwgYNxwFHmfRgAxmqKwUOYrK2gGNftU9YMf3I45/Z8sz6SOEtwCf6oM
+	pYpnnKFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw7Zc-0000000Ar74-2nLk;
-	Tue, 09 Sep 2025 23:16:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uw7Zh-0000000ArCP-1GVi;
+	Tue, 09 Sep 2025 23:16:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw7Zb-0000000Ar5M-1wRm
+	id 1uw7Zc-0000000Ar69-19Om
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 23:16:27 +0000
+	Tue, 09 Sep 2025 23:16:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9B7E6023F;
-	Tue,  9 Sep 2025 23:16:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29DF8C4CEFA;
-	Tue,  9 Sep 2025 23:16:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EC6BE44D71;
+	Tue,  9 Sep 2025 23:16:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 854C4C4CEF8;
+	Tue,  9 Sep 2025 23:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757459786;
-	bh=zQSVcYiA+Ajji2537vKvD29dULgH2d+aQQyTZVT/6Q4=;
+	s=k20201202; t=1757459787;
+	bh=+jtPvEG9mqAA+HOHIx5a/x8gc0AqK7W2yRGI6eP50+8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UT+Muug7lDVB7naUGgvT0NvJeEq1R9NfqvsAzefJXO1KkrecNdp0Q5wrRJb2fQ85X
-	 WiTfnTrAU5A+amCXGV7PZUkzuHRgwwOJsrzVoBa76IkeExeLA2uSEat55HWElND8nM
-	 zR85m/UjFOVz0kYcglS7HeOs3QyTdVMlgLDLxjoz+QmYjgl/EOELIcYhNwK2xrmvG8
-	 G3heGyid7vQIF5oHaOBk6tpwrw6BLxVSM5xuZo6h5uS6DHG9Im1WFhhndaeouzmALM
-	 kDUACUuLZZHhCoE1iMVg9+B6mkFB/AvqsI4St/+pS6lgbE1jEWgmqLwd6b9rnYW42U
-	 R7fqqE0OTjS1w==
+	b=qdEk+uaFOdHaGiDPsTxBY7RpVY48whywiERdxCFE/N3bJzKqWolxFwS/BUhsFR5pX
+	 F5XDQszx6JgNe6yVCY4dV/pvdRyPuRuef/Si9wyxfP4QP+PFyGpJnYv1QKLQNApHBk
+	 qpu2cvprtfVcFxCwCXnorgXuLEvLDIwrUmpB986Kd8aGAwB5mnggFaoUodlhFz/62u
+	 ROmn62pPL2w3FFIRLhvoz40HkvqmYMPMi18RaXe+AWHJs3jnvvFIvp+Gxa+KhATbtr
+	 nOtxEtqGbawD7TGzOtNmyW1C/sVgYUci42C+1VEuRS2PBK1bfj4uiwWCyvobz9iaVi
+	 QqJKplc9Bwk/g==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org,
 	fsverity@lists.linux.dev
@@ -53,14 +53,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Mikulas Patocka <mpatocka@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 1/6] lib/crypto: sha256: Add support for 2-way interleaved hashing
-Date: Tue,  9 Sep 2025 16:13:21 -0700
-Message-ID: <20250909231326.1074672-2-ebiggers@kernel.org>
+Subject: [PATCH 4/6] lib/crypto: tests: Add tests and benchmark for sha256_finup_2x()
+Date: Tue,  9 Sep 2025 16:13:24 -0700
+Message-ID: <20250909231326.1074672-5-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250909231326.1074672-1-ebiggers@kernel.org>
 References: <20250909231326.1074672-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250909_161628_364247_D97D87F9 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,169 +78,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Many arm64 and x86_64 CPUs can compute two SHA-256 hashes in nearly the
-same speed as one, if the instructions are interleaved.  This is because
-SHA-256 is serialized block-by-block, and two interleaved hashes take
-much better advantage of the CPU's instruction-level parallelism.
-
-Meanwhile, a very common use case for SHA-256 hashing in the Linux
-kernel is dm-verity and fs-verity.  Both use a Merkle tree that has a
-fixed block size, usually 4096 bytes with an empty or 32-byte salt
-prepended.  Usually, many blocks need to be hashed at a time.  This is
-an ideal scenario for 2-way interleaved hashing.
-
-To enable this optimization, add a new function sha256_finup_2x() to the
-SHA-256 library API.  It computes the hash of two equal-length messages,
-starting from a common initial context.
-
-For now it always falls back to sequential processing.  Later patches
-will wire up arm64 and x86_64 optimized implementations.
-
-Note that the interleaving factor could in principle be higher than 2x.
-However, that runs into many practical difficulties and CPU throughput
-limitations.  Thus, both the implementations I'm adding are 2x.  In the
-interest of using the simplest solution, the API matches that.
+Update sha256_kunit to include test cases and a benchmark for the new
+sha256_finup_2x() function.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- include/crypto/sha2.h | 24 ++++++++++++++++
- lib/crypto/sha256.c   | 66 ++++++++++++++++++++++++++++++++++++++++---
- 2 files changed, 86 insertions(+), 4 deletions(-)
+ lib/crypto/tests/sha256_kunit.c | 184 ++++++++++++++++++++++++++++++++
+ 1 file changed, 184 insertions(+)
 
-diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
-index 15e461e568cca..5019c6f1eb3ff 100644
---- a/include/crypto/sha2.h
-+++ b/include/crypto/sha2.h
-@@ -373,10 +373,34 @@ void sha256_final(struct sha256_ctx *ctx, u8 out[SHA256_DIGEST_SIZE]);
-  *
-  * Context: Any context.
+diff --git a/lib/crypto/tests/sha256_kunit.c b/lib/crypto/tests/sha256_kunit.c
+index 1cd4caee6010d..628981f0a7eff 100644
+--- a/lib/crypto/tests/sha256_kunit.c
++++ b/lib/crypto/tests/sha256_kunit.c
+@@ -3,10 +3,11 @@
+  * Copyright 2025 Google LLC
   */
- void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE]);
+ #include <crypto/sha2.h>
+ #include "sha256-testvecs.h"
  
-+/**
-+ * sha256_finup_2x() - Compute two SHA-256 digests from a common initial
-+ *		       context.  On some CPUs, this is faster than sequentially
-+ *		       computing each digest.
-+ * @ctx: an optional initial context, which may have already processed data.  If
-+ *	 NULL, a default initial context is used (equivalent to sha256_init()).
-+ * @data1: data for the first message
-+ * @data2: data for the second message
-+ * @len: the length of each of @data1 and @data2, in bytes
-+ * @out1: (output) the first SHA-256 message digest
-+ * @out2: (output) the second SHA-256 message digest
-+ */
-+void sha256_finup_2x(const struct sha256_ctx *ctx, const u8 *data1,
-+		     const u8 *data2, size_t len, u8 out1[SHA256_DIGEST_SIZE],
-+		     u8 out2[SHA256_DIGEST_SIZE]);
++/* Generate the HASH_KUNIT_CASES using hash-test-template.h. */
+ #define HASH sha256
+ #define HASH_CTX sha256_ctx
+ #define HASH_SIZE SHA256_DIGEST_SIZE
+ #define HASH_INIT sha256_init
+ #define HASH_UPDATE sha256_update
+@@ -19,13 +20,196 @@
+ #define HMAC_FINAL hmac_sha256_final
+ #define HMAC hmac_sha256
+ #define HMAC_USINGRAWKEY hmac_sha256_usingrawkey
+ #include "hash-test-template.h"
+ 
++static void free_guarded_buf(void *buf)
++{
++	vfree(buf);
++}
 +
-+/**
-+ * sha256_finup_2x_is_optimized() - Check if sha256_finup_2x() is using a real
-+ *				    interleaved implementation, as opposed to a
-+ *				    sequential fallback
-+ * @return: true if optimized
++/*
++ * Allocate a KUnit-managed buffer that has length @len bytes immediately
++ * followed by an unmapped page.
 + */
-+bool sha256_finup_2x_is_optimized(void);
++static void *alloc_guarded_buf(struct kunit *test, size_t len)
++{
++	size_t full_len = round_up(len, PAGE_SIZE);
++	void *buf = vmalloc(full_len);
 +
- /**
-  * struct hmac_sha256_key - Prepared key for HMAC-SHA256
-  * @key: private
-  */
- struct hmac_sha256_key {
-diff --git a/lib/crypto/sha256.c b/lib/crypto/sha256.c
-index 8fa15165d23e8..f307b48e7a658 100644
---- a/lib/crypto/sha256.c
-+++ b/lib/crypto/sha256.c
-@@ -23,17 +23,25 @@ static const struct sha256_block_state sha224_iv = {
- 		SHA224_H0, SHA224_H1, SHA224_H2, SHA224_H3,
- 		SHA224_H4, SHA224_H5, SHA224_H6, SHA224_H7,
- 	},
++	KUNIT_ASSERT_NOT_NULL(test, buf);
++	if (kunit_add_action_or_reset(test, free_guarded_buf, buf) != 0)
++		return NULL;
++	return buf + full_len - len;
++}
++
++/*
++ * Test for sha256_finup_2x().  Specifically, choose various data lengths and
++ * salt lengths, and for each one, verify that sha256_finup_2x() produces the
++ * same results as sha256_update() and sha256_final().
++ *
++ * Use guarded buffers for all inputs and outputs to reliably detect any
++ * out-of-bounds reads or writes, even if they occur in assembly code.
++ */
++static void test_sha256_finup_2x(struct kunit *test)
++{
++	const size_t max_data_len = 16384;
++	u8 *data1_buf, *data2_buf, *hash1, *hash2;
++	u8 expected_hash1[SHA256_DIGEST_SIZE];
++	u8 expected_hash2[SHA256_DIGEST_SIZE];
++	u8 salt[SHA256_BLOCK_SIZE];
++	struct sha256_ctx *ctx;
++
++	data1_buf = alloc_guarded_buf(test, max_data_len);
++	data2_buf = alloc_guarded_buf(test, max_data_len);
++	hash1 = alloc_guarded_buf(test, SHA256_DIGEST_SIZE);
++	hash2 = alloc_guarded_buf(test, SHA256_DIGEST_SIZE);
++	ctx = alloc_guarded_buf(test, sizeof(*ctx));
++
++	rand_bytes(data1_buf, max_data_len);
++	rand_bytes(data2_buf, max_data_len);
++	rand_bytes(salt, sizeof(salt));
++
++	for (size_t i = 0; i < 500; i++) {
++		size_t salt_len = rand_length(sizeof(salt));
++		size_t data_len = rand_length(max_data_len);
++		const u8 *data1 = data1_buf + max_data_len - data_len;
++		const u8 *data2 = data2_buf + max_data_len - data_len;
++		struct sha256_ctx orig_ctx;
++
++		sha256_init(ctx);
++		sha256_update(ctx, salt, salt_len);
++		orig_ctx = *ctx;
++
++		sha256_finup_2x(ctx, data1, data2, data_len, hash1, hash2);
++		KUNIT_ASSERT_MEMEQ_MSG(
++			test, ctx, &orig_ctx, sizeof(*ctx),
++			"sha256_finup_2x() modified its ctx argument");
++
++		sha256_update(ctx, data1, data_len);
++		sha256_final(ctx, expected_hash1);
++		sha256_update(&orig_ctx, data2, data_len);
++		sha256_final(&orig_ctx, expected_hash2);
++		KUNIT_ASSERT_MEMEQ_MSG(
++			test, hash1, expected_hash1, SHA256_DIGEST_SIZE,
++			"Wrong hash1 with salt_len=%zu data_len=%zu", salt_len,
++			data_len);
++		KUNIT_ASSERT_MEMEQ_MSG(
++			test, hash2, expected_hash2, SHA256_DIGEST_SIZE,
++			"Wrong hash2 with salt_len=%zu data_len=%zu", salt_len,
++			data_len);
++	}
++}
++
++/* Test sha256_finup_2x() with ctx == NULL */
++static void test_sha256_finup_2x_defaultctx(struct kunit *test)
++{
++	const size_t data_len = 128;
++	struct sha256_ctx ctx;
++	u8 hash1_a[SHA256_DIGEST_SIZE];
++	u8 hash2_a[SHA256_DIGEST_SIZE];
++	u8 hash1_b[SHA256_DIGEST_SIZE];
++	u8 hash2_b[SHA256_DIGEST_SIZE];
++
++	rand_bytes(test_buf, 2 * data_len);
++
++	sha256_init(&ctx);
++	sha256_finup_2x(&ctx, test_buf, &test_buf[data_len], data_len, hash1_a,
++			hash2_a);
++
++	sha256_finup_2x(NULL, test_buf, &test_buf[data_len], data_len, hash1_b,
++			hash2_b);
++
++	KUNIT_ASSERT_MEMEQ(test, hash1_a, hash1_b, SHA256_DIGEST_SIZE);
++	KUNIT_ASSERT_MEMEQ(test, hash2_a, hash2_b, SHA256_DIGEST_SIZE);
++}
++
++/*
++ * Test that sha256_finup_2x() and sha256_update/final() produce consistent
++ * results with total message lengths that require more than 32 bits.
++ */
++static void test_sha256_finup_2x_hugelen(struct kunit *test)
++{
++	const size_t data_len = 4 * SHA256_BLOCK_SIZE;
++	struct sha256_ctx ctx = {};
++	u8 expected_hash[SHA256_DIGEST_SIZE];
++	u8 hash[SHA256_DIGEST_SIZE];
++
++	rand_bytes(test_buf, data_len);
++	for (size_t align = 0; align < SHA256_BLOCK_SIZE; align++) {
++		sha256_init(&ctx);
++		ctx.ctx.bytecount = 0x123456789abcd00 + align;
++
++		sha256_finup_2x(&ctx, test_buf, test_buf, data_len, hash, hash);
++
++		sha256_update(&ctx, test_buf, data_len);
++		sha256_final(&ctx, expected_hash);
++
++		KUNIT_ASSERT_MEMEQ(test, hash, expected_hash,
++				   SHA256_DIGEST_SIZE);
++	}
++}
++
++/* Benchmark for sha256_finup_2x() */
++static void benchmark_sha256_finup_2x(struct kunit *test)
++{
++	/*
++	 * Try a few different salt lengths, since sha256_finup_2x() performance
++	 * may vary slightly for the same data_len depending on how many bytes
++	 * were already processed in the initial context.
++	 */
++	static const size_t salt_lens_to_test[] = { 0, 32, 64 };
++	const size_t data_len = 4096;
++	const size_t num_iters = 4096;
++	struct sha256_ctx ctx;
++	u8 hash1[SHA256_DIGEST_SIZE];
++	u8 hash2[SHA256_DIGEST_SIZE];
++	u64 t;
++
++	if (!IS_ENABLED(CONFIG_CRYPTO_LIB_BENCHMARK))
++		kunit_skip(test, "not enabled");
++	if (!sha256_finup_2x_is_optimized())
++		kunit_skip(test, "not relevant");
++
++	rand_bytes(test_buf, data_len * 2);
++
++	/* Warm-up */
++	for (size_t i = 0; i < num_iters; i++)
++		sha256_finup_2x(NULL, &test_buf[0], &test_buf[data_len],
++				data_len, hash1, hash2);
++
++	for (size_t i = 0; i < ARRAY_SIZE(salt_lens_to_test); i++) {
++		size_t salt_len = salt_lens_to_test[i];
++
++		/*
++		 * Prepare the initial context.  The time to process the salt is
++		 * not measured; we're just interested in sha256_finup_2x().
++		 */
++		sha256_init(&ctx);
++		sha256_update(&ctx, test_buf, salt_len);
++
++		preempt_disable();
++		t = ktime_get_ns();
++		for (size_t j = 0; j < num_iters; j++)
++			sha256_finup_2x(&ctx, &test_buf[0], &test_buf[data_len],
++					data_len, hash1, hash2);
++		t = ktime_get_ns() - t;
++		preempt_enable();
++		kunit_info(test, "data_len=%zu salt_len=%zu: %llu MB/s",
++			   data_len, salt_len,
++			   div64_u64((u64)data_len * 2 * num_iters * 1000,
++				     t ?: 1));
++	}
++}
++
+ static struct kunit_case hash_test_cases[] = {
+ 	HASH_KUNIT_CASES,
++	KUNIT_CASE(test_sha256_finup_2x),
++	KUNIT_CASE(test_sha256_finup_2x_defaultctx),
++	KUNIT_CASE(test_sha256_finup_2x_hugelen),
+ 	KUNIT_CASE(benchmark_hash),
++	KUNIT_CASE(benchmark_sha256_finup_2x),
+ 	{},
  };
  
--static const struct sha256_block_state sha256_iv = {
--	.h = {
--		SHA256_H0, SHA256_H1, SHA256_H2, SHA256_H3,
--		SHA256_H4, SHA256_H5, SHA256_H6, SHA256_H7,
-+static const struct sha256_ctx initial_sha256_ctx = {
-+
-+	.ctx = {
-+		.state = {
-+			.h = {
-+				SHA256_H0, SHA256_H1, SHA256_H2, SHA256_H3,
-+				SHA256_H4, SHA256_H5, SHA256_H6, SHA256_H7,
-+			},
-+		},
-+		.bytecount = 0,
- 	},
- };
- 
-+#define sha256_iv (initial_sha256_ctx.ctx.state)
-+
- static const u32 sha256_K[64] = {
- 	0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1,
- 	0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
- 	0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786,
- 	0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
-@@ -259,10 +267,60 @@ void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE])
- 	sha256_update(&ctx, data, len);
- 	sha256_final(&ctx, out);
- }
- EXPORT_SYMBOL(sha256);
- 
-+#ifndef sha256_finup_2x_arch
-+static bool sha256_finup_2x_arch(const struct __sha256_ctx *ctx,
-+				 const u8 *data1, const u8 *data2, size_t len,
-+				 u8 out1[SHA256_DIGEST_SIZE],
-+				 u8 out2[SHA256_DIGEST_SIZE])
-+{
-+	return false;
-+}
-+static bool sha256_finup_2x_is_optimized_arch(void)
-+{
-+	return false;
-+}
-+#endif
-+
-+/* Sequential fallback implementation of sha256_finup_2x() */
-+static noinline_for_stack void sha256_finup_2x_sequential(
-+	const struct __sha256_ctx *ctx, const u8 *data1, const u8 *data2,
-+	size_t len, u8 out1[SHA256_DIGEST_SIZE], u8 out2[SHA256_DIGEST_SIZE])
-+{
-+	struct __sha256_ctx mut_ctx;
-+
-+	mut_ctx = *ctx;
-+	__sha256_update(&mut_ctx, data1, len);
-+	__sha256_final(&mut_ctx, out1, SHA256_DIGEST_SIZE);
-+
-+	mut_ctx = *ctx;
-+	__sha256_update(&mut_ctx, data2, len);
-+	__sha256_final(&mut_ctx, out2, SHA256_DIGEST_SIZE);
-+}
-+
-+void sha256_finup_2x(const struct sha256_ctx *ctx, const u8 *data1,
-+		     const u8 *data2, size_t len, u8 out1[SHA256_DIGEST_SIZE],
-+		     u8 out2[SHA256_DIGEST_SIZE])
-+{
-+	if (ctx == NULL)
-+		ctx = &initial_sha256_ctx;
-+
-+	if (likely(sha256_finup_2x_arch(&ctx->ctx, data1, data2, len, out1,
-+					out2)))
-+		return;
-+	sha256_finup_2x_sequential(&ctx->ctx, data1, data2, len, out1, out2);
-+}
-+EXPORT_SYMBOL_GPL(sha256_finup_2x);
-+
-+bool sha256_finup_2x_is_optimized(void)
-+{
-+	return sha256_finup_2x_is_optimized_arch();
-+}
-+EXPORT_SYMBOL_GPL(sha256_finup_2x_is_optimized);
-+
- /* pre-boot environment (as indicated by __DISABLE_EXPORTS) doesn't need HMAC */
- #ifndef __DISABLE_EXPORTS
- static void __hmac_sha256_preparekey(struct sha256_block_state *istate,
- 				     struct sha256_block_state *ostate,
- 				     const u8 *raw_key, size_t raw_key_len,
+ static struct kunit_suite hash_test_suite = {
+ 	.name = "sha256",
 -- 
 2.50.1
 
