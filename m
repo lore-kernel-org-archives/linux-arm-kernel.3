@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF84CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 20:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F358BCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 20:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AWkoKbA9+qEs5hmTewD+yrKcvLlJBMSi9kqxdIrgkcA=; b=ydhwSM78C5d+OI
-	i7gjF6sbaKkKw2FWmrWFUGjmp3fiVjY0/tQgv2WmKBYwte7QCSq3Ck08rksQVXDMG5l98cIyvQN91
-	7jq6ij5rvDiGBdD/14hmushuitONStmkO1Qnbvr/artqoIyHI5X5qQKf6kyG4ybnSFcsnE4woGT4E
-	D7s2xQP7tr38yaiPDWGGXmorEYfe+cDJfOP6w/EumcgSH4apVayfkj7XmLl+KSEM+1PLg6qtNSOhQ
-	PToT3vD2ktRyizYgJfdAmilzOOOWnI7y7KFJpdBINH8IlNzlA1PWbN3PID0PuEQ7w75sNruwwzz9V
-	pIxmcuIm4pAPOG510UeQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oc/47/1dd6kNw8SuIJr6eu6xyRGuYNnkjOosnL9B1s0=; b=vWqStlfqacjWMzDLwDvn18BeEB
+	E1Y7qIRy0JJ8LXJEPoKq2pHIETvADRgd2iSixxdx7xKmtAvbm4fzROw+WWdeAJ5Zn0w/0ZmnNaMvF
+	8pT67PTa21zA7woQsDeMiFU0oCbtc3/7g4482Lu8YT04x3rcwQ8aQ2F12o0WpeNU/bq9933gKW09U
+	lyk6pr3Fi8popAsYLiozsR0GRg1/yAtqs09AqDlEDRFLg57zCYrF9VbNzr1GN8VaplI/1v7nDKt1g
+	C12YfcFaZHhByArBhek+hUVdIcoEwSyYVTlMsmv70l5a8JjpJDsDp+RZZ7HJLndjI5ydhHQWT0QwI
+	Xi30RKtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw52Y-0000000A4Q5-2s4g;
-	Tue, 09 Sep 2025 20:34:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uw52b-0000000A4Se-45ie;
+	Tue, 09 Sep 2025 20:34:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw52W-0000000A4O5-0FBF
+	id 1uw52Z-0000000A4Q9-16uv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 20:34:09 +0000
+	Tue, 09 Sep 2025 20:34:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D33744212;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F78B44212;
+	Tue,  9 Sep 2025 20:34:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E3F4C4CEF5;
 	Tue,  9 Sep 2025 20:34:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8CE8C4CEF4;
-	Tue,  9 Sep 2025 20:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757450046;
-	bh=IsCF+MUxVzd13pKkvlXlP/Ccmh25UQn/2DMZZUacACQ=;
-	h=From:Subject:Date:To:Cc:From;
-	b=Pi/6Fm4aKrtyZmoD47MIk+2XEaNGEKSGvzDAEn7BW6R3SWBk1tfYPJQ207A+ukqIH
-	 efbIfEZ3JJAOkF/ySBMoMAyOBPQFM/rw1nm0DvlStfj5EYoCTMhbHLxssuOoiL7B5G
-	 fiPDeZjvxrgusL+VBIMP3ENfrl1tODwDB7ua0e4z5g99rsMjtSQdQwtzWoGVVgh7Gm
-	 G0jhyoEaZWrE+LXt+63xAYwWJQHD0uvVIBfcH+skb6uIJbFquHPWVV8/8PNVJXDBP2
-	 t7OikkrH0xFC+rS5B2rqNWT/aAw4lLZBptJbcly63rI2pE0XvJNNpFfE3gBSZP3SA4
-	 jR48JpShhwd4g==
+	s=k20201202; t=1757450050;
+	bh=oXUngVSXwtqWUoFqNHj98nN7zNafzIiNipH7sJ0NKww=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=d7tEzaihs2X+8mMtdObtk21raqXsD8mbi9U2crL6bqScy59U90QtJCQSQXWDpSUjL
+	 Zk4aMtSBGqxA8pERQjgVx0itr97f/rrjP6cUD1qVBcH7aX4NxPq7ktESruSnyuw7Um
+	 lOk84Zkq8LCXtkRxul1GdKw8Jfi1rJoYHY93MZyjT3vQigsSkNw+P/T8YySGo9OjjI
+	 iEx2FF3gKfo/iGrW4olOYxocUjJ9OS01vZ4Tr2QWp2DLNWkDb5ryJBhHKMJs00g+bS
+	 DE8Ejgg7EubvYTwZLFuSupcmh5UISGBjj9EMzoslEsQnC9YbMzuOhLTRdnZcZis7WH
+	 y6FTBLDfR886A==
 From: Andreas Kemnade <akemnade@kernel.org>
-Subject: [PATCH v2 0/3] regulator: sy7636a: define and init all resources
- needed
-Date: Tue, 09 Sep 2025 22:33:01 +0200
-Message-Id: <20250909-sy7636-rsrc-v2-0-cfd9f44fd259@kernel.org>
+Date: Tue, 09 Sep 2025 22:33:02 +0200
+Subject: [PATCH v2 1/3] dt-bindings: mfd: sy7636a: Add missing gpio pins
+ and supply
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAP6OwGgC/22MQQ6CMBAAv0L27JqyagFP/sNwWOsKjaYlW0Mkp
- H+3cvY4k8yskES9JDhXK6jMPvkYCtCuAjdyGAT9vTCQoZPpjMW0NPZgUZM6dGSY7Y2Z3BFKMak
- 8/Ge7XfvCo0/vqMs2n+uf/f+ZazQo1LaWu2K5uTxFg7z2UQfoc85fHj9F1qcAAAA=
-X-Change-ID: 20250906-sy7636-rsrc-c20aa6baa2c4
+Message-Id: <20250909-sy7636-rsrc-v2-1-cfd9f44fd259@kernel.org>
+References: <20250909-sy7636-rsrc-v2-0-cfd9f44fd259@kernel.org>
+In-Reply-To: <20250909-sy7636-rsrc-v2-0-cfd9f44fd259@kernel.org>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -66,17 +64,17 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Andreas Kemnade <akemnade@kernel.org>
 X-Mailer: b4 0.15-dev-50721
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1791; i=akemnade@kernel.org;
- h=from:subject:message-id; bh=IsCF+MUxVzd13pKkvlXlP/Ccmh25UQn/2DMZZUacACQ=;
- b=owGbwMvMwCEm/rzkS6lq2x3G02pJDBkH+vnPTTxzUXRhTfqE6mvGl+aE77f6I6JQGK0QmHhN4
- Zf4rbc7O0pZGMQ4GGTFFFl+WSu4fVJ5lhs8NcIeZg4rE8gQBi5OAZjIl2aGf4pvBO/b9M6u6vkd
- Y/8qc1GWt7Hm7ZkdLDMeCF62+vkkZwsjw8lGzbfLLI4ZO95qO3I0TEjZZo67WB4PU8qeOUsadJz
- 3cQIA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1411; i=akemnade@kernel.org;
+ h=from:subject:message-id; bh=oXUngVSXwtqWUoFqNHj98nN7zNafzIiNipH7sJ0NKww=;
+ b=owGbwMvMwCEm/rzkS6lq2x3G02pJDBkH+rXL8/ZxyXNGmQXn9sbYnHjFxPZ338VH04s9bvPMP
+ HUszTOio5SFQYyDQVZMkeWXtYLbJ5VnucFTI+xh5rAygQxh4OIUgIk4OTAyzHbKX7e941PEb8Nf
+ xopN9d+Od7DPmKm7IoNXR5axymanKCPD1vNtM7qu6ypNj5WxElvy2vHWV7v9N3WPCRe6uMbYsLi
+ xAQA=
 X-Developer-Key: i=akemnade@kernel.org; a=openpgp;
  fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_133408_142559_9B9F56B7 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250909_133411_332372_1724B8C5 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +89,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SY7636A has some pins which can be hardwired or used to have more
-more advanced power management available. As several devices containing
-this regulator have these pins not hardwired, but instead connected to some
-GPIO, enhance the driver to have them defined and initialized.
-Also add the ability to power off the chip completely by defining some
-input power supply.
-
-Actually implementing better power management is planned to be
-implemented as a second step. The regulators in the SY7636A should only
-be on for a short time during display refresh, but currently they are
-unconditionally forcefully enabled by the hwmon part of this chip.
+To be able to fully describe how the SY7636A is connected to the system,
+add properties for the EN and VCOM_EN pins. To squeeze out every bit
+of unused current, in many devices it is possible to power off the
+complete chip. Add an input regulator to allow that.
 
 Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
 ---
-Changes in v2:
-- en[-gpios] -> enable[-gpios] in yaml/dts/driver
-- fix en vs vcom_en in error handling
-- comment delay
-- drop applied commit (rebased to regulator/for-linus)
-- Link to v1: https://lore.kernel.org/r/20250906-sy7636-rsrc-v1-0-e2886a9763a7@kernel.org
+ .../devicetree/bindings/mfd/silergy,sy7636a.yaml         | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
----
-Andreas Kemnade (3):
-      dt-bindings: mfd: sy7636a: Add missing gpio pins and supply
-      regulator: sy7636a: add gpios and input regulator
-      ARM: dts: imx: e70k02: add sy7636
+diff --git a/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml b/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
+index ee0be32ac0204..054b97dd0c5c7 100644
+--- a/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
++++ b/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
+@@ -32,6 +32,22 @@ properties:
+       Specifying the power good GPIOs.
+     maxItems: 1
+ 
++  enable-gpios:
++    description:
++      If EN pin is not hardwired, specify it here to have it set up.
++    maxItems: 1
++
++  vcom-en-gpios:
++    description:
++      If VCOM_EN pin is not hardwired, specify it here to have it set up.
++    maxItems: 1
++
++  vin-supply:
++    description:
++      Supply for the chip. Some vendor kernels and devicetrees declare this
++      as a GPIO named "pwrall" which does not exist in the datasheet,
++      disabling it makes the chip disappear on the bus.
++
+   regulators:
+     type: object
+ 
 
- .../devicetree/bindings/mfd/silergy,sy7636a.yaml   | 16 +++++++++++++
- arch/arm/boot/dts/nxp/imx/e70k02.dtsi              | 25 +++++++++++++++++++-
- .../arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts | 24 +++++++++++++++++++
- .../arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts | 24 +++++++++++++++++++
- drivers/regulator/sy7636a-regulator.c              | 27 ++++++++++++++++++++++
- 5 files changed, 115 insertions(+), 1 deletion(-)
----
-base-commit: c05d0b32eebadc8be6e53196e99c64cf2bed1d99
-change-id: 20250906-sy7636-rsrc-c20aa6baa2c4
-
-Best regards,
---  
-Andreas Kemnade <akemnade@kernel.org>
+-- 
+2.39.5
 
 
