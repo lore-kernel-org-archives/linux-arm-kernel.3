@@ -4,202 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C62CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93811CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aFYlsmqe+6u85NSQ1cZQmSyL0mQexqOhUzLdavjU4q0=; b=zag7v6JOgC8meWCkdGh2/Q9i6M
-	xmP2AgQLYWDuz/CRXH8v7juxRi4qjIEAIk5UZtzipM7nFEJwqzGvoFgFA2UdAUboQhjaBNBsWdXS2
-	WLVE48l7XBrQxXZiserZ9CQZ/aiWzbRL1k5dpIIwyuR9uHVEYCc2KvHlE8OtvOn1iVnAkPvnvkGyr
-	X6xMaTaP3u6CRZ2WVEqtEitS9vMutjcRa7d28NfX57WUvKjY9s2+Pdhcmn5HhpxMt7wIlcWOjkCQm
-	/1vEitBnU/DKQ77bmFqY6AjlLW/c+04SQuyqCpZ3nqf4MboP8XYjvdC0NzcyOXv4Fj1QfabcJDsfg
-	RB8OKSNA==;
+	bh=v/rddP+tdCcEtm7DeNGo+eAsu5QxKUyw2PNqwrOGlvw=; b=kjVu/AwoJqRIMR2JUeX1Sf1SDU
+	P1QJQecoCCk/dQYTfEH+Wds3HpqBZqz6SktdjdAVyN/DhNv1TfpwEo54v9jw3Nl2GU1niPGOr66fu
+	Pnx5XgA/TQyd/4m71xkAogTJHbj4BEvUf60lGTkCeSsrgJfzyGzuPF4SuXgbouJpSdcwBbrAXhJen
+	hOp+GzxCTdbFsl79ZB1PtJpEEG/yFxdDITkAkZwXikfnIbRmJI+QW7HbJryONt5/6QVnVd8NFTmHn
+	Fq0kOe2VjvRiRF4GEEJ+mQnHVDL7usJI1YFiBDEdiuvE9RO7AFoMaMgnlsBhHy3VxHbxNQ4oXThF6
+	epHFoPtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1y2-00000008r1K-3Lwr;
-	Tue, 09 Sep 2025 17:17:19 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uw1y8-00000008r9x-0wIj;
+	Tue, 09 Sep 2025 17:17:24 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvxPy-000000073Pe-3bhK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 12:25:52 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 589C2C1n014025;
-	Tue, 9 Sep 2025 14:25:39 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	aFYlsmqe+6u85NSQ1cZQmSyL0mQexqOhUzLdavjU4q0=; b=3mILpS2OalH4kWc9
-	EJiBaW/FyT7z0ajLFQgMDwcuHWHaxRVQjo6V9NxWf+UcgdTey23+XE+Gej2sZ9gF
-	sg69Tn0EL/rdbY/fXz6KXanZS3+cyEoLjhzYm5UvZ1P2IdQiNKSz5Bh2UJN06o6M
-	BQVgpUDB/GIoNgChyX9cRO4IYvv2LXVFdL1nxvOrK38Jic7gWxuZvcCj9uy2XiVy
-	LUyJwQwypoa1QJvwypfhpYRbJ6686BhQuQHg7ksna6rY4sRbcEdaYPsCCn+cscyV
-	Y3qsrEOQwJOUc6CsCRZd94qsi5I3kNpUz+1MlAKltHKJOCEHXn+i9eENqYB1xijD
-	48fxoA==
-Received: from pa4pr04cu001.outbound.protection.outlook.com (mail-francecentralazon11013016.outbound.protection.outlook.com [40.107.162.16])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 490a38391n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 14:25:39 +0200 (MEST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rALYJ/DJh1k8NeFzGIy9pAGiQdSTZBKLL1JSQmg3L1HCkfcgTYc9ivpZv2Ulq3InzT2iXY8Hp8UCAZ6oLCafC/CXlU9XRbRtfhvQwwd4pP/u4B9wYqIFGtofRfxq1sdC9Pa1C8BLFdvuI30ddCetaQUapdmY46rFWXcz9Q0T2QthnBSP8zKChKJDujW/QAoKXvT5hPoFZuhHAVv+13oafTTnPkpWArwQDSlnUHfWa1miANTsyMKrF0I5VGV271483LvrmKgcGHYprrpAvPGKYLbY4lgNAmjpjHqtbVGUTG7xX9E7Ol9bK+ocOqT0KWJIpgWi+s0PLNBhms7ThfiV9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aFYlsmqe+6u85NSQ1cZQmSyL0mQexqOhUzLdavjU4q0=;
- b=yoED81H6JSv+ZlUKhh6KW5FwIEygnSad1A/+ohBpOLSJn9M3naOdV71piMvJVVjNloGvn9rb0c9he7uEcCyozLBum+RD2MpVHKWU0I4Xek7fRRt0b0uYfOsvrD89nBoOOyAUEFurnsVYMKgBa6rY0eTqUOrfHxqBsCzj+jnWLZx8hPWoSGWQSBiytd/bFrE4EZqhcmkYgDDnO6UjGNgihbjpFlR+ADALqZ6Ek4kGckRO+woML/hifE4tHxh7LRpoIEHs6GZWDLrtXF/OlZ/UlexcJMyP8/NKnX5PIDK9RmnfaBNKQp/pnPWL4Vr9d2+HOhRncn3wjsqYJAb/0ptedw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.44) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=stmicroelectronics.onmicrosoft.com;
- s=selector2-stmicroelectronics-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aFYlsmqe+6u85NSQ1cZQmSyL0mQexqOhUzLdavjU4q0=;
- b=EALsRDbICx3V16O4kBoQo5V3xvwsVyna/7sgbArnKNiOk2WyPJHNm8UXclMsshQXFYZpUAg/lpSL+cGANM8KCbb5F2edhgVAyGJYaP3GrNihyoteir+KY9aJ6GC4EWXrj9SAAUQ2JOVKZ86Tjppl6lDusFM28Wo7S17WtegifhA=
-Received: from DUZPR01CA0354.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b8::6) by AM7PR10MB3779.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:178::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Tue, 9 Sep
- 2025 12:25:30 +0000
-Received: from DU6PEPF0000A7E2.eurprd02.prod.outlook.com
- (2603:10a6:10:4b8:cafe::a2) by DUZPR01CA0354.outlook.office365.com
- (2603:10a6:10:4b8::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.15 via Frontend Transport; Tue,
- 9 Sep 2025 12:25:52 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.44; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.44) by
- DU6PEPF0000A7E2.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9115.13 via Frontend Transport; Tue, 9 Sep 2025 12:25:30 +0000
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
- (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 9 Sep
- 2025 14:18:20 +0200
-Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 9 Sep
- 2025 14:25:28 +0200
-Message-ID: <9a46c8a8-1d25-410c-9fa2-267eb4040390@foss.st.com>
-Date: Tue, 9 Sep 2025 14:25:38 +0200
+	id 1uvxU2-000000074fj-1ZGm;
+	Tue, 09 Sep 2025 12:30:04 +0000
+X-QQ-mid: zesmtpip2t1757420941t79943ff4
+X-QQ-Originating-IP: RKBBz/qmYYGaSanPg4a2CVN0ECXgc4JJML1w9U/i8TM=
+Received: from [IPV6:240f:10b:7440:1:dc35:ccd3 ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 09 Sep 2025 20:28:57 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12332205339878697842
+Message-ID: <B055BC95C67D129C+d7a2ff39-8367-48cf-8697-f12fd9f885a4@radxa.com>
+Date: Tue, 9 Sep 2025 21:28:56 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/20] bus: firewall: move stm32_firewall header file
- in include folder
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Gabriel
- Fernandez" <gabriel.fernandez@foss.st.com>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Julius Werner <jwerner@chromium.org>, Will Deacon
-	<will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-perf-users@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
- <20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com>
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add Radxa E24C
+To: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
+ devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250727144409.327740-1-jonas@kwiboo.se>
+ <20250727144409.327740-4-jonas@kwiboo.se>
 Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E2:EE_|AM7PR10MB3779:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8101f005-b32e-435d-1155-08ddef9bf742
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TlhVMUE1RVVuK2tJYTVyUFR6Sm9NKyt4RXlQQ2sxR3c1RG81T2ZWOVZBNnRO?=
- =?utf-8?B?dGNQbFhMdHhyRU5PTEhNSmpIUWZDNzlteE1CM0R3RFQ2QmNReUIrNDdlbkRj?=
- =?utf-8?B?TFhCcmk4dG5sQ1oyOGhtNHl2bE1ZbDBoanNEdlRmeFNrRldPaERHb1BseXE2?=
- =?utf-8?B?VTd2L0RWdnpXc2VCcFRncjhDbDBISnJMcDBxWnFQeDBuZEV6RmxvRnFjQ3dk?=
- =?utf-8?B?QzZIckRkNk83cTcwMHF4V2NzUC9SL0pJTW91VUlXYTNlbmlwWTVHbjZsK2lT?=
- =?utf-8?B?bUJnVkR1cVBZOTlNTFVxbzllSkJBaWZjdjFUWnpqSzloNWpPSWgyWDFkanFS?=
- =?utf-8?B?ZkRkMXpEdjNzRFRSaDJBV1g0YUlFRkNWb2VDbmVLY3dZWDFIRVluMmp0RVFl?=
- =?utf-8?B?T2JOcGhORXJFSi9pbUhNWkhqanlTVzNMcjBMTHkyN3plUmVJaGt0OVU0Z08x?=
- =?utf-8?B?cVEwdE9qZUh6NGs3aFk2aXJJS3l5U2ExR1FIZklXRDRIbm54eTZyb25qNXB0?=
- =?utf-8?B?OTlFbTE3YVV0TFJFL0FwbDkxVnJQRkc4czM1U1dQWHZFNGZvcHNXYzY0SVFC?=
- =?utf-8?B?QWpWZ3FYWW8wTzhvRm5WRzB3WUFDcmxSU3NKQUZmSGJRQ2hOUTVRUHF3dlY4?=
- =?utf-8?B?azExZS9DNGZwMy95TWtpZ1c4bnFQa1JiaExXQkV1L25IazhjSEJvMXZJK3JN?=
- =?utf-8?B?QTFlT3FTd2xlNmdQaHdsYnJkVGhWN1N4ekVPcDhEZi9ra1pGbW1EbXdvTnpa?=
- =?utf-8?B?VVVlRFJNR1g3T2NpSXlWWjQ4a1d4Q1R5Ty9tSTJzanllNFhQeFhCeUJJQjFR?=
- =?utf-8?B?ME1sV0UyWUJJeHQyQmlac3hPSHZ1NExVNWJkRUFyYTN3elkwTDF4cWQ3QVpV?=
- =?utf-8?B?bFhrR21vdThqR2JOQVNsdWkybnZETThBcmo1dFBnenRzSDhsak1aWThZUlpn?=
- =?utf-8?B?NHZSWVV4U0ZuRVRGVEljdkR5ZTRnaTU4cGZvbFlmbm54N1AvcEZPaXlSVEVh?=
- =?utf-8?B?NGFUMWJYOFdZRFRuU2VVRjB4RDF6YU1MaEV3Um9sbE5LQ2NFdWlTSlBTNERk?=
- =?utf-8?B?RVZxalNhbkpidDNSOExpZlkzWjcrbFZpWVBSa01mdVQwWXQrdXl6N2xXRlNu?=
- =?utf-8?B?N3lMc3JZWUZnTDE1S2xwdFk1QnZ0NEVuTDdBWVl2N0RJQ0JnV0JraE5SVHJx?=
- =?utf-8?B?WlAxajVOUE1RcUJvaUhubGJPcWlQUG9odWFic0x5cDZES3ZxMGRIL2Q1YUJz?=
- =?utf-8?B?VDVTQWpzNlA1aEg0WVNNZTE5aloxM3RiaDlJWjdlTlFGOTN6cHdsaFF1WkxB?=
- =?utf-8?B?SjAzY3hoU2NoZWRmeWVhNTQrMnN2THdHVmE4Q3Z4Q0gyajlIQkp6SVIySm1F?=
- =?utf-8?B?a0E5bEpyc21TaDl5eUdGOTVDdUlYeThOOVp5NEFJRVIvUVlUWWxRWDlJNmho?=
- =?utf-8?B?UUVvU3hxQkNUWUc4R2V3eE5wNENEVmNIWUFTZENqeVBZaWZQT2JIUXk2ZGVk?=
- =?utf-8?B?Q3U0ajNyR2xNTEF6bTAybU5PdDRhUWFIcEc0RXpEb2tCbUlucmEwblpla1g3?=
- =?utf-8?B?M09vdUVYTEFYNGFTZG1YczFmdVpON3ZmdmJBdDlMcUdJdzJ2eVRFMUZ5VTVs?=
- =?utf-8?B?NkxMRFJpYXgzeU43dDdNWUZET01zRmhndVFQWVlIc013dkhGV1htbnlrekVO?=
- =?utf-8?B?SUQ5SFMrL1pBOUoxUGFTdmprdjBwMGhpVk5leENiNG4xZkVKVjlGck9vSmxY?=
- =?utf-8?B?REw2eDdhRm1PU04rSUlmRlBjTnptVjFJQUNFNUc3TldvN3NWR1VESExwYTFX?=
- =?utf-8?B?YmlLSnpwSmpQZEk1RVpuSEdlQ1lheGFkdldNY0xndFpWQXVzQ21rdVIrRmMy?=
- =?utf-8?B?UnY2cFNTU0hzQWhzY2pCTXBSYThuWG05OUdobVFpcGtSdTYvaDVFeDFQTy9T?=
- =?utf-8?B?Rk9yTjd5RC9YYVhwN0JvUjNPZ0plZjhFUnhTaktNMVRoUUpwUk1jdURDZG9L?=
- =?utf-8?B?NmNEMjZRczI1dGFWNmZQZUFiWVlZVk9SRDFwOGRXai9oUnVqVmtuamVSL0Jz?=
- =?utf-8?B?WkRJTVFxN2FEdHlmcDZkZkhabHQvWnVYaXRnUT09?=
-X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2025 12:25:30.2899
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8101f005-b32e-435d-1155-08ddef9bf742
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E2.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3779
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA1MDIzNyBTYWx0ZWRfXxp1BTVx8TN30 ie6/OxZuxcOIt4+NpzcGZciNK635mGxQdjJwdzwG7kKVrBgKqfhNOotXZXJowz7y5e44TH9tniA KeffLad9gwNZOzEJqtszz0fZ9r7pPgqiJSFS55LMmNjSEETRPOTHZe8qWccTQd9qAvBtd9XhnEq
- 7OIPBrw2X/A6DDvlafrM91mbK/GJUrw2rEmSlxz/Gcox0Yx7Cpa1Gu8Yrkp+8lw9o4FIgJVv7+M c4WvqlgKl3ERdPVMdNkRzdOMlPr0MrPasVlT8IdObOVgquox+isBzMUbJNVKJ7SCzOAR+/KvFpA xEcklRxpG4yTahymSw2/JFd7Olzqgh8UmDnZSek1FQ8iQCkjqf/og94Kzi03OMUuN+OM4lFxiQ8 ZvaqynYr
-X-Proofpoint-GUID: 05B7j8d6oYHp14w3Z4fjDkMuLGwblaEB
-X-Proofpoint-ORIG-GUID: 05B7j8d6oYHp14w3Z4fjDkMuLGwblaEB
-X-Authority-Analysis: v=2.4 cv=WLB/XmsR c=1 sm=1 tr=0 ts=68c01cc3 cx=c_pps a=2vZtlp7YgANTt9DAkY0oBA==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=ei1tl_lDKmQA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=FUbXzq8tPBIA:10 a=8b9GpE9nAAAA:8 a=pGLkceISAAAA:8 a=YYNlyAMbr1-TTnqoXNcA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-09_01,2025-09-08_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 clxscore=1011 adultscore=0
- impostorscore=0 phishscore=0 suspectscore=0 bulkscore=0 priorityscore=1501
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2507300000
- definitions=main-2509050237
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20250727144409.327740-4-jonas@kwiboo.se>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: MACXe2l6e7j9v35cxXlys+2ZFxeV/hmj07TE5OTy1dk/3t05JcX7Nn3t
+	fEauqVXwNDocF/1HGKvCq2yFwjftCfuZkw5SapEVro8FRj/Wb5NPp1ERcPbFAhVD4Q/i7nk
+	KnFnXjQ8pr2fYA+Qt4BhAXFt6l9vWsa6k47w6pet6ZkCg9oUn/REwLlfssArIs9nnNvG2Ip
+	zlNe4CK9HWnS8tW4p05HCqwhTMtYeWZS6fs4SStSlW8CDZabt0zE42cQM/MRujAC8mIAcky
+	XoSllRyQADQqgfVWfPSNpjFtUwO0qbpi2DSUxOykcTUUxTrdh5ilckvpZhWp3l/6PMJl/06
+	V86Ew1fegjmeymEMpoyECvAuaCroQytTwsdnntmE8sDw/kDcMCeqF+uL6SrPRln65Eqk0Rs
+	5OQbeHTHCxnOhiFK2HrciMIFtkdvRtQJyT5PCC6UupNr2ohgfNby393eZd8nRAw1FnZXXoy
+	m3G8eQPzUhVEd1WPgsMlg13N95I4SyrxCJLQY5fSK9LIr2T6lvH9UcFFgyZukh/S1KStch7
+	RfEnIdTOlPdxs3J1Pj698A2DIQaYJknOupcoEeaHiHNRt3HBplteUSQF9+4DXGi9aWbJKoY
+	uyeAavYmXFRHkaW1pvD4pOPhgu7pLoerqQrcvVq6qlD6RZhQVxkPx19vyZEi0xC9OiPz7TF
+	ziYBH+9D6qBMxoaFgl/f95tA/VhONq1vzShZnxLhc3HdC9WHERhJBUxc0Q38NRIVPqlT8qY
+	tk6qfz4qGoexliwcx45MgLvGfobXJP9VSzn3qofDck0FWZs7IwJwbPCMC6H1or7vsdu7U6I
+	APpJAyZ9YtsQykepW907WEF0Q8ltP15zEKXReYNzkvAbzWwkl7isGhx2Ari+5vlvOFKtO1o
+	AU6Vwju8ifcpeN2Lwn02at8oxmDAsdT1rNmSZJCExolRtWZMm498V5pOF8yyBppeFOhhc7b
+	FxNq+PScortXteAUM71wrfqH7eum3xx50BG9ba9QkyNwNrzrma1zgKyp3
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_052551_501761_05DD9F3A 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20250909_053003_004080_41C15128 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -214,105 +88,569 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jonas,
 
-
-On 9/9/25 12:12, Clément Le Goffic wrote:
-> From: Clément Le Goffic <clement.legoffic@foss.st.com>
+On 7/27/25 23:44, Jonas Karlman wrote:
+> The Radxa E24C is a compact, high-performance network computer
+> developed by Radxa, based on the Rockchip RK3528A SoC.
 > 
-> Other driver than rifsc and etzpc can implement firewall ops, such as
-> rcc.
-> In order for them to have access to the ops and type of this framework,
-> we need to get the `stm32_firewall.h` file in the include/ folder.
+> Add initial device tree for the Radxa E24C.
 > 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 > ---
->   drivers/bus/stm32_etzpc.c                       | 3 +--
->   drivers/bus/stm32_firewall.c                    | 3 +--
->   drivers/bus/stm32_rifsc.c                       | 3 +--
->   {drivers => include/linux}/bus/stm32_firewall.h | 0
->   4 files changed, 3 insertions(+), 6 deletions(-)
+> Schematics: https://dl.radxa.com/e/e24c/docs/radxa_e24c_v1200_schematic.pdf
+> ---
+>   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>   .../boot/dts/rockchip/rk3528-radxa-e24c.dts   | 519 ++++++++++++++++++
+>   2 files changed, 520 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
 > 
-> diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
-> index 7fc0f16960be..4918a14e507e 100644
-> --- a/drivers/bus/stm32_etzpc.c
-> +++ b/drivers/bus/stm32_etzpc.c
-> @@ -5,6 +5,7 @@
->   
->   #include <linux/bitfield.h>
->   #include <linux/bits.h>
-> +#include <linux/bus/stm32_firewall.h>
->   #include <linux/device.h>
->   #include <linux/err.h>
->   #include <linux/init.h>
-> @@ -16,8 +17,6 @@
->   #include <linux/platform_device.h>
->   #include <linux/types.h>
->   
-> -#include "stm32_firewall.h"
-> -
->   /*
->    * ETZPC registers
->    */
-> diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
-> index 2fc9761dadec..ef4988054b44 100644
-> --- a/drivers/bus/stm32_firewall.c
-> +++ b/drivers/bus/stm32_firewall.c
-> @@ -5,6 +5,7 @@
->   
->   #include <linux/bitfield.h>
->   #include <linux/bits.h>
-> +#include <linux/bus/stm32_firewall.h>
->   #include <linux/bus/stm32_firewall_device.h>
->   #include <linux/device.h>
->   #include <linux/err.h>
-> @@ -18,8 +19,6 @@
->   #include <linux/types.h>
->   #include <linux/slab.h>
->   
-> -#include "stm32_firewall.h"
-> -
->   /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
->   #define STM32_FIREWALL_MAX_ARGS		(STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
->   
-> diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
-> index 4cf1b60014b7..643ddd0a5f54 100644
-> --- a/drivers/bus/stm32_rifsc.c
-> +++ b/drivers/bus/stm32_rifsc.c
-> @@ -5,6 +5,7 @@
->   
->   #include <linux/bitfield.h>
->   #include <linux/bits.h>
-> +#include <linux/bus/stm32_firewall.h>
->   #include <linux/device.h>
->   #include <linux/err.h>
->   #include <linux/init.h>
-> @@ -16,8 +17,6 @@
->   #include <linux/platform_device.h>
->   #include <linux/types.h>
->   
-> -#include "stm32_firewall.h"
-> -
->   /*
->    * RIFSC offset register
->    */
-> diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/stm32_firewall.h
-> similarity index 100%
-> rename from drivers/bus/stm32_firewall.h
-> rename to include/linux/bus/stm32_firewall.h
-> 
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> index 0662fcf00628..dc62fd5305be 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -92,6 +92,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-zero2.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e24c.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2f.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3562-evb2-v10.dtb
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
+> new file mode 100644
+> index 000000000000..225f2b0c5339
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
+> @@ -0,0 +1,519 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include "rk3528.dtsi"
+> +
+> +/ {
+> +	model = "Radxa E24C";
+> +	compatible = "radxa,e24c", "rockchip,rk3528";
+> +
+> +	aliases {
+> +		ethernet0 = &gmac1;
+> +		i2c0 = &i2c0;
+> +		i2c1 = &i2c1;
+> +		i2c5 = &i2c5;
+> +		mmc0 = &sdhci;
+> +		mmc1 = &sdmmc;
+> +		rtc0 = &hym8563;
+> +		rtc1 = &rk805;
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:1500000n8";
+> +	};
+> +
+> +	adc-keys {
+> +		compatible = "adc-keys";
+> +		io-channels = <&saradc 0>;
+> +		io-channel-names = "buttons";
+> +		keyup-threshold-microvolt = <1800000>;
+> +		poll-interval = <100>;
+> +
+> +		button-maskrom {
+> +			label = "MASKROM";
+> +			linux,code = <KEY_SETUP>;
+> +			press-threshold-microvolt = <0>;
+> +		};
+> +	};
+> +
+> +	gpio-keys {
+> +		compatible = "gpio-keys";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&gpio0_a0_user>;
+> +
+> +		button-user {
+> +			gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_LOW>;
+> +			label = "USER";
+> +			linux,code = <BTN_1>;
 
-Hi Clément,
+I prefer to assign BTN_0 to the 1st button :)
 
-Thank you for keeping up the work on this series.
+Best regards,
 
-As the firewall header is moved to a dedicated firewall directory,
-maybe it would be coherent to create the same kind of directory
-for the sources as non-buses drivers use it. I can test it on my
-side if you're willing to make the change.
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
 
-Sorry for the late comment.
+> +			wakeup-source;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led-0 {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			default-state = "on";
+> +			function = LED_FUNCTION_HEARTBEAT;
+> +			gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
+> +			label = "SYS";
+> +			linux,default-trigger = "heartbeat";
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&sys_led_g>;
+> +		};
+> +
+> +		led-1 {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			default-state = "off";
+> +			function = LED_FUNCTION_WAN;
+> +			gpios = <&gpio4 RK_PA0 GPIO_ACTIVE_HIGH>;
+> +			label = "WAN";
+> +			linux,default-trigger = "netdev";
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&wan_led_g>;
+> +		};
+> +
+> +		led-2 {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			default-state = "off";
+> +			function = LED_FUNCTION_LAN;
+> +			gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
+> +			label = "LAN1";
+> +			linux,default-trigger = "netdev";
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&lan1_led_g>;
+> +		};
+> +
+> +		led-3 {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			default-state = "off";
+> +			function = LED_FUNCTION_LAN;
+> +			gpios = <&gpio1 RK_PB1 GPIO_ACTIVE_HIGH>;
+> +			label = "LAN2";
+> +			linux,default-trigger = "netdev";
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&lan2_led_g>;
+> +		};
+> +
+> +		led-4 {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			default-state = "off";
+> +			function = LED_FUNCTION_LAN;
+> +			gpios = <&gpio1 RK_PB4 GPIO_ACTIVE_HIGH>;
+> +			label = "LAN3";
+> +			linux,default-trigger = "netdev";
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&lan3_led_g>;
+> +		};
+> +	};
+> +
+> +	vcc3v3_mkey: regulator-3v3-vcc-mkey {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&mkey_pwr_en>;
+> +		regulator-name = "vcc3v3_mkey";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
+> +
+> +	vcc5v0_sys: regulator-5v0-vcc-sys {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc5v0_sys";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vcc_12v>;
+> +	};
+> +
+> +	vcc5v0_usb20: regulator-5v0-vcc-usb20 {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpios = <&gpio1 RK_PA3 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&usb_host_en>;
+> +		regulator-name = "vcc5v0_usb20";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
+> +
+> +	vcc_12v: regulator-12v0-vcc {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_12v";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <12000000>;
+> +		regulator-max-microvolt = <12000000>;
+> +	};
+> +
+> +	avddl_1v1: avddh_3v3: avdd_rtl8367rb: regulator-avdd-rtl8367rb {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpios = <&gpio1 RK_PC3 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&gpio_8367_en>;
+> +		regulator-name = "avdd_rtl8367rb";
+> +		startup-delay-us = <10000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
+> +
+> +	vccio_sd: regulator-vccio-sd {
+> +		compatible = "regulator-gpio";
+> +		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
+> +		regulator-name = "vccio_sd";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		states = <1800000 0x0>, <3300000 0x1>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
+> +};
+> +
+> +&cpu0 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
+> +
+> +&cpu1 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
+> +
+> +&cpu2 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
+> +
+> +&cpu3 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
+> +
+> +&gmac1 {
+> +	clock_in_out = "output";
+> +	phy-mode = "rgmii-id";
+> +	phy-supply = <&avdd_rtl8367rb>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&rgmii_miim>, <&rgmii_tx_bus2>, <&rgmii_rx_bus2>,
+> +		    <&rgmii_rgmii_clk>, <&rgmii_rgmii_bus>, <&gmac1_rstn_l>;
+> +	status = "okay";
+> +
+> +	fixed-link {
+> +		speed = <1000>;
+> +		full-duplex;
+> +	};
+> +};
+> +
+> +&gpu {
+> +	mali-supply = <&vdd_logic>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c0m0_xfer>;
+> +	status = "okay";
+> +
+> +	rk805: pmic@18 {
+> +		compatible = "rockchip,rk805";
+> +		reg = <0x18>;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <RK_PB2 IRQ_TYPE_LEVEL_LOW>;
+> +		#clock-cells = <1>;
+> +		clock-output-names = "rk805-clkout1", "rk805-clkout2";
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pmic_int>;
+> +		system-power-controller;
+> +		wakeup-source;
+> +
+> +		vcc1-supply = <&vcc5v0_sys>;
+> +		vcc2-supply = <&vcc5v0_sys>;
+> +		vcc3-supply = <&vcc5v0_sys>;
+> +		vcc4-supply = <&vcc5v0_sys>;
+> +		vcc5-supply = <&vcc5v0_sys>;
+> +		vcc6-supply = <&vcc5v0_sys>;
+> +
+> +		regulators {
+> +			vdd_arm: DCDC_REG1 {
+> +				regulator-name = "vdd_arm";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <712500>;
+> +				regulator-max-microvolt = <1450000>;
+> +				regulator-ramp-delay = <12500>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +				};
+> +			};
+> +
+> +			vdd_logic: DCDC_REG2 {
+> +				regulator-name = "vdd_logic";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <712500>;
+> +				regulator-max-microvolt = <1450000>;
+> +				regulator-ramp-delay = <12500>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +				};
+> +			};
+> +
+> +			vcc_ddr: DCDC_REG3 {
+> +				regulator-name = "vcc_ddr";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +				};
+> +			};
+> +
+> +			vcc_3v3: DCDC_REG4 {
+> +				regulator-name = "vcc_3v3";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <3300000>;
+> +				};
+> +			};
+> +
+> +			vcc_1v8: LDO_REG1 {
+> +				regulator-name = "vcc_1v8";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1800000>;
+> +				};
+> +			};
+> +
+> +			vcc1v8_emmc: LDO_REG2 {
+> +				regulator-name = "vcc1v8_emmc";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1800000>;
+> +				};
+> +			};
+> +
+> +			vdd_0v9_p: LDO_REG3 {
+> +				regulator-name = "vdd_0v9_p";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <900000>;
+> +				regulator-max-microvolt = <900000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <900000>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&i2c1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c1m0_xfer>;
+> +	status = "okay";
+> +
+> +	eeprom@50 {
+> +		compatible = "belling,bl24c16a", "atmel,24c16";
+> +		reg = <0x50>;
+> +		pagesize = <16>;
+> +		read-only;
+> +		vcc-supply = <&vcc_3v3>;
+> +	};
+> +};
+> +
+> +&i2c5 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c5m0_xfer>;
+> +	status = "okay";
+> +
+> +	hym8563: rtc@51 {
+> +		compatible = "haoyu,hym8563";
+> +		reg = <0x51>;
+> +		#clock-cells = <0>;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&rtc_int_l>;
+> +		wakeup-source;
+> +	};
+> +};
+> +
+> +&mdio1 {
+> +	reset-delay-us = <25000>;
+> +	reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
+> +	reset-post-delay-us = <100000>;
+> +};
+> +
+> +&pinctrl {
+> +	ethernet {
+> +		gmac1_rstn_l: gmac1-rstn-l {
+> +			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		gpio_8367_en: gpio-8367-en {
+> +			rockchip,pins = <1 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		rtl8367rb_eint: rtl8367rb-eint {
+> +			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_up>;
+> +		};
+> +	};
+> +
+> +	gpio-keys {
+> +		gpio0_a0_user: gpio0-a0-user {
+> +			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		lan1_led_g: lan1-led-g {
+> +			rockchip,pins = <1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		lan2_led_g: lan2-led-g {
+> +			rockchip,pins = <1 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		lan3_led_g: lan3-led-g {
+> +			rockchip,pins = <1 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		sys_led_g: sys-led-g {
+> +			rockchip,pins = <4 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		wan_led_g: wan-led-g {
+> +			rockchip,pins = <4 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+> +	pcie {
+> +		mkey_pwr_en: mkey-pwr-en {
+> +			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+> +	pmic {
+> +		pmic_int: pmic-int {
+> +			rockchip,pins = <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>;
+> +		};
+> +	};
+> +
+> +	rtc {
+> +		rtc_int_l: rtc-int-l {
+> +			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
+> +		};
+> +	};
+> +
+> +	sdmmc {
+> +		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
+> +			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+> +	usb {
+> +		usb_host_en: usb-host-en {
+> +			rockchip,pins = <1 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +};
+> +
+> +&saradc {
+> +	vref-supply = <&vcc_1v8>;
+> +	status = "okay";
+> +};
+> +
+> +&sdhci {
+> +	bus-width = <8>;
+> +	cap-mmc-highspeed;
+> +	mmc-hs200-1_8v;
+> +	no-sd;
+> +	no-sdio;
+> +	non-removable;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&vcc1v8_emmc>;
+> +	status = "fail";
+> +};
+> +
+> +&sdmmc {
+> +	bus-width = <4>;
+> +	cap-mmc-highspeed;
+> +	cap-sd-highspeed;
+> +	disable-wp;
+> +	sd-uhs-sdr104;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&vccio_sd>;
+> +	status = "okay";
+> +};
+> +
+> +&sfc {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&fspi_csn0>, <&fspi_pins>;
+> +	status = "okay";
+> +
+> +	flash@0 {
+> +		compatible = "jedec,spi-nor";
+> +		reg = <0>;
+> +		spi-max-frequency = <50000000>;
+> +		spi-rx-bus-width = <4>;
+> +		spi-tx-bus-width = <1>;
+> +		vcc-supply = <&vcc1v8_emmc>;
+> +	};
+> +};
+> +
+> +&u2phy {
+> +	status = "okay";
+> +};
+> +
+> +&u2phy_host {
+> +	phy-supply = <&vcc5v0_usb20>;
+> +	status = "okay";
+> +};
+> +
+> +&u2phy_otg {
+> +	status = "okay";
+> +};
+> +
+> +&uart0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&uart0m0_xfer>;
+> +	status = "okay";
+> +};
+> +
+> +&usb_host0_ehci {
+> +	status = "okay";
+> +};
+> +
+> +&usb_host0_xhci {
+> +	extcon = <&u2phy>;
+> +	maximum-speed = "high-speed";
+> +	phys = <&u2phy_otg>;
+> +	phy-names = "usb2-phy";
+> +	status = "okay";
+> +};
 
-Cheers,
-Gatien
 
