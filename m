@@ -4,139 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CD0CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16207CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sknQ4v04zMJRg7aMri76BP+yjjkuvx43VxPX8joYE3g=; b=gwvZyimCus/pS9XlwyUbLEBiNs
-	pir5VLR5aWQRW8vv7oYWMs+oY54ptzOfsyShtWE5/ot6Jwgblh4sgzMpKUKQ2P8rerVNMKBv9wXIJ
-	yqiwADBMBPE8yK2M7ZkgTo8z8NgW7CLYKWFB41ROAd/0Ju8lsYR7SDmiDeSrxpRIuFqglZ/xZL2U4
-	N4k0trS4hwHtMxEwadN4Gs4cKdD3qUroKY4MLo+S72IYN6+CFT4QgHD5x/cD5U7AYf90JlTkHoACW
-	uKFH+nsRJEtz1iqYgu/3nzlk/I7fz4zJIYF5R92/4N3zXWr5UQfxfmpF0LiSOZxzX6NNg60oIP+gH
-	8jQHkvPw==;
+	bh=/9O8tHwn09nsjeClSuqgfyQVy6t2GJ6AHHgo9UAkBbk=; b=sd8+XTQewzouxK5ve6xlfYaMgm
+	sDuxZHXsllBrFSCfVgwlRRp4XDEFQ11qP4CaTPV9zIyQhY/ZDkcogiMCz6IA4iBY8PCbWrvMms6fk
+	3/tx7tRwPbAzgd1wVesjYtoK7fee+R1Hr/GllQvTz9tjPV8FlmLKwwLwcKFMJkpJ2ow3DMfg+/5fn
+	Nt2fHsEN1Y9ZK49ONNU6IFFZAjzsJFccykptWkf/70DrHFaroPSpWpeaYSkQgkb/C8H3TVtVGfWMB
+	Q1qbcIUrmxLS7l6nc5c6pSnwK45XjEF1i2u9Z0Fujw2xJPj4sLQc4Pkg+RlNl/K4z5KC4MdvxTEy+
+	WkR/b/4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1yK-00000008rWW-020q;
-	Tue, 09 Sep 2025 17:17:36 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uw1yL-00000008raG-3wJm;
+	Tue, 09 Sep 2025 17:17:38 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvxlI-00000007Arz-34JZ;
-	Tue, 09 Sep 2025 12:47:53 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45dcff2f313so34280515e9.0;
-        Tue, 09 Sep 2025 05:47:52 -0700 (PDT)
+	id 1uvxlf-00000007B0d-0Gtn
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 12:48:16 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45de60d39b7so15007845e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 05:48:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757422071; x=1758026871; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=sknQ4v04zMJRg7aMri76BP+yjjkuvx43VxPX8joYE3g=;
-        b=SxrBToaRGPQs24kVzYTRm7Qm/GLuruMeIWYJgnAkPXqEDYFnt+BSZ9NWQWyaI9KCu3
-         TJocOyxIRCLsKWRceltnEVFAUJxseWdurFDEQw6Y6Y+pIqWxEt6sIVsRiNn3gtbdI69/
-         VqZkWtYv6o9Ef7QURiSMdJHfB8CPqtTUVAj5raaYmUJuBaqqsxL/ss2Y/UwCi7O7sd7D
-         R8WV2RpVynAsHfK3d4l0EGzgYDSud25xfp/7hej/g7xPuzzqaiUzMUQP0Z1R37VlMuT9
-         zPZy4CuL0Ga3M6kBFOcF8o5kxUYgsNhwXJizVc4Fr2x1jnw7Zd6s31OqMqPbZRqZVNEF
-         8Kwg==
+        d=tuxon.dev; s=google; t=1757422093; x=1758026893; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=/9O8tHwn09nsjeClSuqgfyQVy6t2GJ6AHHgo9UAkBbk=;
+        b=LLQ91D1fp8SOyPp6/WhJzgV+Ht0q0TlorKvPp9Z1MiqZTX+2ZFuoyukjciBYJaS9m/
+         qqtbR3P1FG9Q46DwgLc0wRDnIBJlTefQrIkkGVSWqu47tbzSMIB3p0CTVzDajk8SyPjk
+         1xTQMiofhf8SXcoT/hc9xc1gHUs943mfrtaHZtTKhFtqYW49vaP+xCkMtMvl6DjF0pD+
+         LTz9XRLiKtTPt1f5LFixZATW9CUAaAae9Zvd/rRbGEkEMrbjA5GNECYR9INV4bR/WymE
+         vzLpX0l4JtvbSjKKiDJswQeg4WZggrIvDE+WPYGfrlVQAKrFSKLZJGgUaztv+kFXRiWb
+         FcPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757422071; x=1758026871;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sknQ4v04zMJRg7aMri76BP+yjjkuvx43VxPX8joYE3g=;
-        b=NjYWre+7q6c61pFfeEJCYweETHYjUz49ps/+/27jqw46Ml58BS60QrdxIu1te6vbC/
-         PhW+XNjlZos9oCP22CkXLAU/aqpfxF3zFdhinTpfonjGA9Jh56xGOqTn3KYONFhP8iOe
-         f8d+KN3MzGRY0LXL+7ATFBLxjqeCKyUprVayxk15LNsI+cyceNg7GTc8zM9meLWzT0Zy
-         ih5/ld/P9dAmKE46SSiOTI03a9pjLmcPWMIfAT/n0dib7szYzo0M+lT6git4F7lupbMY
-         mvQ5rIZUwsajZuvjJ2PE63B2Yc0u6OQPAE6nm888eHnwxrugf9ZuVh0IZ+XImPLsvT6y
-         OxEw==
-X-Forwarded-Encrypted: i=1; AJvYcCV3JRISi9zFuHes0sFmn3dC4EzMquyX6wj3WYoqJG756Vj3NcHW4mmSRkQYpUM2GX96hxuODt9oMQG0PHQxL38=@lists.infradead.org, AJvYcCV5B/vZU78pYGXtPDJ8jUizBH5j1MHvMi8mucX+LUbmS5nHXB6aJHL+aZDUuPCIykUSUQFQduMc+wTin4sEgwg2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzW7Fh1/l1wIOnzlHo5ge/5jmO2alAVCitPmd2jFltJ02HI25P9
-	2d8RiGO2NxnHQEQjVklRBFU+baKwAU9G+Zd6w4iUqVTgEV1X5IHLpZmm
-X-Gm-Gg: ASbGnctPBY6W6x3OCc2VLX4YBtROr0Ku1cCFmKXHIYFZraJdP+zjOBXqoPFHA/IOKVv
-	+AdB/Jfqw6Du48aJUWcKvPYW08FgkJPsWrIb/1kCuEdsh9kxWfYPZ2D5R8OfxvnprwKWDDh463E
-	HKtl0ZlvFVGsFa2UJGpqUuIIIzKk+Le0vas1UBowMCE7OqUycDH0GaySnecoRERYhbIM1rJAbJx
-	PiF+aV/HaNhyrQ01PDWcFlnApdsqKmQ3c4vHhohtf1etKTHrCLaQ1sylhbmfkGazbsJvBlEJjGC
-	Ds3TrvAaRIvNDjBnXH5q7KCTbSdSg6khjzB8A2lYMsNiZ5OMCWGU/BfY/ckirA2+BAsGRVz92OB
-	ZJ/ZhFYSwK0qry9DZNFTxHCp10KW6N+Yqhz7NKdXsgQ==
-X-Google-Smtp-Source: AGHT+IF7VDa3q9SU8Hb8VKgsof+wzfraByxvrUN6D+R4v5hiuxuAYZeQmJI3MV7ScaIIyzTNCd0n7w==
-X-Received: by 2002:a05:600c:4f83:b0:45c:b56c:4183 with SMTP id 5b1f17b1804b1-45dddee9c59mr112287245e9.18.1757422071006;
-        Tue, 09 Sep 2025 05:47:51 -0700 (PDT)
-Received: from [192.168.2.177] ([91.116.220.47])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45de18f4824sm136453475e9.10.2025.09.09.05.47.48
+        d=1e100.net; s=20230601; t=1757422093; x=1758026893;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/9O8tHwn09nsjeClSuqgfyQVy6t2GJ6AHHgo9UAkBbk=;
+        b=Um36ofDDQUI/oPexFw70L6FEOaKDlrP+iI6hGAt0KHYlQSfIhjqAHBwGJkeegsrKcA
+         ihHVb/BmG/0YegN0ycbS6fhgoSQ/Kpl1pRPvYB1wGY88QV5Mbzl+iqpozuELfQ24NPEB
+         o+UUhPztlCj4kpiY/ODiZOWF7lnF8TC4xeitcLXSyRUAICODjeD0mHpzknrrIavzsxz6
+         AxqEWhSPplCxUHj0PZnKUq2NtRs5ZrKLoy499Q9iM0P1XrNLt7KyrP0+lQcqhVSpbH6k
+         U6S1FVm4TU5vKY2M7Jb9EX2xPfahwYx/xuZF4p20OmdND/NGZ4EtvzbONYQk8qpBGVgU
+         VwrA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ8yRFt4MhTgl3dW9wvWjwlmL+pBwmIWavnM1LrwQkLMj5bBJc4J4T4ogvXS2HSB1+5FcjjxML1JCQM8HP0f8X@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRnEfJrakld6ncTE1Pp2YGnT4TXegwbibGmKkfch+wjT/liyLz
+	PstZ9gurVKCBobXzAgwj2BT65i1LWDiWzhnjAKOkka1qWshfMA40NfHjZ1UhYa+c5lM=
+X-Gm-Gg: ASbGncuo/B7VX5/VW2oJoY6y805h/ZYPP+gQPLp8MSVSer350d8rtV5WvfxmlU7fE4F
+	28PxZfeHv6eo2dpSgRETp7OTMPluJj+9xTFi38BQhDieSx2P0fQEpuCQtI/45LWrx7gx27V3zTW
+	PkgcPcWiQDD4RLOd4vXt5uAHVIFjF4FoEwmJOLnyal/EFwUTjCAZ6ERnfskocztk9Z+x/IiF9Ud
+	vZFUIxvjY5z9HGW+9HfDppKeF/blhL9kA72AHvI3m6oPJjzHR0gQ98kR81UYMfDSzQRQDqx5nbv
+	Oq0QV7Bcgn3JH/KBV+kR8PdEfx+whRotMYY10sVDZT5IRVT35MpC6v2Dtp1ydZzygJik1pNEQvE
+	U3X50NZDeo8/i4dIXzgePQNP87a0ptm2fufBy40ArSg==
+X-Google-Smtp-Source: AGHT+IGNhrTxIPsosCdGJWZIZAbT0RGPUxRM8nlUnIFpaFAXk/yICLpZY71X3iYYFxkLTIc/wDUO1A==
+X-Received: by 2002:a05:600c:46d0:b0:45d:d96e:6176 with SMTP id 5b1f17b1804b1-45ddded62d8mr99306545e9.25.1757422092531;
+        Tue, 09 Sep 2025 05:48:12 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.139])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e75224db20sm2503507f8f.60.2025.09.09.05.48.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Sep 2025 05:47:49 -0700 (PDT)
-Message-ID: <c09e6239-dc70-469d-b9bb-02398f2b621b@gmail.com>
-Date: Tue, 9 Sep 2025 14:47:47 +0200
+        Tue, 09 Sep 2025 05:48:12 -0700 (PDT)
+Message-ID: <ba50f82f-3344-42dd-b58d-0a1d7438e1ac@tuxon.dev>
+Date: Tue, 9 Sep 2025 15:48:10 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] arm64: dts: mediatek: mt8395-nio-12l: add PMIC and
- GPIO keys support
-To: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
- <20250905-radxa-nio-12-l-gpio-v3-2-40f11377fb55@collabora.com>
-Content-Language: en-US, ca-ES, es-ES
-From: Matthias Brugger <matthias.bgg@gmail.com>
-Autocrypt: addr=matthias.bgg@gmail.com; keydata=
- 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
-In-Reply-To: <20250905-radxa-nio-12-l-gpio-v3-2-40f11377fb55@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v3 5/9] PCI: rzg3s-host: Add Initial PCIe Host Driver for
+ Renesas RZ/G3S SoC
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ geert+renesas@glider.be, magnus.damm@gmail.com, catalin.marinas@arm.com,
+ will@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
+ p.zabel@pengutronix.de, lizhi.hou@amd.com, linux-pci@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, Claudiu Beznea
+ <claudiu.beznea.uj@bp.renesas.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>
+References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
+ <ddxayjj5wcuuish4kvyluzrujkes5seo7zlusmomyjfjcgzcyj@xe3zzzmy2zaj>
+ <8ef466aa-b470-4dcb-9024-0a9c36eb9a6a@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <8ef466aa-b470-4dcb-9024-0a9c36eb9a6a@tuxon.dev>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_054752_788648_177F612D 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250909_054815_286213_7B8391DB 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,93 +112,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Manivannan,
 
-
-On 05/09/2025 13:51, Julien Massot wrote:
-> Add support for PMIC and GPIO keys on the Radxa NIO 12L board:
-> Declare a gpio-keys node for the Volume Up button using GPIO106.
-> Add the corresponding pin configuration in the pinctrl node.
-> Add a mediatek,mt6359-keys subnode under the PMIC to handle the
-> power and home buttons exposed by the MT6359.
+On 8/30/25 14:22, Claudiu Beznea wrote:
 > 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
-
-Queued, thanks.
-Matthias
-
-> ---
->   .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 36 ++++++++++++++++++++++
->   1 file changed, 36 insertions(+)
+> On 30.08.2025 09:59, Manivannan Sadhasivam wrote:
+>> On Fri, Jul 04, 2025 at 07:14:05PM GMT, Claudiu wrote:
+>>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>>
+>>> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
+>>> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
+>>> only as a root complex, with a single-lane (x1) configuration. The
+>>> controller includes Type 1 configuration registers, as well as IP
+>>> specific registers (called AXI registers) required for various adjustments.
+>>>
+>>> Hardware manual can be downloaded from the address in the "Link" section.
+>>> The following steps should be followed to access the manual:
+>>> 1/ Click the "User Manual" button
+>>> 2/ Click "Confirm"; this will start downloading an archive
+>>> 3/ Open the downloaded archive
+>>> 4/ Navigate to r01uh1014ej*-rzg3s-users-manual-hardware -> Deliverables
+>>> 5/ Open the file r01uh1014ej*-rzg3s.pdf
+>>>
+>>> Link: https://www.renesas.com/en/products/rz-g3s?
+>>> queryID=695cc067c2d89e3f271d43656ede4d12
+>>> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+>>> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>> ---
+>>>
+>> [...]
+>>
+>>> +static bool rzg3s_pcie_child_issue_request(struct rzg3s_pcie_host *host)
+>>> +{
+>>> +	u32 val;
+>>> +	int ret;
+>>> +
+>>> +	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_REQISS,
+>>> +			       RZG3S_PCI_REQISS_REQ_ISSUE,
+>>> +			       RZG3S_PCI_REQISS_REQ_ISSUE);
+>>> +	ret = readl_poll_timeout_atomic(host->axi + RZG3S_PCI_REQISS, val,
+>>> +					!(val & RZG3S_PCI_REQISS_REQ_ISSUE),
+>>> +					5, RZG3S_REQ_ISSUE_TIMEOUT_US);
+>>> +
+>>> +	return !!ret || (val & RZG3S_PCI_REQISS_MOR_STATUS);
+>> You don't need to do !!ret as the C11 standard guarantees that any scalar type
+>> stored as bool will have the value of 0 or 1.
+> OK, will drop it anyway as suggested in another thread.
 > 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-> index 329c60cc6a6be0b4be8c0b8bb033b32d35302804..fd596e2298285361ad7c2fb828feec598d75a73e 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-> +++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-> @@ -8,6 +8,7 @@
->   #include "mt8195.dtsi"
->   #include "mt6359.dtsi"
->   #include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
->   #include <dt-bindings/interrupt-controller/irq.h>
->   #include <dt-bindings/pinctrl/mt8195-pinfunc.h>
->   #include <dt-bindings/regulator/mediatek,mt6360-regulator.h>
-> @@ -60,6 +61,18 @@ backlight: backlight {
->   		status = "disabled";
->   	};
->   
-> +	keys: gpio-keys {
-> +		compatible = "gpio-keys";
-> +
-> +		button-volume-up {
-> +			wakeup-source;
-> +			debounce-interval = <100>;
-> +			gpios = <&pio 106 GPIO_ACTIVE_LOW>;
-> +			label = "volume_up";
-> +			linux,code = <KEY_VOLUMEUP>;
-> +		};
-> +	};
-> +
->   	wifi_vreg: regulator-wifi-3v3-en {
->   		compatible = "regulator-fixed";
->   		regulator-name = "wifi_3v3_en";
-> @@ -626,6 +639,14 @@ pins-txd {
->   		};
->   	};
->   
-> +	gpio_key_pins: gpio-keys-pins {
-> +		pins {
-> +			pinmux = <PINMUX_GPIO106__FUNC_GPIO106>;
-> +			bias-pull-up;
-> +			input-enable;
-> +		};
-> +	};
-> +
->   	i2c2_pins: i2c2-pins {
->   		pins-bus {
->   			pinmux = <PINMUX_GPIO12__FUNC_SDA2>,
-> @@ -880,6 +901,21 @@ &pciephy {
->   
->   &pmic {
->   	interrupts-extended = <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +	mt6359keys: keys {
-> +		compatible = "mediatek,mt6359-keys";
-> +		mediatek,long-press-mode = <1>;
-> +		power-off-time-sec = <0>;
-> +
-> +		power-key {
-> +			linux,keycodes = <KEY_POWER>;
-> +			wakeup-source;
-> +		};
-> +
-> +		home {
-> +			linux,keycodes = <KEY_HOME>;
-> +		};
-> +	};
->   };
->   
->   &scp {
-> 
+>>> +}
+>>> +
+>> [...]
+>>
+>>> +static void __iomem *rzg3s_pcie_root_map_bus(struct pci_bus *bus,
+>>> +					     unsigned int devfn,
+>>> +					     int where)
+>>> +{
+>>> +	struct rzg3s_pcie_host *host = bus->sysdata;
+>>> +
+>>> +	if (devfn)
+>>> +		return NULL;
+>> Is it really possible to have devfn as non-zero for a root bus?
+> I will drop it.
 
+Actually, when calling:
+
+pci_host_probe() ->
+  pci_scan_root_bus_bridge() ->
+    pci_scan_child_bus() ->
+      pci_scan_child_bus_extend() ->
+        // ...
+        for (devnr = 0; devnr < PCI_MAX_NR_DEVS; devnr++)
+            pci_scan_slot(bus, PCI_DEVFN(devnr, 0));
+
+The pci_scan_slot() calls only_one_child() at the beginning but that don't
+return 1 on the root bus as it is called just after pci_host_probe() and
+the bus->self is not set (as of my investigation it is set later in
+pci_scan_child_bus_extend()) leading to rzg3s_pcie_root_map_bus() being
+called with devfn != 0.
+
+Similar drivers having ops and child_ops assigned use the same approach.
+E.g. dw_pcie_own_conf_map_bus():
+
+void __iomem *dw_pcie_own_conf_map_bus(struct pci_bus *bus, unsigned int
+devfn, int where)
+{
+	struct dw_pcie_rp *pp = bus->sysdata;
+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+
+	if (PCI_SLOT(devfn) > 0)
+		return NULL;
+
+	return pci->dbi_base + where;
+}
+
+Thank you,
+Claudiu
 
