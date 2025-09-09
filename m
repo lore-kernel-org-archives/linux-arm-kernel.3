@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A06CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C36CCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owMpJomD9HktZXrYn67PIBgyXHZh+dj149j6UZF5idE=; b=t67Rzhb5JvJVlvXpEV2oLSJuge
-	D9UsqldmkCBzVIeRMKS6CwOEdnv1Qv2r+F3041fwW1I4g1EcEYhPLpwawBvEEkY0nnQ6Pu6OX3e/0
-	S5dFF+O92VjtfUrziUCYVJgfpXP1l7z8W/XcnIaX5H943sFQn1UcDV4MuwwLw7vtcRSvqmIiQ0WBI
-	XJ8LcjLpzT07KbR/KVgvvS47LgSiFOyTa/kSXHN+ZzxBs11j5eGE9Rq222CsqIDYKNvHh5NRy+aOT
-	xn96Zt6QPWWKFMfheFmF+y1suRoFK7nTEYBwoT+LpXmt2s78gDn6LpvTQedEOfMg2L7HbA8TeHbBy
-	FWvzJJAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kPBURoTNkJXW7EpVzkbTwxUkR97vshlQdiL+7mT2kdM=; b=06RLWZGiKrglAr7b5Nw7e3e8B4
+	CKA0/HxzdjC/TxyXBSDgwVQ7XoXRNTZ+L167H7+XcZscGBEagiQJgg3Md1HhX2wi7XityYCKrRUSj
+	dyh/TiddfSWvl186EJvMElgy1NhcFB3O6dssoYwzlv5b29evXl7qHaQrWyKsgDrwTvFT14l86glt4
+	+GCxAPRzPhviHGkCqi8QYsf8clVaUj+3435YVmH0BTqShmlulh/6SXD2NfmAwY+4go1/4ZsmehDK8
+	ctQK6Trk26xC1LB1tnFi6dAje1sRwQKB8uq910NkpYqhix9HmvLKqoSN5IrJWGfv35AHFOomZwoS+
+	xGl2thIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1zb-00000008tfk-1aqr;
-	Tue, 09 Sep 2025 17:18:55 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1uw1zj-00000008tuN-32X6;
+	Tue, 09 Sep 2025 17:19:03 +0000
+Received: from smtprelay0012.hostedemail.com ([216.40.44.12] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvyWb-00000007R7d-25pD
+	id 1uvyXw-00000007RZB-1GOX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 13:36:46 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3dc3f943e6eso3564304f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 06:36:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757425003; x=1758029803; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=owMpJomD9HktZXrYn67PIBgyXHZh+dj149j6UZF5idE=;
-        b=Fyx9zCEBbSmBJa8pEkqug+rnMQzDGzrfJKp+oJAwgzsLi+xipNHnUkX4wcVrtvB7hN
-         W4ocxVBvifwptf0sK/Di/KHpCd/xVKFgw8IarMCXoYvDl2AfyjsRmzlDYx5LlSH0OnsI
-         vHbxn5s+wUlNmIHDJxR+sY2P160ejInmuqWg+A82fiGuBPqUUG3GYNRl9BHG8pXpIAkC
-         N8SSpPldbQGx+/0wt7Uf6P4HstRXShcXGFN276q3EmDcJF0BFyzSe46p95Ew2RY53NUR
-         iJ6e8Oi/cDP3f5fWWNEE+wAjJE8vTEpGjm+SLbD+lfBK2IA2YECKw4c2aRWyNDkTMs2Q
-         9Tgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757425003; x=1758029803;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=owMpJomD9HktZXrYn67PIBgyXHZh+dj149j6UZF5idE=;
-        b=KUXn6wyayW0h9KZfE/m66JrNkdcT/jC1b5D+x3MTzEWrqLRqLfwjEJuOjiyhSCrtEd
-         Yi6SiEZ8O4/QRvREyoWWyufBjPIW2K6iNOqNURKJfQfHrYHLs3i2rXiRn3nZkXlpUqO0
-         asugaD8dHGHZ4COGXfgJZbjMJHy4sqFylrmVtWUVhZwuMb0OjYnsRflW8HzU+2s5fVoP
-         K1oI/zOrf7gRUjMIVdQ5yj76ftQx16M5EYwu2+e3SZxcvTFu78z/5v8GC+AorHUIQyOH
-         scsczu+anh6C1hRXVF6UhaznS3mFb53pAbcKgfg2kZqMs8XQacJGr2L1PmpL47vxd7US
-         uWQA==
-X-Gm-Message-State: AOJu0YxCmxF+y4SVKKdpCyJSFb0CebkVh7mPoo9gWFRA93lS1XMBIHYD
-	/SoFPvHnZNjjyeUJJGkhYEs1KH1TZ10Pc2Ai9xT3rtt8vs1W18wDi110CUW36PFJMLDjBTJiIaL
-	AGmtW4z6v9N41iwIYbETl44oUSTAsq3k9CwVdheaKWqL8TOd67ueWOoFagQqW5LHk7olTxpf7vU
-	sUSAySCitEk+wSGbiXFMUuICRpxh0QkcS7Ln04S1iFQPA9NHHCvw6CoaN6tFTRcDpSKw==
-X-Google-Smtp-Source: AGHT+IFb5uZ+yXEAm2ul5d4u0zb6FcIArGntIYWXEsNgKuqjWpTpJjl0OgQdZTnmi211wUNW182dBv2tNknMLA==
-X-Received: from wrbfq12.prod.google.com ([2002:a05:6000:2a0c:b0:3db:2c3c:8268])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a5d:64c9:0:b0:3c9:b8b7:ea4e with SMTP id ffacd0b85a97d-3e637370e00mr9580515f8f.19.1757425003090;
- Tue, 09 Sep 2025 06:36:43 -0700 (PDT)
-Date: Tue,  9 Sep 2025 13:36:31 +0000
-In-Reply-To: <20250909133631.3844423-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20250909133631.3844423-1-smostafa@google.com>
-X-Mailer: git-send-email 2.51.0.384.g4c02a37b29-goog
-Message-ID: <20250909133631.3844423-3-smostafa@google.com>
-Subject: [PATCH v2 2/2] KVM: arm64: Map hyp text as RO and dump instr on panic
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, perret@google.com, keirf@google.com, 
-	Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 09 Sep 2025 13:38:09 +0000
+Received: from omf10.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay10.hostedemail.com (Postfix) with ESMTP id 3E1F0C0522;
+	Tue,  9 Sep 2025 13:38:04 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id D27A430;
+	Tue,  9 Sep 2025 13:38:00 +0000 (UTC)
+Date: Tue, 9 Sep 2025 09:38:48 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ aneesh.kumar@kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 03/24] tracing: Introduce trace remotes
+Message-ID: <20250909093848.402674b7@gandalf.local.home>
+In-Reply-To: <aMAYvA9LSvfxvt_C@google.com>
+References: <20250821081412.1008261-1-vdonnefort@google.com>
+	<20250821081412.1008261-4-vdonnefort@google.com>
+	<20250908193606.47143d09@gandalf.local.home>
+	<aMAYvA9LSvfxvt_C@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: D27A430
+X-Stat-Signature: 1s7jby4e1f59eijakdh5dmnw6a8s4s5n
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+b/T21/hKOjzR7gNCBVyeet5D9OLclCrM=
+X-HE-Tag: 1757425080-965095
+X-HE-Meta: U2FsdGVkX19VwrFDIvaXh2/25xJubPmnV4q+Sr9wRzIe2LHd9NOD0fypN81SxorUfRNk3louWVAXupbKvR6AOCmY8xCfj+sDUCOjQ8oGOwFNHSJ6YRbmIsjYM8XqtOZsZdSQ4hCfEuM3e9AiUGJsD9nrIdcLRQM9zLWzAWVK9hwbZGIlN7Tdv/KV/Bk5NuYjXXwkQVGMeDrVUrA5os9pgJsBCYk0kJKo33fzgzqt1s7NA2vswDqZN9ZJUAoexPIgv1bq2izsTWIPEl0KhVLd1eR3j6H4waYdR2NxW2whBncEsO54iFRPoRneqfcuqrHpMSD3xgydcOOS5876As3l4P7rFStwpDgM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_063645_542182_C2809BB6 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20250909_063808_414076_312C25CE 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Map the hyp text section as RO, there are no secrets there
-and that allows the kernel extract info for debugging.
+On Tue, 9 Sep 2025 13:08:28 +0100
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-As in case of panic we can now dump the faulting instructions
-similar to the kernel.
+> > > +		rb_desc = __next_ring_buffer_desc(rb_desc);  
+> > 
+> > Is there no check to make sure that the cpu mask matches what the rb_desc
+> > will have?  
+> 
+> The function is filling rb_desc[], based on the cpumask input, so both will
+> match when returning from this function.
+> It is then easy to handle the case where some CPUs are not part of the cpumask.
+> See remote_test_load() where for_each_ring_buffer_desc() iterates over all the
+> CPUs from the trace_desc but uses rb_desc->cpu.
+> 
+> Is it what you meant?
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
-Acked-by: Will Deacon <will@kernel.org>
----
- arch/arm64/kvm/handle_exit.c    |  4 +---
- arch/arm64/kvm/hyp/nvhe/setup.c | 12 ++++++++++--
- 2 files changed, 11 insertions(+), 5 deletions(-)
+I'm more worried about the allocation not being big enough for the rb_desc
+being filled. I just noticed that the trace_remote_register() function is
+missing a kerneldoc header. Please add one and specify what the parameters
+are for as well as their requirements.
 
-diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-index 99a8205fc104..d449e15680e4 100644
---- a/arch/arm64/kvm/handle_exit.c
-+++ b/arch/arm64/kvm/handle_exit.c
-@@ -560,9 +560,7 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr,
- 	kvm_nvhe_dump_backtrace(hyp_offset);
- 
- 	/* Dump the faulting instruction */
--	if (!is_protected_kvm_enabled() ||
--	    IS_ENABLED(CONFIG_NVHE_EL2_DEBUG))
--		dump_kernel_instr(panic_addr + kaslr_offset());
-+	dump_kernel_instr(panic_addr + kaslr_offset());
- 
- 	/*
- 	 * Hyp has panicked and we're going to handle that by panicking the
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index a48d3f5a5afb..90bd014e952f 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -192,6 +192,7 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	enum pkvm_page_state state;
- 	struct hyp_page *page;
- 	phys_addr_t phys;
-+	enum kvm_pgtable_prot prot;
- 
- 	if (!kvm_pte_valid(ctx->old))
- 		return 0;
-@@ -210,11 +211,18 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	 * configured in the hypervisor stage-1, and make sure to propagate them
- 	 * to the hyp_vmemmap state.
- 	 */
--	state = pkvm_getstate(kvm_pgtable_hyp_pte_prot(ctx->old));
-+	prot = kvm_pgtable_hyp_pte_prot(ctx->old);
-+	state = pkvm_getstate(prot);
- 	switch (state) {
- 	case PKVM_PAGE_OWNED:
- 		set_hyp_state(page, PKVM_PAGE_OWNED);
--		return host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HYP);
-+		/* hyp text is RO in the host stage-2 to be inspected on panic. */
-+		if (prot == PAGE_HYP_EXEC) {
-+			set_host_state(page, PKVM_NOPAGE);
-+			return host_stage2_idmap_locked(phys, PAGE_SIZE, KVM_PGTABLE_PROT_R);
-+		} else {
-+			return host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HYP);
-+		}
- 	case PKVM_PAGE_SHARED_OWNED:
- 		set_hyp_state(page, PKVM_PAGE_SHARED_OWNED);
- 		set_host_state(page, PKVM_PAGE_SHARED_BORROWED);
--- 
-2.51.0.384.g4c02a37b29-goog
+It's fine to state that the allocation of desc must match what the cpumask
+is. But the lack of comments about what the function does and what is
+expected of the parameters makes it hard to know if it is performing
+properly.
 
+-- Steve
 
