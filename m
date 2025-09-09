@@ -4,59 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7E0CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74061CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=II4Lb2lAe02YLYjc/mQH0VDDWVw+65865x1zOonNjHs=; b=VIj6jNTaaCOCkadygs4olbxwJ8
-	FoHjTSmtaoV6iJeuWzEetSfQyjHUWd0+Qy00sdP3OHLWQbkR6phbIvCGH0TlsLZObvfEgl+H8Yjrw
-	zmrai6JrOvnUUxp21+RzgdWqWlpRRaaUA/rF6LVcq7Ozo9D0x59xaux7mdv+uB862jcg8b/hLBcUf
-	4psUtLptQMCGGWZh2j81vVlAETBSUddXnGs8j4GNp3Q3+oZRk+3BYUdjPW/veCscQB9frPfLjo2Kx
-	5C6wfEAn3IYj4BPvxvt9DjQE7D7YSLRw780J+hNul0uhYwukpufGsQ0anXtiYkbvCAc6MpcMtSwrz
-	gQRJjmcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KmAXv5RN4xzWEkkqE7xhCId8sGR0ZDNZp4Q8OwYi4mM=; b=YrpfnJ5n9B9ctzvW6+P3eYoOh+
+	9Di0NO2XR4Iu1JOUkcLPVNohbHv7Xgi9bZQBMogkIVrbqMVo/Re5H8OGvme7EzVvDbPic/Hv6fIUI
+	EkX9oizf7sbbvMi0vfUNgj2Z2n4pxC5wnWe6PHBaMz5xpXLskUA40rZtmi0RzS6ayEmy8OHH46p15
+	mPTv3uDQ4lCemqKENQ+sorYPkNtugREduDFeX74Xan3VVVguoiYTI2sS1uMF6PbJl08jFqE3tVXI+
+	qLpKB7oKXaIzx+H1KSzH62LOmBsTYSb6NuF1m+rmgtgser9XBvPRnf+AQ/M5rEqz7Y2JIZMtWXJtP
+	gnaAIhfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw5p4-0000000AMqg-401F;
-	Tue, 09 Sep 2025 21:24:18 +0000
-Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
+	id 1uw5pe-0000000AN03-19Ck;
+	Tue, 09 Sep 2025 21:24:54 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw5p2-0000000AMB5-1Una
+	id 1uw5pb-0000000AMwc-0v4j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 21:24:17 +0000
-Date: Tue, 9 Sep 2025 14:22:00 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1757452930;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=II4Lb2lAe02YLYjc/mQH0VDDWVw+65865x1zOonNjHs=;
-	b=iEEvDkYaUbyfC+Sb7cCFy2ppnbXr4LNquw7xAreqzypPO9IKdEfmIFkkvbRko51Fy+Bxdw
-	CfNM8BT0Ri2yPADzMeSWCC1ntJ1rXAtd+MlUacAUIISsldyWkuncVAS9bnnbWSCuraHr9x
-	v/dyze+23fnU5lJY+vujxn5C2pVVmro=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: syzbot <syzbot+31156cb24a340d8e2c05@syzkaller.appspotmail.com>
-Cc: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maz@kernel.org, suzuki.poulose@arm.com,
-	syzkaller-bugs@googlegroups.com, will@kernel.org,
-	yuzenghui@huawei.com
-Subject: Re: [syzbot] [kvmarm?] KASAN: invalid-access Read in
- __kvm_pgtable_walk
-Message-ID: <aMCaeA5qKzPbKwLt@linux.dev>
-References: <68c09802.050a0220.3c6139.000d.GAE@google.com>
+	Tue, 09 Sep 2025 21:24:53 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id 535E01D0009D;
+	Tue,  9 Sep 2025 17:24:47 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Tue, 09 Sep 2025 17:24:48 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1757453087; x=1757539487; bh=Km
+	AXv5RN4xzWEkkqE7xhCId8sGR0ZDNZp4Q8OwYi4mM=; b=S5wTqYtMjI5GP+ybjz
+	l++URQMVSnvXfm2LVkJwzvT9iWvhlgeNQJIO1R6oZKi2eMjeXdMwltmibDshd7LK
+	T6Hk20+klGPnK9s5abxIINZ/10rB4VuCvLCsjYTDRmdIQcIrGfyp86iMa2X8hffD
+	6BuMe+NT08tZ/eMBVdj1RbSkp3ce+f6jeZKBMwCS0W1Fvo1lV8HKa1j0mdnsGV/I
+	ueKVQHFzmMvq9kZHcCgDoHRKhcutvXF/cnrHqY94Uw25zgRfvEVli4IkNbDnWNl0
+	ZlJM2Fnc0OylwbwC0Qt2Y9VmI6AUTL7VBGHhaizOOrpy051Wr7SaQ9p1ar7gV0iZ
+	a8iw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1757453087; x=1757539487; bh=KmAXv5RN4xzWEkkqE7xhCId8sGR0
+	ZDNZp4Q8OwYi4mM=; b=CnNoO4VJGS6ZHP/Ka7rEdezOyzdrHY8fuAWzu8X37tr6
+	IHHAlPeLFzVY2iuwtEv+RYU3H3SJPMzMETnB+n0JEFhBmGd1zQfI74HQ9WTaPxCV
+	FMKzQDPDf02PjHjCallACsg86j/oJfh/85r7CCDSlRLBBFiKVN29hQBM9SbXJQTe
+	aYS0nyf7cYv8b9R8g8qhf/1kk1gqOgiKmRn6dNL6z35Y9TpuYvrkOIvbPBanx8Xz
+	7Mu9euZ2ULJgmpY4oMyJT3UtflNwnpZ7DvpFKF2SRsU3rpLS6nMJ05mMKsYyTA+b
+	OqRoGf62l2o4h5lDE02G3V1qjkCH6mMBRZCiMUoR4Q==
+X-ME-Sender: <xms:HZvAaOk80-aIzLlc88R-gJ6Dbsr6p-CSisCWsOKNXn-4RU3c_vM0lg>
+    <xme:HZvAaF1hbI34vibTWFPzSWGi4ceFSikwvEhmxaMdzrw7BzZ43MRg_7mxP9P9k_V8R
+    MpoIDHe3Q2LTQ-Fo9g>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvudeglecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcuuegv
+    rhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpe
+    eggeduleellefhteegvdetiefgffejtdfhtdejgfetveekheegtdejfefgteevgfenucff
+    ohhmrghinhepshgthhgvugdrtghomhdphihouhhtuhgsvgdrtghomhdplhifnhdrnhgvth
+    dpkhgvrhhnvghlrdhorhhgpdhlphgtrdgvvhgvnhhtshenucevlhhushhtvghrufhiiigv
+    pedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsg
+    gprhgtphhtthhopedvkedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptghhvghs
+    thgvrhdrrgdruhhnrghlsegrrhhinhgtledrtghomhdprhgtphhtthhopegthhhrihhsth
+    hophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdhrtghpthhtoheprghnughrvggr
+    shesghgrihhslhgvrhdrtghomhdprhgtphhtthhopehgvggvrhhtodhrvghnvghsrghsse
+    hglhhiuggvrhdrsggvpdhrtghpthhtoheprghlvgigrghnuggvrhdrshhvvghrughlihhn
+    sehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrhhgihhordhprghrrggtuhgvlhhloh
+    hssehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhurhgvnhgssehgohhoghhlvgdrtgho
+    mhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoh
+    epihhrrgdrfigvihhnhiesihhnthgvlhdrtghomh
+X-ME-Proxy: <xmx:HZvAaFgoo_DfPwniM_Ba_NRbjr-NAjUpEBl2hgLAezwds8DkZdW4qA>
+    <xmx:HZvAaE6lPLn2-QRvMEsIj-X5mf9tu625xuDInoNOznW8W6Zswp5Y8w>
+    <xmx:HZvAaGBWRtHuGb-d6P9akzthHK2lFP4CLOwsn4ylVI-r07KO_rit4Q>
+    <xmx:HZvAaBRl4yfkgjX-QCNs9pE-_5-4j1CMwgBapEaDS1idWbtZYs0nSg>
+    <xmx:H5vAaB_k0psbdKb-XOux5x39l6C7CTGwSMVHGHMsh5hVdXcIdz-BvKYw>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 171AC700065; Tue,  9 Sep 2025 17:24:45 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <68c09802.050a0220.3c6139.000d.GAE@google.com>
-X-Migadu-Flow: FLOW_OUT
+X-ThreadId: AmcCJOTBQ5ho
+Date: Tue, 09 Sep 2025 23:23:37 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: ksummit@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
+ linux-mm@kvack.org, imx@lists.linux.dev,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Richard Weinberger" <richard@nod.at>,
+ "Lucas Stach" <l.stach@pengutronix.de>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Geert Uytterhoeven" <geert+renesas@glider.be>,
+ "Ankur Arora" <ankur.a.arora@oracle.com>,
+ "David Hildenbrand" <david@redhat.com>,
+ "Mike Rapoport" <rppt@kernel.org>,
+ "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
+ "Matthew Wilcox" <willy@infradead.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ "Vlastimil Babka" <vbabka@suse.cz>,
+ "Suren Baghdasaryan" <surenb@google.com>,
+ "Ira Weiny" <ira.weiny@intel.com>, "Nishanth Menon" <nm@ti.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ "Sergio Paracuellos" <sergio.paracuellos@gmail.com>,
+ "Andreas Larsson" <andreas@gaisler.com>
+Message-Id: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
+Subject: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_142416_534542_C3E5D288 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20250909_142451_586383_DC2029F0 
+X-CRM114-Status: GOOD (  38.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,121 +134,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 02:11:30PM -0700, syzbot wrote:
-> Hello,
-> 
-> syzbot found the following issue on:
-> 
-> HEAD commit:    f777d1112ee5 Merge tag 'vfs-6.17-rc6.fixes' of git://git.k..
-> git tree:       upstream
-> console output: https://syzkaller.appspot.com/x/log.txt?x=15f84b12580000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=45bc268c8b0b2faf
-> dashboard link: https://syzkaller.appspot.com/bug?extid=31156cb24a340d8e2c05
-> compiler:       aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
-> userspace arch: arm64
-> syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=117c6d62580000
-> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=13e94934580000
-> 
-> Downloadable assets:
-> disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-f777d111.raw.xz
-> vmlinux: https://storage.googleapis.com/syzbot-assets/3e36256124c6/vmlinux-f777d111.xz
-> kernel image: https://storage.googleapis.com/syzbot-assets/ea9018353872/Image-f777d111.gz.xz
-> 
-> IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> Reported-by: syzbot+31156cb24a340d8e2c05@syzkaller.appspotmail.com
-> 
-> ==================================================================
-> BUG: KASAN: invalid-access in __kvm_pgtable_visit arch/arm64/kvm/hyp/pgtable.c:161 [inline]
-> BUG: KASAN: invalid-access in __kvm_pgtable_walk+0x110/0x2d0 arch/arm64/kvm/hyp/pgtable.c:237
-> Read at addr fdf000000f7c1000 by task syz.2.17/3592
-> Pointer tag: [fd], memory tag: [fe]
-> 
-> CPU: 1 UID: 0 PID: 3592 Comm: syz.2.17 Not tainted syzkaller #0 PREEMPT 
-> Hardware name: linux,dummy-virt (DT)
-> Call trace:
->  show_stack+0x18/0x24 arch/arm64/kernel/stacktrace.c:499 (C)
->  __dump_stack lib/dump_stack.c:94 [inline]
->  dump_stack_lvl+0x78/0x90 lib/dump_stack.c:120
->  print_address_description mm/kasan/report.c:378 [inline]
->  print_report+0x108/0x61c mm/kasan/report.c:482
->  kasan_report+0x88/0xac mm/kasan/report.c:595
->  report_tag_fault arch/arm64/mm/fault.c:326 [inline]
->  do_tag_recovery arch/arm64/mm/fault.c:338 [inline]
->  __do_kernel_fault+0x170/0x1c8 arch/arm64/mm/fault.c:380
->  do_bad_area+0x68/0x78 arch/arm64/mm/fault.c:480
->  do_tag_check_fault+0x34/0x44 arch/arm64/mm/fault.c:853
->  do_mem_abort+0x44/0x94 arch/arm64/mm/fault.c:929
->  el1_abort+0x40/0x60 arch/arm64/kernel/entry-common.c:481
->  el1h_64_sync_handler+0x50/0xac arch/arm64/kernel/entry-common.c:597
->  el1h_64_sync+0x6c/0x70 arch/arm64/kernel/entry.S:591
->  __kvm_pgtable_visit arch/arm64/kvm/hyp/pgtable.c:161 [inline] (P)
->  __kvm_pgtable_walk+0x110/0x2d0 arch/arm64/kvm/hyp/pgtable.c:237 (P)
->  _kvm_pgtable_walk arch/arm64/kvm/hyp/pgtable.c:260 [inline]
->  kvm_pgtable_walk+0xd0/0x164 arch/arm64/kvm/hyp/pgtable.c:283
->  kvm_pgtable_stage2_destroy_range+0x3c/0x70 arch/arm64/kvm/hyp/pgtable.c:1563
->  stage2_destroy_range arch/arm64/kvm/mmu.c:924 [inline]
->  kvm_stage2_destroy+0x74/0xd0 arch/arm64/kvm/mmu.c:935
->  kvm_free_stage2_pgd+0x4c/0x84 arch/arm64/kvm/mmu.c:1112
->  kvm_uninit_stage2_mmu+0x1c/0x34 arch/arm64/kvm/mmu.c:1023
->  kvm_arch_flush_shadow_all+0x6c/0x84 arch/arm64/kvm/nested.c:1113
->  kvm_flush_shadow_all virt/kvm/kvm_main.c:343 [inline]
->  kvm_mmu_notifier_release+0x30/0x84 virt/kvm/kvm_main.c:884
->  mmu_notifier_unregister+0x5c/0x11c mm/mmu_notifier.c:815
->  kvm_destroy_vm+0x148/0x2b0 virt/kvm/kvm_main.c:1287
->  kvm_put_kvm virt/kvm/kvm_main.c:1344 [inline]
->  kvm_vm_release+0x80/0xb0 virt/kvm/kvm_main.c:1367
->  __fput+0xcc/0x2dc fs/file_table.c:468
->  ____fput+0x14/0x20 fs/file_table.c:496
->  task_work_run+0x78/0xd4 kernel/task_work.c:227
->  resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
->  do_notify_resume+0x13c/0x16c arch/arm64/kernel/entry-common.c:155
->  exit_to_user_mode_prepare arch/arm64/kernel/entry-common.c:173 [inline]
->  exit_to_user_mode arch/arm64/kernel/entry-common.c:182 [inline]
->  el0_svc+0x108/0x10c arch/arm64/kernel/entry-common.c:880
->  el0t_64_sync_handler+0xa0/0xe4 arch/arm64/kernel/entry-common.c:898
->  el0t_64_sync+0x1a4/0x1a8 arch/arm64/kernel/entry.S:596
-> 
-> The buggy address belongs to the physical page:
-> page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x4f7c1
-> flags: 0x1ffc80000000000(node=0|zone=0|lastcpupid=0x7ff|kasantag=0x2)
-> raw: 01ffc80000000000 ffffc1ffc03df088 ffffc1ffc02393c8 0000000000000000
-> raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
-> page dumped because: kasan: bad access detected
-> 
-> Memory state around the buggy address:
->  fff000000f7c0e00: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
->  fff000000f7c0f00: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
-> >fff000000f7c1000: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
->                    ^
->  fff000000f7c1100: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
->  fff000000f7c1200: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
-> ==================================================================
-> 
-> 
-> ---
-> This report is generated by a bot. It may contain errors.
-> See https://goo.gl/tpsmEJ for more information about syzbot.
-> syzbot engineers can be reached at syzkaller@googlegroups.com.
-> 
-> syzbot will keep track of this issue. See:
-> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-> 
-> If the report is already addressed, let syzbot know by replying with:
-> #syz fix: exact-commit-title
-> 
-> If you want syzbot to run the reproducer, reply with:
-> #syz test: git://repo/address.git branch-or-commit-hash
-> If you attach or paste a git patch, syzbot will apply it before testing.
-> 
-> If you want to overwrite report's subsystems, reply with:
-> #syz set subsystems: new-subsystem
-> (See the list of subsystem names on the web dashboard)
-> 
-> If the report is a duplicate of another one, reply with:
-> #syz dup: exact-subject-of-another-report
-> 
-> If you want to undo deduplication, reply with:
-> #syz undup
+High memory is one of the least popular features of the Linux kernel.
+Added in 1999 for linux-2.3.16 to support large x86 machines, there
+are very few systems that still need it. I talked about about this
+recently at the Embedded Linux Conference on 32-bit systems [1][2][3]
+and there were a few older discussions before[4][5][6].
 
-#syz test: git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git fixes
+While removing a feature that is actively used is clearly a regression
+and not normally done, I expect removing highmem is going to happen
+at some point anyway when there are few enough users, but the question
+is when that time will be.
+
+I'm still collecting information about which of the remaining highmem
+users plan to keep updating their kernels and for what reason. Some
+users obviously are alarmed about potentially losing this ability,
+so I hope to get a broad consensus on a specific timeline for how long
+we plan to support highmem in the page cache and to give every user
+sufficient time to migrate to a well-tested alternative setup if that
+is possible, or stay on a highmem-enabled LTS kernel for as long
+as necessary.
+
+These are the assumptions I'm making, based on both what I have
+presented in my talk and feedback I have received so far, let me
+know if something is missing here:
+
+- Highmem in new kernels is almost exclusively an embedded Linux
+  topic. While there were a few late 32-bit desktop and laptop
+  systems that had more than 2GB of RAM, these were fairly short
+  lived and have long been unsupported by both the originally
+  shipping operating systems and most Linux distros. Notable
+  Examples include Pentium 4 "Northwood" desktops (sold 2003-2004),
+  Core Duo laptops (2006-2007), and Arm Chromebooks (rk3288,
+  Tegra k1, Exynos 5800, sold 2014-2017). Some PowerPC G4 Macs
+  and Atom Netbooks could be upgraded to 2GB.
+  There are a small number of users, but they really love these
+  devices and want to keep them alive, especially since they
+  mark the peak of the respective 32-bit product lines.
+
+- Within the embedded market, highmem is mostly used on ARMv7
+  based SoCs, but a few others also need it and still get kernel
+  updates:
+  PowerPC 85xx, 86xx and QoriQ P1/P2/P3/P4 (produced 2003-2021)
+  were used in some long-lived embedded systems with 2GB of RAM
+  or more. Mediatek MT7621 (MIPS32r3, introduced 2014 but still
+  sold) needs highmem to reach the upper 64MB of the 512MB physical
+  memory. Ingenic JZ4780 (MIPS32, released 2012) was used in the
+  short-lived MIPS Creator CI20 with 1GB of RAM (256MB lowmem)
+  and probably othes. Sparc32/LEON seems to be limited to 192MB of
+  lowmem as a kernel design choice. Vortex86DX3 supports 2GB
+  DDR3 memory.
+  The kernel also supports highmem on ARMv4, ARMv5, ARMv6,
+  PPC4xx, PPC82xx, PPC83xx, ARC, CSKY, Microblaze and Xtensa,
+  as well as additional MIPS SoCs,  but so far I could not find
+  any indication of any such machine with more than 1GB that
+  keeps getting kernel updates.
+
+- The vast majority of new embedded ARMv7 machines have 1GB of
+  RAM or less, which on many SoCs is a physical limitation
+  a narrow DDR3 memory interface, as well as a cost tradeoff.
+  The 1GB case is interesting because that usually means having
+  only 768MB of lowmem plus 256MB of highmem, as well as 3GB
+  of virtual addressing. I expect that almost all applications
+  on these work just as well with CONFIG_VMSPLIT_3G_OPT, changing
+  the limit to 1GB of lowmem and 2816MB of user address space.
+  The same thing should work on x86 and powerpc (CONFIG_LOWMEM_SIZE)
+  but not on mips and sparc where the limit is not configurable.
+
+- A few Arm SoCs have sparse physical address ranges for
+  their RAM, e.g. range per memory controllers like the Renesas
+  R-Car Gen 2 or Broadcom BCM4708. These currently require highmem
+  even on configurations with less than 1GB RAM, until we change
+  the way that sparsemem is handled to support rearranging the
+  linear map to fill all of lowmem. This still needs more work.
+
+- ARMv7 machines with 2GB remain in production, in particular
+  with the popular i.MX6Dual/Quad chip that has a 64-bit wide DDR3
+  interface and guaranteed manufacturer support until 2035.
+  This is the configuration I expect to see struggle the most.
+  Setting CONFIG_VMSPLIT_2G or CONFIG_VMSPLIT_2G_OPT should work
+  for most of the users but can break if an application runs out
+  of virtual address space, so this does require extensive testing,
+  and possibly user space changes. An example of possibly affected
+  userspace is Firefox, which needs more address space than other
+  applications but can perhaps be replaced with another embedded
+  browser.
+  
+- ARMv7 machines with 4GB and more exist and keep getting
+  kernel upgrades, but to my knowledge are not in production any
+  more. These are mainly 2010-2015 era chips based on rare
+  out-of-order cores like A15, A17 or PJ4 that were designed for
+  low-end servers, chromebooks and network equipment but replaced
+  with 64-bit chips shortly after. We had planned to bring a
+  CONFIG_VMSPLIT_4G_4G option to ARMv7VE to keep supporting the full
+  memory at a performance penalty, but currently have no plan to
+  finish this (volunteers welcome).
+  There is still some hope to keep them working with a combination
+  of CONFIG_VMSPLIT_2G and a modified ZRAM that can use high
+  pages without CONFIG_HIGHMEM, but whether this works depends
+  a lot on the application. I expect most of these products to
+  stop getting kernel updates in the next few years due to aging
+  hardware and increasing cost for updating out-of-tree patches
+  on platforms that are not fully upstream. I do not remember any
+  such devices with official support beyond 2030.
+
+My proposal based on the above assumptions is to gradually phase
+out highmem over the next 2 years for mainline kernels, obviously
+both the individual items and the timeline are completely up for
+debate:
+
+1. mark CONFIG_HIGHMEM as 'depends on EXPERT', updating the
+   Kconfig description to point to the kernel summit discussion
+   any any decisions made here.
+
+2. Change the ARMv7 Kconfig defaults to CONFIG_VMSPLIT_3G_OPT
+   and HIGHMEM=n, to make it more likely to find possible
+   regressions with that, without changing much for users.
+   Possibly do the same for x86 and powerpc.
+
+3. Start removing __GFP_HIGHMEM from in-kernel allocations
+   other than the page cache, in particular from individual
+   device drivers and filesystem metadata where there is
+   already little benefit.
+
+4. Remove HIGHMEM as an option from platforms that are thought
+   to no longer need it (arc, armv5, ppc4xx, ppc82xx, ppc83xx,
+   csky, microblaze, xtensa), mainly to validate the
+   assertion that these use only lowmem.
+
+5. Split highmem on zram out into a separate Kconfig option
+   that can be enabled without CONFIG_HIGHMEM or CONFIG_EXPERT
+
+6. Finish the "densemem" replacement for sparsemem, ideally
+   allowing both very sparse lowmem areas and a boot-time
+   vmsplit selection instead of the compile-time one.
+
+7. Finally, remove the highmem pagecache option, leaving only
+   zram and custom device drivers as a way to access high
+   pages.
+
+That last step should wait for an LTS kernel, ideally a version
+that the CIP project's SLTS kernel is planning to keep supporting
+for 10 years. The newest SLTS kernel was 6.12 last year, and the
+phb-crytal-ball suggests that the next one in December 2026 may
+be linux-7.4, the one after that in December 2028 (linux-7.15?)
+seems too far out to plan for but would be another option.
+
+Unless there is an easy consensus on this on the mailing list,
+I would like to lead a discussion session at the kernel summit
+in order to get closer to a decision.
+
+     Arnd 
+
+[1] https://osseu2025.sched.com/event/25VmZ/32-bit-linux-support-now-and-in-the-future-arnd-bergmann-linaro
+[2] https://www.youtube.com/watch?v=QiOMiyGCoTw
+[3] https://lwn.net/Articles/1035727/
+[4] https://lore.kernel.org/all/0047f565-ada4-491a-b157-f2d8dfde0ac0@app.fastmail.com/
+[5] https://lwn.net/Articles/813201/
+[6] https://lpc.events/event/16/contributions/1183/attachments/1062/2028/highmem-api-2022-09-12.pdf
 
