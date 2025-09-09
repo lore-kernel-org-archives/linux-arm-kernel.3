@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48D5CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47249CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AtDxGhVMnji6ghKxFiL/rMynC4/AMVjaDQmEnJBCze4=; b=clF0cBv80+5ueLnseffyOAKHR0
-	Tp+ouqXeeT1m989qlcyDGlNhd9Zaotx5LyRHa8reC+z331OflyK+h7LjIgHkXUljaYihOhp5lOgY6
-	97r6lP3IVMjr2q3sAZIYAjdQAIMeGcn8IcQHB7rszqJSSEneV/uBiuN5fHnvAwMshnQkk+khYElh6
-	jZMzz/3Ce0fblPnJOR8Hfwa92wNZ6v5OAPr33ez0OYxD4Okta1LtdY5r8NLkCctjzuEU0LyHHXuTy
-	tQ8kKRwVkrzkeJeTtaD6KOVN9YKP/4IdhvXxXSp1sAy201fBcvchgh8Py2sey7sR207dgug/SLbHE
-	AgklXU2w==;
+	bh=Rtt7Pb+GtpJSE2EHxpIVAwaQJWoEouiy7KbStX+l5PI=; b=sfCyCwmHI1sWNKfDR5Qi3Ob/Ku
+	0gU5mGjxs2isqZNTW+kMa1fpxnpJxXjkvdRqF1k+2vZuF89xBnnjv85ysT/+eFF6z8LRW4R9pr1Wb
+	IKUACHJvGZVrdOfArbpyhTQ580Yi+u4juONR/M6BVp8sKdCUeFR3vlgsUd9bge65DILdzFQYEL4PX
+	T7SSBKShy/oJHsfD4LDLDsyGSeWuUZkNQU07eASw11fN8iGqkYPivz5o9CngLQNXvful6grR32uqt
+	1ZsSu1QAev3ekcCfUYFQyByrp4hYI9YEWkM785WKgsWE0v3mKZohWgsy633o9plPA3wUpJaLfZehb
+	kZxJdDgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw27X-000000096xG-40pv;
-	Tue, 09 Sep 2025 17:27:08 +0000
+	id 1uw28Y-000000098yT-49AK;
+	Tue, 09 Sep 2025 17:28:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1lq-00000008jZP-48VI;
-	Tue, 09 Sep 2025 17:04:43 +0000
+	id 1uw21F-00000008wS5-3wb5;
+	Tue, 09 Sep 2025 17:20:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 684C760224;
-	Tue,  9 Sep 2025 17:04:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C53DEC4CEF4;
-	Tue,  9 Sep 2025 17:04:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3750160224;
+	Tue,  9 Sep 2025 17:20:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B305C4CEF4;
+	Tue,  9 Sep 2025 17:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757437482;
-	bh=1Rd9o6WpxdFjdYOqLhQLHzTPUyEZ/qZjJs+LfJAwKOQ=;
+	s=k20201202; t=1757438435;
+	bh=aDtO0EP2Luwblw7wXBa/S0nm/bbd84Amf4RIFEa0YMU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MUPs6TMATyIsWv6eZBfXU7qjW1nEZmICjT6oS3/xu7zFuKp8OcsoeErMoi07Z2RCI
-	 oPUCzCXj0E1rmAfcOUJX7Fhz3e18+/ouV0NrfSZFlClTWj92UxKW3sENkvB2epdKnu
-	 45nGcuV3mGiHPK0AdR72XnrIx4mEY2vQgTCtr0t6cq65oxgtYIjY75RRDQlQ3/paqt
-	 RXYCQ5jQ7MfQ65NIuO9EBiWi48jZCEQqF3CaBU3uBPGJJKeXEyVMUj7q/wIQk9vJcN
-	 kVcUJdgoenXFGcaqzIwqRXWHSlReJ4LTsEgzx1wcYQu38gC7zP975f1OtGsytT1WR5
-	 uJ5qWE2zpZsww==
-Date: Tue, 9 Sep 2025 12:04:40 -0500
-From: Rob Herring <robh@kernel.org>
-To: Sven Peter <sven@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	Ran Wang <ran.wang_1@nxp.com>, Peter Chen <peter.chen@nxp.com>,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v2 16/22] dt-bindings: phy: Add Apple Type-C PHY
-Message-ID: <20250909170440.GA3343344-robh@kernel.org>
-References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
- <20250906-atcphy-6-17-v2-16-52c348623ef6@kernel.org>
+	b=rWNA+SZ7P7XMqvonOPAEdmtY55rXaIKEEzU9HK+ppzMNafCHRqDvkVmEoUduHt/rT
+	 aa5OZZx3ilY519/VHWj4+vwbhsuG88pY0+u24AUMR9OeOT4pFbgJb7ecQe/x2pWO4E
+	 vcn4jx2aGZ2e8t05J44ouMyfLu5WoVzT4hxN53UWANQ6M/G517uScWAOMTyKqRmi5V
+	 diqflVnydGhyAkUdxMQ6Bnquv1D4Xk2wLalfluyanQAMUeNCL713BGUmRtcdXk2oSb
+	 +eCWCY1ISYJlrL6GLeiTkLfqGaoEYVf8wOe7r+TdNoqrDDp/wKG1ImILx8nFyAfEJN
+	 RYEyJmVbovIiA==
+Date: Tue, 9 Sep 2025 17:20:34 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Wei Liu <wei.liu@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Dexuan Cui <decui@microsoft.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org,
+	Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	Mukesh R <mrathor@linux.microsoft.com>
+Subject: Re: [PATCH v2 0/7] Drivers: hv: Fix NEED_RESCHED_LAZY and use common
+ APIs
+Message-ID: <aMBh4kPNOEUKvxpV@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+References: <20250828000156.23389-1-seanjc@google.com>
+ <aLojpyTwAMdb1z6D@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+ <aLp3makY6FzuUwor@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250906-atcphy-6-17-v2-16-52c348623ef6@kernel.org>
+In-Reply-To: <aLp3makY6FzuUwor@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,275 +100,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 06, 2025 at 03:43:29PM +0000, Sven Peter wrote:
-> Apple's Type-C PHY (ATCPHY) is a PHY for USB 2.0, USB 3.x,
-> USB4/Thunderbolt, and DisplayPort connectivity found in Apple Silicon
-> SoCs.
+On Thu, Sep 04, 2025 at 10:39:37PM -0700, Sean Christopherson wrote:
+> On Thu, Sep 04, 2025, Wei Liu wrote:
+> > On Wed, Aug 27, 2025 at 05:01:49PM -0700, Sean Christopherson wrote:
+> > > Fix a bug where MSHV root partitions (and upper-level VTL code) don't honor
+> > > NEED_RESCHED_LAZY, and then deduplicate the TIF related MSHV code by turning
+> > > the "kvm" entry APIs into more generic "virt" APIs.
+> > > 
+> > > This version is based on
+> > > 
+> > >   git://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux.git hyperv-next
+> > > 
+> > > in order to pickup the VTL changes that are queued for 6.18.  I also
+> > > squashed the NEED_RESCHED_LAZY fixes for root and VTL modes into a single
+> > > patch, as it should be easy/straightforward to drop the VTL change as needed
+> > > if we want this in 6.17 or earlier.
+> > > 
+> > > That effectively means the full series is dependent on the VTL changes being
+> > > fully merged for 6.18.  But I think that's ok as it's really only the MSHV
+> > > changes that have any urgency whatsoever, and I assume that Microsoft is
+> > > the only user that truly cares about the MSHV root fix.  I.e. if the whole
+> > > thing gets delayed, I think it's only the Hyper-V folks that are impacted.
+> > > 
+> > > I have no preference what tree this goes through, or when, and can respin
+> > > and/or split as needed.
+> > > 
+> > > As with v1, the Hyper-V stuff and non-x86 architectures are compile-tested
+> > > only.
+> > > 
+> > > v2:
+> > >  - Rebase on hyperv-next.
+> > >  - Fix and converge the VTL code as well. [Peter, Nuno]
+> > > 
+> > > v1: https://lore.kernel.org/all/20250825200622.3759571-1-seanjc@google.com
+> > > 
+> > 
+> > I dropped the mshv_vtl changes in this series and applied the rest
+> > (including the KVM changes) to hyperv-next.
 > 
-> The PHY handles muxing between these different protocols and also provides
-> the reset controller for the attached dwc3 USB controller.
+> mshv_do_pre_guest_mode_work() ended up getting left behind since its removal was
+> in the last mshv_vtl patch.
 > 
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  .../devicetree/bindings/phy/apple,atcphy.yaml      | 213 +++++++++++++++++++++
->  MAINTAINERS                                        |   1 +
->  2 files changed, 214 insertions(+)
+>   $ git grep mshv_do_pre_guest_mode_work
+>   drivers/hv/mshv.h:int mshv_do_pre_guest_mode_work(ulong th_flags);
+>   drivers/hv/mshv_common.c:int mshv_do_pre_guest_mode_work(ulong th_flags)
+>   drivers/hv/mshv_common.c:EXPORT_SYMBOL_GPL(mshv_do_pre_guest_mode_work);
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/apple,atcphy.yaml b/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..a863fe3a8f6d80a113e495e8425775c91e4cd10c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
-> @@ -0,0 +1,213 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/apple,atcphy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Apple Type-C PHY (ATCPHY)
-> +
-> +maintainers:
-> +  - Sven Peter <sven@kernel.org>
-> +
-> +description:
-
-Add '>' to to maintain paragraph formatting.
-
-> +  The Apple Type-C PHY (ATCPHY) is a PHY for USB 2.0, USB 3.x,
-> +  USB4/Thunderbolt, and DisplayPort connectivity found in Apple Silicon SoCs.
-> +
-> +  The PHY handles muxing between these different protocols and also provides the
-> +  reset controller for the attached DWC3 USB controller.
-> +
-> +  The PHY is designed for USB4 operation and does not handle individual
-> +  differential pairs as distinct DisplayPort lanes. Any reference to lane in
-> +  this binding hence refers to two differential pairs (RX and TX) as used in USB
-> +  terminology.
-> +
-> +allOf:
-> +  - $ref: /schemas/usb/usb-switch.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - apple,t6000-atcphy
-> +              - apple,t6020-atcphy
-> +              - apple,t8112-atcphy
-> +          - const: apple,t8103-atcphy
-> +      - const: apple,t8103-atcphy
-> +
-> +  reg:
-> +    items:
-> +      - description: Common controls for all PHYs (USB2/3/4, DisplayPort, Thunderbolt)
-> +      - description: DisplayPort Alternate Mode PHY specific controls
-> +      - description: AXI to Apple Fabric interconnect controls, only modified by tunables
-> +      - description: USB2 PHY specific controls
-> +      - description: USB3 PIPE interface controls
-> +
-> +  reg-names:
-> +    items:
-> +      - const: core
-> +      - const: lpdptx
-> +      - const: axi2af
-> +      - const: usb2phy
-> +      - const: pipehandler
-> +
-> +  "#phy-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 0
-> +
-> +  mode-switch: true
-> +  orientation-switch: true
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Output endpoint of the PHY to the Type-C connector
-
-SS port of the connector?
-
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Incoming endpoint from the USB3 controller
-> +
-> +      port@2:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Incoming endpoint from the DisplayPort controller
-> +
-> +      port@3:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Incoming endpoint from the USB4/Thunderbolt controller
-> +
-> +  apple,tunable-axi2af:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      AXI2AF tunables.
-> +
-> +      This array is filled with 3-tuples each containing three 32-bit values
-> +      <register offset>, <mask>, and <value> by the bootloader.
-
-That sounds like a 3xN matrix. Use uint32-matrix type.
-
-blank line between paragraphs and use '>' modifier.
-
-> +      The driver will use these to configure the PHY by reading from each
-> +      register, ANDing it with <mask>, ORing it with <value>, and storing the
-> +      result back to the register.
-> +      These values slightly differ even between different chips of the same
-> +      generation and are likely calibration values determined by Apple at
-> +      manufacturing time.
-
-This could be worded more simply. The first part sounds like fixed for a 
-given SoC, but from manufacturing time setting I gather these vary even 
-for a single product/device.
-
-I gather all this is being copied out of Apple FW?
-
-> +
-> +  apple,tunable-common:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      Common tunables required for all modes, see apple,tunable-axi2af for details.
-> +
-> +  apple,tunable-fuses:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      Fuse based tunables required for all modes, see apple,tunable-axi2af for details.
-> +
-> +  apple,tunable-lane0-usb:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      USB tunables on lane 0, see apple,tunable-axi2af for details.
-> +
-> +  apple,tunable-lane1-usb:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      USB tunables on lane 1, see apple,tunable-axi2af for details.
-> +
-> +  apple,tunable-lane0-cio:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      USB4/Thunderbolt ("converged IO") tunables on lane 0, see apple,tunable-axi2af for details.
-
-Wrap lines at 80 char.
-
-> +
-> +  apple,tunable-lane1-cio:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      USB4/Thunderbolt ("converged IO") tunables on lane 1, see apple,tunable-axi2af for details.
-> +
-> +  apple,tunable-lane0-dp:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      DisplayPort tunables on lane 0, see apple,tunable-axi2af for details.
-> +
-> +      Note that lane here refers to a USB RX and TX pair re-used for DisplayPort
-> +      and not to an individual DisplayPort differential lane.
-> +
-> +  apple,tunable-lane1-dp:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      DisplayPort tunables on lane 1, see apple,tunable-axi2af for details.
-> +
-> +      Note that lane here refers to a USB RX and TX pair re-used for DisplayPort
-> +      and not to an individual DisplayPort differential lane.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - "#phy-cells"
-> +  - "#reset-cells"
-> +  - orientation-switch
-> +  - mode-switch
-> +  - power-domains
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    phy@83000000 {
-> +      compatible = "apple,t8103-atcphy";
-> +      reg = <0x83000000 0x4c000>,
-> +            <0x83050000 0x8000>,
-> +            <0x80000000 0x4000>,
-> +            <0x82a90000 0x4000>,
-> +            <0x82a84000 0x4000>;
-> +      reg-names = "core", "lpdptx", "axi2af", "usb2phy",
-> +                  "pipehandler";
-> +
-> +      #phy-cells = <1>;
-> +      #reset-cells = <0>;
-> +
-> +      orientation-switch;
-> +      mode-switch;
-> +      power-domains = <&ps_atc0_usb>;
-> +
-> +      ports {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        port@0 {
-> +          reg = <0>;
-> +
-> +          endpoint {
-> +            remote-endpoint = <&typec_connector_ss>;
-> +          };
-> +        };
-> +
-> +        port@1 {
-> +          reg = <1>;
-> +
-> +          endpoint {
-> +            remote-endpoint = <&dwc3_ss_out>;
-> +          };
-> +        };
-> +
-> +        port@2 {
-> +          reg = <2>;
-> +
-> +          endpoint {
-> +            remote-endpoint = <&dcp_dp_out>;
-> +          };
-> +        };
-> +
-> +        port@3 {
-> +          reg = <3>;
-> +
-> +          endpoint {
-> +            remote-endpoint = <&acio_tbt_out>;
-> +          };
-> +        };
-> +      };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index e147e1b919d5737a34e684ec587872ce591c641a..c4cbae63b0c0d42042e12d366e4a32d7ca3711ea 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2393,6 +2393,7 @@ F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
->  F:	Documentation/devicetree/bindings/nvmem/apple,efuses.yaml
->  F:	Documentation/devicetree/bindings/nvmem/apple,spmi-nvmem.yaml
->  F:	Documentation/devicetree/bindings/pci/apple,pcie.yaml
-> +F:	Documentation/devicetree/bindings/phy/apple,atcphy.yaml
->  F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
->  F:	Documentation/devicetree/bindings/power/apple*
->  F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
+> Want to squash this into 3786d7d6b3c0 ("mshv: Use common "entry virt" APIs to do
+> work in root before running guest")?
 > 
-> -- 
-> 2.34.1
-> 
-> 
+
+It's done. Thanks for pointing it out.
+
+Wei
 
