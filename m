@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D53CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6411ACAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c0UV9w5YwN7PNE0pUa49tcLH5IsIwGcJLWY1MhkFbPk=; b=20FCRjrobN+lhlUkeEqw084XCH
-	vwwztMJReq+nHIJackqA1/4+ZiRr1A5XEJU03zlpz/0GNqOHDfMBineLQwVwRtx7sZ2sMufjKjZ4W
-	dT89i1QiuS+UJumFFW6OeiOxpolWDHTP1ulMUr6oQpKrkaPota8dbBol7c7KQQQpTCfIkJ+blaAp2
-	RpCMCM/3gsBCifS9ZO+4CRDOM6EPiCN+V5KxoB8yHtkjq7OamjTa97EgRQ3DfNwl90GvTwbsBuIfz
-	KEcC6jFJazefm7Rb4nNVZ5bASfMhCjauZylx4++8Mp5j03OyzEKXd+bzy4lFkChFHxMHvVvSNXswp
-	74/5LeOw==;
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z7YV82egk+AK91tZCv3JQQ3f4WIL84FzupXhNG57C0U=; b=2FXACIypmDCCWuBtPs6FMuDgHU
+	u9n3iS6+pomY+dM2iFlLClrqmD0D6WD+ZdrW54wRzO4kTChSKky7HqxEpaHUO1bblEFL9INwRmhtq
+	DeXSbOFkPoNyNFx24GQbiNCfbLa2bpdgDZ2zlynOueWLub35JIpPmAR+02sMEKCt4df2mxUGrD9BU
+	xy8tV32tq9Cf8l1QKKAoRM3mBYs+b8ZsKxfv0c9ZPzhsl+WToBdbub+KN141gybELck56dFdg/Fsq
+	WtB+tuXA1V1W3sZgr2o327GqTE339toqXFsmjPy/plN2JTLdFvGoEuQkpQKO5+MD/g75bm/xrk87Z
+	6vlsJeGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsGP-00000004vL5-2P9Z;
-	Tue, 09 Sep 2025 06:55:37 +0000
-Received: from smtpbgsg1.qq.com ([54.254.200.92])
+	id 1uvsGU-00000004vRm-2tvG;
+	Tue, 09 Sep 2025 06:55:42 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvnFy-00000003UBR-20wc;
-	Tue, 09 Sep 2025 01:34:52 +0000
-X-QQ-mid: esmtpsz16t1757381621taf35abd6
-X-QQ-Originating-IP: GkvDGhRfvU5f3ziOtpKn3TX27MEXcp6MDTyVpMjXBxk=
-Received: from localhost.localdomain ( [183.51.121.90])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 09 Sep 2025 09:33:39 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15890518757870112891
-EX-QQ-RecipientCnt: 16
-From: Kaison Deng <dkx@t-chip.com.cn>
-To: Rob Herring <robh@kernel.org>,
-	Jimmy Hon <honyuenkwun@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Wayne Chou <zxf@t-chip.com.cn>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kaison Deng <dkx@t-chip.com.cn>
-Subject: [PATCH v2 0/2] Add support for Firefly ROC-RK3588-RT
-Date: Tue,  9 Sep 2025 09:31:46 +0800
-Message-Id: <cover.1757322046.git.dkx@t-chip.com.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1uvnSy-00000003XDr-1oMz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 01:48:17 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cLRRj1mY3zRk4L;
+	Tue,  9 Sep 2025 09:43:29 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2AAE7180087;
+	Tue,  9 Sep 2025 09:48:06 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 9 Sep 2025 09:48:05 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 9 Sep 2025 09:48:04 +0800
+CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <corbet@lwn.net>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <tangchengchang@huawei.com>,
+	<wangzhou1@hisilicon.com>
+Subject: Re: [PATCH v4 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
+To: Will Deacon <will@kernel.org>
+References: <20250715081356.12442-1-yangyicong@huawei.com>
+ <20250715081356.12442-6-yangyicong@huawei.com>
+ <aL7Fgx__LeLfbDyU@willie-the-truck>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <5d2ba565-715b-9b17-951b-f805dde5988b@huawei.com>
+Date: Tue, 9 Sep 2025 09:48:04 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:t-chip.com.cn:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: NJzf8XFenXw/uHF9mUr+6o/3eWVYLRyPG8nBcTDgRZY6ECMIq51rHSyh
-	SWrL+s00gEW0SrnjleEutwxBkoa+xkxAjzO7pfXvodOFlRd3knMBz6m6CUmJ4j2UpLvuqZi
-	TGn5qJy3IRR8fVw8762Ij1LuhM07CnmBZPXLYePTzKUr0Mu9pUTQCXI9zJADTHiizo6HPpF
-	SfhCvBzWnDObLhyedMZMrxZnrO19p8J9S6vp2x0R8sUFfTU8nEwARTXffASDhCf3nAoZECR
-	npA8nbfV25+TRycrNIk6PYELJY1rBz6xIL6qW1kKK5DSkqxIJtTQBthkHPT5+/NSsIT7I4R
-	SniEXlmPerF439kz/PBZ5YdcxItGl1/zT9Y5zgH0sktGPAuk2pOfsoQDOv/IFnUx1cFvAUA
-	n8C3Vu+QO1ntB653XS+AXTVIJ//TAwnRt5KPeYjxHZ4Ma/WiC4Q9vMiqZwGqzCChWzsKqGF
-	XRPnfTIbpZknmCh4jT5ZW90XANP6TNYfyM1sF9+3sehC7c1NlN3ic4eJysqHkyfNqd8cpRV
-	huHKRB2EXc+7haS3eUSiQF2XpgqBVD5SHlCMfEMlEaXGm90vr2m7VqYpo4oN04APNROJ0vL
-	+JAoKe/8EZdNLBmADGy3OxFR1REJ9gaaI1CLSUa/U2ogK7stAOca/UFj0RE191TbQ4dQlxq
-	rqB/ggNcN0iDzT36ITG2zUUe4fRE+admXtfU4uJSlTnPzMSvplTyv2KAJHw5Il4pS6SQFUU
-	WWeJ/8d/6a6HVsETvyyocuF0Gmd0zcuxlSeo4SRzXdd8ltqJ+Y9rdMeFgpWNScrtxDkJI+0
-	FKzZT8POEmtRyin15suI7PMrN5wxQzdcGCCQBKLy89vM9SJxKNjNBuhAR8w5weaz9Rk55Ra
-	egmW9OfMXf7uxTH07nGNUdaBEvkmLuNCU2y4GPwKiuYcD7DTLf1s5QknrkTmcjpFKX5hexH
-	3AMglY1ij7LcggVn8Rh3Oga9mSVOvyiwTlFwK8hS8rwBiEL4kTXfT6N2FjKdvSJqqOZ2wPO
-	j2NqqfHgBAVghP67W6YyHln51oXYhdA1DtqLAe5cXiERedCSwSdjikndXJL3w4rgtp8wG9J
-	Zw+awP52yLJskDDUnyoNklQOtdOZLEkvhWz7NS85Wjj+rDufq/Iz2ke5p2Mz0ryYw==
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
-X-QQ-RECHKSPAM: 0
+In-Reply-To: <aL7Fgx__LeLfbDyU@willie-the-truck>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_183450_897269_6081C59E 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20250908_184816_782134_F98BC3DD 
+X-CRM114-Status: GOOD (  28.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +84,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series add support for Firefly ROC-RK3588-RT.
+On 2025/9/8 20:01, Will Deacon wrote:
+> On Tue, Jul 15, 2025 at 04:13:54PM +0800, Yicong Yang wrote:
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> Armv8.7 introduces single-copy atomic 64-byte loads and stores
+>> instructions and its variants named under FEAT_{LS64, LS64_V}.
+>> These features are identified by ID_AA64ISAR1_EL1.LS64 and the
+>> use of such instructions in userspace (EL0) can be trapped. In
+>> order to support the use of corresponding instructions in userspace:
+>> - Make ID_AA64ISAR1_EL1.LS64 visbile to userspace
+>> - Add identifying and enabling in the cpufeature list
+>> - Expose these support of these features to userspace through HWCAP3
+>>   and cpuinfo
+>>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>>  Documentation/arch/arm64/booting.rst    | 12 ++++++
+>>  Documentation/arch/arm64/elf_hwcaps.rst |  6 +++
+>>  arch/arm64/include/asm/hwcap.h          |  2 +
+>>  arch/arm64/include/uapi/asm/hwcap.h     |  2 +
+>>  arch/arm64/kernel/cpufeature.c          | 51 +++++++++++++++++++++++++
+>>  arch/arm64/kernel/cpuinfo.c             |  2 +
+>>  arch/arm64/tools/cpucaps                |  2 +
+>>  7 files changed, 77 insertions(+)
+>>
+>> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+>> index ee9b790c0d72..837823d49212 100644
+>> --- a/Documentation/arch/arm64/booting.rst
+>> +++ b/Documentation/arch/arm64/booting.rst
+>> @@ -483,6 +483,18 @@ Before jumping into the kernel, the following conditions must be met:
+>>  
+>>     - MDCR_EL3.TPM (bit 6) must be initialized to 0b0
+>>  
+>> +  For CPUs support for 64-byte loads and stores without status (FEAT_LS64):
+> 
+> nit: I think you're missing a word ("For CPUs with support ...").
+> 
+>> +
+>> +  - If the kernel is entered at EL1 and EL2 is present:
+>> +
+>> +    - HCRX_EL2.EnALS (bit 1) must be initialised to 0b1.
+>> +
+>> +  For CPUs support for 64-byte loads and stores with status (FEAT_LS64_V):
+> 
+> Same here, but also FEAT_LS64_V only applies to stores so no need to
+> mention loads.
+> 
+>> +
+>> +  - If the kernel is entered at EL1 and EL2 is present:
+>> +
+>> +    - HCRX_EL2.EnASR (bit 2) must be initialised to 0b1.
+>> +
+>>  The requirements described above for CPU mode, caches, MMUs, architected
+>>  timers, coherency and system registers apply to all CPUs.  All CPUs must
+>>  enter the kernel in the same exception level.  Where the values documented
+>> diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
+>> index 69d7afe56853..9e6db258ff48 100644
+>> --- a/Documentation/arch/arm64/elf_hwcaps.rst
+>> +++ b/Documentation/arch/arm64/elf_hwcaps.rst
+>> @@ -435,6 +435,12 @@ HWCAP2_SME_SF8DP4
+>>  HWCAP2_POE
+>>      Functionality implied by ID_AA64MMFR3_EL1.S1POE == 0b0001.
+>>  
+>> +HWCAP3_LS64
+>> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0001.
+>> +
+>> +HWCAP3_LS64_V
+>> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0010.
+> 
+> Given that these instructions only work on IMPLEMENTATION DEFINED memory
+> locations and aren't guaranteed to generate an abort if used elsewhere,
+> how is userspace supposed to know what to do with them?
+> 
 
-Info of device can be found at:
-https://en.t-firefly.com/product/industry/rocrk3588rt
+per ARM DDI0487 L.b section C3.2.6,
 
-Changes in v2:
-- Add devicetree binding documentation for the Firefly ROC-RK3588-RT
-- Update the description to match the device tree
-- Adjust the descriptions of the model and compatible properties
-- Add audio support for hdmi0 and hdmi1
-- Adjust the attributes of sdhci in alphabetical order
+  When the instructions access a memory type that is not one of the following,
+  a data abort for unsupported Exclusive or atomic access is generated...
 
-Kaison Deng (2):
-  dt-bindings: arm: rockchip: Add Firefly ROC-RK3588-RT
-  arm64: dts: rockchip: Add devicetree for the ROC-RK3588-RT
+so...
 
- .../devicetree/bindings/arm/rockchip.yaml     |    5 +
- arch/arm64/boot/dts/rockchip/Makefile         |    1 +
- .../arm64/boot/dts/rockchip/rk3588-roc-rt.dts | 1136 +++++++++++++++++
- 3 files changed, 1142 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-roc-rt.dts
+> As it stands, exposing the feature blindly feels like a bad idea to me.
+> Surely there needs to be a way for userspace to either probe or request
+> memory that supports the instructions? We should also make sure we
+> handle the abort properly if it occurs and presumably deliver a SIGBUS.
+> 
 
--- 
-2.25.1
+...on host accessing an unsupported memory region a SIGBUS will be delivered,
+selftests for the instruction added in PATCH 7/7 make use of this, comments
+added in ls64_sigill() explained there will be a SIGBUS recieved if accessing
+the normal memory.
 
+if in a VM the DABT will be taken by the guestOS (then handled in the same
+way like host, deliver a SIGBUS by the guestOS) or by the hypervisor depend
+on the hardware implementation. for the latter case PATCH 3/7 add the handling
+to inject the DABT back to the VM.
+
+as for the usage, since LS64 is intended to interact with the device, currently
+we only use it in userspace drviers, as mentioned in the coverletter:
+
+  A real scenario for this feature is that the userspace driver can make use of
+  this to implement direct WQE (workqueue entry) - a mechanism to fill WQE
+  directly into the hardware.
+
+the userspace driver will know exactly whether their devices support LS64 or not
+and request the target memory.
+
+thanks.
 
