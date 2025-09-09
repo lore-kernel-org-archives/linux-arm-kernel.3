@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 725DFCAC58C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:18:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58413CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dG6XF2PIOMDeR4MOZBWi65Kf7chBzQecby0CPXw5mi8=; b=l2XFoql93zzCcSStb1t5G50msz
-	yAq32Ieebq3J7cCjsih0XKc7x2NY39eYWQyhjJ8IOQWseq87dLnqrx2Zn91BT+TXn4n1Dghns0d45
-	IEMkp6iJp0GyUu3PNhNtWwCfXTQ1vcLRcMXs5B4vlutbr6xC34V9SKkkRGI+4xC+xLVx2rIFRHTcs
-	Ptmxns4JcQby4E2OhH6Q2/w7gfgO4H4pGyoW6qyeBaMjiMZoIKbUcApX6F11y9AzErhZLnIkbKfiF
-	jzBGf+FAVFkYJll3K9rXG1HDm+Ps7K62LfZo+pQhaYmwHrzTTzkM+dn0T6TI3ZUQeWperitFh+xsx
-	t0/AG/Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fe2CylzU02/cCqzp45eY392Cx75sRoZT1uPdLFqj/ic=; b=VdoeIMLrzEJbjF2yEAIpm0mdBp
+	/oCrFKYz4rvoo3q0kk8baXVgr9X5RCF4z7xQ2jhifQPnuYv/z28A4nltEZsT8pJG191qINGh/gDg6
+	fVhg25nkPcf1NttDKbfn7lbriwMWAFLVmYcXIpWJTG+FCYuyO2AYilWPnpzcyQbi2g4Me+jpt2i7M
+	9MTctqM8T1NIeyybWrbKJ8NVUkG8JFMvVlz1pCs8IRa3VUTEdzcytwJSaaukUeEQKfEJ682xFu12V
+	Toj1xLZdoX6FgAl9iprxrUtWsQJ3nJpeDGo5YfQcMXDSP7jmq6VqIoqFhDFlWFOh2C0/W2+GF0HMV
+	KICdmF7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1z7-00000008ssv-3Iz2;
-	Tue, 09 Sep 2025 17:18:25 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1uw1z4-00000008snf-1VxM;
+	Tue, 09 Sep 2025 17:18:22 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvyR5-00000007Oo2-0DyZ;
-	Tue, 09 Sep 2025 13:31:05 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-32d6c194134so3642087a91.0;
-        Tue, 09 Sep 2025 06:31:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757424662; x=1758029462; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dG6XF2PIOMDeR4MOZBWi65Kf7chBzQecby0CPXw5mi8=;
-        b=CAaQiHbMSnc3TCbXZ49Ym1f4J+UHBdWhQptMwyx/dSYOxRQrl0oR2zSnscKd8dqoXF
-         z6tjq9FEfkqfr2MslVFBdleqIHe8yA0MADD89uyleL7U2FD1mbPYW1WiPtrVi0V+lMCX
-         YGItp5knJWFSjhr6jDBKCODyz09/0gqINKYY2GKFdnFyooEGs4Vv4tB7HVeOgZYa7KO9
-         2mso8YLnG14pIwoap8/t97LK38TjRPyQUOr0STHOLYFvruyLg85MmcFskcpgy+KVWHfe
-         VkeZrNBlo9qN30GItm5TrqmU3XsI53oEEYPBteh2QTQqwZqO7Ls98Lw2ouiH50k+dT7/
-         7r4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757424662; x=1758029462;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dG6XF2PIOMDeR4MOZBWi65Kf7chBzQecby0CPXw5mi8=;
-        b=PXkYwom4z5LucpEv2k/13zJKdTZ3vxdFDODRIXn0S1dqv10TJtKgR/2Br+lyjte5Pb
-         Vfp62g319MjCWsHL1oSQTLBwGt7PETed22UFJy3tVW9HFtjN7m9v6v6y8Kcu2qLc8GtF
-         DImEfYvXcWNwvkjgU4FxSxQZa2+gPBUlQix/mBge2uUr0HbEHy1sBTIcW2FbQwffn/8a
-         whTQJS0aASuJfu9eQeLKjfE6bfI9WBD09NgJTORIxORmLtO7+OkRpu7aXvKGxFM45jEE
-         bypj0fSlbYEksDRG7khLhoCYApsQTv3SHlXlYk2ROFVIxgfmqyQEeHgu3KFywnLQA3ST
-         s8dg==
-X-Forwarded-Encrypted: i=1; AJvYcCVNIm0Za2zqWJXmNKCvh9iHBbF4BLw2yZOZg3kqJxNj/1GZ8vYOBnloe/ug8vtNGjsDtqgPido1jFmz@lists.infradead.org, AJvYcCVxOzb/zfnn9uW404CbCR+gHvl18AQMW7IhbwxvcHJu68iTiOB2hAk35eCt12EI0dIzBGONBpYpCskDh08YYyE=@lists.infradead.org, AJvYcCW26aN8Ufk6ZSFFeVLu/ycW8924aTXP/KvqJVdvDZpWtomXMzwITjBhxybIgdMkgG/X4qjnYGL6B6G/SO58ig3H@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzzCzDqulQ2oEpb49UXOnDfKd9xNO8Pa/KaoMBEn0OZ4QX/syu
-	dBDy17A1TNzCYfHfQdwK8IPGnjiUZMHSVuBEjExfNq0m1DJqQ+SgiPDwvc9lljAeQ30=
-X-Gm-Gg: ASbGncunORUz1qkwIjvZmo/LtFcfr6LHOte0bnFXq+rOlxWCGJ4yruUWUCfdscaJA7V
-	1TICiMKZ/uBGelRJiWDs4ejiihffEDTvI28eHN1JGG7wmMX3IcUlcAr6nkN0l8de3g3OXw3phE7
-	w7tWqPLXxWyMaDz7TQySYtJtdpIyUKScDKd3Ns5zmJ9o0VPDlYstj3nlk4FM015ExWidHmER4ZX
-	EMcb02qhytSgjdfpslbsPLqnuPprutFSrReX3uFy8tFm0NhReHh1FjHc00qQClLLfZR8GLRutFd
-	68ECu9TBZXeuJj3die068Tubsvfe88SPGliQfLdF7wF1enR+mrpHF+v2QIG99DV7iVun5hq1Xb5
-	ngIfOvPPb+wkWy39Js/WYVTfxsBsP0kpvtjM+amIV
-X-Google-Smtp-Source: AGHT+IFvzCSi3Jx1813Qml8IRiQpzQZCTcshHHIDJ588+57HfZOE6WtTLDZVN3MrY4AiWuNHBrHx4Q==
-X-Received: by 2002:a17:90b:5584:b0:32b:cb05:849a with SMTP id 98e67ed59e1d1-32d43f936fbmr14109516a91.29.1757424661526;
-        Tue, 09 Sep 2025 06:31:01 -0700 (PDT)
-Received: from localhost.localdomain ([240e:3a6:1c4b:13c0:db95:4539:1490:64d2])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32dab173060sm810778a91.5.2025.09.09.06.30.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 06:31:00 -0700 (PDT)
-From: WeiHao Li <cn.liweihao@gmail.com>
-To: heiko@sntech.de,
-	robh@kernel.org
-Cc: krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	id 1uvyQ4-00000007OHi-1j59;
+	Tue, 09 Sep 2025 13:30:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Fe2CylzU02/cCqzp45eY392Cx75sRoZT1uPdLFqj/ic=; b=zkfV0cigs49B1J2Jk+T6gofH75
+	J6/mR1g7h+Dea28BHMKBrCr8qZnGhmnRH/PwlyuouXbiiFDTuxQNn3jBtpYYawsM+fjxHzE6Yt1C7
+	QJF84Wykf45iP9//1cf2BBXxeweV6K5vLWrg4nYzinB9Pjt6ncMDsA/tel3NB4TEV8k5tf+6oq5FP
+	RCJtDZ0mcfZlWh4hUaXCWcZ1/Ja1i/d0/Ygcw5Jsd9tLGJK9hA3NYCs+IChO9TCRfim1jErkwt+2H
+	ROU1IDownhQKl8jx9sE+YoCUdIr71sZ9ZGfYOGZodFZCZ6zAyn+e+3RqyNt1xUY1S5lyWITPPFEqc
+	BlA4XhwQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51586)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uvyPh-000000008CU-0SyU;
+	Tue, 09 Sep 2025 14:29:37 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uvyPZ-000000000RX-0dBo;
+	Tue, 09 Sep 2025 14:29:29 +0100
+Date: Tue, 9 Sep 2025 14:29:29 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	WeiHao Li <cn.liweihao@gmail.com>
-Subject: [PATCH v2 0/4] Fix USB controller support for RK3368
-Date: Tue,  9 Sep 2025 21:29:54 +0800
-Message-ID: <20250909132958.26423-1-cn.liweihao@gmail.com>
-X-Mailer: git-send-email 2.47.2
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next PATCH v16 06/10] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
+Message-ID: <aMAruQYXL7m8upS1@shell.armlinux.org.uk>
+References: <20250909004343.18790-1-ansuelsmth@gmail.com>
+ <20250909004343.18790-7-ansuelsmth@gmail.com>
+ <aL_uqX90oP_3hbK6@shell.armlinux.org.uk>
+ <68c00db1.050a0220.7d5a6.50b8@mx.google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <68c00db1.050a0220.7d5a6.50b8@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_063103_089317_F08CC045 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20250909_063000_451231_91BB4429 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,42 +98,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixs USB controller support for the Rockchip RK3368 SoC.
+On Tue, Sep 09, 2025 at 01:21:18PM +0200, Christian Marangi wrote:
+> On Tue, Sep 09, 2025 at 10:08:57AM +0100, Russell King (Oracle) wrote:
+> > On Tue, Sep 09, 2025 at 02:43:37AM +0200, Christian Marangi wrote:
+> > > +static void an8855_phylink_get_caps(struct dsa_switch *ds, int port,
+> > > +				    struct phylink_config *config)
+> > > +{
+> > > +	struct an8855_priv *priv = ds->priv;
+> > > +	u32 reg;
+> > > +	int ret;
+> > > +
+> > > +	switch (port) {
+> > > +	case 0:
+> > > +	case 1:
+> > > +	case 2:
+> > > +	case 3:
+> > > +	case 4:
+> > > +		__set_bit(PHY_INTERFACE_MODE_GMII,
+> > > +			  config->supported_interfaces);
+> > > +		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
+> > > +			  config->supported_interfaces);
+> > > +		break;
+> > > +	case 5:
+> > > +		phy_interface_set_rgmii(config->supported_interfaces);
+> > > +		__set_bit(PHY_INTERFACE_MODE_SGMII,
+> > > +			  config->supported_interfaces);
+> > > +		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
+> > > +			  config->supported_interfaces);
+> > > +		break;
+> > > +	}
+> > > +
+> > > +	config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
+> > > +				   MAC_10 | MAC_100 | MAC_1000FD | MAC_2500FD;
+> > > +
+> > > +	ret = regmap_read(priv->regmap, AN8855_CKGCR, &reg);
+> > > +	if (ret)
+> > > +		dev_err(ds->dev, "failed to read EEE LPI timer\n");
+> > > +
+> > > +	config->lpi_capabilities = MAC_100FD | MAC_1000FD;
+> > > +	/* Global LPI TXIDLE Threshold, default 60ms (unit 2us) */
+> > > +	config->lpi_timer_default = FIELD_GET(AN8855_LPI_TXIDLE_THD_MASK, reg) *
+> > > +				    AN8855_TX_LPI_UNIT;
+> > 
+> > You're not filling in config->lpi_interfaces, which means phylink won't
+> > LPI won't be functional.
+> > 
+> 
+> Thanks for pointing this out, I notice lpi_interfaces is also not set on
+> other DSA driver that were converted to the new EEE handling, for
+> example mt7530.
+> 
+> I assume EEE is also half broken there and the required change wasn't
+> notice at times?
 
-Key changes:
- - Update phy-rockchip-inno-usb2 driver to preperly handle RK3368 usb
-   phy initialization and configuration.
- - Add usb PHY node to rk3368.dtsi with correct clocks and register
-   mapping.
- - Add missing OHCI node, add missing attribute for usb host node.
- - Add dt-bindings document.
+Without checking (sorry, I'm busy, so I'm not going to), I have no
+idea. What I can say is that phylink won't call the enable/disable
+tx_lpi methods unless it is managing the EEE state, and to do that
+it needs _all_ the LPI properties to be correctly populated.
 
-The following changes since v1:
- - Remove the duplicate structure member I accidentally added.
-
-These changes were tested on a RK3368-based board [1]. Both of USB ports
-can emumerate device (HID and mass storage).
-
-Main code changes come from the rockchip downstream source [2].
-
-[1] https://ieiao.github.io/wiki/embedded-dev/rockchip/rk3368
-[2] https://github.com/rockchip-linux/kernel
-
-Tested-by: WeiHao Li <cn.liweihao@gmail.com>
-Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
-
-WeiHao Li (4):
-  phy: rockchip: inno-usb2: Add usb2 phy support for RK3368
-  arm64: dts: rockchip: Add USB2.0 PHY for RK3368
-  dt-bindings: phy: rockchip,inno-usb2phy: Document rk3368 usb phy
-  arm64: dts: rockchip: Add phys attribute of USB host node for RK3368
-
- .../bindings/phy/rockchip,inno-usb2phy.yaml   |  2 +
- arch/arm64/boot/dts/rockchip/rk3368.dtsi      | 47 +++++++++++++++++-
- drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 48 +++++++++++++++++++
- 3 files changed, 95 insertions(+), 2 deletions(-)
+A lot of other switches (e.g. Marvell DSA) doesn't need that level
+of management.
 
 -- 
-2.47.2
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
