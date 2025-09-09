@@ -4,98 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFA6CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722FFCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHJeyQoxrfPmUkZrw+WhWWyRIvgBswo4VP/FGQPO7jw=; b=VWwWW6vU0qve9w+fBQGVG0rWkH
-	6w+ruE3ApOVIdZlj5PElDxM9Q8CoWo9UjQNGfxxnCbklpTWTnnFKxtoboyqC6ts5rOVno5Sgg6UET
-	cwjfvKzdSWDVR6vrva3jY6viQWssOr7dSNXmvl8OEEBFC9WIhHipqx0cCP1DCbeyk0k0LzH8TFXAu
-	FhzMT9GcKBYtk48ayUcYnvs8yCimDRLM7ro5a4Lbnt3kewl5lQSTScqLtD0ZpB7egJ9ujKVUa1i3I
-	+BeTD+lBzwgogXsoOUhFDMAyhwG2kvkib729KVyxGD/6TLLctSCxk52DwHD+I1b7GyYAXHkqagf9f
-	T/78FIug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OJlmzzOp1QibZj+Ddn//WL+/C+mo2WpJ0Ef29gPu3CU=; b=DtaiPOplYaITB4mnn/XafbfPVL
+	ni7Ev9aVt8e862pii5wvDo7FJ/Q3YuxmnrH9hFYsyojRw4bps1o3mHWMJzNVVH7Mvbhd5fXb53zOa
+	n9nj49kFgCGHcfhP7zM8a6l2qQ1zBQ7vzsyWqHNU5Sx566VvQWvpwznmm45x9pvmFYBmc22tLQCyu
+	GAxQ4emAETw2fyVoNmmmHCIv9zQ53pJj4xx9ycGKagdmAFrBhutVfaO0Hl07uAfys55AWWMV6udZc
+	1BkMW/S6/pfbJNYUGcFFqim+LzpACRpDkCi5XjxQDg+043Oym3tLvQ6QWuc5o4MI+e3I5CLAJjzDh
+	FrSeFoAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw20u-00000008vpk-1BGc;
-	Tue, 09 Sep 2025 17:20:16 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1uw20w-00000008vv0-1oe5;
+	Tue, 09 Sep 2025 17:20:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvyq7-00000007YfG-1t7f
+	id 1uvyqU-00000007Ykd-2hp3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 13:56:57 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-55f68d7a98aso6682759e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 06:56:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757426214; x=1758031014; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WHJeyQoxrfPmUkZrw+WhWWyRIvgBswo4VP/FGQPO7jw=;
-        b=Sp8d2xwmKwr3jVr5l9GXWmWjIi2tquewIqa+ZdWdW4Fylf7gKvhpj+hFX43xSvACv1
-         cxvMXotkw9Nm8EW2KGfoscZsjYtWyRPQmMzW0z5BM3EpoUWmIDCbVTcwtixKPryiAtOv
-         W041K98FfQyU0wCbje7kF7xU37YcXbx+rBXNION5MndJARMAd2Z3BHcn4vzODJb1o30t
-         W83oOjRrxccGo+b+z6agsUAAkOJmiZQhBmGyKYZYHFQasanA3wQJPG87YaNzlKda0axL
-         gy8x3++EYVVBlyZKBn4SP+7w1CIMIDpFkOjdvkwO7xDRszuqDyddS2T1Wgj8+PQ/Qk2w
-         mY5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757426214; x=1758031014;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WHJeyQoxrfPmUkZrw+WhWWyRIvgBswo4VP/FGQPO7jw=;
-        b=MQjLXvgpAP1gh8AYOeRW171H4Cje13QnOjWHBc0i/xNdoWW7H9sVzivnOUsWMy8zaX
-         FyH6ojAvYZHHv9geiVRD/XozU19Blx/Y4C0Mqerab5dNzPCHYsN/KpFO/7aLyiolYf4f
-         N4S/v5ny6E0aRxz27hWQl3A6WU2y0dAT1VfCXqwRSVfCtXXjdv/vom3Y3T+BfccOwHM9
-         27fauZA27BaAWDjOIfqLEA5CMt2036m1Fw4hdp8E3MipkqPdVtPr07ga3V8IgHu8Bcgy
-         UX7GmvYuoBubXHQGUn8HF6wO32IvXm5DN243CuhnetLcK1D95lAMcIcBoBj2ViTNVGoX
-         OYOg==
-X-Forwarded-Encrypted: i=1; AJvYcCWB2MGVjXZsOH5QOptBtq9R5bSnke31M4pqbwLBTizVOM0qb4kcxgNqwadbaQbdDQaDQGRqBO58+pacbgQIBlDO@lists.infradead.org
-X-Gm-Message-State: AOJu0YykiITswsG9h2oERiZrYQtpeRQeJXFlhgI68+KMFmJW4iOzeH6s
-	DLnsEW+t9cL5cgrKM4RhT+tzxbzQCUYve7CykbdrWWqPbPG45lmWUZ4UiEwreh4mq9uVKj2UFjB
-	ZerOH5iH5AbfHqJ4fQIi/Vw0jp5vFwSlR8/qyopg3nA==
-X-Gm-Gg: ASbGnct8eY/GxH+v/gdO30grTMCywxm2Og/tZlo8jvVjouFHyKwp5txsMxQHYMkkBVs
-	mA8PsxAiRZj99XKdYnOJo0RUGwfkFWvd1KoX4+GvOUCimK923Maas0gkf5TJk7jh+77MUs3ufEi
-	YbXx/hwRi2cbTDvIoAfkkHP7AYpd8DygSJ28ak4nrvqyC4iWbfSRUjhDcFY57sbkNq1oTyXMdwH
-	zlROqAfPHZWyA8K4bBPe54U0ranFw0ZLHOnefbw6jp8K4f61A==
-X-Google-Smtp-Source: AGHT+IHBxkyJPoP3osXnpgBU6pdsryw/ot72GCgtbXz1ukCkdeMh24NQ6AJOJ87AcYe5pD0xcM8OlZUSXTQKermPfKE=
-X-Received: by 2002:a05:6512:b8a:b0:561:9635:5af5 with SMTP id
- 2adb3069b0e04-562619d971fmr3883543e87.48.1757426213571; Tue, 09 Sep 2025
- 06:56:53 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
- <20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org>
- <aMAP9hAWars0T83r@smile.fi.intel.com> <CAMRc=MeLTGq8Qu2aT43tkt3vaYCSaJPJPLmaUQ1SAyD_OgVr_g@mail.gmail.com>
- <aMAn4MM_Fs8q8qwj@smile.fi.intel.com> <CAMRc=Mdr4oW2d7XZ90rRr_fKC7WToz72v=_kW-s8=Urd0g8k3g@mail.gmail.com>
- <aMAve1MbONmKVjjg@smile.fi.intel.com> <aMAv3STeZUdSQ14p@smile.fi.intel.com>
-In-Reply-To: <aMAv3STeZUdSQ14p@smile.fi.intel.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 9 Sep 2025 15:56:41 +0200
-X-Gm-Features: Ac12FXw-xJdDcWBTzEH08jjeniZk8zNeWwiQ6jDsDwHAH3I_S_ZPt9IHyI66KLg
-Message-ID: <CAMRc=MeA87p0QAzq_3MACQM90MhN0eRccr7u-VzcfyP8b90AaQ@mail.gmail.com>
-Subject: Re: [PATCH 13/15] gpio: sodaville: use new generic GPIO chip API
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Keguang Zhang <keguang.zhang@gmail.com>, 
-	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 09 Sep 2025 13:57:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 554DD41B6F;
+	Tue,  9 Sep 2025 13:57:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BEF3C4CEF4;
+	Tue,  9 Sep 2025 13:57:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757426238;
+	bh=9z4ihRereZmU3PuUaWmr/NFvJqJcrCqsHyVjKwgq4mk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Jw8wwWaBxNZ4DcKnJWLCC4XiOpCS9bD3zIRQccM55lo4Pi4d2KtVQv7gANjqZSMEp
+	 33AIuTmP385fv+rs/JXPleWh4CS1RseX9GhQ2zmsRg/N2d9ZbGsTOvJCSTPbVbyU/H
+	 x/83tn1h1yDlTMVVm34ZXz8XiJqe3QK8sey0KZ/unPz72hKyYxFvagD1hgydFm827o
+	 mYg0xI+uK6UjvQQUYdO/mBFwBx/28C9qOw6llu3QJc7p1dkxs5kVm6/VrmzSJwAwFb
+	 z6mVw4UyMQYyY6NplLuRNYzqET6BTUbHbzQLo9li0m1f7tKtSqTglBNyeJvqfQFFQ5
+	 7vyQ5QYy5Racg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uvyqR-00000004i0g-2cpd;
+	Tue, 09 Sep 2025 13:57:15 +0000
+Date: Tue, 09 Sep 2025 14:57:14 +0100
+Message-ID: <86h5xbd8zp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<wangwudi@hisilicon.com>,
+	<liuyonglong@huawei.com>,
+	<prime.zeng@hisilicon.com>,
+	<yuzenghui@huawei.com>,
+	Nianyao Tang <tangnianyao@huawei.com>,
+	"Kunkun\
+ Jiang" <jiangkunkun@huawei.com>
+Subject: Re: [PATCH] irqchip/gicv3-its: Add workaround for HIP09/HIP10/HIP10C erratum 162100803/162200807/162400807
+In-Reply-To: <20250909110615.129179-1-wangzhou1@hisilicon.com>
+References: <20250909110615.129179-1-wangzhou1@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, wangwudi@hisilicon.com, liuyonglong@huawei.com, prime.zeng@hisilicon.com, yuzenghui@huawei.com, tangnianyao@huawei.com, jiangkunkun@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_065656_126188_CECD97BF 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250909_065718_755904_224325A0 
+X-CRM114-Status: GOOD (  46.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,17 +91,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 9, 2025 at 3:47=E2=80=AFPM Andy Shevchenko
-<andriy.shevchenko@intel.com> wrote:
->
-> TBH, I think those 6 all made the same mistake, i.e. thinking of the comp=
-ound
-> literal as a cast. Which is not!
->
+On Tue, 09 Sep 2025 12:06:15 +0100,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> 
+> HIP09/HIP10/HIP10C ITS have a problem, an ITS RAS will be reported in
+> some cases when GICv4.1 is enable.
 
-What do you suggest?
+Do you mean a RAS *error*? Why can't the firmware ignore this event instead?
 
-And are we not allowed to use C99 features now anyway?
+> A workaround is that set ITT size to max value(0xf) when doing MAPD with V = 1,
+> and avoid to send MAPD with V = 0 to hardware. Just clear V field in ITS device
+> table and clear ITS cache to implement MAPD with V = 0 instead.
+> 
+> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+> Reviewed-by: Nianyao Tang <tangnianyao@huawei.com>
+> Reviewed-by: Kunkun Jiang <jiangkunkun@huawei.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |   6 ++
+>  arch/arm64/Kconfig                          |  13 +++
+>  drivers/irqchip/irq-gic-v3-its.c            | 114 +++++++++++++++++---
+>  3 files changed, 119 insertions(+), 14 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index b18ef4064bc0..dfafc608dc57 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -264,6 +264,12 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Hisilicon      | Hip09           | #162100803      | HISILICON_ERRATUM_162100803 |
+> ++----------------+-----------------+-----------------+-----------------------------+
+> +| Hisilicon      | Hip10           | #162200807      | HISILICON_ERRATUM_162100803 |
+> ++----------------+-----------------+-----------------+-----------------------------+
+> +| Hisilicon      | Hip10c          | #162400807      | HISILICON_ERRATUM_162100803 |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index e9bbfacc35a6..803df402c9af 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1270,6 +1270,19 @@ config HISILICON_ERRATUM_162100801
+>  
+>  	  If unsure, say Y.
+>  
+> +config HISILICON_ERRATUM_162100803
+> +	bool "Hip09/10/10c 162100803/162200807/162400807 erratum support"
+> +	default y
+> +	help
+> +	  There is a hardware conflict between vSGI and vLPI, fix it by
+> +	  configure a max ITS ITT size 0xf when doing MAPD with V = 1, clear V
+> +	  field in ITS device table and clear ITS cache to implement MAPD with
+> +	  V = 0 instead. Hip09/10/10c have this same problem, just use
+> +	  HISILICON_ERRATUM_162100803 as the compile macro and
+> +	  ITS_FLAGS_WORKAROUND_HISILICON_162100803 as ITS flag for convenience.
+> +
 
-Bartosz
+I don't think any of the details belong to Kconfig. You don't even
+explain *what* the problem is (hardware conflict doesn't mean
+much). It is also completely unclear what MAPD has to do with vSGI and
+vLPI.
+
+> +	  If unsure, say Y.
+> +
+>  config QCOM_FALKOR_ERRATUM_1003
+>  	bool "Falkor E1003: Incorrect translation due to ASID change"
+>  	default y
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 467cb78435a9..647bc70cc2f7 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -49,6 +49,7 @@
+>  #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+>  #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
+>  #define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+> +#define ITS_FLAGS_WORKAROUND_HISILICON_162100803	(1ULL << 5)
+>  
+>  #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+>  #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+> @@ -716,7 +717,12 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
+>  
+>  	its_encode_cmd(cmd, GITS_CMD_MAPD);
+>  	its_encode_devid(cmd, desc->its_mapd_cmd.dev->device_id);
+> -	its_encode_size(cmd, size - 1);
+> +
+> +	if (its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100803)
+> +		its_encode_size(cmd, 0xf);
+
+You are telling the ITS that it is allowed to go and access
+unspecified data (16 bit worth of translations). That's not
+acceptable. If you *have* to do that, then override the size in the
+driver code to actually allocate the corresponding memory.
+
+> +	else
+> +		its_encode_size(cmd, size - 1);
+> +
+>  	its_encode_itt(cmd, itt_addr);
+>  	its_encode_valid(cmd, desc->its_mapd_cmd.valid);
+>  
+> @@ -725,6 +731,61 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
+>  	return NULL;
+>  }
+>  
+> +static struct its_baser *its_get_baser(struct its_node *its, u32 type)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
+> +		if (GITS_BASER_TYPE(its->tables[i].val) == type)
+> +			return &its->tables[i];
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static struct its_collection
+> +*its_build_mapd_cmd_hisi_quirk(struct its_node *its, struct its_cmd_block *cmd,
+> +			       struct its_cmd_desc *desc)
+> +{
+> +	struct its_baser *baser = its_get_baser(its, GITS_BASER_TYPE_DEVICE);
+> +	u32 devid = desc->its_mapd_cmd.dev->device_id;
+> +	void *base = baser->base;
+> +	u32 *dt_entry;
+> +	void __iomem *its_func_en = its->sgir_base + 0x80;
+> +	u32 tmp, tmp1, mask = 1 << 19;
+> +	int i = 100;
+> +
+> +	/*
+> +	 * Modify v to 0 in the dt entry of devid, dt entry format as below:
+> +	 * word0: [0-31] ITT address; word1: [0-7] ITT address, [8-12]: ITT
+> +	 * size, [13]: V. Only support flat device table.
+
+Do you mean that the HW only supports flat tables? Or that you expect
+the kernel to only produce flat device tables?
+
+> +	 */
+> +	dt_entry = (u32 *)(base + devid * 8 + 4);
+> +	*dt_entry &= ~(1 << 13);
+> +
+> +	dsb(ishst);
+
+Is this always cacheable memory? Does the ITS always snoop the CPU
+caches? What protects against a concurrent access?
+
+> +
+> +	/*
+> +	 * Cache invalidate by a private register GITS_FUNC_EN, whose offset
+> +	 * is 0x20080 of ITS base address. GICv4.1 already maps sgir_base
+> +	 * (offset is 0x20000), so address of GITS_FUNC_EN can be got by
+> +	 * sgir_base + 0x80. Bit 16 is used to clear DT cache, the flip of
+> +	 * bit 19 indicates that DT cache has been cleared.
+> +	 */
+> +	while (--i) {
+> +		tmp = readl_relaxed(its_func_en) & mask;
+> +		writel_relaxed(tmp | (1 << 16), its_func_en);
+> +		tmp1 = readl_relaxed(its_func_en) & mask;
+> +		if (tmp != tmp1)
+> +			break;
+> +	}
+
+Please define these bits so that they have names instead of using raw
+values. Why do you need to write bit 16 every time? Surely once you
+have written it *once*, the HW remember what it has been told to do?
+
+And frankly, using readl_relaxed_poll_timeout_atomic should be the
+right thing to do.
+
+> +
+> +	if (i == 0)
+> +		WARN_ON(1);
+> +
+> +	return NULL;
+> +}
+> +
+>  static struct its_collection *its_build_mapc_cmd(struct its_node *its,
+>  						 struct its_cmd_block *cmd,
+>  						 struct its_cmd_desc *desc)
+> @@ -1306,11 +1367,18 @@ static void its_send_inv(struct its_device *dev, u32 event_id)
+>  static void its_send_mapd(struct its_device *dev, int valid)
+>  {
+>  	struct its_cmd_desc desc;
+> +	its_cmd_builder_t fn;
+> +
+> +	if (dev->its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100803 &&
+> +	    valid == 0)
+> +		fn = its_build_mapd_cmd_hisi_quirk;
+
+Make the new helper handle both values of the valid bit.
+
+> +	else
+> +		fn = its_build_mapd_cmd;
+>  
+>  	desc.its_mapd_cmd.dev = dev;
+>  	desc.its_mapd_cmd.valid = !!valid;
+>  
+> -	its_send_single_command(dev->its, its_build_mapd_cmd, &desc);
+> +	its_send_single_command(dev->its, fn, &desc);
+>  }
+>  
+>  static void its_send_mapc(struct its_node *its, struct its_collection *col,
+> @@ -3354,18 +3422,6 @@ static struct its_device *its_find_device(struct its_node *its, u32 dev_id)
+>  	return its_dev;
+>  }
+>  
+> -static struct its_baser *its_get_baser(struct its_node *its, u32 type)
+> -{
+> -	int i;
+> -
+> -	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
+> -		if (GITS_BASER_TYPE(its->tables[i].val) == type)
+> -			return &its->tables[i];
+> -	}
+> -
+> -	return NULL;
+> -}
+> -
+>  static bool its_alloc_table_entry(struct its_node *its,
+>  				  struct its_baser *baser, u32 id)
+>  {
+> @@ -4902,6 +4958,16 @@ static bool __maybe_unused its_enable_rk3568002(void *data)
+>  	return true;
+>  }
+>  
+> +static bool __maybe_unused its_enable_quirk_162100803(void *data)
+> +{
+> +	struct its_node *its = data;
+> +
+> +	if (is_v4_1(its))
+> +		its->flags |= ITS_FLAGS_WORKAROUND_HISILICON_162100803;
+> +
+> +	return true;
+> +}
+> +
+>  static const struct gic_quirk its_quirks[] = {
+>  #ifdef CONFIG_CAVIUM_ERRATUM_22375
+>  	{
+> @@ -4956,6 +5022,26 @@ static const struct gic_quirk its_quirks[] = {
+>  		.init	= its_enable_quirk_hip09_162100801,
+>  	},
+>  #endif
+> +#ifdef CONFIG_HISILICON_ERRATUM_162100803
+> +	{
+> +		.desc = "ITS: Hip09 erratum 162100803",
+> +		.iidr = 0x00051736,
+> +		.mask = 0xffffffff,
+> +		.init = its_enable_quirk_162100803,
+> +	},
+> +	{
+> +		.desc = "ITS: Hip10 erratum 162200807",
+> +		.iidr = 0x01051736,
+> +		.mask = 0xffffffff,
+> +		.init = its_enable_quirk_162100803,
+> +	},
+> +	{
+> +		.desc = "ITS: Hip10c erratum 162400807",
+> +		.iidr = 0x00061736,
+> +		.mask = 0xffffffff,
+> +		.init = its_enable_quirk_162100803,
+
+Can you try to merge these three entries and adjust the mask
+accordingly? mask=0xeffcffff should do the trick, assuming that you
+don't have any other hardware overlapping this.
+
+> +	},
+> +#endif
+>  #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+>  	{
+>  		.desc   = "ITS: Rockchip erratum RK3588001",
+
+If the HW is this bad, and that this only affects virtual interrupts,
+why don't you simply disable GICv4 support? Messing with the internals
+of the ITS tables feels like a pretty bad idea. Or as I suggested
+above, get the firmware to ignore RAS events from the ITS.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
