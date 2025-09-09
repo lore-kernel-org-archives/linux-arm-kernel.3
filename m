@@ -4,90 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40B3CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B184CCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wZAEaki6Q0L84PdwSPbqPxzKdJLJOlsYAAS08cgAbKk=; b=YT+NW8FARKXsQIgz7Sir4BoKZ9
-	fXBvZXfG9QoFY7hvCGkyX3EPrBmZ2jKH3jqaJtJEvMmJozfo16Bm/RxUUx32wcjsu92giDxiwdYTb
-	UXqnL8Dp7a/kAEJdGG14zgkFNZrHEkfiQYnpqYBp4gxqaBKhuPsYGhLMbpUpqGDJRMMaKg4L0QeLK
-	XmKhe2vpvwReRSC7YcgX8HtdnSfsZVeKVUhtVnnr0JpdPyf68JBhzMFLsgIEsAAc2cujnpkgaxZ54
-	zs4Iu6Xci+h/nU/4NKHoMRPzFBhTqWpjx2dXkwX4/FfGqfIFAokLGcydxvpegqIM9xyLYSG4pWmZY
-	EfsTP8Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fq4ohkW31R6oHzaE7ggbwA+YJYya2mSmNsli7rDd82c=; b=g3DwJn77UB739jjMhTE6ZqpGoT
+	bwVJ/oo7R9fgPbZpUnXn4RwAVF3D5ui0DZQzGSICo9V65YRsOSku+jPS0JBO5ZpbpMrawQz1xlOOP
+	+OQBPAGjKfYyXJvSe+EJVwFykgbObJB93TRtSAtwZzjqFgkhiV6rhEt+VpZa99yKEP5W5GnGiHS6T
+	fCptyt477MzSBlESAA7b/FRvdzDtmBqIm+9AOesL6+VG3qzDpri9NU7qZX4ZXvUgdOXL1uE4HARpB
+	f+jGuNzHCp0dEzVgMO3zobPfFMnhuOkhq29p7kTAkauwbfzExZfD1gp73YcIjaxUp7q1taZgnEZAG
+	ZY95m26g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw25t-000000093he-0PXi;
-	Tue, 09 Sep 2025 17:25:25 +0000
+	id 1uw269-0000000947m-3I5z;
+	Tue, 09 Sep 2025 17:25:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0Rp-000000089wv-2sZV
+	id 1uw0VD-00000008DqQ-3Udm
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Sep 2025 15:39:58 +0000
+	Tue, 09 Sep 2025 15:43:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wZAEaki6Q0L84PdwSPbqPxzKdJLJOlsYAAS08cgAbKk=; b=U0YXsto2hRnSA8Bk8Q/aj6bu8X
-	DwBo7FSh9b3BxSpibIOjU38rpABY9k6nqsHZgHDdtXZC8tH2zNeTkzvf78DeAg8XrGaIEpnDFZkbB
-	HkyjjNCqr8WBBQ/ZZ7jLV4o15lhMJVPt9njsYrW3CcZzcEokEqV5bObt+IAOf69X3OdPaUp31xMkw
-	9Y5mu6vd6eotTuwp0BTDU8U8lFUE0GQ6U6kRyV8GJGA63xnyhzM7bKDvqlcfaGKjMEyhnyVW7rV4p
-	StlcIVO8QkB4+nJ1zF01ug6lH1sKvQFp87JggEKlZUD/JbJ5rKnVK2DlTxeuI6Ew/lwqPRhlrBT6h
-	SAcknnfg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0Rm-00000005Ou5-1TJ3
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Fq4ohkW31R6oHzaE7ggbwA+YJYya2mSmNsli7rDd82c=; b=Sukevf04LOYTNr3CAX9IgUsJ4f
+	D7YexRj8mspaQKEuULMs1FYWb0zq1xhm74IJjAtWUFHxgSWPekNfUpVZJIcu00bjw4aaShVsWHVQH
+	n39gzCogksOBnEdtOpMjLEOYRJIJ6756yM3kY6h0vkTdWQ7H+o2S5yAzCuME9lsnM4t+Fr/BiClJj
+	DACVthveHnuEZ05qdNU6y/FqFHl0VN38D4YJZq3yc6Eatz+yDAspH+ASn/LlfGI0df4T8xMr4aktE
+	/xvPUaPXbqNOVJjceIB3EsONiIg0k4YcQWL67BqBxSldIj29GvUJJgNhB849+ue4mYyoQdgqcb/Wb
+	kLNwQtKw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uw0VA-00000005PCQ-1QqP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 15:39:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54B771424;
-	Tue,  9 Sep 2025 08:39:44 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DE7F43F694;
-	Tue,  9 Sep 2025 08:39:46 -0700 (PDT)
-Date: Tue, 9 Sep 2025 16:39:44 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 16/33] arm_mpam: Add helpers for managing the locking
- around the mon_sel registers
-Message-ID: <aMBKQCmlj0Ne56/M@e133380.arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-17-james.morse@arm.com>
+	Tue, 09 Sep 2025 15:43:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 88F5942B8A;
+	Tue,  9 Sep 2025 15:43:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D895C4CEF4;
+	Tue,  9 Sep 2025 15:43:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757432600;
+	bh=wx46RmInQBllen7vvy9mVav9mLQG3txkNO3EJHVEvcU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dPi99mWizZ4GNWGio+Cx3ReKJsgOQhxqHUddhYBs6+l0lkcCadpOslzYOf3z/4cNz
+	 zBOS9eSjTqtkit+BHOwsKxf8Bkior7YZjugsdm2AcKnF4ooQQLAgaeqKQHwL2OOeEB
+	 4PsCNMVx/w33aGRjlTr7qw7zkSOoliARNoyrc2v/XZmePm2vZVtrx/+pT1/SMWMbF8
+	 i2uD/6v80E2qQq/CrbjuEH9V0neKWm9Sg6uB7QPTy5Oz/SSK5bc3XetOofsBtLbHJD
+	 ii3cpsK6ojuZkP6ydSjha+l+rOX8iyRzhk8YM1gV40IULNNsHKVMoZuWuHGmQHi6uQ
+	 07umqE6d/ov9Q==
+Message-ID: <52222467-4fc0-4a53-9682-a935ec8f1a44@kernel.org>
+Date: Tue, 9 Sep 2025 17:43:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822153048.2287-17-james.morse@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] soc: samsung: exynos-pmu: Fix for CONFIG_DEBUG_PREEMPT
+To: Will Deacon <will@kernel.org>
+Cc: Mostafa Saleh <smostafa@google.com>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, alim.akhtar@samsung.com,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+References: <20250905162446.88987-1-smostafa@google.com>
+ <19a6f296-eb40-49cf-9571-2d7964cd3313@kernel.org>
+ <aLshJ11k3c2T-MRs@google.com>
+ <84332e77-cfd2-4090-a3c0-114a9eb5422a@kernel.org>
+ <aL_-N43BTtQynMS_@willie-the-truck>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aL_-N43BTtQynMS_@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_163954_803335_46854CCC 
-X-CRM114-Status: GOOD (  37.13  )
+X-CRM114-CacheID: sfid-20250909_164325_004235_5520A6E7 
+X-CRM114-Status: GOOD (  25.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,156 +138,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Fri, Aug 22, 2025 at 03:29:57PM +0000, James Morse wrote:
-> The MSC MON_SEL register needs to be accessed from hardirq context by the
-> PMU drivers, making an irqsave spinlock the obvious lock to protect these
-
-What PMU drivers?  MPAM itself doesn't define its monitors as PMUs, and
-(as of this series) there is no intergration with perf.
-
-> registers. On systems with SCMI mailboxes it must be able to sleep, meaning
-> a mutex must be used.
+On 09/09/2025 12:15, Will Deacon wrote:
+> Krzysztof,
 > 
-> Clearly these two can't exist at the same time.
-
-The locks obvisouly do exist at the same time.  Do you mean that an
-individual MSC must be either MMIO or SCMI/PCC?
-
-(I don't think anything prevents both kinds of MSC from existing in the
-same system?)
-
-Above, you seem to imply that each kind of MSC interface requires a
-different kind of lock, but below, you imply that the locks must be
-used together, with holding the outer lock being a precondition for
-taking the inner lock. 
-
-Because these functions are introduced with no user, the code doesn't
-offer much in the way of clues.  In particular, there is no indication
-of what the outer lock is supposed to protect.
-
-> Add helpers for the MON_SEL locking. The outer lock must be taken in a
-> pre-emptible context before the inner lock can be taken. On systems with
-> SCMI mailboxes where the MON_SEL accesses must sleep - the inner lock
-> will fail to be 'taken' if the caller is unable to sleep. This will allow
-> the PMU driver to fail without having to check the interface type of
-
-Why is it acceptable to fail (i.e., don't the counts need to be read on
-non-MMIO MSCs?)
-
-> each MSC.
+> On Sat, Sep 06, 2025 at 09:07:02AM +0200, Krzysztof Kozlowski wrote:
+>> On 05/09/2025 19:43, Mostafa Saleh wrote:
+>>>>>
+>>>>> As this value is only read once, it doesn't require to be stable, so
+>>>>
+>>>> Why it does not need to be stable? Onlining wrong CPU number is not
+>>>> desired...
+>>>>
+>>>>> just use "raw_smp_processor_id" instead.
+>>>>
+>>>> You might be just hiding some other real issue, because above stacktrace
+>>>> is from gs101_cpuhp_pmu_online() which IRQs disabled and preemption
+>>>> disabled. Provide analysis of the warning, instead of just making it
+>>>> disappear.
+>>>
+>>> Not sure I understand, how is preemption disabled? that wouldn't fire
+>>> in that case.
+>>
+>> Because there is explicit preempt_disable().
 > 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->  drivers/resctrl/mpam_internal.h | 57 ++++++++++++++++++++++++++++++++-
->  1 file changed, 56 insertions(+), 1 deletion(-)
+> Where do you see that?
+
+I did look at the code.
+
+All the calls I saw (including calltrace from commit msg) were under raw
+spinlock and raw spinlock does:
+
+preempt_disable();
+
 > 
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index a623f405ddd8..c6f087f9fa7d 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -68,10 +68,19 @@ struct mpam_msc {
->  
->  	/*
->  	 * mon_sel_lock protects access to the MSC hardware registers that are
-> -	 * affeted by MPAMCFG_MON_SEL.
-> +	 * affected by MPAMCFG_MON_SEL, and the mbwu_state.
-> +	 * Both the 'inner' and 'outer' must be taken.
-> +	 * For real MMIO MSC, the outer lock is unnecessary - but keeps the
-> +	 * code common with:
-> +	 * Firmware backed MSC need to sleep when accessing the MSC, which
-> +	 * means some code-paths will always fail. For these MSC the outer
-> +	 * lock is providing the protection, and the inner lock fails to
-> +	 * be taken if the task is unable to sleep.
-> +	 *
->  	 * If needed, take msc->probe_lock first.
->  	 */
->  	struct mutex		outer_mon_sel_lock;
-> +	bool			outer_lock_held;
+> From what I can tell, the driver (somewhat bizarrely) registers its
+> online callback much earlier (at CPUHP_BP_PREPARE_DYN) than the offline
+> callback so that gs101_cpuhp_pmu_online() will be run in the context of
+> the caller/onliner rather than the actual CPU coming up. I don't see
+> anything which disables preemption on that path.
+> 
+>> So far you did not present any code analysis, any actual arguments, so
+>> deflecting reviewer's comment like above will get you nowhere. Instead
+>> of replying with a question, bring arguments that the code path does not
+>> disable the preemption.
+> 
+> Mostafa's reported a bug and had a go at fixing it, for goodness sake.
+> Would you rather not hear about bugs in the code you maintain?
 
-Why not use mutex_is_locked()?
+I am happy to see such patch, but Mostafa instead of replying with
+anything useful just shoved back my comment back to me.
 
->  	raw_spinlock_t		inner_mon_sel_lock;
 
-Why raw?  The commit message makes no mention of it.
+> 
+> As somebody who should understand this code better than most, perhaps
+> you could try a bit harder to fill in the blanks on the technical side
 
-(We really to need to sit on a specific CPU while holding this lock, so
-"raw" makes sense.  But we're always doing this in a cross-call,
-presumably with the hotplug lock held -- so I think we can't be
-migrated anyway?)
+I did and I investigated the code and I cannot find the issue leading to
+it, thus I asked.
 
->  	unsigned long		inner_mon_sel_flags;
->  
-> @@ -81,6 +90,52 @@ struct mpam_msc {
->  	struct mpam_garbage	garbage;
->  };
->  
-> +static inline bool __must_check mpam_mon_sel_inner_lock(struct mpam_msc *msc)
-> +{
-> +	/*
-> +	 * The outer lock may be taken by a CPU that then issues an IPI to run
-> +	 * a helper that takes the inner lock. lockdep can't help us here.
-> +	 */
-> +	WARN_ON_ONCE(!msc->outer_lock_held);
-> +
-> +	if (msc->iface == MPAM_IFACE_MMIO) {
-> +		raw_spin_lock_irqsave(&msc->inner_mon_sel_lock, msc->inner_mon_sel_flags);
-> +		return true;
-> +	}
-> +
-> +	/* Accesses must fail if we are not pre-emptible */
-> +	return !!preemptible();
+And then contributor just replied whatever so I will go away and stop
+bothering them?
 
-What accesses?
+> rather than pointing out extraneous blank lines and making questionable
+> judgements about CC lines.
+> 
+>> My call is that you run all this on some other kernel, just like usually
+>> happens in Google.
+> 
+> Whilst that inevitably happens with some of the more product-facing
+> teams, I think it's foolish to assume that nobody works directly with
+> upstream at Google. We're also not going to waste time fabricating bug
 
-In the MPAM_IFACE_MMIO case, this returns true even though non-
-preemptible (because of getting the lock).
+I saw many, many  bug reports from Google and Linaro done on Android
+kernel. Really, too many.
 
-So, what is the semantics of the return value?
+> reports which is why we bother to reproduce issues on Pixel 6, as that
+> can boot upstream without any additional patches.
 
-A comment would probably help.
-
-> +}
-> +
-> +static inline void mpam_mon_sel_inner_unlock(struct mpam_msc *msc)
-> +{
-> +	WARN_ON_ONCE(!msc->outer_lock_held);
-> +
-> +	if (msc->iface == MPAM_IFACE_MMIO)
-> +		raw_spin_unlock_irqrestore(&msc->inner_mon_sel_lock, msc->inner_mon_sel_flags);
-> +}
-> +
-> +static inline void mpam_mon_sel_outer_lock(struct mpam_msc *msc)
-> +{
-> +	mutex_lock(&msc->outer_mon_sel_lock);
-> +	msc->outer_lock_held = true;
-> +}
-> +
-
-> +static inline void mpam_mon_sel_outer_unlock(struct mpam_msc *msc)
-> +{
-> +	msc->outer_lock_held = false;
-> +	mutex_unlock(&msc->outer_mon_sel_lock);
-> +}
-> +
-> +static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
-> +{
-> +	WARN_ON_ONCE(!msc->outer_lock_held);
-> +	if (msc->iface == MPAM_IFACE_MMIO)
-> +		lockdep_assert_held_once(&msc->inner_mon_sel_lock);
-> +	else
-> +		lockdep_assert_preemption_enabled();
-> +}
-> +
-
-Except that monitors may need to be accessed in interrupt context,
-I don't see an obvious difference between controls and monitors that
-motivates this locking model.
-
-Is the outer lock ever needfully held for extended periods of time,
-making a (raw) spinlock unsuitable?
-
-Cheers
----Dave
+Best regards,
+Krzysztof
 
