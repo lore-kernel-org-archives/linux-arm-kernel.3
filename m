@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E6ECA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E149CAC58C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5NsPs5mmEZAM0RI4s1ltQROCFrLKlKr1rZoj7O547TY=; b=CZDdrI+vbVRzGr4qwsSgGyS/IC
-	4IkDNeNKcVwclMqrVH9Y8Am/B5zTU2t1qap6ZEtjkGiZ37IgODPI5nXtRyfoqWPmbjCJgy5V33wIK
-	+tnq9OvIMy482RMlMO7Kn8bkLR1pBkpuoyLeW7OUY3yE2ginNfTg467Q1V7mMyDe22rajQO1rsvyR
-	mDq+q0tQC75+nNR8fYBpA12SFOhZytr40JyeTR4UN7UviVja8ZJOZxLKaQZyK3z3QcE92XROvTp1i
-	gGXposjeisi4ULZ5vCfCMhmSoZZKG1ppFSEYc60F6VGAEeUaIgBskqgw3ePQjuy0qW7iYgl+/+hyN
-	b12ubGsw==;
+	bh=zVTLuB5mPE9USyd5FN+v1V5IxPuPjuhHqdZpeodUNwI=; b=aOUUeOl+fz6hZE/FLrA8gFncbO
+	gMVjK836eXDGkbm/SazYW1r1XMel/zIN3xu+c84LPvbMOUBlecPz8UstARDBcsqFdQH2mqZ4Fqusu
+	4RFWtQzeTzlD0v1VrnGoQvKTAKn5+NDTSXtoCt5ifUDGTkQpwGT8k8p9tONkYVxBpBpJGhttx6p4s
+	MkAoEegIsNMi2l4Qn/vqIEfJMuufxd2yVxfqfnDypcHlarNwXzwSYXCZ46TmmrHc6D9Mxofpk0FNi
+	KK9OOvl+8wC8bMtNS0Vpq8U7aHQZ51uySAv4DwOboyh0BXSYDwS6dHFOTPek2uvVFA2o52YssFnit
+	VVs33O9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw27S-000000096iw-2rja;
-	Tue, 09 Sep 2025 17:27:02 +0000
+	id 1uw27T-000000096ky-1SCj;
+	Tue, 09 Sep 2025 17:27:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1fG-00000008h7X-27VO
+	id 1uw1fV-00000008hE2-0jt4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 16:57:55 +0000
+	Tue, 09 Sep 2025 16:58:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92E1C2008;
-	Tue,  9 Sep 2025 09:57:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4775320E3;
+	Tue,  9 Sep 2025 09:57:55 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1C2EC3F694;
-	Tue,  9 Sep 2025 09:57:47 -0700 (PDT)
-Message-ID: <3a3520f7-654b-420f-a8e8-ca57f92e21fe@arm.com>
-Date: Tue, 9 Sep 2025 17:57:46 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD3323F694;
+	Tue,  9 Sep 2025 09:57:57 -0700 (PDT)
+Message-ID: <dd9e8800-9b55-4021-90a0-05941c71f146@arm.com>
+Date: Tue, 9 Sep 2025 17:57:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 19/33] arm_mpam: Reset MSC controls from cpu hp callbacks
+Subject: Re: [PATCH 20/33] arm_mpam: Add a helper to touch an MSC from any CPU
 To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
  devicetree@vger.kernel.org
@@ -62,16 +62,16 @@ Cc: shameerali.kolothum.thodi@huawei.com,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-20-james.morse@arm.com>
- <1c20a5b2-2afe-4084-9494-a994e1a275b7@arm.com>
+ <20250822153048.2287-21-james.morse@arm.com>
+ <8635e616-79b7-4d7d-a8b8-aa76ba027bc4@arm.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <1c20a5b2-2afe-4084-9494-a994e1a275b7@arm.com>
+In-Reply-To: <8635e616-79b7-4d7d-a8b8-aa76ba027bc4@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_095754_672592_E0B566CB 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20250909_095809_263490_00DB7E5E 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,74 +88,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Ben,
 
-On 27/08/2025 17:19, Ben Horgan wrote:
+On 28/08/2025 17:13, Ben Horgan wrote:
 > On 8/22/25 16:30, James Morse wrote:
->> When a CPU comes online, it may bring a newly accessible MSC with
->> it. Only the default partid has its value reset by hardware, and
->> even then the MSC might not have been reset since its config was
->> previously dirtyied. e.g. Kexec.
+>> Resetting RIS entries from the cpuhp callback is easy as the
+>> callback occurs on the correct CPU. This won't be true for any other
+>> caller that wants to reset or configure an MSC.
 >>
->> Any in-use partid must have its configuration restored, or reset.
->> In-use partids may be held in caches and evicted later.
->>
->> MSC are also reset when CPUs are taken offline to cover cases where
->> firmware doesn't reset the MSC over reboot using UEFI, or kexec
->> where there is no firmware involvement.
->>
->> If the configuration for a RIS has not been touched since it was
->> brought online, it does not need resetting again.
->>
->> To reset, write the maximum values for all discovered controls.
+>> Add a helper that schedules the provided function if necessary.
+>> Prevent the cpuhp callbacks from changing the MSC state by taking the
+>> cpuhp lock.
 
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index bb62de6d3847..c1f01dd748ad 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
+> At first, I thought this was referring to something done in the patch.
+> Consider changing to something like:
+> 
+> Callers should take the cpuhp lock to prevent the cpuhp callbacks from
+> changing the MSC state.
 
->> @@ -849,8 +850,115 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
-
->> +static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16 partid)
->> +{
->> +	u16 bwa_fract = MPAMCFG_MBW_MAX_MAX;
->> +	struct mpam_msc *msc = ris->vmsc->msc;
->> +	struct mpam_props *rprops = &ris->props;
->> +
->> +	mpam_assert_srcu_read_lock_held();
->> +
->> +	mutex_lock(&msc->part_sel_lock);
->> +	__mpam_part_sel(ris->ris_idx, partid, msc);
->> +
->> +	if (mpam_has_feature(mpam_feat_cpor_part, rprops))
->> +		mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM, rprops->cpbm_wd);
->> +
->> +	if (mpam_has_feature(mpam_feat_mbw_part, rprops))
->> +		mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops->mbw_pbm_bits);
->> +
->> +	if (mpam_has_feature(mpam_feat_mbw_min, rprops))
->> +		mpam_write_partsel_reg(msc, MBW_MIN, 0);
->> +
->> +	if (mpam_has_feature(mpam_feat_mbw_max, rprops))
->> +		mpam_write_partsel_reg(msc, MBW_MAX, bwa_fract);
-
-> MPAMCFG_MBW_MAX_MAX can be used directly instead of bwa_fract.
-
-Without the second user, yes.
+Yes - that is better,
 
 
->> +
->> +	if (mpam_has_feature(mpam_feat_mbw_prop, rprops))
->> +		mpam_write_partsel_reg(msc, MBW_PROP, bwa_fract);
-
-> Shouldn't this reset to 0? STRIDEM1 is a cost.
-
-Heh, this is just a copy and paste of the last value, because it clears the 'enable' bit,
-and the spec says "there is no setting of the STRIDEM1 control field that disables the
-effects of proportional-stride".
-
-Yes - zero would be better.
+> Regardless, this looks good to me.
+> 
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
 
-Thanks,
+Thanks!
 
 James
 
