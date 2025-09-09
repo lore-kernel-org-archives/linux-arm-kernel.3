@@ -4,165 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424F9CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 16:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11921CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 16:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LqU+WGzmfGncFG5qyai0jHYVSP7TCxKOV9AhHT2zCnc=; b=fmMleVhs/ywBAEEhixQ+h0WwbV
-	wLaeDHc/Tua4WYN72nTHihPXpMJHhkgeUC90SPNo3dUlSRGHgoHaq6ww+CdSWkI8nuPJI/o2Xw9S0
-	okou7o5jWe0T7lEtCIbUfkT5BehOQjmGL8wY4gksv6sPzQxDb4mMszwLoR199cDPnD417JKndIAhS
-	ryX5zpeIwY8G7dPH5krpFRNzHC1fFuFo1R9wSuLpgHWWjI/tpR2bbuyrzB9Tjw3fDyK6fmW9y/lyE
-	g/To+8wfQ2Jft8cu16h5KcHjEHtII4G3aTPZI0swPyyBLToUmKur3cK0TVMp6zc4V23prHD2qaXWz
-	A0f5w9Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G8ryVOuDX1CVAmhnUopxy2ud3hVzkxnLrUTnMIXLkX8=; b=MtLp24bKCZjYiLob/zf8w3ej6R
+	NlNuwmJuO7LMIf7yAV79dheilxOzXR4YI05OqYp2UDNYJz3I8E9YEoDWbiG3KWN6uGpSY5myO0hso
+	qHKsnDOkSh1RR18+5hPqpVMSL8Epat2wlriUtIZ1+k+GuWZYEp/RjiBo+uaMi+u9Qs+khtytEzEg6
+	/o47LwglTRd+sur1braQ4E9mz3l7HeJ2gsULm09kifCKO6JAttkLuJEdu9f3TOvmq9WE9iElByw1+
+	c58kUHLkESEdrVz9Uh0twSFb6JRde7aP++JWV5wQHX7eX8zfn8D/AEjewpIrrVM1JPuBGqj9+uSI7
+	+GNTz/xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1QN-00000008bAZ-16Fo;
-	Tue, 09 Sep 2025 16:42:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uw1QP-00000008bDk-2Q7K;
+	Tue, 09 Sep 2025 16:42:34 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvvIR-00000006Gj2-1HXp
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 10:09:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757412594;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=LqU+WGzmfGncFG5qyai0jHYVSP7TCxKOV9AhHT2zCnc=;
-	b=EIH2P8zIcZYkDaCMrxLDGWHfPHP777hlvuk4rjzrd3EWHy82xAVFawnQA0eQ11KfPTUQIw
-	mfMilZyTB/IPyohu6Inx1nvoomsXwhxl1TwV8jO+qcFWtUu16n9q54WBAzd+YUCW37T5WO
-	MDo4/NDu6ELr7/8Lah8RGtOioePKBS0=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-643-PWsZgjlLNZeU1R0ctG0zAw-1; Tue, 09 Sep 2025 06:09:53 -0400
-X-MC-Unique: PWsZgjlLNZeU1R0ctG0zAw-1
-X-Mimecast-MFC-AGG-ID: PWsZgjlLNZeU1R0ctG0zAw_1757412592
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3df2f4aedd1so3943594f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 03:09:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757412592; x=1758017392;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LqU+WGzmfGncFG5qyai0jHYVSP7TCxKOV9AhHT2zCnc=;
-        b=eV954MsG7t/aMhJYK6eLhuL2qbfWIDwHUNh+E0PxaW/TL+VhRoSbZ6HA2XRSzZXZd2
-         LUQaos/MFs0X71SfSU+4xYoJ15peqztNMQTerFiKGuUssvYFlWzejQruoT8lN+Wz23oX
-         uTZgZbQRwbJ8V0ojtxdfjNVXm7Ye7CdyjObfUfCrzcunYRA1ePfy+wgUiD3Ehgsu5H07
-         gadQpFir3lekxtSIohFNOQX/o/ZiS436NXv5V6w6jj0cpkCbAEY3242ga9GifCvHgtG5
-         SwEg/k0J72x5AsBXpDDmurSvhKzCgkTnC+hoRWZauiok5nyij6jUJGw+nPYTm94i+RP8
-         1Z6g==
-X-Forwarded-Encrypted: i=1; AJvYcCUwi+wbK1RzuCtYOU/Ak4GZsBYduH0UNPmQ+gfr0xt0YHXjJQspIiVuo6MoeaJ7RwxVo6gQNMUYOISYOgvOLF6V@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFQr25n5rUWYPh19tpWwA0peArstQctfpDUm9a5V68Fzp3P2pZ
-	LjOAalROBmVXY1FfxBpcgevkM5p/BFJjeh6oWq529J06jKATtBTryf3Mr/CGgBgtd4GKPunhEi3
-	STHm/5YUEAWawzBmGwpz40r9QlsZa+uPJnmHDhnSbKektEphb85SwmBnxp2tDjD5Qo4aID1+sSO
-	/J
-X-Gm-Gg: ASbGncsZsgqxvjsVQsWfRiYLCm9key7r7LD3JtMo7dYTQ8O8lONQCf0eufX5Hlv0MSl
-	Jfhzs8/W47ISjfPVJtL1JmxCnljvlBkG0k07XZ0WKilBnkEDOGSYe633PMoQq7Eo6AC7yZK3IhK
-	fIZLJPrx7Im/Gct2hVJgbdHG+9ROa77a91iLn+a/UT3pNWZQxHJj/IixAqFTRc2PUrVbCZnZqfq
-	cZIo0+x1BaNnXoHZ0kxqJl8M9bsjTsLjDU8BIXGNAJkpjW6gYmvc6AYE9eGRRcQJjGE7lUZLawE
-	3Txuz8kC/ZEFg19mj6U15MnPrM4/Pys7fjzkHEvrvqPRA8VydkvJfRo4/vNE+4hrXnTzKkvVLbJ
-	CjTnw5ICFzTGDEls7HLzxiGyKYyiMgoPtOt6mqymExmRV53OTIeSr5oBNInLT2G2Unf4=
-X-Received: by 2002:adf:8b1b:0:b0:3e6:b06c:5b2b with SMTP id ffacd0b85a97d-3e6b06c5fe0mr6424827f8f.10.1757412591685;
-        Tue, 09 Sep 2025 03:09:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE+6kYqxQMhMlrUNgHhh5IEpwCukAjnB2iBRVYizcIa9qqydeyLJ0L3jlngBNKljI3RpH7CHw==
-X-Received: by 2002:adf:8b1b:0:b0:3e6:b06c:5b2b with SMTP id ffacd0b85a97d-3e6b06c5fe0mr6424776f8f.10.1757412591141;
-        Tue, 09 Sep 2025 03:09:51 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f23:9c00:d1f6:f7fe:8f14:7e34? (p200300d82f239c00d1f6f7fe8f147e34.dip0.t-ipconnect.de. [2003:d8:2f23:9c00:d1f6:f7fe:8f14:7e34])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7522562d1sm1945921f8f.63.2025.09.09.03.09.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Sep 2025 03:09:50 -0700 (PDT)
-Message-ID: <e7acb889-1fe9-4db3-acf4-39f4960e8ccd@redhat.com>
-Date: Tue, 9 Sep 2025 12:09:48 +0200
+	id 1uvvIy-00000006Gue-32yK;
+	Tue, 09 Sep 2025 10:10:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757412629; x=1788948629;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gMNjfjMRgGdXnedqzeagPwQAloyWCSOeznRWmXJbD5c=;
+  b=miO1SnoU/Bnyf+PszBtPyEKjJ6H5W77fTY8vujUZK0MMNs1rhJSmL9RX
+   EQXemSQUgsp7RDYZn4ez9Bvx8m/CYbtpk3KC4gyOhUuy9ZdT02zHbbHqq
+   ZE6sywm6Mik0kFwWTMEYMf2j3mFPhVJnfyPcmjyvvEM47C3g24XXxcNCq
+   5rlRZpbvNmNK79xhNRg1901xchuSLXjXZmHIJcKcMNnzWXXBeI1EiJicT
+   q4YYwyo5aef33bvUDFDDkLeOx0CFFsZvHvtBGNIMZKFoLb7KQIbJZ8VDU
+   Dr54VI5ZMsry3vv3Da+SbZHvmW1ePoMFINKiHR7msCTHHowjUfUGC2Rla
+   Q==;
+X-CSE-ConnectionGUID: hsWbRQxtS1OfDzctDg7spA==
+X-CSE-MsgGUID: V5xZb2TTQAaqRgOzlVpl0g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11547"; a="70790814"
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="70790814"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 03:10:28 -0700
+X-CSE-ConnectionGUID: s0J5BQaFSXm+vy5L4YS1Fw==
+X-CSE-MsgGUID: yKHGTP2uTp2Gxeds2WxM2g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="172314372"
+Received: from kuha.fi.intel.com ([10.237.72.152])
+  by orviesa010.jf.intel.com with SMTP; 09 Sep 2025 03:10:22 -0700
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Tue, 09 Sep 2025 13:10:21 +0300
+Date: Tue, 9 Sep 2025 13:10:21 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Sven Peter <sven@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH v2 15/22] usb: typec: tipd: Handle mode transitions for
+ CD321x
+Message-ID: <aL_9DShYiN1GZKgm@kuha.fi.intel.com>
+References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
+ <20250906-atcphy-6-17-v2-15-52c348623ef6@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908073931.4159362-3-kevin.brodsky@arm.com>
- <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
- <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Bd3yzkLk5BdWDE2OzPai-EvUooXnZabz4iKrDzO55Sw_1757412592
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250906-atcphy-6-17-v2-15-52c348623ef6@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_030955_439266_DAF4D7DE 
-X-CRM114-Status: GOOD (  21.00  )
+X-CRM114-CacheID: sfid-20250909_031028_842778_9578B203 
+X-CRM114-Status: GOOD (  40.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,70 +97,480 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09.09.25 11:40, Alexander Gordeev wrote:
-> On Tue, Sep 09, 2025 at 11:07:36AM +0200, David Hildenbrand wrote:
->> On 08.09.25 09:39, Kevin Brodsky wrote:
->>> arch_{enter,leave}_lazy_mmu_mode() currently have a stateless API
->>> (taking and returning no value). This is proving problematic in
->>> situations where leave() needs to restore some context back to its
->>> original state (before enter() was called). In particular, this
->>> makes it difficult to support the nesting of lazy_mmu sections -
->>> leave() does not know whether the matching enter() call occurred
->>> while lazy_mmu was already enabled, and whether to disable it or
->>> not.
->>>
->>> This patch gives all architectures the chance to store local state
->>> while inside a lazy_mmu section by making enter() return some value,
->>> storing it in a local variable, and having leave() take that value.
->>> That value is typed lazy_mmu_state_t - each architecture defining
->>> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is free to define it as it sees fit.
->>> For now we define it as int everywhere, which is sufficient to
->>> support nesting.
-> ...
->>> {
->>> + lazy_mmu_state_t lazy_mmu_state;
->>> ...
->>> - arch_enter_lazy_mmu_mode();
->>> + lazy_mmu_state = arch_enter_lazy_mmu_mode();
->>> ...
->>> - arch_leave_lazy_mmu_mode();
->>> + arch_leave_lazy_mmu_mode(lazy_mmu_state);
->>> ...
->>> }
->>>
->>> * In a few cases (e.g. xen_flush_lazy_mmu()), a function knows that
->>>     lazy_mmu is already enabled, and it temporarily disables it by
->>>     calling leave() and then enter() again. Here we want to ensure
->>>     that any operation between the leave() and enter() calls is
->>>     completed immediately; for that reason we pass LAZY_MMU_DEFAULT to
->>>     leave() to fully disable lazy_mmu. enter() will then re-enable it
->>>     - this achieves the expected behaviour, whether nesting occurred
->>>     before that function was called or not.
->>>
->>> Note: it is difficult to provide a default definition of
->>> lazy_mmu_state_t for architectures implementing lazy_mmu, because
->>> that definition would need to be available in
->>> arch/x86/include/asm/paravirt_types.h and adding a new generic
->>>    #include there is very tricky due to the existing header soup.
->>
->> Yeah, I was wondering about exactly that.
->>
->> In particular because LAZY_MMU_DEFAULT etc resides somewehere compeltely
->> different.
->>
->> Which raises the question: is using a new type really of any benefit here?
->>
->> Can't we just use an "enum lazy_mmu_state" and call it a day?
+On Sat, Sep 06, 2025 at 03:43:28PM +0000, Sven Peter wrote:
+> From: Hector Martin <marcan@marcan.st>
 > 
-> I could envision something completely different for this type on s390,
-> e.g. a pointer to a per-cpu structure. So I would really ask to stick
-> with the current approach.
+> On Apple Silicon machines there is no control over which alt mode is
+> chosen. The CD321x' firmware negotiates the target mode on its own and
+> only lets the main CPU know after the mode has already been chosen.
+> Especially after plugging a new cable in this can result to quick mode
+> changes from e.g. power only -> USB3 only -> USB3+DisplayPort in a short
+> time. It is not possile to influence this in any way and we also do not
+> get direct access to the PDOs or VDOs exchanged via USB PD.
+> 
+> Additionally, mode changes must be tightly synchronized between DWC3 and
+> the Type C PHY and most mode changes require a full reset of DWC3 to
+> make the port work correctly.
+> On the machines the usb role change is used to reset the controller.
+> The role change is additionally done synchronously from the callback
+> instead of relying on a workqueue as usual in order to avoid any races
+> which can, in the worst case, result in resetting the entire SoC if
+> Type-C PHY and DWC3 are out of sync.
+> 
+> To be able to control all this we trigger the entire process in the
+> correct order directly from the TIPD driver and de-bounce any mode
+> changes to avoid tearing down and re-setting DWC3 back up multiple times
+> any time a new connection is made.
+> 
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Co-developed-by: Sven Peter <sven@kernel.org>
+> Signed-off-by: Sven Peter <sven@kernel.org>
 
-Would that integrate well with LAZY_MMU_DEFAULT etc?
+Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+
+> ---
+>  drivers/usb/typec/tipd/core.c | 297 +++++++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 293 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+> index b558fc5ecbc35a9dabbf33c444f38173740af7c3..95218e8be65dbbb594465961b1fda76eed1e266c 100644
+> --- a/drivers/usb/typec/tipd/core.c
+> +++ b/drivers/usb/typec/tipd/core.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/usb/typec.h>
+>  #include <linux/usb/typec_altmode.h>
+>  #include <linux/usb/typec_dp.h>
+> +#include <linux/usb/typec_mux.h>
+>  #include <linux/usb/typec_tbt.h>
+>  #include <linux/usb/role.h>
+>  #include <linux/workqueue.h>
+> @@ -120,6 +121,9 @@ struct tps6598x_intel_vid_status_reg {
+>  #define TPS_TASK_TIMEOUT		1
+>  #define TPS_TASK_REJECTED		3
+>  
+> +/* Debounce delay for mode changes, in milliseconds */
+> +#define CD321X_DEBOUNCE_DELAY_MS 500
+> +
+>  enum {
+>  	TPS_MODE_APP,
+>  	TPS_MODE_BOOT,
+> @@ -145,6 +149,7 @@ struct tipd_data {
+>  	irq_handler_t irq_handler;
+>  	u64 irq_mask1;
+>  	size_t tps_struct_size;
+> +	void (*remove)(struct tps6598x *tps);
+>  	int (*register_port)(struct tps6598x *tps, struct fwnode_handle *node);
+>  	void (*unregister_port)(struct tps6598x *tps);
+>  	void (*trace_data_status)(u32 status);
+> @@ -155,6 +160,7 @@ struct tipd_data {
+>  	int (*switch_power_state)(struct tps6598x *tps, u8 target_state);
+>  	bool (*read_data_status)(struct tps6598x *tps);
+>  	int (*reset)(struct tps6598x *tps);
+> +	int (*connect)(struct tps6598x *tps, u32 status);
+>  };
+>  
+>  struct tps6598x {
+> @@ -183,6 +189,17 @@ struct tps6598x {
+>  	const struct tipd_data *data;
+>  };
+>  
+> +struct cd321x_status {
+> +	u32 status;
+> +	u32 pwr_status;
+> +	u32 data_status;
+> +	u32 status_changed;
+> +	struct usb_pd_identity partner_identity;
+> +	struct tps6598x_dp_sid_status_reg dp_sid_status;
+> +	struct tps6598x_intel_vid_status_reg intel_vid_status;
+> +	struct tps6598x_usb4_status_reg usb4_status;
+> +};
+> +
+>  struct cd321x {
+>  	struct tps6598x tps;
+>  
+> @@ -192,6 +209,13 @@ struct cd321x {
+>  
+>  	struct typec_altmode *port_altmode_dp;
+>  	struct typec_altmode *port_altmode_tbt;
+> +
+> +	struct typec_mux *mux;
+> +	struct typec_mux_state state;
+> +
+> +	struct cd321x_status update_status;
+> +	struct delayed_work update_work;
+> +	struct usb_pd_identity cur_partner_identity;
+>  };
+>  
+>  static enum power_supply_property tps6598x_psy_props[] = {
+> @@ -613,9 +637,229 @@ static void tps6598x_handle_plug_event(struct tps6598x *tps, u32 status)
+>  	}
+>  }
+>  
+> +static void cd321x_typec_update_mode(struct tps6598x *tps, struct cd321x_status *st)
+> +{
+> +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+> +
+> +	if (!(st->data_status & TPS_DATA_STATUS_DATA_CONNECTION)) {
+> +		if (cd321x->state.mode == TYPEC_STATE_SAFE)
+> +			return;
+> +		cd321x->state.alt = NULL;
+> +		cd321x->state.mode = TYPEC_STATE_SAFE;
+> +		cd321x->state.data = NULL;
+> +		typec_mux_set(cd321x->mux, &cd321x->state);
+> +	} else if (st->data_status & TPS_DATA_STATUS_DP_CONNECTION) {
+> +		struct typec_displayport_data dp_data;
+> +		unsigned long mode;
+> +
+> +		switch (TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT(st->data_status)) {
+> +		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_A:
+> +			mode = TYPEC_DP_STATE_A;
+> +			break;
+> +		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_B:
+> +			mode = TYPEC_DP_STATE_B;
+> +			break;
+> +		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_C:
+> +			mode = TYPEC_DP_STATE_C;
+> +			break;
+> +		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_D:
+> +			mode = TYPEC_DP_STATE_D;
+> +			break;
+> +		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_E:
+> +			mode = TYPEC_DP_STATE_E;
+> +			break;
+> +		case TPS_DATA_STATUS_DP_SPEC_PIN_ASSIGNMENT_F:
+> +			mode = TYPEC_DP_STATE_F;
+> +			break;
+> +		default:
+> +			dev_err(tps->dev, "Invalid DP pin assignment\n");
+> +			return;
+> +		}
+> +
+> +		if (cd321x->state.alt == cd321x->port_altmode_dp &&
+> +		   cd321x->state.mode == mode) {
+> +			return;
+> +		}
+> +
+> +		dp_data.status = le32_to_cpu(st->dp_sid_status.status_rx);
+> +		dp_data.conf = le32_to_cpu(st->dp_sid_status.configure);
+> +		cd321x->state.alt = cd321x->port_altmode_dp;
+> +		cd321x->state.data = &dp_data;
+> +		cd321x->state.mode = mode;
+> +		typec_mux_set(cd321x->mux, &cd321x->state);
+> +	} else if (st->data_status & TPS_DATA_STATUS_TBT_CONNECTION) {
+> +		struct typec_thunderbolt_data tbt_data;
+> +
+> +		if (cd321x->state.alt == cd321x->port_altmode_tbt &&
+> +		   cd321x->state.mode == TYPEC_TBT_MODE)
+> +			return;
+> +
+> +		tbt_data.cable_mode = le16_to_cpu(st->intel_vid_status.cable_mode);
+> +		tbt_data.device_mode = le16_to_cpu(st->intel_vid_status.device_mode);
+> +		tbt_data.enter_vdo = le16_to_cpu(st->intel_vid_status.enter_vdo);
+> +		cd321x->state.alt = cd321x->port_altmode_tbt;
+> +		cd321x->state.mode = TYPEC_TBT_MODE;
+> +		cd321x->state.data = &tbt_data;
+> +		typec_mux_set(cd321x->mux, &cd321x->state);
+> +	} else if (st->data_status & CD321X_DATA_STATUS_USB4_CONNECTION) {
+> +		struct enter_usb_data eusb_data;
+> +
+> +		if (cd321x->state.alt == NULL && cd321x->state.mode == TYPEC_MODE_USB4)
+> +			return;
+> +
+> +		eusb_data.eudo = le32_to_cpu(st->usb4_status.eudo);
+> +		eusb_data.active_link_training =
+> +			!!(st->data_status & TPS_DATA_STATUS_ACTIVE_LINK_TRAIN);
+> +
+> +		cd321x->state.alt = NULL;
+> +		cd321x->state.data = &eusb_data;
+> +		cd321x->state.mode = TYPEC_MODE_USB4;
+> +		typec_mux_set(cd321x->mux, &cd321x->state);
+> +	} else {
+> +		if (cd321x->state.alt == NULL && cd321x->state.mode == TYPEC_STATE_USB)
+> +			return;
+> +		cd321x->state.alt = NULL;
+> +		cd321x->state.mode = TYPEC_STATE_USB;
+> +		cd321x->state.data = NULL;
+> +		typec_mux_set(cd321x->mux, &cd321x->state);
+> +	}
+> +}
+> +
+> +static void cd321x_update_work(struct work_struct *work)
+> +{
+> +	struct cd321x *cd321x = container_of(to_delayed_work(work),
+> +					    struct cd321x, update_work);
+> +	struct tps6598x *tps = &cd321x->tps;
+> +	struct cd321x_status st;
+> +
+> +	guard(mutex)(&tps->lock);
+> +
+> +	st = cd321x->update_status;
+> +	cd321x->update_status.status_changed = 0;
+> +
+> +	bool old_connected = !!tps->partner;
+> +	bool new_connected = st.status & TPS_STATUS_PLUG_PRESENT;
+> +	bool was_disconnected = st.status_changed & TPS_STATUS_PLUG_PRESENT;
+> +
+> +	bool usb_connection = st.data_status &
+> +			      (TPS_DATA_STATUS_USB2_CONNECTION | TPS_DATA_STATUS_USB3_CONNECTION);
+> +
+> +	enum usb_role old_role = usb_role_switch_get_role(tps->role_sw);
+> +	enum usb_role new_role = USB_ROLE_NONE;
+> +	enum typec_pwr_opmode pwr_opmode = TYPEC_PWR_MODE_USB;
+> +	enum typec_orientation orientation = TYPEC_ORIENTATION_NONE;
+> +
+> +	if (usb_connection) {
+> +		if (tps->data_status & TPS_DATA_STATUS_USB_DATA_ROLE)
+> +			new_role = USB_ROLE_DEVICE;
+> +		else
+> +			new_role = USB_ROLE_HOST;
+> +	}
+> +
+> +	if (new_connected) {
+> +		pwr_opmode = TPS_POWER_STATUS_PWROPMODE(st.pwr_status);
+> +		orientation = TPS_STATUS_TO_UPSIDE_DOWN(st.status) ?
+> +			TYPEC_ORIENTATION_REVERSE : TYPEC_ORIENTATION_NORMAL;
+> +	}
+> +
+> +	bool is_pd = pwr_opmode == TYPEC_PWR_MODE_PD;
+> +	bool partner_changed = old_connected && new_connected &&
+> +		(was_disconnected ||
+> +		 (is_pd && memcmp(&st.partner_identity,
+> +				  &cd321x->cur_partner_identity, sizeof(struct usb_pd_identity))));
+> +
+> +	/* If we are switching from an active role, transition to USB_ROLE_NONE first */
+> +	if (old_role != USB_ROLE_NONE && (new_role != old_role || was_disconnected))
+> +		usb_role_switch_set_role(tps->role_sw, USB_ROLE_NONE);
+> +
+> +	/* Process partner disconnection or change */
+> +	if (!new_connected || partner_changed) {
+> +		if (!IS_ERR(tps->partner))
+> +			typec_unregister_partner(tps->partner);
+> +		tps->partner = NULL;
+> +	}
+> +
+> +	/* If there was a disconnection, set PHY to off */
+> +	if (!new_connected || was_disconnected) {
+> +		cd321x->state.alt = NULL;
+> +		cd321x->state.mode = TYPEC_STATE_SAFE;
+> +		cd321x->state.data = NULL;
+> +		typec_set_mode(tps->port, TYPEC_STATE_SAFE);
+> +	}
+> +
+> +	/* Update Type-C properties */
+> +	typec_set_pwr_opmode(tps->port, pwr_opmode);
+> +	typec_set_pwr_role(tps->port, TPS_STATUS_TO_TYPEC_PORTROLE(st.status));
+> +	typec_set_vconn_role(tps->port, TPS_STATUS_TO_TYPEC_VCONN(st.status));
+> +	typec_set_orientation(tps->port, orientation);
+> +	typec_set_data_role(tps->port, TPS_STATUS_TO_TYPEC_DATAROLE(st.status));
+> +	power_supply_changed(tps->psy);
+> +
+> +	/* If the plug is disconnected, we are done */
+> +	if (!new_connected)
+> +		return;
+> +
+> +	/* Set up partner if we were previously disconnected (or changed). */
+> +	if (!tps->partner) {
+> +		struct typec_partner_desc desc;
+> +
+> +		desc.usb_pd = is_pd;
+> +		desc.accessory = TYPEC_ACCESSORY_NONE; /* XXX: handle accessories */
+> +		desc.identity = NULL;
+> +
+> +		if (desc.usb_pd)
+> +			desc.identity = &st.partner_identity;
+> +
+> +		tps->partner = typec_register_partner(tps->port, &desc);
+> +		if (IS_ERR(tps->partner))
+> +			dev_warn(tps->dev, "%s: failed to register partnet\n", __func__);
+> +
+> +		if (desc.identity) {
+> +			typec_partner_set_identity(tps->partner);
+> +			cd321x->cur_partner_identity = st.partner_identity;
+> +		}
+> +	}
+> +
+> +	/* Update the TypeC MUX/PHY state */
+> +	cd321x_typec_update_mode(tps, &st);
+> +
+> +	/* Launch the USB role switch */
+> +	usb_role_switch_set_role(tps->role_sw, new_role);
+> +
+> +	power_supply_changed(tps->psy);
+> +}
+> +
+> +static void cd321x_queue_status(struct tps6598x *tps)
+> +{
+> +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+> +
+> +	cd321x->update_status.status_changed |= cd321x->update_status.status ^ tps->status;
+> +
+> +	cd321x->update_status.status = tps->status;
+> +	cd321x->update_status.pwr_status = tps->pwr_status;
+> +	cd321x->update_status.data_status = tps->data_status;
+> +
+> +	cd321x->update_status.partner_identity = tps->partner_identity;
+> +	cd321x->update_status.dp_sid_status = cd321x->dp_sid_status;
+> +	cd321x->update_status.intel_vid_status = cd321x->intel_vid_status;
+> +	cd321x->update_status.usb4_status = cd321x->usb4_status;
+> +}
+> +
+> +static int cd321x_connect(struct tps6598x *tps, u32 status)
+> +{
+> +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+> +
+> +	tps->status = status;
+> +	cd321x_queue_status(tps);
+> +	schedule_delayed_work(&cd321x->update_work, msecs_to_jiffies(CD321X_DEBOUNCE_DELAY_MS));
+> +
+> +	return 0;
+> +}
+> +
+>  static irqreturn_t cd321x_interrupt(int irq, void *data)
+>  {
+>  	struct tps6598x *tps = data;
+> +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+>  	u64 event = 0;
+>  	u32 status;
+>  	int ret;
+> @@ -652,9 +896,15 @@ static irqreturn_t cd321x_interrupt(int irq, void *data)
+>  		if (!tps->data->read_data_status(tps))
+>  			goto err_unlock;
+>  
+> -	/* Handle plug insert or removal */
+> -	if (event & APPLE_CD_REG_INT_PLUG_EVENT)
+> -		tps6598x_handle_plug_event(tps, status);
+> +	tps->status = status;
+> +	cd321x_queue_status(tps);
+> +
+> +	/*
+> +	 * Cancel pending work if not already running.
+> +	 * We will requeue the work after CD321X_DEBOUNCE_DELAY_MS regardless.
+> +	 */
+> +	cancel_delayed_work(&cd321x->update_work);
+> +	schedule_delayed_work(&cd321x->update_work, msecs_to_jiffies(CD321X_DEBOUNCE_DELAY_MS));
+>  
+>  err_unlock:
+>  	mutex_unlock(&tps->lock);
+> @@ -1014,6 +1264,13 @@ cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+>  	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+>  	int ret;
+>  
+> +	/*
+> +	 * This is only called from _probe such that update_work can be
+> +	 * initialized and then scheduled for the first time to handle
+> +	 * plugs already connected at boot time.
+> +	 */
+> +	INIT_DELAYED_WORK(&cd321x->update_work, cd321x_update_work);
+> +
+>  	ret = tps6598x_register_port(tps, fwnode);
+>  	if (ret)
+>  		return ret;
+> @@ -1022,10 +1279,26 @@ cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+>  	if (ret)
+>  		goto err_unregister_port;
+>  
+> +	cd321x->mux = fwnode_typec_mux_get(fwnode);
+> +	if (IS_ERR(cd321x->mux)) {
+> +		ret = PTR_ERR(cd321x->mux);
+> +		goto err_unregister_altmodes;
+> +	}
+> +
+> +	cd321x->state.alt = NULL;
+> +	cd321x->state.mode = TYPEC_STATE_SAFE;
+> +	cd321x->state.data = NULL;
+>  	typec_set_mode(tps->port, TYPEC_STATE_SAFE);
+>  
+>  	return 0;
+>  
+> +err_unregister_altmodes:
+> +	if (cd321x->port_altmode_dp)
+> +		typec_unregister_altmode(cd321x->port_altmode_dp);
+> +	if (cd321x->port_altmode_tbt)
+> +		typec_unregister_altmode(cd321x->port_altmode_tbt);
+> +	cd321x->port_altmode_dp = NULL;
+> +	cd321x->port_altmode_tbt = NULL;
+>  err_unregister_port:
+>  	typec_unregister_port(tps->port);
+>  	return ret;
+> @@ -1042,6 +1315,8 @@ cd321x_unregister_port(struct tps6598x *tps)
+>  {
+>  	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+>  
+> +	if (cd321x->mux)
+> +		typec_mux_put(cd321x->mux);
+>  	typec_unregister_altmode(cd321x->port_altmode_dp);
+>  	cd321x->port_altmode_dp = NULL;
+>  	typec_unregister_altmode(cd321x->port_altmode_tbt);
+> @@ -1454,6 +1729,13 @@ tps25750_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+>  	return 0;
+>  }
+>  
+> +static void cd321x_remove(struct tps6598x *tps)
+> +{
+> +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+> +
+> +	cancel_delayed_work_sync(&cd321x->update_work);
+> +}
+> +
+>  static int tps6598x_probe(struct i2c_client *client)
+>  {
+>  	const struct tipd_data *data;
+> @@ -1555,7 +1837,7 @@ static int tps6598x_probe(struct i2c_client *client)
+>  			goto err_unregister_port;
+>  		if (!tps->data->read_data_status(tps))
+>  			goto err_unregister_port;
+> -		ret = tps6598x_connect(tps, status);
+> +		ret = tps->data->connect(tps, status);
+>  		if (ret)
+>  			dev_err(&client->dev, "failed to register partner\n");
+>  	}
+> @@ -1612,6 +1894,9 @@ static void tps6598x_remove(struct i2c_client *client)
+>  	else
+>  		devm_free_irq(tps->dev, client->irq, tps);
+>  
+> +	if (tps->data->remove)
+> +		tps->data->remove(tps);
+> +
+>  	tps6598x_disconnect(tps, 0);
+>  	tps->data->unregister_port(tps);
+>  	usb_role_switch_put(tps->role_sw);
+> @@ -1682,6 +1967,7 @@ static const struct tipd_data cd321x_data = {
+>  		     APPLE_CD_REG_INT_DATA_STATUS_UPDATE |
+>  		     APPLE_CD_REG_INT_PLUG_EVENT,
+>  	.tps_struct_size = sizeof(struct cd321x),
+> +	.remove = cd321x_remove,
+>  	.register_port = cd321x_register_port,
+>  	.unregister_port = cd321x_unregister_port,
+>  	.trace_data_status = trace_cd321x_data_status,
+> @@ -1691,6 +1977,7 @@ static const struct tipd_data cd321x_data = {
+>  	.read_data_status = cd321x_read_data_status,
+>  	.reset = cd321x_reset,
+>  	.switch_power_state = cd321x_switch_power_state,
+> +	.connect = cd321x_connect,
+>  };
+>  
+>  static const struct tipd_data tps6598x_data = {
+> @@ -1708,6 +1995,7 @@ static const struct tipd_data tps6598x_data = {
+>  	.init = tps6598x_init,
+>  	.read_data_status = tps6598x_read_data_status,
+>  	.reset = tps6598x_reset,
+> +	.connect = tps6598x_connect,
+>  };
+>  
+>  static const struct tipd_data tps25750_data = {
+> @@ -1725,6 +2013,7 @@ static const struct tipd_data tps25750_data = {
+>  	.init = tps25750_init,
+>  	.read_data_status = tps6598x_read_data_status,
+>  	.reset = tps25750_reset,
+> +	.connect = tps6598x_connect,
+>  };
+>  
+>  static const struct of_device_id tps6598x_of_match[] = {
+> 
+> -- 
+> 2.34.1
+> 
 
 -- 
-Cheers
-
-David / dhildenb
-
+heikki
 
