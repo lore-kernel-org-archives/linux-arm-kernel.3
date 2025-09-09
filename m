@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A92DCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91757CAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wsKvrjJGv0UkEYxXDO4cXUq7rcvE2BZ3XBS7Bmsvw/s=; b=zK+P3vK4DIL7K084tODuWzqWk2
-	49elMwZGh803mfirH9Atkqjmz2fCruBguMqsYQ8xjh9Kll4L09BQ5FX5g5hpI6y8N8AC9gUpYxzrr
-	VFZnrphpoSQdDLq6351v84UND2y5HScVsiZavrRGvSKG9G4iQwSCb9T6a8eDvZ2ZQj2Z8yZJmU28x
-	4lb29wiwx/UNi0Kl1SUUm3Os5zXSv9i8/Uo9Ah3NjeIC2+KnxqsIZ4R5rEyDK+tj2P/Rh90zb/NF4
-	wYhvag/Z/2UnoxpgpTSRzHsfpOHwAqrolvQY0e9EtTEvGrMbX25FeyVDfryvCNkj60KeoxfdNOFcb
-	4Ne4NSdQ==;
+	bh=WrtxNVHwTJ4oyryUvdf8ihpCH/wC7AM/4lz7xfEKLZY=; b=rqLkEJzUSL6d4igVx/B3GFjnu4
+	C/ZCDxS0lDlVbYGRe4cwpTGq/vmUYv/0g9wB1OsMBgT0aVAnq+tZZesIpWqxIPuLES/z/XAjDhrdt
+	DoUyJjaDBzNdgLe7Ogmfy0SI+X7OeJQvnTs4ibyP2piXF/aHpqDUXrZhOtSdSUXE5BCf8DnH68554
+	fNIXzT6N6ayW7Fi0z6OBr5hn7RUHnZfS9VjvdAaTftAICsIb2+LVtTbPlcZzp9Muj7mTJWAXfZTgd
+	28ckFffYMnKEW1l1eadysfo0Mj+tQXNH6wGf3zM6xZpuoVwg3FsFVXESHSuI252vfH+ICv1SVb00t
+	D6cIO1hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvtkV-00000005aEd-2Yub;
-	Tue, 09 Sep 2025 08:30:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uvtnF-00000005b1J-2Sh7;
+	Tue, 09 Sep 2025 08:33:37 +0000
+Received: from mail-m1973173.qiye.163.com ([220.197.31.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsSk-000000053bP-27Up
+	id 1uvsUS-000000054M2-3taf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 07:08:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4280642B8A;
-	Tue,  9 Sep 2025 07:08:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3E88C4CEFC;
-	Tue,  9 Sep 2025 07:08:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757401702;
-	bh=JcX5sMd35IxrVvsTREydkJ8njtVmY4I5zmPtLgF6QXM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gN1rArAtvz/75KmFujq4tt7h8xv+e9c4gwZLWe4XarPYN5T7bfcFbBECZ1lLlxFGh
-	 KfDhB2QJLWt+ufb69W/TY0e5Zn5U+PmM/nIwx3589EgCfvXhHzToXMYLYYeyiyYp2R
-	 3rQxUboo2mzoSkafI2fJTFBEB4NTChvDqUIfc6ipTqBF4jSC1F7J6oCDyeRk6nm7uj
-	 f9cGhNEhlO+ilbxPGE9tkK4V0Aea6WSttF773F14jdCgCih410ghlO2cfbi1Vtzxh2
-	 G2Ae89o4mWE/KXuiIvPWkZoAt47JfCpMZGTpt5gb7R0vDahFGRoIwGNJVvpmvQHVIA
-	 ZvEBnJ69Qz1DQ==
-From: Manivannan Sadhasivam <mani@kernel.org>
-Date: Tue, 09 Sep 2025 12:37:53 +0530
-Subject: [PATCH v9 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
- 'CFG Shift Feature'
+	Tue, 09 Sep 2025 07:10:10 +0000
+Received: from albert-OptiPlex-7080.. (unknown [117.184.129.134])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 222bd6686;
+	Tue, 9 Sep 2025 15:09:59 +0800 (GMT+08:00)
+From: Albert Yang <yangzh0906@thundersoft.com>
+To: krzk@kernel.org
+Cc: adrian.hunter@intel.com,
+	arnd@arndb.de,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	gordon.ge@bst.ai,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	robh@kernel.org,
+	yangzh0906@thundersoft.com
+Subject: Re: [PATCH v3 6/8] arm64: dts: bst: add support for Black Sesame Technologies C1200 CDCU1.0 board
+Date: Tue,  9 Sep 2025 15:09:58 +0800
+Message-ID: <20250909070958.2254093-1-yangzh0906@thundersoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179f19c0-d9fc-4efb-bc78-8dc1e7505b13@kernel.org>
+References: <179f19c0-d9fc-4efb-bc78-8dc1e7505b13@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250909-controller-dwc-ecam-v9-4-7d5b651840dd@kernel.org>
-References: <20250909-controller-dwc-ecam-v9-0-7d5b651840dd@kernel.org>
-In-Reply-To: <20250909-controller-dwc-ecam-v9-0-7d5b651840dd@kernel.org>
-To: Jingoo Han <jingoohan1@gmail.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Jonathan Chocron <jonnyc@amazon.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- Manivannan Sadhasivam <mani@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5632; i=mani@kernel.org;
- h=from:subject:message-id; bh=/cFYYevGob1uAYxI4ZncSQu20U+0sPloWtq5jp0SqWs=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBov9JOzFKBNccdGX6QZq4yGjuITchaiJw5Ob019
- XAM25bOlk6JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaL/STgAKCRBVnxHm/pHO
- 9aasCACqatn67Ql5bQeCfBts9M21TM04X9aRVPDyAob6aynLyET/6ham/DM07Tf3OCC64v/gyyL
- JZtgJYfI/eL1IFMbZ76aq2XYG/aaKzaRWByTLMitfZgws0mduVR6k3Yd7AQNthFSKNLjHr5htMP
- dQilfqe6V1qXb6vblK20opUchcwr9/9h+0olkPhQQC7F/JrgPeLZ3f5/YfySyhCszHdEcDnEdTR
- dHTtdRIUgXce+jsapHTXXzNIM1XtUbArKKa8WsQRI2tX4Ro5h/KxvOzl4ZQ1LJ8ZlSla6WX+wuB
- U0jQsMnafSP8j/Ok5/iRhi+welAoPmXH2EB0an2jzEmiAnfl
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a992d4f5a6d09cckunm2b88969717a32b
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDQhlLVh1LHxlOH00fSRhKHlYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
+	tLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=XzZSHQbcF9ZJs+G5NZSq2VaVBGuGZYoNSGiWDlxe8Cwqf+CB5cB9YWCziVpWDskPmAZ7avSRJpKDGQAub291cHtmX+BNY9y9tl4tSvuYymgslhONcgfaZ+7aMbdSqqKHJmO8fzENUjWKvd5TVhRNK0vAxvCq8C67L5Qo4+hT4q4=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
+	bh=WrtxNVHwTJ4oyryUvdf8ihpCH/wC7AM/4lz7xfEKLZY=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_000822_602628_DBA70A55 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20250909_001009_142403_7660F067 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,142 +77,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+On Fri, Sep 05, 2025 at 09:23:48AM +0200, Krzysztof Kozlowski wrote:
+> On 03/09/2025 09:06, Albert Yang wrote:
+> >>
 
-Designware databook r5.20a, sec 3.10.10.3 documents the 'CFG Shift Feature'
-of the internal Address Translation Unit (iATU). When this feature is
-enabled, it shifts/maps the BDF contained in the bits [27:12] of the target
-address in MEM TLP to become BDF of the CFG TLP. This essentially
-implements the Enhanced Configuration Address Mapping (ECAM) mechanism as
-defined in PCIe r6.0, sec 7.2.2.
+> > However, I'm uncertain about how to order properties that start with "#".
+> > I have treated them as standard/common properties and updated the node as follows.
+> > Could you please confirm if this approach is correct?
+>
+> They go as standard common properties. Whether you group all '#'
+> together or sort by name skipping '#' is up to you, because common style
+> does not define that.
+>
+> >
+> >
+> >             gic: interrupt-controller@32800000 {
+> >                     compatible = "arm,gic-v3";
+> >                     reg = <0x0 0x32800000 0x0 0x10000>,
+> >                           <0x0 0x32880000 0x0 0x100000>;
+> >                     ranges;
+> >                     #address-cells = <2>;
+> >                     #interrupt-cells = <3>;
+> >                     interrupt-controller;
+> >                     interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
+> >                     #size-cells = <2>;
+>
+> I would keep #size-cells after #address-cells, because they describe
+> same thing - addressing of children.
 
-Currently, the driver is not making use of this CFG shift feature, thereby
-creating the iATU outbound map for each config access to the devices,
-causing latency and wasting CPU cycles.
+Thank you for your feedback and confirmation. I will update the node 
+according to your suggestions as follows:
 
-So to avoid this, configure the controller to enable CFG shift feature by
-enabling the 'CFG Shift' bit of the 'iATU Control 2 Register'.
+        gic: interrupt-controller@32800000 {
+            compatible = "arm,gic-v3";
+            reg = <0x0 0x32800000 0x0 0x10000>,
+                  <0x0 0x32880000 0x0 0x100000>;
+            ranges;
+            #address-cells = <2>;
+            #size-cells = <2>;
+            #interrupt-cells = <3>;
+            interrupt-controller;
+            interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
+        };
 
-As a result of enabling CFG shift (ECAM), there is longer a need to map the
-DBI register space separately as the DBI region falls under the 'config'
-space used for ECAM (as DBI is used to access the Root Port).
-
-For enabling ECAM using CFG shift, the platform has to satisfy following
-requirements:
-
-  1. Size of the 'config' memory space to be used as ECAM memory should be
-     able to accommodate the number of buses defined in the 'bus-range'
-     property of the host bridge DT node.
-
-  2. The 'config' memory space should be 256 MiB aligned. This requirement
-     comes from PCIe r6.0, sec 7.2.2, which says the base address of ECAM
-     memory should be aligned to a 2^(n+20) byte address boundary. For the
-     DWC cores, n is 8, so this results in 2^28 byte alignment requirement.
-
-It should be noted that some DWC vendor glue drivers like pcie-al may use
-their own ECAM mechanism. For those controllers, set
-'dw_pcie_rp::native_ecam' flag and skip enabling the CFG Shift feature in
-the DWC core.
-
-Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-[mani: code split, reworded subject/description, comment, native_ecam flag]
-Signed-off-by: Manivannan Sadhasivam <mani@kernel.org>
----
- drivers/pci/controller/dwc/pcie-al.c              |  1 +
- drivers/pci/controller/dwc/pcie-designware-host.c | 32 +++++++++++++++++++++++
- drivers/pci/controller/dwc/pcie-designware.h      |  1 +
- 3 files changed, 34 insertions(+)
-
-diff --git a/drivers/pci/controller/dwc/pcie-al.c b/drivers/pci/controller/dwc/pcie-al.c
-index 643115f74092d1c9319e9738db6e94b2752d30c4..345c281c74fefd2113233ef5461f96834b3765de 100644
---- a/drivers/pci/controller/dwc/pcie-al.c
-+++ b/drivers/pci/controller/dwc/pcie-al.c
-@@ -352,6 +352,7 @@ static int al_pcie_probe(struct platform_device *pdev)
- 		return -ENOENT;
- 	}
- 	al_pcie->ecam_size = resource_size(ecam_res);
-+	pci->pp.native_ecam = true;
- 
- 	controller_res = platform_get_resource_byname(pdev, IORESOURCE_MEM,
- 						      "controller");
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 94e0fe11a0b062d0f14e09fe586e20bde46a4266..20c9333bcb1c4812e2fd96047a49944574df1e6f 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -8,6 +8,7 @@
-  * Author: Jingoo Han <jg1.han@samsung.com>
-  */
- 
-+#include <linux/align.h>
- #include <linux/iopoll.h>
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqchip/irq-msi-lib.h>
-@@ -32,6 +33,8 @@ static struct pci_ops dw_child_pcie_ops;
- 				     MSI_FLAG_PCI_MSIX			| \
- 				     MSI_GENERIC_FLAGS_MASK)
- 
-+#define IS_256MB_ALIGNED(x) IS_ALIGNED(x, SZ_256M)
-+
- static const struct msi_parent_ops dw_pcie_msi_parent_ops = {
- 	.required_flags		= DW_PCIE_MSI_FLAGS_REQUIRED,
- 	.supported_flags	= DW_PCIE_MSI_FLAGS_SUPPORTED,
-@@ -474,6 +477,34 @@ static int dw_pcie_create_ecam_window(struct dw_pcie_rp *pp, struct resource *re
- 	return 0;
- }
- 
-+static bool dw_pcie_ecam_enabled(struct dw_pcie_rp *pp, struct resource *config_res)
-+{
-+	struct resource *bus_range;
-+	u64 nr_buses;
-+
-+	/* Vendor glue drivers may implement their own ECAM mechanism */
-+	if (pp->native_ecam)
-+		return false;
-+
-+	/*
-+	 * PCIe spec r6.0, sec 7.2.2 mandates the base address used for ECAM to
-+	 * be aligned on a 2^(n+20) byte boundary, where n is the number of bits
-+	 * used for representing 'bus' in BDF. Since the DWC cores always use 8
-+	 * bits for representing 'bus', the base address has to be aligned to
-+	 * 2^28 byte boundary, which is 256 MiB.
-+	 */
-+	if (!IS_256MB_ALIGNED(config_res->start))
-+		return false;
-+
-+	bus_range = resource_list_first_type(&pp->bridge->windows, IORESOURCE_BUS)->res;
-+	if (!bus_range)
-+		return false;
-+
-+	nr_buses = resource_size(config_res) >> PCIE_ECAM_BUS_SHIFT;
-+
-+	return nr_buses >= resource_size(bus_range);
-+}
-+
- static int dw_pcie_host_get_resources(struct dw_pcie_rp *pp)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-@@ -492,6 +523,7 @@ static int dw_pcie_host_get_resources(struct dw_pcie_rp *pp)
- 	pp->cfg0_size = resource_size(res);
- 	pp->cfg0_base = res->start;
- 
-+	pp->ecam_enabled = dw_pcie_ecam_enabled(pp, res);
- 	if (pp->ecam_enabled) {
- 		ret = dw_pcie_create_ecam_window(pp, res);
- 		if (ret)
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index cfeb99b89c3739b867a54da38e0f94835c2ce3a0..6ec0a737294b2a69bbcc05bbdbe0a11c5f8310bb 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -430,6 +430,7 @@ struct dw_pcie_rp {
- 	struct pci_eq_presets	presets;
- 	struct pci_config_window *cfg;
- 	bool			ecam_enabled;
-+	bool			native_ecam;
- };
- 
- struct dw_pcie_ep_ops {
-
--- 
-2.45.2
-
+Best Regards,
+Albert
 
