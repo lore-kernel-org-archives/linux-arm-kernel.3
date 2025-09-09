@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA4BDCAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:06:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF366CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j76D2eKgj+18Qci12x7D9twyt+MIK82IREBpY5xonV8=; b=SCx/2pbSY4DNlw3uSPSH0ZSBVx
-	Gd0CPqbCKJubgcdWi2fRpkQJasGbKWa6lTUKGvU+np7BBVAH8yt/R1RA/JcZz1woI01MW2BLWpTx+
-	6i3B0BiqNMkQsrkPUrakL9UNaEubbbCyZm4shqt8T/7EkONXSXa2/mAQg6znpbeTWE+Bpc/20NzH1
-	ctn3Vd7Y2RESc/wHHo0TJISF2gDIkvxJWlMY/uD57qNWkVP/lPqaTigszzguXyybyepX8QWIABJNy
-	WmfCycefgDIp9rKE8rqHwU4joeRfGuMGezFfVkCc2yq16lpN8v6HK4mdAponEtfKuQVXjA6KUNvF+
-	suYHf02Q==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d8W0n5x8spKL+IvbzghJfWVOh+mJM8vxKWE1rtttPWs=; b=U6SmmQMnbldiBYNjH+I82ZVs9I
+	Sot8fpV4QIVCYuhXh0vJn1e9aQbL5raM5JiV5snkJEnZ2vuPp/DHvV+alIkJ3n4RTtDecfSp6BfiJ
+	E24CYALwhC+SCq/eP+mesRhCeqiWl5R+3fa7pve/IkpB2ZO7eB/e9iI6qsTdl6WhOW6qf/DxQj3iR
+	LCrKqQRjsiBajqc2I3ktlTmKgfx4iiiuX9XRbL7UQFbdXxJzdhQfYTUBdFJGATwXtIEdcJcpZ72tl
+	292xdvt/GhXCuGUOv3VrxwA2ZButzDQ5g8ltucLhBXH5nxOYZcQoQ023O/gFaq5CWyR3RQ0map9DQ
+	EQlgr5cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvtN9-00000005REM-17Ca;
-	Tue, 09 Sep 2025 08:06:39 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1uvtNA-00000005RGI-2aNB;
+	Tue, 09 Sep 2025 08:06:40 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvpHO-000000041IH-2C54
+	id 1uvqAU-00000004F3i-0E4T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 03:44:28 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4cLV3P29dHz24hwr;
-	Tue,  9 Sep 2025 11:41:05 +0800 (CST)
-Received: from dggpemf500013.china.huawei.com (unknown [7.185.36.188])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2EEB31A016C;
-	Tue,  9 Sep 2025 11:44:19 +0800 (CST)
-Received: from huawei.com (10.50.165.33) by dggpemf500013.china.huawei.com
- (7.185.36.188) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 9 Sep
- 2025 11:44:18 +0800
-From: Jinqian Yang <yangjinqian1@huawei.com>
-To: <oliver.upton@linux.dev>, <yuzenghui@huawei.com>, <maz@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <liuyonglong@huawei.com>,
-	<wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>
-Subject: [PATCH v2 2/3] KVM: arm64: Make ID_AA64MMFR1_EL1.TWED writable from userspace
-Date: Tue, 9 Sep 2025 11:44:14 +0800
-Message-ID: <20250909034415.3822478-3-yangjinqian1@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20250909034415.3822478-1-yangjinqian1@huawei.com>
-References: <20250909034415.3822478-1-yangjinqian1@huawei.com>
+	Tue, 09 Sep 2025 04:41:23 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5894fH7C4021460;
+	Mon, 8 Sep 2025 23:41:17 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757392878;
+	bh=d8W0n5x8spKL+IvbzghJfWVOh+mJM8vxKWE1rtttPWs=;
+	h=From:To:CC:Subject:Date;
+	b=WivCdV1qVqYRcl0IVYKtyS2o1YVLWedHEFCmSrH9Vip3tzzeTR78yTXFsg9Hd2V42
+	 Btzou6jU5+ij9kxSQ49a9EzdjeY4xGMUkFcy6JolMvP0FAzKr1+dlcwzoEiBm330ia
+	 u7bjzEXWzX84XvtyGv9VeyR76k2NYRtyzYfxjUW8=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5894fHoa2895033
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 23:41:17 -0500
+Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 23:41:16 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 23:41:16 -0500
+Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5894fAkC2012008;
+	Mon, 8 Sep 2025 23:41:11 -0500
+From: Akashdeep Kaur <a-kaur@ti.com>
+To: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
+        <d-gole@ti.com>, <u-kumar1@ti.com>, <sebin.francis@ti.com>,
+        <k-willis@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <vishalm@ti.com>, <a-kaur@ti.com>
+Subject: [PATCH v6 0/4] Remove unused bits from dts and add support for remaining pinctrl macros 
+Date: Tue, 9 Sep 2025 10:11:04 +0530
+Message-ID: <20250909044108.2541534-1-a-kaur@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500013.china.huawei.com (7.185.36.188)
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_204426_775418_127DF950 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250908_214122_226980_11EA6848 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow userspace to downgrade TWED in ID_AA64MMFR1_EL1. Userspace can
-only change this value from high to low.
+This patch series cleans up the dts files to remove the pin control 
+DeepSleep configuration that does not take effect in hardware.
+This series also adds the remaining macros in the pin control file 
+supported by SoC so that any configuration can be used as per requirement 
+in dts files.
 
-Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
----
- arch/arm64/kvm/sys_regs.c                       | 1 -
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 1 +
- 2 files changed, 1 insertion(+), 1 deletion(-)
+Link to Previous Versions:
+  -V1: https://lore.kernel.org/linux-arm-kernel/20250731115631.3263798-1-a-kaur@ti.com/
+  -V2: https://lore.kernel.org/linux-arm-kernel/20250901122835.3022850-1-a-kaur@ti.com/
+  -V3: https://lore.kernel.org/linux-arm-kernel/20250902071917.1616729-1-a-kaur@ti.com/
+  -V4: https://lore.kernel.org/linux-arm-kernel/20250904112538.529857-1-a-kaur@ti.com/
+  -V5: https://lore.kernel.org/linux-arm-kernel/20250905051448.2836237-1-a-kaur@ti.com/
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index f2267db1c44c..db49beb8804e 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -3002,7 +3002,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 				      ~(ID_AA64MMFR0_EL1_RES0 |
- 					ID_AA64MMFR0_EL1_ASIDBITS)),
- 	ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
--					ID_AA64MMFR1_EL1_TWED |
- 					ID_AA64MMFR1_EL1_XNX |
- 					ID_AA64MMFR1_EL1_VH |
- 					ID_AA64MMFR1_EL1_VMIDBits)),
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index a744dee30cd2..a889550d8aa4 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -167,6 +167,7 @@ static const struct reg_ftr_bits ftr_id_aa64mmfr1_el1[] = {
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR1_EL1, AFP, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR1_EL1, HCX, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR1_EL1, ETS, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR1_EL1, TWED, 0),
- 	REG_FTR_BITS(FTR_HIGHER_SAFE, ID_AA64MMFR1_EL1, SpecSEI, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR1_EL1, PAN, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR1_EL1, LO, 0),
+Change Log:
+V1-> V2:
+  -Added the macros that were removed earlier for backward compatibility
+  -Fixed the indentation 
+  -Added documentation references in commit message
+
+V2-> V3:
+  -Updated the commit message to be more descriptive and Clear
+  -Fixed errors introduced in previous version
+
+V3-> V4:
+  -Rearranged pinctrl macros so that all macros of same type are at same place 
+  -Removed any redundant macros added in previous versions of the series
+  -Added new commit to fix the missing existing macro definition
+
+V4-> V5:
+  -Updated documentation reference in commit message
+
+V5-> V6:
+  -Updated commit message to add "Fixes" tag and update reference information
+  
+
+Akashdeep Kaur (4):
+  arm64: dts: ti: k3-am62p5-sk: Remove the unused cfg in USB1_DRVVBUS
+  arm64: dts: ti: k3-am62x-sk-common: Remove the unused cfg in
+    USB1_DRVVBUS
+  arm64: dts: ti: k3-pinctrl: Add the remaining macros
+  arm64: dts: ti: k3-pinctrl: Fix the bug in existing macros
+
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       |  2 +-
+ .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi |  2 +-
+ arch/arm64/boot/dts/ti/k3-pinctrl.h           | 51 +++++++++++++++++--
+ 3 files changed, 50 insertions(+), 5 deletions(-)
+
 -- 
-2.33.0
+2.34.1
 
 
