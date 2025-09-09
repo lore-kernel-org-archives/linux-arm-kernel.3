@@ -4,98 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754D1CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9175CAC58C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwHR1FgOXXSSp2VsIjgAXKNRhzqoSYPvwttSy5YEpHg=; b=AMH9TGyg3jslDrc0zHKKDL3KGx
-	vJS2jMlbxPhVYatRtSBnzsjcsEwyoNMg/9tUamV7IsUtVcCJqE0KowFX3Ca86iWU4/5ExdIqBOrWc
-	5IfpLDj+GvJx8OQlN7WwReCmefTxSfXcV/37ghnNhxs3+W1H+kFkfzQaGmzWKnFwhmKdtKf/6MTzf
-	P73GIsEDOnXc9V566cd8dgXySIkGTeJi7QPUk4hVAJ7fp0TiBNCcdoJzp8PzdL01r6E11nN3M0wP2
-	n2lcar/82PeM5Rr+9iB6j6EANqsOZLH+doQQaQZXZOF8hLcFQIyK9RsQXO1cvb33BCl66LLYWi5X3
-	IUMBP1Pg==;
+	bh=8nnIwcBQt92lCOlOOaGrqeudJML21vpTZzYbN2KUxng=; b=hdB7AetpDKqXRaQUoxEtVVpQDc
+	HIrByYdmtkvq1ijR+r1MBBmkk0jlM4g/vHYRVtlmN1Zrhhr9YZVqnPidBccSGd6ri6sx/UEqTm9Mr
+	3iooL36X6QQMgptGwDRXHhANH8TwRetIWnhPboKELnRZfS8Jxt2O3/GADqjzvEgNHsaN6JQB+dIot
+	zEoDMl+91pPte9sbhq9NyTbXLGRj4rBfa0v1kZp1bQP/HEVxPVHNnc+1J7F07os5ZSL/COMi2PqKQ
+	YxarPcvNiqiLb0lHkxRii5KByQDt7NwUjN/7hwl/hBab3Z23U/2E7jOGUuvCC+f0JTVqtqKFXsWRQ
+	PMp83vMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw21J-00000008wat-3Bxc;
-	Tue, 09 Sep 2025 17:20:41 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1uw21O-00000008wjb-0kRU;
+	Tue, 09 Sep 2025 17:20:46 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvyyo-00000007cCP-3m4Z
+	id 1uvz2B-00000007dX3-2Fxs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 14:05:56 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-567fb8be044so823648e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 07:05:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757426753; x=1758031553; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vwHR1FgOXXSSp2VsIjgAXKNRhzqoSYPvwttSy5YEpHg=;
-        b=fOrHRiSUspGy9QjTldyAq1tt7jzEeEjMcduRuS3czL3ujn0QL5UZdrCISBBdzGu5a3
-         X2rNw7bTQJ6ri+ybopFOs7nayUC0srAT20Q8La7wKVfuFYRCuhgyL9zYjIKW/beo32xO
-         lvTkOm/iaCyMBL2NiIu68+OQF2uSekVmJrL8iW2Hc2FBh9FhaZdM7D4B5FQvwdSPQGJ4
-         JnZ7XPijkwft2Zj5Zl3ZccLHDRVttz62LcGI5ThhN65NrnuvDi5PQWTatqkBMSOjkxdj
-         NsiERdZvKNS2FNxfxeWY6t9lpjXAhksLY+8qsFKbNgQbgPOk8YCc2q+yFgL5rZhizB7q
-         FqDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757426753; x=1758031553;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vwHR1FgOXXSSp2VsIjgAXKNRhzqoSYPvwttSy5YEpHg=;
-        b=N+Gg4m6f8ZoJ8XYt2cNmqd3CaHGdZMslpM9XYxBd80Ww/5bcZYJd4itmUpgaV1KhFi
-         hrpZCHgNc5HYNbQkyVxhQhnyL6JGs5ptL6cEzDkSfkASfxmI0JoeHcfEQWM72hLJcCl9
-         /7T2vviTYI7CQjxG3Es8Y2tYemfSVdJxr26NBl23MC1gy+G+Lqvb6qRXjeXAaeJADlE7
-         392sbJosinTHVez+aeVydBUUMTbrQPABL9n5ueDY0biQf2bTWDPUcf+LmCi1DxxfOtXa
-         CZ4XbSXvjFENsF+DkKICAOEMe9yUq7BHLnwMb7WMX7dpT/Kn8bAV2vFH667Ww8NKQeHp
-         qzwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWs7+ZablQ1G8ZhE+KduojzWCjlQ+TZDHqmQyzfaQU/BXZHMhfua8ak+Br5rJdQTFLfcrKwSDhBH72/A1CRYaj/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxK8YsH0Fh0pTlwatPGT+kiOnK7vcAZBpbCXLU78l0cazUBrls
-	WCKzi2uALm//CKOKn9kBhPkSOXOsv0Ts5OmLns6gyECChyMXmFSN7VRecqdfH+/Yfjo2mGMP/fC
-	3XB7rqwx8gYp9MDykO8rfDP7dERLMoAltiS4wnQk4GA==
-X-Gm-Gg: ASbGncu0r3HIUGERWIQKfF4U4TMiwq6z7lD40mGYXZz9bMt31PeFnZb9hhN6asiyatw
-	iqXHPcY/LOBiskCLXNjUewEIBoXPVWdXx6OjzTkN31w0ti9f8WqClMt2ywrLZCK4opQFfXLad4K
-	RApB13otpHQ/d5ID+/pfrOe0WELqU7Qm4+HEiItzzUWckmsZugl1PRCkqCDFzZO9Y9HYL1OJw6p
-	7c5TzzEcgomwO1xgZj2I9bWqkfW2tt22//c4bg=
-X-Google-Smtp-Source: AGHT+IHxbtPyFzNpPyeaiiBaisDmRYDyXY5HX06QQvzN7rQqg4ycDBS5H9rZi94hP+dpGNYd7MLd29QcT4mULfuZ6+0=
-X-Received: by 2002:a05:6512:108a:b0:55f:4db1:e450 with SMTP id
- 2adb3069b0e04-56260e3b836mr3230997e87.22.1757426753065; Tue, 09 Sep 2025
- 07:05:53 -0700 (PDT)
+	Tue, 09 Sep 2025 14:09:25 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 589E8oIh4117177;
+	Tue, 9 Sep 2025 09:08:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757426930;
+	bh=8nnIwcBQt92lCOlOOaGrqeudJML21vpTZzYbN2KUxng=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=OXE81EkKsvvu5bR4eko3/6126JOyjE86JMnyscYVwDS0qQ4uj1XejUHvw1WrWDJZ6
+	 zTniqE9ktd2/BPkPDT4HDZtoW7ZzGFlrcIKBkJBqPP0/OZEGfo8lBGTwuNH6fkCjyj
+	 a7sfyl8sND/N8Rf4qOrDbAu8TscgPcrgbWEPOWJs=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 589E8ovJ410472
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 9 Sep 2025 09:08:50 -0500
+Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 9
+ Sep 2025 09:08:49 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 9 Sep 2025 09:08:49 -0500
+Received: from [10.249.130.74] ([10.249.130.74])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 589E8e5A2743053;
+	Tue, 9 Sep 2025 09:08:40 -0500
+Message-ID: <3e22a667-bdff-43db-9388-846b2b278d77@ti.com>
+Date: Tue, 9 Sep 2025 19:38:39 +0530
 MIME-Version: 1.0
-References: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
- <20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org>
- <aMAP9hAWars0T83r@smile.fi.intel.com> <CAMRc=MeLTGq8Qu2aT43tkt3vaYCSaJPJPLmaUQ1SAyD_OgVr_g@mail.gmail.com>
- <aMAn4MM_Fs8q8qwj@smile.fi.intel.com> <CAMRc=Mdr4oW2d7XZ90rRr_fKC7WToz72v=_kW-s8=Urd0g8k3g@mail.gmail.com>
- <aMAve1MbONmKVjjg@smile.fi.intel.com> <aMAv3STeZUdSQ14p@smile.fi.intel.com>
- <CAMRc=MeA87p0QAzq_3MACQM90MhN0eRccr7u-VzcfyP8b90AaQ@mail.gmail.com> <aMAzZAbNwrRTgFi-@smile.fi.intel.com>
-In-Reply-To: <aMAzZAbNwrRTgFi-@smile.fi.intel.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 9 Sep 2025 16:05:41 +0200
-X-Gm-Features: Ac12FXw1RLq4MdeG1hkRFaIkCvacYp3h7kbqz23NMJgO5kiwlT10dViDUNZvzbs
-Message-ID: <CAMRc=Mfn7atHTqKc9nMTQ19ZserqeNi3skb-QhG3CVdEhmr0gg@mail.gmail.com>
-Subject: Re: [PATCH 13/15] gpio: sodaville: use new generic GPIO chip API
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Keguang Zhang <keguang.zhang@gmail.com>, 
-	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 4/7] net: rpmsg-eth: Add netdev ops
+To: <Parthiban.Veerasooran@microchip.com>, <danishanwar@ti.com>,
+        <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+        <pabeni@redhat.com>, <horms@kernel.org>, <corbet@lwn.net>, <nm@ti.com>,
+        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andrew+netdev@lunn.ch>,
+        <mengyuanlou@net-swift.com>, <quic_luoj@quicinc.com>,
+        <gongfan1@huawei.com>, <quic_leiwei@quicinc.com>, <mpe@ellerman.id.au>,
+        <lee@trager.us>, <lorenzo@kernel.org>, <geert+renesas@glider.be>,
+        <lukas.bulwahn@redhat.com>
+CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>
+References: <20250908090746.862407-1-danishanwar@ti.com>
+ <20250908090746.862407-5-danishanwar@ti.com>
+ <4a69e4f1-06b1-49a1-aab6-baef6c613f0b@microchip.com>
+Content-Language: en-US
+From: "Anwar, Md Danish" <a0501179@ti.com>
+In-Reply-To: <4a69e4f1-06b1-49a1-aab6-baef6c613f0b@microchip.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_070554_988006_A6957E88 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20250909_070923_669232_6D73CFCC 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,39 +95,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 9, 2025 at 4:02=E2=80=AFPM Andy Shevchenko
-<andriy.shevchenko@intel.com> wrote:
->
-> On Tue, Sep 09, 2025 at 03:56:41PM +0200, Bartosz Golaszewski wrote:
-> > On Tue, Sep 9, 2025 at 3:47=E2=80=AFPM Andy Shevchenko
-> > <andriy.shevchenko@intel.com> wrote:
-> > >
-> > > TBH, I think those 6 all made the same mistake, i.e. thinking of the =
-compound
-> > > literal as a cast. Which is not!
-> >
-> > What do you suggest?
->
-> Write it in less odd way :-)
->
-> foo =3D (struct bar) { ... };
+Hi Parthiban
 
-I don't get your reasoning. typeof() itself is well established in the
-kernel and doesn't
+On 9/9/2025 12:08 PM, Parthiban.Veerasooran@microchip.com wrote:
+> Hi,
+> 
+> On 08/09/25 2:37 pm, MD Danish Anwar wrote:
+> 
+>> +static int create_request(struct rpmsg_eth_common *common,
+>> +                         enum rpmsg_eth_rpmsg_type rpmsg_type)
+>> +{
+>> +       struct message *msg = &common->send_msg;
+>> +       int ret = 0;
+>> +
+>> +       msg->msg_hdr.src_id = common->port->port_id;
+>> +       msg->req_msg.type = rpmsg_type;
+>> +
+>> +       switch (rpmsg_type) {
+>> +       case RPMSG_ETH_REQ_SHM_INFO:
+>> +               msg->msg_hdr.msg_type = RPMSG_ETH_REQUEST_MSG;
+>> +               break;
+>> +       case RPMSG_ETH_REQ_SET_MAC_ADDR:
+>> +               msg->msg_hdr.msg_type = RPMSG_ETH_REQUEST_MSG;
+>> +               ether_addr_copy(msg->req_msg.mac_addr.addr,
+>> +                               common->port->ndev->dev_addr);
+>> +               break;
+>> +       case RPMSG_ETH_NOTIFY_PORT_UP:
+>> +       case RPMSG_ETH_NOTIFY_PORT_DOWN:
+>> +               msg->msg_hdr.msg_type = RPMSG_ETH_NOTIFY_MSG;
+>> +               break;
+>> +       default:
+>> +               ret = -EINVAL;
+>> +               dev_err(common->dev, "Invalid RPMSG request\n");
+> I don't think you need 'ret' here instead directly return -EINVAL and 
+> above 'ret' declaration can be removed.
+>> +       }
+>> +       return ret;
+> can be return 0;
 
-foo =3D (struct bar){ ... };
+Sure. I will drop ret.
 
-evaluate to the same thing as
+>> +}
+>> +
+>> +static int rpmsg_eth_create_send_request(struct rpmsg_eth_common *common,
+>> +                                        enum rpmsg_eth_rpmsg_type rpmsg_type,
+>> +                                        bool wait)
+>> +{
+>> +       unsigned long flags;
+>> +       int ret = 0;
+> No need to initialize.
 
-foo =3D (typeof(foo)){ ... };
+Sure. Will drop this.
 
-? Isn't it still the same compound literal?
+>> +
+>> +       if (wait)
+>> +               reinit_completion(&common->sync_msg);
+>> +
+>> +       spin_lock_irqsave(&common->send_msg_lock, flags);
+>> +
+>> +static int rpmsg_eth_set_mac_address(struct net_device *ndev, void *addr)
+>> +{
+>> +       struct rpmsg_eth_common *common = rpmsg_eth_ndev_to_common(ndev);
+>> +       int ret;
+>> +
+>> +       ret = eth_mac_addr(ndev, addr);
+>> +
+>> +       if (ret < 0)
+>> +               return ret;
+>> +       ret = rpmsg_eth_create_send_request(common, RPMSG_ETH_REQ_SET_MAC_ADDR, false);
+> You can directly return from here.
 
-Bartosz
+Sure.
 
->
-> > And are we not allowed to use C99 features now anyway?
->
-> It's fine, it's not about the C standard number.
->
+>> +       return ret;
+>> +}
+>> +
+> Best regards,
+> Parthiban V
+
+-- 
+Thanks and Regards,
+Md Danish Anwar
+
 
