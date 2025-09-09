@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE768CA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D808FCAC58C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dQj/5jlTkw/Bib4wvpo/RLsws32kvsO/DxizhOAyfck=; b=cMIjf17lBvIC88VvfJnIVXZaiA
-	DNITAMuRVGBJGlJ+9SC9RKnlOgBHm+cD/wFqvPXpXySuNQL1EP7krk6yLSjoTr6HuPuTmpXCPD9w9
-	Y0wgkafBqOTlVncQGs9sIU4z61MlY82ICnZt6nhhB3K/5boHlQ6mE3X28qMONt/f6RJP4j4UyjIi5
-	Mo6sr+WfnNlXTVv4o8gP7rOvD1eiebFBkLIWwb/y4fPICU8vdqmn3MutRMsqq33nrfdH1FcOTvq2M
-	8gTUJNSsDdz1458wdUCG/CTwLjpcemCSFQtQQK8Ir4aK+gat8aw50Fs4dlqUmqE7GU6nQghKvi/0i
-	ckO9RA1Q==;
+	bh=9sKuKc3Qj6aT4N6gC/kM/PNRF15fBEbOJso7abJK5Vk=; b=dJPQlp3iU7Zk+kS6wnqus44aGi
+	/0klJFPjlDwGdOr+AzAzqQGWj2XyN7zrDXhjlXm4Sh8wfRSNqcA6GV9ReiVmG8pSv2OaGVtDO4iaz
+	zhUTBrINqWJYVM74K+bCidl1UgvdbywcmD/3YBXZHH+aVMUvD/WYgrm5KFWuVb7mX3EpQwVbLxhs4
+	sHWgkqlE3BDq8whcAO1slktXbFterGNzKFlJBrh6thGhSNOzN5YsmPLGhUzEA6/m429ky2joWThb9
+	So6qPGDxFDltDLqitP5TLXoiOgJZ5WoJfpHDBQ1chkc7lon/c25rQrbCUmjnPM6Qt8Q04SAoQ0NEC
+	KwyHkM5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw27U-000000096n7-0ZBj;
-	Tue, 09 Sep 2025 17:27:04 +0000
+	id 1uw27V-000000096pB-09TK;
+	Tue, 09 Sep 2025 17:27:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1fY-00000008hEz-0tnL
+	id 1uw1fs-00000008hKV-2Vxb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 16:58:13 +0000
+	Tue, 09 Sep 2025 16:58:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33B1715A1;
-	Tue,  9 Sep 2025 09:58:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A50C915A1;
+	Tue,  9 Sep 2025 09:58:23 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 75FF03F694;
-	Tue,  9 Sep 2025 09:58:05 -0700 (PDT)
-Message-ID: <fb2f66b4-89ea-4b1f-b5d5-30bf0be8d822@arm.com>
-Date: Tue, 9 Sep 2025 17:58:05 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 67EE63F694;
+	Tue,  9 Sep 2025 09:58:21 -0700 (PDT)
+Message-ID: <6844fbe7-5b23-431d-879f-ec03ad78b190@arm.com>
+Date: Tue, 9 Sep 2025 17:58:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 21/33] arm_mpam: Extend reset logic to allow devices to be
- reset any time
-To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
+Subject: Re: [PATCH 22/33] arm_mpam: Register and enable IRQs
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org, devicetree@vger.kernel.org
 Cc: shameerali.kolothum.thodi@huawei.com,
  D Scott Phillips OS <scott@os.amperecomputing.com>,
  carl@os.amperecomputing.com, lcherian@marvell.com,
@@ -63,16 +61,15 @@ Cc: shameerali.kolothum.thodi@huawei.com,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-22-james.morse@arm.com>
- <c2a814d6-e235-4589-bdb0-63d08d4ca008@arm.com>
+ <20250822153048.2287-23-james.morse@arm.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <c2a814d6-e235-4589-bdb0-63d08d4ca008@arm.com>
+In-Reply-To: <20250822153048.2287-23-james.morse@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_095812_382332_87C1178A 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20250909_095832_748641_F4AA1D15 
+X-CRM114-Status: GOOD (  25.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +84,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Hi James, (:p)
 
-On 29/08/2025 15:30, Ben Horgan wrote:
-> On 8/22/25 16:30, James Morse wrote:
->> cpuhp callbacks aren't the only time the MSC configuration may need to
->> be reset. Resctrl has an API call to reset a class.
->> If an MPAM error interrupt arrives it indicates the driver has
->> misprogrammed an MSC. The safest thing to do is reset all the MSCs
->> and disable MPAM.
->>
->> Add a helper to reset RIS via their class. Call this from mpam_disable(),
->> which can be scheduled from the error interrupt handler.
-
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index 759244966736..3516cbe8623e 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -1569,6 +1567,66 @@ static void mpam_enable_once(void)
-
->> +/*
->> + * Called in response to an error IRQ.
->> + * All of MPAMs errors indicate a software bug, restore any modified
->> + * controls to their reset values.
->> + */
->> +void mpam_disable(void)
->> +{
->> +	int idx;
->> +	struct mpam_class *class;
->> +
->> +	idx = srcu_read_lock(&mpam_srcu);
->> +	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
->> +				 srcu_read_lock_held(&mpam_srcu))
+On 22/08/2025 16:30, James Morse wrote:
+> Register and enable error IRQs. All the MPAM error interrupts indicate a
+> software bug, e.g. out of range partid. If the error interrupt is ever
+> signalled, attempt to disable MPAM.
 > 
-> Why do you use list_for_each_entry_srcu() here when in other places you
-> use list_for_each_entry_rcu()?
+> Only the irq handler accesses the ESR register, so no locking is needed.
+> The work to disable MPAM after an error needs to happen at process
+> context, use a threaded interrupt.
+> 
+> There is no support for percpu threaded interrupts, for now schedule
+> the work to be done from the irq handler.
+> 
+> Enabling the IRQs in the MSC may involve cross calling to a CPU that
+> can access the MSC.
+> 
+> Once the IRQ is requested, the mpam_disable() path can be called
+> asynchronously, which will walk structures sized by max_partid. Ensure
+> this size is fixed before the interrupt is requested.
 
-It's a mistake. I was part way making this use RCU when someone 'invented' the
-firmware interface meaning readl() needs to be able to sleep...
-Those were added in a later patch than I thought, and I missed fixing them up.
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 3516cbe8623e..210d64fad0b1 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
 
-I think the srcu version provides extra checking - and is the correct one to use.
-I'll fix those -- thanks for spotting it!
+> @@ -1547,11 +1640,171 @@ static void mpam_enable_merge_features(struct list_head *all_classes_list)
+
+> +static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+> +{
+> +	u64 reg;
+> +	u16 partid;
+> +	u8 errcode, pmg, ris;
+> +
+> +	if (WARN_ON_ONCE(!msc) ||
+> +	    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
+> +					   &msc->accessibility)))
+> +		return IRQ_NONE;
+> +
+> +	reg = mpam_msc_read_esr(msc);
+> +
+> +	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+> +	if (!errcode)
+> +		return IRQ_NONE;
+> +
+> +	/* Clear level triggered irq */
+> +	mpam_msc_zero_esr(msc);
+> +
+> +	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+> +	pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
+> +	ris = FIELD_GET(MPAMF_ESR_RIS, reg);
+> +
+> +	pr_err("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
+> +	       msc->id, mpam_errcode_names[errcode], partid, pmg, ris);
+> +
+> +	if (irq_is_percpu(irq)) {
+> +		mpam_disable_msc_ecr(msc);
+> +		schedule_work(&mpam_broken_work);
+> +		return IRQ_HANDLED;
+> +	}
+> +
+> +	return IRQ_WAKE_THREAD;
+> +}
+
+> +static void mpam_unregister_irqs(void)
+> +{
+> +	int irq, idx;
+> +	struct mpam_msc *msc;
+> +
+> +	cpus_read_lock();
+> +	/* take the lock as free_irq() can sleep */
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
+> +		irq = platform_get_irq_byname_optional(msc->pdev, "error");
+> +		if (irq <= 0)
+> +			continue;
+> +
+> +		if (msc->error_irq_hw_enabled) {
+> +			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
+> +			msc->error_irq_hw_enabled = false;
+> +		}
+> +
+> +		if (msc->error_irq_requested) {
+> +			if (irq_is_percpu(irq)) {
+> +				msc->reenable_error_ppi = 0;
+> +				free_percpu_irq(irq, msc->error_dev_id);
+> +			} else {
+> +				devm_free_irq(&msc->pdev->dev, irq, msc);
+> +			}
+> +			msc->error_irq_requested = false;
+> +		}
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +	cpus_read_unlock();
+> +}
+
+
+> @@ -1615,16 +1889,39 @@ static void mpam_reset_class(struct mpam_class *class)
+>   * All of MPAMs errors indicate a software bug, restore any modified
+>   * controls to their reset values.
+>   */
+> -void mpam_disable(void)
+> +static irqreturn_t mpam_disable_thread(int irq, void *dev_id)
+>  {
+>  	int idx;
+>  	struct mpam_class *class;
+> +	struct mpam_msc *msc, *tmp;
+> +
+> +	mutex_lock(&mpam_cpuhp_state_lock);
+> +	if (mpam_cpuhp_state) {
+> +		cpuhp_remove_state(mpam_cpuhp_state);
+> +		mpam_cpuhp_state = 0;
+> +	}
+> +	mutex_unlock(&mpam_cpuhp_state_lock);
+
+
+> +	mpam_unregister_irqs();
+
+When out-of-range PARTID get used, all the MSC go off at once - which means the interrupts
+can be delivered to multiple CPUs at the same time. This unregister call is outside any
+lock, and the msc->error_irq_* flags aren't atomic - leading to hilarity as this races
+with itself.
+
+Also turns out you can't devm_free_irq() from a threaded irq as it blocks forever in
+syncrhonise_irq().
+
+Naturally I didn't hit either of these issues when scheduling the thread from debugfs.
+
+I've made the flags atomic, and thrown the threaded-irq away - instead the work always
+gets scheduled.
 
 
 Thanks,
 
 James
 
->> +		mpam_reset_class(class);
->> +	srcu_read_unlock(&mpam_srcu, idx);
->> +}
-
-
+>  	idx = srcu_read_lock(&mpam_srcu);
+>  	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+>  				 srcu_read_lock_held(&mpam_srcu))
+>  		mpam_reset_class(class);
+>  	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	list_for_each_entry_safe(msc, tmp, &mpam_all_msc, glbl_list)
+> +		mpam_msc_destroy(msc);
+> +	mutex_unlock(&mpam_list_lock);
+> +	mpam_free_garbage();
+> +
+> +	return IRQ_HANDLED;
+> +}
+/*error_irq_requested
 
