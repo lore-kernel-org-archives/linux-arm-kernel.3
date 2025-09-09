@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF85CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57710CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CEbZ+I5Gax1pbF+ot+GrzdHUbVfgmhN6ToYQ/7joaBs=; b=qNItGEWRtoE+h0TsxGEBPTE8T6
-	LAWR6xAy/46O1WKsTo4Gl3SVE4x2PH/yAhWnfru49h+xUHIoK76XGs9NyR80YQPrErubd+fnfgca+
-	x9TwYb4mpIvUQ0s/frGKgC7N+jdpVMqY6an9t54SWjTtn2VA3aBYDVihSg22CAzLN7Md0zAUDf/hh
-	5A1Qyf3HOelsc2OY6N/qj3JCPwrM06rB3/fq158f/SLMCxVC1Up3oA3tIPGVr+1kC9NGP1RbtjI+1
-	M1xeQWodA1+YeEIiOIa4GzDscqNLWXQa8Pcr6LlI5Oyhm7QhsnOQeCSVR2mqUN737pca+YYUkJlUg
-	BsDk/P0A==;
+	bh=8vseebvsaX+4ykmAm+Rjmp49wWD3yYYVws8Gla8rQKI=; b=EkLC9rwy7gtWPBIF/CQbxXySfr
+	2hq7kHaSYlvWofmAtAJygPh7sJMIDXFdgdyksn92TiWaVXZ410HfUVvw1MUa4ZgN7uOemOCe7u0YG
+	H74HvasCKbS152x3hO1MMlKlzr2mYu4KdRxjF/N2X1lbGrT+ELWj7WFlZfHzgf8jREnPonJuBOzzW
+	76bg8V3NxuIAg3f7zMQMcFTfu93h9F+Xmzw0bHjvmpyHGg5icwYmM0VixwzjB996cGHDiBB8gT4S2
+	oCeKrKjKUEGFK8dh95I7uDe8rlrtN5SKgXxshdVR1JXEJovPqcqQowqH3dSWjBW/C/DmyG1nF6xzF
+	fM/qR2gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvtN0-00000005R4O-3ctR;
-	Tue, 09 Sep 2025 08:06:30 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uvtN2-00000005R5j-1Jai;
+	Tue, 09 Sep 2025 08:06:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvlek-000000033Di-003Q
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 23:52:19 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588Nq8Co3970607;
-	Mon, 8 Sep 2025 18:52:08 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757375528;
-	bh=CEbZ+I5Gax1pbF+ot+GrzdHUbVfgmhN6ToYQ/7joaBs=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ejwVWK/pxmaHtPgekY/s4O/LvfezaIhnEaIa9s3/Fvv6U+GcCAD+/dUrDtQtE6+dg
-	 w6eLFQvgfSimH1WtoYpg7YT5n9hENm7WNtKeaQQ1jMWu0ktPJwue7Jnui6AVOI0nm2
-	 pnJbZip+i57LtK2dk9GUp0vh6eb0F8qhQDv2NOd4=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588Nq8Ft3353620
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 18:52:08 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 18:52:07 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 18:52:07 -0500
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588Nq7WW1677746;
-	Mon, 8 Sep 2025 18:52:07 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        Andrew
- Davis <afd@ti.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 1/2] arm64: dts: ti: k3-am62p/j722s: Remove HS400 support from common
-Date: Mon, 8 Sep 2025 18:52:06 -0500
-Message-ID: <20250908235207.473628-2-jm@ti.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250908235207.473628-1-jm@ti.com>
-References: <20250908235207.473628-1-jm@ti.com>
+	id 1uvmWS-00000003JJm-0AfR;
+	Tue, 09 Sep 2025 00:47:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B61C94012D;
+	Tue,  9 Sep 2025 00:47:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 692AFC4CEF1;
+	Tue,  9 Sep 2025 00:47:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757378867;
+	bh=zy06io68iOVZYCgiZwnvNmFkyT+ulKg9fSvGqjcKcN8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lFvbb6HnpVHha2QYxeYIX0bkE+3dooJdy12p2Y1WtCqf+8KJ2KHtE8W/upyI42rJq
+	 W/bR3/vsaW/Yk6P2f5oIysRasonAGlc4I9+H8t0TDGRUpXjqdhrZIXpv4CAcE9/fDe
+	 I/x9x+Sam2B7yFFYLzM0HLaPcTnawzik3KVS05svRPTW26kcYZU1V0zZ414hoytHqW
+	 iSKhYPWLpHvp2ZHT/0mlk/0I5lEfE1y5myFH79/klACkDgPJIiyL3Ftb8lm7NRNK1a
+	 RRcmX/+pgIEtlIzsfGQOsSfAHeFJ4tdTWzI+rr0N/sV9gnAt1sCOm1i8LQAowH65eA
+	 +20GqpgsNGG4w==
+Date: Mon, 8 Sep 2025 19:47:46 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Conor Dooley <conor+dt@kernel.org>, Simon Xue <xxm@rock-chips.com>,
+	linux-rockchip@lists.infradead.org,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: PCI: dwc: rockchip: Add RK3528 variant
+Message-ID: <175737886558.2322312.14140565713141816216.robh@kernel.org>
+References: <20250906135246.19398-1-ziyao@disroot.org>
+ <20250906135246.19398-2-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250906135246.19398-2-ziyao@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_165218_128002_7A91CCB3 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20250908_174748_097671_421D8082 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,52 +82,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since eMMC HS400 has been descoped for J722s due to errata i2478 [0]
-and is supported for AM62Px device, remove eMMC HS400 support from
-common-main.dtsi and include only in am62p-main.dtsi.
 
-[0] https://www.ti.com/lit/pdf/sprz575
-Signed-off-by: Judith Mendez <jm@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 ---
- arch/arm64/boot/dts/ti/k3-am62p-main.dtsi              | 6 ++++++
- 2 files changed, 6 insertions(+), 3 deletions(-)
+On Sat, 06 Sep 2025 13:52:44 +0000, Yao Zi wrote:
+> RK3528 ships a PCIe Gen2x1 controller that operates in RC mode only.
+> Since the SoC has no separate MSI controller, the one integrated in the
+> DWC PCIe IP must be used, and thus its interrupt scheme is similar to
+> variants found in RK3562 and RK3576.
+> 
+> Older BSP code claimed its integrated MSI controller supports only 8
+> MSIs[1], but this has been changed in newer BSP[2] and testing proves
+> the controller works correctly with more than 8 MSIs allocated,
+> suggesting the controller should be compatible with the RK3568 variant.
+> Let's document its compatible string.
+> 
+> Link: https://github.com/rockchip-linux/kernel/blob/792a7d4273a5/drivers/pci/controller/dwc/pcie-dw-rockchip.c#L1610-L1613 # [1]
+> Link: https://github.com/rockchip-linux/kernel/blob/1ba51b059f25/drivers/pci/controller/dwc/pcie-dw-rockchip.c#L904-L906 # [2]
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-index 4427b12058a6..0c05bcf1d776 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-@@ -576,15 +576,12 @@ sdhci0: mmc@fa10000 {
- 		bus-width = <8>;
- 		mmc-ddr-1_8v;
- 		mmc-hs200-1_8v;
--		mmc-hs400-1_8v;
- 		ti,clkbuf-sel = <0x7>;
--		ti,strobe-sel = <0x77>;
- 		ti,trm-icp = <0x8>;
- 		ti,otap-del-sel-legacy = <0x1>;
- 		ti,otap-del-sel-mmc-hs = <0x1>;
- 		ti,otap-del-sel-ddr52 = <0x6>;
- 		ti,otap-del-sel-hs200 = <0x8>;
--		ti,otap-del-sel-hs400 = <0x5>;
- 		ti,itap-del-sel-legacy = <0x10>;
- 		ti,itap-del-sel-mmc-hs = <0xa>;
- 		ti,itap-del-sel-ddr52 = <0x3>;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-index 6aea9d3f134e..020bd121a6a3 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-@@ -74,3 +74,9 @@ &main_gpio1 {
- 	gpio-reserved-ranges = <32 10>;
- 	ti,ngpio = <52>;
- };
-+
-+&sdhci0 {
-+	mmc-hs400-1_8v;
-+	ti,strobe-sel = <0x77>;
-+	ti,otap-del-sel-hs400 = <0x5>;
-+};
--- 
-2.51.0
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
