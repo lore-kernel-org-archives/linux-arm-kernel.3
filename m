@@ -4,41 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 312D6CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29193CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9g4wbhtXT0JBrht56SyaTEYS+KQol6CEwfFNxo8JkoI=; b=2ypVnqKZkz/JfR2yRGRQwqbAvc
-	O7Dg/ewhWj0D/8AM27gfd+JKjDlVXb3H67ue0QyvnGMl4r6hv62jApUXj3gmBv4gDREVaONskx29S
-	wXSMk3UA7gDC3erBDZZfAw2Qm34RzpYaLM6vFFWKHpt1WJQ9Pk6X7HvzbfBuA5+HSUxzi5fTcSGaK
-	FDOiS7bkJv4mE+iwmoy9pGG3cnOEjF+UkAIEZ3u4bf7vSgTm8QCBvles4hO2wfqlQucnK/yVCbrw+
-	K1zqq+5OFdl/A2ugy16AqOSVy39G3E400YhlRZlV4Sjzum7V5VBbsPd7GLntnjROLkwmLzKpZQF7Z
-	2abuNPCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d+vGum7V0Og0IH7RaEsWoemY5haN0Y9h0LacfPqMnqo=; b=qS2JnUZxKPf2CNSJmgywGkMNJ/
+	O9fu0+ubTIze+Zfs7xA5PN1QqXm5TScg0aPI6lvIYltlH6pU1+DPWZ8w9+FeQGhowbvu6q/uss5hn
+	VIyKNkqammvaw3EeMARBj1yqTB0rRckvFyzDUYZIoT7CJqXBRBaMKCaePTa0iuDnxA8ZALXxgzJWG
+	SHOOSyTk73fpqNTeO9D30H1B5EGF/PK1U4y6H4wmwzwJJ8Nw9o+yDP7CSj8rwsED6iN2N2mDQT9r8
+	lGxC7lmus/ATRUGA4qt4LKLPPVLQpHufgsj9lIiIKBc6p2A9+y7B0UYyOlhZpsKKI5l/Row2MSGdP
+	zN/pyiJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsIp-00000004yAI-2clx;
-	Tue, 09 Sep 2025 06:58:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvpyy-00000004CSn-1BXf
+	id 1uvsJJ-00000004yof-2MWx;
+	Tue, 09 Sep 2025 06:58:37 +0000
+Received: from mail-bn7nam10on2070a.outbound.protection.outlook.com ([2a01:111:f403:2009::70a] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvqsJ-00000004QCN-1Q7R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 04:29:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2CBE612FC;
-	Mon,  8 Sep 2025 21:29:16 -0700 (PDT)
-Received: from [10.163.72.34] (unknown [10.163.72.34])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9094F3F66E;
-	Mon,  8 Sep 2025 21:29:18 -0700 (PDT)
-Message-ID: <bc0ae013-2314-4513-a759-cbf2b922aa6a@arm.com>
-Date: Tue, 9 Sep 2025 09:59:14 +0530
-MIME-Version: 1.0
+	Tue, 09 Sep 2025 05:26:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=anGTU7aCFQbAln3XxL42wYV1m74AZQnDdWBluO+yajaBtyxADw02oZxvD7l+dR7GMSiUyquzp1PgKO2jXOKX32wmq09n6cuo0fENzs6gtBaiW7LkPBhqOJwFG3KkTTXplKy/LOiVepfKWgBi3W3YGCduaEA9w+Hn1VCDkyr6JexqAbrpdqx4o1AAbe/hgxiHjGpu/0C6igE0MBr4BAuF5k7xb/jxiwiSZkdDtkeLGJ796IxkAAGNYW5fUSdqiC108gMhzJeYQCKhttxGawi3Tff7S0u0cLYWXN2VUN++59YOeoMXz25WCeNzcmPNprFRjdLPjxn98PqmcNVq+gPKgg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d+vGum7V0Og0IH7RaEsWoemY5haN0Y9h0LacfPqMnqo=;
+ b=dQhuG9z9wtP2J3yRdezz9WThovHMm8GMe12mwqGFEUaG/a13V7OfZGVMf5iSt62UombbFAXrxIpw0PITjlKczF9lmotaV9dN9FPzSL4fvU10tHaZN7/saIsiR4V4zjb31ht/00/4m1QBDcvjGHekKQrWtA8S17jVlr8b4VmlPa5bRv3GQDLlXcVQ/TRb4CHsPu8v0FkT+kVrYIgLb8yBk/1TCiBU5GwsBQzptYR1GA2AVpWqDvE16hyXYdAH931zjkXmwMiwWu/QEbP65hM4dvCQUQBypzSgJJbE98itw+EGkDzZgWx9GPC2cg/beE6lnx7hqLMxJs4zT697/3QWFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=amperemail.onmicrosoft.com; dkim=pass
+ header.d=amperemail.onmicrosoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=d+vGum7V0Og0IH7RaEsWoemY5haN0Y9h0LacfPqMnqo=;
+ b=K0Lr2Km5vT467AeGmKzCOeAMRauucdhNrczugokJqnaiYemPzqC7yKlraCIg+rFDeLjJBdRQQkc8iWHjzNJ2Kh4g6QsuWiOVnur6Z+QtYaI9ECvfgum1oEkUUzxfEvDe8Xp/FaEtLVkZ6Osuyg+6NVAw35kzwFhRmN3aGiatvhQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
+Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
+ PH0PR01MB6502.prod.exchangelabs.com (2603:10b6:510:18::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9094.22; Tue, 9 Sep 2025 05:26:31 +0000
+Received: from PH0PR01MB7975.prod.exchangelabs.com
+ ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
+ ([fe80::6926:a627:118e:8050%4]) with mapi id 15.20.9094.021; Tue, 9 Sep 2025
+ 05:26:31 +0000
+Message-ID: <a18f3b2a-0869-436b-ab20-41a92f1f468a@amperemail.onmicrosoft.com>
+Date: Tue, 9 Sep 2025 13:26:10 +0800
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v7 1/2] arm64: refactor the rodata=xxx
-To: Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com,
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com,
  will@kernel.org
 Cc: patches@amperecomputing.com, cl@linux.com,
  Shubhang@os.amperecomputing.com, corbet@lwn.net, paulmck@kernel.org,
@@ -48,14 +69,108 @@ Cc: patches@amperecomputing.com, cl@linux.com,
  linux-arm-kernel@lists.infradead.org, rdunlap@infradead.org
 References: <20250909033236.4099-1-shijie@os.amperecomputing.com>
  <20250909033236.4099-2-shijie@os.amperecomputing.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250909033236.4099-2-shijie@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
+ <bc0ae013-2314-4513-a759-cbf2b922aa6a@arm.com>
+From: Shijie Huang <shijie@amperemail.onmicrosoft.com>
+In-Reply-To: <bc0ae013-2314-4513-a759-cbf2b922aa6a@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR02CA0043.apcprd02.prod.outlook.com
+ (2603:1096:4:196::12) To PH0PR01MB7975.prod.exchangelabs.com
+ (2603:10b6:510:26d::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|PH0PR01MB6502:EE_
+X-MS-Office365-Filtering-Correlation-Id: d5302aa7-520b-42d0-5ad8-08ddef616f3b
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YjVoaWJWNnNHeUJTOHVHdlE2WGlCMTl2ZFlUMGpvN2tCZ1drNExvQzJNTkhE?=
+ =?utf-8?B?SXYrR1ZEU05iTXdEZjJVL1JUTjNSemNhclM5NVFrSmp6V2xubmRJVExJbXJG?=
+ =?utf-8?B?c2hnQkRYUzVPS2oyL0dhcHlUT0FjNFdPbzdvMGVGbjB2SXVVNFBxYmFIRW1v?=
+ =?utf-8?B?QkhyR3ZtRXdoRlppTW1rcFkvMWVPUGZpTW15TmRUeTZPa3IxK2EvUmpmbGZY?=
+ =?utf-8?B?dVd5RGtUVlAwM2V0Y3EvQjd1TjJGakc0WVM3WVh5ZTBGWGY1ZjhYcWhjcDNv?=
+ =?utf-8?B?TVBCaWF0TGw5N1Q2bkQxNXMwd0Y4M0tuYndVbEduU25XLy9xUWF6aU5XZ3FV?=
+ =?utf-8?B?U25PRDhqNzJqOEdVbUtmeVFWa0FHempFZm0wUEcwMnJpUG5TM2ErM2R6WU9K?=
+ =?utf-8?B?NnJ5MlkrYWdUeXp0dGtvaUQwdzYxbXJDWDQrakIwdlY1NEN0VXFKRXNyYmRP?=
+ =?utf-8?B?bmhjVUpQczU5TmhHdDEyQlJkZXY4am5kaUJMd0RjUkNId2FXa1E1VUQ5SEhO?=
+ =?utf-8?B?SUQvSGNJWE1EMW9VWDFKZEhnTXNncFRJL2x4bC9FZ3M5WW91MFRBMHpWaDRn?=
+ =?utf-8?B?aDJnM2VqRkZCcXYwTUo0YURmejd0NXA2RWtMek9XeU5EQmlyYkpXRTJzNU5E?=
+ =?utf-8?B?dG9UY0pQZE9SeGhrbW1LaUpIY1B3d2dBRWNJcGNNTVpqUnpLVnZiUG1WNC93?=
+ =?utf-8?B?N0tidTZ2cStWQWVDMzhIVGE0TExGOGhTekZMUUFLTGdVanM0dDYyeUtZL2Rz?=
+ =?utf-8?B?Q3Y3MjIrZ2RTT2NuWHE4RWxjOGFYVzRYMEZjZ0NoQWp6VnNuY3c3azlIS1Mw?=
+ =?utf-8?B?MW9EMHlhbEttMDU5TTc0cjZHN3lYQ0FoSlZNVjNtYTBvOGI4NEJaVnJmbVRW?=
+ =?utf-8?B?YWJ4aXk0YVMwdzFXYUhYYU1XZzY3Tzg0cnY4aFluZkNRcm1tZGlOczQyWmQ5?=
+ =?utf-8?B?UXFuTGRXYnJyUGlMNVdISjVaYnJlR0doSWpzOCtBTDZiZmVacnR3djdFbm1P?=
+ =?utf-8?B?WEM3K2hQRmp0amRQYVovWEtWa0VjcjRLT0t6bVFYRkdRTXBnV0IzUW5keGo1?=
+ =?utf-8?B?N3VHb212aWl1cDRZckt2MiswRVQ1SUM3T3hpQ1FwZ2JMaGkrQ3dXOFdYc01V?=
+ =?utf-8?B?WmNRWWlGOUJicUNkVGpFT2lZMGtrR1daNVZPa21JVWxXRGhnMGRqTVErQXpu?=
+ =?utf-8?B?QWF4dzhhdEo4bzBWL0hPUXU3cFNkVUo4WXhNdmwrNlVpT2g1aXdQd0FhUExt?=
+ =?utf-8?B?akZKd0lSaG9UdkUzK08rczdsUjZrRkVwb2xQWkxJTytUMEhsK1Y1aldwWDJL?=
+ =?utf-8?B?Sk9ob2xybWNHU0ZzNVZiNlVvYWlKb242amtXd0hZUXJack9UeWJaTzJmeXYv?=
+ =?utf-8?B?OTRNSE1vY0VZVmlOVVNTSUgySC82aWl2N3YxcVE1d1lBakVrUG9ZamxkdHZW?=
+ =?utf-8?B?ck5Kb1JjQkJpN3pIUUEwMVpEU21vZ2RaQUJkWVp2bnBLUzVudU94NCtLeW5Q?=
+ =?utf-8?B?TGNjZWVYb3QxYm8xZ1VXSkdNTUVOMVEzN1dBbWtLQWxPREpGdTFCL1JrYVl0?=
+ =?utf-8?B?d3hkMXZZZHo3THJLUEdIQStDUXAzRFcwcFA5NG91OERTZ1laL055cm12Qkh5?=
+ =?utf-8?B?UWM3cFZLTmlRMkdyVVpmU3lsYmg2VUVzc1R3cnYxeFduL0NIbWZOM1ovcXY0?=
+ =?utf-8?B?YjduY0xQN2NaeFkra3haVUFOZG1IS3ZWZmFVOGcrYm5abExXWnpOZkZacG9M?=
+ =?utf-8?B?TmJDSWNmMG1JVDlJSW11YkR2N2kwWWQweDVYcmVpUTFLb040SytMWjNTcDhH?=
+ =?utf-8?B?eU9RM1RDbUpZT256YXo1bmlmTEpSTm1ya0FvR0dpMXpkblpQUlFERzMyMGVa?=
+ =?utf-8?B?bzZXSjh3UmFTREdTdXdTOFJVbVhjbkhGeEtJV3phTU9YTHJoU2VFTUpBUVpa?=
+ =?utf-8?Q?U+SpAyGitts=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TlN4dmkwa1hURTFTWWVBYzZieVpWeWM1d0tRK0hkVW1jeW5HeS8wREd3Vktr?=
+ =?utf-8?B?LzlRcTB1U1NRNGtLZmhQa04wM28rRS9rby9kb3Yvd2d4akhXTEN0a25wZDBB?=
+ =?utf-8?B?ZE14TmFySVNPL2paTFJxWW5sSlc3Mi8xMW43b2ltZExsVm8zdVMwWU80OXZF?=
+ =?utf-8?B?YnROS3YvVldEcS9iMWRaRzRobGNScUt5TTNrVFltbGFsd096ajQ4KzVvMFFY?=
+ =?utf-8?B?c25XYkY3ZnpkaDJZWkNjcmFqaGFEUEVtVEVmSCt0Z1M1OXlOSndxREgrN0lY?=
+ =?utf-8?B?bERtcXFSa0NyMElTNm5adWNJOTVIVzMySUtBbHh4RzM3eEdNODJUbkRYK1JV?=
+ =?utf-8?B?UENSTmUxMW9NUzBMN1IxMnpiMitGZFJ0NmFnM2x2c1Fnd3p2YmhIWTg3eG1k?=
+ =?utf-8?B?SkNyMksvZmJkc3pQVmdYUFcwSGh4Njd6S2o5ZjF1c01palFvVTVJWFRLQlBZ?=
+ =?utf-8?B?RE9lRlVjQmk0MWR0RmxTdS9US0hnVFZ1N2lHMWVhQmVsUks2TFBvVHRIcUcw?=
+ =?utf-8?B?OVNVUko0NlVXWkQ4VzlpSnFTN1FFVVN3S0JUa1lPLzVqUUlzKyt2Yy9jN0J6?=
+ =?utf-8?B?MVJXRk1aUVNRWGFlcy8xTmJQSDNwQ0ZYVGYvbW92cm1jSzhDMU1TMWFiUnNX?=
+ =?utf-8?B?UnNyaG5BKzNLeGxjUzhON3dtNTdZbWtQd1lnTW9jQ1NCUUE2M0FTUytuQmFT?=
+ =?utf-8?B?TDV5ZTc0MnBVQVc3c0U0UmdaYTdRL24vd0tETHQ0MXREYVlzTG5YdUEyQmR0?=
+ =?utf-8?B?TitJRGdJVEdaekN2NXlyNWpZVzdSTlJrSmY2TDlwektRR1hKYW82NFQ1OWtV?=
+ =?utf-8?B?TlR6RFZadzRDNURqMXlrTWh5WlF5MzN5eUpIbVZGazBZYWxYOFhtdTl6aThh?=
+ =?utf-8?B?YmhuQzZnbDlYdldnTzJsSk04QUkxOTE4aytBZnQwNVJZdi81V3pPQXQ4S1pP?=
+ =?utf-8?B?eVNJeTI2Qmp5MitKSzQyS1NNY3U2L3Q3S0RvWW9pbVVLc1NyWG51M2RUV21y?=
+ =?utf-8?B?U0huT1doSHJZeXRxZVBHdSt5bnY1ME5WbHBYczI3MFpZdE5VSmZqRS92N2NV?=
+ =?utf-8?B?RmJoSkZaNmcySUFhcDZyRUZ5QnFQWEpNQ2gxdjJSN1JJUkZnYXpFV21sVUtz?=
+ =?utf-8?B?UmdRYzBsWk5HNGVleDZoNm9ldEk3TnUxbjRoZWpkelFsOWN6dnAxVUNSV2RT?=
+ =?utf-8?B?cFhjZ3hUSGlqZXZMQzM5eTBDbzBTd21TQ2s5dXVIN2E5SjdDR293MGNISjY1?=
+ =?utf-8?B?d0I4MlJ1NDNZTS9yOTV5ZXZab29QRG5LMzBudkdkeGtFOGQ3RWtGdTRvUnlX?=
+ =?utf-8?B?ZE1vMEFPT3RaVTJSWWRSZ3cwbFlDZzFVN0VkL1lLTER6Y0JzdnQrRHNyMUN4?=
+ =?utf-8?B?VnM2bkl5cmlvZ25aSmI0RnkwVlpaaDBJRDZ1UHhSNU5aZktWU2NoekJrdSts?=
+ =?utf-8?B?bE52RjV5NzZNQTBSWU5IYmRtUkpodTFGV3FMQ0M4K0w4dWcxNk1ISVVDdGdq?=
+ =?utf-8?B?V2M0b3NiYnZOUmJBYjh0WVlPb2pXNFlUM3hTczU0RGhwZXN6UXcxWXBhN3hY?=
+ =?utf-8?B?dFQ0WURYcXQ3a2VTcHlGaHRUTUpsNG00eFJRMlEyL0UwUWV1NUFhK2o5L3NR?=
+ =?utf-8?B?dDNzMTJOR0E1cDdJYVBSckF2RWlGSE1FMDIxWDdBeVl4TjQ0YmJreU9KVldM?=
+ =?utf-8?B?dTVKRExOUS9TL0tCVkl2bUNzaXYvUlJyWEYwSmxLRWhFcXh5MGh2TEpFY3Vt?=
+ =?utf-8?B?MlZPM3NRRE1Ld3lxS1M0ZytMZ0xJRGZDMVJsV0E4Slh1TTk3cnFmNFNrTzY5?=
+ =?utf-8?B?VklTM2RodjVIUmsyRC9ud2tseTJta0pWRzZ0b3F2UUR2bjZlRUNTNEh5dWNE?=
+ =?utf-8?B?dVNzUFhjRDdzQjNCUlNYc3dkUU1vbEowZEJOeTJ0NFVHVGVSQXFDVUtXNHZF?=
+ =?utf-8?B?c09WaHYySE9zbzZyRkVwMjJTeFgwMTZzN1VYQlZNb3JxbXBxS3BhRkYrc0Jh?=
+ =?utf-8?B?VUdwWUZ1NFJoUWRaT2FCK0VaMVp0aFduYm1nS0l0cEllMWU1Z1dGYStiTUwz?=
+ =?utf-8?B?cWFkajNtYjlkMko5K2pxaWQzTytPMDFqWkhzOVhRNFQxblF2ZHZ6SENQZ29v?=
+ =?utf-8?B?SlJoUzZNcllsVlJzVXdxZ2tYZFFFZ1FZUjFXVlVxOTNZdkhQL3Evb2FLTHd0?=
+ =?utf-8?Q?UBF+UHoJkQHKbgf9TbKtddQ=3D?=
+X-OriginatorOrg: amperemail.onmicrosoft.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d5302aa7-520b-42d0-5ad8-08ddef616f3b
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2025 05:26:31.6654
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3sH0DywsMRnl8HdgLHKBq4i3rBZuZeF99w85txnNVq5jcqGF/k9rZKM0qYG/3pMjQBYFesSWJ0oHYh2PehXMdlqs8LXLCfn0pJXUxVWaoIT1dRj35PwK5Eg2pC1j/cW2
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB6502
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_212928_393990_B6BC7FF4 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20250908_222639_395536_7E4A3303 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,123 +185,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/09/25 9:02 AM, Huang Shijie wrote:
-> As per admin guide documentation, "rodata=on" should be the default on
-> platforms. Documentation/admin-guide/kernel-parameters.txt describes
-> these options as
-> 
->    rodata=         [KNL,EARLY]
->            on      Mark read-only kernel memory as read-only (default).
->            off     Leave read-only kernel memory writable for debugging.
->            full    Mark read-only kernel memory and aliases as read-only
->                    [arm64]
-> 
-> But on arm64 platform, RODATA_FULL_DEFAULT_ENABLED is enabled by default,
-> so "rodata=full" is the default instead.
-> 
-> This patch implements the following changes:
->  - Make "rodata=on" behaviour same as the original "rodata=full".
->    This keeps align with the x86.
->  - Make "rodata=noalias" (new) behaviour same as the original "rodata=on"
->  - Drop the original "rodata=full"
-> 
-> After this patch, the "rodata=on" will be the default on arm64 platform
-> as well.
-> 
-> Different rodata options may have different performance, so record more
-> detail information here:
-> 
->  rodata=on (default)
->     This applies read-only attributes to VM areas and to the linear
->     alias of the backing pages as well. This prevents code or read-
->     only data from being modified (inadvertently or intentionally),
->     via another mapping for the same memory page.
-> 
->     But this might cause linear map region to be mapped down to base
->     pages, which may adversely affect performance in some cases.
-> 
->  rodata=off
->     This provides more block mappings and contiguous hints for linear
->     map region which would minimize TLB footprint. This also leaves
->     read-only kernel memory writable for debugging.
-> 
->  rodata=noalias
->     This provides more block mappings and contiguous hints for linear
->     map region which would minimize TLB footprint. This leaves the linear
->     alias of read-only mappings in the vmalloc space writeable, making
 
-						typo     ^^^^^^^^
->     them susceptible to inadvertent modification by software.
-> 
-> Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
-> ---
->  Documentation/admin-guide/kernel-parameters.txt | 5 +++--
->  arch/arm64/include/asm/setup.h                  | 4 ++--
->  2 files changed, 5 insertions(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index db84a629f7b1..138e0db5af64 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -6418,8 +6418,9 @@
->  	rodata=		[KNL,EARLY]
->  		on	Mark read-only kernel memory as read-only (default).
->  		off	Leave read-only kernel memory writable for debugging.
-> -		full	Mark read-only kernel memory and aliases as read-only
-> -		        [arm64]
-> +		noalias	Mark read-only kernel memory as read-only but retain
-> +			writable aliases in the direct map for regions outside
-> +			of the kernel image. [arm64]
+On 09/09/2025 12:29, Anshuman Khandual wrote:
+> On 09/09/25 9:02 AM, Huang Shijie wrote:
+>> As per admin guide documentation, "rodata=on" should be the default on
+>> platforms. Documentation/admin-guide/kernel-parameters.txt describes
+>> these options as
+>>
+>>     rodata=         [KNL,EARLY]
+>>             on      Mark read-only kernel memory as read-only (default).
+>>             off     Leave read-only kernel memory writable for debugging.
+>>             full    Mark read-only kernel memory and aliases as read-only
+>>                     [arm64]
+>>
+>> But on arm64 platform, RODATA_FULL_DEFAULT_ENABLED is enabled by default,
+>> so "rodata=full" is the default instead.
+>>
+>> This patch implements the following changes:
+>>   - Make "rodata=on" behaviour same as the original "rodata=full".
+>>     This keeps align with the x86.
+>>   - Make "rodata=noalias" (new) behaviour same as the original "rodata=on"
+>>   - Drop the original "rodata=full"
+>>
+>> After this patch, the "rodata=on" will be the default on arm64 platform
+>> as well.
+>>
+>> Different rodata options may have different performance, so record more
+>> detail information here:
+>>
+>>   rodata=on (default)
+>>      This applies read-only attributes to VM areas and to the linear
+>>      alias of the backing pages as well. This prevents code or read-
+>>      only data from being modified (inadvertently or intentionally),
+>>      via another mapping for the same memory page.
+>>
+>>      But this might cause linear map region to be mapped down to base
+>>      pages, which may adversely affect performance in some cases.
+>>
+>>   rodata=off
+>>      This provides more block mappings and contiguous hints for linear
+>>      map region which would minimize TLB footprint. This also leaves
+>>      read-only kernel memory writable for debugging.
+>>
+>>   rodata=noalias
+>>      This provides more block mappings and contiguous hints for linear
+>>      map region which would minimize TLB footprint. This leaves the linear
+>>      alias of read-only mappings in the vmalloc space writeable, making
+> 						typo     ^^^^^^^^
+What's the typo? It seems "writeable" is okay.
+>>      them susceptible to inadvertent modification by software.
+>>
+>> Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
+>> ---
+>>   Documentation/admin-guide/kernel-parameters.txt | 5 +++--
+>>   arch/arm64/include/asm/setup.h                  | 4 ++--
+>>   2 files changed, 5 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+>> index db84a629f7b1..138e0db5af64 100644
+>> --- a/Documentation/admin-guide/kernel-parameters.txt
+>> +++ b/Documentation/admin-guide/kernel-parameters.txt
+>> @@ -6418,8 +6418,9 @@
+>>   	rodata=		[KNL,EARLY]
+>>   		on	Mark read-only kernel memory as read-only (default).
+>>   		off	Leave read-only kernel memory writable for debugging.
+>> -		full	Mark read-only kernel memory and aliases as read-only
+>> -		        [arm64]
+>> +		noalias	Mark read-only kernel memory as read-only but retain
+>> +			writable aliases in the direct map for regions outside
+>> +			of the kernel image. [arm64]
+> Should not the arm64 specific performance implications be mentioned
+> in the above documentation update as well ? But in case this appears
+> too much platform specific - probably do consider adding them above
+> or inside arch_parse_debug_rodata() as an in-code documentation.
 
-Should not the arm64 specific performance implications be mentioned
-in the above documentation update as well ? But in case this appears
-too much platform specific - probably do consider adding them above
-or inside arch_parse_debug_rodata() as an in-code documentation. 
+Will had already suggested do not add them for the 
+arch_parse_debug_rodata():
 
-     rodata=on (default)
-        This applies read-only attributes to VM areas and to the linear
-        alias of the backing pages as well. This prevents code or read-
-        only data from being modified (inadvertently or intentionally),
-        via another mapping for the same memory page.
+https://lists.infradead.org/pipermail/linux-arm-kernel/2025-September/1060135.html
 
-        But this might cause linear map region to be mapped down to base
-        pages, which may adversely affect performance in some cases.
 
-     rodata=off
-        This provides more block mappings and contiguous hints for linear
-        map region which would minimize TLB footprint. This also leaves
-        read-only kernel memory writable for debugging.
 
-     rodata=noalias
-        This provides more block mappings and contiguous hints for linear
-        map region which would minimize TLB footprint. This leaves the linear
-        alias of read-only mappings in the vmalloc space writeable, making
-        them susceptible to inadvertent modification by software.
+Thanks
 
->  
->  	rockchip.usb_uart
->  			[EARLY]
-> diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
-> index ba269a7a3201..3d96dde4d214 100644
-> --- a/arch/arm64/include/asm/setup.h
-> +++ b/arch/arm64/include/asm/setup.h
-> @@ -21,7 +21,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
->  	if (!arg)
->  		return false;
->  
-> -	if (!strcmp(arg, "full")) {
-> +	if (!strcmp(arg, "on")) {
->  		rodata_enabled = rodata_full = true;
->  		return true;
->  	}
-> @@ -31,7 +31,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
->  		return true;
->  	}
->  
-> -	if (!strcmp(arg, "on")) {
-> +	if (!strcmp(arg, "noalias")) {
->  		rodata_enabled = true;
->  		rodata_full = false;
->  		return true;
+Huang Shijie
 
 
