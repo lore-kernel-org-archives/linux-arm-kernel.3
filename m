@@ -4,164 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8038BCAC58C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9542CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 08:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYGOzG2F/Rr8iD5vT9877uN6NVosCYaAnGLlyJEn82I=; b=UHDdgArM2JuoDAKnzcuJkBNG77
-	/j1pSvJ1QECCe+4ibTK2Uyur5XyxAyH+0uamR8wABBOGsy4oOyPoqvqfjq317JsbIVOklB06WQ9Qe
-	Rta9xXQz8+OZ3ViS0ugdlfuweIzz2XCHVlF1zhirgslDqwFa/A6FR1nO7bxGGQ5f+Xnd3QuVoRCpj
-	UAri2iAYgboHhRbDpQj/Uth5lDismYhsFXGmBxiODDE0m9SfcOmn976ZPxDVIUPZKIrNBkNFraPQb
-	GuZODpiV2fPxDwRAmS8/uJmL1+kRoOjdEKDMJtvDwFzJuTZJ5ULNTAlUQdtFwBTJZU7Ob+h4p4ZXW
-	S33Z8luw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Knns7zJo/msXjrOtw3iWW+MgYjH/mDgMvmmQ740isd0=; b=3Jh6UeQ4ZpeX4R2idmzt/XxTQ9
+	z1+JMJjdCRRuYhQpG9e7gKXmeZrdIy5kppXufTZPrrkcrNWSpHxoFQXq9MhZnFD9w5K+6mEESL/h3
+	7oeSTsRzTeRzeI/eqEBZ2iKgamMH7npS9tcSQZEyrHtiB3TBEPzmo+mUdCL2br4MUbIKkQjVBJcRa
+	hwqJe2IJ9HaRFvQ870AnVSCYqdCCM0FVhwIBW2WVxvLGFkQrxjFJTbalRPGz4HjK0EnBMT30ShpJv
+	3PXRgNTXNs7AlBPWHh5CeaJ5kfIeBOD50StO9Bb3iX0MoKVs3tvB/rOZY6JNf1FBbsQvmSyuehLfD
+	p181+sWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvtN5-00000005R9Q-2xFz;
-	Tue, 09 Sep 2025 08:06:35 +0000
-Received: from mail-dm6nam11on2072e.outbound.protection.outlook.com ([2a01:111:f403:2415::72e] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1uvtND-00000005RKr-1iyB;
+	Tue, 09 Sep 2025 08:06:43 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvp8L-00000003yxp-1lHb
+	id 1uvqAm-00000004FAV-2F7o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 03:35:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S5MkWiD3sswb1zBfclFtfzSCdDge25NveJMzqKUG6N01zSsA9+TXvpDP5E5iCYYmrKdwSvqUa98LReXaGzMt12+6uPVfov46ijGUWLq/3yQ3hiNKDow6pY1qzBsqpsm2F1fUqD5ekbsunDoSYMUgekSppNeoQ/mOQqEfUDQyqsbKt3OtZfWmpj6ZJfoN3121hV2rZx0XL2agVHJ18PflnVdVYhPjaDw7cgmR+Sku859Dco6daI8MFvBFquEmVfV36ORj7mGyMZQIgU2tVxoNDml3CPh3Kk8+aSvc1SrxIwrSJBzUD/f4DuV/LbunXyQ6cArAeDFdTGoaoisSe19m+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jYGOzG2F/Rr8iD5vT9877uN6NVosCYaAnGLlyJEn82I=;
- b=ZoYyZpE/D5cn7jQRpn22/nNbNp6eVPViuMAKRk71ANjq2DufOXtECmEC58Lxp+22XNDpXElsJQ4hgb4/lMKtJPXCDrPJjBRGp2J3i62hfYuQJ4wRuwD79gSoK66rd8QQm5ka28dcBd6H2IvAxLtGa3EDDkO/eTb4bzDMULXc25iC8CpmRkcYxqSiZElFAx+8ucsJVVc0oZ4GCyCLQep1LcBbUCQd1238tW/pfSlvdc8cZu6jN6l/yGUq4fMsHtk0hcUXHnHnfJYbZi5/ICcRKWCxk5p6l9kwkLwNlNGTbnyf7l1uknncQUAmaUZUBMT6AGVQr5VjVe2PVawQSFC/gg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jYGOzG2F/Rr8iD5vT9877uN6NVosCYaAnGLlyJEn82I=;
- b=sIMwVqrhmWNBGB0XN0P98GC+dCp/8ffJ4o7Km2CMpeU8Wr5oX68qE0dxnQwd3GksOPPRPqwOx2SnwpeDnRNkTpxv5IEGaP7qzE73nxYLxWuimpbGmIgr3Ved3KxY4GWfjHRVJRMu0KzH4HO3/c/YNRtODcTPi9WeG2qbJXcWFLU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
- SJ2PR01MB8128.prod.exchangelabs.com (2603:10b6:a03:500::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.22; Tue, 9 Sep 2025 03:34:53 +0000
-Received: from PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050%4]) with mapi id 15.20.9094.021; Tue, 9 Sep 2025
- 03:34:53 +0000
-From: Huang Shijie <shijie@os.amperecomputing.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: patches@amperecomputing.com,
-	cl@linux.com,
-	Shubhang@os.amperecomputing.com,
-	corbet@lwn.net,
-	paulmck@kernel.org,
-	akpm@linux-foundation.org,
-	rostedt@goodmis.org,
-	Neeraj.Upadhyay@amd.com,
-	bp@alien8.de,
-	ardb@kernel.org,
-	anshuman.khandual@arm.com,
-	suzuki.poulose@arm.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	rdunlap@infradead.org,
-	Huang Shijie <shijie@os.amperecomputing.com>
-Subject: [PATCH v7 1/2] arm64: refactor the rodata=xxx
-Date: Tue,  9 Sep 2025 11:32:35 +0800
-Message-Id: <20250909033236.4099-2-shijie@os.amperecomputing.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20250909033236.4099-1-shijie@os.amperecomputing.com>
-References: <20250909033236.4099-1-shijie@os.amperecomputing.com>
+	Tue, 09 Sep 2025 04:41:41 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5894fVQV207138;
+	Mon, 8 Sep 2025 23:41:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757392891;
+	bh=Knns7zJo/msXjrOtw3iWW+MgYjH/mDgMvmmQ740isd0=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=CnAPPLYY2QS1d+TN9AT5mDI8W56QMbo3YeERGYq0lC5sS6t09H/acvfSJ/KdEWd85
+	 VuWJPvRqV5SHMkniZB1TeVjH0heybwhHhvSEP3VXuUGvEk6zTS1H/Xw/5Agg09UZYy
+	 /WqdbZOWBEXmr0hnPl55+4hdSDLnS84lbGpfsMVc=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5894fVMH3453738
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 8 Sep 2025 23:41:31 -0500
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
+ Sep 2025 23:41:30 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 8 Sep 2025 23:41:30 -0500
+Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5894fAkE2012008;
+	Mon, 8 Sep 2025 23:41:25 -0500
+From: Akashdeep Kaur <a-kaur@ti.com>
+To: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
+        <d-gole@ti.com>, <u-kumar1@ti.com>, <sebin.francis@ti.com>,
+        <k-willis@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <vishalm@ti.com>, <a-kaur@ti.com>
+Subject: [PATCH v6 2/4] arm64: dts: ti: k3-am62x-sk-common: Remove the unused cfg in USB1_DRVVBUS
+Date: Tue, 9 Sep 2025 10:11:06 +0530
+Message-ID: <20250909044108.2541534-3-a-kaur@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250909044108.2541534-1-a-kaur@ti.com>
+References: <20250909044108.2541534-1-a-kaur@ti.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: TYCP286CA0375.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:79::11) To PH0PR01MB7975.prod.exchangelabs.com
- (2603:10b6:510:26d::15)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|SJ2PR01MB8128:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3a33f833-4612-42c4-6514-08ddef51c9ef
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?H52nMteO4M08yNZxDL7NzpyxJoAA9Jv4CYytMiclfFYJDg+5yPux8JeQnsD8?=
- =?us-ascii?Q?WSUHADdPmqSQeEFNG3SzdNeAUXWAwI4jhDYICXz5JkDvibm4DgVh7vP1c0Jb?=
- =?us-ascii?Q?rVRETEtJ9K5BNKAVDL/zzH3AjKIFWmOqU2S1DmqAMu5bWE3+biG83g+ya6c9?=
- =?us-ascii?Q?lMK0WryG5MpLfnj5JCS5TuAVieZEEOFmwOqpV6A0y2l7NzcAtZWUHZtRlz6/?=
- =?us-ascii?Q?8XGJlM7zR8lJ96lthRlVFtmaT7YAI87cME2gSDlTB54DZbZNe+MtaaeS2KHu?=
- =?us-ascii?Q?pzN43zUp8HfXN3cjQ0VW3ninDk47LAChVIRJsYpbYDEGbQCQJL26PuBs87+5?=
- =?us-ascii?Q?sSaxAiNt78HTjqVgoaeLaGwkGS1laXnhqNLtaA0y87ofqDVSwfo7ONLR3jAn?=
- =?us-ascii?Q?1bzMFVEMS4nrXaHDZY4hvdPigEVDgpsSYJJ+KkM5OMwBdiiOENfQ/52aPXBt?=
- =?us-ascii?Q?E1BHRPYBLyxDe0AFJtzLOnBRUSA8tdMl5rwhEk3Kux4YplhE3jI02ACylbik?=
- =?us-ascii?Q?IhRtSZXs3Se/NQvZu5Zm1z+xHyM82XPoyNEj1elaWWVgyqkVI/gqLnZcBTuQ?=
- =?us-ascii?Q?ozpz4+BtI2nLzK710VD8DJF7FPuhMlF7Q79lBm67IQYXxoykQAyQfGghRc2v?=
- =?us-ascii?Q?47LHADtFaIGgXn1AVr+JWjmmLcZapNKoNg4+oCeuoTeUUuvulkRZ3vsDgB5p?=
- =?us-ascii?Q?P7lR4vLx/zwVyDHSyM/Bt9KB00ATh1I1Z7xpmpe254hivIpHfCjXInq6EV8T?=
- =?us-ascii?Q?vvkEKaDsehC17vK1P4eCvjtyhpNiDMpY6l5kSnktWb6TFvOtX5VyqcKBxFTG?=
- =?us-ascii?Q?BDYIE3/XOWqTdw1kLAB0MqXFluPmpzeHi/80a8FRn5DMDJW3fPLZm85RCDQt?=
- =?us-ascii?Q?BoO39JZ97kWg8kAgAOMljArre45UZCEMDhxqFfGxjd9MUORFXzYa8mzdZEKa?=
- =?us-ascii?Q?AAb9tbkM4M7HQdwgpqYB/K1nOqkxc8UvIBHwK2yQh3FYOGRFSWHWCWTao1FA?=
- =?us-ascii?Q?la4cjzsUIu3PSvlUQKquXf2NEl5gYHMAME9SDu0U8fCegctHjq5l/XmbPMN1?=
- =?us-ascii?Q?JiJg78jySonw32coTFEa9lWyMPfFwVm+aC96kP7p5pQLrNCRUxJ20BpWpp6t?=
- =?us-ascii?Q?kInj4GPD9dBaGGNUKR61pCKVW0enB/cZPWv6FQ0hOoGZulV5qWEFlUmaxBiH?=
- =?us-ascii?Q?BrB2p4IgJkRWS+0HtPOkImWO4KDHA4oyJxU68+wNGMIN+oiJVDinj2+7Sr+U?=
- =?us-ascii?Q?A7sAAbEcSOG2Esry+4iCVu9dMsxabcNyU8LyVr6TFbppSbCGtgvZWoFgCXSK?=
- =?us-ascii?Q?EkzeK/08e210Om/q5yc0/cYN7jo7paHH4FfUNGdfFNSqOGyxAkJAf5vVaUw3?=
- =?us-ascii?Q?GNE/fvDsJ+/B/Y0nkCCHzFXcgBOiWV6LTHhFsQEeWwhPerIANoPTm5pS7asY?=
- =?us-ascii?Q?W+JgXhNV0+z67aTWQJm+F39PnKeBX21r8SoS9HM7JOGrJPzTzfqN9A2NNpUI?=
- =?us-ascii?Q?4UQPJ3eUola2rWc=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uM/CHA0N67YHS5drQRmYkdBaiVXDPFd/4RyHqPXfknO36AJYpKqAncUK3Mko?=
- =?us-ascii?Q?qydlJiLG/CLIvrYHVZQoYtUoC1DvNL6xQQLDWbjawTj/a1S/zWwndgGdYqal?=
- =?us-ascii?Q?vW04IdphC/hfupnCQ+k5eqsFPWIJkVhMvbpcMoRdFd9IcQH452zKlVJio7Wb?=
- =?us-ascii?Q?fGg7WEBLVSOKx0KhbjFRNMZi71xiCwF697jT30pyj9djoH4HyTeguQ34bYXM?=
- =?us-ascii?Q?A76BhqHjqtMYEmlSDJRBiUPt9QSOE/WsGOh1te39kD1sMya7mseyatl8xPo1?=
- =?us-ascii?Q?6MUOmbb7JNL6b2Ew1TO0nI0XB5bfqJbf06z5s6gE+KoIlUbQTE8mZ1yhzjvJ?=
- =?us-ascii?Q?Ik+VRYzITFGXceYjXNoQHgmmidQkH1Zsh8V7dDeGCYEC1+CSOG/dI2TjBg9x?=
- =?us-ascii?Q?kNwKoJW1mPHLOrw6xGL9axrJGtIizSmLkyT/zNkyliyANElUS6DQ7ZmgDH07?=
- =?us-ascii?Q?iDAA2Q1LqEeiUvCmXxJtseQGJ9X0WXnVny/ZP6QJZj3EAtIGXMndmP9b90XY?=
- =?us-ascii?Q?zMorRSxZcPzOAt3jElpbpDSzuPCjTZMJlctTz+cmyNYen0XIKPsu4qg2ooch?=
- =?us-ascii?Q?1LLQsi42cA+jYCwlSzmDtBtfkdiBgFS2W5PYHubS//ZD7MvcBkRvajRkFYbL?=
- =?us-ascii?Q?xHIYNaehUjr9ECNG+4KQUmKbYf9FaN/f5EklfbU9dPv5fDQPdnUuq76msTEs?=
- =?us-ascii?Q?wFi599ZyTBLfrbk7BnIm763rE5aTQKpz1YroOgvdBXlCXyu+Cj3riuktJowl?=
- =?us-ascii?Q?XD7FANXpPR8ke38IlJ6+UZM9axX/aqQhzO4E0ZbGjNHTa21bV8yMLZv63LXb?=
- =?us-ascii?Q?YBxFRIV05oFsyr0aScGpHQYkQOyXt9K1btXicRqAfzba7YivSnXABFD0/czw?=
- =?us-ascii?Q?BKpiS2xcdNzSpHrCP//a/d8x/JFtK/tQHfh6Q1IKoary7wI2NFAv/yahwC6i?=
- =?us-ascii?Q?QMQkSdkYAQn44Btqqde4sCxDrTuqsoMenD2AmxuS6faBnqPerNHusk6Ttfbs?=
- =?us-ascii?Q?WATOyLw4FfKbYdtXaPOS5Ybo2BGAxPdtfhvxanFmKy0Mlvtp4bB2/7wXptIy?=
- =?us-ascii?Q?Si8+hDjEE/AtJ49US/bLj5MjOZ6hISxEufHgwkynxgxWLM4ncj5Gpki9B1ko?=
- =?us-ascii?Q?wL+Nbyci42/73V0j5Go2THhaRSmXhNfKb1rY+cVGEnybMbw/3JsoQR4o8LUu?=
- =?us-ascii?Q?nMxOBzPhrqbGDItuyC1FIBZyC/YQRCiO3d2i3lHTeBd5/Cpqmhy+44CLkLC4?=
- =?us-ascii?Q?UhML7b0BROF0INRnHDZs0WE/eERP+FYqTNPp412x8bOvBHSPXGMSRV5UdMMx?=
- =?us-ascii?Q?y/kxqW9ka5NDG175BWm79HSTMDYt1B6UIOOjmM8piTwM3If7ZRtWBUJMr+UX?=
- =?us-ascii?Q?D9FhlCPs/fZU6sWzOi/8HwL1OTUhnHb9LRFWhgsxjq6glTIVF6JdXtfg//+v?=
- =?us-ascii?Q?zI76qqIBSOxzsuTbncu1qHsMdogzH4QRW4IaZTVO/z65zBeWBcjmnHPHoffz?=
- =?us-ascii?Q?MsAHO7TFhr0DpRfi7AhaDtrMc5L5f22H/kRkAgxKmeDjoaVN5X4W2M2EFy8o?=
- =?us-ascii?Q?oMjVOTLzKoO4kKzc8DEQfQ1pHTqJWbZPL5hEx9bJoYdDXRwILZNDH/ssDr9C?=
- =?us-ascii?Q?MGfVkYFRB8nNtbMaNROdjoM=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3a33f833-4612-42c4-6514-08ddef51c9ef
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2025 03:34:32.7237
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZTV48RIGPQU4VJ5cNfUxi2FqoH1vkWavaJuL4awcHp3g+CBBWkyXT0VeXrnzcgJMUl1OmiMAf9dUMxGfx/QSHQUFcp+bqkS++f18fx530320+XpXfcHaZ8oRCEftuxDy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR01MB8128
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_203505_463160_764A6A46 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20250908_214140_659552_EB396429 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,96 +87,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per admin guide documentation, "rodata=on" should be the default on
-platforms. Documentation/admin-guide/kernel-parameters.txt describes
-these options as
+After the SoC has entered the DeepSleep low power mode, USB1 can be
+used to wakeup the SoC based on USB events triggered by USB devices.
+This requires that the pin corresponding to the Type-A connector
+remains pulled up even after the SoC has entered the DeepSleep low power
+mode.
+For that, either DeepSleep pullup configuration can be selected or the pin
+can have the same configuration that it had when SoC was in active mode.
+Remove the unnecessary DeepSleep state configuration from USB1_DRVBUS pin,
+as the DeepSleep control bit is not set and the active configuration is
+sufficient to keep the pin pulled up. This simplifies the setup and removes
+redundant configuration.
 
-   rodata=         [KNL,EARLY]
-           on      Mark read-only kernel memory as read-only (default).
-           off     Leave read-only kernel memory writable for debugging.
-           full    Mark read-only kernel memory and aliases as read-only
-                   [arm64]
+This reverts commit 527f884d2d94981016e181dcbd4c4b5bf597c0ad.
 
-But on arm64 platform, RODATA_FULL_DEFAULT_ENABLED is enabled by default,
-so "rodata=full" is the default instead.
-
-This patch implements the following changes:
- - Make "rodata=on" behaviour same as the original "rodata=full".
-   This keeps align with the x86.
- - Make "rodata=noalias" (new) behaviour same as the original "rodata=on"
- - Drop the original "rodata=full"
-
-After this patch, the "rodata=on" will be the default on arm64 platform
-as well.
-
-Different rodata options may have different performance, so record more
-detail information here:
-
- rodata=on (default)
-    This applies read-only attributes to VM areas and to the linear
-    alias of the backing pages as well. This prevents code or read-
-    only data from being modified (inadvertently or intentionally),
-    via another mapping for the same memory page.
-
-    But this might cause linear map region to be mapped down to base
-    pages, which may adversely affect performance in some cases.
-
- rodata=off
-    This provides more block mappings and contiguous hints for linear
-    map region which would minimize TLB footprint. This also leaves
-    read-only kernel memory writable for debugging.
-
- rodata=noalias
-    This provides more block mappings and contiguous hints for linear
-    map region which would minimize TLB footprint. This leaves the linear
-    alias of read-only mappings in the vmalloc space writeable, making
-    them susceptible to inadvertent modification by software.
-
-Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
+Tested-by: Kendall Willis <k-willis@ti.com>
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
+Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
 ---
- Documentation/admin-guide/kernel-parameters.txt | 5 +++--
- arch/arm64/include/asm/setup.h                  | 4 ++--
- 2 files changed, 5 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index db84a629f7b1..138e0db5af64 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -6418,8 +6418,9 @@
- 	rodata=		[KNL,EARLY]
- 		on	Mark read-only kernel memory as read-only (default).
- 		off	Leave read-only kernel memory writable for debugging.
--		full	Mark read-only kernel memory and aliases as read-only
--		        [arm64]
-+		noalias	Mark read-only kernel memory as read-only but retain
-+			writable aliases in the direct map for regions outside
-+			of the kernel image. [arm64]
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+index 13e1d36123d5..d3bed23134ca 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+@@ -249,7 +249,7 @@ AM62X_IOPAD(0x12c, PIN_OUTPUT, 0) /* (AD19/V15) RGMII1_TX_CTL */
  
- 	rockchip.usb_uart
- 			[EARLY]
-diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
-index ba269a7a3201..3d96dde4d214 100644
---- a/arch/arm64/include/asm/setup.h
-+++ b/arch/arm64/include/asm/setup.h
-@@ -21,7 +21,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
- 	if (!arg)
- 		return false;
+ 	main_usb1_pins_default: main-usb1-default-pins {
+ 		pinctrl-single,pins = <
+-			AM62X_IOPAD(0x0258, PIN_OUTPUT | PIN_DS_PULLUD_ENABLE | PIN_DS_PULL_UP, 0) /* (F18/E16) USB1_DRVVBUS */
++			AM62X_IOPAD(0x0258, PIN_OUTPUT, 0) /* (F18/E16) USB1_DRVVBUS */
+ 		>;
+ 	};
  
--	if (!strcmp(arg, "full")) {
-+	if (!strcmp(arg, "on")) {
- 		rodata_enabled = rodata_full = true;
- 		return true;
- 	}
-@@ -31,7 +31,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
- 		return true;
- 	}
- 
--	if (!strcmp(arg, "on")) {
-+	if (!strcmp(arg, "noalias")) {
- 		rodata_enabled = true;
- 		rodata_full = false;
- 		return true;
 -- 
-2.40.1
+2.34.1
 
 
