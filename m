@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E149CAC58C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE768CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zVTLuB5mPE9USyd5FN+v1V5IxPuPjuhHqdZpeodUNwI=; b=aOUUeOl+fz6hZE/FLrA8gFncbO
-	gMVjK836eXDGkbm/SazYW1r1XMel/zIN3xu+c84LPvbMOUBlecPz8UstARDBcsqFdQH2mqZ4Fqusu
-	4RFWtQzeTzlD0v1VrnGoQvKTAKn5+NDTSXtoCt5ifUDGTkQpwGT8k8p9tONkYVxBpBpJGhttx6p4s
-	MkAoEegIsNMi2l4Qn/vqIEfJMuufxd2yVxfqfnDypcHlarNwXzwSYXCZ46TmmrHc6D9Mxofpk0FNi
-	KK9OOvl+8wC8bMtNS0Vpq8U7aHQZ51uySAv4DwOboyh0BXSYDwS6dHFOTPek2uvVFA2o52YssFnit
-	VVs33O9g==;
+	bh=dQj/5jlTkw/Bib4wvpo/RLsws32kvsO/DxizhOAyfck=; b=cMIjf17lBvIC88VvfJnIVXZaiA
+	DNITAMuRVGBJGlJ+9SC9RKnlOgBHm+cD/wFqvPXpXySuNQL1EP7krk6yLSjoTr6HuPuTmpXCPD9w9
+	Y0wgkafBqOTlVncQGs9sIU4z61MlY82ICnZt6nhhB3K/5boHlQ6mE3X28qMONt/f6RJP4j4UyjIi5
+	Mo6sr+WfnNlXTVv4o8gP7rOvD1eiebFBkLIWwb/y4fPICU8vdqmn3MutRMsqq33nrfdH1FcOTvq2M
+	8gTUJNSsDdz1458wdUCG/CTwLjpcemCSFQtQQK8Ir4aK+gat8aw50Fs4dlqUmqE7GU6nQghKvi/0i
+	ckO9RA1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw27T-000000096ky-1SCj;
-	Tue, 09 Sep 2025 17:27:03 +0000
+	id 1uw27U-000000096n7-0ZBj;
+	Tue, 09 Sep 2025 17:27:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1fV-00000008hE2-0jt4
+	id 1uw1fY-00000008hEz-0tnL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 16:58:10 +0000
+	Tue, 09 Sep 2025 16:58:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4775320E3;
-	Tue,  9 Sep 2025 09:57:55 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33B1715A1;
+	Tue,  9 Sep 2025 09:58:03 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD3323F694;
-	Tue,  9 Sep 2025 09:57:57 -0700 (PDT)
-Message-ID: <dd9e8800-9b55-4021-90a0-05941c71f146@arm.com>
-Date: Tue, 9 Sep 2025 17:57:57 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 75FF03F694;
+	Tue,  9 Sep 2025 09:58:05 -0700 (PDT)
+Message-ID: <fb2f66b4-89ea-4b1f-b5d5-30bf0be8d822@arm.com>
+Date: Tue, 9 Sep 2025 17:58:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 20/33] arm_mpam: Add a helper to touch an MSC from any CPU
+Subject: Re: [PATCH 21/33] arm_mpam: Extend reset logic to allow devices to be
+ reset any time
 To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
  devicetree@vger.kernel.org
@@ -62,16 +63,16 @@ Cc: shameerali.kolothum.thodi@huawei.com,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-21-james.morse@arm.com>
- <8635e616-79b7-4d7d-a8b8-aa76ba027bc4@arm.com>
+ <20250822153048.2287-22-james.morse@arm.com>
+ <c2a814d6-e235-4589-bdb0-63d08d4ca008@arm.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <8635e616-79b7-4d7d-a8b8-aa76ba027bc4@arm.com>
+In-Reply-To: <c2a814d6-e235-4589-bdb0-63d08d4ca008@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_095809_263490_00DB7E5E 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20250909_095812_382332_87C1178A 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,31 +89,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Ben,
 
-On 28/08/2025 17:13, Ben Horgan wrote:
+On 29/08/2025 15:30, Ben Horgan wrote:
 > On 8/22/25 16:30, James Morse wrote:
->> Resetting RIS entries from the cpuhp callback is easy as the
->> callback occurs on the correct CPU. This won't be true for any other
->> caller that wants to reset or configure an MSC.
+>> cpuhp callbacks aren't the only time the MSC configuration may need to
+>> be reset. Resctrl has an API call to reset a class.
+>> If an MPAM error interrupt arrives it indicates the driver has
+>> misprogrammed an MSC. The safest thing to do is reset all the MSCs
+>> and disable MPAM.
 >>
->> Add a helper that schedules the provided function if necessary.
->> Prevent the cpuhp callbacks from changing the MSC state by taking the
->> cpuhp lock.
+>> Add a helper to reset RIS via their class. Call this from mpam_disable(),
+>> which can be scheduled from the error interrupt handler.
 
-> At first, I thought this was referring to something done in the patch.
-> Consider changing to something like:
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index 759244966736..3516cbe8623e 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1569,6 +1567,66 @@ static void mpam_enable_once(void)
+
+>> +/*
+>> + * Called in response to an error IRQ.
+>> + * All of MPAMs errors indicate a software bug, restore any modified
+>> + * controls to their reset values.
+>> + */
+>> +void mpam_disable(void)
+>> +{
+>> +	int idx;
+>> +	struct mpam_class *class;
+>> +
+>> +	idx = srcu_read_lock(&mpam_srcu);
+>> +	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+>> +				 srcu_read_lock_held(&mpam_srcu))
 > 
-> Callers should take the cpuhp lock to prevent the cpuhp callbacks from
-> changing the MSC state.
+> Why do you use list_for_each_entry_srcu() here when in other places you
+> use list_for_each_entry_rcu()?
 
-Yes - that is better,
+It's a mistake. I was part way making this use RCU when someone 'invented' the
+firmware interface meaning readl() needs to be able to sleep...
+Those were added in a later patch than I thought, and I missed fixing them up.
+
+I think the srcu version provides extra checking - and is the correct one to use.
+I'll fix those -- thanks for spotting it!
 
 
-> Regardless, this looks good to me.
-> 
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-
-
-Thanks!
+Thanks,
 
 James
+
+>> +		mpam_reset_class(class);
+>> +	srcu_read_unlock(&mpam_srcu, idx);
+>> +}
+
+
 
