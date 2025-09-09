@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8508CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF38CAC58C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7ky71Mnv1o4j9dtBC5FM4kNDHq6xAMnAD0l3G62aCXo=; b=P/NDMjDQabDi32aafi5KKUo+x/
-	P/ByLDwQSdarrALy7lqtitbe63jhq0gligW0qdVIa5pA33O0laKRBI4brtEs4Wga9BWSaRkEx1bb/
-	15sLhZfihAyvcX3jOOK+V33dWu9uQEz+bAbN9wqOqGEtUaPqv3a7AxpRUaayBdm8xom3bH0J3hp1h
-	IB7RIp3aTvYoESY2y/pFJJ+yx03PkVafhKkU6xIPxY8FHGumEHrgWC51AW6FwxGPOEDY+a15CiSHv
-	28cUArZJSVncppcpyioazoImyGT9Cqmgr08NXyJbrTQt5x13C+qHQOhFa4ghcMOBdD6Mq3O56Nt5V
-	OMngAdsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P7Y/5XAicoD8NcBwUSNR9CyZE1ekWpSORoJ1AIrCozc=; b=TKsZ8XFe/9EGsrUOwaGWqaWqFG
+	M2tBnVgQeBnjl+PAccqGcgO816VBgo1MLijFYY2XKMeuyI92WpbhWFgOVTp+89PuTn/Gq+eRSRdJX
+	2pBrDisckEn6SIki93ceIRUg8yJx8osk7KB5bXdVH/WvidXkgWemtGKYdkycG+/nDgXgchhj1bLE5
+	O4BKvdDCIkgSwArdUoZkBRB2IZLrjLgd0d5ZmNil6RSu9+XSjNaijKXiYGTe+m3Xh/ki1NCSpnLvC
+	Ca+Nuv26kLMN+kgEnZr7rh5ouV8ROtYGUr2mgqCbLyPVi/t4/ZyIobqAFll1vjSEFvmP03Cht9E3t
+	8DESiv+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1v6-00000008maS-2mpg;
+	id 1uw1v6-00000008mZg-00gU;
 	Tue, 09 Sep 2025 17:14:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvvjZ-00000006SDM-197m
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvveY-00000006QW3-2NRs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 10:37:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1757414277; x=1788950277;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=75ANhpaW227bGu0JKhRJlzVZJZScwakaz/wvhDzumdE=;
-  b=DjS7wI6p6a1i7PRiHshI7rRMC4L8QRpVOLpWWhKnDVviDmXyTyiT9OV0
-   /FVY+7uPVf7TG7pKpxWZtQ5zhxZaMgdkS/42ZqB97o3+vb2lWrVcL8TNS
-   2bEf5y/aYG6kE1Xdw7HB+pysOWffxg3MZx/6s3Ca1f32OorgnfBfXnvrf
-   yj1mEw+7P1lxXHin4OzWqKDtznSRUorGzDwtO4SvqJy3MBIcyXu8jvFL9
-   Q4mNgEoCV3vcMio2AXvbUFaOROa8ZNRpswd8t2sK9o4o7Q64zOXr2dxvO
-   hX4IIE9j1lde8SMC5wVRWNaOf7oZxujwdno82Vc9CfEZJP6pGOABAGXJM
-   g==;
-X-CSE-ConnectionGUID: 4S6DztCWTLSzrCQS5AblUg==
-X-CSE-MsgGUID: XXV7pOUQR5KQenWm5l5WqA==
-X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
-   d="scan'208";a="52016856"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Sep 2025 03:37:56 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 9 Sep 2025 03:37:45 -0700
-Received: from che-lt-i64410lx.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 9 Sep 2025 03:37:40 -0700
-From: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>
-CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Balamanikandan Gunasundar
-	<balamanikandan.gunasundar@microchip.com>
-Subject: [PATCH v2] clk: at91: sam9x7: Add peripheral clock id for pmecc
-Date: Tue, 9 Sep 2025 16:08:17 +0530
-Message-ID: <20250909103817.49334-1-balamanikandan.gunasundar@microchip.com>
+	Tue, 09 Sep 2025 10:32:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72FCC113E;
+	Tue,  9 Sep 2025 03:32:37 -0700 (PDT)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E6C9B3F66E;
+	Tue,  9 Sep 2025 03:32:43 -0700 (PDT)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Peng Fan <peng.fan@nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v4 0/6] firmware: arm_scmi: imx: Dump syslog and system_info
+Date: Tue,  9 Sep 2025 11:32:41 +0100
+Message-Id: <175741387444.137822.14283463881745824228.b4-ty@arm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250904-sm-misc-api-v1-v4-0-0bf10eaabdf1@nxp.com>
+References: <20250904-sm-misc-api-v1-v4-0-0bf10eaabdf1@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_033757_317994_74C63BE6 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20250909_033246_648483_D2249F2F 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +72,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pmecc instance id in peripheral clock description.
+On Thu, 04 Sep 2025 18:40:41 +0800, Peng Fan wrote:
+> System Manager firmware provides API to dump board, silicon, firmware
+> information. It also provides API to dump system sleep, wakeup
+> information. So add the interface for Linux to retrieve the information:
+>
+> patch 1 is to add doc for board information which was missed before.
+>
+> [...]
 
-Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
----
-Changes in v2:
-- Removed Acked-by tag that was added by mistake
+Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
- drivers/clk/at91/sam9x7.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
-index ffab32b047a0..bce60f7393d5 100644
---- a/drivers/clk/at91/sam9x7.c
-+++ b/drivers/clk/at91/sam9x7.c
-@@ -403,6 +403,7 @@ static const struct {
- 	{ .n = "pioD_clk",	.id = 44, },
- 	{ .n = "tcb1_clk",	.id = 45, },
- 	{ .n = "dbgu_clk",	.id = 47, },
-+	{ .n = "pmecc_clk",     .id = 48, },
- 	/*
- 	 * mpddr_clk feeds DDR controller and is enabled by bootloader thus we
- 	 * need to keep it enabled in case there is no Linux consumer for it.
--- 
-2.34.1
+[1/6] firmware: arm_scmi: imx: Add documentation for MISC_BOARD_INFO
+      https://git.kernel.org/sudeep.holla/c/646c0c9e06a6
+[2/6] firmware: arm_scmi: imx: Support discovering buildinfo of MISC protocol
+      https://git.kernel.org/sudeep.holla/c/cc798b105070
+[3/6] firmware: arm_scmi: imx: Support getting cfg info of MISC protocol
+      https://git.kernel.org/sudeep.holla/c/d3e25c244d53
+[4/6] firmware: arm_scmi: imx: Support getting board info of MISC protocol
+      https://git.kernel.org/sudeep.holla/c/88d3671baf41
+--
+Regards,
+Sudeep
 
 
