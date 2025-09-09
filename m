@@ -4,161 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34EB6CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:02:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4464CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iJsmgd6XqU5+V3aO6IPPySNCZETtyS/JLPHM13pOQnQ=; b=zIROjB90xp3edSUxWWAJYha3gS
-	KNJ+cGu4sLvzFqIcj8R7IBwfZ4zBUe3S/Pi6bqymos/BpydMkpzRZHoxaAjrjpTr3OHdANKy0dk0d
-	6BCpEbi1n3jTmUbnvbIPVCnSyAeUuA4ZmiDLdBnvZuLJ+VntjKc1O1f3YDJpgZ2qEc/MarskKCYKz
-	qHJhGNsjG580k022kcKgQuPAnpNypW3kfM4xKfEV6AV8X7wdsQNMX26DmJ/ja+RTjoDv4WWH+oqG+
-	RTA14Nqxm0SLNMDMV6ZxcuJYN+4kmE32h110K88Dc2Gg7n0ay9TiGmFqb8X1HNWbUzFajytlyC0PI
-	2abfDc2g==;
+	bh=yK8ClsucKWiZ7rP6dTqe53VFnXreX3iMm3poQhOEI+w=; b=tX8yDH3aPgTpeLHBWKA6hlG1CG
+	oChTntU+2hgsVUbH3jrEJe7cWDejIhGevyet5dw1ZPgq0h2RFAVUjnYMDKTOcYwTLzZgjOCTTw6Ft
+	J+o/+wsR+DM6n933BFF3+38zq3ktRbyNy3BeVGztEyx+ivtQkDVD3vO5iV4tG0CosWIdXQpy5x1Gs
+	u4Njq4+JmjLupIg1b8WsApAQGdDHM7mY5q40FPD54kfh5ebTIP5zg7EfVE3SGpveGt3oVhowxFjx8
+	Co5JHcwuHGqFZJ2tS7r3z9LzkPXJyv8DwJxM51R6FQ8Nkf2+ikTwoWbrYQSx0Hlh+mOxBXcTUPGAu
+	zMZt8LRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw5Td-0000000AF56-0wV2;
-	Tue, 09 Sep 2025 21:02:09 +0000
-Received: from mail-bn1nam02on20713.outbound.protection.outlook.com ([2a01:111:f403:2407::713] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1uw5cl-0000000AIeM-2whR;
+	Tue, 09 Sep 2025 21:11:35 +0000
+Received: from mail-il1-f206.google.com ([209.85.166.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw5Tb-0000000AF41-3TKB
+	id 1uw5ci-0000000AIbe-1BHo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 21:02:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bi11EtFE4lVqStc9QzcOOF3jMIAlCZYSCAO5kH8ddyCR+2MKswIv0Om6CL9naXOg/BWOhOSqcwV+NSeJ7VdGf0OaEF6UvPP8fvkhwqc/xYsRjkknZ8N8rSeBqhWhasGuklvJ+5I+E2lwxpKO+wOK0KYMij7qMbiyX7n6b2a1AfTcczOMCHvAL16cN36CU7PSNN7psft2bkpSK3SEn6MI6nn5MG6BA2o12T2RZDYmy8dgdLk9tPlumURLCSM/tpoM/9kCMMeHvIKD9aN0dx4mNnogQ3W13b+e4ykPYiZpM2w4y10r8AQj3xzNVuxpEuVPZIw6wv75E6om8IMyzvtrsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iJsmgd6XqU5+V3aO6IPPySNCZETtyS/JLPHM13pOQnQ=;
- b=fEYK/hkSmUTnMnemNVnJWVMcEyho5+H3GCmEZLtKPrBMHuIUS2qPZmeW6kJ6PD1gW/yInI8Bjp5DfxRSfQdV3YFgiZDBKxzpLG3rrL8SdqxlIBnQbmUI8Mhy3+I7NFDqrk0PDM/ImPj6JEtMHSqfvNBsjIRyPAJMccxHYiGu4iePconv0RSq8uDmk71WEapNKUMyiy9D+/UlWcJpnwkYsr2Q/aRQY8T8SkmuUtwopA+DGf4sPbkOdsbKuB8p9WIJSA1bh5LX7SvjJdIiuUJ0nN5eB7Hnyd6lQ/5BOZ+MZUqgPeY5n/kaj9yGmOeRUzw23eAtJ/4+JYK4sDdHbuayHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iJsmgd6XqU5+V3aO6IPPySNCZETtyS/JLPHM13pOQnQ=;
- b=v2lK9MexfYRSbzo4hxOVgi8asNxGzOACsSBmfQ5fM55P4XUAZnA1XXVquu4btAcDAs28jcJMZ55AIGMn/qGASos4NqFX7CPi04EaETESJbMBALDwIviGlKK8vF9POz8MP3k2UI2UTsULTGcJ0D3Mp/JH+uQIMSOr0pNTbXD+JeA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- CO1PR01MB8865.prod.exchangelabs.com (2603:10b6:303:275::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.22; Tue, 9 Sep 2025 21:01:37 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4%6]) with mapi id 15.20.9094.021; Tue, 9 Sep 2025
- 21:01:36 +0000
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: John Garry <john.g.garry@oracle.com>,
-	Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>
-Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] perf vendor events arm64 AmpereOneX: Fix typo - should be l1d_cache_access_prefetches
-Date: Tue,  9 Sep 2025 14:01:20 -0700
-Message-ID: <20250909210120.9823-1-ilkka@os.amperecomputing.com>
-X-Mailer: git-send-email 2.51.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CYZPR05CA0026.namprd05.prod.outlook.com
- (2603:10b6:930:a3::7) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+	Tue, 09 Sep 2025 21:11:33 +0000
+Received: by mail-il1-f206.google.com with SMTP id e9e14a558f8ab-40b48e4a0deso56179185ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 14:11:31 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757452290; x=1758057090;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yK8ClsucKWiZ7rP6dTqe53VFnXreX3iMm3poQhOEI+w=;
+        b=IPKv4RSl5c1X1WL37oIqfPEDVe+t496I4tTNYIc9oggUt27cK1wGwgWR3eYs2yekzC
+         1zzluEQDMNcCx5UdSD3NCbtmLJf9MeFgyMuTk3Hv8VbWQyRWABY1aBUU8AcryPt4jVKM
+         77Sk2L6VcPgPCxe+qC+o79vslI3BDD24ykB/icfzMCAUinMPnNHPnv+1ttsf05QBoOAo
+         ljlu9fEHWfyqPgtJTj2eq1H+EP9h1q1ONtqSFOO67RFmW9H8tZFOqQZZW5cf3DENr9Z/
+         CTP8oNt/XOWyJSbiCj92w4hYFoRLmr+qBg6UtebT3i04rR+1Esl7nPkZ/gkUpRo2fHun
+         /LFw==
+X-Forwarded-Encrypted: i=1; AJvYcCVjPRdWzfrZdQTiNrggZvqk2oPBmb03yPFesoa72NQ71ltUln7O32C2Nq4l/u8PyJFZuxE4rmdwlpUejjMO8RX/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzL7LncJ1/LweAZLe808bDLf22htQDFlcgB4LFEPhaJkW5gJWyx
+	vgkb5M83KFwvPr7fpKs1ejiVxVJI1iMhJKQCnlw11YoOAMpdjF9aXgMQbX6Uf+L8JP1w+AcZCi8
+	I//lL4/gc0imwHAkKoB4xksSVGyePmGJhjCFkLkEysLRHpfyrZlFsizvZCnE=
+X-Google-Smtp-Source: AGHT+IGssSVcxmkBfpblAy2nP+e5Aj6iGPblHqj/69X/ccVF/yGQCkSd5+z/RwxOxmuNFincMwwqtng89Ctn5p55ABp9QPWIGMgv
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|CO1PR01MB8865:EE_
-X-MS-Office365-Filtering-Correlation-Id: b92495e4-e9c8-4aea-21ee-08ddefe4109e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8935EYn4Hp3UlFocwnSJ3b/hSOMBJl+iDZCm3QaawsPvaH4/k6QkCaKrfAcx?=
- =?us-ascii?Q?p6Oqd7DxE8ox+tuXNeG1scYpao+lyuU9F6M+OoYIrUTU6i2T8OdPEpy4ilnx?=
- =?us-ascii?Q?yt/UnP7LV+xjrI3BGqAkLgBYdcKhybNipsDiHDEL17oU2+vKgTMFeEBZl8cs?=
- =?us-ascii?Q?Pwncbs2UYsQ6y6UEJ0caFOJlN0/NDqsDbtZRBC0dkZfZndXQzFkKc70WUJhc?=
- =?us-ascii?Q?xAwrKfFuZkS0i5DYQR6S7Forj9Pro6VcYHKuNVQua5QfDyreem2gTNd6yfp2?=
- =?us-ascii?Q?gKnzfmEx0f7slZeyNZL9gjlNXb/8BsdmHsjz3fpCirnFeqk0zJh9fhTbCD57?=
- =?us-ascii?Q?yh6FL9hcSH5Ih42CfUXED5I+DjRe0/TREbQCMob0dAkXTHvPPnZ2v76VPdK2?=
- =?us-ascii?Q?gIDuhGQmglRvh/YK+YumfzTPZnR6jEuJIF5ooNEV4bY5K0QjyG4Cb9G0PaxA?=
- =?us-ascii?Q?lSthDOAj8qtlDMxE9eWUFZQei5PwDu0sB2R3bnOHdTWThypZtggVBp7JTF2Z?=
- =?us-ascii?Q?G+7j2Z4umnZeNGVw52soIotU2ayOFWWL+gj3VHRLdicPUIwI7Xsd583psiXt?=
- =?us-ascii?Q?bIlOoOmBdfrQmz/qm4fxByGc5CLqI5CSLJsSRsF7A/MPT6pFzcY/m21ziBnF?=
- =?us-ascii?Q?q+1vUkeMCByvou2SG6nzmRdZN+RCmWDL9PQDtfLgRr0KLq8ij3/YT0evybv7?=
- =?us-ascii?Q?rh8eEiZ+DO3DR4N6vZdpNuDitjXhwh/s/PJuflE0Y4PQRPvy8qY5f4iqR5eU?=
- =?us-ascii?Q?YiYl3FlAQcPJgGYqp32Uua97ZGwf4z/JTDHolpGmsaUFCqNgTLYGhuFZMe/C?=
- =?us-ascii?Q?GRPgvGI+ICTwAcUrksyiWgpRhqTOqTZMyb5Hc+Y99aojj/zMJCMf6f4EEJrf?=
- =?us-ascii?Q?RK0fy9aCWLJYXmzc+w2jGFKFFtltGfwwBqUpB4iloNGXula36KOJJdbW6w5F?=
- =?us-ascii?Q?Aa2MClLWm3EedWzJF7IsWlH4RlLeD57JoThhB29FbQNdXMPp4Xhu3sSeAh75?=
- =?us-ascii?Q?cbhv7bc+sDxfdK+FMDi9nJGOTFreuXzbl63dkLVTLeyfMheWGYys2vjZ3kEH?=
- =?us-ascii?Q?jIdsSyrI5k8XAJ7pXkGhHBKv6VUYpS9GS//30jhoU5G3eZI2bPO15z6nOc/O?=
- =?us-ascii?Q?VJeSEHGt0yRQil05zgOGgegrQgnlnwxUehgZZm4vnT8bgqIq3LrikvN4CKvG?=
- =?us-ascii?Q?JQaNHBZhatoEz1ltQzAaVxWWV/puJYY8LlNS+yN1dgiwHiD7UBnY2+VVlcxU?=
- =?us-ascii?Q?m95NwWE3C2VsCWmQ/+RN2IAT9lw1Ikk6ooFwQEDSA3ezQRbs6+77qLcUuRrq?=
- =?us-ascii?Q?/JmmLDsmrLib/CqTFSobhFb1JzyFpSXo1hzR/y0cotSpkR2je3EXFq0knNZJ?=
- =?us-ascii?Q?efLe6CLTv5Pclsc1Hqp5gz5Wj/CV2t0RSf7WlqrW0vslD7sj0ScFy+d3IlRK?=
- =?us-ascii?Q?OcgJi3MNK2KX1JfiRkI393b2MqwBEPMZbzhXFxN0gds8UQZOnyD/9nhq4ac+?=
- =?us-ascii?Q?EeWgU96l+zJyRGk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yEArb32cWfyopqoWtnPw7YB6I0MuYW6jCCI81tKR51d76mWayVQYymBn8Gqw?=
- =?us-ascii?Q?ihJlM7EzTLHHhILeRgbywRMYYByvlwB7mN4FEj30tqdtih7IzKWZxy1bKzm/?=
- =?us-ascii?Q?9dRuqNze/JLyop4+kzC+SggE4n+Gt/RxO/fMJTvIdo9NacGGcC21Bsjf5FNT?=
- =?us-ascii?Q?DkntypKrHAQ/CFtmAw0lWYsmfNtKdLlFVe5cdQZeeB4VzxSMItvc/SMJioRF?=
- =?us-ascii?Q?P/jsG19zH58F8aszfZ+O9YC97rMmLAgMdksuVhAz8ZYQXLMPR6FKrdaPyQMk?=
- =?us-ascii?Q?C1abzenTrlp4RtXdXhxfM7glRhW7Efo473FfF2wc3lPpkNYE6+VffzTSgTIX?=
- =?us-ascii?Q?R7h3RKpA+WjEXE/e6EeScIV/JkOfdDyZgvrnrAQyeTNl4EJNm+FZ44a2mRKI?=
- =?us-ascii?Q?jfkI0ww2pB4uQq2BGP5JwDHCUhToDaUyMZBumG7ikJk+EIoD4BRyUy74OgMo?=
- =?us-ascii?Q?OSvI55XLQdeGUB6gFsN3l7zXpaatDd++I5uUW7LVZIb8HreGCcZgyChbRyro?=
- =?us-ascii?Q?ChEyrk9Wn8OoJ3FDQg39L9nRKa3BIgAoh4wL8uBemEfKjJuIDpZWvXfjU5GZ?=
- =?us-ascii?Q?snRqIvzQxa+4xClyVVRkbRTWYD4ZHvKkL1+GhL5Bk9reImPYdYaDe1VeO7QV?=
- =?us-ascii?Q?joUQREFIBw2YpiSbLqz105DRyD2iCUmEby7nVWqGe97mdhX+NtV9xFeSorK6?=
- =?us-ascii?Q?Z4sKq8pry0HYGgNfipGsX74fQPUMAZYEtxyP9hRQuyx5d/YAHhdLDRgI4xQi?=
- =?us-ascii?Q?LQG6T4+0Bq+o5ZuYZDJytpBO21VJa2p2/QltHu5vAzFJ2RuONtw77i7RiN5l?=
- =?us-ascii?Q?nR10ai0YRIlB+0+dB+lFyg/QVWo2GPmmgGRnWZQ3pXq071CNIE076pYDzPZM?=
- =?us-ascii?Q?sYLs1QFTvAWZOhNzj++l2oCirMSZ9WYL3okwCm6aQkorpW/Rs2TcVgaW/Z1u?=
- =?us-ascii?Q?6z07E0wxf1Q3AXJaTAlVv73eXw59H8LAO63K6OEcVlOB6CCxofHIx8Tk6khA?=
- =?us-ascii?Q?LSJiqhjDK7pI5QfcRbxCyeVsd2yi8F5lk8iFJ7Mj5hQqe9zk6Ywm1Z+Z5+/0?=
- =?us-ascii?Q?vQcVMlm4vaYmhzUeSmLf5UikQcWrqgZFMDEXEHXlQgm44f7yCG+ox3fUbZgW?=
- =?us-ascii?Q?p5Bd3h9B7obdqBQjJzHZHDZ1Z5kTeKxv6gvKn92dtLaPxUgwPVAHH1H4y/NU?=
- =?us-ascii?Q?6X9kIKFnmMQbNbMSdyVCP99rBttzen/ePhFUX4vBLdlRYBH1/mIOYjq5cFkR?=
- =?us-ascii?Q?JMFZQoHVGYnRsEkOa7XiNhhlA6ZP2OaoN3rez8IjFG1NggzPVXB5D/i02ApR?=
- =?us-ascii?Q?gEYjA+wzgQ/+NblZuLCbwlpG89NzOpr2DzFcBClCsMBPjzrP4wdfT3g7Je/X?=
- =?us-ascii?Q?T16LtKS17lkOlq+K4acQo1bAUHWyqafWgVSVK1DWuxrXI0ur0ImVblpD2Z0/?=
- =?us-ascii?Q?rI+vo0QdBSmMde/eZe+/5+K15kWwcPIODRhykZoXR+ZMOUZdAxQFV1poJY5J?=
- =?us-ascii?Q?xdQw6wO3E1g2DtPCmPcNn/Cf/ctlkAD8/b0UGnhn5/OX+X58Si/zZ7Xbb1r1?=
- =?us-ascii?Q?la+y1LNKLkhTdXZ6tRQJBJ1UkhnUYDqSGQJCJgx0JdBIvE1D9uJ+7uzJdZPW?=
- =?us-ascii?Q?0lRMfvLS6PIg4JNq6tM/6sU=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b92495e4-e9c8-4aea-21ee-08ddefe4109e
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2025 21:01:36.8171
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TAhuY3KAGPwcVgAbDIjpHOaD+pvG+/KoaWgsbBBNwos2pVC7+sKhgJISdpIqZehQ8WHg6J91zBBu5yc6tnBHO7YsPgcd9eAp8yeudrIB+lhnBbxGozlRe6XSCVisNayD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB8865
+X-Received: by 2002:a05:6e02:5e85:b0:3fd:a540:9352 with SMTP id
+ e9e14a558f8ab-3fda5409466mr174561575ab.17.1757452290375; Tue, 09 Sep 2025
+ 14:11:30 -0700 (PDT)
+Date: Tue, 09 Sep 2025 14:11:30 -0700
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <68c09802.050a0220.3c6139.000d.GAE@google.com>
+Subject: [syzbot] [kvmarm?] KASAN: invalid-access Read in __kvm_pgtable_walk
+From: syzbot <syzbot+31156cb24a340d8e2c05@syzkaller.appspotmail.com>
+To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, 
+	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_140207_861518_ACF0938B 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20250909_141132_325702_28BEB9B8 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,65 +78,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing 'h' to l1d_cache_access_prefetces
+Hello,
 
-Also fix a couple of typos and use consistent term in brief descriptions
+syzbot found the following issue on:
 
-Fixes: 16438b652b46 ("perf vendor events arm64 AmpereOneX: Add core PMU events and metrics")
-Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+HEAD commit:    f777d1112ee5 Merge tag 'vfs-6.17-rc6.fixes' of git://git.k..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=15f84b12580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=45bc268c8b0b2faf
+dashboard link: https://syzkaller.appspot.com/bug?extid=31156cb24a340d8e2c05
+compiler:       aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
+userspace arch: arm64
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=117c6d62580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=13e94934580000
+
+Downloadable assets:
+disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-f777d111.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/3e36256124c6/vmlinux-f777d111.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/ea9018353872/Image-f777d111.gz.xz
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+31156cb24a340d8e2c05@syzkaller.appspotmail.com
+
+==================================================================
+BUG: KASAN: invalid-access in __kvm_pgtable_visit arch/arm64/kvm/hyp/pgtable.c:161 [inline]
+BUG: KASAN: invalid-access in __kvm_pgtable_walk+0x110/0x2d0 arch/arm64/kvm/hyp/pgtable.c:237
+Read at addr fdf000000f7c1000 by task syz.2.17/3592
+Pointer tag: [fd], memory tag: [fe]
+
+CPU: 1 UID: 0 PID: 3592 Comm: syz.2.17 Not tainted syzkaller #0 PREEMPT 
+Hardware name: linux,dummy-virt (DT)
+Call trace:
+ show_stack+0x18/0x24 arch/arm64/kernel/stacktrace.c:499 (C)
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x78/0x90 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0x108/0x61c mm/kasan/report.c:482
+ kasan_report+0x88/0xac mm/kasan/report.c:595
+ report_tag_fault arch/arm64/mm/fault.c:326 [inline]
+ do_tag_recovery arch/arm64/mm/fault.c:338 [inline]
+ __do_kernel_fault+0x170/0x1c8 arch/arm64/mm/fault.c:380
+ do_bad_area+0x68/0x78 arch/arm64/mm/fault.c:480
+ do_tag_check_fault+0x34/0x44 arch/arm64/mm/fault.c:853
+ do_mem_abort+0x44/0x94 arch/arm64/mm/fault.c:929
+ el1_abort+0x40/0x60 arch/arm64/kernel/entry-common.c:481
+ el1h_64_sync_handler+0x50/0xac arch/arm64/kernel/entry-common.c:597
+ el1h_64_sync+0x6c/0x70 arch/arm64/kernel/entry.S:591
+ __kvm_pgtable_visit arch/arm64/kvm/hyp/pgtable.c:161 [inline] (P)
+ __kvm_pgtable_walk+0x110/0x2d0 arch/arm64/kvm/hyp/pgtable.c:237 (P)
+ _kvm_pgtable_walk arch/arm64/kvm/hyp/pgtable.c:260 [inline]
+ kvm_pgtable_walk+0xd0/0x164 arch/arm64/kvm/hyp/pgtable.c:283
+ kvm_pgtable_stage2_destroy_range+0x3c/0x70 arch/arm64/kvm/hyp/pgtable.c:1563
+ stage2_destroy_range arch/arm64/kvm/mmu.c:924 [inline]
+ kvm_stage2_destroy+0x74/0xd0 arch/arm64/kvm/mmu.c:935
+ kvm_free_stage2_pgd+0x4c/0x84 arch/arm64/kvm/mmu.c:1112
+ kvm_uninit_stage2_mmu+0x1c/0x34 arch/arm64/kvm/mmu.c:1023
+ kvm_arch_flush_shadow_all+0x6c/0x84 arch/arm64/kvm/nested.c:1113
+ kvm_flush_shadow_all virt/kvm/kvm_main.c:343 [inline]
+ kvm_mmu_notifier_release+0x30/0x84 virt/kvm/kvm_main.c:884
+ mmu_notifier_unregister+0x5c/0x11c mm/mmu_notifier.c:815
+ kvm_destroy_vm+0x148/0x2b0 virt/kvm/kvm_main.c:1287
+ kvm_put_kvm virt/kvm/kvm_main.c:1344 [inline]
+ kvm_vm_release+0x80/0xb0 virt/kvm/kvm_main.c:1367
+ __fput+0xcc/0x2dc fs/file_table.c:468
+ ____fput+0x14/0x20 fs/file_table.c:496
+ task_work_run+0x78/0xd4 kernel/task_work.c:227
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ do_notify_resume+0x13c/0x16c arch/arm64/kernel/entry-common.c:155
+ exit_to_user_mode_prepare arch/arm64/kernel/entry-common.c:173 [inline]
+ exit_to_user_mode arch/arm64/kernel/entry-common.c:182 [inline]
+ el0_svc+0x108/0x10c arch/arm64/kernel/entry-common.c:880
+ el0t_64_sync_handler+0xa0/0xe4 arch/arm64/kernel/entry-common.c:898
+ el0t_64_sync+0x1a4/0x1a8 arch/arm64/kernel/entry.S:596
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x4f7c1
+flags: 0x1ffc80000000000(node=0|zone=0|lastcpupid=0x7ff|kasantag=0x2)
+raw: 01ffc80000000000 ffffc1ffc03df088 ffffc1ffc02393c8 0000000000000000
+raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ fff000000f7c0e00: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+ fff000000f7c0f00: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+>fff000000f7c1000: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
+                   ^
+ fff000000f7c1100: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
+ fff000000f7c1200: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
+==================================================================
+
+
 ---
- .../arch/arm64/ampere/ampereonex/metrics.json          | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-index 5228f94a793f..6817cac149e0 100644
---- a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-+++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-@@ -113,7 +113,7 @@
-     {
-         "MetricName": "load_store_spec_rate",
-         "MetricExpr": "LDST_SPEC / INST_SPEC",
--        "BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speclatively executed",
-+        "BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speculatively executed",
-         "MetricGroup": "Operation_Mix",
-         "ScaleUnit": "100percent of operations"
-     },
-@@ -132,7 +132,7 @@
-     {
-         "MetricName": "pc_write_spec_rate",
-         "MetricExpr": "PC_WRITE_SPEC / INST_SPEC",
--        "BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speclatively executed",
-+        "BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speculatively executed",
-         "MetricGroup": "Operation_Mix",
-         "ScaleUnit": "100percent of operations"
-     },
-@@ -195,14 +195,14 @@
-     {
-         "MetricName": "stall_frontend_cache_rate",
-         "MetricExpr": "STALL_FRONTEND_CACHE / CPU_CYCLES",
--        "BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and cache miss",
-+        "BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and cache miss",
-         "MetricGroup": "Stall",
-         "ScaleUnit": "100percent of cycles"
-     },
-     {
-         "MetricName": "stall_frontend_tlb_rate",
-         "MetricExpr": "STALL_FRONTEND_TLB / CPU_CYCLES",
--        "BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and TLB miss",
-+        "BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and TLB miss",
-         "MetricGroup": "Stall",
-         "ScaleUnit": "100percent of cycles"
-     },
-@@ -391,7 +391,7 @@
-         "ScaleUnit": "100percent of cache acceses"
-     },
-     {
--        "MetricName": "l1d_cache_access_prefetces",
-+        "MetricName": "l1d_cache_access_prefetches",
-         "MetricExpr": "L1D_CACHE_PRFM / L1D_CACHE",
-         "BriefDescription": "L1D cache access - prefetch",
-         "MetricGroup": "Cache",
--- 
-2.51.0
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want syzbot to run the reproducer, reply with:
+#syz test: git://repo/address.git branch-or-commit-hash
+If you attach or paste a git patch, syzbot will apply it before testing.
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
 
