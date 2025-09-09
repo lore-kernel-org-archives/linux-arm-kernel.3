@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F8ECA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 22:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB2ACAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 22:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o4pJzl4BWqncjRLwqdCVSmCaOJCq8m9Ifms3vJmzKBM=; b=RSYL126We6prTzYa0CpIUcNSgZ
-	rJBv1qHpNYKSZu8+rS03vExVvZUP5bbwBOwvRQeavWlF5DeSRb4egVppwppPdvmuL/KlQW3l8BcSe
-	MsB01P39PLmZfJ294EnPDYADZGQketcynH445u4kK5+oxl0DLztNpw43Sb2gSEOqTmTY1Zpd5oRqY
-	K7V2EfwlnS/Lx+ORASbWgduq1Ag3Vtxs2POsKVdlI+l9v2d1Jk9BspsOqZZB4NhHUNPtq2KHSwv17
-	swZnJaehl+jgYuGlHs81T2VAclVZUtZ3uCfTkQUkmD4VPhnuziwBPTZiuDy0Z75lqqHnggv5ggozK
-	Z2TceHHA==;
+	bh=WbwmokaiQsTOA7B8SevyBawIpYDSQ2xVw9i3NB7U0TY=; b=1Hok9RB3YqSQRZbVTJk/4N4+OL
+	NNVBm6EZRTiomzob6D3X3N/gv5bjsyQYLy8r6M2nigAqPKcqCAm5oQS9T9zhAky+CdCgQtTLmGww/
+	wLK3E5aFOF4+XNo6tQ7U/GncKK509D0TOf6PXNFaIIVcneBlnntgALnNp2QiOTmjJnrSV7ovSM3LR
+	PDD4cLJxjsz++hDKHtACkP31qm0HsRAO7VPHGmvIhKKIu1EyNlQqdhfcvgl7yIABo7SWRzlmN8Hir
+	BAyiCk36gz5pyuH2VmTCpFAePAwGaV8vHOfSms3yd8rk3abWIkxafYNf5Y52G8wlqPhb7652bGl+8
+	iCdD0iDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw6zy-0000000AiDU-2qhp;
-	Tue, 09 Sep 2025 22:39:38 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1uw71x-0000000AimX-1mYz;
+	Tue, 09 Sep 2025 22:41:41 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw6zw-0000000AiCf-0khc
+	id 1uw71u-0000000Aij6-0dGJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 22:39:37 +0000
-Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 589Md5a71810392
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Tue, 9 Sep 2025 15:39:05 -0700
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 589Md5a71810392
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2025082201; t=1757457547;
-	bh=o4pJzl4BWqncjRLwqdCVSmCaOJCq8m9Ifms3vJmzKBM=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=TvOUc/rvPHuoAgZik4kP6Jrk/1+TPY9+I66slCEYRMAAVaJliSrzt+2sOFL7uxfep
-	 TkUyZI254fJRZ0lrODF9atINh0A8S4jLrAmCkJHU6JXLFZKZC0KSUVdi0tmre9KWKN
-	 XbKdciAhvqcaNOwc7fFmyUBOA5BxnpqIS4Eb0rGthQiBgS5HHj+CzVzQJOWVF0iflT
-	 tgpvUETHe9/40V2F6BCYuDmvwT7GfqNk48CbFXskPApkAJTXDi/C8HYPbnObeJPLQM
-	 4VGzdB3lbm4UCWwMufH5gTZgR2KMO3DzwNg9CgZkrpc9Dml+J/eRl9RSkkGtbvpN2l
-	 PQy3pTIde+vBg==
-Date: Tue, 09 Sep 2025 15:39:05 -0700
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-CC: Arnd Bergmann <arnd@arndb.de>, ksummit@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
-        linux-mm@kvack.org, imx@lists.linux.dev,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Richard Weinberger <richard@nod.at>,
-        Lucas Stach <l.stach@pengutronix.de>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Ankur Arora <ankur.a.arora@oracle.com>,
-        David Hildenbrand <david@redhat.com>, Mike Rapoport <rppt@kernel.org>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Matthew Wilcox <willy@infradead.org>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Vlastimil Babka <vbabka@suse.cz>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>,
-        =?ISO-8859-1?Q?Heiko_St=FCbner?= <heiko@sntech.de>,
-        Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-        "Chester A. Unal" <chester.a.unal@arinc9.com>,
-        Sergio Paracuellos <sergio.paracuellos@gmail.com>,
-        Andreas Larsson <andreas@gaisler.com>
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CAHk-=wg0bp-_kqmfaDYQLRJO30LYxEsMu3EKi65sKoi83EUZ3Q@mail.gmail.com>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com> <C85C32F4-BD58-460B-ACCF-F0569ED0941A@zytor.com> <CAHk-=wg0bp-_kqmfaDYQLRJO30LYxEsMu3EKi65sKoi83EUZ3Q@mail.gmail.com>
-Message-ID: <F6A7C7F9-54F0-4E97-B21D-FD0EE023B986@zytor.com>
+	Tue, 09 Sep 2025 22:41:39 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 589MfWwZ006957;
+	Tue, 9 Sep 2025 17:41:32 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757457692;
+	bh=WbwmokaiQsTOA7B8SevyBawIpYDSQ2xVw9i3NB7U0TY=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=RQRMKuW53IAl6gwVfRHjJpiVC2x7WLzRuZlbOppN46g7Rvqibe02AAfRmue/nyofm
+	 Vr+59yamY19i/i3S8voot2fKW9wEPjFwtumgioGfOQBG1GS0qgmSTqEVu3+i6Ujrvt
+	 gy5k3O05OcIdW4ao6kv600Gj1/QiVmt6m6RMscRw=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 589MfWfn689483
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 9 Sep 2025 17:41:32 -0500
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 9
+ Sep 2025 17:41:31 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 9 Sep 2025 17:41:31 -0500
+Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 589MfVHJ3725550;
+	Tue, 9 Sep 2025 17:41:31 -0500
+Message-ID: <433c4594-8081-45cf-bbc8-a4816e8559f4@ti.com>
+Date: Tue, 9 Sep 2025 17:41:31 -0500
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] arm64: dts: ti: k3-am62: Support Main UART wakeup
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
+        <msp@baylibre.com>, <khilman@baylibre.com>, <a-kaur@ti.com>
+References: <20250904212827.3730314-1-k-willis@ti.com>
+Content-Language: en-US
+From: Kendall Willis <k-willis@ti.com>
+In-Reply-To: <20250904212827.3730314-1-k-willis@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_153936_212826_DF709948 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20250909_154138_387330_87377F1D 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +87,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On September 9, 2025 3:24:29 PM PDT, Linus Torvalds <torvalds@linux-foundat=
-ion=2Eorg> wrote:
->On Tue, 9 Sept 2025 at 14:39, H=2E Peter Anvin <hpa@zytor=2Ecom> wrote:
->>
->> 1 GB systems used highmem too, sadly=2E And 1 GB was the norm for a big=
- chuck of the late 32-bit era=2E
->
->Well, while on x86 1GB systems did use highmem, they'd typically not
->use very much of it=2E
->
->IOW, they'd have about 900MB as lowmem (ok, I think it was 896MB to be
->exact), with something like 120MB highmem=2E
->
->So they'd either lose a bit of memory, or they'd use the 2G:2G split=2E
->
->Or - and I think this is the main point - they'd stay on old kernels
->like the ancient museum pieces they are=2E
->
->I'm not convinced it makes sense to have a modern kernel on a museum piec=
-e=2E
->
->         Linus
->
+On 9/4/25 16:28, Kendall Willis wrote:
+> This series adds wakeup support for the Main UART in the device tree of
+> the TI AM62 family of devices. It defines the specific pins and pinctrl
+> states needed to wakeup the system from the Main UART via I/O
+> daisy-chaining. The wakeup-source property is configured to describe the
+> low power modes the system can wakeup from using the Main UART.
+> 
+> Dependencies
+> ------------
+> This series is dependent on the following series [1] to be merged into
+> the kernel. The series adds the system idle states that are available on
+> the SoCs. The system idle states are used when configuring the
+> wakeup-source property.
+> 
+> This series is also dependent on the following patch [2] to be merged
+> into the kernel. The patch integrates the PIN_WKUP_EN macro which
+> enables the WKUP_EN bit.
 
-Certainly=2E And the 2:2 split is probably the right thing for the old mac=
-hines anyway=2E
+Series also depends on this series [1] for DT bindings of pinctrl.
+
+[1] https://lore.kernel.org/all/20250904212455.3729029-1-k-willis@ti.com/
+
+> 
+> Implementation
+> --------------
+> This series is intended to be implemented along with the following
+> series:
+> 
+> 1. "pmdomain: ti_sci: Handle wakeup constraint if device has pinctrl
+>     wakeup state": Patch which skips setting constraints for wakeup sources
+>     that use pinctrl state 'wakeup'.
+> 
+> 2. "serial: 8250: omap: Add wakeup support": Implements
+>     wakeup from the UARTs for TI K3 SoCs
+> 
+> 3. "arm64: dts: ti: k3-am62: Support Main UART wakeup": (this series)
+>     implements the functionality to wakeup the system from the Main UART
+> 
+> Testing
+> -------
+> Tested on a SK-AM62B-P1 board with all series and dependencies
+> implemented. Suspend/resume verified with the Main UART wakeup source
+> by entering a keypress on the console.
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/20250812-topic-am62-dt-partialio-v6-15-v2-2-25352364a0ac@baylibre.com/
+> [2] https://lore.kernel.org/all/20250904112538.529857-4-a-kaur@ti.com/
+> 
+> Kendall Willis (3):
+>    arm64: dts: ti: k3-am62x-sk-common: Enable Main UART wakeup
+>    arm64: dts: ti: k3-am62a7-sk: Enable Main UART wakeup
+>    arm64: dts: ti: k3-am62p5-sk: Enable Main UART wakeup
+> 
+>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts       | 24 +++++++++++++++----
+>   arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       | 24 +++++++++++++++----
+>   .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 24 +++++++++++++++----
+>   3 files changed, 60 insertions(+), 12 deletions(-)
+> 
+> 
+> base-commit: 4ac65880ebca1b68495bd8704263b26c050ac010
+
 
