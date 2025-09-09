@@ -4,91 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12976CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 18:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B15CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 18:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lC2S89uWVd4kKLJY+Z3L6fWfhN36m0m3rdw9eQ0mhyM=; b=uk36y2Nk0FeAmUdfYd3DOvy5Gc
-	Z5Lr4N5g9uqXaQwwq1cRROPUY4GSZhvzTcl39JHmqG5zyFzgbCoARdcRapRzth+GupQpxpP+4DGE1
-	5IS9RKhmoaIQsd6nuoYesrwrWi8+L3SE/tBkIGlUbkotXHA9JID480uG5W106bwo+7hyRho8vkfJl
-	d3R/PMPT9gCRJvuBEjrpMbR1dKWQPOYY5+nT7yaNvApTeLdSI0QaPjFDhxd8743wbIay49O8+PsfV
-	KiJmwLhozyJ+PynBlh5K+ccafbZaVWSAO6cGd7HJu4rs/6IoHYJINuXJ0Y/ZJZzMyqTUg9mH0+3sJ
-	P2CkhHLA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fxawcVMUmbUvqqPxaNpdk+0HJuQP6lj53yk/T+9Nz1g=; b=ApGd5n2mLdHdLgDH7GsqBmBgyh
+	vWFr8IAZr5QiLUmaceE/klLO8Cf6jYvQz+wIrdHayiBSnvd/X2bwDS+YA6sun9Z/ZmYxzPLdoP7Fp
+	9blOoqQIIrvYJG2LBSEnho/ScTH7F8ATR9g5fP69UyoUhdWWiA71zKlQOK2w/CnhJXuC54CeHjDcT
+	MTlrcgp/rv5vJ6wA4vdRtXYGiuiqtXwcj7UfDOMGVeLl4byscsP9nQOl8jVvyiRNHW235poZ6gFpz
+	KulHs76XYyLtSW66EvN/PbSNcFL/T1N050CMaHXMV2ftUiWBqh/q/rXHd7QN5LgDBM1umuSM6QiyU
+	JfdNa3OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw2kA-00000009JId-2RvK;
-	Tue, 09 Sep 2025 18:07:02 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1uw2lN-00000009Jn5-1pxr;
+	Tue, 09 Sep 2025 18:08:17 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw2k7-00000009JI6-48lw
+	id 1uw2lM-00000009JlO-0raZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 18:07:01 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-32bae4bcd63so3266482a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 11:06:59 -0700 (PDT)
+	Tue, 09 Sep 2025 18:08:17 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45b9c35bc0aso52292925e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 11:08:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757441219; x=1758046019; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lC2S89uWVd4kKLJY+Z3L6fWfhN36m0m3rdw9eQ0mhyM=;
-        b=F3fDDCBDSJv6uQ3ZykXBWIasJ9VQ6wHMlgLAf3HTvQquidvRSxVAbZq59/gdhy9My9
-         KsRZJXKOQCfkKj+B8bIS00X9IE3WjQ4TI8Vpy6T8nhvcyPnRePV8XeP0RYa/FSrJzhRS
-         5M13YMFMPC/M8bJg9uSOX3JT51X4gqz/ImV+u1Fk98IGpmFnBa16OiAc7gvkOEUn27+H
-         ciaBA9eFVoT5m4QwFXi9BWq2N0QQJjrUihWh7v6KCHbX7Awp2e8C6tFUJPsJL/R7I2+j
-         S+heo5E0cwZ1F4vcA2Hr2XoxoEuwAzuHivBOJZZ111/wTb4XSJOKP+GlSX+2Z6OZ6ErX
-         5tcA==
+        d=gmail.com; s=20230601; t=1757441294; x=1758046094; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fxawcVMUmbUvqqPxaNpdk+0HJuQP6lj53yk/T+9Nz1g=;
+        b=I9L1MchhkGTuQfiqde+2TAyNU/OeryI8wKS6h4W2FGGKiSn4QpwizVd04VH9oS7E2p
+         Hi1CHqa89s3YG0rE3/ZyAknkSmFTItLf/inBW8Jad1sQQ2lwrspVvnlMStohzPTA6SPK
+         DeRpaunBQnvh6wSg3EyS4rqdyu26bzVU/UY8KrilKaz8BpTwpPyVBRIDFFmvXnqUL++Q
+         wsv5UqPakpQFloP84k504j7Seqr1aAAt6GV5BiGTp4/CRFIP6dQFRMWg2gAR7T7+dL/i
+         yIyWL67J8dT4PxLVFxcZDdnoE8XFzdJvPCHfW3VmSfmmwUesl0BoMmJvkgxDK1RbJlYc
+         57IQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757441219; x=1758046019;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lC2S89uWVd4kKLJY+Z3L6fWfhN36m0m3rdw9eQ0mhyM=;
-        b=LPga4D1RVuaHiFQjQQ7gKZh8r43GZFY4RBAu5uwGxYTdrllfwccpsV17PaKKy91lyM
-         aS8dhtkUOiLx0kKir9dGdikscU9gssEnWxhYAWrI0/pElYAG5oAPrtgDufdaZPe57LHC
-         3u+bjseWYH3rV7FND+dKvMJAZlR1zYIPfKWnlA/qagxmRdBBU/zU+Gn2ckYafuA43H0f
-         NUmgjNjHfoS1E/LfIrcu34xHsHvqLaV4LJRXxxN94YWbkJ1+8rqcPn8sQE5IPn8Efafh
-         XgvHWXVaHqKwQP90wGjv79hhqMXXYKnVWChNFh4DzzReu/CB9f2Ad5MU/vbzEC3rRqAb
-         HmGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXQkp0fzYB6e4DiofJ5rinpiYd+U/aX5v02KHh7ovKXYhxhGU5yWxTqyCm1O3PcDKyOcTOAwAgCcUQsyd0/yHL0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRnUiOti2qKI14ct+qDYObvri1hCaVS5JnDkTWYZmm3koTznTV
-	9LmGkNnuF79IlrhUg/iC4+z8x9hVUBkSyOxa6LkF0UbcoH2ytIb2WwVX6DQS/Q==
-X-Gm-Gg: ASbGncu20L2g6eNplx9d1ic1pcn5podZbnQVqvFIAJZoERYyXgoh8prpf1BAdLIKCxx
-	8xF2nOXpLjIGQ4Uizdcx1asmvbk8XskF6OPjI2E1CRLJPMNOuOL9e+o65RSbAFJ96KRB+vxnZ42
-	+il7cRwCiv9G63WjFuQ4iOQi7PilQo5I5kVbrTvRgr8CbvbtnpgbW1gDsTX8V9K9bK13/zITmb8
-	y0DnDRPDuQ1bUuwpF/Do+hvsHXVdjnvq00qmyFbK/PNfmowT+2WTIN761j5DVeRvGFnChK8IZzK
-	gimgIt88gu1+iTjLtzCjvbYV2rcER8WSTSYCamisFHmS39/yssOqYvsHkEGSC4aLGLNQ8XF2T+2
-	hnF+ibs/g6W7mJZJI7qho/pW1e6Ejlhk=
-X-Google-Smtp-Source: AGHT+IEQ8Fdk0HbZvmKlziMWHOi6q7YSOReqEYtXvWbMeLz8O2VLpBEy5+WUL5qEMmSebQfRgcmeeQ==
-X-Received: by 2002:a17:90b:3dcc:b0:329:e9da:35d0 with SMTP id 98e67ed59e1d1-32d43ef5112mr14793775a91.5.1757441218843;
-        Tue, 09 Sep 2025 11:06:58 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.216])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-327da8e7186sm35182693a91.16.2025.09.09.11.06.55
+        d=1e100.net; s=20230601; t=1757441294; x=1758046094;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fxawcVMUmbUvqqPxaNpdk+0HJuQP6lj53yk/T+9Nz1g=;
+        b=ngj6b4SbTJrz2zNF/xL5U4w58NXtfxOnUIa2NHCzRZPmzLi9727UTZACTx8NtBfWMy
+         qZHq4KYjGAGV7KsD3ZWe98gF6D0lG90rI/eMHglw4DWfO52UxAWbTec82Rzc9D2IGUWq
+         MTeNCoVn3m27AVU0T2NO+zNoGvMW2mVIwn2EFN1ti4d9xKHCZoad3p/YKMw8rWvyuYBB
+         hozGjlNxYDwNGGwzFcU9CnAahxiCiZzZKcAlCyXtXrMNyRHuzlXAKkQjZce88Lbox30A
+         y4+sleCT2oAJ16OjoEBZ6Y8eBtN5X33NycKIAJPFl7ZHhclud7Td81GtOYPPSJhBcIGn
+         cw0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCURa2bndvA4Ss6is271MtGq1re3qR7+SxvmrzbzaMc0WO9wGHCPh1Yxde0l/xVai2727MpYq4uHsp62fLXa2GEX@lists.infradead.org
+X-Gm-Message-State: AOJu0YykT7d3WcutemTW7fRDIR8JPs7tBIKk+mv3bAcQg+9mKSBTra8w
+	YF70QD7uscvKK2cClNZFOIHP34KJ8SE8FiuoSCr6gCjoR7+pxpV/VdYW
+X-Gm-Gg: ASbGncsNicb5opHM34pZYt4Np9Elba3gdCmf2J5+LAV+XBeMTRHsXIhOeGL3yYG9ndr
+	86W4wnoMJ+/xqVW9INrGwq6XOx3ELP/jwXGuwx26tnv2mkP6nA6TFMKW6fcjH1YTPEbGPd6HOho
+	+glkXpxLlNvD+3cP4ULT7uKa+B9+DQDTiwW8aQtZTohkiEEukLc1Z6a3EVyH0hE6fKXD2LaqmIF
+	LVB1GtZ+Lk3Mbgwue2v/gKjJQvVm2ruALhZWsqs43qI8Isu4IuHpkrxqvh0P4HOWo+lX+EFD9HN
+	V5B8oy0T/tr2NplTLrQNbHpCnP8hmE45LzfHokybn2U6AiGHdrwextwq7NIDfA1sN0boquK7s6y
+	fmC2dC6qJ3bpTIJrOIdajFUpfuTxzdG+ERcvV7nKo7nAyVVr5gmtOJwBHfh7q8qpaAVSa6eGUva
+	DlTg==
+X-Google-Smtp-Source: AGHT+IFnbYT8GYyc5eCt+OlLn6Os29oq3eYhN9HwkDz5ihtSMZY4WJbNOfW/8SAxRHklUlK0Uch4SQ==
+X-Received: by 2002:a05:600c:3b1a:b0:45b:627a:60cf with SMTP id 5b1f17b1804b1-45dddecf404mr128077615e9.24.1757441294286;
+        Tue, 09 Sep 2025 11:08:14 -0700 (PDT)
+Received: from biju.lan (host86-139-30-37.range86-139.btcentralplus.com. [86.139.30.37])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df679a4c9sm4174015e9.3.2025.09.09.11.08.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 11:06:58 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG SOC CLOCK DRIVERS),
-	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v1] clk: samsung: exynos5420: Add support for power control registers
-Date: Tue,  9 Sep 2025 23:36:49 +0530
-Message-ID: <20250909180652.7130-1-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        Tue, 09 Sep 2025 11:08:13 -0700 (PDT)
+From: Biju <biju.das.au@gmail.com>
+X-Google-Original-From: Biju <biju.das.jz@bp.renesas.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Biju Das <biju.das.jz@bp.renesas.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nishanth Menon <nm@ti.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Biju Das <biju.das.au@gmail.com>,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v2 11/11] arm64: defconfig: Enable RZ/G3E USB3 PHY driver
+Date: Tue,  9 Sep 2025 19:07:56 +0100
+Message-ID: <20250909180803.140939-12-biju.das.jz@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250909180803.140939-1-biju.das.jz@bp.renesas.com>
+References: <20250909180803.140939-1-biju.das.jz@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_110700_049606_63A54E6F 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20250909_110816_255199_54B87E25 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,181 +115,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per the Exynos5422 user manual, settings for the PWR_CTRL, PWR_CTRL2,
-PWR_CTRL_KFC, and PWR_CNTL_KFC registers manage ARM clock down and up
-configurations for idle and standby states.
+From: Biju Das <biju.das.jz@bp.renesas.com>
 
-The Exynos5422's dynamic clock frequency down feature enables automatic
-clock down when all CPU cores are in Wait For Event (WFE) or
-Wait For Interrupt (WFI) states, utilizing this feature in standby
-configurations.
+Enable the RZ/G3E USB3 PHY driver on the Renesas RZ/G3E SMARC EVK board.
 
-These modifications enhance the power management capabilities of the
-Exynos542x by providing finer control over the ARM clock behavior in
-various states.
-
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
 ---
- drivers/clk/samsung/clk-exynos5420.c | 111 +++++++++++++++++++++++++++
- 1 file changed, 111 insertions(+)
+v1->v2:
+ * No change.
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/clk/samsung/clk-exynos5420.c b/drivers/clk/samsung/clk-exynos5420.c
-index a9df4e6db82fa..ce4c554eb59f1 100644
---- a/drivers/clk/samsung/clk-exynos5420.c
-+++ b/drivers/clk/samsung/clk-exynos5420.c
-@@ -8,6 +8,7 @@
-  */
- 
- #include <dt-bindings/clock/exynos5420.h>
-+#include <linux/bitfield.h>
- #include <linux/slab.h>
- #include <linux/clk-provider.h>
- #include <linux/mod_devicetable.h>
-@@ -29,6 +30,8 @@
- #define CLKOUT_CMU_CPU		0xa00
- #define SRC_MASK_CPERI		0x4300
- #define GATE_IP_G2D		0x8800
-+#define PWR_CTRL		0x1020
-+#define PWR_CTRL2		0x1024
- #define CPLL_LOCK		0x10020
- #define DPLL_LOCK		0x10030
- #define EPLL_LOCK		0x10040
-@@ -139,10 +142,50 @@
- #define KPLL_CON0		0x28100
- #define SRC_KFC			0x28200
- #define DIV_KFC0		0x28500
-+#define PWR_CTRL_KFC		0x29020
-+#define PWR_CTRL2_KFC		0x29024
- 
- /* NOTE: Must be equal to the last clock ID increased by one */
- #define CLKS_NR			(CLK_DOUT_PCLK_DREX1 + 1)
- 
-+/* Below definitions are used for PWR_CTRL settings */
-+#define PWR_CTRL_ARM2_RATIO_MASK       GENMASK(30, 28)
-+#define PWR_CTRL_ARM_RATIO_MASK        GENMASK(18, 16)
-+#define PWR_CTRL_DIVARM2_DOWN_ENB      BIT(9)
-+#define PWR_CTRL_DIVARM_DOWN_ENB       BIT(8)
-+#define PWR_CTRL_USE_STANDBYWFE_ARM_CORE3  BIT(7)
-+#define PWR_CTRL_USE_STANDBYWFE_ARM_CORE2  BIT(6)
-+#define PWR_CTRL_USE_STANDBYWFE_ARM_CORE1  BIT(5)
-+#define PWR_CTRL_USE_STANDBYWFE_ARM_CORE0  BIT(4)
-+#define PWR_CTRL_USE_STANDBYWFI_ARM_CORE3  BIT(3)
-+#define PWR_CTRL_USE_STANDBYWFI_ARM_CORE2  BIT(2)
-+#define PWR_CTRL_USE_STANDBYWFI_ARM_CORE1  BIT(1)
-+#define PWR_CTRL_USE_STANDBYWFI_ARM_CORE0  BIT(0)
-+
-+#define PWR_CTRL2_DIVARM2_UP_ENB       BIT(25)
-+#define PWR_CTRL2_DIVARM_UP_ENB        BIT(24)
-+#define PWR_CTRL2_DUR_STANDBY2_MASK    GENMASK(23, 16)
-+#define PWR_CTRL2_DUR_STANDBY1_MASK    GENMASK(15, 8)
-+#define PWR_CTRL2_UP_ARM2_RATIO_MASK   GENMASK(6, 4)
-+#define PWR_CTRL2_UP_ARM_RATIO_MASK    GENMASK(2, 0)
-+
-+/* Below definitions are used for PWR_CTRL_KFC settings */
-+#define PWR_CTRL_KFC_RATIO_MASK       GENMASK(21, 16)
-+#define PWR_CTRL_KFC_DIVKFC_DOWN_ENB       BIT(8)
-+#define PWR_CTRL_KFC_USE_STANDBYWFE_ARM_CORE3  BIT(7)
-+#define PWR_CTRL_KFC_USE_STANDBYWFE_ARM_CORE2  BIT(6)
-+#define PWR_CTRL_KFC_USE_STANDBYWFE_ARM_CORE1  BIT(5)
-+#define PWR_CTRL_KFC_USE_STANDBYWFE_ARM_CORE0  BIT(4)
-+#define PWR_CTRL_KFC_USE_STANDBYWFI_ARM_CORE3  BIT(3)
-+#define PWR_CTRL_KFC_USE_STANDBYWFI_ARM_CORE2  BIT(2)
-+#define PWR_CTRL_KFC_USE_STANDBYWFI_ARM_CORE1  BIT(1)
-+#define PWR_CTRL_KFC_USE_STANDBYWFI_ARM_CORE0  BIT(0)
-+
-+#define PWR_CTRL2_KFC_DIVKFC_UP_ENB        BIT(24)
-+#define PWR_CTRL2_KFC_DUR_STANDBY2_MASK    GENMASK(23, 16)
-+#define PWR_CTRL2_KFC_DUR_STANDBY1_MASK    GENMASK(15, 8)
-+#define PWR_CTRL2_KFC_UP_ARM_RATIO_MASK    GENMASK(5, 0)
-+
- /* Exynos5x SoC type */
- enum exynos5x_soc {
- 	EXYNOS5420,
-@@ -1574,6 +1617,72 @@ static const struct of_device_id ext_clk_match[] __initconst = {
- 	{ },
- };
- 
-+static void __init exynos5420_core_down_clock(void)
-+{
-+	unsigned int tmp;
-+
-+	/*
-+	 * Enable arm clock down (in idle) and set arm divider
-+	 * ratios in WFI/WFE state.
-+	 */
-+	tmp = (FIELD_PREP(PWR_CTRL_ARM2_RATIO_MASK, 7) |
-+		FIELD_PREP(PWR_CTRL_ARM_RATIO_MASK, 7) |
-+		PWR_CTRL_DIVARM_DOWN_ENB |
-+		PWR_CTRL_DIVARM2_DOWN_ENB |
-+		PWR_CTRL_USE_STANDBYWFE_ARM_CORE3 |
-+		PWR_CTRL_USE_STANDBYWFE_ARM_CORE2 |
-+		PWR_CTRL_USE_STANDBYWFE_ARM_CORE1 |
-+		PWR_CTRL_USE_STANDBYWFE_ARM_CORE0 |
-+		PWR_CTRL_USE_STANDBYWFI_ARM_CORE3 |
-+		PWR_CTRL_USE_STANDBYWFI_ARM_CORE2 |
-+		PWR_CTRL_USE_STANDBYWFI_ARM_CORE1 |
-+		PWR_CTRL_USE_STANDBYWFI_ARM_CORE0);
-+
-+	writel_relaxed(tmp, reg_base + PWR_CTRL);
-+
-+	/*
-+	 * Enable arm clock up (on exiting idle). Set arm divider
-+	 * ratios when not in idle along with the standby duration
-+	 * ratios.
-+	 */
-+	tmp = (PWR_CTRL2_DIVARM2_UP_ENB | PWR_CTRL2_DIVARM_UP_ENB |
-+		FIELD_PREP(PWR_CTRL2_DUR_STANDBY2_MASK, 3) |
-+		FIELD_PREP(PWR_CTRL2_DUR_STANDBY1_MASK, 3) |
-+		FIELD_PREP(PWR_CTRL2_UP_ARM2_RATIO_MASK, 3) |
-+		FIELD_PREP(PWR_CTRL2_UP_ARM_RATIO_MASK, 2));
-+
-+	writel_relaxed(tmp, reg_base + PWR_CTRL2);
-+
-+	/*
-+	 * Enable arm clock down (in idle) and set kfc divider
-+	 * ratios in WFI/WFE state.
-+	 */
-+	tmp = (FIELD_PREP(PWR_CTRL_KFC_RATIO_MASK, 7) |
-+		PWR_CTRL_KFC_DIVKFC_DOWN_ENB |
-+		PWR_CTRL_KFC_USE_STANDBYWFE_ARM_CORE3 |
-+		PWR_CTRL_KFC_USE_STANDBYWFE_ARM_CORE2 |
-+		PWR_CTRL_KFC_USE_STANDBYWFE_ARM_CORE1 |
-+		PWR_CTRL_KFC_USE_STANDBYWFE_ARM_CORE0 |
-+		PWR_CTRL_KFC_USE_STANDBYWFI_ARM_CORE3 |
-+		PWR_CTRL_KFC_USE_STANDBYWFI_ARM_CORE2 |
-+		PWR_CTRL_KFC_USE_STANDBYWFI_ARM_CORE1 |
-+		PWR_CTRL_KFC_USE_STANDBYWFI_ARM_CORE0);
-+
-+	writel_relaxed(tmp, reg_base + PWR_CTRL_KFC);
-+
-+	/*
-+	 * Enable arm clock up (on exiting idle). Set kfc divider
-+	 * ratios when not in idle along with the standby duration
-+	 * ratios.
-+	 */
-+	tmp = (PWR_CTRL2_KFC_DIVKFC_UP_ENB |
-+		FIELD_PREP(PWR_CTRL2_KFC_DUR_STANDBY2_MASK, 3) |
-+		FIELD_PREP(PWR_CTRL2_KFC_DUR_STANDBY1_MASK, 3) |
-+		FIELD_PREP(PWR_CTRL2_KFC_UP_ARM_RATIO_MASK, 2));
-+
-+	writel_relaxed(tmp, reg_base + PWR_CTRL2_KFC);
-+}
-+
- /* register exynos5420 clocks */
- static void __init exynos5x_clk_init(struct device_node *np,
- 		enum exynos5x_soc soc)
-@@ -1649,6 +1758,8 @@ static void __init exynos5x_clk_init(struct device_node *np,
- 				ARRAY_SIZE(exynos5800_cpu_clks));
- 	}
- 
-+	exynos5420_core_down_clock();
-+
- 	samsung_clk_extended_sleep_init(reg_base,
- 		exynos5x_clk_regs, ARRAY_SIZE(exynos5x_clk_regs),
- 		exynos5420_set_clksrc, ARRAY_SIZE(exynos5420_set_clksrc));
-
-base-commit: cf6fc5eefc5bbbbff92a085039ff74cdbd065c29
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 6d9a330e3287..a93dc6202d92 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1649,6 +1649,7 @@ CONFIG_PHY_R8A779F0_ETHERNET_SERDES=y
+ CONFIG_PHY_RCAR_GEN3_PCIE=y
+ CONFIG_PHY_RCAR_GEN3_USB2=y
+ CONFIG_PHY_RCAR_GEN3_USB3=m
++CONFIG_PHY_RZ_G3E_USB3=m
+ CONFIG_PHY_ROCKCHIP_EMMC=y
+ CONFIG_PHY_ROCKCHIP_INNO_HDMI=m
+ CONFIG_PHY_ROCKCHIP_INNO_USB2=y
 -- 
-2.50.1
+2.43.0
 
 
