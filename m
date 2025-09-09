@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B90CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 23:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5379DCAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 23:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/muUhc4Pnj/8wOhT7CLT11GRRfXQ88PqrS4wZHOEqeY=; b=JX3LyQ/KbZ6Uho1AVupIsWV73r
-	M1IET1thmgSYzMV37eX1Gid7qK103ZQpb+yQWfFhFSxzWU/gWLUOC/ohy16BV6lm7CfVI8yVnA9+B
-	PKlvH4bxei8zZOZhpAwCjc3g1X1AcIF6HCDzVDsT703wCAPFAqAJXxYdrn0p5SLqOUfkj/slTcRGF
-	jfabLWIZNtkaBJ2a/9pm9CLYvZuiFzMUHPk+yw+pAgr3xGZ8zxhoHBg/Ivek4xeqyQtUjwXVMxUdj
-	G6bjJB/rpJVno4TMsQZY3+MOiPYNXTh8HgxmzvEslWIhpXbORHkzv6WEnNoMS9ZoDWtO58AKBXiFp
-	hDp2dBvQ==;
+	bh=RtRz0jpqukvgfCF637bo1vY2hxxuvkIkqZPuKSohc9A=; b=tCT86R9adtyRDdQsYNFRIOfT28
+	FHwH9Bkdmc3QUQtUjpW/L9XO2VdlbMjKC+CNbwRMHA26ZjIsBttHwYMwssXXFSZSn0m3aXS1EfQ4C
+	s9JaKw5EYzi1rvliFv8Po3W9U1D+30YrEUn3VI8KGtDGMHUJWEZtYDg4W4LFtklqlV7nVVXzvHag/
+	RdMppNXJw8SpsEzSmw21BSW8LJV/t8gxb1QlkMiEOjSUmNYcBLuyHHh25aPYjP2Tuj2fA025TDTEh
+	XGlsJNk00McKDMcZMJpXtVbzJAca/t8P2JCdMBp+t8Ddh2UBOndySTbysLNWcz8QVsdDbgRyGuBln
+	GNQxGNIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw7Zh-0000000ArD0-3iAE;
-	Tue, 09 Sep 2025 23:16:33 +0000
+	id 1uw7Zg-0000000ArBo-49b3;
+	Tue, 09 Sep 2025 23:16:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw7Zc-0000000Ar71-2zoi
+	id 1uw7Zc-0000000Ar5W-0J8f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 23:16:30 +0000
+	Tue, 09 Sep 2025 23:16:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6894D44D68;
-	Tue,  9 Sep 2025 23:16:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 003D6C4CEFD;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0CE3744D48;
 	Tue,  9 Sep 2025 23:16:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A159C4CEFD;
+	Tue,  9 Sep 2025 23:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757459788;
-	bh=Wo2E3+6r1nAKVC9DS3YgQKzibRVbwi36i7wXqg9oQbM=;
+	s=k20201202; t=1757459786;
+	bh=Zhg+v5tmcuxlFgfMaL5bgOzM8gmZljJLV/XULlh6+uo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GAibJo01K5N7qAV7wLnPWYLzVTHDHe09AHiWUTOMsZK25vF4ZL3/qFgumBazcxyed
-	 ji03Vg4Ba9iEkUNDPucu/ZesLovQ5G0qEs2HWCW48MNWlUpfdV8QfeRUM/d6+KAPeG
-	 tx3P6fLMLUsLUcq8InH8yiH+FPjPoNSMMEzE1exDJ3Esu4xd8xPEpQMRKmkzEFioZx
-	 0r4F6GpaiewdtNfQ7CzuWx0af4DFTnOZeRsvDCrS/jxr0VNWIiJAafOKKPyaSr+csz
-	 35c6SM4sAxRp9t0mvfO9Ps3yclq5QmRNN0KVXleeLvBaFmSCgXgEZTdOpn8Y32ceXV
-	 k9r26FiJoKU5Q==
+	b=s0hdHVZyzWWP8OkN+Nkj9Jst52w+40y2KIUuo+BT4hiZBNhrLWMKXC2j085IVs4Fo
+	 AflHIBu/z6wuLac9qVL6DQdfP33ooDGGQtho1DVB8hgZb3JGCpDb0yNnBHbElSbTqv
+	 Rg2IArCGpL94YsQt3Fkguy3DXq6qJ+MkrlRDg6ljB3m5TpiRzvmQj8U6LTuXRckJjq
+	 2B1GsEB2N0y3drc0iSqp9ZlEDD6gzyUOoEa/2eVyzWZpJajBI638h+nvunPBRJIezw
+	 Q/f/uS58HXyc8EDD4xR0JYw5yBTs/yW3uIRp2QearSYm+gF2xeOmer5GAI+KglMRPB
+	 OrNOI12DGPOPw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org,
 	fsverity@lists.linux.dev
@@ -53,17 +53,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Mikulas Patocka <mpatocka@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 5/6] fsverity: Remove inode parameter from fsverity_hash_block()
-Date: Tue,  9 Sep 2025 16:13:25 -0700
-Message-ID: <20250909231326.1074672-6-ebiggers@kernel.org>
+Subject: [PATCH 2/6] lib/crypto: arm64/sha256: Add support for 2-way interleaved hashing
+Date: Tue,  9 Sep 2025 16:13:22 -0700
+Message-ID: <20250909231326.1074672-3-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250909231326.1074672-1-ebiggers@kernel.org>
 References: <20250909231326.1074672-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_161628_810790_D8D4E6BB 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20250909_161628_161650_FD026181 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,161 +78,387 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Due to the conversion from crypto_shash to the library API,
-fsverity_hash_block() can no longer fail.  Therefore, the inode
-parameter, which was used only to print an error message in the case of
-a failure, is no longer necessary.  Remove it.
+Add an implementation of sha256_finup_2x_arch() for arm64.  It
+interleaves the computation of two SHA-256 hashes using the ARMv8
+SHA-256 instructions.  dm-verity and fs-verity will take advantage of
+this for greatly improved performance on capable CPUs.
+
+This increases the throughput of SHA-256 hashing 4096-byte messages by
+the following amounts on the following CPUs:
+
+    ARM Cortex-X1: 70%
+    ARM Cortex-X3: 68%
+    ARM Cortex-A76: 65%
+    ARM Cortex-A715: 43%
+    ARM Cortex-A510: 25%
+    ARM Cortex-A55: 8%
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- fs/verity/enable.c           | 12 +++++-------
- fs/verity/fsverity_private.h |  2 +-
- fs/verity/hash_algs.c        |  3 +--
- fs/verity/verify.c           |  4 ++--
- 4 files changed, 9 insertions(+), 12 deletions(-)
+ lib/crypto/arm64/sha256-ce.S | 281 ++++++++++++++++++++++++++++++++++-
+ lib/crypto/arm64/sha256.h    |  37 +++++
+ 2 files changed, 312 insertions(+), 6 deletions(-)
 
-diff --git a/fs/verity/enable.c b/fs/verity/enable.c
-index 503268cf42962..f2f5b0471b6b2 100644
---- a/fs/verity/enable.c
-+++ b/fs/verity/enable.c
-@@ -17,12 +17,11 @@ struct block_buffer {
- 	bool is_root_hash;
- 	u8 *data;
- };
+diff --git a/lib/crypto/arm64/sha256-ce.S b/lib/crypto/arm64/sha256-ce.S
+index b99d9589c4217..ba0b32e3ad60e 100644
+--- a/lib/crypto/arm64/sha256-ce.S
++++ b/lib/crypto/arm64/sha256-ce.S
+@@ -68,22 +68,26 @@
+ 	.word		0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5
+ 	.word		0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3
+ 	.word		0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208
+ 	.word		0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
  
- /* Hash a block, writing the result to the next level's pending block buffer. */
--static int hash_one_block(struct inode *inode,
--			  const struct merkle_tree_params *params,
-+static int hash_one_block(const struct merkle_tree_params *params,
- 			  struct block_buffer *cur)
- {
- 	struct block_buffer *next = cur + 1;
- 
++	.macro load_round_constants	tmp
++	adr_l		\tmp, .Lsha2_rcon
++	ld1		{ v0.4s- v3.4s}, [\tmp], #64
++	ld1		{ v4.4s- v7.4s}, [\tmp], #64
++	ld1		{ v8.4s-v11.4s}, [\tmp], #64
++	ld1		{v12.4s-v15.4s}, [\tmp]
++	.endm
++
  	/*
-@@ -34,12 +33,11 @@ static int hash_one_block(struct inode *inode,
- 		return -EINVAL;
+ 	 * size_t __sha256_ce_transform(struct sha256_block_state *state,
+ 	 *				const u8 *data, size_t nblocks);
+ 	 */
+ 	.text
+ SYM_FUNC_START(__sha256_ce_transform)
+-	/* load round constants */
+-	adr_l		x8, .Lsha2_rcon
+-	ld1		{ v0.4s- v3.4s}, [x8], #64
+-	ld1		{ v4.4s- v7.4s}, [x8], #64
+-	ld1		{ v8.4s-v11.4s}, [x8], #64
+-	ld1		{v12.4s-v15.4s}, [x8]
++
++	load_round_constants	x8
  
- 	/* Zero-pad the block if it's shorter than the block size. */
- 	memset(&cur->data[cur->filled], 0, params->block_size - cur->filled);
+ 	/* load state */
+ 	ld1		{dgav.4s, dgbv.4s}, [x0]
  
--	fsverity_hash_block(params, inode, cur->data,
--			    &next->data[next->filled]);
-+	fsverity_hash_block(params, cur->data, &next->data[next->filled]);
- 	next->filled += params->digest_size;
- 	cur->filled = 0;
- 	return 0;
- }
- 
-@@ -121,22 +119,22 @@ static int build_merkle_tree(struct file *filp,
- 		if (bytes_read != buffers[-1].filled) {
- 			err = -EINVAL;
- 			fsverity_err(inode, "Short read of file data");
- 			goto out;
- 		}
--		err = hash_one_block(inode, params, &buffers[-1]);
-+		err = hash_one_block(params, &buffers[-1]);
- 		if (err)
- 			goto out;
- 		for (level = 0; level < num_levels; level++) {
- 			if (buffers[level].filled + params->digest_size <=
- 			    params->block_size) {
- 				/* Next block at @level isn't full yet */
- 				break;
- 			}
- 			/* Next block at @level is full */
- 
--			err = hash_one_block(inode, params, &buffers[level]);
-+			err = hash_one_block(params, &buffers[level]);
- 			if (err)
- 				goto out;
- 			err = write_merkle_tree_block(inode,
- 						      buffers[level].data,
- 						      level_offset[level],
-@@ -152,11 +150,11 @@ static int build_merkle_tree(struct file *filp,
- 		cond_resched();
+ 	/* load input */
+@@ -132,5 +136,270 @@ CPU_LE(	rev32		v19.16b, v19.16b	)
+ 	/* store new state */
+ 1:	st1		{dgav.4s, dgbv.4s}, [x0]
+ 	mov		x0, x2
+ 	ret
+ SYM_FUNC_END(__sha256_ce_transform)
++
++	.unreq dga
++	.unreq dgav
++	.unreq dgb
++	.unreq dgbv
++	.unreq t0
++	.unreq t1
++	.unreq dg0q
++	.unreq dg0v
++	.unreq dg1q
++	.unreq dg1v
++	.unreq dg2q
++	.unreq dg2v
++
++	// parameters for sha256_ce_finup2x()
++	ctx		.req	x0
++	data1		.req	x1
++	data2		.req	x2
++	len		.req	w3
++	out1		.req	x4
++	out2		.req	x5
++
++	// other scalar variables
++	count		.req	x6
++	final_step	.req	w7
++
++	// x8-x9 are used as temporaries.
++
++	// v0-v15 are used to cache the SHA-256 round constants.
++	// v16-v19 are used for the message schedule for the first message.
++	// v20-v23 are used for the message schedule for the second message.
++	// v24-v31 are used for the state and temporaries as given below.
++	// *_a are for the first message and *_b for the second.
++	state0_a_q	.req	q24
++	state0_a	.req	v24
++	state1_a_q	.req	q25
++	state1_a	.req	v25
++	state0_b_q	.req	q26
++	state0_b	.req	v26
++	state1_b_q	.req	q27
++	state1_b	.req	v27
++	t0_a		.req	v28
++	t0_b		.req	v29
++	t1_a_q		.req	q30
++	t1_a		.req	v30
++	t1_b_q		.req	q31
++	t1_b		.req	v31
++
++#define OFFSETOF_BYTECOUNT	32 // offsetof(struct __sha256_ctx, bytecount)
++#define OFFSETOF_BUF		40 // offsetof(struct __sha256_ctx, buf)
++// offsetof(struct __sha256_ctx, state) is assumed to be 0.
++
++	// Do 4 rounds of SHA-256 for each of two messages (interleaved).  m0_a
++	// and m0_b contain the current 4 message schedule words for the first
++	// and second message respectively.
++	//
++	// If not all the message schedule words have been computed yet, then
++	// this also computes 4 more message schedule words for each message.
++	// m1_a-m3_a contain the next 3 groups of 4 message schedule words for
++	// the first message, and likewise m1_b-m3_b for the second.  After
++	// consuming the current value of m0_a, this macro computes the group
++	// after m3_a and writes it to m0_a, and likewise for *_b.  This means
++	// that the next (m0_a, m1_a, m2_a, m3_a) is the current (m1_a, m2_a,
++	// m3_a, m0_a), and likewise for *_b, so the caller must cycle through
++	// the registers accordingly.
++	.macro	do_4rounds_2x	i, k,  m0_a, m1_a, m2_a, m3_a,  \
++				       m0_b, m1_b, m2_b, m3_b
++	add		t0_a\().4s, \m0_a\().4s, \k\().4s
++	add		t0_b\().4s, \m0_b\().4s, \k\().4s
++	.if \i < 48
++	sha256su0	\m0_a\().4s, \m1_a\().4s
++	sha256su0	\m0_b\().4s, \m1_b\().4s
++	sha256su1	\m0_a\().4s, \m2_a\().4s, \m3_a\().4s
++	sha256su1	\m0_b\().4s, \m2_b\().4s, \m3_b\().4s
++	.endif
++	mov		t1_a.16b, state0_a.16b
++	mov		t1_b.16b, state0_b.16b
++	sha256h		state0_a_q, state1_a_q, t0_a\().4s
++	sha256h		state0_b_q, state1_b_q, t0_b\().4s
++	sha256h2	state1_a_q, t1_a_q, t0_a\().4s
++	sha256h2	state1_b_q, t1_b_q, t0_b\().4s
++	.endm
++
++	.macro	do_16rounds_2x	i, k0, k1, k2, k3
++	do_4rounds_2x	\i + 0,  \k0,  v16, v17, v18, v19,  v20, v21, v22, v23
++	do_4rounds_2x	\i + 4,  \k1,  v17, v18, v19, v16,  v21, v22, v23, v20
++	do_4rounds_2x	\i + 8,  \k2,  v18, v19, v16, v17,  v22, v23, v20, v21
++	do_4rounds_2x	\i + 12, \k3,  v19, v16, v17, v18,  v23, v20, v21, v22
++	.endm
++
++//
++// void sha256_ce_finup2x(const struct __sha256_ctx *ctx,
++//			  const u8 *data1, const u8 *data2, int len,
++//			  u8 out1[SHA256_DIGEST_SIZE],
++//			  u8 out2[SHA256_DIGEST_SIZE]);
++//
++// This function computes the SHA-256 digests of two messages |data1| and
++// |data2| that are both |len| bytes long, starting from the initial context
++// |ctx|.  |len| must be at least SHA256_BLOCK_SIZE.
++//
++// The instructions for the two SHA-256 operations are interleaved.  On many
++// CPUs, this is almost twice as fast as hashing each message individually due
++// to taking better advantage of the CPU's SHA-256 and SIMD throughput.
++//
++SYM_FUNC_START(sha256_ce_finup2x)
++	sub		sp, sp, #128
++	mov		final_step, #0
++	load_round_constants	x8
++
++	// Load the initial state from ctx->state.
++	ld1		{state0_a.4s-state1_a.4s}, [ctx]
++
++	// Load ctx->bytecount.  Take the mod 64 of it to get the number of
++	// bytes that are buffered in ctx->buf.  Also save it in a register with
++	// len added to it.
++	ldr		x8, [ctx, #OFFSETOF_BYTECOUNT]
++	add		count, x8, len, sxtw
++	and		x8, x8, #63
++	cbz		x8, .Lfinup2x_enter_loop	// No bytes buffered?
++
++	// x8 bytes (1 to 63) are currently buffered in ctx->buf.  Load them
++	// followed by the first 64 - x8 bytes of data.  Since len >= 64, we
++	// just load 64 bytes from each of ctx->buf, data1, and data2
++	// unconditionally and rearrange the data as needed.
++	add		x9, ctx, #OFFSETOF_BUF
++	ld1		{v16.16b-v19.16b}, [x9]
++	st1		{v16.16b-v19.16b}, [sp]
++
++	ld1		{v16.16b-v19.16b}, [data1], #64
++	add		x9, sp, x8
++	st1		{v16.16b-v19.16b}, [x9]
++	ld1		{v16.4s-v19.4s}, [sp]
++
++	ld1		{v20.16b-v23.16b}, [data2], #64
++	st1		{v20.16b-v23.16b}, [x9]
++	ld1		{v20.4s-v23.4s}, [sp]
++
++	sub		len, len, #64
++	sub		data1, data1, x8
++	sub		data2, data2, x8
++	add		len, len, w8
++	mov		state0_b.16b, state0_a.16b
++	mov		state1_b.16b, state1_a.16b
++	b		.Lfinup2x_loop_have_data
++
++.Lfinup2x_enter_loop:
++	sub		len, len, #64
++	mov		state0_b.16b, state0_a.16b
++	mov		state1_b.16b, state1_a.16b
++.Lfinup2x_loop:
++	// Load the next two data blocks.
++	ld1		{v16.4s-v19.4s}, [data1], #64
++	ld1		{v20.4s-v23.4s}, [data2], #64
++.Lfinup2x_loop_have_data:
++	// Convert the words of the data blocks from big endian.
++CPU_LE(	rev32		v16.16b, v16.16b	)
++CPU_LE(	rev32		v17.16b, v17.16b	)
++CPU_LE(	rev32		v18.16b, v18.16b	)
++CPU_LE(	rev32		v19.16b, v19.16b	)
++CPU_LE(	rev32		v20.16b, v20.16b	)
++CPU_LE(	rev32		v21.16b, v21.16b	)
++CPU_LE(	rev32		v22.16b, v22.16b	)
++CPU_LE(	rev32		v23.16b, v23.16b	)
++.Lfinup2x_loop_have_bswapped_data:
++
++	// Save the original state for each block.
++	st1		{state0_a.4s-state1_b.4s}, [sp]
++
++	// Do the SHA-256 rounds on each block.
++	do_16rounds_2x	0,  v0, v1, v2, v3
++	do_16rounds_2x	16, v4, v5, v6, v7
++	do_16rounds_2x	32, v8, v9, v10, v11
++	do_16rounds_2x	48, v12, v13, v14, v15
++
++	// Add the original state for each block.
++	ld1		{v16.4s-v19.4s}, [sp]
++	add		state0_a.4s, state0_a.4s, v16.4s
++	add		state1_a.4s, state1_a.4s, v17.4s
++	add		state0_b.4s, state0_b.4s, v18.4s
++	add		state1_b.4s, state1_b.4s, v19.4s
++
++	// Update len and loop back if more blocks remain.
++	sub		len, len, #64
++	tbz		len, #31, .Lfinup2x_loop	// len >= 0?
++
++	// Check if any final blocks need to be handled.
++	// final_step = 2: all done
++	// final_step = 1: need to do count-only padding block
++	// final_step = 0: need to do the block with 0x80 padding byte
++	tbnz		final_step, #1, .Lfinup2x_done
++	tbnz		final_step, #0, .Lfinup2x_finalize_countonly
++	add		len, len, #64
++	cbz		len, .Lfinup2x_finalize_blockaligned
++
++	// Not block-aligned; 1 <= len <= 63 data bytes remain.  Pad the block.
++	// To do this, write the padding starting with the 0x80 byte to
++	// &sp[64].  Then for each message, copy the last 64 data bytes to sp
++	// and load from &sp[64 - len] to get the needed padding block.  This
++	// code relies on the data buffers being >= 64 bytes in length.
++	sub		w8, len, #64		// w8 = len - 64
++	add		data1, data1, w8, sxtw	// data1 += len - 64
++	add		data2, data2, w8, sxtw	// data2 += len - 64
++	mov		x9, 0x80
++	fmov		d16, x9
++	movi		v17.16b, #0
++	stp		q16, q17, [sp, #64]
++	stp		q17, q17, [sp, #96]
++	sub		x9, sp, w8, sxtw	// x9 = &sp[64 - len]
++	cmp		len, #56
++	b.ge		1f		// will count spill into its own block?
++	lsl		count, count, #3
++	rev		count, count
++	str		count, [x9, #56]
++	mov		final_step, #2	// won't need count-only block
++	b		2f
++1:
++	mov		final_step, #1	// will need count-only block
++2:
++	ld1		{v16.16b-v19.16b}, [data1]
++	st1		{v16.16b-v19.16b}, [sp]
++	ld1		{v16.4s-v19.4s}, [x9]
++	ld1		{v20.16b-v23.16b}, [data2]
++	st1		{v20.16b-v23.16b}, [sp]
++	ld1		{v20.4s-v23.4s}, [x9]
++	b		.Lfinup2x_loop_have_data
++
++	// Prepare a padding block, either:
++	//
++	//	{0x80, 0, 0, 0, ..., count (as __be64)}
++	//	This is for a block aligned message.
++	//
++	//	{   0, 0, 0, 0, ..., count (as __be64)}
++	//	This is for a message whose length mod 64 is >= 56.
++	//
++	// Pre-swap the endianness of the words.
++.Lfinup2x_finalize_countonly:
++	movi		v16.2d, #0
++	b		1f
++.Lfinup2x_finalize_blockaligned:
++	mov		x8, #0x80000000
++	fmov		d16, x8
++1:
++	movi		v17.2d, #0
++	movi		v18.2d, #0
++	ror		count, count, #29	// ror(lsl(count, 3), 32)
++	mov		v19.d[0], xzr
++	mov		v19.d[1], count
++	mov		v20.16b, v16.16b
++	movi		v21.2d, #0
++	movi		v22.2d, #0
++	mov		v23.16b, v19.16b
++	mov		final_step, #2
++	b		.Lfinup2x_loop_have_bswapped_data
++
++.Lfinup2x_done:
++	// Write the two digests with all bytes in the correct order.
++CPU_LE(	rev32		state0_a.16b, state0_a.16b	)
++CPU_LE(	rev32		state1_a.16b, state1_a.16b	)
++CPU_LE(	rev32		state0_b.16b, state0_b.16b	)
++CPU_LE(	rev32		state1_b.16b, state1_b.16b	)
++	st1		{state0_a.4s-state1_a.4s}, [out1]
++	st1		{state0_b.4s-state1_b.4s}, [out2]
++	add		sp, sp, #128
++	ret
++SYM_FUNC_END(sha256_ce_finup2x)
+diff --git a/lib/crypto/arm64/sha256.h b/lib/crypto/arm64/sha256.h
+index be4aeda9d0e6e..80d06df27d3a3 100644
+--- a/lib/crypto/arm64/sha256.h
++++ b/lib/crypto/arm64/sha256.h
+@@ -42,10 +42,47 @@ static void sha256_blocks(struct sha256_block_state *state,
+ 	} else {
+ 		sha256_block_data_order(state, data, nblocks);
  	}
- 	/* Finish all nonempty pending tree blocks. */
- 	for (level = 0; level < num_levels; level++) {
- 		if (buffers[level].filled != 0) {
--			err = hash_one_block(inode, params, &buffers[level]);
-+			err = hash_one_block(params, &buffers[level]);
- 			if (err)
- 				goto out;
- 			err = write_merkle_tree_block(inode,
- 						      buffers[level].data,
- 						      level_offset[level],
-diff --git a/fs/verity/fsverity_private.h b/fs/verity/fsverity_private.h
-index 5fe854a5b9ad3..d0458877afea4 100644
---- a/fs/verity/fsverity_private.h
-+++ b/fs/verity/fsverity_private.h
-@@ -87,11 +87,11 @@ const struct fsverity_hash_alg *fsverity_get_hash_alg(const struct inode *inode,
- 						      unsigned int num);
- union fsverity_hash_ctx *
- fsverity_prepare_hash_state(const struct fsverity_hash_alg *alg,
- 			    const u8 *salt, size_t salt_size);
- void fsverity_hash_block(const struct merkle_tree_params *params,
--			 const struct inode *inode, const void *data, u8 *out);
-+			 const void *data, u8 *out);
- void fsverity_hash_buffer(const struct fsverity_hash_alg *alg,
- 			  const void *data, size_t size, u8 *out);
- void __init fsverity_check_hash_algs(void);
- 
- /* init.c */
-diff --git a/fs/verity/hash_algs.c b/fs/verity/hash_algs.c
-index 9bb3c6344907e..de53e14c8aa78 100644
---- a/fs/verity/hash_algs.c
-+++ b/fs/verity/hash_algs.c
-@@ -92,19 +92,18 @@ fsverity_prepare_hash_state(const struct fsverity_hash_alg *alg,
  }
  
- /**
-  * fsverity_hash_block() - hash a single data or hash block
-  * @params: the Merkle tree's parameters
-- * @inode: inode for which the hashing is being done
-  * @data: virtual address of a buffer containing the block to hash
-  * @out: output digest, size 'params->digest_size' bytes
-  *
-  * Hash a single data or hash block.  The hash is salted if a salt is specified
-  * in the Merkle tree parameters.
-  */
- void fsverity_hash_block(const struct merkle_tree_params *params,
--			 const struct inode *inode, const void *data, u8 *out)
-+			 const void *data, u8 *out)
++static_assert(offsetof(struct __sha256_ctx, state) == 0);
++static_assert(offsetof(struct __sha256_ctx, bytecount) == 32);
++static_assert(offsetof(struct __sha256_ctx, buf) == 40);
++asmlinkage void sha256_ce_finup2x(const struct __sha256_ctx *ctx,
++				  const u8 *data1, const u8 *data2, int len,
++				  u8 out1[SHA256_DIGEST_SIZE],
++				  u8 out2[SHA256_DIGEST_SIZE]);
++
++#define sha256_finup_2x_arch sha256_finup_2x_arch
++static bool sha256_finup_2x_arch(const struct __sha256_ctx *ctx,
++				 const u8 *data1, const u8 *data2, size_t len,
++				 u8 out1[SHA256_DIGEST_SIZE],
++				 u8 out2[SHA256_DIGEST_SIZE])
++{
++	/*
++	 * The assembly requires len >= SHA256_BLOCK_SIZE && len <= INT_MAX.
++	 * Further limit len to 65536 to avoid spending too long with preemption
++	 * disabled.  (Of course, in practice len is nearly always 4096 anyway.)
++	 */
++	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
++	    static_branch_likely(&have_ce) && len >= SHA256_BLOCK_SIZE &&
++	    len <= 65536 && likely(may_use_simd())) {
++		kernel_neon_begin();
++		sha256_ce_finup2x(ctx, data1, data2, len, out1, out2);
++		kernel_neon_end();
++		kmsan_unpoison_memory(out1, SHA256_DIGEST_SIZE);
++		kmsan_unpoison_memory(out2, SHA256_DIGEST_SIZE);
++		return true;
++	}
++	return false;
++}
++
++static bool sha256_finup_2x_is_optimized_arch(void)
++{
++	return static_key_enabled(&have_ce);
++}
++
+ #ifdef CONFIG_KERNEL_MODE_NEON
+ #define sha256_mod_init_arch sha256_mod_init_arch
+ static void sha256_mod_init_arch(void)
  {
- 	union fsverity_hash_ctx ctx;
- 
- 	if (!params->hashstate) {
- 		fsverity_hash_buffer(params->hash_alg, data, params->block_size,
-diff --git a/fs/verity/verify.c b/fs/verity/verify.c
-index a1f00c3fd3b27..d7d5f65700b03 100644
---- a/fs/verity/verify.c
-+++ b/fs/verity/verify.c
-@@ -200,11 +200,11 @@ verify_data_block(struct inode *inode, struct fsverity_info *vi,
- 		struct page *hpage = hblocks[level - 1].page;
- 		const void *haddr = hblocks[level - 1].addr;
- 		unsigned long hblock_idx = hblocks[level - 1].index;
- 		unsigned int hoffset = hblocks[level - 1].hoffset;
- 
--		fsverity_hash_block(params, inode, haddr, real_hash);
-+		fsverity_hash_block(params, haddr, real_hash);
- 		if (memcmp(want_hash, real_hash, hsize) != 0)
- 			goto corrupted;
- 		/*
- 		 * Mark the hash block as verified.  This must be atomic and
- 		 * idempotent, as the same hash block might be verified by
-@@ -219,11 +219,11 @@ verify_data_block(struct inode *inode, struct fsverity_info *vi,
- 		kunmap_local(haddr);
- 		put_page(hpage);
- 	}
- 
- 	/* Finally, verify the data block. */
--	fsverity_hash_block(params, inode, data, real_hash);
-+	fsverity_hash_block(params, data, real_hash);
- 	if (memcmp(want_hash, real_hash, hsize) != 0)
- 		goto corrupted;
- 	return true;
- 
- corrupted:
+ 	if (cpu_have_named_feature(ASIMD)) {
 -- 
 2.50.1
 
