@@ -4,75 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46179CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89205CAC58C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WM/xyMP780EYcesLju86HLyGxNPxvao2MMtcGFNp7BE=; b=E4UkoX8rTzN/snoxrGRK20ca4L
-	esrpMbJWN1nYqxcYj5uIbRxGNPVwr6o2KDQ1Wxw7zwzK5Qm0Ee+cTcQMU7rhJkadBmNxi9EC7MUXU
-	UFVKyn2oJLTMYN9u5NYCchuZaWO/3AzeLctbLTghUkTpOdqPKXoENdy6FSTSD1SoAtAiS6Z4AWZwO
-	nwpbh6b+vgWOVjacG7EKiIEFIAn+EkpQCdHX3paoKKfn8AvgvC3P0PozEJ0HeEv10YVcy45Y8htTw
-	6kjrKkshS5QbyAkUPYXSNdSBHw+hMw7Lw8KpRCsnFEJ60pf/IF+g0Xglo3uv0jKuG3x3QazBshtkP
-	nzm/fRaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3pEpSIVpCMDDxDEaXx+VtwPotB+bnapsn796RrVe/EA=; b=TAB3phmqt3O/aT4LgCJlPjIAZC
+	jU1SkCpSIFWsjirY6ejso68/Lnc0nDCpi6abAwulY6JIGFisxv62NvAuHh17sEJkmbnL30Y/m3no4
+	2Ujh+RfNJhxmAs67itEROhe0voMSZ1UXi9XBkGxsQFU+Ji4InfmHPm2SBDndIafJYSdUo4sg+uMnt
+	x39KODbVCpq+GnDWqfnPzlZQX8zxucp35RILkQmiQYsPnvE2ebcQYKeyh6WsGnRFC/LxGiqa707XP
+	78AAtvCBy2yreohFCYbDhUtO+ahhUr7TN37YRm1/XRrAOKI8Ta1UlV6GrDL2QoHxyJz8ZvYLeKLPD
+	qlfocCpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1vw-00000008no1-1ADd;
-	Tue, 09 Sep 2025 17:15:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvw7H-00000006Zod-1vvw
+	id 1uw1vx-00000008nqC-1DA3;
+	Tue, 09 Sep 2025 17:15:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvwGB-00000006d75-3six
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 09 Sep 2025 11:11:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=3pEpSIVpCMDDxDEaXx+VtwPotB+bnapsn796RrVe/EA=; b=S3i4yTTWoD7/kN1CZk1fLtcY3C
+	KfrJy28bKWwxZezpKCu8N36Cs3e7lJKdZRygHUMfR8D074zd7iX2ooMph7jRfLIjUIW/1OOR9Zd/7
+	FLB2E0yS8nfviRCHV3ZBsRTfEQeLDisN2dj7TsVTWozhCQ307Gi1JuP5Ze8jHe14iy2aWU/lldd8r
+	fFTkC/LyQaP5ZqW8tMHKSUlcJVTicvnooc7ELzxZfgLq8KzNlc6x4HwElnibbmV3+caH0d7ubGN4w
+	l9x5LcDTFwGpDDYqFb9sJaIPHd3jy0bQlitjKzI6Wgs75iaoq765OdM4UgIl5gsjgzs2msXpaTVgx
+	ZpuAAOCw==;
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvwG8-00000005ITy-3MRM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 11:02:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 906F712FC;
-	Tue,  9 Sep 2025 04:02:18 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 548A13F63F;
-	Tue,  9 Sep 2025 04:02:21 -0700 (PDT)
-Date: Tue, 9 Sep 2025 12:02:18 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 09/33] dt-bindings: arm: Add MPAM MSC binding
-Message-ID: <aMAJOghPhaKu1hO+@e133380.arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-10-james.morse@arm.com>
- <aK8w1L3gHBk2Fz1k@e133380.arm.com>
- <96827d9f-cea8-4ca3-b709-1ae09e3d901c@arm.com>
+	Tue, 09 Sep 2025 11:11:38 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-55f6f7edf45so5204326e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 04:11:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757416294; x=1758021094; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3pEpSIVpCMDDxDEaXx+VtwPotB+bnapsn796RrVe/EA=;
+        b=kww412OTwp7T9t/91ABj/Gan1r3XEva2CY/xj7e56+aIRwa7fabpLriPOpKow/SGAC
+         hIuZQMM/YJ91J+UMD9hdXva97gwN4Mby6J4UjcjVHgAVg/8paUtMrCfS9cSgQqmOVa4E
+         dvx0tuiBmOO9wQygnsGi8s1jwxpkc6GQv73mOsw77yBTLmht2kE9qBZp4+MuB9gW1hMq
+         GUlyEyD5yJtmxrW0wwvNyoSzZB1+BE/LuqvzSDTRJep9/OH3lKRhIxieqyIoKMBsBHdF
+         HzMYyBlu/cbXrEBQaRQbsNVaIPSMMeiP0JSodZDZ2i2zq4ht633QZGNSNhaOwuEIQqfs
+         UVJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757416294; x=1758021094;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3pEpSIVpCMDDxDEaXx+VtwPotB+bnapsn796RrVe/EA=;
+        b=HnqztIPbNn0yMs9fJwEAw3X0G83+bsPi2hkPlcR+0WX24npJ3ROQbWvrWpqKHqlMP7
+         AaiVyBIq06cqJEL50IExjSIbbz+Tml8WAJD6M65zOzDoIq2XT7ly0gKhsiISh++J45DI
+         1kpgtZohh/txD2tIHDaZhmaah07PbmMUTUuU45YG8jY81tbSiVESY06nnR1281pUcGfk
+         UMDO6ldvqKHxe2kf+hO97ZtGf8mlQK4OveoE7xlvUc6H12przl/BW9p2dTkfFMKTlird
+         keDha7nYP1HKRdUm+3spsNeto6VjzoKYZE7QmKQhU3gJ1IROhbUk7XkcnIcBVzSyE+1g
+         UMPg==
+X-Forwarded-Encrypted: i=1; AJvYcCWr9dBPvOvJxCsuc8DgcL0gz3v/D859ZIMOD2YN/HMxcfXiHn/NRAy4CArHTe+7Ycys9QSIihLh9YJsA2eZ1I/U@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzle+2Cxea7vl9K+WLxTYN8idmrkTEoH2vzEb5JkPNKtl8759tM
+	kcqgXNkAlMkDZXycHHfscchegUFu2Luv59u3TleDwSElnj+JxEa1pFL+iDPMUMDBNWw=
+X-Gm-Gg: ASbGnctpLMKNzXD7G9AfF3rUnexTByvvZXaGsK7Fe42868UNmH+F74QsY+sqfF/mG/6
+	t62tjB6B2YafgzhYhkde+BeTJqKVPMFqWqkT0D6YznkngBlUGwnSyAmjuIaeTptLjsXRzGazw+R
+	SSmxz4kFBV28rlO710TIEuw5yWA5Q+u4Eh5479mZQMk06JwKOeeRcLjkFzS68pLgiKpYLU81KZM
+	4J8OHNFMiLYegOrQxxrtMJ/KqYLEyh8kcvP4FrjmOESxS9xjq87npMgZd+17JPQ49OMhrPoKtfG
+	XvKnqZczNGwOyYguQH/Z7HsWk06vvtgCUZZgUsf5fh6Fz5uyHIOZnFNBJ0Dzma6kVAulSlUMCkt
+	lbuHDUBA3kO157iwIu3DLRh7QYlWrQ7bs+57//YSM1ED+ddJnPu+LKwcKt27mL28Rv4hVsLlFsO
+	9lp+BBGvfs/j5yQTslIg==
+X-Google-Smtp-Source: AGHT+IF6KQ4FmESzpiiWrP7Wky+yhjadfUfHZDM0+zInTn3WZZmjB/qogaMmNeaRru1voHTpZXRtng==
+X-Received: by 2002:a05:6512:140c:b0:569:766:9451 with SMTP id 2adb3069b0e04-5690766978amr603941e87.17.1757416293652;
+        Tue, 09 Sep 2025 04:11:33 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-568190f8040sm445440e87.148.2025.09.09.04.11.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Sep 2025 04:11:33 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Saravana Kannan <saravanak@google.com>,
+	linux-pm@vger.kernel.org
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Sebin Francis <sebin.francis@ti.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Peng Fan <peng.fan@oss.nxp.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Johan Hovold <johan@kernel.org>,
+	Maulik Shah <maulik.shah@oss.qualcomm.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/5] pmdomain: Restore behaviour for disabling unused PM domains
+Date: Tue,  9 Sep 2025 13:11:19 +0200
+Message-ID: <20250909111130.132976-1-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <96827d9f-cea8-4ca3-b709-1ae09e3d901c@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_040227_583462_345D341F 
-X-CRM114-Status: GOOD (  66.64  )
+X-CRM114-CacheID: sfid-20250909_121136_971039_78DB52CE 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,272 +131,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Recent changes to genpd prevents those PM domains being powered-on during
+initialization from being powered-off during the boot sequence. Based upon
+whether CONFIG_PM_CONFIG_PM_GENERIC_DOMAINS_OF is set of not, genpd relies
+on the sync_state mechanism or the genpd_power_off_unused() (which is a
+late_initcall_sync), to understand when it's okay to allow these PM domains
+to be powered-off.
 
-On Fri, Sep 05, 2025 at 10:11:03AM +0100, James Morse wrote:
-> Hi Dave,
-> 
-> On 27/08/2025 17:22, Dave Martin wrote:
-> > On Fri, Aug 22, 2025 at 03:29:50PM +0000, James Morse wrote:
-> >> From: Rob Herring <robh@kernel.org>
-> >>
-> >> The binding is designed around the assumption that an MSC will be a
-> >> sub-block of something else such as a memory controller, cache controller,
-> >> or IOMMU. However, it's certainly possible a design does not have that
-> >> association or has a mixture of both, so the binding illustrates how we can
-> >> support that with RIS child nodes.
-> >>
-> >> A key part of MPAM is we need to know about all of the MSCs in the system
-> >> before it can be enabled. This drives the need for the genericish
-> >> 'arm,mpam-msc' compatible. Though we can't assume an MSC is accessible
-> >> until a h/w specific driver potentially enables the h/w.
-> 
-> > I'll leave detailed review to other people for now, since I'm not so up
-> > to speed on all things DT.
-> 
-> Me neither!
-> 
-> 
-> >> diff --git a/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
-> > 
-> > [...]
-> > 
-> >> @@ -0,0 +1,200 @@
-> > 
-> > [...]
-> > 
-> >> +title: Arm Memory System Resource Partitioning and Monitoring (MPAM)
-> >> +
-> >> +description: |
-> >> +  The Arm MPAM specification can be found here:
-> >> +
-> >> +  https://developer.arm.com/documentation/ddi0598/latest
-> >> +
-> >> +maintainers:
-> >> +  - Rob Herring <robh@kernel.org>
-> >> +
-> >> +properties:
-> >> +  compatible:
-> >> +    items:
-> >> +      - const: arm,mpam-msc                   # Further details are discoverable
-> >> +      - const: arm,mpam-memory-controller-msc
-> > 
-> > There seems to be no clear statement about how these differ.
-> 
-> It's a more-specific compatible, I think these are usually things like:
-> | compatible = "acme,mega-cache-9000", "arm,mpam-msc"
-> 
-> Where the driver can key errata-workaround on the vendor specific bit when needed.
-> 
-> In this case - I think they're examples, but Rob said they were supposed to be in some
-> other list of compatible. (not sure what/where that is)
+This new behaviour in genpd has lead to problems on different platforms [1].
 
-I guess I'll defer to the DT folks about how this ought to be presented.
+In this series, I am therefore suggesting to restore the behavior of
+genpd_power_off_unused() along with introducing a new genpd config flag,
+GENPD_FLAG_NO_STAY_ON, to allow genpd OF providers to opt-out from the new
+behaviour.
 
-The DT bindings are a weird hybrid of informal and formal that I'm not
-really used to.
+Kind regards
+Ulf Hansson
 
-> >> +  reg:
-> >> +    maxItems: 1
-> >> +    description: A memory region containing registers as defined in the MPAM
-> >> +      specification.
-> 
-> > There seems to be no handling of PCC-based MSCs here.  Should there be?
-> 
-> That is newer than this document. On DT platforms PCC is spelled SCMI, and is
-> discoverable. Andre P prototyped this, (patches in the extras branch) but no-one
-> has come out of the woodwork to say they actually need it yet.
-> 
-> ACPI PCC is a definite maybe.
->
-> > If this can be added later in a backwards-compatible way, I guess
-> > that's not a problem (and this is what compatible strings are for, if
-> > all else fails.)
-> > 
-> > An explicit statement that PCC is not supported here might be helpful,
-> > though.
-> 
-> I'm pretty sure its discoverable on DT/SCMI platforms.
+[1]
+https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.org/
+https://lore.kernel.org/all/20250902-rk3576-lockup-regression-v1-1-c4a0c9daeb00@collabora.com/
 
-OK.  If this may not be needed, is discoverable and/or can be bolted on
-in a compatible way later, I guess we wouldn't need to panic about it
-just now.
+Ulf Hansson (5):
+  pmdomain: core: Restore behaviour for disabling unused PM domains
+  pmdomain: rockchip: Fix regulator dependency with
+    GENPD_FLAG_NO_STAY_ON
+  pmdomain: renesas: rcar-sysc: Don't keep unused PM domains powered-on
+  pmdomain: renesas: rcar-gen4-sysc: Don't keep unused PM domains
+    powered-on
+  pmdomain: renesas: rmobile-sysc: Don't keep unused PM domains
+    powered-on
 
-(At least we can do that much more easily than promulgating an update
-to the ACPI tables.)
+ drivers/pmdomain/core.c                   | 20 ++++++++++++++------
+ drivers/pmdomain/renesas/rcar-gen4-sysc.c |  1 +
+ drivers/pmdomain/renesas/rcar-sysc.c      |  1 +
+ drivers/pmdomain/renesas/rmobile-sysc.c   |  3 ++-
+ drivers/pmdomain/rockchip/pm-domains.c    |  2 +-
+ include/linux/pm_domain.h                 |  7 +++++++
+ 6 files changed, 26 insertions(+), 8 deletions(-)
 
-> >> +  interrupts:
-> >> +    minItems: 1
-> >> +    items:
-> >> +      - description: error (optional)
-> >> +      - description: overflow (optional, only for monitoring)
-> >> +
-> >> +  interrupt-names:
-> >> +    oneOf:
-> >> +      - items:
-> >> +          - enum: [ error, overflow ]
-> >> +      - items:
-> >> +          - const: error
-> >> +          - const: overflow
-> > 
-> > Yeugh.  Is this really the only way to say "one or both of foo"?
-> > 
-> > (I don't know the answer to this -- though I can believe that it's
-> > true.  Perhaps just not describing this property is another option.
-> > Many bindings seem not to bother.)
-> > 
-> >> +
-> >> +  arm,not-ready-us:
-> >> +    description: The maximum time in microseconds for monitoring data to be
-> >> +      accurate after a settings change. For more information, see the
-> >> +      Not-Ready (NRDY) bit description in the MPAM specification.
-> >> +
-> >> +  numa-node-id: true # see NUMA binding
-> >> +
-> >> +  '#address-cells':
-> >> +    const: 1
-> >> +
-> >> +  '#size-cells':
-> >> +    const: 0
-> >> +
-> >> +patternProperties:
-> >> +  '^ris@[0-9a-f]$':
-> > 
-> > It this supposed to be '^ris@[0-9a-f]+$' ?
-> 
-> Looks like yes. Fixed.
+-- 
+2.43.0
 
-OK
-
-> > Currently MPAMF_IDR.RIS_MAX is only 4 bits in size and so cannot be
-> > greater than 0xf.  But it is not inconceivable that a future revision
-> > of the architecture might enable more -- and the are 4 RES0 bits
-> > looming over the RIS_MAX field, just waiting to be used...
-> > 
-> > (In any case, it feels wrong to try to enforce numeric bounds with a
-> > regex, even in the cases where it happens to work straightforwardly.)
-> > 
-> >> +    type: object
-> >> +    additionalProperties: false
-> >> +    description:
-> >> +      RIS nodes for each RIS in an MSC. These nodes are required for each RIS
-> > 
-> > The architectural term is "resource instance", not "RIS".
-> > 
-> > But "RIS nodes" is fine for describing the DT nodes, since we can call
-> > them what we like, and "ris" is widely used inside the MPAM driver.
-> 
-> 
-> > People writing DTs should not need to be familiar with the driver's
-> > internal naming conventions, though.
-> 
-> What about the architecture's name for fields?
-> This number goes in MPAMCFG_PART_SEL.RIS.
-
-That's the identifier for the resource instance (= "Resource Instance
-Selector", see e.g., ARM IHI 0099A.a Section 9.4.14 "MPAMCFG_PART_SEL,
-MPAM Partition Configuration Selection Register").  The way I read this,
-the contents of MPAMCFG_PART_SEL.RIS is just a numeric identifier
-identifier, rather than the thing being identified.
-
-(I guess I am bikeshedding, here.  The chance for actual confusion
-remains low.  I just find this use of "RIS" a bit dissonant.)
-
-> > (There are other instances, but I won't comment on them all
-> > individually.)
-> > 
-
-> >> +      implementing known MPAM controls
-> >> +
-> >> +    properties:
-> >> +      compatible:
-> >> +        enum:
-> >> +            # Bulk storage for cache
-> > 
-> > Nit: What is "bulk storage"?
-> 
-> Probably to distinguish it from other storage a cache may have, such as tag-ram.
-> 
-> > The MPAM spec just refers to "cache" or "cache memory".
-> 
-> I figure these are comments, I'll remove them...
-> 
-> 
-> >> +          - arm,mpam-cache
-> >> +            # Memory bandwidth
-> >> +          - arm,mpam-memory
-
-I think that the meaning of "mpam-cache" is pretty obvious without
-benefiting from a comment, but "mpam-memory" is not an obvious name for
-memory _bandwidth_.  That probably still wants clarification.
-
-> >> +
-> >> +      reg:
-> >> +        minimum: 0
-> >> +        maximum: 0xf
-> >> +
-> >> +      cpus:
-> >> +        description:
-> >> +          Phandle(s) to the CPU node(s) this RIS belongs to. By default, the parent
-> >> +          device's affinity is used.
-> >> +
-> >> +      arm,mpam-device:
-> >> +        $ref: /schemas/types.yaml#/definitions/phandle
-> >> +        description:
-> >> +          By default, the MPAM enabled device associated with a RIS is the MSC's
-> > 
-> > Associated how?
-> 
-> By the phandle this is a description for.
-> 
-> 
-> > Is this the device where the physical resources managed by the MSC are located?
-> 
-> Yes,
-
-OK, that's not "associated by the phandle".  It's a physical hardware
-property.
-
-[...]
-
-> >> +examples:
-> >> +  - |
-> >> +    L3: cache-controller@30000000 {
-> >> +        compatible = "arm,dsu-l3-cache", "cache";
-> >> +        cache-level = <3>;
-> >> +        cache-unified;
-> >> +
-> >> +        ranges = <0x0 0x30000000 0x800000>;
-> >> +        #address-cells = <1>;
-> >> +        #size-cells = <1>;
-> >> +
-> >> +        msc@10000 {
-> >> +            compatible = "arm,mpam-msc";
-> >> +
-> >> +            /* CPU affinity implied by parent cache node's  */
-> > 
-> > "node's" -> "nodes".
-> > 
-> > (or it this supposed to be in the singular -- i.e., the immediately
-> > parent cache node only?)
-> 
-> The MSC's parent cache node can be used to find the affinity.
-> I'll make it singular and drop the 's
-
-OK
-
-> > Anyway, it looks like this is commenting on the "reg" property, which
-> > doesn't seem right.
-> > 
-> > Is this commnent supposed instead to explain the omission of the "cpus"
-> > property?  If so, that should be made clearer.
-> 
-> 
-> I'll move it to the end of the list of properties so it doesn't look like it belongs to
-> the one below it.
-
-Ack, that works.
-
-Cheers
----Dave
 
