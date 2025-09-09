@@ -4,61 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF71CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D0ECA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/m8SFBvkCLIJdxc3vSsQYjX+VP+no0gJ7KqXMtbuYE=; b=bgwZM73fDaONp8Y+vU68gwfymk
-	2XhqVubRclCOWn4BANum9pGRzI2Sc9LSruTsclN+BVuMcus8IGGRh0EcM9NJ4w//OMlvVBcqrrPDf
-	vAJOhyv8BJAKam3Sh8H4GFFg6+BypDdX111IxRmR/IPq7ydxt2vypIrX8bMGdUC3lb09/PsqjCsbP
-	VR2q7GaBSKAO4yWhqVA81hcE81CA7cMpeUM8kSo4FubhvaH/xxv7nFw08sofaplSU2kEBABO/mqNj
-	LA9TwQUH6+idcJILt6UdfWJ91k2N9wGObxRdC0DZPu7hPvrIdRy4LwQOUrmwiTcelO/YoeKIAk88W
-	M1yl+xjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ho6btbW8dbb/3BQNUmdGkuJ/GydXGeEO2nOokfa+dSw=; b=P3WPcNXPjfuDUmAC5zDswX7o9U
+	SBcAULuHVWLtAzdtkTOuMgThdIsfyFeP4Z2Op+tNL+Gl8mwmxyoX6BsOFrj6RwY9nVeUZWET7Tso9
+	JjwLiq+xBTRbsJeX4rLA4qRGmUmbIRYiBMghS3j/dFGu8BUwdhGphvLba1mUJLZgDA52i6DFL3ZzM
+	7k7r24BNerXKJTErTQPlVOkWodfCdN7xUiXAtglvD4RDplkxLS+VsMNLHZePe829P55zRuSPbssLq
+	5/JOr/JbOXqOJANcs0g5MS3ZxouJRurXWY7F0MP7150sz9EUWuLNIyHWeEoovC0MFO/6elbSl+Ihf
+	ck5E7vzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw26Z-0000000952A-1Old;
-	Tue, 09 Sep 2025 17:26:07 +0000
-Received: from mail.grinn-global.com ([77.55.128.204])
+	id 1uw26f-000000095En-3Wm5;
+	Tue, 09 Sep 2025 17:26:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1Fb-00000008XDL-0DEp;
-	Tue, 09 Sep 2025 16:31:24 +0000
-X-Virus-Scanned: by amavisd-new using ClamAV (10)
-Received: from mateusz.int.grinn-global.com (f90-187.icpnet.pl [46.228.90.187])
-	by server220076.nazwa.pl (Postfix) with ESMTP id 853371BCC33;
-	Tue, 09 Sep 2025 18:31:20 +0200 (CEST)
-From: Mateusz Koza <mateusz.koza@grinn-global.com>
-To: angelogioacchino.delregno@collabora.com,
-	robh@kernel.org
-Cc: krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	marcin.czarnecki@grinn-global.com,
-	b.bilas@grinn-global.com,
-	mateusz.koza@grinn-global.com,
-	andrew@lunn.ch,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v5 4/4] dt-bindings: arm: mediatek: Add grinn,genio-510-sbc
-Date: Tue,  9 Sep 2025 18:30:50 +0200
-Message-ID: <20250909163052.446723-5-mateusz.koza@grinn-global.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250909163052.446723-1-mateusz.koza@grinn-global.com>
-References: <20250909163052.446723-1-mateusz.koza@grinn-global.com>
+	id 1uw1MU-00000008ZNi-1KTE
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 16:38:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A908660226;
+	Tue,  9 Sep 2025 16:38:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37D94C4CEF4;
+	Tue,  9 Sep 2025 16:38:28 +0000 (UTC)
+Date: Tue, 9 Sep 2025 17:38:25 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] irqchip/gic-v5: Fix kmemleak L2 IST table entries false
+ positives
+Message-ID: <aMBYAbq_dlDB9HLH@arm.com>
+References: <20250811135001.1333684-1-lpieralisi@kernel.org>
+ <aK4MQ3dur0cyluGl@arm.com>
+ <aL7Znv7XgqFPq2Jb@lpieralisi>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-NA-AI-Spam-Probability: 0.56
-X-NA-AI-Is-Spam: no
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_093123_262296_CE62BBAF 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aL7Znv7XgqFPq2Jb@lpieralisi>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +62,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings support for the Grinn GenioSBC-510, a
-single-board computer based on the MediaTek Genio 510 SoC.
+On Mon, Sep 08, 2025 at 03:26:54PM +0200, Lorenzo Pieralisi wrote:
+> On Tue, Aug 26, 2025 at 08:34:27PM +0100, Catalin Marinas wrote:
+> > On Mon, Aug 11, 2025 at 03:50:01PM +0200, Lorenzo Pieralisi wrote:
+> > > diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+> > > index ad1435a858a4..e8a576f66366 100644
+> > > --- a/drivers/irqchip/irq-gic-v5-irs.c
+> > > +++ b/drivers/irqchip/irq-gic-v5-irs.c
+> > > @@ -5,6 +5,7 @@
+> > >  
+> > >  #define pr_fmt(fmt)	"GICv5 IRS: " fmt
+> > >  
+> > > +#include <linux/kmemleak.h>
+> > >  #include <linux/log2.h>
+> > >  #include <linux/of.h>
+> > >  #include <linux/of_address.h>
+> > > @@ -117,6 +118,7 @@ static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data
+> > >  		kfree(ist);
+> > >  		return ret;
+> > >  	}
+> > > +	kmemleak_ignore(ist);
+> > 
+> > Nit: if you ever respin, please add a short comment on why this is a
+> > false positive (easier to see it in the code than the git logs).
+> 
+> It was merged as-is (have been away for a couple of weeks) but I can send a
+> patch adding the comments to clarify the code as a follow-up.
 
-More details about the hardware:
-- https://grinn-global.com/products/grinn-geniosom-510
-- https://grinn-global.com/products/grinn-genioboard-edge-ai-sbc
+No need to. One can always do a git blame ;).
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Mateusz Koza <mateusz.koza@grinn-global.com>
----
- Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
-index 448241939a75..f04277873694 100644
---- a/Documentation/devicetree/bindings/arm/mediatek.yaml
-+++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
-@@ -431,6 +431,7 @@ properties:
-           - const: mediatek,mt8365
-       - items:
-           - enum:
-+              - grinn,genio-510-sbc
-               - mediatek,mt8370-evk
-           - const: mediatek,mt8370
-           - const: mediatek,mt8188
 -- 
-2.43.0
-
+Catalin
 
