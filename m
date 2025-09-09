@@ -4,98 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5869CAC58C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E61C7CAC58E
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iFGYAxN7KhpHBrugmRev4scw5IytGj3RswCGCmkqFTw=; b=D6RzlmJNhFBeMHb4UlCaWhmk5t
-	h+cuywfCJeo5JkAXeEeSmVVpWuuBFbmuorxjMJ6xwwVAwccreq7eq5+CvEFg5NjkV2cimmWqgCCLd
-	p8qvbdrBCVU0pTW/guleibMY4/IuEcyN2ri8gxOVJ3xaz6lz+FOO/+gf1oNZ9Rz+8CI2hs7neIuC3
-	f1+lCW3vnQmaqtMDXKminHQRxC1dFMoQqcSWP3dUuJ8AfyFPnyy5YwGhwdzEJPC+LcwmOivU1DuNc
-	n79TXJyB0rx4lpcwAPWrm5u2SysCICf0+9iPKZgX2LUsLlV6kFSsRsqVckyzBw2pf7e9nal5XH4Ce
-	m5fqIbrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zftH1OFDMW2jW27I963MhGeDeriTV1wGejbhpnPTHcs=; b=Hjl0NhHiPDvIirRxlFcHN1I6hF
+	xi3DZ5D7TENvjzXC0GUjnDqUGRnR5cebIT1IzSsk+2feIzg4bBWcyIuhi4QNcwnlvbxTyKbz/2TQD
+	PyPiE6WGbvhJpRZmaqQs4TBBSETKKhHnN3gFFiJPdzFvLjKV4NnXH4RrXfmf/3b6jlCFAuFeiK8Df
+	Xf+DqtzHMsQb/VPDTa10/0uAl+fGGqo6ggiTkPF6MXfZ0bgSx9LPc1Dq2Unl9q0OnPevEFue+MG1K
+	Sa+I46cXFW4o53BZftxqoyY0vRFc6se2DTxW7nO8oW+4ckTtxVRwE/pM02EAU5uf2CHeBibGU2Ere
+	Ibx2usaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1vu-00000008nji-0tj5;
+	id 1uw1vu-00000008nky-3auN;
 	Tue, 09 Sep 2025 17:15:06 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvv16-000000068nF-1eLO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 09:52:01 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45dd505a1dfso31735435e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 02:51:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757411519; x=1758016319; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iFGYAxN7KhpHBrugmRev4scw5IytGj3RswCGCmkqFTw=;
-        b=s3gYiBSnueyf7G5wFSIMEOKqGh6t0qDSTcdPVbPZt0dSECphVj4WxlJm8cX06oe89N
-         hXNxb5PGYfwUyJ3su7vCqwT7Gczdb3l3Puc7rlRq0NvUrvZVcKRVhnzqv1oxzqnU4CdR
-         AB3oMrk2k6HssUM9bSfAWWUoOGslMp/oa0QdJOmXOjvCBsqgDTGu2r0azV+fuYCPsNZE
-         f+t79v6PUs3p3EHmNArEhXIjoNlJC/iOm/598T3OWjmO1aK/1DqNh9ui7o80Z5Khuvxz
-         U0J3gXv1PqK0lbFUaa28F5G04aeCsw+jibSHgZuAZscSEIrnDAq2e3mkM4c7R6+p16gr
-         ZNqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757411519; x=1758016319;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iFGYAxN7KhpHBrugmRev4scw5IytGj3RswCGCmkqFTw=;
-        b=JVSg6bWr/Fv1NIDFaQFZbr3W1+K/w3+i0gUDGF0QqnFJT6N7kg3tqutZ3vv0iqXn32
-         omAJfMFL86s+6MYMzxYUGgXo0A2QaDbTN7U9cFLaBzfxANzgCJTuqHss/VvNmZt2AwHx
-         PISx9Muxwga6QDPUm7/sZK9l79xW8RbsIE7hsuH6ObVgW+NAwp/foNshiHtRPCZMlW/i
-         jjy3qUkjUagWfb7Rsby7EX97HgbkjvvY2K29ddNQ/peP5A9hRo/kZ18ZE1ya+5/pyj1G
-         PlCkPRlZtxD6BwStJgu4AuludoQNckLacncC+BO9aMvhLrZX5SGlTKxKTOTZDMvvbBmZ
-         rVcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXEVrMdjHcZsN9Pdhd+/sFC2zuUYwLBs6CqUB/AS5CzFZMdjSO9UaGAIVh3p6NsWZ1XdK4uA2oMFOr7/BA5RUrp@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywj5D+K2ZI1MGdDfCmDtaVF9v5Ta3BOgvolYaanlJvKCczJ+YBf
-	Awxs9wPPhQjiPyzT5aWEIuK4qaRR5CXHpTneXqf/KBj0NDTuv/o2koeapFLy2pTiU54=
-X-Gm-Gg: ASbGncuyq4V8qOX6EeTCjgJ4vgJmhqL7fu2Oo5XJZ4PTlbZftkNI1LooQ2MdruFXNKE
-	5kwR+wY7JidHpg41sOY4MgQfzMRwA8dSU+EaPfK2xWa0tkmvKcfGqiDqJxgL1StBz8KsdgW/Zvb
-	S5/UL7qrQDqk0weGM/V6mwXjyMhbkjO8C5bzGG4Sb1v2jSxp26e0qh3bEwizs4nsdvuqvNTmZSX
-	Ns00hUZIENf8j09zB5SwgzGdfm6EBeCb8IGjTWStx14NRT2dV9k5xc/ALxd1e6QJe3AH02QqIBX
-	eurQKSjrpOLWy+7zqzQgPCR2evP5JhwUyiJKdVXVY7wUfFImrwWu0G9L9cbi0qLuVlQ8z2fSXp6
-	1iP0wDjL4Jy4aAibBoaXefVGhTVk=
-X-Google-Smtp-Source: AGHT+IESmYHdHard1McUHhkFXGOst3hEfh+qWrJbkAkYlZD2XyacUZJFctXBns93b9p1corUeRwWcg==
-X-Received: by 2002:a05:6000:22c3:b0:3de:78c8:11fc with SMTP id ffacd0b85a97d-3e6497c0668mr9559747f8f.63.1757411518659;
-        Tue, 09 Sep 2025 02:51:58 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e75223ea15sm1916533f8f.47.2025.09.09.02.51.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Sep 2025 02:51:58 -0700 (PDT)
-Message-ID: <02cba58e-86f6-48de-a59c-6d31a29258df@linaro.org>
-Date: Tue, 9 Sep 2025 10:51:56 +0100
+	id 1uvvnX-00000006TcP-1YNX;
+	Tue, 09 Sep 2025 10:42:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 10D4F43F59;
+	Tue,  9 Sep 2025 10:42:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 129D3C4CEF4;
+	Tue,  9 Sep 2025 10:42:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757414522;
+	bh=ZjvOrSWVcVf5YAynr8zKeTMjoU2jc4ng9s5RPK12NbA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=McfoQ4gDFpUfqvvhW8JCPU0Bouf+Ecc5S6c8dckZKyY4c93J2zLEBGGPZ9yGoDqKE
+	 vs98zwJ4COzBUGJeEPzWquI0PKQ5nDm8VJGCFjDma0+3b/RVPGPhGijdgYZVnFfD1z
+	 uT8q70OB34x6Hvrpw7bsZzPBYjnsqIuXaN1lUvSdESIusdwOLULICBk5c8riNhB4n6
+	 9ygtRErF5j0YtL6ssCAulrrqcHEHc8tK3aJFfb6ciJHQFWutMTV70Gw/4PgUAc+XEk
+	 c1uDjgXyLOtMeKhALfDs5C1ZgVJ4B++KLdoBpO5loJe5J2zaZJxz6Re5atOi+WIXLK
+	 o9KfNg2k1SBcg==
+Date: Tue, 9 Sep 2025 12:41:57 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Leilk Liu <leilk.liu@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Qii Wang <qii.wang@mediatek.com>, Wolfram Sang <wsa@kernel.org>, 
+	Liguo Zhang <liguo.zhang@mediatek.com>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v2] i2c: mediatek: fix potential incorrect use of
+ I2C_MASTER_WRRD
+Message-ID: <c3d57np3hns3yoklgkbpc2ivx7jrd5qwz76wcwxhnef3ermdve@3ejfxfwg3acq>
+References: <20250906082652.16864-1-leilk.liu@mediatek.com>
+ <zddsit53dwqo27buoxaolgpzvvvd6uvwcyzughv7qfvwg64ces@yrlrur5dkf45>
+ <CAGXv+5HZcZ8uVZQbT83QnWd1M6p7fXvKU-0gOfc794BxqOmw1g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] perf arm-spe: Improve --itrace options
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, Leo Yan <leo.yan@linux.dev>
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@linaro.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, George Wort <George.Wort@arm.com>,
- Graham Woodward <Graham.Woodward@arm.com>, Ben Gainey <Ben.Gainey@arm.com>,
- Michael Williams <Michael.Williams@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
- <aL9HvOl-n_IM0qiB@x1>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <aL9HvOl-n_IM0qiB@x1>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGXv+5HZcZ8uVZQbT83QnWd1M6p7fXvKU-0gOfc794BxqOmw1g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_025200_471388_9F0B4B94 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20250909_034203_454866_E2A95768 
+X-CRM114-Status: GOOD (  28.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,60 +78,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 08/09/2025 10:16 pm, Arnaldo Carvalho de Melo wrote:
-> On Mon, Sep 08, 2025 at 01:10:17PM +0100, James Clark wrote:
->> Most people also want all the SPE samples (instructions group), not just
->> the flagged samples that are put into the various memory groups. These
->> should have been shown by default but weren't because the default
->> interval type wasn't supported.
->>
->> Also when looking at this, it appears that the downsampling was behaving
->> in a way that would discard samples from one group but not another.
->> Improve that and the warning messages.
->>
->> I don't want to put fixes tags on these because it's only changing the
->> defaults and the behavior, but I don't think the previous behavior was
->> incorrect necessarily, just copied from tracing techs but not ideal for
->> SPE.
+On Tue, Sep 09, 2025 at 11:50:15AM +0800, Chen-Yu Tsai wrote:
+> On Tue, Sep 9, 2025 at 6:17 AM Andi Shyti <andi.shyti@kernel.org> wrote:
+> > > diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
+> > > index ab456c3717db..dee40704825c 100644
+> > > --- a/drivers/i2c/busses/i2c-mt65xx.c
+> > > +++ b/drivers/i2c/busses/i2c-mt65xx.c
+> > > @@ -1243,6 +1243,7 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
+> > >  {
+> > >       int ret;
+> > >       int left_num = num;
+> > > +     bool write_then_read_en = false;
+> > >       struct mtk_i2c *i2c = i2c_get_adapdata(adap);
+> > >
+> > >       ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+> > > @@ -1256,6 +1257,7 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
+> > >               if (!(msgs[0].flags & I2C_M_RD) && (msgs[1].flags & I2C_M_RD) &&
+> > >                   msgs[0].addr == msgs[1].addr) {
+> > >                       i2c->auto_restart = 0;
+> > > +                     write_then_read_en = true;
+> > >               }
+> > >       }
+> > >
+> > > @@ -1280,12 +1282,10 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
+> > >               else
+> > >                       i2c->op = I2C_MASTER_WR;
+> > >
+> > > -             if (!i2c->auto_restart) {
+> > > -                     if (num > 1) {
+> > > -                             /* combined two messages into one transaction */
+> > > -                             i2c->op = I2C_MASTER_WRRD;
+> > > -                             left_num--;
+> > > -                     }
+> > > +             if (write_then_read_en) {
+> > > +                     /* combined two messages into one transaction */
+> > > +                     i2c->op = I2C_MASTER_WRRD;
+> >
+> > i2c doesn't change for the whole loop so that it can be set only
+> > once outside the loop instead of setting it everytime.
+> >
+> > Something like this:
+> >
+> >         if (i2c->op == I2C_MASTER_WRRD)
+> >                 left_num--;
+> >         else if (msgs->flags & I2C_M_RD)
+> >                 ...
+> >         else
+> >
+> > looks cleaner to me and we save the extra flag. Am I missing
+> > anything?
 > 
-> I keep trying to find some hardware to have in my homelab to test these
-> series, but till then I depend on people having access to such hardware
-> for acks or better, tested-by, so waiting a bit for those to appear.
+> It looks correct to me, though I think it requires a comment explaining
+> that "in the WRRD case there are only two messages that get processed
+> together, and the while loop doesn't actually iterate", and reference
+> the block where the WRRD op is set.
 > 
-> - Arnaldo
->   
+> Otherwise someone is going to look at this snippet and think there's
+> some corner case where all messages (# of messages > 2) get handled
+> using the WRRD op.
 
-Unfortunately I don't have any good homelab suggestions. Radxa Orion O6 
-are the only not-super-expensive boards that have it, but it's not 
-currently working due to some ACPI issue. AWS Gravitons also have it, 
-but you currently need a metal instance so that's expensive too.
+Agree, indeed I wanted to write it somewhere that a comment would
+have been nice.
 
-Leo should be able to have a look at this one until the hardware 
-trickles down further.
+I'd appreciate a comment even with the boolean flag. I think
+boolean flags are often a forced solution and we always need to
+describe their need.
 
-Thanks
-James
+> So maybe it looks cleaner, but it requires more context to understand.
+> Whereas in the original patch, the extra variable sort of gives that
+> context. In this case I prefer the context being more visible, since
+> the original corner case this issue fixes is also from missing context
+> and assumptions.
 
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->> James Clark (4):
->>        perf arm-spe: Show instruction sample types by default
->>        perf arm-spe: Downsample all sample types equally
->>        perf arm-spe: Display --itrace period warnings for all sample types
->>        perf docs: Update SPE doc to include default instructions group
->>
->>   tools/perf/Documentation/perf-arm-spe.txt | 14 +++++---
->>   tools/perf/util/arm-spe.c                 | 53 ++++++++++++++++---------------
->>   2 files changed, 37 insertions(+), 30 deletions(-)
->> ---
->> base-commit: 75a7b9d29215c5aa813b9620f3c56817918f9f8c
->> change-id: 20250908-james-perf-spe-period-4711a566cba4
->>
->> Best regards,
->> -- 
->> James Clark <james.clark@linaro.org>
->>
+I think both solutions are clear in a different way. Anyway, I'm
+not very strong on this comment, I just see that from a code
+perspective looks nicer. If you guys insist, then I will let this
+go as it is.
 
+Andi
 
