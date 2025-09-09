@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D67CCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE76CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NyK+nPmr00AYzfYGOkGmz+3prriYAmjQbkAtYltteQ=; b=1Cl8zYvvsSLMq5YFJnpcFhCkg1
-	PuRis4xDhPMaz2HM6q642AmLhh6V18neDTPpmyvjZucmr9FFAYWwWmSlDFzlCF4HxxUNrcU51moUv
-	aF80MYZWgHTir288qgOln9/jA2Ey974OHG7Bl2j8FcSEzXMfOilfOf3qmUSCiw+wgI2iw4nbycXSd
-	UTXsjOgZCEELclljgafeMV00CwqlOWo8IG3Zw+LNlWLOF2JsJiCLMAPOuC83MpYyMS7TWaG42nCpl
-	z2Q7Vy+rpceUuxyrwMrlm8HHjJ4OokWwTEEGlOTpVELpwxY95e/aRYvv4VbCmAVNV3ngvcVrG2pQ5
-	I7tRBQjQ==;
+	bh=axp0FTGXefGro3RhqluT9iJwb+PyenJkwISYzkbLArA=; b=eLjVmjrJhWLoPZLXXoTmdi/Sfq
+	qgQsFf+a1zOucPeXV6xIOoJr9pCxOGqqCFn9yrhQCfQlGBvC69s60rr2FN1tmlHAYet/c8I1/JuxF
+	UxZEE9qDmRJcQVkXqPXtTyvmO3k4HQPw6BtHP/oojzEA9Q3LIZTRTE1P3faz/zUqCGMJ95Z3ANcBr
+	ecVsC+1n8Q2RqHFYMwO9i7+h55liiPhgBR6X0S5/Ieb09xnYGmNLVGBlgbwFSHYi2/WIy6eoUBVym
+	MfVuvGUIEgXE1HWnc8Kl6XzATPrrYnhfjxqfc+qkN9z8HEbYoQaVFO//WuG+xKvfVpCZWcCL+Hpey
+	j5KG5MQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1wi-00000008oxZ-2Dod;
-	Tue, 09 Sep 2025 17:15:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwX4-00000006k1x-06HJ;
-	Tue, 09 Sep 2025 11:29:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BEA64432C8;
-	Tue,  9 Sep 2025 11:29:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 498C2C4CEF4;
-	Tue,  9 Sep 2025 11:29:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757417345;
-	bh=2PquY0VhsfYnlQnlGduztvw5rjnR1JXo4CdA9iXwMLk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=E18HfTQskW/ockFU5jX6rmw+p24YQzMrEmxb8MLsPojgHQdgvnG9nYsQ0g5AXqonL
-	 OLxEvCZPn+6U+VNOfU+QQiPyuo6expFl043B6AEwVJgcuG3DW4K6Q+iKFoWpTu5F5G
-	 wlkNXUjwtR8UkcEnSJG/tcn0qsS3pdbTDcphoDVV6qJzSlrTqjPUY8hubHzOEi/cWw
-	 D9zOEAwxvQsXFKIOpE1kmcMn/ZJGCLDBs2ZXrZcZK2xVlpSWzlDquG/hDzkwxInkGo
-	 08gFsvLcoPMO525fa+9YHkshZD8GcO3RgK/X1iU5G4j2rDH67QmoPqcpXRFuZ4SSAc
-	 IWsDrT6t43Uyg==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 09 Sep 2025 13:27:46 +0200
-Subject: [PATCH v3 27/39] drm/rockchip: Switch to
- drm_atomic_get_new_crtc_state()
+	id 1uw1wh-00000008owR-3vae;
+	Tue, 09 Sep 2025 17:15:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvwWz-00000006jxy-1kHx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 11:29:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CB201424;
+	Tue,  9 Sep 2025 04:28:52 -0700 (PDT)
+Received: from [10.57.79.24] (unknown [10.57.79.24])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CF8BD3F694;
+	Tue,  9 Sep 2025 04:28:49 -0700 (PDT)
+Message-ID: <0fd00f60-d3f1-4c86-925c-6947decb5159@arm.com>
+Date: Tue, 9 Sep 2025 13:28:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/7] x86/xen: support nested lazy_mmu sections (again)
+To: David Hildenbrand <david@redhat.com>, =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?=
+ <jgross@suse.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org
+References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
+ <20250908073931.4159362-5-kevin.brodsky@arm.com>
+ <aa28c1a7-82fc-42af-9904-a4d4db078a19@redhat.com>
+ <360712fa-f7a0-4674-acc4-76f79141fe4f@suse.com>
+ <57f49b72-2126-48f0-a4ef-4b138bd0bead@redhat.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <57f49b72-2126-48f0-a4ef-4b138bd0bead@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250909-drm-no-more-existing-state-v3-27-1c7a7d960c33@kernel.org>
-References: <20250909-drm-no-more-existing-state-v3-0-1c7a7d960c33@kernel.org>
-In-Reply-To: <20250909-drm-no-more-existing-state-v3-0-1c7a7d960c33@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, Maxime Ripard <mripard@kernel.org>, 
- =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2811; i=mripard@kernel.org;
- h=from:subject:message-id; bh=2PquY0VhsfYnlQnlGduztvw5rjnR1JXo4CdA9iXwMLk=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDBkH+PVScpn9ZB7smfFqqYZL/DXFpcXSU7v+be298idqQ
- 3F9mrVmx1QWBmFOBlkxRZYnMmGnl7cvrnKwX/kDZg4rE8gQBi5OAZhIPydjw9yXv8VStrOwFv1Y
- +fIRq+mvi8kfj2u8n/Nvy+v1T59w7ePdJVKyZV25h9MJ28WbRDrNUhjrS++osIhXmkoe32JRoLh
- h4QENxWP5bTvv75zT8HRx/KQVm72Znp3iWrVu3vWZMqtOlWhuAAA=
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_042906_100668_58384EB7 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20250909_042901_536096_3D33B148 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,78 +87,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The rockchip atomic_check implementation uses the deprecated
-drm_atomic_get_existing_crtc_state() helper.
+On 09/09/2025 11:56, David Hildenbrand wrote:
+> On 09.09.25 11:37, Jürgen Groß wrote:
+>> On 09.09.25 11:13, David Hildenbrand wrote:
+>>> On 08.09.25 09:39, Kevin Brodsky wrote:
+>>>> Commit 49147beb0ccb ("x86/xen: allow nesting of same lazy mode")
+>>>> originally introduced support for nested lazy sections (LAZY_MMU and
+>>>> LAZY_CPU). It later got reverted by commit c36549ff8d84 as its
+>>>> implementation turned out to be intolerant to preemption.
+>>>>
+>>>> Now that the lazy_mmu API allows enter() to pass through a state to
+>>>> the matching leave() call, we can support nesting again for the
+>>>> LAZY_MMU mode in a preemption-safe manner. If xen_enter_lazy_mmu() is
+>>>> called inside an active lazy_mmu section, xen_lazy_mode will already
+>>>> be set to XEN_LAZY_MMU and we can then return LAZY_MMU_NESTED to
+>>>> instruct the matching xen_leave_lazy_mmu() call to leave
+>>>> xen_lazy_mode unchanged.
+>>>>
+>>>> The only effect of this patch is to ensure that xen_lazy_mode
+>>>> remains set to XEN_LAZY_MMU until the outermost lazy_mmu section
+>>>> ends. xen_leave_lazy_mmu() still calls xen_mc_flush()
+>>>> unconditionally.
+>>>>
+>>>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>>>> ---
+>>>>    arch/x86/include/asm/paravirt.h       |  6 ++----
+>>>>    arch/x86/include/asm/paravirt_types.h |  4 ++--
+>>>>    arch/x86/xen/mmu_pv.c                 | 11 ++++++++---
+>>>>    3 files changed, 12 insertions(+), 9 deletions(-)
+>>>>
+>>>> diff --git a/arch/x86/include/asm/paravirt.h
+>>>> b/arch/x86/include/asm/paravirt.h
+>>>> index 65a0d394fba1..4ecd3a6b1dea 100644
+>>>> --- a/arch/x86/include/asm/paravirt.h
+>>>> +++ b/arch/x86/include/asm/paravirt.h
+>>>> @@ -529,14 +529,12 @@ static inline void
+>>>> arch_end_context_switch(struct
+>>>> task_struct *next)
+>>>>    #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+>>>>    static inline lazy_mmu_state_t arch_enter_lazy_mmu_mode(void)
+>>>>    {
+>>>> -    PVOP_VCALL0(mmu.lazy_mode.enter);
+>>>> -
+>>>> -    return LAZY_MMU_DEFAULT;
+>>>> +    return PVOP_CALL0(lazy_mmu_state_t, mmu.lazy_mode.enter);
+>>>>    }
+>>>>    static inline void arch_leave_lazy_mmu_mode(lazy_mmu_state_t state)
+>>>>    {
+>>>> -    PVOP_VCALL0(mmu.lazy_mode.leave);
+>>>> +    PVOP_VCALL1(mmu.lazy_mode.leave, state);
+>>>>    }
+>>>>    static inline void arch_flush_lazy_mmu_mode(void)
+>>>> diff --git a/arch/x86/include/asm/paravirt_types.h
+>>>> b/arch/x86/include/asm/
+>>>> paravirt_types.h
+>>>> index bc1af86868a3..b7c567ccbf32 100644
+>>>> --- a/arch/x86/include/asm/paravirt_types.h
+>>>> +++ b/arch/x86/include/asm/paravirt_types.h
+>>>> @@ -45,8 +45,8 @@ typedef int lazy_mmu_state_t;
+>>>>    struct pv_lazy_ops {
+>>>>        /* Set deferred update mode, used for batching operations. */
+>>>> -    void (*enter)(void);
+>>>> -    void (*leave)(void);
+>>>> +    lazy_mmu_state_t (*enter)(void);
+>>>> +    void (*leave)(lazy_mmu_state_t);
+>>>>        void (*flush)(void);
+>>>>    } __no_randomize_layout;
+>>>>    #endif
+>>>> diff --git a/arch/x86/xen/mmu_pv.c b/arch/x86/xen/mmu_pv.c
+>>>> index 2039d5132ca3..6e5390ff06a5 100644
+>>>> --- a/arch/x86/xen/mmu_pv.c
+>>>> +++ b/arch/x86/xen/mmu_pv.c
+>>>> @@ -2130,9 +2130,13 @@ static void xen_set_fixmap(unsigned idx,
+>>>> phys_addr_t
+>>>> phys, pgprot_t prot)
+>>>>    #endif
+>>>>    }
+>>>> -static void xen_enter_lazy_mmu(void)
+>>>> +static lazy_mmu_state_t xen_enter_lazy_mmu(void)
+>>>>    {
+>>>> +    if (this_cpu_read(xen_lazy_mode) == XEN_LAZY_MMU)
+>>>> +        return LAZY_MMU_NESTED;
+>>>> +
+>>>
+>>> You mention above "preemption-safe manner" above, so I am wondering,
+>>> what if we get preempted immediately after doing the this_cpu_read()
+>>> and get
+>>> scheduled on another CPU?
+>>>
+>>
+>> This should still be correct: preemption needs a context switch to
+>> happen,
+>> so xen_start_context_switch() and xen_end_context_switch() are involved.
+>> Those are dealing with this problem by doing the right thing in the old
+>> and the new context.
+>
+> Thanks, that makes sense. Would be valuable to add that detail to the
+> patch description. 
 
-This hook is called as part of the global atomic_check, thus before the
-states are swapped. The existing state thus points to the new state, and
-we can use drm_atomic_get_new_crtc_state() instead.
+That's a fair point, Alexander was also wondering in v1 (and so was I
+when I worked on this patch). Will clarify in v3.
 
-Reviewed-by: Ville Syrjälä <ville.syrjala@linux.intel.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
-To: Sandy Huang <hjc@rock-chips.com>
-To: "Heiko Stübner" <heiko@sntech.de>
-To: Andy Yan <andy.yan@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop.c  | 6 +++---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 2 +-
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-index ba6b0528d1e5a493cdef85dd1ea258e70c31ccd5..5369b77ea434c794ed7d509802fa29c39d2bfa7a 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-@@ -824,12 +824,11 @@ static int vop_plane_atomic_check(struct drm_plane *plane,
- 					DRM_PLANE_NO_SCALING;
- 
- 	if (!crtc || WARN_ON(!fb))
- 		return 0;
- 
--	crtc_state = drm_atomic_get_existing_crtc_state(state,
--							crtc);
-+	crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
- 	if (WARN_ON(!crtc_state))
- 		return -EINVAL;
- 
- 	ret = drm_atomic_helper_check_plane_state(new_plane_state, crtc_state,
- 						  min_scale, max_scale,
-@@ -1090,11 +1089,12 @@ static int vop_plane_atomic_async_check(struct drm_plane *plane,
- 		return -EINVAL;
- 
- 	if (!plane->state->fb)
- 		return -EINVAL;
- 
--	crtc_state = drm_atomic_get_existing_crtc_state(state, new_plane_state->crtc);
-+	crtc_state = drm_atomic_get_new_crtc_state(state,
-+						   new_plane_state->crtc);
- 
- 	/* Special case for asynchronous cursor updates. */
- 	if (!crtc_state)
- 		crtc_state = plane->crtc->state;
- 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 186f6452a7d359f079662bc580850929632ea8fe..d83111815191d1694455ed3100e624fa0a81866d 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1011,11 +1011,11 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
- 
- 	vp = to_vop2_video_port(crtc);
- 	vop2 = vp->vop2;
- 	vop2_data = vop2->data;
- 
--	cstate = drm_atomic_get_existing_crtc_state(pstate->state, crtc);
-+	cstate = drm_atomic_get_new_crtc_state(pstate->state, crtc);
- 	if (WARN_ON(!cstate))
- 		return -EINVAL;
- 
- 	ret = drm_atomic_helper_check_plane_state(pstate, cstate,
- 						  min_scale, max_scale,
-
--- 
-2.50.1
-
+- Kevin
 
