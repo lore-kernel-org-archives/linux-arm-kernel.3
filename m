@@ -4,102 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50470CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 18:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B60CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 18:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WWPK6qiwC5pY+gvwfZR7zxOqiXiBtA6mSbWCJx8aeqw=; b=yLzqTBxGHVDuHF6b1wmwGkDWKS
-	zfAlJmBJ7eaID2pEVCk7fOQVzWL7V0Z6R3ZLVKxEzXju+ES1bPjCRBJeEOOo1UvK8SLuo28CG6t1e
-	oojZDTL812tMM8ONPOEmzeg1jmzUO/rVikttvoIQcZl8zRwdXAuuZo33edy5fjIsDwZhU7ut49Kbt
-	4f+6NfgDgd+u2quVc8v3/hKEbgqxoZsUkITx4s8d6MM6Prn7B3UGjmo5UuhYKuh4vl8ucJfdObFiP
-	iEbSt7ASHrbzMgE7/S1UUI6VzW+yl/Fjn7NcURngyNj1H0Zxj0jK0YbcMwN/i0xAmz5iHj3Dh2LVn
-	/RlnSVVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=39u56EAv9c6L1rCo88qNgkJ/+c7k2MkmfTVcFdxBydc=; b=I18BxdqFGDoWdp4wm8z8HkZJSX
+	mRWP1sMokLWi5Eipn+fboAIOq4mTedLD00krI4shRAEfEU4yfqu9UMyZQAVlCxL6quqFnZXCMWc2H
+	8aYO3H+Xg1MmaGPB58FIrK1N+J9bAVjxpJJAJZaefJw6CzFF++dHEZA0U90LUUOtRbWDUce3KWtRq
+	UP7+H7aPNIkktHQJBGUKgez95tJxaO8/+CI9r1SYZ12RemLFFHQRljpCBt5HXZbfiAALi9JAP4ggd
+	Ae2Pfp9JI8nLMraQauXHd41+UfXweJUQmf4ua+4omnTEGctYNhzuGfapdIIclFlHm940L7cAWB0S8
+	X1lF/hlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw30f-00000009OiC-1N4O;
-	Tue, 09 Sep 2025 18:24:05 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1uw320-00000009PW1-1Z9y;
+	Tue, 09 Sep 2025 18:25:28 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw30d-00000009Oev-2Wi1
+	id 1uw31x-00000009PUe-1uPf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 18:24:04 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55f7c8b38a0so937533e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 11:24:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757442241; x=1758047041; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WWPK6qiwC5pY+gvwfZR7zxOqiXiBtA6mSbWCJx8aeqw=;
-        b=aCzn5cbrDRmFc000+ZEVGmMjgUT9lqlGTT6r/4iPTF2Ch5HivwD+2ig5lPVtGYMZAi
-         j9oISfpx7xtTeja/XktTVm3BT0ogEC1Wqp5X3+oNJBU1OJE0+lqxdDeA3rOuK5700ZYo
-         JNZOlLKxFtf9OGkRrbaMWAOD5dVYaPTnyn1DP3JLiCOZ/zbTcogZHtHCZ9xroABC1Hdo
-         d1gKRuNQhdj/9NYioy3xDsEJ5tHxSTwrgTQH0ZnXmY4wkCM+/EljhGYryePSJ4TOjqSF
-         gknXC9Sn0JfbPhNRZJ2s0N6Atkzb+U+ilM6uJneeHkwjh7pBEAncuJeAKgYZXgN9kNh0
-         zHTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757442241; x=1758047041;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WWPK6qiwC5pY+gvwfZR7zxOqiXiBtA6mSbWCJx8aeqw=;
-        b=nnkmVoNLSxKIA+0U3DYxiLVMIjdBEUrj6yOrNLcomFiPmgw1EcSfz25TK3/Ra9DA02
-         SWUKQXBWpUeFqLaMs05kqc3k++jU7ToRWv7t2cnWPdnlau0hWnYCv+/0R03Ur9dxof8S
-         Kcysc1J6/O/7P+qYRYTwOJG12SA7S+lBBjYyvPydrCIgdSaIwPAhD2GLHRAcsH7Fc4L3
-         UcsnzFKe9TlgyBs/Xho+xf7oOTiNf04COsFbq2Q9Q2mkoaNuaAjHKmUmMV5/0vTIP8zr
-         aYDZV8egF94wq6IyZoEIgsSOVfavFFSGoezCJ0zWCYBseGotkTICdzVXky1lkeyVpoGP
-         FKkA==
-X-Forwarded-Encrypted: i=1; AJvYcCXT7KjC3iyMF1iR8fWwbz4vnDNRgc0aSeuMLbOvmlMbQQAEDHanNLKsSeNo6LhAcYII6WSU3XmJ1EFSfcAv8EJJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzXVVUCg6SxfaC9fLuIDHCb7MTd0R+xbU2wQxlYMt+AF7WGnRD
-	/HSY8m3qXfx0x/c8NGY20GJWNDJmYBOylPnSiVv2R1WNp2QghrLsoYZxNDXskbgWRsM=
-X-Gm-Gg: ASbGncubUYYwqZnWvVflr2+7nkxd6WRQgcoBm58RUIKHurBxh078M7jHoSb5laNnHzX
-	mBkHiSKEFrsl91UDhBgMlKvoUrinOjkdgwmCXIcnwspTbeFgRKSpX9s6odU+Dazswooin8QXHIp
-	MJPIfDTM9/19219cXSTrwwJdYq6bQWUn0VTAhwxUzl22R3p2lw1DNrV99AU+Cro5xI1fWp+f6GH
-	rJRmfrnsWRccVqudQKA7Uv04vx+RuNql1jbamZz8L3laRL3uG3qP5vGSa2BjrQbvkbCBw7YEuQy
-	4iYWiZqVHA+aiW0VJJ/x48PMgEJZZrtsKnww5FPUzMnOa0frIfrYrTDhcLEAlgWzSkCf/TirCcZ
-	rEP26Mr4/ttpj8QWex5qr/pQdUqNBB0J4xQ==
-X-Google-Smtp-Source: AGHT+IFKUMj2Ann+5FvQWmTru0FFpd1c0y5YYx+6dgpjzz3R0gwegHovdsmJzRrG+FbV0JmNIFTadw==
-X-Received: by 2002:a05:6512:61cf:10b0:560:986c:9b4c with SMTP id 2adb3069b0e04-56262a40f5fmr1551769e87.6.1757442241028;
-        Tue, 09 Sep 2025 11:24:01 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5681795d757sm676071e87.82.2025.09.09.11.23.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 11:24:00 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Tue, 09 Sep 2025 18:25:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757442325; x=1788978325;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jP+QEcU702l7EMgJt/L66MErc+79C+UsveNcHCtgkgk=;
+  b=Q7WUnC/QMWkxekBzCVOLmB3aYyLNeu5bDbDNaDXdZW0FF6Fp6Pg2SbrE
+   8vl8PPJnv4/Jrd3G6t9FxcOEh0j87RCPIV3ZQWAmcscqrPMDGCB6/sM8s
+   qaYYaA7jS8qIKCscg3yBDc+/DtmiZGSB2/8fvQE4nrEJxU6t5AR/Ea1z7
+   HRY3T28bScLUsynLWQ4QRg0ETj94dgMdFz65qqTFf2h6qrYWk+LU+XNby
+   /byNQB7K/XnqL7oPcwWDn1SjDIYvUEo6uOJgkGGhpJARYmWgb1i2n4v8g
+   das2T6treSh9aDO2/YQq0KOYeOD588NtCkPhSVe4mq+cTnI03N9BD/Cwa
+   A==;
+X-CSE-ConnectionGUID: XhyqcnqNRv+N4EN340tnOg==
+X-CSE-MsgGUID: 4h28Zsm6TBOu4NvBHaU7RQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11548"; a="63569056"
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="63569056"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 11:25:24 -0700
+X-CSE-ConnectionGUID: ABg3IuvfQsWOZJ/S88AArw==
+X-CSE-MsgGUID: aTfHsRBlTh+Cedlmx8R+9g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="173552913"
+Received: from lkp-server01.sh.intel.com (HELO 114d98da2b6c) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 09 Sep 2025 11:25:21 -0700
+Received: from kbuild by 114d98da2b6c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uw31r-0005Al-0r;
+	Tue, 09 Sep 2025 18:25:19 +0000
+Date: Wed, 10 Sep 2025 02:24:20 +0800
+From: kernel test robot <lkp@intel.com>
+To: Denzeel Oliva <wachiturroxd150@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL] arm64: dts: cleanups for v6.18
-Date: Tue,  9 Sep 2025 20:22:56 +0200
-Message-ID: <20250909182256.102840-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-i2c@vger.kernel.org,
+	Denzeel Oliva <wachiturroxd150@gmail.com>
+Subject: Re: [PATCH v2 6/8] arm64: dts: exynos990: Add UART nodes for PERIC0/1
+Message-ID: <202509100100.bccnVSbn-lkp@intel.com>
+References: <20250907-perics-add-usinodes-v2-6-58f41796d2d3@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1713; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=PYpuE1bg3M8RrfKVn/z5QPHZvCyw0Q4F4OFmwIUXtHo=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBowHCA48KtemWMzw1tyv2NmUMBfo7b8GHRTLSZU
- QGFn/XMqgyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaMBwgAAKCRDBN2bmhouD
- 1wcPD/9nMH+muQgC86bN7iFNvLm+8O4InFbUmjf+AamXpj6CNoZ81ArlR0OgqmaG696pZh8+RKz
- r07DvRWDwSg2rSA1iAc6r45EvvPa2RCLFujMCLgp5llAixbu4GGVn9xvr9/bjUtqYIMcv7l8Xt7
- VGZouaW2YwL+t/wgOuBuA4dBvO805/I3XOwpXsADwrBfXtUEEH5Dr7dYeULkMB6HyQTYUWqaU8e
- mhnxKqrpUeF46mWVV1O7SWPswl7ieI60I6pmfFmn7eWbis0K4ihsCE3VcM9wsbT+OxkWcO5F+WE
- Be4c1TzYiMA6vEzRkiMFo4egPhwxfdYp3eaO2DyXBTCoNjJmmc4Ymfy+pKvCxTJ03sl6rEpsbfQ
- rOJNaon/J4sU0pz7pvecYodoADx9U8Y2RKpCqt6S/215BEOneyXDfIu9lMIEgoa2tpomeo4aVi0
- NSKYCbqjowjxRQsEwXDTmRteMjDyLAXgu517Frl5nz1B6EquOMKNecVjF0m+rJ766gonkY3frfF
- /TcJulsVdCrV90Nf/NCGpvCfa8WGrCtjAOO5oiZ/SkppfPy7K+PWIcdONYAwDIKJ8jwOhg4Loc2
- t9j2UuQUUXiwx8rqagzMLmCpJGn+Kud/g1/etDtKEWAtVHXDKZiUSX7zUu1KftuvbgsMH6AsvX0 KY2NQzSXvxETe8Q==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250907-perics-add-usinodes-v2-6-58f41796d2d3@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_112403_661454_104E967A 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250909_112525_505369_6942C872 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,46 +98,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Denzeel,
 
-Few cleanups which were not picked up by their respective SoC maintainers.
+kernel test robot noticed the following build errors:
 
-Best regards,
-Krzysztof
+[auto build test ERROR on 98ee0e036cfedf543c4728a604fd7870d0000efd]
 
+url:    https://github.com/intel-lab-lkp/linux/commits/Denzeel-Oliva/dt-bindings-soc-samsung-exynos-sysreg-Add-Exynos990-PERIC0-1-compatibles/20250908-061748
+base:   98ee0e036cfedf543c4728a604fd7870d0000efd
+patch link:    https://lore.kernel.org/r/20250907-perics-add-usinodes-v2-6-58f41796d2d3%40gmail.com
+patch subject: [PATCH v2 6/8] arm64: dts: exynos990: Add UART nodes for PERIC0/1
+config: arm64-randconfig-003-20250909 (https://download.01.org/0day-ci/archive/20250910/202509100100.bccnVSbn-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 11.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250910/202509100100.bccnVSbn-lkp@intel.com/reproduce)
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509100100.bccnVSbn-lkp@intel.com/
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+All errors (new ones prefixed by >>):
 
-are available in the Git repository at:
+   Error: arch/arm64/boot/dts/exynos/exynos990.dtsi:517.4-5 syntax error
+>> FATAL ERROR: Unable to parse input tree
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux-dt.git tags/dt64-cleanup-6.18
-
-for you to fetch changes up to 7ee0f223cabe9b9384250024fec577c731cbcf72:
-
-  arm64: dts: toshiba: tmpv7708: Add default GIC address cells (2025-09-04 15:50:47 +0200)
-
-----------------------------------------------------------------
-Minor improvements in ARM64 DTS for v6.18
-
-Add default address cells for interrupt controllers to fix dtc W=1
-warnings on Amazon, APM, Socionext and Toshiba boards.
-
-----------------------------------------------------------------
-Krzysztof Kozlowski (6):
-      arm64: dts: socionext: uniphier-ld20: Add default PCI interrup controller address cells
-      arm64: dts: socionext: uniphier-pxs3: Add default PCI interrup controller address cells
-      arm64: dts: apm: storm: Add default GIC address cells
-      arm64: dts: amazon: alpine-v2: Add default GIC address cells
-      arm64: dts: amazon: alpine-v3: Add default GIC address cells
-      arm64: dts: toshiba: tmpv7708: Add default GIC address cells
-
- arch/arm64/boot/dts/amazon/alpine-v2.dtsi        | 1 +
- arch/arm64/boot/dts/amazon/alpine-v3.dtsi        | 1 +
- arch/arm64/boot/dts/apm/apm-storm.dtsi           | 1 +
- arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi | 1 +
- arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi | 1 +
- arch/arm64/boot/dts/toshiba/tmpv7708.dtsi        | 1 +
- 6 files changed, 6 insertions(+)
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
