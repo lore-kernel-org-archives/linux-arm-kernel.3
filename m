@@ -4,80 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECE60CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 19:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58610CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 19:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jBsiXYAMRGts/9k3UCrLTmBAn+//joQ0H7f/4sUU6zw=; b=mlS1VkU7Gr6t2/n0AomVaTkmfd
-	covhYOjQeLfOJX6YI7QYADpXs3q9naYkjBJwXaktoJoP/4BvgaFL7xBGJMzdlcBdqrFk9goxE3Un0
-	+bZn3i7+9Ik8cDFGqHyNcH3A/Oz3HpBUJ5y2UfDj+vH2jlf2aV69rC0/X1owLMTP+P8bwS1voDKlW
-	rR/9J3TI7pSYpoDh6513qeCSOIdCZlyl3o3TNHEkuDzT1HKJMlZDWbeV1b7Zy4r4EC7WfwYdcJSc7
-	7W+sg2oinsbey28YueNY05JPpz2qhnPkt+Cacx7PM/dnOsdgvcF7rvkbViYPPvA9vTPh0tgLpOXx/
-	RqqCJh2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/9F66lDKavUG/pPbkbXlUrCZiKcpxmpQ3hYwz5E3cyk=; b=zwwEGwedP+obGOG3v0h/tQIUos
+	Qj32+VBOvgwrGZ5crFXx+8c4pBHRzZP0HMUCBpnOEkC32s0V4R33ZDHTiExhyKftQnWWkK7lZIoMC
+	up8yFNPF2tSlIUGOUfOu8+j07d3dl0Yl4gLEDpKZicCW3uyqF7hgJIz8IHVSV4CtMDMip9fi9f7G2
+	vaQ7NvA+Wzw6pMhnAcQ8Yg6s14XD3338kdXqjd06IgorLuQ9G+EdlKjx7RVJQGThrpqvVveIimKKU
+	dEFXaKYUkZcA9ikVB7hdEfWINuFIhHtw8c45bV/O6EXgoazfv4L6lLVmo029GzhIGXBDOg6PYrGEZ
+	70DS9VfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw3dL-00000009bJq-12oA;
-	Tue, 09 Sep 2025 19:04:03 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uw44x-00000009jBa-3MgP;
+	Tue, 09 Sep 2025 19:32:35 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw3dI-00000009bJG-26UQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 19:04:01 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 589J3tfP4168950;
-	Tue, 9 Sep 2025 14:03:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757444635;
-	bh=jBsiXYAMRGts/9k3UCrLTmBAn+//joQ0H7f/4sUU6zw=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=N6SD+vUWXvy3L7yNEBXbyp2CVVjZbhP4/HEhd9dp9eacbws00tbhA494j3NoQKBDf
-	 fMsYNg3WqkH3znfLrWRNlmgS0gIIE2Y+H1Uu2vYd4HhE58KqI3FRwn26yh8h3fMxVH
-	 fU9UhKL5V3QSjscFTo78rpAhfQSWI2eIck2hfyPI=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 589J3tqS3990699
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 9 Sep 2025 14:03:55 -0500
-Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 9
- Sep 2025 14:03:54 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 9 Sep 2025 14:03:54 -0500
-Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 589J3sxK3365664;
-	Tue, 9 Sep 2025 14:03:54 -0500
-Message-ID: <5eab6ae7-a343-4101-8ae3-fccd5f7ef85c@ti.com>
-Date: Tue, 9 Sep 2025 14:03:54 -0500
+	id 1uw44u-00000009jAh-3f8E;
+	Tue, 09 Sep 2025 19:32:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1757446283; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=f1EewJUnZ9XmqgixY7GoY5dHEBTTWj0M4NIV/Jp5wm3dN8yrJI6RPV9Y4CAgzuZuEsAwXWt/oHBsD5vAuiqxt072R8NvNqwR+NQn7euFAOFKBDB95f3m8OzySs/EdBGCHIkRBpFvOmsGciuTIV1Z9iDApsL9AU6G1IfOrzdXJjg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1757446283; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=/9F66lDKavUG/pPbkbXlUrCZiKcpxmpQ3hYwz5E3cyk=; 
+	b=NrlzTzWw8dDemCOyCv3wGxWxW9oBqG+yxq7f7RbPBRwywlG0sZV/QGdWTP7R4mtw0ITKNc7xgL2n6Di1HRvAXc9u6GuBKbeLe9/yv7CSZx8vLG4l+ylX4C4AHlLW5oAtUaGgg/HM9oFqhS2/3mnaS9N4UPz4V/qGaWf+po3RZ/0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
+	dmarc=pass header.from=<nfraprado@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757446283;
+	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=/9F66lDKavUG/pPbkbXlUrCZiKcpxmpQ3hYwz5E3cyk=;
+	b=inGxeO/E0CyFIAFkTLvT/vjZW+EcldBkGYwQkkye5MjDQjmhgg8kCSodCf0xhExv
+	K0XoYMurniVCP0cMT1gAsIOeB0VyIRIkQyunr5zt5ReP2+5JpOMwEsFLKDqzHrA/B5j
+	IkiLE6aVoyUCo98GRnZcjYYZ5o6qVWu76jvwwxKc=
+Received: by mx.zohomail.com with SMTPS id 1757446281636631.7660879913486;
+	Tue, 9 Sep 2025 12:31:21 -0700 (PDT)
+Message-ID: <eab7182d8b25d87c11f2541db910c6ea3d9434e9.camel@collabora.com>
+Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
+From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>, Maarten Lankhorst	
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,  Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>
+Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org, 
+	harry.wentland@amd.com, leo.liu@amd.com, ville.syrjala@linux.intel.com, 
+	pekka.paalanen@collabora.com, contact@emersion.fr, mwen@igalia.com, 
+	jadahl@redhat.com, sebastian.wick@redhat.com, shashank.sharma@amd.com, 
+	agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org,
+ 	xaver.hugl@gmail.com, victoria@system76.com, uma.shankar@intel.com, 
+	quic_naseer@quicinc.com, quic_cbraga@quicinc.com,
+ quic_abhinavk@quicinc.com, 	marcan@marcan.st, Liviu.Dudau@arm.com,
+ sashamcintosh@google.com, 	chaitanya.kumar.borah@intel.com,
+ mcanal@igalia.com, kernel@collabora.com, 	daniels@collabora.com,
+ dri-devel@lists.freedesktop.org, 	linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
+ Simona Vetter <simona.vetter@ffwll.ch>
+Date: Tue, 09 Sep 2025 15:31:17 -0400
+In-Reply-To: <4d63e90a-794f-4108-9219-19b0c0dab267@bootlin.com>
+References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
+	 <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com>
+	 <4d63e90a-794f-4108-9219-19b0c0dab267@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2+b1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] arm64: dts: ti: k3-am62x-sk-common: Enable Main UART
- wakeup
-To: Markus Schneider-Pargmann <msp@baylibre.com>, <nm@ti.com>,
-        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
-        <khilman@baylibre.com>, <a-kaur@ti.com>
-References: <20250904212827.3730314-1-k-willis@ti.com>
- <20250904212827.3730314-2-k-willis@ti.com>
- <DCO4RGJBMTRM.1XNHG5EHBPS24@baylibre.com>
- <DCO4T9E3SGQ5.1J2ARMXFB9ONJ@baylibre.com>
-Content-Language: en-US
-From: Kendall Willis <k-willis@ti.com>
-In-Reply-To: <DCO4T9E3SGQ5.1J2ARMXFB9ONJ@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-ZohoMailClient: External
+X-ZohoMail-Owner: <eab7182d8b25d87c11f2541db910c6ea3d9434e9.camel@collabora.com>+zmo_0_nfraprado@collabora.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_120400_632192_C539E2BC 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20250909_123232_938930_C31E1DDF 
+X-CRM114-Status: GOOD (  35.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,80 +97,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/9/25 03:37, Markus Schneider-Pargmann wrote:
-> On Tue Sep 9, 2025 at 10:35 AM CEST, Markus Schneider-Pargmann wrote:
->> On Thu Sep 4, 2025 at 11:28 PM CEST, Kendall Willis wrote:
->>> The Main UART can resume from suspend to RAM states when PIN_WKUP_EN
->>> is enabled. Add the necessary pins needed to wakeup the system. Add the
->>> system idle states that the Main UART can wakeup the system from.
->>>
->>> Signed-off-by: Kendall Willis <k-willis@ti.com>
->>> ---
->>>   .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 24 +++++++++++++++----
->>>   1 file changed, 20 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
->>> index 13e1d36123d51..72801cf890d20 100644
->>> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
->>> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
->>> @@ -163,14 +163,26 @@ &phy_gmii_sel {
->>>   
->>>   &main_pmx0 {
->>>   	/* First pad number is ALW package and second is AMC package */
->>> -	main_uart0_pins_default: main-uart0-default-pins {
->>> +	main_uart0_tx_pins_default: main-uart0-tx-default-pins {
->>>   		bootph-all;
->>>   		pinctrl-single,pins = <
->>> -			AM62X_IOPAD(0x1c8, PIN_INPUT, 0) /* (D14/A13) UART0_RXD */
->>>   			AM62X_IOPAD(0x1cc, PIN_OUTPUT, 0) /* (E14/E11) UART0_TXD */
->>>   		>;
->>>   	};
->>>   
->>> +	main_uart0_rx_pins_default: main-uart0-rx-default-pins {
->>> +		bootph-all;
->>> +		pinctrl-single,pins = <
->>> +			AM62X_IOPAD(0x1c8, PIN_INPUT, 0) /* (D14/A13) UART0_RXD */
->>> +		>;
->>> +	};
->>> +
->>> +	main_uart0_rx_pins_wakeup: main-uart0-rx-wakeup-pins {
->>> +		pinctrl-single,pins = <
->>> +			AM62X_IOPAD(0x1c8, PIN_INPUT | PIN_WKUP_EN, 0) /* (D14/A13) UART0_RXD */
->>> +		>;
->>> +	};
->>> +
->>>   	main_uart1_pins_default: main-uart1-default-pins {
->>>   		bootph-pre-ram;
->>>   		pinctrl-single,pins = <
->>> @@ -342,8 +354,12 @@ &wkup_uart0 {
->>>   &main_uart0 {
->>>   	bootph-all;
->>>   	status = "okay";
->>> -	pinctrl-names = "default";
->>> -	pinctrl-0 = <&main_uart0_pins_default>;
->>> +	pinctrl-names = "default", "wakeup";
->>
->> I think you may need to add this to the DT binding of the uart device
->> as well.
-> 
-> Nevermind, I just saw your other series, can you please mention the
-> other series as a dependency in the cover letter?
+On Fri, 2025-09-05 at 19:55 +0200, Louis Chauvet wrote:
+>=20
+>=20
+> Le 22/08/2025 =C3=A0 20:36, N=C3=ADcolas F. R. A. Prado a =C3=A9crit=C2=
+=A0:
+> > Introduce support for a post-blend color pipeline API analogous to
+> > the
+> > pre-blend color pipeline API. While the pre-blend color pipeline
+> > was
+> > configured through a COLOR_PIPELINE property attached to a
+> > drm_plane,
+> > the post-blend color pipeline is configured through a
+> > COLOR_PIPELINE
+> > property on the drm_crtc.
+> >=20
+> > Since colorops can now be attached to either a drm_plane or a
+> > drm_crtc,
+> > rework the helpers to account for both cases.
+> >=20
+> > Also introduce a new cap, DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE,
+> > to
+> > enable support for post-blend color pipelines, and prevent the now
+> > legacy GAMMA_LUT, DEGAMMA_LUT, GAMMA_LUT_SIZE and CTM properties
+> > from
+> > being exposed.
+> >=20
+> > Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> > ---
+> > =C2=A0 drivers/gpu/drm/drm_atomic.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 |=C2=A0 32 ++++++--
+> > =C2=A0 drivers/gpu/drm/drm_atomic_uapi.c=C2=A0=C2=A0 |=C2=A0 50 +++++++=
++++++-
+> > =C2=A0 drivers/gpu/drm/drm_colorop.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 | 144
+> > +++++++++++++++++++++++++++++-------
+> > =C2=A0 drivers/gpu/drm/drm_connector.c=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
+=C2=A0 1 +
+> > =C2=A0 drivers/gpu/drm/drm_crtc.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0 77 +++++++++++++++++++
+> > =C2=A0 drivers/gpu/drm/drm_crtc_internal.h |=C2=A0=C2=A0 6 ++
+> > =C2=A0 drivers/gpu/drm/drm_ioctl.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0=C2=A0 7 ++
+> > =C2=A0 drivers/gpu/drm/drm_mode_object.c=C2=A0=C2=A0 |=C2=A0 20 +++++
+> > =C2=A0 drivers/gpu/drm/drm_plane.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0 36 ++-------
+> > =C2=A0 include/drm/drm_atomic.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 20 +++++
+> > =C2=A0 include/drm/drm_atomic_uapi.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 |=C2=A0=C2=A0 2 +
+> > =C2=A0 include/drm/drm_colorop.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 16 +++-
+> > =C2=A0 include/drm/drm_crtc.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 19 +++++
+> > =C2=A0 include/drm/drm_file.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 7 ++
+> > =C2=A0 include/uapi/drm/drm.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 16 ++++
+> > =C2=A0 15 files changed, 383 insertions(+), 70 deletions(-)
+> >=20
+> > diff --git a/drivers/gpu/drm/drm_atomic.c
+> > b/drivers/gpu/drm/drm_atomic.c
+> > index
+> > 3ab32fe7fe1cbf9057c3763d979638dce013d82b..558d389d59d9a44d3cd1048ed
+> > 365848f62b4d62d 100644
+> > --- a/drivers/gpu/drm/drm_atomic.c
+> > +++ b/drivers/gpu/drm/drm_atomic.c
+> > @@ -472,6 +472,8 @@ static void drm_atomic_crtc_print_state(struct
+> > drm_printer *p,
+> > =C2=A0=C2=A0	drm_printf(p, "\tplane_mask=3D%x\n", state->plane_mask);
+> > =C2=A0=C2=A0	drm_printf(p, "\tconnector_mask=3D%x\n", state-
+> > >connector_mask);
+> > =C2=A0=C2=A0	drm_printf(p, "\tencoder_mask=3D%x\n", state->encoder_mask=
+);
+> > +	drm_printf(p, "\tcolor-pipeline=3D%d\n",
+> > +		=C2=A0=C2=A0 state->color_pipeline ? state->color_pipeline-
+> > >base.id : 0);
+>=20
+> This could be in a separate patch / suggested to the initial series.
 
-Yes, I will make the dependency clear in the cover letter.
+Right, I'll make sure to split the changes in this commit further for
+v2.
 
-> 
->>
->> Best
->> Markus
->>
->>> +	pinctrl-0 = <&main_uart0_tx_pins_default>, <&main_uart0_rx_pins_default>;
->>> +	pinctrl-1 = <&main_uart0_tx_pins_default>, <&main_uart0_rx_pins_wakeup>;
->>> +	wakeup-source = <&system_deep_sleep>,
->>> +			<&system_mcu_only>,
->>> +			<&system_standby>;
->>>   };
->>>   
->>>   &main_uart1 {
-> 
+>=20
+> > =C2=A0=C2=A0	drm_printf(p, "\tmode: " DRM_MODE_FMT "\n",
+> > DRM_MODE_ARG(&state->mode));
+> > =C2=A0=20
+> > =C2=A0=C2=A0	if (crtc->funcs->atomic_print_state)
+> > @@ -617,9 +619,15 @@ drm_atomic_get_colorop_state(struct
+> > drm_atomic_state *state,
+> > =C2=A0=C2=A0	if (colorop_state)
+> > =C2=A0=C2=A0		return colorop_state;
+> > =C2=A0=20
+> > -	ret =3D drm_modeset_lock(&colorop->plane->mutex, state-
+> > >acquire_ctx);
+> > -	if (ret)
+> > -		return ERR_PTR(ret);
+> > +	if (colorop->plane) {
+> > +		ret =3D drm_modeset_lock(&colorop->plane->mutex,
+> > state->acquire_ctx);
+> > +		if (ret)
+> > +			return ERR_PTR(ret);
+> > +	} else {
+> > +		ret =3D drm_modeset_lock(&colorop->crtc->mutex,
+> > state->acquire_ctx);
+> > +		if (ret)
+> > +			return ERR_PTR(ret);
+> > +	}
+>=20
+> Two suggestions here:
+>=20
+> Maybe you can create `colorop_modeset_lock/unlock` helpers to avoid
+> code=20
+> repetition.
+>=20
+> Can you also change it to
+>=20
+> 	if (colorop->plane)
+> 		...
+> 	else if (colorop->crtc)
+> 		...
+> 	else
+> 		drm_err("Dangling colorop, it must be attached to a
+> plane or a CRTC")
+> 		return ERR_PTR
+>=20
+> ?
+>=20
+> This way it will avoid issues if someone add support to attach
+> colorop=20
+> to other drm parts and forgot to update locking in some places.
 
+Yes, both suggestions sound good, I'll apply them for v2.
+
+> > diff --git a/include/uapi/drm/drm.h b/include/uapi/drm/drm.h
+> > index
+> > 27cc159c1d275c7a7fe057840ef792f30a582bb7..1191b142ebaa5478376308f16
+> > 9f9ce8591580d9d 100644
+> > --- a/include/uapi/drm/drm.h
+> > +++ b/include/uapi/drm/drm.h
+> > @@ -921,6 +921,22 @@ struct drm_get_cap {
+> > =C2=A0=C2=A0 */
+> > =C2=A0 #define DRM_CLIENT_CAP_PLANE_COLOR_PIPELINE	7
+> > =C2=A0=20
+> > +/**
+> > + * DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE
+> > + *
+> > + * If set to 1 the DRM core will allow setting the COLOR_PIPELINE
+> > + * property on a &drm_crtc, as well as drm_colorop properties.
+> > + *
+> > + * Setting of these crtc properties will be rejected when this
+> > client
+> > + * cap is set:
+>=20
+> I don't know enough the uAPI of DRM, but if I understand your patch=20
+> correctly, it will not reject GAMMA_LUT/DEGAMMA_LUT/CTM, only unlist=20
+> them from the get_properties syscall. Did I overlooked something?
+
+You're right. This was originally based on v10 of the pre-blend series
+(https://lore.kernel.org/dri-devel/20250617041746.2884343-12-alex.hung@amd.=
+com/
+), which did in fact return an error when the properties were set with
+the cap enabled, but v11
+(https://lore.kernel.org/all/20250815035047.3319284-12-alex.hung@amd.com/
+) switched to just unlisting the properties, so I also updated the code
+here accordingly for this RFC, but forgot to update this text, and
+apparently so did the original series.
+
+From the discussion in another thread
+(https://lore.kernel.org/dri-devel/20250822-mtk-post-blend-color-pipeline-v=
+1-0-a9446d4aca82@collabora.com/T/#m1e8ba77ef54453b26ae70e1f1699ed17afec91e3
+) we might make these properties read-only, and in which case we'll
+have to make them listed but error when set again, so I'll wait for
+that discussion to be resolved before updating this and forwarding that
+feedback to the pre-blend series. But thanks for pointing out the
+inconsistency anyway.
+
+>=20
+> > + * - GAMMA_LUT
+> > + * - DEGAMMA_LUT
+> > + * - CTM
+> > + *
+> > + * The client must enable &DRM_CLIENT_CAP_ATOMIC first.
+> > + */
+> > +#define DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE	8
+> > +
+> > =C2=A0 /* DRM_IOCTL_SET_CLIENT_CAP ioctl argument type */
+> > =C2=A0 struct drm_set_client_cap {
+> > =C2=A0=C2=A0	__u64 capability;
+> >=20
+
+--=20
+Thanks,
+
+N=C3=ADcolas
 
