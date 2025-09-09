@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F8BCA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E54B2CAC583
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CpBWpuZc6ZyutiATUg0dtQx1F9tJtzbjKRwxXbRjqOk=; b=x0O1rysyK43uJdxnMm713S5fpB
-	DgiK2M3qrUYkNlBxbNpoCzLi7hmsb/mrk2sjMDVOsMy07ZsulDmK7vk6dTGNU0wRwDInQPijnsqtz
-	NyCIRH41qLyMOpEl1MZOuVipXXopTTJ5hlbSZcQcD4+jYjEZWYyvZ5opTJm0NZ7JfvlGSPV71vglM
-	RZ72MwmYTsfl6hh5GWLjsBePu8j6kG9Lk3GPL+5ETfVvXojVviIlrHynvkuRPwNN43xmLyrD6jRu0
-	lkNJIMVFPIMZCjINweI0oWZ/TpfNWyeCBdRS3Y5o/Xrvr/l9J9yxFsLdrCL37kLr5GugFstbrNy0U
-	mRbS9eQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gu0aDdw2yCaFAqkxdtah8DUDl9FQjS2LgWWADairsGw=; b=Y5aSN1RpV4v8F+clh8ek/GqxmH
+	6Gl4wvB8OpRenb9ksUfH7033gThBzE+6OPODG6ZLu3ielEpFl7tmplkXe7HdgyEAhBnX2/i+4kRBh
+	Bm6Vqpsr1dYaoSFmTMSbwArpU6biQflR2GxCoMc8MH64//rJomjFoAB5rL18Zo2Slw/D3YBMuY/ly
+	qNO4tg95BNQn5wcjxlwNUgxRl+KxefnqSpqW1uC5TnjnC1TUTv2ghL7ae90Y4iodgRbm6HFdTDnI4
+	D3gn8IE3fmGxO8QDYghlncCjOOe6C3DA+Hbq4CCsFHQ2gBgT64eTnm/bJzKUuWcDuA9PMeS+Oog2C
+	zwGWtnlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1y5-00000008r5z-1CRf;
-	Tue, 09 Sep 2025 17:17:21 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1uw1yA-00000008rDf-2OLC;
+	Tue, 09 Sep 2025 17:17:26 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvxTH-000000074XE-1JF2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 12:29:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1757420934; x=1758025734; i=markus.elfring@web.de;
-	bh=CpBWpuZc6ZyutiATUg0dtQx1F9tJtzbjKRwxXbRjqOk=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=gAhQzHHqsNmWaSlCmLDReQI9vAVkGzunSlXSP1sOHvpP6edWcdGHkwdVBLb7OlKV
-	 nFT6OAaGOV8KbJY0qeMpCYLajfCJJLP15qI8XYTGx2kbX+OBAkuhKbL4cRaiTqGb3
-	 V7cmwy/JnaP0UvCHQhuEwZg3ejjezsCcx4ndlc9W+6Zy7Pv/w1bA2eG2Zq6fPJEpS
-	 NapuKV0zjfROaPUX/PtQiTnHyFG+Psn6kk8SNkcOj8vZLjJ921IhgH8fjUXO7JRem
-	 3EJMaavlMUwsTwMXF5SecPXh0D1e+hYVLFDYZPQ125n2HCiCJ94p3q/hQFaRvjynY
-	 je2NJJL+bcAzm9Q34Q==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.239]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MLRYf-1ufFpO3khv-00J1rc; Tue, 09
- Sep 2025 14:28:53 +0200
-Message-ID: <3663eb06-6a98-461b-8fcb-6891165d107f@web.de>
-Date: Tue, 9 Sep 2025 14:28:42 +0200
+	id 1uvxVg-000000075Gn-1snj;
+	Tue, 09 Sep 2025 12:31:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=gu0aDdw2yCaFAqkxdtah8DUDl9FQjS2LgWWADairsGw=; b=DnNXlQ0+zLuyTXLWphWT9DDau3
+	mFybIqE4+Vg2jII/qlncvNiqjALvYnZ00ul56WRWZBy4z5AOPKXHxqeK/UaMZUjOSvskGnV6ylGhF
+	iPnkYynjB9HIAbmJplOVSA2X0OQL8vYd+luuhrEIKj3/9W43L1OC1e7FXloV/tgGajrE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uvxVQ-007nOT-18; Tue, 09 Sep 2025 14:31:28 +0200
+Date: Tue, 9 Sep 2025 14:31:28 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Kaison Deng <dkx@t-chip.com.cn>
+Cc: Rob Herring <robh@kernel.org>, Jimmy Hon <honyuenkwun@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Wayne Chou <zxf@t-chip.com.cn>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add devicetree for the
+ ROC-RK3588-RT
+Message-ID: <307a76a6-cc92-44a1-9ac0-97005bf51b4b@lunn.ch>
+References: <cover.1757322046.git.dkx@t-chip.com.cn>
+ <42ae6d16ed9162582e7b03cbad661a7950c0db55.1757322046.git.dkx@t-chip.com.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
- Suzuki K Poulose <suzuki.poulose@arm.com>
-Content-Language: en-GB, de-DE
-Cc: LKML <linux-kernel@vger.kernel.org>, Leo Yan <leo.yan@arm.com>,
- Tamas Zsoldos <tamas.zsoldos@arm.com>
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH] coresight: trbe: Use scope-based resource management in
- arm_trbe_alloc_buffer()
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:dNLxo7zCpu3q1oDWxfEDRc6A8tyRrq6A2bsrf+huJyQ89nUiAwr
- AKahO1IbRxJGRJWIKUgn3WKXm1zwRdUXVKf78Ngj78fUnHqT8YyaVUzx/onJ/KqdYgZX4yN
- 0Psdz501XoRw0wCV8DCtlpWCHmQtobycfMYWe/HsKzibPbbRefOSqhuRCTsikZnI7qi/RKn
- F9Si9D3rbplyUCuEyGggg==
-UI-OutboundReport: notjunk:1;M01:P0:qG3AonyGvLE=;zmi9bcXCdbFME4Hw8pRXq84g9oc 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <42ae6d16ed9162582e7b03cbad661a7950c0db55.1757322046.git.dkx@t-chip.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_052915_644848_69F3C50A 
-X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-CacheID: sfid-20250909_053144_485213_4513980E 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,86 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Tue, 9 Sep 2025 14:20:06 +0200
+> - 2x Gigabit Ethernet, 1x 2.5G Ethernet
 
-Scope-based resource management became supported for some
-programming interfaces by contributions of Peter Zijlstra on 2023-05-26.
-See also the commit 54da6a0924311c7cf5015533991e44fb8eb12773 ("locking:
-Introduce __cleanup() based infrastructure").
+I actually only see the 2x 1G. Is the 2.5G not supported yet?
 
-* Thus use the attribute =E2=80=9C__free(kfree)=E2=80=9D.
+> +&gmac0 {
+> +	clock_in_out = "output";
+> +	phy-handle = <&rgmii_phy0>;
+> +	phy-mode = "rgmii-rxid";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac0_miim
+> +		     &gmac0_tx_bus2
+> +		     &gmac0_rx_bus2
+> +		     &gmac0_rgmii_clk
+> +		     &gmac0_rgmii_bus>;
+> +	tx_delay = <0x47>;
 
-* Reduce the scopes for the local variables =E2=80=9Cbuf=E2=80=9D and =E2=
-=80=9Cpglist=E2=80=9D.
+What happened about my comment that "rgmii-rxid" is probably wrong?
 
-* Omit four kfree() calls accordingly.
+If you think it is correct, you should reply with a
+justification. Maybe PCB is very odd? In which case, a comment would
+be good to explain who it is odd.
 
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-=2D--
- drivers/hwtracing/coresight/coresight-trbe.c | 21 ++++++++------------
- 1 file changed, 8 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtrac=
-ing/coresight/coresight-trbe.c
-index 8f9bbef71f23..1b0d58bf8613 100644
-=2D-- a/drivers/hwtracing/coresight/coresight-trbe.c
-+++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -733,8 +733,6 @@ static void *arm_trbe_alloc_buffer(struct coresight_de=
-vice *csdev,
- 				   struct perf_event *event, void **pages,
- 				   int nr_pages, bool snapshot)
- {
--	struct trbe_buf *buf;
--	struct page **pglist;
- 	int i;
-=20
- 	/*
-@@ -746,32 +744,29 @@ static void *arm_trbe_alloc_buffer(struct coresight_=
-device *csdev,
- 	if (nr_pages < 2)
- 		return NULL;
-=20
--	buf =3D kzalloc_node(sizeof(*buf), GFP_KERNEL, trbe_alloc_node(event));
-+	struct trbe_buf *buf __free(kfree) =3D kzalloc_node(sizeof(*buf),
-+							  GFP_KERNEL,
-+							  trbe_alloc_node(event));
- 	if (!buf)
- 		return NULL;
-=20
--	pglist =3D kcalloc(nr_pages, sizeof(*pglist), GFP_KERNEL);
--	if (!pglist) {
--		kfree(buf);
-+	struct page **pglist __free(kfree) =3D kcalloc(nr_pages, sizeof(*pglist)=
-, GFP_KERNEL);
-+	if (!pglist)
- 		return NULL;
--	}
-=20
- 	for (i =3D 0; i < nr_pages; i++)
- 		pglist[i] =3D virt_to_page(pages[i]);
-=20
- 	buf->trbe_base =3D (unsigned long)vmap(pglist, nr_pages, VM_MAP, PAGE_KE=
-RNEL);
--	if (!buf->trbe_base) {
--		kfree(pglist);
--		kfree(buf);
-+	if (!buf->trbe_base)
- 		return NULL;
--	}
-+
- 	buf->trbe_limit =3D buf->trbe_base + nr_pages * PAGE_SIZE;
- 	buf->trbe_write =3D buf->trbe_base;
- 	buf->snapshot =3D snapshot;
- 	buf->nr_pages =3D nr_pages;
- 	buf->pages =3D pages;
--	kfree(pglist);
--	return buf;
-+	return_ptr(buf);
- }
-=20
- static void arm_trbe_free_buffer(void *config)
-=2D-=20
-2.51.0
-
+	Andrew
 
