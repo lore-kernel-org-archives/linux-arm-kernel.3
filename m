@@ -4,78 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2788DCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4188ACAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USBrv5EHEUsjzK+ezZaEzKEkFuiYZYhIWSYji8XWS/Q=; b=bf/SWuh+5jCt3fxH+ghkE7r2+2
-	sdbZTjF2s46yRnPpyM8LTIeL8ruwzSe3gUVTEoAinnv97z/5TGlgJ//Oo1s++wl1GRkhUlo7Oh71B
-	fSUUvb+Oq17msui4tacZQDlpOidVcnQT21J5YUBg617SH/Hs69of78O9pThBggy1cbd/2ChVdNdIJ
-	4sIxiKV0Z+cCRxui4Qt+vnWawU3YvDuERxJYHi4nqs/YUReNxlzAQ1nOeGdEz8WgntIXKXAhIC+dw
-	TfBN1S1fz3rtTQCAb1/dUGelvI1y5S8yRI5FL4m89baWcI65L7+bNYJ4EfXFNxU2rh563wUW/3Cr+
-	j3nIL4SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5ctlRA2i6anPwTb1Lpq1ckuR1ieUigIdEqpTs08/aoY=; b=uCpDwAQhqsAyaGTaCRodtorkHS
+	HpwimdtihD4ndYqUrauyoqrFhsv84YnOk+HoBaKXbZ2zvE076iaxGkeqZnUbxjUgtUOpNFUoS0rDz
+	WZGL/htduz8OkYQ/vnpWy8L7+04DjtcOlPu36uMkX1cDgT4zJcd/1qijt8qqTlc7SSfh3WLJ8cJTF
+	lCIozHfqMdjO44ptmIzjkkL5oHCO3/SH0RbXDFZfojpmS5vVbk5OJhstWSRrB/Jk3nkF7Zq+GL5jk
+	hn2aijcI+7e4jBzJFC1Vv++XYkFuuDU/RFYnEguI155804UOvs06AqTLdVWclPBX05hF8LpalhbdN
+	k+qv0Jnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsEd-00000004sw5-2N8j;
-	Tue, 09 Sep 2025 06:53:47 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uvsEl-00000004t84-0yPt;
+	Tue, 09 Sep 2025 06:53:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvlee-000000033B4-3fQZ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Sep 2025 23:52:14 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 588Nq8eB157299;
-	Mon, 8 Sep 2025 18:52:08 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757375528;
-	bh=USBrv5EHEUsjzK+ezZaEzKEkFuiYZYhIWSYji8XWS/Q=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=a9PVXZAukI+9i+PCbeKbfmZfYXG0E0dfTqMueu4IWQEKgZS/g4dWABm0TeuMg4Jfz
-	 ZLZ0KNXzdaI+I7VFmjy+dX4+FDE7BN7hRN8nFOUU486Vo+RflKR64nHOQ32tn3nSo1
-	 PNJqBCSMJEWnPS3mBkR1AamiPb1mlGW4Q3gAMsMk=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 588Nq8uF2742941
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 18:52:08 -0500
-Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 18:52:08 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 18:52:07 -0500
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 588Nq7WX1677746;
-	Mon, 8 Sep 2025 18:52:07 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        Andrew
- Davis <afd@ti.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 2/2] arm64: dts: ti: k3-am62p: Update eMMC HS400 STRB value
-Date: Mon, 8 Sep 2025 18:52:07 -0500
-Message-ID: <20250908235207.473628-3-jm@ti.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250908235207.473628-1-jm@ti.com>
-References: <20250908235207.473628-1-jm@ti.com>
+	id 1uvm5L-00000003CWr-2hu9;
+	Tue, 09 Sep 2025 00:19:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B599960140;
+	Tue,  9 Sep 2025 00:19:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D2CC4CEF1;
+	Tue,  9 Sep 2025 00:19:46 +0000 (UTC)
+Received: by venus (Postfix, from userid 1000)
+	id 3AEE318081B; Tue, 09 Sep 2025 02:19:44 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+ Sebastian Reichel <sre@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, 
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <2280ca741ef36fe9ed26b8079b91a8e5dfd669fc.1757360105.git.christophe.jaillet@wanadoo.fr>
+References: <2280ca741ef36fe9ed26b8079b91a8e5dfd669fc.1757360105.git.christophe.jaillet@wanadoo.fr>
+Subject: Re: [PATCH] power: supply: Use devm_mutex_init()
+Message-Id: <175737718422.13878.10547263868458184966.b4-ty@collabora.com>
+Date: Tue, 09 Sep 2025 02:19:44 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_165212_958379_B776D1F1 
-X-CRM114-Status: GOOD (  11.27  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +65,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-STRB setting for eMMC HS400 have been updated in device datasheet [0],
-so update for am62p in k3-am62p-main.
 
-[0] https://www.ti.com/lit/gpn/am62p
-Signed-off-by: Judith Mendez <jm@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62p-main.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Mon, 08 Sep 2025 21:35:28 +0200, Christophe JAILLET wrote:
+> Use devm_mutex_init() instead of hand-writing it.
+> 
+> This saves some LoC, improves readability and saves some space in the
+> generated .o file.
+> 
+> As an example:
+> Before:
+> ======
+>    text	   data	    bss	    dec	    hex	filename
+>   35803	   9352	    384	  45539	   b1e3	drivers/power/supply/rt9467-charger.o
+> 
+> [...]
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-index 020bd121a6a3..908cc0760e7d 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-@@ -77,6 +77,6 @@ &main_gpio1 {
- 
- &sdhci0 {
- 	mmc-hs400-1_8v;
--	ti,strobe-sel = <0x77>;
-+	ti,strobe-sel = <0x66>;
- 	ti,otap-del-sel-hs400 = <0x5>;
- };
+Applied, thanks!
+
+[1/1] power: supply: Use devm_mutex_init()
+      commit: 7d715345a86941b9e6c8e520b40078692baed4a4
+
+Best regards,
 -- 
-2.51.0
+Sebastian Reichel <sebastian.reichel@collabora.com>
 
 
