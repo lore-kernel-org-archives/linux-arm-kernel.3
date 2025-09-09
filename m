@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56C83CAC582
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A06CA0FED
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e83lrEIW3avB4qsniP1YuOsrntuQ181h3kAMmQsmlNw=; b=ezUUGWIO/atbS40gQqYg4kWDLl
-	mxUqCJTfVQ2dhhe0SWxs+M5bk0UGHjIOnzcyGOr36UOPsnrH8CnX8YfCvhjHJoNG+dH4oVMLkVGe8
-	7i1Yw2dUgorqBp8qielTDun42BpYeQD77vY2jXVedMEpN+yYUtWOdyoJ/FAxkOHXWnVqUW9jtqwDs
-	4QIPUCQkD3Gd5n3S7Y+D3dx8fSRcQGmGoSQ/0gz81HjVWh0YRP4biLR9RAUo529C2xik7pkC9JRWn
-	wm+iq0Xzdv9uhZNFAvAkOp8grzGpjDXOFviP/L7jMtLwubbDc9A34ynC+igk9AUsMiAJI/2TZMkYQ
-	4Wz0Rguw==;
+	bh=owMpJomD9HktZXrYn67PIBgyXHZh+dj149j6UZF5idE=; b=t67Rzhb5JvJVlvXpEV2oLSJuge
+	D9UsqldmkCBzVIeRMKS6CwOEdnv1Qv2r+F3041fwW1I4g1EcEYhPLpwawBvEEkY0nnQ6Pu6OX3e/0
+	S5dFF+O92VjtfUrziUCYVJgfpXP1l7z8W/XcnIaX5H943sFQn1UcDV4MuwwLw7vtcRSvqmIiQ0WBI
+	XJ8LcjLpzT07KbR/KVgvvS47LgSiFOyTa/kSXHN+ZzxBs11j5eGE9Rq222CsqIDYKNvHh5NRy+aOT
+	xn96Zt6QPWWKFMfheFmF+y1suRoFK7nTEYBwoT+LpXmt2s78gDn6LpvTQedEOfMg2L7HbA8TeHbBy
+	FWvzJJAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1zf-00000008tlN-0a5w;
-	Tue, 09 Sep 2025 17:19:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uw1zb-00000008tfk-1aqr;
+	Tue, 09 Sep 2025 17:18:55 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvyX6-00000007RGY-173E;
-	Tue, 09 Sep 2025 13:37:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF5C0407C0;
-	Tue,  9 Sep 2025 13:37:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABEE4C4CEF4;
-	Tue,  9 Sep 2025 13:37:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757425035;
-	bh=31mOWd8+i/1YkiYaOgcvUkmjuR7GoBD5Ed0MeKEuOFo=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=BXVF3yf9YngGzwiQotWaE4Rx6byZFIleDiFn32GZnBJJycd+usgkvBcEjrfraU96O
-	 OLTqsYuQ/7Ml956/i1KRFTRDv3ny65maB8g2Qe9iG1w94gWkJpNT2tofdbPoe2tXH7
-	 opsMO0H97xnzvR7WoO7CbjNuFHu4L7lYCDl0vQEf4fIFRrRX5pXgXj6qyMEvJi35rf
-	 DF9JVkUOLuzzd4k1pKuBWFVkqfOQpB4frNdfuxprHgWoaLw3EH4vIWgZC9Vp9SjlhZ
-	 PV/YJisDuvITkYhqnPjVVPk0BAnO3xPs8gzW5kLJnw74J8pKUJwjCAajxeYcZSXdz0
-	 HpfFO1hkpa2pg==
-Date: Tue, 09 Sep 2025 08:37:15 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
- Russell King <linux@armlinux.org.uk>, 
- "Chester A. Unal" <chester.a.unal@arinc9.com>, devicetree@vger.kernel.org, 
- Sean Wang <sean.wang@mediatek.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Srinivas Kandagatla <srini@kernel.org>, linux-mediatek@lists.infradead.org, 
- "David S. Miller" <davem@davemloft.net>, 
- Heiner Kallweit <hkallweit1@gmail.com>, Simon Horman <horms@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@google.com>, 
- DENG Qingfang <dqfext@gmail.com>, linux-arm-kernel@lists.infradead.org, 
- netdev@vger.kernel.org, Daniel Golle <daniel@makrotopia.org>, 
- Lee Jones <lee@kernel.org>, linux-kernel@vger.kernel.org, 
- Vladimir Oltean <olteanv@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-In-Reply-To: <20250909004343.18790-5-ansuelsmth@gmail.com>
-References: <20250909004343.18790-1-ansuelsmth@gmail.com>
- <20250909004343.18790-5-ansuelsmth@gmail.com>
-Message-Id: <175742464480.3063209.323009363144312411.robh@kernel.org>
-Subject: Re: [net-next PATCH v16 04/10] dt-bindings: mfd: Document support
- for Airoha AN8855 Switch SoC
+	id 1uvyWb-00000007R7d-25pD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 13:36:46 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3dc3f943e6eso3564304f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 06:36:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757425003; x=1758029803; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=owMpJomD9HktZXrYn67PIBgyXHZh+dj149j6UZF5idE=;
+        b=Fyx9zCEBbSmBJa8pEkqug+rnMQzDGzrfJKp+oJAwgzsLi+xipNHnUkX4wcVrtvB7hN
+         W4ocxVBvifwptf0sK/Di/KHpCd/xVKFgw8IarMCXoYvDl2AfyjsRmzlDYx5LlSH0OnsI
+         vHbxn5s+wUlNmIHDJxR+sY2P160ejInmuqWg+A82fiGuBPqUUG3GYNRl9BHG8pXpIAkC
+         N8SSpPldbQGx+/0wt7Uf6P4HstRXShcXGFN276q3EmDcJF0BFyzSe46p95Ew2RY53NUR
+         iJ6e8Oi/cDP3f5fWWNEE+wAjJE8vTEpGjm+SLbD+lfBK2IA2YECKw4c2aRWyNDkTMs2Q
+         9Tgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757425003; x=1758029803;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=owMpJomD9HktZXrYn67PIBgyXHZh+dj149j6UZF5idE=;
+        b=KUXn6wyayW0h9KZfE/m66JrNkdcT/jC1b5D+x3MTzEWrqLRqLfwjEJuOjiyhSCrtEd
+         Yi6SiEZ8O4/QRvREyoWWyufBjPIW2K6iNOqNURKJfQfHrYHLs3i2rXiRn3nZkXlpUqO0
+         asugaD8dHGHZ4COGXfgJZbjMJHy4sqFylrmVtWUVhZwuMb0OjYnsRflW8HzU+2s5fVoP
+         K1oI/zOrf7gRUjMIVdQ5yj76ftQx16M5EYwu2+e3SZxcvTFu78z/5v8GC+AorHUIQyOH
+         scsczu+anh6C1hRXVF6UhaznS3mFb53pAbcKgfg2kZqMs8XQacJGr2L1PmpL47vxd7US
+         uWQA==
+X-Gm-Message-State: AOJu0YxCmxF+y4SVKKdpCyJSFb0CebkVh7mPoo9gWFRA93lS1XMBIHYD
+	/SoFPvHnZNjjyeUJJGkhYEs1KH1TZ10Pc2Ai9xT3rtt8vs1W18wDi110CUW36PFJMLDjBTJiIaL
+	AGmtW4z6v9N41iwIYbETl44oUSTAsq3k9CwVdheaKWqL8TOd67ueWOoFagQqW5LHk7olTxpf7vU
+	sUSAySCitEk+wSGbiXFMUuICRpxh0QkcS7Ln04S1iFQPA9NHHCvw6CoaN6tFTRcDpSKw==
+X-Google-Smtp-Source: AGHT+IFb5uZ+yXEAm2ul5d4u0zb6FcIArGntIYWXEsNgKuqjWpTpJjl0OgQdZTnmi211wUNW182dBv2tNknMLA==
+X-Received: from wrbfq12.prod.google.com ([2002:a05:6000:2a0c:b0:3db:2c3c:8268])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a5d:64c9:0:b0:3c9:b8b7:ea4e with SMTP id ffacd0b85a97d-3e637370e00mr9580515f8f.19.1757425003090;
+ Tue, 09 Sep 2025 06:36:43 -0700 (PDT)
+Date: Tue,  9 Sep 2025 13:36:31 +0000
+In-Reply-To: <20250909133631.3844423-1-smostafa@google.com>
+Mime-Version: 1.0
+References: <20250909133631.3844423-1-smostafa@google.com>
+X-Mailer: git-send-email 2.51.0.384.g4c02a37b29-goog
+Message-ID: <20250909133631.3844423-3-smostafa@google.com>
+Subject: [PATCH v2 2/2] KVM: arm64: Map hyp text as RO and dump instr on panic
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, perret@google.com, keirf@google.com, 
+	Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_063716_341089_91539DAF 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250909_063645_542182_C2809BB6 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,51 +92,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Map the hyp text section as RO, there are no secrets there
+and that allows the kernel extract info for debugging.
 
-On Tue, 09 Sep 2025 02:43:35 +0200, Christian Marangi wrote:
-> Document support for Airoha AN8855 Switch SoC. This SoC expose various
-> peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
-> 
-> It does also support i2c and timers but those are not currently
-> supported/used.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../bindings/mfd/airoha,an8855.yaml           | 175 ++++++++++++++++++
->  1 file changed, 175 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
-> 
+As in case of panic we can now dump the faulting instructions
+similar to the kernel.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Acked-by: Will Deacon <will@kernel.org>
+---
+ arch/arm64/kvm/handle_exit.c    |  4 +---
+ arch/arm64/kvm/hyp/nvhe/setup.c | 12 ++++++++++--
+ 2 files changed, 11 insertions(+), 5 deletions(-)
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml:
-	Error in referenced schema matching $id: http://devicetree.org/schemas/net/airoha,an8855-mdio.yaml
-	Tried these paths (check schema $id if path is wrong):
-	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
-	/usr/local/lib/python3.13/dist-packages/dtschema/schemas/net/airoha,an8855-mdio.yaml
-
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: soc@1 (airoha,an8855): mdio: {'compatible': ['airoha,an8855-mdio'], '#address-cells': 1, '#size-cells': 0, 'ethernet-phy@1': {'compatible': ['ethernet-phy-idc0ff.0410', 'ethernet-phy-ieee802.3-c22'], 'reg': [[1]], 'nvmem-cells': [[3], [4], [5], [6]], 'nvmem-cell-names': ['tx_a', 'tx_b', 'tx_c', 'tx_d'], 'phandle': 1}, 'ethernet-phy@2': {'compatible': ['ethernet-phy-idc0ff.0410', 'ethernet-phy-ieee802.3-c22'], 'reg': [[2]], 'nvmem-cells': [[7], [8], [9], [10]], 'nvmem-cell-names': ['tx_a', 'tx_b', 'tx_c', 'tx_d'], 'phandle': 2}} should not be valid under {'description': "Can't find referenced schema: http://devicetree.org/schemas/net/airoha,an8855-mdio.yaml#"}
-	from schema $id: http://devicetree.org/schemas/mfd/airoha,an8855.yaml#
-Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: /example-0/mdio/soc@1/mdio: failed to match any schema with compatible: ['airoha,an8855-mdio']
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250909004343.18790-5-ansuelsmth@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index 99a8205fc104..d449e15680e4 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -560,9 +560,7 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr,
+ 	kvm_nvhe_dump_backtrace(hyp_offset);
+ 
+ 	/* Dump the faulting instruction */
+-	if (!is_protected_kvm_enabled() ||
+-	    IS_ENABLED(CONFIG_NVHE_EL2_DEBUG))
+-		dump_kernel_instr(panic_addr + kaslr_offset());
++	dump_kernel_instr(panic_addr + kaslr_offset());
+ 
+ 	/*
+ 	 * Hyp has panicked and we're going to handle that by panicking the
+diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+index a48d3f5a5afb..90bd014e952f 100644
+--- a/arch/arm64/kvm/hyp/nvhe/setup.c
++++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+@@ -192,6 +192,7 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	enum pkvm_page_state state;
+ 	struct hyp_page *page;
+ 	phys_addr_t phys;
++	enum kvm_pgtable_prot prot;
+ 
+ 	if (!kvm_pte_valid(ctx->old))
+ 		return 0;
+@@ -210,11 +211,18 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	 * configured in the hypervisor stage-1, and make sure to propagate them
+ 	 * to the hyp_vmemmap state.
+ 	 */
+-	state = pkvm_getstate(kvm_pgtable_hyp_pte_prot(ctx->old));
++	prot = kvm_pgtable_hyp_pte_prot(ctx->old);
++	state = pkvm_getstate(prot);
+ 	switch (state) {
+ 	case PKVM_PAGE_OWNED:
+ 		set_hyp_state(page, PKVM_PAGE_OWNED);
+-		return host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HYP);
++		/* hyp text is RO in the host stage-2 to be inspected on panic. */
++		if (prot == PAGE_HYP_EXEC) {
++			set_host_state(page, PKVM_NOPAGE);
++			return host_stage2_idmap_locked(phys, PAGE_SIZE, KVM_PGTABLE_PROT_R);
++		} else {
++			return host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HYP);
++		}
+ 	case PKVM_PAGE_SHARED_OWNED:
+ 		set_hyp_state(page, PKVM_PAGE_SHARED_OWNED);
+ 		set_host_state(page, PKVM_PAGE_SHARED_BORROWED);
+-- 
+2.51.0.384.g4c02a37b29-goog
 
 
