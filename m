@@ -4,89 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3CBECA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE2BCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vl21Ac/hRl5KaWEXAXbzKsLXJ9UhwUEd+pnm8CY14SY=; b=hiCk3K/p/kO2Gb9B8f3s5OiK0m
-	LyYWLwuQPZFFB7LgmN2F3eYKxZwWFMjKf/Jx0kHuDPMJ2iaZAD4Venr5vn8bycHoN64MY0E+xeR0Y
-	9D6b1oA0mR7IDoC24DC1dsQTFRcM9Hzd6pm15y5BeKr9tCcrRzxwlu669LPaBzdXZK0JqGiS/yONx
-	mEFP41wH/DzYjKSyVa41mw4Dtormg5UuCi+OXX2U54ucAa+PZ9MVQm9ReyYadDF3m0m+u6I1ocnZq
-	8e2lliDxEMfKptTzWs6ynxGimz6oY0tiSsPZwjdywZBC2w2t4LYYnB31cIXzYnL+Ghk+H7LLQr1XJ
-	q3tfaqyw==;
+	bh=RaiuPSwScN1So+PWSJmzhuhak5hJv4sAaqtK90ZKdho=; b=YIfXgWMYRieRuYGKmg1YbHPxU/
+	arcKM+YzwfvNb+4fMFKySNAfJcaRUKPkgfBYt7bOg+WlJKlYZkVNHH8f6h64qQlMmWf2AG4m/qC82
+	g98CaIVEaB8JT7akJpNacY8qn2u0y3xA4TvpmskCcWVGT8I0nZQvTlBbp6QUWh6SVjcoW5nSQN/w/
+	LVCy0vpv1QNM1K760A/bl72+3r8fXAcWgA17OvhnC57I/e2LZVoWmc0fEA90A3OrJ6IWgt175kIwX
+	IgBiUEqY11Xat/SL9O3rDfsE8oqskPHfFPwAlUa2WjjxXSLB7r1J0KlQaTKF2OqxAEtCQPyYwOsUT
+	leh+AWTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw20y-00000008vyy-2tDf;
-	Tue, 09 Sep 2025 17:20:20 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1uw212-00000008w5n-1MjP;
+	Tue, 09 Sep 2025 17:20:24 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvysx-00000007ZhP-0TAz
+	id 1uvytJ-00000007ZsZ-0Z9H
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 13:59:52 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-62bec18abe6so1643648a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 06:59:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757426389; x=1758031189; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vl21Ac/hRl5KaWEXAXbzKsLXJ9UhwUEd+pnm8CY14SY=;
-        b=iql97IPqx87ds3+f05l3/cDuIvEiuBuclW7La87WBRNCYO9hT3Go+2/D9eBGW3ZC/1
-         o76bWEctZbyBlgtPdTaETEmIHYGQ/ulhs3JgtFy+gTk3SsFM9qT+L+GwhKjXmH8+4jkl
-         Hyhpc3KFxhg1/7TESjmyajzplgSTIw/vNENnYcxYh9NWkgMw5GdoXffwAygOLO9Mqma6
-         od6pYFx5ZRJfaXaCinnbr9X3gYYVBeEusqHKps5QIOIMbVyqPBT+1kCltugoLbdLa/yr
-         AXM8XFHROdTLiJ0HhEjWNtoMMGqREPnjLIRoobgtmUFyPI7qtxfBfBaAwc+qOxyobskW
-         1nKw==
+	Tue, 09 Sep 2025 14:00:14 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5899LifW020685
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Sep 2025 14:00:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=RaiuPSwScN1So+PWSJmzhuha
+	k5hJv4sAaqtK90ZKdho=; b=Ozu9A2xCN38svH8qQO4SH/IbWO1Epuis5xzMXswO
+	7+b4Wp9gy/wGuogKEFs87voIPlwJVd0wXF8+bnwLOW/I3Ks9Prh22YEbJIVUIAHL
+	N8QTVvITH4REGAKtK35pU2W2ZoxekQj9I+jaJgMePRWmduvBnOMU+wocHN/C8Yj1
+	MLgwrGIVV6d6dL055W0O5xQl8yeF9fMRf6hiDIy7825PHCt/6w/QCbBVvLPLeB9b
+	+jnlsT14oC3tLtqMo2i2rQYASzN/Sdo+VuU+EzyFwvzZt8x612zYU79rIot1vNV7
+	L+RyeDK7Yflrvkz9S90eUKUZ/EmjxngYyeVDN3XfRnwNYg==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490e8a8b30-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 14:00:12 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-7296c012ec9so58283876d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 07:00:12 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757426389; x=1758031189;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vl21Ac/hRl5KaWEXAXbzKsLXJ9UhwUEd+pnm8CY14SY=;
-        b=DE+bPFEepHGPyzgLmjAnttg2FXIBDRbV+MVwpGe2YL5YpnRmnWJoLzjCoSy8v9fZw+
-         o2H66SVL65tav6/5TVfBPO7rVhZHWtCg3S6NTPnnHD4rEVwCtRRMU+SQZskY39Bgt2wC
-         sIVDt/LOAqHfzqznxvv5oO82juOZjUDRAoVDWOVcaS5bBV5CleQNvWQIS3EC+rPRcuxO
-         4tASdAlpu2A4Z37mMj8291icyiYwL8pnwiBAg0NnpLEG5EV+TkyfkqhrAhjvV6urq11o
-         sqtM0BwN3Rf+DV79CpdBfo3nB13EfsW9slw1RJ0DQzy6nq+35ZP7AStZQXTH+ZUZ7jTO
-         9OJg==
-X-Forwarded-Encrypted: i=1; AJvYcCU/Y98SEwfT+8llnzHo9PTdgKUBQqS7OxQMr+PuCusaMfI+U4b01T2FDJ8LomVAsbjL/Yqm8SmEZlb21As0KDpa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfPTY3eFxypBiaMDOjQf73b0gXXibS1AJ73Cbk2ov/WL0frTsc
-	lI4xju8vcgU32I+ArVV7J/B14xXZ7/lTAmkZ2WSOyybHPMOZ7kOr9h1RZaxyciUXRE9dqqEzU8f
-	gFRD7qkAz/MjOq/ZRAFt1tWJGEKdSkqQ=
-X-Gm-Gg: ASbGncv6+yxv92uKDP1TtjRQ4IllT0pAWXZwV0kOGTuS3p0GB+MsnPLYxIEcTFFpQ3J
-	DDSwb+uHCdFozVz2nphE2OaE9pwFW7AAIAKoVbOQDuq7L83pe/QX7bX1hqROjO0bsCwhHEhgyS2
-	BK8eEgdEGT5LIoniDeQ1k3lu58mt2RRjawsqPRrC73r/33ecDVLbcuFVbGa5l1F2mbW3hz5WfHX
-	l07NBBt0aiyVtDU
-X-Google-Smtp-Source: AGHT+IHdzYdKi432+CbqXD4bpTGkg+RAdUX/BeDAoijH6nRbojp/RI1EEY0yOSR4vLDMODWDNeuQsigNZI6gn2G14Hw=
-X-Received: by 2002:a05:6402:42cc:b0:61c:d457:e542 with SMTP id
- 4fb4d7f45d1cf-623775e56cemr11270735a12.17.1757426388676; Tue, 09 Sep 2025
- 06:59:48 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757426406; x=1758031206;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RaiuPSwScN1So+PWSJmzhuhak5hJv4sAaqtK90ZKdho=;
+        b=FC6ILKXUM35e6ZEHe17y9IwHubOj9rtaTM6kYeiIyn3cs+ZTcKn+cvMriQXv7sP/9y
+         n95nz0FmwaLVqlHo54nCrQxjpsCr16iiQE56NQ/2pnqAkEwdQrL+iAU6pXb8ic3FUuaJ
+         QOHFkE9s5I7V9YBIRWXMPl55sEGSa+FTYB3rsrqJSVrOmjmTTn1i6tNIyJnalgI8amdj
+         jNJLwc5tfGNGKRC+7bqhOGyJDAmBc9ty4jEWaSDaNhOC0mqpT3Rs9tB3IIXAsrkMJzOg
+         s5M5hDbfAqmbNcMI6OW85XZ6h0mODc9+xWFdhR+0iapQTdnGB5jE10tQL2vzBQa3wpPa
+         1ZTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUScjMXN3wlh9yzhRJevTAnYv3GmLkNy6BWmYOhxiPGHmhWYngQBfMobLY5cR9aIjwXQvBkVMvs7LRkjI8C2hI9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEho8en7RnFVvtXYbnpnqaFQJu8bGTUu5Yr9vnUpY+laMme0xD
+	g4Tge6mmnbUqwxyVNTZuW8dEBjNy2plWfH7e7EYu/30dSe1E6hUy5JTAN1MzDyUvmviNSNqQL0j
+	+Esn7wdQ89j+afnhwghyBQAeLSWKKUGG9SB3mD/d0JBMFB3DwHnI3h6bZWsOugn4qr69TdkgMNS
+	P9Vw==
+X-Gm-Gg: ASbGncu4CF/BXJkGMxDS45GWxWQoepvNGpJ5palRHUtc5+BjNtU6mbpC1vhFvKOmxpZ
+	yCn5FnfggtgHhUphcyiBiXQpLGVt/4KUiKMU5sSqzmaA/4fCb9cPXDH8d+wngd2nTjbyP2s7wNK
+	cn/SfZ/7u4nQCRAbvk8dKa+DB+vreCz9OEwrzpsr4xefZN88TqO8UNcr/D2o+vMDvZlARyO2a7R
+	5CYaTI/F0zCJaoP5AX7Yfi3A6xiiOUCkPcxWKVu1q0Fg1amatMRVgwALPPNxxz2STGUuIFuxKij
+	nPMg7uNoof79sMVKoJ8pwIwZ4/q734qAuQ+BDv96OG7PjBkJaAaTXLg0ZbdgVC6O0yin3j2948P
+	yc/Zo8+lZZd0q6E6iXtuke2hRcTrLrw4bjRN9sK+afKZ1J9fvo6FR
+X-Received: by 2002:a05:6214:e85:b0:758:2117:887a with SMTP id 6a1803df08f44-75821179a69mr16533406d6.58.1757426405050;
+        Tue, 09 Sep 2025 07:00:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFj1Ux9j67rzf37hWL5A8Jozn7wOidkUvzvPy9tqT1pZirgwULyxpmO/uSUwFeT3zwLe1DRvg==
+X-Received: by 2002:a05:6214:e85:b0:758:2117:887a with SMTP id 6a1803df08f44-75821179a69mr16532636d6.58.1757426404347;
+        Tue, 09 Sep 2025 07:00:04 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5680c4246b7sm546172e87.13.2025.09.09.07.00.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Sep 2025 07:00:03 -0700 (PDT)
+Date: Tue, 9 Sep 2025 17:00:01 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Vikram Sharma <quic_vikramsa@quicinc.com>
+Cc: bryan.odonoghue@linaro.org, mchehab@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
+        konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
+        will@kernel.org, linux-arm-kernel@lists.infradead.org,
+        quic_svankada@quicinc.com, linux-media@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/4] dt-bindings: media: camss: Add qcs8300 supplies
+ binding
+Message-ID: <ez5d76piv6srwceueajokplx73xj6xtgvyqgtbpjkdtoo7ijgt@7xn3uxzdcgvy>
+References: <20250909114241.840842-1-quic_vikramsa@quicinc.com>
+ <20250909114241.840842-5-quic_vikramsa@quicinc.com>
 MIME-Version: 1.0
-References: <20240730091322.5741-1-linux.amoon@gmail.com> <CGME20240730091412eucas1p18feced3968a5f87dc8fe05f78d5c7659@eucas1p1.samsung.com>
- <20240730091322.5741-2-linux.amoon@gmail.com> <09e9cf0b-27fd-46b8-8631-87d798afd19e@samsung.com>
- <CANAwSgT_TOFwP80+H8-CdXDLLu+u2XZMr2dnxcsSDe8S5yeYCw@mail.gmail.com>
- <a41a6143-ef2e-4d86-b102-eaf442985173@kernel.org> <CANAwSgSbSgXwOQLrVrHD7jpDe0=Bq7r2K8p0JjvZJMPpVNq4XQ@mail.gmail.com>
- <d72d7927-079a-4a82-a298-db9ed70a816f@kernel.org> <CANAwSgSgK5hmcLg7sChAs7QL0x7wufHpWDZJFyw6tMiiOuDZeg@mail.gmail.com>
-In-Reply-To: <CANAwSgSgK5hmcLg7sChAs7QL0x7wufHpWDZJFyw6tMiiOuDZeg@mail.gmail.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Tue, 9 Sep 2025 19:29:31 +0530
-X-Gm-Features: Ac12FXy25GJOdSBU_JfQSnoFhbd7dDaA744zBKRa5JcRhilE7Rzjj8NE0zapeR0
-Message-ID: <CANAwSgRTM4OSnXKZWWzxi2cW8QwWLKJz2xmUThyLkdkq71rH1g@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] ARM: dts: samsung: Add cache information to the
- Exynos542x SoC
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250909114241.840842-5-quic_vikramsa@quicinc.com>
+X-Authority-Analysis: v=2.4 cv=H7Dbw/Yi c=1 sm=1 tr=0 ts=68c032ec cx=c_pps
+ a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=yJojWOMRYYMA:10 a=COk6AnOGAAAA:8 a=vE47tFul03BpYyIIO6YA:9 a=CjuIK1q_8ugA:10
+ a=iYH6xdkBrDN1Jqds4HTS:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: PhsUtREkyzPMDzbzLFpAPFh-3QEGAAk9
+X-Proofpoint-ORIG-GUID: PhsUtREkyzPMDzbzLFpAPFh-3QEGAAk9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAzOSBTYWx0ZWRfX4PuIFYIpu/bx
+ s37HymGMrb/VSG8ivpf76T/Irn5B7mt2L4tDHasb/zZBmOdUrkFtAEB322Uh51KgQsAKIvTADZr
+ Z9RC14/An9RrrmsqidW+ymfwNyD5BlHibCAJSrrsPNz16FtnEmL9pJsyGiQpat9MBWWWWW1eH9J
+ emRleyO81HbXm1ZLBzR5YQ8XdIMLdypey5NA7ZoUdpnjZDYexn3jJkD6XzpJrZzw2ix7HITbvmW
+ w1x9k8NxI8IlzpR+V81aLpvdpHzZIex3vBGhL2MQy2bM9aCwyR8D/+/ITr5DEqBO+f8fRktvCpT
+ NZKoAcfrEsDwY18QsJRKSAy90LaRgj7vyPCy2jciiNW6D8fXthH6WSclvUnBOJR6b9Rzw8SozXo
+ 4OeqOpId
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-09_02,2025-09-08_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 impostorscore=0 adultscore=0 phishscore=0
+ clxscore=1015 suspectscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060039
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_065951_184544_D110DC9C 
-X-CRM114-Status: GOOD (  32.55  )
+X-CRM114-CacheID: sfid-20250909_070013_206029_919431C9 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,148 +135,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof, Marek,
+On Tue, Sep 09, 2025 at 05:12:41PM +0530, Vikram Sharma wrote:
+> From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> 
+> Add vdda-phy-supply and vdda-pll-supply to the qcom,qcs8300-camss binding.
 
-On Tue, 30 Jul 2024 at 20:32, Anand Moon <linux.amoon@gmail.com> wrote:
->
-> Hi Krzysztof,
->
-> On Tue, 30 Jul 2024 at 18:53, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> >
-> > On 30/07/2024 15:20, Anand Moon wrote:
-> > > Hi Krzysztof,
-> > >
-> > > On Tue, 30 Jul 2024 at 17:57, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> > >>
-> > >> On 30/07/2024 14:06, Anand Moon wrote:
-> > >>> Hi Marek,
-> > >>>
-> > >>> On Tue, 30 Jul 2024 at 17:14, Marek Szyprowski <m.szyprowski@samsung.com> wrote:
-> > >>>>
-> > >>>>
-> > >>>> On 30.07.2024 11:13, Anand Moon wrote:
-> > >>>>> As per the Exynos 5422 user manual add missing cache information to
-> > >>>>> the Exynos542x SoC.
-> > >>>>>
-> > >>>>> - Each Cortex-A7 core has 32 KB of instruction cache and
-> > >>>>>       32 KB of L1 data cache available.
-> > >>>>> - Each Cortex-A15 core has 32 KB of L1 instruction cache and
-> > >>>>>       32 KB of L1 data cache available.
-> > >>>>> - The little (A7) cluster has 512 KB of unified L2 cache available.
-> > >>>>> - The big (A15) cluster has 2 MB of unified L2 cache available.
-> > >>>>>
-> > >>>>> Features:
-> > >>>>> - Exynos 5422 support cache coherency interconnect (CCI) bus with
-> > >>>>>    L2 cache snooping capability. This hardware automatic L2 cache
-> > >>>>>    snooping removes the efforts of synchronizing the contents of the
-> > >>>>>    two L2 caches in core switching event.
-> > >>>>>
-> > >>>>> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > >>>>
-> > >>>>
-> > >>>> The provided values are not correct. Please refer to commit 5f41f9198f29
-> > >>>> ("ARM: 8864/1: Add workaround for I-Cache line size mismatch between CPU
-> > >>>> cores"), which adds workaround for different l1 icache line size between
-> > >>>> big and little CPUs. This workaround gets enabled on all Exynos542x/5800
-> > >>>> boards.
-> > >>>>
-> > >>> Ok, I have just referred to the Exynos 5422 user manual for this patch,
-> > >>> This patch is just updating the cache size for CPU for big.litle architecture..
-> > >>>
-> > >>
-> > >> Let me get it right. Marek's comment was that you used wrong values.
-> > >> Marek also provided rationale for this. Now your reply is that you
-> > >> update cache size? Sorry, I fail how you address Marek's comment.
-> > >>
-> > >> Do not repeat what the patch is doing. We all can see it. Instead
-> > >> respond to the comment with some sort of arguments.
-> > >>
-> > >
-> > > Ok, If I am not wrong  icache_size is hard-coded in the above commit.
-> > >
-> > > +#ifdef CONFIG_CPU_ICACHE_MISMATCH_WORKAROUND
-> > > +.globl icache_size
-> > > +       .data
-> > > +       .align  2
-> > > +icache_size:
-> > > +       .long   64
-> > > +       .text
-> > > +#endif
-> > >
-> > > In the check_cpu_icache_size function, we read the control reg
-> > > and recalculate the icache_size.
-> > > if there mismatch we re-apply the Icache_size,
-> > >
-> > > So dts passed values do not apply over here,
-> >
-> > So you provide incorrect values in terms of them being ignored? Then do
-> > not provide at all.
-> >
-> I will drop the icache and dcache values and just pass the L2_a7 and
-> L2_a15, value
-> Is this ok for you?
->
-> Earlier, I have tried to verify this information in /sys and /proc
-> to verify the changes as ARM does not populate this information.
->
-Here's an article that provides detailed insights into the cache feature.
-[0] http://jake.dothome.co.kr/cache4/
+Don't describe patch contents.
 
-The values associated with L1 and L2 caches indicate their respective sizes,
-as specified in the ARM Technical Reference Manual (TRM) below.
+> 
+> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> ---
+>  .../bindings/media/qcom,qcs8300-camss.yaml          | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml b/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml
+> index 80a4540a22dc..559db6d67f06 100644
+> --- a/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml
+> +++ b/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml
+> @@ -120,6 +120,14 @@ properties:
+>      items:
+>        - const: top
+>  
+> +  vdda-phy-supply:
+> +    description:
+> +      Phandle to a regulator supply to PHY core block.
+> +
+> +  vdda-pll-supply:
+> +    description:
+> +      Phandle to 1.8V regulator supply to PHY refclk pll block.
+> +
+>    ports:
+>      $ref: /schemas/graph.yaml#/properties/ports
+>  
+> @@ -158,6 +166,8 @@ required:
+>    - interconnect-names
+>    - iommus
+>    - power-domains
+> +  - vdda-phy-supply
+> +  - vdda-pll-supply
+>    - power-domain-names
+>    - ports
+>  
+> @@ -328,6 +338,9 @@ examples:
+>              power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
+>              power-domain-names = "top";
+>  
+> +            vdda-phy-supply = <&vreg_l4a_0p88>;
+> +            vdda-pll-supply = <&vreg_l1c_1p2>;
+> +
+>              ports {
+>                  #address-cells = <1>;
+>                  #size-cells = <0>;
+> -- 
+> 2.25.1
+> 
 
-Cortex-A15 L2 cache controller
-[0] https://developer.arm.com/documentation/ddi0503/i/programmers-model/programmable-peripherals-and-interfaces/cortex-a15-l2-cache-controller
-
-Cortex-A7 L2 cache controller
-[1] https://developer.arm.com/documentation/ddi0503/i/programmers-model/programmable-peripherals-and-interfaces/cortex-a7-l2-cache-controller
-
-These changes help define a fixed cache size, ensuring that active pages
-are mapped correctly within the expected cache boundaries.
-
-Here is the small test case using perf
-Before
-
-$ sudo perf stat -e L1-dcache-loads,L1-dcache-load-misses ./fact
-
-Simulated Cache Miss Time (avg): 4766632 ns
-Factorial(10) = 3628800
-
- Performance counter stats for './fact':
-
-            926328      armv7_cortex_a15/L1-dcache-loads/
-     <not counted>      armv7_cortex_a7/L1-dcache-loads/
-                         (0.00%)
-             16510      armv7_cortex_a15/L1-dcache-load-misses/ #
-1.78% of all L1-dcache accesses
-     <not counted>      armv7_cortex_a7/L1-dcache-load-misses/
-                               (0.00%)
-
-       0.008970031 seconds time elapsed
-
-       0.000000000 seconds user
-       0.009673000 seconds sys
-
-After
-$ sudo perf stat -e L1-dcache-loads,L1-dcache-load-misses ./fact
-Simulated Cache Miss Time (avg): 4623272 ns
-Factorial(10) = 3628800
-
- Performance counter stats for './fact':
-
-            930570      armv7_cortex_a15/L1-dcache-loads/
-     <not counted>      armv7_cortex_a7/L1-dcache-loads/
-                         (0.00%)
-              4755      armv7_cortex_a15/L1-dcache-load-misses/ #
-0.51% of all L1-dcache accesses
-     <not counted>      armv7_cortex_a7/L1-dcache-load-misses/
-                               (0.00%)
-
-       0.011068250 seconds time elapsed
-
-       0.000000000 seconds user
-       0.010793000 seconds sys
-
-Thanks
--Anand
+-- 
+With best wishes
+Dmitry
 
