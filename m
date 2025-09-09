@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D772CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 463B7CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2h3aXDZdKJuJgQ8QcsPnMlbnn2I3rpyOltrfhKhEwM=; b=uYxAg1hVwwhA6O1yQdxF+3ZscD
-	ZhhUvH9i4PUO1cteS8++f4JTNngTO+wTV8ez6JNQMfK2FXOqoM7TwWOmykzy9OPHFKz/ABmDWOokz
-	iIh7Ppa2FdFQlX0T0UTLt+COQbegqJ29Bj7rcm3S+59didltMX8lXqC7SJCWt1v3EuXXbeGHd3Sis
-	gXCH+0hVEufXH7AFYE5/vc1gL/G+tj/XHf+pn8pDEEfZ54ul7AhDUlkfQ1JxoxojLVrZqd9Jd3K54
-	c+gRbxCfUQEBGhqmesn2VSJdDtqtPBzUYPUOjh8WC6z6FkbVhFIbVR+sUW50OKWfGL076rCsxqDne
-	GptGl/zw==;
+	bh=gUr1Dp1JYlyFc6Syl+BqKy2O7GxRfGrb0yjK+byR+8g=; b=Vfl63c/FtlNGprEoFUzNeZ9TBQ
+	UhoNuldW6SKhWTtGwIcoRmxa1sfBu9t56kInJYe38QZwQVyyOokS12vb7OT9ichs3Gu+pF1r5vdw5
+	+F/6IYD9xUlMgjHhugY/n0TyRhzmgb8DdM4ywZ4fhhql9DyTk01fU9BjfO0jpE+f9X6FtMpQIcpW+
+	i6dL9YxAun0wz2J6XkPOg7UcBQPe5eYDacKuZ2/7K4ne1llZHD9UGMQvlo2fYuZ9/wG/E+beFCcdn
+	Gb+ogI8kgO7aP+5ZJ7OZSsqp2w+QBj8cldwSa2FkvbKdRD45CdAAPOqWwjiRbhG61CJu9ABw9CACd
+	Ie0xNN7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw21V-00000008wzk-3JHc;
-	Tue, 09 Sep 2025 17:20:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvzFi-00000007i0V-2JnF
+	id 1uw21Y-00000008x2p-1fl9;
+	Tue, 09 Sep 2025 17:20:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvzFu-00000007i46-2liE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 14:23:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9AD8760224;
-	Tue,  9 Sep 2025 14:23:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E472C4CEF7;
-	Tue,  9 Sep 2025 14:23:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757427801;
-	bh=fQ97+Dd40Jh9OqBAWXGx6hNnCravOj+hTJQ++rkJ3j8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mxCjHBoHfMm+cNL2zfObOh2HtjGIcDm2vdmciJn35H9XMf4qpLYftWD4UmFIGdGlS
-	 I7NerNlwaG5f5iygJ8AhuFN9J4iyS50pbWi6CUnCss0G2KSGq1IOAGiee9nAY0BUmK
-	 AGHvSvbHcruitvsn3RsFq6ESQioVk2w3nDA0XTIaa3mJV5vh/TdSUwZomlJNuAafmU
-	 chjjKMN4SSR5k4brVFGPH26PhyDWGHXxUTL2pZTXyB/BJ+LOdiBG/45Ju1nWpfNHZ2
-	 6SPfhbo1CCRGtuXWe0OQm7WXZEN9ZTmQ8uz66xRhm69sFTLBqyZRP2RWHbJxbND9IQ
-	 glPUXXtgOeB4w==
-Date: Tue, 9 Sep 2025 15:23:14 +0100
-From: Will Deacon <will@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 06/28] iommu/arm-smmu-v3: Split code with hyp
-Message-ID: <aMA4UpDgLDuiGYf8@willie-the-truck>
-References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-7-smostafa@google.com>
+	Tue, 09 Sep 2025 14:23:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 906B91424;
+	Tue,  9 Sep 2025 07:23:23 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2519D3F66E;
+	Tue,  9 Sep 2025 07:23:26 -0700 (PDT)
+Date: Tue, 9 Sep 2025 15:23:23 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com, lcherian@marvell.com,
+	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+	dfustini@baylibre.com, amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Lecopzer Chen <lecopzerc@nvidia.com>
+Subject: Re: [PATCH 14/33] arm_mpam: Add cpuhp callbacks to probe MSC hardware
+Message-ID: <aMA4Wz2j0Ozv0BNZ@e133380.arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-15-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250819215156.2494305-7-smostafa@google.com>
+In-Reply-To: <20250822153048.2287-15-james.morse@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250909_072334_775867_0FE8148E 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +86,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 09:51:34PM +0000, Mostafa Saleh wrote:
-> The KVM SMMUv3 driver would re-use some of the cmdq code inside
-> the hypervisor, move these functions to a new common c file that
-> is shared between the host kernel and the hypervisor.
+Hi James,
+
+While I'm here:
+
+On Fri, Aug 22, 2025 at 03:29:55PM +0000, James Morse wrote:
+> Because an MSC can only by accessed from the CPUs in its cpu-affinity
+> set we need to be running on one of those CPUs to probe the MSC
+> hardware.
 > 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> Do this work in the cpuhp callback. Probing the hardware will only
+> happen before MPAM is enabled, walk all the MSCs and probe those we can
+> reach that haven't already been probed.
+> 
+> Later once MPAM is enabled, this cpuhp callback will be replaced by
+> one that avoids the global list.
+> 
+> Enabling a static key will also take the cpuhp lock, so can't be done
+> from the cpuhp callback. Whenever a new MSC has been probed schedule
+> work to test if all the MSCs have now been probed.
+> 
+> CC: Lecopzer Chen <lecopzerc@nvidia.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
 > ---
->  drivers/iommu/arm/arm-smmu-v3/Makefile        |   2 +-
->  .../arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c  | 114 ++++++++++++++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 146 ------------------
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  44 ++++++
->  4 files changed, 159 insertions(+), 147 deletions(-)
->  create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c
+>  drivers/resctrl/mpam_devices.c  | 144 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |   8 +-
+>  2 files changed, 147 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
-> index 493a659cc66b..1918b4a64cb0 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/Makefile
-> +++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
-> @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
-> -arm_smmu_v3-y := arm-smmu-v3.o
-> +arm_smmu_v3-y := arm-smmu-v3.o arm-smmu-v3-common-hyp.o
->  arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
->  arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
->  arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c
-> new file mode 100644
-> index 000000000000..62744c8548a8
-> --- /dev/null
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c
-> @@ -0,0 +1,114 @@
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 5baf2a8786fb..9d6516f98acf 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
 
-Given that this thie is linked into both the kernel and the hypervisor
-objects, I think I'd drop the '-hyp' part from the filename. Maybe
-something like 'arm-smmu-v3-lib.c' instead?
+[...]
 
-Let the bike-shedding begin!
+> @@ -511,9 +539,84 @@ int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>  	return err;
+>  }
+>  
+> -static void mpam_discovery_complete(void)
+> +static int mpam_msc_hw_probe(struct mpam_msc *msc)
+> +{
+> +	u64 idr;
+> +	int err;
 
-Will
+Redundant variable which gets removed again in the next patch?
+ 
+> +
+> +	lockdep_assert_held(&msc->probe_lock);
+> +
+> +	mutex_lock(&msc->part_sel_lock);
+> +	idr = mpam_read_partsel_reg(msc, AIDR);
+> +	if ((idr & MPAMF_AIDR_ARCH_MAJOR_REV) != MPAM_ARCHITECTURE_V1) {
+> +		pr_err_once("%s does not match MPAM architecture v1.x\n",
+> +			    dev_name(&msc->pdev->dev));
+> +		err = -EIO;
+> +	} else {
+> +		msc->probed = true;
+> +		err = 0;
+> +	}
+> +	mutex_unlock(&msc->part_sel_lock);
+> +
+> +	return err;
+> +}
+
+[...]
+
+Cheers
+---Dave
 
