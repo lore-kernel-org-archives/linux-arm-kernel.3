@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AEDCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4FFCAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rz0hbAq7fEga5zRohMAv5O8tOvXUWgvThRUc5VepeC8=; b=sletuocgaLUzVElk2EgDat9Rqz
-	q3wCG8khQIEFIQeV4/m9iFAw6VO/loPpaTdJWy/PQag00l8i2os0sS8ZFvbT2AAIq+G2M2MqSCoE3
-	FeqWYB79IF3WzRNfEUxWiYBRusaEFZtlCX2waBG9EgEn83Cv6mQqRwzinH9i6VVJMksLZVbvyhvTC
-	rcZoqCRcEiaZZbh0qy60BCQJQyM444C4zTwIIii5hAEl/PrnduPhq41f0cEDPRuKzaq/4OS19lUBt
-	2DQlMhu7urLrvlxWkc3xobcxkLIFD+7e3DFwm9dyoYk/uM/lGrogvbZU/xvNgDBTjknItYsInd7zv
-	1a0AfURA==;
+	bh=UaUF+1oxIqM7igBk06+HqVf5uJg2gaKGvEQOVxo6dq4=; b=dV5YKYaTQw3j3xg+i7D1tU9+kG
+	rEdMaVEcFiOdT5jigCWlesg0Zso0FDH2J5Kk3rWfs4jKM4RBmwAD+EhUWWK6ZkTFwin5ctUEEG/+X
+	eSvpIA5K2ME3WXP9J1rUfQ0U2fYhTWXyxJXdI2A1GqknB6geEQJXR5YiXx1EExtNOJ5zv3aPaXeBH
+	owITVYuqcvKBG0Jxnqdeq1JHDGvyxNany0Pm5RjhFUBgvFk91IC45Jp8v44CgTy4woGOwUD3cObEd
+	LoP6DhDqVwiyi5qoOafDSoPcbLPWLXEmP4Dwf6naokKUr2k5VLAM/LVsF3miMk7PjWSVaGqAcEw2Z
+	8G4ZobRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw27D-000000096HO-0eUT;
-	Tue, 09 Sep 2025 17:26:47 +0000
+	id 1uw27A-000000096D1-3YL3;
+	Tue, 09 Sep 2025 17:26:44 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1WF-00000008e4z-0Vz4
+	id 1uw1WC-00000008e49-0uF3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 16:48:36 +0000
+	Tue, 09 Sep 2025 16:48:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rz0hbAq7fEga5zRohMAv5O8tOvXUWgvThRUc5VepeC8=; b=fOGqQAiHccsvB7ENctq9tyL9Hy
-	vGSFLvDRw+4U/XUQETE04K0cyRdoCpe8ELqAeyOth0cDv6pfiS9+aYDk1BVw2mqdapKuMTTUkbaEs
-	8gR0XMZjLqCzNwxLiSnBbkAT0I6+uowSOJExq5lko/5u8TKQIqqjQed0GLyx/PFYAqDk9kWbIclBn
-	s5MR6orvBn8GuW+h1Xm4OkmTbJlF4YLyIoiQvPJK7VRLs7oqXDs53W0l4jKUNnsBwHUMKoykQu0Ic
-	SyQBLba2QqPsCkdGDq54mhgnvk+KKOWys9n3XeDVBnbwE2fmboR1puh4NJBNI/9ZpSQGsi6LZLXBJ
-	r375amDg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:55444 helo=rmk-PC.armlinux.org.uk)
+	bh=UaUF+1oxIqM7igBk06+HqVf5uJg2gaKGvEQOVxo6dq4=; b=nUtHSeUf7l4sG4SOGmy8VoEo2f
+	hRQc/Ad7ym+SmzceejGM2JeV4U4zNQXktMvI70CwGMVoLRrQ43hJQlHDeLtlBrcPUNw8nxQAW846G
+	dpUt4qZiUc534f98ndmRdogzHd6vo0v9WNUqSwAInqXUxlrNbhrEuJa1elaT/0wHZx8m1aYfcszT7
+	gDnsWfcwezLn3LMhA6wN6bmFSXPNNtXP8DysI6Z1PICrDrLE8t3xsae1l91njO77Jzj/JRREzqrdF
+	OMezn41+fseRYqjA9d9VhI09+ughH6OHH45X4ldWjE/LNG4a56eGZ503HS9CCb+/rbcEE+5z+FYDP
+	ZHHVtWBA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43476 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1uw1W2-0000000006H-0lfA;
-	Tue, 09 Sep 2025 17:48:22 +0100
+	id 1uw1Vx-0000000005x-39NK;
+	Tue, 09 Sep 2025 17:48:18 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1uw1W0-00000004MCp-0Iuc;
-	Tue, 09 Sep 2025 17:48:20 +0100
+	id 1uw1Vu-00000004MCj-44TY;
+	Tue, 09 Sep 2025 17:48:14 +0100
 In-Reply-To: <aMBaCga5UAXT03Bi@shell.armlinux.org.uk>
 References: <aMBaCga5UAXT03Bi@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -71,17 +71,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Richard Cochran <richardcochran@gmail.com>,
 	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH net-next 11/11] net: stmmac: move timestamping/ptp init to
- stmmac_hw_setup() caller
+Subject: [PATCH net-next 10/11] net: stmmac: move PTP support check into
+ stmmac_init_timestamping()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1uw1W0-00000004MCp-0Iuc@rmk-PC.armlinux.org.uk>
-Date: Tue, 09 Sep 2025 17:48:20 +0100
+Message-Id: <E1uw1Vu-00000004MCj-44TY@rmk-PC.armlinux.org.uk>
+Date: Tue, 09 Sep 2025 17:48:14 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_094835_161161_B86F96FE 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250909_094832_254282_CC408BB4 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,75 +96,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the call to stmmac_init_timestamping() or stmmac_setup_ptp() out
-of stmmac_hw_setup() to its caller after stmmac_hw_setup() has
-successfully completed. This slightly changes the ordering during
-setup, but should be safe to do.
+Move the PTP support check from stmmac_init_tstamp_counter() into
+stmmac_init_timestamping() as it makes more sense to be there.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index ff12c4b34eb6..8c8ca5999bd8 100644
+index ea2d3e555fe8..ff12c4b34eb6 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3436,7 +3436,7 @@ static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
-  *  0 on success and an appropriate (-)ve integer as defined in errno.h
-  *  file on failure.
-  */
--static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
-+static int stmmac_hw_setup(struct net_device *dev)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 	u32 rx_cnt = priv->plat->rx_queues_to_use;
-@@ -3507,11 +3507,6 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
+@@ -734,9 +734,6 @@ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
+ 	u32 sec_inc = 0;
+ 	u64 temp = 0;
  
- 	stmmac_mmc_setup(priv);
- 
--	if (ptp_register)
--		stmmac_setup_ptp(priv);
--	else
--		stmmac_init_timestamping(priv);
+-	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp))
+-		return -EOPNOTSUPP;
 -
- 	if (priv->use_riwt) {
- 		u32 queue;
+ 	if (!priv->plat->clk_ptp_rate) {
+ 		netdev_err(priv->dev, "Invalid PTP clock rate");
+ 		return -EINVAL;
+@@ -787,12 +784,14 @@ static int stmmac_init_timestamping(struct stmmac_priv *priv)
+ 	if (priv->plat->ptp_clk_freq_config)
+ 		priv->plat->ptp_clk_freq_config(priv);
  
-@@ -4000,12 +3995,14 @@ static int __stmmac_open(struct net_device *dev,
- 		}
- 	}
- 
--	ret = stmmac_hw_setup(dev, true);
-+	ret = stmmac_hw_setup(dev);
- 	if (ret < 0) {
- 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
- 		goto init_error;
- 	}
- 
-+	stmmac_setup_ptp(priv);
++	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp)) {
++		netdev_info(priv->dev, "PTP not supported by HW\n");
++		return -EOPNOTSUPP;
++	}
 +
- 	stmmac_init_coalesce(priv);
- 
- 	phylink_start(priv->phylink);
-@@ -7917,7 +7914,7 @@ int stmmac_resume(struct device *dev)
- 	stmmac_free_tx_skbufs(priv);
- 	stmmac_clear_descriptors(priv, &priv->dma_conf);
- 
--	ret = stmmac_hw_setup(ndev, false);
-+	ret = stmmac_hw_setup(ndev);
- 	if (ret < 0) {
- 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
- 		mutex_unlock(&priv->lock);
-@@ -7925,6 +7922,8 @@ int stmmac_resume(struct device *dev)
+ 	ret = stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE);
+ 	if (ret) {
+-		if (ret == -EOPNOTSUPP)
+-			netdev_info(priv->dev, "PTP not supported by HW\n");
+-		else
+-			netdev_warn(priv->dev, "PTP init failed\n");
++		netdev_warn(priv->dev, "PTP init failed\n");
  		return ret;
  	}
  
-+	stmmac_init_timestamping(priv);
-+
- 	stmmac_init_coalesce(priv);
- 	phylink_rx_clk_stop_block(priv->phylink);
- 	stmmac_set_rx_mode(ndev);
 -- 
 2.47.3
 
