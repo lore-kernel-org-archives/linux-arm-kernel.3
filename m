@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DBCCAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 16:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669A9CAC58C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 16:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8htGACZZYE1dIEbtDAUA+3P97IrmED7ZD9WcIPqTfx4=; b=rkl5fj1l3eyJcH40P7vx3XBDSb
-	PZL4rT6Gvl1AjrCuKBnrfzPSWc2T25HK0qJKLkhtjuaG80BO/ZTOVWdLH7I/6VRe9UoX+xwUYMsCu
-	gakAbxzVcYRw39ruGKHMJiltIN7sh4nCYQp04VYZL8I38QTmThl1rMlb6eT9TAO/BRKtI142QFIyO
-	sCZojWbr79UnuwNyBlLNQfcrUxi1n5a5gmZWe2Thp4tze/tq3v6NRb9sQ5dcQ9uO7jm8NpoRMSqBs
-	89FJ4dxLMKXeM3RKGdtf8x8gW1lbAPvSuVquvr8c0swPUC5FXywoqoboq5sxGH17ayOYy0axjZcSx
-	anNLMciA==;
+	bh=LPzMl9444DyFsyhIlxZU2alp+KEUomV9x8N6sGCMpt4=; b=L0ZXKjc86+ZZWm64hfdG7yvOpz
+	8jfEsdG104yOb4O7UCTJN5zX+zB0m6x338C3SRZbEPdQAMNYoQ9pBci8sqIfmTQJtMThuAlChrt7g
+	7rGG5fGLoh3XkF4/Ig4jEMhRWSYS5Do9+WEVosJZTqWo60uB5I/RYrnuViFoutoqDBlHLTotDUYZK
+	qEKNTzr4WL7HsHTuNkVg2DyGBOfxVdOFo2573Sbf5GYkTVUPOZKO98Hc8Moo1C24bNlaijBWmkXYh
+	1JP+wZ19usXyjKJcLLRwI0lJtfO/efzuyjk6qn90jm5lN2CI/04I2SwiGNNdCTy0P59dTw8+0nuBC
+	XziYxHnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1ec-00000008gnF-0rB1;
+	id 1uw1ec-00000008gnh-27l2;
 	Tue, 09 Sep 2025 16:57:14 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvvKt-00000006Hb3-0ZsK
+	id 1uvvKu-00000006HcL-3AlH
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Sep 2025 10:12:27 +0000
+	Tue, 09 Sep 2025 10:12:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=8htGACZZYE1dIEbtDAUA+3P97IrmED7ZD9WcIPqTfx4=; b=AdohnLlOExG3oZL2Lct1Jju2PK
-	OY52BZAxvXxG5O1jg7D5PLRvIqh0GHfs5LYalp+VpHYuhcA+0pXEmvea+IdH7thv/cOxF99JakqsB
-	D4H1SsAHpK9g3rCMSlR+UrEjH1YmqNrFQHw0s8vN54Y7YlZZ8kdu0IsfxXATJ1LEvVKQ+K8fz2upj
-	s9c8c6P7D1lf1z9ailhPC2kjRZuEMvYUNu5/oRp1YxbK3d0g7hE72fZTafu+gB2efa7ge+wnAJ0HF
-	5JdsnZ5vNx2MbtahCgIbg9W8R2Ru0CsLij/afw6cX4Zk/TDTpXBPCWqJbmh0Ot/Lisksh+hz0mlhX
-	i9DjOzzA==;
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	bh=LPzMl9444DyFsyhIlxZU2alp+KEUomV9x8N6sGCMpt4=; b=d4uCh7bd8bimRtpoZmx3ZIZApO
+	fcLpVc496+OqlO3UeVXA8Tc5Q+5Gih93QO4RXhZiya+l+vmHtluMPCvLk6XbN8C/uzNPBYPHYIEFZ
+	XrsKliaTuBsYZXw4woEG7YfhWUdULELji0Z+HDVJCRIFQMyTIZx8cApxM/C5IwkPAZZiy6GiuK3N/
+	KkRHGOMW3wrGqtlS23dfyjF/RAS+icD9vYKHcD7PxOnUuKu3qhaiICadFMEI6GMiUeV93TFjeUpOP
+	qazX1V7Hxw0FUvmGrAHPq3UVSs/quYgoXgjrLF5buj9J3YOTqsR3x3druUS926vk+w9FSlSU8m51G
+	pVoHPAOA==;
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvvKq-00000005HUj-1Ovo
+	id 1uvvKr-00000005HV4-3wA9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 10:12:26 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3e751508f21so426587f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 03:12:23 -0700 (PDT)
+	Tue, 09 Sep 2025 10:12:27 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45de6ab6ce7so12357775e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 03:12:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757412743; x=1758017543; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757412744; x=1758017544; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8htGACZZYE1dIEbtDAUA+3P97IrmED7ZD9WcIPqTfx4=;
-        b=FL5gOzSO8rp7ghlCLqLyyNADpHs+TeAlWCrtdTKjXIemcRyEyEsvu2t9vQB2v/DrLM
-         aT4Me78ES/i3bQkZ7IK1G/R/udzmqFjUl+DXaf2ypZw6M7pi6y54HIeGMqYd5jwHC1Wi
-         ZvJz6/2jDc0HqmAUeE0o3QAq4pk1R4JVMASRxEdQ5KgZZvOhSBx1f3LJRsxU6k4/BHhN
-         qb3McahsVpQJCBl+Ffc76IqCbBYHvQI29Sf3xGpHhggljHHClGO+lvSne1q/6H/0XkPS
-         FAemZok2+kaXvK/xfSC8M1jey58ogz4T226ZWzFGrmMxbKtct6X1ltmid7LHIJHnbLAa
-         WIPA==
+        bh=LPzMl9444DyFsyhIlxZU2alp+KEUomV9x8N6sGCMpt4=;
+        b=GQ/Z6QLIvc4H7Xs9lpi8wBXWK2fD3x6s9gaOCF6pCcIE4AlHBglKjkzcG/3NEKcDaS
+         8VE4ncGLV04z+TrVGFpQb9ii7fPVf3sws5XpujU/I3Bsk4QtsNHQl4H8xp8pX7SC67kr
+         +g0hULX+M4Yr1q1JxTqBVAUolxX3UEYP5zExXzLRkFeR7XbFxVM+Kp+yMue4zb0U/dnL
+         cyVagt5JU9DXlYnKDu+IN5wpstmRF9b9OPS1+XmzmJhfjWeR9sjN/7fQiAvFr0QcpSNB
+         Z6nbba0Z847Qg7ulIMkBZ5b9dXgN9sHin8PEI770eFp9vnU71QmdRn3iyJ7wj7JHMng7
+         KdVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757412743; x=1758017543;
+        d=1e100.net; s=20230601; t=1757412744; x=1758017544;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8htGACZZYE1dIEbtDAUA+3P97IrmED7ZD9WcIPqTfx4=;
-        b=Aw6/wAXar7nOy5wf+8Vi4OwtXwRADFpWUXDYl0s87KvzlEiOktHP3Do6jdRKoPm21S
-         NLQJsoAsaSSqJVXuKI5Mo1brjW/pPENdS0KeL0DmCmtjY0KuILUC2YxdNTBTQ/IwdVVW
-         H3TEjcFUXIkvk2+jz2iNmSoOMURIy0JMAd2m66z/Vw2jwD4DWZMDG7BoLUuBhmfC2pvM
-         eoZXUhbYupVqz36h+sPDGwRItQ66nYJwE6zggRefj79+PQtlB1p8lWPTdOldOqKYY8hV
-         BhzVMEyhVAZeAiGVeHzFZzZeA0Ekt3kJltpjGJNiEsWdda6idkh9MKNG3/7SOzUspsOo
-         ltwg==
-X-Forwarded-Encrypted: i=1; AJvYcCV8nXj4RI5B4V9SHHM0/v2xHDqJBiW9nvNQerMNCsRUiT+mMTR2dddf/PrswU8wuAAWVbZf2kBwach7kHgnM2U5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRENXjHU5mBQFdnkvyWLP1rxp50veeLX0p+XkUsenU0Ka09HSI
-	6ZYeK1HeM/Br0ZvofZaKJGdcLeMIWWO6o8rqwhUB2N9P+ScfsAN4hCRZ
-X-Gm-Gg: ASbGncslwWG/vQ+UjqTve5zPF+nykQzT0YloVw+zCwYs1ehcVc70bbwzm/FKE4Ga9jb
-	z36HJNshqZRYnMAN08gFPCrzGFQalSr4d+J/UKxPvGzMzpsecfSNCYZyLQXMngFOWVnZdPyY1X5
-	uFpL4QhdM2NB5sTdkb27k248lC/XKD/rK4oXhadIypFKouqaNFs39UWhR8VXrIzMbklhPCBAePZ
-	7taMYac+CpLQLmk74gIH2W/QJ3IRaRnHmudsRQM3NTfLb6/M8F+jEPB1FxBDAQ8ePLhlU7nGGxB
-	pvY0U/3diRw+Zr/QK01Ag1bcCiRJXE1kUpM0kw+GnkoJOVp9r+EB3PNBw1QBhzhcW6kvR5ptucC
-	GsiNy8SR/xzyOOCxWYPerO3mVDmWzUW952Du4x87MX3u9yIEmLdwRoDjW8OJiWjxDEf7PtmwWRR
-	npFn8CNzVZgYCtqMZmGq6VpTFSCg==
-X-Google-Smtp-Source: AGHT+IFNpcDqm5syw25D09i7ExBBWVEcooFgL+UUg7LLOjlL1pEopNlXuqGDOd1C5bTyB3d6ZXQWuA==
-X-Received: by 2002:a5d:5f46:0:b0:3d8:e1de:7e4f with SMTP id ffacd0b85a97d-3e642da5119mr7865674f8f.21.1757412742627;
-        Tue, 09 Sep 2025 03:12:22 -0700 (PDT)
+        bh=LPzMl9444DyFsyhIlxZU2alp+KEUomV9x8N6sGCMpt4=;
+        b=BC+O2b2EsIBlzqDRQZ0ryLXsefEqZIPF8Prd+CG7QLAXkKIwZTsMFv4CFfM/3m+75C
+         9S0840Vo+b0JdGTr0Lb7UDWjlcy72cgRUwpx44jXhbzRpTbdBZTn8sF+t0sAZNhH9n5W
+         G4SLBZBGL1YwZdFSp1Xp6wVpIMkTDRn53wjrqvj8Kyoy0Q6epedaQeGjpQ6dEorhfF/4
+         xajct3XYDkRyYNhpJKiD5XZ2nW5r7BU8GV/KQeSzGRLTkg5V6Eu/fInyObGsezEJz5qe
+         7hsN/ElZ4U5lu0/H0tsOP5kL94lhSBxKXQWh6dvAHtp6B161+UzUV/1ECEG+C3a0rI0w
+         zkxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWBvl9eyaNbvQ21M7FhIChYlptk+WE6QyrZR31m0gEvjnBsIjGnqIKCdwfjz5ercbVk8RBWwzVNNEEhq+qAa/xL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKDoNhgLkJMOjMsqVWZx9rzuFkLw62AT7n2Jx7yn4/zCD+ArWI
+	cJ0sGGGnaVTbStFq7XPIAzX6qjKBxXv8FRmUcqh0azB3yoWvn0WKbIrr
+X-Gm-Gg: ASbGncvvARgcHhgx+wAV/BwUW3kU7oeZMCbZFn5102SaU+Y+nwfjxnSz/KLohtRcZ04
+	qz9Ik+q/k+2guFM2mdOxETP8+D3Mq+ZOKOo3O/BLUBcQPw836WNTuEBeNxPfjLJepUvz425GQ1g
+	D85R4hsRK/6h/UDlVH9BBloWo5OrSfuKRzxtwJ8wRfm48p6Gagh2kgkUinTOAIkodYLFljHsp2f
+	DrNBdf/i8oEImnRoXOZHFFjXECP9A9tzffLM9GtKVkWlXVCwHuuiYRPgru63pJnFa17/ZxfOaah
+	aGdIF37U2jE+H5vPfOmIGNr6GIIKQ8U/XgsaLCt9EX3YcGIcDrHKtd472PQfudqMfHOBvE+2/eN
+	r/wTE0TPHekZNjAvmKDaZfO2SC+xtFLNYS4GOn/fw+4sIAoDBwQHwI/BfuqMxI41dxZ4anx967+
+	SUV7R2OLtnbzd88Z9kf+/iXw0qJA==
+X-Google-Smtp-Source: AGHT+IGPh09/AgyRGnk3hh/JVjy55HRoX4WeFY5HxCNx6I/w3RAwA6apcDwreywzBjxWgSeV51SF/Q==
+X-Received: by 2002:a05:600c:4587:b0:45d:d94b:a8fc with SMTP id 5b1f17b1804b1-45ddde8c757mr122875745e9.16.1757412744214;
+        Tue, 09 Sep 2025 03:12:24 -0700 (PDT)
 Received: from localhost (2a02-8440-7136-74e7-5ebf-4282-0e1a-b885.rev.sfr.net. [2a02:8440:7136:74e7:5ebf:4282:e1a:b885])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45dd2304e16sm229761215e9.7.2025.09.09.03.12.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df2cb1d77sm9627225e9.3.2025.09.09.03.12.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 03:12:22 -0700 (PDT)
+        Tue, 09 Sep 2025 03:12:23 -0700 (PDT)
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Date: Tue, 09 Sep 2025 12:12:09 +0200
-Subject: [PATCH v6 02/20] dt-bindings: stm32: stm32mp25: add
- `#access-controller-cells` property
+Date: Tue, 09 Sep 2025 12:12:10 +0200
+Subject: [PATCH v6 03/20] clk: stm32mp25: add firewall grant_access ops
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250909-b4-ddrperfm-upstream-v6-2-ce082cc801b5@gmail.com>
+Message-Id: <20250909-b4-ddrperfm-upstream-v6-3-ce082cc801b5@gmail.com>
 References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
 In-Reply-To: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
 To: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
@@ -114,8 +113,8 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
 X-Mailer: b4 0.15-dev-dfb17
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_111224_565259_C307E3A3 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250909_111226_103649_022F74DB 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,48 +131,97 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Clément Le Goffic <clement.legoffic@foss.st.com>
 
-RCC is able to check the availability of a clock.
-Allow to query the RCC with a firewall ID.
+On STM32MP25, the RCC peripheral manages the secure level of resources
+that are used by other devices such as clocks.
+Declare this peripheral as a firewall controller.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
 ---
- Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/clk/stm32/clk-stm32mp25.c | 40 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 39 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-index 88e52f10d1ec..4d471e3d89bc 100644
---- a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-+++ b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-@@ -31,6 +31,11 @@ properties:
-   '#reset-cells':
-     const: 1
+diff --git a/drivers/clk/stm32/clk-stm32mp25.c b/drivers/clk/stm32/clk-stm32mp25.c
+index 52f0e8a12926..af4bc06d703a 100644
+--- a/drivers/clk/stm32/clk-stm32mp25.c
++++ b/drivers/clk/stm32/clk-stm32mp25.c
+@@ -4,8 +4,10 @@
+  * Author: Gabriel Fernandez <gabriel.fernandez@foss.st.com> for STMicroelectronics.
+  */
  
-+  '#access-controller-cells':
-+    const: 1
-+    description:
-+      Contains the firewall ID associated to the peripheral.
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/bus/stm32_firewall_device.h>
+ #include <linux/clk-provider.h>
++#include <linux/device.h>
+ #include <linux/io.h>
+ #include <linux/platform_device.h>
+ 
+@@ -1602,6 +1604,11 @@ static int stm32_rcc_get_access(void __iomem *base, u32 index)
+ 	return 0;
+ }
+ 
++static int stm32mp25_rcc_grant_access(struct stm32_firewall_controller *ctrl, u32 firewall_id)
++{
++	return stm32_rcc_get_access(ctrl->mmio, firewall_id);
++}
 +
-   clocks:
-     items:
-       - description: CK_SCMI_HSE High Speed External oscillator (8 to 48 MHz)
-@@ -123,6 +128,7 @@ required:
-   - reg
-   - '#clock-cells'
-   - '#reset-cells'
-+  - '#access-controller-cells'
-   - clocks
+ static int stm32mp25_check_security(struct device_node *np, void __iomem *base,
+ 				    const struct clock_config *cfg)
+ {
+@@ -1970,6 +1977,7 @@ MODULE_DEVICE_TABLE(of, stm32mp25_match_data);
  
- additionalProperties: false
-@@ -136,6 +142,7 @@ examples:
-         reg = <0x44200000 0x10000>;
-         #clock-cells = <1>;
-         #reset-cells = <1>;
-+        #access-controller-cells = <1>;
-         clocks =  <&scmi_clk CK_SCMI_HSE>,
-                   <&scmi_clk CK_SCMI_HSI>,
-                   <&scmi_clk CK_SCMI_MSI>,
+ static int stm32mp25_rcc_clocks_probe(struct platform_device *pdev)
+ {
++	struct stm32_firewall_controller *rcc_controller;
+ 	struct device *dev = &pdev->dev;
+ 	void __iomem *base;
+ 	int ret;
+@@ -1982,7 +1990,36 @@ static int stm32mp25_rcc_clocks_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	return stm32_rcc_init(dev, stm32mp25_match_data, base);
++	ret = stm32_rcc_init(dev, stm32mp25_match_data, base);
++	if (ret)
++		return ret;
++
++	rcc_controller = devm_kzalloc(&pdev->dev, sizeof(*rcc_controller), GFP_KERNEL);
++	if (!rcc_controller)
++		return -ENOMEM;
++
++	rcc_controller->dev = dev;
++	rcc_controller->mmio = base;
++	rcc_controller->name = dev_driver_string(dev);
++	rcc_controller->type = STM32_PERIPHERAL_FIREWALL;
++	rcc_controller->grant_access = stm32mp25_rcc_grant_access;
++
++	platform_set_drvdata(pdev, rcc_controller);
++
++	ret = stm32_firewall_controller_register(rcc_controller);
++	if (ret) {
++		dev_err(dev, "Couldn't register as a firewall controller: %d\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static void stm32mp25_rcc_clocks_remove(struct platform_device *pdev)
++{
++	struct stm32_firewall_controller *rcc_controller = platform_get_drvdata(pdev);
++
++	stm32_firewall_controller_unregister(rcc_controller);
+ }
+ 
+ static struct platform_driver stm32mp25_rcc_clocks_driver = {
+@@ -1991,6 +2028,7 @@ static struct platform_driver stm32mp25_rcc_clocks_driver = {
+ 		.of_match_table = stm32mp25_match_data,
+ 	},
+ 	.probe = stm32mp25_rcc_clocks_probe,
++	.remove = stm32mp25_rcc_clocks_remove,
+ };
+ 
+ static int __init stm32mp25_clocks_init(void)
 
 -- 
 2.43.0
