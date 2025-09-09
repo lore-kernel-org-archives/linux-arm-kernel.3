@@ -4,85 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA87CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5869CAC58C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LZ50Syz7TLlsJqlJydXY3+wTJItoXJy/aiF3/ClE/BQ=; b=HnJoilawTy19BpcVi1Fyt9Vfxc
-	RbkYXieg0CGYE1ogzgRy2wtaKQx76DHaQfDE2uG7enqXXGH4qW4nYfdSn6xCLoUWP85ppL8c0u2rU
-	63y250xrJaBTI748FrARgJqtAwlj8GbwYDU5QIea60ryo4bxRnjV3RcIyIMaA/QYSrQqETeV2zrsv
-	pG2jGmp//KycHt90iNksLA2ZNdlPiq1c+ku8+cxtoPfN6UcsMA969ORbPG9x2e0lPBAdLNGQj3Vlc
-	vY2ZgCOVg00Fx2tPbGmg34M5CIdNsYR2ZElK6GKUjv8IkXCj0ZdjEDmOp1gMjl+wyZdnQVBYHJ2IX
-	UJzDvW/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iFGYAxN7KhpHBrugmRev4scw5IytGj3RswCGCmkqFTw=; b=D6RzlmJNhFBeMHb4UlCaWhmk5t
+	h+cuywfCJeo5JkAXeEeSmVVpWuuBFbmuorxjMJ6xwwVAwccreq7eq5+CvEFg5NjkV2cimmWqgCCLd
+	p8qvbdrBCVU0pTW/guleibMY4/IuEcyN2ri8gxOVJ3xaz6lz+FOO/+gf1oNZ9Rz+8CI2hs7neIuC3
+	f1+lCW3vnQmaqtMDXKminHQRxC1dFMoQqcSWP3dUuJ8AfyFPnyy5YwGhwdzEJPC+LcwmOivU1DuNc
+	n79TXJyB0rx4lpcwAPWrm5u2SysCICf0+9iPKZgX2LUsLlV6kFSsRsqVckyzBw2pf7e9nal5XH4Ce
+	m5fqIbrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1vt-00000008nid-35Xr;
-	Tue, 09 Sep 2025 17:15:05 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1uw1vu-00000008nji-0tj5;
+	Tue, 09 Sep 2025 17:15:06 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvux4-0000000670h-0wug;
-	Tue, 09 Sep 2025 09:47:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757411270; x=1788947270;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=JrPGhCJ7nJZqXECYZOjxg/ffsRI6LCeK6wQeJaLY740=;
-  b=niIzQz8ydI9EoyMQUqhjiibtQK+I2pfzB5WNbAr3uOj2PKu0/K38cK/v
-   I5PLwtENPsN7QaZJwMLFVbVCwTziPdR81nmZGJz4dizH6xbJ0U1qmrn/A
-   Cf9ADxg+MXuJEWSCZ1vn6yw5LpeyFj6yuSyRC7ZyN/MQxbIRrOpMEW+i4
-   ytkdHWHWuEUVbRoP2fmJPAj0y2Hv6fjXMPULGIC/nmOjYtkGyyjvE6mm+
-   pk7tHCAkMxZbsnF86+AmID/3o0OVTb45K5bfzhL8TWjC1nsS5dQkyPKC5
-   2aghLlSlmNBuxVEUoV2Z93ppH4TFZ0+ZAZSYpF7/a+L2a8o9UMYJy+Q+f
-   g==;
-X-CSE-ConnectionGUID: PCHyDpyCSRmwZpHqzqjDyw==
-X-CSE-MsgGUID: 24fbfIDFQR+7bu8YDRRIpA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11547"; a="59624990"
-X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
-   d="scan'208";a="59624990"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 02:47:50 -0700
-X-CSE-ConnectionGUID: NpxynYzHTfWJfZtZqNyrWQ==
-X-CSE-MsgGUID: AHAG1jdMRGmJ/7J4oPLZ8g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
-   d="scan'208";a="210194115"
-Received: from kuha.fi.intel.com ([10.237.72.152])
-  by orviesa001.jf.intel.com with SMTP; 09 Sep 2025 02:47:43 -0700
-Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Tue, 09 Sep 2025 12:47:42 +0300
-Date: Tue, 9 Sep 2025 12:47:42 +0300
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	Ran Wang <ran.wang_1@nxp.com>, Peter Chen <peter.chen@nxp.com>,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v2 11/22] usb: typec: tipd: Register DisplayPort and
- Thunderbolt altmodes for cd321x
-Message-ID: <aL_3vn7VYiapI3_N@kuha.fi.intel.com>
-References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
- <20250906-atcphy-6-17-v2-11-52c348623ef6@kernel.org>
+	id 1uvv16-000000068nF-1eLO
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 09:52:01 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45dd505a1dfso31735435e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 02:51:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757411519; x=1758016319; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iFGYAxN7KhpHBrugmRev4scw5IytGj3RswCGCmkqFTw=;
+        b=s3gYiBSnueyf7G5wFSIMEOKqGh6t0qDSTcdPVbPZt0dSECphVj4WxlJm8cX06oe89N
+         hXNxb5PGYfwUyJ3su7vCqwT7Gczdb3l3Puc7rlRq0NvUrvZVcKRVhnzqv1oxzqnU4CdR
+         AB3oMrk2k6HssUM9bSfAWWUoOGslMp/oa0QdJOmXOjvCBsqgDTGu2r0azV+fuYCPsNZE
+         f+t79v6PUs3p3EHmNArEhXIjoNlJC/iOm/598T3OWjmO1aK/1DqNh9ui7o80Z5Khuvxz
+         U0J3gXv1PqK0lbFUaa28F5G04aeCsw+jibSHgZuAZscSEIrnDAq2e3mkM4c7R6+p16gr
+         ZNqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757411519; x=1758016319;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iFGYAxN7KhpHBrugmRev4scw5IytGj3RswCGCmkqFTw=;
+        b=JVSg6bWr/Fv1NIDFaQFZbr3W1+K/w3+i0gUDGF0QqnFJT6N7kg3tqutZ3vv0iqXn32
+         omAJfMFL86s+6MYMzxYUGgXo0A2QaDbTN7U9cFLaBzfxANzgCJTuqHss/VvNmZt2AwHx
+         PISx9Muxwga6QDPUm7/sZK9l79xW8RbsIE7hsuH6ObVgW+NAwp/foNshiHtRPCZMlW/i
+         jjy3qUkjUagWfb7Rsby7EX97HgbkjvvY2K29ddNQ/peP5A9hRo/kZ18ZE1ya+5/pyj1G
+         PlCkPRlZtxD6BwStJgu4AuludoQNckLacncC+BO9aMvhLrZX5SGlTKxKTOTZDMvvbBmZ
+         rVcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXEVrMdjHcZsN9Pdhd+/sFC2zuUYwLBs6CqUB/AS5CzFZMdjSO9UaGAIVh3p6NsWZ1XdK4uA2oMFOr7/BA5RUrp@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywj5D+K2ZI1MGdDfCmDtaVF9v5Ta3BOgvolYaanlJvKCczJ+YBf
+	Awxs9wPPhQjiPyzT5aWEIuK4qaRR5CXHpTneXqf/KBj0NDTuv/o2koeapFLy2pTiU54=
+X-Gm-Gg: ASbGncuyq4V8qOX6EeTCjgJ4vgJmhqL7fu2Oo5XJZ4PTlbZftkNI1LooQ2MdruFXNKE
+	5kwR+wY7JidHpg41sOY4MgQfzMRwA8dSU+EaPfK2xWa0tkmvKcfGqiDqJxgL1StBz8KsdgW/Zvb
+	S5/UL7qrQDqk0weGM/V6mwXjyMhbkjO8C5bzGG4Sb1v2jSxp26e0qh3bEwizs4nsdvuqvNTmZSX
+	Ns00hUZIENf8j09zB5SwgzGdfm6EBeCb8IGjTWStx14NRT2dV9k5xc/ALxd1e6QJe3AH02QqIBX
+	eurQKSjrpOLWy+7zqzQgPCR2evP5JhwUyiJKdVXVY7wUfFImrwWu0G9L9cbi0qLuVlQ8z2fSXp6
+	1iP0wDjL4Jy4aAibBoaXefVGhTVk=
+X-Google-Smtp-Source: AGHT+IESmYHdHard1McUHhkFXGOst3hEfh+qWrJbkAkYlZD2XyacUZJFctXBns93b9p1corUeRwWcg==
+X-Received: by 2002:a05:6000:22c3:b0:3de:78c8:11fc with SMTP id ffacd0b85a97d-3e6497c0668mr9559747f8f.63.1757411518659;
+        Tue, 09 Sep 2025 02:51:58 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e75223ea15sm1916533f8f.47.2025.09.09.02.51.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 09 Sep 2025 02:51:58 -0700 (PDT)
+Message-ID: <02cba58e-86f6-48de-a59c-6d31a29258df@linaro.org>
+Date: Tue, 9 Sep 2025 10:51:56 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250906-atcphy-6-17-v2-11-52c348623ef6@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] perf arm-spe: Improve --itrace options
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, Leo Yan <leo.yan@linux.dev>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, George Wort <George.Wort@arm.com>,
+ Graham Woodward <Graham.Woodward@arm.com>, Ben Gainey <Ben.Gainey@arm.com>,
+ Michael Williams <Michael.Williams@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250908-james-perf-spe-period-v1-0-7ccd805af461@linaro.org>
+ <aL9HvOl-n_IM0qiB@x1>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <aL9HvOl-n_IM0qiB@x1>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_024750_338551_C1103C80 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20250909_025200_471388_9F0B4B94 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,176 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 06, 2025 at 03:43:24PM +0000, Sven Peter wrote:
-> Ports equipped with a CD321x are only found on Apple Silicon machines
-> and always support DisplayPort, Thunderbolt and USB4. Register these
-> port modes unconditionally.
-> 
-> Signed-off-by: Sven Peter <sven@kernel.org>
 
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 
-> ---
->  drivers/usb/typec/tipd/core.c | 85 +++++++++++++++++++++++++++++++++++++++++--
->  1 file changed, 82 insertions(+), 3 deletions(-)
+On 08/09/2025 10:16 pm, Arnaldo Carvalho de Melo wrote:
+> On Mon, Sep 08, 2025 at 01:10:17PM +0100, James Clark wrote:
+>> Most people also want all the SPE samples (instructions group), not just
+>> the flagged samples that are put into the various memory groups. These
+>> should have been shown by default but weren't because the default
+>> interval type wasn't supported.
+>>
+>> Also when looking at this, it appears that the downsampling was behaving
+>> in a way that would discard samples from one group but not another.
+>> Improve that and the warning messages.
+>>
+>> I don't want to put fixes tags on these because it's only changing the
+>> defaults and the behavior, but I don't think the previous behavior was
+>> incorrect necessarily, just copied from tracing techs but not ideal for
+>> SPE.
 > 
-> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-> index afd11b3e1ae596c7f3283e4336aaa57874c9378d..c7cf936e5a61a331271c05b68ff1b77b89c0f643 100644
-> --- a/drivers/usb/typec/tipd/core.c
-> +++ b/drivers/usb/typec/tipd/core.c
-> @@ -16,6 +16,8 @@
->  #include <linux/interrupt.h>
->  #include <linux/usb/typec.h>
->  #include <linux/usb/typec_altmode.h>
-> +#include <linux/usb/typec_dp.h>
-> +#include <linux/usb/typec_tbt.h>
->  #include <linux/usb/role.h>
->  #include <linux/workqueue.h>
->  #include <linux/firmware.h>
-> @@ -144,6 +146,7 @@ struct tipd_data {
->  	u64 irq_mask1;
->  	size_t tps_struct_size;
->  	int (*register_port)(struct tps6598x *tps, struct fwnode_handle *node);
-> +	void (*unregister_port)(struct tps6598x *tps);
->  	void (*trace_data_status)(u32 status);
->  	void (*trace_power_status)(u16 status);
->  	void (*trace_status)(u32 status);
-> @@ -185,6 +188,9 @@ struct cd321x {
->  	struct tps6598x_dp_sid_status_reg dp_sid_status;
->  	struct tps6598x_intel_vid_status_reg intel_vid_status;
->  	struct tps6598x_usb4_status_reg usb4_status;
-> +
-> +	struct typec_altmode *port_altmode_dp;
-> +	struct typec_altmode *port_altmode_tbt;
->  };
->  
->  static enum power_supply_property tps6598x_psy_props[] = {
-> @@ -964,6 +970,76 @@ tps6598x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
->  	return 0;
->  }
->  
-> +static int cd321x_register_port_altmodes(struct cd321x *cd321x)
-> +{
-> +	struct typec_altmode_desc desc;
-> +	struct typec_altmode *amode;
-> +
-> +	memset(&desc, 0, sizeof(desc));
-> +	desc.svid = USB_TYPEC_DP_SID;
-> +	desc.mode = USB_TYPEC_DP_MODE;
-> +	desc.vdo = DP_CONF_SET_PIN_ASSIGN(BIT(DP_PIN_ASSIGN_C) | BIT(DP_PIN_ASSIGN_D));
-> +	desc.vdo |= DP_CAP_DFP_D;
-> +	amode = typec_port_register_altmode(cd321x->tps.port, &desc);
-> +	if (IS_ERR(amode))
-> +		return PTR_ERR(amode);
-> +	cd321x->port_altmode_dp = amode;
-> +
-> +	memset(&desc, 0, sizeof(desc));
-> +	desc.svid = USB_TYPEC_TBT_SID;
-> +	desc.mode = TYPEC_ANY_MODE;
-> +	amode = typec_port_register_altmode(cd321x->tps.port, &desc);
-> +	if (IS_ERR(amode)) {
-> +		typec_unregister_altmode(cd321x->port_altmode_dp);
-> +		cd321x->port_altmode_dp = NULL;
-> +		return PTR_ERR(amode);
-> +	}
-> +	cd321x->port_altmode_tbt = amode;
-> +
-> +	return 0;
-> +}
-> +
-> +static int
-> +cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
-> +{
-> +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
-> +	int ret;
-> +
-> +	ret = tps6598x_register_port(tps, fwnode);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = cd321x_register_port_altmodes(cd321x);
-> +	if (ret)
-> +		goto err_unregister_port;
-> +
-> +	typec_set_mode(tps->port, TYPEC_STATE_SAFE);
-> +
-> +	return 0;
-> +
-> +err_unregister_port:
-> +	typec_unregister_port(tps->port);
-> +	return ret;
-> +}
-> +
-> +static void
-> +tps6598x_unregister_port(struct tps6598x *tps)
-> +{
-> +	typec_unregister_port(tps->port);
-> +}
-> +
-> +static void
-> +cd321x_unregister_port(struct tps6598x *tps)
-> +{
-> +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
-> +
-> +	typec_unregister_altmode(cd321x->port_altmode_dp);
-> +	cd321x->port_altmode_dp = NULL;
-> +	typec_unregister_altmode(cd321x->port_altmode_tbt);
-> +	cd321x->port_altmode_tbt = NULL;
-> +	typec_unregister_port(tps->port);
-> +}
-> +
->  static int tps_request_firmware(struct tps6598x *tps, const struct firmware **fw,
->  				const char **firmware_name)
->  {
-> @@ -1505,7 +1581,7 @@ static int tps6598x_probe(struct i2c_client *client)
->  err_disconnect:
->  	tps6598x_disconnect(tps, 0);
->  err_unregister_port:
-> -	typec_unregister_port(tps->port);
-> +	tps->data->unregister_port(tps);
->  err_role_put:
->  	usb_role_switch_put(tps->role_sw);
->  err_fwnode_put:
-> @@ -1529,7 +1605,7 @@ static void tps6598x_remove(struct i2c_client *client)
->  		devm_free_irq(tps->dev, client->irq, tps);
->  
->  	tps6598x_disconnect(tps, 0);
-> -	typec_unregister_port(tps->port);
-> +	tps->data->unregister_port(tps);
->  	usb_role_switch_put(tps->role_sw);
->  
->  	/* Reset PD controller to remove any applied patch */
-> @@ -1598,7 +1674,8 @@ static const struct tipd_data cd321x_data = {
->  		     APPLE_CD_REG_INT_DATA_STATUS_UPDATE |
->  		     APPLE_CD_REG_INT_PLUG_EVENT,
->  	.tps_struct_size = sizeof(struct cd321x),
-> -	.register_port = tps6598x_register_port,
-> +	.register_port = cd321x_register_port,
-> +	.unregister_port = cd321x_unregister_port,
->  	.trace_data_status = trace_cd321x_data_status,
->  	.trace_power_status = trace_tps6598x_power_status,
->  	.trace_status = trace_tps6598x_status,
-> @@ -1615,6 +1692,7 @@ static const struct tipd_data tps6598x_data = {
->  		     TPS_REG_INT_PLUG_EVENT,
->  	.tps_struct_size = sizeof(struct tps6598x),
->  	.register_port = tps6598x_register_port,
-> +	.unregister_port = tps6598x_unregister_port,
->  	.trace_data_status = trace_tps6598x_data_status,
->  	.trace_power_status = trace_tps6598x_power_status,
->  	.trace_status = trace_tps6598x_status,
-> @@ -1631,6 +1709,7 @@ static const struct tipd_data tps25750_data = {
->  		     TPS_REG_INT_PLUG_EVENT,
->  	.tps_struct_size = sizeof(struct tps6598x),
->  	.register_port = tps25750_register_port,
-> +	.unregister_port = tps6598x_unregister_port,
->  	.trace_data_status = trace_tps6598x_data_status,
->  	.trace_power_status = trace_tps25750_power_status,
->  	.trace_status = trace_tps25750_status,
+> I keep trying to find some hardware to have in my homelab to test these
+> series, but till then I depend on people having access to such hardware
+> for acks or better, tested-by, so waiting a bit for those to appear.
 > 
-> -- 
-> 2.34.1
-> 
+> - Arnaldo
+>   
 
--- 
-heikki
+Unfortunately I don't have any good homelab suggestions. Radxa Orion O6 
+are the only not-super-expensive boards that have it, but it's not 
+currently working due to some ACPI issue. AWS Gravitons also have it, 
+but you currently need a metal instance so that's expensive too.
+
+Leo should be able to have a look at this one until the hardware 
+trickles down further.
+
+Thanks
+James
+
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>> James Clark (4):
+>>        perf arm-spe: Show instruction sample types by default
+>>        perf arm-spe: Downsample all sample types equally
+>>        perf arm-spe: Display --itrace period warnings for all sample types
+>>        perf docs: Update SPE doc to include default instructions group
+>>
+>>   tools/perf/Documentation/perf-arm-spe.txt | 14 +++++---
+>>   tools/perf/util/arm-spe.c                 | 53 ++++++++++++++++---------------
+>>   2 files changed, 37 insertions(+), 30 deletions(-)
+>> ---
+>> base-commit: 75a7b9d29215c5aa813b9620f3c56817918f9f8c
+>> change-id: 20250908-james-perf-spe-period-4711a566cba4
+>>
+>> Best regards,
+>> -- 
+>> James Clark <james.clark@linaro.org>
+>>
+
 
