@@ -4,103 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7828CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148C5CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8lpZ7Kcjm736hRttCDDPd8Oh+DFxjiym2RbVj81INmM=; b=g2K6X88FxQqPh//7ecbRlTUQ/y
-	Qmstz1OB4Gjz+pL+UV6BFKBXl2DNEHZstdvGdbj3+NVw1ss826FDw2U3YPKsi2aL7qaPs96ljXmRq
-	biSKP6Q9WW80hKonM6CegwYCuNd0DhzSYadAr6HELnSSEKq7E7ctMR9iowby/qOeA/w6QX2oD8WEn
-	77qtZ3Lz6ziYrpU66wWDDR/H7zDPgxiAVytXBtwzQFGfjhVwxaZM3tjlVon9YlOmtAxxLYFWBX7Qw
-	RbIAYati4j9UTIsgBVO6CmWaDpklz4/Z5ttfuc0+jupzrP6EGDbXZDT1uxdWcB37T1gSLrMu6NJob
-	5WvTjbrw==;
+	bh=P+NIAqh7BQDBsDClODo0VaBIBEnvSbDD2W3PNG4jHlw=; b=0ii6Z78YCCONnMD6s77gJlrpl7
+	/JV3WQ9Yqv5E/VvjzSSiBjMAx+Bys+9e3/iurIxfUYS6wIStA5eKphnnj3Grb4lFK8XTmO6Jmvt4n
+	1w3OdPpteSVlvt0JR4iqKWfmVAB7yDBs8ROcvtFv7TTj6RyJlfqFLbaFij6mZj5/nQbaQiSHbKWuC
+	jgFpy/mbNYdiFAjza7vv0lSBcBsG82Dvk3xTJVAXbtUQg8HFbC2UUte35bfbSnMvPodl73bs0stgN
+	9Jmj57V/vKfNPXnWj1Y3IeymaK9t6TrEp47SoWN1C1ks0PTg3oqQfVKY/Y37H4LJJUNV3d9vfT0YT
+	ueyro5Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0Pb-000000087xe-2rcq;
-	Tue, 09 Sep 2025 15:37:39 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uw0PT-000000087tw-1Bp9;
+	Tue, 09 Sep 2025 15:37:31 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvuRv-00000005sPf-1hkp;
-	Tue, 09 Sep 2025 09:15:40 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58990div031661;
-	Tue, 9 Sep 2025 09:15:30 GMT
+	id 1uvuQx-00000005rhO-2z5n;
+	Tue, 09 Sep 2025 09:14:41 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5895hAAW009402;
+	Tue, 9 Sep 2025 09:14:30 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=8lpZ7Kcjm736hRttC
-	DDPd8Oh+DFxjiym2RbVj81INmM=; b=ocmyOY+81FEpgusNJXMxmGzziiAMZU2w8
-	JSX1isTopHv9NlD59UxHu/ctRCubyO2slf6T345AZI8ofUGk7NZepHEOfjS4X4bG
-	SIQeD+FCUaSW/+EWOO4gWR+M3tEsnoysTxlxYo9+0o7g/6/dMkds73O6ZTaLERBL
-	4IUNFDC0uFjdgfsLoJDfpdOyYJXQ9zKB9YH70IuMI+6cV7sNDcL24z6W47r3QJkV
-	Y2IVnR6DAGbp2uLUwfTT9LXBTK+T4CQAgb80RQG5bTw8XCS/SxFvJzDaUF+FZ2ZW
-	vNZPj8td04UZtGyBECIXZsJTmnDy7UN9QlPsZyFLQJbHv3nbm/cIw==
+	:mime-version:references:subject:to; s=pp1; bh=P+NIAqh7BQDBsDClO
+	Do0VaBIBEnvSbDD2W3PNG4jHlw=; b=fy8+zmj7OYChfQ7oEsTm0SJJ+Ai2e8dsc
+	UEZU8geyP1smsFjVRgbufWylkKlymbTHLApF68erqdd5T264P7Nc49DGK4vTlSgr
+	mzw7xokYjbxJYOy09maqKnhdHUpdRD0gIUlTYS1yxtNtE+BmzdVmIsuKLqt8IB+H
+	7qqU7EhC6k7dpJ4QtmyC7V3S2xv0Sq1MXTkU4qn/tHF51vCgwkae4lEUOVgb9R2A
+	jmHLE1RBJcJ1b3kgjoWx6Ccjx3jSZvg7c8tZH3SHsDdFf2nIau6kcKUtCjtnc8BK
+	1/TEhqK7hIXdCOnrqIb86TfMwTZxlg176/7WtbWuFugS4uh8/tbog==
 Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490acqxn9d-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490cff6sev-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 09:15:29 +0000 (GMT)
+	Tue, 09 Sep 2025 09:14:30 +0000 (GMT)
 Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5897G6Bj017219;
-	Tue, 9 Sep 2025 09:15:28 GMT
-Received: from smtprelay05.dal12v.mail.ibm.com ([172.16.1.7])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4911gma5ct-1
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5897Dfce017163;
+	Tue, 9 Sep 2025 09:14:29 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4911gma56v-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 09:15:28 +0000
+	Tue, 09 Sep 2025 09:14:29 +0000
 Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay05.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5899FSfl29950484
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5899ESgZ14615108
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 9 Sep 2025 09:15:28 GMT
+	Tue, 9 Sep 2025 09:14:29 GMT
 Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E41E158043;
-	Tue,  9 Sep 2025 09:15:27 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 9262D5805E;
+	Tue,  9 Sep 2025 09:14:28 +0000 (GMT)
 Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BDA8858060;
-	Tue,  9 Sep 2025 09:15:22 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 9D2EC58055;
+	Tue,  9 Sep 2025 09:14:23 +0000 (GMT)
 Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.2.198])
 	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Tue,  9 Sep 2025 09:15:22 +0000 (GMT)
+	Tue,  9 Sep 2025 09:14:23 +0000 (GMT)
 From: Andrew Donnellan <ajd@linux.ibm.com>
 To: linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org
 Cc: akpm@linux-foundation.org, x86@kernel.org, linux-riscv@lists.infradead.org,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
         pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
         nicholas@linux.ibm.com, christophe.leroy@csgroup.eu,
-        alexghiti@rivosinc.com, Madhavan Srinivasan <maddy@linux.ibm.com>
-Subject: [PATCH v17 11/12] powerpc: mm: Use set_pte_at_unchecked() for internal usages
-Date: Tue,  9 Sep 2025 19:13:34 +1000
-Message-ID: <20250909091335.183439-12-ajd@linux.ibm.com>
+        alexghiti@rivosinc.com
+Subject: [PATCH v17 01/12] arm64/mm: Add addr parameter to __set_ptes_anysz()
+Date: Tue,  9 Sep 2025 19:13:24 +1000
+Message-ID: <20250909091335.183439-2-ajd@linux.ibm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250909091335.183439-1-ajd@linux.ibm.com>
 References: <20250909091335.183439-1-ajd@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 63LcHXFzzkovazD-aRXH5GGwkMQxYNTi
-X-Authority-Analysis: v=2.4 cv=Mp1S63ae c=1 sm=1 tr=0 ts=68bff031 cx=c_pps
+X-Proofpoint-ORIG-GUID: rlllSEL0_SKfb2EiawCib1MctDRZod1E
+X-Proofpoint-GUID: rlllSEL0_SKfb2EiawCib1MctDRZod1E
+X-Authority-Analysis: v=2.4 cv=EYDIQOmC c=1 sm=1 tr=0 ts=68bfeff6 cx=c_pps
  a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=yJojWOMRYYMA:10 a=VnNF1IyMAAAA:8 a=aG8EAFyCJnWj3sFUJ80A:9
-X-Proofpoint-ORIG-GUID: 63LcHXFzzkovazD-aRXH5GGwkMQxYNTi
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAwMCBTYWx0ZWRfXx1Yd4G+KdQRj
- o6pEaUCIlr5tzQVwA/upa5zjgdcR62dV5MKecMSPwt6wdSHHMJ6TlCyZp9Qp9rTmvX3PuIvVUnN
- Ut60YYspVxOcHFsvQ+5gpDG6P/rUg8a2d0jFB0oUtvxEKbhH184fsxqaAGF4Y0qG+Y5LZzn9D0D
- kDyyQ661GmDBN4Ot3Hb0V5OAd7iYh1oJA2uK7w/+BeXTq7ZgKIZ3tI/eArVWoS9sFR9SHJgPZAe
- AYaPYh3pD0uTOBBCyNJfXTo75FFVDFhirFFMm20IqEPVf1W2MfEKBbPapX62BQ8XiD0E6fy2uaq
- zbUHupzDOfL3VHXfBqfm0k1yDBG28ei44lWzOdkG58B2WAnjLgo0pljlyf8hbN/UrA8gv83Fhsm
- 8pdUzHZX
+ a=yJojWOMRYYMA:10 a=VnNF1IyMAAAA:8 a=iO9NmEFvf90wNdx_zysA:9
+ a=0bXxn9q0MV6snEgNplNhOjQmxlI=:19
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAyMCBTYWx0ZWRfXzPoJMPDc2YxT
+ DRqKzgS87MSSwxjI4tkXiUN6HU8UknDU5cve2xbf1jeNY6MiciQUEQyy9u3KVcCurDA6KWNoPaC
+ oCdfMCnK+3lbiBdXXeO6o9Dtja11uY8iLVwcHp4rGJKZnpcx+bkLqQlfAINtWhr8fF6FlxblYyX
+ /+B7ql/oFL2/wSF9gKxCKaMe0vvEDW4rhFuePhfYlaHjKtYM9jlbVRlGmAxTR/j4bgIIu4/yX3H
+ PbKaESYzJXkDFRUJdBtj7eRdsZjsSmZsDKNXzzcx+9VanA2wNRiseLEZV/E4oJp/4nfFBYnMFkj
+ wg1G0jPXwNJbCMLh0pFefKyLwq9DCPPjOU4Ou+qGsrfszbmDrC2UgcREPUFYc+jUdrEVfs9gE5y
+ Zm314ODy
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-09-08_06,2025-09-08_02,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 clxscore=1015 phishscore=0 spamscore=0
- adultscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
+ malwarescore=0 adultscore=0 suspectscore=0 spamscore=0 impostorscore=0
+ priorityscore=1501 phishscore=0 clxscore=1015 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060000
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_021539_552852_FE8721F4 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20250909_021439_762662_79CEE482 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,132 +116,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
+To provide support for page table check on powerpc, we need to reinstate the
+address parameter in several functions, including
+page_table_check_{ptes,pmds,puds}_set().
 
-In the new set_ptes() API, set_pte_at() (a special case of set_ptes())
-is intended to be instrumented by the page table check facility. There
-are however several other routines that constitute the API for setting
-page table entries, including set_pmd_at() among others. Such routines
-are themselves implemented in terms of set_ptes_at().
+In preparation for this, add the addr parameter to arm64's __set_ptes_anysz()
+and change its callsites accordingly.
 
-A future patch providing support for page table checking on powerpc
-must take care to avoid duplicate calls to
-page_table_check_p{te,md,ud}_set(). Allow for assignment of pte entries
-without instrumentation through the set_pte_at_unchecked() routine
-introduced in this patch.
-
-Cause API-facing routines that call set_pte_at() to instead call
-set_pte_at_unchecked(), which will remain uninstrumented by page
-table check. set_ptes() is itself implemented by calls to
-__set_pte_at(), so this eliminates redundant code.
-
-[ajd@linux.ibm.com: don't change to unchecked for early boot/kernel mappings]
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
 Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
 ---
-v13: don't use the unchecked version for early-boot kernel mappings (Pasha)
+v15: new patch
+v16: rebase
 ---
- arch/powerpc/include/asm/pgtable.h       | 2 ++
- arch/powerpc/mm/book3s64/pgtable.c       | 6 +++---
- arch/powerpc/mm/book3s64/radix_pgtable.c | 6 +++---
- arch/powerpc/mm/pgtable.c                | 8 ++++++++
- 4 files changed, 16 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/pgtable.h | 19 ++++++++-----------
+ arch/arm64/mm/hugetlbpage.c      | 10 +++++-----
+ 2 files changed, 13 insertions(+), 16 deletions(-)
 
-diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
-index fa43f663e615..3983efb365cc 100644
---- a/arch/powerpc/include/asm/pgtable.h
-+++ b/arch/powerpc/include/asm/pgtable.h
-@@ -34,6 +34,8 @@ struct mm_struct;
- void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
- 		pte_t pte, unsigned int nr);
- #define set_ptes set_ptes
-+void set_pte_at_unchecked(struct mm_struct *mm, unsigned long addr,
-+			  pte_t *ptep, pte_t pte);
- #define update_mmu_cache(vma, addr, ptep) \
- 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
- 
-diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
-index c9431ae7f78a..ff0c5a1988f8 100644
---- a/arch/powerpc/mm/book3s64/pgtable.c
-+++ b/arch/powerpc/mm/book3s64/pgtable.c
-@@ -127,7 +127,7 @@ void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pmd_leaf(pmd)));
- #endif
- 	trace_hugepage_set_pmd(addr, pmd_val(pmd));
--	return set_pte_at(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
-+	return set_pte_at_unchecked(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index abd2dee416b3..ed644be48d87 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -698,8 +698,8 @@ static inline pgprot_t pud_pgprot(pud_t pud)
+ 	return __pgprot(pud_val(pfn_pud(pfn, __pgprot(0))) ^ pud_val(pud));
  }
  
- void set_pud_at(struct mm_struct *mm, unsigned long addr,
-@@ -144,7 +144,7 @@ void set_pud_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pud_leaf(pud)));
- #endif
- 	trace_hugepage_set_pud(addr, pud_val(pud));
--	return set_pte_at(mm, addr, pudp_ptep(pudp), pud_pte(pud));
-+	return set_pte_at_unchecked(mm, addr, pudp_ptep(pudp), pud_pte(pud));
- }
- 
- static void do_serialize(void *arg)
-@@ -549,7 +549,7 @@ void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr,
- 	if (radix_enabled())
- 		return radix__ptep_modify_prot_commit(vma, addr,
- 						      ptep, old_pte, pte);
--	set_pte_at(vma->vm_mm, addr, ptep, pte);
-+	set_pte_at_unchecked(vma->vm_mm, addr, ptep, pte);
- }
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-index 73977dbabcf2..b2541bf33d01 100644
---- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-@@ -1606,7 +1606,7 @@ void radix__ptep_modify_prot_commit(struct vm_area_struct *vma,
- 	    (atomic_read(&mm->context.copros) > 0))
- 		radix__flush_tlb_page(vma, addr);
- 
--	set_pte_at(mm, addr, ptep, pte);
-+	set_pte_at_unchecked(mm, addr, ptep, pte);
- }
- 
- int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
-@@ -1617,7 +1617,7 @@ int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
- 	if (!radix_enabled())
- 		return 0;
- 
--	set_pte_at(&init_mm, 0 /* radix unused */, ptep, new_pud);
-+	set_pte_at_unchecked(&init_mm, 0 /* radix unused */, ptep, new_pud);
- 
- 	return 1;
- }
-@@ -1664,7 +1664,7 @@ int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot)
- 	if (!radix_enabled())
- 		return 0;
- 
--	set_pte_at(&init_mm, 0 /* radix unused */, ptep, new_pmd);
-+	set_pte_at_unchecked(&init_mm, 0 /* radix unused */, ptep, new_pmd);
- 
- 	return 1;
- }
-diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
-index 56d7e8960e77..7b69cd16e011 100644
---- a/arch/powerpc/mm/pgtable.c
-+++ b/arch/powerpc/mm/pgtable.c
-@@ -224,6 +224,14 @@ void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
- 	}
- }
- 
-+void set_pte_at_unchecked(struct mm_struct *mm, unsigned long addr,
-+			  pte_t *ptep, pte_t pte)
-+{
-+	VM_WARN_ON(pte_hw_valid(*ptep) && !pte_protnone(*ptep));
-+	pte = set_pte_filter(pte, addr);
-+	__set_pte_at(mm, addr, ptep, pte, 0);
-+}
-+
- void unmap_kernel_page(unsigned long va)
+-static inline void __set_ptes_anysz(struct mm_struct *mm, pte_t *ptep,
+-				    pte_t pte, unsigned int nr,
++static inline void __set_ptes_anysz(struct mm_struct *mm, unsigned long addr,
++				    pte_t *ptep, pte_t pte, unsigned int nr,
+ 				    unsigned long pgsize)
  {
- 	pmd_t *pmdp = pmd_off_k(va);
+ 	unsigned long stride = pgsize >> PAGE_SHIFT;
+@@ -734,26 +734,23 @@ static inline void __set_ptes_anysz(struct mm_struct *mm, pte_t *ptep,
+ 	__set_pte_complete(pte);
+ }
+ 
+-static inline void __set_ptes(struct mm_struct *mm,
+-			      unsigned long __always_unused addr,
++static inline void __set_ptes(struct mm_struct *mm, unsigned long addr,
+ 			      pte_t *ptep, pte_t pte, unsigned int nr)
+ {
+-	__set_ptes_anysz(mm, ptep, pte, nr, PAGE_SIZE);
++	__set_ptes_anysz(mm, addr, ptep, pte, nr, PAGE_SIZE);
+ }
+ 
+-static inline void __set_pmds(struct mm_struct *mm,
+-			      unsigned long __always_unused addr,
++static inline void __set_pmds(struct mm_struct *mm, unsigned long addr,
+ 			      pmd_t *pmdp, pmd_t pmd, unsigned int nr)
+ {
+-	__set_ptes_anysz(mm, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
++	__set_ptes_anysz(mm, addr, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
+ }
+ #define set_pmd_at(mm, addr, pmdp, pmd) __set_pmds(mm, addr, pmdp, pmd, 1)
+ 
+-static inline void __set_puds(struct mm_struct *mm,
+-			      unsigned long __always_unused addr,
++static inline void __set_puds(struct mm_struct *mm, unsigned long addr,
+ 			      pud_t *pudp, pud_t pud, unsigned int nr)
+ {
+-	__set_ptes_anysz(mm, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
++	__set_ptes_anysz(mm, addr, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
+ }
+ #define set_pud_at(mm, addr, pudp, pud) __set_puds(mm, addr, pudp, pud, 1)
+ 
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index 1d90a7e75333..1003b5020752 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -225,8 +225,8 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+ 	ncontig = num_contig_ptes(sz, &pgsize);
+ 
+ 	if (!pte_present(pte)) {
+-		for (i = 0; i < ncontig; i++, ptep++)
+-			__set_ptes_anysz(mm, ptep, pte, 1, pgsize);
++		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
++			__set_ptes_anysz(mm, addr, ptep, pte, 1, pgsize);
+ 		return;
+ 	}
+ 
+@@ -234,7 +234,7 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+ 	if (pte_cont(pte) && pte_valid(__ptep_get(ptep)))
+ 		clear_flush(mm, addr, ptep, pgsize, ncontig);
+ 
+-	__set_ptes_anysz(mm, ptep, pte, ncontig, pgsize);
++	__set_ptes_anysz(mm, addr, ptep, pte, ncontig, pgsize);
+ }
+ 
+ pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
+@@ -449,7 +449,7 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+ 	if (pte_young(orig_pte))
+ 		pte = pte_mkyoung(pte);
+ 
+-	__set_ptes_anysz(mm, ptep, pte, ncontig, pgsize);
++	__set_ptes_anysz(mm, addr, ptep, pte, ncontig, pgsize);
+ 	return 1;
+ }
+ 
+@@ -473,7 +473,7 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+ 	pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
+ 	pte = pte_wrprotect(pte);
+ 
+-	__set_ptes_anysz(mm, ptep, pte, ncontig, pgsize);
++	__set_ptes_anysz(mm, addr, ptep, pte, ncontig, pgsize);
+ }
+ 
+ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
 -- 
 2.51.0
 
