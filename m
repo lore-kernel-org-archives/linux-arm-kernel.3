@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2646CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2481DCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s4q+SEA1JILehYKkJLFt8JUFivmtIE7L8Bs9yFeUzdQ=; b=nl+rmZnrS8ge/S0tFSstAG+Tv+
-	F6lRB86IcRY2P6mKNEJUHdU3MCkB4xNe6fT9W9BZFlfJZ6GwVC5JURkUeUrNyWprsxjNmNCJhm2pk
-	QuBy0ot1rpLMYy4xdUlBmKUEUDwfyBam0JfmW7QdHycTMgy1RZA2fHuqpDY0ckyjyzgitlPpWp3Zn
-	A1d8gkes2XqT2VlAXZxAbs+2SL/4/Nd/e2uU9MVwb2hMolhTxoRzLmfcUOJFrMQjCZZpWVYuj8PAL
-	g/++3Z6eAwxtOXv8Ombi2/Z3osQYkYGnsdJeUkNnsrUXoVsU4AGRgC7kDxKB57ozbkBpVh9ppOKHp
-	EafXo/nA==;
+	bh=JFrQJzmg8Zgzx93on0sdS3XZl9D0t9ynDO/E9zD8E+0=; b=MmwI96jiR7bW7w813pDajgd4Ur
+	wsi0M3dTyCiP0ImDuwg4o2W/mn7qKy1QIkQCGTSQl0oXA+mf658QkXQUUCIFxCyEWO63NkUdCqd87
+	zxWxdZlJ6Nm+KgtyLfud0ea9pQvDyb4PkgfZePV34AVHL6JV+VAKHlZxfBu7joyJrEd4EjszEaFBE
+	CQw/2dkOf/0rNA+5cqMig5Y6zPWJG5PqoE7Aggv2KbVXwaqrWXUWJikqleUEDVDcLAAPOnyUyBZQL
+	nlomcp3r8HxabCr0q5aigT2O0crBNOoS+hT61Z9FCOFD/gMeJnK5U36NpZRyEEtiIvJZmlkZ61AYI
+	VqbB76Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw23d-000000090C7-0ajI;
-	Tue, 09 Sep 2025 17:23:05 +0000
+	id 1uw23h-000000090Hy-2d4C;
+	Tue, 09 Sep 2025 17:23:09 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0G4-000000083mz-2bkO
+	id 1uw0GD-000000083qE-19ec
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 15:27:50 +0000
+	Tue, 09 Sep 2025 15:27:58 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 4A324C6B394;
-	Tue,  9 Sep 2025 15:27:31 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id EB0B6C6B39E;
+	Tue,  9 Sep 2025 15:27:39 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 002F560630;
-	Tue,  9 Sep 2025 15:27:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 81548102F28B4;
-	Tue,  9 Sep 2025 17:27:42 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9F6B660630;
+	Tue,  9 Sep 2025 15:27:55 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 67D16102F2584;
+	Tue,  9 Sep 2025 17:27:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1757431665; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1757431674; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=s4q+SEA1JILehYKkJLFt8JUFivmtIE7L8Bs9yFeUzdQ=;
-	b=iGEhGuuCt+fSYRZ91tqfX/q9s0Jen6eOnvIRm32d5D/iQF+UzD4S1fdYipjSztGQFVCmoz
-	mBTqyD+jQzdBxoIavK531VksHXEh9btxzwheB0qzCDDhdKFnXV33cyVSDvNv+zUr2Bm+SN
-	a7Iw89XRl2C10g1mLhw/WgtLR1BJT5oLMwYU8Wj2SIDEfKW3QAJ4mHcEAkGGIU47bFH/M0
-	5/bcKnI5QZqKT+t6iMO2rHi0ycmlcUdlxHqRHcAG5h9Q6Ksrq7M+SrX9Not/YlI7E2bCRQ
-	f/28N6jql6w90qcj1FP0efuL/LYFAhYfPnpGR1bkX4bz6PJdz/t3HqGuIYqBoA==
+	bh=JFrQJzmg8Zgzx93on0sdS3XZl9D0t9ynDO/E9zD8E+0=;
+	b=h7I3b4dbU9/aFGeaZOSA5403hHQh6WbAM23+PK/rhsHn5TGcatMXpiNR5tUVdexbAL96wm
+	LBRIVDsgWXa6tTsSSVXi++Sq+B9Puw7v0CLdou/GHIEdQDToWLlO5EiJqQY/SMUHUcWmkk
+	wKdJhKuSiP1HJryRRgrr7KBqjU4DsOLJSSB3tfeUYd+FXJBm+1kWSTCyxKjQokoytJ/T2g
+	+dTK7U4O/ZILbjcxnQBBpous3r9e6uSnUrmgJdx6iBEYfh4cKkUoq/KZoAp5wp6N+4dFyK
+	XjYc8ZgMjE1qJCqgCdU6JfXJdcjYlxKB2xpkBpBC3M203T6mpXDNEMczFVInbA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -76,9 +76,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v12 09/18] net: phylink: Move sfp interface selection and filtering to phy_caps
-Date: Tue,  9 Sep 2025 17:26:05 +0200
-Message-ID: <20250909152617.119554-10-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v12 11/18] net: phy: marvell-88x2222: Support SFP through phy_port interface
+Date: Tue,  9 Sep 2025 17:26:07 +0200
+Message-ID: <20250909152617.119554-12-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250909152617.119554-1-maxime.chevallier@bootlin.com>
 References: <20250909152617.119554-1-maxime.chevallier@bootlin.com>
@@ -86,8 +86,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_082749_052235_B27456E2 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20250909_082757_507646_708DF998 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,249 +102,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Phylink's helpers to get the interfaces usable on an SFP module based on
-speed and linkmodes can be modes to phy_caps, so that it can benefit to
-PHY-driver SFP support.
+The 88x2222 PHY from Marvell only supports serialised modes as its
+line-facing interfaces. Convert that driver to the generic phylib SFP
+handling.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/phy-caps.h |  6 ++++
- drivers/net/phy/phy_caps.c | 72 ++++++++++++++++++++++++++++++++++++++
- drivers/net/phy/phylink.c  | 72 +++++---------------------------------
- 3 files changed, 86 insertions(+), 64 deletions(-)
+ drivers/net/phy/marvell-88x2222.c | 95 +++++++++++++------------------
+ 1 file changed, 38 insertions(+), 57 deletions(-)
 
-diff --git a/drivers/net/phy/phy-caps.h b/drivers/net/phy/phy-caps.h
-index ba81cd75e122..ebed340a2e77 100644
---- a/drivers/net/phy/phy-caps.h
-+++ b/drivers/net/phy/phy-caps.h
-@@ -66,4 +66,10 @@ void phy_caps_medium_get_supported(unsigned long *supported,
- 				   int lanes);
- u32 phy_caps_mediums_from_linkmodes(unsigned long *linkmodes);
+diff --git a/drivers/net/phy/marvell-88x2222.c b/drivers/net/phy/marvell-88x2222.c
+index fad2f54c1eac..ba1bbb6c63d6 100644
+--- a/drivers/net/phy/marvell-88x2222.c
++++ b/drivers/net/phy/marvell-88x2222.c
+@@ -13,7 +13,7 @@
+ #include <linux/mdio.h>
+ #include <linux/marvell_phy.h>
+ #include <linux/of.h>
+-#include <linux/sfp.h>
++#include <linux/phy_port.h>
+ #include <linux/netdevice.h>
  
-+void phy_caps_filter_sfp_interfaces(unsigned long *dst,
-+				    const unsigned long *interfaces);
-+phy_interface_t phy_caps_select_sfp_interface_speed(const unsigned long *interfaces,
-+						    u32 speed);
-+phy_interface_t phy_caps_choose_sfp_interface(const unsigned long *interfaces);
-+
- #endif /* __PHY_CAPS_H */
-diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
-index b38c567ec6ef..e4adc36e0fe3 100644
---- a/drivers/net/phy/phy_caps.c
-+++ b/drivers/net/phy/phy_caps.c
-@@ -63,6 +63,22 @@ static int speed_duplex_to_capa(int speed, unsigned int duplex)
- #define for_each_link_caps_desc_speed(cap) \
- 	for (cap = &link_caps[__LINK_CAPA_MAX - 1]; cap >= link_caps; cap--)
- 
-+static const phy_interface_t phy_caps_sfp_interface_preference[] = {
-+	PHY_INTERFACE_MODE_100GBASEP,
-+	PHY_INTERFACE_MODE_50GBASER,
-+	PHY_INTERFACE_MODE_LAUI,
-+	PHY_INTERFACE_MODE_25GBASER,
-+	PHY_INTERFACE_MODE_USXGMII,
-+	PHY_INTERFACE_MODE_10GBASER,
-+	PHY_INTERFACE_MODE_5GBASER,
-+	PHY_INTERFACE_MODE_2500BASEX,
-+	PHY_INTERFACE_MODE_SGMII,
-+	PHY_INTERFACE_MODE_1000BASEX,
-+	PHY_INTERFACE_MODE_100BASEX,
-+};
-+
-+static DECLARE_PHY_INTERFACE_MASK(phy_caps_sfp_interfaces);
-+
- /**
-  * phy_caps_init() - Initializes the link_caps array from the link_mode_params.
-  *
-@@ -100,6 +116,10 @@ int phy_caps_init(void)
- 		__set_bit(i, link_caps[capa].linkmodes);
- 	}
- 
-+	for (int i = 0; i < ARRAY_SIZE(phy_caps_sfp_interface_preference); ++i)
-+		__set_bit(phy_caps_sfp_interface_preference[i],
-+			  phy_caps_sfp_interfaces);
-+
+ /* Port PCS Configuration */
+@@ -473,90 +473,70 @@ static int mv2222_config_init(struct phy_device *phydev)
  	return 0;
  }
  
-@@ -520,3 +540,55 @@ int phy_caps_interface_max_speed(phy_interface_t interface)
- 	return SPEED_UNKNOWN;
- }
- EXPORT_SYMBOL_GPL(phy_caps_interface_max_speed);
-+
-+void phy_caps_filter_sfp_interfaces(unsigned long *dst,
-+				    const unsigned long *interfaces)
-+{
-+	phy_interface_and(dst, interfaces, phy_caps_sfp_interfaces);
-+}
-+
-+phy_interface_t
-+phy_caps_select_sfp_interface_speed(const unsigned long *interfaces, u32 speed)
-+{
-+	phy_interface_t best_interface = PHY_INTERFACE_MODE_NA;
-+	phy_interface_t interface;
-+	u32 max_speed;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(phy_caps_sfp_interface_preference); i++) {
-+		interface = phy_caps_sfp_interface_preference[i];
-+		if (!test_bit(interface, interfaces))
-+			continue;
-+
-+		max_speed = phy_caps_interface_max_speed(interface);
-+
-+		/* The logic here is: if speed == max_speed, then we've found
-+		 * the best interface. Otherwise we find the interface that
-+		 * can just support the requested speed.
-+		 */
-+		if (max_speed >= speed)
-+			best_interface = interface;
-+
-+		if (max_speed <= speed)
-+			break;
-+	}
-+
-+	return best_interface;
-+}
-+EXPORT_SYMBOL_GPL(phy_caps_select_sfp_interface_speed);
-+
-+phy_interface_t phy_caps_choose_sfp_interface(const unsigned long *interfaces)
-+{
-+	phy_interface_t interface;
-+	size_t i;
-+
-+	interface = PHY_INTERFACE_MODE_NA;
-+	for (i = 0; i < ARRAY_SIZE(phy_caps_sfp_interface_preference); i++)
-+		if (test_bit(phy_caps_sfp_interface_preference[i], interfaces)) {
-+			interface = phy_caps_sfp_interface_preference[i];
-+			break;
-+		}
-+
-+	return interface;
-+}
-+EXPORT_SYMBOL_GPL(phy_caps_choose_sfp_interface);
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 091b1ee5c49a..91111ea1b149 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -126,22 +126,6 @@ do {									\
- })
- #endif
- 
--static const phy_interface_t phylink_sfp_interface_preference[] = {
--	PHY_INTERFACE_MODE_100GBASEP,
--	PHY_INTERFACE_MODE_50GBASER,
--	PHY_INTERFACE_MODE_LAUI,
--	PHY_INTERFACE_MODE_25GBASER,
--	PHY_INTERFACE_MODE_USXGMII,
--	PHY_INTERFACE_MODE_10GBASER,
--	PHY_INTERFACE_MODE_5GBASER,
--	PHY_INTERFACE_MODE_2500BASEX,
--	PHY_INTERFACE_MODE_SGMII,
--	PHY_INTERFACE_MODE_1000BASEX,
--	PHY_INTERFACE_MODE_100BASEX,
--};
--
--static DECLARE_PHY_INTERFACE_MASK(phylink_sfp_interfaces);
--
- /**
-  * phylink_set_port_modes() - set the port type modes in the ethtool mask
-  * @mask: ethtool link mode mask
-@@ -1922,8 +1906,7 @@ static int phylink_validate_phy(struct phylink *pl, struct phy_device *phy,
- 			/* If the PHY is on a SFP, limit the interfaces to
- 			 * those that can be used with a SFP module.
- 			 */
--			phy_interface_and(interfaces, interfaces,
--					  phylink_sfp_interfaces);
-+			phy_caps_filter_sfp_interfaces(interfaces, interfaces);
- 
- 			if (phy_interface_empty(interfaces)) {
- 				phylink_err(pl, "SFP PHY's possible interfaces becomes empty\n");
-@@ -2643,34 +2626,16 @@ static phy_interface_t phylink_sfp_select_interface(struct phylink *pl,
- static phy_interface_t phylink_sfp_select_interface_speed(struct phylink *pl,
- 							  u32 speed)
+-static int mv2222_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
++static int mv2222_configure_serdes(struct phy_port *port, bool enable,
++				   phy_interface_t interface)
  {
--	phy_interface_t best_interface = PHY_INTERFACE_MODE_NA;
- 	phy_interface_t interface;
--	u32 max_speed;
--	int i;
+-	DECLARE_PHY_INTERFACE_MASK(interfaces);
+-	struct phy_device *phydev = upstream;
+-	phy_interface_t sfp_interface;
++	struct phy_device *phydev = port_phydev(port);
+ 	struct mv2222_data *priv;
+-	struct device *dev;
+-	int ret;
 -
--	for (i = 0; i < ARRAY_SIZE(phylink_sfp_interface_preference); i++) {
--		interface = phylink_sfp_interface_preference[i];
--		if (!test_bit(interface, pl->sfp_interfaces))
--			continue;
--
--		max_speed = phy_caps_interface_max_speed(interface);
+-	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_supported) = { 0, };
++	int ret = 0;
  
--		/* The logic here is: if speed == max_speed, then we've found
--		 * the best interface. Otherwise we find the interface that
--		 * can just support the requested speed.
--		 */
--		if (max_speed >= speed)
--			best_interface = interface;
+ 	priv = phydev->priv;
+-	dev = &phydev->mdio.dev;
 -
--		if (max_speed <= speed)
--			break;
+-	sfp_parse_support(phydev->sfp_bus, id, sfp_supported, interfaces);
+-	phydev->port = sfp_parse_port(phydev->sfp_bus, id, sfp_supported);
+-	sfp_interface = sfp_select_interface(phydev->sfp_bus, sfp_supported);
+-
+-	dev_info(dev, "%s SFP module inserted\n", phy_modes(sfp_interface));
++	priv->line_interface = interface;
+ 
+-	if (sfp_interface != PHY_INTERFACE_MODE_10GBASER &&
+-	    sfp_interface != PHY_INTERFACE_MODE_1000BASEX &&
+-	    sfp_interface != PHY_INTERFACE_MODE_SGMII) {
+-		dev_err(dev, "Incompatible SFP module inserted\n");
++	if (enable) {
++		linkmode_and(priv->supported, phydev->supported, port->supported);
+ 
+-		return -EINVAL;
 -	}
-+	interface = phy_caps_select_sfp_interface_speed(pl->sfp_interfaces,
-+							speed);
+-
+-	priv->line_interface = sfp_interface;
+-	linkmode_and(priv->supported, phydev->supported, sfp_supported);
++		ret = mv2222_config_line(phydev);
++		if (ret < 0)
++			return ret;
  
--	if (best_interface == PHY_INTERFACE_MODE_NA)
-+	if (interface == PHY_INTERFACE_MODE_NA)
- 		phylink_err(pl, "selection of interface failed, speed %u\n",
- 			    speed);
+-	ret = mv2222_config_line(phydev);
+-	if (ret < 0)
+-		return ret;
++		if (mutex_trylock(&phydev->lock)) {
++			ret = mv2222_config_aneg(phydev);
++			mutex_unlock(&phydev->lock);
++		}
  
--	return best_interface;
-+	return interface;
+-	if (mutex_trylock(&phydev->lock)) {
+-		ret = mv2222_config_aneg(phydev);
+-		mutex_unlock(&phydev->lock);
++	} else {
++		linkmode_zero(priv->supported);
+ 	}
+ 
+ 	return ret;
  }
  
- static void phylink_merge_link_mode(unsigned long *dst, const unsigned long *b)
-@@ -3450,17 +3415,7 @@ static void phylink_sfp_detach(void *upstream, struct sfp_bus *bus)
- static phy_interface_t phylink_choose_sfp_interface(struct phylink *pl,
- 						    const unsigned long *intf)
+-static void mv2222_sfp_remove(void *upstream)
++static void mv2222_port_link_up(struct phy_port *port)
  {
--	phy_interface_t interface;
--	size_t i;
+-	struct phy_device *phydev = upstream;
+-	struct mv2222_data *priv;
 -
--	interface = PHY_INTERFACE_MODE_NA;
--	for (i = 0; i < ARRAY_SIZE(phylink_sfp_interface_preference); i++)
--		if (test_bit(phylink_sfp_interface_preference[i], intf)) {
--			interface = phylink_sfp_interface_preference[i];
--			break;
--		}
+-	priv = phydev->priv;
 -
--	return interface;
-+	return phy_caps_choose_sfp_interface(intf);
- }
- 
- static void phylink_sfp_set_config(struct phylink *pl, unsigned long *supported,
-@@ -3737,8 +3692,8 @@ static int phylink_sfp_connect_phy(void *upstream, struct phy_device *phy)
- 	phy_support_asym_pause(phy);
- 
- 	/* Set the PHY's host supported interfaces */
--	phy_interface_and(phy->host_interfaces, phylink_sfp_interfaces,
--			  pl->config->supported_interfaces);
-+	phy_caps_filter_sfp_interfaces(phy->host_interfaces,
-+				       pl->config->supported_interfaces);
- 
- 	/* Do the initial configuration */
- 	return phylink_sfp_config_phy(pl, phy);
-@@ -4166,16 +4121,5 @@ void phylink_mii_c45_pcs_get_state(struct mdio_device *pcs,
- }
- EXPORT_SYMBOL_GPL(phylink_mii_c45_pcs_get_state);
- 
--static int __init phylink_init(void)
--{
--	for (int i = 0; i < ARRAY_SIZE(phylink_sfp_interface_preference); ++i)
--		__set_bit(phylink_sfp_interface_preference[i],
--			  phylink_sfp_interfaces);
--
--	return 0;
+-	priv->line_interface = PHY_INTERFACE_MODE_NA;
+-	linkmode_zero(priv->supported);
+-	phydev->port = PORT_NONE;
 -}
 -
--module_init(phylink_init);
--
- MODULE_LICENSE("GPL v2");
- MODULE_DESCRIPTION("phylink models the MAC to optional PHY connection");
+-static void mv2222_sfp_link_up(void *upstream)
+-{
+-	struct phy_device *phydev = upstream;
++	struct phy_device *phydev = port_phydev(port);
+ 	struct mv2222_data *priv;
+ 
+ 	priv = phydev->priv;
+ 	priv->sfp_link = true;
+ }
+ 
+-static void mv2222_sfp_link_down(void *upstream)
++static void mv2222_port_link_down(struct phy_port *port)
+ {
+-	struct phy_device *phydev = upstream;
++	struct phy_device *phydev = port_phydev(port);
+ 	struct mv2222_data *priv;
+ 
+ 	priv = phydev->priv;
+ 	priv->sfp_link = false;
+ }
+ 
+-static const struct sfp_upstream_ops sfp_phy_ops = {
+-	.module_insert = mv2222_sfp_insert,
+-	.module_remove = mv2222_sfp_remove,
+-	.link_up = mv2222_sfp_link_up,
+-	.link_down = mv2222_sfp_link_down,
+-	.attach = phy_sfp_attach,
+-	.detach = phy_sfp_detach,
+-	.connect_phy = phy_sfp_connect_phy,
+-	.disconnect_phy = phy_sfp_disconnect_phy,
++static const struct phy_port_ops mv2222_port_ops = {
++	.link_up = mv2222_port_link_up,
++	.link_down = mv2222_port_link_down,
++	.configure_mii = mv2222_configure_serdes,
+ };
+ 
++static int mv2222_attach_mii_port(struct phy_device *phydev, struct phy_port *port)
++{
++	port->ops = &mv2222_port_ops;
++
++	__set_bit(PHY_INTERFACE_MODE_10GBASER, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
++
++	return 0;
++}
++
+ static int mv2222_probe(struct phy_device *phydev)
+ {
+ 	struct device *dev = &phydev->mdio.dev;
+@@ -592,7 +572,7 @@ static int mv2222_probe(struct phy_device *phydev)
+ 	priv->line_interface = PHY_INTERFACE_MODE_NA;
+ 	phydev->priv = priv;
+ 
+-	return phy_sfp_probe(phydev, &sfp_phy_ops);
++	return 0;
+ }
+ 
+ static struct phy_driver mv2222_drivers[] = {
+@@ -609,6 +589,7 @@ static struct phy_driver mv2222_drivers[] = {
+ 		.suspend = mv2222_suspend,
+ 		.resume = mv2222_resume,
+ 		.read_status = mv2222_read_status,
++		.attach_mii_port = mv2222_attach_mii_port,
+ 	},
+ };
+ module_phy_driver(mv2222_drivers);
 -- 
 2.49.0
 
