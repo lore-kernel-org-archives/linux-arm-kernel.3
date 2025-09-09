@@ -4,97 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5E2CAC582
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB574CA0FED
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RqxBp5GqUYy1vuvyW4xHhGZiROziN1Tf6UuwRZIay/o=; b=4x2mLR8zr38vepk52HiAWRuWmH
-	tLYtOSaToc6qv6e22SwMy5pf2oTi6sEEqGZSc/17dZkx+eZ1ssg68BTceLsW8j1EJoOlg1nmrw6N8
-	gnQHy1Eo1usZ3COFYT+GkcziTCnVzYUxoPPKKVGNK4gTi/+PIVhwekY31rk7CkywVsINPiFB8KK3W
-	TZw7mjoMoDFKIemXA8hfy6DAVjzJq0e7+PNDfRjNj1SwYYGhevlU0p8Deikx2bhQrnygk6hNMbJRu
-	n06ChuiJVjeS9s0TK9JORV9iO2K4XxOohCPhUD0R2v6alg7yEYUwN9u2ria2RcAbQ+QXEW7H5A/uZ
-	dbUJd03w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ox3PrAh+a33VGhYFNAvHhhMpvTjkSB7kiqY6tVIvUkU=; b=gQ6ypDjezf2pH5M3OfpClaNL9F
+	5t//x3Zu2lphKYXsefiQ/TSDDC5Vm4fcgBxLJCVvEYeZ+UEFKVtDjwFcSVomCtJmPGhAKL1dqHSZr
+	049tDMUIUJ65J1e/sj4cyb4ITYNVV/Agusjx7zRDJtewmneH/vAY1BLSQQ2n6fB1dx4mCmIKfWplt
+	Pv7Qwph14mo8+tp/bXdEvZlCD6VZBRVDOJ1Sm6l3RSUsqJFkubPcwbRGuBLBZr7cMXFa5uvkMpwxI
+	ysxJeB1kMdDU8z/b66xohTLjI787OZpQhVnEjGCP7rNBOfcyiPVWs6IrfmwWUh4hdyAVknZ4fF9Mi
+	ruqwZN0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw20q-00000008vhq-2QoB;
+	id 1uw20q-00000008vfy-0Fr8;
 	Tue, 09 Sep 2025 17:20:12 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvypc-00000007YZw-2CNu;
-	Tue, 09 Sep 2025 13:56:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757426185; x=1788962185;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=g/QqtRMuBql/lAp+Wpk1UAHBNS5otc0roGKqOnIPLHk=;
-  b=Bd6brfpgte5USq04G7FKZeMq7ZNLex4b8+9D3MQOwTdNEw1Ln0adlycr
-   oMAtN1YSDQbDy9FGLP+g6Z74QB4iSI5/u6aGWTTUDNzvy511W/V+tw4tc
-   x7m2lv5fSJr/voSDsN1wrDwJEbIxl7NXYdslSLP9nCtWDgmZW30zDc9pP
-   U08dY1EaJISWWZZu8N7PfLzXrl3OedUxq0xn0ScfP8edguGpPP11+p7C4
-   VflN9fbtCiaS1oN/MZP23ezVyp/+dQKw7pUDxvWrLtMEX5du3C3tTefIb
-   AWCbLe8t2a4h+0nJ6hwykkshhmx4vEjf4IFr+Egw0p+weCFbbl+k9gllU
-   A==;
-X-CSE-ConnectionGUID: 1BXFm5xRQnOg6LDboHm2Xg==
-X-CSE-MsgGUID: M8Pt/czLRoy+AcnbYNw3Fg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11548"; a="69964137"
-X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
-   d="scan'208";a="69964137"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 06:56:21 -0700
-X-CSE-ConnectionGUID: ks5yNBpNSuKS3BFnVbhH5w==
-X-CSE-MsgGUID: P7SuEn8mRlSdRZ+kBu7loA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
-   d="scan'208";a="172963735"
-Received: from smile.fi.intel.com ([10.237.72.51])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 06:56:16 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1uvypQ-00000001UyO-2aQ3;
-	Tue, 09 Sep 2025 16:56:12 +0300
-Date: Tue, 9 Sep 2025 16:56:12 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 13/15] gpio: sodaville: use new generic GPIO chip API
-Message-ID: <aMAx_EwwBteiI9K6@smile.fi.intel.com>
-References: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
- <20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org>
- <aMAP9hAWars0T83r@smile.fi.intel.com>
- <CAMRc=MeLTGq8Qu2aT43tkt3vaYCSaJPJPLmaUQ1SAyD_OgVr_g@mail.gmail.com>
- <aMAn4MM_Fs8q8qwj@smile.fi.intel.com>
- <CAMRc=Mdr4oW2d7XZ90rRr_fKC7WToz72v=_kW-s8=Urd0g8k3g@mail.gmail.com>
- <aMAve1MbONmKVjjg@smile.fi.intel.com>
- <aMAv3STeZUdSQ14p@smile.fi.intel.com>
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvyjN-00000007WNK-2fyz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 13:49:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F1831424;
+	Tue,  9 Sep 2025 06:49:48 -0700 (PDT)
+Received: from [10.44.160.77] (e126510-lin.lund.arm.com [10.44.160.77])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E3393F694;
+	Tue,  9 Sep 2025 06:49:49 -0700 (PDT)
+Message-ID: <47ee1df7-1602-4200-af94-475f84ca8d80@arm.com>
+Date: Tue, 9 Sep 2025 15:49:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
+To: David Hildenbrand <david@redhat.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org
+References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
+ <20250908073931.4159362-3-kevin.brodsky@arm.com>
+ <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
+ <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
+ <e7acb889-1fe9-4db3-acf4-39f4960e8ccd@redhat.com>
+ <2fecfae7-1140-4a23-a352-9fd339fcbae5-agordeev@linux.ibm.com>
+ <e521b1f4-3f2b-48cd-9568-b9a4cf4c4830@redhat.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <e521b1f4-3f2b-48cd-9568-b9a4cf4c4830@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aMAv3STeZUdSQ14p@smile.fi.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_065624_601175_B11A51D6 
-X-CRM114-Status: GOOD (  35.55  )
+X-CRM114-CacheID: sfid-20250909_064957_789890_DCED5B85 
+X-CRM114-Status: GOOD (  33.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,98 +89,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 04:47:09PM +0300, Andy Shevchenko wrote:
-> On Tue, Sep 09, 2025 at 04:45:31PM +0300, Andy Shevchenko wrote:
-> > On Tue, Sep 09, 2025 at 08:24:23AM -0500, Bartosz Golaszewski wrote:
-> > > On Tue, 9 Sep 2025 15:13:04 +0200, Andy Shevchenko
-> > > <andriy.shevchenko@intel.com> said:
-> > > > On Tue, Sep 09, 2025 at 01:35:04PM +0200, Bartosz Golaszewski wrote:
-> > > >> On Tue, Sep 9, 2025 at 1:31 PM Andy Shevchenko
-> > > >> <andriy.shevchenko@intel.com> wrote:
-> > > >> > On Tue, Sep 09, 2025 at 11:15:40AM +0200, Bartosz Golaszewski wrote:
+On 09/09/2025 13:54, David Hildenbrand wrote:
+> On 09.09.25 13:45, Alexander Gordeev wrote:
+>> On Tue, Sep 09, 2025 at 12:09:48PM +0200, David Hildenbrand wrote:
+>>> On 09.09.25 11:40, Alexander Gordeev wrote:
+>>>> On Tue, Sep 09, 2025 at 11:07:36AM +0200, David Hildenbrand wrote:
+>>>>> On 08.09.25 09:39, Kevin Brodsky wrote:
+>>>>>> arch_{enter,leave}_lazy_mmu_mode() currently have a stateless API
+>>>>>> (taking and returning no value). This is proving problematic in
+>>>>>> situations where leave() needs to restore some context back to its
+>>>>>> original state (before enter() was called). In particular, this
+>>>>>> makes it difficult to support the nesting of lazy_mmu sections -
+>>>>>> leave() does not know whether the matching enter() call occurred
+>>>>>> while lazy_mmu was already enabled, and whether to disable it or
+>>>>>> not.
+>>>>>>
+>>>>>> This patch gives all architectures the chance to store local state
+>>>>>> while inside a lazy_mmu section by making enter() return some value,
+>>>>>> storing it in a local variable, and having leave() take that value.
+>>>>>> That value is typed lazy_mmu_state_t - each architecture defining
+>>>>>> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is free to define it as it sees fit.
+>>>>>> For now we define it as int everywhere, which is sufficient to
+>>>>>> support nesting.
+>>>> ...
+>>>>>> {
+>>>>>> + lazy_mmu_state_t lazy_mmu_state;
+>>>>>> ...
+>>>>>> - arch_enter_lazy_mmu_mode();
+>>>>>> + lazy_mmu_state = arch_enter_lazy_mmu_mode();
+>>>>>> ...
+>>>>>> - arch_leave_lazy_mmu_mode();
+>>>>>> + arch_leave_lazy_mmu_mode(lazy_mmu_state);
+>>>>>> ...
+>>>>>> }
+>>>>>>
+>>>>>> * In a few cases (e.g. xen_flush_lazy_mmu()), a function knows that
+>>>>>>      lazy_mmu is already enabled, and it temporarily disables it by
+>>>>>>      calling leave() and then enter() again. Here we want to ensure
+>>>>>>      that any operation between the leave() and enter() calls is
+>>>>>>      completed immediately; for that reason we pass
+>>>>>> LAZY_MMU_DEFAULT to
+>>>>>>      leave() to fully disable lazy_mmu. enter() will then
+>>>>>> re-enable it
+>>>>>>      - this achieves the expected behaviour, whether nesting
+>>>>>> occurred
+>>>>>>      before that function was called or not.
+>>>>>>
+>>>>>> Note: it is difficult to provide a default definition of
+>>>>>> lazy_mmu_state_t for architectures implementing lazy_mmu, because
+>>>>>> that definition would need to be available in
+>>>>>> arch/x86/include/asm/paravirt_types.h and adding a new generic
+>>>>>>     #include there is very tricky due to the existing header soup.
+>>>>>
+>>>>> Yeah, I was wondering about exactly that.
+>>>>>
+>>>>> In particular because LAZY_MMU_DEFAULT etc resides somewehere
+>>>>> compeltely
+>>>>> different.
+>>>>>
+>>>>> Which raises the question: is using a new type really of any
+>>>>> benefit here?
+>>>>>
+>>>>> Can't we just use an "enum lazy_mmu_state" and call it a day?
+>>>>
+>>>> I could envision something completely different for this type on s390,
+>>>> e.g. a pointer to a per-cpu structure. So I would really ask to stick
+>>>> with the current approach.
 
-...
+This is indeed the motivation - let every arch do whatever it sees fit.
+lazy_mmu_state_t is basically an opaque type as far as generic code is
+concerned, which also means that this API change is the first and last
+one we need (famous last words, I know). 
 
-> > > >> > > +     config = (typeof(config)){
-> > > >> >
-> > > >> > This looks unusual. Why can't properly formed compound literal be used as in
-> > > >> > many other places in the kernel?
-> > > >>
-> > > >> It is correct C
-> > > >
-> > > > If it compiles, it doesn't mean it's correct C, it might be non-standard.
-> > > > Have you checked with the standard (note, I read that part in the past,
-> > > > but I may forgot the details, so I don't know the answer to this)?
-> > > 
-> > > It's a GNU extension alright
-> > 
-> > clang, I suppose, also okay with this?
-> > 
-> > > but it's supported in the kernel as it evaluates
-> > > to a simple cast.
-> > 
-> > There is no cast. And that's make a big difference to what the code tries to do.
-> > 
-> > > >> and checkpatch doesn't raise any warnings.
-> > > >
-> > > > checkpatch is far from being useful in the questions like this.
-> > > > It false positively complains for for_each*() macros all over
-> > > > the kernel, for example.
-> > > >
-> > > >> It's the
-> > > >> same kind of argument as between kmalloc(sizeof(struct foo)) vs
-> > > >> kmalloc(sizeof(f)).
-> > > >
-> > > > Maybe, but it introduces a new style while all other cases use the other,
-> > > > _established_ style. So we have a precedent and the form the code is written
-> > > > in is against the de facto usage of the compound literals.
-> > > 
-> > > It may not be *very* common but it's hardly new style:
-> > 
-> > I think your statement is incorrect see below why.
-> > 
-> > > $ git grep -P "\(typeof\(.*\)\) ?\{" | wc
-> > >     108     529    7315
-> > 
-> > Not correct. The correct output will be closer to
-> > 
-> > $ git grep -l -P "\(typeof\(.*\)\) ?\{" | wc -l
-> > 15
-> > 
-> > And if you looked at the output carefully, you see the bug in the RE you used.
-> > 
-> > So, even closer will be this one:
-> > 
-> > $ git grep -l -P "=[[:space:]]+\(typeof\(.*\)\) ?\{" | wc -l
-> > 7
-> > 
-> > 2 out of which are related to libeth, effectively makes this 6.
+I mentioned in the cover letter that the pkeys-based page table
+protection series [1] would have an immediate use for lazy_mmu_state_t.
+In that proposal, any helper writing to pgtables needs to modify the
+pkey register and then restore it. To reduce the overhead, lazy_mmu is
+used to set the pkey register only once in enter(), and then restore it
+in leave() [2]. This currently relies on storing the original pkey
+register value in thread_struct, which is suboptimal and most
+importantly doesn't work if lazy_mmu sections nest. With this series, we
+could instead store the pkey register value in lazy_mmu_state_t
+(enlarging it to 64 bits or more).
 
-And for of fullness the picture:
-$ git grep -l -P "=[[:space:]]+\(struct [^[:space:]]*\) ?\{" | wc -l
-501
+I also considered going further and making lazy_mmu_state_t a pointer as
+Alexander suggested - more complex to manage, but also a lot more flexible.
 
-So, it's 1:100 ratio.
+>>> Would that integrate well with LAZY_MMU_DEFAULT etc?
+>>
+>> Hmm... I though the idea is to use LAZY_MMU_* by architectures that
+>> want to use it - at least that is how I read the description above.
+>>
+>> It is only kasan_populate|depopulate_vmalloc_pte() in generic code
+>> that do not follow this pattern, and it looks as a problem to me.
 
-> TBH, I think those 6 all made the same mistake, i.e. thinking of the compound
-> literal as a cast. Which is not!
-> 
-> > No, this is completely non-standard and unusual thing in the kernel.
-> > 
-> > > >> I guess it's personal taste but I like this version better.
-> > > >
-> > > > In kernel we also try to be consistent. This add inconsistency. Am I wrong?
-> > > >
-> > > >> > > +             .dev = &pdev->dev,
-> > > >> > > +             .sz = 4,
-> > > >> > > +             .dat = sd->gpio_pub_base + GPINR,
-> > > >> > > +             .set = sd->gpio_pub_base + GPOUTR,
-> > > >> > > +             .dirout = sd->gpio_pub_base + GPOER,
-> > > >> > > +     };
+This discussion also made me realise that this is problematic, as the
+LAZY_MMU_{DEFAULT,NESTED} macros were meant only for architectures'
+convenience, not for generic code (where lazy_mmu_state_t should ideally
+be an opaque type as mentioned above). It almost feels like the kasan
+case deserves a different API, because this is not how enter() and
+leave() are meant to be used. This would mean quite a bit of churn
+though, so maybe just introduce another arch-defined value to pass to
+leave() for such a situation - for instance,
+arch_leave_lazy_mmu_mode(LAZY_MMU_FLUSH)?
 
--- 
-With Best Regards,
-Andy Shevchenko
+>
+> Yes, that's why I am asking.
+>
+> What kind of information (pointer to a per-cpu structure) would you
+> want to return, and would handling it similar to how
+> pagefault_disable()/pagefault_enable() e.g., using a variable in
+> "current" to track the nesting level avoid having s390x to do that?
 
+The pagefault_disabled approach works fine for simple use-cases, but it
+doesn't scale well. The space allocated in task_struct/thread_struct to
+track that state is wasted (unused) most of the time. Worse, it does not
+truly enable states to be nested: it allows the outermost section to
+store some state, but nested sections cannot allocate extra space. This
+is really what the stack is for.
 
+- Kevin
 
