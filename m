@@ -4,152 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7D6CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47C4CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3g12yxo6AUZ+3qDGXeBtpVoN4DkyT2WQsJMEPjbQiQ=; b=AI8S9NiBhbfinOz0v/p7n2iLIT
-	IAE0URnq14BX7FZwzTCrbEtTXGjkmiWT5PIRKVA7TsKY0Vqe9LXVvFi02l0SuGz54mKoKlMdMlwPA
-	Pjev8R+aGaYllWNxraCbvZH2hNcmDn9mmCP5ko7cgrh+3YVGKFfzqCNc0+cywdimFEoaioeRD9Uw3
-	2LRi+0AtrlD3KkjSBKMqv8OIM68254TzRbdyNzmKvzxntwxJm4aXMwWalVYLg6/1vujIOJsj7J+BW
-	Ezkh+tOyv1c2IfnnnR7/QlcY44cpWSQiHj5JOtVBeU1BHAF9ZAqF+dJmdGv1iA1IrDLi1m9qTS3yl
-	6xST45SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n77eKdHmtRFhvCg5KGI+mU9uC0njog5zrjYXHjKe4bc=; b=0GJEtSUwd5jDcYeV/kIziUCaUd
+	a+s9W05HUbEvJhm3SWa+zWN8IiBMGpgbBn1mFRl15qg2YFkPottUHYQ7lJRXIyPs3wznllaV0ePI/
+	FRKB6k9oX88/gYl1F+HnA6/ZmF48tC5329sUJoVaadPx6DpxcCCdvl1Xke9ipVbiqOLAs7hpZ+AgZ
+	WQyaOF41RhJ6KJc9K31M0hK4r71KsXpzyO6ve/XxEsqEoHUPKatRGOVn1BCM5aIIZqBFgMS8DK2dD
+	m8fo95RtJjd7z5vVxWC+NRO8kyiWT9emkqwlyL3jQcVdRO9d+pjlY47KQNhcVIPfe3wtk+zIjrBpQ
+	wLPuZl1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw21r-00000008xbJ-2TP1;
-	Tue, 09 Sep 2025 17:21:15 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uw221-00000008xu3-2Edq;
+	Tue, 09 Sep 2025 17:21:25 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvzZ2-00000007oTv-1sEx
+	id 1uvzeA-00000007qhU-0GFX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 14:43:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bj7T7ipRZ+y1K+rMrHo1RkcJ+oMO44n3f27Xii6UTPwliImsiZV7CCGHNMU8kEK0rwNkaNnR5TxHfa6+uF7cxU1WfCLURNnuwBghW/wH0uRusE0eNlm/+0xN67HRit1m32PI+GdTZcXOMjYzFUoGztS56MXsx+Oq10ahmWAL0JYJXFZpgU7hyMlSw2e5qCoBLsyNT8eXg2R4ia3QcIVjxq1OBhnMQAgP/yeat/5/g9vt1veE8dMGpxuORA/5wSdwHJYwNSQEpabY37rkSdUW/zkLgbvgE5kaHtHDST5LVKSQ+eGthHsoooMf1GlnwJ97xHsAFGNKuDhdn6+m37Y2jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U3g12yxo6AUZ+3qDGXeBtpVoN4DkyT2WQsJMEPjbQiQ=;
- b=hQ71V+abVQxbLj9UiZ9K3e7toRcNA47LtTXb8FbNRvmMJIg3zJAfzJ9jAuQiwVtIkfTgxAt9XyRodKcvFvXUd2NDx5v491ikQsBZj/htQ3llDj3d25vt0DE9DGgWciLx+0ircv1BODWbPYGa1tnFNkYBWwr32y8rn1wmY0sJMclwkBAr/lhRCAItFC8b1/DI9SOLCqsieNCSye+tbNfuS6ZZQaQzjfNoo+IB1SlCQ2o2UXBxvyrU3oox8hRF+NSRBHMK2gWX3O6DGpVboVLvf98HOj0dc3n7CwcaENG23fxwSXHecW62ZgA8aKO9brj847B4lFw5GRXgebTr4bJ3yw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U3g12yxo6AUZ+3qDGXeBtpVoN4DkyT2WQsJMEPjbQiQ=;
- b=HUyasn3+gbM2SDhIrIwlxasdEmZQMjjkmC9pPMMYHr2Z8TzrDgugNwKQCdK9zJmo6rdgaX3TBalCWUc/QawrVuUwzX83q6iXso698Ewsqbur2kJx0TMsPpDAkBwQNUivNoKfiqEZaMho0QL8aC1MKcJWwhSdmb+zieRKE8artIHLOSqzugxjTbB+SPe00iEDBySe6u+QdJdDXrAYKVLkYAwhaLAAZ+6OGfu5GekHs+mFI6eWDcLoNtaXyomO8W2swHaVko6VNiu2Dr5FabGI2EMe0s0AEzBpluRIYLd+Piv1qKzm1oBaqOaoN+xOcr8OKVkgnJYpNMdU33hL+qIwbA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AS8PR04MB8452.eurprd04.prod.outlook.com (2603:10a6:20b:348::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.12; Tue, 9 Sep
- 2025 14:43:09 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%5]) with mapi id 15.20.9115.010; Tue, 9 Sep 2025
- 14:43:08 +0000
-Date: Tue, 9 Sep 2025 10:42:57 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 09/11] dmaengine: add support for device_link
-Message-ID: <aMA88W/rDxFesEx+@lizhi-Precision-Tower-5810>
-References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
- <20250903-v6-16-topic-sdma-v1-9-ac7bab629e8b@pengutronix.de>
- <aLhUv+mtr1uZTCth@lizhi-Precision-Tower-5810>
- <20250909120309.5zgez5exbvxn5z3y@pengutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250909120309.5zgez5exbvxn5z3y@pengutronix.de>
-X-ClientProxiedBy: SJ0PR05CA0005.namprd05.prod.outlook.com
- (2603:10b6:a03:33b::10) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Tue, 09 Sep 2025 14:48:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1757429315;
+ bh=n77eKdHmtRFhvCg5KGI+mU9uC0njog5zrjYXHjKe4bc=;
+ b=PCwmCMC/0U5vPcfCf2Hpk9ZcKRtETlcYpM33uzLOHF73clp9zNhNzEtzDB8T+UBgZMXxjWiP9
+ 7SQiHm/pWDAqPrzkInnTMx85DjwVIhxZEbsn0im5CW2bfxRwwohSaBaAF80hcYDXZ1paw3GfCiZ
+ ZkMfmunqCao8O7ZmxIXzmNzUJ7vm8Fi/YA6ErfN7OXFcEFcd2FPWq0aeu077b2+k7fpS6fld6YX
+ HdUlvO2F5D2qLLmHN/tZik96iavynIQu6KpKeYfwCtq2116wTnj6U8P2QJKohofOc6qtIG0hc3Q
+ bfTPkUmZV+/HPQFbnQwesoAaRhqO5h/TkXI7mIH+b7Sw==
+X-Forward-Email-ID: 68c03e3e13ca9ca995732310
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.2.14
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <7d3c3b29-f89f-4801-8fd7-d6d0645095af@kwiboo.se>
+Date: Tue, 9 Sep 2025 16:48:25 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB8452:EE_
-X-MS-Office365-Filtering-Correlation-Id: fdbfb70e-2bf6-4be9-4285-08ddefaf3141
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|52116014|7416014|376014|1800799024|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9oU1hK2eUekQkI2Fx4eZWkNJ3kjcVuXr9bC2YL4T8rJQZDTJEiEBCWC9GWca?=
- =?us-ascii?Q?NboU7X2UgY484BNAfujegDIBc5WD37hpeYY3/ynyuHb6ONYyiaN5U/UBwnJ1?=
- =?us-ascii?Q?pRNdRKUDuZN+OxY/zPFDozcomYxilxitLwfjuEQ5OPyYOKtteGo9D08angZB?=
- =?us-ascii?Q?D53Q6yutUSnHzBxvvYlXmqypOziTDbvwJ3ox+cpOoZu5ghVQ3EnLSVgoubzm?=
- =?us-ascii?Q?lkUrU/UNnFDazaHtjUc5bleW2XBrj8h8aIuoJuxWwJcxsjgOTjf6sFDNuk1F?=
- =?us-ascii?Q?s5oo6tAW0iP+VWctzHX6sa3jKOGv5SzhrNPu7rAjddMR9xgZXX1w06BiErhk?=
- =?us-ascii?Q?3uM4H0S8nw6Me0j9MBj3K2zsoLtduIRe5pazepzf5aHE2yL5SJ7YmvZRsWJq?=
- =?us-ascii?Q?15b69cNj1gfb6Asfoqx7dzIal95zbxT0aP6Nvy/sWFeJrnrH1bIDRJbSQ+ku?=
- =?us-ascii?Q?kOsf7cqL52O3wRa/ItIvIziZWcHCeihb/9e9jBcFD4eF/H3b2JmgoFZeirlH?=
- =?us-ascii?Q?vggFvQyF91g/kn4eQdSvPBiN3ZRErXLCNmjerDVpEoe8TBEdDS/mtAbVl4/c?=
- =?us-ascii?Q?fzExWiXXiZNr1YgtJRPRe8VIWOvdeAIt+3mwTO47CLxs8KG2vQC5JQBCzpFg?=
- =?us-ascii?Q?X1FSBGbc24vgPfP6UKSh5x3GtWaOas9vk8RdwSdvbIUA4MrYabp/JabNFT+z?=
- =?us-ascii?Q?pqTpXOdmg61vrzcFqIaBTtuvMOjL0lPc04KSiHnewFmx8xXZEwCV2dKW/kPh?=
- =?us-ascii?Q?TK69hTXrVe6jt1grHmhy1TQo8ikNpOTTlR4ZEOAvsbAYOy7xYMP0wGAhonKz?=
- =?us-ascii?Q?PHjDSkBlukyO6QLlU9W/0Zi80y9felHtICdcuzs9RxgNJUWsqfAI8sW18/nS?=
- =?us-ascii?Q?3kcBUEoNw1Tp2HtBNMXu5z4jpkIfyJu+9p3W8d8+XmK4X30SlJPezHp+GNYy?=
- =?us-ascii?Q?gSA8mabprSK6VJQlMJaSkv0++mLLg6jC0Lp88x1KORvT6iYQKdk2Bqcn4S/n?=
- =?us-ascii?Q?cGnt42l/AbOVEXftvVoW6LhJkLd5nARBK8JR+OiDca9Eu6vKnh1QJz6lndA8?=
- =?us-ascii?Q?4xCyA4tg4Zm/36CfQR1MAsqh7DPl+f6ZMLyJuxOfMTFch9NxWYkAU2Mue2SF?=
- =?us-ascii?Q?dYR0nwtDkxAplYTrgbAp06OWqtO6MQuF2karFRLzUSQZyoL9R7VKfHDu0bPV?=
- =?us-ascii?Q?/TgC5ExKaSvnJILPqN9pDcO8OqV0H1ZgO+eE4WMFGt5+aOKazKKP4i75h8NK?=
- =?us-ascii?Q?22unt2FU7taQFbc+8xdllDRFgSq/fIvFmNtl23CBDxSOZu8r0Stx5/P8VR5M?=
- =?us-ascii?Q?6tgH6SH5t8lp6QHm9H1oFyGG3u6eHNe8f/0nsEiRVAJrOnj9rR+/EO/9wHu9?=
- =?us-ascii?Q?LwnrNXazuC/+3Qzyhqq1pKsgcEgANN/eSK7dQJPg62OpjeiNRUYVnRAQf2F0?=
- =?us-ascii?Q?k6PVN+d5ilNaLG8gie/lQeCvdXf1HZpjjYZvYObSRL9LCmgd+uhDpK1h8av/?=
- =?us-ascii?Q?/n2KGsNHrkF1AMg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3dRIj6tseGvDwduO3JlbwwrbChtjM1min7czpM7eslNXiZpoz+pQiDiZcCpe?=
- =?us-ascii?Q?hO92ovuRt+YyB6VEAaVuhXpvMLJU6OjYJV77rDax+TqbVJ15thE92uk+KbZ5?=
- =?us-ascii?Q?7rZg7CEJMY1sf3P4uZ0q4xtCZWjK77SNfIh7AheI3Qrd5vX0DtedrMV+v4i9?=
- =?us-ascii?Q?n2xvQuPsy+eQKUwDpiOS/WjiyBZob9zX3H5Zi5Sg38hsunmloo74aIITwt/b?=
- =?us-ascii?Q?E1pL/svgRTFmkEhIacLDcMicaUDywyENQXQV9/a/AYkux3IkZiSvBTr3bV+v?=
- =?us-ascii?Q?qMm/pEN9dV79g2wA7bRpImJ/dz8Gf/219elb6iNRG8P9YKMUScSYKSqwmPVf?=
- =?us-ascii?Q?4ZXx0LL8pmqtoa1l7U/tl8bDEmYT/J5I0FDOgSKAYntc6exaLb4G2vaZPZDZ?=
- =?us-ascii?Q?nXhIE4nhxifLBVa0Ym9+LuZa+yUrXzltL6TR9VM9x9Y9J9B1MJhTwVLuMike?=
- =?us-ascii?Q?JZ6ejQs2q6fUuH9YGIbqcHW4DmWY6ueCWIBLqPfEHwxhovwj1xbpodiwpVUz?=
- =?us-ascii?Q?KasFxNNM4TQClD4klWxODgcA0eG641p38f+/7cBbeH1i0+v7c18nxoA7jz8S?=
- =?us-ascii?Q?nCU9+lCPbWePo2zl7n/jPuQxbJ6PQo+w86sUyFR2eNDiJmSPoFzGhIdrGNWW?=
- =?us-ascii?Q?EOqnHXWLRauCV4oSDVQrpJA4YsNkJhuK0Tb6Kb5Zp0wpFmTI0LQSN6yFLuLc?=
- =?us-ascii?Q?Vlf1lUJc3CyniH8rypQckMG8poaqe9BQLjVD4S+e+wREveK4BErvjUWoWCUL?=
- =?us-ascii?Q?cmGA62z4Y8Z9iVgWSAeC+HlZrI7I2BMMBWh+2vkA7pCXPlqSCWVvfeV5zPsF?=
- =?us-ascii?Q?E/1CKvdnWINaklZi/NzMmVLBLRCg4Pp71+Cr65A8WwSV85kz6L41jjSlYTUR?=
- =?us-ascii?Q?3rYpskPMgn9Asbt4Pr3O4l0PaETzR60tSrjfO3gTFKWd/ug2tsKgXI5vX4k6?=
- =?us-ascii?Q?FVNKFO8PFMd9vpSlYzDBdR81ocOgPZ5TkFmj8LQZlXwhmJScPVrhPv0N1xJx?=
- =?us-ascii?Q?KfwC+KejI4wDS5gHGLSO+LuD4hx5qW2X+zwCzTQkF8sC+GzjN5AOGw/7sOhM?=
- =?us-ascii?Q?PbDTx91w6ym6LF+ceYBrG57XwMB8S3xBblMU65M4xfbICndy/zafCxRBRVPP?=
- =?us-ascii?Q?SNzxVeil5pYawWCnCCd3QMFk1pHOxcva7aw6OPJqr93GRd7KGWybBt+lIAgJ?=
- =?us-ascii?Q?rCb6PUIxOt3TYCjLF5SMlSM8UKcZD7J6wQwIhw0/G+zP+cZ95PKcuPjBw69C?=
- =?us-ascii?Q?0BsYxrHjHCqqJAd3zdTH7yvmSVdSSQwKaJkyENxBHULKH0y9rR9hDna39/U3?=
- =?us-ascii?Q?xOIrEYG4mMp5Wpv83fQdZoPuggP/r2NixmXfvnkrzatKPn8PqIpQY7oSOzvL?=
- =?us-ascii?Q?n9Tpb0mKfbo8Niyniz/ChmO4ZP+SQHETY7Rvb0y9QaqgvrufdfeyY+HD/M1b?=
- =?us-ascii?Q?4kr09rUet2wkSE29aZerLmd6eovomcV0K4ei74BXvrvhkPqzv39w6tsq3E8m?=
- =?us-ascii?Q?PHDyfX4qBagLSUg3Z4cZ83ZEbPMCIlAKBKETAyk82WTjuLDHnmvsII1G++CT?=
- =?us-ascii?Q?P9S+E4tZ84RfORXvKC12vdWTqz7xeJ2eBHrsoJNs?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fdbfb70e-2bf6-4be9-4285-08ddefaf3141
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2025 14:43:08.4773
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AUzRgzEXZe9lAM9Ewo0IY/adC66Xa7AnfDZqwI5WkPtFloBDq2eaAajrgrMciaFCi4UdxrROE/GwDR8yapHinQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8452
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add Radxa E24C
+To: FUKAUMI Naoki <naoki@radxa.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>,
+ Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250727144409.327740-1-jonas@kwiboo.se>
+ <20250727144409.327740-4-jonas@kwiboo.se>
+ <B055BC95C67D129C+d7a2ff39-8367-48cf-8697-f12fd9f885a4@radxa.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <B055BC95C67D129C+d7a2ff39-8367-48cf-8697-f12fd9f885a4@radxa.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_074320_636256_C5442EBB 
-X-CRM114-Status: GOOD (  55.62  )
+X-CRM114-CacheID: sfid-20250909_074838_186363_3BF65596 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,192 +82,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 02:03:09PM +0200, Marco Felsch wrote:
-> Hi Frank,
->
-> On 25-09-03, Frank Li wrote:
-> > On Wed, Sep 03, 2025 at 03:06:17PM +0200, Marco Felsch wrote:
-> > > Add support to create device_links between dmaengine suppliers and the
-> > > dma consumers. This shifts the device dep-chain teardown/bringup logic
-> > > to the driver core.
-> > >
-> > > Moving this to the core allows the dmaengine drivers to simplify the
-> > > .remove() hooks and also to ensure that no dmaengine driver is ever
-> > > removed before the consumer is removed.
-> > >
-> > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > > ---
-> >
-> > Thank you work for devlink between dmaengine and devices. I have similar
-> > idea.
-> >
-> > This patch should be first patch.
->
-> I can shuffle it of course!
->
-> > The below what planned commit message in my local tree.
->
-> Okay, so you focused on runtime PM handling. Not quite sure if I can
-> test this feature with the SDMA engine. I also have limited time for
-> this feature.
->
-> Is it okay for you and the DMA maintainers to add the runtime PM feature
-> as separate patch (provided by NXP/Frank)?
+On 9/9/2025 2:28 PM, FUKAUMI Naoki wrote:
+> Hi Jonas,
+> 
+> On 7/27/25 23:44, Jonas Karlman wrote:
+>> The Radxa E24C is a compact, high-performance network computer
+>> developed by Radxa, based on the Rockchip RK3528A SoC.
+>>
+>> Add initial device tree for the Radxa E24C.
+>>
+>> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+>> ---
+>> Schematics: https://dl.radxa.com/e/e24c/docs/radxa_e24c_v1200_schematic.pdf
+>> ---
+>>   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>>   .../boot/dts/rockchip/rk3528-radxa-e24c.dts   | 519 ++++++++++++++++++
+>>   2 files changed, 520 insertions(+)
+>>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+>> index 0662fcf00628..dc62fd5305be 100644
+>> --- a/arch/arm64/boot/dts/rockchip/Makefile
+>> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+>> @@ -92,6 +92,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
+>>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
+>>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-zero2.dtb
+>>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
+>> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e24c.dtb
+>>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
+>>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2f.dtb
+>>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3562-evb2-v10.dtb
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
+>> new file mode 100644
+>> index 000000000000..225f2b0c5339
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
+>> @@ -0,0 +1,519 @@
+>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>> +
+>> +/dts-v1/;
+>> +
+>> +#include <dt-bindings/input/input.h>
+>> +#include <dt-bindings/leds/common.h>
+>> +#include "rk3528.dtsi"
+>> +
+>> +/ {
+>> +	model = "Radxa E24C";
+>> +	compatible = "radxa,e24c", "rockchip,rk3528";
+>> +
+>> +	aliases {
+>> +		ethernet0 = &gmac1;
+>> +		i2c0 = &i2c0;
+>> +		i2c1 = &i2c1;
+>> +		i2c5 = &i2c5;
+>> +		mmc0 = &sdhci;
+>> +		mmc1 = &sdmmc;
+>> +		rtc0 = &hym8563;
+>> +		rtc1 = &rk805;
+>> +		serial0 = &uart0;
+>> +	};
+>> +
+>> +	chosen {
+>> +		stdout-path = "serial0:1500000n8";
+>> +	};
+>> +
+>> +	adc-keys {
+>> +		compatible = "adc-keys";
+>> +		io-channels = <&saradc 0>;
+>> +		io-channel-names = "buttons";
+>> +		keyup-threshold-microvolt = <1800000>;
+>> +		poll-interval = <100>;
+>> +
+>> +		button-maskrom {
+>> +			label = "MASKROM";
+>> +			linux,code = <KEY_SETUP>;
+>> +			press-threshold-microvolt = <0>;
+>> +		};
+>> +	};
+>> +
+>> +	gpio-keys {
+>> +		compatible = "gpio-keys";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&gpio0_a0_user>;
+>> +
+>> +		button-user {
+>> +			gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_LOW>;
+>> +			label = "USER";
+>> +			linux,code = <BTN_1>;
+> 
+> I prefer to assign BTN_0 to the 1st button :)
 
-we can support runtime pm later.
+The E20C (and other RK boards) already use BTN_1 for user button, it
+only seem to be the recently added E54C that is using BTN_0.
 
->
-> > Implementing runtime PM for DMA channels is challenging. If a channel
-> > resumes at allocation and suspends at free, the DMA engine often remains on
-> > because most drivers request a channel at probe.
-> >
-> > Tracking the number of pending DMA descriptors is also problematic, as some
-> > consumers append new descriptors in atomic contexts, such as IRQ handlers,
-> > where runtime resume cannot be called.
-> >
-> > Using a device link simplifies this issue. If a consumer requires data
-> > transfer, it must be in a runtime-resumed state, ensuring that the DMA
-> > channel is also active by device link. This allows safe operations, like
-> > appending new descriptors. Conversely, when the consumer no longer requires
-> > data transfer, both it and the supplier (DMA channel) can enter a suspended
-> > state if no other consumer is using it.
-> >
-> > Introduce the `create_link` flag to enable this feature.
-> >
-> > also suggest add create_link flag to enable this feature in case some
-> > side impact to other dma-engine. After some time test, we can enable it
-> > default.
->
-> What regressions do you have in mind? I wouldn't hide the feature behind
-> a flag because this may slow done the convert process, because no one is
-> interessted in, or has no time for testing, ...
+For consistency I suggest we keep using BTN_1 for this user button and
+possible fixup E54C, if you want to use same button for all variants.
 
-Unlike other devices, like phys, regulator, mailbox..., which auto create
-devlink at probe. I am not clear why dma skip this one. So I think there
-should be some reason behind. Maybe other people, rob or Vinod Koul know
-the reason.
+Regards,
+Jonas
 
-static const struct supplier_bindings of_supplier_bindings[] = {
-        ...
-	{ .parse_prop = parse_dmas, .optional = true, },
+> 
+> Best regards,
+> 
+> --
+> FUKAUMI Naoki
+> Radxa Computer (Shenzhen) Co., Ltd.
+> 
+>> +			wakeup-source;
+>> +		};
+>> +	};
 
-If remove "optional = true", devlink will auto create. I am not sure why
-set true here.
-
->
-> > >  drivers/dma/dmaengine.c | 8 ++++++++
-> > >  1 file changed, 8 insertions(+)
-> > >
-> > > diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-> > > index 758fcd0546d8bde8e8dddc6039848feeb1e24475..a50652bc70b8ce9d4edabfaa781b3432ee47d31e 100644
-> > > --- a/drivers/dma/dmaengine.c
-> > > +++ b/drivers/dma/dmaengine.c
-> > > @@ -817,6 +817,7 @@ struct dma_chan *dma_request_chan(struct device *dev, const char *name)
-> > >  	struct fwnode_handle *fwnode = dev_fwnode(dev);
-> > >  	struct dma_device *d, *_d;
-> > >  	struct dma_chan *chan = NULL;
-> > > +	struct device_link *dl;
-> > >
-> > >  	if (is_of_node(fwnode))
-> > >  		chan = of_dma_request_slave_channel(to_of_node(fwnode), name);
-> > > @@ -858,6 +859,13 @@ struct dma_chan *dma_request_chan(struct device *dev, const char *name)
-> > >  	/* No functional issue if it fails, users are supposed to test before use */
-> > >  #endif
-> > >
-> > > +	dl = device_link_add(dev, chan->device->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
-> >
-> > chan->device->dev is dmaengine devices. But some dmaengine's each channel
-> > have device, consumer should link to chan's device, not dmaengine device
-> > because some dmaengine support per channel clock\power management.
->
-> I get your point. Can you give me some pointers please? To me it seems
-> like the dma_chan_dev is only used for sysfs purpose according the
-> dmaengine.h.
-
-Not really, there are other dma engineer already reuse it for other purpose.
-So It needs update kernel doc for dma_chan_dev.
-
->
-> > chan's device's parent devices is dmaengine devices. it should also work
-> > for sdma case
->
-> I see, this must be tested of course.
-> > >         if (chan->device->create_devlink) {
-> >                 u32 flags = DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME | DL_FLAG_AUTOREMOVE_CONSUMER;
->
-> According device_link.rst: using DL_FLAG_STATELESS and
-> DL_FLAG_AUTOREMOVE_CONSUMER is invalid.
->
-> >                 if (pm_runtime_active(dev))
-> >                         flags |= DL_FLAG_RPM_ACTIVE;
->
-> This is of course interessting, thanks for the hint.
->
-> > When create device link (apply channel), consume may active.
->
-> I have read it as: "resue the supplier and ensure that the supplier
-> follows the consumer runtime state".
->
-> >                 dl = device_link_add(chan->slave, &chan->dev->device, flags);
->
-> Huh.. you used the dmaengine device too?
-
-/**
- * struct dma_chan_dev - relate sysfs device node to backing channel device
- * @chan: driver channel device
- * @device: sysfs device
- * @dev_id: parent dma_device dev_id
- * @chan_dma_dev: The channel is using custom/different dma-mapping
- * compared to the parent dma_device
- */
-struct dma_chan_dev {
-	struct dma_chan *chan;
-	struct device device;
-	int dev_id;
-	bool chan_dma_dev;
-};
-
-struct dma_chan {
-	struct dma_device *device; /// this one should be dmaengine
-	struct dma_chan_dev *dev; /// this one is pre-chan device.
-}
-
-Frank
->
-> Regards,
->   Marco
->
->
-> >         }
-> >
-> > Need update kernel doc
-> >
-> > diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-> > index bb146c5ac3e4c..ffb3a8f0070ba 100644
-> > --- a/include/linux/dmaengine.h
-> > +++ b/include/linux/dmaengine.h
-> > @@ -323,7 +323,8 @@ struct dma_router {
-> >   * @cookie: last cookie value returned to client
-> >   * @completed_cookie: last completed cookie for this channel
-> >   * @chan_id: channel ID for sysfs
-> > - * @dev: class device for sysfs
-> > + * @dev: class device for sysfs, also use for pre channel runtime pm and
-> > + *       use custom/different dma-mapping
-> >
-> > Frank
-> >
-> >
-> > > +	if (!dl) {
-> > > +		dev_err(dev, "failed to create device link to %s\n",
-> > > +			dev_name(chan->device->dev));
-> > > +		return ERR_PTR(-EINVAL);
-> > > +	}
-> > >  	chan->name = kasprintf(GFP_KERNEL, "dma:%s", name);
-> > >  	if (!chan->name)
-> > >  		return chan;
-> > >
-> > > --
-> > > 2.47.2
-> > >
-> >
+[snip]
 
