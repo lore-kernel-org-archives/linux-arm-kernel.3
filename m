@@ -4,57 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441C8CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 16:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFC0CAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 16:57:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ejyOVWNZnM4N3Ivi3K/PAopR0Lc4S3yDQSFJewEL248=; b=Nn2P/4AgUbAfubroaxgN+mcZbP
-	XW55aXmNH1S67T32vyq5ueOvjln9BBfjyT3SBLtjVB6O5WCFEOL3qWgoI2/aL32EoVcRaukFQwQwb
-	5BH1JtMkJAevNfdOGovwfN4lhFYlQeQbRXsDd9OFVWn6yVRRaAoeQHKkNyg5tyy2/fCa1v8uVOd+4
-	07wX20UhBcq77CRTnAH3jTM6rzQu2DPAE5FL/V9569aTAPgBqJIvoZFfrWPojMP7N++MzQ5BVljTe
-	9+imifWnJrq+so+Cjj4HfluaORBGXVokPOkQY3KhAWFuhHZ3lts4H7fBepSf7KS6Jes1GLdnhmS3L
-	iT7uPAog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7JUTHj5cF2l6RX8LOn83OdtN7PhuDci+zXqXL72HMvo=; b=v1TtLSh0VzCdHgIgMKZyGenqo5
+	pbbkf6MpXuJnvDEFw1TG3pXgaAnSY9eD/n5oDePh59NNWrB6Dd7OYHtiiaAFqr2xvGPuVXysYpcZc
+	82Q/moACAkI3hYI9WLVvT5l9XxUMoVUPLOvuByucfCaqtDd/Nk7la5VRUcnEgljXp/R+Q6IXLSrDa
+	LXOu24C8RouVMZpLA2wsv+qI0NEY+cI0wvOaELAQR841dD4X/4Q69x+72UFhrNhNAZ4M593qHo46w
+	9KTg6+b1VfLVcwxB9UZcRLa4fFeoK/d18HZgpsCJuRoH49Q4nl9eS2vbdi9S5Ppetgmd6TdINliGq
+	y9IQ1zvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1cX-00000008ft9-1hdp;
-	Tue, 09 Sep 2025 16:55:05 +0000
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
+	id 1uw1eb-00000008gmd-3qUf;
+	Tue, 09 Sep 2025 16:57:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvvXp-00000006NWu-1BYy
+	id 1uvvJ1-00000006Gw7-1v9h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 10:25:51 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1757413546;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ejyOVWNZnM4N3Ivi3K/PAopR0Lc4S3yDQSFJewEL248=;
-	b=bOzGirjNc89HFYUO7bNBKxqLRtE6F/lgIIgN3nre+0+sMsO9BDJv4t3oByr5BnzI6VYtU6
-	A50lAWW+/SrsIVMEp3qCA5EmWZOOned6SOI0QkGT9qR3E9vWGtCrx8bwiQ/M2dSkFxGYFY
-	aFSw28tR9jSscq0VwVjpkNll4VSkXBY=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Tue, 09 Sep 2025 10:10:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2BC9144CAD;
+	Tue,  9 Sep 2025 10:10:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FF08C4AF09;
+	Tue,  9 Sep 2025 10:10:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757412631;
+	bh=8dFaAu/k8M7eyPENQa+Q5aInG87lPBk4mrOmpVQhByk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=b4zARQ9Kn/I/jDOwzfat35RVovH1ZuTfkR+vc8thJ5Ctz6h8iJE267FUKQYvWP5Pa
+	 JPkJcn+hv1/LOfRdUSRdfZUWFvVMdTf+f3aTA3SKFCCtSggySYO8iPocxnQbkGKCl4
+	 AXWnT7W/QHpcqCv2ZucUonUfEbWTj+AAnpWVTnpWiYKcNHu61DT7xkrxydlE9G6KPY
+	 tLdzeZriXMl8b4Zny6ZPAmZ+AICVcw042SDKdtbq+qKwia+vvl9yBaDhAhXSUJ+3dE
+	 Og/n4qQVCdTpzU2Mk+XW6eJUMXq3z2l5Jut6MgfjJ3Aik7fjl/Ln4tV0CK9Gnqm0HR
+	 u+fmT3b9mI1ww==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uvvIy-00000004de3-3Ufv;
+	Tue, 09 Sep 2025 10:10:28 +0000
+Date: Tue, 09 Sep 2025 11:10:28 +0100
+Message-ID: <86ldmoc4x7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Jinqian Yang <yangjinqian1@huawei.com>,
+	yuzenghui@huawei.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] stm class: Replace kmalloc() + copy_from_user() with memdup_user()
-Date: Tue,  9 Sep 2025 12:25:12 +0200
-Message-ID: <20250909102512.694203-2-thorsten.blum@linux.dev>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	liuyonglong@huawei.com,
+	wangzhou1@hisilicon.com
+Subject: Re: [PATCH v2 1/3] KVM: arm64: Make ID_AA64MMFR1_EL1.HCX writable from userspace
+In-Reply-To: <aL_SIwQiz3QO1fKe@linux.dev>
+References: <20250909034415.3822478-1-yangjinqian1@huawei.com>
+	<20250909034415.3822478-2-yangjinqian1@huawei.com>
+	<aL_SIwQiz3QO1fKe@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, yangjinqian1@huawei.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, liuyonglong@huawei.com, wangzhou1@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_032549_731773_747A651E 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250909_031031_516692_5797068A 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,43 +90,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace kmalloc() followed by copy_from_user() with memdup_user() to
-improve and simplify stm_char_write().
+On Tue, 09 Sep 2025 08:07:15 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> On Tue, Sep 09, 2025 at 11:44:13AM +0800, Jinqian Yang wrote:
+> > Allow userspace to downgrade HCX in ID_AA64MMFR1_EL1. Userspace can
+> > only change this value from high to low.
+> > 
+> > Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+> 
+> I'm not sure our quality of emulation is that great in this case. We
+> have no way of trapping the register and it is always stateful. Better
+> yet, our RESx infrastructure doesn't account for the presence of
+> FEAT_HCX and we happily merge the contents with the host's HCRX.
 
-Allocate and copy only 'count' bytes instead of 'count + 1' since the
-extra byte is unused.
+Yeah, that's not good, and definitely deserves a fix.
 
-No functional changes intended.
+> We should make a reasonable attempt at upholding the architecture before
+> allowing userspace to de-feature FEAT_HCX.
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/hwtracing/stm/core.c | 12 +++---------
- 1 file changed, 3 insertions(+), 9 deletions(-)
+My concern here is the transitive implications of FEAT_HCX being
+disabled: a quick look shows about 20 features that depend on
+FEAT_HCX, and we don't really track this. I can probably generate the
+dependency graph, but that's not going to be small. Or very useful.
 
-diff --git a/drivers/hwtracing/stm/core.c b/drivers/hwtracing/stm/core.c
-index cdba4e875b28..5834f796e86b 100644
---- a/drivers/hwtracing/stm/core.c
-+++ b/drivers/hwtracing/stm/core.c
-@@ -645,15 +645,9 @@ static ssize_t stm_char_write(struct file *file, const char __user *buf,
- 			return err;
- 	}
- 
--	kbuf = kmalloc(count + 1, GFP_KERNEL);
--	if (!kbuf)
--		return -ENOMEM;
--
--	err = copy_from_user(kbuf, buf, count);
--	if (err) {
--		kfree(kbuf);
--		return -EFAULT;
--	}
-+	kbuf = memdup_user(buf, count);
-+	if (IS_ERR(kbuf))
-+		return PTR_ERR(kbuf);
- 
- 	pm_runtime_get_sync(&stm->dev);
- 
+However, we should be able to let FEAT_HCX being disabled without
+problem if the downgrading is limited to non-EL2 VMs. Same thing for
+FEAT_VHE.
+
+What do you think?
+
+	M.
+
 -- 
-2.51.0
-
+Without deviation from the norm, progress is not possible.
 
