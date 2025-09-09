@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69B5CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AC3CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yoFiKuRzZrDROHsmA+h7aAVlc9TH6J1dHFGVXzIM80w=; b=Qybf+hLk2X8vXzHjbjOoQ5s8KJ
-	PgS0jiQwPDJYywyHHyOib5QcvjM5aYDA4pVt1PzYQ3eXveT2bnl4tomN4Yb9gxKFaTHvAFQ30WGz6
-	a6GJIwveZhL9CDbm1xEqIjUvvMudXxvBp8w+QiTux1J5LITC5fhk0Efndyey24g9xCvqMevSjW3s+
-	ggkdywg06eK2a8TjyWQz9gumsunKUFt2ROZvs87PT41LhffenOVRhXZXTcS2XHjoyX8ArCMz257Vd
-	NQ2tBcihA6+UgkKkXXwEoJkwjIMGMHWsWja7PEKL0rjRABBSbJl//0pK0UBlSC2ZtQlmbENT2zEVD
-	kbP8wcJg==;
+	bh=y3pmDaVJYIZQhrRHJmz8GcRjusYo6oodT5OSlpTQ0+I=; b=y7kaW18f0J+hN0ftEUT7R75fDO
+	s5AMWVbHJsR+7BcHoGs7dp9udcFxl/IM5uqFchFMmS4NiNOYgp9KcTn+5kd6UHA1zksOa+J61uDpy
+	JkMY3awSkMO5szl7YhIAXge26xCGbBsbMHiQC3alj8CyTw192ggM1hbXFMjGeZKf6JUkOxz7WHg2Q
+	1B5z8cadzhdfuOuedsCHbx6dvejj5gmLAgvYDBJHMdeg2xjySDskS89AWSBwSnfZZwfOZP51NoB1K
+	+MRbv2U/LN0CC+YmbVHpI9w3nNu9heG3FBdeeDN+xNRcZezMXJlug0f4OgGcACEVjsupHFr2W8+Bq
+	vY6TdxVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0O9-000000086yJ-3UwW;
-	Tue, 09 Sep 2025 15:36:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvta0-00000005Wmo-1ybp;
-	Tue, 09 Sep 2025 08:19:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=yoFiKuRzZrDROHsmA+h7aAVlc9TH6J1dHFGVXzIM80w=; b=cO/A5CmX7xCI2kSHijk8+0CYsA
-	xaWEXCFPhj/5SISo2XNm98Nktwe71XenUmwFJZVoT2U4e1WP4rw+6ume9lDtLga4QMn84l9jkuhN/
-	3sew70abqKMGBPmYk69AdPSQl6gIZs28Mx0TlMN5U2SP9Hu9Jw36sNToS59cQOTAYOr9cyz8QwYjp
-	pm59DrTJ3ta2LKuyUWJLBqbf6+Tpe16bbNaEuld/BE3VbeJ4Gpq2ID7YuZNFszbxkIlphPVNpnjYR
-	DNoLiwyKAkHJPHE/BulIdA8YqODN1EdoLFxct3h6O87cL5kWS9AqwIyfvCUcPplBoS+k/cWbrXQUJ
-	8bXUeBgw==;
+	id 1uw0OC-0000000871E-2XKj;
+	Tue, 09 Sep 2025 15:36:14 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvtZx-00000005FfR-07Nt;
-	Tue, 09 Sep 2025 08:19:55 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvtbh-00000005XRG-1NFH;
+	Tue, 09 Sep 2025 08:21:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757405988;
-	bh=ib10Ikrck1ITj/Qwrm0G604sOfeD+hWgdObHTi7gHMQ=;
+	s=mail; t=1757406099;
+	bh=7AQEL1juqiawy45ZAxf91ih8HpQwBQAic9ZRFlIoxl4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MonSk/cTG9nqqUyR1rBPxC8jCTrqOuYiG6IfFPameaebVNAh/5proMiievuNWlrUk
-	 Xi5YZwEkY/SLR1YGCc0T1NKM19mU903KCMHyc84mnLd5t9e0RnpoyZQDaX7qYlbhTz
-	 285TPvhc3PKZ3bjE1TiexqU3DJo5MY7Fhn00fsjSR9dbWWOX1Q9a62sDqhDsm9LL6K
-	 0JySlBCxAGZG/CUtKpPoy8yKULtqveaBvTIHR/e6BiiguS18IHAGsmOWUFDdzIg9My
-	 fOhQQYGX6/vVxjTpO02oygarybATQ2dFKX+Vu4C/zic5iwKEfIguHcHJC+M8yv6NeN
-	 vOTYy89QqNEOQ==
+	b=MaYx0+cmECTn5E5dKoUWkeKcNUYqqPiKDQfu24dcvZsPCZ1UcssOmUmT/QAZ1YRwV
+	 jrzScuI8kkfbjieeJzOQGslqETCfZyZCvSQ1caBYYpFnMoi8hmdG9s9FUorXSaUa5v
+	 Iun5swZ4xNJyyeXHjL65RwnF3ShNEKZmhgvmMlI7jd3iCKOcxGrAvHObgvbSm7+7OL
+	 2VuDMIURF0/2Sq9YPgJAs6G/QVZkJiAiHZY3l1hFifMpjrs51FjrA1Lk1HDvXnKkih
+	 7HhGsL40vhR7F+zlAfOyDBhh5iStpF4XLhSbeBXvx1IyUwjnAzuv7eX3JfO02GyI1g
+	 1oUERFUeyXsvQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F419C17E0FAD;
-	Tue,  9 Sep 2025 10:19:47 +0200 (CEST)
-Message-ID: <75015c6a-f054-4d13-b8fa-183c512fa52e@collabora.com>
-Date: Tue, 9 Sep 2025 10:19:47 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 53A7117E0100;
+	Tue,  9 Sep 2025 10:21:39 +0200 (CEST)
+Message-ID: <32d498e7-0774-48d5-80c4-35ede039692e@collabora.com>
+Date: Tue, 9 Sep 2025 10:21:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] dt-bindings: arm: mediatek: Add
- grinn,genio-700-sbc
-To: Mateusz Koza <mateusz.koza@grinn-global.com>, robh@kernel.org
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
- marcin.czarnecki@grinn-global.com, b.bilas@grinn-global.com, andrew@lunn.ch,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20250908130620.2309399-1-mateusz.koza@grinn-global.com>
- <20250908130620.2309399-3-mateusz.koza@grinn-global.com>
+Subject: Re: [PATCH] power: supply: Use devm_mutex_init()
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+ =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>,
+ Sebastian Reichel <sre@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <2280ca741ef36fe9ed26b8079b91a8e5dfd669fc.1757360105.git.christophe.jaillet@wanadoo.fr>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250908130620.2309399-3-mateusz.koza@grinn-global.com>
+In-Reply-To: <2280ca741ef36fe9ed26b8079b91a8e5dfd669fc.1757360105.git.christophe.jaillet@wanadoo.fr>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_091953_320272_6CAF2146 
-X-CRM114-Status: UNSURE (   6.29  )
+X-CRM114-CacheID: sfid-20250909_012141_628508_54EEB0B9 
+X-CRM114-Status: UNSURE (   7.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,16 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 08/09/25 15:05, Mateusz Koza ha scritto:
-> Add device tree bindings support for the Grinn GenioSBC-700, a
-> single-board computer based on the MediaTek Genio 700 SoC.
+Il 08/09/25 21:35, Christophe JAILLET ha scritto:
+> Use devm_mutex_init() instead of hand-writing it.
 > 
-> More details about the hardware:
-> - https://grinn-global.com/products/grinn-geniosom-700
-> - https://grinn-global.com/products/grinn-genioboard-edge-ai-sbc
+> This saves some LoC, improves readability and saves some space in the
+> generated .o file.
 > 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Mateusz Koza <mateusz.koza@grinn-global.com>
+> As an example:
+> Before:
+> ======
+>     text	   data	    bss	    dec	    hex	filename
+>    35803	   9352	    384	  45539	   b1e3	drivers/power/supply/rt9467-charger.o
+> 
+> After:
+> =====
+>     text	   data	    bss	    dec	    hex	filename
+>    34792	   9008	    384	  44184	   ac98	drivers/power/supply/rt9467-charger.o
+> 
+> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
