@@ -4,72 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6411ACAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9433CCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z7YV82egk+AK91tZCv3JQQ3f4WIL84FzupXhNG57C0U=; b=2FXACIypmDCCWuBtPs6FMuDgHU
-	u9n3iS6+pomY+dM2iFlLClrqmD0D6WD+ZdrW54wRzO4kTChSKky7HqxEpaHUO1bblEFL9INwRmhtq
-	DeXSbOFkPoNyNFx24GQbiNCfbLa2bpdgDZ2zlynOueWLub35JIpPmAR+02sMEKCt4df2mxUGrD9BU
-	xy8tV32tq9Cf8l1QKKAoRM3mBYs+b8ZsKxfv0c9ZPzhsl+WToBdbub+KN141gybELck56dFdg/Fsq
-	WtB+tuXA1V1W3sZgr2o327GqTE339toqXFsmjPy/plN2JTLdFvGoEuQkpQKO5+MD/g75bm/xrk87Z
-	6vlsJeGQ==;
+	bh=wfhz0BOzS4DwyWpd/7s681abtRGPt1kn7hjRNmHCLW0=; b=v7SqICTt63QIksk4n2SVYkHmc/
+	lExQSwOA2nqLMLd9Ua4ni4wDJwSLR25++M/6MAkgloULXJ1Va2ZAr5I6U2Xmbp9RiSJWBMtbs7HQ0
+	hqEZp/2FXCvGwEvE/lv00ZvhHoYqOuIiWzYyk7xhjn81YQ2IoO/2NOF2PQQTlZpu25RRJSw3znS+R
+	Szl/wvjLLgbH0t68ePnElH364I6qS0V0GxLyUwtYD3xksQhlHLjtrYV/seUYiGAAWquk4ZKEYDOra
+	H4kEKPAVAwLDQv4z3a8G31jn8TErbTWObXCU4BSt1Y4ugLgmmHeQwW+lyI2J+d2sBxgabpoTYxhqU
+	chFAqjnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsGU-00000004vRm-2tvG;
-	Tue, 09 Sep 2025 06:55:42 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uvsGc-00000004vcM-1xEq;
+	Tue, 09 Sep 2025 06:55:50 +0000
+Received: from smtps.ntu.edu.tw ([140.112.2.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvnSy-00000003XDr-1oMz
+	id 1uvnUx-00000003Xs1-0Zbh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 01:48:17 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cLRRj1mY3zRk4L;
-	Tue,  9 Sep 2025 09:43:29 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2AAE7180087;
-	Tue,  9 Sep 2025 09:48:06 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 9 Sep 2025 09:48:05 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 9 Sep 2025 09:48:04 +0800
-CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <maz@kernel.org>,
-	<oliver.upton@linux.dev>, <corbet@lwn.net>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
-	<shuah@kernel.org>, <jonathan.cameron@huawei.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <tangchengchang@huawei.com>,
-	<wangzhou1@hisilicon.com>
-Subject: Re: [PATCH v4 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
-To: Will Deacon <will@kernel.org>
-References: <20250715081356.12442-1-yangyicong@huawei.com>
- <20250715081356.12442-6-yangyicong@huawei.com>
- <aL7Fgx__LeLfbDyU@willie-the-truck>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <5d2ba565-715b-9b17-951b-f805dde5988b@huawei.com>
-Date: Tue, 9 Sep 2025 09:48:04 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Tue, 09 Sep 2025 01:50:20 +0000
+Received: from wmail1.cc.ntu.edu.tw (wmail1.cc.ntu.edu.tw [140.112.2.161])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtps.ntu.edu.tw (Postfix) with ESMTPSA id 0D6EC33E17;
+	Tue,  9 Sep 2025 09:50:07 +0800 (CST)
 MIME-Version: 1.0
-In-Reply-To: <aL7Fgx__LeLfbDyU@willie-the-truck>
-Content-Type: text/plain; charset="utf-8"
+Date: Tue, 09 Sep 2025 09:50:07 +0800
+From: b10902118 <b10902118@ntu.edu.tw>
+To: Will Deacon <will@kernel.org>
+Cc: oleg@redhat.com, linux@armlinux.org.uk, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] arm64: ptrace: fix hw_break_set() by setting addr
+ and ctrl together
+In-Reply-To: <aL7y00ggniiCTpZS@willie-the-truck>
+References: <20250824124317.390795-1-b10902118@ntu.edu.tw>
+ <20250827014113.5852-1-b10902118@ntu.edu.tw>
+ <20250827014113.5852-2-b10902118@ntu.edu.tw>
+ <aL7y00ggniiCTpZS@willie-the-truck>
+User-Agent: Roundcube Webmail/1.4
+Message-ID: <5bf32fc88c3982b4386edf29efb260d8@ntu.edu.tw>
+X-Sender: b10902118@ntu.edu.tw
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_184816_782134_F98BC3DD 
-X-CRM114-Status: GOOD (  28.62  )
+X-CRM114-CacheID: sfid-20250908_185019_326119_6EDBD29A 
+X-CRM114-Status: GOOD (  27.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,112 +69,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/8 20:01, Will Deacon wrote:
-> On Tue, Jul 15, 2025 at 04:13:54PM +0800, Yicong Yang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> Armv8.7 introduces single-copy atomic 64-byte loads and stores
->> instructions and its variants named under FEAT_{LS64, LS64_V}.
->> These features are identified by ID_AA64ISAR1_EL1.LS64 and the
->> use of such instructions in userspace (EL0) can be trapped. In
->> order to support the use of corresponding instructions in userspace:
->> - Make ID_AA64ISAR1_EL1.LS64 visbile to userspace
->> - Add identifying and enabling in the cpufeature list
->> - Expose these support of these features to userspace through HWCAP3
->>   and cpuinfo
->>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+On 2025-09-08 23:14, Will Deacon wrote:
+> On Wed, Aug 27, 2025 at 09:41:11AM +0800, Bill Tsui wrote:
+>> PTRACE_SETREGSET fails when setting a hardware breakpoint on a
+>> non-4-byte aligned address with a valid length to a 32-bit tracee. The
+>> length should be valid as long as the range started from the address
+>> is within one aligned 4 bytes.
+>> 
+>> The cause is that hw_break_set() modifies a breakpoint's addr
+>> first and then ctrl. This calls modify_user_hw_breakpoint() twice,
+>> although once registering both suffices. The first modification causes
+>> errors because new addr and old ctrl can be an invalid combination at
+>> hw_breakpoint_arch_parse(). For example, when a user sets a hardware
+>> breakpoint with addr=0x2 and ctrl.len=1, hw_breakpoint_arch_parse()
+>> will first see addr=0x2 and ctrl.len=4 (the default) and return
+>> -EINVAL. On the other hand, if a user sets the same value to
+>> a breakpoint whose ctrl.len has previously been set to 1 or 2,
+>> it succeeds.
+>> 
+>> The fix is to set addr and ctrl in one modify_user_hw_breakpoint(),
+>> effectively eliminating the discrepancy in validation.
+>> 
+>> Signed-off-by: Bill Tsui <b10902118@ntu.edu.tw>
 >> ---
->>  Documentation/arch/arm64/booting.rst    | 12 ++++++
->>  Documentation/arch/arm64/elf_hwcaps.rst |  6 +++
->>  arch/arm64/include/asm/hwcap.h          |  2 +
->>  arch/arm64/include/uapi/asm/hwcap.h     |  2 +
->>  arch/arm64/kernel/cpufeature.c          | 51 +++++++++++++++++++++++++
->>  arch/arm64/kernel/cpuinfo.c             |  2 +
->>  arch/arm64/tools/cpucaps                |  2 +
->>  7 files changed, 77 insertions(+)
->>
->> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
->> index ee9b790c0d72..837823d49212 100644
->> --- a/Documentation/arch/arm64/booting.rst
->> +++ b/Documentation/arch/arm64/booting.rst
->> @@ -483,6 +483,18 @@ Before jumping into the kernel, the following conditions must be met:
->>  
->>     - MDCR_EL3.TPM (bit 6) must be initialized to 0b0
->>  
->> +  For CPUs support for 64-byte loads and stores without status (FEAT_LS64):
+>>  arch/arm64/kernel/ptrace.c | 34 +++++++++++++++++++++++++++++-----
+>>  1 file changed, 29 insertions(+), 5 deletions(-)
 > 
-> nit: I think you're missing a word ("For CPUs with support ...").
+> Given that:
 > 
->> +
->> +  - If the kernel is entered at EL1 and EL2 is present:
->> +
->> +    - HCRX_EL2.EnALS (bit 1) must be initialised to 0b1.
->> +
->> +  For CPUs support for 64-byte loads and stores with status (FEAT_LS64_V):
+>   (a) This is a pretty niche interface (primarily/exclusively (?) used
+>       by GDB)
+>   (b) It's been like this for a long time
+>   (c) Userspace can work around the problem
 > 
-> Same here, but also FEAT_LS64_V only applies to stores so no need to
-> mention loads.
+> I'm not sure I see the benefit of trying to handle this differently
+> in the kernel.
 > 
->> +
->> +  - If the kernel is entered at EL1 and EL2 is present:
->> +
->> +    - HCRX_EL2.EnASR (bit 2) must be initialised to 0b1.
->> +
->>  The requirements described above for CPU mode, caches, MMUs, architected
->>  timers, coherency and system registers apply to all CPUs.  All CPUs must
->>  enter the kernel in the same exception level.  Where the values documented
->> diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
->> index 69d7afe56853..9e6db258ff48 100644
->> --- a/Documentation/arch/arm64/elf_hwcaps.rst
->> +++ b/Documentation/arch/arm64/elf_hwcaps.rst
->> @@ -435,6 +435,12 @@ HWCAP2_SME_SF8DP4
->>  HWCAP2_POE
->>      Functionality implied by ID_AA64MMFR3_EL1.S1POE == 0b0001.
->>  
->> +HWCAP3_LS64
->> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0001.
->> +
->> +HWCAP3_LS64_V
->> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0010.
+> If somebody _does_ have the time and energy for significant surgery
+> on this code, then the best thing to do would be to remove the
+> indirection through 'perf_events' altogether. I did make a start on
+> that once but it's a thankless job and I got preempted by other stuff.
 > 
-> Given that these instructions only work on IMPLEMENTATION DEFINED memory
-> locations and aren't guaranteed to generate an abort if used elsewhere,
-> how is userspace supposed to know what to do with them?
-> 
+> Will
 
-per ARM DDI0487 L.b section C3.2.6,
+(This is the plain text version. Sorry for sending html in the previous 
+mail)
 
-  When the instructions access a memory type that is not one of the following,
-  a data abort for unsupported Exclusive or atomic access is generated...
+Thanks for the reply. I did find this bug when helping test lldb.
 
-so...
+The primary problem is that this forbids hardware breakpoints for Thumb 
+at
+addresses only divisible by 2 (not 4). So half of the instructions 
+cannot have
+a hardware breakpoint on. This cannot be worked around.
 
-> As it stands, exposing the feature blindly feels like a bad idea to me.
-> Surely there needs to be a way for userspace to either probe or request
-> memory that supports the instructions? We should also make sure we
-> handle the abort properly if it occurs and presumably deliver a SIGBUS.
-> 
+The first patch should be accepted, at least. The arm64 case can be 
+completely
+fixed by simply merging modifications in one call, making the code 
+reasonable
+and correct.
 
-...on host accessing an unsupported memory region a SIGBUS will be delivered,
-selftests for the instruction added in PATCH 7/7 make use of this, comments
-added in ls64_sigill() explained there will be a SIGBUS recieved if accessing
-the normal memory.
+I often debug 32bit executables on arm64, for CTF challenges and my 
+hobby. I
+get extremely confused when some breakpoints just cannot be set. This is 
+also
+why I worked on lldb and finally traced to the kernel. As a student, I 
+am willing
+to take the task of moving ptrace out of 'perf_events' as long as 
+someone can
+review my patches.
 
-if in a VM the DABT will be taken by the guestOS (then handled in the same
-way like host, deliver a SIGBUS by the guestOS) or by the hypervisor depend
-on the hardware implementation. for the latter case PATCH 3/7 add the handling
-to inject the DABT back to the VM.
-
-as for the usage, since LS64 is intended to interact with the device, currently
-we only use it in userspace drviers, as mentioned in the coverletter:
-
-  A real scenario for this feature is that the userspace driver can make use of
-  this to implement direct WQE (workqueue entry) - a mechanism to fill WQE
-  directly into the hardware.
-
-the userspace driver will know exactly whether their devices support LS64 or not
-and request the target memory.
-
-thanks.
+Thanks
+Bill
 
