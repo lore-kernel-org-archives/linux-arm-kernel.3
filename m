@@ -4,134 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02427CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77EF9CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KfGNV1zTaVSq1hXkWZRdnyMtROKugBei619LdnrI2Jo=; b=PtcRX9oRAxHu1DUgwVQOLQIx4T
-	tSkE8GkPOXQaOOl/j29kiq+RWP74p7TPHHWOVBRnN6L6Zt68MTS4YVr3ZPvOrht5qbWAsoDg21EX4
-	EAwfvs7RW8BjP+GnMBQM2tGAr/1guYw59rOxchm2FtzB9aQKaeWowCjK6d632v3j1LSEnlZNWsS/B
-	h5IiYrQFuixyPS4pWuNoBG0dhiOdu4nCCuFRurIdarDiGQmSXKYQbi3CPqspfwqgJ/5zjfl0WpQmE
-	erQJgD1eI5i8VZ1LH0jWwXVlV2p8MZ35h0pOWOKcprdITF8lcr3f81iGqyvC947oWs03MsMzZFYaP
-	gguc/xsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nWetMrUNt21ovOSJ7w/e/6SZ7KelhnhHlCJJrx1T5yg=; b=fDNdiirmhcFSoVsOQ1UkdboHf0
+	HJPmAW34eGy9L9Yp6XplkJHXzl1yt62cMAEYPM0UytnV8dVCw3dZ7S/1HD15QOPNrutP9yDNMK+vd
+	+Eop8X99hX0LOFrdCa24+RwgCV06xVQ+sbAH1qR55C/nHSYFcVH4Mh9OlyHfOi4/W4fmZ8ZXcuDbo
+	O1CSmeXyxx3H2MxTnqEmCVURHGVcYybYocdM03sfSVKUR25QlZHRV5RnkAW5DzlQzMclmtv5ltX+N
+	BHVjI3giiihrHQB5UWLQwnS7GvmE1ba6VmtrVMIhNGqyIX9/Wzd6JacBY/ClmuUMfhMGcRZCd/Vkg
+	dxfweEOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw20Q-00000008v1M-3Fuz;
-	Tue, 09 Sep 2025 17:19:46 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uw20W-00000008v7k-07Gb;
+	Tue, 09 Sep 2025 17:19:52 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvyax-00000007T0D-3QXo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 13:41:17 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5899LR2g020094;
-	Tue, 9 Sep 2025 13:41:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KfGNV1zTaVSq1hXkWZRdnyMtROKugBei619LdnrI2Jo=; b=dMDLxSg660itUR78
-	aEBKGOZv2mAnfXvrrTNU2Lgmbvat2t50TtkR1OxOO4U+wualKN/IBRnyWVoJLAXH
-	NudhOBz46PCJBPKGZHPRdtM7UAQ9qrYAIyYyWTB7WzUjGSsAOt+v6ExQ70sLSgBG
-	uAEBoElhE9S3wZZsJq93zGJLpcCKCV30fPJY19CiKbOTyKOcq+jHF+/XurfedQak
-	cQy9/VwjhbQWzNHioCkWil2lcHjmyaHU/rVRx2thUYQhQmxm0FlovclIwdK34to6
-	hL3GYcvhDJrxCpgYZdxbv19eB+X27ToPlRJXfujFBClPC0iH3RBvEEetJ7sRqAQV
-	XmcODQ==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 491vc24d6w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 13:41:05 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 589Df4Hn026246
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 9 Sep 2025 13:41:04 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.24; Tue, 9 Sep 2025 06:40:18 -0700
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Tue, 9 Sep 2025 21:39:18 +0800
-Subject: [PATCH v5 09/10] arm64: dts: qcom: ipq5424: Add NSS clock
- controller node
+	id 1uvyfG-00000007Uhh-3ikN;
+	Tue, 09 Sep 2025 13:45:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757425543; x=1788961543;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=cuvp1jqzP0KmBIeFPlYIHdueAMSWUkXNMbTb2SDREqQ=;
+  b=UonzozE+plb8Cdd4HIY75ymdSUXVW4NlJt2uN5xOC/5YGjBCWFoFv/1f
+   lFmmP80YSMsI6Xz0FyRVcnepwxnu8TxjVjDfEXYwo8SR2Oc3BDs01hy0Z
+   Hk8Ugx4/vaRjvovXvV8PeUJbrtxqLvawUzMsOdHZI21B+Gu0YB4LUUm1b
+   xIc14e+4nxXzUjJsqmpCUSPlCi4J/PhSMdodeqRMtY3fOhnsVeRW53Pe4
+   Cgo+V0SeFJ4Mrl1PaKk1mpH7nguZZ6NGupXBeDZScJix8tDkp4kA8OIY1
+   3t3NcYqDhW8WIzNjucmsqHN3EGKURnrtpqBrgp3lpnSQawnYPbK4YxKU7
+   A==;
+X-CSE-ConnectionGUID: 1je0Mm8BQJyKXYsM0fzzmQ==
+X-CSE-MsgGUID: K8Dy0YV/ROafaNPd93OvHA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11548"; a="77320978"
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="77320978"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 06:45:40 -0700
+X-CSE-ConnectionGUID: YelEPzAPTVimIapPXZjDQA==
+X-CSE-MsgGUID: DSSZAarXTPmifkvXgS2MQw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="177436591"
+Received: from smile.fi.intel.com ([10.237.72.51])
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 06:45:35 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1uvyf5-00000001S9X-2kkM;
+	Tue, 09 Sep 2025 16:45:31 +0300
+Date: Tue, 9 Sep 2025 16:45:31 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 13/15] gpio: sodaville: use new generic GPIO chip API
+Message-ID: <aMAve1MbONmKVjjg@smile.fi.intel.com>
+References: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
+ <20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org>
+ <aMAP9hAWars0T83r@smile.fi.intel.com>
+ <CAMRc=MeLTGq8Qu2aT43tkt3vaYCSaJPJPLmaUQ1SAyD_OgVr_g@mail.gmail.com>
+ <aMAn4MM_Fs8q8qwj@smile.fi.intel.com>
+ <CAMRc=Mdr4oW2d7XZ90rRr_fKC7WToz72v=_kW-s8=Urd0g8k3g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250909-qcom_ipq5424_nsscc-v5-9-332c49a8512b@quicinc.com>
-References: <20250909-qcom_ipq5424_nsscc-v5-0-332c49a8512b@quicinc.com>
-In-Reply-To: <20250909-qcom_ipq5424_nsscc-v5-0-332c49a8512b@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        "Varadarajan
- Narayanan" <quic_varada@quicinc.com>,
-        Georgi Djakov <djakov@kernel.org>, "Rob
- Herring" <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        "Conor
- Dooley" <conor+dt@kernel.org>,
-        Anusha Rao <quic_anusha@quicinc.com>,
-        "Manikanta Mylavarapu" <quic_mmanikan@quicinc.com>,
-        Devi Priya
-	<quic_devipriy@quicinc.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        "Richard
- Cochran" <richardcochran@gmail.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
-        <quic_leiwei@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_suruchia@quicinc.com>, Luo Jie
-	<quic_luoj@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757425161; l=1949;
- i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=nGMJ7M1v2vqAMZ6tBiUApreO1m1/mHNpggu4tQCR91g=;
- b=p9JYQE958GkOkTflY6MgD/jFMkwBc+dIrdhFTrzy2zk11OIl5VYvXeSoyBTVv95xcfKnkCupZ
- egt+5Xsm7QCB8xSOm4qI4wbyPBmIAnA7MMkYlYu/l/DSmDbR6gAzHGx
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=FN4bx/os c=1 sm=1 tr=0 ts=68c02e71 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8
- a=COk6AnOGAAAA:8 a=pA3aE4n4XothnxmHxHYA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: Z6fMyNfFW15HdbvsMbTx9tLT6YaFpQXW
-X-Proofpoint-GUID: Z6fMyNfFW15HdbvsMbTx9tLT6YaFpQXW
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA4MDA5NCBTYWx0ZWRfX+lThwLEWWgTF
- w5k7n+0J8eFjUVuO404jUXEuYS9dnpf4ZCOcnd3+IsYLmmaxxjd4dH3vwAzKmekAmYWbucDkyCY
- SD/50lAJvhKHbLXobTo77ZVmlbx2mys27Uj4RNGih6bAW4+gQz+rfJZb0Z7jJPdI1JgUvQKM6FW
- jkxAm+ydJk/TxzfeCyw9kJeFVP8f8r76pDzpYFz28dCxhtWoWA+7irUDJ1nFFPFuzoKMCaqZdvd
- hgBTGXOQseD+a3q4+8YGHgHqxa5ThJvS7erCVBEFLJwMN0fd6z+UGN9AOVdtqisBaJZJo2NfpeA
- D/3uEMnNNHLcbtRK+zUp+xAJ1zEU/D8pD8LQU2GMvqxeQRHFCRmnadsWMIQbpEcpkLvPTg5n1iL
- hiC41GDS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-09_01,2025-09-08_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 clxscore=1015 phishscore=0 adultscore=0
- bulkscore=0 impostorscore=0 malwarescore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509080094
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Mdr4oW2d7XZ90rRr_fKC7WToz72v=_kW-s8=Urd0g8k3g@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_064115_999523_EE62BE5F 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250909_064542_941355_29B91281 
+X-CRM114-Status: GOOD (  29.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,68 +107,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NSS clock controller provides the clocks and resets to the networking
-hardware blocks on the IPQ5424, such as PPE (Packet Process Engine) and
-UNIPHY (PCS) blocks.
+On Tue, Sep 09, 2025 at 08:24:23AM -0500, Bartosz Golaszewski wrote:
+> On Tue, 9 Sep 2025 15:13:04 +0200, Andy Shevchenko
+> <andriy.shevchenko@intel.com> said:
+> > On Tue, Sep 09, 2025 at 01:35:04PM +0200, Bartosz Golaszewski wrote:
+> >> On Tue, Sep 9, 2025 at 1:31 PM Andy Shevchenko
+> >> <andriy.shevchenko@intel.com> wrote:
+> >> > On Tue, Sep 09, 2025 at 11:15:40AM +0200, Bartosz Golaszewski wrote:
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
----
- arch/arm64/boot/dts/qcom/ipq5424.dtsi | 32 +++++++++++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
+...
 
-diff --git a/arch/arm64/boot/dts/qcom/ipq5424.dtsi b/arch/arm64/boot/dts/qcom/ipq5424.dtsi
-index 67877fbbdf3a..ea7b3b6bc756 100644
---- a/arch/arm64/boot/dts/qcom/ipq5424.dtsi
-+++ b/arch/arm64/boot/dts/qcom/ipq5424.dtsi
-@@ -3,7 +3,7 @@
-  * IPQ5424 device tree source
-  *
-  * Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
-- * Copyright (c) 2022-2025 Qualcomm Innovation Center, Inc. All rights reserved.
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-  */
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-@@ -809,6 +809,36 @@ apss_clk: clock-controller@fa80000 {
- 			#interconnect-cells = <1>;
- 		};
- 
-+		clock-controller@39b00000 {
-+			compatible = "qcom,ipq5424-nsscc";
-+			reg = <0 0x39b00000 0 0x100000>;
-+			clocks = <&cmn_pll IPQ5424_XO_24MHZ_CLK>,
-+				 <&cmn_pll IPQ5424_NSS_300MHZ_CLK>,
-+				 <&cmn_pll IPQ5424_PPE_375MHZ_CLK>,
-+				 <&gcc GPLL0_OUT_AUX>,
-+				 <0>,
-+				 <0>,
-+				 <0>,
-+				 <0>,
-+				 <0>,
-+				 <0>,
-+				 <&gcc GCC_NSSCC_CLK>;
-+			clock-names = "xo",
-+				      "nss",
-+				      "ppe",
-+				      "gpll0_out",
-+				      "uniphy0_rx",
-+				      "uniphy0_tx",
-+				      "uniphy1_rx",
-+				      "uniphy1_tx",
-+				      "uniphy2_rx",
-+				      "uniphy2_tx",
-+				      "bus";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			#interconnect-cells = <1>;
-+		};
-+
- 		pcie3: pcie@40000000 {
- 			compatible = "qcom,pcie-ipq5424", "qcom,pcie-ipq9574";
- 			reg = <0x0 0x40000000 0x0 0xf1c>,
+> >> > > +     config = (typeof(config)){
+> >> >
+> >> > This looks unusual. Why can't properly formed compound literal be used as in
+> >> > many other places in the kernel?
+> >>
+> >> It is correct C
+> >
+> > If it compiles, it doesn't mean it's correct C, it might be non-standard.
+> > Have you checked with the standard (note, I read that part in the past,
+> > but I may forgot the details, so I don't know the answer to this)?
+> 
+> It's a GNU extension alright
+
+clang, I suppose, also okay with this?
+
+> but it's supported in the kernel as it evaluates
+> to a simple cast.
+
+There is no cast. And that's make a big difference to what the code tries to do.
+
+> >> and checkpatch doesn't raise any warnings.
+> >
+> > checkpatch is far from being useful in the questions like this.
+> > It false positively complains for for_each*() macros all over
+> > the kernel, for example.
+> >
+> >> It's the
+> >> same kind of argument as between kmalloc(sizeof(struct foo)) vs
+> >> kmalloc(sizeof(f)).
+> >
+> > Maybe, but it introduces a new style while all other cases use the other,
+> > _established_ style. So we have a precedent and the form the code is written
+> > in is against the de facto usage of the compound literals.
+> 
+> It may not be *very* common but it's hardly new style:
+
+I think your statement is incorrect see below why.
+
+> $ git grep -P "\(typeof\(.*\)\) ?\{" | wc
+>     108     529    7315
+
+Not correct. The correct output will be closer to
+
+$ git grep -l -P "\(typeof\(.*\)\) ?\{" | wc -l
+15
+
+And if you looked at the output carefully, you see the bug in the RE you used.
+
+So, even closer will be this one:
+
+$ git grep -l -P "=[[:space:]]+\(typeof\(.*\)\) ?\{" | wc -l
+7
+
+2 out of which are related to libeth, effectively makes this 6.
+
+No, this is completely non-standard and unusual thing in the kernel.
+
+> >> I guess it's personal taste but I like this version better.
+> >
+> > In kernel we also try to be consistent. This add inconsistency. Am I wrong?
+> >
+> >> > > +             .dev = &pdev->dev,
+> >> > > +             .sz = 4,
+> >> > > +             .dat = sd->gpio_pub_base + GPINR,
+> >> > > +             .set = sd->gpio_pub_base + GPOUTR,
+> >> > > +             .dirout = sd->gpio_pub_base + GPOER,
+> >> > > +     };
 
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
