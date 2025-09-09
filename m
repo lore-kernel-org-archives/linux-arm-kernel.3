@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 149B8CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A8FCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d35wP3Cgy69ResBPuaBSz/HcVF3uFe2H17r48V0f8EM=; b=UP/vcdy0cxJtZT3Y4+v+NMDgaU
-	n6/AIrE/bCMfuadrwpfcU223t9xgMw2KfuVQi7sSKUPzwCyQGmlUEllxkyuRjwy6iHHlIPqoJ4wOl
-	NtHHSb9PvzI5xS1f0pL+r1r4258prnrnl77UuYnm08EdKC2NzQl5z0y9BDNkb5liXpap3FJSHQgg0
-	WhzrdJCwuQxVYpFxyYGbqo+Atgq7buxh/uEvrfZZQaGkjuWcgQy2b6jIgsgcN1sFddo2rJTfKzz1U
-	Tw9RoHR3MyuyAUJcL0XznlM9x9/i3Twgo3XCrZwbh2keHuz4ytWAhjG9mstfwHqaJibyyx2niE/K5
-	WsZC35Zg==;
+	bh=vB94mPddW4cgqmg6+HeYmIAiKVTW0/CQoLSLEX8gs+I=; b=fP4C+Zv9Pg0Kc5rVd9C40XOOA7
+	r/SCjGxYLdLI6QI/1bdoJV9e5hA/gfXbpHDD8495R8HucxVJzR50RjDvAp7IH0iKglgaryfwH8fIA
+	SSxVjQRNe6KqZHAS3isa9kK7QIc8Fn/S7O1YNfBv8KybiCEOaaR05jDzHxNJqwAGKcoKlp2+1aMlZ
+	Y2prb0+/pBqDksIoedFT/xivzTkv/8QY90Xw5CmYc0Er9ckHPAvkesD0qmc3SBLVUBLzG425TG4BF
+	IL97i/AD2VSJIaODPinMeO8hMsRn2doa5QaXBDRcUda+ZZvOIyRK+fk37FAohmMNKNCktG6ltVyLk
+	wFxh/OZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw63l-0000000ARzf-36KN;
-	Tue, 09 Sep 2025 21:39:29 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1uw6BE-0000000AUIJ-1hJy;
+	Tue, 09 Sep 2025 21:47:12 +0000
+Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw63j-0000000ARyl-1TYx
+	id 1uw6BB-0000000AUH7-34BM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 21:39:28 +0000
-Received: from ehlo.thunderbird.net ([172.59.161.83])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 589LcmAf1745963
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Tue, 9 Sep 2025 14:38:49 -0700
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 589LcmAf1745963
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2025082201; t=1757453930;
-	bh=d35wP3Cgy69ResBPuaBSz/HcVF3uFe2H17r48V0f8EM=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=iLlu0zmirgiX0pTGzUb54KHRqrVLR14BLuI3IIHYMRvzodvhGUHYQJxvyBBAh2zMx
-	 rJBg+/ijGWNS/iiRIuOVMWtzyVDp3uwwlXjZaePALbSCZp3Wm1SYLf+o9+e0KkreG8
-	 60rBPVI4lfP9py1MvyVLbRZ1g3lqUK9nt7ZB6NARfDrOLqb0DXfiKPD/egwa7b1RAq
-	 pJ7ckPFsMlrho0F6vzsw7uXIktWTJ6vQddjyYxOLtu56BAN2NGZD8QxYpYTODUg9ld
-	 26t/cf2rSkp4iVMPrhAZ5a1JTSRZhKsilx9oNgR/W76XC/iyYNDjoLDkTj1H+wnX+K
-	 NncRWZvJVVp7Q==
-Date: Tue, 09 Sep 2025 14:38:42 -0700
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: Arnd Bergmann <arnd@arndb.de>, ksummit@lists.linux.dev
-CC: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
-        linux-mm@kvack.org, imx@lists.linux.dev,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Richard Weinberger <richard@nod.at>,
-        Lucas Stach <l.stach@pengutronix.de>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Ankur Arora <ankur.a.arora@oracle.com>,
-        David Hildenbrand <david@redhat.com>, Mike Rapoport <rppt@kernel.org>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Matthew Wilcox <willy@infradead.org>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Vlastimil Babka <vbabka@suse.cz>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>,
-        =?ISO-8859-1?Q?Heiko_St=FCbner?= <heiko@sntech.de>,
-        Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-        "Chester A. Unal" <chester.a.unal@arinc9.com>,
-        Sergio Paracuellos <sergio.paracuellos@gmail.com>,
-        Andreas Larsson <andreas@gaisler.com>
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-User-Agent: K-9 Mail for Android
-In-Reply-To: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
-Message-ID: <C85C32F4-BD58-460B-ACCF-F0569ED0941A@zytor.com>
+	Tue, 09 Sep 2025 21:47:11 +0000
+Received: from omf18.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay08.hostedemail.com (Postfix) with ESMTP id 8E31F140119;
+	Tue,  9 Sep 2025 21:47:06 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf18.hostedemail.com (Postfix) with ESMTPA id F1A102F;
+	Tue,  9 Sep 2025 21:47:02 +0000 (UTC)
+Date: Tue, 9 Sep 2025 17:47:50 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ aneesh.kumar@kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 06/24] tracing: Add events to trace remotes
+Message-ID: <20250909174750.72be9bbc@gandalf.local.home>
+In-Reply-To: <20250821081412.1008261-7-vdonnefort@google.com>
+References: <20250821081412.1008261-1-vdonnefort@google.com>
+	<20250821081412.1008261-7-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: 7ej5srhi7m6dgtzrcpzb7hsqh8cx9fhr
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: F1A102F
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+a22/GqU1qf8xhKUjNZ3RQSMe8o75J0/I=
+X-HE-Tag: 1757454422-816481
+X-HE-Meta: U2FsdGVkX1+MvwcffwkTYY4ptHTCjtVWAhsGAZBNw+vbcSDhGOmJ57KfO9RcRgJyDZ7EMrHLo//as4KF2ZC7464Edt85xLb32cnKLFN690CNFKswW4Bz3sjDMJN1RrqzpF7mk143fnM1ZtLJSfThUbqWXcvj3Zg1Lu9AxVbp41YNt6DG5haSE/V1tiaKAj/2e0X+WCTO9Lf0X6lRMxGO8TRxXK/mlnv8xXdxBXd8kCltiEIFf0LsNw5Ycq2HHG8zVEfoFYFr57k1wrlzWpuzmMY7SvwVs+bIvAvytdIqtaLvCHQR1r90l/Clh7yLvQbsvk1lSpG27MYvzlTzDWhENKoRw42PjCZq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_143927_391796_50010260 
-X-CRM114-Status: GOOD (  52.03  )
+X-CRM114-CacheID: sfid-20250909_144709_834064_9899D4C1 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,169 +75,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On September 9, 2025 2:23:37 PM PDT, Arnd Bergmann <arnd@arndb=2Ede> wrote:
->High memory is one of the least popular features of the Linux kernel=2E
->Added in 1999 for linux-2=2E3=2E16 to support large x86 machines, there
->are very few systems that still need it=2E I talked about about this
->recently at the Embedded Linux Conference on 32-bit systems [1][2][3]
->and there were a few older discussions before[4][5][6]=2E
->
->While removing a feature that is actively used is clearly a regression
->and not normally done, I expect removing highmem is going to happen
->at some point anyway when there are few enough users, but the question
->is when that time will be=2E
->
->I'm still collecting information about which of the remaining highmem
->users plan to keep updating their kernels and for what reason=2E Some
->users obviously are alarmed about potentially losing this ability,
->so I hope to get a broad consensus on a specific timeline for how long
->we plan to support highmem in the page cache and to give every user
->sufficient time to migrate to a well-tested alternative setup if that
->is possible, or stay on a highmem-enabled LTS kernel for as long
->as necessary=2E
->
->These are the assumptions I'm making, based on both what I have
->presented in my talk and feedback I have received so far, let me
->know if something is missing here:
->
->- Highmem in new kernels is almost exclusively an embedded Linux
->  topic=2E While there were a few late 32-bit desktop and laptop
->  systems that had more than 2GB of RAM, these were fairly short
->  lived and have long been unsupported by both the originally
->  shipping operating systems and most Linux distros=2E Notable
->  Examples include Pentium 4 "Northwood" desktops (sold 2003-2004),
->  Core Duo laptops (2006-2007), and Arm Chromebooks (rk3288,
->  Tegra k1, Exynos 5800, sold 2014-2017)=2E Some PowerPC G4 Macs
->  and Atom Netbooks could be upgraded to 2GB=2E
->  There are a small number of users, but they really love these
->  devices and want to keep them alive, especially since they
->  mark the peak of the respective 32-bit product lines=2E
->
->- Within the embedded market, highmem is mostly used on ARMv7
->  based SoCs, but a few others also need it and still get kernel
->  updates:
->  PowerPC 85xx, 86xx and QoriQ P1/P2/P3/P4 (produced 2003-2021)
->  were used in some long-lived embedded systems with 2GB of RAM
->  or more=2E Mediatek MT7621 (MIPS32r3, introduced 2014 but still
->  sold) needs highmem to reach the upper 64MB of the 512MB physical
->  memory=2E Ingenic JZ4780 (MIPS32, released 2012) was used in the
->  short-lived MIPS Creator CI20 with 1GB of RAM (256MB lowmem)
->  and probably othes=2E Sparc32/LEON seems to be limited to 192MB of
->  lowmem as a kernel design choice=2E Vortex86DX3 supports 2GB
->  DDR3 memory=2E
->  The kernel also supports highmem on ARMv4, ARMv5, ARMv6,
->  PPC4xx, PPC82xx, PPC83xx, ARC, CSKY, Microblaze and Xtensa,
->  as well as additional MIPS SoCs,  but so far I could not find
->  any indication of any such machine with more than 1GB that
->  keeps getting kernel updates=2E
->
->- The vast majority of new embedded ARMv7 machines have 1GB of
->  RAM or less, which on many SoCs is a physical limitation
->  a narrow DDR3 memory interface, as well as a cost tradeoff=2E
->  The 1GB case is interesting because that usually means having
->  only 768MB of lowmem plus 256MB of highmem, as well as 3GB
->  of virtual addressing=2E I expect that almost all applications
->  on these work just as well with CONFIG_VMSPLIT_3G_OPT, changing
->  the limit to 1GB of lowmem and 2816MB of user address space=2E
->  The same thing should work on x86 and powerpc (CONFIG_LOWMEM_SIZE)
->  but not on mips and sparc where the limit is not configurable=2E
->
->- A few Arm SoCs have sparse physical address ranges for
->  their RAM, e=2Eg=2E range per memory controllers like the Renesas
->  R-Car Gen 2 or Broadcom BCM4708=2E These currently require highmem
->  even on configurations with less than 1GB RAM, until we change
->  the way that sparsemem is handled to support rearranging the
->  linear map to fill all of lowmem=2E This still needs more work=2E
->
->- ARMv7 machines with 2GB remain in production, in particular
->  with the popular i=2EMX6Dual/Quad chip that has a 64-bit wide DDR3
->  interface and guaranteed manufacturer support until 2035=2E
->  This is the configuration I expect to see struggle the most=2E
->  Setting CONFIG_VMSPLIT_2G or CONFIG_VMSPLIT_2G_OPT should work
->  for most of the users but can break if an application runs out
->  of virtual address space, so this does require extensive testing,
->  and possibly user space changes=2E An example of possibly affected
->  userspace is Firefox, which needs more address space than other
->  applications but can perhaps be replaced with another embedded
->  browser=2E
-> =20
->- ARMv7 machines with 4GB and more exist and keep getting
->  kernel upgrades, but to my knowledge are not in production any
->  more=2E These are mainly 2010-2015 era chips based on rare
->  out-of-order cores like A15, A17 or PJ4 that were designed for
->  low-end servers, chromebooks and network equipment but replaced
->  with 64-bit chips shortly after=2E We had planned to bring a
->  CONFIG_VMSPLIT_4G_4G option to ARMv7VE to keep supporting the full
->  memory at a performance penalty, but currently have no plan to
->  finish this (volunteers welcome)=2E
->  There is still some hope to keep them working with a combination
->  of CONFIG_VMSPLIT_2G and a modified ZRAM that can use high
->  pages without CONFIG_HIGHMEM, but whether this works depends
->  a lot on the application=2E I expect most of these products to
->  stop getting kernel updates in the next few years due to aging
->  hardware and increasing cost for updating out-of-tree patches
->  on platforms that are not fully upstream=2E I do not remember any
->  such devices with official support beyond 2030=2E
->
->My proposal based on the above assumptions is to gradually phase
->out highmem over the next 2 years for mainline kernels, obviously
->both the individual items and the timeline are completely up for
->debate:
->
->1=2E mark CONFIG_HIGHMEM as 'depends on EXPERT', updating the
->   Kconfig description to point to the kernel summit discussion
->   any any decisions made here=2E
->
->2=2E Change the ARMv7 Kconfig defaults to CONFIG_VMSPLIT_3G_OPT
->   and HIGHMEM=3Dn, to make it more likely to find possible
->   regressions with that, without changing much for users=2E
->   Possibly do the same for x86 and powerpc=2E
->
->3=2E Start removing __GFP_HIGHMEM from in-kernel allocations
->   other than the page cache, in particular from individual
->   device drivers and filesystem metadata where there is
->   already little benefit=2E
->
->4=2E Remove HIGHMEM as an option from platforms that are thought
->   to no longer need it (arc, armv5, ppc4xx, ppc82xx, ppc83xx,
->   csky, microblaze, xtensa), mainly to validate the
->   assertion that these use only lowmem=2E
->
->5=2E Split highmem on zram out into a separate Kconfig option
->   that can be enabled without CONFIG_HIGHMEM or CONFIG_EXPERT
->
->6=2E Finish the "densemem" replacement for sparsemem, ideally
->   allowing both very sparse lowmem areas and a boot-time
->   vmsplit selection instead of the compile-time one=2E
->
->7=2E Finally, remove the highmem pagecache option, leaving only
->   zram and custom device drivers as a way to access high
->   pages=2E
->
->That last step should wait for an LTS kernel, ideally a version
->that the CIP project's SLTS kernel is planning to keep supporting
->for 10 years=2E The newest SLTS kernel was 6=2E12 last year, and the
->phb-crytal-ball suggests that the next one in December 2026 may
->be linux-7=2E4, the one after that in December 2028 (linux-7=2E15?)
->seems too far out to plan for but would be another option=2E
->
->Unless there is an easy consensus on this on the mailing list,
->I would like to lead a discussion session at the kernel summit
->in order to get closer to a decision=2E
->
->     Arnd=20
->
->[1] https://osseu2025=2Esched=2Ecom/event/25VmZ/32-bit-linux-support-now-=
-and-in-the-future-arnd-bergmann-linaro
->[2] https://www=2Eyoutube=2Ecom/watch?v=3DQiOMiyGCoTw
->[3] https://lwn=2Enet/Articles/1035727/
->[4] https://lore=2Ekernel=2Eorg/all/0047f565-ada4-491a-b157-f2d8dfde0ac0@=
-app=2Efastmail=2Ecom/
->[5] https://lwn=2Enet/Articles/813201/
->[6] https://lpc=2Eevents/event/16/contributions/1183/attachments/1062/202=
-8/highmem-api-2022-09-12=2Epdf
->
+On Thu, 21 Aug 2025 09:13:54 +0100
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-1 GB systems used highmem too, sadly=2E And 1 GB was the norm for a big ch=
-uck of the late 32-bit era=2E
+> @@ -265,16 +272,19 @@ static struct trace_remote_iterator *trace_remote_iter(struct trace_remote *remo
+>  static bool trace_remote_iter_next(struct trace_remote_iterator *iter)
+>  {
+>  	struct trace_buffer *trace_buffer = iter->remote->trace_buffer;
+> +	struct ring_buffer_event *rb_evt;
+>  	int cpu = iter->cpu;
+>  
+>  	if (cpu != RING_BUFFER_ALL_CPUS) {
+>  		if (ring_buffer_empty_cpu(trace_buffer, cpu))
+>  			return false;
+>  
+> -		if (!ring_buffer_peek(trace_buffer, cpu, &iter->ts, &iter->lost_events))
+> +		rb_evt = ring_buffer_peek(trace_buffer, cpu, &iter->ts, &iter->lost_events);
+> +		if (!rb_evt)
+>  			return false;
+>  
+>  		iter->evt_cpu = cpu;
+> +		iter->evt = (struct remote_event_hdr *)&rb_evt->array[1];
+
+Hmm, shouldn't this use ring_buffer_event_data(rb_evt) instead?
+
+If the events get big, then it would be array[2]. But the
+ring_buffer_event_data() hides that detail.
+
+>  		return true;
+>  	}
+>  
+> @@ -286,7 +296,8 @@ static bool trace_remote_iter_next(struct trace_remote_iterator *iter)
+>  		if (ring_buffer_empty_cpu(trace_buffer, cpu))
+>  			continue;
+>  
+> -		if (!ring_buffer_peek(trace_buffer, cpu, &ts, &lost_events))
+> +		rb_evt = ring_buffer_peek(trace_buffer, cpu, &ts, &lost_events);
+
+Ditto.
+
+> +		if (!rb_evt)
+>  			continue;
+>  
+>  		if (ts >= iter->ts)
+> @@ -294,14 +305,18 @@ static bool trace_remote_iter_next(struct trace_remote_iterator *iter)
+>  
+>  		iter->ts = ts;
+>  		iter->evt_cpu = cpu;
+> +		iter->evt = (struct remote_event_hdr *)&rb_evt->array[1];
+
+Ditto.
+
+-- Steve
+
+>  		iter->lost_events = lost_events;
+>  	}
+>  
+>  	return iter->ts != U64_MAX;
+>  }
+>  
+> +static struct remote_event *trace_remote_find_event(struct trace_remote *remote, unsigned short id);
+> +
+>  static int trace_remote_iter_print(struct trace_remote_iterator *iter)
+>  {
+> +	struct remote_event *evt;
+>  	unsigned long usecs_rem;
+>  	u64 ts = iter->ts;
+>  
 
