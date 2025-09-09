@@ -4,36 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BD1CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439F2CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oxsdJisdYxvrwSTLRc/r2LWJh6Kk/0BsdWdbKT0vwP4=; b=mqABtiDiJh/uuUgy0Kgc9tRCJT
-	AyEiW9Ouh4nLiTr+3CZ4kWUHIHYJtVSeyKQ4hiabUTh5TuTTcPQXDAOaZVufpSrC4gwgOACRsl5zX
-	S4lAttBu4SWWQis1zk25GLpJ9hLX41wwi1ZG8f1U0anYzipzQugKYDfCYMYNtNx2GQ+9e9gTrEYUy
-	p2IXTQ7gbpcuuorSesJ6EnqSwvhV5t0npTt6tuwy7alzOObiwLHhq+usqLmbIibjeKnidSvVrGHIj
-	6wBJVY7m2fAJyCLpB3C3UE+LUX5Vj+OQh7rFpnfbHMPfOJIfHsSa3csuJ7NoMxOB/Z/ES4EjZYDZG
-	/2uUKseQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R3dwPDl32+RZedfPUBrSLOu+mtb96Ij0hDnjWhRsoSA=; b=dF2OxHfjVswjjhXsIFClbr7cug
+	XuD9SUP+ACdawDBfX2QTsGMogJbiHxN3xKDW9RQkGXUuekJds6Sv8dliFHssuLYRhhd6QiFRm7lhg
+	IXpNx1N6KD64x8c79vRWBuakRAVMxvZs9P9Wk76oWe8XPyZL/JeOGho6hdhD4yGVhPy93600jt7oN
+	HhYnwpdjI9Qo3SCxRTm4sy/+fIMQvYSyu4cyB0VI3gr3qSLq0z2dHcDIvzFx+Hwv1qxQyzZIYd6ZU
+	3CxtaLL6KPKUzPKjdfzbY7QTLApvo3Mg5GbfQ/2OoSsFvzilbJvo8dc3fgQKoSqb1QjKcXgU4h9vd
+	KFAA44Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1wp-00000008pD8-3njp;
-	Tue, 09 Sep 2025 17:16:03 +0000
+	id 1uw1wq-00000008pFu-40Ra;
+	Tue, 09 Sep 2025 17:16:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvwgo-00000006nbm-2avt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 09 Sep 2025 11:39:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=R3dwPDl32+RZedfPUBrSLOu+mtb96Ij0hDnjWhRsoSA=; b=BOOM5yuFW1qAeWrg/pVMlJg2K/
+	tx5crPaAua/Uopc4JvwORH+1MwCr317wmOfvdmHn8QNQX30WrwL0BVRSH5N2jPrLEEQnISknBUck+
+	C/dHzEmoU4okNsoP3ParZUcPC5fzUNjv4OghXqTwLFTOFUPdCnKmBVpsYHHZSOk19svDnfIMnkc+J
+	4crLjkqqUK+h2EmdgyhBcD/U5jEZrdYiiObGukpSE2FQDUBTlBR7SL+4hcG/AzRXQoLPAZ2HbcGQi
+	MGpmXUXvoQZDrlq2Wqk9a8Izriv5/jJwyZdZpKIGTngvvQiS08PCkSr/GATOiKvidiGGOVAkJmF6J
+	uwnNuJrA==;
 Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwgi-00000006naZ-33AO
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvwgj-00000005K8Q-0iyo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 11:39:07 +0000
-X-CSE-ConnectionGUID: tjNF6jKfSvaScX9qEndaTg==
-X-CSE-MsgGUID: vGn9OjD3TcuZ2jYxLOtZLQ==
+	Tue, 09 Sep 2025 11:39:09 +0000
+X-CSE-ConnectionGUID: 5J2F5CjWQh+YoGlKPOAH3A==
+X-CSE-MsgGUID: YrNEyb6QT36IFFdU8D8ozw==
 Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
-  by relmlie6.idc.renesas.com with ESMTP; 09 Sep 2025 20:39:01 +0900
+  by relmlie6.idc.renesas.com with ESMTP; 09 Sep 2025 20:38:54 +0900
 Received: from ubuntu.adwin.renesas.com (unknown [10.24.0.1])
-	by relmlir5.idc.renesas.com (Postfix) with ESMTP id A3FFA401E4F5;
-	Tue,  9 Sep 2025 20:38:54 +0900 (JST)
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 0EB52401E4F5;
+	Tue,  9 Sep 2025 20:38:46 +0900 (JST)
 From: John Madieu <john.madieu.xa@bp.renesas.com>
 To: catalin.marinas@arm.com,
 	conor+dt@kernel.org,
@@ -57,17 +72,15 @@ Cc: biju.das.jz@bp.renesas.com,
 	linux-renesas-soc@vger.kernel.org,
 	rafael@kernel.org,
 	John Madieu <john.madieu.xa@bp.renesas.com>
-Subject: [PATCH v8 1/4] dt-bindings: thermal: r9a09g047-tsu: Document the TSU unit
-Date: Tue,  9 Sep 2025 13:38:36 +0200
-Message-ID: <20250909113840.122785-2-john.madieu.xa@bp.renesas.com>
+Subject: [PATCH v8 0/4] thermal: renesas: Add support for RZ/G3E
+Date: Tue,  9 Sep 2025 13:38:35 +0200
+Message-ID: <20250909113840.122785-1-john.madieu.xa@bp.renesas.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250909113840.122785-1-john.madieu.xa@bp.renesas.com>
-References: <20250909113840.122785-1-john.madieu.xa@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_043904_880680_A70BBC7A 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20250909_123905_542174_B8C5E05C 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,134 +95,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Renesas RZ/G3E SoC includes a Thermal Sensor Unit (TSU) block designed
-to measure the junction temperature. The device provides real-time
-temperature measurements for thermal management, utilizing a single
-dedicated channel (channel 1) for temperature sensing.
+This series adds support for the temperature sensor unit (TSU) found on the
+Renesas RZ/G3E SoC.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
----
+The series depends on this syscon patch [1] that has already been queued.
 
 Changes:
 
-v1 -> v2:
- * Fixes reg property specifier to get rid of yamlint warnings
- * Fixes IRQ name to reflect TSU expectations
+v8:
+ * Use of_parse_phandle_with_fixed_args() for trim values
+ * Update binding doc and collect Rb tag from Rob
+ * Use millidegree computation to for better precision
 
-v2 -> v3:
- * Removees useless 'renesas,tsu-operating-mode' property 
+v6 -> v7
+ * Update DTS trim priperty name and specifier, updading the documentation
+ accordingly
+ * Refactor main driver: remove spinlock usage, using polling timeout as computed
+ from datasheet. Also use polling for get_temp() while using IRQ for trip-point
+ cross detection, and finally add both runtime and sleep PM support.
+ * Add new patch to update sys #address-cells as trim specifier now requires an
+ offset from sys base
 
-v3 -> v4:
- * Fixes commit message
- * Fixes interrupt description
- * Removes trip point definition
+v5 -> v6
+ * Minor typo fix
+ * Constify regmap config in patch 1/5
 
-v5: no changes
-v6: no changes
-v7: Adds documentation for 'renesas,tsu-trim' and removes Rb tag from Krzysztof
-    due to this change
+v4 -> v5
+ * Remove useless curly braces on single line-protected scoped guards
 
-v8: Address Rob's comments (about node naming and line wrapping) and collect
-    Rb tag
+v3 -> v4
+ * Improve commit messages
 
- .../thermal/renesas,r9a09g047-tsu.yaml        | 87 +++++++++++++++++++
- 1 file changed, 87 insertions(+)
+v2 -> v3
+ * Remove useless 'renesas,tsu-operating-mode' property
+
+v1 -> v2
+ * Fix yaml warnings from dt-binding
+ * Update IRQ names to reflect TSU expectations
+
+Regards,
+
+[1] https://lore.kernel.org/linux-devicetree/20250818162859.9661-2-john.madieu.xa@bp.renesas.com/
+
+John Madieu (4):
+  dt-bindings: thermal: r9a09g047-tsu: Document the TSU unit
+  thermal: renesas: rzg3e: Add thermal driver for the Renesas RZ/G3E SoC
+  arm64: dts: renesas: r9a09g047: Add TSU node
+  arm64: defconfig: Enable the Renesas RZ/G3E thermal driver
+
+ .../thermal/renesas,r9a09g047-tsu.yaml        |  87 +++
+ MAINTAINERS                                   |   7 +
+ arch/arm64/boot/dts/renesas/r9a09g047.dtsi    |  48 ++
+ arch/arm64/configs/defconfig                  |   1 +
+ drivers/thermal/renesas/Kconfig               |   7 +
+ drivers/thermal/renesas/Makefile              |   1 +
+ drivers/thermal/renesas/rzg3e_thermal.c       | 564 ++++++++++++++++++
+ 7 files changed, 715 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
+ create mode 100644 drivers/thermal/renesas/rzg3e_thermal.c
 
-diff --git a/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml b/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
-new file mode 100644
-index 000000000000..8d3f3c24f0f2
---- /dev/null
-+++ b/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
-@@ -0,0 +1,87 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/thermal/renesas,r9a09g047-tsu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Renesas RZ/G3E Temperature Sensor Unit (TSU)
-+
-+maintainers:
-+  - John Madieu <john.madieu.xa@bp.renesas.com>
-+
-+description:
-+  The Temperature Sensor Unit (TSU) is an integrated thermal sensor that
-+  monitors the chip temperature on the Renesas RZ/G3E SoC. The TSU provides
-+  real-time temperature measurements for thermal management.
-+
-+properties:
-+  compatible:
-+    const: renesas,r9a09g047-tsu
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  interrupts:
-+    items:
-+      - description: Conversion complete interrupt signal (pulse)
-+      - description: Comparison result interrupt signal (level)
-+
-+  interrupt-names:
-+    items:
-+      - const: adi
-+      - const: adcmpi
-+
-+  "#thermal-sensor-cells":
-+    const: 0
-+
-+  renesas,tsu-trim:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to system controller
-+          - description: offset of trim registers
-+    description:
-+      Phandle and offset to the system controller containing the TSU
-+      calibration trim values. The offset points to the first trim register
-+      (OTPTSU1TRMVAL0), with the second trim register (OTPTSU1TRMVAL1) located
-+      at offset + 4.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - resets
-+  - power-domains
-+  - interrupts
-+  - interrupt-names
-+  - "#thermal-sensor-cells"
-+  - renesas,tsu-trim
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/renesas,r9a09g047-cpg.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    thermal-sensor@14002000 {
-+        compatible = "renesas,r9a09g047-tsu";
-+        reg = <0x14002000 0x1000>;
-+        clocks = <&cpg CPG_MOD 0x10a>;
-+        resets = <&cpg 0xf8>;
-+        power-domains = <&cpg>;
-+        interrupts = <GIC_SPI 250 IRQ_TYPE_EDGE_RISING>,
-+                     <GIC_SPI 251 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "adi", "adcmpi";
-+        #thermal-sensor-cells = <0>;
-+        renesas,tsu-trim = <&sys 0x330>;
-+    };
 -- 
 2.25.1
 
