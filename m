@@ -4,139 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D8D8CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:21:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 111B6CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PZxnElgXfWNXHVRkPVUlwCfE0YEzKBATAK/iNRyCHno=; b=FbxRyR/97N1HPBy8fMDw/t1+U3
-	LvE0bLTEnZv7RKWUG7rr7Nw6qWYfCkJzHI1+JyenBbRSvKBioJ2dtBBYG/CW8l3L2NcwLeJXqfEtl
-	IQZ6b/ZZ0g+kb70+8tLShnKTphenr7YRDfwEgU5cDuF0FBaXGeakJpjtNzX8UKHSGKh2skihGazum
-	6brWe55RUeql+/FO+FYs1VHXwz9H2Wjf5PePUCFVgvLBcQHtAMIrRxklTiPeHcEdvn7LXcKVaL5D1
-	b9I37bEn2xdWdI8VkN3/UDg29IiZHswvU/oJN4jlkxrt0ua6/4c/gXJDP25k0CtK1ziDab2JjXxHn
-	GHIUWYiQ==;
+	bh=OJMxqY9IeCYQY1IRecDR/My+5r7sHT7CqP05F1N1Ijg=; b=YnUqHtllF+TYlQI5qIXubbEXjs
+	YJngrE88QO6HrOVrFdf4Qomx6zl9ihVysw1TzdMuDgNP1HKF6QtowVGDysVwGKG/FXP8nWvAowGDU
+	nBaj1jYQDBYBNI1H8TazeN6MDse9/N9nuR3wdEn67j7LbmiH8WoxflVMepDLkaHwgIQOmLt0XGbsF
+	NIhqQG0RD3Tx9c21nEdRx03VouTmMNJbDDQprpcmtG7VDiH8mkA9KgGueNI9ompz73HqLZzJi99BG
+	AAnL/EocPFOLDGkjBkld9f7HMRjCnMszLFUYRJyuu5bBFCMI5o+m4QQp09jm7pRAR4YT/XdUCKR8G
+	2xsJD93g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw21n-00000008xTp-43VX;
-	Tue, 09 Sep 2025 17:21:12 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1uw21q-00000008xYd-2ahW;
+	Tue, 09 Sep 2025 17:21:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvzVS-00000007nRG-1WBX
+	id 1uvzXz-00000007o60-05q1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 14:39:39 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 589BBEbn028671;
-	Tue, 9 Sep 2025 14:38:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=PZxnEl
-	gXfWNXHVRkPVUlwCfE0YEzKBATAK/iNRyCHno=; b=eAw85XMTzWR9vGa1/hE9vj
-	mydHz5ZGmT77GHt0U64/1YAtQ+lSFTmIp9CIEXj9AqCB1xpfIW94Ks0mq2SdgDpJ
-	0FPArRwybEixPfZaOslsDAe44oIe3Tm1gRsGZY/RLa+8mT3lM30D87vp64U0OPcE
-	AyEhpKjxohjXf8zMTSl45uNLe+xdcC+WMRvNiK8F4OVX4+mUboi1o5W9xWOJyuG4
-	YBGbdgCpU8wPxsq98ebD9TZKO89s1xp8D5BcFUSvtxMjUPUOH9oIgZBJ+OTTT7hW
-	3ZKsxlOOkqxL4/35WGGIhaGdo6h3UOz5oPnEPsFraOl5KI9HlFyrZTNClQjrf38A
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490xycw9r8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 14:38:52 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 589EUjFv007959;
-	Tue, 9 Sep 2025 14:38:52 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490xycw9r3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 14:38:51 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 589AvumM017218;
-	Tue, 9 Sep 2025 14:38:50 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4911gmbdxs-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 14:38:50 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 589EcnS049545616
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 9 Sep 2025 14:38:49 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0279320043;
-	Tue,  9 Sep 2025 14:38:49 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2791F2004B;
-	Tue,  9 Sep 2025 14:38:48 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue,  9 Sep 2025 14:38:48 +0000 (GMT)
-Date: Tue, 9 Sep 2025 16:38:46 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
-        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org
-Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
-Message-ID: <b2e52967-7ca1-411e-9c66-8d3483624ca7-agordeev@linux.ibm.com>
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908073931.4159362-3-kevin.brodsky@arm.com>
- <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
- <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
- <e7acb889-1fe9-4db3-acf4-39f4960e8ccd@redhat.com>
- <2fecfae7-1140-4a23-a352-9fd339fcbae5-agordeev@linux.ibm.com>
- <e521b1f4-3f2b-48cd-9568-b9a4cf4c4830@redhat.com>
- <47ee1df7-1602-4200-af94-475f84ca8d80@arm.com>
+	Tue, 09 Sep 2025 14:42:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F20C601AC;
+	Tue,  9 Sep 2025 14:42:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40F32C4CEF4;
+	Tue,  9 Sep 2025 14:42:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757428933;
+	bh=sy3MVAHHpVBPpi9qQNA8uh94iv/9KGticKB2B5S88ec=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lCQL2ZnhtslW9yIQkfsmJg5+75EuysNXo3JTQ4SrgE1/+t3v8/6IPMz2mL7oWf6rN
+	 ub6dSGyAlU1XvFdylPw3uNCRbFnUCI73OxHBkok6B5jJ6boGar/3XTJYoVRwWv1Pf2
+	 W71AFuxaSdbRtE8a087jq8srbxCTVwd8Jzqzs5eJMrmCdx/uCqmC23WI6l+KC9JUjr
+	 8qbSO4M9fOHflSchEpJw3dcK1Hleffm9dRG8KWW4B5bA70t3slOZyKf1qZjOdlU6Wk
+	 KEPt1IJXiK32JX9QP5z/ca8ONKh5i1F/gMzwE4EcHnzZmFAwTGlZIPBgTh//oUckBz
+	 GvL3cKSxlZRFg==
+Date: Tue, 9 Sep 2025 15:42:07 +0100
+From: Will Deacon <will@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 10/28] KVM: arm64: iommu: Shadow host stage-2 page
+ table
+Message-ID: <aMA8vz0v0Vn-02QP@willie-the-truck>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-11-smostafa@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <47ee1df7-1602-4200-af94-475f84ca8d80@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: w3un9YJFAnj-nx4lP2drAL9l1yJOP1En
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDIzNSBTYWx0ZWRfX5AD3L9SkswSm
- yrVgoGtIISKP604rm8z2wlBI+9ePIXNFYQAYLSzjXIjHlXrJz/N5CyEoKiLBFH0S6cAaacNg8MI
- /uqSqt+AyIfCoA2W1PycTsyoA9dnPphhk2M6Dy7RNUKN5o43iFF9IXyIGVBQKdc5LYc5Tqn/OPM
- HPGZJ2R+BrI/nWN/OrWkeMYz3esjc3UK9kdBknkAwa1vw44DfXe2kcF7OMH8RK37Zmyzfk8ftAT
- Mah9tj2mXv8ZZFGcLXNuNYIctcCpzvNgMf9Y+RDBJM2AEQkCBcXflTuYScwL6Aa0Fdpz3OLg/9L
- oof/OuMSKGRkSalY70FlPW8UQK4wZ6ys9K9DbelwH72mhkNMfgbwQ1G8LikJGVg3ZsfCHBBKKvz
- o+6LVfHA
-X-Proofpoint-GUID: kEu557zaNP3aZma9JIWXWvvSIckTRd-u
-X-Authority-Analysis: v=2.4 cv=F59XdrhN c=1 sm=1 tr=0 ts=68c03bfc cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=8nJEP1OIZ-IA:10 a=yJojWOMRYYMA:10 a=0nQrape7h3WL6H1kZSkA:9
- a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-09_02,2025-09-08_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 suspectscore=0 phishscore=0 clxscore=1015
- impostorscore=0 bulkscore=0 adultscore=0 spamscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509060235
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_073938_403704_139AA9E3 
-X-CRM114-Status: GOOD (  49.47  )
+In-Reply-To: <20250819215156.2494305-11-smostafa@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,121 +75,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 03:49:46PM +0200, Kevin Brodsky wrote:
-> On 09/09/2025 13:54, David Hildenbrand wrote:
-> > On 09.09.25 13:45, Alexander Gordeev wrote:
-> >> On Tue, Sep 09, 2025 at 12:09:48PM +0200, David Hildenbrand wrote:
-> >>> On 09.09.25 11:40, Alexander Gordeev wrote:
-> >>>> On Tue, Sep 09, 2025 at 11:07:36AM +0200, David Hildenbrand wrote:
-> >>>>> On 08.09.25 09:39, Kevin Brodsky wrote:
-> >>>>>> arch_{enter,leave}_lazy_mmu_mode() currently have a stateless API
-> >>>>>> (taking and returning no value). This is proving problematic in
-> >>>>>> situations where leave() needs to restore some context back to its
-> >>>>>> original state (before enter() was called). In particular, this
-> >>>>>> makes it difficult to support the nesting of lazy_mmu sections -
-> >>>>>> leave() does not know whether the matching enter() call occurred
-> >>>>>> while lazy_mmu was already enabled, and whether to disable it or
-> >>>>>> not.
-> >>>>>>
-> >>>>>> This patch gives all architectures the chance to store local state
-> >>>>>> while inside a lazy_mmu section by making enter() return some value,
-> >>>>>> storing it in a local variable, and having leave() take that value.
-> >>>>>> That value is typed lazy_mmu_state_t - each architecture defining
-> >>>>>> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is free to define it as it sees fit.
-> >>>>>> For now we define it as int everywhere, which is sufficient to
-> >>>>>> support nesting.
-> >>>> ...
-> >>>>>> {
-> >>>>>> + lazy_mmu_state_t lazy_mmu_state;
-> >>>>>> ...
-> >>>>>> - arch_enter_lazy_mmu_mode();
-> >>>>>> + lazy_mmu_state = arch_enter_lazy_mmu_mode();
-> >>>>>> ...
-> >>>>>> - arch_leave_lazy_mmu_mode();
-> >>>>>> + arch_leave_lazy_mmu_mode(lazy_mmu_state);
-> >>>>>> ...
-> >>>>>> }
-> >>>>>>
-> >>>>>> * In a few cases (e.g. xen_flush_lazy_mmu()), a function knows that
-> >>>>>>      lazy_mmu is already enabled, and it temporarily disables it by
-> >>>>>>      calling leave() and then enter() again. Here we want to ensure
-> >>>>>>      that any operation between the leave() and enter() calls is
-> >>>>>>      completed immediately; for that reason we pass
-> >>>>>> LAZY_MMU_DEFAULT to
-> >>>>>>      leave() to fully disable lazy_mmu. enter() will then
-> >>>>>> re-enable it
-> >>>>>>      - this achieves the expected behaviour, whether nesting
-> >>>>>> occurred
-> >>>>>>      before that function was called or not.
-> >>>>>>
-> >>>>>> Note: it is difficult to provide a default definition of
-> >>>>>> lazy_mmu_state_t for architectures implementing lazy_mmu, because
-> >>>>>> that definition would need to be available in
-> >>>>>> arch/x86/include/asm/paravirt_types.h and adding a new generic
-> >>>>>>     #include there is very tricky due to the existing header soup.
-> >>>>>
-> >>>>> Yeah, I was wondering about exactly that.
-> >>>>>
-> >>>>> In particular because LAZY_MMU_DEFAULT etc resides somewehere
-> >>>>> compeltely
-> >>>>> different.
-> >>>>>
-> >>>>> Which raises the question: is using a new type really of any
-> >>>>> benefit here?
-> >>>>>
-> >>>>> Can't we just use an "enum lazy_mmu_state" and call it a day?
-> >>>>
-> >>>> I could envision something completely different for this type on s390,
-> >>>> e.g. a pointer to a per-cpu structure. So I would really ask to stick
-> >>>> with the current approach.
+On Tue, Aug 19, 2025 at 09:51:38PM +0000, Mostafa Saleh wrote:
+> Create a shadow page table for the IOMMU that shadows the
+> host CPU stage-2 into the IOMMUs to establish DMA isolation.
 > 
-> This is indeed the motivation - let every arch do whatever it sees fit.
-> lazy_mmu_state_t is basically an opaque type as far as generic code is
-> concerned, which also means that this API change is the first and last
-> one we need (famous last words, I know). 
+> An initial snapshot is created after the driver init, then
+> on every permission change a callback would be called for
+> the IOMMU driver to update the page table.
 > 
-> I mentioned in the cover letter that the pkeys-based page table
-> protection series [1] would have an immediate use for lazy_mmu_state_t.
-> In that proposal, any helper writing to pgtables needs to modify the
-> pkey register and then restore it. To reduce the overhead, lazy_mmu is
-> used to set the pkey register only once in enter(), and then restore it
-> in leave() [2]. This currently relies on storing the original pkey
-> register value in thread_struct, which is suboptimal and most
-> importantly doesn't work if lazy_mmu sections nest. With this series, we
-> could instead store the pkey register value in lazy_mmu_state_t
-> (enlarging it to 64 bits or more).
+> For some cases, an SMMUv3 may be able to share the same page
+> table used with the host CPU stage-2 directly.
+> However, this is too strict and requires changes to the core hypervisor
+> page table code, plus it would require the hypervisor to handle IOMMU
+> page faults. This can be added later as an optimization for SMMUV3.
 > 
-> I also considered going further and making lazy_mmu_state_t a pointer as
-> Alexander suggested - more complex to manage, but also a lot more flexible.
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/kvm/hyp/include/nvhe/iommu.h |  4 ++
+>  arch/arm64/kvm/hyp/nvhe/iommu/iommu.c   | 83 ++++++++++++++++++++++++-
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c   |  5 ++
+>  3 files changed, 90 insertions(+), 2 deletions(-)
 > 
-> >>> Would that integrate well with LAZY_MMU_DEFAULT etc?
-> >>
-> >> Hmm... I though the idea is to use LAZY_MMU_* by architectures that
-> >> want to use it - at least that is how I read the description above.
-> >>
-> >> It is only kasan_populate|depopulate_vmalloc_pte() in generic code
-> >> that do not follow this pattern, and it looks as a problem to me.
-> 
-> This discussion also made me realise that this is problematic, as the
-> LAZY_MMU_{DEFAULT,NESTED} macros were meant only for architectures'
-> convenience, not for generic code (where lazy_mmu_state_t should ideally
-> be an opaque type as mentioned above). It almost feels like the kasan
-> case deserves a different API, because this is not how enter() and
-> leave() are meant to be used. This would mean quite a bit of churn
-> though, so maybe just introduce another arch-defined value to pass to
-> leave() for such a situation - for instance,
-> arch_leave_lazy_mmu_mode(LAZY_MMU_FLUSH)?
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
+> index 1ac70cc28a9e..219363045b1c 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/iommu.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
+> @@ -3,11 +3,15 @@
+>  #define __ARM64_KVM_NVHE_IOMMU_H__
+>  
+>  #include <asm/kvm_host.h>
+> +#include <asm/kvm_pgtable.h>
+>  
+>  struct kvm_iommu_ops {
+>  	int (*init)(void);
+> +	void (*host_stage2_idmap)(phys_addr_t start, phys_addr_t end, int prot);
+>  };
+>  
+>  int kvm_iommu_init(void);
+>  
+> +void kvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
+> +				 enum kvm_pgtable_prot prot);
+>  #endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
+> diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+> index a01c036c55be..f7d1c8feb358 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+> @@ -4,15 +4,94 @@
+>   *
+>   * Copyright (C) 2022 Linaro Ltd.
+>   */
+> +#include <linux/iommu.h>
+> +
+>  #include <nvhe/iommu.h>
+> +#include <nvhe/mem_protect.h>
+> +#include <nvhe/spinlock.h>
+>  
+>  /* Only one set of ops supported */
+>  struct kvm_iommu_ops *kvm_iommu_ops;
+>  
+> +/* Protected by host_mmu.lock */
+> +static bool kvm_idmap_initialized;
+> +
+> +static inline int pkvm_to_iommu_prot(enum kvm_pgtable_prot prot)
+> +{
+> +	int iommu_prot = 0;
+> +
+> +	if (prot & KVM_PGTABLE_PROT_R)
+> +		iommu_prot |= IOMMU_READ;
+> +	if (prot & KVM_PGTABLE_PROT_W)
+> +		iommu_prot |= IOMMU_WRITE;
+> +	if (prot == PKVM_HOST_MMIO_PROT)
+> +		iommu_prot |= IOMMU_MMIO;
 
-What about to adjust the semantics of apply_to_page_range() instead?
+This looks a little odd to me.
 
-It currently assumes any caller is fine with apply_to_pte_range() to
-enter the lazy mode. By contrast, kasan_(de)populate_vmalloc_pte() are
-not fine at all and must leave the lazy mode. That literally suggests
-the original assumption is incorrect.
+On the CPU side, the only different between PKVM_HOST_MEM_PROT and
+PKVM_HOST_MMIO_PROT is that the former has execute permission. Both are
+mapped as cacheable at stage-2 because it's the job of the host to set
+the more restrictive memory type at stage-1.
 
-We could change int apply_to_pte_range(..., bool create, ...) to e.g.
-apply_to_pte_range(..., unsigned int flags, ...) and introduce a flag
-that simply skips entering the lazy mmu mode.
+Carrying that over to the SMMU would suggest that we don't care about
+IOMMU_MMIO at stage-2 at all, so why do we need to set it here?
 
-Thanks!
+> +	/* We don't understand that, might be dangerous. */
+> +	WARN_ON(prot & ~PKVM_HOST_MEM_PROT);
+> +	return iommu_prot;
+> +}
+> +
+> +static int __snapshot_host_stage2(const struct kvm_pgtable_visit_ctx *ctx,
+> +				  enum kvm_pgtable_walk_flags visit)
+> +{
+> +	u64 start = ctx->addr;
+> +	kvm_pte_t pte = *ctx->ptep;
+> +	u32 level = ctx->level;
+> +	u64 end = start + kvm_granule_size(level);
+> +	int prot =  IOMMU_READ | IOMMU_WRITE;
+> +
+> +	/* Keep unmapped. */
+> +	if (pte && !kvm_pte_valid(pte))
+> +		return 0;
+> +
+> +	if (kvm_pte_valid(pte))
+> +		prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte));
+> +	else if (!addr_is_memory(start))
+> +		prot |= IOMMU_MMIO;
+
+Why do we need to map MMIO regions pro-actively here? I'd have thought
+we could just do:
+
+	if (!kvm_pte_valid(pte))
+		return 0;
+
+	prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte);
+	kvm_iommu_ops->host_stage2_idmap(start, end, prot);
+	return 0;
+
+but I think that IOMMU_MMIO is throwing me again...
+
+Will
 
