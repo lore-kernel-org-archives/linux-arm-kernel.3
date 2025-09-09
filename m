@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE044CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BEE7CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EVLj0bANMxYtosO9hq5/TMwAsIqDs60jYjPA2Xsu5JA=; b=mbEeLQYt4A2Ds86p7rSWY7wL4a
-	a8R1dqTWa8NPu+tE3wXPqwWR3Qhk+sSo5Ffi6qXsstoI89SuvPdbFsg84HMcBn8h9a6v8hCCUYpTa
-	m2nf3LMwMISkAYh3MV41qMRx5SqlVqMJmbsALs88y9YYoHWu3Lk99McvC5WVdjbzZ7N09yB6j/fWS
-	0fN7Cp8/wX4ajft9lnECmOgAgmw21Yr4/kR+5jfRk4YaU1hmtp72PfRNpbpHqZHtKSuG/McwLb2ka
-	cnyo9ErK3xtSkANDQj4TjZ+AgezeiZb86cCu8V4badPFEV2BtHtG03cc3oriMxi1RnoiX6eKrjg23
-	O+jEXIog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=606ZEhsEIpV3HLtv66kQeZpLS/fqhfv1YzwlY7HKwHQ=; b=VSvXURexGvh8NEF1Px2Bz7Wt6r
+	M7TYku/Oi5n5q1ZMjCnXurMOvs3UJiPYph6q0y78W5GwBKqbrTSg4bWkGgJHR4iOhDqJ53+xGkWKc
+	X9pLIZRi6uiZD5Tg9KB+F6v4pD6a19bkV2C8wu6gjfyAB79gTf0Ktwb+fzP5QrVyOCe1IJBGLEwmD
+	IcfWQ4/hgTcgvOdS+HHbWCB2DiPmIqUx703GNAi8M6+KGswVFsKql4jIwAk+xzItCwt+oVa6b6MKr
+	qwe4YTtCemGp3Ghy1OSWqxSWSYIhmoeHoxge70/TpE0SRZ1Vs+2faTX6ub1cKdyLQ4p9C+Kf+KxBK
+	rjj2iSbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1ys-00000008sSw-0Szp;
-	Tue, 09 Sep 2025 17:18:10 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1uw1yx-00000008sdD-3MZ9;
+	Tue, 09 Sep 2025 17:18:15 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvy8G-00000007IK5-1F0K
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 13:11:38 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4cLkds31l0z1R96G;
-	Tue,  9 Sep 2025 21:08:17 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 948CB14022E;
-	Tue,  9 Sep 2025 21:11:19 +0800 (CST)
-Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 9 Sep 2025 21:11:19 +0800
-Received: from [10.67.120.218] (10.67.120.218) by
- kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 9 Sep 2025 21:11:18 +0800
-Subject: Re: [PATCH v3 0/3] Coresight TMC-ETR some bugfixes and cleanups
-To: <suzuki.poulose@arm.com>, <james.clark@arm.com>,
-	<anshuman.khandual@arm.com>, <leo.yan@arm.com>
-References: <20250818080600.418425-1-hejunhao3@huawei.com>
-CC: Junhao He <hejunhao3@huawei.com>, <coresight@lists.linaro.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
-	<yangyicong@huawei.com>, <prime.zeng@hisilicon.com>
-From: hejunhao <hejunhao3@h-partners.com>
-Message-ID: <80b5a705-19bc-452c-dd46-911deb60cdbd@h-partners.com>
-Date: Tue, 9 Sep 2025 21:11:18 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+	id 1uvy9u-00000007IhW-1BMk;
+	Tue, 09 Sep 2025 13:13:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757423598; x=1788959598;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=L6CwOVwYJN4Y/x7PmC4SNNIsn1PcLQu+MvjuP9uomWU=;
+  b=Z0TmpKDOWbawgXSfCmjAUFZLSBZ7l2PexLCjA2MLvHm4mUbnlrWFAJHw
+   dEcKkVK3rWv9pwPt89Rf8CzKXFiV5+Z/T1hIOPYlzyn+S8k31G32T9x5Q
+   AyA8YtrmeDeuSXIMUKAVX0hKRuFuKVABsQT3np7LzZv2ZbQFYNGePGeJe
+   I7Zac8JA0wDMF/UEdeiwoTDqfMl5V7tu+HvFkWkGJRoWDfojT4MnwYjtC
+   TCXm6sKdtu6hMNAHIxiaFCduE3UzzDUf2QB0FTmuac0W0Pm45NQeTUVIy
+   JldNusRbmw4oPazgP5u5XzmIP8FXYbF6hefPvUfYPhy1L7urhnzPQ7UOL
+   A==;
+X-CSE-ConnectionGUID: 2BNCrMKFStu/Ten28RN6/A==
+X-CSE-MsgGUID: i/WPkKfEQ0CwkdVItr+Yrg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="82295498"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="82295498"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 06:13:13 -0700
+X-CSE-ConnectionGUID: uvql51LsTAqr3Q78sqHnqg==
+X-CSE-MsgGUID: bZMIDd5nSnSWd1c35O6zLA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="210237526"
+Received: from smile.fi.intel.com ([10.237.72.51])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 06:13:08 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1uvy9g-00000001Rlg-2b48;
+	Tue, 09 Sep 2025 16:13:04 +0300
+Date: Tue, 9 Sep 2025 16:13:04 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 13/15] gpio: sodaville: use new generic GPIO chip API
+Message-ID: <aMAn4MM_Fs8q8qwj@smile.fi.intel.com>
+References: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
+ <20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org>
+ <aMAP9hAWars0T83r@smile.fi.intel.com>
+ <CAMRc=MeLTGq8Qu2aT43tkt3vaYCSaJPJPLmaUQ1SAyD_OgVr_g@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20250818080600.418425-1-hejunhao3@huawei.com>
-Content-Type: text/plain; charset="windows-1252"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.218]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemn500004.china.huawei.com (7.202.194.145)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=MeLTGq8Qu2aT43tkt3vaYCSaJPJPLmaUQ1SAyD_OgVr_g@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_061136_524768_3C111E3B 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250909_061318_392355_25ED6F1C 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +105,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-a gentle ping...
+On Tue, Sep 09, 2025 at 01:35:04PM +0200, Bartosz Golaszewski wrote:
+> On Tue, Sep 9, 2025 at 1:31 PM Andy Shevchenko
+> <andriy.shevchenko@intel.com> wrote:
+> > On Tue, Sep 09, 2025 at 11:15:40AM +0200, Bartosz Golaszewski wrote:
 
+...
 
-On 2025/8/18 16:05, Junhao He wrote:
-> This patchset builds upon Yicong's previous patches [1].
->
-> Introducing fix two race issues found by using TMC-ETR and CATU, Two
-> cleanups found when debugging the issues.
->
-> [1] https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-1-yangyicong@huawei.com/
->
-> ---
-> Changes in v3:
->   - Patches 1: Additional comment for tmc_drvdata::etr_mode. Update
->   comment for tmc_drvdata::reading with Jonathan's Tag.
->   - Patches 2: Replace scoped_guard with guard with Jonathan's Tag.
->   - Patches 2: Fix spinlock to raw_spinlock, and refactor this code based
->   on Leo's suggested solution.
->   - Patches 3: change the size's type to ssize_t and use max_t to simplify
->   the code with Leo's Tag.
-> Link: https://lore.kernel.org/linux-arm-kernel/20250620075412.952934-1-hejunhao3@huawei.com/
->
-> Changes in v2:
-> - Updated the commit of patch2.
-> - Rebase to v6.16-rc1
->
-> Junhao He (1):
->    coresight: tmc: refactor the tmc-etr mode setting to avoid race
->      conditions
->
-> Yicong Yang (2):
->    coresight: tmc: Add missing doc including reading and etr_mode of
->      struct tmc_drvdata
->    coresight: tmc: Decouple the perf buffer allocation from sysfs mode
->
->   .../hwtracing/coresight/coresight-tmc-etr.c   | 110 ++++++++----------
->   drivers/hwtracing/coresight/coresight-tmc.h   |   2 +
->   2 files changed, 53 insertions(+), 59 deletions(-)
->
+> > > +     config = (typeof(config)){
+> >
+> > This looks unusual. Why can't properly formed compound literal be used as in
+> > many other places in the kernel?
+> 
+> It is correct C
+
+If it compiles, it doesn't mean it's correct C, it might be non-standard.
+Have you checked with the standard (note, I read that part in the past,
+but I may forgot the details, so I don't know the answer to this)?
+
+> and checkpatch doesn't raise any warnings.
+
+checkpatch is far from being useful in the questions like this.
+It false positively complains for for_each*() macros all over
+the kernel, for example.
+
+> It's the
+> same kind of argument as between kmalloc(sizeof(struct foo)) vs
+> kmalloc(sizeof(f)).
+
+Maybe, but it introduces a new style while all other cases use the other,
+_established_ style. So we have a precedent and the form the code is written
+in is against the de facto usage of the compound literals.
+
+> I guess it's personal taste but I like this version better.
+
+In kernel we also try to be consistent. This add inconsistency. Am I wrong?
+
+> > > +             .dev = &pdev->dev,
+> > > +             .sz = 4,
+> > > +             .dat = sd->gpio_pub_base + GPINR,
+> > > +             .set = sd->gpio_pub_base + GPOUTR,
+> > > +             .dirout = sd->gpio_pub_base + GPOER,
+> > > +     };
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
