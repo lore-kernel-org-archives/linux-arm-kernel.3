@@ -4,157 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3404CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F039CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l9Z5uObkfX17ytwtS/hkOYbgTcwQucmA5+CIhqYDVSI=; b=mYrgzD9ZeDwBKvpzuLoVaqYL/l
-	L5jERcSIGTHpOjFtKK2qK0VJmV1wEDic+xGAkP2EQXHyo304WYgsTjBIPHVdTWcdT0A4Vf5Mp1qYK
-	8ZEfKET9fIZTg1qhyntIQ5YwvWKXuaf0RFCggGjibeh6EjCqcOG4PJgHoEXn/GcjI0hrLiF7sUTuQ
-	CkYnQxCCjQnIMUrVBytBICfCNMrFlr5E3mE2I+GB1eSaEs9dsaYiov/Tp1wlVv+huTtOGmZ0uSKqh
-	VvRxBHmEKpxCPuFyIOxofCfzuDhJ+9rrePcHeCVtIfAGE/rBTX8TIMl9S+I/4OZYwIb4aWX0MxnZE
-	5pVLS+Zw==;
+	bh=HhszSRQXIU5hyXmbHS1r8ihhw943QEplSsfQYmIy1lw=; b=1La+oIasw0QZVaO/svsdIPukvg
+	Zm9CDSoTIdUdU64ApPGgJetiYR3AaOOYkTUOFXy92pJAaiRH6sATu2+MoS2ngB3h4wSfDSIxzab2+
+	BO74e9p+Qp/n5BjLtRJQvKDWNPOJSfJiebxqKHLp9T8kRaoA92lRzu+84HwOnvbtPQalhuHwdyMOa
+	IO6x3UQEpshgFVzVVSGd6wSzA0D5fwFwuNwGbczzffaSZ088QHKGNO+h3V6pvWaJwaTnLA10uYusa
+	Mfr2wuksEYmhWli+/9KMY44QfvQbUHuxq20Sp6upWMBBzgL6iwtL3VKufYuW8FtOU5upkFsBllsAE
+	IS6J/yNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw22q-00000008z8O-15K6;
-	Tue, 09 Sep 2025 17:22:16 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uw230-00000008zLf-13KA;
+	Tue, 09 Sep 2025 17:22:26 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvzi2-00000007sRf-3X0t
+	id 1uw04l-0000000801X-0iGG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 14:52:40 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5899LQlg009065
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 9 Sep 2025 14:52:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	l9Z5uObkfX17ytwtS/hkOYbgTcwQucmA5+CIhqYDVSI=; b=SZw9Owat7M+hPDde
-	VLW9jWV25LxsHJnfoY0WWEIgpl/+7gBglGj6T5phhPYTcfVZwEPc/IiBBzNeVnx8
-	csnr5Bb18zMPGvmsnGRvV1vnFb49dzTsm04WcUvDxnDmHwoUB8OEdWLNqL19hvtf
-	6MXOzwVHtnlyniNHCJWc6gNHXlnYtF1gbMXb8IsaZ2J4lwHDMdti12ekoSkw2DJI
-	gVF82yZFmarm4vR5Y6iHgbikS3sNa17WPnLnsk8B3odF09EDzEjWXjfHNxNrQnSn
-	O6X5x6KJOV/PIJHC80pZOfwoe6EFvufRqQktUI1DRaFDHmmqsFkqukgYLQ83ocib
-	Ab2elA==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 491qhdwcgj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 14:52:38 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-71fe8dd89c6so133514726d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 07:52:38 -0700 (PDT)
+	Tue, 09 Sep 2025 15:16:08 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b0415e03e25so773698266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 08:16:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757430965; x=1758035765; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HhszSRQXIU5hyXmbHS1r8ihhw943QEplSsfQYmIy1lw=;
+        b=dTXkonhGBey2WoNS6BmzvpABED+KulAoytTDZ0R959mQiS+sBkb2n7PbcGSn+vnrkf
+         Ybjs9WuN1DYrcn7wfReoB+r+UMm0A3LA+bQddydTrcgipWfRKzrI7e5rcG8gP5RSQTq5
+         ZX9afgXumBVeZbxZjZ6MoQmfCqwBUJYUCNoGnsZhDdqUa0ve58AyH8Myjm/wS/HJcKUl
+         WE2sUXs4e2kmLfvasBgTu4urFgb83oX9snbqwa7uKCYPfqRFWKurOwj6vhZyEYEi8M9V
+         Vr0+EuqYWjYX8zo9RSBmFwUkxL3N8hoyjaiXe/Pc2/1JB37lKLoH7UYStxDVFQV9ImG5
+         TofQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757429557; x=1758034357;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1757430965; x=1758035765;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=l9Z5uObkfX17ytwtS/hkOYbgTcwQucmA5+CIhqYDVSI=;
-        b=n+fT5hZwXD2ntxaIY83OwEKecVS51eCXigT6Uij1BdyX5u8syj/PgvtrmIq/gWojxm
-         oeMKUHFmB5jhB+cClAANqLtVc9m+l7R3+2otyZi+3YqZn6SmsBZOpWvZ59yBcwnpFjNk
-         GWan5bplr/0SAreWuwNUZqvU1C73XByesbt08peCnCbCfnN8099u3f3dTX+RKPUvdYxH
-         s7zjzj4x+zukzXkZqI62iP4oyCN6u0xqD6jWsKd1f9jgXlZPu+AJGjbyWL9IZUqG9TvV
-         +o1Hgq6mPHyCLSdyiC4b1Eh5YlQaBvrZcm9JAwtee6OOsYvbMtj7vrTkjOvX/XxgciAM
-         ZcMg==
-X-Forwarded-Encrypted: i=1; AJvYcCVgaXFXiVbti0ys6i+APOKSkvDVnxR6YFBlIhWQrb6KCSW+yIClfroJT2Fx3Icjqyk1cU+yuzYd23mMoyYMRsSd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbydjIOzrcQebWASM5YQ83dukDQgC9ex3oAvWdSup62QpRe5qR
-	JgUtcbwD/E9D+a30nHOJYvSs87v8k69k3+r/JijUClJCI6miuqBe63feWbp3+dX6uQy0h81oiVh
-	NedcxhYLknA4ynK2ubR+JjqUgj1ljkxGdxmXfnDRVnp8rODuo6r4ZlEJKU4rfpl/1JXpuKf2SJn
-	LQig==
-X-Gm-Gg: ASbGnctAGaHgERTjOXDFWm97S++fy/UHo5oWjw7HQPRiX1WG0MgX+nclTw/1syrJBoF
-	6zuprrGMPfyaFdtTQT3l5/wzpDgTKKbReDxJObTpvOY6kpj/6Xsfe5gZFEaG2TqNTvg93p0Zq55
-	TJ9BAyHT+AFzqmCtzgZovIgO8EFmfLBehss3gxcqlDhUqQzUv8tCNVHjdqUz+VudSIQFoFjKymA
-	qLLYeDQRQ1WYg8uEXQ4qR+0YKbJgvNsjfTm8hHNNHOx8aDgTkn7sE14uCgWk2lKmOdjyFU+PiRW
-	Yb4XwmeFNHIBn10UsLHV4oc8ocJl0pC1U8YEFIv09b8L+bjH/HoQVDyWfSOO+f8nkpAeVPZL9m/
-	FuYXOdcJT5RgQsCD5QWBGZKZENQgJpqo7lQy64ypUQjwJyRskr8fE
-X-Received: by 2002:a05:6214:4009:b0:720:4a66:d3ca with SMTP id 6a1803df08f44-73933639a08mr113606506d6.24.1757429556905;
-        Tue, 09 Sep 2025 07:52:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGPHL4NfJJ/zE5chnvOJ1HeidR9Kl8e6gYNpoM3SLwwaEavBYImkLXu+5zH8Ed3CkO98L4A0w==
-X-Received: by 2002:a05:6214:4009:b0:720:4a66:d3ca with SMTP id 6a1803df08f44-73933639a08mr113606016d6.24.1757429556265;
-        Tue, 09 Sep 2025 07:52:36 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-337f4c90eb9sm38735781fa.22.2025.09.09.07.52.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 07:52:35 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Tue, 09 Sep 2025 17:52:08 +0300
-Subject: [PATCH v4 10/10] drm/display: hdmi-audio: warn if HDMI connector
- doesn't support Audio IF
+        bh=HhszSRQXIU5hyXmbHS1r8ihhw943QEplSsfQYmIy1lw=;
+        b=Bxh0UqWeLdnur/qK/aMjXzPR4GJDrfEvhxsd37gBg3Bl18L4OMucJddceGP/80UQOh
+         Kuu2S0QkJvYu+N8GbVnf78Jk+bmeE0MRswLAS5k5WqcI3jLreN+SvCqyHsVfUEtrM4Dl
+         0ovwlCRSx/PkqfwL4CCV1afSXd2X2wPQBWemdIX9bwYf7nYYW4uR6jWHxyQgmP8DPYeu
+         1VlAxRuxwkaEcmvT7zyQTKfGCN6n2I9lRSbLTaERkSxfbEokvctqeZJY1fShHgfoGNhB
+         HVuUTU9DpLJ8FlBm/bqfjKJfT4eox3svRkkhG77+ripuo6ROkZxNa6GLTSz6WmkPSEl/
+         e6ag==
+X-Forwarded-Encrypted: i=1; AJvYcCUlM2TnW9EnJJ1iEuunLo31AiSJWJILo+4SlTRCK8r979bPKc8EsQ03qqjYkRaHZZ0ov/flwBbgWRy5IYXBN6k7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+aO9TZW+e3auUDJup512r6/YzjO4HJ4Yx4317atCXyBX/J5/X
+	4sPSIbkPfAclzszqcK+5KItu3f4IVyXg94WKP0WVlqqxJWxNSIgF+5mMb2NN5GeZw7x2OOJe6FZ
+	WkhKqFyWp1D49LNPrTeMxCMfMGtzteQg=
+X-Gm-Gg: ASbGncsG+xYcTY5IEzFHRHvMxSDbXnIwgvWgIKjfZKzHnFpgylgqiHdmhEVDhRXlaI0
+	WhJnp5K33TBGLWQOt9ktEvcS1KjI7VnsGKUbY1L4p4y4u3U6k/hSvfGZ/5Kb4FJEE1U+/4OlfoB
+	arUVqEHOLgUcR/9FwD+HiLCuzmwyiTsIVLaXmpN9yrjhwoOjBc7S9AcHjG67XX3P3Y1tJRot+yJ
+	pjc/oHnQg==
+X-Google-Smtp-Source: AGHT+IGeaHcV2kH627FcZIyd8vYLnu/2Up2e6b2i9sBG/bmosVjOp6dqHGnQ87UTIB1WpGArwM97TNlubL6NJn+jj/k=
+X-Received: by 2002:a17:907:7e8c:b0:b04:39af:bee9 with SMTP id
+ a640c23a62f3a-b04b1003707mr1194942566b.0.1757430964857; Tue, 09 Sep 2025
+ 08:16:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250909-drm-limit-infoframes-v4-10-53fd0a65a4a2@oss.qualcomm.com>
-References: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
-In-Reply-To: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sandy Huang <hjc@rock-chips.com>,
-        =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
-        Samuel Holland <samuel@sholland.org>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Liu Ying <victor.liu@nxp.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-        Daniel Stone <daniels@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1648;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=WvduT1qbRYo9sMATdr0cfogagyWfZym9JAGpyIFdd7M=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBowD8b4ByVcFhNzN6vL9g+i6Xr5Ru20ekBbEAdJ
- +90fSIYze6JATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaMA/GwAKCRCLPIo+Aiko
- 1WdkB/42MgipULdDGBHhJLj9Rn2m9Z+xg8n2+dwVvzMmGYgpA+PltLj7B5uOaXeKjVbIhMn7eYy
- Tzms6FQKTMnjfCE/3nJUZbGUl9kN8NBaJn9uXq14HKdFTcm7/m9nN2XW/f50ds9jrb83lrS+WzG
- 1d9IvcNI2kh9ls+VF2uX750NKeykqE9uqnwxU88frDB1V/0wW632N6YQOrfX47F59xl3Xx5H9Mn
- nLXDnZAAIRGfTxDehtuvZo4ncNgOzGciZR6MuZQi0E/gquRXdMuCez2EHR03zdWeJWONeOAx8KL
- XZfA2cwtxgOTNy+164ThuwnMGvRhfMoUF7t/uJwK4H8+Gh+O
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-GUID: VgzpD74dMjDmtJZv7hwp7BuVVN8v_AJr
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA4MDAzNCBTYWx0ZWRfXx//0APz1Tkbc
- SqSnRECbYr8ov7rE3sphkgwVYEO/0C5ErNItvvXcOENU7FQnR9OWNPfY/h5d8f/YAl7Jht2wsrG
- XasdzDI96xWQ9ux7fzuYbd2bzDClYlhRic04XGXMIVJE/Bw4ESh/an/enOgOKcUy8c/wmRdyw8T
- XcYj5oqmJK5WY+mTPxD11ZyGWuRmZ5teQY4vOMtFU40j+k9IOl5no+8Q5r1apd4i4B+smNXc3Lp
- lXnaxJlkAC7IiAJ4MEO6l2+A98u7x4H6o8smV2zRpQS0N3AUfxxMaArc8acenlVSWbouvNU2Vb/
- 1QGo959bwfc5AL3ydDESnVD1tqTi82Dm5SW3l6AhKpOK07HYyaFxqaDgD0lMXr2ayyUlY3vW1wT
- 0JxOw5ME
-X-Authority-Analysis: v=2.4 cv=YOCfyQGx c=1 sm=1 tr=0 ts=68c03f36 cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=QX4gbG5DAAAA:8 a=EUspDBNiAAAA:8
- a=Yc4j0DFJudTMt519TXkA:9 a=QEXdDO2ut3YA:10 a=OIgjcC2v60KrkQgK7BGD:22
- a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-ORIG-GUID: VgzpD74dMjDmtJZv7hwp7BuVVN8v_AJr
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-09_02,2025-09-08_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 clxscore=1015 adultscore=0 impostorscore=0
- suspectscore=0 priorityscore=1501 spamscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509080034
+References: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
+ <20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org>
+ <aMAP9hAWars0T83r@smile.fi.intel.com> <CAMRc=MeLTGq8Qu2aT43tkt3vaYCSaJPJPLmaUQ1SAyD_OgVr_g@mail.gmail.com>
+ <aMAn4MM_Fs8q8qwj@smile.fi.intel.com> <CAMRc=Mdr4oW2d7XZ90rRr_fKC7WToz72v=_kW-s8=Urd0g8k3g@mail.gmail.com>
+ <aMAve1MbONmKVjjg@smile.fi.intel.com> <aMAv3STeZUdSQ14p@smile.fi.intel.com>
+ <CAMRc=MeA87p0QAzq_3MACQM90MhN0eRccr7u-VzcfyP8b90AaQ@mail.gmail.com>
+ <aMAzZAbNwrRTgFi-@smile.fi.intel.com> <CAMRc=Mfn7atHTqKc9nMTQ19ZserqeNi3skb-QhG3CVdEhmr0gg@mail.gmail.com>
+In-Reply-To: <CAMRc=Mfn7atHTqKc9nMTQ19ZserqeNi3skb-QhG3CVdEhmr0gg@mail.gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 9 Sep 2025 18:15:28 +0300
+X-Gm-Features: Ac12FXySsG8IXlocwCfN3VG6y5KLpIc0a90AoYqlSY-xU72GOTjlNCZIc8n9fs0
+Message-ID: <CAHp75VdDAJO3+NPp29GnqL=C5m7tdWbyYvNFax=Dh+dG49YAnA@mail.gmail.com>
+Subject: Re: [PATCH 13/15] gpio: sodaville: use new generic GPIO chip API
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Keguang Zhang <keguang.zhang@gmail.com>, Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_075238_914683_B2ABAF9E 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20250909_081607_208207_B60F0EB7 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,49 +111,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sending Audio InfoFrames is mandatory for getting audio to work over the
-HDMI link. Warn if the driver requests HDMI audio support for the HDMI
-connector, but there is no support for Audio InfoFrames.
+On Tue, Sep 9, 2025 at 5:05=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl> =
+wrote:
+> On Tue, Sep 9, 2025 at 4:02=E2=80=AFPM Andy Shevchenko
+> <andriy.shevchenko@intel.com> wrote:
+> > On Tue, Sep 09, 2025 at 03:56:41PM +0200, Bartosz Golaszewski wrote:
+> > > On Tue, Sep 9, 2025 at 3:47=E2=80=AFPM Andy Shevchenko
+> > > <andriy.shevchenko@intel.com> wrote:
 
-Suggested-by: Maxime Ripard <mripard@kernel.org>
-Acked-by: Daniel Stone <daniels@collabora.com>
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
- drivers/gpu/drm/display/drm_hdmi_audio_helper.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+...
 
-diff --git a/drivers/gpu/drm/display/drm_hdmi_audio_helper.c b/drivers/gpu/drm/display/drm_hdmi_audio_helper.c
-index 7d78b02c144621de528b40b1425f25e465edd1ae..35e0e79cb683a68af813344aa86c154c3a5531fe 100644
---- a/drivers/gpu/drm/display/drm_hdmi_audio_helper.c
-+++ b/drivers/gpu/drm/display/drm_hdmi_audio_helper.c
-@@ -10,6 +10,7 @@
- 
- #include <drm/drm_connector.h>
- #include <drm/drm_device.h>
-+#include <drm/drm_print.h>
- #include <drm/display/drm_hdmi_audio_helper.h>
- 
- #include <sound/hdmi-codec.h>
-@@ -178,6 +179,17 @@ int drm_connector_hdmi_audio_init(struct drm_connector *connector,
- 	    !funcs->shutdown)
- 		return -EINVAL;
- 
-+	if (connector->connector_type == DRM_MODE_CONNECTOR_HDMIA ||
-+	    connector->connector_type == DRM_MODE_CONNECTOR_HDMIB) {
-+		unsigned long supported_infoframes =
-+			connector->hdmi.supported_infoframes;
-+
-+		if (supported_infoframes &&
-+		    !(supported_infoframes & DRM_CONNECTOR_INFOFRAME_AUDIO))
-+			drm_warn(connector->dev, "HDMI Audio with no support for Audio InfoFrames\n");
-+	}
-+
-+
- 	connector->hdmi_audio.funcs = funcs;
- 	connector->hdmi_audio.dai_port = dai_port;
- 
+> > > > TBH, I think those 6 all made the same mistake, i.e. thinking of th=
+e compound
+> > > > literal as a cast. Which is not!
+> > >
+> > > What do you suggest?
+> >
+> > Write it in less odd way :-)
+> >
+> > foo =3D (struct bar) { ... };
+>
+> I don't get your reasoning. typeof() itself is well established in the
+> kernel and doesn't
+>
+> foo =3D (struct bar){ ... };
+>
+> evaluate to the same thing as
+>
+> foo =3D (typeof(foo)){ ... };
+>
+> ? Isn't it still the same compound literal?
 
--- 
-2.47.3
+It makes it so, but typeof() usually is used for casts and not for
+compound literals. That's (usage typeof() for compound literals) what
+I am against in this case.
 
+> > > And are we not allowed to use C99 features now anyway?
+> >
+> > It's fine, it's not about the C standard number.
+
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
