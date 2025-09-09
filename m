@@ -4,179 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624CFCAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 12:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F36CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VJGsqDseOtrXvlkPOas7D4KpqFI0ZXkMojqpv4q8twU=; b=t4YJKiUmcVB3veF2TIN0qTNGxw
-	JmWhcL+CwcEr4eTqzqryJdjJucEOKrtWhf9jorE72rEUGvIQqrjZGeGt4hxjvll3aBwyVNcExAVj0
-	BOdvPb/TaJySlQ3W+J75js+UVwdDj31t7ofI3hRfLiimJDsTRLYrN5mV/t09e+0Eg3gZHpHpTWKEr
-	Lub8g0B9pYUUaLcfaQRg7sGa3itQjvUODjK2FJpbL8BNQMOLzQm51bq42zOczmDt1mQwohpnzsBMB
-	Kh4fk1ErwHtpQ6mSxKYE/mCxPOjmMaeBRk1Ue1af5A2l1VP7FcQpJcNzhiwZFqKTFs/deqVSVLpqR
-	x8hC1zRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9dRa5PaUBeFzVfA0hx3uwaou6s1gEdQIGt2dK1PIyuI=; b=h88M1zMOU5iZZP9RKo6FSbisvk
+	C+LE1wqn0jLST74uShqpA5uUWZhnOGHvXs+ULcUbSTH4ijUsftm+Bne8tpaR5laDXlqfAHqimctfN
+	502TX2+baDpXReTgRx3Ml6qOTnYMAhA4F5mVB/rsTawISQrM3vzWpncLfLxKnq4NYrNea60Vvdh5P
+	NSd3Q8C2HzRHzMm9HymqmGoTdU3Q4jqX1Eve441vIYsLE8h/jyVZdSr1kBLYchiNE6Nn8xsGyS9Xn
+	NqP9kg//lagIUaLxPE5hUqmmnX7MgqNX8hH7pJ46oiCDiCJy+kBYoSnuDoxmmf6A8mNEe2oyZUHZ+
+	gWumj7nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvxEZ-00000006zpr-0bJp;
-	Tue, 09 Sep 2025 12:14:03 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1uw0M2-000000085qa-0AQA;
+	Tue, 09 Sep 2025 15:33:58 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvr6d-00000004TYc-1rp9;
-	Tue, 09 Sep 2025 05:41:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HRGoSOi6FT+I2Ge0kW6HLxusf/re96GVqGfja3jlZCRXF83tL5z4FBT4UShO4sLW5MLYLslx5+Px6M+/PEp4ybFyQDVyki34Ic7cAMXRLy2ZhMc9rmMgQy3EmO25l1WsQ8JqcLdnqvdSmO9T5kzTuPQckjxMNU3inzxxLusDdaXqWV4ufVqDdPmMenRzGjMqgdnVzg59C7TAWUP2UvD5wuUTJgIbDuLhrNrjjBOeB9tjDEYwxB/B6t/ak1bsxxPhULgo6SwnqiOoYoTRlX87DMvjf5SuHEIJ3LIWvL36odg8xXYH7Zusll88jMfaN7jCJc1K8yug4MReiFz3S98LUQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VJGsqDseOtrXvlkPOas7D4KpqFI0ZXkMojqpv4q8twU=;
- b=qrAXsbVGCeRZSWC+GPo1Vm0hpofPMWSDn8AMjPTgA6SNwdvTLgiPgtpOnucE7fSGyui+4szLIlGJCWBaY1/fSwWT4/T5xKeWA2aF0RKiFRQM30dkEed/JmB4GM3pbafrMb4OUPbVTWpSZfqJ1MMGSCoMLe55N0ngaCMlGaEtRrP+ms2Ng4MdKSWtdCxqOXKV+ueauFPJfz6/K8OmF+s+UmLGAknF6pZTfwSfvR+UCa910LDe/Fklu4nmWGuzCFPzQGtUMXMyfO2MCgl61e+/VZ841H1xyqNSnxwslDvperQfIA9uiieyNP8RCYwQyzPmdrN1WuCiVfa+sQpQov721A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VJGsqDseOtrXvlkPOas7D4KpqFI0ZXkMojqpv4q8twU=;
- b=m/aV49xQZb+ujC+b+p7t9LoljkyWK9nSeuB8aTfhYgBKMYW49mBmu8IUZhrgFf/BfRBTzV5DCXx0FtvSD/xxRdHdqo9roj0aF/R1v7d+2jFD3uVU0SswjQ6lL2z3WTL+QguFDrJhC34fTpuACuWs8I/6krui5cZpTkU0lnDLzLj962JQalRlFLqW2oYkFrhSo/aJC+WR+ac75LBzwjtWFdcaCseB5aJjMbcO1voQh1KZKbH2SNppgeaTYCdAvn1LA7y+VOX/nbEyGexNlRGb1m7QGRWktBL+AK7+Rt1Ry7hNMrxgNJDRxKGav9h/F4k/m3hnS3e6ZCNJPagPtrpn7g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AMDPR04MB11583.eurprd04.prod.outlook.com (2603:10a6:20b:718::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.14; Tue, 9 Sep
- 2025 05:41:21 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9115.010; Tue, 9 Sep 2025
- 05:41:21 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Tue, 09 Sep 2025 13:40:18 +0800
-Subject: [PATCH v6 8/9] arm64: dts: imx8mp-evk: Use phys to replace
- xceiver-supply
+	id 1uvsO1-000000051jD-1bsM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 07:03:30 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-77251d7cca6so4424607b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 00:03:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1757401408; x=1758006208; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9dRa5PaUBeFzVfA0hx3uwaou6s1gEdQIGt2dK1PIyuI=;
+        b=cYRJ/4ou9nRNEmKaMZlz5ESk5zM++JLXv6CpfB9cdMyEjAukDtgXZb2BsiV4Y+0dsh
+         jdtCBRP1TjS6lcs+p2KyYFyLJL/V0LWMfqlTFWBmjuwZlqhu0gchlxDCOIQhVFMiChed
+         MS00Yg1p1ggNzkg7gi3hrneKDxqelcbMcanbbNq8xBHY6+Ushxd+yYZu6ezCeSx7UQGB
+         l4qtlgarY04iqwy/u8di7e9lo9GcEkiAKrLRl6/Id8FpARXVhKxEdO/3gq4bI7JTQTEv
+         9eNCXb9LeJYkPHWdAGb6lkzr8SRe5URdekZxXV+sy3cxuTePeKH4z4dyNsViGha9SqST
+         n0RA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757401408; x=1758006208;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9dRa5PaUBeFzVfA0hx3uwaou6s1gEdQIGt2dK1PIyuI=;
+        b=VBjNt7BhH86FLwggWEtV+IeCf9RqDdQN6VBbYDpD9qTzrBKXu65RDkCqW66kvmkvBi
+         cUePQJC4paT9D3o5b/sLDnRj4Xx+ZBBZvS8j4GFfPkSmHEksJye5vwkS2zqPexOamyRO
+         AWRtDAVQyBrAAaLwTTheRZWfXIv7J+Yt0sw79lac9URiiMU4J179/SQFhC4rkzvRyRCG
+         xOkW/UM+Xp6zZrcDJBQy2zdkvLHkA4SeiMs/mdPNbgibCij4/SQXBqpC1suIYuM4nNwP
+         ejPwvdNYWCmvaq2o5sHLJ/+s5VcRKB4U+WANa/jgJp9/+KDjo4fe7tfIMx33ytsIqoHV
+         vlcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXDijAnZtNCyJi8W12j0X1o/pEiZoXk6pqWZvGTrJLV5Pntb8rHYvEtIyjc2/65fh7wja0UiCI6Dw9Rdsa/ctHb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnVH1YVJMh9x4nmoJoaFnfLlNwGncOLEGv6RcWAkqjbdW7bmNO
+	Qw910vH9iH5WKa52X11obtKm1LaPxKJz58ODPeJkaHw/SsZBgZR6pWmB9qDLe44ppuM=
+X-Gm-Gg: ASbGnct4dLa0S4kOXEHKAoAvu5TuwwKNmJFZadBDn+ZUQX1KLcBIf6L+HQqHKftPZ+A
+	Ol2tACED3B/6QseY/cg86qDkwQKhVGUWeydUcqpnf+NRm+pGN5AQMK0QqkKW5XfkUuyyb7T4IyL
+	3fSsMHgUkS0aITPRATiPvqR56ebAKfKda99NSWbpz4q1hSwdU8C1wvfZlK2FGnN18lZ/JjtlcOh
+	5NE+l2COvP71Cal1MweRD5Vgbq8/BAnhihBXINEqSaaVuyU2u0U4ccQvTk584xQHXIpszoXYg7S
+	0A8dIvwPQI7AwCTfpv/0uPZYH2i02aWY/VkwtE9X8lf5KYVTct0/Pv9MzAOxs74TgrMxaau6jqp
+	M3GiXGtrIM7EsqdM+5Yuh9eLDzBN4Zk2sX98=
+X-Google-Smtp-Source: AGHT+IHQ7m+RNx+VZbx6+x5n6qPiRRjPXoeUDxkNH4USJJaxaAIcWa8rdFoCF9FteEtF09OaqEBqIw==
+X-Received: by 2002:a05:6a00:23d3:b0:772:7ddd:3fe0 with SMTP id d2e1a72fcca58-7742dca7ec3mr13266216b3a.2.1757401408326;
+        Tue, 09 Sep 2025 00:03:28 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-774662c7158sm1025535b3a.72.2025.09.09.00.03.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Sep 2025 00:03:28 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Tue, 09 Sep 2025 00:03:23 -0700
+Subject: [PATCH v6 4/8] drivers/perf: riscv: Implement PMU event info
+ function
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250909-can-v6-8-1cc30715224c@nxp.com>
-References: <20250909-can-v6-0-1cc30715224c@nxp.com>
-In-Reply-To: <20250909-can-v6-0-1cc30715224c@nxp.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>, 
- Vincent Mailhol <mailhol.vincent@wanadoo.fr>, Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Aswath Govindraju <a-govindraju@ti.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
- Haibo Chen <haibo.chen@nxp.com>
-Cc: linux-can@vger.kernel.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757396425; l=2835;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=gwYAoI63G4t5m4cNemzDZqyMtsvawPjOsIwclvW3JyI=;
- b=sUe5B/9QKjs6ss40mKgV0voy7BUW2g4Q+FtIqpii+eHSlmzsA1jNj2i/O4vxcEfPfR6h7B6bO
- SDQjWzsqVs1CU5fIWgVp23ljrtdsrTpBfTIZwoEFojvPGtp86aDIdNJ
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SI2PR01CA0007.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::11) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AMDPR04MB11583:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7b5fd062-6b2c-4680-0a3a-08ddef638121
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|19092799006|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cUJtb2xiYzFSeGZuMndzd3U0OGxaL1lNUFFOMjhhV21wNHNrWS9MaFJvckh6?=
- =?utf-8?B?eWFHOW1NSW9jMTJXWXhpNENld0Y4aDcwaXhLMXdQQk9wQ2Mwa0hNYUFiWHFp?=
- =?utf-8?B?WGVPV0xMZW15d0dhZGRHSEVnVzc3RDZ3QWZHZ0RKYzFsQ0RNdkV3QTZDb0l3?=
- =?utf-8?B?VHZwZ0dqa1hxckg2Sis0UjhBdkNOdWJ0VXB2UmNocko5NWRYTnE0ZlJkb05U?=
- =?utf-8?B?a1RkWlA2MFRUaXI5dVRSWi83Q3JWY1VPb2xlMUoxZE9NVndpVi9MR3NWQ0xZ?=
- =?utf-8?B?RzZWTUNpQVR6YVVuQWRSMS9XL0NBWE9mYXJDZC82UDZnSUM3TzZ5eEhpSWlT?=
- =?utf-8?B?MlZIbm5Ha3lPWHNRTFVQa0szSk5lNUFPRVZnNzE3cG1lTDhlKzk2VnRjd0JO?=
- =?utf-8?B?T1hXSW5wMmViQk56WW9zb0hDV1Ryd3hONk1zSGRQZjhJOUFQSWNFQ1A0bkFX?=
- =?utf-8?B?WXNjQXhjdUt3bkVUWkJEa3Z3aml4NEN4ZDdSNjhWU1VPbmNnaG1SdE45QTUw?=
- =?utf-8?B?UVp1WkR0VnBLZXNUN1p2cGVLZU9UMkgrakV4R3FZU2hUcFVFeEx2REdZRDJ6?=
- =?utf-8?B?Y216bTJsQ2ZYMEZyWnB5U1FRcXUvNURiRzRuYTEweDFrSFd1VHViQnRNL00x?=
- =?utf-8?B?aTVnaWVBMkJLYWNlL3lOSHlkQnRWNnhXVHdEUUVlZ0tjMmk5a0RhWVJpNkp2?=
- =?utf-8?B?Nk04Zkp6T3hwWVczKzV6NXpXcFBNSk5pd0ZJd2dMYmo4cW9kbFkrWEtFWk1w?=
- =?utf-8?B?NDNHS01PZEZVNmxUL0RJa2FRUTJoTXBCdG1tS20zc1FSZXgrbUFHSFFzb0FE?=
- =?utf-8?B?YnBOVktpNWVlVGJiZThSS2ViSU81Y3BVVFZRL0pjNXU3SnNRVFNwa0ZXd1No?=
- =?utf-8?B?MUtjVy9LdDVRU0xSQlN5ZjY1TE9zZ2F2QUxMTEFTeDRYMVRQSmpuM3cxQjNa?=
- =?utf-8?B?aGd6THltZ1pYOG9iNG9QN0h0V1paNUNJamg0Z0hmRnZicStheW85YVhSYmtt?=
- =?utf-8?B?QUx1RXEyZjFoRE56WDZZVHF4NG1uWDBrNTZXQ25jcXFrSFphNnl0QTFXQ2ZT?=
- =?utf-8?B?ci8yMllscEwrdFZ0cHcxNWoybXB4WWpUT2FGWTltVmNKODFDNStrMU9wTk5D?=
- =?utf-8?B?NlR6V0puM3ZsNXVBZVliYmRRS1ZIY2xEOGR1RVN1ZkhhSE1JdEVSWmUzdDU2?=
- =?utf-8?B?QmhqUnhOTVptbnhrK1NXRzZSWEhYU1dBSmtKbm5Kdy95OHcyMjhyMHdLQkYz?=
- =?utf-8?B?OE1pbVY1ZEU1U084dy9IMGNMeHc0ZTRSVnlVbHRsU0Q2OWxhRklGcDB6SEhn?=
- =?utf-8?B?aVVmZmRxNDVIMXRrelhITXhpbHFCK2QvV0tqSUs0bnFtSk9uaUVmTmdDTUUx?=
- =?utf-8?B?Wnc2Um9qNTZ4UHdIZlZSS2ZNbWtpUEhJeUhxMGk2bW51cXFuUDBqUzZpa1A5?=
- =?utf-8?B?Wk1PT0JFWlJialBLNTY0aEFHTW9DQVZDbnZkVGFnOVoreWVMS1pjR2ZoRDZa?=
- =?utf-8?B?T2RBT2JhdGV6VGJkT0lIRlMxZFhvcEhZcVJ1eWJ5cCsyVzFQSVY5a3pVSWN4?=
- =?utf-8?B?VkxvUFByY2YxeUVzVG5VdzQ5THRSS2tpVzVyVXRyQU1hbU55UDhUOUd5R3lL?=
- =?utf-8?B?c2RtbmgxN3JueEZPTXV2ZE5CWlNwVXE2ZkFickR4RzU1bGl0SFVlcjlCQ3hO?=
- =?utf-8?B?cDdVL1hBVU1qcHRMYXVhTHhVTHFocjNiYVppRlNFaHIySzFkZHpIZHFUYmpw?=
- =?utf-8?B?V001T1V5Zk5mcS9Id28vNzdaYjdqNGNDbks4SDZUV0pZQ0s5NEN3ek9UOHZN?=
- =?utf-8?B?ZFM5a1Z1UC9PNnJrT0V3QnVzcDBRZVVBZnVDYk9CdlU4QmQvVGtnQit3MVUx?=
- =?utf-8?B?ejR2UzhWblpDelVlWGIzaUh5ZXFHcXFNTk5oM05MeDk5KzRxSng1WlJ0MjlC?=
- =?utf-8?B?dm10d3J3VHdGZEhEU3RlRUI5dHY3bGs1OWsvRTRMVTRHTUlMUURiYVgyZ2tR?=
- =?utf-8?Q?wZKXzarie1sx313/GgO5h7R68mUiwE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dCtJRVdVbEFJR05VNmVEcThSNkZWZmRaR3RjY1pBNWNuS05CTXh6YUVVWXF0?=
- =?utf-8?B?OXZRSlBZU2RwaUhMOGFtN0dVSzY4UnJhZUtMTWZDK0cvTlFDdmVtS0JZc3py?=
- =?utf-8?B?aXpsZ0VhdG44WWdwNVhGbEpUWGFPYXdyMWxtMS9sV0l2enZ5TWxvZEJrOUdZ?=
- =?utf-8?B?bUNIR1dRQXZIMVVBY2wydXdGSzFETlBDNkZ2Yk1hMG9NVTFHZlZINStlQVoy?=
- =?utf-8?B?bkdPVERSNENEZ2xyMTIybkdWWmxDREx0Rm91Vi9BMTV5VHpxRERuWVNxNmRF?=
- =?utf-8?B?MWtEKzVaRFExS2VxQ3BoMm01Y1dkNHpGR294S2JKdjdBMk92MWRRS3Q4WGZY?=
- =?utf-8?B?S0w0NGhRSVhEdGFxZGlqakE2TmFNdzhMRnIwZE01VkpQTlZZVTZVblJ4UlFk?=
- =?utf-8?B?Vi9YWnQwRUpBNkRCNEdRYlQrZWVJeGpIQjJ4NGVFTCtoUWZOVi9hY2pvaWJB?=
- =?utf-8?B?NXhXVnZadE9NUnRkVEhVY29mR3RTeVV5YVhsZ1h2SE9rQk1nUnkvNHoySGtM?=
- =?utf-8?B?bFF5c2xrYlBqMWZ4UCtPNlNkSTdhM3JNQmFlakZwenhKUzVYSnNIbHVPT3dy?=
- =?utf-8?B?T0hIU1E1M3VMWEJpVlh5bmlmMlJ0Y09WSk1LdlIvdUVyQkpQWTZiT1pGME1D?=
- =?utf-8?B?NFE0OTRKS2VMZDlqNVNZMitoS3ZWVDF0RDQwMzJrdnkrajJkWS9Hc0pvTFJX?=
- =?utf-8?B?V0w4SExmaGRYck91OFhESWZsMzgzZXUrcEpKbHhPTjJtRVBoY212NHlGSWJT?=
- =?utf-8?B?dDIxNE5HZk11Rm1HbisvUDc5SE05NmUxY1FDK2VXSWM1QVpBWCtwN2x6WjZS?=
- =?utf-8?B?SUxDUDVIZmYrMFQrVG1RMEhKbE00MU0zL1hqVWljcGt5ZHFMZjhINWQ4cXhk?=
- =?utf-8?B?eU1malRHZ2hta3Job2Q2ZjJIbjUweG5GVTYwcE84OXJnM1ZQZGptaFFCK3U2?=
- =?utf-8?B?V1BFT3UwZ2k2OTlDRUVwRHhVdGh5YmR6ZHV4S3MxUTZwazNFTm9jM1Bjeis5?=
- =?utf-8?B?Q2grL0V3SnhsYUdWRkh2RlRuQ2ZrYTIrcEJGV2lpSkpiZi9ORDFTV3pOaWQ5?=
- =?utf-8?B?S3daRWg5bE1RaEpHeVZCV1k4NURabitYSG9GYTdaNzVkRGs2ajB1M0djTkVz?=
- =?utf-8?B?K0FWUS84NHpFenBoOTF4eFl1YlNUNmgzTWhFeFhCdzdEUjhXMG9IckIyYVNi?=
- =?utf-8?B?ZDM5cmw4YW5obkp6dlhLZk5QdTVqRGpYK3lXd1FxZGxNSm1qcWNMN2thZ094?=
- =?utf-8?B?SXZLZm9zTHg3V3dnTGlWMHBYQWJtQWtCZHlweHNod3c3b3FrMHV2aTBGeTQr?=
- =?utf-8?B?MnpDWnpreG55aFBmVThDMnlPcGZwQnBiRVo3WXFTS1JzZWN0Z1pRNEY4S0Zk?=
- =?utf-8?B?K0JUL0M5aWdHbm5oRitTYnU1WDV1bTVqU0hYSHNqT1B4dnVYMEJMOFhkY2dE?=
- =?utf-8?B?MlNwblNITkJTcUlBTDVmaWtYazdacnZPakRFZTlWSVdMYnN0TWt0bW9IbGN0?=
- =?utf-8?B?NFZ4MzFHNnJDZ2NRbzNrMzd6TFQ4Rno4aHdQZEZ2d0pLUlhLOUgyK1JyWWJw?=
- =?utf-8?B?YlgvNHBDUXF2blh5QUZpOG5ySlE0OEZOVTVwU2xIMTl1eHc1cDhoSVBzUjNp?=
- =?utf-8?B?MDNVYzJUUi80WmRyQVFaSDBEVmZRY2EzaHBSSEdVQUVYQzNwZGRMSkpRRzMz?=
- =?utf-8?B?dG11a0lORzdhY2UyMk5IZXpIcU1sQjdYZFpURFpCZmRITS9LcE15OVY5Vlhs?=
- =?utf-8?B?RVp3U0phNTBJRVU0SmhVWTYrUHpHVDFxZWJpbjFJSlEvVSthdEliQmpKM3Bn?=
- =?utf-8?B?aTBWK0tGbUFUR1pIV1FvRGdSTmxpa2prY3d5ei9NeWxJT2NRU2xBR0dnTFZq?=
- =?utf-8?B?S3JMcUxaZ3NkY1UrVnUwKzBQVllhTnhIWGRrenp6b0pSTE1ZU0NSOUpHV2c4?=
- =?utf-8?B?aDV3R3lFdjVsUGorK0NmVmpVWGprYXlMVEFHWUtJMFJpYkw3eE1pTmtCSGFi?=
- =?utf-8?B?Vm1UaldOZnhaQVc5MlhNdWsrL3BtWTlCaExmME42cUFaa3p3dmh6REFrRHMv?=
- =?utf-8?B?Q0pvdEFIK1NkczZERHNHMXo2QWo5SldSRklXMUpIMnNDMDA2RUdRcHh4WmdK?=
- =?utf-8?Q?5OhhvHzmZNiULgRsC31dBXmKv?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7b5fd062-6b2c-4680-0a3a-08ddef638121
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2025 05:41:20.8998
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: g5GO0BpAHPmYOSWUuTIc9vrKqlD6HNbkFgkqg+Uf8Kn6mVuG3qXkR0Ccn+1IKJBnSubblXuP4I/wI42lIF40VQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11583
+Message-Id: <20250909-pmu_event_info-v6-4-d8f80cacb884@rivosinc.com>
+References: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
+In-Reply-To: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
+To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-50721
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_224127_490787_F32EDBA7 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20250909_000329_476998_B88EB442 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,100 +105,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TJA1048 used on i.MX8MP-EVK is actually high-speed CAN transceiver,
-not a regulator supply. So use phys to reflect the truth.
+With the new SBI PMU event info function, we can query the availability
+of the all standard SBI PMU events at boot time with a single ecall.
+This improves the bootime by avoiding making an SBI call for each
+standard PMU event. Since this function is defined only in SBI v3.0,
+invoke this only if the underlying SBI implementation is v3.0 or higher.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 43 +++++++++-------------------
- 1 file changed, 13 insertions(+), 30 deletions(-)
+ arch/riscv/include/asm/sbi.h |  9 ++++++
+ drivers/perf/riscv_pmu_sbi.c | 69 ++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 78 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index 3730792daf5010213cbb9f6869a8110ea28eb48a..59891627dc462d37dfd620eb68b893546cc20d6a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -56,6 +56,16 @@ memory@40000000 {
- 		      <0x1 0x00000000 0 0xc0000000>;
- 	};
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index b0c41ef56968..5ca7cebc13cc 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -136,6 +136,7 @@ enum sbi_ext_pmu_fid {
+ 	SBI_EXT_PMU_COUNTER_FW_READ,
+ 	SBI_EXT_PMU_COUNTER_FW_READ_HI,
+ 	SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
++	SBI_EXT_PMU_EVENT_GET_INFO,
+ };
  
-+	flexcan_phy: can-phy {
-+		compatible = "nxp,tja1048";
-+		#phy-cells = <1>;
-+		max-bitrate = <5000000>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_flexcan_phy>;
-+		standby-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>,
-+				<&gpio4 27 GPIO_ACTIVE_LOW>;
-+	};
+ union sbi_pmu_ctr_info {
+@@ -159,6 +160,14 @@ struct riscv_pmu_snapshot_data {
+ 	u64 reserved[447];
+ };
+ 
++struct riscv_pmu_event_info {
++	u32 event_idx;
++	u32 output;
++	u64 event_data;
++};
 +
- 	native-hdmi-connector {
- 		compatible = "hdmi-connector";
- 		label = "HDMI OUT";
-@@ -103,28 +113,6 @@ reg_audio_pwr: regulator-audio-pwr {
- 		enable-active-high;
- 	};
- 
--	reg_can1_stby: regulator-can1-stby {
--		compatible = "regulator-fixed";
--		regulator-name = "can1-stby";
--		pinctrl-names = "default";
--		pinctrl-0 = <&pinctrl_flexcan1_reg>;
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		gpio = <&gpio5 5 GPIO_ACTIVE_HIGH>;
--		enable-active-high;
--	};
--
--	reg_can2_stby: regulator-can2-stby {
--		compatible = "regulator-fixed";
--		regulator-name = "can2-stby";
--		pinctrl-names = "default";
--		pinctrl-0 = <&pinctrl_flexcan2_reg>;
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		gpio = <&gpio4 27 GPIO_ACTIVE_HIGH>;
--		enable-active-high;
--	};
--
- 	reg_pcie0: regulator-pcie {
- 		compatible = "regulator-fixed";
- 		pinctrl-names = "default";
-@@ -431,14 +419,14 @@ ethphy1: ethernet-phy@1 {
- &flexcan1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_flexcan1>;
--	xceiver-supply = <&reg_can1_stby>;
-+	phys = <&flexcan_phy 0>;
- 	status = "okay";
++#define RISCV_PMU_EVENT_INFO_OUTPUT_MASK 0x01
++
+ #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
+ #define RISCV_PMU_PLAT_FW_EVENT_MASK GENMASK_ULL(61, 0)
+ /* SBI v3.0 allows extended hpmeventX width value */
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 3644bed4c8ab..a6c479f853e1 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -299,6 +299,66 @@ static struct sbi_pmu_event_data pmu_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
+ 	},
  };
  
- &flexcan2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_flexcan2>;
--	xceiver-supply = <&reg_can2_stby>;
-+	phys = <&flexcan_phy 1>;
- 	status = "disabled";/* can2 pin conflict with pdm */
- };
++static int pmu_sbi_check_event_info(void)
++{
++	int num_events = ARRAY_SIZE(pmu_hw_event_map) + PERF_COUNT_HW_CACHE_MAX *
++			 PERF_COUNT_HW_CACHE_OP_MAX * PERF_COUNT_HW_CACHE_RESULT_MAX;
++	struct riscv_pmu_event_info *event_info_shmem;
++	phys_addr_t base_addr;
++	int i, j, k, result = 0, count = 0;
++	struct sbiret ret;
++
++	event_info_shmem = kcalloc(num_events, sizeof(*event_info_shmem), GFP_KERNEL);
++	if (!event_info_shmem)
++		return -ENOMEM;
++
++	for (i = 0; i < ARRAY_SIZE(pmu_hw_event_map); i++)
++		event_info_shmem[count++].event_idx = pmu_hw_event_map[i].event_idx;
++
++	for (i = 0; i < ARRAY_SIZE(pmu_cache_event_map); i++) {
++		for (j = 0; j < ARRAY_SIZE(pmu_cache_event_map[i]); j++) {
++			for (k = 0; k < ARRAY_SIZE(pmu_cache_event_map[i][j]); k++)
++				event_info_shmem[count++].event_idx =
++							pmu_cache_event_map[i][j][k].event_idx;
++		}
++	}
++
++	base_addr = __pa(event_info_shmem);
++	if (IS_ENABLED(CONFIG_32BIT))
++		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_EVENT_GET_INFO, lower_32_bits(base_addr),
++				upper_32_bits(base_addr), count, 0, 0, 0);
++	else
++		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_EVENT_GET_INFO, base_addr, 0,
++				count, 0, 0, 0);
++	if (ret.error) {
++		result = -EOPNOTSUPP;
++		goto free_mem;
++	}
++
++	for (i = 0; i < ARRAY_SIZE(pmu_hw_event_map); i++) {
++		if (!(event_info_shmem[i].output & RISCV_PMU_EVENT_INFO_OUTPUT_MASK))
++			pmu_hw_event_map[i].event_idx = -ENOENT;
++	}
++
++	count = ARRAY_SIZE(pmu_hw_event_map);
++
++	for (i = 0; i < ARRAY_SIZE(pmu_cache_event_map); i++) {
++		for (j = 0; j < ARRAY_SIZE(pmu_cache_event_map[i]); j++) {
++			for (k = 0; k < ARRAY_SIZE(pmu_cache_event_map[i][j]); k++) {
++				if (!(event_info_shmem[count].output &
++				      RISCV_PMU_EVENT_INFO_OUTPUT_MASK))
++					pmu_cache_event_map[i][j][k].event_idx = -ENOENT;
++				count++;
++			}
++		}
++	}
++
++free_mem:
++	kfree(event_info_shmem);
++
++	return result;
++}
++
+ static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
+ {
+ 	struct sbiret ret;
+@@ -316,6 +376,15 @@ static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
  
-@@ -903,14 +891,9 @@ MX8MP_IOMUXC_SAI5_RXD3__CAN2_TX         0x154
- 		>;
- 	};
+ static void pmu_sbi_check_std_events(struct work_struct *work)
+ {
++	int ret;
++
++	if (sbi_v3_available) {
++		ret = pmu_sbi_check_event_info();
++		if (ret)
++			pr_err("pmu_sbi_check_event_info failed with error %d\n", ret);
++		return;
++	}
++
+ 	for (int i = 0; i < ARRAY_SIZE(pmu_hw_event_map); i++)
+ 		pmu_sbi_check_event(&pmu_hw_event_map[i]);
  
--	pinctrl_flexcan1_reg: flexcan1reggrp {
-+	pinctrl_flexcan_phy: flexcanphygrp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05  0x154   /* CAN1_STBY */
--		>;
--	};
--
--	pinctrl_flexcan2_reg: flexcan2reggrp {
--		fsl,pins = <
- 			MX8MP_IOMUXC_SAI2_MCLK__GPIO4_IO27      0x154   /* CAN2_STBY */
- 		>;
- 	};
 
 -- 
-2.37.1
+2.43.0
 
 
