@@ -4,120 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5957CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 197F7CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lRUpNDwLIvh2WOyXhRrF4YeiOcekU77uShvfMHahTds=; b=sxVdfhy/Y2zbtSFsfQGM3g55LZ
-	5hjqIvem4rPTQTJofRG5bZTQHO37qUXZSc/hU1zYbtp1Wl4JHVnB09s7Jw8tos0zVe97Fh/PCqNds
-	C542v30FVR6D+D/oSP7iJ/Cspfri36at8+3RiCuBeQko1XfAVfDl5qx1f0mkx1qRj7SFwc0dO0UhF
-	BA3x+7fAfcuXdM3d2v7kiTwcm/0euxVzbaYnbSYczQnqJLo9QnEVr7egJMvAoaaFv5tW6R90sr2Zw
-	MI+Gx0lbOo/wmeoqSzEZEuzHsRixOcfCOTKyyAa65DJZ8GXvL2ia2oxwPKaBZ0Wmbq3DIVFm5r11S
-	fYAPo3Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a1d8DVCmhkgI6IxuB3lsWpf4jhCBHyw3J+CSVSikRlo=; b=D97LInJ+MzhFigX0Mcw7JETavH
+	bFSEMhOlEgV8/e/bWR2IOeJ1OXAP5bML5Y4XyDNhxcD5jzWNwts4mBvtHwWYJZbWIdtNL54KU4tyZ
+	OB5/Gjm2uxebNy2HJvS6kjezbHDp2Oowxp2ctaDsJhE4FX64VRQuGqLaXD8QVu1nP4xIuiG4qcZNi
+	e4gPGj+9uSb7MukJiNojNumxLm8C0psIFWov64heFK1CaClzN07eD8teb/5mWKfqkjIMK0i27X/Uj
+	HnQffle8HvhiXAjLWEj1ofb14qUBeT59+7xgp3x0oW0UXCcliAxtKLblBsGm+L22PjHmSTKM5erd5
+	7RgULy6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1wH-00000008oHG-1Naz;
-	Tue, 09 Sep 2025 17:15:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uw1wB-00000008oAd-1DUO;
+	Tue, 09 Sep 2025 17:15:23 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwPe-00000006gtm-3kRj;
-	Tue, 09 Sep 2025 11:21:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=lRUpNDwLIvh2WOyXhRrF4YeiOcekU77uShvfMHahTds=; b=LOzNG6RdZHlfqZAEZv3hmQ7sEG
-	AtsEwtefXl6DebvqtJjZBdB1fQy0SoG12lquzPnrfy2ywv0GzLby7GG7PKBhX/4S1nshM8rrKQvB8
-	meyoaA0qNiY2Esu8BTaDuu3kOIf4D9Vrh7PkD/LwsbGqTlLx24/ihCV0wRNjbCaBXXlr8pXiKjb1K
-	cK3d77CLnmbfjfDOWtetjNSsHtvPWPnDTpM16nFttsAcwoSu/ixULSAH8d20kkqgceSKuyumIq9/w
-	qbFggvA3mpxgMydal1tts4ug8isYPqSIK+ZaZqjVRbMu9xA+XtBuQWEZRzUjE/BIQz+Jy0KrdDu70
-	re0WYGRg==;
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwPc-00000005J2N-01zz;
-	Tue, 09 Sep 2025 11:21:25 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45cb659e858so37835265e9.2;
-        Tue, 09 Sep 2025 04:21:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757416882; x=1758021682; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=lRUpNDwLIvh2WOyXhRrF4YeiOcekU77uShvfMHahTds=;
-        b=leLpGIZHSf4Ng7mjqdYBiS2/MfjfQZxtib/0isef1vXkn45DcdDKJeSfGca3NHPAvA
-         cw06r4rsbYrsPwjJh5qNj4wwDklg4hDctH5yl7jbrZEHcFhyaOjtJDmfi/DyNFikdLNW
-         TMHLMe7ewHYjDngA9k4z+EV24DEezyO0ek74rblfZzOTTFEBnGMFzLrxTyan7lNKRGW3
-         fvQj4VLg2Wnqn0HDog8l6w+5ykuFNDem/dErmUDuTQOAuLYxYF4KIn/I5lfoYw3qnIiy
-         Lo8eqfLcjitj6Cn2TUZxK6SSuQ8VtHLuwbB3sLgdqeNw36xXdJISx0wgqNk4fFDY0DaC
-         nAhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757416882; x=1758021682;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lRUpNDwLIvh2WOyXhRrF4YeiOcekU77uShvfMHahTds=;
-        b=qFDLPF8/Mfn4Vrq/fAeN7bmsXReVsCJB/P5HdBW0EpLVIm6VX3FtG5M2Ya5vM/JF0z
-         6HWIiEjafIJ2SF6x9lQ4HeGNl4z03ZNmlEXX+VEdFE5M/QD8mtyJXiJw0eJB+suzCMHl
-         QWu4ConWPWBonh6PYQmdGX7cHbYVSMopN6IlVSa36du8w6ZU7M5gfk/vgkl/Wzc8/fpw
-         kiiubJNmW4cIEsH0JgGak8bVUF3A+FN0zaSTb5xvvshciZNmM42VAxa19YirPH40D/wn
-         yvOSF52PX1XxN7sZBniwUeusdIpifeQP0dEWk5jpK5hXmNKBjw9My+z2U8Syi4Sz7AVu
-         gwuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCURSu4MclrC6vLDZShGVQSEvuxphIJqWhOAhaJeItQ7J2EGB8JGJDyOwrqsgGEu8qi4n2hVQAo0Fw+8wPtwwVf3@lists.infradead.org, AJvYcCWEYnXMHmaM2ljBWEfuZ3C08vbQXyQADbFQCsTrpWPg0LafxcWnoXjPgibayTWyYN7LZld0n4rILkXUp3/fec4=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8tGjBtUDRm+swg2JwWHWOPufxX9iytWzJt+sdrkedjqDEoBRG
-	YSTEf8PySaUvjPzjs6v0+0wp96x8/XYfyD0IqupznrV6ydVXiloRJHzk
-X-Gm-Gg: ASbGncvOOhpJBO3WeNh21IiSBnlsvw+YwZGH2ut28Y5rlEXPwjhIEMgIVHOy3raJavH
-	A5QGcvv+jphNQdcKq4167tEcje6+F2/pQgVr2CP+fKfKtn38iHp/7p2TErlCHV+xE8p1TnzwYNf
-	N8o+vnLPZdVkSKxM52rSsrI5j9apSLfsgWLDS4jmczxDsGqxG3zCfNJ2rcsRfFT9oHFrT6wPt8h
-	uUQdRwlvPy/yH4oUPmbw4feJlT595WuDG2QR8fdE0Uduoj0kOHi7GkIPAr5sKRcGBRKGHpgQhb5
-	0gjZXCWhWa8hckdJ8Qx2i2oQSgv/1UUHlfkK0ImAY7G+xYjZI9nOQ2Pfxs6e0RyfwNQA6FaGD+J
-	kndH80507bTvoG3PFKwCunbOIoXSwR80WpgmKjqO+FW/9D1EgLOflsrfAjVstXeZJtgcbjIjddA
-	fl0ekp
-X-Google-Smtp-Source: AGHT+IGw+CAsxSqqDDZ/FQQyvb/2SG9TMRuD7Xnj3H8EyLSvjgZxnQG3oLScOKpM5QtJRUCbg4+2rA==
-X-Received: by 2002:a05:600c:4751:b0:45b:7b54:881 with SMTP id 5b1f17b1804b1-45dddea644cmr95621485e9.1.1757416881472;
-        Tue, 09 Sep 2025 04:21:21 -0700 (PDT)
-Received: from Ansuel-XPS. (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45dd2304e16sm232791575e9.7.2025.09.09.04.21.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 04:21:21 -0700 (PDT)
-Message-ID: <68c00db1.050a0220.7d5a6.50b8@mx.google.com>
-X-Google-Original-Message-ID: <aMANrtmXgWoM_ZdE@Ansuel-XPS.>
-Date: Tue, 9 Sep 2025 13:21:18 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH v16 06/10] net: dsa: Add Airoha AN8855 5-Port
- Gigabit DSA Switch driver
-References: <20250909004343.18790-1-ansuelsmth@gmail.com>
- <20250909004343.18790-7-ansuelsmth@gmail.com>
- <aL_uqX90oP_3hbK6@shell.armlinux.org.uk>
+	id 1uvwKR-00000006f5w-411U
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 11:16:06 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cLh303c8Wz2CgVm;
+	Tue,  9 Sep 2025 19:11:24 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4ABEF140156;
+	Tue,  9 Sep 2025 19:15:56 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 9 Sep 2025 19:15:56 +0800
+Received: from huawei.com (10.90.31.46) by kwepemq200004.china.huawei.com
+ (7.202.195.237) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 9 Sep
+ 2025 19:15:55 +0800
+From: Zhou Wang <wangzhou1@hisilicon.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <wangwudi@hisilicon.com>, <liuyonglong@huawei.com>,
+	<prime.zeng@hisilicon.com>, <yuzenghui@huawei.com>, Zhou Wang
+	<wangzhou1@hisilicon.com>, Nianyao Tang <tangnianyao@huawei.com>, "Kunkun
+ Jiang" <jiangkunkun@huawei.com>
+Subject: [PATCH] irqchip/gicv3-its: Add workaround for HIP09/HIP10/HIP10C erratum 162100803/162200807/162400807
+Date: Tue, 9 Sep 2025 19:06:15 +0800
+Message-ID: <20250909110615.129179-1-wangzhou1@hisilicon.com>
+X-Mailer: git-send-email 2.30.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aL_uqX90oP_3hbK6@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_122124_138712_8DD89A27 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20250909_041604_296477_E599A31C 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,58 +75,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 10:08:57AM +0100, Russell King (Oracle) wrote:
-> On Tue, Sep 09, 2025 at 02:43:37AM +0200, Christian Marangi wrote:
-> > +static void an8855_phylink_get_caps(struct dsa_switch *ds, int port,
-> > +				    struct phylink_config *config)
-> > +{
-> > +	struct an8855_priv *priv = ds->priv;
-> > +	u32 reg;
-> > +	int ret;
-> > +
-> > +	switch (port) {
-> > +	case 0:
-> > +	case 1:
-> > +	case 2:
-> > +	case 3:
-> > +	case 4:
-> > +		__set_bit(PHY_INTERFACE_MODE_GMII,
-> > +			  config->supported_interfaces);
-> > +		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
-> > +			  config->supported_interfaces);
-> > +		break;
-> > +	case 5:
-> > +		phy_interface_set_rgmii(config->supported_interfaces);
-> > +		__set_bit(PHY_INTERFACE_MODE_SGMII,
-> > +			  config->supported_interfaces);
-> > +		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-> > +			  config->supported_interfaces);
-> > +		break;
-> > +	}
-> > +
-> > +	config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-> > +				   MAC_10 | MAC_100 | MAC_1000FD | MAC_2500FD;
-> > +
-> > +	ret = regmap_read(priv->regmap, AN8855_CKGCR, &reg);
-> > +	if (ret)
-> > +		dev_err(ds->dev, "failed to read EEE LPI timer\n");
-> > +
-> > +	config->lpi_capabilities = MAC_100FD | MAC_1000FD;
-> > +	/* Global LPI TXIDLE Threshold, default 60ms (unit 2us) */
-> > +	config->lpi_timer_default = FIELD_GET(AN8855_LPI_TXIDLE_THD_MASK, reg) *
-> > +				    AN8855_TX_LPI_UNIT;
-> 
-> You're not filling in config->lpi_interfaces, which means phylink won't
-> LPI won't be functional.
-> 
+HIP09/HIP10/HIP10C ITS have a problem, an ITS RAS will be reported in
+some cases when GICv4.1 is enable.
 
-Thanks for pointing this out, I notice lpi_interfaces is also not set on
-other DSA driver that were converted to the new EEE handling, for
-example mt7530.
+A workaround is that set ITT size to max value(0xf) when doing MAPD with V = 1,
+and avoid to send MAPD with V = 0 to hardware. Just clear V field in ITS device
+table and clear ITS cache to implement MAPD with V = 0 instead.
 
-I assume EEE is also half broken there and the required change wasn't
-notice at times?
+Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+Reviewed-by: Nianyao Tang <tangnianyao@huawei.com>
+Reviewed-by: Kunkun Jiang <jiangkunkun@huawei.com>
+---
+ Documentation/arch/arm64/silicon-errata.rst |   6 ++
+ arch/arm64/Kconfig                          |  13 +++
+ drivers/irqchip/irq-gic-v3-its.c            | 114 +++++++++++++++++---
+ 3 files changed, 119 insertions(+), 14 deletions(-)
 
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index b18ef4064bc0..dfafc608dc57 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -264,6 +264,12 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+ +----------------+-----------------+-----------------+-----------------------------+
++| Hisilicon      | Hip09           | #162100803      | HISILICON_ERRATUM_162100803 |
+++----------------+-----------------+-----------------+-----------------------------+
++| Hisilicon      | Hip10           | #162200807      | HISILICON_ERRATUM_162100803 |
+++----------------+-----------------+-----------------+-----------------------------+
++| Hisilicon      | Hip10c          | #162400807      | HISILICON_ERRATUM_162100803 |
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index e9bbfacc35a6..803df402c9af 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1270,6 +1270,19 @@ config HISILICON_ERRATUM_162100801
+ 
+ 	  If unsure, say Y.
+ 
++config HISILICON_ERRATUM_162100803
++	bool "Hip09/10/10c 162100803/162200807/162400807 erratum support"
++	default y
++	help
++	  There is a hardware conflict between vSGI and vLPI, fix it by
++	  configure a max ITS ITT size 0xf when doing MAPD with V = 1, clear V
++	  field in ITS device table and clear ITS cache to implement MAPD with
++	  V = 0 instead. Hip09/10/10c have this same problem, just use
++	  HISILICON_ERRATUM_162100803 as the compile macro and
++	  ITS_FLAGS_WORKAROUND_HISILICON_162100803 as ITS flag for convenience.
++
++	  If unsure, say Y.
++
+ config QCOM_FALKOR_ERRATUM_1003
+ 	bool "Falkor E1003: Incorrect translation due to ASID change"
+ 	default y
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 467cb78435a9..647bc70cc2f7 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -49,6 +49,7 @@
+ #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+ #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
+ #define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
++#define ITS_FLAGS_WORKAROUND_HISILICON_162100803	(1ULL << 5)
+ 
+ #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+ #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+@@ -716,7 +717,12 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
+ 
+ 	its_encode_cmd(cmd, GITS_CMD_MAPD);
+ 	its_encode_devid(cmd, desc->its_mapd_cmd.dev->device_id);
+-	its_encode_size(cmd, size - 1);
++
++	if (its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100803)
++		its_encode_size(cmd, 0xf);
++	else
++		its_encode_size(cmd, size - 1);
++
+ 	its_encode_itt(cmd, itt_addr);
+ 	its_encode_valid(cmd, desc->its_mapd_cmd.valid);
+ 
+@@ -725,6 +731,61 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
+ 	return NULL;
+ }
+ 
++static struct its_baser *its_get_baser(struct its_node *its, u32 type)
++{
++	int i;
++
++	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
++		if (GITS_BASER_TYPE(its->tables[i].val) == type)
++			return &its->tables[i];
++	}
++
++	return NULL;
++}
++
++static struct its_collection
++*its_build_mapd_cmd_hisi_quirk(struct its_node *its, struct its_cmd_block *cmd,
++			       struct its_cmd_desc *desc)
++{
++	struct its_baser *baser = its_get_baser(its, GITS_BASER_TYPE_DEVICE);
++	u32 devid = desc->its_mapd_cmd.dev->device_id;
++	void *base = baser->base;
++	u32 *dt_entry;
++	void __iomem *its_func_en = its->sgir_base + 0x80;
++	u32 tmp, tmp1, mask = 1 << 19;
++	int i = 100;
++
++	/*
++	 * Modify v to 0 in the dt entry of devid, dt entry format as below:
++	 * word0: [0-31] ITT address; word1: [0-7] ITT address, [8-12]: ITT
++	 * size, [13]: V. Only support flat device table.
++	 */
++	dt_entry = (u32 *)(base + devid * 8 + 4);
++	*dt_entry &= ~(1 << 13);
++
++	dsb(ishst);
++
++	/*
++	 * Cache invalidate by a private register GITS_FUNC_EN, whose offset
++	 * is 0x20080 of ITS base address. GICv4.1 already maps sgir_base
++	 * (offset is 0x20000), so address of GITS_FUNC_EN can be got by
++	 * sgir_base + 0x80. Bit 16 is used to clear DT cache, the flip of
++	 * bit 19 indicates that DT cache has been cleared.
++	 */
++	while (--i) {
++		tmp = readl_relaxed(its_func_en) & mask;
++		writel_relaxed(tmp | (1 << 16), its_func_en);
++		tmp1 = readl_relaxed(its_func_en) & mask;
++		if (tmp != tmp1)
++			break;
++	}
++
++	if (i == 0)
++		WARN_ON(1);
++
++	return NULL;
++}
++
+ static struct its_collection *its_build_mapc_cmd(struct its_node *its,
+ 						 struct its_cmd_block *cmd,
+ 						 struct its_cmd_desc *desc)
+@@ -1306,11 +1367,18 @@ static void its_send_inv(struct its_device *dev, u32 event_id)
+ static void its_send_mapd(struct its_device *dev, int valid)
+ {
+ 	struct its_cmd_desc desc;
++	its_cmd_builder_t fn;
++
++	if (dev->its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100803 &&
++	    valid == 0)
++		fn = its_build_mapd_cmd_hisi_quirk;
++	else
++		fn = its_build_mapd_cmd;
+ 
+ 	desc.its_mapd_cmd.dev = dev;
+ 	desc.its_mapd_cmd.valid = !!valid;
+ 
+-	its_send_single_command(dev->its, its_build_mapd_cmd, &desc);
++	its_send_single_command(dev->its, fn, &desc);
+ }
+ 
+ static void its_send_mapc(struct its_node *its, struct its_collection *col,
+@@ -3354,18 +3422,6 @@ static struct its_device *its_find_device(struct its_node *its, u32 dev_id)
+ 	return its_dev;
+ }
+ 
+-static struct its_baser *its_get_baser(struct its_node *its, u32 type)
+-{
+-	int i;
+-
+-	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
+-		if (GITS_BASER_TYPE(its->tables[i].val) == type)
+-			return &its->tables[i];
+-	}
+-
+-	return NULL;
+-}
+-
+ static bool its_alloc_table_entry(struct its_node *its,
+ 				  struct its_baser *baser, u32 id)
+ {
+@@ -4902,6 +4958,16 @@ static bool __maybe_unused its_enable_rk3568002(void *data)
+ 	return true;
+ }
+ 
++static bool __maybe_unused its_enable_quirk_162100803(void *data)
++{
++	struct its_node *its = data;
++
++	if (is_v4_1(its))
++		its->flags |= ITS_FLAGS_WORKAROUND_HISILICON_162100803;
++
++	return true;
++}
++
+ static const struct gic_quirk its_quirks[] = {
+ #ifdef CONFIG_CAVIUM_ERRATUM_22375
+ 	{
+@@ -4956,6 +5022,26 @@ static const struct gic_quirk its_quirks[] = {
+ 		.init	= its_enable_quirk_hip09_162100801,
+ 	},
+ #endif
++#ifdef CONFIG_HISILICON_ERRATUM_162100803
++	{
++		.desc = "ITS: Hip09 erratum 162100803",
++		.iidr = 0x00051736,
++		.mask = 0xffffffff,
++		.init = its_enable_quirk_162100803,
++	},
++	{
++		.desc = "ITS: Hip10 erratum 162200807",
++		.iidr = 0x01051736,
++		.mask = 0xffffffff,
++		.init = its_enable_quirk_162100803,
++	},
++	{
++		.desc = "ITS: Hip10c erratum 162400807",
++		.iidr = 0x00061736,
++		.mask = 0xffffffff,
++		.init = its_enable_quirk_162100803,
++	},
++#endif
+ #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+ 	{
+ 		.desc   = "ITS: Rockchip erratum RK3588001",
 -- 
-	Ansuel
+2.33.0
+
 
