@@ -4,108 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF362CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A295DCAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5SuLPKP6QNmvh1TmNhSBXqAPxbhjyq+GV6/uflQ99Y=; b=s8n29YiBBMW1PUuRxq/iaTSzXI
-	+Yevjz3gOLAKzwhNtgB/KJZ+Gv0GKh+qC3YXL4gjBFgApjC9IxKYu7l6awaV5Pn8iF4Rcy7Xhw7pX
-	ND5AjGMxecbakny7HEyAZyE2BvyJ0GEFKZ4stMzyN2uPuKFpCb/7L7mfcEkBnDxL8p7CjNIDcQVjm
-	aGhGmn9jEAD4NyLRorV2D1fybrlroj8QLdqUx6/jnp1WM3hy6QrGKB9RWC65FeRD+60bzeTKuXEUF
-	P6qyP9x9oM3nshW7jHlo9zWk+xjulnG8CWg0eRb64dJg4+srkljgZeWw0Bel8LBGMJKF5QZtUozID
-	f9GgYEvw==;
+	bh=2ZbpXEUxbf5i4kX1LWSahhezFSeJsNj0DV486apUphg=; b=QfkLftPbw2enG3MfWZDrdNDXSA
+	bq4dvYZnP0S3MPXa1uEo7wwmvrQZPKtxc5f0TFCHkQEZMRPXrlgksxt/VmmMD4Ozs930oUyIR+i1y
+	HGrzu/1nb7BCZOW0vDJt7rk7aGViOQizy4smYLfOlmHPIIoEOFoFK6RZte45AyNfSiEtXrwCFR/Uz
+	JxKL0+P1/Ak/U1QAkvypkyvv5JDIrx+mKtmTDsCKlIFcPgR1MyK22JXJlNKkjQomQgjAdml4VPkPs
+	2RUS1XwRaZ/E7wb0kTcV+dzZm2ILw2nknQE6F87+SlnVmoSBxvls3X23iH30Cq64oimyN0tD0Uthv
+	q221h1iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0Qw-000000088xO-2NER;
-	Tue, 09 Sep 2025 15:39:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uw0R0-0000000891s-1Krk;
+	Tue, 09 Sep 2025 15:39:06 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvupM-000000062w2-3fTc
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 09:39:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757410791;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R5SuLPKP6QNmvh1TmNhSBXqAPxbhjyq+GV6/uflQ99Y=;
-	b=Y+epI0zh2NvHJ8tNDM4XfDtVs0zfX/m/9+oXaBSyGwyINeR1dClIC5KHuTdTEg3dYAT+/9
-	wAdLCS/QQuun/oCkIdguX57GUSsBu8pMFNhNQyhEj7UesGTUAw+3lp3dMV8FzybfobO11v
-	GhswMExGX3udNIAfH8dqfFzK2EgIWuo=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-589-LfdjCJ7fPkC-a3PzZD4uTQ-1; Tue, 09 Sep 2025 05:39:50 -0400
-X-MC-Unique: LfdjCJ7fPkC-a3PzZD4uTQ-1
-X-Mimecast-MFC-AGG-ID: LfdjCJ7fPkC-a3PzZD4uTQ_1757410790
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4b49666c8b8so116692171cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 02:39:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757410790; x=1758015590;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=R5SuLPKP6QNmvh1TmNhSBXqAPxbhjyq+GV6/uflQ99Y=;
-        b=wS+xMjjqLMRgxREUH7WnwG9ZBVyD7b4zc3EfiqkGN+s7AxQVtpNiSTBvrWy8Ioduoz
-         sajpvwtV5KyZXpwlGcooQuffFe0uxY0vBegVIu7t3NT3psxZWruHL0ECJOH4u74vg/xz
-         i7bdzVIZ00UblmzK5Cw0wCYa0Crb19c6Caq0i3UhzsRztqzy+d19CHykx3dRlgj0b9HX
-         k5I+Nm6F50AhpQ/pAzdzTEt0BN+DAXDer5Gd/RAUGGP1NJ5/Kr8dfwM/4xeUqt8i4nUt
-         PwPkQ8H+TkeNmWRpEPVsU4VCS1Ri8253Fxoa9Z4KHzlwYe+uHuop98CfH1R03E2wMXJR
-         UMrg==
-X-Forwarded-Encrypted: i=1; AJvYcCXX3ANRzXfI4Hf4aNHodpyn+qcK8k5OE3mjsyhXVtt5YoibGRS7AB1yNzU3wdBh4TI2/Fynf//jQGa8WEJ1uAYn@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhE4QPeWnQ9KzyYOZWKHCudhc9kHOdWBq5GAPFAlgxST8mt/Eq
-	WNxob7ZTRLlBCh7lVSIMlamInQpKxHw640UNYNk+XCMm4miLfh6p2jWBSoje7mEeTG7Uhx1rDj3
-	ukHQSF6RZsO5kb9bzo8WUDg+FRgKNlP2MU+KGMiZ/UNs47WdVBGcjgTnKQCLpKSY3FgYpfjCceB
-	aA
-X-Gm-Gg: ASbGncsZqIaycPB8do37y+9dP7FaRNOEuepxhYuHgLrb9rvaZ+EWMf3viouLB+5tW7m
-	Jhb3JF8xK4ZQnt5ij2iuIIwt4x8+hDWXACC4hYiuqk9hJpeiVJr8WXCOOtQGqQuUk12w+cHIRdA
-	MAsPjqTLzADFLsjaHH/WIZnHgaA3pgUXbJYJByjWd//mGL8q0Tkat5+Yy3eQIP+FlHf1CFB3EIv
-	+DLLR9lO94Qg7D/758jEu4cDyYnrWKlPVdIesP49V74f827mhyHPcZoaY2Cz9sa7rDpqczgmjSO
-	CQ6dweD18NoLF0GB7P6clU9eMZE8CrP7bxsHMdBRVhMmO7ISlKnYI6JwHbt5/KvdgWlVw71FiO4
-	ksRxcIVqsoRtyYIzeyJw=
-X-Received: by 2002:a05:622a:14d:b0:4b2:8ac4:ef4a with SMTP id d75a77b69052e-4b5f848239dmr100627941cf.65.1757410789868;
-        Tue, 09 Sep 2025 02:39:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF32u03YWf0xFsHNwv4lu2FNzdlBMcHC/jd+orwwY/MAKlb650jQ6YeSwxCEA5UmnrgNTF0kw==
-X-Received: by 2002:a05:622a:14d:b0:4b2:8ac4:ef4a with SMTP id d75a77b69052e-4b5f848239dmr100627741cf.65.1757410789492;
-        Tue, 09 Sep 2025 02:39:49 -0700 (PDT)
-Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b61bbbc28csm6792371cf.28.2025.09.09.02.39.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 02:39:47 -0700 (PDT)
-Date: Tue, 9 Sep 2025 05:39:45 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/3] clk: conf: Support assigned-clock-sscs
-Message-ID: <aL_14XofqnwAd3QE@x1>
-References: <20250901-clk-ssc-version1-v2-0-1d0a486dffe6@nxp.com>
- <20250901-clk-ssc-version1-v2-2-1d0a486dffe6@nxp.com>
- <aLdmXcdJnoeXEJaQ@x1>
- <20250909085013.GA26483@nxa18884-linux.ap.freescale.net>
+	id 1uvupa-0000000637G-2KFi;
+	Tue, 09 Sep 2025 09:40:10 +0000
+Received: from localhost (unknown [116.232.18.168])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id DECA3340EC3;
+	Tue, 09 Sep 2025 09:40:03 +0000 (UTC)
+Date: Tue, 9 Sep 2025 17:39:58 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 12/15] gpio: spacemit-k1: use new generic GPIO chip API
+Message-ID: <20250909093958-GYA1207638@gentoo.org>
+References: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
+ <20250909-gpio-mmio-gpio-conv-part4-v1-12-9f723dc3524a@linaro.org>
 MIME-Version: 1.0
-In-Reply-To: <20250909085013.GA26483@nxa18884-linux.ap.freescale.net>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: delhX_3O20pfgOXTynMO9Gvp-XT-jFUyCqsaaGdwTdo_1757410790
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20250909-gpio-mmio-gpio-conv-part4-v1-12-9f723dc3524a@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_023952_983406_26085DAF 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20250909_024006_990903_DE38DCA8 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,33 +76,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 04:50:13PM +0800, Peng Fan wrote:
-> Hi Brian,
-> On Tue, Sep 02, 2025 at 05:49:17PM -0400, Brian Masney wrote:
-> [...]
-> >> +		if (IS_ERR(clk)) {
-> >> +			if (PTR_ERR(clk) != -EPROBE_DEFER)
-> >> +				pr_warn("clk: couldn't get clock %d for %pOF\n",
-> >> +					index, node);
-> >> +			return PTR_ERR(clk);
-> >
-> >This chunk can be replaced with dev_warn_probe(). Sorry I missed that in
-> >v1. Otherwise the rest looks good to me. With that fixed:
+
+On 11:15 Tue 09 Sep     , Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> dev_warn_probe() could not be used here. There is no 'device' pointer
-> here.
-
-Ahh ok, gotcha.
-
-> I take __set_clk_parents() as example here, so use pr_warn().
+> Convert the driver to using the new generic GPIO chip interfaces from
+> linux/gpio/generic.h.
 > 
-> >
-> >Reviewed-by: Brian Masney <bmasney@redhat.com>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Thanks for converting this
+
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
+
+> ---
+>  drivers/gpio/gpio-spacemit-k1.c | 28 ++++++++++++++++++++--------
+>  1 file changed, 20 insertions(+), 8 deletions(-)
 > 
-> Could I still keep this tag with keeping pr_warn()?
+> diff --git a/drivers/gpio/gpio-spacemit-k1.c b/drivers/gpio/gpio-spacemit-k1.c
+> index 3cc75c701ec40194e602b80d3f96f23204ce3b4d..9e57f43d3d13ad28fcd3327ecdc3f359691a44c9 100644
+> --- a/drivers/gpio/gpio-spacemit-k1.c
+> +++ b/drivers/gpio/gpio-spacemit-k1.c
+> @@ -6,6 +6,7 @@
+>  
+>  #include <linux/clk.h>
+>  #include <linux/gpio/driver.h>
+> +#include <linux/gpio/generic.h>
+>  #include <linux/init.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/io.h>
+> @@ -38,7 +39,7 @@
+>  struct spacemit_gpio;
+>  
+>  struct spacemit_gpio_bank {
+> -	struct gpio_chip gc;
+> +	struct gpio_generic_chip chip;
+>  	struct spacemit_gpio *sg;
+>  	void __iomem *base;
+>  	u32 irq_mask;
+> @@ -72,7 +73,7 @@ static irqreturn_t spacemit_gpio_irq_handler(int irq, void *dev_id)
+>  		return IRQ_NONE;
+>  
+>  	for_each_set_bit(n, &pending, BITS_PER_LONG)
+> -		handle_nested_irq(irq_find_mapping(gb->gc.irq.domain, n));
+> +		handle_nested_irq(irq_find_mapping(gb->chip.gc.irq.domain, n));
+>  
+>  	return IRQ_HANDLED;
+>  }
+> @@ -143,7 +144,7 @@ static void spacemit_gpio_irq_print_chip(struct irq_data *data, struct seq_file
+>  {
+>  	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(data);
+>  
+> -	seq_printf(p, "%s-%d", dev_name(gb->gc.parent), spacemit_gpio_bank_index(gb));
+> +	seq_printf(p, "%s-%d", dev_name(gb->chip.gc.parent), spacemit_gpio_bank_index(gb));
+>  }
+>  
+>  static struct irq_chip spacemit_gpio_chip = {
+> @@ -165,7 +166,7 @@ static bool spacemit_of_node_instance_match(struct gpio_chip *gc, unsigned int i
+>  	if (i >= SPACEMIT_NR_BANKS)
+>  		return false;
+>  
+> -	return (gc == &sg->sgb[i].gc);
+> +	return (gc == &sg->sgb[i].chip.gc);
+>  }
+>  
+>  static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
+> @@ -173,7 +174,8 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
+>  				  int index, int irq)
+>  {
+>  	struct spacemit_gpio_bank *gb = &sg->sgb[index];
+> -	struct gpio_chip *gc = &gb->gc;
+> +	struct gpio_generic_chip_config config;
+> +	struct gpio_chip *gc = &gb->chip.gc;
+>  	struct device *dev = sg->dev;
+>  	struct gpio_irq_chip *girq;
+>  	void __iomem *dat, *set, *clr, *dirin, *dirout;
+> @@ -187,9 +189,19 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
+>  	dirin	= gb->base + SPACEMIT_GCDR;
+>  	dirout	= gb->base + SPACEMIT_GSDR;
+>  
+> +	config = (typeof(config)){
+> +		.dev = dev,
+> +		.sz = 4,
+> +		.dat = dat,
+> +		.set = set,
+> +		.clr = clr,
+> +		.dirout = dirout,
+> +		.dirin = dirin,
+> +		.flags = BGPIOF_UNREADABLE_REG_SET | BGPIOF_UNREADABLE_REG_DIR,
+> +	};
+> +
+>  	/* This registers 32 GPIO lines per bank */
+> -	ret = bgpio_init(gc, dev, 4, dat, set, clr, dirout, dirin,
+> -			 BGPIOF_UNREADABLE_REG_SET | BGPIOF_UNREADABLE_REG_DIR);
+> +	ret = gpio_generic_chip_init(&gb->chip, &config);
+>  	if (ret)
+>  		return dev_err_probe(dev, ret, "failed to init gpio chip\n");
+>  
+> @@ -221,7 +233,7 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
+>  	ret = devm_request_threaded_irq(dev, irq, NULL,
+>  					spacemit_gpio_irq_handler,
+>  					IRQF_ONESHOT | IRQF_SHARED,
+> -					gb->gc.label, gb);
+> +					gb->chip.gc.label, gb);
+>  	if (ret < 0)
+>  		return dev_err_probe(dev, ret, "failed to register IRQ\n");
+>  
+> 
+> -- 
+> 2.48.1
+> 
 
-Yes. Thank you!
-
-Brian
-
+-- 
+Yixun Lan (dlan)
 
