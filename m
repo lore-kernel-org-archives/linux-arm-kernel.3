@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B98ECCAC597
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8508CAC598
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xIfu0j97IyRXPCOtWvYmSqItFYmGHK25glR1j9+hfWs=; b=uC4Xy65U4yCSSoVo5aBYtm6RC2
-	10Tey9RlklOY8X48LLi4HYDTAr0waAD9b+BJ/FS5T+/QLRNQt4mZ7uPZw0FxPnnX838m7QP9WqnDC
-	KHv1tgT/fCMAonL7LvZZ8LoJQqDBtch2lqFrGqz1S/f4Tx+XAIcgA5b5UsPYF+NIPk8zL/Wl1c5c/
-	5zor1ZBBAD0fAlLpNJjbuRAeXfd7mBjN3jQe+G4UZ52pzJFreTKEQZZx2exaQOhgAZ2ccY+ULww14
-	BgqtGNC4kkgrlLroE/abkU7p+k7Ad6UO5zAgNCAcNx40+T5DLOY4T8d7NgqsXVP3q+ORcnRplGaw7
-	eBdiwBLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7ky71Mnv1o4j9dtBC5FM4kNDHq6xAMnAD0l3G62aCXo=; b=P/NDMjDQabDi32aafi5KKUo+x/
+	P/ByLDwQSdarrALy7lqtitbe63jhq0gligW0qdVIa5pA33O0laKRBI4brtEs4Wga9BWSaRkEx1bb/
+	15sLhZfihAyvcX3jOOK+V33dWu9uQEz+bAbN9wqOqGEtUaPqv3a7AxpRUaayBdm8xom3bH0J3hp1h
+	IB7RIp3aTvYoESY2y/pFJJ+yx03PkVafhKkU6xIPxY8FHGumEHrgWC51AW6FwxGPOEDY+a15CiSHv
+	28cUArZJSVncppcpyioazoImyGT9Cqmgr08NXyJbrTQt5x13C+qHQOhFa4ghcMOBdD6Mq3O56Nt5V
+	OMngAdsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1v4-00000008mYT-3kB1;
-	Tue, 09 Sep 2025 17:14:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvvYE-00000006NmD-33sZ
+	id 1uw1v6-00000008maS-2mpg;
+	Tue, 09 Sep 2025 17:14:16 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvvjZ-00000006SDM-197m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 10:26:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B85C3113E;
-	Tue,  9 Sep 2025 03:26:05 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CDB83F66E;
-	Tue,  9 Sep 2025 03:26:08 -0700 (PDT)
-Date: Tue, 9 Sep 2025 11:26:05 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 07/33] arm64: kconfig: Add Kconfig entry for MPAM
-Message-ID: <aMAAvXz0zWqoiGm4@e133380.arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-8-james.morse@arm.com>
- <aK7llvNbXZKWhtoo@e133380.arm.com>
- <978cf822-4d7c-4301-bbc4-752f184c93d6@arm.com>
+	Tue, 09 Sep 2025 10:37:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1757414277; x=1788950277;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=75ANhpaW227bGu0JKhRJlzVZJZScwakaz/wvhDzumdE=;
+  b=DjS7wI6p6a1i7PRiHshI7rRMC4L8QRpVOLpWWhKnDVviDmXyTyiT9OV0
+   /FVY+7uPVf7TG7pKpxWZtQ5zhxZaMgdkS/42ZqB97o3+vb2lWrVcL8TNS
+   2bEf5y/aYG6kE1Xdw7HB+pysOWffxg3MZx/6s3Ca1f32OorgnfBfXnvrf
+   yj1mEw+7P1lxXHin4OzWqKDtznSRUorGzDwtO4SvqJy3MBIcyXu8jvFL9
+   Q4mNgEoCV3vcMio2AXvbUFaOROa8ZNRpswd8t2sK9o4o7Q64zOXr2dxvO
+   hX4IIE9j1lde8SMC5wVRWNaOf7oZxujwdno82Vc9CfEZJP6pGOABAGXJM
+   g==;
+X-CSE-ConnectionGUID: 4S6DztCWTLSzrCQS5AblUg==
+X-CSE-MsgGUID: XXV7pOUQR5KQenWm5l5WqA==
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="52016856"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Sep 2025 03:37:56 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 9 Sep 2025 03:37:45 -0700
+Received: from che-lt-i64410lx.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 9 Sep 2025 03:37:40 -0700
+From: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>
+CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Balamanikandan Gunasundar
+	<balamanikandan.gunasundar@microchip.com>
+Subject: [PATCH v2] clk: at91: sam9x7: Add peripheral clock id for pmecc
+Date: Tue, 9 Sep 2025 16:08:17 +0530
+Message-ID: <20250909103817.49334-1-balamanikandan.gunasundar@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <978cf822-4d7c-4301-bbc4-752f184c93d6@arm.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_032614_842569_C10811FD 
-X-CRM114-Status: GOOD (  25.55  )
+X-CRM114-CacheID: sfid-20250909_033757_317994_74C63BE6 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,73 +85,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add pmecc instance id in peripheral clock description.
 
-On Thu, Sep 04, 2025 at 06:28:14PM +0100, James Morse wrote:
-> Hi Dave,
-> 
-> On 27/08/2025 12:01, Dave Martin wrote:
-> > <super-pedantic mode enabled>
-> 
-> Uh oh!
-> 
-> > (Since this likely be people's go-to patch for understanding what MPAM
-> > is, it is probably worth going the extra mile.)
-> > 
-> > On Fri, Aug 22, 2025 at 03:29:48PM +0000, James Morse wrote:
-> >> The bulk of the MPAM driver lives outside the arch code because it
-> >> largely manages MMIO devices that generate interrupts. The driver
-> >> needs a Kconfig symbol to enable it, as MPAM is only found on arm64
-> > 
-> > Prefer -> "[...] to enable it. As MPAM is only [...]"
-> > 
-> >> platforms, that is where the Kconfig option makes the most sense.
-> > 
-> > It could be clearer what "where" refers to, here.
-> 
-> Sure,
-> 
-> 
-> > Maybe reword from ", that is [...]" -> ", the arm64 tree is the most
-> > natural home for the Kconfig option."
-> > 
-> > (Or something like that.)
-> 
-> Sure,
+Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
+---
+Changes in v2:
+- Removed Acked-by tag that was added by mistake
 
-[... etc., etc. ...]
+ drivers/clk/at91/sam9x7.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> >> +	  partition-id and performance-monitoring-group to measure the
-> >> +	  cache occupancy or data throughput.
-> > 
-> > So, how about something like:
-> > 
-> > --8<--
-> > 
-> > 	  Memory system components, such as the caches, can be configured with
-> > 	  policies to control how much of various physical resources (such as
-> > 	  memory bandwidth or cache memory) the transactions labelled with each
-> > 	  PARTID can consume.  Depending on the capabilities of the hardware,
-> > 	  the PARTID and PMG can also be used as filtering criteria to measure
-> > 	  the memory system resource consumption of different parts of a
-> > 	  workload.
-> > 
-> > -->8--
-> 
-> Done,
-> 
-> 
-> > (Where "Memory system components" is used in a generic sense and so not
-> > capitalised.)
-> 
-> (I can't wait for the Memory System Component on the Memory Side Cache!)
+diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+index ffab32b047a0..bce60f7393d5 100644
+--- a/drivers/clk/at91/sam9x7.c
++++ b/drivers/clk/at91/sam9x7.c
+@@ -403,6 +403,7 @@ static const struct {
+ 	{ .n = "pioD_clk",	.id = 44, },
+ 	{ .n = "tcb1_clk",	.id = 45, },
+ 	{ .n = "dbgu_clk",	.id = 47, },
++	{ .n = "pmecc_clk",     .id = 48, },
+ 	/*
+ 	 * mpddr_clk feeds DDR controller and is enabled by bootloader thus we
+ 	 * need to keep it enabled in case there is no Linux consumer for it.
+-- 
+2.34.1
 
-Urk.
-
-MSC² ?
-
-[...]
-
-Cheers
----Dave
 
