@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79CD5CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0148CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mv00JflGDXvXsqskEHJzyoiH4JiTlBhzjI+w8xYgPnU=; b=1iA+cbR2mHNLTL9t+wS1PZ0bRf
-	xhwc/yVfDNteCO0o4Y8hPreF6aJ5NVmM0j2seOXdLeFGQcSp+oaudq2Dz8s9f9ir1M9EhKH71mJMV
-	9/brF08PAceCDZGAutsPE7HlChl4tpbvRq5kBaLQbqGRNe5Bqmkz2BaQRrtwDuiA4u+ChgnCjPY6p
-	NhcPOn/SCAcUgt+Xa/OAPCFOaE1xNm6VkvS51/PBBK3Z1rsUe6F1N7FxSunrjtT7tnAdxqBpS/BIh
-	wUKGixRKfy4FFTG9RVycNVlJyGMaBJiuJXapvOYLP2msuC3vZYKS6UBL78O9Kzj/0OnvboXQeQ2L8
-	KtaoWCPw==;
+	bh=oEuN3cjM/BEkZI5UyL8A+WNuDqsqCfNuIENBSMw2Vh4=; b=lB4JdYPdCFaQ1nn8ATW5IcnH/w
+	G743rHA5VbQCGVlXqLFL95/+kRGyiUyVbtT7De6GBGRtfLdQYxOmRpco7G795KaJKePIkIOWU1zlS
+	UVBsd/a6FrFoQypO9yUlHbeoYNpruWiaezY9zlG4O8mTWV/NJb8Z7mXABXePsFIeeBfI0o4RTN+X2
+	U+Kn0pFn5MJ0R0dOd7/5Zwx6HtkN2otqYwXVk6AHGErrzGm38vU1olYAvhkkyViP+UEaWPh/cb6zt
+	mM4XwtTZdLF20ellU/EiQ6fUDrqXRNObys13OHHJ/a8RZIFfz8jByFZ1HC3gDQDreb0H1hl3tK9Yh
+	hX0SiF9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsHA-00000004wES-3Ths;
-	Tue, 09 Sep 2025 06:56:24 +0000
+	id 1uvsHF-00000004wJY-0p2i;
+	Tue, 09 Sep 2025 06:56:29 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvoDt-00000003kgm-1kZP
+	id 1uvoHs-00000003lr8-3dL2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 02:36:46 +0000
+	Tue, 09 Sep 2025 02:40:54 +0000
 Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5892afnJ188204;
-	Mon, 8 Sep 2025 21:36:41 -0500
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5892eoSU189023;
+	Mon, 8 Sep 2025 21:40:50 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757385401;
-	bh=Mv00JflGDXvXsqskEHJzyoiH4JiTlBhzjI+w8xYgPnU=;
+	s=ti-com-17Q1; t=1757385650;
+	bh=oEuN3cjM/BEkZI5UyL8A+WNuDqsqCfNuIENBSMw2Vh4=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=O8POU6SAcDOSeuPQRrVuOjhR4rnQGSQNQysEVoRLNTRFhrjI3XlLWdrEq679w2W3w
-	 yMkaFIx//PcK2hkwHJG4kVtzAbXRUX+mi3wk/hCNFhtxZnRiwshYRXG9GugsRM8Nyg
-	 UEK3EzwgarZnNI1QNPpQrNSNGXSIzDr0uUHVyjFs=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5892afRw3448338
+	b=yS3MXcXI4ouRo+FFvCPNxlLPTdJoyH/ekj8RpIj8XKbxdMJ6oIkKxeWhoHftm56kp
+	 2u1qAK4pZ3nOZOBu8CN1ADhVeLm5kU+rqd32K2q2CP9jDoIuTPMeu47IYIBTZuGXns
+	 x4NYcC1IQkfo/8nnHBaWlprvQzVtvFYCWIRmstx8=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5892eojt3450612
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 8 Sep 2025 21:36:41 -0500
-Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 8 Sep 2025 21:40:50 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 8
- Sep 2025 21:36:40 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 21:40:49 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 8 Sep 2025 21:36:40 -0500
+ Frontend Transport; Mon, 8 Sep 2025 21:40:49 -0500
 Received: from [10.24.68.177] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5892aaNW1575986;
-	Mon, 8 Sep 2025 21:36:36 -0500
-Message-ID: <93acbdf4-5de3-47cd-8633-c4ab6aaa1018@ti.com>
-Date: Tue, 9 Sep 2025 08:06:35 +0530
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5892eicK1581243;
+	Mon, 8 Sep 2025 21:40:45 -0500
+Message-ID: <836f7b6a-87ba-435a-9c5b-5be1f05114e8@ti.com>
+Date: Tue, 9 Sep 2025 08:10:44 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] arm64: dts: ti: k3-pinctrl: Add the remaining
- macros
-To: "Willis, Kendall" <k-willis@ti.com>,
-        "Bajjuri, Praneeth"
-	<praneeth@ti.com>, "Menon, Nishanth" <nm@ti.com>,
-        "Davis, Andrew"
-	<afd@ti.com>,
-        "Raghavendra, Vignesh" <vigneshr@ti.com>,
-        "Gole, Dhruva"
-	<d-gole@ti.com>, "Kumar, Udit" <u-kumar1@ti.com>,
-        "Francis, Sebin"
-	<sebin.francis@ti.com>,
-        "kristo@kernel.org" <kristo@kernel.org>,
-        "robh@kernel.org" <robh@kernel.org>,
-        "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>,
-        "conor+dt@kernel.org" <conor+dt@kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: "Mahaveer, Vishal" <vishalm@ti.com>
-References: <20250905051448.2836237-1-a-kaur@ti.com>
- <20250905051448.2836237-4-a-kaur@ti.com>
- <a89f9e4f-5306-4943-a70f-f6a60a4537d3@ti.com>
+Subject: Re: [PATCH v4 4/4] arm64: dts: ti: k3-pinctrl: Fix the bug in
+ existing macros
+To: Vignesh Raghavendra <vigneshr@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
+        <afd@ti.com>, <d-gole@ti.com>, <u-kumar1@ti.com>,
+        <sebin.francis@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <vishalm@ti.com>
+References: <20250904112538.529857-1-a-kaur@ti.com>
+ <20250904112538.529857-5-a-kaur@ti.com>
+ <63c958a2-3973-4171-8a74-80381218723b@ti.com>
 Content-Language: en-US
 From: Akashdeep Kaur <a-kaur@ti.com>
-In-Reply-To: <a89f9e4f-5306-4943-a70f-f6a60a4537d3@ti.com>
+In-Reply-To: <63c958a2-3973-4171-8a74-80381218723b@ti.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_193645_551916_069F1DE8 
-X-CRM114-Status: GOOD (  25.08  )
+X-CRM114-CacheID: sfid-20250908_194052_996116_C9EBE3A6 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,162 +91,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kendall.
-
-On 09/09/25 05:04, Willis, Kendall wrote:
-> On 9/5/25 00:14, Akashdeep Kaur wrote:
->> Add the drive strength, schmitt trigger enable macros to pinctrl file.
->> Add the missing macros for DeepSleep configuration control referenced
->> from "Table 14-6172. Description Of The Pad Configuration Register Bits"
+On 08/09/25 12:26, Vignesh Raghavendra wrote:
 > 
-> The Table number should be 14-8769 for the AM62P TRM.
-
-Yes, already updating that.
 > 
->> in AM625 TRM[0].
-> 
-> You should reference both the AM62X and AM62P TRMs because in the AM62P
-> TRM the ISO_OVERRIDE_EN bit is reserved, whereas in the AM62X TRM it is
-> defined.
-
-That is TRM documentation bug. The functionality is same for both the SoCs
-> 
->> Add some DeepSleep macros to provide combinations that can be used
->> directly in device tree files example PIN_DS_OUTPUT_LOW that
->> configures pin to be output and also sets its value to 0.
->>
->> [0] https://www.ti.com/lit/pdf/SPRUJ83
+> On 04/09/25 16:55, Akashdeep Kaur wrote:
+>> Currently, DS_IO_OVERRIDE_EN_SHIFT macro is not defined anywhere but
+>> used for defining other macro.
+>> Replace this undefined macro with valid macro. Rename the existing macro
+>> to reflect the actual behavior.
 >>
 >> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
 >> ---
->>    arch/arm64/boot/dts/ti/k3-pinctrl.h | 47 ++++++++++++++++++++++++++++-
->>    1 file changed, 46 insertions(+), 1 deletion(-)
+> 
+> Fixes: 325aa0f6b36e ("arm64: dts: ti: k3-pinctrl: Introduce deep sleep macros")
+
+Updated. Thanks!
+> 
+> Reviewed-by: Vignesh Raghavendra <vigneshr@ti.com>
+> 
+> 
+>>   arch/arm64/boot/dts/ti/k3-pinctrl.h | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
 >>
 >> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
->> index c0f09be8d3f9..8ce37ace94c9 100644
+>> index 7c5b5783769c..36bb403d718e 100644
 >> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
 >> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
->> @@ -3,15 +3,20 @@
->>     * This header provides constants for pinctrl bindings for TI's K3 SoC
->>     * family.
->>     *
->> - * Copyright (C) 2018-2024 Texas Instruments Incorporated - https://www.ti.com/
->> + * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
->>     */
->>    #ifndef DTS_ARM64_TI_K3_PINCTRL_H
->>    #define DTS_ARM64_TI_K3_PINCTRL_H
->>    
->> +#define WKUP_LVL_EN_SHIFT       (7)
->> +#define WKUP_LVL_POL_SHIFT      (8)
->>    #define ST_EN_SHIFT		(14)
->>    #define PULLUDEN_SHIFT		(16)
->>    #define PULLTYPESEL_SHIFT	(17)
->>    #define RXACTIVE_SHIFT		(18)
->> +#define DRV_STR_SHIFT           (19)
->> +#define ISO_OVERRIDE_EN_SHIFT   (22)
->> +#define ISO_BYPASS_EN_SHIFT     (23)
->>    #define DEBOUNCE_SHIFT		(11)
->>    #define FORCE_DS_EN_SHIFT	(15)
->>    #define DS_EN_SHIFT		(24)
->> @@ -19,6 +24,7 @@
->>    #define DS_OUT_VAL_SHIFT	(26)
->>    #define DS_PULLUD_EN_SHIFT	(27)
->>    #define DS_PULLTYPE_SEL_SHIFT	(28)
->> +#define WKUP_EN_SHIFT           (29)
->>    
->>    /* Schmitt trigger configuration */
->>    #define ST_DISABLE		(0 << ST_EN_SHIFT)
->> @@ -33,6 +39,29 @@
->>    #define INPUT_EN		(1 << RXACTIVE_SHIFT)
->>    #define INPUT_DISABLE		(0 << RXACTIVE_SHIFT)
->>    
->> +#define DS_PULL_DISABLE         (1 << DS_PULLUD_EN_SHIFT)
->> +#define DS_PULL_ENABLE          (0 << DS_PULLUD_EN_SHIFT)
+>> @@ -88,8 +88,8 @@
+>>   
+>>   #define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
+>>   #define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
+>> -#define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
+>> -#define PIN_DS_IO_OVERRIDE_ENABLE	(1 << DS_IO_OVERRIDE_EN_SHIFT)
+>> +#define PIN_DS_ISO_OVERRIDE_DISABLE     (0 << ISO_OVERRIDE_EN_SHIFT)
+>> +#define PIN_DS_ISO_OVERRIDE_ENABLE      (1 << ISO_OVERRIDE_EN_SHIFT)
+>>   #define PIN_DS_OUT_ENABLE		(0 << DS_OUT_DIS_SHIFT)
+>>   #define PIN_DS_OUT_DISABLE		(1 << DS_OUT_DIS_SHIFT)
+>>   #define PIN_DS_OUT_VALUE_ZERO		(0 << DS_OUT_VAL_SHIFT)
 > 
-> nit: IMO either keep the format of these macros to ENABLE or EN unless
-> there is a good reason to change the format.
-
-In the entire file, both _EN and _ENABLE are used. It should be okay. 
-Thanks!
-> 
->> +
->> +#define DS_PULL_UP              (1 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
->> +#define DS_PULL_DOWN            (0 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
->> +
->> +#define DS_STATE_EN             (1 << DS_EN_SHIFT)
->> +#define DS_STATE_DISABLE        (0 << DS_EN_SHIFT)
-> 
-> nit: Is there anyway this could be more descriptive? Like
-> DS_IO_OVERRIDE_EN or DS_OVERRIDE_CTRL. It is hard to tell what these
-> bits do unless you look at the TRM, whereas the other macros are easier
-> to deduce their function.
-> 
->> +
->> +#define DS_INPUT_EN             (1 << DS_OUT_DIS_SHIFT | DS_STATE_EN)
->> +#define DS_INPUT_DISABLE        (0 << DS_OUT_DIS_SHIFT | DS_STATE_EN)
-> 
-> By looking at the TRM it looks like this disables or enables output, not
-> input. Shifting a 1 to DS_OUT_DIS_SHIFT should disable output.
-
-Yes, shifting to one should disable the output, hence enable the input. 
-(A pin can only act as output or input and this bit is used to control that)
-> 
->> +
->> +#define DS_OUT_VALUE_ZERO       (0 << DS_OUT_VAL_SHIFT)
->> +#define DS_OUT_VALUE_ONE        (1 << DS_OUT_VAL_SHIFT)
->> +
->> +/* Configuration to enable wake-up on pin activity */
->> +#define WKUP_ENABLE             (1 << WKUP_EN_SHIFT)
->> +#define WKUP_DISABLE            (0 << WKUP_EN_SHIFT)
->> +#define WKUP_ON_LEVEL           (1 << WKUP_LVL_EN_SHIFT)
->> +#define WKUP_ON_EDGE            (0 << WKUP_LVL_EN_SHIFT)
->> +#define WKUP_LEVEL_LOW          (0 << WKUP_LVL_POL_SHIFT)
->> +#define WKUP_LEVEL_HIGH         (1 << WKUP_LVL_POL_SHIFT)
->> +
->>    /* Only these macros are expected be used directly in device tree files */
->>    #define PIN_OUTPUT		(INPUT_DISABLE | PULL_DISABLE)
->>    #define PIN_OUTPUT_PULLUP	(INPUT_DISABLE | PULL_UP)
->> @@ -53,6 +82,10 @@
->>    #define PIN_DEBOUNCE_CONF5	(5 << DEBOUNCE_SHIFT)
->>    #define PIN_DEBOUNCE_CONF6	(6 << DEBOUNCE_SHIFT)
->>    
->> +#define PIN_DRIVE_STRENGTH_NOMINAL      (0 << DRV_STR_SHIFT)
->> +#define PIN_DRIVE_STRENGTH_SLOW         (1 << DRV_STR_SHIFT)
-> 
-> DRV_STR value of 1 is reserved in both AM62X and AM62P TRMs
-
-This is a common file. We need to define macros that can be used by all 
-SoCs.
-> 
->> +#define PIN_DRIVE_STRENGTH_FAST         (2 << DRV_STR_SHIFT)
->> +
->>    #define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
->>    #define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
->>    #define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
->> @@ -65,6 +98,18 @@
->>    #define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
->>    #define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
->>    #define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
->> +#define PIN_DS_ISO_BYPASS               (1 << ISO_BYPASS_EN_SHIFT)
->> +#define PIN_DS_ISO_BYPASS_DISABLE       (0 << ISO_BYPASS_EN_SHIFT)
->> +
->> +#define PIN_DS_OUTPUT_LOW               (DS_INPUT_DISABLE | DS_OUT_VALUE_ZERO)
->> +#define PIN_DS_OUTPUT_HIGH              (DS_INPUT_DISABLE | DS_OUT_VALUE_ONE)
->> +#define PIN_DS_INPUT                    (DS_INPUT_EN | DS_PULL_DISABLE)
->> +#define PIN_DS_INPUT_PULLUP             (DS_INPUT_EN | DS_PULL_UP)
->> +#define PIN_DS_INPUT_PULLDOWN           (DS_INPUT_EN | DS_PULL_DOWN)
->> +
->> +#define PIN_WKUP_EN_LEVEL_LOW           (WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_LOW)
->> +#define PIN_WKUP_EN_LEVEL_HIGH          (WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
->> +#define PIN_WKUP_EN                     (WKUP_ENABLE | WKUP_ON_EDGE)
->>    
->>    /* Default mux configuration for gpio-ranges to use with pinctrl */
->>    #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
-> 
-> Best,
-> Kendall
-> 
-Regards,
-Akashdeep Kaur
 
 
