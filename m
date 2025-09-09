@@ -4,173 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684FFCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E284CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4xmZIjNAqie+eTHDP12RJ+GAyDU7eRFwxrdAqhmezo=; b=4My+7+QPSXlim7GkMzSlpb54BU
-	RoPY7GIFLFRDYYfailpvB6tTuQVnUvAOrBwICPpclevuRZ1vBr87hDq1Q3xAIOu2l/aA+djBg8DsP
-	PMVH5B1U0Xl9pK4zhUNnbLFlN/+bMOgv78ba1e5cYJdRTBFey8iLgeIRjE7JbHbrk4dKfhHTIIXFY
-	ct2FJ1kGaeOgd7IAW1Q07b3l67XR2Sb4jibBwqfEwylViVYzMsTkV5dja+WqAXRI9Co/GPPYlzfJK
-	LvEM0KbXy5tccj8tk9f2pD+Dhiw7Wj2BcBx5wyBjGSCM/zMby1e1R6vLm6q/yJ48S/krvAsUDHjlm
-	ldybalRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LyB81yv6CdOWnTPAbIP2JPqcaWNBx6FcCWwyI89T5Ys=; b=3IG30v8QMSy8GM2lxS+w2oUHgL
+	DY3IXFJDoZu9jR5IYRdDfhyroP4FVJ26xIF2dKQVd9rflE5xCInTuOCCaAvUtV1cvP0x3VwcrRlU+
+	cX8EbwdxxHEFIYCTr9aZ0MULUnOhjcxxcL7OfMBXkP12Bme80D41iRxi+kBMi+sKxnso7iJ8FlryY
+	zTh5asohUdrfMf1ANhvLbm4/4uiMShcw/W1sUnkFLnuzR24l4YP//tvokAcC/kWA8bN1FKzigkotU
+	OhzhwlW7UYLQPzSqML8WjxhURBynmmxxLUB6lB+k/zWGLliLEi7CVsF3jp2VGgLaw5XPsjV7lpmpU
+	LP5X+dbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsHV-00000004wcZ-46X5;
-	Tue, 09 Sep 2025 06:56:45 +0000
-Received: from mail-mw2nam10on20725.outbound.protection.outlook.com ([2a01:111:f403:2412::725] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1uvsHZ-00000004wgy-32NP;
+	Tue, 09 Sep 2025 06:56:49 +0000
+Received: from esa4.hc1455-7.c3s2.iphmx.com ([68.232.139.117])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvoU3-00000003p1I-2IiC
+	id 1uvods-00000003rHx-0i6T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 02:53:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A1icrNynNPKqrFp4ezhwyF0y4UxoxxwVXFoM75XpkOVx1iVdn36kSvpfZ3m7gUsVRlqtNFTqiBbmjItPhuTzPM4hzh6ifHT2K3P4bZTAuzx0rdfX3XnNgdGFdKUulTPLRwo0bnUGhoRjTLE57ONMYx6doTH/fgbOy+goU0gPwF5vUhh9RJS4yASxEQdyrNvnfv2ZmJO2ltmQfzP+4IA7nMYJUXz5eA048kbeEQXOoTXPBOTw0tfvKQXjR95T/x6uAnASavoGbudiBxMnWH2CiG/iJF8mOZ+VQjK+wny9XyaJghUe9N7EvTlRRbl0e9viu6hWvA0Kv3kCfAMNte80dg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p4xmZIjNAqie+eTHDP12RJ+GAyDU7eRFwxrdAqhmezo=;
- b=FSW0gscVR4D9LzzfRwlurrz0kEc3FtWHSNIY4mQ4H6eeK4qoAT/woF/+AVRaN8/Uvj5sxoZ6weU4rfPUMK0lVBHnJnXnNMkKpFPvPJOv0a9arMHqtvO4Sp0rvjSPG5dX6Njp4S8Wm1h8Uct1EXzyw3O1WDTR563phJcDGbTCONCuLGtewESgQtk9SXHcpcFI0MJgA3G7ngXBsH9ca3NoVTZiDtz0KBJBIivEvCGcHrfTzA4yBGAsNf+G6ljK886iqHPuDVU2RF8zH3rhS99AfqgaiDMijO/rVduyvobiqHBpf5dYF5zF26Z7cXdP2g02etqcVxZ/YVOkPnmq023Nog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=amperemail.onmicrosoft.com; dkim=pass
- header.d=amperemail.onmicrosoft.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p4xmZIjNAqie+eTHDP12RJ+GAyDU7eRFwxrdAqhmezo=;
- b=Fvmu06ld0nBfAtFZb16OR1l/YHFXFLA4h9eAmq5sbfaLGqPI09vOUmhIxBjI2suZLok3pd6ANhznKh9wnd1il3KswfI5JjzzwKgpS6X2p8mZCZ2Fnu1QraFk7FGlnrDj6MIdnPy+0z7lhZLOu2Hof4jE8/JfDFqXtggoZNnM3c0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
-Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
- CH0PR01MB6969.prod.exchangelabs.com (2603:10b6:610:106::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.22; Tue, 9 Sep 2025 02:53:19 +0000
-Received: from PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050%4]) with mapi id 15.20.9094.021; Tue, 9 Sep 2025
- 02:53:18 +0000
-Message-ID: <3e71ddb9-f457-461e-a949-13e07a4a8b08@amperemail.onmicrosoft.com>
-Date: Tue, 9 Sep 2025 10:52:55 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V6 1/2] arm64: refactor the rodata=xxx
+	Tue, 09 Sep 2025 03:03:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1757387015; x=1788923015;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=szVCB9PKESaBfc2RM83VvyQYf6PNzbc6iKUbRPRaTfc=;
+  b=g2OMfzrUBoEliGRI1EEbLab0U8dr2rB+S3gKqsQZdaa7Hp0pTZtcx/ky
+   sSUelSAkrY5OdQzLkj9Kms1KSjM1/lPw51IjRiOnXJHKFxL7kIRTYQNH7
+   iOEXi1CtQ3+O7IEvo7/JbM+xBJPnKwEkRaYynwFTgSDud7XfEy2O8QJVG
+   rItfIIPkAe1YupA16CErEv1f6h7gqNbAlR1k2e512EnqsgRARO03/bCEW
+   C+YC0EAkcFx55fgUe/zlWNv2dSPqpQEgZ1rOpMi7mzoEpqTYtdhBmXOjt
+   39JKR5pVemnPTa4PBjlXyhsDig7xtOY4i3NuNqG3CFrCROtfasobsTuDw
+   g==;
+X-CSE-ConnectionGUID: Ggvm2m7MT6y4DmHXyvjeuA==
+X-CSE-MsgGUID: 3j/dM0/hTYSZba8IPnzvRg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11547"; a="212800183"
+X-IronPort-AV: E=Sophos;i="6.18,250,1751209200"; 
+   d="scan'208";a="212800183"
+Received: from unknown (HELO az2uksmgr3.o.css.fujitsu.com) ([52.151.125.128])
+  by esa4.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 12:03:31 +0900
+Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgr3.o.css.fujitsu.com (Postfix) with ESMTPS id D83421002B9C
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Sep 2025 03:03:31 +0000 (UTC)
+Received: from az2nlsmom2.o.css.fujitsu.com (az2nlsmom2.o.css.fujitsu.com [10.150.26.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 8AE4F8D6FAB
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Sep 2025 03:03:31 +0000 (UTC)
+Received: from sm-arm-grace07.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
+	by az2nlsmom2.o.css.fujitsu.com (Postfix) with ESMTP id A2B011800B14;
+	Tue,  9 Sep 2025 03:03:25 +0000 (UTC)
+From: Koichi Okuno <fj2767dz@fujitsu.com>
 To: Will Deacon <will@kernel.org>,
- Huang Shijie <shijie@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com, corbet@lwn.net, patches@amperecomputing.com,
- cl@linux.com, yang@os.amperecomputing.com, akpm@linux-foundation.org,
- paulmck@kernel.org, rostedt@goodmis.org, Neeraj.Upadhyay@amd.com,
- bp@alien8.de, ardb@kernel.org, anshuman.khandual@arm.com,
- suzuki.poulose@arm.com, gshan@redhat.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- rdunlap@infradead.org, Christoph Lameter <cl@gentwo.org>
-References: <20250703094212.20294-1-shijie@os.amperecomputing.com>
- <20250703094212.20294-2-shijie@os.amperecomputing.com>
- <aL6_gZWeqAGZjda2@willie-the-truck>
-Content-Language: en-GB
-From: Shijie Huang <shijie@amperemail.onmicrosoft.com>
-In-Reply-To: <aL6_gZWeqAGZjda2@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR06CA0016.apcprd06.prod.outlook.com
- (2603:1096:4:186::22) To PH0PR01MB7975.prod.exchangelabs.com
- (2603:10b6:510:26d::15)
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Gowthami Thiagarajan <gthiagarajan@marvell.com>,
+	Linu Cherian <lcherian@marvell.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Koichi Okuno <fj2767dz@fujitsu.com>
+Subject: [PATCH v9] perf: Fujitsu: Add the Uncore PMU driver
+Date: Tue,  9 Sep 2025 12:02:50 +0900
+Message-ID: <20250909030259.2313226-1-fj2767dz@fujitsu.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|CH0PR01MB6969:EE_
-X-MS-Office365-Filtering-Correlation-Id: dded108b-7bad-4bc3-7d24-08ddef4c0792
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?R2N3QlgxV0FqVXdjWDdUZnBNa1pJN0xmYi9CbmJjNSt3WnJtdmhxYndWV3d3?=
- =?utf-8?B?WGNtSmpoNHRtN2hidVVYT0Q4SEVFUW4rRXpRM1BUZ0pjcmxpeG5MM0JSNEI4?=
- =?utf-8?B?QlRvdDFsZkdvdUhxdmZReisyTlNLSnVGek90NTBXYTlDRnUraEdaUkZ0WDNR?=
- =?utf-8?B?TTU4WXE4cHJzYUpQMFhRNDRvTW5yS283cnREUVRWQ3VqQTBhdzNVUHI3RVdL?=
- =?utf-8?B?QURRS1lWVWdOQWFTaXBQb283QXJQdEJmOFIxZWNoRmYxUGJNb0xwbmZTOC9o?=
- =?utf-8?B?VDRGcmp6c1NZbDFMVXUrUVhJTmVDY29tTlUxSzF6Zi9qMUtnQklWUXBKSmxi?=
- =?utf-8?B?REF1aFZwTjd3Mm44WVNjVlg0S0U0OUsvNTh1Z0krUzJua0wyRFhiNHJDalFi?=
- =?utf-8?B?SUg1elhvQnlPb0h0WVRSK1M4NnlJUlh2UCtoQTNtSWV1Uk5KNER6VldkRDBo?=
- =?utf-8?B?aEJWZStXQ3pKWFRja3dOQVc4Ym93OHVSR3lTN0lKRjcvWXhOUVVvVHZkR05a?=
- =?utf-8?B?N2tpclIrdXlaR1RCZGxiVmVkbDZOa0tVOEV4cjcwRTFPekpoU2hrQW8rTFFT?=
- =?utf-8?B?WVhtdCtNZFFla2xPZll2SE9xeUpCb3EvNnN6UmpRVktCV1dPRmFRVE1hcTlB?=
- =?utf-8?B?dDhBaU54cVdXL1dnYzJ3bm1sZ0pjbHRVSCtlYUUvWWJNUGxLWVBXRTZGVk54?=
- =?utf-8?B?ODFFMkRPNEJiNGhjRmM2KzMxaDJJUWk1VzgrYm9Gd3BUMllSV0I5U3c0bVIr?=
- =?utf-8?B?L2VZQTh4RCtPY0RyZ1BvUko3akhJeU1pQitOUGJlbkRPR3FRaGxMZDZrTC9j?=
- =?utf-8?B?Uk1LRTNtY0NDL09aQ252N0VQRUVYckZnUUxBMDlBTVJSOFRJRjd1VnIzTEFu?=
- =?utf-8?B?L1MxNUJvYjdBOS9SaVJqWmZMUERuQ2kzbUNaM2xGRStrSUtoZzZQU08xVWJ5?=
- =?utf-8?B?UXdlbkY3NHF1S3l5dlhTR1VUY1FCUUx4RUhWdmZoTXJWNVRiN0NzTlIzUzg1?=
- =?utf-8?B?WGF2MWlERStWWFVyL0FkVzRQdnpPdDhLdXNhbXQ2Q1h5bTdZbjlVSnBjeDF4?=
- =?utf-8?B?d2JCQk05NWNlcHlycG5iMTlESkx3WmM0eWpTYW1LN2NvQlFLeXNOOFhlV2tH?=
- =?utf-8?B?ZlpjZFkzcWMxRVZlWUg1YlJSMFdTWnlZL3o5RW8xakx6dDh2Ym04WS96Q1pF?=
- =?utf-8?B?Q0dKT3Q4VDdaWUhEZkYvclQ3Q3ZMbmx0cmEyY1RuY2xJV0ZmRXpxVTZyL3ZS?=
- =?utf-8?B?aUVCSkNpMEYzZ1UrSG5xSFNkOTdlNStHbDlidjM0aXBwditWZWlZUDVSNm8w?=
- =?utf-8?B?SEttek9YWERvSHV0WERNTUxNYzVVWkxYajNPSlRBSUZCZ2o4cmZ5akJ5MjBX?=
- =?utf-8?B?RHZ6eEtWdVpJeTdOU2dwSUVvUGFFS3pmZDZnaWV0UnF2TzFRckZoS3oxLzJj?=
- =?utf-8?B?aFgzVGhxSVVNaVo5S1E1Y3poTzNvc1Z6WUs2bWVjVlBub2djUjAzbTBTK1ND?=
- =?utf-8?B?eWdIOUkxMHkyUXZFcUZBeXUyTk9hV3YrVEJ2clIyU3J3K1ZyMm94ak9HT2Ew?=
- =?utf-8?B?eXBjaThNZmdrYktnc2RaN0MwQUNsdGhUMnNwQ3UxYmdtWWlLcyttRW0wSksx?=
- =?utf-8?B?aGs0a1F0MlFMNk4yeHNwWDNJYmwwT2lYRlhhdEhXZE5ncmhUMEJ4a1U4SFA3?=
- =?utf-8?B?ZkVtSUJHQ3BETXl2OTliVDQzMmk5V2Rmb3phejRmcjFJMWFwK3VUeEdScVhF?=
- =?utf-8?B?aVFscDlYZTU0Y3UraUNZWWJQcGZyZEpvRHBXbC9abkxtSXorWmNtYVhNdC96?=
- =?utf-8?B?aFMvS3F3MW5WOG16NTdhZjZDbWY4OVFZMnFKeDRuZUJ1M0c3WFB4alZad0Z1?=
- =?utf-8?B?QmNmYld3bTJIUDczeENNbWlzV2pOUU1zMHRvdUZuZ0VSWlZIQ2czTWpNeFZI?=
- =?utf-8?Q?5HnYRMedHEI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VXdrREp1TStjaEtHYjNwQjRUbjdTQ0FkWFMzcjJKMnhtcDFwUzBHZkE1V3Az?=
- =?utf-8?B?TnlCWGF5TG9mWWxtNnhPNko0S296clZTVTNyMkdVcVg2M0lHbVhwM0tFUXF0?=
- =?utf-8?B?WHBkakJKNjFwNEwxNk9wbzFacTdYd0tZSWs2ck5pbEVKWjdaWHlzNHhTMmh1?=
- =?utf-8?B?RkJpWFBYTitMSjhaREFaZlc5VDhYZk92L3FNWWx6VFhJelA0dEtibU9CL2U5?=
- =?utf-8?B?YTgxem9iZ21sakU5bjVYUUQzb1N2OXVSQUFUYitoaXBJRHNHTzlJdzJ2emZw?=
- =?utf-8?B?UTFFMUc0djZkWTYzbFdMSUpCeTF1SURKN05XcnFNWjkxb1lZZ3hqbjlXby9T?=
- =?utf-8?B?RVJIMkZGMkwwK1BmeHVpcmpndmUvNUtGNjg1L0NzNnRQYmNJaDlxOU9UN0pG?=
- =?utf-8?B?ekZ4bGplcjlqZGF1ZDh5dmNNK3NJY3RyeFZxM3FwNklwRExLTlhGT09OWVdG?=
- =?utf-8?B?cWNvNUpGRFJTYTl4NU5tbmo1ZkpqVEpLa0I5QzdsNThHT28rVzRVRkpvOEpP?=
- =?utf-8?B?RWEwSmVsRCtiQnlZY0ErZUNXY2FFcGZaU2JOQWtRbW8wMURibnd5aVpieWhj?=
- =?utf-8?B?VHR6QytObHBBbDQwWGZobzluYlMzUEk2Q3NqTzlSa1NQVzZwUHVtaGMvRjhu?=
- =?utf-8?B?UzZBVmlwdnhTN3A0TWlRNlNvUENreFcrZDNhVlF4ZDZJOWRKM0pzRi82aGNH?=
- =?utf-8?B?cHA0REx0MkxaQjFPbTFMTUQrd0hOTnA3eE5KQ2Z3MXdWVHMrR2RGNWo0RWo0?=
- =?utf-8?B?UUppeGFZTzFoWVV2QXlyY3BaSFpublNFMnRsSGNiUFBiOXlHNmRZMFI3UUcz?=
- =?utf-8?B?Z3pIUDB2dDdJMlZaY090SnBnWmhKWDlpbDNGVmpKUVRwdE1kdGQvUzBKK05u?=
- =?utf-8?B?NXBDY3hRTTJaTENOcGNzRW56Qnc5Z0E3empCMWdTOTBmbEZEcjFnQ3BEcVlJ?=
- =?utf-8?B?aUh5T1BXeW1yTHg5NGFTbFI3QVovZmkyR0tFTks0SEZ1cVh0cmFqdVByL1pN?=
- =?utf-8?B?eHo0eHk2SWx6SGpNYnVIUm5BSUs3bnBjOWlmZ2NLNUlrQVVWeVBoalRhN3Fj?=
- =?utf-8?B?TW1ZN2JGbnlzeVkvUjMyTld2OTJScmQvTENuQWlsZkM5b1VDQ1UyeElvYzVY?=
- =?utf-8?B?Sk9BUVdoR0xqM0EwNzY0MHJDQWhQVHAyYjV4K2l1ckUvYzNMUXFBYlFpeE9B?=
- =?utf-8?B?S2tlc051elpRZkhhVzkzVEoxWm5neStvNkt5cnFFbnI2RHpKVzM0RnBxRHhq?=
- =?utf-8?B?RVYwTGNHWXlOamhkbGh0VHlDeS9xZlhzemNKSHNEZ0lvTXdabVNRMUJRcElK?=
- =?utf-8?B?VkNtUXJ6d1BBQXN1RjBpL3NueTMyS3VqU2JkNDkyS3BScUZCczNQalFhMlJk?=
- =?utf-8?B?UEk3Y0JON2ZIanJhdi9HSGdXMW5CM013SDVGWlgzaG1uaG1Nd1lOMlpDRk1i?=
- =?utf-8?B?ZnlzalZvbG9lODBONTZZTXluSjIrWUY4T2FyOTh6c00yMGZscnVVUUNaVjEy?=
- =?utf-8?B?dWU0RWpuVXVhbDU0VHJNRWVLVjNSUnBtRld6Q2RTRXRDc2F5MUhMVDRNSlVP?=
- =?utf-8?B?emtRaDA5QUljRGNNVnYwNkhacFdNQVN6ejlRQVFmYmtiMnNna2dtUTFCV0x3?=
- =?utf-8?B?S1RsWXpCK1pFUjNVY0NGMTMrbXFnYWJrT1dkTWRzOWpYVkdLNjZyWWRpZVBv?=
- =?utf-8?B?U2hxRnRZVHFvdUhGNUxoUnV0NGdDSDc1RXhZRWZJdWFRbjBubnhQalRFZVRy?=
- =?utf-8?B?OUlxY0xiT21sVGp3dnJoOXZOTHJqbU5iSnhwWkNSc3VIZHcrZWNrTmxoNU1B?=
- =?utf-8?B?K0k2MlV6OTdCUjA4ek5WWGh1UmJKeTRXVGpJS1lIWE5RTFJrbzM2UXU2cVVx?=
- =?utf-8?B?YWpxN3FjSTUrbncybGxDNWt6R0N0S2wxTnpCOFprV0sxa2RQQk5kZ1AwejRl?=
- =?utf-8?B?aU9UcU4zVnJDRGRJTVg5T2pqMUpiNitZL29JaFFESUZ2N1c3RVFMaThudWNm?=
- =?utf-8?B?TFZ6WlBFeFVicU0xZjVZcXc1SmZ2UGtHZ3hhMHhGdE9TUXBmSW9udFRnc29r?=
- =?utf-8?B?UXpGd0dITjJpaXc0THY1YmVXU0s5V0dGNFBsVU9uOUZMMzJwWnJ0bEQ0eUlD?=
- =?utf-8?B?ajFYYXBGRE16Q3VtdzVRL1RQYmV3RUkrYXV3d0U3aWp2SzJKNDk4L1UzMEF6?=
- =?utf-8?Q?C12d6mw3Vi+F9IlZYUis6Dc=3D?=
-X-OriginatorOrg: amperemail.onmicrosoft.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dded108b-7bad-4bc3-7d24-08ddef4c0792
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2025 02:53:18.4799
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: du/FlzATKdDNkltOdXyV7pIfKroFlwNb8vQqR5ZlTNbphiTDUs2Oc7RWFDKIr4IAnd5voQ0zMR476alCvPkPYHFZe5XuWns5Xxzvz05pfRkthIFS3N5tHXq2GCeZ7Tlp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR01MB6969
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_195327_601775_1B628BDA 
-X-CRM114-Status: GOOD (  24.91  )
+X-CRM114-CacheID: sfid-20250908_200336_868056_C1C91ADF 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,106 +101,819 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This adds a new dynamic PMU to the Perf Events framework to program and
+control the Uncore PMUs in Fujitsu chips.
 
-On 08/09/2025 19:35, Will Deacon wrote:
-> On Thu, Jul 03, 2025 at 05:42:11PM +0800, Huang Shijie wrote:
->> As per admin guide documentation, "rodata=on" should be the default on
->> platforms. Documentation/admin-guide/kernel-parameters.txt describes
->> these options as
->>
->>     rodata=         [KNL,EARLY]
->>             on      Mark read-only kernel memory as read-only (default).
->>             off     Leave read-only kernel memory writable for debugging.
->>             full    Mark read-only kernel memory and aliases as read-only
->>                     [arm64]
->>
->> But on arm64 platform, "rodata=full" is the default instead.
-> Please mention RODATA_FULL_DEFAULT_ENABLED here.
-okay.
->> This patch implements the following changes.
->>
->>   - Make "rodata=on" behaviour same as the original "rodata=full"
-> You should mention that this gives us parity with x86.
-No problem.
->>   - Make "rodata=noalias" (new) behaviour same as the original "rodata=on"
->>   - Drop the original "rodata=full"
->>   - Add comment for arch_parse_debug_rodata()
->>   - Update kernel-parameters.txt as required
-> These last two are self-evident from the code and don't need to be listed
-> here.
->
->> After this patch, the "rodata=on" will be the default on arm64 platform
->> as well.
->>
->> Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
->> Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
->> ---
->>   .../admin-guide/kernel-parameters.txt         |  2 +-
->>   arch/arm64/include/asm/setup.h                | 28 +++++++++++++++++--
->>   2 files changed, 27 insertions(+), 3 deletions(-)
->>
->> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
->> index ee0735c6b8e2..3590bdc8d9a5 100644
->> --- a/Documentation/admin-guide/kernel-parameters.txt
->> +++ b/Documentation/admin-guide/kernel-parameters.txt
->> @@ -6354,7 +6354,7 @@
->>   	rodata=		[KNL,EARLY]
->>   		on	Mark read-only kernel memory as read-only (default).
->>   		off	Leave read-only kernel memory writable for debugging.
->> -		full	Mark read-only kernel memory and aliases as read-only
->> +		noalias	Use more block mappings, may have better performance.
->>   		        [arm64]
-> This isn't particularly helpful documentation and I think we need to mention
-> the linear alias rather than talk about the page-table structure.
->
-> How about:
->
-> 	noalias	Mark read-only kernel memory as read-only but retain
-> 		writable aliases in the direct map for regions outside
-> 		of the kernel image. [arm64]
->
-> ?
-Okay, thanks.
->> diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
->> index ba269a7a3201..6b994d0881d1 100644
->> --- a/arch/arm64/include/asm/setup.h
->> +++ b/arch/arm64/include/asm/setup.h
->> @@ -13,6 +13,30 @@
->>   extern phys_addr_t __fdt_pointer __initdata;
->>   extern u64 __cacheline_aligned boot_args[4];
->>   
->> +/*
->> + * rodata=on (default)
->> + *
->> + *    This applies read-only attributes to VM areas and to the linear
->> + *    alias of the backing pages as well. This prevents code or read-
->> + *    only data from being modified (inadvertently or intentionally),
->> + *    via another mapping for the same memory page.
->> + *
->> + *    But this might cause linear map region to be mapped down to base
->> + *    pages, which may adversely affect performance in some cases.
->> + *
->> + * rodata=off
->> + *
->> + *    This provides more block mappings and contiguous hints for linear
->> + *    map region which would minimize TLB footprint. This also leaves
->> + *    read-only kernel memory writable for debugging.
->> + *
->> + * rodata=noalias
->> + *
->> + *    This provides more block mappings and contiguous hints for linear
->> + *    map region which would minimize TLB footprint. This leaves the linear
->> + *    alias of read-only mappings in the vmalloc space writeable, making
->> + *    them susceptible to inadvertent modification by software.
->> + */
-> Please remove this comment. If you want to keep it, this information
-> belongs either in the commit message (to justify the performance impact)
+This driver exports formatting and event information to sysfs so it can
+be used by the perf user space tools with the syntaxes:
 
-Okay, I can move it to commit message.
+perf stat -e pci_iod0_pci0/ea-pci/ ls
+perf stat -e pci_iod0_pci0/event=0x80/ ls
+perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
+perf stat -e mac_iod0_mac0_ch0/event=0x80/ ls
 
+FUJITSU-MONAKA PMU Events Specification v1.1 URL:
+https://github.com/fujitsu/FUJITSU-MONAKA
 
-Thanks
+Reviewed-by: Yicong Yang <yangyicong@hisilicon.com>
+Signed-off-by: Koichi Okuno <fj2767dz@fujitsu.com>
+---
+Changes in v9:
+- Fix v8 issues.
+  - Changed to use is_sampling_event()
+  - Changed request_irq flag
+  - Undo the deletion of set PM_CR.ENABLE in fujitsu_uncore_init()
+  - Added Yicong Yang's Reviewed-by:.
+  - Jonathan Cameron provided a Reviewed-by: for v7, but due to significant
+    changes in v8, it's not included in this v9.
+- Link to v8: https://lore.kernel.org/all/20250904021315.353541-1-fj2767dz@fujitsu.com/
 
-Huang Shijie
+ .../admin-guide/perf/fujitsu_uncore_pmu.rst   | 110 ++++
+ Documentation/admin-guide/perf/index.rst      |   1 +
+ drivers/perf/Kconfig                          |   9 +
+ drivers/perf/Makefile                         |   1 +
+ drivers/perf/fujitsu_uncore_pmu.c             | 613 ++++++++++++++++++
+ 5 files changed, 734 insertions(+)
+ create mode 100644 Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst
+ create mode 100644 drivers/perf/fujitsu_uncore_pmu.c
+
+diff --git a/Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst b/Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst
+new file mode 100644
+index 000000000000..46595b788d3a
+--- /dev/null
++++ b/Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst
+@@ -0,0 +1,110 @@
++.. SPDX-License-Identifier: GPL-2.0-only
++
++================================================
++Fujitsu Uncore Performance Monitoring Unit (PMU)
++================================================
++
++This driver supports the Uncore MAC PMUs and the Uncore PCI PMUs found
++in Fujitsu chips.
++Each MAC PMU on these chips is exposed as a uncore perf PMU with device name
++mac_iod<iod>_mac<mac>_ch<ch>.
++And each PCI PMU on these chips is exposed as a uncore perf PMU with device name
++pci_iod<iod>_pci<pci>.
++
++The driver provides a description of its available events and configuration
++options in sysfs, see /sys/bus/event_sources/devices/mac_iod<iod>_mac<mac>_ch<ch>/
++and /sys/bus/event_sources/devices/pci_iod<iod>_pci<pci>/.
++This driver exports:
++- formats, used by perf user space and other tools to configure events
++- events, used by perf user space and other tools to create events
++  symbolically, e.g.:
++    perf stat -a -e mac_iod0_mac0_ch0/event=0x21/ ls
++    perf stat -a -e pci_iod0_pci0/event=0x24/ ls
++- cpumask, used by perf user space and other tools to know on which CPUs
++  to open the events
++
++This driver supports the following events for MAC:
++- cycles
++  This event counts MAC cycles at MAC frequency.
++- read-count
++  This event counts the number of read requests to MAC.
++- read-count-request
++  This event counts the number of read requests including retry to MAC.
++- read-count-return
++  This event counts the number of responses to read requests to MAC.
++- read-count-request-pftgt
++  This event counts the number of read requests including retry with PFTGT
++  flag.
++- read-count-request-normal
++  This event counts the number of read requests including retry without PFTGT
++  flag.
++- read-count-return-pftgt-hit
++  This event counts the number of responses to read requests which hit the
++  PFTGT buffer.
++- read-count-return-pftgt-miss
++  This event counts the number of responses to read requests which miss the
++  PFTGT buffer.
++- read-wait
++  This event counts outstanding read requests issued by DDR memory controller
++  per cycle.
++- write-count
++  This event counts the number of write requests to MAC (including zero write,
++  full write, partial write, write cancel).
++- write-count-write
++  This event counts the number of full write requests to MAC (not including
++  zero write).
++- write-count-pwrite
++  This event counts the number of partial write requests to MAC.
++- memory-read-count
++  This event counts the number of read requests from MAC to memory.
++- memory-write-count
++  This event counts the number of full write requests from MAC to memory.
++- memory-pwrite-count
++  This event counts the number of partial write requests from MAC to memory.
++- ea-mac
++  This event counts energy consumption of MAC.
++- ea-memory
++  This event counts energy consumption of memory.
++- ea-memory-mac-write
++  This event counts the number of write requests from MAC to memory.
++- ea-ha
++  This event counts energy consumption of HA.
++
++  'ea' is the abbreviation for 'Energy Analyzer'.
++
++Examples for use with perf::
++
++  perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
++
++And, this driver supports the following events for PCI:
++- pci-port0-cycles
++  This event counts PCI cycles at PCI frequency in port0.
++- pci-port0-read-count
++  This event counts read transactions for data transfer in port0.
++- pci-port0-read-count-bus
++  This event counts read transactions for bus usage in port0.
++- pci-port0-write-count
++  This event counts write transactions for data transfer in port0.
++- pci-port0-write-count-bus
++  This event counts write transactions for bus usage in port0.
++- pci-port1-cycles
++  This event counts PCI cycles at PCI frequency in port1.
++- pci-port1-read-count
++  This event counts read transactions for data transfer in port1.
++- pci-port1-read-count-bus
++  This event counts read transactions for bus usage in port1.
++- pci-port1-write-count
++  This event counts write transactions for data transfer in port1.
++- pci-port1-write-count-bus
++  This event counts write transactions for bus usage in port1.
++- ea-pci
++  This event counts energy consumption of PCI.
++
++  'ea' is the abbreviation for 'Energy Analyzer'.
++
++Examples for use with perf::
++
++  perf stat -e pci_iod0_pci0/ea-pci/ ls
++
++Given that these are uncore PMUs the driver does not support sampling, therefore
++"perf record" will not work. Per-task perf sessions are not supported.
+diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
+index 072b510385c4..47d9a3df6329 100644
+--- a/Documentation/admin-guide/perf/index.rst
++++ b/Documentation/admin-guide/perf/index.rst
+@@ -29,3 +29,4 @@ Performance monitor support
+    cxl
+    ampere_cspmu
+    mrvl-pem-pmu
++   fujitsu_uncore_pmu
+diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+index a9188dec36fe..638321fc9800 100644
+--- a/drivers/perf/Kconfig
++++ b/drivers/perf/Kconfig
+@@ -178,6 +178,15 @@ config FSL_IMX9_DDR_PMU
+ 	 can give information about memory throughput and other related
+ 	 events.
+ 
++config FUJITSU_UNCORE_PMU
++	tristate "Fujitsu Uncore PMU"
++	depends on (ARM64 && ACPI) || (COMPILE_TEST && 64BIT)
++	 help
++	 Provides support for the Uncore performance monitor unit (PMU)
++	 in Fujitsu processors.
++	 Adds the Uncore PMU into the perf events subsystem for
++	 monitoring Uncore events.
++
+ config QCOM_L2_PMU
+ 	bool "Qualcomm Technologies L2-cache PMU"
+ 	depends on ARCH_QCOM && ARM64 && ACPI
+diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
+index 192fc8b16204..ea52711a87e3 100644
+--- a/drivers/perf/Makefile
++++ b/drivers/perf/Makefile
+@@ -13,6 +13,7 @@ obj-$(CONFIG_ARM_XSCALE_PMU) += arm_xscale_pmu.o
+ obj-$(CONFIG_ARM_SMMU_V3_PMU) += arm_smmuv3_pmu.o
+ obj-$(CONFIG_FSL_IMX8_DDR_PMU) += fsl_imx8_ddr_perf.o
+ obj-$(CONFIG_FSL_IMX9_DDR_PMU) += fsl_imx9_ddr_perf.o
++obj-$(CONFIG_FUJITSU_UNCORE_PMU) += fujitsu_uncore_pmu.o
+ obj-$(CONFIG_HISI_PMU) += hisilicon/
+ obj-$(CONFIG_QCOM_L2_PMU)	+= qcom_l2_pmu.o
+ obj-$(CONFIG_QCOM_L3_PMU) += qcom_l3_pmu.o
+diff --git a/drivers/perf/fujitsu_uncore_pmu.c b/drivers/perf/fujitsu_uncore_pmu.c
+new file mode 100644
+index 000000000000..c3c6f56474ad
+--- /dev/null
++++ b/drivers/perf/fujitsu_uncore_pmu.c
+@@ -0,0 +1,613 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Driver for the Uncore PMUs in Fujitsu chips.
++ *
++ * See Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst for more details.
++ *
++ * Copyright (c) 2025 Fujitsu. All rights reserved.
++ */
++
++#include <linux/acpi.h>
++#include <linux/bitfield.h>
++#include <linux/bitops.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/list.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/perf_event.h>
++#include <linux/platform_device.h>
++
++/* Number of counters on each PMU */
++#define MAC_NUM_COUNTERS  8
++#define PCI_NUM_COUNTERS  8
++/* Mask for the event type field within perf_event_attr.config and EVTYPE reg */
++#define UNCORE_EVTYPE_MASK   0xFF
++
++/* Perfmon registers */
++#define PM_EVCNTR(__cntr)           (0x000 + (__cntr) * 8)
++#define PM_CNTCTL(__cntr)           (0x100 + (__cntr) * 8)
++#define PM_CNTCTL_RESET             0
++#define PM_EVTYPE(__cntr)           (0x200 + (__cntr) * 8)
++#define PM_EVTYPE_EVSEL(__val)      FIELD_GET(UNCORE_EVTYPE_MASK, __val)
++#define PM_CR                       0x400
++#define PM_CR_RESET                 BIT(1)
++#define PM_CR_ENABLE                BIT(0)
++#define PM_CNTENSET                 0x410
++#define PM_CNTENSET_IDX(__cntr)     BIT(__cntr)
++#define PM_CNTENCLR                 0x418
++#define PM_CNTENCLR_IDX(__cntr)     BIT(__cntr)
++#define PM_CNTENCLR_RESET           0xFF
++#define PM_INTENSET                 0x420
++#define PM_INTENSET_IDX(__cntr)     BIT(__cntr)
++#define PM_INTENCLR                 0x428
++#define PM_INTENCLR_IDX(__cntr)     BIT(__cntr)
++#define PM_INTENCLR_RESET           0xFF
++#define PM_OVSR                     0x440
++#define PM_OVSR_OVSRCLR_RESET       0xFF
++
++enum fujitsu_uncore_pmu {
++	FUJITSU_UNCORE_PMU_MAC = 1,
++	FUJITSU_UNCORE_PMU_PCI = 2,
++};
++
++struct uncore_pmu {
++	int			num_counters;
++	struct pmu		pmu;
++	struct hlist_node	node;
++	void __iomem		*regs;
++	struct perf_event	**events;
++	unsigned long		*used_mask;
++	int			cpu;
++	int			irq;
++	struct device		*dev;
++};
++
++#define to_uncore_pmu(p) (container_of(p, struct uncore_pmu, pmu))
++
++static int uncore_pmu_cpuhp_state;
++
++static void fujitsu_uncore_counter_start(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	int idx = event->hw.idx;
++
++	/* Initialize the hardware counter and reset prev_count*/
++	local64_set(&event->hw.prev_count, 0);
++	writeq_relaxed(0, uncorepmu->regs + PM_EVCNTR(idx));
++
++	/* Set the event type */
++	writeq_relaxed(PM_EVTYPE_EVSEL(event->attr.config), uncorepmu->regs + PM_EVTYPE(idx));
++
++	/* Enable interrupt generation by this counter */
++	writeq_relaxed(PM_INTENSET_IDX(idx), uncorepmu->regs + PM_INTENSET);
++
++	/* Finally, enable the counter */
++	writeq_relaxed(PM_CNTCTL_RESET, uncorepmu->regs + PM_CNTCTL(idx));
++	writeq_relaxed(PM_CNTENSET_IDX(idx), uncorepmu->regs + PM_CNTENSET);
++}
++
++static void fujitsu_uncore_counter_stop(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	int idx = event->hw.idx;
++
++	/* Disable the counter */
++	writeq_relaxed(PM_CNTENCLR_IDX(idx), uncorepmu->regs + PM_CNTENCLR);
++
++	/* Disable interrupt generation by this counter */
++	writeq_relaxed(PM_INTENCLR_IDX(idx), uncorepmu->regs + PM_INTENCLR);
++}
++
++static void fujitsu_uncore_counter_update(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	int idx = event->hw.idx;
++	u64 prev, new;
++
++	do {
++		prev = local64_read(&event->hw.prev_count);
++		new = readq_relaxed(uncorepmu->regs + PM_EVCNTR(idx));
++	} while (local64_cmpxchg(&event->hw.prev_count, prev, new) != prev);
++
++	local64_add(new - prev, &event->count);
++}
++
++static inline void fujitsu_uncore_init(struct uncore_pmu *uncorepmu)
++{
++	int i;
++
++	writeq_relaxed(PM_CR_RESET, uncorepmu->regs + PM_CR);
++
++	writeq_relaxed(PM_CNTENCLR_RESET, uncorepmu->regs + PM_CNTENCLR);
++	writeq_relaxed(PM_INTENCLR_RESET, uncorepmu->regs + PM_INTENCLR);
++	writeq_relaxed(PM_OVSR_OVSRCLR_RESET, uncorepmu->regs + PM_OVSR);
++
++	for (i = 0; i < uncorepmu->num_counters; ++i) {
++		writeq_relaxed(PM_CNTCTL_RESET, uncorepmu->regs + PM_CNTCTL(i));
++		writeq_relaxed(PM_EVTYPE_EVSEL(0), uncorepmu->regs + PM_EVTYPE(i));
++	}
++	writeq_relaxed(PM_CR_ENABLE, uncorepmu->regs + PM_CR);
++}
++
++static irqreturn_t fujitsu_uncore_handle_irq(int irq_num, void *data)
++{
++	struct uncore_pmu *uncorepmu = data;
++	/* Read the overflow status register */
++	long status = readq_relaxed(uncorepmu->regs + PM_OVSR);
++	int idx;
++
++	if (status == 0)
++		return IRQ_NONE;
++
++	/* Clear the bits we read on the overflow status register */
++	writeq_relaxed(status, uncorepmu->regs + PM_OVSR);
++
++	for_each_set_bit(idx, &status, uncorepmu->num_counters) {
++		struct perf_event *event;
++
++		event = uncorepmu->events[idx];
++		if (!event)
++			continue;
++
++		fujitsu_uncore_counter_update(event);
++	}
++
++	return IRQ_HANDLED;
++}
++
++static void fujitsu_uncore_pmu_enable(struct pmu *pmu)
++{
++	writeq_relaxed(PM_CR_ENABLE, to_uncore_pmu(pmu)->regs + PM_CR);
++}
++
++static void fujitsu_uncore_pmu_disable(struct pmu *pmu)
++{
++	writeq_relaxed(0, to_uncore_pmu(pmu)->regs + PM_CR);
++}
++
++static bool fujitsu_uncore_validate_event_group(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	struct perf_event *leader = event->group_leader;
++	struct perf_event *sibling;
++	int counters = 1;
++
++	if (leader == event)
++		return true;
++
++	if (leader->pmu == event->pmu)
++		counters++;
++
++	for_each_sibling_event(sibling, leader) {
++		if (sibling->pmu == event->pmu)
++			counters++;
++	}
++
++	/*
++	 * If the group requires more counters than the HW has, it
++	 * cannot ever be scheduled.
++	 */
++	return counters <= uncorepmu->num_counters;
++}
++
++static int fujitsu_uncore_event_init(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++
++	/* Is the event for this PMU? */
++	if (event->attr.type != event->pmu->type)
++		return -ENOENT;
++
++	/*
++	 * Sampling not supported since these events are not
++	 * core-attributable.
++	 */
++	if (is_sampling_event(event))
++		return -EINVAL;
++
++	/*
++	 * Task mode not available, we run the counters as socket counters,
++	 * not attributable to any CPU and therefore cannot attribute per-task.
++	 */
++	if (event->cpu < 0)
++		return -EINVAL;
++
++	/* Validate the group */
++	if (!fujitsu_uncore_validate_event_group(event))
++		return -EINVAL;
++
++	hwc->idx = -1;
++
++	event->cpu = uncorepmu->cpu;
++
++	return 0;
++}
++
++static void fujitsu_uncore_event_start(struct perf_event *event, int flags)
++{
++	struct hw_perf_event *hwc = &event->hw;
++
++	hwc->state = 0;
++	fujitsu_uncore_counter_start(event);
++}
++
++static void fujitsu_uncore_event_stop(struct perf_event *event, int flags)
++{
++	struct hw_perf_event *hwc = &event->hw;
++
++	if (hwc->state & PERF_HES_STOPPED)
++		return;
++
++	fujitsu_uncore_counter_stop(event);
++	if (flags & PERF_EF_UPDATE)
++		fujitsu_uncore_counter_update(event);
++	hwc->state |= PERF_HES_STOPPED | PERF_HES_UPTODATE;
++}
++
++static int fujitsu_uncore_event_add(struct perf_event *event, int flags)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++	int idx;
++
++	/* Try to allocate a counter. */
++	idx = bitmap_find_free_region(uncorepmu->used_mask, uncorepmu->num_counters, 0);
++	if (idx < 0)
++		/* The counters are all in use. */
++		return -EAGAIN;
++
++	hwc->idx = idx;
++	hwc->state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
++	uncorepmu->events[idx] = event;
++
++	if (flags & PERF_EF_START)
++		fujitsu_uncore_event_start(event, 0);
++
++	/* Propagate changes to the userspace mapping. */
++	perf_event_update_userpage(event);
++
++	return 0;
++}
++
++static void fujitsu_uncore_event_del(struct perf_event *event, int flags)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++
++	/* Stop and clean up */
++	fujitsu_uncore_event_stop(event, flags | PERF_EF_UPDATE);
++	uncorepmu->events[hwc->idx] = NULL;
++	bitmap_release_region(uncorepmu->used_mask, hwc->idx, 0);
++
++	/* Propagate changes to the userspace mapping. */
++	perf_event_update_userpage(event);
++}
++
++static void fujitsu_uncore_event_read(struct perf_event *event)
++{
++	fujitsu_uncore_counter_update(event);
++}
++
++#define UNCORE_PMU_FORMAT_ATTR(_name, _config)				      \
++	(&((struct dev_ext_attribute[]) {				      \
++		{ .attr = __ATTR(_name, 0444, device_show_string, NULL),      \
++		  .var = (void *)_config, }				      \
++	})[0].attr.attr)
++
++static struct attribute *fujitsu_uncore_pmu_formats[] = {
++	UNCORE_PMU_FORMAT_ATTR(event, "config:0-7"),
++	NULL
++};
++
++static const struct attribute_group fujitsu_uncore_pmu_format_group = {
++	.name = "format",
++	.attrs = fujitsu_uncore_pmu_formats,
++};
++
++static ssize_t fujitsu_uncore_pmu_event_show(struct device *dev,
++					     struct device_attribute *attr, char *page)
++{
++	struct perf_pmu_events_attr *pmu_attr;
++
++	pmu_attr = container_of(attr, struct perf_pmu_events_attr, attr);
++	return sysfs_emit(page, "event=0x%02llx\n", pmu_attr->id);
++}
++
++#define MAC_EVENT_ATTR(_name, _id)					     \
++	PMU_EVENT_ATTR_ID(_name, fujitsu_uncore_pmu_event_show, _id)
++
++static struct attribute *fujitsu_uncore_mac_pmu_events[] = {
++	MAC_EVENT_ATTR(cycles,				0x00),
++	MAC_EVENT_ATTR(read-count,			0x10),
++	MAC_EVENT_ATTR(read-count-request,		0x11),
++	MAC_EVENT_ATTR(read-count-return,		0x12),
++	MAC_EVENT_ATTR(read-count-request-pftgt,	0x13),
++	MAC_EVENT_ATTR(read-count-request-normal,	0x14),
++	MAC_EVENT_ATTR(read-count-return-pftgt-hit,	0x15),
++	MAC_EVENT_ATTR(read-count-return-pftgt-miss,	0x16),
++	MAC_EVENT_ATTR(read-wait,			0x17),
++	MAC_EVENT_ATTR(write-count,			0x20),
++	MAC_EVENT_ATTR(write-count-write,		0x21),
++	MAC_EVENT_ATTR(write-count-pwrite,		0x22),
++	MAC_EVENT_ATTR(memory-read-count,		0x40),
++	MAC_EVENT_ATTR(memory-write-count,		0x50),
++	MAC_EVENT_ATTR(memory-pwrite-count,		0x60),
++	MAC_EVENT_ATTR(ea-mac,				0x80),
++	MAC_EVENT_ATTR(ea-memory,			0x90),
++	MAC_EVENT_ATTR(ea-memory-mac-write,		0x92),
++	MAC_EVENT_ATTR(ea-ha,				0xa0),
++	NULL
++};
++
++#define PCI_EVENT_ATTR(_name, _id)					     \
++	PMU_EVENT_ATTR_ID(_name, fujitsu_uncore_pmu_event_show, _id)
++
++static struct attribute *fujitsu_uncore_pci_pmu_events[] = {
++	PCI_EVENT_ATTR(pci-port0-cycles,		0x00),
++	PCI_EVENT_ATTR(pci-port0-read-count,		0x10),
++	PCI_EVENT_ATTR(pci-port0-read-count-bus,	0x14),
++	PCI_EVENT_ATTR(pci-port0-write-count,		0x20),
++	PCI_EVENT_ATTR(pci-port0-write-count-bus,	0x24),
++	PCI_EVENT_ATTR(pci-port1-cycles,		0x40),
++	PCI_EVENT_ATTR(pci-port1-read-count,		0x50),
++	PCI_EVENT_ATTR(pci-port1-read-count-bus,	0x54),
++	PCI_EVENT_ATTR(pci-port1-write-count,		0x60),
++	PCI_EVENT_ATTR(pci-port1-write-count-bus,	0x64),
++	PCI_EVENT_ATTR(ea-pci,				0x80),
++	NULL
++};
++
++static const struct attribute_group fujitsu_uncore_mac_pmu_events_group = {
++	.name = "events",
++	.attrs = fujitsu_uncore_mac_pmu_events,
++};
++
++static const struct attribute_group fujitsu_uncore_pci_pmu_events_group = {
++	.name = "events",
++	.attrs = fujitsu_uncore_pci_pmu_events,
++};
++
++static ssize_t cpumask_show(struct device *dev,
++			    struct device_attribute *attr, char *buf)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(dev_get_drvdata(dev));
++
++	return cpumap_print_to_pagebuf(true, buf, cpumask_of(uncorepmu->cpu));
++}
++static DEVICE_ATTR_RO(cpumask);
++
++static struct attribute *fujitsu_uncore_pmu_cpumask_attrs[] = {
++	&dev_attr_cpumask.attr,
++	NULL
++};
++
++static const struct attribute_group fujitsu_uncore_pmu_cpumask_attr_group = {
++	.attrs = fujitsu_uncore_pmu_cpumask_attrs,
++};
++
++static const struct attribute_group *fujitsu_uncore_mac_pmu_attr_grps[] = {
++	&fujitsu_uncore_pmu_format_group,
++	&fujitsu_uncore_mac_pmu_events_group,
++	&fujitsu_uncore_pmu_cpumask_attr_group,
++	NULL
++};
++
++static const struct attribute_group *fujitsu_uncore_pci_pmu_attr_grps[] = {
++	&fujitsu_uncore_pmu_format_group,
++	&fujitsu_uncore_pci_pmu_events_group,
++	&fujitsu_uncore_pmu_cpumask_attr_group,
++	NULL
++};
++
++static void fujitsu_uncore_pmu_migrate(struct uncore_pmu *uncorepmu, unsigned int cpu)
++{
++	perf_pmu_migrate_context(&uncorepmu->pmu, uncorepmu->cpu, cpu);
++	irq_set_affinity(uncorepmu->irq, cpumask_of(cpu));
++	uncorepmu->cpu = cpu;
++}
++
++static int fujitsu_uncore_pmu_online_cpu(unsigned int cpu, struct hlist_node *cpuhp_node)
++{
++	struct uncore_pmu *uncorepmu;
++	int node;
++
++	uncorepmu = hlist_entry_safe(cpuhp_node, struct uncore_pmu, node);
++	node = dev_to_node(uncorepmu->dev);
++	if (cpu_to_node(uncorepmu->cpu) != node && cpu_to_node(cpu) == node)
++		fujitsu_uncore_pmu_migrate(uncorepmu, cpu);
++
++	return 0;
++}
++
++static int fujitsu_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *cpuhp_node)
++{
++	struct uncore_pmu *uncorepmu;
++	unsigned int target;
++	int node;
++
++	uncorepmu = hlist_entry_safe(cpuhp_node, struct uncore_pmu, node);
++	if (cpu != uncorepmu->cpu)
++		return 0;
++
++	node = dev_to_node(uncorepmu->dev);
++	target = cpumask_any_and_but(cpumask_of_node(node), cpu_online_mask, cpu);
++	if (target >= nr_cpu_ids)
++		target = cpumask_any_but(cpu_online_mask, cpu);
++
++	if (target < nr_cpu_ids)
++		fujitsu_uncore_pmu_migrate(uncorepmu, target);
++
++	return 0;
++}
++
++static int fujitsu_uncore_pmu_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	unsigned long device_type = (unsigned long)device_get_match_data(dev);
++	const struct attribute_group **attr_groups;
++	struct uncore_pmu *uncorepmu;
++	struct resource *memrc;
++	size_t alloc_size;
++	char *name;
++	int ret;
++	int irq;
++	u64 uid;
++
++	ret = acpi_dev_uid_to_integer(ACPI_COMPANION(dev), &uid);
++	if (ret)
++		return dev_err_probe(dev, ret, "unable to read ACPI uid\n");
++
++	uncorepmu = devm_kzalloc(dev, sizeof(*uncorepmu), GFP_KERNEL);
++	if (!uncorepmu)
++		return -ENOMEM;
++	uncorepmu->dev = dev;
++	uncorepmu->cpu = cpumask_local_spread(0, dev_to_node(dev));
++	platform_set_drvdata(pdev, uncorepmu);
++
++	switch (device_type) {
++	case FUJITSU_UNCORE_PMU_MAC:
++		uncorepmu->num_counters = MAC_NUM_COUNTERS;
++		attr_groups = fujitsu_uncore_mac_pmu_attr_grps;
++		name = devm_kasprintf(dev, GFP_KERNEL, "mac_iod%llu_mac%llu_ch%llu",
++				      (uid >> 8) & 0xF, (uid >> 4) & 0xF, uid & 0xF);
++		break;
++	case FUJITSU_UNCORE_PMU_PCI:
++		uncorepmu->num_counters = PCI_NUM_COUNTERS;
++		attr_groups = fujitsu_uncore_pci_pmu_attr_grps;
++		name = devm_kasprintf(dev, GFP_KERNEL, "pci_iod%llu_pci%llu",
++				      (uid >> 4) & 0xF, uid & 0xF);
++		break;
++	default:
++		return dev_err_probe(dev, -EINVAL, "illegal device type: %lu\n", device_type);
++	}
++	if (!name)
++		return -ENOMEM;
++
++	uncorepmu->pmu = (struct pmu) {
++		.parent		= dev,
++		.task_ctx_nr	= perf_invalid_context,
++
++		.attr_groups	= attr_groups,
++
++		.pmu_enable	= fujitsu_uncore_pmu_enable,
++		.pmu_disable	= fujitsu_uncore_pmu_disable,
++		.event_init	= fujitsu_uncore_event_init,
++		.add		= fujitsu_uncore_event_add,
++		.del		= fujitsu_uncore_event_del,
++		.start		= fujitsu_uncore_event_start,
++		.stop		= fujitsu_uncore_event_stop,
++		.read		= fujitsu_uncore_event_read,
++
++		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
++	};
++
++	alloc_size = sizeof(uncorepmu->events[0]) * uncorepmu->num_counters;
++	uncorepmu->events = devm_kzalloc(dev, alloc_size, GFP_KERNEL);
++	if (!uncorepmu->events)
++		return -ENOMEM;
++
++	alloc_size = sizeof(uncorepmu->used_mask[0]) * BITS_TO_LONGS(uncorepmu->num_counters);
++	uncorepmu->used_mask = devm_kzalloc(dev, alloc_size, GFP_KERNEL);
++	if (!uncorepmu->used_mask)
++		return -ENOMEM;
++
++	uncorepmu->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &memrc);
++	if (IS_ERR(uncorepmu->regs))
++		return PTR_ERR(uncorepmu->regs);
++
++	fujitsu_uncore_init(uncorepmu);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	ret = devm_request_irq(dev, irq, fujitsu_uncore_handle_irq,
++			       IRQF_NOBALANCING | IRQF_NO_THREAD,
++			       name, uncorepmu);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to request IRQ:%d\n", irq);
++
++	ret = irq_set_affinity(irq, cpumask_of(uncorepmu->cpu));
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to set irq affinity:%d\n", irq);
++
++	uncorepmu->irq = irq;
++
++	/* Add this instance to the list used by the offline callback */
++	ret = cpuhp_state_add_instance(uncore_pmu_cpuhp_state, &uncorepmu->node);
++	if (ret)
++		return dev_err_probe(dev, ret, "Error registering hotplug");
++
++	ret = perf_pmu_register(&uncorepmu->pmu, name, -1);
++	if (ret < 0) {
++		cpuhp_state_remove_instance_nocalls(uncore_pmu_cpuhp_state, &uncorepmu->node);
++		return dev_err_probe(dev, ret, "Failed to register %s PMU\n", name);
++	}
++
++	dev_dbg(dev, "Registered %s, type: %d\n", name, uncorepmu->pmu.type);
++
++	return 0;
++}
++
++static void fujitsu_uncore_pmu_remove(struct platform_device *pdev)
++{
++	struct uncore_pmu *uncorepmu = platform_get_drvdata(pdev);
++
++	writeq_relaxed(0, uncorepmu->regs + PM_CR);
++
++	perf_pmu_unregister(&uncorepmu->pmu);
++	cpuhp_state_remove_instance_nocalls(uncore_pmu_cpuhp_state, &uncorepmu->node);
++}
++
++static const struct acpi_device_id fujitsu_uncore_pmu_acpi_match[] = {
++	{ "FUJI200C", FUJITSU_UNCORE_PMU_MAC },
++	{ "FUJI200D", FUJITSU_UNCORE_PMU_PCI },
++	{ }
++};
++MODULE_DEVICE_TABLE(acpi, fujitsu_uncore_pmu_acpi_match);
++
++static struct platform_driver fujitsu_uncore_pmu_driver = {
++	.driver = {
++		.name = "fujitsu-uncore-pmu",
++		.acpi_match_table = fujitsu_uncore_pmu_acpi_match,
++		.suppress_bind_attrs = true,
++	},
++	.probe = fujitsu_uncore_pmu_probe,
++	.remove = fujitsu_uncore_pmu_remove,
++};
++
++static int __init fujitsu_uncore_pmu_init(void)
++{
++	int ret;
++
++	/* Install a hook to update the reader CPU in case it goes offline */
++	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
++				      "perf/fujitsu/uncore:online",
++				      fujitsu_uncore_pmu_online_cpu,
++				      fujitsu_uncore_pmu_offline_cpu);
++	if (ret < 0)
++		return ret;
++
++	uncore_pmu_cpuhp_state = ret;
++
++	ret = platform_driver_register(&fujitsu_uncore_pmu_driver);
++	if (ret)
++		cpuhp_remove_multi_state(uncore_pmu_cpuhp_state);
++
++	return ret;
++}
++
++static void __exit fujitsu_uncore_pmu_exit(void)
++{
++	platform_driver_unregister(&fujitsu_uncore_pmu_driver);
++	cpuhp_remove_multi_state(uncore_pmu_cpuhp_state);
++}
++
++module_init(fujitsu_uncore_pmu_init);
++module_exit(fujitsu_uncore_pmu_exit);
++
++MODULE_AUTHOR("Koichi Okuno <fj2767dz@fujitsu.com>");
++MODULE_DESCRIPTION("Fujitsu Uncore PMU driver");
++MODULE_LICENSE("GPL");
+-- 
+2.43.0
 
 
