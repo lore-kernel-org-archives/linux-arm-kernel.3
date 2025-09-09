@@ -4,76 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D69CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F767CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7UVamhSqzwJY1xwizjBZRhuRrWruFu7DBQa/xASKhxs=; b=twSfWtCjS2/tY1o3920uZeXxnY
-	JJ2ngvSeMT7Caa/viTEJrzbMv/xd1xVywi6CuwKPuKJWtkM6oEe10hEnebXrPP4mmQZk4bmXo4IAT
-	BJT+W/oL/SYfwKip3JKK8JL10PlFkRTCUhwj1CApkG7IeS6+mYjo7HG5mfsETeRym57Wa3zyW219j
-	AKjuk5kDuutkRXHOj4oalZiMcCqPSubrKNspkOx1atb/8i0orMAKXQZS/B+Dv7unts34A/xu5skN1
-	An6rgl1li0BlEDB9Mzcpxp/es0g0fsPsRx6kwEZy1aJN8COClrdVUq2+kCDvIxN45lfgnLai59/tE
-	luCvtZdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SBuh28KbXIrgcfSkQ8KjquzRGwut7m7Az0UK1qF6ohQ=; b=ITkMbx0b2H2Xw2P4hmtFIncxV6
+	7piX4UBhFyeudERj8X40iy5gmZ2W8dP5QPtjSUxaBkiltixpKnTUKJmV6ABg/k2O+FCTK8keI7xH4
+	gGcgIERbcdDHu5GX5BNwlptc3S6+0Gw/fR2mCtsechSKe2FLEIjzES0W0XFyVbgMpocgvzCfpDS8+
+	kqg3aKwgQi7pwXsnpqpzBp4AJEFXmxhH5tcXpbVrD1uGlXIiI7UxiqGZO02FMBSX0rO9+QQLpexHS
+	k/NQp1gm5x6Fy8mqf1ChFJ/wLbULuTlmD44AzJH3ngoIYPpwUPEmVk0Wz4VaL/kE+cudV9oVAXio3
+	tvDS8BYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0Tv-00000008CHb-237p;
-	Tue, 09 Sep 2025 15:42:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvvFk-00000006FAg-3n9p
+	id 1uw0U2-00000008COl-00Xt;
+	Tue, 09 Sep 2025 15:42:14 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvvKw-00000006Hel-3rnR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 10:07:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4797113E;
-	Tue,  9 Sep 2025 03:06:58 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 36B533F66E;
-	Tue,  9 Sep 2025 03:07:01 -0700 (PDT)
-Date: Tue, 9 Sep 2025 11:06:52 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 04/33] ACPI / PPTT: Stop acpi_count_levels() expecting
- callers to clear levels
-Message-ID: <aL/8PIcebYGoB/g6@e133380.arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-5-james.morse@arm.com>
- <aK7iyf/6iVOuVhTr@e133380.arm.com>
- <1914b7f0-10e6-4cf4-ad53-5ae03c69964d@arm.com>
+	Tue, 09 Sep 2025 10:12:35 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45de56a042dso14510315e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 03:12:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757412749; x=1758017549; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SBuh28KbXIrgcfSkQ8KjquzRGwut7m7Az0UK1qF6ohQ=;
+        b=SmB2qY/n2oDjGHrCx0/EgGcLl0TkHrRMalKpZHPz0IfpOOjn/CRkghBxewKljPI0M0
+         iHRtfvfa8N7dTjuaug+KLFn1h3BAFevCGzOZHWZLrlyTFGJgmYlSVDkGtJfm9zOS+hRw
+         M+JxFhk9GxF/eKyoCOdszvpU6Z9qlO2SVzC3CNrsjPcESypjVHIJ2cTS4u6dOFU33Ffj
+         g+FXWNv/nlKfzCr+BheYyR0nWJh+8BAoHV1ek0ePCEInkAmt5bgt5AXfubcPM5wxIKsX
+         wTLBq9xtHdGeD9c7x0kumA4b+w0mnKn2ZMrhbMR0bXXPvrr9qeaXE5KBQ7nATZOFd4/2
+         I/Zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757412749; x=1758017549;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SBuh28KbXIrgcfSkQ8KjquzRGwut7m7Az0UK1qF6ohQ=;
+        b=cslk+SFISwPlZveVkkmcbSeTFW5WGpOEJ+entaHSHk5vrQ40+suF+Ltj1+cHiQfxV5
+         LcPzjv0howGw+DXtuzbfogXhyURyuu7NHa/vVEEqQDqKVqrqz9yT3nALgO2qx5CQJiZs
+         tn8AR/QMqGkbUCcTZ6QjqATVGDL1MlktX6n39fqmVTavvK2VMffYjH3Or0YCsX1k9U6i
+         WybN2yk3HARE1yGXdL8wPu5LXcarmthtmoxgk8Rhe1mouEYS7ZadjjZ05L22XVuQG92E
+         E2aaZxn83Ag1AkZbWdi+1eX43ubpqGVjpq5x2b8WZZUCPks4SL7QXQmNxe6GQSSKCFC0
+         poBg==
+X-Forwarded-Encrypted: i=1; AJvYcCXhcm0Wsaravlee9BP/GTL1C6z9OT/q6d38S15hYrnZcIULT7VAIm1kXBEZYG0nlkPQDZfvlWztHz8OylwQOZ7c@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/gim+IQ7laG8/maYYSvrABUYrlIjTxYe1Eg543NNS+gyWbbAc
+	BHl0eM2Na6/fwQ+7Z72Mo65gxurlLzDprlTILMOSI/DwmdL9wOm90OLz
+X-Gm-Gg: ASbGnct1OwaxwxEyEDemk/xNDvuutTTCOgyTDOcRfzCT5rE25M0BY1U6fWjsu3ejhcf
+	qYk1GY6zSec6Ebn1MBwa7vd2vf8+NOROPhg8dCtaF4cOX4MVRVKlAwJ+KwSqc8w5T7uEVRRoh1K
+	6LIbLjwbOFf5ydSZgm/F1vysLhmSWnYhOnHsJEHKQASrzj1K1V0kbR3IA+efPiRlcbjB/pU2gPs
+	U7BtbCwzrp//XZMqJ/N2AR3x0lIEusQlSE9c8b9J/YKznV4rXAe/gWZaTgotXUP2u1PsnuCphNe
+	bI+o4pxzFF8E9JUa+a8JzKWQx7Sx0dWQqUZyD9WmXUbTcMgbk5wf0acjenpHaoJuVtI+GqTo5Q6
+	GNp5CrLUiQ7B0J1283l13REdW8Csy8Y4YxXHO+tNoSbeb26u75V9chb6CKB0xgdh7yOOOeOpQCd
+	l4x34SOsDc/GK6Ryw=
+X-Google-Smtp-Source: AGHT+IGKpZNRoMZ6IP/YPEfGuW0EUWhvKOcP7+Jc1iIS/x57GSvJehzCKAQ3NC+/6rTUpYigpfqyQA==
+X-Received: by 2002:a05:600c:1c9d:b0:45b:9912:9f30 with SMTP id 5b1f17b1804b1-45de241c015mr86065355e9.6.1757412748701;
+        Tue, 09 Sep 2025 03:12:28 -0700 (PDT)
+Received: from localhost (2a02-8440-7136-74e7-5ebf-4282-0e1a-b885.rev.sfr.net. [2a02:8440:7136:74e7:5ebf:4282:e1a:b885])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45de15de318sm129398365e9.13.2025.09.09.03.12.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Sep 2025 03:12:28 -0700 (PDT)
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+Date: Tue, 09 Sep 2025 12:12:13 +0200
+Subject: [PATCH v6 06/20] dt-bindings: memory: introduce DDR4
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1914b7f0-10e6-4cf4-ad53-5ae03c69964d@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250909-b4-ddrperfm-upstream-v6-6-ce082cc801b5@gmail.com>
+References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
+In-Reply-To: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Gabriel Fernandez <gabriel.fernandez@foss.st.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, Julius Werner <jwerner@chromium.org>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>
+Cc: linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+X-Mailer: b4 0.15-dev-dfb17
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_030709_331897_05F14778 
-X-CRM114-Status: GOOD (  29.44  )
+X-CRM114-CacheID: sfid-20250909_031231_077176_830AB09F 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,75 +114,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+From: Clément Le Goffic <clement.legoffic@foss.st.com>
 
-On Thu, Aug 28, 2025 at 04:57:15PM +0100, James Morse wrote:
-> Hi Dave,
-> 
-> On 27/08/2025 11:49, Dave Martin wrote:
-> > On Fri, Aug 22, 2025 at 03:29:45PM +0000, James Morse wrote:
-> >> acpi_count_levels() passes the number of levels back via a pointer argument.
-> >> It also passes this to acpi_find_cache_level() as the starting_level, and
-> >> preserves this value as it walks up the cpu_node tree counting the levels.
-> >>
-> >> This means the caller must initialise 'levels' due to acpi_count_levels()
-> >> internals. The only caller acpi_get_cache_info() happens to have already
-> >> initialised levels to zero, which acpi_count_levels() depends on to get the
-> >> correct result.
-> >>
-> >> Two results are passed back from acpi_count_levels(), unlike split_levels,
-> >> levels is not optional.
-> >>
-> >> Split these two results up. The mandatory 'levels' is always returned,
-> >> which hides the internal details from the caller, and avoids having
-> >> duplicated initialisation in all callers. split_levels remains an
-> >> optional argument passed back.
-> > 
-> > Nit: I found all this a bit hard to follow.
-> > 
-> > This seems to boil down to:
-> > 
-> > --8<--
-> > 
-> > In acpi_count_levels(), the initial value of *levels passed by the
-> > caller is really an implementation detail of acpi_count_levels(), so it
-> > is unreasonable to expect the callers of this function to know what to
-> > pass in for this parameter.  The only sensible initial value is 0,
-> > which is what the only upstream caller (acpi_get_cache_info()) passes.
-> > 
-> > Use a local variable for the starting cache level in acpi_count_levels(),
-> > and pass the result back to the caller via the function return value.
-> > 
-> > Gid rid of the levels parameter, which has no remaining purpose.
-> > 
-> > Fix acpi_get_cache_info() to match.
-> > 
-> > -->8--
-> 
-> I've taken this instead,
+Introduce JEDEC compliant DDR bindings, that use new memory-props binding.
 
-OK
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+---
+ .../memory-controllers/ddr/jedec,ddr4.yaml         | 34 ++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-[...]
+diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+new file mode 100644
+index 000000000000..bf1dae15b65b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+@@ -0,0 +1,34 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,ddr4.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: DDR4 SDRAM compliant to JEDEC JESD79-4D
++
++maintainers:
++  - Krzysztof Kozlowski <krzk@kernel.org>
++
++allOf:
++  - $ref: jedec,sdram-props.yaml#
++
++properties:
++  compatible:
++    items:
++      - pattern: "^ddr4-[0-9a-f]{4},[a-z]{1,10},[0-9a-f]{2}$"
++      - const: jedec,ddr4
++
++required:
++  - compatible
++  - density
++  - io-width
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    ddr {
++        compatible = "ddr4-00ff,azaz,ff", "jedec,ddr4";
++        density = <8192>;
++        io-width = <8>;
++    };
 
-> >> @@ -731,7 +735,7 @@ int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
-> >>  	if (!cpu_node)
-> >>  		return -ENOENT;
-> >>  
-> >> -	acpi_count_levels(table, cpu_node, levels, split_levels);
-> >> +	*levels = acpi_count_levels(table, cpu_node, split_levels);
-> >>  
-> >>  	pr_debug("Cache Setup: last_level=%d split_levels=%d\n",
-> >>  		 *levels, split_levels ? *split_levels : -1);
-> > 
-> > Otherwise, looks reasonable to me.
-> > 
-> > (But see my comments on the next patches re whether we really need this.)
-> 
-> It was enough fun to debug that I'd like to save anyone else the trouble!
+-- 
+2.43.0
 
-Fair enough.
-
-Cheers
----Dave
 
