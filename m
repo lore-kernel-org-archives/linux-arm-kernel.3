@@ -4,91 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E176CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 20:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34EB6CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:02:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zBfYtAuJkom4BOylkc8K6Uk6Zts+d4OHt0Hr7CWysM=; b=1yfNLf9rZho0yZUw6nVRcoSZU5
-	Q8iZRVvhqkMzHSsKoyZayNhJDnk87TEihEMfp867TjBiglzGUy6G3cEe/LAQ2PDteNz+pYPAdtDrR
-	mqOofcBBfjVhUTzmXNg6JTLvJdrw/6ERPxpBHCCBf7c9Kt/JzLw0JIcameGCsr3t/hCNV5Nboqhvl
-	G1yveFnNq6AMvC4KOLDG5sO8J4ZE0wH2PTaCTpwkS9/Fb0lfUyj+1qvbaGULZZ2t5I2Zz85fq9Otw
-	YQ4YVJuAymYwrVEYbUWC5VtMkfnMwHcVGiCJTxe4HQc8vwbTRrZnUnnRgL3B3VKfxDsJR9Jj9sIA7
-	47Wyb26g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iJsmgd6XqU5+V3aO6IPPySNCZETtyS/JLPHM13pOQnQ=; b=zIROjB90xp3edSUxWWAJYha3gS
+	KNJ+cGu4sLvzFqIcj8R7IBwfZ4zBUe3S/Pi6bqymos/BpydMkpzRZHoxaAjrjpTr3OHdANKy0dk0d
+	6BCpEbi1n3jTmUbnvbIPVCnSyAeUuA4ZmiDLdBnvZuLJ+VntjKc1O1f3YDJpgZ2qEc/MarskKCYKz
+	qHJhGNsjG580k022kcKgQuPAnpNypW3kfM4xKfEV6AV8X7wdsQNMX26DmJ/ja+RTjoDv4WWH+oqG+
+	RTA14Nqxm0SLNMDMV6ZxcuJYN+4kmE32h110K88Dc2Gg7n0ay9TiGmFqb8X1HNWbUzFajytlyC0PI
+	2abfDc2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw52u-0000000A4ha-2SCp;
-	Tue, 09 Sep 2025 20:34:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uw5Td-0000000AF56-0wV2;
+	Tue, 09 Sep 2025 21:02:09 +0000
+Received: from mail-bn1nam02on20713.outbound.protection.outlook.com ([2a01:111:f403:2407::713] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw52t-0000000A4gU-3Z7R
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Sep 2025 20:34:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+zBfYtAuJkom4BOylkc8K6Uk6Zts+d4OHt0Hr7CWysM=; b=nEqIOSDXYEBjOqOUQlHKEtwjFP
-	HVkCNHlsaEPjRwRLV0G3fEcfcVXQS82FYWrN2y20vMNUljWhn/M+3gK5ZJfjaQFMbO6XHBSnJOhUP
-	Ke/3RimVfsUCzWk3mVo9iNOvU32DOZ5M5pHeXAM9gUaf4p362R7OsjRFfbDEIC4+62FXYWNPwdW+y
-	jMSGzuQrLJgBYHBjbBLpDeqHcSpEGGC8HidfljsQFG7nBfi7pX16KeeNMjLgLC0X8YgGWATFdRbOF
-	U975Ur9VlkjPC5T/vMxqH4ZcT91ab7z5LcgFiphKaITeCBmggSRQ18q2Pat4GR424Flazt8ZzYv/+
-	eJOtKnYA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw52k-00000005bQD-0Kzg
+	id 1uw5Tb-0000000AF41-3TKB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 20:34:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D52D644B3D;
-	Tue,  9 Sep 2025 20:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 903FDC4CEF8;
-	Tue,  9 Sep 2025 20:34:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757450057;
-	bh=hdwNKGl7lx7063eJ2yiIHblOsSgC/pR1LbJ6lLkBads=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eQv2U/UeE/bjEFK3vU+6qVQEwjGD5nim1L/4Ln1UhO1QwHC6X1buEhiHGQchxU4y7
-	 B3pWVa7H4Xw/8YeAB9G9qACjvy7X/VYIb7F+OfJG4cy71yeVK57Zl8DVCLaCOD8FYF
-	 vg/p0hKqAm4WJs0JIVZUVO4MvDGwqtSPtnEPcikDkFUrNfSajUas1M3FP196j/4/XQ
-	 oc5UdPl7n80sfgL1HzFMh1I/E/OZOAHn7TaZubs9ncVz7vF7Ns3XBbfqaDrEw/llvp
-	 9NxwRtann1qA6WN9hyEfVCjJO1gj4jBxH9dsTt0rG5D48Ck0PtPdY4m000YycaJRUt
-	 p2xCh4D8CEvwQ==
-From: Andreas Kemnade <akemnade@kernel.org>
-Date: Tue, 09 Sep 2025 22:33:04 +0200
-Subject: [PATCH v2 3/3] ARM: dts: imx: e70k02: add sy7636
+	Tue, 09 Sep 2025 21:02:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bi11EtFE4lVqStc9QzcOOF3jMIAlCZYSCAO5kH8ddyCR+2MKswIv0Om6CL9naXOg/BWOhOSqcwV+NSeJ7VdGf0OaEF6UvPP8fvkhwqc/xYsRjkknZ8N8rSeBqhWhasGuklvJ+5I+E2lwxpKO+wOK0KYMij7qMbiyX7n6b2a1AfTcczOMCHvAL16cN36CU7PSNN7psft2bkpSK3SEn6MI6nn5MG6BA2o12T2RZDYmy8dgdLk9tPlumURLCSM/tpoM/9kCMMeHvIKD9aN0dx4mNnogQ3W13b+e4ykPYiZpM2w4y10r8AQj3xzNVuxpEuVPZIw6wv75E6om8IMyzvtrsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iJsmgd6XqU5+V3aO6IPPySNCZETtyS/JLPHM13pOQnQ=;
+ b=fEYK/hkSmUTnMnemNVnJWVMcEyho5+H3GCmEZLtKPrBMHuIUS2qPZmeW6kJ6PD1gW/yInI8Bjp5DfxRSfQdV3YFgiZDBKxzpLG3rrL8SdqxlIBnQbmUI8Mhy3+I7NFDqrk0PDM/ImPj6JEtMHSqfvNBsjIRyPAJMccxHYiGu4iePconv0RSq8uDmk71WEapNKUMyiy9D+/UlWcJpnwkYsr2Q/aRQY8T8SkmuUtwopA+DGf4sPbkOdsbKuB8p9WIJSA1bh5LX7SvjJdIiuUJ0nN5eB7Hnyd6lQ/5BOZ+MZUqgPeY5n/kaj9yGmOeRUzw23eAtJ/4+JYK4sDdHbuayHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iJsmgd6XqU5+V3aO6IPPySNCZETtyS/JLPHM13pOQnQ=;
+ b=v2lK9MexfYRSbzo4hxOVgi8asNxGzOACsSBmfQ5fM55P4XUAZnA1XXVquu4btAcDAs28jcJMZ55AIGMn/qGASos4NqFX7CPi04EaETESJbMBALDwIviGlKK8vF9POz8MP3k2UI2UTsULTGcJ0D3Mp/JH+uQIMSOr0pNTbXD+JeA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ CO1PR01MB8865.prod.exchangelabs.com (2603:10b6:303:275::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9094.22; Tue, 9 Sep 2025 21:01:37 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::86f5:4db2:7ad5:7fc4]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::86f5:4db2:7ad5:7fc4%6]) with mapi id 15.20.9094.021; Tue, 9 Sep 2025
+ 21:01:36 +0000
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: John Garry <john.g.garry@oracle.com>,
+	Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>
+Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] perf vendor events arm64 AmpereOneX: Fix typo - should be l1d_cache_access_prefetches
+Date: Tue,  9 Sep 2025 14:01:20 -0700
+Message-ID: <20250909210120.9823-1-ilkka@os.amperecomputing.com>
+X-Mailer: git-send-email 2.51.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: CYZPR05CA0026.namprd05.prod.outlook.com
+ (2603:10b6:930:a3::7) To MW4PR01MB6228.prod.exchangelabs.com
+ (2603:10b6:303:76::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250909-sy7636-rsrc-v2-3-cfd9f44fd259@kernel.org>
-References: <20250909-sy7636-rsrc-v2-0-cfd9f44fd259@kernel.org>
-In-Reply-To: <20250909-sy7636-rsrc-v2-0-cfd9f44fd259@kernel.org>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alistair Francis <alistair@alistair23.me>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Andreas Kemnade <akemnade@kernel.org>
-X-Mailer: b4 0.15-dev-50721
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4885; i=akemnade@kernel.org;
- h=from:subject:message-id; bh=hdwNKGl7lx7063eJ2yiIHblOsSgC/pR1LbJ6lLkBads=;
- b=owGbwMvMwCEm/rzkS6lq2x3G02pJDBkH+q1PF74+IVA/1cjcZWn60ncPOTUqjoRejfhrtHhnl
- tOXn7uOdJSyMIhxMMiKKbL8slZw+6TyLDd4aoQ9zBxWJpAhDFycAjCR/jxGhikzDa5xJmX66kwK
- cNzEUVnkebjgiZvS1/4lqtuUz5nxz2b475O0zmqpflyX5n7LTn2uZ9/X70/acE2iLk5V/9utHdm
- qnAA=
-X-Developer-Key: i=akemnade@kernel.org; a=openpgp;
- fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|CO1PR01MB8865:EE_
+X-MS-Office365-Filtering-Correlation-Id: b92495e4-e9c8-4aea-21ee-08ddefe4109e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8935EYn4Hp3UlFocwnSJ3b/hSOMBJl+iDZCm3QaawsPvaH4/k6QkCaKrfAcx?=
+ =?us-ascii?Q?p6Oqd7DxE8ox+tuXNeG1scYpao+lyuU9F6M+OoYIrUTU6i2T8OdPEpy4ilnx?=
+ =?us-ascii?Q?yt/UnP7LV+xjrI3BGqAkLgBYdcKhybNipsDiHDEL17oU2+vKgTMFeEBZl8cs?=
+ =?us-ascii?Q?Pwncbs2UYsQ6y6UEJ0caFOJlN0/NDqsDbtZRBC0dkZfZndXQzFkKc70WUJhc?=
+ =?us-ascii?Q?xAwrKfFuZkS0i5DYQR6S7Forj9Pro6VcYHKuNVQua5QfDyreem2gTNd6yfp2?=
+ =?us-ascii?Q?gKnzfmEx0f7slZeyNZL9gjlNXb/8BsdmHsjz3fpCirnFeqk0zJh9fhTbCD57?=
+ =?us-ascii?Q?yh6FL9hcSH5Ih42CfUXED5I+DjRe0/TREbQCMob0dAkXTHvPPnZ2v76VPdK2?=
+ =?us-ascii?Q?gIDuhGQmglRvh/YK+YumfzTPZnR6jEuJIF5ooNEV4bY5K0QjyG4Cb9G0PaxA?=
+ =?us-ascii?Q?lSthDOAj8qtlDMxE9eWUFZQei5PwDu0sB2R3bnOHdTWThypZtggVBp7JTF2Z?=
+ =?us-ascii?Q?G+7j2Z4umnZeNGVw52soIotU2ayOFWWL+gj3VHRLdicPUIwI7Xsd583psiXt?=
+ =?us-ascii?Q?bIlOoOmBdfrQmz/qm4fxByGc5CLqI5CSLJsSRsF7A/MPT6pFzcY/m21ziBnF?=
+ =?us-ascii?Q?q+1vUkeMCByvou2SG6nzmRdZN+RCmWDL9PQDtfLgRr0KLq8ij3/YT0evybv7?=
+ =?us-ascii?Q?rh8eEiZ+DO3DR4N6vZdpNuDitjXhwh/s/PJuflE0Y4PQRPvy8qY5f4iqR5eU?=
+ =?us-ascii?Q?YiYl3FlAQcPJgGYqp32Uua97ZGwf4z/JTDHolpGmsaUFCqNgTLYGhuFZMe/C?=
+ =?us-ascii?Q?GRPgvGI+ICTwAcUrksyiWgpRhqTOqTZMyb5Hc+Y99aojj/zMJCMf6f4EEJrf?=
+ =?us-ascii?Q?RK0fy9aCWLJYXmzc+w2jGFKFFtltGfwwBqUpB4iloNGXula36KOJJdbW6w5F?=
+ =?us-ascii?Q?Aa2MClLWm3EedWzJF7IsWlH4RlLeD57JoThhB29FbQNdXMPp4Xhu3sSeAh75?=
+ =?us-ascii?Q?cbhv7bc+sDxfdK+FMDi9nJGOTFreuXzbl63dkLVTLeyfMheWGYys2vjZ3kEH?=
+ =?us-ascii?Q?jIdsSyrI5k8XAJ7pXkGhHBKv6VUYpS9GS//30jhoU5G3eZI2bPO15z6nOc/O?=
+ =?us-ascii?Q?VJeSEHGt0yRQil05zgOGgegrQgnlnwxUehgZZm4vnT8bgqIq3LrikvN4CKvG?=
+ =?us-ascii?Q?JQaNHBZhatoEz1ltQzAaVxWWV/puJYY8LlNS+yN1dgiwHiD7UBnY2+VVlcxU?=
+ =?us-ascii?Q?m95NwWE3C2VsCWmQ/+RN2IAT9lw1Ikk6ooFwQEDSA3ezQRbs6+77qLcUuRrq?=
+ =?us-ascii?Q?/JmmLDsmrLib/CqTFSobhFb1JzyFpSXo1hzR/y0cotSpkR2je3EXFq0knNZJ?=
+ =?us-ascii?Q?efLe6CLTv5Pclsc1Hqp5gz5Wj/CV2t0RSf7WlqrW0vslD7sj0ScFy+d3IlRK?=
+ =?us-ascii?Q?OcgJi3MNK2KX1JfiRkI393b2MqwBEPMZbzhXFxN0gds8UQZOnyD/9nhq4ac+?=
+ =?us-ascii?Q?EeWgU96l+zJyRGk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yEArb32cWfyopqoWtnPw7YB6I0MuYW6jCCI81tKR51d76mWayVQYymBn8Gqw?=
+ =?us-ascii?Q?ihJlM7EzTLHHhILeRgbywRMYYByvlwB7mN4FEj30tqdtih7IzKWZxy1bKzm/?=
+ =?us-ascii?Q?9dRuqNze/JLyop4+kzC+SggE4n+Gt/RxO/fMJTvIdo9NacGGcC21Bsjf5FNT?=
+ =?us-ascii?Q?DkntypKrHAQ/CFtmAw0lWYsmfNtKdLlFVe5cdQZeeB4VzxSMItvc/SMJioRF?=
+ =?us-ascii?Q?P/jsG19zH58F8aszfZ+O9YC97rMmLAgMdksuVhAz8ZYQXLMPR6FKrdaPyQMk?=
+ =?us-ascii?Q?C1abzenTrlp4RtXdXhxfM7glRhW7Efo473FfF2wc3lPpkNYE6+VffzTSgTIX?=
+ =?us-ascii?Q?R7h3RKpA+WjEXE/e6EeScIV/JkOfdDyZgvrnrAQyeTNl4EJNm+FZ44a2mRKI?=
+ =?us-ascii?Q?jfkI0ww2pB4uQq2BGP5JwDHCUhToDaUyMZBumG7ikJk+EIoD4BRyUy74OgMo?=
+ =?us-ascii?Q?OSvI55XLQdeGUB6gFsN3l7zXpaatDd++I5uUW7LVZIb8HreGCcZgyChbRyro?=
+ =?us-ascii?Q?ChEyrk9Wn8OoJ3FDQg39L9nRKa3BIgAoh4wL8uBemEfKjJuIDpZWvXfjU5GZ?=
+ =?us-ascii?Q?snRqIvzQxa+4xClyVVRkbRTWYD4ZHvKkL1+GhL5Bk9reImPYdYaDe1VeO7QV?=
+ =?us-ascii?Q?joUQREFIBw2YpiSbLqz105DRyD2iCUmEby7nVWqGe97mdhX+NtV9xFeSorK6?=
+ =?us-ascii?Q?Z4sKq8pry0HYGgNfipGsX74fQPUMAZYEtxyP9hRQuyx5d/YAHhdLDRgI4xQi?=
+ =?us-ascii?Q?LQG6T4+0Bq+o5ZuYZDJytpBO21VJa2p2/QltHu5vAzFJ2RuONtw77i7RiN5l?=
+ =?us-ascii?Q?nR10ai0YRIlB+0+dB+lFyg/QVWo2GPmmgGRnWZQ3pXq071CNIE076pYDzPZM?=
+ =?us-ascii?Q?sYLs1QFTvAWZOhNzj++l2oCirMSZ9WYL3okwCm6aQkorpW/Rs2TcVgaW/Z1u?=
+ =?us-ascii?Q?6z07E0wxf1Q3AXJaTAlVv73eXw59H8LAO63K6OEcVlOB6CCxofHIx8Tk6khA?=
+ =?us-ascii?Q?LSJiqhjDK7pI5QfcRbxCyeVsd2yi8F5lk8iFJ7Mj5hQqe9zk6Ywm1Z+Z5+/0?=
+ =?us-ascii?Q?vQcVMlm4vaYmhzUeSmLf5UikQcWrqgZFMDEXEHXlQgm44f7yCG+ox3fUbZgW?=
+ =?us-ascii?Q?p5Bd3h9B7obdqBQjJzHZHDZ1Z5kTeKxv6gvKn92dtLaPxUgwPVAHH1H4y/NU?=
+ =?us-ascii?Q?6X9kIKFnmMQbNbMSdyVCP99rBttzen/ePhFUX4vBLdlRYBH1/mIOYjq5cFkR?=
+ =?us-ascii?Q?JMFZQoHVGYnRsEkOa7XiNhhlA6ZP2OaoN3rez8IjFG1NggzPVXB5D/i02ApR?=
+ =?us-ascii?Q?gEYjA+wzgQ/+NblZuLCbwlpG89NzOpr2DzFcBClCsMBPjzrP4wdfT3g7Je/X?=
+ =?us-ascii?Q?T16LtKS17lkOlq+K4acQo1bAUHWyqafWgVSVK1DWuxrXI0ur0ImVblpD2Z0/?=
+ =?us-ascii?Q?rI+vo0QdBSmMde/eZe+/5+K15kWwcPIODRhykZoXR+ZMOUZdAxQFV1poJY5J?=
+ =?us-ascii?Q?xdQw6wO3E1g2DtPCmPcNn/Cf/ctlkAD8/b0UGnhn5/OX+X58Si/zZ7Xbb1r1?=
+ =?us-ascii?Q?la+y1LNKLkhTdXZ6tRQJBJ1UkhnUYDqSGQJCJgx0JdBIvE1D9uJ+7uzJdZPW?=
+ =?us-ascii?Q?0lRMfvLS6PIg4JNq6tM/6sU=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b92495e4-e9c8-4aea-21ee-08ddefe4109e
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2025 21:01:36.8171
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TAhuY3KAGPwcVgAbDIjpHOaD+pvG+/KoaWgsbBBNwos2pVC7+sKhgJISdpIqZehQ8WHg6J91zBBu5yc6tnBHO7YsPgcd9eAp8yeudrIB+lhnBbxGozlRe6XSCVisNayD
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB8865
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_213425_252206_BC16DE1C 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20250909_140207_861518_ACF0938B 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,174 +173,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the EPD PMIC for the e70k02 based devices as a step towards full EPD
-support.
+Add missing 'h' to l1d_cache_access_prefetces
 
-Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
-Acked-by: Alistair Francis <alistair@alistair23.me>
+Also fix a couple of typos and use consistent term in brief descriptions
+
+Fixes: 16438b652b46 ("perf vendor events arm64 AmpereOneX: Add core PMU events and metrics")
+Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
 ---
- arch/arm/boot/dts/nxp/imx/e70k02.dtsi              | 25 +++++++++++++++++++++-
- .../arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts | 24 +++++++++++++++++++++
- .../arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts | 24 +++++++++++++++++++++
- 3 files changed, 72 insertions(+), 1 deletion(-)
+ .../arch/arm64/ampere/ampereonex/metrics.json          | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
-index dcc3c9d488a88..b4f42f71c6c49 100644
---- a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
-@@ -69,6 +69,14 @@ memory@80000000 {
- 		reg = <0x80000000 0x20000000>;
- 	};
- 
-+	epd_pmic_supply: regulator-epd-pmic-in {
-+		compatible = "regulator-fixed";
-+		regulator-name = "epd_pmic_supply";
-+		gpio = <&gpio2 14 GPIO_ACTIVE_HIGH>;
-+		startup-delay-us = <20000>;
-+		enable-active-high;
-+	};
-+
- 	reg_wifi: regulator-wifi {
- 		compatible = "regulator-fixed";
- 		regulator-name = "SD3_SPWR";
-@@ -133,7 +141,22 @@ touchscreen@24 {
- 		vdd-supply = <&ldo5_reg>;
- 	};
- 
--	/* TODO: SY7636 PMIC for E Ink at 0x62 */
-+	sy7636: pmic@62 {
-+		compatible = "silergy,sy7636a";
-+		reg = <0x62>;
-+		enable-gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>;
-+		vcom-en-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
-+		epd-pwr-good-gpios = <&gpio2 13 GPIO_ACTIVE_HIGH>;
-+		vin-supply = <&epd_pmic_supply>;
-+
-+		#thermal-sensor-cells = <0>;
-+
-+		regulators {
-+			reg_epdpmic: vcom {
-+				regulator-name = "vcom";
-+			};
-+		};
-+	};
- 
- };
- 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
-index a2534c422a522..f8709a9524093 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
-@@ -26,6 +26,11 @@ / {
- 	compatible = "kobo,tolino-vision5", "fsl,imx6sl";
- };
- 
-+&epd_pmic_supply {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_epd_pmic_supply>;
-+};
-+
- &gpio_keys {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_gpio_keys>;
-@@ -59,6 +64,12 @@ MX6SL_PAD_FEC_RXD1__GPIO4_IO18          0x10059 /* TP_RST */
- 		>;
- 	};
- 
-+	pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
-+		fsl,pins = <
-+			MX6SL_PAD_EPDC_PWRWAKEUP__GPIO2_IO14    0x40010059
-+		>;
-+	};
-+
- 	pinctrl_gpio_keys: gpio-keysgrp {
- 		fsl,pins = <
- 			MX6SL_PAD_FEC_CRS_DV__GPIO4_IO25	0x17059	/* PWR_SW */
-@@ -159,6 +170,14 @@ MX6SL_PAD_KEY_COL2__GPIO3_IO28		0x1b8b1 /* ricoh619 bat_low_int */
- 		>;
- 	};
- 
-+	pinctrl_sy7636_gpio: sy7636-gpiogrp {
-+		fsl,pins = <
-+			MX6SL_PAD_EPDC_VCOM0__GPIO2_IO03        0x40010059 /* VCOM_CTRL */
-+			MX6SL_PAD_EPDC_PWRCTRL1__GPIO2_IO08     0x40010059 /* EN */
-+			MX6SL_PAD_EPDC_PWRSTAT__GPIO2_IO13      0x17059 /* PWR_GOOD */
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX6SL_PAD_UART1_TXD__UART1_TX_DATA 0x1b0b1
-@@ -329,6 +348,11 @@ &ricoh619 {
- 	pinctrl-0 = <&pinctrl_ricoh_gpio>;
- };
- 
-+&sy7636 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sy7636_gpio>;
-+};
-+
- &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
-index 660620d226f71..19bbe60331b36 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
-@@ -36,6 +36,11 @@ &cpu0 {
- 	soc-supply = <&dcdc1_reg>;
- };
- 
-+&epd_pmic_supply {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_epd_pmic_supply>;
-+};
-+
- &gpio_keys {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_gpio_keys>;
-@@ -69,6 +74,12 @@ MX6SLL_PAD_GPIO4_IO18__GPIO4_IO18	0x10059 /* TP_RST */
- 		>;
- 	};
- 
-+	pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_EPDC_PWR_WAKE__GPIO2_IO14    0x40010059
-+		>;
-+	};
-+
- 	pinctrl_gpio_keys: gpio-keysgrp {
- 		fsl,pins = <
- 			MX6SLL_PAD_GPIO4_IO25__GPIO4_IO25	0x17059	/* PWR_SW */
-@@ -169,6 +180,14 @@ MX6SLL_PAD_KEY_COL2__GPIO3_IO28		0x1b8b1 /* ricoh619 bat_low_int */
- 		>;
- 	};
- 
-+	pinctrl_sy7636_gpio: sy7636-gpiogrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_EPDC_VCOM0__GPIO2_IO03       0x40010059 /* VCOM_CTRL */
-+			MX6SLL_PAD_EPDC_PWR_CTRL1__GPIO2_IO08   0x40010059 /* EN */
-+			MX6SLL_PAD_EPDC_PWR_STAT__GPIO2_IO13    0x17059 /* PWR_GOOD */
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX6SLL_PAD_UART1_TXD__UART1_DCE_TX 0x1b0b1
-@@ -319,6 +338,11 @@ &ricoh619 {
- 	pinctrl-0 = <&pinctrl_ricoh_gpio>;
- };
- 
-+&sy7636 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sy7636_gpio>;
-+};
-+
- &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
-
+diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
+index 5228f94a793f..6817cac149e0 100644
+--- a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
++++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
+@@ -113,7 +113,7 @@
+     {
+         "MetricName": "load_store_spec_rate",
+         "MetricExpr": "LDST_SPEC / INST_SPEC",
+-        "BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speclatively executed",
++        "BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speculatively executed",
+         "MetricGroup": "Operation_Mix",
+         "ScaleUnit": "100percent of operations"
+     },
+@@ -132,7 +132,7 @@
+     {
+         "MetricName": "pc_write_spec_rate",
+         "MetricExpr": "PC_WRITE_SPEC / INST_SPEC",
+-        "BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speclatively executed",
++        "BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speculatively executed",
+         "MetricGroup": "Operation_Mix",
+         "ScaleUnit": "100percent of operations"
+     },
+@@ -195,14 +195,14 @@
+     {
+         "MetricName": "stall_frontend_cache_rate",
+         "MetricExpr": "STALL_FRONTEND_CACHE / CPU_CYCLES",
+-        "BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and cache miss",
++        "BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and cache miss",
+         "MetricGroup": "Stall",
+         "ScaleUnit": "100percent of cycles"
+     },
+     {
+         "MetricName": "stall_frontend_tlb_rate",
+         "MetricExpr": "STALL_FRONTEND_TLB / CPU_CYCLES",
+-        "BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and TLB miss",
++        "BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and TLB miss",
+         "MetricGroup": "Stall",
+         "ScaleUnit": "100percent of cycles"
+     },
+@@ -391,7 +391,7 @@
+         "ScaleUnit": "100percent of cache acceses"
+     },
+     {
+-        "MetricName": "l1d_cache_access_prefetces",
++        "MetricName": "l1d_cache_access_prefetches",
+         "MetricExpr": "L1D_CACHE_PRFM / L1D_CACHE",
+         "BriefDescription": "L1D cache access - prefetch",
+         "MetricGroup": "Cache",
 -- 
-2.39.5
+2.51.0
 
 
