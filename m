@@ -4,122 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611C5CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28944CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=euHGryHJ8QWDxT7cesCDLU1KtKBsI9gmyEIIx1smyRQ=; b=CxbLFF6Qz2ITeyP3ip4EqKFJyI
-	2x5ZO8ivaC0jh6/+Q4o9O0xNIQ7ys1Ba27W69EWbp1+bxFm4G0OTKOSdv9Ao9ofmVVwMEiQy8z//v
-	bCJ+z9rWAUq5/iIPo9/rqCHemc1LDlKIvsXO5LlImEJqu22yh/PeIlcW91gkuDsXNkg9lTQI4iYyc
-	8Pw1/1O7LF2Ssm4C2zQZ/cZVgl9fgmjHvTj9ChqQh7kjzOltfbgwQBLmo54Ph7FP5mNt3DM7GAsup
-	Hg6e2du7mcnjBXgZymqO2mYlHS/ewA3VwH9GGah3JKWt6l+tW3EFBfeN8aZFHygowpHxsqTB0ZNEf
-	V8RzCdmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H3J9huOApoi8Y6hebVd9AzV0hA0WzoEyWAy0m3sVnzY=; b=KtcyJboLCYCXcijmnoE6HtAkY+
+	iCJDeF63zovWiz3c+3P+ebhYJLQkQ88fJdjSu16Fn8WP5wrZGJO3qXyUjltD5hn5tSS/iuTF72fTc
+	LTzunIA/Whvx1qwqCyoZf/aRmLZcKLCd46wxH1/sdlhm2fZ8zhG53bJhoPJ10aFPQ+0e/iqyqdMmA
+	Cz4waGV4NAu4dt/wjb/H6xaKdSVIxcJEPl0olO+OYz8OPow3IjXJaFUYmJ3K4b1AcShOlM1x9q108
+	cwabzO8149lhzcb4UhlaPZz+Ea7Vg86yT8A8NlUreHYyglbPYjWes4hnlqS6imkaRpBMtsvmSfuWS
+	duEXX0Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1w1-00000008nxm-0kGi;
-	Tue, 09 Sep 2025 17:15:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uw1w5-00000008o43-1x3P;
+	Tue, 09 Sep 2025 17:15:17 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwGG-00000006d8c-0peQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Sep 2025 11:11:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=euHGryHJ8QWDxT7cesCDLU1KtKBsI9gmyEIIx1smyRQ=; b=m3OC6rrnKDY6tVk7oYMGZucxXt
-	BCsoDXkYC4dBtBk75r7Jvgz1qt979B8k0qgYGYDD12OFEr8XF6OMCPoB0+PXiww6DHtRBm3dAnaro
-	eqTi7guKnLo089vSSiO/3zQ7XcxXZMMFbXyCDMqpL8qwg++s/xnsiyt/gfFY1Zf7oqxguOw/sgzQJ
-	kEed8BGagq7fhZq9v89MWbCmM/8wG9n1evLlocLl0IuuCao6Ql++ae7GXOLhjn84BLI6VN2Sa9smp
-	XB+jE+SOYJgLx7EXdWgPgoSV1hvGNENDR/4eQsSeZ+MflLMrjLxN0VnboWQ2wdShmpmAYiKV1Upys
-	+guSSX/Q==;
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwGD-00000005IUq-0F3V
+	id 1uvwJU-00000006elL-1L6G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 11:11:43 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-55f6f7edf45so5204418e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 04:11:40 -0700 (PDT)
+	Tue, 09 Sep 2025 11:15:05 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-74382048b8cso3770986a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 04:15:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757416299; x=1758021099; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=euHGryHJ8QWDxT7cesCDLU1KtKBsI9gmyEIIx1smyRQ=;
-        b=F2kvgVGkIRuusH3C2p+VfQx7QPwiSEj5Bjcf2tW2kJv/kFfTzpLXACjiFFXClNWf+v
-         kVNoR4VHCNP7hjxoOr0AuEVHlTZBaLrhv0lyFzInpicsO/QNpzabzKqBDOa3CitElTTQ
-         gn9pPqNLdLZMu7vdb6GhkuPwlEnT4pGU85XCW2vYRAt5h2ujY19Bo3O8b/b45FiuYbOK
-         4veAVP45v/A4948guxVus47fz6rUKyegPrtP2Usp5rOLbzT06utUMCiBqQF7oXHexHXx
-         lAmLxHMaRpeGX2fGoYXat7aqw1EmEdf4iDNrZwD/pCfMrEio4dpOO8yP1wW962z2jFWP
-         qfWg==
+        d=linaro.org; s=google; t=1757416503; x=1758021303; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=H3J9huOApoi8Y6hebVd9AzV0hA0WzoEyWAy0m3sVnzY=;
+        b=H9dRpeUEEsC11sBxM3rTpnKrE01Sq1cJS9LaPT5KeK8TomcWnAmbYiVQF8ttexemTZ
+         lTcWsH1RgbS6AMvV4GBNpgh6qlmrXCR8dxpDUIEYCOc3kay6lSjAjwCtWvakVNDRdKUr
+         XO3WgzdmGQhu18KxAPEJiM1XrgSi+ysTSdhVCGUf3svG5mEcKzklEKasKBYGTBQQYuqU
+         HigpB7E/ufV4xEB14nYSrML54K7e0C5PYE0lTOr4ksVWN4thwGn5UVLpy6TRbNd7Eu2P
+         fk9YvV1Z2PumKcFLZY2h9z711WYfzooON+4P/qa4iZYez0YKh8HFC2yHzMvSSpnTKbdA
+         psAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757416299; x=1758021099;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=euHGryHJ8QWDxT7cesCDLU1KtKBsI9gmyEIIx1smyRQ=;
-        b=UQ8wFoYEcCoR81vy1/qr4x4mLzPb1XUjfLnc1gwbOVIWISFJOrspWvH/rYZk9G2fcI
-         pRqzLhjBczdMQJ331MfRpFDfiZyDaR7mP13ecS/t6IYFjuJ3xQI3KhJOD+8ucc2IdEma
-         UMhJTBz4brCB9uSzi8HYDbUzvAU1NzhOrQHFhtry633WZ+bTWhN3+iMJ2Y0xQrmu8gpJ
-         Q7X6kB6C2/lPva7rhRO09ivG963bXgo/x0hcftZlv3SBbV0UBlP2+o0UGo0y2dhBVx0Q
-         xGS2kI/NLWbiuQuFpnq/d3T+RxUtNRChq7JNUVJ/xRMFBhKhaXsYa6BMKh8/Fi36f7c4
-         3ISQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVWBNoUaUZcPsiJpmGupJBqK49TqQU8hOMFyBzlaCItsQvHpgDUCnYJXjEnXdrvWul0kvmsdq0Srir0uTWWoGuW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6OsmJPd6bx1VBt7OvkBRq4mtnkIPQaJwDUMhEOlA5JAGDEunc
-	p36/Cy4vZAD1doLlxDr2bcIBtvNFKfGt0HfaORRhhRl97iqlTqTV6XtxwLI6AJujMzI=
-X-Gm-Gg: ASbGncvxHXRzt/4zpz3k5HM3HPbiAAWuuFbU1BQ0bo+IsuigZV4yJMPr7lwkbQGCVm7
-	hTOSg7NXwzSpi58v7U7JTpm2viVYYF8zvQH9C8O8OXRYswTPhaLR8t77Uc4CvW27GXVvSYPEZiC
-	UgTKax6DWhAiffGPuehpHDRA0bOYv5/85nWQsX0UpkjCabgxvvd1sf8mLetIjuEBJ/bg1IvqJoH
-	Yc3521LeQnxkBltkmgRvII4/cQU4hU+/ZmLE+Gt0HYCqU9QLXliDNM2lpM/2OL/qPzd6RWluJHF
-	FBCSY9lnj3GLVhTTOfC1BonMtr2KivrAbQs3OeUxPBzGL1jHWBsth9xmRP3eQvC37eM2gHj2zaD
-	bT30pKnGpcKcBlBhK/hTjRNZP9Q1YD2EgtRt1JSukp7hOOZAkjLl63CRD1mEghEm7T4ZVrra1re
-	zljiFXJl8=
-X-Google-Smtp-Source: AGHT+IFfaEg7KARMsiLKzyUcPFhDsGf7F+a3gcOB6C+SVsQx9Fu2a+sXO0Qgm1wWuW8uSP6aIC1C1A==
-X-Received: by 2002:a05:6512:108a:b0:55f:4db1:e450 with SMTP id 2adb3069b0e04-56260e3b836mr3025626e87.22.1757416299071;
-        Tue, 09 Sep 2025 04:11:39 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-568190f8040sm445440e87.148.2025.09.09.04.11.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 04:11:38 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-pm@vger.kernel.org
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Sebin Francis <sebin.francis@ti.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Abel Vesa <abel.vesa@linaro.org>,
-	Peng Fan <peng.fan@oss.nxp.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Johan Hovold <johan@kernel.org>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/5] pmdomain: renesas: rcar-gen4-sysc: Don't keep unused PM domains powered-on
-Date: Tue,  9 Sep 2025 13:11:23 +0200
-Message-ID: <20250909111130.132976-5-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250909111130.132976-1-ulf.hansson@linaro.org>
-References: <20250909111130.132976-1-ulf.hansson@linaro.org>
+        d=1e100.net; s=20230601; t=1757416503; x=1758021303;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=H3J9huOApoi8Y6hebVd9AzV0hA0WzoEyWAy0m3sVnzY=;
+        b=EKh226dfK4sUALJMlQ9LdPKoBcKdjURKyM5YmnIim4e9AQDc8VJF6/YDoAUzyYs7ml
+         OgQhwbQNn/qsn8/VyYlGdTRq6DI1Z9yK9jWHunYKZv5+ymPuwAzlv2zNCHBaU/3xshUm
+         uBcms6RScPPUpMMi0eJgQ8eged+xDpP9r+eL9Ntl6Ho0WcrXxpvAFqpq3tqbZ9nJQ9y7
+         aWIbpZzAG1quZjN9bj985FDnpP0Mm12ZLtx14jm1aGD3otN3lPfy+M3jUMVBPDFoSc5G
+         6FYDFwMso/VZBCst300cUs3PMVF4PK89H5+O7X2wiXeuGcCnQvbdRBgSFjzFB1PB2oTG
+         Df9g==
+X-Gm-Message-State: AOJu0Ywjfm/0Q1opRK5P6Xo3CeLJK8m5wQauk54HCRrO6iI35OW786bT
+	f0F6VpljqcGpvuuE5fScuruHXPdC8DmpcW4hx66Rv/FGsS8UPw60qEO8P8NPdTwhKc0RsXb1lMq
+	re+yGTzvbWfqHbV0yBRDxa36tY32RYMDYja7UNxAB6g==
+X-Gm-Gg: ASbGncvSpWUlZjovWbJsecwAH8eXAxNAL7J67LtnFK4yEkgZzyo5+nDrOjuzRXotUbE
+	H2pQ+iaspB8oRaRyA2oQESAPoBJ8f/M5GSUL4YWRExTXS7biNfj/RO1cHicGkPsvui+BaOLGZDJ
+	MftzU2XMiAwM4p6/R3ZgkYT+dCoUFfV9ZF7q5U/RK9CrcIIbYBfcZQR8obFXCmOo98cxC3zIGf3
+	7ttlD5oHAMjAcmE
+X-Google-Smtp-Source: AGHT+IF3haCb/E1FzNUTbha289kFS363Kg33HMc7PBhqqE87V+/FyqUeuaGr+6CiNvSrkmkJwrmOIOH6XS4or1+1aBE=
+X-Received: by 2002:a05:6808:13c6:b0:43a:d659:7822 with SMTP id
+ 5614622812f47-43b29ae7843mr4779835b6e.34.1757416502750; Tue, 09 Sep 2025
+ 04:15:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250905162446.88987-1-smostafa@google.com>
+In-Reply-To: <20250905162446.88987-1-smostafa@google.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 9 Sep 2025 12:14:51 +0100
+X-Gm-Features: Ac12FXx64qJXe2GQUzO8JtALwGYnJphXENgbpS-QSSifTl3glwftoVzGYAhwfsA
+Message-ID: <CADrjBPqH==y5KaN6oBnGJ8407gx31sGVEFqqNdz8NG_vPuNPYw@mail.gmail.com>
+Subject: Re: [PATCH] soc: samsung: exynos-pmu: Fix for CONFIG_DEBUG_PREEMPT
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, krzk@kernel.org, alim.akhtar@samsung.com, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_121141_316783_706C04CA 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20250909_041504_365565_AFC9CA38 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,41 +93,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The recent changes to genpd makes a genpd OF provider that is powered-on at
-initialization to stay powered-on, until the ->sync_state() callback is
-invoked for it.
+Hi Mostafa,
 
-This may not happen at all, if we wait for a consumer device to be probed,
-leading to wasting energy. There are ways to enforce the ->sync_state()
-callback to be invoked, through sysfs or via the probe-defer-timeout, but
-none of them in its current form are a good fit for rcar-gen4-sysc PM
-domains.
+Thanks for your patch and bug report, it's great to see more folks
+running upstream Pixel 6 :)
 
-Let's therefore opt-out from this behaviour of genpd for now, by using the
-GENPD_FLAG_NO_STAY_ON.
+On Fri, 5 Sept 2025 at 17:25, Mostafa Saleh <smostafa@google.com> wrote:
+>
+> Booting the kernel on Pixel-6 with `CONFIG_DEBUG_PREEMPT` prints the
+> following WARN:
+>
+> [    0.784187][    T1] BUG: using smp_processor_id() in preemptible [00000000] code: swapper/0/1
+> [    0.784328][    T1] caller is debug_smp_processor_id+0x20/0x30
+> [    0.784433][    T1] CPU: 6 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.0-rc4-gd69eb204c255 #1 PREEMPT
+> [    0.784439][    T1] Hardware name: Oriole (DT)
+> [    0.784441][    T1] Call trace:
+> [    0.784443][    T1]  show_stack+0x34/0xa0 (C)
+> [    0.784453][    T1]  dump_stack_lvl+0x7c/0xb0
+> [    0.784460][    T1]  dump_stack+0x18/0x24
+> [    0.784464][    T1]  check_preemption_disabled+0xf8/0x100
+> [    0.784470][    T1]  debug_smp_processor_id+0x20/0x30
+> [    0.784476][    T1]  gs101_cpuhp_pmu_online+0x40/0x108
+> [    0.784483][    T1]  cpuhp_invoke_callback+0x188/0x2d8
+> [    0.784490][    T1]  cpuhp_issue_call+0xec/0x240
+> [    0.784494][    T1]  __cpuhp_setup_state_cpuslocked+0x140/0x2c0
+> [    0.784499][    T1]  __cpuhp_setup_state+0x58/0x88
+> [    0.784504][    T1]  exynos_pmu_probe+0x2a4/0x380
+> [    0.784508][    T1]  platform_probe+0x64/0xd0
+> [    0.784516][    T1]  really_probe+0xd0/0x3b0
+> [    0.784520][    T1]  __driver_probe_device+0x8c/0x170
+> [    0.784524][    T1]  driver_probe_device+0x44/0x140
+> [    0.784528][    T1]  __device_attach_driver+0xd8/0x180
+> [    0.784532][    T1]  bus_for_each_drv+0x90/0xf8
+> [    0.784536][    T1]  __device_attach+0xa8/0x1d0
+> [    0.784540][    T1]  device_initial_probe+0x1c/0x30
+> [    0.784544][    T1]  bus_probe_device+0xb4/0xc0
+> [    0.784547][    T1]  device_add+0x4d0/0x700
+> [    0.784550][    T1]  of_device_add+0x4c/0x78
+> [    0.784556][    T1]  of_platform_device_create_pdata+0x9c/0x148
+> [    0.784560][    T1]  of_platform_bus_create+0x1d0/0x370
+> [    0.784563][    T1]  of_platform_bus_create+0x234/0x370
+> [    0.784567][    T1]  of_platform_populate+0x84/0x178
+> [    0.784571][    T1]  of_platform_default_populate_init+0xf0/0x120
+> [    0.784579][    T1]  do_one_initcall+0x68/0x2d0
+> [    0.784585][    T1]  kernel_init_freeable+0x2d8/0x358
+> [    0.784589][    T1]  kernel_init+0x28/0x168
+> [    0.784595][    T1]  ret_from_fork+0x10/0x20
+>
+> As this value is only read once, it doesn't require to be stable, so
+> just use "raw_smp_processor_id" instead.
 
-Link: https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.org/
-Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Fixes: 0e789b491ba0 ("pmdomain: core: Leave powered-on genpds on until sync_state")
-Fixes: 13a4b7fb6260 ("pmdomain: core: Leave powered-on genpds on until late_initcall_sync")
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
----
- drivers/pmdomain/renesas/rcar-gen4-sysc.c | 1 +
- 1 file changed, 1 insertion(+)
+Can I ask what baseline you are running when you see this warning?
 
-diff --git a/drivers/pmdomain/renesas/rcar-gen4-sysc.c b/drivers/pmdomain/renesas/rcar-gen4-sysc.c
-index 5aa7fa1df8fe..7434bf42d215 100644
---- a/drivers/pmdomain/renesas/rcar-gen4-sysc.c
-+++ b/drivers/pmdomain/renesas/rcar-gen4-sysc.c
-@@ -251,6 +251,7 @@ static int __init rcar_gen4_sysc_pd_setup(struct rcar_gen4_sysc_pd *pd)
- 		genpd->detach_dev = cpg_mssr_detach_dev;
- 	}
- 
-+	genpd->flags |= GENPD_FLAG_NO_STAY_ON;
- 	genpd->power_off = rcar_gen4_sysc_pd_power_off;
- 	genpd->power_on = rcar_gen4_sysc_pd_power_on;
- 
--- 
-2.43.0
+As this code got refactored recently in commit 78b72897a5c8 ("soc:
+samsung: exynos-pmu: Enable CPU Idle for gs101") which is present in
+linux-next but hasn't made its way to a proper release yet. After this
+patch smp_processor_id() is always called with a raw_spin_lock() held
+(so this warning shouldn't fire).
 
+I just built next-20250909 locally to confirm, and with the above
+patch reverted I see the warning you mention. So in summary I think
+the issue has already been fixed by the above commit.
+
+Thanks,
+
+Peter
 
