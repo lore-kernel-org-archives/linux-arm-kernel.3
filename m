@@ -4,63 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 197F7CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F200CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=a1d8DVCmhkgI6IxuB3lsWpf4jhCBHyw3J+CSVSikRlo=; b=D97LInJ+MzhFigX0Mcw7JETavH
-	bFSEMhOlEgV8/e/bWR2IOeJ1OXAP5bML5Y4XyDNhxcD5jzWNwts4mBvtHwWYJZbWIdtNL54KU4tyZ
-	OB5/Gjm2uxebNy2HJvS6kjezbHDp2Oowxp2ctaDsJhE4FX64VRQuGqLaXD8QVu1nP4xIuiG4qcZNi
-	e4gPGj+9uSb7MukJiNojNumxLm8C0psIFWov64heFK1CaClzN07eD8teb/5mWKfqkjIMK0i27X/Uj
-	HnQffle8HvhiXAjLWEj1ofb14qUBeT59+7xgp3x0oW0UXCcliAxtKLblBsGm+L22PjHmSTKM5erd5
-	7RgULy6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jE8R0EV96UUf5BL0lUpzEh3F/qQnkIHgeoj5oLjn1g0=; b=mlYs/75ycAEJ20t47IZgZCPleE
+	ELMZc5IM7EESWI9r+6KnQAgw4gJ1ANgryxZAAtK4FDyeWSrTvA4qLM08tuRxSsSZTOHwny+9WsNLZ
+	Jvab+DTfs/cG72fnr9InDHevfdm3LNKb3uRqbO9rpX0jNTbjqGDI7oaXNUDzifY/oCRMJ3Aq7IkDw
+	8/bc9co1asCbPgLNtjYuzdq+1Bglq7rfTlGPd9SbPPkSLs2nSCE7/DUFzqLQ7SZ5chyo4/9nEWYHG
+	BV5PPnux60lRZP+pYXYh5s2Edd6lq0WuDuHV3xMqH2U2mUkBJNu9P6jeyWC9MQKa5X1LIi7AD2JdY
+	uwOFX/Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1wB-00000008oAd-1DUO;
-	Tue, 09 Sep 2025 17:15:23 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1uw1wK-00000008oNM-26J6;
+	Tue, 09 Sep 2025 17:15:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwKR-00000006f5w-411U
+	id 1uvwQ3-00000006h2n-33vI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 09 Sep 2025 11:21:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jE8R0EV96UUf5BL0lUpzEh3F/qQnkIHgeoj5oLjn1g0=; b=kbcO1gJHvSlS1/GcaSGy+c3QRN
+	JmuEYDhJYHp7wv6T1vdBGjNvgxW5MGT+CxEDYChe+YjAcq72BG+DR89QqrVqShMwWOaG0g3MfZa6A
+	6Tzmd1WdXEkj1+CGrMpbBWfKPpXR6gSggxn/6s+iRpwNStTtXqBc7h8CQ8iZnyeVKTbRY3kVhEKeE
+	x5ukFUfqRtEOoiR1yT1AhpFzy47/91GRqT9VBj9fjdV8YyCcfSML02mOGFE1tOBjYgeO+3rZjGFrV
+	FUACp3dVk1f+oHrhrpQg4rKxpcJdgLTL1b/h/mROvrwb6iKi4U0SQgGYh9vVBuuRqJbBG95Xiai1A
+	tz9hkfng==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvwQ0-00000005J5t-3UJE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 11:16:06 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cLh303c8Wz2CgVm;
-	Tue,  9 Sep 2025 19:11:24 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4ABEF140156;
-	Tue,  9 Sep 2025 19:15:56 +0800 (CST)
-Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 9 Sep 2025 19:15:56 +0800
-Received: from huawei.com (10.90.31.46) by kwepemq200004.china.huawei.com
- (7.202.195.237) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 9 Sep
- 2025 19:15:55 +0800
-From: Zhou Wang <wangzhou1@hisilicon.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <wangwudi@hisilicon.com>, <liuyonglong@huawei.com>,
-	<prime.zeng@hisilicon.com>, <yuzenghui@huawei.com>, Zhou Wang
-	<wangzhou1@hisilicon.com>, Nianyao Tang <tangnianyao@huawei.com>, "Kunkun
- Jiang" <jiangkunkun@huawei.com>
-Subject: [PATCH] irqchip/gicv3-its: Add workaround for HIP09/HIP10/HIP10C erratum 162100803/162200807/162400807
-Date: Tue, 9 Sep 2025 19:06:15 +0800
-Message-ID: <20250909110615.129179-1-wangzhou1@hisilicon.com>
-X-Mailer: git-send-email 2.30.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.31.46]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemq200004.china.huawei.com (7.202.195.237)
+	Tue, 09 Sep 2025 11:21:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C127B40372;
+	Tue,  9 Sep 2025 11:21:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F9EDC4CEF4;
+	Tue,  9 Sep 2025 11:21:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757416904;
+	bh=WGVbI7np7xhsccUcZ2mq8FQt+c4KbxvQmTFbkCyFxsU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=spnzCgdCWnXyXf6fPVwUl5AFWzK/6O6noknQOaiNR743uSzQ4li/wAT8TINQ8Zb8h
+	 2HmJNNYdO8hH+26KkHtfTZ8jgJ65/zTew228hvgi8OSovHBKFDJPs+7sHTClAUFRhM
+	 z6vXpNscUiyQYg3nbezYFN1d65jc4mHeYM7SqA5wKSSGZFRxTw9CQsiZIfCQ/eH+Tv
+	 c14Mtwbke+oIyH6nT4sdxMXMh/KKCzRYN7nDwU2nHk/5mL+7ORoShsLuBIYW74ZLWU
+	 xpJlKzqNR4wURL4jPeSwKM3AJX50gJD2ZOCG/UdgoMb7YQ/TIO0sor3B43Gin6CiOX
+	 UoTjIseNn4tgg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uvwPu-00000004ewP-13PZ;
+	Tue, 09 Sep 2025 11:21:42 +0000
+Date: Tue, 09 Sep 2025 12:21:41 +0100
+Message-ID: <86ikhrdg6y.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau
+ <j@jannau.net>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark
+ <james.clark@linaro.org>
+Subject: Re: [PATCH 14/25] genirq: Update request_percpu_nmi() to take an affinity
+In-Reply-To: <877by8vu0v.ffs@tglx>
+References: <20250908163127.2462948-1-maz@kernel.org>
+	<20250908163127.2462948-15-maz@kernel.org>
+	<877by8vu0v.ffs@tglx>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tglx@linutronix.de, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_041604_296477_E599A31C 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20250909_122149_036610_945928F6 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,235 +114,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HIP09/HIP10/HIP10C ITS have a problem, an ITS RAS will be reported in
-some cases when GICv4.1 is enable.
+On Tue, 09 Sep 2025 10:45:36 +0100,
+Thomas Gleixner <tglx@linutronix.de> wrote:
+> 
+> On Mon, Sep 08 2025 at 17:31, Marc Zyngier wrote:
+> > @@ -2564,13 +2566,14 @@ int request_percpu_nmi(unsigned int irq, irq_handler_t handler,
+> >  	    !irq_supports_nmi(desc))
+> >  		return -EINVAL;
+> >  
+> > -	/* The line cannot already be NMI */
+> > -	if (irq_is_nmi(desc))
+> > +	/* The line cannot be NMI already if the new request covers all CPUs */
+> > +	if (irq_is_nmi(desc) &&
+> > +	    (!affinity || cpumask_equal(affinity, cpu_possible_mask)))
+> >  		return -EINVAL;
+> 
+> This check looks odd. What makes sure that the affinities do not
+> overlap?
 
-A workaround is that set ITT size to max value(0xf) when doing MAPD with V = 1,
-and avoid to send MAPD with V = 0 to hardware. Just clear V field in ITS device
-table and clear ITS cache to implement MAPD with V = 0 instead.
+The following patch in the series does, at the point of adding the new
+irqaction to the list. This is modelled after the current handling of
+shared interrupts.
 
-Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
-Reviewed-by: Nianyao Tang <tangnianyao@huawei.com>
-Reviewed-by: Kunkun Jiang <jiangkunkun@huawei.com>
----
- Documentation/arch/arm64/silicon-errata.rst |   6 ++
- arch/arm64/Kconfig                          |  13 +++
- drivers/irqchip/irq-gic-v3-its.c            | 114 +++++++++++++++++---
- 3 files changed, 119 insertions(+), 14 deletions(-)
+	M.
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index b18ef4064bc0..dfafc608dc57 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -264,6 +264,12 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
- +----------------+-----------------+-----------------+-----------------------------+
-+| Hisilicon      | Hip09           | #162100803      | HISILICON_ERRATUM_162100803 |
-++----------------+-----------------+-----------------+-----------------------------+
-+| Hisilicon      | Hip10           | #162200807      | HISILICON_ERRATUM_162100803 |
-++----------------+-----------------+-----------------+-----------------------------+
-+| Hisilicon      | Hip10c          | #162400807      | HISILICON_ERRATUM_162100803 |
-++----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index e9bbfacc35a6..803df402c9af 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1270,6 +1270,19 @@ config HISILICON_ERRATUM_162100801
- 
- 	  If unsure, say Y.
- 
-+config HISILICON_ERRATUM_162100803
-+	bool "Hip09/10/10c 162100803/162200807/162400807 erratum support"
-+	default y
-+	help
-+	  There is a hardware conflict between vSGI and vLPI, fix it by
-+	  configure a max ITS ITT size 0xf when doing MAPD with V = 1, clear V
-+	  field in ITS device table and clear ITS cache to implement MAPD with
-+	  V = 0 instead. Hip09/10/10c have this same problem, just use
-+	  HISILICON_ERRATUM_162100803 as the compile macro and
-+	  ITS_FLAGS_WORKAROUND_HISILICON_162100803 as ITS flag for convenience.
-+
-+	  If unsure, say Y.
-+
- config QCOM_FALKOR_ERRATUM_1003
- 	bool "Falkor E1003: Incorrect translation due to ASID change"
- 	default y
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 467cb78435a9..647bc70cc2f7 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -49,6 +49,7 @@
- #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
- #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
- #define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
-+#define ITS_FLAGS_WORKAROUND_HISILICON_162100803	(1ULL << 5)
- 
- #define RD_LOCAL_LPI_ENABLED                    BIT(0)
- #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
-@@ -716,7 +717,12 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
- 
- 	its_encode_cmd(cmd, GITS_CMD_MAPD);
- 	its_encode_devid(cmd, desc->its_mapd_cmd.dev->device_id);
--	its_encode_size(cmd, size - 1);
-+
-+	if (its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100803)
-+		its_encode_size(cmd, 0xf);
-+	else
-+		its_encode_size(cmd, size - 1);
-+
- 	its_encode_itt(cmd, itt_addr);
- 	its_encode_valid(cmd, desc->its_mapd_cmd.valid);
- 
-@@ -725,6 +731,61 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
- 	return NULL;
- }
- 
-+static struct its_baser *its_get_baser(struct its_node *its, u32 type)
-+{
-+	int i;
-+
-+	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
-+		if (GITS_BASER_TYPE(its->tables[i].val) == type)
-+			return &its->tables[i];
-+	}
-+
-+	return NULL;
-+}
-+
-+static struct its_collection
-+*its_build_mapd_cmd_hisi_quirk(struct its_node *its, struct its_cmd_block *cmd,
-+			       struct its_cmd_desc *desc)
-+{
-+	struct its_baser *baser = its_get_baser(its, GITS_BASER_TYPE_DEVICE);
-+	u32 devid = desc->its_mapd_cmd.dev->device_id;
-+	void *base = baser->base;
-+	u32 *dt_entry;
-+	void __iomem *its_func_en = its->sgir_base + 0x80;
-+	u32 tmp, tmp1, mask = 1 << 19;
-+	int i = 100;
-+
-+	/*
-+	 * Modify v to 0 in the dt entry of devid, dt entry format as below:
-+	 * word0: [0-31] ITT address; word1: [0-7] ITT address, [8-12]: ITT
-+	 * size, [13]: V. Only support flat device table.
-+	 */
-+	dt_entry = (u32 *)(base + devid * 8 + 4);
-+	*dt_entry &= ~(1 << 13);
-+
-+	dsb(ishst);
-+
-+	/*
-+	 * Cache invalidate by a private register GITS_FUNC_EN, whose offset
-+	 * is 0x20080 of ITS base address. GICv4.1 already maps sgir_base
-+	 * (offset is 0x20000), so address of GITS_FUNC_EN can be got by
-+	 * sgir_base + 0x80. Bit 16 is used to clear DT cache, the flip of
-+	 * bit 19 indicates that DT cache has been cleared.
-+	 */
-+	while (--i) {
-+		tmp = readl_relaxed(its_func_en) & mask;
-+		writel_relaxed(tmp | (1 << 16), its_func_en);
-+		tmp1 = readl_relaxed(its_func_en) & mask;
-+		if (tmp != tmp1)
-+			break;
-+	}
-+
-+	if (i == 0)
-+		WARN_ON(1);
-+
-+	return NULL;
-+}
-+
- static struct its_collection *its_build_mapc_cmd(struct its_node *its,
- 						 struct its_cmd_block *cmd,
- 						 struct its_cmd_desc *desc)
-@@ -1306,11 +1367,18 @@ static void its_send_inv(struct its_device *dev, u32 event_id)
- static void its_send_mapd(struct its_device *dev, int valid)
- {
- 	struct its_cmd_desc desc;
-+	its_cmd_builder_t fn;
-+
-+	if (dev->its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100803 &&
-+	    valid == 0)
-+		fn = its_build_mapd_cmd_hisi_quirk;
-+	else
-+		fn = its_build_mapd_cmd;
- 
- 	desc.its_mapd_cmd.dev = dev;
- 	desc.its_mapd_cmd.valid = !!valid;
- 
--	its_send_single_command(dev->its, its_build_mapd_cmd, &desc);
-+	its_send_single_command(dev->its, fn, &desc);
- }
- 
- static void its_send_mapc(struct its_node *its, struct its_collection *col,
-@@ -3354,18 +3422,6 @@ static struct its_device *its_find_device(struct its_node *its, u32 dev_id)
- 	return its_dev;
- }
- 
--static struct its_baser *its_get_baser(struct its_node *its, u32 type)
--{
--	int i;
--
--	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
--		if (GITS_BASER_TYPE(its->tables[i].val) == type)
--			return &its->tables[i];
--	}
--
--	return NULL;
--}
--
- static bool its_alloc_table_entry(struct its_node *its,
- 				  struct its_baser *baser, u32 id)
- {
-@@ -4902,6 +4958,16 @@ static bool __maybe_unused its_enable_rk3568002(void *data)
- 	return true;
- }
- 
-+static bool __maybe_unused its_enable_quirk_162100803(void *data)
-+{
-+	struct its_node *its = data;
-+
-+	if (is_v4_1(its))
-+		its->flags |= ITS_FLAGS_WORKAROUND_HISILICON_162100803;
-+
-+	return true;
-+}
-+
- static const struct gic_quirk its_quirks[] = {
- #ifdef CONFIG_CAVIUM_ERRATUM_22375
- 	{
-@@ -4956,6 +5022,26 @@ static const struct gic_quirk its_quirks[] = {
- 		.init	= its_enable_quirk_hip09_162100801,
- 	},
- #endif
-+#ifdef CONFIG_HISILICON_ERRATUM_162100803
-+	{
-+		.desc = "ITS: Hip09 erratum 162100803",
-+		.iidr = 0x00051736,
-+		.mask = 0xffffffff,
-+		.init = its_enable_quirk_162100803,
-+	},
-+	{
-+		.desc = "ITS: Hip10 erratum 162200807",
-+		.iidr = 0x01051736,
-+		.mask = 0xffffffff,
-+		.init = its_enable_quirk_162100803,
-+	},
-+	{
-+		.desc = "ITS: Hip10c erratum 162400807",
-+		.iidr = 0x00061736,
-+		.mask = 0xffffffff,
-+		.init = its_enable_quirk_162100803,
-+	},
-+#endif
- #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
- 	{
- 		.desc   = "ITS: Rockchip erratum RK3588001",
 -- 
-2.33.0
-
+Without deviation from the norm, progress is not possible.
 
