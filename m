@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD153CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC465CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQlodsQ7D10HyiL8kofWE+gF1jwaEZI79SJcHGpg5BY=; b=hJIO9Fv3pvqfeMC9JNrxw5TANj
-	hsK9vyx9zJ0TDYDKK5ZKqOBYIhpJTW6EQISAXLsvL2ZlNLyMc/X1fJ31ImODEXpd7r/3q2bUs5bjC
-	WWnCoej16Apy6OZHIZVWn+x5OagicZpjN/tqGvERjkprb93vgcXdMLHD6BnDMu09Yhs7+lTcsOi5n
-	V8/zpDcIVphAzDEr4t8UCr2SBsgVzWnT+T/yvJODKhjU1wnfd11C3IGNYcEe6ZXJRh5OAq86hNgNM
-	QXw7a7OpbMya+AmufdEtpd2Mkx6eoJz+x3I0xvAZaE1XnYv5uQtfgRE0sOiik5E70LdkJ9Dkz3KBD
-	ZeRgO+MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gBTcIfi342Xer1MBzWxMx29/j/LhieKBulY678grdlY=; b=o+oVpz6ZU+taWQl/IzBHrrYe3l
+	i+UuBs5NmoT5WEJLOdcz9Ug+hFS4GXEt6aP5C78/ZNEz7ic5ir0Tzj2L5/2DMr5/6FV35RrW97l9t
+	lVFg/r+H6z3PagzB3KJnF9xp1bxheWgw2EWWKcIAyr/nXTW2xxet9AsA0YOfWIYZMRlrL6jDLPkCN
+	m6opbEKm2EyCed3uarZ2mj+iscmj3jwZSHxtvciOUJh59UlcZhiEHKCHBM8D39Hr+bzdwqT1P0R8g
+	6316h1jP2JTW9n5o7t/s78IMtrjYEJLDz1BQrNH8PV8Ftow2U1MTfMHZFNtIS5EZGGemOx3+MZU37
+	0tzqVkjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0RY-000000089Y7-0red;
-	Tue, 09 Sep 2025 15:39:40 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1uw0Rc-000000089g4-3QSa;
+	Tue, 09 Sep 2025 15:39:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvuqz-000000064D0-0RVD;
-	Tue, 09 Sep 2025 09:41:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757410893; x=1788946893;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=iDZvQAjGdFONOD0C7BJifOhr90vJwi4Gs1ZMg3jQOdU=;
-  b=RCmWOH5GBiouh61tzjqzaw0d8dPCL9TK6Tm97vP7dXKcXSU8NZuAKnjI
-   TW6PPATpgeLIFn7ELfvbzibmuFP5iN22jezwUOBRK9CN4UJ4tmU29f2je
-   99gTXjPD6PMHTAREaedVTk6gh92QZC4HTrvoleLsKgobhTpyCvwK2miN0
-   6O4v6yGUAwc5adcfVXzWVY7MmPZHb7rktCtOSzbkAIcMfLGY3MxUe6Tqo
-   rn462MfXh1KBcKkqG2ZAxSTPJITX2DBSIxOOMpT+eGWLJeTajJnv9mMV0
-   c7ADXt58MAPX5kazK5HB2/3zqkZ+fhV2x6gLxBk2dvVba2qDqN6rU4+J3
-   g==;
-X-CSE-ConnectionGUID: idXvpGQgTo2xB4pyQ5bF2g==
-X-CSE-MsgGUID: sllUGolUR6auNCGFG7LLXg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11547"; a="62315390"
-X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
-   d="scan'208";a="62315390"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 02:41:32 -0700
-X-CSE-ConnectionGUID: y4y1TQowQ3WfYBEL7QqmVw==
-X-CSE-MsgGUID: A6PAWP7WSNC5vsBA9uaY2Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
-   d="scan'208";a="173163265"
-Received: from kuha.fi.intel.com ([10.237.72.152])
-  by orviesa008.jf.intel.com with SMTP; 09 Sep 2025 02:41:25 -0700
-Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Tue, 09 Sep 2025 12:41:23 +0300
-Date: Tue, 9 Sep 2025 12:41:23 +0300
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	Ran Wang <ran.wang_1@nxp.com>, Peter Chen <peter.chen@nxp.com>,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v2 10/22] usb: typec: tipd: Read USB4, Thunderbolt and
- DisplayPort status for cd321x
-Message-ID: <aL_2Q6obeQdYZuHE@kuha.fi.intel.com>
-References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
- <20250906-atcphy-6-17-v2-10-52c348623ef6@kernel.org>
+	id 1uvuuw-0000000660Z-0xVU;
+	Tue, 09 Sep 2025 09:45:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 932F3601BA;
+	Tue,  9 Sep 2025 09:45:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E20C9C4CEF7;
+	Tue,  9 Sep 2025 09:45:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757411137;
+	bh=lPuH93lsghAjnzQOgowrlgNciw6daQB+qgcPwOXhqaY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=sdTFn3qybGI7YWlxOVqGzq917ZF9fgvwgCCHWG9pwywhIC/BFPaOhchf3o9u75a7S
+	 x9vOywUSSgGitAkYBWAGYyB0pIJw6nf9n3qII8CofUkMiJMGrDkqEo7OViVFLdFF57
+	 RdLtqHqA/fy/uu7y0MoDJgctnw9KhCNhfT8rl/YZxCNH1hVDVNkGoajJNv62saSUBv
+	 2ku6CHnWvR18dBsoHoD7V19+NB7bKujoLKrVifYj7m5nIyo7zXR1SlOQlcP76eV9WP
+	 USJ73Gr+XSSv1euPqv9nWX/78+Oy7bl8BXTbL4s0vwKj+BtF4CthCowLJWwgjkR0o8
+	 2XIq6elqpdYmA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Tue, 09 Sep 2025 11:45:13 +0200
+Subject: [PATCH mt76 v5 05/16] wifi: mt76: mt7996: Initial DMA
+ configuration for MT7992 WED support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250906-atcphy-6-17-v2-10-52c348623ef6@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_024133_166301_3FD9A8D8 
-X-CRM114-Status: GOOD (  23.02  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250909-mt7996-rro-rework-v5-5-7d66f6eb7795@kernel.org>
+References: <20250909-mt7996-rro-rework-v5-0-7d66f6eb7795@kernel.org>
+In-Reply-To: <20250909-mt7996-rro-rework-v5-0-7d66f6eb7795@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sujuan Chen <sujuan.chen@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Bo Jiao <Bo.Jiao@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Rex Lu <rex.lu@mediatek.com>, 
+ Benjamin Lin <benjamin-jw.lin@mediatek.com>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,187 +75,370 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 06, 2025 at 03:43:23PM +0000, Sven Peter wrote:
-> CD321x supports various alternate modes and stores information once
-> these are entered into separate status registers. Read those when they
-> are active when reading TPS_DATA_STATUS to prepare supporting these.
-> 
-> Signed-off-by: Sven Peter <sven@kernel.org>
+From: Rex Lu <rex.lu@mediatek.com>
 
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Manage differences in DMA and RX queues configuration for MT7992 and
+MT7996.
+This is a preliminary patch to enable WED support for MT7992 Kite
+chipset supported by MT7996 driver.
 
-> ---
->  drivers/usb/typec/tipd/core.c | 80 ++++++++++++++++++++++++++++++++++++++++---
->  1 file changed, 76 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-> index 51b0f3be8b66a743ddc3ea96c1b25f597a1e8f6c..afd11b3e1ae596c7f3283e4336aaa57874c9378d 100644
-> --- a/drivers/usb/typec/tipd/core.c
-> +++ b/drivers/usb/typec/tipd/core.c
-> @@ -35,14 +35,18 @@
->  #define TPS_REG_INT_MASK2		0x17
->  #define TPS_REG_INT_CLEAR1		0x18
->  #define TPS_REG_INT_CLEAR2		0x19
-> -#define TPS_REG_SYSTEM_POWER_STATE	0x20
->  #define TPS_REG_STATUS			0x1a
-> +#define TPS_REG_SYSTEM_POWER_STATE	0x20
-> +#define TPS_REG_USB4_STATUS		0x24
->  #define TPS_REG_SYSTEM_CONF		0x28
->  #define TPS_REG_CTRL_CONF		0x29
->  #define TPS_REG_BOOT_STATUS		0x2D
->  #define TPS_REG_POWER_STATUS		0x3f
->  #define TPS_REG_PD_STATUS		0x40
->  #define TPS_REG_RX_IDENTITY_SOP		0x48
-> +#define TPS_REG_CF_VID_STATUS		0x5e
-> +#define TPS_REG_DP_SID_STATUS		0x58
-> +#define TPS_REG_INTEL_VID_STATUS	0x59
->  #define TPS_REG_DATA_STATUS		0x5f
->  #define TPS_REG_SLEEP_CONF		0x70
->  
-> @@ -85,6 +89,31 @@ struct tps6598x_rx_identity_reg {
->  	struct usb_pd_identity identity;
->  } __packed;
->  
-> +/* TPS_REG_USB4_STATUS */
-> +struct tps6598x_usb4_status_reg {
-> +	u8 mode_status;
-> +	__le32 eudo;
-> +	__le32 unknown;
-> +} __packed;
-> +
-> +/* TPS_REG_DP_SID_STATUS */
-> +struct tps6598x_dp_sid_status_reg {
-> +	u8 mode_status;
-> +	__le32 status_tx;
-> +	__le32 status_rx;
-> +	__le32 configure;
-> +	__le32 mode_data;
-> +} __packed;
-> +
-> +/* TPS_REG_INTEL_VID_STATUS */
-> +struct tps6598x_intel_vid_status_reg {
-> +	u8 mode_status;
-> +	__le32 attention_vdo;
-> +	__le16 enter_vdo;
-> +	__le16 device_mode;
-> +	__le16 cable_mode;
-> +} __packed;
-> +
->  /* Standard Task return codes */
->  #define TPS_TASK_TIMEOUT		1
->  #define TPS_TASK_REJECTED		3
-> @@ -121,6 +150,7 @@ struct tipd_data {
->  	int (*apply_patch)(struct tps6598x *tps);
->  	int (*init)(struct tps6598x *tps);
->  	int (*switch_power_state)(struct tps6598x *tps, u8 target_state);
-> +	bool (*read_data_status)(struct tps6598x *tps);
->  	int (*reset)(struct tps6598x *tps);
->  };
->  
-> @@ -151,6 +181,10 @@ struct tps6598x {
->  
->  struct cd321x {
->  	struct tps6598x tps;
-> +
-> +	struct tps6598x_dp_sid_status_reg dp_sid_status;
-> +	struct tps6598x_intel_vid_status_reg intel_vid_status;
-> +	struct tps6598x_usb4_status_reg usb4_status;
->  };
->  
->  static enum power_supply_property tps6598x_psy_props[] = {
-> @@ -505,6 +539,41 @@ static bool tps6598x_read_data_status(struct tps6598x *tps)
->  	return true;
->  }
->  
-> +static bool cd321x_read_data_status(struct tps6598x *tps)
-> +{
-> +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
-> +	int ret;
-> +
-> +	ret = tps6598x_read_data_status(tps);
-> +	if (ret < 0)
-> +		return false;
-> +
-> +	if (tps->data_status & TPS_DATA_STATUS_DP_CONNECTION) {
-> +		ret = tps6598x_block_read(tps, TPS_REG_DP_SID_STATUS,
-> +				&cd321x->dp_sid_status, sizeof(cd321x->dp_sid_status));
-> +		if (ret)
-> +			dev_err(tps->dev, "Failed to read DP SID Status: %d\n",
-> +				ret);
-> +	}
-> +
-> +	if (tps->data_status & TPS_DATA_STATUS_TBT_CONNECTION) {
-> +		ret = tps6598x_block_read(tps, TPS_REG_INTEL_VID_STATUS,
-> +				&cd321x->intel_vid_status, sizeof(cd321x->intel_vid_status));
-> +		if (ret)
-> +			dev_err(tps->dev, "Failed to read Intel VID Status: %d\n", ret);
-> +	}
-> +
-> +	if (tps->data_status & CD321X_DATA_STATUS_USB4_CONNECTION) {
-> +		ret = tps6598x_block_read(tps, TPS_REG_USB4_STATUS,
-> +				&cd321x->usb4_status, sizeof(cd321x->usb4_status));
-> +		if (ret)
-> +			dev_err(tps->dev,
-> +				"Failed to read USB4 Status: %d\n", ret);
-> +	}
-> +
-> +	return true;
-> +}
-> +
->  static bool tps6598x_read_power_status(struct tps6598x *tps)
->  {
->  	u16 pwr_status;
-> @@ -565,7 +634,7 @@ static irqreturn_t cd321x_interrupt(int irq, void *data)
->  			goto err_unlock;
->  
->  	if (event & APPLE_CD_REG_INT_DATA_STATUS_UPDATE)
-> -		if (!tps6598x_read_data_status(tps))
-> +		if (!tps->data->read_data_status(tps))
->  			goto err_unlock;
->  
->  	/* Handle plug insert or removal */
-> @@ -614,7 +683,7 @@ static irqreturn_t tps25750_interrupt(int irq, void *data)
->  			goto err_clear_ints;
->  
->  	if (event[0] & TPS_REG_INT_DATA_STATUS_UPDATE)
-> -		if (!tps6598x_read_data_status(tps))
-> +		if (!tps->data->read_data_status(tps))
->  			goto err_clear_ints;
->  
->  	/*
-> @@ -688,7 +757,7 @@ static irqreturn_t tps6598x_interrupt(int irq, void *data)
->  			goto err_unlock;
->  
->  	if ((event1[0] | event2[0]) & TPS_REG_INT_DATA_STATUS_UPDATE)
-> -		if (!tps6598x_read_data_status(tps))
-> +		if (!tps->data->read_data_status(tps))
->  			goto err_unlock;
->  
->  	/* Handle plug insert or removal */
-> @@ -1534,6 +1603,7 @@ static const struct tipd_data cd321x_data = {
->  	.trace_power_status = trace_tps6598x_power_status,
->  	.trace_status = trace_tps6598x_status,
->  	.init = cd321x_init,
-> +	.read_data_status = cd321x_read_data_status,
->  	.reset = cd321x_reset,
->  	.switch_power_state = cd321x_switch_power_state,
->  };
-> @@ -1550,6 +1620,7 @@ static const struct tipd_data tps6598x_data = {
->  	.trace_status = trace_tps6598x_status,
->  	.apply_patch = tps6598x_apply_patch,
->  	.init = tps6598x_init,
-> +	.read_data_status = tps6598x_read_data_status,
->  	.reset = tps6598x_reset,
->  };
->  
-> @@ -1565,6 +1636,7 @@ static const struct tipd_data tps25750_data = {
->  	.trace_status = trace_tps25750_status,
->  	.apply_patch = tps25750_apply_patch,
->  	.init = tps25750_init,
-> +	.read_data_status = tps6598x_read_data_status,
->  	.reset = tps25750_reset,
->  };
+Co-developed-by: Sujuan Chen <sujuan.chen@mediatek.com>
+Signed-off-by: Sujuan Chen <sujuan.chen@mediatek.com>
+Co-developed-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+Signed-off-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+Signed-off-by: Rex Lu <rex.lu@mediatek.com>
+Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/dma.c    | 169 ++++++++++++++++-----
+ drivers/net/wireless/mediatek/mt76/mt7996/mmio.c   |   8 +-
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |   2 +-
+ drivers/net/wireless/mediatek/mt76/mt7996/regs.h   |   8 +-
+ 4 files changed, 144 insertions(+), 43 deletions(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
+index c77e619070d34ddbf281a5d90c6c96cbd1bb2283..b3665bb0a433ae4cdbf02fa647d644961509d7aa 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
+@@ -89,30 +89,60 @@ static void mt7996_dma_config(struct mt7996_dev *dev)
+ 			   MT7996_RXQ_RRO_BAND0);
+ 		RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND0, WFDMA0, MT_INT_RX_DONE_MSDU_PG_BAND0,
+ 			   MT7996_RXQ_MSDU_PG_BAND0);
+-		RXQ_CONFIG(MT_RXQ_TXFREE_BAND0, WFDMA0, MT_INT_RX_TXFREE_MAIN,
+-			   MT7996_RXQ_TXFREE0);
+-		/* band1 */
+-		RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND1, WFDMA0, MT_INT_RX_DONE_MSDU_PG_BAND1,
+-			   MT7996_RXQ_MSDU_PG_BAND1);
+-		/* band2 */
+-		RXQ_CONFIG(MT_RXQ_RRO_BAND2, WFDMA0, MT_INT_RX_DONE_RRO_BAND2,
+-			   MT7996_RXQ_RRO_BAND2);
+-		RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND2, WFDMA0, MT_INT_RX_DONE_MSDU_PG_BAND2,
+-			   MT7996_RXQ_MSDU_PG_BAND2);
+-		RXQ_CONFIG(MT_RXQ_TXFREE_BAND2, WFDMA0, MT_INT_RX_TXFREE_TRI,
+-			   MT7996_RXQ_TXFREE2);
++		if (is_mt7996(&dev->mt76)) {
++			RXQ_CONFIG(MT_RXQ_TXFREE_BAND0, WFDMA0,
++				   MT_INT_RX_TXFREE_MAIN, MT7996_RXQ_TXFREE0);
++			/* band1 */
++			RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND1, WFDMA0,
++				   MT_INT_RX_DONE_MSDU_PG_BAND1,
++				   MT7996_RXQ_MSDU_PG_BAND1);
++			/* band2 */
++			RXQ_CONFIG(MT_RXQ_RRO_BAND2, WFDMA0,
++				   MT_INT_RX_DONE_RRO_BAND2,
++				   MT7996_RXQ_RRO_BAND2);
++			RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND2, WFDMA0,
++				   MT_INT_RX_DONE_MSDU_PG_BAND2,
++				   MT7996_RXQ_MSDU_PG_BAND2);
++			RXQ_CONFIG(MT_RXQ_TXFREE_BAND2, WFDMA0,
++				   MT_INT_RX_TXFREE_TRI, MT7996_RXQ_TXFREE2);
++		} else {
++			RXQ_CONFIG(MT_RXQ_RRO_BAND1, WFDMA0,
++				   MT_INT_RX_DONE_RRO_BAND1,
++				   MT7996_RXQ_RRO_BAND1);
++		}
+ 
+ 		RXQ_CONFIG(MT_RXQ_RRO_IND, WFDMA0, MT_INT_RX_DONE_RRO_IND,
+ 			   MT7996_RXQ_RRO_IND);
+ 	}
+ 
+ 	/* data tx queue */
+-	TXQ_CONFIG(0, WFDMA0, MT_INT_TX_DONE_BAND0, MT7996_TXQ_BAND0);
+ 	if (is_mt7996(&dev->mt76)) {
+-		TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND1, MT7996_TXQ_BAND1);
+-		TXQ_CONFIG(2, WFDMA0, MT_INT_TX_DONE_BAND2, MT7996_TXQ_BAND2);
++		TXQ_CONFIG(0, WFDMA0, MT_INT_TX_DONE_BAND0, MT7996_TXQ_BAND0);
++		if (dev->hif2) {
++			/* default bn1:ring19 bn2:ring21 */
++			TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND1,
++				   MT7996_TXQ_BAND1);
++			TXQ_CONFIG(2, WFDMA0, MT_INT_TX_DONE_BAND2,
++				   MT7996_TXQ_BAND2);
++		} else {
++			/* single pcie bn0/1:ring18 bn2:ring19 */
++			TXQ_CONFIG(2, WFDMA0, MT_INT_TX_DONE_BAND1,
++				   MT7996_TXQ_BAND1);
++		}
+ 	} else {
+-		TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND1, MT7996_TXQ_BAND1);
++		if (dev->hif2) {
++			/*  bn0:ring18 bn1:ring21 */
++			TXQ_CONFIG(0, WFDMA0, MT_INT_TX_DONE_BAND0,
++				   MT7996_TXQ_BAND0);
++			TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND2,
++				   MT7996_TXQ_BAND2);
++		} else {
++			/* single pcie bn0:ring18 bn1:ring19 */
++			TXQ_CONFIG(0, WFDMA0, MT_INT_TX_DONE_BAND0,
++				   MT7996_TXQ_BAND0);
++			TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND1,
++				   MT7996_TXQ_BAND1);
++		}
+ 	}
+ 
+ 	/* mcu tx queue */
+@@ -288,8 +318,11 @@ void mt7996_dma_start(struct mt7996_dev *dev, bool reset, bool wed_reset)
+ 	if (mt7996_band_valid(dev, MT_BAND0))
+ 		irq_mask |= MT_INT_BAND0_RX_DONE;
+ 
+-	if (mt7996_band_valid(dev, MT_BAND1))
++	if (mt7996_band_valid(dev, MT_BAND1)) {
+ 		irq_mask |= MT_INT_BAND1_RX_DONE;
++		if (is_mt7992(&dev->mt76) && dev->hif2)
++			irq_mask |= MT_INT_RX_TXFREE_BAND1_EXT;
++	}
+ 
+ 	if (mt7996_band_valid(dev, MT_BAND2))
+ 		irq_mask |= MT_INT_BAND2_RX_DONE;
+@@ -378,8 +411,19 @@ static void mt7996_dma_enable(struct mt7996_dev *dev, bool reset)
+ 			 WF_WFDMA0_GLO_CFG_EXT1_TX_FCTRL_MODE);
+ 
+ 		mt76_set(dev, MT_WFDMA_HOST_CONFIG,
+-			 MT_WFDMA_HOST_CONFIG_PDMA_BAND |
+-			 MT_WFDMA_HOST_CONFIG_BAND2_PCIE1);
++			 MT_WFDMA_HOST_CONFIG_PDMA_BAND);
++
++		mt76_clear(dev, MT_WFDMA_HOST_CONFIG,
++			   MT_WFDMA_HOST_CONFIG_BAND0_PCIE1 |
++			   MT_WFDMA_HOST_CONFIG_BAND1_PCIE1 |
++			   MT_WFDMA_HOST_CONFIG_BAND2_PCIE1);
++
++		if (is_mt7996(&dev->mt76))
++			mt76_set(dev, MT_WFDMA_HOST_CONFIG,
++				 MT_WFDMA_HOST_CONFIG_BAND2_PCIE1);
++		else
++			mt76_set(dev, MT_WFDMA_HOST_CONFIG,
++				 MT_WFDMA_HOST_CONFIG_BAND1_PCIE1);
+ 
+ 		/* AXI read outstanding number */
+ 		mt76_rmw(dev, MT_WFDMA_AXI_R2A_CTRL,
+@@ -397,12 +441,18 @@ static void mt7996_dma_enable(struct mt7996_dev *dev, bool reset)
+ 		 * so, redirect pcie0 rx ring3 interrupt to pcie1
+ 		 */
+ 		if (mtk_wed_device_active(&dev->mt76.mmio.wed) &&
+-		    dev->has_rro)
++		    dev->has_rro) {
++			u32 intr = is_mt7996(&dev->mt76) ?
++				   MT_WFDMA0_RX_INT_SEL_RING6 :
++				   MT_WFDMA0_RX_INT_SEL_RING9 |
++				   MT_WFDMA0_RX_INT_SEL_RING5;
++
+ 			mt76_set(dev, MT_WFDMA0_RX_INT_PCIE_SEL + hif1_ofs,
+-				 MT_WFDMA0_RX_INT_SEL_RING6);
+-		else
++				 intr);
++		} else {
+ 			mt76_set(dev, MT_WFDMA0_RX_INT_PCIE_SEL,
+ 				 MT_WFDMA0_RX_INT_SEL_RING3);
++		}
+ 	}
+ 
+ 	mt7996_dma_start(dev, reset, true);
+@@ -437,7 +487,7 @@ int mt7996_dma_rro_init(struct mt7996_dev *dev)
+ 	if (ret)
+ 		return ret;
+ 
+-	if (mt7996_band_valid(dev, MT_BAND1)) {
++	if (mt7996_band_valid(dev, MT_BAND1) && is_mt7996(&dev->mt76)) {
+ 		/* rx msdu page queue for band1 */
+ 		mdev->q_rx[MT_RXQ_MSDU_PAGE_BAND1].flags =
+ 			MT_WED_RRO_Q_MSDU_PG(1) | MT_QFLAG_WED_RRO_EN;
+@@ -560,7 +610,9 @@ int mt7996_dma_init(struct mt7996_dev *dev)
+ 		return ret;
+ 
+ 	/* tx free notify event from WA for band0 */
+-	if (mtk_wed_device_active(wed) && !dev->has_rro) {
++	if (mtk_wed_device_active(wed) &&
++	    ((is_mt7996(&dev->mt76) && !dev->has_rro) ||
++	     (is_mt7992(&dev->mt76)))) {
+ 		dev->mt76.q_rx[MT_RXQ_MAIN_WA].flags = MT_WED_Q_TXFREE;
+ 		dev->mt76.q_rx[MT_RXQ_MAIN_WA].wed = wed;
+ 	}
+@@ -630,6 +682,11 @@ int mt7996_dma_init(struct mt7996_dev *dev)
+ 	} else if (mt7996_band_valid(dev, MT_BAND1)) {
+ 		/* rx data queue for mt7992 band1 */
+ 		rx_base = MT_RXQ_RING_BASE(MT_RXQ_BAND1) + hif1_ofs;
++		if (mtk_wed_device_active(wed) && mtk_wed_get_rx_capa(wed)) {
++			dev->mt76.q_rx[MT_RXQ_BAND1].flags = MT_WED_Q_RX(1);
++			dev->mt76.q_rx[MT_RXQ_BAND1].wed = wed;
++		}
++
+ 		ret = mt76_queue_alloc(dev, &dev->mt76.q_rx[MT_RXQ_BAND1],
+ 				       MT_RXQ_ID(MT_RXQ_BAND1),
+ 				       MT7996_RX_RING_SIZE,
+@@ -641,6 +698,12 @@ int mt7996_dma_init(struct mt7996_dev *dev)
+ 		/* tx free notify event from WA for mt7992 band1 */
+ 		if (mt7996_has_wa(dev)) {
+ 			rx_base = MT_RXQ_RING_BASE(MT_RXQ_BAND1_WA) + hif1_ofs;
++			if (mtk_wed_device_active(wed_hif2)) {
++				dev->mt76.q_rx[MT_RXQ_BAND1_WA].flags =
++					MT_WED_Q_TXFREE;
++				dev->mt76.q_rx[MT_RXQ_BAND1_WA].wed = wed_hif2;
++			}
++
+ 			ret = mt76_queue_alloc(dev, &dev->mt76.q_rx[MT_RXQ_BAND1_WA],
+ 					       MT_RXQ_ID(MT_RXQ_BAND1_WA),
+ 					       MT7996_RX_MCU_RING_SIZE,
+@@ -665,17 +728,32 @@ int mt7996_dma_init(struct mt7996_dev *dev)
+ 		if (ret)
+ 			return ret;
+ 
+-		/* tx free notify event from WA for band0 */
+-		dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0].flags = MT_WED_Q_TXFREE;
+-		dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0].wed = wed;
++		if (is_mt7992(&dev->mt76)) {
++			dev->mt76.q_rx[MT_RXQ_RRO_BAND1].flags =
++				MT_WED_RRO_Q_DATA(1) | MT_QFLAG_WED_RRO_EN;
++			dev->mt76.q_rx[MT_RXQ_RRO_BAND1].wed = wed;
++			ret = mt76_queue_alloc(dev,
++					       &dev->mt76.q_rx[MT_RXQ_RRO_BAND1],
++					       MT_RXQ_ID(MT_RXQ_RRO_BAND1),
++					       MT7996_RX_RING_SIZE,
++					       MT7996_RX_BUF_SIZE,
++					       MT_RXQ_RING_BASE(MT_RXQ_RRO_BAND1) + hif1_ofs);
++			if (ret)
++				return ret;
++		} else {
++			/* tx free notify event from WA for band0 */
++			dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0].flags = MT_WED_Q_TXFREE;
++			dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0].wed = wed;
+ 
+-		ret = mt76_queue_alloc(dev, &dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0],
+-				       MT_RXQ_ID(MT_RXQ_TXFREE_BAND0),
+-				       MT7996_RX_MCU_RING_SIZE,
+-				       MT7996_RX_BUF_SIZE,
+-				       MT_RXQ_RING_BASE(MT_RXQ_TXFREE_BAND0));
+-		if (ret)
+-			return ret;
++			ret = mt76_queue_alloc(dev,
++					       &dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0],
++					       MT_RXQ_ID(MT_RXQ_TXFREE_BAND0),
++					       MT7996_RX_MCU_RING_SIZE,
++					       MT7996_RX_BUF_SIZE,
++					       MT_RXQ_RING_BASE(MT_RXQ_TXFREE_BAND0));
++			if (ret)
++				return ret;
++		}
+ 
+ 		if (mt7996_band_valid(dev, MT_BAND2)) {
+ 			/* rx rro data queue for band2 */
+@@ -778,18 +856,29 @@ void mt7996_dma_reset(struct mt7996_dev *dev, bool force)
+ 		mt76_queue_reset(dev, dev->mt76.q_mcu[i], true);
+ 
+ 	mt76_for_each_q_rx(&dev->mt76, i) {
+-		if (mtk_wed_device_active(&dev->mt76.mmio.wed))
+-			if (mt76_queue_is_wed_rro(&dev->mt76.q_rx[i]) ||
+-			    mt76_queue_is_wed_tx_free(&dev->mt76.q_rx[i]))
+-				continue;
++		struct mt76_queue *q = &dev->mt76.q_rx[i];
+ 
+-		mt76_queue_reset(dev, &dev->mt76.q_rx[i], true);
++		if (mtk_wed_device_active(&dev->mt76.mmio.wed)) {
++			if (mt76_queue_is_wed_rro(q) ||
++			    mt76_queue_is_wed_tx_free(q)) {
++				if (force && mt76_queue_is_wed_rro_data(q))
++					mt76_queue_reset(dev, q, false);
++				continue;
++			}
++		}
++		mt76_queue_reset(dev, q, true);
+ 	}
+ 
+ 	mt76_tx_status_check(&dev->mt76, true);
+ 
+-	mt76_for_each_q_rx(&dev->mt76, i)
++	mt76_for_each_q_rx(&dev->mt76, i) {
++		if (mtk_wed_device_active(&dev->mt76.mmio.wed) && force &&
++		    (mt76_queue_is_wed_rro_ind(&dev->mt76.q_rx[i]) ||
++		     mt76_queue_is_wed_rro_msdu_pg(&dev->mt76.q_rx[i])))
++			continue;
++
+ 		mt76_queue_rx_reset(dev, i);
++	}
+ 
+ 	mt7996_dma_enable(dev, !force);
+ }
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+index fb2428a9b877899a0a6fb879aba84e1f6e7840f2..a8b4ef433c2bfdbbf79ae7f6aa54f33a5d5254ff 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+@@ -690,12 +690,18 @@ static void mt7996_irq_tasklet(struct tasklet_struct *t)
+ 					       dev->mt76.mmio.irqmask);
+ 		if (intr1 & MT_INT_RX_TXFREE_EXT)
+ 			napi_schedule(&dev->mt76.napi[MT_RXQ_TXFREE_BAND2]);
++
++		if (intr1 & MT_INT_RX_DONE_BAND2_EXT)
++			napi_schedule(&dev->mt76.napi[MT_RXQ_BAND2]);
++
++		if (intr1 & MT_INT_RX_TXFREE_BAND1_EXT)
++			napi_schedule(&dev->mt76.napi[MT_RXQ_BAND1_WA]);
+ 	}
+ 
+ 	if (mtk_wed_device_active(wed)) {
+ 		mtk_wed_device_irq_set_mask(wed, 0);
+ 		intr = mtk_wed_device_irq_get(wed, dev->mt76.mmio.irqmask);
+-		intr |= (intr1 & ~MT_INT_RX_TXFREE_EXT);
++		intr |= (intr1 & ~MT_INT_TX_RX_DONE_EXT);
+ 	} else {
+ 		mt76_wr(dev, MT_INT_MASK_CSR, 0);
+ 		if (dev->hif2)
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+index 97b84710667ffdb5b6188a72d6f8475f7eb9a128..c210dfd5e37a91ded70e09f51bca52406d7b9d53 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -178,7 +178,7 @@ enum mt7996_rxq_id {
+ 	MT7996_RXQ_BAND1 = 5, /* for mt7992 */
+ 	MT7996_RXQ_BAND2 = 5,
+ 	MT7996_RXQ_RRO_BAND0 = 8,
+-	MT7996_RXQ_RRO_BAND1 = 8,/* unused */
++	MT7996_RXQ_RRO_BAND1 = 9,
+ 	MT7996_RXQ_RRO_BAND2 = 6,
+ 	MT7996_RXQ_MSDU_PG_BAND0 = 10,
+ 	MT7996_RXQ_MSDU_PG_BAND1 = 11,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
+index e942c0058731cd00bc592e506189820122f2a429..4b8bc008ab3143dcf44cd40b17b9f09778cfd464 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
+@@ -412,7 +412,9 @@ enum offs_rev {
+ 
+ #define MT_WFDMA0_RX_INT_PCIE_SEL		MT_WFDMA0(0x154)
+ #define MT_WFDMA0_RX_INT_SEL_RING3		BIT(3)
++#define MT_WFDMA0_RX_INT_SEL_RING5		BIT(5)
+ #define MT_WFDMA0_RX_INT_SEL_RING6		BIT(6)
++#define MT_WFDMA0_RX_INT_SEL_RING9		BIT(9)
+ 
+ #define MT_WFDMA0_MCU_HOST_INT_ENA		MT_WFDMA0(0x1f4)
+ 
+@@ -451,6 +453,8 @@ enum offs_rev {
+ 
+ #define MT_WFDMA_HOST_CONFIG			MT_WFDMA_EXT_CSR(0x30)
+ #define MT_WFDMA_HOST_CONFIG_PDMA_BAND		BIT(0)
++#define MT_WFDMA_HOST_CONFIG_BAND0_PCIE1	BIT(20)
++#define MT_WFDMA_HOST_CONFIG_BAND1_PCIE1	BIT(21)
+ #define MT_WFDMA_HOST_CONFIG_BAND2_PCIE1	BIT(22)
+ 
+ #define MT_WFDMA_EXT_CSR_HIF_MISC		MT_WFDMA_EXT_CSR(0x44)
+@@ -514,7 +518,9 @@ enum offs_rev {
+ #define MT_INT_RX_DONE_WA_EXT			BIT(3) /* for mt7992 */
+ #define MT_INT_RX_DONE_WA_TRI			BIT(3)
+ #define MT_INT_RX_TXFREE_MAIN			BIT(17)
++#define MT_INT_RX_TXFREE_BAND1			BIT(15)
+ #define MT_INT_RX_TXFREE_TRI			BIT(15)
++#define MT_INT_RX_TXFREE_BAND1_EXT		BIT(19) /* for mt7992 two PCIE*/
+ #define MT_INT_RX_TXFREE_BAND0_MT7990		BIT(14)
+ #define MT_INT_RX_TXFREE_BAND1_MT7990		BIT(15)
+ #define MT_INT_RX_DONE_BAND2_EXT		BIT(23)
+@@ -522,7 +528,7 @@ enum offs_rev {
+ #define MT_INT_MCU_CMD				BIT(29)
+ 
+ #define MT_INT_RX_DONE_RRO_BAND0		BIT(16)
+-#define MT_INT_RX_DONE_RRO_BAND1		BIT(16)
++#define MT_INT_RX_DONE_RRO_BAND1		BIT(17)
+ #define MT_INT_RX_DONE_RRO_BAND2		BIT(14)
+ #define MT_INT_RX_DONE_RRO_IND			BIT(11)
+ #define MT_INT_RX_DONE_MSDU_PG_BAND0		BIT(18)
 
 -- 
-heikki
+2.51.0
+
 
