@@ -4,92 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6839CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 20:12:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA3DCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 20:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RMqutGN+yLrgM+NB4+zfhtscJz9Ec3G94PrW8rPDTWY=; b=wjq4G7LzEn3GMWKrpCDOVNu7w/
-	MPM8K9TlKcVfA3Uq+d5s64O/ClvAIoWnUUgW5Bi1P9EtaXEAYG739hsaepwGkQNNLqwBjXNKDGI+t
-	TTojjcwkfkMOuUY+ZZTRpQSuDMWz2ywaIOLlX0JThGC+jaiy/yoGF3+SpJRFktXbLNypOKpsFLkiP
-	HS92+S6Olqn9gYA/xDYe9dUnJFSvm2F+DhqYBZoDDFkqnpUlITEqe10jiDqKG2YNulNS0QdMkS3Ye
-	9LMoGW4JBhd1z7xOoV7NGE2g7ks0DEXTvyRhvh4MfQpEdnauyCNdVUqgItdBdYNGRh/WeIUFuVYy1
-	tm0SyG3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jYE/ue6mADXQrf7ouwlsqqjbpynWqExFMHTfxRWVhAg=; b=UNskklNe0CEwHIBc9+kdofReVO
+	a83wa9IcGcElrKuZAJ9M8kQTNdl/37vQF5e6zhwIA+Zxy3kmi8Vo+i2ZRfbmbrWg0e/5cPsd3jtH3
+	5pIByOfsxuQB9XoeNva1HDFyd7jWyXDUhA48MJsd/l6n4dJKon8DcqL55zw9jipFwG7TNrbceGBVD
+	QX567Qhrlc1e3D6KZ8wWx8edMo1oXkKAUNQSmSGgjj+yXePgx5kACe3aqUMwks76dzvLV8x6d/H/Z
+	go4/7gIgdGLwVEzCyZAkuOgCBTx2jLjviOn8jAYZX+kioIXtKgIncJgawR8yBDWBFOuzfSUUvThG/
+	dHuncygw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw4h6-00000009uaM-3gbW;
-	Tue, 09 Sep 2025 20:12:00 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uw4rX-00000009zBy-0Isl;
+	Tue, 09 Sep 2025 20:22:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw4h4-00000009uYj-2R0S
+	id 1uw4rV-00000009zAN-2CRL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 09 Sep 2025 20:22:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jYE/ue6mADXQrf7ouwlsqqjbpynWqExFMHTfxRWVhAg=; b=hCgeriApR2QldLRKnQYahtNYMt
+	5zc3jZgsyGuVTc+7TR1ptJhNkFg6Ma7D8jwpWLPtLdeo7t1ZaHchUQQQeYxNB9VJe/Oz2xsC/NGks
+	1KuYKkq6Q3vTgWlc5XcMUFY5vvzHXNlsZGq8MyD7IHDh0WtKUDOAJh5BpcjimAo2BswHmYZo5aCGh
+	ewgaN/KRvqbDC90q2Z4KBEk9Qryu6XSRGXY0CPHZZXpKE+rAGlxFAQIZDpAEahPjH4UoexjIBphIU
+	M/3RutB8G+yCUhe1Q3Tm/Q+xkbWsOARkEq77vlflt8mgA3PfCNdcm780eiw+YnDTbIHzRwifXm8XH
+	uh7dN6kQ==;
+Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uw4rL-00000005Y6L-0Uoc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 20:11:59 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-24cca557085so9635ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 13:11:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757448718; x=1758053518; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RMqutGN+yLrgM+NB4+zfhtscJz9Ec3G94PrW8rPDTWY=;
-        b=Ezk5U5YRwZy7XcBeHyzsvvvHEZDnE9DaidDXlPqDDFiYcVa17oaQdWJHuWIObY5zpM
-         RjF9dbgcUKKDZxKnqF9TqYuya1UlVAJmQiGn2/VsLZkKWX/K+1u2bNZjiBtpPL5X59mD
-         f2V5APWrfwyfBJ4S6Lx7x4qOTa7M/6iSuDuXACEJ3HdBOEX5psJMj2//eQ2zbnGyRx0j
-         qAG2exHn5orjCMaNgctQDyPV1FDVoxgmWLez6CTuHdm1FPTXEY3WVAXds5DoFks3HePG
-         ATVEV4I2pGNaQOq4mljw+mx+U4IJHKcIfGM3n7QOnB6jU1zvdCnBtXGQCVFtuRA2tjYf
-         xmqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757448718; x=1758053518;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RMqutGN+yLrgM+NB4+zfhtscJz9Ec3G94PrW8rPDTWY=;
-        b=i2johHYDPCpcJ27vfoMvDrcDijZkPN3r7mjx+59p7wGuuFPPSR8owb7NybG7N9BdIc
-         flbiIbBff8Su+o1zQ5xSw2AlUwtTUb4mQ9AZEG/kivc3sZu/pwMLAkEc/PiWZrOK7GwR
-         EV3aG3W2OyD97uknVKws3fHnPDbtfhS5qpKfZA8eHoL8FfYxrcfQgEMfZUlY6YRhWrU/
-         yNnK8pRBm2sOIMCCQK3VLQmMCaANNMA/Cn1tG5FkoNQHvD0XI3DOMi7EQXAa3Hxf4Zso
-         Qzt0PApgWE7PvBVnckvHRciC7McUxCCYspPvLCl9DsrV0W6cW3I25ybgIQEJQJ4juGZu
-         LvyA==
-X-Forwarded-Encrypted: i=1; AJvYcCVdFKyWQ2kfYQYPFz59tKTDEmGrFCdvJvFRAARNHVnV5RAjYyX6JrnUBINUhtQyDEpuGEC6o1Za/udBJ20reX0j@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJDpVWQHiXgbXgawXJ/N2h42vprwYYYpn5Ksq1/SyhiWNtlaKK
-	R+7yQ3jfR5c0K5QqDbIp5GK0vO0XaL84KQqq9fCZlwnFiCq9Iyukw20QZDRe5JzNyR8oIEHgkbV
-	8aLnltQH5lNE/cZrWvcgF+vJU9BP88RO6MRk+y/Ed
-X-Gm-Gg: ASbGncuRjSC+Q/pyr/1ImGR4D3R1zvEfgE0MHE27tWw9Gsl/BydiMP9qwQLR358K2CF
-	4C7X2dhxDHeR/mXpkDyZf5/tZzuQtdbUbPbTSX8Y8GCr1qz5zwb1eU6oOOHtLLjYvATcP0bieDU
-	Rg2993s/AUMk3fRhC38sioJpCjMzRzfAG2R999aSTnvY3fNYHbvp1cmUKduE4NAaApzk0+cbSRB
-	3PVBk1KP7D6vvlfxZpzduf6YZQobg3hagNTqXt2oss=
-X-Google-Smtp-Source: AGHT+IFX3Yblf4ZODycC555w3xs5DUtNy1StojhqIRO/qAVf35qb6Qt4MYDTGQXUSZ6pqO5kIY7S+3D62K27CD/FW6s=
-X-Received: by 2002:a17:902:e5d0:b0:24c:f4b1:baaf with SMTP id
- d9443c01a7336-25a7d989bb5mr37875ad.1.1757448717349; Tue, 09 Sep 2025 13:11:57
- -0700 (PDT)
+	Tue, 09 Sep 2025 20:22:37 +0000
+Date: Tue, 9 Sep 2025 22:22:18 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grimler.se; s=key1;
+	t=1757449345;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jYE/ue6mADXQrf7ouwlsqqjbpynWqExFMHTfxRWVhAg=;
+	b=IkyrOxuqH8EDnr5p1a+FjxAvbR039kgBV4FDoQo1wJcLHFjIx35XQOOMgc3T0zKys1K9D+
+	ihpu6/AfUfJEPZpDZoseBrdlgmjNfWrPSkB0GhT/dGNXLfH7/EtLJijRrQIdl7UCi52Txb
+	rQecZgCu1beEGaeMYBvVqep2it3D8oE=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Henrik Grimler <henrik@grimler.se>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 2/2] ARM: dts: samsung: Add cache information to the
+ Exynos542x SoC
+Message-ID: <20250909202035.GA10879@localhost>
+References: <20240730091322.5741-1-linux.amoon@gmail.com>
+ <CGME20240730091412eucas1p18feced3968a5f87dc8fe05f78d5c7659@eucas1p1.samsung.com>
+ <20240730091322.5741-2-linux.amoon@gmail.com>
+ <09e9cf0b-27fd-46b8-8631-87d798afd19e@samsung.com>
+ <CANAwSgT_TOFwP80+H8-CdXDLLu+u2XZMr2dnxcsSDe8S5yeYCw@mail.gmail.com>
+ <a41a6143-ef2e-4d86-b102-eaf442985173@kernel.org>
+ <CANAwSgSbSgXwOQLrVrHD7jpDe0=Bq7r2K8p0JjvZJMPpVNq4XQ@mail.gmail.com>
+ <d72d7927-079a-4a82-a298-db9ed70a816f@kernel.org>
+ <CANAwSgSgK5hmcLg7sChAs7QL0x7wufHpWDZJFyw6tMiiOuDZeg@mail.gmail.com>
+ <CANAwSgRTM4OSnXKZWWzxi2cW8QwWLKJz2xmUThyLkdkq71rH1g@mail.gmail.com>
 MIME-Version: 1.0
-References: <CAJDx_rgzkZognxWzOXJ-ZxdTtUaM3FT6bmpkwxMz03XiX3fKAQ@mail.gmail.com>
- <d395b14a-9a84-4f25-b4f0-45e8500fc5fe@redhat.com> <CAJDx_rgrp1TpOt-iDcsSGRTL=qZZsK_dpKL1bSkyunPGcGXt5g@mail.gmail.com>
- <486c5773-c7fa-4e19-b429-90823ed2f7d5@redhat.com> <CAJDx_ri==3SxFcuKXHpNjrtxbp0hLyhM+zXeJ-LQX38rfbUChw@mail.gmail.com>
- <6dee6cd9-c67f-480f-b728-21c3a7b72004@redhat.com>
-In-Reply-To: <6dee6cd9-c67f-480f-b728-21c3a7b72004@redhat.com>
-From: Juan Yescas <jyescas@google.com>
-Date: Tue, 9 Sep 2025 13:11:44 -0700
-X-Gm-Features: Ac12FXy9H8LSTetHGcFYnz6pqWAly0dnCfLL-mWF9ljJktwSF-hLAn2umBneJkE
-Message-ID: <CAJDx_rh_bTC5EY=qMSda5GuNLzZMZg8nM8_hfUea3Y8oGJMfNw@mail.gmail.com>
-Subject: Re: [RFC PATCH] mm/page_alloc: Add PCP list for THP CMA
-To: David Hildenbrand <david@redhat.com>
-Cc: akash.tyagi@mediatek.com, Andrew Morton <akpm@linux-foundation.org>, 
-	angelogioacchino.delregno@collabora.com, hannes@cmpxchg.org, 
-	Brendan Jackman <jackmanb@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	Linux Memory Management List <linux-mm@kvack.org>, matthias.bgg@gmail.com, Michal Hocko <mhocko@suse.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@suse.cz>, wsd_upstream@mediatek.com, 
-	Zi Yan <ziy@nvidia.com>, Kalesh Singh <kaleshsingh@google.com>, 
-	"T.J. Mercier" <tjmercier@google.com>, Isaac Manjarres <isaacmanjarres@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CANAwSgRTM4OSnXKZWWzxi2cW8QwWLKJz2xmUThyLkdkq71rH1g@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_131158_622958_B742D88D 
-X-CRM114-Status: GOOD (  41.89  )
+X-CRM114-CacheID: sfid-20250909_212235_805249_68DBC531 
+X-CRM114-Status: GOOD (  27.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,141 +98,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 5, 2025 at 2:08=E2=80=AFPM David Hildenbrand <david@redhat.com>=
- wrote:
->
-> On 05.08.25 18:57, Juan Yescas wrote:
-> > On Tue, Aug 5, 2025 at 2:58=E2=80=AFAM David Hildenbrand <david@redhat.=
-com> wrote:
-> >>
-> >> On 05.08.25 03:22, Juan Yescas wrote:
-> >>> On Mon, Aug 4, 2025 at 11:50=E2=80=AFAM David Hildenbrand <david@redh=
-at.com> wrote:
-> >>>>
-> >>>> On 04.08.25 20:20, Juan Yescas wrote:
-> >>>>> Hi David/Zi,
-> >>>>>
-> >>>>> Is there any reason why the MIGRATE_CMA pages are not in the PCP li=
-sts?
-> >>>>>
-> >>>>> There are many devices that need fast allocation of MIGRATE_CMA pag=
-es,
-> >>>>> and they have to get them from the buddy allocator, which is a bit
-> >>>>> slower in comparison to the PCP lists.
-> >>>>>
-> >>>>> We also have cases where the MIGRATE_CMA memory requirements are bi=
-g.
-> >>>>> For example, GPUs need MIGRATE_CMA memory in the ranges of 30MiB to=
- 500MiBs.
-> >>>>> These cases would benefit if we have THPs for CMAs.
-> >>>>>
-> >>>>> Could we add the support for MIGRATE_CMA pages on the PCP and THP l=
-ists?
-> >>>>
-> >>>> Remember how CMA memory is used:
-> >>>>
-> >>>> The owner allocates it through cma_alloc() and friends, where the CM=
-A
-> >>>> allocator will try allocating *specific physical memory regions* usi=
-ng
-> >>>> alloc_contig_range(). It doesn't just go ahead and pick a random CMA
-> >>>> page from the buddy (or PCP) lists. Doesn't work (just imagine havin=
-g
-> >>>> different CMA areas etc).
-> >>>>
-> >>>> Anybody else is free to use CMA pages for MOVABLE allocations. So we
-> >>>> treat them as being MOVABLE on the PCP.
-> >>>>
-> >>>> Having a separate CMA PCP list doesn't solve or speedup anything, re=
-ally.
-> >>>>
-> >>>
-> >>> Thanks David for the quick overview.
-> >>>
-> >>>> I still have no clue what this patch here tried to solve: it doesn't
-> >>>> make any sense.
-> >>>>
-> >>>
-> >>> The story started with this out of tree patch that is part of Android=
-.
-> >>>
-> >>> https://lore.kernel.org/lkml/cover.1604282969.git.cgoldswo@codeaurora=
-.org/T/#u
-> >>>
-> >>> This patch introduced the __GFP_CMA flag that allocates pages from
-> >>> MIGRATE_MOVABLE
-> >>> or MIGRATE_CMA. What it happens then, it is that the MIGRATE_MOVABLE
-> >>> pages in the
-> >>> PCP lists were consumed pretty fast. To solve this issue, the PCP
-> >>> MIGRATE_CMA list was added.
-> >>> This list is initialized by rmqueue_bulk() when it is empty. That's
-> >>> how we end up with the PCP MIGRATE_CMA list
-> >>> in Android. In addition to this, the THP list for MIGRATE_MOVABLE was
-> >>> allowed to contain
-> >>> MIGRATE_CMA pages. This is causing THP MIGRATE_CMA pages to be used
-> >>> for THP MIGRATE_MOVABLE
-> >>> making later allocations from THP MIGRATE_CMA to fail.
-> >>
-> >> Okay, so this patch here really is not suitable for the upstream kerne=
-l
-> >> as is. It's purely targeted at the OOT Android patch.
-> >>
-> > Right, it is a temporary solution for the pinned MIGRATE_CMA pages.
-> >
-> >>>
-> >>> These workarounds are mainly because we need to solve this issue upst=
-ream:
-> >>>
-> >>> - When devices reserve big blocks of MIGRATE_CMA pages, the
-> >>> underutilized MIGRATE_CMA
-> >>> can fall back to MIGRATE_MOVABLE and these pages can be pinned, so if
-> >>> we require MIGRATE_CMA
-> >>> pages, the allocations might fail.
-> >>>
-> >>> I remember that you presented the problem in LPC. Were you able to
-> >>> make some progress on that?
-> >>
-> >> There is the problem of CMA pages getting allocated by someone for a
-> >> MOVABLE allocation, to then short-term pin it for DMA. Long-term
-> >> pinnings are disallowed (we just recently fixed a bug where we
-> >> accidentally allowed it).
-> >>
-> > Nice, it is great the issue got caught and fixed upstream :)
-> >
-> >> One concern is that a steady stream of short-term pinnings can turn su=
-ch
-> >> pages unmovable. We discussed ideas on how to handle that, but there i=
-s
-> >> no solution upstream yet.
-> >
-> > Are there any plans to continue the discussion? Is it in the priority
-> > list?
->
-> Ohh, it's somewheeeeeere on the todo list :)
->
-> Do you (or one of your colleagues) have capacity to work on that? One
-> idea was to flag folios as "pending on migration" and disallow any
-> further short-term pins until migration is done. IIRC, there were other
-> ideas (e.g., isolated pageblock).
->
-> > Maybe
-> > a topic we can discuss in LPC Japan?
->
-> Sounds good, feel free to propose this as a topic. I wills end out the
-> announcement of the MM MC probably next week.
->
+Hi Anand,
 
-The topic has been proposed in the Kernel Memory Management track.
+Thanks for working on this!
 
-https://lpc.events/event/19/abstracts/2397/
+On Tue, Sep 09, 2025 at 07:29:31PM +0530, Anand Moon wrote:
+[ ... ]
+> > > >>>> On 30.07.2024 11:13, Anand Moon wrote:
+> > > >>>>> As per the Exynos 5422 user manual add missing cache information to
+> > > >>>>> the Exynos542x SoC.
+> > > >>>>>
+> > > >>>>> - Each Cortex-A7 core has 32 KB of instruction cache and
+> > > >>>>>       32 KB of L1 data cache available.
+> > > >>>>> - Each Cortex-A15 core has 32 KB of L1 instruction cache and
+> > > >>>>>       32 KB of L1 data cache available.
+> > > >>>>> - The little (A7) cluster has 512 KB of unified L2 cache available.
+> > > >>>>> - The big (A15) cluster has 2 MB of unified L2 cache available.
+> > > >>>>>
+> > > >>>>> Features:
+> > > >>>>> - Exynos 5422 support cache coherency interconnect (CCI) bus with
+> > > >>>>>    L2 cache snooping capability. This hardware automatic L2 cache
+> > > >>>>>    snooping removes the efforts of synchronizing the contents of the
+> > > >>>>>    two L2 caches in core switching event.
+> > > >>>>>
+> > > >>>>> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > > >>>>
+> > > >>>>
+> > > >>>> The provided values are not correct. Please refer to commit 5f41f9198f29
+> > > >>>> ("ARM: 8864/1: Add workaround for I-Cache line size mismatch between CPU
+> > > >>>> cores"), which adds workaround for different l1 icache line size between
+> > > >>>> big and little CPUs. This workaround gets enabled on all Exynos542x/5800
+> > > >>>> boards.
+> > > >>>>
+> > > >>> Ok, I have just referred to the Exynos 5422 user manual for this patch,
+> > > >>> This patch is just updating the cache size for CPU for big.litle architecture..
 
-Thanks
-Juan
+I do not have access to the 5422 manual unfortunately, but if I add
+some prints in the code from the commit Marek referenced:
 
->
-> --
-> Cheers,
->
-> David / dhildenb
->
+```diff
+--- a/arch/arm/mm/init.c
++++ b/arch/arm/mm/init.c
+@@ -173,6 +173,7 @@ void check_cpu_icache_size(int cpuid)
+        asm("mrc p15, 0, %0, c0, c0, 1" : "=r" (ctr));
+ 
+        size = 1 << ((ctr & 0xf) + 2);
++       pr_warn("CPU%u: icache line size: %u, size %u\n", cpuid, icache_size, size);
+        if (cpuid != 0 && icache_size != size)
+                pr_info("CPU%u: detected I-Cache line size mismatch, workaround enabled\n",
+                        cpuid);
+```
+
+Then we get in dmesg:
+
+CPU0: icache line size: 64, size 32
+CPU1: icache line size: 32, size 32
+CPU2: icache line size: 32, size 32
+CPU3: icache line size: 32, size 32
+CPU4: icache line size: 32, size 64
+CPU5: icache line size: 32, size 64
+CPU6: icache line size: 32, size 64
+CPU7: icache line size: 32, size 64
+
+I interpret this as that the i-cache-line-size property of CPU4, 5, 6
+and 7 (i.e. cpu@0, cpu@1, cpu@2 and cpu@4) should be 64 instead of 32.
+
+Not sure about the other properties..
+
+> Here's an article that provides detailed insights into the cache feature.
+> [0] http://jake.dothome.co.kr/cache4/
+> 
+> The values associated with L1 and L2 caches indicate their respective sizes,
+> as specified in the ARM Technical Reference Manual (TRM) below.
+> 
+> Cortex-A15 L2 cache controller
+> [0] https://developer.arm.com/documentation/ddi0503/i/programmers-model/programmable-peripherals-and-interfaces/cortex-a15-l2-cache-controller
+> 
+> Cortex-A7 L2 cache controller
+> [1] https://developer.arm.com/documentation/ddi0503/i/programmers-model/programmable-peripherals-and-interfaces/cortex-a7-l2-cache-controller
+> 
+> These changes help define a fixed cache size, ensuring that active pages
+> are mapped correctly within the expected cache boundaries.
+> 
+> Here is the small test case using perf
+> Before
+> 
+> $ sudo perf stat -e L1-dcache-loads,L1-dcache-load-misses ./fact
+> 
+> Simulated Cache Miss Time (avg): 4766632 ns
+> Factorial(10) = 3628800
+> 
+>  Performance counter stats for './fact':
+> 
+>             926328      armv7_cortex_a15/L1-dcache-loads/
+>      <not counted>      armv7_cortex_a7/L1-dcache-loads/
+>                          (0.00%)
+>              16510      armv7_cortex_a15/L1-dcache-load-misses/ #
+> 1.78% of all L1-dcache accesses
+>      <not counted>      armv7_cortex_a7/L1-dcache-load-misses/
+>                                (0.00%)
+> 
+>        0.008970031 seconds time elapsed
+> 
+>        0.000000000 seconds user
+>        0.009673000 seconds sys
+> 
+> After
+> $ sudo perf stat -e L1-dcache-loads,L1-dcache-load-misses ./fact
+> Simulated Cache Miss Time (avg): 4623272 ns
+> Factorial(10) = 3628800
+> 
+>  Performance counter stats for './fact':
+> 
+>             930570      armv7_cortex_a15/L1-dcache-loads/
+>      <not counted>      armv7_cortex_a7/L1-dcache-loads/
+>                          (0.00%)
+>               4755      armv7_cortex_a15/L1-dcache-load-misses/ #
+> 0.51% of all L1-dcache accesses
+>      <not counted>      armv7_cortex_a7/L1-dcache-load-misses/
+>                                (0.00%)
+> 
+>        0.011068250 seconds time elapsed
+> 
+>        0.000000000 seconds user
+>        0.010793000 seconds sys
+
+I tried out the same test on my odroid-xu4, but was not able to
+reliably get the same improvement. Cache misses varied between around
+0.8 % to around 2.8 %. This was with a desktop UI installed and
+though, will try it out in a headless installation in the next few
+days, and perhaps try it on exynos5800 as well.
+
+Might be worth also testing on both small and big cores, like:
+
+$ sudo taskset -c 0,1,2,3 perf stat -e L1-dcache-loads,L1-dcache-load-misses ./fact
+$ sudo taskset -c 4,5,6,7 perf stat -e L1-dcache-loads,L1-dcache-load-misses ./fact
+
+Best regards,
+Henrik Grimler
 
