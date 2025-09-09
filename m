@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC465CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C6DCAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gBTcIfi342Xer1MBzWxMx29/j/LhieKBulY678grdlY=; b=o+oVpz6ZU+taWQl/IzBHrrYe3l
-	i+UuBs5NmoT5WEJLOdcz9Ug+hFS4GXEt6aP5C78/ZNEz7ic5ir0Tzj2L5/2DMr5/6FV35RrW97l9t
-	lVFg/r+H6z3PagzB3KJnF9xp1bxheWgw2EWWKcIAyr/nXTW2xxet9AsA0YOfWIYZMRlrL6jDLPkCN
-	m6opbEKm2EyCed3uarZ2mj+iscmj3jwZSHxtvciOUJh59UlcZhiEHKCHBM8D39Hr+bzdwqT1P0R8g
-	6316h1jP2JTW9n5o7t/s78IMtrjYEJLDz1BQrNH8PV8Ftow2U1MTfMHZFNtIS5EZGGemOx3+MZU37
-	0tzqVkjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T9rMoXP/QSewckjQCrhDlmtmRGislqHzoJn2eC5EdZQ=; b=Gcq9tY8jyYRQfxPHTAlnZVZRsb
+	HjqF4HYoLBrbCAVuEIZyfbrEWYbn2WG+6AG64Uook24IRjH/ec84pSeIeH7xDtR4A0ZBdmQgTb3ba
+	aGnDceu/0RVgwFYavO86F4t7sUtVNe9+8rrh/9PjY5d02PGspOI8mZ9dPZd6H7QJgHwko2+3FjYoE
+	ewJbaD3JkOxi58RyjdQbBOhB7ScG3gCXEBVFtOiYt5WtQZm+tj1VpfJqyGtBxrAcinQaK4WKWVZyu
+	B7HNk8ImMUG+mRJmJHQooV4uhZVBqi0+LqQ+InN8lN0CPrtuFc5Vp74LsYBZW+b6TOVM27pAUO5th
+	LZUHyRHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0Rc-000000089g4-3QSa;
-	Tue, 09 Sep 2025 15:39:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uw0Ri-000000089o5-0LSm;
+	Tue, 09 Sep 2025 15:39:50 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvuuw-0000000660Z-0xVU;
-	Tue, 09 Sep 2025 09:45:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 932F3601BA;
-	Tue,  9 Sep 2025 09:45:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E20C9C4CEF7;
-	Tue,  9 Sep 2025 09:45:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757411137;
-	bh=lPuH93lsghAjnzQOgowrlgNciw6daQB+qgcPwOXhqaY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=sdTFn3qybGI7YWlxOVqGzq917ZF9fgvwgCCHWG9pwywhIC/BFPaOhchf3o9u75a7S
-	 x9vOywUSSgGitAkYBWAGYyB0pIJw6nf9n3qII8CofUkMiJMGrDkqEo7OViVFLdFF57
-	 RdLtqHqA/fy/uu7y0MoDJgctnw9KhCNhfT8rl/YZxCNH1hVDVNkGoajJNv62saSUBv
-	 2ku6CHnWvR18dBsoHoD7V19+NB7bKujoLKrVifYj7m5nIyo7zXR1SlOQlcP76eV9WP
-	 USJ73Gr+XSSv1euPqv9nWX/78+Oy7bl8BXTbL4s0vwKj+BtF4CthCowLJWwgjkR0o8
-	 2XIq6elqpdYmA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 09 Sep 2025 11:45:13 +0200
-Subject: [PATCH mt76 v5 05/16] wifi: mt76: mt7996: Initial DMA
- configuration for MT7992 WED support
+	id 1uvuux-0000000660f-0XdQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Sep 2025 09:45:40 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1757411137;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=T9rMoXP/QSewckjQCrhDlmtmRGislqHzoJn2eC5EdZQ=;
+	b=ncEC6C4M7MYGcs0VyDvSLd33omVS67MIT3m5ZkKIo+MO101yrk6yRna3TBb4mCzLhjLCWm
+	2oKicf0VKU5XHVm0LHC8a7XRLBnNIX9yWeWf5PiPiY794tW+ScUevbOL9MJzf+9r8bIvSP
+	AgKHe2lNIZU5tHY9/4LZnefGCpKVw3OsyKZSJEixnOFfKFhQ/u8xWN02fA+lZDC7DyfqWi
+	PDRVfbP0sEsWqBPzG8FcaTsoC1dwJBH7PZKh5Ozer5E3R/ijX5uCwR8B4TNIuABPVKafyf
+	AwdAb/pf17NRiUhDFsg3h0LpAo2/ldpSeM6fciDHlrFEs80i1wKu2l+VF26JDw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1757411137;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=T9rMoXP/QSewckjQCrhDlmtmRGislqHzoJn2eC5EdZQ=;
+	b=0yAilcN6MbUxoWFzSDsuXfOFuwbjv7OcDJek+tCR08gD6uzz3zYNDYYGl5rZOfbXFmVr/Y
+	LSHj9f2fNlkvNvCw==
+To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Sven Peter <sven@kernel.org>, Janne Grunau
+ <j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark
+ <james.clark@linaro.org>
+Subject: Re: [PATCH 14/25] genirq: Update request_percpu_nmi() to take an
+ affinity
+In-Reply-To: <20250908163127.2462948-15-maz@kernel.org>
+References: <20250908163127.2462948-1-maz@kernel.org>
+ <20250908163127.2462948-15-maz@kernel.org>
+Date: Tue, 09 Sep 2025 11:45:36 +0200
+Message-ID: <877by8vu0v.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250909-mt7996-rro-rework-v5-5-7d66f6eb7795@kernel.org>
-References: <20250909-mt7996-rro-rework-v5-0-7d66f6eb7795@kernel.org>
-In-Reply-To: <20250909-mt7996-rro-rework-v5-0-7d66f6eb7795@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sujuan Chen <sujuan.chen@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Bo Jiao <Bo.Jiao@mediatek.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Rex Lu <rex.lu@mediatek.com>, 
- Benjamin Lin <benjamin-jw.lin@mediatek.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250909_024539_368403_F9279916 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,370 +82,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rex Lu <rex.lu@mediatek.com>
+On Mon, Sep 08 2025 at 17:31, Marc Zyngier wrote:
+> @@ -2564,13 +2566,14 @@ int request_percpu_nmi(unsigned int irq, irq_handler_t handler,
+>  	    !irq_supports_nmi(desc))
+>  		return -EINVAL;
+>  
+> -	/* The line cannot already be NMI */
+> -	if (irq_is_nmi(desc))
+> +	/* The line cannot be NMI already if the new request covers all CPUs */
+> +	if (irq_is_nmi(desc) &&
+> +	    (!affinity || cpumask_equal(affinity, cpu_possible_mask)))
+>  		return -EINVAL;
 
-Manage differences in DMA and RX queues configuration for MT7992 and
-MT7996.
-This is a preliminary patch to enable WED support for MT7992 Kite
-chipset supported by MT7996 driver.
+This check looks odd. What makes sure that the affinities do not
+overlap?
 
-Co-developed-by: Sujuan Chen <sujuan.chen@mediatek.com>
-Signed-off-by: Sujuan Chen <sujuan.chen@mediatek.com>
-Co-developed-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
-Signed-off-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
-Signed-off-by: Rex Lu <rex.lu@mediatek.com>
-Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/dma.c    | 169 ++++++++++++++++-----
- drivers/net/wireless/mediatek/mt76/mt7996/mmio.c   |   8 +-
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |   2 +-
- drivers/net/wireless/mediatek/mt76/mt7996/regs.h   |   8 +-
- 4 files changed, 144 insertions(+), 43 deletions(-)
+Thanks,
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-index c77e619070d34ddbf281a5d90c6c96cbd1bb2283..b3665bb0a433ae4cdbf02fa647d644961509d7aa 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-@@ -89,30 +89,60 @@ static void mt7996_dma_config(struct mt7996_dev *dev)
- 			   MT7996_RXQ_RRO_BAND0);
- 		RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND0, WFDMA0, MT_INT_RX_DONE_MSDU_PG_BAND0,
- 			   MT7996_RXQ_MSDU_PG_BAND0);
--		RXQ_CONFIG(MT_RXQ_TXFREE_BAND0, WFDMA0, MT_INT_RX_TXFREE_MAIN,
--			   MT7996_RXQ_TXFREE0);
--		/* band1 */
--		RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND1, WFDMA0, MT_INT_RX_DONE_MSDU_PG_BAND1,
--			   MT7996_RXQ_MSDU_PG_BAND1);
--		/* band2 */
--		RXQ_CONFIG(MT_RXQ_RRO_BAND2, WFDMA0, MT_INT_RX_DONE_RRO_BAND2,
--			   MT7996_RXQ_RRO_BAND2);
--		RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND2, WFDMA0, MT_INT_RX_DONE_MSDU_PG_BAND2,
--			   MT7996_RXQ_MSDU_PG_BAND2);
--		RXQ_CONFIG(MT_RXQ_TXFREE_BAND2, WFDMA0, MT_INT_RX_TXFREE_TRI,
--			   MT7996_RXQ_TXFREE2);
-+		if (is_mt7996(&dev->mt76)) {
-+			RXQ_CONFIG(MT_RXQ_TXFREE_BAND0, WFDMA0,
-+				   MT_INT_RX_TXFREE_MAIN, MT7996_RXQ_TXFREE0);
-+			/* band1 */
-+			RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND1, WFDMA0,
-+				   MT_INT_RX_DONE_MSDU_PG_BAND1,
-+				   MT7996_RXQ_MSDU_PG_BAND1);
-+			/* band2 */
-+			RXQ_CONFIG(MT_RXQ_RRO_BAND2, WFDMA0,
-+				   MT_INT_RX_DONE_RRO_BAND2,
-+				   MT7996_RXQ_RRO_BAND2);
-+			RXQ_CONFIG(MT_RXQ_MSDU_PAGE_BAND2, WFDMA0,
-+				   MT_INT_RX_DONE_MSDU_PG_BAND2,
-+				   MT7996_RXQ_MSDU_PG_BAND2);
-+			RXQ_CONFIG(MT_RXQ_TXFREE_BAND2, WFDMA0,
-+				   MT_INT_RX_TXFREE_TRI, MT7996_RXQ_TXFREE2);
-+		} else {
-+			RXQ_CONFIG(MT_RXQ_RRO_BAND1, WFDMA0,
-+				   MT_INT_RX_DONE_RRO_BAND1,
-+				   MT7996_RXQ_RRO_BAND1);
-+		}
- 
- 		RXQ_CONFIG(MT_RXQ_RRO_IND, WFDMA0, MT_INT_RX_DONE_RRO_IND,
- 			   MT7996_RXQ_RRO_IND);
- 	}
- 
- 	/* data tx queue */
--	TXQ_CONFIG(0, WFDMA0, MT_INT_TX_DONE_BAND0, MT7996_TXQ_BAND0);
- 	if (is_mt7996(&dev->mt76)) {
--		TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND1, MT7996_TXQ_BAND1);
--		TXQ_CONFIG(2, WFDMA0, MT_INT_TX_DONE_BAND2, MT7996_TXQ_BAND2);
-+		TXQ_CONFIG(0, WFDMA0, MT_INT_TX_DONE_BAND0, MT7996_TXQ_BAND0);
-+		if (dev->hif2) {
-+			/* default bn1:ring19 bn2:ring21 */
-+			TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND1,
-+				   MT7996_TXQ_BAND1);
-+			TXQ_CONFIG(2, WFDMA0, MT_INT_TX_DONE_BAND2,
-+				   MT7996_TXQ_BAND2);
-+		} else {
-+			/* single pcie bn0/1:ring18 bn2:ring19 */
-+			TXQ_CONFIG(2, WFDMA0, MT_INT_TX_DONE_BAND1,
-+				   MT7996_TXQ_BAND1);
-+		}
- 	} else {
--		TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND1, MT7996_TXQ_BAND1);
-+		if (dev->hif2) {
-+			/*  bn0:ring18 bn1:ring21 */
-+			TXQ_CONFIG(0, WFDMA0, MT_INT_TX_DONE_BAND0,
-+				   MT7996_TXQ_BAND0);
-+			TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND2,
-+				   MT7996_TXQ_BAND2);
-+		} else {
-+			/* single pcie bn0:ring18 bn1:ring19 */
-+			TXQ_CONFIG(0, WFDMA0, MT_INT_TX_DONE_BAND0,
-+				   MT7996_TXQ_BAND0);
-+			TXQ_CONFIG(1, WFDMA0, MT_INT_TX_DONE_BAND1,
-+				   MT7996_TXQ_BAND1);
-+		}
- 	}
- 
- 	/* mcu tx queue */
-@@ -288,8 +318,11 @@ void mt7996_dma_start(struct mt7996_dev *dev, bool reset, bool wed_reset)
- 	if (mt7996_band_valid(dev, MT_BAND0))
- 		irq_mask |= MT_INT_BAND0_RX_DONE;
- 
--	if (mt7996_band_valid(dev, MT_BAND1))
-+	if (mt7996_band_valid(dev, MT_BAND1)) {
- 		irq_mask |= MT_INT_BAND1_RX_DONE;
-+		if (is_mt7992(&dev->mt76) && dev->hif2)
-+			irq_mask |= MT_INT_RX_TXFREE_BAND1_EXT;
-+	}
- 
- 	if (mt7996_band_valid(dev, MT_BAND2))
- 		irq_mask |= MT_INT_BAND2_RX_DONE;
-@@ -378,8 +411,19 @@ static void mt7996_dma_enable(struct mt7996_dev *dev, bool reset)
- 			 WF_WFDMA0_GLO_CFG_EXT1_TX_FCTRL_MODE);
- 
- 		mt76_set(dev, MT_WFDMA_HOST_CONFIG,
--			 MT_WFDMA_HOST_CONFIG_PDMA_BAND |
--			 MT_WFDMA_HOST_CONFIG_BAND2_PCIE1);
-+			 MT_WFDMA_HOST_CONFIG_PDMA_BAND);
-+
-+		mt76_clear(dev, MT_WFDMA_HOST_CONFIG,
-+			   MT_WFDMA_HOST_CONFIG_BAND0_PCIE1 |
-+			   MT_WFDMA_HOST_CONFIG_BAND1_PCIE1 |
-+			   MT_WFDMA_HOST_CONFIG_BAND2_PCIE1);
-+
-+		if (is_mt7996(&dev->mt76))
-+			mt76_set(dev, MT_WFDMA_HOST_CONFIG,
-+				 MT_WFDMA_HOST_CONFIG_BAND2_PCIE1);
-+		else
-+			mt76_set(dev, MT_WFDMA_HOST_CONFIG,
-+				 MT_WFDMA_HOST_CONFIG_BAND1_PCIE1);
- 
- 		/* AXI read outstanding number */
- 		mt76_rmw(dev, MT_WFDMA_AXI_R2A_CTRL,
-@@ -397,12 +441,18 @@ static void mt7996_dma_enable(struct mt7996_dev *dev, bool reset)
- 		 * so, redirect pcie0 rx ring3 interrupt to pcie1
- 		 */
- 		if (mtk_wed_device_active(&dev->mt76.mmio.wed) &&
--		    dev->has_rro)
-+		    dev->has_rro) {
-+			u32 intr = is_mt7996(&dev->mt76) ?
-+				   MT_WFDMA0_RX_INT_SEL_RING6 :
-+				   MT_WFDMA0_RX_INT_SEL_RING9 |
-+				   MT_WFDMA0_RX_INT_SEL_RING5;
-+
- 			mt76_set(dev, MT_WFDMA0_RX_INT_PCIE_SEL + hif1_ofs,
--				 MT_WFDMA0_RX_INT_SEL_RING6);
--		else
-+				 intr);
-+		} else {
- 			mt76_set(dev, MT_WFDMA0_RX_INT_PCIE_SEL,
- 				 MT_WFDMA0_RX_INT_SEL_RING3);
-+		}
- 	}
- 
- 	mt7996_dma_start(dev, reset, true);
-@@ -437,7 +487,7 @@ int mt7996_dma_rro_init(struct mt7996_dev *dev)
- 	if (ret)
- 		return ret;
- 
--	if (mt7996_band_valid(dev, MT_BAND1)) {
-+	if (mt7996_band_valid(dev, MT_BAND1) && is_mt7996(&dev->mt76)) {
- 		/* rx msdu page queue for band1 */
- 		mdev->q_rx[MT_RXQ_MSDU_PAGE_BAND1].flags =
- 			MT_WED_RRO_Q_MSDU_PG(1) | MT_QFLAG_WED_RRO_EN;
-@@ -560,7 +610,9 @@ int mt7996_dma_init(struct mt7996_dev *dev)
- 		return ret;
- 
- 	/* tx free notify event from WA for band0 */
--	if (mtk_wed_device_active(wed) && !dev->has_rro) {
-+	if (mtk_wed_device_active(wed) &&
-+	    ((is_mt7996(&dev->mt76) && !dev->has_rro) ||
-+	     (is_mt7992(&dev->mt76)))) {
- 		dev->mt76.q_rx[MT_RXQ_MAIN_WA].flags = MT_WED_Q_TXFREE;
- 		dev->mt76.q_rx[MT_RXQ_MAIN_WA].wed = wed;
- 	}
-@@ -630,6 +682,11 @@ int mt7996_dma_init(struct mt7996_dev *dev)
- 	} else if (mt7996_band_valid(dev, MT_BAND1)) {
- 		/* rx data queue for mt7992 band1 */
- 		rx_base = MT_RXQ_RING_BASE(MT_RXQ_BAND1) + hif1_ofs;
-+		if (mtk_wed_device_active(wed) && mtk_wed_get_rx_capa(wed)) {
-+			dev->mt76.q_rx[MT_RXQ_BAND1].flags = MT_WED_Q_RX(1);
-+			dev->mt76.q_rx[MT_RXQ_BAND1].wed = wed;
-+		}
-+
- 		ret = mt76_queue_alloc(dev, &dev->mt76.q_rx[MT_RXQ_BAND1],
- 				       MT_RXQ_ID(MT_RXQ_BAND1),
- 				       MT7996_RX_RING_SIZE,
-@@ -641,6 +698,12 @@ int mt7996_dma_init(struct mt7996_dev *dev)
- 		/* tx free notify event from WA for mt7992 band1 */
- 		if (mt7996_has_wa(dev)) {
- 			rx_base = MT_RXQ_RING_BASE(MT_RXQ_BAND1_WA) + hif1_ofs;
-+			if (mtk_wed_device_active(wed_hif2)) {
-+				dev->mt76.q_rx[MT_RXQ_BAND1_WA].flags =
-+					MT_WED_Q_TXFREE;
-+				dev->mt76.q_rx[MT_RXQ_BAND1_WA].wed = wed_hif2;
-+			}
-+
- 			ret = mt76_queue_alloc(dev, &dev->mt76.q_rx[MT_RXQ_BAND1_WA],
- 					       MT_RXQ_ID(MT_RXQ_BAND1_WA),
- 					       MT7996_RX_MCU_RING_SIZE,
-@@ -665,17 +728,32 @@ int mt7996_dma_init(struct mt7996_dev *dev)
- 		if (ret)
- 			return ret;
- 
--		/* tx free notify event from WA for band0 */
--		dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0].flags = MT_WED_Q_TXFREE;
--		dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0].wed = wed;
-+		if (is_mt7992(&dev->mt76)) {
-+			dev->mt76.q_rx[MT_RXQ_RRO_BAND1].flags =
-+				MT_WED_RRO_Q_DATA(1) | MT_QFLAG_WED_RRO_EN;
-+			dev->mt76.q_rx[MT_RXQ_RRO_BAND1].wed = wed;
-+			ret = mt76_queue_alloc(dev,
-+					       &dev->mt76.q_rx[MT_RXQ_RRO_BAND1],
-+					       MT_RXQ_ID(MT_RXQ_RRO_BAND1),
-+					       MT7996_RX_RING_SIZE,
-+					       MT7996_RX_BUF_SIZE,
-+					       MT_RXQ_RING_BASE(MT_RXQ_RRO_BAND1) + hif1_ofs);
-+			if (ret)
-+				return ret;
-+		} else {
-+			/* tx free notify event from WA for band0 */
-+			dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0].flags = MT_WED_Q_TXFREE;
-+			dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0].wed = wed;
- 
--		ret = mt76_queue_alloc(dev, &dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0],
--				       MT_RXQ_ID(MT_RXQ_TXFREE_BAND0),
--				       MT7996_RX_MCU_RING_SIZE,
--				       MT7996_RX_BUF_SIZE,
--				       MT_RXQ_RING_BASE(MT_RXQ_TXFREE_BAND0));
--		if (ret)
--			return ret;
-+			ret = mt76_queue_alloc(dev,
-+					       &dev->mt76.q_rx[MT_RXQ_TXFREE_BAND0],
-+					       MT_RXQ_ID(MT_RXQ_TXFREE_BAND0),
-+					       MT7996_RX_MCU_RING_SIZE,
-+					       MT7996_RX_BUF_SIZE,
-+					       MT_RXQ_RING_BASE(MT_RXQ_TXFREE_BAND0));
-+			if (ret)
-+				return ret;
-+		}
- 
- 		if (mt7996_band_valid(dev, MT_BAND2)) {
- 			/* rx rro data queue for band2 */
-@@ -778,18 +856,29 @@ void mt7996_dma_reset(struct mt7996_dev *dev, bool force)
- 		mt76_queue_reset(dev, dev->mt76.q_mcu[i], true);
- 
- 	mt76_for_each_q_rx(&dev->mt76, i) {
--		if (mtk_wed_device_active(&dev->mt76.mmio.wed))
--			if (mt76_queue_is_wed_rro(&dev->mt76.q_rx[i]) ||
--			    mt76_queue_is_wed_tx_free(&dev->mt76.q_rx[i]))
--				continue;
-+		struct mt76_queue *q = &dev->mt76.q_rx[i];
- 
--		mt76_queue_reset(dev, &dev->mt76.q_rx[i], true);
-+		if (mtk_wed_device_active(&dev->mt76.mmio.wed)) {
-+			if (mt76_queue_is_wed_rro(q) ||
-+			    mt76_queue_is_wed_tx_free(q)) {
-+				if (force && mt76_queue_is_wed_rro_data(q))
-+					mt76_queue_reset(dev, q, false);
-+				continue;
-+			}
-+		}
-+		mt76_queue_reset(dev, q, true);
- 	}
- 
- 	mt76_tx_status_check(&dev->mt76, true);
- 
--	mt76_for_each_q_rx(&dev->mt76, i)
-+	mt76_for_each_q_rx(&dev->mt76, i) {
-+		if (mtk_wed_device_active(&dev->mt76.mmio.wed) && force &&
-+		    (mt76_queue_is_wed_rro_ind(&dev->mt76.q_rx[i]) ||
-+		     mt76_queue_is_wed_rro_msdu_pg(&dev->mt76.q_rx[i])))
-+			continue;
-+
- 		mt76_queue_rx_reset(dev, i);
-+	}
- 
- 	mt7996_dma_enable(dev, !force);
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-index fb2428a9b877899a0a6fb879aba84e1f6e7840f2..a8b4ef433c2bfdbbf79ae7f6aa54f33a5d5254ff 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-@@ -690,12 +690,18 @@ static void mt7996_irq_tasklet(struct tasklet_struct *t)
- 					       dev->mt76.mmio.irqmask);
- 		if (intr1 & MT_INT_RX_TXFREE_EXT)
- 			napi_schedule(&dev->mt76.napi[MT_RXQ_TXFREE_BAND2]);
-+
-+		if (intr1 & MT_INT_RX_DONE_BAND2_EXT)
-+			napi_schedule(&dev->mt76.napi[MT_RXQ_BAND2]);
-+
-+		if (intr1 & MT_INT_RX_TXFREE_BAND1_EXT)
-+			napi_schedule(&dev->mt76.napi[MT_RXQ_BAND1_WA]);
- 	}
- 
- 	if (mtk_wed_device_active(wed)) {
- 		mtk_wed_device_irq_set_mask(wed, 0);
- 		intr = mtk_wed_device_irq_get(wed, dev->mt76.mmio.irqmask);
--		intr |= (intr1 & ~MT_INT_RX_TXFREE_EXT);
-+		intr |= (intr1 & ~MT_INT_TX_RX_DONE_EXT);
- 	} else {
- 		mt76_wr(dev, MT_INT_MASK_CSR, 0);
- 		if (dev->hif2)
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-index 97b84710667ffdb5b6188a72d6f8475f7eb9a128..c210dfd5e37a91ded70e09f51bca52406d7b9d53 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-@@ -178,7 +178,7 @@ enum mt7996_rxq_id {
- 	MT7996_RXQ_BAND1 = 5, /* for mt7992 */
- 	MT7996_RXQ_BAND2 = 5,
- 	MT7996_RXQ_RRO_BAND0 = 8,
--	MT7996_RXQ_RRO_BAND1 = 8,/* unused */
-+	MT7996_RXQ_RRO_BAND1 = 9,
- 	MT7996_RXQ_RRO_BAND2 = 6,
- 	MT7996_RXQ_MSDU_PG_BAND0 = 10,
- 	MT7996_RXQ_MSDU_PG_BAND1 = 11,
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
-index e942c0058731cd00bc592e506189820122f2a429..4b8bc008ab3143dcf44cd40b17b9f09778cfd464 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
-@@ -412,7 +412,9 @@ enum offs_rev {
- 
- #define MT_WFDMA0_RX_INT_PCIE_SEL		MT_WFDMA0(0x154)
- #define MT_WFDMA0_RX_INT_SEL_RING3		BIT(3)
-+#define MT_WFDMA0_RX_INT_SEL_RING5		BIT(5)
- #define MT_WFDMA0_RX_INT_SEL_RING6		BIT(6)
-+#define MT_WFDMA0_RX_INT_SEL_RING9		BIT(9)
- 
- #define MT_WFDMA0_MCU_HOST_INT_ENA		MT_WFDMA0(0x1f4)
- 
-@@ -451,6 +453,8 @@ enum offs_rev {
- 
- #define MT_WFDMA_HOST_CONFIG			MT_WFDMA_EXT_CSR(0x30)
- #define MT_WFDMA_HOST_CONFIG_PDMA_BAND		BIT(0)
-+#define MT_WFDMA_HOST_CONFIG_BAND0_PCIE1	BIT(20)
-+#define MT_WFDMA_HOST_CONFIG_BAND1_PCIE1	BIT(21)
- #define MT_WFDMA_HOST_CONFIG_BAND2_PCIE1	BIT(22)
- 
- #define MT_WFDMA_EXT_CSR_HIF_MISC		MT_WFDMA_EXT_CSR(0x44)
-@@ -514,7 +518,9 @@ enum offs_rev {
- #define MT_INT_RX_DONE_WA_EXT			BIT(3) /* for mt7992 */
- #define MT_INT_RX_DONE_WA_TRI			BIT(3)
- #define MT_INT_RX_TXFREE_MAIN			BIT(17)
-+#define MT_INT_RX_TXFREE_BAND1			BIT(15)
- #define MT_INT_RX_TXFREE_TRI			BIT(15)
-+#define MT_INT_RX_TXFREE_BAND1_EXT		BIT(19) /* for mt7992 two PCIE*/
- #define MT_INT_RX_TXFREE_BAND0_MT7990		BIT(14)
- #define MT_INT_RX_TXFREE_BAND1_MT7990		BIT(15)
- #define MT_INT_RX_DONE_BAND2_EXT		BIT(23)
-@@ -522,7 +528,7 @@ enum offs_rev {
- #define MT_INT_MCU_CMD				BIT(29)
- 
- #define MT_INT_RX_DONE_RRO_BAND0		BIT(16)
--#define MT_INT_RX_DONE_RRO_BAND1		BIT(16)
-+#define MT_INT_RX_DONE_RRO_BAND1		BIT(17)
- #define MT_INT_RX_DONE_RRO_BAND2		BIT(14)
- #define MT_INT_RX_DONE_RRO_IND			BIT(11)
- #define MT_INT_RX_DONE_MSDU_PG_BAND0		BIT(18)
-
--- 
-2.51.0
-
+        tglx
 
