@@ -4,68 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B790CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF362CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DyGoWBCJrIVU2lZonI26bVfo/Kr7IC665y1ClCQUDV4=; b=BTIhcyYD0cVtmMk9CtFv8ujxMn
-	2FSft0EyV1rrzsx0OFLY4NCkccsp6Y9B7jwR1Ygq39EPMjxXpbdHa4NmVsKvLkb0P4sjYoPLhtmbf
-	J21Bnjb7RSZ0CnXqFXSln3rXS5dW1Je2w1qrypAjpLUAC5oU5FYWnSuRurOm4HkiPLcyaVL9jeRbL
-	GZ3a1EQoB7kyoQFlyMTo0D75lf6FpAVEzLOcSidRfGBTDLOn0G33jLV7GKnBlMEkWrWQWvd5q6aoT
-	rnfhOm1Gsa1seISqAcby/ABoJVHEbVSuzggLaFzZAWKB2tfYAWR9XSn2KuzK3w9LfQPCupME+2SuG
-	b4jwZ3pw==;
+	bh=R5SuLPKP6QNmvh1TmNhSBXqAPxbhjyq+GV6/uflQ99Y=; b=s8n29YiBBMW1PUuRxq/iaTSzXI
+	+Yevjz3gOLAKzwhNtgB/KJZ+Gv0GKh+qC3YXL4gjBFgApjC9IxKYu7l6awaV5Pn8iF4Rcy7Xhw7pX
+	ND5AjGMxecbakny7HEyAZyE2BvyJ0GEFKZ4stMzyN2uPuKFpCb/7L7mfcEkBnDxL8p7CjNIDcQVjm
+	aGhGmn9jEAD4NyLRorV2D1fybrlroj8QLdqUx6/jnp1WM3hy6QrGKB9RWC65FeRD+60bzeTKuXEUF
+	P6qyP9x9oM3nshW7jHlo9zWk+xjulnG8CWg0eRb64dJg4+srkljgZeWw0Bel8LBGMJKF5QZtUozID
+	f9GgYEvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0Qk-000000088oV-2DGD;
-	Tue, 09 Sep 2025 15:38:50 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uw0Qw-000000088xO-2NER;
+	Tue, 09 Sep 2025 15:39:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvuUH-00000005tuj-3pwt
+	id 1uvupM-000000062w2-3fTc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 09:18:07 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1757409483;
+	Tue, 09 Sep 2025 09:39:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757410791;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=DyGoWBCJrIVU2lZonI26bVfo/Kr7IC665y1ClCQUDV4=;
-	b=ysdAX9a7kn7T9QlMJmRJpgsDVriVX93E2TCUtnhpkYmACln7+MeOu/IkNoRCq3XmGB7ki2
-	bbCNB9ZX8Xc+6obauVhjevhcE6OTbMNARbbUL5Fa4eOgFxnTR9PK32EBshHIwXqaoPD/cM
-	5ziG8OQhT683Prb62Ap8AbWTPV9UXhdtfJ5jsPVVv0F7PETtY2WRWur4aDKnQaxIKS9hYT
-	qLTe2zKno7QPu6O9tA9hGWrKjDLkitTp10IF0F0AOUPv6p6BrBPYNx5b5Y2Cf2QLvpDBPK
-	QHUZI0tufr2Ji002cXTtvyZZ6Eu9zZyCjHIzARrC9dB2YyOGxSgisrHV5+53cA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1757409483;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DyGoWBCJrIVU2lZonI26bVfo/Kr7IC665y1ClCQUDV4=;
-	b=wuIsSYusPYyMgMlU/Aut0z+gBUeiKg4JHx72+DsH1XpcB2lw7TLJa4RQYNcqrVl5SeMkBW
-	i4oPdIUi+1IEp/DQ==
-To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Sven Peter <sven@kernel.org>, Janne Grunau
- <j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark
- <james.clark@linaro.org>
-Subject: Re: [PATCH 01/25] irqdomain: Add firmware info reporting interface
-In-Reply-To: <20250908163127.2462948-2-maz@kernel.org>
-References: <20250908163127.2462948-1-maz@kernel.org>
- <20250908163127.2462948-2-maz@kernel.org>
-Date: Tue, 09 Sep 2025 11:18:01 +0200
-Message-ID: <87ikhsvvau.ffs@tglx>
+	bh=R5SuLPKP6QNmvh1TmNhSBXqAPxbhjyq+GV6/uflQ99Y=;
+	b=Y+epI0zh2NvHJ8tNDM4XfDtVs0zfX/m/9+oXaBSyGwyINeR1dClIC5KHuTdTEg3dYAT+/9
+	wAdLCS/QQuun/oCkIdguX57GUSsBu8pMFNhNQyhEj7UesGTUAw+3lp3dMV8FzybfobO11v
+	GhswMExGX3udNIAfH8dqfFzK2EgIWuo=
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
+ [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-589-LfdjCJ7fPkC-a3PzZD4uTQ-1; Tue, 09 Sep 2025 05:39:50 -0400
+X-MC-Unique: LfdjCJ7fPkC-a3PzZD4uTQ-1
+X-Mimecast-MFC-AGG-ID: LfdjCJ7fPkC-a3PzZD4uTQ_1757410790
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4b49666c8b8so116692171cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 02:39:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757410790; x=1758015590;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=R5SuLPKP6QNmvh1TmNhSBXqAPxbhjyq+GV6/uflQ99Y=;
+        b=wS+xMjjqLMRgxREUH7WnwG9ZBVyD7b4zc3EfiqkGN+s7AxQVtpNiSTBvrWy8Ioduoz
+         sajpvwtV5KyZXpwlGcooQuffFe0uxY0vBegVIu7t3NT3psxZWruHL0ECJOH4u74vg/xz
+         i7bdzVIZ00UblmzK5Cw0wCYa0Crb19c6Caq0i3UhzsRztqzy+d19CHykx3dRlgj0b9HX
+         k5I+Nm6F50AhpQ/pAzdzTEt0BN+DAXDer5Gd/RAUGGP1NJ5/Kr8dfwM/4xeUqt8i4nUt
+         PwPkQ8H+TkeNmWRpEPVsU4VCS1Ri8253Fxoa9Z4KHzlwYe+uHuop98CfH1R03E2wMXJR
+         UMrg==
+X-Forwarded-Encrypted: i=1; AJvYcCXX3ANRzXfI4Hf4aNHodpyn+qcK8k5OE3mjsyhXVtt5YoibGRS7AB1yNzU3wdBh4TI2/Fynf//jQGa8WEJ1uAYn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhE4QPeWnQ9KzyYOZWKHCudhc9kHOdWBq5GAPFAlgxST8mt/Eq
+	WNxob7ZTRLlBCh7lVSIMlamInQpKxHw640UNYNk+XCMm4miLfh6p2jWBSoje7mEeTG7Uhx1rDj3
+	ukHQSF6RZsO5kb9bzo8WUDg+FRgKNlP2MU+KGMiZ/UNs47WdVBGcjgTnKQCLpKSY3FgYpfjCceB
+	aA
+X-Gm-Gg: ASbGncsZqIaycPB8do37y+9dP7FaRNOEuepxhYuHgLrb9rvaZ+EWMf3viouLB+5tW7m
+	Jhb3JF8xK4ZQnt5ij2iuIIwt4x8+hDWXACC4hYiuqk9hJpeiVJr8WXCOOtQGqQuUk12w+cHIRdA
+	MAsPjqTLzADFLsjaHH/WIZnHgaA3pgUXbJYJByjWd//mGL8q0Tkat5+Yy3eQIP+FlHf1CFB3EIv
+	+DLLR9lO94Qg7D/758jEu4cDyYnrWKlPVdIesP49V74f827mhyHPcZoaY2Cz9sa7rDpqczgmjSO
+	CQ6dweD18NoLF0GB7P6clU9eMZE8CrP7bxsHMdBRVhMmO7ISlKnYI6JwHbt5/KvdgWlVw71FiO4
+	ksRxcIVqsoRtyYIzeyJw=
+X-Received: by 2002:a05:622a:14d:b0:4b2:8ac4:ef4a with SMTP id d75a77b69052e-4b5f848239dmr100627941cf.65.1757410789868;
+        Tue, 09 Sep 2025 02:39:49 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF32u03YWf0xFsHNwv4lu2FNzdlBMcHC/jd+orwwY/MAKlb650jQ6YeSwxCEA5UmnrgNTF0kw==
+X-Received: by 2002:a05:622a:14d:b0:4b2:8ac4:ef4a with SMTP id d75a77b69052e-4b5f848239dmr100627741cf.65.1757410789492;
+        Tue, 09 Sep 2025 02:39:49 -0700 (PDT)
+Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b61bbbc28csm6792371cf.28.2025.09.09.02.39.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Sep 2025 02:39:47 -0700 (PDT)
+Date: Tue, 9 Sep 2025 05:39:45 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] clk: conf: Support assigned-clock-sscs
+Message-ID: <aL_14XofqnwAd3QE@x1>
+References: <20250901-clk-ssc-version1-v2-0-1d0a486dffe6@nxp.com>
+ <20250901-clk-ssc-version1-v2-2-1d0a486dffe6@nxp.com>
+ <aLdmXcdJnoeXEJaQ@x1>
+ <20250909085013.GA26483@nxa18884-linux.ap.freescale.net>
 MIME-Version: 1.0
-Content-Type: text/plain
+In-Reply-To: <20250909085013.GA26483@nxa18884-linux.ap.freescale.net>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: delhX_3O20pfgOXTynMO9Gvp-XT-jFUyCqsaaGdwTdo_1757410790
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_021806_143995_90DAD39A 
-X-CRM114-Status: GOOD (  21.52  )
+X-CRM114-CacheID: sfid-20250909_023952_983406_26085DAF 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,111 +120,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 08 2025 at 17:31, Marc Zyngier wrote:
-> +/**
-> + * struct irq_fwspec_info - firmware provided IRQ information structure
-> + *
-> + * @fwspec:		IRQ specifier
+On Tue, Sep 09, 2025 at 04:50:13PM +0800, Peng Fan wrote:
+> Hi Brian,
+> On Tue, Sep 02, 2025 at 05:49:17PM -0400, Brian Masney wrote:
+> [...]
+> >> +		if (IS_ERR(clk)) {
+> >> +			if (PTR_ERR(clk) != -EPROBE_DEFER)
+> >> +				pr_warn("clk: couldn't get clock %d for %pOF\n",
+> >> +					index, node);
+> >> +			return PTR_ERR(clk);
+> >
+> >This chunk can be replaced with dev_warn_probe(). Sorry I missed that in
+> >v1. Otherwise the rest looks good to me. With that fixed:
+> 
+> dev_warn_probe() could not be used here. There is no 'device' pointer
+> here.
 
-s/IRQ/interrupt/g
+Ahh ok, gotcha.
 
-> + * @cpumask:		Affinity mask for this interrupt
-> + * @flags:		Information validity flags
-> + *
-> + * This structure reports firmware-specific information about an
-> + * interrupt. The only significant information is the affinity of a
-> + * per-CPU interrupt, but this is designed to be extended as required.
-> + */
-> +struct irq_fwspec_info {
-> +	struct irq_fwspec	fwspec;
-> +	const struct cpumask	*affinity;
-> +
-> +#define IRQ_FWSPEC_INFO_FWSPEC_VALID	BIT(0)
-> +#define IRQ_FWSPEC_INFO_AFFINITY_VALID	BIT(1)
-> +
-> +	unsigned long		flags;
+> I take __set_clk_parents() as example here, so use pr_warn().
+> 
+> >
+> >Reviewed-by: Brian Masney <bmasney@redhat.com>
+> 
+> Could I still keep this tag with keeping pr_warn()?
 
-Can you please not stick the defines into the struct. That makes my eyes
-bleed.
+Yes. Thank you!
 
-Also the ordering looks strange as flags should be before the fields it
-validates for readability sake, no?
+Brian
 
-> +};
-> +
->  /* Conversion function from of_phandle_args fields to fwspec  */
->  void of_phandle_args_to_fwspec(struct device_node *np, const u32 *args,
->  			       unsigned int count, struct irq_fwspec *fwspec);
-> @@ -69,6 +90,8 @@ void of_phandle_args_to_fwspec(struct device_node *np, const u32 *args,
->   * @translate:	Given @fwspec, decode the hardware irq number (@out_hwirq) and
->   *		linux irq type value (@out_type). This is a generalised @xlate
->   *		(over struct irq_fwspec) and is preferred if provided.
-> + * @get_info: Given @info, report additional firmware-provided information.
-> + *            Optional.
-
-get_info() is pretty generic. Can we have some more descriptive name for
-that? Also please keep the tabular formatting of the doc intact.
-
->   * @debug_show:	For domains to show specific data for an interrupt in debugfs.
->   *
->   * Functions below are provided by the driver and called whenever a new mapping
-> @@ -96,6 +119,7 @@ struct irq_domain_ops {
->  	void	(*deactivate)(struct irq_domain *d, struct irq_data *irq_data);
->  	int	(*translate)(struct irq_domain *d, struct irq_fwspec *fwspec,
->  			     unsigned long *out_hwirq, unsigned int *out_type);
-> +	int (*get_info)(struct irq_fwspec_info *info);
-
-TAB between int and '(*'
-
->  #endif
->  #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
->  	void	(*debug_show)(struct seq_file *m, struct irq_domain *d,
-> @@ -602,6 +626,8 @@ void irq_domain_free_irqs_parent(struct irq_domain *domain, unsigned int irq_bas
->  
->  int irq_domain_disconnect_hierarchy(struct irq_domain *domain, unsigned int virq);
->  
-> +int irq_populate_fwspec_info(struct irq_fwspec_info *info);
-> +
-> +
-> +#ifdef	CONFIG_IRQ_DOMAIN_HIERARCHY
-
-Stray TAB
-
-> +int irq_populate_fwspec_info(struct irq_fwspec_info *info)
-> +{
-> +	struct irq_domain *domain;
-> +
-> +	domain = fwspec_to_domain(&info->fwspec);
-
-Just move that to the declaration line
-
-> +	if (!domain || !domain->ops->get_info) {
-> +		info->flags = 0;
-> +		return 0;
-> +	}
-> +
-> +	return domain->ops->get_info(info);
-> +}
-> +#endif
-> +
-> +unsigned int irq_create_fwspec_mapping(struct irq_fwspec *fwspec)
-> +{
-> +	struct irq_domain *domain;
-> +	struct irq_data *irq_data;
-> +	irq_hw_number_t hwirq;
-> +	unsigned int type = IRQ_TYPE_NONE;
-
-I know you moved it from the original function, but can you please
-reorder it in reverse fir tree order?
-
-> +	int virq;
-> +
-> +	domain = fwspec_to_domain(fwspec);
->  	if (!domain) {
->  		pr_warn("no irq domain found for %s !\n",
->  			of_node_full_name(to_of_node(fwspec->fwnode)));
-
-Thanks,
-
-        tglx
 
