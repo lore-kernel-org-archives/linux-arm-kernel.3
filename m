@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE76CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FDA7CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=axp0FTGXefGro3RhqluT9iJwb+PyenJkwISYzkbLArA=; b=eLjVmjrJhWLoPZLXXoTmdi/Sfq
-	qgQsFf+a1zOucPeXV6xIOoJr9pCxOGqqCFn9yrhQCfQlGBvC69s60rr2FN1tmlHAYet/c8I1/JuxF
-	UxZEE9qDmRJcQVkXqPXtTyvmO3k4HQPw6BtHP/oojzEA9Q3LIZTRTE1P3faz/zUqCGMJ95Z3ANcBr
-	ecVsC+1n8Q2RqHFYMwO9i7+h55liiPhgBR6X0S5/Ieb09xnYGmNLVGBlgbwFSHYi2/WIy6eoUBVym
-	MfVuvGUIEgXE1HWnc8Kl6XzATPrrYnhfjxqfc+qkN9z8HEbYoQaVFO//WuG+xKvfVpCZWcCL+Hpey
-	j5KG5MQg==;
+	bh=xdzMewHPxt+AhPGdNNKdahj+Cs93RokZh483ei+i/DU=; b=DOdy97E2RAjL+HO/pmVZC+G0Tg
+	yDDV8vKMwiDCjdA/I3w+LO9sjhrlGdEUYM0JUO8YiCNETjI0h+Zb50vt3Os+dhajKXUfbar9lW+fv
+	4dqDg9pdRI+WJtnEchHUIIC2I5mE14EURgmtV+6OoqipBvsH48nSNwWK7z6oS231xSJXCKTpAADG0
+	12cALlal0TN7G47/eC77rsuAdkb3HF5ohOxOkaN0KneaDgh9cbc3rIc3YNTax9dbW5DXXkvhL4jcp
+	xX1yjAJYwr2H0s2WdJ7oiD8UvnvSgkOqyXxNGIVcP88WbuwUWB1Q8igU227LojIpiyYOut/FkQCzl
+	tgo0EQYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1wh-00000008owR-3vae;
-	Tue, 09 Sep 2025 17:15:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwWz-00000006jxy-1kHx
+	id 1uw1wj-00000008oyk-0Qwn;
+	Tue, 09 Sep 2025 17:15:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvwXB-00000006k7K-042e
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 09 Sep 2025 11:29:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=xdzMewHPxt+AhPGdNNKdahj+Cs93RokZh483ei+i/DU=; b=AHpZQU+DWI2srXF/UG75jh1pM4
+	+EDzSv7p7//R9igY+Ar5miQXSz+EfUR7F6aZd4YKOojOkOsAzlz+snCAozdN0rp3kP/3Ozsr4TVnQ
+	FQsey8x8TS6JlG9vUwIIKTOMe6RxiXjvH2xDGx/igAIIL2dGjeMWPmfK4asugdL8QEdIWIGB4Zkjm
+	7RCPRP8RK7SgWRzsqPGXbCFsZEtigGU4ColEqw4q5Sf4x1YDukAd4/P0IsU/yGKWhRTyv5kQvNQqg
+	wFvWFKOlYuR/7XqqUCrgnLt6sPVWxo+at3dGq5WrQ521tstEvVGwo9Wstp1dndRAU/wEx8VuH4N5c
+	JFq1KNbQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvwX7-00000005JbS-3rmV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 11:29:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CB201424;
-	Tue,  9 Sep 2025 04:28:52 -0700 (PDT)
-Received: from [10.57.79.24] (unknown [10.57.79.24])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CF8BD3F694;
-	Tue,  9 Sep 2025 04:28:49 -0700 (PDT)
-Message-ID: <0fd00f60-d3f1-4c86-925c-6947decb5159@arm.com>
-Date: Tue, 9 Sep 2025 13:28:46 +0200
+	Tue, 09 Sep 2025 11:29:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7FB25442BD;
+	Tue,  9 Sep 2025 11:29:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A351C4CEF4;
+	Tue,  9 Sep 2025 11:29:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757417348;
+	bh=UsvqM3BvXaxvpr7HcsqbbmUjuygpPNM05UVXcP+zk6M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=JfGhZbUXLGpgm8rpE3DoAq1yWTgRZRTgHJPTRLXqaWMw5x+NPjdxYaU5ueXbro99R
+	 DeQptjkBcM7N4w8tArpGzS/0muKochPMZEQNfW5FVQYb5pbJMh5DyWXdUfYB+ljnwN
+	 t6Z64i4LIvmuUIsrbroo9IT//wPzeophVos2Nfs3jAgfYhc5ATzYDWNKbJqFVRTW+m
+	 BnccXopkxy8pwW7BThJqbWwZkB9+X3CVYQ9bblgC2yt4hKLtu7wzB1JayObQMOIFuX
+	 CE5dszNFhaSyZufKOD31e+LNPmeaqTQEPytWYGov1K5OdP2iY41xeUb1PXWXfpWWH0
+	 aUVQ+H8MUWVqA==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Tue, 09 Sep 2025 13:27:47 +0200
+Subject: [PATCH v3 28/39] drm/sun4i: Switch to
+ drm_atomic_get_new_crtc_state()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/7] x86/xen: support nested lazy_mmu sections (again)
-To: David Hildenbrand <david@redhat.com>, =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?=
- <jgross@suse.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908073931.4159362-5-kevin.brodsky@arm.com>
- <aa28c1a7-82fc-42af-9904-a4d4db078a19@redhat.com>
- <360712fa-f7a0-4674-acc4-76f79141fe4f@suse.com>
- <57f49b72-2126-48f0-a4ef-4b138bd0bead@redhat.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <57f49b72-2126-48f0-a4ef-4b138bd0bead@redhat.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20250909-drm-no-more-existing-state-v3-28-1c7a7d960c33@kernel.org>
+References: <20250909-drm-no-more-existing-state-v3-0-1c7a7d960c33@kernel.org>
+In-Reply-To: <20250909-drm-no-more-existing-state-v3-0-1c7a7d960c33@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, Maxime Ripard <mripard@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2306; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=UsvqM3BvXaxvpr7HcsqbbmUjuygpPNM05UVXcP+zk6M=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDBkH+PVW//rAxfWsP6XwVd5VZZ4XFodK3DlFEw79sZ20q
+ e7d1Z+7OqayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBElkgyNmwNPC992y1tDldQ
+ 39wwuXlV/H3y36JsupPczXg+3JoauNvJuEq6UXR9l0vGpk0m8nPLGOs07QxnpKyMv5GveSdJs+0
+ /48LMc5+m1T/e9O4Z0y2B3TMeePe0rzyyc/WqbtsOtmezQ04BAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_042901_536096_3D33B148 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20250909_122910_375143_1C1941F4 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,106 +101,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/09/2025 11:56, David Hildenbrand wrote:
-> On 09.09.25 11:37, Jürgen Groß wrote:
->> On 09.09.25 11:13, David Hildenbrand wrote:
->>> On 08.09.25 09:39, Kevin Brodsky wrote:
->>>> Commit 49147beb0ccb ("x86/xen: allow nesting of same lazy mode")
->>>> originally introduced support for nested lazy sections (LAZY_MMU and
->>>> LAZY_CPU). It later got reverted by commit c36549ff8d84 as its
->>>> implementation turned out to be intolerant to preemption.
->>>>
->>>> Now that the lazy_mmu API allows enter() to pass through a state to
->>>> the matching leave() call, we can support nesting again for the
->>>> LAZY_MMU mode in a preemption-safe manner. If xen_enter_lazy_mmu() is
->>>> called inside an active lazy_mmu section, xen_lazy_mode will already
->>>> be set to XEN_LAZY_MMU and we can then return LAZY_MMU_NESTED to
->>>> instruct the matching xen_leave_lazy_mmu() call to leave
->>>> xen_lazy_mode unchanged.
->>>>
->>>> The only effect of this patch is to ensure that xen_lazy_mode
->>>> remains set to XEN_LAZY_MMU until the outermost lazy_mmu section
->>>> ends. xen_leave_lazy_mmu() still calls xen_mc_flush()
->>>> unconditionally.
->>>>
->>>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
->>>> ---
->>>>    arch/x86/include/asm/paravirt.h       |  6 ++----
->>>>    arch/x86/include/asm/paravirt_types.h |  4 ++--
->>>>    arch/x86/xen/mmu_pv.c                 | 11 ++++++++---
->>>>    3 files changed, 12 insertions(+), 9 deletions(-)
->>>>
->>>> diff --git a/arch/x86/include/asm/paravirt.h
->>>> b/arch/x86/include/asm/paravirt.h
->>>> index 65a0d394fba1..4ecd3a6b1dea 100644
->>>> --- a/arch/x86/include/asm/paravirt.h
->>>> +++ b/arch/x86/include/asm/paravirt.h
->>>> @@ -529,14 +529,12 @@ static inline void
->>>> arch_end_context_switch(struct
->>>> task_struct *next)
->>>>    #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->>>>    static inline lazy_mmu_state_t arch_enter_lazy_mmu_mode(void)
->>>>    {
->>>> -    PVOP_VCALL0(mmu.lazy_mode.enter);
->>>> -
->>>> -    return LAZY_MMU_DEFAULT;
->>>> +    return PVOP_CALL0(lazy_mmu_state_t, mmu.lazy_mode.enter);
->>>>    }
->>>>    static inline void arch_leave_lazy_mmu_mode(lazy_mmu_state_t state)
->>>>    {
->>>> -    PVOP_VCALL0(mmu.lazy_mode.leave);
->>>> +    PVOP_VCALL1(mmu.lazy_mode.leave, state);
->>>>    }
->>>>    static inline void arch_flush_lazy_mmu_mode(void)
->>>> diff --git a/arch/x86/include/asm/paravirt_types.h
->>>> b/arch/x86/include/asm/
->>>> paravirt_types.h
->>>> index bc1af86868a3..b7c567ccbf32 100644
->>>> --- a/arch/x86/include/asm/paravirt_types.h
->>>> +++ b/arch/x86/include/asm/paravirt_types.h
->>>> @@ -45,8 +45,8 @@ typedef int lazy_mmu_state_t;
->>>>    struct pv_lazy_ops {
->>>>        /* Set deferred update mode, used for batching operations. */
->>>> -    void (*enter)(void);
->>>> -    void (*leave)(void);
->>>> +    lazy_mmu_state_t (*enter)(void);
->>>> +    void (*leave)(lazy_mmu_state_t);
->>>>        void (*flush)(void);
->>>>    } __no_randomize_layout;
->>>>    #endif
->>>> diff --git a/arch/x86/xen/mmu_pv.c b/arch/x86/xen/mmu_pv.c
->>>> index 2039d5132ca3..6e5390ff06a5 100644
->>>> --- a/arch/x86/xen/mmu_pv.c
->>>> +++ b/arch/x86/xen/mmu_pv.c
->>>> @@ -2130,9 +2130,13 @@ static void xen_set_fixmap(unsigned idx,
->>>> phys_addr_t
->>>> phys, pgprot_t prot)
->>>>    #endif
->>>>    }
->>>> -static void xen_enter_lazy_mmu(void)
->>>> +static lazy_mmu_state_t xen_enter_lazy_mmu(void)
->>>>    {
->>>> +    if (this_cpu_read(xen_lazy_mode) == XEN_LAZY_MMU)
->>>> +        return LAZY_MMU_NESTED;
->>>> +
->>>
->>> You mention above "preemption-safe manner" above, so I am wondering,
->>> what if we get preempted immediately after doing the this_cpu_read()
->>> and get
->>> scheduled on another CPU?
->>>
->>
->> This should still be correct: preemption needs a context switch to
->> happen,
->> so xen_start_context_switch() and xen_end_context_switch() are involved.
->> Those are dealing with this problem by doing the right thing in the old
->> and the new context.
->
-> Thanks, that makes sense. Would be valuable to add that detail to the
-> patch description. 
+The sun4i atomic_check implementation uses the deprecated
+drm_atomic_get_existing_crtc_state() helper.
 
-That's a fair point, Alexander was also wondering in v1 (and so was I
-when I worked on this patch). Will clarify in v3.
+This hook is called as part of the global atomic_check, thus before the
+states are swapped. The existing state thus points to the new state, and
+we can use drm_atomic_get_new_crtc_state() instead.
 
-- Kevin
+Reviewed-by: Ville Syrjälä <ville.syrjala@linux.intel.com>
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+To: Maxime Ripard <mripard@kernel.org>
+To: Chen-Yu Tsai <wens@csie.org>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-sunxi@lists.linux.dev
+---
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 3 +--
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+index f97be0040aab29cb4e138fcceb20e90c72db0252..94ac6ad6f30688a048e594811d2ae72aaa44376d 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
++++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+@@ -204,12 +204,11 @@ static int sun8i_ui_layer_atomic_check(struct drm_plane *plane,
+ 	int min_scale, max_scale;
+ 
+ 	if (!crtc)
+ 		return 0;
+ 
+-	crtc_state = drm_atomic_get_existing_crtc_state(state,
+-							crtc);
++	crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
+ 	if (WARN_ON(!crtc_state))
+ 		return -EINVAL;
+ 
+ 	min_scale = DRM_PLANE_NO_SCALING;
+ 	max_scale = DRM_PLANE_NO_SCALING;
+diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
+index a09ee4097537fca8b653f34a833b36b69e343ea5..1f77e1d2984548e746805f8323f537f3b4d93198 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
++++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
+@@ -325,12 +325,11 @@ static int sun8i_vi_layer_atomic_check(struct drm_plane *plane,
+ 	int min_scale, max_scale;
+ 
+ 	if (!crtc)
+ 		return 0;
+ 
+-	crtc_state = drm_atomic_get_existing_crtc_state(state,
+-							crtc);
++	crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
+ 	if (WARN_ON(!crtc_state))
+ 		return -EINVAL;
+ 
+ 	min_scale = DRM_PLANE_NO_SCALING;
+ 	max_scale = DRM_PLANE_NO_SCALING;
+
+-- 
+2.50.1
+
 
