@@ -4,132 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15CEECA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD153CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zWcQIXAgSZE3jCftx8qMBMf1VpUurIYqH9HodqEjE0k=; b=212thhoa+Rr5BVtWwSqkcMiFlA
-	8CgF7hv1hjACJjSKTmTvzubc8WgdV92Y6Zfwmb5tZwx+obuiq/8RMtEjIEntklxpHmY09XGC3juqo
-	kjNJVUOSmsWEDvZE/ADW3tQyyqO5qkX1RapGYTi3kIBwhGBnliyTU+RySDzdc2IkQgJihkTmSG/3t
-	67VXKJHb05KIxqOD8QrqmxSb/1v/ZjFbwyXb+oYiyqFg5PgPy4H97fIIuh8tBJK9BtT8nRmk3lwbj
-	tqyaHnU0YM2T8c0rFHjnq+sjeAkQuBX2vVlLvpXLBHoqvDXjHXKYVHzoum9C24Fm+nuUhI0Ml+o7+
-	dJbLb2xA==;
+	bh=pQlodsQ7D10HyiL8kofWE+gF1jwaEZI79SJcHGpg5BY=; b=hJIO9Fv3pvqfeMC9JNrxw5TANj
+	hsK9vyx9zJ0TDYDKK5ZKqOBYIhpJTW6EQISAXLsvL2ZlNLyMc/X1fJ31ImODEXpd7r/3q2bUs5bjC
+	WWnCoej16Apy6OZHIZVWn+x5OagicZpjN/tqGvERjkprb93vgcXdMLHD6BnDMu09Yhs7+lTcsOi5n
+	V8/zpDcIVphAzDEr4t8UCr2SBsgVzWnT+T/yvJODKhjU1wnfd11C3IGNYcEe6ZXJRh5OAq86hNgNM
+	QXw7a7OpbMya+AmufdEtpd2Mkx6eoJz+x3I0xvAZaE1XnYv5uQtfgRE0sOiik5E70LdkJ9Dkz3KBD
+	ZeRgO+MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0RS-000000089Sl-3Hcw;
-	Tue, 09 Sep 2025 15:39:34 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uw0RY-000000089Y7-0red;
+	Tue, 09 Sep 2025 15:39:40 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvuqi-0000000643j-0FQd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 09:41:17 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58983LO1017978;
-	Tue, 9 Sep 2025 09:40:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=zWcQIXAgSZE3jCftx8qMBMf1VpUurI
-	YqH9HodqEjE0k=; b=ERAKr2/0b+85Gl0gJGPChBwQF66LW3Oi2PTpVHT0S9O3cT
-	Ogh6Obsb22mSDB6RKtFvicQxQH7Em5A8oD0I5nxAwaNb8/uo3nlQzflgWHoDaI73
-	HJYbO2EM++BmL63dYswiKyf3DCl4sC43LQKUJvgYSzJoqo9flhIr4HpJX5FgSugx
-	nxkpTZzhMCKXzjU82MrRkLPjYDbZe873Vx7Wql1XT2f1I7N0MW1XZjVRPa59K2LD
-	VV7jPCPICsB1PgyR4Skp/kJKJN0V5UfeoBSNtFq2eg9a3cWAGVbhYaW2tp1HOhpP
-	+lYn2f2O6UcFcD/48WOX69CsC02e71Jd9O9OLeiA==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490acqxs3x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 09:40:44 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5899HIXj021030;
-	Tue, 9 Sep 2025 09:40:43 GMT
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490acqxs3v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 09:40:43 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5896bOAX008428;
-	Tue, 9 Sep 2025 09:40:42 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 49109pjf7r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 09:40:42 +0000
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5899eexO52167112
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 9 Sep 2025 09:40:40 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 604B32004D;
-	Tue,  9 Sep 2025 09:40:40 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8D98620043;
-	Tue,  9 Sep 2025 09:40:38 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.87.149.210])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue,  9 Sep 2025 09:40:38 +0000 (GMT)
-Date: Tue, 9 Sep 2025 11:40:37 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
-        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org
-Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
-Message-ID: <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908073931.4159362-3-kevin.brodsky@arm.com>
- <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
+	id 1uvuqz-000000064D0-0RVD;
+	Tue, 09 Sep 2025 09:41:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757410893; x=1788946893;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=iDZvQAjGdFONOD0C7BJifOhr90vJwi4Gs1ZMg3jQOdU=;
+  b=RCmWOH5GBiouh61tzjqzaw0d8dPCL9TK6Tm97vP7dXKcXSU8NZuAKnjI
+   TW6PPATpgeLIFn7ELfvbzibmuFP5iN22jezwUOBRK9CN4UJ4tmU29f2je
+   99gTXjPD6PMHTAREaedVTk6gh92QZC4HTrvoleLsKgobhTpyCvwK2miN0
+   6O4v6yGUAwc5adcfVXzWVY7MmPZHb7rktCtOSzbkAIcMfLGY3MxUe6Tqo
+   rn462MfXh1KBcKkqG2ZAxSTPJITX2DBSIxOOMpT+eGWLJeTajJnv9mMV0
+   c7ADXt58MAPX5kazK5HB2/3zqkZ+fhV2x6gLxBk2dvVba2qDqN6rU4+J3
+   g==;
+X-CSE-ConnectionGUID: idXvpGQgTo2xB4pyQ5bF2g==
+X-CSE-MsgGUID: sllUGolUR6auNCGFG7LLXg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11547"; a="62315390"
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="62315390"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 02:41:32 -0700
+X-CSE-ConnectionGUID: y4y1TQowQ3WfYBEL7QqmVw==
+X-CSE-MsgGUID: A6PAWP7WSNC5vsBA9uaY2Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="173163265"
+Received: from kuha.fi.intel.com ([10.237.72.152])
+  by orviesa008.jf.intel.com with SMTP; 09 Sep 2025 02:41:25 -0700
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Tue, 09 Sep 2025 12:41:23 +0300
+Date: Tue, 9 Sep 2025 12:41:23 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Sven Peter <sven@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	Ran Wang <ran.wang_1@nxp.com>, Peter Chen <peter.chen@nxp.com>,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
+Subject: Re: [PATCH v2 10/22] usb: typec: tipd: Read USB4, Thunderbolt and
+ DisplayPort status for cd321x
+Message-ID: <aL_2Q6obeQdYZuHE@kuha.fi.intel.com>
+References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
+ <20250906-atcphy-6-17-v2-10-52c348623ef6@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: CdA-H8SVNxdbZ5nTnrwiW_1I0UR-iy8D
-X-Authority-Analysis: v=2.4 cv=Mp1S63ae c=1 sm=1 tr=0 ts=68bff61c cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=xmnICLmBNk8AszDsb_MA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: uTrJRk-Nt5us74ILiXCJ7SL_HOQZhnLx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAwMCBTYWx0ZWRfXy71df+5jjUw/
- ntr+yICfUeQPRObSlyN3Yh1y4xhRnHGHhZFfRZCcvuRAacCykIbiLJkHQ30eUBJKOGl10TSIS42
- +3nIeLTG23/y6JszEVZ1Ed+b1iNk9DDxZsvwkIfCXfzVoNJXgV1cawSe1+N/vBFlEkK7ENOmW+P
- 5QFev+/ePpqxVRniHssrBkwoaFfvkZZLW/2f9hVQyEtzMR8VsnBMkGYw6WFkufIgIXN5VkhAYVQ
- X+97jjddjBhYGKbSAHhaXMbOCL2qCKM7v5sv/V5bw5Wl8DJ9XDeAuCQ/41VgYzOkHMOtqD+ztQw
- 0x/7e9psYHEV7vlYlvzJw+aRJnWLrm5gVwmA8e51Z46BZm3hlJcuLkZtLVQrCNNUZn7EXpW7Hgp
- /9u+P9X3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-08_06,2025-09-08_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 clxscore=1011 phishscore=0 spamscore=0
- adultscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060000
+In-Reply-To: <20250906-atcphy-6-17-v2-10-52c348623ef6@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_024116_350720_A3D0941C 
-X-CRM114-Status: GOOD (  35.86  )
+X-CRM114-CacheID: sfid-20250909_024133_166301_3FD9A8D8 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,68 +97,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 11:07:36AM +0200, David Hildenbrand wrote:
-> On 08.09.25 09:39, Kevin Brodsky wrote:
-> > arch_{enter,leave}_lazy_mmu_mode() currently have a stateless API
-> > (taking and returning no value). This is proving problematic in
-> > situations where leave() needs to restore some context back to its
-> > original state (before enter() was called). In particular, this
-> > makes it difficult to support the nesting of lazy_mmu sections -
-> > leave() does not know whether the matching enter() call occurred
-> > while lazy_mmu was already enabled, and whether to disable it or
-> > not.
-> > 
-> > This patch gives all architectures the chance to store local state
-> > while inside a lazy_mmu section by making enter() return some value,
-> > storing it in a local variable, and having leave() take that value.
-> > That value is typed lazy_mmu_state_t - each architecture defining
-> > __HAVE_ARCH_ENTER_LAZY_MMU_MODE is free to define it as it sees fit.
-> > For now we define it as int everywhere, which is sufficient to
-> > support nesting.
-...
-> > {
-> > + lazy_mmu_state_t lazy_mmu_state;
-> > ...
-> > - arch_enter_lazy_mmu_mode();
-> > + lazy_mmu_state = arch_enter_lazy_mmu_mode();
-> > ...
-> > - arch_leave_lazy_mmu_mode();
-> > + arch_leave_lazy_mmu_mode(lazy_mmu_state);
-> > ...
-> > }
-> > 
-> > * In a few cases (e.g. xen_flush_lazy_mmu()), a function knows that
-> >    lazy_mmu is already enabled, and it temporarily disables it by
-> >    calling leave() and then enter() again. Here we want to ensure
-> >    that any operation between the leave() and enter() calls is
-> >    completed immediately; for that reason we pass LAZY_MMU_DEFAULT to
-> >    leave() to fully disable lazy_mmu. enter() will then re-enable it
-> >    - this achieves the expected behaviour, whether nesting occurred
-> >    before that function was called or not.
-> > 
-> > Note: it is difficult to provide a default definition of
-> > lazy_mmu_state_t for architectures implementing lazy_mmu, because
-> > that definition would need to be available in
-> > arch/x86/include/asm/paravirt_types.h and adding a new generic
-> >   #include there is very tricky due to the existing header soup.
+On Sat, Sep 06, 2025 at 03:43:23PM +0000, Sven Peter wrote:
+> CD321x supports various alternate modes and stores information once
+> these are entered into separate status registers. Read those when they
+> are active when reading TPS_DATA_STATUS to prepare supporting these.
 > 
-> Yeah, I was wondering about exactly that.
-> 
-> In particular because LAZY_MMU_DEFAULT etc resides somewehere compeltely
-> different.
-> 
-> Which raises the question: is using a new type really of any benefit here?
-> 
-> Can't we just use an "enum lazy_mmu_state" and call it a day?
+> Signed-off-by: Sven Peter <sven@kernel.org>
 
-I could envision something completely different for this type on s390,
-e.g. a pointer to a per-cpu structure. So I would really ask to stick
-with the current approach.
+Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 
-> -- 
-> Cheers
+> ---
+>  drivers/usb/typec/tipd/core.c | 80 ++++++++++++++++++++++++++++++++++++++++---
+>  1 file changed, 76 insertions(+), 4 deletions(-)
 > 
-> David / dhildenb
+> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+> index 51b0f3be8b66a743ddc3ea96c1b25f597a1e8f6c..afd11b3e1ae596c7f3283e4336aaa57874c9378d 100644
+> --- a/drivers/usb/typec/tipd/core.c
+> +++ b/drivers/usb/typec/tipd/core.c
+> @@ -35,14 +35,18 @@
+>  #define TPS_REG_INT_MASK2		0x17
+>  #define TPS_REG_INT_CLEAR1		0x18
+>  #define TPS_REG_INT_CLEAR2		0x19
+> -#define TPS_REG_SYSTEM_POWER_STATE	0x20
+>  #define TPS_REG_STATUS			0x1a
+> +#define TPS_REG_SYSTEM_POWER_STATE	0x20
+> +#define TPS_REG_USB4_STATUS		0x24
+>  #define TPS_REG_SYSTEM_CONF		0x28
+>  #define TPS_REG_CTRL_CONF		0x29
+>  #define TPS_REG_BOOT_STATUS		0x2D
+>  #define TPS_REG_POWER_STATUS		0x3f
+>  #define TPS_REG_PD_STATUS		0x40
+>  #define TPS_REG_RX_IDENTITY_SOP		0x48
+> +#define TPS_REG_CF_VID_STATUS		0x5e
+> +#define TPS_REG_DP_SID_STATUS		0x58
+> +#define TPS_REG_INTEL_VID_STATUS	0x59
+>  #define TPS_REG_DATA_STATUS		0x5f
+>  #define TPS_REG_SLEEP_CONF		0x70
+>  
+> @@ -85,6 +89,31 @@ struct tps6598x_rx_identity_reg {
+>  	struct usb_pd_identity identity;
+>  } __packed;
+>  
+> +/* TPS_REG_USB4_STATUS */
+> +struct tps6598x_usb4_status_reg {
+> +	u8 mode_status;
+> +	__le32 eudo;
+> +	__le32 unknown;
+> +} __packed;
+> +
+> +/* TPS_REG_DP_SID_STATUS */
+> +struct tps6598x_dp_sid_status_reg {
+> +	u8 mode_status;
+> +	__le32 status_tx;
+> +	__le32 status_rx;
+> +	__le32 configure;
+> +	__le32 mode_data;
+> +} __packed;
+> +
+> +/* TPS_REG_INTEL_VID_STATUS */
+> +struct tps6598x_intel_vid_status_reg {
+> +	u8 mode_status;
+> +	__le32 attention_vdo;
+> +	__le16 enter_vdo;
+> +	__le16 device_mode;
+> +	__le16 cable_mode;
+> +} __packed;
+> +
+>  /* Standard Task return codes */
+>  #define TPS_TASK_TIMEOUT		1
+>  #define TPS_TASK_REJECTED		3
+> @@ -121,6 +150,7 @@ struct tipd_data {
+>  	int (*apply_patch)(struct tps6598x *tps);
+>  	int (*init)(struct tps6598x *tps);
+>  	int (*switch_power_state)(struct tps6598x *tps, u8 target_state);
+> +	bool (*read_data_status)(struct tps6598x *tps);
+>  	int (*reset)(struct tps6598x *tps);
+>  };
+>  
+> @@ -151,6 +181,10 @@ struct tps6598x {
+>  
+>  struct cd321x {
+>  	struct tps6598x tps;
+> +
+> +	struct tps6598x_dp_sid_status_reg dp_sid_status;
+> +	struct tps6598x_intel_vid_status_reg intel_vid_status;
+> +	struct tps6598x_usb4_status_reg usb4_status;
+>  };
+>  
+>  static enum power_supply_property tps6598x_psy_props[] = {
+> @@ -505,6 +539,41 @@ static bool tps6598x_read_data_status(struct tps6598x *tps)
+>  	return true;
+>  }
+>  
+> +static bool cd321x_read_data_status(struct tps6598x *tps)
+> +{
+> +	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+> +	int ret;
+> +
+> +	ret = tps6598x_read_data_status(tps);
+> +	if (ret < 0)
+> +		return false;
+> +
+> +	if (tps->data_status & TPS_DATA_STATUS_DP_CONNECTION) {
+> +		ret = tps6598x_block_read(tps, TPS_REG_DP_SID_STATUS,
+> +				&cd321x->dp_sid_status, sizeof(cd321x->dp_sid_status));
+> +		if (ret)
+> +			dev_err(tps->dev, "Failed to read DP SID Status: %d\n",
+> +				ret);
+> +	}
+> +
+> +	if (tps->data_status & TPS_DATA_STATUS_TBT_CONNECTION) {
+> +		ret = tps6598x_block_read(tps, TPS_REG_INTEL_VID_STATUS,
+> +				&cd321x->intel_vid_status, sizeof(cd321x->intel_vid_status));
+> +		if (ret)
+> +			dev_err(tps->dev, "Failed to read Intel VID Status: %d\n", ret);
+> +	}
+> +
+> +	if (tps->data_status & CD321X_DATA_STATUS_USB4_CONNECTION) {
+> +		ret = tps6598x_block_read(tps, TPS_REG_USB4_STATUS,
+> +				&cd321x->usb4_status, sizeof(cd321x->usb4_status));
+> +		if (ret)
+> +			dev_err(tps->dev,
+> +				"Failed to read USB4 Status: %d\n", ret);
+> +	}
+> +
+> +	return true;
+> +}
+> +
+>  static bool tps6598x_read_power_status(struct tps6598x *tps)
+>  {
+>  	u16 pwr_status;
+> @@ -565,7 +634,7 @@ static irqreturn_t cd321x_interrupt(int irq, void *data)
+>  			goto err_unlock;
+>  
+>  	if (event & APPLE_CD_REG_INT_DATA_STATUS_UPDATE)
+> -		if (!tps6598x_read_data_status(tps))
+> +		if (!tps->data->read_data_status(tps))
+>  			goto err_unlock;
+>  
+>  	/* Handle plug insert or removal */
+> @@ -614,7 +683,7 @@ static irqreturn_t tps25750_interrupt(int irq, void *data)
+>  			goto err_clear_ints;
+>  
+>  	if (event[0] & TPS_REG_INT_DATA_STATUS_UPDATE)
+> -		if (!tps6598x_read_data_status(tps))
+> +		if (!tps->data->read_data_status(tps))
+>  			goto err_clear_ints;
+>  
+>  	/*
+> @@ -688,7 +757,7 @@ static irqreturn_t tps6598x_interrupt(int irq, void *data)
+>  			goto err_unlock;
+>  
+>  	if ((event1[0] | event2[0]) & TPS_REG_INT_DATA_STATUS_UPDATE)
+> -		if (!tps6598x_read_data_status(tps))
+> +		if (!tps->data->read_data_status(tps))
+>  			goto err_unlock;
+>  
+>  	/* Handle plug insert or removal */
+> @@ -1534,6 +1603,7 @@ static const struct tipd_data cd321x_data = {
+>  	.trace_power_status = trace_tps6598x_power_status,
+>  	.trace_status = trace_tps6598x_status,
+>  	.init = cd321x_init,
+> +	.read_data_status = cd321x_read_data_status,
+>  	.reset = cd321x_reset,
+>  	.switch_power_state = cd321x_switch_power_state,
+>  };
+> @@ -1550,6 +1620,7 @@ static const struct tipd_data tps6598x_data = {
+>  	.trace_status = trace_tps6598x_status,
+>  	.apply_patch = tps6598x_apply_patch,
+>  	.init = tps6598x_init,
+> +	.read_data_status = tps6598x_read_data_status,
+>  	.reset = tps6598x_reset,
+>  };
+>  
+> @@ -1565,6 +1636,7 @@ static const struct tipd_data tps25750_data = {
+>  	.trace_status = trace_tps25750_status,
+>  	.apply_patch = tps25750_apply_patch,
+>  	.init = tps25750_init,
+> +	.read_data_status = tps6598x_read_data_status,
+>  	.reset = tps25750_reset,
+>  };
 
-Thanks!
+-- 
+heikki
 
