@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18FCCAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CD0CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ta3EUM01m/eAOgCWnf2NHrrKHrpoLJFvsTPitvIsZAw=; b=juuk92dthvIAKsJ4Abw1NE7Z6C
-	H0TN3OcN+yr/edR8l2LbU34yVBTZd9Pf8bxwndvJytTQddqyN66ZH/DlcVQ24UuIoB1oedwr7myX3
-	uQFBAOAqoT/DLRmaGd0PquZomcOiXF6LYZFrqBUdIptnnov87H79bHDRvzHR3CDtYwrmRG9RT4dZ7
-	tE1aqNjZCygS2WkDHsUE8t4NuGX+XsRZKfn+kgwwd/YxEu1BG7Q6dwpFtUz9tBVZAd6Xt/U5sG4eY
-	M/BQvnPk8OIh6UNnIEFgJDjk0FXt/YSGckz2fLWYjcWQTFcA9TEtYm3jbKWcrQyxy14dwbhPQ7FlY
-	nZNt/lgA==;
+	bh=sknQ4v04zMJRg7aMri76BP+yjjkuvx43VxPX8joYE3g=; b=gwvZyimCus/pS9XlwyUbLEBiNs
+	pir5VLR5aWQRW8vv7oYWMs+oY54ptzOfsyShtWE5/ot6Jwgblh4sgzMpKUKQ2P8rerVNMKBv9wXIJ
+	yqiwADBMBPE8yK2M7ZkgTo8z8NgW7CLYKWFB41ROAd/0Ju8lsYR7SDmiDeSrxpRIuFqglZ/xZL2U4
+	N4k0trS4hwHtMxEwadN4Gs4cKdD3qUroKY4MLo+S72IYN6+CFT4QgHD5x/cD5U7AYf90JlTkHoACW
+	uKFH+nsRJEtz1iqYgu/3nzlk/I7fz4zJIYF5R92/4N3zXWr5UQfxfmpF0LiSOZxzX6NNg60oIP+gH
+	8jQHkvPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1yH-00000008rQ4-0LTm;
-	Tue, 09 Sep 2025 17:17:33 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uw1yK-00000008rWW-020q;
+	Tue, 09 Sep 2025 17:17:36 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvxgD-000000079DE-3M9q;
-	Tue, 09 Sep 2025 12:42:38 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45dec1ae562so11290685e9.1;
-        Tue, 09 Sep 2025 05:42:37 -0700 (PDT)
+	id 1uvxlI-00000007Arz-34JZ;
+	Tue, 09 Sep 2025 12:47:53 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45dcff2f313so34280515e9.0;
+        Tue, 09 Sep 2025 05:47:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757421756; x=1758026556; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757422071; x=1758026871; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ta3EUM01m/eAOgCWnf2NHrrKHrpoLJFvsTPitvIsZAw=;
-        b=eslz97Ogteaqd0QgRHmPiVqT2NG23jxdxRW2BT+LyMQK7vU9zkiKm8EymKmQxV/Izc
-         HdObg33lFYxUmGYXEeo6zHGoNN4/HLRQ4x5Dz0yyhKktJFfgzETpklujr1kPycSB3/0k
-         odnmEpssvkM0TQoGmS0s1qKykVluYTBOgBB5WIkv74IHUXk00gShghS+NDbZ0MY40BVj
-         HOO7IrBsX9OZS8CkvsTPpAumNIcqJnJYLO4pOU/hDfLUgMBtOmejPtLBTl5mv2dt8QtZ
-         P1XnOgJPViPhFuVShCc85SypDEObIlJq+bvPjpREqrE6qWHwLWiEBNfZAi3EJDfHz13j
-         4PSg==
+        bh=sknQ4v04zMJRg7aMri76BP+yjjkuvx43VxPX8joYE3g=;
+        b=SxrBToaRGPQs24kVzYTRm7Qm/GLuruMeIWYJgnAkPXqEDYFnt+BSZ9NWQWyaI9KCu3
+         TJocOyxIRCLsKWRceltnEVFAUJxseWdurFDEQw6Y6Y+pIqWxEt6sIVsRiNn3gtbdI69/
+         VqZkWtYv6o9Ef7QURiSMdJHfB8CPqtTUVAj5raaYmUJuBaqqsxL/ss2Y/UwCi7O7sd7D
+         R8WV2RpVynAsHfK3d4l0EGzgYDSud25xfp/7hej/g7xPuzzqaiUzMUQP0Z1R37VlMuT9
+         zPZy4CuL0Ga3M6kBFOcF8o5kxUYgsNhwXJizVc4Fr2x1jnw7Zd6s31OqMqPbZRqZVNEF
+         8Kwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757421756; x=1758026556;
+        d=1e100.net; s=20230601; t=1757422071; x=1758026871;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ta3EUM01m/eAOgCWnf2NHrrKHrpoLJFvsTPitvIsZAw=;
-        b=DbUO0AhQch7jbmpQh+sm+AK6LMhw9Adzr1Ub31YyLxwc7iqqxBuk0hdjhYkGOifkxP
-         xk/yKc9o8xcM/OoOtQ6Wt86W4P61phZNP2SrgTOmwsp++74RYiM/RwWRDspXSdXk2VzP
-         KylCA7Ed0jZxHeqYR1sKgJRL6C6lv3eCwhTqjFSBj+RBdCWW2myhZk1QEsTw+j7CSRBe
-         a7rOjxuqxn3OfWfZUsUc7lK4VGgqoTRhrgVc80FMfeTeTNPRjLM7+rJgQfF8ACCyiQyf
-         IFBOXpqd7YkRtMAK0ZZr6caCBEWSIJHKQe/b8/YxSdcT1iATjJEerq7omnM2VUwOHjpO
-         fO8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWqhkPfJ3DROiIsjCrvnOAHjZOtZlIaSg0xek669PT11jF+Oc9mnXF5LRMnK4IHTRV/WyX1tgnsw6pRMU8pxrE=@lists.infradead.org, AJvYcCXHbW9/mlozlKNuY4HyunAKk2JQlSrRaT51WqAf61Ia580fs0f0wJoB8KZFPK203BQi1nsKSv6ZyeRZHjbMoQQI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1FYTfDvTZBNUPIqVGZVYI2u4E330v+sQPJ49tMwST/o9WsXMv
-	5/do9chQxinSrJDfdEoXv1gq9ayk5z2AfRhtSgVZNxKSRIoaQ1Hqn2D7
-X-Gm-Gg: ASbGncsGqGeO9zmCqsQb5aWBrB4Qz73kaboTHGup6siqXnAiLh98zhxJd70RS0LYRvR
-	t3iGwzOsJaEdbZjmsX7VyiWY4Q2r5XKLguZRX8rRx3pE1TQ3NDhvqO6PSTCnC58HPG/KDnqEj2F
-	+xB4oj/HNUP6keEASv/zQuLFxBX4NoeJL4cYrKsAmJpd4lEZhsHkMmLllw9maxv2nYKDhG66sin
-	t22PXdCZO/gOb7WeMLKKegfJpwZ60QhPI8AtuJ2EmoMRgK4qZtf3ExHzkQ2aZxNZrJnTWhGPNnx
-	+KSzP1w+D0ak0W8AUBZiYVAH8eQoRk3O6PviGxVUF5PApyCuFLVRqCagungkdCjJIA0WfunvqfL
-	l+PCwrB/o/1N8BAOVAeWI/zZUMse3OcnXlWt7GjyrCF9fppFgc55v
-X-Google-Smtp-Source: AGHT+IF/XhW1weI5x5faucsv0mz0tu4FaVW5VCx3px/421hL4vs7KawafAXMUyoquGlFZ1GwtiHG1g==
-X-Received: by 2002:a05:600c:4514:b0:45d:d9d1:80a3 with SMTP id 5b1f17b1804b1-45dddeed052mr99709395e9.37.1757421755865;
-        Tue, 09 Sep 2025 05:42:35 -0700 (PDT)
+        bh=sknQ4v04zMJRg7aMri76BP+yjjkuvx43VxPX8joYE3g=;
+        b=NjYWre+7q6c61pFfeEJCYweETHYjUz49ps/+/27jqw46Ml58BS60QrdxIu1te6vbC/
+         PhW+XNjlZos9oCP22CkXLAU/aqpfxF3zFdhinTpfonjGA9Jh56xGOqTn3KYONFhP8iOe
+         f8d+KN3MzGRY0LXL+7ATFBLxjqeCKyUprVayxk15LNsI+cyceNg7GTc8zM9meLWzT0Zy
+         ih5/ld/P9dAmKE46SSiOTI03a9pjLmcPWMIfAT/n0dib7szYzo0M+lT6git4F7lupbMY
+         mvQ5rIZUwsajZuvjJ2PE63B2Yc0u6OQPAE6nm888eHnwxrugf9ZuVh0IZ+XImPLsvT6y
+         OxEw==
+X-Forwarded-Encrypted: i=1; AJvYcCV3JRISi9zFuHes0sFmn3dC4EzMquyX6wj3WYoqJG756Vj3NcHW4mmSRkQYpUM2GX96hxuODt9oMQG0PHQxL38=@lists.infradead.org, AJvYcCV5B/vZU78pYGXtPDJ8jUizBH5j1MHvMi8mucX+LUbmS5nHXB6aJHL+aZDUuPCIykUSUQFQduMc+wTin4sEgwg2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzW7Fh1/l1wIOnzlHo5ge/5jmO2alAVCitPmd2jFltJ02HI25P9
+	2d8RiGO2NxnHQEQjVklRBFU+baKwAU9G+Zd6w4iUqVTgEV1X5IHLpZmm
+X-Gm-Gg: ASbGnctPBY6W6x3OCc2VLX4YBtROr0Ku1cCFmKXHIYFZraJdP+zjOBXqoPFHA/IOKVv
+	+AdB/Jfqw6Du48aJUWcKvPYW08FgkJPsWrIb/1kCuEdsh9kxWfYPZ2D5R8OfxvnprwKWDDh463E
+	HKtl0ZlvFVGsFa2UJGpqUuIIIzKk+Le0vas1UBowMCE7OqUycDH0GaySnecoRERYhbIM1rJAbJx
+	PiF+aV/HaNhyrQ01PDWcFlnApdsqKmQ3c4vHhohtf1etKTHrCLaQ1sylhbmfkGazbsJvBlEJjGC
+	Ds3TrvAaRIvNDjBnXH5q7KCTbSdSg6khjzB8A2lYMsNiZ5OMCWGU/BfY/ckirA2+BAsGRVz92OB
+	ZJ/ZhFYSwK0qry9DZNFTxHCp10KW6N+Yqhz7NKdXsgQ==
+X-Google-Smtp-Source: AGHT+IF7VDa3q9SU8Hb8VKgsof+wzfraByxvrUN6D+R4v5hiuxuAYZeQmJI3MV7ScaIIyzTNCd0n7w==
+X-Received: by 2002:a05:600c:4f83:b0:45c:b56c:4183 with SMTP id 5b1f17b1804b1-45dddee9c59mr112287245e9.18.1757422071006;
+        Tue, 09 Sep 2025 05:47:51 -0700 (PDT)
 Received: from [192.168.2.177] ([91.116.220.47])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45ddf1765e8sm147703695e9.22.2025.09.09.05.42.33
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45de18f4824sm136453475e9.10.2025.09.09.05.47.48
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Sep 2025 05:42:34 -0700 (PDT)
-Message-ID: <cec6ee57-a32f-478a-8612-09fd334c334e@gmail.com>
-Date: Tue, 9 Sep 2025 14:42:28 +0200
+        Tue, 09 Sep 2025 05:47:49 -0700 (PDT)
+Message-ID: <c09e6239-dc70-469d-b9bb-02398f2b621b@gmail.com>
+Date: Tue, 9 Sep 2025 14:47:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8183: Fix out of range pull
- values
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>,
+Subject: Re: [PATCH v3 2/3] arm64: dts: mediatek: mt8395-nio-12l: add PMIC and
+ GPIO keys support
+To: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Enric Balletbo i Serra <eballetbo@kernel.org>, Ben Ho <Ben.Ho@mediatek.com>,
- Fabien Parent <fparent@baylibre.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250722171152.58923-2-robh@kernel.org>
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org
+References: <20250905-radxa-nio-12-l-gpio-v3-0-40f11377fb55@collabora.com>
+ <20250905-radxa-nio-12-l-gpio-v3-2-40f11377fb55@collabora.com>
 Content-Language: en-US, ca-ES, es-ES
 From: Matthias Brugger <matthias.bgg@gmail.com>
 Autocrypt: addr=matthias.bgg@gmail.com; keydata=
@@ -129,12 +131,12 @@ Autocrypt: addr=matthias.bgg@gmail.com; keydata=
  +zFJv9fVUpo/bjePOL4PMP1y+PYrp4PmPmRwoklBpy1ep8m8XURv46fGUHUEIsTwPWs2Q87k
  7vjYyrcyAOarX2X5pvMQvpAMADGf2Z3wrCsDdG25w2HztweUNd9QEprtJG8GNNzMOD4cQ82T
  a7eGvPWPeXauWJDLVR9jHtWT9Ot3BQgmApLxACvwvD1a69jaFKov28SPHxUCQ9Y1Y/Ct
-In-Reply-To: <20250722171152.58923-2-robh@kernel.org>
+In-Reply-To: <20250905-radxa-nio-12-l-gpio-v3-2-40f11377fb55@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_054237_835133_AD6E9424 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20250909_054752_788648_177F612D 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,152 +153,91 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 22/07/2025 19:11, Rob Herring (Arm) wrote:
-> A value of 10 is not valid for "mediatek,pull-down-adv" and
-> "mediatek,pull-up-adv" properties which have defined values of 0-3. It
-> appears the "10" was written as a binary value. The driver only looks at
-> the lowest 2 bits, so the value "10" decimal works out the same as if
-> "2" was used.
+On 05/09/2025 13:51, Julien Massot wrote:
+> Add support for PMIC and GPIO keys on the Radxa NIO 12L board:
+> Declare a gpio-keys node for the Volume Up button using GPIO106.
+> Add the corresponding pin configuration in the pinctrl node.
+> Add a mediatek,mt6359-keys subnode under the PMIC to handle the
+> power and home buttons exposed by the MT6359.
 > 
-> Fixes: cd894e274b74 ("arm64: dts: mt8183: Add krane-sku176 board")
-> Fixes: 19b6403f1e2a ("arm64: dts: mt8183: add mt8183 pumpkin board")
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Julien Massot <julien.massot@collabora.com>
 
-Queued, thanks
-
+Queued, thanks.
 Matthias
 
 > ---
-> This is just a few of the warnings related to mt8183-pinctrl... Mediatek
-> is #1 for DT warnings on arm64. And by #1, I mean worst. :( It would be
-> nice to see some progress on fixing them. Otherwise, seeing new Mediatek
-> bindings rather than fixing the existing stuff makes me grumpy.
+>   .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 36 ++++++++++++++++++++++
+>   1 file changed, 36 insertions(+)
 > 
->   arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi  | 14 +++++++-------
->   arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts | 14 +++++++-------
->   2 files changed, 14 insertions(+), 14 deletions(-)
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+> index 329c60cc6a6be0b4be8c0b8bb033b32d35302804..fd596e2298285361ad7c2fb828feec598d75a73e 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+> +++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+> @@ -8,6 +8,7 @@
+>   #include "mt8195.dtsi"
+>   #include "mt6359.dtsi"
+>   #include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+>   #include <dt-bindings/interrupt-controller/irq.h>
+>   #include <dt-bindings/pinctrl/mt8195-pinfunc.h>
+>   #include <dt-bindings/regulator/mediatek,mt6360-regulator.h>
+> @@ -60,6 +61,18 @@ backlight: backlight {
+>   		status = "disabled";
+>   	};
+>   
+> +	keys: gpio-keys {
+> +		compatible = "gpio-keys";
+> +
+> +		button-volume-up {
+> +			wakeup-source;
+> +			debounce-interval = <100>;
+> +			gpios = <&pio 106 GPIO_ACTIVE_LOW>;
+> +			label = "volume_up";
+> +			linux,code = <KEY_VOLUMEUP>;
+> +		};
+> +	};
+> +
+>   	wifi_vreg: regulator-wifi-3v3-en {
+>   		compatible = "regulator-fixed";
+>   		regulator-name = "wifi_3v3_en";
+> @@ -626,6 +639,14 @@ pins-txd {
+>   		};
+>   	};
+>   
+> +	gpio_key_pins: gpio-keys-pins {
+> +		pins {
+> +			pinmux = <PINMUX_GPIO106__FUNC_GPIO106>;
+> +			bias-pull-up;
+> +			input-enable;
+> +		};
+> +	};
+> +
+>   	i2c2_pins: i2c2-pins {
+>   		pins-bus {
+>   			pinmux = <PINMUX_GPIO12__FUNC_SDA2>,
+> @@ -880,6 +901,21 @@ &pciephy {
+>   
+>   &pmic {
+>   	interrupts-extended = <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
+> +
+> +	mt6359keys: keys {
+> +		compatible = "mediatek,mt6359-keys";
+> +		mediatek,long-press-mode = <1>;
+> +		power-off-time-sec = <0>;
+> +
+> +		power-key {
+> +			linux,keycodes = <KEY_POWER>;
+> +			wakeup-source;
+> +		};
+> +
+> +		home {
+> +			linux,keycodes = <KEY_HOME>;
+> +		};
+> +	};
+>   };
+>   
+>   &scp {
 > 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
-> index 400c61d11035..fff93e26eb76 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
-> @@ -580,7 +580,7 @@ pins-cmd-dat {
->   		pins-clk {
->   			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
->   			drive-strength = <MTK_DRIVE_14mA>;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   		};
->   
->   		pins-rst {
-> @@ -609,13 +609,13 @@ pins-cmd-dat {
->   		pins-clk {
->   			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
->   			drive-strength = <MTK_DRIVE_14mA>;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   		};
->   
->   		pins-ds {
->   			pinmux = <PINMUX_GPIO131__FUNC_MSDC0_DSL>;
->   			drive-strength = <MTK_DRIVE_14mA>;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   		};
->   
->   		pins-rst {
-> @@ -633,13 +633,13 @@ pins-cmd-dat {
->   				 <PINMUX_GPIO33__FUNC_MSDC1_DAT2>,
->   				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
->   			input-enable;
-> -			mediatek,pull-up-adv = <10>;
-> +			mediatek,pull-up-adv = <2>;
->   		};
->   
->   		pins-clk {
->   			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
->   			input-enable;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   		};
->   	};
->   
-> @@ -652,13 +652,13 @@ pins-cmd-dat {
->   				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
->   			drive-strength = <6>;
->   			input-enable;
-> -			mediatek,pull-up-adv = <10>;
-> +			mediatek,pull-up-adv = <2>;
->   		};
->   
->   		pins-clk {
->   			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
->   			drive-strength = <8>;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   			input-enable;
->   		};
->   	};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts b/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
-> index dbdee604edab..7c3010889ae7 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
-> +++ b/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
-> @@ -324,7 +324,7 @@ pins_cmd_dat {
->   		pins_clk {
->   			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
->   			drive-strength = <MTK_DRIVE_14mA>;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   		};
->   
->   		pins_rst {
-> @@ -353,13 +353,13 @@ pins_cmd_dat {
->   		pins_clk {
->   			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
->   			drive-strength = <MTK_DRIVE_14mA>;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   		};
->   
->   		pins_ds {
->   			pinmux = <PINMUX_GPIO131__FUNC_MSDC0_DSL>;
->   			drive-strength = <MTK_DRIVE_14mA>;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   		};
->   
->   		pins_rst {
-> @@ -377,13 +377,13 @@ pins_cmd_dat {
->   				 <PINMUX_GPIO33__FUNC_MSDC1_DAT2>,
->   				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
->   			input-enable;
-> -			mediatek,pull-up-adv = <10>;
-> +			mediatek,pull-up-adv = <2>;
->   		};
->   
->   		pins_clk {
->   			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
->   			input-enable;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   		};
->   
->   		pins_pmu {
-> @@ -401,13 +401,13 @@ pins_cmd_dat {
->   				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
->   			drive-strength = <6>;
->   			input-enable;
-> -			mediatek,pull-up-adv = <10>;
-> +			mediatek,pull-up-adv = <2>;
->   		};
->   
->   		pins_clk {
->   			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
->   			drive-strength = <8>;
-> -			mediatek,pull-down-adv = <10>;
-> +			mediatek,pull-down-adv = <2>;
->   			input-enable;
->   		};
->   	};
 
 
