@@ -4,42 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F947CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:27:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E6ECA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3sKiYoQlNmHVsAz550Agljezpy+mJtYraS4ju/PVmVw=; b=yFkuvR7U3qCxnW4WGLIz9vivS5
-	3GOlh/v9mvlTESoaphOciriTR0CsDj5E7qdS8EqZKB6dr7jFdlwN7yGZcqZoWwB6G9CnVjA800aD/
-	bFZQtF56AptE23UDuMBmdJ0o/WzeD6tGY9rf96gj0nWfG/8g6u0DBObf04xeFVULu2COizhy+VKQy
-	AlVyNsAGjUV4zG+lN7FEOcLU5Wj7aG6NyAPaj2G4jadSPwfXqObNC1RXsFh+r7/fpAclIB6sQzpKx
-	ziwwWar9/47a6iCxkQspipiLdqa/udSULJHZ0d3foh3oC1gs1ijJUPttuHyTihY93/OGWounIEWWH
-	S7GZUQqg==;
+	bh=5NsPs5mmEZAM0RI4s1ltQROCFrLKlKr1rZoj7O547TY=; b=CZDdrI+vbVRzGr4qwsSgGyS/IC
+	4IkDNeNKcVwclMqrVH9Y8Am/B5zTU2t1qap6ZEtjkGiZ37IgODPI5nXtRyfoqWPmbjCJgy5V33wIK
+	+tnq9OvIMy482RMlMO7Kn8bkLR1pBkpuoyLeW7OUY3yE2ginNfTg467Q1V7mMyDe22rajQO1rsvyR
+	mDq+q0tQC75+nNR8fYBpA12SFOhZytr40JyeTR4UN7UviVja8ZJOZxLKaQZyK3z3QcE92XROvTp1i
+	gGXposjeisi4ULZ5vCfCMhmSoZZKG1ppFSEYc60F6VGAEeUaIgBskqgw3ePQjuy0qW7iYgl+/+hyN
+	b12ubGsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw27P-000000096de-30lV;
-	Tue, 09 Sep 2025 17:26:59 +0000
+	id 1uw27S-000000096iw-2rja;
+	Tue, 09 Sep 2025 17:27:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1ew-00000008gzt-0MKd
+	id 1uw1fG-00000008h7X-27VO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 16:57:35 +0000
+	Tue, 09 Sep 2025 16:57:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1201815A1;
-	Tue,  9 Sep 2025 09:57:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92E1C2008;
+	Tue,  9 Sep 2025 09:57:45 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EF853F694;
-	Tue,  9 Sep 2025 09:57:27 -0700 (PDT)
-Message-ID: <c4e6aff7-913f-41d4-b578-88e5d008ca9a@arm.com>
-Date: Tue, 9 Sep 2025 17:57:06 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1C2EC3F694;
+	Tue,  9 Sep 2025 09:57:47 -0700 (PDT)
+Message-ID: <3a3520f7-654b-420f-a8e8-ca57f92e21fe@arm.com>
+Date: Tue, 9 Sep 2025 17:57:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/33] arm_mpam: Add helpers for managing the locking
- around the mon_sel registers
-To: Fenghua Yu <fenghuay@nvidia.com>, linux-kernel@vger.kernel.org,
+Subject: Re: [PATCH 19/33] arm_mpam: Reset MSC controls from cpu hp callbacks
+To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
  devicetree@vger.kernel.org
 Cc: shameerali.kolothum.thodi@huawei.com,
@@ -51,9 +50,9 @@ Cc: shameerali.kolothum.thodi@huawei.com,
  dfustini@baylibre.com, amitsinght@marvell.com,
  David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
  Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
  Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
  <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
@@ -63,16 +62,16 @@ Cc: shameerali.kolothum.thodi@huawei.com,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-17-james.morse@arm.com>
- <4c8da7b3-6235-4d0a-aeb1-81c8bdfd051a@nvidia.com>
+ <20250822153048.2287-20-james.morse@arm.com>
+ <1c20a5b2-2afe-4084-9494-a994e1a275b7@arm.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <4c8da7b3-6235-4d0a-aeb1-81c8bdfd051a@nvidia.com>
+In-Reply-To: <1c20a5b2-2afe-4084-9494-a994e1a275b7@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_095734_202003_30CFFBE5 
-X-CRM114-Status: GOOD (  23.25  )
+X-CRM114-CacheID: sfid-20250909_095754_672592_E0B566CB 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,77 +86,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
+Hi Ben,
 
-On 28/08/2025 18:07, Fenghua Yu wrote:
-> On 8/22/25 08:29, James Morse wrote:
->> The MSC MON_SEL register needs to be accessed from hardirq context by the
->> PMU drivers, making an irqsave spinlock the obvious lock to protect these
->> registers. On systems with SCMI mailboxes it must be able to sleep, meaning
->> a mutex must be used.
+On 27/08/2025 17:19, Ben Horgan wrote:
+> On 8/22/25 16:30, James Morse wrote:
+>> When a CPU comes online, it may bring a newly accessible MSC with
+>> it. Only the default partid has its value reset by hardware, and
+>> even then the MSC might not have been reset since its config was
+>> previously dirtyied. e.g. Kexec.
 >>
->> Clearly these two can't exist at the same time.
+>> Any in-use partid must have its configuration restored, or reset.
+>> In-use partids may be held in caches and evicted later.
 >>
->> Add helpers for the MON_SEL locking. The outer lock must be taken in a
->> pre-emptible context before the inner lock can be taken. On systems with
->> SCMI mailboxes where the MON_SEL accesses must sleep - the inner lock
->> will fail to be 'taken' if the caller is unable to sleep. This will allow
->> the PMU driver to fail without having to check the interface type of
->> each MSC.
+>> MSC are also reset when CPUs are taken offline to cover cases where
+>> firmware doesn't reset the MSC over reboot using UEFI, or kexec
+>> where there is no firmware involvement.
+>>
+>> If the configuration for a RIS has not been touched since it was
+>> brought online, it does not need resetting again.
+>>
+>> To reset, write the maximum values for all discovered controls.
 
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index bb62de6d3847..c1f01dd748ad 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
 
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index a623f405ddd8..c6f087f9fa7d 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -68,10 +68,19 @@ struct mpam_msc {
->>         /*
->>        * mon_sel_lock protects access to the MSC hardware registers that are
->> -     * affeted by MPAMCFG_MON_SEL.
->> +     * affected by MPAMCFG_MON_SEL, and the mbwu_state.
->> +     * Both the 'inner' and 'outer' must be taken.
->> +     * For real MMIO MSC, the outer lock is unnecessary - but keeps the
->> +     * code common with:
->> +     * Firmware backed MSC need to sleep when accessing the MSC, which
->> +     * means some code-paths will always fail. For these MSC the outer
->> +     * lock is providing the protection, and the inner lock fails to
->> +     * be taken if the task is unable to sleep.
->> +     *
->>        * If needed, take msc->probe_lock first.
->>        */
->>       struct mutex        outer_mon_sel_lock;
->> +    bool            outer_lock_held;
+>> @@ -849,8 +850,115 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
 
-> Is it better to define outer_lock_held at atomic_t?
-
-Writes a protected by the outer lock, its just something to generate a warning for debug.
-I can make it a READ_ONCE() if you're worried about torn values in the failure case.
-(as its just for debug, I'm not worried about false-negatives)
-
-
->>       raw_spinlock_t        inner_mon_sel_lock;
->>       unsigned long        inner_mon_sel_flags;
->>   @@ -81,6 +90,52 @@ struct mpam_msc {
->>       struct mpam_garbage    garbage;
->>   };
->>   +static inline bool __must_check mpam_mon_sel_inner_lock(struct mpam_msc *msc)
+>> +static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16 partid)
 >> +{
->> +    /*
->> +     * The outer lock may be taken by a CPU that then issues an IPI to run
->> +     * a helper that takes the inner lock. lockdep can't help us here.
->> +     */
->> +    WARN_ON_ONCE(!msc->outer_lock_held);
-> 
-> At this point, msc->outer_lock_held might not be true yet due to no memory barrier on it
-> on this CPU.
+>> +	u16 bwa_fract = MPAMCFG_MBW_MAX_MAX;
+>> +	struct mpam_msc *msc = ris->vmsc->msc;
+>> +	struct mpam_props *rprops = &ris->props;
+>> +
+>> +	mpam_assert_srcu_read_lock_held();
+>> +
+>> +	mutex_lock(&msc->part_sel_lock);
+>> +	__mpam_part_sel(ris->ris_idx, partid, msc);
+>> +
+>> +	if (mpam_has_feature(mpam_feat_cpor_part, rprops))
+>> +		mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM, rprops->cpbm_wd);
+>> +
+>> +	if (mpam_has_feature(mpam_feat_mbw_part, rprops))
+>> +		mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops->mbw_pbm_bits);
+>> +
+>> +	if (mpam_has_feature(mpam_feat_mbw_min, rprops))
+>> +		mpam_write_partsel_reg(msc, MBW_MIN, 0);
+>> +
+>> +	if (mpam_has_feature(mpam_feat_mbw_max, rprops))
+>> +		mpam_write_partsel_reg(msc, MBW_MAX, bwa_fract);
 
-The IPI machinery has this covered:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/irqchip/irq-gic.c#n838
+> MPAMCFG_MBW_MAX_MAX can be used directly instead of bwa_fract.
+
+Without the second user, yes.
 
 
-> If it's atomic_t and it's set as true on another CPU by smp_store_release(),
-> it's guaranteed to be visible as true on this CPU. Without atomic setting, we may see a
-> false warning here and cause debug difficult.
+>> +
+>> +	if (mpam_has_feature(mpam_feat_mbw_prop, rprops))
+>> +		mpam_write_partsel_reg(msc, MBW_PROP, bwa_fract);
+
+> Shouldn't this reset to 0? STRIDEM1 is a cost.
+
+Heh, this is just a copy and paste of the last value, because it clears the 'enable' bit,
+and the spec says "there is no setting of the STRIDEM1 control field that disables the
+effects of proportional-stride".
+
+Yes - zero would be better.
 
 
 Thanks,
