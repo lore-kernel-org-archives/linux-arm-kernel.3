@@ -4,95 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA63FCAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 685CECAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4CHS3L1HTq4zc8VOJcXLjTfuiOI6XTDNN7808wd2BIw=; b=hSiQlXf3qqCSe3TT35OAM22CAj
-	Ku0dXxXS6/q7m0bvNdiPyIJPkz84tlct+w8l9u+mU3NktAPdrhGmyg+7AkfX4lSkHEfx2i/z9F8Pd
-	jjW+0Op0LcK2Rn6SyQ4FsItNkAiPPVglfdisM18JIFpUc9fv2Dg3hLFUuL7D5D6I04FBIzZ1dkDf/
-	po4lR+MDk7pfJW1o7wdxpmWOuXXD7ZVB0LVpgXDF8xIi97apPrPizsF4HO15uvcOUXhaucQNf4S4H
-	SUyTfS8MqXs1TR1K/00OScfIl+3sgWXK4kI6LBHuq+6dpVj8jEo8+JHdvQCK2hLYGQuId8USD4T48
-	BQDLd8kw==;
+	bh=hqpe2bqaC4sdbfV2Yw1BhzqELA/AKcDcnBw9K7HRcEw=; b=vwzyAU313fkv7NHfHzdglqnb/n
+	b+3njQvep8rZdTa9M7lC0+t0Q+D8hdTVxdE/XcMfS5fEFm/JXlbZsqSvZV8yWwxbnnQ/37ikvvA39
+	pIj5SRJ1DQ7hcanGYgEKR1WEEUqbuM5A5mbmxruOq6HFY8YU/9Oe9lrUvTgsW/lK2OwORfQ4V2neu
+	N4688xi5B7SVu5gY1v/ubws0k/jFvVKH18xKZI7WXtPFFMs84SSwQ8M7vZFNsiW6wZoZv6wXJ9kcS
+	juX87CrNxPv3uEuSSGP+1BFB1F9SEQBPE/tEzDRGGYqfVdECtqdLwjBDF90IAxWW2doIOfHp2Le6k
+	xZvlFqSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0TQ-00000008BrQ-0hIc;
-	Tue, 09 Sep 2025 15:41:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uw0Td-00000008C5E-3NCz;
+	Tue, 09 Sep 2025 15:41:49 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvv9C-00000006CpQ-3Gbs
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 09 Sep 2025 10:00:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4CHS3L1HTq4zc8VOJcXLjTfuiOI6XTDNN7808wd2BIw=; b=F4iV9pe6u09AMgNrnaHTWSdTSo
-	FTDUjURSYebVcJ7a1KnwB3iLr4mMkFsL1AHXHbg7Dgd5d8A2o2Og9ibCFRIW2GqoZSy8S9YWOLC7E
-	8cYbuhC6lRoAt6w/mRrQhGLPjeOuMCsda1jDmNRm29ouYybWrLHjvMVozlwPTRz7E30OWrW3PFwx6
-	ovvFTda06APGkqdNjvO3++WZZd4weIL2/otwSCwEIhmDwy0xSU+81Boe7Rd6fspNUN6Pu+737vQra
-	MSYGS1KgtoTw6HAeMQXEFMywHJXqtv2B7Vj1sw/eh1Xrm7+oQxLX76wmHjSO8zjnXZehp61vpJehD
-	bWM88LAg==;
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvv99-00000005HGY-2PK8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 10:00:21 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45b9a856d58so43505815e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 03:00:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757412018; x=1758016818; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4CHS3L1HTq4zc8VOJcXLjTfuiOI6XTDNN7808wd2BIw=;
-        b=4Vo3WO1ISkB0bDA8l2eYRC1aJufT4wJ+DVcYtPzfkU9WrjM/OSMJxcwkXx2jNgq5I8
-         OLb6NvXTGgT4phv2Y5wCIKxmhsuuPTJlQP0w9KpwDoTBEG2MC8pqkoELHJNwI5mxGI52
-         7Oh0voQajDOrkDu56HqWCIjdwquDEP5mQNskvzj3V6ldFENY1jt0wBVprEFnd/GxrAAd
-         ubxgeKzctTE1DFTcNxpJdkI5wuwADh6dVpr/Yf5ANP99Kc4HMbA0F9MuzrVdLvAWfNlS
-         CPLcbtQW9reuzxtsZZlIMOE4pee0OPygeqPluB9ehQXIJPzPsfxN0CBjAbbjR+ZqoztU
-         aARw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757412018; x=1758016818;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4CHS3L1HTq4zc8VOJcXLjTfuiOI6XTDNN7808wd2BIw=;
-        b=QLEc9zAOZ7YaRIVSYYK6gKK8i8/XDm8CpZjIhly+bQGKxFZHMHy6K83DYIsYx4aokZ
-         Igtzw2dcUcqg3YRdtPpwv9uiXj2073xKlG68yivjLMBXwrZczu9NU4tCKmyhEqMOtnzK
-         mSG9YU9QbX3iX/7fgBW59zCKjkZ5MSvKhGqR6gF+sNdjVLNZONU+hnufzdm4UX+WqKnS
-         r66r7Owr1B0jNQnIfPfpexvDp7XUUtFQ1TGyeXXlW/LROLxieUULd4lFZsg0XKdLlNXR
-         tVMM65ELJvwylVT0c+EEgf87lhp7zKNMt9TKRLWLw4n4GxGCfvVZ3XY6mSOujD6NG+NO
-         bCyw==
-X-Gm-Message-State: AOJu0YwO4dIbtBaHGh/SwoQAPBw/tB8E/hejKhnbj/FCzivaZa0yJI+V
-	IYqA5/BVhruRysq1AqMfNvrgSJsX/gArZxucq26F1WmpdDiwjKljPI8AZIeFUWZJnosejI5QgB0
-	XKAl6qKHxAuKUOHOIagwMppAnoSbOpmoxDrvlvQo1/xvnO6dd+8ux6G031UquuKdC+UijKBJfiC
-	ZXnLYwamxzBXRUD9JioquxxCG3xIra9WwsZj5TnshuyAtci1WGHw==
-X-Google-Smtp-Source: AGHT+IFFKS9LSCg4pqICkObMpdq7WwENyXMbo01qMECVjQhfTtItSGy3G3y/UQTpd1+00goRvADrbyzv2A==
-X-Received: from wmbei14.prod.google.com ([2002:a05:600c:3f0e:b0:45d:e45e:96aa])
- (user=keirf job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:548a:b0:458:bfb1:1fb6
- with SMTP id 5b1f17b1804b1-45ddde6a471mr83472825e9.2.1757412017523; Tue, 09
- Sep 2025 03:00:17 -0700 (PDT)
-Date: Tue,  9 Sep 2025 10:00:07 +0000
-In-Reply-To: <20250909100007.3136249-1-keirf@google.com>
-Mime-Version: 1.0
-References: <20250909100007.3136249-1-keirf@google.com>
-X-Mailer: git-send-email 2.51.0.384.g4c02a37b29-goog
-Message-ID: <20250909100007.3136249-5-keirf@google.com>
-Subject: [PATCH v4 4/4] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
-From: Keir Fraser <keirf@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org
-Cc: Sean Christopherson <seanjc@google.com>, Eric Auger <eric.auger@redhat.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Keir Fraser <keirf@google.com>, 
-	Li RongQing <lirongqing@baidu.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1uvvAz-00000006Dbz-426l;
+	Tue, 09 Sep 2025 10:02:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757412134; x=1788948134;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=tEjUpDYvYVCiLuU5pbp0rm5Pfjj/tg0TJ9N8gnYaMb8=;
+  b=ac6XIqw3h/x/eFpMHOzAmDaGZsExBmZiupjwyvTJ3SF3tDUgexDJevhC
+   lLKHYhV+cwIXFjLVrQhkShh3sVlk1eGPDpV+94WJhSsEDl1+VvYTNG/Pu
+   VyFH60+YtwFikNMCRfCltF7THA3qSGXy5xTMo0UZgUkWSCEZbB51O/J6N
+   N36DG3A2hgu52W/N3bHofGOswREfO3Vuwzd5qsBWU3HR4mpHwzn1JSdp5
+   KeMhNIt2joQMUh7U1B21IpE1YRQ1wqpWWg6iV0SwED1GYQEvepNO7gK1X
+   +owaX1AJTKCLXLOpZh2nAeW+XuEyLF9MZJumAy8LufG7u0gizvpk5OVbc
+   g==;
+X-CSE-ConnectionGUID: lnjiEnU3RQOtUezr1YP8NQ==
+X-CSE-MsgGUID: Au5FBt9uSMWSkAzpDR63LA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11547"; a="59627231"
+X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
+   d="scan'208";a="59627231"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 03:02:13 -0700
+X-CSE-ConnectionGUID: 6CAL+BkbQ0GLmY9r/PDbfQ==
+X-CSE-MsgGUID: bWb6v0dzQF2Nf5Sb/J+gnA==
+X-ExtLoop1: 1
+Received: from kuha.fi.intel.com ([10.237.72.152])
+  by fmviesa003.fm.intel.com with SMTP; 09 Sep 2025 03:02:07 -0700
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Tue, 09 Sep 2025 13:02:06 +0300
+Date: Tue, 9 Sep 2025 13:02:06 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Sven Peter <sven@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH v2 14/22] usb: typec: tipd: Read data status in probe and
+ cache its value
+Message-ID: <aL_7Hklraq2ff_YA@kuha.fi.intel.com>
+References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
+ <20250906-atcphy-6-17-v2-14-52c348623ef6@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250906-atcphy-6-17-v2-14-52c348623ef6@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_110019_888762_A2CC58F7 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20250909_030214_042870_43881FFA 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,70 +95,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device MMIO registration may happen quite frequently during VM boot,
-and the SRCU synchronization each time has a measurable effect
-on VM startup time. In our experiments it can account for around 25%
-of a VM's startup time.
+On Sat, Sep 06, 2025 at 03:43:27PM +0000, Sven Peter wrote:
+> From: Hector Martin <marcan@marcan.st>
+> 
+> Just like for power status we also need to keep track of data status to
+> be able to detect mode changes once we introduce de-bouncing for CD321x.
+> Read it during probe and keep a cached copy of its value.
+> 
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Sven Peter <sven@kernel.org>
 
-Replace the synchronization with a deferred free of the old kvm_io_bus
-structure.
+Reviewed-by: Heikki Krogerus <>
 
-Tested-by: Li RongQing <lirongqing@baidu.com>
-Signed-off-by: Keir Fraser <keirf@google.com>
----
- include/linux/kvm_host.h |  1 +
- virt/kvm/kvm_main.c      | 11 +++++++++--
- 2 files changed, 10 insertions(+), 2 deletions(-)
+> ---
+>  drivers/usb/typec/tipd/core.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+> index e6e9730ee6dacd8c1271b1d52a02da49ff248d3e..b558fc5ecbc35a9dabbf33c444f38173740af7c3 100644
+> --- a/drivers/usb/typec/tipd/core.c
+> +++ b/drivers/usb/typec/tipd/core.c
+> @@ -176,6 +176,7 @@ struct tps6598x {
+>  
+>  	int wakeup;
+>  	u32 status; /* status reg */
+> +	u32 data_status;
+>  	u16 pwr_status;
+>  	struct delayed_work	wq_poll;
+>  
+> @@ -538,6 +539,7 @@ static bool tps6598x_read_data_status(struct tps6598x *tps)
+>  		dev_err(tps->dev, "failed to read data status: %d\n", ret);
+>  		return false;
+>  	}
+> +	tps->data_status = data_status;
+>  
+>  	if (tps->data->trace_data_status)
+>  		tps->data->trace_data_status(data_status);
+> @@ -1551,6 +1553,8 @@ static int tps6598x_probe(struct i2c_client *client)
+>  	if (status & TPS_STATUS_PLUG_PRESENT) {
+>  		if (!tps6598x_read_power_status(tps))
+>  			goto err_unregister_port;
+> +		if (!tps->data->read_data_status(tps))
+> +			goto err_unregister_port;
+>  		ret = tps6598x_connect(tps, status);
+>  		if (ret)
+>  			dev_err(&client->dev, "failed to register partner\n");
+> 
+> -- 
+> 2.34.1
+> 
 
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index e7d6111cf254..103be35caf0d 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -206,6 +206,7 @@ struct kvm_io_range {
- struct kvm_io_bus {
- 	int dev_count;
- 	int ioeventfd_count;
-+	struct rcu_head rcu;
- 	struct kvm_io_range range[];
- };
- 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 870ad8ea93a7..bcef324ccbf2 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1320,6 +1320,7 @@ static void kvm_destroy_vm(struct kvm *kvm)
- 		kvm_free_memslots(kvm, &kvm->__memslots[i][1]);
- 	}
- 	cleanup_srcu_struct(&kvm->irq_srcu);
-+	srcu_barrier(&kvm->srcu);
- 	cleanup_srcu_struct(&kvm->srcu);
- #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
- 	xa_destroy(&kvm->mem_attr_array);
-@@ -5952,6 +5953,13 @@ int kvm_io_bus_read(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx, gpa_t addr,
- }
- EXPORT_SYMBOL_GPL(kvm_io_bus_read);
- 
-+static void __free_bus(struct rcu_head *rcu)
-+{
-+	struct kvm_io_bus *bus = container_of(rcu, struct kvm_io_bus, rcu);
-+
-+	kfree(bus);
-+}
-+
- int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
- 			    int len, struct kvm_io_device *dev)
- {
-@@ -5990,8 +5998,7 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
- 	memcpy(new_bus->range + i + 1, bus->range + i,
- 		(bus->dev_count - i) * sizeof(struct kvm_io_range));
- 	rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
--	synchronize_srcu_expedited(&kvm->srcu);
--	kfree(bus);
-+	call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
- 
- 	return 0;
- }
 -- 
-2.51.0.384.g4c02a37b29-goog
-
+heikki
 
