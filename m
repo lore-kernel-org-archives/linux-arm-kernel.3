@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4AB7CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C411CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 06:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kSFOAuiaPI2/+DxkkZU76QYTYYbvDO8tyKW7icXghZU=; b=drHBgltTl2z6ruczlSPUlKFbpN
-	bFNJeFecYzCOqwzP5VZovBUO1Vk/xuGuE0+EfV7ePLTWSAkqigz2zloQ4ukz1h14tNQDdq9zY+Kch
-	GEZ+mkcMRSjggBe49QYxj0UnjQMA6rmJydCoHHHUbiRnv1RZYMXWdmae2d5O+7EdypMvbyNDmACDH
-	FbrTASjBHnsOtmTiXthuf51TegjM1eetPBMgeP+AX1BUwcyeyRAjuiVGSOlFkZsjC4BWY8FJdCfbE
-	L41fmzcOcL+9py6gscTvfrLGNCaCQfiYd7Oa/CV3mxMJAUpVjOxYZHPeKMxYhggWqUTfEWtr09rZ3
-	/hqEFa1Q==;
+	bh=4h7FJ9ztFTiruGnHEyOBbr9+MzkEULDXp36cGte6iPI=; b=hLQZwJG7WS7bBr8JgO5BlAeaCp
+	dmGCphifxR2PwjkudtwXqgZIT2+jMKw7qIeKW4+CE0sVRLd0UDgOasA5GcMKOhhfgxfozJ6i5zMer
+	lw1JwW66EOocBc5zjQ/5mVPD0NtX2DsBHZRpJlZksEfj1LSCG8ydAjFbAdyskqJY4Po5EoiUyzTBz
+	Xik9Gkjb/Hgd5TbLjQiaTjgBQd2+Nf2GtEqY/x3JBJWi2ZO+hu9zNvCmZk5TpBz62U+8cc7OpbR5y
+	Cww1d6PazOLnefDKPpr8qhTZy7o1HLZ9zAVvV2u7OMfG4eiiybCYAsoK2cW8clHNnNZN+ZTb1gOfl
+	paPbjfVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvsG2-00000004ur2-0p2U;
-	Tue, 09 Sep 2025 06:55:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uvsG5-00000004uwE-2Krh;
+	Tue, 09 Sep 2025 06:55:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvmni-00000003Njh-0YGG
+	id 1uvnBr-00000003TQA-31Wh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 01:05:38 +0000
+	Tue, 09 Sep 2025 01:30:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 27545601AA;
-	Tue,  9 Sep 2025 01:05:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F907C4CEF1;
-	Tue,  9 Sep 2025 01:05:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E97444B27;
+	Tue,  9 Sep 2025 01:30:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EBE7C4CEF1;
+	Tue,  9 Sep 2025 01:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757379936;
-	bh=lOMpq9HD8ZJq2w0ihl+zDHfmveKIJThydH7VNjKRaeo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=QQbBUUZOEKmgcyR1PIp+AIKCcwn8fPT8bMELctKOeIciHM8ykBO4tFcJ3NYKG2ylm
-	 M1jxFnADvYk6FZIvi6lSOKzJL0YiuJkMMFKSXZshklN94Uy9IOvXD9dcPop+KGwwvm
-	 P1kzpVbIka7Cg/zuycgcpr91a3iXXncT16Iwd2YCsKS++LsFuOv6NhHNFxewmBt0t0
-	 C1fB1BHQ/z2a/UxdxfLOzMkR0gioVk5kfbUcD9q2/2DTFHImi8s0xncgbEDz6umetX
-	 0R+SgapDsxKYnG8EmRean8vT6oZfwIGm8el7SfSu17WZjVBR7Szo31squJU28nW0dl
-	 Se2KrausOUZkQ==
-Date: Mon, 8 Sep 2025 18:05:35 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-Subject: Re: [net-next v19 4/7] net: mtip: Add net_device_ops functions to
- the L2 switch driver
-Message-ID: <20250908180535.4a6490bf@kernel.org>
-In-Reply-To: <20250907183854.06771a13@wsk>
-References: <20250824220736.1760482-1-lukasz.majewski@mailbox.org>
-	<20250824220736.1760482-5-lukasz.majewski@mailbox.org>
-	<20250827082512.438fd68a@kernel.org>
-	<20250907183854.06771a13@wsk>
+	s=k20201202; t=1757381433;
+	bh=LW/aTIf77jl0JmfF2/xesj80TUgUyZIZrteGn5xgTdY=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=N2LmF253IP2fFjntS60H1EYz6n0oEhQ5SgNReZZZmm3iqr6QI3hTSvNSk5bBn87IN
+	 Nm7e6KWeH/dJMvr3InUPJE5nIKSenKb2OPVhh1h7OHDKEoKGmVWSJZcdEbfSic/Frt
+	 fbCSclpBOXPLrO/ExMrE8fSwyZTVCbcGgWh2j/15/JOz934kzuyl9l0jBRAi/8MdNN
+	 nb6Twcs4Ic29o2KgYjuNrkaWHbPQu7nNRzfJu7c4lmFYu/3MCnaBPME07q1IqL/c+A
+	 +90B59i+nRriO0ExgWvZJpS3ql/ZedNtYlLNoswTgajTIPSPz+i4G/p9OGTKjaRu7d
+	 15DhRXbwi0YiQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33C8F383BF69;
+	Tue,  9 Sep 2025 01:30:38 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2 00/11] net: stmmac: mdio cleanups
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175738143698.108077.11508219910437568266.git-patchwork-notify@kernel.org>
+Date: Tue, 09 Sep 2025 01:30:36 +0000
+References: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
+In-Reply-To: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250908_183035_799612_DED97EE2 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,83 +77,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 7 Sep 2025 18:38:54 +0200 =C5=81ukasz Majewski wrote:
-> > On Mon, 25 Aug 2025 00:07:33 +0200 Lukasz Majewski wrote: =20
-> > > +	/* Set buffer length and buffer pointer */
-> > > +	bufaddr =3D skb->data;   =20
-> >=20
-> > You can't write (swap) skb->data if the skb is a clone.. =20
->=20
-> I do use skb =3D buld_skb() which, "builds" the SKB around the memory
-> page (from pool).
->=20
-> Then, I "pass" this data (and swap it) to upper layer of the network
-> stack.
->=20
-> The same approach is used in the fec_main.c driver:
-> https://elixir.bootlin.com/linux/v6.17-rc3/source/drivers/net/ethernet/fr=
-eescale/fec_main.c#L1853
+Hello:
 
-I probably cut out too much context. I think I was quoting from Tx,
-indeed on Rx this is not an issue.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-> What I'm trying to do - is to model the HW which I do have...
->=20
-> When switch is enabled I do have ONE uDMA0 which works for both eth
-> ports (lan0 and lan1).
->=20
-> That is why I do have only one NAPI queue.
->=20
-> > What makes my head spin is that you seem to record which
-> > netdev/port was doing Rx _last_ and then pass that netdev to
-> > mtip_switch_tx(). Why? =20
->=20
-> You may have port =3D=3D 1 || port =3D=3D 2 when you receive packet from =
-ingres
-> ports.
-> You may also have port =3D=3D 0xFF when you first time encounter the SA on
-> the port and port =3D=3D 0 when you send/receive data from the "host"
-> interface.
->=20
-> When port 1/2 is "detected" then the net dev for this particular port
-> is used. In other cases the one for NAPI is used (which is one of those
-> two - please see comment above).
->=20
-> This was the approach from original NXP (Freescale) driver. It in some
-> way prevents from "starvation" from net devices when L2 switch is
-> disabled and I need to provide port separation.
->=20
-> (port separation in fact is achieved by programming L2 switch registers
-> and is realized in HW).
+On Thu, 4 Sep 2025 13:10:42 +0100 you wrote:
+> On Wed, Sep 03, 2025 at 01:38:57PM +0100, Russell King (Oracle) wrote:
+> Hi,
+> 
+> Clean up the stmmac MDIO code:
+> - provide an address register formatter to avoid repeated code
+> - provide a common function to wait for the busy bit to clear
+> - pre-compute the CR field (mdio clock divider)
+> - move address formatter into read/write functions
+> - combine the read/write functions into a common accessor function
+> - move runtime PM handling into common accessor function
+> - rename register constants to better reflect manufacturer names
+> - move stmmac_clk_csr_set() into stmmac_mdio
+> - make stmmac_clk_csr_set() return the CR field value and remove
+>   priv->clk_csr
+> - clean up if() range tests in stmmac_clk_csr_set()
+> - use STMMAC_CSR_xxx definitions in initialisers
+> 
+> [...]
 
-But what if we have mixed traffic from port 1 and 2?
-Does the current code correctly Rx the packets from port 1 on the
-netdev from port 1 and packets from port 2 on the netdev from port 2?
+Here is the summary with links:
+  - [net-next,v2,01/11] net: stmmac: mdio: provide address register formatter
+    https://git.kernel.org/netdev/net-next/c/16e03235d51b
+  - [net-next,v2,02/11] net: stmmac: mdio: provide stmmac_mdio_wait()
+    https://git.kernel.org/netdev/net-next/c/9eb633ad1d69
+  - [net-next,v2,03/11] net: stmmac: mdio: provide priv->gmii_address_bus_config
+    https://git.kernel.org/netdev/net-next/c/6717746f33ab
+  - [net-next,v2,04/11] net: stmmac: mdio: move stmmac_mdio_format_addr() into read/write
+    https://git.kernel.org/netdev/net-next/c/6cb3d67ad624
+  - [net-next,v2,05/11] net: stmmac: mdio: merge stmmac_mdio_read() and stmmac_mdio_write()
+    https://git.kernel.org/netdev/net-next/c/9b0ed33a4256
+  - [net-next,v2,06/11] net: stmmac: mdio: move runtime PM into stmmac_mdio_access()
+    https://git.kernel.org/netdev/net-next/c/9b88194a3b68
+  - [net-next,v2,07/11] net: stmmac: mdio: improve mdio register field definitions
+    https://git.kernel.org/netdev/net-next/c/3581acbb789a
+  - [net-next,v2,08/11] net: stmmac: mdio: move initialisation of priv->clk_csr to stmmac_mdio
+    https://git.kernel.org/netdev/net-next/c/661a868937a1
+  - [net-next,v2,09/11] net: stmmac: mdio: return clk_csr value from stmmac_clk_csr_set()
+    https://git.kernel.org/netdev/net-next/c/231e2b016fb2
+  - [net-next,v2,10/11] net: stmmac: mdio: remove redundant clock rate tests
+    https://git.kernel.org/netdev/net-next/c/78c91bec8fb9
+  - [net-next,v2,11/11] net: stmmac: use STMMAC_CSR_xxx definitions in platform glue
+    https://git.kernel.org/netdev/net-next/c/fc8f62c827ea
 
-> > Isn't the dev that we're completing Tx for is
-> > best read from skb->dev packet by packet? =20
->=20
-> It may be worth to try.... I think that the code, which we do have now,
-> tries to reuse some kind of "locality".
->=20
-> > Also this wake up logic
-> > looks like it will wake up _one_ netdev's queue and then set tx_full
-> > =3D 0, so presumably it will not wake the other port if both ports
-> > queues were stopped. Why keep tx_full state in the first place? Just
-> > check if the queues is stopped..? =20
->=20
-> As I said - we do have only ONE queue, which corresponds to uDMA0 when
-> the switch is enabled. This single queue is responsible for handling
-> transmission for both ports (this is how the HW is designed).
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Right but kernel has two SW queues. Which can be independently stopped.
-So my concerns is that for example port 1 is very busy so the queue is
-full of packets for port 1, port 1's netdev's queue gets stopped.
-Then port 2 tries to Tx, queue is shared, and is full, so netdev 2's
-SW queue is also stopped. Then we complete the packets, because packets
-were for port 1 we wake the queue for port 1. But port 2 also got
-stopped, even tho it never put a packet on the ring..
 
-Long story short I think you need to always stop and start queues from
-both netdevs.. There's just 2 so not too bad of a hack.
 
