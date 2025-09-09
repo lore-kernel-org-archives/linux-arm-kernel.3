@@ -4,75 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FB2CAC58C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 07:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D66CAC589
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 07:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1sXXFeojnW8lHZrtPgsD4EzgrNP4alFsZ5V5sSQ+B0=; b=fI72Jb7yc/mPKxheG2WyGG4usV
-	KrcGtz2wapRWDZBZ96F68hDNghRG+nlFkdWN4ieMXlsX96nXVWY6zw2kgJKt98LRZosKjQa/1QhNY
-	vjgDb2Zz9mVjHZuDjM6IFZCjqWvLpeHclpOhh7yrLAs5TBAcFQdEyJUrDZudRskY7YP0aXIOhTd83
-	2Og/8dZs29xjdbgJTEDDeuuUFiPh4l2+64Rvl/ky7Omcv29VFP3lgC8yyeFFneQTJvO7dYAqFBzqX
-	T/NhsANd5IpDmlh2OhbArSLy7ZnDH3kBSQy6CBi6wk8+3aJ3eOrDDc5hy+6+DFWc932rQscYK8MhA
-	VWmFgEvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oAaaG936d1mat4I1yLx2MrGygeo1Z/284nFBT9bxDOo=; b=iFkasuhAg4dxi9Up+Bz2DkzVPi
+	+lbwsXlcIpqTIXAtVKc/S8QYM6bwdme8b+GM15jWomllYWKT0IXjwU0eDwP+05cs4iqGBpUbLXYeD
+	665VF6MvlY2o7WG1kBMLE4HaZ/2lNcjYwyUijwBzJhYCIQBgJEQFdXW41eFL1nXvvZnHxbnPR3QLb
+	t0NjSPGJKtiib6oHaspmh0h+8FTRX84ghe/gvYlzhE2Ejxds6Pp4TVqtTcMO//LnITFLgfcNyYQWK
+	NzqzG/rEncywji2cDnjYh8qPuYBuk6bPrxfbGagRqgVmG6DBqTjBhICkgHRUdSYlLhGJhclALTEit
+	9l4YUVxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvssF-00000005BwY-2YsC;
-	Tue, 09 Sep 2025 07:34:43 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1uvssU-00000005CEL-3GZC;
+	Tue, 09 Sep 2025 07:34:58 +0000
+Received: from mail-bn7nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2009::600] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvrRn-00000004ZuT-1iFe
+	id 1uvs0M-00000004kCd-1oSp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 06:03:20 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 1E6EAA0ADA;
-	Tue,  9 Sep 2025 08:03:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=d1sXXFeojnW8lHZrtPgs
-	D4EzgrNP4alFsZ5V5sSQ+B0=; b=aGscbi5eZS1dDYuixythV+yuDCvNV1Dd1bfG
-	rL7tyvaslDr4H0qkTxgf501fC/LMqiR03t2g0Z9PF5MwqUHfxiB+4IPote3XoHwG
-	47co4LirFErhp8GFkwhHNkwcVVDRNwB4NfcK9HcQVqfvfAW9ZtGt2ce0e3DnxkS/
-	bOU9qOQSuaQ98Z+PiqpzKqhYsOpI/Z+TqCo7FsfNNxuX2anL2DphMrdg+ChQPiOM
-	uPWjgswEmxgxx4NBOmAzERVfa8QvslS2LOH9CEr2SbXRB+dTMu+zHmvXE0wN1rxm
-	nVcbDro/TfklItqmGUwd8lIvrQ/o9JOrvHofMdBNMkANa5PEQR2RBlKG2/3j88KG
-	d6xspaw75zJc1VUMniWGz5xv6Lh2D+JjU8v3PNbgLD86uINrTxBULAi1/MLJ690b
-	5JjprHGLpwt38IZWADY5HqOIUuszgXGmJwGvejV9nlAD3dkkNvvo7zEg2e2r+qKD
-	VtmQFKM5UdoYtka8mvEXZaIsqeJxdujvwegPsGVkWhz6SwhgLmCf+1gVb/PffDGu
-	aWtwrQtECF6UvWLVjYpbFaI0SgyqY8EwRbVvdAfgCV3YD8NAZXwPZLDo/mdEymUR
-	oHbvCdKu05ycKBxdGIBg3bGI+1+43J4rrOoVXrrhjX2lGYzFwweViikW9+gy4Uid
-	CXOsvc8=
-From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Date: Tue, 9 Sep 2025 08:03:10 +0200
-Subject: [PATCH v4 1/3] ARM: dts: imx6-sr-som: Replace license text comment
- with SPDX identifier
-MIME-Version: 1.0
+	Tue, 09 Sep 2025 06:39:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qgyy1p/W+3KS2z87xL4V90Wpa8gsXT4HEbzvBmFfNqxrvHvwYS5jLMEr6p9D8azbXh/VNLZlm1MUiFrsRtn468ucMSATsjP7Xf044wA/ZaDC0XfZbzWDL9OTrGuu91x/XlVPhF544AIMzZIMQH4MCnvAgkUha6zYh5XOiZ8LuvghjCYgat1XNyGD8PUBM8kL8x/9w6Jea1X7af5aHbgulbhUAbAQnJLcprdS4NgtqI2HcCuVzBoxy9LlaQsaS9TZaALTCaZBl/pJXZRLO9jp9WwkK0QXcM+OHwsb1pUS+ut0XsLmYtxOUIZTlfVcinQo1F+oiJusV2Q7GYkHtnNM9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oAaaG936d1mat4I1yLx2MrGygeo1Z/284nFBT9bxDOo=;
+ b=bs0GSX6jW9QJXcX5i3799Hg/Fc6y/4P24BCEVHELMaB5GaVl1tYfCLS89W74Kxr4Be5mxFIIZznmJeiwefIKYiEEAQ0lUkBBeZyWxvQKPTZb+xCZnPdkY7cAKg1aLBvephq4KveaNCL1VE5MlSyUJ+7YGaonXIqQsm4lL+EXMkn2ZCBIGIFUw+ApU9wswhb7bbHZ10DIDzBewMSKcWl7hIL20z+zzdStU5aCqcHigiJTjUWWIOd1Uw14km4x3z5q06hn8CIiJ7rTLXdj9V7TOOUgDFOZSz7s/Lw3mAnB4tNO2CJGOi0VimsvZT6pLGCCtkntl/IWeYXqt4RxbgvJ7Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microchip.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oAaaG936d1mat4I1yLx2MrGygeo1Z/284nFBT9bxDOo=;
+ b=3z0gqWqtbxx3lVSPiTyWjOE5cPz0aWPv1Fq+cvFMRU+MbZBV8vM1Bc7neIWRy9lvMvJ1g8psQiw4mL0J5ga409TRh4/Jbjex1d7P2EToqvXQOWm5bfjIVj+pGipG6lM8kc9H85Nhk8e4+2gEgVE2cDZeYXakXP0DJvwDsGud5ioopl01XtT0/dspaIYpxGq0/dwVKJdTR3l+tCDrwEbhrs1wJD8u7D1F7GEYovOXQIKEwOKSLBMSsWcKUHEIM6jvZE1jMaqWWwXbOBR2H8psJkPHFJjx0ClmYtnzmuxy5UtW7OhWextxZ0sEDVooLBNDQoCFToApOrerMHARJZjtuQ==
+Received: from SA1PR11MB8278.namprd11.prod.outlook.com (2603:10b6:806:25b::19)
+ by CY8PR11MB6987.namprd11.prod.outlook.com (2603:10b6:930:55::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Tue, 9 Sep
+ 2025 06:38:56 +0000
+Received: from SA1PR11MB8278.namprd11.prod.outlook.com
+ ([fe80::84fa:e267:e389:fa9]) by SA1PR11MB8278.namprd11.prod.outlook.com
+ ([fe80::84fa:e267:e389:fa9%5]) with mapi id 15.20.9094.021; Tue, 9 Sep 2025
+ 06:38:56 +0000
+From: <Parthiban.Veerasooran@microchip.com>
+To: <danishanwar@ti.com>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <horms@kernel.org>, <corbet@lwn.net>,
+	<nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andrew+netdev@lunn.ch>,
+	<mengyuanlou@net-swift.com>, <quic_luoj@quicinc.com>, <gongfan1@huawei.com>,
+	<quic_leiwei@quicinc.com>, <mpe@ellerman.id.au>, <lee@trager.us>,
+	<lorenzo@kernel.org>, <geert+renesas@glider.be>, <lukas.bulwahn@redhat.com>
+CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>
+Subject: Re: [PATCH net-next v3 4/7] net: rpmsg-eth: Add netdev ops
+Thread-Topic: [PATCH net-next v3 4/7] net: rpmsg-eth: Add netdev ops
+Thread-Index: AQHcIKApBK9kCbFYTkCCOXsVz6s5OLSKZ5QA
+Date: Tue, 9 Sep 2025 06:38:56 +0000
+Message-ID: <4a69e4f1-06b1-49a1-aab6-baef6c613f0b@microchip.com>
+References: <20250908090746.862407-1-danishanwar@ti.com>
+ <20250908090746.862407-5-danishanwar@ti.com>
+In-Reply-To: <20250908090746.862407-5-danishanwar@ti.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla Thunderbird
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR11MB8278:EE_|CY8PR11MB6987:EE_
+x-ms-office365-filtering-correlation-id: b2258fdc-62da-45a2-cad9-08ddef6b8d33
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700021|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?R3M1LzB6Y2FCVGNPRUJnb1VhTHM2d1B5UXZaR1drZW92VzZBRENTK0FqWFJN?=
+ =?utf-8?B?UmVuUml5Ly9tME9GOVhFVk91NzVYaEsrVEZDdUhKMmtPa1NmOVlpeTFkaC9k?=
+ =?utf-8?B?QUJGWVhLZlVlODJzOTY1TG81R2VhZkdtd203SHZUWU11aDFRVE9xZ0hibzE4?=
+ =?utf-8?B?akpsSFVqTXowTkkxZHN0VkNnY0pGZElpNThKZGdBSjRJbktWZmdNUkY5UzRv?=
+ =?utf-8?B?UWZMZ2IzdDZxT29KcmN4b2xjWldaL2dmOEQ5bm1XT2psWEcxeXFERGRSR3Q2?=
+ =?utf-8?B?QVNLZ2R1akd4Yk9SNUhNeTFIdkEvNGM1T09LYjdsQzBPdUlNS1dMSjF4cGRo?=
+ =?utf-8?B?K3ErSnEvMjlEQUZRY256MHpBbXBWRjBzNVNwQXIzblc5anM1QmxxT2svOGVp?=
+ =?utf-8?B?cCtCaGhocXl0ZGFZNjYvcGhobXh1T2trWVpYK1pEMVpQV3VTbFcvcHNYNmo5?=
+ =?utf-8?B?bWlmbWhjNTc0b3VUR1ZDZzBBRm41Vkh1a25NRWl3dUZTc3FTay9JaER6MFBX?=
+ =?utf-8?B?dGNFVExJRU1pbzg3SDlncG1ORWNiemlLdmNVSEMrR0RPd0wzcmpxY29qU010?=
+ =?utf-8?B?ZS80bi9SajVDejI5STNxVGQ2eEV6bXhkQjRWUmlBbGFRNUU2TjN1UERhS2dn?=
+ =?utf-8?B?OGkxTUFjbEVnQkdmN0I5TGxxYmhFWGR5bUlLeXFmZTJLR3ZTS0lLWFJzSkpB?=
+ =?utf-8?B?MTJrZDZzTGhIdUw4bm1PVFpEKzhicit4cGk1dlVxT1VlWkxoekhzUGdMVWVH?=
+ =?utf-8?B?MlEyZTFYL2g2bkFTNFY4bVorSllZVW5RdThyMXViOUE0MkxIZnpGazJ2bjE3?=
+ =?utf-8?B?em5VenJJMHRpSEY0eUFINGtOUENYMGc2ZDU0UzBEc1JZVUkxVWZ3NFE0R2w5?=
+ =?utf-8?B?SHFyM1Z0dFM1aDA1L2hPQlV2aVJydWVNWUNrVC9Wc0VDMG4wNFdRd2MzYnh5?=
+ =?utf-8?B?UUlNeDQ1cTA1VzhLUXU3K09JVU9vRVZLSERkM2dqWmdQK0J0Y1RvUkN2bTZ3?=
+ =?utf-8?B?ZFd1R2tuZEJXaXZWWXZ2Y0xoa2FYNkx1b0NEaTZnN0lwS0NUdWE1M242Q212?=
+ =?utf-8?B?L3dLQ2diNW40dTAzOVJ4RkRpeUNjREhpQVlzdHJjdk81OHhQVjFKWHdod1Vs?=
+ =?utf-8?B?Uk1TNVdLeTk2ZFdvNUZrQWFra2g0L3g1OE9CYmlOY3V3UXZ2bGpxMVlJMXdt?=
+ =?utf-8?B?RDFUdjNPSENPb2d2NlROYytyOVF4eGtQL3NqdkgyZkdOclJCMy94R3Znc21I?=
+ =?utf-8?B?SENhNGdqZ21HU2ZpSWtHeFlaRExUYmU4UDAzdHVtbVBEOHRsdVhmbjV4MnZS?=
+ =?utf-8?B?Nlhjd1RONit2QWVIKzhreTRCQ2loU2p3bGdaL0J1WGU5NFVJUThWcklnNHNX?=
+ =?utf-8?B?VnUwWE1QMkRDQVhNWkxsZDdLdDFUVmdNRkdMN3ZmeFlVaFRIeWg0MnFNd3dI?=
+ =?utf-8?B?b3RRS3ZtUGJLMWVCalc5bHRmOWN2Vk9iR0QyamM0WEg3clpSL3dIejVOVHh2?=
+ =?utf-8?B?dFBqUWFjM240ektzdUFMK1RMS3djdENzaFVlMjhmNWJxUldSeHNJWDZ0VG96?=
+ =?utf-8?B?bFBWam4yenBTdCsvaG5sQmltb1hMMEVDK3lBNjFVUENBN05pTExlYXFyQzNC?=
+ =?utf-8?B?WWx6a3hTeXlhYStFdkJYaEtMSVlyQjJiUWxYRjF3eHlyZjNVRThjZEgvM0NE?=
+ =?utf-8?B?Z21oOVE2MDNuK05HdEJRamlBQ0hONzlmcnJLaE5nMzFOU2JkYlJabnFlU21L?=
+ =?utf-8?B?NVR3SE9GZDhYdENHbVpPY3BjbFlJbnVVbk52UFJCMHBLcFlOR0VmWVhuZU9a?=
+ =?utf-8?B?ZlBGNzJVcmFONXE3YjZMM2xENGYyWEpoQ1BNdGNVaTkyOU1ndGNBOXJPTW9l?=
+ =?utf-8?B?S0xIcTJRdWF4a00xWnBEWWNNVnkrdjdrNHlHcUZLQkxRdlBtejViQlMrREFl?=
+ =?utf-8?B?WGFpdlhIcG1BTEFHc3VzeGFtVGJKYVBacFg1UDNxUlM0MzZJZ0NTcXk5OTRr?=
+ =?utf-8?Q?vtUEFI9Zmi06bFxziIijq5AHYkddF4=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR11MB8278.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700021)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?K1VBOXc2TkkzVDUxQkpXdS9NbHNtb3FncExCQUJydEZEZmtHUFlqM2ZLUjJo?=
+ =?utf-8?B?Yk1TM2tldTFlMUJZdVkvc0hpcGd0R0FXU1oxbTk5NlFIVEFqZVBGLzFBTFNU?=
+ =?utf-8?B?d0xjNnN0NnowN21aaWZ0MERsZUZOZHBBcXJ0bXdESmJDUjVabnQ0WGRqZEhC?=
+ =?utf-8?B?elJBR2pXZFY3YS9sTTdpUmZSOWRpdjlHRXF4eEFSK2NKRVVBMUx0WmoxY0s4?=
+ =?utf-8?B?QXJSNmJyUm1rdGJURXV2SGpqdHIrLzZBU3JoNDYvM2NNZzh6dnZtT3BSbGtC?=
+ =?utf-8?B?aExJUHZ6SEpWZWQzcUNjTkcrTi9ROVJ3QkpXNDJzeWhhWmxKaFhZcGNYb05X?=
+ =?utf-8?B?QVEvcFNUc211NWhUREk2TW5Vd25vZ0F1SVRIdHdmWVJzTUVBYUsvVE1wZWNF?=
+ =?utf-8?B?SHBnc0tueE9ab0JhVllVVXVFTm82TEE4c1BVbm9CNG50Sk1YMnBldjQ4NDdr?=
+ =?utf-8?B?eEtHeFZyaXlaNjNKYkRhc3NLTDlwMVprUEhGS2xFYU9iSTdQQzRMcXNSNlZF?=
+ =?utf-8?B?NnZwcmNIajJMeUZxZ1ZGVHN3aHFjaTVrY3J4aWFDYzZYZlk0cVowekNrcUVv?=
+ =?utf-8?B?N2ZQODhlL2Zkc3BaUHZqL2tyNGFTdDEzelppaVNvdjZReDBaZFJjWS85RzdB?=
+ =?utf-8?B?WGZGOU5JdEc3NjRxaWx6Y0NicmhuU2g2N2puV1ZOV2E3UGVTN01vaVBObXI3?=
+ =?utf-8?B?QWZHeEttVDNjZjU5Sk04TWhEN0QxRitVSW1JTkRsWlVlU2tDRWM5QTFPWHM5?=
+ =?utf-8?B?SmdhVldIeGUvTUdNdk1hK1l2VU5kSGdZSjY4ek4zSjRMTWczZkdZakoxOWlR?=
+ =?utf-8?B?UlJyNU96S1FzaEZwOTNhMkk2dDhXSU81RkoxQW4yY2NKV3pKam1idXFjZWFn?=
+ =?utf-8?B?NytiN0djcVhBNm95VkQ1T29YMHR1T3JTV1lDVUlhVmM3bEp3cFpvMjVseEFQ?=
+ =?utf-8?B?T1RQTFpUbWtIbTlTTUhPSEZPd0VvS0hhaGVUb3F0L0VGWE9DRVdtOVRxK3pU?=
+ =?utf-8?B?QmJuTkMxUkw1dHZXaWpObTlITXBCYzFVcVZBbHhvSEx2b1hWRjl0eHVCeitL?=
+ =?utf-8?B?ZWhPeDZBSCttOHd3Wk9tUEV1OE05S0RhRHhlM1hEYW9yMmZsa3EyTVpLYU40?=
+ =?utf-8?B?WG52Qk5uMUFneVJzZmVDQXJWMUlQcmpNaFI4dWJ3cStXSFlHSUtOVFJLUUhZ?=
+ =?utf-8?B?UTMzbU04UHp5QUZ2bUVYNEs4ZUZ1cVdBUnRER2lBSFRCbVhjRVVySDFKRitp?=
+ =?utf-8?B?eGlLcEFYemVGcHhMZHdGQnQyNmdqbG1yTkY5R1NFMitFSzNnbFlxMmMvaEkr?=
+ =?utf-8?B?SURYMXJJQ0FCOUlGWjE3RmhGMFJlL3JtbEh6V1p2bUZZTkk3enVmL3pKY3ZC?=
+ =?utf-8?B?VXIwTkJ3VW1DeGdtYytId1pQcTIyTUk3UXVHeVJQM2JZdnV5eWZkdTd2NVBk?=
+ =?utf-8?B?VXV3Mi8rdmZwdHZCbk1xTmhmV2ZOR1Z0VEVpanYwNlBRcmdwRVpWaWw5ekxM?=
+ =?utf-8?B?T0src21YT1hXSmYxRWpwM2l2bkNoYWlRc08rUnZOdWM5OGtvcThySTRFa0Q1?=
+ =?utf-8?B?cHZEVWNnSDB4cDJDaUlGQzJvSi9GQThzNTRkMksvNlVLdnpCaWNHVEZ3Nlg2?=
+ =?utf-8?B?aGhEMk5NZ2oyQ01XZTR6WDlUKzNlRS9SczJ6bEtqd1JBUy9JcDM2enVDZWxu?=
+ =?utf-8?B?SW1wMisvUUlhUEVYQ04wYzI4K1RjWUVHaG11T0J2bkZYcGtNWThyVW9sKzNF?=
+ =?utf-8?B?OERRTllHNHJHNDVWYmtzZy8weTdxM3FxSmhZb1RZT01wWVMwbGUydWJNUnhp?=
+ =?utf-8?B?SnZNWExObmlzcTBSelVqUFZYYUNjQ2dSenhYejc0QjFTWTAzS2t1dDZtZGhU?=
+ =?utf-8?B?cmRLTUozU0FDcnNPVFJ6V1V1cmhrWGdVZG5lc281Zk1WMWw1M1ZLbWFZNENF?=
+ =?utf-8?B?dWJVSGpESnpPRkxTTXRkTnJCSzFzeXFZdDB6WG9pNk0xNXhya1h3dGNucXQ1?=
+ =?utf-8?B?eEREUXFRQ09mVWxONEh1clU2ZmhNU1phWngweWdadVVheHJ2WXlpUnJzMVBH?=
+ =?utf-8?B?UTRiOVdNcEtERTJVNTBLajNBYnA5T2RoMzZzKzF3UFpwWDdpcWJXUjBhQ0tG?=
+ =?utf-8?B?S0M2clloQXRYTW0xNHF0NVdnSjdBSm9KQnRhM254QzBULy9kSTlpZkVZOTNl?=
+ =?utf-8?B?OXc9PQ==?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20250909-sr-som-dts-lic-v4-1-02f4e0e440fb@prolan.hu>
-References: <20250909-sr-som-dts-lic-v4-0-02f4e0e440fb@prolan.hu>
-In-Reply-To: <20250909-sr-som-dts-lic-v4-0-02f4e0e440fb@prolan.hu>
-To: Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Rabeeh Khoury <rabeeh@solid-run.com>, =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?=
-	<csokas.bence@prolan.hu>
-X-Mailer: b4 0.14.2
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1757397796;VERSION=7998;MC=2070218764;ID=61059;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155E627462
+Content-ID: <9295D91D90416C4A9B609A6DE2B336E3@namprd11.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: microchip.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR11MB8278.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b2258fdc-62da-45a2-cad9-08ddef6b8d33
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Sep 2025 06:38:56.5793
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: dbJDZZjjUHuYuYQcFcNFDfoSAqW3v0EYpCk47xtprSXIf77ZxCQ6RdggZ9yTXVrYfCjDO0saUiRjKRJhSKTzMzhmOdDih1m58Tu1nuSUaS5lrvSiZA5WvIisUn2LQRdg
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB6987
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_230319_773487_0F69E0AC 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20250908_233902_711381_9761CCAC 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,319 +188,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace verbatim license text with a `SPDX-License-Identifier`.
-
-The comment header mis-attributes this license to be "X11", but the
-license text does not include the last line "Except as contained in this
-notice, the name of the X Consortium shall not be used in advertising or
-otherwise to promote the sale, use or other dealings in this Software
-without prior written authorization from the X Consortium.". Therefore,
-this license is actually equivalent to the SPDX "MIT" license (confirmed
-by text diffing).
-
-Cc: Rabeeh Khoury <rabeeh@solid-run.com>
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
- arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts     | 38 +---------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi  | 38 +---------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi | 38 +---------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi | 38 +---------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi   | 38 +---------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi      | 38 +---------------------
- 6 files changed, 6 insertions(+), 222 deletions(-)
-
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts b/arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts
-index 0e6a325df36322930eeb40b524743c9421b1ed77..d929f131ff41c9c9072272e367093fed2a210f08 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts
-@@ -1,43 +1,7 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2015 Rabeeh Khoury <rabeeh@solid-run.com>
-  * Based on dt work by Russell King
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- /dts-v1/;
- 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi
-index 60e446ba8f523e22053b9a5d14a39282f9be6a25..d29a60225afc71a20e3081ba1ac9b9b812c53481 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2021 Russell King <rmk@armlinux.org.uk>
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- #include <dt-bindings/leds/common.h>
- 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
-index e491f5c9d455162b40390862f66241c2a2d7cf1e..0d7e14a94305620eb74c88028a0dd6186fdb89d1 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2013,2014 Russell King
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- #include <dt-bindings/gpio/gpio.h>
- / {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
-index ddca24414d262f47b75cf016456b8b0b76fe5f26..3053a28c42cd061f76acd37928e6ef2937bd1d74 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2013,2014 Russell King
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- &iomuxc {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
-index cd1e682f11add204f373b54b7ad90909fa6bfb5d..5a35436bb30ae3988a25155ac3e795b6915c6ff8 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2013,2014 Russell King
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- #include <dt-bindings/gpio/gpio.h>
- 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
-index 7af74b203e399c49e63db6356416cf91fc07167d..6aea7bf06e7aaa3e2d0afc6fe2a43b723425d2f9 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2013,2014 Russell King
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- #include <dt-bindings/gpio/gpio.h>
- 
-
--- 
-2.43.0
-
-
+SGksDQoNCk9uIDA4LzA5LzI1IDI6MzcgcG0sIE1EIERhbmlzaCBBbndhciB3cm90ZToNCg0KPiAr
+c3RhdGljIGludCBjcmVhdGVfcmVxdWVzdChzdHJ1Y3QgcnBtc2dfZXRoX2NvbW1vbiAqY29tbW9u
+LA0KPiArICAgICAgICAgICAgICAgICAgICAgICAgIGVudW0gcnBtc2dfZXRoX3JwbXNnX3R5cGUg
+cnBtc2dfdHlwZSkNCj4gK3sNCj4gKyAgICAgICBzdHJ1Y3QgbWVzc2FnZSAqbXNnID0gJmNvbW1v
+bi0+c2VuZF9tc2c7DQo+ICsgICAgICAgaW50IHJldCA9IDA7DQo+ICsNCj4gKyAgICAgICBtc2ct
+Pm1zZ19oZHIuc3JjX2lkID0gY29tbW9uLT5wb3J0LT5wb3J0X2lkOw0KPiArICAgICAgIG1zZy0+
+cmVxX21zZy50eXBlID0gcnBtc2dfdHlwZTsNCj4gKw0KPiArICAgICAgIHN3aXRjaCAocnBtc2df
+dHlwZSkgew0KPiArICAgICAgIGNhc2UgUlBNU0dfRVRIX1JFUV9TSE1fSU5GTzoNCj4gKyAgICAg
+ICAgICAgICAgIG1zZy0+bXNnX2hkci5tc2dfdHlwZSA9IFJQTVNHX0VUSF9SRVFVRVNUX01TRzsN
+Cj4gKyAgICAgICAgICAgICAgIGJyZWFrOw0KPiArICAgICAgIGNhc2UgUlBNU0dfRVRIX1JFUV9T
+RVRfTUFDX0FERFI6DQo+ICsgICAgICAgICAgICAgICBtc2ctPm1zZ19oZHIubXNnX3R5cGUgPSBS
+UE1TR19FVEhfUkVRVUVTVF9NU0c7DQo+ICsgICAgICAgICAgICAgICBldGhlcl9hZGRyX2NvcHko
+bXNnLT5yZXFfbXNnLm1hY19hZGRyLmFkZHIsDQo+ICsgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgY29tbW9uLT5wb3J0LT5uZGV2LT5kZXZfYWRkcik7DQo+ICsgICAgICAgICAgICAgICBi
+cmVhazsNCj4gKyAgICAgICBjYXNlIFJQTVNHX0VUSF9OT1RJRllfUE9SVF9VUDoNCj4gKyAgICAg
+ICBjYXNlIFJQTVNHX0VUSF9OT1RJRllfUE9SVF9ET1dOOg0KPiArICAgICAgICAgICAgICAgbXNn
+LT5tc2dfaGRyLm1zZ190eXBlID0gUlBNU0dfRVRIX05PVElGWV9NU0c7DQo+ICsgICAgICAgICAg
+ICAgICBicmVhazsNCj4gKyAgICAgICBkZWZhdWx0Og0KPiArICAgICAgICAgICAgICAgcmV0ID0g
+LUVJTlZBTDsNCj4gKyAgICAgICAgICAgICAgIGRldl9lcnIoY29tbW9uLT5kZXYsICJJbnZhbGlk
+IFJQTVNHIHJlcXVlc3RcbiIpOw0KSSBkb24ndCB0aGluayB5b3UgbmVlZCAncmV0JyBoZXJlIGlu
+c3RlYWQgZGlyZWN0bHkgcmV0dXJuIC1FSU5WQUwgYW5kIA0KYWJvdmUgJ3JldCcgZGVjbGFyYXRp
+b24gY2FuIGJlIHJlbW92ZWQuDQo+ICsgICAgICAgfQ0KPiArICAgICAgIHJldHVybiByZXQ7DQpj
+YW4gYmUgcmV0dXJuIDA7DQo+ICt9DQo+ICsNCj4gK3N0YXRpYyBpbnQgcnBtc2dfZXRoX2NyZWF0
+ZV9zZW5kX3JlcXVlc3Qoc3RydWN0IHJwbXNnX2V0aF9jb21tb24gKmNvbW1vbiwNCj4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbnVtIHJwbXNnX2V0aF9ycG1zZ190
+eXBlIHJwbXNnX3R5cGUsDQo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgYm9vbCB3YWl0KQ0KPiArew0KPiArICAgICAgIHVuc2lnbmVkIGxvbmcgZmxhZ3M7DQo+ICsg
+ICAgICAgaW50IHJldCA9IDA7DQpObyBuZWVkIHRvIGluaXRpYWxpemUuDQo+ICsNCj4gKyAgICAg
+ICBpZiAod2FpdCkNCj4gKyAgICAgICAgICAgICAgIHJlaW5pdF9jb21wbGV0aW9uKCZjb21tb24t
+PnN5bmNfbXNnKTsNCj4gKw0KPiArICAgICAgIHNwaW5fbG9ja19pcnFzYXZlKCZjb21tb24tPnNl
+bmRfbXNnX2xvY2ssIGZsYWdzKTsNCj4gKw0KPiArc3RhdGljIGludCBycG1zZ19ldGhfc2V0X21h
+Y19hZGRyZXNzKHN0cnVjdCBuZXRfZGV2aWNlICpuZGV2LCB2b2lkICphZGRyKQ0KPiArew0KPiAr
+ICAgICAgIHN0cnVjdCBycG1zZ19ldGhfY29tbW9uICpjb21tb24gPSBycG1zZ19ldGhfbmRldl90
+b19jb21tb24obmRldik7DQo+ICsgICAgICAgaW50IHJldDsNCj4gKw0KPiArICAgICAgIHJldCA9
+IGV0aF9tYWNfYWRkcihuZGV2LCBhZGRyKTsNCj4gKw0KPiArICAgICAgIGlmIChyZXQgPCAwKQ0K
+PiArICAgICAgICAgICAgICAgcmV0dXJuIHJldDsNCj4gKyAgICAgICByZXQgPSBycG1zZ19ldGhf
+Y3JlYXRlX3NlbmRfcmVxdWVzdChjb21tb24sIFJQTVNHX0VUSF9SRVFfU0VUX01BQ19BRERSLCBm
+YWxzZSk7DQpZb3UgY2FuIGRpcmVjdGx5IHJldHVybiBmcm9tIGhlcmUuDQo+ICsgICAgICAgcmV0
+dXJuIHJldDsNCj4gK30NCj4gKw0KQmVzdCByZWdhcmRzLA0KUGFydGhpYmFuIFYNCg==
 
