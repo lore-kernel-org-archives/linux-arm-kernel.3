@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59B9CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C35FCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 15:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+hrS+gNEMWDxV0mKXtkhOcJ6h8ajN29VXW/74N9mIiM=; b=FAk/vW3WZZYl7ALYvfrjbnNRKo
-	cfERCNWh1+m9xg+nY72iOpFocz6mlZa+f7dkIZSCMck+Afnh3RS31ZfWXwLupxiYh+V3OMdYxNRWs
-	T/Ya1VZbRoI71fsm1HrCZ+Kv6KIy9JYzTXwme/aHlHOG3PAIYLEiwDeZSWUiCqTcYajrO26qAnmB7
-	fOXm6VDu6W7hfh6YP5j0bRSzjHodepziwU4whb5WUO2iqaAOwedAE3Vtzf6bnJIyMTVkpxG35zQnf
-	cySExnk/vUE5bak8awzNQHR6zvP90W2Ogvn1xjPZL728/tR4YX531Xl9F067uUM/t+yqB5kJ2+zqj
-	zRZwIwmA==;
+	bh=CqCyjP3z7F10tcRyS6ryGhJEoWL9Np/LwW598YFvZGY=; b=rIgFPv7gUIuCbrYi2iEZ8QHPAu
+	iZb1Z7lsam1RKdLhqVmJCED+MISvn/ByRtyN85NBROLc3HpmWnfB0W9R3uen35FUBmBNc5JQxezB2
+	Eh4Dp7vYIWX4WzdvAfqThg+noN/WaIOr08WIjvjIZf/+2xEFsEkRFldanlFhRjjeW+H91EG39daQ+
+	MQhWnVZ1jH7NYyAd3Fp0VfaleOjdhX8P0EENrC/3uZVc+kAiSVsBi2Rh4U4AGDHcjYWwRSImlsPAQ
+	p4JXHl0brrj8CGoBkLrq4kMJgbq9f11whnBKEH3TJzW8kf0j73OownMY83hNU/99SDQFjVnccSMc0
+	YRRrABrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0UF-00000008Cbl-1pDy;
-	Tue, 09 Sep 2025 15:42:28 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1uw0UR-00000008Ck8-2RNy;
+	Tue, 09 Sep 2025 15:42:40 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvvL6-00000006Hl3-2Et2
+	id 1uvvLA-00000006Ho0-0E0h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 10:12:42 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45deccb2c1eso6109545e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 03:12:40 -0700 (PDT)
+	Tue, 09 Sep 2025 10:12:45 +0000
+Received: by mail-wm1-x344.google.com with SMTP id 5b1f17b1804b1-45dd7b15a64so35373295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 03:12:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757412759; x=1758017559; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757412762; x=1758017562; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+hrS+gNEMWDxV0mKXtkhOcJ6h8ajN29VXW/74N9mIiM=;
-        b=mygdWvEB2rBzlih5sCxmcpZ9OapZk5FpBPvEhrpaiUEFl3oClQuQ+pbNNcK8/r/RtD
-         PfbiuBI48/BgWmFW/OOnWVbuiahFH5bO1dYUvogT9AT4TmWKERNCmHhrWuktFRVgmaAZ
-         GzGszGrFHWg6We+s6kiRkpuns7ixmA3zaEaQEmstojc07G3DvdhtQjAwtYFGivr/wIpJ
-         RA6XAy6LNMevd7+L4qpcwWoblKWa9N4sil0UZFwW4McA0hYt4E1uT1lppOvfYK2+rcQ2
-         Qg+CRY/MnS5R5/esR/ytMr6GCJH16V9QJrb8pMYe3HRvR7SqTdf9kFQwOQs5euZqHz4S
-         qj+Q==
+        bh=CqCyjP3z7F10tcRyS6ryGhJEoWL9Np/LwW598YFvZGY=;
+        b=EV7Jkv/udVM5VSLlwYgAgYnGOLU5dtZwIPLHlRQG7f5lt7fbQgCHUcbVsir3mzO28o
+         6jpBHqU+jv46N9fT/YFqN1kezVIqZPh3771xOK6r4uoq98HMZEYjA8MDOqw/Th8fjbmo
+         FYiY3ks91Ca9+II2AavmuvzBHulshYwUgcD3+jTJeEE0OLjR9gyDq4GCVSUkKcfo08fB
+         bSApJPtyYZg52hqhjbxMms31P9SeytRpFjFYoM1WqsWwGFQ3sDt2QERwNT7X3DyciAl8
+         H9jDRjtJru8bDHEPTGKQCC18qBh1JlYMex2L4XjcQ8udu76hRAIvRmuDkZfv4ty0RDcW
+         DFjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757412759; x=1758017559;
+        d=1e100.net; s=20230601; t=1757412762; x=1758017562;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+hrS+gNEMWDxV0mKXtkhOcJ6h8ajN29VXW/74N9mIiM=;
-        b=Nj2ayuR4BeQ//KRFKMvINfoT5IBirntCa+yr8JmJ2uzpapBTwqyweV/9pXQIpUyE3g
-         r6efN2EaUS2CGZQJfrF+MdnleHWKSGU4Vgo1GNnJTNabxXoYtBtLd9LHCNf2OkJlDrZ7
-         N7j/kodVVZY4dvEh3uhKrcS2kJuvJ+jo6lCYPF0oWSBQ7GnrtjK8mGnLO2XFDrhbAQhs
-         kwBmbaU7F9iKTQwDUDcdCYcgv82yioEXYhmG7aWnNwfLgDUTgUDvLdy34RdIk77j+Cnp
-         zhYAzwimkalAg19oxOWY0T6nz85PhNi/Zd8vzW1lYY+35DKpK0j0ztpLTn+gCrK3zfqD
-         EIpA==
-X-Forwarded-Encrypted: i=1; AJvYcCUwJuT/hSOYjVbugLffFHFafBYN7U1ZFr6GYk8P6O7t6bzX5pRqUkvpbmHszvNjp3sC7uzxVWZwisSk4WStsoOR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuL9UFS5ekGA4HvwMWAU2Sap6ajsawNwlchH9XopSNbi53WVtV
-	W99TNGg0WMNlSCvXsZcrID6EZyvnZi0okuUFOLqKOvjzGMN8lJJtG8Wu
-X-Gm-Gg: ASbGncupP4/nXl8sTH3yy3RNekE35Nwp1XnvJFPceVYwtH/7LSXylA4LyTCuOOJkOit
-	5QjlvTYSWfZ2TvA5sMcCG/zjDfyGhHZdP155vlPjpGZL2qgUZqXcAAfRBxM3hZS/kn2a8fsXQFR
-	XiCfd6iOd9bCCdO0JsAHSTcWXgX219Wl+1FAxz18kXoFOgXMkeRAwsv2DAjh14HUcXzTMYCIeI7
-	wwuqnSvG3u3j3j/LMmBTtQoOYQQHy9a6rgMeTklRhGioQocAEDAh4z3fxEp8kceRF4CF2qeRXbW
-	4RLg2X6nd2Aj7f/fWOA/reZE1TVyEvo6yR49KQ43+6+TGLi4kr3FJ64+MFc4N9wVxY1/yeRseMJ
-	GIL7S51iNExSpwFgatBWrJz9wvIT6QcsicIfw6+IwgnZEAdSO3EDFNA18xpIyYJ3VDxb+CsE6pM
-	PtblJEEJlaQwLrLZD5vY02atQVaQ==
-X-Google-Smtp-Source: AGHT+IF6kdfD0zGsjMmnAtNgzzWv37+IjLvZ504xPGjikiuj3U4fWnzlKF5W2UHoTYqJemkuMoORFg==
-X-Received: by 2002:a05:600c:4ecd:b0:45d:d5fb:1858 with SMTP id 5b1f17b1804b1-45dddee8e80mr91947355e9.21.1757412758646;
-        Tue, 09 Sep 2025 03:12:38 -0700 (PDT)
+        bh=CqCyjP3z7F10tcRyS6ryGhJEoWL9Np/LwW598YFvZGY=;
+        b=huKVtmd5sehtHIaNG87ZhqWldiBnWv+iAGfr0ziGJsO1qBBttkkDGaMNVLL6SP/umr
+         VwFCMC+hble+fMwLF4lWXd+MJGEMvSCD/h65KsDkadM0RWBX68zWZpcVIJF9J0R6uoLg
+         Bo3BjMPhCqzbJm1Bx9b94Q2H1kegO1EcqqNrra85k1aKKcrLdrrBOPqRQXs7fan1/W+U
+         wEkhA0HdXXqSrMxkjDj3d5fnDQMKXwFnDZV6V20/if0QPb1iu3TVthzLz31y9dnf7cXr
+         WyDnhblAad4CmdBEN9sab9/RRa69QqHp9z2GsFxAjxr6dAfyhDTj/bBvS6xUemx/0P5Q
+         HQww==
+X-Forwarded-Encrypted: i=1; AJvYcCUCVviOB1zkXUgLTa8p4/m1qTCTh5nMTn3zu31zMbUzOjJHPHjZ8vdxXh1dhbnNX1zhTKGLDv5peJSl2aQ1dePZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YySsnDTD9gok17hOEVwsFGbKc2QG0qa8d0z5AI6PxHdtynN/StB
+	vHjfQAJskmiYmpop5R4q7apOslbAH4neYH0X8MSmiw1vAA0mSZcqPOD6
+X-Gm-Gg: ASbGncuhJf+zIFDsRtmyXUnHKm1TGCw9bGg9sIyI09uX9MMTxT39yKfZHje+6RpfXS7
+	3UUezSW43yjS+nAWEwh0UHAQ/zSHsmYnrRYJjmY4qdAEepnI4UpjsT26P9XCBwJKfsUg8KJwabR
+	HjAXed3Buz84bqpDNLSv23TiM07YS6sUjcluLT73dI/RaKp/3ti5ybTXnpcSKkeSFnGTJaQA/vy
+	r5kmOfOZVrz4HVDMw9GR06pdndIXwgDEHxi5iVLP0Y+bza5rFCM2F9vCm6bBv8DvVuv3hEo7eBU
+	nUGIXgPI6pTo3opNqBtHgA8hmy5MNTzq1JbziMdR55s1rq4VRNNELtf7oMV9eJxi72pMNDzoamp
+	VQOP6ktLdiqgbCFUAEltrwVE3pjFFOH9BLZ3JgFHQSWYOh2qD25yFzI4ktjyfMl3d+g7Nluvwky
+	XPTxUSUZimt7+J5t0=
+X-Google-Smtp-Source: AGHT+IHSNt7ZxSHFDDuz04qqP6sftq2n73jb1Nndw6OMb1HkK/pmOtls8a389Ut8g5o8jrLiiEoQmw==
+X-Received: by 2002:a05:600c:c297:b0:45c:b5c3:ea37 with SMTP id 5b1f17b1804b1-45dd5b68719mr88577915e9.11.1757412762208;
+        Tue, 09 Sep 2025 03:12:42 -0700 (PDT)
 Received: from localhost (2a02-8440-7136-74e7-5ebf-4282-0e1a-b885.rev.sfr.net. [2a02:8440:7136:74e7:5ebf:4282:e1a:b885])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e75223ea47sm1973272f8f.46.2025.09.09.03.12.37
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e75223f3e2sm2041352f8f.44.2025.09.09.03.12.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 03:12:37 -0700 (PDT)
+        Tue, 09 Sep 2025 03:12:41 -0700 (PDT)
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Date: Tue, 09 Sep 2025 12:12:19 +0200
-Subject: [PATCH v6 12/20] dt-bindings: perf: stm32: introduce DDRPERFM
- dt-bindings
+Date: Tue, 09 Sep 2025 12:12:21 +0200
+Subject: [PATCH v6 14/20] Documentation: perf: stm32: add ddrperfm support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250909-b4-ddrperfm-upstream-v6-12-ce082cc801b5@gmail.com>
+Message-Id: <20250909-b4-ddrperfm-upstream-v6-14-ce082cc801b5@gmail.com>
 References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
 In-Reply-To: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
 To: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
@@ -99,8 +98,8 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
 X-Mailer: b4 0.15-dev-dfb17
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_031240_698119_CDE95279 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250909_031244_188105_55AD2F34 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,116 +116,119 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Clément Le Goffic <clement.legoffic@foss.st.com>
 
-DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
-It allows to monitor DDR events that come from the DDR Controller
-such as read or write events.
+The DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
+
+This documentation introduces the DDRPERFM, the stm32-ddr-pmu driver
+supporting it and how to use it with the perf tool.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
 ---
- .../devicetree/bindings/perf/st,stm32-ddr-pmu.yaml | 94 ++++++++++++++++++++++
- 1 file changed, 94 insertions(+)
+ Documentation/admin-guide/perf/index.rst         |  1 +
+ Documentation/admin-guide/perf/stm32-ddr-pmu.rst | 86 ++++++++++++++++++++++++
+ 2 files changed, 87 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
+diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
+index 072b510385c4..33aedc4ee5c3 100644
+--- a/Documentation/admin-guide/perf/index.rst
++++ b/Documentation/admin-guide/perf/index.rst
+@@ -29,3 +29,4 @@ Performance monitor support
+    cxl
+    ampere_cspmu
+    mrvl-pem-pmu
++   stm32-ddr-pmu
+diff --git a/Documentation/admin-guide/perf/stm32-ddr-pmu.rst b/Documentation/admin-guide/perf/stm32-ddr-pmu.rst
 new file mode 100644
-index 000000000000..1d97861e3d44
+index 000000000000..5b02bf44dd7a
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
-@@ -0,0 +1,94 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/perf/st,stm32-ddr-pmu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/Documentation/admin-guide/perf/stm32-ddr-pmu.rst
+@@ -0,0 +1,86 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
-+maintainers:
-+  - Clément Le Goffic <legoffic.clement@gmail.com>
++========================================
++STM32 DDR Performance Monitor (DDRPERFM)
++========================================
 +
-+title: STMicroelectronics STM32 DDR Performance Monitor (DDRPERFM)
++The DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
++The DDR controller provides events to DDRPERFM, once selected they are counted in the DDRPERFM
++peripheral.
 +
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - const: st,stm32mp131-ddr-pmu
-+      - items:
-+          - enum:
-+              - st,stm32mp151-ddr-pmu
-+          - const: st,stm32mp131-ddr-pmu
-+      - items:
-+          - const: st,stm32mp251-ddr-pmu
++In MP1 family, the DDRPERFM is able to count 4 different events at the same time.
++However, the 4 events must belong to the same set.
++One hardware counter is dedicated to the time counter, `time_cnt`.
 +
-+  reg:
-+    maxItems: 1
++In MP2 family, the DDRPERFM is able to select between 44 different DDR events.
++As for MP1, there is a dedicated hardware counter for the time.
++It is incremented every 4 DDR clock cycles.
++All the other counters can be freely allocated to count any other DDR event.
 +
-+  clocks:
-+    maxItems: 1
++The stm32-ddr-pmu driver relies on the perf PMU framework to expose the counters via sysfs:
 +
-+  resets:
-+    maxItems: 1
++On MP1:
 +
-+  access-controllers:
-+    minItems: 1
-+    maxItems: 2
++    .. code-block:: bash
 +
-+  memory-channel:
-+    description:
-+      The memory channel this DDRPERFM is attached to.
-+    $ref: /schemas/types.yaml#/definitions/phandle
++        $ ls /sys/bus/event_source/devices/stm32_ddr_pmu/events/
++        cactive_ddrc                 perf_lpr_req_with_no_credit  perf_op_is_wr
++        ctl_idle                     perf_lpr_xact_when_critical  perf_selfresh_mode
++        dfi_lp_req                   perf_op_is_activate          perf_wr_xact_when_critical
++        dfi_lp_req_cpy               perf_op_is_enter_powerdown   time_cnt
++        perf_hpr_req_with_no_credit  perf_op_is_rd
++        perf_hpr_xact_when_critical  perf_op_is_refresh
 +
-+required:
-+  - compatible
-+  - reg
++On MP2:
 +
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp131-ddr-pmu
-+    then:
-+      required:
-+        - clocks
-+        - resets
++    .. code-block:: bash
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp251-ddr-pmu
-+    then:
-+      required:
-+        - access-controllers
-+        - memory-channel
++        $ ls /sys/bus/event_source/devices/stm32_ddr_pmu/events/
++        dfi_is_act       perf_hpr_req_with_nocredit   perf_op_is_spec_ref
++        dfi_is_mpc       perf_hpr_xact_when_critical  perf_op_is_wr
++        dfi_is_mrr       perf_lpr_req_with_nocredit   perf_op_is_zqcal
++        dfi_is_mrw       perf_lpr_xact_when_critical  perf_rank
++        dfi_is_mwr       perf_op_is_act               perf_raw_hazard
++        dfi_is_mwra      perf_op_is_crit_ref          perf_rdwr_transitions
++        dfi_is_preab     perf_op_is_enter_powdn       perf_read_bypass
++        dfi_is_prepb     perf_op_is_enter_selfref     perf_war_hazard
++        dfi_is_rd        perf_op_is_mwr               perf_waw_hazard
++        dfi_is_rda       perf_op_is_pre               perf_window_limit_reached_rd
++        dfi_is_refab     perf_op_is_pre_for_others    perf_window_limit_reached_wr
++        dfi_is_refpb     perf_op_is_pre_for_rdwr      perf_wr_xact_when_critical
++        dfi_is_wr        perf_op_is_rd                time_cnt
++        dfi_is_wra       perf_op_is_rd_activate
++        perf_act_bypass  perf_op_is_ref
 +
-+additionalProperties: false
 +
-+examples:
-+  - |
-+    #include <dt-bindings/clock/stm32mp1-clks.h>
-+    #include <dt-bindings/reset/stm32mp1-resets.h>
++The perf PMU framework is usually invoked via the 'perf stat' tool.
 +
-+    perf@5a007000 {
-+        compatible = "st,stm32mp151-ddr-pmu", "st,stm32mp131-ddr-pmu";
-+        reg = <0x5a007000 0x400>;
-+        clocks = <&rcc DDRPERFM>;
-+        resets = <&rcc DDRPERFM_R>;
-+    };
 +
-+  - |
-+    ddr_channel: sdram-channel-0 {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        compatible = "jedec,ddr4-channel";
-+        io-width = <16>;
-+    };
++Example:
 +
-+    perf@48041000 {
-+      compatible = "st,stm32mp251-ddr-pmu";
-+      reg = <0x48041000 0x400>;
-+      access-controllers = <&rcc 104>;
-+      memory-channel = <&ddr_channel>;
-+    };
++    .. code-block:: bash
++
++        $ perf stat --timeout 60000 -e stm32_ddr_pmu/dfi_is_act/,\
++        > stm32_ddr_pmu/dfi_is_rd/,\
++        > stm32_ddr_pmu/dfi_is_wr/,\
++        > stm32_ddr_pmu/dfi_is_refab/,\
++        > stm32_ddr_pmu/dfi_is_mrw/,\
++        > stm32_ddr_pmu/dfi_is_rda/,\
++        > stm32_ddr_pmu/dfi_is_wra/,\
++        > stm32_ddr_pmu/dfi_is_mrr/,\
++        > stm32_ddr_pmu/time_cnt/ \
++        > -a sleep 5
++
++         Performance counter stats for 'system wide':
++
++                    481025      stm32_ddr_pmu/dfi_is_act/
++                    732166      stm32_ddr_pmu/dfi_is_rd/
++                    144926      stm32_ddr_pmu/dfi_is_wr/
++                    644154      stm32_ddr_pmu/dfi_is_refab/
++                         0      stm32_ddr_pmu/dfi_is_mrw/
++                         0      stm32_ddr_pmu/dfi_is_rda/
++                         0      stm32_ddr_pmu/dfi_is_wra/
++                         0      stm32_ddr_pmu/dfi_is_mrr/
++                 752347686      stm32_ddr_pmu/time_cnt/
++
++               5.014910750 seconds time elapsed
 
 -- 
 2.43.0
