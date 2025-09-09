@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9175CAC58C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B297CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8nnIwcBQt92lCOlOOaGrqeudJML21vpTZzYbN2KUxng=; b=hdB7AetpDKqXRaQUoxEtVVpQDc
-	HIrByYdmtkvq1ijR+r1MBBmkk0jlM4g/vHYRVtlmN1Zrhhr9YZVqnPidBccSGd6ri6sx/UEqTm9Mr
-	3iooL36X6QQMgptGwDRXHhANH8TwRetIWnhPboKELnRZfS8Jxt2O3/GADqjzvEgNHsaN6JQB+dIot
-	zEoDMl+91pPte9sbhq9NyTbXLGRj4rBfa0v1kZp1bQP/HEVxPVHNnc+1J7F07os5ZSL/COMi2PqKQ
-	YxarPcvNiqiLb0lHkxRii5KByQDt7NwUjN/7hwl/hBab3Z23U/2E7jOGUuvCC+f0JTVqtqKFXsWRQ
-	PMp83vMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qa1KzTlpJw/4PwCX0xo+PChv9OvsGcXeaMqVMawBDC0=; b=3sLbc7CquITeJS8P0gw9EuOJOH
+	d88cjWCutoEho7zCdVLfPjI3K2QJNk/nUvpWcJziFFPkJgj1mrm5O1Vl+wSftLjkgagMkxPYbeAkM
+	6C18B6eRvXdeDkVrEV53kwoPzaIHr597eRsYuJCKFsPJ6fwd912y+U/P/7VwDkkSu6+UtOJCyEw1P
+	1jDVdZqKjrTVDiWl6gDN2IqaSYU0bYdNj71M01x9g7qP63VhmrqWRj71DIhxz2EboAtsLux3Kg8FU
+	PhujrbprJFmNDQLzAZRiyy8bwiLghXN0UtdcLtm12ABkQAFCx1rMzMUKgekO2LV4RsEH1Lbx2Nyd9
+	UxXndO2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw21O-00000008wjb-0kRU;
-	Tue, 09 Sep 2025 17:20:46 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uw21P-00000008wmg-2Qa7;
+	Tue, 09 Sep 2025 17:20:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvz2B-00000007dX3-2Fxs
+	id 1uvz5b-00000007eid-1mL2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 14:09:25 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 589E8oIh4117177;
-	Tue, 9 Sep 2025 09:08:50 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757426930;
-	bh=8nnIwcBQt92lCOlOOaGrqeudJML21vpTZzYbN2KUxng=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=OXE81EkKsvvu5bR4eko3/6126JOyjE86JMnyscYVwDS0qQ4uj1XejUHvw1WrWDJZ6
-	 zTniqE9ktd2/BPkPDT4HDZtoW7ZzGFlrcIKBkJBqPP0/OZEGfo8lBGTwuNH6fkCjyj
-	 a7sfyl8sND/N8Rf4qOrDbAu8TscgPcrgbWEPOWJs=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 589E8ovJ410472
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 9 Sep 2025 09:08:50 -0500
-Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 9
- Sep 2025 09:08:49 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 9 Sep 2025 09:08:49 -0500
-Received: from [10.249.130.74] ([10.249.130.74])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 589E8e5A2743053;
-	Tue, 9 Sep 2025 09:08:40 -0500
-Message-ID: <3e22a667-bdff-43db-9388-846b2b278d77@ti.com>
-Date: Tue, 9 Sep 2025 19:38:39 +0530
+	Tue, 09 Sep 2025 14:12:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4B9E86022B;
+	Tue,  9 Sep 2025 14:12:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6180CC4CEF4;
+	Tue,  9 Sep 2025 14:12:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757427172;
+	bh=AX9MMeSgETU6qD9Ntz+/92wH3f8ROfXy7XhXey8zuzI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=t/shuU2w3GDrK9uP/4gYzJi3MfUQO8VdHq0Qr4lIrT/C2DILDr/VBq4BZYyo1txz+
+	 62Fj3YAYoqIqTpRCY3SUkOlz/i+aK+YyDovMendCLJkpg/ShBGLVhYcBjn/FmA8Q7/
+	 vGvyY3Ywv/yDsED0SsTU/0eut0NF60qZGmyOsFhxuQzTLdCsOrfELgm7dkwpMFFovm
+	 10G6sKosQ5rRg+JTy5NKVMwJw66kQyurqclErDnWao5WD0qTcbQERaNOK+ktYbCzEu
+	 LYRa839E484K2LW9AXuNEC5ABQGoNAR2shXZcgdm8y5P9sCUumNMnzOyhhjXN0FpEP
+	 oz5YNA1jFy4Bw==
+Date: Tue, 9 Sep 2025 15:12:45 +0100
+From: Will Deacon <will@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 02/28] KVM: arm64: Donate MMIO to the hypervisor
+Message-ID: <aMA13Sowq91XEqP9@willie-the-truck>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-3-smostafa@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 4/7] net: rpmsg-eth: Add netdev ops
-To: <Parthiban.Veerasooran@microchip.com>, <danishanwar@ti.com>,
-        <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-        <pabeni@redhat.com>, <horms@kernel.org>, <corbet@lwn.net>, <nm@ti.com>,
-        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andrew+netdev@lunn.ch>,
-        <mengyuanlou@net-swift.com>, <quic_luoj@quicinc.com>,
-        <gongfan1@huawei.com>, <quic_leiwei@quicinc.com>, <mpe@ellerman.id.au>,
-        <lee@trager.us>, <lorenzo@kernel.org>, <geert+renesas@glider.be>,
-        <lukas.bulwahn@redhat.com>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>
-References: <20250908090746.862407-1-danishanwar@ti.com>
- <20250908090746.862407-5-danishanwar@ti.com>
- <4a69e4f1-06b1-49a1-aab6-baef6c613f0b@microchip.com>
-Content-Language: en-US
-From: "Anwar, Md Danish" <a0501179@ti.com>
-In-Reply-To: <4a69e4f1-06b1-49a1-aab6-baef6c613f0b@microchip.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_070923_669232_6D73CFCC 
-X-CRM114-Status: GOOD (  13.17  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250819215156.2494305-3-smostafa@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,86 +75,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Parthiban
-
-On 9/9/2025 12:08 PM, Parthiban.Veerasooran@microchip.com wrote:
-> Hi,
+On Tue, Aug 19, 2025 at 09:51:30PM +0000, Mostafa Saleh wrote:
+> Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
+> drivers can use that to protect the MMIO of IOMMU.
+> The initial attempt to implement this was to have a new flag to
+> "___pkvm_host_donate_hyp" to accept MMIO. However that had many problems,
+> it was quite intrusive for host/hyp to check/set page state to make it
+> aware of MMIO and to encode the state in the page table in that case.
+> Which is called in paths that can be sensitive to performance (FFA, VMs..)
 > 
-> On 08/09/25 2:37 pm, MD Danish Anwar wrote:
+> As donating MMIO is very rare, and we don’t need to encode the full state,
+> it’s reasonable to have a separate function to do this.
+> It will init the host s2 page table with an invalid leaf with the owner ID
+> to prevent the host from mapping the page on faults.
 > 
->> +static int create_request(struct rpmsg_eth_common *common,
->> +                         enum rpmsg_eth_rpmsg_type rpmsg_type)
->> +{
->> +       struct message *msg = &common->send_msg;
->> +       int ret = 0;
->> +
->> +       msg->msg_hdr.src_id = common->port->port_id;
->> +       msg->req_msg.type = rpmsg_type;
->> +
->> +       switch (rpmsg_type) {
->> +       case RPMSG_ETH_REQ_SHM_INFO:
->> +               msg->msg_hdr.msg_type = RPMSG_ETH_REQUEST_MSG;
->> +               break;
->> +       case RPMSG_ETH_REQ_SET_MAC_ADDR:
->> +               msg->msg_hdr.msg_type = RPMSG_ETH_REQUEST_MSG;
->> +               ether_addr_copy(msg->req_msg.mac_addr.addr,
->> +                               common->port->ndev->dev_addr);
->> +               break;
->> +       case RPMSG_ETH_NOTIFY_PORT_UP:
->> +       case RPMSG_ETH_NOTIFY_PORT_DOWN:
->> +               msg->msg_hdr.msg_type = RPMSG_ETH_NOTIFY_MSG;
->> +               break;
->> +       default:
->> +               ret = -EINVAL;
->> +               dev_err(common->dev, "Invalid RPMSG request\n");
-> I don't think you need 'ret' here instead directly return -EINVAL and 
-> above 'ret' declaration can be removed.
->> +       }
->> +       return ret;
-> can be return 0;
+> Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
+> stage-2 PTEs, as this can be triggered from recycle logic under memory
+> pressure. There is no code relying on this, as all ownership changes is
+> done via kvm_pgtable_stage2_set_owner()
+> 
+> For error path in IOMMU drivers, add a function to donate MMIO back
+> from hyp to host.
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 +
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 64 +++++++++++++++++++
+>  arch/arm64/kvm/hyp/pgtable.c                  |  9 +--
+>  3 files changed, 68 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> index 52d7ee91e18c..98e173da0f9b 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> @@ -37,6 +37,8 @@ int __pkvm_host_share_hyp(u64 pfn);
+>  int __pkvm_host_unshare_hyp(u64 pfn);
+>  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
+>  int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot prot);
+> +int __pkvm_host_donate_hyp_mmio(u64 pfn);
+> +int __pkvm_hyp_donate_host_mmio(u64 pfn);
+>  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 861e448183fd..c9a15ef6b18d 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -799,6 +799,70 @@ int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot prot)
+>  	return ret;
+>  }
+>  
+> +int __pkvm_host_donate_hyp_mmio(u64 pfn)
+> +{
+> +	u64 phys = hyp_pfn_to_phys(pfn);
+> +	void *virt = __hyp_va(phys);
+> +	int ret;
+> +	kvm_pte_t pte;
+> +
+> +	host_lock_component();
+> +	hyp_lock_component();
+> +
+> +	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, NULL);
+> +	if (ret)
+> +		goto unlock;
+> +
+> +	if (pte && !kvm_pte_valid(pte)) {
+> +		ret = -EPERM;
+> +		goto unlock;
+> +	}
 
-Sure. I will drop ret.
+Shouldn't we first check that the pfn is indeed MMIO? Otherwise, testing
+the pte for the ownership information isn't right.
 
->> +}
->> +
->> +static int rpmsg_eth_create_send_request(struct rpmsg_eth_common *common,
->> +                                        enum rpmsg_eth_rpmsg_type rpmsg_type,
->> +                                        bool wait)
->> +{
->> +       unsigned long flags;
->> +       int ret = 0;
-> No need to initialize.
+> +	ret = kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)virt, &pte, NULL);
+> +	if (ret)
+> +		goto unlock;
+> +	if (pte) {
+> +		ret = -EBUSY;
+> +		goto unlock;
+> +	}
+> +
+> +	ret = pkvm_create_mappings_locked(virt, virt + PAGE_SIZE, PAGE_HYP_DEVICE);
+> +	if (ret)
+> +		goto unlock;
+> +	/*
+> +	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
+> +	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
+> +	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
+> +	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
+> +	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
+> +	 */
+> +	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys,
+> +				PAGE_SIZE, &host_s2_pool, PKVM_ID_HYP));
+> +unlock:
+> +	hyp_unlock_component();
+> +	host_unlock_component();
+> +
+> +	return ret;
+> +}
+> +
+> +int __pkvm_hyp_donate_host_mmio(u64 pfn)
+> +{
+> +	u64 phys = hyp_pfn_to_phys(pfn);
+> +	u64 virt = (u64)__hyp_va(phys);
+> +	size_t size = PAGE_SIZE;
+> +
+> +	host_lock_component();
+> +	hyp_lock_component();
 
-Sure. Will drop this.
+Shouldn't we check that:
 
->> +
->> +       if (wait)
->> +               reinit_completion(&common->sync_msg);
->> +
->> +       spin_lock_irqsave(&common->send_msg_lock, flags);
->> +
->> +static int rpmsg_eth_set_mac_address(struct net_device *ndev, void *addr)
->> +{
->> +       struct rpmsg_eth_common *common = rpmsg_eth_ndev_to_common(ndev);
->> +       int ret;
->> +
->> +       ret = eth_mac_addr(ndev, addr);
->> +
->> +       if (ret < 0)
->> +               return ret;
->> +       ret = rpmsg_eth_create_send_request(common, RPMSG_ETH_REQ_SET_MAC_ADDR, false);
-> You can directly return from here.
+  1. pfn is mmio
+  2. pfn is owned by hyp
+  3. The host doesn't have something mapped at pfn already
 
-Sure.
+?
 
->> +       return ret;
->> +}
->> +
-> Best regards,
-> Parthiban V
+> +	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, virt, size) != size);
+> +	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys,
+> +				PAGE_SIZE, &host_s2_pool, PKVM_ID_HOST));
+> +	hyp_unlock_component();
+> +	host_unlock_component();
+> +
+> +	return 0;
+> +}
+> +
+>  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+>  {
+>  	return ___pkvm_host_donate_hyp(pfn, nr_pages, PAGE_HYP);
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index c351b4abd5db..ba06b0c21d5a 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -1095,13 +1095,8 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  	kvm_pte_t *childp = NULL;
+>  	bool need_flush = false;
+>  
+> -	if (!kvm_pte_valid(ctx->old)) {
+> -		if (stage2_pte_is_counted(ctx->old)) {
+> -			kvm_clear_pte(ctx->ptep);
+> -			mm_ops->put_page(ctx->ptep);
+> -		}
+> -		return 0;
+> -	}
+> +	if (!kvm_pte_valid(ctx->old))
+> +		return stage2_pte_is_counted(ctx->old) ? -EPERM : 0;
 
--- 
-Thanks and Regards,
-Md Danish Anwar
+Can this code be reached for the guest? For example, if
+pkvm_pgtable_stage2_destroy() runs into an MMIO-guarded pte on teardown?
 
+Will
 
