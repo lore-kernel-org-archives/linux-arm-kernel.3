@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D31CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:26:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1722FCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 21:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PiUrH4xoFLpy/PuZ9JloxTD7fWhTm5wGcBSZSp+4VjE=; b=WYmbnYx/jjU9N1qkTkucS1or0b
-	PK+3LGRazEtrHLN6OsDt8P62hmtxuqzFQ7wSX8Oc38fdweZ0YSFPIbu3PZpMAe9EKufXTLqjYNSLy
-	z8T8DKImHBsbcgS/DhrXNuiUwa47j7kErjPhO3NMoSiosL1vjL64iqk6ORiCDk0L6w57k0HXSGa9y
-	fd8YXPT4+dfcwoBabRr6/LEqgB5y3pTUYYHCe1W4jk44iBmzBO20Q8dI/3CRRyp1lZlicdrML69dI
-	mgkQ4jx4jEENk80yhDAcaLMrfPuW/CTVwBBmPdej5GymhdnXutR0RyYXB50n+nYHMZXIZeP8Xh+u5
-	/frDlRMQ==;
+	bh=wEBL3qJvgSuPYBB2IE0AOyRPFYQUDIJrLl+44PVzXH8=; b=Np+onxsRusedGP+mHHWMlOaUC/
+	11E+VQ0l7YF1hA0Py0oQtp6l+mTM7dTNiHNwrC2D/agVjm0nXdfqjOCg4De16o+MZDW4fIScJOPw0
+	sUTpY60az2oLMnPQ0ZeTn9I+dvLGxaPLSSGVQmCOBELOnLxghg3s/JD0wK+egaqHFuTmTlSktbN3Q
+	BAxqyc6UCm/8nSSEHksprcB67I0pUvcex72NLJl4MCL+XjRM7ldBTHSpvgLJNMXorFyjksIDVKFfU
+	TVnoW0//Cx1OEAAdNTWMnVHImcwSCjK/X5Fy1IhhsgYNJHK4lYwMUN1DbGDDJGiG6+pPE8T3n1MWD
+	9TvPgwzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw5qg-0000000ANT3-2npt;
-	Tue, 09 Sep 2025 21:25:58 +0000
-Received: from mail-il1-x164.google.com ([2607:f8b0:4864:20::164])
+	id 1uw5qp-0000000ANaQ-0qUq;
+	Tue, 09 Sep 2025 21:26:07 +0000
+Received: from mail-yw1-x1161.google.com ([2607:f8b0:4864:20::1161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw5qd-0000000ANRA-12ZO
+	id 1uw5qm-0000000ANXp-07Ao
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 21:25:56 +0000
-Received: by mail-il1-x164.google.com with SMTP id e9e14a558f8ab-406630d3b17so27028005ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 14:25:54 -0700 (PDT)
+	Tue, 09 Sep 2025 21:26:05 +0000
+Received: by mail-yw1-x1161.google.com with SMTP id 00721157ae682-71d71bcab6fso57194697b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 14:26:03 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757453153; x=1758057953;
+        d=1e100.net; s=20230601; t=1757453163; x=1758057963;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:dkim-signature:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=PiUrH4xoFLpy/PuZ9JloxTD7fWhTm5wGcBSZSp+4VjE=;
-        b=Q9AaQUV3zxHTcWOU9cT3a0zFW5fD1u7ovQtN0AY+o+DZ2VTEX+Kl9xnZoKSMdfXD7/
-         NLfLT4nrRgDIbMckdGxJfadAa5lzB+VcnjDOzEM5OdTKRrI4HYYRH1zu9RLuTXdY1gSW
-         6zW7SEclvkAJAz6VOMSledd7/gYSU6zmyyq8t/WcS1Y7BvputFXZA4+VWWqQBJ7unYPu
-         KdunE1v9cpkVVlW77M+pW55eOq32qG26rDybKAimH3y3ZS2c9blNBZWyKxWSJJ+gYL8f
-         LszBo+Q5Aad91x+RClN5XPqgF8Gbs+qfjQPSWLuIehSY5WQvwX3AsvjZA5Tn2EjiY6xc
-         wRPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVcImx1cbiXBa/bIkx6e5zJ6qt2MOX45kI2yYXwWZ72KMGExLpDwbeP2KRT7v16HGbYTMFSaq8Ibk5e/zcOnzHM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYZ7kAv+t4lS7EIlHZi9gdfAcWDijPRvbj3gk/90WQqdbHk/Jx
-	1zBARzlCG7s8oLWFiXo9h60F1OdffJcpkbBzhSA94+KhkyQ0HhlTOqLbHVtcdH105gI6NEdcqKK
-	iIMl9uzt7hZWdlfulTP9p2pnptbZOAKj7PzXAbp0MOmVXmEELgNHXFwPG+nKFPRQpOQoDd1El50
-	aD83QODGbZydMzLgFgbyGtoPz+aVwqWOmKnVH2JOsmnh2eQSKKJ9thoOJ0GaD1y3VCx/UWI2Wt4
-	iFnVHYMswjF34l/wcT9MoykOYj5zZDF+Cs=
-X-Gm-Gg: ASbGncvmyfnh3wKUSMjMnJnGKf9Za80CtbXmZRU7dDOcFKzj6OGTLj2Y7TqOUlUCrsv
-	k9x95MZ80+hM0bSCfequ/LAdl4nB/dVydu28R0ydUwjGJcOmhZmFQ45W0rsVvN0qyDh2eaYfLTi
-	/DXm0hZ3buF+KX8FcNT71nCuBOOKusb5fTnYsvNFZ0TEletRMk53MXJfDwQk75oywdEm3nzuaVW
-	a028qmnN5BVE1PAkn5CgYuf0Gxwngum4BUOOplHJMOCxOfyY2/lC6BLnWK0DXqapjGTqb61xiLq
-	zl5y8h8144qgWheRWfGK5R58za2uWcDZnfdHl48U1cXnCSh/fJ/dMehZCCABlyfZZ5gOXfbMog7
-	KjwNW7yO6qMP6MAziQGytYkSGSKc859eFvxIVF8qVhtfxdjecMkMDtC5Uwd0j9DyVspnNQF4q2l
-	O818C4
-X-Google-Smtp-Source: AGHT+IF5QLEehmFslAStvjagHN75d7aq4exIL44kQ0KrSzSqfWeRPkm4v9C36ElQ0P2GJ41e4UmudNzDnect
-X-Received: by 2002:a05:6e02:3788:b0:40f:7f8e:610c with SMTP id e9e14a558f8ab-40f7f8e6265mr82007745ab.3.1757453153538;
-        Tue, 09 Sep 2025 14:25:53 -0700 (PDT)
+        bh=wEBL3qJvgSuPYBB2IE0AOyRPFYQUDIJrLl+44PVzXH8=;
+        b=dhOxE+N9zl83pUs7uVzUeGBcuQ4wTpnaSUKD90KqIdUBO9Ux5LyFQ1yHETgNxxNT9K
+         zCUCQsbE2pirnpZE2NhwHwdTqP4JSQasPKBjCJmdww1XPBlbH72bfuD2cxDk03aEP8g1
+         GcBDbmQS1N/Cs+BzZAGwqdfdjuuwh0eOEn8XCOTgdJcD1zbt3jktjlMUFrG146Tm1Gm2
+         3QL5iv0PkzFWVwpEYQI2odtP9vpIkVWpgbAYdl+pCOiR3zXaxhT9R0rGwzsWXf/bu3PZ
+         SSksGOifAnmde99k0fYYLb8FBNsqexWY8Rl9lmLiDgHws3h7M7Sg3eteA4fDuaUNLY0h
+         Y3rg==
+X-Forwarded-Encrypted: i=1; AJvYcCXh6P7yX+snwLUYWhBgWZUyEsnSbxE7Aq0sXyyC6SrFET3rjTsRChWGojSzyjEckLlgziffexOhq3Jwl+IQTXO7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyH0L2OiRC2QUCl6vLNlh0GkbHHHPGXvi7c6CE/S1fniX/kqUhS
+	ST6gzbSzv+xoFsbHtZ1XihaR4ZmgyfMTRQ5NVvktbLD390oBe+owABwtMPsSkWhtLvwjXJZ/ESS
+	GuJPrQcJHfkslj8d/RYzUY7pitQWYUgUj+2v6D0mp6ApbclMSsOmsn3x9OVr2SDkKnFoLc+kdTy
+	tJNwQfK3QUpd5Xt6hVvf3p35uxYJfWkTpX/WTRPS3FVHltjXao79Izv72r+6BjQ5b7cboBwfqqh
+	3tI79WgxihDFb6jODtVEdLXIejthXJZSfs=
+X-Gm-Gg: ASbGncttwm1Ite4IqOKr9ZM1Xu++AdeM5zfRLLhc6j3UrJ+88BvJprtr3lmeZhYaUjD
+	UNGNSMYH4wuP9ndg72mSrxYY8LRR35O5p4pxTrG8iEeLWyfDRYeoyYgtrRNYms187R6u9fo7SOY
+	KCDQK637d3vg+RC+PEHrMXCr+ZDSoOXG9o5QGff3X9BYqnhbC65K2w0ejNhEfSVIENE3Rwj2fbQ
+	nByA5f3iApfFiK05FGteo/vkLcT7PtgK6Q0pFJF9JyPNlNfCrZ9SjI60F7V6kBGrG5nZobvTrfj
+	X7sQsSrtvQ5NFbr7Op63hp6Jxi64YLxKKWGLgqw+82p9GaMwnYuWcWvqMd3LOyEekce5JCiFpKs
+	XLJ5Ybl3u77TPqgYI6pehdI0DYdUqP3lU0VASvYvRqST/LTBzwSRFV66a3RNSz9OQSFb1eB7k/9
+	2yQEqQ
+X-Google-Smtp-Source: AGHT+IGWtXpUnhDt58Qqwjl6Hx1vJztpwrjhGQwsEB40Va/5r6iKOpS4n8yhk6smjYRwHdJ0eZxrnWl/2dn1
+X-Received: by 2002:a05:690c:74c7:b0:720:79a:b0cb with SMTP id 00721157ae682-727f368d5a6mr108423127b3.7.1757453162550;
+        Tue, 09 Sep 2025 14:26:02 -0700 (PDT)
 Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-18.dlp.protect.broadcom.com. [144.49.247.18])
-        by smtp-relay.gmail.com with ESMTPS id e9e14a558f8ab-40f8f17ecb7sm2982375ab.20.2025.09.09.14.25.53
+        by smtp-relay.gmail.com with ESMTPS id 00721157ae682-723a82c44a2sm17477167b3.2.2025.09.09.14.26.02
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 09 Sep 2025 14:25:53 -0700 (PDT)
+        Tue, 09 Sep 2025 14:26:02 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b522037281bso2928892a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 14:25:52 -0700 (PDT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b548b9a0220so368853a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 14:26:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1757453152; x=1758057952; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1757453161; x=1758057961; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=PiUrH4xoFLpy/PuZ9JloxTD7fWhTm5wGcBSZSp+4VjE=;
-        b=YEkCfft9Cqlgm8e10BobJKTAw5TIA2QHtDEcM00RvVhncAaZqDs7/XHWx3ckg6PHCl
-         ADaYvtXng11J4PlwF6SVBDIWnS73vQtZdrWXvh988qoWTTA7+iIxTQUF92NQQerMct1s
-         gCRLhqhYFwqMjObZuHhH4uZnDz3TFB02mxRak=
-X-Forwarded-Encrypted: i=1; AJvYcCVYX5Iqo3nyvgE+3CcxpLcUm22iMWM42oDfXYZPgpKEYAzHtUirNVZeCzeX0QcoV5Fb1bGhCeO+F5p2tzHf0J94@lists.infradead.org
-X-Received: by 2002:a05:6300:210f:b0:24e:3b70:977f with SMTP id adf61e73a8af0-253469dbd3amr17194789637.57.1757453152117;
-        Tue, 09 Sep 2025 14:25:52 -0700 (PDT)
-X-Received: by 2002:a05:6300:210f:b0:24e:3b70:977f with SMTP id adf61e73a8af0-253469dbd3amr17194770637.57.1757453151765;
-        Tue, 09 Sep 2025 14:25:51 -0700 (PDT)
+        bh=wEBL3qJvgSuPYBB2IE0AOyRPFYQUDIJrLl+44PVzXH8=;
+        b=JthP40B0xAQMLFWZc/PHzxnOT1My9/vQgr/b3dUo1/woewObwyg3Vf+nIx+wAczWb/
+         NWEYxLhple77504MVRQ/SxyLNLDnxIz0ShKpbLUVFCW4MBBkfAwnAeVheNCC30YM+S7I
+         y/bVD0Euk7M7fGrJWgE3A8AIeEClm3PLkjPRQ=
+X-Forwarded-Encrypted: i=1; AJvYcCW5A4zr/AacYX8vaHSRKu3O0n+gbQEnZy+VJ4maVExIo+3IOYaDhHT+T4+eG1r8GjJMzmSbrTR1Kss0BpeRGNWc@lists.infradead.org
+X-Received: by 2002:a17:902:f549:b0:24e:e5c9:ecfd with SMTP id d9443c01a7336-251728629c4mr169828345ad.42.1757453161387;
+        Tue, 09 Sep 2025 14:26:01 -0700 (PDT)
+X-Received: by 2002:a17:902:f549:b0:24e:e5c9:ecfd with SMTP id d9443c01a7336-251728629c4mr169828075ad.42.1757453161006;
+        Tue, 09 Sep 2025 14:26:01 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-774660e67cbsm2994494b3a.6.2025.09.09.14.25.50
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32dbb5efe61sm108217a91.18.2025.09.09.14.25.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Sep 2025 14:25:50 -0700 (PDT)
-Message-ID: <be4cf5b5-b2ad-42be-834a-86985fa4aded@broadcom.com>
-Date: Tue, 9 Sep 2025 14:25:49 -0700
+        Tue, 09 Sep 2025 14:25:59 -0700 (PDT)
+Message-ID: <f8e28893-2401-460d-8511-9b390e091b4c@broadcom.com>
+Date: Tue, 9 Sep 2025 14:25:58 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v2 1/2] arm64: dts: broadcom: rp1: Add USB nodes
+Subject: Re: [PATCH v2 2/2] arm64: dts: broadcom: Enable USB devicetree
+ entries for Rpi5
 To: Andrea della Porta <andrea.porta@suse.com>, Rob Herring
  <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -100,6 +101,7 @@ To: Andrea della Porta <andrea.porta@suse.com>, Rob Herring
  mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
  Phil Elwell <phil@raspberrypi.com>
 References: <16d753cb4bf37beb5e9c6f0e03576cf13708f27d.1757065053.git.andrea.porta@suse.com>
+ <c6b17f0f896b5cdd790fc10aeb2b76b71df9b58d.1757065053.git.andrea.porta@suse.com>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -134,13 +136,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <16d753cb4bf37beb5e9c6f0e03576cf13708f27d.1757065053.git.andrea.porta@suse.com>
+In-Reply-To: <c6b17f0f896b5cdd790fc10aeb2b76b71df9b58d.1757065053.git.andrea.porta@suse.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_142555_436190_B0655913 
-X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-CacheID: sfid-20250909_142604_069347_E0D48F04 
+X-CRM114-Status: UNSURE (   9.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -157,10 +159,9 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/5/25 02:42, Andrea della Porta wrote:
-> The RaspberryPi 5 has RP1 chipset containing two USB host controller,
-> while presenting two USB 2.0 and two USB 3.0 ports to the outside.
+> RaspberryPi 5 presents two USB 2.0 and two USB 3.0 ports.
 > 
-> Add the relevant USB nodes to the devicetree.
+> Configure and enable the USB nodes in the devicetree.
 > 
 > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 
