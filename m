@@ -4,81 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28944CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5957CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Sep 2025 17:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H3J9huOApoi8Y6hebVd9AzV0hA0WzoEyWAy0m3sVnzY=; b=KtcyJboLCYCXcijmnoE6HtAkY+
-	iCJDeF63zovWiz3c+3P+ebhYJLQkQ88fJdjSu16Fn8WP5wrZGJO3qXyUjltD5hn5tSS/iuTF72fTc
-	LTzunIA/Whvx1qwqCyoZf/aRmLZcKLCd46wxH1/sdlhm2fZ8zhG53bJhoPJ10aFPQ+0e/iqyqdMmA
-	Cz4waGV4NAu4dt/wjb/H6xaKdSVIxcJEPl0olO+OYz8OPow3IjXJaFUYmJ3K4b1AcShOlM1x9q108
-	cwabzO8149lhzcb4UhlaPZz+Ea7Vg86yT8A8NlUreHYyglbPYjWes4hnlqS6imkaRpBMtsvmSfuWS
-	duEXX0Mg==;
+	bh=lRUpNDwLIvh2WOyXhRrF4YeiOcekU77uShvfMHahTds=; b=sxVdfhy/Y2zbtSFsfQGM3g55LZ
+	5hjqIvem4rPTQTJofRG5bZTQHO37qUXZSc/hU1zYbtp1Wl4JHVnB09s7Jw8tos0zVe97Fh/PCqNds
+	C542v30FVR6D+D/oSP7iJ/Cspfri36at8+3RiCuBeQko1XfAVfDl5qx1f0mkx1qRj7SFwc0dO0UhF
+	BA3x+7fAfcuXdM3d2v7kiTwcm/0euxVzbaYnbSYczQnqJLo9QnEVr7egJMvAoaaFv5tW6R90sr2Zw
+	MI+Gx0lbOo/wmeoqSzEZEuzHsRixOcfCOTKyyAa65DJZ8GXvL2ia2oxwPKaBZ0Wmbq3DIVFm5r11S
+	fYAPo3Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1w5-00000008o43-1x3P;
-	Tue, 09 Sep 2025 17:15:17 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1uw1wH-00000008oHG-1Naz;
+	Tue, 09 Sep 2025 17:15:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwJU-00000006elL-1L6G
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Sep 2025 11:15:05 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-74382048b8cso3770986a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 04:15:03 -0700 (PDT)
+	id 1uvwPe-00000006gtm-3kRj;
+	Tue, 09 Sep 2025 11:21:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=lRUpNDwLIvh2WOyXhRrF4YeiOcekU77uShvfMHahTds=; b=LOzNG6RdZHlfqZAEZv3hmQ7sEG
+	AtsEwtefXl6DebvqtJjZBdB1fQy0SoG12lquzPnrfy2ywv0GzLby7GG7PKBhX/4S1nshM8rrKQvB8
+	meyoaA0qNiY2Esu8BTaDuu3kOIf4D9Vrh7PkD/LwsbGqTlLx24/ihCV0wRNjbCaBXXlr8pXiKjb1K
+	cK3d77CLnmbfjfDOWtetjNSsHtvPWPnDTpM16nFttsAcwoSu/ixULSAH8d20kkqgceSKuyumIq9/w
+	qbFggvA3mpxgMydal1tts4ug8isYPqSIK+ZaZqjVRbMu9xA+XtBuQWEZRzUjE/BIQz+Jy0KrdDu70
+	re0WYGRg==;
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uvwPc-00000005J2N-01zz;
+	Tue, 09 Sep 2025 11:21:25 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45cb659e858so37835265e9.2;
+        Tue, 09 Sep 2025 04:21:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757416503; x=1758021303; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=H3J9huOApoi8Y6hebVd9AzV0hA0WzoEyWAy0m3sVnzY=;
-        b=H9dRpeUEEsC11sBxM3rTpnKrE01Sq1cJS9LaPT5KeK8TomcWnAmbYiVQF8ttexemTZ
-         lTcWsH1RgbS6AMvV4GBNpgh6qlmrXCR8dxpDUIEYCOc3kay6lSjAjwCtWvakVNDRdKUr
-         XO3WgzdmGQhu18KxAPEJiM1XrgSi+ysTSdhVCGUf3svG5mEcKzklEKasKBYGTBQQYuqU
-         HigpB7E/ufV4xEB14nYSrML54K7e0C5PYE0lTOr4ksVWN4thwGn5UVLpy6TRbNd7Eu2P
-         fk9YvV1Z2PumKcFLZY2h9z711WYfzooON+4P/qa4iZYez0YKh8HFC2yHzMvSSpnTKbdA
-         psAw==
+        d=gmail.com; s=20230601; t=1757416882; x=1758021682; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=lRUpNDwLIvh2WOyXhRrF4YeiOcekU77uShvfMHahTds=;
+        b=leLpGIZHSf4Ng7mjqdYBiS2/MfjfQZxtib/0isef1vXkn45DcdDKJeSfGca3NHPAvA
+         cw06r4rsbYrsPwjJh5qNj4wwDklg4hDctH5yl7jbrZEHcFhyaOjtJDmfi/DyNFikdLNW
+         TMHLMe7ewHYjDngA9k4z+EV24DEezyO0ek74rblfZzOTTFEBnGMFzLrxTyan7lNKRGW3
+         fvQj4VLg2Wnqn0HDog8l6w+5ykuFNDem/dErmUDuTQOAuLYxYF4KIn/I5lfoYw3qnIiy
+         Lo8eqfLcjitj6Cn2TUZxK6SSuQ8VtHLuwbB3sLgdqeNw36xXdJISx0wgqNk4fFDY0DaC
+         nAhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757416503; x=1758021303;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=H3J9huOApoi8Y6hebVd9AzV0hA0WzoEyWAy0m3sVnzY=;
-        b=EKh226dfK4sUALJMlQ9LdPKoBcKdjURKyM5YmnIim4e9AQDc8VJF6/YDoAUzyYs7ml
-         OgQhwbQNn/qsn8/VyYlGdTRq6DI1Z9yK9jWHunYKZv5+ymPuwAzlv2zNCHBaU/3xshUm
-         uBcms6RScPPUpMMi0eJgQ8eged+xDpP9r+eL9Ntl6Ho0WcrXxpvAFqpq3tqbZ9nJQ9y7
-         aWIbpZzAG1quZjN9bj985FDnpP0Mm12ZLtx14jm1aGD3otN3lPfy+M3jUMVBPDFoSc5G
-         6FYDFwMso/VZBCst300cUs3PMVF4PK89H5+O7X2wiXeuGcCnQvbdRBgSFjzFB1PB2oTG
-         Df9g==
-X-Gm-Message-State: AOJu0Ywjfm/0Q1opRK5P6Xo3CeLJK8m5wQauk54HCRrO6iI35OW786bT
-	f0F6VpljqcGpvuuE5fScuruHXPdC8DmpcW4hx66Rv/FGsS8UPw60qEO8P8NPdTwhKc0RsXb1lMq
-	re+yGTzvbWfqHbV0yBRDxa36tY32RYMDYja7UNxAB6g==
-X-Gm-Gg: ASbGncvSpWUlZjovWbJsecwAH8eXAxNAL7J67LtnFK4yEkgZzyo5+nDrOjuzRXotUbE
-	H2pQ+iaspB8oRaRyA2oQESAPoBJ8f/M5GSUL4YWRExTXS7biNfj/RO1cHicGkPsvui+BaOLGZDJ
-	MftzU2XMiAwM4p6/R3ZgkYT+dCoUFfV9ZF7q5U/RK9CrcIIbYBfcZQR8obFXCmOo98cxC3zIGf3
-	7ttlD5oHAMjAcmE
-X-Google-Smtp-Source: AGHT+IF3haCb/E1FzNUTbha289kFS363Kg33HMc7PBhqqE87V+/FyqUeuaGr+6CiNvSrkmkJwrmOIOH6XS4or1+1aBE=
-X-Received: by 2002:a05:6808:13c6:b0:43a:d659:7822 with SMTP id
- 5614622812f47-43b29ae7843mr4779835b6e.34.1757416502750; Tue, 09 Sep 2025
- 04:15:02 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757416882; x=1758021682;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lRUpNDwLIvh2WOyXhRrF4YeiOcekU77uShvfMHahTds=;
+        b=qFDLPF8/Mfn4Vrq/fAeN7bmsXReVsCJB/P5HdBW0EpLVIm6VX3FtG5M2Ya5vM/JF0z
+         6HWIiEjafIJ2SF6x9lQ4HeGNl4z03ZNmlEXX+VEdFE5M/QD8mtyJXiJw0eJB+suzCMHl
+         QWu4ConWPWBonh6PYQmdGX7cHbYVSMopN6IlVSa36du8w6ZU7M5gfk/vgkl/Wzc8/fpw
+         kiiubJNmW4cIEsH0JgGak8bVUF3A+FN0zaSTb5xvvshciZNmM42VAxa19YirPH40D/wn
+         yvOSF52PX1XxN7sZBniwUeusdIpifeQP0dEWk5jpK5hXmNKBjw9My+z2U8Syi4Sz7AVu
+         gwuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCURSu4MclrC6vLDZShGVQSEvuxphIJqWhOAhaJeItQ7J2EGB8JGJDyOwrqsgGEu8qi4n2hVQAo0Fw+8wPtwwVf3@lists.infradead.org, AJvYcCWEYnXMHmaM2ljBWEfuZ3C08vbQXyQADbFQCsTrpWPg0LafxcWnoXjPgibayTWyYN7LZld0n4rILkXUp3/fec4=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8tGjBtUDRm+swg2JwWHWOPufxX9iytWzJt+sdrkedjqDEoBRG
+	YSTEf8PySaUvjPzjs6v0+0wp96x8/XYfyD0IqupznrV6ydVXiloRJHzk
+X-Gm-Gg: ASbGncvOOhpJBO3WeNh21IiSBnlsvw+YwZGH2ut28Y5rlEXPwjhIEMgIVHOy3raJavH
+	A5QGcvv+jphNQdcKq4167tEcje6+F2/pQgVr2CP+fKfKtn38iHp/7p2TErlCHV+xE8p1TnzwYNf
+	N8o+vnLPZdVkSKxM52rSsrI5j9apSLfsgWLDS4jmczxDsGqxG3zCfNJ2rcsRfFT9oHFrT6wPt8h
+	uUQdRwlvPy/yH4oUPmbw4feJlT595WuDG2QR8fdE0Uduoj0kOHi7GkIPAr5sKRcGBRKGHpgQhb5
+	0gjZXCWhWa8hckdJ8Qx2i2oQSgv/1UUHlfkK0ImAY7G+xYjZI9nOQ2Pfxs6e0RyfwNQA6FaGD+J
+	kndH80507bTvoG3PFKwCunbOIoXSwR80WpgmKjqO+FW/9D1EgLOflsrfAjVstXeZJtgcbjIjddA
+	fl0ekp
+X-Google-Smtp-Source: AGHT+IGw+CAsxSqqDDZ/FQQyvb/2SG9TMRuD7Xnj3H8EyLSvjgZxnQG3oLScOKpM5QtJRUCbg4+2rA==
+X-Received: by 2002:a05:600c:4751:b0:45b:7b54:881 with SMTP id 5b1f17b1804b1-45dddea644cmr95621485e9.1.1757416881472;
+        Tue, 09 Sep 2025 04:21:21 -0700 (PDT)
+Received: from Ansuel-XPS. (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45dd2304e16sm232791575e9.7.2025.09.09.04.21.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Sep 2025 04:21:21 -0700 (PDT)
+Message-ID: <68c00db1.050a0220.7d5a6.50b8@mx.google.com>
+X-Google-Original-Message-ID: <aMANrtmXgWoM_ZdE@Ansuel-XPS.>
+Date: Tue, 9 Sep 2025 13:21:18 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next PATCH v16 06/10] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
+References: <20250909004343.18790-1-ansuelsmth@gmail.com>
+ <20250909004343.18790-7-ansuelsmth@gmail.com>
+ <aL_uqX90oP_3hbK6@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20250905162446.88987-1-smostafa@google.com>
-In-Reply-To: <20250905162446.88987-1-smostafa@google.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 9 Sep 2025 12:14:51 +0100
-X-Gm-Features: Ac12FXx64qJXe2GQUzO8JtALwGYnJphXENgbpS-QSSifTl3glwftoVzGYAhwfsA
-Message-ID: <CADrjBPqH==y5KaN6oBnGJ8407gx31sGVEFqqNdz8NG_vPuNPYw@mail.gmail.com>
-Subject: Re: [PATCH] soc: samsung: exynos-pmu: Fix for CONFIG_DEBUG_PREEMPT
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, krzk@kernel.org, alim.akhtar@samsung.com, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aL_uqX90oP_3hbK6@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_041504_365565_AFC9CA38 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20250909_122124_138712_8DD89A27 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,69 +132,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mostafa,
+On Tue, Sep 09, 2025 at 10:08:57AM +0100, Russell King (Oracle) wrote:
+> On Tue, Sep 09, 2025 at 02:43:37AM +0200, Christian Marangi wrote:
+> > +static void an8855_phylink_get_caps(struct dsa_switch *ds, int port,
+> > +				    struct phylink_config *config)
+> > +{
+> > +	struct an8855_priv *priv = ds->priv;
+> > +	u32 reg;
+> > +	int ret;
+> > +
+> > +	switch (port) {
+> > +	case 0:
+> > +	case 1:
+> > +	case 2:
+> > +	case 3:
+> > +	case 4:
+> > +		__set_bit(PHY_INTERFACE_MODE_GMII,
+> > +			  config->supported_interfaces);
+> > +		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
+> > +			  config->supported_interfaces);
+> > +		break;
+> > +	case 5:
+> > +		phy_interface_set_rgmii(config->supported_interfaces);
+> > +		__set_bit(PHY_INTERFACE_MODE_SGMII,
+> > +			  config->supported_interfaces);
+> > +		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
+> > +			  config->supported_interfaces);
+> > +		break;
+> > +	}
+> > +
+> > +	config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
+> > +				   MAC_10 | MAC_100 | MAC_1000FD | MAC_2500FD;
+> > +
+> > +	ret = regmap_read(priv->regmap, AN8855_CKGCR, &reg);
+> > +	if (ret)
+> > +		dev_err(ds->dev, "failed to read EEE LPI timer\n");
+> > +
+> > +	config->lpi_capabilities = MAC_100FD | MAC_1000FD;
+> > +	/* Global LPI TXIDLE Threshold, default 60ms (unit 2us) */
+> > +	config->lpi_timer_default = FIELD_GET(AN8855_LPI_TXIDLE_THD_MASK, reg) *
+> > +				    AN8855_TX_LPI_UNIT;
+> 
+> You're not filling in config->lpi_interfaces, which means phylink won't
+> LPI won't be functional.
+> 
 
-Thanks for your patch and bug report, it's great to see more folks
-running upstream Pixel 6 :)
+Thanks for pointing this out, I notice lpi_interfaces is also not set on
+other DSA driver that were converted to the new EEE handling, for
+example mt7530.
 
-On Fri, 5 Sept 2025 at 17:25, Mostafa Saleh <smostafa@google.com> wrote:
->
-> Booting the kernel on Pixel-6 with `CONFIG_DEBUG_PREEMPT` prints the
-> following WARN:
->
-> [    0.784187][    T1] BUG: using smp_processor_id() in preemptible [00000000] code: swapper/0/1
-> [    0.784328][    T1] caller is debug_smp_processor_id+0x20/0x30
-> [    0.784433][    T1] CPU: 6 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.0-rc4-gd69eb204c255 #1 PREEMPT
-> [    0.784439][    T1] Hardware name: Oriole (DT)
-> [    0.784441][    T1] Call trace:
-> [    0.784443][    T1]  show_stack+0x34/0xa0 (C)
-> [    0.784453][    T1]  dump_stack_lvl+0x7c/0xb0
-> [    0.784460][    T1]  dump_stack+0x18/0x24
-> [    0.784464][    T1]  check_preemption_disabled+0xf8/0x100
-> [    0.784470][    T1]  debug_smp_processor_id+0x20/0x30
-> [    0.784476][    T1]  gs101_cpuhp_pmu_online+0x40/0x108
-> [    0.784483][    T1]  cpuhp_invoke_callback+0x188/0x2d8
-> [    0.784490][    T1]  cpuhp_issue_call+0xec/0x240
-> [    0.784494][    T1]  __cpuhp_setup_state_cpuslocked+0x140/0x2c0
-> [    0.784499][    T1]  __cpuhp_setup_state+0x58/0x88
-> [    0.784504][    T1]  exynos_pmu_probe+0x2a4/0x380
-> [    0.784508][    T1]  platform_probe+0x64/0xd0
-> [    0.784516][    T1]  really_probe+0xd0/0x3b0
-> [    0.784520][    T1]  __driver_probe_device+0x8c/0x170
-> [    0.784524][    T1]  driver_probe_device+0x44/0x140
-> [    0.784528][    T1]  __device_attach_driver+0xd8/0x180
-> [    0.784532][    T1]  bus_for_each_drv+0x90/0xf8
-> [    0.784536][    T1]  __device_attach+0xa8/0x1d0
-> [    0.784540][    T1]  device_initial_probe+0x1c/0x30
-> [    0.784544][    T1]  bus_probe_device+0xb4/0xc0
-> [    0.784547][    T1]  device_add+0x4d0/0x700
-> [    0.784550][    T1]  of_device_add+0x4c/0x78
-> [    0.784556][    T1]  of_platform_device_create_pdata+0x9c/0x148
-> [    0.784560][    T1]  of_platform_bus_create+0x1d0/0x370
-> [    0.784563][    T1]  of_platform_bus_create+0x234/0x370
-> [    0.784567][    T1]  of_platform_populate+0x84/0x178
-> [    0.784571][    T1]  of_platform_default_populate_init+0xf0/0x120
-> [    0.784579][    T1]  do_one_initcall+0x68/0x2d0
-> [    0.784585][    T1]  kernel_init_freeable+0x2d8/0x358
-> [    0.784589][    T1]  kernel_init+0x28/0x168
-> [    0.784595][    T1]  ret_from_fork+0x10/0x20
->
-> As this value is only read once, it doesn't require to be stable, so
-> just use "raw_smp_processor_id" instead.
+I assume EEE is also half broken there and the required change wasn't
+notice at times?
 
-Can I ask what baseline you are running when you see this warning?
-
-As this code got refactored recently in commit 78b72897a5c8 ("soc:
-samsung: exynos-pmu: Enable CPU Idle for gs101") which is present in
-linux-next but hasn't made its way to a proper release yet. After this
-patch smp_processor_id() is always called with a raw_spin_lock() held
-(so this warning shouldn't fire).
-
-I just built next-20250909 locally to confirm, and with the above
-patch reverted I see the warning you mention. So in summary I think
-the issue has already been fixed by the above commit.
-
-Thanks,
-
-Peter
+-- 
+	Ansuel
 
