@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CAC2CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5450CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=spkHECoc7u8G7RAfTgbrJ6WpH8ZL+IBJU6Y1MOb9wxg=; b=LY1pkLty6IYGQz/U1ew/Ms4eTR
-	h3U8j3Fk8Zbg8+tz8v1u6SR1mlR8+eicLlZ8Ra/0XQQG0bhPog8zpeyrkTjfz9PIEy+GeCY88S9Fz
-	O9jqEuCpLEiGWREmzfGPcpSaFhH0J5WT0uPpd/aNSV0LlawZxjJPq+OeHnImMefhpzBf8Ik9oWtJb
-	UUqVWTS35SH/IvFgmFttNWi/9xmIiIgODdGxIcbY1567E+F769ia6l8HowEIe/a34rAVWn/29Evif
-	ueauSXJrlqbOOcP8nFdRf7EQjhKYqNun0p6cH30fBdtR2Ty859IBHSLQkr3axtuF7FnWYZtKZysA9
-	jXqsU29Q==;
+	bh=6gz3FXQu3DOFyH5Z/Yxt5ftIBimKEIJZnXppi88qYoQ=; b=MO6fNOWKidLyLMDPMGneRboqX5
+	BpsTvRgwh1mmhWtlXZ/Koe21bteRdou/eLwoDFBn2m1RRxhBdJGlFVxwP8TqRiVqbzZ3cz9wVNBo2
+	btxOsJTIZgsjiI6RN2kvIEz0WIO8kZoh0LnEdSTcM44CgyMgnciUzuppLJ+Y6LuMJlRSmNUgLUpNX
+	uvKpOBN3HrScsgN6ACKxCPkcebcW0VqhJvQCCrZ5beEtM8e0Gjf6TmecUGLUv8TbI4LLN6BS6UJmy
+	PEAqgMHYtgeOJw9ysjQ037njNXyJYBjGV14JCvV6hs/IOBObNV+87ZxbLZHFvZkgFD5oG2Bp07Yjk
+	oz3JET+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQLi-0000000GEEZ-45kc;
-	Wed, 10 Sep 2025 19:19:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQLh-0000000GEDZ-0TNs
+	id 1uwQLx-0000000GEOq-3Ukh;
+	Wed, 10 Sep 2025 19:19:37 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwQLu-0000000GEIY-13i3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 19:19:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3455416F8;
-	Wed, 10 Sep 2025 12:19:12 -0700 (PDT)
-Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ECA1E3F694;
-	Wed, 10 Sep 2025 12:19:14 -0700 (PDT)
-Message-ID: <59cd9aa1-2151-42d1-bff2-e56f6dc0bb82@arm.com>
-Date: Wed, 10 Sep 2025 20:19:12 +0100
+	Wed, 10 Sep 2025 19:19:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=6gz3FXQu3DOFyH5Z/Yxt5ftIBimKEIJZnXppi88qYoQ=; b=S/DgMXTG9T1+Ocjo962KJ96UaF
+	anWelgQmGO/UfRZPPlKdjlmpkrnpewf2mmdKcL4ZnXofMfK6ODsm6s7oh7b4M5k4RMXWCfp/XPBXH
+	3MwMaQj1B/0RTfum51nzotVj5vc+982luD2HDTLjF8cIQzn1Vj0w4MDeXodebLl1aTafz+DLIzGER
+	+DKZKKCIylemE0bvBATwKOZY0uaIobx1bhiUVmBdE3x0j9iXHdnloksfYoIR0No9Yrb2L8fUiMY1y
+	ozK9zlaRZpU9/STU323PodgcPRhe0nOxqdYY9iyRN+/snTgZFbX4fH306Fg//Ji/s/RUcgW/GpgS1
+	gZ3CSndA==;
+Date: Wed, 10 Sep 2025 21:18:04 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Andreas Kemnade <akemnade@kernel.org>, Lee Jones <lee@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Alistair Francis <alistair@alistair23.me>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Shawn
+ Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+ <festevam@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: mfd: sy7636a: Add missing gpio pins
+ and supply
+Message-ID: <20250910211804.5d88f12b@akair>
+In-Reply-To: <aMGdH7Ab+9t/v3CB@lizhi-Precision-Tower-5810>
+References: <20250909-sy7636-rsrc-v2-0-cfd9f44fd259@kernel.org>
+	<20250909-sy7636-rsrc-v2-1-cfd9f44fd259@kernel.org>
+	<aMGdH7Ab+9t/v3CB@lizhi-Precision-Tower-5810>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/33] arm_mpam: Add the class and component structures
- for ris firmware described
-To: Dave Martin <Dave.Martin@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-13-james.morse@arm.com>
- <aLV++1PELhKBeKR7@e133380.arm.com>
- <ff73df9c-8e77-471d-b0fb-205701b4d6d3@arm.com>
- <aMAPTVqb7fLfFH6R@e133380.arm.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <aMAPTVqb7fLfFH6R@e133380.arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_121921_269785_5BE22216 
-X-CRM114-Status: GOOD (  66.00  )
+X-CRM114-CacheID: sfid-20250910_121934_304133_7FAB972B 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,202 +77,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+Am Wed, 10 Sep 2025 11:45:35 -0400
+schrieb Frank Li <Frank.li@nxp.com>:
 
-On 09/09/2025 12:28, Dave Martin wrote:
-> On Mon, Sep 08, 2025 at 06:57:41PM +0100, James Morse wrote:
->> On 01/09/2025 12:09, Dave Martin wrote:
->>>> Subject: arm_mpam: Add the class and component structures for ris firmware described
-
->>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->>>> index 71a1fb1a9c75..5baf2a8786fb 100644
->>>> --- a/drivers/resctrl/mpam_devices.c
->>>> +++ b/drivers/resctrl/mpam_devices.c
->>>> @@ -20,7 +20,6 @@
->>>
->>> [...]
->>>
->>>> @@ -35,11 +34,483 @@
->>>>  static DEFINE_MUTEX(mpam_list_lock);
->>>>  static LIST_HEAD(mpam_all_msc);
->>>>  
->>>> -static struct srcu_struct mpam_srcu;
->>>> +struct srcu_struct mpam_srcu;
->>
->>> Why expose this here?  This patch makes no use of the exposed symbol.
->>
->> The mpam_resctrl code needs to take it when it walks these lists. I don't want to change
->> it then because its just additional churn.
+> On Tue, Sep 09, 2025 at 10:33:02PM +0200, Andreas Kemnade wrote:
+> > To be able to fully describe how the SY7636A is connected to the system,
+> > add properties for the EN and VCOM_EN pins. To squeeze out every bit
+> > of unused current, in many devices it is possible to power off the
+> > complete chip. Add an input regulator to allow that.
+> >
+> > Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
+> > ---
+> >  .../devicetree/bindings/mfd/silergy,sy7636a.yaml         | 16 ++++++++++++++++
+> >  1 file changed, 16 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml b/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
+> > index ee0be32ac0204..054b97dd0c5c7 100644
+> > --- a/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
+> > +++ b/Documentation/devicetree/bindings/mfd/silergy,sy7636a.yaml
+> > @@ -32,6 +32,22 @@ properties:
+> >        Specifying the power good GPIOs.
+> >      maxItems: 1
+> >
+> > +  enable-gpios:
+> > +    description:
+> > +      If EN pin is not hardwired, specify it here to have it set up.  
 > 
-> I guess this is harmless, but it's no help to the kernel, or to
-> reviewers...
-
-A trade-off has to be made here. The series is too big to post in one go. driver/resctrl
-is the obvious split - but until both arrive then there is no need for mpam_internal.h, or
-really any of the driver as it doesn't have a user-space interface.
-I can barf the other series on the list as an illustration - but I think that would just
-frustrate people.
-
-
-[...]
-
->>>> +static void mpam_ris_destroy(struct mpam_msc_ris *ris)
->>>> +{
->>>> +	struct mpam_vmsc *vmsc = ris->vmsc;
->>>> +	struct mpam_msc *msc = vmsc->msc;
->>>> +	struct platform_device *pdev = msc->pdev;
->>>> +	struct mpam_component *comp = vmsc->comp;
->>>> +	struct mpam_class *class = comp->class;
->>>> +
->>>> +	lockdep_assert_held(&mpam_list_lock);
->>>> +
->>>> +	cpumask_andnot(&comp->affinity, &comp->affinity, &ris->affinity);
->>>> +	cpumask_andnot(&class->affinity, &class->affinity, &ris->affinity);
->>>
->>> This is not the inverse of the cpumask_or()s in mpam_ris_create_locked(),
->>> unless the the ris associated with each class and each component have
->>> strictly disjoint affinity masks.  Is that checked anywhere, or should
->>> it be impossible by construction?
->>
->> They should be disjoint. These bitmaps are built from firmware description of the cache
->> hierarchy. I don't think its possible to describe a situation where there are overlaps.
->>
->> You can build a nonsense cache hierarchy, e.g. where CPU-0's L3 is CPU-6's L2, but if you
->> do the scheduler is going to complain when it tries to chose the scheduler domains. I
->> think this should be filed under "you've got bigger problems".  There is a check that
->> catches this in mpam_resctrl_pick_caches(), to see that all the CPUs are accounted for,
->> which is to avoid tasks that get lucky with task-placement managing to escape their
->> resource limit.
+> Need descript function of enabel-gpios, you can ref data sheet sy7636a.
 > 
-> I guess that makes sense.
+> "enable-gpios" is good self documented by property name, needn't
+> description at all.
 > 
-> If the firmware description is formally a tree structure then it should
-> be impossible to end up with overlapping affinity masks.
+What you are saying is contradictory. I would prefer to have a mapping
+crystal clear visible between properties and pins. That is why I want
+that description. I remember I have got the datasheet from the company
+site with registration without acknowledging any terms. But I do not
+find that site.
+
+> > +    maxItems: 1
+> > +
+> > +  vcom-en-gpios:
+> > +    description:
+> > +      If VCOM_EN pin is not hardwired, specify it here to have it set up.
+> > +    maxItems: 1
+> > +
+> > +  vin-supply:
+> > +    description:
+> > +      Supply for the chip. Some vendor kernels and devicetrees declare this
+> > +      as a GPIO named "pwrall" which does not exist in the datasheet,
+> > +      disabling it makes the chip disappear on the bus.
+> > +  
 > 
-> Since this doesn't bite us until teardown-time in any case, I think
-> this probably doesn't need to be checked explicitly, unless we observe
-> actual problems.
-> 
-> A comment documenting this assumption may be worth having.
+> The same here, descript function. such as power supply for whole chip.
 
-Sure,
+I think it is useful what I am writing here. DT maintainers are
+apparently fine with it, since it has earned a Reviewed-By.
 
-
->>> But, thinking about it:
->>>
->>> I wonder why we ever really need to do the teardown.  If we get an
->>> error interrupt then we can just go into a sulk, spam dmesg a bit, put
->>> the hardware into the most vanilla state that we can, and refuse to
->>> manipulate it further.  But this only happens in the case of a software
->>> or hardware *bug* (or, in a future world where we might implement
->>> virtualisation, an uncontainable MPAM error triggered by a guest -- for
->>> which tearing down the host MPAM would be an overreaction).
->>
->> The good news is guests can't escape the PARTID virtualisation that the CPU does, so any
->> mess a guest manages to make is confined to that guest's PARTID range.
->>
->>
->>> Trying to cleanly tear the MPAM driver down after such an error seems a
->>> bit futile.
->>>
->>> The MPAM resctrl glue could eventually be made into a module (though
->>> not needed from day 1) -- which would allow for unloading resctrlfs if
->>> that is eventually module-ised.  I think this wouldn't require the MPAM
->>> devices backend to be torn down at any point, though (?)
->>
->> It would certainly be optional. kernfs->resctrl->mpam is the reason all this has to be
->> built-in. If that changes I'd aim for this to be a module.
->>
->> All this free()ing was added so that the driver doesn't end up sitting on memory when it
->> isn't providing any usable feature. I have seen a platform where the error interrupt goes
-> 
-> I guess that's reasonable, but this is only applies to hardware that
-> has MPAM but where it is either broken, or where it is unsuitable for
-> running Linux but Linux has been deployed on it anyway while still
-> leaving the ACPI tables intact.  This does not violate any
-> specification, but it seems of marginal benefit to introduce a load of
-> complexity just to safe a few K in this situation.  (Or do we get stuck,
-> unable to free the config and mbwu_state arrays?  Those don't count as
-> large on a server-class system, but they are about the "a few K"
-> magnitude.)
-> 
-> (Not that I'm not saying that teardown is something we shouldn't do --
-> rather, my point is: do we really need to do it now if it is subtle and
-> complex to make it work, or can this be a later addition?)
-
-Equally, can't someone say this memory has been leaked once the MPAM driver has given up.
-As alloc/free were done together it seems to odd to do them at separate times - that will
-certainly make it more subtle.
-
-
->> off during boot, (I suspect firmware configures an out-of-range PARTID). On such a
->> platform any memory that isn't free()d is a waste.
->>
->> But I agree its a small amount of memory.
->>
->>
->>> If we can simplify or eliminate the teardown, does it simplify the
->>> locking at all?  The garbage collection logic can also be dispensed
->>> with if there is never any garbage.
->>
->> It wouldn't simplify the locking, only remove that deferred free()ing which is needed
->> because of SRCU.
-> 
-> My point was that there is no need to defend against concurrent removal
-> if list entries if list entries are never removed.
-
-You can eyeball the writers are recognise the pattern as srcu. If it's an "oh that list is
-read only" - then its much more of a driver specific hack.
-I'd prefer to keep close to the srcu pattern - even if it is a bit complex.
-
-
->>> Since MSCs etc. never disappear from the hardware, it feels like it
->>> ought not to be necessary ever to remove items from any of these lists
->>> except when trying to do a teardown (?)
->>
->> Unbinding the driver from an MSC is another case where this may be triggered via
->> mpam_msc_drv_remove(). If you look at the whole thing, mpam_ris_destroy() pokes
->> mpam_resctrl_teardown_class() to see if resctrl needs to be torn down.
->>
->> I don't anticipate folk actually needing to do that. One Reasons is for VFIO - but this
->> kind of stuff has a performance impact on the hypervisor, so its unlikely to ever allow a
->> guest direct access to this kind of thing. Another reason is to load a more specific
->> driver, which sounds unlikely.
->>
->>
->> Ultimately this memory free-ing code is here because its the right thing to do.
->> I'd prefer to keep it as making this a loadable module would mean we have to do this.
-> 
-> I don't disagree with that: it is messy to retrofit teardown if it was
-> never considered in the initial design.
-> 
-> I guess that this all comes from my uncertainty about the object
-> lifecycles and locking behaviour.
-> 
-> I would still prefer to see this documented.  If the the documentation
-> would be too unwieldy or infrasible to write, this would suggest that
-> the code would benefit from simplification...
-
-Right - nothing describes the 'phases' the driver has, they just emerge.
-I'll try and add that, but it won't be in time for v2.
-
-
-> For the probe phase, or for teardown, I'm really not sure why it would
-> break anything to have a single Big MPAM Lock (however inelegant).
-
-That is broadly what mpam_list_lock is doing before the cpuhp calls are registered.
-
-
-> For the run phase (when resctrl and other clients of the driver are
-> able to use the driver), the discovered system properties and the
-> mappings onto resctrl resources are all static, and we don't seem to
-> need all this RCU stuff.
-
-Iff we say "driver specific hack - read only list" - I think that is worse.
-Making it srcu makes it recognisable, and lets us free the memory instead of leaking it.
-
-
-Thanks,
-
-James
+Regards,
+Andreas
 
