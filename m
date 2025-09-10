@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651E8CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9628BCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zpHcWl3XpbxmTQtYZyhIFwBgYhnEXqkN76+ct9zQsic=; b=i81JRuDkSZ3rwdSPm/Wr4Gq1re
-	J6Wsc1kXzJSOhan67VeYzmVy5w9/ySLkc3uPpxsranzXuzxW27jZ0NarBijwWbqBCxfmw+Or0/i+h
-	ohlhhLZPiTdAXQWk7ZV5MocbbAIFx4g6bRVhuL0KQ2R+y8+BBifVijO2dFjdRF18smt1qt5oZ8PeQ
-	SBuNbSmOVXJJkG6VD52YLmfbT9ka0zdnEvHBu2+Jt/8Yb3qa6xmLt89GYGm+3wqaPzJKTGvd+gBnW
-	VUWJCaKNzeji/MkrjOR9Sz7AOmelBrE/Di58CIjyIuSbXP4XpLexQZxKuIcipeCpUOrRrPNq+1lsl
-	Pdi9bjtg==;
+	bh=QfGtFkV2BjKT/6QYgO3xE9sPr0RNHiuBKm13evHqiAQ=; b=ebfBmrgBP4XP6zZTvtfWX2Zfst
+	+SORYhIAJYnuCPlMzqeCyvxRT9JCX4vdhi8BmmTn2AcWkALm2Q+BSQ6p6zcb7EjNKNXOtPAQQobbh
+	+b/FxV7GCvJ3g+mofjepLmhe4nhj5Y+Ezf3Xt/8Ap8o5QBq88y72jKAZySboLBLtHjUse0Ya+ZdJH
+	oVMBB769xM4AaQAVo34UIEDJj1b6kfv8KXIKICGSmv8xI7w0eR8PwoXe25cb6D1L6yw44SuV8nKvK
+	lzKemtr2UHg9RFeY8xMhm6jkTNMzOzyn70zUbSpXS91DStDlGW/RFZBtrH85cqxjZE3xsMAnp2oMs
+	N10sJIDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMDh-0000000EtEN-38uy;
-	Wed, 10 Sep 2025 14:54:49 +0000
+	id 1uwMM5-0000000Ewok-3PF1;
+	Wed, 10 Sep 2025 15:03:29 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMDf-0000000EtCP-0VDw;
-	Wed, 10 Sep 2025 14:54:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757516039; cv=none; 
+	id 1uwMM2-0000000EwnX-3G9d;
+	Wed, 10 Sep 2025 15:03:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1757516557; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=cySHIIHGOlRlLmI8Clj9g4NASUZop+O9QrS+8MOF2YLNmTcuhHKZlqj6Jv8rUd2DuPbZb/YnffF5+QJ4f9ciYW/817EXyvVP3nbo8tGdFmPCnz1Yjgh2NH3vVd+C0iWhqk2KQERVyMmeaBEadFVJiMupazVtaK2g0m5BXD5P4aU=
+	b=OjGcbwHQ7qFc4F9AAkVwIzKWD5HRtNcVph5abNLqKUYPGk4w1ePjBCj0tz7hti9MHbxdOhEYELdQk/ziPXJHC2RDGoKpa9/5V5AU76oYgTS7M4uFLMI+DKOBXicgR2t+7eQlayb2lIUGu7Thpeqbqbt6dIgRH5W5B/PtH+5r7iQ=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757516039; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=zpHcWl3XpbxmTQtYZyhIFwBgYhnEXqkN76+ct9zQsic=; 
-	b=DWzQmQB9i923kc1wLtRSs0mJXECc9DTGPGje4vPcj3T90fTHT6l1WSITKn3EfaNeRiJE2o1zU8RI3+wVBOfGlRKlDouWdwnJnoxUD+1qyVOGSXiQQN62ul4GqExzm3w5WTCukE/ToKRcxU4WAEXfDz4t0HR6y1wxyOUtZ6Jdr0M=
+	t=1757516557; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=QfGtFkV2BjKT/6QYgO3xE9sPr0RNHiuBKm13evHqiAQ=; 
+	b=LOEC3tcunob47lit5X+QQ9cxlFjZCpyRGy0IBEJP/2ah/bJ6nUgxS8poFqqzD1B/vLwVrqQVOYrF+0STYNRWbvQfXdnIeWb9becwEvVf8U6HrNC2fD1GBVkDCe8oB8ETdatHQJqPnph74AncKieCSksqeFj/wxL2bVtsipVvcOM=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
 	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757516039;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757516557;
 	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
 	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=zpHcWl3XpbxmTQtYZyhIFwBgYhnEXqkN76+ct9zQsic=;
-	b=KQCrzMj7lQrIfPdvvl5BB41ka4CcnVgyULhxZ7WNqKbdb0jn99L8NCW8TUJ27Z8l
-	RY98XcwJdO3A1TuA/2LA8lxWZbFr+ptDydjCvY1bLkyc8nGHq30FVZOf2ZM2ws7Gl85
-	5UGX5u6XAwxqoc/MvOcVFWQmB7AkhYJkjlWawpgE=
-Received: by mx.zohomail.com with SMTPS id 1757516037104680.5102248497525;
-	Wed, 10 Sep 2025 07:53:57 -0700 (PDT)
-Message-ID: <be01559a-ab26-4631-8b99-07c8cb82e555@collabora.com>
-Date: Wed, 10 Sep 2025 11:53:43 -0300
+	bh=QfGtFkV2BjKT/6QYgO3xE9sPr0RNHiuBKm13evHqiAQ=;
+	b=jQPxB1FVZqyhfX615s1wyOYg+A9wixZAqzUKYwPAYzueo/S9dJFzf0F2jcR21D0D
+	Scy1nrNCr6VGsY3IM6pc3R62vRrVdqtj1AgrtdZQRCsDrWeQgb1iGdpx2unAltp3b8y
+	RazFXuHMg1VK5VGe5MWq7DkXjZp4cPizww9OdPxk=
+Received: by mx.zohomail.com with SMTPS id 1757516554744986.7207805498508;
+	Wed, 10 Sep 2025 08:02:34 -0700 (PDT)
+Message-ID: <6ebef7d1-69b3-4f40-85ba-3c15653eba8e@collabora.com>
+Date: Wed, 10 Sep 2025 12:02:22 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 10/14] regulator: dt-bindings: Convert Dialog
- Semiconductor DA9211 Regulators to YAML
-To: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v1 14/14] dt-bindings: media: mediatek,jpeg: Fix jpeg
+ encoder/decoder ranges
+To: Rob Herring <robh@kernel.org>
 Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
  andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
  broonie@kernel.org, chunkuang.hu@kernel.org, ck.hu@mediatek.com,
@@ -64,27 +64,26 @@ Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
  linus.walleij@linaro.org, louisalexis.eyraud@collabora.com,
  maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com,
  mchehab@kernel.org, minghsiu.tsai@mediatek.com, mripard@kernel.org,
- p.zabel@pengutronix.de, pabeni@redhat.com, robh@kernel.org,
- sean.wang@kernel.org, simona@ffwll.ch, support.opensource@diasemi.com,
- tiffany.lin@mediatek.com, tzimmermann@suse.de, yunfei.dong@mediatek.com,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
- netdev@vger.kernel.org
+ p.zabel@pengutronix.de, pabeni@redhat.com, sean.wang@kernel.org,
+ simona@ffwll.ch, support.opensource@diasemi.com, tiffany.lin@mediatek.com,
+ tzimmermann@suse.de, yunfei.dong@mediatek.com, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-sound@vger.kernel.org, netdev@vger.kernel.org
 References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-11-ariel.dalessandro@collabora.com>
- <20250821-practical-coyote-of-hail-d2fddb@kuoka>
+ <20250820171302.324142-15-ariel.dalessandro@collabora.com>
+ <20250820185508.GA273751-robh@kernel.org>
 Content-Language: en-US
 From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <20250821-practical-coyote-of-hail-d2fddb@kuoka>
+In-Reply-To: <20250820185508.GA273751-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_075447_213128_AB7946D9 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20250910_080326_869693_1C78C2B9 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,157 +98,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Krzysztof,
+Rob,
 
-On 8/21/25 3:53 AM, Krzysztof Kozlowski wrote:
-> On Wed, Aug 20, 2025 at 02:12:58PM -0300, Ariel D'Alessandro wrote:
->> Convert the existing text-based DT bindings for Dialog Semiconductor DA9211
->> Voltage Regulators family to a YAML schema. Examples are simplified, as
->> these are all equal.
+On 8/20/25 3:55 PM, Rob Herring wrote:
+> On Wed, Aug 20, 2025 at 02:13:02PM -0300, Ariel D'Alessandro wrote:
+>> Commit 14176e94bb35d ("arm64: dts: mediatek: mt8195: Fix ranges for jpeg
 > 
-> Also not wrapped... fix your editor to recognize how commits are
-> written.
+> That commit is not in any upstream tree.
 
-Ack.
+Ugh, indeed. Dropping this patch.
 
 > 
+>> enc/decoder nodes") redefined jpeg encoder/decoder children node ranges.
+>> Update the related device tree binding yaml definition to match
+>> mediatek/mt8195.dtsi, as this is currently the only one using it.
 >>
 >> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 >> ---
+>>   .../media/mediatek,mt8195-jpegdec.yaml        | 31 ++++++++++---------
+>>   .../media/mediatek,mt8195-jpegenc.yaml        | 15 ++++-----
+>>   2 files changed, 24 insertions(+), 22 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml
+>> index e5448c60e3eb5..b1f3df258dc87 100644
+>> --- a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml
+>> +++ b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml
+>> @@ -36,7 +36,7 @@ properties:
+>>   
+>>   # Required child node:
+>>   patternProperties:
+>> -  "^jpgdec@[0-9a-f]+$":
+>> +  "^jpgdec@[0-9],[0-9a-f]+$":
 > 
-> ...
-> 
->> +---
->> +$id: http://devicetree.org/schemas/regulator/dlg,da9211.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: |
-> 
-> Drop |
+> This is wrong unless 0-9 is a separate, distinct address (like a chip
+> select #).
 
 Ack.
 
-> 
->> +  Dialog Semiconductor DA9211/DA9212/DA9213/DA9223/DA9214/DA9224/DA9215/DA9225
->> +  Voltage Regulator
->> +
->> +maintainers:
->> +  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - "dlg,da9211"
->> +      - "dlg,da9212"
->> +      - "dlg,da9213"
->> +      - "dlg,da9223"
->> +      - "dlg,da9214"
->> +      - "dlg,da9224"
->> +      - "dlg,da9215"
->> +      - "dlg,da9225"
-> 
-> No quotes. I don't think this was ever tested.
-
-Ack.
-
-> 
-> Also, keep it properly ordered
-
-Good catch, thanks.
-
-> 
-> 
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  regulators:
->> +    type: object
->> +    additionalProperties: false
->> +    description: |
-> 
-> Drop |
-
-Ack.
-
-> 
->> +      List of regulators provided by the device
->> +
->> +    patternProperties:
->> +      "^BUCK([A-B])$":
-> 
-> [AB]
-
-Ack.
-
-> 
->> +        type: object
->> +        $ref: regulator.yaml#
->> +        description: |
->> +          Properties for a single BUCK regulator
->> +
->> +        properties:
->> +          regulator-initial-mode:
->> +            items:
->> +              enum: [ 1, 2, 3 ]
->> +            description: Defined in include/dt-bindings/regulator/dlg,da9211-regulator.h
->> +
->> +          regulator-allowed-modes:
->> +            items:
->> +              enum: [ 1, 2, 3 ]
->> +            description: Defined in include/dt-bindings/regulator/dlg,da9211-regulator.h
->> +
->> +          enable-gpios:
->> +            maxItems: 1
->> +            description: Specify a valid GPIO for platform control of the regulator
-> 
-> Drop description, obvious.
-
-Ack.
-
-> 
->> +
->> +        unevaluatedProperties: false
-> 
-> For nested blocks this goes after $ref: regulator.
-
-Ack.
-
-> 
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +  - regulators
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/regulator/dlg,da9211-regulator.h>
->> +
->> +    i2c1 {
-> 
-> i2c
-
-Ack.
-
-> 
->> +        #address-cells = <1>;
->> +        #size-cells = <0>;
->> +
->> +        da9212: da9212@68 {
-> 
-> Node names should be generic. See also an explanation and list of
-> examples (not exhaustive) in DT specification:
-> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-Ack, thanks a lot for your help.
-
+Thanks for the feedback.
 Regards,
 
 -- 
