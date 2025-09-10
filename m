@@ -4,108 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C8AACA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5954BCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjIuOUSlZRjacrSeZ1kN7ydCTv4SbgH5srpMbo7M54k=; b=nybuP+XRplM01C+KbF4V0Y2zIV
-	syOhGWkc/ZO0QS7i45EsiWzpf025tn1V+wobfvC/3Wi98JvJ5aMClTcqGK+InEufR/YP1e1n8Duna
-	ws0M65eR40FeK0s5DlmSKQlFaeIDZelRxjtrgoAr6lFucsNyXPDz/z1wHG7js8bDDGB9PtNgrpLru
-	qod1A/iT1+N0f8OXfgaoN0d5kwaQgaXbsGNprV7O3unDoSaHSWnktS3C20LyMry6YPRx0cdvhlqCs
-	hj9S6+B6myhdswwN8inCn8VLxng/Cwe7mjwypP6pbqnYo1KkVVDQQEP4GYSzTEdyOIXrGfHTVOJ0u
-	XuU4R+2g==;
+	bh=dPns3UYk3HTy9Cu967vV+y/kprcH9SmJknyIiH6KUPg=; b=o1n5o+9TSnwnVJ5zf60HRsYD+x
+	8sZ38uFReXYTSw+D5kZTsOLZeDfl5dEmCidurPyOEo2nO0y3rICffeQhTxgV/Pxd6OHgF7tXY/o7r
+	a/sb2xWtlpsOJPRT06W2u97yC7tTh9eRJ+C0dp6ZQabGXLKHQ2Zuce+D25aQV5KWbTk6nnvNaIRLf
+	MdOCC3Bph9EZ+40GC1VjpwlJJv4QfIyz07QtMktzmI/J47bS12xYb5Xdv4zSo+dYw11WQNYoAQ7Y0
+	UDhCRndx8SSK0W2fUjmhVFIvmKGk2Ne6tWAtUa87PuYjDi/FeD1SaBsvo8NNIcmhlfVU9yfqyWq+W
+	SLoBNweA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFDz-0000000CXzs-0k9C;
-	Wed, 10 Sep 2025 07:26:39 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uwFGZ-0000000CYuN-1wDG;
+	Wed, 10 Sep 2025 07:29:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFDw-0000000CXyo-1PRg
+	id 1uwFGY-0000000CYsh-1S4M
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 10 Sep 2025 07:29:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=dPns3UYk3HTy9Cu967vV+y/kprcH9SmJknyIiH6KUPg=; b=UCWYOpO55pvcSWDdwz+B9pVs2F
+	BmR2+8bAz3nfV/5YhoF66Yc20Wu0jqiBOhPFuIwXxTNh1F0trvMjfImMQgk7HQTrZpMq3fQZjkxt+
+	SvssjoNELHWt8KmQYemCGPlKTFoCdKuLJkK2Evu5XjSLin7QBBCOgxTzgjFWCVUcBPCu4xJnyawpB
+	6wWFhqNdwpg/kYmxZ0fDkt6/+YgS/mIuyvsh0rOutAqjTNBNagM1W8iHlgR+VLMs7iHSPlgGdNWTl
+	zfn6SAhDstE6XSE2BoDuiBC8RkTXBTAxANBFA0ReMtE+ESOP0U6ohqTKtExJxZxbc8TQnsS/Ej6cC
+	2GYVA2oQ==;
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwFGU-00000005lGZ-0Yi7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 07:26:38 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58A5oxTY020569;
-	Wed, 10 Sep 2025 07:26:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	tjIuOUSlZRjacrSeZ1kN7ydCTv4SbgH5srpMbo7M54k=; b=llRhJsfk1GnzUjY+
-	62e/jULBjRfhJEwTgCzLLGXd61Z/9RPzWktkJrfv9qkr//sYrRSiKK3dMAmtcugq
-	vIJIX0V3G4WN9dEyCkeZZsBmFtQVdh3/K9M3B434PS9rX0Y8hKLwDFUuCXhjromi
-	EzQ4U/8PrgSgqFef/aIEV/vyXZ5WXFNaXBo/V0MWZusGnlXOhszFWUmGlN4J3Moe
-	l7klPxZpi7Zie3g1lbPnC25rFBGR/Lo7BUwgBgttleT1ykKQMA6lZ30UrroxNVby
-	z7k1SIT4d3WnaSb0u9PQO/Mr9/s2plHzB3VES+TaPyW/3NzBXtXrUVmAsROwXrln
-	Cgc6MA==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490e8aaw4k-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 10 Sep 2025 07:26:28 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 58A7QSGI005026
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 10 Sep 2025 07:26:28 GMT
-Received: from [10.204.66.168] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Wed, 10 Sep
- 2025 00:26:23 -0700
-Message-ID: <d16d40ab-8a35-4886-b11f-2eee15849e1c@quicinc.com>
-Date: Wed, 10 Sep 2025 12:56:20 +0530
+	Wed, 10 Sep 2025 07:29:17 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-55f98e7782bso483182e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 00:29:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757489352; x=1758094152; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dPns3UYk3HTy9Cu967vV+y/kprcH9SmJknyIiH6KUPg=;
+        b=cN8QsvhKILhBU7aDpexJCtKHBnzhf3ViXym34VfmTNzXZNmDkInQ4Y0Us3b8Nr8LLD
+         4Suh69d3kMCBcQ+EB9+EBDuFAZLIQOqRDjAOHskyj+Rqt5U9xWdvRsdwkRiceaZyg1Oe
+         84LYJnhoRAOINpDanAaEg7rPstx4GxgkRkWgFsduIt0C+04SEoBNg2yVAYL/8RzO4Fg6
+         ZOuvzbq4uQAgwuCgNPyKR6/oPdeNGcvKAm1Lp0MH4DRzkWKdNv9/cEz5nQHJLzPMIqsm
+         E4Gtw7Zld+PWCqnVolxKTfrJk7IAk2kzTp82NrFcGjrey8V9adE+yvkQMMtvebqoaR3e
+         9unA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757489352; x=1758094152;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dPns3UYk3HTy9Cu967vV+y/kprcH9SmJknyIiH6KUPg=;
+        b=bYoggD6YSqXwYin4bMKBqOEFHan277MDbuGjNlm05qELUoLyjLS73rvjCfZuWjtFCo
+         ng2Hx7nncjwbEbKtvNCJjR01B4CiYtKSbt3ddUUPGTwySAdyvx9ZUuNIgU9rYfWhBm9x
+         DWY6fB2b+0VjY+zkIrD9CnYA6V+7EbX19Lr+h0KfSOwW0q2dmCRHX0buCGiYH/ReMtFL
+         aI/OHXEBbYt+649wM8B7xVe4huBuQEnbJ1nI1HznMzj0pF+eZYswLbIv2yjQ1hiVbxfO
+         OUbZhyGsjRfc4zVIEt9zXQYTLMzqsYRkiNGTeE5e2HwijulOTpvw2XF324cONA78Otye
+         a54g==
+X-Forwarded-Encrypted: i=1; AJvYcCVXNMfOE5DdrjBM8i1Lei7slRw3ZvQ9Fs2mPduNxPU2GQkfOJ3H7WBxwt8J/F1O/M7rzzZPI9IvaY3RfsRZTSOh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEi28ECaMX6lZyH4OxIxdneiPHgz1SdSCBEfjy1l6XXNXHqZKT
+	SFG4K+94rf06BHa0lFg1Yd1Vyxj1ectOTmTvq0I+v+l2oZ6ecIlbqVPzpigkYvST8Hrxi+swa20
+	gGS7TU6qca+EKK+UYX7hZ75LnWbk39rRMFdsSqeJ4SQ==
+X-Gm-Gg: ASbGncvbtze+pcCn0XxDsWtVvA8vOgfBBJEqSHPe5WhbK4GclD3UqIb8gG/aw3Bv3Jb
+	CFpNGMYLkVGDT7tiSC+e9+4GQot1kWuBq7dMkI4uFsTLkv4jV7/EHno5coNcG3SFaeXun88XfXG
+	nAItNVOc5zOgiAy/DZ4hZyx1enabpdJ7X/oMCK1E5LeRKj04cWqd9JLQWlahKA387NUDRV7PzAF
+	/ikufakWjowCosMJyVyPHEWW2Tm3wiwB3yfPJ8=
+X-Google-Smtp-Source: AGHT+IEqPJ9kigcz2GLj3mP+JOGINamypRE0PiCaaHlUwxbs7HlrGNQFZsWt9jHWryRE9N3BOTU+Nqgodo1ymFIXUx4=
+X-Received: by 2002:a05:6512:3c93:b0:55f:552c:f731 with SMTP id
+ 2adb3069b0e04-56099453ef8mr6704484e87.7.1757489351780; Wed, 10 Sep 2025
+ 00:29:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/7] media: dt-bindings: Add qcom,qcs8300-camss
- compatible
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, <rfoss@kernel.org>,
-        <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250813053724.232494-1-quic_vikramsa@quicinc.com>
- <20250813053724.232494-2-quic_vikramsa@quicinc.com>
- <f1e3c3a9-9929-477a-b1ad-e485c059cbc2@linaro.org>
-Content-Language: en-US
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-In-Reply-To: <f1e3c3a9-9929-477a-b1ad-e485c059cbc2@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=H7Dbw/Yi c=1 sm=1 tr=0 ts=68c12824 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=COk6AnOGAAAA:8
- a=KKAkSRfTAAAA:8 a=xK8GJCHwwqq8D6wDn2oA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: Y0FiRtsMI90TjEYc3DDyEdtzkK-DWdYN
-X-Proofpoint-ORIG-GUID: Y0FiRtsMI90TjEYc3DDyEdtzkK-DWdYN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAzOSBTYWx0ZWRfX6Rdil2iWUBUY
- ThbgUYl5wKxGa0oY6yWIB0BEggLrYO7IarkrvY4tTBwveUtInH8tfgXQ7fherU41EDuDEQRu0Hg
- NAtTRcZXBtlRKi65NB8ipSdtpOtMm5GUGM2kjFVXb94DxfAjKPq7MUqTccuociwIOlc0qmMWdgV
- qPqG3B5RZ8Djh2CvCjbnUns6sfVgAsOtDqn1f9B6MzrUNCC7LqRh7IdAmfyKAXKTpNMOKIj9s8w
- rqaYY8vgP24PtOAbL14M4zEnc6YDD4oqeOL2jLD9GMGprgxJ8fdlwOhNyjQzQGd17W2Vetr6SbA
- NbkETCVapifD0jKiQdUjK7AN80yFC1Kah/nTxB+DYFFjaofrfmwq8haDDvD0Ie7IS9MFJruzljn
- C2g0lBss
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-09_03,2025-09-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 bulkscore=0 impostorscore=0 adultscore=0 phishscore=0
- clxscore=1015 suspectscore=0 priorityscore=1501 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060039
+References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
+ <20250910-gpio-mmio-gpio-conv-part4-v2-13-f3d1a4c57124@linaro.org> <CAHp75VcczAm_=XXAjwLFqNTCF72-UJfdisPvavadDEXJR2G19A@mail.gmail.com>
+In-Reply-To: <CAHp75VcczAm_=XXAjwLFqNTCF72-UJfdisPvavadDEXJR2G19A@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 10 Sep 2025 09:28:59 +0200
+X-Gm-Features: Ac12FXylJ9GUUlvsjAHDZW0ZjH7_XucWxGNpk3CSzJ659744jxYcf8C0LoVlvQM
+Message-ID: <CAMRc=Md1kLjELc48-fvjsgpZH+t+kE00v0uMDztubooM_AJ2oQ@mail.gmail.com>
+Subject: Re: [PATCH v2 13/15] gpio: sodaville: use new generic GPIO chip API
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Keguang Zhang <keguang.zhang@gmail.com>, 
+	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_002636_374421_2E2BCEEB 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250910_082914_358345_7088E5BB 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,43 +121,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 9/10/2025 12:35 PM, Krzysztof Kozlowski wrote:
-> On 13/08/2025 07:37, Vikram Sharma wrote:
->> Add the compatible string "qcom,qcs8300-camss" to support the
->> Camera Subsystem (CAMSS) on the Qualcomm QCS8300 platform.
->>
->> The QCS8300 platform provides:
->> - 2 x VFE (version 690), each with 3 RDI
->> - 5 x VFE Lite (version 690), each with 6 RDI
->> - 2 x CSID (version 690)
->> - 5 x CSID Lite (version 690)
->> - 3 x CSIPHY (version 690)
->> - 3 x TPG
->>
->> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> ---
->>   .../bindings/media/qcom,qcs8300-camss.yaml    | 336 ++++++++++++++++++
->>   1 file changed, 336 insertions(+)
-> So it turns out this code is wrong and you already sent fixes for it.
-
-Hi Krzysztof,
-Thanks for your comments. These bindings are tested with TPG (Test Pattern Generator), As camera sensor testing was not possible at that point.
-This is because Monaco-evk kit was not ready which can be used to enable sensor.
-
-These Bindings are complete in its own, If someone want to use TPG.
-
-My latest update in these bindings are for camera sensor enablement which needs supplies too.
-
-Please let me know if this justification works to accept these bindings it its current form and add supplies as a separate patch.
-
-Best regards,
-Vikram
-
+On Wed, Sep 10, 2025 at 9:19=E2=80=AFAM Andy Shevchenko
+<andy.shevchenko@gmail.com> wrote:
 >
-> Bryan, please don't apply it.
+> On Wed, Sep 10, 2025 at 10:13=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.=
+pl> wrote:
+> >
+> > Convert the driver to using the new generic GPIO chip interfaces from
+> > linux/gpio/generic.h.
 >
-> Best regards,
-> Krzysztof
+> In case you want to take it
+> Reviewed-by: Andy Shevchenko <andy@kernel.org>
+> Otherwise I can take it via my tree and then PR to you.
+>
+
+I would prefer to apply the whole series directly, this way the
+conversion will be done in one go.
+
+Bart
 
