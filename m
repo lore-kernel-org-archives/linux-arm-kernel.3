@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17918CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 23:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7ABCCAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 23:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cm+XcZVdExWAkf67mJrRQ1egxi6MvWD1BFDRBKszsSc=; b=ml8k+gdQmA3zh6Z0l6LzSQ4JnK
-	09djleQa8OELVceDBuTGtyya/k0SpMaAWii+y/uD7rkFtOImqIMPUrPEtqKzprZu0ylozubdPqyRv
-	+UBl5MDfZFBxOYVJXu9cGuCBvvaV+5z9E8eEO47cLvvRBXG4yfho1tLxMOuPdI40gelNcVVpQgtTT
-	mHQU77STK2HARY/GfdORRfBeonqYBS87DgEQTqwxRI8kZhjfgGwwz0RPDJTyjBWKkoUgaDgzop3nR
-	/dgt5ss46StW/7oUNEFHYVdcq13gmfZ5OZ+8ltYzmVGoc9NMqsE9q7t7KT3UmwLtSEgbH8ToTArKL
-	iMvFv2oA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Mg4r6tqzHUH80N6S4z7Ye3MQyAcaZEeUKqyv8uKPNHI=; b=mCiHPMI/dqy1oleUl7CDFAjwNv
+	8vgaXRZiU/ovx8wgi10nV4L+C/5Wj96lIw+XBmNpMZaSRzTv7TdYk127i5625wNWGGThHTSiw76ld
+	XWSfprsIWrYVf7xqIe8hqOaDSpRowacmb2RzMrWdebyMv0DcLnvly0mUWZs+GULwTV5IlYXCrJj52
+	oHYNtc9sxEBUsQvbaCNNGZ9TqqKqrSrpYvOQCGotJttjy9keLm57q3rkPv9ZLqWzbAGrLQ9unMRp6
+	NunlP3W2nZABT/whVpxQkygaDdNDENn6hTmz7DcAwQ2O0D/ZGaNpdYdqZMrzi5xMwRfpG5KER8gmY
+	IvXPNSgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwUFz-0000000HIr6-2JRF;
-	Wed, 10 Sep 2025 23:29:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uwUKM-0000000HJoh-1olK;
+	Wed, 10 Sep 2025 23:34:14 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwUFw-0000000HIpP-2nRM
+	id 1uwUKK-0000000HJns-09dP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 23:29:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A02284486D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 23:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833E7C113CF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 23:29:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757546979;
-	bh=giqX8D1e03WEb190csFinToB6mmpK+SueWukzwTLrtw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UuWj9VRPzw1PvbSaCVy7gV5XIu21brGl+BUVHFYgg27kHS3pblH2z9FZm0Zjxv25q
-	 vM6pT5R7jh5OKkI2NzxgMyQx5Fv8tw3d/fDKigI8SHueZNQxBPhV/8lB1uJ3ajTG9s
-	 xUvNcX9o7L4/f1V7B0FTzSx33FWb6to8itCzKX1wbdB4WAu7Kpl/1brpLB1O/G3tDn
-	 TxiZM+HCqDW8zkFyLasBq+7lhQXG5SZiejGqiHT2kol1gyw9+pY3SzmoJ0bhzIwZT0
-	 0XZFkApfr8uVDYBu9rbQ39gXBGSk8G3BnLFiRb/55HfKgaFrdWxUE1VeN1tzfFAXpY
-	 4lPsVBhr+WVCA==
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-b04abcc1356so17578866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 16:29:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXwTAtjeYplZctl2uU9TJp3CBPl2nlIlmFRJYxc4qjAZpZ/zEOlRcznB9Fpfs47Zii7NuotGF32VmzgiAPy1PA4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzcw7A4I4pdk1ov/C9QWZWW0YIDy75Md444rnJeXW1PdxAFWD9C
-	Hy27VeEAsNf6AX04KwajIx3Jf4OdgIptYXUtBEBZ8mcM35N2PTz+RKjlipQL92eCMd4SBL0JAwq
-	eGdDdlZuwEmXx8B9aWoSd/6EvVPuzv80=
-X-Google-Smtp-Source: AGHT+IGlGgx50+D2ydI5vBqV6/W+PuaO1JZSUd97+Jrqkz/eIi6Qj2v1ae31SM3Fqif/p17XncOr6qKwTf/VY8KBwGc=
-X-Received: by 2002:a17:907:808:b0:afe:bdcb:9e62 with SMTP id
- a640c23a62f3a-b04b16c4a55mr1764621066b.33.1757546977956; Wed, 10 Sep 2025
- 16:29:37 -0700 (PDT)
+	Wed, 10 Sep 2025 23:34:13 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-772301f8a4cso179076b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 16:34:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757547251; x=1758152051; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Mg4r6tqzHUH80N6S4z7Ye3MQyAcaZEeUKqyv8uKPNHI=;
+        b=I1CPkPUMuU3DIKeggtt47cx7+eWSKikyL6oH1wHPvAbL6EnlFnhGeJAkX1zpfsVOrh
+         dIntb4dagoZXDBZefCNbauHxY7aDeuS1G47Z70Kj/QIOiowDAR4nWtyaMAq68x7t/Fw1
+         TtSD6SDhuYmfjiTXGqZwfHbUC6UCXPGswrg+EX+RN5GhHaBw8Bsiax0lPMHlv/Ix+Qe2
+         pTJWThjsNNme5LBgHa8hXJXeVJX19tyGz2NoogTzHmf3ra1U3M50us8QXrsAacd0xdC9
+         a0gRLmtC+t/uSaLMtR1btqpmrbqQx0ah4jY9Ve1opkhEZb1XMju/pKaOIenc6QT2+kZq
+         gDyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757547251; x=1758152051;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Mg4r6tqzHUH80N6S4z7Ye3MQyAcaZEeUKqyv8uKPNHI=;
+        b=rI21Tj3duROHmnZt59sFsdCU+o8Iqo5pkypHB83RZmbaHYVys0DTXOnNozlNk0gobD
+         LMSJDticggkN7+DRhqEdudOsuoJh7Rc9wMCVH1pzYa8Q7T52arjerilbr08akZAzaFFf
+         FZ3MUNDcDwvQaAl9dMy7Tk/YZfewc15Q+7QO9Jeu9bXgwrjojHXjSRaClo2ApIVGmRlB
+         1KwNAE98mSZ/qu0BeEno0XTGQc1DvI3LBSvvciNF6Ny5NOKfOEtMFJALoKtmrBdcjwyZ
+         nfw/TAuRCZgHyaJ8rp3HK2m6jyulcQx8zGuboNYEz0sojKMdrJnYA9CEsRcG6VxeO/HV
+         k0sw==
+X-Forwarded-Encrypted: i=1; AJvYcCXwWKXj9gLsDvIY4hvlD+xb2x+ZmpEKxICu9qIkw2oJTkScd0GZvZFQPs+f7t5LPg2tX59BbF1uczD2BHtCCoxG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJbNrCkOcJ05klz3h+0MCnWklCx7TdcLUWi/sBZMgl0VNRK2IW
+	yetbrCYsdRE7bXdf7BGMLSydcbPxNfvGhIqjrMOubpRzeEsNoNCeQKG9UfQTpw==
+X-Gm-Gg: ASbGncu+Ki6EYmEYsJxDATTy46ynL6nPV/hhXP3sFBsN5cEK0MzhuxhkPiDXUakShp4
+	7gBH530eawfectYTFWsOrwldN6NPKACiAc+Tq4O0i29U2uCbDnOgIfY1kx/Zvx4DiZJCmtWkmUv
+	ypA49Q43auQTDu2L1U7twmscQGt7LgNp7ENkqTwyfzQSyuf/Hd8bU7dJCEVe7YiBhA0/A/J6MdB
+	8+W9O1QHbnuS9qeDnmyeS9+w3xjwHmq8fF7dx7OLxygM54aWGpTU5kRQDuAIwr68FnXlTavyxQ0
+	VqR1sE38n1gPVjXAwcl/8g/9Pq/RRBgPnn7Tijl8DwOFzhzgHbofOiEvgYgIMlR12cpfoFYNyuZ
+	RKPFocpdhMUeJZyy2dgoy/kr9TKKgCIYncaXwVkbRtMaAmbI=
+X-Google-Smtp-Source: AGHT+IFyFjSxsyaF2RJnC90z3QvBijSexO6xHZxytRiU9jodFdMt2l4JVc9tzY8yfXcH4+xcKOaQMw==
+X-Received: by 2002:a05:6a00:7094:b0:776:2e3:a95b with SMTP id d2e1a72fcca58-77602e3ab24mr1427978b3a.1.1757547251235;
+        Wed, 10 Sep 2025 16:34:11 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:d19c:8c03:e9d7:2ba6])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-774662d2395sm6299114b3a.88.2025.09.10.16.34.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Sep 2025 16:34:10 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	frank.li@nxp.com,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v2] dt-bindings: soc: imx-iomuxc-gpr: Document the CSI mux
+Date: Wed, 10 Sep 2025 20:34:02 -0300
+Message-Id: <20250910233402.567245-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250905084059.26959-1-ot_zhangchao.zhang@mediatek.com>
- <20250905084059.26959-2-ot_zhangchao.zhang@mediatek.com> <a7589659-0352-4d47-a3cf-f2433cc512ec@kernel.org>
-In-Reply-To: <a7589659-0352-4d47-a3cf-f2433cc512ec@kernel.org>
-From: Sean Wang <sean.wang@kernel.org>
-Date: Wed, 10 Sep 2025 18:29:24 -0500
-X-Gmail-Original-Message-ID: <CAGp9Lzrp-cfn_GiLrHCU629wEAxWy=egOMrRh6thYbymu+QXjA@mail.gmail.com>
-X-Gm-Features: Ac12FXyyVN5Jiq60xJ95u5ez5XUlTPRrkZuzl25f4dRSg1MxKAtg591tBXMalW4
-Message-ID: <CAGp9Lzrp-cfn_GiLrHCU629wEAxWy=egOMrRh6thYbymu+QXjA@mail.gmail.com>
-Subject: Re: [PATCH v7 1/1] Bluetooth: mediatek: add gpio pin to reset bt
-To: Krzysztof Kozlowski <krzk@kernel.org>, Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-Cc: Marcel Holtmann <marcel@holtmann.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Luiz Von Dentz <luiz.dentz@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Jiande Lu <jiande.lu@mediatek.com>, 
-	Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>, 
-	Hao Qin <Hao.qin@mediatek.com>, linux-bluetooth <linux-bluetooth@vger.kernel.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linux-mediatek <linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_162940_738826_CA1C369F 
-X-CRM114-Status: GOOD (  27.64  )
+X-CRM114-CacheID: sfid-20250910_163412_081264_AAE31812 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,89 +101,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On i.MX6Q/6DL the following subnodes exist to describe the CSI port muxing:
 
-Sorry again for the confusion. I believe Zhangchao is still new to the
-upstream process, and we=E2=80=99ll work together to improve this. Since th=
-is
-series has become a bit hard to follow, would you agree that it might
-be better for us to restart with a clean patch that addresses the
-review comments? A clean version would make it easier for reviewers to
-focus on the current issues without being distracted by earlier
-mistakes.
+- ipu1_csi0_mux
+- ipu1_csi1_mux
+- ipu2_csi0_mux
+- ipu2_csi1_mux
 
-Hi Zhangchao,
+As they were not documented, dt-schema emits warnings like:
 
-Please note that both btusb.c (with DT and ACPI) and btmtksdio.c (with
-DT) already support reset_gpio. Our goal should be to benefit from
-these existing mechanisms while ensuring that this patch does not
-introduce any regressions. If the current mechanisms do not fully meet
-your requirements, it=E2=80=99s important to clearly explain why, so we can
-adapt the existing framework rather than creating a separate one.
+  'ipu1_csi0_mux', 'ipu1_csi1_mux' do not match any of the regexes:
+  '^pinctrl-[0-9]+$'
 
-And please remember to carefully respect and respond to reviewer
-feedback, reviewers volunteer their time and experience to help us
-keep the subsystem clean and consistent. It=E2=80=99s a valuable opportunit=
-y
-for us to learn and to ensure smoother integration.
+Add a top-level patternProperties entry for these CSI mux subnodes
+and restrict it to i.MX6Q.
 
-                          Sean
+Signed-off-by: Fabio Estevam <festevam@gmail.com>
+---
+Changes since v1:
+- Restrict it to i.MX6Q (Frank).
 
-On Fri, Sep 5, 2025 at 3:44=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
->
-> On 05/09/2025 10:40, Zhangchao Zhang wrote:
-> > Makes the platform Bluetooth to be reset by hardware pin,
-> > it provides two methods to do it for mediatek controller,
-> > and it has been tested locally many times and can reset normally.
-> >
-> > When an exception occurs, resetting Bluetooth by hardware pin
-> > is more stable than resetting Bluetooth by software.
-> > If the corresponding pin is not found in dts,
-> > bluetooth can also be reset successfully.
-> >
-> > Co-developed: Hao Qin <hao.qin@mediatek.com>
-> > Co-developed: Chris Lu <chris.lu@mediatek.com>
-> > Co-developed: Jiande Lu <jiande.lu@mediatek.com>
-> > Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-> > ---
-> >  drivers/bluetooth/btmtk.c | 32 ++++++++++++++++++++++++++++++++
-> >  1 file changed, 32 insertions(+)
-> >
-> > diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-> > index 4390fd571dbd..29d6a93f255d 100644
-> > --- a/drivers/bluetooth/btmtk.c
-> > +++ b/drivers/bluetooth/btmtk.c
-> > @@ -6,6 +6,8 @@
-> >  #include <linux/firmware.h>
-> >  #include <linux/usb.h>
-> >  #include <linux/iopoll.h>
-> > +#include <linux/gpio/consumer.h>
-> > +#include <linux/of.h>
-> >  #include <linux/unaligned.h>
-> >
-> >  #include <net/bluetooth/bluetooth.h>
-> > @@ -359,11 +361,41 @@ int btmtk_set_bdaddr(struct hci_dev *hdev, const =
-bdaddr_t *bdaddr)
-> >  }
-> >  EXPORT_SYMBOL_GPL(btmtk_set_bdaddr);
-> >
-> > +static int btmtk_hw_gpio_reset(struct hci_dev *hdev, struct btmtk_data=
- *reset_work)
-> > +{
-> > +     struct gpio_desc *reset_gpio;
-> > +
-> > +     /* Find device node*/
-> > +     hdev->dev.of_node =3D of_find_compatible_node(NULL, NULL, "mediat=
-ek,mt7925-bluetooth");
->
-> Nothing improved.
->
-> You just keep ignoring comments.
->
-> NAK
->
-> Best regards,
-> Krzysztof
->
+ .../bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml     | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
+index 8451cb4dd87c..719de0489002 100644
+--- a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
++++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
+@@ -50,6 +50,22 @@ properties:
+     type: object
+     $ref: /schemas/mux/reg-mux.yaml
+ 
++patternProperties:
++  "^ipu[12]_csi[01]_mux$":
++    type: object
++    $ref: /schemas/media/video-mux.yaml
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          not:
++            contains:
++              const: fsl,imx6q-iomuxc-gpr
++    then:
++      patternProperties:
++        '^ipu[12]_csi[01]_mux$': false
++
+ additionalProperties: false
+ 
+ required:
+-- 
+2.34.1
+
 
