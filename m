@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F4FCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 16:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C062ECA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 16:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kryj5TFPyUnrT7fKwNOKbYvqEYAvNPXw7E//d6pqv/g=; b=FlKnISKpv4Q/gJZ+Y2IsKGC6vq
-	ibh9vdin0ZLklJxVhqfboWyg0YuSjRoWKX5TtLtVCsbsYfl6I4W6vaXd+1iozwLX2WXYDyD1rl5mc
-	qSS+FST3JF8caW5yQhdyGTw/TUPaKdH83gbTRXeYvRLz8urBxjaQINmmUqEWtEMooTWU31MHRMOzu
-	D+lAMkaJqSYiJax85qInlDNRRVHxgeIdeSkHINaUT5MDqre45hmoL8VwLS6QVkuzNymGLBE7tUmYz
-	hRlkMFK04qVlMyq4RWvLnCQ9xYiU0Tjq5JzIbfUv3sEwaqwyoG1AB6gxAGC2CfbWZwkOhS03Nfk09
-	W5Sdcrxg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MU+8Ek2Bil7TNiQlYb94p1r140wLYSJJ7wLQYhnM4Vc=; b=KG21MWdE8pkqqDzMgyIcC6QUrK
+	5/rvAtbNkMadI+lR9k2QZlAIS1l06Cevpq/WmoWiSLfWoUZdE0FpnmIC6wXYWF0ZNpyaTY5CfDRrF
+	fK2hgZL3yS7XAdaIiKkj2/FgeQJHX0nhP7OXixmOYjBmlJrBeSQvg/T9Cld+VQ400tp9ipfcZiRzV
+	3TZilNSs8pTZapulej9rdRACkun5uqQl4OcaDxzS3AogzF6fUqZAuxQ9jkX8Y9AELw2lWiTo99z4h
+	SZiL5HJykMK7Bro2zJrGzhDiREq7cwRKL5N3c29IFA+uLpYJpsKq1Ka4OHvq+sf6kPWgKfafeIPNJ
+	J7w01YOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwNad-0000000FRk9-2WFE;
-	Wed, 10 Sep 2025 16:22:35 +0000
+	id 1uwNag-0000000FRmh-3l3a;
+	Wed, 10 Sep 2025 16:22:38 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwNaY-0000000FRfd-2N22
+	id 1uwNae-0000000FRke-27Az
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 16:22:31 +0000
+	Wed, 10 Sep 2025 16:22:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1757521350; x=1789057350;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=5pieibsRPJo/V0RuJcEOBHWPfpUwqYwCzxf8IMfkT2k=;
-  b=BWmjNgExC4vpaF9WvcxbbccG9XnT32yNiOAcPMrM4vDUnKAuXmlHtCb6
-   MJi25P85RTk+xkFnQ6QVN5ycD8nTc1nIqamm9tCuwBV1id7vOfOfKI748
-   /HGRwWcRMHUZAtz0Lfdc8U+Az26Dw8K3LWZKAnANZotbCeUKyWcXIcOH3
-   OTxH9G1N25vO1PAgJluMSWz5mkxWcGDAcrELjjEu/Eja7vcU9c3I0VGOu
-   Idb6RoH9sGJfwUdE1uYxLRpkSybH0wDYdScGoFFfL/hniVBB3CUZI09Lb
-   yt7wp0TMIu3U6v2LRqUgyekdbQHB5nJK2c0Hh2mVmCOrozLrF3tnwTVCe
+  t=1757521356; x=1789057356;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=xu3xFpP6OXvzUwoD4NKkxmtoukGTQw+z9PKBijHr5YA=;
+  b=nth409R/GpnW6Y0nRsBKm2/LQ9/gb391ByERLRV9sW9AxMrFq1WoXX2f
+   4h8ZwZSUxHW/XiB/IhYwKzDmVOiRQ0eRff3BHHqK+Yi6bhQhzkBhg2Git
+   566ptAWtb5MwmWpi0j3gqhJkYOZ0F/7ZLQ7IwNKGus3tXqBvukv5yb5TI
+   ewMvJ7MDgypx/dzaZeQlz2bwxW1wxpkqMqvg3ivT3N1/fIgiEZ4vAXGJP
+   HD+Vrs1MAlao86HI6vgsgg2/z6LOs8dhROfZonhC08Uk6fIcgCWDhre7w
+   HX4Q4LAF4NUTSeEB3E2Q5T35GJ3gsgqLw6eKGd/T1hEgqHMDdvNk+EtzQ
    w==;
-X-CSE-ConnectionGUID: tPE+SbpaSyCyxVMbhLqdoA==
-X-CSE-MsgGUID: f2/xiDzdRj6Lx1CeFsmEmQ==
+X-CSE-ConnectionGUID: yOp9HMF6QSeW0ZytE26RNg==
+X-CSE-MsgGUID: 4CDB0pBtTlCSlNsC6aYZhQ==
 X-IronPort-AV: E=Sophos;i="6.18,254,1751266800"; 
-   d="scan'208";a="213715733"
+   d="scan'208";a="46875547"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Sep 2025 09:22:25 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Sep 2025 09:22:35 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 10 Sep 2025 09:22:11 -0700
+ 15.1.2507.58; Wed, 10 Sep 2025 09:22:10 -0700
 Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 10 Sep 2025 09:22:11 -0700
+ 15.1.2507.58 via Frontend Transport; Wed, 10 Sep 2025 09:22:10 -0700
 From: <Ryan.Wanner@microchip.com>
 To: <claudiu.beznea@tuxon.dev>, <sre@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
 	<alexandre.belloni@bootlin.com>, <linux@armlinux.org.uk>
 CC: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 4/4] ARM: dts: at91: sama7g5ek: add microchip,lpm-connection on shdwc node
-Date: Wed, 10 Sep 2025 09:20:39 -0700
-Message-ID: <ded286a183a5111d8165727111577b088f5d67f3.1757519351.git.Ryan.Wanner@microchip.com>
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Ryan
+ Wanner" <Ryan.Wanner@microchip.com>
+Subject: [PATCH 0/4] AT91 Low Power Mode adjustments
+Date: Wed, 10 Sep 2025 09:20:35 -0700
+Message-ID: <cover.1757519351.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1757519351.git.Ryan.Wanner@microchip.com>
-References: <cover.1757519351.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_092230_668398_85E66679 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20250910_092236_580247_702AF08B 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,31 +86,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Add microchip,lpm-connection binding to shdwc node. On SAMA7G5-EK REV4
-LPM is connected to GMAC1's PHY, 24MHz oscillator and PMIC. On board
-PMIC is not listed here as it is only treated on BSR mode
-uncoditionally.
+This patch set adds the LPM pin feature to the SAMA7 SoCs.
 
-Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
----
- arch/arm/boot/dts/microchip/at91-sama7g5ek.dts | 1 +
- 1 file changed, 1 insertion(+)
+This set also removes the 2.5V regulator since this is no longer
+supported.
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-index 3924f62ff0fb..50e9a5a5732a 100644
---- a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-@@ -872,6 +872,7 @@ &sdmmc2 {
- 
- &shdwc {
- 	debounce-delay-us = <976>;
-+	microchip,lpm-connection = <&gmac1 &main_xtal>;
- 	status = "okay";
- 
- 	input@0 {
+Claudiu Beznea (2):
+  ARM: at91: PM: implement selection of LPM
+  ARM: dts: at91: sama7g5ek: add microchip,lpm-connection on shdwc node
+
+Ryan Wanner (1):
+  ARM: at91: pm: Remove 2.5V regulator
+
+Varshini Rajendran (1):
+  dt-bindings: power: reset: atmel,sama5d2-shdwc: add lpm binding
+
+ .../power/reset/atmel,sama5d2-shdwc.yaml      | 16 +++
+ .../arm/boot/dts/microchip/at91-sama7g5ek.dts |  1 +
+ arch/arm/mach-at91/pm.c                       | 98 ++++++++++++++++++-
+ arch/arm/mach-at91/pm.h                       |  1 +
+ arch/arm/mach-at91/pm_data-offsets.c          |  1 +
+ arch/arm/mach-at91/pm_suspend.S               | 75 +++++++-------
+ include/soc/at91/sama7-sfrbu.h                |  7 --
+ 7 files changed, 156 insertions(+), 43 deletions(-)
+
 -- 
 2.43.0
 
