@@ -4,79 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2AC9CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 16:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D63CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 17:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4szWPvO4QJK7QXpJTUGbKS9tON103WxwvOm5NDrmuMM=; b=fMv500hBv4zwZMXc6ag7BDXGJ8
-	sBJZmnuv+b31dqfT8RvXvKNOnau2NCbYWtQiAk9OJHwo2NDxAHnIPepif4r4ZxVt3QA8sxvGfqocm
-	VEP9diUN1Rvs+l4e8LqgC01+pSW6asZCn245C5hTrZ77Mof9HeaHJlYu98lsFR73IH6/NjGnlqcRv
-	J9rcvHWMz3o8jfID52t9ODsWtEFgWGBvHQOy6qnZJnRSnRurXSgC+YqZ8YQEjJOUBGWZszf7R9dld
-	kgsCKK7ptUFS9nszAyczYV8IB0eu2t7f83pEM+RJysBW2UM9Tp7pSUEsG2TmQ5KMEtVsYeeWiuomh
-	O0gvhcpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eW2e8p73Sm65C62B3d7xoYycH9WMEA7fbE5AMLTODfI=; b=3DcweLVGjo+JH+lkrC3X6IxtyE
+	Ejb638Pc8bvSqBl5Vb81c/PhCPCAlm7aGOsj7UzrKhVbZ4EEIFLUMrhgYxMRNTDBFiYL2XC3xOQUa
+	UVGcGQs/hDW6BmRxiG3+tJHAlC5tmXHFlOBi18A51pS6G4awQ6qdEgUFaEpfOWcIXoEXY/ZPRA9A/
+	put1TWXGQwbWkSnJjin+FZZ1qkTaaMcgsq0H435fPKuUt4HoH4MgqMmbcsvPAbQDga06JMmrf6E+0
+	gm+nB6VbYTGUW/ENAqb4x/8lsCrdumojG5M0aLw+nl9O+mtXpmlATxxOnB58YWlpx3o/zMXznMSie
+	Qb2Iuv7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwO8t-0000000Feh0-3gWh;
-	Wed, 10 Sep 2025 16:57:59 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1uwOHi-0000000Fh0l-0HI9;
+	Wed, 10 Sep 2025 17:07:06 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwO8q-0000000Feen-2Xse
+	id 1uwOHg-0000000Fgzq-0RGA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 16:57:58 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 46878C6B3B2;
-	Wed, 10 Sep 2025 16:57:35 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E6122606D4;
-	Wed, 10 Sep 2025 16:57:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E431C102F2833;
-	Wed, 10 Sep 2025 18:57:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1757523468; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=4szWPvO4QJK7QXpJTUGbKS9tON103WxwvOm5NDrmuMM=;
-	b=1gbJxRWG9xSsrPgDIudnpxMmPnmBcGhPlleMVERqlMGN5PBPGFylksL/5CZ5YKfw82vclr
-	pN87gSozbGFw7JoU0OsC2FGCzPXsr7nayyyqXutREb4U2rhCcW/hfNWsLCIbfxyEptcaJO
-	NpaaRyXPWzG3yhXSYCWajaowwzfZvQ/J7FrhkSeqfW1qJqtq9UD5LeU02UzPANnRlz/0mK
-	1O7Bfu4cKF4BdQdrWALzTiA6PlOw7Pp8hDf5Nbx9Oi7hLToIeQIjrZh4lbhSQXl1VSbcR5
-	7DjUCQbZcG2txaupiwFZ053mN+AWnhmbgdzfIKXGrpnwhz6tM3zRdIRxo8WOOA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 10 Sep 2025 18:57:23 +0200
-Message-Id: <DCPA2BR78XM8.HWKZZ8WQF3S8@bootlin.com>
-Cc: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rpi-kernel@lists.infradead.org>, "Broadcom internal kernel review
- list" <bcm-kernel-feedback-list@broadcom.com>, "Andrew Lunn"
- <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Florian Fainelli"
- <florian.fainelli@broadcom.com>, "Andrea della Porta"
- <andrea.porta@suse.com>, "Claudiu Beznea" <claudiu.beznea@tuxon.dev>, "Phil
- Elwell" <phil@raspberrypi.com>, "Jonathan Bell" <jonathan@raspberrypi.com>,
- "Dave Stevenson" <dave.stevenson@raspberrypi.com>,
- <stable@vger.kernel.org>, "Andrew Lunn" <andrew@lunn.ch>
-To: "Nicolas Ferre" <nicolas.ferre@microchip.com>, "Jakub Kicinski"
- <kuba@kernel.org>, "Stanimir Varbanov" <svarbanov@suse.de>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH v2 1/5] net: cadence: macb: Set upper 32bits of DMA ring
- buffer
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
-References: <20250822093440.53941-1-svarbanov@suse.de>
- <20250822093440.53941-2-svarbanov@suse.de>
- <20250825165310.64027275@kernel.org>
- <3bccf773-abd6-4ade-a1c5-99f2a773b723@microchip.com>
-In-Reply-To: <3bccf773-abd6-4ade-a1c5-99f2a773b723@microchip.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Wed, 10 Sep 2025 17:07:05 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3dae49b1293so3635464f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 10:07:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757524021; x=1758128821; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=eW2e8p73Sm65C62B3d7xoYycH9WMEA7fbE5AMLTODfI=;
+        b=FNEiKjorbKzR8jfEp8Ev7kt99ifO8y7CnYWupWD0WElmNuTwmpiopzqI8t7Lt3Fvm8
+         TjTYFSq9SWUmg+jjE/yeEcTkDKg9p8NVEutkRjeMHJfFQeQcOACz3cdCTU1gxWiXsx89
+         h20Cb7yvRgBMLfpRRy0A6IvXZwJjxv8Hm/DGGr+6xWo4gVoA2kLGcVQ8j5Ha5my+2vgQ
+         vAegU/Ah6l//rcLKrqDxjNOMxMtgyLetdD8tSZ59vQULaP6GzJXIt4Xi5UgQfDFTw9Fw
+         X2/ip773QY8/fVGLR7LAIOV09IwTUoL4Zsc/aPN34rU3lKo39y6ot5dBm37cmhKDvSQW
+         T0vA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757524021; x=1758128821;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eW2e8p73Sm65C62B3d7xoYycH9WMEA7fbE5AMLTODfI=;
+        b=HFbL/6m58t26aWJ8A30wCrw6Yqt3EeYW1fpjzTRIALHQbJkENQe+Ny8SiEpT0Mn51D
+         UuIdX+ethDrzDNP+l+ska239AqA/YfIlBaZGaMQR9E93i0YSAwkN+ZWFDvwBi9R2cvun
+         BsR//WNd4VX3Xb4zNs/anuTUwHwRs9da6uObh+K/a8bEm5t4h8dl3Z1yV7/NMEc5bgco
+         3XAE6AaXaKLiwuCF0Bla/5YAaKpWDIAgw80K4n19otEfSET0fhCAg9tp0eLVgVE3r9Db
+         zOgutojQ2crb3KfsegfbShSl5ZMn5h5aPGQrZ6Bp/AzawE4MVb7o73wg+ej+AvbqSRco
+         PvdA==
+X-Forwarded-Encrypted: i=1; AJvYcCUitO99n4oSX7QXqR6eoOwlMPAjvHITAso8+bWRS2XRUG1Z9YFeulCKQPr1tT9YzEg2UZGXk0Qq964Zt5Taoyus@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhynB/2lfcAuYS4n7UO66FWXGA1zxygORESuL5vaFbo7iGCeHe
+	UIxo7ErVPoXDq0R1At+O7VFl6Nn5ZsEtSntLE0Nc0RCQnA9R3VMWThvWYUtZvuRfVg==
+X-Gm-Gg: ASbGncu17LusXoFmF6hl7o4Xad4qB3obKvT+Q0F3Q8ZLwm3RlXy//wIK+/AYwJGxfAq
+	akmo5Y6OA91Q0JuQSesCGcCoteSRqVwUIzpgocFT2unD3NpGn3K3+0LJDF/jFPWlhSO49IeLLHa
+	G2ZmbGAWETCoSc7qjGmCN07w548ES0Y816H17pITCFaWo/+Z7gIH/PqOfgIdnuKReoTeWcx6hr3
+	1478Ur/QhtUT6C8rJwWzusuBC/thTIqhd/XmH62Jb+8zH/m2OETkCwEmlETcY/OLNQ7qIwWNEdQ
+	MbI9KHoOArsAM1amDg1BSDjLBZ94DE3njB/GqQ1NkPv+yMOmvTZMiqLqXgwGv8wZS5NuGh/+PAS
+	//Bc/83lfreSkZRouxP8SlbEZhSeuengUrVYIJwIyhyafFMf+rOm/NZM5kB+R4uyTz3CVZLrCTl
+	2ZqrOTgsOfxD8QM7U=
+X-Google-Smtp-Source: AGHT+IFpMY2LdotLVzenSyom37/MyUBFp2vGP8SWQXN5ZGAgsTxLPg9ujzG9esizRfQMqbIwV/AfZg==
+X-Received: by 2002:a05:6000:2f87:b0:3e4:f194:2872 with SMTP id ffacd0b85a97d-3e64317ef24mr11131229f8f.31.1757524021156;
+        Wed, 10 Sep 2025 10:07:01 -0700 (PDT)
+Received: from google.com (211.29.195.35.bc.googleusercontent.com. [35.195.29.211])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df8247c3fsm34826185e9.11.2025.09.10.10.07.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Sep 2025 10:07:00 -0700 (PDT)
+Date: Wed, 10 Sep 2025 18:06:57 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
+	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
+	kernel-team@android.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 15/24] KVM: arm64: Support unaligned fixmap in the
+ pKVM hyp
+Message-ID: <aMGwMQBwxRPPiCer@google.com>
+References: <20250821081412.1008261-1-vdonnefort@google.com>
+ <20250821081412.1008261-16-vdonnefort@google.com>
+ <20250910124742.34185645@gandalf.local.home>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250910124742.34185645@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_095756_839497_EA702DCA 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20250910_100704_148965_F090454E 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,92 +106,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Nicolas, Jakub, Stanimir,
+On Wed, Sep 10, 2025 at 12:47:42PM -0400, Steven Rostedt wrote:
+> 
+> Would be nice if the arm KVM folks could review the second part of this
+> patch series.
+> 
+> Vincent, I finished my review, and you can post a new version. But it would
+> still be good to get some input from the architecture folks.
 
-On Tue Aug 26, 2025 at 11:14 AM CEST, Nicolas Ferre wrote:
-> On 26/08/2025 at 01:53, Jakub Kicinski wrote:
->> On Fri, 22 Aug 2025 12:34:36 +0300 Stanimir Varbanov wrote:
->>> In case of rx queue reset and 64bit capable hardware, set the upper
->>> 32bits of DMA ring buffer address.
->>>
->>> Cc: stable@vger.kernel.org # v4.6+
->>> Fixes: 9ba723b081a2 ("net: macb: remove BUG_ON() and reset the queue to=
- handle RX errors")
->>> Credits-to: Phil Elwell <phil@raspberrypi.com>
->>> Credits-to: Jonathan Bell <jonathan@raspberrypi.com>
->>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->>=20
->>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/eth=
-ernet/cadence/macb_main.c
->>> index ce95fad8cedd..36717e7e5811 100644
->>> --- a/drivers/net/ethernet/cadence/macb_main.c
->>> +++ b/drivers/net/ethernet/cadence/macb_main.c
->>> @@ -1634,7 +1634,11 @@ static int macb_rx(struct macb_queue *queue, str=
-uct napi_struct *napi,
->>>                macb_writel(bp, NCR, ctrl & ~MACB_BIT(RE));
->>>
->>>                macb_init_rx_ring(queue);
->>> -             queue_writel(queue, RBQP, queue->rx_ring_dma);
->>> +             queue_writel(queue, RBQP, lower_32_bits(queue->rx_ring_dm=
-a));
->>> +#ifdef CONFIG_ARCH_DMA_ADDR_T_64BIT
->>> +             if (bp->hw_dma_cap & HW_DMA_CAP_64B)
->>> +                     macb_writel(bp, RBQPH, upper_32_bits(queue->rx_ri=
-ng_dma));
->>> +#endif
->>>
->>>                macb_writel(bp, NCR, ctrl | MACB_BIT(RE));
->>>
->>=20
->> Looks like a subset of Th=C3=A9o Lebrun's work:
->> https://lore.kernel.org/all/20250820-macb-fixes-v4-0-23c399429164@bootli=
-n.com/
->> let's wait for his patches to get merged instead?
->
-> Yes, we can certainly wait. As RBOPH changes by Th=C3=A9o are key, they w=
-ill=20
-> probably remove the need for this fix altogether: but I count on you=20
-> Stanimir to monitor that (as I don't have a 64 bit capable platform at=20
-> hand).
-
-I when looking for where this patch came from.
-Commit in the raspberrypi downstream kernel:
-https://github.com/raspberrypi/linux/commit/e45c98decbb16e58a79c7ec6fbe4374=
-320e814f1
-
-It is somewhat unreadable; the only part that seems related is the:
-
-> net: macb: Several patches for RP1
-> 64-bit RX fix
-
- - Is there any MACB hardware (not GEM) that uses 64-bit DMA
-   descriptors? What platforms? RPi maybe?
-
- - Assuming such a platform exists, the next question is why does
-   macb_rx() need to reinit RBQPH/0x04D4. It reinits RBQP/0x0018
-   because it is the buffer pointer and increments as buffers get used.
-
-   To reinit RBQPH would be for the case of the increment overflowing
-   into the upper 32-bits. Sounds like a reasonable fix (for a really
-   rare bug) if that hardware actually exists.
-
-   This wouldn't be needed on GEM because RBQPH is shared across queues.
-   So of course RBQPH would not increment with the buffer pointer.
-
-If this patch is needed (does HW exist?), then my series doesn't address
-it. I can take the patch in a potential V6 if you want. V5 got posted
-today [0].
-
-[0]: https://lore.kernel.org/lkml/20250910-macb-fixes-v5-0-f413a3601ce4@boo=
-tlin.com/
-
-Thanks,
-Have a nice day,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Thanks a lot for your time! 
 
 
