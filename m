@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44145CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 20:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5BBCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 20:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dgU+Gqhb6QBkogAINm6Sgm3LlG1UQ/4n+n57gkB12Mw=; b=Zxaya02I6l9qqPUnsyyhj1sT2Z
-	RC9l+9fGU5ovujc6bDozwa6KDmvB1ZZnUnKOHuJz4DQCTXXUvP7rRKhD7EorIYGM0lh2PaQbsUZuS
-	mT/3YzP2FYFr25ikdzfvbdJXwIwLtt8qOntTC1G/7GO7jVzs7B4wWet/gl0iWFc6+KcOiYOtoWoNx
-	VomUsUhDvvzmhsw5SF4HZK7IqDTxM8X9Pn36oMZ6GEWu/+1A5LJA4/nl5eJc1/NdkhT+daRBkHDna
-	+cocSpagaZP8/x2jjIEHJrTInVupC/2Ksvn1nhKhEDuqH2YVnMlvU38OZNND1pUrEnyEs0X/xxHu+
-	t+qkuzMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I1iuuua+DWmwADX1krgf1P7nmCR8583xDtHvMa1bvxQ=; b=kRqu5ZRyfhZwoqZRwOUonCUNrs
+	I02sMvjTok7SRZWt73qXk+CGHJlEnQPcv9zv/BsgbEQnL5WPAVDdpIbHNRxE37rtaWUNHFUe+mPo6
+	i0BqIHZtTrptnntEiaRgwpkDwVLuxYclfebAcWKgZmnxMDGz/LWlf3V7TFMoA+FsOc3JFS4Nw8FjQ
+	GBffGmfqWkBVs7uX2AERtTtO4a0O5QXDvBLQyei513fNRjpzBNBzfZYzthayDCpEMJa7J9PHCJH81
+	jWa3ztqyQy1zN24O17h59qbAI3nIPA5mSmZFYpcN1aKSLTfQsvLWBGs31vWD6BamCTsREVJcoJmjB
+	6NDOYN/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwRjA-0000000Gfy9-2wSa;
-	Wed, 10 Sep 2025 20:47:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uwRpT-0000000GiQw-2nGo;
+	Wed, 10 Sep 2025 20:54:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwRj6-0000000GfwP-3gjt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 10 Sep 2025 20:47:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=dgU+Gqhb6QBkogAINm6Sgm3LlG1UQ/4n+n57gkB12Mw=; b=AekI4mN78sIREFBdqLbcRkcuHJ
-	XAJVXQHroRXVQ7jtio/mYKNgcRdIWLf5n+esh2/mijwgImpks8CLLMY+I2ISMmLGpKjByORsJ6ABv
-	MmyN3fNdGlW/nHzplLuqsv/Y96UlUhCYfrqUuehEsI7rc95orrGHI8xCpqQDHIFyv5CowtrTQ6pim
-	kGUW8CPZ0dFLpWQ3AV6ONcbafm7BFjhRZuzSuxzdevi6wghuRHDSgLAv8A8jWiblsXlKTjyCxNhSV
-	ZjGm82N0fVyjVgHy48Jid7R7kx2UY1tmSbW3Yu4Nqgtrn+kCqWA1/7ZtUuNex4VclBd1qlL/d9+eE
-	miGgZwDg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwRh6-00000005xJZ-3aYY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 20:47:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 041C422EA;
-	Wed, 10 Sep 2025 13:45:23 -0700 (PDT)
-Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AFDBC3F63F;
-	Wed, 10 Sep 2025 13:45:26 -0700 (PDT)
-From: James Morse <james.morse@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org
-Cc: James Morse <james.morse@arm.com>,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com,
-	lcherian@marvell.com,
-	bobo.shaobowang@huawei.com,
-	tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com,
-	Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>,
-	peternewman@google.com,
-	dfustini@baylibre.com,
-	amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Dave Martin <dave.martin@arm.com>,
-	Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>,
-	Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH v2 24/29] arm_mpam: Track bandwidth counter state for overflow and power management
-Date: Wed, 10 Sep 2025 20:43:04 +0000
-Message-Id: <20250910204309.20751-25-james.morse@arm.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250910204309.20751-1-james.morse@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
+	id 1uwRpR-0000000GiQL-3cZm;
+	Wed, 10 Sep 2025 20:54:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F0EC44A95;
+	Wed, 10 Sep 2025 20:54:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E83FC4CEEB;
+	Wed, 10 Sep 2025 20:54:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757537649;
+	bh=/lPhduxhLE2dyo3EDgeauFRMNjRR24GuMLp+Kl/txcM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YMy5s+ORtS1KZ/hJOTvg+ulKukoFIx5t6OHHrGMarN5mTnW6lzKC6VXmugr7uqz7h
+	 AL1u6w3X+5xnBadTXHRNu4UzKCYRMmYjOBn8jQMkXJq86fEH6ZFdglkpcsLD6DsqHx
+	 zcTRiPGiUAliPiTmk6JT1Eu53RuJH3LeLeewg0t501G/Zdc8wXdeGLXRDK0vGDzhnZ
+	 aj9KIB78vUP3R9dTeSqA0rBI8KHp1g1ieZD/ZTzy2tA0bGvWqbtEJtv5DiORKgDA4p
+	 vpMk8xksy3gCvtLvMoU4JIVQmH2InYhunf4U0JQ5nCjRc6MF0T72JFY5aH/68Vji67
+	 3FzyHrlVxLNwQ==
+Date: Wed, 10 Sep 2025 15:54:08 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH] dt-bindings: mailbox: Convert rockchip,rk3368-mailbox to
+ DT schema
+Message-ID: <175753764852.389988.1115547537255507154.robh@kernel.org>
+References: <20250812181348.62137-1-robh@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250812181348.62137-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_214534_849461_51C3286A 
-X-CRM114-Status: GOOD (  25.75  )
+X-CRM114-CacheID: sfid-20250910_135409_919255_088EE71C 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,317 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bandwidth counters need to run continuously to correctly reflect the
-bandwidth.
 
-The value read may be lower than the previous value read in the case
-of overflow and when the hardware is reset due to CPU hotplug.
+On Tue, 12 Aug 2025 13:13:46 -0500, Rob Herring (Arm) wrote:
+> Convert the rockchip,rk3368-mailbox binding to DT schema format. Add
+> the missing 'clocks' and 'clock-names' properties. Document that it's
+> one interrupt per mailbox channel (and there are 4 channels).
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../mailbox/rockchip,rk3368-mailbox.yaml      | 56 +++++++++++++++++++
+>  .../bindings/mailbox/rockchip-mailbox.txt     | 32 -----------
+>  2 files changed, 56 insertions(+), 32 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/rockchip,rk3368-mailbox.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/mailbox/rockchip-mailbox.txt
+> 
 
-Add struct mbwu_state to track the bandwidth counter to allow overflow
-and power management to be handled.
-
-Signed-off-by: James Morse <james.morse@arm.com>
----
-Changes since v1:
- * Fixed lock/unlock typo.
----
- drivers/resctrl/mpam_devices.c  | 154 +++++++++++++++++++++++++++++++-
- drivers/resctrl/mpam_internal.h |  23 +++++
- 2 files changed, 175 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 1543c33c5d6a..eeb62ed94520 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -918,6 +918,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
- 	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
- 
- 	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
-+
- 	if (m->ctx->match_pmg) {
- 		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
- 		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
-@@ -972,6 +973,7 @@ static void clean_msmon_ctl_val(u32 *cur_ctl)
- static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
- 				     u32 flt_val)
- {
-+	struct msmon_mbwu_state *mbwu_state;
- 	struct mpam_msc *msc = m->ris->vmsc->msc;
- 
- 	/*
-@@ -990,20 +992,32 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
- 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
- 		mpam_write_monsel_reg(msc, MBWU, 0);
- 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-+
-+		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
-+		if (mbwu_state)
-+			mbwu_state->prev_val = 0;
-+
- 		break;
- 	default:
- 		return;
- 	}
- }
- 
-+static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
-+{
-+	/* TODO: scaling, and long counters */
-+	return GENMASK_ULL(30, 0);
-+}
-+
- /* Call with MSC lock held */
- static void __ris_msmon_read(void *arg)
- {
--	u64 now;
- 	bool nrdy = false;
- 	struct mon_read *m = arg;
-+	u64 now, overflow_val = 0;
- 	struct mon_cfg *ctx = m->ctx;
- 	struct mpam_msc_ris *ris = m->ris;
-+	struct msmon_mbwu_state *mbwu_state;
- 	struct mpam_props *rprops = &ris->props;
- 	struct mpam_msc *msc = m->ris->vmsc->msc;
- 	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
-@@ -1031,11 +1045,30 @@ static void __ris_msmon_read(void *arg)
- 		now = mpam_read_monsel_reg(msc, CSU);
- 		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
- 			nrdy = now & MSMON___NRDY;
-+		now = FIELD_GET(MSMON___VALUE, now);
- 		break;
- 	case mpam_feat_msmon_mbwu:
- 		now = mpam_read_monsel_reg(msc, MBWU);
- 		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
- 			nrdy = now & MSMON___NRDY;
-+		now = FIELD_GET(MSMON___VALUE, now);
-+
-+		if (nrdy)
-+			break;
-+
-+		mbwu_state = &ris->mbwu_state[ctx->mon];
-+		if (!mbwu_state)
-+			break;
-+
-+		/* Add any pre-overflow value to the mbwu_state->val */
-+		if (mbwu_state->prev_val > now)
-+			overflow_val = mpam_msmon_overflow_val(ris) - mbwu_state->prev_val;
-+
-+		mbwu_state->prev_val = now;
-+		mbwu_state->correction += overflow_val;
-+
-+		/* Include bandwidth consumed before the last hardware reset */
-+		now += mbwu_state->correction;
- 		break;
- 	default:
- 		m->err = -EINVAL;
-@@ -1048,7 +1081,6 @@ static void __ris_msmon_read(void *arg)
- 		return;
- 	}
- 
--	now = FIELD_GET(MSMON___VALUE, now);
- 	*m->val += now;
- }
- 
-@@ -1261,6 +1293,67 @@ static int mpam_reprogram_ris(void *_arg)
- 	return 0;
- }
- 
-+/* Call with MSC lock held */
-+static int mpam_restore_mbwu_state(void *_ris)
-+{
-+	int i;
-+	struct mon_read mwbu_arg;
-+	struct mpam_msc_ris *ris = _ris;
-+
-+	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
-+		if (ris->mbwu_state[i].enabled) {
-+			mwbu_arg.ris = ris;
-+			mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
-+			mwbu_arg.type = mpam_feat_msmon_mbwu;
-+
-+			__ris_msmon_read(&mwbu_arg);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+/* Call with MSC lock and held */
-+static int mpam_save_mbwu_state(void *arg)
-+{
-+	int i;
-+	u64 val;
-+	struct mon_cfg *cfg;
-+	u32 cur_flt, cur_ctl, mon_sel;
-+	struct mpam_msc_ris *ris = arg;
-+	struct msmon_mbwu_state *mbwu_state;
-+	struct mpam_msc *msc = ris->vmsc->msc;
-+
-+	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
-+		mbwu_state = &ris->mbwu_state[i];
-+		cfg = &mbwu_state->cfg;
-+
-+		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-+			return -EIO;
-+
-+		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
-+			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-+		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-+
-+		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-+		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-+		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-+
-+		val = mpam_read_monsel_reg(msc, MBWU);
-+		mpam_write_monsel_reg(msc, MBWU, 0);
-+
-+		cfg->mon = i;
-+		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
-+		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
-+		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
-+		mbwu_state->correction += val;
-+		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
-+		mpam_mon_sel_unlock(msc);
-+	}
-+
-+	return 0;
-+}
-+
- static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
- {
- 	memset(reset_cfg, 0, sizeof(*reset_cfg));
-@@ -1335,6 +1428,9 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
- 		 * for non-zero partid may be lost while the CPUs are offline.
- 		 */
- 		ris->in_reset_state = online;
-+
-+		if (mpam_is_enabled() && !online)
-+			mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
- 	}
- }
- 
-@@ -1369,6 +1465,9 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
- 			mpam_reprogram_ris_partid(ris, partid, cfg);
- 		}
- 		ris->in_reset_state = reset;
-+
-+		if (mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
-+			mpam_touch_msc(msc, &mpam_restore_mbwu_state, ris);
- 	}
- }
- 
-@@ -2091,11 +2190,33 @@ static void mpam_unregister_irqs(void)
- 
- static void __destroy_component_cfg(struct mpam_component *comp)
- {
-+	struct mpam_msc *msc;
-+	struct mpam_vmsc *vmsc;
-+	struct mpam_msc_ris *ris;
-+
-+	lockdep_assert_held(&mpam_list_lock);
-+
- 	add_to_garbage(comp->cfg);
-+	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-+		msc = vmsc->msc;
-+
-+		if (mpam_mon_sel_lock(msc)) {
-+			list_for_each_entry(ris, &vmsc->ris, vmsc_list)
-+				add_to_garbage(ris->mbwu_state);
-+			mpam_mon_sel_unlock(msc);
-+		}
-+	}
- }
- 
- static int __allocate_component_cfg(struct mpam_component *comp)
- {
-+	int err = 0;
-+	struct mpam_msc *msc;
-+	struct mpam_vmsc *vmsc;
-+	struct mpam_msc_ris *ris;
-+	struct msmon_mbwu_state *mbwu_state;
-+
-+	lockdep_assert_held(&mpam_list_lock);
- 	mpam_assert_partid_sizes_fixed();
- 
- 	if (comp->cfg)
-@@ -2106,6 +2227,35 @@ static int __allocate_component_cfg(struct mpam_component *comp)
- 		return -ENOMEM;
- 	init_garbage(comp->cfg);
- 
-+	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-+		if (!vmsc->props.num_mbwu_mon)
-+			continue;
-+
-+		msc = vmsc->msc;
-+		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
-+			if (!ris->props.num_mbwu_mon)
-+				continue;
-+
-+			mbwu_state = kcalloc(ris->props.num_mbwu_mon,
-+					     sizeof(*ris->mbwu_state),
-+					     GFP_KERNEL);
-+			if (!mbwu_state) {
-+				__destroy_component_cfg(comp);
-+				err = -ENOMEM;
-+				break;
-+			}
-+
-+			if (mpam_mon_sel_lock(msc)) {
-+				init_garbage(mbwu_state);
-+				ris->mbwu_state = mbwu_state;
-+				mpam_mon_sel_unlock(msc);
-+			}
-+		}
-+
-+		if (err)
-+			break;
-+	}
-+
- 	return 0;
- }
- 
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index bb01e7dbde40..725c2aefa8a2 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -212,6 +212,26 @@ struct mon_cfg {
- 	enum mon_filter_options opts;
- };
- 
-+/*
-+ * Changes to enabled and cfg are protected by the msc->lock.
-+ * Changes to prev_val and correction are protected by the msc's mon_sel_lock.
-+ */
-+struct msmon_mbwu_state {
-+	bool		enabled;
-+	struct mon_cfg	cfg;
-+
-+	/* The value last read from the hardware. Used to detect overflow. */
-+	u64		prev_val;
-+
-+	/*
-+	 * The value to add to the new reading to account for power management,
-+	 * and shifts to trigger the overflow interrupt.
-+	 */
-+	u64		correction;
-+
-+	struct mpam_garbage	garbage;
-+};
-+
- struct mpam_class {
- 	/* mpam_components in this class */
- 	struct list_head	components;
-@@ -304,6 +324,9 @@ struct mpam_msc_ris {
- 	/* parent: */
- 	struct mpam_vmsc	*vmsc;
- 
-+	/* msmon mbwu configuration is preserved over reset */
-+	struct msmon_mbwu_state	*mbwu_state;
-+
- 	struct mpam_garbage	garbage;
- };
- 
--- 
-2.39.5
+Applied, thanks!
 
 
