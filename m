@@ -4,163 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9932CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AEBCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 20:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lzSAeFh0gPA98AixNmoy8GohF9nxmLZMoE2xqAmGKkQ=; b=DyFz8JoczOIiePr9vghfQf6l5k
-	aiPMlDg2g9nqKgG+iRZgO+IOtMaxReoWjEz1FzKijWejp4qBPSs+ys6hRnfwP3Y3sFikerlPv+qGT
-	fQu/PPbbFDAn4L6qH0qhuM2T+r4jvDmQPW82bTcS3vrAFVLoiDXlRs1Fs0N6l1Bshr9pgxUcBOprz
-	WwUxZqVxQvURbqnJb3KJSSahU4T6+fTtfAfBamLNZ9vhJr0cPA9mz6qFdW3Hr4BiMrLpoaApFHAVn
-	uZ+GUStOoA0vezJQI55VwRAhw1HA7t2mViBtFKm9ugdHlGV/Mww+wocwwC0V95aSQZiYznkQgi7cy
-	Kh9t1Vpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z6JppIYrmEDWEBmdblA7ULIVxZIHJ3mliKKCj/J+dUc=; b=NgdB2PZRhPyzDjLg1M41Qg7R/Z
+	o47GyUe80GcNqpheQD0zRmkx1zLxwHoy0w7k/H3OxlmnKXMtfM51D6D9aC0qXAkq+P9XoApAsMLk9
+	wRjJnV4/DwSLIoLFIG96MMBsLlFREA0uI6boQhXuLzthuvZjs+OyuMkR89VcLN5dcP+Ea/Y867j4L
+	3Ll8i/XcDFJtXmosirgKXk8J2LoXKFgvNrACag9ZQMFjwJnfLqzkx0qwUZ/ReVozAIJlvmB9wFB0c
+	XLDimmZDSFVV7TLcnMrzKDO8b8jcKxfVCTkjBZJT++ctMwYYF/JIyV040hmXZpBvg3zWVe2kCSeYW
+	Yz/bDvpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQs5-0000000GPGe-3pEd;
-	Wed, 10 Sep 2025 19:52:49 +0000
-Received: from mail-dm6nam10on20706.outbound.protection.outlook.com ([2a01:111:f403:2413::706] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uwRLR-0000000GVtc-2z4e;
+	Wed, 10 Sep 2025 20:23:09 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQs3-0000000GPDf-1BbZ
+	id 1uwRLO-0000000GVoV-406P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 19:52:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yqH/9RFugrOnnBnFAwMFudxje+ZKwo9Jlxciiwx/iAo+Wmp7c/Lqb2ocoZzSk1EPL6BWmgM8mlZHvmxRVQ2pevGixUJfmW6KGhRVrlSE4h4vDL5SiqH29udcCepISpM8+abClSg6RsYp5jgrqDpM0wfr3eo7vBNc7EE0LhMMhCGK/fEWmmZErlMB7IaP4cS4tyCANubIwOXBSfXaLBCISurg1MVaxVOJUgGarfI16VzcBTmUWR3ua4wsCNJfFngqEL7anNRZ7MiQtH0tpOo+TO/QdFZHu1Kx5llsHpq6FyLYNjeptYOl8Yp47NkOM1jc4Y5E7t4xf6KW5Gkc1rnYjA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lzSAeFh0gPA98AixNmoy8GohF9nxmLZMoE2xqAmGKkQ=;
- b=YRaLiL0Nk+dLO/GeVs2JZE+IO7v7A2cxIRkmbqlmj2GBAmjJdkyuXo+HIvi6b1MuT6MwmuVOkSebZqnhC2Cu77AO4HiuweY1TGMDFiLCZSPFHbPZaetk4sJb8A67q8HUGIiKzVb0AgNh/hTGhltC4n1cjLKeFSxy55noJKQpAwTWoxc2yYD2JK0+7Q0hXGvMdZ8h7pYEVwMlnQx1zfDmBpGBD/45dh32HQTQAEjqCgl6wTRi6W1Zp7szXdL+6hiZVLjCuyT0pHgGVzHyuxGVbVFUkkG4W1GLvSKw9OaqcZjl2ftkRMH1BVyU7XImpXpHQfzGIJdW36+EFF/PQfUttA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lzSAeFh0gPA98AixNmoy8GohF9nxmLZMoE2xqAmGKkQ=;
- b=tyBjoefsYjmRP5s/arXxEAyopEndREYhVvEDxplFuLEWjepUilBAIw0u9bKWlSuj8dHcrwdcl6WD7lh7z+CbJpRtVVwserUdvFL52gu2dKkpOB1+gd/gNE8yI7ixRC72YVxeaeHFC4nzUhlTw2CVGt1z6oV9mhOuCzHcQiHepCU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- IA0PR01MB8379.prod.exchangelabs.com (2603:10b6:208:485::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.22; Wed, 10 Sep 2025 19:52:40 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4%6]) with mapi id 15.20.9094.021; Wed, 10 Sep 2025
- 19:52:40 +0000
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: John Garry <john.g.garry@oracle.com>,
-	Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>
-Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] perf vendor events arm64 AmpereOne: Fix typos in metrics' descriptions
-Date: Wed, 10 Sep 2025 12:52:13 -0700
-Message-ID: <20250910195214.50814-3-ilkka@os.amperecomputing.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250910195214.50814-1-ilkka@os.amperecomputing.com>
-References: <20250910195214.50814-1-ilkka@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CY5PR20CA0021.namprd20.prod.outlook.com
- (2603:10b6:930:3::8) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+	Wed, 10 Sep 2025 20:23:08 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1757535785;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z6JppIYrmEDWEBmdblA7ULIVxZIHJ3mliKKCj/J+dUc=;
+	b=asz8WCyf9cnS3BMBwtrU3ZqPWzgbaNDidcLL/dq7mwu+tfHouh4PlTUSVHH2aevv6qaiiH
+	mrFRl4Ffda2v4nbsGVWwJpSXd0AWFZS4ixEpY0w2s/zsJ3CwVjx0fUwb3xYY6doaOYPBCu
+	7TWTlLTtVFU3GodRA0gVBSJS+wFyBAohRtGm0EegZuo5JtvQJ62TslVKJ53vNaW7K/ZKvk
+	FwzRmBtruktBOAwqctDK8yB4IPdPQPIL+unA31zsjlybTc1Boz8DuyopiK38ghL0h+nfpK
+	RagXnDR1bh3kcMMvL5+xcQBzmejEh9UxWpC4rYNhujuDSu37sn/bfrcuqOfPmg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1757535785;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z6JppIYrmEDWEBmdblA7ULIVxZIHJ3mliKKCj/J+dUc=;
+	b=N7gQndas+HW+vhHMKOorVfZL45dU91oZcvccxJZRsxCAxGlqVlCitko6PEVkq+D+6Ov6Q+
+	hATZLZFP+SUt2cBw==
+To: Guillaume La Roque <glaroque@baylibre.com>, Nishanth Menon <nm@ti.com>
+Cc: vigneshr@ti.com, Santosh Shilimkar <ssantosh@kernel.org>, Tero Kristo
+ <kristo@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] soc: ti: ti_sci_inta_msi: Enable module
+ compilation support
+In-Reply-To: <0bc124c7-55af-4a25-b02d-3bd9aabf0266@baylibre.com>
+References: <20250812-timsi-v2-0-90c8500f3f18@baylibre.com>
+ <20250812-timsi-v2-2-90c8500f3f18@baylibre.com>
+ <20250813152610.akcdxrzhev6e2kfa@unturned>
+ <0bc124c7-55af-4a25-b02d-3bd9aabf0266@baylibre.com>
+Date: Wed, 10 Sep 2025 22:23:04 +0200
+Message-ID: <87ldmmrr9z.ffs@tglx>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|IA0PR01MB8379:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b4f6508-5cda-49a6-a86b-08ddf0a399bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|52116014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OT9/v6y43dSKbD+ZEmLoFFnQnad9O/Dznc9ZG6f9kE1xpxB3vjFxOXzh4wl6?=
- =?us-ascii?Q?whIq+KBB3FLvO2OZTH9tanDYrWJfL2IjrcJYTODRi78oukvFl5uAjaL4wd0G?=
- =?us-ascii?Q?NYNuPfzAWfFIh/P15JxTFRqherR6N6QW6OilWg4k2S1YMhahOq8bpFwx+KM4?=
- =?us-ascii?Q?4JpkxjpPivPSc+Lh6pQFh3CeBCQi4ydX8fwQ+WtfMLdnYp88evzYpmmAHtwq?=
- =?us-ascii?Q?GAeA8UsvObh4Bi+9N4xlBgbOjAXFZP5OGrched8czmqHW5QzW30kjJp6EDvb?=
- =?us-ascii?Q?hflOEvbzIH2m9++GzA+GANQpi1aWjJfHYSsmeEWILhsJa5BlrHLVwTZHxdW1?=
- =?us-ascii?Q?nOVd0nU8Z9dZpbNsiIN9LRT0aoXtiDAEcDR+MZwaN7F+xR/3nvaEca8qc651?=
- =?us-ascii?Q?i0P282Vhxi0khdpn/2sUA4SMxAN5LY5mEYJ4R/WR6V7Da8qlDyJ6C1BWOcrD?=
- =?us-ascii?Q?B/NOzoPbelFRiXC586ZIpI+xnuu/mgMeiSiljGd+1+8C8DPkujmx5ig+VnRM?=
- =?us-ascii?Q?OlPSrDnN3vP1ufPuN+nSjXmbWOK49P34lwOCN9rbB+bR1uG3eIeHA2jjpuxK?=
- =?us-ascii?Q?EwQkQMDD6R0gP80p8OR9qIx6LWLgP4qKiXKsuKRQop1j3ilQaaWtT6qOp2Ru?=
- =?us-ascii?Q?L1FQsEEpYl9At7d0l+99xr7z41CmtHgm+h0qC9O8SnsgHRCD20M9oTtSZ/bo?=
- =?us-ascii?Q?NLWi5ltIldvBlVKXHUZ12BEB1KxoZmlJ3rtsI0KtbamuP4JQVkJQOWYSnzgl?=
- =?us-ascii?Q?sfjEIH2flvIb9a4ixPrnaRHOqXp7P/vk9etQHvKIwdfxbgtTX+eE9YKP4TIs?=
- =?us-ascii?Q?Yfhkio9CtyWsSERETsg+wy/6DaeuXVJv725Xq+gdifHiG5SxYXsu/LA1e1iR?=
- =?us-ascii?Q?cjD3OWmUa2WxAFcLtRNjHCQzDvmTkLLCq1qTO3+vO4DUNa3iOWrmdIxExlPO?=
- =?us-ascii?Q?F8WQ6fuRKoAt/jTKmgZ7DkVGM9x4sG9Z/Q23Iz9LrlqNO87dVJW+i8e/hMtD?=
- =?us-ascii?Q?LlaARSIz/2GJ2UJTwchL+x8NO2cEhPYtlC5U2SblmA/GQdKyrOnIwJ9BglH1?=
- =?us-ascii?Q?G2nvyYkBgK8TEn7cK95eQ6eC/WoMHyzdS+hp0belLOzr8jO4vchrbFGNn/Fl?=
- =?us-ascii?Q?m7cIP4Ez1m2RcknAGOcoK6BOPELxkzvoygLk0pn3ift97IonvSuqXjetiALs?=
- =?us-ascii?Q?I3OhTRX+2hKWgii9b33ibqV0bigH4uMEDXQ/bTs8Tw2Phe0AfQgDgw0uDSGe?=
- =?us-ascii?Q?H8/mH/RWpGuJUaPSOxy213kZiQXOInRM1VBoD5bQjRnOYPgmS95SveUnjNap?=
- =?us-ascii?Q?jigbzUhpmFQzFUtWH6R6PU/Z6HGkVF2rWPy3Hn8bZ2q2UIBYPEsoXGqF1vjY?=
- =?us-ascii?Q?7etwDZmo81eUVXlI6Wv1OTY4w4KFLAB6hX+2w2mz0N9CPieUo3XrDA/bvlo6?=
- =?us-ascii?Q?yi47fG0OX984Q3Zcnd+ri+DIQr8veasYei6dYLH8B5L25XmkFuPNDQjxJbbK?=
- =?us-ascii?Q?pOUkVRZq3vpZ+V8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(52116014)(38350700014)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lG6qAptDREobyGMAK+CRP8J+H9j0SHRYkPkCit/dhNpDTk8N2sCrqlWHJtci?=
- =?us-ascii?Q?9G1xWPuUEo6kjT+7k3pKByf22620zPpNeB2UT8BGuwrBKp1WwDLeQtexCqRH?=
- =?us-ascii?Q?m2OMz2POm5zvJSCAh4aG1rKE1/e5C2vofOG9c1IWfEaVoYcC3jnx4k/1OQuv?=
- =?us-ascii?Q?ZuJVnUUz5KRw7qJMEmtZyp0/gIX7Ro+p9lGgnVJYS7avT0gbw61KluJzb490?=
- =?us-ascii?Q?fsdHJmTTxVWSa+uU7H6SsMdtWRSvC6S5pDwmeC0Ekft5FNjkPrwUHaB+EfKC?=
- =?us-ascii?Q?R4qv2IvfBI2wyIEj8f0It++gGDjsDnbog6E9otqsMq8H6iYEj/+C3sFHYoDz?=
- =?us-ascii?Q?kdx3Go+iJocDgHDZ90KVYMCRcZPFIfQG3cmi5g9Ecy2ycAVi732p5tOiNCPd?=
- =?us-ascii?Q?C5xicqGGEsivPXUtM8VsGl9C7InVsHjVmaUQh8e34PZ39PwdDZLU4UMbLzkc?=
- =?us-ascii?Q?owHMrZ0Nbi+h103f7+w8FatWj1ttzcVAMFN0+0qBUL8ZGrWgHl8E9l1lAXml?=
- =?us-ascii?Q?pUFYydjNb6JL0Br9Duhyh9q1GP1fwc0IjgSz8A5ZsOKikbXKdkCCZxJTx/uW?=
- =?us-ascii?Q?I7c0IYYaoAJd5ZnPmIGNKQPtqTZbQ8Qgmv38kcl6emedykNjX574P+kbUifB?=
- =?us-ascii?Q?wXhOyMJSsBwy5xbZqkDRv5ILbUZuxTPkZ83K1XRd14O1hYPSwYuuFao5rN6X?=
- =?us-ascii?Q?1tuHUg1R7q/Kfsej0Puo4ZVXpmDhd71bVQc6JUrFSbylh+387sDyqnwBmsOU?=
- =?us-ascii?Q?kscTTaJiN7r8kCwGJzXgZMCdRKYTqAQdYNpug67UBoN1ssOP+G3lN2b1G7W7?=
- =?us-ascii?Q?T0ApTR4QNmhSG0AaimnbnOMAIs0v1oNtApcF7934GMW2KcHYnOwMkRx9fkj+?=
- =?us-ascii?Q?JV9xLxiD63HiQpPY/C/0lXPK9B9ezLWCNiILk9ekGykfn8J2RDCHEZkoc5Hf?=
- =?us-ascii?Q?t2TE5Ymcw+2DfGXlu8R72FTrYcTVdTWkkP4YH9XuLTw36NClhEzFKkNk82li?=
- =?us-ascii?Q?Zrn4Ir6FiOVoNEE+EsjsRZBCIqtyFh7JbMahk1F/NpIWjXDXInXDgcGr287V?=
- =?us-ascii?Q?xXvSOSAvKf8VZIzN4BOYvPREDuw9hnsuNK5X/TSCXOf4pQKhyxgdL2DVzsDJ?=
- =?us-ascii?Q?NzpN4BtoW8sPVTZp/N+25InEAIc5qGSYBDGVVE63TrAtgmtM0DlH6ygPdhuP?=
- =?us-ascii?Q?XuN9ji5sW/VtUaG1yqk/gjl+FBwcFRItGCfn6ibiIQzcR6iTSRwW9CcgiQmt?=
- =?us-ascii?Q?7iS5YsdDE+g8If6oXkz3LdLGn7BGrJf+gCJb/76iI6gD62dyeL6vG1NEdRCX?=
- =?us-ascii?Q?lRPIMCmwajYHtDEX4JnIlUsIRiR9i4NWu9cFwXOS36gX9fa93FL6UWj2BEFa?=
- =?us-ascii?Q?u7IWJb5hF37Z3e3pbXthGuKwya+ULvOeGpxWDtXWt692Db5qKqdXdN60sRvm?=
- =?us-ascii?Q?1DkB9/L2mXc6WqWCyhV20RhGT8p/jJieqkPXzmQZo5k5xsI5V6BJIkCoQkOM?=
- =?us-ascii?Q?Ft5lxceRGUNakX6nWThK0Pv7IyFdAYA/HYwxWRqRjyt+WUqCsoG3n15FS5tk?=
- =?us-ascii?Q?YdzsMZyMYr0r7hFldoh0ZctcwgvmzvvLnnFx0MFMFOpGpdXqPUnYk7Cri3NO?=
- =?us-ascii?Q?NIIXG479sBDDVtqAQq5f8nI=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b4f6508-5cda-49a6-a86b-08ddf0a399bc
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 19:52:40.7335
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: o77XmyRqIzz75uu0tvxbJaKKxTWp7TkeWV8KfLf/ApD6i0BitgScLqYUx1VvXrTANTLaYU8S6aDReMAwJc/X8CBm9S9rVVakNSV/kSO4Xiyhmvko3q/6nwHIl6aXTGm3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR01MB8379
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_125247_317863_83F6D6FC 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20250910_132307_155515_75BE103B 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,55 +80,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While fixing a typo in "l1d_cache_access_prefetches" in AmpereOneX,
-a few other typos were found in metrics' descriptions too. While AmpereOne
-doesn't have the metric, it did have the typos in the descriptions.
+On Tue, Sep 02 2025 at 16:40, Guillaume La Roque wrote:
 
-Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
----
- .../pmu-events/arch/arm64/ampere/ampereone/metrics.json   | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Can you please trim your replies?
 
-diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json
-index afcdad58ef89..324104438e78 100644
---- a/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json
-+++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json
-@@ -113,7 +113,7 @@
-     {
- 	"MetricName": "load_store_spec_rate",
- 	"MetricExpr": "((LDST_SPEC / INST_SPEC) * 100)",
--	"BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speclatively executed",
-+	"BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speculatively executed",
-         "MetricGroup": "Operation_Mix",
-         "ScaleUnit": "1percent of operations"
-     },
-@@ -132,7 +132,7 @@
-     {
- 	"MetricName": "pc_write_spec_rate",
- 	"MetricExpr": "((PC_WRITE_SPEC / INST_SPEC) * 100)",
--	"BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speclatively executed",
-+	"BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speculatively executed",
-         "MetricGroup": "Operation_Mix",
-         "ScaleUnit": "1percent of operations"
-     },
-@@ -195,14 +195,14 @@
-     {
- 	"MetricName": "stall_frontend_cache_rate",
- 	"MetricExpr": "((STALL_FRONTEND_CACHE / CPU_CYCLES) * 100)",
--	"BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and cache miss",
-+	"BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and cache miss",
- 	"MetricGroup": "Stall",
-         "ScaleUnit": "1percent of cycles"
-     },
-     {
- 	"MetricName": "stall_frontend_tlb_rate",
- 	"MetricExpr": "((STALL_FRONTEND_TLB / CPU_CYCLES) * 100)",
--	"BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and TLB miss",
-+	"BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and TLB miss",
- 	"MetricGroup": "Stall",
-         "ScaleUnit": "1percent of cycles"
-     },
--- 
-2.51.0
+> I will resend weries because something look not ok i don't find serie in 
+> lore or patchwork.
 
+>> If Thomas doesn't mind picking the full series,
+
+Is this actually addressing my previous feedback on this?
+
+   https://lore.kernel.org/all/87cy87zx87.ffs@tglx
+
+>>>   config TI_SCI_INTA_MSI_DOMAIN
+>>> -	bool
+>>> +	tristate "TI SCI INTA MSI Domain driver"
+>>>   	select GENERIC_MSI_IRQ
+>>>   	help
+>>>   	  Driver to enable Interrupt Aggregator specific MSI Domain.
+>>> +
+>>> +	  Say Y here to compile it into the kernel or M to compile it as a
+>>> +	  module. The module will be called ti_sci_inta_msi.
+
+I doubt it, otherwise this would not exist anymore.
+
+If you disagree with me, then have the courtesy to tell me why. Just
+ignoring me is not an option.
+
+Thanks
+
+        tglx
 
