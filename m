@@ -4,109 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5954BCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:29:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89718CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dPns3UYk3HTy9Cu967vV+y/kprcH9SmJknyIiH6KUPg=; b=o1n5o+9TSnwnVJ5zf60HRsYD+x
-	8sZ38uFReXYTSw+D5kZTsOLZeDfl5dEmCidurPyOEo2nO0y3rICffeQhTxgV/Pxd6OHgF7tXY/o7r
-	a/sb2xWtlpsOJPRT06W2u97yC7tTh9eRJ+C0dp6ZQabGXLKHQ2Zuce+D25aQV5KWbTk6nnvNaIRLf
-	MdOCC3Bph9EZ+40GC1VjpwlJJv4QfIyz07QtMktzmI/J47bS12xYb5Xdv4zSo+dYw11WQNYoAQ7Y0
-	UDhCRndx8SSK0W2fUjmhVFIvmKGk2Ne6tWAtUa87PuYjDi/FeD1SaBsvo8NNIcmhlfVU9yfqyWq+W
-	SLoBNweA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a8swwx8M4K3oXPw77BTCIWEm2ZiKsBLAGG8+sePSZTY=; b=gWYy9HL0B8K5kB44wOFP4GHf9s
+	N+70MOL5dq2sc/v4vHDmp2gPFaHyCRnGuZ5dmAxaGrz2jDcCgf8FIajzAd4+1SONJc3uo2EiBFuaC
+	h/obDfDFn2nbNy+Mc/spxmMFrikrT1cxHwNSdNvAfZIKa9KfxK45oLqgOtdQuGDAtOvQi1iU24z0B
+	jLPocd4+p/49+DtOoRgUz++++1gH42OT7OOMAMZ6Ib1DKEdBixiKl6VgWMC8i4iCSARBffLazLcF+
+	EQmqtWGQ7Ev0aqoZYxpD8qCoV0IUP2o3zqgWXYoBEoxyfJ4CQT/VdtkHIxxQET+cBwfvyX3S/Opkp
+	cfhjRe7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFGZ-0000000CYuN-1wDG;
-	Wed, 10 Sep 2025 07:29:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uwFHc-0000000CZHr-3wcV;
+	Wed, 10 Sep 2025 07:30:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFGY-0000000CYsh-1S4M
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 10 Sep 2025 07:29:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=dPns3UYk3HTy9Cu967vV+y/kprcH9SmJknyIiH6KUPg=; b=UCWYOpO55pvcSWDdwz+B9pVs2F
-	BmR2+8bAz3nfV/5YhoF66Yc20Wu0jqiBOhPFuIwXxTNh1F0trvMjfImMQgk7HQTrZpMq3fQZjkxt+
-	SvssjoNELHWt8KmQYemCGPlKTFoCdKuLJkK2Evu5XjSLin7QBBCOgxTzgjFWCVUcBPCu4xJnyawpB
-	6wWFhqNdwpg/kYmxZ0fDkt6/+YgS/mIuyvsh0rOutAqjTNBNagM1W8iHlgR+VLMs7iHSPlgGdNWTl
-	zfn6SAhDstE6XSE2BoDuiBC8RkTXBTAxANBFA0ReMtE+ESOP0U6ohqTKtExJxZxbc8TQnsS/Ej6cC
-	2GYVA2oQ==;
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFGU-00000005lGZ-0Yi7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 07:29:17 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-55f98e7782bso483182e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 00:29:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757489352; x=1758094152; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dPns3UYk3HTy9Cu967vV+y/kprcH9SmJknyIiH6KUPg=;
-        b=cN8QsvhKILhBU7aDpexJCtKHBnzhf3ViXym34VfmTNzXZNmDkInQ4Y0Us3b8Nr8LLD
-         4Suh69d3kMCBcQ+EB9+EBDuFAZLIQOqRDjAOHskyj+Rqt5U9xWdvRsdwkRiceaZyg1Oe
-         84LYJnhoRAOINpDanAaEg7rPstx4GxgkRkWgFsduIt0C+04SEoBNg2yVAYL/8RzO4Fg6
-         ZOuvzbq4uQAgwuCgNPyKR6/oPdeNGcvKAm1Lp0MH4DRzkWKdNv9/cEz5nQHJLzPMIqsm
-         E4Gtw7Zld+PWCqnVolxKTfrJk7IAk2kzTp82NrFcGjrey8V9adE+yvkQMMtvebqoaR3e
-         9unA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757489352; x=1758094152;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dPns3UYk3HTy9Cu967vV+y/kprcH9SmJknyIiH6KUPg=;
-        b=bYoggD6YSqXwYin4bMKBqOEFHan277MDbuGjNlm05qELUoLyjLS73rvjCfZuWjtFCo
-         ng2Hx7nncjwbEbKtvNCJjR01B4CiYtKSbt3ddUUPGTwySAdyvx9ZUuNIgU9rYfWhBm9x
-         DWY6fB2b+0VjY+zkIrD9CnYA6V+7EbX19Lr+h0KfSOwW0q2dmCRHX0buCGiYH/ReMtFL
-         aI/OHXEBbYt+649wM8B7xVe4huBuQEnbJ1nI1HznMzj0pF+eZYswLbIv2yjQ1hiVbxfO
-         OUbZhyGsjRfc4zVIEt9zXQYTLMzqsYRkiNGTeE5e2HwijulOTpvw2XF324cONA78Otye
-         a54g==
-X-Forwarded-Encrypted: i=1; AJvYcCVXNMfOE5DdrjBM8i1Lei7slRw3ZvQ9Fs2mPduNxPU2GQkfOJ3H7WBxwt8J/F1O/M7rzzZPI9IvaY3RfsRZTSOh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEi28ECaMX6lZyH4OxIxdneiPHgz1SdSCBEfjy1l6XXNXHqZKT
-	SFG4K+94rf06BHa0lFg1Yd1Vyxj1ectOTmTvq0I+v+l2oZ6ecIlbqVPzpigkYvST8Hrxi+swa20
-	gGS7TU6qca+EKK+UYX7hZ75LnWbk39rRMFdsSqeJ4SQ==
-X-Gm-Gg: ASbGncvbtze+pcCn0XxDsWtVvA8vOgfBBJEqSHPe5WhbK4GclD3UqIb8gG/aw3Bv3Jb
-	CFpNGMYLkVGDT7tiSC+e9+4GQot1kWuBq7dMkI4uFsTLkv4jV7/EHno5coNcG3SFaeXun88XfXG
-	nAItNVOc5zOgiAy/DZ4hZyx1enabpdJ7X/oMCK1E5LeRKj04cWqd9JLQWlahKA387NUDRV7PzAF
-	/ikufakWjowCosMJyVyPHEWW2Tm3wiwB3yfPJ8=
-X-Google-Smtp-Source: AGHT+IEqPJ9kigcz2GLj3mP+JOGINamypRE0PiCaaHlUwxbs7HlrGNQFZsWt9jHWryRE9N3BOTU+Nqgodo1ymFIXUx4=
-X-Received: by 2002:a05:6512:3c93:b0:55f:552c:f731 with SMTP id
- 2adb3069b0e04-56099453ef8mr6704484e87.7.1757489351780; Wed, 10 Sep 2025
- 00:29:11 -0700 (PDT)
+	id 1uwFHb-0000000CZH8-1oGu;
+	Wed, 10 Sep 2025 07:30:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D0CD2601FA;
+	Wed, 10 Sep 2025 07:30:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6F48C4CEF0;
+	Wed, 10 Sep 2025 07:30:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757489422;
+	bh=4M0n9dhFOjwBsj8qa6KbJmB5wbmUTZbKFbxuZfgxy5k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H52COcovNyEFke9kN5TRvK+aXvcGWR0DW8t0vyXltz5YkgDgbdfmugoXAeNqj5n6l
+	 4EdhUkZmusQ1bC3N02hSR4UAumXQZYg64Pup1df1R50HDGZVH+iyMXxcQT0dbAU6uT
+	 sbm24X5W0+2OvonjNTX5qwj79dBfLUYXehFAf9iFWp24PRaNm2vfrkBd7JO8Zx+ktv
+	 2j09guNySeBdqawEv2hoZq9ZzY+QmY9Xw4xP7T3AhYEvXbikCC+COb760BxC5U4Abo
+	 XRcIpL1qW9ooSqdLXY+9j61tqnqOalFbz5MXw4PvtdB47nmwOV4wCgS+GLgnNnrTl4
+	 3n/DfqBBqC48w==
+Date: Wed, 10 Sep 2025 09:30:19 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Daniel Stone <daniel@fooishbar.org>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
+ driver capabilities
+Message-ID: <20250910-didactic-honored-chachalaca-f233b2@houat>
+References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
+ <CAPj87rNDtfEYV88Ue0bFXJwQop-zy++Ty7uQ9XfrQ2TbAijeRg@mail.gmail.com>
+ <57ekub6uba7iee34sviadareqxv234zbmkr7avqofxes4mqnru@vgkppexnj6cb>
+ <20250901-voracious-classy-hedgehog-ee28ef@houat>
+ <voknqdv3zte2jzue5yxmysdiixxkogvpblvrccp5gu55x5ycca@srrcscly4ch4>
+ <st6wob5hden6ypxt2emzokfhl3ezpbuypv2kdtf5zdrdhlyjfw@l2neflb4uupo>
+ <pe6g2fanw65p67kfy5blbtiytngxmr6nkbazymojs4a66yvpl3@7j4ccnsvc6az>
 MIME-Version: 1.0
-References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
- <20250910-gpio-mmio-gpio-conv-part4-v2-13-f3d1a4c57124@linaro.org> <CAHp75VcczAm_=XXAjwLFqNTCF72-UJfdisPvavadDEXJR2G19A@mail.gmail.com>
-In-Reply-To: <CAHp75VcczAm_=XXAjwLFqNTCF72-UJfdisPvavadDEXJR2G19A@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 10 Sep 2025 09:28:59 +0200
-X-Gm-Features: Ac12FXylJ9GUUlvsjAHDZW0ZjH7_XucWxGNpk3CSzJ659744jxYcf8C0LoVlvQM
-Message-ID: <CAMRc=Md1kLjELc48-fvjsgpZH+t+kE00v0uMDztubooM_AJ2oQ@mail.gmail.com>
-Subject: Re: [PATCH v2 13/15] gpio: sodaville: use new generic GPIO chip API
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Keguang Zhang <keguang.zhang@gmail.com>, 
-	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_082914_358345_7088E5BB 
-X-CRM114-Status: GOOD (  13.86  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="xcyykjy7tru36lrv"
+Content-Disposition: inline
+In-Reply-To: <pe6g2fanw65p67kfy5blbtiytngxmr6nkbazymojs4a66yvpl3@7j4ccnsvc6az>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,22 +89,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 9:19=E2=80=AFAM Andy Shevchenko
-<andy.shevchenko@gmail.com> wrote:
->
-> On Wed, Sep 10, 2025 at 10:13=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.=
-pl> wrote:
-> >
-> > Convert the driver to using the new generic GPIO chip interfaces from
-> > linux/gpio/generic.h.
->
-> In case you want to take it
-> Reviewed-by: Andy Shevchenko <andy@kernel.org>
-> Otherwise I can take it via my tree and then PR to you.
->
 
-I would prefer to apply the whole series directly, this way the
-conversion will be done in one go.
+--xcyykjy7tru36lrv
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
+ driver capabilities
+MIME-Version: 1.0
 
-Bart
+On Wed, Sep 03, 2025 at 03:03:43AM +0300, Dmitry Baryshkov wrote:
+> On Tue, Sep 02, 2025 at 08:06:54PM +0200, Maxime Ripard wrote:
+> > On Tue, Sep 02, 2025 at 06:45:44AM +0300, Dmitry Baryshkov wrote:
+> > > On Mon, Sep 01, 2025 at 09:07:02AM +0200, Maxime Ripard wrote:
+> > > > On Sun, Aug 31, 2025 at 01:29:13AM +0300, Dmitry Baryshkov wrote:
+> > > > > On Sat, Aug 30, 2025 at 09:30:01AM +0200, Daniel Stone wrote:
+> > > > > > Hi Dmitry,
+> > > > > >=20
+> > > > > > On Sat, 30 Aug 2025 at 02:23, Dmitry Baryshkov
+> > > > > > <dmitry.baryshkov@oss.qualcomm.com> wrote:
+> > > > > > > It's not uncommon for the particular device to support only a=
+ subset of
+> > > > > > > HDMI InfoFrames. It's not a big problem for the kernel, since=
+ we adopted
+> > > > > > > a model of ignoring the unsupported Infoframes, but it's a bi=
+gger
+> > > > > > > problem for the userspace: we end up having files in debugfs =
+which do
+> > > > > > > mot match what is being sent on the wire.
+> > > > > > >
+> > > > > > > Sort that out, making sure that all interfaces are consistent.
+> > > > > >=20
+> > > > > > Thanks for the series, it's a really good cleanup.
+> > > > > >=20
+> > > > > > I know that dw-hdmi-qp can support _any_ infoframe, by manually
+> > > > > > packing it into the two GHDMI banks. So the supported set there=
+ is
+> > > > > > 'all of the currently well-known ones, plus any two others, but=
+ only
+> > > > > > two and not more'. I wonder if that has any effect on the inter=
+face
+> > > > > > you were thinking about for userspace?
+> > > > >=20
+> > > > > I was mostly concerned with the existing debugfs interface (as it=
+ is
+> > > > > also used e.g. for edid-decode, etc).
+> > > > >=20
+> > > > > It seems "everything + 2 spare" is more or less common (ADV7511, =
+MSM
+> > > > > HDMI also have those. I don't have at hand the proper datasheet f=
+or
+> > > > > LT9611 (non-UXC one), but I think its InfoFrames are also more or=
+ less
+> > > > > generic).  Maybe we should change debugfs integration to register=
+ the
+> > > > > file when the frame is being enabled and removing it when it gets=
+ unset.
+> > > >=20
+> > > > But, like, for what benefit?
+> > > >=20
+> > > > It's a debugfs interface for userspace to consume. The current setup
+> > > > works fine with edid-decode already. Why should we complicate the d=
+esign
+> > > > that much and create fun races like "I'm running edid-decode in par=
+allel
+> > > > to a modeset that would remove the file I just opened, what is the =
+file
+> > > > now?".
+> > >=20
+> > > Aren't we trading that with the 'I'm running edid-decode in paralle w=
+ith
+> > > to a modeset and the file suddenly becomes empty'?
+> >=20
+> > In that case, you know what the file is going to be: empty. And you went
+> > from a racy, straightforward, design to a racy, complicated, design.
+> >=20
+> > It was my question before, but I still don't really see what benefits it
+> > would have, and why we need to care about it in the core, when it could
+> > be dealt with in the drivers just fine on a case by case basis.
+>=20
+> Actually it can not: debugfs files are registered from the core, not
+> from the drivers. That's why I needed all the supported_infoframes
+> (which later became software_infoframes).
+
+That's one thing we can change then.
+
+> Anyway, I'm fine with having empty files there.
+>=20
+> > > > > Then in the long run we can add 'slots' and allocate some of the =
+frames
+> > > > > to the slots. E.g. ADV7511 would get 'software AVI', 'software SP=
+D',
+> > > > > 'auto AUDIO' + 2 generic slots (and MPEG InfoFrame which can prob=
+ably be
+> > > > > salvaged as another generic one)). MSM HDMI would get 'software A=
+VI',
+> > > > > 'software AUDIO' + 2 generic slots (+MPEG + obsucre HDMI which I =
+don't
+> > > > > want to use). Then the framework might be able to prioritize whet=
+her to
+> > > > > use generic slots for important data (as DRM HDR, HDMI) or less i=
+mportant
+> > > > > (SPD).
+> > > >=20
+> > > > Why is it something for the framework to deal with? If you want to =
+have
+> > > > extra infoframes in there, just go ahead and create additional debu=
+gfs
+> > > > files in your driver.
+> > > >=20
+> > > > If you want to have the slot mechanism, check in your atomic_check =
+that
+> > > > only $NUM_SLOT at most infoframes are set.
+> > >=20
+> > > The driver can only decide that 'we have VSI, SPD and DRM InfoFrames
+> > > which is -ETOOMUCH for 2 generic slots'. The framework should be able=
+ to
+> > > decide 'the device has 2 generic slots, we have HDR data, use VSI and
+> > > DRM InfoFrames and disable SPD for now'.
+> >=20
+> > I mean... the spec does? The spec says when a particular feature
+> > requires to send a particular infoframe. If your device cannot support
+> > to have more than two "features" enabled at the same time, so be it. It
+> > something that should be checked in that driver atomic_check.
+>=20
+> Sounds good to me. Let's have those checks in the drivers until we
+> actually have seveal drivers performing generic frame allocation.
+>=20
+> > Or just don't register the SPD debugfs file, ignore it, put a comment
+> > there, and we're done too.
+>=20
+> It's generic code.
+>=20
+> > > But... We are not there yet and I don't have clear usecase (we support
+> > > HDR neither on ADV7511 nor on MSM HDMI, after carefully reading the
+> > > guide I realised that ADV7511 has normal audio infoframes). Maybe I
+> > > should drop all the 'auto' features, simplifying this series and land
+> > > [1] for LT9611UXC as I wanted origianlly.
+> > >=20
+> > > [1] https://lore.kernel.org/dri-devel/20250803-lt9611uxc-hdmi-v1-2-cb=
+9ce1793acf@oss.qualcomm.com/
+> >=20
+> > Looking back at that series, I think it still has value to rely on the
+> > HDMI infrastructure at the very least for the atomic_check sanitization.
+> >=20
+> > But since you wouldn't use the generated infoframes, just skip the
+> > debugfs files registration. You're not lying to userspace anymore, and
+> > you get the benefits of the HDMI framework.
+>=20
+> We create all infoframe files for all HDMI connectors.
+
+Then we can provide a debugfs_init helper to register all of them, or
+only some of them, and let the drivers figure it out.
+
+Worst case scenario, debugfs files will not get created, which is a much
+better outcome than having to put boilerplate in every driver that will
+get inconsistent over time.
+
+Maxime
+
+--xcyykjy7tru36lrv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaMEpAwAKCRAnX84Zoj2+
+dk8gAX9rbNWwNIwKSB0+wgpd+2lgIwy4gt6EhhgTtTz3dzSxqsa2u+1FhrsGsBJE
+FiMw/LgBgIGnPFV/ZqY6NuZQ8Z6fwsK5cORWCjwaLn48kjvnTHE5U3qynIeE7xuQ
+mP9pD1yh4A==
+=X/3+
+-----END PGP SIGNATURE-----
+
+--xcyykjy7tru36lrv--
 
