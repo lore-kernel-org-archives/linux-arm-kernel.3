@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB77CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 17:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AE3CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 17:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRGjJGkjgULdfJmp/p/WbgXPAtKUngmCwoasaodSbNY=; b=MVtgrfFV3tOgjQb5Br9YO4DyRa
-	E13yO+7/dKl4q06/ZnJKUi2zKJS3Df57JuRNpyKgnvxUPHRucvo9F7h3LKqYDz+nu+Hb8isSggDuq
-	simCDwyBZYdevr+PcBGYdZYn5sKhqTSQq9wV9Kq4g8W170yMDdVTYabFXkir5CFQmCRuGM/hX29r5
-	0A4AiaSgxgEJSz66CrYUT+N8nTnQzpwK92CHz28/xPaG+qzjczoAXgm3okBUj/VexRFlf/3pan3A8
-	/bsQNp2PZgbExshwJPEBbio/G8u3NY8O1c5t62rrmhJ3Fldm486XsQyp6u9SyRHxGg9e3ZbcLWZhs
-	VPvt5Msg==;
+	bh=pPunqbRdAk7Q1BPoWeHrXopoyeCo3AMqxUdPg7y0U0M=; b=PUYGACW9Zq3Z/u4heJlv3vZO0p
+	+EegC9gLrKfmW7Vzv8YW0Xj5XVKVnP7OqdA41VqVFm5/8rpOK4ijIhEctXO2Xvg9B6sB2F95I04q/
+	6W+M4HO4qJOfa7atloXJFSyPRNgtCDNg+1xLShr7F4HAgA+KwcnRwDTVxfY74qvBvhVNLhHZ2luXj
+	4NfVzETva5Dajn2yfC4A0awRivXBqR5W5kYC/znil20JgQsJsIc1ESWPBjkhCOces43L3cBoFaJgw
+	D/ONZ1TLgAaTBKwx8CUZ/MvM/em3ZAN78oDuINxHi6/P8EqLbRsUEC0Y6Vp5wwurr5O4Ktamq3/3K
+	Tsdv4grw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwOTZ-0000000Fk5h-24YA;
-	Wed, 10 Sep 2025 17:19:21 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwOTU-0000000Fk25-2Y3S
+	id 1uwOUq-0000000FkfI-220M;
+	Wed, 10 Sep 2025 17:20:40 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwOUn-0000000Fkct-2MMm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 17:19:18 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id C7720C000718;
-	Wed, 10 Sep 2025 10:19:13 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com C7720C000718
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1757524753;
-	bh=rl0U26Y/Z4PNUS4Zgspmy5Z7/zfxkT1YPC9XXuffGM4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=H9RkSk52AdzdjBwQSbHQbD5zC8U/l/VNFnV5lqYJMVSbs5MT6tsjrOKmNI5CwFzrj
-	 js5Wkd/km9Bzx+rL8Ce2QrAN6RG0gTeXflntbxqAyI4+yg80icNsREW1f8S8KCTbqD
-	 7bvqMApgBc8jN5ENWiZwIOb5017tT/rYWcNWkfTA=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id A0BBB180004FC;
-	Wed, 10 Sep 2025 10:19:13 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: soc@kernel.org
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Rob Herring <robh@kernel.org>,
-	"Ivan T . Ivanov" <iivanov@suse.de>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	arnd@arndb.de,
-	khilman@kernel.org,
-	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 3/4] Broadcom devicetree-arm64 changes for 6.18
-Date: Wed, 10 Sep 2025 10:19:09 -0700
-Message-ID: <20250910171910.666401-3-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250910171910.666401-1-florian.fainelli@broadcom.com>
-References: <20250910171910.666401-1-florian.fainelli@broadcom.com>
+	Wed, 10 Sep 2025 17:20:39 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4cMS006bWmz9sj9;
+	Wed, 10 Sep 2025 19:11:28 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id mnbxQRtTxTSD; Wed, 10 Sep 2025 19:11:28 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cMS005XY2z9sj8;
+	Wed, 10 Sep 2025 19:11:28 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 8550B8B7A7;
+	Wed, 10 Sep 2025 19:11:28 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id tVGSEt2GMt0K; Wed, 10 Sep 2025 19:11:28 +0200 (CEST)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id C99E88B764;
+	Wed, 10 Sep 2025 19:11:26 +0200 (CEST)
+Message-ID: <d9caedb4-41c8-4ef7-99b9-51d891aee555@csgroup.eu>
+Date: Wed, 10 Sep 2025 19:11:26 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
+To: Richard Weinberger <richard@nod.at>, Arnd Bergmann <arnd@arndb.de>
+Cc: ksummit <ksummit@lists.linux.dev>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linuxppc-dev@lists.ozlabs.org, linux-mips <linux-mips@vger.kernel.org>,
+ linux-mm <linux-mm@kvack.org>, imx@lists.linux.dev,
+ Lucas Stach <l.stach@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ankur Arora <ankur.a.arora@oracle.com>, David Hildenbrand
+ <david@redhat.com>, Mike Rapoport <rppt@kernel.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Matthew Wilcox <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, vbabka <vbabka@suse.cz>,
+ Suren Baghdasaryan <surenb@google.com>, Ira Weiny <ira.weiny@intel.com>,
+ Nishanth Menon <nm@ti.com>, heiko <heiko@sntech.de>,
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Sergio Paracuellos <sergio.paracuellos@gmail.com>,
+ Andreas Larsson <andreas@gaisler.com>
+References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
+ <497308537.21756.1757513073548.JavaMail.zimbra@nod.at>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <497308537.21756.1757513073548.JavaMail.zimbra@nod.at>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_101916_663375_816539C2 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20250910_102037_756389_BC4D809B 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +97,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+Hi Richard,
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+Le 10/09/2025 à 16:04, Richard Weinberger a écrit :
+> Arnd,
+> 
+> ----- Ursprüngliche Mail -----
+>> Von: "Arnd Bergmann" <arnd@arndb.de>
+>> High memory is one of the least popular features of the Linux kernel.
+>> Added in 1999 for linux-2.3.16 to support large x86 machines, there
+>> are very few systems that still need it. I talked about about this
+>> recently at the Embedded Linux Conference on 32-bit systems [1][2][3]
+>> and there were a few older discussions before[4][5][6].
+>>
+>> While removing a feature that is actively used is clearly a regression
+>> and not normally done, I expect removing highmem is going to happen
+>> at some point anyway when there are few enough users, but the question
+>> is when that time will be.
+>>
+>> I'm still collecting information about which of the remaining highmem
+>> users plan to keep updating their kernels and for what reason. Some
+>> users obviously are alarmed about potentially losing this ability,
+>> so I hope to get a broad consensus on a specific timeline for how long
+>> we plan to support highmem in the page cache and to give every user
+>> sufficient time to migrate to a well-tested alternative setup if that
+>> is possible, or stay on a highmem-enabled LTS kernel for as long
+>> as necessary.
+> 
+> I am part of a team responsible for products based on various 32-bit SoCs,
+> so I'm alarmed.
+> These products, which include ARMv7 and PPC32 architectures with up to 2 GiB of RAM,
+> are communication systems with five-figure deployments worldwide.
+> 
+> Removing high memory will have an impact on these systems.
+> The oldest kernel version they run is 4.19 LTS, with upgrades to a more recent
+> LTS release currently in progress.
+> We typically upgrade the kernel every few years and will continue to support
+> these systems for at least the next 10 years.
+> 
+> Even with a new memory split, which could utilize most of the available memory,
+> I expect there to be issues with various applications and FPGA device drivers.
 
-are available in the Git repository at:
+Can you tell which PPC32 model/family you are using ? Is it mpc85xx or 
+and/or other variants ? Maybe we can look at keeping CONFIG_HIGHMEM or 
+find alternatives for that subset of PPC32 only.
 
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.18/devicetree-arm64
+Could you also elaborate a bit on the kind of issues you forsee or fear 
+with applications and FPGA device drivers.
 
-for you to fetch changes up to 70bab1937e39fd8f6efc80fd1a8b4da63622dd81:
+FWIW I sent out today a patch that removes CONFIG_HIGHMEM complely on 
+powerpc in order to get a better view of the impacted areas and allow 
+people to test what it looks like on their system without 
+CONFIG_HIGHMEM. See [1].
 
-  arm64: dts: broadcom: Enable USB devicetree entries for Rpi5 (2025-09-09 15:40:27 -0700)
+Christophe
 
-----------------------------------------------------------------
-This pull request contains Broadcom ARM64-based SoCs Device Tree updates
-for 6.18, please pull the following:
+[1] 
+https://patchwork.ozlabs.org/project/linuxppc-dev/patch/28d908b95fe358129db18f69b30891788e15ada0.1757512010.git.christophe.leroy@csgroup.eu/
 
-- Krzysztof fixes a DTC warning for the ARM GIC in bcm2712.dtsi
-
-- Ivan adds the pin controller node(s), an additional GPIO controller,
-  the second SDHCI controller node for SDIO Wi-Fi, and the UARTA for
-  Bluetooth to the BCM2712 DTS (Raspberry Pi 5)
-
-- Stanimir adds the Ethernet DT node and enables it for the RP1 sister
-  chip
-
-- Andrea deletes a number of redundant PCIe DT node enablement, updates
-  a comment to describe the relationship between bcm2712 and RP1 and
-  finally enables the USB controllers with RP1
-
-----------------------------------------------------------------
-Andrea della Porta (5):
-      dt-bindings: mmc: Add support for capabilities to Broadcom SDHCI controller
-      arm64: dts: broadcom: delete redundant pcie enablement nodes
-      arm64: dts: broadcom: amend the comment about the role of BCM2712 board DTS
-      arm64: dts: broadcom: rp1: Add USB nodes
-      arm64: dts: broadcom: Enable USB devicetree entries for Rpi5
-
-Ivan T. Ivanov (4):
-      arm64: dts: broadcom: bcm2712: Add pin controller nodes
-      arm64: dts: broadcom: bcm2712: Add one more GPIO node
-      arm64: dts: broadcom: bcm2712: Add second SDHCI controller node
-      arm64: dts: broadcom: bcm2712: Add UARTA controller node
-
-Krzysztof Kozlowski (1):
-      arm64: dts: broadcom: bcm2712: Add default GIC address cells
-
-Stanimir Varbanov (2):
-      arm64: dts: rp1: Add ethernet DT node
-      arm64: dts: broadcom: Enable RP1 ethernet for Raspberry Pi 5
-
- .../bindings/mmc/brcm,sdhci-brcmstb.yaml           |   2 +-
- .../boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  | 133 +++++++++++++++++++++
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts   |  41 ++++++-
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  56 +++++++++
- arch/arm64/boot/dts/broadcom/rp1-common.dtsi       |  44 +++++++
- 5 files changed, 271 insertions(+), 5 deletions(-)
 
