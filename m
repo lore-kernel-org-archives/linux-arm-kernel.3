@@ -4,76 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219E6CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0A0CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cRjq8XWD+5JGqB7JhkYl6nl7QM3sj5UrtQ721rRgubY=; b=RtM0Wb5UUYhK6wCpi+TsZyOIdT
-	fr0IepcLONr2Anj65J7m4Gsb31bkR6WtjN7hz0wmzW4Qxj7HhcoE7jRi83Ib08LEOfpJEn/DC9+sd
-	+TjIydcgacEqfkP+MpxsRC4MxpvSMsi2KgDGarCAJU+BuNgSeqgUTiP6Fx8PaELFCqQJb+6VVnLif
-	PP7ft7ti0pDLyjkFNjQ3QKPBjjDHrRgYOMm+RX5rh92JvReC7Y0FO2yLPbBNG/OVsODkRfFd7gLEX
-	H78tff5o/pPwKi7Yo/CsQM7SbuCAvMaqnCPzxcv6IvcUaI8ayz3xUf/k8l4yPcnrmx4W6Q0eAfAZd
-	pGnYrdGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fmt8NRxXiTXIxxt7so4xgdOFQzQhtk1IBnRJvL5Y6wM=; b=UgcJFrZ7ClFjrQY6X7IpnNl2is
+	3TO8vT9rXzk9C54h9EmF0KtXbJZtOG4Va8neB/3VcIvrHoSQac6VbCMrKFIszaQzgiKwsOMCo7JA+
+	ceN+v5tUuHSObhdLPsu0PiTKR4P/HobMs+EFHXgYZcBlkZ8xu7XyOES2QjakC99UudBdLYkyHGs0s
+	LTC9Z2E5HGhmFiCukjmG1NuO0u5+v4lTc8+GhLqwBHDWdAd17flv+v3/qW1PsYaLY08vOu7e1x3sE
+	6ev/YZt3GF8Y1m17qTCScQKggRHU/Jlel/qOEhyvqrSDTGFMUQO6OhHunp8yMqHVzGgcOH8S1L/8J
+	dX33mdNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGJy-0000000Cydq-0JXv;
-	Wed, 10 Sep 2025 08:36:54 +0000
-Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGJu-0000000CybN-1Tz7
+	id 1uwGKQ-0000000Cypi-1ble;
+	Wed, 10 Sep 2025 08:37:22 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwGKN-0000000Cyo4-3RqM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 08:36:52 +0000
-Received: from weishangjuan$eswincomputing.com ( [10.12.96.155] ) by
- ajax-webmail-app2 (Coremail) ; Wed, 10 Sep 2025 16:36:19 +0800 (GMT+08:00)
-X-Originating-IP: [10.12.96.155]
-Date: Wed, 10 Sep 2025 16:36:19 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?6Z+m5bCa5aif?= <weishangjuan@eswincomputing.com>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, yong.liang.choong@linux.intel.com,
-	vladimir.oltean@nxp.com, rmk+kernel@armlinux.org.uk,
-	faizal.abdul.rahim@linux.intel.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
-	jan.petrous@oss.nxp.com, jszhang@kernel.org, p.zabel@pengutronix.de,
-	boon.khai.ng@altera.com, 0x1207@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	emil.renner.berthing@canonical.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, lizhi2@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com
-Subject: Re: Re: [PATCH v5 1/2] dt-bindings: ethernet: eswin: Document for
- EIC7700 SoC
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2025 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <20250905-hissing-papaya-badger-1b2ddf@kuoka>
-References: <20250904085913.2494-1-weishangjuan@eswincomputing.com>
- <20250904090055.2546-1-weishangjuan@eswincomputing.com>
- <20250905-hissing-papaya-badger-1b2ddf@kuoka>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	Wed, 10 Sep 2025 08:37:21 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-629f06935e6so655808a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 01:37:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757493438; x=1758098238; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fmt8NRxXiTXIxxt7so4xgdOFQzQhtk1IBnRJvL5Y6wM=;
+        b=cAyrCaqfs/gGx/K2GTdFwPj7xrzuZSFCSj8gBJE+5Ta36X8TMJTZoQhvocqGd24nus
+         BW8NlUPAvVDrwX75uKZu7mqsymKIv7h/8/2P04r24BHW3v7S7DCRUnUheMiDC2REapKy
+         rb76jJx6LhSs/xsXD1pbSlFfk3aWJjGI14rOzc1faDTEJKkTESFSRIjL8OBMAr2ai+3/
+         pLM9FuqqwgZ+6kZyyX3SsaFet3807WnP4FyE2MgMw1H7KzMYhSAim+xVN1SA0tu14SYc
+         +gly9+1Ygo5l783ruh3nUK+EP50tOqi02elUwLKvqwFKRz2JhgCcuZ0+GN1Ih/NMPX06
+         hjrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757493438; x=1758098238;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Fmt8NRxXiTXIxxt7so4xgdOFQzQhtk1IBnRJvL5Y6wM=;
+        b=JTKIhj3as0vWwo4u6zX8KvNKTyJnX3ETEwMmZWqtqpfcn+/dwO66+9Um2HeDwvhn1+
+         cqyUF57OCzIjwEOqe5MI/sNewt/Xm3G+CNH6zfTDlGqL21rPObEBqIPX4egx6U0xkoZT
+         fh0ze9EiNcp8mYVnoW3BCpgiMF+mUuTSw5awqRo7Gn70i8pwq2k7ihFvIRZO4GV4zfVx
+         JOj3BJrYP7dXM64t2Jm1gzP8nrJpF551kdJaL8qFk+gX4FjFuOp5g7o8MqV672bfbPlE
+         FdFrN9zrQcGr3DyLzEziHdYfA7Ry3oqcfDYMxzH50lNN2mCjV3GPNU93lu/kPQ0FWyf/
+         fydQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVPhhBVna+g2owTkQtDzBAmbkEJ+IkAC4R3pcbSLM8ucMYK1EzcocY5xHLFwIMxGAuG3d8c2640GOM4bl9ozoQk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7GyvZt3v54+naAssdCcu3tKTQirgwn70SqRVM30qVbNe1HO6D
+	QgxLmrxpEiq7csb7YEXSDmh20gABbY4X8UokGUxX0yq/wsFi0s6r6dP7Xaseyw==
+X-Gm-Gg: ASbGncuwJgQUMtYE+u/C6dg5jBiZy0XwYJfnXo6qXX0VMqnX64Zec8ZsTOz7q1KKouX
+	5OyUvL8sgzOb7hKMY00j2uKuleIQeU/zOHopvQrTD1EUsaP4xYy4tRbDVhIcPZ42kkN6uV+2FY9
+	le7ugzaDvAOLLy6GNHJAEjIds8ad0nNLgKaIkwzhdDyhfY3ruprk6QlklIhn2diUZGwuTgCbkUJ
+	g1c1OOpFsn9eoRxDd5nCvXEG+sq1KLJ/lhyULvu8HBm0vRTD9nim9jKC5+KowY9E6XbaXn0DBzw
+	r07qVawUR8uP+L3IdJ1J+3p43Xkskj0Kzny5u/CcRC1lnuiMoD+oV0cJrejVsk7a0p6RTmrcyZ9
+	RGHzu9Pogghu2tQuZDOc2LEMuqw==
+X-Google-Smtp-Source: AGHT+IFidFPKBI8cS+d+4gYHVAlOYg3Lgm1sKTkF6r8WI6UG693yE4O5MLuodha7xFNpnvYnc+AT1w==
+X-Received: by 2002:a05:6402:4486:b0:627:e2d8:459 with SMTP id 4fb4d7f45d1cf-627e2d80936mr4573364a12.6.1757493437828;
+        Wed, 10 Sep 2025 01:37:17 -0700 (PDT)
+Received: from skbuf ([2a02:2f04:d005:3b00:6669:35e7:fc93:9b1c])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-62bfe99ffcbsm2844962a12.3.2025.09.10.01.37.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Sep 2025 01:37:17 -0700 (PDT)
+Date: Wed, 10 Sep 2025 11:37:14 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next PATCH v16 10/10] net: dsa: tag_mtk: add comments about
+ Airoha usage of this TAG
+Message-ID: <20250910083714.gfrhsco3e2q7adxt@skbuf>
+References: <20250909004343.18790-1-ansuelsmth@gmail.com>
+ <20250909004343.18790-1-ansuelsmth@gmail.com>
+ <20250909004343.18790-11-ansuelsmth@gmail.com>
+ <20250909004343.18790-11-ansuelsmth@gmail.com>
+ <20250910082017.hjlq3664xvg5qjub@skbuf>
+ <68c1376d.050a0220.2085dc.675b@mx.google.com>
 MIME-Version: 1.0
-Message-ID: <3579e9ca.106c.19932c4c2f0.Coremail.weishangjuan@eswincomputing.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: TQJkCgAXt5WDOMFo7PzMAA--.25110W
-X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/1tbiAQEBEGjAVn
-	gdDwAAsF
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <68c1376d.050a0220.2085dc.675b@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_013650_693712_9FD1580D 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250910_013719_878340_EED2D05A 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +120,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RGVhciBLcnp5c3p0b2YgS296bG93c2tpLAoKSSBob3BlIHRoaXMgZW1haWwgZmluZHMgeW91IHdl
-bGwuIEZpcnN0LCBwbGVhc2UgYWxsb3cgbWUgdG8gYXBvbG9naXplIGZvciBhbnkgaW5jb252ZW5p
-ZW5jZQpjYXVzZWQgYnkgdGhlIHByZXZpb3VzIHZlcnNpb24gb2YgdGhlIHlhbWwgZGVzY3JpcHRp
-b24uIFdlIGhhdmUgbm93IHJldmlzZWQgdGhlIGRlc2NyaXB0aW9uCmNvbnRlbnQgYWNjb3JkaW5n
-bHkgYXMgZm9sbG93OgoKZGVzY3JpcHRpb246CsKgIFBsYXRmb3JtIGdsdWUgbGF5ZXIgaW1wbGVt
-ZW50YXRpb24gZm9yIFNUTU1BQyBFdGhlcm5ldCBkcml2ZXIuCgpJbiBhZGRpdGlvbiwgdGhlIGxp
-bmsgdG8gdjUgcGF0Y2hlcyBpcyBhcyBmb2xsb3dz77yaCmh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L2FsbC8yMDI1MDkwNDA5MDA1NS4yNTQ2LTEtd2Vpc2hhbmdqdWFuQGVzd2luY29tcHV0aW5nLmNv
-bS8KCkkgaGF2ZSBhIHF1ZXN0aW9uIHRvIHNlZWsgeW91ciBhZHZpY2UuCkFmdGVyIHNlbmRpbmcg
-dGhlIHY1IHBhdGNoZXMsIHdlIHJlY2VpdmVkIHlvdXIgZmVlZGJhY2suIE9yaWdpbmFsbHksIHdo
-ZW4gcHJlcGFyaW5nIHRoZSB2NiBwYXRjaGVzLAp3ZSBpbnRlbmRlZCB0byBpbmNsdWRlIHRoZSAi
-UmV2aWV3ZWQtYnk6IEtyenlzenRvZiBLb3psb3dza2kga3J6eXN6dG9mLmtvemxvd3NraUBsaW5h
-cm8ub3JnIiB0YWcuCkhvd2V2ZXIsIGdpdmVuIHRoYXQgd2UgaGF2ZSByZXZpc2VkwqB0aGUgeWFt
-bCBkZXNjcmlwdGlvbiwgSSBhbSB1bmNlcnRhaW4gd2hldGhlciB0aGlzIHRhZyBzaG91bGQKc3Rp
-bGwgYmUgaW5jbHVkZWQgaW4gdGhlIHY2IHBhdGNoZXMuIFBlcnNvbmFsbHksIEkgYmVsaWV2ZSBp
-dCB3b3VsZCBiZSBhcHByb3ByaWF0ZSB0byByZXRhaW4gdGhlCiJSZXZpZXdlZC1ieSIgdGFnLiBD
-b3VsZCB5b3UgcGxlYXNlIGNvbmZpcm0gaWYgdGhpcyBpcyBjb3JyZWN0PwpUaGFuayB5b3UgZm9y
-IHlvdXIgdGltZSBhbmQgZ3VpZGFuY2UuIEkgbG9vayBmb3J3YXJkIHRvIHlvdXIgcmVzcG9uc2Uu
-CkJlc3QgcmVnYXJkcywKU2hhbmdqdWFuIFdlaQoKCj4gLS0tLS3ljp/lp4vpgq7ku7YtLS0tLQo+
-IOWPkeS7tuS6ujogIktyenlzenRvZiBLb3psb3dza2kiIDxrcnprQGtlcm5lbC5vcmc+Cj4g5Y+R
-6YCB5pe26Ze0OjIwMjUtMDktMDUgMTU6NTM6MzAgKOaYn+acn+S6lCkKPiDmlLbku7bkuro6IHdl
-aXNoYW5nanVhbkBlc3dpbmNvbXB1dGluZy5jb20KPiDmioTpgIE6IGRldmljZXRyZWVAdmdlci5r
-ZXJuZWwub3JnLCBhbmRyZXcrbmV0ZGV2QGx1bm4uY2gsIGRhdmVtQGRhdmVtbG9mdC5uZXQsIGVk
-dW1hemV0QGdvb2dsZS5jb20sIGt1YmFAa2VybmVsLm9yZywgcGFiZW5pQHJlZGhhdC5jb20sIHJv
-YmhAa2VybmVsLm9yZywga3J6aytkdEBrZXJuZWwub3JnLCBjb25vcitkdEBrZXJuZWwub3JnLCBs
-aW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmcsIG1jb3F1ZWxpbi5zdG0zMkBnbWFp
-bC5jb20sIGFsZXhhbmRyZS50b3JndWVAZm9zcy5zdC5jb20sIHlvbmcubGlhbmcuY2hvb25nQGxp
-bnV4LmludGVsLmNvbSwgdmxhZGltaXIub2x0ZWFuQG54cC5jb20sIHJtaytrZXJuZWxAYXJtbGlu
-dXgub3JnLnVrLCBmYWl6YWwuYWJkdWwucmFoaW1AbGludXguaW50ZWwuY29tLCBwcmFiaGFrYXIu
-bWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20sIGlub2NoaWFtYUBnbWFpbC5jb20sIGphbi5w
-ZXRyb3VzQG9zcy5ueHAuY29tLCBqc3poYW5nQGtlcm5lbC5vcmcsIHAuemFiZWxAcGVuZ3V0cm9u
-aXguZGUsIGJvb24ua2hhaS5uZ0BhbHRlcmEuY29tLCAweDEyMDdAZ21haWwuY29tLCBuZXRkZXZA
-dmdlci5rZXJuZWwub3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBsaW51eC1zdG0z
-MkBzdC1tZC1tYWlsbWFuLnN0b3JtcmVwbHkuY29tLCBlbWlsLnJlbm5lci5iZXJ0aGluZ0BjYW5v
-bmljYWwuY29tLCBuaW5neXVAZXN3aW5jb21wdXRpbmcuY29tLCBsaW5taW5AZXN3aW5jb21wdXRp
-bmcuY29tLCBsaXpoaTJAZXN3aW5jb21wdXRpbmcuY29tLCBwaW5rZXNoLnZhZ2hlbGFAZWluZm9j
-aGlwcy5jb20KPiDkuLvpopg6IFJlOiBbUEFUQ0ggdjUgMS8yXSBkdC1iaW5kaW5nczogZXRoZXJu
-ZXQ6IGVzd2luOiBEb2N1bWVudCBmb3IgRUlDNzcwMCBTb0MKPiAKPiBPbiBUaHUsIFNlcCAwNCwg
-MjAyNSBhdCAwNTowMDo1NVBNICswODAwLCB3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29t
-IHdyb3RlOgo+ID4gRnJvbTogU2hhbmdqdWFuIFdlaSA8d2Vpc2hhbmdqdWFuQGVzd2luY29tcHV0
-aW5nLmNvbT4KPiA+IAo+ID4gQWRkIEVTV0lOIEVJQzc3MDAgRXRoZXJuZXQgY29udHJvbGxlciwg
-c3VwcG9ydGluZyBjbG9jawo+ID4gY29uZmlndXJhdGlvbiwgZGVsYXkgYWRqdXN0bWVudCBhbmQg
-c3BlZWQgYWRhcHRpdmUgZnVuY3Rpb25zLgo+ID4gCj4gPiBTaWduZWQtb2ZmLWJ5OiBaaGkgTGkg
-PGxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBTaGFuZ2p1YW4g
-V2VpIDx3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29tPgo+IAo+IFJldmlld2VkLWJ5OiBL
-cnp5c3p0b2YgS296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+Cj4gCj4g
-QmVzdCByZWdhcmRzLAo+IEtyenlzenRvZgo=
+On Wed, Sep 10, 2025 at 10:31:35AM +0200, Christian Marangi wrote:
+> > I think it would be good to present the AN8855 tag using a different
+> > string, so that libpcap knows it shouldn't decode these bits. The code
+> > can be reused for now.
+> >
+> 
+> Do you think I can implement 2 tagger in the same driver or do I need to
+> make a library of this driver? Just asking what is the correct way to
+> generalize it.
+
+Look at the uses of the module_dsa_tag_drivers() macro.
 
