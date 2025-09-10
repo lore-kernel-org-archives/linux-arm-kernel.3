@@ -4,165 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E65FCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DB8CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bf47KHb2FpqYb38LDynRNEzXv3n90MIPY1PJPVaq/WM=; b=XzgE2K1sTjP+aMrIUrEqBr4NPm
-	mRCEf962jRaH7tg5U+kuy+WnpQ0QqimEqMKQRLFdkPau+kgtd4+u8KkyShlnOU8CrjCqEOKZXWWXU
-	6ckBLE6HuTz51vhgSXOIqs6vxDL9A50C17PLWlXMGPZ7tRlQoWu5Xhwl+Bnw+CsZDithJQ9MUGwAW
-	tGXBV6ujbZn/5JI+bl9V9DiaZ/Be8/T3loe1KjN68x6li6Xho4LJHLbbL84BIoxpxY9CaE1iSHWTj
-	lzqIpY8kLfHBiRuif4sD1hlP2k0gqBqh2PHNhaKrbpbRS7tYjIdCI6GYzhzNQ9HATgDTBlUxh1u7q
-	onsbOXtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xC5R7eYl9Rwp0IenYxoNNT2Mrkq2ifbsmCTO4MCCq6w=; b=xi0LMspfv6bPz+OjummCsPjJwb
+	FF6pAfoiuMLXb5c632RmYc3+i8nOX3DMFIkl9cirZhffv8132QFkRSqe8BM3bvsOH8itv+14oZtwM
+	bgenI0nqnEWUo4vngg+e8C/BccHoH0Gwyd/rsttCl3Ya8KvEXEg9E7h71bJbxgdtMTNSCvRUyFb74
+	YvgLBizJtAf4zelYKlj63AX5qmXuSOtjhYFk0g/tul3wR9blUzZGhqKY4dMDOYguP4/DR9idhBH8N
+	3Ptchf/MGSflrrbWhcHICZPIXoraPJlMI3v89kJSh+1wiLkDfwBDd2Vze9w325yvGLVHDtjlAcPfs
+	+8C5bvzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMql-0000000F9HZ-0Jmw;
-	Wed, 10 Sep 2025 15:35:11 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uwMtV-0000000FAGD-0PrD;
+	Wed, 10 Sep 2025 15:38:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMqj-0000000F9FW-0tZO
+	id 1uwMtS-0000000FADh-1NVq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 15:35:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gqbGTVZWoFw8VemABPomhLaS9+Z+KwAbVuuajEAQQ4Ax5YX66BK44U8GexGgZ2qrfF/sLclCaDp/r8NF9SodTqgFT6rwYTakHUlXphlVgt30oGN+os3gtQIiKfmH34t8c/QZNVIJZkAzSL44CUBz2ftcJ6nMAFjf8qWnICOIad/42gSgHwGvFpaq7LZ+vUqOpv4ts4fRxJD/yDP/KjBPDOdZLbWZtNEb1+L1bPm0iAFstXCeygzvulHFMTMuxeddvg4SuFjKcmJoVWvzV1xOArbs3yFhi3s1YV6glrE3d2WS8MvKJnZeRdHQ7rIE1wjCtUysd22/YzRTnMLjxesk9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bf47KHb2FpqYb38LDynRNEzXv3n90MIPY1PJPVaq/WM=;
- b=TO35ku8zGyWz4K4sM94LpFu0UXXz4RvXxWc1gye4rrv7no9vdF5m0oOUpV0QslZxZgKQl+FmAbJtqm0GJK+hffa+yzRopCIjdCDAQxutIZgVwmlsR5oO2KBqR+QGiS06xdXuu1dL+4Xq4YMTYNhCFvY12JdQbFa26xBSSOkw+nV2DawHS2qJOJNyG5cyFfnUl3wTNjVMQ8ODmc3H1irsw+L/AVJzGWo+lqyiPd3FUN2KdbV60fuh7jvOfAtWgeo4DoCYgHWwZwoVMWe9P8ioiH/oQxn6Au9b9oOP0N1ZVF9KYhSD8s+jXiO0hYkbxD+ZOozJSoA1gQqwwalbYyCyuQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bf47KHb2FpqYb38LDynRNEzXv3n90MIPY1PJPVaq/WM=;
- b=OAOHKZgGDMhM02o1qKyU3vGy4R7WLXX+8F1PBym33SgBRn4kNrwA0nvJke9sQi18ZK7rJgaY+1UhGhxj9FntzFezhLce/skOZ9rK0YKa/EdgVzkDWK1B7XeZU6EPzII53aJI0TY8PI9TeXU75Cv3K3etQs1j0Tr22rknsxtlkojWTYSeXqQNAEVunO/HLJnjXNGtAODzSBmhfPzKof10rbn5Gj9vHOh7th1GTY/kM9XL+iIT9IlwSyCxk36HfrqBjFNHlT0JKzXA9I29GW9B76kEXwZinYc5RBAzDBGCSdwAzl+GDTMu/m7n2EGP2mWjsIR12IgtDy1A29BCiwgwYQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by AM9PR04MB8507.eurprd04.prod.outlook.com (2603:10a6:20b:432::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.15; Wed, 10 Sep
- 2025 15:35:00 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::b067:7ceb:e3d7:6f93]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::b067:7ceb:e3d7:6f93%5]) with mapi id 15.20.9115.010; Wed, 10 Sep 2025
- 15:35:00 +0000
-Date: Wed, 10 Sep 2025 18:34:54 +0300
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marco Felsch <m.felsch@pengutronix.de>,
-	Jonas Rebmann <jre@pengutronix.de>, Andrew Lunn <andrew@lunn.ch>,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: Re: [PATCH 1/4] dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios
- property
-Message-ID: <20250910153454.ibh6w7ntxraqvftb@skbuf>
-References: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
- <20250910-imx8mp-prt8ml-v1-1-fd04aed15670@pengutronix.de>
- <20250910125611.wmyw2b4jjtxlhsqw@skbuf>
- <20250910143044.jfq5fsv2rlsrr5ku@pengutronix.de>
- <20250910144328.do6t5ilfeclm2xa4@skbuf>
- <693c3d1e-a65b-47ea-9b21-ce1d4a772066@sirena.org.uk>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <693c3d1e-a65b-47ea-9b21-ce1d4a772066@sirena.org.uk>
-X-ClientProxiedBy: VI1P195CA0094.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:802:59::47) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+	Wed, 10 Sep 2025 15:38:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757518676;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=xC5R7eYl9Rwp0IenYxoNNT2Mrkq2ifbsmCTO4MCCq6w=;
+	b=cBbrr4oOAAC2TDHzjFbIDAPy57+V5lhbL+bRUKVSiV+5qKONPaUk62FJVauTUOebSC1uM9
+	SrFcx94MO4gbFZjEQr3EWBl/e7IE+QnpykS2dsyYqiERSEl49D4wi2dt7FhWnCK+X7wuz1
+	s19Ost5HzCrBJpPddBEwxyGIGy8OadQ=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-413-Q9ZlTxNcOzesamGX6VL8lQ-1; Wed, 10 Sep 2025 11:37:55 -0400
+X-MC-Unique: Q9ZlTxNcOzesamGX6VL8lQ-1
+X-Mimecast-MFC-AGG-ID: Q9ZlTxNcOzesamGX6VL8lQ_1757518674
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45deddf34b9so5362935e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 08:37:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757518674; x=1758123474;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xC5R7eYl9Rwp0IenYxoNNT2Mrkq2ifbsmCTO4MCCq6w=;
+        b=YnxNPhW5vjDRGCvqNfp8xa81YE5sK4QzJx+phDYb0PVkkMaJFypPRdL3AkkZS4S/9e
+         qa90Dkx08inX6WoRAq0LG06TZCHjTW3vqc+KMPSCdlbe8D1Oog6mTLBHwJURnO5hML7i
+         FLFj/BJyhO2mhLQx6FbDABURe8d76YfTnFSx9X240Kq1UZAnnSRVNjj0pEQimZBXrOBb
+         z+5Vi/IS78o+cuvUcnIWqtLbFo6gybdp7Q4URSxew56Mp1L85ClSKDT5D7yjmGQVrl3Q
+         GM0ZjFQMMlOaNx/AotcJIo9NWkBfbOTFt3gW+uDnT87gUYPfrt/Bw2Iza1SdoIdgG0F7
+         HDvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUlawOvhqV+UXQmeqP+ytDLIC4urAvFgRirvgP/nMkdAzT53dFXF9H+Q5P2RRyxWNL5FP2CNAavipnSCz43Rwxz@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywf1tcJcxkoHvt7Y7NtL8OZHpTfEFictwnAfblLgXZfWNWF143P
+	5Q/kHCnUWt0yBjQYwZSxL+hhQCR3KgC2H0vrEjCxj25ki7yX9wFCIWoPaWUW4gNqCPR54M+eB6e
+	5E2vqjL6BFXTNlGtxSSXpmNQYlHH01MvWJ9PQnpcG8nCnn6Tn4wna2LX1AjakjHWqMzRC1EjJ4f
+	Se
+X-Gm-Gg: ASbGncvHaXpZH8WrREwZE+VBi2tDR4DIbhbbXSp6TedxZUfGfnm8EBXopF6ABEcnr9D
+	WnHMZZaMJr28ApioNWCVZrGN0IYA3ur2kVT9sdq/yhxS9lTDTpgcci9YQtQ5AUxUlArKXK4pYHM
+	TCSuJnI4J6bJRa1Ta5zRYA57he08msj0zYUXevAusILNlPgozv+SbywoeDa7IkQAIAcvxg3xtFw
+	MxoDkIHbJ5PjRIqYELHhUvfp6o2QHq8v+JHuIHjVKJzigzfMAYn1LGWHARu+zPYa/Th+D+cvNPt
+	z2sqTLfLb3OpS7iTsc4lVd3ceW5C/MJ4yazGeb5pdi7MIXbQuNiK0FYYURbsfV8G2tV+i7p0W6x
+	g4fRwq+QQEylkUqUEAkbiGfKJkVV6Ok1GE95bn5O8go5s/XvsM+t+GbMMfN1Gd3oibCk=
+X-Received: by 2002:a05:6000:400f:b0:3df:22a3:d240 with SMTP id ffacd0b85a97d-3e75e0f032cmr41417f8f.4.1757518674315;
+        Wed, 10 Sep 2025 08:37:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFSanGWB8lh0ls+MFHggdlE9XrwwjBOuob47gN7Go2sD22cOkG0a4ZQLy4lN4pGQUVx9DuyJw==
+X-Received: by 2002:a05:6000:400f:b0:3df:22a3:d240 with SMTP id ffacd0b85a97d-3e75e0f032cmr41388f8f.4.1757518673785;
+        Wed, 10 Sep 2025 08:37:53 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f17:9c00:d650:ab5f:74c2:2175? (p200300d82f179c00d650ab5f74c22175.dip0.t-ipconnect.de. [2003:d8:2f17:9c00:d650:ab5f:74c2:2175])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7521c9cdbsm7733009f8f.16.2025.09.10.08.37.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Sep 2025 08:37:53 -0700 (PDT)
+Message-ID: <ef343405-c394-4763-a79f-21381f217b6c@redhat.com>
+Date: Wed, 10 Sep 2025 17:37:51 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|AM9PR04MB8507:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2cc87ba1-2fdc-4aab-bc0b-08ddf07f9a7a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|376014|7416014|366016|19092799006;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pBPvpWBk1F5D3yg5SHB8w4zc8kD1yBeWuNduSx63Y1iTisir3Dw6ADgO3ZW6?=
- =?us-ascii?Q?rC+seaMPnpFVWl5yL1Mhi0T4+x34atSlu6Hr8ri7THwJzY+l8Sj6ASPGawsi?=
- =?us-ascii?Q?+E6GuyXyS/Jfqkf69aOweMpcf4pSyD+Rpe9lGah2NHlXkRMSrW6KTOjOjgCq?=
- =?us-ascii?Q?ncvB2e67wlWBgAE/J3fZrfNQDnrUh9M8kEiG4Uy2p4GfZRNh77hCxvmvAuMj?=
- =?us-ascii?Q?GZIs8xlwFlkKFF7JpksWgQFqfZ95l+C2SsmvvNl04buJnDHq2hPkqNPi8vUP?=
- =?us-ascii?Q?jztXblryjQe/nOWoaBvTEXmbSJFniGFWX9CMGE2yrR0Q4Z+4NYk/GDC97dTB?=
- =?us-ascii?Q?+8BNKAPKIZqkKxtDcTZVtc3DtXwlycT+vntvacEXk8CYDyhAa3EloKXgJID/?=
- =?us-ascii?Q?0U+q25UpRn52w2rlsvhw2X7jSxyFHV8/DPTRziL2glUa9qCLK/ummVtENEcm?=
- =?us-ascii?Q?Be7oJE5+36NKI9BH1i0Sk91256/n/vuF32tfo1C7llVNY8HAAh3cc7C1hjO2?=
- =?us-ascii?Q?IbaK1DyrygDC4j7GLY0S68s5rrM8eeQ+M8BUIHOs0veG7svZfsqzz6X0Vy/8?=
- =?us-ascii?Q?i/YbahYTuBRVEfkphjZtoPQ4Sgm5MRMSH7JnOfjE/b8HMtROhNPegNSMZ7P7?=
- =?us-ascii?Q?oE9zMia9wHinkUlnVpxRtxKrQCxJgxtjHPt5gH/RQ9Xo/LZ53UZrC/sGiScY?=
- =?us-ascii?Q?ElUCEinICPSiLZHQMEvk4ujYLLgWaVd0gE4DUP251EBSQZ+UQVVc+HIe8LIS?=
- =?us-ascii?Q?kyK/aDwJ3id1Vhf5PwqyK1F9J3gyEoFPMaTz096ZPrJHtywIqD3b0Ij/shu1?=
- =?us-ascii?Q?qyD2OnM20UfSjq5LJ8dEl6UOd88rOERphlM9wjlD9KW/oTxNGxElRpl9o9ee?=
- =?us-ascii?Q?PhzBGgFTY4oyvpHNKriAMFL7cAm34ppZirst0yT89UUK+wRzil+a/n7pHzUd?=
- =?us-ascii?Q?YrB31BVt5IHLLTDWLNcZiqSmYBY+ycswETiPV4UvMQ0PB7090LOqxNrkCdwx?=
- =?us-ascii?Q?GR84Qky2LZmlUTiX5fPoOmCn2k56O8uJyH0enbF6taQl7I8txulg+F1KwZdY?=
- =?us-ascii?Q?FsnPVqdqJBeVl6ytwruKNiI7ZhJxjew4pP2yMIxlrbFMfqgzjOe9V06eDDfU?=
- =?us-ascii?Q?NSQpFvk21a0CvwJ7Kk3uHDlHyKiNnEORYMLDin24N932rzu/8uEElvYBlNLz?=
- =?us-ascii?Q?jLm4Ddy4aW6wZNIIGMHAMkww7iqzHCbUKlsRRPkz1SbWzRgkxuTwSwcjR5V1?=
- =?us-ascii?Q?K9AO+4m/JfZ9eqj2E9JMAO/18GCVqVOymFhF5G9Say2vjqkQQyGex+gCH/6Y?=
- =?us-ascii?Q?7SSXUtAsUm84daDibHMCReXngKcYIdO5FvyUCDTuM8cS0GBX2oRMFkfeSGba?=
- =?us-ascii?Q?cTxVdwePoSJxWGnypkRh29L3R1G7T0pUU4VsF7/9zSbo9rEOTI7pvhHEcuwX?=
- =?us-ascii?Q?iEaOKCzd3mU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(376014)(7416014)(366016)(19092799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YxJrkdbZnSA7G2Tcqwb/wVAOli8JofjUb+oTwuuq9iDhZMZRlo5Q2grKBbbW?=
- =?us-ascii?Q?zuFFSgjJOtmGkSnOHTcaoB957TKCndwIZn9dNYw0TDwp0J7akqluraOnnAw3?=
- =?us-ascii?Q?jiODcSFoIj7tIlScyWUQ/dZtBj/od7UfrsW2pPQbHL1wpG5fFlri6q+a6MOa?=
- =?us-ascii?Q?vn7bIWOeM2SZaluV/xZjx53FYn38M1+7SMQ3v4+sdwmrzuMfku3ftpUPGgm9?=
- =?us-ascii?Q?10BemqNKvI/1TazgKlPx3TKbIw+b0jjpfpNyJiEOyU1LUNjvoTwv/n+3cw+v?=
- =?us-ascii?Q?POKMBFOwy+TzxvSVifnRn1VctegtzA9JPTJxmIRVQaZ6g8UyZ04Sy5HsM1KE?=
- =?us-ascii?Q?711KoXqLd7bUFaQ4/ssElTHqPotg6uAHhrrMWAgZucRKyTbpd/7jcJzeaDs9?=
- =?us-ascii?Q?dFkJiMrK6xfUjyIdupB5BG1Qdsrgs29874wfi/Bo8ssWfqDwkIXXCphQw66e?=
- =?us-ascii?Q?//0E0WIJLDVIeT0WawpQ7jhqqHp3SdDSSYe87HOmp/XTdk4/cbwrH8qS/4T5?=
- =?us-ascii?Q?/36rty5Xy1LZPXz8zp6fBuj2E0INpSoMI/TO7D354l2j4DWOFUS3ChNIl4G2?=
- =?us-ascii?Q?wf+Q/EOzUOto4cov8haBVVC3LkP1OJLlwsLbYmnqVJjpnqxq/iFAAXCRw69F?=
- =?us-ascii?Q?N0F+KWFb27Bgrf5yTd4exTcD9wKvHSMtiX+oUFZQ/Ublq6M06H1B6/Daee+a?=
- =?us-ascii?Q?XFQko4e5IazY9pgvPQ7X9DZ/kSHVqt6hxSJdhRURnw1U1GTdsuRk28QWrnN3?=
- =?us-ascii?Q?yo5u3AavskK9i/rQOPPKKr6vQizWzyxfYwbMB2HREFQsiUiEcfnMnXSivmGG?=
- =?us-ascii?Q?R+S6GAjZ1fi6Aux2I/qSsyqv/giSrfWHRaPVOSFisyb8sXvrZuthLd+LeQ0s?=
- =?us-ascii?Q?MSAYU9VSK3pwqY5mm8KPZ6rPVLk+cw5ahvW4hTKBYkIQRsa/PB4m95F+9xz3?=
- =?us-ascii?Q?5A6ZfNz1UFqPq8cJS4iXpP/GKwcoDJ1VmxhtuHBCQLCMsgg8nruBVNw6HlGd?=
- =?us-ascii?Q?9KR+9Sk4SegeC2TiOrwXbUqFujF08bPohdE+EdeyRa1nF58KEmjqI7yHVs+8?=
- =?us-ascii?Q?st4Y6g1umRujm/AoAkSLaxUbeDKPs6A5APkzCdol8i+EhJjEF5v+4p/L2u/7?=
- =?us-ascii?Q?8/BsJ5prZjgitETi0SvdLvMct0J5M5imN9/bXkdUHaWHrawUlO9FeSWamCr2?=
- =?us-ascii?Q?6bfd5oh3XdMJzTs24j6mTh6ID9fhS6ZwRqbl7dKCKLjpsbv3AQmZU4TD+ubm?=
- =?us-ascii?Q?bWza5AdnjNA1JjYurOGfIE4cowROvvTG9KOmiWhYrJnxtEFH5IMPZDQ647dj?=
- =?us-ascii?Q?n/pIOfYR1fmDsv3k5iVtSt5tspReA2L+8sj3qgWpu4CCv8iavt0Z1KaNgUZs?=
- =?us-ascii?Q?NZh1xx6qymWLBxptKS9Y7kLYQtwDGjHcqwWNlXbgjztXpmYUJZrobQwJ8omt?=
- =?us-ascii?Q?JK9WziL4sAlzsRxgHhmtsiwAy682lve09+qfoG4rQ2xPpLGp8qZ4i3ukOr9g?=
- =?us-ascii?Q?no2rs3AjkLOHb4sYmzc2sQP4KjXNUTIdiz9Ilu4VcQv3vOpCLm42Uxsw+HpQ?=
- =?us-ascii?Q?RSpudndPrOylhL+Q9j3thys1E5bWLEwvCceRQa56/+I9elwHRwJdmdiBY3UT?=
- =?us-ascii?Q?xzS6RH5fGXyJPZJ9C3OPJwSn7D8qY0m28WSWifnsK/zQemVVPkgE93jjWuqK?=
- =?us-ascii?Q?UhoTxA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2cc87ba1-2fdc-4aab-bc0b-08ddf07f9a7a
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 15:35:00.1299
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FmbMjI1WJCGu70BHZv0S/sX+DVH2pOu6umNMcLLxF8y4nAUZ3AZr48ucyTjxMRBWNfTI8nYBkj+Ck+4dEHKc4w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8507
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
+ Mark Rutland <Mark.Rutland@arm.com>
+References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
+ <20250908073931.4159362-3-kevin.brodsky@arm.com>
+ <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
+ <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
+ <e7acb889-1fe9-4db3-acf4-39f4960e8ccd@redhat.com>
+ <2fecfae7-1140-4a23-a352-9fd339fcbae5-agordeev@linux.ibm.com>
+ <e521b1f4-3f2b-48cd-9568-b9a4cf4c4830@redhat.com>
+ <47ee1df7-1602-4200-af94-475f84ca8d80@arm.com>
+ <29383ee2-d6d6-4435-9052-d75a263a5c45@redhat.com>
+ <9de08024-adfc-421b-8799-62653468cf63@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <9de08024-adfc-421b-8799-62653468cf63@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: bnCJ3mY9Zs43rIDSnea0JAijK0BtZCvfJcaNN0ZdJGQ_1757518674
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_083509_255950_6DE2217D 
-X-CRM114-Status: GOOD (  27.89  )
+X-CRM114-CacheID: sfid-20250910_083758_441363_F87B7F5E 
+X-CRM114-Status: GOOD (  36.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,44 +185,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 04:09:05PM +0100, Mark Brown wrote:
-> > And if you plan to do that from the GPIO function of your SoC, the SoC
-> > might be busy doing other stuff, like booting, and no one might be
-> > driving the RST_N voltage to a defined state.
 > 
-> I suspect you're reading too much into the datasheet there.  I suspect
-> that what it's trying to say is that the reset signal only works with
-> stable power and clocks, that it must be held low for the 5us while
-> those conditions hold and that you have to do at least one cold reset
-> after power on.  The above wording is pretty common in datasheets and I
-> know in a bunch of cases it was carried forward kind of blindly rather
-> than looking at the actual device requirements.
-
-No, it doesn't say that, and I had discussions with the application
-engineering team for this chip about this :-/
-
-I can't comment on anything extrapolated outside of the SJA1105/SJA1110.
-
-> > It really depends on a lot of factors including the reset timing and
-> > supply voltage distribution of the PCB, but RST_N has essentially 2
-> > purposes. One is ensuring proper POR sequencing, the other is cold
-> > resetting at runtime. You can do the latter over SPI with identical
-> > outcome, which leaves proper POR sequencing, which is not best served by
-> > a GPIO in my experience.
+> Somewhat, but in the regular case where enter() is called followed by
+> leave() there is really no complexity for the caller, just an extra
+> local variable.
 > 
-> I'm not sure not including the signal in the DT bindings is going to
-> influence board designers much either way TBH.
+> There are complications where we want to exit lazy_mmu temporarily, as
+> in mm/kasan/shadow.c [1k], but this is in fact unavoidable. Chatting
+> with Mark Rutland, I realised that to truly support nested sections,
+> this must be handled in a special way in any case. To be clear, I am
+> referring to this situation:
+> 
+> __kasan_populate_vmalloc:
+>      apply_to_page_range:
+>          arch_enter_lazy_mmu_mode() {1}
+> 
+>          kasan_populate_vmalloc_pte:
+>              arch_leave_lazy_mmu_mode() {2}
+>              arch_enter_lazy_mmu_mode() {3}
+> 
+>          arch_leave_lazy_mmu_mode() {4}
+> 
+> With the approach this series takes, call {2} is made safe by passing a
+> special parameter (say LAZY_MMU_FLUSH) that forces lazy_mmu to be fully
+> exited - and call {3} will then re-enter lazy_mmu. This works regardless
+> of whether __kasan_populate_vmalloc() has been called with lazy_mmu
+> already enabled (i.e. calls {1} and {4} can be nested).
+> 
+> On the other hand, with a pagefault_disabled-like approach, there is no
+> way to instruct call {3} to fully exit lazy_mmu regardless of the
+> nesting level.
 
-Either way, something has to nudge at least the software developer
-towards finding and reading the vendor's relevant documentation.
+Sure there is, with a better API. See below. :)
 
-In that sense, 'reset-gpios' is misleading to say the least, because
-everyone sees a reset GPIO and has the human tendency to think there
-isn't anything more to be known about it (like I also did).
+> 
+> It would be possible to make both approaches work by introducing a new
+> API, along the lines of:
+> - int arch_disable_save_lazy_mmu_mode() (the return value indicates the
+> nesting level)
+> - void arch_restore_lazy_mmu_mode(int state) (re-enter lazy_mmu at the
+> given nesting level)
 
-To be clear, I'm saying that supporting 'reset-gpios' in this driver was
-a mistake, at least in the form where its supplies and clocks aren't
-also under control. I'm not sure it's a mistake that we need to document,
-and if we do, there need to be a lot more disclaimers. Also, I'm pretty
-sure nothing will break if driver support for it is simply removed.
+Yes, I think we really need a proper API.
+
+> 
+> This is arguably more self-documenting than passing LAZY_MMU_FLUSH in
+> call {2}. This API is however no simpler when using a
+> pagefault_disabled-like approach (and less consistent than when always
+> saving state on the stack).
+
+Yes, a proper API is warranted. In particular, thinking about the following:
+
+arch_enter_lazy_mmu_mode() {1}
+	arch_enter_lazy_mmu_mode() {2}
+
+	kasan_populate_vmalloc_pte:
+		arch_leave_lazy_mmu_mode() {3}
+		arch_enter_lazy_mmu_mode() {4}
+
+	arch_leave_lazy_mmu_mode() {5}
+arch_leave_lazy_mmu_mode() {6}
+
+
+Imagine if we have the following API instead:
+
+lazy_mmu_enable() {1}
+	lazy_mmu_enable() {2}
+
+	kasan_populate_vmalloc_pte:
+		lazy_mmu_pause() {3}
+		lazy_mmu_continue() {4}
+
+	lazy_mmu_disable() {5}
+lazy_mmu_disable() {6}
+
+
+I think it is crucial that after lazy_mmu_save/lazy_mmu_restore, no more 
+nesting must happen.
+
+Assume we store in the task_struct
+
+uint8_t lazy_mmu_enabled_count;
+bool lazy_mmu_paused;
+
+We can do things like
+
+a) Sanity check that while we are paused that we get no more 
+enable/disable requests
+b) Sanity check that while we are paused that we get no more pause requests.
+
+[...]
+
+>>
+>> If LAZY_MMU_DEFAULT etc. are not for common code, then please
+>> maintain them for the individual archs as well, just like you do with the
+>> opaque type.
+> 
+> I see your point - having them defined in <linux/mm_types.h> could be
+> misleading. I just wanted to avoid all 4 architectures defining the same
+> macros. Maybe call them __LAZY_MMU_* to suggest they're not supposed to
+> be used in generic code?
+
+Maybe look into avoiding them completely :) Let's agree on the API first 
+and then figure out how to pass the information we need to pass.
+
+[...]
+
+>> Worse, it does not
+>>> truly enable states to be nested: it allows the outermost section to
+>>> store some state, but nested sections cannot allocate extra space. This
+>>> is really what the stack is for.
+>>
+>> If it's really just 8 bytes I don't really see the problem. So likely
+>> there is
+>> more to it?
+> 
+> I suppose 8 extra bytes per task is acceptable, but some architectures
+> may want to add more state there.
+
+Just for reference: we currently perform an order-2 allocation, 
+effectively leaving ~4KiB "unused".
+
+If there are any real such case on the horizon where we need to store 
+significantly more (in which case storing it on the stack might probably 
+also bad), please let me know.
+
+> 
+> The one case that is truly problematic (though not required at this
+> point) is where each (nested) section needs to store its own state. With
+> this series it works just fine as there is a lazy_mmu_state_t for each
+> section, however if we use task_struct/thread_struct there can be only
+> one member shared by all nested sections.
+
+Do we have a use case for that on the horizon? If so, I fully agree, we 
+have to store information per level. How/what information we have to 
+store would be another question.
+
+-- 
+Cheers
+
+David / dhildenb
+
 
