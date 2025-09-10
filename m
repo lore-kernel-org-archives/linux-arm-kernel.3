@@ -4,173 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DB8CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2746DCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xC5R7eYl9Rwp0IenYxoNNT2Mrkq2ifbsmCTO4MCCq6w=; b=xi0LMspfv6bPz+OjummCsPjJwb
-	FF6pAfoiuMLXb5c632RmYc3+i8nOX3DMFIkl9cirZhffv8132QFkRSqe8BM3bvsOH8itv+14oZtwM
-	bgenI0nqnEWUo4vngg+e8C/BccHoH0Gwyd/rsttCl3Ya8KvEXEg9E7h71bJbxgdtMTNSCvRUyFb74
-	YvgLBizJtAf4zelYKlj63AX5qmXuSOtjhYFk0g/tul3wR9blUzZGhqKY4dMDOYguP4/DR9idhBH8N
-	3Ptchf/MGSflrrbWhcHICZPIXoraPJlMI3v89kJSh+1wiLkDfwBDd2Vze9w325yvGLVHDtjlAcPfs
-	+8C5bvzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K3zGRiD72zK0SuVCP+OsgF6wdtOQz7CD5ov3r498fPs=; b=ktN7J1+Ws6NyFB/xYOBMCP9fB4
+	q58lOQYk8xXJxZqvwEUBuH1Ifz8A9otMmSh1p8CRVfrLNeV85lSaiQssNzdXH00b1XfsIAsajCru0
+	Kf5FHYpHaFqDl/4pIwZw0TF8jTYzyxla0mMJBFKPQBJsYqAMINOaoNOuxzXRA6ELhD66EJNx/PS5n
+	RlGHlY5lgmX/oXmUtcij79JaE4YkDUwF3mTUAa4tAsyBHC0VSGBPepv1lJuXxhtIBJ5i4Jde0+bKk
+	UR439dAWbNV/ugG4us0y3STnOFZFgFTaiNn5B5wOyNzTJiOB2cMuKLLzRH3z89gpjSDJH897yhRJV
+	sSbI8TVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMtV-0000000FAGD-0PrD;
-	Wed, 10 Sep 2025 15:38:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uwMwD-0000000FBU2-2tdX;
+	Wed, 10 Sep 2025 15:40:49 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMtS-0000000FADh-1NVq
+	id 1uwMwB-0000000FBSg-10xn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 15:38:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757518676;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=xC5R7eYl9Rwp0IenYxoNNT2Mrkq2ifbsmCTO4MCCq6w=;
-	b=cBbrr4oOAAC2TDHzjFbIDAPy57+V5lhbL+bRUKVSiV+5qKONPaUk62FJVauTUOebSC1uM9
-	SrFcx94MO4gbFZjEQr3EWBl/e7IE+QnpykS2dsyYqiERSEl49D4wi2dt7FhWnCK+X7wuz1
-	s19Ost5HzCrBJpPddBEwxyGIGy8OadQ=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-413-Q9ZlTxNcOzesamGX6VL8lQ-1; Wed, 10 Sep 2025 11:37:55 -0400
-X-MC-Unique: Q9ZlTxNcOzesamGX6VL8lQ-1
-X-Mimecast-MFC-AGG-ID: Q9ZlTxNcOzesamGX6VL8lQ_1757518674
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45deddf34b9so5362935e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 08:37:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757518674; x=1758123474;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xC5R7eYl9Rwp0IenYxoNNT2Mrkq2ifbsmCTO4MCCq6w=;
-        b=YnxNPhW5vjDRGCvqNfp8xa81YE5sK4QzJx+phDYb0PVkkMaJFypPRdL3AkkZS4S/9e
-         qa90Dkx08inX6WoRAq0LG06TZCHjTW3vqc+KMPSCdlbe8D1Oog6mTLBHwJURnO5hML7i
-         FLFj/BJyhO2mhLQx6FbDABURe8d76YfTnFSx9X240Kq1UZAnnSRVNjj0pEQimZBXrOBb
-         z+5Vi/IS78o+cuvUcnIWqtLbFo6gybdp7Q4URSxew56Mp1L85ClSKDT5D7yjmGQVrl3Q
-         GM0ZjFQMMlOaNx/AotcJIo9NWkBfbOTFt3gW+uDnT87gUYPfrt/Bw2Iza1SdoIdgG0F7
-         HDvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUlawOvhqV+UXQmeqP+ytDLIC4urAvFgRirvgP/nMkdAzT53dFXF9H+Q5P2RRyxWNL5FP2CNAavipnSCz43Rwxz@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf1tcJcxkoHvt7Y7NtL8OZHpTfEFictwnAfblLgXZfWNWF143P
-	5Q/kHCnUWt0yBjQYwZSxL+hhQCR3KgC2H0vrEjCxj25ki7yX9wFCIWoPaWUW4gNqCPR54M+eB6e
-	5E2vqjL6BFXTNlGtxSSXpmNQYlHH01MvWJ9PQnpcG8nCnn6Tn4wna2LX1AjakjHWqMzRC1EjJ4f
-	Se
-X-Gm-Gg: ASbGncvHaXpZH8WrREwZE+VBi2tDR4DIbhbbXSp6TedxZUfGfnm8EBXopF6ABEcnr9D
-	WnHMZZaMJr28ApioNWCVZrGN0IYA3ur2kVT9sdq/yhxS9lTDTpgcci9YQtQ5AUxUlArKXK4pYHM
-	TCSuJnI4J6bJRa1Ta5zRYA57he08msj0zYUXevAusILNlPgozv+SbywoeDa7IkQAIAcvxg3xtFw
-	MxoDkIHbJ5PjRIqYELHhUvfp6o2QHq8v+JHuIHjVKJzigzfMAYn1LGWHARu+zPYa/Th+D+cvNPt
-	z2sqTLfLb3OpS7iTsc4lVd3ceW5C/MJ4yazGeb5pdi7MIXbQuNiK0FYYURbsfV8G2tV+i7p0W6x
-	g4fRwq+QQEylkUqUEAkbiGfKJkVV6Ok1GE95bn5O8go5s/XvsM+t+GbMMfN1Gd3oibCk=
-X-Received: by 2002:a05:6000:400f:b0:3df:22a3:d240 with SMTP id ffacd0b85a97d-3e75e0f032cmr41417f8f.4.1757518674315;
-        Wed, 10 Sep 2025 08:37:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFSanGWB8lh0ls+MFHggdlE9XrwwjBOuob47gN7Go2sD22cOkG0a4ZQLy4lN4pGQUVx9DuyJw==
-X-Received: by 2002:a05:6000:400f:b0:3df:22a3:d240 with SMTP id ffacd0b85a97d-3e75e0f032cmr41388f8f.4.1757518673785;
-        Wed, 10 Sep 2025 08:37:53 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f17:9c00:d650:ab5f:74c2:2175? (p200300d82f179c00d650ab5f74c22175.dip0.t-ipconnect.de. [2003:d8:2f17:9c00:d650:ab5f:74c2:2175])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7521c9cdbsm7733009f8f.16.2025.09.10.08.37.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 Sep 2025 08:37:53 -0700 (PDT)
-Message-ID: <ef343405-c394-4763-a79f-21381f217b6c@redhat.com>
-Date: Wed, 10 Sep 2025 17:37:51 +0200
+	Wed, 10 Sep 2025 15:40:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZyCjYcKoapicP8vDy9FZ5VU6+BfzmC/WQII0CW4hcAz+nStAe3wtR4UoLIMobg2g5GUQ5gvjzraDj98di18hKGKggW8xNm2eQ1vWwg/bfTpm/lFVnKZGobG70QycDk2z63K0Wz0pgxy9iddbyIMabuuRuFn267UoJMYBlVBUq9O8ha+1AOvzN1hdKZRfxLEg40gDC5u8ZRhr2t8836WE3K7Di9+iV9cBYNRM7fhlHGDnfZOHOGImgTqN3ZzG4/nWmquoXqEoIR5wQW680XOCGZqL8CUzqgpU8J9x3boMlxySDv0hY07AsZsSlFOx8PM6tAVGMYPwZNSTlC+bOnzsaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K3zGRiD72zK0SuVCP+OsgF6wdtOQz7CD5ov3r498fPs=;
+ b=FvPmA3l5MX2xTw+RfvnfEzqmy1YsossIMMi7V8sGNqjUDtLb5oXMDHusiWCcxpas7Zfn/8LbGUn/UPWp188onzrkER2GnJzG8UffwFrzplh8VYeecASsN0KVupqgx4L3MFp7BqrQ+xdXRd9yPa2lEHROs5S9vEQjof6Lz8BCTKShKR9J+EfEARku02tdTeO8HFVGsBJcIIF4qh4bLRI7E974SmCPKA6B5WFsifoGzpDl637I9Rc1bZ8S7RlekAqNdJ48I180Oj3yzgdsVBRJZC0x6n7QnrT3Zw5VwTg3tp3VU5BH5KCLp667SQz5Ml24g8pdmAz/BH3HyfEDeUzTCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K3zGRiD72zK0SuVCP+OsgF6wdtOQz7CD5ov3r498fPs=;
+ b=byjgWwmqEeUuCk2jDMNHRO4p+zfoNdI0QMZJDOSbDXmX42lZomKwCBeJit7sWs40RxKXDTCX7bIOVZlQ0h0ySZczJ/G6XOOibZMK2UuYoJXFNQyc2k/6WFo+cZdBbFjnEU6XuapshbN1Uu2xvU479nEpy11gygNhHj6D+s6Q1hWQnYvmHxHjc5FSgsCvUdm8LkmNSP0TXUJikRrmPQr5lAlQkT2GDYdqMzafPIcC0V34fVBy5pVW3typMXmTyLxwdRb9HiyBv4CKCzC3sxpWBdMdg56XmdHFrSd5LbW4HUgzQ5R1XdzHwI6FQNpZPOn7NU+cchgZJKNQzpTSdPVuyg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AS8PR04MB8135.eurprd04.prod.outlook.com (2603:10a6:20b:3b0::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.15; Wed, 10 Sep
+ 2025 15:40:40 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%5]) with mapi id 15.20.9115.010; Wed, 10 Sep 2025
+ 15:40:40 +0000
+Date: Wed, 10 Sep 2025 11:40:33 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org
+Subject: Re: [RESEND PATCH 4/4] Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP}
+ and GENMASK macros
+Message-ID: <aMGb8RzMGMKf/0hH@lizhi-Precision-Tower-5810>
+References: <20250910135916.3939502-1-dario.binacchi@amarulasolutions.com>
+ <20250910135916.3939502-5-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250910135916.3939502-5-dario.binacchi@amarulasolutions.com>
+X-ClientProxiedBy: PH8P221CA0065.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:349::13) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
-To: Kevin Brodsky <kevin.brodsky@arm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
- Mark Rutland <Mark.Rutland@arm.com>
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908073931.4159362-3-kevin.brodsky@arm.com>
- <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
- <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
- <e7acb889-1fe9-4db3-acf4-39f4960e8ccd@redhat.com>
- <2fecfae7-1140-4a23-a352-9fd339fcbae5-agordeev@linux.ibm.com>
- <e521b1f4-3f2b-48cd-9568-b9a4cf4c4830@redhat.com>
- <47ee1df7-1602-4200-af94-475f84ca8d80@arm.com>
- <29383ee2-d6d6-4435-9052-d75a263a5c45@redhat.com>
- <9de08024-adfc-421b-8799-62653468cf63@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
- ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZoEEwEIAEQCGwMCF4ACGQEFCwkIBwICIgIG
- FQoJCAsCBBYCAwECHgcWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaJzangUJJlgIpAAKCRBN
- 3hD3AP+DWhAxD/9wcL0A+2rtaAmutaKTfxhTP0b4AAp1r/eLxjrbfbCCmh4pqzBhmSX/4z11
- opn2KqcOsueRF1t2ENLOWzQu3Roiny2HOU7DajqB4dm1BVMaXQya5ae2ghzlJN9SIoopTWlR
- 0Af3hPj5E2PYvQhlcqeoehKlBo9rROJv/rjmr2x0yOM8qeTroH/ZzNlCtJ56AsE6Tvl+r7cW
- 3x7/Jq5WvWeudKrhFh7/yQ7eRvHCjd9bBrZTlgAfiHmX9AnCCPRPpNGNedV9Yty2Jnxhfmbv
- Pw37LA/jef8zlCDyUh2KCU1xVEOWqg15o1RtTyGV1nXV2O/mfuQJud5vIgzBvHhypc3p6VZJ
- lEf8YmT+Ol5P7SfCs5/uGdWUYQEMqOlg6w9R4Pe8d+mk8KGvfE9/zTwGg0nRgKqlQXrWRERv
- cuEwQbridlPAoQHrFWtwpgYMXx2TaZ3sihcIPo9uU5eBs0rf4mOERY75SK+Ekayv2ucTfjxr
- Kf014py2aoRJHuvy85ee/zIyLmve5hngZTTe3Wg3TInT9UTFzTPhItam6dZ1xqdTGHZYGU0O
- otRHcwLGt470grdiob6PfVTXoHlBvkWRadMhSuG4RORCDpq89vu5QralFNIf3EysNohoFy2A
- LYg2/D53xbU/aa4DDzBb5b1Rkg/udO1gZocVQWrDh6I2K3+cCs7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <9de08024-adfc-421b-8799-62653468cf63@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: bnCJ3mY9Zs43rIDSnea0JAijK0BtZCvfJcaNN0ZdJGQ_1757518674
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB8135:EE_
+X-MS-Office365-Filtering-Correlation-Id: 251580d5-0a59-49e1-8f2b-08ddf080655c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|19092799006|376014|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?A/PsdvXYCiCuaEuA1Aota3aETmZfn9IVuoYkwFzViamoZIEmS44ysxXJtvCy?=
+ =?us-ascii?Q?ewRRgQ60CH8ufJ/48mArGZjpL3nc6cfsJmsFB/9GVS8yqFUtGxTVlTuXf+pm?=
+ =?us-ascii?Q?3bJWmDdvn1nLK1rzxz0nLGH+8RTsoSx23FGC41y0ICC9ipGGdBHdWIl1/6WE?=
+ =?us-ascii?Q?S17JhROp725c0+Nr+OARFknu3o+2NjsgumZwYkg4pU6Eop4fHIThJPNO347v?=
+ =?us-ascii?Q?PCXTDOYkfHSXyk1p3/LRqyxBSKHHoc1eJc3wJrIGScl/2Yg/NFbOrw7KjpqQ?=
+ =?us-ascii?Q?DDl0mgDpE5LGM9aUBEt24NJXTZFZDR2QM681c4HIwbZIaRSlpbhdppqJz5m7?=
+ =?us-ascii?Q?/QHymjUoO6lUKskOyhN4087wsS8ItlzVo1jnHH3EkKukvv1SKqyK/ADMxsIY?=
+ =?us-ascii?Q?FIPI5UdI+p4uRrBSVQgOqsjnMc8+znZ/oMItA0CamI38BquRXpCxOJUs9tev?=
+ =?us-ascii?Q?l+SgOBg4M4PUSMm/pWAuUGyvY35OTEyr4a91S3FZBIMT2r6hdnqZVQ2r+FBA?=
+ =?us-ascii?Q?JYSFd4SMjlLWbtnxC6Ycix/BIn+eHgGfifCSQVeW9gKfHfn3CxN4saOVcWEq?=
+ =?us-ascii?Q?ePnAe9P9BKONe2OxDp8663y6abZi5ZuiSwZOv56j4YCbEq7/sTLphUp0eQwu?=
+ =?us-ascii?Q?UsSmWY32UoYRS+2xmz/AF40LlBLuDJPGGiKsXA+Mjv7kUqa4rw/IwDwbsfe1?=
+ =?us-ascii?Q?ovn4g2ETXgKeH61YwlPMpvKU3vi5OBZ5xMKfwmiRlFgcIM5CuOhPwtkFXs6u?=
+ =?us-ascii?Q?eKaftip4IZ4lb5K+rYXBzxtOMwYw5bzCoKXjM3qi/Y2Yi+QQyw+1wjc9yCQS?=
+ =?us-ascii?Q?0O2r07SXnAw6JqZP7+czw0f5+ydmbAzHzGvoWC/oRS3H1N7dSKbeDnp8uFzy?=
+ =?us-ascii?Q?QwKIvDFCvGDL6cbh7WB7SgFN9gFMB66za9AbTbTPipftUZt/e1VuQ/ti/iPa?=
+ =?us-ascii?Q?0JW7X7Lnj5kaFxGUEBue1z8HAWI80xThHsQKuZP8R1oREn/o8hRAVMV6xuMj?=
+ =?us-ascii?Q?Z2lhqQSxSZsSlpdjDJcOGC5Ok28DgxCTFfRIpy9iSKlEv31/mAx0ojqIhFqj?=
+ =?us-ascii?Q?oWuEewb9b/6rsc+74lqTS46F+BTeocGzo31qPJXLIoDR+dWsrF0TpZq+lMKP?=
+ =?us-ascii?Q?S5wnGmTen0yrtltgrSy8I2rOTRlf8eAaCx3u0ByJL2JVCF0tpq9l1jwRU79i?=
+ =?us-ascii?Q?9+3OcpRIJ0tHrqchYT+p5+y5ULYcltFHN/IUZJdGStCQKy/EgHFMJvoC4L2t?=
+ =?us-ascii?Q?sGHV0U4zQX2q0BfLDCp+TRhNSCryJsmMI3rzklcdpLlOh+akoj2P9w6eDv/i?=
+ =?us-ascii?Q?TmfkFg/yOzgg1irY6zhClo6V1alSoYBWsefsa6CGKa13qoPeSIJFkE5mzR36?=
+ =?us-ascii?Q?rrNNOXa14c4Ad5aEVOYiEkEFmk+i0Wi4afsJqocsNebRq2yQzOCWB1KMCPWQ?=
+ =?us-ascii?Q?g5XmdtJYrf+mCn0pSVWLHBY7XqJTwkL8an4F0dckAlK9pfjKg8g78KSWPTpl?=
+ =?us-ascii?Q?KL59CG47hSzOeWI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(19092799006)(376014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qF9M3Cfw4SCIHU5NIcJemrMTMFA74Qp2LKm6UCAKNFCW59KBQGh1P5j5+UNL?=
+ =?us-ascii?Q?Ch/cTIiC6VENL8fW/SAuDu/C/cFYRxy3xjhylpwBUmEjJgmWBOg/lp5cGDLl?=
+ =?us-ascii?Q?uYvJcqbh62A+XD71ck2OdQAwYFoSOfpZKVRaXq0U+JzVl81tz3CBurcOliyI?=
+ =?us-ascii?Q?+3YiPGc7/iNyT3bCWqaw+ah1LBpu5B4/eBloMzgsOS3t7/nq1nHej62QtcXp?=
+ =?us-ascii?Q?/yniaoImHhkqFYouyoXayfxN0tqkWNbCxP+N/cFi7zvN0yC4svwgnxKDttsQ?=
+ =?us-ascii?Q?UkclSHQjz7ERtaqQXbhQx8socn6PIopFQQa39pA0diOJX8TyLzO0OgPW2bUW?=
+ =?us-ascii?Q?/wXx0OpnM8mCh0fdW7sKr/xEt2lCNcTauINiOo1aHVnBXEwX2y3wLlXNYjfJ?=
+ =?us-ascii?Q?ZAGqXwYIdud+/QXZgP037CTxuEgjbSdTVO75uSABNdIv1uRZauSPoDqAztzu?=
+ =?us-ascii?Q?l2zbp5K8JJzZZ+RwxKk0EZ0XQ+uGTuMNaC9w/AYWbgiaf4Wh1SgR5FiCp8XO?=
+ =?us-ascii?Q?YHnhoQ/HTreYh9dHuzYLJOdwD0axHRyMzv67cLp7U8UpzxhtjAmJH5HZkD0F?=
+ =?us-ascii?Q?vk1oRn7ZOb+slkSd6uV8uq+eSv4mf7C8DIVz2IfWQS7rMfTy1W/3ydtLID5w?=
+ =?us-ascii?Q?8WngwH9FL3XSPygjixt51aNwinqH37VtW4HxA15DNTxxUtaz+2YYJ7qlupCw?=
+ =?us-ascii?Q?ASGX/adLVrREGdX7OkCKj9AT9ODJyIz84dljll6mtD9cySP17JIosV67xMTB?=
+ =?us-ascii?Q?tGif2nJRy0tWzmBX2qtiz+7FXwXicOnt2ExcHF///eqtxqWpEts1zDaNtTcg?=
+ =?us-ascii?Q?5aq6YLPtv7IXh0HGG/4+8kZ4KCZVZTzPbOA02rbErf/rmMWYygyEPQpCW4AJ?=
+ =?us-ascii?Q?E3xUzbaEngfZ0unQMMua0PzFIoJiE5vQJ3VXmS2WrvZvQRpvJdvv+30Zl43g?=
+ =?us-ascii?Q?9C/YRPQxNTeQUeQKob7JzCcMR/ck3fvJJkNeepZ8saV1aMrMBTO1/yLfrs3Z?=
+ =?us-ascii?Q?Z0wqiU0aJExr44ZM2t2y4MVvxHP8scWJ47nSTYSXCg1aJCorlf6sE/VKZ3eb?=
+ =?us-ascii?Q?LKqZU3iBT3OS363TqN9wDwHCX0EwKaTIX8xeC5Ua5HHASGkjCKMXcOmYu4l0?=
+ =?us-ascii?Q?hydfHDVnb7koK/h4d6daZTDVea0kXVlBsAbUmluqCMaW5mGwK0GQOcP7L39q?=
+ =?us-ascii?Q?InKFF6Z33BdqFmnh3f8isfmUSMi7BOt7wE9Cb1Jj0pPFqmtas4xAZruS8CT+?=
+ =?us-ascii?Q?Sn+NaIyzqeWd3gS6dnmlncEhJ1VjYn/xRx1ruGr2lwF2qkCTDOUGiCc8xTHG?=
+ =?us-ascii?Q?lhOG/t898PITECBmEQILUlYbn7kBwdm2BrQF1Md8ffk1pngCutTrpp5j7Fek?=
+ =?us-ascii?Q?E7q3+K5tJmGEKy6koFZ1DGB2yCiSa88FLORZULfNzkqTTD5g3BiARPZfPHRQ?=
+ =?us-ascii?Q?0dE8JVpzLr2ZhyA8Ss4qwwXFHcd/uYvoO8Y45EEc4XIqTlsClp+g4p7LEsBN?=
+ =?us-ascii?Q?WIzDzgyuu9o65xz6oBRhUVwNlNgVqv54zcyYsbTzuvlUXOvqIpPebFgQqtxk?=
+ =?us-ascii?Q?UCSIbQl7M2SR2bxwVfI9sC19PCgiIwhUU9EEnbo8?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 251580d5-0a59-49e1-8f2b-08ddf080655c
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 15:40:40.6173
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: p+Kw+ffkQk7LzRq1NAaVvSyrBgwhJ+GFRq/wKMizxQZQXPnl8JM5oADDwswR98DQSkrJzooVQ7YMOrnr6q+2Lw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_083758_441363_F87B7F5E 
-X-CRM114-Status: GOOD (  36.78  )
+X-CRM114-CacheID: sfid-20250910_084047_434455_C42826C9 
+X-CRM114-Status: GOOD (  21.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,145 +164,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> 
-> Somewhat, but in the regular case where enter() is called followed by
-> leave() there is really no complexity for the caller, just an extra
-> local variable.
-> 
-> There are complications where we want to exit lazy_mmu temporarily, as
-> in mm/kasan/shadow.c [1k], but this is in fact unavoidable. Chatting
-> with Mark Rutland, I realised that to truly support nested sections,
-> this must be handled in a special way in any case. To be clear, I am
-> referring to this situation:
-> 
-> __kasan_populate_vmalloc:
->      apply_to_page_range:
->          arch_enter_lazy_mmu_mode() {1}
-> 
->          kasan_populate_vmalloc_pte:
->              arch_leave_lazy_mmu_mode() {2}
->              arch_enter_lazy_mmu_mode() {3}
-> 
->          arch_leave_lazy_mmu_mode() {4}
-> 
-> With the approach this series takes, call {2} is made safe by passing a
-> special parameter (say LAZY_MMU_FLUSH) that forces lazy_mmu to be fully
-> exited - and call {3} will then re-enter lazy_mmu. This works regardless
-> of whether __kasan_populate_vmalloc() has been called with lazy_mmu
-> already enabled (i.e. calls {1} and {4} can be nested).
-> 
-> On the other hand, with a pagefault_disabled-like approach, there is no
-> way to instruct call {3} to fully exit lazy_mmu regardless of the
-> nesting level.
+On Wed, Sep 10, 2025 at 03:58:38PM +0200, Dario Binacchi wrote:
+> Replace opencoded masking and shifting, with BIT(), GENMASK(),
+> FIELD_GET() and FIELD_PREP() macros.
 
-Sure there is, with a better API. See below. :)
+Add "No functional change." to help filter out if need bisect.
 
-> 
-> It would be possible to make both approaches work by introducing a new
-> API, along the lines of:
-> - int arch_disable_save_lazy_mmu_mode() (the return value indicates the
-> nesting level)
-> - void arch_restore_lazy_mmu_mode(int state) (re-enter lazy_mmu at the
-> given nesting level)
+>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+>
+> ---
 
-Yes, I think we really need a proper API.
+This cleanup patch should follow patch1, which is typo fix.
 
-> 
-> This is arguably more self-documenting than passing LAZY_MMU_FLUSH in
-> call {2}. This API is however no simpler when using a
-> pagefault_disabled-like approach (and less consistent than when always
-> saving state on the stack).
-
-Yes, a proper API is warranted. In particular, thinking about the following:
-
-arch_enter_lazy_mmu_mode() {1}
-	arch_enter_lazy_mmu_mode() {2}
-
-	kasan_populate_vmalloc_pte:
-		arch_leave_lazy_mmu_mode() {3}
-		arch_enter_lazy_mmu_mode() {4}
-
-	arch_leave_lazy_mmu_mode() {5}
-arch_leave_lazy_mmu_mode() {6}
-
-
-Imagine if we have the following API instead:
-
-lazy_mmu_enable() {1}
-	lazy_mmu_enable() {2}
-
-	kasan_populate_vmalloc_pte:
-		lazy_mmu_pause() {3}
-		lazy_mmu_continue() {4}
-
-	lazy_mmu_disable() {5}
-lazy_mmu_disable() {6}
-
-
-I think it is crucial that after lazy_mmu_save/lazy_mmu_restore, no more 
-nesting must happen.
-
-Assume we store in the task_struct
-
-uint8_t lazy_mmu_enabled_count;
-bool lazy_mmu_paused;
-
-We can do things like
-
-a) Sanity check that while we are paused that we get no more 
-enable/disable requests
-b) Sanity check that while we are paused that we get no more pause requests.
-
-[...]
-
->>
->> If LAZY_MMU_DEFAULT etc. are not for common code, then please
->> maintain them for the individual archs as well, just like you do with the
->> opaque type.
-> 
-> I see your point - having them defined in <linux/mm_types.h> could be
-> misleading. I just wanted to avoid all 4 architectures defining the same
-> macros. Maybe call them __LAZY_MMU_* to suggest they're not supposed to
-> be used in generic code?
-
-Maybe look into avoiding them completely :) Let's agree on the API first 
-and then figure out how to pass the information we need to pass.
-
-[...]
-
->> Worse, it does not
->>> truly enable states to be nested: it allows the outermost section to
->>> store some state, but nested sections cannot allocate extra space. This
->>> is really what the stack is for.
->>
->> If it's really just 8 bytes I don't really see the problem. So likely
->> there is
->> more to it?
-> 
-> I suppose 8 extra bytes per task is acceptable, but some architectures
-> may want to add more state there.
-
-Just for reference: we currently perform an order-2 allocation, 
-effectively leaving ~4KiB "unused".
-
-If there are any real such case on the horizon where we need to store 
-significantly more (in which case storing it on the stack might probably 
-also bad), please let me know.
-
-> 
-> The one case that is truly problematic (though not required at this
-> point) is where each (nested) section needs to store its own state. With
-> this series it works just fine as there is a lazy_mmu_state_t for each
-> section, however if we use task_struct/thread_struct there can be only
-> one member shared by all nested sections.
-
-Do we have a use case for that on the horizon? If so, I fully agree, we 
-have to store information per level. How/what information we have to 
-store would be another question.
-
--- 
-Cheers
-
-David / dhildenb
-
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>
+>  drivers/input/touchscreen/imx6ul_tsc.c | 88 ++++++++++++++------------
+>  1 file changed, 48 insertions(+), 40 deletions(-)
+>
+> diff --git a/drivers/input/touchscreen/imx6ul_tsc.c b/drivers/input/touchscreen/imx6ul_tsc.c
+> index a6066643bd48..e74999c5e22f 100644
+> --- a/drivers/input/touchscreen/imx6ul_tsc.c
+> +++ b/drivers/input/touchscreen/imx6ul_tsc.c
+> @@ -21,25 +21,23 @@
+>  #include <linux/log2.h>
+>
+>  /* ADC configuration registers field define */
+> -#define ADC_AIEN		(0x1 << 7)
+> +#define ADC_AIEN		BIT(7)
+> +#define ADC_ADCH_MASK		GENMASK(4, 0)
+>  #define ADC_CONV_DISABLE	0x1F
+> -#define ADC_AVGE		(0x1 << 5)
+> -#define ADC_CAL			(0x1 << 7)
+> -#define ADC_CALF		0x2
+> -#define ADC_12BIT_MODE		(0x2 << 2)
+> -#define ADC_CONV_MODE_MASK	(0x3 << 2)
+> +#define ADC_AVGE		BIT(5)
+> +#define ADC_CAL			BIT(7)
+> +#define ADC_CALF		BIT(1)
+> +#define ADC_CONV_MODE_MASK	GENMASK(3, 2)
+> +#define ADC_12BIT_MODE		0x2
+>  #define ADC_IPG_CLK		0x00
+> -#define ADC_INPUT_CLK_MASK	0x3
+> -#define ADC_CLK_DIV_8		(0x03 << 5)
+> -#define ADC_CLK_DIV_MASK	(0x3 << 5)
+> -#define ADC_SHORT_SAMPLE_MODE	(0x0 << 4)
+> -#define ADC_SAMPLE_MODE_MASK	(0x1 << 4)
+> -#define ADC_HARDWARE_TRIGGER	(0x1 << 13)
+> -#define ADC_AVGS_SHIFT		14
+> -#define ADC_AVGS_MASK		(0x3 << 14)
+> +#define ADC_INPUT_CLK_MASK	GENMASK(1, 0)
+> +#define ADC_CLK_DIV_8		0x03
+> +#define ADC_CLK_DIV_MASK	GENMASK(6, 5)
+> +#define ADC_SAMPLE_MODE		BIT(4)
+> +#define ADC_HARDWARE_TRIGGER	BIT(13)
+> +#define ADC_AVGS_MASK		GENMASK(15, 14)
+>  #define SELECT_CHANNEL_4	0x04
+>  #define SELECT_CHANNEL_1	0x01
+> -#define DISABLE_CONVERSION_INT	(0x0 << 7)
+>
+>  /* ADC registers */
+>  #define REG_ADC_HC0		0x00
+> @@ -66,20 +64,26 @@
+>  #define REG_TSC_DEBUG_MODE	0x70
+>  #define REG_TSC_DEBUG_MODE2	0x80
+>
+> +/* TSC_MEASURE_VALUE register field define */
+> +#define X_VALUE_MASK		GENMASK(27, 16)
+> +#define Y_VALUE_MASK		GENMASK(11, 0)
+> +
+>  /* TSC configuration registers field define */
+> -#define DETECT_4_WIRE_MODE	(0x0 << 4)
+> -#define AUTO_MEASURE		0x1
+> -#define MEASURE_SIGNAL		0x1
+> -#define DETECT_SIGNAL		(0x1 << 4)
+> -#define VALID_SIGNAL		(0x1 << 8)
+> -#define MEASURE_INT_EN		0x1
+> -#define MEASURE_SIG_EN		0x1
+> -#define VALID_SIG_EN		(0x1 << 8)
+> +#define MEASURE_DELAY_TIME_MASK	GENMASK(31, 8)
+> +#define DETECT_5_WIRE_MODE	BIT(4)
+> +#define AUTO_MEASURE		BIT(0)
+> +#define MEASURE_SIGNAL		BIT(0)
+> +#define DETECT_SIGNAL		BIT(4)
+> +#define VALID_SIGNAL		BIT(8)
+> +#define MEASURE_INT_EN		BIT(0)
+> +#define MEASURE_SIG_EN		BIT(0)
+> +#define VALID_SIG_EN		BIT(8)
+>  #define DE_GLITCH_MASK		GENMASK(30, 29)
+>  #define DE_GLITCH_DEF		0x02
+> -#define START_SENSE		(0x1 << 12)
+> -#define TSC_DISABLE		(0x1 << 16)
+> +#define START_SENSE		BIT(12)
+> +#define TSC_DISABLE		BIT(16)
+>  #define DETECT_MODE		0x2
+> +#define STATE_MACHINE_MASK	GENMASK(22, 20)
+>
+>  struct imx6ul_tsc {
+>  	struct device *dev;
+> @@ -115,19 +119,20 @@ static int imx6ul_adc_init(struct imx6ul_tsc *tsc)
+>
+>  	adc_cfg = readl(tsc->adc_regs + REG_ADC_CFG);
+>  	adc_cfg &= ~(ADC_CONV_MODE_MASK | ADC_INPUT_CLK_MASK);
+> -	adc_cfg |= ADC_12BIT_MODE | ADC_IPG_CLK;
+> -	adc_cfg &= ~(ADC_CLK_DIV_MASK | ADC_SAMPLE_MODE_MASK);
+> -	adc_cfg |= ADC_CLK_DIV_8 | ADC_SHORT_SAMPLE_MODE;
+> +	adc_cfg |= FIELD_PREP(ADC_CONV_MODE_MASK, ADC_12BIT_MODE) |
+> +		FIELD_PREP(ADC_INPUT_CLK_MASK, ADC_IPG_CLK);
+> +	adc_cfg &= ~(ADC_CLK_DIV_MASK | ADC_SAMPLE_MODE);
+> +	adc_cfg |= FIELD_PREP(ADC_CLK_DIV_MASK, ADC_CLK_DIV_8);
+>  	if (tsc->average_enable) {
+>  		adc_cfg &= ~ADC_AVGS_MASK;
+> -		adc_cfg |= (tsc->average_select) << ADC_AVGS_SHIFT;
+> +		adc_cfg |= FIELD_PREP(ADC_AVGS_MASK, tsc->average_select);
+>  	}
+>  	adc_cfg &= ~ADC_HARDWARE_TRIGGER;
+>  	writel(adc_cfg, tsc->adc_regs + REG_ADC_CFG);
+>
+>  	/* enable calibration interrupt */
+>  	adc_hc |= ADC_AIEN;
+> -	adc_hc |= ADC_CONV_DISABLE;
+> +	adc_hc |= FIELD_PREP(ADC_ADCH_MASK, ADC_CONV_DISABLE);
+>  	writel(adc_hc, tsc->adc_regs + REG_ADC_HC0);
+>
+>  	/* start ADC calibration */
+> @@ -167,19 +172,21 @@ static void imx6ul_tsc_channel_config(struct imx6ul_tsc *tsc)
+>  {
+>  	u32 adc_hc0, adc_hc1, adc_hc2, adc_hc3, adc_hc4;
+>
+> -	adc_hc0 = DISABLE_CONVERSION_INT;
+> +	adc_hc0 = FIELD_PREP(ADC_AIEN, 0);
+>  	writel(adc_hc0, tsc->adc_regs + REG_ADC_HC0);
+>
+> -	adc_hc1 = DISABLE_CONVERSION_INT | SELECT_CHANNEL_4;
+> +	adc_hc1 = FIELD_PREP(ADC_AIEN, 0) |
+> +		FIELD_PREP(ADC_ADCH_MASK, SELECT_CHANNEL_4);
+>  	writel(adc_hc1, tsc->adc_regs + REG_ADC_HC1);
+>
+> -	adc_hc2 = DISABLE_CONVERSION_INT;
+> +	adc_hc2 = FIELD_PREP(ADC_AIEN, 0);
+>  	writel(adc_hc2, tsc->adc_regs + REG_ADC_HC2);
+>
+> -	adc_hc3 = DISABLE_CONVERSION_INT | SELECT_CHANNEL_1;
+> +	adc_hc3 = FIELD_PREP(ADC_AIEN, 0) |
+> +		FIELD_PREP(ADC_ADCH_MASK, SELECT_CHANNEL_1);
+>  	writel(adc_hc3, tsc->adc_regs + REG_ADC_HC3);
+>
+> -	adc_hc4 = DISABLE_CONVERSION_INT;
+> +	adc_hc4 = FIELD_PREP(ADC_AIEN, 0);
+>  	writel(adc_hc4, tsc->adc_regs + REG_ADC_HC4);
+>  }
+>
+> @@ -194,8 +201,9 @@ static void imx6ul_tsc_set(struct imx6ul_tsc *tsc)
+>  	u32 debug_mode2;
+>  	u32 start;
+>
+> -	basic_setting |= tsc->measure_delay_time << 8;
+> -	basic_setting |= DETECT_4_WIRE_MODE | AUTO_MEASURE;
+> +	basic_setting |= FIELD_PREP(MEASURE_DELAY_TIME_MASK,
+> +				    tsc->measure_delay_time);
+> +	basic_setting |= AUTO_MEASURE;
+>  	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETTING);
+>
+>  	debug_mode2 = FIELD_PREP(DE_GLITCH_MASK, tsc->de_glitch);
+> @@ -255,7 +263,7 @@ static bool tsc_wait_detect_mode(struct imx6ul_tsc *tsc)
+>
+>  		usleep_range(200, 400);
+>  		debug_mode2 = readl(tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
+> -		state_machine = (debug_mode2 >> 20) & 0x7;
+> +		state_machine = FIELD_GET(STATE_MACHINE_MASK, debug_mode2);
+>  	} while (state_machine != DETECT_MODE);
+>
+>  	usleep_range(200, 400);
+> @@ -283,8 +291,8 @@ static irqreturn_t tsc_irq_fn(int irq, void *dev_id)
+>
+>  	if (status & MEASURE_SIGNAL) {
+>  		value = readl(tsc->tsc_regs + REG_TSC_MEASURE_VALUE);
+> -		x = (value >> 16) & 0x0fff;
+> -		y = value & 0x0fff;
+> +		x = FIELD_GET(X_VALUE_MASK, value);
+> +		y = FIELD_GET(Y_VALUE_MASK, value);
+>
+>  		/*
+>  		 * In detect mode, we can get the xnur gpio value,
+> --
+> 2.43.0
+>
 
