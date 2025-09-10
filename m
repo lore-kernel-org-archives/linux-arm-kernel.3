@@ -4,70 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABB2CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57617CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M4G8oiJnqUQFcinT0UpJ+NwO6jcmpr6JDZMw/oTfzvs=; b=sWd5YprNsKvJ+b1rxX6rDjodFy
-	dycxOcv/WXmb1mAIBHkjjEOJ8O90wfMjnDM4VB1zXSACCNL5Pvnvzmuum0Rit69sdl3/t+48wRbTH
-	dmUCeZcLi/0FFxssZ/WGRxflyL/JiFaVHrxe+FonXkhddXAhVExc6m603xXrcIKDYEM4qvjwINJFh
-	v9XdjHDdB4ecTQL9uw1HfmRxfpYij8zUBveWAHumpALt+S7nPEC2jyefGtRxa8INdDv85Y+zM1tyM
-	CREXDwzvnUHbGKot/tX68iTdWfyW3Sq7yZML1dQrjbKo8sqZL6okEA2QcLp0T3gRX2LcGXfVeZeQv
-	f22lnf6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yRMyPUn85xb1e1aoe1yrRXBbPWGVjgqZhwJSFEvzvuU=; b=H6SN/IBz3R9WDqK7jhR8I1b6op
+	i1hSBoSrlC9hPq5QlXcpuUzUevDUnQAUAMSRw5KvNroq2EFbayD35xcWyGqpFBcAfbZj1hsker7tE
+	GHpAW7o1OhQwGTsOcdbl2UFY2GQEgBmcWQrsxqTdN87YQJnQawND+Xnzt5Bq09wdYZTYib/Ej8iAu
+	pQ5qwFcMpJCtghP80IsorVazrEY1WV8loG4tsPqOioUDcHLtgKsMqb6oMcNeyM/gmiCTHxDPqXsa1
+	j2UtFzfHJk7Pm311vnaJ6rX2ol+oqgwBPLPxGSi0pYP6JJmTz++WgoSHcLPqNWtVTPNALoSkBkQJ1
+	WprbEugg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJaW-0000000E0Sm-02M7;
-	Wed, 10 Sep 2025 12:06:12 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uwJjQ-0000000E2oM-21xD;
+	Wed, 10 Sep 2025 12:15:24 +0000
+Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJaS-0000000E0QR-3bMe
+	id 1uwJjN-0000000E2ml-0MCV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 12:06:09 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwJaK-000834-8u; Wed, 10 Sep 2025 14:06:00 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwJaJ-000aLn-22;
-	Wed, 10 Sep 2025 14:05:59 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwJaJ-00GFO5-1Z;
-	Wed, 10 Sep 2025 14:05:59 +0200
-Date: Wed, 10 Sep 2025 14:05:59 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 07/11] dmaengine: imx-sdma: make use of dev_err_probe()
-Message-ID: <20250910120559.u4gmegcrrpe6qvrf@pengutronix.de>
-References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
- <20250903-v6-16-topic-sdma-v1-7-ac7bab629e8b@pengutronix.de>
- <aLhZFv27bFh64MrD@lizhi-Precision-Tower-5810>
+	Wed, 10 Sep 2025 12:15:23 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 6397B140037D;
+	Wed, 10 Sep 2025 08:15:19 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Wed, 10 Sep 2025 08:15:19 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1757506519;
+	 x=1757592919; bh=yRMyPUn85xb1e1aoe1yrRXBbPWGVjgqZhwJSFEvzvuU=; b=
+	ol4bsgS0gAucAgfBetATpbUq1DVhq0A2msg3kRCmHRM0vTFnGsRZUZPgZUFcGvfa
+	631bOzB2OkXKxaX3cQCjpccSlbZB9lgckWy0tpWCkRuRv26UBRkLF/DmFa6p1MlY
+	Vtqek3+MfQLVn/lo/JWN6wB0+WuiiGWkqKxi77syWLPNDxWuRIAVyv5kCgkXZ60F
+	wUHQMvfoOB/WYofWx2pL9lvlC2Vq+krEm6NiIHjUXAj3fHzLJnAHRlOXrdzpGlN3
+	AP88BzohD9RWKWfsSDUjXBIXwWSRr87rJAcr/Ss06o+pMjHTBfgHpOckyuZUFwpu
+	TfqjA+rHTj8qAwVWd9Mk4g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1757506519; x=
+	1757592919; bh=yRMyPUn85xb1e1aoe1yrRXBbPWGVjgqZhwJSFEvzvuU=; b=P
+	BaSyUWbdWQu9ZAWkwqfPRWgp/P1abbgbv0SFjh6zpd1KLfqDk78ZMdZy+8/B5xBt
+	wBprAZETB/h/4BwCubAfKh4FrGVSvRYE0dsaJuIfjPSIwEKyLc687FTmz1JszerI
+	UOMPhTkIYtA/UCOxIIAA0xSbeJSLhtBKlr0SltgXg9Tnv65zqyHOXVK8fcMgn2Nz
+	nRmPBxMyaqtzJQYbfaO2ILlHJ6f4gAd2tYpNPS1YcVooGphIN8xFOAfMIH9d9g1+
+	JA7SIasDCvq4i514LnTAVFlBs5taXLf4f6jWH7MBDmHg2Iizz6I0u3n/Rl6kOZ4M
+	7kyEGKF0xG4K1n4fxlhxw==
+X-ME-Sender: <xms:12vBaNkjCJkhVYlYIuUh4aAQdomTDth3b2lzocKO16-nUyTJlLVwJQ>
+    <xme:12vBaI1VrvrgQPYFs0ysvFEs5SzYhnMyWi2ZcwyL1hF6eggdLpX8x2HVIWaBxFv-W
+    MvpTBXG_m96b3uYdC8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvfedviecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpeefhfehteffuddvgfeigefhjeetvdekteekjeefkeekleffjeetvedvgefhhfeihfen
+    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
+    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
+    thhtohepiedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhinhhugiesrghrmh
+    hlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehrmhhkodhkvghrnhgvlhesrghrmhhl
+    ihhnuhigrdhorhhgrdhukhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurd
+    horhhgpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordhorhhg
+    pdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrh
+    gruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdr
+    khgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:12vBaA0bSs0aAS17JI6OOHpLFmsToy_PTG6FzNdrpqgFPx_nrO1qgw>
+    <xmx:12vBaO4GjHpAD52DyrxRnl-igKCZtpQGXkUTJXnt5HhymmKH8DV95g>
+    <xmx:12vBaB8njhXySF2Q7xZx7AW59oxivJeIj7WxG4OmSXRqtGnF2yzMFA>
+    <xmx:12vBaNXdGkvwLqYbufbueFeakBxwrqz7F8q5--Q0d9VGuMstw50ksg>
+    <xmx:12vBaIvdIgi9uICef38tR01-COmscAgrLyeuaG_Z7RKoI9JwfM_HDe95>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 0CFC270006A; Wed, 10 Sep 2025 08:15:19 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLhZFv27bFh64MrD@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-ThreadId: AdnDL2dhGsVg
+Date: Wed, 10 Sep 2025 14:14:38 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Walleij" <linus.walleij@linaro.org>,
+ "Russell King" <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Russell King" <rmk+kernel@armlinux.org.uk>,
+ "Matthew Wilcox" <willy@infradead.org>
+Message-Id: <7dfbb373-fb44-48d1-9880-747faa47e079@app.fastmail.com>
+In-Reply-To: <20250910-arm-remove-high-pte-v1-1-d0899882815f@linaro.org>
+References: <20250910-arm-remove-high-pte-v1-1-d0899882815f@linaro.org>
+Subject: Re: [PATCH] RFC: ARM: drop support for HIGHPTE
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_050608_895555_37CB61DE 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20250910_051521_202206_698F7FD2 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,108 +115,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-09-03, Frank Li wrote:
-> On Wed, Sep 03, 2025 at 03:06:15PM +0200, Marco Felsch wrote:
-> > Convert the probe function to dev_err_probe() which helps users to
-> > identify issues better.
-> 
-> I think it is not "convert"
-> 
-> Add dev_err_probe() at return path of probe to help user to ...
+On Wed, Sep 10, 2025, at 11:47, Linus Walleij wrote:
+> Matthew Wilcox suggests HIGHPTE is a burden for the
+> kernel MM, and only one ARM system (vt8500) is currently
+> using it.
 
-Done, thanks.
+I think the vt8500_v6_v7_defconfig entry is a historic leftover,
+instead it is currently enabled by default on all configurations
+that enable highmem.
 
+> This deletes the use of HIGHPTE in ARM32 clearing the way
+> to remove the feature altogether.
+>
+> It was introduced in commit 65cec8e3db60 "ARM: implement highpte"
+> in 2009, so this RFC is intended as a discussion item to
+> check if it is still a desired feature 16 years later
+> or if we can get rid of it.
 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> >
-> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > ---
-> >  drivers/dma/imx-sdma.c | 28 ++++++++++++----------------
-> >  1 file changed, 12 insertions(+), 16 deletions(-)
-> >
-> > diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-> > index f6bb2f88a62781c0431336c365fa30c46f1401ad..e30dd46cf6522ee2aa4d3aca9868a01afbd29615 100644
-> > --- a/drivers/dma/imx-sdma.c
-> > +++ b/drivers/dma/imx-sdma.c
-> > @@ -2255,7 +2255,7 @@ static int sdma_probe(struct platform_device *pdev)
-> >
-> >  	ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
-> >  	if (ret)
-> > -		return ret;
-> > +		return dev_err_probe(dev, ret, "Failed to set DMA mask\n");
-> >
-> >  	sdma = devm_kzalloc(dev, sizeof(*sdma), GFP_KERNEL);
-> >  	if (!sdma)
-> > @@ -2272,24 +2272,24 @@ static int sdma_probe(struct platform_device *pdev)
-> >
-> >  	irq = platform_get_irq(pdev, 0);
-> >  	if (irq < 0)
-> > -		return irq;
-> > +		return dev_err_probe(dev, irq, "Failed to get IRQ\n");
-> >
-> >  	sdma->regs = devm_platform_ioremap_resource(pdev, 0);
-> >  	if (IS_ERR(sdma->regs))
-> > -		return PTR_ERR(sdma->regs);
-> > +		return dev_err_probe(dev, PTR_ERR(sdma->regs), "ioremap failed\n");
-> >
-> >  	sdma->clk_ipg = devm_clk_get_prepared(dev, "ipg");
-> >  	if (IS_ERR(sdma->clk_ipg))
-> > -		return PTR_ERR(sdma->clk_ipg);
-> > +		return dev_err_probe(dev, PTR_ERR(sdma->clk_ipg), "IPG clk_get_prepared failed\n");
-> >
-> >  	sdma->clk_ahb = devm_clk_get_prepared(dev, "ahb");
-> >  	if (IS_ERR(sdma->clk_ahb))
-> > -		return PTR_ERR(sdma->clk_ahb);
-> > +		return dev_err_probe(dev, PTR_ERR(sdma->clk_ahb), "AHB clk_get_prepared failed\n");
-> >
-> >  	ret = devm_request_irq(dev, irq, sdma_int_handler, 0,
-> >  			       dev_name(dev), sdma);
-> >  	if (ret)
-> > -		return ret;
-> > +		return dev_err_probe(dev, ret, "Failed to request IRQ\n");
-> >
-> >  	sdma->irq = irq;
-> >
-> > @@ -2330,11 +2330,11 @@ static int sdma_probe(struct platform_device *pdev)
-> >
-> >  	ret = sdma_init(sdma);
-> >  	if (ret)
-> > -		return ret;
-> > +		return dev_err_probe(dev, ret, "sdma_init failed\n");
-> >
-> >  	ret = sdma_event_remap(sdma);
-> >  	if (ret)
-> > -		return ret;
-> > +		return dev_err_probe(dev, ret, "sdma_event_remap failed\n");
-> >
-> >  	if (sdma->drvdata->script_addrs)
-> >  		sdma_add_scripts(sdma, sdma->drvdata->script_addrs);
-> > @@ -2361,18 +2361,14 @@ static int sdma_probe(struct platform_device *pdev)
-> >  	platform_set_drvdata(pdev, sdma);
-> >
-> >  	ret = dma_async_device_register(&sdma->dma_device);
-> > -	if (ret) {
-> > -		dev_err(dev, "unable to register\n");
-> > -		return ret;
-> > -	}
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "unable to register\n");
-> >
-> >  	devm_add_action_or_reset(dev, sdma_dma_device_unregister_action, sdma);
-> >
-> >  	ret = of_dma_controller_register(np, sdma_xlate, sdma);
-> > -	if (ret) {
-> > -		dev_err(dev, "failed to register controller\n");
-> > -		return ret;
-> > -	}
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to register controller\n");
-> >
-> >  	spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
-> >  	ret = of_address_to_resource(spba_bus, 0, &spba_res);
-> >
-> > --
-> > 2.47.2
-> >
-> 
+We discussed it last year in the context of the PREEMPT_RT patches, see
+https://lore.kernel.org/linux-arm-kernel/20241210160556.2341497-4-arnd@kernel.org/
+and Russell's reply to that.
+
+I still think that dropping it is the sensible tradeoff here in
+the end, as it should allow further simplifications in the
+pgalloc code. Your version of this patch doesn't (like my
+identical patch from December) actually do any of that though.
+
+> -	pte = __pte_alloc_one(mm, GFP_PGTABLE_USER | PGTABLE_HIGHMEM);
+> +	pte = __pte_alloc_one(mm, GFP_PGTABLE_USER);
+>  	if (!pte)
+>  		return NULL;
+>  	if (!PageHighMem(pte))
+
+At the minimum, PageHighMem(pte) is now know to be false, so
+this could be further simplified. I tried figuring out if we can
+remove __HAVE_ARCH_PTE_ALLOC_ONE altogether, but I'm not sure
+where else the clean_pte_table() call on arm would happen.
+
+   Arnd
 
