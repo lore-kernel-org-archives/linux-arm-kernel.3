@@ -4,44 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97239CA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FAECA101F
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2QunDDhvbDjoqKI4SNeC4maqaklTgCcRQIiK7HqiNgg=; b=jdM1nFxr2/q+75
-	FgOSzpBidgsQcAKaQMz2VpTsfaS8UqRBCJ3CX4RT7FHRrTM3dggPGSCMXy2W3wCMox1RQO7KqnrPv
-	j0oNdJKr2/fIwz/UWuD+p6YR5dI+BzG8ltI2Cr4SlZ0TzG4BNQI+z6j9xqIR2zmmRw+NrGUNMLa6n
-	xaPmN/+CN5zzsXxFNPVsiGD9/pSlUW8uflbN1t3Jb2R9oemA860ohB5PHQBk4IUhTe/LE+7dl71eF
-	L1zbNhT4NMU4FVxG6E2fIzrcUIoNYo2jDTgmA8jitRRVjLdVhS3TZ/lxO/AUNr5rcteM02iGTGelz
-	N14xLQDgYCTscTrTI53Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WOirSP6saXrD/rH1J7Zu8NXMDYCIL5wO+yuyAhrg8J4=; b=lwyTQEjBwn7HizOEgqAJkECXBW
+	FNVlGalw3Nvdq7yGX7uNqAe1ZzwUbfksjYzE2DJ2LvBBojKlNExi17tb0NMzlD2/d0mV+JJq1IYwN
+	MUmyMw/X/5JLJNkPyB0Tj8+hQxcgL+aXXiY7Q+QjlTnU/E8oRzhW5o3qP5SeXpPRVxNfaRJGusZjm
+	IeZfngrAj+SAZlPyYmpSf+vlsxvQ2uJPNUAnJxJeUAeoFvzM6voVZKk63ROr3/peol9gjYo2ykuuC
+	W+CLMArHIgpcRVvedk/vlYCnxVDFQKxkkIck2WKGp1FdODaaYhmVh4YDN92/EeWd5aN0s02k/K6Eg
+	6439xUeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwK3Q-0000000E9Mx-2xtc;
-	Wed, 10 Sep 2025 12:36:04 +0000
+	id 1uwK3R-0000000E9Ni-1ARs;
+	Wed, 10 Sep 2025 12:36:05 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwK3J-0000000E9Gn-2G2V
+	id 1uwK3J-0000000E9Go-2o1W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 12:35:59 +0000
+	Wed, 10 Sep 2025 12:36:00 +0000
 Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <jre@pengutronix.de>)
-	id 1uwK31-0002Rk-F5; Wed, 10 Sep 2025 14:35:39 +0200
+	id 1uwK31-0002Rk-HS; Wed, 10 Sep 2025 14:35:39 +0200
 From: Jonas Rebmann <jre@pengutronix.de>
-Subject: [PATCH 0/4] Mainline Protonic PRT8ML board
-Date: Wed, 10 Sep 2025 14:35:20 +0200
-Message-Id: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
+Date: Wed, 10 Sep 2025 14:35:21 +0200
+Subject: [PATCH 1/4] dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios
+ property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIhwwWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDcwND3czcCovcAt2CohKL3BxdA8OkVGMTMwsTM1NLJaCegqLUtMwKsHn
- RsbW1AJ6ooaxfAAAA
-X-Change-ID: 20250701-imx8mp-prt8ml-01be34684659
+Message-Id: <20250910-imx8mp-prt8ml-v1-1-fd04aed15670@pengutronix.de>
+References: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
+In-Reply-To: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
 To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -54,16 +53,14 @@ To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
 Cc: Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-sound@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Jonas Rebmann <jre@pengutronix.de>, 
- Lucas Stach <l.stach@pengutronix.de>, David Jander <david@protonic.nl>, 
- Oleksij Rempel <o.rempel@pengutronix.de>
+ linux-arm-kernel@lists.infradead.org, Jonas Rebmann <jre@pengutronix.de>
 X-Mailer: b4 0.15-dev-7abec
-X-Developer-Signature: v=1; a=openpgp-sha256; l=988; i=jre@pengutronix.de;
- h=from:subject:message-id; bh=XQ4gxJpcOh8Z0XnCFiM0h78lv72v3EN1lEY0NA2CNOk=;
- b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsg4WDCDL8Hr5A2hDRmHDvOt+uZSkM79a1l3xeQ5bLL+U
- UfC/qnu7ShlYRDjYpAVU2SJVZNTEDL2v25WaRcLM4eVCWQIAxenAEzkXSYjw8QP7grLBI71V7VG
- Okp6t/Mwbz7jdcVTyfw915kiloaNAgz/tI9Y7gljr4q19ZI7/+nAvhq/u505q9pSn6yuLdkZuju
- SBwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=871; i=jre@pengutronix.de;
+ h=from:subject:message-id; bh=5oyM4KK8isjinRlGtjABwbbp5Itnh8VOKIYmapoG2IQ=;
+ b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsg4WDBTwqJL7m4K4zr2ScL3XUynm8rteXj9jcGHY7oej
+ gWPZS/bd5SyMIhxMciKKbLEqskpCBn7XzertIuFmcPKBDKEgYtTACYifIqR4dzDS2+r9il9WrPu
+ 7/bvh875JT+QrGJICT/PrXfd5Sm7yi+GvyJnfCwc0033WwhWpUan5Z0TeLj8jvL+J4/iZlvcD9R
+ azgEA
 X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
  fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::ac
@@ -71,9 +68,8 @@ X-SA-Exim-Mail-From: jre@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_053557_578971_CDD684DF 
-X-CRM114-Status: UNSURE (   7.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250910_053557_703074_BB6EF0E1 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,31 +84,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds the Protonic PRT8ML device tree as well as some minor
-corrections to the devicetree bindings used.
+Both the nxp,sja1105 and the nxp,sja1110 series feature an active-low
+reset pin, rendering reset-gpios a valid property for all of the
+nxp,sja1105 family.
 
 Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
 ---
-Jonas Rebmann (3):
-      dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios property
-      ASoC: dt-bindings: asahi-kasei,ak4458: Reference common DAI properties
-      dt-bindings: arm: fsl: Add Protonic PRT8ML
+ Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Lucas Stach (1):
-      arm64: dts: add Protonic PRT8ML board
+diff --git a/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml b/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
+index 9432565f4f5d..8f4ef9d64556 100644
+--- a/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
+@@ -32,6 +32,11 @@ properties:
+   reg:
+     maxItems: 1
+ 
++  reset-gpios:
++    description:
++      GPIO to be used to reset the whole device
++    maxItems: 1
++
+   spi-cpha: true
+   spi-cpol: true
+ 
 
- Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
- .../devicetree/bindings/net/dsa/nxp,sja1105.yaml   |   5 +
- .../bindings/sound/asahi-kasei,ak4458.yaml         |   4 +
- arch/arm64/boot/dts/freescale/Makefile             |   1 +
- arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dts    | 409 +++++++++++++++++++++
- 5 files changed, 420 insertions(+)
----
-base-commit: d34bbb45b57c90a5c1bcac5f327df79ddfbfe957
-change-id: 20250701-imx8mp-prt8ml-01be34684659
-
-Best regards,
---  
-Jonas Rebmann <jre@pengutronix.de>
+-- 
+2.51.0.178.g2462961280
 
 
