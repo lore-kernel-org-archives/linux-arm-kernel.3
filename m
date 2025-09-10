@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A71CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8577CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PFDIOt8JS+mrvBiRxUF7cPHKkmrgOLymMcKx+84+QYU=; b=wYu0xhedtp94bqoMpundMPDcOq
-	bF3Fb/yqBMYmbWQ7RQBuNLFWtj6heZIYoJMYKqxB/fxnN/a/iaKNc9v+qGAR97yMz2cRfQYAk2axT
-	fZXxFeNwRrDIm41iPLqWLtZg5wLt4UV/FPQQe3nW1meYItuuFMGR4K8BH3M2r72o+jxXDnA0We4OO
-	MSXMs6C0jm7kq38XUPhga/5roCushcUyzqnRoVXyVKaZ+Zk8QCGen+O5mMc8glh7ooLeya8NZaLNm
-	vUss04wGZv5xCqkVU9KLKD4IUS55C1Oyx5p+IOy2RphhagP8pdhMGTInSFVhMj+/Pu4truskeFP7J
-	VA+kZLHg==;
+	bh=LfAw6m2PbREHafgR0eQ3z90an64dhc3G5xAmXUhmUi8=; b=gB0CkHOTGmK5Nw3MSl+2WWzYh+
+	dCGqnlvXdcEba5FGzKkFiEUJPLhvBvic4KYofoTy4/vBd/+c2DXXjB8ijg2JU+uFcQ+226S1/+Ntd
+	Nsi9b3zV536X5Xi5sVLUEONY1ZhbgvcjHdWbFnW3lPi6i4soTwIkRNze00zcPr77144+WG0wnUW9z
+	Q93DdCIp1rHlssGRBG3cJ+AflOYgYyYMPS8HefdxIcFvqqcyCxsc987uPRYMs6lfcm+mfpXcu/9C6
+	4QLkLDrPxPE2dc1JTOUcZNMTPRZVAkhfMR/Z9dYjK965WxMvEq4Syf/m0P+76f36mpN/0bDLfFojA
+	FNrDZuug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQX9-0000000GIdr-3rFn;
-	Wed, 10 Sep 2025 19:31:11 +0000
+	id 1uwQXD-0000000GIhK-18ZW;
+	Wed, 10 Sep 2025 19:31:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQX2-0000000GIXr-3OxV
+	id 1uwQX9-0000000GIdY-3dZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 19:31:10 +0000
+	Wed, 10 Sep 2025 19:31:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2EF316F2;
-	Wed, 10 Sep 2025 12:30:55 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E824016F2;
+	Wed, 10 Sep 2025 12:31:02 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 810E93F694;
-	Wed, 10 Sep 2025 12:30:57 -0700 (PDT)
-Message-ID: <3502cad6-e2e2-426b-b707-162d338c87c9@arm.com>
-Date: Wed, 10 Sep 2025 20:30:55 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC36D3F694;
+	Wed, 10 Sep 2025 12:31:04 -0700 (PDT)
+Message-ID: <4d7a9b82-9d96-4796-949d-d32c02b6af28@arm.com>
+Date: Wed, 10 Sep 2025 20:31:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 32/33] arm_mpam: Add kunit test for bitmap reset
+Subject: Re: [PATCH 33/33] arm_mpam: Add kunit tests for props_mismatch()
 To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
  devicetree@vger.kernel.org
@@ -62,16 +62,16 @@ Cc: shameerali.kolothum.thodi@huawei.com,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-33-james.morse@arm.com>
- <ee847bec-ad08-473e-96b5-407872c2a0f2@arm.com>
+ <20250822153048.2287-34-james.morse@arm.com>
+ <ceb64a9b-0ffe-4193-942e-5ddf71478e5d@arm.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <ee847bec-ad08-473e-96b5-407872c2a0f2@arm.com>
+In-Reply-To: <ceb64a9b-0ffe-4193-942e-5ddf71478e5d@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_123104_943393_8EF302EA 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250910_123112_025677_0AA2AB81 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,40 +88,146 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Ben,
 
-On 29/08/2025 17:56, Ben Horgan wrote:
+On 29/08/2025 18:11, Ben Horgan wrote:
+> The tests seem reasonable. Just some comments on the comments.
+> 
 > On 8/22/25 16:30, James Morse wrote:
->> The bitmap reset code has been a source of bugs. Add a unit test.
+>> When features are mismatched between MSC the way features are combined
+>> to the class determines whether resctrl can support this SoC.
 >>
->> This currently has to be built in, as the rest of the driver is
->> builtin.
+>> Add some tests to illustrate the sort of thing that is expected to
+>> work, and those that must be removed.
 
->> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
->> index dff7b87280ab..f5e0609975e4 100644
->> --- a/drivers/resctrl/Kconfig
->> +++ b/drivers/resctrl/Kconfig
->> @@ -4,8 +4,21 @@ config ARM64_MPAM_DRIVER
->>  	bool "MPAM driver for System IP, e,g. caches and memory controllers"
->>  	depends on ARM64_MPAM && EXPERT
->>  
->> +menu "ARM64 MPAM driver options"
+>> diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
+>> index 8e9d6c88171c..ef39696e7ff8 100644
+>> --- a/drivers/resctrl/test_mpam_devices.c
+>> +++ b/drivers/resctrl/test_mpam_devices.c
+>> @@ -4,6 +4,326 @@
+>> +static void test_mpam_enable_merge_features(struct kunit *test)
+>> +{
+
+[...]
+
+>> +	/* One Class+Comp, two MSC with non-overlapping features */
+>> +	fake_comp1.class = &fake_class;
+>> +	list_add(&fake_comp1.class_list, &fake_class.components);
+>> +	fake_comp2.class = NULL;
+>> +	fake_vmsc1.comp = &fake_comp1;
+>> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+>> +	fake_vmsc2.comp = &fake_comp1;
+>> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
+>> +	fake_ris1.vmsc = &fake_vmsc1;
+>> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+>> +	fake_ris2.vmsc = &fake_vmsc2;
+>> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
 >> +
->>  config ARM64_MPAM_DRIVER_DEBUG
->>  	bool "Enable debug messages from the MPAM driver."
->>  	depends on ARM64_MPAM_DRIVER
->>  	help
->>  	  Say yes here to enable debug messages from the MPAM driver.
+>> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
+>> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
+>> +	fake_ris1.props.cpbm_wd = 4;
+>> +	fake_ris2.props.cmax_wd = 4;
 >> +
->> +config MPAM_KUNIT_TEST
->> +	bool "KUnit tests for MPAM driver " if !KUNIT_ALL_TESTS
->> +	depends on KUNIT=y
+>> +	mpam_enable_merge_features(&fake_classes_list);
+>> +
+>> +	/*
+>> +	 * Multiple RIS in different MSC can't the same resource, mismatched
 
-> It depends on ARM64_MPAM_DRIVER as well.
+> s/can't the same/can't control the same/
 
-Yeah, the kbuild robot had some fun with all this. Turns out ARM64_MPAM is undefined on
-non-ARM64, which means its dependencies disappear.
+Thanks,
 
-All this is now under an 'if ARM64_MPAM_DRIVER' and the driver symbol depends on ARM64 &&
-ARM64_MPAM...
+
+>> +	 * features can not be supported.
+>> +	 */
+>> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
+>> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
+>> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
+>> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 0);
+>> +
+>> +	RESET_FAKE_HIEARCHY();
+>> +
+>> +	/* One Class+Comp, two MSC with incompatible overlapping features */
+>> +	fake_comp1.class = &fake_class;
+>> +	list_add(&fake_comp1.class_list, &fake_class.components);
+>> +	fake_comp2.class = NULL;
+>> +	fake_vmsc1.comp = &fake_comp1;
+>> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+>> +	fake_vmsc2.comp = &fake_comp1;
+>> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
+>> +	fake_ris1.vmsc = &fake_vmsc1;
+>> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+>> +	fake_ris2.vmsc = &fake_vmsc2;
+>> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
+>> +
+>> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
+>> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
+>> +	mpam_set_feature(mpam_feat_mbw_part, &fake_ris1.props);
+>> +	mpam_set_feature(mpam_feat_mbw_part, &fake_ris2.props);
+>> +	fake_ris1.props.cpbm_wd = 5;
+>> +	fake_ris2.props.cpbm_wd = 3;
+>> +	fake_ris1.props.mbw_pbm_bits = 5;
+>> +	fake_ris2.props.mbw_pbm_bits = 3;
+>> +
+>> +	mpam_enable_merge_features(&fake_classes_list);
+>> +
+>> +	/*
+>> +	 * Multiple RIS in different MSC can't the same resource, mismatched
+>> +	 * features can not be supported.
+>> +	 */
+
+> Missing the word "control" again.
+
+Copy and paste!
+
+
+>> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
+>> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_mbw_part, &fake_class.props));
+>> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
+>> +	KUNIT_EXPECT_EQ(test, fake_class.props.mbw_pbm_bits, 0);
+>> +
+>> +	RESET_FAKE_HIEARCHY();
+>> +
+>> +	/* One Class+Comp, two MSC with overlapping features that need tweaking */
+>> +	fake_comp1.class = &fake_class;
+>> +	list_add(&fake_comp1.class_list, &fake_class.components);
+>> +	fake_comp2.class = NULL;
+>> +	fake_vmsc1.comp = &fake_comp1;
+>> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+>> +	fake_vmsc2.comp = &fake_comp1;
+>> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
+>> +	fake_ris1.vmsc = &fake_vmsc1;
+>> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+>> +	fake_ris2.vmsc = &fake_vmsc2;
+>> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
+>> +
+>> +	mpam_set_feature(mpam_feat_mbw_min, &fake_ris1.props);
+>> +	mpam_set_feature(mpam_feat_mbw_min, &fake_ris2.props);
+>> +	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris1.props);
+>> +	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris2.props);
+>> +	fake_ris1.props.bwa_wd = 5;
+>> +	fake_ris2.props.bwa_wd = 3;
+>> +	fake_ris1.props.cmax_wd = 5;
+>> +	fake_ris2.props.cmax_wd = 3;
+>> +
+>> +	mpam_enable_merge_features(&fake_classes_list);
+>> +
+>> +	/*
+>> +	 * Multiple RIS in different MSC can't the same resource, mismatched
+>> +	 * features can not be supported.
+>> +	 */
+
+> Comment is for a different case.
+
+Fixed as:
+	/*
+	 * RIS with different control properties need to be sanitised so the
+	 * class has the common set of properties.
+	 */
+
+
+>> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_class.props));
+>> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmax, &fake_class.props));
+>> +	KUNIT_EXPECT_EQ(test, fake_class.props.bwa_wd, 3);
+>> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 3);
 
 
 Thanks,
