@@ -4,63 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DFEBCAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 01:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 404FBCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 02:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3o+xqNWMb6vXGnS7wJzU/EJ8KZPS5kuucp7YWp5+u0=; b=xRUYOyq3RYAbWAFVF8JKoduPek
-	T5qyLoBAdpdn8uSb6RfSyfeNd8Zi7mUI9GDuUkHO2+8fjOCpiLxkVYIUxr/Bj0LDJBsiVS6V4EEQA
-	gbldPgvA4SpYUvkOAjENalvKBSz/W8Q3UhQLtBcMxHM93Rd6Cc0rbZnhpNJRNHuvyfpHP5FqFHdkV
-	RjrdjHPJfV7V9ozTomuF64Gucy4ykJ7aVcOmhtJbe3SsYdBIqTUOFCscrpmJ5LY2d2IDwKNwbJJTw
-	9yPT8bBo+Gy1nHYTh+pMOxfnMpFWiNethPf4BWSCoUWh2eEnIafn2kB4qjJ1aHjIa3kx54YHBOQ57
-	u50762Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jByL5tfNGOiM90GWwL/gOaalcpj+vbWhJVSeYgbZZVg=; b=js7uA2rknHO9akKemv7D5dleJ6
+	w0pXXKkXkzT6tOJezA52On1c+hnsv4EpSLHEPUSv58JMz4hQ8SjLQYczTAtm+KfkMTNS+3DpwyhoS
+	JDFB8RX6Dd4ApliVJ/8aUrIq6CL2qKBpdKaLRn4BfNnWpj7yqQR64yP+cDwQcEV1LczsdeBJvezs2
+	VV2u/PXWyeV+ZgJTY+EcXYzHxfF1yGKHfIVaE+w//9Q5HyXhir7ZtENXVzejXlG+9WkgxRLyACVcG
+	i3CTv0MSJEZkpOxD5EhZOuA9RCqD2VD8KlELslV0k8Gw59A50LNfXd2+j+0HieHaqhNt28wdH51se
+	CWmayMzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwA5B-0000000BXZg-3vUs;
-	Wed, 10 Sep 2025 01:57:13 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1uwABq-0000000BZZW-0H2Y;
+	Wed, 10 Sep 2025 02:04:06 +0000
+Received: from mail-dm6nam12on2061b.outbound.protection.outlook.com ([2a01:111:f403:2417::61b] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwA58-0000000BXYD-3jrA
+	id 1uwABn-0000000BZWi-0jLr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 01:57:12 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4cM3d81N7Tz24j2j;
-	Wed, 10 Sep 2025 09:53:48 +0800 (CST)
-Received: from dggpemf500013.china.huawei.com (unknown [7.185.36.188])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3DF701A0188;
-	Wed, 10 Sep 2025 09:57:03 +0800 (CST)
-Received: from [10.67.121.183] (10.67.121.183) by
- dggpemf500013.china.huawei.com (7.185.36.188) with Microsoft SMTP Server
+	Wed, 10 Sep 2025 02:04:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IMZz30cWX/Xm5UTFk5FESN2vH1qXe0Op9ShJws2hG/XajEBeIx88Bj14EG7ESfaksbg+JL02nCF7gNIE4xxH0xaVnEBaIsTqPGH9HBw+Xk1xQISY1QX/6eUwlvB2BUynKc9rih4a9JdXBpEfoqNbN772ARlDzySndU5tvF50LHxEIiaOMc5uCr4fU4CJ+4TR7gFN5qF/m8hsLRJBXhzCQrl0z2DvH8SSY55iMw4UFsMPWIb6y+4CNAISPjlxDs+O9JJBpvNXWqRGLOac2uZ2/K8WIPkqFGwzPspD3112aXy6bnGn2ubwv9asdjp51XwLT7w0Ynaj3Y7zke4e+UptTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jByL5tfNGOiM90GWwL/gOaalcpj+vbWhJVSeYgbZZVg=;
+ b=xc1Y0lIsjvCq1VqYvbd675xW0ES53qpVr7i7yej2qmShITZaJZN1q2qSIWfjd1YzlQ16LO0oIAecFl9AIq4H6D/czi8iMWxGQWb3ufP8d1mrA625g7QlosTRVYr3inQsY3E74x8pLFEb/Yj72pWl/cnvRVKuK7OIyQsFLruPeiZnK4M7HLTzHxuS+nk9kHnIDP7pG99ABwfkJH05m7FKG2IhmtJXM3ukCZ0X0YZfojcAWsgkziztdd2BqLzXbS3u9wKIc3pPXyFeQZTKxL1N6xj2yh/jmipaUcmqTtSC22cFfd5LFEdONT/CGqiwcB4vVz3jbToUVdjsbYv2313anw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jByL5tfNGOiM90GWwL/gOaalcpj+vbWhJVSeYgbZZVg=;
+ b=ixv4HO+ch0Vr59j1IRfPpmuQqLtp7JZQuLtqVj3p/y4G+wSijwPe9AJ9AequJoC4VovAOoChPvXaYTPiN0Q2l1LVnWIq1DhbC5tiQ2GCunqglSFDZGPau4lyY/fH1W54GRjK4OjKCO3UvF/WEO0BQTUASDdlj4gt+9Ef3ixFyPVn6PsQ8uD1o/A46yRi3E0I2UBqgP4W6JBRJttu9h3T8kS0olJtLySeiiS+ci4Rr0vxBk6UaTvYYY4PKTUztPdUs80IzpYKH3HldernSxv/7q7omd4E/siyimXtYno8+F/Ds2Av1JLPC9QlPUkcWZyNnXMfDllRqdxTPe988aoBDA==
+Received: from SA1P222CA0067.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:2c1::17)
+ by MN0PR12MB5713.namprd12.prod.outlook.com (2603:10b6:208:370::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 10 Sep
+ 2025 02:03:43 +0000
+Received: from SN1PEPF0002636B.namprd02.prod.outlook.com
+ (2603:10b6:806:2c1:cafe::9e) by SA1P222CA0067.outlook.office365.com
+ (2603:10b6:806:2c1::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.15 via Frontend Transport; Wed,
+ 10 Sep 2025 02:03:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SN1PEPF0002636B.mail.protection.outlook.com (10.167.241.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9115.13 via Frontend Transport; Wed, 10 Sep 2025 02:03:43 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 9 Sep
+ 2025 19:03:37 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 10 Sep 2025 09:57:02 +0800
-Message-ID: <6a5c32ae-c897-40a4-a5b9-20c77496760d@huawei.com>
-Date: Wed, 10 Sep 2025 09:57:01 +0800
+ 15.2.1544.14; Tue, 9 Sep 2025 19:03:36 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Tue, 9 Sep 2025 19:03:36 -0700
+Date: Tue, 9 Sep 2025 19:03:34 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Balbir Singh <balbirs@nvidia.com>
+CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <jean-philippe@linaro.org>, <miko.lenczewski@arm.com>,
+	<peterz@infradead.org>, <smostafa@google.com>, <kevin.tian@intel.com>,
+	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH rfcv2 1/8] iommu/arm-smmu-v3: Clear cmds->num after
+ arm_smmu_cmdq_batch_submit
+Message-ID: <aMDcdmlyCH2ZALPA@Asurada-Nvidia>
+References: <cover.1757373449.git.nicolinc@nvidia.com>
+ <2f7f5fff38d43221fd60139323d23b258e34cf8d.1757373449.git.nicolinc@nvidia.com>
+ <d2852d21-60bf-4ca4-a0d2-e70c0c6dc010@nvidia.com>
+ <aL++Qv8bNvL5qjL8@nvidia.com>
+ <9d463bc4-78e0-43f3-ae69-2746ab72e318@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] KVM: arm64: Make ID_AA64MMFR1_EL1.HCX writable
- from userspace
-To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
-CC: <yuzenghui@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<liuyonglong@huawei.com>, <wangzhou1@hisilicon.com>
-References: <20250909034415.3822478-1-yangjinqian1@huawei.com>
- <20250909034415.3822478-2-yangjinqian1@huawei.com>
- <aL_SIwQiz3QO1fKe@linux.dev> <86ldmoc4x7.wl-maz@kernel.org>
- <aMCeY0vvWTORB6E_@linux.dev>
-From: Jinqian Yang <yangjinqian1@huawei.com>
-In-Reply-To: <aMCeY0vvWTORB6E_@linux.dev>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.183]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500013.china.huawei.com (7.185.36.188)
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <9d463bc4-78e0-43f3-ae69-2746ab72e318@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002636B:EE_|MN0PR12MB5713:EE_
+X-MS-Office365-Filtering-Correlation-Id: deab1174-f6d7-4f77-4178-08ddf00e44ee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iH/Qkmuo+8otsU+PiVybdl/drK6ext2LkJfaokmfl3WamsshERDZA2ey9foF?=
+ =?us-ascii?Q?4eS4L/CAYkdLbNlKVZRZWc5Wi91XcQnhOJ+Qxe4EjMHYnkBG6iNUdbn1rAOF?=
+ =?us-ascii?Q?mW+3GnBm+vqv9HWzxqtSQkr3VkdHhtAW0YtTEJDN/lCF2jKto7o+tXEbye4D?=
+ =?us-ascii?Q?3Rbd0ajdr9We2Wp233MBqnnrwEqC+B+N0Cu4qc55PmZ5VDL0boIUTGkMJrl5?=
+ =?us-ascii?Q?7vnf6pnFRQVJJ/XeIGawaQN3dSrri55+ThilYjbJHbcvOHaSsT+O+Rggu2+l?=
+ =?us-ascii?Q?KnDSLMt4roIxzUAG7tUkU3Tb5drLtB9RPSa1bElyPP02jmdIMuZbwrFEkdFl?=
+ =?us-ascii?Q?uQv5ue0JarcHck/lUlxaXFWJinoomSCgdOX9Arp6Hh6tAvIsXKgnnfilKKCu?=
+ =?us-ascii?Q?1pUN80uvgwuOlyQMDq4SqJnaF99kLpYzoMFm2P6PBeT4EGk9X1USWUMtNuUi?=
+ =?us-ascii?Q?zhCA7GdgYVZDclAQn4tafvTUyKlxPQp9Ot3qdSE0Seaxe2dvftQnKMghn65j?=
+ =?us-ascii?Q?wBGTIfXTX4RacmlkDiyba7OquBE6fovnJJx6+oJI1P7i4S8uF8XUgt3RUZ55?=
+ =?us-ascii?Q?oW85f8hFlUyD2emsugu0lQH9ocw0nUf6WylwVQxb//yb2GOnIuHd1zcRp6xy?=
+ =?us-ascii?Q?cvPIEfhv12vYctxe56suMmhS8LxPAXVd3qKXm7oW3k8MgdSku0K1ubNvlQGz?=
+ =?us-ascii?Q?leqWN/PhR4wB09IVlVc/vyj1g/SzKXWK/km4YBip4BLGhTiA5Dbm+LsyfN77?=
+ =?us-ascii?Q?Gtd6PbhMdcrPgmpNB6oLtT9f8bm92EEwGB6/7IqY6thgn62rvVAaJF+93Ub/?=
+ =?us-ascii?Q?utyNBgQi78zs8sQPtHgOxpdrjQG9sU00397SZ8x0oS1Z2NNcuWxHcEig9HS4?=
+ =?us-ascii?Q?rX83yT7K50O6/it88LS6AoUVa4wU64Emm1Nkx7n71nnwJTydLXrhvikVC+W2?=
+ =?us-ascii?Q?ofn9b+Agp5nSwCqZGnVn912ZqkPCsHCWQD3fUpKqCNT1dTPCt4IoV809fsRI?=
+ =?us-ascii?Q?O/BUBvnZIM/C9rzXSqD1/o6XQPaXikcaqpnOGct96EZjpiy140vYfhvZ14Vp?=
+ =?us-ascii?Q?UI8qIaZlT488FCKKaRpz0lFF8lwZ+3CZ9WjoTLVVY+s2N/Ncyd0nM+nD/ryT?=
+ =?us-ascii?Q?e1g8jNVYVflyr79y+W0QBCChR0EnI1S3igvAw9rV5VTE/CoA0eD1UWw8BLaI?=
+ =?us-ascii?Q?lnINu5duEwDy37kobJn5gb+Pz9qTOrcBUr3hpshZk0ZJ6v53kbvpVM+KvmjO?=
+ =?us-ascii?Q?f7ENhdXmAOb/lMEx3LyHob7LsUJZPlorLCTfsTkdZWOuOhMid2Ia5hSp+4vN?=
+ =?us-ascii?Q?IL5MYGcB0X+QxIOcR00iItGFLQEg5zM8eZLpYlcquXSA0Dhdxr+ty9WhDKIr?=
+ =?us-ascii?Q?Wrw/XxFNOUwxLixG14NBMw/E0TQ9AP/w+hvRPcuJQ/KzmwPZ4/zYMwVRcQ4E?=
+ =?us-ascii?Q?ljf7VN9ffO7U+bPZ3cwQ+IxwA43pFt6FGvsqCvNioMditAiiPDAjk2SKQmoR?=
+ =?us-ascii?Q?Qv3Rov60ZRq6gAAjmafM2n/RuwA+kOx93dPM?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 02:03:43.1817
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: deab1174-f6d7-4f77-4178-08ddf00e44ee
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002636B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5713
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_185711_125202_0126132A 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20250909_190403_208180_5ADCDEFC 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +158,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/9/10 5:38, Oliver Upton wrote:
-> On Tue, Sep 09, 2025 at 11:10:28AM +0100, Marc Zyngier wrote:
->> On Tue, 09 Sep 2025 08:07:15 +0100,
->> Oliver Upton <oliver.upton@linux.dev> wrote:
->>>
->>> On Tue, Sep 09, 2025 at 11:44:13AM +0800, Jinqian Yang wrote:
->>>> Allow userspace to downgrade HCX in ID_AA64MMFR1_EL1. Userspace can
->>>> only change this value from high to low.
->>>>
->>>> Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
->>>
->>> I'm not sure our quality of emulation is that great in this case. We
->>> have no way of trapping the register and it is always stateful. Better
->>> yet, our RESx infrastructure doesn't account for the presence of
->>> FEAT_HCX and we happily merge the contents with the host's HCRX.
->>
->> Yeah, that's not good, and definitely deserves a fix.
->>
->>> We should make a reasonable attempt at upholding the architecture before
->>> allowing userspace to de-feature FEAT_HCX.
->>
->> My concern here is the transitive implications of FEAT_HCX being
->> disabled: a quick look shows about 20 features that depend on
->> FEAT_HCX, and we don't really track this. I can probably generate the
->> dependency graph, but that's not going to be small. Or very useful.
->>
->> However, we should be able to let FEAT_HCX being disabled without
->> problem if the downgrading is limited to non-EL2 VMs. Same thing for
->> FEAT_VHE.
->>
->> What do you think?
+On Wed, Sep 10, 2025 at 08:49:52AM +1000, Balbir Singh wrote:
+> On 9/9/25 15:42, Nicolin Chen wrote:
+> > On Tue, Sep 09, 2025 at 01:16:11PM +1000, Balbir Singh wrote:
+> >> On 9/9/25 09:26, Nicolin Chen wrote:
+> >>> None of the callers of arm_smmu_cmdq_batch_submit() cares about the batch
+> >>> after a submission. So, it'll be certainly safe to nuke the cmds->num, at
+> >>> least upon a successful one. This will ease a bit a wrapper function, for
+> >>> the new arm_smmu_invs structure.
+> >>>
+> >>> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> >>> ---
+> >>>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 10 ++++++++--
+> >>>  1 file changed, 8 insertions(+), 2 deletions(-)
+> >>>
+> >>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> >>> index 2a8b46b948f05..cccf8f52ee0d5 100644
+> >>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> >>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> >>> @@ -974,11 +974,17 @@ static void arm_smmu_cmdq_batch_add(struct arm_smmu_device *smmu,
+> >>>  	cmds->num++;
+> >>>  }
+> >>>  
+> >>> +/* Clears cmds->num after a successful submission */
+> >>>  static int arm_smmu_cmdq_batch_submit(struct arm_smmu_device *smmu,
+> >>>  				      struct arm_smmu_cmdq_batch *cmds)
+> >>>  {
+> >>
+> >> Nit: arm_smmu_cmdq_batch_submit_clear()?
+> > 
+> > Probably not. There is no particular point in highlighting it in
+> > the function name, as there is no use case wanting an uncleared
+> > version.
 > 
-> So I'm a bit worried about making fields sometimes-writable, it creates
-> a very confusing UAPI behavior. On top of that, our writable masks are
-> currently static.
-> 
-> What if we treat the entire register as RES0 in this case? It seems to
-> be consistent with all the underlying bits / features being NI. A
-> mis-described VM isn't long for this world anyway (e.g. FEAT_SCTLR2 && !FEAT_HCX)
-> and in that case I'd prefer an approach that keeps the KVM code as
-> simple as possible.
-> 
-> We do, after all, expect some level of sanity from userspace of feature
-> dependencies as we do not enforce the dependency graph at the moment.
-> Hell, this could be useful for someone cross-migrating a nested VM from
-> a machine w/o FEAT_HCX to one that has it.
-> 
+> I did not suggest we need an uncleared version, I suggested the change
+> in name to highlight that the function has a side-effect of clearing
+> the cmds->num
 
-Making HCX writable is very useful, as it allows VMs to migrate between 
-machines that support and do not support FEAT_HCX. For non-EL2 VMs, we 
-have tested that migration works without issues :)
+No caller cares about the "side effect"...
 
-Thanks,
-Jinqian
-
+Nicolin
 
