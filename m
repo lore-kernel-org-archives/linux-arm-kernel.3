@@ -4,198 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D87CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E128CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/HosY8QdtI2YFkjE2rgp7mz75fjAZg8sUDW8DS6qz0=; b=VD1QqyG+FqGKUJ1pNDGWVu4Ey3
-	oHaqqfCWxNOIbojs2z8Mdfo/Ta5Cn0b1JTzfhTlkYL/SxmiXtFC/ucvmCfuUhd35cIbqsqYgSdCac
-	Jx73R/IOKRWfrOlOQ6OkBQXyKYko6Lvg79lKqu+TXBllDktJBDPRakIRSxgY+FYOKnkBiD+1nmHQQ
-	r+2iDZ0luSMxrvAyDHUQzsNBW0UarAQrLPGhPJ183/X1ufQghS3u66iuUvLRo3YOIug876Khc90sU
-	6mmC/6zsMDi3U2/iOhzLIDL1dwMQQrz9sKFW/w5T3F86EX6b3HO4rPoM3TeOfizxw+GvWq/YuhK6B
-	BNYW/6cg==;
+	bh=UkhFCZ5ofWJHJ2EhMv0fguBBuTeG4Pes0q1AF4EcfFA=; b=eGLTl1+0oiarqXw9N07AvhZRt+
+	6vilMkcxGOZADwKYYq6Hd46+e0uQLghYb2ofBu/mqFKoAEtjNuZv5nR/k2h7Uk+PlW9Kl5UJ9OxgO
+	c5DnDwvih6+1sH33wCr32v46ifdKoITjCUGHC4W3IiL41i3yiH/XkQFh9gyuN4Ye0KPKnvMJU1UeP
+	gUQ0z9FzBkjIOY1Hf5VJfsedyWBw3Ln+QqojoTIbyStoWZ1GnVOPgtg3AyP5T+JtiUt6n4vxm1WwL
+	DQ3oXPRjPqWpgHSDEUjlR5ekrzR1GfcOv6wnAzHYvTokujABX+MtyCyOMs3n2becK5GkuRyMWXEVC
+	6nNk+Saw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwM1s-0000000EnyW-0oyB;
-	Wed, 10 Sep 2025 14:42:36 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uwM2N-0000000EoI2-0gad;
+	Wed, 10 Sep 2025 14:43:07 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwM1q-0000000EnwS-0FeI
+	id 1uwM2K-0000000EoFJ-23Hx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 14:42:35 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58ADfXFm004437;
-	Wed, 10 Sep 2025 16:42:10 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	A/HosY8QdtI2YFkjE2rgp7mz75fjAZg8sUDW8DS6qz0=; b=we2tZ0p1NWExc+xO
-	Ea4UK0GjFrjnS5Jcs8jhzcQ04q0HTqrDRwbBWhEVccWNfbF+zp1fvN1eSxmLmhqo
-	OgHZPaz6qJzX9cGJzZBxVNUMHCRxrt5ofA9UOajOOjzqtFr1jsOIh2rGvMNeTa3p
-	Ylsyk6a7fp41PI4Rq4Nc15J3NArR/VYlJ/09wmDLcYg1F80iOoYrkAtyVUXn5Sv0
-	YVj8V/o3P6ErxvASszr/2YuuVLqQBIR67Yq2hWiE7kfTPDUo4K5KHcP1FSjEp4Na
-	WHqqXtpvDAmfqYCI9W2n9RrHgljHBmMA9lIgNlkvsqLiE9WN5ln1T5RQy7HM+0Eq
-	JjDzBA==
-Received: from mrwpr03cu001.outbound.protection.outlook.com (mail-francesouthazon11011071.outbound.protection.outlook.com [40.107.130.71])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 492fr9ehrc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 10 Sep 2025 16:42:10 +0200 (MEST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jV0PlSzfdmaNoWSgzGc3BpTAlDCVbQIfKdW3k0EwfjtUTo0OKFEf5ow/PJTD1ijo686PWqieFHdanyOt1c4+C+ATaG5nt6KqusyA4q0EuiB6j4S8ojdSw3UA7sSsTYghdiWoAfL8dvMLOFegQYdDmOOl6I0n/sCLK2kAe4cstD7kVMSLr3GBCfbhmHvCkz2lYh0vrugato8TwlOcBMZibqJ9chZKdxOdh3WbBvrX5E+0HAm7/tSVwlB3lzfVpgLf2kprXNoDDlOl4bz1IXy+AAKnMwIjStZ13htV/8q1r5bvCmzgWDnPnhqw+I7QqjjwZX9qD0nuCTmBpsOWea5G9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A/HosY8QdtI2YFkjE2rgp7mz75fjAZg8sUDW8DS6qz0=;
- b=XTDAlWzeb+EVMRmIJua2GfQh/+xHUKZbBq4hJDeMykjsZaYr8RjeeAUI6uHU/5C4J+PzUA+6h/M0PxhQs5hlcn13I7S6H0CoDNtmAPCMAxl/tyB/JZuql1efdSfUwCGlq5AB/fWPHmb29lt0HG4Wkf+sCOesxxPI2FtDaaO5YV20AuWicmuoV2BLog3YQ5zMpiqYkLxlzJ81VorYuTj2vaZTHdUoogH86PHfvfqyDzVoQo54YJ6OpZWMdERsOfFAkOMvctatjy/N8vlVx1cS3ghV4TmR40aewHO5jBafOFy7HnI5PtvKyGPw1ttJk1fV387XBa/R4oqFxpZhIGBAoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.44) smtp.rcpttodomain=armlinux.org.uk smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
+	Wed, 10 Sep 2025 14:43:06 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-55f6507bd53so7507330e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 07:43:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=stmicroelectronics.onmicrosoft.com;
- s=selector2-stmicroelectronics-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A/HosY8QdtI2YFkjE2rgp7mz75fjAZg8sUDW8DS6qz0=;
- b=lxSywipVFDvIUwgOdm7wU0JCZvcOorW1XPOzHQCNpoO2+PemMpfsfcfNBj4cdwPm8TU5dQ9mQrX90x5wL9r1HxdrsjASRDA9dnI3mQjbkz5LnHisdX+JktlDD5kdf/q7oAs7cTWvemMinal8iwHa5g31RdJ3ryFQ0IHYqqWrlQA=
-Received: from DUZP191CA0034.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f8::11)
- by DU0PR10MB5827.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3bd::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 10 Sep
- 2025 14:42:07 +0000
-Received: from DU2PEPF00028D0D.eurprd03.prod.outlook.com
- (2603:10a6:10:4f8:cafe::bc) by DUZP191CA0034.outlook.office365.com
- (2603:10a6:10:4f8::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.16 via Frontend Transport; Wed,
- 10 Sep 2025 14:42:07 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.44; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.44) by
- DU2PEPF00028D0D.mail.protection.outlook.com (10.167.242.21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9115.13 via Frontend Transport; Wed, 10 Sep 2025 14:42:07 +0000
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
- (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 10 Sep
- 2025 16:34:57 +0200
-Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 10 Sep
- 2025 16:42:05 +0200
-Message-ID: <94e20b19-eb89-43c1-9a7c-3a529c60be8b@foss.st.com>
-Date: Wed, 10 Sep 2025 16:42:18 +0200
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757515382; x=1758120182; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UkhFCZ5ofWJHJ2EhMv0fguBBuTeG4Pes0q1AF4EcfFA=;
+        b=fUTIThl84+faf9QRxmt0Nb1JLgSz1jG6xrVpRA+zZ14ywgp+x0Z4avreacCphUpQjE
+         oyzxUZFck5bxNrQG5q/C20QrYtOj05mCWq1bx+xP8OmQdakZxpti3QLoFurxOUVRjYyK
+         e8jG0vgnOt2htqlETTmsPkPsHwjYh0/cMgOc/zUjDpKC9Rnp04Y5O9oS0wfWYCiN6JGf
+         wBzDlYi3u7pa7w3awkSqEhNf+7Puci7XskXiNM51FAAGQbzmx+l8WYXjPneQxYX7liK3
+         lnkpo2A1CsfQD9cD9n5MJBYz/NglIMrV3/T2kxqYTpU+zLWoUbrMhjCU33BanuIkmxXX
+         auGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757515382; x=1758120182;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UkhFCZ5ofWJHJ2EhMv0fguBBuTeG4Pes0q1AF4EcfFA=;
+        b=H7Nc50EsmhspNNgyMSfYHvjXRYaXCNpbsugeORBbaFXRkT4LKbUug6cvr/bbIr7HII
+         8LiVhKDmersr0T19QkzkkyBoV5NekN1A3NaGUa5k+SMWrj5slBD45NeM2zTRsU0CUpRO
+         MXiWLTiqsYb6EvHHe26kyp84xaetnggigBeOaGs/5nimmF6Ket+TrVIgy9EASFnkXTDX
+         O8V5INwlqpri3edmzvRVCWKyy9IUiaUi7z/Wk57Cf+5HGKzK3QcX4XUVAUgrd1uNFhXt
+         JdGQYuCeBIw1BMHyEG7CD1uQ3dr1euoW+KOdr/6tgjoCjmdYDhvKV/1UBvOYEWzijH1t
+         +1bg==
+X-Forwarded-Encrypted: i=1; AJvYcCXQLtImLOIFGVfNdnuRSaA8Z+XN/aMrYdqFLrXQEtpipk4UEyxm2fFhjOuf0xOXH1WBjOzNv+E9SwdKLp8yfkyw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyba0WnnbDu9dV4KEgNRFIAypXvOtycfQcOQMq8wloVbfDg8aLO
+	RxJZBaJyIurDK+jq+wd5dS+sj8hHWAcQ7S6OHEGqEkm4PzhIX7E3Zu9Pj2du5mwvdMkCytoyhwi
+	fnkJ7gkG/+H1XmTX/lAC+vb3I/w6u8vFDT7jn5gMmPw==
+X-Gm-Gg: ASbGncvaKu2kK2PpCbi9xQffLAvOTjtDPqYPggukIPnLavH/vP+8A5srtT32eIf98B3
+	N8D6pfcTKfXLMALtxgtvbO8ZucWF0LT9bAmmXHNO9Vc4ADbFFu8QsqlsmjGwJqH5GxQr/oopW8t
+	E504tEGW6lwbzcbyxf5Q87iaik0q/LTTbvXG4v6/pRMEoa6jf5lpvXEXQs/OMOWFDpd98wUWxB/
+	np213qq8VgucdUE5gCi6dHgkOKsmu1sMOyPtzQ=
+X-Google-Smtp-Source: AGHT+IFwwWMP72rjU0xLemNq3S4L4evCHuBoOQsJ51CqzV+zQGmHuO0tvNuPBH/4DumR325PTGGiK6U/D6n2L75MFaY=
+X-Received: by 2002:a05:6512:e82:b0:55f:4429:15a6 with SMTP id
+ 2adb3069b0e04-5626310e5efmr4881766e87.48.1757515382294; Wed, 10 Sep 2025
+ 07:43:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH net-next 08/11] net: stmmac: rename
- stmmac_init_ptp()
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-        Andrew Lunn
-	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-CC: Richard Cochran <richardcochran@gmail.com>,
-        Jesper Dangaard Brouer
-	<hawk@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>, <netdev@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        "John
- Fastabend" <john.fastabend@gmail.com>,
-        Alexei Starovoitov <ast@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        Eric Dumazet <edumazet@google.com>,
-        Stanislav Fomichev <sdf@fomichev.me>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Jakub Kicinski <kuba@kernel.org>, <bpf@vger.kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <aMBaCga5UAXT03Bi@shell.armlinux.org.uk>
- <E1uw1Vk-00000004MCX-38Zs@rmk-PC.armlinux.org.uk>
-Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <E1uw1Vk-00000004MCX-38Zs@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0D:EE_|DU0PR10MB5827:EE_
-X-MS-Office365-Filtering-Correlation-Id: 04e1cf05-e171-4368-12ae-08ddf078379b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?T2h0ZS9JQ1d3NEhDQWxXblhhY05GNzlabFFGOS8xTHg2ZjV4WXhnMEgzUnJB?=
- =?utf-8?B?SXp1SmFsd05BamxacTBqMnFnNFJDd0pCcEp1aTdmQXk2RHhHSlRvUzZIdkZU?=
- =?utf-8?B?SlpwQVBJZFRSUlkzTmNCOE1HcFIvdFIxQ0JNQUxyUXphdklBWnhTV0o2UlJG?=
- =?utf-8?B?ZTVXZWZJNmdUTWQ3Q1Y4NzVBY1V5MUNPQ2NTS1BVandVSFp3WjdJT3Ayb3ly?=
- =?utf-8?B?U2dXUytGN0pCb29la2JwSDliNFp2bldlYU5BUDQ5NUpMWFN3WW00Z2JxbUow?=
- =?utf-8?B?b2o2aHZOOUFhVGlVVUIvTHpuaUgzdDZNVTdPR0FRMEx3MFpHVTZmQjhTYTRi?=
- =?utf-8?B?cGlmREdmVUdGS0dRQnlmZ1pQejJrWlJERHhPSXpEa01ESFBJMkd5SHNwR1Rl?=
- =?utf-8?B?cnVUOEFvbzBlZ0s5WG9id1lpWWowc1p4SUNpM1haYWxKZXVPK3VEa1VVZU9x?=
- =?utf-8?B?eVI1OUhWdmgzYjl0aWduNEpkNnFDV0JoSzFtRGE0V3NnUWErdnRPaXloOFFV?=
- =?utf-8?B?NlViVU1id3poQ29PUmhVY2VYRGR1Sk1sWEFza1QyUktuMG93NEcrbVRHdVQr?=
- =?utf-8?B?RFRkRDJHOWR4cFF0MXhSTitNSnl6SHI5WTZ4ektFOEFUQ0p6U2hlV3liaFJv?=
- =?utf-8?B?cHZTdVA5cVZuc3RPMWtWdVIrZnRYdm4vbGtYcDlLazdjWUc2TlMvTXRacmhu?=
- =?utf-8?B?cXJ6SHJ5ZlMyWVFuSkxvZWJXM3kxSmhtN2tidm9IQWgrVU9WUGlGM0ZDYzJk?=
- =?utf-8?B?TVFNOS9WT3JJeVFxdnJZVk9BZzhnVktWZlNlV1VGN3Q1bVd0OHppQkRwRkQw?=
- =?utf-8?B?UjR6RHZ0c2U0RC9ndnFRMm9MWkw2L3l6aWZhOGQrMXZEaEVGMlRCL0ZMSnN2?=
- =?utf-8?B?U1NKUzBMZ2FWbmdZZVcyNElONTMvajVKZ0JQSlMwL0p2eTZLbzJvRmZJK1ph?=
- =?utf-8?B?ZSt0RXRtUHlwRDR1MmdGd2lIeU9odkxTZ0sySFNaZ2FJWVhwdlhrTFpvQVl4?=
- =?utf-8?B?RjVMWDE1bTBNWkk4SW0xZUgxbnlJN096bEhOZE1UTXRPQ2hJUUNsK05VUUhO?=
- =?utf-8?B?ZWJROHc3bjVOSmJpcTJ4VndrMC90djQ4cWd4dDd5ckREblFNU0VxVXJrZ05z?=
- =?utf-8?B?MU01S20zdUdOd25NZnFmRUNIWUsvK2IvaVFjSm9CK2trWXZBSzkzNGlOb0lq?=
- =?utf-8?B?dXcrQWlCQ2Zad0prdkZRSTI4TkdNVjRBMU9HWnFjdFJFbmF2emhsdmgxWSt6?=
- =?utf-8?B?TmlURlZlczJHaVpyaEdOU3lyQ2F2WXM4Nk9wcnZGWXNUQmQ2SnFlUTN2OEpR?=
- =?utf-8?B?djdpZ0Z1K1hjTXpXWFRoUkZmWXNXM0xNUXRORFoyOTJLUmV1V2xJb1ltRzVl?=
- =?utf-8?B?N3NOZnJ4ZE9NajNvc1kwbHc5b0lsenZDcW9FRzYzcHJ5Y2Q5Wk5XT0I3MzlV?=
- =?utf-8?B?OFFMdGZlTW5EWE9FeEdlQjRhQkphd3lXMXJ6dVN4SnJGQmxJWmtlREZHdU5i?=
- =?utf-8?B?WjV0VUVyYWdNdEY2bkpzTzVUYXJUWDdwclIzSStwekZjWkh5eTBWUkNQNWxD?=
- =?utf-8?B?TXdYaHdkVGZPYVAwOGFuOFpacG5yU2l4V1hjMFJkU0pkQi9kSFJzZEdCbG55?=
- =?utf-8?B?T21qbHE1b0hZVU8rdTMrYlV3N1JnUVRnT1oxU01uNU01T1ZLWENrOWxPZlNm?=
- =?utf-8?B?NExjb2piVCtNZFhBUEpYdUtteHhrNmhzQmJYYmZYNndNeG56T21rNmYxZlFF?=
- =?utf-8?B?ZzF4OGFxeVpUWDEwNyt3NWthdGw4aklVREExL1hSdHpMNEV6WnZqU0hiV2c5?=
- =?utf-8?B?Nkk4Y1hlVDhiSi9CNHB1MEk0dythSVU3R2d2eVlpTUVlRk4reWQ0NGh4KzY1?=
- =?utf-8?B?cnUxWHUxTjZQMnVmNG14b1gzSzJnNjR2bmZXbWdON1F1SStSTFo3bjdhaVoy?=
- =?utf-8?B?TEN6ekp1MXpCdHlNbDl1YXFIUXdSeFBOaEJRckdLR3NGZDVkM2RNZUlJVVFQ?=
- =?utf-8?B?eU85NitXeXlEYVlaWUpaajMvQkRVMlJIcDZ2NktXSE1CL0R0MFdldUNoMlls?=
- =?utf-8?Q?x1hOqN?=
-X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 14:42:07.5223
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 04e1cf05-e171-4368-12ae-08ddf078379b
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0D.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB5827
-X-Proofpoint-ORIG-GUID: BrPVxs9SIdeHz8vATuujD2qPsJRu7ZHa
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA5MDA3MCBTYWx0ZWRfX3LOXBVD8jkBh pMNqMq7W+kDqGEmcP3IJ6GQV0q0/j15Sv4AflqMr3iGfj7fjbWAtt3gMOeRtCFegUTMowPBlPPz zRd6QJAgekXHAGKqddw3oye+Q1JxXICwWIc2KnObmDlgG0HNJppfZdl9ozEW9j26MrIonhiqEUf
- Zd8unjBhvt4l+3lXagGh978ESDJubek8F0f/EZSVUhMlUrdlDaSYxmK0SdfZ3rBxhvcFM7weJ+C aFG9m30jah6YpPIVYeLGNbAwIdc0o1FEka1jC6KlmkaD5aT1Qwh5cp6KxliGrkGfvrulR9YTegO mRMRL+0YEiN3qFarxKALIvcr2TvK430ezCVlSWKxgHAIYhm1gCIvtV8cJWUSJrrUxStpS660UwN 2SlwQDS4
-X-Authority-Analysis: v=2.4 cv=We8Ma1hX c=1 sm=1 tr=0 ts=68c18e42 cx=c_pps a=ng2v5I1XFi+PtHXJtWjLGA==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=ei1tl_lDKmQA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=FUbXzq8tPBIA:10 a=PHq6YzTAAAAA:8 a=HJyWv687w0HGLkmQ134A:9 a=QEXdDO2ut3YA:10 a=ZKzU8r6zoKMcqsNulkmm:22
-X-Proofpoint-GUID: BrPVxs9SIdeHz8vATuujD2qPsJRu7ZHa
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-10_02,2025-09-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 clxscore=1011 spamscore=0
- suspectscore=0 bulkscore=0 adultscore=0 malwarescore=0 priorityscore=1501
- phishscore=0 impostorscore=0 classifier=typeunknown authscore=0 authtc=
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509090070
+References: <20250910-qcom-sa8255p-emac-v1-0-32a79cf1e668@linaro.org>
+ <20250910-qcom-sa8255p-emac-v1-2-32a79cf1e668@linaro.org> <175751081352.3667912.274641295097354228.robh@kernel.org>
+ <CAMRc=Mfom=QpqTrTSc_NEbKScOi1bLdVDO7kJ0+UQW9ydvdKjQ@mail.gmail.com> <20250910143618.GA4072335-robh@kernel.org>
+In-Reply-To: <20250910143618.GA4072335-robh@kernel.org>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 10 Sep 2025 16:42:50 +0200
+X-Gm-Features: Ac12FXw3DEUYlNQHBVzd7vCIYANNaG3yJ5y0y_Zklwl-sYjU6Q6eUcIMkXz0GhY
+Message-ID: <CAMRc=McKF1O4KmB=LVX=gTvAmKjBC3oAM3BhTkk77U_MXuMJAA@mail.gmail.com>
+Subject: Re: [PATCH 2/9] dt-bindings: net: qcom: document the ethqos device
+ for SCMI-based systems
+To: Rob Herring <robh@kernel.org>
+Cc: Giuseppe Cavallaro <peppe.cavallaro@st.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, Eric Dumazet <edumazet@google.com>, 
+	linux-kernel@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	Vinod Koul <vkoul@kernel.org>, Paolo Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org, 
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	"David S. Miller" <davem@davemloft.net>, Conor Dooley <conor+dt@kernel.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_074234_392184_58D7453D 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20250910_074304_795124_C6AC7A3D 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,50 +107,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/9/25 18:48, Russell King (Oracle) wrote:
-> In preparation to cleaning up the (re-)initialisation of timestamping,
-> rename the existing stmmac_init_ptp() to stmmac_init_timestamping()
-> which better reflects its functionality.
+On Wed, Sep 10, 2025 at 4:36=E2=80=AFPM Rob Herring <robh@kernel.org> wrote=
+:
+>
+> On Wed, Sep 10, 2025 at 03:43:38PM +0200, Bartosz Golaszewski wrote:
+> > On Wed, Sep 10, 2025 at 3:38=E2=80=AFPM Rob Herring (Arm) <robh@kernel.=
+org> wrote:
+> > >
+> > >
+> > > On Wed, 10 Sep 2025 10:07:39 +0200, Bartosz Golaszewski wrote:
+> > > > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > > >
+> > > > Describe the firmware-managed variant of the QCom DesignWare MAC. A=
+s the
+> > > > properties here differ a lot from the HLOS-managed variant, lets pu=
+t it
+> > > > in a separate file.
+> > > >
+> > > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > > > ---
+> > > >  .../devicetree/bindings/net/qcom,ethqos-scmi.yaml  | 101 +++++++++=
+++++++++++++
+> > > >  .../devicetree/bindings/net/snps,dwmac.yaml        |   4 +-
+> > > >  MAINTAINERS                                        |   1 +
+> > > >  3 files changed, 105 insertions(+), 1 deletion(-)
+> > > >
+> > >
+> > > My bot found errors running 'make dt_binding_check' on your patch:
+> > >
+> > > yamllint warnings/errors:
+> > >
+> > > dtschema/dtc warnings/errors:
+> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
+gs/net/renesas,rzn1-gmac.example.dtb: ethernet@44000000 (renesas,r9a06g032-=
+gmac): power-domains: [[4294967295]] is too short
+> > >         from schema $id: http://devicetree.org/schemas/net/renesas,rz=
+n1-gmac.yaml#
+> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
+gs/net/renesas,rzn1-gmac.example.dtb: ethernet@44000000 (renesas,r9a06g032-=
+gmac): Unevaluated properties are not allowed ('clock-names', 'clocks', 'in=
+terrupt-names', 'interrupts', 'phy-mode', 'power-domains', 'reg', 'rx-fifo-=
+depth', 'snps,multicast-filter-bins', 'snps,perfect-filter-entries', 'tx-fi=
+fo-depth' were unexpected)
+> > >         from schema $id: http://devicetree.org/schemas/net/renesas,rz=
+n1-gmac.yaml#
+> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
+gs/net/renesas,rzn1-gmac.example.dtb: ethernet@44000000 (renesas,r9a06g032-=
+gmac): power-domains: [[4294967295]] is too short
+> > >         from schema $id: http://devicetree.org/schemas/net/snps,dwmac=
+.yaml#
+> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
+gs/net/mediatek-dwmac.example.dtb: ethernet@1101c000 (mediatek,mt2712-gmac)=
+: power-domains: [[4294967295, 4]] is too short
+> > >         from schema $id: http://devicetree.org/schemas/net/mediatek-d=
+wmac.yaml#
+> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
+gs/net/mediatek-dwmac.example.dtb: ethernet@1101c000 (mediatek,mt2712-gmac)=
+: Unevaluated properties are not allowed ('mac-address', 'phy-mode', 'reg',=
+ 'snps,reset-delays-us', 'snps,reset-gpio', 'snps,rxpbl', 'snps,txpbl' were=
+ unexpected)
+> > >         from schema $id: http://devicetree.org/schemas/net/mediatek-d=
+wmac.yaml#
+> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
+gs/net/mediatek-dwmac.example.dtb: ethernet@1101c000 (mediatek,mt2712-gmac)=
+: power-domains: [[4294967295, 4]] is too short
+> > >         from schema $id: http://devicetree.org/schemas/net/snps,dwmac=
+.yaml#
+> > >
+> >
+> > These seem to be a false-positives triggered by modifying the
+> > high-level snps.dwmac.yaml file?
+>
+> No. You just made 3 power-domains required for everyone.
 >
 
-I agree it's mostly about time stamping but if the ptp_clk_freq_config()
-ops is implemented, then it's not only about timestamping. Wasn't it
-fine as is?
+With a maxItems: 3?
 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 716c7e21baf1..7cbac3ac2a9d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -773,13 +773,13 @@ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
->   }
->   
->   /**
-> - * stmmac_init_ptp - init PTP
-> + * stmmac_init_timestamping - initialise timestamping
->    * @priv: driver private structure
->    * Description: this is to verify if the HW supports the PTPv1 or PTPv2.
->    * This is done by looking at the HW cap. register.
->    * This function also registers the ptp driver.
->    */
-> -static int stmmac_init_ptp(struct stmmac_priv *priv)
-> +static int stmmac_init_timestamping(struct stmmac_priv *priv)
->   {
->   	bool xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
->   	int ret;
-> @@ -3502,7 +3502,7 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
->   				    ERR_PTR(ret));
->   	}
->   
-> -	if (stmmac_init_ptp(priv) == 0 && ptp_register)
-> +	if (stmmac_init_timestamping(priv) == 0 && ptp_register)
->   		stmmac_ptp_register(priv);
->   
->   	if (priv->use_riwt) {
+What is the correct approach then?
+
+Bartosz
+
+> You have to test without DT_SCHEMA_FILES set so that every example is
+> tested with every possible schema.
+>
+> Rob
 
