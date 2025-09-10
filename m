@@ -4,120 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E335CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02212CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+WG/fOgOed7F+q/vykBWwKRqhGGU2/L6CsAzZkzcjHA=; b=p9aJzuk73fc8TwRNPJViQOvSLz
-	8A+mPmHaB3NkiNs4y6gPgHqFYwacXG5vuNX936HCNfvAUml7X7zLIPFn82LwCLxxdkQSSMZ6WqhN6
-	98XBTiBiUlTzZxMBU1eJsy8WKUJu/Xge0fOrm3lJS56CP4frZJTkuNZZvQC1SnMmeje/Ue/Cxc42M
-	XSEhyuKtdxHbYMqldVcdfYOdrcdzODeyWQ7zgganyFg17qr4XpBqBc8AAubWuRmCem4KvfEg9lDqJ
-	3A/zLfQgZnNT7+k1i6VbGJktCEnmYxqc49YXCFsAtU9fzh1lRcMBLXOx9Tc3K23c3miZpzZwAAS8l
-	dU5zYj2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Cvlcl3lSVxIswV9jynJ/e4AYCtz89efpAEudugYMIw=; b=rscFljioNtUiWcXRJt9Bx67kU5
+	/gzfT2JOwBzzBLMew255aVNDUhhsfAOG5Xwi+IvBqYLYhwksxHHvaeprvADdhNhPMQTHVTYJBWQxx
+	CEd3bLq3Q7BaH14n0Fq3sc56dzMPGSV0M+iFyn0i0MUCbgzNkMJl5eCU0rGoVMzOPu/MY5i9f7oKz
+	B/DOl7syKuIq1TDr/T8SA0o/MgmCA6cupwgymbXtrK/bdE3xEBx+Fy6u3orXVgHF1Gl07z/VxWTEQ
+	qbwkFg3dSde91F6QTqrrzuG8N3Cgt1CZHqYZ+AYTe6t6BYo99ON6QB1khLqwRqqh5kwdPCEUY8wvK
+	VR+ugqtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFXr-0000000CfSg-3VUe;
-	Wed, 10 Sep 2025 07:47:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uwFfJ-0000000Chuf-3gC2;
+	Wed, 10 Sep 2025 07:54:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFXq-0000000CfS7-38Me
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 10 Sep 2025 07:47:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=+WG/fOgOed7F+q/vykBWwKRqhGGU2/L6CsAzZkzcjHA=; b=gYxpk9FfDU/2Q9IKhEekiIug6S
-	CpbrNbz7ULrGFQJHsVcUIJk2KJqk+eeoHkPxlc8B6dSehIBrpp/5WM5PqGZZ+FhFz/rZYMX41yMHA
-	RcCjx0ubwXvupE7j4g7LRphIwzC0mM7bJooFqo2An27q5PG/GSPoxfUGJg8aH2P9sXrVYQw0isF/a
-	A8VbFofmSMK4/VZ88nUQVbYaboxQY36nsIrsT05OHOYLmjf/4rrQOvfXG9RQAjtkHeCV/DNQb9WCs
-	e/24eesgRX/GK/bqdI+0eeyifBLHvqzZ1b+9PUJyoeLC9VBxN8jCCyNNwxCQU0od/Ll19bK01Gz+M
-	i0e4hfvw==;
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFXn-00000005mfT-2z5w
+	id 1uwFfH-0000000Chte-3SF5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 07:47:09 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45ded619608so14278735e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 00:47:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757490426; x=1758095226; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+WG/fOgOed7F+q/vykBWwKRqhGGU2/L6CsAzZkzcjHA=;
-        b=ElBqt3hIvO6Pg5LZTTtKBfpCs34vdISXJYmQN4eWJ9raQua/0ldxg0TjhseGswfwDO
-         6KMKZXOIRTtsssWmUMfzQcat/zUxySSQawFHtTjlJcitTgVNBNdsAGBq1E/pI3gGqv0H
-         lm9lH+Hd9WF1kBr+j5SqBCmQAwvEHrcZ0Nd3jBV9hhHOE0uhsv4NWGNsquxflkJlRsC6
-         tCQMHLBY0MsD2AtL+N7oG6SPbjwHdDqKiz3JGGZOCW/Kv/bM7bupe7o945cXo1YGBSfP
-         i5qAOQrRkwx9bvO4LXEzHV8GUpll1HjMpbNbc5+NR3dDh+nj0KSuSWoYYPTC46pDD21s
-         rMNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757490426; x=1758095226;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+WG/fOgOed7F+q/vykBWwKRqhGGU2/L6CsAzZkzcjHA=;
-        b=ZREuh1+ODkGgC0QbK6fG6effV8U9gJ1tZ4U7hbIGdvJGnRuXa0y+5/9U+Z15CjJ0wj
-         eE+H+xkaeCX41UpO+nOohdF/BD38le0o9XrOi2VU2LCg+SETSxW7kEIYqdx1Q5dylZco
-         K/8T7khCX5214WOUfUfI69mZoCHRWj9me0oQtkLlRXSnrLrmOCoym5lRIjeGZqrXM2RJ
-         om9tAJn+nrRFvEGF8aZU57p2Jkqk97mbZ7zX8Ms6HcgwgEJ0tDmMMCH96B+XwTDgn0yF
-         pb34AomCOAEM7fmI2pD91ERzO6xRKcfVfZ9+J8ll7GDNZ2rw6G5WjDmgEWgSrrgqFtpB
-         bR4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVFmCov0qjQHOeBJyU7lzpShY2+XcdJG0wQysONFInHR3mRfK0KmZXLIeUCUriKSS4TOqd/odLEYMKL4DcZAUiM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3X8pxNrYKrIrzB0wHmkCz/jfKTxzbMXE5VE/bBx2bhZhEv6qi
-	7jPtdaCVhF8SjNXhectf6RkPpbCh7D5tvd9YWed5GDdzfLS6cm59+JNW
-X-Gm-Gg: ASbGncsQQIsyKNPmk7iOf2bV3RT1JDVkUoUO1MhRSgw1NlgzsitfZCAY1JkmbfYuz+c
-	seZdmQGpbhL43Ai3txMyyC31/h8ukkt0Ru3EQgzAbpLS2pGVSHtA2Hd2n+WJf99FIXRajvKA/xe
-	auF3P1WoaQ/JP6SG48d7e/82k5dMfZrLiHGP/M5qw/tuqXybtqfjWnmKir7CIkGbjUmyodtZIi8
-	iovIivOrsBf2/hkUyHnvFe7fibkKpgqWVVQmto8R6qDqntvsKCI+0HtI1vvypimXUUeJvzWDGrc
-	p5nAdQFsZiFCq1YQ4XoGPNXX8dhpVShGe+YrB+mhjKC1H14YQdRnBmxX64XHAIrVBIEweLS3Zgm
-	0d+cZkow7FRBB4wlQv7D2D/tRyRVEnsjenOd6tLaELdUcNda/MHkEWXFN4cKbcOZlbNhVl9FbnE
-	TOB/wbFKWVfIwttUJxog5RskAqt6lDDAsbPlzM1YepuA6SnTLw7PvPtI3HBwM+Vm1j4RsSr8+jX
-	Q==
-X-Google-Smtp-Source: AGHT+IHCQlyEGA4dQJ+eF6cYPq/TcQfhp+X5TSRzHZoqn+jcag/Ng+LaHLBRVKb0m1OSVaCN+kNKcA==
-X-Received: by 2002:a05:600c:4f91:b0:45b:88d6:8db5 with SMTP id 5b1f17b1804b1-45ddde82fc0mr127441425e9.12.1757490425798;
-        Wed, 10 Sep 2025 00:47:05 -0700 (PDT)
-Received: from ?IPV6:2a02:8440:7135:4f4c:9000:7072:695b:3ef? (2a02-8440-7135-4f4c-9000-7072-695b-03ef.rev.sfr.net. [2a02:8440:7135:4f4c:9000:7072:695b:3ef])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df821f714sm17367435e9.16.2025.09.10.00.47.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 Sep 2025 00:47:05 -0700 (PDT)
-Message-ID: <19e664da-df4c-4bc0-84ce-41e4364f10bc@gmail.com>
-Date: Wed, 10 Sep 2025 09:47:03 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/20] bus: firewall: move stm32_firewall header file
- in include folder
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Julius Werner <jwerner@chromium.org>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>
-Cc: linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+	Wed, 10 Sep 2025 07:54:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 606EC44470;
+	Wed, 10 Sep 2025 07:54:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EFF3C4CEF5;
+	Wed, 10 Sep 2025 07:54:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757490891;
+	bh=/Cvlcl3lSVxIswV9jynJ/e4AYCtz89efpAEudugYMIw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ByAqknhQxTz5AuwNFMa3NeXS+psWNlXu858IH8RhV5WRDRT6/Er16498NMAI/6bBD
+	 SsC6di1+qrYZKG0/JLFvcqTvMr778/sGlSuvjhc3v7KNFW/kHbl2CwMpRFR4Bu051l
+	 ErX7CASZW0ejiZAsqXt0gFlI0gWrH7YNL4Xmy/DMDRBbPry/DVhl/4pP5qqFKV8f2x
+	 h8yd10TqVJiygJy32AMSB5ilvaj42MMp/VVLc9xh6do1MDxS1tIxU07JPOTLpA805e
+	 e8Cp5j4A/PLS0IIY/yEHZyxPqkY8mah+LGTBZfNzP7ncfQCPQbt5Z5LJlbCiidHE0R
+	 kPE8/SWr9/cPQ==
+Date: Wed, 10 Sep 2025 09:54:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?Q?Cl=C3=A9ment?= Le Goffic <legoffic.clement@gmail.com>
+Cc: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Julius Werner <jwerner@chromium.org>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, 
+	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>
+Subject: Re: [PATCH v6 05/20] dt-bindings: memory: factorise LPDDR props into
+ SDRAM props
+Message-ID: <20250910-flat-raptor-of-temperance-5e8c7c@kuoka>
 References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
- <20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com>
- <9a46c8a8-1d25-410c-9fa2-267eb4040390@foss.st.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-In-Reply-To: <9a46c8a8-1d25-410c-9fa2-267eb4040390@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+ <20250909-b4-ddrperfm-upstream-v6-5-ce082cc801b5@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250909-b4-ddrperfm-upstream-v6-5-ce082cc801b5@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_084708_009979_3DACBBBB 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20250910_005451_881901_C7148F75 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,104 +83,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/09/2025 14:25, Gatien CHEVALLIER wrote:
-> 
-> 
-> On 9/9/25 12:12, Clément Le Goffic wrote:
->> From: Clément Le Goffic <clement.legoffic@foss.st.com>
->>
->> Other driver than rifsc and etzpc can implement firewall ops, such as
->> rcc.
->> In order for them to have access to the ops and type of this framework,
->> we need to get the `stm32_firewall.h` file in the include/ folder.
->>
->> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
->> ---
->>   drivers/bus/stm32_etzpc.c                       | 3 +--
->>   drivers/bus/stm32_firewall.c                    | 3 +--
->>   drivers/bus/stm32_rifsc.c                       | 3 +--
->>   {drivers => include/linux}/bus/stm32_firewall.h | 0
->>   4 files changed, 3 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
->> index 7fc0f16960be..4918a14e507e 100644
->> --- a/drivers/bus/stm32_etzpc.c
->> +++ b/drivers/bus/stm32_etzpc.c
->> @@ -5,6 +5,7 @@
->>   #include <linux/bitfield.h>
->>   #include <linux/bits.h>
->> +#include <linux/bus/stm32_firewall.h>
->>   #include <linux/device.h>
->>   #include <linux/err.h>
->>   #include <linux/init.h>
->> @@ -16,8 +17,6 @@
->>   #include <linux/platform_device.h>
->>   #include <linux/types.h>
->> -#include "stm32_firewall.h"
->> -
->>   /*
->>    * ETZPC registers
->>    */
->> diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
->> index 2fc9761dadec..ef4988054b44 100644
->> --- a/drivers/bus/stm32_firewall.c
->> +++ b/drivers/bus/stm32_firewall.c
->> @@ -5,6 +5,7 @@
->>   #include <linux/bitfield.h>
->>   #include <linux/bits.h>
->> +#include <linux/bus/stm32_firewall.h>
->>   #include <linux/bus/stm32_firewall_device.h>
->>   #include <linux/device.h>
->>   #include <linux/err.h>
->> @@ -18,8 +19,6 @@
->>   #include <linux/types.h>
->>   #include <linux/slab.h>
->> -#include "stm32_firewall.h"
->> -
->>   /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
->>   #define STM32_FIREWALL_MAX_ARGS        
->> (STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
->> diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
->> index 4cf1b60014b7..643ddd0a5f54 100644
->> --- a/drivers/bus/stm32_rifsc.c
->> +++ b/drivers/bus/stm32_rifsc.c
->> @@ -5,6 +5,7 @@
->>   #include <linux/bitfield.h>
->>   #include <linux/bits.h>
->> +#include <linux/bus/stm32_firewall.h>
->>   #include <linux/device.h>
->>   #include <linux/err.h>
->>   #include <linux/init.h>
->> @@ -16,8 +17,6 @@
->>   #include <linux/platform_device.h>
->>   #include <linux/types.h>
->> -#include "stm32_firewall.h"
->> -
->>   /*
->>    * RIFSC offset register
->>    */
->> diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/ 
->> stm32_firewall.h
->> similarity index 100%
->> rename from drivers/bus/stm32_firewall.h
->> rename to include/linux/bus/stm32_firewall.h
->>
+On Tue, Sep 09, 2025 at 12:12:12PM +0200, Cl=C3=A9ment Le Goffic wrote:
+> From: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
+>=20
+> LPDDR and DDR bindings are SDRAM types and are likely to share the same
+> properties (at least for density, io-width and reg).
+> To avoid bindings duplication, factorise the properties.
+>=20
+> The compatible description has been updated because the MR (Mode
+> registers) used to get manufacturer ID and revision ID are not present
+> in case of DDR.
+> Those information should be in a SPD (Serial Presence Detect) EEPROM in
+> case of DIMM module or are known in case of soldered memory chips as
+> they are in the datasheet of the memory chips.
+>=20
+> Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
 
-Hi Gatien
+Is this email defunct now, that you add second SoB?
 
-> As the firewall header is moved to a dedicated firewall directory,
+> Signed-off-by: Cl=C3=A9ment Le Goffic <legoffic.clement@gmail.com>
 
-I don't move it to a dedicated firewall directory just to the "bus" 
-directory where the "stm32_firewall_device.h" header file is already 
-located.
+I still see in this patchset around 5 different subsystems. Nothing in
+the cover letter explains the dependencies, so grouping looks like
+coincidence and you just make it difficult for maintainers for no
+reason.
 
-> maybe it would be coherent to create the same kind of directory
-> for the sources as non-buses drivers use it. I can test it on my
-> side if you're willing to make the change.
-
-Do you mean create an include/linux/bus/firewall/ directory ?
+Please organize your patchsets per subsystems, see submitting patches
+doc for more details.
 
 Best regards,
-Clément
+Krzysztof
+
 
