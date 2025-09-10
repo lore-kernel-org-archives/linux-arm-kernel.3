@@ -4,111 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B883CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D5CCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4AKBrsHYyZy6NVWerxVC8iAlV9/6fvAVIrP6ESd120U=; b=YjnG4nn1sJO5IJUigbaOx+B/Vc
-	LPDrDatsSXUnQuKFu4N3SpTE++5iCzvGIlDHO/+HaHWCEmVqjPnpKh4pOQ2ePnVo1z8sg1QuwGhQz
-	mQhjjnpBTBWte/fO5+7NXIKiuqfvMH/lEAX93G6M+/yEXHIuW4A7qSPj40NkKN2WV39/R47+ezg4r
-	6SxppIOk0Lj3ydw6zWwYypnLj2lknkPjyqaO3pYqtSs/oyYSre5h11svBsXeu47S5TpfliLJBpJWZ
-	BYarkm+5LeSRXH1Vvkn7OUFnMbFMtD2fD6H/mp2MvdvZPkFBqQBvvOUU0E04DJJv3q6jSSGan12LM
-	wv+/SIZg==;
+	bh=ESKXExJLIuE1yoebiA/ue+cSaONVpwchtGyuhY5cYRs=; b=hoMTpDRrhk+jxLSyBFy3K3U4r2
+	GBXLpDd4yXNuIK/c4IouXHTI2jbqM9cWklIc+aevNgDpgR4AXP3wYDfRjMZw8ysrw+7v8cojxP8/3
+	3+CoN0j6q1MeACXNYJciiA2lqSO4a+GWKEDgb8FwLEsDcdP06HKS/agTUXA74e9X0AE5zSBuCQ7bl
+	GU012z74siVAVsrzTUfxuXb9GoTVJUY9NT2euat3oYNd8yQVshfEiQcZxQ5L7MI8xnrHSderN6ztG
+	cSsvogMegSZ9EWjx6RpuEjTSJ6VZL235hfnn6OTJ4Gt3gyLYtjYHeneChWxNDZqHlvD0r93Cb6fHH
+	1rrvMS3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLaj-0000000EdBY-1lCI;
-	Wed, 10 Sep 2025 14:14:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uwLc0-0000000Eddb-3bWN;
+	Wed, 10 Sep 2025 14:15:52 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLaf-0000000Ed8w-3zTH
+	id 1uwLby-0000000Edbu-1wbv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 14:14:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757513667;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4AKBrsHYyZy6NVWerxVC8iAlV9/6fvAVIrP6ESd120U=;
-	b=BTxWaaHTtOtGwDywzanXaVXZxJdaVxryrkLrnQ4nhGLAgnTTwY3Q9tNVf3ENMSRMrSTIZ0
-	bSR3yWws/GO+q7PDyXpBN4UNskvGRVV3vsPhIgcPJ4fcM9EQeHzdOfOxqhTphP01qIz+78
-	K8MmIXLWbpmTIuOnQbY0Q0ku5vJONMA=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-186-EsLPFOA7Mt6saJN19CZ2-Q-1; Wed, 10 Sep 2025 10:14:25 -0400
-X-MC-Unique: EsLPFOA7Mt6saJN19CZ2-Q-1
-X-Mimecast-MFC-AGG-ID: EsLPFOA7Mt6saJN19CZ2-Q_1757513665
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-81b8d38504fso727430685a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 07:14:25 -0700 (PDT)
+	Wed, 10 Sep 2025 14:15:51 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-80e2c527010so395438485a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 07:15:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1757513749; x=1758118549; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ESKXExJLIuE1yoebiA/ue+cSaONVpwchtGyuhY5cYRs=;
+        b=KMPTL3cBGsEhTGw7wOkrAlRiWtesMmleJqA6QSbATYsFojdIEDZf/k6EHOtq8rYDk3
+         /MLx3iGih+Y3kQKK2f7XJDurQNWTDky8YQtlobtQXPTih4W6KkCjuUpDOGTSq75bKWxK
+         0cjg4zYXUdvK2j+Qab4uKil2sdHmo8BjhJ00Y0kwGnSIZ8iL32pOddlsrgBCriB3weqc
+         SN+qXi2k5r3nEOw9M7nf4oRGGMk3UYK2DRBd+RxoClaKinUh/dGaelbJ32+RxU1N9Twa
+         sBHC/sZ66gvKhxlo9jb2i6wVZzruYCvLVyv5lJTQ996TPY9l1b+xry1mRyOevMERGOGu
+         XP8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757513665; x=1758118465;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4AKBrsHYyZy6NVWerxVC8iAlV9/6fvAVIrP6ESd120U=;
-        b=MLVA/NJWW1h/zJNoGuBTI1G69k8BCsSma1B5+z07YHs2mCX05kN6wZZmxPmC4P+5of
-         wveTs5l9L9dZ3UF9wzP+d65C6vx8d4CWrk5xtberBnBOwOfVOZklsH48MSTpGmsKmWUN
-         0kGy6qPekK1fKq+LsdlHxH5F9y4AxGW9SxVNnHqZMrbJxKfu8vZAmRhOfmNzD6kQZGoo
-         EzCwAwGyNLkmWeffAAP0RUKr6o9FPqfZ8xfYsV1m4GMee+oTaKg3RugOJcqsu0OOzaIV
-         qX9Kx6tpwMM0K/wFNIHRbiVJRDj/jWNtoqGz+/PCbWQXALdHXHo34Ej4NtXB8ODC9KyY
-         RTlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVccfuNM8/obTbGibMqnFsIN1ZEaj4N3MJXXIRdQlXm3jmn2NHoldPXwGyI/eCtv3EU4uCKYYdktkKRygCL50yt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSRxdVT4SfDTV0Rq47yKo4pHiORrEyxVe5WfJPfIvpsqu7I4Bm
-	5XmDbAZA27/TKrU54PL3wEO17Aei/CzeRVgcLOnXVDaq093lMzK5XxP7SaIENdQ5AF/eqQhxKcH
-	ttg3rdtg12UjTv+usJvh6cM5IHKfcVh+T4gu8JXzzwUwDrh88xPGSxlYFarF+yxLYiG58Ys3b7+
-	k6
-X-Gm-Gg: ASbGnctu8C60ov7lVNvTkiH2T6hUTVnsTH4VnxsfAySMylS6pRM7hEbgvSSveeIZEhj
-	LgrB1IHK7LLVrAbPTb1t/QV5yt171WwknjCsEnh1tdtx71Mnjb2S6Q3vTwJosbAiBMhUBAhCWkN
-	Cjb9cCtte+bu5YM6H0fqeBGMa9+uqSmpkV4WcIq1XYTdhYw7vCuBk5bFy+6t0Fc+sRALVpM/6B+
-	zG2gORg8UMrGdKtYvANvQ5dztSf1eyQ87t/9q2l4ZkX9n9WRTfngPJOwxR2DLDFcf/B9wWxGUwz
-	ENzCx4fg/Yh4aV+k29gwIQRx8bVQjyU6eMt+Pz8s9yRvlMnJP1ji4pCiSlc2SBJJKlelV6FMnJy
-	vbTnUzIj2lhrVttiVPgQ=
-X-Received: by 2002:a05:620a:1997:b0:7e8:922:f02b with SMTP id af79cd13be357-813bed042c0mr1615333185a.25.1757513665031;
-        Wed, 10 Sep 2025 07:14:25 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFkFeL3wPJOKIe3shUG9pzAQKQjdBD+pGyVy/83wrA05r4tPdXbaw2hUPMEXQ3KZIEvXGTTLQ==
-X-Received: by 2002:a05:620a:1997:b0:7e8:922:f02b with SMTP id af79cd13be357-813bed042c0mr1615324385a.25.1757513664239;
-        Wed, 10 Sep 2025 07:14:24 -0700 (PDT)
-Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-81b58b5d7fesm299937185a.8.2025.09.10.07.14.21
+        d=1e100.net; s=20230601; t=1757513749; x=1758118549;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ESKXExJLIuE1yoebiA/ue+cSaONVpwchtGyuhY5cYRs=;
+        b=Jjt8Gwi5S8U+nQuIG/5bfWQg2reNnDONe64lz52FjxNGnaTj/fYqm5bNOAgb3V9Mzo
+         GILYfQW/9L9dkRmXVb070pgQKi9B28Kh8usfakOaMhZ6uXVtUWugHtj1HtgjYe8UHW0Q
+         oMbZyi0qxqymwn7mabUCsLqiT4m5Cb3fe2x/eqObJvqiNzUAB1x5RiUCQ8zyt2AxHbru
+         4lidul0zCWLHCf5VUTA/mHg8TXNp/1a5EzD1v4lk6+8gqE4vRe9la21E7tRuP877oxNn
+         0hAj10M0+Rmxs5sFU+SATpMe2g9Gzn76+L+BSx7NBrxaFBAqhqtf0GY0sqko+TjeexFA
+         83ww==
+X-Forwarded-Encrypted: i=1; AJvYcCWsKHOcO0L2cQrRcEnmdNuvlXljpzijgLxOkp3wFodxSKeHqC5SJcPIWWjwVTPA+JiGmd/yT4TVt0FzLooaeoWZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMDRJ+AUt+js2oXpMwHvGwtUbQjtLz7U2VmXVwALZCuKPhMVVO
+	7Mp2LuVyIGlQS9+QBhxJxVhLYa4qk4xrZ9boMgDtkvxeTZ2dFonNycFC9J7FOq+/jhI=
+X-Gm-Gg: ASbGncv4u8AqKqU48QHUI4jjBib3hWAqXZx8WF1srfg8EuyflSEDQjI2eJLl1eW1pOh
+	t7w7kgXAD6irVqOwTbvpC4BbUPbWoQzZWBIPadeSvs6PK5kAtsfOEH3pO/33dntc82exFOgVqgj
+	q6HNBPSZEJy8MAIVafK3wY9osG5/oEJKGWAYgK6kdda9ZBaYAauFWnO+KOpgVWP1lWJ1vM6mP2Z
+	gMt73pOaeq/C6TW42xIlqiK/4eVBalldrEq3PGbkNkM4UL1y4+tEwDqWc4x3XCG13IEl9DxGsSx
+	SBE1RIqwbwoG+djrAv9eGphPGCZ4dKkiGDn59ltteFo6anbQpCAMsB3d0mR7XgvTYi5+k4pR9yh
+	Hr+vtRkSFANZU1AcYB0FOhZie+PmFcQeOmcVJQQoEZfBku5N3y20rH0nxHuBG0qCqvCvynUj1b5
+	Ho4iyftto5Yt+h7g==
+X-Google-Smtp-Source: AGHT+IFfyhIETCUrm58is+DJKy2K1cA7/NQr1D0/v2K3gk+WAtxi+xyNq/8bDediao12ZQz9GzGhAQ==
+X-Received: by 2002:a05:620a:4515:b0:818:2b52:2315 with SMTP id af79cd13be357-8182b522920mr1251451085a.49.1757513748711;
+        Wed, 10 Sep 2025 07:15:48 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-81b5a359305sm292432785a.31.2025.09.10.07.15.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 07:14:23 -0700 (PDT)
-Date: Wed, 10 Sep 2025 10:14:20 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Mo Elbadry <elbadrym@google.com>,
-	Rom Lemarchand <romlem@google.com>,
-	William Kennington <wak@google.com>,
-	Yuxiao Zhang <yuxiaozhang@google.com>, wthai@nvidia.com,
-	leohu@nvidia.com, dkodihalli@nvidia.com, spuranik@nvidia.com
-Subject: Re: [PATCH v12 3/3] clk: aspeed: add AST2700 clock driver
-Message-ID: <aMGHvHf6BPrJD1pC@x1>
-References: <20250708052909.4145983-1-ryan_chen@aspeedtech.com>
- <20250708052909.4145983-4-ryan_chen@aspeedtech.com>
+        Wed, 10 Sep 2025 07:15:47 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uwLbv-00000003rnA-0eIs;
+	Wed, 10 Sep 2025 11:15:47 -0300
+Date: Wed, 10 Sep 2025 11:15:47 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Qinxin Xia <xiaqinxin@huawei.com>
+Cc: will@kernel.org, robin.murphy@arm.com, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	yangyicong@huawei.com, wangzhou1@hisilicon.com,
+	prime.zeng@hisilicon.com, xuwei5@huawei.com, fanghao11@huawei.com,
+	jonathan.cameron@huawei.com, linuxarm@huawei.com
+Subject: Re: [PATCH 0/2] iommu: Add io_ptdump debug interface for iommu
+Message-ID: <20250910141547.GD882933@ziepe.ca>
+References: <20250814093005.2040511-1-xiaqinxin@huawei.com>
+ <20250902161028.GC184112@ziepe.ca>
+ <f2720f17-5e81-4f69-aaf5-791b47973178@huawei.com>
 MIME-Version: 1.0
-In-Reply-To: <20250708052909.4145983-4-ryan_chen@aspeedtech.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Ht_WGMYp9J73C3uSGRlYdkodLUdTEaSNthc3mBRrHfs_1757513665
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <f2720f17-5e81-4f69-aaf5-791b47973178@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_071430_062452_6AE581D5 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20250910_071550_614974_B3B30DD7 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,133 +107,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+On Wed, Sep 10, 2025 at 11:20:08AM +0800, Qinxin Xia wrote:
+> Ok, I see, my colleague Wang Zhou also released a version of io_ptdump
+> a long time ago, which is implemented in smmu debugfs. Will recommends that
+> io_ptdump be implemented in a way similar to CPU page table dump. Using
+> debugfs to expose the data and using format-specific callbacks to implement
+> specific data dumps, I'll talk to him about this as well.
 
-On Tue, Jul 08, 2025 at 01:29:09PM +0800, Ryan Chen wrote:
-> Add AST2700 clock controller driver and also use axiliary
-> device framework register the reset controller driver.
-> Due to clock and reset using the same register region.
-> 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+I feel we should have a iommu subsystem debugfs and per-iommu_domain
+directories to dump the page tables.
 
-I just have a few very minor style comments below. Otherwise the driver
-looks good to me.
+The smmu debugfs can report what iommu_domains each STE/CD is
+referencing.
 
-> +static struct clk_hw *ast2700_clk_hw_register_hpll(void __iomem *reg,
-> +						   const char *name, const char *parent_name,
-> +						   struct ast2700_clk_ctrl *clk_ctrl)
-> +{
-> +	unsigned int mult, div;
-> +	u32 val;
-> +
-> +	val = readl(clk_ctrl->base + SCU0_HWSTRAP1);
-> +	if ((readl(clk_ctrl->base) & REVISION_ID) && (val & BIT(3))) {
-> +		switch ((val & GENMASK(4, 2)) >> 2) {
-> +		case 2:
-> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
-> +							       0, 1800 * HZ_PER_MHZ);
-> +		case 3:
-> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
-> +							       0, 1700 * HZ_PER_MHZ);
-> +		case 6:
-> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
-> +							       0, 1200 * HZ_PER_MHZ);
-> +		case 7:
-> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
-> +							       0, 800 * HZ_PER_MHZ);
-> +		default:
-> +			return ERR_PTR(-EINVAL);
-> +		}
-> +	} else if ((val & GENMASK(3, 2)) != 0) {
-> +		switch ((val & GENMASK(3, 2)) >> 2) {
-> +		case 1:
-> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
-> +							       0, 1900 * HZ_PER_MHZ);
-> +		case 2:
-> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
-> +							       0, 1800 * HZ_PER_MHZ);
-> +		case 3:
-> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
-> +							       0, 1700 * HZ_PER_MHZ);
-> +		default:
-> +			return ERR_PTR(-EINVAL);
-> +		}
-> +	} else {
-> +		val = readl(reg);
-> +
-> +		if (val & BIT(24)) {
-> +			/* Pass through mode */
-> +			mult = 1;
-> +			div = 1;
-> +		} else {
-> +			u32 m = val & 0x1fff;
-> +			u32 n = (val >> 13) & 0x3f;
-> +			u32 p = (val >> 19) & 0xf;
-> +
-> +			mult = (m + 1) / (2 * (n + 1));
-> +			div = (p + 1);
+This also needs RCU freeing of page table levels as a locking
+strategy.
 
-The ( ) is unnecessary here.
-
-> +		}
-> +	}
-> +
-> +	return devm_clk_hw_register_fixed_factor(clk_ctrl->dev, name, parent_name, 0, mult, div);
-> +}
-> +
-> +static struct clk_hw *ast2700_clk_hw_register_pll(int clk_idx, void __iomem *reg,
-> +						  const char *name, const char *parent_name,
-> +						  struct ast2700_clk_ctrl *clk_ctrl)
-> +{
-> +	int scu = clk_ctrl->clk_data->scu;
-> +	unsigned int mult, div;
-> +	u32 val = readl(reg);
-> +
-> +	if (val & BIT(24)) {
-> +		/* Pass through mode */
-> +		mult = 1;
-> +		div = 1;
-> +	} else {
-> +		u32 m = val & 0x1fff;
-> +		u32 n = (val >> 13) & 0x3f;
-> +		u32 p = (val >> 19) & 0xf;
-> +
-> +		if (scu) {
-> +			mult = (m + 1) / (n + 1);
-> +			div = (p + 1);
-> +		} else {
-> +			if (clk_idx == SCU0_CLK_MPLL) {
-> +				mult = m / (n + 1);
-> +				div = (p + 1);
-> +			} else {
-> +				mult = (m + 1) / (2 * (n + 1));
-> +				div = (p + 1);
-
-The ( ) is unnecessary on div on the three places above.
-
-> +static void ast2700_soc1_configure_i3c_clk(struct ast2700_clk_ctrl *clk_ctrl)
-> +{
-> +	if (readl(clk_ctrl->base + SCU1_REVISION_ID) & REVISION_ID)
-> +		/* I3C 250MHz = HPLL/4 */
-> +		writel((readl(clk_ctrl->base + SCU1_CLK_SEL2) &
-> +			~SCU1_CLK_I3C_DIV_MASK) |
-> +			       FIELD_PREP(SCU1_CLK_I3C_DIV_MASK,
-> +					  SCU1_CLK_I3C_DIV(4)),
-> +		       clk_ctrl->base + SCU1_CLK_SEL2);
-
-This block is hard to read. What do you think about this instead?
-
-        if (readl(clk_ctrl->base + SCU1_REVISION_ID) & REVISION_ID) {
-        	u32 val;
-
-                /* I3C 250MHz = HPLL/4 */
-                val = readl(clk_ctrl->base + SCU1_CLK_SEL2) & ~SCU1_CLK_I3C_DIV_MASK;
-                val |= FIELD_PREP(SCU1_CLK_I3C_DIV_MASK, SCU1_CLK_I3C_DIV(4));
-                writel(val, clk_ctrl->base + SCU1_CLK_SEL2);
-        }
-
-With those addressed:
-
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+Jason
 
 
