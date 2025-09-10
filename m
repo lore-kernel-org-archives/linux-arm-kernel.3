@@ -4,105 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A20DCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D753BCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P3IKUpQfaLekPKjen96M//7ifX26lwnIh4aj6a3++lk=; b=Obxeo6TsjK6Dhb5QedQmcrEcvt
-	w71DGhxRflOtZHZnPBRiMtoTwEsT8viIIkBvqR9lOyjc+sPizcaQHvQ0dG/JidTQEnQurt0vR1HDo
-	loelUpJVnHnFOFTaKTxMowZnRrC0RDXNyImbiERaLtINrR9IDEpYxws7PS/qkMItyoLOFyrFcsKKb
-	KELQaf86uuDdYqmsaP+iTMJYqUEWlw575zrOKcqgw4kEv3Kap1hZSu7eKjhaQzSD3bjDe9rmg/s1c
-	OIYo7rZRMz5btgVDKmxJ+N2WOvxSZVWIaR3v96H+FMOU2J20HSpBBNS+G8OPtuy7QAUcDJ1CbTxdc
-	aPCuADcg==;
+	bh=lquJ5PztwzuglOeRIwX9xUr/VMazVnds3G/8YT7Fvc4=; b=p2UJtdDVqE3y6U4iK5wQwUS1tp
+	wRVqoIDePoImJqErW+qzpq3MRR/KHS17W184Me6MnF/0PFDWNBF4/nha74x4108Selxj+BnoRjqRF
+	5Yz5Cu6pBx4HXq+26IuUMkDsT9FWc09CRDj/DQ/dsgd969o6e30ca9ZxCsVBBDYL0e92RFTzDSzsT
+	JmuDU6NCVQivXclHrNBONFdg7froiZgVvsxqQAcwnGLkimhcw6phu1qvOfgIbZRDk/RFLPM1rFqKk
+	PIZCefG7zXK84P//e8ypdYSwVsiVZjFKyM6sN3hWFRMXUlaD20eyfzmQHpywsiWKrBxJ2nI8Pfqxv
+	zEpIhcDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGOh-0000000D0Ja-0YbZ;
-	Wed, 10 Sep 2025 08:41:47 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uwGPi-0000000D0kD-3Pue;
+	Wed, 10 Sep 2025 08:42:50 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGOf-0000000D0Ik-2BOL
+	id 1uwGPf-0000000D0iA-3SfM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 08:41:46 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-45de56a042dso22207475e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 01:41:44 -0700 (PDT)
+	Wed, 10 Sep 2025 08:42:49 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45dde353b47so19016575e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 01:42:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757493704; x=1758098504; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
+        d=linaro.org; s=google; t=1757493766; x=1758098566; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=P3IKUpQfaLekPKjen96M//7ifX26lwnIh4aj6a3++lk=;
-        b=g+pnbIDglwVsrFScWQcn1r++0ftkbI9JUGP7JdfbXPizzCfq9gPLRoMi6TyRb08obt
-         TU4lq9M0Ytkbiv57eNRakYn8Wnpo7xVJ8HY00pj9NmpmAZtbxiz5vkBRZrKfN3JyKvUw
-         yIqcP9RU5u2VcQU8QAYJCXxOWI8ArM9xSGBrW+Xs8087XN/jPdnL4xiu585JpbYQDlCB
-         9RwbxYkocCUMkLou7JvMqPuSPoscHZJ3hNGege6QnaYiyngCJKV1VuKf2gLwXD38nRjQ
-         +pCo8cLqILxHcw6jqtv62pju2P5GOEcWWfgzO85NgyumpxzlfTuP+8Qczp0zhUUZ69wv
-         4s5Q==
+        bh=lquJ5PztwzuglOeRIwX9xUr/VMazVnds3G/8YT7Fvc4=;
+        b=YZlb3z1cF+JPim8BulHMcF8plrDhSDjVaoSnABVwwS3gHmsugXwuyWmXwhPlblmcL5
+         CDeZb9GZklT40wfdu2lIvkhnUKICClPMy2Lg2RUO5bLSVR4sd9+SkH2b6RnMRWm2oN7I
+         22JqNv/B+QD2R7ywXphsj7rrj00K07YdKRjU9gw09Z79H5ciAzFiiZ7i1+0sqEGRMWD4
+         NQftvCO/rwE5MurIL9bx/J0X4Kv7kzQVw5lpiQOeiXkwu012mcNeesJEZZ67+z0e0Yo0
+         /6+4CNFxzQaZ/jeKCd8Mcc9dVaj+45QaGm58PJyiqkTB6isX2ne07wqDQ98NLkW8RX6w
+         4jJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757493704; x=1758098504;
-        h=content-transfer-encoding:in-reply-to:from:content-language
+        d=1e100.net; s=20230601; t=1757493766; x=1758098566;
+        h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=P3IKUpQfaLekPKjen96M//7ifX26lwnIh4aj6a3++lk=;
-        b=bIkrcPOSSk5Hf0tXnGg8INqqzlldAhvk1C45Adp83650ifbv06pJp2HFkqhwtFVP2p
-         +8CohcZoRGgz4ax6od8QVE41ap6F5pZgMcP2QWrwqnRbqXK34MDIq8FT/CA8sQ810urc
-         cR0EoORu1KvjTYfCByP8mHCHBY/0svjV4qeGsiCB7zrzsD+US6NrvMkCd0fgbBY3f68L
-         uA6SWvq/cHlI66ms5eAuiq+ft/8B/noZesMzUREGTbKTLNXUrPt1rcUAbc8VLaK81+z7
-         YTzY8samH3ObZr5rUzi7UEpuhHJwHCe4StGwUh/0iAeDTLYeqxy5fM64EQhvAyJskjK1
-         hjog==
-X-Forwarded-Encrypted: i=1; AJvYcCVaVoY5kDXT0cOp1S++Ou0TRndMZhM20KZQPsTQ1oLH/o1OrEvuc0CE96H3y5GrhfdRRiaqI59aDcodbii6H8pb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSgXHwe0jR2SIS3RFP8cNvHDM3I0b8YvD+ac5q+MRsdZrPkUot
-	oKW3pPEVbLBuFmPQgeIjlsaR8JQaLbnK0EqYxLN010ejd05LAaDmEBym
-X-Gm-Gg: ASbGncsgPqt1Fg/I+xKflGtRWXzTw6oIdgQvKhUbQuvSAyscsDMw2FJm04X+f0AfSt/
-	sCiSNutLgqK+eytxRPwuqz/YEpHuKqn9qWMHvF2c/fnPmRJRXZniHPYNQqVNZnDQKcm5rYCBijX
-	OjiGRBu15Dh8MMZie82OuPFzxxcZRQBT4b3s0JeN+rU2AdkKzITs3VKg4IoT/LwuCrcZk2Xc2oc
-	uzFFlfaLkcXX4puUj4Y/vx6f0LVnQMYCk+2AvJkylnpn/UuwwI2RofOjwQTg89IcxLk3DqlHeKV
-	pCfESgIMPGE1309q0JRAYcolVDXiUEBvvC8p0pTc4O7XPMg6DYzx/RLtWceMLpEkit22We7YOFn
-	GV2Z3v1wNQm9bQ5lj4mOTf6VUoVgPm+TSL0CA/BltyqegjLW6u9kJkER7idOVdVkYfKbgbh9q7d
-	GqaBB2MuFY/bIWCWrSWwA+AotHPcE+swl87EKrxPy5EDlPrNGjk0X0XJVFyBX84+Ees7ucNXNq7
-	g==
-X-Google-Smtp-Source: AGHT+IFAC+KaKdWZCDt0F29FwBEVeFET6FJu2DQLhogXKqRlrNmNAmvGOz7dmZmfwY3vjWPcfaiR9g==
-X-Received: by 2002:a05:600c:1387:b0:45b:9c93:d237 with SMTP id 5b1f17b1804b1-45dddeb93f1mr119978935e9.14.1757493703536;
-        Wed, 10 Sep 2025 01:41:43 -0700 (PDT)
-Received: from ?IPV6:2a02:8440:7135:4f4c:9000:7072:695b:3ef? (2a02-8440-7135-4f4c-9000-7072-695b-03ef.rev.sfr.net. [2a02:8440:7135:4f4c:9000:7072:695b:3ef])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df81d3ee4sm19382275e9.6.2025.09.10.01.41.41
+        bh=lquJ5PztwzuglOeRIwX9xUr/VMazVnds3G/8YT7Fvc4=;
+        b=wMV+u+ZkzIIi0JOVWCfGTgeHxanBLzp88adbW1NWIt7URtcGp/3foMuN0tfAD+hqdK
+         1qtGaKncCAZshCQ1Km7SdbKGKFmN4P+Rc1tJC8oYLtf3Qn8SjK83L0t0HzVlQ5l7BJUY
+         sLHwPCrPW0KRWW+Wv7VH+8TMnr/MzaU6eW7q8o2D2e4UUIoldaUcO0GVmmdqPSMniEUO
+         vmfZudtUy+GFXwAwhV94zOIAKxtVb9KEdQvuN9t/m8Hik9BYzn5UXv0KG3HRJXhDkzGv
+         N+T/rKxeXzwG2dlm4wd2WQieYW93u9PNKHaIZL7lADeUrJPB/nD3Us0bKy56WuxDnZeb
+         2Tnw==
+X-Gm-Message-State: AOJu0YwbV1c4BKgYBCwZxY8FXCpvSZUOVkJIgaUNaomTbnSFnlTl9aVc
+	NG4lkJqKQwbXbsa/3SJRYGFD7lHjyHstgJKPz1cpGAUl7oRXw6fIfmx9s1A0rvUmxJY=
+X-Gm-Gg: ASbGnctu7TrOi4n18tBuXJA4cbwtcGtrT3RKFiwTidgpjOk6I8f5cl7fuhmu2JA5jo1
+	+HB+2RUbfO6EiCQ4hbYcPFaoCWTIX2KmA2DewzV+7c9li8l494E554lpOhcSdW3/HhnCEIJN5pE
+	FBZMQGP7evkJeT7/2zdGMTZ+aorcJyzbcsj3IZEv9eGlclFJUcXeFzW1gsGWQTqHdZboHvcbijP
+	6RfezU6zDArVcHSK1acR8NDC4LeIrSF1Crm3bDuY6v/N3J68Yio0hzPNQQhL8+bReaYSBLp3GCT
+	bYOoo5ntp3s4Llcpb7fICEOJ3z2kWObfG7ZidvUwVw4kZOQ1sqYotWe/qcOhQmrDoLVYWDlAaLS
+	pMHoI2PbTsELa618zv1BmIuj9DjDfkeetkQnk/vc3Fmea0SputSTEl/6z38AS00ZR+fZySOIO2f
+	ltecc9mnAOHncmcFadIIA=
+X-Google-Smtp-Source: AGHT+IHVjNthO4SktB1Xz75HnDS8/BmjdCNmc8dzepzAh2MGw5GBwzE8aoUhNAen8jMgrcMcoay5OA==
+X-Received: by 2002:a05:600c:474e:b0:456:1b6f:c888 with SMTP id 5b1f17b1804b1-45dddecd894mr125340515e9.23.1757493765680;
+        Wed, 10 Sep 2025 01:42:45 -0700 (PDT)
+Received: from [192.168.0.19] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df8247acbsm19112915e9.13.2025.09.10.01.42.44
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 Sep 2025 01:41:43 -0700 (PDT)
-Message-ID: <899eb863-6b6d-42f0-9e7c-e2020ee45f4d@gmail.com>
-Date: Wed, 10 Sep 2025 10:41:41 +0200
+        Wed, 10 Sep 2025 01:42:45 -0700 (PDT)
+Message-ID: <c7635e11-d606-4e65-b48e-d8c26ee7be1d@linaro.org>
+Date: Wed, 10 Sep 2025 09:42:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 05/20] dt-bindings: memory: factorise LPDDR props into
- SDRAM props
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Gatien Chevallier <gatien.chevallier@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
- Julius Werner <jwerner@chromium.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Jonathan Corbet <corbet@lwn.net>, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
- <20250909-b4-ddrperfm-upstream-v6-5-ce082cc801b5@gmail.com>
- <20250910-flat-raptor-of-temperance-5e8c7c@kuoka>
+Subject: Re: [PATCH v3 1/7] media: dt-bindings: Add qcom,qcs8300-camss
+ compatible
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Vikram Sharma <quic_vikramsa@quicinc.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, rfoss@kernel.org,
+ todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
+ konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250813053724.232494-1-quic_vikramsa@quicinc.com>
+ <20250813053724.232494-2-quic_vikramsa@quicinc.com>
+ <f1e3c3a9-9929-477a-b1ad-e485c059cbc2@linaro.org>
+ <d16d40ab-8a35-4886-b11f-2eee15849e1c@quicinc.com>
+ <8c1163ad-6e65-450b-ae44-c9a71a045333@kernel.org>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 Content-Language: en-US
-From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-In-Reply-To: <20250910-flat-raptor-of-temperance-5e8c7c@kuoka>
+In-Reply-To: <8c1163ad-6e65-450b-ae44-c9a71a045333@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_014145_575856_2985D82D 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20250910_014247_890306_8461B5E7 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,30 +112,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2025 09:54, Krzysztof Kozlowski wrote:
-> On Tue, Sep 09, 2025 at 12:12:12PM +0200, Clément Le Goffic wrote:
->> From: Clément Le Goffic <clement.legoffic@foss.st.com>
+On 10/09/2025 08:42, Krzysztof Kozlowski wrote:
+> On 10/09/2025 09:26, Vikram Sharma wrote:
 >>
->> LPDDR and DDR bindings are SDRAM types and are likely to share the same
->> properties (at least for density, io-width and reg).
->> To avoid bindings duplication, factorise the properties.
+>> On 9/10/2025 12:35 PM, Krzysztof Kozlowski wrote:
+>>> On 13/08/2025 07:37, Vikram Sharma wrote:
+>>>> Add the compatible string "qcom,qcs8300-camss" to support the
+>>>> Camera Subsystem (CAMSS) on the Qualcomm QCS8300 platform.
+>>>>
+>>>> The QCS8300 platform provides:
+>>>> - 2 x VFE (version 690), each with 3 RDI
+>>>> - 5 x VFE Lite (version 690), each with 6 RDI
+>>>> - 2 x CSID (version 690)
+>>>> - 5 x CSID Lite (version 690)
+>>>> - 3 x CSIPHY (version 690)
+>>>> - 3 x TPG
+>>>>
+>>>> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>> ---
+>>>>    .../bindings/media/qcom,qcs8300-camss.yaml    | 336 ++++++++++++++++++
+>>>>    1 file changed, 336 insertions(+)
+>>> So it turns out this code is wrong and you already sent fixes for it.
 >>
->> The compatible description has been updated because the MR (Mode
->> registers) used to get manufacturer ID and revision ID are not present
->> in case of DDR.
->> Those information should be in a SPD (Serial Presence Detect) EEPROM in
->> case of DIMM module or are known in case of soldered memory chips as
->> they are in the datasheet of the memory chips.
->>
->> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> Hi Krzysztof,
+>> Thanks for your comments. These bindings are tested with TPG (Test Pattern Generator), As camera sensor testing was not possible at that point.
 > 
-> Is this email defunct now, that you add second SoB?
+> You cannot test bindings with TPG. It's impossible.
+> 
+>> This is because Monaco-evk kit was not ready which can be used to enable sensor.
+>>
+>> These Bindings are complete in its own, If someone want to use TPG.
+> 
+> No. You do not understand - they are not complete if you add new
+> properties to them!
+> 
+> How bindings could be complete if you add now supplies!?!?
+> 
+>>
+>> My latest update in these bindings are for camera sensor enablement which needs supplies too.
+>>
+>> Please let me know if this justification works to accept these bindings it its current form and add supplies as a separate patch.
+> 
+> NAK. Read writing bindings doc. Or internal docs.
+> 
+> Best regards,
+> Krzysztof
 
-Yes, but I still want to upstream it and was thinking to keep the 
-"original" author even if it is me.
-Am I wrong here ? What should I do ?
+@Vikram
 
->> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+Could you send an updated dt-bindings with the supplies included ASAP as 
+a v4 of this series ?
 
+The -supplies in your email here look fine
 
+20250909114241.840842-5-quic_vikramsa@quicinc.com
+
+Otherwise we will have to drop this binding and the associated driver 
+changes.
+
+---
+bod
 
