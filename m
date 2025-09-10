@@ -4,73 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB1E8CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B7DCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ACEp9caLYs5qrCEmc8z2Lie5SrZXgx0/6I6zHJtdnZ0=; b=afhVDC2b7xb7F8zVBb883aSDmm
-	Z8aUlsHsSNhHLWhWzra4xKa9hSeH9mmY2DGVcLeYTxTLcSowsiE9iGS30gUqaJhvfYiO4/q6F9cy8
-	WlWyZ3jroOllbKqUcBRW0IQqspauxk3DbBBeftf744sb7/QGzVpZ3RKYa4afabJBBDRujZDN2pF6q
-	v4PyVCyEDJtZWRmvtuqUM6KSrbj8t+FDp3QgKvx1eReeWLkYon0zhZ/J9gluEyy0x466GzDpWFl/v
-	Rm2Wht7m9QUg8cbOpQssUURPOBjNCFoX+JOtV+vXUOTjIufK5ZilYNwGZNiZfiqANZhG5mgpdkhnE
-	IpAXo4AA==;
+	bh=C5Cy6SxVatTNly0HkFi2aLEEW8GnfWE82TX8BIu0aYA=; b=lxLXmFnCgmLTYzATMhG53e1CBT
+	Ol6nxxaWQl5u33TwNJUyHM6nJIuaY+eQPXZ8Co8iDox1ujAIVY08hnsXbbCJ8WS8XnltXuM5KTXtR
+	9Ya+QvbAR8IXru+xa7Eak3x4NzqEd1xPCIjbo5lkvrojRV6hVppx4CfoNuCtEvBU1nSiKt1VBtb9k
+	2SHKh43VRPDxTHVSTGT2AOpKOOJOVzYRP8KKBlslb1hBP45nHOqWWm2uPmv+irvGGWUyaJhLE84TQ
+	ZVxR1hB5g4638W+QoGxYnF7qdDSTl/tWIabiWdsv//8mCB3+YGikmjQQwyyoeP35iTELae6STd501
+	Iqn55mUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwK3Q-0000000E9NK-47vE;
-	Wed, 10 Sep 2025 12:36:04 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwK3J-0000000E9Gs-2nrl
+	id 1uwK9R-0000000EBH1-3Z2u;
+	Wed, 10 Sep 2025 12:42:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwK9P-0000000EBFB-0LLN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 12:36:00 +0000
-Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <jre@pengutronix.de>)
-	id 1uwK31-0002Rk-P6; Wed, 10 Sep 2025 14:35:39 +0200
-From: Jonas Rebmann <jre@pengutronix.de>
-Date: Wed, 10 Sep 2025 14:35:24 +0200
-Subject: [PATCH 4/4] arm64: dts: add Protonic PRT8ML board
+	Wed, 10 Sep 2025 12:42:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8F3E116F8;
+	Wed, 10 Sep 2025 05:42:02 -0700 (PDT)
+Received: from [10.57.90.208] (unknown [10.57.90.208])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A547E3F694;
+	Wed, 10 Sep 2025 05:42:09 -0700 (PDT)
+Message-ID: <f660749e-d515-4208-9610-ffc4155b4a0d@arm.com>
+Date: Wed, 10 Sep 2025 13:42:08 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 0/2] Don't broadcast TLBI if mm was only active on
+ local CPU
+Content-Language: en-GB
+To: "Huang, Ying" <ying.huang@linux.alibaba.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, James Morse <james.morse@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250829153510.2401161-1-ryan.roberts@arm.com>
+ <87segumv6w.fsf@DESKTOP-5N7EMDA>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <87segumv6w.fsf@DESKTOP-5N7EMDA>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250910-imx8mp-prt8ml-v1-4-fd04aed15670@pengutronix.de>
-References: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
-In-Reply-To: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
-To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-sound@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Jonas Rebmann <jre@pengutronix.de>, 
- Lucas Stach <l.stach@pengutronix.de>, David Jander <david@protonic.nl>, 
- Oleksij Rempel <o.rempel@pengutronix.de>
-X-Mailer: b4 0.15-dev-7abec
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11356; i=jre@pengutronix.de;
- h=from:subject:message-id; bh=dpgo5Cr+imCiuH9s75jY9Aqxgw8Eo/ufiFt62AIsYok=;
- b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsg4WDBL4DC7TgzL4nthZ54Jx09wLnPVDGXob6+NXKKuv
- Lxe4rhcRykLgxgXg6yYIkusmpyCkLH/dbNKu1iYOaxMIEMYuDgFYCJXrRkZznUdOHTryZX1F/mW
- z13Co5ZndH/JxRNC3SkvH2vNspz9SYbhfyCL+b8vGt4vDe5P1JtV/nNVxulVFuImDSd2hh6zqfy
- 1jAcA
-X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
- fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::ac
-X-SA-Exim-Mail-From: jre@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_053557_852913_84643661 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250910_054215_243355_63D88A35 
+X-CRM114-Status: GOOD (  21.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,457 +67,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lucas Stach <l.stach@pengutronix.de>
+On 10/09/2025 11:57, Huang, Ying wrote:
+> Ryan Roberts <ryan.roberts@arm.com> writes:
+> 
+>> Hi All,
+>>
+>> This is an RFC for my implementation of an idea from James Morse to avoid
+>> broadcasting TBLIs to remote CPUs if it can be proven that no remote CPU could
+>> have ever observed the pgtable entry for the TLB entry that is being
+>> invalidated. It turns out that x86 does something similar in principle.
+>>
+>> The primary feedback I'm looking for is; is this actually correct and safe?
+>> James and I both believe it to be, but it would be useful to get further
+>> validation.
+>>
+>> Beyond that, the next question is; does it actually improve performance?
+>> stress-ng's --tlb-shootdown stressor suggests yes; as concurrency increases, we
+>> do a much better job of sustaining the overall number of "tlb shootdowns per
+>> second" after the change:
+>>
+>> +------------+--------------------------+--------------------------+--------------------------+
+>> |            |     Baseline (v6.15)     |        tlbi local        |        Improvement       |
+>> +------------+-------------+------------+-------------+------------+-------------+------------+
+>> | nr_threads |     ops/sec |    ops/sec |     ops/sec |    ops/sec |     ops/sec |    ops/sec |
+>> |            | (real time) | (cpu time) | (real time) | (cpu time) | (real time) | (cpu time) |
+>> +------------+-------------+------------+-------------+------------+-------------+------------+
+>> |          1 |        9109 |       2573 |        8903 |       3653 |         -2% |        42% |
+>> |          4 |        8115 |       1299 |        9892 |       1059 |         22% |       -18% |
+>> |          8 |        5119 |        477 |       11854 |       1265 |        132% |       165% |
+>> |         16 |        4796 |        286 |       14176 |        821 |        196% |       187% |
+>> |         32 |        1593 |         38 |       15328 |        474 |        862% |      1147% |
+>> |         64 |        1486 |         19 |        8096 |        131 |        445% |       589% |
+>> |        128 |        1315 |         16 |        8257 |        145 |        528% |       806% |
+>> +------------+-------------+------------+-------------+------------+-------------+------------+
+>>
+>> But looking at real-world benchmarks, I haven't yet found anything where it
+>> makes a huge difference; When compiling the kernel, it reduces kernel time by
+>> ~2.2%, but overall wall time remains the same. I'd be interested in any
+>> suggestions for workloads where this might prove valuable.
+>>
+>> All mm selftests have been run and no regressions are observed. Applies on
+>> v6.17-rc3.
+> 
+> I have used redis (a single threaded in-memory database) to test the
+> patchset on an ARM server.  32 redis-server processes are run on the
+> NUMA node 1 to enlarge the overhead of TLBI broadcast.  32
+> memtier-benchmark processes are run on the NUMA node 0 accordingly.
+> Snapshot is triggered constantly in redis-server, which fork(), saves
+> memory database to disk, exit(), so that COW in the redis-server will
+> trigger a large amount of TLBI.  Basically, this tests the performance
+> of redis-server during snapshot.  The test time is about 300s.  Test
+> results show that the benchmark score can improve ~4.5% with the
+> patchset.
+> 
+> Feel free to add my
+> 
+> Tested-by: Huang Ying <ying.huang@linux.alibaba.com>
+> 
+> in the future versions.
 
-Add devicetree for the Protonic PRT8ML.
+Thanks for this - very useful!
 
-The board is similar to the Protonic PRT8MM but i.MX8MP based.
-
-Some features have been removed as the drivers haven't been mainlined
-yet or other issues where encountered:
- - Stepper motors to be controlled using motion control subsystem
- - MIPI/DSI to eDP USB alt-mode
- - Onboard ethernet (10BASE-T1L+PoDL, 100BASE-T1+PoDL, 1000BASE-T,
-   1000BASE-T1)
-
-Signed-off-by: David Jander <david@protonic.nl>
-Signed-off-by: Lucas Stach <l.stach@pengutronix.de>
-Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
-Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/Makefile          |   1 +
- arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dts | 409 ++++++++++++++++++++++++
- 2 files changed, 410 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 2be724579632..98ab7387726e 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -222,6 +222,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-nitrogen-smarc-universal-board.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-rdk.dtb
- imx8mp-phyboard-pollux-rdk-no-eth-dtbs += imx8mp-phyboard-pollux-rdk.dtb imx8mp-phycore-no-eth.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-rdk-no-eth.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-prt8ml.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-basic.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dts b/arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dts
-new file mode 100644
-index 000000000000..95d5c29b4887
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dts
-@@ -0,0 +1,409 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright 2020 Protonic Holland
-+ * Copyright 2019 NXP
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx8mp.dtsi"
-+
-+/ {
-+	model = "Protonic PRT8ML";
-+	compatible = "prt,prt8ml", "fsl,imx8mp";
-+
-+	chosen {
-+		stdout-path = &uart4;
-+	};
-+
-+	clock_sja1105: clock-sja1105 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+	};
-+
-+	pcie_refclk: pcie0-refclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+	};
-+
-+	pcie_refclk_oe: pcie0-refclk-oe {
-+		compatible = "gpio-gate-clock";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pcie_refclk>;
-+		clocks = <&pcie_refclk>;
-+		#clock-cells = <0>;
-+		enable-gpios = <&gpio5 23 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
-+&A53_0 {
-+	cpu-supply = <&fan53555>;
-+};
-+
-+&A53_1 {
-+	cpu-supply = <&fan53555>;
-+};
-+
-+&A53_2 {
-+	cpu-supply = <&fan53555>;
-+};
-+
-+&A53_3 {
-+	cpu-supply = <&fan53555>;
-+};
-+
-+&a53_opp_table {
-+	opp-1200000000 {
-+		opp-microvolt = <900000>;
-+	};
-+
-+	opp-1600000000 {
-+		opp-microvolt = <980000>;
-+	};
-+
-+	/delete-node/ opp-1800000000;
-+};
-+
-+&flexcan1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_flexcan1>;
-+	status = "okay";
-+};
-+
-+&flexcan2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_flexcan2>;
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	status = "okay";
-+
-+	ak5558: codec@10 {
-+		compatible = "asahi-kasei,ak5558";
-+		reg = <0x10>;
-+		reset-gpios = <&gpio_exp_1 2 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	gpio_exp_1: gpio@25 {
-+		compatible = "nxp,pca9571";
-+		reg = <0x25>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+};
-+
-+&i2c2 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	status = "okay";
-+
-+	tps65987ddh_0: usb-pd@20 {
-+		compatible = "ti,tps6598x";
-+		reg = <0x20>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_tps65987ddh_0>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <12 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	gpio_exp_2: gpio@25 {
-+		compatible = "nxp,pca9571";
-+		reg = <0x25>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		c0-hreset-hog {
-+			gpio-hog;
-+			gpios = <7 GPIO_ACTIVE_LOW>;
-+			line-name = "c0-hreset";
-+			output-low;
-+		};
-+
-+		c1-hreset-hog {
-+			gpio-hog;
-+			gpios = <6 GPIO_ACTIVE_LOW>;
-+			line-name = "c1-hreset";
-+			output-low;
-+		};
-+	};
-+
-+	fan53555: regulator@60 {
-+		compatible = "fcs,fan53555";
-+		reg = <0x60>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_fan53555>;
-+		regulator-name = "fan53555";
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <980000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		fcs,suspend-voltage-selector = <1>;
-+	};
-+};
-+
-+&i2c3 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c3>;
-+	status = "okay";
-+
-+	ak4458: codec@11 {
-+		compatible = "asahi-kasei,ak4458";
-+		reg = <0x11>;
-+		#sound-dai-cells = <0>;
-+		reset-gpios = <&gpio_exp_2 5 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	tps65987ddh_1: usb-pd@20 {
-+		compatible = "ti,tps6598x";
-+		reg = <0x20>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_tps65987ddh_1>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <15 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+};
-+
-+&lcdif1 {
-+	status = "okay";
-+};
-+
-+&snvs_pwrkey {
-+	status = "okay";
-+};
-+
-+&uart4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart4>;
-+	status = "okay";
-+};
-+
-+&usb3_0 {
-+	status = "okay";
-+};
-+
-+&usb3_1 {
-+	status = "okay";
-+};
-+
-+&usb3_phy0 {
-+	status = "okay";
-+};
-+
-+&usb3_phy1 {
-+	status = "okay";
-+};
-+
-+&usb_dwc3_0 {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
-+&usb_dwc3_1 {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	assigned-clocks = <&clk IMX8MP_CLK_USDHC2>;
-+	assigned-clock-rates = <100000000>;
-+	bus-width = <4>;
-+	cd-gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
-+	no-1-8-v;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	status = "okay";
-+};
-+
-+&usdhc3 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc3>;
-+	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-+	assigned-clocks = <&clk IMX8MP_CLK_USDHC3_ROOT>;
-+	assigned-clock-rates = <400000000>;
-+	bus-width = <8>;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+	status = "okay";
-+};
-+
-+&wdog1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_wdog>;
-+	fsl,ext-reset-output;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_fan53555: fan53555grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05		0x114
-+		>;
-+	};
-+
-+	pinctrl_flexcan1: flexcan1grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SPDIF_RX__CAN1_RX		0x154
-+			MX8MP_IOMUXC_SPDIF_TX__CAN1_TX		0x154
-+		>;
-+	};
-+
-+	pinctrl_flexcan2: flexcan2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_UART3_TXD__CAN2_RX		0x154
-+			MX8MP_IOMUXC_UART3_RXD__CAN2_TX		0x154
-+		>;
-+	};
-+
-+	pinctrl_i2c1: i2c1grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_ECSPI1_SCLK__I2C1_SCL	0x400000c3
-+			MX8MP_IOMUXC_ECSPI1_MOSI__I2C1_SDA	0x400000c3
-+		>;
-+	};
-+
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL		0x400000c3
-+			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA		0x400000c3
-+		>;
-+	};
-+
-+	pinctrl_i2c3: i2c3grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL		0x400000c3
-+			MX8MP_IOMUXC_I2C3_SDA__I2C3_SDA		0x400000c3
-+		>;
-+	};
-+
-+	pinctrl_pcie_refclk: pcierefclkgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_UART1_TXD__GPIO5_IO23	0xc6
-+		>;
-+	};
-+
-+	pinctrl_tps65987ddh_0: tps65987ddh_0grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO12__GPIO1_IO12	0x1d0
-+		>;
-+	};
-+
-+	pinctrl_tps65987ddh_1: tps65987ddh_1grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO15__GPIO1_IO15	0x1d0
-+		>;
-+	};
-+
-+	pinctrl_uart4: uart4grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX		0x040
-+			MX8MP_IOMUXC_UART4_TXD__UART4_DCE_TX		0x040
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK		0x190
-+			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD		0x1d0
-+			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d0
-+			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d0
-+			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d0
-+			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK		0x194
-+			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD		0x1d4
-+			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d4
-+			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d4
-+			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d4
-+			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d4
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK		0x196
-+			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD		0x1d6
-+			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d6
-+			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d6
-+			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d6
-+			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d6
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2-gpiogrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CD_B__GPIO2_IO12		0x0d4
-+		>;
-+	};
-+
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK		0x190
-+			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD		0x1d0
-+			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0		0x1d0
-+			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1		0x1d0
-+			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2		0x1d0
-+			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3		0x1d0
-+			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4		0x1d0
-+			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5		0x1d0
-+			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6		0x1d0
-+			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7		0x1d0
-+			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE		0x190
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK		0x194
-+			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD		0x1d4
-+			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0		0x1d4
-+			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1		0x1d4
-+			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2		0x1d4
-+			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3		0x1d4
-+			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4		0x1d4
-+			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5		0x1d4
-+			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6		0x1d4
-+			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7		0x1d4
-+			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE		0x194
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK		0x196
-+			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD		0x1d6
-+			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0		0x1d6
-+			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1		0x1d6
-+			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2		0x1d6
-+			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3		0x1d6
-+			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4		0x1d6
-+			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5		0x1d6
-+			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6		0x1d6
-+			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7		0x1d6
-+			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE		0x196
-+		>;
-+	};
-+
-+	pinctrl_wdog: wdoggrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO02__WDOG1_WDOG_B		0x166
-+		>;
-+	};
-+};
-
--- 
-2.51.0.178.g2462961280
+> 
+> ---
+> Best Regards,
+> Huang, Ying
 
 
