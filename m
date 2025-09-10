@@ -4,107 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1387ACA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E97ACA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/L/ZiHIMyXmxKkiSLCWK4pWAdvwcf6C/7sfjkt+r2Zs=; b=0xEoLOkqdE11m8qdgAseBayWi8
-	dkQKvzeKA9YOZCpVb+M2gS5lJG675Wc7XAXh3APwo7yLVAVFshOaY661jrVCYY8U2ec1gIInZicAC
-	sPJ57OYrWBeIgI98oN8r2WHcvwyXJdjAOXOCGWjwv+F59k2Lfa8QHOtsrN8C8Dw0Xfs4Ck6Ktl+lx
-	qXeVU7jKg5NLRk5zA5znVOKQACHcHUE63a5MtWsMjTSUS6n6p6fJGiYM1UUJ3kgKsdAdf2KnztHmT
-	96ejp4dJbOYMk7v+v8OSv+rtMjcC1rKgpOPsxlbKCDfpxXuDhzdcRTPWuW7kXUw4TOhebkQCvvvc4
-	jAme0NfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cKnFYHvPIy6MTzO2MIhkn1M2uICE2klZ9uK2bnBrUU8=; b=jBBbBMo45QenoI4Ahi4a8/4w/w
+	AlNUTPHH2TQnbImDyW4MTYLbTKpuiJ++3+gN8HRZyTOZQXHbRRfHfFicIdOi+BEU/CvFkXQNrhRqk
+	74OWqurgJp+EwUDK12Fg3bRrrKdLg4a1g9lXNFoGrjp54g0cODt9JX+BBkd5/KdJpi3WqSnM41ueE
+	BZ6uvK9kqYW/P6tKcPS9OGXv3U0aYA4vSpMiKQWeG5iOwcoyNisUBiBpWRrSakrqNvZRvIWcw6F5i
+	Db9xRPwry5W/HrBKAH06NmLXFCo3yKVhTMjQbPohKGHZ1DYllKA1TQz4aNofGt409UGtwZps8Hrlp
+	mQKjNgiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwG41-0000000Cs4Q-3Msl;
-	Wed, 10 Sep 2025 08:20:25 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1uwG6n-0000000CtMK-1JYl;
+	Wed, 10 Sep 2025 08:23:17 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwG3z-0000000Cs3f-0vcf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 08:20:24 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b0419ea6241so70732866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 01:20:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757492421; x=1758097221; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/L/ZiHIMyXmxKkiSLCWK4pWAdvwcf6C/7sfjkt+r2Zs=;
-        b=k7QDAykrqpEZ+kuWThsDvjjlqLDEvtl3pfgdH7GB0/89gH3Ey75EeTRUecl8Yo2hT7
-         AHEt2EHCU5ctdBy3WNFBXpmHHcHIdyQ9IvdI7h8huqY7ptePG0UV0yeOWtkdSBR6hJDO
-         UMfaH53UY4BQbzMHVlYzjEiF8SQgkP/xp8uBvetG/WyChggrIYMz1YH4QZoWYWYNlYnP
-         cxgUtR0JYpn1kcLuNC28bTwwzKd1mQuhNo9mxlLwtPilHsUct5VPGRtdoFuJ7TfHt0IO
-         lQmnV/5K+cOC49m9XADfLpyhOjO90RUQQ7UV7oEzByyydUrV/BfqYYLMdE6URQ4YwHUD
-         HJ/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757492421; x=1758097221;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/L/ZiHIMyXmxKkiSLCWK4pWAdvwcf6C/7sfjkt+r2Zs=;
-        b=J5hCEFwyMMZ+nJ/48sUQeaKan604dxaWGzfh+NP/n/biEmyoQPt/TKN+PmIMMZLL9e
-         AivDWbxHx5lfg34FVx76Mr7v7j/AUBNDszeJCfeOLGeJxvH63alAXL+fVsBCt35VNmIl
-         UE5AJU0DIGdjdEraI2rgY2sOEWxST+tM3lkVdWt1/lxMiBoRJtRwVfkfFeKR5UMFYrCo
-         jeQWJhL8KUiaFgrogF1PBqY8kSrO3csLFweJQdjoWfj1bQL2MUpZROCTGsReokIDciFf
-         ve/s1oQlHW3m1OLM17TnS6VVFVbRFSR5d10yo4tFPSs6JlHiSBfevNhbF/01lCU/n/iV
-         EV5A==
-X-Forwarded-Encrypted: i=1; AJvYcCVu6+fSOmgR+GbSMJjc2W8X9M5PKEZ/B1T/G/zS5bvSDPeS5oT1CGBJccTpXV+KHt8VRj+dRU6rwgwjQXazKTcs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXfConArO6EWNM4WdtUZVx9vFH+cwTO6JCwjRCetcNmTJprkgS
-	m+4MzD+PaUkHzL6z7H6sTo6Uyo5vmsf9LYcYc5sszmNRn0nH4oE2Z1DX
-X-Gm-Gg: ASbGncubxfm1fL9mPl7AHTMPDJy4dy1RVPksalkKCE1TS4rwK6tWvxnmidJcHeic0Yo
-	OXXzhczUMfR3p/8FXMO3KWecpAcPSkNrrkBBzkMcnhdPIsYqI2oqV8lvBKYbF3ysCvXoLi09ABL
-	515UYCc1shzHkHr72YO0We6xKpe/+m9nu8/H7yZKs6sUTu0VTrZq5IFgwQ8ruyAL+w9GW4r31w9
-	ei6heo10fzBmgJ3r4KCBQG8yG8AwKrm7W1VbxK21lO4cuqU5ByO+PyFiysF/3LnJS2CVTx3DNGS
-	49CLRN7miHk0++9PUGYvo1818B6d2TI4N67HnPWMNdhCrNDux4YRqV7XzLPTVHbZ8HXSoeqHd4X
-	kBI+vko12+mGT1A6Yl8peT5IBJw==
-X-Google-Smtp-Source: AGHT+IEZ6Y8m9czCHfXyGir/VeA90+bvrcMtK66llF0DDBp7AdUVUAE+7FZ2p8xLZJOlSOvaso7zZw==
-X-Received: by 2002:a17:907:9718:b0:afe:b131:1820 with SMTP id a640c23a62f3a-b04b155985emr758644266b.6.1757492420788;
-        Wed, 10 Sep 2025 01:20:20 -0700 (PDT)
-Received: from skbuf ([2a02:2f04:d005:3b00:6669:35e7:fc93:9b1c])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07833ffa91sm122826066b.91.2025.09.10.01.20.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 01:20:20 -0700 (PDT)
-Date: Wed, 10 Sep 2025 11:20:17 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH v16 10/10] net: dsa: tag_mtk: add comments about
- Airoha usage of this TAG
-Message-ID: <20250910082017.hjlq3664xvg5qjub@skbuf>
-References: <20250909004343.18790-1-ansuelsmth@gmail.com>
- <20250909004343.18790-1-ansuelsmth@gmail.com>
- <20250909004343.18790-11-ansuelsmth@gmail.com>
- <20250909004343.18790-11-ansuelsmth@gmail.com>
+	id 1uwG6k-0000000CtJ1-3MQp;
+	Wed, 10 Sep 2025 08:23:16 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 9C284C8EC7D;
+	Wed, 10 Sep 2025 08:22:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 61037606D4;
+	Wed, 10 Sep 2025 08:23:12 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD834102F2927;
+	Wed, 10 Sep 2025 10:23:00 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1757492591; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=cKnFYHvPIy6MTzO2MIhkn1M2uICE2klZ9uK2bnBrUU8=;
+	b=AE4DwmbhjS04E41pbmWk0ixKoT83FA1TLAobsy2E27OdKuwv1DM2Igfa4Uea5LfOmIEJpc
+	a8XqZei0tDi5rNhdIF07TI1NLYRHNVnNnU6ScOgdDsUW4SKxw5HmtAzoplDuskuj09V1U+
+	9xElE1HiJ7sY6itHkbZqeLmt+zwU8EPaUlI73mdGkGjRRFbsL4pPEv3HYjz8qJ6q0rWeQR
+	IbpBGffcrzKXj6zQ12ACJ5kIttYNhaX4v97aLI3F8WY29K1TfMWs6Ogon+whjcaFsIVXol
+	ZRlGcJghi1FWzhUTwQdS2m7Mf7UJDoefYcyCEYcnRfwPZlKBgQv7pszz/fQhOw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: linux-mtd@lists.infradead.org, Alexander Dahl <ada@thorsis.com>
+Cc: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>, 
+ Li Bin <bin.li@microchip.com>, Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Thomas Fourier <fourier.thomas@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250904091441.351805-1-ada@thorsis.com>
+References: <20250904091441.351805-1-ada@thorsis.com>
+Subject: Re: [PATCH] mtd: nand: raw: atmel: Fix pulse read timing for
+ certain flash chips
+Message-Id: <175749258044.456366.13668613524637231004.b4-ty@bootlin.com>
+Date: Wed, 10 Sep 2025 10:23:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250909004343.18790-11-ansuelsmth@gmail.com>
- <20250909004343.18790-11-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_012023_275816_E122083C 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20250910_012315_037458_047B09E3 
+X-CRM114-Status: UNSURE (   6.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +83,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 02:43:41AM +0200, Christian Marangi wrote:
-> Add comments about difference between Airoha AN8855 and Mediatek tag
-> bitmap.
+On Thu, 04 Sep 2025 11:14:41 +0200, Alexander Dahl wrote:
+> Prevent PMECC errors when reading from AMD/Spansion S34ML02G1 flash on
+> SAM9X60 SoC, after switching to ONFI timing mode 3.
 > 
-> Airoha AN88555 doesn't support controlling SA learning and Leaky VLAN
-
-Is there an extra 5 in AN88555?
-
-> from tag. Although these bits are not used (and even not defined for
-> Leaky VLAN), it's worth to add comments for these difference to prevent
-> any kind of regression in the future if ever these bits will be used.
+> >From reading the S34ML02G1 and the SAM9X60 datasheets again, it seems
+> like we have to wait tREA after rising RE# before sampling the data.
+> Thus pulse must be at least tREA.
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  net/dsa/tag_mtk.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/net/dsa/tag_mtk.c b/net/dsa/tag_mtk.c
-> index b670e3c53e91..ac3f956abe39 100644
-> --- a/net/dsa/tag_mtk.c
-> +++ b/net/dsa/tag_mtk.c
-> @@ -18,6 +18,9 @@
->  #define MTK_HDR_XMIT_TAGGED_TPID_88A8	2
->  #define MTK_HDR_RECV_SOURCE_PORT_MASK	GENMASK(2, 0)
->  #define MTK_HDR_XMIT_DP_BIT_MASK	GENMASK(5, 0)
-> +/* AN8855 doesn't support SA_DIS and Leaky VLAN
-> + * control in tag as these bits doesn't exist.
-> + */
+> [...]
 
-I think it would be good to present the AN8855 tag using a different
-string, so that libpcap knows it shouldn't decode these bits. The code
-can be reused for now.
+Applied to nand/next, thanks!
 
->  #define MTK_HDR_XMIT_SA_DIS		BIT(6)
->  
->  static struct sk_buff *mtk_tag_xmit(struct sk_buff *skb,
-> -- 
-> 2.51.0
-> 
+[1/1] mtd: nand: raw: atmel: Fix pulse read timing for certain flash chips
+      (no commit info)
+
+Patche(s) should be available on mtd/linux.git and will be
+part of the next PR (provided that no robot complains by then).
+
+Kind regards,
+Miquèl
 
 
