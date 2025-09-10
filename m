@@ -4,80 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1552DCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BC1CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nmKEgDDDv5jHwALQIQWP1dQM1C3WliCJzN4vuebfqtc=; b=bkymlUwssO/1T9ucYloqpQ77Z3
-	Mu2nEfEAWlu8I7ywhuGmtaj1C9pwJWV5nAjbi7uVw6Hajov1z7H7EdPkYtalP5q1/QzHaPhevtMtM
-	CYzoBxv+A7j51YNfrb/+jWlOKWw3+oqZngkoexR1a3n/QSa51MbP+qcCLmdQgsfHD0hxj7d0JcRw+
-	3gpPYTudtrJt2jqoQOnAufHi8mFITHOsW82saHiyQVTJ1fNKQR7UoH7kObjj8OuFOBsTqDv3hNDpQ
-	wlXCGRbwJhoB4wY2BvU08vgAASCNK4LDnZ5SViN8ssDngsYP5QmdgtFA8+RuXOdPcsuv3arGZtXrX
-	7fmAx6oQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kKm0FaL1IsnsJ1lRYNU+N3FzJdUYvVMh5dXRjU0QCk8=; b=M0ZC47dPR427N/nInLEjKr7hAX
+	2tv5fNq/GOxkbzzVOt27OFl5kgEbV7Xunu1VZ/sqkDXKPHy7Eu1W1Lsf4zON/kIkWw03ZfT2jp96x
+	tsgXcrCZqdgl0+Syj4MJUbItXqmOIHTlscobXP5/u5SJiMlzk6hFAn83oOmvhCQ4shUU+2qYA/Twc
+	ZgIzrCZmznv9+6vnqIDggmj27V2iPj1bTojCif0Lw5yExZyLGstbdMwOX+u7hcY8K5o440xuBp7Do
+	IUTsbygpGgmEnKY33oai3KVPuw6cVlkLJQxn3gGsyNL0EeaBKXe4pv5R50zf9mH2dfu4J2TkyPOZj
+	wjdb1LWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMYi-0000000F2Fy-0A30;
-	Wed, 10 Sep 2025 15:16:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMYe-0000000F2DK-3PHG
+	id 1uwMYm-0000000F2J7-1NoC;
+	Wed, 10 Sep 2025 15:16:36 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwMYh-0000000F2FN-1VAQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 15:16:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AD96716F2;
-	Wed, 10 Sep 2025 08:16:18 -0700 (PDT)
-Received: from [10.57.67.148] (unknown [10.57.67.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99AFA3F694;
-	Wed, 10 Sep 2025 08:16:20 -0700 (PDT)
-Message-ID: <9de08024-adfc-421b-8799-62653468cf63@arm.com>
-Date: Wed, 10 Sep 2025 17:16:18 +0200
+	Wed, 10 Sep 2025 15:16:32 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58ACgepr024538
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 15:16:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=kKm0FaL1IsnsJ1lRYNU+N3Fz
+	JdUYvVMh5dXRjU0QCk8=; b=p5Fq26fYWFQBv4jsqwoICAN3BPzWKiJ1nDETM99M
+	qYaJAlGyDaaHmKO1z93fcVW5AWkmOt1ObtdBYRcfscs2Dt3fBbzvs/SnkRo7Ifc7
+	7qQs49X1iUmV7tciI/bLswt8v/1P0apmUMCxq2pWlPemmfz0K+EN1BqxZmDlcNZl
+	bLdSmNTQrd3J1EQJDwspX2Q9ESFL4yeilX8M+0j6cs5FnriK3LpIIxOF/IS2qvFW
+	h2XMguo7EqCiriV+JKtDR6nQZ029MA6bgpufcFu2wyf6OrdEfBOOq63E4qNt7jkc
+	OXyLqkyUxTB3D9koO2CbE2l2L4cEK+a9ar/TSU1vg9bq9Q==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490e4m45b6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 15:16:30 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5449f6cacd1so10144626e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 08:16:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757517389; x=1758122189;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kKm0FaL1IsnsJ1lRYNU+N3FzJdUYvVMh5dXRjU0QCk8=;
+        b=K7dhxrux97/Nk0fPyEe68cEy6MPbA8uEKds+1MdIBEy3JYceVmQUAJwRp3HLp5qBrB
+         bcYzkaXyOv1c3ABDJpcow3j72c3aSG6ivUrNt+2FkXyJlMU/bdJ3iGLf7awbbIizzbaS
+         oHg04Y0o+bWNDiAeUo4DjtAO6lTje21dk4ytGeCWxGXZFnwMoJn0oaG7WauW4CnplHY/
+         +9U7wvZivjoycCqusbRLLzsBJMwhDu4YFiEMwCha1/a7/BDSVw3bxLNuJm5uRePoqTWT
+         YlTIf6NHSbkhnBH/qku6mjb3dgwXEtFOvDexT/Pwkd8os8c8jB3K0cdXTEMYBrOFJG7h
+         qu+g==
+X-Forwarded-Encrypted: i=1; AJvYcCW4ZTUOLamjwPSVDWNLFfU5eKagUqwfu4+fELqkROqyg1MXrA0w1AivjtoCIuwC4zlkiSQFJ9p8cfq6MYO/18EH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXjT+VGb6ixPQ3XfLQehVczM1b8JVQU7eJv8Hi/bnn7+QPOwPt
+	H8V5fZelL4rswO5xdOHwL6OhiecxE+f4vW4AUUiV387HlZXu6YUH3aSL9dNUeFQauW+4wvV2GlK
+	M/gQV7GOEBJmlfFESag08JmVfNMUbToBS4VZxMuOzDr9ay0rXvsCsaEVp67JIKgcUhUT8ABL74s
+	rFJg==
+X-Gm-Gg: ASbGncvrU1tCx+7Y//LFAq6xLyRmyGTehuX+dbsciVFesun+tklaVnRZHKNFgWuRjqI
+	kUxfFxrPyfSerlgvJFYp7gYDXeZmv/wKqANuLZxQSoG3zl5ijq5ZOsFmBCvp128EhIqLOkSPQF1
+	bQHHXk4neuICY6WRwOG37EpGJcAWU0e8gNtKY0WkjTlYq3pZdNu2jBDv/FOOLZev6h677m8mLrx
+	E98DjRolzA1+5yqck5R9qhGQ3ydK4AFHuCpHBnGwhBT074LIXktt+GaX4kU46gY4JYHamitLyvh
+	b9w6/8pJqrQLzR20KYPx14ccNy3f73kl4cnsmT4T2a0UlzCMGpHgDslj3YXyXNnftzCEdAEL/Ed
+	RWR2RHfGhBVbjzThwpTGlqTpjQWLvwl32diZf6qmKNan/RqP00Zhi
+X-Received: by 2002:a05:6122:2a42:b0:543:6ff8:d6d7 with SMTP id 71dfb90a1353d-5472a0088bfmr5155454e0c.1.1757517388994;
+        Wed, 10 Sep 2025 08:16:28 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEV+Ok0B9ImEfUJn+5MDsBCd0a1EnbrepGzoV/kCIfMR/JnpVKik3JbAUvvY8M2wWHlz+5tjQ==
+X-Received: by 2002:a05:6122:2a42:b0:543:6ff8:d6d7 with SMTP id 71dfb90a1353d-5472a0088bfmr5155361e0c.1.1757517388194;
+        Wed, 10 Sep 2025 08:16:28 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5680c4246c2sm1301330e87.17.2025.09.10.08.16.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Sep 2025 08:16:27 -0700 (PDT)
+Date: Wed, 10 Sep 2025 18:16:25 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Sandy Huang <hjc@rock-chips.com>,
+        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
+        Samuel Holland <samuel@sholland.org>,
+        Dave Stevenson <dave.stevenson@raspberrypi.com>,
+        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+        Liu Ying <victor.liu@nxp.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+        Daniel Stone <daniels@collabora.com>
+Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
+ as unsupported
+Message-ID: <z333ysst5ifakomo35jtbpydj44epqwwn4da76rcnsq4are62m@32gsmgx2pcdi>
+References: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
+ <20250909-drm-limit-infoframes-v4-1-53fd0a65a4a2@oss.qualcomm.com>
+ <20250910-furry-singing-axolotl-9aceac@houat>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
-To: David Hildenbrand <david@redhat.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
- Mark Rutland <Mark.Rutland@arm.com>
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908073931.4159362-3-kevin.brodsky@arm.com>
- <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
- <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
- <e7acb889-1fe9-4db3-acf4-39f4960e8ccd@redhat.com>
- <2fecfae7-1140-4a23-a352-9fd339fcbae5-agordeev@linux.ibm.com>
- <e521b1f4-3f2b-48cd-9568-b9a4cf4c4830@redhat.com>
- <47ee1df7-1602-4200-af94-475f84ca8d80@arm.com>
- <29383ee2-d6d6-4435-9052-d75a263a5c45@redhat.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <29383ee2-d6d6-4435-9052-d75a263a5c45@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250910-furry-singing-axolotl-9aceac@houat>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAzOCBTYWx0ZWRfX9hYmaCSaJMtz
+ xQHvohRf+OxJFouBDtGevFqv+mBUwnzQip3K7XDBmKLU2ZTNr3EFdZCU4IAw1hQ4juogqpVUbd6
+ GrEvHorOHX2IdKoFdnMwxoLAcBgS6NuMeGUr4QvFL2tSUMYyh99K7AgiGZBUh7tIBhc5bywvFIG
+ lUaerj3BcqpR+0i2Dv+m724xkToXksq0yRkvDjn/2q2723nJDy5NaehFJVgVok6TeuqdP5p1qvb
+ VuDvtwaFFhuz9TU0AAVtjsRwdY7/gheWiQhkmeXM3IJbAcYL3H1Wxifo1MT3Arvob5VSYgT8Okg
+ 1pAdx7Rco37z+oU/rMFXmLp0DfyIzV+g5fU3sz5vImjUQOx+kYR6IrJ+97/o1FM0ZyWTim+ZR9R
+ w2gcKl2S
+X-Authority-Analysis: v=2.4 cv=J66q7BnS c=1 sm=1 tr=0 ts=68c1964e cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=yJojWOMRYYMA:10 a=8AirrxEcAAAA:8 a=QX4gbG5DAAAA:8 a=EUspDBNiAAAA:8
+ a=Hspkq7dj2dKET-HI0ioA:9 a=CjuIK1q_8ugA:10 a=vmgOmaN-Xu0dpDh8OwbV:22
+ a=ST-jHhOKWsTCqRlWije3:22 a=AbAUZ8qAyYyZVLSsDulk:22
+X-Proofpoint-GUID: eoBE7-3ccUvBEvUi-qECW-CrKjwXGdyy
+X-Proofpoint-ORIG-GUID: eoBE7-3ccUvBEvUi-qECW-CrKjwXGdyy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-10_02,2025-09-10_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 clxscore=1015 spamscore=0 phishscore=0
+ adultscore=0 priorityscore=1501 suspectscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_081628_944970_FDC01ED5 
-X-CRM114-Status: GOOD (  51.21  )
+X-CRM114-CacheID: sfid-20250910_081631_403550_D3B2E3E6 
+X-CRM114-Status: GOOD (  40.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,203 +157,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Mark Rutland
+On Wed, Sep 10, 2025 at 01:03:47PM +0200, Maxime Ripard wrote:
+> On Tue, Sep 09, 2025 at 05:51:59PM +0300, Dmitry Baryshkov wrote:
+> > Currently DRM framework expects that the HDMI connector driver supports
+> > all infoframe types: it generates the data as required and calls into
+> > the driver to program all of them, letting the driver to soft-fail if
+> > the infoframe is unsupported. This has a major drawback on userspace
+> > API: the framework also registers debugfs files for all Infoframe types,
+> > possibly surprising the users when infoframe is visible in the debugfs
+> > file, but it is not visible on the wire. Drivers are also expected to
+> > return success even for unsuppoted InfoFrame types.
+> > 
+> > Let drivers declare that they support only a subset of infoframes,
+> > creating a more consistent interface. Make the affected drivers return
+> > -EOPNOTSUPP if they are asked to program (or clear) InfoFrames which are
+> > not supported.
+> > 
+> > Acked-by: Liu Ying <victor.liu@nxp.com>
+> > Acked-by: Daniel Stone <daniels@collabora.com>
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> 
+> Again, I still believe that it's a bad idea, goes against what the spec
+> states, and the framework was meant to be.
 
-On 09/09/2025 16:28, David Hildenbrand wrote:
->>>>>>> Can't we just use an "enum lazy_mmu_state" and call it a day?
->>>>>>
->>>>>> I could envision something completely different for this type on
->>>>>> s390,
->>>>>> e.g. a pointer to a per-cpu structure. So I would really ask to
->>>>>> stick
->>>>>> with the current approach.
->>
->> This is indeed the motivation - let every arch do whatever it sees fit.
->> lazy_mmu_state_t is basically an opaque type as far as generic code is
->> concerned, which also means that this API change is the first and last
->> one we need (famous last words, I know).
->
-> It makes the API more complicated, though. :)
+Please correct me if I'm wrong. The specs (HDMI & CEA) define several
+infoframes and whether we should be sending them. If I'm reading it
+correctrly, CEA spec explicitly says 'If the Source supports the
+transmission of [foo] InfoFrame..." (6.4 - AVI, 6.6 - Audio, 6.7 MPEG,
+6.9 - DRM). For other InfoFrames (6.5 SPD, 6.8 NTSC VBI) it just defines
+that sending those frames is optional.
 
-Somewhat, but in the regular case where enter() is called followed by
-leave() there is really no complexity for the caller, just an extra
-local variable.
+We can't even infer support for InfoFrames from the Source features.
+E.g. CEA 6.6.1 defines a case when digital audio is allowed to be sent,
+without sending Audio InfoFrame.
 
-There are complications where we want to exit lazy_mmu temporarily, as
-in mm/kasan/shadow.c [1k], but this is in fact unavoidable. Chatting
-with Mark Rutland, I realised that to truly support nested sections,
-this must be handled in a special way in any case. To be clear, I am
-referring to this situation:
+As we will be getting more and more features, some of the InfoFrames
+or data packets will be 'good to have, but not required'.
 
-__kasan_populate_vmalloc:
-    apply_to_page_range:
-        arch_enter_lazy_mmu_mode() {1}
+> 
+> So, no, sorry. That's still a no for me. Please stop sending that patch
 
-        kasan_populate_vmalloc_pte:
-            arch_leave_lazy_mmu_mode() {2}
-            arch_enter_lazy_mmu_mode() {3}
+Oops :-)
 
-        arch_leave_lazy_mmu_mode() {4}
+> unless we have a discussion about it and you convince me that it's
+> actually something that we'd need.
 
-With the approach this series takes, call {2} is made safe by passing a
-special parameter (say LAZY_MMU_FLUSH) that forces lazy_mmu to be fully
-exited - and call {3} will then re-enter lazy_mmu. This works regardless
-of whether __kasan_populate_vmalloc() has been called with lazy_mmu
-already enabled (i.e. calls {1} and {4} can be nested).
+My main concern is that the drivers should not opt-out of the features.
+E.g. if we start supporting ISRC packets or MPEG or NTSC VBI InfoFrames
+(yes, stupid examples), it should not be required to go through all the
+drivers, making sure that they disable those. Instead the DRM framework
+should be able to make decisions like:
 
-On the other hand, with a pagefault_disabled-like approach, there is no
-way to instruct call {3} to fully exit lazy_mmu regardless of the
-nesting level.
+- The driver supports SPD and the VSDB defines SPD, enable this
+  InfoFrame (BTW, this needs to be done anyway, we should not be sending
+  SPD if it's not defined in VSDB, if I read it correctly).
 
-It would be possible to make both approaches work by introducing a new
-API, along the lines of:
-- int arch_disable_save_lazy_mmu_mode() (the return value indicates the
-nesting level)
-- void arch_restore_lazy_mmu_mode(int state) (re-enter lazy_mmu at the
-given nesting level)
+- The driver hints that the pixel data has only 10 meaninful bits of
+  data per component (e.g. out of 12 for DeepColor 36), the Sink has
+  HF-VSDB, send HF-VSIF.
 
-This is arguably more self-documenting than passing LAZY_MMU_FLUSH in
-call {2}. This API is however no simpler when using a
-pagefault_disabled-like approach (and less consistent than when always
-saving state on the stack).
+- The driver has enabled 3D stereo mode, but it doesn't declare support
+  for HF-VSIF. Send only H14b-VSIF.
 
-[1k]
-https://lore.kernel.org/all/0d2efb7ddddbff6b288fbffeeb10166e90771718.1755528662.git.agordeev@linux.ibm.com/
+Similarly (no, I don't have these on my TODO list, these are just
+examples):
+- The driver defines support for NTSC VBI, register a VBI device.
 
->
->>
->> I mentioned in the cover letter that the pkeys-based page table
->> protection series [1] would have an immediate use for lazy_mmu_state_t.
->> In that proposal, any helper writing to pgtables needs to modify the
->> pkey register and then restore it. To reduce the overhead, lazy_mmu is
->> used to set the pkey register only once in enter(), and then restore it
->> in leave() [2]. This currently relies on storing the original pkey
->> register value in thread_struct, which is suboptimal and most
->
-> Can you elaborate why this is suboptimal? See below regarding the size
-> of task_struct.
+- The driver defines support for ISRC packets, register ISRC-related
+  properties.
 
-Suboptimal in the sense that we're allocating fixed space for each task
-that we are almost never using.
+- The driver defines support for MPEG Source InfoFrame, provide a way
+  for media players to report frame type and bit rate.
 
->
->> importantly doesn't work if lazy_mmu sections nest.
->
-> Can you elaborate why it would be problematic with nesting (if we
-> would have a count
-> and can handle the transition from 0->1 and 1->0)?
+- The driver provides limited support for Extended HDR DM InfoFrames,
+  select the correct frame type according to driver capabilities.
 
-It doesn't work in that specific patch I linked - but yes it can be made
-to work if we have both an extra task_struct member to store the level
-of nesting *and* an extra thread_struct member to store the saved pkey
-register value (both of which are only used while in lazy_mmu).
+Without the 'supported' information we should change atomic_check()
+functions to set infoframe->set to false for all unsupported InfoFrames
+_and_ go through all the drivers again each time we add support for a
+feature (e.g. after adding HF-VSIF support).
 
-
->
->> With this series, we
->> could instead store the pkey register value in lazy_mmu_state_t
->> (enlarging it to 64 bits or more).
->
-> Yes.
->
->>
->> I also considered going further and making lazy_mmu_state_t a pointer as
->> Alexander suggested - more complex to manage, but also a lot more
->> flexible.
->>
->>>>> Would that integrate well with LAZY_MMU_DEFAULT etc?
->>>>
->>>> Hmm... I though the idea is to use LAZY_MMU_* by architectures that
->>>> want to use it - at least that is how I read the description above.
->>>>
->>>> It is only kasan_populate|depopulate_vmalloc_pte() in generic code
->>>> that do not follow this pattern, and it looks as a problem to me.
->>
->> This discussion also made me realise that this is problematic, as the
->> LAZY_MMU_{DEFAULT,NESTED} macros were meant only for architectures'
->> convenience, not for generic code (where lazy_mmu_state_t should ideally
->> be an opaque type as mentioned above). It almost feels like the kasan
->> case deserves a different API, because this is not how enter() and
->> leave() are meant to be used. This would mean quite a bit of churn
->> though, so maybe just introduce another arch-defined value to pass to
->> leave() for such a situation - for instance,
->> arch_leave_lazy_mmu_mode(LAZY_MMU_FLUSH)?
->
-> The discussion made me realize that it's a bit hack right now :)
->
-> If LAZY_MMU_DEFAULT etc. are not for common code, then please
-> maintain them for the individual archs as well, just like you do with the
-> opaque type.
-
-I see your point - having them defined in <linux/mm_types.h> could be
-misleading. I just wanted to avoid all 4 architectures defining the same
-macros. Maybe call them __LAZY_MMU_* to suggest they're not supposed to
-be used in generic code?
-
->
->>
->>>
->>> Yes, that's why I am asking.
->>>
->>> What kind of information (pointer to a per-cpu structure) would you
->>> want to return, and would handling it similar to how
->>> pagefault_disable()/pagefault_enable() e.g., using a variable in
->>> "current" to track the nesting level avoid having s390x to do that?
->>
->> The pagefault_disabled approach works fine for simple use-cases, but it
->> doesn't scale well. The space allocated in task_struct/thread_struct to
->> track that state is wasted (unused) most of the time.
->
-> I'm not sure that's a concern. Fitting an int into existing holes
-> should work
-> and even another 64bit (8byte )...
->
-> I just checked with pahole using the Fedora config on current
-> mm-unstable.
->
->
-> /* size: 9792, cachelines: 153, members: 276 */
-> /* sum members: 9619, holes: 20, sum holes: 125 */
-> /* sum bitfield members: 85 bits, bit holes: 2, sum bit holes: 43 bits */
-> /* padding: 32 */
-> /* member types with holes: 4, total: 6, bit holes: 2, total: 2 */
-> /* paddings: 6, sum paddings: 49 */
-> /* forced alignments: 12, forced holes: 2, sum forced holes: 60 */
->
-> Due to some "arch_task_struct_size" we might actually allocate more
-> space.
->
->
-> Staring at my live system:
->
-> $ sudo slabinfo
-> Name                   Objects Objsize           Space Slabs/Part/Cpu 
-> O/S O %Fr %Ef Flg
-> ...
-> task_struct               1491   12376           24.8M     
-> 721/25/37    2 3   3  74
->
->
-> I am not sure if even an additional 8byte would move the needle here.
->
->
-> Worse, it does not
->> truly enable states to be nested: it allows the outermost section to
->> store some state, but nested sections cannot allocate extra space. This
->> is really what the stack is for.
->
-> If it's really just 8 bytes I don't really see the problem. So likely
-> there is
-> more to it? 
-
-I suppose 8 extra bytes per task is acceptable, but some architectures
-may want to add more state there.
-
-The one case that is truly problematic (though not required at this
-point) is where each (nested) section needs to store its own state. With
-this series it works just fine as there is a lazy_mmu_state_t for each
-section, however if we use task_struct/thread_struct there can be only
-one member shared by all nested sections.
-
-- Kevin
+-- 
+With best wishes
+Dmitry
 
