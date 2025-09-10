@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA23CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 11:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93143CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 11:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8e1QkZ3TtfMf4WlUBEPYzMhI8CHEjV1bWCFb6PAp4Kk=; b=XeXJQmplLUXVuGLLKc6wccqCdM
-	AHiNKuENYpTdVLkylBCHoEOfUxfJ0kd7bUuJhzfGMf5jJbLjqB6XOqGm4LvGyC1syd2YMnysWosDo
-	SQJvSQqGe9WrCI/rcLRKCwi9SVU6E/guzN9S/NtwDKbI2WJvcwuUQq3KSiSTeJhFo5hYXmOdWYfxU
-	Pyo9btekcpAj1MHTLf/rR1y92k/o8NIlTokN77pW8q8H65M8BRFZ+nBkhLErf0y6YnyOsPsx/Cie3
-	8GtfqOECWgw9Dyz4CTSGPcFR4QsuLuZ+W+yGrjy5++eCEptfqppBFq0B8GkwYGygSKKCWCmXnfC+d
-	Q6pqxyvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CxO4YDQMYwEB7BCJ+ZrMjfMVdzg7wLU+b3lSn7ddBhA=; b=WZ2XGXY80MYlMSinMueUjCPM9W
+	/mWmWZ2zAKLe0jl1s5/Rhc7miK2bVWrXTU0XIounyXomTLM3RmXfib2uHtYhW/fQPMBRbvpANNSuf
+	TEGY0+vh2tLWxUr95WGVoJDmtbj2zB2XOHb7uO2r1KOyy2EJL18QkX5qmoHedc9nNCbRtYV0TooNo
+	ZqeIyk44Io06lI8tw7vqIGWgcUM2R/U6QNxXBRMjkMtK+5Y8VGEYP/kI0+gO+wcEDRawGGHdEchHy
+	ZKy//iPVPxKg7k+aLQiyThOVVPhGHnd7msrofTXsAF7gDwqPUwJmmk13XbtW8UKTQuwwELF0UBC1b
+	8B0KM5iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJ9N-0000000DsXa-3hm3;
-	Wed, 10 Sep 2025 11:38:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uwJA0-0000000Dsnw-30XB;
+	Wed, 10 Sep 2025 11:38:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJ9L-0000000DsWs-3t8y
+	id 1uwJ9y-0000000DsmT-10Bg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 11:38:08 +0000
+	Wed, 10 Sep 2025 11:38:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3DE60601A8;
-	Wed, 10 Sep 2025 11:38:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4748C4CEF0;
-	Wed, 10 Sep 2025 11:38:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DB75940305;
+	Wed, 10 Sep 2025 11:38:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AE9AC4CEF0;
+	Wed, 10 Sep 2025 11:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757504286;
-	bh=H+cpuJnEjkESdTqGIDVuWl00VkrtTa/nkD9qbFllBCI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FfPZQfsNXbXv6y35pYDhWX+5Zjk64AvkcpYSkIifD/Y2Xl2DrCrXWLuhlUoAVfzsk
-	 1a3o9EMT/Mp/91wHt2Gkz99nxzAxtTTvytDGKJPGqJ4V9WqPpPF/eUunT+rdgTRf6e
-	 HqC4rx1qjv4qLNksGXNbaIfwlsaBVJ4X9tuNIG0xmSP1n+0hwLq1fyLcjl7c7vmKJe
-	 jcC5TzvYFfeaSDFefbX4b0sh3Z11dfclRfVyYnSiRWAcfmSHdBLz/GiOB/LWJBTxFj
-	 ErerGqEP3NGVQuwzeWDdUvRoI7/b/AMpIO846ZJg+0PGDHxVZnu20PrYZ/G01y1tIj
-	 7di2CT2XKxWIA==
-Message-ID: <5a087d08-273e-4740-b47d-fc25be952ebd@kernel.org>
-Date: Wed, 10 Sep 2025 13:38:01 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3.1] media: dt-bindings: Add qcom,qcs8300-camss
- compatible
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, bryan.odonoghue@linaro.org,
- mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andersson@kernel.org, konradybcio@kernel.org,
- hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-References: <20250813053724.232494-2-quic_vikramsa@quicinc.com>
- <20250910104915.1444669-1-quic_vikramsa@quicinc.com>
+	s=k20201202; t=1757504325;
+	bh=CfDP9NnOJJ4XePyfe8vxmQejIgGJ0Qdeqb1FNfRZmZI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IvEKwMyYoI6KNd8d3uhEdSSM6OPwToO2EECRmEowA5aAqOg1XoJx3TG5hkEdSlRvA
+	 QjZsQ1Nkd7v54hDO6mtBrQ7RJbvrci+dOGU6qwPKAsIp7ILvApFPa+V9bBFSjS91wo
+	 R7EKGfVwgv6xKSQYIIQTZDBy4YQBYwx6mPI/GRsTNRIbOyIdTBV93Ob0W+b6+lKCW8
+	 v3LXrbV6SGWsyhKBh7+6BrvcA6DS572J9jy3Tcxhp22bIJfwYMDUSr98CNjYddjc8z
+	 a3guo0jykFZE2a+5Y+tONtYGC5nA6s+W1jHTXzasBqsZXeJeNrBqBACI0BozyXx/Uo
+	 wHpea8Aaoj0/A==
+Date: Wed, 10 Sep 2025 13:38:43 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250910104915.1444669-1-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Andreas Kemnade <akemnade@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alistair Francis <alistair@alistair23.me>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: mfd: sy7636a: Add missing gpio pins
+ and supply
+Message-ID: <20250910-crafty-adorable-sheep-f6265f@kuoka>
+References: <20250909-sy7636-rsrc-v2-0-cfd9f44fd259@kernel.org>
+ <20250909-sy7636-rsrc-v2-1-cfd9f44fd259@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250909-sy7636-rsrc-v2-1-cfd9f44fd259@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250910_043846_297790_C4D1B7D7 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,42 +78,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2025 12:49, Vikram Sharma wrote:
-> Add the compatible string "qcom,qcs8300-camss" to support the
-> Camera Subsystem (CAMSS) on the Qualcomm QCS8300 platform.
+On Tue, Sep 09, 2025 at 10:33:02PM +0200, Andreas Kemnade wrote:
+> To be able to fully describe how the SY7636A is connected to the system,
+> add properties for the EN and VCOM_EN pins. To squeeze out every bit
+> of unused current, in many devices it is possible to power off the
+> complete chip. Add an input regulator to allow that.
 > 
-> The QCS8300 platform provides:
-> - 2 x VFE (version 690), each with 3 RDI
-> - 5 x VFE Lite (version 690), each with 6 RDI
-> - 2 x CSID (version 690)
-> - 5 x CSID Lite (version 690)
-> - 3 x CSIPHY (version 690)
-> - 3 x TPG
-> 
-> Co-developed-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
+> ---
+>  .../devicetree/bindings/mfd/silergy,sy7636a.yaml         | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
 
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
-
-Please version your patches correctly, e.g. use b4 or git format-patch
--vX, and add changelog in cover letter or under '---' of individual
-patches describing changes from previous version.
-
-What is v3.1? How to compare it? Try yourself:
-
-b4 diff '<20250910104915.1444669-1-quic_vikramsa@quicinc.com>'
-Grabbing thread from
-lore.kernel.org/all/20250910104915.1444669-1-quic_vikramsa@quicinc.com/t.mbox.gz
-Breaking thread to remove parents of
-20250910104915.1444669-1-quic_vikramsa@quicinc.com
----
-Analyzing 2 messages in the thread
-Could not find lower series to compare against.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
+
 
