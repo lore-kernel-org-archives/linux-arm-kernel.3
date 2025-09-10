@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FE4CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 21:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481C5CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 21:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9fBHeMDXGKZ0BRvRgsZi/dMbQnS2+VArdU+vF0c8rxs=; b=MEcUwbVKq5auba2CD+WcaQsOdZ
-	DYIO+jUNT8e2MwRQJreDW+F4BDXou5T+ye4XN7iqe2NcxvFe+OqHWEASowgDSEbPmrYsB+pAizA9Y
-	6zw98z1T8eyP8zK59lPQUu41OakHEaPJm0AyuA+mlbed8fJZZ+HHMn8VimheyVDWG9dOwjD3AsEaY
-	zyBXf1+14K7vNaz9VqCYp7nhqFJGPSLd0Qw7k8VdYL2cyg8Gdl8pVcF0uUk6RzSm0H4A2c1QC42Ki
-	yLFa1akl0pH2zXc5G5WDEILzk4qes6edF5gaTKc29YKF32/CRC6zCydo1tDyYA3RfULsT+/be/EGi
-	E3DMC8sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z1MeHN/FAuAOkxz9iJEKMCLiQPrMJjTHwVbwSN9mvp8=; b=PLR55+yx76MeEkLaTnjrd2N754
+	yn1edxlpMROl8kQGRMmR9LLaPd1Cetq1+wZeYthneIN4fC4fEGNIn9y0jz4vkIESdDL4DUMKjEHJr
+	xLckd2umlm4l26Aj9BblX5mJY/F9ughE05TRNmCZwH7h3jTI4+xRD34HKQkm7eihGSBoh1I0uLuDv
+	28DPUCaP1W7JxHQNp2VBHsv/oAcWYym4qCtkQ5Xy+Y0jaEfCtU8tL1dNr+QQI5X21gzTtCmGck5XR
+	CEmdqYydaBUPS++lxPjryFmoM3xkrF0L/yuXxhRXcJKbyEh7bX+T0Cw3D9DEhWo/+v421NIl4p3G5
+	q/nueQpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwSBb-0000000Gp1g-0GDg;
-	Wed, 10 Sep 2025 21:17:03 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uwSNd-0000000GrR7-3DOV;
+	Wed, 10 Sep 2025 21:29:29 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwSBY-0000000Gp09-1Tkg
+	id 1uwSNb-0000000GrOI-00xw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 21:17:02 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58ALGtFR225957;
-	Wed, 10 Sep 2025 16:16:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757539015;
-	bh=9fBHeMDXGKZ0BRvRgsZi/dMbQnS2+VArdU+vF0c8rxs=;
-	h=From:Date:Subject:To:CC;
-	b=b0PBYpbeYOt0tDT6XLM5y9curno1o8hraInd2u198z0svC1s0wRXbRNsDY1R5FjlJ
-	 7TWFpyLC6CxTqqa0zdi5vuZCitT5yUBuuch6ie8BnSSnmbZ3DMtJopDh7cp2sKy6lm
-	 zO0IahuIJovkQEdJTDldrVDUW66fzFsRhmvwsvjU=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58ALGtjB569811
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 10 Sep 2025 16:16:55 -0500
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 10
- Sep 2025 16:16:54 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 10 Sep 2025 16:16:54 -0500
-Received: from [127.0.1.1] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58ALGsDL792374;
-	Wed, 10 Sep 2025 16:16:54 -0500
-From: Kendall Willis <k-willis@ti.com>
-Date: Wed, 10 Sep 2025 16:16:35 -0500
-Subject: [PATCH v2] pmdomain: ti_sci: Handle wakeup constraint if device
- has pinctrl wakeup state
+	Wed, 10 Sep 2025 21:29:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1757539764;
+ bh=Z1MeHN/FAuAOkxz9iJEKMCLiQPrMJjTHwVbwSN9mvp8=;
+ b=o+v+9vTsSJ9aMMmOrCyG5RWU68YRTMoKUKXfYIVOBn2suwaXhUzMZ7Odyle05F8+KD5AnV/dm
+ m8zPx9QCm0YK5FT79OXONDrGvCt/LB8xkHkHiXJ4hL52E+pIRc2hOt0CdEEZd9K9LFiP0JbSmv/
+ rMvEzz6cNYD1cMjYrIejTE1AD67xS2BtDMGILt837bPqmUhPT2UX9LtlJiIjZeM48K2yNJDgaeY
+ v+9t3Wx1M1E36rZcul+iJkMbHMcOGCWzJNYqCNiDD8wXMO/bu0k4Sc/SXhS4aZuaXRyCKNfdu54
+ WwdB59hSAR+HuE2/ITdeaBqAf8SSrAryDXkXRlss0JMA==
+X-Forward-Email-ID: 68c1eda3343e597491a9aa4c
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.2.14
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <38e80b6d-1dc9-47a8-8b23-e875c2848e6e@kwiboo.se>
+Date: Wed, 10 Sep 2025 23:29:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Add PCIe Gen2x1 controller for
+ RK3528
+To: Yao Zi <ziyao@disroot.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Shawn Lin <shawn.lin@rock-chips.com>, Simon Xue <xxm@rock-chips.com>,
+ linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Chukun Pan <amadeus@jmu.edu.cn>
+References: <20250906135246.19398-1-ziyao@disroot.org>
+ <20250906135246.19398-3-ziyao@disroot.org>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250906135246.19398-3-ziyao@disroot.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250910-uart-daisy-chain-pmdomain-v2-1-6d0215f4af32@ti.com>
-X-B4-Tracking: v=1; b=H4sIALLqwWgC/02Myw6CMBBFf4XM2iHtIAKu/A/jorRFJtKWtPgK4
- d+trtzdk9xzVkg2sk1wLFaI9sGJg89AuwL0qPzVIpvMQIJq0UmBdxUXNIrTG/OBPc7OBPcdfVv
- 1ZHrSldaQ/TnagV+/9vmSeYjB4TJGq/6KYk9SHkRTVg3VbdegxBs+eZo4nRYudXCwbR8cJZjmp
- gAAAA==
-X-Change-ID: 20250910-uart-daisy-chain-pmdomain-b83b2db2c3cc
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Santosh
- Shilimkar <ssantosh@kernel.org>,
-        Ulf Hansson <ulf.hansson@linaro.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <d-gole@ti.com>, <vishalm@ti.com>,
-        <sebin.francis@ti.com>, <msp@baylibre.com>, <khilman@baylibre.com>,
-        <a-kaur@ti.com>, <k-willis@ti.com>
-X-Mailer: b4 0.14.2
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_141700_572117_AF6C76A5 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20250910_142927_080649_15DDFF7F 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,100 +86,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For TI K3 SoCs with IO daisy-chaining using pinctrl wakeup state, avoid
-sending wakeup constraints to the PM co-processor. This allows the SoC to
-enter deeper low power states while still maintaining wakeup capability
-for peripherals using IO daisy-chain wakeup via pinctrl wakeup state,
-similar to the existing wake IRQ mechanism added in commit b06bc47279919
-("pmdomain: ti_sci: handle wake IRQs for IO daisy chain wakeups").
+Hi Yao Zi,
 
-Detect the pinctrl wakeup state in the suspend path, and if it exists,
-skip sending the constraint.
+On 9/6/2025 3:52 PM, Yao Zi wrote:
+> Describes the PCIe Gen2x1 controller integrated in RK3528 SoC. The SoC
+> doesn't provide a separate MSI controller, thus the one integrated in
+> designware PCIe IP must be used.
+> 
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 56 +++++++++++++++++++++++-
+>  1 file changed, 55 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index db5dbcac7756..2d2af467e5ab 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -7,6 +7,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/phy/phy.h>
+>  #include <dt-bindings/pinctrl/rockchip.h>
+>  #include <dt-bindings/clock/rockchip,rk3528-cru.h>
+>  #include <dt-bindings/power/rockchip,rk3528-power.h>
+> @@ -239,7 +240,7 @@ gmac0_clk: clock-gmac50m {
+>  
+>  	soc {
+>  		compatible = "simple-bus";
+> -		ranges = <0x0 0xfe000000 0x0 0xfe000000 0x0 0x2000000>;
+> +		ranges = <0x0 0xfc000000 0x0 0xfc000000 0x0 0x44400000>;
 
-Signed-off-by: Kendall Willis <k-willis@ti.com>
----
-Implementation
---------------
-This patch is intended to be implemented along with the following
-series. This patch has no dependencies on any of the other series:
+We should use the dbi reg area in the 32-bit address space, please use:
 
-1. "pmdomain: ti_sci: Handle wakeup constraint if device has pinctrl
-   wakeup state": (this patch) skips setting constraints for wakeup
-   sources that use pinctrl state 'wakeup'.
+  ranges = <0x0 0xfc000000 0x0 0xfc000000 0x0 0x4000000>;
 
-2. "serial: 8250: omap: Add wakeup support": Implements wakeup from
-   the UARTs for TI K3 SoCs
-   https://github.com/kwillis01/linux/tree/b4/uart-daisy-chain-8250-omap
+>  		#address-cells = <2>;
+>  		#size-cells = <2>;
+>  
+> @@ -1133,6 +1134,59 @@ combphy: phy@ffdc0000 {
+>  			rockchip,pipe-phy-grf = <&pipe_phy_grf>;
+>  			status = "disabled";
+>  		};
+> +
+> +		pcie: pcie@fe4f0000 {
 
-3. "arm64: dts: ti: k3-am62: Support Main UART wakeup": Implements the
-   functionality to wakeup the system from the Main UART
-   https://github.com/kwillis01/linux/tree/b4/uart-daisy-chain-dts
+With the dbi reg area changed below, please update the node name and
+move this node to top of the soc node.
 
-Testing
--------
-Tested on a AM62P SK EVM board with all series and dependencies
-implemented. Suspend/resume verified with the Main UART wakeup source
-by entering a keypress on the console.
+  pcie@fe000000
 
-This github branch has all the necessary patches to test the series
-using linux-next:
-https://github.com/kwillis01/linux/tree/uart-daisy-chain
+> +			compatible = "rockchip,rk3528-pcie",
+> +				     "rockchip,rk3568-pcie";
+> +			reg = <0x1 0x40000000 0x0 0x400000>,
 
-Version History
----------------
-Changes from v1 to v2:
- - Reworded commit message to be concise and to reference commit
-   b06bc47279919
+We should use the dbi reg area in the 32-bit address space, please use:
 
-v1: https://lore.kernel.org/all/20250904211607.3725897-1-k-willis@ti.com/
----
- drivers/pmdomain/ti/ti_sci_pm_domains.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+  reg = <0x0 0xfe000000 0x0 0x400000>,
 
-diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-index 82df7e44250bb64f9c4a2108b5e97bd782a5976d..884905fd0686c1b94aba68c03da038e577428adf 100644
---- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
-+++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-@@ -10,6 +10,7 @@
- #include <linux/err.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/pinctrl/consumer.h>
- #include <linux/platform_device.h>
- #include <linux/pm_domain.h>
- #include <linux/pm_qos.h>
-@@ -84,9 +85,24 @@ static inline void ti_sci_pd_set_wkup_constraint(struct device *dev)
- 	struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
- 	struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
- 	const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
-+	struct pinctrl *pinctrl = devm_pinctrl_get(dev);
-+	struct pinctrl_state *pinctrl_state_wakeup;
- 	int ret;
- 
- 	if (device_may_wakeup(dev)) {
-+		/*
-+		 * If device can wakeup using pinctrl wakeup state,
-+		 * we do not want to set a constraint
-+		 */
-+		if (!IS_ERR_OR_NULL(pinctrl)) {
-+			pinctrl_state_wakeup = pinctrl_lookup_state(pinctrl, "wakeup");
-+			if (!IS_ERR_OR_NULL(pinctrl_state_wakeup)) {
-+				dev_dbg(dev, "%s: has wake pinctrl wakeup state, not setting " \
-+						"constraints\n", __func__);
-+				return;
-+			}
-+		}
-+
- 		/*
- 		 * If device can wakeup using IO daisy chain wakeups,
- 		 * we do not want to set a constraint.
+> +			      <0x0 0xfe4f0000 0x0 0x10000>,
+> +			      <0x0 0xfc000000 0x0 0x100000>;
+> +			reg-names = "dbi", "apb", "config";
+> +			bus-range = <0x0 0xff>;
+> +			clocks = <&cru ACLK_PCIE>, <&cru HCLK_PCIE_SLV>,
+> +				 <&cru HCLK_PCIE_DBI>, <&cru PCLK_PCIE>,
+> +				 <&cru CLK_PCIE_AUX>, <&cru PCLK_PCIE_PHY>;
+> +			clock-names = "aclk_mst", "aclk_slv",
+> +				      "aclk_dbi", "pclk",
+> +				      "aux", "pipe";
 
----
-base-commit: 5f540c4aade9f1d58fb7b9490b4b7d5214ec9746
-change-id: 20250910-uart-daisy-chain-pmdomain-b83b2db2c3cc
+In my U-Boot test I did not have the pipe/phy clock here, do we need it?
 
-Best regards,
--- 
-Kendall Willis <k-willis@ti.com>
+With above fixed this more or less matches my U-Boot testing, and is:
+
+Reviewed-by: Jonas Karlman <jonas@kwiboo.se>
+
+Regards,
+Jonas
+
+> +			device_type = "pci";
+> +			interrupts = <GIC_SPI 156 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 157 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 154 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 155 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 158 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "sys", "pmc", "msg", "legacy", "err",
+> +					  "msi";
+> +			#interrupt-cells = <1>;
+> +			interrupt-map-mask = <0 0 0 7>;
+> +			interrupt-map = <0 0 0 1 &pcie_intc 0>,
+> +					<0 0 0 2 &pcie_intc 1>,
+> +					<0 0 0 3 &pcie_intc 2>,
+> +					<0 0 0 4 &pcie_intc 3>;
+> +			linux,pci-domain = <0>;
+> +			max-link-speed = <2>;
+> +			num-lanes = <1>;
+> +			phys = <&combphy PHY_TYPE_PCIE>;
+> +			phy-names = "pcie-phy";
+> +			power-domains = <&power RK3528_PD_VPU>;
+> +			ranges = <0x01000000 0x0 0xfc100000 0x0 0xfc100000 0x0 0x100000>,
+> +				 <0x02000000 0x0 0xfc200000 0x0 0xfc200000 0x0 0x1e00000>,
+> +				 <0x03000000 0x1 0x00000000 0x1 0x00000000 0x0 0x40000000>;
+> +			resets = <&cru SRST_PCIE_POWER_UP>, <&cru SRST_P_PCIE>;
+> +			reset-names = "pwr", "pipe";
+> +			#address-cells = <3>;
+> +			#size-cells = <2>;
+> +			status = "disabled";
+> +
+> +			pcie_intc: legacy-interrupt-controller {
+> +				interrupt-controller;
+> +				interrupt-parent = <&gic>;
+> +				interrupts = <GIC_SPI 155 IRQ_TYPE_EDGE_RISING>;
+> +				#address-cells = <0>;
+> +				#interrupt-cells = <1>;
+> +			};
+> +		};
+>  	};
+>  };
+>  
 
 
