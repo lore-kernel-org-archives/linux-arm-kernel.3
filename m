@@ -4,79 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E3FCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 16:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75391CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 16:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cdS8DQ91Fk2KRig7JcdWAE1Tb1sePXx/4ByqYYrByXY=; b=fQ5mXzNHoNa5ljmpn99QxhuSvV
-	lewUs46OwBf1VG6TarCsuS6Nnl9Rud6u6prD112eswdTQPTYxVAYAVjPsp5AacRQNAtgdarqALC4a
-	rA3IYOFEwjcMRy2Wfan8SMN3lDrnfekpMskLBcVnIhm1tckc25UhD338Gst8pAgFxaDSJIBEVUJ43
-	9Aw9hL3w4h60Woiru4DL3kSTxdTlPIA+HJspi6grQlUDkf+/tWHlv0SUYmkZPEUDdexOsWWNGdL6j
-	VSRitGqyphY9yuhFyQretgKj8TebC6WEkRso/23r/CKwxFufzLwqUVMc6IG54FsjYdkHyZfCg23bG
-	XJCddGYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zTn1xMMipgvI1aWfg/m+KcUoq5Q12ZdkCDT3GlbhSZY=; b=YvYGtPPTZ9Itmb6vu/jL57HOyK
+	/cULIMi+Vfj6JDDD5C4GAxYxzy3MYtm2rW7Sk+4G9HlGZseIha0h99v94QMivqvEVIgAritO4W+hE
+	D9+jAsUjmRGmM2i4iWuV96VZzHHKAYHyvO9oHNQzDxq/60oxikPGuFghNoc/MIpp3kYf00+fzl+9N
+	r8Vj8TzfIAiRZpwV92Yjyg8sA/K4YsTxWWcYizb/ddvvlIzAIGMmzB2vO2c9O9YSA2p3jZI687AN6
+	6rbDd70d9wP7pzre2ooUCkUGZvsXozCtnsvG0RbTc2N7O+E97YzfVlvjc5XKnK2oDO8ny2w/N62wt
+	IvihBSHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwNQW-0000000FNuG-2Flf;
-	Wed, 10 Sep 2025 16:12:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwNQT-0000000FNsl-1aOM
+	id 1uwNTO-0000000FPDb-0AMe;
+	Wed, 10 Sep 2025 16:15:06 +0000
+Received: from mail-co1nam11on20601.outbound.protection.outlook.com ([2a01:111:f403:2416::601] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwNTL-0000000FPCO-1v5g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 16:12:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B91C716F2;
-	Wed, 10 Sep 2025 09:11:55 -0700 (PDT)
-Received: from [10.57.67.148] (unknown [10.57.67.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F3D43F63F;
-	Wed, 10 Sep 2025 09:11:56 -0700 (PDT)
-Message-ID: <250835cd-f07a-4b8a-bc01-ace24b407efc@arm.com>
-Date: Wed, 10 Sep 2025 18:11:54 +0200
-MIME-Version: 1.0
+	Wed, 10 Sep 2025 16:15:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LlE18jC2rJj/kxPo6I4XDAnjMQUsGIXT+WAYrrcH0J5gF4IcUnTauF4S/HCT8fe+Xk6oQIxhuJizPWUcM3F60aMmpfuJsgANG/DULrtEdjQQYkUwzvCMbDAz4t11c9+boGtnFEgdsZX/uRcX0+TTAvpjfWgP8+zuz+5XV5PgM1USmlCSsAKCLrwXJBaYW4EQs/e+D00Rs3esUaQMm+jSnVGOaHrPQCii9DbpqEz5NgIHSaYHJFA1qml05DOrRM6b11jiwnSVaX6BQDmlg7ata04fnSSAhrWNAvtKQ0H63F+dUkf08ciB0tAxcuo2p4D5hz4XK2wFh9mMVKjWQhhB6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zTn1xMMipgvI1aWfg/m+KcUoq5Q12ZdkCDT3GlbhSZY=;
+ b=TISFAaUVsDhQkyw11QDrX6cvpe4m+GnH3eZkILzysEVFM5z6KBp4EIBMkRSwusgxDGJWSZaOw0EylHKXIiJLi5F1gkswKDa4VHm0N9DfAIfp1ORaNd1d8hF327S9tJ05vVQKbU9lxnOcMmh4lDgzkw+UwMtHOMP3tqG/Qvz7AvNlVfHyqQbLYVw19hkwdWMw/Neupt/secOQ3ULx1uIQfCNtVmykrpSSO8SH1osvSsSWL4XGcufe/Njm+glW9gLqlaAtNdGva2yFWVqpDuobOGWl/rETaVcU9dN9svHKI1y5LtWFbS+m/Hb7nK/g0AnJr8beo9051iPTptxUybdcsg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zTn1xMMipgvI1aWfg/m+KcUoq5Q12ZdkCDT3GlbhSZY=;
+ b=NMLBvto5AJz3pfx7v/IslFesO1vq773eEy587G2+olqeyuJMgxYf+k4HX7Kj5vtv0eG5ZOpB414oDVNtsXmVPgr2J/bPNk7rXaf+Hj93cThD7Ln8s9TVN9dN7tAlzTCLo39ieWUhwT28+heevSLEtIDUbA3GQ982gAjrDLzWxo4mcGqEUeNoda8a6Ok2IAJX2yJNNC2XGuujMma8eSteEQLOnNJiAmsQKFZNRIEVwyCINAPpZhb7pkMhVvtQHwIQPnb5EPsJYEYvTR5Ewbhv30toQHSJmy62hnBLKQ2BvnjFbIpSq1nKZ8tw/D5gDwvKS79/cknnNx59ycAXAS592Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from PH7PR12MB7282.namprd12.prod.outlook.com (2603:10b6:510:209::7)
+ by SJ1PR12MB6051.namprd12.prod.outlook.com (2603:10b6:a03:48a::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 10 Sep
+ 2025 16:14:57 +0000
+Received: from PH7PR12MB7282.namprd12.prod.outlook.com
+ ([fe80::6f03:f851:7f6c:c68d]) by PH7PR12MB7282.namprd12.prod.outlook.com
+ ([fe80::6f03:f851:7f6c:c68d%3]) with mapi id 15.20.9094.021; Wed, 10 Sep 2025
+ 16:14:57 +0000
+Message-ID: <29ab5e2d-2b76-477c-a4fa-39de622544bc@nvidia.com>
+Date: Wed, 10 Sep 2025 09:14:55 -0700
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
- Mark Rutland <Mark.Rutland@arm.com>
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908073931.4159362-3-kevin.brodsky@arm.com>
- <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
- <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
- <e7acb889-1fe9-4db3-acf4-39f4960e8ccd@redhat.com>
- <2fecfae7-1140-4a23-a352-9fd339fcbae5-agordeev@linux.ibm.com>
- <e521b1f4-3f2b-48cd-9568-b9a4cf4c4830@redhat.com>
- <47ee1df7-1602-4200-af94-475f84ca8d80@arm.com>
- <b2e52967-7ca1-411e-9c66-8d3483624ca7-agordeev@linux.ibm.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <b2e52967-7ca1-411e-9c66-8d3483624ca7-agordeev@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v3 2/2] ARM: dts: aspeed: Add NVIDIA VR144NVL board
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, etanous@nvidia.com
+References: <20250910040601.240162-1-donalds@nvidia.com>
+ <20250910040601.240162-3-donalds@nvidia.com>
+ <3114a51c-47a2-4b67-8965-33841ee87fd5@lunn.ch>
+Content-Language: en-US
+From: Donald Shannon <donalds@nvidia.com>
+In-Reply-To: <3114a51c-47a2-4b67-8965-33841ee87fd5@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BY5PR03CA0009.namprd03.prod.outlook.com
+ (2603:10b6:a03:1e0::19) To PH7PR12MB7282.namprd12.prod.outlook.com
+ (2603:10b6:510:209::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB7282:EE_|SJ1PR12MB6051:EE_
+X-MS-Office365-Filtering-Correlation-Id: ee41f40e-1987-4be8-82ef-08ddf0852f54
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MjI3R3BZUERHNUk4WkxrWnNIWGZ6ZGUzM0RxV3pqb25UUldwSEpUaGJ1OUNI?=
+ =?utf-8?B?NW9CdmpBM1hiY1hYN1ZFVW5OUzFrR0tSblFzU1RBdkRQZ2pkdXVyREl2d3lJ?=
+ =?utf-8?B?TWs3UUpFRE5JR3dXUFJGL3hoaFlUQWY5Zm1MRUVMZkw1VWhYRFo1QVprMm0w?=
+ =?utf-8?B?bUFua2J2Y3BpKzNiR2MwQ21DM2ttbXBqK1h6K21qYWlQc2Z6aDhod2tQajFy?=
+ =?utf-8?B?OVdzWTRONElTTnZaVUZMaGhqQWw4WGRwYkdqdG1HZ2R0Mi80MGpwOVl6SjNa?=
+ =?utf-8?B?YTVQTTVRZFFLTUxmekYzZEpzNjRsU3VOMDM5MTY0MnN0TTRhczdQM2xKK2Nu?=
+ =?utf-8?B?d08vSkw5YkE5ZmdGSk5iOXFrc2x3QVR4N1czL2RwM2g1U05XeTA3cVpzZitK?=
+ =?utf-8?B?TlQydUdaOGlialU2QlhpSjJHa3ZNdlBGZnJmVUU2dE9aZXVaOExDcFBBTHFp?=
+ =?utf-8?B?SlpaV2FkczAvKzRBVkVXdDJMSkx0T2UvUVQ4cjFKeityWjZ0emZ0WXR0YlpO?=
+ =?utf-8?B?djhHbjdsQWJKSXFTVUx2UWJtYkc3dXViSUgzbDJUZUFWRDhUR00rRmI3MWIv?=
+ =?utf-8?B?NU1uMXhoMjJjaU5adkNabmt3d2pWVGhGMjVNa29KOFZDU0Z1TTR4SnJueXNo?=
+ =?utf-8?B?V25wcnFqbm95RmdzTDg1UGxBb01Pc3RKbklTSjZKbm1HOWZXSStseThBNDVk?=
+ =?utf-8?B?N01QV0x1aW55MzhEcTNVT3JFeW5MZjFpMk5jR2dhZEFhWXo1Vml6QTFIV3gx?=
+ =?utf-8?B?V3RGbFp2Y3ZrNzFkR1pINFliU3VOZ2paL3ppbzdIczhmcEJIOWswMWdDeTRE?=
+ =?utf-8?B?blIxMVFQOWJ6T3o2cVRpd293aXFiT1ZtVTNZdjN0TWNNRU5OeWlFanhmOTNr?=
+ =?utf-8?B?NzNVUUttcnRIc1B4Unp3ZkIxS0I3MkdISC9mcnE3N3JZcUl1b1dWTHZ6WU1S?=
+ =?utf-8?B?T3N5Mk1hYzdwek1wSUI2b2RwKzlWRUtRRjgrcER5TE5BNWVneHVyUm9OVkl3?=
+ =?utf-8?B?MFd4K3VNWkFYUjBqVE5DZTFaZFI1VzhqOFRjOUFFRVVTY1hGTVQwMnNLb0VV?=
+ =?utf-8?B?UEVDZnd2TXY4d1loa09OREZab0UwRi9uTm5PdnpNd2wybmlIN3JvZWpOQ3Q1?=
+ =?utf-8?B?UDRHMU1Rei9kRVcwU0R5eVcxTXJ3cnBOUjc5ZjdBcjZZeUY4OHV2VTlid2JW?=
+ =?utf-8?B?VEpoQ1VmKzlVcFp2TW8wQy9lZmNkaSt0V2NnQml5QXd0TjdiVTU4WHlDb0U4?=
+ =?utf-8?B?LytPUlNVNVhRRW56MEdWbjNOMjhTRWMvUzliSmpqcGJBRlhsUWF5SkpKbUlX?=
+ =?utf-8?B?NlgyM0VlTXl5TGlmalF1eFhSSzFueUUwVXBta3U5MVZzTld0QktianZmNWhi?=
+ =?utf-8?B?REo0S3JTVVBnWUwybEt0WHVQY1FBWVdTNDZKekg0NFRiYmxGOGdnNnFLUlBr?=
+ =?utf-8?B?bnB6QUNMeFFsaWs0Ly8vbUxZN3dJWVUxbHB5ek9ZR3U3dXZOd3R6UmZKUHhV?=
+ =?utf-8?B?RmdLSWlSYURSTDhsYlRPdklQejBLTCtGSEduc1J4ZmpQK1VuZzZuYjVNSFJt?=
+ =?utf-8?B?T2oxY2FrRXlDUGE4aWxubGVtUTVNSVdCWVN3U2JRNktvdmFaYUczclh2a00r?=
+ =?utf-8?B?TTBrSVk4K1hoeWtUelcyWGxIbG9mS291bWIrOC9OQ2ZLQjhzdlRHYTloZUxS?=
+ =?utf-8?B?dHZGUUN0RC9va2pyaDN0L0lINFQ5RGNHQzI3bkUxUXovdnB5YTJIQmhNMnU5?=
+ =?utf-8?B?U2ZtV2V1YXNnd2doUVZDdnNXbkhtNTQ3WmNGWkJBNkdMWk1iNmJEMW1Ec1Fz?=
+ =?utf-8?B?STUxanpLYXZudkxaaHd5MERzZmVjNVE3VzZOMUxTRXYvcUtnaDRZQlg4ZWxT?=
+ =?utf-8?B?M1BRT29iQzlhcUhaS3IxMURPVmZtblZsNCtGWHRWRi93bjgva1B3ODBSRHlM?=
+ =?utf-8?Q?9Y2G0iFLt0A=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB7282.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b25BbWZIRmNwaTgxU3UwcTNKdW1Bc2hrcFgzMURSUDI4V2dhTFJGQ20vWEhn?=
+ =?utf-8?B?WE9uWmlBTXgvaHR0QUU2akU5N2V2Nkp2eDdnVjBvNEFyWmEyMG12MnNFZlZV?=
+ =?utf-8?B?K0lTVGFFdFQ1UmRvcTRRSmdsbnc0Q2g4Y2Z1Mzg2MXFaZXJnV1d4MXRLMURp?=
+ =?utf-8?B?Wk8wRDFJTlJKTktNTTFzcTFPU0RmQXpOWTZVYWNiell4R08zTnVGTkZMb1hW?=
+ =?utf-8?B?eURiNklINThka0M2ZzVVaGFJY29EK1BCOW9zUEVtajN2cmxiVVAxMFI0Y2NS?=
+ =?utf-8?B?WVh4MlpqOHdHMDZGMU5oVnNCUk55RG5Yc0orSlBqNG5iM3c2U2UrTThkU3J3?=
+ =?utf-8?B?eDhqRDlRcFF6UzI4UXNROHJQVDlYNTBacmNNZWRiZjc2cTZLNmRLS242MFhS?=
+ =?utf-8?B?aGd0ZzRUSGw4cXBLVUxKNzNjTURsZ0pyUHZpSm44TFFHYmtHTVgyS2tBaWhF?=
+ =?utf-8?B?UzNjVGc0QzJhQUpyNjkzR2FCV0d2eDhpdXZGU1JjZGZ3OUtFSGxkOWtZbUti?=
+ =?utf-8?B?NlpJR0twbXNlMW45L3Q1VzAranZzVnR6YnEvandSQ0lYci93cmNJeVJHb0Iz?=
+ =?utf-8?B?MkxpWVM3QVhwS2JGQUxaUHo3SW44WW1vSEFtcEtrU2RmQ3R5U1FkVkhkeU5u?=
+ =?utf-8?B?QnRKT1pYcGZpQ2s4MW1EaTNmZTluQjJMUU94VStVaGh6bXNDWmhHeEJyR1FX?=
+ =?utf-8?B?aDBQZnhEdkZGdDJkZEZ1dkNKUSs2bVRoK3JFN1VqOUdVRWJXYUFVK3ZQYzBX?=
+ =?utf-8?B?QjVYR2VNSUtPNDB2anpKdjcyWXZhN1lhSEpJS3NXemNOdXNIcDBCMUg1aU1M?=
+ =?utf-8?B?d3BFN0hKdVMyVkxlMHA1WUxLb3FZL1Q5UlJiSmNjOEJwWEtFeDM5MmNTTG9V?=
+ =?utf-8?B?bFhmcFR5MWVDMVRma2c4Nm40NlRFUHkxTTZYcEIwTm8rczlHTEFMSXFZU2pa?=
+ =?utf-8?B?b01vTjdFUkhtaUx4UlplNzRydkN2QUZ5MzdaeDVYeDJVS1FBVHJmNm5jcDhS?=
+ =?utf-8?B?aklTN0l3T3pjOHgvQmVPVHJHVXBwQkExc2x2RituQ2tHNFVMcUZSUmJhQ1Av?=
+ =?utf-8?B?ZjlDQnliSjhNOHo5UDRFZUFYdmxpdkFmMkR1eVkvZDYrYTlhT25IalVtU2Yr?=
+ =?utf-8?B?MmhkaCsyMUhHbXJtNElESXRVTzBZTDdkRCt1Sk9McytEQVNoWGdTUnBmQmFk?=
+ =?utf-8?B?SVJqSGpWWVQ0VXpiakIyYkZUaTN3RDVHdXZvanJoVkZXaXYxMmRBSHM3bUI3?=
+ =?utf-8?B?c010V3M1SGpvbWNiRko2eEVraXFDYytvL21jMFZLWWhwYVd6QisycHBCa1J2?=
+ =?utf-8?B?Tkp0UzlGWTQyaDhrK05qS1pxWUJOZmJXWWhmcVNCWEFrVVJEbXVMbGRTZ0tD?=
+ =?utf-8?B?aGtyOFo5eGFvU0didUFzcVlURTJDNzBTN3cvc0ZtNG56ZUZmQnExUUorMG9R?=
+ =?utf-8?B?amNIZk51c1Ewbkh0R0xqM3dBbGFEdkJPbWZNbGt2R1BkVlE3bk1OU3E4UFpY?=
+ =?utf-8?B?RTlJOURqWUNKK0s5eG1TeHdCZzcwTktSQnRrWG9pTTdPV3pabjA3NU1wMmlF?=
+ =?utf-8?B?S2loOVkyUlJPWXRUWTJsMzN3K0JsY0lLWmtYcHR4NElaNlBtUnk4QnhtVjRn?=
+ =?utf-8?B?Q3QxT2UxMG1CMDBWZjRVT0E2ejYrQmZIb1FzTHo4TkhFaW4veEZKTHpWdUxD?=
+ =?utf-8?B?amlGV2pYSDJ0S1Vtc21BZ29iQVBWT0ZZYm9YWm1rTk1iRVN0K2hmbkdOcFFk?=
+ =?utf-8?B?UDFzQ1JIMFZxbHBHNG11blZMWGFEVnNCK3lzekRGZ3F2U2RNUTJML1lWUFNs?=
+ =?utf-8?B?eDFOUWw5NE9lM25zUmk2empMVDNmS3dMV1dzRGxBcTJjZFpBM2o1UGxTdkVH?=
+ =?utf-8?B?djZOM2JzNFBYOUNndE1xZy9kM3pMZ2FDZHZBcUdUN0I1YU1jS0xBeEIvelEx?=
+ =?utf-8?B?WXB2OUpjMzRKbVdhVDRsNllwSlUra0kyZVJiQVNSTnFRcE9rb01QRjM5STlx?=
+ =?utf-8?B?V1l1QlFHSlloQkRyRlBJdGxQNlVtQkozTm9FWVpBRmdKSnU1VXRpUjFBMTBI?=
+ =?utf-8?B?U0JNWlhpcVBvNmdnckNXYnl3d3cvK1ZYZHN2UWdOWjh3QzBVbW9jQkZRYWRD?=
+ =?utf-8?Q?UBi65wazocutenu9nvgtBEE/m?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ee41f40e-1987-4be8-82ef-08ddf0852f54
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB7282.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 16:14:57.3523
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5eDIxvNetwtI/AaJ6WC6YtgQmgIXwEzdwFVu8ajn5XPBK8izYnRX3JhBDHAB/LR1V1ebLRO+SPFf89w3xZ0+CA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_091205_539397_628F205F 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20250910_091503_503118_9D77C419 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +179,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/09/2025 16:38, Alexander Gordeev wrote:
->>>>> Would that integrate well with LAZY_MMU_DEFAULT etc?
->>>> Hmm... I though the idea is to use LAZY_MMU_* by architectures that
->>>> want to use it - at least that is how I read the description above.
->>>>
->>>> It is only kasan_populate|depopulate_vmalloc_pte() in generic code
->>>> that do not follow this pattern, and it looks as a problem to me.
->> This discussion also made me realise that this is problematic, as the
->> LAZY_MMU_{DEFAULT,NESTED} macros were meant only for architectures'
->> convenience, not for generic code (where lazy_mmu_state_t should ideally
->> be an opaque type as mentioned above). It almost feels like the kasan
->> case deserves a different API, because this is not how enter() and
->> leave() are meant to be used. This would mean quite a bit of churn
->> though, so maybe just introduce another arch-defined value to pass to
->> leave() for such a situation - for instance,
->> arch_leave_lazy_mmu_mode(LAZY_MMU_FLUSH)?
-> What about to adjust the semantics of apply_to_page_range() instead?
+On 9/10/25 05:56, Andrew Lunn wrote:
+
+>> Changes v2 -> v3:
+>>    - Removed unused phy-mode property from mac0
+>> +&mac0 {
+>> +     pinctrl-names = "default";
+>> +     phy-handle = <&ethphy0>;
+>> +     pinctrl-0 = <&pinctrl_rgmii1_default>;
+>> +     status = "okay";
+>> +};
+> Oh, fun.
 >
-> It currently assumes any caller is fine with apply_to_pte_range() to
-> enter the lazy mode. By contrast, kasan_(de)populate_vmalloc_pte() are
-> not fine at all and must leave the lazy mode. That literally suggests
-> the original assumption is incorrect.
+> Please don't do that. At some point Aspeed it going to clean up the
+> mess they made with RGMII delays. And at that point, it is very likely
+> your board will mysteriously break, if nobody remembers it is doing
+> something probably no other board does.
 >
-> We could change int apply_to_pte_range(..., bool create, ...) to e.g.
-> apply_to_pte_range(..., unsigned int flags, ...) and introduce a flag
-> that simply skips entering the lazy mmu mode.
+>          Andrew
 
-This is pretty much what Ryan proposed [1r] some time ago, although for
-a different purpose (avoiding nesting). There wasn't much appetite for
-it then, but I agree that this would be a more logical way to go about it.
+Hi Andrew,
 
-- Kevin
+I will add it back in. Our board phy has tx and rx delays.
 
-[1r]
-https://lore.kernel.org/all/20250530140446.2387131-4-ryan.roberts@arm.com/
+Don
+
 
