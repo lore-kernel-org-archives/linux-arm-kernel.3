@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89718CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE846CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a8swwx8M4K3oXPw77BTCIWEm2ZiKsBLAGG8+sePSZTY=; b=gWYy9HL0B8K5kB44wOFP4GHf9s
-	N+70MOL5dq2sc/v4vHDmp2gPFaHyCRnGuZ5dmAxaGrz2jDcCgf8FIajzAd4+1SONJc3uo2EiBFuaC
-	h/obDfDFn2nbNy+Mc/spxmMFrikrT1cxHwNSdNvAfZIKa9KfxK45oLqgOtdQuGDAtOvQi1iU24z0B
-	jLPocd4+p/49+DtOoRgUz++++1gH42OT7OOMAMZ6Ib1DKEdBixiKl6VgWMC8i4iCSARBffLazLcF+
-	EQmqtWGQ7Ev0aqoZYxpD8qCoV0IUP2o3zqgWXYoBEoxyfJ4CQT/VdtkHIxxQET+cBwfvyX3S/Opkp
-	cfhjRe7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7Cq0DHB5k0l5CQs6BVZUFt4lPJTtmejSvjf3feeP/U8=; b=IyBBRMe9Z/2rSbZZPucQZDDv1U
+	jY29qj2aMenlSAGEEqMMd1nnCOvHGFfPF4JZK1Uihr/p/e/Y7VSGoqAuUnKeNsfYPG8aAGdfZzhnh
+	Md6LDoVa+2LqSEoGZ938kq1c9AOWRnZtU/8MEnvztVHraPr4HJAz9L5px/TEYAWzVG88GWbfJZ6eI
+	pKUqrG1bhrf2sT+GmVN8wdXmyn97Zmkvg2svTuKga0U0vduxoGTST0j+e4iORywt6Vsv0lGHAj5Mf
+	d7gJpRVEn31hRrmE9HEtmdAtyAK1U+EixVx9q1hEeIXVqIk44Q0cUy2m0R1nDul7O8zADxxBupNH/
+	tkMqeUdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFHc-0000000CZHr-3wcV;
-	Wed, 10 Sep 2025 07:30:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uwFLL-0000000CaPb-28K5;
+	Wed, 10 Sep 2025 07:34:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFHb-0000000CZH8-1oGu;
-	Wed, 10 Sep 2025 07:30:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D0CD2601FA;
-	Wed, 10 Sep 2025 07:30:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6F48C4CEF0;
-	Wed, 10 Sep 2025 07:30:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757489422;
-	bh=4M0n9dhFOjwBsj8qa6KbJmB5wbmUTZbKFbxuZfgxy5k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H52COcovNyEFke9kN5TRvK+aXvcGWR0DW8t0vyXltz5YkgDgbdfmugoXAeNqj5n6l
-	 4EdhUkZmusQ1bC3N02hSR4UAumXQZYg64Pup1df1R50HDGZVH+iyMXxcQT0dbAU6uT
-	 sbm24X5W0+2OvonjNTX5qwj79dBfLUYXehFAf9iFWp24PRaNm2vfrkBd7JO8Zx+ktv
-	 2j09guNySeBdqawEv2hoZq9ZzY+QmY9Xw4xP7T3AhYEvXbikCC+COb760BxC5U4Abo
-	 XRcIpL1qW9ooSqdLXY+9j61tqnqOalFbz5MXw4PvtdB47nmwOV4wCgS+GLgnNnrTl4
-	 3n/DfqBBqC48w==
-Date: Wed, 10 Sep 2025 09:30:19 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Daniel Stone <daniel@fooishbar.org>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
- driver capabilities
-Message-ID: <20250910-didactic-honored-chachalaca-f233b2@houat>
-References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
- <CAPj87rNDtfEYV88Ue0bFXJwQop-zy++Ty7uQ9XfrQ2TbAijeRg@mail.gmail.com>
- <57ekub6uba7iee34sviadareqxv234zbmkr7avqofxes4mqnru@vgkppexnj6cb>
- <20250901-voracious-classy-hedgehog-ee28ef@houat>
- <voknqdv3zte2jzue5yxmysdiixxkogvpblvrccp5gu55x5ycca@srrcscly4ch4>
- <st6wob5hden6ypxt2emzokfhl3ezpbuypv2kdtf5zdrdhlyjfw@l2neflb4uupo>
- <pe6g2fanw65p67kfy5blbtiytngxmr6nkbazymojs4a66yvpl3@7j4ccnsvc6az>
+	id 1uwFLK-0000000CaOj-0g4Y
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 10 Sep 2025 07:34:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Subject:To:From:Date:Message-ID:Sender:Reply-To:Cc:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=7Cq0DHB5k0l5CQs6BVZUFt4lPJTtmejSvjf3feeP/U8=; b=dhDLTbqePQivfMtuUSxPoHG6q7
+	UVsOfJlaQAz8Avn5Ifkupp5N9gevxTnP3AtyvBl7Ya2ySQj8Hp/56jOU69Evur/ML+b/Aah8Y3nt7
+	eYVoptqmHnhPERmDz7lDsgw/khQXqjb/uCRM+gP5/bedi/XKEqQ3llGnUxA5J6Rw+K2mk3vpIwoE+
+	D1TDUqf89PU81+ThQS++A9PjXMsInOr//dB6mOW0QVEUvk83WENnKSd6IpHnIMYW14YzYuw9tz+/q
+	yLKpRO9oInliGVTFxK5++EeEfMe9EQoAHW8UupUCUoT8ohKCcVn5QOBLu7++XUrZUZSnKV3v8UQrp
+	pASbz/zQ==;
+Received: from mail.bizosto.pl ([151.80.59.16])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwFLH-00000005lc5-1pqF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Sep 2025 07:34:13 +0000
+Received: by mail.bizosto.pl (Postfix, from userid 1002)
+	id B10D4208C7; Wed, 10 Sep 2025 07:32:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bizosto.pl; s=mail;
+	t=1757489649; bh=7Cq0DHB5k0l5CQs6BVZUFt4lPJTtmejSvjf3feeP/U8=;
+	h=Date:From:To:Subject:From;
+	b=jREnp7N8ebUdGiQNYvHyqOdZ3+lBW/s9ukiAHCyhqYpQ+9GOyasGgINbRGxfWazjn
+	 bwn1AMGhuN/C4Zwcon2jSw7oE1OnVsT1ic5iyDAvlX7D4LaOtZA+bjU6jfTVOGr5vX
+	 zqroPqCTzUdmNfxoXScynvokHV+0fBcXMCX9XfDyU35wHRUJBD3iOFljhdwqmS+Cnf
+	 Wq/uUvnaF8EKI0cBnWyJtxpiU/hBScBcEeFByu7mgNaZ86Ut5W+MZPh0ffVDAq5/VF
+	 Ty/xy/K6j7k/CMPhrF03kH/O9ffZ7l6ncJwZ1YND3w3c5kvt1W1H7DZQ0h43e7t8Xw
+	 HzU1IfhMaUVLw==
+Received: by mail.bizosto.pl for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 07:31:08 GMT
+Message-ID: <20250910064500-0.1.3v.1ah36.0.mghugyc3fl@bizosto.pl>
+Date: Wed, 10 Sep 2025 07:31:08 GMT
+From: "Kamil Nakielski" <kamil.nakielski@bizosto.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: Zatrudnienie nowej osoby
+X-Mailer: mail.bizosto.pl
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="xcyykjy7tru36lrv"
-Content-Disposition: inline
-In-Reply-To: <pe6g2fanw65p67kfy5blbtiytngxmr6nkbazymojs4a66yvpl3@7j4ccnsvc6az>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250910_083411_582716_C19DC0EC 
+X-CRM114-Status: UNSURE (   3.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,176 +81,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Dzie=C5=84 dobry,
 
---xcyykjy7tru36lrv
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
- driver capabilities
-MIME-Version: 1.0
+kontaktuj=C4=99 si=C4=99 w sprawie zatrudnienia pracownik=C3=B3w z Ukrain=
+y w Pa=C5=84stwa zak=C5=82adzie.
 
-On Wed, Sep 03, 2025 at 03:03:43AM +0300, Dmitry Baryshkov wrote:
-> On Tue, Sep 02, 2025 at 08:06:54PM +0200, Maxime Ripard wrote:
-> > On Tue, Sep 02, 2025 at 06:45:44AM +0300, Dmitry Baryshkov wrote:
-> > > On Mon, Sep 01, 2025 at 09:07:02AM +0200, Maxime Ripard wrote:
-> > > > On Sun, Aug 31, 2025 at 01:29:13AM +0300, Dmitry Baryshkov wrote:
-> > > > > On Sat, Aug 30, 2025 at 09:30:01AM +0200, Daniel Stone wrote:
-> > > > > > Hi Dmitry,
-> > > > > >=20
-> > > > > > On Sat, 30 Aug 2025 at 02:23, Dmitry Baryshkov
-> > > > > > <dmitry.baryshkov@oss.qualcomm.com> wrote:
-> > > > > > > It's not uncommon for the particular device to support only a=
- subset of
-> > > > > > > HDMI InfoFrames. It's not a big problem for the kernel, since=
- we adopted
-> > > > > > > a model of ignoring the unsupported Infoframes, but it's a bi=
-gger
-> > > > > > > problem for the userspace: we end up having files in debugfs =
-which do
-> > > > > > > mot match what is being sent on the wire.
-> > > > > > >
-> > > > > > > Sort that out, making sure that all interfaces are consistent.
-> > > > > >=20
-> > > > > > Thanks for the series, it's a really good cleanup.
-> > > > > >=20
-> > > > > > I know that dw-hdmi-qp can support _any_ infoframe, by manually
-> > > > > > packing it into the two GHDMI banks. So the supported set there=
- is
-> > > > > > 'all of the currently well-known ones, plus any two others, but=
- only
-> > > > > > two and not more'. I wonder if that has any effect on the inter=
-face
-> > > > > > you were thinking about for userspace?
-> > > > >=20
-> > > > > I was mostly concerned with the existing debugfs interface (as it=
- is
-> > > > > also used e.g. for edid-decode, etc).
-> > > > >=20
-> > > > > It seems "everything + 2 spare" is more or less common (ADV7511, =
-MSM
-> > > > > HDMI also have those. I don't have at hand the proper datasheet f=
-or
-> > > > > LT9611 (non-UXC one), but I think its InfoFrames are also more or=
- less
-> > > > > generic).  Maybe we should change debugfs integration to register=
- the
-> > > > > file when the frame is being enabled and removing it when it gets=
- unset.
-> > > >=20
-> > > > But, like, for what benefit?
-> > > >=20
-> > > > It's a debugfs interface for userspace to consume. The current setup
-> > > > works fine with edid-decode already. Why should we complicate the d=
-esign
-> > > > that much and create fun races like "I'm running edid-decode in par=
-allel
-> > > > to a modeset that would remove the file I just opened, what is the =
-file
-> > > > now?".
-> > >=20
-> > > Aren't we trading that with the 'I'm running edid-decode in paralle w=
-ith
-> > > to a modeset and the file suddenly becomes empty'?
-> >=20
-> > In that case, you know what the file is going to be: empty. And you went
-> > from a racy, straightforward, design to a racy, complicated, design.
-> >=20
-> > It was my question before, but I still don't really see what benefits it
-> > would have, and why we need to care about it in the core, when it could
-> > be dealt with in the drivers just fine on a case by case basis.
->=20
-> Actually it can not: debugfs files are registered from the core, not
-> from the drivers. That's why I needed all the supported_infoframes
-> (which later became software_infoframes).
+Stale obs=C5=82ugujemy firmy produkcyjne w tym temacie. Je=C5=9Bli potrze=
+bujecie Pa=C5=84stwo dodatkowego personelu do pracy, prosz=C4=99 o wiadom=
+o=C5=9B=C4=87.=20
 
-That's one thing we can change then.
 
-> Anyway, I'm fine with having empty files there.
->=20
-> > > > > Then in the long run we can add 'slots' and allocate some of the =
-frames
-> > > > > to the slots. E.g. ADV7511 would get 'software AVI', 'software SP=
-D',
-> > > > > 'auto AUDIO' + 2 generic slots (and MPEG InfoFrame which can prob=
-ably be
-> > > > > salvaged as another generic one)). MSM HDMI would get 'software A=
-VI',
-> > > > > 'software AUDIO' + 2 generic slots (+MPEG + obsucre HDMI which I =
-don't
-> > > > > want to use). Then the framework might be able to prioritize whet=
-her to
-> > > > > use generic slots for important data (as DRM HDR, HDMI) or less i=
-mportant
-> > > > > (SPD).
-> > > >=20
-> > > > Why is it something for the framework to deal with? If you want to =
-have
-> > > > extra infoframes in there, just go ahead and create additional debu=
-gfs
-> > > > files in your driver.
-> > > >=20
-> > > > If you want to have the slot mechanism, check in your atomic_check =
-that
-> > > > only $NUM_SLOT at most infoframes are set.
-> > >=20
-> > > The driver can only decide that 'we have VSI, SPD and DRM InfoFrames
-> > > which is -ETOOMUCH for 2 generic slots'. The framework should be able=
- to
-> > > decide 'the device has 2 generic slots, we have HDR data, use VSI and
-> > > DRM InfoFrames and disable SPD for now'.
-> >=20
-> > I mean... the spec does? The spec says when a particular feature
-> > requires to send a particular infoframe. If your device cannot support
-> > to have more than two "features" enabled at the same time, so be it. It
-> > something that should be checked in that driver atomic_check.
->=20
-> Sounds good to me. Let's have those checks in the drivers until we
-> actually have seveal drivers performing generic frame allocation.
->=20
-> > Or just don't register the SPD debugfs file, ignore it, put a comment
-> > there, and we're done too.
->=20
-> It's generic code.
->=20
-> > > But... We are not there yet and I don't have clear usecase (we support
-> > > HDR neither on ADV7511 nor on MSM HDMI, after carefully reading the
-> > > guide I realised that ADV7511 has normal audio infoframes). Maybe I
-> > > should drop all the 'auto' features, simplifying this series and land
-> > > [1] for LT9611UXC as I wanted origianlly.
-> > >=20
-> > > [1] https://lore.kernel.org/dri-devel/20250803-lt9611uxc-hdmi-v1-2-cb=
-9ce1793acf@oss.qualcomm.com/
-> >=20
-> > Looking back at that series, I think it still has value to rely on the
-> > HDMI infrastructure at the very least for the atomic_check sanitization.
-> >=20
-> > But since you wouldn't use the generated infoframes, just skip the
-> > debugfs files registration. You're not lying to userspace anymore, and
-> > you get the benefits of the HDMI framework.
->=20
-> We create all infoframe files for all HDMI connectors.
-
-Then we can provide a debugfs_init helper to register all of them, or
-only some of them, and let the drivers figure it out.
-
-Worst case scenario, debugfs files will not get created, which is a much
-better outcome than having to put boilerplate in every driver that will
-get inconsistent over time.
-
-Maxime
-
---xcyykjy7tru36lrv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaMEpAwAKCRAnX84Zoj2+
-dk8gAX9rbNWwNIwKSB0+wgpd+2lgIwy4gt6EhhgTtTz3dzSxqsa2u+1FhrsGsBJE
-FiMw/LgBgIGnPFV/ZqY6NuZQ8Z6fwsK5cORWCjwaLn48kjvnTHE5U3qynIeE7xuQ
-mP9pD1yh4A==
-=X/3+
------END PGP SIGNATURE-----
-
---xcyykjy7tru36lrv--
+Pozdrawiam
+Kamil Nakielski
 
