@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481C5CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 21:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4331CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 21:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z1MeHN/FAuAOkxz9iJEKMCLiQPrMJjTHwVbwSN9mvp8=; b=PLR55+yx76MeEkLaTnjrd2N754
-	yn1edxlpMROl8kQGRMmR9LLaPd1Cetq1+wZeYthneIN4fC4fEGNIn9y0jz4vkIESdDL4DUMKjEHJr
-	xLckd2umlm4l26Aj9BblX5mJY/F9ughE05TRNmCZwH7h3jTI4+xRD34HKQkm7eihGSBoh1I0uLuDv
-	28DPUCaP1W7JxHQNp2VBHsv/oAcWYym4qCtkQ5Xy+Y0jaEfCtU8tL1dNr+QQI5X21gzTtCmGck5XR
-	CEmdqYydaBUPS++lxPjryFmoM3xkrF0L/yuXxhRXcJKbyEh7bX+T0Cw3D9DEhWo/+v421NIl4p3G5
-	q/nueQpA==;
+	bh=tDgFFo1KURd80WOddqneN0YLx5E89K1CqsHmGyLdaRg=; b=PuTUy6FUYQ7gFdETHZ90SZW4rD
+	WGcfLfiSSxJnhwinKUbi8Se7vd7r5X0p3+d9dolduOBo5ylCuraHzF0zxTtXhBP3yfa2Sid7OdZgE
+	oAQ9ZfP42DgacG9QL2VGD1XfsfPxtnkcloXkslOcbhloOaS5nBa0jL2l0Y61DwUa3HumKFk+757Zv
+	Cn+Jkyps53WXO46mRCMMotV34219s7L738L8xrhcuigqC/BTLJl2jZ/WPQU9HCy19/qS/Z+mdxkw3
+	POoiKYPFg5lTxtaK6eMkRhLOURoG30ymd0R3vwoolq+/keo984J/yD4+Zd4XehWuJCojYJGLFOpKK
+	hAkuDUrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwSNd-0000000GrR7-3DOV;
-	Wed, 10 Sep 2025 21:29:29 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1uwSQk-0000000GsI6-1Nwe;
+	Wed, 10 Sep 2025 21:32:42 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwSNb-0000000GrOI-00xw
+	id 1uwSQh-0000000GsGv-2qEX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 21:29:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1757539764;
- bh=Z1MeHN/FAuAOkxz9iJEKMCLiQPrMJjTHwVbwSN9mvp8=;
- b=o+v+9vTsSJ9aMMmOrCyG5RWU68YRTMoKUKXfYIVOBn2suwaXhUzMZ7Odyle05F8+KD5AnV/dm
- m8zPx9QCm0YK5FT79OXONDrGvCt/LB8xkHkHiXJ4hL52E+pIRc2hOt0CdEEZd9K9LFiP0JbSmv/
- rMvEzz6cNYD1cMjYrIejTE1AD67xS2BtDMGILt837bPqmUhPT2UX9LtlJiIjZeM48K2yNJDgaeY
- v+9t3Wx1M1E36rZcul+iJkMbHMcOGCWzJNYqCNiDD8wXMO/bu0k4Sc/SXhS4aZuaXRyCKNfdu54
- WwdB59hSAR+HuE2/ITdeaBqAf8SSrAryDXkXRlss0JMA==
-X-Forward-Email-ID: 68c1eda3343e597491a9aa4c
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.2.14
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <38e80b6d-1dc9-47a8-8b23-e875c2848e6e@kwiboo.se>
-Date: Wed, 10 Sep 2025 23:29:00 +0200
+	Wed, 10 Sep 2025 21:32:40 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-55f6bb0a364so7939654e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 14:32:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757539957; x=1758144757; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tDgFFo1KURd80WOddqneN0YLx5E89K1CqsHmGyLdaRg=;
+        b=MpK2PZ5ZKZc8WosN+DrU82qI7DQDmJGCUzPzK5iE9ppewuRS5pU3r9Nb1saYJNSDrM
+         HX6l/zQuqC+TYXEXLnsxAcKcsjo9rZfNmeb0yJfa6cDe+pbs00uCglgSdGp7IwQ5sqYd
+         lcr0T/poaDU5BPdEW/nWC6BFeJOlAP4WdovDEDE1rQuQ7QbHmB7lWOwjloaFwg/mkgQ/
+         Nw3w54YTT1ys/b40tXn3KN/CvsrVrCyfVu32zsW5bdbR0+HZkehiiVjbY11AiPum51aO
+         aV45yJsiLsMO44s9eW4RWq7w7HA3r5R8b358PwHfk/U1R2Z1mA8FOL0unCD6oOa5erER
+         PEBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757539957; x=1758144757;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tDgFFo1KURd80WOddqneN0YLx5E89K1CqsHmGyLdaRg=;
+        b=VQAqApzBaxsShing7T77FfgqhsDdLZ3o0BnxQs8czT89K/22w2fVMMNOjoH7Aoh6xi
+         jDbCE0f/XB8h82fi++cSKlQtqvwp1AS1o5Vmdj6iqA9iTXxClm9VJd/JuuEdq4US+a7x
+         2MeIiFg46p9AaOJDicH/uyM+3yPNhZ1MlHlKcHuksFIfaD+mKUjDXGBtXAWb52N5mwt0
+         E5U0O6xW+6/FOzjLnS17oErV8ZbqLkI2J72vvx1JyyvDMqbTukhEBw3ZZydhkhZLUm4o
+         lPKhJCgLZqKIg6CHJ2InpZzuQ6gkA3P8PRI3TU0wqTY+PTNc6ht8/KSpNY5YJzxBccD8
+         gNrA==
+X-Forwarded-Encrypted: i=1; AJvYcCWUrlbodWf7LHO5SqNGL9k7TvbZ7vwS9jy03yGmWJsJf8eNOTkuhgC3mh+2iy0q+5u10MDrvC2RcLKyJmOvOXbX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzqd+Md7Nl6Sy/1BNy4ZVIiW4a3O7/Vt80b5I0HUKFiZvO17pNc
+	7E6meiOXXU1hb3kuJVG4rtbpjQ78e+h9gF/thwCVT5JgoMlzn6hJ3Li3IeOv1ZFFaQ9kuyMnsTb
+	BAvpY7eBa/DMgwMX0tp7ggMS9LqU+ki9WI22Rzfhoag==
+X-Gm-Gg: ASbGncukzt74jHvnHqfhXnpyUpdZGE7943eyipYoiC12Nd+ex+St3pLQg+zYugegj6e
+	gaKguZ/fHBzNLUngYCrrt3vbyLNoqO8Ke0v7R4eiyE5brQ7ecCkdA/h3T0bdIPXr5Jrv3jKVyjy
+	LkHlQ4xppeuAAxi3leHn/0VshD0w9Clo7QyaaU95OVmfHUTw66xWkXi1YUeo0VBRsc8AsucWwrb
+	n3k/0Jpag25rkwRLA==
+X-Google-Smtp-Source: AGHT+IEDFgI45XU5cTVW9FtG8gM2JjDzoZENa8d1uC1g5vQQ+iix+RIzuYFh88VfTx91WSF4c7ZJi4duHEmeM7k85Mw=
+X-Received: by 2002:a05:6512:6404:b0:55f:595f:9a31 with SMTP id
+ 2adb3069b0e04-56262f11dd2mr5910272e87.51.1757539957420; Wed, 10 Sep 2025
+ 14:32:37 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Add PCIe Gen2x1 controller for
- RK3528
-To: Yao Zi <ziyao@disroot.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Shawn Lin <shawn.lin@rock-chips.com>, Simon Xue <xxm@rock-chips.com>,
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Chukun Pan <amadeus@jmu.edu.cn>
-References: <20250906135246.19398-1-ziyao@disroot.org>
- <20250906135246.19398-3-ziyao@disroot.org>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250906135246.19398-3-ziyao@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
+In-Reply-To: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 10 Sep 2025 23:32:26 +0200
+X-Gm-Features: Ac12FXzHQO4QoWSTSppUbrZutew2n-HjqWu5POboMsRGiUcu6mJnWXdH0E38Eq0
+Message-ID: <CACRpkdb=J+hiC5cu+g0Z-gqzpG8PgX01CXc4P98FfSSAf7PZEA@mail.gmail.com>
+Subject: Re: [PATCH v2 00/15] gpio: replace legacy bgpio_init() with its
+ modernized alternative - part 4
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Keguang Zhang <keguang.zhang@gmail.com>, Alban Bedel <albeu@free.fr>, 
+	Doug Berger <opendmb@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_142927_080649_15DDFF7F 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250910_143239_732824_83EA08EB 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,124 +105,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yao Zi,
+On Wed, Sep 10, 2025 at 9:12=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl>=
+ wrote:
 
-On 9/6/2025 3:52 PM, Yao Zi wrote:
-> Describes the PCIe Gen2x1 controller integrated in RK3528 SoC. The SoC
-> doesn't provide a separate MSI controller, thus the one integrated in
-> designware PCIe IP must be used.
-> 
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 56 +++++++++++++++++++++++-
->  1 file changed, 55 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> index db5dbcac7756..2d2af467e5ab 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> @@ -7,6 +7,7 @@
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
->  #include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/phy/phy.h>
->  #include <dt-bindings/pinctrl/rockchip.h>
->  #include <dt-bindings/clock/rockchip,rk3528-cru.h>
->  #include <dt-bindings/power/rockchip,rk3528-power.h>
-> @@ -239,7 +240,7 @@ gmac0_clk: clock-gmac50m {
->  
->  	soc {
->  		compatible = "simple-bus";
-> -		ranges = <0x0 0xfe000000 0x0 0xfe000000 0x0 0x2000000>;
-> +		ranges = <0x0 0xfc000000 0x0 0xfc000000 0x0 0x44400000>;
+> Here's the final part of the generic GPIO chip conversions. Once all the
+> existing users are switched to the new API, the final patch in the
+> series removes bgpio_init(), moves the gpio-mmio fields out of struct
+> gpio_chip and into struct gpio_generic_chip and adjusts gpio-mmio.c to
+> the new situation.
+>
+> Down the line we could probably improve gpio-mmio.c by using lock guards
+> and replacing the - now obsolete - "bgpio" prefix with "gpio_generic" or
+> something similar but this series is already big as is so I'm leaving
+> that for the future.
+>
+> Tested in qemu on vexpress-a9.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-We should use the dbi reg area in the 32-bit address space, please use:
+The patch set is a beauty, hands down.
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-  ranges = <0x0 0xfc000000 0x0 0xfc000000 0x0 0x4000000>;
+I especially like where you caught local spinlocks being
+(ab)used instead of the generic irqchip ones.
 
->  		#address-cells = <2>;
->  		#size-cells = <2>;
->  
-> @@ -1133,6 +1134,59 @@ combphy: phy@ffdc0000 {
->  			rockchip,pipe-phy-grf = <&pipe_phy_grf>;
->  			status = "disabled";
->  		};
-> +
-> +		pcie: pcie@fe4f0000 {
+I don't know about merging patch 15/15 into just the GPIO
+tree, that can make things fail in other subsystems depending
+on merge order into Torvalds tree or linux-next if your tree is
+merged first.
 
-With the dbi reg area changed below, please update the node name and
-move this node to top of the soc node.
+I would merge the first 14 and keep the last for the later part
+of the merge window when all other trees with conversions
+are merged.
 
-  pcie@fe000000
+(You probably already thought of this.)
 
-> +			compatible = "rockchip,rk3528-pcie",
-> +				     "rockchip,rk3568-pcie";
-> +			reg = <0x1 0x40000000 0x0 0x400000>,
-
-We should use the dbi reg area in the 32-bit address space, please use:
-
-  reg = <0x0 0xfe000000 0x0 0x400000>,
-
-> +			      <0x0 0xfe4f0000 0x0 0x10000>,
-> +			      <0x0 0xfc000000 0x0 0x100000>;
-> +			reg-names = "dbi", "apb", "config";
-> +			bus-range = <0x0 0xff>;
-> +			clocks = <&cru ACLK_PCIE>, <&cru HCLK_PCIE_SLV>,
-> +				 <&cru HCLK_PCIE_DBI>, <&cru PCLK_PCIE>,
-> +				 <&cru CLK_PCIE_AUX>, <&cru PCLK_PCIE_PHY>;
-> +			clock-names = "aclk_mst", "aclk_slv",
-> +				      "aclk_dbi", "pclk",
-> +				      "aux", "pipe";
-
-In my U-Boot test I did not have the pipe/phy clock here, do we need it?
-
-With above fixed this more or less matches my U-Boot testing, and is:
-
-Reviewed-by: Jonas Karlman <jonas@kwiboo.se>
-
-Regards,
-Jonas
-
-> +			device_type = "pci";
-> +			interrupts = <GIC_SPI 156 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 157 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 154 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 155 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 158 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "sys", "pmc", "msg", "legacy", "err",
-> +					  "msi";
-> +			#interrupt-cells = <1>;
-> +			interrupt-map-mask = <0 0 0 7>;
-> +			interrupt-map = <0 0 0 1 &pcie_intc 0>,
-> +					<0 0 0 2 &pcie_intc 1>,
-> +					<0 0 0 3 &pcie_intc 2>,
-> +					<0 0 0 4 &pcie_intc 3>;
-> +			linux,pci-domain = <0>;
-> +			max-link-speed = <2>;
-> +			num-lanes = <1>;
-> +			phys = <&combphy PHY_TYPE_PCIE>;
-> +			phy-names = "pcie-phy";
-> +			power-domains = <&power RK3528_PD_VPU>;
-> +			ranges = <0x01000000 0x0 0xfc100000 0x0 0xfc100000 0x0 0x100000>,
-> +				 <0x02000000 0x0 0xfc200000 0x0 0xfc200000 0x0 0x1e00000>,
-> +				 <0x03000000 0x1 0x00000000 0x1 0x00000000 0x0 0x40000000>;
-> +			resets = <&cru SRST_PCIE_POWER_UP>, <&cru SRST_P_PCIE>;
-> +			reset-names = "pwr", "pipe";
-> +			#address-cells = <3>;
-> +			#size-cells = <2>;
-> +			status = "disabled";
-> +
-> +			pcie_intc: legacy-interrupt-controller {
-> +				interrupt-controller;
-> +				interrupt-parent = <&gic>;
-> +				interrupts = <GIC_SPI 155 IRQ_TYPE_EDGE_RISING>;
-> +				#address-cells = <0>;
-> +				#interrupt-cells = <1>;
-> +			};
-> +		};
->  	};
->  };
->  
-
+Yours,
+Linus Walleij
 
