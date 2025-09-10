@@ -4,95 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E128CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2792CCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UkhFCZ5ofWJHJ2EhMv0fguBBuTeG4Pes0q1AF4EcfFA=; b=eGLTl1+0oiarqXw9N07AvhZRt+
-	6vilMkcxGOZADwKYYq6Hd46+e0uQLghYb2ofBu/mqFKoAEtjNuZv5nR/k2h7Uk+PlW9Kl5UJ9OxgO
-	c5DnDwvih6+1sH33wCr32v46ifdKoITjCUGHC4W3IiL41i3yiH/XkQFh9gyuN4Ye0KPKnvMJU1UeP
-	gUQ0z9FzBkjIOY1Hf5VJfsedyWBw3Ln+QqojoTIbyStoWZ1GnVOPgtg3AyP5T+JtiUt6n4vxm1WwL
-	DQ3oXPRjPqWpgHSDEUjlR5ekrzR1GfcOv6wnAzHYvTokujABX+MtyCyOMs3n2becK5GkuRyMWXEVC
-	6nNk+Saw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n2XG5G5idL1icWs5gdOF0RPGr8c47uMS45arCKqvExU=; b=VuVW1DDMvbTs19btuCThX5k0lx
+	4fmVJPFMPhcH7Q949S/sGvEysjTqEtVOTV5qyjD2fo5dFCMWj7AsHtBKTWldDF97cUfMRf6u/UEgZ
+	VlcEMcD8Hj22OZ/PGgJN6OzQexAl6lhmf9jCvxEMp2B/UuzL2e10rig1/SWEgD9EEljlKMlUwAWVy
+	xMqJeFS2pTvzhM5faUju/Y4/YU9Qwhdg5PTyHUc6llu83tqSNYUv4l0Nq6TTTNSnLiqPg0nuETE3l
+	RQp4DH7D9TPEZwliCmJlwqXetWlRJecFfbu5g4CZFM+vI2Ooy8KoSW//1HwD3UZsg8JtAy6w8h9ez
+	LOtbj6Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwM2N-0000000EoI2-0gad;
-	Wed, 10 Sep 2025 14:43:07 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1uwM2f-0000000EoSa-21vL;
+	Wed, 10 Sep 2025 14:43:25 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwM2K-0000000EoFJ-23Hx
+	id 1uwM2d-0000000EoQO-0LSn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 14:43:06 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-55f6507bd53so7507330e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 07:43:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757515382; x=1758120182; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UkhFCZ5ofWJHJ2EhMv0fguBBuTeG4Pes0q1AF4EcfFA=;
-        b=fUTIThl84+faf9QRxmt0Nb1JLgSz1jG6xrVpRA+zZ14ywgp+x0Z4avreacCphUpQjE
-         oyzxUZFck5bxNrQG5q/C20QrYtOj05mCWq1bx+xP8OmQdakZxpti3QLoFurxOUVRjYyK
-         e8jG0vgnOt2htqlETTmsPkPsHwjYh0/cMgOc/zUjDpKC9Rnp04Y5O9oS0wfWYCiN6JGf
-         wBzDlYi3u7pa7w3awkSqEhNf+7Puci7XskXiNM51FAAGQbzmx+l8WYXjPneQxYX7liK3
-         lnkpo2A1CsfQD9cD9n5MJBYz/NglIMrV3/T2kxqYTpU+zLWoUbrMhjCU33BanuIkmxXX
-         auGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757515382; x=1758120182;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UkhFCZ5ofWJHJ2EhMv0fguBBuTeG4Pes0q1AF4EcfFA=;
-        b=H7Nc50EsmhspNNgyMSfYHvjXRYaXCNpbsugeORBbaFXRkT4LKbUug6cvr/bbIr7HII
-         8LiVhKDmersr0T19QkzkkyBoV5NekN1A3NaGUa5k+SMWrj5slBD45NeM2zTRsU0CUpRO
-         MXiWLTiqsYb6EvHHe26kyp84xaetnggigBeOaGs/5nimmF6Ket+TrVIgy9EASFnkXTDX
-         O8V5INwlqpri3edmzvRVCWKyy9IUiaUi7z/Wk57Cf+5HGKzK3QcX4XUVAUgrd1uNFhXt
-         JdGQYuCeBIw1BMHyEG7CD1uQ3dr1euoW+KOdr/6tgjoCjmdYDhvKV/1UBvOYEWzijH1t
-         +1bg==
-X-Forwarded-Encrypted: i=1; AJvYcCXQLtImLOIFGVfNdnuRSaA8Z+XN/aMrYdqFLrXQEtpipk4UEyxm2fFhjOuf0xOXH1WBjOzNv+E9SwdKLp8yfkyw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyba0WnnbDu9dV4KEgNRFIAypXvOtycfQcOQMq8wloVbfDg8aLO
-	RxJZBaJyIurDK+jq+wd5dS+sj8hHWAcQ7S6OHEGqEkm4PzhIX7E3Zu9Pj2du5mwvdMkCytoyhwi
-	fnkJ7gkG/+H1XmTX/lAC+vb3I/w6u8vFDT7jn5gMmPw==
-X-Gm-Gg: ASbGncvaKu2kK2PpCbi9xQffLAvOTjtDPqYPggukIPnLavH/vP+8A5srtT32eIf98B3
-	N8D6pfcTKfXLMALtxgtvbO8ZucWF0LT9bAmmXHNO9Vc4ADbFFu8QsqlsmjGwJqH5GxQr/oopW8t
-	E504tEGW6lwbzcbyxf5Q87iaik0q/LTTbvXG4v6/pRMEoa6jf5lpvXEXQs/OMOWFDpd98wUWxB/
-	np213qq8VgucdUE5gCi6dHgkOKsmu1sMOyPtzQ=
-X-Google-Smtp-Source: AGHT+IFwwWMP72rjU0xLemNq3S4L4evCHuBoOQsJ51CqzV+zQGmHuO0tvNuPBH/4DumR325PTGGiK6U/D6n2L75MFaY=
-X-Received: by 2002:a05:6512:e82:b0:55f:4429:15a6 with SMTP id
- 2adb3069b0e04-5626310e5efmr4881766e87.48.1757515382294; Wed, 10 Sep 2025
- 07:43:02 -0700 (PDT)
+	Wed, 10 Sep 2025 14:43:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757515403; x=1789051403;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZbY2B6yVl12t9+vakyT6Odcj14A3coWtEtGibMgyy5g=;
+  b=CCPGji1F9oT0B6LikUGBH96xkK3hrwnC3Jj1A+dCgVGnwmKmwrcmRlmI
+   1bA9CEEleVf1Yg8VAt24a7TITdJCj7oN+6O6RwgwwuH0FGIOEldCsm1P4
+   Blx44OEPo85ORLxKc+chhoTw57jgbcKJe4oHu8xOyUWvIR5tkoLsnTJz7
+   dz0gT6xFgoDYDNOD+Kd7c0JFr4LQhs1RZrNC4UrdKJGd2FVSkLpZo9Is2
+   /YAKBUaxSAP5Erizc01t/2lUWgEO142fNnAm08kNgzcxKMZQGLqtSBZiP
+   DP2gfA2BYPsVefKW1QAMlf6a9Weq+/i8eHf3fWucfwbYof1KjrQT9t6uZ
+   g==;
+X-CSE-ConnectionGUID: o5fICFjiQPSXO3WMMMo9Dw==
+X-CSE-MsgGUID: SnhdscTIQB+nFL8b6Bd/mA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11549"; a="71248284"
+X-IronPort-AV: E=Sophos;i="6.18,254,1751266800"; 
+   d="scan'208";a="71248284"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2025 07:43:21 -0700
+X-CSE-ConnectionGUID: 8xOG4fZsS/Wlx1q+FywMXA==
+X-CSE-MsgGUID: uILFlauiRmePsJvk6TcztA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,254,1751266800"; 
+   d="scan'208";a="177742939"
+Received: from ettammin-mobl2.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.108])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2025 07:43:16 -0700
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id F09371201B4;
+	Wed, 10 Sep 2025 17:43:12 +0300 (EEST)
+Date: Wed, 10 Sep 2025 17:43:12 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+	Julien Massot <julien.massot@collabora.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v7 00/24] media: i2c: add Maxim GMSL2/3 serializer and
+ deserializer drivers
+Message-ID: <aMGOgHzwig8NvxT-@kekkonen.localdomain>
+References: <20250718152500.2656391-1-demonsingur@gmail.com>
+ <aLBqxQQsnY3ZK4eT@kekkonen.localdomain>
+ <d558ede0-5838-4a69-b25d-cafaa3b6cc97@gmail.com>
+ <aMEgNtjcy1-NuBds@kekkonen.localdomain>
+ <1b79e467-1d39-457f-a488-0f3eb9e14efc@gmail.com>
 MIME-Version: 1.0
-References: <20250910-qcom-sa8255p-emac-v1-0-32a79cf1e668@linaro.org>
- <20250910-qcom-sa8255p-emac-v1-2-32a79cf1e668@linaro.org> <175751081352.3667912.274641295097354228.robh@kernel.org>
- <CAMRc=Mfom=QpqTrTSc_NEbKScOi1bLdVDO7kJ0+UQW9ydvdKjQ@mail.gmail.com> <20250910143618.GA4072335-robh@kernel.org>
-In-Reply-To: <20250910143618.GA4072335-robh@kernel.org>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 10 Sep 2025 16:42:50 +0200
-X-Gm-Features: Ac12FXw3DEUYlNQHBVzd7vCIYANNaG3yJ5y0y_Zklwl-sYjU6Q6eUcIMkXz0GhY
-Message-ID: <CAMRc=McKF1O4KmB=LVX=gTvAmKjBC3oAM3BhTkk77U_MXuMJAA@mail.gmail.com>
-Subject: Re: [PATCH 2/9] dt-bindings: net: qcom: document the ethqos device
- for SCMI-based systems
-To: Rob Herring <robh@kernel.org>
-Cc: Giuseppe Cavallaro <peppe.cavallaro@st.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, Eric Dumazet <edumazet@google.com>, 
-	linux-kernel@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	Vinod Koul <vkoul@kernel.org>, Paolo Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org, 
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
-	"David S. Miller" <davem@davemloft.net>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1b79e467-1d39-457f-a488-0f3eb9e14efc@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_074304_795124_C6AC7A3D 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20250910_074323_193013_F15A3094 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,88 +102,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 4:36=E2=80=AFPM Rob Herring <robh@kernel.org> wrote=
-:
->
-> On Wed, Sep 10, 2025 at 03:43:38PM +0200, Bartosz Golaszewski wrote:
-> > On Wed, Sep 10, 2025 at 3:38=E2=80=AFPM Rob Herring (Arm) <robh@kernel.=
-org> wrote:
-> > >
-> > >
-> > > On Wed, 10 Sep 2025 10:07:39 +0200, Bartosz Golaszewski wrote:
-> > > > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > > >
-> > > > Describe the firmware-managed variant of the QCom DesignWare MAC. A=
-s the
-> > > > properties here differ a lot from the HLOS-managed variant, lets pu=
-t it
-> > > > in a separate file.
-> > > >
-> > > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > > > ---
-> > > >  .../devicetree/bindings/net/qcom,ethqos-scmi.yaml  | 101 +++++++++=
-++++++++++++
-> > > >  .../devicetree/bindings/net/snps,dwmac.yaml        |   4 +-
-> > > >  MAINTAINERS                                        |   1 +
-> > > >  3 files changed, 105 insertions(+), 1 deletion(-)
-> > > >
-> > >
-> > > My bot found errors running 'make dt_binding_check' on your patch:
-> > >
-> > > yamllint warnings/errors:
-> > >
-> > > dtschema/dtc warnings/errors:
-> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
-gs/net/renesas,rzn1-gmac.example.dtb: ethernet@44000000 (renesas,r9a06g032-=
-gmac): power-domains: [[4294967295]] is too short
-> > >         from schema $id: http://devicetree.org/schemas/net/renesas,rz=
-n1-gmac.yaml#
-> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
-gs/net/renesas,rzn1-gmac.example.dtb: ethernet@44000000 (renesas,r9a06g032-=
-gmac): Unevaluated properties are not allowed ('clock-names', 'clocks', 'in=
-terrupt-names', 'interrupts', 'phy-mode', 'power-domains', 'reg', 'rx-fifo-=
-depth', 'snps,multicast-filter-bins', 'snps,perfect-filter-entries', 'tx-fi=
-fo-depth' were unexpected)
-> > >         from schema $id: http://devicetree.org/schemas/net/renesas,rz=
-n1-gmac.yaml#
-> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
-gs/net/renesas,rzn1-gmac.example.dtb: ethernet@44000000 (renesas,r9a06g032-=
-gmac): power-domains: [[4294967295]] is too short
-> > >         from schema $id: http://devicetree.org/schemas/net/snps,dwmac=
-.yaml#
-> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
-gs/net/mediatek-dwmac.example.dtb: ethernet@1101c000 (mediatek,mt2712-gmac)=
-: power-domains: [[4294967295, 4]] is too short
-> > >         from schema $id: http://devicetree.org/schemas/net/mediatek-d=
-wmac.yaml#
-> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
-gs/net/mediatek-dwmac.example.dtb: ethernet@1101c000 (mediatek,mt2712-gmac)=
-: Unevaluated properties are not allowed ('mac-address', 'phy-mode', 'reg',=
- 'snps,reset-delays-us', 'snps,reset-gpio', 'snps,rxpbl', 'snps,txpbl' were=
- unexpected)
-> > >         from schema $id: http://devicetree.org/schemas/net/mediatek-d=
-wmac.yaml#
-> > > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindin=
-gs/net/mediatek-dwmac.example.dtb: ethernet@1101c000 (mediatek,mt2712-gmac)=
-: power-domains: [[4294967295, 4]] is too short
-> > >         from schema $id: http://devicetree.org/schemas/net/snps,dwmac=
-.yaml#
-> > >
-> >
-> > These seem to be a false-positives triggered by modifying the
-> > high-level snps.dwmac.yaml file?
->
-> No. You just made 3 power-domains required for everyone.
->
+Hi Cosmin,
 
-With a maxItems: 3?
+On Wed, Sep 10, 2025 at 01:48:29PM +0300, Cosmin Tanislav wrote:
+> 
+> 
+> On 9/10/25 9:52 AM, Sakari Ailus wrote:
+> > Hi Cosmin,
+> > 
+> > On Thu, Sep 04, 2025 at 10:52:09AM +0300, Cosmin Tanislav wrote:
+> > > Hi Sakari.
+> > > 
+> > > I recently left Analog Devices but I will continue to try upstreaming
+> > > this driver. After the upstreaming is done we can switch the
+> > > maintainer status to someone else.
+> > 
+> > Ack, thank you.
+> > 
+> > > 
+> > > Here's the output for the commands you asked, provided by my
+> > > ex-coworker. It's for MAX96716 + 2xMAX96717 + 2x IMX219.
+> > > 
+> > > Do we need to fix anything based on the compliance tests?
+> > 
+> > Looking at the errors, it looks like some fixing is needed, possibly also
+> > on v4l2-compliance side.
+> > 
+> 
+> I'll take a closer look at the failures whenever I get the time.
+> 
+> > Regarding GMSL, are the image width, height or mbus code used for anything
+> > by the serialiser or deserialiser drivers?
+> > 
+> 
+> No, not really. All the information needed by the GMSL drivers is
+> provided through get_frame_desc() ops, and there's no fallback for the
+> data type, so the stream format is not involved at all, but as far as I
+> remember it's necessary to be set properly for the media pipeline to
+> pass validation.
 
-What is the correct approach then?
+In earlier iterations of multi-stream support we've had link validation dig
+this information up from the closest sub-device that supported get_fmt pad
+op but that also made the assumption there would be no stream branching
+taking place, which is not the case anymore.
 
-Bartosz
+I guess the most simple way to address this indeed would be to add the
+formats to the streams, even if the driver doesn't need them. Also for
+backwards compatiblity related reasons they are probably necessary -- the
+older max9671* drivers did support them, too.
 
-> You have to test without DT_SCHEMA_FILES set so that every example is
-> tested with every possible schema.
->
-> Rob
+This would also address (most of?) the v4l2-compliance issues.
+
+-- 
+Kind regards,
+
+Sakari Ailus
 
