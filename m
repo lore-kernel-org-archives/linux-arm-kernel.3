@@ -4,90 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846A8CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD08ACA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a7gl1yA8FosrECQLRFjm2EwEpzMLXBdUuHFs7UBoYns=; b=H1D+VmNbBr9dKVM35yFgGm5cI+
-	426cwV8QGNbiOMqgVtWkQ+tVFtR/joo4rCLIhLkojOYNscmwYtw1CrcO1Hr1Jk7mF/+6XyV6phXVg
-	r5W6ul+bmAJFzSQ2iHCF/wxaawiwe96FQWPIgWAqUzfO2iw/iUT5l+9eVjCzBy3rtM/3SP4pvdaom
-	qYYGayYbLKRSGq2TDMOBpFLMCkItwmUMltk3pW8VGsd1hfgYqxjkFAm6ibqDys6Hhi6JyVcr5bghi
-	rm7rlWJ17a75G2qQ48gc++83C5t+1G2HWVryFZFL26CjP0OGZc526a7AWK/S6CzDnT9P0wbd7wIV6
-	6wIUP8ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PZiUguKRHSjLNl8qev2KvUrL6xayZ/2jdKMeAroqeQk=; b=PwEF0YLJE6j06jk8RidrrANxku
+	klYa38qP4MxeRVXJNtJ+gyz7tl/3NNYzTVfMzbVWtTwGLIidcJSqFOLYOrn0KX2QjK/8nkqbpY07R
+	6ZLFXc8s4i1G3PV5Bx7LSCOYDquVcENa8VywClJ9vFJHLHn14xmYDkwU2pcghw+XAwOThtlso3zSY
+	CGwcalcAxscKk80w2c5LeZ73+oKrLHDae831zUH1lsHG0KzK9R7Rc13n8vLToI35bzWUZ+0EDRsMa
+	C3iHK2yGJ3d6u0moaBtgJcGcozMX+oCZs1TzEgvmpT86tzQrq4KIDRA+fOhsowSCc2AUiXBBERXQR
+	rUtBa4Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGEd-0000000CwFi-39QI;
-	Wed, 10 Sep 2025 08:31:23 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
+	id 1uwGEs-0000000CwM8-2Obn;
+	Wed, 10 Sep 2025 08:31:38 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGEa-0000000CwE8-33gi
+	id 1uwGEq-0000000CwKM-1B44
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 08:31:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ozlabs.org;
-	s=201707; t=1757493077;
-	bh=a7gl1yA8FosrECQLRFjm2EwEpzMLXBdUuHFs7UBoYns=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=GpqpnhttBFZ3t7+EYAY8r50I5QXZ+3f71OrC7eF312pWWb0TnmG76HKmlIt51Vehs
-	 Cb90rtCtW+C4EBcCElvH4SgJxieVNCsxBJ0Rc9NlSjdIYO+3HMuCNHf5HGb2LVIAos
-	 52rQtXuJqEvyAxJGvW3tk5VLu0qWRVQNXvgsWmrhE7EHJN6A1ut1negsdt+0jif3Wd
-	 Gy/uwXR+DNzEOO3qohcoqC3C3JgCjFCzI5aezlOPgxtgJ1X4STR0F29DzzXPiUBo18
-	 vG07Lv1ol6zRZx58ubvHTMWgJ7e9lzzKnQFFyY/DLHavFjV68cXQRa5wkqp2ffKnoa
-	 6ALJK6cL2D6XA==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4cMDRl1Cmlz4w1l;
-	Wed, 10 Sep 2025 18:31:15 +1000 (AEST)
-Message-ID: <52943e49aaea7bb6def5bc51dfd57392b6ae66e4.camel@ozlabs.org>
-Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
- AST2600-i2cv2
-From: Jeremy Kerr <jk@ozlabs.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Ryan Chen
- <ryan_chen@aspeedtech.com>
-Cc: "robh@kernel.org" <robh@kernel.org>, "conor+dt@kernel.org"
-	 <conor+dt@kernel.org>, "andriy.shevchenko@linux.intel.com"
-	 <andriy.shevchenko@linux.intel.com>, "andi.shyti@kernel.org"
-	 <andi.shyti@kernel.org>, "linux-aspeed@lists.ozlabs.org"
-	 <linux-aspeed@lists.ozlabs.org>, "devicetree@vger.kernel.org"
-	 <devicetree@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	 <openbmc@lists.ozlabs.org>, Mo Elbadry <elbadrym@google.com>, 
-	"linux-kernel@vger.kernel.org"
-	 <linux-kernel@vger.kernel.org>, "joel@jms.id.au" <joel@jms.id.au>, 
-	"p.zabel@pengutronix.de"
-	 <p.zabel@pengutronix.de>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org"
-	 <linux-arm-kernel@lists.infradead.org>, "linux-i2c@vger.kernel.org"
-	 <linux-i2c@vger.kernel.org>
-Date: Wed, 10 Sep 2025 16:31:12 +0800
-In-Reply-To: <f9fc4b59-bdcd-4983-b7c2-0fec94e62176@kernel.org>
-References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
-	 <d1b184c5-84c1-4d76-a1d0-a9f37f1e363c@kernel.org>
-	 <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
-	 <069b9fe4-c54a-4efd-923e-1558c59fe3f4@kernel.org>
-	 <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
-	 <677cb075-24ae-45d8-bfb4-9b23fbacc5df@kernel.org>
-	 <OS8PR06MB7541C3B70B15F45F4824772BF2D92@OS8PR06MB7541.apcprd06.prod.outlook.com>
-	 <994cb954-f3c4-4a44-800e-9303787c1be9@kernel.org>
-	 <SI6PR06MB753542037E1D6BBF5CE8D2E7F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
-	 <4523caea-3406-4de0-9ab5-424fb7a0a474@kernel.org>
-	 <SI6PR06MB7535BAD19B51A381171A0E64F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
-	 <8e8aa069-af9f-453f-9bd0-e3dc2eab59ab@kernel.org>
-	 <OS8PR06MB7541FD8691B43EA33BDC1D22F2A72@OS8PR06MB7541.apcprd06.prod.outlook.com>
-	 <99053328-a117-493e-b5f3-00902669c8e7@kernel.org>
-	 <44ef5c93448a3625fcfd003b47a516e8ba795b62.camel@ozlabs.org>
-	 <f9fc4b59-bdcd-4983-b7c2-0fec94e62176@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Wed, 10 Sep 2025 08:31:37 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45dd7b15a64so3531085e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 01:31:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757493094; x=1758097894; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PZiUguKRHSjLNl8qev2KvUrL6xayZ/2jdKMeAroqeQk=;
+        b=MKmsPjM+Z7DyIocO3hWdoQHR0PdjJqnzDVLQdBRDgi3lRnqR+l4xFwt1gghtQhltoN
+         +ibcG8rn7fSRrW2qizoaELLNRPUm1mSfa8TxHk8oFAmYyG+QA42giQkLSkBquUY1wvzJ
+         SjCrgwjWmFHcxwNh6fbSMpClj+HXBaXihUOi5hDSEPqwEY/3KPzOLZQgmmNwlSKWaDwN
+         bwLUGuegcUmuACG/z2qqLrDDulw08/EidUm3B23kfImFqqgCWkGFuC2l3usDArdsv0ne
+         oz+uFgwQ4dgkmC9OFq+a5Cv8Zzu/VFI/OKZocuEnPcpjXljCxL4RAtrvYWu+gwonRo6L
+         SCKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757493094; x=1758097894;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PZiUguKRHSjLNl8qev2KvUrL6xayZ/2jdKMeAroqeQk=;
+        b=C8Z80CpOTopjFWlZIKpALOkEK8tnNk6i+EtS8SWQZ3Ypp0zyZ/587YLe9knVNaTDod
+         m0TW3rZIxLUA05eUC38uISl4x9T2yCKsVzbIi+DYfBFvSVqM9G5eHLCYxelj/QM+TXdN
+         RfpDDIKnY5P+Zo96kBfGTsU3Ng+QbEyH6tS88VY5Z/ONxOf+cwKMPDMNWtm3QN+Sf5Qb
+         uRjTUIxHbZy21Vk0F39kABn5zDFaix0YXhJjetQ9zzBn3vdoYRlQjuLOeAMWqY3t1vsA
+         azyV9np4Sg0bbjJ1cAhmJ6R5SZeyRooF45gD+PalB77mZYRWF+Zhe5k/yfyna0naWiDS
+         WArA==
+X-Forwarded-Encrypted: i=1; AJvYcCXdHg2ItiLcOTY8TBJXvtVEBvutCaYMiz2J/ypx1IVVtfiC/iC/IaQancqIIjsFe+jkCGvin+Sfbx8VM5Jj1s2i@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOQ1XSECfZVJ2CheN1VfJPhE1GaYi8IVFyoMCiUcpgfTlK2I5m
+	j38Uh/+wXmt17BAwV6sfwSvE6FurvRbasNIqDcgrofp0alII+y3gPUD/
+X-Gm-Gg: ASbGnctCoZR3VOonjOPrHlsmEKVjm31NSECcasnrpXvixRgwi2U6HDmJ/wFeu105GEL
+	wTmZ4CS82vFXzoBRRZdTFL8LwLoXokarGq7hoxUZDtGMGq+kdN70MiXVyS/qPr5ywSroIBf5D58
+	CXS8PcSUr+P/dGIkQQKOJgPSvPSmI+iRf0KhyB/kQfYg4ZrH6Q8Nxw9rc1KTD6Xwmiw3V2O8+za
+	OQtBj3ezNNqzmletMrPPwp4vLnWHgHRIlhyVGDWXSPgr+DOcDP2nI0llqEgevm8ioaZbtcd+EN+
+	kY7ygZGGhwKMduq2pAY/RoHMmio7yeYWrAu0jH52i0Ruywh2Ry0RBpdpUpWUfA+4K3eu+mMQJo0
+	z8Znoz3h2hit9rNB27wx1CyufZt0qLnd0MQO4ikof4FcObgIXt3ZP+wYaWrZ9v1/dBcxtAUUlvL
+	csbnbDW8Fnc0VpKordjZ4ZnxQKyC7nH85xZ7EcRXecqSlWwkqtxnw4Sw7SSNcsy1l/Sk6CImIgo
+	g==
+X-Google-Smtp-Source: AGHT+IHtxpNnwR+OSaL4WHAtvZm3SZwKKJRshnL76nqSRl+ub9r1kz9W9fnbmNI59d2V+S62gNIBxA==
+X-Received: by 2002:a05:600c:1907:b0:458:b8b0:6338 with SMTP id 5b1f17b1804b1-45dde1b15b7mr140442595e9.6.1757493094104;
+        Wed, 10 Sep 2025 01:31:34 -0700 (PDT)
+Received: from ?IPV6:2a02:8440:7135:4f4c:9000:7072:695b:3ef? (2a02-8440-7135-4f4c-9000-7072-695b-03ef.rev.sfr.net. [2a02:8440:7135:4f4c:9000:7072:695b:3ef])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e75224bc2csm5817574f8f.54.2025.09.10.01.31.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Sep 2025 01:31:33 -0700 (PDT)
+Message-ID: <4066608d-af1e-41b7-ac7a-6c0aa3791c2f@gmail.com>
+Date: Wed, 10 Sep 2025 10:31:32 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 05/20] dt-bindings: memory: factorise LPDDR props into
+ SDRAM props
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+ Julius Werner <jwerner@chromium.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Jonathan Corbet <corbet@lwn.net>, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
+ <20250909-b4-ddrperfm-upstream-v6-5-ce082cc801b5@gmail.com>
+ <20250910-flat-raptor-of-temperance-5e8c7c@kuoka>
+Content-Language: en-US
+From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+In-Reply-To: <20250910-flat-raptor-of-temperance-5e8c7c@kuoka>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_013121_135689_21E39BF5 
-X-CRM114-Status: GOOD (  23.41  )
+X-CRM114-CacheID: sfid-20250910_013136_351300_CD471774 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,98 +117,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/09/2025 09:54, Krzysztof Kozlowski wrote:
+> On Tue, Sep 09, 2025 at 12:12:12PM +0200, Clément Le Goffic wrote:
+>> From: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>
+>> LPDDR and DDR bindings are SDRAM types and are likely to share the same
+>> properties (at least for density, io-width and reg).
+>> To avoid bindings duplication, factorise the properties.
+>>
+>> The compatible description has been updated because the MR (Mode
+>> registers) used to get manufacturer ID and revision ID are not present
+>> in case of DDR.
+>> Those information should be in a SPD (Serial Presence Detect) EEPROM in
+>> case of DIMM module or are known in case of soldered memory chips as
+>> they are in the datasheet of the memory chips.
+>>
+>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> 
+> Is this email defunct now, that you add second SoB?
+> 
+>> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+
 Hi Krzysztof,
+> 
+> I still see in this patchset around 5 different subsystems. Nothing in
+> the cover letter explains the dependencies, so grouping looks like
+> coincidence and you just make it difficult for maintainers for no
+> reason.
+> 
+> Please organize your patchsets per subsystems, see submitting patches
+> doc for more details.
 
-> You trimmed response and brought some very old thread which does not
-> exist in my inbox.
->=20
-> I have absolutely no clue what this refers to.
+Yes I agree it is a big series.
+I'll split it according to each subsystem it targets.
 
-OK, reconstructing the relevant parts of that thread - Ryan providing
-background on the old/new register interfaces (trimmed a little for
-brevity; original context at [1] if you need):
+Best regards,
+Clément
 
->On 24/03/2025 09:30, Ryan Chen wrote:
->>> Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
->>> AST2600-i2cv2
->>>
->>> On 19/03/2025 12:12, Ryan Chen wrote:
->>>>> Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
->>>>> AST2600-i2cv2
->>>>>
->>>>> On 17/03/2025 10:21, Ryan Chen wrote:
->>>>>>> Neither this.
->>>>>>>
->>>>>>> So it seems you describe already existing and documented I2C, but
->>>>>>> for some reason you want second compatible. The problem is that you
->>>>>>> do not provide reason from the point of view of bindings.
->>>>>>>
->>>>>>> To summarize: what your users want - don't care. Start properly
->>>>>>> describing hardware and your SoC.
->>>>>>
->>>>>> OK, for ast2600 i2c controller have two register mode setting.
->>>>>> One, I call it is old register setting, that is right now
->>>>>> i2c-aspeed.c .compatible =3D "aspeed,ast2600-i2c-bus", And there
->>>>>> have a global register that can set i2c controller as new mode
->>>>>> register set. That I am going to drive. That I post is all
->>>>>> register in new an old register list.
->>>>>>
->>>>>> For example,
->>>>>> Global register [2] =3D 0 =3D> i2c present as old register set Globa=
-l
->>>>>> register [2] =3D 1 =3D> i2c present as new register set
->>>>> It's the same device though, so the same compatible.
->>>>
->>>> Sorry, it is different design, and it share the same register
->>>> space. So that the reason add new compatible "aspeed,ast2600-i2cv2"
->>>> for this driver. It is different register layout.
->>>
->>> Which device is described by the existing "aspeed,ast2600-i2c-bus"
->>> compatible? And which device is described by new compatible?
->>>
->> On the AST2600 SoC, there are up to 16 I2C controller instances (I2C1 ~ =
-I2C16).
->
-> So you have 16 same devices.
->
->> Each of these controllers is hardwired at the SoC level to use either
->> the legacy register layout or the new v2 register layout. The mode is
->> selected by a bit in the global register, these represent two
->> different hardware blocks: "aspeed,ast2600-i2c-bus" describes
->> controllers using the legacy register layout. "aspeed,ast2600-i2cv2"
->> describes controllers using the new register layout
->=20
-> Which part of "same device" is not clear? You have one device, one
-> compatible. Whatever you do with register layout, is already defined by
-> that compatible. It does not matter that you forgot to implement it in
-> the Linux kernel.
-
-So, I'm trying to pick up (from Ryan) on whether we're actually dealing
-with separate devices here; that was ambiguous in his responses.
-
-To me, it seems like we do have separate IP cores, just multiplexed to
-the same MMIO space. And if so, what the preference on binding
-implementation is, particularly with different SoCs having either only
-the "old", only the "new", or a switchable set of both.
-
-Hence my query:
-
-> Given there are actual behavioural differences between the two
-> peripherals - beyond just the register set - that would seem to indicate
-> separate binding types (+ a syscon mux control) to me, but I'm keen to
-> hear any other options.
->
-> Krzysztof, if that is the case, any thoughts on the representation of
-> separate bindings?
-
-- given we may not be dealing with "the same device" in actual hardware,
-in reference to Ryan's proposed compatible split between the two.
-
-Cheers,
-
-
-Jeremy
-
-[1]: https://lore.kernel.org/all/20250224055936.1804279-2-ryan_chen@aspeedt=
-ech.com/t/#u
 
