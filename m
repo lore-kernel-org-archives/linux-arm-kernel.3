@@ -4,124 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0E2CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4A1CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8QtYwN/6PZfKDPEAgWxGMzQb2D01FG/mGmHU9G0gsI=; b=QQAEjCmKrVqagGG01hrxL5mcDB
-	mzrq4tuTjaFB6oq10yynbaxmytWk12AZ4HZUVFLrYOmOgYjpQCZk8t/R/1gm2BvTwB0Ded5O+1xQZ
-	liFv2zVqAQXCldTTU8UV+U5/txwpU0mlB4h9s5tOheKLJpTFitfWi8FRNtNb5psRSYUj/jwLjb1cl
-	v9787XrPRD1RtJdblcJJsBbJDfMsUNCT9MmuNF3fFEFxK3DhPni40xVsDGIg7LjxYS4q4UKPI5aBW
-	eEaw67LpAdlKmizX/fQo7q3xZZSBAqQprqHf+QbRx78xJA1jaINolkGBoWFpr5g/O7j7FSHG3FkfK
-	hweaYEiA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NHim9kvMApMuV/SoKqhnDQUAViWnujC4QS+pREWznH4=; b=nJanCNIW40aHmB0MRzKFMZwc50
+	Lu6bk7gZKxUYIjqmaTrvIN3N/4Q5gsKu5bXS4+XIgtxqs1a0r6fmLasyUQ5v84BlOhry8XtVcdqLn
+	yrj85k6EwQHTM+NWnIO5ouH3U5kKqz928yG9mWwJ/UeMIN9OqtCvpVeeOccVT2XA/LEkORlKh5u1v
+	Gu19DHyuO9+QOU+cnELBM5JiUGK/t3GYvsL6juOu6dPGos5Zl6UAsIRc2MmpQmXbwktIphp7greMB
+	+czJAGRavXp5/7av5DFIApm9GitwoYMsh7IS02Kr3mUdiXtxJi7VyyQmIXjI9USKGnHpJaxNe/mSi
+	o9MLzrJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJmH-0000000E3nJ-0Pil;
-	Wed, 10 Sep 2025 12:18:21 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1uwJo5-0000000E4I1-2Cha;
+	Wed, 10 Sep 2025 12:20:13 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJmE-0000000E3mJ-3MPT
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 12:18:20 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id E53E91400363;
-	Wed, 10 Sep 2025 08:18:17 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 10 Sep 2025 08:18:17 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1757506697;
-	 x=1757593097; bh=Q8QtYwN/6PZfKDPEAgWxGMzQb2D01FG/mGmHU9G0gsI=; b=
-	lMRppWvjlb2mRKxIhB6zQg+atJittD3Vv0ZFlNazWaKYhCDUGlit6C8CogCEhZ1q
-	2sgfbhbJXdiaC4H4OidSoW40ubFOCE39XJ4KzVLOJ10wP9pvvRgOJMCav1aSbIxu
-	b5u73dAtlkdNSkkiMI6PCleDEH4MA3fhLbYHi9vDGXnFFF3HSW25cOUquO7mmoMj
-	hLTihsaytQfa9faTH1k79YiYkCM7t4dUSBbNDzGqmAGL6UHzBn5bnAk28/B8UHVl
-	HVbi26/Q/o6w6GGoMmjwYJCsCj3ZwcOGPMd2msbPUCVMtjIfrykiD6CUNuGGzFwi
-	0eau0fM1D3x/hvj/bGfcjg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1757506697; x=
-	1757593097; bh=Q8QtYwN/6PZfKDPEAgWxGMzQb2D01FG/mGmHU9G0gsI=; b=Y
-	5iH1dNjKENA9lB+WPTE+aDfd4EEnjCQqu9aXxgemhakIsSB8xgRSPmhWJOELM+Qc
-	IiQZMh2MYWB2J4DQgGxeAv8e3Tv5X8adt+BU0fQ3Bx0kWFJe+j8JUOO+K3HMO98X
-	gynbPyjA0RL3/qKL2eWUMp19Md1yc2Zl15HQ6hSWEwPRxIRDnR8UwsT46S4X1btz
-	q973lX+TENS1d+jVxzDgyYuVsxhPd1+lVItZvghiroNZ7Q1gp4kQIF65tksNivPN
-	9YnVwWznR3+55rCsarJ/A5EB6Y1NQPUeyBXfrRAbH8NDDB4OOQdTfJfemow7s1L0
-	SCw4jQQeqFMyxCkr2GVqQ==
-X-ME-Sender: <xms:iGzBaLzC5EVSAADw_ZXg73KwvPlGkppPq-JRpw5uboD5jbP27FwN4g>
-    <xme:iGzBaDTuoR4zP1RmrdotU0_sl9iOja29GXfmFtU8duZVGR2bSE_X4GARY5TKnB8CH
-    th5x07cEPZvTAFjklA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvfedvjecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpeefhfehteffuddvgfeigefhjeetvdekteekjeefkeekleffjeetvedvgefhhfeihfen
-    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
-    thhtohepvdekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegthhgvshhtvghrrd
-    grrdhunhgrlhesrghrihhntgelrdgtohhmpdhrtghpthhtoheptghhrhhishhtohhphhgv
-    rdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopegrnhgurhgvrghssehgrg
-    hishhlvghrrdgtohhmpdhrtghpthhtohepghgvvghrthdorhgvnhgvshgrshesghhlihgu
-    vghrrdgsvgdprhgtphhtthhopegrlhgvgigrnhguvghrrdhsvhgvrhgulhhinhesghhmrg
-    hilhdrtghomhdprhgtphhtthhopehsvghrghhiohdrphgrrhgrtghuvghllhhoshesghhm
-    rghilhdrtghomhdprhgtphhtthhopehsuhhrvghnsgesghhoohhglhgvrdgtohhmpdhrtg
-    hpthhtohepfihilhhlhiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehirhgr
-    rdifvghinhihsehinhhtvghlrdgtohhm
-X-ME-Proxy: <xmx:iGzBaNO7Os19I4sPMn6-otQ5bbEKAB4pch0OZuFXHFI5x9JEd39xpg>
-    <xmx:iGzBaK3yqnNlqS-sfm9Lx7D_9HNKC12n5KccpVTug2j5bpB0xc1AZg>
-    <xmx:iGzBaNOhVAFIENTxMk6beeNI3AnqDtq-OlhJo9DV9HIPb6ewt2VQSA>
-    <xmx:iGzBaAvXxr0sCtad7do3vmGOYAy8bEnqRMURmIo7PtKiN1CGOde_GQ>
-    <xmx:iWzBaM4JqI_NrZjl1sbxSuVsA0MIBP4IgV_a6-a8UVVN-ccxa-XdLGBK>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 88DD670006A; Wed, 10 Sep 2025 08:18:16 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1uwJo2-0000000E4Fq-1MYy;
+	Wed, 10 Sep 2025 12:20:12 +0000
+Received: from localhost.localdomain (unknown [119.122.213.26])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2258dbfa4;
+	Wed, 10 Sep 2025 20:20:05 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Yao Zi <ziyao@disroot.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: [PATCH 1/1] phy: rockchip: naneng-combphy: use existing DT property check for rk3528
+Date: Wed, 10 Sep 2025 20:20:00 +0800
+Message-Id: <20250910122000.951100-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-ThreadId: AmcCJOTBQ5ho
-Date: Wed, 10 Sep 2025 14:17:56 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Matthew Wilcox" <willy@infradead.org>
-Cc: ksummit@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Richard Weinberger" <richard@nod.at>,
- "Lucas Stach" <l.stach@pengutronix.de>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Ankur Arora" <ankur.a.arora@oracle.com>,
- "David Hildenbrand" <david@redhat.com>,
- "Mike Rapoport" <rppt@kernel.org>,
- "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- "Vlastimil Babka" <vbabka@suse.cz>,
- "Suren Baghdasaryan" <surenb@google.com>,
- "Ira Weiny" <ira.weiny@intel.com>, "Nishanth Menon" <nm@ti.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- "Sergio Paracuellos" <sergio.paracuellos@gmail.com>,
- "Andreas Larsson" <andreas@gaisler.com>
-Message-Id: <b60310f3-25d3-4f2b-88cb-ad65d5f55ec2@app.fastmail.com>
-In-Reply-To: <aMDYdp3H-yOHU1Pm@casper.infradead.org>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
- <aMDYdp3H-yOHU1Pm@casper.infradead.org>
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9933919ce703a2kunm0b30bd90142f2c
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZQkxOVh9DTE5JT0xJSBhNQlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKSFVJTVlXWRYaDxIVHRRZQVlPS0hVSktIS0pITVVKS0tVS1
+	kG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_051818_915895_F8467CF4 
-X-CRM114-Status: GOOD (  31.07  )
+X-CRM114-CacheID: sfid-20250910_052010_556361_4ED96D8C 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,67 +68,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025, at 03:46, Matthew Wilcox wrote:
-> On Tue, Sep 09, 2025 at 11:23:37PM +0200, Arnd Bergmann wrote:
->> While removing a feature that is actively used is clearly a regression
->> and not normally done, I expect removing highmem is going to happen
->> at some point anyway when there are few enough users, but the question
->> is when that time will be.
->
-> I don't mind that the feature remains ... unless it causes us trouble.
-> Which it currently does.  Perhaps we could start by removing HIGHPTE?
-> There was a certain amount of complexity introduced into the page fault
-> path when support for that was introduced.  x86 removed support for it,
-> so it's just ARM left before we can remove the complexity again.
->
-> Most of the other pain points are around storing metadata (directories,
-> superblocks, etc) in page cache highmem.  I think we can get rid of that
-> now too.
+The naneng-combphy driver already has DT property checks for
+"rockchip,enable-ssc" and "rockchip,ext-refclk", use it for
+the rk3528_combphy_cfg. Also aligned the indentation of the
+rk3528_combphy_grfcfgs parameters (using tabs).
 
-Agreed, this is roughly what I meant with the suggestion of removing
-__GFP_HIGHMEM allocations from as many places as possible, while leaving
-the pagecache and zram. I already brought up HIGHPTE earlier this year
-since it already has an separate Kconfig symbol, but Russell was worried
-about increasing the lowmem usage at all.
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+ drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
 
-Maybe we could go back to the earlier idea of first categorizing
-the important highmem users better, and make it possible to
-use Kconfig symbols to enable highpte/highmem-anonymous/highmem-file/
-highmem-metadata/highmem-zram/... individually as well as count the
-actual usage for each of them. Having statistics in /proc/meminfo or
-similar would allow more informed decision about no longer supporting
-some of the categories later.
+diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+index a3ef19807b9e..ad6c8a11951b 100644
+--- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
++++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+@@ -518,7 +518,7 @@ static int rk3528_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		return -EINVAL;
+ 	}
+ 
+-	if (device_property_read_bool(priv->dev, "rockchip,ext-refclk")) {
++	if (priv->ext_refclk) {
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_ext, true);
+ 
+ 		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_100MHz) {
+@@ -543,11 +543,9 @@ static int rk3528_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		}
+ 	}
+ 
+-	if (priv->type == PHY_TYPE_PCIE) {
+-		if (device_property_read_bool(priv->dev, "rockchip,enable-ssc"))
+-			rockchip_combphy_updatel(priv, RK3528_PHYREG40_SSC_EN,
+-						 RK3528_PHYREG40_SSC_EN, RK3528_PHYREG40);
+-	}
++	if (priv->type == PHY_TYPE_PCIE && priv->enable_ssc)
++		rockchip_combphy_updatel(priv, RK3528_PHYREG40_SSC_EN,
++					 RK3528_PHYREG40_SSC_EN, RK3528_PHYREG40);
+ 
+ 	return 0;
+ }
+@@ -571,7 +569,7 @@ static const struct rockchip_combphy_grfcfg rk3528_combphy_grfcfgs = {
+ 	.con2_for_pcie		= { 0x0008, 15, 0, 0x00, 0x101 },
+ 	.con3_for_pcie		= { 0x000c, 15, 0, 0x00, 0x0200 },
+ 	/* pipe-grf */
+-	.u3otg0_port_en         = { 0x0044, 15, 0, 0x0181, 0x1100 },
++	.u3otg0_port_en		= { 0x0044, 15, 0, 0x0181, 0x1100 },
+ };
+ 
+ static const struct rockchip_combphy_cfg rk3528_combphy_cfgs = {
+-- 
+2.25.1
 
-Not sure how many __GFP_ flags we could reasonably spend on categorizing,
-as we are already up to 26 out of 32 (not counting CONFIG_ASAN_HW_TAGS,
-which is 64-bit only and uses two more bits), or what alternative
-would work.
-
-> I don't see any particular need to gt rid of file data stored in highmem,
-> nor anonymous memory stored in highmem.  And if we're only talking
-> about hundreds of megabytes of memory, I think anon+ file pagecache is
-> probably most of the memory in the system already unless you have some
-> very weird workloads.
-
-The main problem I see with the pagecache itself is that the fewer
-highmem machines people test on, the harder it gets to spot regressions
-where new code fails to kmap() the pages correctly.
-
-Another concern is the number of memory zones, but it does not appear
-that we would completely remove ZONE_HIGHMEM as long as ZRAM or pagecache
-uses it.
-
-> Where we may want to be a bit careful is some people have Plans to
-> reuse the kmap infrastructure to support things like unmapping the
-> pagecacheto protect against spectre-eqsue attacks.  I know Intel was
-> working on this when 3dxp was going to be a Thing, but it's recently
-> been brought back:
->
-> https://lore.kernel.org/linux-mm/20250812173109.295750-1-jackmanb@google.com/
-
-If that gets merged, it would at least address the concern about
-testing, since presumably many bugs around missing kmap/kumap then
-also show up on x86-64 kernels with ASI enabled.
-
-    Arnd
 
