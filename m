@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F7ACA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 20:44:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E33DCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 20:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qfQRITpYAf0GpEkZNmh91U4TXknyRrcXsTo1GmV4eyM=; b=QMq+/JKYcPbpm3gQRjXGMGo+9a
-	uFkbIA9EYfytNdp9/At/MAVeNu/ibWRknec4YPCp6HpheFBA1Iq+6sxE7nh+767tx7YniWPTA7ODE
-	17GXitrIo+SyntycGiI2rjJYRwIjdPyh4jzptdJqgPzaMlz6biEn2ZHxMgP8zSHfQhgyh3TFUZVmU
-	h2kmQw3VmAbaQrTF5RqiQAICgAEJ/7egWQ0Nd0vYMsTAoKGIBXUOPe/LkMszAtVqEYxARzU7EwzWo
-	io4/O0fcPvk5y4IUzIvwFAQwEFD+SbjkeYYM5XhIqK+YxSCRlhLb0l4HgTa9zL8uzD59mwn8VXwWz
-	gFcOLvWg==;
+	bh=1w9X6mzda1IuNYSDpANobFVmG8MVg7t75gc77ZSqxR4=; b=NK0Tmk4UjUcrFU5JKqPEuCqvaz
+	8Aorp3ctJm4Wlu3093zbUi9gq+SVrGFNLa8jwxVLG24fdVOf74BvBBYI7N6a8g6RiGDepNUotwsB+
+	LbYLdTN1hEaz90sUK/rE+C9Xf/MyLFLQuVQhA1TckjKAKSbttm9zTxbPur3GCsWuzEZR76xlqW4CD
+	qEtrPVt5yVRLNlGKcT2UTUPW2ewuBf65MjkCS7A7/rmmOxt4mAijSTWwYW0ivw1NigE3qAS+9YUUP
+	zJBwhI9U6OuGmXTjofbjCLaJWRHPPrjcBDbitgwIlDryH+3BQmiW46DSIWps1Pb4KODLHJ2DNhvaj
+	XG7AYgsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwRgF-0000000GdYf-1nqI;
-	Wed, 10 Sep 2025 20:44:39 +0000
+	id 1uwRgM-0000000GdhU-3eML;
+	Wed, 10 Sep 2025 20:44:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwRg6-0000000GdNa-2JKE
+	id 1uwRgH-0000000GdaP-0hpH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 20:44:37 +0000
+	Wed, 10 Sep 2025 20:44:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C1D991C0A;
-	Wed, 10 Sep 2025 13:44:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 450471C0A;
+	Wed, 10 Sep 2025 13:44:32 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7BB463F63F;
-	Wed, 10 Sep 2025 13:44:25 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D1DD13F63F;
+	Wed, 10 Sep 2025 13:44:35 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -66,18 +66,19 @@ Cc: James Morse <james.morse@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH v2 12/29] arm_mpam: Add helpers for managing the locking around the mon_sel registers
-Date: Wed, 10 Sep 2025 20:42:52 +0000
-Message-Id: <20250910204309.20751-13-james.morse@arm.com>
+	Danilo Krummrich <dakr@kernel.org>,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH v2 14/29] arm_mpam: Merge supported features during mpam_enable() into mpam_class
+Date: Wed, 10 Sep 2025 20:42:54 +0000
+Message-Id: <20250910204309.20751-15-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250910204309.20751-1-james.morse@arm.com>
 References: <20250910204309.20751-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_134430_687044_EA585019 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20250910_134441_339317_90980938 
+X-CRM114-Status: GOOD (  25.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,103 +93,280 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MSC MON_SEL register needs to be accessed from hardirq for the overflow
-interrupt, and when taking an IPI to access these registers on platforms
-where MSC are not accesible from every CPU. This makes an irqsave
-spinlock the obvious lock to protect these registers. On systems with SCMI
-mailboxes it must be able to sleep, meaning a mutex must be used. The
-SCMI platforms can't support an overflow interrupt.
+To make a decision about whether to expose an mpam class as
+a resctrl resource we need to know its overall supported
+features and properties.
 
-Clearly these two can't exist for one MSC at the same time.
+Once we've probed all the resources, we can walk the tree
+and produce overall values by merging the bitmaps. This
+eliminates features that are only supported by some MSC
+that make up a component or class.
 
-Add helpers for the MON_SEL locking. The outer lock must be taken in a
-pre-emptible context before the inner lock can be taken. On systems with
-SCMI mailboxes where the MON_SEL accesses must sleep - the inner lock
-will fail to be 'taken' if the caller is unable to sleep. This will allow
-callers to fail without having to explicitly check the interface type of
-each MSC.
+If bitmap properties are mismatched within a component we
+cannot support the mismatched feature.
+
+Care has to be taken as vMSC may hold mismatched RIS.
 
 Signed-off-by: James Morse <james.morse@arm.com>
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Change since v1:
- * Made accesses to outer_lock_held READ_ONCE() for torn values in the failure
-   case.
----
- drivers/resctrl/mpam_devices.c  |  3 +--
- drivers/resctrl/mpam_internal.h | 37 +++++++++++++++++++++++++++++----
- 2 files changed, 34 insertions(+), 6 deletions(-)
+ drivers/resctrl/mpam_devices.c  | 215 ++++++++++++++++++++++++++++++++
+ drivers/resctrl/mpam_internal.h |   8 ++
+ 2 files changed, 223 insertions(+)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 24dc81c15ec8..a26b012452e2 100644
+index ba8e8839cdc4..cd8e95fa5fd6 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -748,8 +748,7 @@ static int mpam_msc_drv_probe(struct platform_device *pdev)
- 
- 		mutex_init(&msc->probe_lock);
- 		mutex_init(&msc->part_sel_lock);
--		mutex_init(&msc->outer_mon_sel_lock);
--		raw_spin_lock_init(&msc->inner_mon_sel_lock);
-+		mpam_mon_sel_lock_init(msc);
- 		msc->id = pdev->id;
- 		msc->pdev = pdev;
- 		INIT_LIST_HEAD_RCU(&msc->all_msc_list);
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 828ce93c95d5..4cc44d4e21c4 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -70,12 +70,17 @@ struct mpam_msc {
- 
- 	/*
- 	 * mon_sel_lock protects access to the MSC hardware registers that are
--	 * affected by MPAMCFG_MON_SEL.
-+	 * affected by MPAMCFG_MON_SEL, and the mbwu_state.
-+	 * Access to mon_sel is needed from both process and interrupt contexts,
-+	 * but is complicated by firmware-backed platforms that can't make any
-+	 * access unless they can sleep.
-+	 * Always use the mpam_mon_sel_lock() helpers.
-+	 * Accessed to mon_sel need to be able to fail if they occur in the wrong
-+	 * context.
- 	 * If needed, take msc->probe_lock first.
- 	 */
--	struct mutex		outer_mon_sel_lock;
--	raw_spinlock_t		inner_mon_sel_lock;
--	unsigned long		inner_mon_sel_flags;
-+	raw_spinlock_t		_mon_sel_lock;
-+	unsigned long		_mon_sel_flags;
- 
- 	void __iomem		*mapped_hwpage;
- 	size_t			mapped_hwpage_sz;
-@@ -83,6 +88,30 @@ struct mpam_msc {
- 	struct mpam_garbage	garbage;
+@@ -961,8 +961,223 @@ static struct platform_driver mpam_msc_driver = {
+ 	.remove = mpam_msc_drv_remove,
  };
  
-+/* Returning false here means accesses to mon_sel must fail and report an error. */
-+static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
++/* Any of these features mean the BWA_WD field is valid. */
++static bool mpam_has_bwa_wd_feature(struct mpam_props *props)
 +{
-+	WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO);
-+
-+	raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
-+	return true;
++	if (mpam_has_feature(mpam_feat_mbw_min, props))
++		return true;
++	if (mpam_has_feature(mpam_feat_mbw_max, props))
++		return true;
++	if (mpam_has_feature(mpam_feat_mbw_prop, props))
++		return true;
++	return false;
 +}
 +
-+static inline void mpam_mon_sel_unlock(struct mpam_msc *msc)
++#define MISMATCHED_HELPER(parent, child, helper, field, alias)		\
++	helper(parent) &&						\
++	((helper(child) && (parent)->field != (child)->field) ||	\
++	 (!helper(child) && !(alias)))
++
++#define MISMATCHED_FEAT(parent, child, feat, field, alias)		     \
++	mpam_has_feature((feat), (parent)) &&				     \
++	((mpam_has_feature((feat), (child)) && (parent)->field != (child)->field) || \
++	 (!mpam_has_feature((feat), (child)) && !(alias)))
++
++#define CAN_MERGE_FEAT(parent, child, feat, alias)			\
++	(alias) && !mpam_has_feature((feat), (parent)) &&		\
++	mpam_has_feature((feat), (child))
++
++/*
++ * Combine two props fields.
++ * If this is for controls that alias the same resource, it is safe to just
++ * copy the values over. If two aliasing controls implement the same scheme
++ * a safe value must be picked.
++ * For non-aliasing controls, these control different resources, and the
++ * resulting safe value must be compatible with both. When merging values in
++ * the tree, all the aliasing resources must be handled first.
++ * On mismatch, parent is modified.
++ */
++static void __props_mismatch(struct mpam_props *parent,
++			     struct mpam_props *child, bool alias)
 +{
-+	raw_spin_unlock_irqrestore(&msc->_mon_sel_lock, msc->_mon_sel_flags);
++	if (CAN_MERGE_FEAT(parent, child, mpam_feat_cpor_part, alias)) {
++		parent->cpbm_wd = child->cpbm_wd;
++	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_cpor_part,
++				   cpbm_wd, alias)) {
++		pr_debug("%s cleared cpor_part\n", __func__);
++		mpam_clear_feature(mpam_feat_cpor_part, &parent->features);
++		parent->cpbm_wd = 0;
++	}
++
++	if (CAN_MERGE_FEAT(parent, child, mpam_feat_mbw_part, alias)) {
++		parent->mbw_pbm_bits = child->mbw_pbm_bits;
++	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_mbw_part,
++				   mbw_pbm_bits, alias)) {
++		pr_debug("%s cleared mbw_part\n", __func__);
++		mpam_clear_feature(mpam_feat_mbw_part, &parent->features);
++		parent->mbw_pbm_bits = 0;
++	}
++
++	/* bwa_wd is a count of bits, fewer bits means less precision */
++	if (alias && !mpam_has_bwa_wd_feature(parent) && mpam_has_bwa_wd_feature(child)) {
++		parent->bwa_wd = child->bwa_wd;
++	} else if (MISMATCHED_HELPER(parent, child, mpam_has_bwa_wd_feature,
++				     bwa_wd, alias)) {
++		pr_debug("%s took the min bwa_wd\n", __func__);
++		parent->bwa_wd = min(parent->bwa_wd, child->bwa_wd);
++	}
++
++	/* For num properties, take the minimum */
++	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_csu, alias)) {
++		parent->num_csu_mon = child->num_csu_mon;
++	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_csu,
++				   num_csu_mon, alias)) {
++		pr_debug("%s took the min num_csu_mon\n", __func__);
++		parent->num_csu_mon = min(parent->num_csu_mon, child->num_csu_mon);
++	}
++
++	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_mbwu, alias)) {
++		parent->num_mbwu_mon = child->num_mbwu_mon;
++	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_mbwu,
++				   num_mbwu_mon, alias)) {
++		pr_debug("%s took the min num_mbwu_mon\n", __func__);
++		parent->num_mbwu_mon = min(parent->num_mbwu_mon, child->num_mbwu_mon);
++	}
++
++	if (alias) {
++		/* Merge features for aliased resources */
++		parent->features |= child->features;
++	} else {
++		/* Clear missing features for non aliasing */
++		parent->features &= child->features;
++	}
 +}
 +
-+static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
++/*
++ * If a vmsc doesn't match class feature/configuration, do the right thing(tm).
++ * For 'num' properties we can just take the minimum.
++ * For properties where the mismatched unused bits would make a difference, we
++ * nobble the class feature, as we can't configure all the resources.
++ * e.g. The L3 cache is composed of two resources with 13 and 17 portion
++ * bitmaps respectively.
++ */
++static void
++__class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
 +{
-+	lockdep_assert_held_once(&msc->_mon_sel_lock);
++	struct mpam_props *cprops = &class->props;
++	struct mpam_props *vprops = &vmsc->props;
++
++	lockdep_assert_held(&mpam_list_lock); /* we modify class */
++
++	pr_debug("%s: Merging features for class:0x%lx &= vmsc:0x%lx\n",
++		 dev_name(&vmsc->msc->pdev->dev),
++		 (long)cprops->features, (long)vprops->features);
++
++	/* Take the safe value for any common features */
++	__props_mismatch(cprops, vprops, false);
 +}
 +
-+static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
++static void
++__vmsc_props_mismatch(struct mpam_vmsc *vmsc, struct mpam_msc_ris *ris)
 +{
-+	raw_spin_lock_init(&msc->_mon_sel_lock);
++	struct mpam_props *rprops = &ris->props;
++	struct mpam_props *vprops = &vmsc->props;
++
++	lockdep_assert_held(&mpam_list_lock); /* we modify vmsc */
++
++	pr_debug("%s: Merging features for vmsc:0x%lx |= ris:0x%lx\n",
++		 dev_name(&vmsc->msc->pdev->dev),
++		 (long)vprops->features, (long)rprops->features);
++
++	/*
++	 * Merge mismatched features - Copy any features that aren't common,
++	 * but take the safe value for any common features.
++	 */
++	__props_mismatch(vprops, rprops, true);
++}
++
++/*
++ * Copy the first component's first vMSC's properties and features to the
++ * class. __class_props_mismatch() will remove conflicts.
++ * It is not possible to have a class with no components, or a component with
++ * no resources. The vMSC properties have already been built.
++ */
++static void mpam_enable_init_class_features(struct mpam_class *class)
++{
++	struct mpam_vmsc *vmsc;
++	struct mpam_component *comp;
++
++	comp = list_first_entry_or_null(&class->components,
++					struct mpam_component, class_list);
++	if (WARN_ON(!comp))
++		return;
++
++	vmsc = list_first_entry_or_null(&comp->vmsc,
++					struct mpam_vmsc, comp_list);
++	if (WARN_ON(!vmsc))
++		return;
++
++	class->props = vmsc->props;
++}
++
++static void mpam_enable_merge_vmsc_features(struct mpam_component *comp)
++{
++	struct mpam_vmsc *vmsc;
++	struct mpam_msc_ris *ris;
++	struct mpam_class *class = comp->class;
++
++	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
++		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
++			__vmsc_props_mismatch(vmsc, ris);
++			class->nrdy_usec = max(class->nrdy_usec,
++					       vmsc->msc->nrdy_usec);
++		}
++	}
++}
++
++static void mpam_enable_merge_class_features(struct mpam_component *comp)
++{
++	struct mpam_vmsc *vmsc;
++	struct mpam_class *class = comp->class;
++
++	list_for_each_entry(vmsc, &comp->vmsc, comp_list)
++		__class_props_mismatch(class, vmsc);
++}
++
++/*
++ * Merge all the common resource features into class.
++ * vmsc features are bitwise-or'd together, this must be done first.
++ * Next the class features are the bitwise-and of all the vmsc features.
++ * Other features are the min/max as appropriate.
++ *
++ * To avoid walking the whole tree twice, the class->nrdy_usec property is
++ * updated when working with the vmsc as it is a max(), and doesn't need
++ * initialising first.
++ */
++static void mpam_enable_merge_features(struct list_head *all_classes_list)
++{
++	struct mpam_class *class;
++	struct mpam_component *comp;
++
++	lockdep_assert_held(&mpam_list_lock);
++
++	list_for_each_entry(class, all_classes_list, classes_list) {
++		list_for_each_entry(comp, &class->components, class_list)
++			mpam_enable_merge_vmsc_features(comp);
++
++		mpam_enable_init_class_features(class);
++
++		list_for_each_entry(comp, &class->components, class_list)
++			mpam_enable_merge_class_features(comp);
++	}
++}
++
+ static void mpam_enable_once(void)
+ {
++	mutex_lock(&mpam_list_lock);
++	mpam_enable_merge_features(&mpam_classes);
++	mutex_unlock(&mpam_list_lock);
++
+ 	/*
+ 	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
+ 	 * longer change.
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 5ae5d4eee8ec..eace5ba871f3 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -161,12 +161,20 @@ static inline void mpam_set_feature(enum mpam_device_features feat,
+ 	props->features |= (1 << feat);
+ }
+ 
++static inline void mpam_clear_feature(enum mpam_device_features feat,
++				      mpam_features_t *supported)
++{
++	*supported &= ~(1 << feat);
 +}
 +
  struct mpam_class {
  	/* mpam_components in this class */
  	struct list_head	components;
+ 
+ 	cpumask_t		affinity;
+ 
++	struct mpam_props	props;
++	u32			nrdy_usec;
+ 	u8			level;
+ 	enum mpam_class_types	type;
+ 
 -- 
 2.39.5
 
