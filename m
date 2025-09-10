@@ -4,97 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CE7CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B883CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BhI8c9fUpWOPpWCEzFMrs816kFgN9hDlCR19oA75+ZA=; b=prIkSsXwaLTz6hPhdjjuhWDNaA
-	a7u20LumSE0KRTy+acPdNwkwbNoBv8GF65bOp3s+2LfAnmdcieSP+mXgz9/7+Wb+S55Cj8hyYxQ6v
-	B9aTx6FvXOTd5tvqnO7N7QSe69fWlGwzHjxeP4lorn5UTsor8q1qzhhd4MiuKMXHyJnN6QhP8Ytzh
-	OFUBKjz1RtG97zPUfgmVdETo8mSn424Nlr0rCVw2SeH1eyAKoBYxup9hIw5qPVHf99TALykCUwPJn
-	DUxU3dGmRpydt5gvYKioxILOAMlIaJUcSChoavmQW9ko7B+jGG9GzybqYZwVJ0xmLXywtStHECr96
-	cMfC9Qsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4AKBrsHYyZy6NVWerxVC8iAlV9/6fvAVIrP6ESd120U=; b=YjnG4nn1sJO5IJUigbaOx+B/Vc
+	LPDrDatsSXUnQuKFu4N3SpTE++5iCzvGIlDHO/+HaHWCEmVqjPnpKh4pOQ2ePnVo1z8sg1QuwGhQz
+	mQhjjnpBTBWte/fO5+7NXIKiuqfvMH/lEAX93G6M+/yEXHIuW4A7qSPj40NkKN2WV39/R47+ezg4r
+	6SxppIOk0Lj3ydw6zWwYypnLj2lknkPjyqaO3pYqtSs/oyYSre5h11svBsXeu47S5TpfliLJBpJWZ
+	BYarkm+5LeSRXH1Vvkn7OUFnMbFMtD2fD6H/mp2MvdvZPkFBqQBvvOUU0E04DJJv3q6jSSGan12LM
+	wv+/SIZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLVN-0000000EbUb-2mVr;
-	Wed, 10 Sep 2025 14:09:01 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1uwLaj-0000000EdBY-1lCI;
+	Wed, 10 Sep 2025 14:14:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLVL-0000000EbTr-42WE
+	id 1uwLaf-0000000Ed8w-3zTH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 14:09:01 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3c46686d1e6so4433691f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 07:08:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757513338; x=1758118138; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BhI8c9fUpWOPpWCEzFMrs816kFgN9hDlCR19oA75+ZA=;
-        b=PgNm21qWrN0zz5nxckGBxrtY75fkJP1HaGQPyJAqJJ0eD2HUxslxIyoHpIs2uovKXs
-         +9Subu0ZFKy78V3K1wRRjkYLHlfaaQcOpKYcA+ZITQXvU90AbXNyJlPQF8G/7oWO88im
-         fo7LSfvtOriAXXEYQNjW77FK5PGiy8td9IyDnKBHnLSkmnzkl1J0ecA8MjrtzveK2X/0
-         KOyJhBp9R2ivfYOBOmlfozrmupd85+hvgzMHapQQw6WYi957x/6zxzZ6pRHMkOZMs9M7
-         QltZInkjMb1PVJOkWQYt6F63xsaFTBAi+AWd5enP9kijvPsolJ9jy/wOcwiMmsmF+k+Q
-         R7mg==
+	Wed, 10 Sep 2025 14:14:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757513667;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4AKBrsHYyZy6NVWerxVC8iAlV9/6fvAVIrP6ESd120U=;
+	b=BTxWaaHTtOtGwDywzanXaVXZxJdaVxryrkLrnQ4nhGLAgnTTwY3Q9tNVf3ENMSRMrSTIZ0
+	bSR3yWws/GO+q7PDyXpBN4UNskvGRVV3vsPhIgcPJ4fcM9EQeHzdOfOxqhTphP01qIz+78
+	K8MmIXLWbpmTIuOnQbY0Q0ku5vJONMA=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-186-EsLPFOA7Mt6saJN19CZ2-Q-1; Wed, 10 Sep 2025 10:14:25 -0400
+X-MC-Unique: EsLPFOA7Mt6saJN19CZ2-Q-1
+X-Mimecast-MFC-AGG-ID: EsLPFOA7Mt6saJN19CZ2-Q_1757513665
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-81b8d38504fso727430685a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 07:14:25 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757513338; x=1758118138;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BhI8c9fUpWOPpWCEzFMrs816kFgN9hDlCR19oA75+ZA=;
-        b=pZna4pNVjvkOZMfC8YRNZM3sgwQMFawWSH4oIr2+21Oce1tRmeHeMtGPyqXfbGGolh
-         MN4jdDI8/bc/L9hJ6YymOlk0cADOAQh61lnzPpNZ20yO+E6yt3jBayAZewyUjVTZSaC1
-         jUXcHiIVTaXo/ZxyQmDghvZ+G8cWtgtXE6MWJWWZt4/Ms/3ZRdRvCLAsTLIQ7SpD0r/U
-         X36HL6ABNTN6G1Aj+vhZFPcyXZzYZn9pA340etzgzHV8lUxZ80Lr7E5iZKmXCUn06cPx
-         wxXUPxLJ85UlXkiyHzFsYCa4BkkLJp9R81lupWD7YdzGLvvn7c6Q0tclsbqJV4E4Idbp
-         NmgQ==
-X-Gm-Message-State: AOJu0YyN16NRb4hzqIr6qc4vz+GjZtK5m2Nf6AvZ45l2JIca0Y7V9Lt3
-	dA9dzO9TLb9rCKuK/yfHDN0IaTTUOD66Rl+4mU3TBQV/MeUMuzTbHSlIlwLeZG9cnf0=
-X-Gm-Gg: ASbGncsy9dATFfr7sJBIxcU16HYg6wlN/WQnqeXJslIl2ESPnQXGT8A7y7puoEg9pLp
-	l2Gl3UydNEUe1LWhK6BBAkZefsLQRharUtpb0JlXaoucyIH62wVsBo2h+j0Ob8PdjRN80dxUAKH
-	T2x3SDpqQbayuiozBVpzGDmuXN4WVpCt3BwrqpKgLEwl1wDk17Ekgb57/U+sDkZLQICsy8cTPAk
-	/cdFEOspPPjY6Iwx+1lJSd7MQfo+3xo9/O8CA7X3Kw4XQN07dnEAXCmlo9nVL1GPh42zldlibHN
-	YPd5eiK6YCCdj8/F57ic/ytITynGvlUo5egCTbbPnD8DQQyOLsT1BxL/sZOyLxGFGFO7Ymr0UM+
-	C6eE0vykSlMG+rtSrpMhqiV4xBYjwHUgzdT4qL7dPRDYt6jwFthOBPXlCJePkH1ItWSLYxtE4xA
-	OFeUqTAJlQibzR0vGQTglUJKH6DU5bfV3mxYZYwTau
-X-Google-Smtp-Source: AGHT+IEU0i5tKvI1IML6r1qb9OCYAjtEaa8WFITlkibEW1V8pMtdtSftNzuAhODsfk/YrIRjrT2cRw==
-X-Received: by 2002:a05:6000:24c1:b0:3e2:ac0:8c55 with SMTP id ffacd0b85a97d-3e643c1a48cmr13509406f8f.55.1757513338089;
-        Wed, 10 Sep 2025 07:08:58 -0700 (PDT)
-Received: from [192.168.0.19] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e75223ea04sm6916892f8f.45.2025.09.10.07.08.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 Sep 2025 07:08:57 -0700 (PDT)
-Message-ID: <e72800d4-cb65-443b-be7e-0966a60fa5a9@linaro.org>
-Date: Wed, 10 Sep 2025 15:08:56 +0100
+        d=1e100.net; s=20230601; t=1757513665; x=1758118465;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4AKBrsHYyZy6NVWerxVC8iAlV9/6fvAVIrP6ESd120U=;
+        b=MLVA/NJWW1h/zJNoGuBTI1G69k8BCsSma1B5+z07YHs2mCX05kN6wZZmxPmC4P+5of
+         wveTs5l9L9dZ3UF9wzP+d65C6vx8d4CWrk5xtberBnBOwOfVOZklsH48MSTpGmsKmWUN
+         0kGy6qPekK1fKq+LsdlHxH5F9y4AxGW9SxVNnHqZMrbJxKfu8vZAmRhOfmNzD6kQZGoo
+         EzCwAwGyNLkmWeffAAP0RUKr6o9FPqfZ8xfYsV1m4GMee+oTaKg3RugOJcqsu0OOzaIV
+         qX9Kx6tpwMM0K/wFNIHRbiVJRDj/jWNtoqGz+/PCbWQXALdHXHo34Ej4NtXB8ODC9KyY
+         RTlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVccfuNM8/obTbGibMqnFsIN1ZEaj4N3MJXXIRdQlXm3jmn2NHoldPXwGyI/eCtv3EU4uCKYYdktkKRygCL50yt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSRxdVT4SfDTV0Rq47yKo4pHiORrEyxVe5WfJPfIvpsqu7I4Bm
+	5XmDbAZA27/TKrU54PL3wEO17Aei/CzeRVgcLOnXVDaq093lMzK5XxP7SaIENdQ5AF/eqQhxKcH
+	ttg3rdtg12UjTv+usJvh6cM5IHKfcVh+T4gu8JXzzwUwDrh88xPGSxlYFarF+yxLYiG58Ys3b7+
+	k6
+X-Gm-Gg: ASbGnctu8C60ov7lVNvTkiH2T6hUTVnsTH4VnxsfAySMylS6pRM7hEbgvSSveeIZEhj
+	LgrB1IHK7LLVrAbPTb1t/QV5yt171WwknjCsEnh1tdtx71Mnjb2S6Q3vTwJosbAiBMhUBAhCWkN
+	Cjb9cCtte+bu5YM6H0fqeBGMa9+uqSmpkV4WcIq1XYTdhYw7vCuBk5bFy+6t0Fc+sRALVpM/6B+
+	zG2gORg8UMrGdKtYvANvQ5dztSf1eyQ87t/9q2l4ZkX9n9WRTfngPJOwxR2DLDFcf/B9wWxGUwz
+	ENzCx4fg/Yh4aV+k29gwIQRx8bVQjyU6eMt+Pz8s9yRvlMnJP1ji4pCiSlc2SBJJKlelV6FMnJy
+	vbTnUzIj2lhrVttiVPgQ=
+X-Received: by 2002:a05:620a:1997:b0:7e8:922:f02b with SMTP id af79cd13be357-813bed042c0mr1615333185a.25.1757513665031;
+        Wed, 10 Sep 2025 07:14:25 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFkFeL3wPJOKIe3shUG9pzAQKQjdBD+pGyVy/83wrA05r4tPdXbaw2hUPMEXQ3KZIEvXGTTLQ==
+X-Received: by 2002:a05:620a:1997:b0:7e8:922:f02b with SMTP id af79cd13be357-813bed042c0mr1615324385a.25.1757513664239;
+        Wed, 10 Sep 2025 07:14:24 -0700 (PDT)
+Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-81b58b5d7fesm299937185a.8.2025.09.10.07.14.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Sep 2025 07:14:23 -0700 (PDT)
+Date: Wed, 10 Sep 2025 10:14:20 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Mo Elbadry <elbadrym@google.com>,
+	Rom Lemarchand <romlem@google.com>,
+	William Kennington <wak@google.com>,
+	Yuxiao Zhang <yuxiaozhang@google.com>, wthai@nvidia.com,
+	leohu@nvidia.com, dkodihalli@nvidia.com, spuranik@nvidia.com
+Subject: Re: [PATCH v12 3/3] clk: aspeed: add AST2700 clock driver
+Message-ID: <aMGHvHf6BPrJD1pC@x1>
+References: <20250708052909.4145983-1-ryan_chen@aspeedtech.com>
+ <20250708052909.4145983-4-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3.1] media: dt-bindings: Add qcom,qcs8300-camss
- compatible
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-References: <20250813053724.232494-2-quic_vikramsa@quicinc.com>
- <20250910104915.1444669-1-quic_vikramsa@quicinc.com>
- <21ea1149-9b61-487d-9afb-d3b8b41fe71a@kernel.org>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-US
-In-Reply-To: <21ea1149-9b61-487d-9afb-d3b8b41fe71a@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20250708052909.4145983-4-ryan_chen@aspeedtech.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Ht_WGMYp9J73C3uSGRlYdkodLUdTEaSNthc3mBRrHfs_1757513665
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_070900_039457_A9C3D68B 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250910_071430_062452_6AE581D5 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,35 +123,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2025 15:07, Krzysztof Kozlowski wrote:
-> On 10/09/2025 12:49, Vikram Sharma wrote:
->> Add the compatible string "qcom,qcs8300-camss" to support the
->> Camera Subsystem (CAMSS) on the Qualcomm QCS8300 platform.
->>
->> The QCS8300 platform provides:
->> - 2 x VFE (version 690), each with 3 RDI
->> - 5 x VFE Lite (version 690), each with 6 RDI
->> - 2 x CSID (version 690)
->> - 5 x CSID Lite (version 690)
->> - 3 x CSIPHY (version 690)
->> - 3 x TPG
->>
->> Co-developed-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
->> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-> 
-> 
-> Fast review only as courtesy to Bryan:
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> Next time patch which cannot be compared to previous version and has
-> broken threading will end up at end of the queue.
-> 
-> Best regards,
-> Krzysztof
+Hi Ryan,
 
-Appreciated
+On Tue, Jul 08, 2025 at 01:29:09PM +0800, Ryan Chen wrote:
+> Add AST2700 clock controller driver and also use axiliary
+> device framework register the reset controller driver.
+> Due to clock and reset using the same register region.
+> 
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 
----
-bod
+I just have a few very minor style comments below. Otherwise the driver
+looks good to me.
+
+> +static struct clk_hw *ast2700_clk_hw_register_hpll(void __iomem *reg,
+> +						   const char *name, const char *parent_name,
+> +						   struct ast2700_clk_ctrl *clk_ctrl)
+> +{
+> +	unsigned int mult, div;
+> +	u32 val;
+> +
+> +	val = readl(clk_ctrl->base + SCU0_HWSTRAP1);
+> +	if ((readl(clk_ctrl->base) & REVISION_ID) && (val & BIT(3))) {
+> +		switch ((val & GENMASK(4, 2)) >> 2) {
+> +		case 2:
+> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
+> +							       0, 1800 * HZ_PER_MHZ);
+> +		case 3:
+> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
+> +							       0, 1700 * HZ_PER_MHZ);
+> +		case 6:
+> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
+> +							       0, 1200 * HZ_PER_MHZ);
+> +		case 7:
+> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
+> +							       0, 800 * HZ_PER_MHZ);
+> +		default:
+> +			return ERR_PTR(-EINVAL);
+> +		}
+> +	} else if ((val & GENMASK(3, 2)) != 0) {
+> +		switch ((val & GENMASK(3, 2)) >> 2) {
+> +		case 1:
+> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
+> +							       0, 1900 * HZ_PER_MHZ);
+> +		case 2:
+> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
+> +							       0, 1800 * HZ_PER_MHZ);
+> +		case 3:
+> +			return devm_clk_hw_register_fixed_rate(clk_ctrl->dev, name, NULL,
+> +							       0, 1700 * HZ_PER_MHZ);
+> +		default:
+> +			return ERR_PTR(-EINVAL);
+> +		}
+> +	} else {
+> +		val = readl(reg);
+> +
+> +		if (val & BIT(24)) {
+> +			/* Pass through mode */
+> +			mult = 1;
+> +			div = 1;
+> +		} else {
+> +			u32 m = val & 0x1fff;
+> +			u32 n = (val >> 13) & 0x3f;
+> +			u32 p = (val >> 19) & 0xf;
+> +
+> +			mult = (m + 1) / (2 * (n + 1));
+> +			div = (p + 1);
+
+The ( ) is unnecessary here.
+
+> +		}
+> +	}
+> +
+> +	return devm_clk_hw_register_fixed_factor(clk_ctrl->dev, name, parent_name, 0, mult, div);
+> +}
+> +
+> +static struct clk_hw *ast2700_clk_hw_register_pll(int clk_idx, void __iomem *reg,
+> +						  const char *name, const char *parent_name,
+> +						  struct ast2700_clk_ctrl *clk_ctrl)
+> +{
+> +	int scu = clk_ctrl->clk_data->scu;
+> +	unsigned int mult, div;
+> +	u32 val = readl(reg);
+> +
+> +	if (val & BIT(24)) {
+> +		/* Pass through mode */
+> +		mult = 1;
+> +		div = 1;
+> +	} else {
+> +		u32 m = val & 0x1fff;
+> +		u32 n = (val >> 13) & 0x3f;
+> +		u32 p = (val >> 19) & 0xf;
+> +
+> +		if (scu) {
+> +			mult = (m + 1) / (n + 1);
+> +			div = (p + 1);
+> +		} else {
+> +			if (clk_idx == SCU0_CLK_MPLL) {
+> +				mult = m / (n + 1);
+> +				div = (p + 1);
+> +			} else {
+> +				mult = (m + 1) / (2 * (n + 1));
+> +				div = (p + 1);
+
+The ( ) is unnecessary on div on the three places above.
+
+> +static void ast2700_soc1_configure_i3c_clk(struct ast2700_clk_ctrl *clk_ctrl)
+> +{
+> +	if (readl(clk_ctrl->base + SCU1_REVISION_ID) & REVISION_ID)
+> +		/* I3C 250MHz = HPLL/4 */
+> +		writel((readl(clk_ctrl->base + SCU1_CLK_SEL2) &
+> +			~SCU1_CLK_I3C_DIV_MASK) |
+> +			       FIELD_PREP(SCU1_CLK_I3C_DIV_MASK,
+> +					  SCU1_CLK_I3C_DIV(4)),
+> +		       clk_ctrl->base + SCU1_CLK_SEL2);
+
+This block is hard to read. What do you think about this instead?
+
+        if (readl(clk_ctrl->base + SCU1_REVISION_ID) & REVISION_ID) {
+        	u32 val;
+
+                /* I3C 250MHz = HPLL/4 */
+                val = readl(clk_ctrl->base + SCU1_CLK_SEL2) & ~SCU1_CLK_I3C_DIV_MASK;
+                val |= FIELD_PREP(SCU1_CLK_I3C_DIV_MASK, SCU1_CLK_I3C_DIV(4));
+                writel(val, clk_ctrl->base + SCU1_CLK_SEL2);
+        }
+
+With those addressed:
+
+Reviewed-by: Brian Masney <bmasney@redhat.com>
+
 
