@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFFE1CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 23:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EEF0CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 23:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aE7mCsrW+jbsuaUl3dmSP9nXkq+eiADJoNB6eIGghOI=; b=rJOeLQTfTosgLCcoNBXqVF3lVH
-	3L9gtXv57Q6hJikrSmQfyGaOLdLzpAgwi9gqz9v2sZ9auVaM2smG8oDjPZ76jxEV3FxFKqswYu3jy
-	jax7MupjQWxPFivoXKp3kvXriWbfZrRNXe9K6rg0JgRrFoTEj9Zf/47Zu8Hc2qp4otDayeTzIwt0O
-	JW9/3vbxN3akJ0RYZc3vX1iSPFL4rF/ImfzRFdcb0EDX+ct07KurDQDhbgPVtRtA4dTqNR8mJs2aa
-	VIxJbkr9//KFUjMz8NEot6kwd2Hwglm410HRD/s7Gck0CJpNd16ZhrDZFIx+TtYPrAslEGTtDLKPZ
-	iM3XpWqg==;
+	bh=jbzdyELa/IqfVWVSZ/sYbxCt/G4V10EvuDwRo5hACX0=; b=E4LqQFsDLCuu8QWKN77KrjV3Eb
+	RWbaiCyhpflXksIvM76+jbbKBwvgR179iF4wIIfKJxfhyVMlxxDq7vB1sMEGtddIE7FbuvvxOVZwi
+	b3doAUw6FMlOL50Hxr/Si/D6j6cATU6Zb3ni3d80fV7a2eeTmMaeJRcCxMN9XnLt+av+Kc0g2VyZi
+	cMzObfPHM0Z/0DKLsuWPucvAyNTgenQ79czGGlrNeG9o5Blqs7AIuPonjFR0CS1J1XevhPB5moQ59
+	/0ZD7NFSS0KzfUkTmE52+hi0WbpjpM+BliBSJHCFdPf52kFuq+zmaiTeorJQRpSPGpgakPowLBp+K
+	AAkGZWXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwUPG-0000000HKqu-0cvd;
-	Wed, 10 Sep 2025 23:39:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uwUPd-0000000HKzG-1skh;
+	Wed, 10 Sep 2025 23:39:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwUPD-0000000HKpv-38ON
+	id 1uwUPb-0000000HKyk-3uhq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 23:39:16 +0000
+	Wed, 10 Sep 2025 23:39:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 02B3744916;
-	Wed, 10 Sep 2025 23:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B2EFC4CEEB;
-	Wed, 10 Sep 2025 23:39:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 50E426013D;
+	Wed, 10 Sep 2025 23:39:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D13EDC4CEEB;
+	Wed, 10 Sep 2025 23:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757547554;
-	bh=oThnhjwHOCRp+Pu8CYFW0dQq+PXlgMWB686UxQw7yiE=;
+	s=k20201202; t=1757547579;
+	bh=GJZeHiPjiP3DnQJ+evMgNsJiiU3rynjez02+ZvOXV3o=;
 	h=From:To:Cc:Subject:Date:From;
-	b=kJOzZAzOFl6orh8RdBkKXLCmaP9bF0y65JlF+R5NAQbn+gJh+0xFO1CV6UM6v/b/z
-	 62DrC2q/asOfJMPLA2AHVENID0Xj0gH3JjmtHelwh6f8yCJ+4TclVEgTNsQipgNCxP
-	 iQ8b0Q/VAuIzrYxhf9cNdjFTlssX1zRIMb4RmIOZEcmawrrIpJvDXwghlJDSHdfyuj
-	 ZXPXA6PzFfmaUVym2vjDkBbH+GATgjn6mvDIDLtvV5Bq8JJz8Zunf73q4cJtiOTPpE
-	 eKSlpha903l3v3k3aZslw+9+J0soOTzVRFRwvMFmt3qnGHu/aL/pHSzrGnZs09FGS9
-	 x1gc5TtGjI1Jw==
+	b=VDsTZZWxOqmBMXRIg17++DxFGS2w1kU0CXtlP35NBu37ZgvzwUvVzf+mY0P0QZPy4
+	 sl17HHzvWMdOJI675tO/9uJPQG4eHuKu0/sFADbEYSkRKwGfasxUXCu9Wh1w79ZJmZ
+	 2F4c8bZg7grHlhMNUE01zdOBpYVFUA1gN1s5aov+WJw4PFS/dHuHbEHB6J7qPgRtJv
+	 Yenyk3NWL+KJ7ypSiSLIUDBvG7V25afpffUSjS1gnKvUbI9Ig7fCZIRu23yMPOdNxF
+	 rOVAJVr8Q/bhWcmFYLx5xX/ITLQIuRaa2Dp+8poK5Rxmcaero5/3cke2ND4svciFTu
+	 8+VNad3BMBMrQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: soc@kernel.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -51,15 +51,12 @@ To: soc@kernel.org,
 Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: dts: socionext: Drop "linux,spdif-dit" port node unit-address
-Date: Wed, 10 Sep 2025 18:37:40 -0500
-Message-ID: <20250910233740.777077-2-robh@kernel.org>
+Subject: [PATCH] arm64: dts: socionext: Drop "linux,spdif-dit" port node unit-address
+Date: Wed, 10 Sep 2025 18:39:23 -0500
+Message-ID: <20250910233923.778992-2-robh@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_163915_805036_1340C381 
-X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,14 +78,16 @@ Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
 Arnd, Please apply directly.
 
- arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/socionext/uniphier-ld11-global.dts  | 4 ++--
+ arch/arm64/boot/dts/socionext/uniphier-ld20-akebi96.dts | 4 ++--
+ arch/arm64/boot/dts/socionext/uniphier-ld20-global.dts  | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts b/arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts
-index 7e08a459f7d8..ab910e1b5e6a 100644
---- a/arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts
-+++ b/arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts
-@@ -43,7 +43,7 @@ spdif-out {
+diff --git a/arch/arm64/boot/dts/socionext/uniphier-ld11-global.dts b/arch/arm64/boot/dts/socionext/uniphier-ld11-global.dts
+index de219570bbc9..fc105d420db4 100644
+--- a/arch/arm64/boot/dts/socionext/uniphier-ld11-global.dts
++++ b/arch/arm64/boot/dts/socionext/uniphier-ld11-global.dts
+@@ -68,7 +68,7 @@ spdif-out {
  		compatible = "linux,spdif-dit";
  		#sound-dai-cells = <0>;
  
@@ -97,7 +96,51 @@ index 7e08a459f7d8..ab910e1b5e6a 100644
  			spdif_tx: endpoint {
  				remote-endpoint = <&spdif_hiecout1>;
  			};
-@@ -54,7 +54,7 @@ comp-spdif-out {
+@@ -79,7 +79,7 @@ comp-spdif-out {
+ 		compatible = "linux,spdif-dit";
+ 		#sound-dai-cells = <0>;
+ 
+-		port@0 {
++		port {
+ 			comp_spdif_tx: endpoint {
+ 				remote-endpoint = <&comp_spdif_hiecout1>;
+ 			};
+diff --git a/arch/arm64/boot/dts/socionext/uniphier-ld20-akebi96.dts b/arch/arm64/boot/dts/socionext/uniphier-ld20-akebi96.dts
+index fba454adae7d..10efa747ed8b 100644
+--- a/arch/arm64/boot/dts/socionext/uniphier-ld20-akebi96.dts
++++ b/arch/arm64/boot/dts/socionext/uniphier-ld20-akebi96.dts
+@@ -74,7 +74,7 @@ spdif-out {
+ 		compatible = "linux,spdif-dit";
+ 		#sound-dai-cells = <0>;
+ 
+-		port@0 {
++		port {
+ 			spdif_tx: endpoint {
+ 				remote-endpoint = <&spdif_hiecout1>;
+ 			};
+@@ -85,7 +85,7 @@ comp-spdif-out {
+ 		compatible = "linux,spdif-dit";
+ 		#sound-dai-cells = <0>;
+ 
+-		port@0 {
++		port {
+ 			comp_spdif_tx: endpoint {
+ 				remote-endpoint = <&comp_spdif_hiecout1>;
+ 			};
+diff --git a/arch/arm64/boot/dts/socionext/uniphier-ld20-global.dts b/arch/arm64/boot/dts/socionext/uniphier-ld20-global.dts
+index 20e5fb724fae..3c4dcfb82ddf 100644
+--- a/arch/arm64/boot/dts/socionext/uniphier-ld20-global.dts
++++ b/arch/arm64/boot/dts/socionext/uniphier-ld20-global.dts
+@@ -68,7 +68,7 @@ spdif-out {
+ 		compatible = "linux,spdif-dit";
+ 		#sound-dai-cells = <0>;
+ 
+-		port@0 {
++		port {
+ 			spdif_tx: endpoint {
+ 				remote-endpoint = <&spdif_hiecout1>;
+ 			};
+@@ -79,7 +79,7 @@ comp-spdif-out {
  		compatible = "linux,spdif-dit";
  		#sound-dai-cells = <0>;
  
