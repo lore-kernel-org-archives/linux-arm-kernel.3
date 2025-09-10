@@ -4,103 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57617CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC50DCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yRMyPUn85xb1e1aoe1yrRXBbPWGVjgqZhwJSFEvzvuU=; b=H6SN/IBz3R9WDqK7jhR8I1b6op
-	i1hSBoSrlC9hPq5QlXcpuUzUevDUnQAUAMSRw5KvNroq2EFbayD35xcWyGqpFBcAfbZj1hsker7tE
-	GHpAW7o1OhQwGTsOcdbl2UFY2GQEgBmcWQrsxqTdN87YQJnQawND+Xnzt5Bq09wdYZTYib/Ej8iAu
-	pQ5qwFcMpJCtghP80IsorVazrEY1WV8loG4tsPqOioUDcHLtgKsMqb6oMcNeyM/gmiCTHxDPqXsa1
-	j2UtFzfHJk7Pm311vnaJ6rX2ol+oqgwBPLPxGSi0pYP6JJmTz++WgoSHcLPqNWtVTPNALoSkBkQJ1
-	WprbEugg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0DyqbbA1ZUCcjEgFCs3V8UYrQ/Dy0tn2WnKs8noBz34=; b=gaex1Gn/jcuYDS4YpjxXjauuJC
+	Z6b+YbApgCp/EAot1BSRyBmO02Bpr7xQLnC+Ib2GFllf96kVd7Yl7HTVG5UpNq/SFLpv/4qEytZqy
+	2x28X4Sd6+u7Oq3a7B4SwYonb4SUc/MR+9oSj66KoAHjbY33cSRftlFykYGBi6rlVD0gn5KQRbuXH
+	Z3trV9KYVBBGLPM57XiCB9G2kP0MYCCCe1UbOXgUte2H+LaCp6WhRze8d0PNHFvR2RyNXKTmJ47sf
+	SABd/nTC87Z6V/3ffxbTbtW4yMJ0LnkyQWnms2PsZCTU6HT29TTYhCe5f/QBI+m8fVkS//WaOddxe
+	ck94wlRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJjQ-0000000E2oM-21xD;
-	Wed, 10 Sep 2025 12:15:24 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1uwJjv-0000000E33g-1SjR;
+	Wed, 10 Sep 2025 12:15:55 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJjN-0000000E2ml-0MCV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 12:15:23 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 6397B140037D;
-	Wed, 10 Sep 2025 08:15:19 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 10 Sep 2025 08:15:19 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1757506519;
-	 x=1757592919; bh=yRMyPUn85xb1e1aoe1yrRXBbPWGVjgqZhwJSFEvzvuU=; b=
-	ol4bsgS0gAucAgfBetATpbUq1DVhq0A2msg3kRCmHRM0vTFnGsRZUZPgZUFcGvfa
-	631bOzB2OkXKxaX3cQCjpccSlbZB9lgckWy0tpWCkRuRv26UBRkLF/DmFa6p1MlY
-	Vtqek3+MfQLVn/lo/JWN6wB0+WuiiGWkqKxi77syWLPNDxWuRIAVyv5kCgkXZ60F
-	wUHQMvfoOB/WYofWx2pL9lvlC2Vq+krEm6NiIHjUXAj3fHzLJnAHRlOXrdzpGlN3
-	AP88BzohD9RWKWfsSDUjXBIXwWSRr87rJAcr/Ss06o+pMjHTBfgHpOckyuZUFwpu
-	TfqjA+rHTj8qAwVWd9Mk4g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1757506519; x=
-	1757592919; bh=yRMyPUn85xb1e1aoe1yrRXBbPWGVjgqZhwJSFEvzvuU=; b=P
-	BaSyUWbdWQu9ZAWkwqfPRWgp/P1abbgbv0SFjh6zpd1KLfqDk78ZMdZy+8/B5xBt
-	wBprAZETB/h/4BwCubAfKh4FrGVSvRYE0dsaJuIfjPSIwEKyLc687FTmz1JszerI
-	UOMPhTkIYtA/UCOxIIAA0xSbeJSLhtBKlr0SltgXg9Tnv65zqyHOXVK8fcMgn2Nz
-	nRmPBxMyaqtzJQYbfaO2ILlHJ6f4gAd2tYpNPS1YcVooGphIN8xFOAfMIH9d9g1+
-	JA7SIasDCvq4i514LnTAVFlBs5taXLf4f6jWH7MBDmHg2Iizz6I0u3n/Rl6kOZ4M
-	7kyEGKF0xG4K1n4fxlhxw==
-X-ME-Sender: <xms:12vBaNkjCJkhVYlYIuUh4aAQdomTDth3b2lzocKO16-nUyTJlLVwJQ>
-    <xme:12vBaI1VrvrgQPYFs0ysvFEs5SzYhnMyWi2ZcwyL1hF6eggdLpX8x2HVIWaBxFv-W
-    MvpTBXG_m96b3uYdC8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvfedviecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpeefhfehteffuddvgfeigefhjeetvdekteekjeefkeekleffjeetvedvgefhhfeihfen
-    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
-    thhtohepiedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhinhhugiesrghrmh
-    hlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehrmhhkodhkvghrnhgvlhesrghrmhhl
-    ihhnuhigrdhorhhgrdhukhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurd
-    horhhgpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordhorhhg
-    pdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrh
-    gruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdr
-    khgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:12vBaA0bSs0aAS17JI6OOHpLFmsToy_PTG6FzNdrpqgFPx_nrO1qgw>
-    <xmx:12vBaO4GjHpAD52DyrxRnl-igKCZtpQGXkUTJXnt5HhymmKH8DV95g>
-    <xmx:12vBaB8njhXySF2Q7xZx7AW59oxivJeIj7WxG4OmSXRqtGnF2yzMFA>
-    <xmx:12vBaNXdGkvwLqYbufbueFeakBxwrqz7F8q5--Q0d9VGuMstw50ksg>
-    <xmx:12vBaIvdIgi9uICef38tR01-COmscAgrLyeuaG_Z7RKoI9JwfM_HDe95>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 0CFC270006A; Wed, 10 Sep 2025 08:15:19 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1uwJjs-0000000E31h-3da6;
+	Wed, 10 Sep 2025 12:15:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=0DyqbbA1ZUCcjEgFCs3V8UYrQ/Dy0tn2WnKs8noBz34=; b=ZTbMEACNtDoGeX4I1SHmnsNMrg
+	iEm2zkz90efE9oFDeUhbiIsb5hdpZBnsmCw5qWDN+4pIp92zVImepYnA3diWOoYcqv6VnFTxUzxQN
+	x771697TzZ/BCD2nZWvEzBoxS5fhuIqiYU/YjUsdePp4WM5GpGbe/RI/iZ0dWJh0nQb8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uwJjZ-007w5t-QA; Wed, 10 Sep 2025 14:15:33 +0200
+Date: Wed, 10 Sep 2025 14:15:33 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Kaison <dkx@t-chip.com.cn>
+Cc: Rob Herring <robh@kernel.org>, Jimmy Hon <honyuenkwun@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Wayne Chou <zxf@t-chip.com.cn>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add devicetree for the
+ ROC-RK3588-RT
+Message-ID: <ec8a3649-3f8f-40b7-a534-041b3523efe4@lunn.ch>
+References: <cover.1757322046.git.dkx@t-chip.com.cn>
+ <42ae6d16ed9162582e7b03cbad661a7950c0db55.1757322046.git.dkx@t-chip.com.cn>
+ <307a76a6-cc92-44a1-9ac0-97005bf51b4b@lunn.ch>
+ <76B19AD42CA555FC+fff44db30522cf270802ec31912a9c19d29b2d39.camel@t-chip.com.cn>
 MIME-Version: 1.0
-X-ThreadId: AdnDL2dhGsVg
-Date: Wed, 10 Sep 2025 14:14:38 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Walleij" <linus.walleij@linaro.org>,
- "Russell King" <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Russell King" <rmk+kernel@armlinux.org.uk>,
- "Matthew Wilcox" <willy@infradead.org>
-Message-Id: <7dfbb373-fb44-48d1-9880-747faa47e079@app.fastmail.com>
-In-Reply-To: <20250910-arm-remove-high-pte-v1-1-d0899882815f@linaro.org>
-References: <20250910-arm-remove-high-pte-v1-1-d0899882815f@linaro.org>
-Subject: Re: [PATCH] RFC: ARM: drop support for HIGHPTE
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <76B19AD42CA555FC+fff44db30522cf270802ec31912a9c19d29b2d39.camel@t-chip.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_051521_202206_698F7FD2 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20250910_051552_903995_6D035D51 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,42 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025, at 11:47, Linus Walleij wrote:
-> Matthew Wilcox suggests HIGHPTE is a burden for the
-> kernel MM, and only one ARM system (vt8500) is currently
-> using it.
+On Wed, Sep 10, 2025 at 10:55:22AM +0800, Kaison wrote:
+> hi,
+> I'm very sorry. Due to the default configuration of my email, I didn't
+> receive your email normally. I have fixed this issue.
+> 
+> On Tue, 2025-09-09 at 14:31 +0200, Andrew Lunn wrote:
+> > > - 2x Gigabit Ethernet, 1x 2.5G Ethernet
+> > 
+> > I actually only see the 2x 1G. Is the 2.5G not supported yet?
+> The 2.5G Ethernet is based on the Realtek RTL8125 network controller of
+> PCIe 2.0x1.
 
-I think the vt8500_v6_v7_defconfig entry is a historic leftover,
-instead it is currently enabled by default on all configurations
-that enable highmem.
+Ah, O.K. Maybe add a comment, because i was looking for something
+integrated into the SoC, not a PCIe device.
 
-> This deletes the use of HIGHPTE in ARM32 clearing the way
-> to remove the feature altogether.
->
-> It was introduced in commit 65cec8e3db60 "ARM: implement highpte"
-> in 2009, so this RFC is intended as a discussion item to
-> check if it is still a desired feature 16 years later
-> or if we can get rid of it.
+> > > +&gmac0 {
+> > > +	clock_in_out = "output";
+> > > +	phy-handle = <&rgmii_phy0>;
+> > > +	phy-mode = "rgmii-rxid";
+> > > +	pinctrl-names = "default";
+> > > +	pinctrl-0 = <&gmac0_miim
+> > > +		     &gmac0_tx_bus2
+> > > +		     &gmac0_rx_bus2
+> > > +		     &gmac0_rgmii_clk
+> > > +		     &gmac0_rgmii_bus>;
+> > > +	tx_delay = <0x47>;
+> > 
+> > What happened about my comment that "rgmii-rxid" is probably wrong?
+> > 
+> > If you think it is correct, you should reply with a
+> > justification. Maybe PCB is very odd? In which case, a comment would
+> > be good to explain who it is odd.
+> The Ethernet part of the board is designed with reference to the
+> rockchip evb1 board. 
+> 
+> link: 
+> https://github.com/Firefly-rk-linux/docs/blob/rk3588/firefly-public/en/Common/GMAC/Rockchip_Developer_Guide_Linux_GMAC_RGMII_Delayline_EN.pdf
+> 
+> 
+> The document describes the usage of the rgmii-rxid mode:
+> 
+> When the hardware enables the RX delay of the PHY. Need to turn off the
+> RX delay of the GMAC, and the dts configuration mode becomes "rgmii-
+> rxid".
 
-We discussed it last year in the context of the PREEMPT_RT patches, see
-https://lore.kernel.org/linux-arm-kernel/20241210160556.2341497-4-arnd@kernel.org/
-and Russell's reply to that.
+Vendors get this wrong as well, and give you bad advice. Please look
+at:
 
-I still think that dropping it is the sensible tradeoff here in
-the end, as it should allow further simplifications in the
-pgalloc code. Your version of this patch doesn't (like my
-identical patch from December) actually do any of that though.
+https://elixir.bootlin.com/linux/v6.16.5/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L264
 
-> -	pte = __pte_alloc_one(mm, GFP_PGTABLE_USER | PGTABLE_HIGHMEM);
-> +	pte = __pte_alloc_one(mm, GFP_PGTABLE_USER);
->  	if (!pte)
->  		return NULL;
->  	if (!PageHighMem(pte))
-
-At the minimum, PageHighMem(pte) is now know to be false, so
-this could be further simplified. I tried figuring out if we can
-remove __HAVE_ARCH_PTE_ALLOC_ONE altogether, but I'm not sure
-where else the clean_pte_table() call on arm would happen.
-
-   Arnd
+	Andrew
 
