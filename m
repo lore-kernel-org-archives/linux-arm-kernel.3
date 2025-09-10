@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A8FCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 10:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10192CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 10:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vfEoEI07LqAssZJd4kgA+XMFve7iOmdqNuZSLbkCoc0=; b=jEwOhOUEL4LcW3llmWUR9YQXTT
-	yjSICrV79MVlFUsqUBiVsQqYaYxKlbUCB0olmb4zeK2tFfNWjRe72+v6E6EgAPX28NTx5+3zvBnVj
-	wPaymGZL/icSH1HoIqy689TzDknaYeGRbnQWx6YNJvXUjrOUQQYJmDA3lqxbH24TjLFsrPGAWPZgP
-	XDJDGAzJZtB5367ZL5rXDKsjjVoL7d/8dNajLQ5tHu1pJgOMD5NLXEAWQf/biOtmyNzVcRhUZWg/2
-	/9aNiBWKtt/0pWkcMVvIyLFeyhpvX2xxUdjAyFKPeKJ63PHFpRewonkdffkTuYEPKzrBM7qR3ZYMH
-	ndc7bjcw==;
+	bh=nq9DBAp+ZidFs/i9eIn3NMeX29enpW/llv4L5PAztqo=; b=fnrsSEOTOdbJpwSlWCZB1ngOmd
+	JIZCowG9Geu7ul6zLMrx8Q5vkYvfqrN5UCwcGnmP6F6etaNNG6FWh5yySPbXd1R9J9B8WhRg6bZxY
+	7ri9A9NPYI7rUvFywSo+/HTfrQo/FIJyJDIHxI8vfQ27JZbSOkw16np5mBoSTtneGzb9Cg2h5j2D8
+	zvDE2jjxYY2ndgFpaSNuSOBT3RSlw03qfUpTXjc9rC3i0dRzu8AF3HAWal1ZQ8aJmlOn+HTshKom4
+	HUN0XqaeY8zhB5sLZ/ul5mjL20xXcu1Qxu9AMZaNCKwgUQA/KB6qIppv9e0/QMPpfqbDj1bQhBB+3
+	xlGLTkFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHfe-0000000DPQ8-0KZg;
-	Wed, 10 Sep 2025 10:03:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHfb-0000000DPPl-2vcU;
-	Wed, 10 Sep 2025 10:03:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A58516F8;
-	Wed, 10 Sep 2025 03:03:07 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 192AD3F66E;
-	Wed, 10 Sep 2025 03:03:08 -0700 (PDT)
-Date: Wed, 10 Sep 2025 11:03:06 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Lee Jones <lee@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
-	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <legoffic.clement@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	James Cowgill <james.cowgill@blaize.com>,
-	Matt Redfearn <matt.redfearn@blaize.com>,
-	Neil Jones <neil.jones@blaize.com>,
-	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Yang Shen <shenyang39@huawei.com>, Imre Kaloz <kaloz@openwrt.org>,
-	Yinbo Zhu <zhuyinbo@loongson.cn>, Shawn Guo <shawnguo@kernel.org>,
+	id 1uwHpc-0000000DS4d-2Yuf;
+	Wed, 10 Sep 2025 10:13:40 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwHpZ-0000000DS2o-29uM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Sep 2025 10:13:38 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uwHpR-0004AL-Gk; Wed, 10 Sep 2025 12:13:29 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uwHpR-000Zh5-0Z;
+	Wed, 10 Sep 2025 12:13:29 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uwHpR-00GDw4-06;
+	Wed, 10 Sep 2025 12:13:29 +0200
+Date: Wed, 10 Sep 2025 12:13:28 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, imx@lists.linux.dev,
-	linux-unisoc@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 1/3] mfd: vexpress-sysreg: use more common syntax for
- compound literals
-Message-ID: <20250910-precious-silky-worm-8bae77@sudeepholla>
-References: <20250910-make-compound-literals-normal-again-v1-0-076ee7738a0b@linaro.org>
- <20250910-make-compound-literals-normal-again-v1-1-076ee7738a0b@linaro.org>
+	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 06/11] dmaengine: imx-sdma: make use of
+ devm_add_action_or_reset to unregiser the dma_device
+Message-ID: <20250910101328.7rp5ulsrahpqfdtz@pengutronix.de>
+References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
+ <20250903-v6-16-topic-sdma-v1-6-ac7bab629e8b@pengutronix.de>
+ <aLhWfPjnZZpKr/w1@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250910-make-compound-literals-normal-again-v1-1-076ee7738a0b@linaro.org>
+In-Reply-To: <aLhWfPjnZZpKr/w1@lizhi-Precision-Tower-5810>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_030319_780248_EDB1A3E6 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250910_031337_555781_115CCF1E 
+X-CRM114-Status: GOOD (  27.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,16 +83,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 09:25:45AM +0200, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 25-09-03, Frank Li wrote:
+> On Wed, Sep 03, 2025 at 03:06:14PM +0200, Marco Felsch wrote:
+> > Make use of the devm_add_action_or_reset() to register a custom devm_
+> > release hook. This is required since we want to turn of the IRQs before
 > 
-> The (typeof(foo)) construct is unusual in the kernel, use a more typical
-> syntax by explicitly spelling out the type.
+> turn off?
 > 
+> > doing the dma_async_device_unregister().
+> >
+> > This removes the last goto error handling within the probe function and
+> 
+> Remove the last ..
 
-Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+I rephrased the commit message.
 
--- 
+> > further trims the remove() function. Instead of freeing the irq, we can
+> > disable it and let the devm-irq do the job to free the irq, since the
+> > only purpose was to have the irqs disabled before calling
+> > dma_async_device_unregister().
+> >
+> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > ---
+> >  drivers/dma/imx-sdma.c | 19 +++++++++++--------
+> >  1 file changed, 11 insertions(+), 8 deletions(-)
+> >
+> > diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> > index 5a571d3f33158813e0c56484600a49b19a6a72e2..f6bb2f88a62781c0431336c365fa30c46f1401ad 100644
+> > --- a/drivers/dma/imx-sdma.c
+> > +++ b/drivers/dma/imx-sdma.c
+> > @@ -2232,6 +2232,14 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
+> >  				     ofdma->of_node);
+> >  }
+> >
+> > +static void sdma_dma_device_unregister_action(void *data)
+> > +{
+> > +	struct sdma_engine *sdma = data;
+> > +
+> > +	disable_irq(sdma->irq);
+> > +	dma_async_device_unregister(&sdma->dma_device);
+> > +}
+> > +
+> >  static int sdma_probe(struct platform_device *pdev)
+> >  {
+> >  	struct device *dev = &pdev->dev;
+> > @@ -2358,10 +2366,12 @@ static int sdma_probe(struct platform_device *pdev)
+> >  		return ret;
+> >  	}
+> >
+> > +	devm_add_action_or_reset(dev, sdma_dma_device_unregister_action, sdma);
+> > +
+> 
+> need check return value.
+
+Sure, thanks.
+
 Regards,
-Sudeep
+  Marco
+
+> 
+> Frank
+> 
+> >  	ret = of_dma_controller_register(np, sdma_xlate, sdma);
+> >  	if (ret) {
+> >  		dev_err(dev, "failed to register controller\n");
+> > -		goto err_register;
+> > +		return ret;
+> >  	}
+> >
+> >  	spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
+> > @@ -2388,11 +2398,6 @@ static int sdma_probe(struct platform_device *pdev)
+> >  	}
+> >
+> >  	return 0;
+> > -
+> > -err_register:
+> > -	dma_async_device_unregister(&sdma->dma_device);
+> > -
+> > -	return ret;
+> >  }
+> >
+> >  static void sdma_remove(struct platform_device *pdev)
+> > @@ -2400,8 +2405,6 @@ static void sdma_remove(struct platform_device *pdev)
+> >  	struct sdma_engine *sdma = platform_get_drvdata(pdev);
+> >  	int i;
+> >
+> > -	devm_free_irq(&pdev->dev, sdma->irq, sdma);
+> > -	dma_async_device_unregister(&sdma->dma_device);
+> >  	/* Kill the tasklet */
+> >  	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
+> >  		struct sdma_channel *sdmac = &sdma->channel[i];
+> >
+> > --
+> > 2.47.2
+> >
+> 
 
