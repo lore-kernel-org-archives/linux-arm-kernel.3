@@ -4,149 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43DCCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11427CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=puSANwQMuC3k5u9lWMb//CpMB7GZAwNZLvNRyhx2W3w=; b=psbPO5wxCIsBlY15CUN1ZE8xM5
-	s80w1CmpkH03YMAAut63Md1RhFffMkQcEudb5ZrylTgdVlQNRciSf4CvK7fZZ4xgv3xxPvBMJdAka
-	JQX8THrh+EiPWRHDRwxkjdQDe983OiztPiD09JgVX0CO0QNm2+/OnyvRby/531hoveB5Sr2o0Mzdp
-	7RhVtEDd14o5Q6zSy7BguK8zL37YUw1UIf2Ca6A16bqOtJfaw7jAfnLFuxxBAkissaAmGKgoTUXwu
-	6eGDm7kE8XdagCWWksjtfCc3QLT6QnX4epxWJw1mSMSXAUUbTrYag6z/LyKTz/VG2nL2demTGT10y
-	K7u7PBlA==;
+	bh=NR4bv5u32Hhih2OjUtTyUqRqBOwpye/y6hOpbF/4JgU=; b=dlrzkgBQty+R9urlltA8fxZ5RV
+	KOtzj3QP46ew7n55JodmvjaxTC5gH/mxADy91FE3/xnmJMs9T482tRmLB38QuS1kYi3uQqAWKbCFN
+	p/tGN3srXgzY11hguOXgC8t7BulFvMbPvMpzVAe5JVOW+q0VrsekeOLscUTg9bar8JUKpOFyg9hS8
+	yaK2TmRWapaZTJxvPW0udXZMwD+r83XcvJEjVO7nJNNnonAfW0SRN3mbFk+Ew7DMfN0shLxT3KV0+
+	OfZuEON9S6FePnbHBP/h4qJDrgQ5cGbtw1J9L6rziz9+7A106r+IS7K8EFJSLo4YQC1su9v7qIP7b
+	X1dvV9Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMiw-0000000F6Dx-14uz;
-	Wed, 10 Sep 2025 15:27:06 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uwMlJ-0000000F7JG-3Dv3;
+	Wed, 10 Sep 2025 15:29:33 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMit-0000000F6CF-216a
+	id 1uwMlI-0000000F7HH-06mH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 15:27:05 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58ACgSk3011801
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 15:27:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=puSANwQMuC3k5u9lWMb//CpM
-	B7GZAwNZLvNRyhx2W3w=; b=jnBs/seSfYzHK1BgVJGtb+niIIAFKhQTmCGWELls
-	0vNK/c6eC9FjQD2y/BHG40XZutlLZni1IPrNgq2q++P8+77GYQvZ3ZzU//CRJVbw
-	Vbf4JA6udDwpsjsRVWZYPeElIUdwJnJkxOIOBl+dgMEe02YseIY7dgqKYLTF4gvL
-	+o9VtQoEDQmaavzLGESvWGoTi+YfG97Zj/qyd6ePc//7IAysNf9AKwgT1N+GllDk
-	q87VUrxIEG61wur7PXKm6pnHFHSwFlcZwHpGQvfGDWOz9NLaY9Hk0kGkzw7cugH6
-	Mjyb35NfPWbzU1AhBQ7eMG3YA9hRBM7AzZ/vOwVrzMBjYw==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490cj0v83w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 15:27:01 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-724ee8d2a33so145411136d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 08:27:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757518021; x=1758122821;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=puSANwQMuC3k5u9lWMb//CpMB7GZAwNZLvNRyhx2W3w=;
-        b=di3EcLLuVIBmSpIxe+uiEYJmjB1JVKnqP+sEzNMB8ZLqYTvnONycXhfv/RLTCGV0FO
-         WmD9BUb9jCv/soF3FGzjFUtoXuSi6q7uKSQqs3mC4TMZwk8iqJ2Hy8RlPbDiHgDIMBhc
-         nryb4gZHviwtsJ8o6fBeprWeIfajazQgHHH6GcmH/8APkQAmEKtD7cMEm5JB9sLec54g
-         aBZ7rCNoP+sB3K5lgYO/KpHNF9+hZeQJGzZBxIHNrraT4QCmVQ3cCNoDqim4valCsUrz
-         HYXcm71pODPNZL/WQc4tBU0zpceyqoQpPl6tlUhhfnASUXAbDQbhhOdRBlhPDdVmZqDL
-         +jsA==
-X-Forwarded-Encrypted: i=1; AJvYcCUqNk+zYBZtDbSLeb7NCSlbdTKh/cS8m+kut8/fsEglEYAnrJZsCe4QoijjFJE6VpAKkG+W+aNYLA3mjjxK+KTh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwItSbueI0vb2Df1t16U6Q7fonVFjy48V6nBoiKQ5iDHiNEvFfC
-	O2sn6yZl5ybhWMGW687L2SmzZmkmfy12iw6ul73wPC/V07DHIG39CTqpkL0lXBza5XN2R/DTtb3
-	vT3nzcvzufyprLOD6Gw1qabdYGHXkzB/hEMvV/PEE0HWpkrtusR84NKP3wUUwLu/TANeYomc67B
-	qM0g==
-X-Gm-Gg: ASbGncvmphBD/wK16Bc/R+Ed7iR8Sqvs9MUXcyVHhCfXymcBGBrzOy69eW5gCjMy9D2
-	J0qMj/VjKW2OP4Vd3wd2+b41BkQh+ZPq/ZTgkwdUUgCQj3DV5kkz4SBXKfKUW9pRwtQJzZTCA1J
-	cjj6bWE7jRuLnOue7bBAuTSN5D3N7KpG473msg1f6dNrXcrjoqxtImVMBkON7E4irvmq4CzQ4yx
-	uP/o1Ks5lKMGrJ164v8jTnAjB+U+ReN5LjRQk7opBtJn776RsiaNmgVUdqBtRtd/yeemRok0vJS
-	LrmKpORa6kgKbL2k9Y362X8P81Sm3A9FXAlmqGh2V3vudlwB3z3lrPpEzsci5tdY14r1mF/gzad
-	KyKTeV8qPMUpoYFio0sZnffWqvwZxHceCpJbhmAtf7DdW8AOjWr71
-X-Received: by 2002:a05:6214:4011:b0:71b:9c1f:cf12 with SMTP id 6a1803df08f44-73945f32dc1mr174306166d6.58.1757518020646;
-        Wed, 10 Sep 2025 08:27:00 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFSqNO186cIoAHAKlnokZkMKBuXP5cQFNS2RrYtd4hs3FssG7kXyhj56TM6QwnKBI2jq/m+4A==
-X-Received: by 2002:a05:6214:4011:b0:71b:9c1f:cf12 with SMTP id 6a1803df08f44-73945f32dc1mr174305236d6.58.1757518019762;
-        Wed, 10 Sep 2025 08:26:59 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-337f50a263esm43434641fa.55.2025.09.10.08.26.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 08:26:58 -0700 (PDT)
-Date: Wed, 10 Sep 2025 18:26:56 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Daniel Stone <daniel@fooishbar.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
-        Samuel Holland <samuel@sholland.org>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Liu Ying <victor.liu@nxp.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
- driver capabilities
-Message-ID: <x562ueky2z5deqqmhl222moyrbylfwi35u4hb34dpl3z52ra4c@dyw4iayrewnz>
-References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
- <CAPj87rNDtfEYV88Ue0bFXJwQop-zy++Ty7uQ9XfrQ2TbAijeRg@mail.gmail.com>
- <57ekub6uba7iee34sviadareqxv234zbmkr7avqofxes4mqnru@vgkppexnj6cb>
- <20250901-voracious-classy-hedgehog-ee28ef@houat>
- <voknqdv3zte2jzue5yxmysdiixxkogvpblvrccp5gu55x5ycca@srrcscly4ch4>
- <st6wob5hden6ypxt2emzokfhl3ezpbuypv2kdtf5zdrdhlyjfw@l2neflb4uupo>
- <pe6g2fanw65p67kfy5blbtiytngxmr6nkbazymojs4a66yvpl3@7j4ccnsvc6az>
- <20250910-didactic-honored-chachalaca-f233b2@houat>
-MIME-Version: 1.0
+	Wed, 10 Sep 2025 15:29:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HKQVMItelYC2pBGv64WVoxetL1gq4v3qcEe6RVoxtFnMnPi8wZpuc7s0IQlZ1KtKQm7aaZvevpZn9mj8y6fYvOOjkrCw8ctXvxYRCZU1vLfgS+GBuMzj14wP50PMfEA7IFeuCD9JsYZFyguT0S3VEGuozEdtiI+Vzdsq/QMcuQ9FoTyiRezpfBNtEgsGJdJfeddjTBqaa8jjHuj3gTG+JRtSPY+pDqe880l8xAIubbBGfZ3DfPHP7e7blql14c6pM5pRVCMPNPNKFk46W5xQFzoUsyLXMOPFAFVvAy3WW53Ckynl4XMkt8ZsoeWZMHE94XjkFPMcdKYU79uL+hPCow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NR4bv5u32Hhih2OjUtTyUqRqBOwpye/y6hOpbF/4JgU=;
+ b=D4iehtJYF3POqbloa3z/R80mJWNURVl7oIvbIVrIHvDmU9fHg61IOl/DJ9cFmhUSRfmIjuRrTYWd5R/eVYyaswMUo/6HRnVXnJm+bil2t7y/cy64OTisG5mRlGjZAlQBdGZbo8Z+nrOALpzgTG8/UGuaUMRjvRm+/kGjn0VFWumEpWG3DIUHH4m42q7PWDHt9bBUyVgbKgM5SHg2KW/btZS9qLI06t97K+oUzpJETrQan9k03heNqnudQ4LDHoU9bCOh8FP6YyxHUjWhzUnCypPv+vTzEGMXihPbwJVekeVK5pgqyAQNAnfkG01oXfmbjyeji/vtcO7ZoWwo3CXDyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NR4bv5u32Hhih2OjUtTyUqRqBOwpye/y6hOpbF/4JgU=;
+ b=EISnQ1URsIz4v0jsXI4XUXvFkH/vvUu81WxY2fJtj9YMJR1Qy3igU1Kg5hRYl9tq7HlmaP+6d8jcoCUozbdPCdUY3D1wYbfN55zBS1D8JBK7o62T1J62Js14vsHdEURLd60PSb5TBwoc0ZCWAgAgQp0dd33152dqv68eA2aIHqVSRO9pbw4AfJLqh9aTeR9ZBtwIANzaCh0xrmisJto+O6MBbYEVSOTRG/klrJxp+GA2olfz0OknpH0Tzf40hDZY+tBR1Dg4UUX/aTp6CPTZOKVUj2+d/wOLs6sQfMFElpm490vS5mL68wezdOag0rAuvlLXJ5GHYzBGHF4A4SWLog==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by DU0PR04MB9443.eurprd04.prod.outlook.com (2603:10a6:10:35b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.15; Wed, 10 Sep
+ 2025 15:29:26 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%5]) with mapi id 15.20.9115.010; Wed, 10 Sep 2025
+ 15:29:26 +0000
+Date: Wed, 10 Sep 2025 11:29:16 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org
+Subject: Re: [RESEND PATCH 2/4] dt-bindings: input: touchscreen:
+ fsl,imx6ul-tsc: add fsl,glitch-threshold
+Message-ID: <aMGZTPMCF0B53Wty@lizhi-Precision-Tower-5810>
+References: <20250910135916.3939502-1-dario.binacchi@amarulasolutions.com>
+ <20250910135916.3939502-3-dario.binacchi@amarulasolutions.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250910-didactic-honored-chachalaca-f233b2@houat>
-X-Proofpoint-ORIG-GUID: l5DFykSas4U1uC26F7oW_M-Uc52IVkwG
-X-Proofpoint-GUID: l5DFykSas4U1uC26F7oW_M-Uc52IVkwG
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAyNCBTYWx0ZWRfX9CCaxaM7OfN0
- 7CuxrYdZTmlYfyCLysI+bG9J4udwVb+zBIFC5Da1GmHXz/5DX+jE+lYVROJ2/p8V66mF19rJUhB
- imqTmLaZHycdVba0iPFtPUkhz6Pirugo2YjoDhA5bOpyti75PH2jtl9wRP3lEqps2f2ejlqfW7H
- z577c+qwV3hwXdoD2F0sjyT2+ZF/Ihpcpj+/TZutKwH7Z/YBkA1C9wfpQAtfps5uzZN1RPK3tNH
- HQxD9LDhhlfNryTwzNkL+asB+ogKUNFk6qCMnkqbGqszo7aQhch3LU8nJWEoO3LaAKlvgWqIoS+
- fnS09lKwaHvmQI/d7mj4EmcXsTDpndZw4L5R9VY41yQ1Hp2gSUozgcUySJIvjrtr1X0V43+SJVW
- CvAF6vVf
-X-Authority-Analysis: v=2.4 cv=QeFmvtbv c=1 sm=1 tr=0 ts=68c198c5 cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=CmvywbfrPJ7p_AD0WAgA:9
- a=CjuIK1q_8ugA:10 a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-10_02,2025-09-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 clxscore=1015 spamscore=0 impostorscore=0
- bulkscore=0 suspectscore=0 adultscore=0 malwarescore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509060024
+In-Reply-To: <20250910135916.3939502-3-dario.binacchi@amarulasolutions.com>
+X-ClientProxiedBy: BYAPR06CA0037.namprd06.prod.outlook.com
+ (2603:10b6:a03:14b::14) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DU0PR04MB9443:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab0b102f-ca05-4eb2-9270-08ddf07ed373
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|19092799006|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fk4mG3tYF30oie68wQTm47KnrN4P5a7wasfgmtNbfpUXrSFieL/U3yfbb0N7?=
+ =?us-ascii?Q?SZoEUlDZuvcL4R0HbBcteEgwP6h/Su88ecThcLs+bnY3n9Pw/SQYgMIqg0I5?=
+ =?us-ascii?Q?k+9R7B7kT9xHEpreURGYCetbMBS4mTjOqNmjRqAxVHm2PsnFCWPvuA5xAvje?=
+ =?us-ascii?Q?sndZViUfK71TJgBx0BLe7g2UG5Q/6iVsHlwDt+3VDhnF/4hQQvoeHaC7NtLS?=
+ =?us-ascii?Q?09g63tgbeSlp9tRCR3GiroT+l2CNYtRajihv6lJDLALr2LI0CTAg93U4+P9K?=
+ =?us-ascii?Q?VDdmQafjHFF+5IE2sqC7ZaQkslwQGVZRYsyTsouLLW+n0pTv7hZwZ7j6cBMF?=
+ =?us-ascii?Q?iEi1t+7BMZFhzjdUzpVXAGBMgwL576H+Br5RNVc+CDYzckLSucLjzkOjG5wW?=
+ =?us-ascii?Q?C0YFkIex1X1lRI/2bpIUUnLYyGmxzsFAZxfZ6gFguwNkwSH8TzHR3usiv9lJ?=
+ =?us-ascii?Q?ugfSJEnN8JVzqTWnFA4eA6WbX02HHkFyFM5KpEmPwtpM5nnURq/9Ee956s3x?=
+ =?us-ascii?Q?PEofnb0/arllObTcDLy7jWzN1V9tQAMhiqLSIDouLOjv9UwvSim5xiUp6oWH?=
+ =?us-ascii?Q?lf0VQRGpxmx+2EQT345RdV0MNab2UTEWfZ9sQUNmMZ4TkNYr+OFcMOMvwCJb?=
+ =?us-ascii?Q?MGd3okZBABP4aHUEG0nX8CV6yDwrKSw9FmsMxAdJG2zk54XxijQ65mIPmL/9?=
+ =?us-ascii?Q?BlXoxmOBfB7dB335QsG4XtfXgTrFFYXgylcAeQ92HwHwc/gUI2vlTqC1b+lF?=
+ =?us-ascii?Q?hRg0CoS1yCbXlhxeZRF+UKJ9FMlUxRIYo27O5j+nDqUiNMLa1WMypTjjq/WI?=
+ =?us-ascii?Q?U5OrFSl0WglsX3q3DPptici+YeOA2cfaJEomOBEyBOWte5AHeMo+3FaCr3qi?=
+ =?us-ascii?Q?wigq/bcCNM+6uLMfMhs3RGZBEvDO7/AmtIvfWAvkWfkwFpyYbheIZmxSM/LR?=
+ =?us-ascii?Q?zkNRro6NCRA8nXTF6F2DUlDKnr6WqQsIKMEoLlVQuSMJ6vClfgGeiQD1nVC5?=
+ =?us-ascii?Q?f67Cp8iMmLCC8jbCvJc1pBnb4d4ssq8W9JV2MyRGDPxtYddh32nPRrta1DYw?=
+ =?us-ascii?Q?nAHirk7ryxbdDP0ptb0AJ1M0X+M1OP3zzk72nWf8x+C590gcIzAOz7jYW0L/?=
+ =?us-ascii?Q?8M2oU/pzpw5HvFdZxkXy8ASIbWNs31YA3iI3W6vceJg5uhtKdSdv7pOzqCY+?=
+ =?us-ascii?Q?GSol26RfV723R1XMzSmKBpiVnQ+UtCfvoi7hnBlJJZj0S1kyOl5vRmjlafza?=
+ =?us-ascii?Q?hO0tRsTQ+F840iXFeO3LYnhLJqNODa2noKSd2c4IlcuHiWXVye6ZKrj0yBaV?=
+ =?us-ascii?Q?c61/yMQ2kG/f/U1qZDFUc5KfIvQlz5vyhIjQX2XxDeGmWlaq7D2JCxDCdeTY?=
+ =?us-ascii?Q?Qp+frIPCXj4xu1/ag+bFRsN9RRm0QceZzVKvAtV8bTEgI7naGzrfTkeAvuba?=
+ =?us-ascii?Q?i1Opj7OKJS9mtkN77CoVKrHBir9sXVHf4y5EEZE59cDaoLAhjegEdVqzAO2n?=
+ =?us-ascii?Q?P4mSJU4HPRYTXgE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?v9avGsIAPW5E00EWZLr75JEVBj4E26FmwNEnBu0iWnl5r1ckcLPFzjtgurbU?=
+ =?us-ascii?Q?sZ+T2kE2yOecgmqBg/zP9ZVdQ8NBtexCLx3lux07zoNCjMCajiavRwKs1PsH?=
+ =?us-ascii?Q?NLrmQ5DHl5y8ZGSb+fEzTDDWn3C5t3T49HuAQNOhGFbmpZ2bYIjpCghCoIFa?=
+ =?us-ascii?Q?wFBsOyNgqIg5pV3Y/bEiCdtyySCFdZH8IgWDl9c8y5tbzz0Wvy//xgsloUAa?=
+ =?us-ascii?Q?fmV5jV8yZizsmq4I2mDC/c7WeM1Pg2NsWWn+AG62jU3x52N0Xacg3uEqbBu6?=
+ =?us-ascii?Q?MoFuL+hltpAGvG8F9FksLTOgikQmIr8WORa8vpXV69Pf4Fw9Ha1HxbvoGwRl?=
+ =?us-ascii?Q?uFYfmSpZgbCbtTOiTEvM5Xu7lysje6xQxa2EKYYj1GhUisHq6MDBXREjmdWH?=
+ =?us-ascii?Q?D+BFM13e1mEzQdcKGs9iimTYHY5Mi08b5yjW2gh3ZfqAn7VTN8ZZ06IvRSem?=
+ =?us-ascii?Q?GWgGG5rlWd+AsipO0LbFMM7IL3AJGsoeHt7+K6WvsjRAM0QUqxyvizeCvYcu?=
+ =?us-ascii?Q?Jbs5nCb8jABqeGFWKcCrrulpb/GKrU6kQnP9P4OWkEPbsafqY7ZCm0C1oaTV?=
+ =?us-ascii?Q?oYe6bn+I9g1hwvUEJlIuuMM24Jcmha8Ec3Jb2NgnHhyzYArB5/qfU9V0jZJy?=
+ =?us-ascii?Q?zUEXJIiF3N96O0bOYRK3hHdw1V/wYs61qSGAKxt9mx+ADTNGcWJO3DhxVzYq?=
+ =?us-ascii?Q?M6Ya/bZvsP7NuX3uAY0FCDAaNgUCQwMiq2l9jbCyBDHTcOZkaK9HvypmkoMR?=
+ =?us-ascii?Q?ybxXHLzqxnWZknpYnv6tKVayg61YuMTxUjt8gWmOsPJqg2UpcEbL4qRB7V6q?=
+ =?us-ascii?Q?qNoafiDpV5Dj5K+LzVkeF5gk/sqadR5UfzyGGRUJ97elKooU6WPdcKmoW68N?=
+ =?us-ascii?Q?ZOvRF6osEs4Mq5GZIQfmw3YSoybYG+YZmSn+uvw3IWtud/NxEBP6Vu9EiubE?=
+ =?us-ascii?Q?i1broGTQi4nu9i5uBndG/bma3JU/K7MEvR+IUseEw/sCrV0zu9lyhkqJg9H2?=
+ =?us-ascii?Q?ya9z8w8ltLoTMoG8NJZC1Gxa+Nb+zno+EZGx30b1HpWtL50cLEbr7nhfeqdG?=
+ =?us-ascii?Q?uaC8MBs5EqedW0uTxn/qilPJR1HODid52Nmt2s0JMK3d6k8woBZuLTljYfqo?=
+ =?us-ascii?Q?pnWC1M+T71CDBgYyvoTTuWp7wMY1mDuw/Ss6n7+bk9GpHL0DgvY22bVKGbqv?=
+ =?us-ascii?Q?lLT4W7xG9Hf0Og3J7ZViZ1Z1F2ipiSMWLCVb3CTc40ZqDFWtLHow1xE5PWNL?=
+ =?us-ascii?Q?i2jTOyCX6JZPZ5ukXFenGrWoybcdA+Sxoz+PQkGNavAJ4h2sPzHHKHleEae1?=
+ =?us-ascii?Q?ctxnKb4DDhuzZiklHIgIwy6Cz87ricIfcL+6QhsVhnHpKiM5mkqjaSnk/Mcd?=
+ =?us-ascii?Q?JOE6NOpOGM6vtPA7ARjsO4Bhw547375nzeCvQhyN5JJLWFmM2YkxGrlPx8df?=
+ =?us-ascii?Q?ok6uT+Xuia08RCTGF6IgA+6COZJ+sgXawVP4w/K1YQ4b7INpJF84xU3HS24f?=
+ =?us-ascii?Q?JjplkmGgX/w6tFPyaR37aAPOCGhywr6YBm7NN+r0Y0nL5dRh2Em38Zuh2a1C?=
+ =?us-ascii?Q?XTSaTmVgm5N1AcY20ri6Mfbs7vmLkMZi+65eT58e?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab0b102f-ca05-4eb2-9270-08ddf07ed373
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 15:29:26.2502
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OmyLZNmKeRisGhkMvIjbIHsfqhc5ZO7R+qpC3NOdVMK1kzTeko6gmRpWiUZT0K7RMqsF1S3Gp3eJScqONVhetg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9443
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_082703_641388_40016663 
-X-CRM114-Status: GOOD (  73.73  )
+X-CRM114-CacheID: sfid-20250910_082932_078047_527CD4D6 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,129 +167,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 09:30:19AM +0200, Maxime Ripard wrote:
-> On Wed, Sep 03, 2025 at 03:03:43AM +0300, Dmitry Baryshkov wrote:
-> > On Tue, Sep 02, 2025 at 08:06:54PM +0200, Maxime Ripard wrote:
-> > > On Tue, Sep 02, 2025 at 06:45:44AM +0300, Dmitry Baryshkov wrote:
-> > > > On Mon, Sep 01, 2025 at 09:07:02AM +0200, Maxime Ripard wrote:
-> > > > > On Sun, Aug 31, 2025 at 01:29:13AM +0300, Dmitry Baryshkov wrote:
-> > > > > > On Sat, Aug 30, 2025 at 09:30:01AM +0200, Daniel Stone wrote:
-> > > > > > > Hi Dmitry,
-> > > > > > > 
-> > > > > > > On Sat, 30 Aug 2025 at 02:23, Dmitry Baryshkov
-> > > > > > > <dmitry.baryshkov@oss.qualcomm.com> wrote:
-> > > > > > > > It's not uncommon for the particular device to support only a subset of
-> > > > > > > > HDMI InfoFrames. It's not a big problem for the kernel, since we adopted
-> > > > > > > > a model of ignoring the unsupported Infoframes, but it's a bigger
-> > > > > > > > problem for the userspace: we end up having files in debugfs which do
-> > > > > > > > mot match what is being sent on the wire.
-> > > > > > > >
-> > > > > > > > Sort that out, making sure that all interfaces are consistent.
-> > > > > > > 
-> > > > > > > Thanks for the series, it's a really good cleanup.
-> > > > > > > 
-> > > > > > > I know that dw-hdmi-qp can support _any_ infoframe, by manually
-> > > > > > > packing it into the two GHDMI banks. So the supported set there is
-> > > > > > > 'all of the currently well-known ones, plus any two others, but only
-> > > > > > > two and not more'. I wonder if that has any effect on the interface
-> > > > > > > you were thinking about for userspace?
-> > > > > > 
-> > > > > > I was mostly concerned with the existing debugfs interface (as it is
-> > > > > > also used e.g. for edid-decode, etc).
-> > > > > > 
-> > > > > > It seems "everything + 2 spare" is more or less common (ADV7511, MSM
-> > > > > > HDMI also have those. I don't have at hand the proper datasheet for
-> > > > > > LT9611 (non-UXC one), but I think its InfoFrames are also more or less
-> > > > > > generic).  Maybe we should change debugfs integration to register the
-> > > > > > file when the frame is being enabled and removing it when it gets unset.
-> > > > > 
-> > > > > But, like, for what benefit?
-> > > > > 
-> > > > > It's a debugfs interface for userspace to consume. The current setup
-> > > > > works fine with edid-decode already. Why should we complicate the design
-> > > > > that much and create fun races like "I'm running edid-decode in parallel
-> > > > > to a modeset that would remove the file I just opened, what is the file
-> > > > > now?".
-> > > > 
-> > > > Aren't we trading that with the 'I'm running edid-decode in paralle with
-> > > > to a modeset and the file suddenly becomes empty'?
-> > > 
-> > > In that case, you know what the file is going to be: empty. And you went
-> > > from a racy, straightforward, design to a racy, complicated, design.
-> > > 
-> > > It was my question before, but I still don't really see what benefits it
-> > > would have, and why we need to care about it in the core, when it could
-> > > be dealt with in the drivers just fine on a case by case basis.
-> > 
-> > Actually it can not: debugfs files are registered from the core, not
-> > from the drivers. That's why I needed all the supported_infoframes
-> > (which later became software_infoframes).
-> 
-> That's one thing we can change then.
-> 
-> > Anyway, I'm fine with having empty files there.
-> > 
-> > > > > > Then in the long run we can add 'slots' and allocate some of the frames
-> > > > > > to the slots. E.g. ADV7511 would get 'software AVI', 'software SPD',
-> > > > > > 'auto AUDIO' + 2 generic slots (and MPEG InfoFrame which can probably be
-> > > > > > salvaged as another generic one)). MSM HDMI would get 'software AVI',
-> > > > > > 'software AUDIO' + 2 generic slots (+MPEG + obsucre HDMI which I don't
-> > > > > > want to use). Then the framework might be able to prioritize whether to
-> > > > > > use generic slots for important data (as DRM HDR, HDMI) or less important
-> > > > > > (SPD).
-> > > > > 
-> > > > > Why is it something for the framework to deal with? If you want to have
-> > > > > extra infoframes in there, just go ahead and create additional debugfs
-> > > > > files in your driver.
-> > > > > 
-> > > > > If you want to have the slot mechanism, check in your atomic_check that
-> > > > > only $NUM_SLOT at most infoframes are set.
-> > > > 
-> > > > The driver can only decide that 'we have VSI, SPD and DRM InfoFrames
-> > > > which is -ETOOMUCH for 2 generic slots'. The framework should be able to
-> > > > decide 'the device has 2 generic slots, we have HDR data, use VSI and
-> > > > DRM InfoFrames and disable SPD for now'.
-> > > 
-> > > I mean... the spec does? The spec says when a particular feature
-> > > requires to send a particular infoframe. If your device cannot support
-> > > to have more than two "features" enabled at the same time, so be it. It
-> > > something that should be checked in that driver atomic_check.
-> > 
-> > Sounds good to me. Let's have those checks in the drivers until we
-> > actually have seveal drivers performing generic frame allocation.
-> > 
-> > > Or just don't register the SPD debugfs file, ignore it, put a comment
-> > > there, and we're done too.
-> > 
-> > It's generic code.
-> > 
-> > > > But... We are not there yet and I don't have clear usecase (we support
-> > > > HDR neither on ADV7511 nor on MSM HDMI, after carefully reading the
-> > > > guide I realised that ADV7511 has normal audio infoframes). Maybe I
-> > > > should drop all the 'auto' features, simplifying this series and land
-> > > > [1] for LT9611UXC as I wanted origianlly.
-> > > > 
-> > > > [1] https://lore.kernel.org/dri-devel/20250803-lt9611uxc-hdmi-v1-2-cb9ce1793acf@oss.qualcomm.com/
-> > > 
-> > > Looking back at that series, I think it still has value to rely on the
-> > > HDMI infrastructure at the very least for the atomic_check sanitization.
-> > > 
-> > > But since you wouldn't use the generated infoframes, just skip the
-> > > debugfs files registration. You're not lying to userspace anymore, and
-> > > you get the benefits of the HDMI framework.
-> > 
-> > We create all infoframe files for all HDMI connectors.
-> 
-> Then we can provide a debugfs_init helper to register all of them, or
-> only some of them, and let the drivers figure it out.
-> 
-> Worst case scenario, debugfs files will not get created, which is a much
-> better outcome than having to put boilerplate in every driver that will
-> get inconsistent over time.
+On Wed, Sep 10, 2025 at 03:58:36PM +0200, Dario Binacchi wrote:
+> Add support for glitch threshold configuration. A detected signal is valid
+> only if it lasts longer than the set threshold; otherwise, it is regarded
+> as a glitch.
+>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> ---
+>
+>  .../input/touchscreen/fsl,imx6ul-tsc.yaml      | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+> index 678756ad0f92..2fee2940213f 100644
+> --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+> +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+> @@ -62,6 +62,23 @@ properties:
+>      description: Number of data samples which are averaged for each read.
+>      enum: [ 1, 4, 8, 16, 32 ]
+>
+> +  fsl,glitch-threshold:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    default: 0
+> +    enum: [ 0, 1, 2, 3 ]
+> +    description: |
+> +      Indicates the glitch threshold. The threshold is defined by number
+> +      of clock cycles. A detect signal is only valid if it is exist longer
+> +      than threshold; otherwise, it is regarded as a glitch.
+> +      0: Normal function: 8191 clock cycles
+> +         Low power mode: 9 clock cycles
+> +      1: Normal function: 4095 clock cycles
+> +         Low power mode: 7 clock cycles
+> +      2: Normal function: 2047 clock cycles
+> +         Low power mode: 5 clock cycles
+> +      3: Normal function: 1023 clock cycles
+> +         Low power mode: 3 clock cycles
+> +
 
-debugfs_init() for each infoframe or taking some kind of bitmask?
+does any property in input/touchscreen/touchscreen.yaml use as it?
 
--- 
-With best wishes
-Dmitry
+Suppose all touch screen have similar property to filiter out glitch.
+
+Frank
+
+>  required:
+>    - compatible
+>    - reg
+> @@ -94,4 +111,5 @@ examples:
+>          measure-delay-time = <0xfff>;
+>          pre-charge-time = <0xffff>;
+>          touchscreen-average-samples = <32>;
+> +        fsl,glitch-threshold = <2>;
+>      };
+> --
+> 2.43.0
+>
 
