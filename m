@@ -4,206 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90459CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:53:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 331BFCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3QkxBTDcycrNoF7YyXTaTjPbl0wB31nsfpnHrzz0ubE=; b=qtfqD5BCVdNsDUaRqQ/W6WneEw
-	W+5jSm3+yGuh/KtosGOAWKZNY+eiMUBSHRGIT4uGxWZGZKG1xON7jSWqyNv7cFWtY/0HEU7duAZQ8
-	BjJGs7M6Sq9dIOII49sQHSaVh+UKsV8i5vWwTzSTORids9p1c5aNIEfeJgQr/mfqjS2pQzMe8uoez
-	ts/dPV3MIydNWHzatxOBMHqGMdDrN5D99jqwzYK3AIG/u+RFMRQee/VapuzEAlMx0HV3O+8mnHKpQ
-	mwHcXocE/getxFndcklDqs7tEfpNtuaI/FSq7o+Szyd8NQ7XIzfqvxPFoR+yb6Jo0tag+CP0Fmps5
-	dijA248A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GMSWRQf3YWHibD8zJhlbUOtkeQuHFh2ujAiPA+sYIkI=; b=YYcn8cgBPXcKcA7xMgSP5p7SO3
+	sTWgXsx6EeGnHn/Vqf0WBR51RnqDGSrOobwjdtJrwjO5w/55zYMPJDTUPX9M1Qqa2iBD+BHGEObkY
+	WuVzFEdiIVREU0Ip3lrSoGMSw/ZuTJMP3y4OOP/n+4DaJgluF6FL331LaXOPVrQddv03naDZOuxpj
+	1+BVtcZhZoC65XL0YSoyCcYjAWD2m/Qqv257dnRQMIizSA1Gye/nLh/1kyk4Ldpl/XUhp8Goe2yLN
+	7NZ1QfPJaRnHN3EiDdFj1nHkq+v7tjDaDqTEbOHkbTfQEfiKD7bQYFjxaEyy0JmV6VcU5HmD0d37p
+	JLQE05oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHVb-0000000DMbJ-3Mbl;
-	Wed, 10 Sep 2025 09:52:59 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uwHYJ-0000000DNbs-23v2;
+	Wed, 10 Sep 2025 09:55:47 +0000
+Received: from mail-centralindiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c408::3] helo=PNZPR01CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHVY-0000000DMXV-1MzJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 09:52:58 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58A9qXJW021684;
-	Wed, 10 Sep 2025 11:52:47 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	3QkxBTDcycrNoF7YyXTaTjPbl0wB31nsfpnHrzz0ubE=; b=NbGfaDhBtMx9jE5r
-	M4Qlhq6aNpgsLBxkpurhGZ/6q63HWqElEzLNky2Ad+NQrz+eI04SHIssMnQUyPz6
-	tfcD0bOvEIeQF/O0LID8zZnW1sLFHE7xwOaXm8aiKYzbtlUvJ3/UHd051dIrk3ob
-	mI/ZWYwZdnMvbNncPVIc2+4PCZ1aZL5VgM8nWX79BkdP3UQmeKP66trLqeUcbfCV
-	BBMWLYl7WcX+OL8HcqFnjm0oxOuCQtZqaf7JS+uy8XzGLLdr7MD6sl9j+fUdtHoy
-	0tqJYcr2D25CA5y4VHeYw7bW3yUjY/IOm3qzlAPQZZe00y4hrH+9xAs1dRk3t0cs
-	lcDOew==
-Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013064.outbound.protection.outlook.com [40.107.159.64])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4934xjgq19-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 10 Sep 2025 11:52:47 +0200 (MEST)
+	id 1uwHYG-0000000DNZ2-41KH;
+	Wed, 10 Sep 2025 09:55:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KSrO/lKFILnVo5CdN00nIICbGQN9ZFt4Y9DddtSwHi+RkAgctBDjz+Gq4M09hh5Ln5mlw6CrRTnmYSoyrDJQYN2/4oSVXyiK4o5H6I2Ck/BVR9qgPuOEGyWZp/3TLbyDVMSGD3rDe3UODLOiHjA+gK+66bfLjQikYJCi+LRe0l2S2AWEifjwsx7Tdn6ihAssU8aeEjCeivWxjaqI2EgGAlfMM44K0KpREXQOy2rU3MpeLJXT25P9e24UfBB/dzM5MqMkXRGACtfr8nwDHPq9Bw/rPc7n6in7ok3D8ldZNameciTCZnMJQ6qt2/lUS4MlFtUauyHTPxj+bl0V1NLv+g==
+ b=cVb/e8Z9Vi8kouUz9rylN3o0pZPoaFI9/YZ7qUK1lyDbri/SfQSr48zAYC/Vv3AKQhE/eAfnC1Ic8b+/t4oRCJpBFhkNUV0GTsRcN+zpdr3/101iYf1epsyba/ngJICGFoFMXIl8gZdSpEmbPa6YyxXXBwMrB+sYKPzci2D44WqLIH/dEd7V5Nq0Y0Et1WWHHaQj7hK9ES11qhicK7+povVZCxBkyFZ9YKc2sbHYXYyt6p1h0W3xDcjVP2sS7HFXlEzy+yyhTwUtq5u9bJ5W8hWEjKkxteQy4EFNiRJSSZP6IytmC0c1yqusQFBh1yGQcJHfDrvrox61RviFyBeBEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3QkxBTDcycrNoF7YyXTaTjPbl0wB31nsfpnHrzz0ubE=;
- b=ytR0BmfAENecZCbG4jknpxIZifvM7d5XlsZxFWaNDjwo+0/ZWQB1L9GmueAQL3L+colUE9RU7H54ghOnXuOFEp+uUboT6oaWA8Vph/AoxZH0WWNIMINiS3WHNEatlvJvTORiLAWqBItRbiSIdbFdT9PX86Yum0+jF78LJgv4tNYplYYP1fltf4XTufFZWbXEqyg7vVNdhZHPuZVkHFlw+cDtvW3i+e8UBOioeMWTWYD0Aj035zS6dW4dR0a4NpfxtPrXyon9cmdOwy3VFPJ14ltAQLUYk/5QVF9ObofvZubVw7uwiC0q51g1Af+DuNvZbNKYlxRIakyqCSYdV8vRnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.44) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=stmicroelectronics.onmicrosoft.com;
- s=selector2-stmicroelectronics-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3QkxBTDcycrNoF7YyXTaTjPbl0wB31nsfpnHrzz0ubE=;
- b=RKRJdcDU8zDmh9+06/5MRrUFedju9+G5x1gyuEpzPRWysfIIYH0D5lVoP+FDB/YJSvL2Z6CcaSNfj0you0UX4xkg+rHsNwk0LmNeOXtJ4A5avxqqKwme1YS2ApcljFBjRTXlGnYWjMOtjgV69pAsTGdZnydMBQ6MssQYeuRnSTw=
-Received: from AS9PR06CA0424.eurprd06.prod.outlook.com (2603:10a6:20b:49e::8)
- by DBAPR10MB4137.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:1c5::15) with
+ bh=GMSWRQf3YWHibD8zJhlbUOtkeQuHFh2ujAiPA+sYIkI=;
+ b=mm/hbbmpF0adaLfXxnSIBViBiTmbYkAu+EZ0LkujIU2WJrTfspfTnnT6SzK4VmhXoiD3ut9WXSCe5xibohPZbX5qkq/Cei9JCxGUjpoKGhx9zOFjYynoBkLguNUGfaDYuZIdCMRK52Uk7b7RSs420ri7bEihc5NXPSDFDSGCWxAacRjde1aZydru3Pwz/eZNbLqLdK8YLfXvFLtbFMG9PgK6R02/6g0GHH2GwDvJKdfGUOCCev1AhPlDQlg7GPKcwlfAXCwHWvESsuuCzBSqaddvFjFnVHs90989TNn/7gNaZ7PeWexGqqUYmTxKZp0Vf3ejIHrAxyqPlPbdgB/IqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
+ header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
+Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:199::7)
+ by MAUP287MB5057.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:1c0::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 10 Sep
- 2025 09:52:41 +0000
-Received: from AM1PEPF000252E0.eurprd07.prod.outlook.com
- (2603:10a6:20b:49e:cafe::9d) by AS9PR06CA0424.outlook.office365.com
- (2603:10a6:20b:49e::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.23 via Frontend Transport; Wed,
- 10 Sep 2025 09:52:41 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.44; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.44) by
- AM1PEPF000252E0.mail.protection.outlook.com (10.167.16.58) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9115.13 via Frontend Transport; Wed, 10 Sep 2025 09:52:41 +0000
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
- (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 10 Sep
- 2025 11:45:32 +0200
-Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 10 Sep
- 2025 11:52:40 +0200
-Message-ID: <96765443-481a-4e4a-86ac-961e50af28a8@foss.st.com>
-Date: Wed, 10 Sep 2025 11:52:53 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/20] bus: firewall: move stm32_firewall header file
- in include folder
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Gabriel
- Fernandez" <gabriel.fernandez@foss.st.com>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Julius Werner <jwerner@chromium.org>, Will Deacon
-	<will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-perf-users@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
- <20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com>
- <9a46c8a8-1d25-410c-9fa2-267eb4040390@foss.st.com>
- <19e664da-df4c-4bc0-84ce-41e4364f10bc@gmail.com>
- <7cfb167a-26df-4abf-a6ec-73813a1a0986@foss.st.com>
- <22a485b9-1b86-41d3-a42c-f813eea94697@gmail.com>
+ 2025 09:55:30 +0000
+Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
+ ([fe80::58ec:81a0:9454:689f]) by PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
+ ([fe80::58ec:81a0:9454:689f%4]) with mapi id 15.20.9094.021; Wed, 10 Sep 2025
+ 09:55:30 +0000
+From: Tarang Raval <tarang.raval@siliconsignals.io>
+To: "laurent.pinchart@ideasonboard.com" <laurent.pinchart@ideasonboard.com>
+CC: Dafna Hirschfeld <dafna@fastmail.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] media: rkisp1: Fix enum_framesizes accepting invalid
+ pixel formats
+Thread-Topic: [PATCH] media: rkisp1: Fix enum_framesizes accepting invalid
+ pixel formats
+Thread-Index: AQHcGM29WMPsfr2GPEm67fUHmC8L7bSMPp6l
+Date: Wed, 10 Sep 2025 09:55:30 +0000
+Message-ID: <PN3P287MB1829144172D3779F960206278B0EA@PN3P287MB1829.INDP287.PROD.OUTLOOK.COM>
+References: <20250829101425.95442-1-tarang.raval@siliconsignals.io>
+In-Reply-To: <20250829101425.95442-1-tarang.raval@siliconsignals.io>
+Accept-Language: en-US
 Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <22a485b9-1b86-41d3-a42c-f813eea94697@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM1PEPF000252E0:EE_|DBAPR10MB4137:EE_
-X-MS-Office365-Filtering-Correlation-Id: b8817310-79d5-4a52-362e-08ddf04fc895
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|30052699003|82310400026|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Zmo1OXh4YlIyYVJKQnRNM1J6akxRUmJTdlNLVzAzV3BOSFlCTXNNTmF0a3V0?=
- =?utf-8?B?RnRSb1NtS0hQS21FQWtlL2JoT0VmUzJ3M1NoK0VkcEhFZnpmbldnSnNoYXZz?=
- =?utf-8?B?TDlYOVdSQjFJdjFQanBkQ2xIRjVhOCtLanh3anYwTWlhNlJsZElxMEErK2ph?=
- =?utf-8?B?bFhVMisxUnpmNGJRUDVXd2QxQnZhc3FnbkpzZE4ycjlHT2RiUGZDT2RFWFRS?=
- =?utf-8?B?ZjIxRkkyZGJFU2trV1VCT0UwZG16eEdJcXYwZ2xFbjNjUzFCSlh5QVM1RFZL?=
- =?utf-8?B?MzRwbVMxYjJKZVdEb3BnUzFWNzFNQnBEeHYxUXdKSHoxTFRUVVRnbHorQ1J6?=
- =?utf-8?B?Z3dhS29sMzhMWGViOFEydW95VU9XblowNGdoQjBmOFhlZVp3RjhqNStuVThp?=
- =?utf-8?B?YjVoOEI5eUIxMFQ4dWZCc296ZUJWNk14NXlDUk5SKytBUGhqSFJCWm4vK3ZN?=
- =?utf-8?B?ZU4zRTBBQmJvSmlhYUlFaU9GQnRpS1BhNmkxTHF0UW4wcTVBcDhxTjFZcXli?=
- =?utf-8?B?R3ZWRXliSTFuYmlhalhsWXBBQWNTeDNKcEUvQkNOemxKRFNyTko3SXVsOUcx?=
- =?utf-8?B?SUc3Q2VjK1MwMGlMRHBQM2FzTTdBVy90MUJDcDIxZXdTZmRJZ0VNek9KSVA2?=
- =?utf-8?B?cUJrcXBDdDdrSmZxVDhPM0ZuYVo1UUtlVTk3TTI1bWNHenB4Q2ZRNTlRaTRo?=
- =?utf-8?B?WUFIRW9rL1ZJcTlXZDdLRFdneVhrYWxlSFptYk9Bb0E5ckdSTmhmWHpvVm9Q?=
- =?utf-8?B?czVZQWhBQVhyU2lUMWxFbnduZHpmMXRyclF1NnB1UVo3UlZXWEgrbkx4Ty90?=
- =?utf-8?B?OWhnOEZhM29kQktBTUJxd1R1d0dqdFptdE50VGNFRnVRNWVuOUlja0wvNjZY?=
- =?utf-8?B?S2taaVdKM01rRHl5OENXMUVLVGwxMVY4VXV6QUkxUU85NFVTR1g2eGdzUXZ0?=
- =?utf-8?B?ei9kOVdVNEZkSXN0ckdCUi9BTXNMWTIySjJ5bnVYclZkNGkvU0I3WmNFc01y?=
- =?utf-8?B?YTVUbU1SZW52bTBVOWVVbGRscW1DQnJZaW1WbHJsZFpBU1BKcWdabkhXb3Zo?=
- =?utf-8?B?aFJpejF0Q25sdEE0Um5DNDhLaGQ5RFdXeEdYdkVNa0JENEdCZ1JrUWRIOWI4?=
- =?utf-8?B?eEtWRE02c3N0UmRDSHJMejl2OFJOVXF0cHp5SWl4WTRlbFRGbjN4WHNIZXd0?=
- =?utf-8?B?bFpGM1BaUXoybk4yaVBBK1hoQ1paUTk4N0h4ZE9ZRGorTVByMUZSakhQUWlF?=
- =?utf-8?B?YjFaOVkyRlF3ajcreER3bmpaTGdGZndpTHZYZG9pRlpFaVQvRlo0ODNCZ24z?=
- =?utf-8?B?TVFXYWZNeVdrU2l4SlpVMWFVNll4Tk92RG81K29lV25ESy9ORGZENzlwNDRC?=
- =?utf-8?B?SzAwVDE5Y2FIUWFNUTF5L2NPdTZKV0s1QTlhb2xhZUd3dVI2YkZDNE5GQzZT?=
- =?utf-8?B?VExCRUx6WkY4T2VCL3h2SERNT05XQVZsazVWSFh3Sm8rMHd3cmpWVXFlMEtU?=
- =?utf-8?B?VEVBMlJaWE4yMklQVFNwdlZSdzVTUFk5ZWkyOGNlYjhEWmJPS0szY09hc01r?=
- =?utf-8?B?emNYSFNTZmxLTzVxOVg4RWVNL3d0dC9IRERBeXc2YXJBTCtHV3VqRnkyZ2I5?=
- =?utf-8?B?YitSdnE1cE9nMWZTRU9nNW5iSnNFM2RDbFN5UHkrU2tsSTVlSThDRUdKbklz?=
- =?utf-8?B?UmVROVBXM01RZ0RUblhrSGpGUW5weXBzYlVpcVU2QkpnWXJLaG05eXRKMER6?=
- =?utf-8?B?K01Da01VRVRqK0x3YVZDNTNDR1IrdjZKWE1wSjJRbSt0YWw5aFFFcGFLYVdm?=
- =?utf-8?B?ZUFwS2F5QXEvZFF5NElhNFZjdFJLMENBYVhhMUcvSEl5OVA1VEhkUmZsMjRF?=
- =?utf-8?B?Vld6V3ZINEl2TzFBRk1oVGNNd2sxK055UkNPR0tobElkLy8zeU4yWVZFNmpy?=
- =?utf-8?B?Q01WU1l2cktkOVVDUzZiQXdWd3dRT0ZISkI4akhqdVU5V0tTUktpUUdqRE83?=
- =?utf-8?B?K2xteWlpUFB4Q0tmRUpZVzZqb2YrYVc2dzk5TWZOSGUwTmx5V25nemdhRDla?=
- =?utf-8?B?dWNxam9UZkhzZEcySTRIUGZJYm1zd2ZreTRUZz09?=
-X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(30052699003)(82310400026)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 09:52:41.3953
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siliconsignals.io;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PN3P287MB1829:EE_|MAUP287MB5057:EE_
+x-ms-office365-filtering-correlation-id: 6c783e9b-c2a8-4045-e113-08ddf0502d29
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700021;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?8iDABL9ZJVQJNtY5yZSC09lLCRvIMSHWx782gScUX1qRmSGqBBjoC3ERw3?=
+ =?iso-8859-1?Q?BSNenRX4IyKu6BoZ/hFgvT9iWiIK+yeASn1AjmaIvdXMCrWMKaNL32IEOf?=
+ =?iso-8859-1?Q?7ssM+mK4Lwyysz0UgZUm8VFyNZNyzNR51fcG5BmpRFPc7KZmBYJGxKhv3w?=
+ =?iso-8859-1?Q?GQS3x8poK1VB1a6npQ7xEQzBwt9G+vL9gx2vjx3z3ixTtTFKLBVbAYvGMN?=
+ =?iso-8859-1?Q?RToNzZSodtMZJGVMt3np8oab3IunSVm+Yc5orgb+6FwhD8VkGRiBeeAtuC?=
+ =?iso-8859-1?Q?cdX0tbzs6LlAGa3pD5w3Elmb7TosS4fLp++iPZc3DSgDZNJ++8y1Rs16Zm?=
+ =?iso-8859-1?Q?aUwEt9Eg31Dk8hV8nKeS9V4TXJ32W/mMTaVUqhcAr3BcGq/SUXqPLgbwmm?=
+ =?iso-8859-1?Q?XJmVDziH/yMz2mPrM72KQELnq4oQHJM4RpmYW7MzBW4NaeI6DmW7CFRUwI?=
+ =?iso-8859-1?Q?ZE+7AdIctUuoM1FFP1owP1i2q2eq15B4HEEPzwGqJRUOocW+T5tPpf6eZV?=
+ =?iso-8859-1?Q?5kpc41n3fwAvq9PTKRtVn/QqHYXDe11Sq5LlUCRQR8KavLazNWiaPMy17L?=
+ =?iso-8859-1?Q?eDmEyKqURD0sEt907B1klb5HrKHlhgJ8rZ9UEPTrgofG0W8wx8g7QyW0/J?=
+ =?iso-8859-1?Q?+G7EaBv3Q61PL4Mn50rOt17+Rik7ZiXwjD76woUYnCYMKuF6CsmcNn7kr8?=
+ =?iso-8859-1?Q?hI1YlFQgSA3dSkPl2WWIPeoT0IzDqbKkdgTZYQ1fc9GOcG8YS98TspY7jW?=
+ =?iso-8859-1?Q?DNeJPtLKL+lCOG+XUYBGOFRoGOClGNZL6icjBbN/kF21F/nuF+OilGKVfJ?=
+ =?iso-8859-1?Q?n2pRTVIrDBv7383Xl3O6x0BLhRZyw/69dn3hUG8NCn3AIdZwywmmrvkici?=
+ =?iso-8859-1?Q?ZIu7hTqLkqg57R7EL3qHwWgG2fH5bMJhMCnumnaJIBo5wt+ilp/kYf3oLG?=
+ =?iso-8859-1?Q?EeD+m4wYUJQfpOIBELVl+q890J/WxI7AY+BsXMYXPdPpJ6+QUEKd8+GHgX?=
+ =?iso-8859-1?Q?L3U80/1UyUur14f/lkVURvl68OFnbyEkjQynDwP4Fo4Xa/mzB84sw1o5ne?=
+ =?iso-8859-1?Q?8htOmhdBCfVYEUSnqCrqYxYn6Aq+2YE8jpuKhUKjaNpPlxbBKdVApr4HnI?=
+ =?iso-8859-1?Q?JMAAui2uR2hvHnXfSqSodC1ne0kszH9tjTJcUT2t+Ez3EHl0h1v8k24mZu?=
+ =?iso-8859-1?Q?ibp4IwushZgIety9j/W5kq0LANpfHfU8pkeNxZv0JNj428X3sQkpwF8Y6K?=
+ =?iso-8859-1?Q?1qrT6yCSp0oW2tlqP9ekA3+mZrKLRTg0IgdAr7q9gJ+d/LXU1vZGtH7+IR?=
+ =?iso-8859-1?Q?iPvRIUJajuNhn8dIERJEhNYvnBlSsdM2UPEsZzhOmEIepfn45aB3GBepJt?=
+ =?iso-8859-1?Q?o2xZ58s/lMUy13kVD2+97sYySGld1dBl8DKFwOTDxoWSPOEUQA11H72SNm?=
+ =?iso-8859-1?Q?QjX8T8yHokkkniV1YNes561B6pIZQ4vR2G/pzQosp7BM3JjEbAfSZUnyqG?=
+ =?iso-8859-1?Q?hPJ2jFhha0/SBDz8lWx463ZY4X2C2bQWGl49p2QGDSmOgf3YGmmQCZMIfv?=
+ =?iso-8859-1?Q?CimbQZ4=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN3P287MB1829.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?Lz43i9oc15Fr8SshQJLJL2sicb/bclMApKpehbOTZWvZfLFGq1CkPblPAJ?=
+ =?iso-8859-1?Q?zbhWRkSYYzFCZ9wq7gjzQA4AHTdqiS8BF5rBLDl6RzxZ7tF2Ln74T0PSkT?=
+ =?iso-8859-1?Q?YwLxhHV5O30YDr9Jg3GH0rUr2YIA3cmE6FtWVROE5RPn2YpzsC+46CwFM2?=
+ =?iso-8859-1?Q?BS2wzMhNNVz8RisoFvFIEgMkJoQGCCWDyTeZxE3tvYnXvZ7qhZGBRj2yi0?=
+ =?iso-8859-1?Q?2dX5VZdovc3tBoQbc9mh1up0u95LPrG+WD1hJTC6rnn8egMkZ1WVvLdaoc?=
+ =?iso-8859-1?Q?LCOkhlL7jSUnYI2dfRV3+0GS9Hn75bn6DGNQCwoRfSJHA3Ko6LpCgiyF3m?=
+ =?iso-8859-1?Q?mFcWLzrcwNXGwP4HD2bpDpYQxsQuoLNs0M843VBsZWvRx8G08IsXrs1lC2?=
+ =?iso-8859-1?Q?idubp+jVGnt5Hv4Cm/OYoHoSbZa31cEqQoeDCu5JjpLZ27pvmk+gyHcV/4?=
+ =?iso-8859-1?Q?3I13WNkQXLB4V6PwubfJZudCOM3edIv/KszJfNFuoB8A9apPGdL1qDhqih?=
+ =?iso-8859-1?Q?9oNLV74peRqB+DfPah1QpDLqcdY5B+UFXHQXhxcKY9V/H5/rbE6hfJqoZg?=
+ =?iso-8859-1?Q?HaxDGfdtRps/L07pZ2c6qNVCy1OTwZRGBNVtS63WlaGGQDCwQwH5LnBx7Q?=
+ =?iso-8859-1?Q?bYRGVe3XuXnhMeukXfMPUBtlT8W65uNBj08hE84aLBQfg8qYvfkRK7o1he?=
+ =?iso-8859-1?Q?j65DkdfcBA70a2Y/4yOdzsuCiYx/N+z1767tmH8OBOyLeaw+WQ2T9RBP2W?=
+ =?iso-8859-1?Q?GooK6ttzA+gQoNvC5zRnU1yiGn587tgK7w6GyrzjOi2w7ewCNEF4Y6JF8L?=
+ =?iso-8859-1?Q?Zmnq17ma/gfbA9/EYdpG3uG6zMxkImaSu422JrWOcK/4qvqfJB8iSejhNl?=
+ =?iso-8859-1?Q?N7LUEFKg6oAHLUlIb0uUy5TcjZcNhlrioFBnpbvOcIak+2jweatYEeOSz0?=
+ =?iso-8859-1?Q?3Bqv/td8MuE4WsciydkCHNbTfwI+waWlBq26U5r4dHxp3ktpNV5k4Q3gkN?=
+ =?iso-8859-1?Q?N6VOfyXuYZDcSZjpu7mW3yY/F3IyGM+qOVP+EnztVVnsOJMzwob2h6kwK8?=
+ =?iso-8859-1?Q?C/xOwlFMdzetQRkihsLUv/wt3GUUich6Pkc7zP2oQ+EL14iO2Cyui28rAH?=
+ =?iso-8859-1?Q?riLZD8UkiN1UFMT6ekx2XGKdRbYzpiBCgBASulzKtRStJmDxs6uLq+1cdP?=
+ =?iso-8859-1?Q?SBhMnT3ZKuIsVi/3e8Cobi1aXhReZyuyiJ2misllMdIXU08R8vaD2+Fi7b?=
+ =?iso-8859-1?Q?bhPEg8ItRvlRhjEpE7EVaayb5XA6OXqSR/ZPOohcHRvmxNUsK+mROAlsZD?=
+ =?iso-8859-1?Q?JLAl4me+9CJdR2qI4wDecmK8D7NFDfgW67/1pO1jkbxuRR/iMF2HgBZgK5?=
+ =?iso-8859-1?Q?naf016HJkuiLol852g1JEGqJI4DCGbdjlOb11hPR4bvrciuuorv3Ys+csm?=
+ =?iso-8859-1?Q?Z1kg9MQNKZ5zh3jVG1oEPNZ5R1zfAyqxHC14Z0yGjOCMYE/acb9jSFfcRR?=
+ =?iso-8859-1?Q?aUHNhIi4BTFPX3MPCmACcA93xTQj+6Z6Y6BTFNKEMsu3tA5odNfGg4tEYm?=
+ =?iso-8859-1?Q?eLLYmT6Dlzqo9q/rKjOn6pppHWytDBZiXHx5In4YxUNqHLhOwo/PbptB+A?=
+ =?iso-8859-1?Q?l2K09Z4cXJCShQT20jZtu7QglEwY6+iscaatkEMl5Cnu8igP3lwWCRWQ?=
+ =?iso-8859-1?Q?=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: siliconsignals.io
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6c783e9b-c2a8-4045-e113-08ddf0502d29
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Sep 2025 09:55:30.2216
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b8817310-79d5-4a52-362e-08ddf04fc895
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252E0.eurprd07.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR10MB4137
-X-Proofpoint-GUID: BpwbNuEBvSuLigD2oDnIRfWHcPtSJ7zl
-X-Authority-Analysis: v=2.4 cv=GuFC+l1C c=1 sm=1 tr=0 ts=68c14a6f cx=c_pps a=JRzJ8T7PdTfL/uBtHARA3w==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=ei1tl_lDKmQA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=FUbXzq8tPBIA:10 a=8b9GpE9nAAAA:8 a=pGLkceISAAAA:8 a=ogtmliehB0OFRgiU3f0A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTEwMDA2NiBTYWx0ZWRfX3RKPElTNdAgV EHnxU2Fsx8Gnp3+Kper0GT84R4Ra1wmbe14847DEe/r9r18ps2NblqSu7QA71KgDpLXOV7sOkWm wk2SyBUNfX8Dffzb65EL+6H2tv9TAhgXuxs1leYqF8RRenULSIj1ue2YxeAmMB183VOEzJyPDtM
- cS8VOL7jr5iEBU7MSTG+UkkJjkkMDtj8tUwIQQqXwQPZjDTw59/krcUTH9kPXEURMXah/SAYpl3 m2B0NETPhDuP1H1qoo11/ruWztwbErYx/wfHgcWec/bbP53z6NP41NZ5zAli69Yh2Ljna2iBwvK 0gDopY7q0WwG9nQrmOqUn5itXDivZo9BzkWXy/96aMsgocXOv7xKYJ3O+e2OdRQKl/KnNuwmtk5 qgIeWKUI
-X-Proofpoint-ORIG-GUID: BpwbNuEBvSuLigD2oDnIRfWHcPtSJ7zl
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-09_03,2025-09-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 spamscore=0 phishscore=0
- clxscore=1015 bulkscore=0 impostorscore=0 suspectscore=0
- priorityscore=1501 adultscore=0 classifier=typeunknown authscore=0 authtc=
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509100066
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oLEi5LW/So7ifHgsDKTXPtoe3Qqu3r+KsJozLqJpNNKuhPZKcoyXuqDuEQFcO3xIhe65PVSF2A+eUUbVTlHSyLBEJCJ+aOkPMKpccEy0OxI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAUP287MB5057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_025256_849138_E6F41D42 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250910_025544_996041_C575B892 
+X-CRM114-Status: UNSURE (   6.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,140 +166,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/10/25 11:43, Clément Le Goffic wrote:
-> On 10/09/2025 10:42, Gatien CHEVALLIER wrote:
->>
->>
->> On 9/10/25 09:47, Clément Le Goffic wrote:
->>> On 09/09/2025 14:25, Gatien CHEVALLIER wrote:
->>>>
->>>>
->>>> On 9/9/25 12:12, Clément Le Goffic wrote:
->>>>> From: Clément Le Goffic <clement.legoffic@foss.st.com>
->>>>>
->>>>> Other driver than rifsc and etzpc can implement firewall ops, such as
->>>>> rcc.
->>>>> In order for them to have access to the ops and type of this 
->>>>> framework,
->>>>> we need to get the `stm32_firewall.h` file in the include/ folder.
->>>>>
->>>>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->>>>> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
->>>>> ---
->>>>>   drivers/bus/stm32_etzpc.c                       | 3 +--
->>>>>   drivers/bus/stm32_firewall.c                    | 3 +--
->>>>>   drivers/bus/stm32_rifsc.c                       | 3 +--
->>>>>   {drivers => include/linux}/bus/stm32_firewall.h | 0
->>>>>   4 files changed, 3 insertions(+), 6 deletions(-)
->>>>>
->>>>> diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
->>>>> index 7fc0f16960be..4918a14e507e 100644
->>>>> --- a/drivers/bus/stm32_etzpc.c
->>>>> +++ b/drivers/bus/stm32_etzpc.c
->>>>> @@ -5,6 +5,7 @@
->>>>>   #include <linux/bitfield.h>
->>>>>   #include <linux/bits.h>
->>>>> +#include <linux/bus/stm32_firewall.h>
->>>>>   #include <linux/device.h>
->>>>>   #include <linux/err.h>
->>>>>   #include <linux/init.h>
->>>>> @@ -16,8 +17,6 @@
->>>>>   #include <linux/platform_device.h>
->>>>>   #include <linux/types.h>
->>>>> -#include "stm32_firewall.h"
->>>>> -
->>>>>   /*
->>>>>    * ETZPC registers
->>>>>    */
->>>>> diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/ 
->>>>> stm32_firewall.c
->>>>> index 2fc9761dadec..ef4988054b44 100644
->>>>> --- a/drivers/bus/stm32_firewall.c
->>>>> +++ b/drivers/bus/stm32_firewall.c
->>>>> @@ -5,6 +5,7 @@
->>>>>   #include <linux/bitfield.h>
->>>>>   #include <linux/bits.h>
->>>>> +#include <linux/bus/stm32_firewall.h>
->>>>>   #include <linux/bus/stm32_firewall_device.h>
->>>>>   #include <linux/device.h>
->>>>>   #include <linux/err.h>
->>>>> @@ -18,8 +19,6 @@
->>>>>   #include <linux/types.h>
->>>>>   #include <linux/slab.h>
->>>>> -#include "stm32_firewall.h"
->>>>> -
->>>>>   /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
->>>>>   #define STM32_FIREWALL_MAX_ARGS (STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
->>>>> diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
->>>>> index 4cf1b60014b7..643ddd0a5f54 100644
->>>>> --- a/drivers/bus/stm32_rifsc.c
->>>>> +++ b/drivers/bus/stm32_rifsc.c
->>>>> @@ -5,6 +5,7 @@
->>>>>   #include <linux/bitfield.h>
->>>>>   #include <linux/bits.h>
->>>>> +#include <linux/bus/stm32_firewall.h>
->>>>>   #include <linux/device.h>
->>>>>   #include <linux/err.h>
->>>>>   #include <linux/init.h>
->>>>> @@ -16,8 +17,6 @@
->>>>>   #include <linux/platform_device.h>
->>>>>   #include <linux/types.h>
->>>>> -#include "stm32_firewall.h"
->>>>> -
->>>>>   /*
->>>>>    * RIFSC offset register
->>>>>    */
->>>>> diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/ 
->>>>> stm32_firewall.h
->>>>> similarity index 100%
->>>>> rename from drivers/bus/stm32_firewall.h
->>>>> rename to include/linux/bus/stm32_firewall.h
->>>>>
->>>
->>> Hi Gatien
->>>
->>>> As the firewall header is moved to a dedicated firewall directory,
->>>
->>> I don't move it to a dedicated firewall directory just to the "bus" 
->>> directory where the "stm32_firewall_device.h" header file is already 
->>> located.
->>>
->>
->> Yes, my bad, I mixed my words there.
->>
->>>> maybe it would be coherent to create the same kind of directory
->>>> for the sources as non-buses drivers use it. I can test it on my
->>>> side if you're willing to make the change.
->>>
->>> Do you mean create an include/linux/bus/firewall/ directory ?
->>>
->>
->> Rather include/linux/firewall/(stm32/). and a drivers/firewall/(stm32/)
->> directory for the firewall files would be great. If that's not too much
->> of a burden.
-> 
-> I thinks that's a bit too much for this one.
-> As you're the firewall maintainer I would need to modify your entry in 
-> the MAINTAINER file (and I just see that your entry is lacking the 
-> header file path).
-> For now I think it is not urgent neither mandatory.
-> Maybe in a next patch series ?
-> Even in the driver bus directory there is no vendor policy so adding a 
-> path like drivers/bus/{stm32/|firewall/}stm32_firewall.c is a bit 
-> overlapping as with the filename we already know it is ST and its firewall.
-> Let me know what you think !
-> 
-> BR,
-> Clément
-> 
-
-Yes, let me handle this afterwards, I don't want to restrain this
-patchset from being accepted.
-
-There would be no /bus/ for the firewall files. and the RIFSC/ETZPC
-drivers would stay where they are ATM.
-
-Gatien
+Hi Laurent,=0A=
+=A0=0A=
+> Reject unsupported pixel formats in rkisp1_enum_framesizes() to=0A=
+> fix v4l2-compliance failure.=0A=
+>=A0=0A=
+> v4l2-compliance test failure:=0A=
+>=A0=0A=
+> fail: ../utils/v4l2-compliance/v4l2-test-formats.cpp(403): Accepted frame=
+size for invalid format=0A=
+> test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: FAIL=0A=
+>=A0=0A=
+> Tested on: Debix i.MX8MP Model A=0A=
+> Kernel version: v6.17-rc3=0A=
+> v4l2-compliance: 1.31.0-5387=0A=
+=0A=
+Could you please consider picking this for v6.18?=0A=
+=0A=
+Best Regards,=0A=
+Tarang=
 
