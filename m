@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA15CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 11:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7B2CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 11:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4tP0kXur0yF+EXfTkAHZLqVKBr2K5CBuM5z8uPs8j1A=; b=Jn8nxmgisZ8S58e4RB+5Ffk1b4
-	7H8/RR+TS8gJ83ZotbVLpC9B5vrOm+jXHRI/JGu+d3BqDlviQcoaCt6vcG/DCqAQjx6AT20ensKNy
-	9sy2BP8RY8C7926Q6Q2A6XKkmMZJJXK7BR/wZguKomdZOWSJnHu6wHCDHMT7kFJxiX3COVSXamfad
-	atV5t38vmM1r6eOrYI1CC02rPx3h69+J+wP7wGCqSd5c+P1X3HlGwQ1yF2wad8UD02I11It9CBiYf
-	eBU/IfXwJW3ZHkz7C19j6LcpADGz16wcbyInrbfikoXl9Xz61gC4hrrRV+p8MO0PF6NppkJoKhNay
-	NmdipktA==;
+	bh=yITzLzNmSRjTSGw3hMzbNR0618ZmnNFyQAoLOpB0zow=; b=rnFG5GFvrGANGGadez6cQI/mHF
+	0BhjtvUVvBCn9TROi1PD5k2LemMyxf3akvScNRT9r8V3brpGRhtd8KeHuPLx3jeTUbQ+oR4187MZb
+	Z3ZUbiLZZzESZopLJQato1aC9M4nsfDskGONMHDbhaHl3DrqsQPN53vLGvUHfbJcW1Z6Fa7KAw3fx
+	ZQqYRETxDPljA8tujpSkftAisZ7Lp+Pd3ouoEDfNqXnpIoNg/rY/ErQZMrmG204u7R0YGXksiCkcB
+	+90+DAFloS0Fq2zPUSTQDdJcPde8MgyzDLjZoOp3H1f3FFP/n9uOGb9awbLcgeOKdxAsNShE00Kbt
+	0u6JHXVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwIe9-0000000DhPG-1A2i;
-	Wed, 10 Sep 2025 11:05:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uwIgm-0000000DiK1-18OJ;
+	Wed, 10 Sep 2025 11:08:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwIe6-0000000DhN9-3ely;
-	Wed, 10 Sep 2025 11:05:52 +0000
+	id 1uwIgj-0000000DiHs-2HBP;
+	Wed, 10 Sep 2025 11:08:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2083C43FA2;
-	Wed, 10 Sep 2025 11:05:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7297FC4CEF0;
-	Wed, 10 Sep 2025 11:05:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 37C4B43E04;
+	Wed, 10 Sep 2025 11:08:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D442C4CEF8;
+	Wed, 10 Sep 2025 11:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757502350;
-	bh=3vKUwDPyxY+sseiR8nmx7Ts9m3y+/etlfgrvBDkuze4=;
+	s=k20201202; t=1757502513;
+	bh=eT+fM0/l96U9E80CByHY3UpL1VMyoPh2jRe5J041drA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GN+OSMORf3Q12T8aH7Eft8BEU//JedXUgIkbxmsGUx58zRf9KX5PvOyrcBi0vbgyw
-	 Pr89t4+LtMmnoiEWrNUrLMhgVSGgEVloMZegmdixkK4NShwrgW4+PVb/kVuW4IcA7l
-	 Xorw2zDPzxGGf0ZCxeJqaNq8a/wY8uggmxrzvuzQzOoCMum5Pi+DFSEh/+SOoIoUgj
-	 D2DeEykRtyj8suBVThYLqmCb79dYgeWkJyexyfE1xYlScYk8WzeWrIvB+bKuAHwKzz
-	 MbBXnbDh5DOJt87aKD2uO4EuAurSyIJ48849AGijGDkHUm/cWOWrIVfdPGHosi0hVp
-	 OyE0tSWrtAZdA==
-Date: Wed, 10 Sep 2025 13:05:47 +0200
+	b=GZg4a9PzOThwfZJWjmmg1do+BJcK6fKqRVNE1sq+YdWBDlnHaURSjrRlxZ7+9DH4N
+	 Db+CuYerpenQhklpoGj+sHRilAxDRpInKvZJFpf3X1NCOLLQCBlcF189fa3pyP4fw4
+	 ufx5Lufwft1vqYQ0u4pu16D0r5dE6FepR8/Y2m7Bl1iWB50ud8cl9nr4fE/W1LSLys
+	 FYy4EKSZ0zBJNrEh6t7tmcyrIUrM+yDEihmZQ6+XVKFqbhMuCNH5+DEntCodxdQULf
+	 ZowH6/I7RWxU+6aGkzICbmkk9ffdQk6E6ckIxF6EdRydu3MVPbheSr9BgPt07IhG8H
+	 9PwdxdvRijCMA==
+Date: Wed, 10 Sep 2025 13:08:30 +0200
 From: Maxime Ripard <mripard@kernel.org>
 To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -60,19 +60,19 @@ Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
 	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
 	Daniel Stone <daniels@collabora.com>
-Subject: Re: [PATCH v4 10/10] drm/display: hdmi-audio: warn if HDMI connector
- doesn't support Audio IF
-Message-ID: <20250910-magic-natural-saluki-4aca9d@houat>
+Subject: Re: [PATCH v4 09/10] drm/connector: verify that HDMI connectors
+ support necessary InfoFrames
+Message-ID: <20250910-courageous-warthog-of-refinement-aced6f@houat>
 References: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
- <20250909-drm-limit-infoframes-v4-10-53fd0a65a4a2@oss.qualcomm.com>
+ <20250909-drm-limit-infoframes-v4-9-53fd0a65a4a2@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="6mjdewn6swmhkqjp"
+	protocol="application/pgp-signature"; boundary="xkhodzl7phtwfggk"
 Content-Disposition: inline
-In-Reply-To: <20250909-drm-limit-infoframes-v4-10-53fd0a65a4a2@oss.qualcomm.com>
+In-Reply-To: <20250909-drm-limit-infoframes-v4-9-53fd0a65a4a2@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_040550_948634_5C126B8C 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20250910_040833_874645_6633E21A 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,75 +88,63 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---6mjdewn6swmhkqjp
+--xkhodzl7phtwfggk
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 10/10] drm/display: hdmi-audio: warn if HDMI connector
- doesn't support Audio IF
+Subject: Re: [PATCH v4 09/10] drm/connector: verify that HDMI connectors
+ support necessary InfoFrames
 MIME-Version: 1.0
 
-On Tue, Sep 09, 2025 at 05:52:08PM +0300, Dmitry Baryshkov wrote:
-> Sending Audio InfoFrames is mandatory for getting audio to work over the
-> HDMI link. Warn if the driver requests HDMI audio support for the HDMI
-> connector, but there is no support for Audio InfoFrames.
+On Tue, Sep 09, 2025 at 05:52:07PM +0300, Dmitry Baryshkov wrote:
+> Check that connector initialized by drmm_connector_hdmi_init() supports
+> AVI InfoFrames and warn if it doesn't support Vendor-Specific
+> InfofRames (HDMI InfoFrames are more or less required).
 >=20
 > Suggested-by: Maxime Ripard <mripard@kernel.org>
 > Acked-by: Daniel Stone <daniels@collabora.com>
 > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 > ---
->  drivers/gpu/drm/display/drm_hdmi_audio_helper.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+>  drivers/gpu/drm/drm_connector.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
 >=20
-> diff --git a/drivers/gpu/drm/display/drm_hdmi_audio_helper.c b/drivers/gp=
-u/drm/display/drm_hdmi_audio_helper.c
-> index 7d78b02c144621de528b40b1425f25e465edd1ae..35e0e79cb683a68af813344aa=
-86c154c3a5531fe 100644
-> --- a/drivers/gpu/drm/display/drm_hdmi_audio_helper.c
-> +++ b/drivers/gpu/drm/display/drm_hdmi_audio_helper.c
-> @@ -10,6 +10,7 @@
-> =20
->  #include <drm/drm_connector.h>
->  #include <drm/drm_device.h>
-> +#include <drm/drm_print.h>
->  #include <drm/display/drm_hdmi_audio_helper.h>
-> =20
->  #include <sound/hdmi-codec.h>
-> @@ -178,6 +179,17 @@ int drm_connector_hdmi_audio_init(struct drm_connect=
-or *connector,
->  	    !funcs->shutdown)
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connec=
+tor.c
+> index 92a75684a0f7375d3a94e8c666cb71064ecc8035..222a0ef66d9fdbdb56108ceeb=
+40e7f369d810350 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> @@ -602,6 +602,13 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+>  	if (!(max_bpc =3D=3D 8 || max_bpc =3D=3D 10 || max_bpc =3D=3D 12))
 >  		return -EINVAL;
 > =20
-> +	if (connector->connector_type =3D=3D DRM_MODE_CONNECTOR_HDMIA ||
-> +	    connector->connector_type =3D=3D DRM_MODE_CONNECTOR_HDMIB) {
-> +		unsigned long supported_infoframes =3D
-> +			connector->hdmi.supported_infoframes;
+> +	/* AVI is required */
+> +	if (!(supported_infoframes & DRM_CONNECTOR_INFOFRAME_AVI))
+> +		return -EINVAL;
 > +
-> +		if (supported_infoframes &&
-> +		    !(supported_infoframes & DRM_CONNECTOR_INFOFRAME_AUDIO))
-> +			drm_warn(connector->dev, "HDMI Audio with no support for Audio InfoFr=
-ames\n");
-> +	}
-> +
+> +	if (!(supported_infoframes & DRM_CONNECTOR_INFOFRAME_VENDOR))
+> +		drm_info(dev, "HDMI connector with no support for Vendor-Specific Info=
+Frame\n");
 > +
 
-That's not what I suggested. What I suggested was that we tould check
-the return code of write_infoframe, and warn if it is set by the
-framework, but returns EOPNOTSUPP.
+Same remark than on patch 10. It's not something we can check at init
+time, and we should check (and document!) that if we expect an infoframe
+to be written but the write_infoframe hook doesn't support it, it's an
+error.
 
 Maxime
 
---6mjdewn6swmhkqjp
+--xkhodzl7phtwfggk
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaMFbiwAKCRAnX84Zoj2+
-dirGAX4uKxTLTYBVNw7Full2UUa5VuWquXM6Yf9V75SJdwVH/LBdZKdEu2L5zcFu
-4A/bxOwBfipkuEzUY5FfJt6YBzOLmgB9EMwhn/Z1a+okQD5MuPEy0LtOtwYYWOvQ
-oQFyrwx8zg==
-=PKSd
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaMFcLgAKCRAnX84Zoj2+
+do1pAXoDY9Dzn6G/ClMn6Qt9h6baw0nSCc1SPEDOnOlKYoD9BSE05V70x5Sqi0rR
+wJwIv2ABgME+k6f+wI13qd1Ah1huLB0li8xpIpRZTte9l8GEmuSdXIv2pGQJKmjF
+/tLAINKY3g==
+=JQzw
 -----END PGP SIGNATURE-----
 
---6mjdewn6swmhkqjp--
+--xkhodzl7phtwfggk--
 
