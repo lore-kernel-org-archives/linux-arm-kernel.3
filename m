@@ -4,76 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E7A5CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7399ACA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vivi74geGDm8fm6sz0ZcrWx3L8lpvsJ6P5k+1K6PnLQ=; b=fAULxQpfzXaTetMUAFLY3sru1p
-	F+xj0XLlZg/75iM7wAkla8ZBTY8uHXDbzx4ALdJ1OD343NW5DVTKanJhb4seItk0sV3L1fPaHRvpl
-	0uim9yNbtzw5r2l2+fjfu+BjvPKCvK9QQVGNLpR2iRG16t06LaiE06QMfDcTgf+SjLDgQDnMbubF3
-	fJpkJElq5cjKAmhtTmJelaxSY4GPpwtboOjbaTi7EUzEbTePo9xF5X62eg5W2Eh6Nu9qeJN0BujRq
-	G8Gp3dyz+hdWIRCyn8FRXo847HFYh6iIHsI0GVvVS1vYhIsJvRthfb50UxsD9TbDZFGzGX958axW0
-	0w9hOfTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3vn6PSgl/mr0sMmi9/Ua5wGgFfCymeEDaAVR/5gAnlM=; b=3WHvEzAAvfK4UBSFSSG/SsuaLS
+	/Y6EkwrqK1QtTQpRhsPrwarymNGXhz0IAuYhz9OM8o+FFxFSwpKbyQ/KzOPWv4A4ehgBKSp0mVsNR
+	k++eHNztqlTv0lJzu+eVaYvMRrKlT42DKJZij+2PdWx7lQmj1vEpfzrefbUhsE/s1jfl+KUUpcspF
+	prNXpUpaUwTwkvnDWryxEd57nZ16zzHhn83Wsm9yXOcBV3W071dNACenO8WixXRp00QXhi+9uur8O
+	5SevrYZ1Pntx1ONIuUHJur0Vads5Y4Kfi3VAGIQIf31G87TWH+BcOm4eCxQBZX/7NRPfa/y/zhxud
+	GRsqlT8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHPm-0000000DK87-3tP7;
-	Wed, 10 Sep 2025 09:46:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uwHQm-0000000DKfi-1gtz;
+	Wed, 10 Sep 2025 09:48:00 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHPl-0000000DK77-3Xca
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 10 Sep 2025 09:46:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Vivi74geGDm8fm6sz0ZcrWx3L8lpvsJ6P5k+1K6PnLQ=; b=Ex8tnBIDU0u4lS69hPHI2r4CBs
-	pBWnhsjK5TFUu6hzCBm2NKtvHuVkMMx1epn1X4vm+5F/NQ2+eQe4KZrk9+IddvKhYRGI6GtrBp7sl
-	DNYQMYq2bHtYPverr7ZFtU9FY8JPYOf+gbJ1+rNS5sjrSPXzqnOfbgpjOssrKBLo3lmGhk/vldwlj
-	vIj44/dC+jUWG1gZVAukLPrchWjSywj9qWyZ5TRtTD09vRONj18+H08du5x4b6k/9qJAs8VUvQ2Qe
-	VPIeB2XYaaV8m2qIXs5y0hL7mqtrMXc/Mks4nG/YKp+6wko9kEAq1md6iLU1jeU6b45MAMrTxdPrt
-	4IMWxtEw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHPi-00000005okP-2ONy
+	id 1uwHQj-0000000DKdB-3cHc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 09:46:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B328D16F8;
-	Wed, 10 Sep 2025 02:46:43 -0700 (PDT)
-Received: from a076716.blr.arm.com (a076716.blr.arm.com [10.164.21.47])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8AE313F63F;
-	Wed, 10 Sep 2025 02:46:46 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ritesh Harjani <ritesh.list@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-doc@vger.kernel.org
-Subject: [PATCH 3/3] arm64/ptdump: Add 'early_ptdump' kernel command line option
-Date: Wed, 10 Sep 2025 15:16:23 +0530
-Message-Id: <20250910094623.2356282-4-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250910094623.2356282-1-anshuman.khandual@arm.com>
-References: <20250910094623.2356282-1-anshuman.khandual@arm.com>
+	Wed, 10 Sep 2025 09:47:59 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-55f6f7edf45so6182407e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 02:47:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757497675; x=1758102475; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3vn6PSgl/mr0sMmi9/Ua5wGgFfCymeEDaAVR/5gAnlM=;
+        b=rfaYCawVTd9pepFUtWLERVT7T+wjIRqiK2LLPk1gpkKFoTGr2WgufnoGkmsHpqajFe
+         JmzmSphrwFvWuXDy6A0RpKM/P3OkTdMAqz5E4fFp5n82xMnCkowA3k7O1VjVqQtenN/M
+         qcNfsOb83SVxlj5FY6yRWiVMEQAOgN73yYAA2D/MU580QN1JFtST/ALW4gqDS4h1DoU1
+         ObWRmnRfqJkc7eWTErvVh48BYsNTv2zsTkucLS+m+GHjkYBStNVfzZcIthWiWqh2hcKe
+         Bh3CKhBRNVYZcWJ/mggybiuWlwCrOPprnzGsivkNnJg7htMmpxSxogjwhumleBdf3hoY
+         pOIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757497675; x=1758102475;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3vn6PSgl/mr0sMmi9/Ua5wGgFfCymeEDaAVR/5gAnlM=;
+        b=lZ95jHX9UsQ0mzwsEFuP440BNPQLrA5fTlUdEx2GQvlPtNj3ZFw4JtwYnNxDvAnf29
+         vYHSEJBY2m9qnPPjQkQX92oD6MaRMs0FMWcJdD3qiwmRXNt/iczjvT8E+/IYFMU6DLpw
+         6A6HUmlyZLXzZm33yQswAa7digOXNXA9nTIAGHOtSSAv93OCJPtONNGKWPq9vfLMNVB9
+         tb7A3XkFWDTzT7sR5aT06zf1Fvo4jtaSUjRcWENYqzEWLRrD5D8ydeXi9dNcKkcplo0f
+         wibJC6fgMG7IlQdJA5eaSscepxdrzQ0Zfit7sY+ryrCoPUeplGf2MH9vPAeIf1H3gx1m
+         4c6Q==
+X-Gm-Message-State: AOJu0Yx6MqoTYuhbSuIyXpIm8DK2AcMXj9lBY1LSVICI/RA6MgZzUYwr
+	oPQwWB9JP+y5ZHhmklb4oanJa8MDmZmrnNHju6A05UhUb5uU2sdm/4l8Kx0hXVuQDCU=
+X-Gm-Gg: ASbGncsLm57dEIE7hWtTP89vU5/XrDFrqUerSIfhOqjFJ1qzbThSMvUsPxYGtJ8c1WX
+	sQfwkRzM0MhA/wEnemHgEE8DP7K7ej6L7BYhGYd3Uc1rDkQmqN6109zypuNDuiz2vwGDyaRsNp2
+	C8u6zYZlkKohbyKIAmXhRUcck1tv68gUWNCjFRgstAYpgeoUi7PNlzmut7gvx8AbKTkL+POKwmz
+	ou/1hIhEbCoLPnQ2uq1zLQE+prExEm6eoKiZfkTWiPhgxpGYlfWUoUipu7t1KnQl2fzFJPo/wcn
+	nF/w/nYUPAH7o17jyU0IocMO+oO5sGKI8cI7YS+ETOslf04v7bv8RcyrtX9CG3HtckqrRZKxVj0
+	CISdsHNkahV0yqGKZaYWLXPhm56Rl5GDc
+X-Google-Smtp-Source: AGHT+IFtsFoIkWeV0W6TKqeUon3LMVDpZHDcWlfb3zT8ScMuOJij+KRvziNm4yRPVu1pxeCaBRtljQ==
+X-Received: by 2002:a05:6512:3d07:b0:55f:4bf6:efed with SMTP id 2adb3069b0e04-562603a10famr4438159e87.1.1757497675329;
+        Wed, 10 Sep 2025 02:47:55 -0700 (PDT)
+Received: from [192.168.1.140] ([85.235.12.238])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5680c424fa5sm1139655e87.25.2025.09.10.02.47.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Sep 2025 02:47:55 -0700 (PDT)
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 10 Sep 2025 11:47:52 +0200
+Subject: [PATCH] RFC: ARM: drop support for HIGHPTE
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250910-arm-remove-high-pte-v1-1-d0899882815f@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAEdJwWgC/x3MOwqAMBBF0a3I1A5ExYBuRSyiPpMp/DAREYJ7N
+ 1ie4t5EESqI1BeJFLdEOfaMqixoDm73YFmyqTZ1a7rKsNONFdtxg4P4wOcFtnBLN1tMTWMpl6d
+ ilee/DuP7fg5UmHtlAAAA
+X-Change-ID: 20250910-arm-remove-high-pte-6ead9c6eb336
+To: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Russell King <rmk+kernel@armlinux.org.uk>, 
+ Matthew Wilcox <willy@infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Linus Walleij <linus.walleij@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_104654_985678_5AA56CDE 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20250910_024757_931989_4D66AD46 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,96 +101,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable kernel pgtable dump during boot via a new kernel command line option
-'early_ptdump'. This calls ptdump_walk() during boot right after ptdump has
-been initialized with ptdump_init().
+Matthew Wilcox suggests HIGHPTE is a burden for the
+kernel MM, and only one ARM system (vt8500) is currently
+using it.
 
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+This deletes the use of HIGHPTE in ARM32 clearing the way
+to remove the feature altogether.
+
+It was introduced in commit 65cec8e3db60 "ARM: implement highpte"
+in 2009, so this RFC is intended as a discussion item to
+check if it is still a desired feature 16 years later
+or if we can get rid of it.
+
+To: Russell King <rmk+kernel@armlinux.org.uk>
+To: Matthew Wilcox <willy@infradead.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Link: https://lore.kernel.org/linux-arm-kernel/aMDYdp3H-yOHU1Pm@casper.infradead.org/
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- Documentation/admin-guide/kernel-parameters.txt |  4 ++++
- arch/arm64/include/asm/ptdump.h                 |  2 ++
- arch/arm64/kernel/setup.c                       |  1 +
- arch/arm64/mm/ptdump.c                          | 16 ++++++++++++++++
- 4 files changed, 23 insertions(+)
+ arch/arm/Kconfig                        | 11 -----------
+ arch/arm/configs/vt8500_v6_v7_defconfig |  1 -
+ arch/arm/include/asm/pgalloc.h          |  8 +-------
+ 3 files changed, 1 insertion(+), 19 deletions(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 747a55abf494..f8e916750e2e 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -1295,6 +1295,10 @@
- 			Enable debug messages in early_ioremap support. This
- 			is useful for tracking down temporary early mappings
- 			which are not unmapped.
-+	early_ptdump[=on]
-+			Enable kernel page table dump during boot in current
-+			ptdump format. This helps analyze early boot mapping
-+			kernel regions.
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index b1f3df39ed4068f215a3460d5c4e021136438eaa..5545583946a2433f86a5ba2d6ade34f5e931ae74 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -1229,17 +1229,6 @@ config HIGHMEM
  
- 	earlycon=	[KNL,EARLY] Output early console device and options.
+ 	  If unsure, say n.
  
-diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-index 27e774134e7f..ed30d25ca9de 100644
---- a/arch/arm64/include/asm/ptdump.h
-+++ b/arch/arm64/include/asm/ptdump.h
-@@ -74,8 +74,10 @@ void __init ptdump_debugfs_register(struct ptdump_info *info, const char *name);
- static inline void ptdump_debugfs_register(struct ptdump_info *info,
- 					   const char *name) { }
- #endif /* CONFIG_PTDUMP_DEBUGFS */
-+void __init arm64_kernel_pgtable_dump(void);
- #else
- static inline void __init ptdump_init(void) { }
-+static inline void __init arm64_kernel_pgtable_dump(void) { }
- static inline void note_page(struct ptdump_state *pt_st, unsigned long addr,
- 			     int level, pteval_t val) { }
- static inline void note_page_pte(struct ptdump_state *st, unsigned long addr, pte_t pte) { }
-diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-index 0a3812c8e177..86bf7607d304 100644
---- a/arch/arm64/kernel/setup.c
-+++ b/arch/arm64/kernel/setup.c
-@@ -361,6 +361,7 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
- 	init_bootcpu_ops();
- 	smp_init_cpus();
- 	smp_build_mpidr_hash();
-+	arm64_kernel_pgtable_dump();
- 
- #ifdef CONFIG_ARM64_SW_TTBR0_PAN
- 	/*
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index c78e6b496dea..1624be5160e4 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -407,6 +407,22 @@ void __init ptdump_init(void)
- 	ptdump_initialize();
+-config HIGHPTE
+-	bool "Allocate 2nd-level pagetables from highmem" if EXPERT
+-	depends on HIGHMEM
+-	default y
+-	help
+-	  The VM uses one page of physical memory for each page table.
+-	  For systems with a lot of processes, this can use a lot of
+-	  precious low memory, eventually leading to low memory being
+-	  consumed by page tables.  Setting this option will allow
+-	  user-space 2nd level page tables to reside in high memory.
+-
+ config ARM_PAN
+ 	bool "Enable privileged no-access"
+ 	depends on MMU
+diff --git a/arch/arm/configs/vt8500_v6_v7_defconfig b/arch/arm/configs/vt8500_v6_v7_defconfig
+index 41607a84abc85adfc9d8d2d520354576e1e274d2..a91e6547378136b3e1264aaddcac7d6ddb66987d 100644
+--- a/arch/arm/configs/vt8500_v6_v7_defconfig
++++ b/arch/arm/configs/vt8500_v6_v7_defconfig
+@@ -10,7 +10,6 @@ CONFIG_ARM_ERRATA_775420=y
+ CONFIG_HAVE_ARM_ARCH_TIMER=y
+ CONFIG_AEABI=y
+ CONFIG_HIGHMEM=y
+-CONFIG_HIGHPTE=y
+ CONFIG_ARM_APPENDED_DTB=y
+ CONFIG_ARM_ATAG_DTB_COMPAT=y
+ CONFIG_VFP=y
+diff --git a/arch/arm/include/asm/pgalloc.h b/arch/arm/include/asm/pgalloc.h
+index a17f01235c29c0dc619c0929aa761df861a5dd2d..ef6cb3e6d179e63c7edbcaf69e6b21847b354a0f 100644
+--- a/arch/arm/include/asm/pgalloc.h
++++ b/arch/arm/include/asm/pgalloc.h
+@@ -85,18 +85,12 @@ pte_alloc_one_kernel(struct mm_struct *mm)
+ 	return pte;
  }
  
-+static bool early_ptdump __initdata;
-+
-+static int __init parse_early_ptdump(char *arg)
-+{
-+	if (strcmp(arg, "on") == 0)
-+		early_ptdump = true;
-+	return 0;
-+}
-+early_param("early_ptdump", parse_early_ptdump);
-+
-+void __init arm64_kernel_pgtable_dump(void)
-+{
-+	if (early_ptdump)
-+		ptdump_walk(CONSOLE, &kernel_ptdump_info);
-+}
-+
- static int __init ptdump_debugfs_init(void)
+-#ifdef CONFIG_HIGHPTE
+-#define PGTABLE_HIGHMEM __GFP_HIGHMEM
+-#else
+-#define PGTABLE_HIGHMEM 0
+-#endif
+-
+ static inline pgtable_t
+ pte_alloc_one(struct mm_struct *mm)
  {
- 	ptdump_debugfs_register(&kernel_ptdump_info, "kernel_page_tables");
+ 	struct page *pte;
+ 
+-	pte = __pte_alloc_one(mm, GFP_PGTABLE_USER | PGTABLE_HIGHMEM);
++	pte = __pte_alloc_one(mm, GFP_PGTABLE_USER);
+ 	if (!pte)
+ 		return NULL;
+ 	if (!PageHighMem(pte))
+
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250910-arm-remove-high-pte-6ead9c6eb336
+
+Best regards,
 -- 
-2.25.1
+Linus Walleij <linus.walleij@linaro.org>
 
 
