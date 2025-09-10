@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF763CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B42CCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:14:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ltg8cFYbJHRlJhkC/eDYTc0LHBKn0iBfadbpYee4nfY=; b=hL3TUPoViyZE53R5lfhNJaDZlu
-	JTkgiDDA1lBod1hIpnyj1DeIlS8hJPVwfdEvxRqDBU/sFR4O0ZdzBcrISunm7P80949SEoa0Dw3Q3
-	CnkLU6KpfyACVjWoDHDofTkrtmAF4X41nBtvWPKX9kviv2owB7uk57ReNuuYbMqk/XSse94OGcQah
-	/FXY33NM2RY5rXi9NETJu1x0rUj87rAA/E+JN8HBfM8PboKGH1JaOIh3Nwz2bN7o5/feTtSeloDJ5
-	pZajCkJeHos1OhwLJe2O3kn311FPl1PRoPAEJRraQM+qL9KPGIuU527GFv18hydtCoMMhWN+W4Pbs
-	9K1210YA==;
+	bh=PgdrM4aJRYrczpVTjbdMrpsxOv5ioO0+n1bSkbQmCXA=; b=P3kl/aAKd2xCxGKEWcQJJCQ6qq
+	7z+fVdO1BQKl+1np5LtjH0TwE+PEa4T0QTpOX65g8NFq/S0UK/E9T7tE05qUXahH39MdtCt0Qye56
+	i6Pxbjr8+LE8KtimpKSEJ9rg3S2yEHHLx6deRTRL7/PkZVPHUcKI74mmcNoU1W/67/ApXu24+b/xH
+	TgdL613AuF4Yony1YxHhEHXM0C8Yy0Y1ARbl0Og00tJqfOji65kk5lj/VtJCin+3hQLk8mW7xPeDj
+	0/r/c2BRqZfjmtk3NpXdGGDtJl3DNrLDmaC6KBvRkl/9KBIcfgR4zR7wDl2RzxnOjiRxd44vDXvnD
+	CqGbr1MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwF1m-0000000CSl7-40js;
-	Wed, 10 Sep 2025 07:14:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uwF1w-0000000CT5S-1L0Q;
+	Wed, 10 Sep 2025 07:14:12 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwF1C-0000000CRsn-3IVe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 10 Sep 2025 07:13:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ltg8cFYbJHRlJhkC/eDYTc0LHBKn0iBfadbpYee4nfY=; b=A+NJqJo1Plg0+0BzvVlr0h3to8
-	olgi1wuDHp6HXMjRKgjbneIjtFRiRMo/KnTUt9GoObPttEWbTY9NBboaRGaWyE0DuVjiRR/tXrG6Y
-	tcTMjO5Yh6S4COm4/AfH0Oi0VxmUjtn1Vo4RnxAhmZNe1pu811xAoDh8fxcvJonUawfFvMvrGMqhL
-	jGEYJ15vKjvdjcuAXikY8zNApkJ4ycDCw+PqGrw+JE1f9ITf1Gze0ijLoPzwsq+hVB8YTyglqDrlg
-	uUPdADMFQtl/QZ2DtcDb6Dxe671MbyeBJccc9CS+Qslv8QKDIExZUXzQX+YJXuS0WCxjCb75EHKr0
-	yFI5N15g==;
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwF18-00000005kJR-1Dav
+	id 1uwF1B-0000000CRr6-3Xrw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 07:13:24 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3e2055ce973so3469745f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 00:13:21 -0700 (PDT)
+	Wed, 10 Sep 2025 07:13:32 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45dec026c78so20364235e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 00:13:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757488400; x=1758093200; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757488404; x=1758093204; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ltg8cFYbJHRlJhkC/eDYTc0LHBKn0iBfadbpYee4nfY=;
-        b=z0BOfxiUkE2nE6UdnZCr3Gq0m3OZmWRtO9+pDQtLeavo5Xq5X1WKuLtniJHbM1KO/D
-         SfREV39bUj6EuTlLFww+PCnLSMJ1jqTLec7g/BLg1XNBrrVb4LkI0z+UwJ8TC6UelYfZ
-         e/zI99soEEC6otzn/E3aAvgMXOA7+jVI8+tOo/csk0ylI6h0R3ewm/vQChrEAb2SXO6z
-         0030O6800uwgHScYhQTLTrDmxIIDtg2ChlPf3EzA8uvudkbs9CwJARAii5p7iCUw+Fco
-         5T7lQJvKgJg9Frb3EmUZr5yFppxA9EwE4WgQX+uRtrp/aul0G8aiye0/PvRlX3nEjhUa
-         ncyA==
+        bh=PgdrM4aJRYrczpVTjbdMrpsxOv5ioO0+n1bSkbQmCXA=;
+        b=e7DPFCBUt6fcQvNjwagnUiAKcVE/Kbfg8WZ3J5XIzl7lRO4wMeX9+n9AyU2PtqBr/4
+         NAVLSgpdF7/N/BlpTxlanLAune/VJDVbwUGbZW8k2GRTfJvJec1X0+CEiChsjF35044J
+         rZIebb0xLwmIcxJ+Po3tJBbGvRRZ1PaUZrPvmsMyseW9FIWKZ/su83lM/LZt3u3UwruN
+         FUCXT2aVckdg7XrkGn4+5X0uYDGh84WGxTuaX0vlZT4l3MVJ7pdBZvB2Weh6RcYgwU6D
+         3rPgREoMtgFCt0GGCJUI4KTugePDV8FHYL/NpQISk+F1tW4mtRDfde/TZsNhvxrm05e3
+         ZEBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757488400; x=1758093200;
+        d=1e100.net; s=20230601; t=1757488404; x=1758093204;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ltg8cFYbJHRlJhkC/eDYTc0LHBKn0iBfadbpYee4nfY=;
-        b=d2nfDRT3MX07VMeEUQ3ec/HOnHoy0InLdF7pEATF2kyzeoiPTxrm8hI1bGKiaZQ1Ic
-         uxumPfseeehLGFu43rg/2jowRRsXyqiMxUzV+N879ExwiX28WODqd1u/O/RJ+svF4Pa4
-         dgHh1cnQgwNiJMVY4UpfdE32mPMvKrjCLZlmy8H/ATeAohEXa3HBe6dROcKxC4VzDZ7I
-         7Q2Zd9Zanid9K5lFGDpd05siQ1ZY6ua+7NHTWhgqOHXe3O8qE/fifXUrUisxeKMoJEwm
-         v8/o+8G8fGRyAiXZD+aPWg9p7mWBldhEIG0KCqFVueRCrsv3DjvFQ8HO9U5NovAYZ3WX
-         Z7gQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWD4Xm8KAN9pvPetmaLPECq6AJ3H/ljBSg6qfH7Tc0UYMDafmkqpl6uSAxDvVmgiXMwIwGdJ71ZXS4PdFtHQtZ/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWS2W16IHvARLX+7XpluNEb0fDQvTTW72xaJciKxJjwUlptuwi
-	9ehaDY9Z1xoOvFjNDP9Ek0cyRWfU5/WO00VoXKgeYspDhmp8KfJ83eEkYqwLphGtPBY=
-X-Gm-Gg: ASbGncvAwA04weOQ1HGwKQW/FPlAE9PquwVLzzjDkqZcunN9EUXMtdSyVTqpzcFa9kC
-	N4geRW0+TZdM8PuaH7HU2YMoAr3AYQjFgTHJ/Lek21hxQ5OjLq790jwteDr44sDmgr5vZpM6wjm
-	8xNGr/airZV/y0i6phG4tCDVKcmmKyK75NPlpaQftiyJsym5EhCQsfrJheBWyvjV6uqf+n8sRfK
-	CWtLqUj/cfvzs1p9wX6bQyPtJ9nTz0xQHFOkQCjgDBj/fVFGkRpI2pUffp9cBGuGvN2R1SPo9gf
-	chG+4OffogA4Fji9ZiYEWBd6k++81GLbdpXw+5B1VeDgiqEri0mQQoj+szNXldNo6aF3e9tUe8T
-	WH5b1aNpbPOJkrExX5NvBPhIiylo=
-X-Google-Smtp-Source: AGHT+IHpXLfO1ittXeyoewlb0wbUWJJJJnWemocWkzf48CPBUxjPhZlMWV3u+kku9wzJ4x9qVOMXsQ==
-X-Received: by 2002:a05:6000:2912:b0:3e3:f332:7414 with SMTP id ffacd0b85a97d-3e6440f05b0mr10423515f8f.58.1757488399749;
-        Wed, 10 Sep 2025 00:13:19 -0700 (PDT)
+        bh=PgdrM4aJRYrczpVTjbdMrpsxOv5ioO0+n1bSkbQmCXA=;
+        b=q+DX4lIR4ZNh+W+TbClja+/VQdrj/cANmhQMRSqYALn0mvGGuG/8/eKkZi+j8uAITX
+         xKx/AUnQBBLz/el1gcITwgcIoulPP126iLAWjRcqA60Q/xkJvmNHj4RjcOMUKeeHyUcD
+         5y+JdpSXosmh+0JaAdunb79XZEiPxscsZGPi8KqY6iwjxtm9dzcmeesGKKriDPduCbq+
+         +SwHSCaFOCeRGT0McW/TcLgU5FRfutOxaLfqxofy/gFXekiS10jJzm25p9+VLJ8mVANF
+         dk2/eoIC8kDw7CmhycgEC+9EODM76hZbo3ISSz+UA0OFAdRAXACv7imLWHbDlG8RAWZU
+         HDew==
+X-Forwarded-Encrypted: i=1; AJvYcCWaMpMm5Scv5XokOgbwGgprnvOTurCDpHq8HiFX4zn3qq2ISLyRVMaeutO75uOILx6BWqMhuXZkTL/33paL6REf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgUv4AuTKvuE6c4t8ILQwKZTCKsZni1WOvK1VmUtJjxAYLxM4a
+	+5tZRdp8i6PBOtKce1D7QoyFmVPaFCarOrgiiizWsoYfAF2WN6wntRgGtNbkWqwv0cQ=
+X-Gm-Gg: ASbGnct1D3EO6qo5xEWOESqAuSKtKjQGcqRGCnfWJAtsf0wvGYFvPqNlvxuUn9FaXMB
+	UdkD3GsDKNH4lfuMO3pPGH8qGt6caeI8mcRNhYVHgtVmgsNBigStbe5+kVFculpsHyVzneIrqWd
+	wYACLZDRtUIi7w/N3oQSF+AcT9k4r95bu5i8wkQtevdNUAAOBlt3cnlw8LPVeb/d+qV1qfUCx50
+	VdRdodUdLq7Q+2VzGkNWZKIBBIA+5C+OpvvKSO6rKeJZ+qc4b4Capb2jfAVYBU25mkyqg5/VWx8
+	Nk3viLov/BabigNVWex4A+qIrmxa5sq22pPjTdhEl+rJ2gu8YswRWF9L1NOCmU22uI0EaXEqSls
+	H/5PIgMyt5GPddmVzJ53ZFh0WvFgXESa3HKkxkw==
+X-Google-Smtp-Source: AGHT+IH52c0NDjTg92BlFI1StBbf2SlfXbs3hSBtxvJaf6s0LfTwWHF4zDme3188iCv7fISkb9TvkA==
+X-Received: by 2002:a05:600c:548a:b0:458:bfb1:1fb6 with SMTP id 5b1f17b1804b1-45ddde6a471mr110866285e9.2.1757488403590;
+        Wed, 10 Sep 2025 00:13:23 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:3936:709a:82c4:3e38])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df81d20d2sm16357035e9.8.2025.09.10.00.13.17
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df81d20d2sm16357035e9.8.2025.09.10.00.13.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 00:13:17 -0700 (PDT)
+        Wed, 10 Sep 2025 00:13:22 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 10 Sep 2025 09:12:48 +0200
-Subject: [PATCH v2 12/15] gpio: spacemit-k1: use new generic GPIO chip API
+Date: Wed, 10 Sep 2025 09:12:50 +0200
+Subject: [PATCH v2 14/15] gpio: mmio: use new generic GPIO chip API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250910-gpio-mmio-gpio-conv-part4-v2-12-f3d1a4c57124@linaro.org>
+Message-Id: <20250910-gpio-mmio-gpio-conv-part4-v2-14-f3d1a4c57124@linaro.org>
 References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
 In-Reply-To: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -110,26 +95,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  spacemit@lists.linux.dev, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3464;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2870;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=7HljN5YhPsu8emlMa5P74agbwl9gGUa+HLvxmV4i1uQ=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBowSTvGObIqzCZRhNIWnvmsGIXqUuwrXRy1NLnq
- x9/w4JZh+GJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaMEk7wAKCRARpy6gFHHX
- cmEKD/0Sb0BUjgIMEsCZyVuxoagIRtAeniWoPwPxhUft/dqMT3ZJvidAdyX3l9nSsFcHyE/DaM2
- f2D8tR0Gjv62Sy/ELwhCFO6/+SRfz0pSHms21Jh2fyujS5hrPZp/zhyeNj74YxzJLOsXKjRq4sb
- xjcbJKyExsFwlts9hFC5suLEpGDm878AvzMubLbwx3FMKpXQW5cPV6zUgIXj5n+u+Gztyj3sIdc
- zhP0OBL22izM5RLAHirBeShtjXJxMh9tDz3dOcVEy1Il+s+9s2yChjuStp7cVXCkaoUgnAjs1id
- 4NUQJBbK4WjAXtrxwJiqvbHDp23AdWcCw+Ebr6S6TV6iNEwqKSlYndYj15LZdgYnY1rOARrsIML
- ib2ac92qQBa7FI+BA+4jJ4EENCATWB1AsNCrNf1EjEKPIZrfBWCaLXCeIEWEMSYUPfKZf4Zy+/n
- oq15989/GwlzA9bb0bH6s7xStvFJKDv8dHMJohlyIu4XYoZU6RCJwvILAzdiH1010OOsOHqR5ka
- hongG1UtzTdmiNm7gdqkGfxG4uzqal9yKQ1xDFcNyhY2jTUWYYNyjpnL4crYiLmhIECZ+miVMFi
- KRzvytADA+lCkRldOPrfOcaV2fOJkLfDzs0J7aO+ZdXnbBtFZQwgC5lEARZMMG+pAAT9hlTFefp
- oEpxcj8b5NUhK9g==
+ bh=jTYzXHXb5czFalzYciLNM7kw2y7Wfknx1rBEQWD7H2o=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBowSTvYeCo2U5//1kw2eyb8GaFucYbACnhM1h1b
+ j06xC/+zTqJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaMEk7wAKCRARpy6gFHHX
+ cjZVD/9AFqlvniqbT8HvF7F7bzr3GPnqTQ0kCgmRscqp7Q9nkhIRz798jAllvC7arbNGc6Bd/RR
+ C64IshK/9T6PmCTb+thHDxg39m28kKBoWH+p2PNkHLz4ekmmyLblZKGwCzUYg2qMavLi1t7OOgr
+ 3QuG/P4WFoXwe9ty7Z44O2ZITUKFWF+aq45RponrykKQtLfyg+257GPvlx+qj5oTiXV5jxsaEbM
+ 0Lptqy1v/MepVKY7QL9OW5xP4U2OnpLLHcIaxF7bN9z28L4JcII4h3oJn6B3NDss+cLn3uVNSX2
+ 4vCnNMIiibPIFdgzJvDuIU0HP4Rgvge9/sJZdobf/KwcIf1ZlrnqH7trBjzQ+v8tXlMhY44M8mE
+ mSYlYN77g00pU1hZMXt2ptHkrBwtY+oknQfieQe31B9bzQT4nLf/yW7hohCkD8oR1YcVIPEoHGX
+ 4zh+hMw/Z9e6srBa1u0J0TMB7l6igulBC6BiOqd1qoxvJzxS1KvcYCKGv0bnjbEDiu94Ad+KF4F
+ JUSl6rEBXpdR4lLTQ8P0T8cgh+b+v0l9cz6IpL2gRujbwWSF8wWko1Oe+l8Ob9qw673A1dV2UTI
+ ELiQzt6TSguDmVitgU2Yu2NxFJAoOQfbuBnYqdqbb7DaNGlNAxUxeZNc8EpHHrdQNm5PMxraSAM
+ iP+AJ2/RibBc5cg==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_081322_622799_B450C2A3 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20250910_001326_054529_74A1953B 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,101 +134,93 @@ From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Convert the driver to using the new generic GPIO chip interfaces from
 linux/gpio/generic.h.
 
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/gpio/gpio-spacemit-k1.c | 28 ++++++++++++++++++++--------
- 1 file changed, 20 insertions(+), 8 deletions(-)
+ drivers/gpio/gpio-mmio.c | 29 +++++++++++++++++++++--------
+ 1 file changed, 21 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpio/gpio-spacemit-k1.c b/drivers/gpio/gpio-spacemit-k1.c
-index 3cc75c701ec40194e602b80d3f96f23204ce3b4d..a0af23f732819be9329af1cb62887dc6eb100ac9 100644
---- a/drivers/gpio/gpio-spacemit-k1.c
-+++ b/drivers/gpio/gpio-spacemit-k1.c
-@@ -6,6 +6,7 @@
+diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
+index 79e1be149c94842cb6fa6b657343b11e78701220..b4f0ab0daaeb11bd88723f8b1c15bd09225f1d97 100644
+--- a/drivers/gpio/gpio-mmio.c
++++ b/drivers/gpio/gpio-mmio.c
+@@ -57,6 +57,7 @@ o        `                     ~~~~\___/~~~~    ` controller in FPGA is ,.`
+ #include <linux/types.h>
  
- #include <linux/clk.h>
  #include <linux/gpio/driver.h>
 +#include <linux/gpio/generic.h>
- #include <linux/init.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
-@@ -38,7 +39,7 @@
- struct spacemit_gpio;
  
- struct spacemit_gpio_bank {
--	struct gpio_chip gc;
-+	struct gpio_generic_chip chip;
- 	struct spacemit_gpio *sg;
- 	void __iomem *base;
- 	u32 irq_mask;
-@@ -72,7 +73,7 @@ static irqreturn_t spacemit_gpio_irq_handler(int irq, void *dev_id)
- 		return IRQ_NONE;
+ #include "gpiolib.h"
  
- 	for_each_set_bit(n, &pending, BITS_PER_LONG)
--		handle_nested_irq(irq_find_mapping(gb->gc.irq.domain, n));
-+		handle_nested_irq(irq_find_mapping(gb->chip.gc.irq.domain, n));
+@@ -737,6 +738,8 @@ MODULE_DEVICE_TABLE(of, bgpio_of_match);
  
- 	return IRQ_HANDLED;
- }
-@@ -143,7 +144,7 @@ static void spacemit_gpio_irq_print_chip(struct irq_data *data, struct seq_file
+ static int bgpio_pdev_probe(struct platform_device *pdev)
  {
- 	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(data);
- 
--	seq_printf(p, "%s-%d", dev_name(gb->gc.parent), spacemit_gpio_bank_index(gb));
-+	seq_printf(p, "%s-%d", dev_name(gb->chip.gc.parent), spacemit_gpio_bank_index(gb));
- }
- 
- static struct irq_chip spacemit_gpio_chip = {
-@@ -165,7 +166,7 @@ static bool spacemit_of_node_instance_match(struct gpio_chip *gc, unsigned int i
- 	if (i >= SPACEMIT_NR_BANKS)
- 		return false;
- 
--	return (gc == &sg->sgb[i].gc);
-+	return (gc == &sg->sgb[i].chip.gc);
- }
- 
- static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
-@@ -173,7 +174,8 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
- 				  int index, int irq)
- {
- 	struct spacemit_gpio_bank *gb = &sg->sgb[index];
--	struct gpio_chip *gc = &gb->gc;
 +	struct gpio_generic_chip_config config;
-+	struct gpio_chip *gc = &gb->chip.gc;
- 	struct device *dev = sg->dev;
- 	struct gpio_irq_chip *girq;
- 	void __iomem *dat, *set, *clr, *dirin, *dirout;
-@@ -187,9 +189,19 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
- 	dirin	= gb->base + SPACEMIT_GCDR;
- 	dirout	= gb->base + SPACEMIT_GSDR;
++	struct gpio_generic_chip *gen_gc;
+ 	struct device *dev = &pdev->dev;
+ 	struct resource *r;
+ 	void __iomem *dat;
+@@ -748,7 +751,6 @@ static int bgpio_pdev_probe(struct platform_device *pdev)
+ 	unsigned long flags = 0;
+ 	unsigned int base;
+ 	int err;
+-	struct gpio_chip *gc;
+ 	const char *label;
  
+ 	r = platform_get_resource_byname(pdev, IORESOURCE_MEM, "dat");
+@@ -777,8 +779,8 @@ static int bgpio_pdev_probe(struct platform_device *pdev)
+ 	if (IS_ERR(dirin))
+ 		return PTR_ERR(dirin);
+ 
+-	gc = devm_kzalloc(&pdev->dev, sizeof(*gc), GFP_KERNEL);
+-	if (!gc)
++	gen_gc = devm_kzalloc(&pdev->dev, sizeof(*gen_gc), GFP_KERNEL);
++	if (!gen_gc)
+ 		return -ENOMEM;
+ 
+ 	if (device_is_big_endian(dev))
+@@ -787,13 +789,24 @@ static int bgpio_pdev_probe(struct platform_device *pdev)
+ 	if (device_property_read_bool(dev, "no-output"))
+ 		flags |= BGPIOF_NO_OUTPUT;
+ 
+-	err = bgpio_init(gc, dev, sz, dat, set, clr, dirout, dirin, flags);
 +	config = (struct gpio_generic_chip_config) {
 +		.dev = dev,
-+		.sz = 4,
++		.sz = sz,
 +		.dat = dat,
 +		.set = set,
 +		.clr = clr,
 +		.dirout = dirout,
 +		.dirin = dirin,
-+		.flags = BGPIOF_UNREADABLE_REG_SET | BGPIOF_UNREADABLE_REG_DIR,
++		.flags = flags,
 +	};
 +
- 	/* This registers 32 GPIO lines per bank */
--	ret = bgpio_init(gc, dev, 4, dat, set, clr, dirout, dirin,
--			 BGPIOF_UNREADABLE_REG_SET | BGPIOF_UNREADABLE_REG_DIR);
-+	ret = gpio_generic_chip_init(&gb->chip, &config);
- 	if (ret)
- 		return dev_err_probe(dev, ret, "failed to init gpio chip\n");
++	err = gpio_generic_chip_init(gen_gc, &config);
+ 	if (err)
+ 		return err;
  
-@@ -221,7 +233,7 @@ static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
- 	ret = devm_request_threaded_irq(dev, irq, NULL,
- 					spacemit_gpio_irq_handler,
- 					IRQF_ONESHOT | IRQF_SHARED,
--					gb->gc.label, gb);
-+					gb->chip.gc.label, gb);
- 	if (ret < 0)
- 		return dev_err_probe(dev, ret, "failed to register IRQ\n");
+ 	err = device_property_read_string(dev, "label", &label);
+ 	if (!err)
+-		gc->label = label;
++		gen_gc->gc.label = label;
  
+ 	/*
+ 	 * This property *must not* be used in device-tree sources, it's only
+@@ -801,11 +814,11 @@ static int bgpio_pdev_probe(struct platform_device *pdev)
+ 	 */
+ 	err = device_property_read_u32(dev, "gpio-mmio,base", &base);
+ 	if (!err && base <= INT_MAX)
+-		gc->base = base;
++		gen_gc->gc.base = base;
+ 
+-	platform_set_drvdata(pdev, gc);
++	platform_set_drvdata(pdev, &gen_gc->gc);
+ 
+-	return devm_gpiochip_add_data(&pdev->dev, gc, NULL);
++	return devm_gpiochip_add_data(&pdev->dev, &gen_gc->gc, NULL);
+ }
+ 
+ static const struct platform_device_id bgpio_id_table[] = {
 
 -- 
 2.48.1
