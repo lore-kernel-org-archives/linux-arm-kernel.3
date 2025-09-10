@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D4BCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8514CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vv7g/RGuI0B2lXyafzVR029C6O08hzaUdr9otMoiKKw=; b=BH01WzBhsRHF6RQVZx/CFFRteB
-	ISbJBhVdh0vpALz8fdUt8KCWh1xxV8TNkFQODpKd1hFdHUdjpLPkSuo3pv8hQ0Vux+aJmvAm31hi1
-	dWEXcaPXw7/tQLwHyHCWci3vuh48Y3xxbLXroAcQ2LgPH2SirrQodHgjRCo5tfKO8s5xUvPdTpKs2
-	pfNwDk+t3f4pvCugqnAqu8q2mlGMvkeNqAyQUt6cWFm7M3EURQcOD4HE1qCk2h5p4VMhOZmGga82R
-	6ONYQLoBLd7xC0QP4/kXxrNWzv+sKiXQh/qNSKJ3HnwEKddyPZbnHsTam+Oa9giQ+crYpxM1KT4bR
-	eOfBY0qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9HNWtay6hchY2bwAXRQNT7mOaORvRgSuIBfEgTNIN2g=; b=NMjPO08DP9emqjJpVimEVxeTm/
+	DkazYV/4f6KtlBrz7rI41ZWoHUDJR4o84zPC2sPoemDlQCYejsZp5MChV4op24rH7ealxdLggrxLn
+	h2AJP0kTxdLPOTYvxw5DMWucWbLI3ilsi6KAy/5vLi7loLxQdfaTp4BNB2ptRACUeqc6BF0sMgFKK
+	p0/z4GIhp62lyQMKm8HTMd32gy5pFafc4F3zrup7yzfwuhPe/1aHuFnhrT+ZzqCrR16/7TNjxI/f5
+	e/MzkOshWOWy/7kli7GCkmAKiDqqGprCNygeWrLLulP8k42pWL/yyOuTsnPLplFdRtjlfxWjM+0mB
+	vaSQxz5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQYv-0000000GJn0-33ZP;
-	Wed, 10 Sep 2025 19:33:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQYr-0000000GJlQ-0jgI
+	id 1uwQZW-0000000GK43-0HTE;
+	Wed, 10 Sep 2025 19:33:38 +0000
+Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwQZS-0000000GK0v-19l4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 19:32:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B8943165;
-	Wed, 10 Sep 2025 12:32:48 -0700 (PDT)
-Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 939F13F694;
-	Wed, 10 Sep 2025 12:32:50 -0700 (PDT)
-Message-ID: <8d6e9ff2-2279-475a-8135-304dac6c0920@arm.com>
-Date: Wed, 10 Sep 2025 20:32:49 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/33] arm_mpam: Add the class and component structures
- for ris firmware described
-To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Cc: "shameerali.kolothum.thodi@huawei.com"
- <shameerali.kolothum.thodi@huawei.com>,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
- "lcherian@marvell.com" <lcherian@marvell.com>,
- "bobo.shaobowang@huawei.com" <bobo.shaobowang@huawei.com>,
- "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
- Jamie Iles <quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
- "peternewman@google.com" <peternewman@google.com>,
- "dfustini@baylibre.com" <dfustini@baylibre.com>,
- "amitsinght@marvell.com" <amitsinght@marvell.com>,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>,
- "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
- "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-47-james.morse@arm.com>
- <OSZPR01MB87983DB7BF0AF0672A027D4E8B0FA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <OSZPR01MB87983DB7BF0AF0672A027D4E8B0FA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Wed, 10 Sep 2025 19:33:36 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1757532799;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9HNWtay6hchY2bwAXRQNT7mOaORvRgSuIBfEgTNIN2g=;
+	b=V5rUyYJ4lRHWcqYqYknEfuZsE8sAXDcMsy0NulpZl4lozkggwbyalaCf3CKTWt/14F9Wrq
+	vPe6H8TlA1Iz51DpiISWBmrecDrZPRfFRAsGjjMs53Z6pWg1y60/dyVhP7CjkW4gTpoZTJ
+	N6kiToz7MiFr/Z2nfaCDdwJBZcz2WAw/e6O82T2sfCbS5EbUTTDJbm6CO+et6zHtaKcUSJ
+	JW+TzEFamJQxbjHAbj8T0hQ0Qaq8QgfR7X9SHBLEwn+ubmgXNopwEjUyq37RKVopNDyqQ3
+	K5kuOXq791foXKvLMSjc+cb/7EUa6IA0s+HTrbJ3Q+KtB9pROsni3TlwNds6aQ==
+Content-Type: multipart/signed;
+ boundary=2d3af1ea26d984980a780563242cbe541c010a2489cc6084c981a9cec8dc;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 10 Sep 2025 21:33:04 +0200
+Message-Id: <DCPDDIZ3S1CM.3DJYY5U4T6V4U@cknow.org>
+Cc: "Stephen Boyd" <sboyd@kernel.org>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Sebastian
+ Reichel" <sebastian.reichel@collabora.com>, "Sebin Francis"
+ <sebin.francis@ti.com>, "Bjorn Andersson" <andersson@kernel.org>, "Abel
+ Vesa" <abel.vesa@linaro.org>, "Peng Fan" <peng.fan@oss.nxp.com>, "Tomi
+ Valkeinen" <tomi.valkeinen@ideasonboard.com>, "Johan Hovold"
+ <johan@kernel.org>, "Maulik Shah" <maulik.shah@oss.qualcomm.com>, "Michal
+ Simek" <michal.simek@amd.com>, "Konrad Dybcio" <konradybcio@kernel.org>,
+ "Thierry Reding" <thierry.reding@gmail.com>, "Jonathan Hunter"
+ <jonathanh@nvidia.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
+ "Christian Hewitt" <christianshewitt@gmail.com>
+Subject: Re: [PATCH 0/5] pmdomain: Restore behaviour for disabling unused PM
+ domains
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Ulf Hansson" <ulf.hansson@linaro.org>, "Geert Uytterhoeven"
+ <geert@linux-m68k.org>, "Nicolas Frattaroli"
+ <nicolas.frattaroli@collabora.com>, "Saravana Kannan"
+ <saravanak@google.com>, <linux-pm@vger.kernel.org>
+References: <20250909111130.132976-1-ulf.hansson@linaro.org>
+In-Reply-To: <20250909111130.132976-1-ulf.hansson@linaro.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_123257_355906_74D754F4 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20250910_123335_091203_FE2C67F2 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,69 +84,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shaopeng,
+--2d3af1ea26d984980a780563242cbe541c010a2489cc6084c981a9cec8dc
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On 09/09/2025 08:30, Shaopeng Tan (Fujitsu) wrote:
->> An MSC is a container of resources, each identified by their RIS index.
->> Some RIS are described by firmware to provide their position in the system.
->> Others are discovered when the driver probes the hardware.
->>
->> To configure a resource it needs to be found by its class, e.g. 'L2'.
->> There are two kinds of grouping, a class is a set of components, which are
->> visible to user-space as there are likely to be multiple instances of the L2 cache.
->> (e.g. one per cluster or package)
->>
->> struct mpam_components are a set of struct mpam_vmsc. A vMSC groups the
->> RIS in an MSC that control the same logical piece of hardware. (e.g. L2).
->> This is to allow hardware implementations where two controls are presented as
->> different RIS. Re-combining these RIS allows their feature bits to be or-ed. This
->> structure is not visible outside mpam_devices.c
->>
->> struct mpam_vmsc are then a set of struct mpam_msc_ris, which are not
->> visible as each L2 cache may be composed of individual slices which need to
->> be configured the same as the hardware is not able to distribute the
->> configuration.
->>
->> Add support for creating and destroying these structures.
->>
->> A gfp is passed as the structures may need creating when a new RIS entry is
->> discovered when probing the MSC.
+Hi,
 
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index 71a1fb1a9c75..5baf2a8786fb 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -35,11 +34,483 @@
+On Tue Sep 9, 2025 at 1:11 PM CEST, Ulf Hansson wrote:
+> Recent changes to genpd prevents those PM domains being powered-on during
+> initialization from being powered-off during the boot sequence. Based upo=
+n
+> whether CONFIG_PM_CONFIG_PM_GENERIC_DOMAINS_OF is set of not, genpd relie=
+s
+> on the sync_state mechanism or the genpd_power_off_unused() (which is a
+> late_initcall_sync), to understand when it's okay to allow these PM domai=
+ns
+> to be powered-off.
+>
+> This new behaviour in genpd has lead to problems on different platforms [=
+1].
+>
+> In this series, I am therefore suggesting to restore the behavior of
+> genpd_power_off_unused() along with introducing a new genpd config flag,
+> GENPD_FLAG_NO_STAY_ON, to allow genpd OF providers to opt-out from the ne=
+w
+> behaviour.
 
->> +static struct mpam_vmsc *mpam_vmsc_get(struct mpam_component
->> *comp,
->> +				       struct mpam_msc *msc, bool alloc,
->> +				       gfp_t gfp)
->> +{
->> +	struct mpam_vmsc *vmsc;
->> +
->> +	lockdep_assert_held(&mpam_list_lock);
->> +
->> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
->> +		if (vmsc->msc->id == msc->id)
->> +			return vmsc;
->> +	}
->> +
->> +	if (!alloc)
->> +		return ERR_PTR(-ENOENT);
-> 
-> It seems like it is always false here.
-> If necessary, why not do this at the beginning of the function?
+Is it expected that I'm still seeing this on a Rock64 (rk3328), just
+like before [1]?
 
-Because the VMSC may exist - in which case the 'get' function should return it
-regardless of whether the caller wants to allocate it if its missing.
+  [   17.124202] rockchip-pm-domain ff100000.syscon:power-controller: sync_=
+state() pending due to ff300000.gpu
+  [   17.129799] rockchip-pm-domain ff100000.syscon:power-controller: sync_=
+state() pending due to ff350000.video-codec
+  [   17.140003] rockchip-pm-domain ff100000.syscon:power-controller: sync_=
+state() pending due to ff360000.video-codec
 
-I'd anticipated callers like resctrl would want to grab components by things like cache-
-id, without allocating them by accident. But that coded ended up just searching the lists
-instead. I'll rip this out.
+This is with a 6.17-rc5 kernel with this patch set applied.
+And it also has this patch from Christian Hewitt added, now in v3:
+https://lore.kernel.org/linux-rockchip/20250906120810.1833016-1-christiansh=
+ewitt@gmail.com/
+
+When I boot into a 6.17-rc5 kernel without any patches applied, I do get
+the 2 for ff350000.video-codec and ff360000.video-codec, but not the=20
+ff300000.gpu one.
+
+Interestingly:
+ff300000.gpu -> power-domains =3D <&power RK3328_PD_GPU>;
+ff350000.video-codec -> power-domains =3D <&power RK3328_PD_VPU>;
+ff360000.video-codec -> power-domains =3D <&power RK3328_PD_VIDEO>;
+
+I would be surprised if that was a coincidence.
+
+Cheers,
+  Diederik
+
+[1] https://lore.kernel.org/all/DCK0O99SYSCF.BMBAEUV24C1G@cknow.org/
+
+>
+> Kind regards
+> Ulf Hansson
+>
+> [1]
+> https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.or=
+g/
+> https://lore.kernel.org/all/20250902-rk3576-lockup-regression-v1-1-c4a0c9=
+daeb00@collabora.com/
+>
+> Ulf Hansson (5):
+>   pmdomain: core: Restore behaviour for disabling unused PM domains
+>   pmdomain: rockchip: Fix regulator dependency with
+>     GENPD_FLAG_NO_STAY_ON
+>   pmdomain: renesas: rcar-sysc: Don't keep unused PM domains powered-on
+>   pmdomain: renesas: rcar-gen4-sysc: Don't keep unused PM domains
+>     powered-on
+>   pmdomain: renesas: rmobile-sysc: Don't keep unused PM domains
+>     powered-on
+>
+>  drivers/pmdomain/core.c                   | 20 ++++++++++++++------
+>  drivers/pmdomain/renesas/rcar-gen4-sysc.c |  1 +
+>  drivers/pmdomain/renesas/rcar-sysc.c      |  1 +
+>  drivers/pmdomain/renesas/rmobile-sysc.c   |  3 ++-
+>  drivers/pmdomain/rockchip/pm-domains.c    |  2 +-
+>  include/linux/pm_domain.h                 |  7 +++++++
+>  6 files changed, 26 insertions(+), 8 deletions(-)
 
 
-Thanks,
+--2d3af1ea26d984980a780563242cbe541c010a2489cc6084c981a9cec8dc
+Content-Type: application/pgp-signature; name="signature.asc"
 
-James
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaMHSdwAKCRDXblvOeH7b
+buGpAQDE9QMZtO9TtjXeo5Opuobk+4Tyg/Qx3IH3Sx8Fy3tJrAEAySejAaTzvvJT
+jQfSiiJtxvC1FQ2UwrgFl3g6A6Q7fgo=
+=+pr9
+-----END PGP SIGNATURE-----
+
+--2d3af1ea26d984980a780563242cbe541c010a2489cc6084c981a9cec8dc--
 
