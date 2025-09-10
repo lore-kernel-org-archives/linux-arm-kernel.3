@@ -4,87 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D45CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CB0CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QEeqIWIF/AD2zfk8ywdiI9kgEblpq8FH1YjniWeVCN4=; b=uOKsJY26YxUt688ZZo7VTOKm6Y
-	+q3EnCbCQCf054xy3I5yMEda9ROp995t/PZcDnTj0p7REoV1UcqW5VlWZ25/F8UIeJhBDyWkug4v9
-	2JPXYFCRakbK5mjWz3Ar9DXn7EmcOARcjuY681NLBlxc/2/o4nsRw3SJXeYgQRMKqi73M2XFtW8Fj
-	Q2RZyWGOxvOL0m4ED52I830ATJp8lR4A19TinLwSlV39YZqPTAhoKcuA+VymoTJCp+z73AnkOUTTN
-	iHd6hzLi4Erv4MKTrV4uVcfDpMP8i9kquMFdd4QFrq0ZRKzIMPZmo0HxWzWmjbUVUArUxbWlOSLIb
-	XzcMQ40Q==;
+	bh=hdZlHFK/6K/TmCYzSQpqjrtYzY6SgIuXxYFGBmHGVpk=; b=iysCGFIZ5tYvhRbgNqw80iOZo7
+	4nBh+rlBMypU3+R3yjLqRC0SFwCidUCIl8pFM1kFgqlVuezbT6GXCpYavQlQIllK98MGvwBDRIZwA
+	gXFBWQmKTZDMLPeQBDRo/AMwGAeh2fJlNXJj5P9/fiiI7U9VzOYqZ7lRsDm7GaV2D55ADEf5ta02U
+	1qV+nKWgAbp9HkEgPNxz0DL9RP8M9UbfFfGLt9NxHtgux6kSgpAa0snY2fopJT1PRfGaHeCcKdC/8
+	cBvSPRbZPnthCCiRWIVQ+1b8sGG8G89nAeW7kaXheH5mg8gnuL8590aZu2BfF7xllZmNltwjklpm3
+	XhM0fpsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLSJ-0000000Ea2w-1NNE;
-	Wed, 10 Sep 2025 14:05:51 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uwLU6-0000000EawW-2fFQ;
+	Wed, 10 Sep 2025 14:07:42 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLSH-0000000Ea0t-0UjC;
-	Wed, 10 Sep 2025 14:05:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757513088; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=VEkyJDxuAQfVsvKhIxBruPEvS+E+Faq6lkb8StCuTHDG4il/MJXRcIahNdDe1K9l5asGM6fNcHpp2dATLpTDdixJydv1Eav7Ciq7KRQ57d64AIcR9G9MzobjDNJWa735TFRzENggkAWdoogP0hXnRRQvmnhic10HgfMoJOI0qqw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757513088; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=QEeqIWIF/AD2zfk8ywdiI9kgEblpq8FH1YjniWeVCN4=; 
-	b=P9BxtulcIUGD/6FoPkulfuuR84JV4Ri/6txauWEhPar814ZnGKTiquSh/essihNHEQbflrG4B1II2xYvbvqlCLvtwTc27q7uJsa6RzH4frCk8k+iYr2hMphCwl+2BMJFaXmesNFLrkU20dt2cWy9mIGCBaIpcPsipJH3cRPNWPM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757513088;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=QEeqIWIF/AD2zfk8ywdiI9kgEblpq8FH1YjniWeVCN4=;
-	b=IHYKNoZY4zf4ISQCHWYEleElg0zyYX0fAY3flK0zslYU4qZregRMacfv+qxcfwpQ
-	1x+1iaYapTxzAjxF38sg0OhTVRo1GLDfKW55tsC3QwJKNIhZiomEvEjFNt5Ia3ldCpT
-	ecLwFY4c1qFjQXhURNFG3nBQQ/aFvg2+LOYp7AEA=
-Received: by mx.zohomail.com with SMTPS id 1757513084822538.2895524618148;
-	Wed, 10 Sep 2025 07:04:44 -0700 (PDT)
-Message-ID: <28049fe0-0ae7-4b40-9f95-1513e317547f@collabora.com>
-Date: Wed, 10 Sep 2025 11:04:29 -0300
+	id 1uwLU4-0000000EauD-0O3x
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Sep 2025 14:07:41 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58AE7W12151567;
+	Wed, 10 Sep 2025 09:07:32 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757513252;
+	bh=hdZlHFK/6K/TmCYzSQpqjrtYzY6SgIuXxYFGBmHGVpk=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=QivxaOUEpObFrdT1mYUud+D90j10dYpkVQ1yXqqUCKcS6g9p5FPDv2E+Bw4yDOG3U
+	 qk1lq8YOOhGUGXTEIPXwgE+GBPTixoKLZkYPZq0dE+9kNhve+HK7KeVqKUGysaED7X
+	 JDGKPzob2vVjLEPzA3zponvWsIB9bz4PMEHcJKxw=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58AE7Wum420570
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 10 Sep 2025 09:07:32 -0500
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 10
+ Sep 2025 09:07:32 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 10 Sep 2025 09:07:32 -0500
+Received: from [128.247.81.0] (ula0226330.dhcp.ti.com [128.247.81.0])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58AE7WLp288106;
+	Wed, 10 Sep 2025 09:07:32 -0500
+Message-ID: <4c9750c3-ba75-46ec-8398-0691d385d0d2@ti.com>
+Date: Wed, 10 Sep 2025 09:07:31 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 07/14] dt-bindings: display: mediatek,ufoe: Add
- mediatek,gce-client-reg property
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
- andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
- broonie@kernel.org, chunkuang.hu@kernel.org, ck.hu@mediatek.com,
- conor+dt@kernel.org, davem@davemloft.net, dmitry.torokhov@gmail.com,
- edumazet@google.com, flora.fu@mediatek.com, houlong.wei@mediatek.com,
- jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com,
- krzk+dt@kernel.org, kuba@kernel.org,
- kyrie.wu@mediatek.corp-partner.google.com, lgirdwood@gmail.com,
- linus.walleij@linaro.org, louisalexis.eyraud@collabora.com,
- maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com,
- mchehab@kernel.org, minghsiu.tsai@mediatek.com, mripard@kernel.org,
- p.zabel@pengutronix.de, pabeni@redhat.com, robh@kernel.org,
- sean.wang@kernel.org, simona@ffwll.ch, support.opensource@diasemi.com,
- tiffany.lin@mediatek.com, tzimmermann@suse.de, yunfei.dong@mediatek.com,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-8-ariel.dalessandro@collabora.com>
- <20250821-wandering-vermilion-pigeon-b8c9f0@kuoka>
+Subject: Re: [PATCH v4 21/34] Revert "arm64: dts: ti: k3-j721e-sk: Fix
+ reversed C6x carveout locations"
+To: Beleswar Padhi <b-padhi@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>
+CC: <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>, <d-gole@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250908142826.1828676-1-b-padhi@ti.com>
+ <20250908142826.1828676-22-b-padhi@ti.com>
 Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <20250821-wandering-vermilion-pigeon-b8c9f0@kuoka>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250908142826.1828676-22-b-padhi@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_070549_191029_9290FD07 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20250910_070740_339931_BA268B0E 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,63 +89,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Krzysztof,
-
-On 8/21/25 3:50 AM, Krzysztof Kozlowski wrote:
-> On Wed, Aug 20, 2025 at 02:12:55PM -0300, Ariel D'Alessandro wrote:
->> Current, the DT bindings for Mediatek UFOe (Unified Frame Optimization
->> engine) is missing the mediatek,gce-client-reg property. Add it and
+On 9/8/25 9:28 AM, Beleswar Padhi wrote:
+> This reverts commit 9f3814a7c06b7c7296cf8c1622078ad71820454b.
 > 
-> Why is it missing? If the binding is complete, it cannot be missing...
-
-Due to the following error:
-
-$ make -j$(nproc) CHECK_DTBS=y mediatek/mt8173-elm.dtb
-   SCHEMA  Documentation/devicetree/bindings/processed-schema.json
-   DTC [C] arch/arm64/boot/dts/mediatek/mt8173-elm.dtb
-[...]
-arch/arm64/boot/dts/mediatek/mt8173-elm.dtb: ufoe@1401a000 
-(mediatek,mt8173-disp-ufoe): 'mediatek,gce-client-reg' does not match 
-any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: 
-http://devicetree.org/schemas/display/mediatek/mediatek,ufoe.yaml#
-
+> The C6x carveouts are reversed intentionally. This is due to the
+> requirement to keep the DMA memory region as non-cached, however the
+> minimum granular cache region for C6x is 16MB. So, C66x_0 marks the
+> entire C66x_1 16MB memory carveouts as non-cached, and uses the DMA
+> memory region of C66x_1 as its own, and vice-versa.
 > 
->> update the example as well.
->>
->> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> ---
->>   .../bindings/display/mediatek/mediatek,ufoe.yaml      | 11 +++++++++++
->>   1 file changed, 11 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
->> index 61a5e22effbf2..ecb4c0359fec3 100644
->> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
->> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
->> @@ -64,6 +64,14 @@ properties:
->>         - port@0
->>         - port@1
->>   
->> +  mediatek,gce-client-reg:
->> +    description: The register of client driver can be configured by gce with
->> +      4 arguments defined in this property, such as phandle of gce, subsys id,
->> +      register offset and size. Each GCE subsys id is mapping to a client
+> This was also called out in the original commit which introduced these
+> reversed carveouts:
+> 	"The minimum granularity on the Cache settings on C66x DSP cores
+> 	is 16MB, so the DMA memory regions are chosen such that they are
+> 	in separate 16MB regions for each DSP, while reserving a total
+> 	of 16 MB for each DSP and not changing the overall DSP
+> 	remoteproc carveouts."
 > 
-> Don't explain what DT syntax is. We all know, so that's completely
-> redundant description. Explain the purpose. Explain Arguments with sechema - items.
+> Fixes: 9f3814a7c06b ("arm64: dts: ti: k3-j721e-sk: Fix reversed C6x carveout locations")
+> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+> ---
 
-Although I agree with your suggestions, this is exactly how the rest of 
-the Mediatek DT bindings describe this node. This patch is based on the 
-other +20 files, which describe the node in the same way.
+Still feels like something we should have fixed on the firmware side,
+but since the firmware is out there already we can live with it.
 
-Regards,
+Acked-by: Andrew Davis <afd@ti.com>
 
--- 
-Ariel D'Alessandro
-Software Engineer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
+> v4: Changelog:
+> 1. Updated carveout node names to generic 'memory@addr'
+> 
+> Link to v3:
+> https://lore.kernel.org/all/20250905051846.1189612-21-b-padhi@ti.com/
+> 
+> v3: Changelog:
+> 1. None
+> 
+> Link to v2:
+> https://lore.kernel.org/all/20250823160901.2177841-21-b-padhi@ti.com/
+> 
+> v2: Changelog:
+> 1. Re-ordered patch from [PATCH 03/33] to [PATCH v2 20/33].
+> 
+> Link to v1:
+> https://lore.kernel.org/all/20250814223839.3256046-4-b-padhi@ti.com/
+>   arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 6 ++++--
+>   1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> index 0f05e65f7bf7..37bc33f2cc26 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> @@ -120,7 +120,8 @@ main_r5fss1_core1_memory_region: memory@a5100000 {
+>   			no-map;
+>   		};
+>   
+> -		c66_0_dma_memory_region: memory@a6000000 {
+> +		/* Carveout locations are flipped due to caching */
+> +		c66_1_dma_memory_region: memory@a6000000 {
+>   			compatible = "shared-dma-pool";
+>   			reg = <0x00 0xa6000000 0x00 0x100000>;
+>   			no-map;
+> @@ -132,7 +133,8 @@ c66_0_memory_region: memory@a6100000 {
+>   			no-map;
+>   		};
+>   
+> -		c66_1_dma_memory_region: memory@a7000000 {
+> +		/* Carveout locations are flipped due to caching */
+> +		c66_0_dma_memory_region: memory@a7000000 {
+>   			compatible = "shared-dma-pool";
+>   			reg = <0x00 0xa7000000 0x00 0x100000>;
+>   			no-map;
 
 
