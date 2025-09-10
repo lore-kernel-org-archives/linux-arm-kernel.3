@@ -4,167 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D406CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 16:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5906CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 16:22:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gTciQLtn1HmFWlCbRFdyHPcS7tWJDL3hWmi5RYOMEI=; b=GRA5U5D+6fO6GFUrT2MraoorqW
-	RsemodkqmCkKQ5whFM2W3f3evU4pqJJ8x8lwWI+bQoPEce+OwAWoWCPSMyj4YLF/UF9Ori8Orfzb3
-	Wop6mJo4Fya4gU031GZ5NuQ+Fw6aYM0IPz1fugEW0/0GuNCAJQh8hVr0eCUjl8T9axUfNYMnwLXZt
-	soxOCEeQVH1Jks74xLpognSF8hiLfYQYvrJp6EMmg7OjBmaxJ969TKcKt834UbdepwQduYXJYUcqf
-	Ctj+26iS/2c+vQlOxczeS29ye2w9BzthmdgKM4Lm9+cCLH6RaKnqI7OanWGA8MwYZCjrkIOQLrtSl
-	PYV7MtoQ==;
+	bh=LObPjUJmZmYtu2CC9r5/lKDEH8eCUfcZ9YbdVKJ/Mgo=; b=txkjR06IFbblzET3U4cUwrmSzF
+	TrgUOiMe/gIqdMM3KgevK3NR6CsPKXt/nwsurf9VHL13evPbPHWmLAWYfZWyDAaYgcb4A9Tr/p7js
+	j6RjQBaoOUHKwPBwcLu7V+E7Qn+NMGBWEnJNKobA1RGwPKHVKxNoICwyA3Am+jC4K5IImz0zvIP+L
+	IV6rj7G0FdQzgvBwhjC7/PSC1vLeJ8rF0Fiuj69dkR5S64jSXUgep11NPj6Afycb1ZjIbBqCkDb2W
+	dRsYH9W58ObwrUYS3x5AoXv4vdY8TWzupLboSVeaK11HhSt6TiZrTaQuMjOL9PJSAa/nvqZnhKj/B
+	il7UF9MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwNUT-0000000FPTm-1hE8;
-	Wed, 10 Sep 2025 16:16:13 +0000
-Received: from mail-bn8nam11on20619.outbound.protection.outlook.com ([2a01:111:f403:2414::619] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uwNaa-0000000FRiK-1EQ1;
+	Wed, 10 Sep 2025 16:22:32 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwNUR-0000000FPSs-0PiC
+	id 1uwNaW-0000000FRfd-3Wsi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 16:16:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B7T/h+5TDNU+anz/UB52Ua81kB2ds3lx3fHjgvqg+TD0wFr9d7sQfuDMqCFv1JJIEtnpi1NTw7UWICoB5eyR0EYWoUZAweAyMLiqstzDbxP5qLReCHteivF2bNIH4eJEFXB+Uc73T5B4OYn6K3+X7END12zjxtIs8YMqnfFCE5hq5H592eQduBodK6eA0xUEXUWf6hK9OyQKWOqguMAWLCb3Ho8tXaF7JrHLGa9PWstrJJ71oXsfAqw78hN6T8ReGa9i4fuNZpMWyIrclnXGQUScn3P9BJLB4TfiHe2QDrmHPyJ0Qgn6yJSUsJBg2pxXbtaYBqdveEyqGB8h2sh4Nw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6gTciQLtn1HmFWlCbRFdyHPcS7tWJDL3hWmi5RYOMEI=;
- b=Rzpj2cv7hMTlMeX3uA7p3kVOg282oDEKGWsxvlyB3gJsMNrPskeKHEFAVqSyOefEr9O5IYjNAZ2CyvJOdE9lCFUkQcsKNBBVMfCXYkQn9rV8GcFv9VAupFUer4hhxRreLLoFLpyU1tq/k8LkoZuAN+/Wbnb0v7qUvNSfoTGnAEb9KgZsIJRzWW5lr5cBObGnqCBWgPpv5YZJJ1h9/udCPuBqoC9hPqMudu6WWk6yKIPRvJzfItvIYJXJwFL3o5+gq4yG+cuB6JYkwoxb9DzRtVsdZZxWB1d42EGlU8gr2TIQ0nsxEc6HfLhd7ptomx9lqCmD85XUeuBL17SlzXzVZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6gTciQLtn1HmFWlCbRFdyHPcS7tWJDL3hWmi5RYOMEI=;
- b=R9r1oggtHV4sTxu+mzIXPb6pIIOuyfTJwt6yfBo5RAj9r/DrGGIJO0Kgi6/hDq/ulrwu0nwQLRg1iOlTBonulGdSx2U3rF34cLV+Bylr+5DN5Aia+Q2zCa99LX91OuFY3mw8l9McTdP5zqia//tV/47Io7Qk+Q8Lqv7CyrOySmEd6v9ndoIYSsC1ZonMYr2Eh0EbUmZhwZosFz4W9f0uN677FPmZInj8PNI2wUTWVSe+miceFqHCkYoCbgEFsJo/zukOQfUm1ic9SbU87dd2dnWWiJ+H0LDpJpjqBX+J0jFqmLjagobYc/APR4uZC37DxZYHdUZOY+1Jmg1DTcrCbg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH7PR12MB7282.namprd12.prod.outlook.com (2603:10b6:510:209::7)
- by CH3PR12MB7570.namprd12.prod.outlook.com (2603:10b6:610:149::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 10 Sep
- 2025 16:16:05 +0000
-Received: from PH7PR12MB7282.namprd12.prod.outlook.com
- ([fe80::6f03:f851:7f6c:c68d]) by PH7PR12MB7282.namprd12.prod.outlook.com
- ([fe80::6f03:f851:7f6c:c68d%3]) with mapi id 15.20.9094.021; Wed, 10 Sep 2025
- 16:16:05 +0000
-Message-ID: <8e3a9caa-14e8-4987-8eee-d353c37eae54@nvidia.com>
-Date: Wed, 10 Sep 2025 09:16:04 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/2] ARM: dts: aspeed: Add NVIDIA GB200 UT3.0b board
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
- andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, etanous@nvidia.com
-References: <20250910041736.245451-1-donalds@nvidia.com>
- <20250910041736.245451-3-donalds@nvidia.com>
- <e51d1a9c-a54e-4fe4-9091-4f5ea29535ec@lunn.ch>
-Content-Language: en-US
-From: Donald Shannon <donalds@nvidia.com>
-In-Reply-To: <e51d1a9c-a54e-4fe4-9091-4f5ea29535ec@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY5PR03CA0016.namprd03.prod.outlook.com
- (2603:10b6:a03:1e0::26) To PH7PR12MB7282.namprd12.prod.outlook.com
- (2603:10b6:510:209::7)
+	Wed, 10 Sep 2025 16:22:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1757521348; x=1789057348;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=OA697MSbwYFaga1yasvj23HlhhxErDH/zxQeYPOWGmE=;
+  b=gmWsCBy1NDiRQZGmxqMAx4YGLgMpKRNo89JBuLDhQSZXe9pe0dfiEAV4
+   a+yZBmIXn0cKZTNCjFrNV0bY8VM9Kfyalio+dGBfSrFY3EtXR5vc+Z2mI
+   3xqPefkdIr8EZ/gVvgH7tnvMT9MRBwwcfRx9z6OQq1f1nlVeWChetmGYE
+   vWDBsmsFPDElWw0IAAW7Y77tbc6NiJ8hRjvTNCKLO1u4mMWlrw3sZmfNb
+   UKroofsRogsbiPc7BtvGn2ytBdzegcRIGhnyS8g6MttUAKadJTgzNGgy6
+   Y+9XtBojHP9UqmmxIWsDwZEtuEtsnOgRbNvPEbaPWiQPHszyS54HhNibc
+   Q==;
+X-CSE-ConnectionGUID: tPE+SbpaSyCyxVMbhLqdoA==
+X-CSE-MsgGUID: +YSUaQIrRSOq/S/Erz+hxg==
+X-IronPort-AV: E=Sophos;i="6.18,254,1751266800"; 
+   d="scan'208";a="213715732"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Sep 2025 09:22:25 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 10 Sep 2025 09:22:11 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 10 Sep 2025 09:22:11 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <claudiu.beznea@tuxon.dev>, <sre@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <linux@armlinux.org.uk>
+CC: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Ryan
+ Wanner" <Ryan.Wanner@microchip.com>
+Subject: [PATCH 3/4] ARM: at91: pm: Remove 2.5V regulator
+Date: Wed, 10 Sep 2025 09:20:38 -0700
+Message-ID: <a6785a40648b315a07152bca261a42bbf0f356af.1757519351.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1757519351.git.Ryan.Wanner@microchip.com>
+References: <cover.1757519351.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB7282:EE_|CH3PR12MB7570:EE_
-X-MS-Office365-Filtering-Correlation-Id: 18b0d9e1-f937-46f2-82f3-08ddf08557ca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RWpMZWYrMndHaHJOMjJQS2pPU1dSSHJHZkdQdjhveHM5aGo1cmdUNjgvazdW?=
- =?utf-8?B?bHl5MWJ6V0hZa2w3blcwQXRNNXJpYUxFbThZTFVsWVY0TjZ6bTVYTDhGbmFU?=
- =?utf-8?B?cTdiSGxuUXBwWmo2ODJSTGNYT3FSNDFCRDhFdXJPWXBHQ0xwUkthTGVLRDNQ?=
- =?utf-8?B?VHo5S1M2RTBiU3RpSlp0Sk9JTFl1cGREam93WDNPT0hidDF2UHhoeVJMeTNG?=
- =?utf-8?B?dHRyOWI1UW55NFl4Y0VGNkI5UUtwd01ZeThQbUVFWUU3TWpGbWJFNVBaRU5p?=
- =?utf-8?B?UFgwUHdpMGNPdUFrRXVkRmozWU41WWlhRVBxTjJuZlZ4VkY2NnJwV1liOUNj?=
- =?utf-8?B?L1J2bm1Za3NYQXpUeitqcm9mbkJ0RHhBais3M0VOK05Vc2lTenlsMnpWRmFE?=
- =?utf-8?B?cDROS2U3UWFTT2hjMFVneWQrSEVtaEJEdEhTMHpEem9mRzhMTllVTXFpeU16?=
- =?utf-8?B?ZXdGeFdUWWx0c2dNbHhQeEdlMkVkRmxhSWh5Z1gvdXh1ejROVUQ2dkgxcTdM?=
- =?utf-8?B?TFFzZGJZemJUWDFrVTRlU3BxaGdqdkllRFRFVHlnaWNXQ3pEbnVORzJJZVdL?=
- =?utf-8?B?bHBGTEg4R1RtNnVvZHNVbkRMSy95ekx1ZmwwNWpIUjIzQys4elU2RTdKdTA5?=
- =?utf-8?B?cW1GZHF1Z1didnoxdTkzcEZBMGJpalpIQ25hZklFemE4QXB3UzcrSG1idGh4?=
- =?utf-8?B?OVZaZkxjcm92cDcxV3hmYytYV01oaFgzNk4rYm5USHJneTgzcWFxOVZaWkor?=
- =?utf-8?B?YTFnWDFhVVNRbWpYL1RlUXQySHJDcnQwempwcFdpbHo4Q25jOHVzcGhtaXM5?=
- =?utf-8?B?RktKYXhDc0MwQy9hcDBlcUhZOUM0UzZRbXFoZ29nOTB3VXN6cUErSkRGS2Jv?=
- =?utf-8?B?Rno1UG9VaG9MZjE4czRJQ0MyR3V6TjlVZ3RtOFNsVlc1Wk11OEVaeCtsM1Mx?=
- =?utf-8?B?TnJYcjlTajYzL3BVWDJCS3NnTUd5TW1QM2ZRRk5kYjgwdTRlNW03ZTFzRW1U?=
- =?utf-8?B?em50dHhVS0s4UEo4ZlE1Nzkyb21rU3RkUTY3NkdZM1N6ZEpLNGNVSWp3bmZl?=
- =?utf-8?B?a25MMzMxeHZjbDlZSWJ1WDdTQnhUbVlkYmx0Tkg1OHRXRXJ1azltZ1oyQnZR?=
- =?utf-8?B?QXdNaEJLR3ZERWZOdG1taDlGeDc3dFNMOFBoVWU1amVKNFh6QmhIcHpxMzcv?=
- =?utf-8?B?citoUmRuaHhDSC9Jb1RNVE0yQ0p3QmJYVDYvVzZKTjBHRUZKZzZyVnBTUWlx?=
- =?utf-8?B?c0FzRmFweTBsY0FteTdjeXg3dGdFRGNOdjJ2YnpWVFdKb2lLYnZGcUdkUWdE?=
- =?utf-8?B?Y0VyYldHcjZYRXBiSlFkUTlKdFZqbDRLcGE0YWtvTkJZOUlBUzVrekhEMFBq?=
- =?utf-8?B?Qis1ZUtFbGRKY24vc21nMHlpZkdDekRYNk10QXpQQlJHM0ZMbzliNVhhZy8x?=
- =?utf-8?B?L04zMWpRbU1FTW9FRUFBZGl5YkJraXB6N0o3Q1dtRWFjNUd4V1pZRXgxZHky?=
- =?utf-8?B?c0NxLys5OTB4SHBLQUNTZG1RendMM3B0aVBzelpUUU0rZEVZQmJQRnEweWJh?=
- =?utf-8?B?WnV1VERVWlpuN2ptUU1TbXNMczdaejB3aTBZa0R0L3pVWCtsUDJ1cEYvcE1L?=
- =?utf-8?B?Njc4R2FBTzlYdkZzU1RoV2szdmZCalk1dkZXcWRpRmlXS1VJQUwxTkU3MDVS?=
- =?utf-8?B?SUxObUt5VER5QTE1SXNGNkxubGo1SkczalJ4K0l3ODVvV0ZpMTlPOTJ1YXYy?=
- =?utf-8?B?TGkrMDNHQVBnc2Vvc3BYdGhUaVZqc05wamhGaWc4VjVLZjZvK2xsclJsWUlB?=
- =?utf-8?B?VDNXQTRPYThlenFuZy9yVy9WYk1rT2lIUmhhNzJ1RGtFbGxNS0RnbXNZSCtM?=
- =?utf-8?B?VFVkNXZ5TWdJUno0aGRqdExQZWpMZnk4a0FBU05yRHYyV3pVb056MTVMMUxv?=
- =?utf-8?Q?w7fLru6lJ8E=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB7282.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ck1nTEJ1NVFQVjFkRHJQbGZ1MzJTQWtuYTd0WUZ2TVZ4N21JbzM5TkVmbXJy?=
- =?utf-8?B?UTNUSG9VK0dwMGZnTE5sWUVPQWxrRXZGNmV3VzIxUGc0ak1yS0M5RkNmcGtN?=
- =?utf-8?B?TVJsOXpLais0QWNDTjI0RGZCMkl0TGV6TW5aOVZWdjU0YTNWNkZnRHpGTE15?=
- =?utf-8?B?elpuYThxNFJLRUllbUN1UUJrMUI1ak1KdUxpRTNIaEt5aWo2dHdQMHZiOVFY?=
- =?utf-8?B?ZjY3eFpuZTRPZDJ3YnpDY2ZtSHBUOTNTc21yMEN6SzVVM2NLU29mTVZVcFJu?=
- =?utf-8?B?MUZwM3RmM3hNNGhSWmcwekhjeWZhWUxqUy84SWNnbE9LaFJ3TEwxb1Bwbm83?=
- =?utf-8?B?MXBaWGVRRWFUaVpZZHhBNWpiSWlsRXBjN0hiN2Uyb0FMMnJra2xhMmZQdmQ1?=
- =?utf-8?B?VVMwRnhWVUpMZmJleEZzOExKMzlqM2h6SDJVMkRyRTNEYU02QXQrWnpjb2Np?=
- =?utf-8?B?ZHZwMW54U3pBR1ZjMFYwTVdjeTNBMmVUWlZQQm9PeFpCSTAzZDV6SUxKYXR5?=
- =?utf-8?B?TTlpTndZOE5ORmxDV084VTVjeUZoMHpTVGl5cU9LcVRNMTNBZEJKTTE1c0hG?=
- =?utf-8?B?Ky9TWEoxL2VHSnNGc1hRTU5uY1JtYXZ2dU16bWhGaXRzU2RCelc3YkxFRlRw?=
- =?utf-8?B?MUs5WHpMMWlsZ2cxcDZmMldxck1YWjF2bzNlNENJdVRrZFdHQVJYUDF5VVlH?=
- =?utf-8?B?MVBGNTJMcjkrWWkzOWxkdSs3a2IwSy9JNjRSZG9FSmEyV1hmMlZZQTh1b201?=
- =?utf-8?B?NVphTHROY0JGU3h1OHJKQlY1TmlGOWhKbzFFQS9KMklRcnlDRnVFS1J5Z2Mr?=
- =?utf-8?B?by9oYVJVNjg4eFFVY1BTSFJURmpaMWQwekVkcHNoTS9kblJJZFdybGQ3eitt?=
- =?utf-8?B?SnJOTW9rUEVDejl5aFV4QlpvZmhGVmpJQ1JGbmFidXdRSVBBWC9LdG1xZTRR?=
- =?utf-8?B?MEl1OFpyaENCbVZpTFJoZjZCMEJXelFZVGZYeEl4UG51Z1FNNW81OWVEaC9Y?=
- =?utf-8?B?azE1VHQwUjhOUk5yUnhoWG1HVDJXZGtVNC9Xa0FhL0M4cFluMzViSzlzSm5s?=
- =?utf-8?B?QU1mUklZYXVpdHd6Rk9rUGU4TkNFK0dUeGRLYThQL0pMbldEdFhGWjMvT2dn?=
- =?utf-8?B?Uk9zTWl1Wm90OGhBajZXbGpmeDA0L24yVG1DbVJzbTZnMUdRNTVreXdjNmw3?=
- =?utf-8?B?SDErbHdtUE5YaXhJeWF2cVNRT1RFVDBiYnJvcjBsaXU4cW0ybDk1UHQ2RHdG?=
- =?utf-8?B?WTVLNXRwOVEzQTkrOG1aekJRNGcwSDBVN0JNSmV3VzdpTXVLSHM1UmtBS1Zu?=
- =?utf-8?B?eW5HN3htOTZKRjM1SExkeDNrUlZVMjQ5Z1dDVUlhNVFtOE8vR2tXa05Sanpt?=
- =?utf-8?B?c1M4U2paalZnMm5tTm9jWVVHVFBYRE9LQjVKWE1aR2pCY1hlaWVEMCtVUUR1?=
- =?utf-8?B?ZUI1MG5qaVZTWlRlRU42NUJDWjZSYmxScE1SVGYrT2NQd25qNmJ3MHl0WnVD?=
- =?utf-8?B?dVlzcEdTQ1BRMHJWeTUrdUhWdVRoNnk4aE5vL1JQWi9wTzVHdWdOeURZUndz?=
- =?utf-8?B?TEZoa0xDZGVNVmRyem1zdUZuVW1DckhNMjZ3cDM4ZlZ1RTZIQnB2TE5iZlh1?=
- =?utf-8?B?dzY0NEl5NFFEbjdzcE5IM0p2L2pZanNXWHc0c2ZxSlJVYVp6cjlkSFRuSnRC?=
- =?utf-8?B?MnN2bWQ1K3FkaGtYV0QzZjBPTHl0cC9xQ1d3WTBGSzhURDJEVEZYbUxGY2My?=
- =?utf-8?B?OTB3M2JZZXVOcS9WOWhnaFNzYnMyS2duMCtqMTNaMHFQdUZmL2M1UkVqTTM2?=
- =?utf-8?B?SmpFKzZPbi94UUQ4dERHR3ArYnNKQ1liOC9rdFRDQmUwbFplckhyWUh2eVNG?=
- =?utf-8?B?QUk1SlpuR3l0TVBHTDlNdDcwUnhxZzlRY213ZDlqSlRGSjlieDVjdTNGZEhv?=
- =?utf-8?B?UUU5ZG1RZ1JNU1ZrR2dtemsyTEhRZ3JFTHlnUnlONDFtVy9xOVh4V0VKWUtR?=
- =?utf-8?B?ZVdDeStYME4wRHEwS1hnNGdlYjRlOVZ3Y1NEWTJmdmlFalhTc2tlRFBxK3p1?=
- =?utf-8?B?WTM3K0c2YWpLb3RQNm4wamZOVFZzTTZydHUvb0FFaVVMMy94N3Z5TENyc3B0?=
- =?utf-8?Q?X8SN3iW26AMFRDHzCmFTBuSpb?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 18b0d9e1-f937-46f2-82f3-08ddf08557ca
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB7282.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 16:16:05.2981
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: T1hNv9azlqgwWTrUAenJ8aeqCummFddtkrR2D0eClSpJOgJqQGIWQMnAQevqim6GzKf+exh+JcmkHF5spXNk9A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7570
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_091611_144645_31B4A901 
-X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-CacheID: sfid-20250910_092229_172875_E1603300 
+X-CRM114-Status: UNSURE (   9.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -180,22 +88,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/10/25 05:58, Andrew Lunn wrote:
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
->> +&mac0 {
->> +     pinctrl-names = "default";
->> +     phy-handle = <&ethphy0>;
->> +     pinctrl-0 = <&pinctrl_rgmii1_default>;
->> +     status = "okay";
->> +};
-> Same here. Please describe your PCB.
->
->          Andrew
+Remove 2.5V regulator since enabling and disabling this regulator is no
+longer supported.
 
-Hi Andrew,
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ arch/arm/mach-at91/pm_suspend.S | 29 -----------------------------
+ include/soc/at91/sama7-sfrbu.h  |  7 -------
+ 2 files changed, 36 deletions(-)
 
-This board has tx and rx delays from the phy. I will add it back in.
-
-Don
+diff --git a/arch/arm/mach-at91/pm_suspend.S b/arch/arm/mach-at91/pm_suspend.S
+index 198236bdbbb3..36cae7b1a490 100644
+--- a/arch/arm/mach-at91/pm_suspend.S
++++ b/arch/arm/mach-at91/pm_suspend.S
+@@ -87,29 +87,6 @@ tmp3	.req	r6
+ 
+ 	.endm
+ 
+-/**
+- * Set state for 2.5V low power regulator
+- * @ena: 0 - disable regulator
+- *	 1 - enable regulator
+- *
+- * Side effects: overwrites r7, r8, r9, r10
+- */
+-	.macro at91_2_5V_reg_set_low_power ena
+-#ifdef CONFIG_SOC_SAMA7
+-	ldr	r7, .sfrbu
+-	mov	r8, #\ena
+-	ldr	r9, [r7, #AT91_SFRBU_25LDOCR]
+-	orr	r9, r9, #AT91_SFRBU_25LDOCR_LP
+-	cmp	r8, #1
+-	beq	lp_done_\ena
+-	bic	r9, r9, #AT91_SFRBU_25LDOCR_LP
+-lp_done_\ena:
+-	ldr	r10, =AT91_SFRBU_25LDOCR_LDOANAKEY
+-	orr	r9, r9, r10
+-	str	r9, [r7, #AT91_SFRBU_25LDOCR]
+-#endif
+-	.endm
+-
+ /*
+  * Set LPM
+  * @ena: 0 - disable LPM
+@@ -1055,9 +1032,6 @@ save_mck:
+ 
+ 	at91_plla_disable
+ 
+-	/* Enable low power mode for 2.5V regulator. */
+-	at91_2_5V_reg_set_low_power 1
+-
+ 	ldr	tmp3, .pm_mode
+ 	cmp	tmp3, #AT91_PM_ULP1
+ 	beq	ulp1_mode
+@@ -1070,9 +1044,6 @@ ulp1_mode:
+ 	b	ulp_exit
+ 
+ ulp_exit:
+-	/* Disable low power mode for 2.5V regulator. */
+-	at91_2_5V_reg_set_low_power 0
+-
+ 	ldr	pmc, .pmc_base
+ 
+ 	at91_plla_enable
+diff --git a/include/soc/at91/sama7-sfrbu.h b/include/soc/at91/sama7-sfrbu.h
+index 76b740810d34..8cee48d1ae2c 100644
+--- a/include/soc/at91/sama7-sfrbu.h
++++ b/include/soc/at91/sama7-sfrbu.h
+@@ -18,13 +18,6 @@
+ #define		AT91_SFRBU_PSWBU_SOFTSWITCH	(1 << 1)	/* Power switch BU source selection */
+ #define		AT91_SFRBU_PSWBU_CTRL		(1 << 0)	/* Power switch BU control */
+ 
+-#define AT91_SFRBU_25LDOCR			(0x0C)		/* SFRBU 2.5V LDO Control Register */
+-#define		AT91_SFRBU_25LDOCR_LDOANAKEY	(0x3B6E18 << 8)	/* Specific value mandatory to allow writing of other register bits. */
+-#define		AT91_SFRBU_25LDOCR_STATE	(1 << 3)	/* LDOANA Switch On/Off Control */
+-#define		AT91_SFRBU_25LDOCR_LP		(1 << 2)	/* LDOANA Low-Power Mode Control */
+-#define		AT91_SFRBU_PD_VALUE_MSK		(0x3)
+-#define		AT91_SFRBU_25LDOCR_PD_VALUE(v)	((v) & AT91_SFRBU_PD_VALUE_MSK)	/* LDOANA Pull-down value */
+-
+ #define AT91_FRBU_DDRPWR			(0x10)		/* SFRBU DDR Power Control Register */
+ #define		AT91_FRBU_DDRPWR_STATE		(1 << 0)	/* DDR Power Mode State */
+ 
+-- 
+2.43.0
 
 
