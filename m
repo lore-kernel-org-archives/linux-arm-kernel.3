@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D280CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D45CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mKSB+4xL7cCmeYE/ZtEdtCjsvm7CIgVIfr0teJIjFAU=; b=ZcleUnDAYcWO2U1bUwhth4fpV3
-	iU0EIp6WnWyyLKFLcdGjPQXwGzH/9VkbrJs+vVqTQR7YQRSNl5ZYuAQ4pfEJtQE6F95ouv0+iWT68
-	WtZA2osBIsMz0UoRYOIU08cTCrc+2sWOgNuYTSiEU8rZkiKgO0TN73w+ctpDKnKL3y1E8TqjzwcAh
-	wt4mSL+31EpINGj9dgBQR9+1czwpTgVNYMwzs5EXizr+80UCqQT3oetvoOVZvZH08RRc2hT+Akdqm
-	hlZBpeCDPd6Z2+QuhcOUsW4a5BVUTs+pX0u5/7hunRqQ0TUrXJZqbuzLyE3svPDv8dOTZOMQmNHFv
-	eP2PXhXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QEeqIWIF/AD2zfk8ywdiI9kgEblpq8FH1YjniWeVCN4=; b=uOKsJY26YxUt688ZZo7VTOKm6Y
+	+q3EnCbCQCf054xy3I5yMEda9ROp995t/PZcDnTj0p7REoV1UcqW5VlWZ25/F8UIeJhBDyWkug4v9
+	2JPXYFCRakbK5mjWz3Ar9DXn7EmcOARcjuY681NLBlxc/2/o4nsRw3SJXeYgQRMKqi73M2XFtW8Fj
+	Q2RZyWGOxvOL0m4ED52I830ATJp8lR4A19TinLwSlV39YZqPTAhoKcuA+VymoTJCp+z73AnkOUTTN
+	iHd6hzLi4Erv4MKTrV4uVcfDpMP8i9kquMFdd4QFrq0ZRKzIMPZmo0HxWzWmjbUVUArUxbWlOSLIb
+	XzcMQ40Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLRU-0000000EZdK-436T;
-	Wed, 10 Sep 2025 14:05:00 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uwLSJ-0000000Ea2w-1NNE;
+	Wed, 10 Sep 2025 14:05:51 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLRT-0000000EZby-0BwF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 10 Sep 2025 14:04:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=mKSB+4xL7cCmeYE/ZtEdtCjsvm7CIgVIfr0teJIjFAU=; b=dofEW7af/ejhmNipPt2aD1zjQc
-	r/T1X53PF0e+BEfGBFGmptVoarxZBEN1Hr7xriD76R1w+M+nvAcyFt2PcHdzuHg+TQmoMQFUdBQaA
-	jm/o6jj1rPqB5i/QW6QVLU4W6O2YAUS0S3TvZPMLDfVQol1YTS76QR+/j8xxBFEpwnMLWAqId4scS
-	bdUpC9Pcr4BH4JRwC/mCjcKWJe0ye/ZaEnL2OllK0B+92NxsmXiDMXLQP/kJYOtEetOYDdThozbzr
-	U+eiVsgCMI71Rea2iE366+z3/3jQiRamjgJEHnieliGZegYbRdaVVmJTC4g6lcXbzYemC7sUUzZ3A
-	gI/iBz2w==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLRO-0000000A1bz-3lAQ;
-	Wed, 10 Sep 2025 14:04:54 +0000
-Date: Wed, 10 Sep 2025 15:04:54 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, ksummit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, imx@lists.linux.dev,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Richard Weinberger <richard@nod.at>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ankur Arora <ankur.a.arora@oracle.com>,
-	David Hildenbrand <david@redhat.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Sergio Paracuellos <sergio.paracuellos@gmail.com>,
-	Andreas Larsson <andreas@gaisler.com>
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-Message-ID: <aMGFhuHyQwtwyF7B@casper.infradead.org>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
- <CACRpkdb=E-_6fZ+4mX5FJas9C5Njp3Gwrygs-cAfWNdbP594cw@mail.gmail.com>
+	id 1uwLSH-0000000Ea0t-0UjC;
+	Wed, 10 Sep 2025 14:05:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1757513088; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=VEkyJDxuAQfVsvKhIxBruPEvS+E+Faq6lkb8StCuTHDG4il/MJXRcIahNdDe1K9l5asGM6fNcHpp2dATLpTDdixJydv1Eav7Ciq7KRQ57d64AIcR9G9MzobjDNJWa735TFRzENggkAWdoogP0hXnRRQvmnhic10HgfMoJOI0qqw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1757513088; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=QEeqIWIF/AD2zfk8ywdiI9kgEblpq8FH1YjniWeVCN4=; 
+	b=P9BxtulcIUGD/6FoPkulfuuR84JV4Ri/6txauWEhPar814ZnGKTiquSh/essihNHEQbflrG4B1II2xYvbvqlCLvtwTc27q7uJsa6RzH4frCk8k+iYr2hMphCwl+2BMJFaXmesNFLrkU20dt2cWy9mIGCBaIpcPsipJH3cRPNWPM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757513088;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=QEeqIWIF/AD2zfk8ywdiI9kgEblpq8FH1YjniWeVCN4=;
+	b=IHYKNoZY4zf4ISQCHWYEleElg0zyYX0fAY3flK0zslYU4qZregRMacfv+qxcfwpQ
+	1x+1iaYapTxzAjxF38sg0OhTVRo1GLDfKW55tsC3QwJKNIhZiomEvEjFNt5Ia3ldCpT
+	ecLwFY4c1qFjQXhURNFG3nBQQ/aFvg2+LOYp7AEA=
+Received: by mx.zohomail.com with SMTPS id 1757513084822538.2895524618148;
+	Wed, 10 Sep 2025 07:04:44 -0700 (PDT)
+Message-ID: <28049fe0-0ae7-4b40-9f95-1513e317547f@collabora.com>
+Date: Wed, 10 Sep 2025 11:04:29 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CACRpkdb=E-_6fZ+4mX5FJas9C5Njp3Gwrygs-cAfWNdbP594cw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 07/14] dt-bindings: display: mediatek,ufoe: Add
+ mediatek,gce-client-reg property
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
+ andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
+ broonie@kernel.org, chunkuang.hu@kernel.org, ck.hu@mediatek.com,
+ conor+dt@kernel.org, davem@davemloft.net, dmitry.torokhov@gmail.com,
+ edumazet@google.com, flora.fu@mediatek.com, houlong.wei@mediatek.com,
+ jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com,
+ krzk+dt@kernel.org, kuba@kernel.org,
+ kyrie.wu@mediatek.corp-partner.google.com, lgirdwood@gmail.com,
+ linus.walleij@linaro.org, louisalexis.eyraud@collabora.com,
+ maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com,
+ mchehab@kernel.org, minghsiu.tsai@mediatek.com, mripard@kernel.org,
+ p.zabel@pengutronix.de, pabeni@redhat.com, robh@kernel.org,
+ sean.wang@kernel.org, simona@ffwll.ch, support.opensource@diasemi.com,
+ tiffany.lin@mediatek.com, tzimmermann@suse.de, yunfei.dong@mediatek.com,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
+ <20250820171302.324142-8-ariel.dalessandro@collabora.com>
+ <20250821-wandering-vermilion-pigeon-b8c9f0@kuoka>
+Content-Language: en-US
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+In-Reply-To: <20250821-wandering-vermilion-pigeon-b8c9f0@kuoka>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250910_070549_191029_9290FD07 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,20 +99,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 03:10:05PM +0200, Linus Walleij wrote:
-> This is is done so that we can unmap *most* of the kernel
-> memory but *keep* the VMALLOC area, so that e.g. exceptions
-> can still execute and save to stack when they occur, and we can
-> call into the kernel to execute said exceptions.
-> 
-> This in practice means the area 0xf1000000-0xffffffff
-> which also includes the high exception vectors that must for
-> natural reasons also be kept in the mapping.
-> What we have mapped today (all of the time) is
-> 0xc0000000-0xffffffff.
-> 
-> A minimal 256 MB mapping from 0xf0000000-0xffffffff
-> should be able to cover this.
+Krzysztof,
 
-Can I ask where the MMIO (PCI?) window lives?
+On 8/21/25 3:50 AM, Krzysztof Kozlowski wrote:
+> On Wed, Aug 20, 2025 at 02:12:55PM -0300, Ariel D'Alessandro wrote:
+>> Current, the DT bindings for Mediatek UFOe (Unified Frame Optimization
+>> engine) is missing the mediatek,gce-client-reg property. Add it and
+> 
+> Why is it missing? If the binding is complete, it cannot be missing...
+
+Due to the following error:
+
+$ make -j$(nproc) CHECK_DTBS=y mediatek/mt8173-elm.dtb
+   SCHEMA  Documentation/devicetree/bindings/processed-schema.json
+   DTC [C] arch/arm64/boot/dts/mediatek/mt8173-elm.dtb
+[...]
+arch/arm64/boot/dts/mediatek/mt8173-elm.dtb: ufoe@1401a000 
+(mediatek,mt8173-disp-ufoe): 'mediatek,gce-client-reg' does not match 
+any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: 
+http://devicetree.org/schemas/display/mediatek/mediatek,ufoe.yaml#
+
+> 
+>> update the example as well.
+>>
+>> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+>> ---
+>>   .../bindings/display/mediatek/mediatek,ufoe.yaml      | 11 +++++++++++
+>>   1 file changed, 11 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+>> index 61a5e22effbf2..ecb4c0359fec3 100644
+>> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+>> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+>> @@ -64,6 +64,14 @@ properties:
+>>         - port@0
+>>         - port@1
+>>   
+>> +  mediatek,gce-client-reg:
+>> +    description: The register of client driver can be configured by gce with
+>> +      4 arguments defined in this property, such as phandle of gce, subsys id,
+>> +      register offset and size. Each GCE subsys id is mapping to a client
+> 
+> Don't explain what DT syntax is. We all know, so that's completely
+> redundant description. Explain the purpose. Explain Arguments with sechema - items.
+
+Although I agree with your suggestions, this is exactly how the rest of 
+the Mediatek DT bindings describe this node. This patch is based on the 
+other +20 files, which describe the node in the same way.
+
+Regards,
+
+-- 
+Ariel D'Alessandro
+Software Engineer
+
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
+Registered in England & Wales, no. 5513718
+
 
