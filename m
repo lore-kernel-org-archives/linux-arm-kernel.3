@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7ABCCAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 23:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFFE1CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 23:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Mg4r6tqzHUH80N6S4z7Ye3MQyAcaZEeUKqyv8uKPNHI=; b=mCiHPMI/dqy1oleUl7CDFAjwNv
-	8vgaXRZiU/ovx8wgi10nV4L+C/5Wj96lIw+XBmNpMZaSRzTv7TdYk127i5625wNWGGThHTSiw76ld
-	XWSfprsIWrYVf7xqIe8hqOaDSpRowacmb2RzMrWdebyMv0DcLnvly0mUWZs+GULwTV5IlYXCrJj52
-	oHYNtc9sxEBUsQvbaCNNGZ9TqqKqrSrpYvOQCGotJttjy9keLm57q3rkPv9ZLqWzbAGrLQ9unMRp6
-	NunlP3W2nZABT/whVpxQkygaDdNDENn6hTmz7DcAwQ2O0D/ZGaNpdYdqZMrzi5xMwRfpG5KER8gmY
-	IvXPNSgg==;
+	bh=aE7mCsrW+jbsuaUl3dmSP9nXkq+eiADJoNB6eIGghOI=; b=rJOeLQTfTosgLCcoNBXqVF3lVH
+	3L9gtXv57Q6hJikrSmQfyGaOLdLzpAgwi9gqz9v2sZ9auVaM2smG8oDjPZ76jxEV3FxFKqswYu3jy
+	jax7MupjQWxPFivoXKp3kvXriWbfZrRNXe9K6rg0JgRrFoTEj9Zf/47Zu8Hc2qp4otDayeTzIwt0O
+	JW9/3vbxN3akJ0RYZc3vX1iSPFL4rF/ImfzRFdcb0EDX+ct07KurDQDhbgPVtRtA4dTqNR8mJs2aa
+	VIxJbkr9//KFUjMz8NEot6kwd2Hwglm410HRD/s7Gck0CJpNd16ZhrDZFIx+TtYPrAslEGTtDLKPZ
+	iM3XpWqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwUKM-0000000HJoh-1olK;
-	Wed, 10 Sep 2025 23:34:14 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uwUPG-0000000HKqu-0cvd;
+	Wed, 10 Sep 2025 23:39:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwUKK-0000000HJns-09dP
+	id 1uwUPD-0000000HKpv-38ON
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 23:34:13 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-772301f8a4cso179076b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 16:34:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757547251; x=1758152051; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mg4r6tqzHUH80N6S4z7Ye3MQyAcaZEeUKqyv8uKPNHI=;
-        b=I1CPkPUMuU3DIKeggtt47cx7+eWSKikyL6oH1wHPvAbL6EnlFnhGeJAkX1zpfsVOrh
-         dIntb4dagoZXDBZefCNbauHxY7aDeuS1G47Z70Kj/QIOiowDAR4nWtyaMAq68x7t/Fw1
-         TtSD6SDhuYmfjiTXGqZwfHbUC6UCXPGswrg+EX+RN5GhHaBw8Bsiax0lPMHlv/Ix+Qe2
-         pTJWThjsNNme5LBgHa8hXJXeVJX19tyGz2NoogTzHmf3ra1U3M50us8QXrsAacd0xdC9
-         a0gRLmtC+t/uSaLMtR1btqpmrbqQx0ah4jY9Ve1opkhEZb1XMju/pKaOIenc6QT2+kZq
-         gDyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757547251; x=1758152051;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Mg4r6tqzHUH80N6S4z7Ye3MQyAcaZEeUKqyv8uKPNHI=;
-        b=rI21Tj3duROHmnZt59sFsdCU+o8Iqo5pkypHB83RZmbaHYVys0DTXOnNozlNk0gobD
-         LMSJDticggkN7+DRhqEdudOsuoJh7Rc9wMCVH1pzYa8Q7T52arjerilbr08akZAzaFFf
-         FZ3MUNDcDwvQaAl9dMy7Tk/YZfewc15Q+7QO9Jeu9bXgwrjojHXjSRaClo2ApIVGmRlB
-         1KwNAE98mSZ/qu0BeEno0XTGQc1DvI3LBSvvciNF6Ny5NOKfOEtMFJALoKtmrBdcjwyZ
-         nfw/TAuRCZgHyaJ8rp3HK2m6jyulcQx8zGuboNYEz0sojKMdrJnYA9CEsRcG6VxeO/HV
-         k0sw==
-X-Forwarded-Encrypted: i=1; AJvYcCXwWKXj9gLsDvIY4hvlD+xb2x+ZmpEKxICu9qIkw2oJTkScd0GZvZFQPs+f7t5LPg2tX59BbF1uczD2BHtCCoxG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJbNrCkOcJ05klz3h+0MCnWklCx7TdcLUWi/sBZMgl0VNRK2IW
-	yetbrCYsdRE7bXdf7BGMLSydcbPxNfvGhIqjrMOubpRzeEsNoNCeQKG9UfQTpw==
-X-Gm-Gg: ASbGncu+Ki6EYmEYsJxDATTy46ynL6nPV/hhXP3sFBsN5cEK0MzhuxhkPiDXUakShp4
-	7gBH530eawfectYTFWsOrwldN6NPKACiAc+Tq4O0i29U2uCbDnOgIfY1kx/Zvx4DiZJCmtWkmUv
-	ypA49Q43auQTDu2L1U7twmscQGt7LgNp7ENkqTwyfzQSyuf/Hd8bU7dJCEVe7YiBhA0/A/J6MdB
-	8+W9O1QHbnuS9qeDnmyeS9+w3xjwHmq8fF7dx7OLxygM54aWGpTU5kRQDuAIwr68FnXlTavyxQ0
-	VqR1sE38n1gPVjXAwcl/8g/9Pq/RRBgPnn7Tijl8DwOFzhzgHbofOiEvgYgIMlR12cpfoFYNyuZ
-	RKPFocpdhMUeJZyy2dgoy/kr9TKKgCIYncaXwVkbRtMaAmbI=
-X-Google-Smtp-Source: AGHT+IFyFjSxsyaF2RJnC90z3QvBijSexO6xHZxytRiU9jodFdMt2l4JVc9tzY8yfXcH4+xcKOaQMw==
-X-Received: by 2002:a05:6a00:7094:b0:776:2e3:a95b with SMTP id d2e1a72fcca58-77602e3ab24mr1427978b3a.1.1757547251235;
-        Wed, 10 Sep 2025 16:34:11 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:d19c:8c03:e9d7:2ba6])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-774662d2395sm6299114b3a.88.2025.09.10.16.34.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 16:34:10 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Wed, 10 Sep 2025 23:39:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 02B3744916;
+	Wed, 10 Sep 2025 23:39:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B2EFC4CEEB;
+	Wed, 10 Sep 2025 23:39:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757547554;
+	bh=oThnhjwHOCRp+Pu8CYFW0dQq+PXlgMWB686UxQw7yiE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kJOzZAzOFl6orh8RdBkKXLCmaP9bF0y65JlF+R5NAQbn+gJh+0xFO1CV6UM6v/b/z
+	 62DrC2q/asOfJMPLA2AHVENID0Xj0gH3JjmtHelwh6f8yCJ+4TclVEgTNsQipgNCxP
+	 iQ8b0Q/VAuIzrYxhf9cNdjFTlssX1zRIMb4RmIOZEcmawrrIpJvDXwghlJDSHdfyuj
+	 ZXPXA6PzFfmaUVym2vjDkBbH+GATgjn6mvDIDLtvV5Bq8JJz8Zunf73q4cJtiOTPpE
+	 eKSlpha903l3v3k3aZslw+9+J0soOTzVRFRwvMFmt3qnGHu/aL/pHSzrGnZs09FGS9
+	 x1gc5TtGjI1Jw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: soc@kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>
+Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	frank.li@nxp.com,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v2] dt-bindings: soc: imx-iomuxc-gpr: Document the CSI mux
-Date: Wed, 10 Sep 2025 20:34:02 -0300
-Message-Id: <20250910233402.567245-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: dts: socionext: Drop "linux,spdif-dit" port node unit-address
+Date: Wed, 10 Sep 2025 18:37:40 -0500
+Message-ID: <20250910233740.777077-2-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_163412_081264_AAE31812 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250910_163915_805036_1340C381 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,57 +74,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On i.MX6Q/6DL the following subnodes exist to describe the CSI port muxing:
+A single graph port node without an address (i.e. "reg") should not have
+a unit-address, drop it from the "linux,spdif-dit" port node.
 
-- ipu1_csi0_mux
-- ipu1_csi1_mux
-- ipu2_csi0_mux
-- ipu2_csi1_mux
-
-As they were not documented, dt-schema emits warnings like:
-
-  'ipu1_csi0_mux', 'ipu1_csi1_mux' do not match any of the regexes:
-  '^pinctrl-[0-9]+$'
-
-Add a top-level patternProperties entry for these CSI mux subnodes
-and restrict it to i.MX6Q.
-
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-Changes since v1:
-- Restrict it to i.MX6Q (Frank).
+Arnd, Please apply directly.
 
- .../bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml     | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
-index 8451cb4dd87c..719de0489002 100644
---- a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
-+++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
-@@ -50,6 +50,22 @@ properties:
-     type: object
-     $ref: /schemas/mux/reg-mux.yaml
+diff --git a/arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts b/arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts
+index 7e08a459f7d8..ab910e1b5e6a 100644
+--- a/arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts
++++ b/arch/arm/boot/dts/socionext/uniphier-pxs2-vodka.dts
+@@ -43,7 +43,7 @@ spdif-out {
+ 		compatible = "linux,spdif-dit";
+ 		#sound-dai-cells = <0>;
  
-+patternProperties:
-+  "^ipu[12]_csi[01]_mux$":
-+    type: object
-+    $ref: /schemas/media/video-mux.yaml
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          not:
-+            contains:
-+              const: fsl,imx6q-iomuxc-gpr
-+    then:
-+      patternProperties:
-+        '^ipu[12]_csi[01]_mux$': false
-+
- additionalProperties: false
+-		port@0 {
++		port {
+ 			spdif_tx: endpoint {
+ 				remote-endpoint = <&spdif_hiecout1>;
+ 			};
+@@ -54,7 +54,7 @@ comp-spdif-out {
+ 		compatible = "linux,spdif-dit";
+ 		#sound-dai-cells = <0>;
  
- required:
+-		port@0 {
++		port {
+ 			comp_spdif_tx: endpoint {
+ 				remote-endpoint = <&comp_spdif_hiecout1>;
+ 			};
 -- 
-2.34.1
+2.51.0
 
 
