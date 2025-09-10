@@ -4,93 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C782CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16028CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0OBSNMCSZFkYoD+gDD6u3qKCw6C8XYzkirO4cLs6lbo=; b=e1PnCYKjPXqySq88FxTAlxoOeb
-	8JSfk3/aQOEpegbx8o6mcv1y7AFrbvpKW4OXdbeSIbPM5iVXlSQxlWvVzbfUyrUSdpTM1/9IJbXdr
-	9mualptiFq+yt2D6dzltZuK9lrdwFXpzBcBHKGbF5vmafxWetlGr5x7+CujBrIbcGa4bnG/OkHpwP
-	QEvGAXUcRr3tF9oIddVgWkmO69xnbBLqZCDxG7ma9rzsOSJj8XpPcAQMOgfqTwsjQPYyvznfpVovz
-	2hL85RKNVHShwJtgMXKy6DwzlyPDuDT9IYe3sbYEs4FoiA7TcsdhpUSmn8G+wLyOTs8zRS1LpjPM2
-	MONKSyqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8+Yb/IxxLIspa6tHUrNInqlVlxK+I+nsywpKyzMZIM8=; b=jclkTxh91MW5ZTRwghjMRtFYDm
+	uKH8PGoEqrsd1ITsyhHYEOyUjSXrttguZIRuWjiWhywJAPYnWGByll11LSuVZnorsDf4hqWYpF/fV
+	1yo0TylnyoY/SP5VKiLgUZZ3+10jMvCUcjOFPGY67uzBNeiRR2N3RooUmOYsEpHTMzY7ykm605rLg
+	ZMCf1U6QxsKcs75kyDkXzNvfmqvMo1qMszXhrc2e9EVBGcOefLCSPz9ZawRRX4zPhSVEptfF9INlT
+	nEKgXSo5pusERmSSNyh7HAv4BhQdIEb8B2B7kFEIHycyB2kEGm7YCphSUxKxFd+hezSEvEGMjdufY
+	7Rc58S0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHKz-0000000DI6E-3bXp;
-	Wed, 10 Sep 2025 09:42:01 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1uwHMH-0000000DId7-06ia;
+	Wed, 10 Sep 2025 09:43:21 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHKw-0000000DI4R-3Knx
+	id 1uwHME-0000000DIbD-1SCt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 09:42:00 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3df726ecff3so3471175f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 02:41:57 -0700 (PDT)
+	Wed, 10 Sep 2025 09:43:20 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45dcff2f313so41124305e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 02:43:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1757497317; x=1758102117; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0OBSNMCSZFkYoD+gDD6u3qKCw6C8XYzkirO4cLs6lbo=;
-        b=kwRwr95f9aDj1PeLvevQK9aF/lzJofU1JWe3JvOpnnVd5guU9D342d0OrpBmk1w6zA
-         60TzIAiWgNRiRJG/NaGJmrUtuDjXCrfVzA1XfAgBwZBwl6C/f2ldG4yiQLp+/jN3Braa
-         BxKN54mNVe4CYa/02BtZHFB0eiATR0ZqHb/i2gGZ+YHVKMnzodsWwX3zLj3Qb3c0XpV3
-         JRXoe+ipZi5ScZixGcE5NcP6qeMlfCTf+L9ZgwN1cDWCEhHiMVrIWFZHuKmJpgd0ETfr
-         Anb515a25DiMuv+dGB+mPdR8xTw+gSVeJpoJX+QPHCVjthwM1gVXW+3KBbG5cFO0+c9N
-         F2gA==
+        d=gmail.com; s=20230601; t=1757497396; x=1758102196; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8+Yb/IxxLIspa6tHUrNInqlVlxK+I+nsywpKyzMZIM8=;
+        b=mPUSDZvnU4GvEaDOHdqa22LLvMoQr+1qB5bYi8E5+lE44C9wmAjKect/B0JpL+DUY9
+         Lv+7G8F/83xKbxRwv2blYdj2LjbeuUb+8vCO3o3xDHELo4Nnclf6LKZBLGfG+0FmIQXt
+         xckSQRFhAOwmFNBvMGTxWz49cmYY4Loxp7msrnQQSEMTf7FVbkv1H5qoO7LzDjARgMNh
+         ajgsfEMfE4M1I2s//27uGMZ3w4OxOirmy4B1FT98JQBCJHJQGcXQfHGip004e16Hp2H1
+         LX7dKFhgNYi4fFC2PCxxv9LQAFTd17nkfgC6qCGdGME82jiVj/1wt4Lyo5ZOs0M52HpS
+         Ylmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757497317; x=1758102117;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0OBSNMCSZFkYoD+gDD6u3qKCw6C8XYzkirO4cLs6lbo=;
-        b=Rq7IQY2yrEH9V7L/nKNZ/ibS7RQyjYk9vQH+/SZAZySmM1PIsc/MoG0J0FY7S33CmX
-         EBqvnLtDH2C3IZyMcx98PJBsCejnFoC3rYtsgFOd5+kGYCEOqZyEA2Kw3mcIK3I2eYhP
-         FYpAJ/3LF1KPei28PuC9+Aqp8gHYK76Ou/plbNhVl8+U0JAJtynWyANwDS/eCbk7v02z
-         8TtqpOPJ1XGBID0TL485eGQF88KZmErLBK+I3DQ58h0cBkMBtqI6pOQa4GczmqIBN5Dn
-         l/bXD61hZQu8gUD17uhQypWnW6fhpIYRTfc3ngOIskMrUGe25uRCnYKF+598FmWHrXA3
-         Okkw==
-X-Forwarded-Encrypted: i=1; AJvYcCXtro2EbM3QBS0p3iSu3EKMsEt9gpeAFHhGRu/G2H/RfmcckNsGEpSs9R7lprZEYYfvs3nQqNCJ1tQZ557LRLOI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3iR+7uL0b0gGl0oiVA1TCE/wiaDY1w/tq2No7s92Ux/Y1U09U
-	928B0uu1fX/Tw/YJiTXzh7Rbq7aDmmNS119nMh7KSJ+Qk2wrvYzziX6AiGGZTOXYMwY=
-X-Gm-Gg: ASbGncsHTpTtw5xkFGIGKV7Fihl/Q2jEHSVvjsLtCn5suU76w3vV9HP7O7s3VQb/+Hq
-	gz6G5LD8Bz4yLvlyP6Mz4rYSPHygvtU8NoK+FdngjCeDnLHgtBMngGsucdWaTxTcdvyMLKgOVw6
-	4ELFwz6pQ8arQp9Znc/dAQ8luxlbLpk3/hRRzq/vt/LcJvRNZ3Bs937u1f45jF9cLIim1+oObmq
-	VrXDVPNFipXHjGjuRsHNN3mfL2RJFN9S29TOOmg+HFSVDX3SWIQiSkkMSsE6BoRLpQRN1xNEQMW
-	9ubOJ57JnpIOiDtKPpJ26d+MniH7F8H/DP/plG01pf8QHm6dnEiXybLhBQU9ZM3tkAx0PBtK2/c
-	ZvoG/FYi6heojYdP21GJGP6350662+d8/
-X-Google-Smtp-Source: AGHT+IFhJUYuLbSMnUTSqjS1CD9WH9ciAuMmnQkgVDBas13o9m9uUxWF1IbevCk3GCBXb/HsRxReFw==
-X-Received: by 2002:a05:6000:18a4:b0:3cc:8d94:1108 with SMTP id ffacd0b85a97d-3e641e3cffemr11252957f8f.22.1757497316478;
-        Wed, 10 Sep 2025 02:41:56 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:c75e:f70c:b449:e087])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3e7521bf85esm6365253f8f.1.2025.09.10.02.41.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 02:41:55 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,  chuan.liu@amlogic.com,
-  linux-clk@vger.kernel.org,  devicetree@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 2/2] clk: amlogic: add video-related clocks for S4 SoC
-In-Reply-To: <20250909-add_video_clk-v4-2-5e0c01d47aa8@amlogic.com> (Chuan Liu
-	via's message of "Tue, 09 Sep 2025 15:29:12 +0800")
-References: <20250909-add_video_clk-v4-0-5e0c01d47aa8@amlogic.com>
-	<20250909-add_video_clk-v4-2-5e0c01d47aa8@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Wed, 10 Sep 2025 11:41:55 +0200
-Message-ID: <1jv7lqiqzg.fsf@starbuckisacylon.baylibre.com>
+        d=1e100.net; s=20230601; t=1757497396; x=1758102196;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8+Yb/IxxLIspa6tHUrNInqlVlxK+I+nsywpKyzMZIM8=;
+        b=VX2+9lAfRDXc0YNztwtewwlTXnObAH4Mwpmd0F8QdFU4119jE1FAhvfX5icQPYE522
+         O7DSu36TJzO6LqoYfJTRcXt05g2NIEmOlwVuTCi0xWq2+kmSvYl3w9Ou9r+GisCDKiCz
+         oUN56G9UdMZBtWGbV5pgyiOwgyr8L4r5tHqtjZqZqUx9kzXvR8/vgHXTVqow0crjxjSf
+         ejzdy+DaAH2RBLjEx7i1CFkg2cJhZCjFsqLWamC3ud9Q5oglhpTlAMf42NB5sHZn85/S
+         OcNdp8gDY5G+TA50N8HVgadv06Ej2LS5G2hugHnm/q3pGeCcXrJ8zzA+a1PXK2fkVdqr
+         EdHA==
+X-Forwarded-Encrypted: i=1; AJvYcCXw88aeItr+GetsBFtfwj2YTsTTjPH6EPH7son28eHScLHV5YWAiErwPyYphXvAwemV3fJCtTIGwa93VJpTlCxN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsjGOQvyLImPAFYykQL0IY3xP9no0ApocUArQSEaPb+8xJ57x+
+	nAdcRlzx6sFtPosfssipI5uJaQ+ps/+9ACDptucq8d7DiEhrLO6DQ2XD
+X-Gm-Gg: ASbGncsUCXqef8rTXcCcfFFth28YGDPUy62rSaosjysWuBQkiFuXzMFNsdbNu4Cnvf0
+	ePhbciww+B/8ZLFvFBj4Ao7J5xFFZPbouMsvKftXLDmgGGCFAh97lip26iuVtzBVEoM8TCsMpgQ
+	QsImoWNyfDs3p7SlVrp5R4pjYU6P+WnyAc+qP2an5nzxRUt/qiBzeFopahDCw32oHuiHIuvFlTc
+	Zx/lFwcZjG2UkFCHObJCUiFucfuWB+H2Y4C2lJtXXYTZkFduQXoNJv+4J4yWd+LXwNgkbQSuI2U
+	Ebqc3vHs0CZwJsAGR9cMld08nRP4CrwgaGmuimIMir4xIpVjKlmPrbgrLAiEgOmfjjAf94JYsjW
+	Zy+RO+cgcTwj7qZ7id+uM4QgrKvm6I2twKc+zfAA6I6d/MLqw1lft/TEGn9mAAnaFbYFIEvtI6+
+	bn49elZM/hB+Nic49Mkja4N4lcsrWFPZFRSlgld86CIJYVpWkVX1DzWaqXk5nn0uns0K082vmC0
+	bk1
+X-Google-Smtp-Source: AGHT+IG++5gaOV3PJKYuJ0A9nAeEycj+nF32F/RTHqK48mjNiX/HpSzosqAvPkjm4CBA9YvRx7JU+A==
+X-Received: by 2002:a05:600c:c48e:b0:45b:6743:2242 with SMTP id 5b1f17b1804b1-45dddee9cc4mr128836755e9.22.1757497396149;
+        Wed, 10 Sep 2025 02:43:16 -0700 (PDT)
+Received: from ?IPV6:2a02:8440:7135:4f4c:c6d5:9a0c:a4c1:1e58? (2a02-8440-7135-4f4c-c6d5-9a0c-a4c1-1e58.rev.sfr.net. [2a02:8440:7135:4f4c:c6d5:9a0c:a4c1:1e58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df1ba282dsm25183485e9.5.2025.09.10.02.43.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Sep 2025 02:43:15 -0700 (PDT)
+Message-ID: <22a485b9-1b86-41d3-a42c-f813eea94697@gmail.com>
+Date: Wed, 10 Sep 2025 11:43:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 01/20] bus: firewall: move stm32_firewall header file
+ in include folder
+To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Julius Werner <jwerner@chromium.org>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
+ <20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com>
+ <9a46c8a8-1d25-410c-9fa2-267eb4040390@foss.st.com>
+ <19e664da-df4c-4bc0-84ce-41e4364f10bc@gmail.com>
+ <7cfb167a-26df-4abf-a6ec-73813a1a0986@foss.st.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+In-Reply-To: <7cfb167a-26df-4abf-a6ec-73813a1a0986@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_024158_869216_B933AD7A 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20250910_024318_816712_553AF8C3 
+X-CRM114-Status: GOOD (  26.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,267 +119,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue 09 Sep 2025 at 15:29, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
+On 10/09/2025 10:42, Gatien CHEVALLIER wrote:
+> 
+> 
+> On 9/10/25 09:47, Clément Le Goffic wrote:
+>> On 09/09/2025 14:25, Gatien CHEVALLIER wrote:
+>>>
+>>>
+>>> On 9/9/25 12:12, Clément Le Goffic wrote:
+>>>> From: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>>>
+>>>> Other driver than rifsc and etzpc can implement firewall ops, such as
+>>>> rcc.
+>>>> In order for them to have access to the ops and type of this framework,
+>>>> we need to get the `stm32_firewall.h` file in the include/ folder.
+>>>>
+>>>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>>> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+>>>> ---
+>>>>   drivers/bus/stm32_etzpc.c                       | 3 +--
+>>>>   drivers/bus/stm32_firewall.c                    | 3 +--
+>>>>   drivers/bus/stm32_rifsc.c                       | 3 +--
+>>>>   {drivers => include/linux}/bus/stm32_firewall.h | 0
+>>>>   4 files changed, 3 insertions(+), 6 deletions(-)
+>>>>
+>>>> diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
+>>>> index 7fc0f16960be..4918a14e507e 100644
+>>>> --- a/drivers/bus/stm32_etzpc.c
+>>>> +++ b/drivers/bus/stm32_etzpc.c
+>>>> @@ -5,6 +5,7 @@
+>>>>   #include <linux/bitfield.h>
+>>>>   #include <linux/bits.h>
+>>>> +#include <linux/bus/stm32_firewall.h>
+>>>>   #include <linux/device.h>
+>>>>   #include <linux/err.h>
+>>>>   #include <linux/init.h>
+>>>> @@ -16,8 +17,6 @@
+>>>>   #include <linux/platform_device.h>
+>>>>   #include <linux/types.h>
+>>>> -#include "stm32_firewall.h"
+>>>> -
+>>>>   /*
+>>>>    * ETZPC registers
+>>>>    */
+>>>> diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/ 
+>>>> stm32_firewall.c
+>>>> index 2fc9761dadec..ef4988054b44 100644
+>>>> --- a/drivers/bus/stm32_firewall.c
+>>>> +++ b/drivers/bus/stm32_firewall.c
+>>>> @@ -5,6 +5,7 @@
+>>>>   #include <linux/bitfield.h>
+>>>>   #include <linux/bits.h>
+>>>> +#include <linux/bus/stm32_firewall.h>
+>>>>   #include <linux/bus/stm32_firewall_device.h>
+>>>>   #include <linux/device.h>
+>>>>   #include <linux/err.h>
+>>>> @@ -18,8 +19,6 @@
+>>>>   #include <linux/types.h>
+>>>>   #include <linux/slab.h>
+>>>> -#include "stm32_firewall.h"
+>>>> -
+>>>>   /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
+>>>>   #define STM32_FIREWALL_MAX_ARGS (STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
+>>>> diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
+>>>> index 4cf1b60014b7..643ddd0a5f54 100644
+>>>> --- a/drivers/bus/stm32_rifsc.c
+>>>> +++ b/drivers/bus/stm32_rifsc.c
+>>>> @@ -5,6 +5,7 @@
+>>>>   #include <linux/bitfield.h>
+>>>>   #include <linux/bits.h>
+>>>> +#include <linux/bus/stm32_firewall.h>
+>>>>   #include <linux/device.h>
+>>>>   #include <linux/err.h>
+>>>>   #include <linux/init.h>
+>>>> @@ -16,8 +17,6 @@
+>>>>   #include <linux/platform_device.h>
+>>>>   #include <linux/types.h>
+>>>> -#include "stm32_firewall.h"
+>>>> -
+>>>>   /*
+>>>>    * RIFSC offset register
+>>>>    */
+>>>> diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/ 
+>>>> stm32_firewall.h
+>>>> similarity index 100%
+>>>> rename from drivers/bus/stm32_firewall.h
+>>>> rename to include/linux/bus/stm32_firewall.h
+>>>>
+>>
+>> Hi Gatien
+>>
+>>> As the firewall header is moved to a dedicated firewall directory,
+>>
+>> I don't move it to a dedicated firewall directory just to the "bus" 
+>> directory where the "stm32_firewall_device.h" header file is already 
+>> located.
+>>
+> 
+> Yes, my bad, I mixed my words there.
+> 
+>>> maybe it would be coherent to create the same kind of directory
+>>> for the sources as non-buses drivers use it. I can test it on my
+>>> side if you're willing to make the change.
+>>
+>> Do you mean create an include/linux/bus/firewall/ directory ?
+>>
+> 
+> Rather include/linux/firewall/(stm32/). and a drivers/firewall/(stm32/)
+> directory for the firewall files would be great. If that's not too much
+> of a burden.
 
-> From: Chuan Liu <chuan.liu@amlogic.com>
->
-> Add video encoder, demodulator and CVBS clocks.
->
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> ---
->  drivers/clk/meson/s4-peripherals.c | 203 +++++++++++++++++++++++++++++++++++++
->  1 file changed, 203 insertions(+)
->
-> diff --git a/drivers/clk/meson/s4-peripherals.c b/drivers/clk/meson/s4-peripherals.c
-> index 6d69b132d1e1..b855e8f1fc04 100644
-> --- a/drivers/clk/meson/s4-peripherals.c
-> +++ b/drivers/clk/meson/s4-peripherals.c
-> @@ -44,6 +44,7 @@
->  #define CLKCTRL_VDIN_MEAS_CLK_CTRL                 0x0f8
->  #define CLKCTRL_VAPBCLK_CTRL                       0x0fc
->  #define CLKCTRL_HDCP22_CTRL                        0x100
-> +#define CLKCTRL_CDAC_CLK_CTRL                      0x108
->  #define CLKCTRL_VDEC_CLK_CTRL                      0x140
->  #define CLKCTRL_VDEC2_CLK_CTRL                     0x144
->  #define CLKCTRL_VDEC3_CLK_CTRL                     0x148
-> @@ -1126,6 +1127,22 @@ static struct clk_regmap s4_cts_encp_sel = {
->  	},
->  };
->  
-> +static struct clk_regmap s4_cts_encl_sel = {
-> +	.data = &(struct clk_regmap_mux_data){
-> +		.offset = CLKCTRL_VIID_CLK_DIV,
-> +		.mask = 0xf,
-> +		.shift = 12,
-> +		.table = s4_cts_parents_val_table,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "cts_encl_sel",
-> +		.ops = &clk_regmap_mux_ops,
-> +		.parent_hws = s4_cts_parents,
-> +		.num_parents = ARRAY_SIZE(s4_cts_parents),
-> +		.flags = CLK_SET_RATE_PARENT,
+I thinks that's a bit too much for this one.
+As you're the firewall maintainer I would need to modify your entry in 
+the MAINTAINER file (and I just see that your entry is lacking the 
+header file path).
+For now I think it is not urgent neither mandatory.
+Maybe in a next patch series ?
+Even in the driver bus directory there is no vendor policy so adding a 
+path like drivers/bus/{stm32/|firewall/}stm32_firewall.c is a bit 
+overlapping as with the filename we already know it is ST and its firewall.
+Let me know what you think !
 
-Do you really expect the rate of the parents to be adjusted when calling
-set_rate() on this clock ?
+BR,
+Clément
 
-It all trickle down to vclks which are shared with enci encp and vdac
-clocks, so maybe not such a good idea, don't you think ?
-
-> +	},
-> +};
-> +
->  static struct clk_regmap s4_cts_vdac_sel = {
->  	.data = &(struct clk_regmap_mux_data){
->  		.offset = CLKCTRL_VIID_CLK_DIV,
-> @@ -1205,6 +1222,22 @@ static struct clk_regmap s4_cts_encp = {
->  	},
->  };
->  
-> +static struct clk_regmap s4_cts_encl = {
-> +	.data = &(struct clk_regmap_gate_data){
-> +		.offset = CLKCTRL_VID_CLK_CTRL2,
-> +		.bit_idx = 3,
-> +	},
-> +	.hw.init = &(struct clk_init_data) {
-> +		.name = "cts_encl",
-> +		.ops = &clk_regmap_gate_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&s4_cts_encl_sel.hw
-> +		},
-> +		.num_parents = 1,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
->  static struct clk_regmap s4_cts_vdac = {
->  	.data = &(struct clk_regmap_gate_data){
->  		.offset = CLKCTRL_VID_CLK_CTRL2,
-> @@ -2735,6 +2768,165 @@ static struct clk_regmap s4_gen_clk = {
->  	},
->  };
->  
-> +/* CVBS DAC */
-> +static struct clk_regmap s4_cdac_sel = {
-> +	.data = &(struct clk_regmap_mux_data) {
-> +		.offset = CLKCTRL_CDAC_CLK_CTRL,
-> +		.mask = 0x3,
-> +		.shift = 16,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "cdac_sel",
-> +		.ops = &clk_regmap_mux_ops,
-> +		.parent_data = (const struct clk_parent_data []) {
-> +			{ .fw_name = "xtal", },
-> +			{ .fw_name = "fclk_div5" },
-> +		},
-> +		.num_parents = 2,
-> +	},
-> +};
-> +
-> +static struct clk_regmap s4_cdac_div = {
-> +	.data = &(struct clk_regmap_div_data) {
-> +		.offset = CLKCTRL_CDAC_CLK_CTRL,
-> +		.shift = 0,
-> +		.width = 16,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "cdac_div",
-> +		.ops = &clk_regmap_divider_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&s4_cdac_sel.hw
-> +		},
-> +		.num_parents = 1,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap s4_cdac = {
-> +	.data = &(struct clk_regmap_gate_data) {
-> +		.offset = CLKCTRL_CDAC_CLK_CTRL,
-> +		.bit_idx = 20,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "cdac",
-> +		.ops = &clk_regmap_gate_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&s4_cdac_div.hw
-> +		},
-> +		.num_parents = 1,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap s4_demod_core_sel = {
-> +	.data = &(struct clk_regmap_mux_data) {
-> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-> +		.mask = 0x3,
-> +		.shift = 9,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "demod_core_sel",
-> +		.ops = &clk_regmap_mux_ops,
-> +		.parent_data = (const struct clk_parent_data []) {
-> +			{ .fw_name = "xtal" },
-> +			{ .fw_name = "fclk_div7" },
-> +			{ .fw_name = "fclk_div4" }
-> +		},
-> +		.num_parents = 3,
-> +	},
-> +};
-> +
-> +static struct clk_regmap s4_demod_core_div = {
-> +	.data = &(struct clk_regmap_div_data) {
-> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-> +		.shift = 0,
-> +		.width = 7,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "demod_core_div",
-> +		.ops = &clk_regmap_divider_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&s4_demod_core_sel.hw
-> +		},
-> +		.num_parents = 1,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap s4_demod_core = {
-> +	.data = &(struct clk_regmap_gate_data) {
-> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-> +		.bit_idx = 8
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "demod_core",
-> +		.ops = &clk_regmap_gate_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&s4_demod_core_div.hw
-> +		},
-> +		.num_parents = 1,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +/* CVBS ADC */
-> +static struct clk_regmap s4_adc_extclk_in_sel = {
-> +	.data = &(struct clk_regmap_mux_data) {
-> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-> +		.mask = 0x7,
-> +		.shift = 25,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "adc_extclk_in_sel",
-> +		.ops = &clk_regmap_mux_ops,
-> +		.parent_data = (const struct clk_parent_data []) {
-> +			{ .fw_name = "xtal" },
-> +			{ .fw_name = "fclk_div4" },
-> +			{ .fw_name = "fclk_div3" },
-> +			{ .fw_name = "fclk_div5" },
-> +			{ .fw_name = "fclk_div7" },
-> +			{ .fw_name = "mpll2" },
-> +			{ .fw_name = "gp0_pll" },
-> +			{ .fw_name = "hifi_pll" }
-> +		},
-> +		.num_parents = 8,
-> +	},
-> +};
-> +
-> +static struct clk_regmap s4_adc_extclk_in_div = {
-> +	.data = &(struct clk_regmap_div_data) {
-> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-> +		.shift = 16,
-> +		.width = 7,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "adc_extclk_in_div",
-> +		.ops = &clk_regmap_divider_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&s4_adc_extclk_in_sel.hw
-> +		},
-> +		.num_parents = 1,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap s4_adc_extclk_in = {
-> +	.data = &(struct clk_regmap_gate_data) {
-> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-> +		.bit_idx = 24
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "adc_extclk_in",
-> +		.ops = &clk_regmap_gate_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&s4_adc_extclk_in_div.hw
-> +		},
-> +		.num_parents = 1,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
->  static const struct clk_parent_data s4_pclk_parents = { .hw = &s4_sys_clk.hw };
->  
->  #define S4_PCLK(_name, _reg, _bit, _flags) \
-> @@ -3028,6 +3220,17 @@ static struct clk_hw *s4_peripherals_hw_clks[] = {
->  	[CLKID_HDCP22_SKPCLK_SEL]	= &s4_hdcp22_skpclk_sel.hw,
->  	[CLKID_HDCP22_SKPCLK_DIV]	= &s4_hdcp22_skpclk_div.hw,
->  	[CLKID_HDCP22_SKPCLK]		= &s4_hdcp22_skpclk.hw,
-> +	[CLKID_CTS_ENCL_SEL]		= &s4_cts_encl_sel.hw,
-> +	[CLKID_CTS_ENCL]		= &s4_cts_encl.hw,
-> +	[CLKID_CDAC_SEL]		= &s4_cdac_sel.hw,
-> +	[CLKID_CDAC_DIV]		= &s4_cdac_div.hw,
-> +	[CLKID_CDAC]			= &s4_cdac.hw,
-> +	[CLKID_DEMOD_CORE_SEL]		= &s4_demod_core_sel.hw,
-> +	[CLKID_DEMOD_CORE_DIV]		= &s4_demod_core_div.hw,
-> +	[CLKID_DEMOD_CORE]		= &s4_demod_core.hw,
-> +	[CLKID_ADC_EXTCLK_IN_SEL]	= &s4_adc_extclk_in_sel.hw,
-> +	[CLKID_ADC_EXTCLK_IN_DIV]	= &s4_adc_extclk_in_div.hw,
-> +	[CLKID_ADC_EXTCLK_IN]		= &s4_adc_extclk_in.hw,
->  };
->  
->  static const struct meson_clkc_data s4_peripherals_clkc_data = {
-
--- 
-Jerome
 
