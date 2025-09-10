@@ -4,108 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0A0CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:37:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A20DCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fmt8NRxXiTXIxxt7so4xgdOFQzQhtk1IBnRJvL5Y6wM=; b=UgcJFrZ7ClFjrQY6X7IpnNl2is
-	3TO8vT9rXzk9C54h9EmF0KtXbJZtOG4Va8neB/3VcIvrHoSQac6VbCMrKFIszaQzgiKwsOMCo7JA+
-	ceN+v5tUuHSObhdLPsu0PiTKR4P/HobMs+EFHXgYZcBlkZ8xu7XyOES2QjakC99UudBdLYkyHGs0s
-	LTC9Z2E5HGhmFiCukjmG1NuO0u5+v4lTc8+GhLqwBHDWdAd17flv+v3/qW1PsYaLY08vOu7e1x3sE
-	6ev/YZt3GF8Y1m17qTCScQKggRHU/Jlel/qOEhyvqrSDTGFMUQO6OhHunp8yMqHVzGgcOH8S1L/8J
-	dX33mdNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P3IKUpQfaLekPKjen96M//7ifX26lwnIh4aj6a3++lk=; b=Obxeo6TsjK6Dhb5QedQmcrEcvt
+	w71DGhxRflOtZHZnPBRiMtoTwEsT8viIIkBvqR9lOyjc+sPizcaQHvQ0dG/JidTQEnQurt0vR1HDo
+	loelUpJVnHnFOFTaKTxMowZnRrC0RDXNyImbiERaLtINrR9IDEpYxws7PS/qkMItyoLOFyrFcsKKb
+	KELQaf86uuDdYqmsaP+iTMJYqUEWlw575zrOKcqgw4kEv3Kap1hZSu7eKjhaQzSD3bjDe9rmg/s1c
+	OIYo7rZRMz5btgVDKmxJ+N2WOvxSZVWIaR3v96H+FMOU2J20HSpBBNS+G8OPtuy7QAUcDJ1CbTxdc
+	aPCuADcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGKQ-0000000Cypi-1ble;
-	Wed, 10 Sep 2025 08:37:22 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1uwGOh-0000000D0Ja-0YbZ;
+	Wed, 10 Sep 2025 08:41:47 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGKN-0000000Cyo4-3RqM
+	id 1uwGOf-0000000D0Ik-2BOL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 08:37:21 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-629f06935e6so655808a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 01:37:19 -0700 (PDT)
+	Wed, 10 Sep 2025 08:41:46 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-45de56a042dso22207475e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 01:41:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757493438; x=1758098238; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fmt8NRxXiTXIxxt7so4xgdOFQzQhtk1IBnRJvL5Y6wM=;
-        b=cAyrCaqfs/gGx/K2GTdFwPj7xrzuZSFCSj8gBJE+5Ta36X8TMJTZoQhvocqGd24nus
-         BW8NlUPAvVDrwX75uKZu7mqsymKIv7h/8/2P04r24BHW3v7S7DCRUnUheMiDC2REapKy
-         rb76jJx6LhSs/xsXD1pbSlFfk3aWJjGI14rOzc1faDTEJKkTESFSRIjL8OBMAr2ai+3/
-         pLM9FuqqwgZ+6kZyyX3SsaFet3807WnP4FyE2MgMw1H7KzMYhSAim+xVN1SA0tu14SYc
-         +gly9+1Ygo5l783ruh3nUK+EP50tOqi02elUwLKvqwFKRz2JhgCcuZ0+GN1Ih/NMPX06
-         hjrQ==
+        d=gmail.com; s=20230601; t=1757493704; x=1758098504; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=P3IKUpQfaLekPKjen96M//7ifX26lwnIh4aj6a3++lk=;
+        b=g+pnbIDglwVsrFScWQcn1r++0ftkbI9JUGP7JdfbXPizzCfq9gPLRoMi6TyRb08obt
+         TU4lq9M0Ytkbiv57eNRakYn8Wnpo7xVJ8HY00pj9NmpmAZtbxiz5vkBRZrKfN3JyKvUw
+         yIqcP9RU5u2VcQU8QAYJCXxOWI8ArM9xSGBrW+Xs8087XN/jPdnL4xiu585JpbYQDlCB
+         9RwbxYkocCUMkLou7JvMqPuSPoscHZJ3hNGege6QnaYiyngCJKV1VuKf2gLwXD38nRjQ
+         +pCo8cLqILxHcw6jqtv62pju2P5GOEcWWfgzO85NgyumpxzlfTuP+8Qczp0zhUUZ69wv
+         4s5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757493438; x=1758098238;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Fmt8NRxXiTXIxxt7so4xgdOFQzQhtk1IBnRJvL5Y6wM=;
-        b=JTKIhj3as0vWwo4u6zX8KvNKTyJnX3ETEwMmZWqtqpfcn+/dwO66+9Um2HeDwvhn1+
-         cqyUF57OCzIjwEOqe5MI/sNewt/Xm3G+CNH6zfTDlGqL21rPObEBqIPX4egx6U0xkoZT
-         fh0ze9EiNcp8mYVnoW3BCpgiMF+mUuTSw5awqRo7Gn70i8pwq2k7ihFvIRZO4GV4zfVx
-         JOj3BJrYP7dXM64t2Jm1gzP8nrJpF551kdJaL8qFk+gX4FjFuOp5g7o8MqV672bfbPlE
-         FdFrN9zrQcGr3DyLzEziHdYfA7Ry3oqcfDYMxzH50lNN2mCjV3GPNU93lu/kPQ0FWyf/
-         fydQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVPhhBVna+g2owTkQtDzBAmbkEJ+IkAC4R3pcbSLM8ucMYK1EzcocY5xHLFwIMxGAuG3d8c2640GOM4bl9ozoQk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7GyvZt3v54+naAssdCcu3tKTQirgwn70SqRVM30qVbNe1HO6D
-	QgxLmrxpEiq7csb7YEXSDmh20gABbY4X8UokGUxX0yq/wsFi0s6r6dP7Xaseyw==
-X-Gm-Gg: ASbGncuwJgQUMtYE+u/C6dg5jBiZy0XwYJfnXo6qXX0VMqnX64Zec8ZsTOz7q1KKouX
-	5OyUvL8sgzOb7hKMY00j2uKuleIQeU/zOHopvQrTD1EUsaP4xYy4tRbDVhIcPZ42kkN6uV+2FY9
-	le7ugzaDvAOLLy6GNHJAEjIds8ad0nNLgKaIkwzhdDyhfY3ruprk6QlklIhn2diUZGwuTgCbkUJ
-	g1c1OOpFsn9eoRxDd5nCvXEG+sq1KLJ/lhyULvu8HBm0vRTD9nim9jKC5+KowY9E6XbaXn0DBzw
-	r07qVawUR8uP+L3IdJ1J+3p43Xkskj0Kzny5u/CcRC1lnuiMoD+oV0cJrejVsk7a0p6RTmrcyZ9
-	RGHzu9Pogghu2tQuZDOc2LEMuqw==
-X-Google-Smtp-Source: AGHT+IFidFPKBI8cS+d+4gYHVAlOYg3Lgm1sKTkF6r8WI6UG693yE4O5MLuodha7xFNpnvYnc+AT1w==
-X-Received: by 2002:a05:6402:4486:b0:627:e2d8:459 with SMTP id 4fb4d7f45d1cf-627e2d80936mr4573364a12.6.1757493437828;
-        Wed, 10 Sep 2025 01:37:17 -0700 (PDT)
-Received: from skbuf ([2a02:2f04:d005:3b00:6669:35e7:fc93:9b1c])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-62bfe99ffcbsm2844962a12.3.2025.09.10.01.37.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 01:37:17 -0700 (PDT)
-Date: Wed, 10 Sep 2025 11:37:14 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH v16 10/10] net: dsa: tag_mtk: add comments about
- Airoha usage of this TAG
-Message-ID: <20250910083714.gfrhsco3e2q7adxt@skbuf>
-References: <20250909004343.18790-1-ansuelsmth@gmail.com>
- <20250909004343.18790-1-ansuelsmth@gmail.com>
- <20250909004343.18790-11-ansuelsmth@gmail.com>
- <20250909004343.18790-11-ansuelsmth@gmail.com>
- <20250910082017.hjlq3664xvg5qjub@skbuf>
- <68c1376d.050a0220.2085dc.675b@mx.google.com>
+        d=1e100.net; s=20230601; t=1757493704; x=1758098504;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=P3IKUpQfaLekPKjen96M//7ifX26lwnIh4aj6a3++lk=;
+        b=bIkrcPOSSk5Hf0tXnGg8INqqzlldAhvk1C45Adp83650ifbv06pJp2HFkqhwtFVP2p
+         +8CohcZoRGgz4ax6od8QVE41ap6F5pZgMcP2QWrwqnRbqXK34MDIq8FT/CA8sQ810urc
+         cR0EoORu1KvjTYfCByP8mHCHBY/0svjV4qeGsiCB7zrzsD+US6NrvMkCd0fgbBY3f68L
+         uA6SWvq/cHlI66ms5eAuiq+ft/8B/noZesMzUREGTbKTLNXUrPt1rcUAbc8VLaK81+z7
+         YTzY8samH3ObZr5rUzi7UEpuhHJwHCe4StGwUh/0iAeDTLYeqxy5fM64EQhvAyJskjK1
+         hjog==
+X-Forwarded-Encrypted: i=1; AJvYcCVaVoY5kDXT0cOp1S++Ou0TRndMZhM20KZQPsTQ1oLH/o1OrEvuc0CE96H3y5GrhfdRRiaqI59aDcodbii6H8pb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSgXHwe0jR2SIS3RFP8cNvHDM3I0b8YvD+ac5q+MRsdZrPkUot
+	oKW3pPEVbLBuFmPQgeIjlsaR8JQaLbnK0EqYxLN010ejd05LAaDmEBym
+X-Gm-Gg: ASbGncsgPqt1Fg/I+xKflGtRWXzTw6oIdgQvKhUbQuvSAyscsDMw2FJm04X+f0AfSt/
+	sCiSNutLgqK+eytxRPwuqz/YEpHuKqn9qWMHvF2c/fnPmRJRXZniHPYNQqVNZnDQKcm5rYCBijX
+	OjiGRBu15Dh8MMZie82OuPFzxxcZRQBT4b3s0JeN+rU2AdkKzITs3VKg4IoT/LwuCrcZk2Xc2oc
+	uzFFlfaLkcXX4puUj4Y/vx6f0LVnQMYCk+2AvJkylnpn/UuwwI2RofOjwQTg89IcxLk3DqlHeKV
+	pCfESgIMPGE1309q0JRAYcolVDXiUEBvvC8p0pTc4O7XPMg6DYzx/RLtWceMLpEkit22We7YOFn
+	GV2Z3v1wNQm9bQ5lj4mOTf6VUoVgPm+TSL0CA/BltyqegjLW6u9kJkER7idOVdVkYfKbgbh9q7d
+	GqaBB2MuFY/bIWCWrSWwA+AotHPcE+swl87EKrxPy5EDlPrNGjk0X0XJVFyBX84+Ees7ucNXNq7
+	g==
+X-Google-Smtp-Source: AGHT+IFAC+KaKdWZCDt0F29FwBEVeFET6FJu2DQLhogXKqRlrNmNAmvGOz7dmZmfwY3vjWPcfaiR9g==
+X-Received: by 2002:a05:600c:1387:b0:45b:9c93:d237 with SMTP id 5b1f17b1804b1-45dddeb93f1mr119978935e9.14.1757493703536;
+        Wed, 10 Sep 2025 01:41:43 -0700 (PDT)
+Received: from ?IPV6:2a02:8440:7135:4f4c:9000:7072:695b:3ef? (2a02-8440-7135-4f4c-9000-7072-695b-03ef.rev.sfr.net. [2a02:8440:7135:4f4c:9000:7072:695b:3ef])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df81d3ee4sm19382275e9.6.2025.09.10.01.41.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Sep 2025 01:41:43 -0700 (PDT)
+Message-ID: <899eb863-6b6d-42f0-9e7c-e2020ee45f4d@gmail.com>
+Date: Wed, 10 Sep 2025 10:41:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <68c1376d.050a0220.2085dc.675b@mx.google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 05/20] dt-bindings: memory: factorise LPDDR props into
+ SDRAM props
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+ Julius Werner <jwerner@chromium.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Jonathan Corbet <corbet@lwn.net>, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
+ <20250909-b4-ddrperfm-upstream-v6-5-ce082cc801b5@gmail.com>
+ <20250910-flat-raptor-of-temperance-5e8c7c@kuoka>
+Content-Language: en-US
+From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+In-Reply-To: <20250910-flat-raptor-of-temperance-5e8c7c@kuoka>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_013719_878340_EED2D05A 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250910_014145_575856_2985D82D 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,15 +117,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 10:31:35AM +0200, Christian Marangi wrote:
-> > I think it would be good to present the AN8855 tag using a different
-> > string, so that libpcap knows it shouldn't decode these bits. The code
-> > can be reused for now.
-> >
+On 10/09/2025 09:54, Krzysztof Kozlowski wrote:
+> On Tue, Sep 09, 2025 at 12:12:12PM +0200, Clément Le Goffic wrote:
+>> From: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>
+>> LPDDR and DDR bindings are SDRAM types and are likely to share the same
+>> properties (at least for density, io-width and reg).
+>> To avoid bindings duplication, factorise the properties.
+>>
+>> The compatible description has been updated because the MR (Mode
+>> registers) used to get manufacturer ID and revision ID are not present
+>> in case of DDR.
+>> Those information should be in a SPD (Serial Presence Detect) EEPROM in
+>> case of DIMM module or are known in case of soldered memory chips as
+>> they are in the datasheet of the memory chips.
+>>
+>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 > 
-> Do you think I can implement 2 tagger in the same driver or do I need to
-> make a library of this driver? Just asking what is the correct way to
-> generalize it.
+> Is this email defunct now, that you add second SoB?
 
-Look at the uses of the module_dsa_tag_drivers() macro.
+Yes, but I still want to upstream it and was thinking to keep the 
+"original" author even if it is me.
+Am I wrong here ? What should I do ?
+
+>> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+
+
 
