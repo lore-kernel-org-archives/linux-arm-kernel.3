@@ -4,54 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE01CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 16:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4100DCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 16:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0v8C9o6+CzO4FZtK6+YFfUN4nnLR7cjEK5iSDnOvRSI=; b=WH9XDvWH9P/irGjqmywwc0Es38
-	nu4WZoKkEqBBDVLU/jNrO5FNtMXQ7KsjsNTyRmgPVTAvCTFwzy3DuDM6yET9rXz7/zrPNTzmUY4dd
-	VbzmhZ00f7Ff1wWtO7PeFB5eJJCe9ucmS9otKlIXCZj8D7hACFKLWVHsUbmqYWxKjEoY2gXFQPJiw
-	czUtNiD0VBwuyp8uC2kFTAUrLuzRJgbsrCuSSouFidW2CeBUVwHsx0WGWGjEQKmbgbKIrCIMVBCNe
-	eP4KZSN8uxx+TzuAWSFIf8M2duZgNPSRkmoIr9tvdncM94aW+qcynY3TgH7k6lle8coXp94hShBrr
-	RovD1Wrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lDpaLLRKWgTQPc41daxcm5CifSb89qHvv5HYCoXxsrk=; b=VN9KB60KrZS2JTllekdiPEKgYB
+	2Q3B+H7lHFO0Td6NB1HyAWX0lnL/plArulj3SFuC9knX+m7ixxD8+m4ALw0J3TtzZxct0jIJPSFEF
+	1f6DsYRMElz0Uko31oFqLfK5dogmDHmNPDaGF9N92+GlWs6BXw0YoRl1ym09Crl78Vm7X1sRetZHn
+	v1rhvBFUdO8f/OM63f4WJlWEq3t+SETDk3s1w5PAbpgJNIE5p21bUgfCRk+KzMXUEhEX9ohrSHRud
+	ZDP135pW75cm0h/07f2E0IrwKFYEjBrMM1ITDNSEABnAtcvlWaPgrD4tby92jC37BGC+EDZUMdiiS
+	3gAo7WSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwO0B-0000000Fbup-0593;
-	Wed, 10 Sep 2025 16:48:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwO07-0000000Fbtb-3nAg
+	id 1uwO6S-0000000Fdr2-0ZR3;
+	Wed, 10 Sep 2025 16:55:28 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwO6P-0000000Fdps-2OmJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 16:48:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF6FA1BF7;
-	Wed, 10 Sep 2025 09:48:46 -0700 (PDT)
-Received: from [10.57.5.181] (unknown [10.57.5.181])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C52483F63F;
-	Wed, 10 Sep 2025 09:48:53 -0700 (PDT)
-Message-ID: <ab3023a8-ebe0-48ac-b725-9f5d34ba94fa@arm.com>
-Date: Wed, 10 Sep 2025 17:48:53 +0100
+	Wed, 10 Sep 2025 16:55:26 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uwO6K-00081C-BQ; Wed, 10 Sep 2025 18:55:20 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uwO6J-000ceW-0G;
+	Wed, 10 Sep 2025 18:55:19 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uwO6I-00GJtR-2w;
+	Wed, 10 Sep 2025 18:55:18 +0200
+Date: Wed, 10 Sep 2025 18:55:18 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: Mark Brown <broonie@kernel.org>, Jonas Rebmann <jre@pengutronix.de>,
+	Andrew Lunn <andrew@lunn.ch>, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: Re: [PATCH 1/4] dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios
+ property
+Message-ID: <20250910165518.bzpz5to5dtwe2z6x@pengutronix.de>
+References: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
+ <20250910-imx8mp-prt8ml-v1-1-fd04aed15670@pengutronix.de>
+ <20250910125611.wmyw2b4jjtxlhsqw@skbuf>
+ <20250910143044.jfq5fsv2rlsrr5ku@pengutronix.de>
+ <20250910144328.do6t5ilfeclm2xa4@skbuf>
+ <693c3d1e-a65b-47ea-9b21-ce1d4a772066@sirena.org.uk>
+ <20250910153454.ibh6w7ntxraqvftb@skbuf>
+ <20250910155359.tqole7726sapvgzr@pengutronix.de>
+ <20250910164231.cnrexx4ds3cdg6lu@skbuf>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: Fix possible deadlock in coresight_panic_cb
-Content-Language: en-GB
-To: Sean Anderson <sean.anderson@linux.dev>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- linux-kernel@vger.kernel.org, Mike Leach <mike.leach@linaro.org>,
- Linu Cherian <lcherian@marvell.com>, James Clark <james.clark@linaro.org>
-References: <20250828181738.1529289-1-sean.anderson@linux.dev>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250828181738.1529289-1-sean.anderson@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250910164231.cnrexx4ds3cdg6lu@skbuf>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_094856_063627_2A6D648F 
-X-CRM114-Status: GOOD (  25.72  )
+X-CRM114-CacheID: sfid-20250910_095525_616231_423D69FF 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,130 +97,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean
-
-On 28/08/2025 19:17, Sean Anderson wrote:
-> coresight_panic_cb is called with interrupts disabled during panics.
-> However, bus_for_each_dev calls bus_to_subsys which takes
-> bus_kset->list_lock without disabling IRQs. This will cause a deadlock
-> if a panic occurs while one of the other coresight functions that uses
-> bus_for_each_dev is running.
+On 25-09-10, Vladimir Oltean wrote:
+> On Wed, Sep 10, 2025 at 05:53:59PM +0200, Marco Felsch wrote:
+> > IMHO silently removing the support will break designs for sure and
+> > should never be done. As said, imagine that the firmware will handle the
+> > supplies and the driver only needs to release the reset. If you silently
+> > remove the support, the device will be kept in reset-state. In field
+> > firmware updates are seldom, so you break your device by updating to a
+> > new kernel.
+> > 
+> > One could argue that the driver supported it but there was no dt-binding
+> > yet, so it was a hidden/unstable feature but I don't know the policy.
 > 
-> Maintain a separate list of coresight devices to access during a panic.
-
-Thanks for the patch. I have a minor comment.
-
+> Ok, I didn't think about, or meet, the case where Linux is required by
+> previous boot stages to deassert the reset. It is the first time you are
+> explicitly saying this, though.
 > 
-> Fixes: 46006ceb5d02 ("coresight: core: Add provision for panic callbacks")
-> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> ---
-> 
->   drivers/hwtracing/coresight/coresight-core.c | 40 ++++++++++----------
->   include/linux/coresight.h                    |  1 +
->   2 files changed, 22 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index fa758cc21827..1f1bf0e2bf92 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -1315,6 +1315,9 @@ void coresight_release_platform_data(struct coresight_device *csdev,
->   		coresight_remove_conns_sysfs_group(csdev);
->   }
->   
-> +static DEFINE_SPINLOCK(csdev_lock);
-> +static LIST_HEAD(csdev_list);
+> So we can keep and document the 'reset-gpios' support, but we need to
+> explicitly point out that if present, it does not supplant the need to
+> ensure the proper POR sequence as per AH1704.
 
-May be add a comment here to mention why we maintain this list ?
+We could do that but I think that no one should assume that the driver
+ensures this due to the missing power-supply and clock support. But this
+goes to the DT maintainers. IMHO we shouldn't mention any document
+within the binding, maybe within the commit message, since those
+documents may get removed.
 
-> +
->   struct coresight_device *coresight_register(struct coresight_desc *desc)
->   {
->   	int ret;
-> @@ -1374,11 +1377,16 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
->   		goto out_unlock;
->   	}
->   
-> +	scoped_guard(spinlock_irq, &csdev_lock)
-> +		list_add(&csdev->csdev_list, &csdev_list);
-> +
->   	if (csdev->type == CORESIGHT_DEV_TYPE_SINK ||
->   	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
->   		ret = etm_perf_add_symlink_sink(csdev);
->   
->   		if (ret) {
-> +			scoped_guard(spinlock_irq, &csdev_lock)
-> +				list_del(&csdev->csdev_list);
-Could this be moved to coresight_device_release(), which will be called
-when the device gets unregistered ? That way, you don't need it here
-and in coresight_unregister()  too.
-
-Rest looks good to me
-
-Suzuki
-
->   			device_unregister(&csdev->dev);
->   			/*
->   			 * As with the above, all resources are free'd
-> @@ -1427,6 +1435,8 @@ void coresight_unregister(struct coresight_device *csdev)
->   	coresight_remove_conns(csdev);
->   	coresight_clear_default_sink(csdev);
->   	coresight_release_platform_data(csdev, csdev->dev.parent, csdev->pdata);
-> +	scoped_guard(spinlock_irq, &csdev_lock)
-> +		list_del(&csdev->csdev_list);
->   	device_unregister(&csdev->dev);
->   }
->   EXPORT_SYMBOL_GPL(coresight_unregister);
-> @@ -1563,28 +1573,20 @@ const struct bus_type coresight_bustype = {
->   	.name	= "coresight",
->   };
->   
-> -static int coresight_panic_sync(struct device *dev, void *data)
-> -{
-> -	int mode;
-> -	struct coresight_device *csdev;
-> -
-> -	/* Run through panic sync handlers for all enabled devices */
-> -	csdev = container_of(dev, struct coresight_device, dev);
-> -	mode = coresight_get_mode(csdev);
-> -
-> -	if ((mode == CS_MODE_SYSFS) || (mode == CS_MODE_PERF)) {
-> -		if (panic_ops(csdev))
-> -			panic_ops(csdev)->sync(csdev);
-> -	}
-> -
-> -	return 0;
-> -}
-> -
->   static int coresight_panic_cb(struct notifier_block *self,
->   			       unsigned long v, void *p)
->   {
-> -	bus_for_each_dev(&coresight_bustype, NULL, NULL,
-> -				 coresight_panic_sync);
-> +	struct coresight_device *csdev;
-> +
-> +	guard(spinlock)(&csdev_lock);
-> +	list_for_each_entry(csdev, &csdev_list, csdev_list) {
-> +		/* Run through panic sync handlers for all enabled devices */
-> +		int mode = coresight_get_mode(csdev);
-> +
-> +		if ((mode == CS_MODE_SYSFS || mode == CS_MODE_PERF) &&
-> +		    panic_ops(csdev))
-> +			panic_ops(csdev)->sync(csdev);
-> +	}
->   
->   	return 0;
->   }
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 4ac65c68bbf4..a5e62ebd03b5 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -302,6 +302,7 @@ struct coresight_device {
->   	/* system configuration and feature lists */
->   	struct list_head feature_csdev_list;
->   	struct list_head config_csdev_list;
-> +	struct list_head csdev_list;
->   	raw_spinlock_t cscfg_csdev_lock;
->   	void *active_cscfg_ctxt;
->   };
-
+Regards,
+  Marco
 
