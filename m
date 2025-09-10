@@ -4,42 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFEC4CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AD8CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaijd8hccqXWxhqJSe73hWvYJAmmUrkcUVuNY1EW4hQ=; b=SIJuxG3BbvqIPqvP16JgxnBcR2
-	n9Af9P6oa/b9rwnvCaAdDp2mxKa0gfggFIpLCk+Y8uU/amy7BNi9pVIr2Rjn9Pb4EVINVjClCnEM9
-	lCqbjS0nAtzJ3elx9FRFxPdp6W7DIsaFM7IkfQfTKS/WjNrdAVNCPuQitr3YgSAmXblENnOUO+dyX
-	82dAFyAcTikiD+hbx7CePuD0j7lap64Fja9sBVUkdhwnIDuKRnc+qOaQ4d0yUr3AnPOLjDbqn2a2R
-	PwTO8tB9srFgLhZk2TtlsN9n4WhNBGuDDWfvePjDhJ9XW8NbFOC1t7lAFz/0BAFXpCxKB/PSIhnr5
-	yo8ZRafw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FFlI9OTuERKqYca4THo8FMoMn6CHXSbt2umNcFhVvdQ=; b=TDwxZCOq4PnDZmGgp4TZgi+a57
+	p5X7F/yyXRiICdQXqL2hK2ER+csktBOBrmLwFhbbu6xHbCHHNyeSu90hXK5megoZBLD9mfRNnAniH
+	JwiHQZ0heCmWCaqJnVxxxHF3VzLGUnylk39iwzB/5joNxua1DdI2YZlPzc7DWUCU3FMjkqm9Yt/lk
+	w7Tni7GeXojC47TACbKzKxqkXjsqB3sqEcgBXw3JC3jTEam4Q53eyqEELGksgR6Ifns+cisPA3x+9
+	ITwC7FAIuu3k3WcPEPPfPeuSvzP4eigRzNEo6Siq/V4GRzYgSIdxfFKdIrBEPMhNVIhLJ+F8dRsE3
+	jkCpf10g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwN36-0000000FELu-1PTs;
+	id 1uwN36-0000000FEMF-2mcy;
 	Wed, 10 Sep 2025 15:47:56 +0000
-Received: from mail.nic.cz ([217.31.204.67])
+Received: from mail.nic.cz ([2001:1488:800:400::400])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwN31-0000000FEIW-0XRJ
+	id 1uwN31-0000000FEIV-1K0O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 15:47:52 +0000
+	Wed, 10 Sep 2025 15:47:53 +0000
 Received: from macholda.lan (unknown [IPv6:2001:1488:fffe:6220:172f:2c63:54a0:e850])
-	by mail.nic.cz (Postfix) with ESMTPSA id 3F0FE1C0390;
-	Wed, 10 Sep 2025 17:47:47 +0200 (CEST)
+	by mail.nic.cz (Postfix) with ESMTPSA id D5C411C036F;
+	Wed, 10 Sep 2025 17:47:46 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nic.cz; s=default;
 	t=1757519267;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xaijd8hccqXWxhqJSe73hWvYJAmmUrkcUVuNY1EW4hQ=;
-	b=pELyqHuJ4bYles5bLRB7f+gfzTgZcPfA3mr6PxgaH4YG1E0N8YUDS/bQnO9Mh3/XBZe4Wr
-	TKOXsT5N0bmDdM3a70j6bx+bb1LEWeuQQHOTPrJKJE4WSV3gNBDKSmj8Gjsg0K9q9d5xll
-	9XoDD0UWRgB5XN0G2meDTNSXoO3A6qY=
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=FFlI9OTuERKqYca4THo8FMoMn6CHXSbt2umNcFhVvdQ=;
+	b=TB65eaq6hNQoyZ8LMVYnxGvI/Iy3uGzqZo8cAc/rvd+44kOQM6lacxphpWtYUOIPjG7DME
+	HaV+AkUk2AG3fBJtcKb6+PUxM1USdYp0CmPgu4yyndJXvysM3+ddvcKvUSiWmFdSGW467x
+	big8GPRWWhdTzl6XZonO3RHIG5BaXVw=
 Authentication-Results: mail.nic.cz;
 	auth=pass smtp.auth=tomas.macholda@nic.cz smtp.mailfrom=tomas.macholda@nic.cz
 From: =?UTF-8?q?Tom=C3=A1=C5=A1=20Macholda?= <tomas.macholda@nic.cz>
@@ -50,12 +49,10 @@ Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	kabel@kernel.org,
 	=?UTF-8?q?Tom=C3=A1=C5=A1=20Macholda?= <tomas.macholda@nic.cz>
-Subject: [PATCH 1/2] dt-bindings: marvell: armada-37xx: add cznic,ripe-atlas compatible
-Date: Wed, 10 Sep 2025 17:47:33 +0200
-Message-ID: <20250910154734.24686-2-tomas.macholda@nic.cz>
+Subject: [PATCH 0/2] Add support for RIPE Atlas Probe v5
+Date: Wed, 10 Sep 2025 17:47:32 +0200
+Message-ID: <20250910154734.24686-1-tomas.macholda@nic.cz>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20250910154734.24686-1-tomas.macholda@nic.cz>
-References: <20250910154734.24686-1-tomas.macholda@nic.cz>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -63,22 +60,23 @@ X-Rspamd-Action: no action
 X-Rspamd-Pre-Result: action=no action;
 	module=multimap;
 	Matched map: WHITELISTED_IP
-X-Rspamd-Queue-Id: 3F0FE1C0390
+X-Rspamd-Queue-Id: D5C411C036F
 X-Spamd-Bar: /
-X-Spamd-Result: default: False [-0.10 / 16.00];
+X-Spamd-Result: default: False [0.67 / 16.00];
+	R_MIXED_CHARSET(0.77)[subject];
 	MIME_GOOD(-0.10)[text/plain];
-	WHITELISTED_IP(0.00)[2001:1488:fffe:6220:172f:2c63:54a0:e850];
-	MIME_TRACE(0.00)[0:+];
-	DKIM_SIGNED(0.00)[nic.cz:s=default];
-	ASN(0.00)[asn:25192, ipnet:2001:1488::/32, country:CZ];
-	FROM_EQ_ENVFROM(0.00)[];
 	ARC_NA(0.00)[];
+	ASN(0.00)[asn:25192, ipnet:2001:1488::/32, country:CZ];
+	TAGGED_RCPT(0.00)[dt];
 	FROM_HAS_DN(0.00)[];
-	TAGGED_RCPT(0.00)[dt]
+	DKIM_SIGNED(0.00)[nic.cz:s=default];
+	WHITELISTED_IP(0.00)[2001:1488:fffe:6220:172f:2c63:54a0:e850];
+	FROM_EQ_ENVFROM(0.00)[];
+	MIME_TRACE(0.00)[0:+]
 X-Rspamd-Server: mail
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_084751_374416_6C8513F8 
-X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-CacheID: sfid-20250910_084751_498852_74D16057 
+X-CRM114-Status: UNSURE (   9.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,25 +92,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document compatible for RIPE Atlas Probe v5.
+This adds support for RIPE Atlas Probe developed by CZ.NIC.
 
-Signed-off-by: Tomáš Macholda <tomas.macholda@nic.cz>
----
- Documentation/devicetree/bindings/arm/marvell/armada-37xx.yaml | 1 +
- 1 file changed, 1 insertion(+)
+The hardware is based on Turris MOX, however it does not support board
+modules.
 
-diff --git a/Documentation/devicetree/bindings/arm/marvell/armada-37xx.yaml b/Documentation/devicetree/bindings/arm/marvell/armada-37xx.yaml
-index 51e1386f0e01..28fc750c72b2 100644
---- a/Documentation/devicetree/bindings/arm/marvell/armada-37xx.yaml
-+++ b/Documentation/devicetree/bindings/arm/marvell/armada-37xx.yaml
-@@ -17,6 +17,7 @@ properties:
-       - description: Armada 3720 SoC boards
-         items:
-           - enum:
-+              - cznic,ripe-atlas
-               - cznic,turris-mox
-               - glinet,gl-mv1000
-               - globalscale,espressobin
+The first patch adds dt-bindings documentation for cznic,ripe-atlas.
+
+The second patch adds the device tree file.
+
+Tomáš
+
+Tomáš Macholda (2):
+  dt-bindings: marvell: armada-37xx: add cznic,ripe-atlas compatible
+  arm64: dts: marvell: add dts for RIPE Atlas Probe
+
+ .../bindings/arm/marvell/armada-37xx.yaml     |   1 +
+ .../dts/marvell/armada-3720-ripe-atlas.dts    | 111 ++++++++++++++++++
+ 2 files changed, 112 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/marvell/armada-3720-ripe-atlas.dts
+
 -- 
 2.47.3
 
