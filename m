@@ -4,72 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7B1CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C782CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2DwDlzVSHOsuWQhUbsOr4bf7KIoM34qIdzXtmY//ynQ=; b=i8a1VtgYVm/CmHSSTXerloIHee
-	j3HUwZuOTs0idlScazqRsln2JJ/3OHZroyqs9cz6uE8fjs4UIBeYQAr6qH7DU6Syi1lv3rafx0SkV
-	QlvM/1mQhwTZG4iwXedHVBULdET5q//xhi7SaRVinZPnqTUFuQp7l+LIn56UUnulSuLauZaYLTtj0
-	0eO8tSYiEgynbLv3jQV63tGQ/QKpdJhibg9Yqi03ie1nGgh5huSFxM3Isd7KZT4DPIQxK1mKwKR05
-	sSbIpVZGfMuS63sT5nm5QCVMlgHrKgbHlYHydKRsWby+T2dzeuTaH5EYAb9f73dbalBmBrySSA+7f
-	xYDW7tiw==;
+	bh=0OBSNMCSZFkYoD+gDD6u3qKCw6C8XYzkirO4cLs6lbo=; b=e1PnCYKjPXqySq88FxTAlxoOeb
+	8JSfk3/aQOEpegbx8o6mcv1y7AFrbvpKW4OXdbeSIbPM5iVXlSQxlWvVzbfUyrUSdpTM1/9IJbXdr
+	9mualptiFq+yt2D6dzltZuK9lrdwFXpzBcBHKGbF5vmafxWetlGr5x7+CujBrIbcGa4bnG/OkHpwP
+	QEvGAXUcRr3tF9oIddVgWkmO69xnbBLqZCDxG7ma9rzsOSJj8XpPcAQMOgfqTwsjQPYyvznfpVovz
+	2hL85RKNVHShwJtgMXKy6DwzlyPDuDT9IYe3sbYEs4FoiA7TcsdhpUSmn8G+wLyOTs8zRS1LpjPM2
+	MONKSyqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHDt-0000000DFNF-3gtW;
-	Wed, 10 Sep 2025 09:34:41 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uwHKz-0000000DI6E-3bXp;
+	Wed, 10 Sep 2025 09:42:01 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHDq-0000000DFJa-1wyi
+	id 1uwHKw-0000000DI4R-3Knx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 09:34:39 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwHDh-0007O8-2b; Wed, 10 Sep 2025 11:34:29 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwHDg-000ZLH-1S;
-	Wed, 10 Sep 2025 11:34:28 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwHDg-00GDJG-12;
-	Wed, 10 Sep 2025 11:34:28 +0200
-Date: Wed, 10 Sep 2025 11:34:28 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 09/11] dmaengine: add support for device_link
-Message-ID: <20250910093428.qq5vskqhvumgjsow@pengutronix.de>
-References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
- <20250903-v6-16-topic-sdma-v1-9-ac7bab629e8b@pengutronix.de>
- <aLhUv+mtr1uZTCth@lizhi-Precision-Tower-5810>
- <20250909120309.5zgez5exbvxn5z3y@pengutronix.de>
- <aMA88W/rDxFesEx+@lizhi-Precision-Tower-5810>
+	Wed, 10 Sep 2025 09:42:00 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3df726ecff3so3471175f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 02:41:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1757497317; x=1758102117; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0OBSNMCSZFkYoD+gDD6u3qKCw6C8XYzkirO4cLs6lbo=;
+        b=kwRwr95f9aDj1PeLvevQK9aF/lzJofU1JWe3JvOpnnVd5guU9D342d0OrpBmk1w6zA
+         60TzIAiWgNRiRJG/NaGJmrUtuDjXCrfVzA1XfAgBwZBwl6C/f2ldG4yiQLp+/jN3Braa
+         BxKN54mNVe4CYa/02BtZHFB0eiATR0ZqHb/i2gGZ+YHVKMnzodsWwX3zLj3Qb3c0XpV3
+         JRXoe+ipZi5ScZixGcE5NcP6qeMlfCTf+L9ZgwN1cDWCEhHiMVrIWFZHuKmJpgd0ETfr
+         Anb515a25DiMuv+dGB+mPdR8xTw+gSVeJpoJX+QPHCVjthwM1gVXW+3KBbG5cFO0+c9N
+         F2gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757497317; x=1758102117;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0OBSNMCSZFkYoD+gDD6u3qKCw6C8XYzkirO4cLs6lbo=;
+        b=Rq7IQY2yrEH9V7L/nKNZ/ibS7RQyjYk9vQH+/SZAZySmM1PIsc/MoG0J0FY7S33CmX
+         EBqvnLtDH2C3IZyMcx98PJBsCejnFoC3rYtsgFOd5+kGYCEOqZyEA2Kw3mcIK3I2eYhP
+         FYpAJ/3LF1KPei28PuC9+Aqp8gHYK76Ou/plbNhVl8+U0JAJtynWyANwDS/eCbk7v02z
+         8TtqpOPJ1XGBID0TL485eGQF88KZmErLBK+I3DQ58h0cBkMBtqI6pOQa4GczmqIBN5Dn
+         l/bXD61hZQu8gUD17uhQypWnW6fhpIYRTfc3ngOIskMrUGe25uRCnYKF+598FmWHrXA3
+         Okkw==
+X-Forwarded-Encrypted: i=1; AJvYcCXtro2EbM3QBS0p3iSu3EKMsEt9gpeAFHhGRu/G2H/RfmcckNsGEpSs9R7lprZEYYfvs3nQqNCJ1tQZ557LRLOI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3iR+7uL0b0gGl0oiVA1TCE/wiaDY1w/tq2No7s92Ux/Y1U09U
+	928B0uu1fX/Tw/YJiTXzh7Rbq7aDmmNS119nMh7KSJ+Qk2wrvYzziX6AiGGZTOXYMwY=
+X-Gm-Gg: ASbGncsHTpTtw5xkFGIGKV7Fihl/Q2jEHSVvjsLtCn5suU76w3vV9HP7O7s3VQb/+Hq
+	gz6G5LD8Bz4yLvlyP6Mz4rYSPHygvtU8NoK+FdngjCeDnLHgtBMngGsucdWaTxTcdvyMLKgOVw6
+	4ELFwz6pQ8arQp9Znc/dAQ8luxlbLpk3/hRRzq/vt/LcJvRNZ3Bs937u1f45jF9cLIim1+oObmq
+	VrXDVPNFipXHjGjuRsHNN3mfL2RJFN9S29TOOmg+HFSVDX3SWIQiSkkMSsE6BoRLpQRN1xNEQMW
+	9ubOJ57JnpIOiDtKPpJ26d+MniH7F8H/DP/plG01pf8QHm6dnEiXybLhBQU9ZM3tkAx0PBtK2/c
+	ZvoG/FYi6heojYdP21GJGP6350662+d8/
+X-Google-Smtp-Source: AGHT+IFhJUYuLbSMnUTSqjS1CD9WH9ciAuMmnQkgVDBas13o9m9uUxWF1IbevCk3GCBXb/HsRxReFw==
+X-Received: by 2002:a05:6000:18a4:b0:3cc:8d94:1108 with SMTP id ffacd0b85a97d-3e641e3cffemr11252957f8f.22.1757497316478;
+        Wed, 10 Sep 2025 02:41:56 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:c75e:f70c:b449:e087])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3e7521bf85esm6365253f8f.1.2025.09.10.02.41.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Sep 2025 02:41:55 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
+ <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,  chuan.liu@amlogic.com,
+  linux-clk@vger.kernel.org,  devicetree@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 2/2] clk: amlogic: add video-related clocks for S4 SoC
+In-Reply-To: <20250909-add_video_clk-v4-2-5e0c01d47aa8@amlogic.com> (Chuan Liu
+	via's message of "Tue, 09 Sep 2025 15:29:12 +0800")
+References: <20250909-add_video_clk-v4-0-5e0c01d47aa8@amlogic.com>
+	<20250909-add_video_clk-v4-2-5e0c01d47aa8@amlogic.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Wed, 10 Sep 2025 11:41:55 +0200
+Message-ID: <1jv7lqiqzg.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aMA88W/rDxFesEx+@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_023438_657275_A0DB95D0 
-X-CRM114-Status: GOOD (  58.62  )
+X-CRM114-CacheID: sfid-20250910_024158_869216_B933AD7A 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,162 +105,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-09-09, Frank Li wrote:
-> On Tue, Sep 09, 2025 at 02:03:09PM +0200, Marco Felsch wrote:
-> > Hi Frank,
-> >
-> > On 25-09-03, Frank Li wrote:
-> > > On Wed, Sep 03, 2025 at 03:06:17PM +0200, Marco Felsch wrote:
-> > > > Add support to create device_links between dmaengine suppliers and the
-> > > > dma consumers. This shifts the device dep-chain teardown/bringup logic
-> > > > to the driver core.
-> > > >
-> > > > Moving this to the core allows the dmaengine drivers to simplify the
-> > > > .remove() hooks and also to ensure that no dmaengine driver is ever
-> > > > removed before the consumer is removed.
-> > > >
-> > > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > > > ---
-> > >
-> > > Thank you work for devlink between dmaengine and devices. I have similar
-> > > idea.
-> > >
-> > > This patch should be first patch.
-> >
-> > I can shuffle it of course!
-> >
-> > > The below what planned commit message in my local tree.
-> >
-> > Okay, so you focused on runtime PM handling. Not quite sure if I can
-> > test this feature with the SDMA engine. I also have limited time for
-> > this feature.
-> >
-> > Is it okay for you and the DMA maintainers to add the runtime PM feature
-> > as separate patch (provided by NXP/Frank)?
-> 
-> we can support runtime pm later.
-> 
-> >
-> > > Implementing runtime PM for DMA channels is challenging. If a channel
-> > > resumes at allocation and suspends at free, the DMA engine often remains on
-> > > because most drivers request a channel at probe.
-> > >
-> > > Tracking the number of pending DMA descriptors is also problematic, as some
-> > > consumers append new descriptors in atomic contexts, such as IRQ handlers,
-> > > where runtime resume cannot be called.
-> > >
-> > > Using a device link simplifies this issue. If a consumer requires data
-> > > transfer, it must be in a runtime-resumed state, ensuring that the DMA
-> > > channel is also active by device link. This allows safe operations, like
-> > > appending new descriptors. Conversely, when the consumer no longer requires
-> > > data transfer, both it and the supplier (DMA channel) can enter a suspended
-> > > state if no other consumer is using it.
-> > >
-> > > Introduce the `create_link` flag to enable this feature.
-> > >
-> > > also suggest add create_link flag to enable this feature in case some
-> > > side impact to other dma-engine. After some time test, we can enable it
-> > > default.
-> >
-> > What regressions do you have in mind? I wouldn't hide the feature behind
-> > a flag because this may slow done the convert process, because no one is
-> > interessted in, or has no time for testing, ...
-> 
-> Unlike other devices, like phys, regulator, mailbox..., which auto create
-> devlink at probe. I am not clear why dma skip this one. So I think there
-> should be some reason behind. Maybe other people, rob or Vinod Koul know
-> the reason.
-> 
-> static const struct supplier_bindings of_supplier_bindings[] = {
->         ...
-> 	{ .parse_prop = parse_dmas, .optional = true, },
-> 
-> If remove "optional = true", devlink will auto create. I am not sure why
-> set true here.
+On Tue 09 Sep 2025 at 15:29, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
 
-I've seen this too. Could be because DMA controllers + users aren't OF
-related and therefore should be handled within the framework itself.
+> From: Chuan Liu <chuan.liu@amlogic.com>
+>
+> Add video encoder, demodulator and CVBS clocks.
+>
+> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> ---
+>  drivers/clk/meson/s4-peripherals.c | 203 +++++++++++++++++++++++++++++++++++++
+>  1 file changed, 203 insertions(+)
+>
+> diff --git a/drivers/clk/meson/s4-peripherals.c b/drivers/clk/meson/s4-peripherals.c
+> index 6d69b132d1e1..b855e8f1fc04 100644
+> --- a/drivers/clk/meson/s4-peripherals.c
+> +++ b/drivers/clk/meson/s4-peripherals.c
+> @@ -44,6 +44,7 @@
+>  #define CLKCTRL_VDIN_MEAS_CLK_CTRL                 0x0f8
+>  #define CLKCTRL_VAPBCLK_CTRL                       0x0fc
+>  #define CLKCTRL_HDCP22_CTRL                        0x100
+> +#define CLKCTRL_CDAC_CLK_CTRL                      0x108
+>  #define CLKCTRL_VDEC_CLK_CTRL                      0x140
+>  #define CLKCTRL_VDEC2_CLK_CTRL                     0x144
+>  #define CLKCTRL_VDEC3_CLK_CTRL                     0x148
+> @@ -1126,6 +1127,22 @@ static struct clk_regmap s4_cts_encp_sel = {
+>  	},
+>  };
+>  
+> +static struct clk_regmap s4_cts_encl_sel = {
+> +	.data = &(struct clk_regmap_mux_data){
+> +		.offset = CLKCTRL_VIID_CLK_DIV,
+> +		.mask = 0xf,
+> +		.shift = 12,
+> +		.table = s4_cts_parents_val_table,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "cts_encl_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = s4_cts_parents,
+> +		.num_parents = ARRAY_SIZE(s4_cts_parents),
+> +		.flags = CLK_SET_RATE_PARENT,
 
-> > > >  drivers/dma/dmaengine.c | 8 ++++++++
-> > > >  1 file changed, 8 insertions(+)
-> > > >
-> > > > diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-> > > > index 758fcd0546d8bde8e8dddc6039848feeb1e24475..a50652bc70b8ce9d4edabfaa781b3432ee47d31e 100644
-> > > > --- a/drivers/dma/dmaengine.c
-> > > > +++ b/drivers/dma/dmaengine.c
-> > > > @@ -817,6 +817,7 @@ struct dma_chan *dma_request_chan(struct device *dev, const char *name)
-> > > >  	struct fwnode_handle *fwnode = dev_fwnode(dev);
-> > > >  	struct dma_device *d, *_d;
-> > > >  	struct dma_chan *chan = NULL;
-> > > > +	struct device_link *dl;
-> > > >
-> > > >  	if (is_of_node(fwnode))
-> > > >  		chan = of_dma_request_slave_channel(to_of_node(fwnode), name);
-> > > > @@ -858,6 +859,13 @@ struct dma_chan *dma_request_chan(struct device *dev, const char *name)
-> > > >  	/* No functional issue if it fails, users are supposed to test before use */
-> > > >  #endif
-> > > >
-> > > > +	dl = device_link_add(dev, chan->device->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
-> > >
-> > > chan->device->dev is dmaengine devices. But some dmaengine's each channel
-> > > have device, consumer should link to chan's device, not dmaengine device
-> > > because some dmaengine support per channel clock\power management.
-> >
-> > I get your point. Can you give me some pointers please? To me it seems
-> > like the dma_chan_dev is only used for sysfs purpose according the
-> > dmaengine.h.
-> 
-> Not really, there are other dma engineer already reuse it for other purpose.
-> So It needs update kernel doc for dma_chan_dev.
+Do you really expect the rate of the parents to be adjusted when calling
+set_rate() on this clock ?
 
-Okay.
+It all trickle down to vclks which are shared with enci encp and vdac
+clocks, so maybe not such a good idea, don't you think ?
 
-> > > chan's device's parent devices is dmaengine devices. it should also work
-> > > for sdma case
-> >
-> > I see, this must be tested of course.
-> > > >         if (chan->device->create_devlink) {
-> > >                 u32 flags = DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME | DL_FLAG_AUTOREMOVE_CONSUMER;
-> >
-> > According device_link.rst: using DL_FLAG_STATELESS and
-> > DL_FLAG_AUTOREMOVE_CONSUMER is invalid.
-> >
-> > >                 if (pm_runtime_active(dev))
-> > >                         flags |= DL_FLAG_RPM_ACTIVE;
-> >
-> > This is of course interessting, thanks for the hint.
-> >
-> > > When create device link (apply channel), consume may active.
-> >
-> > I have read it as: "resue the supplier and ensure that the supplier
-> > follows the consumer runtime state".
-> >
-> > >                 dl = device_link_add(chan->slave, &chan->dev->device, flags);
-> >
-> > Huh.. you used the dmaengine device too?
-> 
-> /**
->  * struct dma_chan_dev - relate sysfs device node to backing channel device
->  * @chan: driver channel device
->  * @device: sysfs device
->  * @dev_id: parent dma_device dev_id
->  * @chan_dma_dev: The channel is using custom/different dma-mapping
->  * compared to the parent dma_device
->  */
-> struct dma_chan_dev {
-> 	struct dma_chan *chan;
-> 	struct device device;
-> 	int dev_id;
-> 	bool chan_dma_dev;
-> };
-> 
-> struct dma_chan {
-> 	struct dma_device *device; /// this one should be dmaengine
-> 	struct dma_chan_dev *dev; /// this one is pre-chan device.
-> }
+> +	},
+> +};
+> +
+>  static struct clk_regmap s4_cts_vdac_sel = {
+>  	.data = &(struct clk_regmap_mux_data){
+>  		.offset = CLKCTRL_VIID_CLK_DIV,
+> @@ -1205,6 +1222,22 @@ static struct clk_regmap s4_cts_encp = {
+>  	},
+>  };
+>  
+> +static struct clk_regmap s4_cts_encl = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = CLKCTRL_VID_CLK_CTRL2,
+> +		.bit_idx = 3,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "cts_encl",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&s4_cts_encl_sel.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+>  static struct clk_regmap s4_cts_vdac = {
+>  	.data = &(struct clk_regmap_gate_data){
+>  		.offset = CLKCTRL_VID_CLK_CTRL2,
+> @@ -2735,6 +2768,165 @@ static struct clk_regmap s4_gen_clk = {
+>  	},
+>  };
+>  
+> +/* CVBS DAC */
+> +static struct clk_regmap s4_cdac_sel = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = CLKCTRL_CDAC_CLK_CTRL,
+> +		.mask = 0x3,
+> +		.shift = 16,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "cdac_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_data = (const struct clk_parent_data []) {
+> +			{ .fw_name = "xtal", },
+> +			{ .fw_name = "fclk_div5" },
+> +		},
+> +		.num_parents = 2,
+> +	},
+> +};
+> +
+> +static struct clk_regmap s4_cdac_div = {
+> +	.data = &(struct clk_regmap_div_data) {
+> +		.offset = CLKCTRL_CDAC_CLK_CTRL,
+> +		.shift = 0,
+> +		.width = 16,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "cdac_div",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&s4_cdac_sel.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap s4_cdac = {
+> +	.data = &(struct clk_regmap_gate_data) {
+> +		.offset = CLKCTRL_CDAC_CLK_CTRL,
+> +		.bit_idx = 20,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "cdac",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&s4_cdac_div.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap s4_demod_core_sel = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
+> +		.mask = 0x3,
+> +		.shift = 9,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "demod_core_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_data = (const struct clk_parent_data []) {
+> +			{ .fw_name = "xtal" },
+> +			{ .fw_name = "fclk_div7" },
+> +			{ .fw_name = "fclk_div4" }
+> +		},
+> +		.num_parents = 3,
+> +	},
+> +};
+> +
+> +static struct clk_regmap s4_demod_core_div = {
+> +	.data = &(struct clk_regmap_div_data) {
+> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
+> +		.shift = 0,
+> +		.width = 7,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "demod_core_div",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&s4_demod_core_sel.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap s4_demod_core = {
+> +	.data = &(struct clk_regmap_gate_data) {
+> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
+> +		.bit_idx = 8
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "demod_core",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&s4_demod_core_div.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +/* CVBS ADC */
+> +static struct clk_regmap s4_adc_extclk_in_sel = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
+> +		.mask = 0x7,
+> +		.shift = 25,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "adc_extclk_in_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_data = (const struct clk_parent_data []) {
+> +			{ .fw_name = "xtal" },
+> +			{ .fw_name = "fclk_div4" },
+> +			{ .fw_name = "fclk_div3" },
+> +			{ .fw_name = "fclk_div5" },
+> +			{ .fw_name = "fclk_div7" },
+> +			{ .fw_name = "mpll2" },
+> +			{ .fw_name = "gp0_pll" },
+> +			{ .fw_name = "hifi_pll" }
+> +		},
+> +		.num_parents = 8,
+> +	},
+> +};
+> +
+> +static struct clk_regmap s4_adc_extclk_in_div = {
+> +	.data = &(struct clk_regmap_div_data) {
+> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
+> +		.shift = 16,
+> +		.width = 7,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "adc_extclk_in_div",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&s4_adc_extclk_in_sel.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap s4_adc_extclk_in = {
+> +	.data = &(struct clk_regmap_gate_data) {
+> +		.offset = CLKCTRL_DEMOD_CLK_CTRL,
+> +		.bit_idx = 24
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "adc_extclk_in",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&s4_adc_extclk_in_div.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+>  static const struct clk_parent_data s4_pclk_parents = { .hw = &s4_sys_clk.hw };
+>  
+>  #define S4_PCLK(_name, _reg, _bit, _flags) \
+> @@ -3028,6 +3220,17 @@ static struct clk_hw *s4_peripherals_hw_clks[] = {
+>  	[CLKID_HDCP22_SKPCLK_SEL]	= &s4_hdcp22_skpclk_sel.hw,
+>  	[CLKID_HDCP22_SKPCLK_DIV]	= &s4_hdcp22_skpclk_div.hw,
+>  	[CLKID_HDCP22_SKPCLK]		= &s4_hdcp22_skpclk.hw,
+> +	[CLKID_CTS_ENCL_SEL]		= &s4_cts_encl_sel.hw,
+> +	[CLKID_CTS_ENCL]		= &s4_cts_encl.hw,
+> +	[CLKID_CDAC_SEL]		= &s4_cdac_sel.hw,
+> +	[CLKID_CDAC_DIV]		= &s4_cdac_div.hw,
+> +	[CLKID_CDAC]			= &s4_cdac.hw,
+> +	[CLKID_DEMOD_CORE_SEL]		= &s4_demod_core_sel.hw,
+> +	[CLKID_DEMOD_CORE_DIV]		= &s4_demod_core_div.hw,
+> +	[CLKID_DEMOD_CORE]		= &s4_demod_core.hw,
+> +	[CLKID_ADC_EXTCLK_IN_SEL]	= &s4_adc_extclk_in_sel.hw,
+> +	[CLKID_ADC_EXTCLK_IN_DIV]	= &s4_adc_extclk_in_div.hw,
+> +	[CLKID_ADC_EXTCLK_IN]		= &s4_adc_extclk_in.hw,
+>  };
+>  
+>  static const struct meson_clkc_data s4_peripherals_clkc_data = {
 
-Argh.. mixed it within my head while writing the mail :/
-
-Regards,
-  Marco
+-- 
+Jerome
 
