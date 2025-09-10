@@ -4,147 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C9CCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E335CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7SPyBZ+XNOpA+kY+XaEz6MPIv1+Ski/92rHE83dCRQM=; b=Lk4gNYxvJargtdDDJGDKhSBOCS
-	SOjQ1dM781kxKx+QJhc9BaOAvp0nmDc1bJHLsRDSMgAU0YYXXoDwhOOMl/LH7tIwYSutjlKG5rujW
-	+DVDW9moH3ILfGkqeRz8E3PFPwFGLm9UI9KcggiD/W5wbJ8yx0ViyDTI16rDPjEWz4JZyTFzWrcoY
-	wsb38xs5T0ZynAD83xOOM8Hqh4zFhFB4/K95CbRGzwM1GY7GD3FHnNmDI7nOtZuE2F/BL5+0X9coK
-	rA47uB3RSxP+Hf1WjkiMFJ/K1i7ylyWBgjEwoLriWlg5HXBe1y1tNOCnqBp3RbfbnhKfhiWcFYOXg
-	TCN/Du1Q==;
+	bh=+WG/fOgOed7F+q/vykBWwKRqhGGU2/L6CsAzZkzcjHA=; b=p9aJzuk73fc8TwRNPJViQOvSLz
+	8A+mPmHaB3NkiNs4y6gPgHqFYwacXG5vuNX936HCNfvAUml7X7zLIPFn82LwCLxxdkQSSMZ6WqhN6
+	98XBTiBiUlTzZxMBU1eJsy8WKUJu/Xge0fOrm3lJS56CP4frZJTkuNZZvQC1SnMmeje/Ue/Cxc42M
+	XSEhyuKtdxHbYMqldVcdfYOdrcdzODeyWQ7zgganyFg17qr4XpBqBc8AAubWuRmCem4KvfEg9lDqJ
+	3A/zLfQgZnNT7+k1i6VbGJktCEnmYxqc49YXCFsAtU9fzh1lRcMBLXOx9Tc3K23c3miZpzZwAAS8l
+	dU5zYj2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFUx-0000000CeX7-35Me;
-	Wed, 10 Sep 2025 07:44:11 +0000
+	id 1uwFXr-0000000CfSg-3VUe;
+	Wed, 10 Sep 2025 07:47:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFUw-0000000CeWe-0ZPx
+	id 1uwFXq-0000000CfS7-38Me
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 10 Sep 2025 07:44:10 +0000
+	Wed, 10 Sep 2025 07:47:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7SPyBZ+XNOpA+kY+XaEz6MPIv1+Ski/92rHE83dCRQM=; b=Z8zp9zHLf9HbQEXe6Ba/7sl6PP
-	uBu1wqo1RfE4180SP+IaBrxpdvoCbUscOrioelh6kiL1rr4N2hD16QspoRrFgQwFPTNqebxyfdZX/
-	eEHklOpVvm/iM3gkZCugICVWFNQ8Q6OQwq4uzCaKAUlc5b9wTxbBUIJdDQQjrVrFlSJvJeVnnKKa0
-	8diRUMzAurOEUFHuljvNm2hRZsSwqqQvU+yS24btoKzQfWCj2TZND00UOryLOoJmIutjkw/VS26LU
-	sz34u6OOG9BFTVMdePpfVtklU3U1EX0F/NLWypzeQl7odIWcyXNNry5hOz8ZLqufpxgDW2xaN6yDS
-	fJGRPThA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	bh=+WG/fOgOed7F+q/vykBWwKRqhGGU2/L6CsAzZkzcjHA=; b=gYxpk9FfDU/2Q9IKhEekiIug6S
+	CpbrNbz7ULrGFQJHsVcUIJk2KJqk+eeoHkPxlc8B6dSehIBrpp/5WM5PqGZZ+FhFz/rZYMX41yMHA
+	RcCjx0ubwXvupE7j4g7LRphIwzC0mM7bJooFqo2An27q5PG/GSPoxfUGJg8aH2P9sXrVYQw0isF/a
+	A8VbFofmSMK4/VZ88nUQVbYaboxQY36nsIrsT05OHOYLmjf/4rrQOvfXG9RQAjtkHeCV/DNQb9WCs
+	e/24eesgRX/GK/bqdI+0eeyifBLHvqzZ1b+9PUJyoeLC9VBxN8jCCyNNwxCQU0od/Ll19bK01Gz+M
+	i0e4hfvw==;
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFUs-00000005mVE-3La1
+	id 1uwFXn-00000005mfT-2z5w
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 07:44:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6771F43AFE;
-	Wed, 10 Sep 2025 07:44:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A722C4CEF0;
-	Wed, 10 Sep 2025 07:44:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757490245;
-	bh=vhA146lvkec3HC3Joxhiwid2YmBF/nfJVgyKveiDn8s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=go2TuMztyzqu7CED12rV9+Tu29j0TGK4JMAthkEJnfcvKdLmzQ3tnJHQf+4EZSkAk
-	 RLgjWzNn6WK6DEZ3zASy7yFqpSl/QlDHhOeus6TlGGDTGr7XbicJe4nTmdYcyk/Ge/
-	 1wh/+PGiv/6Af29Rxmisnea+cIWjwlUtqRROKMKKO8dE3HFqJQ8MT2zQ5RlI9P+vzW
-	 gopjgmVAL3qnSrJj/DTsxaMCwzKcGZILIUb+A05kuusjI52EKE8R6nXgwdwylIrzDp
-	 Hdp+9no22ZjzR8IIxNVbMHv0fi/E5gsGy6VNfeHQuC/sgoAYmUVhv+vbMX+gB6EFf2
-	 /zXS8JrEvZ4lg==
-Message-ID: <f9fc4b59-bdcd-4983-b7c2-0fec94e62176@kernel.org>
-Date: Wed, 10 Sep 2025 09:44:00 +0200
+	Wed, 10 Sep 2025 07:47:09 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45ded619608so14278735e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 00:47:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757490426; x=1758095226; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+WG/fOgOed7F+q/vykBWwKRqhGGU2/L6CsAzZkzcjHA=;
+        b=ElBqt3hIvO6Pg5LZTTtKBfpCs34vdISXJYmQN4eWJ9raQua/0ldxg0TjhseGswfwDO
+         6KMKZXOIRTtsssWmUMfzQcat/zUxySSQawFHtTjlJcitTgVNBNdsAGBq1E/pI3gGqv0H
+         lm9lH+Hd9WF1kBr+j5SqBCmQAwvEHrcZ0Nd3jBV9hhHOE0uhsv4NWGNsquxflkJlRsC6
+         tCQMHLBY0MsD2AtL+N7oG6SPbjwHdDqKiz3JGGZOCW/Kv/bM7bupe7o945cXo1YGBSfP
+         i5qAOQrRkwx9bvO4LXEzHV8GUpll1HjMpbNbc5+NR3dDh+nj0KSuSWoYYPTC46pDD21s
+         rMNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757490426; x=1758095226;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+WG/fOgOed7F+q/vykBWwKRqhGGU2/L6CsAzZkzcjHA=;
+        b=ZREuh1+ODkGgC0QbK6fG6effV8U9gJ1tZ4U7hbIGdvJGnRuXa0y+5/9U+Z15CjJ0wj
+         eE+H+xkaeCX41UpO+nOohdF/BD38le0o9XrOi2VU2LCg+SETSxW7kEIYqdx1Q5dylZco
+         K/8T7khCX5214WOUfUfI69mZoCHRWj9me0oQtkLlRXSnrLrmOCoym5lRIjeGZqrXM2RJ
+         om9tAJn+nrRFvEGF8aZU57p2Jkqk97mbZ7zX8Ms6HcgwgEJ0tDmMMCH96B+XwTDgn0yF
+         pb34AomCOAEM7fmI2pD91ERzO6xRKcfVfZ9+J8ll7GDNZ2rw6G5WjDmgEWgSrrgqFtpB
+         bR4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVFmCov0qjQHOeBJyU7lzpShY2+XcdJG0wQysONFInHR3mRfK0KmZXLIeUCUriKSS4TOqd/odLEYMKL4DcZAUiM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3X8pxNrYKrIrzB0wHmkCz/jfKTxzbMXE5VE/bBx2bhZhEv6qi
+	7jPtdaCVhF8SjNXhectf6RkPpbCh7D5tvd9YWed5GDdzfLS6cm59+JNW
+X-Gm-Gg: ASbGncsQQIsyKNPmk7iOf2bV3RT1JDVkUoUO1MhRSgw1NlgzsitfZCAY1JkmbfYuz+c
+	seZdmQGpbhL43Ai3txMyyC31/h8ukkt0Ru3EQgzAbpLS2pGVSHtA2Hd2n+WJf99FIXRajvKA/xe
+	auF3P1WoaQ/JP6SG48d7e/82k5dMfZrLiHGP/M5qw/tuqXybtqfjWnmKir7CIkGbjUmyodtZIi8
+	iovIivOrsBf2/hkUyHnvFe7fibkKpgqWVVQmto8R6qDqntvsKCI+0HtI1vvypimXUUeJvzWDGrc
+	p5nAdQFsZiFCq1YQ4XoGPNXX8dhpVShGe+YrB+mhjKC1H14YQdRnBmxX64XHAIrVBIEweLS3Zgm
+	0d+cZkow7FRBB4wlQv7D2D/tRyRVEnsjenOd6tLaELdUcNda/MHkEWXFN4cKbcOZlbNhVl9FbnE
+	TOB/wbFKWVfIwttUJxog5RskAqt6lDDAsbPlzM1YepuA6SnTLw7PvPtI3HBwM+Vm1j4RsSr8+jX
+	Q==
+X-Google-Smtp-Source: AGHT+IHCQlyEGA4dQJ+eF6cYPq/TcQfhp+X5TSRzHZoqn+jcag/Ng+LaHLBRVKb0m1OSVaCN+kNKcA==
+X-Received: by 2002:a05:600c:4f91:b0:45b:88d6:8db5 with SMTP id 5b1f17b1804b1-45ddde82fc0mr127441425e9.12.1757490425798;
+        Wed, 10 Sep 2025 00:47:05 -0700 (PDT)
+Received: from ?IPV6:2a02:8440:7135:4f4c:9000:7072:695b:3ef? (2a02-8440-7135-4f4c-9000-7072-695b-03ef.rev.sfr.net. [2a02:8440:7135:4f4c:9000:7072:695b:3ef])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df821f714sm17367435e9.16.2025.09.10.00.47.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Sep 2025 00:47:05 -0700 (PDT)
+Message-ID: <19e664da-df4c-4bc0-84ce-41e4364f10bc@gmail.com>
+Date: Wed, 10 Sep 2025 09:47:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
- AST2600-i2cv2
-To: Jeremy Kerr <jk@ozlabs.org>, Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
- "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- Mo Elbadry <elbadrym@google.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "joel@jms.id.au" <joel@jms.id.au>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>
-References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
- <d1b184c5-84c1-4d76-a1d0-a9f37f1e363c@kernel.org>
- <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <069b9fe4-c54a-4efd-923e-1558c59fe3f4@kernel.org>
- <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <677cb075-24ae-45d8-bfb4-9b23fbacc5df@kernel.org>
- <OS8PR06MB7541C3B70B15F45F4824772BF2D92@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <994cb954-f3c4-4a44-800e-9303787c1be9@kernel.org>
- <SI6PR06MB753542037E1D6BBF5CE8D2E7F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
- <4523caea-3406-4de0-9ab5-424fb7a0a474@kernel.org>
- <SI6PR06MB7535BAD19B51A381171A0E64F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
- <8e8aa069-af9f-453f-9bd0-e3dc2eab59ab@kernel.org>
- <OS8PR06MB7541FD8691B43EA33BDC1D22F2A72@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <99053328-a117-493e-b5f3-00902669c8e7@kernel.org>
- <44ef5c93448a3625fcfd003b47a516e8ba795b62.camel@ozlabs.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v6 01/20] bus: firewall: move stm32_firewall header file
+ in include folder
+To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Julius Werner <jwerner@chromium.org>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
+ <20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com>
+ <9a46c8a8-1d25-410c-9fa2-267eb4040390@foss.st.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <44ef5c93448a3625fcfd003b47a516e8ba795b62.camel@ozlabs.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+In-Reply-To: <9a46c8a8-1d25-410c-9fa2-267eb4040390@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_084407_458210_D4AEBC27 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20250910_084708_009979_3DACBBBB 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,52 +132,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2025 09:25, Jeremy Kerr wrote:
-> Hi Ryan & Krzysztof,
+On 09/09/2025 14:25, Gatien CHEVALLIER wrote:
 > 
-> [my response is intended to make progress on the newer v18 submission,
-> but we still have this item from v16 to resolve, hence picking up this
-> thread]
 > 
->> Your compatible already expressed that there are two interfaces, so
->> your drivers can just choose whichever they want. If you need to toggle a
->> bit in system controller, it is fine. If you need different compatible,
->> then that's a NAK.
+> On 9/9/25 12:12, Clément Le Goffic wrote:
+>> From: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>
+>> Other driver than rifsc and etzpc can implement firewall ops, such as
+>> rcc.
+>> In order for them to have access to the ops and type of this framework,
+>> we need to get the `stm32_firewall.h` file in the include/ folder.
+>>
+>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+>> ---
+>>   drivers/bus/stm32_etzpc.c                       | 3 +--
+>>   drivers/bus/stm32_firewall.c                    | 3 +--
+>>   drivers/bus/stm32_rifsc.c                       | 3 +--
+>>   {drivers => include/linux}/bus/stm32_firewall.h | 0
+>>   4 files changed, 3 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
+>> index 7fc0f16960be..4918a14e507e 100644
+>> --- a/drivers/bus/stm32_etzpc.c
+>> +++ b/drivers/bus/stm32_etzpc.c
+>> @@ -5,6 +5,7 @@
+>>   #include <linux/bitfield.h>
+>>   #include <linux/bits.h>
+>> +#include <linux/bus/stm32_firewall.h>
+>>   #include <linux/device.h>
+>>   #include <linux/err.h>
+>>   #include <linux/init.h>
+>> @@ -16,8 +17,6 @@
+>>   #include <linux/platform_device.h>
+>>   #include <linux/types.h>
+>> -#include "stm32_firewall.h"
+>> -
+>>   /*
+>>    * ETZPC registers
+>>    */
+>> diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
+>> index 2fc9761dadec..ef4988054b44 100644
+>> --- a/drivers/bus/stm32_firewall.c
+>> +++ b/drivers/bus/stm32_firewall.c
+>> @@ -5,6 +5,7 @@
+>>   #include <linux/bitfield.h>
+>>   #include <linux/bits.h>
+>> +#include <linux/bus/stm32_firewall.h>
+>>   #include <linux/bus/stm32_firewall_device.h>
+>>   #include <linux/device.h>
+>>   #include <linux/err.h>
+>> @@ -18,8 +19,6 @@
+>>   #include <linux/types.h>
+>>   #include <linux/slab.h>
+>> -#include "stm32_firewall.h"
+>> -
+>>   /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
+>>   #define STM32_FIREWALL_MAX_ARGS        
+>> (STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
+>> diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
+>> index 4cf1b60014b7..643ddd0a5f54 100644
+>> --- a/drivers/bus/stm32_rifsc.c
+>> +++ b/drivers/bus/stm32_rifsc.c
+>> @@ -5,6 +5,7 @@
+>>   #include <linux/bitfield.h>
+>>   #include <linux/bits.h>
+>> +#include <linux/bus/stm32_firewall.h>
+>>   #include <linux/device.h>
+>>   #include <linux/err.h>
+>>   #include <linux/init.h>
+>> @@ -16,8 +17,6 @@
+>>   #include <linux/platform_device.h>
+>>   #include <linux/types.h>
+>> -#include "stm32_firewall.h"
+>> -
+>>   /*
+>>    * RIFSC offset register
+>>    */
+>> diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/ 
+>> stm32_firewall.h
+>> similarity index 100%
+>> rename from drivers/bus/stm32_firewall.h
+>> rename to include/linux/bus/stm32_firewall.h
+>>
 
-You trimmed response and brought some very old thread which does not
-exist in my inbox.
+Hi Gatien
 
-I have absolutely no clue what this refers to.
+> As the firewall header is moved to a dedicated firewall directory,
 
-> 
-> I think the mention of "two register interfaces" is a bit misleading
-> here; it implies that it's just two interfaces to the same hardware.
-> 
-> From reading between the lines on the datasheet, it seems that this is
-> two completely separate IP cores, that:
-> 
->  * are mapped to the same MMIO space; but
->  * both happen to be I2C controllers.
-> 
-> - where the single "global register" (which you mention above) provides
-> the facility to mux the MMIO mapping between the two. Some versions of
-> the overall SoC have only the old core, some have only the new, and some
-> have both, selectable via this register.
-> 
-> Ryan, can you confirm whether this is the case?
-> 
-> Given there are actual behavioural differences between the two
-> peripherals - beyond just the register set - that would seem to indicate
-> separate binding types (+ a syscon mux control) to me, but I'm keen to
-> hear any other options.
-> 
-> Krzysztof, if that is the case, any thoughts on the representation of
-> separate bindings?
+I don't move it to a dedicated firewall directory just to the "bus" 
+directory where the "stm32_firewall_device.h" header file is already 
+located.
 
+> maybe it would be coherent to create the same kind of directory
+> for the sources as non-buses drivers use it. I can test it on my
+> side if you're willing to make the change.
 
-I have no clue what is this about.
-
+Do you mean create an include/linux/bus/firewall/ directory ?
 
 Best regards,
-Krzysztof
+Clément
 
