@@ -4,107 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A0BCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C7ACA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7+Vq3ysZS2lc4WhA67yDwpubRjl51dbZS1N3bA03ln0=; b=ZMbn2p9idgQwq/6AJpsq3IqPe8
-	b/DUHfcKfVxtblDEAzZvKaYswk/uzsm0tjEYGdyIrYKiKYgR5tc5PTPUpqM3XkCty/pwzfpuoKOv2
-	eyzXRJl6Fwy/IfXhBs4Wr4S5d1GBWuW3ddQA/beLG6nU4PNBjyKISvwEP9RD5IfwjXa/PtzNYwfwF
-	1TPPNKFA82V05/dRLKFxCi8ZiZ2UiF8TvIbm/vYQeolzNn1gmY09WfhKx/41WT9pIAUHr+f2v93Uq
-	9XbpZ2zR5D7WrcZe0y9U9pv0qBURLh+3JQUNruo9pGnKc/UF9r/cXXUuEMbqncwqOlNYq39lO1+ka
-	OITCnP0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EHfbo0BKomkvlXOhBVfB/0eAcoO1X0ualN2+zvtl7Uc=; b=ZFIoxuJ0FMDdBlJDsuNUBlldjL
+	w3c7LsI2pB1KTdjUdS+cHQL5uv9Jg5yWohellF3Fn5QXKNJzdVDExAxqgSbio8Eddkdd/PhGLv9p7
+	EzNxsU7ik12hzoYwXYPPv8yKeE+SVjPvMqFrlLrBMN+6N93M6ybkoy4v7BSc3O3iv7xNhZ1VXg2do
+	x1H3qtVGrsl/WzXV3K/NHK6SFIYH1ESgIid3/3PHD0WPqscTvtK96qMDPUz9w1ZslLXDlJI/0/4kL
+	0OdFJUirewcXEIxWS/dnjuULd2cK4RHNbpOw54XcXAZdR0ZOH+QWZINBbQzFjHgE0+hcgy8NcX6/Y
+	C2Zw4YKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGF0-0000000CwR9-3m2L;
-	Wed, 10 Sep 2025 08:31:46 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1uwGGw-0000000Cx7j-0TS3;
+	Wed, 10 Sep 2025 08:33:46 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGEx-0000000CwPI-432S;
-	Wed, 10 Sep 2025 08:31:45 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3e2055ce7b3so4000834f8f.0;
-        Wed, 10 Sep 2025 01:31:43 -0700 (PDT)
+	id 1uwGGt-0000000Cx4y-2Hea
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Sep 2025 08:33:44 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45dd505a1dfso40460435e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 01:33:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757493102; x=1758097902; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=7+Vq3ysZS2lc4WhA67yDwpubRjl51dbZS1N3bA03ln0=;
-        b=Fq4XptxDeVv1IZdTu9wgnzmPRof6No11965RngxaYuB3DGZVtnitD2wSulahkWFrtL
-         vTuR9P4OTtScQYE22W3qTz1dYoIXdlq4twn6w8o0elbdlpIOgDvrJHll9A3tb9xSYG/M
-         rYtYag2rx8KJVyQWCcH/h2CYtAvkss7p4btw7+979gooM3E+SoBm39xtm8oj/VOCsmLY
-         7Qzh4tqE6bYjjHIWdzYFvTYRL8S789LyVohA4AsX9ZeDs5Cb0AOoGqAaur0mWX+wyH/y
-         R9sQNrmccB+LLpcqxmI1MO6wsO3llN58XeMhfjGbgbLS0f8geFgqANeDy+SCbgz9tz5g
-         Q4nQ==
+        d=gmail.com; s=20230601; t=1757493222; x=1758098022; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EHfbo0BKomkvlXOhBVfB/0eAcoO1X0ualN2+zvtl7Uc=;
+        b=HCt30+eKBJS72VJ4VgzIeA3W5/6AYF2Abc6XUv1WrTSKE1WJ19SHCjpqCsyildWfms
+         hk7CgaHoDinSz73CSvNUklvoeO/9UEwcnAl1RLugV1A7U86W125K1a9QiLj7DgJugXVo
+         tosCWwyBHZDJ3kDYthbIqIwzwTO6mdXiTdYzJs+IZOAQt/6+f42k/f6goa0rYroMPFUm
+         92LwQoxKR2aUx1GfShfwf/kWH+m3Xc4NZB6bjGVoWNYegA5h+xa/s6D2H2jgW7AVhRMV
+         hWUKf2nEk2VrPomXAlcbXWM+5pj3LqMCK30XpU/dQh1OerCYFd0TWyZkOXyNAL0w9xDb
+         rn5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757493102; x=1758097902;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7+Vq3ysZS2lc4WhA67yDwpubRjl51dbZS1N3bA03ln0=;
-        b=h/hRgYGrgVVQ9cALHt8Pc4Uul3/yW0kq4R+6zLj0WKmdSj+EJ4dy0IGCVx7R3wql4k
-         yWBs91Q0P5paHg2FScXFvGKHyT2yKcU9Ah3Otp6ENSlEHppVg6RHMSSiSmVqcPU3GJ+P
-         T3CAIgb6DG9Enw0mdx0LJjoJ8oCsbrhd1k83emFSzdf4KwhkoMPaeeC7qW+ZmETpGeQB
-         W1LsLiEhnyAXq1jGZ5Hexu/o6btg8xq1fbk+ILBlQNPK6+37ZaRPqddk5/B2TKxUbRgI
-         hfMJNeLtSAIiyvZ4jEyD/cOFvhp7iHEx8/6t56QsjSPpVvp04D7d5z3Sb6ROMDlD8aqi
-         FR3w==
-X-Forwarded-Encrypted: i=1; AJvYcCU16rLGMbGVh8TlTg5Sy5Wt5ayeu6oAWep6EL/IaYX5NepwYZKVMSGGceobagJqcl5cY/Jkpk95+XKEgE/nsQg=@lists.infradead.org, AJvYcCVG1y0q9WxJn1/ua+jDebq+F+acqdURnwN+gGcn5zGUBCiKaMvkgNK0/KtaI5D/YjvpBUBC4ak3evctTh6t0qIH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKW2sHZne+n0iqnZ3U9vJoXkiKsZhCskW5A5BB5juwt7Vs7U1l
-	MNMrsHTpFyA52N8g6WIT9BsD+YDhKcPz6c6Ryp8rwlKqtHrkmYAoZrNlT0GSCg==
-X-Gm-Gg: ASbGnctmQ6BDGT9La6Ptb8RUqTonvpQ0kOczoHmxyqwXb5yfHIIdzoC8a9XKGq27Y4f
-	sIQW+1hHxwMKQBI5IZuDNJXaG5rkXB2scwZlpSAoAuQTsXkXdgTz8hW7/2O4LiEs1wbjX7CYs1M
-	+sg27BcOt5GOuWLtrlVrm8TBzfvkWCtbG8qvryfUzqjg+qUbUoVnQP3YZi/LyyUb0OQFnbR/cZU
-	3vVkOsharTfDZr/Fv6/k9LTePHLEReZFsm1ge+JNF4yjZVlJBZulBjg6XdLMdWrLs3+IMv/8D0R
-	Ry2xyazs6JfSMGKQ5ZP4dD1PEfviLyfwNPG9dNjAhZoRzE7+T6+SPlyO/uoRfJMxk4Fgir6av4D
-	sHCg/PiAtJwq8E5axSSfnzsc4uJGysX/BoqKx/rs4NxmT2dVDVnZIo2qxsfVxqmYXgAwqHQ==
-X-Google-Smtp-Source: AGHT+IGx/xbJUIH4+beV7q9PMqx0glsggALR4qg5rZZAhjCkYIwZFcTKRYd4C8GT0jF1ei0YocGGkA==
-X-Received: by 2002:a05:6000:2f87:b0:3d7:df92:5e31 with SMTP id ffacd0b85a97d-3e641e3b09amr13400380f8f.16.1757493101468;
-        Wed, 10 Sep 2025 01:31:41 -0700 (PDT)
-Received: from Ansuel-XPS. (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7521ca2aesm6060026f8f.26.2025.09.10.01.31.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 01:31:41 -0700 (PDT)
-Message-ID: <68c1376d.050a0220.2085dc.675b@mx.google.com>
-X-Google-Original-Message-ID: <aME3Z0CacqPJNZT8@Ansuel-XPS.>
-Date: Wed, 10 Sep 2025 10:31:35 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH v16 10/10] net: dsa: tag_mtk: add comments about
- Airoha usage of this TAG
-References: <20250909004343.18790-1-ansuelsmth@gmail.com>
- <20250909004343.18790-1-ansuelsmth@gmail.com>
- <20250909004343.18790-11-ansuelsmth@gmail.com>
- <20250909004343.18790-11-ansuelsmth@gmail.com>
- <20250910082017.hjlq3664xvg5qjub@skbuf>
+        d=1e100.net; s=20230601; t=1757493222; x=1758098022;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EHfbo0BKomkvlXOhBVfB/0eAcoO1X0ualN2+zvtl7Uc=;
+        b=p9gmjAi52blNGh4HtI7gtg9dcprXAytsjRfO+eQU9vwfIRsceI+NYPcHL/dDrkv2c5
+         KbgsCbJ47EpSKvkhl9f4Z6ahwIoqSljfjDzy35w6ElUz8Hu71YThO7z5l+kIzGB+BA27
+         xxLu60Hb6PoDgHoXz01KWPUGCToJfRlHmQWtIJpnKs2NQr19O0Z7lD+o63SMxz4sMMtK
+         9vB2KE6rinfTgyKReIcLDehz+k+tKA2OxKHeKbgXxxXnFcu6wOBwxd1LtPnrFcpjkYv6
+         mBgSNeB9Z4OE0urN/UqK5IDBCmWkrYVE3a7JOyKThRrEyR9Tv+btmY1+2MKyUPCClz6e
+         Tb0w==
+X-Forwarded-Encrypted: i=1; AJvYcCUnIO54Jbmz8/duN4OcF5wF5LxCc3NN/oUx/yCprICtAiOj6F+UJ+UAdUhu+6d/4qx3DPpYgvaMUtjB2ANlbQHK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxIAKsEcKlWKjUAkPuQBUZnj+BcJP0OmQRXrOdNlW6VB77R8H5
+	vejDlrt7ASyyP4kLGJ7DI56F6cG/B95lsKLamHZxCE8I0Yq5pGE8SylE
+X-Gm-Gg: ASbGncuoBlwos/ad2VytN9AfdMLKAE4VMVoranaZv7WRemsbXt6YDu4b5iTdlDPI1uN
+	bKbKrEhku2FmYRqZCWwePNdljGRtPC6dk3oRespWROKv1pY4GeS8ReTlGT5jsOG2LXWmjRl328C
+	bcyAz7qof9FWYH8uUD+qKyZAkZVibnepbenOw7azd2D5V+Iypc3yI8wTF8sE2E3yVcv0glb2i65
+	9/etfYrPw6is/Zbb641dgqf5zOVGFjHeNHBjrwUBFOfhR1vOunF8SfQR/F1Pl0INpLxXRZo/aJG
+	8QH0E17N+61qaRU726RD+6iGb16XrIsooFjRGnSi0+Ent+RRycdVuPg25hQ0DVWdwJAPQ6DsR0F
+	JtLwrI3lyHRNUYtQbAW9WaoN8MuJkbEGyl1Exi6A+xmVBS9M2UX1p+kj3dh6m1+SgYK8V/ep4Dj
+	gwoQJzbpa+iV2dOWwBi40KP/3pJOuV3kNvjxau9rsoABnSXCfoxAawBr34agoKcRU=
+X-Google-Smtp-Source: AGHT+IERWBLoDJYJTftiCvvL8rJvicVn7K1El1ceydxmfro3VBEiw0JoaM94eFug5LOT1WRGb+/cOg==
+X-Received: by 2002:a05:600c:a05:b0:45d:d5c6:97b4 with SMTP id 5b1f17b1804b1-45ded2fb475mr46947715e9.9.1757493221488;
+        Wed, 10 Sep 2025 01:33:41 -0700 (PDT)
+Received: from ?IPV6:2a02:8440:7135:4f4c:9000:7072:695b:3ef? (2a02-8440-7135-4f4c-9000-7072-695b-03ef.rev.sfr.net. [2a02:8440:7135:4f4c:9000:7072:695b:3ef])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7521c9a2esm6376513f8f.14.2025.09.10.01.33.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Sep 2025 01:33:41 -0700 (PDT)
+Message-ID: <7c9eadf3-6b71-48ba-99ad-bca5b8bc40e6@gmail.com>
+Date: Wed, 10 Sep 2025 10:33:39 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250910082017.hjlq3664xvg5qjub@skbuf>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 12/20] dt-bindings: perf: stm32: introduce DDRPERFM
+ dt-bindings
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+ Julius Werner <jwerner@chromium.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Jonathan Corbet <corbet@lwn.net>, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
+ <20250909-b4-ddrperfm-upstream-v6-12-ce082cc801b5@gmail.com>
+ <20250910-adamant-hospitable-firefly-ae30c5@kuoka>
+Content-Language: en-US
+From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+In-Reply-To: <20250910-adamant-hospitable-firefly-ae30c5@kuoka>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_013144_031641_8070E40D 
-X-CRM114-Status: GOOD (  27.88  )
+X-CRM114-CacheID: sfid-20250910_013343_605919_47F1370C 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,53 +116,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 11:20:17AM +0300, Vladimir Oltean wrote:
-> On Tue, Sep 09, 2025 at 02:43:41AM +0200, Christian Marangi wrote:
-> > Add comments about difference between Airoha AN8855 and Mediatek tag
-> > bitmap.
-> > 
-> > Airoha AN88555 doesn't support controlling SA learning and Leaky VLAN
+On 10/09/2025 09:57, Krzysztof Kozlowski wrote:
+> On Tue, Sep 09, 2025 at 12:12:19PM +0200, Clément Le Goffic wrote:
+>> From: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>
+>> DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
+>> It allows to monitor DDR events that come from the DDR Controller
+>> such as read or write events.
+>>
+>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+>> ---
+>>   .../devicetree/bindings/perf/st,stm32-ddr-pmu.yaml | 94 ++++++++++++++++++++++
+>>   1 file changed, 94 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
+>> new file mode 100644
+>> index 000000000000..1d97861e3d44
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
+>> @@ -0,0 +1,94 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/perf/st,stm32-ddr-pmu.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +maintainers:
+>> +  - Clément Le Goffic <legoffic.clement@gmail.com>
+>> +
+>> +title: STMicroelectronics STM32 DDR Performance Monitor (DDRPERFM)
+>> +
+>> +properties:
+>> +  compatible:
+>> +    oneOf:
+>> +      - items:
+>> +          - const: st,stm32mp131-ddr-pmu
+>> +      - items:
+>> +          - enum:
+>> +              - st,stm32mp151-ddr-pmu
+>> +          - const: st,stm32mp131-ddr-pmu
+>> +      - items:
+>> +          - const: st,stm32mp251-ddr-pmu
 > 
-> Is there an extra 5 in AN88555?
-> 
-> > from tag. Although these bits are not used (and even not defined for
-> > Leaky VLAN), it's worth to add comments for these difference to prevent
-> > any kind of regression in the future if ever these bits will be used.
-> > 
-> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > ---
-> >  net/dsa/tag_mtk.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/net/dsa/tag_mtk.c b/net/dsa/tag_mtk.c
-> > index b670e3c53e91..ac3f956abe39 100644
-> > --- a/net/dsa/tag_mtk.c
-> > +++ b/net/dsa/tag_mtk.c
-> > @@ -18,6 +18,9 @@
-> >  #define MTK_HDR_XMIT_TAGGED_TPID_88A8	2
-> >  #define MTK_HDR_RECV_SOURCE_PORT_MASK	GENMASK(2, 0)
-> >  #define MTK_HDR_XMIT_DP_BIT_MASK	GENMASK(5, 0)
-> > +/* AN8855 doesn't support SA_DIS and Leaky VLAN
-> > + * control in tag as these bits doesn't exist.
-> > + */
-> 
-> I think it would be good to present the AN8855 tag using a different
-> string, so that libpcap knows it shouldn't decode these bits. The code
-> can be reused for now.
->
+> You did not implement Rob's comment.
 
-Do you think I can implement 2 tagger in the same driver or do I need to
-make a library of this driver? Just asking what is the correct way to
-generalize it.
+Indeed I miss it. Will fix it for the next version.
 
-> >  #define MTK_HDR_XMIT_SA_DIS		BIT(6)
-> >  
-> >  static struct sk_buff *mtk_tag_xmit(struct sk_buff *skb,
-> > -- 
-> > 2.51.0
-> > 
-> 
-
--- 
-	Ansuel
+Best regards,
+Clément
 
