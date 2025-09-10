@@ -4,88 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC8FCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 02:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847C5CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 02:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/ZrTEb1zaDJxW36CE3QTF6qXM0oKKYNei/9YnXXPso=; b=D3ecoZZCs7Yr54RmISEry4aWS5
-	f9NAPDwbJlZ5s5haH/MlGOJTMJcw0AAagIYLe7M5YUVAHTuEPMBr7HzixeMR6H0WMFyaS8shq47wi
-	xCVEkGFY38r5FolNetARV2PMfH5Pdx2zhWdAspPDQqssY7etAaI2yc9RdfwjWvoCnVt9Uj04RI7Fm
-	XR88Ghop6JhYGF3RvJc+aCg/amHcEYVmKPuO8miEoPis2BtyBxn/eEGanPd46gRG2JPOr0q0sGEx2
-	siqSfsjVn9ocuvc8XjLoDu8xfaRjalJeYwsquB1KtQhRUowsFjhMtq91P5IIbFnG5jj0OAVTI/yYe
-	x5Dk5SWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=txjGcCfVEiaKedp4h4DBbOOLmlRFP+QO/g38Ui4POo8=; b=hII50Xg6S8+vLhVmnkADl+orXI
+	9E62T7A8R5aqrSVVH8SXH6PPsddSiiCjIQRGQ7Rtb19vaGTHXAEg8Fjkz+IACJQiWldFAG4ItVlj6
+	rtC8YuO91SaBBYNdiRZel1dY6i9TsbBLYWYgyiOkB5+pzj3yWUlPIotN5BkOLUzhxJzgNLDXdcUwc
+	lSc6j4Xsot9R22BgIUr8P9HP8b3Ebw0/CLUuICjoLvQ6hEqqRuYKQGm1MmhaSw4fMLe4novozcgBZ
+	NHkBdru+9xavTEosycN10W9tQ3+p0JbEGs88W5MdmeOYI5JSzKQLb5LnnWyGQ4lOjnlsR7XfaFA1z
+	J0yxIAvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwAK0-0000000BdFg-47Jz;
-	Wed, 10 Sep 2025 02:12:32 +0000
-Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
+	id 1uwATj-0000000BfLS-173I;
+	Wed, 10 Sep 2025 02:22:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwAJy-0000000BdEg-1xKC
+	id 1uwATg-0000000BfKW-3GWw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 02:12:31 +0000
-Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-620b2171204so2221769eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Sep 2025 19:12:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gateworks.com; s=google; t=1757470349; x=1758075149; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i/ZrTEb1zaDJxW36CE3QTF6qXM0oKKYNei/9YnXXPso=;
-        b=ILCMNBQ04/7M56H8hD3YleomPQ2g97dXvYXavnj4G7LLza22On0IgWtjbva0ohgl2r
-         KMQQF1M+YWxYtQ2TD9IDvCRnoS6FbhnhvmJFbGAfJpjJ8XnTzuIsGiyc26HR3YO2Vb0+
-         0TzO5QBWNTwQeUr2YHu4dq+R6I/X8dySEiJmruByzzjvyGsfnHz3g8iQ0fD8DSs/LZjP
-         KZQ0JJmTeIqIwLo3q7GaYmOk8TJh8hhswTQHg1JfmBpRrSvSm+Ex2vsYOG1+IeqgSAC/
-         mgRUthrzbCB//kD5AGnaBERquWBUK4CXhm9mkTdCw9i6Ez1xsbrALurki/AcgyfvOgKh
-         IXrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757470349; x=1758075149;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=i/ZrTEb1zaDJxW36CE3QTF6qXM0oKKYNei/9YnXXPso=;
-        b=ffwueNDQCahmu+jnP4KbyyhrrnoYxdpX06OSUzuiNDrHTcI5JBzK2ddhXbz3Wp4ZRB
-         YjIcHiRVzb+4ZWrsFCqOJfrgmK+zg972/pdeRjEwfeyDCx79Glit+1lcayCeD36V/X/R
-         zzCseMKyYCN03SkEVWhUI1z16rzG9jLAy7tH2iwKLBHEASnEGfRQu41kYo28cqVsSV1+
-         hpU8NQxwlsjRa3v6hhxRDMjKdUwlKQikJzexRrBkNjSJlJTxVIY2tJzb3ZYuMuooJEce
-         orUaJMCb7b6gp5fxFCijRMv6QFwpBrXFZx3HYHAQARmv+01a8YOgOZIWtD4wPiIdozGs
-         m2oQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWoe5LJMh3Z0aTEevamgV7YRk6uw6YUkyQAGloQGCAMNBhVa2k0KBUQbh2pPmEHiRGqN9HJ9WHPLreljdU+zDUl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxv7lAAWtXL7W3KCPfBqW0EKMjvSnTwKPXjZt5WjeUjdYGEGz9J
-	DCBx60ZTyJXB8Ru/VdWtp0rPQ6ASxq3m3A7B+nygVkuW9Ag8erD+stN2+u1leQ+McqfkBNzDPHy
-	5Qn9SvHrltYIWosZK+1J+aVBrd2a6r/ISr+eEvbzkYA==
-X-Gm-Gg: ASbGncsoPwDq7agdFTPn0ZWVNtyy4ozJVZCYFGB3xMStGRM1mjX5w/SZKsfWlLz6s2z
-	jbMRShqB5iee807R4Ls9BdtUBb8wLFwn28n4598XeTxERweGm2gieQ8tGbYP3MBjV3VBz+NcjQh
-	Ge0HS/qYs0tSUu7dHRge7IgrJcV4mvtJ+XaI2uB77qvc4R9BN16OtSQP7BIcgIsVmNPou1iXTT/
-	RC9NIM=
-X-Google-Smtp-Source: AGHT+IGYzcv+KGeo8D/B/3mzm8u727rEyHjHkqpXMnOV+fGyUvGB1T/ymTmP3km0I0jXSqieUCPPm6rwERicf/XL/fc=
-X-Received: by 2002:a05:6820:624:b0:621:72dc:3dee with SMTP id
- 006d021491bc7-62178987debmr5886756eaf.0.1757470349286; Tue, 09 Sep 2025
- 19:12:29 -0700 (PDT)
+	Wed, 10 Sep 2025 02:22:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 258644429B;
+	Wed, 10 Sep 2025 02:22:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFFFDC4CEF4;
+	Wed, 10 Sep 2025 02:22:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757470952;
+	bh=oWlqndBd3eq4k+3ghnP4AOom/bFf4tXLD4z+QR1ca4o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fQxScFZMdOBLa3xHO6K22mBmbwmsx3oPkoU+o85x9RyqQziu16MlTeR8NTPBNM4bG
+	 W1x/PEx8BWo+PJB9oSS7l5WD+NbswC8bv7KasFvlkgPsvMOOhyP54e0h8D97ShEf9f
+	 +0V8m5zbdbCL33CT5osJinQ6zV8lrjs7kiVul4tSdj+j8V6pEjuoxZBmdi0XtAy6MX
+	 6s3g33HrDbaq5k862b9kZlug+CQouoB92Qm5WtkmJOuHWiNoc5zw0Xc6t3OySodd7j
+	 MYsNJU2AC1OG2O8gtn0qcOPy0W64oldeZM+ssA5MF5Qo6G9CfKZzCALwR6W3ZJ5pSl
+	 Pl4A7et32MwMA==
+Date: Tue, 9 Sep 2025 21:22:30 -0500
+From: Rob Herring <robh@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH net-next v4 01/10] dt-bindings: net: sun8i-emac: Add A523
+ GMAC200 compatible
+Message-ID: <20250910022230.GA3646514-robh@kernel.org>
+References: <20250908181059.1785605-1-wens@kernel.org>
+ <20250908181059.1785605-2-wens@kernel.org>
 MIME-Version: 1.0
-References: <20250815-imx9-dts-v1-0-e609eb4e3105@nxp.com> <20250815-imx9-dts-v1-8-e609eb4e3105@nxp.com>
- <CAJ+vNU2hro_ZoRvmQ9yowKsX25AnrgZdGMn2D-RCkyJA02CEhA@mail.gmail.com> <20250909043327.GD20475@nxa18884-linux.ap.freescale.net>
-In-Reply-To: <20250909043327.GD20475@nxa18884-linux.ap.freescale.net>
-From: Tim Harvey <tharvey@gateworks.com>
-Date: Tue, 9 Sep 2025 19:12:18 -0700
-X-Gm-Features: Ac12FXzv-yx0rHpHYzRFsf11y5WuQG_up-EtuFq-TzQXC2JvCVAePG_zRuL6PxU
-Message-ID: <CAJ+vNU3=mwZFBqQRNz4i28EjWXX6=Nf7iAsYPEBgpqkQw4wgtA@mail.gmail.com>
-Subject: Re: [PATCH 08/13] arm64: dts: imx95-19x19-evk: Add phy supply for netc
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250908181059.1785605-2-wens@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_191230_511299_5762C408 
-X-CRM114-Status: GOOD (  25.92  )
+X-CRM114-CacheID: sfid-20250909_192232_865099_1A9F72CD 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +82,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 8, 2025 at 8:22=E2=80=AFPM Peng Fan <peng.fan@oss.nxp.com> wrot=
-e:
->
-> Hi Tim,
->
-> On Mon, Sep 08, 2025 at 04:43:25PM -0700, Tim Harvey wrote:
-> >On Fri, Aug 15, 2025 at 4:50=E2=80=AFAM Peng Fan <peng.fan@nxp.com> wrot=
-e:
-> >>
-> >> Add phy supply for netc emdio on board.
-> >>
-> >>
-> >
-> >Hi Peng,
-> >
-> >I'm not sure where you are with regards to this patch but it indicates
-> >to me that you may have the enetc_port2 10G port with the AQR113 PHY
-> >working on the imx95-19x19-evk with upstream Linux. If so I would be
-> >interested in knowing what other patches you have for that. I'm seeing
-> >the interface fail to register with:
-> >nxp_enetc4 0002:00:10.0 eth2: PHY has no common interfaces
-> >
-> >I'm wondering if there is some support missing from enetc or the
-> >aquantia phy required to work with 10gbase-r.
->
-> Thanks for raising this.
->
-> This is just to add the missing pieces of device tree.
->
+On Tue, Sep 09, 2025 at 02:10:50AM +0800, Chen-Yu Tsai wrote:
+> From: Chen-Yu Tsai <wens@csie.org>
+> 
+> The Allwinner A523 SoC family has a second Ethernet controller, called
+> the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
+> numbering. This controller, according to BSP sources, is fully
+> compatible with a slightly newer version of the Synopsys DWMAC core.
+> The glue layer around the controller is the same as found around older
+> DWMAC cores on Allwinner SoCs. The only slight difference is that since
+> this is the second controller on the SoC, the register for the clock
+> delay controls is at a different offset. Last, the integration includes
+> a dedicated clock gate for the memory bus and the whole thing is put in
+> a separately controllable power domain.
+> 
+> Add a compatible string entry for it, and work in the requirements for
+> a second clock and a power domain.
+> 
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+> ---
+> Changes since v2:
+> - Added "select" to avoid matching against all dwmac entries
+> Changes since v1:
+> - Switch to generic (tx|rx)-internal-delay-ps properties
+> ---
+>  .../net/allwinner,sun8i-a83t-emac.yaml        | 96 ++++++++++++++++++-
+>  1 file changed, 94 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+> index 2ac709a4c472..9d205c5d93ca 100644
+> --- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+> +++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+> @@ -10,6 +10,21 @@ maintainers:
+>    - Chen-Yu Tsai <wens@csie.org>
+>    - Maxime Ripard <mripard@kernel.org>
+>  
+> +# We need a select here so we don't match all nodes with 'snps,dwmac'
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - allwinner,sun8i-a83t-emac
+> +          - allwinner,sun8i-h3-emac
+> +          - allwinner,sun8i-r40-gmac
+> +          - allwinner,sun8i-v3s-emac
+> +          - allwinner,sun50i-a64-emac
+> +          - allwinner,sun55i-a523-gmac200
+> +  required:
+> +    - compatible
+> +
+>  properties:
+>    compatible:
+>      oneOf:
+> @@ -26,6 +41,9 @@ properties:
+>                - allwinner,sun50i-h616-emac0
+>                - allwinner,sun55i-a523-gmac0
+>            - const: allwinner,sun50i-a64-emac
+> +      - items:
+> +          - const: allwinner,sun55i-a523-gmac200
+> +          - const: snps,dwmac-4.20a
+>  
+>    reg:
+>      maxItems: 1
+> @@ -37,14 +55,19 @@ properties:
+>      const: macirq
+>  
+>    clocks:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 2
+>  
+>    clock-names:
+> -    const: stmmaceth
+> +    minItems: 1
+> +    maxItems: 2
 
-Hi Peng,
+minItems: 1
+items:
+  - const: stmmaceth
+  - const: mbus
 
-Ok, but phy-supply is not currently valid for netc_emdio
+>  
+>    phy-supply:
+>      description: PHY regulator
+>  
+> +  power-domains:
+> +    maxItems: 1
+> +
+>    syscon:
+>      $ref: /schemas/types.yaml#/definitions/phandle
+>      description:
+> @@ -191,6 +214,45 @@ allOf:
+>              - mdio-parent-bus
+>              - mdio@1
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: allwinner,sun55i-a523-gmac200
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 2
+> +        clock-names:
+> +          items:
+> +            - const: stmmaceth
+> +            - const: mbus
 
-> For 10g port, it is still not ready for upstream.
->
+Just 'minItems: 2' here.
 
-For 10G it looks like at least the XPCS support is missing. Do you
-know if anyone at NXP is working on this or if and when it is
-scheduled?
+> +        tx-internal-delay-ps:
+> +          default: 0
+> +          minimum: 0
+> +          maximum: 700
+> +          multipleOf: 100
+> +          description:
+> +            External RGMII PHY TX clock delay chain value in ps.
+> +        rx-internal-delay-ps:
+> +          default: 0
+> +          minimum: 0
+> +          maximum: 3100
+> +          multipleOf: 100
+> +          description:
+> +            External RGMII PHY TX clock delay chain value in ps.
+> +      required:
+> +        - power-domains
+> +    else:
+> +      properties:
+> +        clocks:
+> +          maxItems: 1
+> +        clock-names:
+> +          items:
+> +            - const: stmmaceth
 
-Best Regards,
+maxItems: 1
 
-Tim
-
-
-> For 10g port, it is still not ready for upstream.
->
-> You could only use the rgmii-id port. This change itself does not break
-> the rgmii-id port.
->
-> Thanks,
-> Peng
->
-> >
-> >Best Regards,
-> >
-> >Tim
+> +        power-domains: false
+> +
+> +
+>  unevaluatedProperties: false
+>  
+>  examples:
+> @@ -323,4 +385,34 @@ examples:
+>          };
+>      };
+>  
+> +  - |
+> +    ethernet@4510000 {
+> +        compatible = "allwinner,sun55i-a523-gmac200",
+> +                     "snps,dwmac-4.20a";
+> +        reg = <0x04510000 0x10000>;
+> +        clocks = <&ccu 117>, <&ccu 79>;
+> +        clock-names = "stmmaceth", "mbus";
+> +        resets = <&ccu 43>;
+> +        reset-names = "stmmaceth";
+> +        interrupts = <0 47 4>;
+> +        interrupt-names = "macirq";
+> +        pinctrl-names = "default";
+> +        pinctrl-0 = <&rgmii1_pins>;
+> +        power-domains = <&pck600 4>;
+> +        syscon = <&syscon>;
+> +        phy-handle = <&ext_rgmii_phy_1>;
+> +        phy-mode = "rgmii-id";
+> +        snps,fixed-burst;
+> +        snps,axi-config = <&gmac1_stmmac_axi_setup>;
+> +
+> +        mdio {
+> +            compatible = "snps,dwmac-mdio";
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +
+> +            ext_rgmii_phy_1: ethernet-phy@1 {
+> +                reg = <1>;
+> +            };
+> +        };
+> +    };
+>  ...
+> -- 
+> 2.39.5
+> 
 
