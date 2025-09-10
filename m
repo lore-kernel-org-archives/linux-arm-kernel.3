@@ -4,89 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A86CDCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A121CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TTLchl8AB1FHcg0issnijieflGh4JJHnQc0EA5X3mh0=; b=w4u+/K8oFZrzzjbcakcUIRO15R
-	8Skz79DRp8ZoSCMH7MgQnqSqbblLfNk/uCHpRGwR+XPQXErGbRTe9PQfBdZ63fbVPfmH5TUyW/vJy
-	Jebuh/sXBfaJWe5wcZ9OiB2Fs/CWsOh5fRjAVLCPI1sqtL7E+Xg3cJ8V/+nu3/xt6MtpUUykVJQkl
-	BV8NCl6iwne10P3oKxbOb75K934rzfZGkDzZpZ3gZOvlpv1KXxSd/g/ucgcT77r2LgUNJ2tOgi+sX
-	fxpEg/mMQw1C8VEl0p62pcZPtJM9tNIy9eHNzJx5IRHON4pH4MXt8Zt/ZhKKN1PIXA72dY3RviC6Z
-	KULAyX6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tqHLtl4+6vBepurPiwlhpLxhji1pXDTSPcdmiUQcV2Q=; b=1amC40gqT0dcGjBnwJ2uI0BQEQ
+	E/O4Hx5ayHSTzxXAMUba57S8M+khM5ju+CZwnSIttf3FylLtQjt8m5d5pZ29+zX5EJ5l8Pmyu/zo2
+	tpx8b4H0GcYYonpDE+xObHZEj6yGb8Mr+k+4KT1xlJbmy3duj6VuIyIfU647xdtljBHokKqZS0OQB
+	d0NOqjh2YVfO5wwfqqUR47xKB+lwrg/svizFMjGm6jczealrb+IZ3UiUJw7CM9JJqxxJ0Pbg1nOdL
+	OC7e76+LXkXUKLoOJhvf/487a/CXd9zFZJz96mSYn9rqqfeBQ5QiejJuOMfYAoycGNmKYBVYzpXLu
+	FRzm9hYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLq6-0000000EivI-3KCw;
-	Wed, 10 Sep 2025 14:30:26 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1uwLqY-0000000Ej27-0Rxn;
+	Wed, 10 Sep 2025 14:30:54 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLq4-0000000EiuB-1Ztp
+	id 1uwLqV-0000000Ej0c-3Rx5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 14:30:25 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4b5f3e06ba9so8914031cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 07:30:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757514623; x=1758119423; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TTLchl8AB1FHcg0issnijieflGh4JJHnQc0EA5X3mh0=;
-        b=M6Bv5gR0UKd2/MP0StSg+tFikyoDDCFCeMYnPwWt3kOsxYyk8GJYyELV6lJk91vGoE
-         KpMZT/My2Fo2wB+HObHKMpNXmGsbHHBO+QAPNanxtGlOHs4/dK/iFtHg2mB0GS07WuNi
-         xSsMUhCBuG3pOSav9UtmDO2NUssg+x0HQcD5UwObzIvF01uZ7wg3b1l2a7RRDhpJ0C8y
-         yp6CS88r7D4fNRFL/Im3couvFx9TarSxksewnTeU/+pcaPyJtv6EExI746b4ZI0rsmhb
-         m8zMfGwoA62sUJkVxJtF3EmkO2MgBdBxwZ6DbzayZkl00jL/Hy6BosEniOk3PHdDFDNg
-         9Wvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757514623; x=1758119423;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TTLchl8AB1FHcg0issnijieflGh4JJHnQc0EA5X3mh0=;
-        b=AJeU0Um9HiXyWwp/snGBnoU8NZ9HwDYEZ1lDBPcgEqZbr23MFgGQmQN7V8uYL9ZwWP
-         16B5teVCShtc6pnYcIOt8l9vpWCJ3r11DlZbshDxEyxMBCW8GWmSiYCjWEDrgE5GmcDN
-         TyUVbuu4dx3DNLCJiDgyx3ozVCDIXRhoACPPXKeintSnwCQjlbEfMQnOu3oQwKH6T3zr
-         GLx8LN8e+mi2AGga1Fk6GSJyDBq0PX7Y4JPA2xQ/s1p+5Wm2q1f9WlhXGRt6Jzfzq+et
-         o66CfvJAoQGSXY9baaLD8j7kPww9yfiqtIjJzJoQ4cZ+dEzvptjr304cq1WCne7wPYml
-         gSWg==
-X-Forwarded-Encrypted: i=1; AJvYcCU715977ULty0tf40iFGyu0thG5ZeEKTpE+6BOxaPva7Q2W6BHOVfM6oMsp+SNYmVOFo47MvyXrDhCMwChUz2vU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOSLjaTjPayyhY6cYRLggickzHLU0r8z7YA5Wp7Qd7BrBdo0d3
-	+IFpzeSgGAmzqDGpEA1vuC4NZA814Onc0oYYJNpuIlZHO7ssS0SlotSutttiskwKJQE=
-X-Gm-Gg: ASbGncvEP0+XOwtFpEPIp7jMZaURcXmPSxiUVBdMW0EKEPJkBmxHTBPS0f2hfPNf/qO
-	NX9xeCSpmsUZqy78/Mh8X6LCTAnUlvX2p5dlEz+poSrJY9Xp6MSVRH8RJAUMBMIXYwNGC8KgrJr
-	S4GxYvUfxHqy1/dS/TKrMAJvPZXb+Gi9ru++hJShZJUKOPEU3Dw1KZDsI64QvptWVhwDJWr6fBG
-	hvAQoZoURPrwrjDIGzmdWnT6nLvMKVYmH347O5TEpcpVI7G95hiToYOpMXjflBSDJJDK9OZGJKh
-	fMEis2nIlxEfUKsD2QwwhfTw6XtIHLoH2dW5p+hHTCE/7UhTdcSJoilButeIQFzIRS6CeQ9F0HQ
-	m6YU0/lLBDw==
-X-Google-Smtp-Source: AGHT+IH6dF/4Z7lZACkYC4X0s+vHgUZ6CkxTAB8Ym4mXmmNDe4jZIhgMRE+po30gyIKIXaZt/hNWfA==
-X-Received: by 2002:ac8:5ad6:0:b0:4a7:81f6:331e with SMTP id d75a77b69052e-4b5f8382cb8mr202114071cf.6.1757514622407;
-        Wed, 10 Sep 2025 07:30:22 -0700 (PDT)
-Received: from cachyos-x8664 ([185.221.23.200])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b61ba6edbesm25578641cf.4.2025.09.10.07.30.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 07:30:21 -0700 (PDT)
-From: Jia Qingtong <jiaqingtong97@gmail.com>
-X-Google-Original-From: Jia Qingtong
-To: oliver.upton@linux.dev,
-	maz@kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	jiaqingtong@huawei.com,
-	jiaqingtong97@gmail.com,
-	yuzenghui@huawei.com,
-	jiangkunkun@huawei.com
-Subject: [RFC PATCH] arm64: Rename is_midr_in_range_list and add is_midr_subset_of_range_list
-Date: Wed, 10 Sep 2025 22:29:43 +0800
-Message-ID: <20250910142948.221722-1-jiaqingtong@huawei.com>
-X-Mailer: git-send-email 2.51.0
+	Wed, 10 Sep 2025 14:30:53 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uwLqQ-00075Z-3V; Wed, 10 Sep 2025 16:30:46 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uwLqO-000beC-2I;
+	Wed, 10 Sep 2025 16:30:44 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uwLqO-00GHZB-1j;
+	Wed, 10 Sep 2025 16:30:44 +0200
+Date: Wed, 10 Sep 2025 16:30:44 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: Jonas Rebmann <jre@pengutronix.de>, Andrew Lunn <andrew@lunn.ch>,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-sound@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: Re: [PATCH 1/4] dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios
+ property
+Message-ID: <20250910143044.jfq5fsv2rlsrr5ku@pengutronix.de>
+References: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
+ <20250910-imx8mp-prt8ml-v1-1-fd04aed15670@pengutronix.de>
+ <20250910125611.wmyw2b4jjtxlhsqw@skbuf>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250910125611.wmyw2b4jjtxlhsqw@skbuf>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_073024_429647_28827634 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20250910_073051_864022_9B861E10 
+X-CRM114-Status: GOOD (  29.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,144 +92,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jia Qingtong <jiaqingtong@huawei.com>
+On 25-09-10, Vladimir Oltean wrote:
+> On Wed, Sep 10, 2025 at 02:35:21PM +0200, Jonas Rebmann wrote:
+> > Both the nxp,sja1105 and the nxp,sja1110 series feature an active-low
+> > reset pin, rendering reset-gpios a valid property for all of the
+> > nxp,sja1105 family.
+> > 
+> > Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
+> > ---
+> >  Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml | 5 +++++
+> >  1 file changed, 5 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml b/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
+> > index 9432565f4f5d..8f4ef9d64556 100644
+> > --- a/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
+> > +++ b/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
+> > @@ -32,6 +32,11 @@ properties:
+> >    reg:
+> >      maxItems: 1
+> > 
+> > +  reset-gpios:
+> > +    description:
+> > +      GPIO to be used to reset the whole device
+> > +    maxItems: 1
+> > +
+> >    spi-cpha: true
+> >    spi-cpol: true
+> > 
+> > 
+> > --
+> > 2.51.0.178.g2462961280
+> >
+> 
+> There are multiple issues with the reset line and I was considering
+> dropping driver support for it.
+> 
+> The most important issue is the fact that, according to NXP document
+> AH1704, the RST_N signal has to be kept asserted for 5 us after power-on
+> reset. That is hard to achieve if this pin is routed to an SoC GPIO.
 
-Regarding the is_midr_in_range_list function, from the early discussions
-during submission [1][2], we know:
-1. The VMM must ensure the correctness of the target impl CPU set.
-2. For errata-related fixes, if any target impl CPU is affected,
-then all CPUs are considered affected.
+Can you please elaborate a bit more? I was curious and checked the
+AH1704, it says:
 
-However, in commit e403e8538359 ("arm64: errata: Assume that unknown CPUs
-_are_ vulnerable to Spectre BHB")
-and commit d4647f0a2ad7 ("arm64: Rewrite Spectre-v2 mitigation code"),
-the functions is_spectre_bhb_safe and
-spectre_v2_get_cpu_hw_mitigation_state use is_midr_in_range_list
-to determine whether the current chip is not affected by the issue
-(rather than, as we might expect, whether it is affected by the erratum).
+"The RST_N signal must be kept low for at least 5 us after all power
+supplies and reference clock signals become stable."
 
-Therefore, for the arg ranges of is_midr_in_range_list being tested,
-as long as there is one MIDR present in the target impl CPUs,
-the current VM (and the target impl CPUs) are considered not affected by
-the issue.
+This is very common, so the driver only needs to ensure that the pin was
+pulled low for at least 5us but not exact 5us.
 
-This seems somewhat contrary to the original idea, since the VMM does not
-know whether KVM implements positive or negative logic.
+> Additionally, routing the reset signal to a host SoC GPIO does not bring
+> any particular benefit, since the switch can be (and is) also reset by
+> the driver over SPI.
 
-Hence, we may need to rename is_midr_in_range_list to
-is_any_midr_in_range_listto explicitly mean "if any target impl CPU is
-in range_list" and additionally introduce is_midr_subset_of_range_list
-for someone like is_spectre_bhb_safe to use.
+I don't know the switch but it's also common that a so called
+software-reset may not reset all registers, state machines, etc.
 
-This patch just show is_midr_subset_of_range_list and it's example usage.
+There it's common practice that the driver tries to pull the hw reset
+line and if not present falls back to a software reset.
 
-[1] https://lore.kernel.org/kvmarm/86cyftty9q.wl-maz@kernel.org/
-[2] https://lore.kernel.org/kvmarm/ZyG3FiUiyOi4t3rQ@linux.dev/
+> So, at least for this particular switch, having a "reset-gpios" actively
+> points towards a potential violation of its POR timing requirements.
 
-Fixes: 86edf6bdcf05 ("smccc/kvm_guest: Enable errata based on implementation CPUs")
-Signed-off-by: Jia Qingtong <jiaqingtong@huawei.com>
----
- arch/arm64/include/asm/cputype.h |  1 +
- arch/arm64/kernel/cpu_errata.c   | 41 +++++++++++++++++++++++++++++++-
- arch/arm64/kernel/proton-pack.c  |  4 ++--
- 3 files changed, 43 insertions(+), 3 deletions(-)
+Really? Please see my above comment.
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 661735616787..1339a2e37104 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -304,6 +304,7 @@ struct target_impl_cpu {
- 
- bool cpu_errata_set_target_impl(u64 num, void *impl_cpus);
- bool is_midr_in_range_list(struct midr_range const *ranges);
-+bool is_midr_subset_of_range_list(struct midr_range const *ranges);
- 
- static inline u64 __attribute_const__ read_cpuid_mpidr(void)
- {
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 59d723c9ab8f..30cc91f875d9 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -53,6 +53,45 @@ bool is_midr_in_range_list(struct midr_range const *ranges)
- }
- EXPORT_SYMBOL_GPL(is_midr_in_range_list);
- 
-+bool is_midr_subset_of_range_list(struct midr_range const *ranges)
-+{
-+	int i;
-+	unsigned long midr;
-+	struct midr_range const *range_ptr;
-+
-+	if (!target_impl_cpu_num) {
-+		midr = read_cpuid_id();
-+		range_ptr = ranges;
-+		while (range_ptr->model) {
-+			if (midr_is_cpu_model_range(midr, range_ptr->model,
-+					range_ptr->rv_min, range_ptr->rv_max))
-+				break;
-+			range_ptr++;
-+		}
-+		return range_ptr->model != 0;
-+	}
-+
-+	for (i = 0; i < target_impl_cpu_num; i++) {
-+		bool found = false;
-+
-+		midr = target_impl_cpus[i].midr;
-+		range_ptr = ranges;
-+
-+		while (range_ptr->model) {
-+			if (midr_is_cpu_model_range(midr, range_ptr->model,
-+					range_ptr->rv_min, range_ptr->rv_max)) {
-+				found = true;
-+				break;
-+			}
-+			range_ptr++;
-+		}
-+		if (!found)
-+			return false;
-+	}
-+	return true;
-+}
-+EXPORT_SYMBOL_GPL(is_midr_subset_of_range_list);
-+
- static bool __maybe_unused
- __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
- 			 u32 midr, u32 revidr)
-@@ -276,7 +315,7 @@ static bool has_impdef_pmuv3(const struct arm64_cpu_capabilities *entry, int sco
- 	if (pmuver != ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
- 		return false;
- 
--	return is_midr_in_range_list(impdef_pmuv3_cpus);
-+	return is_midr_subset_of_range_list(impdef_pmuv3_cpus);
- }
- 
- static void cpu_enable_impdef_pmuv3_traps(const struct arm64_cpu_capabilities *__unused)
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index edf1783ffc81..ce3660625743 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -172,7 +172,7 @@ static enum mitigation_state spectre_v2_get_cpu_hw_mitigation_state(void)
- 		return SPECTRE_UNAFFECTED;
- 
- 	/* Alternatively, we have a list of unaffected CPUs */
--	if (is_midr_in_range_list(spectre_v2_safe_list))
-+	if (is_midr_subset_of_range_list(spectre_v2_safe_list))
- 		return SPECTRE_UNAFFECTED;
- 
- 	return SPECTRE_VULNERABLE;
-@@ -864,7 +864,7 @@ static bool is_spectre_bhb_safe(int scope)
- 	if (scope != SCOPE_LOCAL_CPU)
- 		return all_safe;
- 
--	if (is_midr_in_range_list(spectre_bhb_safe_list))
-+	if (is_midr_subset_of_range_list(spectre_bhb_safe_list))
- 		return true;
- 
- 	all_safe = false;
+> That is, unless the power rails are also software-controlled. But they
+> aren't.
 
-base-commit: d69eb204c255c35abd9e8cb621484e8074c75eaa
--- 
-2.51.0
+AH1704 Fig.10 just illustrate a reset and power-on sequence. I highly
+doubt that the host can't pull the hw rest line if the supplies and the
+clock is already running.
 
+You're right about the fact that the driver is currently not able to do
+a proper power-on sequence, so the kernel relies on the prev. firmware
+or the hw-setup. But this is another problem.
+
+Regards,
+  Marco
 
