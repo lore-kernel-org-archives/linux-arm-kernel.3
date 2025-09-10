@@ -4,128 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5223ACA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA620CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 12:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhCtGHB0DkBobVlK7MICfsktcm5yyzHhvJCYtnxxZbw=; b=msg/U+G97cE99pSFDVY/yPF3p1
-	bRLJbhW74e9MN2IXVU93zTRNG0m828lQT2V0HJ3EERjpiJ3sMSaUYDL3pkqbABGlMKsmC97yWMUc5
-	QfRrlVjVO+AP8jCnjJpoak2SPNouLzFeXK+Wm44UPmb5EMQbvHOnw6lMtJFq8iq4B2anVvVO6xQ91
-	ZmiVX7jxa+qtGDrkkT/xknP0+r59oElgkPNY60p32NHXn4MNtcrci6dTJZW2Tf9Jqn6pZqsCUV9iM
-	jPa1S2/j9dKz1a06EWx5YjGrAKTXPSV4qYZWxyurqgD5NTRpoPdfh2d88CQp8xmw+EVc+sJVuLYk4
-	XIbnvOjA==;
+	bh=LViYUFGFqV7wdk7rT7+n+ckEpLRp2oc7FTXBWlnTc1s=; b=D5t/0q/2v3uf2pxAp5as0LbyWf
+	05UFPj9dG2Joxlo+cTEiSJmJCBKHrb9+RBqBJ9w/FFY6pRBtI5dNA+lrWYNaFPnvySj2U/IHWzAx/
+	6XPO0wt6HBj6SMyqxEHah+kGkuPXsPcLQVWkppjJTrEtYcAs1zVTxEMoUUTGkDaF0nm4ZgKNJ++FE
+	66C6wftNy0viqbFcaxlU4Wqa5ZVy/ktWoyHxe3QTwKdqor/HCgDzzJA0QU42nPs/5TVCYCAkZztCw
+	XBG9w798gEIkUOft112+rk09mPUFIGw2eXZpYrKXEcn2Bmar9lsJfq8kpiEJRRdX8AaoQDe9EVo5s
+	JtTf6I8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJtM-0000000E6D9-3ppO;
-	Wed, 10 Sep 2025 12:25:40 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uwK0Q-0000000E8Ds-3OoX;
+	Wed, 10 Sep 2025 12:32:58 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJtK-0000000E68f-109x
+	id 1uwK0O-0000000E8C0-0b2N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 12:25:40 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58AAF7nE022078
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 12:25:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xhCtGHB0DkBobVlK7MICfsktcm5yyzHhvJCYtnxxZbw=; b=YGSMO8cs/IX7VOGl
-	qYARYWX5lqqlY6xLJWPFYVq6YnEyTXTsbJzzhU8t0lUDFh5WbZb09BEZzKi2NMvw
-	pdw9VOhyBIYEZNu2ZuY5Cx2E+REObTSN3O6KUpW8qy/YeUk1LWX7dQhK6IJXuuoR
-	N0HLJVkN9lNf5aI1SlZrhL/SPNu0OUeKDPfmEgYkhCarS2eD322RQdHD741xiRWJ
-	4ci3fPWRl918MOQuDdI0rGpGUTf3ZWrEXgtTsawcA+gGbZXxrpQezzOLdsvywWDk
-	DhFseYpyh9HUOYx2U+GdASX35h4aMfA7F6Wap4VNeS620R3+vh6X0vFO4/QRoIqZ
-	JcdkCQ==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490cj0us7m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 12:25:35 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-721c6ffab9cso15973976d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 05:25:35 -0700 (PDT)
+	Wed, 10 Sep 2025 12:32:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757507574;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=LViYUFGFqV7wdk7rT7+n+ckEpLRp2oc7FTXBWlnTc1s=;
+	b=WHd0oMalIIoLJPyuccybKNhlIxKxhXCeWMxEYeumxVdUZEXiHu4XC7PlpFTSuZzwTnFkKz
+	zaGL3jrVw/o+FehP1rmXwQAdcRED0Vue7mKoPtk4nQi6aiVLEMYFwiuVim/0lL6vRtV1UB
+	XHwo6tpVeKDSvfvG2W9comHwETgfNOc=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-617-tlkEnjjdM7-FNUD6MZY2pg-1; Wed, 10 Sep 2025 08:32:52 -0400
+X-MC-Unique: tlkEnjjdM7-FNUD6MZY2pg-1
+X-Mimecast-MFC-AGG-ID: tlkEnjjdM7-FNUD6MZY2pg_1757507571
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45b990eb77cso3966355e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 05:32:51 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757507135; x=1758111935;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xhCtGHB0DkBobVlK7MICfsktcm5yyzHhvJCYtnxxZbw=;
-        b=lhZ6TVKxcKByfAMmdcwjYV8Sf/Pf5ap8yLrABUod43+nQypm3pHWHHOjO6LzrYGhoP
-         97im/O8kV2QNxjX7lo5vV3OGQxgHq09Fw1gmF7whcVgJg6NtKDijtqOlaFZqgBFENXLu
-         TcZ3WUOAeSLrlQBVfZUz8gm9x7v5k3I1FpmU+n+yL7jJ+OQga2pjfPHSAh/dLkj6OQsI
-         hbK4zTQkNc0DOMO+91W5/afUL19YtMBNp2KzOT21urGLcaqvdM0phpOwnP1ISsVzc7QI
-         7Zd4LLnlKFQkoFRAKzJrSS9BoHyTjNoFqlYhb8hPs5DZqIS7hO1VAz2cu3l/5AE2BlNP
-         6gLw==
-X-Gm-Message-State: AOJu0YwzUSp5MN75xmUNn2qwNs1FqAIYNsaIH29wT8KTwPe48coLPfk0
-	tuyUfbvcWLUtwFf0/9+uSTBF0EhkiPWuLK8HPv9EnC1W0j5I3EvK6iOkKxFrJPYTPVJ8NhKdRMU
-	jewTs5bM2Tu5Anc7n4V8BdYyWidiaoybYbj2Sy6IqCaCuBdFc349GmEyYhuImtpuRJIm9dAfVfu
-	C7AQ==
-X-Gm-Gg: ASbGncuJizW+jBNvxlhIorqK2DDYtWHWprArfWa4lW8xOE0I4I96+cFZb9oW3QGQfQW
-	L/GMKiBngsk/h3BNJcSFe2I97WgiaReuRj4PWPO0yk7buwGCnm8SfzFrSi1qpi7wcUn8WAaIbfv
-	MWIrz0uOrQRfpaGbZZGfyIW77ppCV+rroPE52tq6FTSRkJ6fXRTevXXH1p/z/1hlV1GP1y3aAK7
-	Bk1NeusRZc4iWV79o8El3s1hrAPTjJkrmH4PfhmX2ZXS8uVFIhsP3RBFIjNx16LgkEOJORirfl1
-	5gy82CNPnIoGvtl45j2m49hE9i+MOI6yYbdRsX1r9p/KRkiK1blExtf9gqnAK/OTec/vcPVoWPo
-	CUbZrvCKqXw6AcHxplFBuOw==
-X-Received: by 2002:a05:622a:190f:b0:4b5:f4c0:5fd with SMTP id d75a77b69052e-4b5f8531717mr107906191cf.8.1757507134739;
-        Wed, 10 Sep 2025 05:25:34 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE27NK31Io4E+jeD+4VIvXuMgeiu+Md8ls94UaGm36iHEowM6oGp7UQf+Mw0cZqlAH0Hlx3cQ==
-X-Received: by 2002:a05:622a:190f:b0:4b5:f4c0:5fd with SMTP id d75a77b69052e-4b5f8531717mr107905721cf.8.1757507134155;
-        Wed, 10 Sep 2025 05:25:34 -0700 (PDT)
-Received: from [192.168.149.223] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b078334b0desm158265166b.66.2025.09.10.05.25.31
+        d=1e100.net; s=20230601; t=1757507571; x=1758112371;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LViYUFGFqV7wdk7rT7+n+ckEpLRp2oc7FTXBWlnTc1s=;
+        b=P4oeJT9E6vVzGm9Lx4PvSqB/0p3Rg9ZU+/+w7zVPIYaiRm+/PQYHp7ipFzMQz5TTYA
+         j0eKkthvs4vFOi/LdvdytZqSXCWhC5y8cX0gbcKtwGUdh4jFL2iYKROUZr0Xd9tvoccf
+         sXdkLTHJwddQ4dRNshIqd2hxPjsXyoGTYffubq0BRPHanooZqmmTUos1x0f0j2aKxhjP
+         L3kajzwBeBiSOAjunB6kqhm6V8hSAbQVCwHjykcv/pRPq802sEcOrEbhwi3wlh7UuPKB
+         iNKqqg2qvuYOSveI0Vu7XNz49cEi5f5V9lzwaTKtnnJbqadNSb1bMPcDpyuMKEYMmgxu
+         Cyvg==
+X-Forwarded-Encrypted: i=1; AJvYcCUxqEWUVAbepLYVY/7JzgmBrlKLOXxYeqNUy7m3TbCHaVnEqtCN34DT9W46E+l3gEdeDKniKaZmn6Zf8XCspA/b@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdA3KspH8x6Mclhh1w+iJr2uSCidCD+BjeNeieF/oYWXzK59u4
+	A9g+XPSq7qQ8TV//T04BazUOKL0lhH8G8IKkGMhQdxKtVjjzL2XLuNwIRphNP3lQ1+IbX1Wx7SV
+	iRd8GpHUPQwyQEV0PIr7fFq8/ZmBlKAZf/VH0bJRiB+8jTckrS5KHDZZCVts1GpHFW958hrxDOX
+	KucBLB+1m8
+X-Gm-Gg: ASbGncvDJJDZvNZ011CjhOSmZY5ufroMucBrz+mMZQM5m1ZaRxR8MJHbHm7IecoJv4r
+	W8gZAQCOrPLcG+72YDC96QzTO+vZSUcqguDTzi8QbGJFEjL4zIAmMXj6ye6xn2Z+Z8BVowMiEQA
+	OINV0B3jQCir7bktqR9bhrFvQEaH/iYNtSkseoBLNgLksb1GXEtYkRuS9U6k24PJTvdDcOM0kPJ
+	sVQAta7E0W3gIRvUn8Ak/76THE0NggpiAqmoMsPVgQ9YnWPDSCiNk8mxx6AiYKOMyFTTG1xqi/R
+	DaLjyuJUH4lbP2c8bSQHL8S2ONAhrfiGsM+9wZRG0rgKiKQHd186JTeCKlZNBHrs+Hy5ItPlV17
+	MnTKRBaKNd0zlNiNPLsrzwhsYoNmlL15rCj6VTCSLVgaQVeWIErMGzY3nzUeQZN+Uods=
+X-Received: by 2002:a05:600c:3b1d:b0:45b:8ac2:9761 with SMTP id 5b1f17b1804b1-45dde20e5c0mr148260585e9.13.1757507570783;
+        Wed, 10 Sep 2025 05:32:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF/W9Mmo72Y7k0e/5lev9LwiyPK0j0L4lMPmSP/XxC16yAcbXhF14eU/SqL+2U67nqcP2mA5Q==
+X-Received: by 2002:a05:600c:3b1d:b0:45b:8ac2:9761 with SMTP id 5b1f17b1804b1-45dde20e5c0mr148260265e9.13.1757507570271;
+        Wed, 10 Sep 2025 05:32:50 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f17:9c00:d650:ab5f:74c2:2175? (p200300d82f179c00d650ab5f74c22175.dip0.t-ipconnect.de. [2003:d8:2f17:9c00:d650:ab5f:74c2:2175])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7521bfd08sm6588369f8f.4.2025.09.10.05.32.48
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 Sep 2025 05:25:33 -0700 (PDT)
-Message-ID: <2a7bd0cd-a6c4-47c3-a6ca-f9d94c9b65ec@oss.qualcomm.com>
-Date: Wed, 10 Sep 2025 14:25:30 +0200
+        Wed, 10 Sep 2025 05:32:49 -0700 (PDT)
+Message-ID: <b908b8a9-8860-4464-b86c-467797f1fafd@redhat.com>
+Date: Wed, 10 Sep 2025 14:32:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3.1] media: dt-bindings: Add qcom,qcs8300-camss
- compatible
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Vikram Sharma <quic_vikramsa@quicinc.com>, bryan.odonoghue@linaro.org,
-        mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-        conor+dt@kernel.org, andersson@kernel.org, konradybcio@kernel.org,
-        hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
-        catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
-        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-References: <20250813053724.232494-2-quic_vikramsa@quicinc.com>
- <20250910104915.1444669-1-quic_vikramsa@quicinc.com>
- <5a087d08-273e-4740-b47d-fc25be952ebd@kernel.org>
+Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
+To: Arnd Bergmann <arnd@arndb.de>, Matthew Wilcox <willy@infradead.org>
+Cc: ksummit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Richard Weinberger <richard@nod.at>, Lucas Stach <l.stach@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ankur Arora <ankur.a.arora@oracle.com>, Mike Rapoport <rppt@kernel.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Suren Baghdasaryan <surenb@google.com>,
+ Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Sergio Paracuellos <sergio.paracuellos@gmail.com>,
+ Andreas Larsson <andreas@gaisler.com>
+References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
+ <aMDYdp3H-yOHU1Pm@casper.infradead.org>
+ <b60310f3-25d3-4f2b-88cb-ad65d5f55ec2@app.fastmail.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
+ ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZoEEwEIAEQCGwMCF4ACGQEFCwkIBwICIgIG
+ FQoJCAsCBBYCAwECHgcWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaJzangUJJlgIpAAKCRBN
+ 3hD3AP+DWhAxD/9wcL0A+2rtaAmutaKTfxhTP0b4AAp1r/eLxjrbfbCCmh4pqzBhmSX/4z11
+ opn2KqcOsueRF1t2ENLOWzQu3Roiny2HOU7DajqB4dm1BVMaXQya5ae2ghzlJN9SIoopTWlR
+ 0Af3hPj5E2PYvQhlcqeoehKlBo9rROJv/rjmr2x0yOM8qeTroH/ZzNlCtJ56AsE6Tvl+r7cW
+ 3x7/Jq5WvWeudKrhFh7/yQ7eRvHCjd9bBrZTlgAfiHmX9AnCCPRPpNGNedV9Yty2Jnxhfmbv
+ Pw37LA/jef8zlCDyUh2KCU1xVEOWqg15o1RtTyGV1nXV2O/mfuQJud5vIgzBvHhypc3p6VZJ
+ lEf8YmT+Ol5P7SfCs5/uGdWUYQEMqOlg6w9R4Pe8d+mk8KGvfE9/zTwGg0nRgKqlQXrWRERv
+ cuEwQbridlPAoQHrFWtwpgYMXx2TaZ3sihcIPo9uU5eBs0rf4mOERY75SK+Ekayv2ucTfjxr
+ Kf014py2aoRJHuvy85ee/zIyLmve5hngZTTe3Wg3TInT9UTFzTPhItam6dZ1xqdTGHZYGU0O
+ otRHcwLGt470grdiob6PfVTXoHlBvkWRadMhSuG4RORCDpq89vu5QralFNIf3EysNohoFy2A
+ LYg2/D53xbU/aa4DDzBb5b1Rkg/udO1gZocVQWrDh6I2K3+cCs7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <b60310f3-25d3-4f2b-88cb-ad65d5f55ec2@app.fastmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: rWUP6E1pxtEU7HO0TEoHlP3_45CK6OCB7XeikGEkSas_1757507571
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <5a087d08-273e-4740-b47d-fc25be952ebd@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: Q2VJsVXgMJvM1OBplXiL0HjsvorE4uKi
-X-Proofpoint-GUID: Q2VJsVXgMJvM1OBplXiL0HjsvorE4uKi
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAyNCBTYWx0ZWRfX9NLjXyL/6uNV
- OYbhMQvctsIJIZ7JnocDUx9Ukuyru5tyPjmczUa8c6gSNTvBQ5DrsvWknfkWE5jBjqTzjJen6Fl
- T7cWfdi0J2tOzjF9QRnp8yxEIecQD2S0HY33QwSt2ZqNlOqK+rEjo/PbsV3tMCn75tag6dW3+4L
- 8ktdMI8q+nhUb31+R92KHVgu5Z4Ef7d93L6JY0zEzE8vmmLqrE/P70UWHm0nUfCPdRlO8xkdvSg
- vE4GEFhMi7dclYNdSpY0INiQMmFlemtWs1BIYzCqolyBit0C2BCjs+/b/7/aUfEY/lvR7kjVY5f
- rs/JMYLzx8znjeuG9x4Bk8PgW+KybBAAjDGZQT+rq7KLAYt3Eg0B95vTIMUa9LOXePyDHKUNMQo
- HELOVkax
-X-Authority-Analysis: v=2.4 cv=QeFmvtbv c=1 sm=1 tr=0 ts=68c16e3f cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=P-IC7800AAAA:8 a=COk6AnOGAAAA:8
- a=Ttb-WI7uj3phwydCKpUA:9 a=QEXdDO2ut3YA:10 a=iYH6xdkBrDN1Jqds4HTS:22
- a=d3PnA9EDa4IxuAV0gXij:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-10_01,2025-09-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 clxscore=1015 spamscore=0 impostorscore=0
- bulkscore=0 suspectscore=0 adultscore=0 malwarescore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509060024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_052538_426714_BA62483F 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250910_053256_252598_4E0D9396 
+X-CRM114-Status: GOOD (  41.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,38 +174,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/10/25 1:38 PM, Krzysztof Kozlowski wrote:
-> On 10/09/2025 12:49, Vikram Sharma wrote:
->> Add the compatible string "qcom,qcs8300-camss" to support the
->> Camera Subsystem (CAMSS) on the Qualcomm QCS8300 platform.
+On 10.09.25 14:17, Arnd Bergmann wrote:
+> On Wed, Sep 10, 2025, at 03:46, Matthew Wilcox wrote:
+>> On Tue, Sep 09, 2025 at 11:23:37PM +0200, Arnd Bergmann wrote:
+>>> While removing a feature that is actively used is clearly a regression
+>>> and not normally done, I expect removing highmem is going to happen
+>>> at some point anyway when there are few enough users, but the question
+>>> is when that time will be.
 >>
->> The QCS8300 platform provides:
->> - 2 x VFE (version 690), each with 3 RDI
->> - 5 x VFE Lite (version 690), each with 6 RDI
->> - 2 x CSID (version 690)
->> - 5 x CSID Lite (version 690)
->> - 3 x CSIPHY (version 690)
->> - 3 x TPG
+>> I don't mind that the feature remains ... unless it causes us trouble.
+>> Which it currently does.  Perhaps we could start by removing HIGHPTE?
+>> There was a certain amount of complexity introduced into the page fault
+>> path when support for that was introduced.  x86 removed support for it,
+>> so it's just ARM left before we can remove the complexity again.
 >>
->> Co-developed-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
->> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
->> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+>> Most of the other pain points are around storing metadata (directories,
+>> superblocks, etc) in page cache highmem.  I think we can get rid of that
+>> now too.
 > 
-> Do not attach (thread) your patchsets to some other threads (unrelated
-> or older versions). This buries them deep in the mailbox and might
-> interfere with applying entire sets. See also:
-> https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+> Agreed, this is roughly what I meant with the suggestion of removing
+> __GFP_HIGHMEM allocations from as many places as possible, while leaving
+> the pagecache and zram. I already brought up HIGHPTE earlier this year
+> since it already has an separate Kconfig symbol, but Russell was worried
+> about increasing the lowmem usage at all.
 > 
-> Please version your patches correctly, e.g. use b4 or git format-patch
-> -vX, and add changelog in cover letter or under '---' of individual
-> patches describing changes from previous version.
+> Maybe we could go back to the earlier idea of first categorizing
+> the important highmem users better, and make it possible to
+> use Kconfig symbols to enable highpte/highmem-anonymous/highmem-file/
+> highmem-metadata/highmem-zram/... individually as well as count the
+> actual usage for each of them. Having statistics in /proc/meminfo or
+> similar would allow more informed decision about no longer supporting
+> some of the categories later.
+
+That makes sense.
+
+Essentially, let's move out as much of the 
+now-possibly-unnecessary-complexity while still leaving basic highmem 
+support in. To mean that implies removing highpte first.
+
 > 
-> What is v3.1? How to compare it? Try yourself:
+> Not sure how many __GFP_ flags we could reasonably spend on categorizing,
+> as we are already up to 26 out of 32 (not counting CONFIG_ASAN_HW_TAGS,
+> which is 64-bit only and uses two more bits), or what alternative
+> would work.
+> 
+>> I don't see any particular need to gt rid of file data stored in highmem,
+>> nor anonymous memory stored in highmem.  And if we're only talking
+>> about hundreds of megabytes of memory, I think anon+ file pagecache is
+>> probably most of the memory in the system already unless you have some
+>> very weird workloads.
+> 
+> The main problem I see with the pagecache itself is that the fewer
+> highmem machines people test on, the harder it gets to spot regressions
+> where new code fails to kmap() the pages correctly.
 
-This is a weird invention that some media maintainers seem to promote..
+Yes. Whenever I touch highmem I'm concerned I will silently break 
+something and nobody notices.
 
-As a b4 user, I would also like it to stop, as doing anything other than
-v(integer) will open the door for unlimited craziness
+Then I find myself booting a x86-pat in a VM and wonder why we are still 
+supporting that and why it is so hard for me to get it tested. If we 
+manage to not have that testing part so annoying, it would already eb a 
+big win.
 
-Konrad
+(did ever anybody look into simulating highmem on 64bit to make it 
+easier to test?)
+
+> 
+> Another concern is the number of memory zones, but it does not appear
+> that we would completely remove ZONE_HIGHMEM as long as ZRAM or pagecache
+> uses it.
+> 
+>> Where we may want to be a bit careful is some people have Plans to
+>> reuse the kmap infrastructure to support things like unmapping the
+>> pagecacheto protect against spectre-eqsue attacks.  I know Intel was
+>> working on this when 3dxp was going to be a Thing, but it's recently
+>> been brought back:
+>>
+>> https://lore.kernel.org/linux-mm/20250812173109.295750-1-jackmanb@google.com/
+> 
+> If that gets merged, it would at least address the concern about
+> testing, since presumably many bugs around missing kmap/kumap then
+> also show up on x86-64 kernels with ASI enabled.
+
+Right. Likely we should at some point cleanup the api to not talk about 
+map/unmap but rather something along the lines of "start access / end 
+access".
+
+-- 
+Cheers
+
+David / dhildenb
+
 
