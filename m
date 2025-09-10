@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C19CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D5ACA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=orWTKPVAv662aZQAc0MmJWasNeeV31JsA22DQVfeyMg=; b=xE/8tmwGhPOHyK7rkgxpYtK0FB
-	gw9acBRCm7Pwzn5OI/0gAXVnm4ok8iIe5LqbJm13WZff5LXOtWUqcRNw37VFr1CpNPR56RFVy8Qli
-	20+t2B6SRSUMI5QXS7PDuTbst9uEsdc49ZeaNKlp/m+Tgny6FeWQFKQxthltnBUf1OF3NQqB0IV/J
-	SCPdO6x+oRkhSKOAo9m+PkZvelkxtdwMQBN5/TZgnYYaX2f6KGWiaisAYIk3vHZz8penK6hUt7EE5
-	zTA+9E1psGGIQvHuTNgpdYtxihkqHtK0PGq3FmPxoEmQ0xT/PvC8vh8KlywbjN4D/kA0FmKl05JCO
-	xVKnP0nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kvy79l38OjgXam56LG4SBUALLkxIDxyLLpk0bImYB5k=; b=JEO12C1XEqEx98slJHUBH1GPiZ
+	yd5UtMCrxRlzwnnwIVVMO5HMcBmPOyD2xxlbshrEFocIbFdFdkz31L5+rRAjf+J4kjtLKTSenIRNT
+	ESC+VlLYbhhcO9om9zvLFDYMfejJZxsF9czdZlwcIcZTcc4ytN2HL6VWSnxkps2P8iiv0ep1tQVpy
+	z850sCVSMSROlwR4dZA+tZ8PIoPgTAXeO5NdcJwfQrIsJkLqB//5UDs/QObu3eGYiEbqiOQbG/JLT
+	udWDmry7bBgpnbR+WwpHXWRIumT1k41/LqTLqY5s4TWhM9Kvg+axAYNlydv0C0lp8BwXXFr0g8mR3
+	RxLj0y0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQbn-0000000GKt0-3eh0;
-	Wed, 10 Sep 2025 19:35:59 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uwQdV-0000000GLad-18fN;
+	Wed, 10 Sep 2025 19:37:45 +0000
+Received: from mailout.nod.at ([116.203.167.152] helo=lithops.sigma-star.at)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQbk-0000000GKrI-3Fjf
+	id 1uwQdS-0000000GLYT-11ap
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 19:35:58 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwQba-00044l-E0; Wed, 10 Sep 2025 21:35:46 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwQba-000dsZ-09;
-	Wed, 10 Sep 2025 21:35:46 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwQbZ-00GLdL-2s;
-	Wed, 10 Sep 2025 21:35:45 +0200
-Date: Wed, 10 Sep 2025 21:35:45 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 09/11] dmaengine: add support for device_link
-Message-ID: <20250910193545.gx3qoyjamoxlncqd@pengutronix.de>
-References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
- <20250903-v6-16-topic-sdma-v1-9-ac7bab629e8b@pengutronix.de>
- <aLhUv+mtr1uZTCth@lizhi-Precision-Tower-5810>
- <20250909120309.5zgez5exbvxn5z3y@pengutronix.de>
- <aMA88W/rDxFesEx+@lizhi-Precision-Tower-5810>
+	Wed, 10 Sep 2025 19:37:44 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by lithops.sigma-star.at (Postfix) with ESMTP id E33972C14AA;
+	Wed, 10 Sep 2025 21:37:38 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id mZ4QcxbfF_Ic; Wed, 10 Sep 2025 21:37:38 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by lithops.sigma-star.at (Postfix) with ESMTP id 274732BA98D;
+	Wed, 10 Sep 2025 21:37:38 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id Q1j44iMB0ybE; Wed, 10 Sep 2025 21:37:38 +0200 (CEST)
+Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
+	by lithops.sigma-star.at (Postfix) with ESMTP id D9D02CE340;
+	Wed, 10 Sep 2025 21:37:37 +0200 (CEST)
+Date: Wed, 10 Sep 2025 21:37:37 +0200 (CEST)
+From: Richard Weinberger <richard@nod.at>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Arnd Bergmann <arnd@arndb.de>, ksummit <ksummit@lists.linux.dev>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+	linux-mips <linux-mips@vger.kernel.org>, 
+	linux-mm <linux-mm@kvack.org>, imx <imx@lists.linux.dev>, 
+	Lucas Stach <l.stach@pengutronix.de>, 
+	Linus Walleij <linus.walleij@linaro.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Ankur Arora <ankur.a.arora@oracle.com>, 
+	David Hildenbrand <david@redhat.com>, 
+	Mike Rapoport <rppt@kernel.org>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Matthew Wilcox <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, vbabka <vbabka@suse.cz>, 
+	Suren Baghdasaryan <surenb@google.com>, 
+	Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>, 
+	heiko <heiko@sntech.de>, 
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	"Chester A. Unal" <chester.a.unal@arinc9.com>, 
+	Sergio Paracuellos <sergio.paracuellos@gmail.com>, 
+	Andreas Larsson <andreas@gaisler.com>
+Message-ID: <1586788245.22320.1757533057730.JavaMail.zimbra@nod.at>
+In-Reply-To: <d9caedb4-41c8-4ef7-99b9-51d891aee555@csgroup.eu>
+References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com> <497308537.21756.1757513073548.JavaMail.zimbra@nod.at> <d9caedb4-41c8-4ef7-99b9-51d891aee555@csgroup.eu>
+Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aMA88W/rDxFesEx+@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [195.201.40.130]
+X-Mailer: Zimbra 8.8.12_GA_3807 (ZimbraWebClient - FF141 (Linux)/8.8.12_GA_3809)
+Thread-Topic: Reaching consensus on CONFIG_HIGHMEM phaseout
+Thread-Index: BY4xIXfJeETYMNF0Cnq/68k1mYFqTg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_123556_815385_39108920 
-X-CRM114-Status: GOOD (  39.45  )
+X-CRM114-CacheID: sfid-20250910_123742_426072_5814DA62 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,129 +96,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-09-09, Frank Li wrote:
+Christophe,
 
-...
+----- Urspr=C3=BCngliche Mail -----
+> Von: "Christophe Leroy" <christophe.leroy@csgroup.eu>
+> Can you tell which PPC32 model/family you are using ? Is it mpc85xx or
+> and/or other variants ? Maybe we can look at keeping CONFIG_HIGHMEM or
+> find alternatives for that subset of PPC32 only.
 
-> > > > diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-> > > > index 758fcd0546d8bde8e8dddc6039848feeb1e24475..a50652bc70b8ce9d4edabfaa781b3432ee47d31e 100644
-> > > > --- a/drivers/dma/dmaengine.c
-> > > > +++ b/drivers/dma/dmaengine.c
-> > > > @@ -817,6 +817,7 @@ struct dma_chan *dma_request_chan(struct device *dev, const char *name)
-> > > >  	struct fwnode_handle *fwnode = dev_fwnode(dev);
-> > > >  	struct dma_device *d, *_d;
-> > > >  	struct dma_chan *chan = NULL;
-> > > > +	struct device_link *dl;
-> > > >
-> > > >  	if (is_of_node(fwnode))
-> > > >  		chan = of_dma_request_slave_channel(to_of_node(fwnode), name);
-> > > > @@ -858,6 +859,13 @@ struct dma_chan *dma_request_chan(struct device *dev, const char *name)
-> > > >  	/* No functional issue if it fails, users are supposed to test before use */
-> > > >  #endif
-> > > >
-> > > > +	dl = device_link_add(dev, chan->device->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
-> > >
-> > > chan->device->dev is dmaengine devices. But some dmaengine's each channel
-> > > have device, consumer should link to chan's device, not dmaengine device
-> > > because some dmaengine support per channel clock\power management.
-> >
-> > I get your point. Can you give me some pointers please? To me it seems
-> > like the dma_chan_dev is only used for sysfs purpose according the
-> > dmaengine.h.
-> 
-> Not really, there are other dma engineer already reuse it for other purpose.
-> So It needs update kernel doc for dma_chan_dev.
+Off the head, MPC8343 and QorIQ P1022.
 
-Can you please provide me some pointers? I checked the kernel code base
-for the struct::dma_chan_dev. I didn't found any references within the
-dmaengine drivers. The only usage I found was for the sysfs purpose.
+>=20
+> Could you also elaborate a bit on the kind of issues you forsee or fear
+> with applications and FPGA device drivers.
 
-> > > chan's device's parent devices is dmaengine devices. it should also work
-> > > for sdma case
-> >
-> > I see, this must be tested of course.
-> > > >         if (chan->device->create_devlink) {
-> > >                 u32 flags = DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME | DL_FLAG_AUTOREMOVE_CONSUMER;
-> >
-> > According device_link.rst: using DL_FLAG_STATELESS and
-> > DL_FLAG_AUTOREMOVE_CONSUMER is invalid.
-> >
-> > >                 if (pm_runtime_active(dev))
-> > >                         flags |= DL_FLAG_RPM_ACTIVE;
-> >
-> > This is of course interessting, thanks for the hint.
-> >
-> > > When create device link (apply channel), consume may active.
-> >
-> > I have read it as: "resue the supplier and ensure that the supplier
-> > follows the consumer runtime state".
-> >
-> > >                 dl = device_link_add(chan->slave, &chan->dev->device, flags);
-> >
-> > Huh.. you used the dmaengine device too?
-> 
-> /**
->  * struct dma_chan_dev - relate sysfs device node to backing channel device
->  * @chan: driver channel device
->  * @device: sysfs device
->  * @dev_id: parent dma_device dev_id
->  * @chan_dma_dev: The channel is using custom/different dma-mapping
->  * compared to the parent dma_device
->  */
-> struct dma_chan_dev {
-> 	struct dma_chan *chan;
-> 	struct device device;
-> 	int dev_id;
-> 	bool chan_dma_dev;
-> };
-> 
-> struct dma_chan {
-> 	struct dma_device *device; /// this one should be dmaengine
-> 	struct dma_chan_dev *dev; /// this one is pre-chan device.
-> }
+Unfortunately, applications in this area often make certain assumptions
+about the amount or layout of memory. This becomes a bigger problem when
+using FPGA device drivers of questionable quality, which share memory
+between the kernel, userspace, and the device itself.
+These are mostly out-of-tree drivers, so that's my horse to ride,=20
+I'm just mentally preparing myself for "interesting" bugs that will need
+to be sorted out.
 
-I've tested your approach but it turns out that teh dma_chan_dev has no
-driver. Of course we could use the DL_FLAG_STATELESS flag but this is
-described as:
+> FWIW I sent out today a patch that removes CONFIG_HIGHMEM complely on
+> powerpc in order to get a better view of the impacted areas and allow
+> people to test what it looks like on their system without
+> CONFIG_HIGHMEM. See [1].
 
-| When driver presence on the supplier is irrelevant and only correct
-| suspend/resume and shutdown ordering is needed, the device link may
-| simply be set up with the ``DL_FLAG_STATELESS`` flag.  In other words,
-| enforcing driver presence on the supplier is optional.
+Oh, that was fast. :-)
 
-I want to enforce the driver presence, therefore I used the manged flags
-which excludes the DL_FLAG_STATELESS, if I get it right.
-
-Please see the below the debug output:
-
-** use the dmaengine device as supplier **
-
-device_link_init_status: supplier.dev:30bd0000.dma-controller supplier.drv:imx-sdma supplier.status:0x2 consumer:dev:30840000.spi consumer.drv:spi_imx consumer.status:0x1
-device_link_init_status: supplier.dev:30e10000.dma-controller supplier.drv:imx-sdma supplier.status:0x2 consumer:dev:30c20000.sai consumer.drv:fsl-sai consumer.status:0x1
-
-
-** use the dma channel device as supplier **
-
-device_link_init_status: supplier.dev:dma0chan0 supplier.drv:no-driver supplier.status:0x0 consumer:dev:30840000.spi consumer.drv:spi_imx consumer.status:0x1
-device_link_init_status: supplier.dev:dma0chan1 supplier.drv:no-driver supplier.status:0x0 consumer:dev:30840000.spi consumer.drv:spi_imx consumer.status:0x1
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 51 at /drivers/base/core.c:1387 device_links_driver_bound+0x170/0x3a0
-...
----[ end trace 0000000000000000 ]---
-------------[ cut here ]------------
-
-As said, I get your point regarding the usage of the dma-channel device
-but I didn't found any reference to a driver which used the dma-channel
-device. Also since I want to have the supply driver to enforced by the
-devlink I don't want to use the DL_FLAG_STATELESS flag.
-
-Regarding your point, that some DMA controllers may have seperate clocks
-for each channel: I think this can be handled by the dmaengine driver,
-e.g. via the device_alloc_chan_resources() hook.
-
-@all
-I'm pleased about any input :)
-
-Regards,
-  Marco
+Thanks,
+//richard
 
