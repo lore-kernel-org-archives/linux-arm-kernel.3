@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA34CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219E6CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5bYSYMP2Z0IUIJfdQoYkXYkAGdrYTGhMeil+naL+UQc=; b=0Fnl6/coDchyiybfkhmxOiMeY7
-	/YuFA2dEpxFMkxRGzqyLnoxRH8D9KN/NDVAavdVbbQ0cYtJHV0Aj5yhX5GmTeadBudtpeVismJ5eG
-	9FmIJhvR0pCG0bRULpKPiCBZS1f/xHLXn1l+nINEYMzL3zYYyGzTfd1itrcUDIQzuVs2fNBakblnR
-	4obc1xETSAdWsl042u6jBYh5oHjxRvFEqUy2VyAcJBAsHKLj/Q+ptfYXeUhU0fUrTe5bUmMAeZcwQ
-	TY475hdfZQx7ntnsXOepycgy4l2eIBMSgH3UYpH+jlHL7oc2eynbbMsXVfWSQM8Nsrq99StNdw23z
-	0qLDc0MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cRjq8XWD+5JGqB7JhkYl6nl7QM3sj5UrtQ721rRgubY=; b=RtM0Wb5UUYhK6wCpi+TsZyOIdT
+	fr0IepcLONr2Anj65J7m4Gsb31bkR6WtjN7hz0wmzW4Qxj7HhcoE7jRi83Ib08LEOfpJEn/DC9+sd
+	+TjIydcgacEqfkP+MpxsRC4MxpvSMsi2KgDGarCAJU+BuNgSeqgUTiP6Fx8PaELFCqQJb+6VVnLif
+	PP7ft7ti0pDLyjkFNjQ3QKPBjjDHrRgYOMm+RX5rh92JvReC7Y0FO2yLPbBNG/OVsODkRfFd7gLEX
+	H78tff5o/pPwKi7Yo/CsQM7SbuCAvMaqnCPzxcv6IvcUaI8ayz3xUf/k8l4yPcnrmx4W6Q0eAfAZd
+	pGnYrdGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGI6-0000000CxpT-2JB9;
-	Wed, 10 Sep 2025 08:34:58 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGI4-0000000CxnQ-1nfF
+	id 1uwGJy-0000000Cydq-0JXv;
+	Wed, 10 Sep 2025 08:36:54 +0000
+Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwGJu-0000000CybN-1Tz7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 08:34:57 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45de185c04aso7178015e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 01:34:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757493294; x=1758098094; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5bYSYMP2Z0IUIJfdQoYkXYkAGdrYTGhMeil+naL+UQc=;
-        b=kjpOJjEqOP5yOvh1PbkvPkp2ZNZGORfoYgrIJgXzcELYm+DYy5YMKErwnUMJNT4DfG
-         1519WbrUD5xzD5pFJVRw9dq1p9VW5oMEoUEHdZzIALSa0WP18HljlHvyPJvo/GKlhw+J
-         VW45LdlrH3OHTg4GaU/fjDBkkzkPxX5V9iktafKqug7rMrH6lt+pAOF0s02fmq6tO4Zo
-         k/CyQ9jut9pAohhqqfmc+NGSjKjAqdkfoDScPFTLfcHrxhis88t9wyOAEKd+5swlp38a
-         WzG+6RPfi878ugK9QjEKECqztXGJAsxroUaHjhcW1rQ6b5dvAJ4frFWHSvlVN3k0MB5F
-         zxFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757493294; x=1758098094;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5bYSYMP2Z0IUIJfdQoYkXYkAGdrYTGhMeil+naL+UQc=;
-        b=YCC7dlXzPQu7J6um6uhaOgG2ccjJ1YzR8lfKKJIhpnSTReOzRvRwKbb9v4MNucL6Uv
-         Lv0Ech7LjUz9M+5mLYrmrFY9vlJLR+/MtjTcjphMTWLEbZWFI5XKbkqYUU0ghMV5Wqtu
-         a2mnyI+kNWwISlVfiynbpcnzOvhKZkxCfHTUGd7taPxGKGC8btkFS3vVTh+WVhriuyTx
-         f8kPbgJZmra9FOp+lCoTxq6CvLzfJzyZabg4zTzgKvqXAYhHhewfAWOagHayHI0MSSgH
-         PT1H3V91Q5IemLCjXQ92ATiHwFv4vIBXTiKAysf5lGRKOLpEmbjcpLgBWAMWHHYzMu0V
-         d0VA==
-X-Forwarded-Encrypted: i=1; AJvYcCX6FIzE1v6xPwIIOAPrrpAvDUPsVRXmV9So21OQBVy8RzLZzV/2e/z4sOHZej3bb7pxHIO+GYxolQz1FVMl7xta@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywmt6tfE8OqLo3x3OF05lJ5Y7wIB88sYzBQQxGvsbdAMNaYXyOF
-	igxDuCTFoalXBKn+R7acdS9TSvqbvgfJNaX1YjpKn6Amm03LGc7PMh7L
-X-Gm-Gg: ASbGncsGMsEE9YxBIX0R8FTuk1Q7pv4HcudKufl+Ru3pi0cnTvJHAsakspDpGHBNLXs
-	HAGY46MQommy6ZBszDD9TOcjT6a/f59HXC427VvyrrNxQ1DjkK7iALE90dFjx7uwpx8AG4ZfaXT
-	0vtU9BHJBB/yV61VSlpACvgZlSXPeMgUhGvw/jYZx0gzM2i7Sepyn0Km4lbD1/0DZ9fcceVB5hr
-	m7VIRO+W12oD7ad+AcPNjbM0lzPMFHwZ4Hg7R3RPp6rl6fHBhidiH8zi0hZNmcISR6/ccY57uBL
-	tdmJYdR2ZeTp0Sguy8yQA/zj/iqspyn0GT7A6KZu5PeF9Y2Hl62ZmgRfwb7F+eNROV3OxERwZ0e
-	xvoAQqUumMT18cdrKaL8JXNmOmpDuhTt7RRkgZe/TpZCjZwIiiPwrfz4pOjyu+fuoUmQ=
-X-Google-Smtp-Source: AGHT+IFvK6FSXou9OenUrrz/PdbIoxF3WcJL69A9lP4CdFPOW3aq92qZPlSoHiBDeanssK1jlGOOKg==
-X-Received: by 2002:a5d:5d05:0:b0:3e4:e4e:3438 with SMTP id ffacd0b85a97d-3e63736d9bcmr5889161f8f.1.1757493294125;
-        Wed, 10 Sep 2025 01:34:54 -0700 (PDT)
-Received: from thomas-precision3591.inria.fr ([2a0d:e487:311f:7c67:b163:f387:29a1:c54d])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3e7521c9a2esm6378854f8f.14.2025.09.10.01.34.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 01:34:53 -0700 (PDT)
-From: Thomas Fourier <fourier.thomas@gmail.com>
-To: 
-Cc: Thomas Fourier <fourier.thomas@gmail.com>,
-	stable@vger.kernel.org,
-	Neal Liu <neal_liu@aspeedtech.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Johnny Huang <johnny_huang@aspeedtech.com>,
-	Dhananjay Phadke <dphadke@linux.microsoft.com>,
-	linux-aspeed@lists.ozlabs.org,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] crypto: aspeed - Fix dma_unmap_sg() direction
-Date: Wed, 10 Sep 2025 10:22:31 +0200
-Message-ID: <20250910082232.16723-3-fourier.thomas@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 10 Sep 2025 08:36:52 +0000
+Received: from weishangjuan$eswincomputing.com ( [10.12.96.155] ) by
+ ajax-webmail-app2 (Coremail) ; Wed, 10 Sep 2025 16:36:19 +0800 (GMT+08:00)
+X-Originating-IP: [10.12.96.155]
+Date: Wed, 10 Sep 2025 16:36:19 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?6Z+m5bCa5aif?= <weishangjuan@eswincomputing.com>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, yong.liang.choong@linux.intel.com,
+	vladimir.oltean@nxp.com, rmk+kernel@armlinux.org.uk,
+	faizal.abdul.rahim@linux.intel.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+	jan.petrous@oss.nxp.com, jszhang@kernel.org, p.zabel@pengutronix.de,
+	boon.khai.ng@altera.com, 0x1207@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	emil.renner.berthing@canonical.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, lizhi2@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com
+Subject: Re: Re: [PATCH v5 1/2] dt-bindings: ethernet: eswin: Document for
+ EIC7700 SoC
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2025 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <20250905-hissing-papaya-badger-1b2ddf@kuoka>
+References: <20250904085913.2494-1-weishangjuan@eswincomputing.com>
+ <20250904090055.2546-1-weishangjuan@eswincomputing.com>
+ <20250905-hissing-papaya-badger-1b2ddf@kuoka>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-ID: <3579e9ca.106c.19932c4c2f0.Coremail.weishangjuan@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TQJkCgAXt5WDOMFo7PzMAA--.25110W
+X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/1tbiAQEBEGjAVn
+	gdDwAAsF
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_013456_474520_22C0B44C 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20250910_013650_693712_9FD1580D 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,34 +88,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It seems like everywhere in this file, when the request is not
-bidirectionala, req->src is mapped with DMA_TO_DEVICE and req->dst is
-mapped with DMA_FROM_DEVICE.
-
-Fixes: 62f58b1637b7 ("crypto: aspeed - add HACE crypto driver")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
----
-v1->v2:
-  - fix confusion between dst and src in commit message 
-
- drivers/crypto/aspeed/aspeed-hace-crypto.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/crypto/aspeed/aspeed-hace-crypto.c b/drivers/crypto/aspeed/aspeed-hace-crypto.c
-index a72dfebc53ff..fa201dae1f81 100644
---- a/drivers/crypto/aspeed/aspeed-hace-crypto.c
-+++ b/drivers/crypto/aspeed/aspeed-hace-crypto.c
-@@ -346,7 +346,7 @@ static int aspeed_sk_start_sg(struct aspeed_hace_dev *hace_dev)
- 
- 	} else {
- 		dma_unmap_sg(hace_dev->dev, req->dst, rctx->dst_nents,
--			     DMA_TO_DEVICE);
-+			     DMA_FROM_DEVICE);
- 		dma_unmap_sg(hace_dev->dev, req->src, rctx->src_nents,
- 			     DMA_TO_DEVICE);
- 	}
--- 
-2.43.0
-
+RGVhciBLcnp5c3p0b2YgS296bG93c2tpLAoKSSBob3BlIHRoaXMgZW1haWwgZmluZHMgeW91IHdl
+bGwuIEZpcnN0LCBwbGVhc2UgYWxsb3cgbWUgdG8gYXBvbG9naXplIGZvciBhbnkgaW5jb252ZW5p
+ZW5jZQpjYXVzZWQgYnkgdGhlIHByZXZpb3VzIHZlcnNpb24gb2YgdGhlIHlhbWwgZGVzY3JpcHRp
+b24uIFdlIGhhdmUgbm93IHJldmlzZWQgdGhlIGRlc2NyaXB0aW9uCmNvbnRlbnQgYWNjb3JkaW5n
+bHkgYXMgZm9sbG93OgoKZGVzY3JpcHRpb246CsKgIFBsYXRmb3JtIGdsdWUgbGF5ZXIgaW1wbGVt
+ZW50YXRpb24gZm9yIFNUTU1BQyBFdGhlcm5ldCBkcml2ZXIuCgpJbiBhZGRpdGlvbiwgdGhlIGxp
+bmsgdG8gdjUgcGF0Y2hlcyBpcyBhcyBmb2xsb3dz77yaCmh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
+L2FsbC8yMDI1MDkwNDA5MDA1NS4yNTQ2LTEtd2Vpc2hhbmdqdWFuQGVzd2luY29tcHV0aW5nLmNv
+bS8KCkkgaGF2ZSBhIHF1ZXN0aW9uIHRvIHNlZWsgeW91ciBhZHZpY2UuCkFmdGVyIHNlbmRpbmcg
+dGhlIHY1IHBhdGNoZXMsIHdlIHJlY2VpdmVkIHlvdXIgZmVlZGJhY2suIE9yaWdpbmFsbHksIHdo
+ZW4gcHJlcGFyaW5nIHRoZSB2NiBwYXRjaGVzLAp3ZSBpbnRlbmRlZCB0byBpbmNsdWRlIHRoZSAi
+UmV2aWV3ZWQtYnk6IEtyenlzenRvZiBLb3psb3dza2kga3J6eXN6dG9mLmtvemxvd3NraUBsaW5h
+cm8ub3JnIiB0YWcuCkhvd2V2ZXIsIGdpdmVuIHRoYXQgd2UgaGF2ZSByZXZpc2VkwqB0aGUgeWFt
+bCBkZXNjcmlwdGlvbiwgSSBhbSB1bmNlcnRhaW4gd2hldGhlciB0aGlzIHRhZyBzaG91bGQKc3Rp
+bGwgYmUgaW5jbHVkZWQgaW4gdGhlIHY2IHBhdGNoZXMuIFBlcnNvbmFsbHksIEkgYmVsaWV2ZSBp
+dCB3b3VsZCBiZSBhcHByb3ByaWF0ZSB0byByZXRhaW4gdGhlCiJSZXZpZXdlZC1ieSIgdGFnLiBD
+b3VsZCB5b3UgcGxlYXNlIGNvbmZpcm0gaWYgdGhpcyBpcyBjb3JyZWN0PwpUaGFuayB5b3UgZm9y
+IHlvdXIgdGltZSBhbmQgZ3VpZGFuY2UuIEkgbG9vayBmb3J3YXJkIHRvIHlvdXIgcmVzcG9uc2Uu
+CkJlc3QgcmVnYXJkcywKU2hhbmdqdWFuIFdlaQoKCj4gLS0tLS3ljp/lp4vpgq7ku7YtLS0tLQo+
+IOWPkeS7tuS6ujogIktyenlzenRvZiBLb3psb3dza2kiIDxrcnprQGtlcm5lbC5vcmc+Cj4g5Y+R
+6YCB5pe26Ze0OjIwMjUtMDktMDUgMTU6NTM6MzAgKOaYn+acn+S6lCkKPiDmlLbku7bkuro6IHdl
+aXNoYW5nanVhbkBlc3dpbmNvbXB1dGluZy5jb20KPiDmioTpgIE6IGRldmljZXRyZWVAdmdlci5r
+ZXJuZWwub3JnLCBhbmRyZXcrbmV0ZGV2QGx1bm4uY2gsIGRhdmVtQGRhdmVtbG9mdC5uZXQsIGVk
+dW1hemV0QGdvb2dsZS5jb20sIGt1YmFAa2VybmVsLm9yZywgcGFiZW5pQHJlZGhhdC5jb20sIHJv
+YmhAa2VybmVsLm9yZywga3J6aytkdEBrZXJuZWwub3JnLCBjb25vcitkdEBrZXJuZWwub3JnLCBs
+aW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmcsIG1jb3F1ZWxpbi5zdG0zMkBnbWFp
+bC5jb20sIGFsZXhhbmRyZS50b3JndWVAZm9zcy5zdC5jb20sIHlvbmcubGlhbmcuY2hvb25nQGxp
+bnV4LmludGVsLmNvbSwgdmxhZGltaXIub2x0ZWFuQG54cC5jb20sIHJtaytrZXJuZWxAYXJtbGlu
+dXgub3JnLnVrLCBmYWl6YWwuYWJkdWwucmFoaW1AbGludXguaW50ZWwuY29tLCBwcmFiaGFrYXIu
+bWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20sIGlub2NoaWFtYUBnbWFpbC5jb20sIGphbi5w
+ZXRyb3VzQG9zcy5ueHAuY29tLCBqc3poYW5nQGtlcm5lbC5vcmcsIHAuemFiZWxAcGVuZ3V0cm9u
+aXguZGUsIGJvb24ua2hhaS5uZ0BhbHRlcmEuY29tLCAweDEyMDdAZ21haWwuY29tLCBuZXRkZXZA
+dmdlci5rZXJuZWwub3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBsaW51eC1zdG0z
+MkBzdC1tZC1tYWlsbWFuLnN0b3JtcmVwbHkuY29tLCBlbWlsLnJlbm5lci5iZXJ0aGluZ0BjYW5v
+bmljYWwuY29tLCBuaW5neXVAZXN3aW5jb21wdXRpbmcuY29tLCBsaW5taW5AZXN3aW5jb21wdXRp
+bmcuY29tLCBsaXpoaTJAZXN3aW5jb21wdXRpbmcuY29tLCBwaW5rZXNoLnZhZ2hlbGFAZWluZm9j
+aGlwcy5jb20KPiDkuLvpopg6IFJlOiBbUEFUQ0ggdjUgMS8yXSBkdC1iaW5kaW5nczogZXRoZXJu
+ZXQ6IGVzd2luOiBEb2N1bWVudCBmb3IgRUlDNzcwMCBTb0MKPiAKPiBPbiBUaHUsIFNlcCAwNCwg
+MjAyNSBhdCAwNTowMDo1NVBNICswODAwLCB3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29t
+IHdyb3RlOgo+ID4gRnJvbTogU2hhbmdqdWFuIFdlaSA8d2Vpc2hhbmdqdWFuQGVzd2luY29tcHV0
+aW5nLmNvbT4KPiA+IAo+ID4gQWRkIEVTV0lOIEVJQzc3MDAgRXRoZXJuZXQgY29udHJvbGxlciwg
+c3VwcG9ydGluZyBjbG9jawo+ID4gY29uZmlndXJhdGlvbiwgZGVsYXkgYWRqdXN0bWVudCBhbmQg
+c3BlZWQgYWRhcHRpdmUgZnVuY3Rpb25zLgo+ID4gCj4gPiBTaWduZWQtb2ZmLWJ5OiBaaGkgTGkg
+PGxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBTaGFuZ2p1YW4g
+V2VpIDx3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29tPgo+IAo+IFJldmlld2VkLWJ5OiBL
+cnp5c3p0b2YgS296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+Cj4gCj4g
+QmVzdCByZWdhcmRzLAo+IEtyenlzenRvZgo=
 
