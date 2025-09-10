@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2178CAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 13:59:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20FC0CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 13:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B0R5rRW0Dwv8g9EBflVK6bi6TKX/71M89TmluJsUG60=; b=WGgYeG1rnru8dqEOrh2KzTBg/C
-	urbwgmOdCd+XJMIlxlVFYHX/LocpQQoj6WtHSS38eSNlU7DrpPeM/M8FNFhXNZzpVf9n3WunTcgVV
-	K+SVZkSMUZXR94MRts5HmkKsAiF7Iy4zy9qk0VcL/K2hlC5L7ZqRvvz2VngElFyrVyfKOn514puPl
-	NFWZKf2bMiDQ2NDywREnSnxCThNon1OgG6mMC6BeHczKUCmMJ3DkAhZixWc79IybrvQVXfB+mHwlN
-	VdbM1UABtKWkVu/VHfJs/22ngBlV/UAkmynqd1Y6A0L6boTdZU2bPqqlpGTFUoCHmhzFVxqF8yTO6
-	ztrZZ1FA==;
+	bh=FxFWun/R23WEIRiXlEM2lMq18Wubin4tDp9Ph8dTnAc=; b=xEZ3CTMzd3kN4jIb02pi6R44Xl
+	Pq+GDLCsXmG+2AtQdDcjvzAw1bZtcie182+/hOrnztv4yduCxc2JEONHIQ6aOV6Sx+DiqPtRmzJC/
+	bYxG1OwfqKg9oFaTeoYiZQNBJiovxG6yyWGmq3AsQMVHaZ6YEXiyTa0r+WedTmKB7PUR3vuHMWEP2
+	MCGzhh6YaZibJtkJKUS+Lhjdx4P6T/n8H8p1ntbrwMzQdoUPeHtWlsrl6JJ3RIu4M6ftMP6ie/EJA
+	woBqgp9QSmMkqNuOKCKzNjnq6VqnkMAiFswceK2vfQ0q79zYW+Iqp7t8OJb0164c/UgVf2aTlHpRY
+	z8Dy/CUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLMA-0000000EWy3-2ZLh;
-	Wed, 10 Sep 2025 13:59:30 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLM4-0000000EWr7-31KM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 13:59:25 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b0418f6fc27so1134523966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 06:59:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1757512763; x=1758117563; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B0R5rRW0Dwv8g9EBflVK6bi6TKX/71M89TmluJsUG60=;
-        b=mo6QLNGxcNPVVZEPUkymY9XOTX0o6Jl+HiXboEJDM/HPwxSd5NRs+w5Y9u844IG9Pq
-         XpV0wXE/1q/Zlg+e8mSZ4Tn0tCvbqBHdDtYNqFzeHA+sm1WRNFJK7OwGalRyp3ys6ETQ
-         mf43HiRRjDiWelTj4mFlNW7Iaze7EBdk9K3A0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757512763; x=1758117563;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=B0R5rRW0Dwv8g9EBflVK6bi6TKX/71M89TmluJsUG60=;
-        b=vSQBoZ1/DjSMl9zIioIySBSVFa60mhtZZPMwOEuFkMyFd4YeToJWJacJramAIMTAHM
-         GuWq3J+8MTALDeHUgYBLhT4zHiLmAXziGvDnA1FIVWPyhEuVJi8D9wxd+oVU/JXtwMau
-         a2wHCFFqDowS3RqiuOf+4ZsUrKgNLypX1hA2lldrCHvDeAWJhwVibK0iyezTMhN3Keq/
-         SZgRCrtBqLMARDg33JxqsRDlS89cBIM65ykVfF6BIUiD9XdXLb+eboVHhzB//s0fJthK
-         iNlzpNSImXXedMO/04JBi4f0+XxcWj4FDjTwlcX6nQwjwAoiTJEhDC3+j4fBmXfRSUkl
-         ePLA==
-X-Forwarded-Encrypted: i=1; AJvYcCUIymM0JAM4hQHGRXQbEISaJV7Xd42gc+2ErCqlwDio747039XyrLHYciC9DLGUsUx1u9rBbQ9PyNi0n1Gic8xV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw62P4U5DdppGgMbG/HfZipr7if/C0xcVMrLM1MAb5V3pIselpw
-	d+EitWkAUn0INKctS+1toKTpHhL92m2NgLHH3aA54Lq37Qz65kizWTDgijF+HUbu41E=
-X-Gm-Gg: ASbGncsiDdKEmuRQbXToO+DnHR6FLS6pMWWKNmY53bWVlLEpT3f+RhdQjkyiF4WAzdy
-	9sqp9a13IyiADfZu9NcGYXMArYrhPXuYMtqosIqGs3ADm3rUdPYxQ9SE7urQDVEaZhNf99LYAuf
-	F/cgfK6qN/AGS9m5cC7EJz7RypfyhjpbEqMQxF5UwEUA0t8deLIBDl6YME6UiMf/OA1dJVtzuYR
-	nRDAUZ3JUrNMotirO0ycYbv1Z3AQ9cGdi+nDyO3LqUvAXXYiQZsrrnqehkisMO7pbh4wqnlxh5l
-	DR9IxnguEQUGQdnLcFVdQpeEXsNCmxcpYg9Zs4ymbxQ9oqcxBLz9FbiSJQE36xcigJTBu26LZts
-	aHkxG5QmMNWII24eR9xrtSm+/P5VLUOo2nYEIpD7V1Xp2pq9aCSeorpZ8asFEQOQ45aqGKKMl0q
-	Re1UDVpQp+GGk1Xy96rAFLF/bIE59Md9GAA9pSAQetBM58emW8Elif1AXU5Z7Yy3I8
-X-Google-Smtp-Source: AGHT+IHdweJVzi0li6Hab/FnHQdGRXCIG6Nx0PPgMqfpJ3S+dtaqUO7p5/p1o4bXf82vFHRmV8q+6Q==
-X-Received: by 2002:a17:907:1c25:b0:b04:5c90:8013 with SMTP id a640c23a62f3a-b04b173763amr1525363866b.45.1757512762970;
-        Wed, 10 Sep 2025 06:59:22 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07833a4e37sm172523066b.76.2025.09.10.06.59.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 06:59:22 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org
-Subject: [RESEND PATCH 3/4] Input: imx6ul_tsc - set glitch threshold by DTS property
-Date: Wed, 10 Sep 2025 15:58:37 +0200
-Message-ID: <20250910135916.3939502-4-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250910135916.3939502-1-dario.binacchi@amarulasolutions.com>
-References: <20250910135916.3939502-1-dario.binacchi@amarulasolutions.com>
+	id 1uwLMJ-0000000EXAJ-23aS;
+	Wed, 10 Sep 2025 13:59:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwLMG-0000000EX5h-1Yzn;
+	Wed, 10 Sep 2025 13:59:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 556841595;
+	Wed, 10 Sep 2025 06:59:27 -0700 (PDT)
+Received: from [10.1.25.55] (e122027.cambridge.arm.com [10.1.25.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54D863F694;
+	Wed, 10 Sep 2025 06:59:30 -0700 (PDT)
+Message-ID: <2489d50a-a075-42bc-92a3-7570581fe508@arm.com>
+Date: Wed, 10 Sep 2025 14:59:28 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 08/10] drm/panthor: devfreq: expose get_dev_status and
+ make it more generic
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
+ <20250905-mt8196-gpufreq-v1-8-7b6c2d6be221@collabora.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250905-mt8196-gpufreq-v1-8-7b6c2d6be221@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_065924_788004_ECD3EFE9 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20250910_065936_554174_9D392BD7 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,81 +80,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set the glitch threshold previously hardcoded in the driver. The change
-is backward compatible.
+On 05/09/2025 11:23, Nicolas Frattaroli wrote:
+> The only device-specific part of panthor's get_dev_status devfreq
+> callback is getting the clock frequency. All the other logic surrounding
+> what it does may be useful for other devfreq implementations however.
+> 
+> Expose it in the panthor_devfreq.h header file, and make it call back
+> into get_cur_freq instead of poking the common clock framework directly.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/gpu/drm/panthor/panthor_devfreq.c | 29 +++++++++++++++++------------
+>  drivers/gpu/drm/panthor/panthor_devfreq.h |  3 +++
+>  2 files changed, 20 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/panthor/panthor_devfreq.c
+> index 02eb3ca15d1874e1cbafc6b614b196c5cc75b6a1..d495dd856299826c4bddc205087d8914d01d7fc4 100644
+> --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
+> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
+> @@ -43,6 +43,15 @@ static int panthor_devfreq_target(struct device *dev, unsigned long *freq,
+>  	return err;
+>  }
+>  
+> +static int panthor_devfreq_get_cur_freq(struct device *dev, unsigned long *freq)
+> +{
+> +	struct panthor_device *ptdev = dev_get_drvdata(dev);
+> +
+> +	*freq = clk_get_rate(ptdev->clks.core);
+> +
+> +	return 0;
+> +}
+> +
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
----
+I don't see any reason why this was moved up here as part of this patch?
+Otherwise this looks fine to me.
 
- drivers/input/touchscreen/imx6ul_tsc.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
+Thanks,
+Steve
 
-diff --git a/drivers/input/touchscreen/imx6ul_tsc.c b/drivers/input/touchscreen/imx6ul_tsc.c
-index c2c6e50efc54..a6066643bd48 100644
---- a/drivers/input/touchscreen/imx6ul_tsc.c
-+++ b/drivers/input/touchscreen/imx6ul_tsc.c
-@@ -7,6 +7,7 @@
- #include <linux/errno.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/bitfield.h>
- #include <linux/gpio/consumer.h>
- #include <linux/input.h>
- #include <linux/slab.h>
-@@ -74,7 +75,8 @@
- #define MEASURE_INT_EN		0x1
- #define MEASURE_SIG_EN		0x1
- #define VALID_SIG_EN		(0x1 << 8)
--#define DE_GLITCH_2		(0x2 << 29)
-+#define DE_GLITCH_MASK		GENMASK(30, 29)
-+#define DE_GLITCH_DEF		0x02
- #define START_SENSE		(0x1 << 12)
- #define TSC_DISABLE		(0x1 << 16)
- #define DETECT_MODE		0x2
-@@ -92,6 +94,7 @@ struct imx6ul_tsc {
- 	u32 pre_charge_time;
- 	bool average_enable;
- 	u32 average_select;
-+	u32 de_glitch;
- 
- 	struct completion completion;
- };
-@@ -188,13 +191,15 @@ static void imx6ul_tsc_channel_config(struct imx6ul_tsc *tsc)
- static void imx6ul_tsc_set(struct imx6ul_tsc *tsc)
- {
- 	u32 basic_setting = 0;
-+	u32 debug_mode2;
- 	u32 start;
- 
- 	basic_setting |= tsc->measure_delay_time << 8;
- 	basic_setting |= DETECT_4_WIRE_MODE | AUTO_MEASURE;
- 	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETTING);
- 
--	writel(DE_GLITCH_2, tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
-+	debug_mode2 = FIELD_PREP(DE_GLITCH_MASK, tsc->de_glitch);
-+	writel(debug_mode2, tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
- 
- 	writel(tsc->pre_charge_time, tsc->tsc_regs + REG_TSC_PRE_CHARGE_TIME);
- 	writel(MEASURE_INT_EN, tsc->tsc_regs + REG_TSC_INT_EN);
-@@ -501,6 +506,17 @@ static int imx6ul_tsc_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
- 
-+	err = of_property_read_u32(np, "fsl,glitch-threshold", &tsc->de_glitch);
-+	if (err)
-+		tsc->de_glitch = DE_GLITCH_DEF;
-+
-+	if (tsc->de_glitch > FIELD_MAX(DE_GLITCH_MASK)) {
-+		dev_err(&pdev->dev,
-+			"fsl,glitch-threshold (%u) must be less or equal to %lu\n",
-+			tsc->de_glitch, FIELD_MAX(DE_GLITCH_MASK));
-+		return -EINVAL;
-+	}
-+
- 	err = input_register_device(tsc->input);
- 	if (err) {
- 		dev_err(&pdev->dev,
--- 
-2.43.0
+>  static void panthor_devfreq_reset(struct panthor_devfreq *pdevfreq)
+>  {
+>  	pdevfreq->busy_time = 0;
+> @@ -50,14 +59,18 @@ static void panthor_devfreq_reset(struct panthor_devfreq *pdevfreq)
+>  	pdevfreq->time_last_update = ktime_get();
+>  }
+>  
+> -static int panthor_devfreq_get_dev_status(struct device *dev,
+> -					  struct devfreq_dev_status *status)
+> +int panthor_devfreq_get_dev_status(struct device *dev,
+> +				   struct devfreq_dev_status *status)
+>  {
+>  	struct panthor_device *ptdev = dev_get_drvdata(dev);
+>  	struct panthor_devfreq *pdevfreq = ptdev->devfreq;
+> +	struct devfreq_dev_profile *p = pdevfreq->devfreq->profile;
+>  	unsigned long irqflags;
+> +	int ret;
+>  
+> -	status->current_frequency = clk_get_rate(ptdev->clks.core);
+> +	ret = p->get_cur_freq(dev, &status->current_frequency);
+> +	if (ret)
+> +		return ret;
+>  
+>  	spin_lock_irqsave(&pdevfreq->lock, irqflags);
+>  
+> @@ -79,15 +92,7 @@ static int panthor_devfreq_get_dev_status(struct device *dev,
+>  
+>  	return 0;
+>  }
+> -
+> -static int panthor_devfreq_get_cur_freq(struct device *dev, unsigned long *freq)
+> -{
+> -	struct panthor_device *ptdev = dev_get_drvdata(dev);
+> -
+> -	*freq = clk_get_rate(ptdev->clks.core);
+> -
+> -	return 0;
+> -}
+> +EXPORT_SYMBOL(panthor_devfreq_get_dev_status);
+>  
+>  static struct devfreq_dev_profile panthor_devfreq_profile = {
+>  	.timer = DEVFREQ_TIMER_DELAYED,
+> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.h b/drivers/gpu/drm/panthor/panthor_devfreq.h
+> index e8b5ccddd45c52ee3215e9c84c6ebd9109640282..a891cb5fdc34636444f141e10f5d45828fc35b51 100644
+> --- a/drivers/gpu/drm/panthor/panthor_devfreq.h
+> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.h
+> @@ -52,6 +52,9 @@ void panthor_devfreq_suspend(struct panthor_device *ptdev);
+>  void panthor_devfreq_record_busy(struct panthor_device *ptdev);
+>  void panthor_devfreq_record_idle(struct panthor_device *ptdev);
+>  
+> +int panthor_devfreq_get_dev_status(struct device *dev,
+> +				   struct devfreq_dev_status *status);
+> +
+>  unsigned long panthor_devfreq_get_freq(struct panthor_device *ptdev);
+>  
+>  #endif /* __PANTHOR_DEVFREQ_H__ */
+> 
 
 
