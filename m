@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF66CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 13:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C203CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGyvaOmJO5BvrqiSAVLBX52CbNYPzw7n66uBh6XqncY=; b=WqZJzt9ntl9J1/G4ADzhJlj28F
-	EAS2pEYdWaEVrBdGf4PY35JRzCiR5bBZy4jzd/2HDLgJn5F7xA59F3gGYPeM6nW2Ezg8Crir9D0zO
-	tTAfCZJnQoPeum6xxA/fgQMpRAMUvrUXdfaViTvUmwN+45nHZ4HYu4Q4ziEOD9u3z7ivhUOYFw0A4
-	8mUk1BZns2NLtZbrgAZZpbXU6pqBthCLtMS2DhzjbiwnjogqsPkZ4Z+xUPy2E9tTG2nOvC0A1HYZ4
-	4LuQdyk+M0ML557cWLLcgXkSOWahLFVMS0NlmTnGJbBw1kE2NM+g0e7QYM6uFUJFfXHkmiyBWeOJ0
-	CCmtElwg==;
+	bh=XGf6An9pkuacotas4PAUho44h/2LaY9ZaYpivcI6rZY=; b=cAUpLeVh1qko8JEplDqxExlSKQ
+	6kVoBZKNyQo3yZsa0ZC0o9mPjt1xIyZwbT3YV96Mft+2qQ652XOH1NHx/dfRYi6fIDaTsrm+5Akj8
+	c8MDPqTxdVhro1L0zpEkNZbFir7gF1pQ4uMvjlojHkaNiXmFUrT/h4PGURreXGfN70YFx2v/Rs3/w
+	92fDH36XesRd24Zj/XGWNdg+Cqnsb3AYKpSOiFRzGJVVTHgC0jrMh59zgk4c4zPHMR/0aO3/VOa6w
+	v5yXl8P6gtqjumyEumdiRW09dIJETJrc3Rlto85rNtU+J6ys7CHY4bpIflK2hMndzAYN8DZmZLt5C
+	cZ1zx+Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLMO-0000000EXJ4-488U;
-	Wed, 10 Sep 2025 13:59:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLML-0000000EXDh-3sjM;
-	Wed, 10 Sep 2025 13:59:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1371C16F8;
-	Wed, 10 Sep 2025 06:59:33 -0700 (PDT)
-Received: from [10.1.25.55] (e122027.cambridge.arm.com [10.1.25.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E14273F694;
-	Wed, 10 Sep 2025 06:59:35 -0700 (PDT)
-Message-ID: <4670e984-10c2-4c8e-89b3-d3a0217735b3@arm.com>
-Date: Wed, 10 Sep 2025 14:59:29 +0100
+	id 1uwLRB-0000000EZUA-2lbS;
+	Wed, 10 Sep 2025 14:04:41 +0000
+Received: from mailout.nod.at ([116.203.167.152] helo=lithops.sigma-star.at)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwLR8-0000000EZPt-0xYE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 10 Sep 2025 14:04:40 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by lithops.sigma-star.at (Postfix) with ESMTP id D2E8683E14;
+	Wed, 10 Sep 2025 16:04:34 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id LaIcEPcDfBsv; Wed, 10 Sep 2025 16:04:34 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by lithops.sigma-star.at (Postfix) with ESMTP id 1A4472FFDA5;
+	Wed, 10 Sep 2025 16:04:34 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id X4a51J5LvQXj; Wed, 10 Sep 2025 16:04:33 +0200 (CEST)
+Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
+	by lithops.sigma-star.at (Postfix) with ESMTP id C16AD83E14;
+	Wed, 10 Sep 2025 16:04:33 +0200 (CEST)
+Date: Wed, 10 Sep 2025 16:04:33 +0200 (CEST)
+From: Richard Weinberger <richard@nod.at>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: ksummit <ksummit@lists.linux.dev>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	linuxppc-dev@lists.ozlabs.org, 
+	linux-mips <linux-mips@vger.kernel.org>, 
+	linux-mm <linux-mm@kvack.org>, imx@lists.linux.dev, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Lucas Stach <l.stach@pengutronix.de>, 
+	Linus Walleij <linus.walleij@linaro.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Ankur Arora <ankur.a.arora@oracle.com>, 
+	David Hildenbrand <david@redhat.com>, 
+	Mike Rapoport <rppt@kernel.org>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Matthew Wilcox <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, vbabka <vbabka@suse.cz>, 
+	Suren Baghdasaryan <surenb@google.com>, 
+	Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>, 
+	heiko <heiko@sntech.de>, 
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	"Chester A. Unal" <chester.a.unal@arinc9.com>, 
+	Sergio Paracuellos <sergio.paracuellos@gmail.com>, 
+	Andreas Larsson <andreas@gaisler.com>
+Message-ID: <497308537.21756.1757513073548.JavaMail.zimbra@nod.at>
+In-Reply-To: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
+References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
+Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 09/10] drm/panthor: devfreq: add pluggable devfreq
- providers
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
-References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
- <20250905-mt8196-gpufreq-v1-9-7b6c2d6be221@collabora.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250905-mt8196-gpufreq-v1-9-7b6c2d6be221@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [195.201.40.130]
+X-Mailer: Zimbra 8.8.12_GA_3807 (ZimbraWebClient - FF141 (Linux)/8.8.12_GA_3809)
+Thread-Topic: Reaching consensus on CONFIG_HIGHMEM phaseout
+Thread-Index: xOQifXk0CYTOSYO4gO/z6lk9BLmNXg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_065942_088003_4F1970D3 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20250910_070438_554582_AA03003D 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,178 +97,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/09/2025 11:23, Nicolas Frattaroli wrote:
-> On some devices, devfreq is not controlled directly by DT OPPs and the
-> common clock framework, but through an external devfreq driver. To
-> permit this type of usage, add the concept of devfreq providers.
-> 
-> Devfreq providers for panthor register themselves with panthor as a
-> provider. panthor then gets whatever driver is suckling on its
-> performance-node property, finds the registered devfreq provider init
-> function for it, and calls it.
-> 
-> Should the probe order work out such that panthor probes before the
-> devfreq provider is finished probing and registering itself, then we
-> just defer the probe after adding a device link.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Arnd,
 
-Looks fine to me, but I think there are some updates needed due to the
-DT review.
+----- Urspr=C3=BCngliche Mail -----
+> Von: "Arnd Bergmann" <arnd@arndb.de>
+> High memory is one of the least popular features of the Linux kernel.
+> Added in 1999 for linux-2.3.16 to support large x86 machines, there
+> are very few systems that still need it. I talked about about this
+> recently at the Embedded Linux Conference on 32-bit systems [1][2][3]
+> and there were a few older discussions before[4][5][6].
+>=20
+> While removing a feature that is actively used is clearly a regression
+> and not normally done, I expect removing highmem is going to happen
+> at some point anyway when there are few enough users, but the question
+> is when that time will be.
+>=20
+> I'm still collecting information about which of the remaining highmem
+> users plan to keep updating their kernels and for what reason. Some
+> users obviously are alarmed about potentially losing this ability,
+> so I hope to get a broad consensus on a specific timeline for how long
+> we plan to support highmem in the page cache and to give every user
+> sufficient time to migrate to a well-tested alternative setup if that
+> is possible, or stay on a highmem-enabled LTS kernel for as long
+> as necessary.
+
+I am part of a team responsible for products based on various 32-bit SoCs,
+so I'm alarmed.
+These products, which include ARMv7 and PPC32 architectures with up to 2 Gi=
+B of RAM,
+are communication systems with five-figure deployments worldwide.
+
+Removing high memory will have an impact on these systems.
+The oldest kernel version they run is 4.19 LTS, with upgrades to a more rec=
+ent
+LTS release currently in progress.
+We typically upgrade the kernel every few years and will continue to suppor=
+t
+these systems for at least the next 10 years.
+
+Even with a new memory split, which could utilize most of the available mem=
+ory,
+I expect there to be issues with various applications and FPGA device drive=
+rs.
 
 Thanks,
-Steve
-
-> ---
->  drivers/gpu/drm/panthor/panthor_devfreq.c | 74 ++++++++++++++++++++++++++++++-
->  drivers/gpu/drm/panthor/panthor_devfreq.h | 16 +++++++
->  2 files changed, 89 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/panthor/panthor_devfreq.c
-> index d495dd856299826c4bddc205087d8914d01d7fc4..1b0c21f6f069b059b8b0e412a79556c602c5f1e7 100644
-> --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
-> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
-> @@ -4,6 +4,7 @@
->  #include <linux/clk.h>
->  #include <linux/devfreq.h>
->  #include <linux/devfreq_cooling.h>
-> +#include <linux/of_platform.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_opp.h>
->  
-> @@ -12,6 +13,34 @@
->  #include "panthor_devfreq.h"
->  #include "panthor_device.h"
->  
-> +static LIST_HEAD(panthor_devfreq_providers);
-> +static DEFINE_MUTEX(panthor_devfreq_providers_lock);
-> +
-> +int panthor_devfreq_register_provider(struct panthor_devfreq_provider *prov)
-> +{
-> +	guard(mutex)(&panthor_devfreq_providers_lock);
-> +
-> +	list_add(&prov->node, &panthor_devfreq_providers);
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL(panthor_devfreq_register_provider);
-> +
-> +static int panthor_devfreq_init_provider(struct panthor_device *ptdev,
-> +					 struct device *provider_dev)
-> +{
-> +	struct panthor_devfreq_provider *prov;
-> +
-> +	guard(mutex)(&panthor_devfreq_providers_lock);
-> +
-> +	list_for_each_entry(prov, &panthor_devfreq_providers, node) {
-> +		if (prov->dev == provider_dev)
-> +			return prov->init(ptdev, provider_dev);
-> +	}
-> +
-> +	return -EPROBE_DEFER;
-> +}
-> +
->  static void panthor_devfreq_update_utilization(struct panthor_devfreq *pdevfreq)
->  {
->  	ktime_t now, last;
-> @@ -102,7 +131,7 @@ static struct devfreq_dev_profile panthor_devfreq_profile = {
->  	.get_cur_freq = panthor_devfreq_get_cur_freq,
->  };
->  
-> -int panthor_devfreq_init(struct panthor_device *ptdev)
-> +static int panthor_devfreq_init_of(struct panthor_device *ptdev)
->  {
->  	/* There's actually 2 regulators (mali and sram), but the OPP core only
->  	 * supports one.
-> @@ -222,6 +251,49 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
->  	return 0;
->  }
->  
-> +static int panthor_devfreq_init_platform(struct panthor_device *ptdev)
-> +{
-> +	struct device_node *pcnode;
-> +	struct platform_device *pdev;
-> +	struct device_link *link;
-> +	int ret;
-> +
-> +	pcnode = of_parse_phandle(ptdev->base.dev->of_node,
-> +				  "performance-controller", 0);
-> +	if (!pcnode)
-> +		return -EINVAL;
-> +
-> +	pdev = of_find_device_by_node(pcnode);
-> +	of_node_put(pcnode);
-> +	if (!pdev)
-> +		return -ENODEV;
-> +
-> +	link = device_link_add(ptdev->base.dev, &pdev->dev,
-> +			       DL_FLAG_PM_RUNTIME | DL_FLAG_STATELESS);
-> +	if (!link) {
-> +		dev_err(ptdev->base.dev, "failed to add device link\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	ret = panthor_devfreq_init_provider(ptdev, &pdev->dev);
-> +	if (ret)
-> +		return dev_err_probe(ptdev->base.dev, ret,
-> +				     "failed to initialize devfreq provider\n");
-> +
-> +	DRM_DEV_INFO(ptdev->base.dev, "initialized devfreq provider %s\n",
-> +		     dev_name(&pdev->dev));
-> +
-> +	return 0;
-> +}
-> +
-> +int panthor_devfreq_init(struct panthor_device *ptdev)
-> +{
-> +	if (!of_property_present(ptdev->base.dev->of_node, "performance-controller"))
-> +		return panthor_devfreq_init_of(ptdev);
-> +
-> +	return panthor_devfreq_init_platform(ptdev);
-> +}
-> +
->  void panthor_devfreq_resume(struct panthor_device *ptdev)
->  {
->  	struct panthor_devfreq *pdevfreq = ptdev->devfreq;
-> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.h b/drivers/gpu/drm/panthor/panthor_devfreq.h
-> index a891cb5fdc34636444f141e10f5d45828fc35b51..94c9768d5d038c4ba8516929edb565a1f13443fb 100644
-> --- a/drivers/gpu/drm/panthor/panthor_devfreq.h
-> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.h
-> @@ -8,6 +8,7 @@
->  
->  struct devfreq;
->  struct thermal_cooling_device;
-> +struct platform_device;
->  
->  struct panthor_device;
->  
-> @@ -43,6 +44,19 @@ struct panthor_devfreq {
->  	spinlock_t lock;
->  };
->  
-> +struct panthor_devfreq_provider {
-> +	/** @dev: device pointer to the provider device */
-> +	struct device *dev;
-> +	/**
-> +	 * @init: the provider's init callback that allocates a
-> +	 * &struct panthor_devfreq, adds it to panthor, and adds a devfreq
-> +	 * device to panthor. Will be called during panthor's probe.
-> +	 */
-> +	int (*init)(struct panthor_device *ptdev, struct device *dev);
-> +
-> +	struct list_head node;
-> +};
-> +
->  
->  int panthor_devfreq_init(struct panthor_device *ptdev);
->  
-> @@ -57,4 +71,6 @@ int panthor_devfreq_get_dev_status(struct device *dev,
->  
->  unsigned long panthor_devfreq_get_freq(struct panthor_device *ptdev);
->  
-> +int panthor_devfreq_register_provider(struct panthor_devfreq_provider *prov);
-> +
->  #endif /* __PANTHOR_DEVFREQ_H__ */
-> 
-
+//richard
 
