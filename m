@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C3ECA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D85DCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 09:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Fd5gtwxSLBDdL7Y0NIu2dwjeM3XbnWRrEUe+gsJ6JE=; b=yUJBj11lS6tRxZ2S6DJSAP5I2N
-	9gzhiIFBkzQ/b7Jv+eQdmqOFFHHkmBdQH7ZXqBBpNtbbOWkZd0cncfgV/USJ8jCqbM+KZZaqT38CT
-	gCeOR4X3UWSru5sXCSJK1ljnoJi/XUnlaaeA8g0myXNyq96VwjA+VXt4numwnEzUBm0Za/QqfXYCg
-	JJ9IWWSvos/XJkLF13BQx9hyGJS4oYX+P3eVmvjBXLRXLoZeqvfeH7RATVgAfaWTrYewNevWJhtkZ
-	VlSaDgmXSjnSUHkketxe02F2pAZSoKl4RxqCnXFw/Pj1SwwB9cG3J/1g/r9hUGHlW93niyBqRoCJa
-	FjFTClOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fG+uaJu6TK3lnUSUxSyutzKp+XPY4Dn9K3fqHz92KKY=; b=WL6M7xAxahm0ihEjLTbsiqrYyM
+	5PSlulSj/ZyduV/jFCHWL5KNHuTXwPZFmPUmYrMw10URlLCiF6EHhhjDQRq1M/mB/cButV/yoQljs
+	nQIc9/TfqCbt9P3U4qSLdKaAOsGtBN+Q537g026GBf5BO7g+fEZpHnQUoFnAKaza5NzvlgNOuQN23
+	WGMWZ+JBrScsrJZL9/w4O6Y8B7WJJRsQdr8cEBBiKm/ASHJdhdKdKjzQieMLxYmRnbkAWtYgSm/6A
+	XJCcFAwhi/dCe4NVQI/t6CaTYD+UwOdQzCRE+8ud6WMsrWUTs0tkkia63615+L2PA4sjd9LsybTOg
+	JFEqf2lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHOF-0000000DJRm-0P60;
-	Wed, 10 Sep 2025 09:45:23 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHOC-0000000DJPg-23tI
+	id 1uwHPT-0000000DJuq-28re;
+	Wed, 10 Sep 2025 09:46:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwHPQ-0000000DJt5-1yGY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 09:45:21 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwHO6-0000Ts-30; Wed, 10 Sep 2025 11:45:14 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwHO5-000ZMU-2h;
-	Wed, 10 Sep 2025 11:45:13 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwHO5-00GDN2-2E;
-	Wed, 10 Sep 2025 11:45:13 +0200
-Date: Wed, 10 Sep 2025 11:45:13 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 08/11] dmaengine: imx-sdma: fix missing
- of_dma_controller_free()
-Message-ID: <20250910094513.eawc5n6zbddtg5c5@pengutronix.de>
-References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
- <20250903-v6-16-topic-sdma-v1-8-ac7bab629e8b@pengutronix.de>
- <aLhZ2zfh5bnNoH8X@lizhi-Precision-Tower-5810>
+	Wed, 10 Sep 2025 09:46:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B1D116F8;
+	Wed, 10 Sep 2025 02:46:27 -0700 (PDT)
+Received: from a076716.blr.arm.com (a076716.blr.arm.com [10.164.21.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 384DA3F63F;
+	Wed, 10 Sep 2025 02:46:30 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ritesh Harjani <ritesh.list@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org
+Subject: [PATCH 0/3] arm64/ptdump: Add cmdline 'early_ptdump'
+Date: Wed, 10 Sep 2025 15:16:20 +0530
+Message-Id: <20250910094623.2356282-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLhZ2zfh5bnNoH8X@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_024520_531016_1D52C78D 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20250910_024636_549222_195B9E86 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,64 +69,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-09-03, Frank Li wrote:
-> On Wed, Sep 03, 2025 at 03:06:16PM +0200, Marco Felsch wrote:
-> > Add the missing of_dma_controller_free() to free the resources allocated
-> > via of_dma_controller_register(). The missing free was introduced long
-> > time ago  by commit 23e118113782 ("dma: imx-sdma: use
-> > module_platform_driver for SDMA driver") while adding a proper .remove()
-> > implementation.
-> >
-> > Fixes: 23e118113782 ("dma: imx-sdma: use module_platform_driver for SDMA driver")
-> 
-> Look it is hard to back port to old kernel.  Can move it to before cleanup?
+Enable early kernel page table dump for debug purpose when required through
+a new kernel command line option 'early_ptdump'. But first this reorganizes
+ptdump_init() separating out the debugfs creation, so that it can be called
+early on in setup_arch(). This also adds kernel dmesg console print support
+for existing pt_dump_seq_[printf|puts]() helpers.
 
-I know that fixing commits should come first but this commit dates back
-to v3.18-rc1, therefore I thought that backporting this commit would
-cause more troubles than it's worth it.
+This series applies on v6.17-rc5
 
-Anyway, after checking the current LTS and stable kernels I think that
-the commit could be backported without troubles because the APIs used
-do exist on all these kernels.
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-efi@vger.kernel.org
 
-Regards,
-  Marco
+Changes in V1:
 
-> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > ---
-> >  drivers/dma/imx-sdma.c | 9 +++++++++
-> >  1 file changed, 9 insertions(+)
-> >
-> > diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-> > index e30dd46cf6522ee2aa4d3aca9868a01afbd29615..6c6d38b202dd2deffc36b1bd27bc7c60de3d7403 100644
-> > --- a/drivers/dma/imx-sdma.c
-> > +++ b/drivers/dma/imx-sdma.c
-> > @@ -2232,6 +2232,13 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
-> >  				     ofdma->of_node);
-> >  }
-> >
-> > +static void sdma_dma_of_dma_controller_unregister_action(void *data)
-> > +{
-> > +	struct sdma_engine *sdma = data;
-> > +
-> > +	of_dma_controller_free(sdma->dev->of_node);
-> > +}
-> > +
-> >  static void sdma_dma_device_unregister_action(void *data)
-> >  {
-> >  	struct sdma_engine *sdma = data;
-> > @@ -2370,6 +2377,8 @@ static int sdma_probe(struct platform_device *pdev)
-> >  	if (ret)
-> >  		return dev_err_probe(dev, ret, "failed to register controller\n");
-> >
-> > +	devm_add_action_or_reset(dev, sdma_dma_of_dma_controller_unregister_action, sdma);
-> > +
-> >  	spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
-> >  	ret = of_address_to_resource(spba_bus, 0, &spba_res);
-> >  	if (!ret) {
-> >
-> > --
-> > 2.47.2
-> >
-> 
+- Dropped ARM64_PTDUMP_CONSOLE and instead enabled cmdline 'early_ptdump'
+
+Changes in RFC:
+
+https://lore.kernel.org/all/20250818091436.938517-1-anshuman.khandual@arm.com/
+
+Anshuman Khandual (3):
+  arm64/ptdump: Re-organize ptdump_init()
+  arm64/ptdump: Enable console output in pt_dump_seq_[printf|puts]()
+  arm64/ptdump: Add 'early_ptdump' kernel command line option
+
+ .../admin-guide/kernel-parameters.txt         |  4 ++
+ arch/arm64/include/asm/ptdump.h               |  4 ++
+ arch/arm64/kernel/setup.c                     |  3 ++
+ arch/arm64/mm/ptdump.c                        | 51 +++++++++++++++----
+ drivers/firmware/efi/arm-runtime.c            |  4 +-
+ 5 files changed, 53 insertions(+), 13 deletions(-)
+
+-- 
+2.25.1
+
 
