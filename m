@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF43CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A187ECA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 19:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=imrHQ1lZy/rLe62chyMn47GX73SXS4KbYMyaMmdhK1s=; b=SKxFBRsp8NhU3imSEwBsudec2y
-	MSH9rg3k48HC05SARsJD7XgT2vVbYlkStPv4/HnBzDggak54T0pu94AFXXLy2tkeuOseim4quTIXc
-	qywHamj9xDEdMom6kyN+F7jQRldzNQtp9q8G2OltrFY1HkFS3VDL88yPjw9mVA86zHqLE0J0NlIpu
-	g1jXjol/pNLao66N8Tvd8qVw1QblQf+FRYNO8rF95330rQm4OjeEebUS6c6cxkItWYSuWa7QdxO7+
-	7QU55+Jd9JMm7iz9WKoktHnWjLr7Tqsg0BaheSjDbu0JxTiz/9VHe+Q6C0/IKaDIri+SXZenqq65F
-	PhsfYG6g==;
+	bh=PEJnj0D+uPeU0SmJlUyQ+ToDtN6MCdEENLdyH2GWFxw=; b=noKYGx8s5GDM2pxXtp3mtmmg0M
+	felYR9E2u6kYMBt83TFqochoFGmTGWmswwJ7AbcsNxad4hl4CZNc3BB6WM4QhsumNYGjzoTPbimG1
+	KJDHyqAw0TI3TeAvTkiJJV4uXcskorDJoMyEjAX9k5gH+fuyfr9tl80cDL/F5Z+sW019z7QKGmc7P
+	vbu+Ajd6RFCvIGp/sIoOaDrID9hNUPVxga+b4EKRKrPCnNWUo5sQmyutNGEYh617DO+GZTzO5zV/b
+	b40qXScBubRZ72EDM3cbHSnfHQbknc01OUgm4kEQLoRBS+hT9uAlzbcoERlYLNuSoBlVFvWQTpNOI
+	oGDYlyWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQXO-0000000GIq5-1HLE;
-	Wed, 10 Sep 2025 19:31:26 +0000
+	id 1uwQXU-0000000GIwD-2jUR;
+	Wed, 10 Sep 2025 19:31:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwQXG-0000000GIkG-1NWz
+	id 1uwQXP-0000000GIr5-2jiC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 19:31:24 +0000
+	Wed, 10 Sep 2025 19:31:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A52816F8;
-	Wed, 10 Sep 2025 12:31:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A40816F2;
+	Wed, 10 Sep 2025 12:31:18 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F49D3F694;
-	Wed, 10 Sep 2025 12:31:11 -0700 (PDT)
-Message-ID: <e91167c4-0d80-472f-8384-14003b959991@arm.com>
-Date: Wed, 10 Sep 2025 20:31:10 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBA5F3F694;
+	Wed, 10 Sep 2025 12:31:20 -0700 (PDT)
+Message-ID: <9f00c748-c3cd-4f31-aefd-b27a4af343be@arm.com>
+Date: Wed, 10 Sep 2025 20:31:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/33] ACPI / MPAM: Parse the MPAM table
+Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
+ kbuild boiler plate
 To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "linux-arm-kernel@lists.infradead.org"
@@ -71,16 +72,16 @@ Cc: "shameerali.kolothum.thodi@huawei.com"
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-43-james.morse@arm.com>
- <OSZPR01MB8798DAAAD9424C2C8706A8088B0FA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+ <20250822153048.2287-45-james.morse@arm.com>
+ <OSZPR01MB87984A649F19363669F1D6688B0FA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <OSZPR01MB8798DAAAD9424C2C8706A8088B0FA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+In-Reply-To: <OSZPR01MB87984A649F19363669F1D6688B0FA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_123118_432323_8B1350E5 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250910_123127_846952_E95AB605 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,39 +98,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Shaopeng,
 
-On 09/09/2025 07:54, Shaopeng Tan (Fujitsu) wrote:
->> Add code to parse the arm64 specific MPAM table, looking up the cache level
->> from the PPTT and feeding the end result into the MPAM driver.
+On 09/09/2025 08:03, Shaopeng Tan (Fujitsu) wrote:
+>> Probing MPAM is convoluted. MSCs that are integrated with a CPU may only be
+>> accessible from those CPUs, and they may not be online.
+>> Touching the hardware early is pointless as MPAM can't be used until the
+>> system-wide common values for num_partid and num_pmg have been
+>> discovered.
+>>
+>> Start with driver probe/remove and mapping the MSC.
 
->> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c new
->> file mode 100644 index 000000000000..e55fc2729ac5
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> new file mode 100644 index 000000000000..a0d9a699a6e7
 >> --- /dev/null
->> +++ b/drivers/acpi/arm64/mpam.c
->> @@ -0,0 +1,331 @@
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -0,0 +1,336 @@
 
->> +static int __init acpi_mpam_parse(void) {
->> +        struct acpi_table_header *table __free(acpi_table) =
->> acpi_get_table_ret(ACPI_SIG_MPAM, 0);
->> +	char *table_end, *table_offset = (char *)(table + 1);
->> +	struct property_entry props[4]; /* needs a sentinel */
->> +	struct acpi_mpam_msc_node *tbl_msc;
->> +	int next_res, next_prop, err = 0;
->> +	struct acpi_device *companion;
->> +	struct platform_device *pdev;
->> +	enum mpam_msc_iface iface;
->> +	struct resource res[3];
->> +	char uid[16];
->> +	u32 acpi_id;
+>> +static int mpam_dt_parse_resources(struct mpam_msc *msc, void *ignored)
+>> +{
+>> +	int err, num_ris = 0;
+>> +	const u32 *ris_idx_p;
+>> +	struct device_node *iter, *np;
 >> +
->> +	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
->> +		return 0;
+>> +	np = msc->pdev->dev.of_node;
+>> +	for_each_child_of_node(np, iter) {
+>> +		ris_idx_p = of_get_property(iter, "reg", NULL);
+>> +		if (ris_idx_p) {
+>> +			num_ris++;
+>> +			err = mpam_dt_parse_resource(msc, iter, *ris_idx_p);
+>> +			if (err) {
+>> +				of_node_put(iter);
+>> +				return err;
+>> +			}
+>> +		}
+>> +	}
 >> +
->> +	if (IS_ERR(table))
->> +		return 0;
+>> +	if (!num_ris)
+>> +		mpam_dt_parse_resource(msc, np, 0);
 
-> This is redundant, it's the same as the previous line.
+> err = mpam_dt_parse_resource(msc, np, 0);
 
-Fixed, thanks.
+Oops! Thanks for catching that,
+
 
 James
 
