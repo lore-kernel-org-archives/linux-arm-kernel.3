@@ -4,85 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C203CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D280CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XGf6An9pkuacotas4PAUho44h/2LaY9ZaYpivcI6rZY=; b=cAUpLeVh1qko8JEplDqxExlSKQ
-	6kVoBZKNyQo3yZsa0ZC0o9mPjt1xIyZwbT3YV96Mft+2qQ652XOH1NHx/dfRYi6fIDaTsrm+5Akj8
-	c8MDPqTxdVhro1L0zpEkNZbFir7gF1pQ4uMvjlojHkaNiXmFUrT/h4PGURreXGfN70YFx2v/Rs3/w
-	92fDH36XesRd24Zj/XGWNdg+Cqnsb3AYKpSOiFRzGJVVTHgC0jrMh59zgk4c4zPHMR/0aO3/VOa6w
-	v5yXl8P6gtqjumyEumdiRW09dIJETJrc3Rlto85rNtU+J6ys7CHY4bpIflK2hMndzAYN8DZmZLt5C
-	cZ1zx+Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mKSB+4xL7cCmeYE/ZtEdtCjsvm7CIgVIfr0teJIjFAU=; b=ZcleUnDAYcWO2U1bUwhth4fpV3
+	iU0EIp6WnWyyLKFLcdGjPQXwGzH/9VkbrJs+vVqTQR7YQRSNl5ZYuAQ4pfEJtQE6F95ouv0+iWT68
+	WtZA2osBIsMz0UoRYOIU08cTCrc+2sWOgNuYTSiEU8rZkiKgO0TN73w+ctpDKnKL3y1E8TqjzwcAh
+	wt4mSL+31EpINGj9dgBQR9+1czwpTgVNYMwzs5EXizr+80UCqQT3oetvoOVZvZH08RRc2hT+Akdqm
+	hlZBpeCDPd6Z2+QuhcOUsW4a5BVUTs+pX0u5/7hunRqQ0TUrXJZqbuzLyE3svPDv8dOTZOMQmNHFv
+	eP2PXhXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLRB-0000000EZUA-2lbS;
-	Wed, 10 Sep 2025 14:04:41 +0000
-Received: from mailout.nod.at ([116.203.167.152] helo=lithops.sigma-star.at)
+	id 1uwLRU-0000000EZdK-436T;
+	Wed, 10 Sep 2025 14:05:00 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLR8-0000000EZPt-0xYE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 14:04:40 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by lithops.sigma-star.at (Postfix) with ESMTP id D2E8683E14;
-	Wed, 10 Sep 2025 16:04:34 +0200 (CEST)
-Received: from lithops.sigma-star.at ([127.0.0.1])
-	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
-	with ESMTP id LaIcEPcDfBsv; Wed, 10 Sep 2025 16:04:34 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by lithops.sigma-star.at (Postfix) with ESMTP id 1A4472FFDA5;
-	Wed, 10 Sep 2025 16:04:34 +0200 (CEST)
-Received: from lithops.sigma-star.at ([127.0.0.1])
-	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id X4a51J5LvQXj; Wed, 10 Sep 2025 16:04:33 +0200 (CEST)
-Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
-	by lithops.sigma-star.at (Postfix) with ESMTP id C16AD83E14;
-	Wed, 10 Sep 2025 16:04:33 +0200 (CEST)
-Date: Wed, 10 Sep 2025 16:04:33 +0200 (CEST)
-From: Richard Weinberger <richard@nod.at>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: ksummit <ksummit@lists.linux.dev>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linuxppc-dev@lists.ozlabs.org, 
-	linux-mips <linux-mips@vger.kernel.org>, 
-	linux-mm <linux-mm@kvack.org>, imx@lists.linux.dev, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Lucas Stach <l.stach@pengutronix.de>, 
-	Linus Walleij <linus.walleij@linaro.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Ankur Arora <ankur.a.arora@oracle.com>, 
-	David Hildenbrand <david@redhat.com>, 
-	Mike Rapoport <rppt@kernel.org>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	Matthew Wilcox <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, vbabka <vbabka@suse.cz>, 
-	Suren Baghdasaryan <surenb@google.com>, 
-	Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>, 
-	heiko <heiko@sntech.de>, 
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	"Chester A. Unal" <chester.a.unal@arinc9.com>, 
-	Sergio Paracuellos <sergio.paracuellos@gmail.com>, 
+	id 1uwLRT-0000000EZby-0BwF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 10 Sep 2025 14:04:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=mKSB+4xL7cCmeYE/ZtEdtCjsvm7CIgVIfr0teJIjFAU=; b=dofEW7af/ejhmNipPt2aD1zjQc
+	r/T1X53PF0e+BEfGBFGmptVoarxZBEN1Hr7xriD76R1w+M+nvAcyFt2PcHdzuHg+TQmoMQFUdBQaA
+	jm/o6jj1rPqB5i/QW6QVLU4W6O2YAUS0S3TvZPMLDfVQol1YTS76QR+/j8xxBFEpwnMLWAqId4scS
+	bdUpC9Pcr4BH4JRwC/mCjcKWJe0ye/ZaEnL2OllK0B+92NxsmXiDMXLQP/kJYOtEetOYDdThozbzr
+	U+eiVsgCMI71Rea2iE366+z3/3jQiRamjgJEHnieliGZegYbRdaVVmJTC4g6lcXbzYemC7sUUzZ3A
+	gI/iBz2w==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwLRO-0000000A1bz-3lAQ;
+	Wed, 10 Sep 2025 14:04:54 +0000
+Date: Wed, 10 Sep 2025 15:04:54 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, ksummit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, imx@lists.linux.dev,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Richard Weinberger <richard@nod.at>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ankur Arora <ankur.a.arora@oracle.com>,
+	David Hildenbrand <david@redhat.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Sergio Paracuellos <sergio.paracuellos@gmail.com>,
 	Andreas Larsson <andreas@gaisler.com>
-Message-ID: <497308537.21756.1757513073548.JavaMail.zimbra@nod.at>
-In-Reply-To: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
 Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
+Message-ID: <aMGFhuHyQwtwyF7B@casper.infradead.org>
+References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
+ <CACRpkdb=E-_6fZ+4mX5FJas9C5Njp3Gwrygs-cAfWNdbP594cw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [195.201.40.130]
-X-Mailer: Zimbra 8.8.12_GA_3807 (ZimbraWebClient - FF141 (Linux)/8.8.12_GA_3809)
-Thread-Topic: Reaching consensus on CONFIG_HIGHMEM phaseout
-Thread-Index: xOQifXk0CYTOSYO4gO/z6lk9BLmNXg==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_070438_554582_AA03003D 
-X-CRM114-Status: GOOD (  20.67  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CACRpkdb=E-_6fZ+4mX5FJas9C5Njp3Gwrygs-cAfWNdbP594cw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,49 +87,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arnd,
+On Wed, Sep 10, 2025 at 03:10:05PM +0200, Linus Walleij wrote:
+> This is is done so that we can unmap *most* of the kernel
+> memory but *keep* the VMALLOC area, so that e.g. exceptions
+> can still execute and save to stack when they occur, and we can
+> call into the kernel to execute said exceptions.
+> 
+> This in practice means the area 0xf1000000-0xffffffff
+> which also includes the high exception vectors that must for
+> natural reasons also be kept in the mapping.
+> What we have mapped today (all of the time) is
+> 0xc0000000-0xffffffff.
+> 
+> A minimal 256 MB mapping from 0xf0000000-0xffffffff
+> should be able to cover this.
 
------ Urspr=C3=BCngliche Mail -----
-> Von: "Arnd Bergmann" <arnd@arndb.de>
-> High memory is one of the least popular features of the Linux kernel.
-> Added in 1999 for linux-2.3.16 to support large x86 machines, there
-> are very few systems that still need it. I talked about about this
-> recently at the Embedded Linux Conference on 32-bit systems [1][2][3]
-> and there were a few older discussions before[4][5][6].
->=20
-> While removing a feature that is actively used is clearly a regression
-> and not normally done, I expect removing highmem is going to happen
-> at some point anyway when there are few enough users, but the question
-> is when that time will be.
->=20
-> I'm still collecting information about which of the remaining highmem
-> users plan to keep updating their kernels and for what reason. Some
-> users obviously are alarmed about potentially losing this ability,
-> so I hope to get a broad consensus on a specific timeline for how long
-> we plan to support highmem in the page cache and to give every user
-> sufficient time to migrate to a well-tested alternative setup if that
-> is possible, or stay on a highmem-enabled LTS kernel for as long
-> as necessary.
-
-I am part of a team responsible for products based on various 32-bit SoCs,
-so I'm alarmed.
-These products, which include ARMv7 and PPC32 architectures with up to 2 Gi=
-B of RAM,
-are communication systems with five-figure deployments worldwide.
-
-Removing high memory will have an impact on these systems.
-The oldest kernel version they run is 4.19 LTS, with upgrades to a more rec=
-ent
-LTS release currently in progress.
-We typically upgrade the kernel every few years and will continue to suppor=
-t
-these systems for at least the next 10 years.
-
-Even with a new memory split, which could utilize most of the available mem=
-ory,
-I expect there to be issues with various applications and FPGA device drive=
-rs.
-
-Thanks,
-//richard
+Can I ask where the MMIO (PCI?) window lives?
 
