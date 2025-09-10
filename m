@@ -4,163 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17325CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA3E4CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 14:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JHY89c2TKwm71DH44bKX1oivHjZoVZz21ATPdjAYUwc=; b=tTXKMs0hw8onMZi8WKepI6bZ98
-	9OiqZckJCxbX5JwXW0rQAQq/A/CsCNKj0T0ocZub4GrACwvgCbJQEX8nAFwTblnMDeIG8BM7FiECZ
-	poGeYW9BmkpN2dw0hEoRIdqyoChDTFxD1LQ4o6eydALoxIrcx7DLpiQYUyJcl1/1lugqVhtetBf64
-	xwZ5Tw8E5QR7LORtljAKfJmUPpzb35sbYo1AgSvU/mCWUP9r5qP+XBR4w/gTYyTrdav8c+c2v2Une
-	padUcfDGBhnk8kfjRnJ/cxwWZGndql10VQhd0r2NJ29JY+oJuUFIGqwbDOYFA3HPrvFtSvh3ykcpq
-	n9oBnJEw==;
+	bh=GS/HhxjUNWWUBSWYHXDpo04B+VfNj/i7NDijkz7gQYs=; b=wQJfFc/gm0FKt0uW/mTI/tX6Ph
+	TdlJIqoKjm3sUhqh6UqInaq1v+BA2srPHANsycaUP7k0+O5TKhfxcmoOMpTCFaknRyWE0+Ea+7j4I
+	lCGh9Ts1HcDwDW9HB0yztt5O6DYa02BXOOS5mD8DbvwBeEDmuj28jVDV+uawrRWXtjHnCtUHjOXX/
+	BU4s1fIQXLHfqSdYQaaI1Vun0PQB347B2cyRMPp5X19DSiCFuN4jq7kkWP3qt+j4hClsCCN1y/s7O
+	pB/sINz6LfcqhdrNR1cH6hmRJxUGnZ8PSKUkh3lUOv67F1EBz27IYaKxvK+Xu8cD8koBof/tBHrCd
+	mLtLveTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwM2t-0000000Eobj-3LwC;
-	Wed, 10 Sep 2025 14:43:39 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uwM5M-0000000Epqp-1WWI;
+	Wed, 10 Sep 2025 14:46:12 +0000
+Received: from mail-dm6nam12on20623.outbound.protection.outlook.com ([2a01:111:f403:2417::623] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwM2s-0000000EoZs-024z
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 14:43:39 +0000
+	id 1uwM5K-0000000EppW-0w4e;
+	Wed, 10 Sep 2025 14:46:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NHPG9W/5vNupr/K3fdWNsAZOCYGkZ5+ANBH5A3HsG7WJn1ZK+TtF6SZmy9PMGb8M8Fb0iJWBZi1jddSUpXNJ22bt1WpFSnaTHJzDRKzi6nYbLRNX+3CzciPbdX86oXsb4hVfu8OHYjmS9Xvic+W+ZauFKnmF4ZDLrcfyS4wVwjYIBc4OMFFa7/fd9e3T6+zC4wZrw0GJjk9XvBLx63IMmag7yh5i/owMLJN8gBkj/QHXSm4CU/C2J/T3it3JMmY/xCENAK39Q8EMTj/R9llU9kxkcIHSd7r9Psu1S8DqaCQuWNGvvYt3+a/rPun08gmYGNCu++OVTj3MTzn/3omm0g==
+ b=gQYgIDs/sNZUKvptknRllknhFu92wFpnssh6ckZAYKKjEos005U452/Qh6xSsB6DcOBquzaDURO/nDdYqrkNUD55l28Trgze2zjTraoL7Mx0kIfqfjmjrP9yGP0RCTxFmcJYcx0ABCD696o1SQc1Zr3TSLbfk5PKW1gFWpJHolbQeCawSnBhH+cqht0sIIxj/jB/n/FPq717Eq4+9QrkbX4qEVq3KQynOhaE25y6CY+URbjPMCKiy3LUStFM108syg4g2uygqhPHC2yM9FSAmZVpuXXcJprlPBkGHva/NLbfOqowyonGwfBYNWEyRE587bBMgaX5D4UqQOgkBl5t5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JHY89c2TKwm71DH44bKX1oivHjZoVZz21ATPdjAYUwc=;
- b=O0xlqUmApMq847dt2VnpWs07/HfdUg8AGg00PCmt8S5Fb9r/qo0Z9TB00dylJ3Wx1XbyEewoDv2hsGmFwWMjbwcKAoLl+bDzpIo0Btg++BHugpWnjivOXLbQWRq6HT0U5mSE3+YnYmMrDU8SEBpQ0MlrMYLPyqlNPnH00s/KhRq8OwUL+LTerMIjvMDlrm6+kwRIbYHF+oYtOlryyCIXCsgt0YNOGP5+LORKSMyZOvGSSIkNGvIQuOKNoA8KojFiAi/xYSQwh2/qime/KvChq9oH736ufxS/QGQ0rpBmCaUmYPyJIMrQfJRiWlUYw/cKEZzRzO5dYxcjDFImvTQptA==
+ bh=GS/HhxjUNWWUBSWYHXDpo04B+VfNj/i7NDijkz7gQYs=;
+ b=QzjCbn/udIBd0xifgQMraOLJKU9GgHVA1t28iAiE78UJckaXwuVfEpvMMDKPsnywUDJOEYR4F+B982nTK88HcxbkdCeC+XOkeMrgR7usKqUO3jFiGOJZUnjlQTdMefEnz9xwlB3pyguDh+yGYIz2gJF2cA2IYKDqH3JatjA/jkpsZssYbKM3VxsgS3+xyba6Xwfa6dqqYsqMFYa+TrbOw5CXZlrtSXuJc64c5YewFjBey5Q9ZKrAYMqIWfFv9FtKRE1JFxC/rEOYjAG9AmvUQS6ip49P9Bl9bssWP6XXuIB8nekgEr4agktJHEyoR6awXYYymdfGixJEcyXmjJfWSA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JHY89c2TKwm71DH44bKX1oivHjZoVZz21ATPdjAYUwc=;
- b=JqwRFBYIGz0YF6Gip58NdXVD5htiNIRoslRG5OJQpk8NaKmJFa4eKd350RlkTuLAKPA0tR2QcJ5uyfQICzvpiINWwW4495g3utHae5awCp/A5mombhjIxI4nWi7tvaVVg0Rl76XoEP9/Nf+2BufkReoWqT2emeS0BGyNlg80x9IRcq5jlPDAVilOFUqjaSJK3idI/88TDOF40zcjbZeXgPiUrf7PZCi4Ou7JaT6+9tgMVzZGxeRnDNz8WKrfMMZyDVNZWC3QvH7I/EiBQn1d6/mfRSqftGnnqfsiOIUpbTqz5bXIrlG5UpQ/d9MbGl+nnd3bhZReb2DkZXGY8IGBJQ==
+ bh=GS/HhxjUNWWUBSWYHXDpo04B+VfNj/i7NDijkz7gQYs=;
+ b=sIiyGwbPJWLXXb11pT3KWS4GYhxeSXagrteT0e68BPiVqeet3bPG6zdxA/g+R+VZEYDG4Z2Hpye61SVeRrjRIU7+7R79YJI6UWeFh/hWZB3lYAzGP+18ZJUWqbxFDt2d8hQvhdv/hYWEj1iz7f0VluYJnlV2MQKaEbDsPqfAtjBBoA9nTfH+d+TzYQHRKDXg1RWj+Q9VtvBLyviOUSKPTaQ+w6p7iqHqWYMP3lX6J9/RYb7+6Hw213lF9KqrixtouOrdgrj39yrlcG44MTQKO6AxBYItxG35OvDeXnTsARYYrfLp/+5BuD1Nb6laacth2mzYbtBmOQMXCuhKE+VYOw==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by PAXPR04MB9680.eurprd04.prod.outlook.com (2603:10a6:102:23e::11) with
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SN7PR12MB8059.namprd12.prod.outlook.com (2603:10b6:806:32b::7)
+ by SJ5PPFC41ACEE7B.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::9a0) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.15; Wed, 10 Sep
- 2025 14:43:33 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::b067:7ceb:e3d7:6f93]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::b067:7ceb:e3d7:6f93%5]) with mapi id 15.20.9115.010; Wed, 10 Sep 2025
- 14:43:33 +0000
-Date: Wed, 10 Sep 2025 17:43:28 +0300
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Jonas Rebmann <jre@pengutronix.de>, Andrew Lunn <andrew@lunn.ch>,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-sound@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: Re: [PATCH 1/4] dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios
- property
-Message-ID: <20250910144328.do6t5ilfeclm2xa4@skbuf>
-References: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
- <20250910-imx8mp-prt8ml-v1-1-fd04aed15670@pengutronix.de>
- <20250910125611.wmyw2b4jjtxlhsqw@skbuf>
- <20250910143044.jfq5fsv2rlsrr5ku@pengutronix.de>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 10 Sep
+ 2025 14:45:57 +0000
+Received: from SN7PR12MB8059.namprd12.prod.outlook.com
+ ([fe80::4ee2:654e:1fe8:4b91]) by SN7PR12MB8059.namprd12.prod.outlook.com
+ ([fe80::4ee2:654e:1fe8:4b91%3]) with mapi id 15.20.9094.021; Wed, 10 Sep 2025
+ 14:45:57 +0000
+Date: Wed, 10 Sep 2025 10:45:54 -0400
+From: Joel Fernandes <joelagnelf@nvidia.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org,
+	Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	Mukesh R <mrathor@linux.microsoft.com>
+Subject: Re: [PATCH v2 5/7] entry: Rename "kvm" entry code assets to "virt"
+ to genericize APIs
+Message-ID: <20250910144554.GA563958@joelbox2>
+References: <20250828000156.23389-1-seanjc@google.com>
+ <20250828000156.23389-6-seanjc@google.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250910143044.jfq5fsv2rlsrr5ku@pengutronix.de>
-X-ClientProxiedBy: VIZP296CA0012.AUTP296.PROD.OUTLOOK.COM
- (2603:10a6:800:2a1::16) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+In-Reply-To: <20250828000156.23389-6-seanjc@google.com>
+X-ClientProxiedBy: BL1P222CA0004.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:208:2c7::9) To SN7PR12MB8059.namprd12.prod.outlook.com
+ (2603:10b6:806:32b::7)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|PAXPR04MB9680:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f54c46e-004a-4635-ca27-08ddf0786a9d
+X-MS-TrafficTypeDiagnostic: SN7PR12MB8059:EE_|SJ5PPFC41ACEE7B:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2d397e61-da5a-4d07-617a-08ddf078c037
+X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|10070799003|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1WzKHkUmcts730uMc9xp7cnphQUhmJJ62AtivfFMJ5ikQDMlbFxhy3Td7mKE?=
- =?us-ascii?Q?KRYejx7IRmjdI3VBlPQAaYhiBC18cwvqFKC+bI1t9s4+5TJNb7GWGzyxGIJZ?=
- =?us-ascii?Q?7mtGLTD4eta/I2XLJIXEVJbY25UAssbscsP3jLOfTnUBuLhYQWvnsspN8NFV?=
- =?us-ascii?Q?3qSWIjVVFJVwPiiV0/DhxEVloHJBg/8D6ENQPy3KbSJ0f2alGtdW2kfnxgWS?=
- =?us-ascii?Q?c+Xexg5cVZcz+nyFJOBckJv1G2avfqv6ZmLn02V25t9Ulcs8auD+q5AatTLB?=
- =?us-ascii?Q?Uvhe64MGTvkAaRVR0s+2MVvETgGu5ZMr44lvok0V+smeE5mcfORgFqoM2l9O?=
- =?us-ascii?Q?M/ABySFe3fcxbVArjK0nWIK+xLV8mY6Myvc7KWHgnoZORs2C2BJitrk9wPU8?=
- =?us-ascii?Q?hl6kT9ly6ZWcd1J5Yrzxx5EhGviok+sHiKzKMrSjB/XfMjT/PGUnrX5zwzXX?=
- =?us-ascii?Q?zhUDMU2lH1oXJKx30zpfMNl3ABk60XF6Xo6GWHuI8aC9qeCK2z6I3hnmw7lq?=
- =?us-ascii?Q?UOhw+fYpgAlh/MyFj6TyuC6Ngrb7csmiYEfvKEdu9O8mHnj4akKskTmZxM8v?=
- =?us-ascii?Q?i5VL9Uw4+BLybZ0ou+gw6av5DoidG7SzNJIFHZme1HaxegKwNFcD/NnK4GKW?=
- =?us-ascii?Q?xZxshmA/kZfyLRN1P31oeolfs8DPH1mpl5fW1w/Mg26x3uApCsNFZxLgc3SA?=
- =?us-ascii?Q?+P2rQYLNUa7W7hFXKArulNLmMFqTMWJAzvFyKe0nirlgtvwrlpaDyRag3xkk?=
- =?us-ascii?Q?aLiC3iapGM/uORl5vdt5PBqSF5KFoATDhPMVFGtg+HEuidJRU8uGUOtjr1mg?=
- =?us-ascii?Q?RZ8Zbf1Oj/8t5q/ztTq1Ou/fIuLCBa7DuzXR4ohFlBKjTJd/abcEUFciVGDr?=
- =?us-ascii?Q?eMX5YX8fVAWEV58M4vOtEkLB0Zu1aMZNTI6I1BkA5P0V8uFWEM4yiZsyS2F2?=
- =?us-ascii?Q?HfMMqTQJmbaUwMWDedtu4CrVtfMea/niLrXPpo9e8/3JwADzJxoYDFLweqLh?=
- =?us-ascii?Q?pliegiwKw7FVcv+sDs0Nctx3zsouc/UIeNWE0iUrcYEIDLTAj3aFiDBcw/Vl?=
- =?us-ascii?Q?Tu11Unbp5fisNkqs4AJVL/wPaQKjUxfpW6Btrlw+nNmH3PJVLYETgjKBrhj1?=
- =?us-ascii?Q?OgMjEiZpuXAcExga8wOytY8pBfnk5tA0ARgWNzObjmpxlUrWjdGEJUGvxj4A?=
- =?us-ascii?Q?6j6JEksjtn5e6cOV4fHZRTqPl/k6M6pjW13vEYMx0sUUmTRdyP6CmEaVLW2L?=
- =?us-ascii?Q?qJQu/oD9edTRvZxF2iM8jKi9nr4J7E1AM2WGhWkaEaXE+C6UIhW6Ti0JZwe7?=
- =?us-ascii?Q?9/M9I3eNfPwny6xC5/CSQKI7rEpclchKhYLiv82fGtLDdrPA8QabMnoLo1aB?=
- =?us-ascii?Q?WPGsZt/alJs1jDUtV1y+7r7fgMbELMFOeTzgFIWVy+Vci8r71+56n+FoCykz?=
- =?us-ascii?Q?GKwP2WqMVA8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(10070799003)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lBJ1mftQXlMcaL0dEq2p0usWYqA3/fZZoZoDYKEdYljdF1JHeSI3IbYN8TNQ?=
+ =?us-ascii?Q?I7HbQein0kFG+OlpL20jCWiYO4pWUtXgOLbx+ldhpYn7AoGLT9GqRj+nvY3j?=
+ =?us-ascii?Q?9ltZg95twIK8A7NcqdEidVZYCg+JaC45PA3SvTiD8uikBMBnnt00L2XxO1PY?=
+ =?us-ascii?Q?FJToTiNdkS0x0QKJUmauRap3MLUdI6qMFkvblMO/HT/oYnLJ2SRF8Bil7JE1?=
+ =?us-ascii?Q?IZ0hJv91zGM5yh4Qh2CtDSqcceMIxZAMlI7eofuQK/noMZ+EMH2OVwIHJ7lI?=
+ =?us-ascii?Q?C6XNOSqk5zBwsmVnUUFMMDISh7empJvTyxRrVEol+Jw5D6xalDyC8WMFlg/t?=
+ =?us-ascii?Q?qofaX+8gv6EYwKMgwUf9rx9BeNf50tpc6Ztz87W10ty6KzsqSxe3IamcBHLx?=
+ =?us-ascii?Q?+IFBdJUnb4CZga4t8bQfDRgAK9W+GzunBDPtoOPABR8AacITyYavxJMXe7XK?=
+ =?us-ascii?Q?InVOXu/z5l5jf93JQZouFZk68SDn0TqY2HS/+D3I/Bi19jzcrEbUpHZJOdTI?=
+ =?us-ascii?Q?0FxYtQu1As86jYhUsnnokCcyq+msUvSwOQ1Q35eCrkIIf+VyaPaNZ9M0OaKx?=
+ =?us-ascii?Q?aLy/aor51huel7nx52f6sqet0UCabae2NnhmUVNbIONz0bSjCQjql7fj0oMa?=
+ =?us-ascii?Q?E0Yim+V98PLMqMzzO7jJelSdN7a+tUB8US1YZpqj7I9L8bbA8HGdG5S0QHvt?=
+ =?us-ascii?Q?muHH8i0FNx2GDYqLBvTL386vHlM3u8Wkl0fgSs67UMI6fk1Y1kcUglPAnmB0?=
+ =?us-ascii?Q?5YuIZ3kXKH3pFZOeDT7NdMAsqEJPLKeJEV6osyFlpv6lmlPQYrsiiJJZ2TrP?=
+ =?us-ascii?Q?C/cbOWgFhtjO87U1KGZeYH1+Agjw6+RvKdT6taCUUHUroMVqk3ABeRd3Y9te?=
+ =?us-ascii?Q?Waw5DmlJlliDZmD/CoW5NNWSThvQ9JgWj/y0swW8zdq6ocIoqtCmJ07rmL3b?=
+ =?us-ascii?Q?hQ6fGhuiHoobrn2F1AP2ybXGrBRtfTUhOU3m84/wBkU4XYMYBdY70mKJZjTF?=
+ =?us-ascii?Q?UXkevQaCmIIlFljHRHCnm8LX3SsT1eezPEcvQMN1G8lm2KWdztA/bsWCo2Tb?=
+ =?us-ascii?Q?L50NVM1UxZ8m2gyDvKeZdEjDJenFPl80FUQxyMCb2ry2lLGlsCEjW0VcazpZ?=
+ =?us-ascii?Q?Skf1vr6qrpOmGfoPTBsrPRAlqRAE75EpsqSAPXkNm8W+h7lGfC4atHH8s9BR?=
+ =?us-ascii?Q?JfzZLzL5Nn+imODqj1SkfSo8RqfjkXhTgTDmC321969fUyM64ZQqQBdPgJk9?=
+ =?us-ascii?Q?QdvelXW3m8mjkk39lSYzPWQoBIDMad5W+Hu/Z/VOeS5o5qLmE1hPyjd5JVmk?=
+ =?us-ascii?Q?/k2/a8exVRHidMiLtwvUYXbiTgJDYhvBKl+fgXVY4ndi1GEmTqgVNDqJyikX?=
+ =?us-ascii?Q?cLVIcwM6olbaezLyMF7tzt5TamPkJ66ojyaVSRqQ06yeSIHIEQfvaBkBZfXN?=
+ =?us-ascii?Q?qCezkY0+/fA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8059.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZV101l1gn7hqBCpcV5QyS/Zy/kxibfHauMmkgvC4futytPwH5HLBdPKwOm/p?=
- =?us-ascii?Q?5blIIi3ucdgJLSRv0a1y3gHZkrztWs148d3pQ43axbJwjIhqC66bHREIetTh?=
- =?us-ascii?Q?duZb15Vdu1Xy/xxKbaAK9i/VJ79fiB19igJm+8NLfisgsRfFapi2edXz3tAm?=
- =?us-ascii?Q?Khuxx4hD/UOTpmQK9pNW/r6B7zP+Qxp8xHbYoTdCv9v+bDFV1DTtOt29Th7i?=
- =?us-ascii?Q?7Eswu1QwjVoDh/8f2BMqO7IlFAePk0bVwCaGWn4rMGawHXIguaZ4Df7XUSxD?=
- =?us-ascii?Q?GerRmCLxsg7d98VupJ0zT1NVkhszKB5BHxVpwM2HBVuSPsoca/ZmwT3EKyF7?=
- =?us-ascii?Q?HLmAiZD+IgpvbMwMAcf0QJaQ8XgWQ1NiNgf930ywtlDNf44Pl3I2MZOgUpgg?=
- =?us-ascii?Q?NzLUdAbEmdPDa7EUBCUuduLS2he+yagxnfY0SPJncf7gjoPD/XEu2LzFJfUg?=
- =?us-ascii?Q?FSj8/R1iDG81gSWGrLBgLHpbUwJxTcQCZkz2Y7T9flMVQZKXnfS1BPX23fnu?=
- =?us-ascii?Q?iOKqQUTJswzEnPRmMbbgKHmjDl5YQo8siXYgrCjqVe53/fbYkQFtxGnTGLUb?=
- =?us-ascii?Q?g6tUEIJmv4ZATPewqX5wYrP9rYL8JALRBZX0aP/sIn1fQPlAyqoBM2Qg7ekB?=
- =?us-ascii?Q?4cVv/1OMB//TVG9CNei6qhz5qh6eSK8zzo8k8Fw2CpWl7TNsxAeNSH4ityH9?=
- =?us-ascii?Q?Qr+PEqN5OsRtG4Sb7rV/1r40fhUbp4zq3ZziqtQxNt8c4oCwIOFzjhbj6MO3?=
- =?us-ascii?Q?xM0yXM1Qz0zpMBrk7njBrQQdPZlLHuPCbgFB0oMzjWiyMsDtPMVz/WWFmhdw?=
- =?us-ascii?Q?zzbiX3W4ZZfwFbsG4x4vHFhtzOI0a/nq0luloR9aGMFsTFJPo2uon6dJINrv?=
- =?us-ascii?Q?JGhxgNX0wDI1OqCVSSU5hK5pRvpi7bVTIfNWCeHYvpgTfN7PzYnZU++PiPMc?=
- =?us-ascii?Q?8pXxyIUUEKiBAXVUTiXQm3IsouQtpGohzQfLmnz5aSxCPrTnG9nLReFOxQQJ?=
- =?us-ascii?Q?BRQaA2fHpd9tVhX0GO2fyh0yV39CVnuEqlmUjcMlSc7gy1KiUip9FCvJUMdx?=
- =?us-ascii?Q?qgLrL9puSTLC5gGQPWGOyFslHPbpne0LPxjFjKejg4vEqQwEaErqqVmBoOAb?=
- =?us-ascii?Q?NhOL7JJnl0zWicg87nZyBJZyaGHYbvPW64iGlkTHVDQErc1guqeDdEHFS/LW?=
- =?us-ascii?Q?P5lpwJvVS7Yrw71B1JdaZHGruF5PxTs7RVIU8T5sdoMg53d4HWyDGZHvEgP7?=
- =?us-ascii?Q?7euaL7rs95zjBqg7KTbEqyarEWKA3ZZkw3qYX+EJWyOcO+3aQdJaBO27ygnO?=
- =?us-ascii?Q?TieJ/SehjdMWVvTHtaNNnnUJTt7hixSwFeutb9GgbOp6swpqvbPU5xNwcYq8?=
- =?us-ascii?Q?kW92aZVISLH1HGdyiJaOukFkaD+8eQUwJvCKhDgplvX5xXWIbyzZ8BQluYIc?=
- =?us-ascii?Q?eTsT/RQPMi1wQaCHFbBBgPS3fEucfT3vJgpqprTGWTIM3axmX5NE6fDttl5D?=
- =?us-ascii?Q?OoWsIcrU+MJyxd38jR0ufYpwrR2pvw9xeRztinZtq5QWjFwfl+7QSb/VrMSe?=
- =?us-ascii?Q?bFQzwtx5rngBzQrRuQdo2AQ65z655h7uAX1L7lW5z5xgNsHaXnn5T2LZqw4e?=
- =?us-ascii?Q?gCvij+n547jBW+fHn6BbJ7ijZ9xOe9mzEx+VTYmrnkPWmkQmQGJfx4iI11Nb?=
- =?us-ascii?Q?YJP+Rg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f54c46e-004a-4635-ca27-08ddf0786a9d
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UJsfAHztgoECTlOO9AxpQTX3/m5ix6H2GCaRGnYkNL6e5Xf667NMWTOhLXIg?=
+ =?us-ascii?Q?vlnvmhwt3biFyD7WYKjXHc339cFVD50fWB81kLavwPqI9/aaQ+QjaBGD8+Dn?=
+ =?us-ascii?Q?sD9yLpnW+TYYYjy3zNTwm1q7AmKrhbhW95zrZuXb54aO0SH5YV4ssi2JIwX3?=
+ =?us-ascii?Q?IDua9rwBZScxB3LQWOxy/B0Pz2vpIr2cWq2owuHrgSPiqU/HwZCIdr+D72Kh?=
+ =?us-ascii?Q?ON7miE+ZT7FtgUcJW/T/Fl5YfYCcBIX4I665Knvjziegu+pKueBe1Yyqdg6Q?=
+ =?us-ascii?Q?GyWwZHBPdFAYGXXSf4EJU0p46bfsCn0tDt4o5FsOBkgb6nhJsgixf9o6CADZ?=
+ =?us-ascii?Q?ASAEpgSw31j8vKhOKRMSMXxEzaUKADyw5IDnsZDnxNHs4yicR0/1NmtoFkyA?=
+ =?us-ascii?Q?dT/34dEmGcGmtrV/u14c81pAnR2oi+Bmd6zkpeMgl+CJ2xCDyrz+dISqHy6j?=
+ =?us-ascii?Q?WDHpvIpdbk3BzVHtm8UwGyF6r09LOJelkTiAseHN5ETIHhIn5p7kSKtmVqIc?=
+ =?us-ascii?Q?lQkEHNNj/mRTqtvVYWKJReFMSDzKtYbrZMgkDLJz/V1jTcZ3D2SFZkMbnlNV?=
+ =?us-ascii?Q?sOSHr8unvocM8OJx3qZqXOffmwzquZEjJFJqyNH1aWVCv1GQ8JccCwArCBj8?=
+ =?us-ascii?Q?3+uQBuePtboGi/lLyxbWYEVyRkmORVyY08kOjb3Ev/E2lHCcnaMixALwG+jy?=
+ =?us-ascii?Q?VrGpnN3kdww5OKF9UlSMRgaZznX1G2JpfJ33zolBIZs99E/8F3PwwE1TCVhf?=
+ =?us-ascii?Q?5oZ8N5B8yqjGiUiBq7/eEvG84BDsRqURauHWcQyoAH04sbALtP8Mc0Jlprj0?=
+ =?us-ascii?Q?pBBf3JyFuVz0BXIVZ4bJlJ0P23MvX+1c9BbillsrQIlbj18EsPjW3aSsQi94?=
+ =?us-ascii?Q?JkweTku7PpFPuU9YP2yrgVev+J7cIeSUZryMDqC35/JohfXZMzYRQEDB3rYV?=
+ =?us-ascii?Q?1uiXMK8Qwcg6EDsw1dLRBhkXp0RkU2YyRnKvhEVsFZUuAwbZqImsIAO8rGA8?=
+ =?us-ascii?Q?rirHIL5GJrfxut8rsFhHs3sYgNHw1ho9R1rw/OL97wEYQaAPDmuWaupYzGuN?=
+ =?us-ascii?Q?A5W8hOvwcuF1mGmkdfBylXKw3pqZgydBucVdH/CnTUNj+/oxfo1+xxSwb8VS?=
+ =?us-ascii?Q?9RP/gSdspzFrByfiOswg3w36bsLlWQhGIAsDwI9h+Xy2Yrqrgfzn2ZaD8tDj?=
+ =?us-ascii?Q?onW17E0hBCNKtTIEIbWNFi5cAEsS9kfWxtKQWoBpJVKGPiNC1Dpxz2jiC365?=
+ =?us-ascii?Q?QfqJSEYFWFKYuemeW5KZQqOI/AxHMy5SsYEtlBbRsAZ0v609CQupG2ajnek1?=
+ =?us-ascii?Q?4bQT5U+rPrGB8nMBqy5p7MBfysJNXt3S9u2ZFT7bTGuCdsH0YXC42euYaxpl?=
+ =?us-ascii?Q?UpZsGq65gKSndA6hC3yFFOHsG3T1oesdpe6yZvwWuGjCI2z5rRjRZu+GxaCa?=
+ =?us-ascii?Q?wS0yPwwnBBh1HLdYYB6DIK7x8qtB41zhabCCVjlYvmEdeJ5qeik9bviQpN1r?=
+ =?us-ascii?Q?9U0AulckHw6Msn8qCGOE8PjSXoR7It5yYsaoQ48XvUSmBPZ0wqRc8UkEVALq?=
+ =?us-ascii?Q?UariTFoEMwTB3crPDdPenrRwRarWFwC9X22y0cTA?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d397e61-da5a-4d07-617a-08ddf078c037
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8059.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 14:43:33.5355
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 14:45:57.0130
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IK7f0pznUZZDjlOqhcIINUKVGSFrCqrxGoNhlZigbjSGNmXBOafC+uJAcMNyP/s71xuXnkjjMaVEVrSM6xX1IA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9680
+X-MS-Exchange-CrossTenant-UserPrincipalName: ohVyGPNn74G55qtyxmdCEEKWLQ6b8hbS7a05yyTQfmTfC6W/VO+qETLpxI1/NQC2UTL1A9FvQ7h2cySDRJzVhQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFC41ACEE7B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_074338_050130_5125CA28 
-X-CRM114-Status: GOOD (  29.48  )
+X-CRM114-CacheID: sfid-20250910_074610_308055_46DAD69C 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,68 +186,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 04:30:44PM +0200, Marco Felsch wrote:
-> Can you please elaborate a bit more? I was curious and checked the
-> AH1704, it says:
+On Wed, Aug 27, 2025 at 05:01:54PM -0700, Sean Christopherson wrote:
+> Rename the "kvm" entry code files and Kconfigs to use generic "virt"
+> nomenclature so that the code can be reused by other hypervisors (or
+> rather, their root/dom0 partition drivers), without incorrectly suggesting
+> the code somehow relies on and/or involves KVM.
 > 
-> "The RST_N signal must be kept low for at least 5 us after all power
-> supplies and reference clock signals become stable."
+> No functional change intended.
 > 
-> This is very common, so the driver only needs to ensure that the pin was
-> pulled low for at least 5us but not exact 5us.
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  MAINTAINERS                                 | 2 +-
+>  arch/arm64/kvm/Kconfig                      | 2 +-
+>  arch/loongarch/kvm/Kconfig                  | 2 +-
+>  arch/riscv/kvm/Kconfig                      | 2 +-
+>  arch/x86/kvm/Kconfig                        | 2 +-
+>  include/linux/{entry-kvm.h => entry-virt.h} | 8 ++++----
+>  include/linux/kvm_host.h                    | 6 +++---
+>  include/linux/rcupdate.h                    | 2 +-
+>  kernel/entry/Makefile                       | 2 +-
+>  kernel/entry/{kvm.c => virt.c}              | 2 +-
+>  kernel/rcu/tree.c                           | 6 +++---
 
-The statement says that during power-up, when the supply voltages and
-clocks rise in order to become within spec, the reset signal must be
-held low. This requirement lasts for up to 5 us more after the other
-signals are in spec.
+For RCU part,
 
-> > Additionally, routing the reset signal to a host SoC GPIO does not bring
-> > any particular benefit, since the switch can be (and is) also reset by
-> > the driver over SPI.
+Reviewed-by: Joel Fernandes <joelagnelf@nvidia.com>
+
+thanks,
+
+ - Joel
+
+
+
+
+>  virt/kvm/Kconfig                            | 2 +-
+>  12 files changed, 19 insertions(+), 19 deletions(-)
+>  rename include/linux/{entry-kvm.h => entry-virt.h} (94%)
+>  rename kernel/entry/{kvm.c => virt.c} (97%)
 > 
-> I don't know the switch but it's also common that a so called
-> software-reset may not reset all registers, state machines, etc.
-
-Neither should you assume that RST_N resets everything. I can't be a lot
-more specific, but asserting RST_N at runtime is essentially equivalent
-to a cold reset as done over SPI, as done by sja1105pqrs_reset_cmd().
-
-> There it's common practice that the driver tries to pull the hw reset
-> line and if not present falls back to a software reset.
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index fe168477caa4..c255048333f0 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -10200,7 +10200,7 @@ L:	linux-kernel@vger.kernel.org
+>  S:	Maintained
+>  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git core/entry
+>  F:	include/linux/entry-common.h
+> -F:	include/linux/entry-kvm.h
+> +F:	include/linux/entry-virt.h
+>  F:	include/linux/irq-entry-common.h
+>  F:	kernel/entry/
+>  
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 713248f240e0..6f4fc3caa31a 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -25,7 +25,7 @@ menuconfig KVM
+>  	select HAVE_KVM_CPU_RELAX_INTERCEPT
+>  	select KVM_MMIO
+>  	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+> -	select KVM_XFER_TO_GUEST_WORK
+> +	select VIRT_XFER_TO_GUEST_WORK
+>  	select KVM_VFIO
+>  	select HAVE_KVM_DIRTY_RING_ACQ_REL
+>  	select NEED_KVM_DIRTY_RING_WITH_BITMAP
+> diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
+> index 40eea6da7c25..ae64bbdf83a7 100644
+> --- a/arch/loongarch/kvm/Kconfig
+> +++ b/arch/loongarch/kvm/Kconfig
+> @@ -31,7 +31,7 @@ config KVM
+>  	select KVM_GENERIC_HARDWARE_ENABLING
+>  	select KVM_GENERIC_MMU_NOTIFIER
+>  	select KVM_MMIO
+> -	select KVM_XFER_TO_GUEST_WORK
+> +	select VIRT_XFER_TO_GUEST_WORK
+>  	select SCHED_INFO
+>  	select GUEST_PERF_EVENTS if PERF_EVENTS
+>  	help
+> diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+> index 5a62091b0809..c50328212917 100644
+> --- a/arch/riscv/kvm/Kconfig
+> +++ b/arch/riscv/kvm/Kconfig
+> @@ -30,7 +30,7 @@ config KVM
+>  	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+>  	select KVM_GENERIC_HARDWARE_ENABLING
+>  	select KVM_MMIO
+> -	select KVM_XFER_TO_GUEST_WORK
+> +	select VIRT_XFER_TO_GUEST_WORK
+>  	select KVM_GENERIC_MMU_NOTIFIER
+>  	select SCHED_INFO
+>  	select GUEST_PERF_EVENTS if PERF_EVENTS
+> diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
+> index 2c86673155c9..f81074b0c0a8 100644
+> --- a/arch/x86/kvm/Kconfig
+> +++ b/arch/x86/kvm/Kconfig
+> @@ -40,7 +40,7 @@ config KVM_X86
+>  	select HAVE_KVM_MSI
+>  	select HAVE_KVM_CPU_RELAX_INTERCEPT
+>  	select HAVE_KVM_NO_POLL
+> -	select KVM_XFER_TO_GUEST_WORK
+> +	select VIRT_XFER_TO_GUEST_WORK
+>  	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+>  	select KVM_VFIO
+>  	select HAVE_KVM_PM_NOTIFIER if PM
+> diff --git a/include/linux/entry-kvm.h b/include/linux/entry-virt.h
+> similarity index 94%
+> rename from include/linux/entry-kvm.h
+> rename to include/linux/entry-virt.h
+> index 3644de7e6019..42c89e3e5ca7 100644
+> --- a/include/linux/entry-kvm.h
+> +++ b/include/linux/entry-virt.h
+> @@ -1,6 +1,6 @@
+>  /* SPDX-License-Identifier: GPL-2.0 */
+> -#ifndef __LINUX_ENTRYKVM_H
+> -#define __LINUX_ENTRYKVM_H
+> +#ifndef __LINUX_ENTRYVIRT_H
+> +#define __LINUX_ENTRYVIRT_H
+>  
+>  #include <linux/static_call_types.h>
+>  #include <linux/resume_user_mode.h>
+> @@ -10,7 +10,7 @@
+>  #include <linux/tick.h>
+>  
+>  /* Transfer to guest mode work */
+> -#ifdef CONFIG_KVM_XFER_TO_GUEST_WORK
+> +#ifdef CONFIG_VIRT_XFER_TO_GUEST_WORK
+>  
+>  #ifndef ARCH_XFER_TO_GUEST_MODE_WORK
+>  # define ARCH_XFER_TO_GUEST_MODE_WORK	(0)
+> @@ -90,6 +90,6 @@ static inline bool xfer_to_guest_mode_work_pending(void)
+>  	lockdep_assert_irqs_disabled();
+>  	return __xfer_to_guest_mode_work_pending();
+>  }
+> -#endif /* CONFIG_KVM_XFER_TO_GUEST_WORK */
+> +#endif /* CONFIG_VIRT_XFER_TO_GUEST_WORK */
+>  
+>  #endif
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index 598b9473e46d..70ac2267d5d0 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -2,7 +2,7 @@
+>  #ifndef __KVM_HOST_H
+>  #define __KVM_HOST_H
+>  
+> -#include <linux/entry-kvm.h>
+> +#include <linux/entry-virt.h>
+>  #include <linux/types.h>
+>  #include <linux/hardirq.h>
+>  #include <linux/list.h>
+> @@ -2444,7 +2444,7 @@ static inline int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+>  }
+>  #endif /* CONFIG_HAVE_KVM_VCPU_RUN_PID_CHANGE */
+>  
+> -#ifdef CONFIG_KVM_XFER_TO_GUEST_WORK
+> +#ifdef CONFIG_VIRT_XFER_TO_GUEST_WORK
+>  static inline void kvm_handle_signal_exit(struct kvm_vcpu *vcpu)
+>  {
+>  	vcpu->run->exit_reason = KVM_EXIT_INTR;
+> @@ -2461,7 +2461,7 @@ static inline int kvm_xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu)
+>  	}
+>  	return r;
+>  }
+> -#endif /* CONFIG_KVM_XFER_TO_GUEST_WORK */
+> +#endif /* CONFIG_VIRT_XFER_TO_GUEST_WORK */
+>  
+>  /*
+>   * If more than one page is being (un)accounted, @virt must be the address of
+> diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
+> index 120536f4c6eb..1e1f3aa375d9 100644
+> --- a/include/linux/rcupdate.h
+> +++ b/include/linux/rcupdate.h
+> @@ -129,7 +129,7 @@ static inline void rcu_sysrq_start(void) { }
+>  static inline void rcu_sysrq_end(void) { }
+>  #endif /* #else #ifdef CONFIG_RCU_STALL_COMMON */
+>  
+> -#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_KVM_XFER_TO_GUEST_WORK))
+> +#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_VIRT_XFER_TO_GUEST_WORK))
+>  void rcu_irq_work_resched(void);
+>  #else
+>  static __always_inline void rcu_irq_work_resched(void) { }
+> diff --git a/kernel/entry/Makefile b/kernel/entry/Makefile
+> index 77fcd83dd663..2333d70802e4 100644
+> --- a/kernel/entry/Makefile
+> +++ b/kernel/entry/Makefile
+> @@ -14,4 +14,4 @@ CFLAGS_common.o		+= -fno-stack-protector
+>  
+>  obj-$(CONFIG_GENERIC_IRQ_ENTRY) 	+= common.o
+>  obj-$(CONFIG_GENERIC_SYSCALL) 		+= syscall-common.o syscall_user_dispatch.o
+> -obj-$(CONFIG_KVM_XFER_TO_GUEST_WORK)	+= kvm.o
+> +obj-$(CONFIG_VIRT_XFER_TO_GUEST_WORK)	+= virt.o
+> diff --git a/kernel/entry/kvm.c b/kernel/entry/virt.c
+> similarity index 97%
+> rename from kernel/entry/kvm.c
+> rename to kernel/entry/virt.c
+> index 6fc762eaacca..c52f99249763 100644
+> --- a/kernel/entry/kvm.c
+> +++ b/kernel/entry/virt.c
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  
+> -#include <linux/entry-kvm.h>
+> +#include <linux/entry-virt.h>
+>  
+>  static int xfer_to_guest_mode_work(unsigned long ti_work)
+>  {
+> diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
+> index 174ee243b349..995489b72535 100644
+> --- a/kernel/rcu/tree.c
+> +++ b/kernel/rcu/tree.c
+> @@ -573,7 +573,7 @@ void rcutorture_format_gp_seqs(unsigned long long seqs, char *cp, size_t len)
+>  }
+>  EXPORT_SYMBOL_GPL(rcutorture_format_gp_seqs);
+>  
+> -#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_KVM_XFER_TO_GUEST_WORK))
+> +#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_VIRT_XFER_TO_GUEST_WORK))
+>  /*
+>   * An empty function that will trigger a reschedule on
+>   * IRQ tail once IRQs get re-enabled on userspace/guest resume.
+> @@ -602,7 +602,7 @@ noinstr void rcu_irq_work_resched(void)
+>  	if (IS_ENABLED(CONFIG_GENERIC_ENTRY) && !(current->flags & PF_VCPU))
+>  		return;
+>  
+> -	if (IS_ENABLED(CONFIG_KVM_XFER_TO_GUEST_WORK) && (current->flags & PF_VCPU))
+> +	if (IS_ENABLED(CONFIG_VIRT_XFER_TO_GUEST_WORK) && (current->flags & PF_VCPU))
+>  		return;
+>  
+>  	instrumentation_begin();
+> @@ -611,7 +611,7 @@ noinstr void rcu_irq_work_resched(void)
+>  	}
+>  	instrumentation_end();
+>  }
+> -#endif /* #if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_KVM_XFER_TO_GUEST_WORK)) */
+> +#endif /* #if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_VIRT_XFER_TO_GUEST_WORK)) */
+>  
+>  #ifdef CONFIG_PROVE_RCU
+>  /**
+> diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
+> index 727b542074e7..ce843db53831 100644
+> --- a/virt/kvm/Kconfig
+> +++ b/virt/kvm/Kconfig
+> @@ -87,7 +87,7 @@ config HAVE_KVM_VCPU_RUN_PID_CHANGE
+>  config HAVE_KVM_NO_POLL
+>         bool
+>  
+> -config KVM_XFER_TO_GUEST_WORK
+> +config VIRT_XFER_TO_GUEST_WORK
+>         bool
+>  
+>  config HAVE_KVM_PM_NOTIFIER
+> -- 
+> 2.51.0.268.g9569e192d0-goog
 > 
-> > So, at least for this particular switch, having a "reset-gpios" actively
-> > points towards a potential violation of its POR timing requirements.
-> 
-> Really? Please see my above comment.
-> 
-> > That is, unless the power rails are also software-controlled. But they
-> > aren't.
-> 
-> AH1704 Fig.10 just illustrate a reset and power-on sequence. I highly
-> doubt that the host can't pull the hw rest line if the supplies and the
-> clock is already running.
-
-I didn't say that it can't pull the reset line if the supplies/clocks
-are in spec.
-
-I said that _while the supplies and clocks aren't in spec and 5 us after
-they become in spec_, RST_N has to be kept low.
-
-And if you plan to do that from the GPIO function of your SoC, the SoC
-might be busy doing other stuff, like booting, and no one might be
-driving the RST_N voltage to a defined state.
-
-It really depends on a lot of factors including the reset timing and
-supply voltage distribution of the PCB, but RST_N has essentially 2
-purposes. One is ensuring proper POR sequencing, the other is cold
-resetting at runtime. You can do the latter over SPI with identical
-outcome, which leaves proper POR sequencing, which is not best served by
-a GPIO in my experience.
-
-> You're right about the fact that the driver is currently not able to do
-> a proper power-on sequence, so the kernel relies on the prev. firmware
-> or the hw-setup. But this is another problem.
-> 
-> Regards,
->   Marco
 
