@@ -4,151 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA0FCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 11:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA23CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 11:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HCBsG25MpOzEykkbBH/E55NK+Tl8cYqZNEQJun7ve6c=; b=JvRPMS4pqxOFstIxVJKGSZ3q53
-	nX1kFgrP2ZPfREKEM0Jktxq/PR61ShzS1R0c/uxCGcFQX46pJkrAZmJGldoe9iT3PNK6iT1gta5ei
-	QfBoxJpd9D9I3Y3AipVVmAUHV6VGWAYe282rx+Ptcmw0/JMhfo394oB3O1D78wUNZc77e/DLNFdlx
-	wwuhce5a5FnvulXebP5+ODV8rc6LlRXLOpSguIYNNa0f/2WRMrH4nOOnP+CjvDo5yFiSB2r+7mIXE
-	NlOpxTidlwyJbkl8HqzcHM8yMcgHUcZu9hcDdy46+2wNH05I4FbHmuqkcslYHTZ8pvapF2XP+zoNv
-	h8FRxr8A==;
+	bh=8e1QkZ3TtfMf4WlUBEPYzMhI8CHEjV1bWCFb6PAp4Kk=; b=XeXJQmplLUXVuGLLKc6wccqCdM
+	AHiNKuENYpTdVLkylBCHoEOfUxfJ0kd7bUuJhzfGMf5jJbLjqB6XOqGm4LvGyC1syd2YMnysWosDo
+	SQJvSQqGe9WrCI/rcLRKCwi9SVU6E/guzN9S/NtwDKbI2WJvcwuUQq3KSiSTeJhFo5hYXmOdWYfxU
+	Pyo9btekcpAj1MHTLf/rR1y92k/o8NIlTokN77pW8q8H65M8BRFZ+nBkhLErf0y6YnyOsPsx/Cie3
+	8GtfqOECWgw9Dyz4CTSGPcFR4QsuLuZ+W+yGrjy5++eCEptfqppBFq0B8GkwYGygSKKCWCmXnfC+d
+	Q6pqxyvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJ3e-0000000DqlG-3wD5;
-	Wed, 10 Sep 2025 11:32:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uwJ9N-0000000DsXa-3hm3;
+	Wed, 10 Sep 2025 11:38:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJ3d-0000000Dqkh-41T9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 10 Sep 2025 11:32:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=HCBsG25MpOzEykkbBH/E55NK+Tl8cYqZNEQJun7ve6c=; b=m1oYLV7hvAo1nIOZwBL7Zju4lm
-	egWBAK0qUqBq18c0YVIhz7ucAQDgagOhGFBX8Q5DNHo6vOlAATMuPf5tgWw04k6AjhOFuVaHVgx+e
-	N2geabJtDYuAWmE4VxLGVrH2Yc24G7xFTJ7nd+o/ubK19BMLjAgWNlkl9tOMfMO5DEu77Cv/j6IPX
-	oDALriLw77C8q2KHOgyyj1CDiBt7/vEP+J3u9L7inhlGOPRspaODQ9ocTZuXfTkFWYZA0poKCFXmf
-	8rJyGeqdnSyQ+x5Q8oQ35Go6SKjCqTpxTUaMmJYrkaLVRhgnI15dUMn5O+Zh4e/b4tFpfvlOLGeJA
-	tQ5mnLaA==;
-Received: from smtp-out1.suse.de ([195.135.223.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwJ3a-00000005qeT-3how
+	id 1uwJ9L-0000000DsWs-3t8y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 11:32:12 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 49AEE37A4B;
-	Wed, 10 Sep 2025 11:32:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1757503928; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HCBsG25MpOzEykkbBH/E55NK+Tl8cYqZNEQJun7ve6c=;
-	b=XmnRsdoEWSmHkxJ1H9lzOvkpCZYMa6WLSfsDtAxJY30k6xTQFxckNOIY4ufGNaRpi8+5C3
-	IKeWOXF6wbBVHMqn7q047noRuDFmXieWQBPw6YCCJ43H7ScRHyE4Z2VmuY0AJqIAymBO2H
-	xqj3QIX4OkuVk7Wd6niCWzizhXjzj8s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1757503928;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HCBsG25MpOzEykkbBH/E55NK+Tl8cYqZNEQJun7ve6c=;
-	b=WQjoJjmBTrX+O1EvjPGtvjn5usQYCywN/2Ula2eTN2NSj/81PoGIuI6wvkG6QKQau4ywGD
-	1thQuYUdbHo38xDA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1757503928; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HCBsG25MpOzEykkbBH/E55NK+Tl8cYqZNEQJun7ve6c=;
-	b=XmnRsdoEWSmHkxJ1H9lzOvkpCZYMa6WLSfsDtAxJY30k6xTQFxckNOIY4ufGNaRpi8+5C3
-	IKeWOXF6wbBVHMqn7q047noRuDFmXieWQBPw6YCCJ43H7ScRHyE4Z2VmuY0AJqIAymBO2H
-	xqj3QIX4OkuVk7Wd6niCWzizhXjzj8s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1757503928;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HCBsG25MpOzEykkbBH/E55NK+Tl8cYqZNEQJun7ve6c=;
-	b=WQjoJjmBTrX+O1EvjPGtvjn5usQYCywN/2Ula2eTN2NSj/81PoGIuI6wvkG6QKQau4ywGD
-	1thQuYUdbHo38xDA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4A8F313301;
-	Wed, 10 Sep 2025 11:32:07 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Ad7ZD7dhwWgQaAAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Wed, 10 Sep 2025 11:32:07 +0000
-Message-ID: <0142ac69-f0eb-4135-b0d2-50c9fec27d43@suse.de>
-Date: Wed, 10 Sep 2025 14:32:05 +0300
+	Wed, 10 Sep 2025 11:38:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3DE60601A8;
+	Wed, 10 Sep 2025 11:38:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4748C4CEF0;
+	Wed, 10 Sep 2025 11:38:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757504286;
+	bh=H+cpuJnEjkESdTqGIDVuWl00VkrtTa/nkD9qbFllBCI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FfPZQfsNXbXv6y35pYDhWX+5Zjk64AvkcpYSkIifD/Y2Xl2DrCrXWLuhlUoAVfzsk
+	 1a3o9EMT/Mp/91wHt2Gkz99nxzAxtTTvytDGKJPGqJ4V9WqPpPF/eUunT+rdgTRf6e
+	 HqC4rx1qjv4qLNksGXNbaIfwlsaBVJ4X9tuNIG0xmSP1n+0hwLq1fyLcjl7c7vmKJe
+	 jcC5TzvYFfeaSDFefbX4b0sh3Z11dfclRfVyYnSiRWAcfmSHdBLz/GiOB/LWJBTxFj
+	 ErerGqEP3NGVQuwzeWDdUvRoI7/b/AMpIO846ZJg+0PGDHxVZnu20PrYZ/G01y1tIj
+	 7di2CT2XKxWIA==
+Message-ID: <5a087d08-273e-4740-b47d-fc25be952ebd@kernel.org>
+Date: Wed, 10 Sep 2025 13:38:01 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] net: cadence: macb: Add support for Raspberry Pi
- RP1 ethernet controller
-To: Stanimir Varbanov <svarbanov@suse.de>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Jakub Kicinski <kuba@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Andrea della Porta <andrea.porta@suse.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Phil Elwell
- <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>, Andrew Lunn <andrew@lunn.ch>
-References: <20250822093440.53941-1-svarbanov@suse.de>
- <20250822093440.53941-4-svarbanov@suse.de>
+Subject: Re: [PATCH v3.1] media: dt-bindings: Add qcom,qcs8300-camss
+ compatible
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, bryan.odonoghue@linaro.org,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andersson@kernel.org, konradybcio@kernel.org,
+ hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+References: <20250813053724.232494-2-quic_vikramsa@quicinc.com>
+ <20250910104915.1444669-1-quic_vikramsa@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <20250822093440.53941-4-svarbanov@suse.de>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250910104915.1444669-1-quic_vikramsa@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[23];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[dt,netdev];
-	ARC_NA(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	URIBL_BLOCKED(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo,raspberrypi.com:email,lunn.ch:email];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_123211_091711_1723817A 
-X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,29 +121,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
-
-On 8/22/25 12:34 PM, Stanimir Varbanov wrote:
-> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+On 10/09/2025 12:49, Vikram Sharma wrote:
+> Add the compatible string "qcom,qcs8300-camss" to support the
+> Camera Subsystem (CAMSS) on the Qualcomm QCS8300 platform.
 > 
-> The RP1 chip has the Cadence GEM block, but wants the tx_clock
-> to always run at 125MHz, in the same way as sama7g5.
-> Add the relevant configuration.
+> The QCS8300 platform provides:
+> - 2 x VFE (version 690), each with 3 RDI
+> - 5 x VFE Lite (version 690), each with 6 RDI
+> - 2 x CSID (version 690)
+> - 5 x CSID Lite (version 690)
+> - 3 x CSIPHY (version 690)
+> - 3 x TPG
 > 
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> ---
->  drivers/net/ethernet/cadence/macb_main.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
+> Co-developed-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 
-This patch is missing in net-next but ("dt-bindings: net: cdns,macb: Add
-compatible for Raspberry Pi RP1") from this series has been applied.
+Do not attach (thread) your patchsets to some other threads (unrelated
+or older versions). This buries them deep in the mailbox and might
+interfere with applying entire sets. See also:
+https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
 
-Could you take this patch as well, please.
+Please version your patches correctly, e.g. use b4 or git format-patch
+-vX, and add changelog in cover letter or under '---' of individual
+patches describing changes from previous version.
 
-reagrds,
-~Stan
+What is v3.1? How to compare it? Try yourself:
 
+b4 diff '<20250910104915.1444669-1-quic_vikramsa@quicinc.com>'
+Grabbing thread from
+lore.kernel.org/all/20250910104915.1444669-1-quic_vikramsa@quicinc.com/t.mbox.gz
+Breaking thread to remove parents of
+20250910104915.1444669-1-quic_vikramsa@quicinc.com
+---
+Analyzing 2 messages in the thread
+Could not find lower series to compare against.
+
+Best regards,
+Krzysztof
 
