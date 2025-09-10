@@ -4,113 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D83CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F134CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 08:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0rZKk715MphIl7qDOALZG/NuLOCsWV14GwxWgqDzjhg=; b=SVjwtTk09XrG6bSba/fhjlCjjM
-	SdLegoddqDWYXGPd/9Ym628UpCnQkt+RjDn5HuWYjMBcLWtCGfn0vA/DjoV8/toTvcIzgSV1bUyny
-	knGFk+aGRlgdJBSWc7/VZBupupIy/uMotmyh4e3x72650ZRCAKL8yizrpsx7qL8TX7q3EXpyNd0A5
-	e9FaHGXAnV9yO7/sDjWUwjohIRuRyq27LuiaxlrlpwJMDdb7i1g0B36ld0T8dc0Eouff2GKwWDfte
-	MhohcJbfEQdB7AE9kblyeymcz5b4e2U9XjmHcRVaketUwZERau36YsQarmJ0zDBq1c8cKMHKCFVqB
-	X68M2K4w==;
+	bh=KqQTO7J8IXqN9vAcLVgY3d5F9rknNkij3bxVPhqfjmY=; b=tdFn0GN2oF5YcdWMEyw1OT1vaK
+	Rps6doMgZd1nzLMJrbJ+Pg3B048bPwBIjahz3IMAsaPDVvlCWxhrDxaQbBOEAtPr0lFxJ4KkJyluW
+	NCtLTvsXqz3iLoNEfbMLfI6+OXZpx8zMwRP6llMYpAULYvtw23sZ2UPm3qKTWGlZPVVOgN+s3ElE+
+	gtUA5muOPMR0hRhwE1+G62rb5zA/cxqC/fZR2iywaT5xlJva13Hxd+rCng09SXGdPrFDHpbcBhC9j
+	XmsriIE5DJoXCkiFrcpSrnYzkRcr2VzZVcvOKfxF3hu5SXNL8GJn6I1QW9Zm7wM7qAEL0Gvex7Wfy
+	+KJQB0pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGYl-0000000D3QF-3mqv;
-	Wed, 10 Sep 2025 08:52:11 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uwGZJ-0000000D3gM-0uZO;
+	Wed, 10 Sep 2025 08:52:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwGYj-0000000D3P3-3WaD
+	id 1uwGZI-0000000D3fx-1Bva
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 08:52:11 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58A7ciZu013177;
-	Wed, 10 Sep 2025 08:52:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0rZKk715MphIl7qDOALZG/NuLOCsWV14GwxWgqDzjhg=; b=dKE0V2m9R2nwMVbN
-	W9nbBEMIAVNN/MT7gxZmOS/yX8u/B506G4ywRCUP3zU/mWvfF4uePGNg8VShdXjm
-	b3vtXWa5xPvWUnk3TXX1kRo3ObZfozujxW8iet1KSDq5sUKf8M5ElrvmWJWDa/pQ
-	SUVmHu1jE/T4zvGzfH6PtQdeEho3DgiuE8kDkM1WYHxvv7O/8Zvp2N7hc4KP9Nf4
-	PLtXqSMqRQnnRqitGMJHyBAwZnSb5OYGZG9HNxhCENv3SsYtx/RkfuXV/69slgV7
-	v+ov7j8Vrgup3IsuN+LVRYqpipDtohTnj09Pn2ZofIgNBon8ALOElL1heHK2M+8E
-	7Z7r1w==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490by9391v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 10 Sep 2025 08:52:01 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 58A8q0Q9029592
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 10 Sep 2025 08:52:00 GMT
-Received: from [10.204.66.168] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Wed, 10 Sep
- 2025 01:51:55 -0700
-Message-ID: <0519a8ce-9edf-4510-ada2-f8ac997142cf@quicinc.com>
-Date: Wed, 10 Sep 2025 14:21:52 +0530
+	Wed, 10 Sep 2025 08:52:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B07756023C;
+	Wed, 10 Sep 2025 08:52:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10FCFC4CEF0;
+	Wed, 10 Sep 2025 08:52:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757494363;
+	bh=BGCsHd+sg36gGyPa8SrCibmlCLKwotYFCrxqqP26p6Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=S6vHoYKeSk8MIXhXJzqr1LQqqFGmpmjzi/79DZqOcOtTzjbZMnm6O7dTD9celLsjL
+	 DMQJbrwzWYZiLJyrkzYd5477RMxn6wBgEEYSSuVZYq8D27hdo0m2DtvAGrnAL0VX/s
+	 wHKkS3tlj1QET/xQ00lWdTjZ67DXncQOPL1sGvqQVHwhH0ab9qpXb+vmp7ibsRXI2Y
+	 y4+7LEi/MPF8RMIvW4LgLCFkqhqV4OI07ai9LfAkDWK6SByCpFQS/BzExXkewcYlwh
+	 y0YRXJIkyv+l3bZ2PEE58unVkWp9KdM8Lt+8gp/8v0wv8dd4MhKVmy7Hhtfi72cqoW
+	 Rdirkp40HEYXA==
+Message-ID: <d084b27b-eea0-48a1-a8a6-171280bec69f@kernel.org>
+Date: Wed, 10 Sep 2025 10:52:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/7] media: dt-bindings: Add qcom,qcs8300-camss
- compatible
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        <rfoss@kernel.org>, <todor.too@gmail.com>, <mchehab@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>,
-        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
-        <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250813053724.232494-1-quic_vikramsa@quicinc.com>
- <20250813053724.232494-2-quic_vikramsa@quicinc.com>
- <f1e3c3a9-9929-477a-b1ad-e485c059cbc2@linaro.org>
- <d16d40ab-8a35-4886-b11f-2eee15849e1c@quicinc.com>
- <8c1163ad-6e65-450b-ae44-c9a71a045333@kernel.org>
- <c7635e11-d606-4e65-b48e-d8c26ee7be1d@linaro.org>
+Subject: Re: [PATCH v6 05/20] dt-bindings: memory: factorise LPDDR props into
+ SDRAM props
+To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+Cc: Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+ Julius Werner <jwerner@chromium.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Jonathan Corbet <corbet@lwn.net>, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+References: <20250909-b4-ddrperfm-upstream-v6-0-ce082cc801b5@gmail.com>
+ <20250909-b4-ddrperfm-upstream-v6-5-ce082cc801b5@gmail.com>
+ <20250910-flat-raptor-of-temperance-5e8c7c@kuoka>
+ <899eb863-6b6d-42f0-9e7c-e2020ee45f4d@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-In-Reply-To: <c7635e11-d606-4e65-b48e-d8c26ee7be1d@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <899eb863-6b6d-42f0-9e7c-e2020ee45f4d@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=Yv8PR5YX c=1 sm=1 tr=0 ts=68c13c31 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=COk6AnOGAAAA:8
- a=KKAkSRfTAAAA:8 a=OqfOb5s0SZ9nmLY6dkYA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: fCr68L5rnFUi9sB9RN9zGByK1whVVHQy
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAxOCBTYWx0ZWRfX/AZSDUi394aH
- PDhdEK863RkwanZgf9uhCl6xqFAXCruwjh5vNL8c2+Mvj2BPywdlf775yA9/XvqsNbfDN1HGLcR
- TQbHpVX5HDMrzN5cNvRKellQwSK8iavDnhaSntF7Ez3ipNmDLh8KHYtP2FVQP3XDLBvUdmGWUnV
- eCCcIsKWyDUWzzXUaf8CwJV3YvFujn1X0R03aGNxeg7NkzF3zRtXhLjvc7dwz4J2KzG8L5JIV+I
- tJEucaOa/HkM/B2Nk4d0/44+iW4pc854iSRWfzdxoVXmeF2z6tF+1a7Vk9mrNJPz/AcAs+RZ22I
- qUrn6fTeBg68i89nVUWMC0A4uQp4Ei39vD3xG7+n4Fi/npgbQCXqRbzrfrxG0aap4WGP+EVu/1O
- IU79dXkd
-X-Proofpoint-ORIG-GUID: fCr68L5rnFUi9sB9RN9zGByK1whVVHQy
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-09_03,2025-09-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 malwarescore=0 suspectscore=0 phishscore=0 clxscore=1015
- spamscore=0 priorityscore=1501 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060018
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_015210_000009_0E20F90C 
-X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,81 +129,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/09/2025 10:41, Clément Le Goffic wrote:
+> On 10/09/2025 09:54, Krzysztof Kozlowski wrote:
+>> On Tue, Sep 09, 2025 at 12:12:12PM +0200, Clément Le Goffic wrote:
+>>> From: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>>
+>>> LPDDR and DDR bindings are SDRAM types and are likely to share the same
+>>> properties (at least for density, io-width and reg).
+>>> To avoid bindings duplication, factorise the properties.
+>>>
+>>> The compatible description has been updated because the MR (Mode
+>>> registers) used to get manufacturer ID and revision ID are not present
+>>> in case of DDR.
+>>> Those information should be in a SPD (Serial Presence Detect) EEPROM in
+>>> case of DIMM module or are known in case of soldered memory chips as
+>>> they are in the datasheet of the memory chips.
+>>>
+>>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>
+>> Is this email defunct now, that you add second SoB?
+> 
+> Yes, but I still want to upstream it and was thinking to keep the 
+> "original" author even if it is me.
+> Am I wrong here ? What should I do ?
 
-On 9/10/2025 2:12 PM, Bryan O'Donoghue wrote:
-> On 10/09/2025 08:42, Krzysztof Kozlowski wrote:
->> On 10/09/2025 09:26, Vikram Sharma wrote:
->>>
->>> On 9/10/2025 12:35 PM, Krzysztof Kozlowski wrote:
->>>> On 13/08/2025 07:37, Vikram Sharma wrote:
->>>>> Add the compatible string "qcom,qcs8300-camss" to support the
->>>>> Camera Subsystem (CAMSS) on the Qualcomm QCS8300 platform.
->>>>>
->>>>> The QCS8300 platform provides:
->>>>> - 2 x VFE (version 690), each with 3 RDI
->>>>> - 5 x VFE Lite (version 690), each with 6 RDI
->>>>> - 2 x CSID (version 690)
->>>>> - 5 x CSID Lite (version 690)
->>>>> - 3 x CSIPHY (version 690)
->>>>> - 3 x TPG
->>>>>
->>>>> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>>>> ---
->>>>>    .../bindings/media/qcom,qcs8300-camss.yaml    | 336 
->>>>> ++++++++++++++++++
->>>>>    1 file changed, 336 insertions(+)
->>>> So it turns out this code is wrong and you already sent fixes for it.
->>>
->>> Hi Krzysztof,
->>> Thanks for your comments. These bindings are tested with TPG (Test 
->>> Pattern Generator), As camera sensor testing was not possible at 
->>> that point.
->>
->> You cannot test bindings with TPG. It's impossible.
->>
->>> This is because Monaco-evk kit was not ready which can be used to 
->>> enable sensor.
->>>
->>> These Bindings are complete in its own, If someone want to use TPG.
->>
->> No. You do not understand - they are not complete if you add new
->> properties to them!
->>
->> How bindings could be complete if you add now supplies!?!?
-Got it, Will post an updated version of this adding supplies and 
-removing your RB.
->>
->>>
->>> My latest update in these bindings are for camera sensor enablement 
->>> which needs supplies too.
->>>
->>> Please let me know if this justification works to accept these 
->>> bindings it its current form and add supplies as a separate patch.
->>
->> NAK. Read writing bindings doc. Or internal docs.
->>
->> Best regards,
->> Krzysztof
->
-> @Vikram
->
-> Could you send an updated dt-bindings with the supplies included ASAP 
-> as a v4 of this series ?
-on it, Will Remove your RB and send v3.1 for this patch
->
-> The -supplies in your email here look fine
->
-> 20250909114241.840842-5-quic_vikramsa@quicinc.com
->
-> Otherwise we will have to drop this binding and the associated driver 
-> changes.
->
-> ---
-> bod
+
+It's fine, I just wanted to clarify this.
+
 
 Best regards,
-
-Vikram
-
+Krzysztof
 
