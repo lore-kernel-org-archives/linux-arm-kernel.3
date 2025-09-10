@@ -4,63 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CEFCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C9CCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SeySZ0JrfbyMlKG4cakrr6ebG6d1LF1xWu6LrQAgM90=; b=wCJvG1b4mrO40leGUcxHwlFIG+
-	gdrMLrZbwjESPvple6ONDqu59yHtbkALRydKt74U7o34EyDqxp1Nk2y+SbZB/JH0saADYdzqB9FCG
-	+2JN2xcEukcpOp20AAvnNYO/sTUSoGVEfxXhi7e00Id3Qpe78eLe9KJtEbCIodrGWjsveB0QXw4VR
-	G+hJA3fxRdhpGgtv/2gpzHz87rMw01bllZi7HrH6MmTftraa2wPkRwzKruA6+wy+WCtFFfie5bDrU
-	7eecVscv4PRA/vY/FXvk3uVfBa3VLMG35pu9LK1CZ2/zSUrWPt0Mq+eBJVuhELO7DASb/n1iEqYpT
-	lHtomhuQ==;
+	bh=7SPyBZ+XNOpA+kY+XaEz6MPIv1+Ski/92rHE83dCRQM=; b=Lk4gNYxvJargtdDDJGDKhSBOCS
+	SOjQ1dM781kxKx+QJhc9BaOAvp0nmDc1bJHLsRDSMgAU0YYXXoDwhOOMl/LH7tIwYSutjlKG5rujW
+	+DVDW9moH3ILfGkqeRz8E3PFPwFGLm9UI9KcggiD/W5wbJ8yx0ViyDTI16rDPjEWz4JZyTFzWrcoY
+	wsb38xs5T0ZynAD83xOOM8Hqh4zFhFB4/K95CbRGzwM1GY7GD3FHnNmDI7nOtZuE2F/BL5+0X9coK
+	rA47uB3RSxP+Hf1WjkiMFJ/K1i7ylyWBgjEwoLriWlg5HXBe1y1tNOCnqBp3RbfbnhKfhiWcFYOXg
+	TCN/Du1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFTe-0000000Ce0Z-1MGF;
-	Wed, 10 Sep 2025 07:42:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uwFUx-0000000CeX7-35Me;
+	Wed, 10 Sep 2025 07:44:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwFTb-0000000Cdz9-1rUC
+	id 1uwFUw-0000000CeWe-0ZPx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 10 Sep 2025 07:44:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=7SPyBZ+XNOpA+kY+XaEz6MPIv1+Ski/92rHE83dCRQM=; b=Z8zp9zHLf9HbQEXe6Ba/7sl6PP
+	uBu1wqo1RfE4180SP+IaBrxpdvoCbUscOrioelh6kiL1rr4N2hD16QspoRrFgQwFPTNqebxyfdZX/
+	eEHklOpVvm/iM3gkZCugICVWFNQ8Q6OQwq4uzCaKAUlc5b9wTxbBUIJdDQQjrVrFlSJvJeVnnKKa0
+	8diRUMzAurOEUFHuljvNm2hRZsSwqqQvU+yS24btoKzQfWCj2TZND00UOryLOoJmIutjkw/VS26LU
+	sz34u6OOG9BFTVMdePpfVtklU3U1EX0F/NLWypzeQl7odIWcyXNNry5hOz8ZLqufpxgDW2xaN6yDS
+	fJGRPThA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwFUs-00000005mVE-3La1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 07:42:48 +0000
+	Wed, 10 Sep 2025 07:44:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1599840787;
-	Wed, 10 Sep 2025 07:42:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55FF1C4CEF0;
-	Wed, 10 Sep 2025 07:42:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6771F43AFE;
+	Wed, 10 Sep 2025 07:44:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A722C4CEF0;
+	Wed, 10 Sep 2025 07:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757490166;
-	bh=+4M6tsS1noq3CdhW7Sll0jWiqizEr50fsdQiGPuss64=;
+	s=k20201202; t=1757490245;
+	bh=vhA146lvkec3HC3Joxhiwid2YmBF/nfJVgyKveiDn8s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vAJUqusDyMsHxoK8/VpNOPxDfF73Vsb5zgcHKHvT1CcG3cK5iVZnu8lkO/Qa2YuH3
-	 NWn8HkwuCZZ2hJZ3wVIFuJ5kaPKNWOITD8oZyeeU0kShMhymQngMwsN6coIH9ZoEYP
-	 is6HvqnlJrCFcbUUdYeqdOcADhFeGv/8eVljf7nJ8Mb+vDzmOrASFHLcToG2jK6bNE
-	 w94+SBOG+jH8E7QBQeTtHF1QQUQB3DeEZLfdL/0DOUQgc9tsDSfhHzmbuXL/9QBcwy
-	 5JdHI1DUdQtUzGcAMq9fwGR+D3AeWkZ28a9K/OuhTDezF9E86ioO8jsDQyWjo3dbKR
-	 rLBOzcWnlZNbA==
-Message-ID: <8c1163ad-6e65-450b-ae44-c9a71a045333@kernel.org>
-Date: Wed, 10 Sep 2025 09:42:40 +0200
+	b=go2TuMztyzqu7CED12rV9+Tu29j0TGK4JMAthkEJnfcvKdLmzQ3tnJHQf+4EZSkAk
+	 RLgjWzNn6WK6DEZ3zASy7yFqpSl/QlDHhOeus6TlGGDTGr7XbicJe4nTmdYcyk/Ge/
+	 1wh/+PGiv/6Af29Rxmisnea+cIWjwlUtqRROKMKKO8dE3HFqJQ8MT2zQ5RlI9P+vzW
+	 gopjgmVAL3qnSrJj/DTsxaMCwzKcGZILIUb+A05kuusjI52EKE8R6nXgwdwylIrzDp
+	 Hdp+9no22ZjzR8IIxNVbMHv0fi/E5gsGy6VNfeHQuC/sgoAYmUVhv+vbMX+gB6EFf2
+	 /zXS8JrEvZ4lg==
+Message-ID: <f9fc4b59-bdcd-4983-b7c2-0fec94e62176@kernel.org>
+Date: Wed, 10 Sep 2025 09:44:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/7] media: dt-bindings: Add qcom,qcs8300-camss
- compatible
-To: Vikram Sharma <quic_vikramsa@quicinc.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, rfoss@kernel.org,
- todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250813053724.232494-1-quic_vikramsa@quicinc.com>
- <20250813053724.232494-2-quic_vikramsa@quicinc.com>
- <f1e3c3a9-9929-477a-b1ad-e485c059cbc2@linaro.org>
- <d16d40ab-8a35-4886-b11f-2eee15849e1c@quicinc.com>
+Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
+ AST2600-i2cv2
+To: Jeremy Kerr <jk@ozlabs.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ Mo Elbadry <elbadrym@google.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "joel@jms.id.au" <joel@jms.id.au>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>
+References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
+ <d1b184c5-84c1-4d76-a1d0-a9f37f1e363c@kernel.org>
+ <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <069b9fe4-c54a-4efd-923e-1558c59fe3f4@kernel.org>
+ <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <677cb075-24ae-45d8-bfb4-9b23fbacc5df@kernel.org>
+ <OS8PR06MB7541C3B70B15F45F4824772BF2D92@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <994cb954-f3c4-4a44-800e-9303787c1be9@kernel.org>
+ <SI6PR06MB753542037E1D6BBF5CE8D2E7F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
+ <4523caea-3406-4de0-9ab5-424fb7a0a474@kernel.org>
+ <SI6PR06MB7535BAD19B51A381171A0E64F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
+ <8e8aa069-af9f-453f-9bd0-e3dc2eab59ab@kernel.org>
+ <OS8PR06MB7541FD8691B43EA33BDC1D22F2A72@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <99053328-a117-493e-b5f3-00902669c8e7@kernel.org>
+ <44ef5c93448a3625fcfd003b47a516e8ba795b62.camel@ozlabs.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +139,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <d16d40ab-8a35-4886-b11f-2eee15849e1c@quicinc.com>
+In-Reply-To: <44ef5c93448a3625fcfd003b47a516e8ba795b62.camel@ozlabs.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_004247_529171_A883E337 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20250910_084407_458210_D4AEBC27 
+X-CRM114-Status: GOOD (  21.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,48 +159,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2025 09:26, Vikram Sharma wrote:
+On 10/09/2025 09:25, Jeremy Kerr wrote:
+> Hi Ryan & Krzysztof,
 > 
-> On 9/10/2025 12:35 PM, Krzysztof Kozlowski wrote:
->> On 13/08/2025 07:37, Vikram Sharma wrote:
->>> Add the compatible string "qcom,qcs8300-camss" to support the
->>> Camera Subsystem (CAMSS) on the Qualcomm QCS8300 platform.
->>>
->>> The QCS8300 platform provides:
->>> - 2 x VFE (version 690), each with 3 RDI
->>> - 5 x VFE Lite (version 690), each with 6 RDI
->>> - 2 x CSID (version 690)
->>> - 5 x CSID Lite (version 690)
->>> - 3 x CSIPHY (version 690)
->>> - 3 x TPG
->>>
->>> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>> ---
->>>   .../bindings/media/qcom,qcs8300-camss.yaml    | 336 ++++++++++++++++++
->>>   1 file changed, 336 insertions(+)
->> So it turns out this code is wrong and you already sent fixes for it.
+> [my response is intended to make progress on the newer v18 submission,
+> but we still have this item from v16 to resolve, hence picking up this
+> thread]
 > 
-> Hi Krzysztof,
-> Thanks for your comments. These bindings are tested with TPG (Test Pattern Generator), As camera sensor testing was not possible at that point.
+>> Your compatible already expressed that there are two interfaces, so
+>> your drivers can just choose whichever they want. If you need to toggle a
+>> bit in system controller, it is fine. If you need different compatible,
+>> then that's a NAK.
 
-You cannot test bindings with TPG. It's impossible.
+You trimmed response and brought some very old thread which does not
+exist in my inbox.
 
-> This is because Monaco-evk kit was not ready which can be used to enable sensor.
-> 
-> These Bindings are complete in its own, If someone want to use TPG.
-
-No. You do not understand - they are not complete if you add new
-properties to them!
-
-How bindings could be complete if you add now supplies!?!?
+I have absolutely no clue what this refers to.
 
 > 
-> My latest update in these bindings are for camera sensor enablement which needs supplies too.
+> I think the mention of "two register interfaces" is a bit misleading
+> here; it implies that it's just two interfaces to the same hardware.
 > 
-> Please let me know if this justification works to accept these bindings it its current form and add supplies as a separate patch.
+> From reading between the lines on the datasheet, it seems that this is
+> two completely separate IP cores, that:
+> 
+>  * are mapped to the same MMIO space; but
+>  * both happen to be I2C controllers.
+> 
+> - where the single "global register" (which you mention above) provides
+> the facility to mux the MMIO mapping between the two. Some versions of
+> the overall SoC have only the old core, some have only the new, and some
+> have both, selectable via this register.
+> 
+> Ryan, can you confirm whether this is the case?
+> 
+> Given there are actual behavioural differences between the two
+> peripherals - beyond just the register set - that would seem to indicate
+> separate binding types (+ a syscon mux control) to me, but I'm keen to
+> hear any other options.
+> 
+> Krzysztof, if that is the case, any thoughts on the representation of
+> separate bindings?
 
-NAK. Read writing bindings doc. Or internal docs.
+
+I have no clue what is this about.
+
 
 Best regards,
 Krzysztof
