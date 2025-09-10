@@ -4,111 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE4F3CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 22:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603ECCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 22:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k+pRF4YDkBDpu0q0XohqilWJxU+Cw/6tcedpHDHdQxs=; b=PO+aqnrF49Vz8GuLnzQkT/mHZ8
-	tcc9FoW61QoQ8RUr/yKO7r8oXCyuIlaIFS8YQzk/ujpfVtnXmXplHfcIiccIEa9d/w6tApe+8M2bP
-	gFag6LnelZsgF9ChSyBcHplK4+exnm11QltDhR2BFoEApixRn80c5tbzECrKlee3yGTBFQRypGhCu
-	JwrrCUQveUDZ3hckHZMZD4sFt2lJi1ex9ajKGHl73O7CtoEAqkz/z/TgMX8GoUIp2yaL4AX2hHWsz
-	jaT0GhrELOjh3RGYeyyPe6wkk5ZEnM5R3cASkjUybEqvnT+/eqKmgyQdjHcdkVrag94aEXzBoigQb
-	ChJNgP9g==;
+	bh=DYkMluAXoUU9ziRsn/K2ST3c55WCNeely9VEl19vgTc=; b=MMrggwdSmau8YKH9CezLvIJmw6
+	vYBkDVY/fGK6uadO5rzD/ffL4JzgqlFTaPjSWKGVhR3se5sYEcKE3rYm+plTj1HTT8IbIUH9kQUSl
+	5cyst6gDnV4d6SBJlhsyxidbsMQq+k5XTN6rNBeq4WtN3mJ77AK7e7f4SoYfUmLKa+noerh/qFNde
+	FuZCQ25IJ9oWnRLg2T2HbLfPuilP/rT/sNCnk7J55l0evoQrNrum5w4VRm3xyyloO9qje/orOiLoa
+	dpT2eU0L/40R8Wm0lSYPwtwwk5AW6/W05kxq2YRpp0NwqVjT8WKcpLxu7QNSzg5A1jizKHkcaWGSf
+	13/YWA/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwSwK-0000000H0No-286B;
-	Wed, 10 Sep 2025 22:05:20 +0000
-Received: from mail-qv1-xf61.google.com ([2607:f8b0:4864:20::f61])
+	id 1uwTAB-0000000H3kW-0j6C;
+	Wed, 10 Sep 2025 22:19:39 +0000
+Received: from mail-vk1-xa62.google.com ([2607:f8b0:4864:20::a62])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwSwI-0000000H0Ma-2ryf
+	id 1uwTA7-0000000H3is-3vwr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 22:05:19 +0000
-Received: by mail-qv1-xf61.google.com with SMTP id 6a1803df08f44-70ddadde494so613476d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 15:05:17 -0700 (PDT)
+	Wed, 10 Sep 2025 22:19:37 +0000
+Received: by mail-vk1-xa62.google.com with SMTP id 71dfb90a1353d-5449cfbc489so67630e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 15:19:35 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757541917; x=1758146717;
+        d=1e100.net; s=20230601; t=1757542775; x=1758147575;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=k+pRF4YDkBDpu0q0XohqilWJxU+Cw/6tcedpHDHdQxs=;
-        b=mkSl3bIu/u9kIziTIH9nqeoEzTF/rS1cNmbv9/MzrIQsM96re/h4B7z0iYEWh39eoY
-         QbZJKgdwLZYpy/evntU5AEjHwalrET9NYbgsf2wOkzvXOmMDXlYyViVimxSZ52EXAaWP
-         V8To/hHoMxQ+ABi7KKpemtlnpAJJuIM9vqx4ZICddCwREr2nE+8qm6qHDPSD0vfX81ls
-         jrRYn9Yphch+YMF/+O0fJPYjwirQpMYEtmuw6S+FHWIljCnUznQPxFW+asZSVwOkYmmK
-         3zS28MpoUr4I0WFslVzx6jlgKMYTmdDMbYoXI22a+AXXLLIOaupWP/vRweZYza482eIu
-         5nBA==
-X-Forwarded-Encrypted: i=1; AJvYcCVHpu+fCrUJhkoD6XWhGopD0EbwWSU9CBjWXdQJEuXVwTt4b2OGWg7IrdCOtvaMRinoheiZv/l8k9u5fnWVS+Bg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHWWiM5LovO/VG6fOpl4U55WntBzzrszGE+4cvUFNUTGitNBr/
-	lcMkNWwvW2sT/7c6EfUdWTo+2es7VIen9ElWgU339gE5zd+G48I8b1ox8fjlaYPeaJrMdZQFkAX
-	4P4BYqdlvaDBTRlzaa/qldSrRQq5a+iDQtl4MTQfOlhzaAXotRIFv6nSD94tW+fq5Ap4BNmAaH6
-	gnYg7otDUtHp74NxxO8/yzIcLY2QPqubxUOsGgpgpfr0LP8CGTmvHJs/WJLo1bGnafsyOXdndzD
-	NtV1/q5xBud5d4nxTCmMVprfSvZA8HBE0E=
-X-Gm-Gg: ASbGncuoQwwfFRbcxGxi39qtxFBiC9eHfkRwcHbJ5vISnV7lLGndDLlI+jJLPmIISak
-	bQNuKLk7JIY8EGgvcdRKS9OTnpdhCABfTjc2i3ws42Va9UEOpQH9zRQSIZDV8fVgC+SyF2YlSjC
-	VbvBoltpxBu5zyYMrL86eOuSeP+FmFhiYo8/NQd6jgXhmsfwS8a+BDsQaOjCk0KOszJd60Dqnir
-	+7knY4Td/DiXTpy+U7mrq6PhY3QZKB7bvdnfTL6/gZGQMZKQwCIs1UlzudBb2HybA5sXqKdvDzn
-	U8T+KfhS7qfCw023U2OyIuX0cdvKs9uki/NNcm7gE0/+ZMrmGVQIItBMnPrPW0UDxSDzSa7zm3y
-	r/gE2OYvi0vqnJrr80Sa0BdZT4Z9tqEnLGh/DFFeBqTJ2a24d90eJ2Bz/q57yA+0NaJuFOelj3d
-	4cEJN7/8Y=
-X-Google-Smtp-Source: AGHT+IGrMH7qGoh9pu/EjvORQQEf7UbC65Dfw9RJx5P+7p2hPOXWWowlqUqtCAxXIWdm0dqjAEXtTvgHdKVu
-X-Received: by 2002:a05:6214:621:b0:70d:ff3a:f96b with SMTP id 6a1803df08f44-7393ec154b8mr163543806d6.44.1757541916498;
-        Wed, 10 Sep 2025 15:05:16 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
-        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-762c8f98eeesm362126d6.37.2025.09.10.15.05.16
+        bh=DYkMluAXoUU9ziRsn/K2ST3c55WCNeely9VEl19vgTc=;
+        b=YFnG3c2H1C0dCpQracjbhlv1vSoZ+EHny7pFDzaLNbfbBmBvSu9EPlHkSxAvVp5Ykb
+         +OHFXCdhmYZFzUS+jNcfMxK12l6IJ/Or2FVzmgzC02ZDyApU0NM1kJxtntcv55Wducs3
+         dWmT85Y/73terEhKjN2bUD5yHxQF7Cn9+qsL6Z5FPNjcGl8zpwwrirJdPQU6BMcY1Ahl
+         GFj/Q2/0HhTjFwvvphG0IUI9caCn0SRgjYW3IEyWwTNFT7ovoFCreTSYqbcxMQsaifmN
+         oumN1xMBqYkpMbW1UAwDygY5M3pkcq6011fb70C4Ou6PCib1g4Fxja6YecNcTb306olF
+         49ag==
+X-Forwarded-Encrypted: i=1; AJvYcCWCPqB4Bn1TQWgqBp4GK4NgLe5M+uTDUERiJabPrGB7iFI7dNrwDXHRChzDf4+YB3x07jALysf28nKUy2lsk4sq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKWPcdX4RoWkY1x43L76Bmm88FQXnNba9Km3z60UCefs0vyEYE
+	6+jRvfnyegh/1v5v4IYbkHiRXBrG26jqAmJpoh7C0J4cfmnxkY2RUOQ4aG+5TuGpmUOw20bvkWn
+	E0e3AZyrcyCK+BVO9xWcUO1p1kBDaGa6Hx7c3W9+Eb5qMu3ZBFUgv0BF7boc+aG3stzVJdplige
+	NldAVosugd+EgPv7OTJ7Vr6QbvOCG/0qmBB0OLXLQFcyHM5lUs9FG75MwlZGGPL5ZYbVTsjQ/WJ
+	hKOuNZKhqQktUHZyNkMYmpJOQL8kAJs3SY=
+X-Gm-Gg: ASbGncuvOKAJA/DP2s+57jZ/NKKaM5twUhQH8KVSz3bB+dCvHHziv1WqSP5fM7okW5T
+	BfYRKHVFvxAD8GdbCrfeXVka19uAgi412iPoPu0EAKycp8vjuAP3gxUor1u7PiMi3OYrkP59bVZ
+	LRf3DZWfQfZ4oeXVW8Qd8PmBwyE9gfoSQsbykLaFN5rpGO04R3XetOT6wUvCGIjtYrgqvLuezX5
+	h9PpQY+/4vL60lC7VWI5C9u/oiPEyFW/C83EB61A4Ikqu7c5NsC7vV5S2yt39g++I0vdbbQqFy1
+	xnZfNMgly8oKJxPxaeVXAcp5RUFzPYADJv9kfrxd5DThctG+54m5Y+/ZcDp/HSi8e6AONRvunZA
+	9nyEu8PZQOpTIAcTp2BCwEwp+eZIgHtuMZR0dbb2JfvgJ9ub6KJiUOsDN3zn+LfDS16Nrnnui4x
+	N8dFgb95s=
+X-Google-Smtp-Source: AGHT+IFdaOfQ0HMfXH+CcZ7y41QLSf6QttBoM3mLm/xlGwhutyNpx9X6cCBu/t4dr7QnG5EtlF8Ds0mKMShf
+X-Received: by 2002:a05:6122:e011:20b0:539:237c:f95d with SMTP id 71dfb90a1353d-54a095db50amr520759e0c.0.1757542774669;
+        Wed, 10 Sep 2025 15:19:34 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-103.dlp.protect.broadcom.com. [144.49.247.103])
+        by smtp-relay.gmail.com with ESMTPS id 71dfb90a1353d-54a0c2f18afsm12774e0c.0.2025.09.10.15.19.34
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 10 Sep 2025 15:05:16 -0700 (PDT)
+        Wed, 10 Sep 2025 15:19:34 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-24c8264a137so281225ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 15:05:16 -0700 (PDT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-817ecd47971so304746685a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 15:19:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1757541915; x=1758146715; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1757542774; x=1758147574; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=k+pRF4YDkBDpu0q0XohqilWJxU+Cw/6tcedpHDHdQxs=;
-        b=Ksz+ksdGQH5TBbZMiCAnBgKXq0oQE+G31vpH37YeqrtBMe9iEddxx4MhhImcUIc3n1
-         oLBEp2YNHfdPxsAYsuauZBT+VbBrjrexWytMpL5j8j4TKyLVv5labjc/Um/V/iHuILhY
-         k4144rxc8wIIPWPPVxh7t7Up9a4eBeGCLP3bs=
-X-Forwarded-Encrypted: i=1; AJvYcCXsQXxJfm0oQ+AB1zGq3FMZDOOIHhaWh3mpO+EKUCMhHogSDbqzOdyu67yenB0jeRWMhJ56h/0xmgWcx/2sGu3A@lists.infradead.org
-X-Received: by 2002:a17:902:d58f:b0:24b:11c8:2d05 with SMTP id d9443c01a7336-251718ddafdmr259726785ad.45.1757541915307;
-        Wed, 10 Sep 2025 15:05:15 -0700 (PDT)
-X-Received: by 2002:a17:902:d58f:b0:24b:11c8:2d05 with SMTP id d9443c01a7336-251718ddafdmr259726435ad.45.1757541914912;
-        Wed, 10 Sep 2025 15:05:14 -0700 (PDT)
+        bh=DYkMluAXoUU9ziRsn/K2ST3c55WCNeely9VEl19vgTc=;
+        b=GkgLBSn9A4OEUeOj/cZu7BLEheRlvf97ZrZ4qDJnwjzn7QyFHm6geFX6GOyXJqKCjv
+         E0ZcRdQ5ULqj/ZplSPvPKP96mJL20FBoij56jP/gEtdSQZpAfCJbo5CIoJt49yFWNmUu
+         OrpQqofMWQu9SKaQb3izAQMZKZZgrdirG6spE=
+X-Forwarded-Encrypted: i=1; AJvYcCWffOx8iSj1v3o2K2l7aPScpFb1nIuW7EPi1/MZnLt6YSHYVW/reE7eYYvHEUzetgRfd7u4X/f4LlWvSWI+6vw0@lists.infradead.org
+X-Received: by 2002:a05:620a:1984:b0:804:4a23:38e0 with SMTP id af79cd13be357-81ff3a4feefmr183981185a.4.1757542773804;
+        Wed, 10 Sep 2025 15:19:33 -0700 (PDT)
+X-Received: by 2002:a05:620a:1984:b0:804:4a23:38e0 with SMTP id af79cd13be357-81ff3a4feefmr183977285a.4.1757542773297;
+        Wed, 10 Sep 2025 15:19:33 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-25bf675b77fsm1714715ad.43.2025.09.10.15.05.12
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-81b59f8786fsm364672285a.29.2025.09.10.15.19.29
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 Sep 2025 15:05:14 -0700 (PDT)
-Message-ID: <f72733cf-cf96-4960-b07f-ed0d9efbbb03@broadcom.com>
-Date: Wed, 10 Sep 2025 15:05:11 -0700
+        Wed, 10 Sep 2025 15:19:32 -0700 (PDT)
+Message-ID: <8015ec3f-778f-43e9-b91d-fe76b814157f@broadcom.com>
+Date: Wed, 10 Sep 2025 15:19:28 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v2 07/15] gpio: brcmstb: use new generic GPIO chip API
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Linus Walleij <linus.walleij@linaro.org>,
- Keguang Zhang <keguang.zhang@gmail.com>, Alban Bedel <albeu@free.fr>,
- Doug Berger <opendmb@gmail.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>, Yixun Lan <dlan@gentoo.org>,
- Andy Shevchenko <andy@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
- <20250910-gpio-mmio-gpio-conv-part4-v2-7-f3d1a4c57124@linaro.org>
+Subject: Re: [PATCH net-next v12 00/18] net: phy: Introduce PHY ports
+ representation
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+References: <20250909152617.119554-1-maxime.chevallier@bootlin.com>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -143,14 +147,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250910-gpio-mmio-gpio-conv-part4-v2-7-f3d1a4c57124@linaro.org>
+In-Reply-To: <20250909152617.119554-1-maxime.chevallier@bootlin.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_150518_734145_740DFA3E 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250910_151936_008615_4201BEAC 
+X-CRM114-Status: GOOD (  34.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,16 +168,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/10/25 00:12, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 9/9/25 08:25, Maxime Chevallier wrote:
+> Hi everyone,
 > 
-> Convert the driver to using the new generic GPIO chip interfaces from
-> linux/gpio/generic.h.
+> Here is a V12 for the phy_port work, aiming at representing the
+> connectors and outputs of PHY devices.
 > 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Last round was 16 patches, and now 18, if needed I can split some
+> patches out such as the 2 phylink ones.
+> 
+> this V12 address the SFP interface selection for PHY driver SFPs, as
+> commented by Russell on v10.
+> 
+> This and Rob's review on the dp83822 patch are the only changes.
+> 
+> As a remainder, a few important notes :
+> 
+>   - This is only a first phase. It instantiates the port, and leverage
+>     that to make the MAC <-> PHY <-> SFP usecase simpler.
+> 
+>   - Next phase will deal with controlling the port state, as well as the
+>     netlink uAPI for that.
+> 
+>   - The end-goal is to enable support for complex port MUX. This
+>     preliminary work focuses on PHY-driven ports, but this will be
+>     extended to support muxing at the MII level (Multi-phy, or compo PHY
+>     + SFP as found on Turris Omnia for example).
+> 
+>   - The naming is definitely not set in stone. I named that "phy_port",
+>     but this may convey the false sense that this is phylib-specific.
+>     Even the word "port" is not that great, as it already has several
+>     different meanings in the net world (switch port, devlink port,
+>     etc.). I used the term "connector" in the binding.
+> 
+> A bit of history on that work :
+> 
+> The end goal that I personnaly want to achieve is :
+> 
+>              + PHY - RJ45
+>              |
+>   MAC - MUX -+ PHY - RJ45
+> 
+> After many discussions here on netdev@, but also at netdevconf[1] and
+> LPC[2], there appears to be several analoguous designs that exist out
+> there.
+> 
+> [1] : https://netdevconf.info/0x17/sessions/talk/improving-multi-phy-and-multi-port-interfaces.html
+> [2] : https://lpc.events/event/18/contributions/1964/ (video isn't the
+> right one)
+> 
+> Take the MAchiatobin, it has 2 interfaces that looks like this :
+> 
+>   MAC - PHY -+ RJ45
+>              |
+> 	    + SFP - Whatever the module does
+> 
+> Now, looking at the Turris Omnia, we have :
+> 
+> 
+>   MAC - MUX -+ PHY - RJ45
+>              |
+> 	    + SFP - Whatever the module does
+> 
+> We can find more example of this kind of designs, the common part is
+> that we expose multiple front-facing media ports. This is what this
+> current work aims at supporting. As of right now, it does'nt add any
+> support for muxing, but this will come later on.
+> 
+> This first phase focuses on phy-driven ports only, but there are already
+> quite some challenges already. For one, we can't really autodetect how
+> many ports are sitting behind a PHY. That's why this series introduces a
+> new binding. Describing ports in DT should however be a last-resort
+> thing when we need to clear some ambiguity about the PHY media-side.
+> 
+> The only use-cases that we have today for multi-port PHYs are combo PHYs
+> that drive both a Copper port and an SFP (the Macchiatobin case). This
+> in itself is challenging and this series only addresses part of this
+> support, by registering a phy_port for the PHY <-> SFP connection. The
+> SFP module should in the end be considered as a port as well, but that's
+> not yet the case.
+> 
+> However, because now PHYs can register phy_ports for every media-side
+> interface they have, they can register the capabilities of their ports,
+> which allows making the PHY-driver SFP case much more generic.
+> 
+> Let me know what you think, I'm all in for discussions :)
+> 
+> Regards,
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
+
+Tested with bcmgenet which is single MAC + PHY using phylib.
+
+Tested with bcm_sf2 which uses phylink and has a combination of internal 
+and external PHYs.
+--
+Florian
 -- 
 Florian
 
