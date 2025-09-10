@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F507CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 20:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44145CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 20:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8QlUaGC324550w1iOOgy1rFxg1JBQlTotHonnzOCRK4=; b=DiJBjC1SvqAoUp7B3/0al5EbAv
-	kbK/hosTruBuxdcyDXoA+b/itQIn6sCZN2dnjSHItmv/NaPQPMQmNo5dXgSz5PkEf70iQn1Gv06la
-	pNwq7aHbJi+HRm0Ui9FONAj6qnlPH69u77cBZAC7sxQTCVjXt6gzPOF9YKGFq7t7gDnJ/y4AZyBoW
-	RSLzehk8q1bII2A5QiE6l/Skb0ZOVeanJv7svyiORn/DTrm2IIx0fJ4DkWzCtB56rpWJYj3HUO6PU
-	IFTKg47fPhVeH3XAyQNpOTeCs13mq7K6ZzFTnJNkrBwBZufgBfg5ezUoyFz16owNGdX17/7wm6V41
-	KucjqM8A==;
+	bh=dgU+Gqhb6QBkogAINm6Sgm3LlG1UQ/4n+n57gkB12Mw=; b=Zxaya02I6l9qqPUnsyyhj1sT2Z
+	RC9l+9fGU5ovujc6bDozwa6KDmvB1ZZnUnKOHuJz4DQCTXXUvP7rRKhD7EorIYGM0lh2PaQbsUZuS
+	mT/3YzP2FYFr25ikdzfvbdJXwIwLtt8qOntTC1G/7GO7jVzs7B4wWet/gl0iWFc6+KcOiYOtoWoNx
+	VomUsUhDvvzmhsw5SF4HZK7IqDTxM8X9Pn36oMZ6GEWu/+1A5LJA4/nl5eJc1/NdkhT+daRBkHDna
+	+cocSpagaZP8/x2jjIEHJrTInVupC/2Ksvn1nhKhEDuqH2YVnMlvU38OZNND1pUrEnyEs0X/xxHu+
+	t+qkuzMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwRj2-0000000Gftr-1bxg;
-	Wed, 10 Sep 2025 20:47:32 +0000
+	id 1uwRjA-0000000Gfy9-2wSa;
+	Wed, 10 Sep 2025 20:47:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwRj1-0000000GftH-0RPV
+	id 1uwRj6-0000000GfwP-3gjt
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 10 Sep 2025 20:47:31 +0000
+	Wed, 10 Sep 2025 20:47:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=8QlUaGC324550w1iOOgy1rFxg1JBQlTotHonnzOCRK4=; b=nhuVuwhDG6KmWTTsv88ML3tKVm
-	8KhPOuO2UcdmEuFQfAn6T5h7U8z2x83b2bG2veLtaRd8GpyX7ij3Xib9WVVZu6sZdXco+vSufofN8
-	zKzR3h+nJpJNDY2mHG0r1r3XluCjjp3+Wi2W+ek+OLDl8mjrbLNbNJwCN+4qGVPIjFqVvenkU1/7V
-	qHjFiu0X6ojA+0swm07EmimPJDZx+jIqPbKiNJYkJAJmcZiBB0TaCU67T+i0O4AR2WRvn9GegFkb3
-	KhLEV86uGAf4nqj3WywtjjOj06tUs6lckyiEj97CzqRiEdOTeC/XX4ISvJWKxD/vlTvC5me+NKfr0
-	dNgDMw8A==;
+	bh=dgU+Gqhb6QBkogAINm6Sgm3LlG1UQ/4n+n57gkB12Mw=; b=AekI4mN78sIREFBdqLbcRkcuHJ
+	XAJVXQHroRXVQ7jtio/mYKNgcRdIWLf5n+esh2/mijwgImpks8CLLMY+I2ISMmLGpKjByORsJ6ABv
+	MmyN3fNdGlW/nHzplLuqsv/Y96UlUhCYfrqUuehEsI7rc95orrGHI8xCpqQDHIFyv5CowtrTQ6pim
+	kGUW8CPZ0dFLpWQ3AV6ONcbafm7BFjhRZuzSuxzdevi6wghuRHDSgLAv8A8jWiblsXlKTjyCxNhSV
+	ZjGm82N0fVyjVgHy48Jid7R7kx2UY1tmSbW3Yu4Nqgtrn+kCqWA1/7ZtUuNex4VclBd1qlL/d9+eE
+	miGgZwDg==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwRh1-00000005xIj-0ljE
+	id 1uwRh6-00000005xJZ-3aYY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 20:47:29 +0000
+	Wed, 10 Sep 2025 20:47:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E16AD244B;
-	Wed, 10 Sep 2025 13:45:17 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 041C422EA;
+	Wed, 10 Sep 2025 13:45:23 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 97F1D3F63F;
-	Wed, 10 Sep 2025 13:45:21 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AFDBC3F63F;
+	Wed, 10 Sep 2025 13:45:26 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -82,17 +82,17 @@ Cc: James Morse <james.morse@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH v2 23/29] arm_mpam: Add mpam_msmon_read() to read monitor value
-Date: Wed, 10 Sep 2025 20:43:03 +0000
-Message-Id: <20250910204309.20751-24-james.morse@arm.com>
+Subject: [PATCH v2 24/29] arm_mpam: Track bandwidth counter state for overflow and power management
+Date: Wed, 10 Sep 2025 20:43:04 +0000
+Message-Id: <20250910204309.20751-25-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250910204309.20751-1-james.morse@arm.com>
 References: <20250910204309.20751-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_214529_312318_F00E44E0 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20250910_214534_849461_51C3286A 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,300 +107,315 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reading a monitor involves configuring what you want to monitor, and
-reading the value. Components made up of multiple MSC may need values
-from each MSC. MSCs may take time to configure, returning 'not ready'.
-The maximum 'not ready' time should have been provided by firmware.
+Bandwidth counters need to run continuously to correctly reflect the
+bandwidth.
 
-Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
-not ready, then wait the full timeout value before trying again.
+The value read may be lower than the previous value read in the case
+of overflow and when the hardware is reset due to CPU hotplug.
 
-CC: Shanker Donthineni <sdonthineni@nvidia.com>
+Add struct mbwu_state to track the bandwidth counter to allow overflow
+and power management to be handled.
+
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
 Changes since v1:
- * Added XCL support.
- * Merged FLT/CTL constants.
- * a spelling mistake in a comment.
- * moved structrues around.
+ * Fixed lock/unlock typo.
 ---
- drivers/resctrl/mpam_devices.c  | 226 ++++++++++++++++++++++++++++++++
- drivers/resctrl/mpam_internal.h |  19 +++
- 2 files changed, 245 insertions(+)
+ drivers/resctrl/mpam_devices.c  | 154 +++++++++++++++++++++++++++++++-
+ drivers/resctrl/mpam_internal.h |  23 +++++
+ 2 files changed, 175 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index cf190f896de1..1543c33c5d6a 100644
+index 1543c33c5d6a..eeb62ed94520 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -898,6 +898,232 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+@@ -918,6 +918,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+ 	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
+ 
+ 	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
++
+ 	if (m->ctx->match_pmg) {
+ 		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
+ 		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
+@@ -972,6 +973,7 @@ static void clean_msmon_ctl_val(u32 *cur_ctl)
+ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+ 				     u32 flt_val)
+ {
++	struct msmon_mbwu_state *mbwu_state;
+ 	struct mpam_msc *msc = m->ris->vmsc->msc;
+ 
+ 	/*
+@@ -990,20 +992,32 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+ 		mpam_write_monsel_reg(msc, MBWU, 0);
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
++
++		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
++		if (mbwu_state)
++			mbwu_state->prev_val = 0;
++
+ 		break;
+ 	default:
+ 		return;
+ 	}
+ }
+ 
++static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
++{
++	/* TODO: scaling, and long counters */
++	return GENMASK_ULL(30, 0);
++}
++
+ /* Call with MSC lock held */
+ static void __ris_msmon_read(void *arg)
+ {
+-	u64 now;
+ 	bool nrdy = false;
+ 	struct mon_read *m = arg;
++	u64 now, overflow_val = 0;
+ 	struct mon_cfg *ctx = m->ctx;
+ 	struct mpam_msc_ris *ris = m->ris;
++	struct msmon_mbwu_state *mbwu_state;
+ 	struct mpam_props *rprops = &ris->props;
+ 	struct mpam_msc *msc = m->ris->vmsc->msc;
+ 	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
+@@ -1031,11 +1045,30 @@ static void __ris_msmon_read(void *arg)
+ 		now = mpam_read_monsel_reg(msc, CSU);
+ 		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
+ 			nrdy = now & MSMON___NRDY;
++		now = FIELD_GET(MSMON___VALUE, now);
+ 		break;
+ 	case mpam_feat_msmon_mbwu:
+ 		now = mpam_read_monsel_reg(msc, MBWU);
+ 		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+ 			nrdy = now & MSMON___NRDY;
++		now = FIELD_GET(MSMON___VALUE, now);
++
++		if (nrdy)
++			break;
++
++		mbwu_state = &ris->mbwu_state[ctx->mon];
++		if (!mbwu_state)
++			break;
++
++		/* Add any pre-overflow value to the mbwu_state->val */
++		if (mbwu_state->prev_val > now)
++			overflow_val = mpam_msmon_overflow_val(ris) - mbwu_state->prev_val;
++
++		mbwu_state->prev_val = now;
++		mbwu_state->correction += overflow_val;
++
++		/* Include bandwidth consumed before the last hardware reset */
++		now += mbwu_state->correction;
+ 		break;
+ 	default:
+ 		m->err = -EINVAL;
+@@ -1048,7 +1081,6 @@ static void __ris_msmon_read(void *arg)
+ 		return;
+ 	}
+ 
+-	now = FIELD_GET(MSMON___VALUE, now);
+ 	*m->val += now;
+ }
+ 
+@@ -1261,6 +1293,67 @@ static int mpam_reprogram_ris(void *_arg)
  	return 0;
  }
  
-+struct mon_read {
-+	struct mpam_msc_ris		*ris;
-+	struct mon_cfg			*ctx;
-+	enum mpam_device_features	type;
-+	u64				*val;
-+	int				err;
-+};
-+
-+static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-+				   u32 *flt_val)
-+{
-+	struct mon_cfg *ctx = m->ctx;
-+
-+	/*
-+	 * For CSU counters its implementation-defined what happens when not
-+	 * filtering by partid.
-+	 */
-+	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
-+
-+	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
-+	if (m->ctx->match_pmg) {
-+		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
-+		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
-+	}
-+
-+	switch (m->type) {
-+	case mpam_feat_msmon_csu:
-+		*ctl_val = MSMON_CFG_CSU_CTL_TYPE_CSU;
-+
-+		if (mpam_has_feature(mpam_feat_msmon_csu_xcl, &m->ris->props))
-+			*flt_val |= FIELD_PREP(MSMON_CFG_CSU_FLT_XCL,
-+					       ctx->csu_exclude_clean);
-+
-+		break;
-+	case mpam_feat_msmon_mbwu:
-+		*ctl_val = MSMON_CFG_MBWU_CTL_TYPE_MBWU;
-+
-+		if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ris->props))
-+			*flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_RWBW, ctx->opts);
-+
-+		break;
-+	default:
-+		return;
-+	}
-+}
-+
-+static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-+				    u32 *flt_val)
-+{
-+	struct mpam_msc *msc = m->ris->vmsc->msc;
-+
-+	switch (m->type) {
-+	case mpam_feat_msmon_csu:
-+		*ctl_val = mpam_read_monsel_reg(msc, CFG_CSU_CTL);
-+		*flt_val = mpam_read_monsel_reg(msc, CFG_CSU_FLT);
-+		break;
-+	case mpam_feat_msmon_mbwu:
-+		*ctl_val = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-+		*flt_val = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-+		break;
-+	default:
-+		return;
-+	}
-+}
-+
-+/* Remove values set by the hardware to prevent apparent mismatches. */
-+static void clean_msmon_ctl_val(u32 *cur_ctl)
-+{
-+	*cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
-+}
-+
-+static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-+				     u32 flt_val)
-+{
-+	struct mpam_msc *msc = m->ris->vmsc->msc;
-+
-+	/*
-+	 * Write the ctl_val with the enable bit cleared, reset the counter,
-+	 * then enable counter.
-+	 */
-+	switch (m->type) {
-+	case mpam_feat_msmon_csu:
-+		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
-+		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-+		mpam_write_monsel_reg(msc, CSU, 0);
-+		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-+		break;
-+	case mpam_feat_msmon_mbwu:
-+		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
-+		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-+		mpam_write_monsel_reg(msc, MBWU, 0);
-+		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-+		break;
-+	default:
-+		return;
-+	}
-+}
-+
 +/* Call with MSC lock held */
-+static void __ris_msmon_read(void *arg)
++static int mpam_restore_mbwu_state(void *_ris)
 +{
-+	u64 now;
-+	bool nrdy = false;
-+	struct mon_read *m = arg;
-+	struct mon_cfg *ctx = m->ctx;
-+	struct mpam_msc_ris *ris = m->ris;
-+	struct mpam_props *rprops = &ris->props;
-+	struct mpam_msc *msc = m->ris->vmsc->msc;
-+	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
++	int i;
++	struct mon_read mwbu_arg;
++	struct mpam_msc_ris *ris = _ris;
 +
-+	if (!mpam_mon_sel_lock(msc)) {
-+		m->err = -EIO;
-+		return;
-+	}
-+	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, ctx->mon) |
-+		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-+	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
++	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
++		if (ris->mbwu_state[i].enabled) {
++			mwbu_arg.ris = ris;
++			mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
++			mwbu_arg.type = mpam_feat_msmon_mbwu;
 +
-+	/*
-+	 * Read the existing configuration to avoid re-writing the same values.
-+	 * This saves waiting for 'nrdy' on subsequent reads.
-+	 */
-+	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
-+	clean_msmon_ctl_val(&cur_ctl);
-+	gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
-+	if (cur_flt != flt_val || cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN))
-+		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
-+
-+	switch (m->type) {
-+	case mpam_feat_msmon_csu:
-+		now = mpam_read_monsel_reg(msc, CSU);
-+		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
-+			nrdy = now & MSMON___NRDY;
-+		break;
-+	case mpam_feat_msmon_mbwu:
-+		now = mpam_read_monsel_reg(msc, MBWU);
-+		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
-+			nrdy = now & MSMON___NRDY;
-+		break;
-+	default:
-+		m->err = -EINVAL;
-+		break;
-+	}
-+	mpam_mon_sel_unlock(msc);
-+
-+	if (nrdy) {
-+		m->err = -EBUSY;
-+		return;
++			__ris_msmon_read(&mwbu_arg);
++		}
 +	}
 +
-+	now = FIELD_GET(MSMON___VALUE, now);
-+	*m->val += now;
++	return 0;
 +}
 +
-+static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
++/* Call with MSC lock and held */
++static int mpam_save_mbwu_state(void *arg)
 +{
-+	int err, idx;
++	int i;
++	u64 val;
++	struct mon_cfg *cfg;
++	u32 cur_flt, cur_ctl, mon_sel;
++	struct mpam_msc_ris *ris = arg;
++	struct msmon_mbwu_state *mbwu_state;
++	struct mpam_msc *msc = ris->vmsc->msc;
++
++	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
++		mbwu_state = &ris->mbwu_state[i];
++		cfg = &mbwu_state->cfg;
++
++		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
++			return -EIO;
++
++		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
++			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
++		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
++
++		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
++		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
++		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
++
++		val = mpam_read_monsel_reg(msc, MBWU);
++		mpam_write_monsel_reg(msc, MBWU, 0);
++
++		cfg->mon = i;
++		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
++		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
++		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
++		mbwu_state->correction += val;
++		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
++		mpam_mon_sel_unlock(msc);
++	}
++
++	return 0;
++}
++
+ static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
+ {
+ 	memset(reset_cfg, 0, sizeof(*reset_cfg));
+@@ -1335,6 +1428,9 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+ 		 * for non-zero partid may be lost while the CPUs are offline.
+ 		 */
+ 		ris->in_reset_state = online;
++
++		if (mpam_is_enabled() && !online)
++			mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
+ 	}
+ }
+ 
+@@ -1369,6 +1465,9 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
+ 			mpam_reprogram_ris_partid(ris, partid, cfg);
+ 		}
+ 		ris->in_reset_state = reset;
++
++		if (mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
++			mpam_touch_msc(msc, &mpam_restore_mbwu_state, ris);
+ 	}
+ }
+ 
+@@ -2091,11 +2190,33 @@ static void mpam_unregister_irqs(void)
+ 
+ static void __destroy_component_cfg(struct mpam_component *comp)
+ {
 +	struct mpam_msc *msc;
 +	struct mpam_vmsc *vmsc;
 +	struct mpam_msc_ris *ris;
 +
-+	idx = srcu_read_lock(&mpam_srcu);
-+	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
++	lockdep_assert_held(&mpam_list_lock);
++
+ 	add_to_garbage(comp->cfg);
++	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
 +		msc = vmsc->msc;
 +
-+		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
-+			arg->ris = ris;
-+
-+			err = smp_call_function_any(&msc->accessibility,
-+						    __ris_msmon_read, arg,
-+						    true);
-+			if (!err && arg->err)
-+				err = arg->err;
-+			if (err)
-+				break;
++		if (mpam_mon_sel_lock(msc)) {
++			list_for_each_entry(ris, &vmsc->ris, vmsc_list)
++				add_to_garbage(ris->mbwu_state);
++			mpam_mon_sel_unlock(msc);
 +		}
++	}
+ }
+ 
+ static int __allocate_component_cfg(struct mpam_component *comp)
+ {
++	int err = 0;
++	struct mpam_msc *msc;
++	struct mpam_vmsc *vmsc;
++	struct mpam_msc_ris *ris;
++	struct msmon_mbwu_state *mbwu_state;
++
++	lockdep_assert_held(&mpam_list_lock);
+ 	mpam_assert_partid_sizes_fixed();
+ 
+ 	if (comp->cfg)
+@@ -2106,6 +2227,35 @@ static int __allocate_component_cfg(struct mpam_component *comp)
+ 		return -ENOMEM;
+ 	init_garbage(comp->cfg);
+ 
++	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
++		if (!vmsc->props.num_mbwu_mon)
++			continue;
++
++		msc = vmsc->msc;
++		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
++			if (!ris->props.num_mbwu_mon)
++				continue;
++
++			mbwu_state = kcalloc(ris->props.num_mbwu_mon,
++					     sizeof(*ris->mbwu_state),
++					     GFP_KERNEL);
++			if (!mbwu_state) {
++				__destroy_component_cfg(comp);
++				err = -ENOMEM;
++				break;
++			}
++
++			if (mpam_mon_sel_lock(msc)) {
++				init_garbage(mbwu_state);
++				ris->mbwu_state = mbwu_state;
++				mpam_mon_sel_unlock(msc);
++			}
++		}
++
 +		if (err)
 +			break;
 +	}
-+	srcu_read_unlock(&mpam_srcu, idx);
 +
-+	return err;
-+}
-+
-+int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
-+		    enum mpam_device_features type, u64 *val)
-+{
-+	int err;
-+	struct mon_read arg;
-+	u64 wait_jiffies = 0;
-+	struct mpam_props *cprops = &comp->class->props;
-+
-+	might_sleep();
-+
-+	if (!mpam_is_enabled())
-+		return -EIO;
-+
-+	if (!mpam_has_feature(type, cprops))
-+		return -EOPNOTSUPP;
-+
-+	memset(&arg, 0, sizeof(arg));
-+	arg.ctx = ctx;
-+	arg.type = type;
-+	arg.val = val;
-+	*val = 0;
-+
-+	err = _msmon_read(comp, &arg);
-+	if (err == -EBUSY && comp->class->nrdy_usec)
-+		wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
-+
-+	while (wait_jiffies)
-+		wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
-+
-+	if (err == -EBUSY) {
-+		memset(&arg, 0, sizeof(arg));
-+		arg.ctx = ctx;
-+		arg.type = type;
-+		arg.val = val;
-+		*val = 0;
-+
-+		err = _msmon_read(comp, &arg);
-+	}
-+
-+	return err;
-+}
-+
- static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
- {
- 	u32 num_words, msb;
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 81c4c2bfea3d..bb01e7dbde40 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -196,6 +196,22 @@ static inline void mpam_clear_feature(enum mpam_device_features feat,
- 	*supported &= ~(1 << feat);
+ 	return 0;
  }
  
-+/* The values for MSMON_CFG_MBWU_FLT.RWBW */
-+enum mon_filter_options {
-+	COUNT_BOTH	= 0,
-+	COUNT_WRITE	= 1,
-+	COUNT_READ	= 2,
-+};
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index bb01e7dbde40..725c2aefa8a2 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -212,6 +212,26 @@ struct mon_cfg {
+ 	enum mon_filter_options opts;
+ };
+ 
++/*
++ * Changes to enabled and cfg are protected by the msc->lock.
++ * Changes to prev_val and correction are protected by the msc's mon_sel_lock.
++ */
++struct msmon_mbwu_state {
++	bool		enabled;
++	struct mon_cfg	cfg;
 +
-+struct mon_cfg {
-+	u16                     mon;
-+	u8                      pmg;
-+	bool                    match_pmg;
-+	bool			csu_exclude_clean;
-+	u32                     partid;
-+	enum mon_filter_options opts;
++	/* The value last read from the hardware. Used to detect overflow. */
++	u64		prev_val;
++
++	/*
++	 * The value to add to the new reading to account for power management,
++	 * and shifts to trigger the overflow interrupt.
++	 */
++	u64		correction;
++
++	struct mpam_garbage	garbage;
 +};
 +
  struct mpam_class {
  	/* mpam_components in this class */
  	struct list_head	components;
-@@ -343,6 +359,9 @@ void mpam_disable(struct work_struct *work);
- int mpam_apply_config(struct mpam_component *comp, u16 partid,
- 		      struct mpam_config *cfg);
+@@ -304,6 +324,9 @@ struct mpam_msc_ris {
+ 	/* parent: */
+ 	struct mpam_vmsc	*vmsc;
  
-+int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
-+		    enum mpam_device_features, u64 *val);
++	/* msmon mbwu configuration is preserved over reset */
++	struct msmon_mbwu_state	*mbwu_state;
 +
- int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
- 				   cpumask_t *affinity);
+ 	struct mpam_garbage	garbage;
+ };
  
 -- 
 2.39.5
