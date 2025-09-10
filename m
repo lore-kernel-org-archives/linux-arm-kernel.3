@@ -4,82 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AA6CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 23:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17918CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 23:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XfBP9bG2tl0NXE5ziSY+fRi8/aEFKp1uutR7MpEd4G0=; b=A8PyIxCfNqpUPxgilcoBAMggm6
-	bm84JsE1aLf9lqoqdQji8HUdBZZNHqCySbxcgLE1X875c7O/fAw0G62MP5sX7afEOrgL/gDApxbFt
-	qiTTnFUfenXkZVJiTussisikBXxSfxHj2PY8vdrnLgaGyPxwRbtvuVaGPBPjvklewZ9D8EfEA4h0T
-	m7YpWNH3VCVbDGD/RRtxj/GzDPryOfYFCv6ZIAk91rDtcdoQ17V3HP9AtLiWvllktFdM6R1LYGYSX
-	BmliaHsg6LiQ2kf53ZF+pLiLAzWK1ivsfv8oDzsdYYF4vKO4CNosgu9yrCqeyiFL7UQuSRQi6eOF7
-	N/X8wt1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cm+XcZVdExWAkf67mJrRQ1egxi6MvWD1BFDRBKszsSc=; b=ml8k+gdQmA3zh6Z0l6LzSQ4JnK
+	09djleQa8OELVceDBuTGtyya/k0SpMaAWii+y/uD7rkFtOImqIMPUrPEtqKzprZu0ylozubdPqyRv
+	+UBl5MDfZFBxOYVJXu9cGuCBvvaV+5z9E8eEO47cLvvRBXG4yfho1tLxMOuPdI40gelNcVVpQgtTT
+	mHQU77STK2HARY/GfdORRfBeonqYBS87DgEQTqwxRI8kZhjfgGwwz0RPDJTyjBWKkoUgaDgzop3nR
+	/dgt5ss46StW/7oUNEFHYVdcq13gmfZ5OZ+8ltYzmVGoc9NMqsE9q7t7KT3UmwLtSEgbH8ToTArKL
+	iMvFv2oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwTpX-0000000HCm1-3SDk;
-	Wed, 10 Sep 2025 23:02:23 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uwUFz-0000000HIr6-2JRF;
+	Wed, 10 Sep 2025 23:29:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwTpU-0000000HCir-2nrl
+	id 1uwUFw-0000000HIpP-2nRM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 23:02:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XfBP9bG2tl0NXE5ziSY+fRi8/aEFKp1uutR7MpEd4G0=; b=ehZy0YEK3SoZWMNLnS8hKW++R6
-	pi9lEWn+q4alBozXX1FaURdClBIU4Z5Ux1mM46qU7Q+NYXL5Pj+sl0js1xL/1xetnjETmOEYWD/Qf
-	qodDqbNGiam30JDn0x1DQu2TwRw+I9IKEfiIKyRHGjHYxiu6TEjJkch4izOOutaDK6F768vBcrBjz
-	yK88UxY5COOJzzRn/yty70Dmj2AEHm469DSqzf5nDtUAh9/R6XDv6vF0ITiNv8+zXSebv/nhZnUan
-	I5xsrDBuQxLw/zChwYSGWrbK7fLtYxo6bpFvE8h48p9mNX4RfK1tlpIqZgBm7wRRKrKx4/4ZNOJ5B
-	C7KeTHFw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56228)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uwTpC-000000002E4-1Vz1;
-	Thu, 11 Sep 2025 00:02:02 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uwTp7-000000001lV-0Zix;
-	Thu, 11 Sep 2025 00:01:57 +0100
-Date: Thu, 11 Sep 2025 00:01:56 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	John Fastabend <john.fastabend@gmail.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@google.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, bpf@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [Linux-stm32] [PATCH net-next 08/11] net: stmmac: rename
- stmmac_init_ptp()
-Message-ID: <aMIDZE0mLHAa5pdr@shell.armlinux.org.uk>
-References: <aMBaCga5UAXT03Bi@shell.armlinux.org.uk>
- <E1uw1Vk-00000004MCX-38Zs@rmk-PC.armlinux.org.uk>
- <94e20b19-eb89-43c1-9a7c-3a529c60be8b@foss.st.com>
+	Wed, 10 Sep 2025 23:29:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A02284486D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 23:29:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833E7C113CF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 23:29:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757546979;
+	bh=giqX8D1e03WEb190csFinToB6mmpK+SueWukzwTLrtw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=UuWj9VRPzw1PvbSaCVy7gV5XIu21brGl+BUVHFYgg27kHS3pblH2z9FZm0Zjxv25q
+	 vM6pT5R7jh5OKkI2NzxgMyQx5Fv8tw3d/fDKigI8SHueZNQxBPhV/8lB1uJ3ajTG9s
+	 xUvNcX9o7L4/f1V7B0FTzSx33FWb6to8itCzKX1wbdB4WAu7Kpl/1brpLB1O/G3tDn
+	 TxiZM+HCqDW8zkFyLasBq+7lhQXG5SZiejGqiHT2kol1gyw9+pY3SzmoJ0bhzIwZT0
+	 0XZFkApfr8uVDYBu9rbQ39gXBGSk8G3BnLFiRb/55HfKgaFrdWxUE1VeN1tzfFAXpY
+	 4lPsVBhr+WVCA==
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-b04abcc1356so17578866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 16:29:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXwTAtjeYplZctl2uU9TJp3CBPl2nlIlmFRJYxc4qjAZpZ/zEOlRcznB9Fpfs47Zii7NuotGF32VmzgiAPy1PA4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzcw7A4I4pdk1ov/C9QWZWW0YIDy75Md444rnJeXW1PdxAFWD9C
+	Hy27VeEAsNf6AX04KwajIx3Jf4OdgIptYXUtBEBZ8mcM35N2PTz+RKjlipQL92eCMd4SBL0JAwq
+	eGdDdlZuwEmXx8B9aWoSd/6EvVPuzv80=
+X-Google-Smtp-Source: AGHT+IGlGgx50+D2ydI5vBqV6/W+PuaO1JZSUd97+Jrqkz/eIi6Qj2v1ae31SM3Fqif/p17XncOr6qKwTf/VY8KBwGc=
+X-Received: by 2002:a17:907:808:b0:afe:bdcb:9e62 with SMTP id
+ a640c23a62f3a-b04b16c4a55mr1764621066b.33.1757546977956; Wed, 10 Sep 2025
+ 16:29:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <94e20b19-eb89-43c1-9a7c-3a529c60be8b@foss.st.com>
+References: <20250905084059.26959-1-ot_zhangchao.zhang@mediatek.com>
+ <20250905084059.26959-2-ot_zhangchao.zhang@mediatek.com> <a7589659-0352-4d47-a3cf-f2433cc512ec@kernel.org>
+In-Reply-To: <a7589659-0352-4d47-a3cf-f2433cc512ec@kernel.org>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Wed, 10 Sep 2025 18:29:24 -0500
+X-Gmail-Original-Message-ID: <CAGp9Lzrp-cfn_GiLrHCU629wEAxWy=egOMrRh6thYbymu+QXjA@mail.gmail.com>
+X-Gm-Features: Ac12FXyyVN5Jiq60xJ95u5ez5XUlTPRrkZuzl25f4dRSg1MxKAtg591tBXMalW4
+Message-ID: <CAGp9Lzrp-cfn_GiLrHCU629wEAxWy=egOMrRh6thYbymu+QXjA@mail.gmail.com>
+Subject: Re: [PATCH v7 1/1] Bluetooth: mediatek: add gpio pin to reset bt
+To: Krzysztof Kozlowski <krzk@kernel.org>, Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+Cc: Marcel Holtmann <marcel@holtmann.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Luiz Von Dentz <luiz.dentz@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Jiande Lu <jiande.lu@mediatek.com>, 
+	Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>, 
+	Hao Qin <Hao.qin@mediatek.com>, linux-bluetooth <linux-bluetooth@vger.kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	linux-mediatek <linux-mediatek@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_160220_704417_F6B0E227 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20250910_162940_738826_CA1C369F 
+X-CRM114-Status: GOOD (  27.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +91,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 04:42:18PM +0200, Gatien CHEVALLIER wrote:
-> 
-> 
-> On 9/9/25 18:48, Russell King (Oracle) wrote:
-> > In preparation to cleaning up the (re-)initialisation of timestamping,
-> > rename the existing stmmac_init_ptp() to stmmac_init_timestamping()
-> > which better reflects its functionality.
-> > 
-> 
-> I agree it's mostly about time stamping but if the ptp_clk_freq_config()
-> ops is implemented, then it's not only about timestamping. Wasn't it
-> fine as is?
+Hi Krzysztof,
 
-No, if you look at the history, various bits of PTP initialisation
-have had to be moved out of stmmac_init_ptp() due to various problems,
-and this includes initialisation of the TAI timekeeping block block
-(or what we call ptp_clock in the kernel.) It's become less about
-initialising the entire PTP subsystem, more about just the time-
-stamping part.
+Sorry again for the confusion. I believe Zhangchao is still new to the
+upstream process, and we=E2=80=99ll work together to improve this. Since th=
+is
+series has become a bit hard to follow, would you agree that it might
+be better for us to restart with a clean patch that addresses the
+review comments? A clean version would make it easier for reviewers to
+focus on the current issues without being distracted by earlier
+mistakes.
 
-So, the rename is justified, even though there's still bits in there
-that need to be re-architected.
+Hi Zhangchao,
 
-However, continuing to call it "init_ptp" when it doesn't initialise
-all of PTP, especially as the patches after this adds another function
-that _does_ to the full initialisation just doesn't make sense - in
-fact, it becomes down-right confusing.
+Please note that both btusb.c (with DT and ACPI) and btmtksdio.c (with
+DT) already support reset_gpio. Our goal should be to benefit from
+these existing mechanisms while ensuring that this patch does not
+introduce any regressions. If the current mechanisms do not fully meet
+your requirements, it=E2=80=99s important to clearly explain why, so we can
+adapt the existing framework rather than creating a separate one.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+And please remember to carefully respect and respond to reviewer
+feedback, reviewers volunteer their time and experience to help us
+keep the subsystem clean and consistent. It=E2=80=99s a valuable opportunit=
+y
+for us to learn and to ensure smoother integration.
+
+                          Sean
+
+On Fri, Sep 5, 2025 at 3:44=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
+> wrote:
+>
+> On 05/09/2025 10:40, Zhangchao Zhang wrote:
+> > Makes the platform Bluetooth to be reset by hardware pin,
+> > it provides two methods to do it for mediatek controller,
+> > and it has been tested locally many times and can reset normally.
+> >
+> > When an exception occurs, resetting Bluetooth by hardware pin
+> > is more stable than resetting Bluetooth by software.
+> > If the corresponding pin is not found in dts,
+> > bluetooth can also be reset successfully.
+> >
+> > Co-developed: Hao Qin <hao.qin@mediatek.com>
+> > Co-developed: Chris Lu <chris.lu@mediatek.com>
+> > Co-developed: Jiande Lu <jiande.lu@mediatek.com>
+> > Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+> > ---
+> >  drivers/bluetooth/btmtk.c | 32 ++++++++++++++++++++++++++++++++
+> >  1 file changed, 32 insertions(+)
+> >
+> > diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+> > index 4390fd571dbd..29d6a93f255d 100644
+> > --- a/drivers/bluetooth/btmtk.c
+> > +++ b/drivers/bluetooth/btmtk.c
+> > @@ -6,6 +6,8 @@
+> >  #include <linux/firmware.h>
+> >  #include <linux/usb.h>
+> >  #include <linux/iopoll.h>
+> > +#include <linux/gpio/consumer.h>
+> > +#include <linux/of.h>
+> >  #include <linux/unaligned.h>
+> >
+> >  #include <net/bluetooth/bluetooth.h>
+> > @@ -359,11 +361,41 @@ int btmtk_set_bdaddr(struct hci_dev *hdev, const =
+bdaddr_t *bdaddr)
+> >  }
+> >  EXPORT_SYMBOL_GPL(btmtk_set_bdaddr);
+> >
+> > +static int btmtk_hw_gpio_reset(struct hci_dev *hdev, struct btmtk_data=
+ *reset_work)
+> > +{
+> > +     struct gpio_desc *reset_gpio;
+> > +
+> > +     /* Find device node*/
+> > +     hdev->dev.of_node =3D of_find_compatible_node(NULL, NULL, "mediat=
+ek,mt7925-bluetooth");
+>
+> Nothing improved.
+>
+> You just keep ignoring comments.
+>
+> NAK
+>
+> Best regards,
+> Krzysztof
+>
 
