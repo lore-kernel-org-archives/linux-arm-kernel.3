@@ -4,62 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9910ACA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 06:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943B6CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 07:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KtbgRtg//fqWfjWdTmRs7c1F/bK6SAHJGEEEnummDn4=; b=u89FiRmkrlngflIoXU/9VhyKKa
-	3r9RSIQ6eUKHSAFjT4kCpG/n6ubYtiM1HeCzbn2fcjUOWexq24/tJAQNagIxAkyesd+fiClQeyw20
-	KJH9KuA0ClwHYMoPFt/5viw8ggFyhX0hETnU97VBgu4huILpbTg8X7vPY9Yns7T5/MEgKgLkZKlID
-	wWSkL0L5ozg6fkt720EERzs/b9eVn/kKog+ZgHjl1MkIWWuIeccHA7i+pPb/g9YJW8MI8WN43bdaC
-	HVU+Yr69KzSStzoHFLOY4GHN+KczXmDkoCcf+pwSYdNwI8IZXRVCq3bll1mKA5q6YoR2bEMhQjG+5
-	A7VpToKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Is7Z6IX9k0tUPTtgeeRNChAYyWmlMyhmvJeKyJfpygI=; b=qYI66aDjE+umOwWVptNb1Fmzg6
+	xXrzRnAHdDyAIht21TIoxvKQ/zZi9bc0wuFTa/XyIPX4zihR7M1S+1xFV5mun8QDk94C3CEtSYn0o
+	DWwFJkLDSHh+A819ZZLzlOruIu9u34UrbF7dhH12IMP8trOZluopaCzrBj/ghqEHqyBRtBBpvWrob
+	whWdTNDxh7Z3+la6gTFRBzUISbJ3hYhUKLckse6xcReVXNzznzgtB4xwpSzlyk6OYg8CvjT2iKTAV
+	HJKEunK4ZLmu5NkcARLAPgwm/5mUcPUUjwbjnukwuh8qU+anrGpWspVAr66jUne9QF07kxXJjbMr0
+	W1WfLvSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwEnE-0000000CMsy-2gmq;
-	Wed, 10 Sep 2025 06:59:00 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uwEpP-0000000CNUh-0GHq;
+	Wed, 10 Sep 2025 07:01:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwEnB-0000000CMs6-2fmc
+	id 1uwEpN-0000000CNUL-1xbi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 06:58:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1757487534;
-	bh=KtbgRtg//fqWfjWdTmRs7c1F/bK6SAHJGEEEnummDn4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NkFW3CiVPTwd0wTpMajw9sGYLPA6GzaOFZrdG6scboFuIUzmRb5nZAlcTptUZynta
-	 UyGNdUUDSJPeerKSdsIH6NdXx3jvs+5TrzZnT3bL+yVHAD0XLOu7JsmdkbXppxIgU5
-	 5wOx6xH6lkE7XPOy3sknrTy3RHq+f2kSBsJn0xLstyvKHXuG8vr/lSMGXK6oeaeHgs
-	 OFj0aTU3RbWIGpUiB3Tj3jIfyGqT9NRs32kZC+CpJs1I1iiiHC6+z2OtK0j5MrI3Qp
-	 cD40/Ot5ji962Nx43M4FJW7ev58n6TC3fjcjpPamLxqkg/u/a9YJO3WDY6wpOZ0juH
-	 D5HVjxJCP30IQ==
-Received: from [192.168.68.113] (unknown [180.150.112.213])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 2B54E6443C;
-	Wed, 10 Sep 2025 14:58:53 +0800 (AWST)
-Message-ID: <8d7b13b2eb51929ca2c1c3040b9fcf9f7dd16412.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] crypto: aspeed - Fix dma_unmap_sg() direction
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Thomas Fourier <fourier.thomas@gmail.com>
-Cc: stable@vger.kernel.org, Neal Liu <neal_liu@aspeedtech.com>, Herbert Xu
- <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
- Joel Stanley <joel@jms.id.au>, Dhananjay Phadke
- <dphadke@linux.microsoft.com>, Johnny Huang <johnny_huang@aspeedtech.com>,
- linux-aspeed@lists.ozlabs.org,  linux-crypto@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Date: Wed, 10 Sep 2025 16:28:42 +0930
-In-Reply-To: <20250905115112.26309-2-fourier.thomas@gmail.com>
-References: <20250905115112.26309-2-fourier.thomas@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.46.4-2 
+	Wed, 10 Sep 2025 07:01:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DBA0760239;
+	Wed, 10 Sep 2025 07:01:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFCD1C4CEF5;
+	Wed, 10 Sep 2025 07:01:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757487672;
+	bh=olghyLG/6wVxSy7uPY15BdOebeBKuKSMX+pvxBN8fpg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OddLyNPQG8RVvbKoK6DwyVeV3xy9ngTTDT7NAXEqn1pzkf8sd3CwzJ8XlIrHC2ALa
+	 F3UnrRlkBHBX12c3AglC8t07f3BtIbV4uWu/8prjiGOj8jSJ+62HxektLi66JdIV3V
+	 Ql/X4lrPLn07lTL1Kx4fsV8a38NW4UUKBGTjIW8tK+FWtllRoBWSyHKbS+aMjcW3NT
+	 FqnhPcAEol6zITXCo8qv9YYpHIJmVor/EY4bTTCeo+mPO+LpWUKNzsxRnYStOWNZ+J
+	 GJm+gowOIdBw6Ab3AQO3BynJFPLkTN+e9HxOgRO0uVu4h9jEyQAPMEgjNzhlVEBMsH
+	 MqRog/mq9hdcw==
+Message-ID: <23b803e0-a74b-477d-b732-83f97ca4105d@kernel.org>
+Date: Wed, 10 Sep 2025 09:01:06 +0200
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_235857_870528_077CF5C4 
-X-CRM114-Status: GOOD (  15.87  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: qcom: monaco-evk-camera: Add DT overlay
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, bryan.odonoghue@linaro.org,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andersson@kernel.org, konradybcio@kernel.org,
+ hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Ravi Shankar <quic_rshankar@quicinc.com>,
+ Vishal Verma <quic_vishverm@quicinc.com>
+References: <20250909114241.840842-1-quic_vikramsa@quicinc.com>
+ <20250909114241.840842-4-quic_vikramsa@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250909114241.840842-4-quic_vikramsa@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +121,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMDI1LTA5LTA1IGF0IDEzOjUxICswMjAwLCBUaG9tYXMgRm91cmllciB3cm90ZToK
-PiBJdCBzZWVtcyBsaWtlIGV2ZXJ5d2hlcmUgaW4gdGhpcyBmaWxlLCB3aGVuIHRoZSByZXF1ZXN0
-IGlzIG5vdAo+IGJpZGlyZWN0aW9uYWwsIHJlcS0+c3JjIGlzIG1hcHBlZCB3aXRoIERNQV9UT19E
-RVZJQ0XCoAo+IAoKT2theSwgaG93ZXZlcjoKCj4gYW5kIHJlcS0+c3JjIGlzCj4gbWFwcGVkIHdp
-dGggRE1BX0ZST01fREVWSUNFLgoKQnkgdGhlIHBhdGNoIGl0c2VsZiwgb25lIHNob3VsZCByZWZl
-ciB0byByZXEtPmRzdD8KCkFuZHJldwoKPiAKPiBGaXhlczogNjJmNThiMTYzN2I3ICgiY3J5cHRv
-OiBhc3BlZWQgLSBhZGQgSEFDRSBjcnlwdG8gZHJpdmVyIikKPiBDYzogPHN0YWJsZUB2Z2VyLmtl
-cm5lbC5vcmc+Cj4gU2lnbmVkLW9mZi1ieTogVGhvbWFzIEZvdXJpZXIgPGZvdXJpZXIudGhvbWFz
-QGdtYWlsLmNvbT4KPiAtLS0KPiDCoGRyaXZlcnMvY3J5cHRvL2FzcGVlZC9hc3BlZWQtaGFjZS1j
-cnlwdG8uYyB8IDIgKy0KPiDCoDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxl
-dGlvbigtKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2NyeXB0by9hc3BlZWQvYXNwZWVkLWhh
-Y2UtY3J5cHRvLmMgYi9kcml2ZXJzL2NyeXB0by9hc3BlZWQvYXNwZWVkLWhhY2UtY3J5cHRvLmMK
-PiBpbmRleCBhNzJkZmViYzUzZmYuLmZhMjAxZGFlMWY4MSAxMDA2NDQKPiAtLS0gYS9kcml2ZXJz
-L2NyeXB0by9hc3BlZWQvYXNwZWVkLWhhY2UtY3J5cHRvLmMKPiArKysgYi9kcml2ZXJzL2NyeXB0
-by9hc3BlZWQvYXNwZWVkLWhhY2UtY3J5cHRvLmMKPiBAQCAtMzQ2LDcgKzM0Niw3IEBAIHN0YXRp
-YyBpbnQgYXNwZWVkX3NrX3N0YXJ0X3NnKHN0cnVjdCBhc3BlZWRfaGFjZV9kZXYgKmhhY2VfZGV2
-KQo+IMKgCj4gwqDCoMKgwqDCoMKgwqDCoH0gZWxzZSB7Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqBkbWFfdW5tYXBfc2coaGFjZV9kZXYtPmRldiwgcmVxLT5kc3QsIHJjdHgtPmRz
-dF9uZW50cywKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIERNQV9UT19ERVZJQ0UpOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgRE1BX0ZST01fREVWSUNFKTsKPiDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoGRtYV91bm1hcF9zZyhoYWNlX2Rldi0+ZGV2LCByZXEtPnNy
-YywgcmN0eC0+c3JjX25lbnRzLAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIERNQV9UT19ERVZJQ0UpOwo+IMKgwqDCoMKgwqDCoMKgwqB9
-Cgo=
+On 09/09/2025 13:42, Vikram Sharma wrote:
+> From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> 
+> Enable IMX577 sensor using the CCI1 interface on Monaco EVK.
+> Camera reset is controlled through an I2C expander,
+> and power supply is managed via tlmm GPIO74.
+> 
+> Co-developed-by: Ravi Shankar <quic_rshankar@quicinc.com>
+> Signed-off-by: Ravi Shankar <quic_rshankar@quicinc.com>
+> Co-developed-by: Vishal Verma <quic_vishverm@quicinc.com>
+> Signed-off-by: Vishal Verma <quic_vishverm@quicinc.com>
+> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> ---
+>  arch/arm64/boot/dts/qcom/Makefile             |  4 +
+>  .../boot/dts/qcom/monaco-evk-camera.dtso      | 98 +++++++++++++++++++
+>  2 files changed, 102 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/qcom/monaco-evk-camera.dtso
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+> index 0e4e0e0b833b..714eb4badf5a 100644
+> --- a/arch/arm64/boot/dts/qcom/Makefile
+> +++ b/arch/arm64/boot/dts/qcom/Makefile
+> @@ -31,6 +31,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= ipq9574-rdp453.dtb
+>  dtb-$(CONFIG_ARCH_QCOM)	+= ipq9574-rdp454.dtb
+>  dtb-$(CONFIG_ARCH_QCOM)	+= lemans-evk.dtb
+>  dtb-$(CONFIG_ARCH_QCOM)	+= monaco-evk.dtb
+> +
+> +monaco-evk-camera-dtbs	:= monaco-evk.dtb monaco-evk-camera.dtbo
+> +
+> +dtb-$(CONFIG_ARCH_QCOM) += monaco-evk-camera.dtb
 
+
+Missing proper indentation before +=. Did you even look at this code
+while changing? Or you just copied it from downstream and sent?
+
+>  dtb-$(CONFIG_ARCH_QCOM)	+= msm8216-samsung-fortuna3g.dtb
+>  dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-acer-a1-724.dtb
+>  dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-alcatel-idol347.dtb
+> diff --git a/arch/arm64/boot/dts/qcom/monaco-evk-camera.dtso b/arch/arm64/boot/dts/qcom/monaco-evk-camera.dtso
+> new file mode 100644
+> index 000000000000..5831b4de6eca
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/qcom/monaco-evk-camera.dtso
+> @@ -0,0 +1,98 @@
+> +// SPDX-License-Identifier: BSD-3-Clause
+> +/*
+> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +/* Camera Sensor overlay on top of Monaco EVK Core Kit */
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +&{/} {
+> +	vreg_cam1_2p8: vreg_cam1_2p8 {
+
+Don't send us downstream code. You need to rewrite everything, not just
+pieces.
+
+
+Best regards,
+Krzysztof
 
