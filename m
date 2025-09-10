@@ -4,68 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB250CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 03:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0741DCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 04:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgTtcRu6NSnBWGtIWO7eX+TS4tOWPmPLWeTY0Ct3HVU=; b=tmvxLWqVzwJn1iUOZVSTTA0XAv
-	5ncGPxtp5rSx1UirUJvqkeSmxzHxwl96TA+y24WuT6j+d0s6NojSXLZ1SRpJY7sjXXScauzyKaQ/Q
-	tvlOYKJSU6oEgw6QW0c2lOsuv9AkPX0CkdUl3jRl7XETPJc4jNIB2Ui8ATOcdpZWZnQ30b5GpyY+d
-	ZIAigpIizEu0FTltTQswqrtYScSRjRObpWCooZnt+ODz6f+RTe97qW7TWpqFKOr6E/mdAC77FQwjd
-	PIuvMwfAnauI2CHEWgOhg5bh1fxKbyTBwcCwf5Rj5wGDC9NGF8Gt3GpUEchxBxsmHDTswR87BQslN
-	PKo22qXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O6K3juZTa10YnrRoBofSUkzUOEtECkrUho93DdIAnMc=; b=Wgs3CbkSbM8hv3Jrfqa80nAqog
+	uqOQeY1jZ3igq5RK2jy0wkrDp56JktokJKRF2GvFQmlKd21erfIRhTF5asJtMToNybarSQk4ZuUwD
+	6wonlnttFBPac+6WF2mnfioxf+d9MNHBEbD+lRedCsXzgAYwmk7umAGqqUi0KNkM+UG+se40qqSp7
+	D0qIn1cK1O77D9yHNr3wSypo8JVl6s7tafR+U3pXy5KFJIKiq5LnzE6zMkRbvhboi7wrz5Bf9lbVQ
+	TZT6WDkwbrSoBzbpIyf+WNLqTLn3JFdr/LlECUFJ1Tmfmm6to4IGYJMIzFhHbO7UE96TJfTlQZr9A
+	3SjPSpuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwBUS-0000000BpZm-3W31;
-	Wed, 10 Sep 2025 03:27:24 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1uwC6G-0000000BsgZ-2jo4;
+	Wed, 10 Sep 2025 04:06:28 +0000
+Received: from mail-mw2nam10on2061f.outbound.protection.outlook.com ([2a01:111:f403:2412::61f] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwBUP-0000000BpZL-32hg
+	id 1uwC6D-0000000Bsex-1ekp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 03:27:23 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cM5bn1M9mz2Cg7S;
-	Wed, 10 Sep 2025 11:22:45 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 472841A016C;
-	Wed, 10 Sep 2025 11:27:17 +0800 (CST)
-Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+	Wed, 10 Sep 2025 04:06:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZbOxQd2UsvtvzFXMUQKZBOs7OAGYWbq48rTgyTNQYf81Z+0XL03cNqFq1sm83djiX9AR9WXS2SXned1EY93yX6T91hlkKNbLJ3wPFbp2U+/FkhZ3FN2xoJvMvneEyPOGe+ubtdPhhSFJS2BGK0VD9fk1IAF+UCIsBTuVSwvwbXYOYj8yukWbNofBzmgB1T7kFnATupc9U3lodB9746izDCxzP7puD6Yne6pe7dZYt6cp4EAqrvUmB7tXO7UBGw8Ku7Q8UosKpyShJI1Yx8pDzPydZje+DIoITvgp+txNakSiCV7/rSxeGJZFdIrVYeP7tg5aCjkoCXbKUodEdN8ljA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=O6K3juZTa10YnrRoBofSUkzUOEtECkrUho93DdIAnMc=;
+ b=cL0z/CxzaBjTYwRzeDEf9KlHxYqNZrjl+NR5O6ekv06WCAhJdApXltnYbz56hnXUAQKPWYwMSc+pL4ZT29KTv7J47xt2GZ/bdFRWOtgkHLOMwu40SyNes/vpi4/Tq72W5KFUGMLlyupZLwE0B7hSsf3IJpZ0++Lgln3iUQrv9M41o+eIB1vaoSWEvQX/MdpkuIMz42gmviHJP/S60qpOck9iJAA1mHJdno8O5/Vdsl1Gv052hqLvrGbBIvD0XsaMxx88ZPeB8qAShbQto8oBgf1Kte4FrTMmTYljCDfOEgFrTlCvd4YgFTigeCZ/OLL+rPqhDIilPsZX5Sxj57QOxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=O6K3juZTa10YnrRoBofSUkzUOEtECkrUho93DdIAnMc=;
+ b=TpF9CjvpdF1WqtkApMu2NSW6CGU+YO7T4Azg97RMp5Hj0vAG2WemXsOiQl8CbeaQ/LAgcfNABLLzIMk6lNw5mlEZJgoIYR00rtrLn0fcbbGSNpDZH5XRfiqVLuEerspsEi3Y7OaXMMIRyq2nudcai9FGf67HK07jFQbycT93u6UYZTzx4IM35mGxueQLUuKY+Au63qRQkBRaZIbLSQxLO7XPpkMmnnVZgjMsbhXaDsncitJuGcb7e9+MP4i0sSQQZn/Ksx2ZppBYGVuPqUz1fWkurkd2txISNRy9QSnpTZqeBqKr+YDcAQv/dSP/h/z5sSG25ZWm3XhjOV/9EfqGgQ==
+Received: from BN9PR03CA0659.namprd03.prod.outlook.com (2603:10b6:408:13b::34)
+ by DM6PR12MB4314.namprd12.prod.outlook.com (2603:10b6:5:211::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 10 Sep
+ 2025 04:06:14 +0000
+Received: from MN1PEPF0000F0E0.namprd04.prod.outlook.com
+ (2603:10b6:408:13b:cafe::11) by BN9PR03CA0659.outlook.office365.com
+ (2603:10b6:408:13b::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.23 via Frontend Transport; Wed,
+ 10 Sep 2025 04:06:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ MN1PEPF0000F0E0.mail.protection.outlook.com (10.167.242.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9115.13 via Frontend Transport; Wed, 10 Sep 2025 04:06:13 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 9 Sep
+ 2025 21:06:03 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 10 Sep 2025 11:27:17 +0800
-Received: from [10.67.121.115] (10.67.121.115) by
- kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 10 Sep 2025 11:27:16 +0800
-Message-ID: <f102058c-809d-e96e-9d96-1c1e14b36517@hisilicon.com>
-Date: Wed, 10 Sep 2025 11:27:15 +0800
+ 15.2.1544.14; Tue, 9 Sep 2025 21:06:02 -0700
+Received: from dondevbox.nvidia.com (10.127.8.13) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Tue, 9 Sep 2025 21:06:02 -0700
+From: Donald Shannon <donalds@nvidia.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<donalds@nvidia.com>
+CC: <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<openbmc@lists.ozlabs.org>, <etanous@nvidia.com>
+Subject: [PATCH v3 0/2] Add NVIDIA VR144NVL board
+Date: Tue, 9 Sep 2025 21:05:59 -0700
+Message-ID: <20250910040601.240162-1-donalds@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH] irqchip/gicv3-its: Add workaround for HIP09/HIP10/HIP10C
- erratum 162100803/162200807/162400807
-Content-Language: en-US
-To: Marc Zyngier <maz@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <wangwudi@hisilicon.com>,
-	<liuyonglong@huawei.com>, <prime.zeng@hisilicon.com>, <yuzenghui@huawei.com>,
-	Nianyao Tang <tangnianyao@huawei.com>, Kunkun Jiang <jiangkunkun@huawei.com>
-References: <20250909110615.129179-1-wangzhou1@hisilicon.com>
- <86h5xbd8zp.wl-maz@kernel.org>
-From: Zhou Wang <wangzhou1@hisilicon.com>
-In-Reply-To: <86h5xbd8zp.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.115]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemq200004.china.huawei.com (7.202.195.237)
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E0:EE_|DM6PR12MB4314:EE_
+X-MS-Office365-Filtering-Correlation-Id: 37b248b2-aa36-41c5-3b28-08ddf01f6240
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700013|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Tr7CM5Mkedmmapkd5lnSDcFgsIBnKm9S20lXGkEKH4U400k0ZlcCs8midgTk?=
+ =?us-ascii?Q?m21DfAXg73E9NqpyuRRVg23LVClmge4Y6tuMSw6a+4a5ehgTK0sV4UtGCzbk?=
+ =?us-ascii?Q?nGIwl7aSnXLZy83vvc+EeepROGPR2/2aclOIoG5QIZZs74qAf5s0jGtkSser?=
+ =?us-ascii?Q?II6YAVq7A/GDWyQi0lGb01HHTUS5GZ86kEszDG/Jf+RC/THkQTNiVwSRUTKs?=
+ =?us-ascii?Q?vEqW881wxdwQRMRMPKfcqNFB9RGGGOoA122qjBFzND3U4i4t1XibF+AvYHXI?=
+ =?us-ascii?Q?mhsK3/GQcE2GMZhx7wPp+gNQaenMLujgHnIQO1nmgQ9UfFQVwTC+lcmEcnm5?=
+ =?us-ascii?Q?fhK9kjyjRk60URvNZbicwg43h2WbmxQSXCFtqvkClALVOKm3xRCQ/JCbqeyh?=
+ =?us-ascii?Q?VdTZ4Z6qPeuO1NdBU7DIwAbi8WBB7gPRaf98uNj/H+1Xc4EjSzz7fFLdgAQB?=
+ =?us-ascii?Q?MMieWMjvvyH4U5FujmDyu7GrtVs6u6UGfn5EjCOEFfgEdG7Be+39nT0WZQud?=
+ =?us-ascii?Q?LgKEwZUaVew1n1Z8CFu4ic1LYKpuqtQVF31z0Zeiim/gxsz7tjVEF6znk2+E?=
+ =?us-ascii?Q?2fJA/ivlKwlwqEmCaNeWZarzyUe2msttHLnkSEwGIczmV5Jf4dVB901ilkkx?=
+ =?us-ascii?Q?B47YvymEwLNgbFfqlRbOE4PnLTaBG1vbUUpBRoPNBqtZ4117GNe5koZsqorZ?=
+ =?us-ascii?Q?jhL3JetR3a/mdEa+aPAxH49eRUGHv9eDgXxUeceBcTd2D9LdnI72N6SRj9HR?=
+ =?us-ascii?Q?AHqk0tHbmKG8fsX/WpJKICc0NQR5QbtOJ4JTqLhhkCBWEP7DcQG7e8FNvCR3?=
+ =?us-ascii?Q?rBaBNZdbhWrZBTDW9GJIww7EH0EoS4XcEyjfwGzm9j3plpAYdnWEG78tARKH?=
+ =?us-ascii?Q?r+j4tQ5AvNWbPakmfgg2MhkLVC/HUzasHPfsdfXWKKwYqtTWgbrZ3SaTKe9c?=
+ =?us-ascii?Q?5heyW20+TMygQc+nHGfQIl66Fmn3vITWFl2HjkVwt63L0AovW/kW1MA2404J?=
+ =?us-ascii?Q?581WE4ylkL29uXcXIBkwldcv+vn6cFJlgZZ7uygrLrl3VGyUYBFMsWsRWXnM?=
+ =?us-ascii?Q?V+eWaae4wdvFtEZe2nX1IolF2JAGeAwLAi9KmfPmnkP/Wpr7pByD2Vj4qQl1?=
+ =?us-ascii?Q?/hckpXLL0AD6nctPzgk23Fx3PFY6iCOPvYHnwmS8a13d5Vw4n2YWAjwJUTDr?=
+ =?us-ascii?Q?zVC9ZHHHDRqZllkCBF+Y8ITQGasxUUWRvalpcilP0TqNWrelBkWuvLZyA0CD?=
+ =?us-ascii?Q?fsJSQrQAG872F/KcCYJaBqSpwfBdMlLUE+70dobHjQvBzN8wv3ZIp4ps/BvE?=
+ =?us-ascii?Q?c8zTxY3PT2z5TB+JxFY13MgE0ClgrzzlWgmGKrK2R/gTljv92QOp6bnjgkDR?=
+ =?us-ascii?Q?Pj8ZvOtzghJPyH09jXvjPUwlAgFwKDAm4HLfXa6kBrBsELWEX5TjNBXH7Duk?=
+ =?us-ascii?Q?e9sgS08Sp8Jk3Ec4PJZQ7F+AWJM+rW1x/g9w63r0jgWrL6fmirINW0sqxG7g?=
+ =?us-ascii?Q?5S/ek2Ogx7FhYEVoltkrXC8iIAB0ZBVyKLsS?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700013)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 04:06:13.7784
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 37b248b2-aa36-41c5-3b28-08ddf01f6240
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E0.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4314
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_202722_105044_58F5CFBF 
-X-CRM114-Status: GOOD (  45.69  )
+X-CRM114-CacheID: sfid-20250909_210625_430276_E3E4B8F1 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,329 +151,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/9 21:57, Marc Zyngier wrote:
-> On Tue, 09 Sep 2025 12:06:15 +0100,
-> Zhou Wang <wangzhou1@hisilicon.com> wrote:
->>
->> HIP09/HIP10/HIP10C ITS have a problem, an ITS RAS will be reported in
->> some cases when GICv4.1 is enable.
-> 
-> Do you mean a RAS *error*? Why can't the firmware ignore this event instead?
+Patch 1 adds the device tree binding for the NVIDIA VR144NVL board.
+Patch 2 adds the device tree for the NVIDIA VR144NVL board.
 
-Not only a RAS error, vSGI will be lost :(  I will add this information.
+This is an Aspeed AST2600 based BMC board for the NVIDIA VR144NVL
+platform BMC.
 
-> 
->> A workaround is that set ITT size to max value(0xf) when doing MAPD with V = 1,
->> and avoid to send MAPD with V = 0 to hardware. Just clear V field in ITS device
->> table and clear ITS cache to implement MAPD with V = 0 instead.
->>
->> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
->> Reviewed-by: Nianyao Tang <tangnianyao@huawei.com>
->> Reviewed-by: Kunkun Jiang <jiangkunkun@huawei.com>
->> ---
->>  Documentation/arch/arm64/silicon-errata.rst |   6 ++
->>  arch/arm64/Kconfig                          |  13 +++
->>  drivers/irqchip/irq-gic-v3-its.c            | 114 +++++++++++++++++---
->>  3 files changed, 119 insertions(+), 14 deletions(-)
->>
->> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
->> index b18ef4064bc0..dfafc608dc57 100644
->> --- a/Documentation/arch/arm64/silicon-errata.rst
->> +++ b/Documentation/arch/arm64/silicon-errata.rst
->> @@ -264,6 +264,12 @@ stable kernels.
->>  +----------------+-----------------+-----------------+-----------------------------+
->>  | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
->>  +----------------+-----------------+-----------------+-----------------------------+
->> +| Hisilicon      | Hip09           | #162100803      | HISILICON_ERRATUM_162100803 |
->> ++----------------+-----------------+-----------------+-----------------------------+
->> +| Hisilicon      | Hip10           | #162200807      | HISILICON_ERRATUM_162100803 |
->> ++----------------+-----------------+-----------------+-----------------------------+
->> +| Hisilicon      | Hip10c          | #162400807      | HISILICON_ERRATUM_162100803 |
->> ++----------------+-----------------+-----------------+-----------------------------+
->>  +----------------+-----------------+-----------------+-----------------------------+
->>  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
->>  +----------------+-----------------+-----------------+-----------------------------+
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index e9bbfacc35a6..803df402c9af 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -1270,6 +1270,19 @@ config HISILICON_ERRATUM_162100801
->>  
->>  	  If unsure, say Y.
->>  
->> +config HISILICON_ERRATUM_162100803
->> +	bool "Hip09/10/10c 162100803/162200807/162400807 erratum support"
->> +	default y
->> +	help
->> +	  There is a hardware conflict between vSGI and vLPI, fix it by
->> +	  configure a max ITS ITT size 0xf when doing MAPD with V = 1, clear V
->> +	  field in ITS device table and clear ITS cache to implement MAPD with
->> +	  V = 0 instead. Hip09/10/10c have this same problem, just use
->> +	  HISILICON_ERRATUM_162100803 as the compile macro and
->> +	  ITS_FLAGS_WORKAROUND_HISILICON_162100803 as ITS flag for convenience.
->> +
-> 
-> I don't think any of the details belong to Kconfig. You don't even
-> explain *what* the problem is (hardware conflict doesn't mean
-> much). It is also completely unclear what MAPD has to do with vSGI and
-> vLPI.
->
+Reference to Ast2600 SOC [1].
+Reference to DC-SCM Spec [2].
 
-The hardware problem is a little tricky, let me try to explain.
+Link: https://www.aspeedtech.com/server_ast2600/ [1]
+Link: https://www.opencompute.org/w/index.php?title=Server/MHS/DC-SCM-Specs-and-Designs [2]
 
-In the case of ITS pipeline back-pressure, ITS hardware will mistake vSGI for vLPI,
-then use a wrong "eventid" to do ITT size RAS checking, if the "eventid" is larger
-than internal cached ITT size, an ITS RAS will be reported and related irq will be
-discarded.
+Signed-off-by: Donald Shannon <donalds@nvidia.com>
 
-So one way to fix this problem is to let the internal cache ITT size to be a very
-large value, above problem will not be triggered. Above mistake only happens in
-certain step of ITS pipeline, so after above step, ITS hardware still consider the
-irq as a vSGI...
+Donald Shannon (2):
+  dt-bindings: arm: aspeed: Add NVIDIA VR144NVL board
+  ARM: dts: aspeed: Add NVIDIA VR144NVL board
 
-Only MAPD can change internal cache ITT size, so we hack MAPD here...
+ .../bindings/arm/aspeed/aspeed.yaml           |   1 +
+ arch/arm/boot/dts/aspeed/Makefile             |   1 +
+ .../dts/aspeed/aspeed-bmc-nvidia-vr144nvl.dts | 778 ++++++++++++++++++
+ 3 files changed, 780 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-vr144nvl.dts
 
->> +	  If unsure, say Y.
->> +
->>  config QCOM_FALKOR_ERRATUM_1003
->>  	bool "Falkor E1003: Incorrect translation due to ASID change"
->>  	default y
->> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
->> index 467cb78435a9..647bc70cc2f7 100644
->> --- a/drivers/irqchip/irq-gic-v3-its.c
->> +++ b/drivers/irqchip/irq-gic-v3-its.c
->> @@ -49,6 +49,7 @@
->>  #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
->>  #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
->>  #define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
->> +#define ITS_FLAGS_WORKAROUND_HISILICON_162100803	(1ULL << 5)
->>  
->>  #define RD_LOCAL_LPI_ENABLED                    BIT(0)
->>  #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
->> @@ -716,7 +717,12 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
->>  
->>  	its_encode_cmd(cmd, GITS_CMD_MAPD);
->>  	its_encode_devid(cmd, desc->its_mapd_cmd.dev->device_id);
->> -	its_encode_size(cmd, size - 1);
->> +
->> +	if (its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100803)
->> +		its_encode_size(cmd, 0xf);
-> 
-> You are telling the ITS that it is allowed to go and access
-> unspecified data (16 bit worth of translations). That's not
-> acceptable. If you *have* to do that, then override the size in the
-> driver code to actually allocate the corresponding memory.
+-- 
+2.43.0
 
-Then we have to override the ITT memory to 2 ^ 16 * 8 for one device :(
-
-> 
->> +	else
->> +		its_encode_size(cmd, size - 1);
->> +
->>  	its_encode_itt(cmd, itt_addr);
->>  	its_encode_valid(cmd, desc->its_mapd_cmd.valid);
->>  
->> @@ -725,6 +731,61 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
->>  	return NULL;
->>  }
->>  
->> +static struct its_baser *its_get_baser(struct its_node *its, u32 type)
->> +{
->> +	int i;
->> +
->> +	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
->> +		if (GITS_BASER_TYPE(its->tables[i].val) == type)
->> +			return &its->tables[i];
->> +	}
->> +
->> +	return NULL;
->> +}
->> +
->> +static struct its_collection
->> +*its_build_mapd_cmd_hisi_quirk(struct its_node *its, struct its_cmd_block *cmd,
->> +			       struct its_cmd_desc *desc)
->> +{
->> +	struct its_baser *baser = its_get_baser(its, GITS_BASER_TYPE_DEVICE);
->> +	u32 devid = desc->its_mapd_cmd.dev->device_id;
->> +	void *base = baser->base;
->> +	u32 *dt_entry;
->> +	void __iomem *its_func_en = its->sgir_base + 0x80;
->> +	u32 tmp, tmp1, mask = 1 << 19;
->> +	int i = 100;
->> +
->> +	/*
->> +	 * Modify v to 0 in the dt entry of devid, dt entry format as below:
->> +	 * word0: [0-31] ITT address; word1: [0-7] ITT address, [8-12]: ITT
->> +	 * size, [13]: V. Only support flat device table.
-> 
-> Do you mean that the HW only supports flat tables? Or that you expect
-> the kernel to only produce flat device tables?
-
-Our hardware only support flat table, so here only consider flat table.
-Will modify the comment to make it clearer.
-
-> 
->> +	 */
->> +	dt_entry = (u32 *)(base + devid * 8 + 4);
->> +	*dt_entry &= ~(1 << 13);
->> +
->> +	dsb(ishst);
-> 
-> Is this always cacheable memory? Does the ITS always snoop the CPU
-> caches? What protects against a concurrent access?
-
-Yes，CPU and ITS is CC for DT table. HW follows the config in GITS_BASER.InnerCache.
-
-> 
->> +
->> +	/*
->> +	 * Cache invalidate by a private register GITS_FUNC_EN, whose offset
->> +	 * is 0x20080 of ITS base address. GICv4.1 already maps sgir_base
->> +	 * (offset is 0x20000), so address of GITS_FUNC_EN can be got by
->> +	 * sgir_base + 0x80. Bit 16 is used to clear DT cache, the flip of
->> +	 * bit 19 indicates that DT cache has been cleared.
->> +	 */
->> +	while (--i) {
->> +		tmp = readl_relaxed(its_func_en) & mask;
->> +		writel_relaxed(tmp | (1 << 16), its_func_en);
->> +		tmp1 = readl_relaxed(its_func_en) & mask;
->> +		if (tmp != tmp1)
->> +			break;
->> +	}
-> 
-> Please define these bits so that they have names instead of using raw
-> values. Why do you need to write bit 16 every time? Surely once you
-> have written it *once*, the HW remember what it has been told to do?
-
-HW will not remember it, so we have to write bit 16 every time.
-
-> 
-> And frankly, using readl_relaxed_poll_timeout_atomic should be the
-> right thing to do.
-
-The HW logic is that write bit 16 will trigger DT cache clear in one HW cycle
-or not. NOT that waiting bit 19 to flip.
-
-> 
->> +
->> +	if (i == 0)
->> +		WARN_ON(1);
->> +
->> +	return NULL;
->> +}
->> +
->>  static struct its_collection *its_build_mapc_cmd(struct its_node *its,
->>  						 struct its_cmd_block *cmd,
->>  						 struct its_cmd_desc *desc)
->> @@ -1306,11 +1367,18 @@ static void its_send_inv(struct its_device *dev, u32 event_id)
->>  static void its_send_mapd(struct its_device *dev, int valid)
->>  {
->>  	struct its_cmd_desc desc;
->> +	its_cmd_builder_t fn;
->> +
->> +	if (dev->its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100803 &&
->> +	    valid == 0)
->> +		fn = its_build_mapd_cmd_hisi_quirk;
-> 
-> Make the new helper handle both values of the valid bit.
-
-OK.
-
-> 
->> +	else
->> +		fn = its_build_mapd_cmd;
->>  
->>  	desc.its_mapd_cmd.dev = dev;
->>  	desc.its_mapd_cmd.valid = !!valid;
->>  
->> -	its_send_single_command(dev->its, its_build_mapd_cmd, &desc);
->> +	its_send_single_command(dev->its, fn, &desc);
->>  }
->>  
->>  static void its_send_mapc(struct its_node *its, struct its_collection *col,
->> @@ -3354,18 +3422,6 @@ static struct its_device *its_find_device(struct its_node *its, u32 dev_id)
->>  	return its_dev;
->>  }
->>  
->> -static struct its_baser *its_get_baser(struct its_node *its, u32 type)
->> -{
->> -	int i;
->> -
->> -	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
->> -		if (GITS_BASER_TYPE(its->tables[i].val) == type)
->> -			return &its->tables[i];
->> -	}
->> -
->> -	return NULL;
->> -}
->> -
->>  static bool its_alloc_table_entry(struct its_node *its,
->>  				  struct its_baser *baser, u32 id)
->>  {
->> @@ -4902,6 +4958,16 @@ static bool __maybe_unused its_enable_rk3568002(void *data)
->>  	return true;
->>  }
->>  
->> +static bool __maybe_unused its_enable_quirk_162100803(void *data)
->> +{
->> +	struct its_node *its = data;
->> +
->> +	if (is_v4_1(its))
->> +		its->flags |= ITS_FLAGS_WORKAROUND_HISILICON_162100803;
->> +
->> +	return true;
->> +}
->> +
->>  static const struct gic_quirk its_quirks[] = {
->>  #ifdef CONFIG_CAVIUM_ERRATUM_22375
->>  	{
->> @@ -4956,6 +5022,26 @@ static const struct gic_quirk its_quirks[] = {
->>  		.init	= its_enable_quirk_hip09_162100801,
->>  	},
->>  #endif
->> +#ifdef CONFIG_HISILICON_ERRATUM_162100803
->> +	{
->> +		.desc = "ITS: Hip09 erratum 162100803",
->> +		.iidr = 0x00051736,
->> +		.mask = 0xffffffff,
->> +		.init = its_enable_quirk_162100803,
->> +	},
->> +	{
->> +		.desc = "ITS: Hip10 erratum 162200807",
->> +		.iidr = 0x01051736,
->> +		.mask = 0xffffffff,
->> +		.init = its_enable_quirk_162100803,
->> +	},
->> +	{
->> +		.desc = "ITS: Hip10c erratum 162400807",
->> +		.iidr = 0x00061736,
->> +		.mask = 0xffffffff,
->> +		.init = its_enable_quirk_162100803,
-> 
-> Can you try to merge these three entries and adjust the mask
-> accordingly? mask=0xeffcffff should do the trick, assuming that you
-> don't have any other hardware overlapping this.
-
-The iidrs are different, how to merge these entries?
-
-> 
->> +	},
->> +#endif
->>  #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
->>  	{
->>  		.desc   = "ITS: Rockchip erratum RK3588001",
-> 
-> If the HW is this bad, and that this only affects virtual interrupts,
-> why don't you simply disable GICv4 support? Messing with the internals
-> of the ITS tables feels like a pretty bad idea. Or as I suggested
-> above, get the firmware to ignore RAS events from the ITS.
-
-The hack is ugly, but we want to try to save vSGI direct injection...
-
-Best,
-Zhou
-
-> 
-> 	M.
-> 
 
