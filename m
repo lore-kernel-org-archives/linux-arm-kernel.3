@@ -4,197 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96861CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD9DCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 15:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6TF5MWjgALEzQ8V7Pi/quy/8QlQZJDN/0z3LNTPUA7I=; b=a1MHU8RWbLuiS6YftQBDJOSZmn
-	E5jt8DZCqKMG7Tjp4SuD8Y6iZmK+0gA8gr4J/4m1jS5cuyfZ5vne1aEZxHcVEbBAqWzD5TWGCQhRQ
-	3je8qjiOQn60wKtZPI6y1OXI+1n17V3jKTrp2+84cQJjw8XSvCyCAmD5zbZUNmnWTw7OvPKYtqp+X
-	EuddbUHHD68F3uPEPtWg4h/akiPl+NztB/ZKnf83x57f3ca+k5eVdwz1tccXYmJsHUfQ3bW/Jydgn
-	4IvYX1D/M50AotUDf6gr62v/Z4n+5MWUKQKpAPUPhUD+BNXLTbbF+8fpkp1FVz74dU5W+KjS5BTTe
-	1t+1qM8w==;
+	bh=lsUUzVSssKb2ZuGuZgzggTzESfnxgxP19f0NGhCBk2A=; b=nVyJXcicUjppdpAk42FuGUpI12
+	+eROfsg8Qf/tlcnR8BlBGB/XSLiKsvdl+Jyidwthtb+2qCw1oKaZCISrjSc6zg6YBI4o3iWnByg17
+	Abee6q0FVC5MhmzPSOmvyFjPL7+rUmX8DHB+xr5ObJcd0IumtM4WeEp7LCEv6qXDlqWQBBRN9saCt
+	Gr/x2XcKNEYGS6BFBhhoFkmujv0GCbKmNCnxTQWZZzZZH5GfldSO6F7K0+qZwRFyYU2zOa9PdSYA1
+	S+MQvmOgQoR13LBsnaKwQrUBzIio54tJ4b3Dh7QHl0il+Ele8AId1Dri6qWFZXzjGYTM4/U+PCiha
+	12RQe+Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMTY-0000000F0B5-1bnr;
-	Wed, 10 Sep 2025 15:11:12 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uwMWf-0000000F1Qb-0Gcq;
+	Wed, 10 Sep 2025 15:14:25 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwMTU-0000000F09D-3lf7
+	id 1uwMWb-0000000F1OX-2MSR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 15:11:10 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58AEj99K023918;
-	Wed, 10 Sep 2025 17:10:41 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	6TF5MWjgALEzQ8V7Pi/quy/8QlQZJDN/0z3LNTPUA7I=; b=4oQROPxr/OZkUWTH
-	49vIOCNzq1Dl1c4lwv46BGToNQrJZ3uEwlE1cRb790BrPoXyHk+ZB0B7VD42gkep
-	yMEgC13PmIYiupYLE4WqGxsmrZZNLCD1jGqGLuVVPKGmDBnjZt6zGFEdAhE3PNri
-	jX73yZmyDjFm3wz9DSRKPI/q/AAurBMcTxh+1IgQXBdAShHrpCd6lOmcF4DkDmGB
-	mjgM6GEsxPbSoz5DF4bI8g4maQbGJz58VNtwOAoTj8PEJpuDW2SBMM9ECnqTic/x
-	PBrSCzyn6KJbRa6X2vMnKRXPrsnxEf/Fh5zuz2gI80cnwfrNnUWmMKAV0srVP8j2
-	wcaOUQ==
-Received: from duzpr83cu001.outbound.protection.outlook.com (mail-northeuropeazon11012023.outbound.protection.outlook.com [52.101.66.23])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4934xjj052-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 10 Sep 2025 17:10:41 +0200 (MEST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WCy8V9bx0QvHvIlUqRRUg/Ub/ZPkmm3Xv3dZFa17zQ2RwvGKl0QO2NgpCPK7mxdC4tKynFO26nBAMsu0V8ROdz8OcRpLXCpLqj+tv/RTLwXF+povK0IWncjks9YnPqdCXRRRjLF2kl8j0zfp5iAlLQfgU67l6sNgX36mwy5aVBmoIekjiDseI42eOmq4qFE3UlBILdZ1PQde2hpztRRNJpMJZ67cOm80xydGuej7CMe6bP9p9W/e2NbAO/o8TR5tBXz/aDjToOyyWI0kutjZTs0n/ahEaFU9rmCXMJP3oWdudN/Yx02iT0EP9gO5+xfhjBe7EEu4IO4LNnXrJ8OAPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6TF5MWjgALEzQ8V7Pi/quy/8QlQZJDN/0z3LNTPUA7I=;
- b=fw8QTk9pYIcoGkLuj15OM9uv61YhZILkbOfuK9MSnXpcBTKQ9g+/66SPoaHJmT2iObpzVhlpEtyZ+NA6CbREMU/hsaUxVV3LTjjKwLg2Fmo6lzdNLGk1y3SxU8RbYPkqAsdMjM81/PxrsRCcoo+o+0eOgcYPTvmkoYKznzKK3MIoFJLArPKn1lUxYRhs8zQywcF/hGflipjcHU5wXD9nl4gyTcUb+AK9NjLs5Q2Qhew+Jj/v9RaY7eIhZVYNk4jgZGiL0nl/4l/05I9iZIOdE8gnk/Cj3BYQzSz/xeo4E4F6j9TSC6AZxw7nuW+SENvGB45rjZsTnCMaHWasuefXbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.43) smtp.rcpttodomain=armlinux.org.uk smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=stmicroelectronics.onmicrosoft.com;
- s=selector2-stmicroelectronics-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6TF5MWjgALEzQ8V7Pi/quy/8QlQZJDN/0z3LNTPUA7I=;
- b=mz3CuLQhL+TU1WR2D7GyTM/REwICgEix4LQ9/lOwi8MFYp19AdqQqBW/pHP2w2hmKr8k0jORIeDq4O2alGRY4WjDroFE56xgKb0pG04AIlhfpIzKqBZDQdBDhMRt8vVZgy3EQzaZdnFL+L56ZMZTZvJuFgDxyAtYRNqlI/tPAFw=
-Received: from PA7P264CA0298.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:370::17)
- by DB9PR10MB8029.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3d7::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 10 Sep
- 2025 15:10:38 +0000
-Received: from AM2PEPF0001C70B.eurprd05.prod.outlook.com
- (2603:10a6:102:370:cafe::9b) by PA7P264CA0298.outlook.office365.com
- (2603:10a6:102:370::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.16 via Frontend Transport; Wed,
- 10 Sep 2025 15:10:36 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.43)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.43 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.43; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.43) by
- AM2PEPF0001C70B.mail.protection.outlook.com (10.167.16.199) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9115.13 via Frontend Transport; Wed, 10 Sep 2025 15:10:36 +0000
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
- (10.250.44.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 10 Sep
- 2025 17:08:15 +0200
-Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 10 Sep
- 2025 17:10:35 +0200
-Message-ID: <a275c50b-2bcb-4fea-bc73-b367d05dba08@foss.st.com>
-Date: Wed, 10 Sep 2025 17:10:48 +0200
+	Wed, 10 Sep 2025 15:14:23 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id C49A01400375;
+	Wed, 10 Sep 2025 11:14:19 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Wed, 10 Sep 2025 11:14:19 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1757517259;
+	 x=1757603659; bh=lsUUzVSssKb2ZuGuZgzggTzESfnxgxP19f0NGhCBk2A=; b=
+	Wt3vFLdgaWOIw3mFFTO8HkI+FL3aLrAvk1XZkFPK029w4p9kIsmeNNXR2doMLfc2
+	NQaimD6tWSMhyd9vrBwpPql7GPen65eFUN6bOfqTcjaYKQTvFwR3Tilc07C6ExJ8
+	jmxdK+IoR3hnYmXzQTnYg/t2INRTwDKScAAC5Zh97EJg6FK42wOtjxbJQG0rbqtx
+	vb435sW48hCiGaDmkSb48ej0GWsn5+SI3ezoINWNC9Mi29MHlc2MYgDudDq3vQpI
+	E3JHV5FX9Je89nP69A4JyLOdFZEUPLOsF/5GLJ2vjV5NifsecRQsRhBZHOY5Wy9x
+	jt6rDjYilo0TVNJQvnJkTg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1757517259; x=
+	1757603659; bh=lsUUzVSssKb2ZuGuZgzggTzESfnxgxP19f0NGhCBk2A=; b=H
+	/gMzN7TnwJd0vg/MTYVl/pyoe/hmyfwJF4mtR5JWM0w21EGmDqzYq1IsTdotAh60
+	Fmd1Vg+SdRbChBFHMrAKmV4sr5AgLPgZE/hNEG3iugSyvyKHaye+uflCyTVZE7eW
+	y5OXjXOMEmKkObNDMRZmLutp1NrnRb+HXmB/4TDEu05TLasJXe4OYpexHWqlypFG
+	f5UGmGv6/ug4tXqoJzn54aHwEZlvC1X/XhFICwEees+qOB1PMhCXSGFdzGOeVRCA
+	AmHdT3PYzk6ROQA/RcaMy/7tVU36ZMliytCzRpQYn6smIPsw/Gu6lhjsbjgbm1PQ
+	nnukP2hsdOVcW4iab733Q==
+X-ME-Sender: <xms:yZXBaDXOlmIombO1szwOlmpXbQqLOdZRNKdHj8DHhLwnjgybvVtD3Q>
+    <xme:yZXBaLmGS84fPQjmk21XEVQnEGpISmEP8_Uye0ca4ReQR3HPDWjwuZEIYxBFYNeqB
+    zTGP6WvYL_gjS6k-qc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvfeeivdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedvkedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtoheptghhvghsthgvrhdrrgdruhhnrghlsegrrhhinhgtledrtghomhdprh
+    gtphhtthhopegthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdhr
+    tghpthhtoheprghnughrvggrshesghgrihhslhgvrhdrtghomhdprhgtphhtthhopehgvg
+    gvrhhtodhrvghnvghsrghssehglhhiuggvrhdrsggvpdhrtghpthhtoheprghlvgigrghn
+    uggvrhdrshhvvghrughlihhnsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrhhgih
+    hordhprghrrggtuhgvlhhlohhssehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhurhgv
+    nhgssehgohhoghhlvgdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrg
+    gurdhorhhgpdhrtghpthhtohepihhrrgdrfigvihhnhiesihhnthgvlhdrtghomh
+X-ME-Proxy: <xmx:yZXBaESgMqAfocAh5WwsNKvYXczfu7UTStKzoEZ_LOyYB88gFCsczQ>
+    <xmx:ypXBaMq8oJRxVm5-KPXU3p6LapKK9VSGtugiiL7OXrTltECusc88CQ>
+    <xmx:ypXBaCy-TVZZI6VvKyzbCn9-qbN6vjLZQvQ8eH7rWv4q8MqywpKQ7Q>
+    <xmx:ypXBaPDeWwsS_0RafF3IO58JfOjBv4WASYIgwgXNH9S2I7eVRXv1Nw>
+    <xmx:y5XBaNu8n69vsZmygvax3BlNn5O-QH6oHbeKtp693EevppGTS0Ykwx7j>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id D18B3700065; Wed, 10 Sep 2025 11:14:17 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH net-next 00/11] net: stmmac:
- timestamping/ptp cleanups
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-        Andrew Lunn
-	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-CC: Richard Cochran <richardcochran@gmail.com>,
-        Jesper Dangaard Brouer
-	<hawk@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>, <netdev@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        "John
- Fastabend" <john.fastabend@gmail.com>,
-        Alexei Starovoitov <ast@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        Eric Dumazet <edumazet@google.com>,
-        Stanislav Fomichev <sdf@fomichev.me>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Jakub Kicinski <kuba@kernel.org>, <bpf@vger.kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <aMBaCga5UAXT03Bi@shell.armlinux.org.uk>
-Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <aMBaCga5UAXT03Bi@shell.armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-ThreadId: AmcCJOTBQ5ho
+Date: Wed, 10 Sep 2025 17:13:57 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Matthew Wilcox" <willy@infradead.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>
+Cc: ksummit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Richard Weinberger" <richard@nod.at>,
+ "Lucas Stach" <l.stach@pengutronix.de>,
+ "Geert Uytterhoeven" <geert+renesas@glider.be>,
+ "Ankur Arora" <ankur.a.arora@oracle.com>,
+ "David Hildenbrand" <david@redhat.com>,
+ "Mike Rapoport" <rppt@kernel.org>,
+ "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ "Vlastimil Babka" <vbabka@suse.cz>,
+ "Suren Baghdasaryan" <surenb@google.com>,
+ "Ira Weiny" <ira.weiny@intel.com>, "Nishanth Menon" <nm@ti.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ "Sergio Paracuellos" <sergio.paracuellos@gmail.com>,
+ "Andreas Larsson" <andreas@gaisler.com>
+Message-Id: <55cbc329-4b14-4f62-90bb-1e1007cc1152@app.fastmail.com>
+In-Reply-To: <aMGFhuHyQwtwyF7B@casper.infradead.org>
+References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
+ <CACRpkdb=E-_6fZ+4mX5FJas9C5Njp3Gwrygs-cAfWNdbP594cw@mail.gmail.com>
+ <aMGFhuHyQwtwyF7B@casper.infradead.org>
+Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM2PEPF0001C70B:EE_|DB9PR10MB8029:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7de0e64-c9ab-46ed-5efd-08ddf07c3240
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UlZIaStBNVB0bi9YQ1p0bDZ6cEdvVGYxVnBGRm9Ca25BdDNuYVp1bjRhR0Zj?=
- =?utf-8?B?bE80Sk5qWkhJeTk4ZGc1VWpnNE5CQVladmdHbDRCZ2h3WHdySUZGYWt6bFpv?=
- =?utf-8?B?ajVNOTJYUVBlTjcyam1OKzYyaWlqQVJ2TWVZRnRaRFNITTNsODV5eldsVTdF?=
- =?utf-8?B?UWdrRmhNYjZrdTNqemlmM2JoNm0veDRVVnlOVU1kNE1vUHIwN3RFSUtXdFAv?=
- =?utf-8?B?U0Z0bzcwZDFLU3czWXE1Z1QrQmVTaHJTVnVISGxEelowbWs1UkQ0Zjc3NG1T?=
- =?utf-8?B?Ykd1NGdNdk9wZ24xWnVrZ0pzM2xrK1lxOGxXalhzM0JMUVgzR3ZkSFVmMllK?=
- =?utf-8?B?TUJrYzRBOWZiV3JpRGNSSHJwUjN6Mzdjdi96SHBrQ0VwemI1cS9NanBaMFFZ?=
- =?utf-8?B?NSs1Ymo4U29rRHhRVGpCYTVEODZ2YTBTMTBmZC9CWjJGRnUrcy9zemdrZnlq?=
- =?utf-8?B?UlRSOTRxWldNci9FVWl4YUswNy8zWVdrb09Pd0YwaFcxaTN5NGdMYmpZSEVv?=
- =?utf-8?B?L3Jac1BqYWRwLzFOWHRUNFJ4b2ZGNjNtOW1RaVhHQ21oQXFOVk9yMDM0d25s?=
- =?utf-8?B?UHg4V2w3cHA4Nk5wV054RmpaNGx3L1JLNmdRQkNaeENHVXEvTGtyRnkranpZ?=
- =?utf-8?B?WXpTUGtrNGV5WnF4VldkN3dUNnJkTzhROExqMVJPNWF2TU9lL3lETWZ0WXNp?=
- =?utf-8?B?WXFhVWxuVlE5Y1ZnN09mY3pJZHlwZ1dYRFdtMEhpOFdJSWZvVG0raUxrWDNr?=
- =?utf-8?B?ZXBIV25iaDAxSnorUFArdjNkbDJFLzJhNEhkbFNLZGxuS3BHREFab2VFNk5h?=
- =?utf-8?B?c090ajJ4UzBiVkJGNXROdnlSY2VYSHRjYUJ6bkMxYzk2YzlmS21NRSthNEtl?=
- =?utf-8?B?REVJY0I0dXpVS3REMUxZajArV3RLVnptV0szNmtmdTNWWWdCUC9NSHJ4K2xi?=
- =?utf-8?B?eGRndXQwRSs0ZnFxWFVJSWZzRE1GNHNKVnpTdWZpQWI3RGY0ajFqR3JyZTdt?=
- =?utf-8?B?UDFWYWpQdllhOVRKbFd3NHo1UVRNZTJyM2JQRVpHb1ozdkxuaDQ4UUVhMEFo?=
- =?utf-8?B?OFVuNEp4cjd6c2hzS20wOVFBQUZ4ckFmZDJqelpVbTFEZEgzb0lBS1NHTFlh?=
- =?utf-8?B?bk5zSG9SMEZmUnBrQ3M3QTBWU1NTajZTWnUyS2d0eTZvb1FnYStBZ1UrU1cx?=
- =?utf-8?B?bDJacmJsNGlnemptdVR0eTFIUTZ5UUhQSWlSMGN6V2syKzhRQktNbldSazcx?=
- =?utf-8?B?ei9HNmpTd0sybUlnVjloTnVZMVc4L2dlSHJQeW5JVUhldmRScDZRRUtSTmwr?=
- =?utf-8?B?ejhKNFJPYS83TWsydWpHTjJVeEVIWWxRRmRLY3k4VmtFRERTRjZ2M1lIUUF3?=
- =?utf-8?B?cnIzOWJzNFRPcU1pU2picVBzQ1JVbFc4VXRSSnNaK2N1RnFlRkxnc1JtcDZt?=
- =?utf-8?B?anEzbU1XeDZPN0RiU1FwbHFtQXRmamlndUJZdXVLbll6T3NqTEpTUXRYbkVT?=
- =?utf-8?B?YkY3SmhXeE5TYnBBaTV6NloxMW9zeUhkTDdYQ0R2d0NnQ2dYZlV0UjdNcG9t?=
- =?utf-8?B?N3RkaCs4bnFTUDh0UDRkQnhRN1ZLUlFKUXZqYUtOeGxyT0s1cUtKZHZscWs4?=
- =?utf-8?B?MUVkNHFYUStZZTJ3ZkRkTE84L1lvODRGRFNwMlNVMEVIUS9pNC9RYjJKSU5E?=
- =?utf-8?B?TlNQU3lPNzA2TEhHSy9SVkhYQVVsWmV1UGg0RElvY1VLMDJ2V3kxSXFWaHBx?=
- =?utf-8?B?VkpkbUR1bUVKM3ZIaWdKTWxVY2QwSWZBeWdJZ1VBbmtwUmQ3Q2E5bEMyNTZ4?=
- =?utf-8?B?QmZIOFBZUm1mc0xDTXhNb3RJSVhxcElXRERBeFAyU21jSzJzN0x5WkVFL2dM?=
- =?utf-8?B?S1d4STVxTFhidndqdmdYbW8wTk5yL1VWanl5OE1KMytxcXVXUzY3ZGdpVWJ0?=
- =?utf-8?B?NElFSURoUlltcjREcllGNy9ENEVkRFlOTUVYZS9ncEhwcUVjYlFwNHZSeWs5?=
- =?utf-8?B?ZlR1bDFCTk5XcWZ3RjJwYzl2K3JONklRbHZnRzFGZjlkZUdaSnp4MEJwYVFL?=
- =?utf-8?Q?iAT5hI?=
-X-Forefront-Antispam-Report: CIP:164.130.1.43;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 15:10:36.5197
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7de0e64-c9ab-46ed-5efd-08ddf07c3240
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.43];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C70B.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR10MB8029
-X-Proofpoint-GUID: SBeCU6CYzDs-S85f1-WriXoJaeePO-MW
-X-Authority-Analysis: v=2.4 cv=GuFC+l1C c=1 sm=1 tr=0 ts=68c194f1 cx=c_pps a=75iWbPoZHhoD3Jfch1nqtQ==:117 a=peP7VJn1Wk7OJvVWh4ABVQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=ei1tl_lDKmQA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=FUbXzq8tPBIA:10 a=8b9GpE9nAAAA:8 a=XmVa0EI4HaVEt0dNDoUA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTEwMDA2NiBTYWx0ZWRfX/6D+Z/pCzNQL 9xCh4wORnGDZV/ISfTs6++h7n68eGbhiDkPiJyzJ7QHJj7Cr0gWvAchoLNUKb8ECszmVdNr43xb mCsIiyrhfOmVKpqCK/PYCN2tt+rpadhQOCuThPu5pHxZFx8j5u3yu7ZsLbA+vbLiZj4SftmklR4
- ztR6f7AYY+veEd72snTB+lSdPCrGfafmTDKTEkIP1TGLDA7ko3bhX8Id+44JHjimKQqNFf//XZL slTRQYRgw0f8jLcAAugEMdLaqF8m2QxaSumKWR9LcIQ5JIuQfGnGVAPqQ4zrz96zwhrMg1w30Wf HbekUdDZ6JLRYOffJLBoAc+HUTDgzA59dL5JoywR26EjcwXayKCT1ZcvDrPW5ljl+54ikMoniIL mB7cBGua
-X-Proofpoint-ORIG-GUID: SBeCU6CYzDs-S85f1-WriXoJaeePO-MW
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-10_02,2025-09-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 spamscore=0 phishscore=0
- clxscore=1011 bulkscore=0 impostorscore=0 suspectscore=0
- priorityscore=1501 adultscore=0 classifier=typeunknown authscore=0 authtc=
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509100066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_081109_211438_66B1C022 
-X-CRM114-Status: GOOD (  23.03  )
+X-CRM114-CacheID: sfid-20250910_081422_022362_BB021AE9 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -209,68 +136,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 10, 2025, at 16:04, Matthew Wilcox wrote:
+> On Wed, Sep 10, 2025 at 03:10:05PM +0200, Linus Walleij wrote:
+>> 
+>> This in practice means the area 0xf1000000-0xffffffff
+>> which also includes the high exception vectors that must for
+>> natural reasons also be kept in the mapping.
+>> What we have mapped today (all of the time) is
+>> 0xc0000000-0xffffffff.
+>> 
+>> A minimal 256 MB mapping from 0xf0000000-0xffffffff
+>> should be able to cover this.
+>
+> Can I ask where the MMIO (PCI?) window lives?
 
+That 256MB area is shared by anything the kernel can access
+directly, other than the linear map: vmlinux, modules, vmalloc,
+ioremap, vmap-stack, etc.
 
-On 9/9/25 18:47, Russell King (Oracle) wrote:
-> Hi,
-> 
-> This series cleans up the hardware timestamping / PTP initialisation
-> and cleanup code in the stmmac driver. Several key points in no
-> particular order:
-> 
-> 1. Golden rule: unregister first, then release resources.
->     stmmac_release_ptp didn't do this.
-> 
-> 2. Avoid leaking resources - __stmmac_open() failure leaves the
->     timestamping support initialised, but stops its clock. Also
->     violates (1).
-> 
-> 3. Avoid double-release of resources - stmmac_open() followed by
->     stmmac_xdp_open() failing results in the PTP clock prepare and
->     enable counts being released, and if the interface is then
->     brought down, they are incorrectly released again. As XDP
->     doesn't gain any additional prepare/enables on the PTP clock,
->     remove this incorrect cleanup.
-> 
-> 4. Changing the MTU of the interface is disruptive to PTP, and
->     remains so as long as. This is not fixed by this series (too
->     invasive at the moment.)
-> 
-> 5. Avoid exporting functions that aren't used...
-> 
-> 6. Avoid unnecessary runtime PM state manipulations (no point
->     manipulating this when MTU changes).
-> 
-> 7. Make the PTP/timestamping initialisation more readable - no
->     point calling functions in the same file from one callsite
->     that return error codes from one location in the called function,
->     to only have the sole callee print messages depending on that
->     return code. Also simplifying the mess in stmmac_hw_setup().
->     Also placing support checks in a better location. Also getting
->     rid of the "ptp_register" boolean through this restructuring.
-> 
-> Not tested beyond compile testing. (I don't have my Jetson Xavier NX
-> platform.) So anyone testing this and providing feedback would be
-> most welcome.
-> 
-> On that point... I hardly (never?) seem to get testing feedback from
-> anyone when touching stmmac. I suspect that's because of the structure
-> of the driver, where MAINTAINERS only lists people for their appropriate
-> dwmac-* files. Thus they don't get Cc'd for core stmmac changes. Not
-> sure what the solution is, but manually picking out all the entries
-> in MAINTAINERS every time doesn't scale.
-> 
-> Therefore, I suggest merging this into net-next so people get to test
-> it by way of it being in a tree they might be using.
-> 
->   drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   1 -
->   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 113 ++++++++++++----------
->   drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  10 +-
->   3 files changed, 67 insertions(+), 57 deletions(-)
-> 
+This is mostly unchanged from the tradtitional layout on
+arm32 that has the same ~256MB limitation, though it does
+get a little tighter because .text/.data is now also
+mapped into this space instead of executed from the linear
+map.
 
-Tried on the stm32mp135f-dk board and was able to run ptp4l with
-coherent timestamps, so:
-
-Tested-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+      ARnd
 
