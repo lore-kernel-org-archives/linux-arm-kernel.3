@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB2ACAC587
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D07FCAC593
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 21:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,48 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LrUtr74VqOYEeMYjRoAe8CdDx6jfP4H+546j94AsrZ4=; b=u6Fdlj8+NjF+UvqcLUHUfBseaV
-	0ohBYjkkDi1vuSEjQS2idPVAafSHYayIqSgoQIPeb18XTRkcCIylLwMAsHRytECItxOzJ26nQmrjh
-	HqsG4+DtTb63hjysosfwmV4E4fw7ugqiI79qLOoKmWLatPHKj6YEdLqEFSzTX7JtcfOQycy1BkVuN
-	hj+CvxQV7iEgQdY3x1DK+Le8CNmTaAcCQYLfTOg0iVcJz7KOIxw/seM7Qk6TeBLHV2/Ccv6zHrwff
-	6XSGkNm/wW4+ir4lRslOpuu+dJtYjsH402+fzkQvurfoU+yt8P3KfKcoNHu8FLPEMm3VnHzuqxzXR
-	jeNnsCGQ==;
+	bh=SbB6MuwRBK0RcCg9CaXmHw+3+P3wUlKIa9esP4qASto=; b=3BXyzeAyv3uhpWFd8tmpkqbI5l
+	HMq/rN2zH0E+iLEVqPe83U8JGioMZYmPn8C6JVLH70OlfA7MbEH02JdvDiyknBSCcyS6KWHem7l04
+	g38v5+R8ekKQQj/pROhlh1UDqLPmLO2/kz3lLy4wamarfRP/b6PaOV7qxTHlfJlhUuYqE1HmpULIw
+	Cf+njb+WRfrjwtU2gX2TXGWu2nFNjH9yC8G/463hc8Sjoz13Gpv5XckpeNoPkMjorRe6pl++htYDV
+	7iUIR6NQ1cQZ11Lv2aMWO20ivy5yTJstYo3+bcFSEbolkU8gthpgpCI23MYKH7PXtJP/WEEntJyhs
+	sIh7bQ+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwpKS-00000005alp-2tY0;
-	Thu, 11 Sep 2025 21:59:44 +0000
+	id 1uwpKT-00000005an0-1Hxq;
+	Thu, 11 Sep 2025 21:59:45 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwpKQ-00000005akB-3dLJ
+	id 1uwpKQ-00000005akA-3dM5
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 11 Sep 2025 21:59:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=LrUtr74VqOYEeMYjRoAe8CdDx6jfP4H+546j94AsrZ4=; b=hw0/B/+5Ta7M9vBRey3tkEyc3r
-	aGGtgwbJRN1MXSRr25wWc7oS63fqNBhIrNDsVTjkCTYZQ4CYMYegdjBKeqfq0DU/pAK2NDtxI/DK3
-	Lj/jmH9jAaNwKygoBQhTXYtMI1hw26XQIiCXkSnN8g0Ar4/L4gnkou7KQiyCT9Ah8MoEn47RzC6Ln
-	zMbnH+EoTKWdRcY31r/vMa59meivyfYNE3+FQAFosV0p5tYmY3Jb7Rs678tnvUdbtACMPrNTkPgWm
-	MKRhnoZ9N5Fexe0cG/9YiuUj/zlW+Xd+47TemdyTWlh0MWtMxFYq++Wg0cV8ylSUtHLlrlMkEdf0y
-	45Lk5JzQ==;
+	bh=SbB6MuwRBK0RcCg9CaXmHw+3+P3wUlKIa9esP4qASto=; b=AGUGZaEeP1aTT8e76wm5SF7u50
+	5548WO/BDk8tFF7Q6j/l24UqKnJj3JROJnBu89Wz5PAcqOG/XmEJuryGsAyU47G+BMX+crzZusKJa
+	WxSnpR6WioE4FsTuoYvF01jXW7x/RNLvft/nt1sBGYm+DomhWXT78mKqZa998jFdp1RAlKUpQWwSa
+	sxFhc+bSjnLiBBSvGCiEq2xZCb/QtIAS5w3+BZ5F07wrss7Qsm0ymXgKUtiuR7Oa8+cPmh6OKLC3X
+	P4ZvxrlohXMiYXmkoJESQXI9ntbmySsIajQ6jHbFq3xEQiRday25gFB/+MNXmw/82zXT1kNoxSGhH
+	wHS5Ijeg==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwpHo-00000006BDI-3Gy8
+	id 1uwpHr-00000006BDD-2sv4
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 11 Sep 2025 21:59:41 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1uwpHe-0004g5-BD; Thu, 11 Sep 2025 23:56:50 +0200
+	id 1uwpHe-0004g5-7I; Thu, 11 Sep 2025 23:56:50 +0200
 From: Marco Felsch <m.felsch@pengutronix.de>
-Date: Thu, 11 Sep 2025 23:56:48 +0200
-Subject: [PATCH v2 07/10] dmaengine: imx-sdma: make use of
- devm_clk_get_prepared()
+Date: Thu, 11 Sep 2025 23:56:46 +0200
+Subject: [PATCH v2 05/10] dmaengine: imx-sdma: cosmetic cleanup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250911-v6-16-topic-sdma-v2-7-d315f56343b5@pengutronix.de>
+Message-Id: <20250911-v6-16-topic-sdma-v2-5-d315f56343b5@pengutronix.de>
 References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
 In-Reply-To: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
 To: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
@@ -69,8 +68,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_225740_339644_3BED5D19 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20250911_225740_339667_4341D050 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,93 +84,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make use of the devm_clk_get_prepared() to cleanup the error handling
-during probe() and to automatically unprepare the clock during remove.
+Make use of local struct device pointer to not dereference the
+platform_device pointer everytime.
 
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
- drivers/dma/imx-sdma.c | 27 +++++++--------------------
- 1 file changed, 7 insertions(+), 20 deletions(-)
+ drivers/dma/imx-sdma.c | 31 ++++++++++++++++---------------
+ 1 file changed, 16 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-index d6239900ba12063bdb7d807db1bdbdc2b446a94c..d39589c20c4b2a26d0239feb86cce8d5a0f5acdd 100644
+index 44411c15029c9b09f307c4b9e3f7b1ab77fa5093..b0def2bde77fe53b0805bddc0c5d6116c9cefcbe 100644
 --- a/drivers/dma/imx-sdma.c
 +++ b/drivers/dma/imx-sdma.c
-@@ -2300,26 +2300,18 @@ static int sdma_probe(struct platform_device *pdev)
+@@ -2266,7 +2266,8 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
+ 
+ static int sdma_probe(struct platform_device *pdev)
+ {
+-	struct device_node *np = pdev->dev.of_node;
++	struct device *dev = &pdev->dev;
++	struct device_node *np = dev->of_node;
+ 	const char *fw_name;
+ 	int ret;
+ 	int irq;
+@@ -2274,18 +2275,18 @@ static int sdma_probe(struct platform_device *pdev)
+ 	struct sdma_engine *sdma;
+ 	s32 *saddr_arr;
+ 
+-	ret = dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
++	ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
+ 	if (ret)
+ 		return ret;
+ 
+-	sdma = devm_kzalloc(&pdev->dev, sizeof(*sdma), GFP_KERNEL);
++	sdma = devm_kzalloc(dev, sizeof(*sdma), GFP_KERNEL);
+ 	if (!sdma)
+ 		return -ENOMEM;
+ 
+ 	spin_lock_init(&sdma->channel_0_lock);
+ 
+-	sdma->dev = &pdev->dev;
+-	sdma->drvdata = of_device_get_match_data(sdma->dev);
++	sdma->dev = dev;
++	sdma->drvdata = of_device_get_match_data(dev);
+ 
+ 	irq = platform_get_irq(pdev, 0);
+ 	if (irq < 0)
+@@ -2295,11 +2296,11 @@ static int sdma_probe(struct platform_device *pdev)
  	if (IS_ERR(sdma->regs))
  		return PTR_ERR(sdma->regs);
  
--	sdma->clk_ipg = devm_clk_get(dev, "ipg");
-+	sdma->clk_ipg = devm_clk_get_prepared(dev, "ipg");
+-	sdma->clk_ipg = devm_clk_get(&pdev->dev, "ipg");
++	sdma->clk_ipg = devm_clk_get(dev, "ipg");
  	if (IS_ERR(sdma->clk_ipg))
  		return PTR_ERR(sdma->clk_ipg);
  
--	sdma->clk_ahb = devm_clk_get(dev, "ahb");
-+	sdma->clk_ahb = devm_clk_get_prepared(dev, "ahb");
+-	sdma->clk_ahb = devm_clk_get(&pdev->dev, "ahb");
++	sdma->clk_ahb = devm_clk_get(dev, "ahb");
  	if (IS_ERR(sdma->clk_ahb))
  		return PTR_ERR(sdma->clk_ahb);
  
--	ret = clk_prepare(sdma->clk_ipg);
--	if (ret)
--		return ret;
--
--	ret = clk_prepare(sdma->clk_ahb);
--	if (ret)
--		goto err_clk;
--
- 	ret = devm_request_irq(dev, irq, sdma_int_handler, 0,
- 			       dev_name(dev), sdma);
+@@ -2311,8 +2312,8 @@ static int sdma_probe(struct platform_device *pdev)
  	if (ret)
--		goto err_irq;
-+		return ret;
+ 		goto err_clk;
  
- 	sdma->irq = irq;
+-	ret = devm_request_irq(&pdev->dev, irq, sdma_int_handler, 0,
+-				dev_name(&pdev->dev), sdma);
++	ret = devm_request_irq(dev, irq, sdma_int_handler, 0,
++			       dev_name(dev), sdma);
+ 	if (ret)
+ 		goto err_irq;
  
-@@ -2360,11 +2352,11 @@ static int sdma_probe(struct platform_device *pdev)
+@@ -2357,7 +2358,7 @@ static int sdma_probe(struct platform_device *pdev)
+ 
+ 	sdma->iram_pool = of_gen_pool_get(np, "iram", 0);
+ 	if (sdma->iram_pool)
+-		dev_info(&pdev->dev, "alloc bd from iram.\n");
++		dev_info(dev, "alloc bd from iram.\n");
  
  	ret = sdma_init(sdma);
  	if (ret)
--		goto err_irq;
-+		return ret;
- 
- 	ret = sdma_event_remap(sdma);
- 	if (ret)
--		goto err_irq;
-+		return ret;
- 
+@@ -2370,7 +2371,7 @@ static int sdma_probe(struct platform_device *pdev)
  	if (sdma->drvdata->script_addrs)
  		sdma_add_scripts(sdma, sdma->drvdata->script_addrs);
-@@ -2393,7 +2385,7 @@ static int sdma_probe(struct platform_device *pdev)
+ 
+-	sdma->dma_device.dev = &pdev->dev;
++	sdma->dma_device.dev = dev;
+ 
+ 	sdma->dma_device.device_alloc_chan_resources = sdma_alloc_chan_resources;
+ 	sdma->dma_device.device_free_chan_resources = sdma_free_chan_resources;
+@@ -2393,13 +2394,13 @@ static int sdma_probe(struct platform_device *pdev)
+ 
  	ret = dma_async_device_register(&sdma->dma_device);
  	if (ret) {
- 		dev_err(dev, "unable to register\n");
--		goto err_irq;
-+		return ret;
+-		dev_err(&pdev->dev, "unable to register\n");
++		dev_err(dev, "unable to register\n");
+ 		goto err_init;
  	}
  
  	ret = of_dma_controller_register(np, sdma_xlate, sdma);
-@@ -2421,10 +2413,7 @@ static int sdma_probe(struct platform_device *pdev)
+ 	if (ret) {
+-		dev_err(&pdev->dev, "failed to register controller\n");
++		dev_err(dev, "failed to register controller\n");
+ 		goto err_register;
+ 	}
  
- err_register:
- 	dma_async_device_unregister(&sdma->dma_device);
--err_irq:
--	clk_unprepare(sdma->clk_ahb);
--err_clk:
--	clk_unprepare(sdma->clk_ipg);
-+
- 	return ret;
- }
+@@ -2411,11 +2412,11 @@ static int sdma_probe(struct platform_device *pdev)
+ 	ret = of_property_read_string(np, "fsl,sdma-ram-script-name",
+ 				      &fw_name);
+ 	if (ret) {
+-		dev_warn(&pdev->dev, "failed to get firmware name\n");
++		dev_warn(dev, "failed to get firmware name\n");
+ 	} else {
+ 		ret = sdma_get_firmware(sdma, fw_name);
+ 		if (ret)
+-			dev_warn(&pdev->dev, "failed to get firmware from device tree\n");
++			dev_warn(dev, "failed to get firmware from device tree\n");
+ 	}
  
-@@ -2436,8 +2425,6 @@ static void sdma_remove(struct platform_device *pdev)
- 	of_dma_controller_free(sdma->dev->of_node);
- 	devm_free_irq(&pdev->dev, sdma->irq, sdma);
- 	dma_async_device_unregister(&sdma->dma_device);
--	clk_unprepare(sdma->clk_ahb);
--	clk_unprepare(sdma->clk_ipg);
- 	/* Kill the tasklet */
- 	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
- 		struct sdma_channel *sdmac = &sdma->channel[i];
+ 	return 0;
 
 -- 
 2.47.3
