@@ -4,109 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71442CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 05:10:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED23CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 05:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WBaE2TltC7mA72J6gMwneq1NYf0Qmt+LOks0qvJ4+fw=; b=PQifbfuXbsO8d9PXZtYU6/li3M
-	gLlZ1fELVJwUZFoMlqJLoDH9UVy+W+7JLVmjJUrziSj670Uc5AMfTYXPfdDizT2yobFIyVtANdmrh
-	eerauz80shCrEVlKvo0lcgGX7SYJU0OMOzc+b8ngza6vulqm862R9h2+HdUv09EHo3O2VEwFQjLXx
-	UWUGDOlCZ9/W3dAaPrb1j7VgsIKF2HFjvaq6yfT98KhhDhhah/UM3Ef9yfIUhpsQi4uADnvZeSNEo
-	ttAB3F+VrvhX+4NLTo+sWjdZaQAGO/2zNvMr3Qvu7IFs5u512y+gbBNePQ91WBXb16Yjl+TCZFm0b
-	l0WONqmQ==;
+	bh=ckEtQanSZG6ljTkJzIsPCdLrHTlQE401smqziXdC8CE=; b=gl1ieQvYPzGhBt0VINd+E/UNIF
+	ufyzfe1dMZ4MgLFkhywoVk4guHL9BLZi/ve6SXMcvshlc5s351EsAgnkxgPOFANw13rzizdBs3KqX
+	Lz854MbK8EBdqAuttud7TPoTR9mVUF9bX1D8DThJqy9x28vk0xl1DDQaBNhzji3gHCMHRjFvgW7m/
+	UvjK71lqOK1T559l0LGFdOWS3JCOBvK3P9lTzH8iC0UbfI2SdV9K59MpAGCYMpjwaAhrvCcHedAww
+	bNp95uosInCdP+RQHJUVkHkHks/Ej+1Y4Sec4wMiachZo4sEFtHLPKI+wcZRMolygVuSEiSVoct3U
+	D1z7rUOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwZa4-00000000wkM-0kMT;
-	Thu, 11 Sep 2025 05:10:48 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwZa0-00000000whP-1qmw
+	id 1uwZcy-00000000xf9-0zuK;
+	Thu, 11 Sep 2025 05:13:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwZcv-00000000xen-1Kaa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 05:10:45 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.stl.internal (Postfix) with ESMTP id C7FC41D0010E;
-	Thu, 11 Sep 2025 01:10:42 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Thu, 11 Sep 2025 01:10:43 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
-	:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1757567442; x=
-	1757653842; bh=WBaE2TltC7mA72J6gMwneq1NYf0Qmt+LOks0qvJ4+fw=; b=l
-	3cZCQnJ94JjneRwLaYbUWAABAUrKpfLIBdpcOwxw7/cODj8ag7DVbjmc+tgDsJxb
-	vs0J8tiz7eRqUCR3WFZQdThwFU04qdKvp6JivByPrnz/X6WR0s3Ow5Jlf4kdqqKg
-	df6YI3eUbxrg/4+j1AWe3w3MmY87pSc5bIdVUZnTBhZ9oQyQfX422DYIetfxfaIX
-	7QklV1biRlv5DBYg2tTMvFPCv5uVX0fMZzioy65tpoS+Pr4qMZB5AQOLSt+b0rsv
-	GoV//VlIq0scW5OYIysvVhbwJ//52CTTowOiougWZAMC9tP5TTvNgt1aw4MKf2nd
-	6eoiQIcGXhakyEmCE26aA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm1; t=1757567442; x=1757653842; bh=W
-	BaE2TltC7mA72J6gMwneq1NYf0Qmt+LOks0qvJ4+fw=; b=KDHimhVWJVdHJRKaE
-	LnBZcTtDuaso0rzIYMjrGZpGDQTEsyWVbGUBbmvxYJdz9DYSbeEEc1U1UfpyWR2Z
-	6T4M/pFUq0UOxM028keE3RUm7CXX/ZmcG1PjCiNcTt76uayXwg/+B1D1QrPgkuQW
-	xXQoKP+ldeuZARfMmGIixRi7WXO0ckrm4ipDKcQIvNJOvxBNUqPGcGczADexTdMr
-	bvpyQYHh5DsuQWbnSSL3JpulWdZS0OkePM51Cwe28i7jwY3n16VLMy5L2IiuPByS
-	cy6o8VgFXktBHs1UVF17J7tvltlivO/MBp4iMz0/EqvS6EpACWaKlYn5cPc9zee2
-	9wRng==
-X-ME-Sender: <xms:0lnCaPjRPzXf5EBX1bxuqx5HjrXgefM-L6lPi004Ut0MJ1hriwqNlQ>
-    <xme:0lnCaLNRPHPpdXgurRXZDq8tT1s38sgAAlfjr9jlodWvgMAMSqWuKFb28Ioywy4F8
-    sdx_d5HGuqkyZLBnfk>
-X-ME-Received: <xmr:0lnCaBwGS4rzbvfmEU2gIFUxRN1I2fN0PiRDcr4Miokf091Vn5RhpBSg4zOf4wEMpFnaC5RN3U88>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvheeftdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeftvggsvggttggr
-    ucevrhgrnhcuoehrvggsvggttggrsegsshguihhordgtohhmqeenucggtffrrghtthgvrh
-    hnpeegffeuueelvdeggfdvvdfgtedvudfhfeekudekieektddukeefteetieefvdelfeen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehrvggsvg
-    gttggrsegsshguihhordgtohhmpdhnsggprhgtphhtthhopedutddpmhhouggvpehsmhht
-    phhouhhtpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhope
-    hkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodguthes
-    khgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhovghlsehjmhhsrdhiugdrrghupdhrtg
-    hpthhtoheprghnughrvgifsegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgt
-    phhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtph
-    htthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggr
-    ugdrohhrghdprhgtphhtthhopehlihhnuhigqdgrshhpvggvugeslhhishhtshdrohiilh
-    grsghsrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgv
-    rhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:0lnCaFr7j_u5na1OT2wTptyGabL5KOU4wbTvdlfWQaPfOteFZlkkDw>
-    <xmx:0lnCaJMex21zPSVvxOsQTuOn7AZmhl6-4OrlqB86-vkZ22Bg2TD6Gg>
-    <xmx:0lnCaBetTpMan8O0rXiJ5Lk9Ab7NUfMvsrDHA87MvI8biGezcB_o4Q>
-    <xmx:0lnCaHUuNRYaGJdBeEX3tFXGbev__8mgbqTmn0XtWTYsJOftoMbEMw>
-    <xmx:0lnCaAyrB2gHa1wwsAnSTpwzt_7TZ8wEpX-JaVLG3jOK-Q9Kp-yo85DL>
-Feedback-ID: i5b994698:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 11 Sep 2025 01:10:41 -0400 (EDT)
-From: Rebecca Cran <rebecca@bsdio.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Cc: Rebecca Cran <rebecca@bsdio.com>
-Subject: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack ALTRAD8 BMC
-Date: Wed, 10 Sep 2025 23:10:05 -0600
-Message-ID: <20250911051009.4044609-3-rebecca@bsdio.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20250911051009.4044609-1-rebecca@bsdio.com>
-References: <20250911051009.4044609-1-rebecca@bsdio.com>
+	Thu, 11 Sep 2025 05:13:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94F1C153B;
+	Wed, 10 Sep 2025 22:13:33 -0700 (PDT)
+Received: from [10.164.18.53] (unknown [10.164.18.53])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85DD73F694;
+	Wed, 10 Sep 2025 22:13:38 -0700 (PDT)
+Message-ID: <41f3227e-b945-4303-90b7-732affb0a101@arm.com>
+Date: Thu, 11 Sep 2025 10:43:35 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mm: Move KPTI helpers to mmu.c
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Kees Cook <kees@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>
+References: <20250910104454.317067-1-kevin.brodsky@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250910104454.317067-1-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_221044_609927_C2A1860C 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250910_221345_450426_1BBDD119 
+X-CRM114-Status: GOOD (  36.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,681 +68,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ALTRAD8 BMC is an Aspeed AST2500-based BMC for the ASRock Rack
-ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards.
 
-Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
----
- arch/arm/boot/dts/aspeed/Makefile                      |   1 +
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts | 647 ++++++++++++++++++++
- 2 files changed, 648 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index aba7451ab749..6bffb7130839 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -9,6 +9,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-ampere-mtjefferson.dtb \
- 	aspeed-bmc-ampere-mtmitchell.dtb \
- 	aspeed-bmc-arm-stardragon4800-rep2.dtb \
-+	aspeed-bmc-asrock-altrad8.dtb \
- 	aspeed-bmc-asrock-e3c246d4i.dtb \
- 	aspeed-bmc-asrock-e3c256d4i.dtb \
- 	aspeed-bmc-asrock-romed8hm3.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-new file mode 100644
-index 000000000000..61f6cf8018c0
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-@@ -0,0 +1,647 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/dts-v1/;
-+#include "aspeed-g5.dtsi"
-+#include <dt-bindings/gpio/aspeed-gpio.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/i2c/i2c.h>
-+
-+/ {
-+	model = "ASRock ALTRAD8 BMC";
-+	compatible = "asrock,altrad8-bmc", "aspeed,ast2500";
-+
-+	aliases {
-+		serial4 = &uart5;
-+		i2c50 = &m2_2;
-+		i2c51 = &pcie4;
-+		i2c52 = &pcie5;
-+		i2c53 = &pcie6;
-+		i2c54 = &pcie7;
-+		i2c55 = &ocu_2;
-+		i2c56 = &ocu_1;
-+		i2c57 = &m2_1;
-+		i2c58 = &slim1_1;
-+		i2c59 = &slim2_1;
-+		i2c60 = &slim3_1;
-+		i2c61 = &slim4_1;
-+		i2c62 = &slim1_2;
-+		i2c63 = &slim2_2;
-+		i2c64 = &slim3_2;
-+		i2c65 = &slim4_2;
-+	};
-+
-+	chosen {
-+		stdout-path = &uart5;
-+		bootargs = "console=ttyS4,115200 earlycon";
-+	};
-+
-+	memory@80000000 {
-+		reg = <0x80000000 0x20000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		gfx_memory: framebuffer {
-+			size = <0x01000000>;
-+			alignment = <0x01000000>;
-+			compatible = "shared-dma-pool";
-+			reusable;
-+		};
-+
-+		vga_memory: framebuffer@9f000000 {
-+			no-map;
-+			reg = <0x9f000000 0x01000000>; /* 16M */
-+		};
-+
-+		video_engine_memory: jpegbuffer {
-+			size = <0x02000000>;	/* 32M */
-+			alignment = <0x01000000>;
-+			compatible = "shared-dma-pool";
-+			reusable;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		systemfault {
-+			gpios = <&gpio ASPEED_GPIO(G,3) GPIO_ACTIVE_LOW>;
-+			label = "platform:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		enclosure_identify {
-+			gpios = <&gpio ASPEED_GPIO(G,0) GPIO_ACTIVE_LOW>;
-+			label = "platform:green:indicator";
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_INDICATOR;
-+		};
-+	};
-+
-+	leds-fanfail {
-+		compatible = "gpio-leds";
-+
-+		fan1 {
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 0 GPIO_ACTIVE_LOW>;
-+			label = "fan1:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		fan2 {
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 1 GPIO_ACTIVE_LOW>;
-+			label = "fan2:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		fan3 {
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 2 GPIO_ACTIVE_LOW>;
-+			label = "fan3:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		fan4 {
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 3 GPIO_ACTIVE_LOW>;
-+			label = "fan4:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		fan5{
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 4 GPIO_ACTIVE_LOW>;
-+			label = "fan5:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+	};
-+
-+	iio-hwmon {
-+		compatible = "iio-hwmon";
-+		io-channels =	<&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>,
-+				<&adc 4> ,<&adc 5>, <&adc 6>, <&adc 7>,
-+				<&adc 8>, <&adc 9>, <&adc 10>, <&adc 11>,
-+				<&adc 12>, <&adc 13>, <&adc 14>, <&adc 15>;
-+	};
-+};
-+
-+&fmc {
-+	status = "okay";
-+	flash@0 {
-+		status = "okay";
-+		label = "bmc";
-+		m25p,fast-read;
-+		spi-max-frequency = <50000000>;
-+#include "openbmc-flash-layout-64.dtsi"
-+	};
-+};
-+
-+&spi1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi1_default>;
-+
-+	flash@0 {
-+		status = "okay";
-+		m25p,fast-read;
-+		label = "pnor";
-+		spi-max-frequency = <100000000>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			code@400000 {
-+				reg = <0x400000 0x1C00000>;
-+				label = "pnor-code";
-+			};
-+			tfa@400000 {
-+				reg = <0x400000 0x200000>;
-+				label = "pnor-tfa";
-+			};
-+			uefi@600000 {
-+				reg = <0x600000 0x1A00000>;
-+				label = "pnor-uefi";
-+			};
-+		};
-+	};
-+};
-+
-+&uart1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_txd1_default
-+			 &pinctrl_rxd1_default
-+			 &pinctrl_ncts1_default
-+			 &pinctrl_nrts1_default>;
-+};
-+
-+&uart2 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_txd2_default
-+			 &pinctrl_rxd2_default>;
-+};
-+
-+&uart3 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_txd3_default
-+			 &pinctrl_rxd3_default>;
-+};
-+
-+&uart4 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_txd4_default
-+			 &pinctrl_rxd4_default>;
-+};
-+
-+/* The BMC's uart */
-+&uart5 {
-+	status = "okay";
-+};
-+
-+&mac0 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rmii1_default>;
-+	clocks = <&syscon ASPEED_CLK_GATE_MAC1CLK>,
-+		 <&syscon ASPEED_CLK_MAC1RCLK>;
-+	clock-names = "MACCLK", "RCLK";
-+	use-ncsi;
-+
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+};
-+
-+&mac1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
-+
-+	nvmem-cells = <&eth1_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+	bus-frequency = <100000>;
-+
-+	ipmb0@10 {
-+		compatible = "ipmb-dev";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+		i2c-protocol;
-+	};
-+
-+};
-+
-+&i2c1 {
-+	status = "okay";
-+	bus-frequency = <100000>;
-+
-+	pca9548@73 {
-+		compatible = "nxp,pca9548";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <0x73>;
-+		i2c-mux-idle-disconnect;
-+
-+		m2_2: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+		};
-+
-+		pcie4: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+		};
-+
-+		pcie5: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+		};
-+
-+		pcie6: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+		};
-+
-+		pcie7: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+		};
-+
-+		ocu_2: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+		};
-+
-+		ocu_1: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+		};
-+
-+		m2_1: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+		};
-+	};
-+
-+	pca9548@75 {
-+		compatible = "nxp,pca9548";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <0x75>;
-+		i2c-mux-idle-disconnect;
-+
-+		slim1_1: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+		};
-+
-+		slim2_1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+		};
-+
-+		slim3_1: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+		};
-+
-+		slim4_1: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+		};
-+
-+		slim1_2: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+		};
-+
-+		slim2_2: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+		};
-+
-+		slim3_2: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+		};
-+
-+		slim4_2: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+	bus-frequency = <100000>;
-+
-+	smpro@4f {
-+		compatible = "ampere,smpro";
-+		reg = <0x4f>;
-+	};
-+};
-+
-+&i2c3 {
-+	status = "okay";
-+
-+	power-supply@3c {
-+		compatible = "pmbus";
-+		reg = <0x3c>;
-+	};
-+
-+	/* PSU FRU */
-+	eeprom@38 {
-+		compatible = "atmel,24c02";
-+		reg = <0x38>;
-+	};
-+};
-+
-+&i2c4 {
-+	status = "okay";
-+	bus-frequency = <100000>;
-+
-+	nct7802@29 {
-+		compatible = "nuvoton,nct7802";
-+		reg = <0x29>;
-+
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		channel@0 { /* LTD */
-+			reg = <0>;
-+			status = "okay";
-+		};
-+
-+		channel@1 { /* RTD1 */
-+				reg = <1>;
-+				sensor-type = "temperature";
-+				temperature-mode = "thermistor";
-+		};
-+
-+		channel@2 { /* RTD2 */
-+				reg = <2>;
-+				sensor-type = "temperature";
-+				temperature-mode = "thermal-diode";
-+		};
-+	};
-+
-+	w83773g@4c {
-+		compatible = "nuvoton,w83773g";
-+		reg = <0x4c>;
-+	};
-+};
-+
-+&i2c5 {
-+	status = "okay";
-+};
-+
-+&i2c6 {
-+	status = "okay";
-+	bus-frequency = <100000>;
-+
-+	rtc@6f {
-+		compatible = "isil,isl1208";
-+		reg = <0x6f>;
-+	};
-+};
-+
-+&i2c7 {
-+	status = "okay";
-+	bus-frequency = <100000>;
-+
-+	/* BMC FRU */
-+	eeprom@57 {
-+		compatible = "atmel,24c128";
-+		reg = <0x57>;
-+
-+		nvmem-layout {
-+			compatible = "fixed-layout";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			eth0_macaddress: macaddress@3f88 {
-+				reg = <0x3f88 6>;
-+			};
-+
-+			eth1_macaddress: macaddress@3f80 {
-+				reg = <0x3f80 6>;
-+			};
-+		};
-+	};
-+};
-+
-+&i2c8 {
-+	status = "okay";
-+	bus-frequency = <100000>;
-+
-+	pca0: pca9557@1c {
-+		compatible = "nxp,pca9557";
-+		reg = <0x1c>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		gpio@0 {
-+			reg = <0>;
-+		};
-+		gpio@1 {
-+			reg = <1>;
-+		};
-+		gpio@2 {
-+			reg = <2>;
-+		};
-+		gpio@3 {
-+			reg = <3>;
-+		};
-+		gpio@4 {
-+			reg = <4>;
-+		};
-+		gpio@5 {
-+			reg = <5>;
-+		};
-+		gpio@6 {
-+			reg = <6>;
-+		};
-+		gpio@7 {
-+			reg = <7>;
-+		};
-+	};
-+};
-+
-+&i2c9 {
-+	status = "okay";
-+};
-+
-+&i2c10 {
-+	status = "okay";
-+};
-+
-+&i2c11 {
-+	status = "okay";
-+};
-+
-+&i2c12 {
-+	status = "okay";
-+};
-+
-+&i2c13 {
-+	status = "okay";
-+	bus-frequency = <100000>;
-+
-+	ssif-bmc@10 {
-+		compatible = "ssif-bmc";
-+		reg = <0x10>;
-+	};
-+};
-+
-+&vhub {
-+	status = "okay";
-+};
-+
-+
-+&gfx {
-+	status = "okay";
-+	memory-region = <&gfx_memory>;
-+};
-+
-+&pinctrl {
-+	aspeed,external-nodes = <&gfx &lhc>;
-+};
-+
-+&adc {
-+	status = "okay";
-+};
-+
-+&pwm_tacho {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pwm0_default
-+			&pinctrl_pwm1_default
-+			&pinctrl_pwm2_default
-+			&pinctrl_pwm3_default
-+			&pinctrl_pwm4_default
-+			&pinctrl_pwm5_default
-+			&pinctrl_pwm6_default
-+			&pinctrl_pwm7_default>;
-+
-+	fan@0 {
-+		reg = <0x00>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x00 0x08>;
-+	};
-+	fan@1 {
-+		reg = <0x01>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x01 0x09>;
-+	};
-+	fan@2 {
-+		reg = <0x02>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x02 0x0a>;
-+	};
-+	fan@3 {
-+		reg = <0x03>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x03 0x0b>;
-+	};
-+	fan@4 {
-+		reg = <0x04>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x04 0x0c>;
-+	};
-+	fan@5 {
-+		reg = <0x05>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x05 0x0d>;
-+	};
-+	fan@6 {
-+		reg = <0x06>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x06 0x0e>;
-+	};
-+	fan@7 {
-+		reg = <0x07>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x07 0x0f>;
-+	};
-+};
-+
-+&video {
-+	status = "okay";
-+	memory-region = <&video_engine_memory>;
-+};
-+
-+
-+&gpio {
-+	status = "okay";
-+	gpio-line-names =
-+	/*A0-A7*/	"","","","BMC_READY","","","","",
-+	/*B0-B7*/	"i2c-backup-sel","","","","","","","host0-shd-ack-n",
-+	/*C0-C7*/	"","","","","","","","",
-+	/*D0-D7*/	"POWER_BUTTON","POWER_OUT","RESET_BUTTON",
-+			"host0-sysreset-n","","","SYS_PWR_GD","",
-+	/*E0-E7*/	"","s0-vrd1-vddq0123-fault-l",
-+			"s0-vrd1-vddq4567-fault-l","s0-vrd0-vddc-fault-l",
-+			"s0-vrd3-p0v75-fault-l","","","",
-+	/*F0-F7*/	"","","SYS_ATX_PSON_L","","","","","",
-+	/*G0-G7*/	"id-led","id-button","","","UBOOT_READY",\
-+			"BMC_SALT2_L","","",
-+	/*H0-H7*/	"PS_PWROK","uart1-mode1","uart2-mode1","uart3-mode1",
-+			"uart4-mode1","","BMC_HB_LED","",
-+	/*I0-I7*/	"","","","","","","","",
-+	/*J0-J7*/	"s0-hightemp-n","","","","","","","",
-+	/*K0-K7*/	"","","","","","","","",
-+	/*L0-L7*/	"","","","","","","","",
-+	/*M0-M7*/	"","","","","","s0-spi-auth-fail-n","","",
-+	/*N0-N7*/	"","","","","","","","",
-+	/*O0-O7*/	"","","","","","","","",
-+	/*P0-P7*/	"","","CPLD_DISABLE_BMC","","","","","",
-+	/*Q0-Q7*/	"","","ext-hightemp-n","","","","",
-+			"CHASSIS_INTRUSION",
-+	/*R0-R7*/	"","","EXT_HIGHTEMP_L","spi0-program-sel","",
-+			"HWM_BAT_EN","","",
-+	/*S0-S7*/	"s0-vr-hot-n","","","BMC_SYSRESET_L","","","","",
-+	/*T0-T7*/	"","","","","","","","",
-+	/*U0-U7*/	"","","","","","","","",
-+	/*V0-V7*/	"","","","","","","","",
-+	/*W0-W7*/	"","","","","","","","",
-+	/*X0-X7*/	"","","","","","","","",
-+	/*Y0-Y7*/	"SIOS3","SIOS5","SIOPWREQ","SIOONCTRL","","","","",
-+	/*Z0-Z7*/	"","SIOPWRGD","","s0-rtc-lock","","","","",
-+	/*AA0-AA7*/	"RTC_INT","","","","","PMBUS_SEL_N","","",
-+	/*AB0-AB7*/	"host0-reboot-ack-n","s0-sys-auth-failure-n",
-+			"","","","","","",
-+	/*AC0-AC7*/	"s0-fault-alert","host0-ready","s0-overtemp-n",
-+			"","bmc-ok","host0-special-boot","presence-cpu0",
-+			"host0-shd-req-n";
-+};
--- 
-2.47.3
+On 10/09/25 4:14 PM, Kevin Brodsky wrote:
+> create_kpti_ng_temp_pgd() is currently defined (as an alias) in
+> mmu.c without matching declaration in a header; instead cpufeature.c
+> makes its own declaration. This is clearly not pretty, and as commit
+> ceca927c86e6 ("arm64: mm: Fix CFI failure due to kpti_ng_pgd_alloc
+> function signature") showed, it also makes it very easy for the
+> prototypes to go out of sync.
+> 
+> All this would be much simpler if kpti_install_ng_mappings() and
+> associated functions lived in mmu.c, where they logically belong.
+> This is what this patch does:
+> - Move kpti_install_ng_mappings() and associated functions from
+>   cpufeature.c to mmu.c, add a declaration to <asm/mmu.h>
+> - Make create_kpti_ng_temp_pgd() a static function that simply calls
+>   __create_pgd_mapping_locked() instead of aliasing it
+> - Mark all these functions __init
+> - Move __initdata after kpti_ng_temp_alloc (as suggested by
+>   checkpatch)
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+> Note: as things stand, create_kpti_ng_temp_pgd() could be removed,
+> but a separate patch [1] will make use of it to add an
+> assertion.
+> 
+> [1] https://lore.kernel.org/all/20250813145607.1612234-3-chaitanyas.prakash@arm.com/
+> ---
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Kees Cook <kees@kernel.org>,
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/include/asm/mmu.h   |   6 ++
+>  arch/arm64/kernel/cpufeature.c |  97 ------------------------------
+>  arch/arm64/mm/mmu.c            | 106 ++++++++++++++++++++++++++++++---
+>  3 files changed, 103 insertions(+), 106 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+> index 49f1a810df16..624edd6c4964 100644
+> --- a/arch/arm64/include/asm/mmu.h
+> +++ b/arch/arm64/include/asm/mmu.h
+> @@ -104,5 +104,11 @@ static inline bool kaslr_requires_kpti(void)
+>  	return true;
+>  }
+>  
+> +#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> +void kpti_install_ng_mappings(void);
+
+Could the declarations be moved here instead ? Otherwise LGTM.
+
+diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+index 624edd6c4964..062465939192 100644
+--- a/arch/arm64/include/asm/mmu.h
++++ b/arch/arm64/include/asm/mmu.h
+@@ -106,6 +106,8 @@ static inline bool kaslr_requires_kpti(void)
+
+ #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+ void kpti_install_ng_mappings(void);
++typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
++kpti_remap_fn idmap_kpti_install_ng_mappings;
+ #else
+ static inline void kpti_install_ng_mappings(void) {}
+ #endif
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index eff3295393ee..1b5c3c590e95 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -750,8 +750,6 @@ static void __init create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
+
+ static int __init __kpti_install_ng_mappings(void *__unused)
+ {
+-       typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+-       extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+        kpti_remap_fn *remap_fn;
+
+        int cpu = smp_processor_id();
+
+> +#else
+> +static inline void kpti_install_ng_mappings(void) {}
+> +#endif
+> +
+>  #endif	/* !__ASSEMBLY__ */
+>  #endif
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index ef269a5a37e1..b99eaad48c14 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -1940,103 +1940,6 @@ static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
+>  }
+>  #endif
+>  
+> -#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> -#define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
+> -
+> -extern
+> -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+> -			     phys_addr_t size, pgprot_t prot,
+> -			     phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags);
+> -
+> -static phys_addr_t __initdata kpti_ng_temp_alloc;
+> -
+> -static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
+> -{
+> -	kpti_ng_temp_alloc -= PAGE_SIZE;
+> -	return kpti_ng_temp_alloc;
+> -}
+> -
+> -static int __init __kpti_install_ng_mappings(void *__unused)
+> -{
+> -	typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+> -	extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+> -	kpti_remap_fn *remap_fn;
+> -
+> -	int cpu = smp_processor_id();
+> -	int levels = CONFIG_PGTABLE_LEVELS;
+> -	int order = order_base_2(levels);
+> -	u64 kpti_ng_temp_pgd_pa = 0;
+> -	pgd_t *kpti_ng_temp_pgd;
+> -	u64 alloc = 0;
+> -
+> -	if (levels == 5 && !pgtable_l5_enabled())
+> -		levels = 4;
+> -	else if (levels == 4 && !pgtable_l4_enabled())
+> -		levels = 3;
+> -
+> -	remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
+> -
+> -	if (!cpu) {
+> -		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
+> -		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
+> -		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
+> -
+> -		//
+> -		// Create a minimal page table hierarchy that permits us to map
+> -		// the swapper page tables temporarily as we traverse them.
+> -		//
+> -		// The physical pages are laid out as follows:
+> -		//
+> -		// +--------+-/-------+-/------ +-/------ +-\\\--------+
+> -		// :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
+> -		// +--------+-\-------+-\------ +-\------ +-///--------+
+> -		//      ^
+> -		// The first page is mapped into this hierarchy at a PMD_SHIFT
+> -		// aligned virtual address, so that we can manipulate the PTE
+> -		// level entries while the mapping is active. The first entry
+> -		// covers the PTE[] page itself, the remaining entries are free
+> -		// to be used as a ad-hoc fixmap.
+> -		//
+> -		create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc),
+> -					KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+> -					kpti_ng_pgd_alloc, 0);
+> -	}
+> -
+> -	cpu_install_idmap();
+> -	remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
+> -	cpu_uninstall_idmap();
+> -
+> -	if (!cpu) {
+> -		free_pages(alloc, order);
+> -		arm64_use_ng_mappings = true;
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+> -static void __init kpti_install_ng_mappings(void)
+> -{
+> -	/* Check whether KPTI is going to be used */
+> -	if (!arm64_kernel_unmapped_at_el0())
+> -		return;
+> -
+> -	/*
+> -	 * We don't need to rewrite the page-tables if either we've done
+> -	 * it already or we have KASLR enabled and therefore have not
+> -	 * created any global mappings at all.
+> -	 */
+> -	if (arm64_use_ng_mappings)
+> -		return;
+> -
+> -	stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
+> -}
+> -
+> -#else
+> -static inline void kpti_install_ng_mappings(void)
+> -{
+> -}
+> -#endif	/* CONFIG_UNMAP_KERNEL_AT_EL0 */
+> -
+>  static void cpu_enable_kpti(struct arm64_cpu_capabilities const *cap)
+>  {
+>  	if (__this_cpu_read(this_cpu_vector) == vectors) {
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 183801520740..eff3295393ee 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -27,6 +27,7 @@
+>  #include <linux/kfence.h>
+>  #include <linux/pkeys.h>
+>  #include <linux/mm_inline.h>
+> +#include <linux/stop_machine.h>
+>  
+>  #include <asm/barrier.h>
+>  #include <asm/cputype.h>
+> @@ -466,14 +467,6 @@ static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+>  	mutex_unlock(&fixmap_lock);
+>  }
+>  
+> -#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> -extern __alias(__create_pgd_mapping_locked)
+> -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+> -			     phys_addr_t size, pgprot_t prot,
+> -			     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> -			     int flags);
+> -#endif
+> -
+>  static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
+>  				       enum pgtable_type pgtable_type)
+>  {
+> @@ -735,7 +728,102 @@ static void __init declare_vma(struct vm_struct *vma,
+>  }
+>  
+>  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> -static pgprot_t kernel_exec_prot(void)
+> +#define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
+> +
+> +static phys_addr_t kpti_ng_temp_alloc __initdata;
+> +
+> +static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
+> +{
+> +	kpti_ng_temp_alloc -= PAGE_SIZE;
+> +	return kpti_ng_temp_alloc;
+> +}
+> +
+> +static void __init create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
+> +					   unsigned long virt, phys_addr_t size,
+> +					   pgprot_t prot,
+> +					   phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +					   int flags)
+> +{
+> +	__create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+> +				    pgtable_alloc, flags);
+> +}
+> +
+> +static int __init __kpti_install_ng_mappings(void *__unused)
+> +{
+> +	typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+> +	extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+> +	kpti_remap_fn *remap_fn;
+> +
+> +	int cpu = smp_processor_id();
+> +	int levels = CONFIG_PGTABLE_LEVELS;
+> +	int order = order_base_2(levels);
+> +	u64 kpti_ng_temp_pgd_pa = 0;
+> +	pgd_t *kpti_ng_temp_pgd;
+> +	u64 alloc = 0;
+> +
+> +	if (levels == 5 && !pgtable_l5_enabled())
+> +		levels = 4;
+> +	else if (levels == 4 && !pgtable_l4_enabled())
+> +		levels = 3;
+> +
+> +	remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
+> +
+> +	if (!cpu) {
+> +		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
+> +		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
+> +		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
+> +
+> +		//
+> +		// Create a minimal page table hierarchy that permits us to map
+> +		// the swapper page tables temporarily as we traverse them.
+> +		//
+> +		// The physical pages are laid out as follows:
+> +		//
+> +		// +--------+-/-------+-/------ +-/------ +-\\\--------+
+> +		// :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
+> +		// +--------+-\-------+-\------ +-\------ +-///--------+
+> +		//      ^
+> +		// The first page is mapped into this hierarchy at a PMD_SHIFT
+> +		// aligned virtual address, so that we can manipulate the PTE
+> +		// level entries while the mapping is active. The first entry
+> +		// covers the PTE[] page itself, the remaining entries are free
+> +		// to be used as a ad-hoc fixmap.
+> +		//
+> +		create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc),
+> +					KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+> +					kpti_ng_pgd_alloc, 0);
+> +	}
+> +
+> +	cpu_install_idmap();
+> +	remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
+> +	cpu_uninstall_idmap();
+> +
+> +	if (!cpu) {
+> +		free_pages(alloc, order);
+> +		arm64_use_ng_mappings = true;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +void __init kpti_install_ng_mappings(void)
+> +{
+> +	/* Check whether KPTI is going to be used */
+> +	if (!arm64_kernel_unmapped_at_el0())
+> +		return;
+> +
+> +	/*
+> +	 * We don't need to rewrite the page-tables if either we've done
+> +	 * it already or we have KASLR enabled and therefore have not
+> +	 * created any global mappings at all.
+> +	 */
+> +	if (arm64_use_ng_mappings)
+> +		return;
+> +
+> +	stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
+> +}
+> +
+> +static pgprot_t __init kernel_exec_prot(void)
+>  {
+>  	return rodata_enabled ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+>  }
+> 
+> base-commit: 76eeb9b8de9880ca38696b2fb56ac45ac0a25c6c
 
 
