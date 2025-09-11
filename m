@@ -4,80 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7072CCA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27136CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ymIxetTWocC2/T6DcUZLUqfBudVyTjFDiSDhCwPR4IA=; b=PHlt6w6S//sQv2ZBAbM8wqzHRy
-	2GPOiJ3FFOfedbRsLU9gpNBHLIyAG6xj++dIVK5wnv/CCIAFSzRoGgWLf00AKdMNZfckWqXt5uf5K
-	XoAgBLXcRPFoFvSEDlvDdLs+BtFbtRFiDu24rdfyuQBbtDe3OSFjSH5KWGxq7G56HniX9kKLil7NO
-	+lB3diIcr1G28Wl+akEP7xCYzjqclhzA0AdkY7UXLWqh3g4ci21nEMGcX8RhwDMq9QZHa8QhwRSfe
-	me6E0oigSKtgtKw35Rgbw1NT1Rnw5/OXxOiRwpBM9MD9LkVk7KzwsLaOwrZn13VR9O6bqDeF/mzgY
-	BRWm8XwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8UZehzmT7/1prMr/Kl8uEx9VnOQwKMsRQ4XnLU8IJDw=; b=BsnEL8hALeHTWE3wpjXKu0Jtsq
+	0/oi13L5t3Fw1bwrjdGGzRMt4vhU3vi/nbGzqpoSC3ZE6uoeP7X5/pd+cPjEvMfETk/QtA9mCdiDx
+	WQSdAjUj23WkNEatB+KwwVl8GLnuxhHk4NrEQLxTJ5Rr8wc6mRVdb6a6Aux8bemgfFk1xBbcIPDN5
+	DWF1cohly97y6cUUAvLwee6wmmNz5ATefkxHK0erL+jhHpNNQt9AF+a6rDSxciGpvsmltDodtQ6BY
+	ZpIOl2TfZ34JbyfKZjz954ln7RiwjuiFZGw32ZjZUZFM10U32EdGv4GwgusIdD6XiK8hyKdm5oYdu
+	V/LDs5og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbdR-00000001SJQ-2px2;
-	Thu, 11 Sep 2025 07:22:25 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1uwbjQ-00000001U39-0kgJ;
+	Thu, 11 Sep 2025 07:28:36 +0000
+Received: from mail-bn8nam12on20629.outbound.protection.outlook.com ([2a01:111:f403:2418::629] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbdO-00000001SHZ-09QE;
-	Thu, 11 Sep 2025 07:22:24 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 8941EC6B3AB;
-	Thu, 11 Sep 2025 07:22:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5C391606BB;
-	Thu, 11 Sep 2025 07:22:18 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 96128102F2882;
-	Thu, 11 Sep 2025 09:21:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1757575334; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ymIxetTWocC2/T6DcUZLUqfBudVyTjFDiSDhCwPR4IA=;
-	b=BP0dghcvk2HqRbfKQS3O7ySBOrhO100W9n5AqVrR5PeKtATxfQw0Fg34/tSl45/GNCqkB5
-	4YDn3TU+esRYKH/S7xLXUPXNvWIRKopAHuqEnYhzTqOUVbkXD55NDWUtJs2pjGQaJesftt
-	4UyhJvGAks1d4dAvYXnQCbrr99n+3bCVBOl1UC9ecNzEoDjWRsI8lWbZQqgdjHlJEaAybm
-	wVUUwXjiHFuXkBHSHLPSqCRtPjtCqbF4BeojkAze1q8uA62pIfkwavllHdygrvVrct1wTr
-	rgMfHHXK5dOG9RdqE9rA5g4ojdhyInfMVW5tD3BRfmQ2KzRRrXlhsvcwN2UlPA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 11 Sep 2025 09:21:34 +0200
-Message-Id: <DCPSFZLWJLG7.1B4NISSDKLWBQ@bootlin.com>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH v2 1/5] net: cadence: macb: Set upper 32bits of DMA ring
- buffer
-Cc: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rpi-kernel@lists.infradead.org>, "Broadcom internal kernel review
- list" <bcm-kernel-feedback-list@broadcom.com>, "Andrew Lunn"
- <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Florian Fainelli"
- <florian.fainelli@broadcom.com>, "Andrea della Porta"
- <andrea.porta@suse.com>, "Claudiu Beznea" <claudiu.beznea@tuxon.dev>, "Phil
- Elwell" <phil@raspberrypi.com>, "Jonathan Bell" <jonathan@raspberrypi.com>,
- "Dave Stevenson" <dave.stevenson@raspberrypi.com>,
- <stable@vger.kernel.org>, "Andrew Lunn" <andrew@lunn.ch>
-To: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, "Nicolas Ferre"
- <nicolas.ferre@microchip.com>, "Jakub Kicinski" <kuba@kernel.org>,
- "Stanimir Varbanov" <svarbanov@suse.de>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
-References: <20250822093440.53941-1-svarbanov@suse.de>
- <20250822093440.53941-2-svarbanov@suse.de>
- <20250825165310.64027275@kernel.org>
- <3bccf773-abd6-4ade-a1c5-99f2a773b723@microchip.com>
- <DCPA2BR78XM8.HWKZZ8WQF3S8@bootlin.com>
-In-Reply-To: <DCPA2BR78XM8.HWKZZ8WQF3S8@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1uwbjN-00000001U1L-2EDM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Sep 2025 07:28:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l6Ri8hIIf42HFbnsGACYQqwhB7HhOYtnvAwFUBGHmwKOtd45cqA29KExCXDUhkeMhz/+YETfa2T1q7t0CSYukR4ImatrnuqufYGVfF3In3kr0kx1aNWxnAgIgHoKa/+rN44sgp/kleU+IVL6fY5R/RyHNNOtMWw3mqX/wj13HBCLYPMQpCVcx54aBFJUk3r3jPf9o58wD4UnEJhaI+MRvutWbUrTb/Il5966V4UQJN7NCiqjzOHuQeKMwlrEzY6u5r/XZ3vUgTysrMWoDwzyqOIZhNRmAc9Vb/WsU7Dq2z/kq+HO3F/mbtLQRspZ7WcbEkaslhsISbLgaUIlBDJsEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8UZehzmT7/1prMr/Kl8uEx9VnOQwKMsRQ4XnLU8IJDw=;
+ b=gJO+BcpppKMiIvr7/xDsW7pLBSctduMP+mDlsBXwvML3oACHeHaMiIWHjPRsZN1WHl9roj9u2cvJ+gl+xscbxDWhioFs8m5wqPZlxZqB5YSlx5OyyZJCS6USLp3AbjMuXb6r9vYJRwb6Yxq01+BvTDM91dgJd2Bn6eT1R0uXQ264wFLjvm34tC3GgnGq3HsDDiZHGXxPMdblRnFY8rPSVJqkWDI6+5RK02Dw8uhn0KfXxeotvogw61aT13OB9YXUiGifHW4mr9Mi0szIsoFiFu7UJSoskX9KL5HKa7aZPGmpL60kLMRz+7DevrAkExfwBtORRG6Y3ZAsrqqFFA8ENQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8UZehzmT7/1prMr/Kl8uEx9VnOQwKMsRQ4XnLU8IJDw=;
+ b=VlOO4/qkBSS3lQxL3aw0QqRtQvrwYXMKacfa87wv0zPp4Zow7Vdx97AcFlXJwT7aJE4YqWZX/T0YKKZ5VQP/dHHdFTfudDtVA/dDA65EaARhwjiJhZpJOBrNRn/JkR83D9RJjxjeTifFPMAlW6XxCjfEoYf+3Qbr1mdGDgxEkxg=
+Received: from SJ0PR03CA0026.namprd03.prod.outlook.com (2603:10b6:a03:33a::31)
+ by SJ2PR12MB7963.namprd12.prod.outlook.com (2603:10b6:a03:4c1::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Thu, 11 Sep
+ 2025 07:28:22 +0000
+Received: from SJ1PEPF000026C5.namprd04.prod.outlook.com
+ (2603:10b6:a03:33a:cafe::b1) by SJ0PR03CA0026.outlook.office365.com
+ (2603:10b6:a03:33a::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.15 via Frontend Transport; Thu,
+ 11 Sep 2025 07:28:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ1PEPF000026C5.mail.protection.outlook.com (10.167.244.102) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9115.13 via Frontend Transport; Thu, 11 Sep 2025 07:28:22 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 11 Sep
+ 2025 00:28:20 -0700
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 11 Sep 2025 00:28:16 -0700
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <michal.simek@amd.com>,
+	<sean.anderson@linux.dev>, <radhey.shyam.pandey@amd.com>, <horms@kernel.org>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <harini.katakam@amd.com>
+Subject: [PATCH net-next 0/2] Fix Linux style violations
+Date: Thu, 11 Sep 2025 12:58:13 +0530
+Message-ID: <20250911072815.3119843-1-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C5:EE_|SJ2PR12MB7963:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a4a9e7b-161a-4dc5-2f3b-08ddf104c9bf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?72ugz+EBz+l+sKvXhyxUk3xYe+Z9AuwaaSVuJ3kc3jrOZ8yObPfHQGHwLRUO?=
+ =?us-ascii?Q?+7vmuwGSoZo7Ttk+ufXcYdw/0TBHQK1HW0uwcI6RlgKD0kUgdecwQMqpNIfA?=
+ =?us-ascii?Q?wvMfaWFPo07KB2cabZv6L6Fmx77llx2s6GURrKGUyYFbVak/KrHmA2cQ0OKa?=
+ =?us-ascii?Q?pg9dALK/Xmq/97eIYi2s0cCg9sAKpDP0Taree2ur/KQzK2f+l7O4jNQDp1EW?=
+ =?us-ascii?Q?6uf+v6Aywi5N2bSmqX1WFNKZW6qoUOjaiaR2jf7L5noaD6fkRiREuY3F0t0P?=
+ =?us-ascii?Q?ZvBI/BrqTr3yTj5lX0LXYFufEB1jZ23gXCbm9pxiKSX20Qfu1Fuyl5Dp1GIU?=
+ =?us-ascii?Q?iWNOgzcnJStW7Lg43OWF2gj8MguZ+8FOFW6ZNdbOpKC5V4I77ih91SW93cmY?=
+ =?us-ascii?Q?7APSu6/+RUw/Ku+G5LeJoj8M9ql74EJ3LFBWFvH7rpfofwMqnI0m004ormAm?=
+ =?us-ascii?Q?uEgrRXhrP+CItu5NxqZCEWHk3pgwoaSmJSlroHKpM2UcHaNdqq9QAoDjGu+q?=
+ =?us-ascii?Q?ISJwpmpd7LwlCqWbI9kia7pWVIKqwIAAxMZhbn/J4DjEI/wAjv6ZJrsHZbHH?=
+ =?us-ascii?Q?Ym9K3WNKFD2mS2IyA2FevA6k5hzQkQD9aGS41FD4aSb1MUiMHrlIxibOnSdd?=
+ =?us-ascii?Q?tvUsgREj73SAV03n76ALtazE5t+YGbD+V00EfXbiOxGjuBsKDqBVIjFfE+FA?=
+ =?us-ascii?Q?VAJp2AM9GvS6MMoI6Ge+QyeQxefYJZ+EkfdWnfLmljOO+oenhZBUiXOBV+ZO?=
+ =?us-ascii?Q?NkU81HE9Est6ZmQgcIyBxs8HkOZRgQx5LVGonHlVTZ6fEZixEkIqWUHFmUoo?=
+ =?us-ascii?Q?UFqUHz/seLNovQtSJxLAUoZhBzVgFy5Vgu9v3QoKUTVXe2IZEgGodnVjU5u3?=
+ =?us-ascii?Q?bUevP3zYMnYP7hFCzwEd+ZY5M/yjmg6JaBGaLbgvV5y8BM6/tYtvPkAa91rr?=
+ =?us-ascii?Q?/pLV7Pt2PsE+fFCtRdRCQgW+HNenP1i8kh6l+NST09gPJSdjcQILK+thhBJD?=
+ =?us-ascii?Q?V7F/uWwo3hOj0WqRfl/6KKaWScmw2yzKOwP//VdKQrjSq9WxbXfShHh2QlaX?=
+ =?us-ascii?Q?+yD2FXPVdkC9FZ1GKKjia9OtY7+vKO2eKewwLzjr0yYDjq6sGH8uU/uq0s9O?=
+ =?us-ascii?Q?qBgGPNFyMz1Yt4+X1POCuKxKf02wwe3WQtN8Iygt6+eJVVwjeIzwN7rfPNGF?=
+ =?us-ascii?Q?8tf59jE6m9K5qVqQpGmNQrHor+d624umt0hPL/aDwQV+5raPZfha16ckStgx?=
+ =?us-ascii?Q?JMoykCecLn1dYDSZL0KBOIV1Edd1YhliBGNebE7Ike9KST0PWNl6Va6zKzDl?=
+ =?us-ascii?Q?nadREn5dRh1+xngf81+0PONZAGjBZ0sa/z03zWRVv0swP7+OdMK5AhK04oNU?=
+ =?us-ascii?Q?1dr/YHfXiwJ6ctOazZhGhMD2pwBnCCPP6pcprYIlCxHWpP5vUpzWwTO7ghW8?=
+ =?us-ascii?Q?XZMXIKmhByhhJyLbO6qk/MsHGi8HckTkX73VRwLTsHZ1pdqpPWgxAnub+Ynw?=
+ =?us-ascii?Q?UUYOqHh8ekt2PqtKkCey496fbYUfERegZcXT?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2025 07:28:22.2049
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a4a9e7b-161a-4dc5-2f3b-08ddf104c9bf
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C5.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7963
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_002222_465554_D55067B0 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20250911_002833_572788_5E7110D6 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,109 +144,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Sep 10, 2025 at 6:57 PM CEST, Th=C3=A9o Lebrun wrote:
-> Hello Nicolas, Jakub, Stanimir,
->
-> On Tue Aug 26, 2025 at 11:14 AM CEST, Nicolas Ferre wrote:
->> On 26/08/2025 at 01:53, Jakub Kicinski wrote:
->>> On Fri, 22 Aug 2025 12:34:36 +0300 Stanimir Varbanov wrote:
->>>> In case of rx queue reset and 64bit capable hardware, set the upper
->>>> 32bits of DMA ring buffer address.
->>>>
->>>> Cc: stable@vger.kernel.org # v4.6+
->>>> Fixes: 9ba723b081a2 ("net: macb: remove BUG_ON() and reset the queue t=
-o handle RX errors")
->>>> Credits-to: Phil Elwell <phil@raspberrypi.com>
->>>> Credits-to: Jonathan Bell <jonathan@raspberrypi.com>
->>>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->>>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->>>=20
->>>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/et=
-hernet/cadence/macb_main.c
->>>> index ce95fad8cedd..36717e7e5811 100644
->>>> --- a/drivers/net/ethernet/cadence/macb_main.c
->>>> +++ b/drivers/net/ethernet/cadence/macb_main.c
->>>> @@ -1634,7 +1634,11 @@ static int macb_rx(struct macb_queue *queue, st=
-ruct napi_struct *napi,
->>>>                macb_writel(bp, NCR, ctrl & ~MACB_BIT(RE));
->>>>
->>>>                macb_init_rx_ring(queue);
->>>> -             queue_writel(queue, RBQP, queue->rx_ring_dma);
->>>> +             queue_writel(queue, RBQP, lower_32_bits(queue->rx_ring_d=
-ma));
->>>> +#ifdef CONFIG_ARCH_DMA_ADDR_T_64BIT
->>>> +             if (bp->hw_dma_cap & HW_DMA_CAP_64B)
->>>> +                     macb_writel(bp, RBQPH, upper_32_bits(queue->rx_r=
-ing_dma));
->>>> +#endif
->>>>
->>>>                macb_writel(bp, NCR, ctrl | MACB_BIT(RE));
->>>>
->>>=20
->>> Looks like a subset of Th=C3=A9o Lebrun's work:
->>> https://lore.kernel.org/all/20250820-macb-fixes-v4-0-23c399429164@bootl=
-in.com/
->>> let's wait for his patches to get merged instead?
->>
->> Yes, we can certainly wait. As RBOPH changes by Th=C3=A9o are key, they =
-will=20
->> probably remove the need for this fix altogether: but I count on you=20
->> Stanimir to monitor that (as I don't have a 64 bit capable platform at=
-=20
->> hand).
->
-> I when looking for where this patch came from.
-> Commit in the raspberrypi downstream kernel:
-> https://github.com/raspberrypi/linux/commit/e45c98decbb16e58a79c7ec6fbe43=
-74320e814f1
->
-> It is somewhat unreadable; the only part that seems related is the:
->
->> net: macb: Several patches for RP1
->> 64-bit RX fix
->
->  - Is there any MACB hardware (not GEM) that uses 64-bit DMA
->    descriptors? What platforms? RPi maybe?
->
->  - Assuming such a platform exists, the next question is why does
->    macb_rx() need to reinit RBQPH/0x04D4. It reinits RBQP/0x0018
->    because it is the buffer pointer and increments as buffers get used.
->
->    To reinit RBQPH would be for the case of the increment overflowing
->    into the upper 32-bits. Sounds like a reasonable fix (for a really
->    rare bug) if that hardware actually exists.
->
->    This wouldn't be needed on GEM because RBQPH is shared across queues.
->    So of course RBQPH would not increment with the buffer pointer.
->
-> If this patch is needed (does HW exist?), then my series doesn't address
-> it. I can take the patch in a potential V6 if you want. V5 got posted
-> today [0].
->
-> [0]: https://lore.kernel.org/lkml/20250910-macb-fixes-v5-0-f413a3601ce4@b=
-ootlin.com/
+Fix Linux style violations reported by tools.
 
-Coming back after some sleep: my series does address this.
-It updates macb_alloc_consistent() so allocs look like:
+Suraj Gupta (2):
+  net: xilinx: axienet: Fix kernel-doc warning for axienet_free_tx_chain
+    return value
+  net: xilinx: axienet: Add inline comment for stats_lock mutex
+    definition
 
-   size =3D bp->num_queues * macb_tx_ring_size_per_queue(bp);
-   tx =3D dma_alloc_coherent(dev, size, &tx_dma, GFP_KERNEL);
-   if (!tx || upper_32_bits(tx_dma) !=3D upper_32_bits(tx_dma + size - 1))
-      goto out_err;
+ drivers/net/ethernet/xilinx/xilinx_axienet.h      | 2 +-
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-   // same for rx
-
-In the MACB (!GEM) case, bp->num_queues=3D1 so we will check that the
-start and end of the DMA descriptor ring buffer have the same upper
-32-bits.
-
-That implies macb_rx() doesn't have to reinit RBQPH/0x04D4.
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+2.25.1
 
 
