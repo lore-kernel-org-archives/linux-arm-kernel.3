@@ -4,100 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 064D1CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E051CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YCSrMFeSurFqrsJ2giFUs5nVIkyf5eYx9hKkmNRZA3A=; b=TH66owOewLZIVU5bR4l6FeBSXg
-	GY1y4QSisvV9dwE+4EiHiLzbtB67QtRMf3I6QweQfh+HevSE2+NgTFfY3q0YbTgWUpp83UWXkwXOm
-	4Js4u2OgVduxxenfMfAaxw/kzznn1V+A1bn8Cp8dVwICZvtDLW1DUSmIryG8tZd+GjrhP/k5G2o3j
-	kzt33nA3o9f9RZY76NiMeV33w5UgqR8Y+5fQoXqEmGr0p307mLWjHQQXp75asvESGDzjYFWmGGVZg
-	AS413RT36z8jXThMXRkvv5X96mq8SNZFeTHiPO8bYNiYF+WReF6n/WmhB9g2NG2JL2sx8Y4saOGaG
-	db2XaLkA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JtDMUhbai62kxq3n8kKo67cCRGiyz/FmvNZNSwA/DhQ=; b=1fLwCaEBvibCyG7UJ8csKnmzAJ
+	jNJb+R7KxZ7fgBzh7r0S8gZTrKb24Ne++L0vO2DxjkYP0SlhDorly7HFpK/xiX1fDT5zo4A0ccMMs
+	tSPfhrOD7N2PC5d3bnyPN0NCxNxfBLsE6LhsLaTKR7OFmEzv7NWMJTfZc5yupNKQ+aVy4PTkhLdWL
+	1gVgfeezjOKxf8Qt47dRP2irmzyzQmLpvK/fXkwklLWJcV7A/klj6HDy7VbTRFu7+zFNl5yP2eVCb
+	0biyi5bqeYNj8HdlAWK/nEpES6JVpTTlLPzcjQsbJut8rxBQdYsrDqnHtJmLsp1VHEZQmxU/5jZws
+	4t6/zonA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhgV-00000003LZa-2zny;
-	Thu, 11 Sep 2025 13:49:59 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uwhgq-00000003Lso-0DWR;
+	Thu, 11 Sep 2025 13:50:20 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhgQ-00000003LTM-1LCS
+	id 1uwhgn-00000003Lq6-2Sho
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 13:49:55 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45cb6428c46so9459695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 06:49:53 -0700 (PDT)
+	Thu, 11 Sep 2025 13:50:19 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e96e5535fcdso1767102276.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 06:50:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757598592; x=1758203392; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YCSrMFeSurFqrsJ2giFUs5nVIkyf5eYx9hKkmNRZA3A=;
-        b=I1MzgCediKOX7prKtw3BFAeTsE+4ffKDM+TArcoQGStg2+KbqyZp2tUzUels5tvyH/
-         dt47X+2pLCVzcG1+YOsXGOUscY8b2W+7qKS2UOHD1THeUI524g4pDGAm1cDisSbJpANd
-         hyj3D7grahpwPHo3z3PyKdFk6OP0a5f7Ugpf+of+R1U5h55genDupcg1PPVpcagNoCCb
-         9QtDJfQHrkgAPpl8wvRGcTK6DcvBfNeKwoUS6RgdPYLqlGQ73kK1tahdxsUGL4YAbMRH
-         Fk5TthOB6cRT9PCEyn45ioIpnfH//JwB6pqiPhqfP6722LNWsMM4QeEo6bGCjSZwynL6
-         heCg==
+        d=linaro.org; s=google; t=1757598616; x=1758203416; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JtDMUhbai62kxq3n8kKo67cCRGiyz/FmvNZNSwA/DhQ=;
+        b=niLO1d4WpfVrHJXkU5FOPDegdgrv3Bn6XbTdTdZ7Wr30e9qsCCUFkJw0nojGwaksuS
+         qTXy/dwTuVZS/gL3qYUljM8xjcRwNHmURFzhRr0d0269iQ69u+EWGOH1qHlW/maOIp4e
+         Adg+ruR4U2UFnGlpYThLt27UNjHxCinKKGHYMWe987kPnEgv/SwyrDDmpAUs3xVVrNNW
+         2ZISOxjw/LJxaVvkFr5ieOEQdyeyST5gWKxOvlyVkhszB3nn0bZM8PPQBA9U4+WFciUc
+         cBhptjojXF0xotyg8u3j+VSQFDoNvuvBMIHflwv4ikBBoc+HoidngcFvVpEVmJgs4FFQ
+         u88Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757598592; x=1758203392;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YCSrMFeSurFqrsJ2giFUs5nVIkyf5eYx9hKkmNRZA3A=;
-        b=tdW5trQeHPzIJ2Hm1borZ3gYm6HcgYht24C3movnJ5tmlTLlV212HVyaYd2US3lVpU
-         gsIgrcAiPO0w/Kquw+nN8KFJIrtoyqqvLRzHcnjziuwWJQ6YoLkyxDmImfn9QJXS8KKN
-         dptbHYBdAm3QmJdf3mIxWl0nhklhKTM8lQTI7sZU+ECW+2/o+ii5G+9zheJEdcEKU+2s
-         zW1BTx6hA6cKu9INmHpsH/8lfjQkkr0AabacQxZ0es/wiDZ+2LuqdDZkDhpec2j1EFEI
-         1JfRVm3f0etxYH7ZtQE11MdF54PHSFAbV+P62funVVpO5FWEf7paFK5gW7qfhuunUKue
-         BGUw==
-X-Forwarded-Encrypted: i=1; AJvYcCXyWqUi3ggvfX5jUxvHmQtxFIFlZdIufcjBz+o8WhrelMrEXeUMbxMZRLNPOns7fqqA8GR61UAiDzF07wCTr3lH@lists.infradead.org
-X-Gm-Message-State: AOJu0YweuUgkR2XdfqRilR7G57dj0JLR0ruudmJTHhTxUahgVowfGM2k
-	zTWR9PE2sGbe3f9k95moOlBcfn1Yc79Eqz7QQDjCuwT4qeTJkBvinzTg
-X-Gm-Gg: ASbGnct0pFTnqgIVMS/hhB6uwPeNHaEcTwjG7beKnfdCkj/Rze0mvwOQPNzr9+C2yp7
-	68WlIS5N/l2d4znr8sPdC1NxwFuqKg26Dya5LW+c5i/4EI9Cycx7ZttdZQvGseLszs978veI6dG
-	iOJn5qxEVd/Q81g5MwUMaMFKFoYcqUKE9LynRx099RtiXaQA/cGh3qyOPg5aliYX7wVwhyNAxp/
-	Ov3v7bd7AIvbXOfcNB2KY0b0eXC/QSO5LijeZe0aMNeHs5EYPOWSyMpLy0xjtUFOrTy2o8UYiyv
-	nEiNzcWSiMtKctNy47ZVKzCJRo77xjDvORBBqLv4620W05tyWFx/c/WW4kGnLZ/s/J1z4O60NTc
-	ygwXa1x368ZfO0LXoKb4UA14mKW5M51mtPt6B1FGuGOeUiYutVm2tQ/l4i4AeySGc2YI0ilNy
-X-Google-Smtp-Source: AGHT+IH842Sw/0yXJovz2FflrQNKNRtbIPTzYOgGi48h59M9xzXKWI2UOrLl/gvL8P7iUFl+9U+RTQ==
-X-Received: by 2002:a05:600c:a43:b0:45b:81ad:336 with SMTP id 5b1f17b1804b1-45dddea520dmr244204245e9.16.1757598592074;
-        Thu, 11 Sep 2025 06:49:52 -0700 (PDT)
-Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.2.27])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e760778915sm2608361f8f.12.2025.09.11.06.49.51
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 11 Sep 2025 06:49:51 -0700 (PDT)
-From: Jack Thomson <jackabt.amazon@gmail.com>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	pbonzini@redhat.com
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com,
-	roypat@amazon.co.uk,
-	kalyazin@amazon.co.uk,
-	jackabt@amazon.com
-Subject: [PATCH 5/6] KVM: selftests: Enable pre_fault_memory_test for arm64
-Date: Thu, 11 Sep 2025 14:46:47 +0100
-Message-Id: <20250911134648.58945-6-jackabt.amazon@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250911134648.58945-1-jackabt.amazon@gmail.com>
-References: <20250911134648.58945-1-jackabt.amazon@gmail.com>
+        d=1e100.net; s=20230601; t=1757598616; x=1758203416;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JtDMUhbai62kxq3n8kKo67cCRGiyz/FmvNZNSwA/DhQ=;
+        b=eWwff7OE5fUQTISHnaHZdtXJJ2wdLf/caAsP9FbYp7c02EYLmFEZYDp3MeAEh+3esz
+         Ka2EJnSWWcvJ40EcsUnMDGhOPPmb01ZIDw2fZUnh8N2XW4xzCoJusUHo4kJ9W+4pMpKt
+         zz5cNdAT0PzVc0EQQXhso6lvUVghE1i0onlfbuIIVcapizBIYt8ZWnaUnn3IRyx8I+pb
+         3eG/1QX/QJhSVKguxNu7gifAOSfNoYumpLcOOwIncxLK62KnBYVnMTjfaMUiu5oDnfKX
+         lqa+3mnHZOB1dF56yErnTryU4rH6O/4jzzjDtlddqe52Xs+2z9IB+sLtA7ODT0qHBoN4
+         Za/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXxth6KT4Yb582nZRgWfB4qVUEvMZRdvEcaFTz3NtjX08dYIPU4u/5YBo7fgvdz5kuloaHQvI31+joGL/p/CZ1G@lists.infradead.org
+X-Gm-Message-State: AOJu0YwF7EPDeSvEpOt3KxpEwWoWA03QFrZin6NW7904NGBp4gITXGcv
+	PvKpKCJ5cErQm+DA+fFZJxuC+AOLYPTj2iFIKbr2KMOQOR1/n2RbS3+YzVz1D3JMIa8=
+X-Gm-Gg: ASbGncuvS9afE7qfHORIQDM/Sp4EgSDFrfGcFIhj/oTSP8HV3auzPjQH6ybPRU5gGz8
+	kY2o8PVSR7zW7LxP2a3HpjSV0tLSZlmGeEQ30fNw/qHZpDoZJLqqnQsNu2GOVSs4W1DqPIOTqV+
+	XquJ/4FquAVcWhjrTXCrYDlk1vB5hvybBjRwiKgHqCBU4yuOIugMbTfBTofQ4V1UcvofNAUyNoL
+	nGhRETmX0nnOB7Bj4Qv3QnSSYd0kqrc3kBb85WG2L1l1Ei/f2DEIeerxe0oAxS7meRDCYd24Uep
+	hwPumFWGAz1LroSHQp3OXOSoqEhwg7+gSY9vJiQgHlywFgnVE0qqgTwUbTX+511nDofgqmxG2+5
+	lN/bw/Ez2a+HmvRmWzcUOafTzwRN4CUs8KYrjmovp9Z885bQQpo6nI9yh2pVpKPF8eZalDuw9ST
+	7MoxgUM0ZEC9VPJjB+b0JI
+X-Google-Smtp-Source: AGHT+IHbfoA81dXA4GxjWQ56zMxLZWMAIRCEmHjjVIDkGG/G1uhNR5mpx/anEbv76JrIjHUHGGPFSQ==
+X-Received: by 2002:a05:690e:1553:10b0:622:66fb:f243 with SMTP id 956f58d0204a3-6233c3b9cedmr2754702d50.13.1757598616061;
+        Thu, 11 Sep 2025 06:50:16 -0700 (PDT)
+Received: from rayden.urgonet (h-37-123-177-177.A175.priv.bahnhof.se. [37.123.177.177])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-72f7623434csm3526257b3.11.2025.09.11.06.50.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Sep 2025 06:50:14 -0700 (PDT)
+From: Jens Wiklander <jens.wiklander@linaro.org>
+To: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>,
+	robin.murphy@arm.com,
+	Jens Wiklander <jens.wiklander@linaro.org>
+Subject: [PATCH v12 0/9] TEE subsystem for protected dma-buf allocations
+Date: Thu, 11 Sep 2025 15:49:41 +0200
+Message-ID: <20250911135007.1275833-1-jens.wiklander@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_064954_402126_8CBC795B 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250911_065017_671736_1129085D 
+X-CRM114-Status: GOOD (  32.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,169 +117,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jack Thomson <jackabt@amazon.com>
+Hi,
 
-Enable the pre_fault_memory_test to run on arm64 by making it work with
-different guest page sizes and testing multiple guest configurations.
+This patch set allocates the protected DMA-bufs from a DMA-heap
+instantiated from the TEE subsystem.
 
-Update the test_assert to compare against the UCALL_EXIT_REASON, for
-portability, as arm64 exits with KVM_EXIT_MMIO while x86 uses
-KVM_EXIT_IO.
+The TEE subsystem handles the DMA-buf allocations since it is the TEE
+(OP-TEE, AMD-TEE, TS-TEE, or perhaps a future QTEE) which sets up the
+protection for the memory used for the DMA-bufs.
 
-Signed-off-by: Jack Thomson <jackabt@amazon.com>
----
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- .../selftests/kvm/pre_fault_memory_test.c     | 79 ++++++++++++++-----
- 2 files changed, 59 insertions(+), 21 deletions(-)
+The DMA-heap uses a protected memory pool provided by the backend TEE
+driver, allowing it to choose how to allocate the protected physical
+memory.
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 90f03f00cb04..4db1737fad04 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -180,6 +180,7 @@ TEST_GEN_PROGS_arm64 += memslot_perf_test
- TEST_GEN_PROGS_arm64 += mmu_stress_test
- TEST_GEN_PROGS_arm64 += rseq_test
- TEST_GEN_PROGS_arm64 += steal_time
-+TEST_GEN_PROGS_arm64 += pre_fault_memory_test
- 
- TEST_GEN_PROGS_s390 = $(TEST_GEN_PROGS_COMMON)
- TEST_GEN_PROGS_s390 += s390/memop
-diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-index 0350a8896a2f..ed9848a8af60 100644
---- a/tools/testing/selftests/kvm/pre_fault_memory_test.c
-+++ b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-@@ -10,19 +10,29 @@
- #include <test_util.h>
- #include <kvm_util.h>
- #include <processor.h>
-+#include <guest_modes.h>
- 
- /* Arbitrarily chosen values */
--#define TEST_SIZE		(SZ_2M + PAGE_SIZE)
--#define TEST_NPAGES		(TEST_SIZE / PAGE_SIZE)
-+#define TEST_BASE_SIZE		SZ_2M
- #define TEST_SLOT		10
- 
-+/* Storage of test info to share with guest code */
-+struct test_config {
-+	int page_size;
-+	uint64_t test_size;
-+	uint64_t test_num_pages;
-+};
-+
-+struct test_config test_config;
-+
- static void guest_code(uint64_t base_gpa)
- {
- 	volatile uint64_t val __used;
-+	struct test_config *config = &test_config;
- 	int i;
- 
--	for (i = 0; i < TEST_NPAGES; i++) {
--		uint64_t *src = (uint64_t *)(base_gpa + i * PAGE_SIZE);
-+	for (i = 0; i < config->test_num_pages; i++) {
-+		uint64_t *src = (uint64_t *)(base_gpa + i * config->page_size);
- 
- 		val = *src;
- 	}
-@@ -63,11 +73,17 @@ static void pre_fault_memory(struct kvm_vcpu *vcpu, u64 gpa, u64 size,
- 					    "KVM_PRE_FAULT_MEMORY", ret, vcpu->vm);
- }
- 
--static void __test_pre_fault_memory(unsigned long vm_type, bool private)
-+struct test_params {
-+	unsigned long vm_type;
-+	bool private;
-+};
-+
-+static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
- {
-+	struct test_params *p = arg;
- 	const struct vm_shape shape = {
--		.mode = VM_MODE_DEFAULT,
--		.type = vm_type,
-+		.mode = guest_mode,
-+		.type = p->vm_type,
- 	};
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_run *run;
-@@ -78,10 +94,17 @@ static void __test_pre_fault_memory(unsigned long vm_type, bool private)
- 	uint64_t guest_test_virt_mem;
- 	uint64_t alignment, guest_page_size;
- 
-+	pr_info("Testing guest mode: %s\n", vm_guest_mode_string(guest_mode));
-+
- 	vm = vm_create_shape_with_one_vcpu(shape, &vcpu, guest_code);
- 
--	alignment = guest_page_size = vm_guest_mode_params[VM_MODE_DEFAULT].page_size;
--	guest_test_phys_mem = (vm->max_gfn - TEST_NPAGES) * guest_page_size;
-+	guest_page_size = vm_guest_mode_params[guest_mode].page_size;
-+
-+	test_config.page_size = guest_page_size;
-+	test_config.test_size = TEST_BASE_SIZE + test_config.page_size;
-+	test_config.test_num_pages = vm_calc_num_guest_pages(vm->mode, test_config.test_size);
-+
-+	guest_test_phys_mem = (vm->max_gfn - test_config.test_num_pages) * test_config.page_size;
- #ifdef __s390x__
- 	alignment = max(0x100000UL, guest_page_size);
- #else
-@@ -91,22 +114,31 @@ static void __test_pre_fault_memory(unsigned long vm_type, bool private)
- 	guest_test_virt_mem = guest_test_phys_mem & ((1ULL << (vm->va_bits - 1)) - 1);
- 
- 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
--				    guest_test_phys_mem, TEST_SLOT, TEST_NPAGES,
--				    private ? KVM_MEM_GUEST_MEMFD : 0);
--	virt_map(vm, guest_test_virt_mem, guest_test_phys_mem, TEST_NPAGES);
--
--	if (private)
--		vm_mem_set_private(vm, guest_test_phys_mem, TEST_SIZE);
--	pre_fault_memory(vcpu, guest_test_phys_mem, SZ_2M, 0);
--	pre_fault_memory(vcpu, guest_test_phys_mem + SZ_2M, PAGE_SIZE * 2, PAGE_SIZE);
--	pre_fault_memory(vcpu, guest_test_phys_mem + TEST_SIZE, PAGE_SIZE, PAGE_SIZE);
-+				    guest_test_phys_mem, TEST_SLOT, test_config.test_num_pages,
-+				    p->private ? KVM_MEM_GUEST_MEMFD : 0);
-+	virt_map(vm, guest_test_virt_mem, guest_test_phys_mem, test_config.test_num_pages);
-+
-+	if (p->private)
-+		vm_mem_set_private(vm, guest_test_phys_mem, test_config.test_size);
-+	pre_fault_memory(vcpu, guest_test_phys_mem, TEST_BASE_SIZE, 0);
-+	/* Test pre-faulting over an already faulted range */
-+	pre_fault_memory(vcpu, guest_test_phys_mem, TEST_BASE_SIZE, 0);
-+	pre_fault_memory(vcpu, guest_test_phys_mem + TEST_BASE_SIZE,
-+			 test_config.page_size * 2, test_config.page_size);
-+	pre_fault_memory(vcpu, guest_test_phys_mem + test_config.test_size,
-+			 test_config.page_size, test_config.page_size);
- 
- 	vcpu_args_set(vcpu, 1, guest_test_virt_mem);
-+
-+	/* Export the shared variables to the guest. */
-+	sync_global_to_guest(vm, test_config);
-+
- 	vcpu_run(vcpu);
- 
- 	run = vcpu->run;
--	TEST_ASSERT(run->exit_reason == KVM_EXIT_IO,
--		    "Wanted KVM_EXIT_IO, got exit reason: %u (%s)",
-+	TEST_ASSERT(run->exit_reason == UCALL_EXIT_REASON,
-+		    "Wanted %s, got exit reason: %u (%s)",
-+		    exit_reason_str(UCALL_EXIT_REASON),
- 		    run->exit_reason, exit_reason_str(run->exit_reason));
- 
- 	switch (get_ucall(vcpu, &uc)) {
-@@ -130,7 +162,12 @@ static void test_pre_fault_memory(unsigned long vm_type, bool private)
- 		return;
- 	}
- 
--	__test_pre_fault_memory(vm_type, private);
-+	struct test_params p = {
-+		.vm_type = vm_type,
-+		.private = private,
-+	};
-+
-+	for_each_guest_mode(__test_pre_fault_memory, &p);
- }
- 
- int main(int argc, char *argv[])
+The allocated DMA-bufs must be imported with a new TEE_IOC_SHM_REGISTER_FD
+before they can be passed as arguments when requesting services from the
+secure world.
+
+Three use-cases (Secure Video Playback, Trusted UI, and Secure Video
+Recording) have been identified so far to serve as examples of what can be
+expected. The use-cases have predefined DMA-heap names,
+"protected,secure-video", "protected,trusted-ui", and
+"protected,secure-video-record". The backend driver registers protected
+memory pools for the use-cases it supports.
+
+Each use-case has its own protected memory pool since different use-cases
+require isolation from different parts of the system. A protected memory
+pool can be based on a static carveout instantiated while probing the TEE
+backend driver, or dynamically allocated from CMA (dma_alloc_pages()) and
+made protected as needed by the TEE.
+
+This can be tested on a RockPi 4B+ with the following steps:
+repo init -u https://github.com/jenswi-linaro/manifest.git -m rockpi4.xml \
+        -b prototype/sdp-v12
+repo sync -j8
+cd build
+make toolchains -j$(nproc)
+make all -j$(nproc)
+# Copy ../out/rockpi4.img to an SD card and boot the RockPi from that
+# Connect a monitor to the RockPi
+# login and at the prompt:
+gst-launch-1.0 videotestsrc ! \
+        aesenc key=1f9423681beb9a79215820f6bda73d0f \
+                iv=e9aa8e834d8d70b7e0d254ff670dd718 serialize-iv=true ! \
+        aesdec key=1f9423681beb9a79215820f6bda73d0f ! \
+        kmssink
+
+The aesdec module has been hacked to use an OP-TEE TA to decrypt the stream
+into protected DMA-bufs which are consumed by the kmssink.
+
+The primitive QEMU tests from previous patch sets can be tested on RockPi
+in the same way using:
+xtest --sdp-basic
+
+The primitive tests are tested on QEMU with the following steps:
+repo init -u https://github.com/jenswi-linaro/manifest.git -m qemu_v8.xml \
+        -b prototype/sdp-v12
+repo sync -j8
+cd build
+make toolchains -j$(nproc)
+make SPMC_AT_EL=1 all -j$(nproc)
+make SPMC_AT_EL=1 run-only
+# login and at the prompt:
+xtest --sdp-basic
+
+The SPMC_AT_EL=1 parameter configures the build with FF-A and an SPMC at
+S-EL1 inside OP-TEE. The parameter can be changed to SPMC_AT_EL=n to test
+without FF-A using the original SMC ABI instead. Please remember to do
+%make arm-tf-clean
+for TF-A to be rebuilt properly using the new configuration.
+
+https://optee.readthedocs.io/en/latest/building/prerequisites.html
+list dependencies required to build the above.
+
+The primitive tests are pretty basic, mostly checking that a Trusted
+Application in the secure world can access and manipulate the memory. There
+are also some negative tests for out of bounds buffers, etc.
+
+Thanks,
+Jens
+
+Changes since V11:
+* In "dma-buf: dma-heap: export declared functions":
+  - use EXPORT_SYMBOL_NS_GPL()
+  - Added TJ's R-B and Sumit's Ack
+* In "tee: implement protected DMA-heap", import the namespaces "DMA_BUF"
+  and "DMA_BUF_HEAP" as needed.
+
+Changes since V10:
+* Changed the new ABI OPTEE_MSG_CMD_GET_PROTMEM_CONFIG to report a list
+  of u32 memory attributes instead of u16 endpoints to make room for both
+  endpoint and access permissions in each entry.
+* In "tee: new ioctl to a register tee_shm from a dmabuf file descriptor",
+  remove the unused path for DMA-bufs allocated by other means than the on
+  in the TEE SS.
+* In "tee: implement protected DMA-heap", handle unloading of the
+  backend driver module implementing the heap. The heap is reference
+  counted and also calls tee_device_get() to guarantee that the module
+  remains available while the heap is instantiated.
+* In "optee: support protected memory allocation", use
+  dma_coerce_mask_and_coherent() instead of open-coding the function.
+* Added Sumit's R-B to
+  - "optee: smc abi: dynamic protected memory allocation"
+  - "optee: FF-A: dynamic protected memory allocation"
+  - "optee: support protected memory allocation"
+  - "tee: implement protected DMA-heap"
+  - "dma-buf: dma-heap: export declared functions"
+
+Changes since V9:
+* Adding Sumit's R-B to "optee: sync secure world ABI headers"
+* Update commit message as requested for "dma-buf: dma-heap: export
+  declared functions".
+* In "tee: implement protected DMA-heap":
+  - add the hidden config option TEE_DMABUF_HEAPS to tell if the TEE
+    subsystem can support DMA heaps
+  - add a pfn_valid() to check that the passed physical address can be
+    used by __pfn_to_page() and friends
+  - remove the memremap() call, the caller is should do that instead if
+    needed
+* In "tee: add tee_shm_alloc_dma_mem()" guard the calls to
+  dma_alloc_pages() and dma_free_pages() with TEE_DMABUF_HEAPS to avoid
+  linking errors in some configurations
+* In "optee: support protected memory allocation":
+  - add the hidden config option OPTEE_STATIC_PROTMEM_POOL to tell if the
+    driver can support a static protected memory pool
+  - optee_protmem_pool_init() is slightly refactored to make the patches
+    that follow easier
+  - Call devm_memremap() before calling tee_protmem_static_pool_alloc()
+
+Changes since V8:
+* Using dma_alloc_pages() instead of cma_alloc() so the direct dependency on
+  CMA can be removed together with the patches
+  "cma: export cma_alloc() and cma_release()" and
+  "dma-contiguous: export dma_contiguous_default_area". The patch
+* Renaming the patch "tee: add tee_shm_alloc_cma_phys_mem()" to
+  "tee: add tee_shm_alloc_dma_mem()"
+* Setting DMA mask for the OP-TEE TEE device based on input from the secure
+  world instead of relying on the parent device so following patches are
+  removed: "tee: tee_device_alloc(): copy dma_mask from parent device" and
+  "optee: pass parent device to tee_device_alloc()".
+* Adding Sumit Garg's R-B to "tee: refactor params_from_user()"
+* In the patch "tee: implement protected DMA-heap", map the physical memory
+  passed to tee_protmem_static_pool_alloc().
+
+Changes since V7:
+* Adding "dma-buf: dma-heap: export declared functions",
+  "cma: export cma_alloc() and cma_release()", and
+  "dma-contiguous: export dma_contiguous_default_area" to export the symbols
+  needed to keep the TEE subsystem as a load module.
+* Removing CONFIG_TEE_DMABUF_HEAP and CONFIG_TEE_CMA since they aren't
+  needed any longer.
+* Addressing review comments in "optee: sync secure world ABI headers"
+* Better align protected memory pool initialization between the smc-abi and
+  ffa-abi parts of the optee driver.
+* Removing the patch "optee: account for direction while converting parameters"
+
+Changes since V6:
+* Restricted memory is now known as protected memory since to use the same
+  term as https://docs.vulkan.org/guide/latest/protected.html. Update all
+  patches to consistently use protected memory.
+* In "tee: implement protected DMA-heap" add the hidden config option
+  TEE_DMABUF_HEAP to tell if the DMABUF_HEAPS functions are available
+  for the TEE subsystem
+* Adding "tee: refactor params_from_user()", broken out from the patch
+  "tee: new ioctl to a register tee_shm from a dmabuf file descriptor"
+* For "tee: new ioctl to a register tee_shm from a dmabuf file descriptor":
+  - Update commit message to mention protected memory
+  - Remove and open code tee_shm_get_parent_shm() in param_from_user_memref()
+* In "tee: add tee_shm_alloc_cma_phys_mem" add the hidden config option
+  TEE_CMA to tell if the CMA functions are available for the TEE subsystem
+* For "tee: tee_device_alloc(): copy dma_mask from parent device" and
+  "optee: pass parent device to tee_device_alloc", added
+  Reviewed-by: Sumit Garg <sumit.garg@kernel.org>
+
+Changes since V5:
+* Removing "tee: add restricted memory allocation" and
+  "tee: add TEE_IOC_RSTMEM_FD_INFO"
+* Adding "tee: implement restricted DMA-heap",
+  "tee: new ioctl to a register tee_shm from a dmabuf file descriptor",
+  "tee: add tee_shm_alloc_cma_phys_mem()",
+  "optee: pass parent device to tee_device_alloc()", and
+  "tee: tee_device_alloc(): copy dma_mask from parent device"
+* The two TEE driver OPs "rstmem_alloc()" and "rstmem_free()" are replaced
+  with a struct tee_rstmem_pool abstraction.
+* Replaced the the TEE_IOC_RSTMEM_ALLOC user space API with the DMA-heap API
+
+Changes since V4:
+* Adding the patch "tee: add TEE_IOC_RSTMEM_FD_INFO" needed by the
+  GStreamer demo
+* Removing the dummy CPU access and mmap functions from the dma_buf_ops
+* Fixing a compile error in "optee: FF-A: dynamic restricted memory allocation"
+  reported by kernel test robot <lkp@intel.com>
+
+Changes since V3:
+* Make the use_case and flags field in struct tee_shm u32's instead of
+  u16's
+* Add more description for TEE_IOC_RSTMEM_ALLOC in the header file
+* Import namespace DMA_BUF in module tee, reported by lkp@intel.com
+* Added a note in the commit message for "optee: account for direction
+  while converting parameters" why it's needed
+* Factor out dynamic restricted memory allocation from
+  "optee: support restricted memory allocation" into two new commits
+  "optee: FF-A: dynamic restricted memory allocation" and
+  "optee: smc abi: dynamic restricted memory allocation"
+* Guard CMA usage with #ifdef CONFIG_CMA, effectively disabling dynamic
+  restricted memory allocate if CMA isn't configured
+
+Changes since the V2 RFC:
+* Based on v6.12
+* Replaced the flags for SVP and Trusted UID memory with a u32 field with
+  unique id for each use case
+* Added dynamic allocation of restricted memory pools
+* Added OP-TEE ABI both with and without FF-A for dynamic restricted memory
+* Added support for FF-A with FFA_LEND
+
+Changes since the V1 RFC:
+* Based on v6.11
+* Complete rewrite, replacing the restricted heap with TEE_IOC_RSTMEM_ALLOC
+
+Changes since Olivier's post [2]:
+* Based on Yong Wu's post [1] where much of dma-buf handling is done in
+  the generic restricted heap
+* Simplifications and cleanup
+* New commit message for "dma-buf: heaps: add Linaro restricted dmabuf heap
+  support"
+* Replaced the word "secure" with "restricted" where applicable
+
+Etienne Carriere (1):
+  tee: new ioctl to a register tee_shm from a dmabuf file descriptor
+
+Jens Wiklander (8):
+  optee: sync secure world ABI headers
+  dma-buf: dma-heap: export declared functions
+  tee: implement protected DMA-heap
+  tee: refactor params_from_user()
+  tee: add tee_shm_alloc_dma_mem()
+  optee: support protected memory allocation
+  optee: FF-A: dynamic protected memory allocation
+  optee: smc abi: dynamic protected memory allocation
+
+ drivers/dma-buf/dma-heap.c        |   4 +
+ drivers/tee/Kconfig               |   5 +
+ drivers/tee/Makefile              |   1 +
+ drivers/tee/optee/Kconfig         |   5 +
+ drivers/tee/optee/Makefile        |   1 +
+ drivers/tee/optee/core.c          |   7 +
+ drivers/tee/optee/ffa_abi.c       | 146 ++++++++-
+ drivers/tee/optee/optee_ffa.h     |  27 +-
+ drivers/tee/optee/optee_msg.h     |  84 ++++-
+ drivers/tee/optee/optee_private.h |  15 +-
+ drivers/tee/optee/optee_smc.h     |  37 ++-
+ drivers/tee/optee/protmem.c       | 335 ++++++++++++++++++++
+ drivers/tee/optee/smc_abi.c       | 141 ++++++++-
+ drivers/tee/tee_core.c            | 158 +++++++---
+ drivers/tee/tee_heap.c            | 500 ++++++++++++++++++++++++++++++
+ drivers/tee/tee_private.h         |  14 +
+ drivers/tee/tee_shm.c             | 157 +++++++++-
+ include/linux/tee_core.h          |  59 ++++
+ include/linux/tee_drv.h           |  10 +
+ include/uapi/linux/tee.h          |  31 ++
+ 20 files changed, 1670 insertions(+), 67 deletions(-)
+ create mode 100644 drivers/tee/optee/protmem.c
+ create mode 100644 drivers/tee/tee_heap.c
+
+
+base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
 -- 
 2.43.0
 
