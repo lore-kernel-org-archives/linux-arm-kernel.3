@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D9EACA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA16CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ocLM34GOeUaGdAHS29toK+EluWRUE1MXFa3Amqck7do=; b=cuvFgAG7irY43PruZuKgbuAWiC
-	HeVlCV/opQ2YLCZWDFebd+lMytAJBJsj8/XENXvs0O+vBIm9bQ5H+IZwk2ZHsfWtxhi0kec4IP0ue
-	kecp+9gPExveALDGg+zTn2NKyHlgxWzDhnbXjXwyvgEZU1Q/RvL3sjz9QMGLwX48UpRGZHNQ0dhwV
-	1mXHBrntvOxZ185zOnyU+oURCe9tCCkEpEsAM74cKsBmDlk+hcowRvSaz+oZhy0ZNun8OsVUKmNk8
-	zwBUTEso1Ruk34unNz/SoujJ9vSYpJ7uRgfTOX3w24lT7YPXpG2Z7O4E2+G3kxCgN+1tPZ6fIOl6r
-	mUwU7aWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tZ6E6bW5eiC9q7CDA3LI31bAgUOE0PZhjrPZI2/QSuQ=; b=lfisgNoXd2JsDYJixgkiGEcDaB
+	LU6kMo3T4PAcYHSCUdM7pOC/AOh71ekBpkOklcz9oQvaswiGuaaey6Y2Fgt6KTVpW+ENtM5S2oc/1
+	DPeTcQIW5gt4LyS1zx01vjxEgwwHDhttNPzwZleN3JHHkyvPD/HdOl2Nc2M8F2aeq7ym61YdFxwPI
+	aF6hZNo5rOQMt+lRjdnoMKujLDNEhYBBITrRrNRa4imHTvAc83BHoENsyfANa5Dly3QZX4rOCyk0j
+	+I7lol2Xgr7T0Mr70lZgrLBxgaT71Trr+X+ruld2WNy0fWw52FNRzmzAx07GwPZn8fB/W7nk87Xla
+	Ll0je2uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbxb-00000001Z9h-2ew3;
-	Thu, 11 Sep 2025 07:43:15 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uwc4R-00000001bdv-1AWQ;
+	Thu, 11 Sep 2025 07:50:19 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbxX-00000001Z6j-3sTy
+	id 1uwc4O-00000001bcQ-2v8U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 07:43:14 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45de56a042dso2308185e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:43:11 -0700 (PDT)
+	Thu, 11 Sep 2025 07:50:17 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-621a79a580bso51371eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:50:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1757576590; x=1758181390; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ocLM34GOeUaGdAHS29toK+EluWRUE1MXFa3Amqck7do=;
-        b=Qk/Dkgi2idpbFHbWZZD1CAVosCVywj61I7zlZIXjnb8dWbIthlKIlik/Ie/0zHhD/u
-         cjDGn+fRyWgJMITiCbZL161cU7h1BBhuG3ujZOfIsZ9xFnYn1WAGJW2hu9gloua5Z61J
-         WER1+kPxHxvVXGR5AB6/fFjpeRs7PFqjzvsXbDhr9U4IOXmdv8OFxX8i2Q7xarP1TDVM
-         ySQRxlUtgBu9L7qgAdk1CMR1A0oiAEN5dMkBdugE/cOKRHU1wE5TK3pIwm5BVarco/om
-         cVXnX33UFJ9PAMhny1ck3HFVTACncL4y5k2HMFFeWBrWnhFCEjhTBrerwMk8/I3ynqcu
-         x0Zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757576590; x=1758181390;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1757577015; x=1758181815; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ocLM34GOeUaGdAHS29toK+EluWRUE1MXFa3Amqck7do=;
-        b=WWVCSv5zpQN+orCrn6UmagSXv7kTEZ/WWTK/SI6mEMCmRXkkDzBa5VCXfhusLJ5yXG
-         hIhVa6jR1FE07diRUp3zL9mtKS0TdN/tqlHJvdzIzIPg3+62ksrcJGB66iVjmg+87f5h
-         BEqi1sED+tH3pxulrb/QR1u1apjfpIaNGAicJPqNGPKhqLCV1a/exBnyWN9Eu/e0+1IV
-         XWckzCN9uq9QJP4n5aw+ZHVGWP5/lWq1XEi7YlHnksAvnJ/9l1ameS/dqC29ei0TlHAt
-         clvE7gy0mgLBcjywjWAJewI/Tlds7haErqNT8Uf9oLCVVVI4Y8A0Pmfp+ba/1+JFTCDb
-         gzmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXV0zY7Fma2zy4ZB5fblBMosuSBRolv+wAnJFepV8ktA7kvU8FCDtnTOZam9hzPf1rltQ2/CLsfCjYW0SjNW4Im@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNZQwy9H4QC8ixjk2T/BhTdFVWhZZkwpWMrKdfL8QlTlnsh8RG
-	osfVAQTCMX0xetWv15EOEynxAH5TfO4M+PVfMKSr81SqSJOMODNBNkBs3OaX3MxjaNk=
-X-Gm-Gg: ASbGnctz2tHtDZ6mD7D4TsSHuE657Feh0opVTUq6miHkpIksQnF4NY4iHq/CtQndgbI
-	h78Z17mTLLJQrBCI7rODS5UCvX+77JbnCOZ5tqnetjzrZJ8gEUSqzRKNnv975TSqqpoAyN5YB1j
-	xXLpKXy+r7Prm9gb3lZBuebRKMuTcDf4wFj5A4DN97GED0HZbJHf8IDkPTlswEmOnmg1JdadDgu
-	anNEucyCGz+1z79BTZoaveAsZbLsybI0ufyNUgVhqA/9TaR7kMQxInM1dhmNxLiY1OtNwpN4g7d
-	jK3GGBnuoFO+V+2C/3n8C9/1KYQYIORv8OSx2eBP+JV5Car+VEUIDKoUmzYc+LP7HsuBLqPVJ8K
-	tddoiQ7BlfEIwDI8ONt9sLB9/nDNpWJ5/rlFbzbc2zeY=
-X-Google-Smtp-Source: AGHT+IFziZg7v6LlC8m6JnaXV3d4ooVHtsdQLQH89zmhgGaJ+ZtkJo/Vd2456C3nvJ69B6Gcl/m45w==
-X-Received: by 2002:a05:600c:1e21:b0:45c:a955:4578 with SMTP id 5b1f17b1804b1-45dde02878emr152916345e9.21.1757576589973;
-        Thu, 11 Sep 2025 00:43:09 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:205f:d6d3:fd4a:adb5])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45e0156d206sm16554135e9.5.2025.09.11.00.43.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Sep 2025 00:43:09 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>,
-  Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-  linux-clk@vger.kernel.org,  devicetree@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 2/2] clk: amlogic: add video-related clocks for S4 SoC
-In-Reply-To: <28399ab7-2560-482a-be7b-c83d631ac351@amlogic.com> (Chuan Liu's
-	message of "Thu, 11 Sep 2025 10:01:03 +0800")
-References: <20250909-add_video_clk-v4-0-5e0c01d47aa8@amlogic.com>
-	<20250909-add_video_clk-v4-2-5e0c01d47aa8@amlogic.com>
-	<1jv7lqiqzg.fsf@starbuckisacylon.baylibre.com>
-	<28399ab7-2560-482a-be7b-c83d631ac351@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Thu, 11 Sep 2025 09:43:08 +0200
-Message-ID: <1jplbxigdv.fsf@starbuckisacylon.baylibre.com>
+        bh=tZ6E6bW5eiC9q7CDA3LI31bAgUOE0PZhjrPZI2/QSuQ=;
+        b=xMqYdDHRf5nYSbiaqCQVi7iUojbyd6LeeT/5jwwrcJM5Z/ic7NlF76//RHghXBI14B
+         YtvfjgtSJ5eajojFs0WRdUBMRjjgIPBggfy5Yqu3FcpR5FjpvJb4CXvpn7sKISUuP4XY
+         GwTO37DA7usGkh6WolssY4JSatBpidLQYlwaaXSsksjlNm35Qu5TtSZdhQtGDN+rrSSf
+         Sxn63RykeISX9rC/fNhgMBtnoc6jZEiU/mFeprh3uxbJ6vGvYQF1FVTQvxSKEhV8LJlX
+         bOqvZRCeHyrQI+yWlkDdg6eo/HZkjorMMcVARNPVDQwp1XryyDisW4kPH/l4P5vvrXQg
+         PUZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757577015; x=1758181815;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tZ6E6bW5eiC9q7CDA3LI31bAgUOE0PZhjrPZI2/QSuQ=;
+        b=SUNUHiOYEtMUNUaSmdaLPzSBtQ9v43R6N4SLIPOHWvw0CmIeNr5a3HRagSo5QmYyGi
+         kvHYsRPyOpGjzrD4nIpyb06DPhlOHi7iBnW49qBZZwIShuAc89bm7vF2oCMogEHNMruo
+         xZgSpEOwcGO7K/BWXL8P7A9DFx82Qyh+jhudVzPldhxCyuUVNrzgMViGiTCVF+6T903F
+         xADm+X61SEl74Ddg9zKYTe8BLsn6ytRTa2YGjKSBslspeVZX9h78EAiI8MOhOMWyuAWZ
+         qKgTEDmltGNiCEraYPf5e/uO1e7SZu747YrLmSbx7UzeBCP/SL9rRTeXH8wCSIsxAm7y
+         4WHw==
+X-Forwarded-Encrypted: i=1; AJvYcCVivHKZSUMRDrFeNQdC9o4FW4xQHmHGbKrHlB5xms5zxwm8n+pvT0+hnZT/WiFuzmQTqZGAA5AD9jLwGvQdXJmB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxdk+ZgwmvRSaamvOox19Q40MaSuad66voOvXczHkQJrmClG1LN
+	i+dtxqL8tdUuuS03aeVGHsNtPruiXPEkVWlbpBpfekmSCiBZTzgLFEaRhYUZytXEomGClYANNyg
+	AZBnxZIU+qokfGbRtysDuF7vUYWTgLrRwThv3I893SQ==
+X-Gm-Gg: ASbGnctBmLCpGO/BcfvA4883hbba1oT8RnKNN7h852dcD/NIrP0JIZj5X78fug8NOmo
+	0KdRAsxOU58aYlC0JrFik3xHYRRkCojhR1soRM5pOX/OMMCc+x4aIlvRpEoNbgkC5yFd3UYGJhp
+	ZN6xSxPdfmIZtbiHEzOjBU+nIBobvE3wpLAjEJCuIEIVsk8lrTeSqTHMCPSnbqTpJPH8HxQIrQb
+	ml4BnkL
+X-Google-Smtp-Source: AGHT+IHM+qomPa7mkwPaxbF4J0ZwMvmQZ4r3i08spiXwqRdColY0ofOiN+xC4zPpK9pKKDVK1an+zwdrKVe+3sc2KLA=
+X-Received: by 2002:a05:6820:1518:b0:620:ea78:ceb4 with SMTP id
+ 006d021491bc7-6217897a730mr7686244eaf.0.1757577015334; Thu, 11 Sep 2025
+ 00:50:15 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20250813060339.2977604-1-jens.wiklander@linaro.org>
+ <20250813060339.2977604-3-jens.wiklander@linaro.org> <aJ1-YpgvGt4_6CFU@sumit-X1>
+ <CABdmKX2FPg+hO55qWndMajuWP0kZH=OWEh9v-d8aO6HQWyxJtQ@mail.gmail.com> <CAO_48GEqkf_Jm8kSTPEDZkZy-YmT56Zs1Jx9zCvzETPsCzrkEg@mail.gmail.com>
+In-Reply-To: <CAO_48GEqkf_Jm8kSTPEDZkZy-YmT56Zs1Jx9zCvzETPsCzrkEg@mail.gmail.com>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Thu, 11 Sep 2025 09:50:04 +0200
+X-Gm-Features: Ac12FXyvCWRnQD7Gsb8VWVWslCX8Upv9AarUZnTiiQT33HIlYHfy4GNTnaJlFIg
+Message-ID: <CAHUa44HHSKwiBYPMSY5hj6wyWc9-uvtQVx+JLx4M5yjD5AwyTg@mail.gmail.com>
+Subject: Re: [PATCH v11 2/9] dma-buf: dma-heap: export declared functions
+To: Sumit Semwal <sumit.semwal@linaro.org>
+Cc: "T.J. Mercier" <tjmercier@google.com>, Sumit Garg <sumit.garg@kernel.org>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com, 
+	Sumit Garg <sumit.garg@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_004312_091624_8D6392D0 
-X-CRM114-Status: GOOD (  20.97  )
+X-CRM114-CacheID: sfid-20250911_005016_755451_596EB541 
+X-CRM114-Status: GOOD (  25.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,289 +108,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu 11 Sep 2025 at 10:01, Chuan Liu <chuan.liu@amlogic.com> wrote:
+Hi Sumit,
 
-> Hi Jerome:
+On Thu, Sep 11, 2025 at 9:15=E2=80=AFAM Sumit Semwal <sumit.semwal@linaro.o=
+rg> wrote:
 >
+> Hello Jens,
 >
-> On 9/10/2025 5:41 PM, Jerome Brunet wrote:
->> [ EXTERNAL EMAIL ]
->>
->> On Tue 09 Sep 2025 at 15:29, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
->>
->>> From: Chuan Liu <chuan.liu@amlogic.com>
->>>
->>> Add video encoder, demodulator and CVBS clocks.
->>>
->>> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
->>> ---
->>>   drivers/clk/meson/s4-peripherals.c | 203 +++++++++++++++++++++++++++++++++++++
->>>   1 file changed, 203 insertions(+)
->>>
->>> diff --git a/drivers/clk/meson/s4-peripherals.c b/drivers/clk/meson/s4-peripherals.c
->>> index 6d69b132d1e1..b855e8f1fc04 100644
->>> --- a/drivers/clk/meson/s4-peripherals.c
->>> +++ b/drivers/clk/meson/s4-peripherals.c
->>> @@ -44,6 +44,7 @@
->>>   #define CLKCTRL_VDIN_MEAS_CLK_CTRL                 0x0f8
->>>   #define CLKCTRL_VAPBCLK_CTRL                       0x0fc
->>>   #define CLKCTRL_HDCP22_CTRL                        0x100
->>> +#define CLKCTRL_CDAC_CLK_CTRL                      0x108
->>>   #define CLKCTRL_VDEC_CLK_CTRL                      0x140
->>>   #define CLKCTRL_VDEC2_CLK_CTRL                     0x144
->>>   #define CLKCTRL_VDEC3_CLK_CTRL                     0x148
->>> @@ -1126,6 +1127,22 @@ static struct clk_regmap s4_cts_encp_sel = {
->>>        },
->>>   };
->>>
->>> +static struct clk_regmap s4_cts_encl_sel = {
->>> +     .data = &(struct clk_regmap_mux_data){
->>> +             .offset = CLKCTRL_VIID_CLK_DIV,
->>> +             .mask = 0xf,
->>> +             .shift = 12,
->>> +             .table = s4_cts_parents_val_table,
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "cts_encl_sel",
->>> +             .ops = &clk_regmap_mux_ops,
->>> +             .parent_hws = s4_cts_parents,
->>> +             .num_parents = ARRAY_SIZE(s4_cts_parents),
->>> +             .flags = CLK_SET_RATE_PARENT,
->> Do you really expect the rate of the parents to be adjusted when calling
->> set_rate() on this clock ?
->>
->> It all trickle down to vclks which are shared with enci encp and vdac
->> clocks, so maybe not such a good idea, don't you think ?
+> On Fri, 15 Aug 2025 at 05:00, T.J. Mercier <tjmercier@google.com> wrote:
+> >
+> > On Wed, Aug 13, 2025 at 11:13=E2=80=AFPM Sumit Garg <sumit.garg@kernel.=
+org> wrote:
+> > >
+> > > On Wed, Aug 13, 2025 at 08:02:51AM +0200, Jens Wiklander wrote:
+> > > > Export the dma-buf heap functions to allow them to be used by the O=
+P-TEE
+> > > > driver. The OP-TEE driver wants to register and manage specific sec=
+ure
+> > > > DMA heaps with it.
+> Thank you for the series.
 >
->
-> Thanks for pointing this out. You're right, this flag doesn't belong
-> here.
+> Could you please use EXPORT_SYMBOL_GPL_NS instead of EXPORT_SYMBOL for th=
+ese?
 
-Ok, let's be consistent then. Please add another change to drop the flag
-from the other video clocks, such as enci, encp, etc . Thx.
+Sure, what namespace do you want in the argument for
+EXPORT_SYMBOL_GPL_NS()? "DMA_BUF"?
 
 >
-> I'll drop it in the next revision. If there are no further objections
-> on other aspects, I'll prepare a v5 series that also includes Conor's
-> Acked-by that I missed...
->
->
->>> +     },
->>> +};
->>> +
->>>   static struct clk_regmap s4_cts_vdac_sel = {
->>>        .data = &(struct clk_regmap_mux_data){
->>>                .offset = CLKCTRL_VIID_CLK_DIV,
->>> @@ -1205,6 +1222,22 @@ static struct clk_regmap s4_cts_encp = {
->>>        },
->>>   };
->>>
->>> +static struct clk_regmap s4_cts_encl = {
->>> +     .data = &(struct clk_regmap_gate_data){
->>> +             .offset = CLKCTRL_VID_CLK_CTRL2,
->>> +             .bit_idx = 3,
->>> +     },
->>> +     .hw.init = &(struct clk_init_data) {
->>> +             .name = "cts_encl",
->>> +             .ops = &clk_regmap_gate_ops,
->>> +             .parent_hws = (const struct clk_hw *[]) {
->>> +                     &s4_cts_encl_sel.hw
->>> +             },
->>> +             .num_parents = 1,
->>> +             .flags = CLK_SET_RATE_PARENT,
->>> +     },
->>> +};
->>> +
->>>   static struct clk_regmap s4_cts_vdac = {
->>>        .data = &(struct clk_regmap_gate_data){
->>>                .offset = CLKCTRL_VID_CLK_CTRL2,
->>> @@ -2735,6 +2768,165 @@ static struct clk_regmap s4_gen_clk = {
->>>        },
->>>   };
->>>
->>> +/* CVBS DAC */
->>> +static struct clk_regmap s4_cdac_sel = {
->>> +     .data = &(struct clk_regmap_mux_data) {
->>> +             .offset = CLKCTRL_CDAC_CLK_CTRL,
->>> +             .mask = 0x3,
->>> +             .shift = 16,
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "cdac_sel",
->>> +             .ops = &clk_regmap_mux_ops,
->>> +             .parent_data = (const struct clk_parent_data []) {
->>> +                     { .fw_name = "xtal", },
->>> +                     { .fw_name = "fclk_div5" },
->>> +             },
->>> +             .num_parents = 2,
->>> +     },
->>> +};
->>> +
->>> +static struct clk_regmap s4_cdac_div = {
->>> +     .data = &(struct clk_regmap_div_data) {
->>> +             .offset = CLKCTRL_CDAC_CLK_CTRL,
->>> +             .shift = 0,
->>> +             .width = 16,
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "cdac_div",
->>> +             .ops = &clk_regmap_divider_ops,
->>> +             .parent_hws = (const struct clk_hw *[]) {
->>> +                     &s4_cdac_sel.hw
->>> +             },
->>> +             .num_parents = 1,
->>> +             .flags = CLK_SET_RATE_PARENT,
->>> +     },
->>> +};
->>> +
->>> +static struct clk_regmap s4_cdac = {
->>> +     .data = &(struct clk_regmap_gate_data) {
->>> +             .offset = CLKCTRL_CDAC_CLK_CTRL,
->>> +             .bit_idx = 20,
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "cdac",
->>> +             .ops = &clk_regmap_gate_ops,
->>> +             .parent_hws = (const struct clk_hw *[]) {
->>> +                     &s4_cdac_div.hw
->>> +             },
->>> +             .num_parents = 1,
->>> +             .flags = CLK_SET_RATE_PARENT,
->>> +     },
->>> +};
->>> +
->>> +static struct clk_regmap s4_demod_core_sel = {
->>> +     .data = &(struct clk_regmap_mux_data) {
->>> +             .offset = CLKCTRL_DEMOD_CLK_CTRL,
->>> +             .mask = 0x3,
->>> +             .shift = 9,
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "demod_core_sel",
->>> +             .ops = &clk_regmap_mux_ops,
->>> +             .parent_data = (const struct clk_parent_data []) {
->>> +                     { .fw_name = "xtal" },
->>> +                     { .fw_name = "fclk_div7" },
->>> +                     { .fw_name = "fclk_div4" }
->>> +             },
->>> +             .num_parents = 3,
->>> +     },
->>> +};
->>> +
->>> +static struct clk_regmap s4_demod_core_div = {
->>> +     .data = &(struct clk_regmap_div_data) {
->>> +             .offset = CLKCTRL_DEMOD_CLK_CTRL,
->>> +             .shift = 0,
->>> +             .width = 7,
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "demod_core_div",
->>> +             .ops = &clk_regmap_divider_ops,
->>> +             .parent_hws = (const struct clk_hw *[]) {
->>> +                     &s4_demod_core_sel.hw
->>> +             },
->>> +             .num_parents = 1,
->>> +             .flags = CLK_SET_RATE_PARENT,
->>> +     },
->>> +};
->>> +
->>> +static struct clk_regmap s4_demod_core = {
->>> +     .data = &(struct clk_regmap_gate_data) {
->>> +             .offset = CLKCTRL_DEMOD_CLK_CTRL,
->>> +             .bit_idx = 8
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "demod_core",
->>> +             .ops = &clk_regmap_gate_ops,
->>> +             .parent_hws = (const struct clk_hw *[]) {
->>> +                     &s4_demod_core_div.hw
->>> +             },
->>> +             .num_parents = 1,
->>> +             .flags = CLK_SET_RATE_PARENT,
->>> +     },
->>> +};
->>> +
->>> +/* CVBS ADC */
->>> +static struct clk_regmap s4_adc_extclk_in_sel = {
->>> +     .data = &(struct clk_regmap_mux_data) {
->>> +             .offset = CLKCTRL_DEMOD_CLK_CTRL,
->>> +             .mask = 0x7,
->>> +             .shift = 25,
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "adc_extclk_in_sel",
->>> +             .ops = &clk_regmap_mux_ops,
->>> +             .parent_data = (const struct clk_parent_data []) {
->>> +                     { .fw_name = "xtal" },
->>> +                     { .fw_name = "fclk_div4" },
->>> +                     { .fw_name = "fclk_div3" },
->>> +                     { .fw_name = "fclk_div5" },
->>> +                     { .fw_name = "fclk_div7" },
->>> +                     { .fw_name = "mpll2" },
->>> +                     { .fw_name = "gp0_pll" },
->>> +                     { .fw_name = "hifi_pll" }
->>> +             },
->>> +             .num_parents = 8,
->>> +     },
->>> +};
->>> +
->>> +static struct clk_regmap s4_adc_extclk_in_div = {
->>> +     .data = &(struct clk_regmap_div_data) {
->>> +             .offset = CLKCTRL_DEMOD_CLK_CTRL,
->>> +             .shift = 16,
->>> +             .width = 7,
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "adc_extclk_in_div",
->>> +             .ops = &clk_regmap_divider_ops,
->>> +             .parent_hws = (const struct clk_hw *[]) {
->>> +                     &s4_adc_extclk_in_sel.hw
->>> +             },
->>> +             .num_parents = 1,
->>> +             .flags = CLK_SET_RATE_PARENT,
->>> +     },
->>> +};
->>> +
->>> +static struct clk_regmap s4_adc_extclk_in = {
->>> +     .data = &(struct clk_regmap_gate_data) {
->>> +             .offset = CLKCTRL_DEMOD_CLK_CTRL,
->>> +             .bit_idx = 24
->>> +     },
->>> +     .hw.init = &(struct clk_init_data){
->>> +             .name = "adc_extclk_in",
->>> +             .ops = &clk_regmap_gate_ops,
->>> +             .parent_hws = (const struct clk_hw *[]) {
->>> +                     &s4_adc_extclk_in_div.hw
->>> +             },
->>> +             .num_parents = 1,
->>> +             .flags = CLK_SET_RATE_PARENT,
->>> +     },
->>> +};
->>> +
->>>   static const struct clk_parent_data s4_pclk_parents = { .hw = &s4_sys_clk.hw };
->>>
->>>   #define S4_PCLK(_name, _reg, _bit, _flags) \
->>> @@ -3028,6 +3220,17 @@ static struct clk_hw *s4_peripherals_hw_clks[] = {
->>>        [CLKID_HDCP22_SKPCLK_SEL]       = &s4_hdcp22_skpclk_sel.hw,
->>>        [CLKID_HDCP22_SKPCLK_DIV]       = &s4_hdcp22_skpclk_div.hw,
->>>        [CLKID_HDCP22_SKPCLK]           = &s4_hdcp22_skpclk.hw,
->>> +     [CLKID_CTS_ENCL_SEL]            = &s4_cts_encl_sel.hw,
->>> +     [CLKID_CTS_ENCL]                = &s4_cts_encl.hw,
->>> +     [CLKID_CDAC_SEL]                = &s4_cdac_sel.hw,
->>> +     [CLKID_CDAC_DIV]                = &s4_cdac_div.hw,
->>> +     [CLKID_CDAC]                    = &s4_cdac.hw,
->>> +     [CLKID_DEMOD_CORE_SEL]          = &s4_demod_core_sel.hw,
->>> +     [CLKID_DEMOD_CORE_DIV]          = &s4_demod_core_div.hw,
->>> +     [CLKID_DEMOD_CORE]              = &s4_demod_core.hw,
->>> +     [CLKID_ADC_EXTCLK_IN_SEL]       = &s4_adc_extclk_in_sel.hw,
->>> +     [CLKID_ADC_EXTCLK_IN_DIV]       = &s4_adc_extclk_in_div.hw,
->>> +     [CLKID_ADC_EXTCLK_IN]           = &s4_adc_extclk_in.hw,
->>>   };
->>>
->>>   static const struct meson_clkc_data s4_peripherals_clkc_data = {
->> --
->> Jerome
+> With that change, please feel free to use my
+> Acked-by: Sumit Semwal <sumit.semwal@linaro.org>
 
--- 
-Jerome
+Thanks,
+Jens
+
+> > > >
+> > > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > > > Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> > > > ---
+> > > >  drivers/dma-buf/dma-heap.c | 3 +++
+> > > >  1 file changed, 3 insertions(+)
+> > > >
+> > >
+> > > Can we get an ack from DMAbuf maintainers here? With that we should b=
+e
+> > > able to queue this patch-set for linux-next targetting the 6.18 merge
+> > > window.
+> > >
+> > > -Sumit
+> >
+> > Reviewed-by: T.J. Mercier <tjmercier@google.com>
+> >
+> > Sorry I haven't been able to participate much upstream lately.
+> > >
+> > > > diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-heap.=
+c
+> > > > index 3cbe87d4a464..cdddf0e24dce 100644
+> > > > --- a/drivers/dma-buf/dma-heap.c
+> > > > +++ b/drivers/dma-buf/dma-heap.c
+> > > > @@ -202,6 +202,7 @@ void *dma_heap_get_drvdata(struct dma_heap *hea=
+p)
+> > > >  {
+> > > >       return heap->priv;
+> > > >  }
+> > > > +EXPORT_SYMBOL(dma_heap_get_drvdata);
+> > > >
+> > > >  /**
+> > > >   * dma_heap_get_name - get heap name
+> > > > @@ -214,6 +215,7 @@ const char *dma_heap_get_name(struct dma_heap *=
+heap)
+> > > >  {
+> > > >       return heap->name;
+> > > >  }
+> > > > +EXPORT_SYMBOL(dma_heap_get_name);
+> > > >
+> > > >  /**
+> > > >   * dma_heap_add - adds a heap to dmabuf heaps
+> > > > @@ -303,6 +305,7 @@ struct dma_heap *dma_heap_add(const struct dma_=
+heap_export_info *exp_info)
+> > > >       kfree(heap);
+> > > >       return err_ret;
+> > > >  }
+> > > > +EXPORT_SYMBOL(dma_heap_add);
+> > > >
+> > > >  static char *dma_heap_devnode(const struct device *dev, umode_t *m=
+ode)
+> > > >  {
+> > > > --
+> > > > 2.43.0
+> > > >
+>
+> Best,
+> Sumit.
 
