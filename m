@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 279CACAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0221CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ae55m6GaerRmIouuOHry/1Eq41rZ1EGrHrHrrdsafTs=; b=kL4KCcikmBNdl7XgVLxobi66ur
-	1jVuuIPpAS/Z6dj+/Vaat1sjIt9xxSq8KGi0B67L4OvZdgIYywtydZhsXlJDKtwRiuwD12C3Lg50+
-	ElU+MkSg86Q60h3Uj9FKAoBHHmQggMY1KiZQ4mAue0q0sh9/hatpgE1zAxFnTAO/Y7U8xK/Bz2Daa
-	6J9c7CGmgaQkyBenFMxfR9tf7RoFBiF06Dwl5ocC2fmWeJcQyryfgUIDXAlUKifAcCaxy8gqkixm+
-	End+ep+4Z1vKqrnJ8K7+UHhKn1mkGEp6pOpTeXVtm42/T1lJrsyW9pyCP+ilGc+7fGKJihH2AeIe6
-	vYMRW0kQ==;
+	bh=Por4LrDQ28WLSuJY7ljewFwdyxszrAx7AiT1c8XdT7I=; b=dKwsFA3fm2aTovvqIreecF8e1S
+	KMvOW9zFTyKhJU2k7pdCiOulw/zT/nxEdSQjegmjJGuYthRby3dOmyurVjPKTYn7fzHnZG2xjXZov
+	Wu2q76fcvypv6bO07hjtw7RrWuRyzFu0puQWDEdi6qrWVtvbMjBWg5Ohu7OX9MkJl6yAFkLaDxguZ
+	UP4TU9WQmyhN/iQOSNTsLDvy2rvKN9EKXXJHBvcwvzlJmnROWOrWn/q7RWA6WrLCtkLtk3fMD5hLM
+	Nxbk2u1pmvuSmhfwc+/bXYPnch1c/uy5Zzlw/aq8qsVVWjb3A93at/efNzJT0BQ4+Fjv5t7rc03FE
+	VeX8NdfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcNS-00000001jXw-039R;
-	Thu, 11 Sep 2025 08:09:58 +0000
+	id 1uwcOO-00000001jxP-2Vv4;
+	Thu, 11 Sep 2025 08:10:56 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcNP-00000001jXZ-2VrA;
-	Thu, 11 Sep 2025 08:09:56 +0000
+	id 1uwcOL-00000001jv1-3ZcC;
+	Thu, 11 Sep 2025 08:10:55 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id D2F3E21AC3;
-	Thu, 11 Sep 2025 10:09:53 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 51E5C22E3E;
+	Thu, 11 Sep 2025 10:10:52 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id YH6VOlBShjIH; Thu, 11 Sep 2025 10:09:53 +0200 (CEST)
+ id TEID8B6EKtIt; Thu, 11 Sep 2025 10:10:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1757578193; bh=x352PQuhLLNf6YiSW+jdH4w7Z+cRMhcTOsK7TWAibzU=;
+	t=1757578251; bh=ZbLh3w9qgdKNzwXJqgp2abe1gQ9CIj5mTrQV0DwHZoI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fuDdhKdrSXxaYAPHhpfiXcmtnT926GU+qcEojSTORsEPqoel76uoRXDdpxMUdccPM
-	 3UmdTwgzFvn60ZXhAX5BywthCQXxvmGImelUv6ZaGfp4nuXYtsNUqNo8xTm5IOaW/G
-	 EcbiT9DdgSXEVhIS9WGpf98wG64U67QT8B7VVxMN8DE6pWrDJ9/5Xy7s1dW47IlxVB
-	 L3LFYl+YqsPlv92PV+veJTj17TIsNZNfjgnGlwxZJFlvduseMiq29W9PL005kAdSFG
-	 iubM+kckz5QPAUknYQYpa4MG861jZsjXrJw9pRC441mIjRsyqXy+o0QVVZCfuTq9ci
-	 JuUyGgUggRtSw==
-Date: Thu, 11 Sep 2025 08:09:33 +0000
+	b=eLLw0LoRhdiW6rBw7ZButYxIty7OAQjCZnW82Ezd46anyExxpeN+SJMO01aeYBDJP
+	 enjvSwjZGuATAM6nFZtd846Hr4WFfs1HG26px4Fr1a6fiAjVbD3KmMF8ikf1sppeaj
+	 aVN99nSXPl4gTUNCgfmHIWk+b2nwhxBjZ4ly3RgvOaCVo+ZYYe1cIpAlwjxLC82U5b
+	 /pd4D9V1ekwXrS1/AH1EfsVHtUhxn9QJUYhPHYmhpLf8q91Mj33x/a/Q73uu0mzue6
+	 DWy7d5Zr5hy3Zt8CrE+xjnMOqY++2u0udyrvZf9SVslDNEFuGaVxyBhEB1PgyXkywU
+	 0qzbHeAiVk22w==
+Date: Thu, 11 Sep 2025 08:10:36 +0000
 From: Yao Zi <ziyao@disroot.org>
 To: Chukun Pan <amadeus@jmu.edu.cn>
 Cc: bhelgaas@google.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
@@ -51,18 +51,18 @@ Cc: bhelgaas@google.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
 	linux-rockchip@lists.infradead.org, lpieralisi@kernel.org,
 	mani@kernel.org, robh@kernel.org
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Add PCIe Gen2x1 controller for
- RK3528
-Message-ID: <aMKDvcbJ2T-QNYxw@pie>
-References: <20250906135246.19398-3-ziyao@disroot.org>
- <20250909125029.2553286-1-amadeus@jmu.edu.cn>
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Enable PCIe controller on
+ Radxa E20C
+Message-ID: <aMKD_LhjdFNNu62B@pie>
+References: <20250906135246.19398-4-ziyao@disroot.org>
+ <20250909130009.2555706-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250909125029.2553286-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20250909130009.2555706-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_010955_771380_160BC6EF 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20250911_011054_020917_20776F13 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +77,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 08:50:29PM +0800, Chukun Pan wrote:
+On Tue, Sep 09, 2025 at 09:00:09PM +0800, Chukun Pan wrote:
 > Hi,
 > 
-> > +			reg = <0x1 0x40000000 0x0 0x400000>,
-> > +			      <0x0 0xfe4f0000 0x0 0x10000>,
-> > +			      <0x0 0xfc000000 0x0 0x100000>;
+> > +&pcie {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pciem1_pins>, <&pcie_reset_g>;
 > 
-> Aligning the address for reg and ranges will look better:
+> The pciem1_pins contains PCIE20_PERSTn_M1 (GPIO1_A2)
+> This will cause conflicts, "pinctrl-0 = <&pciem1_pins>" is enough.
 > 
-> 		reg = <0x1 0x40000000 0x0 0x400000>,
-> 		      <0x0 0xfe4f0000 0x0 0x010000>,
-> 		      <0x0 0xfc000000 0x0 0x100000>;
-
-Thanks, this makes sense.
-
-> BTW do we possibly need this?
-> https://github.com/rockchip-linux/kernel/commit/e9397245c4b1bd62ef929d221e20225d58467dc7
-
-I'm still unsure its purpose, but am willing to adapt this change. See
-my reply to Jonas' comment.
-
-> > +			clocks = <&cru ACLK_PCIE>, <&cru HCLK_PCIE_SLV>,
-> > +				 <&cru HCLK_PCIE_DBI>, <&cru PCLK_PCIE>,
-> > +				 <&cru CLK_PCIE_AUX>, <&cru PCLK_PCIE_PHY>;
+> [    0.115608] rockchip-pinctrl pinctrl: not freeing pin 34 (gpio1-2) as part of deactivating group pciem1-pins - it is already used for some other setting
+> [    0.191042] rockchip-pinctrl pinctrl: pin gpio1-2 already requeste by pll_gpll; cannot claim for 140000000.pcie
+> [    0.191949] rockchip-pinctrl pinctrl: error -EINVAL: pin-34 (140000000.pcie)
+> [    0.192570] rockchip-pinctrl pinctrl: error -EINVAL: could not request pin 34 (gpio1-2) from group pciem1-pins on device rockchip-pinctrl
 > 
-> <&cru PCLK_PCIE_PHY> has already been defined in the combphy node,
-> is it repeated here?
+> > +	reset-gpios = <&gpio1 RK_PA2 GPIO_ACTIVE_HIGH>;
+> 
+> Missing supply: "vpcie3v3-supply = <&vcc_3v3>;"
+> 
+> > +	status = "okay";
+> > +};
+> > +
 
-Yes, it should be managed by PHY instead of the controller. I'll fix it
-in v2.
+Will fix them in v2, thanks.
 
 > Thanks,
 > Chukun
