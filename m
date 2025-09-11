@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B083FCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0B3CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UaulywL3eivpOXSv5h6wxwlVTXQrybLiM63aZgH2KFs=; b=1ve+cUBFogtgg3+BrPw3mcDkKX
-	ert4hi5Y3RgmY2DlHhYCYTQ/bUhmLAunHwNWbP1aOjjH+G4npUZP8/VjoPaSfC7KQ1J+Pg4A4A87q
-	+ZUu8aSzZIoNJDz9rJ+Dfg02V0oeDWscm5NXIK0j83wFf0ubGaM0Ir54ILqlsCrwE6cc3Gt2fNQiA
-	ISZHAnu9rLXlrofBnyL299oO5UeWCPfc3Z9eCc9TZ1oE4Tkh0SY7pNIWNBOPS4jjsu9PFj1rwPoMC
-	3xZFq8ZiL8JnyHPbK6XyuCledtQsjg66H/xTMd6xtxarQkeazlUqJUl95+sXB9/ofMIBgrGwqoK+k
-	f9x71Hsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KE6Sj61b2koz6A8aE1LGhmxRMmb0llLu8ZrWsTcUtgo=; b=sV+drH/wxvnEgchFVTqr249V/Z
+	iN28T9ITFxanMxaeLaTtq4e15U1+dM2DT7oeT8ZKJ5kgYWT9kPF5lw1HrptReZXMmYkFWQ7kNPYVm
+	48hR2Lndcq007IgcapUyQOGCsUvzbXzdVDrvDzFxX1j036G5684iVKr4Pkw6u68pF6H9C9/jnNFSB
+	BSXdFbSs7W5w4FvyChTlFZv6xYrKpu53FE7a7gg/QIMAUymcGSGG81cpimMB1axKgLKmLQ5E9xZGk
+	H4eNRpRUOigHQi5BXdtX6WCf1oyBqlf9ByLqHpzZeiTANWR8mso9yzHk553fR6ucR/gwsOQjCwy05
+	8gxFyDmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjDs-00000003tGl-17lr;
-	Thu, 11 Sep 2025 15:28:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uwjEH-00000003tWp-2dSV;
+	Thu, 11 Sep 2025 15:28:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjDl-00000003t8G-3j2o
+	id 1uwjEG-00000003tW0-2lwD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:28:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1757604505; x=1789140505;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=/mLGAizM4D0NKvOiayu53Ks5IeoiBFtYbwR9O/5P3ws=;
-  b=TumQMSVTcwKcoQwbZ2tK9xGyxDEGgmO50mcQDJTenOH5bQ4wl4uPmBVa
-   1QiMU5qO6dErDbo+Iuu6WrwJ0JmPOB35q2qW2tQZcP5LyUMwqTulMnbnl
-   z2y5OXq/VlMmur6QrMBZZ7IQObyxeLAjHdnrtqhvDOvltFRAUAY3jZ89d
-   mPNfV1EnWeO3is8c9X1TvYr9ZzEkpygZqq5pyw9KDbphlEFsvB33Hq4fb
-   PDLg53jNdDrWf3yEKP/OiLxZTAkxJtsNtWYqv6c5WxrbsTnvvTQnKoSNj
-   9v5/JKUP+8J6IbpGJKAUzMT2oJ60+87NHBiOAr02PJFSHWT/AyasZEtIp
-   Q==;
-X-CSE-ConnectionGUID: wLSDZ5hSTNSXS1TQWmJymw==
-X-CSE-MsgGUID: 2qR1GhkmSEm/uyQPjbW9Nw==
-X-IronPort-AV: E=Sophos;i="6.18,257,1751266800"; 
-   d="scan'208";a="213773303"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Sep 2025 08:28:22 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 11 Sep 2025 08:28:00 -0700
-Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 11 Sep 2025 08:27:57 -0700
-From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
-Date: Thu, 11 Sep 2025 17:26:29 +0200
-Subject: [PATCH 5/5] ARM: configs: at91_dt_defconfig: enable GFX2D driver
+	Thu, 11 Sep 2025 15:28:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 19E9C60234;
+	Thu, 11 Sep 2025 15:28:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B0BBC4CEF0;
+	Thu, 11 Sep 2025 15:28:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757604535;
+	bh=7zogeD5U+3a3b8x9LW5ah9FYZnDdsBjL9Qsg7Ua4oy0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pHRwvcbfBxyQUYkjkexYTVYl9ySPcLwALUBC4vaBD1UyWRvgoRdRvwd70UoKnqD5Q
+	 FUDwHqjMtZSoO7VTmFDwt1oZ/6G/kdyQJ473Rzg6wfd6q4NpwXtotx3v4WBYp6IWGk
+	 PrhGM4z6ZXc0yVSj2AQd3OQwgwXimWGgBX82ZgtE0yy3ZYyUWVKeHX+mb9HRDeZmdE
+	 xlcJuztvM3qEDnS9zTrh0CcDCldYE0/o6NpiE/oJnBqd1N3b9xRPiOZpWRQCLMWJ9Y
+	 Vh5dbqboW1BkhyaT6KmsJxTMUZqHro3kF+fpJ5ArvSlVwQGF4/zNlRaYd3G3OiRSkJ
+	 2ylPwTbCDibeg==
+Date: Thu, 11 Sep 2025 16:28:49 +0100
+From: Will Deacon <will@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, broonie@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
+	ardb@kernel.org, scott@os.amperecomputing.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 RESEND 5/6] arm64: futex: small optimisation for
+ __llsc_futex_atomic_set()
+Message-ID: <aMLqsez5y9R6FIdJ@willie-the-truck>
+References: <20250816151929.197589-1-yeoreum.yun@arm.com>
+ <20250816151929.197589-6-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250911-cpitchen-mainline_gfx2d-v1-5-d7fab1a381ee@microchip.com>
-References: <20250911-cpitchen-mainline_gfx2d-v1-0-d7fab1a381ee@microchip.com>
-In-Reply-To: <20250911-cpitchen-mainline_gfx2d-v1-0-d7fab1a381ee@microchip.com>
-To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Russell King <linux@armlinux.org.uk>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Cyrille Pitchen <cyrille.pitchen@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=751;
- i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
- bh=/mLGAizM4D0NKvOiayu53Ks5IeoiBFtYbwR9O/5P3ws=;
- b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ8ahV5kvmMVNL/+e/elgq0JlwT5+r5DOZ6c3ivmsnm2du
- OXfstlNHaUsDGJcDLJiiiyH3mztzTz+6rHdK1EpmDmsTCBDGLg4BWAimxcwMvz0WTLN12Nn8fwP
- E6v6Gm/zns2aMYE5mVEw+nr2rAyOghWMDIdvLzv5er3/n2AdjqcCNy/v3jGtaGXezbAfG8Qa7rM
- fV+cAAA==
-X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
- fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_082825_994286_22AF8C23 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250816151929.197589-6-yeoreum.yun@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,28 +74,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GFX2D GPU is embedded in both SAM9X60 and SAM9X75; enable the
-driver to use it.
+On Sat, Aug 16, 2025 at 04:19:28PM +0100, Yeoreum Yun wrote:
+> __llsc_futex_atomic_set() is implmented using
+> LLSC_FUTEX_ATOMIC_OP() macro with "mov  %w3, %w5".
+> But this instruction isn't required to implement fux_atomic_set()
+> so make a small optimisation by implementing __llsc_futex_atomic_set()
+> as separate function.
+> 
+> This will make usage of LLSC_FUTEX_ATOMIC_OP() macro more simple.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/include/asm/futex.h | 43 ++++++++++++++++++++++++++++------
+>  1 file changed, 36 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
+> index ab7003cb4724..22a6301a9f3d 100644
+> --- a/arch/arm64/include/asm/futex.h
+> +++ b/arch/arm64/include/asm/futex.h
+> @@ -13,7 +13,7 @@
+> 
+>  #define LLSC_MAX_LOOPS	128 /* What's the largest number you can think of? */
+> 
+> -#define LLSC_FUTEX_ATOMIC_OP(op, insn)					\
+> +#define LLSC_FUTEX_ATOMIC_OP(op, asm_op)				\
+>  static __always_inline int						\
+>  __llsc_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
+>  {									\
+> @@ -24,7 +24,7 @@ __llsc_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
+>  	asm volatile("// __llsc_futex_atomic_" #op "\n"			\
+>  "	prfm	pstl1strm, %2\n"					\
+>  "1:	ldxr	%w1, %2\n"						\
+> -	insn "\n"							\
+> +"	" #asm_op "	%w3, %w1, %w5\n"				\
+>  "2:	stlxr	%w0, %w3, %2\n"						\
+>  "	cbz	%w0, 3f\n"						\
+>  "	sub	%w4, %w4, %w0\n"					\
+> @@ -46,11 +46,40 @@ __llsc_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
+>  	return ret;							\
+>  }
+> 
+> -LLSC_FUTEX_ATOMIC_OP(add, "add	%w3, %w1, %w5")
+> -LLSC_FUTEX_ATOMIC_OP(or, "orr	%w3, %w1, %w5")
+> -LLSC_FUTEX_ATOMIC_OP(and, "and	%w3, %w1, %w5")
+> -LLSC_FUTEX_ATOMIC_OP(eor, "eor	%w3, %w1, %w5")
+> -LLSC_FUTEX_ATOMIC_OP(set, "mov	%w3, %w5")
+> +LLSC_FUTEX_ATOMIC_OP(add, add)
+> +LLSC_FUTEX_ATOMIC_OP(or, orr)
+> +LLSC_FUTEX_ATOMIC_OP(and, and)
+> +LLSC_FUTEX_ATOMIC_OP(eor, eor)
+> +
+> +static __always_inline int
+> +__llsc_futex_atomic_set(int oparg, u32 __user *uaddr, int *oval)
+> +{
+> +	unsigned int loops = LLSC_MAX_LOOPS;
+> +	int ret, oldval;
+> +
+> +	uaccess_enable_privileged();
+> +	asm volatile("//__llsc_futex_xchg\n"
+> +"	prfm	pstl1strm, %2\n"
+> +"1:	ldxr	%w1, %2\n"
+> +"2:	stlxr	%w0, %w4, %2\n"
+> +"	cbz	%w3, 3f\n"
+> +"	sub	%w3, %w3, %w0\n"
+> +"	cbnz	%w3, 1b\n"
+> +"	mov	%w0, %w5\n"
+> +"3:\n"
+> +"	dmb	ish\n"
+> +	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)
+> +	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)
+> +	: "=&r" (ret), "=&r" (oldval), "+Q" (*uaddr), "+r" (loops)
+> +	: "r" (oparg), "Ir" (-EAGAIN)
+> +	: "memory");
+> +	uaccess_disable_privileged();
+> +
+> +	if (!ret)
+> +		*oval = oldval;
 
-Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
----
- arch/arm/configs/at91_dt_defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Hmm, I'm really not sure this is worthwhile. I doubt the "optimisation"
+actually does anything and adding a whole new block of asm just for the
+SET case isn't much of an improvement on the maintainability side, either.
 
-diff --git a/arch/arm/configs/at91_dt_defconfig b/arch/arm/configs/at91_dt_defconfig
-index ff13e1ecf4bb9545d6d2210b2f3059e6807779a0..85e9b52152aec6746f660dd0c299cd5aa12ce2ea 100644
---- a/arch/arm/configs/at91_dt_defconfig
-+++ b/arch/arm/configs/at91_dt_defconfig
-@@ -144,6 +144,7 @@ CONFIG_VIDEO_OV2640=m
- CONFIG_VIDEO_OV7740=m
- CONFIG_DRM=y
- CONFIG_DRM_ATMEL_HLCDC=y
-+CONFIG_DRM_MICROCHIP_GFX2D=y
- CONFIG_DRM_MICROCHIP_LVDS_SERIALIZER=y
- CONFIG_DRM_PANEL_SIMPLE=y
- CONFIG_DRM_PANEL_EDP=y
-
--- 
-2.48.1
-
+Will
 
