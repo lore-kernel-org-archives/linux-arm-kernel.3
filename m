@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16FAFCA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 09:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74D4CAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 09:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gx6VMk7TDXvQGr0QBI+xdzzWNaTJzaWnQI1EKY6rgU=; b=HLsqAnVHRUveAkKwZfaDAhYFtL
-	cBV5WOJdPVqWuPkdqd8J6T3RlcrVQItYRaSybuB7jtek5VOp67djLQ8PaERUBNp9HNn9S6bLh2i6w
-	NQIWzTJojS0+2luSXY0enzIjSmRYLYUJid9pGMbeiA4kamF/P05a1Rim4+2LakQ1IW+DiXoxNQL4I
-	ibbT0qdNTk3X8C0gVLyNX9ReXBMgZfsx5Q52iN8Qlpjwj8KKuFgtLTmPmpbFwOw1DGFL9os/BOXFp
-	BaRej+9/Q9ehIkee046/bY7L77EgxdQZmZf8TrTThbW3V9kGFAy/3mxYnWqlj9QOltSLI/tQG1Xtb
-	sa01CnQw==;
+	bh=cej5DMxhg1NtNzRRvje5njCeicTXDAKaR1Lh4aeMCPE=; b=at+DEjbsHxICUFXwUOslx7pbnv
+	QhkwQtnrZiPuUs+Pbq8BcRHNhbAn9oj+OQ1jPoyFVQVtzW62uhj0FOScvd4bfzbkjcGqDu1xOpqtT
+	g3kY09ws8cO8vgTlgGh6GFxMueW2txZZMJRXFfrFwN0H8oISo0a8Cmn7DAme1sZtk5+qXYk6QoVDN
+	wvFInTiMUiUWtjCowTLdXzTkpsiHtruWVE5oDgwIeBTEzcitvO7FPpxMLQYAx2eQGQjIHk80GPd3H
+	2Q4vZPW2qM1t4xZEBQ3Trbk9JwRk/0Tybwj1f38Rjg3bIyNChtZVHXDSokXkw1m+PeEhm22iloBS6
+	nc2VVgtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwdFe-0000000204b-0wg3;
-	Thu, 11 Sep 2025 09:05:58 +0000
+	id 1uwdFl-0000000208L-3Eeo;
+	Thu, 11 Sep 2025 09:06:05 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwdFc-0000000203o-1AV1;
-	Thu, 11 Sep 2025 09:05:57 +0000
+	id 1uwdFd-00000002045-1ylx;
+	Thu, 11 Sep 2025 09:05:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=6gx6VMk7TDXvQGr0QBI+xdzzWNaTJzaWnQI1EKY6rgU=; b=y4zRtMJUhMlPYzMKYM/wIDAVHN
-	VBCCrSyfwSo4g3qFvDrBo2m4c9WsXLPOgJ28hfc+lm9ZaMllmgVPLp73lSu5SGWL1pcq6c13G0P0Q
-	+6heFKHDxHJrrTobTY4ynEY0FBh87NfuA4Dz2/DuUVDN0w3s2KISyXaLIzX/oKqUQGsg7nkHfPVFn
-	l1tAABgnZb04drR4A0eeXQvLgeKW6v7S6LCgnGyyfUaUMOprKFgic3hpQVj4Cj/hEYWyl7CniNMYv
-	l+PBUwM+ZQfDJ+f8My81hBuIsRFhetOCOwmrMoUJa5UMU8eATxkQ+zshadXVmNagYKp3oQXQbhf29
-	91TqB45w==;
+	bh=cej5DMxhg1NtNzRRvje5njCeicTXDAKaR1Lh4aeMCPE=; b=WJNoCw2W6vlFy/tjv+9eVO3xlO
+	/cPnJ4wkK5Vc2DbkHJeZkrKRrF8BPry0QLn18fKzktbGuvQeNtXuHl7G3Vmx6hpUAbRp5oSRdXoU0
+	Tc6IUTcdtbWFi7XkhGcxrPK2H8dyJ7JXscamDitlNPyVVN4fT6j5woGaB1QnIddpV+Hz3/hePpZYi
+	OAtr8lLzJU/A9vHyTeMyG9uEDDyyfbm8gBCAN0Kwz80ThDRvGIw8+dYuVCEseAmecvIqPf9dLz+dk
+	cXm2v7bd1K3cxM4u7+tkZMyNqpjZvNvPoONDQtVddk7g5PoS/bcERjuGoPCjNf6PL6xYbLWmIVEmn
+	/FVkl2Tw==;
 Received: from i53875b0e.versanet.de ([83.135.91.14] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uwdFa-00005b-CZ; Thu, 11 Sep 2025 11:05:54 +0200
+	id 1uwdFb-00005b-JV; Thu, 11 Sep 2025 11:05:55 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh+dt@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Christian Hewitt <christianshewitt@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Alex Bee <knaerzche@gmail.com>
-Subject: Re: [PATCH v3 1/2] arm64: dts: rockchip: add GPU powerdomain, opps, and cooling to rk3328
-Date: Thu, 11 Sep 2025 11:05:42 +0200
-Message-ID: <175758154015.610665.11518544255206774361.b4-ty@sntech.de>
+	kernel@collabora.com
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix network on rk3576 evb1 board
+Date: Thu, 11 Sep 2025 11:05:44 +0200
+Message-ID: <175758154013.610665.7420825533435349040.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250906120810.1833016-1-christianshewitt@gmail.com>
-References: <20250906120810.1833016-1-christianshewitt@gmail.com>
+In-Reply-To: <20250910-rk3576-evb-network-v1-1-68ed4df272a2@collabora.com>
+References: <20250910-rk3576-evb-network-v1-1-68ed4df272a2@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_020556_317029_87C5C1D3 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250911_020557_508186_7EABCA8B 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +78,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 06 Sep 2025 12:08:09 +0000, Christian Hewitt wrote:
-> Add GPU powerdomain, opp-table, and cooling map nodes for the Mali
-> GPU on the RK3328 SoC. Opp-table frequencies are sourced from the
-> Rockchip Linux v4.4 vendor kernel while voltages have been derived
-> from practical use and support work: keeping voltage above 1075mV
-> and disabling the 500MHz opp-point avoids instability and crashes.
-> 
+On Wed, 10 Sep 2025 15:54:51 +0200, Sebastian Reichel wrote:
+> The RK3576 EVB1 has a RTL8211F PHY for each GMAC interface with
+> a dedicated reset line and the 25MHz clock provided by the SoC.
+> The current description results in non-working Ethernet as the
+> clocks are only enabled by the PHY driver, but probing the right
+> PHY driver currently requires that the PHY ID register can be read
+> for automatic identification.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] arm64: dts: rockchip: add GPU powerdomain, opps, and cooling to rk3328
-      commit: 718efbc6a773dd07047f2ac3d62bbbf3bc4b104f
-[2/2] arm64: dts: rockchip: enable the Mali GPU on RK3328 boards
-      commit: d81b0c3099d02f6c7a4be7a15d33145b3700b159
+[1/1] arm64: dts: rockchip: Fix network on rk3576 evb1 board
+      commit: 843367c7ed196bd0806c8776cba108aaf6923b82
 
 Best regards,
 -- 
