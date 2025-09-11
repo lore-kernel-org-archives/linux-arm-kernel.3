@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A85ECAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26744CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a2j6aQ1qhvWP9qjdrqqFwCsJwygejUWabggof9eKK40=; b=EGIPn9s5LZmVaM7gwSrHKTeA+K
-	al3dDjlL1hGRHz0csvUH+WxB23lb3OyhWOREOETeqF070pCl//UbOyUBWH3iABTDPkDmcF74Ee0OR
-	BTUyIwh16B1IDtJ32VGZTT/5Q1zy4bH7NGPlUQvUpyNqgieVYskMejhEVjkwxein3521HEaHIg/3M
-	I4nqF4fjuC/2B6I7fpbAjy8AIvPA4q0JorCYr7b9npgOldp8Dw1YeK+/q6VAb5Sjwm6SGUjx2ovha
-	1p1Qk5SKi50zpJxfcPIemvbWYh39xl1xHydoX7dV6pNJp6STvQcfyPX/R2RFrN/uDa2Wa0pzgcD85
-	aGGb9/eQ==;
+	bh=z0wfAw1RoyH3XxGnHu3OjGHYgzFrel7esRCkMh235Uo=; b=JhqRNGZG3zs9lRwbaoI8tbR/kG
+	3JjkJxYmdwYTAZ4TocKHLTGOzh8DJWHL5zaqd646CT70oAkEPjVMOTzluBko6FGy4Kqj/KcWrvAAS
+	Yj/4GjTp6nVS+H3o8BAc1fZT3LbQUaeCkuqHqeg5vAJvULzIHSU0OQVvJEGpSWbF6nW4f33eHK3fJ
+	GMTZio4UHWhJ0+1okICE7th+XQhZIpD6u+Q1HNgF1EPCxgTX7rzlfo+CCKbVO2uDRVmayiofH5FTG
+	ZrD48ezV8iLI9Sz5XdrU716/Uj2oswfTDUsWYDn0XTMDPxvebaQh0JI/GuLEXsqht5PzTP/Jah1cg
+	tSmlsWtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhSw-00000003GNQ-0n37;
-	Thu, 11 Sep 2025 13:35:58 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uwhWQ-00000003HES-1JxH;
+	Thu, 11 Sep 2025 13:39:34 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhSt-00000003GMZ-2o8S
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 13:35:57 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cMz3n2YGqz67CtB;
-	Thu, 11 Sep 2025 21:31:33 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 03A151400D3;
-	Thu, 11 Sep 2025 21:35:47 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
- 2025 15:35:45 +0200
-Date: Thu, 11 Sep 2025 14:35:44 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
-	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
-	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
-	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
-	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
- Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
-	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 07/29] arm_mpam: Add probe/remove for mpam msc driver
- and kbuild boiler plate
-Message-ID: <20250911143544.000026aa@huawei.com>
-In-Reply-To: <20250910204309.20751-8-james.morse@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-8-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1uwhWN-00000003HCC-1Zoh;
+	Thu, 11 Sep 2025 13:39:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1757597924; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=cW8WQVw54kCwOrp4Z6nOM5zB+0ttwfZp2WlQWstN3VR5HDOvUIUqj7OMd52M9joD6VV4KN+dfh1dQl0/5irEs3WahGrue0xzDie3hjaV5tdBCW5k0AttByOZuRIZk3wFOzjsTr7EerdMeKTQT6Q0jEdxIQCRmWwkyus6WmtY4rc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1757597924; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=z0wfAw1RoyH3XxGnHu3OjGHYgzFrel7esRCkMh235Uo=; 
+	b=OeyfDXnfBQFt2RGO4gMm6yb7HyyWhJFSbXpukrZivXBHUSu4zZB8tX0p+rGZvOotIcQlOG+e+z+/2AUnulQ/1bXPqaS4dqL3N5WfURJHVehrqpu51EIbJ/iUuIEJYOINb4anVnFgKEZp2BKvmfJNvG1rj5/t+jyUxszFxqMpZ4w=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757597924;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=z0wfAw1RoyH3XxGnHu3OjGHYgzFrel7esRCkMh235Uo=;
+	b=Fk3d5f5c7xQh1L26LGxVS1MYZeolPRgvuj4odZIpMebZ02Z5jpCxFefRidPAF1ey
+	NwGxrrIocLa0JWk6u1Dpzl1zGCrU4lt1loeAoSLF2sMV/6OmrnCFottPBZbgLe1Y1W+
+	P4w+y0nD1DpQDK/sWlie56qNQMIlY8RyUyzFaKLM=
+Received: by mx.zohomail.com with SMTPS id 175759792104776.9989768199938;
+	Thu, 11 Sep 2025 06:38:41 -0700 (PDT)
+Message-ID: <f4a18a08-516a-4a0b-a477-1e9f5269f1d8@collabora.com>
+Date: Thu, 11 Sep 2025 10:38:23 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 01/14] media: dt-bindings: Convert MediaTek mt8173-mdp
+ bindings to YAML
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
+ andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
+ broonie@kernel.org, chunkuang.hu@kernel.org, ck.hu@mediatek.com,
+ conor+dt@kernel.org, davem@davemloft.net, dmitry.torokhov@gmail.com,
+ edumazet@google.com, flora.fu@mediatek.com, houlong.wei@mediatek.com,
+ jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com,
+ krzk+dt@kernel.org, kuba@kernel.org,
+ kyrie.wu@mediatek.corp-partner.google.com, lgirdwood@gmail.com,
+ linus.walleij@linaro.org, louisalexis.eyraud@collabora.com,
+ maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com,
+ mchehab@kernel.org, minghsiu.tsai@mediatek.com, mripard@kernel.org,
+ p.zabel@pengutronix.de, pabeni@redhat.com, robh@kernel.org,
+ sean.wang@kernel.org, simona@ffwll.ch, support.opensource@diasemi.com,
+ tiffany.lin@mediatek.com, tzimmermann@suse.de, yunfei.dong@mediatek.com,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
+ <20250820171302.324142-2-ariel.dalessandro@collabora.com>
+ <20250821-silky-slug-of-novelty-e4bb64@kuoka>
+ <d286ec0b-c8dc-4103-9aa3-2f40e0ade4a3@collabora.com>
+ <5421cfe7-dfe0-4bb8-8722-6f449cd365be@kernel.org>
+Content-Language: en-US
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+In-Reply-To: <5421cfe7-dfe0-4bb8-8722-6f449cd365be@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500002.china.huawei.com (7.191.160.78) To
- frapeml500008.china.huawei.com (7.182.85.71)
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_063556_006711_0141A08C 
-X-CRM114-Status: GOOD (  45.81  )
+X-CRM114-CacheID: sfid-20250911_063931_472041_7460FB51 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,336 +101,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sep 2025 20:42:47 +0000
-James Morse <james.morse@arm.com> wrote:
+Krzysztof,
 
-> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
-> only be accessible from those CPUs, and they may not be online.
-> Touching the hardware early is pointless as MPAM can't be used until
-> the system-wide common values for num_partid and num_pmg have been
-> discovered.
+On 9/9/25 3:32 AM, Krzysztof Kozlowski wrote:
+> On 08/09/2025 19:52, Ariel D'Alessandro wrote:
+>> Krzysztof,
+>>
+>> On 8/21/25 3:46 AM, Krzysztof Kozlowski wrote:
+>>> On Wed, Aug 20, 2025 at 02:12:49PM -0300, Ariel D'Alessandro wrote:
+
+[...]
+
+>>>> +          - enum:
+>>>> +              - mediatek,mt8173-mdp-rdma
+>>>> +              - mediatek,mt8173-mdp-rsz
+>>>> +              - mediatek,mt8173-mdp-wdma
+>>>> +              - mediatek,mt8173-mdp-wrot
+>>>> +      - items:
+>>>> +          - enum:
+>>>> +              - mediatek,mt8173-mdp-rdma
+>>>> +              - mediatek,mt8173-mdp-rsz
+>>>> +              - mediatek,mt8173-mdp-wdma
+>>>> +              - mediatek,mt8173-mdp-wrot
+>>>> +          - const: mediatek,mt8173-mdp
+>>>
+>>> This makes no sense. How devices can be compatible and can not be
+>>> compatible.
+>>
+>> According to the driver source code (and the previous txt mt8173-mdp
+>> bindings), there must be a "controller node" with compatible
+>> `mediatek,mt8173-mdp`. Then its sibling nodes (including itself) should
 > 
-> Start with driver probe/remove and mapping the MSC.
+> But you did not define "mediatek,mt8173-mdp" here, so what are you
+> talking about?
 > 
-> CC: Carl Worth <carl@os.amperecomputing.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
+> I talk here about "wrot" and others, I thought it is obvious from the
+> mistake in the schema.
 
-Hi James,
+Ack.
 
-Various comments inline.  You can ignore the do/while(0)
-one but I'll probably forget and send more grumpy comments about it ;)
+[...]
 
-Jonathan
-> ---
-> Changes since v1:
->  * Avoid selecting driver on other architectrues.
->  * Removed PCC support stub.
->  * Use for_each_available_child_of_node_scoped() and of_property_read_reg()
->  * Clarified a comment.
->  * Stopped using mpam_num_msc as an id,a and made it atomic.
->  * Size of -1 returned from cache_of_calculate_id()
->  * Renamed some struct members.
->  * Made a bunch of pr_err() dev_err_ocne().
->  * Used more cleanup magic.
->  * Inlined a print message.
->  * Fixed error propagation from mpam_dt_parse_resources().
->  * Moved cache accessibility checks earlier.
+>>>> +
+>>>> +  - if:
+>>>> +      properties:
+>>>> +        compatible:
+>>>> +          contains:
+>>>> +            const: mediatek,mt8173-mdp
+>>>
+>>> This makes no sense either.
+>>
+>> Same question above about compatibles.
 > 
-> Changes since RFC:
->  * Check for status=broken DT devices.
->  * Moved all the files around.
->  * Made Kconfig symbols depend on EXPERT
-> ---
->  arch/arm64/Kconfig              |   1 +
->  drivers/Kconfig                 |   2 +
->  drivers/Makefile                |   1 +
->  drivers/resctrl/Kconfig         |  14 +++
->  drivers/resctrl/Makefile        |   4 +
->  drivers/resctrl/mpam_devices.c  | 180 ++++++++++++++++++++++++++++++++
->  drivers/resctrl/mpam_internal.h |  65 ++++++++++++
->  7 files changed, 267 insertions(+)
->  create mode 100644 drivers/resctrl/Kconfig
->  create mode 100644 drivers/resctrl/Makefile
->  create mode 100644 drivers/resctrl/mpam_devices.c
->  create mode 100644 drivers/resctrl/mpam_internal.h
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 6487c511bdc6..93e563e1cce4 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2062,6 +2062,7 @@ config ARM64_TLB_RANGE
->  
->  config ARM64_MPAM
->  	bool "Enable support for MPAM"
-> +	select ARM64_MPAM_DRIVER if EXPERT
-
-To me that wants a comment as it's unusual.
-
->  	select ACPI_MPAM if ACPI
->  	help
->  	  Memory System Resource Partitioning and Monitoring (MPAM) is an
-
-> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-> new file mode 100644
-> index 000000000000..c30532a3a3a4
-> --- /dev/null
-> +++ b/drivers/resctrl/Kconfig
-> @@ -0,0 +1,14 @@
-> +menuconfig ARM64_MPAM_DRIVER
-> +	bool "MPAM driver"
-> +	depends on ARM64 && ARM64_MPAM && EXPERT
-> +	help
-> +	  MPAM driver for System IP, e,g. caches and memory controllers.
-> +
-> +if ARM64_MPAM_DRIVER
-> +config ARM64_MPAM_DRIVER_DEBUG
-> +	bool "Enable debug messages from the MPAM driver"
-> +	depends on ARM64_MPAM_DRIVER
-
-The depends on should make the if unnecessary.
-
-> +	help
-> +	  Say yes here to enable debug messages from the MPAM driver.
-> +
-> +endif
-
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> new file mode 100644
-> index 000000000000..efc4738e3b4d
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -0,0 +1,180 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (C) 2025 Arm Ltd.
-> +
-> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cacheinfo.h>
-> +#include <linux/cpu.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/device.h>
-> +#include <linux/errno.h>
-> +#include <linux/gfp.h>
-> +#include <linux/list.h>
-> +#include <linux/lockdep.h>
-> +#include <linux/mutex.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/printk.h>
-> +#include <linux/slab.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/srcu.h>
-> +#include <linux/types.h>
-
-> +/*
-> + * An MSC can control traffic from a set of CPUs, but may only be accessible
-> + * from a (hopefully wider) set of CPUs. The common reason for this is power
-> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
-> + * corresponding cache may also be powered off. By making accesses from
-> + * one of those CPUs, we ensure this isn't the case.
-> + */
-> +static int update_msc_accessibility(struct mpam_msc *msc)
-> +{
-> +	u32 affinity_id;
-> +	int err;
-> +
-> +	err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
-> +				       &affinity_id);
-> +	if (err)
-> +		cpumask_copy(&msc->accessibility, cpu_possible_mask);
-> +	else
-> +		acpi_pptt_get_cpus_from_container(affinity_id,
-> +						  &msc->accessibility);
-> +
-> +	return 0;
-> +
-> +	return err;
-
-Curious. I'd do a build test after each patch before v3. A couple of
-places would have failed or given helpful warnings so far.
-
-> +}
-
-> +
-> +static int mpam_msc_drv_probe(struct platform_device *pdev)
-> +{
-> +	int err;
-> +	struct mpam_msc *msc;
-> +	struct resource *msc_res;
-> +	struct device *dev = &pdev->dev;
-> +	void *plat_data = pdev->dev.platform_data;
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	do {
-
-I might well have moaned about this before, but I really dislike a do while(0)
-if it doesn't fit on my screen (and my eyesight is poor so that's not this
-many lines).  To me a non trivial case of this is almost always a place
-where a '_do' function would have made it more readable. 
-
-I'm also not a fan of scoped_guard() plus breaks because it feels like
-it is dependent on an implementation detail but maybe it's clearer than this.
+> How same question? Do you understand this code? It is nothing the same -
+> you have here contains!
 
 
-> +		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
-> +		if (!msc) {
-> +			err = -ENOMEM;
-> +			break;
-> +		}
-> +
-> +		mutex_init(&msc->probe_lock);
-> +		mutex_init(&msc->part_sel_lock);
-> +		mutex_init(&msc->outer_mon_sel_lock);
-> +		raw_spin_lock_init(&msc->inner_mon_sel_lock);
-> +		msc->id = pdev->id;
-> +		msc->pdev = pdev;
-> +		INIT_LIST_HEAD_RCU(&msc->all_msc_list);
-> +		INIT_LIST_HEAD_RCU(&msc->ris);
-> +
-> +		err = update_msc_accessibility(msc);
-> +		if (err)
-> +			break;
-> +		if (cpumask_empty(&msc->accessibility)) {
-> +			dev_err_once(dev, "MSC is not accessible from any CPU!");
-> +			err = -EINVAL;
-> +			break;
-> +		}
-> +
-> +		if (device_property_read_u32(&pdev->dev, "pcc-channel",
-> +					     &msc->pcc_subspace_id))
-> +			msc->iface = MPAM_IFACE_MMIO;
-> +		else
-> +			msc->iface = MPAM_IFACE_PCC;
-> +
-> +		if (msc->iface == MPAM_IFACE_MMIO) {
-> +			void __iomem *io;
-> +
-> +			io = devm_platform_get_and_ioremap_resource(pdev, 0,
-> +								    &msc_res);
-> +			if (IS_ERR(io)) {
-> +				dev_err_once(dev, "Failed to map MSC base address\n");
-> +				err = PTR_ERR(io);
-> +				break;
-> +			}
-> +			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
-> +			msc->mapped_hwpage = io;
-> +		}
-> +
-> +		list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
-> +		platform_set_drvdata(pdev, msc);
-> +	} while (0);
-> +	mutex_unlock(&mpam_list_lock);
-> +
-> +	if (!err) {
-> +		/* Create RIS entries described by firmware */
-> +		err = acpi_mpam_parse_resources(msc, plat_data);
-> +	}
-> +
-> +	if (err && msc)
-> +		mpam_msc_drv_remove(pdev);
+Ack. Will resubmit properly in v2.
 
-Is it worth bothering to remove?  We failed probe anyway if we got here
-and it's not expected to happen on real systems so I'd just leave it around
-so that you can exit early above.
+Thanks,
 
-I'm also not following why the msc check is relevant if you do want to do
-this. Can only get here without msc if the allocation failed. Why would
-we leave the driver loaded in only that case?
+-- 
+Ariel D'Alessandro
+Software Engineer
 
-> +
-> +	if (!err && atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
-> +		pr_info("Discovered all MSC\n");
-> +
-> +	return err;
-> +}
-
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> new file mode 100644
-> index 000000000000..7c63d590fc98
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -0,0 +1,65 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +// Copyright (C) 2025 Arm Ltd.
-> +
-> +#ifndef MPAM_INTERNAL_H
-> +#define MPAM_INTERNAL_H
-> +
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/io.h>
-> +#include <linux/mailbox_client.h>
-> +#include <linux/mutex.h>
-
-spinlock.h
-
-> +#include <linux/resctrl.h>
-
-Not spotting anything rsctl yet.  So maybe this belongs later.
-
-> +#include <linux/sizes.h>
-> +
-> +struct mpam_msc {
-> +	/* member of mpam_all_msc */
-> +	struct list_head        all_msc_list;
-> +
-> +	int			id;
-
-I'd follow (approx) include what you use principles to make later header
-shuffling easier. So a forward def for this.
-
-> +	struct platform_device *pdev;
-> +
-> +	/* Not modified after mpam_is_enabled() becomes true */
-> +	enum mpam_msc_iface	iface;
-> +	u32			pcc_subspace_id;
-> +	struct mbox_client	pcc_cl;
-> +	struct pcc_mbox_chan	*pcc_chan;
-
-Forward def or include acpi/pcc.h
-
-> +	u32			nrdy_usec;
-> +	cpumask_t		accessibility;
-> +
-> +	/*
-> +	 * probe_lock is only taken during discovery. After discovery these
-> +	 * properties become read-only and the lists are protected by SRCU.
-> +	 */
-> +	struct mutex		probe_lock;
-> +	unsigned long		ris_idxs;
-> +	u32			ris_max;
-> +
-> +	/* mpam_msc_ris of this component */
-> +	struct list_head	ris;
-> +
-> +	/*
-> +	 * part_sel_lock protects access to the MSC hardware registers that are
-> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
-> +	 * by RIS).
-> +	 * If needed, take msc->probe_lock first.
-> +	 */
-> +	struct mutex		part_sel_lock;
-> +
-> +	/*
-> +	 * mon_sel_lock protects access to the MSC hardware registers that are
-> +	 * affected by MPAMCFG_MON_SEL.
-> +	 * If needed, take msc->probe_lock first.
-> +	 */
-> +	struct mutex		outer_mon_sel_lock;
-> +	raw_spinlock_t		inner_mon_sel_lock;
-> +	unsigned long		inner_mon_sel_flags;
-> +
-> +	void __iomem		*mapped_hwpage;
-> +	size_t			mapped_hwpage_sz;
-> +};
-> +
-> +int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
-> +				   cpumask_t *affinity);
-
-Where is this?
-
-> +
-> +#endif /* MPAM_INTERNAL_H */
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
+Registered in England & Wales, no. 5513718
 
 
