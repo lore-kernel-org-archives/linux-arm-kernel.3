@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8019FCAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A85ECAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gfBLhNXXq9Rsc8Z2YKn++Jo2sHEm+zyXMU4WnJYLHBc=; b=okVBRtkRAaCy6zN9aLfoxq+74S
-	VrTKSvsNX/x2AvMRI6Dwio8taN1qK3mTExrvPIxsjgKF4g+qHOh+qZW2HhwUdL1K4VNA+kf8tI9VZ
-	hR7yURNZC1ul7SL5fhBMEOA5gIZ021zOM53dL+VI1w22tYfWotbaVH4eGsLpK2QgoGU4nbW/y5Sbi
-	hwCleh+Vx+xyr/idR3wuw6xSOW9EYmWhiQlE93jNWTkR3wojuwMJlECl341kThJJcA9TZAo1tZtE+
-	xXNG3X65Jau8zYvMMVxHNHdb4lNk1Sqk5AW6mUKsM5wNaLxJ5aDs3LnAdavZhUBgF/jsSRuiSaIcD
-	Um9P7OfA==;
+	bh=a2j6aQ1qhvWP9qjdrqqFwCsJwygejUWabggof9eKK40=; b=EGIPn9s5LZmVaM7gwSrHKTeA+K
+	al3dDjlL1hGRHz0csvUH+WxB23lb3OyhWOREOETeqF070pCl//UbOyUBWH3iABTDPkDmcF74Ee0OR
+	BTUyIwh16B1IDtJ32VGZTT/5Q1zy4bH7NGPlUQvUpyNqgieVYskMejhEVjkwxein3521HEaHIg/3M
+	I4nqF4fjuC/2B6I7fpbAjy8AIvPA4q0JorCYr7b9npgOldp8Dw1YeK+/q6VAb5Sjwm6SGUjx2ovha
+	1p1Qk5SKi50zpJxfcPIemvbWYh39xl1xHydoX7dV6pNJp6STvQcfyPX/R2RFrN/uDa2Wa0pzgcD85
+	aGGb9/eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhHm-00000003DS3-0wpW;
-	Thu, 11 Sep 2025 13:24:26 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
+	id 1uwhSw-00000003GNQ-0n37;
+	Thu, 11 Sep 2025 13:35:58 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhHi-00000003DNv-1tfR
+	id 1uwhSt-00000003GMZ-2o8S
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 13:24:24 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-30cceb3be82so554658fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 06:24:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1757597057; x=1758201857; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gfBLhNXXq9Rsc8Z2YKn++Jo2sHEm+zyXMU4WnJYLHBc=;
-        b=OyQc64tBgXrFyHLKfWFujSDq87z9Mrv0OeaBFYPQTzAYV+ubk/SRWbmGOsakHGb0vH
-         ZVlhpuTA4LYc23kR3txIAzdSoe52SuHGvMBWaaEiVk2qnuKMgFvEqm2wTQRo3jlng3At
-         lPRIEaa5ZlqAwT7W9+24QI8yKbxMvXdpwO/eMyi6bi9QFDms1phM5tp2q8n/5v5jL/70
-         b4cjaLCKa+6L3RqYdiKOImN62HB+88Vt1C2bTNnpCOtuMhPLifER+3d2RI7tO80nj298
-         olSkcnGjDhmzcLYlgAWpxPlUXNcv1adoshgCxWvHtrMtCaW3pHlz0xy+6ga6CoVuveS1
-         IeUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757597057; x=1758201857;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gfBLhNXXq9Rsc8Z2YKn++Jo2sHEm+zyXMU4WnJYLHBc=;
-        b=uk0IO2fLwltjxuEJbyJLXsXpOEctdslbohnZONMeksREJlnb08xCJ8FllnbrEvptG+
-         aVUf0kKvDjIHxLGSq8fUzMaA7n+wZN8umaS7Tl7EJpiaO7Dmg1rx58Btieo3PdZuyDhP
-         nyMjswb3r/wr7VwEdpFwLSWis95XEkmQa0rvsgLTPzAtZaqYPGeJ8AUFDzA5zYGfV8r6
-         ctAEOx6DG5f4eDAd/Zj+Vwc01tJtXUS3+GWSpH0JtALk0+K1ep0YVNTE+p6XIFX3CXoo
-         Zp89t8MTUM6F+qmmZIEPBVMMH+I1cs58mbLtcUDL58ljRsZ93PIWH5PpuqYQg4n34ZEn
-         36Yg==
-X-Forwarded-Encrypted: i=1; AJvYcCXY+bv/pN9BzUaCebrEw6KUzmbAvEonQtTgCDVElWTYm5vpcNVjdOLoPXzEJXOU/510mzw7kA2eruuJ/2rCh6dq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7HTrzMhKdhpbB8nEu0iCc1InZTdz9pzV1VSN/Wm06SIIaEAt5
-	vEnb+nKWQa/ULeYWyujuBtEdsFgMEKW9I7lCVA1Ffd8d3Y9ld3/XqbLdVYwXw+8w7v5DOrsqR9o
-	phEPvyHAoWzd9i1/OOOIVYTDZrsXgy/hCeTfxyCAYeQ==
-X-Gm-Gg: ASbGncvkSwP1koQ6g3a6YUcUm7HEUY/0TrF5tZcnnRjwoU7+gjzTrQdTPJ+MOD+WXb6
-	nA7V5OYtnnsV9rVd8PQVnQp3SwC+/MUzmnRE1WbZ9AmaH/Fl2XwqoWZlWRuIqZNd1alcOMKVP3y
-	2Dl9kjYMwLL/Qkbz06QG+Vhl3IWRx0I5le6uOQ3KBt2qf3mwCkHR60qlwDBsIEYaJUsFK+Cb0f4
-	RmXuFAIJ7MiG5HM
-X-Google-Smtp-Source: AGHT+IHRdBKXm1Bz1NHFHe2IrSKtcJoxyFdHCG+gmrlFxehDwahE40seZUC2QEjKPDn+5kw4bLLqvWTXBPHddQo3Z4w=
-X-Received: by 2002:a05:6870:4e8c:b0:31d:63f9:b247 with SMTP id
- 586e51a60fabf-32264607e14mr11225562fac.25.1757597056938; Thu, 11 Sep 2025
- 06:24:16 -0700 (PDT)
+	Thu, 11 Sep 2025 13:35:57 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cMz3n2YGqz67CtB;
+	Thu, 11 Sep 2025 21:31:33 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 03A151400D3;
+	Thu, 11 Sep 2025 21:35:47 +0800 (CST)
+Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
+ 2025 15:35:45 +0200
+Date: Thu, 11 Sep 2025 14:35:44 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
+	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
+	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
+	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
+	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
+	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
+ Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
+	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH v2 07/29] arm_mpam: Add probe/remove for mpam msc driver
+ and kbuild boiler plate
+Message-ID: <20250911143544.000026aa@huawei.com>
+In-Reply-To: <20250910204309.20751-8-james.morse@arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+	<20250910204309.20751-8-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com> <20250327-counter_delegation-v5-18-1ee538468d1b@rivosinc.com>
-In-Reply-To: <20250327-counter_delegation-v5-18-1ee538468d1b@rivosinc.com>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Thu, 11 Sep 2025 21:24:04 +0800
-X-Gm-Features: Ac12FXwLi65vQtG3EKjaprZe3vR6jcXi2qMAlWPQLWbqK3WvwYrKsOxiKlH-8R4
-Message-ID: <CAEEQ3wk92bmHQb=EbM-Ev0ra=eS-ZH6_aGTqAw1WENXpORXUKg@mail.gmail.com>
-Subject: Re: [External] [PATCH v5 18/21] RISC-V: perf: Add Qemu virt machine events
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500002.china.huawei.com (7.191.160.78) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_062422_549766_A8EC25EB 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20250911_063556_006711_0141A08C 
+X-CRM114-Status: GOOD (  45.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,114 +86,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
+On Wed, 10 Sep 2025 20:42:47 +0000
+James Morse <james.morse@arm.com> wrote:
 
-On Fri, Mar 28, 2025 at 3:46=E2=80=AFAM Atish Patra <atishp@rivosinc.com> w=
-rote:
->
-> Qemu virt machine supports a very minimal set of legacy perf events.
-> Add them to the vendor table so that users can use them when
-> counter delegation is enabled.
->
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+> only be accessible from those CPUs, and they may not be online.
+> Touching the hardware early is pointless as MPAM can't be used until
+> the system-wide common values for num_partid and num_pmg have been
+> discovered.
+> 
+> Start with driver probe/remove and mapping the MSC.
+> 
+> CC: Carl Worth <carl@os.amperecomputing.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+
+Hi James,
+
+Various comments inline.  You can ignore the do/while(0)
+one but I'll probably forget and send more grumpy comments about it ;)
+
+Jonathan
 > ---
->  arch/riscv/include/asm/vendorid_list.h |  4 ++++
->  drivers/perf/riscv_pmu_dev.c           | 36 ++++++++++++++++++++++++++++=
-++++++
->  2 files changed, 40 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/=
-asm/vendorid_list.h
-> index a5150cdf34d8..0eefc844923e 100644
-> --- a/arch/riscv/include/asm/vendorid_list.h
-> +++ b/arch/riscv/include/asm/vendorid_list.h
-> @@ -10,4 +10,8 @@
->  #define SIFIVE_VENDOR_ID       0x489
->  #define THEAD_VENDOR_ID                0x5b7
->
-> +#define QEMU_VIRT_VENDOR_ID            0x000
-> +#define QEMU_VIRT_IMPL_ID              0x000
-> +#define QEMU_VIRT_ARCH_ID              0x000
+> Changes since v1:
+>  * Avoid selecting driver on other architectrues.
+>  * Removed PCC support stub.
+>  * Use for_each_available_child_of_node_scoped() and of_property_read_reg()
+>  * Clarified a comment.
+>  * Stopped using mpam_num_msc as an id,a and made it atomic.
+>  * Size of -1 returned from cache_of_calculate_id()
+>  * Renamed some struct members.
+>  * Made a bunch of pr_err() dev_err_ocne().
+>  * Used more cleanup magic.
+>  * Inlined a print message.
+>  * Fixed error propagation from mpam_dt_parse_resources().
+>  * Moved cache accessibility checks earlier.
+> 
+> Changes since RFC:
+>  * Check for status=broken DT devices.
+>  * Moved all the files around.
+>  * Made Kconfig symbols depend on EXPERT
+> ---
+>  arch/arm64/Kconfig              |   1 +
+>  drivers/Kconfig                 |   2 +
+>  drivers/Makefile                |   1 +
+>  drivers/resctrl/Kconfig         |  14 +++
+>  drivers/resctrl/Makefile        |   4 +
+>  drivers/resctrl/mpam_devices.c  | 180 ++++++++++++++++++++++++++++++++
+>  drivers/resctrl/mpam_internal.h |  65 ++++++++++++
+>  7 files changed, 267 insertions(+)
+>  create mode 100644 drivers/resctrl/Kconfig
+>  create mode 100644 drivers/resctrl/Makefile
+>  create mode 100644 drivers/resctrl/mpam_devices.c
+>  create mode 100644 drivers/resctrl/mpam_internal.h
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 6487c511bdc6..93e563e1cce4 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2062,6 +2062,7 @@ config ARM64_TLB_RANGE
+>  
+>  config ARM64_MPAM
+>  	bool "Enable support for MPAM"
+> +	select ARM64_MPAM_DRIVER if EXPERT
+
+To me that wants a comment as it's unusual.
+
+>  	select ACPI_MPAM if ACPI
+>  	help
+>  	  Memory System Resource Partitioning and Monitoring (MPAM) is an
+
+> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+> new file mode 100644
+> index 000000000000..c30532a3a3a4
+> --- /dev/null
+> +++ b/drivers/resctrl/Kconfig
+> @@ -0,0 +1,14 @@
+> +menuconfig ARM64_MPAM_DRIVER
+> +	bool "MPAM driver"
+> +	depends on ARM64 && ARM64_MPAM && EXPERT
+> +	help
+> +	  MPAM driver for System IP, e,g. caches and memory controllers.
 > +
->  #endif
-> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-> index 8a079949e3a4..cd2ac4cf34f1 100644
-> --- a/drivers/perf/riscv_pmu_dev.c
-> +++ b/drivers/perf/riscv_pmu_dev.c
-> @@ -26,6 +26,7 @@
->  #include <asm/sbi.h>
->  #include <asm/cpufeature.h>
->  #include <asm/vendor_extensions.h>
-> +#include <asm/vendorid_list.h>
->  #include <asm/vendor_extensions/andes.h>
->  #include <asm/hwcap.h>
->  #include <asm/csr_ind.h>
-> @@ -391,7 +392,42 @@ struct riscv_vendor_pmu_events {
->           .hw_event_map =3D _hw_event_map, .cache_event_map =3D _cache_ev=
-ent_map, \
->           .attrs_events =3D _attrs },
->
-> +/* QEMU virt PMU events */
-> +static const struct riscv_pmu_event qemu_virt_hw_event_map[PERF_COUNT_HW=
-_MAX] =3D {
-> +       PERF_MAP_ALL_UNSUPPORTED,
-> +       [PERF_COUNT_HW_CPU_CYCLES]              =3D {0x01, 0xFFFFFFF8},
-> +       [PERF_COUNT_HW_INSTRUCTIONS]            =3D {0x02, 0xFFFFFFF8}
+> +if ARM64_MPAM_DRIVER
+> +config ARM64_MPAM_DRIVER_DEBUG
+> +	bool "Enable debug messages from the MPAM driver"
+> +	depends on ARM64_MPAM_DRIVER
+
+The depends on should make the if unnecessary.
+
+> +	help
+> +	  Say yes here to enable debug messages from the MPAM driver.
+> +
+> +endif
+
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> new file mode 100644
+> index 000000000000..efc4738e3b4d
+> --- /dev/null
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -0,0 +1,180 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (C) 2025 Arm Ltd.
+> +
+> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/arm_mpam.h>
+> +#include <linux/cacheinfo.h>
+> +#include <linux/cpu.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/device.h>
+> +#include <linux/errno.h>
+> +#include <linux/gfp.h>
+> +#include <linux/list.h>
+> +#include <linux/lockdep.h>
+> +#include <linux/mutex.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/printk.h>
+> +#include <linux/slab.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/srcu.h>
+> +#include <linux/types.h>
+
+> +/*
+> + * An MSC can control traffic from a set of CPUs, but may only be accessible
+> + * from a (hopefully wider) set of CPUs. The common reason for this is power
+> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
+> + * corresponding cache may also be powered off. By making accesses from
+> + * one of those CPUs, we ensure this isn't the case.
+> + */
+> +static int update_msc_accessibility(struct mpam_msc *msc)
+> +{
+> +	u32 affinity_id;
+> +	int err;
+> +
+> +	err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
+> +				       &affinity_id);
+> +	if (err)
+> +		cpumask_copy(&msc->accessibility, cpu_possible_mask);
+> +	else
+> +		acpi_pptt_get_cpus_from_container(affinity_id,
+> +						  &msc->accessibility);
+> +
+> +	return 0;
+> +
+> +	return err;
+
+Curious. I'd do a build test after each patch before v3. A couple of
+places would have failed or given helpful warnings so far.
+
+> +}
+
+> +
+> +static int mpam_msc_drv_probe(struct platform_device *pdev)
+> +{
+> +	int err;
+> +	struct mpam_msc *msc;
+> +	struct resource *msc_res;
+> +	struct device *dev = &pdev->dev;
+> +	void *plat_data = pdev->dev.platform_data;
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	do {
+
+I might well have moaned about this before, but I really dislike a do while(0)
+if it doesn't fit on my screen (and my eyesight is poor so that's not this
+many lines).  To me a non trivial case of this is almost always a place
+where a '_do' function would have made it more readable. 
+
+I'm also not a fan of scoped_guard() plus breaks because it feels like
+it is dependent on an implementation detail but maybe it's clearer than this.
+
+
+> +		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+> +		if (!msc) {
+> +			err = -ENOMEM;
+> +			break;
+> +		}
+> +
+> +		mutex_init(&msc->probe_lock);
+> +		mutex_init(&msc->part_sel_lock);
+> +		mutex_init(&msc->outer_mon_sel_lock);
+> +		raw_spin_lock_init(&msc->inner_mon_sel_lock);
+> +		msc->id = pdev->id;
+> +		msc->pdev = pdev;
+> +		INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+> +		INIT_LIST_HEAD_RCU(&msc->ris);
+> +
+> +		err = update_msc_accessibility(msc);
+> +		if (err)
+> +			break;
+> +		if (cpumask_empty(&msc->accessibility)) {
+> +			dev_err_once(dev, "MSC is not accessible from any CPU!");
+> +			err = -EINVAL;
+> +			break;
+> +		}
+> +
+> +		if (device_property_read_u32(&pdev->dev, "pcc-channel",
+> +					     &msc->pcc_subspace_id))
+> +			msc->iface = MPAM_IFACE_MMIO;
+> +		else
+> +			msc->iface = MPAM_IFACE_PCC;
+> +
+> +		if (msc->iface == MPAM_IFACE_MMIO) {
+> +			void __iomem *io;
+> +
+> +			io = devm_platform_get_and_ioremap_resource(pdev, 0,
+> +								    &msc_res);
+> +			if (IS_ERR(io)) {
+> +				dev_err_once(dev, "Failed to map MSC base address\n");
+> +				err = PTR_ERR(io);
+> +				break;
+> +			}
+> +			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+> +			msc->mapped_hwpage = io;
+> +		}
+> +
+> +		list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
+> +		platform_set_drvdata(pdev, msc);
+> +	} while (0);
+> +	mutex_unlock(&mpam_list_lock);
+> +
+> +	if (!err) {
+> +		/* Create RIS entries described by firmware */
+> +		err = acpi_mpam_parse_resources(msc, plat_data);
+> +	}
+> +
+> +	if (err && msc)
+> +		mpam_msc_drv_remove(pdev);
+
+Is it worth bothering to remove?  We failed probe anyway if we got here
+and it's not expected to happen on real systems so I'd just leave it around
+so that you can exit early above.
+
+I'm also not following why the msc check is relevant if you do want to do
+this. Can only get here without msc if the allocation failed. Why would
+we leave the driver loaded in only that case?
+
+> +
+> +	if (!err && atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
+> +		pr_info("Discovered all MSC\n");
+> +
+> +	return err;
+> +}
+
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> new file mode 100644
+> index 000000000000..7c63d590fc98
+> --- /dev/null
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -0,0 +1,65 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +// Copyright (C) 2025 Arm Ltd.
+> +
+> +#ifndef MPAM_INTERNAL_H
+> +#define MPAM_INTERNAL_H
+> +
+> +#include <linux/arm_mpam.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/io.h>
+> +#include <linux/mailbox_client.h>
+> +#include <linux/mutex.h>
+
+spinlock.h
+
+> +#include <linux/resctrl.h>
+
+Not spotting anything rsctl yet.  So maybe this belongs later.
+
+> +#include <linux/sizes.h>
+> +
+> +struct mpam_msc {
+> +	/* member of mpam_all_msc */
+> +	struct list_head        all_msc_list;
+> +
+> +	int			id;
+
+I'd follow (approx) include what you use principles to make later header
+shuffling easier. So a forward def for this.
+
+> +	struct platform_device *pdev;
+> +
+> +	/* Not modified after mpam_is_enabled() becomes true */
+> +	enum mpam_msc_iface	iface;
+> +	u32			pcc_subspace_id;
+> +	struct mbox_client	pcc_cl;
+> +	struct pcc_mbox_chan	*pcc_chan;
+
+Forward def or include acpi/pcc.h
+
+> +	u32			nrdy_usec;
+> +	cpumask_t		accessibility;
+> +
+> +	/*
+> +	 * probe_lock is only taken during discovery. After discovery these
+> +	 * properties become read-only and the lists are protected by SRCU.
+> +	 */
+> +	struct mutex		probe_lock;
+> +	unsigned long		ris_idxs;
+> +	u32			ris_max;
+> +
+> +	/* mpam_msc_ris of this component */
+> +	struct list_head	ris;
+> +
+> +	/*
+> +	 * part_sel_lock protects access to the MSC hardware registers that are
+> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
+> +	 * by RIS).
+> +	 * If needed, take msc->probe_lock first.
+> +	 */
+> +	struct mutex		part_sel_lock;
+> +
+> +	/*
+> +	 * mon_sel_lock protects access to the MSC hardware registers that are
+> +	 * affected by MPAMCFG_MON_SEL.
+> +	 * If needed, take msc->probe_lock first.
+> +	 */
+> +	struct mutex		outer_mon_sel_lock;
+> +	raw_spinlock_t		inner_mon_sel_lock;
+> +	unsigned long		inner_mon_sel_flags;
+> +
+> +	void __iomem		*mapped_hwpage;
+> +	size_t			mapped_hwpage_sz;
 > +};
 > +
-> +static const struct riscv_pmu_event qemu_virt_cache_event_map[PERF_COUNT=
-_HW_CACHE_MAX]
-> +                                               [PERF_COUNT_HW_CACHE_OP_M=
-AX]
-> +                                               [PERF_COUNT_HW_CACHE_RESU=
-LT_MAX] =3D {
-> +       PERF_CACHE_MAP_ALL_UNSUPPORTED,
-> +       [C(DTLB)][C(OP_READ)][C(RESULT_MISS)]   =3D {0x10019, 0xFFFFFFF8}=
-,
-> +       [C(DTLB)][C(OP_WRITE)][C(RESULT_MISS)]  =3D {0x1001B, 0xFFFFFFF8}=
-,
-> +
-> +       [C(ITLB)][C(OP_READ)][C(RESULT_MISS)]   =3D {0x10021, 0xFFFFFFF8}=
-,
-> +};
-> +
-> +RVPMU_EVENT_CMASK_ATTR(cycles, cycles, 0x01, 0xFFFFFFF8);
-> +RVPMU_EVENT_CMASK_ATTR(instructions, instructions, 0x02, 0xFFFFFFF8);
-> +RVPMU_EVENT_CMASK_ATTR(dTLB-load-misses, dTLB_load_miss, 0x10019, 0xFFFF=
-FFF8);
-> +RVPMU_EVENT_CMASK_ATTR(dTLB-store-misses, dTLB_store_miss, 0x1001B, 0xFF=
-FFFFF8);
-> +RVPMU_EVENT_CMASK_ATTR(iTLB-load-misses, iTLB_load_miss, 0x10021, 0xFFFF=
-FFF8);
+> +int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+> +				   cpumask_t *affinity);
 
-If other vendors intend to define it, would that throw a duplicate
-definition error?
+Where is this?
 
 > +
-> +static struct attribute *qemu_virt_event_group[] =3D {
-> +       RVPMU_EVENT_ATTR_PTR(cycles),
-> +       RVPMU_EVENT_ATTR_PTR(instructions),
-> +       RVPMU_EVENT_ATTR_PTR(dTLB_load_miss),
-> +       RVPMU_EVENT_ATTR_PTR(dTLB_store_miss),
-> +       RVPMU_EVENT_ATTR_PTR(iTLB_load_miss),
-> +       NULL,
-> +};
-> +
->  static struct riscv_vendor_pmu_events pmu_vendor_events_table[] =3D {
-> +       RISCV_VENDOR_PMU_EVENTS(QEMU_VIRT_VENDOR_ID, QEMU_VIRT_ARCH_ID, Q=
-EMU_VIRT_IMPL_ID,
-> +                               qemu_virt_hw_event_map, qemu_virt_cache_e=
-vent_map,
-> +                               qemu_virt_event_group)
->  };
->
->  const struct riscv_pmu_event *current_pmu_hw_event_map;
->
-> --
-> 2.43.0
->
->
+> +#endif /* MPAM_INTERNAL_H */
 
-Thanks,
-Yunhui
 
