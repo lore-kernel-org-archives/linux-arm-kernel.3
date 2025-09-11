@@ -4,155 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51933CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 05:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120D4CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 05:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4wviYovxKazF3FQuLbMuPhQSbnBaeFo8Gs5r90YC+Fk=; b=OKfMxlt+hHA95vt+6WNe2lgNB2
-	62d+5xQXzwTvRZCOTo3ajQUngKJqw0DjsFGaKmgUyuYBb5Ay1H73+w3Zr3tskF/hX2T1pUTm/KhBY
-	LyHxWARNkjNOnSs+yUcHJc16jeIbcoHjffsov7aQPAgocOdfggdDTbHC7L3W6nvn80/XQBLOsR4jd
-	N1jq/HzXbzOTdSQtYqJ4xXSszuQITETDjouXaefv+uoR1p+DcYpvMXMUrcrBPJjZmmQw0LEeQ8bTX
-	dvzUmtPlWc6134KN/aKECQQ2aKlySbZwdz67zD7KoxPCgjb09utRZORaXeeYDL0RzGmT+bkOoKNJg
-	Kgnu8MUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AZtobQKW26xfQvcCjWyOueNlfo2Nu0fyaisOJ/OH6Wk=; b=Os+MG3tFNHlVsSqYXiVHUJw8ym
+	B77V+Au0dIXPMLFBDvJs1gbPm1IHmv3ooW2x/V/rN55Uo4ReZxpQnHxzqH5IDgq3xILwn1jm+J8b7
+	kAQ7X8bXQFMZbYTzX7c1ljT6Wtge8YECwEyKS5BmstkpuFEF7C2zxGACKPvEiH6MSNqBnjCBpdVqI
+	ryK2ZJa6PXM7N2o4ANfkFdX3sUK73+JnS9m1ZkoWQp6OTUSX9aHdNevSWBIcdgKuzodNNAEuZV47K
+	X6L3YXfv0JdhCL5PUorQQJ3H5j81At8OOxxPMrKHOnZlSPyaHITVD2qEqj44QWToVhG8uZi9W/+nW
+	/zwv06vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwa9H-000000014ZB-3mPw;
-	Thu, 11 Sep 2025 05:47:11 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwa9G-000000014Xs-07CJ
+	id 1uwaCG-000000015Sw-1kKl;
+	Thu, 11 Sep 2025 05:50:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwaCD-000000015S2-2pEc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 05:47:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GC5siQqrUQ/y3PAnoh3E9m8o/+zd3PXbBrOtYpXhhYgC2hv4FDKWKhSxUqYUyHBtyxbXBotrA09uoaFpS5tup0qiffYYUstqrBfjzWt34uKSGJE8Dgjr9VeAJ8L9S1TkfzRSDO83ZD/3W4+JZzwKH9xRpafcZfomE4d2qzOCjL1UrlLsYeORc6u1LRup9cv8pXgsazqsi2Au6Ioe96bFMazfYgT+6c999wztaeZ8rmshuIF5CCXLhVmmacfW6Wc9QCFZgt8NB6OJNP/6E6u7jKFYL99QGScbD9eclhTy85a8pw4NOpmw3wn9238aHjpmivowXGIVZwDwDIeboGtCog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4wviYovxKazF3FQuLbMuPhQSbnBaeFo8Gs5r90YC+Fk=;
- b=T8n5MEji4NXE/K2FhlHAw8Yzi5xyPAeoD6FOIrUV49gGEOzqz/65gsu+a9TBgjO4dDSHcCVJj9c0GdjDegjvAnK0dENS+y5+/5l+Q3FhKF6Zuf8z7KiBRPDFc4nopUbj+YsnSULk/PKpnpRz6J58FFegK6nXYJ/RkHcZjokyVsty7d5zBdWx+3kdsRLzAJMqxyQIYsAYWAlOm+uLzaNxJy6CK+W3qZPzMR9fLhWQ6zL7e5YeK0hKsU2aED0OnQpjNeHHsUV854QN4bJDHrw5urchg8iYqHUYSu+i8/RUGDF50rLWuv2tnlFKkKjAo6Bhfba8OboX1N0LD7jZpcc9sA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4wviYovxKazF3FQuLbMuPhQSbnBaeFo8Gs5r90YC+Fk=;
- b=eY1b3JBglaLpQk/HasEekXh/hk3/ziozXY46CbpvpiXhj+Kk8NB+lQP8Fo3E8VhgXYkOtsPulNKEopTuU+OLHk8iv8OgExOTpSDgx6sBQeVPgsg0HrrLUbOMiWEzKo0fX9YX1fpr7xPDalmLynjBOSGdFy7DnoUJkfs/GZXkTIK8URm0JXzsHLTuHnE2tfRa4pBJrEM/KtRLJT87YHrBpXuBVwCERt/ACzs/tv0rPt+50zJ7QyzXO6XZABxx6HKwUikw73eaDcwJmXmcwmN+7TDoi3iIo73q7nE8cMW8ugzCdK51UKtXxSYkhjeviyytMowojG4DqbcthL0uCzKVAg==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA3PR04MB11226.eurprd04.prod.outlook.com (2603:10a6:102:4aa::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.13; Thu, 11 Sep
- 2025 05:47:03 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9115.010; Thu, 11 Sep 2025
- 05:47:03 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-CC: Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi
-	<cristian.marussi@arm.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, "arm-scmi@vger.kernel.org"
-	<arm-scmi@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH 2/2] firmware: imx: sm-misc: Dump syslog info
-Thread-Topic: [PATCH 2/2] firmware: imx: sm-misc: Dump syslog info
-Thread-Index: AQHcIl80Fo5hq2EiRECy1yk7e9nPa7SMlf+AgADkEmA=
-Date: Thu, 11 Sep 2025 05:47:03 +0000
-Message-ID: <PAXPR04MB8459349D4D60703FCFFDF7698809A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250910-sm-syslog-v1-0-5b36f8f21da6@nxp.com>
- <20250910-sm-syslog-v1-2-5b36f8f21da6@nxp.com>
- <aMGi3S2j_FHid3Sb@stanley.mountain>
-In-Reply-To: <aMGi3S2j_FHid3Sb@stanley.mountain>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|PA3PR04MB11226:EE_
-x-ms-office365-filtering-correlation-id: 9f1fa9cd-d712-429d-dbe4-08ddf0f6a261
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?fngUsFgl20DjFsL8UNJ3NVfxaf6j0KR3WTJnJ1sPRUb4YjAsoK59TciYndvt?=
- =?us-ascii?Q?wHeXYmBkcgYhr/lc5xthGdMl3Y5UGJ6hzsjSUQzMe+1mUXJxTHTgUwaGgi1L?=
- =?us-ascii?Q?tmGyv1YU5Rm2j1JQmWiF/HIAgcA0aZgAYhJs5PX150IPglDigGb7ljc29Yxp?=
- =?us-ascii?Q?YSjrEpGK3VHzR0ty/8smD8Vu+3jwS1ENlESeesm4nATdbpc3X09+Tu+exUas?=
- =?us-ascii?Q?at2rUmfR6EwsPAzwBRmPKxnswd3F3lifrgOL6wCiaHN+RHvdTiw/qOlq9PBj?=
- =?us-ascii?Q?QUnlgOrrO9VMC3bk5iW1aNyS1x+37n9R1iiHEiMrXy4S+CCm7nJlkOVujLyX?=
- =?us-ascii?Q?iObKktSe+o9opbXf3E5gUyjkXYjpRulxYGN4GxSy80DXCEJ5aCxX/z/+Zxpr?=
- =?us-ascii?Q?kMJkShCBUPQwNUz623nXkU5gD3uDu1WHF9+nBzcCXSpLesZksiwCFzZB/+0P?=
- =?us-ascii?Q?9tVEO1BVJATBOujtKWoiEF7XWB9LYHnkk0qgdjYDqxpNrsX3FbeYA4JyM5BK?=
- =?us-ascii?Q?HLMDEIMWb9EFNRsP9TVnB4FrMNYfoAtdd4fY6klVHJ3NYhJ3zsdzygdGq1qP?=
- =?us-ascii?Q?ZtPeU4il4RGV0qABBAfr4kzzCvxOgV7sr1fgXvBkArq0mNlz9JZ2Osm4GJHC?=
- =?us-ascii?Q?etKCv5H82G82HR/UkpbESEH9JDUEo4GnAHtnf4b5PiFPjubTvIzyWUtuiEni?=
- =?us-ascii?Q?/bfJb6Gk2jKH/KpOtL+JwiFc1a1fGUDaZxwB8EYRfbxErYeaxDRp2hWmL3Rk?=
- =?us-ascii?Q?hlns0/sFUp4vEG57uhFnF6jy/Xy3+y1wHUT+VDxbHMLCAjkvLYZQ/CkNNCOC?=
- =?us-ascii?Q?3avzTfZjjnX3sXEmA2UmD7MYbQvvKwQ9rnyfwcCg5cC6VOFlRrrO6R0Z4OzS?=
- =?us-ascii?Q?X2yFLiABBUibq6QM90ifvufS0291kbiKX3BQlWOHae3ENAz4rSabAd4MfQC+?=
- =?us-ascii?Q?r67gIxi7JL6ZAwHUMI7HkAUpX0O09ogWcTOZJude4fg4nwG6C9HGdI+pK0eN?=
- =?us-ascii?Q?xuBHb9/Ie7eQxoaalDpmHND2aUvnEtamkFn06myLRcaJinqy3WcbYyzZttSD?=
- =?us-ascii?Q?hK951oKRwvWUzUysMGqeagxP2spIoA8WgFuBcNdVJZQnfIC52BzTPy3FawWt?=
- =?us-ascii?Q?DZWSN/HIUEs9zyoBZg7tX3p7/qWcd4NCLvEtCTTwxrq7l5EhZJFg9tcfrLRX?=
- =?us-ascii?Q?u8rlvKB71a9toZcAbgudfcQmG9LwrAeM09G2KrxBwidOnpxEYpek3oBQMKgF?=
- =?us-ascii?Q?1T76SOkWRNMYcvb/RgeR+uQ3Z/RM8onV3AX1GdjEzwdcaOtXCze5NQaB8QMb?=
- =?us-ascii?Q?BkmtkWiPjObDI7A5BvomrFHnkXC+xJknVjPg1v4DtMzkQIegVBVS9SMcg4xN?=
- =?us-ascii?Q?e1BfQYi6GrbeBtpx5B1LhwyCmYE/shGggROIYCZWzp+RaMyl91lZBDFUsw+8?=
- =?us-ascii?Q?iBZ0uq5ts4TDHrya6Wt8ZaDXIsdh5Fns/aPeQxabyy6iysGSyOlYgJIyG2Gc?=
- =?us-ascii?Q?LsOZySjpkCQAfRU=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OJFLFhxsKD0v73d2KAHoZ0HUkJGayYKWoqGh9G9qpLQ9LwLVELmJ91C5zB55?=
- =?us-ascii?Q?a+/hkDOay/NYrIIIUubdTEdkhoPAfAHMVrbw50PX6AEalsx6aJDwkIfRkETp?=
- =?us-ascii?Q?AIahgJOevEUI+23v/VisLmO1DTkMQvSlqqkMwdyw8w4KAmFfIByn/BSfDldh?=
- =?us-ascii?Q?xYm0zQMn2BgGXNK7l5BJXUhTk7wJxs+uViZKtH/LctJLI12uLMJpI9t0SVuE?=
- =?us-ascii?Q?Sl8BaRsrYfCDWog5q2ZN05F0JpIRVeVgBZAlVflY3GWw7090o4LtifnNfB3D?=
- =?us-ascii?Q?xlqRxjFWRNZO4Wh2XAuNwSrLXQyyKlwNpWrXshc+FH+1SN6Zk9YKgWCuXHfJ?=
- =?us-ascii?Q?HkroGsimR5aq/x0+WuOhBO5lw9lv2J+Kc4ARaLe76S7pq7wovlmgE4biPs/C?=
- =?us-ascii?Q?2EgNyynuPmsVU8an+jADpKKoUNnddo+prIxsCeem3u/vFBaR7rMucyC2pXPi?=
- =?us-ascii?Q?vuS4OPmoQXTVdF5lH1E8QAuL82x1ektbLMduGt+Ssba937pi9nHUKogCNiHI?=
- =?us-ascii?Q?LBlPeULR56uUSv/sHcEhOVAIG+3A2Y4EaM1u+ObTXXY+1IPhdWBieoBmsM/8?=
- =?us-ascii?Q?Tv4U+AVNsVfli5LF3G0v9S405ade9a5KWs5Ok/rGONTxEpDUvBu/cfFgXkFY?=
- =?us-ascii?Q?CHGu9LCddld2uKYiGwrsoN0t4Yi6Bj7Ot/6ca5R6l5oDiIHRkYtpU0BzoNQQ?=
- =?us-ascii?Q?w2qHdD8RgssvQ0+nWNEP8Cqn5LyGufoY2mG+lgldQy8le+/iAnfnrGDAyNs2?=
- =?us-ascii?Q?thOqbFSQk5mmyvfYiO2p3Rmi2q2hKKrZA2PFWEtea0ML2m9l8Y7Fyl81+XJ3?=
- =?us-ascii?Q?zN8DNf2gtI9TsLgiMKEiFWHLNHZBNP/2zaFiGqT+CgajFPicNg9dPJvg0hJ8?=
- =?us-ascii?Q?mFfUAM3E6XV3CpL2+C9g2E9w7MHctaxk3Iu4O0sBhCc7/aRhWd78cwdeOJgN?=
- =?us-ascii?Q?MMpsXzVm7IGGwmWj9OaDj/om6LCLX7cykygzweQTv8A29CyeYyT4askabmUG?=
- =?us-ascii?Q?gf3uOchn5P9JXpBfGPi64FuCsIbtqzmERvfG9haHHkHO/Pby8wch6wqyqy8+?=
- =?us-ascii?Q?CaWeMlLAGDtxN1cAdk4sdoQGht5mMbwUOjJcxLBx0V35UEg60omao5vpffXg?=
- =?us-ascii?Q?zSzt0QkWo/PG+vAUtEmCYqXec+g2SZxSrzkrP7JoI1ORIg5mmiOrRHYzkivY?=
- =?us-ascii?Q?ZUley4Ykddk2Iab8C/RTc/Tdk63AaJjKpTKDFo3YZPtTfj9rTDbjm46DPa8u?=
- =?us-ascii?Q?G9W54uyRuhVTWQanoFkFKj+pOGkJmgkOJ3xm6DnQYcxldNUXPHSpQZuGLc7P?=
- =?us-ascii?Q?3ss5ZAeoiX1MNiz1fj/9lvJgc7aV48dhJryjwixpQO7lEdnn0QXA+CwxdfP6?=
- =?us-ascii?Q?i5Cc3ybkvWuIE+d7i5E1yUS7dKV9HN3re41AkzGM8bClPKzq/9gjNQlf8y5H?=
- =?us-ascii?Q?1BBq/sx1BWwGUtP4XYlq1SaUChjRaMmRZRMdpSbsUgEw2iLQwPS0fOTSyMrm?=
- =?us-ascii?Q?pisDbQ3OpL6xEWijciUvk6qpK0BfVk0IXm54RELpao0hGpcmiZ95F6CF5tQi?=
- =?us-ascii?Q?/TjZ0gabdU/qUBrCx0w=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 11 Sep 2025 05:50:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0CE2153B;
+	Wed, 10 Sep 2025 22:50:04 -0700 (PDT)
+Received: from [10.164.18.53] (unknown [10.164.18.53])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F6FC3F694;
+	Wed, 10 Sep 2025 22:50:10 -0700 (PDT)
+Message-ID: <4ac449f1-d5cc-42d6-bded-2db6984d55f0@arm.com>
+Date: Thu, 11 Sep 2025 11:20:07 +0530
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f1fa9cd-d712-429d-dbe4-08ddf0f6a261
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Sep 2025 05:47:03.2785
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: TkF113SEK13vFFGq6RDhtrJzohYyGaN6Zjs8A3WRY2LD0fnl+Y4O8YIdKC0eeOSsAxL6gHOWT9KKX0XpjS1PNA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11226
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 1/2] arm64: tlbflush: Move invocation of
+ __flush_tlb_range_op() to a macro
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, James Morse <james.morse@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250829153510.2401161-1-ryan.roberts@arm.com>
+ <20250829153510.2401161-2-ryan.roberts@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250829153510.2401161-2-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_224710_068517_D01A44C9 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20250910_225013_797495_12BD737E 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,50 +67,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH 2/2] firmware: imx: sm-misc: Dump syslog info
->=20
-> On Wed, Sep 10, 2025 at 10:28:18PM +0800, Peng Fan wrote:
-> >  static int scmi_imx_misc_ctrl_probe(struct scmi_device *sdev)  {
-> >  	const struct scmi_handle *handle =3D sdev->handle;
-> >  	struct device_node *np =3D sdev->dev.of_node;
-> > +	struct dentry *scmi_imx_dentry;
-> >  	u32 src_id, flags;
-> >  	int ret, i, num;
-> >
-> > @@ -98,6 +134,12 @@ static int scmi_imx_misc_ctrl_probe(struct
-> scmi_device *sdev)
-> >  		}
-> >  	}
-> >
-> > +	scmi_imx_dentry =3D debugfs_create_dir("scmi_imx", NULL);
-> > +	if (!IS_ERR(scmi_imx_dentry))
-> > +		debugfs_create_file("syslog", 0444, scmi_imx_dentry,
-> &sdev->dev,
-> > +&syslog_fops);
->=20
-> You don't need the IS_ERR() check.  If debugfs_create_dir() fails then
-> just pass the error pointer to debugfs_create_file(), it's fine.
 
-Hi Dan,
 
-Thanks for raising this. I will fix in next version.
+On 29/08/25 9:05 PM, Ryan Roberts wrote:
+> __flush_tlb_range_op() is a pre-processor macro that takes the TLBI
+> operation as a string, and builds the instruction from it. This prevents
+> passing the TLBI operation around as a variable. __flush_tlb_range_op()
+> also takes 7 other arguments.
+> 
+> Adding extra invocations for different TLB operations means duplicating
+> the whole thing, but those 7 extra arguments are the same each time.
+> 
+> Add an enum for the TLBI operations that __flush_tlb_range() uses, and a
+> macro to pass the operation name as a string to __flush_tlb_range_op(),
+> and the rest of the arguments using __VA_ARGS_.
+> 
+> The result is easier to add new TLBI operations to, and to modify any of
+> the other arguments as they only appear once.
+> 
+> Suggested-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/include/asm/tlbflush.h | 30 ++++++++++++++++++++++++------
+>  1 file changed, 24 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 18a5dc0c9a54..f66b8c4696d0 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -11,6 +11,7 @@
+>  #ifndef __ASSEMBLY__
+>  
+>  #include <linux/bitfield.h>
+> +#include <linux/build_bug.h>
+>  #include <linux/mm_types.h>
+>  #include <linux/sched.h>
+>  #include <linux/mmu_notifier.h>
+> @@ -433,12 +434,32 @@ static inline bool __flush_tlb_range_limit_excess(unsigned long start,
+>  	return false;
+>  }
+>  
+> +enum tlbi_op {
+> +	TLBI_VALE1IS,
+> +	TLBI_VAE1IS,
+> +};
+> +
+> +#define flush_tlb_range_op(op, ...)					\
+> +do {									\
+> +	switch (op) {							\
+> +	case TLBI_VALE1IS:						\
+> +		__flush_tlb_range_op(vale1is, __VA_ARGS__);		\
+> +		break;							\
+> +	case TLBI_VAE1IS:						\
+> +		__flush_tlb_range_op(vae1is, __VA_ARGS__);		\
+> +		break;							\
+> +	default:							\
+> +		BUILD_BUG_ON_MSG(1, "Unknown TLBI op");			\
+> +	}								\
+> +} while (0)
+> +
+>  static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+>  				     unsigned long start, unsigned long end,
+>  				     unsigned long stride, bool last_level,
+>  				     int tlb_level)
+>  {
+>  	unsigned long asid, pages;
+> +	enum tlbi_op tlbi_op;
+>  
+>  	start = round_down(start, stride);
+>  	end = round_up(end, stride);
+> @@ -452,12 +473,9 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+>  	dsb(ishst);
+>  	asid = ASID(mm);
+>  
+> -	if (last_level)
+> -		__flush_tlb_range_op(vale1is, start, pages, stride, asid,
+> -				     tlb_level, true, lpa2_is_enabled());
+> -	else
+> -		__flush_tlb_range_op(vae1is, start, pages, stride, asid,
+> -				     tlb_level, true, lpa2_is_enabled());
+> +	tlbi_op = last_level ? TLBI_VALE1IS : TLBI_VAE1IS;
+> +	flush_tlb_range_op(tlbi_op, start, pages, stride, asid, tlb_level,
+> +			   true, lpa2_is_enabled());
+>  
+>  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
+>  }
 
-Thanks,
-Peng.
+Should the remaining __flush_tlb_range_op() in flush_tlb_kernel_range()
+converted into flush_tlb_range_op() adding another similar enum variable
+i.e TLBI_VAALE1IS ? Because this will ensure that there is one variant
+helper i.e flush_tlb_range_op() that gets called.
 
->=20
-> regards,
-> dan carpenter
->=20
-> > +
-> > +	devm_add_action_or_reset(&sdev->dev, scmi_imx_misc_put,
-> > +scmi_imx_dentry);
-> > +
-> >  	return 0;
-> >  }
-> >
-> >
-> > --
-> > 2.37.1
-> >
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index f66b8c4696d0..a23169751deb 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -437,6 +437,7 @@ static inline bool __flush_tlb_range_limit_excess(unsigned long start,
+ enum tlbi_op {
+        TLBI_VALE1IS,
+        TLBI_VAE1IS,
++       TLBI_VAALE1IS,
+ };
+
+ #define flush_tlb_range_op(op, ...)                                    \
+@@ -448,6 +449,9 @@ do {                                                                        \
+        case TLBI_VAE1IS:                                               \
+                __flush_tlb_range_op(vae1is, __VA_ARGS__);              \
+                break;                                                  \
++       case TLBI_VAALE1IS:                                             \
++               __flush_tlb_range_op(vaale1is, __VA_ARGS__);            \
++               break;                                                  \
+        default:                                                        \
+                BUILD_BUG_ON_MSG(1, "Unknown TLBI op");                 \
+        }                                                               \
+@@ -517,7 +521,7 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
+        }
+
+        dsb(ishst);
+-       __flush_tlb_range_op(vaale1is, start, pages, stride, 0,
++       flush_tlb_range_op(TLBI_VAALE1IS, start, pages, stride, 0,
+                             TLBI_TTL_UNKNOWN, false, lpa2_is_enabled());
+        dsb(ish);
+        isb();
 
