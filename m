@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B4CACAC58F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A51CAC597
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 17:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LtfTMnjlE3++qRetN4HBNoW1at6Ufa6Gl5bZA5/z/ak=; b=dQbJ7in87iQrKP2MnLZ/ue9zwk
-	DUtVrlEgDrnSzJ7+i4a2eawPx5oUIrE6WoLnK7GZMUaTOIjLlKU9rk0iPKr9idDrAXFqO7ajTQuy4
-	ShhLkTx0UQVh9qrnDoJegWJ4c/kA3ZZ/R6QcyHEjpaAI8Eg9kgc99M1motm6DpPCqyjRoHLOsxDm4
-	EvWwuvgdT9XL05yDuMY4ZuAnxOq2jMW9QZs+OSBBkwC8yGesFLEA0Sc5TwygSEBmvap9fFi47gCe+
-	iFMZxGRTwEOyBWMO9AVDGv8CZeYlSXF9Sa8xKYD5j+PsP0Wmg1xPLL+eiSW2RdAYTAN5NAbGOckcv
-	JNxHjZQQ==;
+	bh=aAyBQq/T3oX8q0KyyhKBWb7eaCUs7AV8K7X/tuLcbU4=; b=VPtUfxJlFDMpyCS5/r8G87Y69I
+	YZ8m2MwL+45y+LnMqF0CPwARsGFzYc3MWWYRc6GKKsR8cjoxyRkc2x6YUawN2g5O2EMLmbG5+gNCv
+	67OeXNxZzv4aJFkZs1e5Lq1XkC3hVc7B3lwcc2QOlsaiw2dOv0Yk0gsN+dIp/C+rqD0NwOkVnGr4o
+	Hmk5WwqSGAj96qkA+YYEH7vtzc2Q18saRUi6gfKJPACMfj7zw1cLhubIUvhKgxUUQ2KBx61d6RvNL
+	59tFR/eTNXplu4zhc4RBxKCmzz25/5X7jzgf45eXqgR+x0ThTxM//i5nExdi2dxCkdCxKkvkrOuWd
+	3N9qP6ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwlHn-00000004VjX-1KA9;
-	Thu, 11 Sep 2025 17:40:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uwlHm-00000004Vhs-0bSD;
+	Thu, 11 Sep 2025 17:40:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwlHj-00000004VgT-0y9b
+	id 1uwlHg-00000004Vei-3QpY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 17:40:39 +0000
+	Thu, 11 Sep 2025 17:40:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81C4C6023D;
-	Thu, 11 Sep 2025 17:40:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03BDEC4CEF0;
-	Thu, 11 Sep 2025 17:40:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0625044B82;
+	Thu, 11 Sep 2025 17:40:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A68CFC4CEF8;
+	Thu, 11 Sep 2025 17:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757612438;
-	bh=KwQ33/Me6CtoPqF903pwWNvdntE/FNahw7BHgwIWeoE=;
+	s=k20201202; t=1757612435;
+	bh=YUfJQuKeoyvq69CqM4HMv+h2j8i7bzCRaIDADuqZWZs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OXKWDV6/zRIDx8rmJIF19WHTQ1kLiS67cArk4RJNLqqLh/AHyIzr7jna4Yi7RD49O
-	 sNolPJdJi+9pg8YW8VaEr58zA5XSiuyR5JfEdr2//hK9Jn9Y9WCX6ehSS9I4jFX86r
-	 lzNI9PD+v5010UKCCzPgjcdWe2BSXCin+Ql/OtSDW/lK/QPrqWju5/Dg+SuNkYJ2Aq
-	 WjY8mg/puH2u3ZKyMWc+/qrIIcZ+z41aTZ57eCQiY0dXFz3ehRJ5W1fNncZX72jfNR
-	 aFZXn2BSnW/j/WlWFfzXfjjj2Z783x6U97TXDkQWSLw7MJXSOt5T0T6DQ15FMbfXhq
-	 aT6v7dLkdDOZA==
+	b=nunsRqjtB6Cr5GbzCUfCp4JmE43Nz4DEl1w5xjOtLZ/hYSviNN7+cEFSauRyINuNe
+	 2+m5g/0mQf8cHsDAGVG3dyHx5EBzXCs/SS7Cl1tjVPdnJoeNoZ+P2Ls7tILJHydf8k
+	 WEgRbQ8q9ivKl581ZDijZ2njJI76Pp3/TWJVIBdkvbxfoJM7Kf3+BkuvxeNOpPJrNK
+	 fzLOnB2nA0/+c+8YqAnrSKoGr4taVI5Qt6TrsW7h+W81iYm+mnnI01+HEPc6SoQMEg
+	 nA5js7n7Rdm4pJaFjFXbR8FiOH+tSWxCv+LM32LsEbS/0bT12G5iMvZGSuz9CxgS/l
+	 QzOW5ziyzimzA==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 4659F5FEEE; Fri, 12 Sep 2025 01:40:33 +0800 (CST)
+	id 1CA865FE35; Fri, 12 Sep 2025 01:40:33 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -61,16 +61,18 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH net-next v5 5/6] arm64: dts: allwinner: t527: avaota-a1: enable second Ethernet port
-Date: Fri, 12 Sep 2025 01:40:31 +0800
-Message-Id: <20250911174032.3147192-6-wens@kernel.org>
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH net-next v5 2/6] net: stmmac: Add support for Allwinner A523 GMAC200
+Date: Fri, 12 Sep 2025 01:40:28 +0800
+Message-Id: <20250911174032.3147192-3-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250911174032.3147192-1-wens@kernel.org>
 References: <20250911174032.3147192-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250911_104036_904973_F662F20E 
+X-CRM114-Status: GOOD (  30.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,88 +89,243 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-On the Avaota A1 board, the second Ethernet controller, aka the GMAC200,
-is connected to a second external RTL8211F-CG PHY. The PHY uses an
-external 25MHz crystal, and has the SoC's PJ16 pin connected to its
-reset pin.
+The Allwinner A523 SoC family has a second Ethernet controller, called
+the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
+numbering. This controller, according to BSP sources, is fully
+compatible with a slightly newer version of the Synopsys DWMAC core.
+The glue layer around the controller is the same as found around older
+DWMAC cores on Allwinner SoCs. The only slight difference is that since
+this is the second controller on the SoC, the register for the clock
+delay controls is at a different offset. Last, the integration includes
+a dedicated clock gate for the memory bus and the whole thing is put in
+a separately controllable power domain.
 
-Enable the second Ethernet port. Also fix up the label for the existing
-external PHY connected to the first Ethernet port.
+Add a new driver for this hardware supporting the integration layer.
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
+Changes since v3:
+- Fixed printf format specifier warning
+
+Changes since v2 (all suggested by Russell King):
+- Include "ps" unit in "... must be multiple of ..." error message
+- Use FIELD_FIT to check if delay value is in range and FIELD_MAX to get
+  the maximum value
+- Reword error message for delay value exceeding maximum
+- Drop MASK_TO_VAL
 
 Changes since v1:
 - Switch to generic (tx|rx)-internal-delay-ps properties
+- Change dev_err() + return to dev_err_probe()
+- Check return value from syscon regmap write
+- Change driver name to match file name
 ---
- .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 26 +++++++++++++++++--
- 1 file changed, 24 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-sun55i.c    | 159 ++++++++++++++++++
+ 3 files changed, 172 insertions(+)
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-index e7713678208d..f540965ffaa4 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-@@ -13,6 +13,7 @@ / {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index 67fa879b1e52..38ce9a0cfb5b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -263,6 +263,18 @@ config DWMAC_SUN8I
+ 	  stmmac device driver. This driver is used for H3/A83T/A64
+ 	  EMAC ethernet controller.
  
- 	aliases {
- 		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
- 		serial0 = &uart0;
- 	};
- 
-@@ -67,7 +68,7 @@ &ehci1 {
- 
- &gmac0 {
- 	phy-mode = "rgmii-id";
--	phy-handle = <&ext_rgmii_phy>;
-+	phy-handle = <&ext_rgmii0_phy>;
- 	phy-supply = <&reg_dcdc4>;
- 
- 	allwinner,tx-delay-ps = <100>;
-@@ -76,13 +77,24 @@ &gmac0 {
- 	status = "okay";
- };
- 
-+&gmac1 {
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ext_rgmii1_phy>;
-+	phy-supply = <&reg_dcdc4>;
++config DWMAC_SUN55I
++	tristate "Allwinner sun55i GMAC200 support"
++	default ARCH_SUNXI
++	depends on OF && (ARCH_SUNXI || COMPILE_TEST)
++	select MDIO_BUS_MUX
++	help
++	  Support for Allwinner A523/T527 GMAC200 ethernet controllers.
 +
-+	tx-internal-delay-ps = <100>;
-+	rx-internal-delay-ps = <100>;
++	  This selects Allwinner SoC glue layer support for the
++	  stmmac device driver. This driver is used for A523/T527
++	  GMAC200 ethernet controller.
 +
-+	status = "okay";
+ config DWMAC_THEAD
+ 	tristate "T-HEAD dwmac support"
+ 	depends on OF && (ARCH_THEAD || COMPILE_TEST)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+index b591d93f8503..51e068e26ce4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Makefile
++++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+@@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
+ obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
+ obj-$(CONFIG_DWMAC_SUNXI)	+= dwmac-sunxi.o
+ obj-$(CONFIG_DWMAC_SUN8I)	+= dwmac-sun8i.o
++obj-$(CONFIG_DWMAC_SUN55I)	+= dwmac-sun55i.o
+ obj-$(CONFIG_DWMAC_THEAD)	+= dwmac-thead.o
+ obj-$(CONFIG_DWMAC_DWC_QOS_ETH)	+= dwmac-dwc-qos-eth.o
+ obj-$(CONFIG_DWMAC_INTEL_PLAT)	+= dwmac-intel-plat.o
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
+new file mode 100644
+index 000000000000..b34da76ac344
+--- /dev/null
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
+@@ -0,0 +1,159 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * dwmac-sun55i.c - Allwinner sun55i GMAC200 specific glue layer
++ *
++ * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
++ *
++ * syscon parts taken from dwmac-sun8i.c, which is
++ *
++ * Copyright (C) 2017 Corentin Labbe <clabbe.montjoie@gmail.com>
++ */
++
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/phy.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/regulator/consumer.h>
++#include <linux/stmmac.h>
++
++#include "stmmac.h"
++#include "stmmac_platform.h"
++
++#define SYSCON_REG		0x34
++
++/* RMII specific bits */
++#define SYSCON_RMII_EN		BIT(13) /* 1: enable RMII (overrides EPIT) */
++/* Generic system control EMAC_CLK bits */
++#define SYSCON_ETXDC_MASK		GENMASK(12, 10)
++#define SYSCON_ERXDC_MASK		GENMASK(9, 5)
++/* EMAC PHY Interface Type */
++#define SYSCON_EPIT			BIT(2) /* 1: RGMII, 0: MII */
++#define SYSCON_ETCS_MASK		GENMASK(1, 0)
++#define SYSCON_ETCS_MII		0x0
++#define SYSCON_ETCS_EXT_GMII	0x1
++#define SYSCON_ETCS_INT_GMII	0x2
++
++static int sun55i_gmac200_set_syscon(struct device *dev,
++				     struct plat_stmmacenet_data *plat)
++{
++	struct device_node *node = dev->of_node;
++	struct regmap *regmap;
++	u32 val, reg = 0;
++	int ret;
++
++	regmap = syscon_regmap_lookup_by_phandle(node, "syscon");
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap), "Unable to map syscon\n");
++
++	if (!of_property_read_u32(node, "tx-internal-delay-ps", &val)) {
++		if (val % 100)
++			return dev_err_probe(dev, -EINVAL,
++					     "tx-delay must be a multiple of 100ps\n");
++		val /= 100;
++		dev_dbg(dev, "set tx-delay to %x\n", val);
++		if (!FIELD_FIT(SYSCON_ETXDC_MASK, val))
++			return dev_err_probe(dev, -EINVAL,
++					     "TX clock delay exceeds maximum (%u00ps > %lu00ps)\n",
++					     val, FIELD_MAX(SYSCON_ETXDC_MASK));
++
++		reg |= FIELD_PREP(SYSCON_ETXDC_MASK, val);
++	}
++
++	if (!of_property_read_u32(node, "rx-internal-delay-ps", &val)) {
++		if (val % 100)
++			return dev_err_probe(dev, -EINVAL,
++					     "rx-delay must be a multiple of 100ps\n");
++		val /= 100;
++		dev_dbg(dev, "set rx-delay to %x\n", val);
++		if (!FIELD_FIT(SYSCON_ERXDC_MASK, val))
++			return dev_err_probe(dev, -EINVAL,
++					     "RX clock delay exceeds maximum (%u00ps > %lu00ps)\n",
++					     val, FIELD_MAX(SYSCON_ERXDC_MASK));
++
++		reg |= FIELD_PREP(SYSCON_ERXDC_MASK, val);
++	}
++
++	switch (plat->mac_interface) {
++	case PHY_INTERFACE_MODE_MII:
++		/* default */
++		break;
++	case PHY_INTERFACE_MODE_RGMII:
++	case PHY_INTERFACE_MODE_RGMII_ID:
++	case PHY_INTERFACE_MODE_RGMII_RXID:
++	case PHY_INTERFACE_MODE_RGMII_TXID:
++		reg |= SYSCON_EPIT | SYSCON_ETCS_INT_GMII;
++		break;
++	case PHY_INTERFACE_MODE_RMII:
++		reg |= SYSCON_RMII_EN;
++		break;
++	default:
++		return dev_err_probe(dev, -EINVAL, "Unsupported interface mode: %s",
++				     phy_modes(plat->mac_interface));
++	}
++
++	ret = regmap_write(regmap, SYSCON_REG, reg);
++	if (ret < 0)
++		return dev_err_probe(dev, ret, "Failed to write to syscon\n");
++
++	return 0;
++}
++
++static int sun55i_gmac200_probe(struct platform_device *pdev)
++{
++	struct plat_stmmacenet_data *plat_dat;
++	struct stmmac_resources stmmac_res;
++	struct device *dev = &pdev->dev;
++	struct clk *clk;
++	int ret;
++
++	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
++	if (ret)
++		return ret;
++
++	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
++	if (IS_ERR(plat_dat))
++		return PTR_ERR(plat_dat);
++
++	/* BSP disables it */
++	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
++	plat_dat->host_dma_width = 32;
++
++	ret = sun55i_gmac200_set_syscon(dev, plat_dat);
++	if (ret)
++		return ret;
++
++	clk = devm_clk_get_enabled(dev, "mbus");
++	if (IS_ERR(clk))
++		return dev_err_probe(dev, PTR_ERR(clk),
++				     "Failed to get or enable MBUS clock\n");
++
++	ret = devm_regulator_get_enable_optional(dev, "phy");
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to get or enable PHY supply\n");
++
++	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
++}
++
++static const struct of_device_id sun55i_gmac200_match[] = {
++	{ .compatible = "allwinner,sun55i-a523-gmac200" },
++	{ }
 +};
++MODULE_DEVICE_TABLE(of, sun55i_gmac200_match);
 +
- &gpu {
- 	mali-supply = <&reg_dcdc2>;
- 	status = "okay";
- };
- 
- &mdio0 {
--	ext_rgmii_phy: ethernet-phy@1 {
-+	ext_rgmii0_phy: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
- 		reg = <1>;
- 		reset-gpios = <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
-@@ -91,6 +103,16 @@ ext_rgmii_phy: ethernet-phy@1 {
- 	};
- };
- 
-+&mdio1 {
-+	ext_rgmii1_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <1>;
-+		reset-gpios = <&pio 9 16 GPIO_ACTIVE_LOW>; /* PJ16 */
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <150000>;
-+	};
++static struct platform_driver sun55i_gmac200_driver = {
++	.probe  = sun55i_gmac200_probe,
++	.driver = {
++		.name           = "dwmac-sun55i",
++		.pm		= &stmmac_pltfr_pm_ops,
++		.of_match_table = sun55i_gmac200_match,
++	},
 +};
++module_platform_driver(sun55i_gmac200_driver);
 +
- &mmc0 {
- 	vmmc-supply = <&reg_cldo3>;
- 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
++MODULE_AUTHOR("Chen-Yu Tsai <wens@csie.org>");
++MODULE_DESCRIPTION("Allwinner sun55i GMAC200 specific glue layer");
++MODULE_LICENSE("GPL");
 -- 
 2.39.5
 
