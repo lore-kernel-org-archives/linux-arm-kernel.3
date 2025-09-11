@@ -4,52 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DD5CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 16:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F259CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 16:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6XjKkezdj8Z3Y1gALJMdspVbPepv5OIpfHOCKq54XY=; b=Kj9bxLWnrdyUYv8C0XMdFdnmG3
-	1qJTpQLjlumtw63h+aLpRqL0789Pdnp3fcrMSsnUmOmymln6CQv5YwyRRF3bHXUi98eb9wBECvOBX
-	Mev+gHX5wmLwsWq8hZMNuOebtwPMsnsRjDB0ZpdEGwXZ0yLS91ep9f6NtzY/EVg9D10HaeUSmdByg
-	rnnW/NHyj/0GEDuHGhn/u2ZG0xcwmpPO7iObee5j6k6LRzJPgSw22u5Oy5U4Q09mwrFX93eN65bEi
-	61/CVnOfjbqZ0Il7Vxg2fe/z7sjUKcCc4Qdx5bOf4o4m619eMhFOMijyMXYN+4GYGtRCxjjwXK2Vh
-	IV7mfi5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dz8R7dtejEqkQKX6bHmLWbcVWZv/E+BPhgwcdwOzGTI=; b=c/SfJxsTb9edz6esD7no6K4tQM
+	43fb/FHO5EiDbtnq1xzmvlGmaYTV16GkZxHZIqRkQT2gLFWu0JtKfLx5I7/iUsq2dlvpvOjVazcJM
+	saQ0rNlJyb6L3uaZ3g+YHn8uuvBu/dj1ntIqAPLybeLm8cWGAl46q+j4+6pwtZOv9OEOhBSxGjdik
+	29DGBjr6vfQNxtJ9r0jAAZn94AMgZkfJkCG/4hR/zvBDfYAlaPsqPEPsmHjrTSjey/CeUVj8+Ejdt
+	65wXOpzdv4WO0Ezyms8WUy4qMkV60kR3PFL63SwSEHG2QUD41yTq4HGYji3+m40zEWbEtXNLwrVVI
+	WgmgYWuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwk46-00000004B1l-0Uxo;
-	Thu, 11 Sep 2025 16:22:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uwkDS-00000004ELx-2Ybp;
+	Thu, 11 Sep 2025 16:32:10 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwk45-00000004B0y-0W2o
+	id 1uwkDO-00000004EKS-3pzh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 16:22:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6BF12601D6;
-	Thu, 11 Sep 2025 16:22:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A51CC4CEF0;
-	Thu, 11 Sep 2025 16:22:25 +0000 (UTC)
-Date: Thu, 11 Sep 2025 17:22:22 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
-	ardb@kernel.org, scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v7 0/6] support FEAT_LSUI and apply it on futex
- atomic ops
-Message-ID: <aML3Ps1xeTCVCdTn@arm.com>
-References: <20250816151929.197589-1-yeoreum.yun@arm.com>
- <aMLmNnehYX6gqEIf@willie-the-truck>
+	Thu, 11 Sep 2025 16:32:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1757608267; x=1758213067; i=markus.elfring@web.de;
+	bh=Dz8R7dtejEqkQKX6bHmLWbcVWZv/E+BPhgwcdwOzGTI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=HhPoqF0lk4fiVCKrEWCaNv3U0y4e647ts5mDYudJJ2IBzuFVWF7N7nHxTXxYBayU
+	 xRsu2fuA2o9CGMhw7WzsujmrE6BiVDq4mKXtKuhcioHsxrgOanjaNhh/Mr5DCL0sn
+	 07Dfye62XU7tYFFu69gBdt7yec6EbFF1eDwwb+BtWALHm14tlT9YsQ7IsKNfld6PT
+	 EFhe0d7ji8XAv1a8L2SldO6RfsAch3NIEra71gUx28TNHuT4ZMHv1G+uiOmXUun2d
+	 hgO5Z2Dms1mnFuLA9fKxPsimu+DkV6mfAk+kh/tGM7HclHvhCGSls4FlGN2B/XnIe
+	 Agvyh4cH7xqqzL6iNQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.92.247]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MUU68-1unqEU3geW-00IHKV; Thu, 11
+ Sep 2025 18:31:07 +0200
+Message-ID: <5a80cb91-6095-4f44-b576-53badc4575f5@web.de>
+Date: Thu, 11 Sep 2025 18:30:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aMLmNnehYX6gqEIf@willie-the-truck>
+User-Agent: Mozilla Thunderbird
+To: James Morse <james.morse@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Amit Singh Tomar <amitsinght@marvell.com>,
+ Baisheng Gao <baisheng.gao@unisoc.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Ben Horgan
+ <ben.horgan@arm.com>, Carl Worth <carl@os.amperecomputing.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ D Scott Phillips <scott@os.amperecomputing.com>,
+ Danilo Krummrich <dakr@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+ David Hildenbrand <david@redhat.com>, Drew Fustini <dfustini@baylibre.com>,
+ Fenghua Yu <fenghuay@nvidia.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Jamie Iles <quic_jiles@quicinc.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, Koba Ko <kobak@nvidia.com>,
+ Len Brown <lenb@kernel.org>, Linu Cherian <lcherian@marvell.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Peter Newman <peternewman@google.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, Shaopeng Tan
+ <tan.shaopeng@fujitsu.com>, Wang ShaoBo <bobo.shaobowang@huawei.com>,
+ Will Deacon <will@kernel.org>, Xin Hao <xhao@linux.alibaba.com>
+References: <20250910204309.20751-9-james.morse@arm.com>
+Subject: Re: [PATCH v2 08/29] arm_mpam: Add the class and component structures
+ for firmware described ris
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250910204309.20751-9-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:aXo+jzHYTT7qDJctek+y3Ta/pop7BCbIYZ9toJqeO0SvaQ3Lhvh
+ pY+hU0t3B7Gzx/G43YaOOz0zHj0IFIK9AGktiapQhGBXUsyIY6WN+AEPmOE8t2kxHZj1w0M
+ o6N9KwDHUFG2YSe8IRHOl2mOey/UNXt6xsXMeSf9RhapdzTjSrdJhl7QiYVKU+5AhXzgCNm
+ 9Xc/9dE3S/Ui2/SS7Qsow==
+UI-OutboundReport: notjunk:1;M01:P0:b4fPkTA0T3M=;JLLaSxtMBxjJufgrQb08zEQUw6g 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 FvTfNJhrUnkbpDhmzLL+BVEVyZWD+wtmyBR4x
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250911_093207_323242_1E540360 
+X-CRM114-Status: UNSURE (   5.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,29 +104,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 11, 2025 at 04:09:42PM +0100, Will Deacon wrote:
-> On Sat, Aug 16, 2025 at 04:19:23PM +0100, Yeoreum Yun wrote:
-> > Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-> > previleged level to access to access user memory without clearing
-> > PSTATE.PAN bit.
-> > 
-> > This patchset support FEAT_LSUI and applies in futex atomic operation
-> > where can replace from ldxr/stlxr pair implmentation with clearing
-> > PSTATE.PAN bit to correspondant load/store unprevileged atomic operation
-> > without clearing PSTATE.PAN bit.
-> > 
-> > (Sorry, I've sent wrongly for patch version 7 and resend it.
-> >  Again, sorry for mail-boom).
-> 
-> I tried to review this but I can't find any details about FEAT_LSUI in
-> the latest Arm ARM. Where should I be looking for the architecture spec?
+=E2=80=A6
+> +++ b/drivers/resctrl/mpam_devices.c
+=E2=80=A6
+> > +int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+> +		    enum mpam_class_types type, u8 class_id, int component_id)
+> +{
+> +	int err;
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	err =3D mpam_ris_create_locked(msc, ris_idx, type, class_id,
+> +				     component_id);
+> +	mutex_unlock(&mpam_list_lock);
+=E2=80=A6
 
-Unfortunately, it's just in the public xml at the moment. Hopefully
-we'll get a release of the Arm ARM by the end of the year. Otherwise, in
-the private 2024 arch spec. Not ideal though.
+Under which circumstances would you become interested to apply a statement
+like =E2=80=9Cguard(mutex)(&mpam_list_lock);=E2=80=9D?
+https://elixir.bootlin.com/linux/v6.17-rc5/source/include/linux/mutex.h#L2=
+28
 
-If you'd rather wait until in turns up in the public spec, fine by me.
-
--- 
-Catalin
+Regards,
+Markus
 
