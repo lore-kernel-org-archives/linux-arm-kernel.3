@@ -4,92 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFA0CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF60CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SdO1CSLui5RRcTpK5b6MAqtw8kcTxu+RvPzYwpqfiQQ=; b=WuiDcilxbabIVPPXzGV++wKi0l
-	KDjkA9OaaRkwHXTMV6qstuMVtRnl6KNHKa8OEQNtYNuvVjJojur5HtCvI4QyT3n7NDx8nitIXDWeh
-	RcPG1BayYdR/lOG3Z23ekPPa+n5mesVWmqRE16gQOWyrPhEu6n1CJQAmubM7hkuSUaSXUxo6AFiUk
-	vrjlavLhf0i4hTxQBM0VhIIIgyvHOrtlxrKny8YNVf1OlVXUNreYCUaP8zxvePB2Dl1p3y3XNpScq
-	vsdNDPz9l8ApaFKJ28AfDlwZDwxPKSfZS0RKmD0iuaLs74Qw9WL5aJikrIHk3/N8Igqf833/30Q9R
-	XqntGkhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jAhgWUYnPFg6EIs1KlRQpVBmjc1YtWhJRJ6AR5gDW0w=; b=DkYuh7dqWhIAhrWRMg8hL6hfUL
+	yGYB/H0RztsGHnmUbKb0eM2dvnH+HdhZ8YR8c4rquI/mEhrMdrQPrFK2nZyB8ZAhxNTYv30hvFlup
+	X78+eDVJifh/uPcY9njWWssFxL1vNZesCa1vEDRs0ARRy8amJcrdPnUJrmeZ3LHv8iJ2V5FpLGsob
+	d08BCJY0R9VzM2ioJG89GwaPQjuWFrDRSRKQsnyw+FHrlHmz2A76DGduzFI8ULkO8DxlSIr38jg68
+	o+XTuStKQ2y4FwZsxlD3BIXVUaVNocNckjEzp/6hpYpdwn2HdYawEmmnfAsYJhLSwzlKDqw5VoVft
+	76NpLjJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwiGq-00000003Y3Y-37BT;
-	Thu, 11 Sep 2025 14:27:32 +0000
-Received: from mail-ua1-f51.google.com ([209.85.222.51])
+	id 1uwiIs-00000003YRe-3BMX;
+	Thu, 11 Sep 2025 14:29:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwiGo-00000003Y1a-2OjX
+	id 1uwiIq-00000003YQn-30sm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 14:27:31 +0000
-Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-89948e581d5so445382241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 07:27:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757600849; x=1758205649;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SdO1CSLui5RRcTpK5b6MAqtw8kcTxu+RvPzYwpqfiQQ=;
-        b=OHExU83bX0NVSOaFKQzZig/GA0Yawt1yuq+kQyOMJeFCY96H5agyCcdskija+2S9oE
-         GOM1/xzx2Jg2G0Db4DYMm+hM2LwhFArSNcbPvxSD3LpRcVbZ+NMyMC/o3TyGqeENETWL
-         RR5YGYsfEbfZTHfGAj2uoKYLwJLiJp2c6gOXL8WzddQOzgM5HTeuQftxlvJWjntxD7XD
-         f3NUyJkG3NAWtQRkKnbBBM1tCI0ZCnPtW9LndY+2qSwF7ZJoCA73IFSO7lytZMUguRim
-         iz8B2XTbNKUD/QGG06BdSZYV41sI2Wb3vDfLEMvfT1107Hk90BUSzBIgDJaxkYbhW97+
-         o5bg==
-X-Forwarded-Encrypted: i=1; AJvYcCVD2Q/CuHry4jeFAqRRn3wV3Nqqw0ZJuTnzQi/7W5vX8Jr68j1W2evcBuU+YQvOLiY4qa0PeTwQyeSKESBKhmPa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPzZQ7ZoHmYm/NfFo/eCIYWQs/qUeIJtO6mTEUHJj6Qby25aNq
-	VVoFA9sMvrQX3tdLmz5tJxldnPjiGINxk3UgIJKpY8ObhrKoK78sofqyHJdj270y
-X-Gm-Gg: ASbGnctOseqEQfAbZK8bu5HyDxykhHxctzpwgwu4qIpy4DvXi1a8U+FeLzXcIzKxiNT
-	P6a/Y5dFMeE8knwk+MrKs1/dKrATt7/lJPcP6ag8/ab9nB32nrrn7AFZpZA5bN/ibR2u9ZQ/r0S
-	orOgGqIJgpcJXuOI9zPF5meRI8nLny9zCowUmb/iF9xVQYL++YxtujK4xh/czzabdXWi4QW7T3Y
-	vXmPcLRyyfgBNjLiRmB8ydE+sR4iBFFFvxP1g/NNySSdMxk3SfBd8i/zrD7qN5axq0Kfi8lIs3c
-	Bw5q8MVvqUhINYPFolGJCYOTKfybeA2+M/ry1vL3IqIT116+wYl2KTmV2nG5uPXM7PLgIn8Lkm2
-	hseLhvK8ZzgWjL5Q4sa0I/9O20u5PXqEj3vCLw7Cg5B7uNrUrZXW+NNtENEX9
-X-Google-Smtp-Source: AGHT+IF8bhiDH9RVU1v/IwIV/RduE6nkaMeMIXgPy/FUq2C5eo2L8E9SDnWb2P8E2J7k2Zr6Tu5fLA==
-X-Received: by 2002:a67:e7c9:0:b0:4e9:cd8e:c28f with SMTP id ada2fe7eead31-53d1afa2499mr7343069137.1.1757600848888;
-        Thu, 11 Sep 2025 07:27:28 -0700 (PDT)
-Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com. [209.85.217.49])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-54a0d3f050esm287836e0c.14.2025.09.11.07.27.28
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Sep 2025 07:27:28 -0700 (PDT)
-Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-52912c1c805so441147137.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 07:27:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWKk2+iR2hpPQXly3StNrmxCwrljbywr3p6Y6s+bGvkAgOtid89L/a3bzy0pB4pjbgrDqLtLue34Sbkujq0AZ8X@lists.infradead.org
-X-Received: by 2002:a05:6102:5128:b0:525:9f17:9e55 with SMTP id
- ada2fe7eead31-53d24251fe0mr7482216137.32.1757600847846; Thu, 11 Sep 2025
- 07:27:27 -0700 (PDT)
+	Thu, 11 Sep 2025 14:29:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 230D84057A;
+	Thu, 11 Sep 2025 14:29:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D961CC4CEF1;
+	Thu, 11 Sep 2025 14:29:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757600976;
+	bh=IOMooGk7tgj3+tr2czPzP2MtFcWvInvG0irfMgR4E8A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kbiDFCgxP7KXvcP8v4/aoH3EBosq1CpE0n9+W944yyRm4vx5n8DEsqzUU5ZzlZG33
+	 koUMNe9tD51n2TE3Rg2Owx61wOzaz3T2DpWtFLkUCNhLe+dmVvGp6thSdkf9cHZp7H
+	 oFipCkPEhGRx6Nls+AxbtPa1c7bYHkwvWp7Kf9OhQj/XArF6eDEdHTIKD8oMu2Y/qO
+	 tA2On83d4U9pY0p6m0bsJIhEk18Lxk8qDYNg7LraIoRxbiu/pYPw4nWiajmxkGrP8L
+	 S2WoYpMR2xk0yPWEJUfr6woAGmHxh2SJET6JLul0+6ka03P5TaQ1x2Q8yQlt0lCQLv
+	 52oes0DIPws3A==
+Message-ID: <6df0e227-896b-438a-913e-95b637aa2b14@kernel.org>
+Date: Thu, 11 Sep 2025 16:29:28 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] tty: serial: samsung: Remove unused artpec-8 specific
+ code
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Ravi Patel <ravi.patel@samsung.com>
+Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, jesper.nilsson@axis.com,
+ lars.persson@axis.com, alim.akhtar@samsung.com, arnd@kernel.org,
+ andriy.shevchenko@linux.intel.com, geert+renesas@glider.be,
+ thierry.bultel.yh@bp.renesas.com, dianders@chromium.org,
+ robert.marko@sartura.hr, schnelle@linux.ibm.com, kkartik@nvidia.com,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
+ ksk4725@coasia.com, kenkim@coasia.com, smn1196@coasia.com,
+ pjsin865@coasia.com, shradha.t@samsung.com
 References: <CGME20250911141714epcas5p29f591a1d645c9c69dc5b7d2c2d12af50@epcas5p2.samsung.com>
- <20250911141605.13034-1-ravi.patel@samsung.com> <20250911141605.13034-4-ravi.patel@samsung.com>
-In-Reply-To: <20250911141605.13034-4-ravi.patel@samsung.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 11 Sep 2025 16:27:16 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVe-FULHWk3QCBENG7TsbEZyxj0N5shhESxWBWd49JmOw@mail.gmail.com>
-X-Gm-Features: AS18NWA9988xiKX4_TVZURlwneQiJAxbodcHMKtf18AoQ7BwMpO-0BHXub4ifEg
-Message-ID: <CAMuHMdVe-FULHWk3QCBENG7TsbEZyxj0N5shhESxWBWd49JmOw@mail.gmail.com>
-Subject: Re: [PATCH 3/3] tty: serial: samsung: Remove unused artpec-8 specific code
-To: Ravi Patel <ravi.patel@samsung.com>
-Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, jesper.nilsson@axis.com, 
-	lars.persson@axis.com, alim.akhtar@samsung.com, arnd@kernel.org, 
-	krzk@kernel.org, andriy.shevchenko@linux.intel.com, geert+renesas@glider.be, 
-	thierry.bultel.yh@bp.renesas.com, dianders@chromium.org, 
-	robert.marko@sartura.hr, schnelle@linux.ibm.com, kkartik@nvidia.com, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com, 
-	ksk4725@coasia.com, kenkim@coasia.com, smn1196@coasia.com, 
-	pjsin865@coasia.com, shradha.t@samsung.com
-Content-Type: text/plain; charset="UTF-8"
+ <20250911141605.13034-1-ravi.patel@samsung.com>
+ <20250911141605.13034-4-ravi.patel@samsung.com>
+ <CAMuHMdVe-FULHWk3QCBENG7TsbEZyxj0N5shhESxWBWd49JmOw@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAMuHMdVe-FULHWk3QCBENG7TsbEZyxj0N5shhESxWBWd49JmOw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_072730_616893_2A25C46F 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20250911_072936_813940_11304936 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +130,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ravi,
+On 11/09/2025 16:27, Geert Uytterhoeven wrote:
+> Hi Ravi,
+> 
+> On Thu, 11 Sept 2025 at 16:17, Ravi Patel <ravi.patel@samsung.com> wrote:
+>> Since ARTPEC-8 is using exynos8895 driver data, remove the unused
+>> artpec-8 specific driver data.
+>>
+>> ARTPEC-8 is using exynos4210 for earlycon, so earlycon code
+>> for ARTPEC-8 is also not required.
+>>
+>> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+> 
+> Thanks for your patch!
+> 
+>> --- a/drivers/tty/serial/samsung_tty.c
+>> +++ b/drivers/tty/serial/samsung_tty.c
+> 
+>> @@ -2655,8 +2621,6 @@ static const struct of_device_id s3c24xx_uart_dt_match[] = {
+>>                 .data = S5L_SERIAL_DRV_DATA },
+>>         { .compatible = "samsung,exynos850-uart",
+>>                 .data = EXYNOS850_SERIAL_DRV_DATA },
+>> -       { .compatible = "axis,artpec8-uart",
+>> -               .data = ARTPEC8_SERIAL_DRV_DATA },
+>>         { .compatible = "google,gs101-uart",
+>>                 .data = GS101_SERIAL_DRV_DATA },
+>>         { .compatible = "samsung,exynos8895-uart",
+>> @@ -2828,8 +2792,6 @@ OF_EARLYCON_DECLARE(s5pv210, "samsung,s5pv210-uart",
+>>                         s5pv210_early_console_setup);
+>>  OF_EARLYCON_DECLARE(exynos4210, "samsung,exynos4210-uart",
+>>                         s5pv210_early_console_setup);
+>> -OF_EARLYCON_DECLARE(artpec8, "axis,artpec8-uart",
+>> -                       s5pv210_early_console_setup);
+>>
+>>  static int __init gs101_early_console_setup(struct earlycon_device *device,
+>>                                             const char *opt)
+> 
+> Removing these breaks backwards-compatibility with existing DTBs,
+> which lack the new "samsung,exynos8895-uart" fallback compatible value.
 
-On Thu, 11 Sept 2025 at 16:17, Ravi Patel <ravi.patel@samsung.com> wrote:
-> Since ARTPEC-8 is using exynos8895 driver data, remove the unused
-> artpec-8 specific driver data.
->
-> ARTPEC-8 is using exynos4210 for earlycon, so earlycon code
-> for ARTPEC-8 is also not required.
->
-> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+This was just applied, so ABI break would be fine. It should be however
+clearly expressed in the commit msg.
 
-Thanks for your patch!
+I have a feeling that not much testing was happening in Samsung around
+this patchset and only now - after I applied it - some things happen.
+But it is damn too late, my tree is already closed which means this is
+going to be the ABI.
 
-> --- a/drivers/tty/serial/samsung_tty.c
-> +++ b/drivers/tty/serial/samsung_tty.c
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
-> @@ -2655,8 +2621,6 @@ static const struct of_device_id s3c24xx_uart_dt_match[] = {
->                 .data = S5L_SERIAL_DRV_DATA },
->         { .compatible = "samsung,exynos850-uart",
->                 .data = EXYNOS850_SERIAL_DRV_DATA },
-> -       { .compatible = "axis,artpec8-uart",
-> -               .data = ARTPEC8_SERIAL_DRV_DATA },
->         { .compatible = "google,gs101-uart",
->                 .data = GS101_SERIAL_DRV_DATA },
->         { .compatible = "samsung,exynos8895-uart",
-> @@ -2828,8 +2792,6 @@ OF_EARLYCON_DECLARE(s5pv210, "samsung,s5pv210-uart",
->                         s5pv210_early_console_setup);
->  OF_EARLYCON_DECLARE(exynos4210, "samsung,exynos4210-uart",
->                         s5pv210_early_console_setup);
-> -OF_EARLYCON_DECLARE(artpec8, "axis,artpec8-uart",
-> -                       s5pv210_early_console_setup);
->
->  static int __init gs101_early_console_setup(struct earlycon_device *device,
->                                             const char *opt)
 
-Removing these breaks backwards-compatibility with existing DTBs,
-which lack the new "samsung,exynos8895-uart" fallback compatible value.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
