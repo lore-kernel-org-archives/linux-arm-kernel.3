@@ -4,74 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0A1CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:26:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148F6CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0lBJocEKP3lSk1wr86/mwJVJDEiyUS7mBzgQ49GMVs=; b=OOCzVa4Yt7QTjgqOJfs7GzV7a5
-	bBc5T4DI7toFg0qTOakAtbnVD1uGNPnPOuwwcUelOIvW9/tLtzDoLW5wahLKCCYEWCl0I998eZK96
-	hD0uPIaYWuysMtr1OcFqKPi23q44xBO7WDNnziQdMsEMmhkbkw/DtNa2blYg9ZTW7tYp3Tb0LUotY
-	J2Be7f+ofSGsmaWe06KneKviY86z1KDWaYo1bW2b3WEhGrEex9vDJMiuMnsTt9Ljuq2SFLSyASggu
-	aYHqr7lEBuFD3M1+8SZ4h1wcWhy25254zC26oOROmYi3tR2dvkZpUda7krJZF/g7h/JL5H36qa7Wx
-	yvGY1aOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QmswRsDV85LAGSgZM1TnGtsRJLjTs07m6UjoRfbX1i8=; b=SW7ZlUYe+8pNu+rb+/0PDyLCH8
+	dQTRFCqtLIuR5GXSfrYrt1JpUzIy4WJbDa9MfUKqwWH/1/W/d2RH5zRXcKqx35Sw96DgokRrJ2+do
+	fjG6J0WbQKJA+AbsFHTm58pJrbeOjqSmCNYFFvUEbAcafoCJfB11aajjIfnCV9QkFcFy6y13Cl2sy
+	4FdXnTG0isdAnOnYF9yPuAHG3skOZOAjn1t+HoDjRXLhrRPqIVWO16KU8/39RbK3HNv1CXAX02Oy4
+	+9THsm4baQtj1K+oiLGg/oO3xZQnDHBEAbN2D/c9eV7hLwxEpW8EodjsZ0KSGeOUDMprrPYnvYRad
+	/miFSlcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcdU-00000001oHH-1Z4v;
-	Thu, 11 Sep 2025 08:26:32 +0000
-Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
+	id 1uwcdp-00000001oPs-2v5e;
+	Thu, 11 Sep 2025 08:26:53 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcdR-00000001oFq-1KJI
+	id 1uwcdm-00000001oOO-2O7g
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 08:26:30 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1757579176;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=E0lBJocEKP3lSk1wr86/mwJVJDEiyUS7mBzgQ49GMVs=;
-	b=UvYXYB38THPhssZVA2dz5yQ7+FZptseAx24L6CpmC6aXfLG+i0gREKXUGr1xLnswZ8BFK3
-	9qg9d9RV//SzyO141pSwtZgScqbmc7WjBjxO7XnI5SeIM3yVgvcdIFtj/tf7L9Vpp25go/
-	ZS/NM/lk6h/aF250h9ERX+LRkFGSU05LOoJRp6BLWKhLszqWGMqSvVT+h7zTfEAkrAGTwa
-	6l0BnycrBvwtpak1skf2bPZijXAMlDdPUp8ZK+/LNzDdHbnxGcvjHsAY+D1EN8sPrccYE2
-	G6H8mURCIog9lY4PcjcXYBenx9rg91c0A626gPvm98UM+QISf/KvEorWpUma2A==
-Content-Type: multipart/signed;
- boundary=c4d98de91abd6d1006b609cb4621827d77940c66045ae6e96f5d64cd32ef;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 11 Sep 2025 10:26:03 +0200
-Message-Id: <DCPTTD0NKOE6.1HKQ87ESFOT6D@cknow.org>
-Cc: "Ulf Hansson" <ulf.hansson@linaro.org>, "Heiko Stuebner"
- <heiko@sntech.de>, "Rafael J . Wysocki" <rafael@kernel.org>, "Tomi
- Valkeinen" <tomi.valkeinen@ideasonboard.com>, "Thierry Reding"
- <thierry.reding@gmail.com>, "Saravana Kannan" <saravanak@google.com>,
- "Sebastian Reichel" <sebastian.reichel@collabora.com>, "Jonathan Hunter"
- <jonathanh@nvidia.com>, <linux-rockchip@lists.infradead.org>, "Konrad
- Dybcio" <konradybcio@kernel.org>, "Peng Fan" <peng.fan@oss.nxp.com>,
- <linux-pm@vger.kernel.org>, "Johan Hovold" <johan@kernel.org>, "Sebin
- Francis" <sebin.francis@ti.com>, "Michal Simek" <michal.simek@amd.com>,
- <linux-arm-kernel@lists.infradead.org>, "Maulik Shah"
- <maulik.shah@oss.qualcomm.com>, "Stephen Boyd" <sboyd@kernel.org>, "Bjorn
- Andersson" <andersson@kernel.org>, "Christian Hewitt"
- <christianshewitt@gmail.com>, <linux-kernel@vger.kernel.org>, "Abel Vesa"
- <abel.vesa@linaro.org>, "Nicolas Frattaroli"
- <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH 0/5] pmdomain: Restore behaviour for disabling unused PM
- domains
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Geert Uytterhoeven" <geert@linux-m68k.org>
-References: <20250909111130.132976-1-ulf.hansson@linaro.org>
- <DCPDDIZ3S1CM.3DJYY5U4T6V4U@cknow.org>
- <CAMuHMdVxjOLZsas4+nmAkZjbJsQjxdkZvZ8tTY9pq2zz3gvFNQ@mail.gmail.com>
-In-Reply-To: <CAMuHMdVxjOLZsas4+nmAkZjbJsQjxdkZvZ8tTY9pq2zz3gvFNQ@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 11 Sep 2025 08:26:51 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45dd513f4ecso2612815e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 01:26:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757579209; x=1758184009; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QmswRsDV85LAGSgZM1TnGtsRJLjTs07m6UjoRfbX1i8=;
+        b=Ou/bYkJ47f+GIbnuReFDU6+bcv0qekQNGcxnIr1Qz7hHTqIWZ00td7w1UYXUtdU6/F
+         pFV/ficZo4efvQwJLefc1ptygODXPVLkvDMI3nd1vDDIUpVO5RcgxnhpZpg0OP6FQ+LP
+         rhKMoAO0OZo72CT1gy/8z2/pupiaSruIflgDRFUER+LaooNcJLxAZVmjs16bNcwmDta1
+         1/7/uifqNqyEz3Kwpprb+kJFTy2VLy7ZapRyT6O36704FwCClYbZPR6k+JPnHRKbQ5fx
+         hh3M67rr8fRDNx8dQ0Bs2slAGStdEL88itmcBlSqx0pPXh5JE0cJAWH01E4R/ypg6H4p
+         W18g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757579209; x=1758184009;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QmswRsDV85LAGSgZM1TnGtsRJLjTs07m6UjoRfbX1i8=;
+        b=f+VVzWv9rI7AxOgkHfWsWt0WVDs/P/Fx83hPX2D8sSw2D6Qq7/E9shmmVX44+UdXIB
+         AR6cnipZXDAvV7ZrkVXmFQXi2t3441W8sDp18/jMi80X1NkIBYR9viBpx/3LC5pF1aD8
+         NUZBP7BRyYOdKXvdMJrwCh+gccEAD553qb2K4GYRLiYuzcivJ3DsCyj9JM4BP/QCoaH0
+         iT9pE5DhfZ3FplIt3Zj9veMdUywBlP8b3YaGsQf+AEFE3F44RFjbP1ye33mSpAzibUsM
+         MDJUlOgW9QaXm5KOqKbv7T9h2wJoKy9n6VxH8EY+9oTe8PbpJXS7BbL/IPunNcmyigHw
+         7Vzw==
+X-Gm-Message-State: AOJu0YxfpaMdgb9Na3qKxy9LeKClQjfucijP+Ty4xHq3XdhMWptVOf7x
+	boLPlH1bUfAyE9menKDfU0tSgESm4Yr5Pp34otVevqNVdgF/Az/4N/L+nN/mDZqs4PE=
+X-Gm-Gg: ASbGncu0WjltrK5FUzxx1b28KXGs5y8mbCobSnOz11fq2CeJ2Et3WGLI2j63Zw2LU6F
+	/uqHGeiIX5adH6smNjuHG5m2nfwIzE8O2H88Nd2I4AAsubM2l4QGIvCKcv0Y6iU5GO1BfWijsPl
+	+dLK6nTHMVfDYeA9MSfQ4qZoyPlIoHPd0F54TcOpL3/tZGUl2iZ/TPAcIyVF6cB9DafWvCCaUC3
+	l2iDhY7E5dIaEZDffDyPReA4i/sOXk14fDGigB6c6YtebLMZegbZPPzi1zgkS6twIaVgoBPt2Gh
+	B6UMQzrw5RybaHUGmtPcHenG9LY5u14PzEmC7AhnOcM71/kEimBQyxgi1jkGGvBry6sQ5K3zcAO
+	AzQk96ESHaGqdOqZ9HgyX/Y76uQ8=
+X-Google-Smtp-Source: AGHT+IE7R9n09fdDc3gxKWMG8ZdQt1MVhy5CILGt7inGxYTFXeK21MqYcM9OgweBeDIjjRUpvgvRaA==
+X-Received: by 2002:a05:600c:870f:b0:45b:8453:d7e with SMTP id 5b1f17b1804b1-45de072e865mr174352905e9.6.1757579208672;
+        Thu, 11 Sep 2025 01:26:48 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e037c3ce5sm13955765e9.16.2025.09.11.01.26.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Sep 2025 01:26:48 -0700 (PDT)
+Message-ID: <fc2ee38c-b163-4b7e-9ba2-c2b93d0fc691@linaro.org>
+Date: Thu, 11 Sep 2025 09:26:47 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] perf vendor events arm64 AmpereOne: Fix typos in
+ metrics' descriptions
+To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
+ Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ "Liang, Kan" <kan.liang@linux.intel.com>
+References: <20250910195214.50814-1-ilkka@os.amperecomputing.com>
+ <20250910195214.50814-3-ilkka@os.amperecomputing.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250910195214.50814-3-ilkka@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_012629_636033_FF213548 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20250911_012650_637379_0E75C7BB 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,98 +109,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---c4d98de91abd6d1006b609cb4621827d77940c66045ae6e96f5d64cd32ef
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
 
-Hi Geert,
 
-On Thu Sep 11, 2025 at 9:18 AM CEST, Geert Uytterhoeven wrote:
-> On Wed, 10 Sept 2025 at 21:33, Diederik de Haas <didi.debian@cknow.org> w=
-rote:
->> On Tue Sep 9, 2025 at 1:11 PM CEST, Ulf Hansson wrote:
->> > Recent changes to genpd prevents those PM domains being powered-on dur=
-ing
->> > initialization from being powered-off during the boot sequence. Based =
-upon
->> > whether CONFIG_PM_CONFIG_PM_GENERIC_DOMAINS_OF is set of not, genpd re=
-lies
->> > on the sync_state mechanism or the genpd_power_off_unused() (which is =
-a
->> > late_initcall_sync), to understand when it's okay to allow these PM do=
-mains
->> > to be powered-off.
->> >
->> > This new behaviour in genpd has lead to problems on different platform=
-s [1].
->> >
->> > In this series, I am therefore suggesting to restore the behavior of
->> > genpd_power_off_unused() along with introducing a new genpd config fla=
-g,
->> > GENPD_FLAG_NO_STAY_ON, to allow genpd OF providers to opt-out from the=
- new
->> > behaviour.
->>
->> Is it expected that I'm still seeing this on a Rock64 (rk3328), just
->> like before [1]?
->>
->>   [   17.124202] rockchip-pm-domain ff100000.syscon:power-controller: sy=
-nc_state() pending due to ff300000.gpu
->>   [   17.129799] rockchip-pm-domain ff100000.syscon:power-controller: sy=
-nc_state() pending due to ff350000.video-codec
->>   [   17.140003] rockchip-pm-domain ff100000.syscon:power-controller: sy=
-nc_state() pending due to ff360000.video-codec
->
-> Yes, as the sync state is still blocked on them.
-> Disabling unused PM Domains is done independently of sync state.
->
->> This is with a 6.17-rc5 kernel with this patch set applied.
->> And it also has this patch from Christian Hewitt added, now in v3:
->> https://lore.kernel.org/linux-rockchip/20250906120810.1833016-1-christia=
-nshewitt@gmail.com/
->>
->> When I boot into a 6.17-rc5 kernel without any patches applied, I do get
->> the 2 for ff350000.video-codec and ff360000.video-codec, but not the
->> ff300000.gpu one.
->>
->> Interestingly:
->> ff300000.gpu -> power-domains =3D <&power RK3328_PD_GPU>;
->> ff350000.video-codec -> power-domains =3D <&power RK3328_PD_VPU>;
->> ff360000.video-codec -> power-domains =3D <&power RK3328_PD_VIDEO>;
->>
->> I would be surprised if that was a coincidence.
->
-> Fw_devlinks ignores the index cell (RK3328_PD_*), hence all links are
-> created pointing to the pmdomain controller (in case it has a platform
-> driver) or the first pmdomain (in case it has not). thus blocking the
-> sync state call and power-down for _all_ pmdomains managed by the
-> controller.
+On 10/09/2025 8:52 pm, Ilkka Koskinen wrote:
+> While fixing a typo in "l1d_cache_access_prefetches" in AmpereOneX,
+> a few other typos were found in metrics' descriptions too. While AmpereOne
+> doesn't have the metric, it did have the typos in the descriptions.
+> 
+> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+> ---
+>   .../pmu-events/arch/arm64/ampere/ampereone/metrics.json   | 8 ++++----
+>   1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json
+> index afcdad58ef89..324104438e78 100644
+> --- a/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json
+> +++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json
+> @@ -113,7 +113,7 @@
+>       {
+>   	"MetricName": "load_store_spec_rate",
+>   	"MetricExpr": "((LDST_SPEC / INST_SPEC) * 100)",
+> -	"BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speclatively executed",
+> +	"BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speculatively executed",
+>           "MetricGroup": "Operation_Mix",
+>           "ScaleUnit": "1percent of operations"
+>       },
+> @@ -132,7 +132,7 @@
+>       {
+>   	"MetricName": "pc_write_spec_rate",
+>   	"MetricExpr": "((PC_WRITE_SPEC / INST_SPEC) * 100)",
+> -	"BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speclatively executed",
+> +	"BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speculatively executed",
+>           "MetricGroup": "Operation_Mix",
+>           "ScaleUnit": "1percent of operations"
+>       },
+> @@ -195,14 +195,14 @@
+>       {
+>   	"MetricName": "stall_frontend_cache_rate",
+>   	"MetricExpr": "((STALL_FRONTEND_CACHE / CPU_CYCLES) * 100)",
+> -	"BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and cache miss",
+> +	"BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and cache miss",
+>   	"MetricGroup": "Stall",
+>           "ScaleUnit": "1percent of cycles"
+>       },
+>       {
+>   	"MetricName": "stall_frontend_tlb_rate",
+>   	"MetricExpr": "((STALL_FRONTEND_TLB / CPU_CYCLES) * 100)",
+> -	"BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and TLB miss",
+> +	"BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and TLB miss",
+>   	"MetricGroup": "Stall",
+>           "ScaleUnit": "1percent of cycles"
+>       },
 
-I don't think I fully understand this (not your problem due to lack of
-knowledge on my part), but you mentioning 'fw_devlink' rang a bell.
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-Some time ago Nicolas Frattaroli and I worked on an image for PINE64's
-*Quartz* devices and that added ``fw_devlink=3Doff`` to cmdline.
-I've been using it on all my Rockchip based devices, without
-understanding that parameter ... but (apparently) on my 'rock64-test'
-device, where I tested it with, I had removed that parameter.
-Putting that parameter back ... and those warnings are gone!
-
-Thanks a LOT for that hint!
-
-Groetjes,
-  Diederik
-
---c4d98de91abd6d1006b609cb4621827d77940c66045ae6e96f5d64cd32ef
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaMKHoQAKCRDXblvOeH7b
-bo6/AQDBs8RXL9MZybJJhHinLOCxYw9QduO4Nxl/I3V6lRVjfgD/cp0KvoFONOMG
-zBh0Hr6do6+m3BaFnV2rsF15IgfvlAg=
-=3jJl
------END PGP SIGNATURE-----
-
---c4d98de91abd6d1006b609cb4621827d77940c66045ae6e96f5d64cd32ef--
 
