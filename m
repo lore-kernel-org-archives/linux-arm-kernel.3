@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F5CACAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5164CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YC/jPvTDCH7V0MdE5QEYPuycikAgoYKWyE534nDYx4M=; b=oTRjRpPI5SsXrh6bxF75BS6HOH
-	G897PcXT7Zwctvb9KcRCv/n2sX7jt6I5GN17pF4kdIuUAnlB4Ihw1gXZYg9GFceIpXTa2K3HqJMKQ
-	VhR85OnyRqXBuNfBfgLrhnyvG9Nr5dPCMk61NVvV1pzWFG6pz0eKJR0QBgBPmwvsjIErcKxAXAvVA
-	UR9RF93FBvUDD+IbLdn9DOB8AIXaIozGWqGzqRiJ3P4V4S70PSlnqpnWM+iBmoXqldfEbrxW/3dE3
-	/upWEodOeH33b7jmj++e2Bg4o9awPnmZyVZa2x7XYSFfjazUpHq1ay7vBJQ+2FjiU6PZLDmNy25vB
-	ACaK7ueQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r1GeeUvJ1EcVF7IcaRkyWkRJvcb/yvxYhMFXl/F1TUw=; b=JHDrarKQl2Bj2sUp1sTvSiShhy
+	Ff+1XdafUpu/lzkFdu4UKX45WUERQb1cl7HsMp7SM46x4Ej6USugWqGBeMSPf9GFuSk4T1DRIXHSO
+	6Nl81A3abfi39mNnyHQLzVxfwqXGAMvucux3Po41oJdv05H9blCXSrMWSG32DEHVPWZLV2KCUtI/W
+	kY+hLfenkCHlsl5PZ5nQERLLwOZ1JpDASpzcum3rkKBJpmqbwzm9KFPCnXsAy692P91xiB7DX44ok
+	wYtgXwRnnah2gmwr7ejKxBgQlUhzESuZnETE0hNZUr975RfY9ng6f4px2Yhlb2id4U115VhrFjCfM
+	j3V9oe7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhhe-00000003MtT-2cTI;
-	Thu, 11 Sep 2025 13:51:10 +0000
-Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
+	id 1uwhr8-00000003QEl-3Yv3;
+	Thu, 11 Sep 2025 14:00:58 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhhY-00000003Mk3-01R7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 13:51:06 +0000
-Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-6045eb3848eso430749d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 06:51:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757598663; x=1758203463; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YC/jPvTDCH7V0MdE5QEYPuycikAgoYKWyE534nDYx4M=;
-        b=a8jMzAiMJplKkWOwJD2UUHLmlY5BqGHcd+jdpYcg9BKCb60XpNSrS15HWoLWnPU7Se
-         UH6KSSZy/j4pkHDgh3dGfQUuzUPkGzKP2qK6x8xNMgsbxtB7JLaHbwFC5Axap/x3BDik
-         ToIrMXfygIpntUGdVjf1skcPmpbXpO1MEdP1MAVh3ccSmwfs4DXVmGk5kIOlyYqzWPSJ
-         BvatC4pJ0jJr3iqFQCwE098I6s+hE4CQGfyLfLjFS7CG8q1NgMe6B/b0cnlklmI8PT5R
-         Hl/YjjGB2FcPofRIRAf/IJz92C+/gCLsk8eo5xcBfdMJutXlr1Fb7hA9Wghj2P/nRMsG
-         E60g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757598663; x=1758203463;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YC/jPvTDCH7V0MdE5QEYPuycikAgoYKWyE534nDYx4M=;
-        b=Zb2GAHXnQbsqcNGko+GGtp2snEoUMwbSeaY6DtGjDSIKALquiaQfOsQtezGS1B3UCS
-         Mwez57HBL9fGy1foZIw8gV93Hdd0pXwc8sHEicGPH6ezNGTtI2TYCyHm0aKMLTijipcW
-         tq1RfVYODDBljuMW/yXSb/1dN/l43FDJT3PwOSRVMv+OtiTSXyuwnMPRVMbPtQ/TLjDB
-         ay2eVC+9sQCI/R+CXZBvagHycHsfg9UWmE0AMMlHhE8xEIYA3iCUVh35Y6TvduDVvGpT
-         6W7NKKYfzCSExM5cOUzSrYDu/iao3Y/i6pUuMNdyqd0Givxb8TQikYy0vZBB1uQJXPNd
-         +NVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVLcr1n0JCIe6UdVFGGaPoGPogSXPTt/Mb+cVxDlfA5CTJkwuSF5Av0YqBC6TH6NMGycoqPpaDz/FwUV92p2dgv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSrlQmbYU5vgzhUUH4SRANKvJFUTeDkmC89T5DcLONZh+Ama1W
-	0T/tLjTXsMtLsBlc/UOxf+eJVtFZrfhC894Js8DTMDDn8jePPAxMuENeCVsTYi1/JjQ=
-X-Gm-Gg: ASbGncugguKZLcbo/JTPsLfyRvln1hyzGv8YBkBlHB4KUj4XXjtYyD52xGzgv3vuE1z
-	Y+0cmCYDjwSp6cqqLWMnVDgdO5ye3sQh5pRK2eto+oZG7JNwfL4hl9f5AVk56QrV8xS8iS4QFdg
-	OS+WUMIDydBcOwVVYyI64vg3b/sfBEqXau3sWWDrb6K3+K70F+wihcj4+mK+IhwtUB7Fhip7TN7
-	Mu82ma9nuOBbBEFhiJj/sE0rHHxD0vz9y6Kz1d+c2HPG5Hux5Orvcm/FjP1NmLMMs3KCxKQdwPJ
-	uAsm9+4C7oErrIB6x9coIYvgvfRGxqlgaqGZlPt9nBexUco8uzrBurI/r7CsSpayNziMfGoNZGM
-	0JZLLCoVfzGLeUabQ9XXwKMynP3oyK5oEwsgDV70eb7bELAow4JwnN6OvbZCysHW4AMzzC6v1lS
-	A=
-X-Google-Smtp-Source: AGHT+IHZBm0VWF5Q2HiB0+9X7Vnwcu0dm3iI+l+WvOP7Jt3IX2w3wk8CNJ5VHY3b6oDMOP/vs9Jw5w==
-X-Received: by 2002:a53:b3c8:0:b0:5fb:957d:d74f with SMTP id 956f58d0204a3-6102163daa0mr12706114d50.3.1757598662617;
-        Thu, 11 Sep 2025 06:51:02 -0700 (PDT)
-Received: from rayden.urgonet (h-37-123-177-177.A175.priv.bahnhof.se. [37.123.177.177])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-72f7623434csm3526257b3.11.2025.09.11.06.50.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Sep 2025 06:51:01 -0700 (PDT)
-From: Jens Wiklander <jens.wiklander@linaro.org>
-To: linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>,
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>,
-	robin.murphy@arm.com,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Sumit Garg <sumit.garg@oss.qualcomm.com>
-Subject: [PATCH v12 9/9] optee: smc abi: dynamic protected memory allocation
-Date: Thu, 11 Sep 2025 15:49:50 +0200
-Message-ID: <20250911135007.1275833-10-jens.wiklander@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250911135007.1275833-1-jens.wiklander@linaro.org>
-References: <20250911135007.1275833-1-jens.wiklander@linaro.org>
+	id 1uwhr4-00000003QBb-3Qwt;
+	Thu, 11 Sep 2025 14:00:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757599249;
+	bh=YZgir26I9tEMrliPJqpACHa6ZwxQisNAKsIviQDd448=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ptIWOqljayKuQNx+9DWJiytF129iv9cMbyC6IdhX4Gi4Gkgv0nIqG0gNaawlWJw0g
+	 9jTWQoOPjbQTMbBHbde7s+3+jfA6uy4sViuuWRKdG9/TBuq3G8L64p5/inX/5i5rUN
+	 js2/xRXCUUlse7g6FaWx1jsxyOnDTgfavwGyNRBiKn8cXknyIlYpeml5jhbtZhm/F8
+	 UhJE+6O4hI8NGp9dqT4xmDHraZtYPgG1TVpE/36HMz2EHAJLGKLKyRdqHRN7omTIlQ
+	 5/WsEAuSTwweO9T7kkfiT+GZJYIhZP7GAWvVsRE3mBYI7JRQuUrcSmDMMxcBcA9x78
+	 jw9FpY0sy1o2Q==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 406D417E00EC;
+	Thu, 11 Sep 2025 16:00:49 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-remoteproc@vger.kernel.org
+Cc: arnd@arndb.de,
+	andersson@kernel.org,
+	mathieu.poirier@linaro.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	wenst@chromium.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH] remoteproc: mtk_scp: Construct FW path if firmware-name not present
+Date: Thu, 11 Sep 2025 16:00:43 +0200
+Message-ID: <20250911140043.190801-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_065104_093950_4E7A906B 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250911_070055_175369_57C37074 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,124 +78,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support in the OP-TEE backend driver for dynamic protected memory
-allocation using the SMC ABI.
+After a reply on the mailing lists [1] it emerged that the DT
+property "firmware-name" should not be relied on because of
+possible issues with firmware versions.
+For MediaTek SCP, there has never been any firmware version vs
+driver version desync issue but, regardless, the firmwares are
+always using the same name and they're always located in a path
+with a specific pattern.
 
-Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
-Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+Instead of unconditionally always relying on the firmware-name
+devicetree property to get a path to the SCP FW file, drivers
+should construct a name based on what firmware it knows and
+what hardware it is running on.
+
+In order to do that, add a `scp_get_default_fw_path()` function
+that constructs the path and filename based on two of the infos
+that the driver can get:
+ 1. The compatible string with the highest priority (so, the
+    first one at index 0); and
+ 2. The type of SCP HW - single-core or multi-core.
+
+This means that the default firmware path is generated as:
+ - Single core SCP: mediatek/(soc_model)/scp.img
+   for example:     mediatek/mt8183/scp.img;
+
+ - Multi core SCP:  mediatek/(soc_model)/scp_c(core_number).img
+   for example:     mediatek/mt8188/scp_c0.img for Core 0, and
+                    mediatek/mt8188/scp_c1.img for Core 1.
+
+Note that the generated firmware path is being used only if the
+"firmware-name" devicetree property is not present in the SCP
+node or in the SCP Core node(s).
+
+[1 - Reply regarding firmware-name property]
+Link: https://lore.kernel.org/all/7e8718b0-df78-44a6-a102-89529d6abcce@app.fastmail.com/
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/tee/optee/smc_abi.c | 78 +++++++++++++++++++++++++++++++++++--
- 1 file changed, 75 insertions(+), 3 deletions(-)
+ drivers/remoteproc/mtk_scp.c | 64 ++++++++++++++++++++++++++++++++----
+ 1 file changed, 58 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
-index b4c007ed3b94..0be663fcd52b 100644
---- a/drivers/tee/optee/smc_abi.c
-+++ b/drivers/tee/optee/smc_abi.c
-@@ -965,6 +965,70 @@ static int optee_smc_do_call_with_arg(struct tee_context *ctx,
- 	return rc;
+diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+index 8206a1766481..80fcb4b053b3 100644
+--- a/drivers/remoteproc/mtk_scp.c
++++ b/drivers/remoteproc/mtk_scp.c
+@@ -16,6 +16,7 @@
+ #include <linux/remoteproc.h>
+ #include <linux/remoteproc/mtk_scp.h>
+ #include <linux/rpmsg/mtk_rpmsg.h>
++#include <linux/string.h>
+ 
+ #include "mtk_common.h"
+ #include "remoteproc_internal.h"
+@@ -1093,22 +1094,73 @@ static void scp_remove_rpmsg_subdev(struct mtk_scp *scp)
+ 	}
  }
  
-+static int optee_smc_lend_protmem(struct optee *optee, struct tee_shm *protmem,
-+				  u32 *mem_attrs, unsigned int ma_count,
-+				  u32 use_case)
++/**
++ * scp_get_default_fw_path() - Get default SCP firmware path
++ * @dev:     SCP Device
++ * @core_id: SCP Core number
++ *
++ * This function generates a path based on the following format:
++ *     mediatek/(soc_model)/scp(_cX).img; for multi-core or
++ *     mediatek/(soc_model)/scp.img for single core SCP HW
++ *
++ * Return: A devm allocated string containing the full path to
++ *         a SCP firmware or an error pointer
++ */
++static const char *scp_get_default_fw_path(struct device *dev, int core_id)
 +{
-+	struct optee_shm_arg_entry *entry;
-+	struct optee_msg_arg *msg_arg;
-+	struct tee_shm *shm;
-+	u_int offs;
-+	int rc;
++	struct device_node *np = core_id < 0 ? dev->of_node : dev->parent->of_node;
++	char scp_fw_file[7] = "scp_cX";
++	const char *compatible, *soc;
++	int ret;
 +
-+	msg_arg = optee_get_msg_arg(optee->ctx, 2, &entry, &shm, &offs);
-+	if (IS_ERR(msg_arg))
-+		return PTR_ERR(msg_arg);
++	/* Use only the first compatible string */
++	ret = of_property_read_string_index(np, "compatible", 0, &compatible);
++	if (ret)
++		return ERR_PTR(ret);
 +
-+	msg_arg->cmd = OPTEE_MSG_CMD_LEND_PROTMEM;
-+	msg_arg->params[0].attr = OPTEE_MSG_ATTR_TYPE_VALUE_INPUT;
-+	msg_arg->params[0].u.value.a = use_case;
-+	msg_arg->params[1].attr = OPTEE_MSG_ATTR_TYPE_TMEM_INPUT;
-+	msg_arg->params[1].u.tmem.buf_ptr = protmem->paddr;
-+	msg_arg->params[1].u.tmem.size = protmem->size;
-+	msg_arg->params[1].u.tmem.shm_ref = (u_long)protmem;
++	/* If the compatible string's length is implausible bail out early */
++	if (strlen(compatible) < strlen("mediatek,mtXXXX-scp"))
++		return ERR_PTR(-EINVAL);
 +
-+	rc = optee->ops->do_call_with_arg(optee->ctx, shm, offs, false);
-+	if (rc)
-+		goto out;
-+	if (msg_arg->ret != TEEC_SUCCESS) {
-+		rc = -EINVAL;
-+		goto out;
-+	}
-+	protmem->sec_world_id = (u_long)protmem;
++	/* If the compatible string starts with "mediatek,mt" assume that it's ok */
++	if (!str_has_prefix(compatible, "mediatek,mt"))
++		return ERR_PTR(-EINVAL);
 +
-+out:
-+	optee_free_msg_arg(optee->ctx, entry, offs);
-+	return rc;
++	if (core_id >= 0)
++		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
++	else
++		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
++	if (ret <= 0)
++		return ERR_PTR(ret);
++
++	soc = &compatible[strlen("mediatek,")];
++
++	return devm_kasprintf(dev, GFP_KERNEL, "mediatek/%.*s/%s.img",
++			      (int)strlen("mtXXXX"), soc, scp_fw_file);
 +}
 +
-+static int optee_smc_reclaim_protmem(struct optee *optee,
-+				     struct tee_shm *protmem)
-+{
-+	struct optee_shm_arg_entry *entry;
-+	struct optee_msg_arg *msg_arg;
-+	struct tee_shm *shm;
-+	u_int offs;
-+	int rc;
-+
-+	msg_arg = optee_get_msg_arg(optee->ctx, 1, &entry, &shm, &offs);
-+	if (IS_ERR(msg_arg))
-+		return PTR_ERR(msg_arg);
-+
-+	msg_arg->cmd = OPTEE_MSG_CMD_RECLAIM_PROTMEM;
-+	msg_arg->params[0].attr = OPTEE_MSG_ATTR_TYPE_RMEM_INPUT;
-+	msg_arg->params[0].u.rmem.shm_ref = (u_long)protmem;
-+
-+	rc = optee->ops->do_call_with_arg(optee->ctx, shm, offs, false);
-+	if (rc)
-+		goto out;
-+	if (msg_arg->ret != TEEC_SUCCESS)
-+		rc = -EINVAL;
-+
-+out:
-+	optee_free_msg_arg(optee->ctx, entry, offs);
-+	return rc;
-+}
-+
- /*
-  * 5. Asynchronous notification
-  */
-@@ -1216,6 +1280,8 @@ static const struct optee_ops optee_ops = {
- 	.do_call_with_arg = optee_smc_do_call_with_arg,
- 	.to_msg_param = optee_to_msg_param,
- 	.from_msg_param = optee_from_msg_param,
-+	.lend_protmem = optee_smc_lend_protmem,
-+	.reclaim_protmem = optee_smc_reclaim_protmem,
- };
- 
- static int enable_async_notif(optee_invoke_fn *invoke_fn)
-@@ -1627,14 +1693,20 @@ static struct tee_protmem_pool *static_protmem_pool_init(struct optee *optee)
- 
- static int optee_protmem_pool_init(struct optee *optee)
+ static struct mtk_scp *scp_rproc_init(struct platform_device *pdev,
+ 				      struct mtk_scp_of_cluster *scp_cluster,
+-				      const struct mtk_scp_of_data *of_data)
++				      const struct mtk_scp_of_data *of_data,
++				      int core_id)
  {
-+	bool protm = optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_PROTMEM;
-+	bool dyn_protm = optee->smc.sec_caps &
-+			 OPTEE_SMC_SEC_CAP_DYNAMIC_PROTMEM;
- 	enum tee_dma_heap_id heap_id = TEE_DMA_HEAP_SECURE_VIDEO_PLAY;
- 	struct tee_protmem_pool *pool = ERR_PTR(-EINVAL);
--	int rc;
-+	int rc = -EINVAL;
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np = dev->of_node;
+ 	struct mtk_scp *scp;
+ 	struct rproc *rproc;
+ 	struct resource *res;
+-	const char *fw_name = "scp.img";
++	const char *fw_name;
+ 	int ret, i;
+ 	const struct mtk_scp_sizes_data *scp_sizes;
  
--	if (!(optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_PROTMEM))
-+	if (!protm && !dyn_protm)
- 		return 0;
+ 	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
+-	if (ret < 0 && ret != -EINVAL)
+-		return ERR_PTR(ret);
++	if (ret) {
++		fw_name = scp_get_default_fw_path(dev, core_id);
++		if (IS_ERR(fw_name)) {
++			dev_err(dev, "Cannot get firmware path: %ld\n", PTR_ERR(fw_name));
++			return ERR_CAST(fw_name);
++		}
++	}
  
--	pool = static_protmem_pool_init(optee);
-+	if (protm)
-+		pool = static_protmem_pool_init(optee);
-+	if (dyn_protm && IS_ERR(pool))
-+		pool = optee_protmem_alloc_dyn_pool(optee, heap_id);
- 	if (IS_ERR(pool))
- 		return PTR_ERR(pool);
+ 	rproc = devm_rproc_alloc(dev, np->name, &scp_ops, fw_name, sizeof(*scp));
+ 	if (!rproc) {
+@@ -1212,7 +1264,7 @@ static int scp_add_single_core(struct platform_device *pdev,
+ 	struct mtk_scp *scp;
+ 	int ret;
  
+-	scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev));
++	scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev), -1);
+ 	if (IS_ERR(scp))
+ 		return PTR_ERR(scp);
+ 
+@@ -1259,7 +1311,7 @@ static int scp_add_multi_core(struct platform_device *pdev,
+ 			goto init_fail;
+ 		}
+ 
+-		scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id]);
++		scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id], core_id);
+ 		put_device(&cpdev->dev);
+ 		if (IS_ERR(scp)) {
+ 			ret = PTR_ERR(scp);
 -- 
-2.43.0
+2.51.0
 
 
