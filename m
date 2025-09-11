@@ -4,97 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3EDCAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04576CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGqDa7na50Tsqkd5b+BW6jy2kx5Qm/puj3/p65teiTc=; b=LySujEI7VeQT4znJ88mzRRlt0U
-	0+xrDNE3djke3JX681Ocvno9BvUwOdorsUKcE9V01AkIo0tLTeSYAz5K4PebR4y9zCXLRnoaQ6HZz
-	aUe7H9N4g5Q8Svc0sGOjaPgOvRvHqcnGueyXdUJcwmFXm+fe52UuaH4JgAepjxoICRKooqx6dOHkH
-	Hz3AQi74x08Rf1jYO3+kBBnuR0OzjIRNb7FtXq7dxAMZUmAZB7j2oRItM83AnnBVBfzTa4yOVyqUY
-	00mxo9rjEDTb3+AkHUDbOihtvSVWrpPo03kt7yBGx58SQjrCxPXwhNeiFBtS6ds7peOVAyRBMKLzY
-	qnhX5qZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=luw3n0HGnbk6EOotgfISXWmF8HW9Fb8HNQ5maEZKycU=; b=anVwcCtk9EO9lhfKmMvvyIN6o3
+	YkRp0HQQakdQ7/m6Pbyx19Xgo9zp5SGVXw9AI2FdAQWOsw/RTzg7RHaOuXqV7gIOKS+ALWfawBI6m
+	8i6mRyiUXAZuzYBbkxpCyfYUBFBv3fe9Y9nkaed/LUHR0NZA7i91kjgbhhBamKWw87dTqzIuEnBFh
+	rohQGsfDTeKHgcZJeKo0IM3tVKfbcIRstXgAtCzV1r0mHDKBsHlXRve2vC/aKjyJzDu/lTy6wsiF3
+	JMFyJz4EBlsuKON8b8ACfoj8qSq2W9ph3pjYum4xoxhkencXNTqwBh2v8+FewkPvVIa1SqnIfyz7U
+	lD11M/9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjAs-00000003s0U-3tl9;
-	Thu, 11 Sep 2025 15:25:26 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1uwjC3-00000003sN6-1Fpw;
+	Thu, 11 Sep 2025 15:26:39 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjAq-00000003rzC-2lT1
+	id 1uwjC1-00000003sM5-1hs0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:25:25 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b045d56e181so134053666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 08:25:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757604323; x=1758209123; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uGqDa7na50Tsqkd5b+BW6jy2kx5Qm/puj3/p65teiTc=;
-        b=g66D1av+mF3HuhNSmFbIPiuDdMwz2Oa5FjSuhU6sHPdbWFl/yLLjneeOr9fpoPkIi6
-         xEAAzCDlQBjbStpSLTIjmvfKIKuGFOj/fBKEHLG/zASKj+4jg0X7YYh3ouLtt4VNNzeg
-         x8b3KmtapNVJUyNiBhQRcQndvhbjp7lCNGvpNeltXgP9Ux4FRQqZudUaQ1uoZ1VNlgis
-         rEVynBTI90MZVmC8O9xAKLvT0xMK/9ifGc5JOroR0aHJ1+ZqgStw08dqsOvRmVixoUYH
-         tyKUem+rdvw5Dez8CSlr3O8AVEQHBu38ojIq5c4tIYf4HEYla0wYG0B8oqngLwGxKn47
-         pnRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757604323; x=1758209123;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uGqDa7na50Tsqkd5b+BW6jy2kx5Qm/puj3/p65teiTc=;
-        b=gB/6RWS8efmhLokshZqJ40e9Azj9mjVq09gCaLFGlHHrEdIoOoCyO9qC58q7Ub3ttf
-         0Nu0SsJ+aP7bohpOLf81yKXyfa5hvZ+YqjGvyx7EiIqJaTxhug5zZmUPhTHPgw443sHw
-         GneclO6VIgYQHj2VGvt3Xg8HHrxWHO36G+Iai/vN8yxB/IHD6ke18usEMyeBPcxspFcB
-         L5AqW2IKAi19Tqd2d51ePnyiI1gLXi/M4OFd4/U6ldI6K/hFB6daAa/kPVyRIMeUBn+B
-         Yrck4FkSuUEjw1JdlGk+r5wV6bZFuvxPUZqbk2ajFafTz4nKT9QWxnE+KtQhrpZ6HoEz
-         ktcA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJBu8iX60QXFp6svOixLHoNpYyBh3jUqd7MPZDY3SuFcE7hdySdbV1eYg/pMHkM5m/GktIWMqngcAaWC+1wJkb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGLlI6IirYipe4wTUd5xnbvE5YVtHDhZLyvhvix3wOoWFvf3XZ
-	B21FskIqN6xdfSWjI9lA4T2UNQRmT3tnulujHLRnvwXD6Z+gPKTQNlIWSdGLbSP7WPo=
-X-Gm-Gg: ASbGncsgdSDrxqv6/neJ7gIl/EkDW8BI75c7tP62AH0q/2NXs/NJLtV/bN+uqFSt0rX
-	Njfez2pHM2ckr5rRMwRQOuc+xl2AWbwaK0nHZDbdwkUS1wzEquTi4OScReiRzmoEd15oBT/4JHy
-	61e4qUxv0zPeOxMaNX8D9NI7AsKsWjf7qOrWdqYQccj1moc8ErKP8RrU3WVHhpqVB0vKotowgqp
-	/ScnQK4yyAOcba9YC3SXs5wUl2+OpEuX6eryx8E57Rz1QJJ8kaDWmUb5NUvoo7H03bXWnXogbDm
-	Z+SwXgT8fqc86/x2bD3vZ2QgwaqNypU6X+a9SKf58CvryFsAZhmheI9QXJPkJ4GCm50+nLQiYCV
-	s7yR4QuNoPnzyeC4aTLFWBxrc9k0M4pYLe7JdQg==
-X-Google-Smtp-Source: AGHT+IHugeAv/E3LaNGHdPUBYX+6ZpCpqbd4db6KXGZqZL8GkcfgxCKJHoCmuX4C/ujMeGbekya4ig==
-X-Received: by 2002:a17:906:7d43:b0:b07:6457:13f0 with SMTP id a640c23a62f3a-b0764571477mr938274266b.9.1757604322845;
-        Thu, 11 Sep 2025 08:25:22 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b32ddf93sm153255466b.69.2025.09.11.08.25.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Sep 2025 08:25:22 -0700 (PDT)
-Message-ID: <7ecb5900-b7cb-4d2d-93a7-cf0dbdc03cf8@linaro.org>
-Date: Thu, 11 Sep 2025 16:25:21 +0100
+	Thu, 11 Sep 2025 15:26:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=T6ffL1C49vqNtkqAdiz/aGRWyLQiMFnNHxgkgRsnhYHasJWb/8Xbf0ezowkb0koV+E2GZSPn6A0tcPqHevtZ7R0JTVbe8UbtiqrVYvk6eOGhobkyEi7fbYoJdYdFhiMo8w8bY2F77YQyhMAswkF6MElIV23qM3COQifUmyDJXKJiivlahgTSNODBYves67wOPoSt0SUbF8ib7yd6xm7eUi1YKwiW0SyWDgu9mnC6SyeeRpsuOVgOYp7PSOTk1y0M4RusJG63zx+NH0bH6MXfwgzWfRSG0yDERr8XSywouyYycI3M1HsVwPqKX3zDj+iifwk5sflA2b4zeqZLSx9CHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=luw3n0HGnbk6EOotgfISXWmF8HW9Fb8HNQ5maEZKycU=;
+ b=M+OA3S00TkirPX4ddzaQ+aXwmjtxiKNa8wiD3v+bydRuFws+GvjuwRXBiQbss4WNQHxyI3JEzva4nSRXaYiLDj+XBpKZp6ydLod9j9ihiPo/81Xqd8q1DxXo+mwbIDft6CGB6YML5glJ168rav1xnpvvfPxPt/Eg8YfXZctZlo5PuwglIS5wq9Hyj3WTH+KSho2s2OX5uDkCgkKMUW0Qf62BNl59l/BWbqcg05XeXmf//l7QSoTQ9gQsVOwaPbQ7J/OkrHBzRL4cDDWOWSSVBJ66Ym+AyOrS3Dw3GbbRBbWeZkuTA9n+JY21ebx0I17M8xwIAhq37R0/vLabVZ2otA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=luw3n0HGnbk6EOotgfISXWmF8HW9Fb8HNQ5maEZKycU=;
+ b=VT7lSmYmgJW7CzlOPmN2JskKBgFCWwYz7FqbRLnf9dmAry0XuHLAhc7TqKzSEpRzEAUr48YaJGyWtqe7aZHt36sMnfeXaAHXaXGSj58W+BHQrBa+mvUKVdrhndJ+aGvE3FY3GQKmUlMSAJj4ZsyfkoADazkO+EBUWLv7X1bJ+I/k2RtLSznLtchEKv8Ct9XS1jZu5zdALNQ8UAboKpfscYmt51oNP3SjQZEDZop4YEKsxl3Pgo9HxZJRhR1CpmlZ+roKmr1uRMniYoHtbB737lDzzq7CHwbwARMy4HmWd/N828yKN2ZDJw8IyLE4cyifs0LYicmIGkQ1dC4ocAJQUg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by PA6PR04MB11779.eurprd04.prod.outlook.com (2603:10a6:102:521::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Thu, 11 Sep
+ 2025 15:26:26 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9115.015; Thu, 11 Sep 2025
+ 15:26:26 +0000
+Date: Thu, 11 Sep 2025 11:26:16 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: imx@lists.linux.dev, Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/9] dt-bindings: display: imx: Add i.MX94 DCIF
+Message-ID: <aMLqGJVAVnBYkuvv@lizhi-Precision-Tower-5810>
+References: <20250911-dcif-upstreaming-v5-0-a1e8dab8ae40@oss.nxp.com>
+ <20250911-dcif-upstreaming-v5-4-a1e8dab8ae40@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250911-dcif-upstreaming-v5-4-a1e8dab8ae40@oss.nxp.com>
+X-ClientProxiedBy: BY5PR03CA0012.namprd03.prod.outlook.com
+ (2603:10b6:a03:1e0::22) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 04/15] perf arm_spe: Correct memory level for remote
- access
-To: Leo Yan <leo.yan@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, German Gomez
- <german.gomez@arm.com>, Ali Saidi <alisaidi@amazon.com>
-References: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-0-58e5677a412b@arm.com>
- <20250731-arm_spe_support_hitm_overhead_v1_public-v4-4-58e5677a412b@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-4-58e5677a412b@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|PA6PR04MB11779:EE_
+X-MS-Office365-Filtering-Correlation-Id: 60d3f085-c520-4ff2-af7a-08ddf1479290
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|19092799006|376014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?thhKcy9WkvB5D8/T0A5wpRLi56pFHFjWlMplhFGiZeFraYTbjMZAk02nV731?=
+ =?us-ascii?Q?QulXva+yQ5l3RwR6ydtDbpq3S3MGmPsXC5wE9+6MtQ3sJjzC3d5I54ddNBYt?=
+ =?us-ascii?Q?O2VfNLxvbykkDt8YWVinhUuhidaYk0VwGbsQOuvXGY3KToK9+TtzQWO9I3qk?=
+ =?us-ascii?Q?+etXu6WKGgjLAqnr8/LzJ4H8PL7SjDMpxc0Hv4RV6RsS1X4dF1RB79k9OysO?=
+ =?us-ascii?Q?pejZC4yP3UCrCqcB4Jt15MDb248AZ7im5otApydvcUxbAxjDhQJHSxrmzrl2?=
+ =?us-ascii?Q?9jEOYBuOeYqRJwpS0Xe5+wYa8n/QfjIm8ICq3LoG44mk3cidEAvJcRIMv3Kn?=
+ =?us-ascii?Q?YnVZmyQZvyOke23wPC7mvBxds9c60puM8Y4WcEQmfLOz8D3Kd1AaTeTF3SYW?=
+ =?us-ascii?Q?ZF/TrMZBHL0A83FwtTIF7aPc2ReHk873QLDvMQoEBz4HVr12D2ZQcMvSt79j?=
+ =?us-ascii?Q?Uffk4mDTpOWPFcGV+MwhkQqWIcN8Hj+DqWaIeXdtk+KU/XIooXBs1DSay12V?=
+ =?us-ascii?Q?3pd1WhiZhQiSLOL5hRQolErfti7AfaMSCMqoljnIpIlKsuSP3zMDz8ET/wi4?=
+ =?us-ascii?Q?5WW4gKkMfub4Y4QlUeIWiG9+8DIWb1RN34syku4QhLFVPxr37lrVgOcnVpXl?=
+ =?us-ascii?Q?wHp1yjQ/VSYrjVCd0hwOrCHkmFASntIZq1NLAV509ptMbRzjn8bhUONjas3z?=
+ =?us-ascii?Q?XXIvWfNBZ2zkOZLPbFsjxreaK1qSS8rqBKoGLl/IqO6T4aKwR1uwtm68wSvV?=
+ =?us-ascii?Q?euMdj/ffkqZiadsVRAUTWCP6d/m/Yet4VI2meBnWinugWK+MlTLzqqZ27IN1?=
+ =?us-ascii?Q?e/moLD/NtiDvNQod2krI+T1QNc5+dhoD8DaCNHsBFN8d9AVaa7+M4HiZxENc?=
+ =?us-ascii?Q?5QhIZFaEmFeLrxSxet/eBCWL9GWw5eaznpfqSL5nFl1SF54kXOgdyj0S6Xj4?=
+ =?us-ascii?Q?eeYpSVdXyq7buzIQjYawwrrwSzFBirhrVGOrutQk6Vg5462lP5aaQI5JqsId?=
+ =?us-ascii?Q?nVRlhq0+uGPi/1sNAFZMQ8Z6qEntcX/qulKpu09mGLYWJJaR4UKgZ99vEe4Y?=
+ =?us-ascii?Q?eVCVBYY3UIpvKMju3xPu1a4zhzoc7wAR5UlA2y6AOhbPuovDvozQar3663B/?=
+ =?us-ascii?Q?y4KnJ91dAZmrjoMnmhe9WMeG+W0CGh2lCysAs7oI5JuqUzi2g8kuHH+0/jcz?=
+ =?us-ascii?Q?DVbXfhVm5X19bkLpEk2NGWFw+C5g5OJGB7fZcxkUzjtsnZ1wQ5uf/4g46AZK?=
+ =?us-ascii?Q?ecuZH8aHtLnKTMCQ1HinO+1gwK3Sp7pd2lX17XVn1LItnXkfxD6qyAQ9lPx0?=
+ =?us-ascii?Q?6Zg01Fc1msv6Qhn8zpXWUyl4jEZpgJWjU9iMlTQjqDvJigOqewpfRK8xR1F0?=
+ =?us-ascii?Q?t4bftYy6KuTh+Wt4tGxHN6t0bXCCgKKxTxUsUOrDi0CShArkHWK3R7Qcz2c/?=
+ =?us-ascii?Q?96iYDajk0EIQ0MC/L1xFlNP6XxyBBx4h?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(19092799006)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6j1vPtvOB/b7bQc4rf3uscp9jobo8CfbX/LWu3yH6mhC5HyfHwe/EGKuIs+J?=
+ =?us-ascii?Q?+3leioSVnKtHaPLrMND5ZppLpbw5ArVaMt4Lr6cGf9WiJ55hpCCmg/nfAVpS?=
+ =?us-ascii?Q?11nDcb9eWE9UsjDKA6sTk/Qx4sKk5r/JlZTBCJSu0IQ99Dn/3B5ZvkpsubFy?=
+ =?us-ascii?Q?g4wY/OFXr+dIvlEMBq/5brNGancslYLuQjJ7gsMHxW+M/OA7ZpXiXtaLSrpR?=
+ =?us-ascii?Q?qcPnC++jRwfqcg287anuLGztR3tzRgNa4b/kU2mFHoNzZ2PsKp9lxr7l+ySq?=
+ =?us-ascii?Q?qQIU5jrAzVnke6frI5zDwrrxWr9eFR3bweCL4sqKRV2UQ2riKGPkEkKJfap1?=
+ =?us-ascii?Q?Mlq7t23PjAVz1qeENwqiNLSkn/yHmWb+o/dqe/r3xKDYhiHWBJ0XMTDHZJ0n?=
+ =?us-ascii?Q?WTPg4OQRgkejwUOV8RejO5nhbIZ6ffEyEKBpdCH+7gc65vdlH+YQ+T1W9hMX?=
+ =?us-ascii?Q?KJiBcq4yqoq2ivISNtXZRP7pC4i1BTEyqilbrxL/01nWiFIRPKBjh/cJntaj?=
+ =?us-ascii?Q?wrn7C3eXc7xZUelhQ3JEXPmnBn7IqpFxZ80MHhQI0od7qNoMf+BEZxGBhG7U?=
+ =?us-ascii?Q?U9wPFfO56Au4F9ALtfdhITUUfL1cahqY7ctL7pvhPHf/MM/QiDL6LziQbCYU?=
+ =?us-ascii?Q?tqawe7rUi866ibcdBMhzp8+qT3xLBXyqUwxE/YxRjCNyceq1K3+dgTg6YOL2?=
+ =?us-ascii?Q?s8Wx8Ce5CLM3fUyDYpznETlWjZW8/bwVshCC9WzG8aSlW69iG14HbsdwtleN?=
+ =?us-ascii?Q?N1kqy5AtWs3hX6YpRh4wxTBFhZ3D5CIXcvSy55G2Jhct0utsUy+A/zMNQIcu?=
+ =?us-ascii?Q?1lf0RiJ9pJ/TGnxJh/DBQ4F/GRkRaWYyH7exd6JuQrSHCuMHdH0cyVIsYMWl?=
+ =?us-ascii?Q?nKdzrYuvBxhA7EWiaOro+kr8i7lYfs0uaCknlNwtLoHlrNNAFDjFFl3cR0wc?=
+ =?us-ascii?Q?/ptlMQ3XPV9Czuv+8ugCuaBRvBYmDOxBO3n3KtaUab7Dc3iTO0MecDZwZIpt?=
+ =?us-ascii?Q?ESHWKprb+cQokTnlDVPS6e5IGzuOwtjwa5cuvUPe3/QDOFKE0w2+nxYiHAxo?=
+ =?us-ascii?Q?5cGA1sUfbmq4WGhaF/P/CT0e3WGecppG3k0imZOUeqqG5nsNPIrWoQfXs2bX?=
+ =?us-ascii?Q?rpZmKQsOC5yKnXKXmwNQWj3ktDime3kpSjycfeqSYAm4pZdb1r0q0Ciz/NVT?=
+ =?us-ascii?Q?55bw8/sPHhij1WX5/wpK4ndV83A3BN+qxnb4td0WO2OjTCE3UbDftgcyrR2J?=
+ =?us-ascii?Q?gTPllc91Xs2nt1eWsc7s/QZwa+930O1XPL+MVE6e2kmZRRWy/QfAxoTLeRJw?=
+ =?us-ascii?Q?0cnJRLu/Lkm8LfHA3tif3mzYV9CWAML5gvAe+XOKSFBTcIf0iD5OlfSVgie7?=
+ =?us-ascii?Q?nkUWA7DcfHpOMJgMEkGmGUiLeM/D2qEMuWuq4zSWwjJTDkYg8XKb/1tYlMtq?=
+ =?us-ascii?Q?S+vpvkUIE8Pb+NFKiMdLWUnFU5Z81nVlZB+nhdBq8fMkAUZBoN3bSR7UFU9I?=
+ =?us-ascii?Q?/nx5NYSck2umtygJJgG/EgUvjHpGXC3ga3eCFPQ666B5eNhxJxtpDz6CuF88?=
+ =?us-ascii?Q?BotePo9y/f8PS77dHJydCS2xyxGnrJbqf7QhgDy+?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 60d3f085-c520-4ff2-af7a-08ddf1479290
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2025 15:26:26.2280
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DSUIW+esuWA/EbOj7cXbJrub0LDXdQF4SgliHxj3ZELwJSgLSs+YHiavqRVfVfaeVMg5iRCL/ydZf4DLJO+4sA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11779
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_082524_715874_A70CBB00 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20250911_082637_450451_DD017207 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,36 +167,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 31/07/2025 2:25 pm, Leo Yan wrote:
-> For remote accesses, the data source packet does not contain information
-> about the memory level. To avoid misinformation, set the memory level to
-> NA (Not Available).
-> 
-> Fixes: 4e6430cbb1a9 ("perf arm-spe: Use SPE data source for neoverse cores")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+On Thu, Sep 11, 2025 at 02:37:04PM +0300, Laurentiu Palcu wrote:
+> DCIF is the i.MX94 Display Controller Interface which is used to
+> drive a TFT LCD panel or connects to a display interface depending
+> on the chip configuration.
+>
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 > ---
->   tools/perf/util/arm-spe.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-> index 8ecf7142dcd8705c13c27e0cbacd69647dc4fd22..3086dad92965af3981b1065f2892a3e67df7b616 100644
-> --- a/tools/perf/util/arm-spe.c
-> +++ b/tools/perf/util/arm-spe.c
-> @@ -670,8 +670,8 @@ static void arm_spe__synth_data_source_common(const struct arm_spe_record *recor
->   	 * socket
->   	 */
->   	case ARM_SPE_COMMON_DS_REMOTE:
-> -		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1;
-> -		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
-> +		data_src->mem_lvl = PERF_MEM_LVL_NA;
-> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_NA;
->   		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
->   		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
->   		break;
-> 
+>  .../bindings/display/imx/nxp,imx94-dcif.yaml       | 82 ++++++++++++++++++++++
+>  1 file changed, 82 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..fb25300e25529699adeb4caad9837d7af23a3581
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
+> @@ -0,0 +1,82 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright 2025 NXP
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/imx/nxp,imx94-dcif.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: i.MX94 Display Control Interface (DCIF)
+> +
+> +maintainers:
+> +  - Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> +
+> +description:
+> +  The Display Control Interface(DCIF) is a system master that fetches graphics
+> +  stored in memory and displays them on a TFT LCD panel or connects to a
+> +  display interface depending on the chip configuration.
+> +
+> +properties:
+> +  compatible:
+> +    const: nxp,imx94-dcif
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    items:
+> +      - description: CPU domain 0 (controlled by common registers group).
+> +      - description: CPU domain 1 (controlled by background layer registers group).
+> +      - description: CPU domain 2 (controlled by foreground layer registers group).
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: common
+> +      - const: bg_layer
+> +      - const: fg_layer
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+I remember dt use -, not _, bg-layer
 
+> +
+> +  clocks:
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    items:
+> +      - const: apb
+> +      - const: axi
+> +      - const: pix
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  port:
+> +    $ref: /schemas/graph.yaml#/$defs/port-base
+> +    unevaluatedProperties: false
+> +    description: Display Pixel Interface(DPI) output port
+> +
+> +    properties:
+> +      endpoint:
+> +        $ref: /schemas/media/video-interfaces.yaml#
+> +        unevaluatedProperties: false
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    display-controller@4b120000 {
+> +        compatible = "nxp,imx94-dcif";
+> +        reg = <0x4b120000 0x300000>;
+> +        interrupts = <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH>;
+> +        interrupt-names = "common", "bg_layer", "fg_layer";
+> +        clocks = <&scmi_clk 69>, <&scmi_clk 70>, <&dispmix_csr 0>;
+> +        clock-names = "apb", "axi", "pix";
+> +        assigned-clocks = <&dispmix_csr 0>;
+> +        assigned-clock-parents = <&ldb_pll_pixel>;
+> +        power-domains = <&scmi_devpd 11>;
+
+nit: need empty line here.
+
+> +        port {
+> +            dcif_out: endpoint {
+
+needn't need label dcif_out
+
+Frank
+> +                remote-endpoint = <&ldb_in>;
+> +            };
+> +        };
+> +    };
+>
+> --
+> 2.49.0
 
