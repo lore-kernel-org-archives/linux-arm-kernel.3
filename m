@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78169CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A448ACAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GHMz6Kp8+8ke0b9ysF+VPQCLrGT1erkZZlyHZ6AOm00=; b=H1GCxdA1wq1tKtyLD0rrug+9hi
-	iBP1K+drEWHV/lsf7M5WTzseeEqEPL6+y0rn6dEFNDeN+4S2t16aMOwHC26xhzPdiO1HnSn3S92eE
-	wtWZpvPMUOgqRXS7Zjg/DGOUTLhGWJN3g80RcsYPACIp4A4gmy5Wnb4IwcRPKhR4QV3YwofIK2fnV
-	XfbuhnhCrXePcpAyq7yIK+ukgl6CVfUyl+2YZMmqp28vk7yhTPn6KX+2Nh/lq2YyXzUzT1SPH0J9O
-	WpBthzAyoN8vYCjZtluAIfuulel/170JOD2EbnVAIrB/8qOaSe28vH8PhN9ND8oi7+BeGcjhqWNZK
-	3K5I1v7Q==;
+	bh=n8UjAK5/KbZW/Gzdd4fnBbO0QKUMCsyz9kqqgznPvQg=; b=dPiTUNTQNjuDdedO2RyhChpuy3
+	5mvVCDYtJDCzjjpYQlriQZrxJCligbluMlX0o83/Y0AOUrGNUelWT4LEH0NoZ5yCBFYLlm0lcDHIb
+	yrKVto7D2a5zAMibyD6aOA18Gd8wlCG9vz1HhGqLUPAkkAcnEWbU07FbL2jFmSoplUTnvrXRUlJRH
+	K7VBASLCbdcZaQQ8gKisDUzYTGTNToQpu//6SIVpTmZsqCPM//SlA4e60tjIPC6YrGLMhDqko1xDJ
+	yFz6sHdLnggqtwQvVHyXbrYrPEEiVr6wD4zM1HOIbPtT91GrfcjrTuZFBxwGPLMpXBTF1qpq2fO5E
+	4IPK51hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjFR-00000003u8Y-0Mp7;
-	Thu, 11 Sep 2025 15:30:09 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjFN-00000003u5W-02Vz
+	id 1uwjH7-00000003uit-0RsP;
+	Thu, 11 Sep 2025 15:31:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwjH4-00000003ui7-27ju
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:30:07 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cN1bY2hPnz6L5cG;
-	Thu, 11 Sep 2025 23:25:45 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5C82E1402FF;
-	Thu, 11 Sep 2025 23:29:59 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
- 2025 17:29:57 +0200
-Date: Thu, 11 Sep 2025 16:29:56 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
-	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
-	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
-	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
-	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
- Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
-	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 13/29] arm_mpam: Probe the hardware features resctrl
- supports
-Message-ID: <20250911162956.00005157@huawei.com>
-In-Reply-To: <20250910204309.20751-14-james.morse@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-14-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 11 Sep 2025 15:31:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C145C153B;
+	Thu, 11 Sep 2025 08:31:40 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D7233F63F;
+	Thu, 11 Sep 2025 08:31:44 -0700 (PDT)
+Message-ID: <aaefa134-b520-42d2-a700-4f7382b0318f@arm.com>
+Date: Thu, 11 Sep 2025 16:31:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 12/29] arm_mpam: Add helpers for managing the locking
+ around the mon_sel registers
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-13-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250910204309.20751-13-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_083005_353363_B0C793B2 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20250911_083150_671688_85706E0D 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,88 +82,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sep 2025 20:42:53 +0000
-James Morse <james.morse@arm.com> wrote:
+Hi James,
 
-> Expand the probing support with the control and monitor types
-> we can use with resctrl.
+On 9/10/25 21:42, James Morse wrote:
+> The MSC MON_SEL register needs to be accessed from hardirq for the overflow
+> interrupt, and when taking an IPI to access these registers on platforms
+> where MSC are not accesible from every CPU. This makes an irqsave
+> spinlock the obvious lock to protect these registers. On systems with SCMI
+> mailboxes it must be able to sleep, meaning a mutex must be used. The
+> SCMI platforms can't support an overflow interrupt.
 > 
-> CC: Dave Martin <Dave.Martin@arm.com>
+> Clearly these two can't exist for one MSC at the same time.
+> 
+> Add helpers for the MON_SEL locking. The outer lock must be taken in a
+> pre-emptible context before the inner lock can be taken. On systems with
+> SCMI mailboxes where the MON_SEL accesses must sleep - the inner lock
+> will fail to be 'taken' if the caller is unable to sleep. This will allow
+> callers to fail without having to explicitly check the interface type of
+> each MSC.
+> 
 > Signed-off-by: James Morse <james.morse@arm.com>
-
-A few trivial things inline.
-LGTM
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Out of time for today, fingers crossed I can get to the others tomorrow.
-
-J
->  static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  {
->  	u64 idr;
-> @@ -592,6 +736,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  	mutex_lock(&msc->part_sel_lock);
->  	idr = mpam_msc_read_idr(msc);
->  	mutex_unlock(&msc->part_sel_lock);
-> +
-Stray change  - push it to earlier patch.
-
->  	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
+> ---
+> Change since v1:
+>  * Made accesses to outer_lock_held READ_ONCE() for torn values in the failure
+>    case.
+> ---
+>  drivers/resctrl/mpam_devices.c  |  3 +--
+>  drivers/resctrl/mpam_internal.h | 37 +++++++++++++++++++++++++++++----
+>  2 files changed, 34 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 24dc81c15ec8..a26b012452e2 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -748,8 +748,7 @@ static int mpam_msc_drv_probe(struct platform_device *pdev)
 >  
->  	/* Use these values so partid/pmg always starts with a valid value */
-> @@ -614,6 +759,12 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  		mutex_unlock(&mpam_list_lock);
->  		if (IS_ERR(ris))
->  			return PTR_ERR(ris);
-> +		ris->idr = idr;
-> +
-> +		mutex_lock(&msc->part_sel_lock);
-> +		__mpam_part_sel(ris_idx, 0, msc);
-> +		mpam_ris_hw_probe(ris);
-> +		mutex_unlock(&msc->part_sel_lock);
->  	}
->  
->  	spin_lock(&partid_max_lock);
+>  		mutex_init(&msc->probe_lock);
+>  		mutex_init(&msc->part_sel_lock);
+> -		mutex_init(&msc->outer_mon_sel_lock);
+> -		raw_spin_lock_init(&msc->inner_mon_sel_lock);
+> +		mpam_mon_sel_lock_init(msc);
+>  		msc->id = pdev->id;
+>  		msc->pdev = pdev;
+>  		INIT_LIST_HEAD_RCU(&msc->all_msc_list);
 > diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 4cc44d4e21c4..5ae5d4eee8ec 100644
+> index 828ce93c95d5..4cc44d4e21c4 100644
 > --- a/drivers/resctrl/mpam_internal.h
 > +++ b/drivers/resctrl/mpam_internal.h
-> @@ -112,6 +112,55 @@ static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
->  	raw_spin_lock_init(&msc->_mon_sel_lock);
->  }
+> @@ -70,12 +70,17 @@ struct mpam_msc {
 >  
-> +/*
-> + * When we compact the supported features, we don't care what they are.
-> + * Storing them as a bitmap makes life easy.
-> + */
-> +typedef u16 mpam_features_t;
+>  	/*
+>  	 * mon_sel_lock protects access to the MSC hardware registers that are
+> -	 * affected by MPAMCFG_MON_SEL.
+> +	 * affected by MPAMCFG_MON_SEL, and the mbwu_state.
+> +	 * Access to mon_sel is needed from both process and interrupt contexts,
+> +	 * but is complicated by firmware-backed platforms that can't make any
+> +	 * access unless they can sleep.
+> +	 * Always use the mpam_mon_sel_lock() helpers.
+> +	 * Accessed to mon_sel need to be able to fail if they occur in the wrong
+> +	 * context.
+>  	 * If needed, take msc->probe_lock first.
+>  	 */
+> -	struct mutex		outer_mon_sel_lock;
+> -	raw_spinlock_t		inner_mon_sel_lock;
+> -	unsigned long		inner_mon_sel_flags;
+> +	raw_spinlock_t		_mon_sel_lock;
+> +	unsigned long		_mon_sel_flags;
+>  
 
-Maybe use a bitmap type and avoid the need to be careful on sizing etc?
+These stale variables can be removed in the patch that introduced them,
+outer_mon_sel_lock, inner_mon_sel_lock, inner_mon_sel_flags. Jonathan
+has already pointed out the stale comment and paragraph in the commit
+message.
 
-> +
-> +/* Bits for mpam_features_t */
-> +enum mpam_device_features {
-> +	mpam_feat_ccap_part = 0,
-> +	mpam_feat_cpor_part,
-> +	mpam_feat_mbw_part,
-> +	mpam_feat_mbw_min,
-> +	mpam_feat_mbw_max,
-> +	mpam_feat_mbw_prop,
-> +	mpam_feat_msmon,
-> +	mpam_feat_msmon_csu,
-> +	mpam_feat_msmon_csu_capture,
-> +	mpam_feat_msmon_csu_hw_nrdy,
-> +	mpam_feat_msmon_mbwu,
-> +	mpam_feat_msmon_mbwu_capture,
-> +	mpam_feat_msmon_mbwu_rwbw,
-> +	mpam_feat_msmon_mbwu_hw_nrdy,
-> +	mpam_feat_msmon_capt,
-> +	MPAM_FEATURE_LAST,
+Thanks,
 
-If it's always meant to be LAST, I'd drop the trailing comma.
-
-> +};
-> +static_assert(BITS_PER_TYPE(mpam_features_t) >= MPAM_FEATURE_LAST);
-
-
+Ben
 
 
