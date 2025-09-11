@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E21CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA83DCAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OVYfwvyEDWOmpr9aFfCMjfBeWdD2UHdp2oHYmW+oJNM=; b=KYAn2yZ8iHB/AVcnehvk1sGU00
-	ot0qXUFoNKRyEEMts0Lc3QvLpYUhXt5NAjuLX862SWdoQkUAPRW58NyoGUs39wauqBUqVSNtFDfhq
-	VOZd//Yqg4Pdz6LVwa39zwvKELCzl37ja0zGVbWtMqs/Uhjasis/KzzfGop4L/1KXvYZv3tL7kw0a
-	rjxCo3ODGc9ihVh8XS1Y77Y0x1ZvunfQHh3l+Nf/YcKGciAt2Th2iIbz8h8d+I7Ma3KhqBb+UN4zT
-	qPGlcGjVrT6zO1h10KnCo7EZfOJw+ISh0vjtchsvZ09pW71pSUX0G6CgiuB9VeiZ9VNq2p6zBXwLm
-	QKyXZRCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YGB5/wUkOZBi6DYv5m3MvF1yANQI2mFPXlTlj/tPwZM=; b=g1t0iHxpnYmhZk/DKmH5sOXRLS
+	JIAtgtONK5j1r3MiCxWEyiJdOVx6fcViaaN337DGIHRfeH0JpATVrzLp5D4G8BV4rGGxYmP5jD+su
+	obL32pXIVQC7tcJ7lsTZ0JfWWHPbeQbcjWxmdi7phHa9o4LjGLGLtDXmvPkYxHZ0Rg/6fbPGNVieg
+	C/YGZzdLkOJ7LvTtyQlVorMZ6yfqaKx103/P0EHg5q8GGrzY9fZKoif8a64j0gneEXczU443QshcE
+	BGYohNiQxuYWtdT85K1jbIyzBXDsREqZ3Dj9gwnx3Zu9p4CwpenCFEfC2dBZlbyecW6F7WH3BosDt
+	viGsuBzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwikp-00000003ieM-0Pnw;
-	Thu, 11 Sep 2025 14:58:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uwimy-00000003joT-1tAg;
+	Thu, 11 Sep 2025 15:00:44 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwikm-00000003icF-2sUB
+	id 1uwimv-00000003jmi-106W
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 14:58:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2A1F40787;
-	Thu, 11 Sep 2025 14:58:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0211C4CEF0;
-	Thu, 11 Sep 2025 14:58:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757602707;
-	bh=HeodYYa2ARM+3jXZTHDptckWgA9wcPV5Pp4/+zghwa0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N4ppPzU/92e5jZEtYxQNnLuvVF4YdjiL4YbwnvjtjiIycgyZYLN5zlWHBq8nJVmqF
-	 SOxopzS4DbaUTOTh0oiaJgH5oQa+1/6RNfyYdFs2eexO3SOTRBBZinG1/pxHmQXNp6
-	 nwcQ8xqMeu2KACfIyIuaI18EDltZX6IOC9wPpnFJj1X88p8d4g9Zipamjb7jIDjQIl
-	 WuyN8unPafOXY3SDoPZDNj0Yb8VEZ0RVar3YwXdirG3i2T2SAm8bA4c45KJMjN5N8M
-	 toG6ci2Kl/h83ydrEq0j7Uifr3Kh+qCygXA8weT7KpgViBiNHB7lkHcuHUC/BIRgrj
-	 3UgtRHcMT2SBQ==
-Date: Thu, 11 Sep 2025 15:58:22 +0100
-From: Will Deacon <will@kernel.org>
-To: Qinxin Xia <xiaqinxin@huawei.com>
-Cc: robin.murphy@arm.com, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	yangyicong@huawei.com, wangzhou1@hisilicon.com,
-	prime.zeng@hisilicon.com, xuwei5@huawei.com, fanghao11@huawei.com,
-	jonathan.cameron@huawei.com, linuxarm@huawei.com
-Subject: Re: [PATCH 1/2] iommu/debug: Add IOMMU page table dump debug facility
-Message-ID: <aMLjjl4nsBuQML3Y@willie-the-truck>
-References: <20250814093005.2040511-1-xiaqinxin@huawei.com>
- <20250814093005.2040511-2-xiaqinxin@huawei.com>
- <aMAmWQJy_G50xoBf@willie-the-truck>
- <534119b8-8221-4991-b308-05e8d5918aca@huawei.com>
+	Thu, 11 Sep 2025 15:00:43 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cN0zQ1Gh7z6LDB4;
+	Thu, 11 Sep 2025 22:57:54 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 35CF01402F8;
+	Thu, 11 Sep 2025 23:00:34 +0800 (CST)
+Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
+ 2025 17:00:33 +0200
+Date: Thu, 11 Sep 2025 16:00:31 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
+	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
+	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
+	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
+	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
+	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
+ Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
+	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH v2 09/29] arm_mpam: Add MPAM MSC register layout
+ definitions
+Message-ID: <20250911160031.000026c7@huawei.com>
+In-Reply-To: <20250910204309.20751-10-james.morse@arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+	<20250910204309.20751-10-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <534119b8-8221-4991-b308-05e8d5918aca@huawei.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_075828_743150_35C3AB2E 
-X-CRM114-Status: GOOD (  21.09  )
+X-CRM114-CacheID: sfid-20250911_080041_569894_9A17198D 
+X-CRM114-Status: GOOD (  28.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +86,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 10:58:09AM +0800, Qinxin Xia wrote:
-> 
-> 
-> On 2025/9/9 21:06:33, Will Deacon <will@kernel.org> wrote:
-> > On Thu, Aug 14, 2025 at 05:30:04PM +0800, Qinxin Xia wrote:
-> > > +/**
-> > > + * iova_info_dump - dump iova alloced
-> > > + * @s - file structure used to generate serialized output
-> > > + * @iovad: - iova domain in question.
-> > > + */
-> > > +static int iommu_iova_info_dump(struct seq_file *s, struct iommu_domain *domain)
-> > > +{
-> > > +	struct iova_domain *iovad;
-> > > +	unsigned long long pfn;
-> > > +	unsigned long i_shift;
-> > > +	struct rb_node *node;
-> > > +	unsigned long flags;
-> > > +	size_t prot_size;
-> > > +
-> > > +	iovad = iommu_domain_to_iovad(domain);
-> > > +	if (!iovad)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	i_shift = iova_shift(iovad);
-> > > +
-> > > +	/* Take the lock so that no other thread is manipulating the rbtree */
-> > > +	spin_lock_irqsave(&iovad->iova_rbtree_lock, flags);
-> > > +	assert_spin_locked(&iovad->iova_rbtree_lock);
-> > > +
-> > > +	for (node = rb_first(&iovad->rbroot); node; node = rb_next(node)) {
-> > > +		struct iova *iova = rb_entry(node, struct iova, node);
-> > > +
-> > > +		if (iova->pfn_hi <= iova->pfn_lo)
-> > > +			continue;
-> > > +
-> > > +		for (pfn = iova->pfn_lo; pfn <= iova->pfn_hi; ) {
-> > > +			prot_size = domain->ops->dump_iova_prot(s, domain, pfn << i_shift);
-> > > +			pfn = ((pfn << i_shift) + prot_size) >> i_shift;
-> > > +		}
-> > > +	}
-> > > +
-> > > +	spin_unlock_irqrestore(&iovad->iova_rbtree_lock, flags);
-> > 
-> > Why is the IOVA rbtree lock sufficient for serialising the page-table
-> > accesses made by ->dump_iova_prot()? I don't see anything here that
-> > prevents the walker walking into page-table pages that are e.g. being
-> > freed or manipulated concurrently.
-> > 
->  Thank you for catching this critical race condition.I will fix this in
->  next version. And,Jason suggests putting io_ptdump on top of iommu pt.
->  What do you think?
+On Wed, 10 Sep 2025 20:42:49 +0000
+James Morse <james.morse@arm.com> wrote:
 
-I guess it depends on whether or not you want to tie this debug feature
-to drivers that support the new page-table stuff.
+> Memory Partitioning and Monitoring (MPAM) has memory mapped devices
+> (MSCs) with an identity/configuration page.
+> 
+> Add the definitions for these registers as offset within the page(s).
+Hi James,
 
-Will
+I'm not sure why some things ended up in this patch and others didn't.
+MPAMCFG_EN for example isn't here.
+
+If doing a separate 'register defines' patch I'd do the lot as of
+the current spec.
+
+> 
+> Link: https://developer.arm.com/documentation/ihi0099/latest/
+
+Maybe link a specific version? I'm not sure if I'm looking at is the same one
+as you were when you wrote this. That will become worse over time.  I'm definitely
+seeing extra bits in a number of registers.
+
+I'm lazy enough not to go see if the cover letter calls out a version.
+
+Anyhow, various small things on ordering that would have made this easier to review
+against the spec.
+
+Jonathan
+
+
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since v1:
+>  * Whitespace.
+>  * Added constants for CASSOC and XCL.
+>  * Merged FLT/CTL defines.
+>  * Fixed MSMON_CFG_CSU_CTL_TYPE_CSU definition.
+> 
+> Changes since RFC:
+>  * Renamed MSMON_CFG_MBWU_CTL_TYPE_CSU as MSMON_CFG_CSU_CTL_TYPE_CSU
+>  * Whitepsace churn.
+>  * Cite a more recent document.
+>  * Removed some stale feature, fixed some names etc.
+> ---
+>  drivers/resctrl/mpam_internal.h | 267 ++++++++++++++++++++++++++++++++
+>  1 file changed, 267 insertions(+)
+> 
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 02e9576ece6b..109f03df46c2 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -152,4 +152,271 @@ extern struct list_head mpam_classes;
+>  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+>  				   cpumask_t *affinity);
+>  
+> +/*
+> + * MPAM MSCs have the following register layout. See:
+> + * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
+> + * Component Specification.
+> + * https://developer.arm.com/documentation/ihi0099/latest/
+
+Maybe be friendly and give some section number references.
+
+> + */
+> +#define MPAM_ARCHITECTURE_V1    0x10
+> +
+> +/* Memory mapped control pages: */
+> +/* ID Register offsets in the memory mapped page */
+> +#define MPAMF_IDR		0x0000  /* features id register */
+> +#define MPAMF_MSMON_IDR		0x0080  /* performance monitoring features */
+
+Any reason this one is out of order with respect to the addresses?
+
+> +#define MPAMF_IMPL_IDR		0x0028  /* imp-def partitioning */
+> +#define MPAMF_CPOR_IDR		0x0030  /* cache-portion partitioning */
+> +#define MPAMF_CCAP_IDR		0x0038  /* cache-capacity partitioning */
+> +#define MPAMF_MBW_IDR		0x0040  /* mem-bw partitioning */
+> +#define MPAMF_PRI_IDR		0x0048  /* priority partitioning */
+> +#define MPAMF_CSUMON_IDR	0x0088  /* cache-usage monitor */
+> +#define MPAMF_MBWUMON_IDR	0x0090  /* mem-bw usage monitor */
+> +#define MPAMF_PARTID_NRW_IDR	0x0050  /* partid-narrowing */
+> +#define MPAMF_IIDR		0x0018  /* implementer id register */
+> +#define MPAMF_AIDR		0x0020  /* architectural id register */
+
+These 3 as well. I'm not sure what the ordering is conveying but probably easier to just
+to put them in address order.
+
+There are some other cases of this below.
+
+
+> +/* MPAMF_IIDR - MPAM implementation ID register */
+> +#define MPAMF_IIDR_PRODUCTID	GENMASK(31, 20)
+> +#define MPAMF_IIDR_PRODUCTID_SHIFT	20
+> +#define MPAMF_IIDR_VARIANT	GENMASK(19, 16)
+> +#define MPAMF_IIDR_VARIANT_SHIFT	16
+> +#define MPAMF_IIDR_REVISON	GENMASK(15, 12)
+> +#define MPAMF_IIDR_REVISON_SHIFT	12
+> +#define MPAMF_IIDR_IMPLEMENTER	GENMASK(11, 0)
+> +#define MPAMF_IIDR_IMPLEMENTER_SHIFT	0
+I'd expect to see FIELD_GET/ PREP rather than use of shifts. Can we drop the defines?
+
+Pick an order for reg field definitions. Until here they've been low to high.
+
+
+> +/* Error conditions in accessing memory mapped registers */
+> +#define MPAM_ERRCODE_NONE			0
+> +#define MPAM_ERRCODE_PARTID_SEL_RANGE		1
+> +#define MPAM_ERRCODE_REQ_PARTID_RANGE		2
+> +#define MPAM_ERRCODE_MSMONCFG_ID_RANGE		3
+> +#define MPAM_ERRCODE_REQ_PMG_RANGE		4
+> +#define MPAM_ERRCODE_MONITOR_RANGE		5
+> +#define MPAM_ERRCODE_INTPARTID_RANGE		6
+> +#define MPAM_ERRCODE_UNEXPECTED_INTERNAL	7
+
+Seems there are more in latest spec..
+> +
+> +/*
+> + * MSMON_CFG_CSU_CTL - Memory system performance monitor configure cache storage
+> + *                    usage monitor control register
+> + * MSMON_CFG_MBWU_CTL - Memory system performance monitor configure memory
+> + *                     bandwidth usage monitor control register
+> + */
+> +#define MSMON_CFG_x_CTL_TYPE			GENMASK(7, 0)
+> +#define MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L	BIT(15)
+> +#define MSMON_CFG_x_CTL_MATCH_PARTID		BIT(16)
+> +#define MSMON_CFG_x_CTL_MATCH_PMG		BIT(17)
+> +#define MSMON_CFG_x_CTL_SCLEN			BIT(19)
+On the spec I'm looking at this is reserved in CSU_CTL
+
+> +#define MSMON_CFG_x_CTL_SUBTYPE			GENMASK(22, 20)
+> +#define MSMON_CFG_x_CTL_OFLOW_FRZ		BIT(24)
+> +#define MSMON_CFG_x_CTL_OFLOW_INTR		BIT(25)
+> +#define MSMON_CFG_x_CTL_OFLOW_STATUS		BIT(26)
+> +#define MSMON_CFG_x_CTL_CAPT_RESET		BIT(27)
+> +#define MSMON_CFG_x_CTL_CAPT_EVNT		GENMASK(30, 28)
+> +#define MSMON_CFG_x_CTL_EN			BIT(31)
+
+I guess this combining of definitions will show some advante in common code
+later but right now it seems confusing given not all bits are present in both.
+
+> +
+> +#define MSMON_CFG_MBWU_CTL_TYPE_MBWU			0x42
+> +#define MSMON_CFG_CSU_CTL_TYPE_CSU			0x43
+> +
+> +/*
+> + * MSMON_CFG_CSU_FLT -  Memory system performance monitor configure cache storage
+> + *                      usage monitor filter register
+> + * MSMON_CFG_MBWU_FLT - Memory system performance monitor configure memory
+> + *                      bandwidth usage monitor filter register
+> + */
+> +#define MSMON_CFG_x_FLT_PARTID			GENMASK(15, 0)
+> +#define MSMON_CFG_x_FLT_PMG			GENMASK(23, 16)
+> +
+> +#define MSMON_CFG_MBWU_FLT_RWBW			GENMASK(31, 30)
+> +#define MSMON_CFG_CSU_FLT_XCL			BIT(31)
+> +
+> +/*
+> + * MSMON_CSU - Memory system performance monitor cache storage usage monitor
+> + *            register
+> + * MSMON_CSU_CAPTURE -  Memory system performance monitor cache storage usage
+> + *                     capture register
+> + * MSMON_MBWU  - Memory system performance monitor memory bandwidth usage
+> + *               monitor register
+> + * MSMON_MBWU_CAPTURE - Memory system performance monitor memory bandwidth usage
+> + *                     capture register
+> + */
+> +#define MSMON___VALUE		GENMASK(30, 0)
+> +#define MSMON___NRDY		BIT(31)
+> +#define MSMON___NRDY_L		BIT(63)
+> +#define MSMON___L_VALUE		GENMASK(43, 0)
+> +#define MSMON___LWD_VALUE	GENMASK(62, 0)
+> +
+> +/*
+> + * MSMON_CAPT_EVNT - Memory system performance monitoring capture event
+> + *                  generation register
+> + */
+> +#define MSMON_CAPT_EVNT_NOW	BIT(0)
+> +
+>  #endif /* MPAM_INTERNAL_H */
+
 
