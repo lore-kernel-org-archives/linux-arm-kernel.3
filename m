@@ -4,140 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05384CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 12:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB9BCA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 12:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c30ZQnsvAEyuVkRVamQoGQaRen0nYIRa+BA7jFqu78U=; b=XVhErnZLU11N5dZ5neQ9b6gRhD
-	A2VJBK3NS7oAORhpGgzH/sI5WFE1mEGncHBfjgkHdNL6jN8vwowZLTJh7fzso8Sj36xiu2RIMHJI/
-	OJSvxDmgCGFSgYAuzr/DbrpOm6vbnShCZO5uH0CB4xE3Zir7ufAF5AV64/4naPRhtML5VvW4BZA1P
-	+qg6+qlvKMuovfP3ATmg4rPPRltLl54eMJKX5MR4HI5G5cP8mKt4M7hwvpOKkKh4mymSVx3UQMtLZ
-	8Y0D1gxpxLWpMUJCHVVS8+Y+gtgGVdf7MA3eCm5Kovx89kZS3UG27VeD+AbqD3EVkfZ3yzWc4z9YT
-	Q88FxBPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NVAvVEL/zbAjBDWyP8QkV3Q1tYJsrphheSDLTHo7D80=; b=PwVpwu69tDTmDKlF/q1z7kOyU7
+	W9fb3OOULLg6SliMl8FHkAfa1XGRAptl6LgKegRPLJ6xJMe0pS308dWD3F9UVF7vJEJaqrl2WhfcF
+	rwrweGlriG2a+sQ7zNaWdYlR2wofYDDTl43SZ9y3gTKJIXFRO+Ht8ta8abPWGkHmSqoFxVZNL5wV5
+	laEC5LrDN3fCADzSQagRBy0OpGvcRLfIz98/vF9pTUquntXiwA2Pgxv3H4JrsABxbWrwGURb7/ckq
+	NSoddRZkK3SfK+WYNoVKGMFTiq+UsxmlnhPt0eT1muTzYDFby23Zl3opDbrQyC57miijBKYOJTXuB
+	CP2SUHGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwg5O-00000002sl4-1Tte;
-	Thu, 11 Sep 2025 12:07:34 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwg5L-00000002sk4-1jsX
+	id 1uwgBb-00000002uTH-08ho;
+	Thu, 11 Sep 2025 12:13:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwgBX-00000002uRy-2zKk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 12:07:32 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58B84fHU032047;
-	Thu, 11 Sep 2025 12:06:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=c30ZQnsvAEyuVkRVamQoGQaRen0nYI
-	Ra+BA7jFqu78U=; b=k8qq71z07GrReGd9S9mOiL2kfz2BW5pit9iGHWyQ501+3o
-	18SrSVgXyKIh3fgbTocFTOqLMtqSFK4cxX7BIxE3tS22XZO0MuuzR1offUBCNMnq
-	oKDIaYOBM6OqV/8/2nb5TYMMtbfty7TIxuJR1UwI7ijudG7hBz2n8mEO1/1JtIWQ
-	dCG50x7Is5mNMQX/2OgEzJRaOS4B3WAK5BbVoavZQgJ0vMUStU+M4xrwJU761IBV
-	72RsuHX8BmU9AXx/ZC8PQ4TAp5bfKtZi3PWfc0gEnh3wsk+FWngrjfyj6wXqFlUw
-	ta9dp/wt1kSFBm9tnzdcdwRJffzZgn8TZgXdZhNg==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490cffmge8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 11 Sep 2025 12:06:56 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 58BButst022969;
-	Thu, 11 Sep 2025 12:06:55 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490cffmge1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 11 Sep 2025 12:06:55 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 58B99ZNi011435;
-	Thu, 11 Sep 2025 12:06:54 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 490y9unx8m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 11 Sep 2025 12:06:54 +0000
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 58BC6qp621103260
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 11 Sep 2025 12:06:52 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 592C42004B;
-	Thu, 11 Sep 2025 12:06:52 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 95E1D20040;
-	Thu, 11 Sep 2025 12:06:51 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 11 Sep 2025 12:06:51 +0000 (GMT)
-Date: Thu, 11 Sep 2025 14:06:50 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
-        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
-        Mark Rutland <Mark.Rutland@arm.com>
-Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
-Message-ID: <80be36e5-d6e1-4b37-a1ca-47e92ac21b02-agordeev@linux.ibm.com>
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908073931.4159362-3-kevin.brodsky@arm.com>
- <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
- <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
- <e7acb889-1fe9-4db3-acf4-39f4960e8ccd@redhat.com>
- <2fecfae7-1140-4a23-a352-9fd339fcbae5-agordeev@linux.ibm.com>
- <e521b1f4-3f2b-48cd-9568-b9a4cf4c4830@redhat.com>
- <47ee1df7-1602-4200-af94-475f84ca8d80@arm.com>
- <b2e52967-7ca1-411e-9c66-8d3483624ca7-agordeev@linux.ibm.com>
- <250835cd-f07a-4b8a-bc01-ace24b407efc@arm.com>
+	Thu, 11 Sep 2025 12:13:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A590153B;
+	Thu, 11 Sep 2025 05:13:46 -0700 (PDT)
+Received: from [10.163.41.146] (unknown [10.163.41.146])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 600B03F66E;
+	Thu, 11 Sep 2025 05:13:50 -0700 (PDT)
+Message-ID: <f5309d23-0fe0-4f00-bb2c-4ab88018bc2e@arm.com>
+Date: Thu, 11 Sep 2025 17:43:44 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <250835cd-f07a-4b8a-bc01-ace24b407efc@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: EOlye06iv3wrpFZ8EV5hsz2FcaKHpkNR
-X-Proofpoint-GUID: 51K6fRL5QpJCzFIQhT_Qazz7bChQjXpl
-X-Authority-Analysis: v=2.4 cv=EYDIQOmC c=1 sm=1 tr=0 ts=68c2bb60 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8
- a=jRhVRVM2bwpbWWX_RR8A:9 a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAyMCBTYWx0ZWRfX8pGJfFgtntNW
- /kOIUEwDJMICGimD1/ufjSKSVIfmo3TNK7+Fxsinl9Egq+oGXoolAwIU93iuesvkQ3s13VVlzhh
- JIgGdj6U9PokjpkHg4ykDpABkraxfLb3HERwg3941FM1HXB2esU2ebixaknpbywBxWh5hGHimsp
- ci9R67AshxoJpy340lLj5ssEfi6eKhyjCh5p8fZq/k83GFNAv5ZYjhl/Hqc7I+sNgjVlWR40LHM
- kZLurS1M60tPSFVJMaBaPvAXWRbQAESVilgI8Vf2JWna8t2s571X/x3Ahb2bFBInNwL1PkLtgz0
- aizOmw9YsKcqSGhvZ6E05+Xu1Xlt46nNfGetQx37HOL9xVINKsAa7u5yRb/jAsXOIQWyZmkfM1v
- 9y5BFajA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-10_04,2025-09-11_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 suspectscore=0 spamscore=0 impostorscore=0
- priorityscore=1501 phishscore=0 clxscore=1015 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060020
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mm: Move KPTI helpers to mmu.c
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Kees Cook <kees@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>
+References: <20250910104454.317067-1-kevin.brodsky@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250910104454.317067-1-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_050731_454857_113A094D 
-X-CRM114-Status: GOOD (  34.11  )
+X-CRM114-CacheID: sfid-20250911_051355_849780_306F4AA2 
+X-CRM114-Status: GOOD (  35.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,73 +68,309 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 06:11:54PM +0200, Kevin Brodsky wrote:
 
-Hi Kevin,
 
-> On 09/09/2025 16:38, Alexander Gordeev wrote:
-> >>>>> Would that integrate well with LAZY_MMU_DEFAULT etc?
-> >>>> Hmm... I though the idea is to use LAZY_MMU_* by architectures that
-> >>>> want to use it - at least that is how I read the description above.
-> >>>>
-> >>>> It is only kasan_populate|depopulate_vmalloc_pte() in generic code
-> >>>> that do not follow this pattern, and it looks as a problem to me.
-> >> This discussion also made me realise that this is problematic, as the
-> >> LAZY_MMU_{DEFAULT,NESTED} macros were meant only for architectures'
-> >> convenience, not for generic code (where lazy_mmu_state_t should ideally
-> >> be an opaque type as mentioned above). It almost feels like the kasan
-> >> case deserves a different API, because this is not how enter() and
-> >> leave() are meant to be used. This would mean quite a bit of churn
-> >> though, so maybe just introduce another arch-defined value to pass to
-> >> leave() for such a situation - for instance,
-> >> arch_leave_lazy_mmu_mode(LAZY_MMU_FLUSH)?
-> > What about to adjust the semantics of apply_to_page_range() instead?
-> >
-> > It currently assumes any caller is fine with apply_to_pte_range() to
-> > enter the lazy mode. By contrast, kasan_(de)populate_vmalloc_pte() are
-> > not fine at all and must leave the lazy mode. That literally suggests
-> > the original assumption is incorrect.
-> >
-> > We could change int apply_to_pte_range(..., bool create, ...) to e.g.
-> > apply_to_pte_range(..., unsigned int flags, ...) and introduce a flag
-> > that simply skips entering the lazy mmu mode.
+On 10/09/25 4:14 PM, Kevin Brodsky wrote:
+> create_kpti_ng_temp_pgd() is currently defined (as an alias) in
+> mmu.c without matching declaration in a header; instead cpufeature.c
+> makes its own declaration. This is clearly not pretty, and as commit
+> ceca927c86e6 ("arm64: mm: Fix CFI failure due to kpti_ng_pgd_alloc
+> function signature") showed, it also makes it very easy for the
+> prototypes to go out of sync.
 > 
-> This is pretty much what Ryan proposed [1r] some time ago, although for
-> a different purpose (avoiding nesting). There wasn't much appetite for
-> it then, but I agree that this would be a more logical way to go about it.
+> All this would be much simpler if kpti_install_ng_mappings() and
+> associated functions lived in mmu.c, where they logically belong.
+> This is what this patch does:
+> - Move kpti_install_ng_mappings() and associated functions from
+>   cpufeature.c to mmu.c, add a declaration to <asm/mmu.h>
+> - Make create_kpti_ng_temp_pgd() a static function that simply calls
+>   __create_pgd_mapping_locked() instead of aliasing it
+> - Mark all these functions __init
+> - Move __initdata after kpti_ng_temp_alloc (as suggested by
+>   checkpatch)
 > 
-> - Kevin
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+> Note: as things stand, create_kpti_ng_temp_pgd() could be removed,
+> but a separate patch [1] will make use of it to add an
+> assertion.
 > 
-> [1r]
-> https://lore.kernel.org/all/20250530140446.2387131-4-ryan.roberts@arm.com/
+> [1] https://lore.kernel.org/all/20250813145607.1612234-3-chaitanyas.prakash@arm.com/
+> ---
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Kees Cook <kees@kernel.org>,
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yeoreum Yun <yeoreum.yun@arm.com>
 
-May be I missing the point, but I read it as an opposition to the whole
-series in general and to the way apply_to_pte_range() would be altered
-in particular:
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
- static int apply_to_pte_range(struct mm_struct *mm, pmd_t *pmd,
- 				     unsigned long addr, unsigned long end,
- 				     pte_fn_t fn, void *data, bool create,
--				     pgtbl_mod_mask *mask)
-+				     pgtbl_mod_mask *mask, bool lazy_mmu)
+> ---
+>  arch/arm64/include/asm/mmu.h   |   6 ++
+>  arch/arm64/kernel/cpufeature.c |  97 ------------------------------
+>  arch/arm64/mm/mmu.c            | 106 ++++++++++++++++++++++++++++++---
+>  3 files changed, 103 insertions(+), 106 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+> index 49f1a810df16..624edd6c4964 100644
+> --- a/arch/arm64/include/asm/mmu.h
+> +++ b/arch/arm64/include/asm/mmu.h
+> @@ -104,5 +104,11 @@ static inline bool kaslr_requires_kpti(void)
+>  	return true;
+>  }
+>  
+> +#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> +void kpti_install_ng_mappings(void);
+> +#else
+> +static inline void kpti_install_ng_mappings(void) {}
+> +#endif
+> +
+>  #endif	/* !__ASSEMBLY__ */
+>  #endif
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index ef269a5a37e1..b99eaad48c14 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -1940,103 +1940,6 @@ static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
+>  }
+>  #endif
+>  
+> -#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> -#define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
+> -
+> -extern
+> -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+> -			     phys_addr_t size, pgprot_t prot,
+> -			     phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags);
+> -
+> -static phys_addr_t __initdata kpti_ng_temp_alloc;
+> -
+> -static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
+> -{
+> -	kpti_ng_temp_alloc -= PAGE_SIZE;
+> -	return kpti_ng_temp_alloc;
+> -}
+> -
+> -static int __init __kpti_install_ng_mappings(void *__unused)
+> -{
+> -	typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+> -	extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+> -	kpti_remap_fn *remap_fn;
+> -
+> -	int cpu = smp_processor_id();
+> -	int levels = CONFIG_PGTABLE_LEVELS;
+> -	int order = order_base_2(levels);
+> -	u64 kpti_ng_temp_pgd_pa = 0;
+> -	pgd_t *kpti_ng_temp_pgd;
+> -	u64 alloc = 0;
+> -
+> -	if (levels == 5 && !pgtable_l5_enabled())
+> -		levels = 4;
+> -	else if (levels == 4 && !pgtable_l4_enabled())
+> -		levels = 3;
+> -
+> -	remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
+> -
+> -	if (!cpu) {
+> -		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
+> -		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
+> -		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
+> -
+> -		//
+> -		// Create a minimal page table hierarchy that permits us to map
+> -		// the swapper page tables temporarily as we traverse them.
+> -		//
+> -		// The physical pages are laid out as follows:
+> -		//
+> -		// +--------+-/-------+-/------ +-/------ +-\\\--------+
+> -		// :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
+> -		// +--------+-\-------+-\------ +-\------ +-///--------+
+> -		//      ^
+> -		// The first page is mapped into this hierarchy at a PMD_SHIFT
+> -		// aligned virtual address, so that we can manipulate the PTE
+> -		// level entries while the mapping is active. The first entry
+> -		// covers the PTE[] page itself, the remaining entries are free
+> -		// to be used as a ad-hoc fixmap.
+> -		//
+> -		create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc),
+> -					KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+> -					kpti_ng_pgd_alloc, 0);
+> -	}
+> -
+> -	cpu_install_idmap();
+> -	remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
+> -	cpu_uninstall_idmap();
+> -
+> -	if (!cpu) {
+> -		free_pages(alloc, order);
+> -		arm64_use_ng_mappings = true;
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+> -static void __init kpti_install_ng_mappings(void)
+> -{
+> -	/* Check whether KPTI is going to be used */
+> -	if (!arm64_kernel_unmapped_at_el0())
+> -		return;
+> -
+> -	/*
+> -	 * We don't need to rewrite the page-tables if either we've done
+> -	 * it already or we have KASLR enabled and therefore have not
+> -	 * created any global mappings at all.
+> -	 */
+> -	if (arm64_use_ng_mappings)
+> -		return;
+> -
+> -	stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
+> -}
+> -
+> -#else
+> -static inline void kpti_install_ng_mappings(void)
+> -{
+> -}
+> -#endif	/* CONFIG_UNMAP_KERNEL_AT_EL0 */
+> -
+>  static void cpu_enable_kpti(struct arm64_cpu_capabilities const *cap)
+>  {
+>  	if (__this_cpu_read(this_cpu_vector) == vectors) {
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 183801520740..eff3295393ee 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -27,6 +27,7 @@
+>  #include <linux/kfence.h>
+>  #include <linux/pkeys.h>
+>  #include <linux/mm_inline.h>
+> +#include <linux/stop_machine.h>
+>  
+>  #include <asm/barrier.h>
+>  #include <asm/cputype.h>
+> @@ -466,14 +467,6 @@ static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+>  	mutex_unlock(&fixmap_lock);
+>  }
+>  
+> -#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> -extern __alias(__create_pgd_mapping_locked)
+> -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+> -			     phys_addr_t size, pgprot_t prot,
+> -			     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> -			     int flags);
+> -#endif
+> -
+>  static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
+>  				       enum pgtable_type pgtable_type)
+>  {
+> @@ -735,7 +728,102 @@ static void __init declare_vma(struct vm_struct *vma,
+>  }
+>  
+>  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> -static pgprot_t kernel_exec_prot(void)
+> +#define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
+> +
+> +static phys_addr_t kpti_ng_temp_alloc __initdata;
+> +
+> +static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
+> +{
+> +	kpti_ng_temp_alloc -= PAGE_SIZE;
+> +	return kpti_ng_temp_alloc;
+> +}
+> +
+> +static void __init create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
+> +					   unsigned long virt, phys_addr_t size,
+> +					   pgprot_t prot,
+> +					   phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +					   int flags)
+> +{
+> +	__create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+> +				    pgtable_alloc, flags);
+> +}
+> +
+> +static int __init __kpti_install_ng_mappings(void *__unused)
+> +{
+> +	typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+> +	extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+> +	kpti_remap_fn *remap_fn;
+> +
+> +	int cpu = smp_processor_id();
+> +	int levels = CONFIG_PGTABLE_LEVELS;
+> +	int order = order_base_2(levels);
+> +	u64 kpti_ng_temp_pgd_pa = 0;
+> +	pgd_t *kpti_ng_temp_pgd;
+> +	u64 alloc = 0;
+> +
+> +	if (levels == 5 && !pgtable_l5_enabled())
+> +		levels = 4;
+> +	else if (levels == 4 && !pgtable_l4_enabled())
+> +		levels = 3;
+> +
+> +	remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
+> +
+> +	if (!cpu) {
+> +		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
+> +		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
+> +		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
+> +
+> +		//
+> +		// Create a minimal page table hierarchy that permits us to map
+> +		// the swapper page tables temporarily as we traverse them.
+> +		//
+> +		// The physical pages are laid out as follows:
+> +		//
+> +		// +--------+-/-------+-/------ +-/------ +-\\\--------+
+> +		// :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
+> +		// +--------+-\-------+-\------ +-\------ +-///--------+
+> +		//      ^
+> +		// The first page is mapped into this hierarchy at a PMD_SHIFT
+> +		// aligned virtual address, so that we can manipulate the PTE
+> +		// level entries while the mapping is active. The first entry
+> +		// covers the PTE[] page itself, the remaining entries are free
+> +		// to be used as a ad-hoc fixmap.
+> +		//
+> +		create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc),
+> +					KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+> +					kpti_ng_pgd_alloc, 0);
+> +	}
+> +
+> +	cpu_install_idmap();
+> +	remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
+> +	cpu_uninstall_idmap();
+> +
+> +	if (!cpu) {
+> +		free_pages(alloc, order);
+> +		arm64_use_ng_mappings = true;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +void __init kpti_install_ng_mappings(void)
+> +{
+> +	/* Check whether KPTI is going to be used */
+> +	if (!arm64_kernel_unmapped_at_el0())
+> +		return;
+> +
+> +	/*
+> +	 * We don't need to rewrite the page-tables if either we've done
+> +	 * it already or we have KASLR enabled and therefore have not
+> +	 * created any global mappings at all.
+> +	 */
+> +	if (arm64_use_ng_mappings)
+> +		return;
+> +
+> +	stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
+> +}
+> +
+> +static pgprot_t __init kernel_exec_prot(void)
+>  {
+>  	return rodata_enabled ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+>  }
+> 
+> base-commit: 76eeb9b8de9880ca38696b2fb56ac45ac0a25c6c
 
-The idea of instructing apply_to_page_range() to skip the lazy mmu mode
-was not countered. Quite opposite, Liam suggested exactly the same:
-
-<quote>
-Could we do something like the pgtbl_mod_mask or zap_details and pass
-through a struct or one unsigned int for create and lazy_mmu?
-
-These wrappers are terrible for readability and annoying for argument
-lists too.
-
-Could we do something like the pgtbl_mod_mask or zap_details and pass
-through a struct or one unsigned int for create and lazy_mmu?
-
-At least we'd have better self-documenting code in the wrappers.. and if
-we ever need a third boolean, we could avoid multiplying the wrappers
-again.
-<quote>
-
-Thanks!
 
