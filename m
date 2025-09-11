@@ -4,107 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B29CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8DBCAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MwzDNI9yJYt0FbdpLoCs5UFoez7p7JLe3AO8r/PxG6I=; b=YyILs0wO9SmaMfvQep9jj/1C2D
-	qlN1jRNPbUUEWNkxvaCGI/UyETfTyHU0w7ZBeRUUFRMYqyiJDKdYtC8obZxFFk6oFWWAS82stYurL
-	9DesWs07G5Tkc4kvsDcrxco70ieFHnrYtX2Fkyw2M5kXFUkA1FuSND/NiJPtnxm2BRyoRDucvfGd6
-	AGjYE7OqGZomERennckjLMcF1C6pY9aYDGmnqvYUSvhppagfhieNeVJow29pkMKB5kQLE5lJmtKR8
-	Ru8KKFT03ltxso9VHusmE0DO03pusGjDR20VJoJ/Yw1LIQC21cnXjVKs+84UXO+NkJPg1KwG++McP
-	hBsiRVUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ibnQe4VUFDv6NqO0BsbuVRca+my/sU/g4Jr5YISRZLQ=; b=o/Xvrrlffe0wBBiIZu2fXZGdAV
+	NhDPo3ze8Elg0tTe5pj47Gtzg8ympQURGdTqZdZsrjXHblsQ+YIfXVz0+ZSrN3I9mWpNAZtQnOcW4
+	5xyE76Jtt+9uNey+0n/ZU7KS+dU4bFOs0hxm0fjcDvi/aoTT95DZel5XDaYTLT92tSxHKU6jkXFLq
+	pDCNJPHI6R4D8lvbPYiM/l5KNWPEDfWkyLeTHejFhtKbLiP2Y/lzpM0spuUbePVHZWqL4FmRs/Wp3
+	z/qyVu2wAGHNtCEhY6wUXAC+jyMEGOdKgvl5dFXxJOAT36kULMVJvgKaC0JQjsv3mnxzACjz+9+/Q
+	iYuBpi0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwc4j-00000001bmV-2Zns;
-	Thu, 11 Sep 2025 07:50:37 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1uwc7Z-00000001cS8-0pDg;
+	Thu, 11 Sep 2025 07:53:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwc4g-00000001bja-2CE5;
-	Thu, 11 Sep 2025 07:50:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757577035; x=1789113035;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=m30L7S1WvoRggLHv6LreiIlctXHF+XJ1XKVdT0+e9qo=;
-  b=evqZHtSqpipMWXDEHCEbwflep9ss26zIMN+Z4K/8W4WkLo+VRZVle43P
-   2VnmlelG6v9u47Xd8L6UCGgbZQnkSB2j/3fhVCjeDsjTihwmPse5w4CKy
-   VE2z2YdUgSBRh14dL5eHm85je/1MK8nPF6nvyvnsmaiXq4KHV3hnuzo8b
-   LCgzo1oFyMBVQaDG5Qk5E35hwZQH8KfebUT0ZQojo6jEPFSjoMluqk/k7
-   K5a1HLq+aDSWpaQ5Y/aMwYFCnV+HYLLauH+T5MyvFs4UGb0+gjy9t5C67
-   kzm+SHW1G/B/zBUoIp7pJVy7m35s0v2Yl57iLOPUHb17JbC0GIQI3xm0d
-   g==;
-X-CSE-ConnectionGUID: S7aT7ocUR7iJt9vIwfcRZQ==
-X-CSE-MsgGUID: 266ZSZ7/SO2fv+XXUkGIsg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11549"; a="58941633"
-X-IronPort-AV: E=Sophos;i="6.18,256,1751266800"; 
-   d="scan'208";a="58941633"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2025 00:50:32 -0700
-X-CSE-ConnectionGUID: /rkAzoZPQPW19fuKTvUXuA==
-X-CSE-MsgGUID: uzsJIT7GTJKG20+iNoc2mA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,256,1751266800"; 
-   d="scan'208";a="178821912"
-Received: from smile.fi.intel.com ([10.237.72.51])
-  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2025 00:50:23 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1uwc4R-000000022QJ-0Efr;
-	Thu, 11 Sep 2025 10:50:19 +0300
-Date: Thu, 11 Sep 2025 10:50:18 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Lee Jones <lee@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
-	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <legoffic.clement@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	James Cowgill <james.cowgill@blaize.com>,
-	Matt Redfearn <matt.redfearn@blaize.com>,
-	Neil Jones <neil.jones@blaize.com>,
-	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Yang Shen <shenyang39@huawei.com>, Imre Kaloz <kaloz@openwrt.org>,
-	Yinbo Zhu <zhuyinbo@loongson.cn>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, imx@lists.linux.dev,
-	linux-unisoc@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 0/3] gpio/pinctrl/mfd: use more common syntax for
- compound literals
-Message-ID: <aMJ_Ohp5YtYNFnYV@smile.fi.intel.com>
-References: <20250910-make-compound-literals-normal-again-v1-0-076ee7738a0b@linaro.org>
+	id 1uwc7W-00000001cNn-0EGT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Sep 2025 07:53:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2AD0960249;
+	Thu, 11 Sep 2025 07:53:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5264FC4CEFE;
+	Thu, 11 Sep 2025 07:53:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757577208;
+	bh=Ym/gINLHmikuw69uc6+19TWOxHmwsBHXCw48WiyJQsw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=UD0BngKfEOEQtMBSI8z7uftnKJd3DgMs57frIxGd2AnM10aK4WYIyxvqBQa1h2r5f
+	 mYlfCAHyxv1vLNeY5T8kKnrbuPEOsjaGPv8pevpsI2TC9H1OkJZwbihEf9FiFk7wec
+	 lVfDOX90DYNiu6TcUCULeD/2BOrWW85mciBL0o6oSxOUDBZoY2i5XAbyzBWGQPmZk3
+	 q7quZ9nqCxtleOWF1hlATQuyKkdP3QeqHqtxBdakhYWtdvWrPw9ZY3y/rrR0GcDEkq
+	 6SIcXI01gJ5WrZSJDK1ct2Qn1RCwTNSmhCYFYzTkDybsR3ZwU1jPCroi68PiG/aoI6
+	 VCuve4TBp0/tA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 47273CAC587;
+	Thu, 11 Sep 2025 07:53:28 +0000 (UTC)
+From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
+Date: Thu, 11 Sep 2025 09:53:20 +0200
+Subject: [PATCH v3 3/4] arm64: dts: freescale:
+ moduline-display-av101hdt-a10: add backlight
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250910-make-compound-literals-normal-again-v1-0-076ee7738a0b@linaro.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_005034_843496_9E17505E 
-X-CRM114-Status: GOOD (  10.41  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250911-max25014-v3-3-d03f4eba375e@gocontroll.com>
+References: <20250911-max25014-v3-0-d03f4eba375e@gocontroll.com>
+In-Reply-To: <20250911-max25014-v3-0-d03f4eba375e@gocontroll.com>
+To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
+ Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-fbdev@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Maud Spierings <maudspierings@gocontroll.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757577207; l=1541;
+ i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
+ bh=MKPHYiixnvo18K/Tipnb4mW1ZFhvWvMFDXU6EXpZykM=;
+ b=/CA6jwFw9AdCyBAGzCS1uYBPRwTDVmL+ssxdE9/CUUa/h/o7hlenPzXWcz1X3FtED346hee9A
+ 8SD+Do7xMlUAHbnbtAef882ZeDM34phyYWsrLI83NbXgjNDIo6iamk1
+X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
+ pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
+X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
+ with auth_id=341
+X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,26 +89,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 09:25:44AM +0200, Bartosz Golaszewski wrote:
-> As discussed[1] with Andy: it's probably better to use a more common
-> syntax for compound literals so fix the commits that converted GPIO
-> chips to using the new generic GPIO chip API and make them explicitly
-> spell out the type they're initializing.
-> 
-> Each commit in this series can go directly into its respective tree:
-> MFD, pinctrl and GPIO.
+From: Maud Spierings <maudspierings@gocontroll.com>
 
-Thank you! All look good to me,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Add the missing backlight driver.
 
-> [1] https://lore.kernel.org/all/20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org/
+Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+---
+ ...tx8p-ml81-moduline-display-106-av101hdt-a10.dtso | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
+index e3965caca6be42a17aa89b77bd5b919382c84151..3d0983a3ab5463196de8cefb863bde74426b735d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
+@@ -17,6 +17,7 @@
+ 
+ 	panel {
+ 		compatible = "boe,av101hdt-a10";
++		backlight = <&backlight>;
+ 		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-0 = <&pinctrl_panel>;
+ 		pinctrl-names = "default";
+@@ -40,7 +41,27 @@ reg_vbus: regulator-vbus {
+ 	};
+ };
+ 
++&i2c4 {
++	backlight: backlight@6f {
++		compatible = "maxim,max25014";
++		reg = <0x6f>;
++		default-brightness = <50>;
++		enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_backlight>;
++		maxim,iset = <7>;
++		maxim,strings = <1 1 1 0>;
++	};
++};
++
+ &iomuxc {
++	pinctrl_backlight: backlightgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO04__GPIO1_IO04
++				(MX8MP_PULL_UP | MX8MP_PULL_ENABLE)
++		>;
++	};
++
+ 	pinctrl_panel: panelgrp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07
 
 -- 
-With Best Regards,
-Andy Shevchenko
+2.51.0
 
 
 
