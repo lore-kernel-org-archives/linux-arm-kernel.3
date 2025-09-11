@@ -4,103 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B33CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 19:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F58CAC58F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 20:24:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJeew9YIVoP09p3LirTxwS5JzCuSaF7BlgkulwqqjZw=; b=nNFnlz7lqArzWO00kLTNLTuqD0
-	brvkOlxyZkSJv8xGkfY/snbINopud7Z1tsgpsR2p2DCsPGd6IT/yZnvxv7ImNd2g9RW8RUQXqG4tf
-	YCQjI+kBe58oyMUttIo3wnDm6c+7ZOaC/1CMI0fJX8PHAzGTeWq5T1DLRPS7bsxzz55rySNQh+fhM
-	JhMKR5xjpubmjj7Yg3VTbQ/rjFn3b6MqgliTIHTaRefj1NOIpfcDr8cTTf8jTWiOORCLwQYgRBU3Q
-	G5+M63+rfRSwOQirXcM/XRXGaZeP8FEStPBmlvnHDiUiBQC01NJ71EJ3B1qeoLbQVDI7BUUH92zoy
-	rqA9oqWQ==;
+	bh=gS/BXmXJdD5iHDRkMmTw9Zdaelh6v/oW1K7BdA27RVc=; b=xQJCyX+omp4jHhCP2MHVOIxqRp
+	9mpkAUeq/sQ4R4c2MBZxL86AjEqNPsBLDjT2U66oA+mHMfTYzcQhGQMBWcJxhuubtxRiYKc0Z+VIL
+	WCjyd/aNGlCKqwU2PTGgJavZFp0e6kMKr8V+oxFHeJtU5obE5x7fpHNU1mfDZSuq8k5syj8Smzcu8
+	KapRzb78G4gTuNsnZCF2OX45K7I5mffpYFwMykHeIRqj1dyoZwP5nRa9Sz1E6Q5HXQVGRtUuKW+iB
+	RG0kqmaTSDhiCiqXZnwkFepwGiPUzmQ+I3D6FnHQmcGf1GE2+St/b+fE561b8nDEPmvp36ykwKrIW
+	8iBzHx7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwnJg-000000054vo-35yb;
-	Thu, 11 Sep 2025 19:50:48 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1uwnpr-00000005Csc-013i;
+	Thu, 11 Sep 2025 20:24:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwnJc-000000054tC-31Mb
+	id 1uwnpl-00000005CnK-1iPg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 19:50:46 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2518a38e7e4so24220675ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 12:50:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757620244; x=1758225044; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TJeew9YIVoP09p3LirTxwS5JzCuSaF7BlgkulwqqjZw=;
-        b=VEgn7UxBuWQUaIcV+zvCRxJ9gD9zWWXkpuQn9qEVMh1QthqrzMiEUSjdK1V9Nvvfdo
-         t5lTJu6Ql7fuQKgOZ5GwNHsi/P3sCkNidmUXPe7jAyBStUuU+KbFhwTVab4B8ihVjZ5o
-         7lCsICLwvH3XKpOuEApC6PUkMi4M6/zy5bK7yBUz0bdx8v4qRVu6gH9NHOQSbUc1Fpll
-         Zm81h/Z17Q/uPpNKF1t8A8PtJPTF8XGvuYEmHUshCFjgpqKoihozA4ssOHirPs/UlNO6
-         ZCh/vxo+LXjEx1jRrsW0gDSlRqwHNbYUtq2CNLkJoWH7OxbmQTeShpagYen9QGA/j5xb
-         IyVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757620244; x=1758225044;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TJeew9YIVoP09p3LirTxwS5JzCuSaF7BlgkulwqqjZw=;
-        b=pIHGRj1hzcYOmqxuv3svdi9HEWERIRUjL5H8DRRM2Y3Kka4mrE/2uTX0hu7tG7Nc7P
-         wjmpcezFRXghLU6suwUnZRaz1pp5G8VkdWWqmB2GYd2tbri66zx1/zxdV1+kPCN2Uwcf
-         KNOuyZfvVydGCDP4EOlJU0C+QLUys51xS1ULAnCTc6wPw29R+cVrO/MNXzQO3WnRUNaS
-         3Lm1NTRzecCJq+knNpiwVakuW6VqXmb9VUjRWJMySiergH4Unn/ck+9qgo9EdF3AbYrg
-         0BESnjGZFP21JyMq9WRQ/F7mCXXTcXk247WWVhkPN3nDc4uB98LAhCBWZ9xLjjnWaEyG
-         AZDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVmvqkqM8QRYMOu0H7MYxtmUGA5pIrENgHWpBF5yChgUBgxduFSxgwiDDFMrz4zaJnfZxcjioHRwH3yks7TDPLM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZOMPlwnDkb0pAZlVUGy081QWZMSpdUoVQ1rj9g9oXI/AgV5oJ
-	LyAJwj8be/KXgU8NqZcvcHI+uVdwc6wmc8dJvBpkbV9D8oYDQDRA9wsZ
-X-Gm-Gg: ASbGnct8c/YjkN7wJF4MDxg+vclvoGrmbNQP662fk4twENN1WB3JXElsdLnk/XwYljZ
-	j/suFdsDXq+fN+kBqFRrYUage/27e+OOMarfJ+GUHqLXIadVJcPugmOLxw7N94rgrm0f7k1bJ6W
-	Q20e95Q/MIRmrA793YPPQmesFE+VH5YcN9O/rCT6OaZksCSGmoHeZqy26he8Tpv4dCqqNccYRrW
-	tN4U3QkVlC4k2W5QqKQTW4UixoaXsHdiC19OI30MCG4v8c68DATqJd8AX31+4upAYa+GDWTH+HV
-	W5BjGp1eNxnx4UN4bdmDFE+wjKcJgGlepmAcEDCLypiHgWElSSyIxjTnDNAdRtSITt4jHRpbTON
-	1STaoIzzljtkgFdj2WaJ4zH+8Uis8AZ5gpPeB07zSwuAhyCUy
-X-Google-Smtp-Source: AGHT+IGM3HY9cYe0k8sf5GxMMVgG9l2ykvqk4n7ayiGGr2GhLio6Ij8ygJsJDwHZ88T4ZvBeMdpxjA==
-X-Received: by 2002:a17:902:d506:b0:25c:9084:4172 with SMTP id d9443c01a7336-25c908466d3mr25755745ad.14.1757620243626;
-        Thu, 11 Sep 2025 12:50:43 -0700 (PDT)
-Received: from [10.69.47.143] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-25c36cc53bcsm26957775ad.28.2025.09.11.12.50.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Sep 2025 12:50:43 -0700 (PDT)
-Message-ID: <cfe7bc19-763f-4e92-b1ae-355c661bcc19@gmail.com>
-Date: Thu, 11 Sep 2025 12:50:47 -0700
+	Thu, 11 Sep 2025 20:23:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A58B44614;
+	Thu, 11 Sep 2025 20:23:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 34C5FC4CEF5;
+	Thu, 11 Sep 2025 20:23:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757622236;
+	bh=jJN/CVQ4Z0j0qCr/H8XKJBMu2Fbgqv5mOAyr2KXEcTA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=cfLo38YNLgCaBRXyhWEJKqEhLFUodB3gv66ew+Nwj+iEfZnkz4wg3/xtMPvFF7bTq
+	 TW5sC099WQJb7y2I6AVwUaqduq5Vruu60Gebtm75zCIdzfzXzRsCWmakxwvU3Lx+dp
+	 b0/HjqBjokPLpFhD0vFMqm1ZWFW3HFUydtdpfHc6VOipkCLKuXeY1eiMkmmcppuFJg
+	 Ag603e4Ep2ib8GmmNXnG356LZEQ+0qcLysfeVjpt3NSx2XqLlGM5Zqge4jZfsGulJD
+	 RJEVAp8SmFKasKKS5nJYTy7GIrGPZZhLx4qor9KuYpu7vftgnzg6zt+Psgq/qBdRO8
+	 h5bNTIxSMgODA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 245AECAC58E;
+	Thu, 11 Sep 2025 20:23:56 +0000 (UTC)
+From: =?utf-8?q?J=2E_Neusch=C3=A4fer_via_B4_Relay?= <devnull+j.ne.posteo.net@kernel.org>
+Date: Thu, 11 Sep 2025 22:23:55 +0200
+Subject: [PATCH v3 1/3] ARM: dts: allwinner: orangepi-zero: Add default
+ audio routing
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/15] gpio: brcmstb: use new generic GPIO chip API
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Keguang Zhang <keguang.zhang@gmail.com>, Alban Bedel <albeu@free.fr>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>, Yixun Lan <dlan@gentoo.org>,
- Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
- <20250910-gpio-mmio-gpio-conv-part4-v2-7-f3d1a4c57124@linaro.org>
- <e0941449-7a62-4bbb-8790-616f393f2cc8@gmail.com>
- <CAMRc=MfZ5ss8Gd_TTPV8EYSv04ENp_C26b3=wukO+UTy_boXUA@mail.gmail.com>
-Content-Language: en-US
-From: Doug Berger <opendmb@gmail.com>
-In-Reply-To: <CAMRc=MfZ5ss8Gd_TTPV8EYSv04ENp_C26b3=wukO+UTy_boXUA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20250911-opz-audio-v3-1-9dfd317a8163@posteo.net>
+References: <20250911-opz-audio-v3-0-9dfd317a8163@posteo.net>
+In-Reply-To: <20250911-opz-audio-v3-0-9dfd317a8163@posteo.net>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757622235; l=1327;
+ i=j.ne@posteo.net; s=20240329; h=from:subject:message-id;
+ bh=jlkkNRSXPvyKb7VkFE4rQa+2nclFteLVP/Fzwz7oW+A=;
+ b=Z8C6IY54/f4oSOkqb/qp4iZvO2BDFKeNxw7f4oP0smdBBrUsLMOPexmO5cGlajmBQS//udCD7
+ tabOi9+px2mBlP+zxypShC9lYgL2dP2II4X9n+YQnNYEq9z4d9CohaH
+X-Developer-Key: i=j.ne@posteo.net; a=ed25519;
+ pk=NIe0bK42wNaX/C4bi6ezm7NJK0IQE+8MKBm7igFMIS4=
+X-Endpoint-Received: by B4 Relay for j.ne@posteo.net/20240329 with
+ auth_id=156
+X-Original-From: =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_125044_762471_3C1633F8 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20250911_132357_487668_C69F2012 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,39 +87,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: j.ne@posteo.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/11/2025 12:56 AM, Bartosz Golaszewski wrote:
-> On Thu, Sep 11, 2025 at 2:11 AM Doug Berger <opendmb@gmail.com> wrote:
->>
->>>
->>> @@ -700,7 +707,8 @@ static int brcmstb_gpio_probe(struct platform_device *pdev)
->>>                 * be retained from S5 cold boot
->>>                 */
->>>                need_wakeup_event |= !!__brcmstb_gpio_get_active_irqs(bank);
->>> -             gc->write_reg(reg_base + GIO_MASK(bank->id), 0);
->>> +             gpio_generic_write_reg(&bank->chip,
->>> +                                    reg_base + GIO_MASK(bank->id), 0);
->>>
->>>                err = gpiochip_add_data(gc, bank);
->>>                if (err) {
->>>
->> I suppose I'm OK with all of this, but I'm just curious about the longer
->> term plans for the member accesses. Is there an intent to have helpers
->> for things like?:
->> chip.gc.offset
->> chip.gc.ngpio
-> 
-> I don't think so. It would require an enormous effort and these fields
-> in struct gpio_chip are pretty stable so there's no real reason for
-> it.
-> 
-> Bart
-Ok, so assuming struct gpio_chip is sticking around long term that makes 
-sense to me.
+From: "J. Neuschäfer" <j.ne@posteo.net>
 
-Thanks!
+Line out playback and microphone capture work, after enabling the
+corresponding ALSA controls. Tested with the Orange Pi Zero interface
+board.
 
-Acked-by: Doug Berger <opendmb@gmail.com>
+Signed-off-by: J. Neuschäfer <j.ne@posteo.net>
+---
+v3:
+- no change
+
+v2:
+- Add an explanatory comment
+---
+ .../arm/boot/dts/allwinner/sun8i-h2-plus-orangepi-zero.dts | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-h2-plus-orangepi-zero.dts b/arch/arm/boot/dts/allwinner/sun8i-h2-plus-orangepi-zero.dts
+index 1b001f2ad0efd2e77218742efe6d8edfdd18a816..b23cec5b89ebf61701e1d917929589eb6e884afd 100644
+--- a/arch/arm/boot/dts/allwinner/sun8i-h2-plus-orangepi-zero.dts
++++ b/arch/arm/boot/dts/allwinner/sun8i-h2-plus-orangepi-zero.dts
+@@ -112,6 +112,20 @@ wifi_pwrseq: pwrseq {
+ 	};
+ };
+ 
++/*
++ * Audio input/output is exposed on the 13-pin header and can't be used for
++ * anything else. However, adapter boards may use different audio routing.
++ * - https://linux-sunxi.org/Xunlong_Orange_Pi_Zero#Expansion_Port
++ * - Allwinner H3 Datasheet, section 3.1. Pin Characteristics
++ */
++&codec {
++	allwinner,audio-routing =
++		"Line Out", "LINEOUT",
++		"MIC1", "Mic",
++		"Mic",  "MBIAS";
++	status = "disabled";
++};
++
+ &cpu0 {
+ 	cpu-supply = <&reg_vdd_cpux>;
+ };
+
+-- 
+2.48.0.rc1.219.gb6b6757d772
+
+
 
