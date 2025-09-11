@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A17CCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E602CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h166zH557nDu6KXjKDDikPqDNydwEXPbG2tc2cnGUQA=; b=D+FmJaBFYZ8kmU5iGHeqyzRy/A
-	Zw6BuVo+JGpEhICUOkawXUrpHYE/rVwaatwFRYYtJwNNjoSFKHtotIsx0mWmNIh+7wB2VH4yPpqOi
-	bW0Qd8/uyCDEevpLJ2uaWRRpHCCFgpKGAhOawuUp+gQ+jHVbXCZcg5gYTXSiXevzACQlfRARSPwME
-	B1bsTm4fUKChbiEPN1VkUxIkeEzcXqPE5/UbejrAGUUyn9NrWh1252NdD4vxSNVC8Xj5azdXih4wJ
-	m25V3rGNpoqD3RJoyA86Iua0BRGCxF/g19hf5nBVXiGuRRhg+mWFDKi256k6J6o3YWvvt0wvsAKN3
-	9WIdpSGg==;
+	bh=Ffc678fQhzI/pdu+hLX+ARqrXJLZH6TSQWiX1NPHrZM=; b=cc6d+01XNvWbvOSeNTgeT30PMe
+	k6bPhdcPppQdpknWxE/ldB0IyROB2arn1ApQH/U6VM2kbDtfzpa70vsSOog6y7xjTppzXqkBd4JH3
+	724Zqy7txZS2Sf1k+T3Qw/RI7kncVlzluwS29PzpC7H5z5jBJvmnL3JvxAsxX0rvdRU+CApV5gfZY
+	ZwlB0x/fajNX0VO0rY5gM5kF7pC+yzZ7Jz3ZZqnXa/XDQ13oAL2ENikL6DkiL8jXDufr54CbTokp/
+	Ra5trJ9YsPZbZ85LW4TE2qlMnMtEMfVAIg6xHHQ1Pbegy3pO5f0pvvOPD6eFlJDDx537OCRNP4SK0
+	tVSdHCiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwivn-00000003m3Y-3GFU;
-	Thu, 11 Sep 2025 15:09:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uwixO-00000003mfD-0mk2;
+	Thu, 11 Sep 2025 15:11:30 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwivl-00000003m3O-3nEU
+	id 1uwixL-00000003mc6-2gD2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:09:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3CBC3601B3;
-	Thu, 11 Sep 2025 15:09:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35F2FC4CEF5;
-	Thu, 11 Sep 2025 15:09:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757603388;
-	bh=gBDmezCMu/2OkI3KT860YnQjdQW9Blm0iG3vh7MOde0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fwul0kJi6q74mGU5Dqukf5JEmtODC2NkyMLIdTjXljA7qbeJj6mIM5DM6y2vBfH4d
-	 suNiil4MVNnU/HJN42xo2+eNpsSS0tKlwA8yGJgwTex6OH2OHz4lZxT4ZDNFVu7hjW
-	 YgRRChvuX573cN4nRIHtJsu67KZqy/UdGDAHkpWkyFJ/WwQngxIsnO2QyujxjSvd1l
-	 EkXWCIL8O5IclKEzb8fUUAd2nJd9V40X/OiEqeKElYtHqbZa+hYCvB2ajZj5tgZv7j
-	 j+/bMVLheV9VFI6ItJ96j1idNA4g8c3DEbf+UGyC52SycLwaMJXMfCbZGRwFo+OpUa
-	 BuquWy/GxJYzg==
-Date: Thu, 11 Sep 2025 16:09:42 +0100
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
-	ardb@kernel.org, scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Thu, 11 Sep 2025 15:11:29 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 3D364240027
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 17:11:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
+	t=1757603482; bh=Ffc678fQhzI/pdu+hLX+ARqrXJLZH6TSQWiX1NPHrZM=;
+	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:From;
+	b=TnxtUmxm72N0S5hLUeZoPl+SgtgB7gCg2c6AyfSQ1/KRdEH3USSX6lP9cGj7yHwND
+	 hGU4uiIZBAEtb2hyK3DZkJS1Ru3vYnq/vOrm0lEImjlvbpzC96XtFaytQijHy6zz2B
+	 o+rzTOCnLhwBhFVTe+fUCUDkCqdgcqybmsKlvrglJvrU+PAcGQkLq5Z4o/lKUmjGt6
+	 TEfrKXgRCORHorps+nbrxO/18DlGgujQCGenDnZ8ebERLtNCbBsJXDBg/Fmg72cfbl
+	 FHZ0ObAE6FsNr/Yfn8yBKziLprr+sFb504/4SN9Ek8C4NMVtiThLPwTOZDDi9LO8I8
+	 du5l12wAQYDkQ==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4cN1Gt4zm0z6v15;
+	Thu, 11 Sep 2025 17:11:18 +0200 (CEST)
+Date: Thu, 11 Sep 2025 15:11:21 +0000
+From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
+To: Chen-Yu Tsai <wens@csie.org>
+Cc: j.ne@posteo.net, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v7 0/6] support FEAT_LSUI and apply it on futex
- atomic ops
-Message-ID: <aMLmNnehYX6gqEIf@willie-the-truck>
-References: <20250816151929.197589-1-yeoreum.yun@arm.com>
+Subject: Re: [PATCH v2 2/3] ARM: dts: allwinner: orangepi-zero2: Add default
+ audio routing
+Message-ID: <aMLmlsZimgKVeiUF@probook>
+References: <20250809-opz-audio-v2-0-f4fd15552a82@posteo.net>
+ <20250809-opz-audio-v2-2-f4fd15552a82@posteo.net>
+ <CAGb2v671xTaWkRD0xVPsgGWvykAwPESXuBLgDz-oo4ywOJ=5Xg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250816151929.197589-1-yeoreum.yun@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGb2v671xTaWkRD0xVPsgGWvykAwPESXuBLgDz-oo4ywOJ=5Xg@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250911_081127_957877_19248F10 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,21 +81,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 16, 2025 at 04:19:23PM +0100, Yeoreum Yun wrote:
-> Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-> previleged level to access to access user memory without clearing
-> PSTATE.PAN bit.
+On Wed, Sep 10, 2025 at 08:58:49PM +0800, Chen-Yu Tsai wrote:
+> On Sun, Aug 10, 2025 at 12:18 AM J. Neuschäfer via B4 Relay
+> <devnull+j.ne.posteo.net@kernel.org> wrote:
+> >
+> > From: "J. Neuschäfer" <j.ne@posteo.net>
 > 
-> This patchset support FEAT_LSUI and applies in futex atomic operation
-> where can replace from ldxr/stlxr pair implmentation with clearing
-> PSTATE.PAN bit to correspondant load/store unprevileged atomic operation
-> without clearing PSTATE.PAN bit.
 > 
-> (Sorry, I've sent wrongly for patch version 7 and resend it.
->  Again, sorry for mail-boom).
+> The subject is misleading. The Orange Pi Zero2 is a different board with
+> the H616 SoC.
 
-I tried to review this but I can't find any details about FEAT_LSUI in
-the latest Arm ARM. Where should I be looking for the architecture spec?
+Oh, indeed. I got confused. Thank you for catching this error!
 
-Will
+J. Neuschäfer
+
+> 
+> ChenYu
+> 
+> > The Orange Pi Zero Plus 2 has the same pinout[1] as the Orange Pi
+> > Zero[2] (with the possible exception of line-out left/right being
+> > swapped), and the Orange Pi Zero Interface Board is sold[3] as
+> > compatible with both of them. We can thus use the same audio routing.
+> >
+> > [1]: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-Plus-2.html
+> > [2]: https://linux-sunxi.org/Xunlong_Orange_Pi_Zero#Expansion_Port
+> > [3]: https://orangepi.com/index.php?route=product/product&product_id=871
+> >
+> > Signed-off-by: J. Neuschäfer <j.ne@posteo.net>
+> > ---
+> >
+> > v2:
+> > - new patch
+> > ---
+> >  .../boot/dts/allwinner/sun8i-h3-orangepi-zero-plus2.dts    | 14 ++++++++++++++
+> >  1 file changed, 14 insertions(+)
+> >
+> > diff --git a/arch/arm/boot/dts/allwinner/sun8i-h3-orangepi-zero-plus2.dts b/arch/arm/boot/dts/allwinner/sun8i-h3-orangepi-zero-plus2.dts
+> > index 7a6444a10e2534458b7380882ea4fd42bd54fea8..97a3565ac7a819be6b18d324fa6f65d0d1d2b2ad 100644
+> > --- a/arch/arm/boot/dts/allwinner/sun8i-h3-orangepi-zero-plus2.dts
+> > +++ b/arch/arm/boot/dts/allwinner/sun8i-h3-orangepi-zero-plus2.dts
+> > @@ -99,6 +99,20 @@ wifi_pwrseq: pwrseq {
+> >         };
+> >  };
+> >
+> > +/*
+> > + * Audio input/output is exposed on the 13-pin header and can't be used for
+> > + * anything else. However, adapter boards may use different audio routing.
+> > + * - http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-Plus-2.html
+> > + * - Allwinner H3 Datasheet, section 3.1. Pin Characteristics
+> > + */
+> > +&codec {
+> > +       allwinner,audio-routing =
+> > +               "Line Out", "LINEOUT",
+> > +               "MIC1", "Mic",
+> > +               "Mic",  "MBIAS";
+> > +       status = "disabled";
+> > +};
+> > +
+> >  &de {
+> >         status = "okay";
+> >  };
+> >
+> > --
+> > 2.48.0.rc1.219.gb6b6757d772
+> >
+> >
+> >
 
