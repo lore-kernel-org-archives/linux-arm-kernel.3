@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E65CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 18:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F03CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 18:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JKfsBIjjBs8pCarTDYZ380mGeD1i48PO8H8V6haIuBY=; b=pDJBDu1fx700ssPHb6yj2BH4pu
-	Yr/p6TAZAAV/utIVxLG9PBu/ydsng9V9BgbOZmjEi2hdiJAdAHqP1x0qTI3ujjSC9xdBpINvg0BiJ
-	3AtA+KwDzRY4K9+cWQPXmmQsF5TDabYuoPAo1Jf4GlE4I/rxxJulFqVNdbzW73q+7dnlnGc1H85NH
-	FzcZIx5f8YGKBlgDYggdSrNRbo+yXXBTGuTpvxhhj4jUjAlbvES6Tq+9+bwFO01pqqf04h/ug2h3B
-	PRAKetjaZY84tbjMxj8D0HlSdEPksk52OzfvSwn5mlO140Mkw0UfVlgi65vDoKRAujQlE8sKNnrSQ
-	Vd4LKhDg==;
+	bh=qgoU6ODnHJHjlxJ7O2reyqhOrHLfmkxgDzAUfsAuBJc=; b=ApV6EWiGEq2YkBOcHFmDfcYDWA
+	1s2IaQ2aZuWZZ5fdxcTr3wWYqtn4ha7ltOK1mNSsOcEa4X1YPyZk0A79FsPD2LNF2O6baF6jvx9fi
+	hNVRlj1lWC74qw0GtcO+dvdlpt1iLKRX2WllJwB+8ce9hUsAQgU9dOWcfrYoY6Wjt+xNSBaojtc4E
+	mwrEuLfAVzF4NzLELdRWDR6k0fK/p4gHC5Zbdj0Kdg3GxTkqqs9iTsKmiJxVf4rGwDsOiDBgiXTaz
+	5QURnFv1khOS4W3wHjdCbWMHRuDwUFKTJmy0i8wdfA94nZss0gWQPWiFxeqfC9RGfs8uJPFLKzsT3
+	/klcLtWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwmG7-00000004ne9-1fQr;
-	Thu, 11 Sep 2025 18:43:03 +0000
-Received: from out-170.mta1.migadu.com ([95.215.58.170])
+	id 1uwmIX-00000004oJt-0nlO;
+	Thu, 11 Sep 2025 18:45:33 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwmG4-00000004ndP-2lK7
+	id 1uwmIU-00000004oI9-1NxQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 18:43:02 +0000
-Date: Thu, 11 Sep 2025 11:42:50 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1757616177;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JKfsBIjjBs8pCarTDYZ380mGeD1i48PO8H8V6haIuBY=;
-	b=XXxdyqbW2SGskkdgZ/rJMJue/1nScUY19rrTLrPPz4OVLJMvxhMn67kkpt+DVXOfnxcXwP
-	rUi/hBVVpalMpFcdyXaIbMKbPeSzQCr05n2lwybhV8Vz3naZLTMdx2HAubQSlBd6dF78Ti
-	0kjk/i9g408ssx6NGLP8uPpZ436EaWs=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Jack Thomson <jackabt.amazon@gmail.com>
-Cc: maz@kernel.org, pbonzini@redhat.com, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com, roypat@amazon.co.uk,
-	kalyazin@amazon.co.uk, jackabt@amazon.com
-Subject: Re: [PATCH 3/6] KVM: arm64: Add pre_fault_memory implementation
-Message-ID: <aMMYKqWsAZ4y0WI7@linux.dev>
-References: <20250911134648.58945-1-jackabt.amazon@gmail.com>
- <20250911134648.58945-4-jackabt.amazon@gmail.com>
+	Thu, 11 Sep 2025 18:45:31 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45b9a856dc2so6812875e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 11:45:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757616328; x=1758221128; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qgoU6ODnHJHjlxJ7O2reyqhOrHLfmkxgDzAUfsAuBJc=;
+        b=EsJoyblC/vzMw1BXvaKNQXedhOzKp32WocJtePzz4U2wWM9x2Jr4Q1c5vFhjr7S6e4
+         JyISzCQSRdd9bBLNzHKA46I034eqHzir1eU/1VPP2g2xVnsquLVviYvtaOeH5HphVSaE
+         D7j33CNHLAvKNzL80XP4KEcJlPVfpqNwXmiyjQ5zUu8fliexNTRKLEAAjzcZh26hln1x
+         jOweOptV7bvMSm5ettfkOIx7LfByYyCAXJNN8buyfPsWtgK+0Ch4tDahGSzPqkdLnJZX
+         eXqHEKK9CTVZlSJXaCSLWA8kc8VNrzx2kijRCJa834+/fTe8fypsLyT9/y26zD/F7HUb
+         5TnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757616328; x=1758221128;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qgoU6ODnHJHjlxJ7O2reyqhOrHLfmkxgDzAUfsAuBJc=;
+        b=i8cBi2/kIJZwkyg5dcdbuwxbtA2+Wt5r4mgBjc2eFv1Q6j9B/E0OmZ2x7UK5emBmlk
+         5gx7pZ9/6+RY7OerHp957WsMEP+yAHJRiO34ysd4M25nk/Xd1CipqE/2hctmzO6D7GYk
+         Ex14auA6MaPCXMSyzEpcI3+FqDAt9qPeg7VxqKhv8IN6NQoteizUc3UZ0JXYPPYCWwEt
+         QAF6DGwHd24QY1kfJQ8LyKS19uAyWgiWa8IMSpeyOfTD4LF0xM8pyNwy454bY7Tt/nzL
+         mbfXYffO7UjJ6KhzSTHXDOdcyeNYGj7GuohRCl9tpcK9A0RUyw/Rdpva8IWQKqS6J5gb
+         e+vg==
+X-Forwarded-Encrypted: i=1; AJvYcCW5ULESA5jidNNthA7J+pj2sgJ2Vpnexz5EwUCGVpUXz0QGG32+kxdTbo+suLF5Dtdq7Bmffwy0a9LEepf8h9bD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrtCku8L+N8SSnYneAkasGrnq+wlaqV51at4zpDadadgt+z4Vv
+	HtbDGwopqO5Kv1Ig1Bbn/W+S61O4voAeI6UD+Htn/iMDdNgebfwHx5pP
+X-Gm-Gg: ASbGncuVswuwa9FnrDF4DIhV/PS4Bh75Eom/IxWSJ+jxqmUFTPvuTx8BT+Lb+zsObTU
+	C9d0Ppu2WSuKVAj6jELOtOzU12cFthR2X91f8BPnnzsUPI2EzewN7Z41YN2DXvzjSZDDOXLPN4A
+	+l/VhHUvc1Y8iMDlChIbzuUhd8HFx6Qc3zFEQjwbs2N+4zuTdHj/9DL8dxjeMWJ98SK2lxLDAJ1
+	NEY5cAGO8fSZKQzy7JlScI3APVQ/uFLe+pGTdybVtExo4fRCQ4DVAINyCNxzmAMWgMeRDI9Ilhb
+	0+2esi4lheyVunWQY2stCiIn5hCiFY/XE62GxHjwhI68wnWPt4rtujh+Q6pcO/xkzSsiv6vP+kz
+	tvUU4YBlTANd6ak33ZQq+/eQQSLTWbAWDiNyY6k17zxsG0XrnF+pl9B8YAR2c8PIig9igaFUTds
+	6bhEWQs35vWyg+v/x5JIk=
+X-Google-Smtp-Source: AGHT+IF35WXiz7qtt5E7pbWdiKdOZLXpqRy4oaXj/fJmaGWMagVTnOpk2kyKlLObTat0jClq3/mWxg==
+X-Received: by 2002:a05:600c:34d4:b0:453:2066:4a26 with SMTP id 5b1f17b1804b1-45f211d008dmr7116755e9.16.1757616328099;
+        Thu, 11 Sep 2025 11:45:28 -0700 (PDT)
+Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e01575fadsm36130825e9.6.2025.09.11.11.45.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Sep 2025 11:45:27 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Chen-Yu Tsai <wens@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>, linux-sunxi@lists.linux.dev,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 5/7] clk: sunxi-ng: add support for the A523/T527 MCU CCU
+Date: Thu, 11 Sep 2025 20:45:26 +0200
+Message-ID: <5037780.31r3eYUQgx@jernej-laptop>
+In-Reply-To: <20250911174710.3149589-6-wens@kernel.org>
+References: <20250911174710.3149589-1-wens@kernel.org>
+ <20250911174710.3149589-6-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250911134648.58945-4-jackabt.amazon@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_114300_909058_51C8936B 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250911_114530_381878_7FBD7706 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,81 +103,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 11, 2025 at 02:46:45PM +0100, Jack Thomson wrote:
-> @@ -1607,7 +1611,7 @@ static int __user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  			    struct kvm_s2_trans *nested,
->  			    struct kvm_memory_slot *memslot,
->  			    long *page_size, unsigned long hva,
-> -			    bool fault_is_perm)
-> +			    bool fault_is_perm, bool pre_fault)
->  {
->  	int ret = 0;
->  	bool topup_memcache;
-> @@ -1631,10 +1635,13 @@ static int __user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  	vm_flags_t vm_flags;
->  	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_MEMABORT_FLAGS;
->  
-> +	if (pre_fault)
-> +		flags |= KVM_PGTABLE_WALK_PRE_FAULT;
-> +
->  	if (fault_is_perm)
->  		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
-> -	write_fault = kvm_is_write_fault(vcpu);
-> -	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
-> +	write_fault = !pre_fault && kvm_is_write_fault(vcpu);
-> +	exec_fault = !pre_fault && kvm_vcpu_trap_is_exec_fault(vcpu);
+Dne =C4=8Detrtek, 11. september 2025 ob 19:47:08 Srednjeevropski poletni =
+=C4=8Das je Chen-Yu Tsai napisal(a):
+> From: Chen-Yu Tsai <wens@csie.org>
+>=20
+> The A523/T527 SoCs have a new MCU PRCM, which has more clocks and reset
+> controls for the RISC-V MCU and other peripherals. There is a second
+> audio PLL, but no bus clock dividers. The BSP driver uses the 24MHz main
+> oscillator as the parent for all the bus clocks. But the diagram
+> suggests busses from the other PRCM are used in this block as well.
+>=20
+> Add a driver to support this part. Unlike the BSP driver, the SoC's main
+> MBUS clock is chosen as the parent for the MCU MBUS clock, and the
+> latter then serves as the parent of the MCU DMA controller's MBUS clock.
+> The bus gate clocks also use their respective bus clocks as parents
+> according to the system bus tree diagram. In cases where a block does
+> not appear in that diagram, an educated guess is made.
+>=20
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+> ---
+> Changes since v1:
+> - Added comment for "fixed" dividers in audio PLL clock
+> - Corrected variable names for audio PLL divider clocks
+> - Added comment for the reversed order of some of the DSP clock's
+>   parents when compared to the manual
+> - Added comments for clocks and resets only found in the BSP driver
+> - Corrected register offset for i2s3-asrc and bus-mcu-pwm0 clocks
+> - Made "r-ahb" and new "r-apb0" external bus clocks the parents of the
+>   bus gate clocks, with comments if guessed which one applies
+> - Moved .num_clks to after the list of clocks, making it obvious that
+>   the value needs to be added if more clocks are added to the list
 
-I'm not a fan of this. While user_mem_abort() is already a sloppy mess,
-one thing we could reliably assume is the presence of a valid fault
-context. Now we need to remember to special-case our interpretation of a
-fault on whether or not we're getting invoked for a pre-fault.
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-I'd rather see the pre-fault infrastructure compose a synthetic fault
-context (HPFAR_EL2, ESR_EL2, etc.). It places the complexity where it
-belongs and the rest of the abort handling code should 'just work'.
+Best regards,
+Jernej
 
-> +long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-> +				    struct kvm_pre_fault_memory *range)
-> +{
-> +	int r;
-> +	hva_t hva;
-> +	phys_addr_t end;
-> +	long page_size;
-> +	struct kvm_memory_slot *memslot;
-> +	phys_addr_t ipa = range->gpa;
-> +	gfn_t gfn = gpa_to_gfn(range->gpa);
-> +
-> +	while (true) {
-> +		page_size = PAGE_SIZE;
-> +		memslot = gfn_to_memslot(vcpu->kvm, gfn);
-> +		if (!memslot)
-> +			return -ENOENT;
-> +
-> +		if (kvm_slot_has_gmem(memslot)) {
-> +			r = __gmem_abort(vcpu, ipa, NULL, memslot, false, true);
-> +		} else {
-> +			hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
-> +			if (kvm_is_error_hva(hva))
-> +				return -EFAULT;
-> +			r = __user_mem_abort(vcpu, ipa, NULL, memslot, &page_size, hva, false,
-> +					     true);
-> +		}
-> +
-> +		if (r != -EAGAIN)
-> +			break;
-> +
-> +		if (signal_pending(current))
-> +			return -EINTR;
-> +
-> +		if (kvm_check_request(KVM_REQ_VM_DEAD, vcpu))
-> +			return -EIO;
-> +
-> +		cond_resched();
-> +	};
 
-Why do we need another retry loop? Looks like we've already got one in
-the arch-generic code.
-
-Thanks,
-Oliver
 
