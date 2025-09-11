@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5C3CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3EDCAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zo+AxuGslDkd5fbnQiWxgtbbd7E4IX0SMnEbBhI36a4=; b=Nqz51CTys3plfVTFupLUurLK28
-	izytlT69Z9rXHnNZT0hqZat7qwprJSoEyrHY4Fnjk0tSJSr01ghENXWVIVqkyCviuUY8AQCDIPxSQ
-	/wiLIfHot9RZd+FUy0n6fi3wxHarO1Z0MWaDk7z4YNqxw6j9LqS4BUTsGW/9ewKoeiez1H8jbnXea
-	XmaJ5y8MXIoPsavj9GtMfWRLWC5evYz+H7Px4OmQEFKd6UQcuBU/nqIiSEaMmsk3Oz5ZAO9V3bZkB
-	IeKQWvByD1W4jZEcv8w+2xTONC+/QfOfOvB/Et+VOKNt77oAucC14vJTvOcAUNlPJGq65ytNybzxG
-	jD+xxw1A==;
+	bh=uGqDa7na50Tsqkd5b+BW6jy2kx5Qm/puj3/p65teiTc=; b=LySujEI7VeQT4znJ88mzRRlt0U
+	0+xrDNE3djke3JX681Ocvno9BvUwOdorsUKcE9V01AkIo0tLTeSYAz5K4PebR4y9zCXLRnoaQ6HZz
+	aUe7H9N4g5Q8Svc0sGOjaPgOvRvHqcnGueyXdUJcwmFXm+fe52UuaH4JgAepjxoICRKooqx6dOHkH
+	Hz3AQi74x08Rf1jYO3+kBBnuR0OzjIRNb7FtXq7dxAMZUmAZB7j2oRItM83AnnBVBfzTa4yOVyqUY
+	00mxo9rjEDTb3+AkHUDbOihtvSVWrpPo03kt7yBGx58SQjrCxPXwhNeiFBtS6ds7peOVAyRBMKLzY
+	qnhX5qZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjAP-00000003rko-0JkN;
-	Thu, 11 Sep 2025 15:24:57 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1uwjAs-00000003s0U-3tl9;
+	Thu, 11 Sep 2025 15:25:26 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjAM-00000003riY-1Eih
+	id 1uwjAq-00000003rzC-2lT1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:24:55 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-72374d6a6caso9175136d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 08:24:53 -0700 (PDT)
+	Thu, 11 Sep 2025 15:25:25 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b045d56e181so134053666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 08:25:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757604293; x=1758209093; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1757604323; x=1758209123; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=zo+AxuGslDkd5fbnQiWxgtbbd7E4IX0SMnEbBhI36a4=;
-        b=nLf/ZunIcIdoAZ524jlHc/JzSMx0vE/Jtvy+CtBhw34Fad3j0pJLeF23K+6SiMSfSf
-         rNReBcoEH5iyKCyPR1UvymCMd49NKY3AYbQ48bCqFfJw8iQItQkJ/qcrfXlg16sWZScA
-         GKs616cBAlelAIzmTfaT6RsBdTlR/rE1gls3ks3S6Q2wEEdiPoLpy2I+ZQaB/MEZ7xxb
-         1pgzFC+UDkhBO4jZDuMQ82wphpyqaEc20ngZ5btSS5o9I8PZvY0s1cxUkKQFoLJb3Pv1
-         MBb4mCzQXv8CKkPEG9lHyLjDYzeIrknIW8FMKvAWmY7RMdEAfDuB9KIJU2KkN9l2C7kA
-         H9DQ==
+        bh=uGqDa7na50Tsqkd5b+BW6jy2kx5Qm/puj3/p65teiTc=;
+        b=g66D1av+mF3HuhNSmFbIPiuDdMwz2Oa5FjSuhU6sHPdbWFl/yLLjneeOr9fpoPkIi6
+         xEAAzCDlQBjbStpSLTIjmvfKIKuGFOj/fBKEHLG/zASKj+4jg0X7YYh3ouLtt4VNNzeg
+         x8b3KmtapNVJUyNiBhQRcQndvhbjp7lCNGvpNeltXgP9Ux4FRQqZudUaQ1uoZ1VNlgis
+         rEVynBTI90MZVmC8O9xAKLvT0xMK/9ifGc5JOroR0aHJ1+ZqgStw08dqsOvRmVixoUYH
+         tyKUem+rdvw5Dez8CSlr3O8AVEQHBu38ojIq5c4tIYf4HEYla0wYG0B8oqngLwGxKn47
+         pnRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757604293; x=1758209093;
+        d=1e100.net; s=20230601; t=1757604323; x=1758209123;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zo+AxuGslDkd5fbnQiWxgtbbd7E4IX0SMnEbBhI36a4=;
-        b=CUU1Iy33+eOopxrp8nvplXEZt9oNBFrr0WXBo2945qE0UiGz9hYiNjJzJuas1IQRFl
-         0YB9pxUL96czLKIvIJnKfHhTEPttbSv0kdoyM2PjL06O6ERn51GABSm3dDuZacinLyQR
-         +tE1VOqZLN3H0m3QJ6X8jWnIOyG4m5KPzVsuCp8HPsMe8lTiSRRoqAhaJt122WrJnAL8
-         bpu80lXgMxE5oUcN8+lmNINiG4fdhKoUtRr3B+SheLRaiJQqXEN4swQg36AEsGLhaANL
-         BtIbsotjvm+TKSrv3cgFygdrIq4Kdc7sI3oE/kboonLxE2yX6ZWwtS8qsvlzZGpJ1AJa
-         WzWA==
-X-Forwarded-Encrypted: i=1; AJvYcCVbm9Hvkb1gREbD0HvQTTViy903v6lQh/kZm7uSB64xlunOJSCuh1DSeqUFHdHaLnpLo3c6CGEuRo4UzmmHjR5g@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDUAq2w1nIkfNWP76+Yp6doLPW3zBru1Ie9NYRe6oz4DMJHe/g
-	5tdOHMyzXUdOxdSPKQHqJAkGOzGJIALxe/4WzG96ZNHUQChzHoqANnPo0DOL65jaR1g=
-X-Gm-Gg: ASbGnct9eRZZUgCOUq9Em/wLJHl11GTZGWYlUBO3nTAvNkvSIx5Nol0KwrFOzD6j72R
-	5e5/w3Umgs3LF5K1GvBhYM1kukU/lzs9QYm9MiIQuCPPJmNOmp0rdszHIB4zLYD8D0mj6n3es6w
-	BvxzgyyBhO9CO8s/JHoY0M5NVjxPkQsoKp5isk78+lRBi0Z/hngAcPkmAuO2cgQ9NEEAq9k9fr4
-	5adYJB5kLVrIvaSm3lsLo2zulyXKeCKIgSnhYXaOQ1GB6rJZ66hOddSymbxuGlRDNdUWujOKoYh
-	k8AefDF5+F7/HA4rQaTGcHq+TI3Go1uXlITofumX9IOY2FTx0VsoBA9hvBdE3Nxc1NYdGy7GVvv
-	V51cgzvSXzDK+zbwXJ93/LjquLF8=
-X-Google-Smtp-Source: AGHT+IE9tYO8ouJst9OcD7maW1rdkSEF6jg7RSes/lxL3wo97/ZLhXjCjQhjWkuTW0RobiHij/g4Tw==
-X-Received: by 2002:a05:6214:c4f:b0:714:6e57:5517 with SMTP id 6a1803df08f44-7394040cd65mr236155426d6.55.1757604292596;
-        Thu, 11 Sep 2025 08:24:52 -0700 (PDT)
+        bh=uGqDa7na50Tsqkd5b+BW6jy2kx5Qm/puj3/p65teiTc=;
+        b=gB/6RWS8efmhLokshZqJ40e9Azj9mjVq09gCaLFGlHHrEdIoOoCyO9qC58q7Ub3ttf
+         0Nu0SsJ+aP7bohpOLf81yKXyfa5hvZ+YqjGvyx7EiIqJaTxhug5zZmUPhTHPgw443sHw
+         GneclO6VIgYQHj2VGvt3Xg8HHrxWHO36G+Iai/vN8yxB/IHD6ke18usEMyeBPcxspFcB
+         L5AqW2IKAi19Tqd2d51ePnyiI1gLXi/M4OFd4/U6ldI6K/hFB6daAa/kPVyRIMeUBn+B
+         Yrck4FkSuUEjw1JdlGk+r5wV6bZFuvxPUZqbk2ajFafTz4nKT9QWxnE+KtQhrpZ6HoEz
+         ktcA==
+X-Forwarded-Encrypted: i=1; AJvYcCWJBu8iX60QXFp6svOixLHoNpYyBh3jUqd7MPZDY3SuFcE7hdySdbV1eYg/pMHkM5m/GktIWMqngcAaWC+1wJkb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGLlI6IirYipe4wTUd5xnbvE5YVtHDhZLyvhvix3wOoWFvf3XZ
+	B21FskIqN6xdfSWjI9lA4T2UNQRmT3tnulujHLRnvwXD6Z+gPKTQNlIWSdGLbSP7WPo=
+X-Gm-Gg: ASbGncsgdSDrxqv6/neJ7gIl/EkDW8BI75c7tP62AH0q/2NXs/NJLtV/bN+uqFSt0rX
+	Njfez2pHM2ckr5rRMwRQOuc+xl2AWbwaK0nHZDbdwkUS1wzEquTi4OScReiRzmoEd15oBT/4JHy
+	61e4qUxv0zPeOxMaNX8D9NI7AsKsWjf7qOrWdqYQccj1moc8ErKP8RrU3WVHhpqVB0vKotowgqp
+	/ScnQK4yyAOcba9YC3SXs5wUl2+OpEuX6eryx8E57Rz1QJJ8kaDWmUb5NUvoo7H03bXWnXogbDm
+	Z+SwXgT8fqc86/x2bD3vZ2QgwaqNypU6X+a9SKf58CvryFsAZhmheI9QXJPkJ4GCm50+nLQiYCV
+	s7yR4QuNoPnzyeC4aTLFWBxrc9k0M4pYLe7JdQg==
+X-Google-Smtp-Source: AGHT+IHugeAv/E3LaNGHdPUBYX+6ZpCpqbd4db6KXGZqZL8GkcfgxCKJHoCmuX4C/ujMeGbekya4ig==
+X-Received: by 2002:a17:906:7d43:b0:b07:6457:13f0 with SMTP id a640c23a62f3a-b0764571477mr938274266b.9.1757604322845;
+        Thu, 11 Sep 2025 08:25:22 -0700 (PDT)
 Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-763b642265bsm12389066d6.27.2025.09.11.08.24.50
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b32ddf93sm153255466b.69.2025.09.11.08.25.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Sep 2025 08:24:52 -0700 (PDT)
-Message-ID: <c818c25b-eab5-42a3-88f1-e190fc303ddc@linaro.org>
-Date: Thu, 11 Sep 2025 16:24:49 +0100
+        Thu, 11 Sep 2025 08:25:22 -0700 (PDT)
+Message-ID: <7ecb5900-b7cb-4d2d-93a7-cf0dbdc03cf8@linaro.org>
+Date: Thu, 11 Sep 2025 16:25:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/15] perf arm_spe: Correct setting remote access
+Subject: Re: [PATCH v4 04/15] perf arm_spe: Correct memory level for remote
+ access
 To: Leo Yan <leo.yan@arm.com>
 Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
@@ -85,15 +86,15 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  Adrian Hunter <adrian.hunter@intel.com>, German Gomez
  <german.gomez@arm.com>, Ali Saidi <alisaidi@amazon.com>
 References: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-0-58e5677a412b@arm.com>
- <20250731-arm_spe_support_hitm_overhead_v1_public-v4-3-58e5677a412b@arm.com>
+ <20250731-arm_spe_support_hitm_overhead_v1_public-v4-4-58e5677a412b@arm.com>
 Content-Language: en-US
 From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-3-58e5677a412b@arm.com>
+In-Reply-To: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-4-58e5677a412b@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_082454_358308_B9154610 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20250911_082524_715874_A70CBB00 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,28 +112,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 31/07/2025 2:25 pm, Leo Yan wrote:
-> Set the mem_remote field for a remote access to appropriately represent
-> the event.
+> For remote accesses, the data source packet does not contain information
+> about the memory level. To avoid misinformation, set the memory level to
+> NA (Not Available).
 > 
-> Fixes: a89dbc9b988f ("perf arm-spe: Set sample's data source field")
+> Fixes: 4e6430cbb1a9 ("perf arm-spe: Use SPE data source for neoverse cores")
 > Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->   tools/perf/util/arm-spe.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>   tools/perf/util/arm-spe.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
 > 
 > diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-> index 8942fa598a84fb70f8c66649395bfbedcd42d380..8ecf7142dcd8705c13c27e0cbacd69647dc4fd22 100644
+> index 8ecf7142dcd8705c13c27e0cbacd69647dc4fd22..3086dad92965af3981b1065f2892a3e67df7b616 100644
 > --- a/tools/perf/util/arm-spe.c
 > +++ b/tools/perf/util/arm-spe.c
-> @@ -839,7 +839,7 @@ static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
->   	}
->   
->   	if (record->type & ARM_SPE_REMOTE_ACCESS)
-> -		data_src->mem_lvl |= PERF_MEM_LVL_REM_CCE1;
-> +		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
->   }
->   
->   static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
+> @@ -670,8 +670,8 @@ static void arm_spe__synth_data_source_common(const struct arm_spe_record *recor
+>   	 * socket
+>   	 */
+>   	case ARM_SPE_COMMON_DS_REMOTE:
+> -		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1;
+> -		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
+> +		data_src->mem_lvl = PERF_MEM_LVL_NA;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_NA;
+>   		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
+>   		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+>   		break;
 > 
 
 Reviewed-by: James Clark <james.clark@linaro.org>
