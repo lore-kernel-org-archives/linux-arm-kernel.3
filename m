@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51161CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CB3CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYZYtw/JPxg20sVGnfo3JOrkSaeDARxk45CELMND6dg=; b=cHRmQDkploMmUb+YH7wtp+Lt3M
-	194qYbPVWpG9M+tx16m7kR/lYFOiWYXuW6zPIne8mSLTgY7Fr1mOcfgW1ssilVhpAUK4bySAKDrKO
-	XynQKo1+XlddTmHQGnTQG1Y5OHQEGK4gjqE58WlW6b9he5owOFYWpBGHZtxxjcDQ0M5CFYRBSjadD
-	P8/l++7RRos7342FvRsmvuJxrvrjlRApLCbzLxZggxJpckMlecBuLiHqvtPhNprVlQNz6aV1AHDwM
-	efLcEt7CebQ8x32cjlQH/F6Q7LSd0CCWgPGLp2EToUz8f/Ys/dSJwV1sJVst+5+n3RDWtRrP1k8AU
-	PtSFRe2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lj9WWe9tWq24+IsPHIwEQ7qPfOu/IDWp1CQV+NKG2ck=; b=FDopyfNBUzSjL9L30JSX7FCnXc
+	pf6YDHHvFS3LzGVI6nNsvXGqOSlEzbSxop1wN3BBDHynjs5DhtJoV653miDLktvaSGC5NOQUmPa9l
+	th7xZFNrJesSRUc5jldF8vPb5IqHPjTo3n6lfSB5j0T5d1LrJf2jyLBvMs9AodoSm2ViZoXmnFwS1
+	nwPdK6eRNyFdyLXmnGHsTQ1+x5/3FPjOC6+C58BT90Ydx81QUB1buIqsuuSUSdNcVqQyV8FuHCael
+	VMlGC6Liv99wzxj9ToEYZ6TNoHczbL8bYeKHktEoDVm56mE06dZqK0di9iP7Cbml3XkJsVcDpuF7G
+	ZkRQF1lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwj4g-00000003pkZ-2tgC;
-	Thu, 11 Sep 2025 15:19:02 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uwj85-00000003quh-0zuN;
+	Thu, 11 Sep 2025 15:22:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwj4e-00000003piA-0OpR
+	id 1uwj82-00000003qsv-2AJ9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:19:02 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cN1NY10YNz6LDBg;
-	Thu, 11 Sep 2025 23:16:13 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 319A3140446;
-	Thu, 11 Sep 2025 23:18:53 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
- 2025 17:18:51 +0200
-Date: Thu, 11 Sep 2025 16:18:50 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
-	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
-	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
-	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
-	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
- Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
-	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 11/29] arm_mpam: Probe hardware to find the supported
- partid/pmg values
-Message-ID: <20250911161850.00005667@huawei.com>
-In-Reply-To: <20250910204309.20751-12-james.morse@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-12-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 11 Sep 2025 15:22:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F92244FDC;
+	Thu, 11 Sep 2025 15:22:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54B68C4CEF0;
+	Thu, 11 Sep 2025 15:22:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757604150;
+	bh=9ANPCayp/6AVvTnSZ16aUQ6wUqmjzSzIMaezeBu+G/g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MSYgkinh0gRSGkEGz5xc0r1m2bUsSNbqN6icKHW2IEYCC43zT+40wghBE71VtZV27
+	 r8audT2mP+p/6TFd472uOjrrok+vn1YczMO87oW0tqrvrL9gEaysJImirDa68ZtbIw
+	 eCgeWDK+5rnhpvuOffBHFgPUBeizw2/boIbc9EA8laHupMWXE+EeeLzVn36Cj4bgmL
+	 kj95ip718dmRvlBJKgFv1SODHSB4IGvZnqc++2h9wzkDSrhPoyqp0SpQeuNZRGRJVW
+	 QkNYscyfPvUylJf7+UwH4juY7aA9mKAAwJWWOqpuY101f/pFworZ8IdbIuAybdSabm
+	 2mAEXgoJll7OQ==
+Date: Thu, 11 Sep 2025 16:22:24 +0100
+From: Will Deacon <will@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, broonie@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
+	ardb@kernel.org, scott@os.amperecomputing.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v7 6/6] arm64: futex: support futex with FEAT_LSUI
+Message-ID: <aMLpMBWtHDI9sPHK@willie-the-truck>
+References: <20250816151929.197589-1-yeoreum.yun@arm.com>
+ <20250816151929.197589-7-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250816151929.197589-7-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_081900_424763_157D7FB6 
-X-CRM114-Status: GOOD (  27.23  )
+X-CRM114-CacheID: sfid-20250911_082230_594234_0464122F 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,126 +76,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sep 2025 20:42:51 +0000
-James Morse <james.morse@arm.com> wrote:
-
-> CPUs can generate traffic with a range of PARTID and PMG values,
-> but each MSC may also have its own maximum size for these fields.
-> Before MPAM can be used, the driver needs to probe each RIS on
-> each MSC, to find the system-wide smallest value that can be used.
-> The limits from requestors (e.g. CPUs) also need taking into account.
+On Sat, Aug 16, 2025 at 04:19:29PM +0100, Yeoreum Yun wrote:
+> Current futex atomic operations are implemented with ll/sc instructions
+> and clearing PSTATE.PAN.
 > 
-> While doing this, RIS entries that firmware didn't describe are created
-> under MPAM_CLASS_UNKNOWN.
+> Since Armv9.6, FEAT_LSUI supplies not only load/store instructions but
+> also atomic operation for user memory access in kernel it doesn't need
+> to clear PSTATE.PAN bit anymore.
 > 
-> While we're here, implement the mpam_register_requestor() call
-> for the arch code to register the CPU limits. Future callers of this
-> will tell us about the SMMU and ITS.
+> With theses instructions some of futex atomic operations don't need to
+> be implmented with ldxr/stlxr pair instead can be implmented with
+> one atomic operation supplied by FEAT_LSUI.
 > 
-> Signed-off-by: James Morse <james.morse@arm.com>
-Trivial stuff inline.
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
+> However, some of futex atomic operations still need to use ll/sc way
+> via ldtxr/stltxr supplied by FEAT_LSUI since there is no correspondant
+> atomic instruction or doesn't support word size operation.
+> (i.e) eor, cas{mb}t
+> 
+> But It's good to work without clearing PSTATE.PAN bit.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
-> Changes since v1:
->  * Change to lock ordering now that the list-lock mutex isn't held from
->    the cpuhp call.
->  * Removed irq-unmaksed assert in requestor register.
->  * Changed captialisation in print message.
-> ---
->  drivers/resctrl/mpam_devices.c  | 150 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_internal.h |   6 ++
->  include/linux/arm_mpam.h        |  14 +++
->  3 files changed, 169 insertions(+), 1 deletion(-)
+>  arch/arm64/include/asm/futex.h | 130 ++++++++++++++++++++++++++++++++-
+>  1 file changed, 129 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index c265376d936b..24dc81c15ec8 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-
-
-> +int mpam_register_requestor(u16 partid_max, u8 pmg_max)
-> +{
-> +	int err = 0;
-> +
-> +	spin_lock(&partid_max_lock);
-guard() perhaps so you can return early in the error pat and avoid
-need for local variable err.
-
-> +	if (!partid_max_init) {
-> +		mpam_partid_max = partid_max;
-> +		mpam_pmg_max = pmg_max;
-> +		partid_max_init = true;
-> +	} else if (!partid_max_published) {
-> +		mpam_partid_max = min(mpam_partid_max, partid_max);
-> +		mpam_pmg_max = min(mpam_pmg_max, pmg_max);
-> +	} else {
-> +		/* New requestors can't lower the values */
-> +		if (partid_max < mpam_partid_max || pmg_max < mpam_pmg_max)
-> +			err = -EBUSY;
-> +	}
-> +	spin_unlock(&partid_max_lock);
-> +
-> +	return err;
-> +}
-> +EXPORT_SYMBOL(mpam_register_requestor);
-
-> @@ -470,9 +547,37 @@ int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
->  	return err;
+> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
+> index 22a6301a9f3d..ece35ca9b5d9 100644
+> --- a/arch/arm64/include/asm/futex.h
+> +++ b/arch/arm64/include/asm/futex.h
+> @@ -9,6 +9,8 @@
+>  #include <linux/uaccess.h>
+>  #include <linux/stringify.h>
+> 
+> +#include <asm/alternative.h>
+> +#include <asm/alternative-macros.h>
+>  #include <asm/errno.h>
+> 
+>  #define LLSC_MAX_LOOPS	128 /* What's the largest number you can think of? */
+> @@ -115,11 +117,137 @@ __llsc_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
+>  	return ret;
 >  }
->  
-> +static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
-> +						   u8 ris_idx)
-> +{
-> +	int err;
-> +	struct mpam_msc_ris *ris, *found = ERR_PTR(-ENOENT);
+> 
+> +#ifdef CONFIG_AS_HAS_LSUI
 > +
-> +	lockdep_assert_held(&mpam_list_lock);
+> +#define __LSUI_PREAMBLE	".arch_extension lsui\n"
 > +
-> +	if (!test_bit(ris_idx, &msc->ris_idxs)) {
-> +		err = mpam_ris_create_locked(msc, ris_idx, MPAM_CLASS_UNKNOWN,
-> +					     0, 0);
-> +		if (err)
-> +			return ERR_PTR(err);
-> +	}
-> +
-> +	list_for_each_entry(ris, &msc->ris, msc_list) {
-> +		if (ris->ris_idx == ris_idx) {
-> +			found = ris;
-I'd return ris;
-
-Then can do return ERR_PTR(-ENOENT) below and not bother with found.
-
-Ignore if this gets more complex later.
-
-> +			break;
-> +		}
-> +	}
-> +
-> +	return found;
+> +#define LSUI_FUTEX_ATOMIC_OP(op, asm_op, mb)				\
+> +static __always_inline int						\
+> +__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
+> +{									\
+> +	int ret = 0;							\
+> +	int oldval;							\
+> +									\
+> +	uaccess_ttbr0_enable();						\
+> +	asm volatile("// __lsui_futex_atomic_" #op "\n"			\
+> +	__LSUI_PREAMBLE							\
+> +"1:	" #asm_op #mb "	%w3, %w2, %1\n"					\
+> +"2:\n"									\
+> +	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)				\
+> +	: "+r" (ret), "+Q" (*uaddr), "=r" (oldval)			\
+> +	: "r" (oparg)							\
+> +	: "memory");							\
+> +	uaccess_ttbr0_disable();					\
+> +									\
+> +	if (!ret)							\
+> +		*oval = oldval;						\
+> +									\
+> +	return ret;							\
 > +}
-
-> @@ -675,9 +813,18 @@ static struct platform_driver mpam_msc_driver = {
->  
->  static void mpam_enable_once(void)
->  {
+> +
+> +LSUI_FUTEX_ATOMIC_OP(add, ldtadd, al)
+> +LSUI_FUTEX_ATOMIC_OP(or, ldtset, al)
+> +LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr, al)
+> +LSUI_FUTEX_ATOMIC_OP(set, swpt, al)
+> +
+> +static __always_inline int
+> +__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
+> +{
+> +	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
+> +}
+> +
+> +static __always_inline int
+> +__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
+> +{
+> +	unsigned int loops = LLSC_MAX_LOOPS;
+> +	int ret, oldval, tmp;
+> +
+> +	uaccess_ttbr0_enable();
 > +	/*
-> +	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
-> +	 * longer change.
+> +	 * there are no ldteor/stteor instructions...
 > +	 */
-> +	spin_lock(&partid_max_lock);
-> +	partid_max_published = true;
-> +	spin_unlock(&partid_max_lock);
+
+*sigh*
+
+Were these new instructions not added with futex in mind?
+
+I wonder whether CAS would be better than exclusives for xor...
+
+> +static __always_inline int
+> +__lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
+> +{
+> +	int ret = 0;
+> +	unsigned int loops = LLSC_MAX_LOOPS;
+> +	u32 val, tmp;
 > +
->  	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline);
->  
-> -	pr_info("MPAM enabled\n");
-> +	printk(KERN_INFO "MPAM enabled with %u PARTIDs and %u PMGs\n",
-> +	       mpam_partid_max + 1, mpam_pmg_max + 1);
+> +	uaccess_ttbr0_enable();
+> +	/*
+> +	 * cas{al}t doesn't support word size...
+> +	 */
 
-Not sure why pr_info before and printk now.  
+What about just aligning down and doing a 64-bit cas in that case?
 
->  }
-
-
+Will
 
