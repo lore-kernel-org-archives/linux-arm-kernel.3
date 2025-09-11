@@ -4,94 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB527CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7072CCA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Xz8T3amYkNV7rSzjipUYMhb6u7hBtXfStQbJ8Sahd0=; b=Aar+o146BwFncVgkl7IT2MHDpt
-	2ZE2IhZblXL9zOXFwv56XhU6BAZ1aANLlsPOAZkts2a9/FSeHIzSVEBe7/wgA5JPKIcvCiNbT9jGd
-	Ug0H/GFnJB8PHMcSenSMkUNpIOCl0DFyVfS9eRGoaMg8QYxD3qf0BHnsTO62OzaPon9xZL2a7o29l
-	Bm9BsDVF41EQSAyhf26eui3b0VZGr/x39b105OqjD9ttzeGS5gsaA+W+4UEheklPb1hlSAMkfOXtA
-	eFrTu0CtEWcJlAdz/KDaulsWUCmbvP2WS5e3JNtYqtEt8dIBbFVq8GhAy3wdqpqPl7CEwfEpcCi3H
-	J6sRqo3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ymIxetTWocC2/T6DcUZLUqfBudVyTjFDiSDhCwPR4IA=; b=PHlt6w6S//sQv2ZBAbM8wqzHRy
+	2GPOiJ3FFOfedbRsLU9gpNBHLIyAG6xj++dIVK5wnv/CCIAFSzRoGgWLf00AKdMNZfckWqXt5uf5K
+	XoAgBLXcRPFoFvSEDlvDdLs+BtFbtRFiDu24rdfyuQBbtDe3OSFjSH5KWGxq7G56HniX9kKLil7NO
+	+lB3diIcr1G28Wl+akEP7xCYzjqclhzA0AdkY7UXLWqh3g4ci21nEMGcX8RhwDMq9QZHa8QhwRSfe
+	me6E0oigSKtgtKw35Rgbw1NT1Rnw5/OXxOiRwpBM9MD9LkVk7KzwsLaOwrZn13VR9O6bqDeF/mzgY
+	BRWm8XwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbZv-00000001RWD-3Xla;
-	Thu, 11 Sep 2025 07:18:47 +0000
-Received: from mail-vk1-f175.google.com ([209.85.221.175])
+	id 1uwbdR-00000001SJQ-2px2;
+	Thu, 11 Sep 2025 07:22:25 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbZs-00000001RVO-2cGF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 07:18:46 +0000
-Received: by mail-vk1-f175.google.com with SMTP id 71dfb90a1353d-545f4b31600so77776e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:18:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757575123; x=1758179923;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+Xz8T3amYkNV7rSzjipUYMhb6u7hBtXfStQbJ8Sahd0=;
-        b=usXfyM0X1nQGC5qW4MZWIcMRacELElJXAsXc+OOFNhEwey/n2E2wOQTHo9IevI/tXR
-         J2++GoDn/R8xWJ/sqMYYm3BYt1d1dYhLmecTDpDlwyc/u6B5SylOfNHpFAeln+Kn67a+
-         iE5LqFOZXqroJQw6kuMY71fgRZAWYn8t4SnLpjOC7G2wYD7vLlDfkT0puwRRzbSb+U07
-         EgW7Fut5WiUzHwFnw6xPAfw/iZkNn5J/gBKJVJp55iD7SnY8I2YWBVxrMOpRJdDjusjH
-         GoI1/0MNdQUWgpDPDEuA4+w8gHfyrSMseXmMSuHi5zgoqshRQ8591YyAgU88ZBWgzvkK
-         AR2g==
-X-Forwarded-Encrypted: i=1; AJvYcCU80wZTt2b33RNAsi5p65RQyMXwtJedcoqtPx5usNch+fngTl0CHsWx1xdoxJqU0alHbXVGdfGBC/8RCfxwHGkw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGP/ZK+szN7lsSSg8I9lzRMhLngkEN9kRyFV4NT+LRh7JvoTwA
-	RtzMkev6pJniXtN/ytY65VkEtMFsGogNRaGa9g8LB3F/aKQ9sS5NxqrS6w7egbnR
-X-Gm-Gg: ASbGnctRvcHtZIUt/NqT5FgUvVGdof6ZWuYbyYTMa4FPqMJXa4yC5GC/iJF6AyAsPcw
-	9ZnYRdNEsYfP1FGrkCTs0dPRAWgtK/bMf/m1mlOsRfdWxCQ4nDeLARAY6FW2sXYQDqfEOH8hEul
-	OMclmG6MsHOKAxvlYPSuB47pHZVWGgBvlXEN0mWFiwG7vnBE1+N/c3HLJwhorN9+V/782yJpRkR
-	1k8L9pZHfIGrTM3i/3QmW0TZuorc2J7K4yFOdZ0seomOu7EjRjUdX+dxzSQcNLb6crNIRjOXdUB
-	/5BsNDGjgWMmKr5fl2BF9DWVmmeYC4hKfnNg0ywoQbkNcXvX9Ue5lkEd6rUmXJvauxs/slRJd2w
-	T4LknzLeh3wdNScj6UEtTKNOedT/xQRF52ghCtp7gOx4Zy6mNyFL0VuM5pLlUJa85V93cu4wI/N
-	qmSZjOeA==
-X-Google-Smtp-Source: AGHT+IGqt96m6Lz2N04gjAaoyZ9X6zafuUlGD5K/ci7EBcjduByDaU2klU7cY28a5zYPHSp3gcvkxQ==
-X-Received: by 2002:a05:6122:8c06:b0:531:236f:1295 with SMTP id 71dfb90a1353d-5473aabff31mr4601989e0c.5.1757575122946;
-        Thu, 11 Sep 2025 00:18:42 -0700 (PDT)
-Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com. [209.85.217.49])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-54a0d3f0769sm127298e0c.18.2025.09.11.00.18.42
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Sep 2025 00:18:42 -0700 (PDT)
-Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-52a73cc9f97so147669137.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:18:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUEwFAgz3lVbSEK5PzJLQXa6fr2hOR5UTed7inMA3wQdOsOvqxh4oj9HuO2ECC0S0L8mvkHEmtl20UyqjEEOC4g@lists.infradead.org
-X-Received: by 2002:a05:6102:54a9:b0:521:760c:7aa8 with SMTP id
- ada2fe7eead31-53d14d8c892mr5750708137.27.1757575122627; Thu, 11 Sep 2025
- 00:18:42 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250909111130.132976-1-ulf.hansson@linaro.org> <DCPDDIZ3S1CM.3DJYY5U4T6V4U@cknow.org>
-In-Reply-To: <DCPDDIZ3S1CM.3DJYY5U4T6V4U@cknow.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 11 Sep 2025 09:18:31 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVxjOLZsas4+nmAkZjbJsQjxdkZvZ8tTY9pq2zz3gvFNQ@mail.gmail.com>
-X-Gm-Features: AS18NWAQShHnTB-pHMrvSyt-wwqsfojP53wsm5mwBKc4qvyVjVjagRnbLu_77lI
-Message-ID: <CAMuHMdVxjOLZsas4+nmAkZjbJsQjxdkZvZ8tTY9pq2zz3gvFNQ@mail.gmail.com>
-Subject: Re: [PATCH 0/5] pmdomain: Restore behaviour for disabling unused PM domains
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Saravana Kannan <saravanak@google.com>, 
-	linux-pm@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Sebin Francis <sebin.francis@ti.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abel.vesa@linaro.org>, 
-	Peng Fan <peng.fan@oss.nxp.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>, 
-	Michal Simek <michal.simek@amd.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, 
-	Christian Hewitt <christianshewitt@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1uwbdO-00000001SHZ-09QE;
+	Thu, 11 Sep 2025 07:22:24 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8941EC6B3AB;
+	Thu, 11 Sep 2025 07:22:02 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5C391606BB;
+	Thu, 11 Sep 2025 07:22:18 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 96128102F2882;
+	Thu, 11 Sep 2025 09:21:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1757575334; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ymIxetTWocC2/T6DcUZLUqfBudVyTjFDiSDhCwPR4IA=;
+	b=BP0dghcvk2HqRbfKQS3O7ySBOrhO100W9n5AqVrR5PeKtATxfQw0Fg34/tSl45/GNCqkB5
+	4YDn3TU+esRYKH/S7xLXUPXNvWIRKopAHuqEnYhzTqOUVbkXD55NDWUtJs2pjGQaJesftt
+	4UyhJvGAks1d4dAvYXnQCbrr99n+3bCVBOl1UC9ecNzEoDjWRsI8lWbZQqgdjHlJEaAybm
+	wVUUwXjiHFuXkBHSHLPSqCRtPjtCqbF4BeojkAze1q8uA62pIfkwavllHdygrvVrct1wTr
+	rgMfHHXK5dOG9RdqE9rA5g4ojdhyInfMVW5tD3BRfmQ2KzRRrXlhsvcwN2UlPA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 11 Sep 2025 09:21:34 +0200
+Message-Id: <DCPSFZLWJLG7.1B4NISSDKLWBQ@bootlin.com>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: Re: [PATCH v2 1/5] net: cadence: macb: Set upper 32bits of DMA ring
+ buffer
+Cc: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rpi-kernel@lists.infradead.org>, "Broadcom internal kernel review
+ list" <bcm-kernel-feedback-list@broadcom.com>, "Andrew Lunn"
+ <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Florian Fainelli"
+ <florian.fainelli@broadcom.com>, "Andrea della Porta"
+ <andrea.porta@suse.com>, "Claudiu Beznea" <claudiu.beznea@tuxon.dev>, "Phil
+ Elwell" <phil@raspberrypi.com>, "Jonathan Bell" <jonathan@raspberrypi.com>,
+ "Dave Stevenson" <dave.stevenson@raspberrypi.com>,
+ <stable@vger.kernel.org>, "Andrew Lunn" <andrew@lunn.ch>
+To: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, "Nicolas Ferre"
+ <nicolas.ferre@microchip.com>, "Jakub Kicinski" <kuba@kernel.org>,
+ "Stanimir Varbanov" <svarbanov@suse.de>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
+References: <20250822093440.53941-1-svarbanov@suse.de>
+ <20250822093440.53941-2-svarbanov@suse.de>
+ <20250825165310.64027275@kernel.org>
+ <3bccf773-abd6-4ade-a1c5-99f2a773b723@microchip.com>
+ <DCPA2BR78XM8.HWKZZ8WQF3S8@bootlin.com>
+In-Reply-To: <DCPA2BR78XM8.HWKZZ8WQF3S8@bootlin.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_001844_676839_69F4E2E3 
-X-CRM114-Status: GOOD (  32.32  )
+X-CRM114-CacheID: sfid-20250911_002222_465554_D55067B0 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,63 +92,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
-
-On Wed, 10 Sept 2025 at 21:33, Diederik de Haas <didi.debian@cknow.org> wrote:
-> On Tue Sep 9, 2025 at 1:11 PM CEST, Ulf Hansson wrote:
-> > Recent changes to genpd prevents those PM domains being powered-on during
-> > initialization from being powered-off during the boot sequence. Based upon
-> > whether CONFIG_PM_CONFIG_PM_GENERIC_DOMAINS_OF is set of not, genpd relies
-> > on the sync_state mechanism or the genpd_power_off_unused() (which is a
-> > late_initcall_sync), to understand when it's okay to allow these PM domains
-> > to be powered-off.
-> >
-> > This new behaviour in genpd has lead to problems on different platforms [1].
-> >
-> > In this series, I am therefore suggesting to restore the behavior of
-> > genpd_power_off_unused() along with introducing a new genpd config flag,
-> > GENPD_FLAG_NO_STAY_ON, to allow genpd OF providers to opt-out from the new
-> > behaviour.
+On Wed Sep 10, 2025 at 6:57 PM CEST, Th=C3=A9o Lebrun wrote:
+> Hello Nicolas, Jakub, Stanimir,
 >
-> Is it expected that I'm still seeing this on a Rock64 (rk3328), just
-> like before [1]?
+> On Tue Aug 26, 2025 at 11:14 AM CEST, Nicolas Ferre wrote:
+>> On 26/08/2025 at 01:53, Jakub Kicinski wrote:
+>>> On Fri, 22 Aug 2025 12:34:36 +0300 Stanimir Varbanov wrote:
+>>>> In case of rx queue reset and 64bit capable hardware, set the upper
+>>>> 32bits of DMA ring buffer address.
+>>>>
+>>>> Cc: stable@vger.kernel.org # v4.6+
+>>>> Fixes: 9ba723b081a2 ("net: macb: remove BUG_ON() and reset the queue t=
+o handle RX errors")
+>>>> Credits-to: Phil Elwell <phil@raspberrypi.com>
+>>>> Credits-to: Jonathan Bell <jonathan@raspberrypi.com>
+>>>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+>>>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+>>>=20
+>>>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/et=
+hernet/cadence/macb_main.c
+>>>> index ce95fad8cedd..36717e7e5811 100644
+>>>> --- a/drivers/net/ethernet/cadence/macb_main.c
+>>>> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>>>> @@ -1634,7 +1634,11 @@ static int macb_rx(struct macb_queue *queue, st=
+ruct napi_struct *napi,
+>>>>                macb_writel(bp, NCR, ctrl & ~MACB_BIT(RE));
+>>>>
+>>>>                macb_init_rx_ring(queue);
+>>>> -             queue_writel(queue, RBQP, queue->rx_ring_dma);
+>>>> +             queue_writel(queue, RBQP, lower_32_bits(queue->rx_ring_d=
+ma));
+>>>> +#ifdef CONFIG_ARCH_DMA_ADDR_T_64BIT
+>>>> +             if (bp->hw_dma_cap & HW_DMA_CAP_64B)
+>>>> +                     macb_writel(bp, RBQPH, upper_32_bits(queue->rx_r=
+ing_dma));
+>>>> +#endif
+>>>>
+>>>>                macb_writel(bp, NCR, ctrl | MACB_BIT(RE));
+>>>>
+>>>=20
+>>> Looks like a subset of Th=C3=A9o Lebrun's work:
+>>> https://lore.kernel.org/all/20250820-macb-fixes-v4-0-23c399429164@bootl=
+in.com/
+>>> let's wait for his patches to get merged instead?
+>>
+>> Yes, we can certainly wait. As RBOPH changes by Th=C3=A9o are key, they =
+will=20
+>> probably remove the need for this fix altogether: but I count on you=20
+>> Stanimir to monitor that (as I don't have a 64 bit capable platform at=
+=20
+>> hand).
 >
->   [   17.124202] rockchip-pm-domain ff100000.syscon:power-controller: sync_state() pending due to ff300000.gpu
->   [   17.129799] rockchip-pm-domain ff100000.syscon:power-controller: sync_state() pending due to ff350000.video-codec
->   [   17.140003] rockchip-pm-domain ff100000.syscon:power-controller: sync_state() pending due to ff360000.video-codec
-
-Yes, as the sync state is still blocked on them.
-Disabling unused PM Domains is done independently of sync state.
-
-> This is with a 6.17-rc5 kernel with this patch set applied.
-> And it also has this patch from Christian Hewitt added, now in v3:
-> https://lore.kernel.org/linux-rockchip/20250906120810.1833016-1-christianshewitt@gmail.com/
+> I when looking for where this patch came from.
+> Commit in the raspberrypi downstream kernel:
+> https://github.com/raspberrypi/linux/commit/e45c98decbb16e58a79c7ec6fbe43=
+74320e814f1
 >
-> When I boot into a 6.17-rc5 kernel without any patches applied, I do get
-> the 2 for ff350000.video-codec and ff360000.video-codec, but not the
-> ff300000.gpu one.
+> It is somewhat unreadable; the only part that seems related is the:
 >
-> Interestingly:
-> ff300000.gpu -> power-domains = <&power RK3328_PD_GPU>;
-> ff350000.video-codec -> power-domains = <&power RK3328_PD_VPU>;
-> ff360000.video-codec -> power-domains = <&power RK3328_PD_VIDEO>;
+>> net: macb: Several patches for RP1
+>> 64-bit RX fix
 >
-> I would be surprised if that was a coincidence.
+>  - Is there any MACB hardware (not GEM) that uses 64-bit DMA
+>    descriptors? What platforms? RPi maybe?
+>
+>  - Assuming such a platform exists, the next question is why does
+>    macb_rx() need to reinit RBQPH/0x04D4. It reinits RBQP/0x0018
+>    because it is the buffer pointer and increments as buffers get used.
+>
+>    To reinit RBQPH would be for the case of the increment overflowing
+>    into the upper 32-bits. Sounds like a reasonable fix (for a really
+>    rare bug) if that hardware actually exists.
+>
+>    This wouldn't be needed on GEM because RBQPH is shared across queues.
+>    So of course RBQPH would not increment with the buffer pointer.
+>
+> If this patch is needed (does HW exist?), then my series doesn't address
+> it. I can take the patch in a potential V6 if you want. V5 got posted
+> today [0].
+>
+> [0]: https://lore.kernel.org/lkml/20250910-macb-fixes-v5-0-f413a3601ce4@b=
+ootlin.com/
 
-Fw_devlinks ignores the index cell (RK3328_PD_*), hence all links are
-created pointing to the pmdomain controller (in case it has a platform
-driver) or the first pmdomain (in case it has not). thus blocking the
-sync state call and power-down for _all_ pmdomains managed by the
-controller.
+Coming back after some sleep: my series does address this.
+It updates macb_alloc_consistent() so allocs look like:
 
-Gr{oetje,eeting}s,
+   size =3D bp->num_queues * macb_tx_ring_size_per_queue(bp);
+   tx =3D dma_alloc_coherent(dev, size, &tx_dma, GFP_KERNEL);
+   if (!tx || upper_32_bits(tx_dma) !=3D upper_32_bits(tx_dma + size - 1))
+      goto out_err;
 
-                        Geert
+   // same for rx
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+In the MACB (!GEM) case, bp->num_queues=3D1 so we will check that the
+start and end of the DMA descriptor ring buffer have the same upper
+32-bits.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+That implies macb_rx() doesn't have to reinit RBQPH/0x04D4.
+
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
