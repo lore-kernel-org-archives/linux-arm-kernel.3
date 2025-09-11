@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3C9CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 11:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B96CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 11:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=obhp0MwVVogEta7GZvMh/n4Hkt/1ooEG9BFWf66+jBw=; b=I/ENe1Fs6x5vWhJ9+D5CUo5EvW
-	c+7NODo6PBhDWGVe+eUtEALpxNITbrnwf44A8keJMFeK7dRKNHFhRV9n33PG11gwz54A+uhqYUiyI
-	xdkR72D7tcntHg9m3NqBVdeamQ3G3y56eULcN9CZOO1XCFv6SlVpqkeH1dZ3dwjmJR/KjBP9SthB6
-	MkRys32j3HqL8B30dRhzKoMCteRXwOHhouVJAM94YkiIiHXnHcVzNH5YElDSIXJ7aUUDk9Qspxzki
-	bbHuaiEI7vy0agGECHKNH0SGkQJ89PbiGUwRoh1Vv+4MG1jydDFX2iSOk5UyDQQtflT2vMQmRMXwF
-	jVhvc5fQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8qB3/M4iROaSgOmiFUSzNNAEGfamTBErIeBwN20mtPg=; b=Gwc198tCbV0W8H5bcaJ7Aiq+A/
+	Vvxlega++INQc4/LLhSmsxGQk/mG+QARNwUbCLvL7Gzy9eklvZf+7dgEaedb8WSjeuD5gFpAv1Xua
+	4YM1B6Td5pxTB4lbJBRNLogzZN5mQ5NEbhgHVsCWoceB8UowNPltyMEr4AZzIpwDht2r5aff9wRiP
+	WbOID84glXwrMajQLPoYtSwg2eJIxPjcBWHgt/HEGmwUUug2UVw5ePh/9PxjTZ0dZfQb2GWdAx60U
+	wORPQBxvKQeIJJohwmXgTTABWA+Q4t/FA2nZ+jaUQj+w1vQhGrIXGp9UZy+m/clNUq+WTrMiCc8F9
+	rdZ9nbsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwf8B-00000002XVW-24kO;
-	Thu, 11 Sep 2025 11:06:23 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uwf97-00000002XlC-3VMR;
+	Thu, 11 Sep 2025 11:07:21 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwf89-00000002XU8-1iE6
+	id 1uwf94-00000002Xim-22au
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 11:06:22 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cMvlH2pWCz6L64s;
-	Thu, 11 Sep 2025 19:02:03 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id C5FCD1402F5;
-	Thu, 11 Sep 2025 19:06:16 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
- 2025 13:06:15 +0200
-Date: Thu, 11 Sep 2025 12:06:14 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
-	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
-	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
-	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
-	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
- Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
-	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 04/29] ACPI / PPTT: Add a helper to fill a cpumask
- from a cache_id
-Message-ID: <20250911120614.00001e92@huawei.com>
-In-Reply-To: <20250910204309.20751-5-james.morse@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-5-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 11 Sep 2025 11:07:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8qB3/M4iROaSgOmiFUSzNNAEGfamTBErIeBwN20mtPg=; b=ZL+OgqGsNYNibAv1PnDfVADpz8
+	7a0mUOE4b1h3RD9rRCeP0XaDn+DO/qqf2TSiTszg9nLZTxw8qgFYrteLG+ceH5ELboIMDf/J38T9Z
+	x25A7t/th3w4JgBSJecFu43nYq5Ksk7wCmai8F8FT5OaUiE6D9O3J77pPa6RKB1kw5n9ZySbcJv5r
+	UM6aa/eeoAlTc2uWWqnznpXobIrByO6U8JvLBVpctberK0RKent3Bj4cimHV+34g8Lk49slxcD8J4
+	7u7SIh8FpGg/NPaUawSrhjY87fIeGLnzZ3Pmh2nKvrdSdNXL1yb+8gSCSBsK7MZMdLMuvGKFoOuQo
+	xQrX9o8w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40946)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uwf8t-000000002rL-2Lgr;
+	Thu, 11 Sep 2025 12:07:07 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uwf8p-000000002IN-3cf6;
+	Thu, 11 Sep 2025 12:07:03 +0100
+Date: Thu, 11 Sep 2025 12:07:03 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, bpf@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>
+Subject: [PATCH net-next v2 00/11] net: stmmac: timestamping/ptp cleanups
+Message-ID: <aMKtV6O0WqlmJFN4@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_040621_734062_3305E719 
-X-CRM114-Status: GOOD (  29.95  )
+X-CRM114-CacheID: sfid-20250911_040718_525738_6A358EEB 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,117 +89,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sep 2025 20:42:44 +0000
-James Morse <james.morse@arm.com> wrote:
+Hi,
 
-> MPAM identifies CPUs by the cache_id in the PPTT cache structure.
-> 
-> The driver needs to know which CPUs are associated with the cache.
-> The CPUs may not all be online, so cacheinfo does not have the
-> information.
-> 
-> Add a helper to pull this information out of the PPTT.
-> 
-> CC: Rohit Mathew <Rohit.Mathew@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> ---
-> Changes since v1:
->  * Added punctuation to the commit message.
->  * Removed a comment about an alternative implementaion.
->  * Made the loop continue with a warning if a CPU is missing from the PPTT.
-> 
-> Changes since RFC:
->  * acpi_count_levels() now returns a value.
->  * Converted the table-get stuff to use Jonathan's cleanup helper.
+This series cleans up the hardware timestamping / PTP initialisation
+and cleanup code in the stmmac driver. Several key points in no
+particular order:
 
-Why for this case does it makes sense to not just use acpi_get_pptt()?
+1. Golden rule: unregister first, then release resources.
+   stmmac_release_ptp didn't do this.
 
-Also you don't introduce the acpi_get_table_reg() helper until patch 6.
+2. Avoid leaking resources - __stmmac_open() failure leaves the
+   timestamping support initialised, but stops its clock. Also
+   violates (1).
 
+3. Avoid double-release of resources - stmmac_open() followed by
+   stmmac_xdp_open() failing results in the PTP clock prepare and
+   enable counts being released, and if the interface is then
+   brought down, they are incorrectly released again. As XDP
+   doesn't gain any additional prepare/enables on the PTP clock,
+   remove this incorrect cleanup.
 
->  * Dropped Sudeep's Review tag due to the cleanup change.
-> ---
->  drivers/acpi/pptt.c  | 59 ++++++++++++++++++++++++++++++++++++++++++++
->  include/linux/acpi.h |  6 +++++
->  2 files changed, 65 insertions(+)
-> 
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index c5f2a51d280b..c379a9952b00 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -966,3 +966,62 @@ int find_acpi_cache_level_from_id(u32 cache_id)
->  
->  	return -ENOENT;
->  }
-> +
-> +/**
-> + * acpi_pptt_get_cpumask_from_cache_id() - Get the cpus associated with the
-> + *					   specified cache
-> + * @cache_id: The id field of the unified cache
+4. Changing the MTU of the interface is disruptive to PTP, and
+   remains so as long as. This is not fixed by this series (too
+   invasive at the moment.)
 
-Similar comment to previous patch. If we are going to make this unified only
-can we reflect that in the function name.  I worry this will get reused
-and that restriction will surprise.
+5. Avoid exporting functions that aren't used...
 
+6. Avoid unnecessary runtime PM state manipulations (no point
+   manipulating this when MTU changes).
 
-> + * @cpus: Where to build the cpumask
-> + *
-> + * Determine which CPUs are below this cache in the PPTT. This allows the property
-> + * to be found even if the CPUs are offline.
-> + *
-> + * The PPTT table must be rev 3 or later,
-> + *
-> + * Return: -ENOENT if the PPTT doesn't exist, or the cache cannot be found.
-> + * Otherwise returns 0 and sets the cpus in the provided cpumask.
-> + */
-> +int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus)
-> +{
-> +	u32 acpi_cpu_id;
-> +	int level, cpu, num_levels;
-> +	struct acpi_pptt_cache *cache;
-> +	struct acpi_pptt_cache_v1 *cache_v1;
-> +	struct acpi_pptt_processor *cpu_node;
-> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_PPTT, 0);
-> +
-> +	cpumask_clear(cpus);
-> +
-> +	if (IS_ERR(table))
-> +		return -ENOENT;
-> +
-> +	if (table->revision < 3)
-> +		return -ENOENT;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
-> +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-> +		if (WARN_ON_ONCE(!cpu_node))
-> +			continue;
-> +		num_levels = acpi_count_levels(table, cpu_node, NULL);
-> +
-> +		/* Start at 1 for L1 */
-> +		for (level = 1; level <= num_levels; level++) {
-> +			cache = acpi_find_cache_node(table, acpi_cpu_id,
-> +						     ACPI_PPTT_CACHE_TYPE_UNIFIED,
-> +						     level, &cpu_node);
-> +			if (!cache)
-> +				continue;
-> +
-> +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-> +						cache,
-> +						sizeof(struct acpi_pptt_cache));
+7. Make the PTP/timestamping initialisation more readable - no
+   point calling functions in the same file from one callsite
+   that return error codes from one location in the called function,
+   to only have the sole callee print messages depending on that
+   return code. Also simplifying the mess in stmmac_hw_setup().
+   Also placing support checks in a better location. Also getting
+   rid of the "ptp_register" boolean through this restructuring.
 
-sizeof(*cache) makes more sense to me.
+Not tested beyond compile testing. (I don't have my Jetson Xavier NX
+platform.) So anyone testing this and providing feedback would be
+most welcome.
 
-> +
-> +			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
-> +			    cache_v1->cache_id == cache_id)
-> +				cpumask_set_cpu(cpu, cpus);
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
+v1 was tested by Gatien CHEVALLIER - thanks.
 
+v2: update patch descriptions on a couple of patches identified in v1.
 
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   1 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 113 ++++++++++++----------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  10 +-
+ 3 files changed, 67 insertions(+), 57 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
