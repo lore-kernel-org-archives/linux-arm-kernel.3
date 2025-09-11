@@ -4,103 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA9FCAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 11:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22971CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 11:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UcKnqqQ3hc0qlaEnqWP7Zltl+WKjelR3FGrd2YAXgOA=; b=LGsZj8FZ6jKl7YUiIRbMUI+ck2
-	16d7sTisd7byMf+Nj+OFY+knjzoIjYUHMBuONC3iEX3LhOTih9ybgIdbfYaa0RhFpowzcpDvg88uw
-	7DnLktwSBEcikMYuuAjc8zqmwNX5xLf2YPRi9vH3i9tQShEoTQE3hw/3R5Q7218Z0KgXOG02EL15T
-	RGz1FZIGrCGIJHf4E1rvcclqbfoV3L9OsJvw/OspL29G0r/A2MK9ZFzysDoGgvn9KjvxmTaHOmD1G
-	s5icP8DrugtRBkKiRvlfIn5aBIJK9V3XFULn0NjroyLKPMfj690uFnMVv8Hq//aaJbau1Xd12BM0W
-	FjDlNkRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OOhpEuCCsNUzM9wWMw0XFDbqtdUXyM6vS4/g0OVDEt8=; b=Xmz9DyRrMuSgjjQ1qfr2HYD2E3
+	P9AGphY/B0wjLlhYLf5WV4PiSDAtaUxDSSCZ5M6oC5WFtDZJGIbEmwhkaw8YAk4T4fzkYbzNMXdZa
+	Taw8gSvHz/dnsrw8JJHoLzSbWiLi+iYhC24QzEAyKwtq99UTv3dFqfYT2T15IBaUhrTq/UkXdDjzt
+	FolG2kRTs1/IdYj6kXz22LxwkckQbWA0Hp+L3MVYl6u9m7Zft1jIGEUoP2v1D8SdU6xI0nlbEBJy/
+	fLowbTZ/kXia/WutmGHYNfkiwkW2oh3R8CBS3f3rh3JWkyThoMHr5Ppj93au5oid8oohYjMyGDzx6
+	CPI0NfdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwfbs-00000002ijU-2q3P;
-	Thu, 11 Sep 2025 11:37:04 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uwfcc-00000002jTL-3aaG;
+	Thu, 11 Sep 2025 11:37:50 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwfbl-00000002ica-0r7c
+	id 1uwfcW-00000002jJI-36Zx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 11:36:58 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58BBaMZm793642;
-	Thu, 11 Sep 2025 06:36:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757590582;
-	bh=UcKnqqQ3hc0qlaEnqWP7Zltl+WKjelR3FGrd2YAXgOA=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Cbk1IJ1co2d8Q4NLcfNYir5p1PxSKISLAJFGi4rBwGwUX2fRs82OEUBvssG3XeVA5
-	 vfcJism3z2SvDy5otimGLFEYGqbHT8KUr1oBYBDzevFVXGpBEKj2NAdb+QVpc6B56r
-	 7X1/1vF62ixta12VCN0zGNovs7b3bq9ScKQsPotw=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58BBaMVI1908800
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 11 Sep 2025 06:36:22 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 11
- Sep 2025 06:36:21 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 11 Sep 2025 06:36:21 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58BBaLa42061818;
-	Thu, 11 Sep 2025 06:36:21 -0500
-Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 58BBaKEM007150;
-	Thu, 11 Sep 2025 06:36:20 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Jonathan Corbet
-	<corbet@lwn.net>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        MD Danish Anwar
-	<danishanwar@ti.com>,
-        Mengyuan Lou <mengyuanlou@net-swift.com>,
-        Lei Wei
-	<quic_leiwei@quicinc.com>, Xin Guo <guoxin09@huawei.com>,
-        Michael Ellerman
-	<mpe@ellerman.id.au>, Fan Gong <gongfan1@huawei.com>,
-        Lorenzo Bianconi
-	<lorenzo@kernel.org>,
-        Parthiban Veerasooran
-	<Parthiban.Veerasooran@microchip.com>,
-        Lukas Bulwahn
-	<lukas.bulwahn@redhat.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>
-Subject: [PATCH net-next v4 2/7] net: rpmsg-eth: Add basic rpmsg skeleton
-Date: Thu, 11 Sep 2025 17:06:07 +0530
-Message-ID: <20250911113612.2598643-3-danishanwar@ti.com>
+	Thu, 11 Sep 2025 11:37:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yyY74arM0U+o6QburdcqtN4sy4ul2/A3n/QLLZShkXnLrB5EUuTK5dtNmwpk7BmwDDqJWia1DRABrMEkV0CncId2dc5vLb/0E6v5+9kxVExUNLyb7294mJ1Id8rbamRk9+mbMsuSbrW9yHjPc4Vw8aPyFJyK+NHh/3e7shN9fo4WS+lsf43Yh2TP+hrGtxk1r0kBvU2zFjJL6oYqZrgtz3QZFSDAmseIWDdZUF3/OK0hVbyOmsFlNw95XoSD13gOCKraIQMldbN2lidjqIOHqkprE8u6hfqPq31d+xS/GLDOq57wwDmpsvQiDWfj1SOIo7ZmIRBCGK7QJNi0ThGMtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OOhpEuCCsNUzM9wWMw0XFDbqtdUXyM6vS4/g0OVDEt8=;
+ b=Ej7djl1i9Hd7pA3fRnr+O2kUFROCOMBv66nZmXDo520FBwwvcMvsVIOyw5PNCM9LPos/GtXgBf+P6OD+nCkS0bVIzb2ZgIMOjYdsxRmskxkea9DiDz+yxZ61waezPD701f5UMPkl3spYew7B9b/GI4H38qqwV2W+qDUSMLAUlym4JPVsp5RTAK3fURjZFMtECCLI0VlftYYLflTeK1Nigni7t0MzeK2drJEbzPTNHtPst07Qw2LzhpE3qxZeWzQXapeymmT6awQRQ1XLxTMfjAwM9KmCIIgWCVeB54+oH/I0ygDkNSigqZygoTt4hSP3UrDbhCPcYVnWhs0K3x9DYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OOhpEuCCsNUzM9wWMw0XFDbqtdUXyM6vS4/g0OVDEt8=;
+ b=IDO2a+wsQhzh7Fzmag7U4ufGm968daTu2cmipDCk8LdTEm19pttUEWrZGlJ48U+M1ChzK8QfPw8yHgvA3zfOrglHS7kKXLVcEQnRuGMRiGWbl1dA/rzk5P/19YnITwYlQP/LLY4GXH5a56h0twpdVBxUDABuaZXJZnR3Zv1+jn23C5U4sMSOiL+JvXrM050Ai42zU9tvU1du7iyXNxRk5A7FO6XHWM4en2uIrYmcVZs8oFD8y+p39wyRGIz1f2PqpNph8t8UFYPhSlvdd/yvLAZEyuX2B0ixbrWXM3RMhWOMT/6jF3aqx4ZWpwBadO5jP2u+GclfcP65H+Mw6TepUw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
+ by DB9PR04MB9961.eurprd04.prod.outlook.com (2603:10a6:10:4ee::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.14; Thu, 11 Sep
+ 2025 11:37:31 +0000
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::b1f6:475e:de5d:8442]) by GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::b1f6:475e:de5d:8442%5]) with mapi id 15.20.9115.010; Thu, 11 Sep 2025
+ 11:37:30 +0000
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: imx@lists.linux.dev,
+	Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Marek Vasut <marex@denx.de>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/9] Add support for i.MX94 DCIF
+Date: Thu, 11 Sep 2025 14:37:00 +0300
+Message-Id: <20250911-dcif-upstreaming-v5-0-a1e8dab8ae40@oss.nxp.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250911113612.2598643-1-danishanwar@ti.com>
-References: <20250911113612.2598643-1-danishanwar@ti.com>
-MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+X-Change-ID: 20250911-dcif-upstreaming-3e16d89c3385
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-ClientProxiedBy: AM0PR04CA0108.eurprd04.prod.outlook.com
+ (2603:10a6:208:be::49) To GV1PR04MB9135.eurprd04.prod.outlook.com
+ (2603:10a6:150:26::19)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|DB9PR04MB9961:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7afff23f-116a-41bf-88a0-08ddf1279753
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TGFNVGRVT1d6ZjdZSUgrNU0rdm1yRVh4UExxWHpXZmw3QUF3RUdRSFl2Z0di?=
+ =?utf-8?B?NDlvY3FtZ0cxbVloUGxlVDFSTENycGpqanpuUElUNnZVanRlcWtUUFhVQUF3?=
+ =?utf-8?B?Mzd3bDA4SmtSNTl6Q3JGR3pwYW4xdDJPWTd6SEV0WWUxN1dTODhtejJuQXJt?=
+ =?utf-8?B?cG1ObXVuWFFCTXdWRzlSdDRZNUozeTgzOE9WbEV1cXVDc3Jsc3RKbkpTRWFm?=
+ =?utf-8?B?Zkt0N0dPLzlnaDBySTJWWm0ya1dOVXk3Uzk0c0VPVjdGVjZydE1YZDJrU09p?=
+ =?utf-8?B?NGg0aVZESmI5WGNZYWd4dWNMSWdBaXM3ZGFFYnd3ekJkQ3FXS2hVUmYzanpV?=
+ =?utf-8?B?Qit6bEhBblExd2JvenU0Y2JzMUNFaG42aHBxbzB4bjFScmovWjRVOGcyRDZX?=
+ =?utf-8?B?c09vNFBuWk4rTHA4bmJ3am5zL2RDWUEvT0VxQVdkNVJ1Zkwxd0tjTndQZkQy?=
+ =?utf-8?B?OGRIbmRHV1BnVWVIaERHOXloYlBHLy9UV20xWElWcUsyNlVYRkZXT1pWVU05?=
+ =?utf-8?B?dzFpNGNjZmpFS0kyS29CbTJ0Tit5Y1hveXFwQlZicjVaQTZSRzZoM09JYWsv?=
+ =?utf-8?B?K3RWbWVXQkEwNmE0cUhzcit3ZkVlOC9DYkpaRG04VFFnZndpcWQyS3NMZ1dM?=
+ =?utf-8?B?YWdpbnNEdEsxZFVVQlBlcDQ0NlM1SHVBQkNBL3hneHBFYTRjbkxmVFY4ZVov?=
+ =?utf-8?B?bVB0cHc5cGNpdjE4V3VhdmlML0ZQeVhrckZxSEVlQ0Q5UWdFTXplK3drUXhy?=
+ =?utf-8?B?UnptOG1PNVdlWDZwR2dXK0Y1a29sZ3NGN08rTmtBUmV1OXhSSmk3VHZXWDVa?=
+ =?utf-8?B?b0JtZ3k0ZWtSTUh6SHozdThjMWsrVVkvRzgybUJIZW1XT3dIclpHejhCNDhQ?=
+ =?utf-8?B?MVBYeHZMb1BuZHJ0b0w2ZlZjdERnRU1QZTFFWG04WUF5V09oVGhBWTlPSFE5?=
+ =?utf-8?B?RmRmb1F3ajdva3pMSXZjVGhKWmdZMzV3WVowK245SXlHRzlyemY2ODM2bkUw?=
+ =?utf-8?B?ME5yak45dU8vQWM0Q2Z3UFB6QUxMN2doWThqcWNsNEVCL3h0STNudDkwMWpW?=
+ =?utf-8?B?dWV4QjkyL0dJT05wcmxOMXpLbjgvaTZEdWdTdVR4YkZ6OGxEbFJrSnU1TXFR?=
+ =?utf-8?B?Z3pQbFQ2cGhCTGlLSjZJbHAvOHJBWU9BT0Z0U2pLanBNMEtIOWsyaFVJdExP?=
+ =?utf-8?B?cHpKcDhJaXcxVEcyUkUyZE5sOGNob0trM3ltTDc1ZkNDUmJPQU5QMGZpbWNq?=
+ =?utf-8?B?U1orMG9YVm5zc3EvSlRkVGg2cnM4WHBMenMvbDhQTTRPUW12SGhKVmZ5TjFJ?=
+ =?utf-8?B?STY0aksyTlRIVHVTZDlJdlRGTG1aeThmcUxOeWRFNE93a3RqY1IyQTBEL0pI?=
+ =?utf-8?B?cXhjY2RZOFlHRUFVSmlMN1V3eHFtb1V0bVMyQ2xkMTYyR0Y1OU0xNGpHbXN6?=
+ =?utf-8?B?TjFVWHlCcWpMa3BsdFBQeU4yUlNkVEM5VnJ4MVhUVHRBOWNYRUovUXl2Wkpy?=
+ =?utf-8?B?TVNwR0JoYyttcC9CczNRWm92NnlqSE13ajRwRW5rT2xza2xkbFhkWGNZOWE3?=
+ =?utf-8?B?bVNkWjA0ZHVqVjRBV1V1SThpR3pxbWV1cGZlMXZJMStJU09UbUpucUtrY1ZS?=
+ =?utf-8?B?WUVPaXNTV2ZCaEpFYktSb2Z2UDNRWi9xaEhpWk1MVFl6OHIrendSMXcrVURW?=
+ =?utf-8?B?aUUyVGUwUERaWnhXcTNuaDVzU1BUYVhmakxNQmZsQ1VGRC84NDdJZEhwT2Ex?=
+ =?utf-8?B?NDVqUHdmNE9ZWnU1aE9SU3VvOWdTSUJOMkZIRWtGWWpzSVNMREVEVWFFclVW?=
+ =?utf-8?B?WjcwQ1JBampBNVB0NENRZlg2SlNRTjJTbXZ2Qm1ybFIwQWFjcy9RdDR4S0Mw?=
+ =?utf-8?B?S0NTOXg1c2RqWWNVY1lZTGU1SGs1OFlaRjRVOWU5R0phY2ZZb3lpbTB3T2o4?=
+ =?utf-8?Q?T1uCP1q15VI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024)(7416014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aE5rNUJBNVBxOVBEZDlteldUS0s5TUM4T2ZOeVg1NEdyRTVhMlZuUnl5OXR4?=
+ =?utf-8?B?bGgveVVReTdOWkhNUkxLdEpFZjBVM1JDRFkzN2Q1RmhIV2ZwU1NoN1BVRmJy?=
+ =?utf-8?B?N2ZSNXY5OFpsdWE2MFlNbFlZWmJWQVZpVldjcjlhcXIxQ2FDalVUaXcyckxy?=
+ =?utf-8?B?dGVyNW1La0VvM01Zd1ZINjNlYmVkNEVrWjZxbTMzM1JZRHp5ZW5ESXY1djRy?=
+ =?utf-8?B?d2hkOFBFaUdvNjNmZDN1a2RFRDdwMFhRV010dFEzRjh3N1dROW1OSWx2dm1h?=
+ =?utf-8?B?SDhFYmhoMmVULzVXVmVZeGZnZVpObHFKYVdEY3VsZndITHJUZUkyK0Vaemhl?=
+ =?utf-8?B?K2tLaTZFR0lPU0RZL0xVT0tKWWV2b3ludkhxRkhvcnhpQzlZaWloV0QrU3Nz?=
+ =?utf-8?B?TmhIWDgxVlRHeFc1WjhxOXlLdGYxcGFEWVJLVUlrRzFWTklCRHZ3ekM5RVFU?=
+ =?utf-8?B?OEExaENkOFpTTlZNd09HVm1qdmpXRTF4NGhtTlhyWEttNk40M0dRWTZsSlpY?=
+ =?utf-8?B?ZkcrSGtPV3oxTTllODlNZ3FETVlUajV6cHhqNEhjOS90MmtaWElYb1JxcWpv?=
+ =?utf-8?B?ajVBQzdxNFJMUWV5b1o0Q0lBWG0yQUxERDBNKzRla1Bsc0lGWmRoVkJQMzZj?=
+ =?utf-8?B?cTBtejBVU0NTbmNBbGcxVmNtUzQ3MEZ1T0Z0WDZCWm9mR3l4dGxOTFFaVmNS?=
+ =?utf-8?B?cDhGbVdoTjZzTW9Lek1qMHdPYVI5Qmt2dEZ4aFg4b2w4dHd6Z05BUVJLaUs3?=
+ =?utf-8?B?eEh5L0xHTUQ3UFFvOGk1WG9VVXQwTTJaM0xHc01OMGErdzJ0YVVTN2JXY2wz?=
+ =?utf-8?B?U2V1YmlMRE5pN1J5MXlpUmhGbExlVVhmcUhYOU1oa080eFQrYmJYLzJXYUhI?=
+ =?utf-8?B?aUF4WGNHb1Z3RUdYaytBZC9lQzhGbTNNektaWU5oWldQV2NvekgzR0xTOFhn?=
+ =?utf-8?B?dHozUjdyWHhlSjBGdTNpUjZDK1pUU0g4aTlTeXAwV2tQbzVQdnVNMzBVMUdP?=
+ =?utf-8?B?Z0ZWMUxoSlh1STNGL2gwSWh0SDdDMlhvVU93alpwUUwzV1JuYU5BWm8xMnhx?=
+ =?utf-8?B?Q2d1TkJ6V3BSMmV2K0d4OUFiTEUzOS96RWlqMEdIOU1qd0w0SHVqQXdKbmxo?=
+ =?utf-8?B?RmtvMXdVS0Z3dEN3TXhrQzVBajRhSVVKMWVKamQrVUNkMGprVFlQWVpocFd5?=
+ =?utf-8?B?NWhoaHVaOFFOWG9NWFBqazZrYVJlUk9lcU9maElqZXdsMEluVTdvTmZncVdT?=
+ =?utf-8?B?UmE2SWxpNHVHSXNVNTQ5MEcrcTZ4RTJGcExBaVFURFR6dnZ3Q3YzMmRvdHFN?=
+ =?utf-8?B?WU9XWXNpQTdVOFNwWS8wNHVoNHlxRVRzd3ZIcGQwVGNydjZLLy9tYVlXVVM0?=
+ =?utf-8?B?ZXVjWGx2QXFxYVdNc3VhRERscDZYUjB6QURPaFJER1BITWg2TzZOMStwL2o3?=
+ =?utf-8?B?dlZyU0tKYWRWSUdrZThCaC9LUnZHVEYxSVB1ZDd2aCt2bU1QK2N3cGgxeEt3?=
+ =?utf-8?B?UzVOb0hDNlhjcURrZGdDN3hBMUdJaW1kdmhranhtS1NqdUZZeVFLZnZROE8y?=
+ =?utf-8?B?WEZEalBLeWM3L3VYZm1aUDdYMlRCSlJITCt5TGorekh6UWxMNTZiZjZiOUJn?=
+ =?utf-8?B?bGgwUis4cTdQdloxR1J1ZWcvUG9qQkt0aVVibDNsYjFXVWJ1Y1VKWDhqVmx0?=
+ =?utf-8?B?cTMvYXMvVHNDOGJYUFo2Z1c1TlVaZDQyRnNrOXNJY0ZxdSttbC9mVXQvL25I?=
+ =?utf-8?B?bEhDTU1VL21rQTZaQkhWRjFXalVENDc1VzZod3Q0bldnbUdaQlg4cUR3QWNx?=
+ =?utf-8?B?SkdLSC82WHZYYTVMTU1tV01uNVphVVpndld0SW9Xem9jWWRHT3daNGhUT2NX?=
+ =?utf-8?B?OHZNYklRSTFCUzF4U0xieDdibkwzUEsrZ05pR1hXb1p3Vi81Qk45Wk9zcUhI?=
+ =?utf-8?B?ZFQ1TThBenNJcU1FL1dRbDNoS3MrMDlVbkxRL0VFQVN3M2xXSFJwMEh5dFFJ?=
+ =?utf-8?B?MHlwT1kzRi9yQnhWWlNjUFZVRE9lV29ma2RWR0N6ZWpTUi84eXdkVjRrTFEx?=
+ =?utf-8?B?dlYzUnIzaGl3SW9mNEIrRXlEV3ZqcWRtQjJ2cEd4dVB1UjhWemN0RXgwQ3dn?=
+ =?utf-8?B?dG9KNDNtZzBYdU1rYmN5aEowak5nT1hkaXlvTDN3dU9vMFduS0gybSt1VkJT?=
+ =?utf-8?B?OHc9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7afff23f-116a-41bf-88a0-08ddf1279753
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2025 11:37:30.5765
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: i3dvn8xZmP/B6ZfR6hzNj4SiKsgIzKzegMo/XB5muiW2XdUc79RwNSWiJdT5CB6JOVbcXuo4hi1Qef7gsVIrpw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9961
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_043657_369867_09EA88CB 
-X-CRM114-Status: GOOD (  29.04  )
+X-CRM114-CacheID: sfid-20250911_043744_943201_61D73670 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,295 +205,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduces a basic RPMSG Ethernet driver and add it's basic skeleton.
-Add support for creating virtual Ethernet devices over RPMSG channels,
-allowing user-space programs to send and receive messages using a
-standard Ethernet protocol. The driver includes message handling,
-probe, and remove functions, along with necessary data structures.
+Hi,
 
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+This patch-set adds support for the i.MX94 Display Control Interface.
+It depends on Peng Fan's DTS patch [1] that was not yet merged. Also, it
+needs the BLK CTL changes [2] that I spinned off from v2 in a different
+patchset.
+
+Also, included in the patch-set are a few extra patches that the DCIF
+driver depends on for functioning properly:
+ * 1/9 - 3/9 : add support for i.MX94 to fsl-ldb driver. It also
+               contains a patch (2/9) from Liu Ying that was already reviewed
+               and was part of another patch-set ([3]), but was never merged;
+
+Thanks,
+Laurentiu
+
+[1] https://lkml.org/lkml/2025/7/7/84
+[2] https://www.spinics.net/lists/kernel/msg5791546.html
+[3] https://lkml.org/lkml/2024/11/14/262
+
 ---
- drivers/net/ethernet/Kconfig     |  11 +++
- drivers/net/ethernet/Makefile    |   1 +
- drivers/net/ethernet/rpmsg_eth.c | 144 +++++++++++++++++++++++++++++++
- drivers/net/ethernet/rpmsg_eth.h |  85 ++++++++++++++++++
- 4 files changed, 241 insertions(+)
- create mode 100644 drivers/net/ethernet/rpmsg_eth.c
- create mode 100644 drivers/net/ethernet/rpmsg_eth.h
+Changes in v5:
+- 4/9: Removed "bindings for" from the title, changed the port
+  definition and simplified the example;
+- 6/9: Fixed the way 'ldb' child node is declared: declare the
+  'ldb' child node out of if:then: block and set the property
+  to false for compatibles other than nxp,imx94-lvds-csr;
+- Link to v4: https://lore.kernel.org/r/20250903123332.2569241-1-laurentiu.palcu@oss.nxp.com
 
-diff --git a/drivers/net/ethernet/Kconfig b/drivers/net/ethernet/Kconfig
-index f86d4557d8d7..7d00e02a2c8f 100644
---- a/drivers/net/ethernet/Kconfig
-+++ b/drivers/net/ethernet/Kconfig
-@@ -170,6 +170,17 @@ config OA_TC6
- 	  To know the implementation details, refer documentation in
- 	  <file:Documentation/networking/oa-tc6-framework.rst>.
- 
-+config RPMSG_ETH
-+	tristate "RPMsg Based Virtual Ethernet driver"
-+	depends on RPMSG
-+	depends on REMOTEPROC
-+	help
-+	  This makes it possible for user-space programs to send and receive
-+	  rpmsg messages as a standard eth protocol.
-+
-+	  To compile this driver as a module, choose M here: the module will be
-+	  called rpmsg_eth.
-+
- source "drivers/net/ethernet/packetengines/Kconfig"
- source "drivers/net/ethernet/pasemi/Kconfig"
- source "drivers/net/ethernet/pensando/Kconfig"
-diff --git a/drivers/net/ethernet/Makefile b/drivers/net/ethernet/Makefile
-index 67182339469a..aebd15993e3c 100644
---- a/drivers/net/ethernet/Makefile
-+++ b/drivers/net/ethernet/Makefile
-@@ -107,3 +107,4 @@ obj-$(CONFIG_NET_VENDOR_XIRCOM) += xircom/
- obj-$(CONFIG_NET_VENDOR_SYNOPSYS) += synopsys/
- obj-$(CONFIG_NET_VENDOR_PENSANDO) += pensando/
- obj-$(CONFIG_OA_TC6) += oa_tc6.o
-+obj-$(CONFIG_RPMSG_ETH) += rpmsg_eth.o
-diff --git a/drivers/net/ethernet/rpmsg_eth.c b/drivers/net/ethernet/rpmsg_eth.c
-new file mode 100644
-index 000000000000..7224fbc89646
---- /dev/null
-+++ b/drivers/net/ethernet/rpmsg_eth.c
-@@ -0,0 +1,144 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* RPMsg Based Virtual Ethernet Driver
-+ *
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/of_reserved_mem.h>
-+#include <linux/remoteproc.h>
-+
-+#include "rpmsg_eth.h"
-+
-+static int rpmsg_eth_rpmsg_cb(struct rpmsg_device *rpdev, void *data, int len,
-+			      void *priv, u32 src)
-+{
-+	struct rpmsg_eth_common *common = dev_get_drvdata(&rpdev->dev);
-+	struct message *msg = (struct message *)data;
-+	u32 msg_type = msg->msg_hdr.msg_type;
-+	int ret = 0;
-+
-+	switch (msg_type) {
-+	case RPMSG_ETH_REQUEST_MSG:
-+	case RPMSG_ETH_RESPONSE_MSG:
-+	case RPMSG_ETH_NOTIFY_MSG:
-+		dev_dbg(common->dev, "Msg type = %d, Src Id = %d\n",
-+			msg_type, msg->msg_hdr.src_id);
-+		break;
-+	default:
-+		dev_err(common->dev, "Invalid msg type\n");
-+		ret = -EINVAL;
-+		break;
-+	}
-+	return ret;
-+}
-+
-+/**
-+ * rpmsg_eth_get_shm_info - Retrieve shared memory region for RPMsg Ethernet
-+ * @common: Pointer to rpmsg_eth_common structure
-+ *
-+ * This function locates and maps the reserved memory region for the RPMsg
-+ * Ethernet device by traversing the device tree hierarchy. It first identifies
-+ * the associated remote processor (rproc), then locates the "rpmsg-eth" child
-+ * node within the rproc's device tree node, and finally retrieves the
-+ * "memory-region" phandle that points to the reserved memory region.
-+ * Once found, the shared memory region is mapped into the
-+ * kernel's virtual address space using devm_ioremap()
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+static int rpmsg_eth_get_shm_info(struct rpmsg_eth_common *common)
-+{
-+	struct device_node *np, *rmem_np;
-+	struct reserved_mem *rmem;
-+	struct rproc *rproc;
-+
-+	/* Get the remote processor associated with this device */
-+	rproc = rproc_get_by_child(&common->rpdev->dev);
-+	if (!rproc) {
-+		dev_err(common->dev, "rpmsg eth device not child of rproc\n");
-+		return -EINVAL;
-+	}
-+
-+	/* Get the device node from rproc or its parent */
-+	np = rproc->dev.of_node ?: (rproc->dev.parent ? rproc->dev.parent->of_node : NULL);
-+	if (!np) {
-+		dev_err(common->dev, "Cannot find rproc device node\n");
-+		return -ENODEV;
-+	}
-+
-+	/* Parse the memory-region phandle */
-+	rmem_np = of_parse_phandle(np, "memory-region", common->data.shm_region_index);
-+	of_node_put(np);
-+	if (!rmem_np) {
-+		dev_err(common->dev, "Cannot find shared memory region\n");
-+		return -EINVAL;
-+	}
-+
-+	/* Lookup the reserved memory region */
-+	rmem = of_reserved_mem_lookup(rmem_np);
-+	of_node_put(rmem_np);
-+	if (!rmem)
-+		return -EINVAL;
-+
-+	common->port->shm = devm_ioremap(common->dev, rmem->base, rmem->size);
-+	if (IS_ERR(common->port->shm))
-+		return PTR_ERR(common->port->shm);
-+
-+	common->port->buf_size = rmem->size;
-+
-+	return 0;
-+}
-+
-+static int rpmsg_eth_probe(struct rpmsg_device *rpdev)
-+{
-+	struct device *dev = &rpdev->dev;
-+	struct rpmsg_eth_common *common;
-+	int ret = 0;
-+
-+	common = devm_kzalloc(&rpdev->dev, sizeof(*common), GFP_KERNEL);
-+	if (!common)
-+		return -ENOMEM;
-+
-+	dev_set_drvdata(dev, common);
-+
-+	common->port = devm_kzalloc(dev, sizeof(*common->port), GFP_KERNEL);
-+	common->dev = dev;
-+	common->rpdev = rpdev;
-+	common->data = *(const struct rpmsg_eth_data *)rpdev->id.driver_data;
-+
-+	ret = rpmsg_eth_get_shm_info(common);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static void rpmsg_eth_remove(struct rpmsg_device *rpdev)
-+{
-+	dev_dbg(&rpdev->dev, "rpmsg-eth client driver is removed\n");
-+}
-+
-+static const struct rpmsg_eth_data ti_rpmsg_eth_data = {
-+	.shm_region_index = 2,
-+};
-+
-+static struct rpmsg_device_id rpmsg_eth_id_table[] = {
-+	{ .name = "ti.shm-eth", .driver_data = (kernel_ulong_t)&ti_rpmsg_eth_data },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(rpmsg, rpmsg_eth_id_table);
-+
-+static struct rpmsg_driver rpmsg_eth_rpmsg_client = {
-+	.drv.name = KBUILD_MODNAME,
-+	.id_table = rpmsg_eth_id_table,
-+	.probe = rpmsg_eth_probe,
-+	.callback = rpmsg_eth_rpmsg_cb,
-+	.remove = rpmsg_eth_remove,
-+};
-+module_rpmsg_driver(rpmsg_eth_rpmsg_client);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("MD Danish Anwar <danishanwar@ti.com>");
-+MODULE_DESCRIPTION("RPMsg Based Virtual Ethernet driver");
-diff --git a/drivers/net/ethernet/rpmsg_eth.h b/drivers/net/ethernet/rpmsg_eth.h
-new file mode 100644
-index 000000000000..0d6f96f755eb
---- /dev/null
-+++ b/drivers/net/ethernet/rpmsg_eth.h
-@@ -0,0 +1,85 @@
-+/* SPDX-License-Identifier: GPL-2.0
-+ * RPMsg Based Virtual Ethernet Driver common header
-+ *
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+#ifndef __RPMSG_ETH_H__
-+#define __RPMSG_ETH_H__
-+
-+#include <linux/errno.h>
-+#include <linux/etherdevice.h>
-+#include <linux/if_ether.h>
-+#include <linux/if_vlan.h>
-+#include <linux/jiffies.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/netdevice.h>
-+#include <linux/rpmsg.h>
-+
-+#define RPMSG_ETH_SHM_MAGIC_NUM 0xABCDABCD
-+
-+enum rpmsg_eth_msg_type {
-+	RPMSG_ETH_REQUEST_MSG = 0,
-+	RPMSG_ETH_RESPONSE_MSG,
-+	RPMSG_ETH_NOTIFY_MSG,
-+};
-+
-+/**
-+ * struct message_header - message header structure for RPMSG Ethernet
-+ * @src_id: Source endpoint ID
-+ * @msg_type: Message type
-+ */
-+struct message_header {
-+	u32 src_id;
-+	u32 msg_type;
-+} __packed;
-+
-+/**
-+ * struct message - RPMSG Ethernet message structure
-+ *
-+ * @msg_hdr: Message header contains source and destination endpoint and
-+ *          the type of message
-+ *
-+ * This structure is used to send and receive messages between the RPMSG
-+ * Ethernet ports.
-+ */
-+struct message {
-+	struct message_header msg_hdr;
-+} __packed;
-+
-+/**
-+ * struct rpmsg_eth_data - RPMSG ETH device data
-+ * @shm_region_index: Shared memory region index
-+ */
-+struct rpmsg_eth_data {
-+	u8 shm_region_index;
-+};
-+
-+/**
-+ * struct rpmsg_eth_common - common structure for RPMSG Ethernet
-+ * @rpdev: RPMSG device
-+ * @port: Ethernet port
-+ * @dev: Device
-+ * @data: Vendor specific data
-+ */
-+struct rpmsg_eth_common {
-+	struct rpmsg_device *rpdev;
-+	struct rpmsg_eth_port *port;
-+	struct device *dev;
-+	struct rpmsg_eth_data data;
-+};
-+
-+/**
-+ * struct rpmsg_eth_port - Ethernet port structure for RPMSG Ethernet
-+ * @common: Pointer to the common RPMSG Ethernet structure
-+ * @shm: Shared memory region mapping
-+ * @buf_size: Size (in bytes) of the shared memory buffer for this port
-+ */
-+struct rpmsg_eth_port {
-+	struct rpmsg_eth_common *common;
-+	void __iomem *shm;
-+	phys_addr_t buf_size;
-+};
-+
-+#endif /* __RPMSG_ETH_H__ */
+Changes in v4:
+- Addressed remaining DCIF driver comments from Frank;
+- Limit the 'ldb' child node only to CSRs compatible with 'nxp,imx94-lvds-csr'
+  in the binding file. Since LVDS CSRs are a minority, I chose to
+  use the if:then: construct instead of if:not:then:;
+- Remove the '#address-cells' and '#size-cells' from the ldb node, in
+  imx94.dtsi, as they're not needed;
+- Link to v3: https://lore.kernel.org/r/20250806150521.2174797-1-laurentiu.palcu@oss.nxp.com
+
+Changes in v3:
+- Removed the BLK CTL patches and created a separate patch set [2] for them;
+- Collected r-b tags for 1/9, 2/9, 3/9 and 9/9;
+- Removed the DCIF QoS functionality until I find a better way to
+  implement it through syscon. QoS functionality will be added in
+  subsequent patches. Also, used devm_clk_bulk_get_all() and used
+  dev_err_probe() as suggested;
+- Addressed Frank's and Krzysztof's comments on the DCIF bindings;
+- Addressed Frank's comments on dtsi and dts files;
+- Added a new binding patch, 6/9, for adding 'ldb' optional property to
+  nxp,imx95-blk-ctl.yaml;
+- Link to v2: https://lore.kernel.org/r/20250716081519.3400158-1-laurentiu.palcu@oss.nxp.com
+
+Changes in v2:
+- reworked the BLK_CTL patch and split in 2 to make it easier for
+  review;
+- split the dts and dtsi patch in 2 separate ones;
+- addressed Frank's comments in DCIF driver;
+- addressed Rob's comments for the bindings files;
+- addressed a couple of checkpatch issues;
+- Link to v1: https://lore.kernel.org/r/20250709122332.2874632-1-laurentiu.palcu@oss.nxp.com
+
+---
+Laurentiu Palcu (7):
+      dt-bindings: display: fsl,ldb: Add i.MX94 LDB
+      drm/bridge: fsl-ldb: Add support for i.MX94
+      dt-bindings: display: imx: Add i.MX94 DCIF
+      dt-bindings: clock: nxp,imx95-blk-ctl: Add ldb child node
+      arm64: dts: imx943: Add display pipeline nodes
+      arm64: dts: imx943-evk: Add display support using IT6263
+      MAINTAINERS: Add entry for i.MX94 DCIF driver
+
+Liu Ying (1):
+      drm/bridge: fsl-ldb: Get the next non-panel bridge
+
+Sandor Yu (1):
+      drm/imx: Add support for i.MX94 DCIF
+
+ .../bindings/clock/nxp,imx95-blk-ctl.yaml          |  26 +
+ .../bindings/display/bridge/fsl,ldb.yaml           |   2 +
+ .../bindings/display/imx/nxp,imx94-dcif.yaml       |  82 +++
+ MAINTAINERS                                        |   9 +
+ arch/arm64/boot/dts/freescale/imx943-evk.dts       | 121 ++++
+ arch/arm64/boot/dts/freescale/imx943.dtsi          |  53 +-
+ drivers/gpu/drm/bridge/fsl-ldb.c                   |  47 +-
+ drivers/gpu/drm/imx/Kconfig                        |   1 +
+ drivers/gpu/drm/imx/Makefile                       |   1 +
+ drivers/gpu/drm/imx/dcif/Kconfig                   |  15 +
+ drivers/gpu/drm/imx/dcif/Makefile                  |   5 +
+ drivers/gpu/drm/imx/dcif/dcif-crc.c                | 211 +++++++
+ drivers/gpu/drm/imx/dcif/dcif-crc.h                |  52 ++
+ drivers/gpu/drm/imx/dcif/dcif-crtc.c               | 695 +++++++++++++++++++++
+ drivers/gpu/drm/imx/dcif/dcif-drv.c                | 226 +++++++
+ drivers/gpu/drm/imx/dcif/dcif-drv.h                |  86 +++
+ drivers/gpu/drm/imx/dcif/dcif-kms.c                | 100 +++
+ drivers/gpu/drm/imx/dcif/dcif-plane.c              | 269 ++++++++
+ drivers/gpu/drm/imx/dcif/dcif-reg.h                | 267 ++++++++
+ 19 files changed, 2246 insertions(+), 22 deletions(-)
+---
+base-commit: 0c73257677576a103139866657ffea304020ff74
+change-id: 20250911-dcif-upstreaming-3e16d89c3385
+prerequisite-patch-id: b2acaaf7e92a5c8e377e6b56f3a9ee7409f64b00
+prerequisite-message-id: 20250804131450.3918846-1-laurentiu.palcu@oss.nxp.com
+prerequisite-patch-id: 74ddb42797e7438bcfca4f3157a81b1164c65ea4
+prerequisite-patch-id: 087fb2ec68d73c4474cd5b850c299e38a2d58eaf
+
+Best regards,
 -- 
-2.34.1
-
+Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 
