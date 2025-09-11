@@ -4,142 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8299CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B0DCAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ynWl2+LN0okkZhiNEn8Jl42YKjFcoHHouZf21AAoHq0=; b=zCCUoypO9+b/5M4XzRebi6/Zxc
-	uVaekvR0WiH38hQQ2eJWFRUMCP/D2IqJzWFT4WqjEpVCtRKfv57wgjMx8W7xWbF0JdK6j1j8BmHQO
-	+QeW5msBX7wu1I8CQflEdjQtIOENSpch5C9SX2c4AqjzFKZ2HRdG6IegPDmLSJGaIw8FJE3RNvzrD
-	PxGt0WryDIcF5IUaYRM5GJAj9CQExfWDv8ke1wt2adm8K5NEAJNK6Z80EFYv1swBSb0t/GtVB+NyT
-	5xtqvQUyPRglF9vuDfOrF0v8jCm9h8w9bMN1BkQ59rn7ZuymtVouHWXDGUKi4UzjzREsgefLPjqyq
-	zeQX23kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tl6Jwlc9AxjchgDlRh4CRf/NRIAGYGgRWiI8ZY2gw9o=; b=I9qg1pP23nt4SXA81s7srlOdWC
+	4cTeVAy032mxPQZA//d8ZIlH4BRyLWkF1TgsQ3J6Qh2hxLjUPalsLgwRAW/X6kvGOQ3oKDsEJuMKW
+	l2DPcfc18gwcj8mrtO+/0xMfkIVgM5VqJWQuoFhHX9zraeCeqKzDp9aP+I3SaCrrzmedxNo2MQxT6
+	Krzap9mS1QTckX+7ZBOZM03CLoJp3OdRtLUUqtdGX1432gOpca/yrs2lzzRQzFL6sMEQlkb6zZD/b
+	pAP/n6HsVtkH00QWFEF1XeQ1St4JCf80urj+nMbGC6G8znH5UTPiMHQSvhY6dQ+3/0mwOUzU0KrYI
+	nzZ9M90w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwd3f-00000001wBt-3XVR;
-	Thu, 11 Sep 2025 08:53:35 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uwd41-00000001wIj-1h1b;
+	Thu, 11 Sep 2025 08:53:57 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwd3d-00000001wBC-022k
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 08:53:34 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58B2IWoi015064
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 08:53:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ynWl2+LN0okkZhiNEn8Jl42YKjFcoHHouZf21AAoHq0=; b=OrIY/QGAjyiGsCvf
-	Dmxj++57E6yEaDivTVuW7agmMUOYVnC/DM5C3oLOgZuxx0OCoj8r3Lf58/yLCjNx
-	x2zKTAvM6/VIyfu4Ob/p2P+uMLolymGRxGIjExVMyPEy0Wz8bz1SH1/CEMDJKN17
-	AJFUJ39O3bXtCI0zB99HZs2ouvKC/RrC1QH/CN0frAAic/bLsJGwXY96olQSdPdD
-	aLJgznelxD2iQAATm+WkFealh2YMeYNtuscpRVSqXQcUhIn+ONuHSDzRP5FwU+xv
-	0Sx0y+JpQh/Vq3qzD6Wer6WeilyLnVDkDGpEM1EDHM2arVchyWdLKp4UOurR27dI
-	nAYTaQ==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490e4m6ujn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 08:53:32 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4b604c02383so2510141cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 01:53:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757580811; x=1758185611;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ynWl2+LN0okkZhiNEn8Jl42YKjFcoHHouZf21AAoHq0=;
-        b=IP2TXjjDBiJXYWfx8hd9RlQo0sJ2vt6T8muqO4He9KNwM6Ze1qEo3+TqSxfhcnJrSL
-         ATxrxj238HphnqauBsfs+WbLWfDqQktiRXfAoQD1hkju9lp6u0Sg06XAqHZv/RINB2uf
-         w3utt/dpUkPHbDBKeNgGs2Tx1h3y1AvFqefBbL2wqKztnSkOUFFkkVdCU2suSYROUXpU
-         vackk+chgEyL/tSr6u4DXDL7/4yUOfh1U3716h04t5PFdTdauMghpJGJV8UDSoTV9sEt
-         E5l0z7rCqhu3afXyoaULtNs5lSFHqN3SEWA/ltDOlBzbKMyIDVnu7BTHNZYv8eKXAZgp
-         cAnw==
-X-Forwarded-Encrypted: i=1; AJvYcCXPzC8ufJQZVduAAQGAIfgQ/50jtwyiUCR26xROMUuC2Q8vYcKVsS0O8gWJSfbaQq9ukkZOJujO9TraMOPZwHn2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNIDaIrjeHz7CQmzjaI2OHDC0b7YHm7csqwR5HtItuF8PnyNUt
-	wm9N0VCUgTu1i799vYkcA5+YvN9M5lQF9z2dHIYPZiha2RgxDGTfsQ962Detw22cv0nPk3l5G4w
-	U3Df6ATcEKAP/g00Siv0DuPcZUj0z/z+fjShyRyV8Tx3sTQMPePdFg2s8k1pmrKYkXVkpQ905gS
-	DLjQ==
-X-Gm-Gg: ASbGnctVo2OyFKM3+gnge223LfEp9PNq24u/NE5M8rYoug0wjVgJ/6WrV+ysWXZu40H
-	kleF8j6qCLNoDzo5PC/4RDrPiZk6DAQL/VnsPGt3EPTdZnL9+iC2s717qoSmVa2tzSI0wlnVoWW
-	Fm4hkKEBvq8Uw0+ZMLi56eE4t/M2byiaI79V7DdzbpMf4zfPk86UjqbfknDD0si47kyLfV1tynJ
-	dzjVv8qxtSrL/sAEq19U5nIIG5JUWxMh7J+3ppntzG6QOKpjgFnHdeF6H9UU32uK707le5olKi7
-	8mDg0m3uGwtTnQWsThXQfpJzld27wW+ia2qnRjfRvHLGwVuZbSjKIhtRJUkbwoX7I4ncHk+jTYI
-	5Vtz2tJdlA0Up/1hlXpzWBg==
-X-Received: by 2002:ac8:5e09:0:b0:4b5:f68b:86a0 with SMTP id d75a77b69052e-4b5f83aa98fmr140394431cf.5.1757580811159;
-        Thu, 11 Sep 2025 01:53:31 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGwrCXlNX3e4J1CCi9Qj59YkjWyURxTP0akIJvONe/E360yXgamsqbmCNGDwjWVWtWm2ONHng==
-X-Received: by 2002:ac8:5e09:0:b0:4b5:f68b:86a0 with SMTP id d75a77b69052e-4b5f83aa98fmr140394291cf.5.1757580810734;
-        Thu, 11 Sep 2025 01:53:30 -0700 (PDT)
-Received: from [192.168.149.223] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b32f20ffsm86223766b.79.2025.09.11.01.53.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Sep 2025 01:53:30 -0700 (PDT)
-Message-ID: <b83a59f9-16ae-4835-b185-d5209d70a0f6@oss.qualcomm.com>
-Date: Thu, 11 Sep 2025 10:53:26 +0200
+	id 1uwd3y-00000001wHs-40fM;
+	Thu, 11 Sep 2025 08:53:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Tl6Jwlc9AxjchgDlRh4CRf/NRIAGYGgRWiI8ZY2gw9o=; b=pv/seA9eRbpdxC7p23L9VRWhdL
+	u5DtZgQmzomEuRO/J9hUg/UKrH8+q/wl+qJi7rSu4KnvylqXhb/oNpgg3lfmgT7D5z0GP4RHn0wih
+	+Kmbqsem1WNCMVS1dokFZzxMmMCA+svar841ctLhZdqPO7+sgtH3Cu+emU+p4/zffXYHK6Zq3eEbb
+	nrG7ehQJWEXCHkg49uSfPq0mKXWIRjKNgoIUnhqldMZICMb7OwyI7tQQ86jdQyiVHF999UWXFBYM6
+	r329uLhJkv7JoNB4yGqTPQ0k1ORsTPS8avMCoKB9ElFdz0xuJ2bku1jyhycN+w4dI0szw416Hw/Uc
+	3Vf3VL3g==;
+Received: from i53875b0e.versanet.de ([83.135.91.14] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uwd3w-0008RY-R8; Thu, 11 Sep 2025 10:53:52 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: robh@kernel.org, WeiHao Li <cn.liweihao@gmail.com>
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ WeiHao Li <cn.liweihao@gmail.com>
+Subject: Re: [PATCH v2 1/4] phy: rockchip: inno-usb2: Add usb2 phy support for RK3368
+Date: Thu, 11 Sep 2025 10:53:52 +0200
+Message-ID: <4407919.mogB4TqSGs@diego>
+In-Reply-To: <20250909132958.26423-2-cn.liweihao@gmail.com>
+References: <20250909132958.26423-1-cn.liweihao@gmail.com>
+ <20250909132958.26423-2-cn.liweihao@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/9] dt-bindings: net: qcom: document the ethqos device
- for SCMI-based systems
-To: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>
-Cc: Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        linux-arm-kernel@lists.infradead.org,
-        Eric Dumazet <edumazet@google.com>, linux-kernel@vger.kernel.org,
-        Andrew Lunn <andrew+netdev@lunn.ch>, Vinod Koul <vkoul@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org,
-        Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
-        "David S. Miller" <davem@davemloft.net>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Jakub Kicinski
- <kuba@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-msm@vger.kernel.org
-References: <20250910-qcom-sa8255p-emac-v1-0-32a79cf1e668@linaro.org>
- <20250910-qcom-sa8255p-emac-v1-2-32a79cf1e668@linaro.org>
- <175751081352.3667912.274641295097354228.robh@kernel.org>
- <CAMRc=Mfom=QpqTrTSc_NEbKScOi1bLdVDO7kJ0+UQW9ydvdKjQ@mail.gmail.com>
- <20250910143618.GA4072335-robh@kernel.org>
- <CAMRc=McKF1O4KmB=LVX=gTvAmKjBC3oAM3BhTkk77U_MXuMJAA@mail.gmail.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <CAMRc=McKF1O4KmB=LVX=gTvAmKjBC3oAM3BhTkk77U_MXuMJAA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAzOCBTYWx0ZWRfX/yAe5VmXzAJH
- +2U7jGCC7XdLsAaivxrdSyM7AJou72zW+SWf1nYnPmg63T1btdUCRUNN+H0qi6irgIL7RJD71be
- 1MMhpk3uMBmEsH4BMj9CoijMavD8LI9t03kEh5LsLXP6pQX+Mv2cqk/NbuoIP+hAcZYXBysLBMF
- oOuvWrk/fqPjhpNmXaPNuPy7PwkjLGRTG40IB1Mi1M2HKsgbNhIUxa1Tkxa+cqv7jKEwvnLKnoz
- +1zJ7ySuRKh0cv1dXRJAi8kC1sbpgfqA67sRv0oyeEcGRqIAtNHiDDFbGkrFm3clGBOkGnxXysl
- 4gPL0EDovBFO8i9aVeJNZZ0Bul/cPlWei4bdGJn8wEJ+pjkJPseVumW64a3FcdEIs0MNkaESIHB
- QAi79Tm2
-X-Authority-Analysis: v=2.4 cv=J66q7BnS c=1 sm=1 tr=0 ts=68c28e0c cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8
- a=E8Hth7WlfHmEou41Ml8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: oNmNkS-uL-WSme3en38dCZIbfUN5cue7
-X-Proofpoint-ORIG-GUID: oNmNkS-uL-WSme3en38dCZIbfUN5cue7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-10_04,2025-09-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 clxscore=1015 spamscore=0 phishscore=0
- adultscore=0 priorityscore=1501 suspectscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060038
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_015333_049395_0B30D6DC 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20250911_015354_994000_1A6D6176 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,43 +72,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/10/25 4:42 PM, Bartosz Golaszewski wrote:
-> On Wed, Sep 10, 2025 at 4:36 PM Rob Herring <robh@kernel.org> wrote:
->>
->> On Wed, Sep 10, 2025 at 03:43:38PM +0200, Bartosz Golaszewski wrote:
->>> On Wed, Sep 10, 2025 at 3:38 PM Rob Herring (Arm) <robh@kernel.org> wrote:
->>>>
->>>>
->>>> On Wed, 10 Sep 2025 10:07:39 +0200, Bartosz Golaszewski wrote:
->>>>> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->>>>>
->>>>> Describe the firmware-managed variant of the QCom DesignWare MAC. As the
->>>>> properties here differ a lot from the HLOS-managed variant, lets put it
->>>>> in a separate file.
->>>>>
->>>>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->>>>> ---
+Am Dienstag, 9. September 2025, 15:29:55 Mitteleurop=C3=A4ische Sommerzeit =
+schrieb WeiHao Li:
+> RK3368 has one USB2.0 PHY with two ports. This adds device specific data
+> for it. Device specific data get form rockchip downstream source [1].
+>=20
+> [1] https://github.com/rockchip-linux/kernel/blob/develop-4.4/drivers/phy=
+/rockchip/phy-rockchip-inno-usb2.c#L2805
+>=20
+> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
 
-[...]
+compared the register values to the TRM
 
->>> These seem to be a false-positives triggered by modifying the
->>> high-level snps.dwmac.yaml file?
->>
->> No. You just made 3 power-domains required for everyone.
->>
-> 
-> With a maxItems: 3?
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-In the common definition:
+> ---
+>  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 48 +++++++++++++++++++
+>  1 file changed, 48 insertions(+)
+>=20
+> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/=
+rockchip/phy-rockchip-inno-usb2.c
+> index b0f23690ec..df574337d4 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> @@ -1847,6 +1847,53 @@ static const struct rockchip_usb2phy_cfg rk3366_ph=
+y_cfgs[] =3D {
+>  	{ /* sentinel */ }
+>  };
+> =20
+> +static const struct rockchip_usb2phy_cfg rk3368_phy_cfgs[] =3D {
+> +	{
+> +		.reg =3D 0x700,
+> +		.num_ports	=3D 2,
+> +		.clkout_ctl	=3D { 0x0724, 15, 15, 1, 0 },
+> +		.port_cfgs	=3D {
+> +			[USB2PHY_PORT_OTG] =3D {
+> +				.phy_sus	=3D { 0x0700, 8, 0, 0, 0x1d1 },
+> +				.bvalid_det_en	=3D { 0x0680, 3, 3, 0, 1 },
+> +				.bvalid_det_st	=3D { 0x0690, 3, 3, 0, 1 },
+> +				.bvalid_det_clr =3D { 0x06a0, 3, 3, 0, 1 },
+> +				.idfall_det_en	=3D { 0x0680, 6, 6, 0, 1 },
+> +				.idfall_det_st	=3D { 0x0690, 6, 6, 0, 1 },
+> +				.idfall_det_clr	=3D { 0x06a0, 6, 6, 0, 1 },
+> +				.idrise_det_en	=3D { 0x0680, 5, 5, 0, 1 },
+> +				.idrise_det_st	=3D { 0x0690, 5, 5, 0, 1 },
+> +				.idrise_det_clr	=3D { 0x06a0, 5, 5, 0, 1 },
+> +				.ls_det_en	=3D { 0x0680, 2, 2, 0, 1 },
+> +				.ls_det_st	=3D { 0x0690, 2, 2, 0, 1 },
+> +				.ls_det_clr	=3D { 0x06a0, 2, 2, 0, 1 },
+> +				.utmi_bvalid	=3D { 0x04bc, 23, 23, 0, 1 },
+> +				.utmi_id	=3D { 0x04bc, 26, 26, 0, 1 },
+> +				.utmi_ls	=3D { 0x04bc, 25, 24, 0, 1 },
+> +			},
+> +			[USB2PHY_PORT_HOST] =3D {
+> +				.phy_sus	=3D { 0x0728, 8, 0, 0, 0x1d1 },
+> +				.ls_det_en	=3D { 0x0680, 4, 4, 0, 1 },
+> +				.ls_det_st	=3D { 0x0690, 4, 4, 0, 1 },
+> +				.ls_det_clr	=3D { 0x06a0, 4, 4, 0, 1 }
+> +			}
+> +		},
+> +		.chg_det =3D {
+> +			.opmode		=3D { 0x0700, 8, 0, 0, 0x1d7 },
+> +			.cp_det		=3D { 0x04b8, 30, 30, 0, 1 },
+> +			.dcp_det	=3D { 0x04b8, 29, 29, 0, 1 },
+> +			.dp_det		=3D { 0x04b8, 31, 31, 0, 1 },
+> +			.idm_sink_en	=3D { 0x0718, 8, 8, 0, 1 },
+> +			.idp_sink_en	=3D { 0x0718, 7, 7, 0, 1 },
+> +			.idp_src_en	=3D { 0x0718, 9, 9, 0, 1 },
+> +			.rdm_pdwn_en	=3D { 0x0718, 10, 10, 0, 1 },
+> +			.vdm_src_en	=3D { 0x0718, 12, 12, 0, 1 },
+> +			.vdp_src_en	=3D { 0x0718, 11, 11, 0, 1 },
+> +		},
+> +	},
+> +	{ /* sentinel */ }
+> +};
+> +
+>  static const struct rockchip_usb2phy_cfg rk3399_phy_cfgs[] =3D {
+>  	{
+>  		.reg		=3D 0xe450,
+> @@ -2289,6 +2336,7 @@ static const struct of_device_id rockchip_usb2phy_d=
+t_match[] =3D {
+>  	{ .compatible =3D "rockchip,rk3308-usb2phy", .data =3D &rk3308_phy_cfgs=
+ },
+>  	{ .compatible =3D "rockchip,rk3328-usb2phy", .data =3D &rk3328_phy_cfgs=
+ },
+>  	{ .compatible =3D "rockchip,rk3366-usb2phy", .data =3D &rk3366_phy_cfgs=
+ },
+> +	{ .compatible =3D "rockchip,rk3368-usb2phy", .data =3D &rk3368_phy_cfgs=
+ },
+>  	{ .compatible =3D "rockchip,rk3399-usb2phy", .data =3D &rk3399_phy_cfgs=
+ },
+>  	{ .compatible =3D "rockchip,rk3562-usb2phy", .data =3D &rk3562_phy_cfgs=
+ },
+>  	{ .compatible =3D "rockchip,rk3568-usb2phy", .data =3D &rk3568_phy_cfgs=
+ },
+>=20
 
-minItems: n
-maxItems: 3
 
-In your new file that includes the main one:
 
-properties:
-	power-domains:
-		minItems: 3
 
-Konrad
 
