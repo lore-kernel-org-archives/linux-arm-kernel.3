@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C2DCAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DF80CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PIwqjCKaBtnZ2f92Qn6L1rSKvFT+8xiThxIV5Da48ic=; b=1PMzI7J66G9kwaOdHJazqXWJa3
-	QxtJrxm5B1OKCoIA9b+ZhW6U++7DL0e/m1eUUK3L0l65EEVvN3fI7JmtA2Pj01DqAuqLhyoyzFb80
-	JD0ZOU848k0SJFGO3bhM7MzLXEPPeJrNBil6/gqSZmfU/7cMCdUMvfDzhPA+/uopErs5g4cEXb8/c
-	eskFeAxOZrw3PEgYaX4PxYLwqqlm4bJdvJ1ZwjfTn/gpAl1xU90ZOovDVMamaEK0Toq/TmHbIfh/T
-	5gWVCpbVDrPpCTdfJJdB3VyJ+EFzF7hEsLpD/T5vGOGbGrLfIlRqN+LZSFAND3sW2qvgo+3hVrEy6
-	Fm3CXC5Q==;
+	bh=EKZEnIXMLpUya209nkaf2cNA2V3a4IV7Dg99gRFqmjU=; b=EwVKP/LMQ0QEvUxaPl+WSExEmO
+	Fnruw7vX+q2iDwlEYqybJc/+Nw6eJs/9ws5W4boCU+bHl+4UGm7BmFVws4y3u6XLXcuCInyvZKkn8
+	PVwl31NE2suUYA4BdtDdJUrOMhQvpEAJ1nO+nTe0shUUMDGNgqJixDdsEf29+lSSb1Aa4AcdLfMIe
+	yFK3MPxxMpEZ/lmw3Yk9tyblf9iwKwp2N/ttzCsN4/jasFTcXwp00pWKCwwsZxnc7QCYjihEe7/eh
+	V02fW5B9uozS5+WkhABLdidSxQtAn8k+AZO8SMhXhehZDaGO2DlmmUfz791o5g7i2ZvSEHgxb1xVw
+	GntFVBmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjbB-000000040pM-1iiw;
-	Thu, 11 Sep 2025 15:52:37 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1uwjfx-000000042Df-3LU7;
+	Thu, 11 Sep 2025 15:57:33 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjb7-000000040mm-2FFI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:52:36 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250911155228epoutp023fb6ee46456c3f7182acb49ed04eaca0~kRUw_4SZB1223812238epoutp02X
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 15:52:28 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250911155228epoutp023fb6ee46456c3f7182acb49ed04eaca0~kRUw_4SZB1223812238epoutp02X
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1757605948;
-	bh=PIwqjCKaBtnZ2f92Qn6L1rSKvFT+8xiThxIV5Da48ic=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=eKLHp68PLUqMq6bvZsQ4PrBsti8H1WEeFxtNLK/Yhko+cKVYg91/ohw1rNku5zKdA
-	 SHMb0aENu6G3wmM5qQ1LNZj1wPFttrISLvDMlnFtUlKl4fTsriQASb0bZrAqaHQ/UO
-	 RxDqUih+H2ssR7BbGrPXk72DI4uueNg6gRxsei/E=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250911155227epcas5p28ffdbdbbc5fb99ede41166173acf4fbf~kRUwMy0ZP1886018860epcas5p2_;
-	Thu, 11 Sep 2025 15:52:27 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.87]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cN2BL3vpFz6B9m5; Thu, 11 Sep
-	2025 15:52:26 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250911155225epcas5p4f39dd82d8c40e0f51e8a0b2ab33039be~kRUuJaSAC1471514715epcas5p49;
-	Thu, 11 Sep 2025 15:52:25 +0000 (GMT)
-Received: from FDSFTE411 (unknown [107.122.81.184]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250911155221epsmtip167c1cabfb1160a05e746d1c73091c81d~kRUqyOpq40708107081epsmtip1i;
-	Thu, 11 Sep 2025 15:52:21 +0000 (GMT)
-From: "Ravi Patel" <ravi.patel@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <gregkh@linuxfoundation.org>,
-	<jirislaby@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <jesper.nilsson@axis.com>, <lars.persson@axis.com>,
-	<alim.akhtar@samsung.com>, <arnd@kernel.org>
-Cc: <andriy.shevchenko@linux.intel.com>, <geert+renesas@glider.be>,
-	<thierry.bultel.yh@bp.renesas.com>, <dianders@chromium.org>,
-	<robert.marko@sartura.hr>, <schnelle@linux.ibm.com>, <kkartik@nvidia.com>,
-	<linux-kernel@vger.kernel.org>, <linux-serial@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-arm-kernel@axis.com>,
-	<ksk4725@coasia.com>, <kenkim@coasia.com>, <smn1196@coasia.com>,
-	<pjsin865@coasia.com>, <shradha.t@samsung.com>
-In-Reply-To: <b9a2c3cc-49d6-480c-8c57-fffe0cf9d527@kernel.org>
-Subject: RE: [PATCH 1/3] dt-bindings: serial: samsung: Update
- axis,artpec8-uart to use samsung,uart-fifosize
-Date: Thu, 11 Sep 2025 21:22:20 +0530
-Message-ID: <000001dc2334$117ae310$3470a930$@samsung.com>
+	id 1uwjft-0000000429D-2oJr;
+	Thu, 11 Sep 2025 15:57:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757606247;
+	bh=LMd/HnzJP0wRzEJcI4/mU30dNm9tR2JbINi9Suua6pM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XYgs1OQhFnmqD55dC6slv547XBxsnGI02l9rlrokZ4iBtC+ggsAoxS7qvIbIuZg/y
+	 +Zgqa11thKuvNqXNDKZCCLpRXFYl4QABE37E84O8IlvbXgAYoUVxOvV7vWZ/GpZf4P
+	 L55k5UHAq03zbkLckSXMDDGQyQpXapq9Ivx21m9DLe/TRPqkVdvUY8mL6r/Br3rTEQ
+	 Bv1x1LaC/sJlyBHUeibvFmVLyyN4CBLFmMn3ksD+oEhFLdLvzMT36mBQHiFOjLQXCe
+	 DFuyHTXF557Goy+r5aZzKcGTH9wMNoQ+PhRv2kvuIODYBybk+MLJu1IcKZgWLkXC0e
+	 uSB6bueIfVR6w==
+Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:36e5:357f:56a7:54dd])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B225817E0DD7;
+	Thu, 11 Sep 2025 17:57:26 +0200 (CEST)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: joro@8bytes.org,
+	robin.murphy@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	nicolas.dufresne@collabora.com,
+	jgg@ziepe.ca,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org
+Cc: iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	kernel@collabora.com,
+	linux-media@vger.kernel.org,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v9 1/7] dt-bindings: vendor-prefixes: Add Verisilicon
+Date: Thu, 11 Sep 2025 17:57:11 +0200
+Message-ID: <20250911155720.180465-2-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250911155720.180465-1-benjamin.gaignard@collabora.com>
+References: <20250911155720.180465-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHCvJCefXNgXa49SBfbwsspKb9l0wIPxsz+Ajb57S8CO2v7oLSM3O1g
-Content-Language: en-in
-X-CMS-MailID: 20250911155225epcas5p4f39dd82d8c40e0f51e8a0b2ab33039be
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250911141706epcas5p29ba4f0af11e3a95a9754fd6255f7b5a7
-References: <20250911141605.13034-1-ravi.patel@samsung.com>
-	<CGME20250911141706epcas5p29ba4f0af11e3a95a9754fd6255f7b5a7@epcas5p2.samsung.com>
-	<20250911141605.13034-2-ravi.patel@samsung.com>
-	<b9a2c3cc-49d6-480c-8c57-fffe0cf9d527@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_085233_904688_A7A8E42C 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20250911_085729_858699_4E95A906 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,54 +89,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Verisilicon Microelectronics is a company based in Shanghai, China,
+developping hardware blocks for SoC.
 
+https://verisilicon.com/
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk@kernel.org>
-> Sent: 11 September 2025 20:03
-...
-> 
-> On 11/09/2025 16:16, Ravi Patel wrote:
-> > Update the axis,artpec8-uart compatible such that it uses the
-> > samsung,uart-fifosize as required property.
-> >
-> > This is to remove the axis,artpec8-uart specific code (which is
-> > kind of duplicated) from the driver and use the other matching
-> > exynos8895 uart code for ARTPEC-8.
-> >
-> > Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
-> > ---
-> >  Documentation/devicetree/bindings/serial/samsung_uart.yaml | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/serial/samsung_uart.yaml
-> b/Documentation/devicetree/bindings/serial/samsung_uart.yaml
-> > index 1a1f991d5364..08eceaae2921 100644
-> > --- a/Documentation/devicetree/bindings/serial/samsung_uart.yaml
-> > +++ b/Documentation/devicetree/bindings/serial/samsung_uart.yaml
-> > @@ -152,7 +152,6 @@ allOf:
-> >            contains:
-> >              enum:
-> >                - apple,s5l-uart
-> > -              - axis,artpec8-uart
-> >                - samsung,exynos4210-uart
-> >                - samsung,exynos5433-uart
-> 
-> You need to start testing patches, because this obviously fails basic
-> tests. And toolset would tell you if you bothered.
+Add their name to the list of vendors.
 
-Oh my bad, somehow I missed it.
-Will fix (dtbs_check) in next version
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Thanks for pointing out.
-
-Thanks,
-Ravi
-
-> 
-> This does not fit documented Samsung SoC maintainer rules (because of (1)).
-> 
-> Best regards,
-> Krzysztof
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 9ec8947dfcad..52b3495ff4db 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1656,6 +1656,8 @@ patternProperties:
+     description: Variscite Ltd.
+   "^vdl,.*":
+     description: Van der Laan b.v.
++  "^verisilicon,.*":
++    description: VeriSilicon Microelectronics
+   "^vertexcom,.*":
+     description: Vertexcom Technologies, Inc.
+   "^via,.*":
+-- 
+2.43.0
 
 
