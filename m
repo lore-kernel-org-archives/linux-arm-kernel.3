@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48AC3CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DEACAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V76afWoUOqEXaH6Ebl74yo9TUze5EKe4WOxc4Tx754o=; b=w/pEFKynToHtEYmRmeM5sLuoJ5
-	1+X+FPjiSub3lCzmItEAyIOr1XrugSFay3Swbpsl34w8wxCueb3tbw/gPE9Ah3MOEu/QBUNpmfE3e
-	fsw6H0ES9r3AC3dLpkvbpRKSj+A5cF669apU1vQa7nJjxodsin3DBxS9twMYUECQvEAYrjyDt1WK3
-	FOUhxZXG+X//uHSKQkwt4YXbhyRp/7kwGgg4xpRknYZv/JennJAPYvyOno0ccYCO++5D09p6KvCfm
-	ev/2atTN8NHpS33QtElnWcetT2tms/X3CHbRdlwS2DLYw73jj16/SSWcq7Lk9CeAQh/h38wKjjmxq
-	Bw9ONuTA==;
+	bh=n1C1/RhS29fTVUOdUcd/nOIuIuwrwLB8w9/l+Uw8UV8=; b=gM69sGRkHS2OWc25/WyGq98/bc
+	NAmEMCte7GhN/VJjU3SiAioALAi0PBXS6Nmi7jPMLAbbtw/9MdRi6xusz0va7KOgI8gEH9SkOaoxJ
+	Xh6VqEbtGtNLpZ3LeH+zWv/toIWfmHqSPCZuDsZFGaOH2Hk0lIXie+gq6aiAPWMmO7aF+fqfbkK0a
+	ulgfE0x7/xWzqecodbTbPuYXiYoLYJFwkYw/XdnnKfVdQMq70nnALkqMdLXbHnnwyK6zdcpQKbtLE
+	lZmYiRY9oG62w8megpwKcXRO+fgKykY2Kb68K0egzCotPGSXF+vE1WLCpso3cXDjUW4/S3CPZWlgK
+	Grg5WIHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhBE-00000003Bfb-0sxc;
-	Thu, 11 Sep 2025 13:17:40 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uwhG8-00000003CvK-1xHo;
+	Thu, 11 Sep 2025 13:22:44 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhBA-00000003Bdw-2Xvq
+	id 1uwhG5-00000003Ctk-2LmX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 13:17:38 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cMyk56VP2z6L59H;
-	Thu, 11 Sep 2025 21:16:13 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 41687140373;
-	Thu, 11 Sep 2025 21:17:29 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
- 2025 15:17:28 +0200
-Date: Thu, 11 Sep 2025 14:17:26 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
-	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
-	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
-	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
-	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
- Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
-	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 06/29] ACPI / MPAM: Parse the MPAM table
-Message-ID: <20250911141726.00002f0c@huawei.com>
-In-Reply-To: <20250910204309.20751-7-james.morse@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-7-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 11 Sep 2025 13:22:43 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4cMyth6Tbwz3tZbc;
+	Thu, 11 Sep 2025 21:23:40 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 94B701A0188;
+	Thu, 11 Sep 2025 21:22:31 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 11 Sep 2025 21:22:31 +0800
+Received: from [10.67.120.139] (10.67.120.139) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 11 Sep 2025 21:22:30 +0800
+Message-ID: <54fb6d7e-3c42-4dff-9bc7-b98cba75e3e1@huawei.com>
+Date: Thu, 11 Sep 2025 21:22:27 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/9] Updates of HiSilicon Uncore L3C PMU
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <robin.murphy@arm.com>, <yangyicong@huawei.com>,
+	<Jonathan.Cameron@huawei.com>, <liuyonglong@huawei.com>,
+	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
+	<hejunhao3@h-partners.com>, <fanghao11@huawei.com>, Linuxarm
+	<linuxarm@huawei.com>
+References: <20250829101427.2557899-1-wangyushan12@huawei.com>
+Content-Language: en-US
+From: wangyushan <wangyushan12@huawei.com>
+In-Reply-To: <20250829101427.2557899-1-wangyushan12@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
- frapeml500008.china.huawei.com (7.182.85.71)
+X-Originating-IP: [10.67.120.139]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_061736_938612_366EB17A 
-X-CRM114-Status: GOOD (  43.45  )
+X-CRM114-CacheID: sfid-20250911_062241_980280_8886DB20 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,355 +79,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sep 2025 20:42:46 +0000
-James Morse <james.morse@arm.com> wrote:
+A gentle ping...
 
-> Add code to parse the arm64 specific MPAM table, looking up the cache
-> level from the PPTT and feeding the end result into the MPAM driver.
-> 
-> For now the MPAM hook mpam_ris_create() is stubbed out, but will update
-> the MPAM driver with optional discovered data.
-> 
-> CC: Carl Worth <carl@os.amperecomputing.com>
-> Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
-> Signed-off-by: James Morse <james.morse@arm.com>
-> 
-Hi James,
-
-A few comments inline.  Note I've more or less completely forgotten
-what was discussed in RFC 1 so I might well be repeating stuff that
-you replied to then.  Always a problem for me with big complex patch sets!
-
-Jonathan
-
-> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
-> new file mode 100644
-> index 000000000000..fd9cfa143676
-> --- /dev/null
-> +++ b/drivers/acpi/arm64/mpam.c
-
-
-> +static int acpi_mpam_parse_resource(struct mpam_msc *msc,
-> +				    struct acpi_mpam_resource_node *res)
-> +{
-> +	int level, nid;
-> +	u32 cache_id;
-> +
-> +	switch (res->locator_type) {
-> +	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
-> +		cache_id = res->locator.cache_locator.cache_reference;
-> +		level = find_acpi_cache_level_from_id(cache_id);
-> +		if (level <= 0) {
-> +			pr_err_once("Bad level (%u) for cache with id %u\n", level, cache_id);
-> +			return -EINVAL;
-> +		}
-> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
-> +				       level, cache_id);
-> +	case ACPI_MPAM_LOCATION_TYPE_MEMORY:
-> +		nid = pxm_to_node(res->locator.memory_locator.proximity_domain);
-> +		if (nid == NUMA_NO_NODE)
-> +			nid = 0;
-> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
-> +				       255, nid);
-> +	default:
-> +		/* These get discovered later and treated as unknown */
-
-are treated?
-
-
-> +		return 0;
-> +	}
-> +}
-
-> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
-> +				     struct platform_device *pdev,
-> +				     u32 *acpi_id)
-> +{
-> +	char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1];
-> +	bool acpi_id_valid = false;
-> +	struct acpi_device *buddy;
-> +	char uid[11];
-> +	int err;
-> +
-> +	memset(&hid, 0, sizeof(hid));
-
- = {}; above and skip the memset.
-
-> +	memcpy(hid, &tbl_msc->hardware_id_linked_device,
-> +	       sizeof(tbl_msc->hardware_id_linked_device));
-> +
-> +	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
-> +		*acpi_id = tbl_msc->instance_id_linked_device;
-> +		acpi_id_valid = true;
-> +	}
-> +
-> +	err = snprintf(uid, sizeof(uid), "%u",
-> +		       tbl_msc->instance_id_linked_device);
-> +	if (err >= sizeof(uid)) {
-> +		pr_debug("Failed to convert uid of device for power management.");
-> +		return acpi_id_valid;
-> +	}
-> +
-> +	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
-> +	if (buddy)
-> +		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
-> +
-> +	return acpi_id_valid;
-> +}
-
-> +
-> +static int __init acpi_mpam_parse(void)
-> +{
-> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
-> +	char *table_end, *table_offset = (char *)(table + 1);
-> +	struct property_entry props[4]; /* needs a sentinel */
-Perhaps move this and res into the loop and use = {};
-
-> +	struct acpi_mpam_msc_node *tbl_msc;
-> +	int next_res, next_prop, err = 0;
-> +	struct acpi_device *companion;
-> +	struct platform_device *pdev;
-> +	enum mpam_msc_iface iface;
-> +	struct resource res[3];
-
-Add a comment here or a check later on why this is large enough.
-
-> +	char uid[16];
-> +	u32 acpi_id;
-> +
-> +	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
-> +		return 0;
-> +
-> +	if (table->revision < 1)
-> +		return 0;
-> +
-> +	table_end = (char *)table + table->length;
-> +
-> +	while (table_offset < table_end) {
-> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
-> +		table_offset += tbl_msc->length;
-> +
-> +		if (table_offset > table_end) {
-> +			pr_debug("MSC entry overlaps end of ACPI table\n");
-> +			break;
-
-That this isn't considered an error is a bit subtle and made me wonder
-if there was a use of uninitialized pdev (there isn't because err == 0)
-Why not return here?
-
-> +		}
-> +
-> +		/*
-> +		 * If any of the reserved fields are set, make no attempt to
-> +		 * parse the MSC structure. This MSC will still be counted,
-> +		 * meaning the MPAM driver can't probe against all MSC, and
-> +		 * will never be enabled. There is no way to enable it safely,
-> +		 * because we cannot determine safe system-wide partid and pmg
-> +		 * ranges in this situation.
-> +		 */
-
-This is decidedly paranoid. I'd normally expect the architecture to be based
-on assumption that is fine for old software to ignore new fields.  ACPI itself
-has fairly firm rules on this (though it goes wrong sometimes :)
-I'm guessing there is something out there that made this necessary though so
-keep it if you actually need it.
-
-> +		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2) {
-> +			pr_err_once("Unrecognised MSC, MPAM not usable\n");
-> +			pr_debug("MSC.%u: reserved field set\n", tbl_msc->identifier);
-> +			continue;
-> +		}
-> +
-> +		if (!tbl_msc->mmio_size) {
-> +			pr_debug("MSC.%u: marked as disabled\n", tbl_msc->identifier);
-> +			continue;
-> +		}
-> +
-> +		if (decode_interface_type(tbl_msc, &iface)) {
-> +			pr_debug("MSC.%u: unknown interface type\n", tbl_msc->identifier);
-> +			continue;
-> +		}
-> +
-> +		next_res = 0;
-> +		next_prop = 0;
-> +		memset(res, 0, sizeof(res));
-> +		memset(props, 0, sizeof(props));
-> +
-> +		pdev = platform_device_alloc("mpam_msc", tbl_msc->identifier);
-
-https://lore.kernel.org/all/20241009124120.1124-13-shiju.jose@huawei.com/
-was a proposal to add a DEFINE_FREE() to clean these up.  Might be worth a revisit.
-Then Greg was against the use it was put to and asking for an example of where
-it helped.  Maybe this is that example.
-
-If you do want to do that, I'd factor out a bunch of the stuff here as a helper
-so we can have the clean ownership pass of a return_ptr().  
-Similar to what Shiju did here (this is the usecase for platform device that
-Greg didn't like).
-https://lore.kernel.org/all/20241009124120.1124-14-shiju.jose@huawei.com/
-
-Even without that I think factoring some of this out and hence being able to
-do returns on errors and put the if (err) into the loop would be a nice
-improvement to readability.
-
-> +		if (!pdev) {
-> +			err = -ENOMEM;
-> +			break;
-> +		}
-> +
-> +		if (tbl_msc->length < sizeof(*tbl_msc)) {
-> +			err = -EINVAL;
-> +			break;
-> +		}
-> +
-> +		/* Some power management is described in the namespace: */
-> +		err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
-> +		if (err > 0 && err < sizeof(uid)) {
-> +			companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
-> +			if (companion)
-> +				ACPI_COMPANION_SET(&pdev->dev, companion);
-> +			else
-> +				pr_debug("MSC.%u: missing namespace entry\n", tbl_msc->identifier);
-> +		}
-> +
-> +		if (iface == MPAM_IFACE_MMIO) {
-> +			res[next_res++] = DEFINE_RES_MEM_NAMED(tbl_msc->base_address,
-> +							       tbl_msc->mmio_size,
-> +							       "MPAM:MSC");
-> +		} else if (iface == MPAM_IFACE_PCC) {
-> +			props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
-> +								tbl_msc->base_address);
-> +			next_prop++;
-
-Why the double increment? Needs a comment if that is right thing to do.
-
-> +		}
-> +
-> +		acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
-> +		err = platform_device_add_resources(pdev, res, next_res);
-> +		if (err)
-> +			break;
-> +
-> +		props[next_prop++] = PROPERTY_ENTRY_U32("arm,not-ready-us",
-> +							tbl_msc->max_nrdy_usec);
-> +
-> +		/*
-> +		 * The MSC's CPU affinity is described via its linked power
-> +		 * management device, but only if it points at a Processor or
-> +		 * Processor Container.
-> +		 */
-> +		if (parse_msc_pm_link(tbl_msc, pdev, &acpi_id)) {
-> +			props[next_prop++] = PROPERTY_ENTRY_U32("cpu_affinity",
-> +								acpi_id);
-> +		}
-> +
-> +		err = device_create_managed_software_node(&pdev->dev, props,
-> +							  NULL);
-> +		if (err)
-> +			break;
-> +
-> +		/* Come back later if you want the RIS too */
-> +		err = platform_device_add_data(pdev, tbl_msc, tbl_msc->length);
-> +		if (err)
-> +			break;
-> +
-> +		err = platform_device_add(pdev);
-> +		if (err)
-> +			break;
-> +	}
-> +
-> +	if (err)
-> +		platform_device_put(pdev);
-> +
-> +	return err;
-> +}
-> +
-> +int acpi_mpam_count_msc(void)
-> +{
-> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
-> +	char *table_end, *table_offset = (char *)(table + 1);
-> +	struct acpi_mpam_msc_node *tbl_msc;
-> +	int count = 0;
-> +
-> +	if (IS_ERR(table))
-> +		return 0;
-> +
-> +	if (table->revision < 1)
-> +		return 0;
-> +
-> +	table_end = (char *)table + table->length;
-Trivial so feel free to ignore.
-Perhaps should aim for consistency.  Whilst I prefer pointers for this stuff
-PPTT did use unsigned longs.
-
-> +
-> +	while (table_offset < table_end) {
-> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
-> +		if (!tbl_msc->mmio_size)
-> +			continue;
-> +
-> +		if (tbl_msc->length < sizeof(*tbl_msc))
-> +			return -EINVAL;
-> +		if (tbl_msc->length > table_end - table_offset)
-> +			return -EINVAL;
-> +		table_offset += tbl_msc->length;
-> +
-> +		count++;
-> +	}
-> +
-> +	return count;
-> +}
-> +
-
-Could reorder to put acpi_mpam_parse and this use of it together?
-
-> +/*
-> + * Call after ACPI devices have been created, which happens behind acpi_scan_init()
-> + * called from subsys_initcall(). PCC requires the mailbox driver, which is
-> + * initialised from postcore_initcall().
-> + */
-> +subsys_initcall_sync(acpi_mpam_parse);
-
-> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-> index c5fd92cda487..af449964426b 100644
-> --- a/include/linux/acpi.h
-> +++ b/include/linux/acpi.h
-> @@ -8,6 +8,7 @@
->  #ifndef _LINUX_ACPI_H
->  #define _LINUX_ACPI_H
->  
-> +#include <linux/cleanup.h>
->  #include <linux/errno.h>
->  #include <linux/ioport.h>	/* for struct resource */
->  #include <linux/resource_ext.h>
-> @@ -221,6 +222,17 @@ void acpi_reserve_initial_tables (void);
->  void acpi_table_init_complete (void);
->  int acpi_table_init (void);
->  
-> +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
-> +{
-> +	struct acpi_table_header *table;
-> +	int status = acpi_get_table(signature, instance, &table);
-> +
-> +	if (ACPI_FAILURE(status))
-> +		return ERR_PTR(-ENOENT);
-> +	return table;
-> +}
-> +DEFINE_FREE(acpi_table, struct acpi_table_header *, if (!IS_ERR(_T)) acpi_put_table(_T))
-
-I'd use if (!IS_ERR_OR_NULL(_T)) not because it is functionally necessary but
-because it will let the compiler optimize this out if it can tell that in a given
-path _T is NULL (I think it was Peter Z who pointed this out in a similar interface
-a while back).
-
-
-I'd like an opinion from Rafael on this in general.
-
-
-
-> +
->  int acpi_table_parse(char *id, acpi_tbl_table_handler handler);
->  int __init_or_acpilib acpi_table_parse_entries(char *id,
->  		unsigned long table_size, int entry_id,
+On 8/29/2025 6:14 PM, Yushan Wang wrote:
+> Support new version of L3C PMU, which supports extended events space
+> which can be controlled in up to 2 extra address spaces with separate
+> overflow interrupts.  The layout of the control/event registers are kept
+> the same.  The extended events with original ones together cover the
+> monitoring job of all transactions on L3C.
+>
+> That's said, the driver supports finer granual statistics of L3 cache
+> with separated and dedicated PMUs, and a new option `ext` to give a
+> hint of to which part should perf counting command be delivered.
+>
+> The extended events is specified with `ext=[1|2]` option for the driver
+> to distinguish:
+>
+> perf stat -e hisi_sccl0_l3c0_0/event=<event_id>,ext=<ext>/
+>
+> Currently only event option using config bit [7, 0]. There's still
+> plenty unused space. Make ext using config [16, 17] and reserve
+> bit [15, 8] for event option for future extension.
+>
+> With the capability of extra counters, number of counters for HiSilicon
+> uncore PMU could reach up to 24, the usedmap is extended accordingly.
+>
+> The hw_perf_event::event_base is initialized to the base MMIO address
+> of the event and will be used for later control, overflow handling and
+> counts readout.
+>
+> We still make use of the Uncore PMU framework for handling the events
+> and interrupt migration on CPU hotplug. The framework's cpuhp callback
+> will handle the event migration and interrupt migration of orginial
+> event, if PMU supports extended events then the interrupt of extended
+> events is migrated to the same CPU choosed by the framework.
+>
+> A new HID of HISI0215 is used for this version of L3C PMU.
+>
+> Some necessary refactor is included, allowing the framework to cope with
+> the new version of driver.
+>
+> Depends-on: drivers/perf: hisi: Add support for HiSilicon NOC and MN PMU driver
+> Depends-on: Message-ID: <20250717121727.61057-1-yangyicong@huawei.com>
+>
+> ---
+>
+> Changes:
+>
+> v2 -> v3:
+>    - Refactor made for better readability.
+>    - Fixed failure examination in cpu offline callback.
+>    - Some minor reword of documentation, and droped subsection titles as
+>      suggested by Yicong.
+>    - Link to v2: https://lore.kernel.org/all/20250821135049.2010220-1-wangyushan12@huawei.com/
+>
+> v1 -> v2:
+>    - Don't call disable_irq() and simply return success when there is no
+>      CPU available for irq migration.
+>    - Documentation patch split.
+>    - Fix of a few other issues etc. per Jonathan.
+>    - Link to v1: https://lore.kernel.org/all/20250729153823.2026154-1-wangyushan12@huawei.com/
+>
+> Yicong Yang (7):
+>    drivers/perf: hisi: Relax the event ID check in the framework
+>    drivers/perf: hisi: Export hisi_uncore_pmu_isr()
+>    drivers/perf: hisi: Simplify the probe process of each L3C PMU version
+>    drivers/perf: hisi: Extract the event filter check of L3C PMU
+>    drivers/perf: hisi: Extend the field of tt_core
+>    drivers/perf: hisi: Refactor the event configuration of L3C PMU
+>    drivers/perf: hisi: Add support for L3C PMU v3
+>
+> Yushan Wang (2):
+>    Documentation: hisi-pmu: Fix of minor format error
+>    Documentation: hisi-pmu: Add introduction to HiSilicon V3 PMU
+>
+>   Documentation/admin-guide/perf/hisi-pmu.rst  |  38 +-
+>   drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 528 +++++++++++++++----
+>   drivers/perf/hisilicon/hisi_uncore_pmu.c     |   5 +-
+>   drivers/perf/hisilicon/hisi_uncore_pmu.h     |   6 +-
+>   4 files changed, 481 insertions(+), 96 deletions(-)
+>
 
 
