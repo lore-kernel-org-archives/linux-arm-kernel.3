@@ -4,116 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C218CCAC583
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 06:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A67CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 06:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jdno1FwrJRhrejSz0gh6T9rkA9/pFew4MXIzhf7cO94=; b=NAfHCjHZzDFWQGXmPnUYx71085
-	xg1sgI2pSxKqUp/qmvcGVJbTIl8WyLh97nwbVkd15hxPznxtjWV3V5/VVae+Ibq867S06gMdjLHz/
-	rsTkpnvd9FT9N9Me9jw11jbRoS0EBc8Vwq06mQGygSnBYVX/6DQT40jMKblWm6ZIIQqJlSHSdfGeW
-	MWbCXeD2FaYw9v9ho8eruKGK8GfVkudqlaoNAibNbGyrF7a4NIexn6Ga6xP14no+iLdMxVvSUge24
-	KwdGc21wsVnH6xxiWYOgfzIe+STPsH+DDsQi/8X+dT49oWUq0ZOfzA86Zds/5uTCnQQa29Nc7msoy
-	bSl4QBeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NwLNurvV7608NKC+RpZAu+/3puqA/rdQmS83Gr4KeDg=; b=k5leevKFMhdtKyqx3WBvWv3DPr
+	w6PIJZJWwlIymNh8kywa8YRxRo3DOOxHglY0ePXRCTMxQnFCd+t56IIsFPPLs7noTZeieqx2yTddh
+	sSzJdZZKT+fmTWcrh70UBxR1FQeTBOUBqCPsIne6uq5GuIl864ZtYfPM7pDsMbnDr/RvePqzeCUZX
+	aDqQY7PoBF2bB8ogbDV0sqWeMyYqxZj6BIA6uKhVQU3wDhp9Sjue1SxCCR8m3sRMw/fC0trQfR1rf
+	TbpuJq+O1ui5818KedxpMCS6Wggv4fEtMXTbzdCWLZvWZ/UN91E3w5V6ByHoRML0nbQoaiC8UrA+T
+	fNvuCMHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwaTP-000000019Dq-3U9C;
-	Thu, 11 Sep 2025 06:07:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uwaUX-000000019it-2d8Z;
+	Thu, 11 Sep 2025 06:09:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwaTN-000000019DA-2QMJ;
-	Thu, 11 Sep 2025 06:07:58 +0000
+	id 1uwaUV-000000019hu-0Lrc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Sep 2025 06:09:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1C7C143B03;
-	Thu, 11 Sep 2025 06:07:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E184C4CEF1;
-	Thu, 11 Sep 2025 06:07:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6CE8944C81
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 06:09:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49DDEC4CEFC
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 06:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757570877;
-	bh=231mElAF275+Xy84TFjozLG6O+OvmlKY8XpeW81PPiE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SSLeu6V/qUzjE9+Q+VLT3/O1D3FqmeboDYJjLm8v3IINxiuKd0MtObD1uRXtwN7Xg
-	 z0nT2eScldr67f5nZkvLOTVw5FVE9zAOJg2PCOhzIvrphnoBwr35QFKLwuFswhDnvl
-	 I99BlEEFSYyL1GtyHYAAa9OFWacNuFNW5wgnc8cM93nXWv9TbCtGcqHwB818R9YGj6
-	 qUWgn+c2jkAGdsSjoccDLIVf/dKK4Vmbz/cG7sjW1ThuizRPqpwjGezk7lG5Y1/IFx
-	 COl0ksJpJxIaAjV348dbmeJUF0Zi0RP8s9TMcOgMfMecFAxmevLlYsoE1L4Cfp1iVe
-	 ZoLAZ+XfiabQA==
-Message-ID: <0760036f-db69-487c-94b9-a6e405dee0e8@kernel.org>
-Date: Thu, 11 Sep 2025 08:07:51 +0200
+	s=k20201202; t=1757570946;
+	bh=4l/sgeuvL16E6QGwkt7DH8G9HIgPj/gFpODwQHwsK6g=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=f9fI4+OysVwMD1AENPdmiefqzG9xXe2bb8ARx81JA/Q2xlbZkraX/LEMn7luvAazu
+	 WE2AXeX45AiZDFn5NkrqDbofvxjmkNecWA9OcGy7QWVxdETVIRT7JDq2kNUQrdjq0X
+	 CCcApAhkb0Tb0pnwTSOZVU+SqMT3r1U2VVFCsYXvK5H0LF9S6y/6+WpuxshEK3Gk7y
+	 0rrlhunTlbHQB2l3fSyieArzqbWhMs8eqrIdcueE9LINW+7oVNeHmfYevLi5kpQyCr
+	 YKiX85Ey3cIoOmQDOJ3+27F3gRI2F9rYJNQVquNZ1UA6CyOjTHIfzsvKOT0LWxOCgE
+	 DeS1NPlxDXfGg==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-56088927dcbso353851e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Sep 2025 23:09:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWWWVrMMgYghNmEFV59ONC4aD46xaAbpa9LUxIlRF+UafH/wl0scY5vGV2xU9CcTgazJx+IiEl+LQ0LnewjPO7I@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUEOSelDIlg4tx+/q5oCQwfKcdKiihc5+G72Vf2+vggOV6ZjEc
+	C9zPWAN08sahaBD1zaO+4wZTr1gYrs4riFghxH19xqLvz7VY6iPiJdSdsna6Nw1E8uEQcpx6kNE
+	WMpre4FkF6rFx9Xr0+EenZzVLlr9P9IE=
+X-Google-Smtp-Source: AGHT+IGY3WOjekJ6qJ43Jy5UpK9jc6qB/kaPrzvJn81RTPFSgaRCfsVXO4s4jdV6GhcnmLfJGQc0Rz9bHvxlBhkUN5A=
+X-Received: by 2002:a05:6512:613:10b0:564:8df6:f0ca with SMTP id
+ 2adb3069b0e04-5648e063869mr5087250e87.51.1757570944528; Wed, 10 Sep 2025
+ 23:09:04 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/1] Bluetooth: mediatek: add gpio pin to reset bt
-To: Sean Wang <sean.wang@kernel.org>,
- Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-Cc: Marcel Holtmann <marcel@holtmann.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Luiz Von Dentz <luiz.dentz@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@mediatek.com>, Jiande Lu <jiande.lu@mediatek.com>,
- Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>,
- Hao Qin <Hao.qin@mediatek.com>,
- linux-bluetooth <linux-bluetooth@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-mediatek <linux-mediatek@lists.infradead.org>
-References: <20250905084059.26959-1-ot_zhangchao.zhang@mediatek.com>
- <20250905084059.26959-2-ot_zhangchao.zhang@mediatek.com>
- <a7589659-0352-4d47-a3cf-f2433cc512ec@kernel.org>
- <CAGp9Lzrp-cfn_GiLrHCU629wEAxWy=egOMrRh6thYbymu+QXjA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAGp9Lzrp-cfn_GiLrHCU629wEAxWy=egOMrRh6thYbymu+QXjA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250910104454.317067-1-kevin.brodsky@arm.com> <41f3227e-b945-4303-90b7-732affb0a101@arm.com>
+In-Reply-To: <41f3227e-b945-4303-90b7-732affb0a101@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 11 Sep 2025 08:08:53 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXEmfCHpssFjn_+4ZjKCUaWPeiVwznCpGumTfz33k-rfkg@mail.gmail.com>
+X-Gm-Features: Ac12FXxGPiAiUgpISOErtzNQVo4vC18qMAWqqG4GDTeh8bKldkAYztNZVWFIs-I
+Message-ID: <CAMj1kXEmfCHpssFjn_+4ZjKCUaWPeiVwznCpGumTfz33k-rfkg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: mm: Move KPTI helpers to mmu.c
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
+	Kees Cook <kees@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_230757_658528_FBBAE3A0 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250910_230907_167464_DA5B071C 
+X-CRM114-Status: GOOD (  42.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,28 +85,343 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/09/2025 01:29, Sean Wang wrote:
-> Hi Krzysztof,
-> 
-> Sorry again for the confusion. I believe Zhangchao is still new to the
-> upstream process, and we’ll work together to improve this. Since this
-> series has become a bit hard to follow, would you agree that it might
-> be better for us to restart with a clean patch that addresses the
-> review comments? A clean version would make it easier for reviewers to
-> focus on the current issues without being distracted by earlier
-> mistakes.
+On Thu, 11 Sept 2025 at 07:13, Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+>
+>
+>
+> On 10/09/25 4:14 PM, Kevin Brodsky wrote:
+> > create_kpti_ng_temp_pgd() is currently defined (as an alias) in
+> > mmu.c without matching declaration in a header; instead cpufeature.c
+> > makes its own declaration. This is clearly not pretty, and as commit
+> > ceca927c86e6 ("arm64: mm: Fix CFI failure due to kpti_ng_pgd_alloc
+> > function signature") showed, it also makes it very easy for the
+> > prototypes to go out of sync.
+> >
+> > All this would be much simpler if kpti_install_ng_mappings() and
+> > associated functions lived in mmu.c, where they logically belong.
+> > This is what this patch does:
+> > - Move kpti_install_ng_mappings() and associated functions from
+> >   cpufeature.c to mmu.c, add a declaration to <asm/mmu.h>
+> > - Make create_kpti_ng_temp_pgd() a static function that simply calls
+> >   __create_pgd_mapping_locked() instead of aliasing it
+> > - Mark all these functions __init
+> > - Move __initdata after kpti_ng_temp_alloc (as suggested by
+> >   checkpatch)
+> >
+> > Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> > ---
+> > Note: as things stand, create_kpti_ng_temp_pgd() could be removed,
+> > but a separate patch [1] will make use of it to add an
+> > assertion.
+> >
+> > [1] https://lore.kernel.org/all/20250813145607.1612234-3-chaitanyas.prakash@arm.com/
+> > ---
+> > Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> > Cc: Ard Biesheuvel <ardb@kernel.org>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Kees Cook <kees@kernel.org>,
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >  arch/arm64/include/asm/mmu.h   |   6 ++
+> >  arch/arm64/kernel/cpufeature.c |  97 ------------------------------
+> >  arch/arm64/mm/mmu.c            | 106 ++++++++++++++++++++++++++++++---
+> >  3 files changed, 103 insertions(+), 106 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+> > index 49f1a810df16..624edd6c4964 100644
+> > --- a/arch/arm64/include/asm/mmu.h
+> > +++ b/arch/arm64/include/asm/mmu.h
+> > @@ -104,5 +104,11 @@ static inline bool kaslr_requires_kpti(void)
+> >       return true;
+> >  }
+> >
+> > +#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> > +void kpti_install_ng_mappings(void);
+>
+> Could the declarations be moved here instead ?
 
-No. If you cannot send v7 of patchset as real patchset, sending again v1
-won't change anything.
+Why?
 
-For seven versions contributor did not bother to respond to feedback and
-did not care to read submitting patches how this process looks like.
-
-Effect is this totally broken v7.
-
-This patch introduces undocumented ABI which kernel tools, if used, also
-point out.
-
-Best regards,
-Krzysztof
+> Otherwise LGTM.
+>
+> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+> index 624edd6c4964..062465939192 100644
+> --- a/arch/arm64/include/asm/mmu.h
+> +++ b/arch/arm64/include/asm/mmu.h
+> @@ -106,6 +106,8 @@ static inline bool kaslr_requires_kpti(void)
+>
+>  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+>  void kpti_install_ng_mappings(void);
+> +typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+> +kpti_remap_fn idmap_kpti_install_ng_mappings;
+>  #else
+>  static inline void kpti_install_ng_mappings(void) {}
+>  #endif
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index eff3295393ee..1b5c3c590e95 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -750,8 +750,6 @@ static void __init create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
+>
+>  static int __init __kpti_install_ng_mappings(void *__unused)
+>  {
+> -       typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+> -       extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+>         kpti_remap_fn *remap_fn;
+>
+>         int cpu = smp_processor_id();
+>
+> > +#else
+> > +static inline void kpti_install_ng_mappings(void) {}
+> > +#endif
+> > +
+> >  #endif       /* !__ASSEMBLY__ */
+> >  #endif
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index ef269a5a37e1..b99eaad48c14 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -1940,103 +1940,6 @@ static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
+> >  }
+> >  #endif
+> >
+> > -#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> > -#define KPTI_NG_TEMP_VA              (-(1UL << PMD_SHIFT))
+> > -
+> > -extern
+> > -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+> > -                          phys_addr_t size, pgprot_t prot,
+> > -                          phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags);
+> > -
+> > -static phys_addr_t __initdata kpti_ng_temp_alloc;
+> > -
+> > -static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
+> > -{
+> > -     kpti_ng_temp_alloc -= PAGE_SIZE;
+> > -     return kpti_ng_temp_alloc;
+> > -}
+> > -
+> > -static int __init __kpti_install_ng_mappings(void *__unused)
+> > -{
+> > -     typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+> > -     extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+> > -     kpti_remap_fn *remap_fn;
+> > -
+> > -     int cpu = smp_processor_id();
+> > -     int levels = CONFIG_PGTABLE_LEVELS;
+> > -     int order = order_base_2(levels);
+> > -     u64 kpti_ng_temp_pgd_pa = 0;
+> > -     pgd_t *kpti_ng_temp_pgd;
+> > -     u64 alloc = 0;
+> > -
+> > -     if (levels == 5 && !pgtable_l5_enabled())
+> > -             levels = 4;
+> > -     else if (levels == 4 && !pgtable_l4_enabled())
+> > -             levels = 3;
+> > -
+> > -     remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
+> > -
+> > -     if (!cpu) {
+> > -             alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
+> > -             kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
+> > -             kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
+> > -
+> > -             //
+> > -             // Create a minimal page table hierarchy that permits us to map
+> > -             // the swapper page tables temporarily as we traverse them.
+> > -             //
+> > -             // The physical pages are laid out as follows:
+> > -             //
+> > -             // +--------+-/-------+-/------ +-/------ +-\\\--------+
+> > -             // :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
+> > -             // +--------+-\-------+-\------ +-\------ +-///--------+
+> > -             //      ^
+> > -             // The first page is mapped into this hierarchy at a PMD_SHIFT
+> > -             // aligned virtual address, so that we can manipulate the PTE
+> > -             // level entries while the mapping is active. The first entry
+> > -             // covers the PTE[] page itself, the remaining entries are free
+> > -             // to be used as a ad-hoc fixmap.
+> > -             //
+> > -             create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc),
+> > -                                     KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+> > -                                     kpti_ng_pgd_alloc, 0);
+> > -     }
+> > -
+> > -     cpu_install_idmap();
+> > -     remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
+> > -     cpu_uninstall_idmap();
+> > -
+> > -     if (!cpu) {
+> > -             free_pages(alloc, order);
+> > -             arm64_use_ng_mappings = true;
+> > -     }
+> > -
+> > -     return 0;
+> > -}
+> > -
+> > -static void __init kpti_install_ng_mappings(void)
+> > -{
+> > -     /* Check whether KPTI is going to be used */
+> > -     if (!arm64_kernel_unmapped_at_el0())
+> > -             return;
+> > -
+> > -     /*
+> > -      * We don't need to rewrite the page-tables if either we've done
+> > -      * it already or we have KASLR enabled and therefore have not
+> > -      * created any global mappings at all.
+> > -      */
+> > -     if (arm64_use_ng_mappings)
+> > -             return;
+> > -
+> > -     stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
+> > -}
+> > -
+> > -#else
+> > -static inline void kpti_install_ng_mappings(void)
+> > -{
+> > -}
+> > -#endif       /* CONFIG_UNMAP_KERNEL_AT_EL0 */
+> > -
+> >  static void cpu_enable_kpti(struct arm64_cpu_capabilities const *cap)
+> >  {
+> >       if (__this_cpu_read(this_cpu_vector) == vectors) {
+> > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> > index 183801520740..eff3295393ee 100644
+> > --- a/arch/arm64/mm/mmu.c
+> > +++ b/arch/arm64/mm/mmu.c
+> > @@ -27,6 +27,7 @@
+> >  #include <linux/kfence.h>
+> >  #include <linux/pkeys.h>
+> >  #include <linux/mm_inline.h>
+> > +#include <linux/stop_machine.h>
+> >
+> >  #include <asm/barrier.h>
+> >  #include <asm/cputype.h>
+> > @@ -466,14 +467,6 @@ static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+> >       mutex_unlock(&fixmap_lock);
+> >  }
+> >
+> > -#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> > -extern __alias(__create_pgd_mapping_locked)
+> > -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+> > -                          phys_addr_t size, pgprot_t prot,
+> > -                          phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> > -                          int flags);
+> > -#endif
+> > -
+> >  static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
+> >                                      enum pgtable_type pgtable_type)
+> >  {
+> > @@ -735,7 +728,102 @@ static void __init declare_vma(struct vm_struct *vma,
+> >  }
+> >
+> >  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> > -static pgprot_t kernel_exec_prot(void)
+> > +#define KPTI_NG_TEMP_VA              (-(1UL << PMD_SHIFT))
+> > +
+> > +static phys_addr_t kpti_ng_temp_alloc __initdata;
+> > +
+> > +static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
+> > +{
+> > +     kpti_ng_temp_alloc -= PAGE_SIZE;
+> > +     return kpti_ng_temp_alloc;
+> > +}
+> > +
+> > +static void __init create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
+> > +                                        unsigned long virt, phys_addr_t size,
+> > +                                        pgprot_t prot,
+> > +                                        phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> > +                                        int flags)
+> > +{
+> > +     __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+> > +                                 pgtable_alloc, flags);
+> > +}
+> > +
+> > +static int __init __kpti_install_ng_mappings(void *__unused)
+> > +{
+> > +     typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+> > +     extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+> > +     kpti_remap_fn *remap_fn;
+> > +
+> > +     int cpu = smp_processor_id();
+> > +     int levels = CONFIG_PGTABLE_LEVELS;
+> > +     int order = order_base_2(levels);
+> > +     u64 kpti_ng_temp_pgd_pa = 0;
+> > +     pgd_t *kpti_ng_temp_pgd;
+> > +     u64 alloc = 0;
+> > +
+> > +     if (levels == 5 && !pgtable_l5_enabled())
+> > +             levels = 4;
+> > +     else if (levels == 4 && !pgtable_l4_enabled())
+> > +             levels = 3;
+> > +
+> > +     remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
+> > +
+> > +     if (!cpu) {
+> > +             alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
+> > +             kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
+> > +             kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
+> > +
+> > +             //
+> > +             // Create a minimal page table hierarchy that permits us to map
+> > +             // the swapper page tables temporarily as we traverse them.
+> > +             //
+> > +             // The physical pages are laid out as follows:
+> > +             //
+> > +             // +--------+-/-------+-/------ +-/------ +-\\\--------+
+> > +             // :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
+> > +             // +--------+-\-------+-\------ +-\------ +-///--------+
+> > +             //      ^
+> > +             // The first page is mapped into this hierarchy at a PMD_SHIFT
+> > +             // aligned virtual address, so that we can manipulate the PTE
+> > +             // level entries while the mapping is active. The first entry
+> > +             // covers the PTE[] page itself, the remaining entries are free
+> > +             // to be used as a ad-hoc fixmap.
+> > +             //
+> > +             create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc),
+> > +                                     KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+> > +                                     kpti_ng_pgd_alloc, 0);
+> > +     }
+> > +
+> > +     cpu_install_idmap();
+> > +     remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
+> > +     cpu_uninstall_idmap();
+> > +
+> > +     if (!cpu) {
+> > +             free_pages(alloc, order);
+> > +             arm64_use_ng_mappings = true;
+> > +     }
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +void __init kpti_install_ng_mappings(void)
+> > +{
+> > +     /* Check whether KPTI is going to be used */
+> > +     if (!arm64_kernel_unmapped_at_el0())
+> > +             return;
+> > +
+> > +     /*
+> > +      * We don't need to rewrite the page-tables if either we've done
+> > +      * it already or we have KASLR enabled and therefore have not
+> > +      * created any global mappings at all.
+> > +      */
+> > +     if (arm64_use_ng_mappings)
+> > +             return;
+> > +
+> > +     stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
+> > +}
+> > +
+> > +static pgprot_t __init kernel_exec_prot(void)
+> >  {
+> >       return rodata_enabled ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+> >  }
+> >
+> > base-commit: 76eeb9b8de9880ca38696b2fb56ac45ac0a25c6c
+>
 
