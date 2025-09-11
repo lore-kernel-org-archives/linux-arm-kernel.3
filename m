@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01103CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 11:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8937FCA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 11:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mmtrcC40xcucgl7bIClgEBWb0BLF4GjZTQYLQ094U8w=; b=Pj3SHzvdaYTEziJ0PjcK/rG6Gp
-	CMck3PzUfV86Z+yP42ChERXAIttZRKflxeD3lpvX8VUu8CUj9mJlvK53ZYy+kQ5/EUcltmBn/TPki
-	+fD5iFGkzV6ofHvP08Bglic4jkRMs0Ilo8xn+9V/Vp9eJm644q3fHESlQNQHYB+Ak17ppzO8lm7R1
-	RT7ZejCz6Cg43DXA+zIbzpW6+AxqqUpW1yxEE3AqT6FMYVaW60xX8ypzBhO+Yqmcv5Tz/GLpgAQZi
-	Ozsgmw6Qukbm34VIDSqBLmluKDbSHIjt3e1QR9jGVieS3ZswxYj/gfWWs0e/6GF+bkO+bz0vUFB1Q
-	hx10GtOw==;
+	bh=B9mlUuiZUBrX7aQtqBT3TxfiZmcQldNbBylxYkZ/v1U=; b=MjhKd/rAGoD3QhkTdbBpFatsE8
+	0kp1l6wom2gQLi2RrlzMkYMFFEf558w/IiWhiiRjg3GBVgI/QX5ji8MYD5ZkyHh1uYTQlJM0Uf/i0
+	t3iX6wSA4GY+Q9RXDShnQFfy4i9AZJFsy8z+epbRfaVZo2nqm+QNmzeudUItmnXDgnFDIv5yh6NcG
+	Y3AfHjs1/Fe8J1cDW9/yaurFX43czdImaq0serpI8prBTyjcb1WPUu54aSVZiYaX2hNzxdlIgbXbv
+	RxPAPx8VYkXMPH+7Om/6U2SFzYoV3oNx8KyRSCY65dgP/jlRNshlMbOFYujzSKaEghVA36vO2KL+9
+	Bowbo0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwfBy-00000002ZAQ-48XT;
-	Thu, 11 Sep 2025 11:10:18 +0000
+	id 1uwfCA-00000002ZKi-1NvQ;
+	Thu, 11 Sep 2025 11:10:30 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwfBx-00000002Z7u-0tVX
+	id 1uwfC7-00000002ZGn-1fdl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 11:10:18 +0000
+	Thu, 11 Sep 2025 11:10:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=mmtrcC40xcucgl7bIClgEBWb0BLF4GjZTQYLQ094U8w=; b=gxezcZe93o6e7CP4CWel5iOmkb
-	p+I5cnEb9rxaKzlU4Puw5zO83SzwDj8f0ompGc+Uwt+uAFaQtMiIjS6RVGk8XTvknS3ouMhVLDPIr
-	nsXp9jq/WcPC+1hD4nwvSKvrpejgqs9JWUPOypvlE12p6vuVvWnSBly3yut3sPlwQEEz23UGbzOk5
-	ztGYxY5hYVlxngmZqcdLd305FO4p/qNPDMf+WIsCWP5y1fmm2kyXhG3Rg7Uq8GO/5+vUZ7VChYYFW
-	+7/LYY937FqrzgYFyCXU4ROkM8PK37zjYCTVEcdm9+Ruma1E+m62Fwg4D9UPDX6fmCghPPlIRV6cV
-	yOhvXESg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42836 helo=rmk-PC.armlinux.org.uk)
+	bh=B9mlUuiZUBrX7aQtqBT3TxfiZmcQldNbBylxYkZ/v1U=; b=sje16V5F0iMZanbBcmAqQrsS+H
+	LTbYvk0irpitUgvghLte94X0OH3TP2Y5bsTe/UIo0gCKmSv0XOXenx7QINhtl5Xeppact3h2hAAwn
+	NtWL9vgnOGzBirX2k8nDpp499kJPT3PstKyRxinO0f6ngXDYSeZflQS/WVnsFXu3FJurOmPrTE2Ri
+	3YZ+oZ7Gh1zN7N5ov/ZHJ+TLoCgqBeQIG4JV0tlF1bRjIRyrFRvfvfAXxhGxRasA1gWTb2esYSKjZ
+	szcJpZcwiwG3zJC3diRrLtNw1v8LWpBKxV6063GXeG8eLaQ41esjYsKYVAXRLsLHj8WoPM+/jkH3u
+	3BocF60g==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42850 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1uwfBk-000000002tM-1WZX;
-	Thu, 11 Sep 2025 12:10:04 +0100
+	id 1uwfBp-000000002tp-1aHi;
+	Thu, 11 Sep 2025 12:10:09 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1uwfBi-00000004j8v-3HcH;
-	Thu, 11 Sep 2025 12:10:02 +0100
+	id 1uwfBn-00000004j92-3nj1;
+	Thu, 11 Sep 2025 12:10:08 +0100
 In-Reply-To: <aMKtV6O0WqlmJFN4@shell.armlinux.org.uk>
 References: <aMKtV6O0WqlmJFN4@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -72,17 +72,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Richard Cochran <richardcochran@gmail.com>,
 	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH net-next v2 06/11] net: stmmac: add __stmmac_release() to
- complement __stmmac_open()
+Subject: [PATCH net-next v2 07/11] net: stmmac: move stmmac_init_ptp()
+ messages into function
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1uwfBi-00000004j8v-3HcH@rmk-PC.armlinux.org.uk>
-Date: Thu, 11 Sep 2025 12:10:02 +0100
+Message-Id: <E1uwfBn-00000004j92-3nj1@rmk-PC.armlinux.org.uk>
+Date: Thu, 11 Sep 2025 12:10:07 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_041017_258725_3A06F0D2 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20250911_041027_444629_9647181F 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,115 +97,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename stmmac_release() to __stmmac_release(), providing a new
-stmmac_release() method. Update stmmac_change_mtu() to use
-__stmmac_release(). Move the runtime PM handling into stmmac_open()
-and stmmac_release().
-
-This avoids stmmac_change_mtu() needlessly fiddling with the runtime
-PM state, and will allow future changes to remove code from
-__stmmac_open() and __stmmac_release() that should only happen when
-the net device is administratively brought up or down.
+Move the stmmac_init_ptp() messages from stmmac_hw_setup() to
+stmmac_init_ptp(), which will allow further cleanups.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 41 +++++++++++--------
- 1 file changed, 25 insertions(+), 16 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index efce7b37f704..cb058e4c6ea9 100644
+index cb058e4c6ea9..716c7e21baf1 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3965,10 +3965,6 @@ static int __stmmac_open(struct net_device *dev,
- 	if (!priv->tx_lpi_timer)
- 		priv->tx_lpi_timer = eee_timer * 1000;
+@@ -788,8 +788,13 @@ static int stmmac_init_ptp(struct stmmac_priv *priv)
+ 		priv->plat->ptp_clk_freq_config(priv);
  
--	ret = pm_runtime_resume_and_get(priv->device);
--	if (ret < 0)
--		return ret;
--
- 	if ((!priv->hw->xpcs ||
- 	     xpcs_get_an_mode(priv->hw->xpcs, mode) != DW_AN_C73)) {
- 		ret = stmmac_init_phy(dev);
-@@ -3976,7 +3972,7 @@ static int __stmmac_open(struct net_device *dev,
- 			netdev_err(priv->dev,
- 				   "%s: Cannot attach to PHY (error: %d)\n",
- 				   __func__, ret);
--			goto init_phy_error;
-+			return ret;
- 		}
- 	}
- 
-@@ -4028,8 +4024,6 @@ static int __stmmac_open(struct net_device *dev,
- 	stmmac_release_ptp(priv);
- init_error:
- 	phylink_disconnect_phy(priv->phylink);
--init_phy_error:
--	pm_runtime_put(priv->device);
- 	return ret;
- }
- 
-@@ -4043,21 +4037,23 @@ static int stmmac_open(struct net_device *dev)
- 	if (IS_ERR(dma_conf))
- 		return PTR_ERR(dma_conf);
- 
-+	ret = pm_runtime_resume_and_get(priv->device);
-+	if (ret < 0)
-+		goto err;
-+
- 	ret = __stmmac_open(dev, dma_conf);
+ 	ret = stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE);
 -	if (ret)
 +	if (ret) {
-+		pm_runtime_put(priv->device);
-+err:
- 		free_dma_desc_resources(priv, dma_conf);
++		if (ret == -EOPNOTSUPP)
++			netdev_info(priv->dev, "PTP not supported by HW\n");
++		else
++			netdev_warn(priv->dev, "PTP init failed\n");
+ 		return ret;
 +	}
  
- 	kfree(dma_conf);
-+
- 	return ret;
- }
+ 	priv->adv_ts = 0;
+ 	/* Check if adv_ts can be enabled for dwmac 4.x / xgmac core */
+@@ -3497,12 +3502,7 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
+ 				    ERR_PTR(ret));
+ 	}
  
--/**
-- *  stmmac_release - close entry point of the driver
-- *  @dev : device pointer.
-- *  Description:
-- *  This is the stop entry point of the driver.
-- */
--static int stmmac_release(struct net_device *dev)
-+static void __stmmac_release(struct net_device *dev)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 	u32 chan;
-@@ -4097,6 +4093,19 @@ static int stmmac_release(struct net_device *dev)
+-	ret = stmmac_init_ptp(priv);
+-	if (ret == -EOPNOTSUPP)
+-		netdev_info(priv->dev, "PTP not supported by HW\n");
+-	else if (ret)
+-		netdev_warn(priv->dev, "PTP init failed\n");
+-	else if (ptp_register)
++	if (stmmac_init_ptp(priv) == 0 && ptp_register)
+ 		stmmac_ptp_register(priv);
  
- 	if (stmmac_fpe_supported(priv))
- 		ethtool_mmsv_stop(&priv->fpe_cfg.mmsv);
-+}
-+
-+/**
-+ *  stmmac_release - close entry point of the driver
-+ *  @dev : device pointer.
-+ *  Description:
-+ *  This is the stop entry point of the driver.
-+ */
-+static int stmmac_release(struct net_device *dev)
-+{
-+	struct stmmac_priv *priv = netdev_priv(dev);
-+
-+	__stmmac_release(dev);
- 
- 	pm_runtime_put(priv->device);
- 
-@@ -5895,7 +5904,7 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
- 			return PTR_ERR(dma_conf);
- 		}
- 
--		stmmac_release(dev);
-+		__stmmac_release(dev);
- 
- 		ret = __stmmac_open(dev, dma_conf);
- 		if (ret) {
+ 	if (priv->use_riwt) {
 -- 
 2.47.3
 
