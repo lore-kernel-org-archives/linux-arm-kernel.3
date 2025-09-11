@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E19ACA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 10:25:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9032DCAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 10:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qh9CoKh+ZXVGj6kTKZS0aB5YRv820luNzFDKgz4XQQE=; b=syNm/mi0Qj5+H44VSOqIs/rWB0
-	mRCG2Xjj9CTDsQtBQKukqsvM+T/A1rk4gytXpneicoWvyPuiD5isNerhAf9gX4z+CsOt7E+QpvFqA
-	YbGLUrd4cG8BOG4uquTBVxQGIGJ9kluF8PqqomhL80gBur/HzCx2oltUU6GeToAv5UrzlkNUkRejy
-	l/PQUUAcQ1EhGYvqBJq2j2T1gt0Lod9z+JyLj6SveOR76WBUWjFrbW9Fy0S5auRaSk3H4pPew7KSm
-	9wTPIGhmzX8zMvYmL7Oi49y7gnBJzt7nMWxE7qBKsCy9OxOiJzGFtCO2udBZuylradizGkiqk7xne
-	rHdRrGoA==;
+	bh=jOoaNmmCp0BzwvMOLv3DXAhJ6yBeHeViJm71oKOUsDo=; b=xNJVexa25l5iQIBxF61lgANtw6
+	19BU+wFlQLeOj5xxI3QOYyoSJU1wUpiF+CQjyNFIje5YM40vaFsHQxMG6QPJ42PA70FEI2Dhj0+2T
+	2zZgPvPXepW0QyClP4xwElDGmCRS3GDh7ts8axEOhUJ6wnk8+jsS0ou0ub9gYaxi/+tXlyGUBtHNc
+	HwxeTEv05XMVRUK4WwdkiTtvXbjQNR+SZH0ZdnuKiembFYpwVGNikLGskVNPY0lPWVdxuMXpAHaG3
+	LVUERGK/kiVWgwDHBJWMWn4diC6I9rMf3DUboWdKVs5n013GyjD2C4T67Y6C9eAG3uNcEXgOcAuBM
+	OJTd0upQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uweUx-00000002MkD-0RKy;
-	Thu, 11 Sep 2025 10:25:51 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1uweao-00000002ORD-1k01;
+	Thu, 11 Sep 2025 10:31:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uweUu-00000002MjL-3ABK
+	id 1uwean-00000002OQN-0C6G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 10:25:50 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-ea059954d52so338446276.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 03:25:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757586347; x=1758191147; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qh9CoKh+ZXVGj6kTKZS0aB5YRv820luNzFDKgz4XQQE=;
-        b=TwacL1MkPh+kziyj507vK7ru3fwTndy+IA6cPbuloKjsUVSjwLNtY94I596TV6trKG
-         Kyz7lnWn9WUF4L75fXmUGO+kpHZWPhaBFTI7sIx79zYR62+oWp1siBcg9x9l1tnZ1Gc9
-         7tT0vixDgzLz3ypPyR6V4SRVE0Ut5vRiOo2lVJxrur+rScYoLvrxcwuSmzBklfk+JY2I
-         e5aJAaTOoG7MdkWC2KOh9bueMSMUQV3UyQzfyP7QyhF+f4icVI9ihB5aLQC442TocWBQ
-         638xTAzn52JcB8e2Ca+525R8eG2YqXg8mjSpphoW1MNvQT5r0Eo6tAC60fmFi0tMxZNM
-         mWGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757586347; x=1758191147;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Qh9CoKh+ZXVGj6kTKZS0aB5YRv820luNzFDKgz4XQQE=;
-        b=Z00aAUaVANTESUpmgjXZqKJbgJbnfQul7qNfEl8EKNhoVANhXGAmSO4cVV2i95W9wh
-         q97cAVBULUEQcJTBgYVSqeSUI8X0/YDhYryQZase9wCoBJVQNTp+zEGN9jQ95Rb2pN22
-         HxELexucSSnfVX5u+pbkY0Wp6DZm6VqflScPu4x+chEW5Q2eAc82bt8HWaIz1b7DHf16
-         iaYD+pTQ0RWMq0nRHrHJF7OufNwK5J8Rnf6VEBy4UEMtvY7/VWsx6v01zYKBwXnD7fum
-         ijidW8TCwgAHxTVGb8iKsc/iQqR0GhjlyYgWljDV0zgKAzHNVn6TPK1axD0Qr8zpG3PJ
-         JoIg==
-X-Forwarded-Encrypted: i=1; AJvYcCWXBGN8OjjTMxvLi3p7EeroJvy0+P+1YU4BE2RmdKoYSBs6RmM7mCSTFZNUJTOnsGa0EayivfpWEa1Qz444sg/Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdLWBiWoC1XxDg8rCHCVrQLwgNVoXAitGuyrcdZ86wTEAhRtRb
-	zfrf9j2MQf1U5wtkAvxuOHoHAOGOEAnfZ0uGX/cC2MD1Nz8XrtnyM4soLMtO/UEnVY7PqVc9eZe
-	iFCmiN/NDRTGYcbTresiAJW6alUIsaobkxaiyL8LL8/ulECZ5BO1DUqA=
-X-Gm-Gg: ASbGncvYc09qbDqhgaon25pSXm2b3d8SMOF11yNBJrbz8WWy4Go2xwMex3+jvBYrdbp
-	FiqiwMZgT43zd9pB3isH9rJXVUWhdJm+IEjNXiCVrO81v7sqbMduvaqKOOdYyJ5vBNY/8b3A/Yq
-	ZMrp81Lkzdz0dSHgTTGiAmM3W2cpPwP/OBGYei4akcOJ6AADeS2VAH6sloAafjwyMxKWaDSiWaJ
-	py6QjMu
-X-Google-Smtp-Source: AGHT+IG3s4IJNZMJSCEDBH6fNAyZFvVket6EtCNxPtuvOXrrmrIogMrgaGfvzIvNzamapqOCag5fTU5WzoWDmiZ5pgw=
-X-Received: by 2002:a05:6902:2a4a:b0:e98:9926:e5cf with SMTP id
- 3f1490d57ef6-e9f6798f570mr15236689276.24.1757586347029; Thu, 11 Sep 2025
- 03:25:47 -0700 (PDT)
+	Thu, 11 Sep 2025 10:31:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7831F60208;
+	Thu, 11 Sep 2025 10:31:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8575EC4CEF0;
+	Thu, 11 Sep 2025 10:31:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757586712;
+	bh=gS2weFUR+ncgV5TkM5dtRR0yU4ygK56P4uQOCMuOTVQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MPeidlrLVFVQvIMpDQUjBt7aE3/Koh8LezVfJHAhOLft/ifOxDs13u2ZqvtoWoplT
+	 f8A0Ju+FqdQyY/Z0RsvmB72DQLhrT0SOkF3OG3WXG8Zkcs/Nir5ZQxaQyuFrCL0+80
+	 Iv9ImkmL3OQign8E/ewgSOAr2XvyYORbC9IjV9nPd+WX7QRjRA7+NKWkrc5P9zsk7z
+	 ia2CFHUPHpD1HslbGUD7dtuCqjl1jfN9FbixTEh/TLohC6cl7C02C2WEiEqzlQd/rD
+	 LJO2XzZFnHJ+f9bCaLr27zvRUSxY54MzsimYXoxrZjaZiAavcQ7j24WcczVzXqWIpv
+	 +1WPDmxyt05Iw==
+Date: Thu, 11 Sep 2025 11:31:47 +0100
+From: Lee Jones <lee@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [GIT PULL] Immutable branch between the MFD and GPIO trees for
+ v6.18-rc1
+Message-ID: <20250911103147.GI9224@google.com>
+References: <20250904130516.72266-1-brgl@bgdev.pl>
 MIME-Version: 1.0
-References: <20250909111130.132976-1-ulf.hansson@linaro.org>
- <20250909111130.132976-2-ulf.hansson@linaro.org> <CAMuHMdUFXioe36r9mzNchHw3DGyEiVA-=ajTp333jowEsrxMNw@mail.gmail.com>
-In-Reply-To: <CAMuHMdUFXioe36r9mzNchHw3DGyEiVA-=ajTp333jowEsrxMNw@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 11 Sep 2025 12:25:09 +0200
-X-Gm-Features: Ac12FXzECRIqMODIi1UrVX0E7YEVWHDVwJFOM_t49DQAOVwqsE-keud9aiJ5lYc
-Message-ID: <CAPDyKFrTTUs2xwoY+Tmff1SHhsGjj-XmW3maDnO7V6T7m_8H=Q@mail.gmail.com>
-Subject: Re: [PATCH 1/5] pmdomain: core: Restore behaviour for disabling
- unused PM domains
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Saravana Kannan <saravanak@google.com>, linux-pm@vger.kernel.org, 
-	Stephen Boyd <sboyd@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Sebin Francis <sebin.francis@ti.com>, 
-	Diederik de Haas <didi.debian@cknow.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_032548_812639_FE62B64B 
-X-CRM114-Status: GOOD (  28.31  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250904130516.72266-1-brgl@bgdev.pl>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +75,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Sept 2025 at 09:56, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Ulf,
->
-> On Tue, 9 Sept 2025 at 13:11, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > Recent changes to genpd prevents those PM domains being powered-on during
-> > initialization from being powered-off during the boot sequence. Based upon
-> > whether CONFIG_PM_CONFIG_PM_GENERIC_DOMAINS_OF is set of not, genpd relies
-> > on the sync_state mechanism or the genpd_power_off_unused() (which is a
-> > late_initcall_sync), to understand when it's okay to allow these PM domains
-> > to be powered-off.
-> >
-> > This new behaviour in genpd has lead to problems on different platforms.
-> > Let's therefore restore the behavior of genpd_power_off_unused().
-> > Moreover, let's introduce GENPD_FLAG_NO_STAY_ON, to allow genpd OF
-> > providers to opt-out from the new behaviour.
-> >
-> > Link: https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.org/
-> > Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> > Link: https://lore.kernel.org/all/20250902-rk3576-lockup-regression-v1-1-c4a0c9daeb00@collabora.com/
-> > Reported-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > Fixes: 0e789b491ba0 ("pmdomain: core: Leave powered-on genpds on until sync_state")
-> > Fixes: 13a4b7fb6260 ("pmdomain: core: Leave powered-on genpds on until late_initcall_sync")
-> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
->
-> Thanks for your patch!
->
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
->
-> > --- a/include/linux/pm_domain.h
-> > +++ b/include/linux/pm_domain.h
-> > @@ -115,6 +115,12 @@ struct dev_pm_domain_list {
-> >   *                             genpd provider specific way, likely through a
-> >   *                             parent device node. This flag makes genpd to
-> >   *                             skip its internal support for this.
-> > + *
-> > + * GENPD_FLAG_NO_STAY_ON:      For genpd OF providers a powered-on PM domain at
-> > + *                             initialization is prevented from being
-> > + *                             powered-off until the ->sync_state() callback is
-> > + *                             invoked. This flag informs genpd to allow a
-> > + *                             power-off without waiting for ->sync_state().
->
-> This also restores power-down of pmdomains after a failed device
-> probe (due to a real issue, or just -EPROBE_DEFER), possibly
-> interfering with other devices that are part of the same pmdomain(s)
-> but haven't been probed yet. E.g. what if your serial console is
-> part of the same pmdomain?  Probably the pmdomain(s) should not
-> be powered down immediately, but only later, when either sync state
-> or genpd_power_off_unused() kicks in.
+On Thu, 04 Sep 2025, Bartosz Golaszewski wrote:
 
-That is exactly one of the problems we solve with the new sync_state
-support in genpd.
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> Lee,
+> 
+> Please pull the following MFD changes that depend on commits I already
+> have in the GPIO tree for the next merge window.
+> 
+> Thanks,
+> Bartosz
+> 
+> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+> 
+>   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git tags/gpio/mfd-stmpe-for-v6.18-rc1
+> 
+> for you to fetch changes up to df6a44003953fb23ad67f82d299e439e7ff7150a:
+> 
+>   mfd: stmpe: Allow building as module (2025-09-04 15:00:53 +0200)
+> 
+> ----------------------------------------------------------------
+> Immutable branch between the MFD and GPIO trees for v6.18-rc1
+> 
+> Allow building the MFD STMPE driver as module.
+> 
+> ----------------------------------------------------------------
+> Alexander Stein (1):
+>       mfd: stmpe: Allow building as module
+> 
+>  drivers/mfd/Kconfig | 10 +++++-----
+>  drivers/mfd/stmpe.c |  6 ++++++
+>  2 files changed, 11 insertions(+), 5 deletions(-)
 
-If you have this problem for one of the PM domains, we should not set
-GENPD_FLAG_NO_STAY_ON for it. In fact, that's exactly why I added this
-flag, to allow it to be set on a per genpd basis. Otherwise we might
-as well have used of_genpd_sync_state().
+Pulled, thanks.
 
-Down the road, if we can improve the sync_state support in genpd,
-especially a more fine-grained control for those providers that use
-of_genpd_add_provider_onecell(), I hope we should be able to remove
-this flag.
-
-[...]
-
-Kind regards
-Uffe
+-- 
+Lee Jones [李琼斯]
 
