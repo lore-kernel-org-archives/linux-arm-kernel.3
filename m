@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F64CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 22:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA35CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 23:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0/IbugXr0E51P70QNDrQ9IJbuGhedOSYEjBFgBRueyI=; b=cdyHjVvk3ks1Bs32Rw1fFm9bvA
-	u5dFIIkBvqDKK/tOhHYPANKUth4LF44EcRcU8y744lWvrcREsEO7ghYqB3y/5Eq5VBr/qmYwnFSkO
-	r2hsLlQt1ivbQ15xGQyfAq8Igj83cJeAPPRUjApRc5Cq9JGd2VGbNhSUVDceBt66VeuhENueAJ1+L
-	hMwCgpNGbyBpr9ob1sEVoh/4H+gO8AKmvoOr09VgOXQu/EwjZGPJDJNHt3cujrP2Pz9ZdqzVgjL1Y
-	3U7jwJeyIBM6Yt0IPwxDJaW8tn6se5vhwzR4OtFpWAJgbxU0CwwEIwNqudR/WVN6Gkw+183TOO5Mo
-	d57lbHlg==;
+	bh=iVj6qwR+8ydezce1PmETQDT6/Yef/ogm3BcibIH7V8k=; b=yLpxRBCCJMRHm5lCbbWF1MKfGY
+	0uNadxPee0czQrrUdym40IfhABWmln6jS/Tcdhc72B5HzmD3zqhie73Ta1Bfxlq9DWZMUwJQweu3O
+	WDo95T/8n1ZJc/ekdXK/Cn0YKvSX6ER4PzQ6b/3X2mL/dUZvyEMlkCG3Vr5jQeM7LXA4R3q0O5lr7
+	sG1PQ9VomxjeZUbTylIkka7bZZMqs0mB8GfDelmJDk95N6udLSWUR4g062MJ1UE8XUSNsEPPILBV8
+	ZH85QDOGfn6iOaHidsZIpsesBPJjDmJiczWJ+/Sbls2trIN/P5FlYw89o2ZRg/as0f7Fh2NFWHVWC
+	FymXAUwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwpzb-00000005jra-1SCt;
-	Thu, 11 Sep 2025 22:42:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uwr5K-00000005xeK-2Tve;
+	Thu, 11 Sep 2025 23:52:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwpzY-00000005jq5-21O0
+	id 1uwr5I-00000005xdM-3leE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 22:42:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757630529;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=0/IbugXr0E51P70QNDrQ9IJbuGhedOSYEjBFgBRueyI=;
-	b=PaZ+zzxOErZfQM/LpAe3Ma/yD1abloTYXntyZGS0pt6xMtA9iqloS+0VtFQNMb/tLq6r8A
-	p6zNvzc9pQGX1CnVXfxZLPoxMHQGlrsO9+UVdyavI/3it/hFFhRfTa2Eiy3cDfLrDXgaVm
-	jhaSwZXe1XvyYfT13ZmRk8r1puBAZPk=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-622-Dc-vk5eONNGLWL9NDX8tpQ-1; Thu,
- 11 Sep 2025 18:42:07 -0400
-X-MC-Unique: Dc-vk5eONNGLWL9NDX8tpQ-1
-X-Mimecast-MFC-AGG-ID: Dc-vk5eONNGLWL9NDX8tpQ_1757630526
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DCFA21956086;
-	Thu, 11 Sep 2025 22:42:05 +0000 (UTC)
-Received: from [172.20.141.126] (unknown [10.30.44.25])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 365081944CCA;
-	Thu, 11 Sep 2025 22:42:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.17.0-rc5,
- upstream-arm-next, 87362592)
-Date: Thu, 11 Sep 2025 22:42:04 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	Thu, 11 Sep 2025 23:52:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F1D344C5E;
+	Thu, 11 Sep 2025 23:52:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 62D95C4CEF5;
+	Thu, 11 Sep 2025 23:52:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757634732;
+	bh=rXQlLipzuO460hLM6yk6F8xNPGedj1EQygxLedmpBzk=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=BH9caTF9ac1H+H/LjH1X37ysQw2c8Is712Owi6XkgEIQC+cE6cknDD3lWn4UrJ9cz
+	 fWyQg5D/WTyCQKU+UZCW4yv2UOPgiIemWFzDUWuAlTx7kwkf2EWi2nar5WHjBdtXbr
+	 GEnn/HwzziVxLTJgirGXAcd93UFng7kvhzIp21y88y+MKkb44o61veubkUF/BrEmog
+	 vdo8CyQNuaGsbQb3zXiFH00vUxKY2RJwuOQasExrS7iUBLTrzrLZ2mqzPo0D1/cSV2
+	 dvXvlnklxNC28aXOkhMJEYa77G+KKvinTHYWzlEZLEYrXpaA+kxlMGk9EIdQ44OVMA
+	 ToBgTu+JBLuVw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4EE7DCAC592;
+	Thu, 11 Sep 2025 23:52:12 +0000 (UTC)
+From: =?utf-8?q?J=2E_Neusch=C3=A4fer_via_B4_Relay?= <devnull+j.ne.posteo.net@kernel.org>
+Subject: [PATCH 0/2] Initial Amediatech X96Q support based on Allwinner
+ H313
+Date: Fri, 12 Sep 2025 01:52:08 +0200
+Message-Id: <20250912-x96q-v1-0-8471daaf39db@posteo.net>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-Message-Id: <55595.125091118420700476@us-mta-622.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 3rrrtL_Ty8NswxYKdkhYQD1CHKfc8C-wop3Sfj6Z68o_1757630526
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAKhgw2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDS0ND3QpLs0JdU/NUM2NjCwMLA5NUJaDSgqLUtMwKsDHRsbW1ABhukK1
+ WAAAA
+X-Change-ID: 20250911-x96q-57e63380804e
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757634731; l=937;
+ i=j.ne@posteo.net; s=20240329; h=from:subject:message-id;
+ bh=rXQlLipzuO460hLM6yk6F8xNPGedj1EQygxLedmpBzk=;
+ b=M0EgaUBY/bR66z8j4+11q/JqRm4pXPtp1UZ7NvBJPd6gL5yfBzHzCDkiWsBp+AaLirOtDR1Dr
+ DGry5a6MTTIATIpQgaOccON/kpyi2do+5HKGBE9ZynXJ1z/i4K7Kkk6
+X-Developer-Key: i=j.ne@posteo.net; a=ed25519;
+ pk=NIe0bK42wNaX/C4bi6ezm7NJK0IQE+8MKBm7igFMIS4=
+X-Endpoint-Received: by B4 Relay for j.ne@posteo.net/20240329 with
+ auth_id=156
+X-Original-From: =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_154212_594447_0F8B62B7 
-X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-CacheID: sfid-20250911_165212_956300_D44C59EB 
+X-CRM114-Status: UNSURE (   8.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,59 +90,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: j.ne@posteo.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+This patchset adds an initial devicetree for the X96Q set-top box.
+WiFi, Ethernet, and HDMI depend on drivers that are currently not
+available in mainline Linux, and I didn't enable them in the devicetree.
+The builtin infrared receiver produces IRQs when a nearby remote sends
+events, but I have not checked whether the events are decoded correctly.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Signed-off-by: J. Neuschäfer <j.ne@posteo.net>
+---
+J. Neuschäfer (2):
+      dt-bindings: arm: sunxi: Add Amediatech X96Q
+      arm64: dts: allwinner: h313: Add Amediatech X96Q
 
-Tested-by: CKI Project <cki-project@redhat.com>
+ Documentation/devicetree/bindings/arm/sunxi.yaml   |   5 +
+ arch/arm64/boot/dts/allwinner/Makefile             |   1 +
+ arch/arm64/boot/dts/allwinner/sun50i-h313-x96q.dts | 235 +++++++++++++++++++++
+ 3 files changed, 241 insertions(+)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250911-x96q-57e63380804e
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+Best regards,
+-- 
+J. Neuschäfer <j.ne@posteo.net>
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2034861865
-
-One or more kernel tests failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [rawhide] avc:  denied  { remove_name } for  pid=3D11534 com=
-m=3D"systemd-ssh-iss" name=3D"50-ssh-vsock.issue" dev=3D"tmpfs" ino=3D2323 =
-scontext=3Dsystem_u:system_r:systemd_ssh_issue_t:s0 tcontext=3Dsystem_u:obj=
-ect_r:var_run_t:s0 tclass=3Ddir permissive=3D1
-            URL: https://bugzilla.redhat.com/show_bug.cgi?id=3D2391966
-            Affected tests:
-                Boot test [aarch64]
-                Reboot test [aarch64]
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
 
 
