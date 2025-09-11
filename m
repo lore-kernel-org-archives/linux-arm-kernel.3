@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF6D8CA1016
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA9FCAC58E
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 11:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,49 +12,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=78saqbBV7l7amg+T7GZYrtVBXo8ffvbG+RF5wZUGKuQ=; b=eEOjSpiBfjRIZAOL9GugxhcfDn
-	1dI/13l0VQ7XuYji5BBwQQV4qPaxyozyYHe252FwZRO6khKxydk7w9tDpLjwNO7j5GHCoPtNGGOCo
-	CXP07AJTjhvHBCs+ZgohjTzzFNxv283DGLlIwEjSbloia2bAW4xs8kllt5N9vA4xBMBwRJyrWBef7
-	JSzt0k08q1U2h/YC+WkfC++AZsUYFPgEgNa+ogndmlTTtzmta/iPDKpfzD6WWLJYnlfTySUjooL9U
-	0E6t6xyaP52snbY201S8gIKD6+M5gTqrKTX1Yyqvz0VkYKJhM3k+dFxN+DWpbYz3YzHjsdANsrglb
-	o7786lCQ==;
+	bh=UcKnqqQ3hc0qlaEnqWP7Zltl+WKjelR3FGrd2YAXgOA=; b=LGsZj8FZ6jKl7YUiIRbMUI+ck2
+	16d7sTisd7byMf+Nj+OFY+knjzoIjYUHMBuONC3iEX3LhOTih9ybgIdbfYaa0RhFpowzcpDvg88uw
+	7DnLktwSBEcikMYuuAjc8zqmwNX5xLf2YPRi9vH3i9tQShEoTQE3hw/3R5Q7218Z0KgXOG02EL15T
+	RGz1FZIGrCGIJHf4E1rvcclqbfoV3L9OsJvw/OspL29G0r/A2MK9ZFzysDoGgvn9KjvxmTaHOmD1G
+	s5icP8DrugtRBkKiRvlfIn5aBIJK9V3XFULn0NjroyLKPMfj690uFnMVv8Hq//aaJbau1Xd12BM0W
+	FjDlNkRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwfbt-00000002ikl-1EDr;
-	Thu, 11 Sep 2025 11:37:05 +0000
+	id 1uwfbs-00000002ijU-2q3P;
+	Thu, 11 Sep 2025 11:37:04 +0000
 Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwfbm-00000002ieO-1jYI
+	id 1uwfbl-00000002ica-0r7c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 11:36:59 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58BBaUED793666;
-	Thu, 11 Sep 2025 06:36:30 -0500
+	Thu, 11 Sep 2025 11:36:58 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58BBaMZm793642;
+	Thu, 11 Sep 2025 06:36:22 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757590590;
-	bh=78saqbBV7l7amg+T7GZYrtVBXo8ffvbG+RF5wZUGKuQ=;
+	s=ti-com-17Q1; t=1757590582;
+	bh=UcKnqqQ3hc0qlaEnqWP7Zltl+WKjelR3FGrd2YAXgOA=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=hOfDKkMmxr580oGsCMt4qLsxC/JdOJSSOH6HAXjmH4wLKLlMk/EhVPMVUgwjQAovq
-	 Ju1gdfKhxfgyemDxuACApHGu8RoKrW/C/8qTj0UqA4oUdIXZ3NuEEyg5jKr5m312wl
-	 RSpA7jo9VlnvcIQfC8En1GqcVEJZs7PAuF+2BLD8=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58BBaURW1027202
+	b=Cbk1IJ1co2d8Q4NLcfNYir5p1PxSKISLAJFGi4rBwGwUX2fRs82OEUBvssG3XeVA5
+	 vfcJism3z2SvDy5otimGLFEYGqbHT8KUr1oBYBDzevFVXGpBEKj2NAdb+QVpc6B56r
+	 7X1/1vF62ixta12VCN0zGNovs7b3bq9ScKQsPotw=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58BBaMVI1908800
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 11 Sep 2025 06:36:30 -0500
-Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 11 Sep 2025 06:36:22 -0500
+Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 11
- Sep 2025 06:36:30 -0500
-Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 06:36:21 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 11 Sep 2025 06:36:30 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58BBaUha1015163;
-	Thu, 11 Sep 2025 06:36:30 -0500
+ Transport; Thu, 11 Sep 2025 06:36:21 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58BBaLa42061818;
+	Thu, 11 Sep 2025 06:36:21 -0500
 Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 58BBaTgj032087;
-	Thu, 11 Sep 2025 06:36:29 -0500
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 58BBaKEM007150;
+	Thu, 11 Sep 2025 06:36:20 -0500
 From: MD Danish Anwar <danishanwar@ti.com>
 To: "David S. Miller" <davem@davemloft.net>,
         Eric Dumazet
@@ -88,9 +88,9 @@ To: "David S. Miller" <davem@davemloft.net>,
 CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <devicetree@vger.kernel.org>
-Subject: [PATCH net-next v4 6/7] MAINTAINERS: Add entry for RPMSG Ethernet driver
-Date: Thu, 11 Sep 2025 17:06:11 +0530
-Message-ID: <20250911113612.2598643-7-danishanwar@ti.com>
+Subject: [PATCH net-next v4 2/7] net: rpmsg-eth: Add basic rpmsg skeleton
+Date: Thu, 11 Sep 2025 17:06:07 +0530
+Message-ID: <20250911113612.2598643-3-danishanwar@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250911113612.2598643-1-danishanwar@ti.com>
 References: <20250911113612.2598643-1-danishanwar@ti.com>
@@ -99,8 +99,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_043658_584889_583BD3AB 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20250911_043657_369867_09EA88CB 
+X-CRM114-Status: GOOD (  29.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,31 +115,294 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an entry to MAINTAINERS file for the rpmsg_eth driver with
-appropriate maintainer information and mailing list.
+Introduces a basic RPMSG Ethernet driver and add it's basic skeleton.
+Add support for creating virtual Ethernet devices over RPMSG channels,
+allowing user-space programs to send and receive messages using a
+standard Ethernet protocol. The driver includes message handling,
+probe, and remove functions, along with necessary data structures.
 
 Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
 ---
- MAINTAINERS | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/net/ethernet/Kconfig     |  11 +++
+ drivers/net/ethernet/Makefile    |   1 +
+ drivers/net/ethernet/rpmsg_eth.c | 144 +++++++++++++++++++++++++++++++
+ drivers/net/ethernet/rpmsg_eth.h |  85 ++++++++++++++++++
+ 4 files changed, 241 insertions(+)
+ create mode 100644 drivers/net/ethernet/rpmsg_eth.c
+ create mode 100644 drivers/net/ethernet/rpmsg_eth.h
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e3907f0c1243..9fd0f6a602d0 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22001,6 +22001,12 @@ L:	linux-remoteproc@vger.kernel.org
- S:	Maintained
- F:	drivers/tty/rpmsg_tty.c
+diff --git a/drivers/net/ethernet/Kconfig b/drivers/net/ethernet/Kconfig
+index f86d4557d8d7..7d00e02a2c8f 100644
+--- a/drivers/net/ethernet/Kconfig
++++ b/drivers/net/ethernet/Kconfig
+@@ -170,6 +170,17 @@ config OA_TC6
+ 	  To know the implementation details, refer documentation in
+ 	  <file:Documentation/networking/oa-tc6-framework.rst>.
  
-+RPMSG ETHERNET DRIVER
-+M:	MD Danish Anwar <danishanwar@ti.com>
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	drivers/net/ethernet/rpmsg_eth*
++config RPMSG_ETH
++	tristate "RPMsg Based Virtual Ethernet driver"
++	depends on RPMSG
++	depends on REMOTEPROC
++	help
++	  This makes it possible for user-space programs to send and receive
++	  rpmsg messages as a standard eth protocol.
 +
- RTASE ETHERNET DRIVER
- M:	Justin Lai <justinlai0215@realtek.com>
- M:	Larry Chiu <larry.chiu@realtek.com>
++	  To compile this driver as a module, choose M here: the module will be
++	  called rpmsg_eth.
++
+ source "drivers/net/ethernet/packetengines/Kconfig"
+ source "drivers/net/ethernet/pasemi/Kconfig"
+ source "drivers/net/ethernet/pensando/Kconfig"
+diff --git a/drivers/net/ethernet/Makefile b/drivers/net/ethernet/Makefile
+index 67182339469a..aebd15993e3c 100644
+--- a/drivers/net/ethernet/Makefile
++++ b/drivers/net/ethernet/Makefile
+@@ -107,3 +107,4 @@ obj-$(CONFIG_NET_VENDOR_XIRCOM) += xircom/
+ obj-$(CONFIG_NET_VENDOR_SYNOPSYS) += synopsys/
+ obj-$(CONFIG_NET_VENDOR_PENSANDO) += pensando/
+ obj-$(CONFIG_OA_TC6) += oa_tc6.o
++obj-$(CONFIG_RPMSG_ETH) += rpmsg_eth.o
+diff --git a/drivers/net/ethernet/rpmsg_eth.c b/drivers/net/ethernet/rpmsg_eth.c
+new file mode 100644
+index 000000000000..7224fbc89646
+--- /dev/null
++++ b/drivers/net/ethernet/rpmsg_eth.c
+@@ -0,0 +1,144 @@
++// SPDX-License-Identifier: GPL-2.0
++/* RPMsg Based Virtual Ethernet Driver
++ *
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ */
++
++#include <linux/io.h>
++#include <linux/of.h>
++#include <linux/of_reserved_mem.h>
++#include <linux/remoteproc.h>
++
++#include "rpmsg_eth.h"
++
++static int rpmsg_eth_rpmsg_cb(struct rpmsg_device *rpdev, void *data, int len,
++			      void *priv, u32 src)
++{
++	struct rpmsg_eth_common *common = dev_get_drvdata(&rpdev->dev);
++	struct message *msg = (struct message *)data;
++	u32 msg_type = msg->msg_hdr.msg_type;
++	int ret = 0;
++
++	switch (msg_type) {
++	case RPMSG_ETH_REQUEST_MSG:
++	case RPMSG_ETH_RESPONSE_MSG:
++	case RPMSG_ETH_NOTIFY_MSG:
++		dev_dbg(common->dev, "Msg type = %d, Src Id = %d\n",
++			msg_type, msg->msg_hdr.src_id);
++		break;
++	default:
++		dev_err(common->dev, "Invalid msg type\n");
++		ret = -EINVAL;
++		break;
++	}
++	return ret;
++}
++
++/**
++ * rpmsg_eth_get_shm_info - Retrieve shared memory region for RPMsg Ethernet
++ * @common: Pointer to rpmsg_eth_common structure
++ *
++ * This function locates and maps the reserved memory region for the RPMsg
++ * Ethernet device by traversing the device tree hierarchy. It first identifies
++ * the associated remote processor (rproc), then locates the "rpmsg-eth" child
++ * node within the rproc's device tree node, and finally retrieves the
++ * "memory-region" phandle that points to the reserved memory region.
++ * Once found, the shared memory region is mapped into the
++ * kernel's virtual address space using devm_ioremap()
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++static int rpmsg_eth_get_shm_info(struct rpmsg_eth_common *common)
++{
++	struct device_node *np, *rmem_np;
++	struct reserved_mem *rmem;
++	struct rproc *rproc;
++
++	/* Get the remote processor associated with this device */
++	rproc = rproc_get_by_child(&common->rpdev->dev);
++	if (!rproc) {
++		dev_err(common->dev, "rpmsg eth device not child of rproc\n");
++		return -EINVAL;
++	}
++
++	/* Get the device node from rproc or its parent */
++	np = rproc->dev.of_node ?: (rproc->dev.parent ? rproc->dev.parent->of_node : NULL);
++	if (!np) {
++		dev_err(common->dev, "Cannot find rproc device node\n");
++		return -ENODEV;
++	}
++
++	/* Parse the memory-region phandle */
++	rmem_np = of_parse_phandle(np, "memory-region", common->data.shm_region_index);
++	of_node_put(np);
++	if (!rmem_np) {
++		dev_err(common->dev, "Cannot find shared memory region\n");
++		return -EINVAL;
++	}
++
++	/* Lookup the reserved memory region */
++	rmem = of_reserved_mem_lookup(rmem_np);
++	of_node_put(rmem_np);
++	if (!rmem)
++		return -EINVAL;
++
++	common->port->shm = devm_ioremap(common->dev, rmem->base, rmem->size);
++	if (IS_ERR(common->port->shm))
++		return PTR_ERR(common->port->shm);
++
++	common->port->buf_size = rmem->size;
++
++	return 0;
++}
++
++static int rpmsg_eth_probe(struct rpmsg_device *rpdev)
++{
++	struct device *dev = &rpdev->dev;
++	struct rpmsg_eth_common *common;
++	int ret = 0;
++
++	common = devm_kzalloc(&rpdev->dev, sizeof(*common), GFP_KERNEL);
++	if (!common)
++		return -ENOMEM;
++
++	dev_set_drvdata(dev, common);
++
++	common->port = devm_kzalloc(dev, sizeof(*common->port), GFP_KERNEL);
++	common->dev = dev;
++	common->rpdev = rpdev;
++	common->data = *(const struct rpmsg_eth_data *)rpdev->id.driver_data;
++
++	ret = rpmsg_eth_get_shm_info(common);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static void rpmsg_eth_remove(struct rpmsg_device *rpdev)
++{
++	dev_dbg(&rpdev->dev, "rpmsg-eth client driver is removed\n");
++}
++
++static const struct rpmsg_eth_data ti_rpmsg_eth_data = {
++	.shm_region_index = 2,
++};
++
++static struct rpmsg_device_id rpmsg_eth_id_table[] = {
++	{ .name = "ti.shm-eth", .driver_data = (kernel_ulong_t)&ti_rpmsg_eth_data },
++	{},
++};
++MODULE_DEVICE_TABLE(rpmsg, rpmsg_eth_id_table);
++
++static struct rpmsg_driver rpmsg_eth_rpmsg_client = {
++	.drv.name = KBUILD_MODNAME,
++	.id_table = rpmsg_eth_id_table,
++	.probe = rpmsg_eth_probe,
++	.callback = rpmsg_eth_rpmsg_cb,
++	.remove = rpmsg_eth_remove,
++};
++module_rpmsg_driver(rpmsg_eth_rpmsg_client);
++
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("MD Danish Anwar <danishanwar@ti.com>");
++MODULE_DESCRIPTION("RPMsg Based Virtual Ethernet driver");
+diff --git a/drivers/net/ethernet/rpmsg_eth.h b/drivers/net/ethernet/rpmsg_eth.h
+new file mode 100644
+index 000000000000..0d6f96f755eb
+--- /dev/null
++++ b/drivers/net/ethernet/rpmsg_eth.h
+@@ -0,0 +1,85 @@
++/* SPDX-License-Identifier: GPL-2.0
++ * RPMsg Based Virtual Ethernet Driver common header
++ *
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ */
++
++#ifndef __RPMSG_ETH_H__
++#define __RPMSG_ETH_H__
++
++#include <linux/errno.h>
++#include <linux/etherdevice.h>
++#include <linux/if_ether.h>
++#include <linux/if_vlan.h>
++#include <linux/jiffies.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/netdevice.h>
++#include <linux/rpmsg.h>
++
++#define RPMSG_ETH_SHM_MAGIC_NUM 0xABCDABCD
++
++enum rpmsg_eth_msg_type {
++	RPMSG_ETH_REQUEST_MSG = 0,
++	RPMSG_ETH_RESPONSE_MSG,
++	RPMSG_ETH_NOTIFY_MSG,
++};
++
++/**
++ * struct message_header - message header structure for RPMSG Ethernet
++ * @src_id: Source endpoint ID
++ * @msg_type: Message type
++ */
++struct message_header {
++	u32 src_id;
++	u32 msg_type;
++} __packed;
++
++/**
++ * struct message - RPMSG Ethernet message structure
++ *
++ * @msg_hdr: Message header contains source and destination endpoint and
++ *          the type of message
++ *
++ * This structure is used to send and receive messages between the RPMSG
++ * Ethernet ports.
++ */
++struct message {
++	struct message_header msg_hdr;
++} __packed;
++
++/**
++ * struct rpmsg_eth_data - RPMSG ETH device data
++ * @shm_region_index: Shared memory region index
++ */
++struct rpmsg_eth_data {
++	u8 shm_region_index;
++};
++
++/**
++ * struct rpmsg_eth_common - common structure for RPMSG Ethernet
++ * @rpdev: RPMSG device
++ * @port: Ethernet port
++ * @dev: Device
++ * @data: Vendor specific data
++ */
++struct rpmsg_eth_common {
++	struct rpmsg_device *rpdev;
++	struct rpmsg_eth_port *port;
++	struct device *dev;
++	struct rpmsg_eth_data data;
++};
++
++/**
++ * struct rpmsg_eth_port - Ethernet port structure for RPMSG Ethernet
++ * @common: Pointer to the common RPMSG Ethernet structure
++ * @shm: Shared memory region mapping
++ * @buf_size: Size (in bytes) of the shared memory buffer for this port
++ */
++struct rpmsg_eth_port {
++	struct rpmsg_eth_common *common;
++	void __iomem *shm;
++	phys_addr_t buf_size;
++};
++
++#endif /* __RPMSG_ETH_H__ */
 -- 
 2.34.1
 
