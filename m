@@ -4,82 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04671CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 06:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2067CCAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 06:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ah+/pevmsRdBeVrvl0aCHa/g+fwOg7IZR743DPWXfM0=; b=Gu8toZcbgduQmvAy0TDfDsnjPk
-	tcZRUNCH5JEA2pFXJMuFDL4d3s8zTkmwlkMZZfgd7ZpDdgjouWVNw+KpP1visVbYSMXjwJJENeYPG
-	IrcPvHMP9+WdqiL+gzpWisZ341sbVeVEAn8m64EXhv51rq6kKHDhkLlRsHGKEiChcYFw3o0n5SP+w
-	wfh4Xj0XbMwBVmBCKKXKbasTrD9FBXKyvABdDVzZGGD9WaOTCb+swMOfELrL+mJsmM1oROco8jVvA
-	ZO0oto8k+G+TXjW4NL2fcp1u3pfrPUfqUIgSEUxEz2dkHGDP/FMEjuNqL1ZMEU6AErkN8CAgv1FcG
-	s8Tg+Wtg==;
+	bh=s21anDQNloj4einH8QlLaz97c6kxagyTg+C0HR5fK/U=; b=eHfNGzQVyav+k3EBv7yBGl9xsy
+	IWOy71DmiixBnZa+76RV/VGoe+dK46YJDyFutvajm9+zWqihSJ0MY7suq0gDlcPS99KrK24L+nXqG
+	iivVzc2AsBxz31WPJz4uLn/uud7gs7eLxXxCqxTrEk0guuhF6TaF9MmYOlr3H74i05C85IcfU/Zhp
+	6Fcv59jy3xdaWY+7OP5x8BhMEAxNwP2A1imNnVfsugVI7ttIyux6pM0GCkMWXAaIc+KdBnwkI6BK8
+	SwRDWk5zi4paAh66KjkzC633dQs7LMKN2WQBQKb9VZnADVIO62f8zxpBh5hutDIqtnElDroJFxu2B
+	7ONaBiiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwatz-00000001GUg-2hzp;
-	Thu, 11 Sep 2025 06:35:27 +0000
+	id 1uwau4-00000001GZe-2AJK;
+	Thu, 11 Sep 2025 06:35:32 +0000
 Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwatw-00000001GQM-31Bz
+	id 1uwau2-00000001GWY-2HtK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 06:35:26 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	Thu, 11 Sep 2025 06:35:31 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id A431A3FA80;
-	Thu, 11 Sep 2025 06:35:21 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 5C1E53FA7F;
+	Thu, 11 Sep 2025 06:35:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1757572527; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=s21anDQNloj4einH8QlLaz97c6kxagyTg+C0HR5fK/U=;
+	b=olA9WcCA7UDWx42rwflQRH4XcQjTR2NxZkWg9+imb5hJaPeXCBvG6QJAfMFfWi7noZYkBm
+	j+rZo9Tfv27D4iKZax9XnlodVki7UtldJ5zeypwpzh/RAMYUPXV4pLcpAZe5vjG7wJXi8z
+	m/kAbRI1O9Kpj3r7tj7fAYzeKIJkegM=
 Authentication-Results: smtp-out1.suse.de;
 	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1757572527; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=s21anDQNloj4einH8QlLaz97c6kxagyTg+C0HR5fK/U=;
+	b=olA9WcCA7UDWx42rwflQRH4XcQjTR2NxZkWg9+imb5hJaPeXCBvG6QJAfMFfWi7noZYkBm
+	j+rZo9Tfv27D4iKZax9XnlodVki7UtldJ5zeypwpzh/RAMYUPXV4pLcpAZe5vjG7wJXi8z
+	m/kAbRI1O9Kpj3r7tj7fAYzeKIJkegM=
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 49BF41372E;
-	Thu, 11 Sep 2025 06:35:21 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0B8201372E;
+	Thu, 11 Sep 2025 06:35:27 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id vvWQEKltwmghTQAAD6G6ig
-	(envelope-from <jgross@suse.com>); Thu, 11 Sep 2025 06:35:21 +0000
+	id 1sRqAa9twmgoTQAAD6G6ig
+	(envelope-from <jgross@suse.com>); Thu, 11 Sep 2025 06:35:27 +0000
 From: Juergen Gross <jgross@suse.com>
 To: linux-kernel@vger.kernel.org,
 	virtualization@lists.linux.dev,
 	x86@kernel.org
 Cc: Juergen Gross <jgross@suse.com>,
-	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Ajay Kaher <ajay.kaher@broadcom.com>,
 	Alexey Makhalov <alexey.makhalov@broadcom.com>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: [PATCH 07/14] arm/paravirt: use common code for paravirt_steal_clock()
-Date: Thu, 11 Sep 2025 08:34:26 +0200
-Message-ID: <20250911063433.13783-8-jgross@suse.com>
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 08/14] arm64/paravirt: use common code for paravirt_steal_clock()
+Date: Thu, 11 Sep 2025 08:34:27 +0200
+Message-ID: <20250911063433.13783-9-jgross@suse.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250911063433.13783-1-jgross@suse.com>
 References: <20250911063433.13783-1-jgross@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Queue-Id: A431A3FA80
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-6.80 / 50.00];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_COUNT_TWO(0.00)[2];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.com:mid];
+	DKIM_SIGNED(0.00)[suse.com:s=susede1];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[10];
+	RCVD_TLS_ALL(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_233524_919217_3EF14AB9 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20250910_233530_735194_DBF645FA 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,29 +123,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Remove the arch specific variant of paravirt_steal_clock() and use
 the common one instead.
 
-This allows to remove paravirt.c and paravirt.h from arch/arm.
-
-Until all archs supporting Xen have been switched to the common code
-of paravirt_steal_clock(), drivers/xen/time.c needs to include
-asm/paravirt.h for those archs, while this is not necessary for arm
-any longer.
-
 Signed-off-by: Juergen Gross <jgross@suse.com>
 ---
- arch/arm/Kconfig                |  1 +
- arch/arm/include/asm/paravirt.h | 18 ------------------
- arch/arm/kernel/Makefile        |  1 -
- arch/arm/kernel/paravirt.c      | 20 --------------------
- drivers/xen/time.c              |  2 ++
- 5 files changed, 3 insertions(+), 39 deletions(-)
- delete mode 100644 arch/arm/include/asm/paravirt.h
- delete mode 100644 arch/arm/kernel/paravirt.c
+ arch/arm64/Kconfig                |  1 +
+ arch/arm64/include/asm/paravirt.h | 10 ----------
+ arch/arm64/kernel/paravirt.c      |  7 -------
+ 3 files changed, 1 insertion(+), 17 deletions(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index b1f3df39ed40..48c3a36a63f8 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1338,6 +1338,7 @@ config UACCESS_WITH_MEMCPY
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index e9bbfacc35a6..08abcd353cf4 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1582,6 +1582,7 @@ config CC_HAVE_SHADOW_CALL_STACK
  
  config PARAVIRT
  	bool "Enable paravirtualization code"
@@ -127,17 +142,14 @@ index b1f3df39ed40..48c3a36a63f8 100644
  	help
  	  This changes the kernel so it can modify itself when it is run
  	  under a hypervisor, potentially improving performance significantly
-diff --git a/arch/arm/include/asm/paravirt.h b/arch/arm/include/asm/paravirt.h
-deleted file mode 100644
-index 69da4bdcf856..000000000000
---- a/arch/arm/include/asm/paravirt.h
-+++ /dev/null
-@@ -1,18 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--#ifndef _ASM_ARM_PARAVIRT_H
--#define _ASM_ARM_PARAVIRT_H
--
--#ifdef CONFIG_PARAVIRT
+diff --git a/arch/arm64/include/asm/paravirt.h b/arch/arm64/include/asm/paravirt.h
+index c9f7590baacb..cb037e742372 100644
+--- a/arch/arm64/include/asm/paravirt.h
++++ b/arch/arm64/include/asm/paravirt.h
+@@ -3,16 +3,6 @@
+ #define _ASM_ARM64_PARAVIRT_H
+ 
+ #ifdef CONFIG_PARAVIRT
 -#include <linux/static_call_types.h>
 -
 -u64 dummy_steal_clock(int cpu);
@@ -148,61 +160,27 @@ index 69da4bdcf856..000000000000
 -{
 -	return static_call(pv_steal_clock)(cpu);
 -}
--#endif
--
--#endif
-diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
-index afc9de7ef9a1..b36cf0cfd4a7 100644
---- a/arch/arm/kernel/Makefile
-+++ b/arch/arm/kernel/Makefile
-@@ -83,7 +83,6 @@ AFLAGS_iwmmxt.o			:= -Wa,-mcpu=iwmmxt
- obj-$(CONFIG_ARM_CPU_TOPOLOGY)  += topology.o
- obj-$(CONFIG_VDSO)		+= vdso.o
- obj-$(CONFIG_EFI)		+= efi.o
--obj-$(CONFIG_PARAVIRT)	+= paravirt.o
  
- obj-y			+= head$(MMUEXT).o
- obj-$(CONFIG_DEBUG_LL)	+= debug.o
-diff --git a/arch/arm/kernel/paravirt.c b/arch/arm/kernel/paravirt.c
-deleted file mode 100644
-index 3895a5578852..000000000000
---- a/arch/arm/kernel/paravirt.c
-+++ /dev/null
-@@ -1,20 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- *
-- * Copyright (C) 2013 Citrix Systems
-- *
-- * Author: Stefano Stabellini <stefano.stabellini@eu.citrix.com>
-- */
--
--#include <linux/export.h>
--#include <linux/jump_label.h>
--#include <linux/types.h>
--#include <linux/static_call.h>
--#include <asm/paravirt.h>
--
+ int __init pv_time_init(void);
+ 
+diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c
+index 943b60ce12f4..572efb96b23f 100644
+--- a/arch/arm64/kernel/paravirt.c
++++ b/arch/arm64/kernel/paravirt.c
+@@ -25,13 +25,6 @@
+ #include <asm/pvclock-abi.h>
+ #include <asm/smp_plat.h>
+ 
 -static u64 native_steal_clock(int cpu)
 -{
 -	return 0;
 -}
 -
 -DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
-diff --git a/drivers/xen/time.c b/drivers/xen/time.c
-index d360ded2ef39..53b12f5ac465 100644
---- a/drivers/xen/time.c
-+++ b/drivers/xen/time.c
-@@ -10,7 +10,9 @@
- #include <linux/static_call.h>
- #include <linux/sched/cputime.h>
- 
-+#ifndef CONFIG_HAVE_PV_STEAL_CLOCK_GEN
- #include <asm/paravirt.h>
-+#endif
- #include <asm/xen/hypervisor.h>
- #include <asm/xen/hypercall.h>
- 
+-
+ struct pv_time_stolen_time_region {
+ 	struct pvclock_vcpu_stolen_time __rcu *kaddr;
+ };
 -- 
 2.51.0
 
