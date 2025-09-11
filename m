@@ -4,87 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9D9CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BAA2CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 09:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPLuj/xTIdlTADyQSmFwiDNGb2wswqT9CA7Ixd8e3JM=; b=J6iVAjlGytQd3vVV/jyRaX+c36
-	XOSInUdpMT6T2DVfEEHHrg1YDq3/0NC12NM8/mzaRvFcuCpRBq/W9E5i8f3DA8oYVisWuGCjkA+E8
-	Ftdy7bQFTJbui70dcQ4kguzHCHGSbSFbeooR1KQo/yXtvtG/S79KX4kGVlpOc581iKMCNmRAYnq2c
-	sMqJAVNwqVsXR8Pa8FGldEqSupsPdzHfJ0ga60x8hBgMubNVFBlvhnn/5NOV0cqZL69AEwWKN/Zay
-	9HFHl1gBL/5R9vRfOMaqWw7nQaxrsjsefn8SDsULjmONq5FVlz13yQ5PN3CLuc7vcNduXei+s8k+W
-	CdKzAWwg==;
+	bh=Sel27oZgcA+4qs92Ns785z7hsDLS/ChrGwuIP1OX4QY=; b=uCGBKbnzx/uQ4JcSwgJR4Rfo8Y
+	9Hd8w7Z6FSnzvYyrhjtYbWcaGm1ee9ZOCmfBRQdRNfV5SLhQs1QtpzaHgG6qSjgkwtbz24tRfW0Mt
+	ZUNeqqm5RpgE6hnP8q3m9fCYRixd4QsKTovwxiVeaQx2uVa1q+PC/3Fk+z2lDIjx0bYcFsmpe53VZ
+	BJx0uAKc7kDow9zy6Qsf4IF57BUdMDSBY5poVyjp1Aigky8bPFZhFsy0V3FI2gIy2FwWgtaq3I+kp
+	OK+JbfjwlnTs+oVnfhtpzaGM5/pcuwjS8/WANHollcyvCdoyPjROHh+RyFxMBJ3U7fnPlfusrcilp
+	Tqvymuww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwd8U-00000001xdZ-3EjU;
-	Thu, 11 Sep 2025 08:58:34 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uwdB2-00000001yJy-3P1y;
+	Thu, 11 Sep 2025 09:01:12 +0000
+Received: from out-171.mta1.migadu.com ([95.215.58.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwd8S-00000001xc5-1z8R
+	id 1uwdAx-00000001yG6-1Wux
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 08:58:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tPLuj/xTIdlTADyQSmFwiDNGb2wswqT9CA7Ixd8e3JM=; b=LWPQrx41+Rmfg6soc8oQ3DEebT
-	bVi4OQPrsC+xG5p3CX+gQM//aAIc3Fnm7CMBogIaJolTkGVZpz2Pq+qCDdf6M9oASVduVjkTUMkDE
-	tkqEKyQ4V0gmgNaLeX5b14pHDON4ar7eA4rlZSv0JkApnRdB5RIlEZRTj0D0s5cD2x/NFYbAvbAd3
-	szZLZ1NVhaUdbLgJFt8OgaW3ECtv6UMA3JqySsjpdMqATN+8kKmDE9peKt/5dsZ6xXNmv93m5GeTg
-	Hih91SSLoTQ4FYfTqr7bzcGsNJaSWHwmiZmVpQp+ElZ58lMPYeUOq0qVfZWAd/s5KzzoiEdSdGda8
-	T5s8PQkA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55362)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uwd89-000000002hN-1Tq6;
-	Thu, 11 Sep 2025 09:58:13 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uwd84-000000002Db-3VMI;
-	Thu, 11 Sep 2025 09:58:08 +0100
-Date: Thu, 11 Sep 2025 09:58:08 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 2/9] dt-bindings: net: qcom: document the ethqos device
- for SCMI-based systems
-Message-ID: <aMKPIFmOS1riOajH@shell.armlinux.org.uk>
-References: <20250910-qcom-sa8255p-emac-v1-0-32a79cf1e668@linaro.org>
- <20250910-qcom-sa8255p-emac-v1-2-32a79cf1e668@linaro.org>
- <24cd127d-1be7-42f4-a2ec-697c5e7554db@lunn.ch>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <24cd127d-1be7-42f4-a2ec-697c5e7554db@lunn.ch>
+	Thu, 11 Sep 2025 09:01:11 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1757581264;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Sel27oZgcA+4qs92Ns785z7hsDLS/ChrGwuIP1OX4QY=;
+	b=RIVDSn+hVXAKKajO3BRUnX+PyZI/AhKE0Wn5Etb5gKNYHCOfcMIm2lXptzKPu5a13C8hqi
+	dTzFniMW80cSeplBesZEyQGxWOkYxU90JGNGZlx+n5/rx3fjS866EjUs48bRz15GiymiwQ
+	9GBNt8cBZyfIMIVUsZZJ1KhohDTSXlnBhdldGJaop/ST6Z4AOs7x1c39BgtYxLHS7jrAbs
+	8g4/WVpaJAJj4cswJCf636dAspMsev8cp1tPn8Y00ZI/YhWeUdEGoPcWVohRk5TW3bESc+
+	53r0AmyXBLDBJorq9A+l9swYRAiEEp7gH7KDOCvVsNfXqgIj/GivbNrq+kTUhQ==
+Content-Type: multipart/signed;
+ boundary=ae5433376ac9f3e1826a9aad5813272fffe73f438ca790723a238b2ba171;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Thu, 11 Sep 2025 11:00:54 +0200
+Message-Id: <DCPUK1QMC94L.281K2EV4NQOWS@cknow.org>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Christian Hewitt" <christianshewitt@gmail.com>, "Rob Herring"
+ <robh+dt@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
+Cc: "Alex Bee" <knaerzche@gmail.com>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 1/2] arm64: dts: rockchip: add GPU powerdomain, opps,
+ and cooling to rk3328
+References: <20250906120810.1833016-1-christianshewitt@gmail.com>
+In-Reply-To: <20250906120810.1833016-1-christianshewitt@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_015832_517428_15EE7C59 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250911_020108_464908_C2261999 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +74,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 06:04:28PM +0200, Andrew Lunn wrote:
-> > +    ethernet: ethernet@7a80000 {
-> > +        compatible = "qcom,sa8255p-ethqos";
-> > +        reg = <0x23040000 0x10000>,
-> > +              <0x23056000 0x100>;
-> > +        reg-names = "stmmaceth", "rgmii";
-> > +
-> > +        iommus = <&apps_smmu 0x120 0x7>;
-> > +
-> > +        interrupts = <GIC_SPI 946 IRQ_TYPE_LEVEL_HIGH>,
-> > +                     <GIC_SPI 782 IRQ_TYPE_LEVEL_HIGH>;
-> > +        interrupt-names = "macirq", "sfty";
-> > +
-> > +        dma-coherent;
-> > +
-> > +        snps,tso;
-> > +        snps,pbl = <32>;
-> > +        rx-fifo-depth = <16384>;
-> > +        tx-fifo-depth = <16384>;
-> > +
-> > +        phy-handle = <&sgmii_phy1>;
-> > +        phy-mode = "2500base-x";
-> 
-> Nitpicking: It is clearly not an SGMII PHY if it support
-> 2500BaseX. You might want to give the node a better name.
-> 
-> > +        snps,mtl-rx-config = <&mtl_rx_setup1>;
-> > +        snps,mtl-tx-config = <&mtl_tx_setup1>;
-> > +        snps,ps-speed = <1000>;
-> 
-> Since this MAC can do 2.5G, is 1000 correct here?
+--ae5433376ac9f3e1826a9aad5813272fffe73f438ca790723a238b2ba171
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-The driver only accepts 10, 100 and 1000 here. Not sure if that's
-documented in the binding.
+On Sat Sep 6, 2025 at 2:08 PM CEST, Christian Hewitt wrote:
+> From: Alex Bee <knaerzche@gmail.com>
+>
+> Add GPU powerdomain, opp-table, and cooling map nodes for the Mali
+> GPU on the RK3328 SoC. Opp-table frequencies are sourced from the
+> Rockchip Linux v4.4 vendor kernel while voltages have been derived
+> from practical use and support work: keeping voltage above 1075mV
+> and disabling the 500MHz opp-point avoids instability and crashes.
+>
+> Signed-off-by: Alex Bee <knaerzche@gmail.com>
+> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
 
-Also, does snps,ps-speed need to be set if we're not immitating a PHY
-with the PCS? My understanding is that snps,ps-speed is only relevant
-in that circumstance. (I suspect many DTS get this wrong.)
+Now that the 'other' issue with power domains has been resolved, or at
+least localized, I feel (more) comfortable giving my
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock64
+
+Cheers,
+  Diederik
+
+> ---
+> Changes since v2:
+> - Revert to gpu_opp_table but retain opp-table-gpu $nodename
+> Changes since v1:
+> - Use opp_table_gpu not gpu_opp_table to fix dtb schema warnings
+>
+>  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39 +++++++++++++++++++++++-
+>  1 file changed, 38 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/d=
+ts/rockchip/rk3328.dtsi
+> index 6438c969f9d7..610c1c27b798 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+> @@ -331,6 +331,11 @@ power: power-controller {
+>  			#address-cells =3D <1>;
+>  			#size-cells =3D <0>;
+> =20
+> +			power-domain@RK3328_PD_GPU {
+> +				reg =3D <RK3328_PD_GPU>;
+> +				clocks =3D <&cru ACLK_GPU>;
+> +				#power-domain-cells =3D <0>;
+> +			};
+>  			power-domain@RK3328_PD_HEVC {
+>  				reg =3D <RK3328_PD_HEVC>;
+>  				clocks =3D <&cru SCLK_VENC_CORE>;
+> @@ -570,9 +575,13 @@ map0 {
+>  							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+>  					contribution =3D <4096>;
+>  				};
+> +				map1 {
+> +					trip =3D <&target>;
+> +					cooling-device =3D <&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+> +					contribution =3D <4096>;
+> +				};
+>  			};
+>  		};
+> -
+>  	};
+> =20
+>  	tsadc: tsadc@ff250000 {
+> @@ -651,7 +660,35 @@ gpu: gpu@ff300000 {
+>  				  "ppmmu1";
+>  		clocks =3D <&cru ACLK_GPU>, <&cru ACLK_GPU>;
+>  		clock-names =3D "bus", "core";
+> +		operating-points-v2 =3D <&gpu_opp_table>;
+> +		power-domains =3D <&power RK3328_PD_GPU>;
+>  		resets =3D <&cru SRST_GPU_A>;
+> +		#cooling-cells =3D <2>;
+> +	};
+> +
+> +	gpu_opp_table: opp-table-gpu {
+> +		compatible =3D "operating-points-v2";
+> +		opp-200000000 {
+> +			opp-hz =3D /bits/ 64 <200000000>;
+> +			opp-microvolt =3D <1075000>;
+> +		};
+> +
+> +		opp-300000000 {
+> +			opp-hz =3D /bits/ 64 <300000000>;
+> +			opp-microvolt =3D <1075000>;
+> +		};
+> +
+> +		opp-400000000 {
+> +			opp-hz =3D /bits/ 64 <400000000>;
+> +			opp-microvolt =3D <1075000>;
+> +		};
+> +
+> +		opp-500000000 {
+> +			/* causes stability issues */
+> +			opp-hz =3D /bits/ 64 <500000000>;
+> +			opp-microvolt =3D <1150000>;
+> +			status =3D "disabled";
+> +		};
+>  	};
+> =20
+>  	h265e_mmu: iommu@ff330200 {
+
+
+--ae5433376ac9f3e1826a9aad5813272fffe73f438ca790723a238b2ba171
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaMKPyQAKCRDXblvOeH7b
+bnvvAP9cDJ5evO0m4pNc3VzMtFadq913C7DWR5qrTp1cVAzeMAD/ZA+eArhOyXVx
+S3TR4Ha5ypA3l+htGbzr3UZ2YtgszQA=
+=K9LX
+-----END PGP SIGNATURE-----
+
+--ae5433376ac9f3e1826a9aad5813272fffe73f438ca790723a238b2ba171--
 
