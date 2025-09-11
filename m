@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5EACA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 02:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC337CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 02:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zu/ILIakLLn37rYFw5PvXVXf22PCnsMSBiyyFDARzl8=; b=OCJWwhTcNUTc2D9bZAaZUA/E6U
-	KFj8VhVkEicANqHX81Ktnc+2tsW1F+VSMO5MEYGT3RBgK9ISWqS961NbQzlMpxp48Mj120qpUFeOn
-	8WlcDQ4ACsigCcGHqp6Wcd3Fkb9EKwFgTLek8OXDDry11RgWsKFH1nVIfCgC/KA87IOkymG/iHTxw
-	iOt+9ekagw7pTNPV2oF2t5TBRizwgPukYpdwehYI60/08r+bxupozKvA9orQdOdy0D7ago92iCvRU
-	mpWEEfnahPFQN3K88/BISf8dJL+u+b3r2iyxVpbbnGQ1tGKa39YovO78Ga6lrX5+5FPqu3eUNiEM5
-	xjyv4VZw==;
+	bh=Raijf0pxSNsl3FesVHkWVDpo58+B3Fa1eBdInzF1Pzo=; b=1M1iyThavpOkWaSUiyA6/rqg6N
+	YuOk9ukwpafln3YMiaAzyqIRQhPrcVhTHv31VGAi6Vf50VnQwiAzBJQYXYNUQJ8M7wDqDwz3tzSms
+	2oBQbtaIJdps66uSXhj5JrkYBpZPgrrDlZQtz+xlxCijOVFtXHPCCa03LQhc8sJ3XCK2JeIKrGZw8
+	DZVs7q8IiXTBV+e6P9+39Yb1ePNyFRSXEMjv8+wkqp4PsIHlcf6KxqCwrt+C7/Z7WOYt0LB13fwJf
+	s0+ZH4rlAtaeCFeWZ/XcEzIXaYlKPDRk5TkOPDnrNzQ+FG5ILlNUB+2xBPx2xENtr+Legwjhxhq79
+	L0ngdvkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwXB6-00000000Q4O-3vEE;
-	Thu, 11 Sep 2025 02:36:52 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
+	id 1uwXTz-00000000U3K-0mOR;
+	Thu, 11 Sep 2025 02:56:23 +0000
+Received: from mail-m16.yeah.net ([1.95.21.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwXB3-00000000Q2S-3M4p
+	id 1uwXTw-00000000U2M-35a6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 02:36:51 +0000
+	Thu, 11 Sep 2025 02:56:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=Zu/ILIakLLn37rYFw5PvXVXf22PCnsMSBiyyFDARzl8=;
-	b=LNUxbfE6VV4SLAXXaUc2enyKWX3CzNsQeTquFa24c/YqA3DtbIWaWxSlZL2QTY
-	j6r6RKdmhYJgOsiVLuvuKFbEgPyZaPGWzN61nCOmjZfyZ0X5u7dwNL1V0cjh+Lae
-	eI51un27bmcSFLxOLoGJoerqTZZUZrqziKt9H752u3gjk=
+	Content-Type; bh=Raijf0pxSNsl3FesVHkWVDpo58+B3Fa1eBdInzF1Pzo=;
+	b=WlYgDmVJKeOz2HCf2T+/k5D8y+gVK/8GI5wnA3CJUtFKLCw3FKtT0HQ+SMWNbN
+	r1wUJRj7/OCzAdF3qFfo7/QL143fSqZlCBNUoLAN0RUyGDl9hrO6ejStoJN9kwpN
+	2v5r3juk1e+SmN/7wYQu30AYMQ0qkRkmT26/xaXEquwfs=
 Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDnX_mnNcJo1g9gBA--.44535S3;
-	Thu, 11 Sep 2025 10:36:25 +0800 (CST)
-Date: Thu, 11 Sep 2025 10:36:22 +0800
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgAHe3scOsJocw1PBA--.47548S3;
+	Thu, 11 Sep 2025 10:55:27 +0800 (CST)
+Date: Thu, 11 Sep 2025 10:55:24 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linaro-s32@linaro.org
-Subject: Re: [PATCH v3 3/3] arm64: dts: s32g: Add device tree information for
- the OCOTP driver
-Message-ID: <aMI1pidrSAIAwab9@dragon>
-References: <cover.1756800543.git.dan.carpenter@linaro.org>
- <7877e1958fa92df92b2b5229365c86493c620c8c.1756800543.git.dan.carpenter@linaro.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, Joy Zou <joy.zou@nxp.com>,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, richardcochran@gmail.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	frieder.schrempf@kontron.de, primoz.fiser@norik.com,
+	othacehe@gnu.org, Markus.Niebel@ew.tq-group.com,
+	alexander.stein@ew.tq-group.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
+	netdev@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v10 0/6] Add i.MX91 platform support
+Message-ID: <aMI6HNACh3y1UWhW@dragon>
+References: <20250901103632.3409896-1-joy.zou@nxp.com>
+ <175694281723.1237656.10367505965534451710.git-patchwork-notify@kernel.org>
+ <aMI0PJtHJyPom68X@dragon>
+ <aMI1ljdUkC3qxGU9@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7877e1958fa92df92b2b5229365c86493c620c8c.1756800543.git.dan.carpenter@linaro.org>
-X-CM-TRANSID: Ms8vCgDnX_mnNcJo1g9gBA--.44535S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUzcTmUUUUU
+In-Reply-To: <aMI1ljdUkC3qxGU9@lizhi-Precision-Tower-5810>
+X-CM-TRANSID: Mc8vCgAHe3scOsJocw1PBA--.47548S3
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Jw1DAFWDKryUWw18Wr18uFg_yoWxAwbEvF
+	4UZw4kCws8GF4UK3Wktrn3AwnYya47Xa4xXr1UWw43Z3Z5ArWkXFWFgFWkJFn5KFWkJFna
+	yr9IqrWq9rWa9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8S1v3UUUUU==
 X-Originating-IP: [114.216.146.49]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNAlCp2jCNanx7wAA3w
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCwXFZWjCG0lVNgAAs1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_193650_173830_DAEF215C 
-X-CRM114-Status: UNSURE (   7.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250910_195621_078123_103279C3 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,13 +86,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 12:47:57PM +0300, Dan Carpenter wrote:
-> Add the device tree information for the S32G On Chip One-Time
-> Programmable Controller (OCOTP) chip.
+On Wed, Sep 10, 2025 at 10:36:06PM -0400, Frank Li wrote:
+> On Thu, Sep 11, 2025 at 10:30:20AM +0800, Shawn Guo wrote:
+> > On Wed, Sep 03, 2025 at 11:40:17PM +0000, patchwork-bot+netdevbpf@kernel.org wrote:
+> > > Hello:
+> > >
+> > > This series was applied to netdev/net-next.git (main)
+> > > by Jakub Kicinski <kuba@kernel.org>:
+> >
+> > Jakub,
+> >
+> > Can you stop applying DTS changes via net tree?
 > 
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> shawn:
+> 	Suppose Jaku only pick patch 6.
+> 
+>         - [v10,6/6] net: stmmac: imx: add i.MX91 support
+>           https://git.kernel.org/netdev/net-next/c/59aec9138f30
+> 
+> other patches is "(no matching commit)"
 
-It doesn't apply to imx/dt64 branch.  Could you rebase?
+Ah, sorry for missing that!  Thanks for pointing it out, Frank!
 
 Shawn
 
