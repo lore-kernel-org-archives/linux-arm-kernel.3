@@ -4,58 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDCFCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8CBBCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ff/wyuZO5UIQVkCR2N2KX4E1vX6xd5TgHmsu3ejak7Q=; b=00DbDQES5Dk1InWzSAC4bDbMBx
-	WMzVuHmCJ7xqff737UOZoC/Btwamo69mcgnuJwuMsT1GZFEWzbvck4uXA0w2wQz/mWqXQzdC6YbFG
-	OYHDnRuJ3svE1mNEYV0Id04W6cuulH0OKd6JdJ0KfG9qP9vwVjsU1X3fBFsvq1me24QT3M3sztOkx
-	M3WLSLvjZyNgTa6gIz0Nqig0Z/vEUMrh3CTkWXVe5dd8CYRVhVnPC6lk2m49h5WqylGRBiRQkEQQi
-	UIEyPqhz79HpPjqpcF4iwINbVWki1fvsyql6gmvzcc/5Jz8jB7BVoYoMtPwF0Yq5eLSErjdM5KB5B
-	DbMoDSiw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dtiwqfLbp3GtprxteMFiX6t05bVcKl84hrmmLTqYYlY=; b=jEhwp8vLNokg1gNUcDjyTR0F6I
+	9SZo/Tww9XS7pSFFu5Ul5gT2zTjUBwXvCBixueBWuJ93ntdIDZRNa352MTmczEElDV1SI40KmhUc/
+	l0qfarbdqQ4c1Zbjrhqw1EEQk1ukiSi4U7QohBi3eSCqdggaAeiA3E9nYOzty6e5WMgDUVLixd9wz
+	6oig1Bnn7i7CRZXLd21haNGFQ3fJDBzsXKJf5svQgzYMkDDNiqpG1oUY9Mxw9T70T/xFYjeNr87ap
+	+mYxhbnmaMr92ntNV2bEFU453QmRLs4GnJe50C8VcG2/IJCw3Jtc5BUNFPQ89yEBm1x/eCDU4vLF0
+	tjXVuxuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjIj-00000003v9b-1Qty;
-	Thu, 11 Sep 2025 15:33:33 +0000
-Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjIg-00000003v6a-0cSc
+	id 1uwjMy-00000003wZt-1dNM;
+	Thu, 11 Sep 2025 15:37:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwjMv-00000003wZU-3m2T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:33:32 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1757604806;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ff/wyuZO5UIQVkCR2N2KX4E1vX6xd5TgHmsu3ejak7Q=;
-	b=C37DQb3OEJOJsqSu2+34RxAJXBOa8EL9L4biqD5chRL3DhDnVB9duDnfJvNl+Ip2kBMf+o
-	W6h0neeBYXplrNbQuxWPsow9OirZjuPEsGMhg46k+mXfF82dQTipBWqLVlWwLWn79w8NVX
-	33OYtb0xp0cVFt4l9QgolRLmDJTm8Y8=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Linu Cherian <lcherian@marvell.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH v2] coresight: Fix possible deadlock in coresight_panic_cb
-Date: Thu, 11 Sep 2025 11:33:15 -0400
-Message-Id: <20250911153315.3607119-1-sean.anderson@linux.dev>
+	Thu, 11 Sep 2025 15:37:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 69F29153B;
+	Thu, 11 Sep 2025 08:37:44 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E3363F63F;
+	Thu, 11 Sep 2025 08:37:48 -0700 (PDT)
+Message-ID: <8ed9fbe9-1075-4abb-91d0-20203906a4dc@arm.com>
+Date: Thu, 11 Sep 2025 16:37:46 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/29] arm_mpam: Probe the hardware features resctrl
+ supports
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-14-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250910204309.20751-14-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_083330_935664_83D49F80 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20250911_083753_979992_3286B9C7 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,114 +82,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-coresight_panic_cb is called with interrupts disabled during panics.
-However, bus_for_each_dev calls bus_to_subsys which takes
-bus_kset->list_lock without disabling IRQs. This will cause a deadlock
-if a panic occurs while one of the other coresight functions that uses
-bus_for_each_dev is running.
+Hi James,
 
-Maintain a separate list of coresight devices to access during a panic.
+On 9/10/25 21:42, James Morse wrote:
+> Expand the probing support with the control and monitor types
+> we can use with resctrl.
+> 
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since v1:
+>  * added an underscore to a variable name.
+> 
+> Changes since RFC:
+>  * Made mpam_ris_hw_probe_hw_nrdy() more in C.
+>  * Added static assert on features bitmap size.
+> ---
+>  drivers/resctrl/mpam_devices.c  | 151 ++++++++++++++++++++++++++++++++
+>  drivers/resctrl/mpam_internal.h |  53 +++++++++++
+>  2 files changed, 204 insertions(+)
+> 
+[snip]
+>  
+>  	spin_lock(&partid_max_lock);
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 4cc44d4e21c4..5ae5d4eee8ec 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -112,6 +112,55 @@ static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
+>  	raw_spin_lock_init(&msc->_mon_sel_lock);
+>  }
+>  
+> +/*
+> + * When we compact the supported features, we don't care what they are.
+> + * Storing them as a bitmap makes life easy.
+> + */
+> +typedef u16 mpam_features_t;
+> +
+> +/* Bits for mpam_features_t */
+> +enum mpam_device_features {
+> +	mpam_feat_ccap_part = 0,
+> +	mpam_feat_cpor_part,
+> +	mpam_feat_mbw_part,
+> +	mpam_feat_mbw_min,
+> +	mpam_feat_mbw_max,
+> +	mpam_feat_mbw_prop,
+> +	mpam_feat_msmon,
+> +	mpam_feat_msmon_csu,
+> +	mpam_feat_msmon_csu_capture,
+> +	mpam_feat_msmon_csu_hw_nrdy,
+> +	mpam_feat_msmon_mbwu,
+> +	mpam_feat_msmon_mbwu_capture,
+> +	mpam_feat_msmon_mbwu_rwbw,
+> +	mpam_feat_msmon_mbwu_hw_nrdy,
+> +	mpam_feat_msmon_capt,
+> +	MPAM_FEATURE_LAST,
+> +};
 
-Fixes: 46006ceb5d02 ("coresight: core: Add provision for panic callbacks")
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
----
+I added a garbled comment about this for v1. What I was trying to say is
+that I don't think this quite matches what resctrl supports. For
+instance, I don't think mpam_feat_ccap_part matches a resctrl feature.
 
-Changes in v2:
-- Add a comment describing csdev_lock/list
-- Consolidate list removal in coresight_device_release
+Thanks,
 
- drivers/hwtracing/coresight/coresight-core.c | 43 +++++++++++---------
- include/linux/coresight.h                    |  1 +
- 2 files changed, 25 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index fa758cc21827..4e28e56f2e30 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1042,10 +1042,19 @@ static void coresight_clear_default_sink(struct coresight_device *csdev)
- 	}
- }
- 
-+/*
-+ * Dedicated list of devices for use by during panic (which may occur with
-+ * interrupts disabled).
-+ */
-+static DEFINE_SPINLOCK(csdev_lock);
-+static LIST_HEAD(csdev_list);
-+
- static void coresight_device_release(struct device *dev)
- {
- 	struct coresight_device *csdev = to_coresight_device(dev);
- 
-+	scoped_guard(spinlock_irq, &csdev_lock)
-+		list_del(&csdev->csdev_list);
- 	fwnode_handle_put(csdev->dev.fwnode);
- 	free_percpu(csdev->perf_sink_id_map.cpu_map);
- 	kfree(csdev);
-@@ -1357,6 +1366,10 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 			goto err_out;
- 		}
- 	}
-+
-+	scoped_guard(spinlock_irq, &csdev_lock)
-+		list_add(&csdev->csdev_list, &csdev_list);
-+
- 	/*
- 	 * Make sure the device registration and the connection fixup
- 	 * are synchronised, so that we don't see uninitialised devices
-@@ -1563,28 +1576,20 @@ const struct bus_type coresight_bustype = {
- 	.name	= "coresight",
- };
- 
--static int coresight_panic_sync(struct device *dev, void *data)
--{
--	int mode;
--	struct coresight_device *csdev;
--
--	/* Run through panic sync handlers for all enabled devices */
--	csdev = container_of(dev, struct coresight_device, dev);
--	mode = coresight_get_mode(csdev);
--
--	if ((mode == CS_MODE_SYSFS) || (mode == CS_MODE_PERF)) {
--		if (panic_ops(csdev))
--			panic_ops(csdev)->sync(csdev);
--	}
--
--	return 0;
--}
--
- static int coresight_panic_cb(struct notifier_block *self,
- 			       unsigned long v, void *p)
- {
--	bus_for_each_dev(&coresight_bustype, NULL, NULL,
--				 coresight_panic_sync);
-+	struct coresight_device *csdev;
-+
-+	guard(spinlock)(&csdev_lock);
-+	list_for_each_entry(csdev, &csdev_list, csdev_list) {
-+		/* Run through panic sync handlers for all enabled devices */
-+		int mode = coresight_get_mode(csdev);
-+
-+		if ((mode == CS_MODE_SYSFS || mode == CS_MODE_PERF) &&
-+		    panic_ops(csdev))
-+			panic_ops(csdev)->sync(csdev);
-+	}
- 
- 	return 0;
- }
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 4ac65c68bbf4..a5e62ebd03b5 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -302,6 +302,7 @@ struct coresight_device {
- 	/* system configuration and feature lists */
- 	struct list_head feature_csdev_list;
- 	struct list_head config_csdev_list;
-+	struct list_head csdev_list;
- 	raw_spinlock_t cscfg_csdev_lock;
- 	void *active_cscfg_ctxt;
- };
--- 
-2.35.1.1320.gc452695387.dirty
+Ben
 
 
