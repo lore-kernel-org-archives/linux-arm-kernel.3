@@ -4,139 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590E5CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52074CAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2DN51fWwkZ0BzktN8t0oKatmLADdpIg1n5KeuTj1rmo=; b=3pGJhigOQ1sMRPIVqydxiGRrkR
-	JNNJzzTwDymDxO3tKaviS/sM3GXWEDCc/Rgb7tqyAAvJjrE0e/2FShOyC5d98pWQi2F/phpTjn6ps
-	x6nsTnetvM2X6XQiF8zs1m6eaThuYEOuNB6A+mpvPNiAVUHZrPJjsYxWHa3JSF833bOOlHzM2Y2Ku
-	/u9yiV4v1//qxH+6mMjW+wnqYOQnro2V1KJRFZ8aJE4lmFvEaypCaXwt95NavncUo/qNbTpuFi/OH
-	PmavBAW7UqFiYA3O5AYIdZLuap8lrJR4+0NB2CtCN5Jud5/hR33whE3k5H/1Q3y1pL/zmyJSb9Xzn
-	I1cdV90w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jUK8rXo2J6tdIuNkdbMKBrXU6Rird8FTI89p+KzSTdU=; b=EdhnwHGRCDEdK9FE19PZorQJfG
+	lwB9ecDgjQSukdBnwayQ6d28ByjR/T73SqerUZpdej5Dk6eaiReBiKBwzy3rHIcpU6xAfzVYzeksV
+	PriblCzEhp5OMcFeuE/sde9sq7T4Zv0G6r/ACudD5C5si3yqE5vcvURDr7XI/coZzWhSZSes5MJ3R
+	/EtZz07pfwFuc2GuQ0EH5DL58jfxRra2vCHrRPWCui3FFxZ8V4kpOq8cuCAWTqgg1GP+gWfJqDnI0
+	idyM0otw4e65b1ysEyVTUygK0Z8nnEOA2ZBUF1Qd4I7aySLdnIb8k3HsCw6dvMdUoIubvYFNFPZIH
+	HMIYWgOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbjc-00000001UCx-1Kyx;
-	Thu, 11 Sep 2025 07:28:48 +0000
-Received: from mail-bn8nam11on20610.outbound.protection.outlook.com ([2a01:111:f403:2414::610] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uwbt1-00000001Xp6-2J2G;
+	Thu, 11 Sep 2025 07:38:31 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbjV-00000001U6U-1zvt
+	id 1uwbsx-00000001XmW-20sQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 07:28:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E7HUTdq7KwIqxqKjlvwXsMHNwRj4JDU1md6X5eNcQqoHYs3WAuCCyHCk063Yt3AtOQCUYu4PU68U6GOXCss7X/QfA2H3sZrxbwlgJq7+wQt5JRFqgl8htAZciIk5lAR6YRjlSHm8EowUkIefuIt1pkHJBDSebWc0rrT+dGItWiDlrH+surELvgU7s93IX30ZUKuEhDSVAmrpAxPIMloVollvA2yjsEHLIQecu9NArubzVyV5h9jfW6TZbKIQKREFq6ffdkInwSmy5G8hCsLAbKqsMHK8PicQV2nVHWltKbZB5I+5W+Y/RttEb2wofcMhvNIyCTHLvY7Wuit219Ggmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2DN51fWwkZ0BzktN8t0oKatmLADdpIg1n5KeuTj1rmo=;
- b=GSC/B66ct+zi3Zp5bpP7bQ/rLffpYFtzvf12e5sd77ePdV15kzNcIa11hUzm1QmHI/lhZx+y/Hl3cUPo2t8ui3rJvdSMNluWbWMHq9XgElO+tUBgP5XB+cSkeEpew+NpTDLQTolvrpmkC4hcjg5yUMCMgFjlx9GJtTsRN4oAupGCnPczgrK9/XfkGRMinS802xjrZ/0aynwcXrOPbz5JHqJfF3KQwWhkpspsywL40Sj9DYDYyewnpd/fvm6VkzHbdzhh3uJyu1wtqTEUxOsL/FwWXxthk/8LHO7u9z+A7Gcd55zGbEhY/oIQum7wS3SjI9xyr8HC9oCAgUbq9vvHGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2DN51fWwkZ0BzktN8t0oKatmLADdpIg1n5KeuTj1rmo=;
- b=i2BTNQNqXQpVk5qGW7JmiSFn7HkH5msioErGVoDcXpjlYIWYd4V0jYTXEZyuO82RnI/o8kyztmPzoi9KG6DQRMgs9spZEPsRfCsLDH3M6XVgSrNpzJkHhRX19xUvEleP9YQktzxGJahyPEK9gv34S63ku6kHWoHIfoYtVLZ1dt8=
-Received: from DM6PR04CA0023.namprd04.prod.outlook.com (2603:10b6:5:334::28)
- by CH3PR12MB8188.namprd12.prod.outlook.com (2603:10b6:610:120::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Thu, 11 Sep
- 2025 07:28:31 +0000
-Received: from DS3PEPF000099DA.namprd04.prod.outlook.com
- (2603:10b6:5:334:cafe::14) by DM6PR04CA0023.outlook.office365.com
- (2603:10b6:5:334::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.16 via Frontend Transport; Thu,
- 11 Sep 2025 07:28:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- DS3PEPF000099DA.mail.protection.outlook.com (10.167.17.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9115.13 via Frontend Transport; Thu, 11 Sep 2025 07:28:30 +0000
-Received: from SATLEXMB05.amd.com (10.181.40.146) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Thu, 11 Sep
- 2025 00:28:30 -0700
-Received: from satlexmb07.amd.com (10.181.42.216) by SATLEXMB05.amd.com
- (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 11 Sep
- 2025 02:28:29 -0500
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 11 Sep 2025 00:28:25 -0700
-From: Suraj Gupta <suraj.gupta2@amd.com>
-To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <michal.simek@amd.com>,
-	<sean.anderson@linux.dev>, <radhey.shyam.pandey@amd.com>, <horms@kernel.org>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <harini.katakam@amd.com>
-Subject: [PATCH net-next 2/2] net: xilinx: axienet: Add inline comment for stats_lock mutex definition
-Date: Thu, 11 Sep 2025 12:58:15 +0530
-Message-ID: <20250911072815.3119843-3-suraj.gupta2@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250911072815.3119843-1-suraj.gupta2@amd.com>
-References: <20250911072815.3119843-1-suraj.gupta2@amd.com>
+	Thu, 11 Sep 2025 07:38:29 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55f6f434c96so385362e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:38:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757576305; x=1758181105; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jUK8rXo2J6tdIuNkdbMKBrXU6Rird8FTI89p+KzSTdU=;
+        b=W4shUZxtZ7WJQ3C1jj/eNuDU7Np3X77r/sqUgNNuCnZo6z9y6mouWj7iO7PDUJKuys
+         R2Wtx4Ilk15ymee4Apt4JxhS9yJySKYfpu8DGcAoNRVIUUAe2ob9JbhvvB6YC9RojM+R
+         kNjyVHTsrMaZ0rrPLhRkdqxlP5bJ02sZqQQ7MbtjnlPR0/TgT4tzzsDh4hWonyHlHVcf
+         QxRsAGjgXym80lFcWXyNFer182qzWr06ZLGPggFE8og4huytMUeE9e9mj5ZNy9esCfDa
+         6n1xIiLebLFZi6QcvQJ2UVhhNcFFYrlUqG4ba+hhkFWqBTdGFZnlRBEQ2XJBN3AceGT0
+         kXrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757576305; x=1758181105;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jUK8rXo2J6tdIuNkdbMKBrXU6Rird8FTI89p+KzSTdU=;
+        b=lP3Q5j4wTDnpA61839IvJyo5ev/NJTODC85LOJVzKrUovuKr+7KvVu82XCMl+6AolB
+         iYh6+8IVew5RlKKgeod75nhd5BE4dRxhnVzJBoCrLJJ06lZ9u/ftp4H2p0EhX/WcTg7w
+         aVunenoeb+PwYcRR3RvrIFgZlrYXPwHO9WwOF/1xvtYi3LKExqD0ZWvVOEkURpqPQp/n
+         6UtZ67o9tSdBdy/k+ojPfllHDM1PMI/rME3z62AQDFxLwCmnp3k0KsGRPsqWIrTanuY2
+         RD4bpDQQrsNfPd7B21wtMFaiAP9yyqjBw6jZl0sWJiWye/HvwYWZiqdJqTJpz9n0gyEG
+         iyBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXKIrfSkhsfe75/Gw6MADeiqBLdpC8NOpUnNfVylgyGiyJ2H3QAS3/kS22MNcLFlq3e5VtprF+cbwHLoQBxtCW5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLdfrXYxeFH/hHVoBOQu3A/4IvSu4MBkKO+IQU/8eWkWj3DXA6
+	JFHoChclzT07L0Abk81juliD0K9ESi7/oPugnMQiNibvnOksaiiCWsS8XQZOu2RGs7OvC6dB3Wr
+	+TIZKpKeOS+usV2XYNZJGCw1ob7C29Uj3uoOz+lhMcg==
+X-Gm-Gg: ASbGncucBOepZlKkxx+jt+J8slIO+NlGsqvR0WnCBkB4t/zunV20cGkBuP4mEtB3ipx
+	qK/0U9/QfERhAoT79312KaMg/z8JDfEIJTQRF46djjNz9+Lr5+fsf8k+ayZcZBPptGTVFZDE7ew
+	qu+7zbeDOoXshrwJ2dKYi8pfBfk2VtNUxiZjhyy3uaL/2WOqVNXoHjkEhQZdeYxPesUe2bt+ZaG
+	rDyVqaSaCi/qsM0Ar/bH4fjYU4EcUawaWSvfeg=
+X-Google-Smtp-Source: AGHT+IGFKCUUrJkt+A6v+xuc1LQXhwUm4KpMBhnA0hSfXgMQG+z+UHy3svEwymKETUJXd9ilc9E5haoHU8vK2eJzapg=
+X-Received: by 2002:a05:6512:b17:b0:55f:498f:f08e with SMTP id
+ 2adb3069b0e04-562614ff71emr7447870e87.24.1757576305171; Thu, 11 Sep 2025
+ 00:38:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB05.amd.com: suraj.gupta2@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099DA:EE_|CH3PR12MB8188:EE_
-X-MS-Office365-Filtering-Correlation-Id: b5dcefda-9731-4675-050c-08ddf104cec9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|7416014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+M4yv1Mj+BU0Lnf4yR/ROsa0k3PXuRgaAd6kkMkDuF7W4zwNGiUkS8RS5lvt?=
- =?us-ascii?Q?5y81OM6LoTQ0hGIfmT9NDUQU05Km/y+IyvKKyIDVsgtLYHnEoprqHB6SryIb?=
- =?us-ascii?Q?EySse0xbnR7F3+VL1wPpPKZo0ekGkNoGP+Ic18QGC9rCLR4bv6GbIw1g8mlU?=
- =?us-ascii?Q?qXGXrxvjXfthxppqh4y+eBe+YNkzhFtWNg4S92Y0TS+C4Yn2Ji50j2PFu5m+?=
- =?us-ascii?Q?N9tEkTfpttbofFpo/+bJ/31pV4Yz5cLkdzQwejuqZpFS9lKih+XFBf1FP83t?=
- =?us-ascii?Q?lFzu4GBLfzBq4oyzOlZzUuacz4RFZKhtwcwYXQ3IwcyNeo2g62QuiNhtfEYf?=
- =?us-ascii?Q?3Z+DAT1fyS8PgcOh1VwtFsjmmaTDO5efRf7s/QLSsHczaINkzAqC5yTCwjGQ?=
- =?us-ascii?Q?F4YCF7Jq1wnzyzRzFpMKoZOtF8lJkXe4S4x+2Vf8YBHF8Uj3KRHrfZ/272r0?=
- =?us-ascii?Q?BPPZUNjP8/LqLIg7/1mfbi31HtbDGVabOLpd0IxEFcSQL0NTCTVwcGL0jKqg?=
- =?us-ascii?Q?4wumDmWgtgncrvJeBbdA0dcLO2N3A6XI7iUiTCL8WEnPfZySKkxzsAxaol/M?=
- =?us-ascii?Q?EtPQConV37UP8Z0pMbpnV+PPJ5GiQyAneLDshwCVnGC0VdGyuoO/0fWREx4A?=
- =?us-ascii?Q?ps+1gAgjm5O316MXyIPeLs8eIF1mFohaqaPyE2E74/LM0BXwhGW0/Za5B5ae?=
- =?us-ascii?Q?5FnNfyBrqFkRhg5XaByqBNCeiB2sD76Y54hORq+iajMBBFyLc555AKQbr9K0?=
- =?us-ascii?Q?BZ/cFHPYYSqLRyEAt5wjRYOcOiAvio7Ei4bVwD2iHS4MXJiE7C7/SS+bD1Uk?=
- =?us-ascii?Q?7GwAFwUydw65gO0vHRoDYc6veZDomabtZMqIeADsat74BI5adJAP7vz2dFse?=
- =?us-ascii?Q?AW9bnaKGT0JF7op0ztz/mY8tRVaRdGntY1pCEjMOhkhMrY+HexKGGePurK62?=
- =?us-ascii?Q?o9Z8n5Yvy39Pm2OBok08d472LIE5ANT0FOq5+XPKpg+4l9Hjm53EN3rKoeLF?=
- =?us-ascii?Q?Fb+Xw7ILZJzvX7dBB6frelMKMoxlly4bSN+Ked39yjlX1VAvVHlUuPOHpP8E?=
- =?us-ascii?Q?Yif3oEOEDzRZqvc9RTA8iVqc98d6nHn6F4mJ1i6GtNNUp7Dcjs9lIxsFmN+q?=
- =?us-ascii?Q?axfsS3EO1LnRprjiJUFk5QzlI0sIE9T7sws8isNqicib2/O4ifULCBwhY543?=
- =?us-ascii?Q?G/wfeFdFtL+crxuXglNA5ke4FS5MECeCpGlZtVXfGr+6wHqQxb65vBKGrYJg?=
- =?us-ascii?Q?QXnolJwej6ESTedI89Fj0FxXMSSmj3HPquGkryFr2aA2/zaUm/pN3qW5t4mR?=
- =?us-ascii?Q?zySMi2LJYCMihD8Eds0qYOQGCjI7hyvqv3Y0eI4m0/CryybDb1FO/7HjkUbx?=
- =?us-ascii?Q?EgFGj+7UsfftW4xXqAJt4zyi+7aSkdHg1WzNuYbmdI2rKsQj1GZh4Y/GjbK0?=
- =?us-ascii?Q?Q934ImKcKGeBnRIJywsjchAgXy/adYrgCBOoiAHR68jGBZei4FJsbKac/7jZ?=
- =?us-ascii?Q?05GsjaLA8ikxN7hQhu6yWYCkrvr/drxA0s+K?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(7416014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2025 07:28:30.7115
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5dcefda-9731-4675-050c-08ddf104cec9
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099DA.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8188
+References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org> <CACRpkdb=J+hiC5cu+g0Z-gqzpG8PgX01CXc4P98FfSSAf7PZEA@mail.gmail.com>
+In-Reply-To: <CACRpkdb=J+hiC5cu+g0Z-gqzpG8PgX01CXc4P98FfSSAf7PZEA@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Thu, 11 Sep 2025 09:38:12 +0200
+X-Gm-Features: Ac12FXwiBbcmTD8LlFccmOHZdwwoOfYFi61pHLgjut8Pxa8sFHcycGYwle9xiUk
+Message-ID: <CAMRc=McbadZx1yK1jGeyUnXAFZgfA8YpLwacmqC0eMonS-c-9A@mail.gmail.com>
+Subject: Re: [PATCH v2 00/15] gpio: replace legacy bgpio_init() with its
+ modernized alternative - part 4
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Keguang Zhang <keguang.zhang@gmail.com>, Alban Bedel <albeu@free.fr>, 
+	Doug Berger <opendmb@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_002841_541858_6E9144BA 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250911_003827_646825_5BBBDC3D 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,32 +105,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add inline comment to document the purpose of the stats_lock mutex in
-the axienet_local structure. This mutex protects the hw_stats_seqcount
-sequence counter used for hardware statistics synchronization.
+On Wed, Sep 10, 2025 at 11:32=E2=80=AFPM Linus Walleij <linus.walleij@linar=
+o.org> wrote:
+>
+> On Wed, Sep 10, 2025 at 9:12=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.p=
+l> wrote:
+>
+> > Here's the final part of the generic GPIO chip conversions. Once all th=
+e
+> > existing users are switched to the new API, the final patch in the
+> > series removes bgpio_init(), moves the gpio-mmio fields out of struct
+> > gpio_chip and into struct gpio_generic_chip and adjusts gpio-mmio.c to
+> > the new situation.
+> >
+> > Down the line we could probably improve gpio-mmio.c by using lock guard=
+s
+> > and replacing the - now obsolete - "bgpio" prefix with "gpio_generic" o=
+r
+> > something similar but this series is already big as is so I'm leaving
+> > that for the future.
+> >
+> > Tested in qemu on vexpress-a9.
+> >
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> The patch set is a beauty, hands down.
+> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+>
+> I especially like where you caught local spinlocks being
+> (ab)used instead of the generic irqchip ones.
+>
+> I don't know about merging patch 15/15 into just the GPIO
+> tree, that can make things fail in other subsystems depending
+> on merge order into Torvalds tree or linux-next if your tree is
+> merged first.
+>
+> I would merge the first 14 and keep the last for the later part
+> of the merge window when all other trees with conversions
+> are merged.
+>
+> (You probably already thought of this.)
+>
+> Yours,
+> Linus Walleij
 
-Fixes checkpatch warning:
-CHECK: struct mutex definition without comment
+I already have both pinctrl and mfd changes in my tree from Lee's and
+your immutable branches. I pushed this into gpio/devel and it built
+just fine.
 
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
----
- drivers/net/ethernet/xilinx/xilinx_axienet.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-index 5ff742103beb..99b9c27bbd60 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-@@ -598,7 +598,7 @@ struct axienet_local {
- 
- 	u64 hw_stat_base[STAT_COUNT];
- 	u32 hw_last_counter[STAT_COUNT];
--	seqcount_mutex_t hw_stats_seqcount;
-+	seqcount_mutex_t hw_stats_seqcount; /* Lock for hardware statistics */
- 	struct mutex stats_lock;
- 	struct delayed_work stats_work;
- 	bool reset_in_progress;
--- 
-2.25.1
-
+Bart
 
