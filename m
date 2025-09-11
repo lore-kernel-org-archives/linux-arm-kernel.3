@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA9ECAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 01:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A42E6CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 01:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZUI/i+ja9oevYg1fVVK/IyksXCQlyryj3w/XBV25Te8=; b=bF101pL2foZzQkxzxPeQcfX1m4
-	kMs8urG7oYy/ZDDDUBp9/kQpwPMI9zTp31+/9EZNUUu9TSP+fjbOZOVnhYs0aejxncIhct/RQhWXR
-	m0Be9j+06jOzF9Z2xS8VsTox8ddOLUU9Mw7V9A5uK51L8l+OKsq8x3DuhjHauHQmOwZCb6274rbsV
-	uAI/A+bNVR/5R48slS3/7JNMJq8dq4/9OVgdHDtHUoqhe8A0VoFSbwh+XQwUKXhtNjhhFXyb4vbzR
-	ZbOQ30av378twXd73fvY60mQmd+DLJGUmWtwLy+OTR0fW0cIMpPylM20dWDkT/u/ASm+aY9J7Mz9E
-	cm1ee3yw==;
+	bh=FIebiWHIdHOR8V4xRaj6i5CqlzafrAmw1NlFomf5KyI=; b=ffGHx9hRePY9EYzEQ/lW5hFYb7
+	H6t/ygu4nM+P3ipysVdRYDwwhmZOmmls3KJjWZvTZobWl1lf2BCflebSUDPorC6oQTf0T5bASfHeD
+	O8cQMG0LUTw7xlTEkltAy3kQso/bhbvEBT73KtFxMuRkJ+H+GMNOacABOifhwjfs5wqZnG9wRMQYx
+	slZhuypAYl69ol/Agt5B28C6EfSi3vj7AhpR5HTCJAjnL26hsxVQhU1Qpot3tiBlELoyTYaiNmFQu
+	s/MMM/FYBa6AH4sRjxD1kfjelnIq0u5Joe++UE4LPsEEHuS0QZLrAhSRdu4DSvDTBwdEXqhJIe4qc
+	B/AiEcUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwWSd-00000000EzH-2E2A;
-	Thu, 11 Sep 2025 01:50:55 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
+	id 1uwWSu-00000000F7Y-3UTp;
+	Thu, 11 Sep 2025 01:51:12 +0000
+Received: from mail-m16.yeah.net ([220.197.32.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwWSa-00000000ExS-1deg
+	id 1uwWSs-00000000F5L-2ltH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 01:50:54 +0000
+	Thu, 11 Sep 2025 01:51:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=ZUI/i+ja9oevYg1fVVK/IyksXCQlyryj3w/XBV25Te8=;
-	b=O76U9ZV2uADWd+6J6/mpLppDnBErAY1qsuLBqi/9SqqnLNQsucrZTE+bYVIJmV
-	JEGmRiYB2qeBPxw2h88ujedrxhmq02Ap6++IENga7E7tXIO0Vkb1C0qgNi/jxvr7
-	Ohc7zYFtqfRIURZNcKRVK2OdT/EHLyPhplRO+A6ExuyGc=
+	Content-Type; bh=FIebiWHIdHOR8V4xRaj6i5CqlzafrAmw1NlFomf5KyI=;
+	b=BSVDzRFH0Umy7SvEDJO7JZWBTtZLSY2uMEWDjTtgp6PH0qq0wUnD6LVfz79zk8
+	rHr11E9uiwQeo15rt56V0iP6MOQahZUfSM0aTB/ZcSsWJGOmfPf2NLnuh06la43W
+	DdJrSf3/BNFp3xMVQAGC5E3AX54ECHIBoYNMZUg+T56oI=
 Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDnnyjwKsJoColfBA--.14977S3;
-	Thu, 11 Sep 2025 09:50:42 +0800 (CST)
-Date: Thu, 11 Sep 2025 09:50:40 +0800
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgD3Fx4DK8Jo74lfBA--.16446S3;
+	Thu, 11 Sep 2025 09:51:01 +0800 (CST)
+Date: Thu, 11 Sep 2025 09:50:59 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
 To: Josua Mayer <josua@solid-run.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -49,23 +49,25 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Jon Nettleton <jon@solid-run.com>, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: arm: fsl: Add bindings for SolidRun
- i.MX8MP SoM and boards
-Message-ID: <aMIq8FAJ3f6irsX0@dragon>
+Subject: Re: [PATCH v3 2/3] arm64: dts: add description for solidrun imx8mp
+ som and cubox-m
+Message-ID: <aMIrA7UMhJXXuWzM@dragon>
 References: <20250823-imx8mp-sr-som-v3-0-a18a21fbebf0@solid-run.com>
- <20250823-imx8mp-sr-som-v3-1-a18a21fbebf0@solid-run.com>
+ <20250823-imx8mp-sr-som-v3-2-a18a21fbebf0@solid-run.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250823-imx8mp-sr-som-v3-1-a18a21fbebf0@solid-run.com>
-X-CM-TRANSID: Ms8vCgDnnyjwKsJoColfBA--.14977S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUw5l1UUUUU
+In-Reply-To: <20250823-imx8mp-sr-som-v3-2-a18a21fbebf0@solid-run.com>
+X-CM-TRANSID: Ms8vCgD3Fx4DK8Jo74lfBA--.16446S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrWw4rJrW8Cr43tr4UZF1kZrb_yoWxGrX_XF
+	98KF43Xw4xJF9aya1kKr45KFyI9a1kKr95ur4ftrWfX34fC3Z2yFZ7Jayrur4jvrs3tFn2
+	gwnxGF18Ar1xKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU1sNVDUUUUU==
 X-Originating-IP: [114.216.146.49]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIhKR9mjCKvKOowAA3I
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEhLFZWjB-SpoYQAAsX
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_185052_799698_BFD8B584 
-X-CRM114-Status: UNSURE (   7.23  )
+X-CRM114-CacheID: sfid-20250910_185111_033359_7DF5CA7A 
+X-CRM114-Status: UNSURE (   9.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,15 +83,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 23, 2025 at 05:28:21PM +0300, Josua Mayer wrote:
-> Add bindings for SolidRun i.MX8M Plus System on Module based boards:
+On Sat, Aug 23, 2025 at 05:28:22PM +0300, Josua Mayer wrote:
+> Add description for the SolidRun i.MX8M Plus based System on Module, and
+> the CuBox-M.
 > 
-> - CuBox-M is a complete produc with enclosure including the SoM
-> - HummingBoard Mate/Pro/Pulse/Ripple are evaluation boards with common
->   design but different available interfaces.
+> The SoM features:
+> - 2x 1Gbps Ethernet with PHY
+> - eMMC
+> - 1/2/3/8GB DDR
+> - MIPI-CSI Camera Connector (not described without specific camera)
+> 
+> The CuBox-M is a complete product with enclosure featuring:
+> - 1x 1Gbps RJ45 Ethernet Port
+> - 2x USB-3.0 Type A
+> - HDMI connector
+> - microSD connector
+> - microUSB connector for console (using fdtdi chip)
+> - IR receiver
+> - RTC with backup battery
 > 
 > Signed-off-by: Josua Mayer <josua@solid-run.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 Applied, thanks!
 
