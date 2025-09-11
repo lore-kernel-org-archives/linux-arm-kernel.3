@@ -4,72 +4,235 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95FE2CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 09:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C34CAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 09:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DAdG8a22VVshCBpvpFgJbR/HHu4aLcBFZLKZPp5fLLI=; b=Dgh+EgjEWOT8V4ssrY9Y/oid28
-	LGcDmIOHEYEii6YEMoN592tP5atUNKi3ZHuD9T+uVulkreoF8GLpIQqX9drYrTaX7jJbQy40g9XOE
-	8PT0SbZYAO6KUpXhvV6UgC9a/R3pHyZw9c7u/8uc+iwKTplaWikmCZBkqwJRwyv0Iurn4KPSsZY67
-	RRMsiiozWEkRj2gqk82SFDBJkfhnL0VL55BMM9NZY2Fi/j3IZVXHzvpdMHd4qu13/D3eUV/JKkRhn
-	VpkHDCRHjL5BJR8RYk8Hm5el2yqth088P9eyYX8RVnQpxjlBSw6jJu10LT8xuyehzRCjqicmQJRIm
-	5p9Cs8wQ==;
+	bh=gKMQ/XLZsTUeFuQPm64LRPJ5+wKk9LwAljnayqzmlTI=; b=yxeiIiafbrUFOKpx73V04pKxu9
+	yppvXRVo3j1PPlHea3cIz8Bp+Ta9sJ0IBa8nVRTuAXatWcRgJ+cWjLHVAVE3zxi1dPuMXLCoeZW5t
+	KGDpnuvpyXjISrqlyjXSEWJtV/c2aItDhNHySy8e7vwKV/5aTN7cZcKeGrMY5h2HaDP8d2ptmClTl
+	c3TykemdVcE7mDALnJxpQ92p1k3dznw7pIWlEDrDS8CjQrRZerBJ3O/7yWtnEsH0+tgA0F95RR824
+	ccVVl4O1VD0E+gwSvbo5uGRP9AIcGl47+Nx0JADJ0quqdwT2cIfFhejCLrHmdEu8cAguyc13WyWCe
+	QiN/+/xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwdSi-000000024Fz-3n09;
-	Thu, 11 Sep 2025 09:19:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uwdTl-000000024id-36KN;
+	Thu, 11 Sep 2025 09:20:33 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwdSf-000000024EF-2cKM
+	id 1uwdTj-000000024gM-1MZ1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 09:19:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 469AE43D4D
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 09:19:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 287ADC4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 09:19:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757582365;
-	bh=p/EG+BOkWxNKJlvO3Z7cyplV7E8yiKOlCV+rgB0Qxm4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=EVfWpsW09eiZFXIFtYPzMptO89mNkzIVVjdcz/ZdcVhMAc4CHzRBvAL1g+S2cMhIq
-	 OOJyrTI6pbRr9NYztWAfeG8DH7338qf006NO1cc0bXXq/zrEArTdTYu9KMoki9jnI8
-	 K3V6DURzUaap8Q0ah78JnkwRymEdMCB7PWKP6cRn13jD8TyELV7ylgq8vHiiQFkQDI
-	 3is8707qKmNedvOrGYLrNkLOoJVGJpNkub026AxgalbUIXdRBVxo7SLc65Nvgrt8L7
-	 hjxGpCD1kdcdBjZet7C8wBzJjGy8DZ9oo1oXmz5wHSUZ83plOrcXidJpycFmUPjulU
-	 wgSEEsQYaI/HA==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-33730e1cda7so4686461fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 02:19:25 -0700 (PDT)
-X-Gm-Message-State: AOJu0YzRCmcDA6WUCHH+aDi8U1Vhe95c70aNF2RK31JEMSSy2Kg0SLoJ
-	A6z3PmWzARBwc8tYEfB8ZF3+11dIcLTRiS4papG8x+qSBYzcE2mfOEMBzDHnE2wEnMSYnTY+xtt
-	2JmaXX3ffpS2Umm+z063hkHOXGZVV8oc=
-X-Google-Smtp-Source: AGHT+IGYoYQ6EDc8e6wSm1+351kV/qyZ9U2Y0KmJ0uISFqlH7B+ko/8xooqrvuugPxlXtQEL/a4mhmcD8+jV/Wc6BqQ=
-X-Received: by 2002:a2e:be0e:0:b0:337:f57a:6844 with SMTP id
- 38308e7fff4ca-33b5a3fdaa8mr52023111fa.43.1757582363452; Thu, 11 Sep 2025
- 02:19:23 -0700 (PDT)
+	Thu, 11 Sep 2025 09:20:32 +0000
+ARC-Seal: i=3; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=s+xzDO7B4rJqJ1/Mo2uQqyZATzvv1C7+7ULYknPfuN/lwEmmZRljsRPKoR5dujFZy3SwsZ44fs8sD3TuEPqGE7pVFYbUWE/lUlVosWzQAbO6EVl/5IoNhB/+ond1P4lGi3u396PkCFtcWxRxX4qS9uqLx43D1NetygRIATJRcd5e/v2gCyQb7kg5+X9foYPQGQMr4ZCb2rN8WyJ1Kr5ZWRO+s/jeFZDzqGD7INF27hWEVxFnBYFmv26J/U/x0uJvOKyp5E13hPr1Khucr1t04cpxlzJih0KSDYHRfst+1x9oToysfuEBfqm/Zd5FbD9GM+UPd/YA1yvsV0d6Bhh/7w==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gKMQ/XLZsTUeFuQPm64LRPJ5+wKk9LwAljnayqzmlTI=;
+ b=SySRPoIWte7ZcXfAtLV/U0Won2PGb8vw1HA2gAw+p94tTs08yx+4xO1P/JyVDLtRmIdYI46C13kqeYxLzvRKyW8R7bmaMboKf+tcELxTzmqCCcuVr/ZG4x4wunTpa4I31qjI4eGngArKhIsY8oS3Ye7W9oL/Pj29IyXT1qPRTgDtnsxix0IgUZfAlKZKWoV1EdErI3DPFV9aHPVvZYXYSG/uv/HxqkjgcYwu/KpWR23gcwcADvS5CkCxchG453tABx0jitW4qmqg5QYz5Mt8lZMs+CZm/wwYqFHYp6RLLlEUJOhNzDxZm9ek9+LA5MXDgl+9AfXZy5kr6XW+23r9cw==
+ARC-Authentication-Results: i=3; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.17.62.50) smtp.rcpttodomain=gmail.com smtp.mailfrom=solid-run.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
+ dkim=pass (signature was verified) header.d=solidrn.onmicrosoft.com; arc=pass
+ (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=solid-run.com]
+ dkim=[1,1,header.d=solid-run.com] dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gKMQ/XLZsTUeFuQPm64LRPJ5+wKk9LwAljnayqzmlTI=;
+ b=Th5BA6H5Ocjy0fcJre/OYHLsSJA6K1+kJbeSjqzMcHTken6G7PID4GZ/BtGDtBYNoXnZ7wynuDJOyOTeuzDtjsS/cGZedJJFwOb3w2jlMAkJL5xano7l5MBYAh06/n+oSee/9Mfm5CwldK3/bYe+D1Mr2x6sIQ3zGq/rWb9EidQ=
+Received: from DB8P191CA0030.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::40)
+ by DU0PR04MB11258.eurprd04.prod.outlook.com (2603:10a6:10:5dd::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.16; Thu, 11 Sep
+ 2025 09:20:24 +0000
+Received: from DB3PEPF0000885F.eurprd02.prod.outlook.com
+ (2603:10a6:10:130:cafe::a1) by DB8P191CA0030.outlook.office365.com
+ (2603:10a6:10:130::40) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.15 via Frontend Transport; Thu,
+ 11 Sep 2025 09:20:24 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
+ smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
+ header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
+ header.from=solid-run.com;
+Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
+ designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ DB3PEPF0000885F.mail.protection.outlook.com (10.167.242.10) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.13
+ via Frontend Transport; Thu, 11 Sep 2025 09:20:23 +0000
+Received: from emails-6309744-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-93.eu-west-1.compute.internal [10.20.6.93])
+	by mta-outgoing-dlp-431-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id CFE657FFA6;
+	Thu, 11 Sep 2025 09:20:23 +0000 (UTC)
+ARC-Authentication-Results: i=2; mx.checkpointcloudsec.com;
+ arc=pass;
+ dkim=none header.d=none
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
+ d=checkpointcloudsec.com; s=arcselector01; t=1757582423; h=from : to :
+ subject : date : message-id : content-type : mime-version;
+ bh=gKMQ/XLZsTUeFuQPm64LRPJ5+wKk9LwAljnayqzmlTI=;
+ b=PbrnRVpEzU4TKD8W+hFv6NfYeuQ59cyf8zXAGrcVTxTlYh9fH3sieBVmCST39n7X3W506
+ Cawme+O/kDIG8E8uiogZH8JeZXmw4tTKR1mNZVGStgAKBu9GrmbTNYo//3nsPacamMULEQJ
+ AsQaMIbXBqvpKg9Ni5ZZwmAOjQ+uZxk=
+ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=checkpointcloudsec.com;
+ s=arcselector01; t=1757582423;
+ b=JdEJbclwKH0VYgr4ScnHrgQxhxojGPqYGyyvHx5Cc+JaIvDYfgZq89HfRSFhGd7jY74wb
+ m2yWRfFaE1kLE4q/SPA69ajZyOij637UARKV6qKnBN71cxOP5mWnC7KWw2SW+D7/pKTIr9N
+ 7weHamT1M23wDNb2DoUNjmMJRSYV188=
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h5sfhog1iHDMertj+Ai9tAe3fEevfevi7Un5Ke74GSYeuVKZYZCf/VuLrlR+BTHN6qjecY5cjgA+K8Jej+u9XkObWxgMVO/SJP60bBJj8xASoTizOf1Lyvchh1mFUad2WJ2V85NSuU3i/kMj50LW+X9EXO9FR6bRo6wRbPQapvQJApWNVGNRYwCp2d6roEB3b0fIrpDOajArhtKUW81Gm4Jbg6lw10UBm+CMcMCBWmuqCToYSN3QsRRb2Q7dfUPLwUA+Cqdrl2BAgvQmYg+2rd0/bjErsyw/caNj0mI9cno+plSAb97LK6AqOtbUr7iktUNZas/JXYqiisiKzIIqMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gKMQ/XLZsTUeFuQPm64LRPJ5+wKk9LwAljnayqzmlTI=;
+ b=fY/CQRZqVbQ+5aqKCFZBWc4q4ivmOsLTK57ezxdz7K8G80zeK9fSNHmpbiIK7CcGUcsGUHdK2shqm2s6OuEAULsN8NelhQKHHoiAxiin1yI5KQVUWa/WxS2KKDj3k6R8WxbG+C6nGMs9MuRX01/qZeYMMhY0WXy9+2bf16sV0nVlu5ZnPCkefmN3J2L1mPHQMts/1EgrwGlZcF3CFC3PC4oBSDJDLj+yuFl2Y3MErdpXoLLCQ9Dq0TVC37X0TWq9auHgYSFG7nXFkrvzqsaG2gpEZYt3DBhY1Y1EtBWLm1YRjZq1fWsQnViCk5Ax8ndx9sBWDau4++Tekhtv7ZAeqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gKMQ/XLZsTUeFuQPm64LRPJ5+wKk9LwAljnayqzmlTI=;
+ b=Th5BA6H5Ocjy0fcJre/OYHLsSJA6K1+kJbeSjqzMcHTken6G7PID4GZ/BtGDtBYNoXnZ7wynuDJOyOTeuzDtjsS/cGZedJJFwOb3w2jlMAkJL5xano7l5MBYAh06/n+oSee/9Mfm5CwldK3/bYe+D1Mr2x6sIQ3zGq/rWb9EidQ=
+Received: from PAXPR04MB8749.eurprd04.prod.outlook.com (2603:10a6:102:21f::22)
+ by PA1PR04MB11454.eurprd04.prod.outlook.com (2603:10a6:102:4ef::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.15; Thu, 11 Sep
+ 2025 09:20:12 +0000
+Received: from PAXPR04MB8749.eurprd04.prod.outlook.com
+ ([fe80::aa83:81a0:a276:51f6]) by PAXPR04MB8749.eurprd04.prod.outlook.com
+ ([fe80::aa83:81a0:a276:51f6%4]) with mapi id 15.20.9115.015; Thu, 11 Sep 2025
+ 09:20:12 +0000
+From: Josua Mayer <josua@solid-run.com>
+Date: Thu, 11 Sep 2025 12:20:03 +0300
+Subject: [PATCH v4 1/2] dt-bindings: arm: fsl: Add bindings for SolidRun
+ i.MX8MP SoM and boards
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250911-imx8mp-sr-som-v4-1-1b1fae6135e0@solid-run.com>
+References: <20250911-imx8mp-sr-som-v4-0-1b1fae6135e0@solid-run.com>
+In-Reply-To: <20250911-imx8mp-sr-som-v4-0-1b1fae6135e0@solid-run.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Yazan Shhady <yazan.shhady@solid-run.com>,
+ Mikhail Anikin <mikhail.anikin@solid-run.com>,
+ Jon Nettleton <jon@solid-run.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Josua Mayer <josua@solid-run.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: FR2P281CA0047.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:92::14) To PAXPR04MB8749.eurprd04.prod.outlook.com
+ (2603:10a6:102:21f::22)
 MIME-Version: 1.0
-References: <20250910104454.317067-1-kevin.brodsky@arm.com>
-In-Reply-To: <20250910104454.317067-1-kevin.brodsky@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 11 Sep 2025 11:19:11 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHR34kpL1qLgeEgEmRZN1o=umWzjZEzmSV+X2AX-4CvVg@mail.gmail.com>
-X-Gm-Features: Ac12FXyZ5sMt_9KP_SqEKc7Q5Jv1TaelRC1qevhvOWu1qwuy15NVWyqKm7zWv3E
-Message-ID: <CAMj1kXHR34kpL1qLgeEgEmRZN1o=umWzjZEzmSV+X2AX-4CvVg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: mm: Move KPTI helpers to mmu.c
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Kees Cook <kees@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8749:EE_|PA1PR04MB11454:EE_|DB3PEPF0000885F:EE_|DU0PR04MB11258:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7632274-d69b-4521-c23c-08ddf114702b
+X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?d3JHM083T3R1R2Qvb014RDc5Um9ETGpPR3NTZnM5Y0FHVCtYVk1hVzJXTUFE?=
+ =?utf-8?B?U1BralA4WHhab0wrYndFRDJ6ZVN5UUJpT1Z3aThEQkUxRFBqWVRXbWJZRFlv?=
+ =?utf-8?B?Um1KYlErTk9Wbng4WmxlVGNiamc0S0VmZ01YdkF5aEJWNVdvKzdwczZrYzMr?=
+ =?utf-8?B?ZmY4WWVNOHdtY0UvYUJpZGRXV09vN0xreHU0eERuRnNKbzl5RGdIelErRGFz?=
+ =?utf-8?B?V0xoNm1pY0pGajR5S0xjaFBhblFhV2s1Q2lJM3h5NG4vbWNiWVIwY3oyZkFU?=
+ =?utf-8?B?S0tNNE9nSmxPZytwM3NEM05BT24wUnpOUTE1S1BuWldreU55cTZ4RmRybWtx?=
+ =?utf-8?B?ZnV1Q2VZSXh3eG9mOTZlVzMrVE5WQ0lCaldJZjZCc0IwamtEWVNCUkE3UVJF?=
+ =?utf-8?B?UlJyVFhoMURvWGgrSnVkZEtJTWpHSWtPZE84MHB3WThEcDhhd2M4blN3Z2xj?=
+ =?utf-8?B?OFNaWU11N1l6K1FkUllBMFQ5ejhCajFleDUvd2t4TUhVZE9oL3ViSTlKZFBh?=
+ =?utf-8?B?UTZ0VmNZVmh1MEJwWmRmdHBUamRBbGxXcUdhcHpOb05CeWN3QWZZMGwrTmoz?=
+ =?utf-8?B?WjZ1ajBGcFFTRlQ3NE9XNThGTTRoWEtxd0xkU2VrWVl1VUw5Tk4zRERmdE1N?=
+ =?utf-8?B?Z3JVUEhnL3dTSlR5WVh6RzdNMkNMS3orUXBqL2V1SmRRTzhNVXh3K2U2LzhQ?=
+ =?utf-8?B?SjBwSXhZQ1ptUnRGNzc1MkFFZ1Z2NjhmenJCY0gvOEpBTFRoYS82RklCb2hU?=
+ =?utf-8?B?dkdNMUQrSDRrTWxyWno2QmorR1VEYW9NdUhRVUFZTm9Dc2hDRTlvMzlMdTBF?=
+ =?utf-8?B?N1A1VVRROHFaT3ltZnp6M0FCMzB4WDlzd1Q1a1d4OXZwMWxCRWMwSlNsam9R?=
+ =?utf-8?B?WXBQWVc5ejNHVU9VOE9wS1lad3QyM0p5QjRoeCtyeWhiN0piVHlaQURUdjhk?=
+ =?utf-8?B?TUFtbjc5R0VONmdJMVY4MWljWUdqWUVwcWMrTW5IUU5SY0wvS2lUVGNienRz?=
+ =?utf-8?B?blRZNVlDcG1tYUFUZzVCNGdpOWljdWRIVWNtV1RLdnpyL2pQTExoL2xxSnN4?=
+ =?utf-8?B?dGh4QkxKbEFLVEVReG9RSzR3Z1Z6WDVJKzQrckxnWFZ6dzBoVm1QUEdlNGJl?=
+ =?utf-8?B?dmVhUUU4ZGx1MVVxUFdncDQxN0hsQUhicW1BN3l4QnRSV21EN2hjaTJycDdK?=
+ =?utf-8?B?N2paczNhRDkvcEdLU2UzOERnbFF0TW5SUHJ0Tm4xdytJUlJwTHl4STNEa05T?=
+ =?utf-8?B?cmFLMDVWNWFmQW1FMnVLVFFjWXlIb0VjbTRUZ1hGQUM5ZC9WMEN0WlRMV0tR?=
+ =?utf-8?B?OUltb3FBZ09vOVdmNFNackdocWxZOVdDWHhRRXgxRkRUWEhoM1oxdDlBdmpa?=
+ =?utf-8?B?THlKUnZ2dVZveGo2VnpSTy9UZlBlc3Z3SjF5encvc1JDZC9McGVQRHJ2SkM4?=
+ =?utf-8?B?QjBVeGU5cWk4TkFpTmFiRFM2eGFtaXo3Mm9EVUpiV0lNTmxvZEFWTzYydTZo?=
+ =?utf-8?B?bVdkUzBOclhhTWlTRDZHaldYTFVaUUFrVDFGb2xzblRVdHZpTTRpWXhiTmYx?=
+ =?utf-8?B?UmE5TmxRWi9MYmxDNEJSejJ2T0R3QlFuMjBzZk4yVTF1TEVIVnh4cDlxVWRv?=
+ =?utf-8?B?eVJNeEtFWGJpTEpRVk1acmxqbXZUdXRlQmcrci9DRzdlNFVRVGJ3d2I2YSs4?=
+ =?utf-8?B?eFRGc2Z1SU5xMHE4TkpoeEVJY0VjYytsWjBqaG5OL1h2S29zNkcvRHVDdWwv?=
+ =?utf-8?B?SWY5ZkRITjdjbEIzN1pEQ04xaUxUb2lhdVFsdi9RVmVzWGJnUnh4ZXBSOSt0?=
+ =?utf-8?B?eEdEc3NRTzVlOUR1MU1kSHZVdlluTkV4YjhxVmZOZldVZEVVYUhNS1I2VzB2?=
+ =?utf-8?B?YU1FajBmSERqQ1VBV1dlWmVGWXpwY0FoZWIwMnI2NWtlK0I0NzdPU3BkdTFW?=
+ =?utf-8?B?SjAwRGk0cVVoNDRpMG52OEljcHUyblQ2dnJpdXR6STNiNHFySjhld0VQSWpz?=
+ =?utf-8?B?VythNWN3QzlnPT0=?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8749.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11454
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: d3db51c9e98a43b4a2698589d4636777:solidrun,office365_emails,sent,inline:b8d89f8fb7121b0514dafe3b1055ac44
+Authentication-Results-Original: mx.checkpointcloudsec.com; arc=pass;
+ dkim=none header.d=none
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB3PEPF0000885F.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 528303a6-4311-479d-0aab-08ddf1146959
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|35042699022|7416014|376014|14060799003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UEVCWUhTdVQ3NjMyeGROYjdOS3ViVy9tNTl5b3pqRW1yMU96eWZ3Nkcwc3Zx?=
+ =?utf-8?B?ejRFYWFlZWZnVWI0bTlmTFNLaG0waWlTS05ERlZ4N0g0cW5zc1N2VXhHMXdp?=
+ =?utf-8?B?NHhxRHg1bXlXKzAvYWxlTVA5WVJDQktMM2RLNnNSRjVNZGxtbXRuQm8zcmZO?=
+ =?utf-8?B?YlR4TnM2QzhwUFJzQWxHbGdQVnZxWWRuTjhJalMzQi81UnlSVHFyOEJBMkt6?=
+ =?utf-8?B?UThZN2dzclcremsvWWtsZ0ZQUnZ3M3VwcFU1MnAybjNVZnZXTXZXQ1lKSERR?=
+ =?utf-8?B?US9EejBMai9PeDJFYXRBUWJHM2Y1ODhJdlNDekJDOHNiYWpRZSsrVEpVb1Rm?=
+ =?utf-8?B?SEZUTWZ2MUdHRjJFNnRTRkhodDZKVmoyOFZGM0UyRkZldGtYVU50elU1VGsy?=
+ =?utf-8?B?bGtJa3lYdnAyV1FmUENiQ1NEUmV2NDBRcXZVeUlHY3dyaW9yazh1MlRuSUo3?=
+ =?utf-8?B?Wkl3a25zYmJRZVE3NkowcUZscUxBUlltRXVZa3lxbWJuQU5xWXVJbXBVTFR6?=
+ =?utf-8?B?Zld2eE1IZ1J4YU9LblBVSFBrbE5od0pvZ1Q1TXAvV0d0L2plWFhUWVRDMXVN?=
+ =?utf-8?B?b1A5ekxjYVlmSGxHV2NaczF5OC8rUkRiUGNSaSt0REsycGlvcFgrT2oyUFky?=
+ =?utf-8?B?NGQ0SGU1REdFVHQ3enZSYkVWeHAzZWdBazRmNitjRHFxUGxVSSs1VnFMb2dL?=
+ =?utf-8?B?MFNxTyt1SFRqNXZrdTJIaUNLVXIvclZ0VjlITHJJZUE2NEZoUEYvZS8xQXEv?=
+ =?utf-8?B?ZUlxNm1jSlErQnlpSWl0aEpSaXV3UVdZL0pQcFYxeHR0bWlGM002U1JKZncr?=
+ =?utf-8?B?anN4b3krcDBUcmYvSE9FYU9OcUVZekNxNlYzOG5scnVQTGVDZVozOXhjSVVu?=
+ =?utf-8?B?emljVTVCbENkY1c2eEhIK0hLdStwSld6YmlrVit6YmZKV0lBb2lZOUMwWDBo?=
+ =?utf-8?B?K1RCUXBnSm9henVzTCtXVWs4aWhSaUpZbFFiY1drY3dXYmNOSUI0MVEwT1NF?=
+ =?utf-8?B?OTJQQXRNQkhabzE2cjdLOStXdm9EclJpQnJhS2s0NWxqZFUralVwLzZMS2lC?=
+ =?utf-8?B?WVJQbDhIdVovWjh1M01lK1hTV29ZVzBzMVpwZVloRGlTTkhORm9sSklIZGxE?=
+ =?utf-8?B?alhUakU3N3N5cGU2NURxbnJ5YnRmbUJjbWxSVUJxc2xaZk10bDMwRXU5dmVS?=
+ =?utf-8?B?VHM1M1pkM3RaQ0RkNG9KWTAzek03ZkFLekFkNGI2cU1sVUU3WDBYZVYydmVN?=
+ =?utf-8?B?SzRhak5QWnBQbm0vK3poTUZSVklqMlc3ZWNvYVd6OEtzSTZ0eUhseElSVDlQ?=
+ =?utf-8?B?a2gzZWVaQUpEQm9QWW1oeE5rSVovREdhdzRSZG0wVmx1aDdVVnpRcnJ1WXNs?=
+ =?utf-8?B?elRScTBreXpYbDFBNllITllybFRJNzJpakFmeGkrNHZEL2FVVTRzeGliT2or?=
+ =?utf-8?B?ekJkU3U5T1NFb0pVbDRmckZNb0pmT1RFYTBaaFI0TzZ0T0NlWWhNQytxWlgy?=
+ =?utf-8?B?aUpKbzRXVis1Y09kWGE1aGx2UEo0bFMxUVA5cWZ0UW5OeW85c3lWcjUvNVpH?=
+ =?utf-8?B?TVVXdHlEUzcxU2s3ZDg2OHZrSXBFanNOeDdLcEF0UjFiQ04ybFprSWRBNUkz?=
+ =?utf-8?B?S1FIWUlxbXhKZ2h0YUVYdnNzU1h6N2N4Um15U1B5OFJ1U3R0WFU2VFErMXkw?=
+ =?utf-8?B?S1UvdEI4dUZmUlNFVS92RVYydmxPSmk5QmwxQ01RWDNlb29SRnBSY3hZT2RU?=
+ =?utf-8?B?MVBsMTB6S3NoQWlraVh5OUw0N1lrOW1mRk56cHdxclVPdzU3RDl3TzN4dVRr?=
+ =?utf-8?B?dDg3cWZxR2VmSFFOSVA2ZS9Hd2lCaTBqOUI1eFNDT3NEQm1xbkh1N1BZT0kz?=
+ =?utf-8?B?ZU1RUUEwc3A5TSs4MWtsK2tDcU9Id1h5WnNkOFpXSnJML2JlMlplMnNqUzV0?=
+ =?utf-8?B?USt1RndpYzExQUEwRkZac3lsK01nZ01YVjl5U3VBRGdRb2d4SVVhRUZjbEl5?=
+ =?utf-8?B?Sk0ybXNBRngwTVhmMlQ0cGxhMkdJd0VnQ1VjUFh0YTMxVHNyc1QwV3huK3hO?=
+ =?utf-8?Q?RmIOzz?=
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(35042699022)(7416014)(376014)(14060799003);DIR:OUT;SFP:1102;
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2025 09:20:23.9584
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7632274-d69b-4521-c23c-08ddf114702b
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885F.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB11258
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_021925_714072_4BC18E00 
-X-CRM114-Status: GOOD (  40.24  )
+X-CRM114-CacheID: sfid-20250911_022031_537953_FCA96E03 
+X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,317 +247,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sept 2025 at 12:45, Kevin Brodsky <kevin.brodsky@arm.com> wrote:
->
-> create_kpti_ng_temp_pgd() is currently defined (as an alias) in
-> mmu.c without matching declaration in a header; instead cpufeature.c
-> makes its own declaration. This is clearly not pretty, and as commit
-> ceca927c86e6 ("arm64: mm: Fix CFI failure due to kpti_ng_pgd_alloc
-> function signature") showed, it also makes it very easy for the
-> prototypes to go out of sync.
->
-> All this would be much simpler if kpti_install_ng_mappings() and
-> associated functions lived in mmu.c, where they logically belong.
-> This is what this patch does:
-> - Move kpti_install_ng_mappings() and associated functions from
->   cpufeature.c to mmu.c, add a declaration to <asm/mmu.h>
-> - Make create_kpti_ng_temp_pgd() a static function that simply calls
->   __create_pgd_mapping_locked() instead of aliasing it
-> - Mark all these functions __init
-> - Move __initdata after kpti_ng_temp_alloc (as suggested by
->   checkpatch)
->
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
-> Note: as things stand, create_kpti_ng_temp_pgd() could be removed,
-> but a separate patch [1] will make use of it to add an
-> assertion.
->
-> [1] https://lore.kernel.org/all/20250813145607.1612234-3-chaitanyas.prakash@arm.com/
-> ---
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Kees Cook <kees@kernel.org>,
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  arch/arm64/include/asm/mmu.h   |   6 ++
->  arch/arm64/kernel/cpufeature.c |  97 ------------------------------
->  arch/arm64/mm/mmu.c            | 106 ++++++++++++++++++++++++++++++---
->  3 files changed, 103 insertions(+), 106 deletions(-)
->
+Add bindings for SolidRun i.MX8M Plus System on Module based boards:
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+- CuBox-M is a complete produc with enclosure including the SoM
+- HummingBoard Mate/Pro/Pulse/Ripple are evaluation boards with common
+  design but different available interfaces.
 
-> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-> index 49f1a810df16..624edd6c4964 100644
-> --- a/arch/arm64/include/asm/mmu.h
-> +++ b/arch/arm64/include/asm/mmu.h
-> @@ -104,5 +104,11 @@ static inline bool kaslr_requires_kpti(void)
->         return true;
->  }
->
-> +#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
-> +void kpti_install_ng_mappings(void);
-> +#else
-> +static inline void kpti_install_ng_mappings(void) {}
-> +#endif
-> +
+Signed-off-by: Josua Mayer <josua@solid-run.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-Nit: you might just keep the former declaration, and check for
-IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0) in the function, rather than
-propagating this distinction to the header file.
-But either is fine with me.
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index a3e9f9e0735a8808721ebba713f14818ee49172a..e03d1ee982cea851c7f8d70e8ed7b6564c8daef6 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1200,6 +1200,17 @@ properties:
+           - const: polyhex,imx8mp-debix-som-a       # Polyhex Debix SOM A
+           - const: fsl,imx8mp
+ 
++      - description: SolidRun i.MX8MP SoM based boards
++        items:
++          - enum:
++              - solidrun,imx8mp-cubox-m             # SolidRun i.MX8MP SoM on CuBox-M
++              - solidrun,imx8mp-hummingboard-mate   # SolidRun i.MX8MP SoM on HummingBoard Mate
++              - solidrun,imx8mp-hummingboard-pro    # SolidRun i.MX8MP SoM on HummingBoard Pro
++              - solidrun,imx8mp-hummingboard-pulse  # SolidRun i.MX8MP SoM on HummingBoard Pulse
++              - solidrun,imx8mp-hummingboard-ripple # SolidRun i.MX8MP SoM on HummingBoard Ripple
++          - const: solidrun,imx8mp-sr-som
++          - const: fsl,imx8mp
++
+       - description: Toradex Boards with SMARC iMX8M Plus Modules
+         items:
+           - const: toradex,smarc-imx8mp-dev # Toradex SMARC iMX8M Plus on Toradex SMARC Development Board
+
+-- 
+2.51.0
 
 
->  #endif /* !__ASSEMBLY__ */
->  #endif
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index ef269a5a37e1..b99eaad48c14 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -1940,103 +1940,6 @@ static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
->  }
->  #endif
->
-> -#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
-> -#define KPTI_NG_TEMP_VA                (-(1UL << PMD_SHIFT))
-> -
-> -extern
-> -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
-> -                            phys_addr_t size, pgprot_t prot,
-> -                            phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags);
-> -
-> -static phys_addr_t __initdata kpti_ng_temp_alloc;
-> -
-> -static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
-> -{
-> -       kpti_ng_temp_alloc -= PAGE_SIZE;
-> -       return kpti_ng_temp_alloc;
-> -}
-> -
-> -static int __init __kpti_install_ng_mappings(void *__unused)
-> -{
-> -       typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
-> -       extern kpti_remap_fn idmap_kpti_install_ng_mappings;
-> -       kpti_remap_fn *remap_fn;
-> -
-> -       int cpu = smp_processor_id();
-> -       int levels = CONFIG_PGTABLE_LEVELS;
-> -       int order = order_base_2(levels);
-> -       u64 kpti_ng_temp_pgd_pa = 0;
-> -       pgd_t *kpti_ng_temp_pgd;
-> -       u64 alloc = 0;
-> -
-> -       if (levels == 5 && !pgtable_l5_enabled())
-> -               levels = 4;
-> -       else if (levels == 4 && !pgtable_l4_enabled())
-> -               levels = 3;
-> -
-> -       remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
-> -
-> -       if (!cpu) {
-> -               alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
-> -               kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
-> -               kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
-> -
-> -               //
-> -               // Create a minimal page table hierarchy that permits us to map
-> -               // the swapper page tables temporarily as we traverse them.
-> -               //
-> -               // The physical pages are laid out as follows:
-> -               //
-> -               // +--------+-/-------+-/------ +-/------ +-\\\--------+
-> -               // :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
-> -               // +--------+-\-------+-\------ +-\------ +-///--------+
-> -               //      ^
-> -               // The first page is mapped into this hierarchy at a PMD_SHIFT
-> -               // aligned virtual address, so that we can manipulate the PTE
-> -               // level entries while the mapping is active. The first entry
-> -               // covers the PTE[] page itself, the remaining entries are free
-> -               // to be used as a ad-hoc fixmap.
-> -               //
-> -               create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc),
-> -                                       KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
-> -                                       kpti_ng_pgd_alloc, 0);
-> -       }
-> -
-> -       cpu_install_idmap();
-> -       remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
-> -       cpu_uninstall_idmap();
-> -
-> -       if (!cpu) {
-> -               free_pages(alloc, order);
-> -               arm64_use_ng_mappings = true;
-> -       }
-> -
-> -       return 0;
-> -}
-> -
-> -static void __init kpti_install_ng_mappings(void)
-> -{
-> -       /* Check whether KPTI is going to be used */
-> -       if (!arm64_kernel_unmapped_at_el0())
-> -               return;
-> -
-> -       /*
-> -        * We don't need to rewrite the page-tables if either we've done
-> -        * it already or we have KASLR enabled and therefore have not
-> -        * created any global mappings at all.
-> -        */
-> -       if (arm64_use_ng_mappings)
-> -               return;
-> -
-> -       stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
-> -}
-> -
-> -#else
-> -static inline void kpti_install_ng_mappings(void)
-> -{
-> -}
-> -#endif /* CONFIG_UNMAP_KERNEL_AT_EL0 */
-> -
->  static void cpu_enable_kpti(struct arm64_cpu_capabilities const *cap)
->  {
->         if (__this_cpu_read(this_cpu_vector) == vectors) {
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 183801520740..eff3295393ee 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -27,6 +27,7 @@
->  #include <linux/kfence.h>
->  #include <linux/pkeys.h>
->  #include <linux/mm_inline.h>
-> +#include <linux/stop_machine.h>
->
->  #include <asm/barrier.h>
->  #include <asm/cputype.h>
-> @@ -466,14 +467,6 @@ static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
->         mutex_unlock(&fixmap_lock);
->  }
->
-> -#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
-> -extern __alias(__create_pgd_mapping_locked)
-> -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
-> -                            phys_addr_t size, pgprot_t prot,
-> -                            phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-> -                            int flags);
-> -#endif
-> -
->  static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
->                                        enum pgtable_type pgtable_type)
->  {
-> @@ -735,7 +728,102 @@ static void __init declare_vma(struct vm_struct *vma,
->  }
->
->  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
-> -static pgprot_t kernel_exec_prot(void)
-> +#define KPTI_NG_TEMP_VA                (-(1UL << PMD_SHIFT))
-> +
-> +static phys_addr_t kpti_ng_temp_alloc __initdata;
-> +
-> +static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
-> +{
-> +       kpti_ng_temp_alloc -= PAGE_SIZE;
-> +       return kpti_ng_temp_alloc;
-> +}
-> +
-> +static void __init create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
-> +                                          unsigned long virt, phys_addr_t size,
-> +                                          pgprot_t prot,
-> +                                          phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-> +                                          int flags)
-> +{
-> +       __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
-> +                                   pgtable_alloc, flags);
-> +}
-> +
-> +static int __init __kpti_install_ng_mappings(void *__unused)
-> +{
-> +       typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
-> +       extern kpti_remap_fn idmap_kpti_install_ng_mappings;
-> +       kpti_remap_fn *remap_fn;
-> +
-> +       int cpu = smp_processor_id();
-> +       int levels = CONFIG_PGTABLE_LEVELS;
-> +       int order = order_base_2(levels);
-> +       u64 kpti_ng_temp_pgd_pa = 0;
-> +       pgd_t *kpti_ng_temp_pgd;
-> +       u64 alloc = 0;
-> +
-> +       if (levels == 5 && !pgtable_l5_enabled())
-> +               levels = 4;
-> +       else if (levels == 4 && !pgtable_l4_enabled())
-> +               levels = 3;
-> +
-> +       remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
-> +
-> +       if (!cpu) {
-> +               alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
-> +               kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
-> +               kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
-> +
-> +               //
-> +               // Create a minimal page table hierarchy that permits us to map
-> +               // the swapper page tables temporarily as we traverse them.
-> +               //
-> +               // The physical pages are laid out as follows:
-> +               //
-> +               // +--------+-/-------+-/------ +-/------ +-\\\--------+
-> +               // :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
-> +               // +--------+-\-------+-\------ +-\------ +-///--------+
-> +               //      ^
-> +               // The first page is mapped into this hierarchy at a PMD_SHIFT
-> +               // aligned virtual address, so that we can manipulate the PTE
-> +               // level entries while the mapping is active. The first entry
-> +               // covers the PTE[] page itself, the remaining entries are free
-> +               // to be used as a ad-hoc fixmap.
-> +               //
-> +               create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc),
-> +                                       KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
-> +                                       kpti_ng_pgd_alloc, 0);
-> +       }
-> +
-> +       cpu_install_idmap();
-> +       remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
-> +       cpu_uninstall_idmap();
-> +
-> +       if (!cpu) {
-> +               free_pages(alloc, order);
-> +               arm64_use_ng_mappings = true;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +void __init kpti_install_ng_mappings(void)
-> +{
-> +       /* Check whether KPTI is going to be used */
-> +       if (!arm64_kernel_unmapped_at_el0())
-> +               return;
-> +
-> +       /*
-> +        * We don't need to rewrite the page-tables if either we've done
-> +        * it already or we have KASLR enabled and therefore have not
-> +        * created any global mappings at all.
-> +        */
-> +       if (arm64_use_ng_mappings)
-> +               return;
-> +
-> +       stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
-> +}
-> +
-> +static pgprot_t __init kernel_exec_prot(void)
->  {
->         return rodata_enabled ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
->  }
->
-> base-commit: 76eeb9b8de9880ca38696b2fb56ac45ac0a25c6c
-> --
-> 2.47.0
->
 
