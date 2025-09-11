@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA52CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B371FCAC593
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HG5KODUu0GjbUdNiiv9Xwk+9exlrDUpck0LIesxLbE4=; b=nEv/Rm8tfUiiT8rVfQGNtuaYLi
-	D09jCFZNwEiWj4ad0j+b9FZQtyPb5gAY6CrdC+Ehku/TEdpXcTDe2573Gf5igExwY11Kcmg6KV+pz
-	ruUivDcWYn5XQ4kfVzyuYttYW5mweyamXCTq1UsTFrrmk+63I8OaL7XdBvFIsQfES1K5sPOHcOz67
-	z7OeucdOAsKoJoZqmmc/uR1VJmqheGYSTD/qHjiPqInraLZT5+NerShEoHqnIukUFnjdrJ/21TyIw
-	SfFWE12yeYdlbUjgVYGHF2jCw9kez0CSdoex/WCmDJiLuWe78BdrtGVLfQZYP6B/5isJXD5ZlcdWC
-	AuI7EDmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MIfjxfI8fjF/JltWwvv161P4lPdGyzyNYzNbvTF3UwM=; b=dAOWN0uVGFtJZpkG3y+7dGOMfb
+	AHGckSiuy89LQFaCsqf9ZuiG0Xr6tvjqBwrJ83fbRhUkbU4xSvsZ51kp11Is1boJTKvoqsd1zgkqP
+	aG3c6W1+tBJE87pkbmlclP6XvxEP3x4iFOk9f8oq8oLn2Wm89i+51tXGflbW+82WjLKAOwQneDVdf
+	LJmvbqxM8HH7H2uK1nr7CiJlMDN5CtVr3R56Ti4rZVh2Pus3p3S9RdZYmBQy2bn2lXjtXubyOy2KI
+	8Z111d8tfDWTHoym5gTLK17zMWYsJ1ETm11DrtuGiTDq5Pivviuzgx2jICj8J8gO+mjfMrPVVI+nd
+	1QI7d1ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwiYt-00000003eJz-0sAb;
-	Thu, 11 Sep 2025 14:46:11 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1uwibJ-00000003f83-0t3D;
+	Thu, 11 Sep 2025 14:48:41 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwiYr-00000003eJN-0BGq
+	id 1uwibG-00000003f65-2Kh2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 14:46:10 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e951dfcbc5bso684771276.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 07:46:08 -0700 (PDT)
+	Thu, 11 Sep 2025 14:48:39 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55f76454f69so832548e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 07:48:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757601968; x=1758206768; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=HG5KODUu0GjbUdNiiv9Xwk+9exlrDUpck0LIesxLbE4=;
-        b=JTPTkgaxABm13zcgI4SIrhQKdGR/NKbiHKm0WXoQ/rTew19b/ozVJi3AuUsuzp99k9
-         0jM241xvlfP32TBULDTqNrj/kwITiUHimgSl/YNfhIDD85aR8Dki87gz7YOMML4L6CE1
-         nRu7kMiAtT+qIxMiwDLqhYweaZ2p/XoWi+3efYnOWFeTfF69/qEja+zo5+Yc0FgAVs9t
-         GOHa4+NuoOs6eXFvxGuUqayxZku1vuDvmk5YJImuoOkhgxaRaqK/YF+LLwKWV7ZXSH5r
-         nJASyrQTl4VYhjoyMriokspEqeHKLcbWQkfGIY5K3wJ3lkdbhXZ6yBTYq1FJNS72dfdZ
-         oJxA==
+        d=linaro.org; s=google; t=1757602116; x=1758206916; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MIfjxfI8fjF/JltWwvv161P4lPdGyzyNYzNbvTF3UwM=;
+        b=tBXjH1TNWHfG6FvstvbUJG7sd4F0dWvGYhDTg4G9p9/Bm1uj2Y2FsGwB4kxAx+Mofj
+         HGoDUdW8Ms3FUDVKwfHdPUfgF1cEI12W+AaC2EghranFx+o155Kwst29F0bqtbLzTW6X
+         UyOjsGcBBVL2MVyEsUMCwuULWamXhSDketmH+V6EB8v14WmfqbQpjZm6EyY+xiPs0LKJ
+         w+Rn4HGe0OSlV45C1Y0msynUL2LLwclYNfxBoQb4K8GYWZ2MBNE2IPU3tfO9hd+lkjBJ
+         0xr1kiBMHybOdMFSYl1dtOW0qxaQpBlo9jJMXZbV01RSZ6QvnxOsQWaXa4Uvqubw8D0A
+         /71A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757601968; x=1758206768;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1757602116; x=1758206916;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HG5KODUu0GjbUdNiiv9Xwk+9exlrDUpck0LIesxLbE4=;
-        b=CuplC44CnE2mGo2lchrITvniH8QdGY2Ztkj6XB7ev4amNkfltVluH0iv145nodTEeE
-         HXrPBMRANj0gvWXMaCN5JC/+w1seHjK4UX7/QA5vge+ujtf0hDHBvQiPcc+3pc0ipCj+
-         /U+hQHWb5ampFHfl6G9Wn+ji4maUcaRaPzkk8PriCTz1ZRYa7PtrVf8xsvfJgqysy3iq
-         4oi4vVL1yfZBGWzh87jW8OfhZhnu+erefNZOB+fyRMPI9JLDpZRmPSB5EKhvpcZKzTrt
-         xRprdqqr/BgjTk7gviAtx3GgA44XAe/BIRsirDH6LjPCTSiySybGkK7AUySxbrmygHQw
-         xYww==
-X-Forwarded-Encrypted: i=1; AJvYcCUU5wInrlfs1sW/lLZmYb4GqWlBRJ4iANUfZMFOsrT997wxyPdOhcB4JswICgdzBtbzBgq/suQxNWnNAzYyHCXR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzv9m7Fm9DQqa/VAZPCd/eK11eu5wNasGmddGVd3ZNqcrkWAdA0
-	0cGrSsCZo/JxMTjbZBZOp1CAYmFpHvJHfYzfzxyKM6RbKjfxEliVEuZLXUC/KxTc59rBUxS5zbw
-	FutPsQpAl81RSgt2b9rNuru5YrflmGPifaDtix/+pOg==
-X-Gm-Gg: ASbGncsDm6oIDK1sVC9KX4afjFuuWVJ4BjXZ0gA2i11bwtNvvwU2XK0XsV46JKWl9em
-	0kL8tk2+s38R15JFWLqfY9YaoIhqZ6MJDYaJ0uvU4mY5NnXjWE34KtzW84fSPsG+oYDShtlchax
-	8ewDMJDhlzFT5gcgsPrGSjt1YlWHOJqjT8AOdf0bqLkk7hDOl9u3IvrHiTmVd1rglb0KTyB/qK6
-	NcMBqQrWRCnGw3+9Cg75vHcy6X2JA==
-X-Google-Smtp-Source: AGHT+IGA14KLSVMCK2zV6p8As0+Jn95rbWVq+KPV+CqkNJxyiiFOFLcSxRvo/0exdQaaGDHMXMlIe6ixp4mKa1e9IQY=
-X-Received: by 2002:a05:6902:1892:b0:ea3:d40a:2563 with SMTP id
- 3f1490d57ef6-ea3d40a2737mr1177746276.41.1757601967783; Thu, 11 Sep 2025
- 07:46:07 -0700 (PDT)
+        bh=MIfjxfI8fjF/JltWwvv161P4lPdGyzyNYzNbvTF3UwM=;
+        b=utGXij/pzU9FoeMCzTtUQYNqdPkg1K7CerR0ZrRN/BSYKLZ4S8PGkQfANPkrlWB6ez
+         TIw/50P/BUdJ39ICW8gos/JtT+pBVHhpi/ssVtXR8UzXQeeuc3Eh2v6rZUMf+DBy17y7
+         2cK5YBLJdQt3/HL8LVpRkwHNr8QQ/6hMQquuptrbA5OMxt4Sd9e/B9Onx8p+ZIorsswi
+         a6AyvSXDa/T+cL6EuSWTLBojyN0UZibMee+Rjaip+1ncJf6J8MQiYv42CBtUN/5qOGpr
+         tIUh47Uq7DoCaZ2A2qxBcqamgA8xiWYWON32PnJx7fwl2nPV5mQwt4Drz0mfw6QyTMMQ
+         vqGA==
+X-Gm-Message-State: AOJu0YyDXusJfKx+HfEi2XOUdNpy+EsuknWr4dxhzS8IpvMxOfNjmnQk
+	wLxjKoIUFX+AT3eb8RVQFtopPo+9knmg9gvST6FSpvoX0EgDZ4+dce9a+RnQXRjOa7mGrxeeFlp
+	+0+gLwdSaeQ==
+X-Gm-Gg: ASbGncupQfRFcvBcpDJmVPc0/8v+jZUkPMogrFix89V7M6sXFpeIycYji+Di8k2E24g
+	9xnlC+ZMDzPjbovz3xWCdd6lRaPWH+zV8vft+yu3jI92GkQRhpIChVUzt23C52ie8PVAT8PuLpP
+	B/q0jLwRAcm/16W7PRFsQP1lZu+ZYzt1pBmbyPg52C4vFGtbqYP2HRIXh/Z1ITwL3A2ABTdDL7y
+	60N978lXkKOgYKzRHjrJzuFkoU/z08sF/x/xj7XtroX/6Hjj1ZQsEAei6eeK2hjoMaa3dN0Ncgw
+	ShKUneu4ow/cjOYgg2vKbAM7TX6UBzGoJMAq+NHizwR7nn2gO96aFADO4LoUivsIwfsYO15kQDk
+	tKpecGhe4yR4gA2Jg2q0usjKs7Kqu/++3SnEFP05GJLOTLxMdlmoqFjtdfYb+ZcOAZg==
+X-Google-Smtp-Source: AGHT+IHy6/1NqtnV9by+dmtQKMm6p40le7KhEDevJduhHCh2PDA/H9OMZ7vx2vMMLyLbvjYYlENfWg==
+X-Received: by 2002:a05:6512:63c5:20b0:563:3ac3:1ec1 with SMTP id 2adb3069b0e04-5633ac31f71mr5579784e87.54.1757602116035;
+        Thu, 11 Sep 2025 07:48:36 -0700 (PDT)
+Received: from nuoska (87-100-249-247.bb.dnainternet.fi. [87.100.249.247])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-56e5c3b6116sm473294e87.24.2025.09.11.07.48.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Sep 2025 07:48:35 -0700 (PDT)
+From: Mikko Rapeli <mikko.rapeli@linaro.org>
+To: linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: krzysztof.kozlowski@linaro.org,
+	arnd@arndb.de,
+	Mikko Rapeli <mikko.rapeli@linaro.org>,
+	stable@vger.kernel.org,
+	Jon Mason <jon.mason@arm.com>,
+	Ross Burton <ross.burton@arm.com>,
+	bruce.ashfield@gmail.com
+Subject: [PATCH] arm64 defconfig: remove CONFIG_SCHED_DEBUG reference
+Date: Thu, 11 Sep 2025 17:47:14 +0300
+Message-ID: <20250911144714.2774539-1-mikko.rapeli@linaro.org>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-References: <20250902-pm-v3-0-ffadbb454cdc@nxp.com>
-In-Reply-To: <20250902-pm-v3-0-ffadbb454cdc@nxp.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 11 Sep 2025 16:45:31 +0200
-X-Gm-Features: Ac12FXy4zlU7KeT4OFE-vyI1bqh6ZB1528BpXJl_SwXQzUbCOw7DO0NcEvUZLJA
-Message-ID: <CAPDyKFqBJQ92HH1tSq1rfbXV1OwbyvgChyHfv7ykJqf2A6qYpw@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] pmdomain: core: Introduce device_set/get_out_band_wakeup
- and use it in usb
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>, 
-	Peter Chen <peter.chen@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Xu Yang <xu.yang_2@nxp.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org, imx@lists.linux.dev, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_074609_086055_E247F213 
-X-CRM114-Status: GOOD (  24.86  )
+X-CRM114-CacheID: sfid-20250911_074838_601616_6FD99B7C 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,69 +102,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2 Sept 2025 at 05:33, Peng Fan <peng.fan@nxp.com> wrote:
->
-> This is pick up of [1] which does not have response in about 5 months.
+It has been completely removed since v6.14-rc6 by
 
-Sorry, I have planned to have a look at this, but just never got to it.
+commit dd5bdaf2b72da81d57f4f99e518af80002b6562e
+Author:     Ingo Molnar <mingo@kernel.org>
+AuthorDate: Mon Mar 17 11:42:54 2025 +0100
+Commit:     Ingo Molnar <mingo@kernel.org>
+CommitDate: Wed Mar 19 22:20:53 2025 +0100
 
-> This V2 patchset
-> - includes usb driver changes(patch 2,3) to give people a full picture on how it is used.
-> - Rebased next-20250729 to resolve conflicts
->
-> To i.MX95, USB2 and USB3 are in HSIOMIX, but there is always on logic
-> to make USB2 and USB3 has wakeup capability when HSIOMIX power domain
-> is in off state. Otherwise the HSIOMIX will be kept on when
-> USB2 and USB3 are configured to be wakeup source and Linux suspended.
-> With this patchset, HSIOMIX could be powered off and Linux could still
-> be woke up by USB hotplug event.
->
-> Patch 1 introduces device_set/get_out_band_wakeup
-> Patch 2 and 3 are drivers changes to use device_set_out_band_wakeup
->
-> [1]https://lore.kernel.org/linux-pm/20250311083239.3336439-1-peng.fan@oss.nxp.com/
->
-> More old discussions:
-> https://lore.kernel.org/linux-pm/20250311083239.3336439-1-peng.fan@oss.nxp.com/
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+    sched/debug: Make CONFIG_SCHED_DEBUG functionality unconditional
 
-Overall I think the series looks nice, but I will make some more
-thinking of this in the next few days and come back with some proper
-comments, at latest in the middle of next week.
+Fixes yocto meta-arm sbsa-ref kernel config warning which
+uses kernel.org arm64 defconfig:
 
-Kind regards
-Uffe
+DEBUG: Executing python function do_kernel_configcheck
+WARNING: [kernel config]: This BSP contains fragments with warnings:
 
-> ---
-> Changes in v3:
-> - Add a new patch from Xu Yang to detach power domain for ci hdrc
-> - Add A-b for patch 4
-> - Link to v2: https://lore.kernel.org/r/20250801-pm-v2-0-97c8fb2a433c@nxp.com
->
-> ---
-> Peng Fan (3):
->       pmdomain: core: Introduce device_set/get_out_band_wakeup()
->       usb: chipidea: ci_hdrc_imx: Set out of band wakeup for i.MX95
->       usb: dwc3: imx8mp: Set out of band wakeup for i.MX95
->
-> Xu Yang (1):
->       usb: chipidea: core: detach power domain for ci_hdrc platform device
->
->  drivers/pmdomain/core.c            |  6 ++++--
->  drivers/usb/chipidea/ci_hdrc_imx.c |  8 ++++++++
->  drivers/usb/chipidea/core.c        |  3 +++
->  drivers/usb/dwc3/dwc3-imx8mp.c     |  4 ++++
->  include/linux/pm.h                 |  1 +
->  include/linux/pm_wakeup.h          | 17 +++++++++++++++++
->  include/linux/usb/chipidea.h       |  1 +
->  7 files changed, 38 insertions(+), 2 deletions(-)
-> ---
-> base-commit: 1b09efec32046a9c78cfecc46a26b1b139a3e8a8
-> change-id: 20250729-pm-243ff7097e44
->
-> Best regards,
-> --
-> Peng Fan <peng.fan@nxp.com>
->
+[INFO]: the following symbols were not found in the active
+configuration:
+     - CONFIG_SCHED_DEBUG
+
+DEBUG: Python function do_kernel_configcheck finished
+
+Fixes: dd5bdaf2b72d ("sched/debug: Make CONFIG_SCHED_DEBUG functionality unconditional")
+Cc: <stable@vger.kernel.org>
+Cc: Jon Mason <jon.mason@arm.com>
+Cc: Ross Burton <ross.burton@arm.com>
+Cc: bruce.ashfield@gmail.com
+Signed-off-by: Mikko Rapeli <mikko.rapeli@linaro.org>
+---
+ arch/arm64/configs/defconfig | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 58f87d09366cd..4126281665bf2 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1798,7 +1798,6 @@ CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+ CONFIG_DEBUG_INFO_REDUCED=y
+ CONFIG_MAGIC_SYSRQ=y
+ CONFIG_DEBUG_FS=y
+-# CONFIG_SCHED_DEBUG is not set
+ # CONFIG_DEBUG_PREEMPT is not set
+ # CONFIG_FTRACE is not set
+ CONFIG_CORESIGHT=m
+-- 
+2.34.1
+
 
