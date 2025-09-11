@@ -4,74 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA83DCAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E07CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGB5/wUkOZBi6DYv5m3MvF1yANQI2mFPXlTlj/tPwZM=; b=g1t0iHxpnYmhZk/DKmH5sOXRLS
-	JIAtgtONK5j1r3MiCxWEyiJdOVx6fcViaaN337DGIHRfeH0JpATVrzLp5D4G8BV4rGGxYmP5jD+su
-	obL32pXIVQC7tcJ7lsTZ0JfWWHPbeQbcjWxmdi7phHa9o4LjGLGLtDXmvPkYxHZ0Rg/6fbPGNVieg
-	C/YGZzdLkOJ7LvTtyQlVorMZ6yfqaKx103/P0EHg5q8GGrzY9fZKoif8a64j0gneEXczU443QshcE
-	BGYohNiQxuYWtdT85K1jbIyzBXDsREqZ3Dj9gwnx3Zu9p4CwpenCFEfC2dBZlbyecW6F7WH3BosDt
-	viGsuBzg==;
+	bh=WHL5LcsLI9dIOkErscuPn0aXfUSWi6A2LqSujMYzR68=; b=PXOYfjaBLfsFkjwse85qH+3KkX
+	b2vmZujemzX55mvXiYUsukuw+PTNKD/gM2WEjx2ahBkPC2OkkZrV+vfe2TZyoVRQpVrguiukIuDNV
+	G7hFWI42vvftmvFgemBcSCXG3usk5HjnQiHp5tjUzsu2b6zJml4Opm1lsGUwu4GtO6uXdveGCyV30
+	3zRjYxdUnvSA+c2vlWhJrpOaa/KyLqUKqT0PNegXhE9XUE4lS1zulWT90Au49BOV0PWxlRxaVwyuE
+	hD7ucZHTEVGDiRnv9dVz9Ehn25AtlR9F5l+wpjcxwt1vShCD4Wf2EQxiyvHcGh4yefmy8Qn8bs+Sm
+	VD1A2SKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwimy-00000003joT-1tAg;
-	Thu, 11 Sep 2025 15:00:44 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uwinc-00000003jzv-3N7t;
+	Thu, 11 Sep 2025 15:01:24 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwimv-00000003jmi-106W
+	id 1uwina-00000003jyX-1EzM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:00:43 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cN0zQ1Gh7z6LDB4;
-	Thu, 11 Sep 2025 22:57:54 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 35CF01402F8;
-	Thu, 11 Sep 2025 23:00:34 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
- 2025 17:00:33 +0200
-Date: Thu, 11 Sep 2025 16:00:31 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
-	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
-	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
-	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
-	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
- Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
-	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
-Subject: Re: [PATCH v2 09/29] arm_mpam: Add MPAM MSC register layout
- definitions
-Message-ID: <20250911160031.000026c7@huawei.com>
-In-Reply-To: <20250910204309.20751-10-james.morse@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-10-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 11 Sep 2025 15:01:23 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45de185c04aso736565e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 08:01:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757602880; x=1758207680; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=WHL5LcsLI9dIOkErscuPn0aXfUSWi6A2LqSujMYzR68=;
+        b=aPjieEqB+rQRr0rCbUr9O+9wlKEYz+daqGNqTCzwZal/vBSf1I1AnvnYrnpwgVhLgV
+         h2pmBFSzQ2cx0sQJxAVeVaujc9Ccr0Fi7YymaTBjgDSzzRypxvIthIl6FW5aHn6ZVeWl
+         3eYvtVD5bRRDjg4ctufjKXYoEjxdRlkwgxn8+xh3RtrTKenNYFeKNR3ZarUsrMHGdU+w
+         PHF2tHHVIbDuU/HvwM4ippzU4UM2Yd33fXIeAvsJF6mnQX3bgB2JgNOky4kPQi3hK9dU
+         aS/hbXnAUSRyP72YoMAicuM/ooY/Pf+SU+Qtx7wxE4tMHPsR2xsipy5Hk6BWbhu/Ld0m
+         kNLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757602880; x=1758207680;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WHL5LcsLI9dIOkErscuPn0aXfUSWi6A2LqSujMYzR68=;
+        b=SSiNdid8vXUAVGHVUNdTWzJGtBvJo3cXEhEFKrnnXRzj3CgpqHv91NjvO9j6KTjUIh
+         DOghP5aF6uYCTrN5H2W/0znrGmFBadZIy0M1U0A7RTtmHuP9Hoki8EQCLn3oSZNH8LO6
+         mBDZbB5T/9e8mhw5CJPpjKxwUVK2smeJvGs5IOq4hxml0SF9dpkrWb5hrnqOc+/NAslj
+         gsJe1UuwEq4wT5N404N+CAO8apz2Wajrfx+6sd144gvNYXRSFjRfBjT+lEysmtdaDOT6
+         w93MdNf5MHfIdsX0BF8uLN7P6j+dGvkUXhoPJu7HulXvVqXLDFzeXrJKJogFBt0bAdAb
+         pSOw==
+X-Forwarded-Encrypted: i=1; AJvYcCVYh7sQkmdfSZIhcJ8RqX9qde09yHEzJjr0DheUB/biHjAZDqznsFeZ/DxVcrkXt2IYC1y1ptj4cQOYE/SfW0F9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzlFtlicXT1X7s4qeCNUJJ9ylzYwQLQExhOFgjl6B8oSkkHrGY
+	OysdyBsaakxfQ7D1EoGUIv1P3p06iznlQolV0VID+G/V1xpZuChbZKLhnmmyKLd4/7KgpFUb0Ov
+	Yx13z
+X-Gm-Gg: ASbGncvXN/eRvPbn62fUnTkSi0fhvirlPWMdLPWq3oY6kXgPa0q7Qg2oCwYOd6/ii2n
+	0RxIgCS2qug1r+n79va+jJSK/yhPdN9zP8fSfXuA6C5evZ68LQR3NSc+xBd0hluraaTtTVroLLa
+	nEq1ZQC0jLvZrbKXgeFVM26/u9C3Gb8ca4nRW6FkcF9vF642BTwpgc2tB58DHs37Q44WEmfMnyW
+	xYvAsRvFpzgjOs+4JaW1CDcuoJ/+UAExVhKDhLKqEooqJ200GaDXd1Clbaj6TUzGBjPEBPiWETx
+	Y5JaANztr0GauSypa9aOru+UeYMzUlRt4f/M10zmbMEpEwuKQXdcOR8zFS2E33BYr4iGKqjohNs
+	/9f50vBXAmgu8T6ZSgIQLA+ykasZdn6Y6186gpeP8lYFxpt3JZoisGJR4BTGUbnEX
+X-Google-Smtp-Source: AGHT+IG/d1aWzZ0Ltu8iCu+Yk7Oxm2T5kOcTdTAB1ZLqJif8CiH/SJeBlnAzTppkpTuXinpQ1q86sw==
+X-Received: by 2002:a05:600c:870f:b0:45d:c85f:5030 with SMTP id 5b1f17b1804b1-45dddea1c78mr91523505e9.2.1757602878916;
+        Thu, 11 Sep 2025 08:01:18 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e01865ff7sm15772975e9.2.2025.09.11.08.01.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Sep 2025 08:01:13 -0700 (PDT)
+Message-ID: <386a9d77-f708-4a47-8318-b83f862d5c1d@linaro.org>
+Date: Thu, 11 Sep 2025 17:01:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64 defconfig: remove CONFIG_SCHED_DEBUG reference
+To: Mikko Rapeli <mikko.rapeli@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: arnd@arndb.de, stable@vger.kernel.org, Jon Mason <jon.mason@arm.com>,
+ Ross Burton <ross.burton@arm.com>, bruce.ashfield@gmail.com
+References: <20250911144714.2774539-1-mikko.rapeli@linaro.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20250911144714.2774539-1-mikko.rapeli@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
- frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_080041_569894_9A17198D 
-X-CRM114-Status: GOOD (  28.75  )
+X-CRM114-CacheID: sfid-20250911_080122_371974_9B7BF434 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,185 +149,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sep 2025 20:42:49 +0000
-James Morse <james.morse@arm.com> wrote:
+On 11/09/2025 16:47, Mikko Rapeli wrote:
+> It has been completely removed since v6.14-rc6 by
 
-> Memory Partitioning and Monitoring (MPAM) has memory mapped devices
-> (MSCs) with an identity/configuration page.
-> 
-> Add the definitions for these registers as offset within the page(s).
-Hi James,
-
-I'm not sure why some things ended up in this patch and others didn't.
-MPAMCFG_EN for example isn't here.
-
-If doing a separate 'register defines' patch I'd do the lot as of
-the current spec.
+In the future please use kernel style commit SHA ("foo") style.
+Checkpatch probably complained about this as well - are you sure that
+you had no warnings here?
 
 > 
-> Link: https://developer.arm.com/documentation/ihi0099/latest/
-
-Maybe link a specific version? I'm not sure if I'm looking at is the same one
-as you were when you wrote this. That will become worse over time.  I'm definitely
-seeing extra bits in a number of registers.
-
-I'm lazy enough not to go see if the cover letter calls out a version.
-
-Anyhow, various small things on ordering that would have made this easier to review
-against the spec.
-
-Jonathan
-
-
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since v1:
->  * Whitespace.
->  * Added constants for CASSOC and XCL.
->  * Merged FLT/CTL defines.
->  * Fixed MSMON_CFG_CSU_CTL_TYPE_CSU definition.
+> commit dd5bdaf2b72da81d57f4f99e518af80002b6562e
+> Author:     Ingo Molnar <mingo@kernel.org>
+> AuthorDate: Mon Mar 17 11:42:54 2025 +0100
+> Commit:     Ingo Molnar <mingo@kernel.org>
+> CommitDate: Wed Mar 19 22:20:53 2025 +0100
 > 
-> Changes since RFC:
->  * Renamed MSMON_CFG_MBWU_CTL_TYPE_CSU as MSMON_CFG_CSU_CTL_TYPE_CSU
->  * Whitepsace churn.
->  * Cite a more recent document.
->  * Removed some stale feature, fixed some names etc.
-> ---
->  drivers/resctrl/mpam_internal.h | 267 ++++++++++++++++++++++++++++++++
->  1 file changed, 267 insertions(+)
-> 
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 02e9576ece6b..109f03df46c2 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -152,4 +152,271 @@ extern struct list_head mpam_classes;
->  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
->  				   cpumask_t *affinity);
->  
-> +/*
-> + * MPAM MSCs have the following register layout. See:
-> + * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
-> + * Component Specification.
-> + * https://developer.arm.com/documentation/ihi0099/latest/
+>     sched/debug: Make CONFIG_SCHED_DEBUG functionality unconditional
 
-Maybe be friendly and give some section number references.
+So all above is not necessary.
 
-> + */
-> +#define MPAM_ARCHITECTURE_V1    0x10
-> +
-> +/* Memory mapped control pages: */
-> +/* ID Register offsets in the memory mapped page */
-> +#define MPAMF_IDR		0x0000  /* features id register */
-> +#define MPAMF_MSMON_IDR		0x0080  /* performance monitoring features */
+Anyway, this was already sent:
+https://lore.kernel.org/all/20250828103828.33255-1-twoerner@gmail.com/
 
-Any reason this one is out of order with respect to the addresses?
-
-> +#define MPAMF_IMPL_IDR		0x0028  /* imp-def partitioning */
-> +#define MPAMF_CPOR_IDR		0x0030  /* cache-portion partitioning */
-> +#define MPAMF_CCAP_IDR		0x0038  /* cache-capacity partitioning */
-> +#define MPAMF_MBW_IDR		0x0040  /* mem-bw partitioning */
-> +#define MPAMF_PRI_IDR		0x0048  /* priority partitioning */
-> +#define MPAMF_CSUMON_IDR	0x0088  /* cache-usage monitor */
-> +#define MPAMF_MBWUMON_IDR	0x0090  /* mem-bw usage monitor */
-> +#define MPAMF_PARTID_NRW_IDR	0x0050  /* partid-narrowing */
-> +#define MPAMF_IIDR		0x0018  /* implementer id register */
-> +#define MPAMF_AIDR		0x0020  /* architectural id register */
-
-These 3 as well. I'm not sure what the ordering is conveying but probably easier to just
-to put them in address order.
-
-There are some other cases of this below.
-
-
-> +/* MPAMF_IIDR - MPAM implementation ID register */
-> +#define MPAMF_IIDR_PRODUCTID	GENMASK(31, 20)
-> +#define MPAMF_IIDR_PRODUCTID_SHIFT	20
-> +#define MPAMF_IIDR_VARIANT	GENMASK(19, 16)
-> +#define MPAMF_IIDR_VARIANT_SHIFT	16
-> +#define MPAMF_IIDR_REVISON	GENMASK(15, 12)
-> +#define MPAMF_IIDR_REVISON_SHIFT	12
-> +#define MPAMF_IIDR_IMPLEMENTER	GENMASK(11, 0)
-> +#define MPAMF_IIDR_IMPLEMENTER_SHIFT	0
-I'd expect to see FIELD_GET/ PREP rather than use of shifts. Can we drop the defines?
-
-Pick an order for reg field definitions. Until here they've been low to high.
-
-
-> +/* Error conditions in accessing memory mapped registers */
-> +#define MPAM_ERRCODE_NONE			0
-> +#define MPAM_ERRCODE_PARTID_SEL_RANGE		1
-> +#define MPAM_ERRCODE_REQ_PARTID_RANGE		2
-> +#define MPAM_ERRCODE_MSMONCFG_ID_RANGE		3
-> +#define MPAM_ERRCODE_REQ_PMG_RANGE		4
-> +#define MPAM_ERRCODE_MONITOR_RANGE		5
-> +#define MPAM_ERRCODE_INTPARTID_RANGE		6
-> +#define MPAM_ERRCODE_UNEXPECTED_INTERNAL	7
-
-Seems there are more in latest spec..
-> +
-> +/*
-> + * MSMON_CFG_CSU_CTL - Memory system performance monitor configure cache storage
-> + *                    usage monitor control register
-> + * MSMON_CFG_MBWU_CTL - Memory system performance monitor configure memory
-> + *                     bandwidth usage monitor control register
-> + */
-> +#define MSMON_CFG_x_CTL_TYPE			GENMASK(7, 0)
-> +#define MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L	BIT(15)
-> +#define MSMON_CFG_x_CTL_MATCH_PARTID		BIT(16)
-> +#define MSMON_CFG_x_CTL_MATCH_PMG		BIT(17)
-> +#define MSMON_CFG_x_CTL_SCLEN			BIT(19)
-On the spec I'm looking at this is reserved in CSU_CTL
-
-> +#define MSMON_CFG_x_CTL_SUBTYPE			GENMASK(22, 20)
-> +#define MSMON_CFG_x_CTL_OFLOW_FRZ		BIT(24)
-> +#define MSMON_CFG_x_CTL_OFLOW_INTR		BIT(25)
-> +#define MSMON_CFG_x_CTL_OFLOW_STATUS		BIT(26)
-> +#define MSMON_CFG_x_CTL_CAPT_RESET		BIT(27)
-> +#define MSMON_CFG_x_CTL_CAPT_EVNT		GENMASK(30, 28)
-> +#define MSMON_CFG_x_CTL_EN			BIT(31)
-
-I guess this combining of definitions will show some advante in common code
-later but right now it seems confusing given not all bits are present in both.
-
-> +
-> +#define MSMON_CFG_MBWU_CTL_TYPE_MBWU			0x42
-> +#define MSMON_CFG_CSU_CTL_TYPE_CSU			0x43
-> +
-> +/*
-> + * MSMON_CFG_CSU_FLT -  Memory system performance monitor configure cache storage
-> + *                      usage monitor filter register
-> + * MSMON_CFG_MBWU_FLT - Memory system performance monitor configure memory
-> + *                      bandwidth usage monitor filter register
-> + */
-> +#define MSMON_CFG_x_FLT_PARTID			GENMASK(15, 0)
-> +#define MSMON_CFG_x_FLT_PMG			GENMASK(23, 16)
-> +
-> +#define MSMON_CFG_MBWU_FLT_RWBW			GENMASK(31, 30)
-> +#define MSMON_CFG_CSU_FLT_XCL			BIT(31)
-> +
-> +/*
-> + * MSMON_CSU - Memory system performance monitor cache storage usage monitor
-> + *            register
-> + * MSMON_CSU_CAPTURE -  Memory system performance monitor cache storage usage
-> + *                     capture register
-> + * MSMON_MBWU  - Memory system performance monitor memory bandwidth usage
-> + *               monitor register
-> + * MSMON_MBWU_CAPTURE - Memory system performance monitor memory bandwidth usage
-> + *                     capture register
-> + */
-> +#define MSMON___VALUE		GENMASK(30, 0)
-> +#define MSMON___NRDY		BIT(31)
-> +#define MSMON___NRDY_L		BIT(63)
-> +#define MSMON___L_VALUE		GENMASK(43, 0)
-> +#define MSMON___LWD_VALUE	GENMASK(62, 0)
-> +
-> +/*
-> + * MSMON_CAPT_EVNT - Memory system performance monitoring capture event
-> + *                  generation register
-> + */
-> +#define MSMON_CAPT_EVNT_NOW	BIT(0)
-> +
->  #endif /* MPAM_INTERNAL_H */
-
+Best regards,
+Krzysztof
 
