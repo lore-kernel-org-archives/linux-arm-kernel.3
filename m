@@ -4,176 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21A9CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9D4CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z3uEXza7a6g5nkWzhF/1MVg3QUXAMCoLVdNgR57ki+g=; b=MpNcLcRRE+JWxk1+dA3Vep/b2V
-	kkIoarv1ATH5AKVczTDA4eDZkURVYrU6SQOkHBO9mJ/x93mp6NQczlqELYZRhEyY5C+snnV6kN/kr
-	vYZIsTKkMumkZNSD9bAhRX3FZK56e7NOsWPw10KG3ZSmAjt5ETj624gGX5tnDKpf4NMxFy3qvf6Oz
-	pO0GvhWSwf4i2LGHYN5J/5u7fOxclvDBtVZTj9d9SzWnC2K416gWeF7O4+dY3vDwB9R9e2frO/bIm
-	GeIJmlH2HCgVlmdwAp+NqSmf0+kMv9sJSUVe8OCSE2AR6GLZlgFyK1ZlDWsKQxy08SAQlhFzVwRWx
-	vcIaUpTw==;
+	bh=h7s7cIpoWzooi6KCel1K/BhJC4KE4day4yCyTcRcgmQ=; b=FOxaaxiIo4Ak2gUYfP8OwuHlPl
+	o9T3NFvuMO/2yxJvzfPzK2q1jlcL8Qiw+/U60Utx7ccKRXnDcPdVpNPkkq+86+eK5hqmStn+XOucx
+	wW3qCUEBHenlm5XuszjMdYjkwFzVi7aDXVh8vXOr/Af/LcY9G22VHOhvk/KnqwWuBNqOlRhw795Ov
+	W2jV5mzUi4iczIA1jc2l9CYEUGsbsvggmibEabA7nllqbFHOUbmuK2n7WhhCLf2pTrkwtssafO77R
+	3vuRT1vB3OZqSGLIJxvy3OJBqUbHWxPVF3ds6a9LY7TC88f9QAqg6Mtl9Y5V7hDP4+6puqvIMTu1b
+	upsEN70Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcEo-00000001gjn-0yaB;
-	Thu, 11 Sep 2025 08:01:02 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1uwcGM-00000001hU3-37pU;
+	Thu, 11 Sep 2025 08:02:38 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcEl-00000001gej-4BtY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 08:01:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OYFW3o+QO9kwYLdobABzNPfrXiXxx0wZ3BLyXlLZHM16AYiJNTwqM5dZ/4eBmFh4g58F0mOeLxVEYDicS/UJGYc4g/jVar8QVX1o00ao2RSQyIUKrkIAyCMLLT63sVzMnvy9IFjGaAjGjVSRFpBQMF7YFixmGrvHFPdq3mkmAeiFqqqodFGPSfZQhAt4x5nlUBYJVXD2meN8mXrMgdKvLdtbKPf4/cL9cUCqyxJ1BP1RCp0WdbjtZ7ZUa/tvmihAn7xPLs3ffaeBk3vQzOCRr8faOJsXhJB/5yz3v5GDMedMRDwW9nPyJWIOnhVT0VROPWtJ2hTuT/RaGwkUbIJ55g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=z3uEXza7a6g5nkWzhF/1MVg3QUXAMCoLVdNgR57ki+g=;
- b=ik0Lruj+ZOIT64S3GU5et+duFu0ZGJbAlVX71RJky0Os0lMhsm1HYsEQhreSxAZGZMFzWs1wbqmW9HB0y/WRm1cXP/E+HSnA5BzUXkyPB3CopekUGF6rnTE2dYqI5mA3oW624HxZqPs2jKRObO7KVX+ZBkp3vg02XfMvA+YIzj1JUdtHWrC7fs/pmrrw7nlrg6xB8yBaTddm/Nh3iWPu0+wtH3cAYaZqSTqG+WshB7XG5GTQUYX8RIqlpHaItXb4Ghc5mZ64rjMo7KDIizJhxlTAgtzBVZLlhFepULFJfacchQtUH6JEBsOKY/Qhv92u1UEU9oVUK0xpkDrBktoCUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=gocontroll.com; dmarc=pass action=none
- header.from=gocontroll.com; dkim=pass header.d=gocontroll.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gocontrollcom.onmicrosoft.com; s=selector1-gocontrollcom-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=z3uEXza7a6g5nkWzhF/1MVg3QUXAMCoLVdNgR57ki+g=;
- b=0D03UL2uiy54HX9jG57gMwwX9LX59O83ibX38pWr9MSZbCLTBAEf6Urd1Xx8Pwe+h0ga6XRqiUvVXlJT56aeI1G4A9cV8TkcJOf+y3uzEmgGFNij8LHy2TsmiC8zSq/BqrkrpcKfuCmZ8CUPtBJe3KTyLdS9ox68pXojnaQ9q8RPQ3h67pe/Rq0zeaKa/l2gKGbGjVL3r+fbWCb4MUT3nJrISGl4fpq6XNrh/4yrDr4GzooZzplpATeEoZ3rzl4nYdF6qvCoYaLbFZ9N6scYpyQOwV8GxdtxcC3GQQcBusfNwqzOsoM8Xakpt2Ye4owC+SzcrSZoHTZ9jd7D6ZwzZw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=gocontroll.com;
-Received: from PA4PR04MB7630.eurprd04.prod.outlook.com (2603:10a6:102:ec::16)
- by GV2PR04MB11835.eurprd04.prod.outlook.com (2603:10a6:150:2fe::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.14; Thu, 11 Sep
- 2025 08:00:49 +0000
-Received: from PA4PR04MB7630.eurprd04.prod.outlook.com
- ([fe80::311b:ad3a:4a62:7b5f]) by PA4PR04MB7630.eurprd04.prod.outlook.com
- ([fe80::311b:ad3a:4a62:7b5f%6]) with mapi id 15.20.9115.015; Thu, 11 Sep 2025
- 08:00:48 +0000
-Message-ID: <66b609da-328a-4b33-93f8-ff5bb274c765@gocontroll.com>
-Date: Thu, 11 Sep 2025 10:00:46 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] backlight: add max25014atg backlight
-To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-fbdev@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20250911-max25014-v3-0-d03f4eba375e@gocontroll.com>
- <20250911-max25014-v3-2-d03f4eba375e@gocontroll.com>
-Content-Language: en-US
-From: Maud Spierings <maudspierings@gocontroll.com>
-In-Reply-To: <20250911-max25014-v3-2-d03f4eba375e@gocontroll.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AM0PR10CA0015.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:17c::25) To PA4PR04MB7630.eurprd04.prod.outlook.com
- (2603:10a6:102:ec::16)
+	id 1uwcGK-00000001hSi-1Yf5;
+	Thu, 11 Sep 2025 08:02:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1757577756; x=1789113756;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=kdicIERSEGS6CGqV+GThuXvTSIsMgiNJoEUEEMAQ7JM=;
+  b=cjmKTtturTBd1u1rRoNqqkPHnT+f1CuyYm3OnFnQ64Lg9c8b0d3xfzQN
+   RlcfdwX3WmeRnJmBuHBVBHdzHT4qUypp0wD1AnYyA1LpIc1xs/4YrkDj6
+   IwltMsrN49XIPqyMB5YfGYIRmB4Q0aphRf0LDIm79G6kWJGoNaWUNluf1
+   SJlzLMpsKz1lCPwbF4V4mXt6L7c/U+yqsOr+X1YVeaRxkZYq+g7/ihy+/
+   fDToy2PVp0jKkJ0Xuy8bnIxm2QrtZfPDpyUV9BHwMMiUlxnX+9IaRD/Xq
+   x8UVrxnJdJ6YzgIMmMnXzM7cFGIVXrT2Y37K4AKIXGbvJ3LZgQVCOpOE5
+   Q==;
+X-CSE-ConnectionGUID: umL3eZeQRDyat69o4z+giw==
+X-CSE-MsgGUID: zzO25s1ORQWy0WkJSNh6Zw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11549"; a="59130645"
+X-IronPort-AV: E=Sophos;i="6.18,256,1751266800"; 
+   d="scan'208";a="59130645"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2025 01:02:36 -0700
+X-CSE-ConnectionGUID: HSAt/B/2T7CyoKV4/Fpp1g==
+X-CSE-MsgGUID: KD+qII/XTDGOjnGuMB8DWg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,256,1751266800"; 
+   d="scan'208";a="172805532"
+Received: from smile.fi.intel.com ([10.237.72.51])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2025 01:02:30 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1uwcGA-000000022ZP-12Gk;
+	Thu, 11 Sep 2025 11:02:26 +0300
+Date: Thu, 11 Sep 2025 11:02:26 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Doug Berger <opendmb@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Alban Bedel <albeu@free.fr>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v2 07/15] gpio: brcmstb: use new generic GPIO chip API
+Message-ID: <aMKCEjwDUFH4OZAf@smile.fi.intel.com>
+References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
+ <20250910-gpio-mmio-gpio-conv-part4-v2-7-f3d1a4c57124@linaro.org>
+ <e0941449-7a62-4bbb-8790-616f393f2cc8@gmail.com>
+ <CAMRc=MfZ5ss8Gd_TTPV8EYSv04ENp_C26b3=wukO+UTy_boXUA@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB7630:EE_|GV2PR04MB11835:EE_
-X-MS-Office365-Filtering-Correlation-Id: 47b50ad5-7f78-4d1c-ce9b-08ddf1095190
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|10070799003|376014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eW1TbmVTcHovTHVTbHhCU0NRWUI1ZG1SS1Via3U2eEFtcThYRWJOQUI1N0FG?=
- =?utf-8?B?ZlVVZlhZUEdpd1YrU1R2WVI3U2xuTmpwK094T1M5U1pLY0JOSHVkVEhhNU5I?=
- =?utf-8?B?Uy9kaXBDMWR5am9XdkdUTmlaeFRDZmpZa1FSUmM5bmVMaFB6SnFwR2FhZ0pQ?=
- =?utf-8?B?SUhSR3EyUlRwNE1QRXpnSk9acjhnUFpDejNUcWFOckNTU21QL2dGTEl4akph?=
- =?utf-8?B?YUNGdzdDREdydEFlRndBTmxLbnA2bC94ZVNrcU1DbWpSZGdVL1hpamxDMEhi?=
- =?utf-8?B?MzA0M1RGTGhiV3JzSG5OVS9CWW0zUS9Vc3pDWmpPS01wY1JKL2F2dDZ2SVk5?=
- =?utf-8?B?aGk5S05ncVNnT1NtYmNmV0QvcXJqcWhPMVRCR1I3N3hRblh4d0hvbDZLTkZZ?=
- =?utf-8?B?U1lLQ2svZ0NyOHhoY0RvUFYrZXZTYkh1djJGZjgvSjd6cFpFTEdEbytJSk9W?=
- =?utf-8?B?alVLSGRRTnA2QjlzbHUweGFZb0REQ3J5TUZqdVdHRldDZlBLcG9FQ0pyc0ZF?=
- =?utf-8?B?dVBRZ0lIQkdwZUIzKzZud1BZbDhJMk95SGpsajROT1R5TGduNFMrc1BVeXht?=
- =?utf-8?B?TVNKYVhoUFNoRnVLVE1xRml6WjRlRlpFSGFlaTQyNnFOZzBqZzNtMm9kazJl?=
- =?utf-8?B?dXgxNWE3ZkQyd3RQa2xmRDVPWUNZV1dxZmRLOWVBdFpRdUdTT0tEZXc1bmNs?=
- =?utf-8?B?ejNBcG5XUElkUjBpVWV2SmJPcFFpTFU2S2NXMzRDaTcxMVpTOWpETys0dm9C?=
- =?utf-8?B?UFF2dktWL0lvZ3F3Y0R0YVh0RWtnVnMrTVJGOHN0SGMvU1VBaGE2eG01Vkll?=
- =?utf-8?B?N2IvV3RGVXdnTDFFWEFIZXVxby91RHMzbVFUOGphNjc5ajNvKzRxMi9qYVZw?=
- =?utf-8?B?aE0zWFdQclhrZStFaDhRaXViNXpkMFBuVmxMUXNMbEx2Wks0Qm9TWmpJTTlI?=
- =?utf-8?B?TWVJS2VvdUlIenhnMExYcmlRY2tVdjc3aHlsdzMveFdnT3ZmdUpvbWduZGJ2?=
- =?utf-8?B?YlUybGNvaHVoNmx3bTU0bG5DM01Tdi9PbkNjalYxNEpPNGd1aGxmV2EyRzQ1?=
- =?utf-8?B?bUdJNGdxelBraVhNcllPZ25wVWY1SXJhbExXVnlXcEtGMkMrWHdONE16UzU1?=
- =?utf-8?B?c0dFU2t3T0lKckN0aHQyampub1o1bzJGb2RiaExFaFhRWHF4OEtDNHV4V0p3?=
- =?utf-8?B?aFhnNGRjdUdndFQrMWZEVUtQcGhkREhtL05OWXJIVE9VeHhidHB1WmdISFVa?=
- =?utf-8?B?S2FLVXpTRm03ZG5lZWh1WXA1Y2lNUFBwMXR6U212M1d4MjNRbmN3aVArWVlz?=
- =?utf-8?B?SkNLOVJuUnNOVmwvRlBTcXF0czFCbXVieGhXRVZJd2dkUlJDMnc0V2I4WmhR?=
- =?utf-8?B?Y3BCc1lpM2hTQ0JUc2MydUtuRjhtY2RqdFNvSE9aUlZEOS9OSVk5NTFsR3VT?=
- =?utf-8?B?MzQ0bE9sVTNDc2FFV1V1S0VTUUwyVEtHaFZidVVYTms5RERYSHRyaklBTWIv?=
- =?utf-8?B?MjdNZmJITTQxZ3ZJbU1YMGpUTHY5by8wb25WclRWUUpkMkR2eUFkcmdLMG96?=
- =?utf-8?B?S1c0L3Fka2ovaDNjdVYzcVN0ajhNWFhYNEtMSzFIaUNMN0trYVJIVjlFU21T?=
- =?utf-8?B?ZTlUV1l6T0tBWmZVVjZBL3MwVTRZM1dNR2tZQmh4Y2UxQ3RLNVJoR2FtQTZH?=
- =?utf-8?B?TjNqRTVqTzdMc2VUYzJpUWNaNnJiMkpDazVuR2xqN2NNUW1CNnlwWWQ4Skl5?=
- =?utf-8?B?cERMVHRTZ0VpbTNMUmE1TXRnMjM1dEdVQjBBM2QwNHp5YzkzdnpWOUx4Z3dx?=
- =?utf-8?B?Uk9aU1ZyeitleThra1JUeTNBQXVjQnBvN0wyc0ppNitUdjhqaHBoM0VLZTM0?=
- =?utf-8?B?ajd1RWNXL2VXZ3ZuYnZLVkJPTnF3cUxCWjJsTHJrNEk5MHRYMzFkZFdNZ2Yw?=
- =?utf-8?B?Z3lpM0xaQnF2NmhrSXhySXNWaDNIdS9qdkJEWmpPVUI5Q1o3UTZlNTRNcFdP?=
- =?utf-8?B?bVZ4aFJDQ3RBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7630.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(10070799003)(376014)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Unc2T0xaS05PT2Q0cllXUXI1MUVuRzNoOC9nZlZtazVZK2FyZnNQVytkMWFZ?=
- =?utf-8?B?VEpXSU1xazlzRk9JcXZIOHRRem91eGNocmNUQ3AybUFZUkd1ZmtnNGR5MUM2?=
- =?utf-8?B?K1pQQ2RTTmZvY1VEWmY4S3JubEQxdU1zN2RDNzVMODJ3ZVAxaUpjamVrL1lR?=
- =?utf-8?B?T2JhM0RiMkl2T1paUnFjTit2SGtKT3Q2cGQxYyt3bElVRnpsWHRhTDJZTnBN?=
- =?utf-8?B?dlpwK2JVMU1sTG5EQU5DbnRNSWp5NmVuQmwyeWVJcE5Ia1l5ZkorTEhrcFM4?=
- =?utf-8?B?QStNQ2ErSUdxNHFMdnlTd3lUZFVRMjgxVHJxdFd5emZjK0RGV3g1Y1FSNDdV?=
- =?utf-8?B?bVlrcVUvR3NDYVlMbDdhalNTdFB6NUwzazhUSVRKQldsSzRJU2dGSnBoSFpD?=
- =?utf-8?B?L0FYMmpIdzBGT3FxSkFscFRCOGs5VDMzVXJpN0tyS1ltNHpUZFlWZDg3N3U2?=
- =?utf-8?B?aExNZEl3WVBXTUxMQ0NsK25FaEdHbmpMMFMySmkxL25BeGc1TzZWWURTRGFO?=
- =?utf-8?B?WTdyQTdyV3paaGFtVUlXVTRhTnc5T3Z0TlZDOWk4bk9QR0hOQkY1WHp0elht?=
- =?utf-8?B?clVLYTNBRTZjcjZnalFsYWNGS3Btcml1K2NBUWU1NEhQUXMrMGRUV0xsd3FJ?=
- =?utf-8?B?V3l1MktpdDJnL0JYNDgwajJPZlVoZ2RCRjdhWjNyWFJ4SmFxSFJLYVk5Nkpp?=
- =?utf-8?B?aVo5LzFQRkt0Y1dqRjVzQVNNZTNuZXJSdUpKVmRxQlY0UjNSa05SRkdOQ3hL?=
- =?utf-8?B?VTRQdkdZTlRWTFpudmgxMERCQktjT1pISEMxMlZ3RG9QVEoyU2xCRjZSemQr?=
- =?utf-8?B?SWlCMmN1anlvYUsrY3MyeHBJTkJjUWtZaU9QcEx1UXRYWVhvTUo5UC9TY1o1?=
- =?utf-8?B?S1ZTWHFJOGtQYm1leDZWbnZJSkNrWlVGMnZGcTFIMk5NRytOV1FpV2tpM2s2?=
- =?utf-8?B?N05aaHU5eUxkeEpOYThXQ1MxVkVtQmVNdG9tYUpLVE93M3MrWWRaYWtRQTRs?=
- =?utf-8?B?SitvSG96MldGWlFHdWRkMEo4N0ppRHlUbnVHZ0dxVXl6TktSQXdZeExWZmVu?=
- =?utf-8?B?MHlMbldsaTZnOGNDdGZXSUJKVnBkR0FTSXNrUllxaWZvN3dEaFh3NnBkUnph?=
- =?utf-8?B?MmxKU1ByM1I0YnJmWDlYL2Q1ZGhGNW1GWUFPQnZ5eFRBYU9Vd1ZsT1h5Mk41?=
- =?utf-8?B?RUNjc3JiREV1bStEOHFyM0JEUzQyam04TDAyZUhWeFZCcUVnU0dLVnhhdEpm?=
- =?utf-8?B?RTM4TmYvdnBJSTlzRnczZFdmeHRHd3pWZkNubjAvR0FDcUpzZjV1NUVUeU4w?=
- =?utf-8?B?RTVVUCtlcWNRaGdxb1gveXZhMVk1ODNiRjYxL3ZLeEpIYXY2ejAvbndPanRz?=
- =?utf-8?B?VzlsR2cvUC9FMnphVGJLb1BGUWtEMmNmczVMTUR6M0p2dC8zdCtINy8wbzJi?=
- =?utf-8?B?ODBMbXp3SzVsVjVtb21CWWNJMFFKNk1hSEtQVSswZDQxNWNpRktpQXVtT2Vp?=
- =?utf-8?B?K2NEamorcExnc2pDVWh6VXB3TlM4VnFlcHU4WWZDTmpOcnNzenBmeHRTeGdY?=
- =?utf-8?B?eUF3OU5hZGNnbzNxZ0hXSnNEUWR1L0JtSXZ0a2J0NHhyYzJOZ3puL1dZVHIw?=
- =?utf-8?B?a1RsM0tlWU1PMGs1aEZRWE1oR2wwRWZWVmorSGwwbzRVVTh6eXFlaEZFWGQ0?=
- =?utf-8?B?MC8zZU1ONEkwU1RJNHlQYjdrNXJIMnZlZlhyY0dzR1FLaGdZNGhZYVJwMGZI?=
- =?utf-8?B?ZHl6NVhIQ1lxZnhhdW1OcDVZUUViaDJhd05saDZiR1NUc1NJYXpFam1YRnB4?=
- =?utf-8?B?YldPQ3NNT3VrOWVFenhYTUZKUjBsVUlYdVZVWk1zWjMrczM3NXBad2ZPTE1a?=
- =?utf-8?B?SU55cUtRaEhQc0kzRWdxVjlWMzVxTWc0K2VabFhTdjBZSGpxcnhkYTBROFdL?=
- =?utf-8?B?aTQ3SFJoKzFMOUlUY3k1RHhXb0dEVmJGT2NSN3BLa1RVOElLV0l0amVsbENu?=
- =?utf-8?B?SW00c0M0ck0vdWpMQWdzcjIzYVB4amo5d2pQeXB2RUlWMHZGOHQ1U0kwMGRi?=
- =?utf-8?B?RW1mc0dRbnMwZ2NWS2pZSjNWTWRRYld0UUI0dk41MDk4OFEyVkwrMlA1NXdj?=
- =?utf-8?B?TUJvaWc1ZlN0N1NibWo5N29ELzdPRWhKaEczUHJzZC8xZHpzUERrY1FSak9s?=
- =?utf-8?B?d00rRGVrdXJVeHhhWDhYTXZzdHRsNktwOGlKMHN1OUFkcytaNjhhRXN0ZXdo?=
- =?utf-8?B?aU4yZnhpV2RKY3VuOStTdFpZSGlnPT0=?=
-X-OriginatorOrg: gocontroll.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 47b50ad5-7f78-4d1c-ce9b-08ddf1095190
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7630.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2025 08:00:48.4045
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4c8512ff-bac0-4d26-919a-ee6a4cecfc9d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3yQyd2Zq3yNjp3js/iZ1Z8s5iU8thep9vJtPEGl7BgmDqaJ68uxNaHcmMXvyPIz/Ies0RL9DFG7nea0m6FFJLhgpcf8fRy4E6yUjHgszxYo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11835
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=MfZ5ss8Gd_TTPV8EYSv04ENp_C26b3=wukO+UTy_boXUA@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_010100_034022_8DE8FA05 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250911_010236_418856_39089ECD 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,18 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/11/25 09:53, Maud Spierings via B4 Relay wrote:
-> From: Maud Spierings <maudspierings@gocontroll.com>
-> 
-> The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-> with integrated boost controller.
-> 
-> Signed-off-by: Maud Spierings maudspierings@gocontroll.com
+On Thu, Sep 11, 2025 at 09:56:28AM +0200, Bartosz Golaszewski wrote:
+> On Thu, Sep 11, 2025 at 2:11 AM Doug Berger <opendmb@gmail.com> wrote:
 
-b4 has been complaining for a bit but I couldn't figure out why, I just 
-figured it out. The SoB tag is malformed somehow, the <> around the 
-email address is missing. Will fix this in the next version.
+...
 
-Kind regards,
-Maud
+> > I'm just curious about the longer term plans for the member accesses. Is
+> > there an intent to have helpers for things like?:
+> > chip.gc.offset
+> > chip.gc.ngpio
+> 
+> I don't think so. It would require an enormous effort and these fields
+> in struct gpio_chip are pretty stable so there's no real reason for
+> it.
+
+What I would like to see in TODO is to "make struct gpio_chip const" when
+passing to the gpiochip_add_*().
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
