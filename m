@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E62CCAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 03:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5B7CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 04:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5T2t0/IGk9CGlZb9jl1TJ8xTJIvPFhjvf8NXKtFYSQ=; b=cPcPTSVLyUHa1xj6MKjB7cQbhq
-	Am1AA8Alrl4GZYtqy+eA7eSMbouGFIUphdRul9b4mdrfRk7B/AsknoSD1G24sXU68BlCQ6PQyXigj
-	Hd8PXPw8ckuWsuCwgZ+xBHmKNwVg2V9+Dt509HLHtinXIPivsN7Z40qkXcQgZ+xgn/cZtOkO+8OQS
-	eYa4oNxJsQCXo1uWgZ+HW/i0oKvWx53SXwblT2MC1X09PGPrZkQTRUXJUOSnFxXZpJEHvqm0nibjY
-	5i29bZU9O9Rf0MQH2QVmJhbQ9XGwudtuTKxBp12E6Wyj87te61u+3oPYqSN9iJwfquWi6DwVWgolz
-	dGyZ1owg==;
+	bh=PkSpf1ZHv8SEZJ8lze3Rlo+3neTkvjuYjsny6zTRWJQ=; b=V0vDDwI9vomiV58HAhdl7iQmYV
+	Omi7fPfY//AzPGj4BMaCtzoe+4gn0Q9PVayeD+zHdoZSI/jHlTbLikjxvt0tCYN8o1c/L9KInB5qi
+	wtiNFq5jgJYOlXYUKLbt4vgrpPcjkpwHPBzVavXbeV6EwaQnz176/bjID3ctubgihUx0fj82GNht6
+	zq8YEZLReYbUXE5FjQvS5bD9z4kRcxfcqVpx+0+T+BTV6hrQ19NR21gSEdzp0uoUoPyIosNHw3Sia
+	DaGaXUoAlTIbatbu9p4+c8K6WERqbKsl2WyEvGNmjlGFcc1Vg7jMQMv+mVZ7nMPr0gIRbJVDyf5+r
+	LwcqgVcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwYSa-00000000idY-33vT;
-	Thu, 11 Sep 2025 03:59:00 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
+	id 1uwZ2l-00000000pnF-0IuJ;
+	Thu, 11 Sep 2025 04:36:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwYSX-00000000icv-3XZL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 03:58:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=J5T2t0/IGk9CGlZb9jl1TJ8xTJIvPFhjvf8NXKtFYSQ=;
-	b=PXJalUMeEhhOG5WL8o047muptjLhbsA+dI5Qmt9A87rNfMm93Rk5NMn8cKwAk0
-	uGL2TYWQNE+/zVlXknuXB6rUBnWsYIP2NwYOirgkiItXuFeJCo2x2YeFfYL77zDI
-	ORmnVFNxdBlG+DNS2vR2CHBxfUfYx5wkmybQJz4FDDBNc=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgCn1rLzSMJoTqlPBA--.59352S3;
-	Thu, 11 Sep 2025 11:58:45 +0800 (CST)
-Date: Thu, 11 Sep 2025 11:58:43 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Jan Remmet <j.remmet@phytec.de>
-Cc: linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de
-Subject: Re: [PATCH] arm64: dts: imx8mm-phycore-som: optimize drive strengh
-Message-ID: <aMJI8zaYGFfai1Ft@dragon>
-References: <20250910061739.9800-1-j.remmet@phytec.de>
+	id 1uwZ2k-00000000pml-0gju;
+	Thu, 11 Sep 2025 04:36:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C34236013D;
+	Thu, 11 Sep 2025 04:36:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCAB8C4CEF1;
+	Thu, 11 Sep 2025 04:36:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757565380;
+	bh=ZgftlexC7m0f7G9tB59+CtBtIlpZM1B//E5L2IXaVTY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oRkcekVRHWqQcu29cLjnza7mjmFYeioVBFoZ4C2HaBoRqNuyBVZbDyqt4Mtp98RIi
+	 yg5PkRkr3lcW9/XzDtiK4FKRSu6RzVuD7U5bu6XXZ72WbqkejhRlEiJKcts1oHeGjn
+	 PO0zVs+Kn7Q2MGgubGvhhlaQDoLNrsHGaM/WGjooetq54WOyoY01TXI2daU4dPDCfx
+	 +7ps5yf4qQncVWIrZ8cwSFiI0xwtm+LKFU1h7XiW9QeBQeCD+n77uzahLq8zk1pgi+
+	 +5V1fJ3tA6NUaU9HLKMyeVGYPvPXRdg31VxdpMhkD9GmrTSGa7Lt2AREADvZZHKvY5
+	 AUSqnBPIrc+AA==
+Date: Thu, 11 Sep 2025 10:06:16 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, stable@kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: (subset) [PATCH v4 0/7] phy: rockchip:
+ phy-rockchip-inno-csidphy: add support for rk3588 variant
+Message-ID: <aMJRwENKCuNQKbYC@vaman>
+References: <20250616-rk3588-csi-dphy-v4-0-a4f340a7f0cf@collabora.com>
+ <175752285211.484319.18097786132863236205.b4-ty@kernel.org>
+ <2070639.PIDvDuAF1L@diego>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250910061739.9800-1-j.remmet@phytec.de>
-X-CM-TRANSID: Mc8vCgCn1rLzSMJoTqlPBA--.59352S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU52NtUUUUU
-X-Originating-IP: [114.216.146.49]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNBUaf2jCSPUr2QAA3h
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_205858_274790_652842A5 
-X-CRM114-Status: UNSURE (   5.77  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2070639.PIDvDuAF1L@diego>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,12 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 08:17:39AM +0200, Jan Remmet wrote:
-> Reduce ENET pin drive strength from X6 to X4 to optimize signal
-> quality and reduce potential signal integrity issues.
+
+Hi Heiko,
+
+On 10-09-25, 21:21, Heiko Stübner wrote:
+> Hi Vinod,
 > 
-> Signed-off-by: Jan Remmet <j.remmet@phytec.de>
+> Am Mittwoch, 10. September 2025, 18:47:32 Mitteleuropäische Sommerzeit schrieb Vinod Koul:
+> > 
+> > On Wed, 03 Sep 2025 19:04:48 +0200, Michael Riesch wrote:
+> > > Habidere,
+> > > 
+> > > The Rockchip RK3588 features two MIPI CSI-2 DPHYs (not to be confused with
+> > > the two combo MIPI DSI/CSI CPHY/DPHY blocks). The CSI-2 DPHYs can be
+> > > supported using the existing phy-rockchip-inno-csidphy driver, the notable
+> > > differences being
+> > >  - the control bits in the GRF
+> > >  - the additional reset line
+> > > This patch series adds support for this variant.
+> > > 
+> > > [...]
+> > 
+> > Applied, thanks!
+> > 
+> > [2/7] dt-bindings: phy: rockchip-inno-csi-dphy: make power-domains non-required
+> >       commit: c254815b02673cc77a84103c4c0d6197bd90c0ef
+> > [3/7] dt-bindings: phy: rockchip-inno-csi-dphy: add rk3588 variant
+> >       commit: 5072b8e98eef4685a5a9a8bae56072cb65a2ef69
+> > [4/7] phy: rockchip: phy-rockchip-inno-csidphy: allow writes to grf register 0
+> >       commit: 8c7c19466c854fa86b82d2148eaa9bf0e6531423
+> > [5/7] phy: rockchip: phy-rockchip-inno-csidphy: allow for different reset lines
+> >       commit: 260435153c90c8e90553e456ec43578834a14a71
+> 
+> question, what happened to patch 6?
+>   [PATCH v4 6/7] phy: rockchip: phy-rockchip-inno-csidphy: add support for rk3588 variant
+> 
+> or is it just missing from this mail?
 
-Applied, thanks!
+Looks like I missed, picked now
 
+-- 
+~Vinod
 
