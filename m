@@ -4,168 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EE4CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Sep 2025 23:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD658CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 00:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jzq4yUpwhx8DScMIAhwsHIccPYtOQVqyr7bqnx7VnaQ=; b=LdcRr9ZiF0vaTfv1rKolmoN2D3
-	EqznhsZcbrk0cGf/f0AAUK/6rJc0m5eLVrE9WY87tJkTgBQ33RFvWs81KMuxeMqRYiq1WDrswzGVh
-	B0HhcUk7MJkZCdsmkUWNW+aBvFhKdBscwveLVHx5J1R2Eiqx2vHMrZH9t4ssDyIUf5BvWUkwrBxGk
-	OT0rzsB2lHkJ+pfj1X3sBMzqEkUE1XGrdYIZFf8NkTrUEnnw2dSsa+lcwfBn86yO5ykrK542vjCGO
-	bV49B+WPtxXCqMkBeg3WdvLxeDry3Qva+qJfAVR1ecgMK/fZdXwmrwhtjyWqPuVAXv74gwbdWA6Il
-	WJevSZyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/DprGrl9e7Kz/gK4ZQarAvFpOQC1FXR4i36X1x0X3X4=; b=r/p2utxd1aTtvHPIoO+cncNzYs
+	O/wgTaPzveWyk0QagoBYivMhYL8O/qaCgeKZHhme0bsTw1pbmzn+7BgfXn7hkHMzElt3j+EkyR0jz
+	e8iur/iHAt/j8089QE3yafo+ffUzKCzhUqekD/Qd2hWZJNcsQOEFQrMaJwBXg1dr/WIR3FFV3ETlm
+	HgatPkidqVz/LgExEd2p3cDr0h7NADnrVa6IkZaXCI0BqpmWUQ2dm9R1p14tvArLsBx2gbVlrtLYr
+	u7hJc5smxzjZtZ5pkq8fom47AxOX/J8rIpvIG3kONw9VjME8g2J+WoJqOkdvRDmxenwaMlp2+UWig
+	ZqAu6vqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwUi4-0000000HP82-2O01;
-	Wed, 10 Sep 2025 23:58:44 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1uwUuR-0000000HRuG-2Eo8;
+	Thu, 11 Sep 2025 00:11:31 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwUi1-0000000HP5Z-41zj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Sep 2025 23:58:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YstkoybcIZ6QftxrDpzFRtXXiKxe2G87racwKlJc15MV9s//qcIFdWgMWNFJXqkpP1jhjRi5zNlmubqbw75e9EAcpbgZC0ub4pCCIKUB/53RWhJtnJHx1AgH1EK/MVcyoBTXfqj8hkPJ7Tltzm/sAv6SKtf5S32SFrLoZULqzNNaybMcpjkjPPWaeu8GutSgTIuGeXG0/EmqIfLPyZDDRyout7lq0Mj3EzCRJiWntEgypueWan4O1cWWAdm3TINtwEpHz460NVCWwP5Jm65laQwckDqGkv4+zwawwkWjgaOsNrpiPVvN3H7JamM7acC4TuO0k4MqdmUtNj6f5ElPNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jzq4yUpwhx8DScMIAhwsHIccPYtOQVqyr7bqnx7VnaQ=;
- b=d9xAu9Y6CYteUcI/5DV4r4WGZ5N+p5GV72eZBLDvdosMEkkJUKt06/MceSWZ7TS9gRR+9oHyEpuY7BWb73JczU3T/0YZGQOAXQ+jd1UsKW29TDsz1TG3pLFs4QE50abn/KT+w7qhuFYSB58VCPTaLINBwM6w2mrhS96mfS2R0koW7RtYV2B62XjIBM8AFfNUbxYWF+Gfm4LgKAcg72aQsv9aY5G1ChElqlENroDWbk9MybnObn8gqt1pDqkV100ilPR4Ijlv42joj2sRTAuYmU2u1NcDKrUktcksyYc11VlxChPFR6Q6j8rD1kXRlrIkS7AMnpQ5ZMiZzaLfdI+CFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	id 1uwUuP-0000000HRtf-1Pvn;
+	Thu, 11 Sep 2025 00:11:30 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-32b590d819aso104111a91.3;
+        Wed, 10 Sep 2025 17:11:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jzq4yUpwhx8DScMIAhwsHIccPYtOQVqyr7bqnx7VnaQ=;
- b=aWouM4XpAtfrNsj8o9ouRE69h4OkjPoIlgiwQwroXsGAPn/fVWHbsl2xhoR97xxwEVFa5F5VH/9xQp0cesdoN6MmFbgNRX5SQiPVKCbDl4C7gHNDFkkFmi2VMdxqIRyCAYh6IF1RqNQrAubHi//MWKClxu0CieXqQKCaudMRDOw=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- SJ2PR01MB8347.prod.exchangelabs.com (2603:10b6:a03:542::11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.22; Wed, 10 Sep 2025 23:58:29 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.9094.021; Wed, 10 Sep 2025
- 23:58:28 +0000
-Message-ID: <dcc3b52d-0b86-47fc-8297-a6abc8af4c38@os.amperecomputing.com>
-Date: Wed, 10 Sep 2025 16:58:25 -0700
+        d=gmail.com; s=20230601; t=1757549488; x=1758154288; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/DprGrl9e7Kz/gK4ZQarAvFpOQC1FXR4i36X1x0X3X4=;
+        b=bwKEYIjOAMIDKs2DvCzeWNAyTyDZezOSsRNhLbSXy21byRSiYyvqULfRyKyOsFUXC9
+         6iv6R8Bpc23FSsoXx7VkVTfvVhRUodpQsTVYDvCCpj8/h6GhySlVK6Z2GXxefx50mblb
+         K2mdCiJSG4lZCR8HMUMQrvmZDvO/Ip/nwb9LrzW4BEDZzthwGOQ9753vQnAQ73uuNXKj
+         MMxBjRwZN3tgD90rgeAJN6mlVaudXiB/hO3nqiMzQ4i99ijGA8+KC3cQRZsEOg1m8r9O
+         OM2rljoJ4ZjOb5U6KqO6aV2ihY6GceZIwPFRPQnNNA/bPWKhC1wdjBdKHaVCg3KgcbJn
+         FObg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757549488; x=1758154288;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/DprGrl9e7Kz/gK4ZQarAvFpOQC1FXR4i36X1x0X3X4=;
+        b=TmAVvdjlUZKJECjjYEq1+RW/OzjyD0a6Sl2aO9P8HJXYfVL3IQunFm/KBwAbcmo73Y
+         Kd7U7Irp1ESs+XtC9OHYqrdGlCwThOCxQjqRbRdYhK/pxEB8buPEgIGC6vwy38EH0Xj/
+         seI1fzQlGlCf0TZvaCPfY5810/lFsXAtqjxnBfZ/CAE5EbFa6cxPIsTUGx6wJgCo7isI
+         WMaCWBf6lZrx+MVfG2nYSrvji0jBq9lpcDXIaqmquuHHkreJo8AyL/qWG5l2Q4bfKFzU
+         zwt8KYUAom6DEjJMHj8gYTL8mqf7zJgzTYO5Z9kaJC+ifjkGHlyOQfxxlHpwadvZ8FJm
+         6dmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU+BLhKWrK1dd8n/ablPJ+EXeNBED3cn6p6qB4oYHJMmZ9QRlMrAdFhbXRxBXmqyVEUGonf5qc2OlRbiQdqCHO7@lists.infradead.org, AJvYcCUinrUzwiRx9DiJCRRr1wwkHUB1HTRgUNYP1BIEGtrMwSjM3me2TLybbYJhxI0oj0Hq4htpYc8yBwxwTaA=@lists.infradead.org, AJvYcCXntpkHWrDq5IT/L4zV0/2P8HFBJoUDrRS0MvCXjkE6MtzhNrCxwiOVq68iMsRxbhRiK5myhllLnMJyB0lNjmI=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYgFNlIwg0PCkTAMEUlYsh5DmChPzomvOK2nKbaQiWz0m4zZiS
+	YB1rtWfFrKEV4oVkbVeldl34PTBSE7tMj0UykVIdmD5XqBF3wsg9wIZO
+X-Gm-Gg: ASbGnctiReDeqVOjQUj4Huhl4NwsOf3rkNEGjUu4sN4CEM6oBbqJGSsqLiweJTPh8X2
+	mFU5XoR4QjO+NQr0jOC2vPigVKB/DbZZaEGxE5UXqLXLh90psg2n9R3lzo9VbQWiqzilHXk+aeP
+	WlFaBjGRZzBc9KF1HtFUFjsLr6KhAj688XXGWZ2ACd20Uv/CX2kKpezSRdc3dAfcTfKAi/q+yAo
+	gCJN1m04XiRgnF0MWA1l0Sf3zY3rgaPZ/S41GgcC2z/OFyQRBPyw7uxwfl8LrX2trpAxj2nq2uA
+	AvMTwJF6vWqwU9Re9kx+c2XlT7YReTJrKvQrNU4rH/Ud6ItI3r/t1/5qzvsEWF6RTB1JfiIM52+
+	wkT8z//FkYpYy22M05spvRqEKdaZg8YKtyWqmEbQPg4Cw7gln1A==
+X-Google-Smtp-Source: AGHT+IGh6jj8tUAVO4xZEgg1cYXyd1dv7OFPe+9zkElp63vXFZLpgGfDXrx3xfdSlohQ5ds3u2EMGg==
+X-Received: by 2002:a17:90b:52c4:b0:32b:b26e:156f with SMTP id 98e67ed59e1d1-32d440d9ce7mr23339735a91.33.1757549487838;
+        Wed, 10 Sep 2025 17:11:27 -0700 (PDT)
+Received: from [10.229.36.175] ([192.19.161.250])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32dd632692bsm437067a91.25.2025.09.10.17.11.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Sep 2025 17:11:27 -0700 (PDT)
+Message-ID: <e0941449-7a62-4bbb-8790-616f393f2cc8@gmail.com>
+Date: Wed, 10 Sep 2025 17:11:26 -0700
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 2/2] arm64: tlbflush: Don't broadcast if mm was
- only active on local cpu
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, James Morse <james.morse@arm.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250829153510.2401161-1-ryan.roberts@arm.com>
- <20250829153510.2401161-3-ryan.roberts@arm.com>
+Subject: Re: [PATCH v2 07/15] gpio: brcmstb: use new generic GPIO chip API
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Keguang Zhang <keguang.zhang@gmail.com>, Alban Bedel <albeu@free.fr>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>, Yixun Lan <dlan@gentoo.org>,
+ Andy Shevchenko <andy@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
+ <20250910-gpio-mmio-gpio-conv-part4-v2-7-f3d1a4c57124@linaro.org>
 Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <20250829153510.2401161-3-ryan.roberts@arm.com>
+From: Doug Berger <opendmb@gmail.com>
+In-Reply-To: <20250910-gpio-mmio-gpio-conv-part4-v2-7-f3d1a4c57124@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0206.namprd03.prod.outlook.com
- (2603:10b6:a03:2ef::31) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SJ2PR01MB8347:EE_
-X-MS-Office365-Filtering-Correlation-Id: f4963710-695e-4d21-1816-08ddf0c5f02b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y2hrVDU0MjQzMmRDeURyMHR3bElPZDdrOXNabTlqRlVSMmdkMjZLTXhWdThZ?=
- =?utf-8?B?SmFSR0xwSDBqWkJ0ZDJKUEpNbU5PNmNMYVZWLzVOa2xkcG9Zcmc5aXNsMG1H?=
- =?utf-8?B?ZkN4NTN4TGtrZ3hpUldPWEZERFdKZDg2a0FKVnlqYXRIQTJOaHpQVnI4aXho?=
- =?utf-8?B?dkVUeWs5RThpMk1YM3VQak0xUVlVK2U4bU5ZZlZhRWFobTRVNm1NNWQvK09V?=
- =?utf-8?B?VVpTRHp6UXc4eEtmc3l5OFFMeDZzOU85TkcweU9RTUdtZ29IcG51cjFwUThX?=
- =?utf-8?B?amdXZFV2eVVaN1dPdk1UeEpnbGxya3FldjdwRm1WczRjbnh2UXBzNU1RWWto?=
- =?utf-8?B?cC9zNzRDYUZ2L3MwNVFXSS9nMlplVEdHVXVWMEhOa1hMckRjYzB6L3picyts?=
- =?utf-8?B?VzVHek1nMThCRldPcnJ3aDMwSlhWL3VJalNMV3VqWWpyZC9qN1h6WmxzZlh4?=
- =?utf-8?B?MmxBUXQwV05RcVNEOFR0M3NPN3ZvU2JOMFpHS0UwNitXekV2QXRqM2FtemtV?=
- =?utf-8?B?bk5jcE1ERWtPM3FQVTBQVGxvb3BScnhnZk9uZTJBSWt5cWFHUloreXlIeGdI?=
- =?utf-8?B?R0RNUTNzdFZwNE96ZUl2N0xMbUFLZWxXZzBMb04ySHIyZ0w0UkIveXpSZFZU?=
- =?utf-8?B?SVpUTEdPc2xyamttQW1qTlN3NGtoUnVmYm5rc0dHUEpIWGJKK1BNZVM5YkZM?=
- =?utf-8?B?NzN2bmw3bkljNnAybUZ3TUZvMUIyR2k4YldRMWxYMTJCMWx6SlU3VVd3K29Y?=
- =?utf-8?B?M1hPZWRuTVN4S0JLSTlTZGQ2c3loS0pKWDVrMThpYXlhVC9wbUhKQWFOR0FG?=
- =?utf-8?B?QnZSeFRydEdnV1EvRk8xK0FRVkdmdDBsanh4dnNValVXZ1laTnVhMklFYUs3?=
- =?utf-8?B?dFl2Q0Rkd01MVXA1TjIxbURDbUpSSGpSQzgrMVpINDlVVnhXZnZTMTd6V2Vk?=
- =?utf-8?B?WG1kbEpiNEtscE5QNUl2SlBvMVFScVBaTHkyM0d3eWR5WjhsalVjZDFXd0FR?=
- =?utf-8?B?WWpHbi9naEFiTnNwbnJmTmJXZXFiWkhrUGh1bENTeHgrU21nOXU2aG1tbDgv?=
- =?utf-8?B?MVB1T1dVNVNiSmdHOGM4azh5L0Q3NEdjZml1RnlkdXZLQi8xVWpkRlREcXpT?=
- =?utf-8?B?VjRLelVBK1dUNE9ROFZVbFB3eTF4ckJwOGEwMWJCdXZjdDdmQ1RLV0t5dERI?=
- =?utf-8?B?TXQ4R0xkSW5KOE5GTDZwOVlnRTNiMXJpU09neWozN3gwYzVobHhjT0l6dExW?=
- =?utf-8?B?YURvMzZhakxlWllKY0FpMy9hamV1MTNWdm1Dcnpiem5kNmkxUU5SSC8rckJR?=
- =?utf-8?B?Nks1VlRpM1lERWdodEdmNWxPbFMyZFh2WUh0a1ZoN25BaXd6eDZveDhLd2ww?=
- =?utf-8?B?WXppYW93NFkzTWlTWmtEMHgyczAvS2t6TCttVjV5eVdPSlFSNEtITmVGVFJr?=
- =?utf-8?B?T0I5RnlGeExrcnU2WWZLVEMxT2l2VVlpNzlmWnhObndkbEROaldlTDdKdng4?=
- =?utf-8?B?K3czemhTWHkyWWdJR3piRzdocHBwRzQ3YkkzVVJMUURSb0tHL0pJUWRtazNi?=
- =?utf-8?B?VDZaWEJhNEZVTGZLeUp6SEFRZVFkbkZ1Zm04NGJ0ZDMvYWlqTldqVHhjb0JG?=
- =?utf-8?B?MzdIMXVFQ0VSNnJyWDE3VExrc1Y5OGlkWldrZWN3KzRXY0dZMXJKSVFVdkw4?=
- =?utf-8?B?WGxzR3k0ZmE2aVQwbldmSUNCeDJQcG9EaVMrZytPd052cnpkUHNsejJ0Zjk0?=
- =?utf-8?B?ZkU1clpCTmpYY2kwTk85Q3hvUmhCK1M4MkxmWjFyQytIM0JkR3hOcExGVEpj?=
- =?utf-8?B?NW42bnFYNHVWMy83RDh4azJiRFZ3MUd3MC9WTm5vUGNpNFJ6ejN2VW51T2NQ?=
- =?utf-8?B?RFEvMjdnOFluSWk5V3dJcjhuc2xkeWxIMXFrL3paeDZPZnNuMlRzSUxwd3JX?=
- =?utf-8?Q?I8RtBXBKuxg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0hVM3Ntb3FLQ01CYkx6eHBkZGVvRk1iY3lFZFlodGNnaXN6blNBTU9jcWVx?=
- =?utf-8?B?bUQ0SmQ5Nnd6QWhYVms5S3BFR2x3Vi81MWpSM3BQcm11a2p5SFRNdDdsZ2ll?=
- =?utf-8?B?YVhvNldLdDNiUXZlWnYvZXplN1VGWG1XWGx0WnA3NjRZYittWnMwMnZESXRE?=
- =?utf-8?B?dVlHZXZEZm94VVg2OXcvVlJHb0pROHBqQXByaStPbllzQ2wvcFlZemlBTSth?=
- =?utf-8?B?L2o0MVpiYlRnUUlFSTFpNCtMbWM0Tnl6NzRyZVY4c3BKZWhpa2JMdDRvTjY1?=
- =?utf-8?B?K0hRL1VpVkJLOWJNK3dhM1U3bUFqK2hTUmtoVENHeW1vM2N1VnR3QVZkWVM3?=
- =?utf-8?B?TUFGK3B1RVBRV1BTR1dVT2o4MkNRaWRubEdHd2lUcGJ5cVdoejZhbkJaTmlz?=
- =?utf-8?B?UlVIMFdjNEMzUkEwSXk0RDcyeFJLaUEwTnNIU2FDN2QwV2s5T2Rzd2hucjEw?=
- =?utf-8?B?ZDJOclR0QzQzeWlqbzlVd2d6TzRaSkxRa2JBRzNHRjRjMVk0eWlXclVnK3RU?=
- =?utf-8?B?RzNVeXdTU2ppLzZXV0UxdzJIMjlqWkVZd2Q0UlJUak8zNUFFcnFwWGpNQXFK?=
- =?utf-8?B?OVpSYjdxcVZQM1RqUW92Rnp4cWEyRzBrUWZBZzFMblZoL2VmeGNtLy9mOFdN?=
- =?utf-8?B?Rjc2VW9nMmVOMmlJem9NZ3I0bVhFZFFlNHdjc01XbDlMZCsyZGJaSm1ySlhk?=
- =?utf-8?B?YTFGalJudSswVzJibDlwUzIzc3Q2UEtya0s0ZzJRdUJGVE82a3FCTU1MQXdT?=
- =?utf-8?B?d2FsdVhNRW5sY2VHMUFCakxSTjVKaWgvY0V6MWlUb2pXSk41T25JaHJLd0JV?=
- =?utf-8?B?RjZpMTF6M1E3SEdpT0dxZ0dES25iNCtVYmNBSWhLOGtOai9qODNKMUxIYVl1?=
- =?utf-8?B?SC85cjV3ZWt0dlg3L0hmZFM2blkzTkk4TUN4OXc4SXBFVXNMWk4zSzBUNCta?=
- =?utf-8?B?a2Q5d21VS1VVWFdyaVZ1RUhPT0hSUjNWL3IvYVVqcTZoZ1pQaGluS0theFZP?=
- =?utf-8?B?bDJMdnJObVVVbjBjWWMwU1I1SnZ4YU91YVFYSkpBQ1BPTFlZRmp2a2EzV2ZZ?=
- =?utf-8?B?UE41QzdMMmlidytPdnpmRlNGdjVNVEhtTG1ONEJ4bnlBUis1bEJ1RFFvS3Ri?=
- =?utf-8?B?bEJQV2lXcjNXUVBSZzFqSzhSQ21EU1FuUERsOVgzNnBacFdyL1BuNFdmbVBo?=
- =?utf-8?B?N1VLM0NyWWRzdVR1S0Qxdno1SEF1UWUwSitsZDNCTnVJWm5TMkZtaE1BMFZG?=
- =?utf-8?B?b2xveW5XWnVPcjFCam5venpZUkZ2TkwyY3dVMkw3WGo3dEw5eVpxaXYwMDdo?=
- =?utf-8?B?dmc3TjlYN2tEcDdKTHlmWmdaci9ZY2Jybmt0cHFOT3pvT3FkZ3paUUdPN1J4?=
- =?utf-8?B?b2RSZm1oc0dPQi91aVpDVUdMck4yOFlJeHJqNjJvWWhubmpmN29FcnFMRStI?=
- =?utf-8?B?T05ZV3prR2lscWlXWDNocm1aSm5WcE5qdnlxc2pyK3BHUDJmRDdtc2RqUzF2?=
- =?utf-8?B?a2FSK21Jc0R1N0xrZEI2QUlOcEtwc05FQ1BRLzgxUlBTSk0wV2FlamxocjVm?=
- =?utf-8?B?cEtWOGlxQlh3S3VOUEhrNHlIS3llbVdPTTNSSjQ3alpXVy9EZUdBZklSYnlQ?=
- =?utf-8?B?bGZ3dFhKNkVjdmdjTmVib09pRm52Y0NiRjVFdW5pRUwzWVBwRS91N3J4OHdt?=
- =?utf-8?B?Y0dTamRGZldXdW5yc1k2M2w4aG0rSmZ6Rm5uN2M1dmdnMTcrV3J2VGRlOGVu?=
- =?utf-8?B?K3JLTU50YjM1YzZMazFEOXpnS0JEWHRMM04vU0FmcXg0UDlxT0JoYnZtcFBY?=
- =?utf-8?B?L1h5eWhzR2FZU3VJUVZPeC8rUlF6NDhTaHhwcjlBYW12RkIzTHVTSE9WWWFh?=
- =?utf-8?B?N0JQZjE1RzUveDNHb094MFloUmNrWEF6QTJkV1NoeitidnhqZGpveEEzalI2?=
- =?utf-8?B?VlFMdUhYcVpRam9vQ0NDa3UxVVB1R2cwT21jenFVQ0FJSUJxZUJlb2cvczFK?=
- =?utf-8?B?L0xEOENHQlRhc0wvV3VNUGhWRGQzaTI1dURzTmxCRXVzYmpOaFM1ODA3bWZq?=
- =?utf-8?B?NElCQ3dOUE1xeGtpR0xsR01VNHVCY1JtbTlKMEt5VkQ2T1pMUitsU2pFeWZW?=
- =?utf-8?B?Nm45eVo3bzJPOEJMcUxYU3luWmdLNm9FdFZnRUcrNVJ6UnNDRHJjSW1MM3BY?=
- =?utf-8?B?aEE9PQ==?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f4963710-695e-4d21-1816-08ddf0c5f02b
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2025 23:58:28.6975
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kiBTu4bC0FQyzGki/ACeBE6WOFaHIkzND6zU9JN7SnkLfKZXWuMbaK0le2WMp9PuQjk0jHpo06Ey+to8f9LUmLz9JODVATP0W1oLVmZTDig=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR01MB8347
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_165842_073222_46043230 
-X-CRM114-Status: GOOD (  36.95  )
+X-CRM114-CacheID: sfid-20250910_171129_419153_0F5168B3 
+X-CRM114-Status: GOOD (  29.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,305 +113,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
-
-
-On 8/29/25 8:35 AM, Ryan Roberts wrote:
-> There are 3 variants of tlb flush that invalidate user mappings:
-> flush_tlb_mm(), flush_tlb_page() and __flush_tlb_range(). All of these
-> would previously unconditionally broadcast their tlbis to all cpus in
-> the inner shareable domain.
->
-> But this is a waste of effort if we can prove that the mm for which we
-> are flushing the mappings has only ever been active on the local cpu. In
-> that case, it is safe to avoid the broadcast and simply invalidate the
-> current cpu.
->
-> So let's track in mm_context_t::active_cpu either the mm has never been
-> active on any cpu, has been active on more than 1 cpu, or has been
-> active on precisely 1 cpu - and in that case, which one. We update this
-> when switching context, being careful to ensure that it gets updated
-> *before* installing the mm's pgtables. On the reader side, we ensure we
-> read *after* the previous write(s) to the pgtable(s) that necessitated
-> the tlb flush have completed. This guarrantees that if a cpu that is
-> doing a tlb flush sees it's own id in active_cpu, then the old pgtable
-> entry cannot have been seen by any other cpu and we can flush only the
-> local cpu.
->
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+On 9/10/2025 12:12 AM, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> Convert the driver to using the new generic GPIO chip interfaces from
+> linux/gpio/generic.h.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > ---
->   arch/arm64/include/asm/mmu.h         | 12 ++++
->   arch/arm64/include/asm/mmu_context.h |  2 +
->   arch/arm64/include/asm/tlbflush.h    | 90 +++++++++++++++++++++++++---
->   arch/arm64/mm/context.c              | 30 +++++++++-
->   4 files changed, 123 insertions(+), 11 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-> index 6e8aa8e72601..ca32fb860309 100644
-> --- a/arch/arm64/include/asm/mmu.h
-> +++ b/arch/arm64/include/asm/mmu.h
-> @@ -17,6 +17,17 @@
->   #include <linux/refcount.h>
->   #include <asm/cpufeature.h>
+>   drivers/gpio/gpio-brcmstb.c | 112 ++++++++++++++++++++++++--------------------
+>   1 file changed, 60 insertions(+), 52 deletions(-)
+> 
+> diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
+> index e29a9589b3ccbd17d10f6671088dca3e76537927..be3ff916e134a674d3e1d334a7d431b7ad767a33 100644
+> --- a/drivers/gpio/gpio-brcmstb.c
+> +++ b/drivers/gpio/gpio-brcmstb.c
+> @@ -3,6 +3,7 @@
 >   
-> +/*
-> + * Sentinal values for mm_context_t::active_cpu. ACTIVE_CPU_NONE indicates the
-> + * mm has never been active on any CPU. ACTIVE_CPU_MULTIPLE indicates the mm
-> + * has been active on multiple CPUs. Any other value is the ID of the single
-> + * CPU that the mm has been active on.
-> + */
-> +enum active_cpu {
-> +	ACTIVE_CPU_NONE = UINT_MAX,
-> +	ACTIVE_CPU_MULTIPLE = UINT_MAX - 1,
-> +};
+>   #include <linux/bitops.h>
+>   #include <linux/gpio/driver.h>
+> +#include <linux/gpio/generic.h>
+>   #include <linux/of.h>
+>   #include <linux/module.h>
+>   #include <linux/irqdomain.h>
+> @@ -37,7 +38,7 @@ enum gio_reg_index {
+>   struct brcmstb_gpio_bank {
+>   	struct list_head node;
+>   	int id;
+> -	struct gpio_chip gc;
+> +	struct gpio_generic_chip chip;
+>   	struct brcmstb_gpio_priv *parent_priv;
+>   	u32 width;
+>   	u32 wake_active;
+> @@ -72,19 +73,18 @@ __brcmstb_gpio_get_active_irqs(struct brcmstb_gpio_bank *bank)
+>   {
+>   	void __iomem *reg_base = bank->parent_priv->reg_base;
+>   
+> -	return bank->gc.read_reg(reg_base + GIO_STAT(bank->id)) &
+> -	       bank->gc.read_reg(reg_base + GIO_MASK(bank->id));
+> +	return gpio_generic_read_reg(&bank->chip, reg_base + GIO_STAT(bank->id)) &
+> +	       gpio_generic_read_reg(&bank->chip, reg_base + GIO_MASK(bank->id));
+>   }
+>   
+>   static unsigned long
+>   brcmstb_gpio_get_active_irqs(struct brcmstb_gpio_bank *bank)
+>   {
+>   	unsigned long status;
+> -	unsigned long flags;
+>   
+> -	raw_spin_lock_irqsave(&bank->gc.bgpio_lock, flags);
+> +	guard(gpio_generic_lock_irqsave)(&bank->chip);
 > +
->   typedef struct {
->   	atomic64_t	id;
->   #ifdef CONFIG_COMPAT
-> @@ -26,6 +37,7 @@ typedef struct {
->   	void		*vdso;
->   	unsigned long	flags;
->   	u8		pkey_allocation_map;
-> +	unsigned int	active_cpu;
-
-Any reason why you don't use bit mask to mark the active CPUs? And 
-mm_struct also has cpu_bitmap to record the active CPUs which the 
-process has run on. Why not just use it? x86 uses it to determine which 
-CPUs kernel should send TLB flush IPI to. I understand this series just 
-check whether local cpu is the active cpu or not, but bit mask should 
-not make things more complicated. And it also can provide more 
-flexibility. We can extend this, for example, use IPI to send local TLB 
-flush if the number of active cpus is quite low. AFAIK, x86 added TLBI 
-broadcast support too, and fallback to IPI if the number of active cpus 
-is <= 3. IIRC, Christohper's series did the similar thing. He should be 
-interested in this series too, cc'ed him.
-
-Thanks,
-Yang
-
->   } mm_context_t;
+>   	status = __brcmstb_gpio_get_active_irqs(bank);
+> -	raw_spin_unlock_irqrestore(&bank->gc.bgpio_lock, flags);
 >   
->   /*
-> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-> index 0dbe3b29049b..db2505a8eba8 100644
-> --- a/arch/arm64/include/asm/mmu_context.h
-> +++ b/arch/arm64/include/asm/mmu_context.h
-> @@ -180,6 +180,8 @@ init_new_context(struct task_struct *tsk, struct mm_struct *mm)
->   	/* pkey 0 is the default, so always reserve it. */
->   	mm->context.pkey_allocation_map = BIT(0);
+>   	return status;
+>   }
+> @@ -92,26 +92,26 @@ brcmstb_gpio_get_active_irqs(struct brcmstb_gpio_bank *bank)
+>   static int brcmstb_gpio_hwirq_to_offset(irq_hw_number_t hwirq,
+>   					struct brcmstb_gpio_bank *bank)
+>   {
+> -	return hwirq - bank->gc.offset;
+> +	return hwirq - bank->chip.gc.offset;
+>   }
 >   
-> +	WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
+>   static void brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
+>   		unsigned int hwirq, bool enable)
+>   {
+> -	struct gpio_chip *gc = &bank->gc;
+>   	struct brcmstb_gpio_priv *priv = bank->parent_priv;
+>   	u32 mask = BIT(brcmstb_gpio_hwirq_to_offset(hwirq, bank));
+>   	u32 imask;
+> -	unsigned long flags;
+>   
+> -	raw_spin_lock_irqsave(&gc->bgpio_lock, flags);
+> -	imask = gc->read_reg(priv->reg_base + GIO_MASK(bank->id));
+> +	guard(gpio_generic_lock_irqsave)(&bank->chip);
 > +
+> +	imask = gpio_generic_read_reg(&bank->chip,
+> +				      priv->reg_base + GIO_MASK(bank->id));
+>   	if (enable)
+>   		imask |= mask;
+>   	else
+>   		imask &= ~mask;
+> -	gc->write_reg(priv->reg_base + GIO_MASK(bank->id), imask);
+> -	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
+> +	gpio_generic_write_reg(&bank->chip,
+> +			       priv->reg_base + GIO_MASK(bank->id), imask);
+>   }
+>   
+>   static int brcmstb_gpio_to_irq(struct gpio_chip *gc, unsigned offset)
+> @@ -150,7 +150,8 @@ static void brcmstb_gpio_irq_ack(struct irq_data *d)
+>   	struct brcmstb_gpio_priv *priv = bank->parent_priv;
+>   	u32 mask = BIT(brcmstb_gpio_hwirq_to_offset(d->hwirq, bank));
+>   
+> -	gc->write_reg(priv->reg_base + GIO_STAT(bank->id), mask);
+> +	gpio_generic_write_reg(&bank->chip,
+> +			       priv->reg_base + GIO_STAT(bank->id), mask);
+>   }
+>   
+>   static int brcmstb_gpio_irq_set_type(struct irq_data *d, unsigned int type)
+> @@ -162,7 +163,6 @@ static int brcmstb_gpio_irq_set_type(struct irq_data *d, unsigned int type)
+>   	u32 edge_insensitive, iedge_insensitive;
+>   	u32 edge_config, iedge_config;
+>   	u32 level, ilevel;
+> -	unsigned long flags;
+>   
+>   	switch (type) {
+>   	case IRQ_TYPE_LEVEL_LOW:
+> @@ -194,23 +194,25 @@ static int brcmstb_gpio_irq_set_type(struct irq_data *d, unsigned int type)
+>   		return -EINVAL;
+>   	}
+>   
+> -	raw_spin_lock_irqsave(&bank->gc.bgpio_lock, flags);
+> +	guard(gpio_generic_lock_irqsave)(&bank->chip);
+>   
+> -	iedge_config = bank->gc.read_reg(priv->reg_base +
+> -			GIO_EC(bank->id)) & ~mask;
+> -	iedge_insensitive = bank->gc.read_reg(priv->reg_base +
+> -			GIO_EI(bank->id)) & ~mask;
+> -	ilevel = bank->gc.read_reg(priv->reg_base +
+> -			GIO_LEVEL(bank->id)) & ~mask;
+> +	iedge_config = gpio_generic_read_reg(&bank->chip,
+> +				priv->reg_base + GIO_EC(bank->id)) & ~mask;
+> +	iedge_insensitive = gpio_generic_read_reg(&bank->chip,
+> +				priv->reg_base + GIO_EI(bank->id)) & ~mask;
+> +	ilevel = gpio_generic_read_reg(&bank->chip,
+> +				priv->reg_base + GIO_LEVEL(bank->id)) & ~mask;
+>   
+> -	bank->gc.write_reg(priv->reg_base + GIO_EC(bank->id),
+> -			iedge_config | edge_config);
+> -	bank->gc.write_reg(priv->reg_base + GIO_EI(bank->id),
+> -			iedge_insensitive | edge_insensitive);
+> -	bank->gc.write_reg(priv->reg_base + GIO_LEVEL(bank->id),
+> -			ilevel | level);
+> +	gpio_generic_write_reg(&bank->chip,
+> +			       priv->reg_base + GIO_EC(bank->id),
+> +			       iedge_config | edge_config);
+> +	gpio_generic_write_reg(&bank->chip,
+> +			       priv->reg_base + GIO_EI(bank->id),
+> +			       iedge_insensitive | edge_insensitive);
+> +	gpio_generic_write_reg(&bank->chip,
+> +			       priv->reg_base + GIO_LEVEL(bank->id),
+> +			       ilevel | level);
+>   
+> -	raw_spin_unlock_irqrestore(&bank->gc.bgpio_lock, flags);
 >   	return 0;
 >   }
 >   
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index f66b8c4696d0..651440e0aff9 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -182,6 +182,52 @@ static inline unsigned long get_trans_granule(void)
->   		(__pages >> (5 * (scale) + 1)) - 1;			\
->   	})
->   
-> +/*
-> + * Determines whether the user tlbi invalidation can be performed only on the
-> + * local CPU or whether it needs to be broadcast. (Returns true for local).
-> + * Additionally issues appropriate barrier to ensure prior pgtable updates are
-> + * visible to the table walker. Must be paired with flush_tlb_user_post().
-> + */
-> +static inline bool flush_tlb_user_pre(struct mm_struct *mm)
-> +{
-> +	unsigned int self, active;
-> +	bool local;
-> +
-> +	migrate_disable();
-> +
-> +	self = smp_processor_id();
-> +
-> +	/*
-> +	 * The load of mm->context.active_cpu must not be reordered before the
-> +	 * store to the pgtable that necessitated this flush. This ensures that
-> +	 * if the value read is our cpu id, then no other cpu can have seen the
-> +	 * old pgtable value and therefore does not need this old value to be
-> +	 * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
-> +	 * needed to make the pgtable updates visible to the walker, to a
-> +	 * dsb(ish) by default. So speculatively load without a barrier and if
-> +	 * it indicates our cpu id, then upgrade the barrier and re-load.
-> +	 */
-> +	active = READ_ONCE(mm->context.active_cpu);
-> +	if (active == self) {
-> +		dsb(ish);
-> +		active = READ_ONCE(mm->context.active_cpu);
-> +	} else {
-> +		dsb(ishst);
-> +	}
-> +
-> +	local = active == self;
-> +	if (!local)
-> +		migrate_enable();
-> +
-> +	return local;
-> +}
-> +
-> +static inline void flush_tlb_user_post(bool local)
-> +{
-> +	if (local)
-> +		migrate_enable();
-> +}
-> +
->   /*
->    *	TLB Invalidation
->    *	================
-> @@ -274,11 +320,18 @@ static inline void flush_tlb_all(void)
->   static inline void flush_tlb_mm(struct mm_struct *mm)
+> @@ -263,7 +265,7 @@ static void brcmstb_gpio_irq_bank_handler(struct brcmstb_gpio_bank *bank)
 >   {
->   	unsigned long asid;
-> +	bool local;
+>   	struct brcmstb_gpio_priv *priv = bank->parent_priv;
+>   	struct irq_domain *domain = priv->irq_domain;
+> -	int hwbase = bank->gc.offset;
+> +	int hwbase = bank->chip.gc.offset;
+>   	unsigned long status;
 >   
-> -	dsb(ishst);
-> +	local = flush_tlb_user_pre(mm);
->   	asid = __TLBI_VADDR(0, ASID(mm));
-> -	__tlbi(aside1is, asid);
-> -	__tlbi_user(aside1is, asid);
-> +	if (local) {
-> +		__tlbi(aside1, asid);
-> +		__tlbi_user(aside1, asid);
-> +	} else {
-> +		__tlbi(aside1is, asid);
-> +		__tlbi_user(aside1is, asid);
-> +	}
-> +	flush_tlb_user_post(local);
->   	dsb(ish);
->   	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
->   }
-> @@ -287,11 +340,18 @@ static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
->   					   unsigned long uaddr)
->   {
->   	unsigned long addr;
-> +	bool local;
+>   	while ((status = brcmstb_gpio_get_active_irqs(bank))) {
+> @@ -303,7 +305,7 @@ static struct brcmstb_gpio_bank *brcmstb_gpio_hwirq_to_bank(
 >   
-> -	dsb(ishst);
-> +	local = flush_tlb_user_pre(mm);
->   	addr = __TLBI_VADDR(uaddr, ASID(mm));
-> -	__tlbi(vale1is, addr);
-> -	__tlbi_user(vale1is, addr);
-> +	if (local) {
-> +		__tlbi(vale1, addr);
-> +		__tlbi_user(vale1, addr);
-> +	} else {
-> +		__tlbi(vale1is, addr);
-> +		__tlbi_user(vale1is, addr);
-> +	}
-> +	flush_tlb_user_post(local);
->   	mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
->   						(uaddr & PAGE_MASK) + PAGE_SIZE);
->   }
-> @@ -437,6 +497,8 @@ static inline bool __flush_tlb_range_limit_excess(unsigned long start,
->   enum tlbi_op {
->   	TLBI_VALE1IS,
->   	TLBI_VAE1IS,
-> +	TLBI_VALE1,
-> +	TLBI_VAE1,
->   };
->   
->   #define flush_tlb_range_op(op, ...)					\
-> @@ -448,6 +510,12 @@ do {									\
->   	case TLBI_VAE1IS:						\
->   		__flush_tlb_range_op(vae1is, __VA_ARGS__);		\
->   		break;							\
-> +	case TLBI_VALE1:						\
-> +		__flush_tlb_range_op(vale1, __VA_ARGS__);		\
-> +		break;							\
-> +	case TLBI_VAE1:							\
-> +		__flush_tlb_range_op(vae1,  __VA_ARGS__);		\
-> +		break;							\
->   	default:							\
->   		BUILD_BUG_ON_MSG(1, "Unknown TLBI op");			\
->   	}								\
-> @@ -460,6 +528,7 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
->   {
->   	unsigned long asid, pages;
->   	enum tlbi_op tlbi_op;
-> +	bool local;
->   
->   	start = round_down(start, stride);
->   	end = round_up(end, stride);
-> @@ -470,13 +539,18 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
->   		return;
+>   	/* banks are in descending order */
+>   	list_for_each_entry_reverse(bank, &priv->bank_list, node) {
+> -		i += bank->gc.ngpio;
+> +		i += bank->chip.gc.ngpio;
+>   		if (hwirq < i)
+>   			return bank;
 >   	}
+> @@ -332,7 +334,7 @@ static int brcmstb_gpio_irq_map(struct irq_domain *d, unsigned int irq,
 >   
-> -	dsb(ishst);
-> +	local = flush_tlb_user_pre(mm);
->   	asid = ASID(mm);
->   
-> -	tlbi_op = last_level ? TLBI_VALE1IS : TLBI_VAE1IS;
-> +	if (local)
-> +		tlbi_op = last_level ? TLBI_VALE1 : TLBI_VAE1;
-> +	else
-> +		tlbi_op = last_level ? TLBI_VALE1IS : TLBI_VAE1IS;
-> +
->   	flush_tlb_range_op(tlbi_op, start, pages, stride, asid, tlb_level,
->   			   true, lpa2_is_enabled());
->   
-> +	flush_tlb_user_post(local);
->   	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
+>   	dev_dbg(&pdev->dev, "Mapping irq %d for gpio line %d (bank %d)\n",
+>   		irq, (int)hwirq, bank->id);
+> -	ret = irq_set_chip_data(irq, &bank->gc);
+> +	ret = irq_set_chip_data(irq, &bank->chip.gc);
+>   	if (ret < 0)
+>   		return ret;
+>   	irq_set_lockdep_class(irq, &brcmstb_gpio_irq_lock_class,
+> @@ -394,7 +396,7 @@ static void brcmstb_gpio_remove(struct platform_device *pdev)
+>   	 * more important to actually perform all of the steps.
+>   	 */
+>   	list_for_each_entry(bank, &priv->bank_list, node)
+> -		gpiochip_remove(&bank->gc);
+> +		gpiochip_remove(&bank->chip.gc);
 >   }
 >   
-> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-> index b2ac06246327..adf4fc26ddb6 100644
-> --- a/arch/arm64/mm/context.c
-> +++ b/arch/arm64/mm/context.c
-> @@ -214,9 +214,10 @@ static u64 new_context(struct mm_struct *mm)
+>   static int brcmstb_gpio_of_xlate(struct gpio_chip *gc,
+> @@ -412,7 +414,7 @@ static int brcmstb_gpio_of_xlate(struct gpio_chip *gc,
+>   	if (WARN_ON(gpiospec->args_count < gc->of_gpio_n_cells))
+>   		return -EINVAL;
 >   
->   void check_and_switch_context(struct mm_struct *mm)
+> -	offset = gpiospec->args[0] - bank->gc.offset;
+> +	offset = gpiospec->args[0] - bank->chip.gc.offset;
+>   	if (offset >= gc->ngpio || offset < 0)
+>   		return -EINVAL;
+>   
+> @@ -493,19 +495,17 @@ static int brcmstb_gpio_irq_setup(struct platform_device *pdev,
+>   static void brcmstb_gpio_bank_save(struct brcmstb_gpio_priv *priv,
+>   				   struct brcmstb_gpio_bank *bank)
 >   {
-> -	unsigned long flags;
-> -	unsigned int cpu;
-> +	unsigned int cpu = smp_processor_id();
->   	u64 asid, old_active_asid;
-> +	unsigned int active;
-> +	unsigned long flags;
+> -	struct gpio_chip *gc = &bank->gc;
+>   	unsigned int i;
 >   
->   	if (system_supports_cnp())
->   		cpu_set_reserved_ttbr0();
-> @@ -251,7 +252,6 @@ void check_and_switch_context(struct mm_struct *mm)
->   		atomic64_set(&mm->context.id, asid);
+>   	for (i = 0; i < GIO_REG_STAT; i++)
+> -		bank->saved_regs[i] = gc->read_reg(priv->reg_base +
+> -						   GIO_BANK_OFF(bank->id, i));
+> +		bank->saved_regs[i] = gpio_generic_read_reg(&bank->chip,
+> +					priv->reg_base + GIO_BANK_OFF(bank->id, i));
+>   }
+>   
+>   static void brcmstb_gpio_quiesce(struct device *dev, bool save)
+>   {
+>   	struct brcmstb_gpio_priv *priv = dev_get_drvdata(dev);
+>   	struct brcmstb_gpio_bank *bank;
+> -	struct gpio_chip *gc;
+>   	u32 imask;
+>   
+>   	/* disable non-wake interrupt */
+> @@ -513,8 +513,6 @@ static void brcmstb_gpio_quiesce(struct device *dev, bool save)
+>   		disable_irq(priv->parent_irq);
+>   
+>   	list_for_each_entry(bank, &priv->bank_list, node) {
+> -		gc = &bank->gc;
+> -
+>   		if (save)
+>   			brcmstb_gpio_bank_save(priv, bank);
+>   
+> @@ -523,8 +521,9 @@ static void brcmstb_gpio_quiesce(struct device *dev, bool save)
+>   			imask = bank->wake_active;
+>   		else
+>   			imask = 0;
+> -		gc->write_reg(priv->reg_base + GIO_MASK(bank->id),
+> -			       imask);
+> +		gpio_generic_write_reg(&bank->chip,
+> +				       priv->reg_base + GIO_MASK(bank->id),
+> +				       imask);
 >   	}
+>   }
 >   
-> -	cpu = smp_processor_id();
->   	if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
->   		local_flush_tlb_all();
+> @@ -538,12 +537,12 @@ static void brcmstb_gpio_shutdown(struct platform_device *pdev)
+>   static void brcmstb_gpio_bank_restore(struct brcmstb_gpio_priv *priv,
+>   				      struct brcmstb_gpio_bank *bank)
+>   {
+> -	struct gpio_chip *gc = &bank->gc;
+>   	unsigned int i;
 >   
-> @@ -262,6 +262,30 @@ void check_and_switch_context(struct mm_struct *mm)
+>   	for (i = 0; i < GIO_REG_STAT; i++)
+> -		gc->write_reg(priv->reg_base + GIO_BANK_OFF(bank->id, i),
+> -			      bank->saved_regs[i]);
+> +		gpio_generic_write_reg(&bank->chip,
+> +				       priv->reg_base + GIO_BANK_OFF(bank->id, i),
+> +				       bank->saved_regs[i]);
+>   }
 >   
->   	arm64_apply_bp_hardening();
+>   static int brcmstb_gpio_suspend(struct device *dev)
+> @@ -585,6 +584,7 @@ static const struct dev_pm_ops brcmstb_gpio_pm_ops = {
 >   
-> +	/*
-> +	 * Update mm->context.active_cpu in such a manner that we avoid cmpxchg
-> +	 * and dsb unless we definitely need it. If initially ACTIVE_CPU_NONE
-> +	 * then we are the first cpu to run so set it to our id. If initially
-> +	 * any id other than ours, we are the second cpu to run so set it to
-> +	 * ACTIVE_CPU_MULTIPLE. If we update the value then we must issue
-> +	 * dsb(ishst) to ensure stores to mm->context.active_cpu are ordered
-> +	 * against the TTBR0 write in cpu_switch_mm()/uaccess_enable(); the
-> +	 * store must be visible to another cpu before this cpu could have
-> +	 * populated any TLB entries based on the pgtables that will be
-> +	 * installed.
-> +	 */
-> +	active = READ_ONCE(mm->context.active_cpu);
-> +	if (active != cpu && active != ACTIVE_CPU_MULTIPLE) {
-> +		if (active == ACTIVE_CPU_NONE)
-> +			active = cmpxchg_relaxed(&mm->context.active_cpu,
-> +						 ACTIVE_CPU_NONE, cpu);
+>   static int brcmstb_gpio_probe(struct platform_device *pdev)
+>   {
+> +	struct gpio_generic_chip_config config;
+>   	struct device *dev = &pdev->dev;
+>   	struct device_node *np = dev->of_node;
+>   	void __iomem *reg_base;
+> @@ -665,17 +665,24 @@ static int brcmstb_gpio_probe(struct platform_device *pdev)
+>   			bank->width = bank_width;
+>   		}
+>   
+> +		gc = &bank->chip.gc;
 > +
-> +		if (active != ACTIVE_CPU_NONE)
-> +			WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_MULTIPLE);
+>   		/*
+>   		 * Regs are 4 bytes wide, have data reg, no set/clear regs,
+>   		 * and direction bits have 0 = output and 1 = input
+>   		 */
+> -		gc = &bank->gc;
+> -		err = bgpio_init(gc, dev, 4,
+> -				reg_base + GIO_DATA(bank->id),
+> -				NULL, NULL, NULL,
+> -				reg_base + GIO_IODIR(bank->id), flags);
 > +
-> +		dsb(ishst);
-> +	}
+> +		config = (struct gpio_generic_chip_config) {
+> +			.dev = dev,
+> +			.sz = 4,
+> +			.dat = reg_base + GIO_DATA(bank->id),
+> +			.dirin = reg_base + GIO_IODIR(bank->id),
+> +			.flags = flags,
+> +		};
 > +
->   	/*
->   	 * Defer TTBR0_EL1 setting for user threads to uaccess_enable() when
->   	 * emulating PAN.
+> +		err = gpio_generic_chip_init(&bank->chip, &config);
+>   		if (err) {
+> -			dev_err(dev, "bgpio_init() failed\n");
+> +			dev_err(dev, "failed to initialize generic GPIO chip\n");
+>   			goto fail;
+>   		}
+>   
+> @@ -700,7 +707,8 @@ static int brcmstb_gpio_probe(struct platform_device *pdev)
+>   		 * be retained from S5 cold boot
+>   		 */
+>   		need_wakeup_event |= !!__brcmstb_gpio_get_active_irqs(bank);
+> -		gc->write_reg(reg_base + GIO_MASK(bank->id), 0);
+> +		gpio_generic_write_reg(&bank->chip,
+> +				       reg_base + GIO_MASK(bank->id), 0);
+>   
+>   		err = gpiochip_add_data(gc, bank);
+>   		if (err) {
+> 
+I suppose I'm OK with all of this, but I'm just curious about the longer 
+term plans for the member accesses. Is there an intent to have helpers 
+for things like?:
+chip.gc.offset
+chip.gc.ngpio
 
+Thanks,
+     Doug
 
