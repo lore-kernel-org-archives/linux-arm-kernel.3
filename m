@@ -4,175 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52737CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 12:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64416CA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 12:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U6TRPCuVrrDK6/0PlR0drNjSBgNYBEI/ZiE0oFMzZz8=; b=lwq2jZ6Q+huIcSfboos/0Xuwiu
-	pXIEIjRVToi5zkSdvnn5xsZXqyUGkBSgznYSKie0ZeWApOTVnXnNL7cgAcZcE+M0EOs+c6I8qJXF+
-	85BMmisHbUJrg1EylhYVvFtzGw8Q2QZBV1/L6VqovSXGVnoyV74CMzjKWALbnj1O2TvQDx4TG9ZLF
-	+JDjTZovSahn0PbfZy+av3OKJuWD/Buq4BaoZxsMkJH5VQ1IOoGOhWv8kIOdM7kvvpz8h/Jw5ZEEg
-	kqLo9nj7n4kBZqeb1a1ty1UNyfM0QhuHNCoHb3I+qRPMnrgshy/JZCwK3cZne/7rrZWgRZLkSOeeL
-	7yb3HGsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o1CjqlXhvL+dqcsZqbFvvfk8Xta9TV6JWB9PtbZ0BjE=; b=gn7hHglF/nzvm5Bunjm9kJBLWF
+	8hSEGpfH8TZc9GcdIXVgw6axY2cOlkQS+CQ9ZA1NbgH6UtIa/f48DzJ1X1uedRUcMEs70h/S0r2ax
+	Kt3CycpOeYJ2V5f7W1HnbQ0hQ3cAD53pfX+qFUnhLWIO94fNJNPeRlQRgHamJhqn7N1/0jiVIUY1J
+	x6vALniS6lNdIgRZm/00AdtisECeCaYZj7ayzUzY4AUUZtJ/XoZmLGApp2NibQoyhSJds3ZGg61f4
+	9yBpwhUGRJ58UoXk/HBngYXNJqRwDBZPf6QhVoBQ8cebfZljrgbhYKX+832HSjOer1efUoSXHV2QD
+	0GVzdzKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwgdL-00000003236-0Poc;
-	Thu, 11 Sep 2025 12:42:39 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1uwgjx-000000034Hu-2cdX;
+	Thu, 11 Sep 2025 12:49:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwgdI-0000000321n-0ny9
+	id 1uwgju-000000034H2-2yRO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 12:42:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CxVE2dWV5O1XbgiDIuLEmuZ7IigtvKdaUp9KA8soPobBsA3usPu2/DYWKESGIXAeBRmGNGcjbU8NMuDp29rA3Iv5UtxwkTCiTKAY/4IOjBeK/ppBotQCGv4UUXwXyAI5UT5yvaDzZM48nadQfLgbMK8TUPB+ga/p/emNhcIzQUfzMijOOY6slmVx7wO3UfiFACjpfwXK1KCveMgdDpuAST+x1PSB5FJa8QjCGhNAAC4XBjyrPZr+isoZvg+Ebr3xbbcZHG9JmMPYshbPpekhLEBDge+F6OHkr++cbd1CmEXW6A5r3UwhiBQcJSE6Pgax65nUcUOcJsRsKt9zjdb5YQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U6TRPCuVrrDK6/0PlR0drNjSBgNYBEI/ZiE0oFMzZz8=;
- b=UAITQX/ohqRiKrm3GuPO7vAPZZvlcCx3MC02Q7wYcpjhlCkOqnPtu9T5ttOzV8DdjQHerBwTwjITSeXupHN18moCM0H2iXuNIMMiRAM9aW2GUwxxlVixtxdjxheXYH+cGd3ISK6Xaj+5TiPji4QVudLObGuMpBNzaN++c0YYcRK6P+fdK3hR3oEi8/plVd/RjP6Xpec4CqyQQ2VSthFe6NXd1dvCWaMclmHEB2imx1XOE+SMezWxaFgfvYZJRiibqAVQgtmVkdvbWIv8Pt50Y9aBQvAVHuav2J7qQZj3/MSjCuyFP+5L0S5UKcExwhrBXkCCwYOCq1O+L7aJogCFRA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U6TRPCuVrrDK6/0PlR0drNjSBgNYBEI/ZiE0oFMzZz8=;
- b=BFG2ewkUd6JrYk/Efbu8lfKJkd5AFArZm17/jA2jwM8bsf9/DZpY3uufdNNKD1G5Bwik3HJWQHPWy052EEsUWtzyh8+6q3wstKg7kUuCkrYGs0e+Fjqj8+7GWdq71OMYud5jgIFJJBQWFf5Z+4FHbeN08ep1ptGnHnxje6V5SDjQUybx0RSDroO18cEAALa5KZtZp/fQuJW4bgeasCPkzFpGwl3v1GFIEVJmDRf4E0Fym8BzOxzRtqbZcg7f43Cty3LZnrfvJJ7WOM+Eh/CS2e+ryb5lLcnnqcZH6756qdskc79Z1xyH2u11E8ntndNSycgQH9Uu02DfWqZekqkBVQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
- by BN9PR03MB6092.namprd03.prod.outlook.com (2603:10b6:408:11d::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.17; Thu, 11 Sep
- 2025 12:42:28 +0000
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076%3]) with mapi id 15.20.9094.017; Thu, 11 Sep 2025
- 12:42:28 +0000
-Message-ID: <2d00df77-870d-426c-a823-3a9f53d9eb30@altera.com>
-Date: Thu, 11 Sep 2025 18:12:16 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] net: stmmac: est: Fix GCL bounds checks
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>,
- Rohan G Thomas <rohan.g.thomas@intel.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Matthew Gerlach <matthew.gerlach@altera.com>
-References: <20250911-qbv-fixes-v1-0-e81e9597cf1f@altera.com>
- <20250911-qbv-fixes-v1-1-e81e9597cf1f@altera.com>
- <aMKxc6AuEiWplhcV@shell.armlinux.org.uk>
-Content-Language: en-US
-From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-In-Reply-To: <aMKxc6AuEiWplhcV@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0038.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:81::11) To DM6PR03MB5371.namprd03.prod.outlook.com
- (2603:10b6:5:24c::21)
+	Thu, 11 Sep 2025 12:49:28 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58BBQnrZ026440;
+	Thu, 11 Sep 2025 12:49:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	o1CjqlXhvL+dqcsZqbFvvfk8Xta9TV6JWB9PtbZ0BjE=; b=OPczHEo/9jaGv9CX
+	IdGQHF71IePA1SoA9c2Jjy7IWzLcusSfCQNqqhJEONEs0erQ5J4D/cczOZujZZTM
+	M8TFfRibu0oVcs+hEQinP/RAjFxHwE6AKYqnTHzPc1qyWCmSW0H88zbQa9k37Lqd
+	Emj7RCzGqgIIpJSnQ15NTYNR5eoG+0dOLd0GKaToWXIuYorpKh7zjU30rwe6AxhC
+	DcOkwRh49/xkzRqzBvvJ0nprE36pXdp8R5o5NXIapodNguX7Dr0v5PA+gBKshInm
+	6VhVqZTXSECoh1HB1GMTHomfBiKtj3UXmovCHr9n3WPfxdRudlYa6AU6N7PxV6HD
+	XE3nLQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490cj0ykxt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 11 Sep 2025 12:49:19 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 58BCnHr8009491
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 11 Sep 2025 12:49:17 GMT
+Received: from [10.206.103.106] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Thu, 11 Sep
+ 2025 05:49:11 -0700
+Message-ID: <0ca4f6bb-b2a2-4f98-a494-bb0507bafcd5@quicinc.com>
+Date: Thu, 11 Sep 2025 18:19:02 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|BN9PR03MB6092:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70513048-8a36-4bf9-3a53-08ddf130aa67
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SjI5UTJIam5sVlphalJxNEhWejkzWnh1SEZzdkFpcUxxYkJPSmFvdWhWdysz?=
- =?utf-8?B?eDdKQ3paWnA1RzI4Ky80RkFBUVVncExqNlZFMTJRU1Bac1ZMQjFEbkIzVGNj?=
- =?utf-8?B?aGpLZEJjS3ZxdS9US1JSZTcyTE84amMrMHdkYWFGa090SXN1SkdZMVh4TThw?=
- =?utf-8?B?MEM5YUZ6OElHMFppUGsxVis4bGpEN0xhOVlYQXhkM2dRdVJFVmpXMjUrQjhQ?=
- =?utf-8?B?eXdpK1RWbkx2MmJmWEY3dXA0K000TVRTZDZJaDNwL3lTOWhxSHVRSkJvMjAy?=
- =?utf-8?B?ZTVRQkdnOFpNT2VtY2V4RjZhOTVYWDRsb1h4TXNNS2phQlNXY011TzJsajZU?=
- =?utf-8?B?VERsN0huWmhkR0dLbHljZERPTnhmUmM3R2FlK25MSUN3MDAwN2U5b3NoNzJu?=
- =?utf-8?B?VlhvTXJHem5PNEhYTExXaGlUajhUL1VsNEFUWVlpeS9kT0sxZWhIc2xkclh4?=
- =?utf-8?B?YUg1VXBwcUU1WVFLQ24wYTZIVlcrREE4S2s2MUpNdE52cUxjMVE3K3lhRWZ2?=
- =?utf-8?B?Y2FJZzQrMHJ3VkUwSDBJYjJYSWpPaC8xcjBBU2V1SkZybWppVGRUZlpoQ0pj?=
- =?utf-8?B?dmx6ZllYM0ZlblVoSTY1NXZWbUtSa01HZWFPY1E4WE9wN3pkUUpXZzhaZGkv?=
- =?utf-8?B?ajdacDlSbDZGMENGempGRzRKMGxJenlVTlBHSW90TDJQWElEL3VHaVFIZzhK?=
- =?utf-8?B?eUVpbVh4WFQwZXoxNTZGK1BMLzV5Qys0UGIwT3lnNHNyVzY1RlBwR01DdVQx?=
- =?utf-8?B?Mkx1WEVHNmp6aGVMR1dJd1VlK1JKVUpOUDJZSFJaTTJER0FvZ1JXWnppSUt0?=
- =?utf-8?B?M05lUHdad25Ma25ZTkFFMENGaCtmMG1YaHVCWGVKM0R2WWNtZkxnTGI1OFlr?=
- =?utf-8?B?V0NHd3pFV2dXRHVNV3lXTjREdW0xTzVzdW9sWFd2aitPOFU0VDVkdnpZYmcz?=
- =?utf-8?B?ejdCaGo0V0ZhSEVvU1RIYW4rdUtxczBWc2ZJMDgyOElMbVRGVDNBTnNsZWdI?=
- =?utf-8?B?Ym5YRU9TNU91dDhGdzlBbFNpckh4WGRYUlFyaDhubFY4Qm1jNXJvcHJaT0RK?=
- =?utf-8?B?SnpvdmFWQjM3K085cENyWTQxQnBSTUNOdGRWRm1kL2VvdmV4L2pqRFVBdy9M?=
- =?utf-8?B?WWRJQ3YxSWdxNkdHK1UrZFFidGhvZXBvVVVEMm1tQkp5NFFiS2dNa2FDVE5i?=
- =?utf-8?B?MXlidEM1dnp2QTRhTmoxbzFOdERhNzVjalVwWVBkSUo5T2RIbk04NFZTRGFF?=
- =?utf-8?B?QXR3dkR1cmVOaXZZRlRJb0o0UHpLUENWNk5kczdsYmNET0llWmdSaDllSnZl?=
- =?utf-8?B?QjdFZ3N0dU5SZ0RLaHMyVFpjZGJFN3AzZElRaDFFOGJtTmVHK2g5V0JMakF2?=
- =?utf-8?B?WjE3YlJkSUptUHFRR1g0UVNIMHJHemgrYlhBd253cFhGTjVvTW9kRjNQOTdD?=
- =?utf-8?B?VGM2Sk5uMWlOVDBIVnZDVEFaOVh1ZzlaUWpTV0tadEg5Z2R2QTBUMURaTkJU?=
- =?utf-8?B?R2tnbFhQN1duc0J0NFVJdGRIajg2VnQ1TjVwdDkyRDc4NXZWVmZVN0FtWkN6?=
- =?utf-8?B?bk4vaWQxeEhSaEx2VVk2cVlLVzZ0SHJQekJJSFB1clNJS0FodzBKdUlrR1pZ?=
- =?utf-8?B?QmZ1N1NJSGVwb09XUVpZRVZKZ2gwQVdJdSszUHhtNHhzNmRjRmZPU2JEQlov?=
- =?utf-8?B?eHFRRFpBOTUvN0hzcy9IczdBYlVudlFMWEszaklJdjVFd3hVYU9UZ1BQUm5y?=
- =?utf-8?B?b3JpQ2lwZFZoTHkveG5oREZEZkdyR04vSk03Rm4rSTJFb1RWMkcvckJpVnla?=
- =?utf-8?B?TlltakFtUzU0dFJadnZ0dERwaXYwTU5Mdk5ISktCYVZrNU43aUo0ejFieGt4?=
- =?utf-8?B?RkpMQkkxaGZpNDBZVU0zNUtLeW5leU10VlIxNlJtb0RPbW9kRk5jVlFPTnRm?=
- =?utf-8?Q?BIwmPuKQruU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SWs2SlBSU3Z2SnJIK2Jla3JXeE5NaXh3TldzM1UyYVpFUHpYSU1QbnNmSko1?=
- =?utf-8?B?d3hreGs2Uzd1a3M2VzdxWHJTVStvZHRhTmlrOHh5S0psYnVUaTVCSVljUlp1?=
- =?utf-8?B?cHRlMDVDYSs5eHFQc0NlZ2RKNW1XL0Y4T2l5bG54SG5xR2NUdGdieFUvOHVV?=
- =?utf-8?B?TW9DcmdhcmJvOFVZcUtjeGFlcjY1bEpKSlpUNWR1VDJUY2NYTFVIeUE5Z3FH?=
- =?utf-8?B?aXJaUXNZQUdOeXpGTC9kVFdwNGNmci9JdUhpOFdyMkg5amM5NDIxY2N3Vkdq?=
- =?utf-8?B?OWZtVzlnQXRTVFBJTElOalFsY0JGTFZSb0RZa2YrRm40WVM2NTMzZWxENHdJ?=
- =?utf-8?B?QUlzYjV6V2NXNXpjZUlWek5vN3RRN09GWlNYZ2dWUllkdHBhT1ZubThVbEI2?=
- =?utf-8?B?bDJ5RnpsYTZjQzZKVnlUSHp0OUNTMmc5aHdCM2pUWjdYUWM5WUVoby9GdE4y?=
- =?utf-8?B?d3gzWnZRTzRnYjhKb0g1TjdwRHJ6MitkQlExTWlkbzZtNExyOEtpRUdZcncz?=
- =?utf-8?B?TU9ISkR5VUhhaDRJZXJQZ0NJN2kyaFNRMzBYZVIyVkUrYnFzTmVqTXZrRlZj?=
- =?utf-8?B?VVhObk8ySDBodlNQNFFNSktOSnNNS3BoVDZkSUtxMC9Va2U0UU0yQTZhZE5s?=
- =?utf-8?B?c1duWFVQRU4zd256TFZVbHgrV2NKdzN3VGxsRnptVHNPYXhiQ1B4K1Zid3Jx?=
- =?utf-8?B?MnNWYUpDTnUyT0s4MmJRb0lsUm1VR0dBQ21CQ2JQNllYVERaM0QvRjVObUVt?=
- =?utf-8?B?Vjh3OHVldkZDUFhacHIxMTFEZ3dJbktSOGRid1VYZVZPaERZcUxPNVNPZUNs?=
- =?utf-8?B?V0JzQTFKM2NRaUpYVzFDNUluYmlzWWUwNDFVamE4d3BtZXBQR09odlBIckZ3?=
- =?utf-8?B?bUNRNC8yZ0NVUktKTG5EekxzOVBVK0tITnlPSTV2bmNmZDB4dWxTSnZRTkZI?=
- =?utf-8?B?alptZURyZ2k3d0syUmFvVElsOVB5ZWNiSS8vTkJXY0hTT0gxUmZ4NmlRdS9S?=
- =?utf-8?B?ZU81cWgwcFVVQks3dU5NSy93Sm9NRG9tNFplUm1GU0tyNFFsZG5YRzNTYUVm?=
- =?utf-8?B?T1MxdWlMajdkRkJlelVYeDcya050ZWR0YVUwa3ZkYXVDOVhsRDFSYTN2N0M1?=
- =?utf-8?B?Q2VMbzNEK0c5TU5XWHhhbFltaXEvOTN3cElxYnlSSzZFNWJCUllWMU1qWWhD?=
- =?utf-8?B?L2NSTHJqSVh3Tmc0N09KVVB6WnhUMVF0ZjVQOXJpSURiOGdwZ1hLUjgwWEF1?=
- =?utf-8?B?anU5VHpZaTB1NVh4M0haWlRIR20rRkNpZjNnWHNLdGd0cjlkTWp6dXdOK2Zs?=
- =?utf-8?B?TS9JWHlkT2FLMUNCVjFhcTYwaGU3R1J5V0FxOEU2UWdKWTRzNU1YU3hIVU16?=
- =?utf-8?B?Zi9wc3hSOWpkTHpiaW1ENGpLNkhEbTZEakk3ZjJibFE3bWtBYUNxOE92c2RL?=
- =?utf-8?B?NFkxTVpvRGpCOERFN1Bac25RYTZqSnR0T2xLRnNxamxzTEljMXBXaEpZQjZj?=
- =?utf-8?B?YWdoeTNnRmxZaVlOY3JXNGhKdGlJRnV0QWhHN2RpUjJZM1psNVp1SndMaXgx?=
- =?utf-8?B?VkRkWGp6V09CUWxSc3p1WnE2S3NIQ05oenk4WmxRd090VG5uTGFuM3dGREJt?=
- =?utf-8?B?R1Q2UGtUUy81T0ltVmM2Z0dKMktGVEQzV21SK2ZWWktpVHJOblhlWGxZZ3Q3?=
- =?utf-8?B?REpEL0xlcEIvNFhaa1Bzb3UvMS9sQU9QS2ZHLzJ5enI0Z29DUW1SbW1NWjdr?=
- =?utf-8?B?S3htOHNwclpXZWNldWNjeVBzamVrTDBqbjhXc3ZPTjlRRkYyVnN1OVhlZjE3?=
- =?utf-8?B?K0xhenVsc1Rqc0lGZnphbk5ETGdxT0FQZ1lJTzVMUFVjcjhKcTN4V3kxcXdK?=
- =?utf-8?B?WHV6Q294dTRtbnZkdjdzODRuWU9YRjdFeiswblZCblJvOVZnTjdON283Ynlp?=
- =?utf-8?B?MU5Zb3h6QVVTbzREV3VJQU9od0NTZ1AxcnkvMFJBb0t6RHBicWpLckpEazlN?=
- =?utf-8?B?TEZud1hER1hqeXBNZDIxaXFrV3VMZGFjTTJ5N3M0RXNGY3BFQVRqekRuT25v?=
- =?utf-8?B?a01hZW42aS9JdXRQaUlQM2Nsb0M4c05MZHZGZUJ4TDV3VC8xWFBJVGV2WmVP?=
- =?utf-8?B?em5JZHNhSHA4NDMrM3p0aDk3Z25pbldCMmJRaFZ6TTMyaDhxM1I5Ri9HL0px?=
- =?utf-8?B?b2c9PQ==?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70513048-8a36-4bf9-3a53-08ddf130aa67
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2025 12:42:28.0140
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vbyZmRnN3w8rg/nz6J8xhOCJP6WKeiIbF97CVJIQZ/D55meOU8zJvoNU98A0nA9ME7hSCILtfxBnrTttq2Nk8kOUsSFvDRAHPcEobMbvia0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN9PR03MB6092
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: qcom: monaco-evk-camera: Add DT overlay
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+CC: Vikram Sharma <quic_vikramsa@quicinc.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <quic_svankada@quicinc.com>, <linux-media@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>,
+        Ravi Shankar
+	<quic_rshankar@quicinc.com>,
+        Vishal Verma <quic_vishverm@quicinc.com>
+References: <20250909114241.840842-1-quic_vikramsa@quicinc.com>
+ <20250909114241.840842-4-quic_vikramsa@quicinc.com>
+ <w54mpkzk7irjb7m5jiouxhj77czj4ex72oqioaph4o5qhcsay2@qjolctktsu4s>
+ <8104bb41-e827-4daa-bc96-9b6678a9d345@quicinc.com>
+ <3d26b554-727a-44cb-a1a9-56f49775ba3a@quicinc.com>
+ <j475dpcflsibhrim44wjmtbfcfht5jzvptlzrj354oyjee5mit@wmfc6zmrkbfs>
+Content-Language: en-US
+From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+In-Reply-To: <j475dpcflsibhrim44wjmtbfcfht5jzvptlzrj354oyjee5mit@wmfc6zmrkbfs>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: DnpLQNfpcOq7b1_m4H8RFmoDZtxR2qx6
+X-Proofpoint-GUID: DnpLQNfpcOq7b1_m4H8RFmoDZtxR2qx6
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAyNCBTYWx0ZWRfX15Lt/VU2vMEm
+ QTxoNQx6IOx0kCqzgsv0JVD+mSxb5/G34E2gcuu01cw8dyqhpgYmxVvTWxOiwsWKoWGkm5bvr+D
+ sIMYxrgn8VQlfHCtYksLf5Eo9Yn88kUJAIlnsG2TzakfmWeL9AebUI+Qj74RKS0Ex6b4ErcWwuT
+ 8KA9FKKwUNSEbn90zZvjfIQbAuF/oC24gDzxU8OE2Vl0al/GSWrB/aGnpCk70K+29/Y4SKbiJ+a
+ esQtoxqI/up9PEPywcrDL8iR4Br+HjJc8DPpO11VgIdFTzLIC3duD0JcKAnQdK3WZrn1sAe9bXL
+ /sSpuFAwUocLMUrASt3WGVMW418aWVgbNedBNpZqRGn6f4DXcI47ja97T1tiCQcFYIwqFRdIWP9
+ wDU/1Ugn
+X-Authority-Analysis: v=2.4 cv=QeFmvtbv c=1 sm=1 tr=0 ts=68c2c54f cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=COk6AnOGAAAA:8
+ a=5w7gkbzRxSBdikr_-JgA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-10_04,2025-09-11_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 clxscore=1015 spamscore=0 impostorscore=0
+ bulkscore=0 suspectscore=0 adultscore=0 malwarescore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509060024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_054236_254547_2E7E89F4 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250911_054926_857417_9C79F1A5 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,32 +125,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
 
-Thanks for reviewing the patch.
 
-On 9/11/2025 4:54 PM, Russell King (Oracle) wrote:
-> On Thu, Sep 11, 2025 at 04:22:59PM +0800, Rohan G Thomas via B4 Relay wrote:
->> @@ -1012,7 +1012,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
->>   		s64 delta_ns = qopt->entries[i].interval;
->>   		u32 gates = qopt->entries[i].gate_mask;
->>   
->> -		if (delta_ns > GENMASK(wid, 0))
->> +		if (delta_ns >= BIT(wid))
+On 11-09-2025 15:38, Dmitry Baryshkov wrote:
+> On Thu, Sep 11, 2025 at 02:49:59PM +0530, Nihal Kumar Gupta wrote:
+>>
+>> On 10-09-2025 12:33, Vikram Sharma wrote:
+>>> On 9/9/2025 7:31 PM, Dmitry Baryshkov wrote:
+>>>> On Tue, Sep 09, 2025 at 05:12:40PM +0530, Vikram Sharma wrote:
+>>>>> From: Nihal Kumar Gupta<quic_nihalkum@quicinc.com>
+>>>>>
+>>>>> Enable IMX577 sensor using the CCI1 interface on Monaco EVK.
+>>>>> Camera reset is controlled through an I2C expander,
+>>>>> and power supply is managed via tlmm GPIO74.
+>>>> Why is done as an overlay? Is it a seprate mezzanine?
+>>> It’s not a separate mezzanine; monaco-evk does not come with an attached camera 
+>>> sensor by default.
+>>> The overlay simply reflects an optional camera sensor attachment (e.g., IMX577 
+>>> on CSIPHY1)
+>>> That is why camera sensor is configured in monaco-evk-camera.dtso instead of 
+>>> modifying the base monaco-evk.dts.
+>>> Please suggest and alternative approach if you feel this is not correct
+>> Dmitry, Do you agree with this justification or you have a follow-up comment?
+>> Can we post v2 with the same change addressing other comments.
+> The previous email didn't land to the mailing list, I'm not sure why.
 > 
-> While I agree this makes it look better, you don't change the version
-> below, which makes the code inconsistent. I also don't see anything
-> wrong with the original comparison.
+> Anyway:
+> - What are other options that we might support? Having a single
+>   monaco-evk-camera overlay means that this is the only configuration
+>   that we plan to support.
+> 
+> - It all should have been described in the commit message. Please update
+>   it for the next revision.
 
-Just to clarify the intent behind this change:
-For example, if wid = 3, then GENMASK(3, 0) = 0b1111 = 15. But the
-maximum supported gate interval in this case is actually 7, since only 3
-bits are available to represent the value. So in the patch, the
-condition delta_ns >= BIT(wid) effectively checks if delta_ns is 8 or
-more, which correctly returns an error for values that exceed the 3-bit
-limit.
+Yes, We have planned to support device tree overlay of the IMX577 sensor via CSIPHY1 only.
+I'll update the commit message in v2
 
-> Best Regards,
-Rohan
-
+Regards,
+Nihal Kumar Gupta
 
