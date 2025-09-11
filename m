@@ -4,86 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDA3CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 12:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52737CAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 12:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZOhHNVyVLP7kW4W4c9CpTeNpoSEZbVmnYepZzBb3fl0=; b=wb0HfHKPkg0UvQGxbYenS36xwr
-	ePzx9UDh8mHIS9elnZ0oU0wt5+MPHdhdiIRHyulTcgsATztgI8u2NVDu94AkdVFRN1TNrRLyZzTuq
-	nUoBx/a4aDFva7cuMwIhFEW2djcRBplOhkXWGnvW+OXT/6taDChtFwmPjK0StmYDdW1PcHLLURnjN
-	Q0ndsvBWzcIrSWgP4EMHd2TeoLDYlKZqmAg/6X7VIUPazfXGndJYUtA0bD3XyRMLxpJ6dnijXQgTS
-	FWTIIdrOiWZhYMh2fHMcNskXSy+GdA3d2dZbb/XKkrgzUMOKpjQEXXo63EvIDWudp4oAnx252GfqO
-	ICrJ3Z9Q==;
+	bh=U6TRPCuVrrDK6/0PlR0drNjSBgNYBEI/ZiE0oFMzZz8=; b=lwq2jZ6Q+huIcSfboos/0Xuwiu
+	pXIEIjRVToi5zkSdvnn5xsZXqyUGkBSgznYSKie0ZeWApOTVnXnNL7cgAcZcE+M0EOs+c6I8qJXF+
+	85BMmisHbUJrg1EylhYVvFtzGw8Q2QZBV1/L6VqovSXGVnoyV74CMzjKWALbnj1O2TvQDx4TG9ZLF
+	+JDjTZovSahn0PbfZy+av3OKJuWD/Buq4BaoZxsMkJH5VQ1IOoGOhWv8kIOdM7kvvpz8h/Jw5ZEEg
+	kqLo9nj7n4kBZqeb1a1ty1UNyfM0QhuHNCoHb3I+qRPMnrgshy/JZCwK3cZne/7rrZWgRZLkSOeeL
+	7yb3HGsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwgLB-00000002x2j-3izK;
-	Thu, 11 Sep 2025 12:23:53 +0000
-Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	id 1uwgdL-00000003236-0Poc;
+	Thu, 11 Sep 2025 12:42:39 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwgL9-00000002x13-20pH
+	id 1uwgdI-0000000321n-0ny9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 12:23:53 +0000
-Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-621a79a580bso100185eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 05:23:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757593430; x=1758198230; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZOhHNVyVLP7kW4W4c9CpTeNpoSEZbVmnYepZzBb3fl0=;
-        b=IHmDOduMyRs8HSTq5Mk82uwxfWkAliLe8Klk4K4nrTFeZF/nBBz8Fm4M/cg8qmdkiD
-         ifgE9lricg42R3LDTUlGTyNtioOP19XihFroDEolIKRU2TtqbWwB4qD6kNEbSi59dqYS
-         Pen8Y6SU/cE6/HM+pqovz1iLsZeaYVi8r8cKwv759iV3aP2vQftQejzFPtwcE4RSM2mu
-         H2XIxMcH8+FwC1mNRJ79j5mdKwFV8udblklw1gDpiOCYNdpq6iD+s/OkrIz0Ng1+my6A
-         nGfXDJeoLZ4z4c0ZOyKjAhFGFN9wG3VXlT/KbAoCiWUaD2UDDzZl8N88+YClbQBGJgOz
-         pc3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757593430; x=1758198230;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZOhHNVyVLP7kW4W4c9CpTeNpoSEZbVmnYepZzBb3fl0=;
-        b=tU9O3Kwi884iz9eOgZN6Uw/S6sMdLNytX0OBHfpGmk6kP0bG/DDyPbirZ1D/F6+1BO
-         5fCjM3/wWchAPX43Vt/de49QsZVXVjHh7QjfwP+DAdsomJC090WQXXuGiu5UCXbx51d3
-         ighw4bzDdZKBwl4/IBSBBEPL+O0Dq6dhiHvrPE9yW04p83O+roj1sC5/czVSQSKbxnEY
-         m0zZAP63Sz5XUINsvvNsn9j/Y4qEuIVeqg17GZde73YdCpEF6FRvLWgcDMVbDMcFFrsk
-         3SegDrVicx88gyo9a6ogVyVubjD2ncOjqm+9esCrzeTDVkIAs5kUSXfwUeDL4zMK0gNk
-         +Usw==
-X-Forwarded-Encrypted: i=1; AJvYcCVw60wIFRPGD5SIhQBQR5uMy8IfAJ5K5Ec8jk0hYY0HebVWFHfsZBxV1OO8Jo/55Lxson/lFYc01095lc+lAEzA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqTxgKuoOdsLVGF/FqLZfg41vGLqF2FN87/Fx27VC45SQZ8E4q
-	E2/rr8PWdukBQgi4YNgVUu+Ksz7WlcXs6Cv/ZiygY/iwj2zDr8D7x9AbzPlfOUbq//E2BgCrB/1
-	n/pw3IczLNfKi8FI/JfUL18lX4pt0qI38geZ072rVuQ==
-X-Gm-Gg: ASbGncsQr6P+MAVut83GhgAWNhL4h1oMk7JZjxsLRGHmSw6fXAGx2PwF1sPr6r4ynvU
-	PQwXex1yZk2y7y2Kdu6bxgfRGRoS/76NqpARlvrjCpfwYPu2vU+p/TFv+RjwcJ5wTSOnvWKZfNu
-	AiZG/iPKbPqLG7Z54vz1tDds0Pxau7y3a+gyQ+vZRnHUnUbO4+tX516PRgf0+jLzefl/FwUr6uI
-	0eJnUWaLb11ihWOMw==
-X-Google-Smtp-Source: AGHT+IFlJGRFVdFunbhE1qMFhFzsQ7ox2qrr0kPK3cR6JnkVwwd4KR9aUMOAVadxtU1iOr8rX8btiw416Km4fjx3eEM=
-X-Received: by 2002:a05:6871:2942:b0:322:3811:e4a1 with SMTP id
- 586e51a60fabf-32264a23b40mr11016481fac.26.1757593429792; Thu, 11 Sep 2025
- 05:23:49 -0700 (PDT)
+	Thu, 11 Sep 2025 12:42:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CxVE2dWV5O1XbgiDIuLEmuZ7IigtvKdaUp9KA8soPobBsA3usPu2/DYWKESGIXAeBRmGNGcjbU8NMuDp29rA3Iv5UtxwkTCiTKAY/4IOjBeK/ppBotQCGv4UUXwXyAI5UT5yvaDzZM48nadQfLgbMK8TUPB+ga/p/emNhcIzQUfzMijOOY6slmVx7wO3UfiFACjpfwXK1KCveMgdDpuAST+x1PSB5FJa8QjCGhNAAC4XBjyrPZr+isoZvg+Ebr3xbbcZHG9JmMPYshbPpekhLEBDge+F6OHkr++cbd1CmEXW6A5r3UwhiBQcJSE6Pgax65nUcUOcJsRsKt9zjdb5YQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=U6TRPCuVrrDK6/0PlR0drNjSBgNYBEI/ZiE0oFMzZz8=;
+ b=UAITQX/ohqRiKrm3GuPO7vAPZZvlcCx3MC02Q7wYcpjhlCkOqnPtu9T5ttOzV8DdjQHerBwTwjITSeXupHN18moCM0H2iXuNIMMiRAM9aW2GUwxxlVixtxdjxheXYH+cGd3ISK6Xaj+5TiPji4QVudLObGuMpBNzaN++c0YYcRK6P+fdK3hR3oEi8/plVd/RjP6Xpec4CqyQQ2VSthFe6NXd1dvCWaMclmHEB2imx1XOE+SMezWxaFgfvYZJRiibqAVQgtmVkdvbWIv8Pt50Y9aBQvAVHuav2J7qQZj3/MSjCuyFP+5L0S5UKcExwhrBXkCCwYOCq1O+L7aJogCFRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=U6TRPCuVrrDK6/0PlR0drNjSBgNYBEI/ZiE0oFMzZz8=;
+ b=BFG2ewkUd6JrYk/Efbu8lfKJkd5AFArZm17/jA2jwM8bsf9/DZpY3uufdNNKD1G5Bwik3HJWQHPWy052EEsUWtzyh8+6q3wstKg7kUuCkrYGs0e+Fjqj8+7GWdq71OMYud5jgIFJJBQWFf5Z+4FHbeN08ep1ptGnHnxje6V5SDjQUybx0RSDroO18cEAALa5KZtZp/fQuJW4bgeasCPkzFpGwl3v1GFIEVJmDRf4E0Fym8BzOxzRtqbZcg7f43Cty3LZnrfvJJ7WOM+Eh/CS2e+ryb5lLcnnqcZH6756qdskc79Z1xyH2u11E8ntndNSycgQH9Uu02DfWqZekqkBVQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
+ by BN9PR03MB6092.namprd03.prod.outlook.com (2603:10b6:408:11d::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.17; Thu, 11 Sep
+ 2025 12:42:28 +0000
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076%3]) with mapi id 15.20.9094.017; Thu, 11 Sep 2025
+ 12:42:28 +0000
+Message-ID: <2d00df77-870d-426c-a823-3a9f53d9eb30@altera.com>
+Date: Thu, 11 Sep 2025 18:12:16 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/2] net: stmmac: est: Fix GCL bounds checks
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>,
+ Rohan G Thomas <rohan.g.thomas@intel.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Matthew Gerlach <matthew.gerlach@altera.com>
+References: <20250911-qbv-fixes-v1-0-e81e9597cf1f@altera.com>
+ <20250911-qbv-fixes-v1-1-e81e9597cf1f@altera.com>
+ <aMKxc6AuEiWplhcV@shell.armlinux.org.uk>
+Content-Language: en-US
+From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+In-Reply-To: <aMKxc6AuEiWplhcV@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0038.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:81::11) To DM6PR03MB5371.namprd03.prod.outlook.com
+ (2603:10b6:5:24c::21)
 MIME-Version: 1.0
-References: <20250813-phy-notify-pmstate-v3-0-3bda59055dd3@linaro.org>
- <20250813-phy-notify-pmstate-v3-1-3bda59055dd3@linaro.org> <aKX5C9Xlx2CSJraY@vaman>
-In-Reply-To: <aKX5C9Xlx2CSJraY@vaman>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Thu, 11 Sep 2025 13:23:37 +0100
-X-Gm-Features: Ac12FXxrk_rVgmFgSaHooe5Gb5FZ-V_t_qQg9tRVc0kilQnohu6e2x4WgTN9EhE
-Message-ID: <CADrjBPpaJdzDSe3kjk=zrODusH3LnwhaBn9-NDCJwEy3ymwvew@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] phy: add new phy_notify_state() api
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, kernel-team@android.com, 
-	William Mcvicker <willmcvicker@google.com>, Manivannan Sadhasivam <mani@kernel.org>, neil.armstrong@linaro.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|BN9PR03MB6092:EE_
+X-MS-Office365-Filtering-Correlation-Id: 70513048-8a36-4bf9-3a53-08ddf130aa67
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SjI5UTJIam5sVlphalJxNEhWejkzWnh1SEZzdkFpcUxxYkJPSmFvdWhWdysz?=
+ =?utf-8?B?eDdKQ3paWnA1RzI4Ky80RkFBUVVncExqNlZFMTJRU1Bac1ZMQjFEbkIzVGNj?=
+ =?utf-8?B?aGpLZEJjS3ZxdS9US1JSZTcyTE84amMrMHdkYWFGa090SXN1SkdZMVh4TThw?=
+ =?utf-8?B?MEM5YUZ6OElHMFppUGsxVis4bGpEN0xhOVlYQXhkM2dRdVJFVmpXMjUrQjhQ?=
+ =?utf-8?B?eXdpK1RWbkx2MmJmWEY3dXA0K000TVRTZDZJaDNwL3lTOWhxSHVRSkJvMjAy?=
+ =?utf-8?B?ZTVRQkdnOFpNT2VtY2V4RjZhOTVYWDRsb1h4TXNNS2phQlNXY011TzJsajZU?=
+ =?utf-8?B?VERsN0huWmhkR0dLbHljZERPTnhmUmM3R2FlK25MSUN3MDAwN2U5b3NoNzJu?=
+ =?utf-8?B?VlhvTXJHem5PNEhYTExXaGlUajhUL1VsNEFUWVlpeS9kT0sxZWhIc2xkclh4?=
+ =?utf-8?B?YUg1VXBwcUU1WVFLQ24wYTZIVlcrREE4S2s2MUpNdE52cUxjMVE3K3lhRWZ2?=
+ =?utf-8?B?Y2FJZzQrMHJ3VkUwSDBJYjJYSWpPaC8xcjBBU2V1SkZybWppVGRUZlpoQ0pj?=
+ =?utf-8?B?dmx6ZllYM0ZlblVoSTY1NXZWbUtSa01HZWFPY1E4WE9wN3pkUUpXZzhaZGkv?=
+ =?utf-8?B?ajdacDlSbDZGMENGempGRzRKMGxJenlVTlBHSW90TDJQWElEL3VHaVFIZzhK?=
+ =?utf-8?B?eUVpbVh4WFQwZXoxNTZGK1BMLzV5Qys0UGIwT3lnNHNyVzY1RlBwR01DdVQx?=
+ =?utf-8?B?Mkx1WEVHNmp6aGVMR1dJd1VlK1JKVUpOUDJZSFJaTTJER0FvZ1JXWnppSUt0?=
+ =?utf-8?B?M05lUHdad25Ma25ZTkFFMENGaCtmMG1YaHVCWGVKM0R2WWNtZkxnTGI1OFlr?=
+ =?utf-8?B?V0NHd3pFV2dXRHVNV3lXTjREdW0xTzVzdW9sWFd2aitPOFU0VDVkdnpZYmcz?=
+ =?utf-8?B?ejdCaGo0V0ZhSEVvU1RIYW4rdUtxczBWc2ZJMDgyOElMbVRGVDNBTnNsZWdI?=
+ =?utf-8?B?Ym5YRU9TNU91dDhGdzlBbFNpckh4WGRYUlFyaDhubFY4Qm1jNXJvcHJaT0RK?=
+ =?utf-8?B?SnpvdmFWQjM3K085cENyWTQxQnBSTUNOdGRWRm1kL2VvdmV4L2pqRFVBdy9M?=
+ =?utf-8?B?WWRJQ3YxSWdxNkdHK1UrZFFidGhvZXBvVVVEMm1tQkp5NFFiS2dNa2FDVE5i?=
+ =?utf-8?B?MXlidEM1dnp2QTRhTmoxbzFOdERhNzVjalVwWVBkSUo5T2RIbk04NFZTRGFF?=
+ =?utf-8?B?QXR3dkR1cmVOaXZZRlRJb0o0UHpLUENWNk5kczdsYmNET0llWmdSaDllSnZl?=
+ =?utf-8?B?QjdFZ3N0dU5SZ0RLaHMyVFpjZGJFN3AzZElRaDFFOGJtTmVHK2g5V0JMakF2?=
+ =?utf-8?B?WjE3YlJkSUptUHFRR1g0UVNIMHJHemgrYlhBd253cFhGTjVvTW9kRjNQOTdD?=
+ =?utf-8?B?VGM2Sk5uMWlOVDBIVnZDVEFaOVh1ZzlaUWpTV0tadEg5Z2R2QTBUMURaTkJU?=
+ =?utf-8?B?R2tnbFhQN1duc0J0NFVJdGRIajg2VnQ1TjVwdDkyRDc4NXZWVmZVN0FtWkN6?=
+ =?utf-8?B?bk4vaWQxeEhSaEx2VVk2cVlLVzZ0SHJQekJJSFB1clNJS0FodzBKdUlrR1pZ?=
+ =?utf-8?B?QmZ1N1NJSGVwb09XUVpZRVZKZ2gwQVdJdSszUHhtNHhzNmRjRmZPU2JEQlov?=
+ =?utf-8?B?eHFRRFpBOTUvN0hzcy9IczdBYlVudlFMWEszaklJdjVFd3hVYU9UZ1BQUm5y?=
+ =?utf-8?B?b3JpQ2lwZFZoTHkveG5oREZEZkdyR04vSk03Rm4rSTJFb1RWMkcvckJpVnla?=
+ =?utf-8?B?TlltakFtUzU0dFJadnZ0dERwaXYwTU5Mdk5ISktCYVZrNU43aUo0ejFieGt4?=
+ =?utf-8?B?RkpMQkkxaGZpNDBZVU0zNUtLeW5leU10VlIxNlJtb0RPbW9kRk5jVlFPTnRm?=
+ =?utf-8?Q?BIwmPuKQruU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SWs2SlBSU3Z2SnJIK2Jla3JXeE5NaXh3TldzM1UyYVpFUHpYSU1QbnNmSko1?=
+ =?utf-8?B?d3hreGs2Uzd1a3M2VzdxWHJTVStvZHRhTmlrOHh5S0psYnVUaTVCSVljUlp1?=
+ =?utf-8?B?cHRlMDVDYSs5eHFQc0NlZ2RKNW1XL0Y4T2l5bG54SG5xR2NUdGdieFUvOHVV?=
+ =?utf-8?B?TW9DcmdhcmJvOFVZcUtjeGFlcjY1bEpKSlpUNWR1VDJUY2NYTFVIeUE5Z3FH?=
+ =?utf-8?B?aXJaUXNZQUdOeXpGTC9kVFdwNGNmci9JdUhpOFdyMkg5amM5NDIxY2N3Vkdq?=
+ =?utf-8?B?OWZtVzlnQXRTVFBJTElOalFsY0JGTFZSb0RZa2YrRm40WVM2NTMzZWxENHdJ?=
+ =?utf-8?B?QUlzYjV6V2NXNXpjZUlWek5vN3RRN09GWlNYZ2dWUllkdHBhT1ZubThVbEI2?=
+ =?utf-8?B?bDJ5RnpsYTZjQzZKVnlUSHp0OUNTMmc5aHdCM2pUWjdYUWM5WUVoby9GdE4y?=
+ =?utf-8?B?d3gzWnZRTzRnYjhKb0g1TjdwRHJ6MitkQlExTWlkbzZtNExyOEtpRUdZcncz?=
+ =?utf-8?B?TU9ISkR5VUhhaDRJZXJQZ0NJN2kyaFNRMzBYZVIyVkUrYnFzTmVqTXZrRlZj?=
+ =?utf-8?B?VVhObk8ySDBodlNQNFFNSktOSnNNS3BoVDZkSUtxMC9Va2U0UU0yQTZhZE5s?=
+ =?utf-8?B?c1duWFVQRU4zd256TFZVbHgrV2NKdzN3VGxsRnptVHNPYXhiQ1B4K1Zid3Jx?=
+ =?utf-8?B?MnNWYUpDTnUyT0s4MmJRb0lsUm1VR0dBQ21CQ2JQNllYVERaM0QvRjVObUVt?=
+ =?utf-8?B?Vjh3OHVldkZDUFhacHIxMTFEZ3dJbktSOGRid1VYZVZPaERZcUxPNVNPZUNs?=
+ =?utf-8?B?V0JzQTFKM2NRaUpYVzFDNUluYmlzWWUwNDFVamE4d3BtZXBQR09odlBIckZ3?=
+ =?utf-8?B?bUNRNC8yZ0NVUktKTG5EekxzOVBVK0tITnlPSTV2bmNmZDB4dWxTSnZRTkZI?=
+ =?utf-8?B?alptZURyZ2k3d0syUmFvVElsOVB5ZWNiSS8vTkJXY0hTT0gxUmZ4NmlRdS9S?=
+ =?utf-8?B?ZU81cWgwcFVVQks3dU5NSy93Sm9NRG9tNFplUm1GU0tyNFFsZG5YRzNTYUVm?=
+ =?utf-8?B?T1MxdWlMajdkRkJlelVYeDcya050ZWR0YVUwa3ZkYXVDOVhsRDFSYTN2N0M1?=
+ =?utf-8?B?Q2VMbzNEK0c5TU5XWHhhbFltaXEvOTN3cElxYnlSSzZFNWJCUllWMU1qWWhD?=
+ =?utf-8?B?L2NSTHJqSVh3Tmc0N09KVVB6WnhUMVF0ZjVQOXJpSURiOGdwZ1hLUjgwWEF1?=
+ =?utf-8?B?anU5VHpZaTB1NVh4M0haWlRIR20rRkNpZjNnWHNLdGd0cjlkTWp6dXdOK2Zs?=
+ =?utf-8?B?TS9JWHlkT2FLMUNCVjFhcTYwaGU3R1J5V0FxOEU2UWdKWTRzNU1YU3hIVU16?=
+ =?utf-8?B?Zi9wc3hSOWpkTHpiaW1ENGpLNkhEbTZEakk3ZjJibFE3bWtBYUNxOE92c2RL?=
+ =?utf-8?B?NFkxTVpvRGpCOERFN1Bac25RYTZqSnR0T2xLRnNxamxzTEljMXBXaEpZQjZj?=
+ =?utf-8?B?YWdoeTNnRmxZaVlOY3JXNGhKdGlJRnV0QWhHN2RpUjJZM1psNVp1SndMaXgx?=
+ =?utf-8?B?VkRkWGp6V09CUWxSc3p1WnE2S3NIQ05oenk4WmxRd090VG5uTGFuM3dGREJt?=
+ =?utf-8?B?R1Q2UGtUUy81T0ltVmM2Z0dKMktGVEQzV21SK2ZWWktpVHJOblhlWGxZZ3Q3?=
+ =?utf-8?B?REpEL0xlcEIvNFhaa1Bzb3UvMS9sQU9QS2ZHLzJ5enI0Z29DUW1SbW1NWjdr?=
+ =?utf-8?B?S3htOHNwclpXZWNldWNjeVBzamVrTDBqbjhXc3ZPTjlRRkYyVnN1OVhlZjE3?=
+ =?utf-8?B?K0xhenVsc1Rqc0lGZnphbk5ETGdxT0FQZ1lJTzVMUFVjcjhKcTN4V3kxcXdK?=
+ =?utf-8?B?WHV6Q294dTRtbnZkdjdzODRuWU9YRjdFeiswblZCblJvOVZnTjdON283Ynlp?=
+ =?utf-8?B?MU5Zb3h6QVVTbzREV3VJQU9od0NTZ1AxcnkvMFJBb0t6RHBicWpLckpEazlN?=
+ =?utf-8?B?TEZud1hER1hqeXBNZDIxaXFrV3VMZGFjTTJ5N3M0RXNGY3BFQVRqekRuT25v?=
+ =?utf-8?B?a01hZW42aS9JdXRQaUlQM2Nsb0M4c05MZHZGZUJ4TDV3VC8xWFBJVGV2WmVP?=
+ =?utf-8?B?em5JZHNhSHA4NDMrM3p0aDk3Z25pbldCMmJRaFZ6TTMyaDhxM1I5Ri9HL0px?=
+ =?utf-8?B?b2c9PQ==?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 70513048-8a36-4bf9-3a53-08ddf130aa67
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2025 12:42:28.0140
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vbyZmRnN3w8rg/nz6J8xhOCJP6WKeiIbF97CVJIQZ/D55meOU8zJvoNU98A0nA9ME7hSCILtfxBnrTttq2Nk8kOUsSFvDRAHPcEobMbvia0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN9PR03MB6092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_052351_522122_6DA81970 
-X-CRM114-Status: GOOD (  30.73  )
+X-CRM114-CacheID: sfid-20250911_054236_254547_2E7E89F4 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,137 +187,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vinod,
+Hi Russell,
 
-Thanks for your review feedback.
+Thanks for reviewing the patch.
 
-On Wed, 20 Aug 2025 at 17:34, Vinod Koul <vkoul@kernel.org> wrote:
->
-> On 13-08-25, 16:00, Peter Griffin wrote:
-> > Add a new phy_notify_state() api that notifies and configures a phy for a
-> > given state transition.
-> >
-> > This is intended to be by phy drivers which need to do some runtime
->                     ^^^^^^^^^^
-> Missing 'used' possibly?
+On 9/11/2025 4:54 PM, Russell King (Oracle) wrote:
+> On Thu, Sep 11, 2025 at 04:22:59PM +0800, Rohan G Thomas via B4 Relay wrote:
+>> @@ -1012,7 +1012,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+>>   		s64 delta_ns = qopt->entries[i].interval;
+>>   		u32 gates = qopt->entries[i].gate_mask;
+>>   
+>> -		if (delta_ns > GENMASK(wid, 0))
+>> +		if (delta_ns >= BIT(wid))
+> 
+> While I agree this makes it look better, you don't change the version
+> below, which makes the code inconsistent. I also don't see anything
+> wrong with the original comparison.
 
-Yes your right, good spot, will fix.
+Just to clarify the intent behind this change:
+For example, if wid = 3, then GENMASK(3, 0) = 0b1111 = 15. But the
+maximum supported gate interval in this case is actually 7, since only 3
+bits are available to represent the value. So in the patch, the
+condition delta_ns >= BIT(wid) effectively checks if delta_ns is 8 or
+more, which correctly returns an error for values that exceed the 3-bit
+limit.
 
->
-> > configuration of parameters that can't be handled by phy_calibrate() or
-> > phy_power_{on|off}().
-> >
-> > The first usage of this API is in the Samsung UFS phy that needs to issue
-> > some register writes when entering and exiting the hibernate link state.
-> >
-> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> > ---
-> >  drivers/phy/phy-core.c  | 25 +++++++++++++++++++++++++
-> >  include/linux/phy/phy.h | 19 +++++++++++++++++++
-> >  2 files changed, 44 insertions(+)
-> >
-> > diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
-> > index 04a5a34e7a950ae94fae915673c25d476fc071c1..60be8af984bf06649ef00e695d0ed4ced597cdb9 100644
-> > --- a/drivers/phy/phy-core.c
-> > +++ b/drivers/phy/phy-core.c
-> > @@ -520,6 +520,31 @@ int phy_notify_disconnect(struct phy *phy, int port)
-> >  }
-> >  EXPORT_SYMBOL_GPL(phy_notify_disconnect);
-> >
-> > +/**
-> > + * phy_notify_state() - phy state notification
-> > + * @phy: the PHY returned by phy_get()
-> > + * @state: the PHY state
-> > + *
-> > + * Notify the PHY of a state transition. Used to notify and
-> > + * configure the PHY accordingly.
-> > + *
-> > + * Returns: %0 if successful, a negative error code otherwise
-> > + */
-> > +int phy_notify_state(struct phy *phy, union phy_notify state)
-> > +{
-> > +     int ret;
-> > +
-> > +     if (!phy || !phy->ops->notify_phystate)
-> > +             return 0;
-> > +
-> > +     mutex_lock(&phy->mutex);
-> > +     ret = phy->ops->notify_phystate(phy, state);
-> > +     mutex_unlock(&phy->mutex);
-> > +
-> > +     return ret;
-> > +}
-> > +EXPORT_SYMBOL_GPL(phy_notify_state);
-> > +
-> >  /**
-> >   * phy_configure() - Changes the phy parameters
-> >   * @phy: the phy returned by phy_get()
-> > diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
-> > index 13add0c2c40721fe9ca3f0350d13c035cd25af45..664d0864c3a5042949cb121e982368fe0a97827f 100644
-> > --- a/include/linux/phy/phy.h
-> > +++ b/include/linux/phy/phy.h
-> > @@ -53,6 +53,15 @@ enum phy_media {
-> >       PHY_MEDIA_DAC,
-> >  };
-> >
-> > +enum phy_ufs_state {
-> > +     PHY_UFS_HIBERN8_ENTER,
-> > +     PHY_UFS_HIBERN8_EXIT,
-> > +};
-> > +
-> > +union phy_notify {
-> > +     enum phy_ufs_state ufs_state;
-> > +};
-> > +
-> >  /**
-> >   * union phy_configure_opts - Opaque generic phy configuration
-> >   *
-> > @@ -83,6 +92,7 @@ union phy_configure_opts {
-> >   * @set_speed: set the speed of the phy (optional)
-> >   * @reset: resetting the phy
-> >   * @calibrate: calibrate the phy
-> > + * @notify_phystate: notify and configure the phy for a particular state
-> >   * @release: ops to be performed while the consumer relinquishes the PHY
-> >   * @owner: the module owner containing the ops
-> >   */
-> > @@ -132,6 +142,7 @@ struct phy_ops {
-> >       int     (*connect)(struct phy *phy, int port);
-> >       int     (*disconnect)(struct phy *phy, int port);
-> >
-> > +     int     (*notify_phystate)(struct phy *phy, union phy_notify state);
-> >       void    (*release)(struct phy *phy);
-> >       struct module *owner;
-> >  };
-> > @@ -255,6 +266,7 @@ int phy_reset(struct phy *phy);
-> >  int phy_calibrate(struct phy *phy);
-> >  int phy_notify_connect(struct phy *phy, int port);
-> >  int phy_notify_disconnect(struct phy *phy, int port);
-> > +int phy_notify_state(struct phy *phy, union phy_notify state);
-> >  static inline int phy_get_bus_width(struct phy *phy)
-> >  {
-> >       return phy->attrs.bus_width;
-> > @@ -412,6 +424,13 @@ static inline int phy_notify_disconnect(struct phy *phy, int index)
-> >       return -ENOSYS;
-> >  }
-> >
-> > +static inline int phy_notify_phystate(struct phy *phy, union phy_notify state)
-> > +{
-> > +     if (!phy)
-> > +             return 0;
-> > +     return -ENOSYS;
->
-> Should be -ENOSYS either way, right?
+> Best Regards,
+Rohan
 
-I initially thought the same, but I followed the pattern that is used
-by many of the other phy API calls like phy_init/exit,
-phy_power_on/off phy_calibrate, phy_notify_connect in
-include/linux/phy/phy.h. I can update it if you like, but I was trying
-to keep it consistent.
-
-The only API I can see (that isn't a *phy_get* or *phy_create*) which
-returns -ENOSYS unconditionally is phy_get_bus_width()
-
-Thanks,
-
-Peter
 
