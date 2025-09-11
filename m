@@ -4,84 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E9A6CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3311DCAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mt87tHkCDrz9K7C85pTFu77GL3qr/zrL67mBd2f4Ly4=; b=CGgrCUVDUiB9RG5hEvymfOsimm
-	g6KwOAHaYSGweKburYITBbgLYEqn1tqrY+FZgXyr3rb+KCv24BFzECQO7FNGeEu+PduoXKyqljxHj
-	R928oRW80G0Vn6AGBoWF1jxOklX4AALl8hGBEnDs/WAyCupXil2yZU5LRp9WWTa18AlS/Ti2D4zro
-	8jz/Qb+/e6bX/yIKVNT3A6J2GLu6BCakN553GAWyLODkPfd0sV0IoX77Wu6zYlfR80N56wS3OABnl
-	TWpunXC23p/6vRbSpyxa1AmA/yfqBKjG3fe6Chw3RrOyGw+JpmHxXqyBK+q00l6p+vnQkaKjARYVK
-	6FSWesaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=isoS7iLp3i1Cz1MMskPCA9cJCwQs8S5vV77yduiBT4o=; b=IG+OUfytFKlwqZXyqBoCcyS+E/
+	2XeFJPF3seud7OV/+yW/UZRj7FEtTaaFY2HqsW88MXL24r/dYOKgPggLi/US/AekHhEuH6OdT1Pmd
+	YQ012h4F5f31yTZEwt8HI8nAgOzT4ODtP7iqcM8P+6FMmN+9180N7k4Ufz7fN4qLtD4ZBm1L5XbEM
+	G3YwO7a7PPH/9e2gFdLotRhreHDE2zyREu+mtRuiy7J8ADk6kDDWCEj3zQmA1thFX5YH1STZ0UiBG
+	L8k/HTDkw4inaWkZZM0kDXIfhx7TftjH890Qb4Njha065dsk/Iy+K8nr8g4Mw74qfUk7OSyliHFgh
+	IHFBrKvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwiK9-00000003Yya-2g01;
-	Thu, 11 Sep 2025 14:30:57 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uwiLS-00000003ZZq-2FTX;
+	Thu, 11 Sep 2025 14:32:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwiK7-00000003YwT-0zF8;
-	Thu, 11 Sep 2025 14:30:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757601008; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fKylatfoGlWuRdvSCbn3egSlJ82Cbc81pjdBqhTrxvRWzYzpTEHGB+pEol0MxJFv7cSofmdSTGfeMveBJ4mREx8G0LNwE4bLDqwId4ZgLEBpbzxFN5xNm3TfnYFrjN4gd9GASWxHA6CkqAJFTwF8ahTJVfVL7hALfGHbVQ+PHwE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757601008; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Mt87tHkCDrz9K7C85pTFu77GL3qr/zrL67mBd2f4Ly4=; 
-	b=ggbsi/0msrtWqOmLEDVikyKSGUHKt7JutW13zHhtrhLZBh0iFNMP/iLNtcBHMM8VJQQloVCdWfwAJp/kcnqt5JjF3WtDZmfGJbgZoBeqeXi4CvWMjPiwUzZUx0ukViLgRPnLZVHklPCxqzP1hm9l0qN0YxKWLqXUyk6AsisUGWc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757601008;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=Mt87tHkCDrz9K7C85pTFu77GL3qr/zrL67mBd2f4Ly4=;
-	b=ZCWq2Dt/O+0lXM5sUN/qed2Rp3/lwSfyQJVEzLijcl+pa7YXFipLOLT0myJB/N9/
-	Oq1o7TaV4NBQPNCrbWbExkBpxQABWH1+bda9C3mCLe1Nwh8zGc7CcC7tk4gO6ltwUvI
-	XH41PpeHAD6HBnluijWBcoUR53jddWzEKR6ukUKA=
-Received: by mx.zohomail.com with SMTPS id 1757601005694334.08530516479357;
-	Thu, 11 Sep 2025 07:30:05 -0700 (PDT)
-Message-ID: <5486a77a-7c5b-4316-9ff9-4cd458fb1001@collabora.com>
-Date: Thu, 11 Sep 2025 11:29:48 -0300
+	id 1uwiLP-00000003ZXW-46K2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Sep 2025 14:32:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A0A5438D8;
+	Thu, 11 Sep 2025 14:32:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9786C4CEF0;
+	Thu, 11 Sep 2025 14:32:10 +0000 (UTC)
+Date: Thu, 11 Sep 2025 15:32:07 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
+	akpm@linux-foundation.org, mark.rutland@arm.com,
+	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v5 5/5] rqspinlock: Use smp_cond_load_acquire_timeout()
+Message-ID: <aMLdZyjYqFY1xxFD@arm.com>
+References: <20250911034655.3916002-1-ankur.a.arora@oracle.com>
+ <20250911034655.3916002-6-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 00/14] MediaTek dt-bindings sanitization (MT8173)
-To: Mark Brown <broonie@kernel.org>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
- andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
- chunkuang.hu@kernel.org, ck.hu@mediatek.com, conor+dt@kernel.org,
- davem@davemloft.net, dmitry.torokhov@gmail.com, edumazet@google.com,
- flora.fu@mediatek.com, houlong.wei@mediatek.com, jeesw@melfas.com,
- jmassot@collabora.com, kernel@collabora.com, krzk+dt@kernel.org,
- kuba@kernel.org, kyrie.wu@mediatek.corp-partner.google.com,
- lgirdwood@gmail.com, linus.walleij@linaro.org,
- louisalexis.eyraud@collabora.com, maarten.lankhorst@linux.intel.com,
- matthias.bgg@gmail.com, mchehab@kernel.org, minghsiu.tsai@mediatek.com,
- mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com,
- robh@kernel.org, sean.wang@kernel.org, simona@ffwll.ch,
- support.opensource@diasemi.com, tiffany.lin@mediatek.com,
- tzimmermann@suse.de, yunfei.dong@mediatek.com, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-sound@vger.kernel.org, netdev@vger.kernel.org
-References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <9401aab0-1168-4570-a0a1-1310f37142eb@sirena.org.uk>
-Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <9401aab0-1168-4570-a0a1-1310f37142eb@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250911034655.3916002-6-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_073055_335930_7A5EFA82 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250911_073216_033377_42A9CE66 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +68,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark,
+On Wed, Sep 10, 2025 at 08:46:55PM -0700, Ankur Arora wrote:
+> Switch out the conditional load inerfaces used by rqspinlock
+> to smp_cond_read_acquire_timeout().
+> This interface handles the timeout check explicitly and does any
+> necessary amortization, so use check_timeout() directly.
 
-On 8/20/25 2:19 PM, Mark Brown wrote:
-> On Wed, Aug 20, 2025 at 02:12:48PM -0300, Ariel D'Alessandro wrote:
->> This patch series continues the effort to address Device Tree validation
->> warnings for MediaTek platforms, with a focus on MT8173. It follows the initial
->> cleanup series by Angelo (https://www.spinics.net/lists/kernel/msg5780177.html)
->>
->> Similarly to the ongoing MT8183 work done by Julien Massot, this patchset
->> eliminates several of the remaining warnings by improving or converting DT
->> bindings to YAML, adding missing properties, and updating device tree files
->> accordingly.
-> 
-> Same question as for that series, what's the story with
-> interdependencies between the patches?
-> 
-> Please submit patches using subject lines reflecting the style for the
-> subsystem, this makes it easier for people to identify relevant patches.
-> Look at what existing commits in the area you're changing are doing and
-> make sure your subject lines visually resemble what they're doing.
-> There's no need to resubmit to fix this alone.
+It's worth mentioning that the default smp_cond_load_acquire_timeout()
+implementation (without hardware support) only spins 200 times instead
+of 16K times in the rqspinlock code. That's probably fine but it would
+be good to have confirmation from Kumar or Alexei.
 
-I'm resubmitting patchset v2 with several fixes addressing feedback on 
-each patch. While doing so, I've updated each subject line according to 
-each subsystem log.
+> diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
+> index 5ab354d55d82..4d2c12d131ae 100644
+> --- a/kernel/bpf/rqspinlock.c
+> +++ b/kernel/bpf/rqspinlock.c
+[...]
+> @@ -313,11 +307,8 @@ EXPORT_SYMBOL_GPL(resilient_tas_spin_lock);
+>   */
+>  static DEFINE_PER_CPU_ALIGNED(struct qnode, rqnodes[_Q_MAX_NODES]);
+>  
+> -#ifndef res_smp_cond_load_acquire
+> -#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire(v, c)
+> -#endif
+> -
+> -#define res_atomic_cond_read_acquire(v, c) res_smp_cond_load_acquire(&(v)->counter, (c))
+> +#define res_atomic_cond_read_acquire_timeout(v, c, t)		\
+> +	smp_cond_load_acquire_timeout(&(v)->counter, (c), (t))
 
-Of course let me know if this still need some work.
+BTW, we have atomic_cond_read_acquire() which accesses the 'counter' of
+an atomic_t. You might as well add an atomic_cond_read_acquire_timeout()
+in atomic.h than open-code the atomic_t internals here.
 
-Thanks for your help!
+Otherwise the patch looks fine to me, much simpler than the previous
+attempt.
 
--- 
-Ariel D'Alessandro
-Software Engineer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
