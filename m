@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A51CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 17:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A76FCAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 17:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aAyBQq/T3oX8q0KyyhKBWb7eaCUs7AV8K7X/tuLcbU4=; b=VPtUfxJlFDMpyCS5/r8G87Y69I
-	YZ8m2MwL+45y+LnMqF0CPwARsGFzYc3MWWYRc6GKKsR8cjoxyRkc2x6YUawN2g5O2EMLmbG5+gNCv
-	67OeXNxZzv4aJFkZs1e5Lq1XkC3hVc7B3lwcc2QOlsaiw2dOv0Yk0gsN+dIp/C+rqD0NwOkVnGr4o
-	Hmk5WwqSGAj96qkA+YYEH7vtzc2Q18saRUi6gfKJPACMfj7zw1cLhubIUvhKgxUUQ2KBx61d6RvNL
-	59tFR/eTNXplu4zhc4RBxKCmzz25/5X7jzgf45eXqgR+x0ThTxM//i5nExdi2dxCkdCxKkvkrOuWd
-	3N9qP6ww==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6vhWhoLwBDiAKgYIPaYuelUhAx0iYJB8EF9WMebZoXs=; b=AwZLLs5tmNO0oxK5T/ZjVWcV20
+	6IWkEUyQK7fD3MP4a4lELP+dPbG2LhGr1PYrtthD20uuGvHuxJSN0EoMSz7I36J6umnRXHFnsPaKp
+	lFj9+EAJ4+Z//3kJE8MYcgulUo2G7r6B/egJCF9xbw6R94G5MvCGYe/acfekgHKta67+oYe4n/QDU
+	nKSOYum2Ynl7rJF0BxWMxKpA1MjKcS9SCPJEyqmwdWXbC29mzDkkKvTpNzc60dsB2C6sAEGSoIGEr
+	eA6vGh/ib88DuoVAzUPCWPI10BnMsMo9ZC7zzHoFPBEDUWN3pAh3gOEzmZ0u7CA7pj7X3EHt8gQvk
+	1HRgIsQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwlHm-00000004Vhs-0bSD;
-	Thu, 11 Sep 2025 17:40:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uwlO8-00000004XkI-0AHu;
+	Thu, 11 Sep 2025 17:47:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwlHg-00000004Vei-3QpY
+	id 1uwlO7-00000004XjB-03S5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 17:40:37 +0000
+	Thu, 11 Sep 2025 17:47:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0625044B82;
-	Thu, 11 Sep 2025 17:40:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A68CFC4CEF8;
-	Thu, 11 Sep 2025 17:40:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 30CBB601D6;
+	Thu, 11 Sep 2025 17:47:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF892C4CEF0;
+	Thu, 11 Sep 2025 17:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757612435;
-	bh=YUfJQuKeoyvq69CqM4HMv+h2j8i7bzCRaIDADuqZWZs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nunsRqjtB6Cr5GbzCUfCp4JmE43Nz4DEl1w5xjOtLZ/hYSviNN7+cEFSauRyINuNe
-	 2+m5g/0mQf8cHsDAGVG3dyHx5EBzXCs/SS7Cl1tjVPdnJoeNoZ+P2Ls7tILJHydf8k
-	 WEgRbQ8q9ivKl581ZDijZ2njJI76Pp3/TWJVIBdkvbxfoJM7Kf3+BkuvxeNOpPJrNK
-	 fzLOnB2nA0/+c+8YqAnrSKoGr4taVI5Qt6TrsW7h+W81iYm+mnnI01+HEPc6SoQMEg
-	 nA5js7n7Rdm4pJaFjFXbR8FiOH+tSWxCv+LM32LsEbS/0bT12G5iMvZGSuz9CxgS/l
-	 QzOW5ziyzimzA==
+	s=k20201202; t=1757612833;
+	bh=oaKCNu1HF5irjj2VLGgmBQ3NkJiDvAYpfZnXM+otFg8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OQLC+z74ZpongU6i4YQkD1W9RX24SDvIFBQAKIdz/HxDI1QMPjybvcLk4KeH0t0rF
+	 W1Pd6wwVHr4wceqiIh/SL9uYMN/X6onHspCCvNJ7PjuLF9vaRaL22pvrB4pbq5yIL9
+	 h1F2OqacHBUp5e2KYggoukjTY1W6VzHJO3tagaSIX5GkSmPjoNDZrqZ89AkONcnQwM
+	 8GxShsOwSG1AiR0cMK5K19chv9po/GkW2nW93ksaSWJMp01Dc1C1V/HDLoCuiXE4jz
+	 eEtXpcQW1uag5zwwTdJlZKJnJiLhNFVJ6l24Dk3/Ii8bEsMj3DCDxzPGXPkZSKqxgS
+	 xC29Pw4Rknu5Q==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 1CA865FE35; Fri, 12 Sep 2025 01:40:33 +0800 (CST)
+	id BD1D25FBFA; Fri, 12 Sep 2025 01:47:11 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+To: Stephen Boyd <sboyd@kernel.org>,
 	Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej@kernel.org>,
 	Samuel Holland <samuel@sholland.org>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH net-next v5 2/6] net: stmmac: Add support for Allwinner A523 GMAC200
-Date: Fri, 12 Sep 2025 01:40:28 +0800
-Message-Id: <20250911174032.3147192-3-wens@kernel.org>
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/7] arm64: allwinner: a523: Enable MCU PRCM and NPU
+Date: Fri, 12 Sep 2025 01:47:03 +0800
+Message-Id: <20250911174710.3149589-1-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250911174032.3147192-1-wens@kernel.org>
-References: <20250911174032.3147192-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_104036_904973_F662F20E 
-X-CRM114-Status: GOOD (  30.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,243 +77,94 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-The Allwinner A523 SoC family has a second Ethernet controller, called
-the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
-numbering. This controller, according to BSP sources, is fully
-compatible with a slightly newer version of the Synopsys DWMAC core.
-The glue layer around the controller is the same as found around older
-DWMAC cores on Allwinner SoCs. The only slight difference is that since
-this is the second controller on the SoC, the register for the clock
-delay controls is at a different offset. Last, the integration includes
-a dedicated clock gate for the memory bus and the whole thing is put in
-a separately controllable power domain.
+Hi folks,
 
-Add a new driver for this hardware supporting the integration layer.
-
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
-Changes since v3:
-- Fixed printf format specifier warning
-
-Changes since v2 (all suggested by Russell King):
-- Include "ps" unit in "... must be multiple of ..." error message
-- Use FIELD_FIT to check if delay value is in range and FIELD_MAX to get
-  the maximum value
-- Reword error message for delay value exceeding maximum
-- Drop MASK_TO_VAL
+This is v2 of my A523 MCU PRCM and NPU support series.
 
 Changes since v1:
-- Switch to generic (tx|rx)-internal-delay-ps properties
-- Change dev_err() + return to dev_err_probe()
-- Check return value from syscon regmap write
-- Change driver name to match file name
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-sun55i.c    | 159 ++++++++++++++++++
- 3 files changed, 172 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
+- Dropped dual divider clock rate read-back fix that is already merged
+- DT binding
+  - Moved "r-ahb" clock to the end of the list and added "r-apb0" clock
+- Add NPU clk
+  - Move .num to after list of clks
+- MCU CCU clk driver
+  - Added comment for "fixed" dividers in audio PLL clock
+  - Corrected variable names for audio PLL divider clocks
+  - Added comment for the reversed order of some of the DSP clock's
+    parents when compared to the manual
+  - Added comments for clocks and resets only found in the BSP driver
+  - Corrected register offset for i2s3-asrc and bus-mcu-pwm0 clocks
+  - Made "r-ahb" and new "r-apb0" external bus clocks the parents of the
+    bus gate clocks, with comments if guessed which one applies
+  - Moved .num_clks to after the list of clocks, making it obvious that
+    the value needs to be added if more clocks are added to the list
+- MCU CCU DT node
+  - Enlarged MCU PRCM register range to 0x200
+  - Moved "r-ahb" clock to the end of the list and added "r-apb0" clock
+- Link to v1
+  https://lore.kernel.org/all/20250830170901.1996227-1-wens@kernel.org/
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 67fa879b1e52..38ce9a0cfb5b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -263,6 +263,18 @@ config DWMAC_SUN8I
- 	  stmmac device driver. This driver is used for H3/A83T/A64
- 	  EMAC ethernet controller.
- 
-+config DWMAC_SUN55I
-+	tristate "Allwinner sun55i GMAC200 support"
-+	default ARCH_SUNXI
-+	depends on OF && (ARCH_SUNXI || COMPILE_TEST)
-+	select MDIO_BUS_MUX
-+	help
-+	  Support for Allwinner A523/T527 GMAC200 ethernet controllers.
-+
-+	  This selects Allwinner SoC glue layer support for the
-+	  stmmac device driver. This driver is used for A523/T527
-+	  GMAC200 ethernet controller.
-+
- config DWMAC_THEAD
- 	tristate "T-HEAD dwmac support"
- 	depends on OF && (ARCH_THEAD || COMPILE_TEST)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index b591d93f8503..51e068e26ce4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
- obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
- obj-$(CONFIG_DWMAC_SUNXI)	+= dwmac-sunxi.o
- obj-$(CONFIG_DWMAC_SUN8I)	+= dwmac-sun8i.o
-+obj-$(CONFIG_DWMAC_SUN55I)	+= dwmac-sun55i.o
- obj-$(CONFIG_DWMAC_THEAD)	+= dwmac-thead.o
- obj-$(CONFIG_DWMAC_DWC_QOS_ETH)	+= dwmac-dwc-qos-eth.o
- obj-$(CONFIG_DWMAC_INTEL_PLAT)	+= dwmac-intel-plat.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-new file mode 100644
-index 000000000000..b34da76ac344
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-@@ -0,0 +1,159 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * dwmac-sun55i.c - Allwinner sun55i GMAC200 specific glue layer
-+ *
-+ * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
-+ *
-+ * syscon parts taken from dwmac-sun8i.c, which is
-+ *
-+ * Copyright (C) 2017 Corentin Labbe <clabbe.montjoie@gmail.com>
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/stmmac.h>
-+
-+#include "stmmac.h"
-+#include "stmmac_platform.h"
-+
-+#define SYSCON_REG		0x34
-+
-+/* RMII specific bits */
-+#define SYSCON_RMII_EN		BIT(13) /* 1: enable RMII (overrides EPIT) */
-+/* Generic system control EMAC_CLK bits */
-+#define SYSCON_ETXDC_MASK		GENMASK(12, 10)
-+#define SYSCON_ERXDC_MASK		GENMASK(9, 5)
-+/* EMAC PHY Interface Type */
-+#define SYSCON_EPIT			BIT(2) /* 1: RGMII, 0: MII */
-+#define SYSCON_ETCS_MASK		GENMASK(1, 0)
-+#define SYSCON_ETCS_MII		0x0
-+#define SYSCON_ETCS_EXT_GMII	0x1
-+#define SYSCON_ETCS_INT_GMII	0x2
-+
-+static int sun55i_gmac200_set_syscon(struct device *dev,
-+				     struct plat_stmmacenet_data *plat)
-+{
-+	struct device_node *node = dev->of_node;
-+	struct regmap *regmap;
-+	u32 val, reg = 0;
-+	int ret;
-+
-+	regmap = syscon_regmap_lookup_by_phandle(node, "syscon");
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(dev, PTR_ERR(regmap), "Unable to map syscon\n");
-+
-+	if (!of_property_read_u32(node, "tx-internal-delay-ps", &val)) {
-+		if (val % 100)
-+			return dev_err_probe(dev, -EINVAL,
-+					     "tx-delay must be a multiple of 100ps\n");
-+		val /= 100;
-+		dev_dbg(dev, "set tx-delay to %x\n", val);
-+		if (!FIELD_FIT(SYSCON_ETXDC_MASK, val))
-+			return dev_err_probe(dev, -EINVAL,
-+					     "TX clock delay exceeds maximum (%u00ps > %lu00ps)\n",
-+					     val, FIELD_MAX(SYSCON_ETXDC_MASK));
-+
-+		reg |= FIELD_PREP(SYSCON_ETXDC_MASK, val);
-+	}
-+
-+	if (!of_property_read_u32(node, "rx-internal-delay-ps", &val)) {
-+		if (val % 100)
-+			return dev_err_probe(dev, -EINVAL,
-+					     "rx-delay must be a multiple of 100ps\n");
-+		val /= 100;
-+		dev_dbg(dev, "set rx-delay to %x\n", val);
-+		if (!FIELD_FIT(SYSCON_ERXDC_MASK, val))
-+			return dev_err_probe(dev, -EINVAL,
-+					     "RX clock delay exceeds maximum (%u00ps > %lu00ps)\n",
-+					     val, FIELD_MAX(SYSCON_ERXDC_MASK));
-+
-+		reg |= FIELD_PREP(SYSCON_ERXDC_MASK, val);
-+	}
-+
-+	switch (plat->mac_interface) {
-+	case PHY_INTERFACE_MODE_MII:
-+		/* default */
-+		break;
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+		reg |= SYSCON_EPIT | SYSCON_ETCS_INT_GMII;
-+		break;
-+	case PHY_INTERFACE_MODE_RMII:
-+		reg |= SYSCON_RMII_EN;
-+		break;
-+	default:
-+		return dev_err_probe(dev, -EINVAL, "Unsupported interface mode: %s",
-+				     phy_modes(plat->mac_interface));
-+	}
-+
-+	ret = regmap_write(regmap, SYSCON_REG, reg);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "Failed to write to syscon\n");
-+
-+	return 0;
-+}
-+
-+static int sun55i_gmac200_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct device *dev = &pdev->dev;
-+	struct clk *clk;
-+	int ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return ret;
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return PTR_ERR(plat_dat);
-+
-+	/* BSP disables it */
-+	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
-+	plat_dat->host_dma_width = 32;
-+
-+	ret = sun55i_gmac200_set_syscon(dev, plat_dat);
-+	if (ret)
-+		return ret;
-+
-+	clk = devm_clk_get_enabled(dev, "mbus");
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk),
-+				     "Failed to get or enable MBUS clock\n");
-+
-+	ret = devm_regulator_get_enable_optional(dev, "phy");
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to get or enable PHY supply\n");
-+
-+	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
-+}
-+
-+static const struct of_device_id sun55i_gmac200_match[] = {
-+	{ .compatible = "allwinner,sun55i-a523-gmac200" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, sun55i_gmac200_match);
-+
-+static struct platform_driver sun55i_gmac200_driver = {
-+	.probe  = sun55i_gmac200_probe,
-+	.driver = {
-+		.name           = "dwmac-sun55i",
-+		.pm		= &stmmac_pltfr_pm_ops,
-+		.of_match_table = sun55i_gmac200_match,
-+	},
-+};
-+module_platform_driver(sun55i_gmac200_driver);
-+
-+MODULE_AUTHOR("Chen-Yu Tsai <wens@csie.org>");
-+MODULE_DESCRIPTION("Allwinner sun55i GMAC200 specific glue layer");
-+MODULE_LICENSE("GPL");
+
+The MCU PRCM is a Power, Reset & Clock Management block that has some
+clock and reset controls for the MCU, DSP and some peripherals that the
+MCU could use.
+
+The NPU is a Vivante IP block. It is clocked from the NPU PLL from the
+main clock unit, but the bus clock and reset controls lie in the MCU
+PRCM.
+
+Patch 1 adds the missing NPU module clock to the main clock control
+unit's binding.
+
+Patch 2 adds the binding for the MCU PRCM clock control unit
+
+Patch 3 adds the missing NPU module clock.
+
+Patch 4 adds support for power-of-two dividers to the sunxi-ng clk
+library.
+
+Patch 5 adds a new driver for the A523 MCU PRCM CCU.
+
+Patch 6 adds a device node for the MCU PRCM CCU.
+
+Patch 7 adds a device node for the NPU.
+
+The NPU was only lightly tested: the driver correctly probes and detects
+a model GC9000, revision 9003.
+
+Please have a look. All patches will be merged through the sunxi tree.
+
+
+Thanks
+ChenYu
+
+
+Chen-Yu Tsai (7):
+  dt-bindings: clock: sun55i-a523-ccu: Add missing NPU module clock
+  dt-bindings: clock: sun55i-a523-ccu: Add A523 MCU CCU clock controller
+  clk: sunxi-ng: sun55i-a523-ccu: Add missing NPU module clock
+  clk: sunxi-ng: div: support power-of-two dividers
+  clk: sunxi-ng: add support for the A523/T527 MCU CCU
+  arm64: dts: allwinner: a523: Add MCU PRCM CCU node
+  arm64: dts: allwinner: a523: Add NPU device node
+
+ .../clock/allwinner,sun55i-a523-ccu.yaml      |  37 +-
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  39 ++
+ drivers/clk/sunxi-ng/Kconfig                  |   5 +
+ drivers/clk/sunxi-ng/Makefile                 |   2 +
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-mcu.c    | 469 ++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |  21 +-
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.h        |  14 -
+ drivers/clk/sunxi-ng/ccu_div.h                |  18 +
+ include/dt-bindings/clock/sun55i-a523-ccu.h   |   1 +
+ .../dt-bindings/clock/sun55i-a523-mcu-ccu.h   |  54 ++
+ .../dt-bindings/reset/sun55i-a523-mcu-ccu.h   |  30 ++
+ 11 files changed, 671 insertions(+), 19 deletions(-)
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-mcu.c
+ delete mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523.h
+ create mode 100644 include/dt-bindings/clock/sun55i-a523-mcu-ccu.h
+ create mode 100644 include/dt-bindings/reset/sun55i-a523-mcu-ccu.h
+
 -- 
 2.39.5
 
