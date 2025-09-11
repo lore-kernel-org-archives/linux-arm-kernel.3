@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42669CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714BECAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QS0X9ggn6fxbGpDUqeyaduaSpB6sZdnskQczeYDZPM=; b=DY59+pP0n0s90/XethhBteZCqM
-	PO+JUcxl7OB/wNvLYnjFs+ce7VrhYIC0hxQ2QLrxt3z7Jiwi7Q6AUJboHRw1dv0o/QzPNoSLQR/eq
-	cn5hQKZ1kddgRiGG6RO4BJaq5UxXi8fBiqnJtZytY28+9NeVqLsddqX3DOq8hg3APUvRksxs4Jf4t
-	Md7i2wTUwuxu3+z5tynStNZv3g69oC10vtIbtz2dqYG8O7xi4WiaA0EwMwQfjTPkHs+xmEOdKDNr1
-	UwZ6FgmnVHLnjdLw2E+8WEI9De2Lt9Z0pM1Goy/mc73IB5g/hoEfo3qRMrm0dvmtx9ZXFzy6TmGSY
-	BJtarG6w==;
+	bh=isdwFXSTuI6vyPoZ5KEzSCMF3I2UJtuA1www3knapSA=; b=fFQP8eRwnj32NGrHXcLoSjnoz4
+	R/Pqk4PAvkCvDaO4h2/WNdSwzvZyt23++ZG8y70iuEvvkd2XnPlcpO1JluThzL6W7w3nCV9V4BDiO
+	vz80ZqxtnNgmXjJBvv8prz1paov3g1C1gOzN/OS92sy9+KPjMl52IXiIfNZoPTMXTReZ42ZZwcjCW
+	qYZ2lh44d1Wh3KsL4AxdOoas+ZjiLqa5IUwTzAozXbhfdpU456X/1Hxg3aGuzOMEGNQ4CYCbYJqLS
+	eXH3fwJ2sFL8DSm8HwZR4/bCGJbGbWSliuJDITPANO5/sRh8qKdfHml+gtd7LsJZnAGMbz+hqscEC
+	9zOBW13g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhgL-00000003LP3-19Uf;
-	Thu, 11 Sep 2025 13:49:49 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1uwhgO-00000003LRi-0Qff;
+	Thu, 11 Sep 2025 13:49:52 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhgI-00000003LNB-3Qgw
+	id 1uwhgL-00000003LOX-10ri
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 13:49:47 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45dcff2f313so6018025e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 06:49:46 -0700 (PDT)
+	Thu, 11 Sep 2025 13:49:50 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3e751508f21so584921f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 06:49:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757598585; x=1758203385; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757598587; x=1758203387; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0QS0X9ggn6fxbGpDUqeyaduaSpB6sZdnskQczeYDZPM=;
-        b=bGm69Yi5kTnEEwwAA/5bkJBRpT4OeOcicLKOg9oB6419cpb2lp5t13LEpsiZk46sa1
-         /Ty3sQ0Lx64k6Tk5oMw4XBhZ+4Qj5QpHIJ8oe4Hl8Q0LtpC57QmbHQMT3PllYPL3HXea
-         XhgXH96aGmIoZS31ddO92BLRG7dRb8Y6yq6hBwcm30uKbFV9phOBtlRecqLO8EZ2kcfb
-         WY4soRhc7ngjhePra5IhPwYeMS5yqTy9fGYLtK6L1mm9S2J4YG+kSo/tTOROZbbvZ7lJ
-         h9L+jtK5yRYMFH9C2a2hwI9RGznix3V1LfWITo2T2TqfQdxLdt2QM9+emN32tPxT54U1
-         eLXA==
+        bh=isdwFXSTuI6vyPoZ5KEzSCMF3I2UJtuA1www3knapSA=;
+        b=gMuOlcHIAtlD0aGWcKPB6ij06nD91LxnMB1Vby0GMbPN1i8O7fxgXMrv29nQnzEKox
+         /d25hyGO9zNWFtxpwO3RpYCNGiUnjmRQNHFYVIwoX2VR5xntb2mFcI5BrxQKgbv/u6fO
+         gwupqBlqJuLK61iNPsFDg0C50QZPvg2iywzMmrSKaQx1e0FnDCL7GkdmdtWTRiw7cG7C
+         BwRpOYv8KO0zFLJ8IlaI9o88TxBIk4sLwU4tVqsgrt2PHd0FjIk7FC0UWTbzIqBPoJU0
+         6LBcEE6syL56Cks76Ab8NLKIppnjEYG4DLYhhggugmEUF0jC01nrIgkv/YL3gTfjfBR1
+         pkVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757598585; x=1758203385;
+        d=1e100.net; s=20230601; t=1757598587; x=1758203387;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0QS0X9ggn6fxbGpDUqeyaduaSpB6sZdnskQczeYDZPM=;
-        b=SJpBwSUb6qKWLIG4U9MXLjcHLkyg+IqdHhXFcLO9dG6PT7DoLkF5cAuZG8lczTXtX+
-         sDGonq2DlvtyECWlBvXeiDE2Mpi5218HJZ9tcchbVCH1ZMXB+v+Tz1KcM05EeMQkmENB
-         xxGhLj8maZrkDUvIET4XriVYrlZShUTC/trx7zK47kBaUBdhnXw0N2CbUg2Qn0NVVDBq
-         TR/v6sHYzQGykeSDrGi6yg0yqkhtV30OlDOhi8iKXLoRC1aAVj27AUXrYfQ5u6Hm97Pm
-         Vlq+J8YHdy6iHULVxXZsh2+cj2Qn3Hkc15I3QRpJ+M67E4N4Nad3RFbN6n+3K8BBRXev
-         4AbA==
-X-Forwarded-Encrypted: i=1; AJvYcCWsI2FqC+l7mo4/lCkdk/J233p2AQHG2lrywWlTcJbD16q2w7Tuk2GPRLjV55U1W/nemsE5YEciKHrnnRW+PoTG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBxxwqUnG4Zo0aEIJn7b4S8yFY4vEhKoSQv/Rr+KbeD7SegkyX
-	d2DiVFUETvP8ZVcTvmOLwNRahZB0Bc+ziOcP/gXkBwSvtEuv1Kiy175B
-X-Gm-Gg: ASbGnctGplRMyQ8/m7hRRLRgR4iOUmWVm3BSbT6MXqeOZ9hrOuNYue/7kXWNAHD4kYm
-	ryc9+0qs9syysnxLf0HezdNfTGKyvqFTZIrGXuKZQbW+SaTU3iaC2By8L6ixn1nm/sfQXFwOlTD
-	y5dhLfp+Wx8T8Ek1YT9ZHTP713C0dGqUeyF/AZsBoqqDrroq5EsXbdzbw5xSgQkbXpEbOzf0Zif
-	qaUM05/5jHvx4e4r1TGCEVaH+yo5RM9n3CDPGj690Uxcohov5iFH5flGujMjptnpgLyDJH+mVuD
-	uMX2nK4Zq4DBAxcosfvu+9nNRn6nAxQvWjvdq9/pNmwRCxwHG8St3pLRklaW0VsJ5DpwXQhwCNS
-	eBI7bCmUk+rLPZz+5E1BPNqYXLU6f8OxlOlK5QMd7+OBEe6LscbMwrQlp6XU+tESMkVMMN2JK
-X-Google-Smtp-Source: AGHT+IFNNNmoDMaiLwtDUu3F/l93u30ohFmaZcpwi8LsB2GCj8jLScee70K+1o9ZTJ5T9w+mmGeR0g==
-X-Received: by 2002:a05:600c:4709:b0:45b:8477:de1a with SMTP id 5b1f17b1804b1-45dddea648emr170375255e9.7.1757598584916;
-        Thu, 11 Sep 2025 06:49:44 -0700 (PDT)
+        bh=isdwFXSTuI6vyPoZ5KEzSCMF3I2UJtuA1www3knapSA=;
+        b=qJnFOMBG0N+tVZXg44Z/KNKHbrRLwGWzSGr/uZTSW4V7sm+sDz3aOd/XkhYkMkKpxU
+         82vTs/WU9Qcau/+PMUo7HN9pDr44mpCUaTkXGky0uwD7pF+X3HiQ7iCMf0o6wtVPHpBM
+         ym+J1IzMy3XCu5rMjLgKzt75g60Fhk9KEwWvT2cytScq5zX0yXgMmp37GukmF2TERodI
+         SaKIRqMUyX3Uq1MhOeDS0utHigqgbJmv2BsDYAw77fH5SWF6oaCXGAWsdaf5QWZ3MjJx
+         eXQDq0PwvhU7qaFj9nsp43RHE/dpHId8AT5wmFhimal+Z8XOgluam474RplCIIP0XqB0
+         ZcHA==
+X-Forwarded-Encrypted: i=1; AJvYcCW+e1iHRGwCaChV7LKI52+JlYqo80GE+dgEdC8boo/piyPcR/3Q56oPMtaIKK+IGNa0llaMs3plF5XIb+0E76HS@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywv7M9sHMeYvFXlA7gSylSLRjlXnE2Nd7r7ZtutDvoYx//wcGBI
+	HalpW2R8LkuQiq/KF1tf9LXK8qtbF/pPRDX1H9zPMF2YLDvPn7gq2mly
+X-Gm-Gg: ASbGncsZ8x10bBp8UUEN7R/NhqSzcNxtyCGrZR1imCP16S4RebJpDIYxBBqQ/uCDDkV
+	a5udxtAnPLKSK9PNV1kTiVNIStuyH+39JXUfW2tjgUMkA5alzfXjzMHnBXao58cbopZR1G1GNuC
+	HMS55MYoEmNf9m7OXoD/+0BMIVfTjOQ5duYfWSHMYRy/iGDLwLaWe1lz4GrdmCFMndSO/rFyQ2Y
+	sGwpvjPj2rx4sBMk7g6XB/jz1LZzrdMfhj9i0Y9LuKWkicPLmg14JyWiz7n9isnkJXeH0360jg/
+	yOTJYipW91LP/OwMnZuqF/lfCnq02WKo4O18pKTrlaz/riBH04mrII829o7NT+BBE5hvOx+YE/D
+	58gZyan7F0gHhCKE0WvgifZlMkd6+SaLN0kbhm7nZRQXHYdlLTmn7859y6uuUMLCEKDLj8jht
+X-Google-Smtp-Source: AGHT+IEUm00hUmaf0xUsT6+9m3Zb4ZN7y4GJW9ZTUjRe1MIWGQuwO5e+uMIcjcSuvIP0YWNV9JWh1w==
+X-Received: by 2002:a05:6000:2385:b0:3e0:152a:87ad with SMTP id ffacd0b85a97d-3e64bde9161mr15064477f8f.31.1757598587245;
+        Thu, 11 Sep 2025 06:49:47 -0700 (PDT)
 Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.2.27])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e760778915sm2608361f8f.12.2025.09.11.06.49.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e760778915sm2608361f8f.12.2025.09.11.06.49.46
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 11 Sep 2025 06:49:44 -0700 (PDT)
+        Thu, 11 Sep 2025 06:49:47 -0700 (PDT)
 From: Jack Thomson <jackabt.amazon@gmail.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -87,17 +87,17 @@ Cc: joey.gouly@arm.com,
 	roypat@amazon.co.uk,
 	kalyazin@amazon.co.uk,
 	jackabt@amazon.com
-Subject: [PATCH 2/6] KVM: arm64: Add KVM_PGTABLE_WALK_PRE_FAULT walk flag
-Date: Thu, 11 Sep 2025 14:46:44 +0100
-Message-Id: <20250911134648.58945-3-jackabt.amazon@gmail.com>
+Subject: [PATCH 3/6] KVM: arm64: Add pre_fault_memory implementation
+Date: Thu, 11 Sep 2025 14:46:45 +0100
+Message-Id: <20250911134648.58945-4-jackabt.amazon@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20250911134648.58945-1-jackabt.amazon@gmail.com>
 References: <20250911134648.58945-1-jackabt.amazon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_064946_882438_CF5062A1 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20250911_064949_335034_A010349B 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,59 +114,178 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jack Thomson <jackabt@amazon.com>
 
-Don't return -EAGAIN from stage2_map_walker_try_leaf during
-KVM_PRE_FAULT_MEMORY.
+Add kvm_arch_vcpu_pre_fault_memory() for arm64. The implementation hands
+off the stage-2 faulting logic to either gmem_abort() or
+user_mem_abort().
 
-During pre-faults, user_abort() is retried upon returning -EAGAIN,
-meaning the ioctl would get stuck in an infinite loop if userspace
-tries to pre-fault already existing mappings
+Update __gmem_abort() and __user_mem_abort() to take the pre_fault
+parameter. When passed, the paths to determine write or exec faults are
+short circuited to false, as when pre-faulting, it should be treated
+as a read fault.
+
+This closely follows the implementation on x86.
 
 Signed-off-by: Jack Thomson <jackabt@amazon.com>
 ---
- arch/arm64/include/asm/kvm_pgtable.h | 3 +++
- arch/arm64/kvm/hyp/pgtable.c         | 6 +++++-
- 2 files changed, 8 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/Kconfig |  1 +
+ arch/arm64/kvm/arm.c   |  1 +
+ arch/arm64/kvm/mmu.c   | 71 ++++++++++++++++++++++++++++++++++++------
+ 3 files changed, 64 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 2888b5d03757..0789671d1c4f 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -296,6 +296,8 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
-  * @KVM_PGTABLE_WALK_SKIP_CMO:		Visit and update table entries
-  *					without Cache maintenance
-  *					operations required.
-+ * @KVM_PGTABLE_WALK_PRE_FAULT		Indicates the page-table walk was
-+ *					invoked from a pre-fault request.
-  */
- enum kvm_pgtable_walk_flags {
- 	KVM_PGTABLE_WALK_LEAF			= BIT(0),
-@@ -305,6 +307,7 @@ enum kvm_pgtable_walk_flags {
- 	KVM_PGTABLE_WALK_HANDLE_FAULT		= BIT(4),
- 	KVM_PGTABLE_WALK_SKIP_BBM_TLBI		= BIT(5),
- 	KVM_PGTABLE_WALK_SKIP_CMO		= BIT(6),
-+	KVM_PGTABLE_WALK_PRE_FAULT		= BIT(7),
- };
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index bff62e75d681..1ac0605f86cb 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -25,6 +25,7 @@ menuconfig KVM
+ 	select HAVE_KVM_CPU_RELAX_INTERCEPT
+ 	select KVM_MMIO
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
++	select KVM_GENERIC_PRE_FAULT_MEMORY
+ 	select KVM_XFER_TO_GUEST_WORK
+ 	select KVM_VFIO
+ 	select HAVE_KVM_DIRTY_RING_ACQ_REL
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 888f7c7abf54..65654a742864 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -322,6 +322,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 	case KVM_CAP_IRQFD_RESAMPLE:
+ 	case KVM_CAP_COUNTER_OFFSET:
+ 	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
++	case KVM_CAP_PRE_FAULT_MEMORY:
+ 		r = 1;
+ 		break;
+ 	case KVM_CAP_SET_GUEST_DEBUG2:
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 082e7d8ae655..002f564c6ac7 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1523,7 +1523,8 @@ static void adjust_nested_fault_perms(struct kvm_s2_trans *nested,
  
- struct kvm_pgtable_visit_ctx {
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index c351b4abd5db..140dccec2c5b 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -914,9 +914,13 @@ static int stage2_map_walker_try_leaf(const struct kvm_pgtable_visit_ctx *ctx,
- 	 * same mapping or only change the access permissions. Instead,
- 	 * the vCPU will exit one more time from guest if still needed
- 	 * and then go through the path of relaxing permissions.
-+	 *
-+	 * When walking in the context of a pre-fault request, if the
-+	 * mapping already exists we can return 0, as there's nothing
-+	 * to do.
- 	 */
- 	if (!stage2_pte_needs_update(ctx->old, new))
--		return -EAGAIN;
-+		return (ctx->flags & KVM_PGTABLE_WALK_PRE_FAULT) ? 0 : -EAGAIN;
+ static int __gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 			struct kvm_s2_trans *nested,
+-			struct kvm_memory_slot *memslot, bool is_perm)
++			struct kvm_memory_slot *memslot, bool is_perm,
++			bool pre_fault)
+ {
+ 	bool write_fault, exec_fault, writable;
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_MEMABORT_FLAGS;
+@@ -1537,6 +1538,9 @@ static int __gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	gfn_t gfn;
+ 	int ret;
  
- 	/* If we're only changing software bits, then store them and go! */
- 	if (!kvm_pgtable_walk_shared(ctx) &&
++	if (pre_fault)
++		flags |= KVM_PGTABLE_WALK_PRE_FAULT;
++
+ 	ret = prepare_mmu_memcache(vcpu, true, &memcache);
+ 	if (ret)
+ 		return ret;
+@@ -1546,8 +1550,8 @@ static int __gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	else
+ 		gfn = fault_ipa >> PAGE_SHIFT;
+ 
+-	write_fault = kvm_is_write_fault(vcpu);
+-	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
++	write_fault = !pre_fault && kvm_is_write_fault(vcpu);
++	exec_fault = !pre_fault && kvm_vcpu_trap_is_exec_fault(vcpu);
+ 
+ 	VM_WARN_ON_ONCE(write_fault && exec_fault);
+ 
+@@ -1599,7 +1603,7 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		      struct kvm_s2_trans *nested,
+ 		      struct kvm_memory_slot *memslot, bool is_perm)
+ {
+-	int ret = __gmem_abort(vcpu, fault_ipa, nested, memslot, is_perm);
++	int ret = __gmem_abort(vcpu, fault_ipa, nested, memslot, is_perm, false);
+ 	return ret != -EAGAIN ? ret : 0;
+ }
+ 
+@@ -1607,7 +1611,7 @@ static int __user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 			    struct kvm_s2_trans *nested,
+ 			    struct kvm_memory_slot *memslot,
+ 			    long *page_size, unsigned long hva,
+-			    bool fault_is_perm)
++			    bool fault_is_perm, bool pre_fault)
+ {
+ 	int ret = 0;
+ 	bool topup_memcache;
+@@ -1631,10 +1635,13 @@ static int __user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	vm_flags_t vm_flags;
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_MEMABORT_FLAGS;
+ 
++	if (pre_fault)
++		flags |= KVM_PGTABLE_WALK_PRE_FAULT;
++
+ 	if (fault_is_perm)
+ 		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
+-	write_fault = kvm_is_write_fault(vcpu);
+-	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
++	write_fault = !pre_fault && kvm_is_write_fault(vcpu);
++	exec_fault = !pre_fault && kvm_vcpu_trap_is_exec_fault(vcpu);
+ 	VM_WARN_ON_ONCE(write_fault && exec_fault);
+ 
+ 	/*
+@@ -1895,8 +1902,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 			  struct kvm_memory_slot *memslot, unsigned long hva,
+ 			  bool fault_is_perm)
+ {
+-	int ret = __user_mem_abort(vcpu, fault_ipa, nested, memslot, NULL,
+-			    hva, fault_is_perm);
++	int ret = __user_mem_abort(vcpu, fault_ipa, nested, memslot, NULL, hva,
++				   fault_is_perm, false);
+ 	return ret != -EAGAIN ? ret : 0;
+ }
+ 
+@@ -2468,3 +2475,49 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
+ 
+ 	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
+ }
++
++long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
++				    struct kvm_pre_fault_memory *range)
++{
++	int r;
++	hva_t hva;
++	phys_addr_t end;
++	long page_size;
++	struct kvm_memory_slot *memslot;
++	phys_addr_t ipa = range->gpa;
++	gfn_t gfn = gpa_to_gfn(range->gpa);
++
++	while (true) {
++		page_size = PAGE_SIZE;
++		memslot = gfn_to_memslot(vcpu->kvm, gfn);
++		if (!memslot)
++			return -ENOENT;
++
++		if (kvm_slot_has_gmem(memslot)) {
++			r = __gmem_abort(vcpu, ipa, NULL, memslot, false, true);
++		} else {
++			hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
++			if (kvm_is_error_hva(hva))
++				return -EFAULT;
++			r = __user_mem_abort(vcpu, ipa, NULL, memslot, &page_size, hva, false,
++					     true);
++		}
++
++		if (r != -EAGAIN)
++			break;
++
++		if (signal_pending(current))
++			return -EINTR;
++
++		if (kvm_check_request(KVM_REQ_VM_DEAD, vcpu))
++			return -EIO;
++
++		cond_resched();
++	};
++
++	if (r < 0)
++		return r;
++
++	end = (range->gpa & ~(page_size - 1)) + page_size;
++	return min(range->size, end - range->gpa);
++}
 -- 
 2.43.0
 
