@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DEACAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E7DCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n1C1/RhS29fTVUOdUcd/nOIuIuwrwLB8w9/l+Uw8UV8=; b=gM69sGRkHS2OWc25/WyGq98/bc
-	NAmEMCte7GhN/VJjU3SiAioALAi0PBXS6Nmi7jPMLAbbtw/9MdRi6xusz0va7KOgI8gEH9SkOaoxJ
-	Xh6VqEbtGtNLpZ3LeH+zWv/toIWfmHqSPCZuDsZFGaOH2Hk0lIXie+gq6aiAPWMmO7aF+fqfbkK0a
-	ulgfE0x7/xWzqecodbTbPuYXiYoLYJFwkYw/XdnnKfVdQMq70nnALkqMdLXbHnnwyK6zdcpQKbtLE
-	lZmYiRY9oG62w8megpwKcXRO+fgKykY2Kb68K0egzCotPGSXF+vE1WLCpso3cXDjUW4/S3CPZWlgK
-	Grg5WIHQ==;
+	bh=atwhqvIvCc3kKlK5w9bQYr3vm9b/dQm59uH/1GW9aA4=; b=JAxbaL2VQY7Pub7C/TrnFO6wgs
+	3peKSI/WcjfyVt7KCUIgoUBacYaMpdaaUtcsUzeD9bm85jbTOdM3ocIGiPU3OKVasJfGXpsWqiCzR
+	p/SWunPh8EfhxAgl0a4K3bszLR5gdfbB58uPKh8igIsDkeCSGIcsCPckhLAqS9WzMr864gLk6yBZU
+	foa0+DD5pUQx9yuHONv8/Jz25ywE0gL/ltaFE2gxLLC8oGSaJ4LdTpT7O+YOEhf9gNvIrcB2lT/zc
+	yTpYjrefTM+Ip6I8O2ABqxeOYHhPyohGJ5FAvFl4NHLDjWok//GVxfYKmGpw2xeUnt/yuELmQ874S
+	vl5KsQ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhG8-00000003CvK-1xHo;
-	Thu, 11 Sep 2025 13:22:44 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1uwhHV-00000003DLs-2Vpb;
+	Thu, 11 Sep 2025 13:24:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhG5-00000003Ctk-2LmX
+	id 1uwhHT-00000003DKs-0UBN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 13:22:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4cMyth6Tbwz3tZbc;
-	Thu, 11 Sep 2025 21:23:40 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 94B701A0188;
-	Thu, 11 Sep 2025 21:22:31 +0800 (CST)
-Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 11 Sep 2025 21:22:31 +0800
-Received: from [10.67.120.139] (10.67.120.139) by
- kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 11 Sep 2025 21:22:30 +0800
-Message-ID: <54fb6d7e-3c42-4dff-9bc7-b98cba75e3e1@huawei.com>
-Date: Thu, 11 Sep 2025 21:22:27 +0800
+	Thu, 11 Sep 2025 13:24:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5C4BF4076B;
+	Thu, 11 Sep 2025 13:24:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2804AC4CEF0;
+	Thu, 11 Sep 2025 13:24:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757597046;
+	bh=ReBPBkxXd+EypkUBHcKbC5D48dqv14ID4CKpjTXEUa4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CaDSz7w62JVQ9qph9vkiqPWEkMdO9ksAVmIJj6NNKrNQhtpY77er7EdYsXNaC3Gw7
+	 Or7QidGxUnAo4jA+WYPKEG0esydorOwwWQZMNuyXSKReLFJbk9OUJjmMX1h8WrZaCC
+	 kdugKwZrxFmyMFGRCijvIsDKthcvmqU6FbjU7TfoPRV/fEKPknX6eThWyBYYYCmWGy
+	 NnptvyWq2o2frDJrRPJalmbwzPlpzkUokxPIWhCQK0WY4lfqfYh6AH5G/p/N9YIJYF
+	 TZ4WZwjrZBDTfKUguTN6o6JgjeEoNWh5YbaKNSRXQFbXRrQSUX+E1cGz+mssdgJDSF
+	 6ZLuO0WOJbW1Q==
+Date: Thu, 11 Sep 2025 06:24:04 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+Cc: Shawn Guo <shawnguo2@yeah.net>, Frank Li <Frank.li@nxp.com>, Joy Zou
+ <joy.zou@nxp.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, richardcochran@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ frieder.schrempf@kontron.de, primoz.fiser@norik.com, othacehe@gnu.org,
+ Markus.Niebel@ew.tq-group.com, alexander.stein@ew.tq-group.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux@ew.tq-group.com, netdev@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v10 0/6] Add i.MX91 platform support
+Message-ID: <20250911062404.1d2c98f6@kernel.org>
+In-Reply-To: <aMI6HNACh3y1UWhW@dragon>
+References: <20250901103632.3409896-1-joy.zou@nxp.com>
+	<175694281723.1237656.10367505965534451710.git-patchwork-notify@kernel.org>
+	<aMI0PJtHJyPom68X@dragon>
+	<aMI1ljdUkC3qxGU9@lizhi-Precision-Tower-5810>
+	<aMI6HNACh3y1UWhW@dragon>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/9] Updates of HiSilicon Uncore L3C PMU
-To: <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <robin.murphy@arm.com>, <yangyicong@huawei.com>,
-	<Jonathan.Cameron@huawei.com>, <liuyonglong@huawei.com>,
-	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
-	<hejunhao3@h-partners.com>, <fanghao11@huawei.com>, Linuxarm
-	<linuxarm@huawei.com>
-References: <20250829101427.2557899-1-wangyushan12@huawei.com>
-Content-Language: en-US
-From: wangyushan <wangyushan12@huawei.com>
-In-Reply-To: <20250829101427.2557899-1-wangyushan12@huawei.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.139]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_062241_980280_8886DB20 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20250911_062407_177707_2666F32D 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,85 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A gentle ping...
+On Thu, 11 Sep 2025 10:55:24 +0800 Shawn Guo wrote:
+> > > Can you stop applying DTS changes via net tree?  
+> > 
+> > shawn:
+> > 	Suppose Jaku only pick patch 6.
+> > 
+> >         - [v10,6/6] net: stmmac: imx: add i.MX91 support
+> >           https://git.kernel.org/netdev/net-next/c/59aec9138f30
+> > 
+> > other patches is "(no matching commit)"  
+> 
+> Ah, sorry for missing that!  Thanks for pointing it out, Frank!
 
-On 8/29/2025 6:14 PM, Yushan Wang wrote:
-> Support new version of L3C PMU, which supports extended events space
-> which can be controlled in up to 2 extra address spaces with separate
-> overflow interrupts.  The layout of the control/event registers are kept
-> the same.  The extended events with original ones together cover the
-> monitoring job of all transactions on L3C.
->
-> That's said, the driver supports finer granual statistics of L3 cache
-> with separated and dedicated PMUs, and a new option `ext` to give a
-> hint of to which part should perf counting command be delivered.
->
-> The extended events is specified with `ext=[1|2]` option for the driver
-> to distinguish:
->
-> perf stat -e hisi_sccl0_l3c0_0/event=<event_id>,ext=<ext>/
->
-> Currently only event option using config bit [7, 0]. There's still
-> plenty unused space. Make ext using config [16, 17] and reserve
-> bit [15, 8] for event option for future extension.
->
-> With the capability of extra counters, number of counters for HiSilicon
-> uncore PMU could reach up to 24, the usedmap is extended accordingly.
->
-> The hw_perf_event::event_base is initialized to the base MMIO address
-> of the event and will be used for later control, overflow handling and
-> counts readout.
->
-> We still make use of the Uncore PMU framework for handling the events
-> and interrupt migration on CPU hotplug. The framework's cpuhp callback
-> will handle the event migration and interrupt migration of orginial
-> event, if PMU supports extended events then the interrupt of extended
-> events is migrated to the same CPU choosed by the framework.
->
-> A new HID of HISI0215 is used for this version of L3C PMU.
->
-> Some necessary refactor is included, allowing the framework to cope with
-> the new version of driver.
->
-> Depends-on: drivers/perf: hisi: Add support for HiSilicon NOC and MN PMU driver
-> Depends-on: Message-ID: <20250717121727.61057-1-yangyicong@huawei.com>
->
-> ---
->
-> Changes:
->
-> v2 -> v3:
->    - Refactor made for better readability.
->    - Fixed failure examination in cpu offline callback.
->    - Some minor reword of documentation, and droped subsection titles as
->      suggested by Yicong.
->    - Link to v2: https://lore.kernel.org/all/20250821135049.2010220-1-wangyushan12@huawei.com/
->
-> v1 -> v2:
->    - Don't call disable_irq() and simply return success when there is no
->      CPU available for irq migration.
->    - Documentation patch split.
->    - Fix of a few other issues etc. per Jonathan.
->    - Link to v1: https://lore.kernel.org/all/20250729153823.2026154-1-wangyushan12@huawei.com/
->
-> Yicong Yang (7):
->    drivers/perf: hisi: Relax the event ID check in the framework
->    drivers/perf: hisi: Export hisi_uncore_pmu_isr()
->    drivers/perf: hisi: Simplify the probe process of each L3C PMU version
->    drivers/perf: hisi: Extract the event filter check of L3C PMU
->    drivers/perf: hisi: Extend the field of tt_core
->    drivers/perf: hisi: Refactor the event configuration of L3C PMU
->    drivers/perf: hisi: Add support for L3C PMU v3
->
-> Yushan Wang (2):
->    Documentation: hisi-pmu: Fix of minor format error
->    Documentation: hisi-pmu: Add introduction to HiSilicon V3 PMU
->
->   Documentation/admin-guide/perf/hisi-pmu.rst  |  38 +-
->   drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 528 +++++++++++++++----
->   drivers/perf/hisilicon/hisi_uncore_pmu.c     |   5 +-
->   drivers/perf/hisilicon/hisi_uncore_pmu.h     |   6 +-
->   4 files changed, 481 insertions(+), 96 deletions(-)
->
+The output is a little confusing.
 
+Konstantin, would it be possible to add (part) to the subject of the
+patchwork bot reply when only some patches were applied? I've seen
+other people's bots do this. Something like:
+
+ Re: (part) $subject
+
+? Maybe there are other ideas how to express that just part of the
+series was applied, no real preference.
 
