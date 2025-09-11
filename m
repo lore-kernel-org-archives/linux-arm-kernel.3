@@ -4,118 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4BCCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 17:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F1ECAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 17:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JOb9FI/lVBotzQOC/Dxic8UgrS9Q7jSMNFtaY+orDKs=; b=5DM+zCdDGSd0iFd4gkY6LIWo9T
-	SSbBR9/QJHBQIUQ28QUcqR0WE/LI52e1X6p8/aU2RsDbIvvliKm6HsGYhSsVAqtMBaaGxEi6d87V/
-	QJlIKhow3xvL3IixOrV4bBnPlYra2PQgwBTGQE+XfuBcfBz2JYxUhBQwWT1LBYwOogZZBkwduC9mc
-	zIBeMs6YaTQO81OuIrZbpTKbEDQpV59eOn34iWOzCgz48U6ph68C4S+y2R7nD5e9w3sSjg6gqTeke
-	cs4g/RpHY9mD477pRb8t8D9ADUxYlFvxUDCJyYV4xSomSZ5ykmWMYfCtqjc+78w0CFvA40tiZUirz
-	By6GkHqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nNwKnllKcgNmSxozD/+n9dLn0I91saVxOj9Y59G/HOU=; b=QsBc75RPBudI8d3MX8oysWaLYv
+	dHe41+sVyTFBLQC1BzUmfBNZsrZPiWu30ItA3qt4YNDex20HPPguMWCIIQoKtYwQQHwyMDLGE3ezT
+	LPBFg7g1qbW+eQ+Eq7kWjFIpdTeCfnGxenafwUv8JjUwGOVw77D+5drMI+/IlT+w2Jgw+neq2VZAx
+	1atu2BtgCI0AmzSPI+UN3ylFYTOUk2XcwJMRxneSwnTsSlkM8CJwvvHfImcOHJ5Xpbv5FZypRioeE
+	d20tlMU5tEkoXRkb+YWU0WB949uIcY0ZaxXihbad9a/6+v0zIF/WkqMOC/dRTKA+SJOnieNdGfv+L
+	6J0vYNyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwl02-00000004RdI-04pm;
-	Thu, 11 Sep 2025 17:22:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uwl6N-00000004TPS-0PV1;
+	Thu, 11 Sep 2025 17:28:55 +0000
+Received: from mail-vs1-f43.google.com ([209.85.217.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwl01-00000004Rd8-07IP
+	id 1uwl6K-00000004TOj-0AvL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 17:22:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3906C601D6;
-	Thu, 11 Sep 2025 17:22:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84923C4CEF0;
-	Thu, 11 Sep 2025 17:22:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757611339;
-	bh=sPSofgC3H7kMscp1zOTagbsJvZ1aMo9X58h+p2xWCnU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G1+7enbLihV6SDGfZSqxHKHrRGJEIJ1gduStBJwioMaSGvSrDro5SnP7odsXQu7av
-	 uoIdyU6XkMu/TA+ZUnOS0GbIow087ptVkUoQzHLJ8SSsZZhr5AOXSBYeLiwsFUR5D6
-	 KKSR5fM2IJVzGAMBL1w842tGJur3qc9FkHqIE4+zuM9MIeVejY1wlTnfrzZ9BRA9hT
-	 ybmK1NlIOEurPFOrx0TLepwIphn5g9vpDAzG8ZYkRJyrX9xgWXE/1fEeXZH9WFgS4I
-	 Eae0DHhEItjtAMBxXrBQ3YMvHrzqUHO3YJXneeIVquJ0V5NHmilGLtPSvltYCTKVJe
-	 G6O3O0Y5dpywA==
-Message-ID: <abfaef6f-dd40-441d-86ec-7cd37c1e06b5@kernel.org>
-Date: Thu, 11 Sep 2025 19:22:11 +0200
+	Thu, 11 Sep 2025 17:28:53 +0000
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-53410d0f4e7so762346137.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 10:28:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757611730; x=1758216530;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nNwKnllKcgNmSxozD/+n9dLn0I91saVxOj9Y59G/HOU=;
+        b=LmmycU20uqyo1mki+qZHb0Iwlm0SL7C9yyPlCN07DdOKlvZmssZEB02R7xy2PrtsrC
+         JY49wi1tRHgj/H03ITqux60gtjhsqaqfL4esnNOc7Syz8prAfzZtddUhF9+6QluJ5ETw
+         3HlUPiGiD/fq6zLnB1+RMPI9IalPjWHegUqLNbg6jQLqTe1nFaSv2wAGGCIOn7QvBPFE
+         UXJCZBUoDkI5j9XVH/OInFL2PNwpD5cFtuJ7AIQSCIbCdh3paZ4eN93ccaQEqW6HTcrl
+         wh/QMLgNnzClusjeqOEmDh9u7UZsK572Uxo8NzDmy1s1qSEGncF+I88BG/8Q9BsTTzjo
+         HirQ==
+X-Gm-Message-State: AOJu0Ywnb5EK6wHSaXAFdWRr+JjnNIfaX3fpfmNoaqsNx0Dt7u4F/Q1c
+	koGU8M6ETdJVDdXXq3a0DPAP4CDHYD13k1wvtK+6Cn1hTEAtAgUQt/mK+iNnPkEJ
+X-Gm-Gg: ASbGncuqYFcnf+nVUilXTYO/9t9m4EgeMCgoxKxsGIjlDPdHnDIhoy4izjIxfXO2S8Z
+	gRQ+1ZPYwjqjPJH5vYd5+c9wUnxVY5lVbpnRU9seUwoCUMTNXq411WlE6drn8xS/LOp+D8U7fAr
+	hyfX1+0fThg+8B5wH2TsrTxOYCKOKSXaoP6204N8ixuj42NbPWM4Jv+UvyfSofZZNOBVg8vdyc/
+	mhiCB3IC+RncTu8ge4jWOPs0TnQk4tGs2ggYwGOOSpn7hMXFCjiwbntfjkYdU4knSkhCHSutNkn
+	7uwZEWfmmyF9UOUyqssqeKvSoYuYgu1BtgRdzlexlSPCLCGNQwsscQy1barrINWG5MV9FZuWADP
+	PCJ/TkvgBNqZtnn8CtMYrp4btC0lO53wMrWhvr5V+orqZvUPwfWNFbDNLtKrS
+X-Google-Smtp-Source: AGHT+IGX3w3nblgVULI2terWtVKh2VLO9zkw7M1NNBs9D1HJNPGCSeESKraoI/R+iYY7fxg0s6A4lA==
+X-Received: by 2002:a05:6102:b02:b0:522:1013:cace with SMTP id ada2fe7eead31-55607e2bb0emr227602137.10.1757611730248;
+        Thu, 11 Sep 2025 10:28:50 -0700 (PDT)
+Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com. [209.85.222.53])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5537062c9c5sm460688137.5.2025.09.11.10.28.49
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Sep 2025 10:28:49 -0700 (PDT)
+Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-890190d9f89so560423241.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 10:28:49 -0700 (PDT)
+X-Received: by 2002:a05:6102:41a2:b0:4fb:fc47:e8c2 with SMTP id
+ ada2fe7eead31-55607e2ba72mr193657137.9.1757611729558; Thu, 11 Sep 2025
+ 10:28:49 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] tty: serial: samsung: Remove unused artpec-8 specific
- code
-To: Ravi Patel <ravi.patel@samsung.com>,
- 'Geert Uytterhoeven' <geert@linux-m68k.org>
-Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, jesper.nilsson@axis.com,
- lars.persson@axis.com, alim.akhtar@samsung.com, arnd@kernel.org,
- andriy.shevchenko@linux.intel.com, geert+renesas@glider.be,
- thierry.bultel.yh@bp.renesas.com, dianders@chromium.org,
- robert.marko@sartura.hr, schnelle@linux.ibm.com, kkartik@nvidia.com,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
- ksk4725@coasia.com, kenkim@coasia.com, smn1196@coasia.com,
- pjsin865@coasia.com, shradha.t@samsung.com
-References: <CGME20250911141714epcas5p29f591a1d645c9c69dc5b7d2c2d12af50@epcas5p2.samsung.com>
- <20250911141605.13034-1-ravi.patel@samsung.com>
- <20250911141605.13034-4-ravi.patel@samsung.com>
- <CAMuHMdVe-FULHWk3QCBENG7TsbEZyxj0N5shhESxWBWd49JmOw@mail.gmail.com>
- <6df0e227-896b-438a-913e-95b637aa2b14@kernel.org>
- <8aeda67e-404e-4deb-ac90-015f2325ef64@kernel.org>
- <000101dc2335$ccd62f60$66828e20$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <000101dc2335$ccd62f60$66828e20$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250907225338.426253-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250907225338.426253-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 11 Sep 2025 19:28:38 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUHwp7EiVw97CFZG0zmcK3opAgO-YGcdSGRaF3tGwgLcw@mail.gmail.com>
+X-Gm-Features: AS18NWCqPuEA5ue65D37BzPjM6jGqyVU7S3WL9hosSlR-Z0YeWoG17bjv1N9sFE
+Message-ID: <CAMuHMdUHwp7EiVw97CFZG0zmcK3opAgO-YGcdSGRaF3tGwgLcw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Rework fan hwmon comment
+ on Retronix R-Car V4H Sparrow Hawk fan DTO
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250911_102852_082639_35341692 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,40 +95,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/09/2025 18:04, Ravi Patel wrote:
->>>>> -OF_EARLYCON_DECLARE(artpec8, "axis,artpec8-uart",
->>>>> -                       s5pv210_early_console_setup);
->>>>>
->>>>>  static int __init gs101_early_console_setup(struct earlycon_device *device,
->>>>>                                             const char *opt)
->>>>
->>>> Removing these breaks backwards-compatibility with existing DTBs,
->>>> which lack the new "samsung,exynos8895-uart" fallback compatible value.
->>>
->>> This was just applied, so ABI break would be fine. It should be however
->>> clearly expressed in the commit msg.
->>>
->>> I have a feeling that not much testing was happening in Samsung around
->>> this patchset and only now - after I applied it - some things happen.
->>> But it is damn too late, my tree is already closed which means this is
->>> going to be the ABI.
->>
->> Ah, no, I mixed up patches with recent DTS for Artpec-8. This serial ABI
->> was accepted three years ago (!!!), so you are Geert absolutely right -
->> that's ABI break.
-> 
-> Thank you for your review.
-> 
-> The DTS patches for ARTPEC-8 is added recently (https://lore.kernel.org/linux-samsung-soc/20250901051926.59970-1-ravi.patel@samsung.com/)
-> Before that, there was no user (in DT) of "axis,artpec8-uart" compatible.
-> So I am not convinced of ABI break (considering patch #1 and #2 goes first with review comment fixes)
+On Mon, 8 Sept 2025 at 00:53, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Reword fan DT overlay hwmon comment to accurately locate the
+> fan control sysfs hwmon node on Retronix R-Car V4H Sparrow Hawk.
+> No functional change.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.18.
 
-ABI is defined by bindings and implemented by kernel. Having DTS user is
-irrelevant to fact whether ABI is or is not broken.
+Gr{oetje,eeting}s,
 
-Having DTS user determines the known impact of known ABI breakage.
+                        Geert
 
-Best regards,
-Krzysztof
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
