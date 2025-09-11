@@ -4,109 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE34CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 06:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 224B3CAC583
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 06:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7hEPpDQIjqjS7mOp0FTaJtM971NbwhiqdMjzZlnEC3g=; b=lxNinxodYWIfIZEiO8/WAXR2uZ
-	HYiip0+YYZW1zfKfxoDbLO6080JazdS60tuTcs76DcMeX09lhgVl7IG1i3jgtzla0o/f+23e5rVim
-	kGCWKMuA+aVmvoYtbSRVdU9JKmxwW/mR3j7QopWn3cqCoUjPi+41uhFjMjgGNVrZKibzJ+dpq/0Dz
-	5huWHKrg7G5R7vTAlQaGMYTvjeBiEAoGk9TmtAxm1UDKsJSEfamYfD/BVEBHvDKrg9irB3VtzdQ4H
-	RP3vmJkP8vkazguYEEmPw826KZjtIIViaBr/DzG0Q/wdwIjdNeGNMBUD/JQJwCs2kqkO99mct2373
-	OxpI+1Jg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SsAQTCseIJhCQnFQTlVMy9rcg4IKshyIFW2pS9ONYfw=; b=RlNt715XA/0qEA0eu6bdFhTzP3
+	+2+5zCxHu9tx+t3K5nu5epw7vxnRiZ66JFvoCwfC2Ba5LY2t2C0gp+IlRhDu2Zds1HL9NceYNfmjU
+	wfqkUEuUv6D5vINl5msmpDn2fmwuf6sho/jb3S5g+6Dw7aPMIqBW5PVQiZJ2vTKM4zaGgTBE4UTUC
+	UO4sRhKrtIfTgVRQNt0vpewdGMt1iIfVPLqHmq85ehEil6WhwjIt//yQcc5ZMMZSo/ql0daCudPX8
+	MOCPpI0fxQrm1iup5FbbQTyz26oCi6QK6QA1SgBxbWLrI57q2McP3mceMf/dNQCZ5e8pHxGINZRuo
+	wNNV/Rbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwaoN-00000001Ebg-0VNe;
-	Thu, 11 Sep 2025 06:29:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uwatm-00000001GHP-2w05;
+	Thu, 11 Sep 2025 06:35:14 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwaoJ-00000001EaI-3aSJ
+	id 1uwatj-00000001GEb-1m1y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 06:29:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8AE3E43AC9;
-	Thu, 11 Sep 2025 06:29:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10A2CC4CEF1;
-	Thu, 11 Sep 2025 06:29:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757572175;
-	bh=HH8pm2TzBanivE2VNFEmUQehhv/+sFfQjKIF+rowc3g=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=b+IboIesEGrSanJ+6tc7s/2/BNbmVC4p6HqGVIGX197dEDGYwgfitGBjsQzynnaOY
-	 fUd/krWHwpC4tWyok4kBBBr4rRV8dw6B3+hGvBqTpzhB/qO124N6wUpHashB9ZGQ0i
-	 oWVR9xk9K4AUP5zZNb58aLuuR1Hzp9B2Lh/C9ffFkX+hCI+0OxLnYsUgs45upr6T7c
-	 4Md3L7NA/wIR/dF0YqgQuamodWy7/CB812peCVDGO+Sf4eTUrt4MTzQMmMgIheimg7
-	 DPM3FOXfZzsl2L4Hx7VIg5zb8XzU1kGNICWN7plx6zl5A2xxLKbyndNfhtqHi8GxpB
-	 HcNMNGrvXp2rA==
-Message-ID: <3a2fe895-2849-4cb1-b4f7-fe5c0e1a76cc@kernel.org>
-Date: Thu, 11 Sep 2025 08:29:31 +0200
+	Thu, 11 Sep 2025 06:35:13 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 622C2683EE;
+	Thu, 11 Sep 2025 06:35:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1757572509; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SsAQTCseIJhCQnFQTlVMy9rcg4IKshyIFW2pS9ONYfw=;
+	b=Bp6L3BPH2wNxjHr4Ge7sXWw33PRf46TLnWeFpGlvbzdHuc5MvETpIWiS52t/iftWmO/9gY
+	iOCWslpNjS+sJrY+K9z+SF1nY1CIbj90ytGZEQKQkK8H7HD6gU6AKpr9Pg/HmdfvDoSZgg
+	kONKjLB5a2h6+HWNt3T6+Yv/nRFcsLA=
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1757572509; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SsAQTCseIJhCQnFQTlVMy9rcg4IKshyIFW2pS9ONYfw=;
+	b=Bp6L3BPH2wNxjHr4Ge7sXWw33PRf46TLnWeFpGlvbzdHuc5MvETpIWiS52t/iftWmO/9gY
+	iOCWslpNjS+sJrY+K9z+SF1nY1CIbj90ytGZEQKQkK8H7HD6gU6AKpr9Pg/HmdfvDoSZgg
+	kONKjLB5a2h6+HWNt3T6+Yv/nRFcsLA=
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 60C3C1372E;
+	Thu, 11 Sep 2025 06:35:08 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 6CUDFpxtwmgSTQAAD6G6ig
+	(envelope-from <jgross@suse.com>); Thu, 11 Sep 2025 06:35:08 +0000
+From: Juergen Gross <jgross@suse.com>
+To: linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	virtualization@lists.linux.dev,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org
+Cc: Juergen Gross <jgross@suse.com>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.makhalov@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 05/14] paravirt: remove asm/paravirt_api_clock.h
+Date: Thu, 11 Sep 2025 08:34:24 +0200
+Message-ID: <20250911063433.13783-6-jgross@suse.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250911063433.13783-1-jgross@suse.com>
+References: <20250911063433.13783-1-jgross@suse.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8
- board
-To: Rebecca Cran <rebecca@bsdio.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20250911051009.4044609-1-rebecca@bsdio.com>
- <20250911051009.4044609-2-rebecca@bsdio.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250911051009.4044609-2-rebecca@bsdio.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-6.80 / 50.00];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:mid,suse.com:email];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FREEMAIL_CC(0.00)[suse.com,broadcom.com,armlinux.org.uk,arm.com,kernel.org,xen0n.name,linux.ibm.com,ellerman.id.au,gmail.com,csgroup.eu,sifive.com,dabbelt.com,eecs.berkeley.edu,ghiti.fr,linutronix.de,redhat.com,alien8.de,linux.intel.com,zytor.com,infradead.org,linaro.org,goodmis.org,google.com,suse.de,lists.infradead.org];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLfdszjqhz8kzzb9uwpzdm8png)];
+	DKIM_SIGNED(0.00)[suse.com:s=susede1];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_232935_950245_EE9788C2 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250910_233511_607177_A6F7B01E 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,34 +150,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/09/2025 07:10, Rebecca Cran wrote:
-> Document ASRock Rack ALTRAD8 (ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q)
-> compatibles.
-> 
-> Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
-> ---
+All architectures supporting CONFIG_PARAVIRT share the same contents
+of asm/paravirt_api_clock.h:
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+  #include <asm/paravirt.h>
 
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, just skip it entirely
-(please do not feel offended by me posting it here - no bad intentions
-intended, no patronizing, I just want to avoid wasted efforts). If you
-do not know the process, here is a short explanation:
+So remove all incarnations of asm/paravirt_api_clock.h and remove the
+only place where it is included, as there asm/paravirt.h is included
+anyway.
 
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here ('b4 trailers -u ...'). However,
-there's no need to repost patches *only* to add the tags. The upstream
-maintainer will do that for tags received on the version they apply.
+Signed-off-by: Juergen Gross <jgross@suse.com>
+---
+ arch/arm/include/asm/paravirt_api_clock.h       | 1 -
+ arch/arm64/include/asm/paravirt_api_clock.h     | 1 -
+ arch/loongarch/include/asm/paravirt_api_clock.h | 1 -
+ arch/powerpc/include/asm/paravirt_api_clock.h   | 2 --
+ arch/riscv/include/asm/paravirt_api_clock.h     | 1 -
+ arch/x86/include/asm/paravirt_api_clock.h       | 1 -
+ kernel/sched/sched.h                            | 1 -
+ 7 files changed, 8 deletions(-)
+ delete mode 100644 arch/arm/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/arm64/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/loongarch/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/powerpc/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/x86/include/asm/paravirt_api_clock.h
 
-Full context and explanation:
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
-</form letter>
+diff --git a/arch/arm/include/asm/paravirt_api_clock.h b/arch/arm/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/arm/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/arm64/include/asm/paravirt_api_clock.h b/arch/arm64/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/arm64/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/loongarch/include/asm/paravirt_api_clock.h b/arch/loongarch/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/loongarch/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/powerpc/include/asm/paravirt_api_clock.h b/arch/powerpc/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index d25ca7ac57c7..000000000000
+--- a/arch/powerpc/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/paravirt.h>
+diff --git a/arch/riscv/include/asm/paravirt_api_clock.h b/arch/riscv/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/riscv/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/x86/include/asm/paravirt_api_clock.h b/arch/x86/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/x86/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index be9745d104f7..6442441b46d7 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -84,7 +84,6 @@ struct cpuidle_state;
+ 
+ #ifdef CONFIG_PARAVIRT
+ # include <asm/paravirt.h>
+-# include <asm/paravirt_api_clock.h>
+ #endif
+ 
+ #include <asm/barrier.h>
+-- 
+2.51.0
 
-Best regards,
-Krzysztof
 
