@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F0ACAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 09:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A08ECA1016
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 09:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aOhuNvmVuf/GyxrRlHUdHw8fHEaK2f199bcbQPpCzOs=; b=XAFWZhEjVw/THACgq1fT8fYUAQ
-	UslScVJ7HoXkC5bIlSChCy2dJn571myHq9KkMcRbv0ds2oly37WOO75vOnCokBLaq18wTOVSH+BOx
-	PxoQ4OBdmCKXcDJU1f8OhpY46r4TlFSGhcrzyDG5FMc37pyVMJYiLEraoDeRiiCjqS6sW4Igfcpo1
-	6o7vvHbg71HoXnsc7/WB2FoTOianK2AlW44l1h09yrlwBN+zNEtQcpJWAc80mEjPlRHFmvVyI1CTj
-	uMvC0SKe0Muil+o+tO7XQWuYVjs477ohXaXaTpuzxVcigGogc9x/TBGw5SuVa60qGlPSLNP/jbEMt
-	tEn3LRsQ==;
+	bh=Ma/6vP6cw0Ynsztpbgjyb4FEYEjAJYKzRW150ld1Q7A=; b=F7GaTA0YtsJJMEtMb8EYpFWe+B
+	S12bPvdBeh6HVSHlUnfKdeFLxfJ8nmHtUmCP5eWqsq0Txue/uyN/y9ReBuCOhxypxuhz0SyqYwf9q
+	uhfFBqIp247kBt3LtTPHekPMgTJ+BAiLFjjLUPidU+u+kmGm0NJA4fYjU/FD92eRJ4nGJqCqH6e02
+	9Y5x1vLhEF3Rhu1Jd7WY4XtJyplA1wAQj7DW0Ool0C/BBWbNXF/foopirxOBUeBwndcLQ/41G6lb7
+	HAIigJg/uC5MKqC9HmbPTK0OIJsB7WWVG1C1b+dl3Hfy6TyshmtJQqSzjTR/Asftc9T4GwB7iCUb4
+	qyc/fWLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwdBH-00000001yS7-2Z2P;
-	Thu, 11 Sep 2025 09:01:27 +0000
-Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
+	id 1uwdBu-00000001ylZ-0w3C;
+	Thu, 11 Sep 2025 09:02:06 +0000
+Received: from mail-vk1-f171.google.com ([209.85.221.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwdBE-00000001yQA-2TW5
+	id 1uwdBr-00000001yjt-47MF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 09:01:25 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1757581282;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aOhuNvmVuf/GyxrRlHUdHw8fHEaK2f199bcbQPpCzOs=;
-	b=rlpEnzLgbl0QN8y8xa2LMDj5Y2jUGB5QT6TzfpFMua7/pQ9K5ZUksTmFKmviJ2HgGhk3Sk
-	GKHOOkMSjbhx6dPlbl/ysyHqnMS7AHg8C//n+ALK+Y7C6X0MiRXRZaj5ZvFC+cxfdMfOvd
-	XgvJgxOE+5byOlMBDpL9JIzOZy9CFSJLkfEeOjYRGrBjjfBaQOFvxrOv1HiCtLOVdogrmh
-	sGaiOUQ27WPhFHwR6FdrPWjMKi51T48Rkf6LBWRmG9x29+xtoDzT3oWzJ8QgmG5GLE7cs3
-	JQSjljsnrthR3wJTYYK/IDe/I8sJEZDo3bWtHqwXxxeC4qD/bLtJlJBEhGoyhg==
-Content-Type: multipart/signed;
- boundary=50ff9f84bc944755ff7976bae1dce62405cf41bd88db2cec6a292aa3edfc;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 11 Sep 2025 11:01:14 +0200
-Message-Id: <DCPUKAWW5N0Z.AM3JS7S8FJ7A@cknow.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Christian Hewitt" <christianshewitt@gmail.com>, "Rob Herring"
- <robh+dt@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-Cc: "Alex Bee" <knaerzche@gmail.com>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: enable the Mali GPU on
- RK3328 boards
-References: <20250906120810.1833016-1-christianshewitt@gmail.com>
- <20250906120810.1833016-2-christianshewitt@gmail.com>
-In-Reply-To: <20250906120810.1833016-2-christianshewitt@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 11 Sep 2025 09:02:05 +0000
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-544ad727e87so326901e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 02:02:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757581322; x=1758186122;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ma/6vP6cw0Ynsztpbgjyb4FEYEjAJYKzRW150ld1Q7A=;
+        b=vix9UTc3/0iR08J3dUO3SMSl2kFbnbY/tcylrcLj7051VkgZWZET5YHqBSkcef50BA
+         ujlYA2LScJyhosqYVZfx3dk5kmj1H3kQ0HlrK1YRc8eRui5rQHBBonT3h31OtYiJ2POt
+         0lIVoI3jCkMw5rgnqyjvXmyVI8jIhxe1TRNF0YFUdLd0Bf4goqcy0fDfjMzP9oWJKmjY
+         NpjBPRDYG1+C863xKCFAS4F8rB+2fuskCYYS9DcwD8ujQVd7yUD11aNxYZ9sJEZrupaR
+         WJlZoukGd2z2Q3Z9zbzG8P378dw6VMrYIsTaxIBDXpEiKclTi5gxxOXI7UMtg5jj7aGh
+         weDg==
+X-Forwarded-Encrypted: i=1; AJvYcCUAQG9htdXDna9IeMedWLhy9nk0nmOmnQvLZZCFppvtMx8cVT79FnOecFqi3oOMLhYp2kqOoCNFOIUJr/PGQG4a@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXJvoBiSlgBEzKGxwPnhD9k2xLEMJd3vHg1WOrDpIFRyzieu1t
+	JqInvh7drzd7lN5wXGRu5igJ1zVu22da5vSjBA19mBLdTujInu4Ps8gzfOWUkV5S
+X-Gm-Gg: ASbGncu9lizbUcICfH6SwBS9lCXcacq8JVukV3ceX59ZP1VmTgYDtorg/mz8CSFQakL
+	C0WEcjbfi8+INF5ydJAb1t8l+ivJqhHPS3hH5e7Nw/Ko8Txg9civ8eS6HPKylGGi3vnMAKdH3qL
+	2oNcJ9FNH9Rm9tWyODuT/9K2dXBV4dwrddMlxpIOcFKhUBW2vq3u980lFCW77bbjTh1Rwqs0ySW
+	Xe7N94kD9bq3INSxlt9xQuj1EmhRcrxiu+RYTkCkYf3VP4GErw7bZpM3X4mvSBuv83naxwPDR6E
+	4hEc15jjEtZFWqygGrod7tVA45iU3x0VYkk1PVS8NhaHqXqtHL7r73gNZtakPZhzJYiD42cFSIa
+	wpQvG/YUDhUUf5SJ3JsWcZsV+RPU7LM2HtvLQ/NKYsnHX8BHNRcPnSJHq52JvTpzPYwdLzb8=
+X-Google-Smtp-Source: AGHT+IE7ULMo2DEAk7uZXbXORginIxajwMrF4H25nF0fB0NGkvHdIFKfCVVbqH0O7Ot8mdabuvfKBQ==
+X-Received: by 2002:a05:6122:251c:b0:544:9414:1058 with SMTP id 71dfb90a1353d-5473a3adb08mr6041627e0c.2.1757581322324;
+        Thu, 11 Sep 2025 02:02:02 -0700 (PDT)
+Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-54a0d3f0769sm150680e0c.18.2025.09.11.02.02.01
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Sep 2025 02:02:01 -0700 (PDT)
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-8943501ba3dso357236241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 02:02:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUkzPyupMBqZWxOzWl7NthVAxNFXRwhey3drw07AoKiAnatQ90jK7aLMsHm/3StmnOnrbiiiVkaLl17rhpazXKw@lists.infradead.org
+X-Received: by 2002:a05:6102:3e0b:b0:522:1013:cace with SMTP id
+ ada2fe7eead31-53d1c2e1cbamr6471994137.10.1757581321304; Thu, 11 Sep 2025
+ 02:02:01 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250909111130.132976-1-ulf.hansson@linaro.org> <20250909111130.132976-4-ulf.hansson@linaro.org>
+In-Reply-To: <20250909111130.132976-4-ulf.hansson@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 11 Sep 2025 11:01:50 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWB05sQpv0nKgU2NNn4=KAmNCpHhAnz3s15Gopu8FKVkQ@mail.gmail.com>
+X-Gm-Features: AS18NWB_6gJmqKrqPl8hBI-saW-lKUrGeAKCkd2NAqUJ0GfWChjmTWPU1ec2v1s
+Message-ID: <CAMuHMdWB05sQpv0nKgU2NNn4=KAmNCpHhAnz3s15Gopu8FKVkQ@mail.gmail.com>
+Subject: Re: [PATCH 3/5] pmdomain: renesas: rcar-sysc: Don't keep unused PM
+ domains powered-on
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	Saravana Kannan <saravanak@google.com>, linux-pm@vger.kernel.org, 
+	Stephen Boyd <sboyd@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Sebin Francis <sebin.francis@ti.com>, 
+	Diederik de Haas <didi.debian@cknow.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_020124_771831_807C0ED3 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20250911_020204_027360_B5B48C88 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,99 +104,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---50ff9f84bc944755ff7976bae1dce62405cf41bd88db2cec6a292aa3edfc
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Hi Ulf,
 
-On Sat Sep 6, 2025 at 2:08 PM CEST, Christian Hewitt wrote:
-> From: Alex Bee <knaerzche@gmail.com>
+On Tue, 9 Sept 2025 at 13:11, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> The recent changes to genpd makes a genpd OF provider that is powered-on at
+> initialization to stay powered-on, until the ->sync_state() callback is
+> invoked for it.
 >
-> Add a gpu node to the rock64 board to enable the Mali GPU and
-> move the existing node from roc-pc to the shared roc dtsi to
-> enable it also for the roc-cc board.
+> This may not happen at all, if we wait for a consumer device to be probed,
+> leading to wasting energy. There are ways to enforce the ->sync_state()
+> callback to be invoked, through sysfs or via the probe-defer-timeout, but
+> none of them in its current form are a good fit for rcar-sysc PM domains.
 >
-> Signed-off-by: Alex Bee <knaerzche@gmail.com>
-> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
-
-Now that the 'other' issue with power domains has been resolved, or at
-least localized, I feel (more) comfortable giving my
-
-Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock64
-
-Cheers,
-  Diederik
-
-> ---
-> Changes since v2:
-> - No changes
-> Changes since v1:
-> - No changes
+> Let's therefore opt-out from this behaviour of genpd for now, by using the
+> GENPD_FLAG_NO_STAY_ON.
 >
->  arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts | 4 ----
->  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi   | 4 ++++
->  arch/arm64/boot/dts/rockchip/rk3328-rock64.dts | 4 ++++
->  3 files changed, 8 insertions(+), 4 deletions(-)
+> Link: https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.org/
+> Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Fixes: 0e789b491ba0 ("pmdomain: core: Leave powered-on genpds on until sync_state")
+> Fixes: 13a4b7fb6260 ("pmdomain: core: Leave powered-on genpds on until late_initcall_sync")
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+
+> --- a/drivers/pmdomain/renesas/rcar-sysc.c
+> +++ b/drivers/pmdomain/renesas/rcar-sysc.c
+> @@ -241,6 +241,7 @@ static int __init rcar_sysc_pd_setup(struct rcar_sysc_pd *pd)
+>                 }
+>         }
 >
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts b/arch/arm64/=
-boot/dts/rockchip/rk3328-roc-pc.dts
-> index 329d03172433..c0b7b98ff788 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
-> @@ -44,10 +44,6 @@ &codec {
->  	mute-gpios =3D <&grf_gpio 0 GPIO_ACTIVE_LOW>;
->  };
-> =20
-> -&gpu {
-> -	mali-supply =3D <&vdd_logic>;
-> -};
-> -
->  &pinctrl {
->  	ir {
->  		ir_int: ir-int {
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi b/arch/arm64/bo=
-ot/dts/rockchip/rk3328-roc.dtsi
-> index b5bd5e7d5748..7eef6f7f108f 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> @@ -160,6 +160,10 @@ &gmac2io {
->  	status =3D "okay";
->  };
-> =20
-> +&gpu {
-> +	mali-supply =3D <&vdd_logic>;
-> +};
-> +
->  &hdmi {
->  	status =3D "okay";
->  };
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts b/arch/arm64/=
-boot/dts/rockchip/rk3328-rock64.dts
-> index 5367e5fa9232..592fd8ca21df 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
-> @@ -152,6 +152,10 @@ &gmac2io {
->  	status =3D "okay";
->  };
-> =20
-> +&gpu {
-> +	mali-supply =3D <&vdd_logic>;
-> +};
-> +
->  &hdmi {
->  	avdd-0v9-supply =3D <&vdd_10>;
->  	avdd-1v8-supply =3D <&vcc_18>;
+> +       genpd->flags |= GENPD_FLAG_NO_STAY_ON;
 
+So this applies to all PM Domains.  While this doesn't hurt, perhaps it
+should not be set for always-on domains, and thus moved up, to become
+an "else" branch in the "if/else if/..."-logic handling always-on
+domains at the top of the function?
 
---50ff9f84bc944755ff7976bae1dce62405cf41bd88db2cec6a292aa3edfc
-Content-Type: application/pgp-signature; name="signature.asc"
+This applies to rar-gen4-sysc.c, too.
 
------BEGIN PGP SIGNATURE-----
+>         genpd->power_off = rcar_sysc_pd_power_off;
+>         genpd->power_on = rcar_sysc_pd_power_on;
+>
 
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaMKP4gAKCRDXblvOeH7b
-btAmAP4/fD3deQwUhDfEtz/l+iUwn6XJqEv0cEIsnG13lxcECgD/YbRdmoDzM10V
-t3np71DjmSrIwMLbLVp6fZJ4OKbV2Ao=
-=I02j
------END PGP SIGNATURE-----
+Gr{oetje,eeting}s,
 
---50ff9f84bc944755ff7976bae1dce62405cf41bd88db2cec6a292aa3edfc--
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
