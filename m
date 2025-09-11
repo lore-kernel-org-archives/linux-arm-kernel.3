@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5164CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B6D5CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r1GeeUvJ1EcVF7IcaRkyWkRJvcb/yvxYhMFXl/F1TUw=; b=JHDrarKQl2Bj2sUp1sTvSiShhy
-	Ff+1XdafUpu/lzkFdu4UKX45WUERQb1cl7HsMp7SM46x4Ej6USugWqGBeMSPf9GFuSk4T1DRIXHSO
-	6Nl81A3abfi39mNnyHQLzVxfwqXGAMvucux3Po41oJdv05H9blCXSrMWSG32DEHVPWZLV2KCUtI/W
-	kY+hLfenkCHlsl5PZ5nQERLLwOZ1JpDASpzcum3rkKBJpmqbwzm9KFPCnXsAy692P91xiB7DX44ok
-	wYtgXwRnnah2gmwr7ejKxBgQlUhzESuZnETE0hNZUr975RfY9ng6f4px2Yhlb2id4U115VhrFjCfM
-	j3V9oe7w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=crQAPqJFpM+R3V0htFm98vh8Ix4h3qDCG8IlKcH+4ys=; b=aXKvxH9gdWMossJlXheFfHkhG4
+	6grOypJSvnvrWVwDxXtzg2xy4LJYbUDbZO1Irkfc/BRMi0E0mPP8MoMhHdMPq8huAe5U3sT++LZO5
+	HxxhUvL4G5+OYZZlMUAH3JhB89AuKmC9urDU1vobMKZAl47jGt2ZL9r+0VWZWDLwkV37wjDt4CDGk
+	r314SU+YZFd8MOCcgign3lih/TkKv24xfLfdtzj6Jxz/irOrZR6qjPPbg+dBJTXIqTvRV+/eVp7uT
+	rIWT47qm5ru6oxZviUI/gEpSQuCEQFrsrVrxWiDUkQRoeQ9NW15/00d5sDtkMxjHNFUG+Ne+59L3f
+	sh4ThGqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhr8-00000003QEl-3Yv3;
-	Thu, 11 Sep 2025 14:00:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhr4-00000003QBb-3Qwt;
-	Thu, 11 Sep 2025 14:00:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757599249;
-	bh=YZgir26I9tEMrliPJqpACHa6ZwxQisNAKsIviQDd448=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ptIWOqljayKuQNx+9DWJiytF129iv9cMbyC6IdhX4Gi4Gkgv0nIqG0gNaawlWJw0g
-	 9jTWQoOPjbQTMbBHbde7s+3+jfA6uy4sViuuWRKdG9/TBuq3G8L64p5/inX/5i5rUN
-	 js2/xRXCUUlse7g6FaWx1jsxyOnDTgfavwGyNRBiKn8cXknyIlYpeml5jhbtZhm/F8
-	 UhJE+6O4hI8NGp9dqT4xmDHraZtYPgG1TVpE/36HMz2EHAJLGKLKyRdqHRN7omTIlQ
-	 5/WsEAuSTwweO9T7kkfiT+GZJYIhZP7GAWvVsRE3mBYI7JRQuUrcSmDMMxcBcA9x78
-	 jw9FpY0sy1o2Q==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 406D417E00EC;
-	Thu, 11 Sep 2025 16:00:49 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-remoteproc@vger.kernel.org
-Cc: arnd@arndb.de,
-	andersson@kernel.org,
-	mathieu.poirier@linaro.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	wenst@chromium.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH] remoteproc: mtk_scp: Construct FW path if firmware-name not present
-Date: Thu, 11 Sep 2025 16:00:43 +0200
-Message-ID: <20250911140043.190801-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.51.0
+	id 1uwhyD-00000003SC0-2R9J;
+	Thu, 11 Sep 2025 14:08:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwhyA-00000003S9Y-2ipj
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Sep 2025 14:08:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CC69153B;
+	Thu, 11 Sep 2025 07:08:03 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7E1863F694;
+	Thu, 11 Sep 2025 07:08:06 -0700 (PDT)
+Message-ID: <8b502a2a-36f0-4234-84a0-e1d00b95ba56@arm.com>
+Date: Thu, 11 Sep 2025 15:08:05 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 02/29] ACPI / PPTT: Stop acpi_count_levels() expecting
+ callers to clear levels
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-3-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250910204309.20751-3-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_070055_175369_57C37074 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20250911_070814_731457_FAB82026 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,154 +82,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After a reply on the mailing lists [1] it emerged that the DT
-property "firmware-name" should not be relied on because of
-possible issues with firmware versions.
-For MediaTek SCP, there has never been any firmware version vs
-driver version desync issue but, regardless, the firmwares are
-always using the same name and they're always located in a path
-with a specific pattern.
+Hi James,
 
-Instead of unconditionally always relying on the firmware-name
-devicetree property to get a path to the SCP FW file, drivers
-should construct a name based on what firmware it knows and
-what hardware it is running on.
+On 9/10/25 21:42, James Morse wrote:
+> In acpi_count_levels(), the initial value of *levels passed by the
+> caller is really an implementation detail of acpi_count_levels(), so it
+> is unreasonable to expect the callers of this function to know what to
+> pass in for this parameter.  The only sensible initial value is 0,
+> which is what the only upstream caller (acpi_get_cache_info()) passes.
+> 
+> Use a local variable for the starting cache level in acpi_count_levels(),
+> and pass the result back to the caller via the function return value.
+> 
+> Gid rid of the levels parameter, which has no remaining purpose.
 
-In order to do that, add a `scp_get_default_fw_path()` function
-that constructs the path and filename based on two of the infos
-that the driver can get:
- 1. The compatible string with the highest priority (so, the
-    first one at index 0); and
- 2. The type of SCP HW - single-core or multi-core.
+Nit: s/Gid/Get/
 
-This means that the default firmware path is generated as:
- - Single core SCP: mediatek/(soc_model)/scp.img
-   for example:     mediatek/mt8183/scp.img;
+> 
+> Fix acpi_get_cache_info() to match.
+> 
+> Suggested-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> ---
+Thanks,
 
- - Multi core SCP:  mediatek/(soc_model)/scp_c(core_number).img
-   for example:     mediatek/mt8188/scp_c0.img for Core 0, and
-                    mediatek/mt8188/scp_c1.img for Core 1.
-
-Note that the generated firmware path is being used only if the
-"firmware-name" devicetree property is not present in the SCP
-node or in the SCP Core node(s).
-
-[1 - Reply regarding firmware-name property]
-Link: https://lore.kernel.org/all/7e8718b0-df78-44a6-a102-89529d6abcce@app.fastmail.com/
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/remoteproc/mtk_scp.c | 64 ++++++++++++++++++++++++++++++++----
- 1 file changed, 58 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-index 8206a1766481..80fcb4b053b3 100644
---- a/drivers/remoteproc/mtk_scp.c
-+++ b/drivers/remoteproc/mtk_scp.c
-@@ -16,6 +16,7 @@
- #include <linux/remoteproc.h>
- #include <linux/remoteproc/mtk_scp.h>
- #include <linux/rpmsg/mtk_rpmsg.h>
-+#include <linux/string.h>
- 
- #include "mtk_common.h"
- #include "remoteproc_internal.h"
-@@ -1093,22 +1094,73 @@ static void scp_remove_rpmsg_subdev(struct mtk_scp *scp)
- 	}
- }
- 
-+/**
-+ * scp_get_default_fw_path() - Get default SCP firmware path
-+ * @dev:     SCP Device
-+ * @core_id: SCP Core number
-+ *
-+ * This function generates a path based on the following format:
-+ *     mediatek/(soc_model)/scp(_cX).img; for multi-core or
-+ *     mediatek/(soc_model)/scp.img for single core SCP HW
-+ *
-+ * Return: A devm allocated string containing the full path to
-+ *         a SCP firmware or an error pointer
-+ */
-+static const char *scp_get_default_fw_path(struct device *dev, int core_id)
-+{
-+	struct device_node *np = core_id < 0 ? dev->of_node : dev->parent->of_node;
-+	char scp_fw_file[7] = "scp_cX";
-+	const char *compatible, *soc;
-+	int ret;
-+
-+	/* Use only the first compatible string */
-+	ret = of_property_read_string_index(np, "compatible", 0, &compatible);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	/* If the compatible string's length is implausible bail out early */
-+	if (strlen(compatible) < strlen("mediatek,mtXXXX-scp"))
-+		return ERR_PTR(-EINVAL);
-+
-+	/* If the compatible string starts with "mediatek,mt" assume that it's ok */
-+	if (!str_has_prefix(compatible, "mediatek,mt"))
-+		return ERR_PTR(-EINVAL);
-+
-+	if (core_id >= 0)
-+		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
-+	else
-+		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
-+	if (ret <= 0)
-+		return ERR_PTR(ret);
-+
-+	soc = &compatible[strlen("mediatek,")];
-+
-+	return devm_kasprintf(dev, GFP_KERNEL, "mediatek/%.*s/%s.img",
-+			      (int)strlen("mtXXXX"), soc, scp_fw_file);
-+}
-+
- static struct mtk_scp *scp_rproc_init(struct platform_device *pdev,
- 				      struct mtk_scp_of_cluster *scp_cluster,
--				      const struct mtk_scp_of_data *of_data)
-+				      const struct mtk_scp_of_data *of_data,
-+				      int core_id)
- {
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np = dev->of_node;
- 	struct mtk_scp *scp;
- 	struct rproc *rproc;
- 	struct resource *res;
--	const char *fw_name = "scp.img";
-+	const char *fw_name;
- 	int ret, i;
- 	const struct mtk_scp_sizes_data *scp_sizes;
- 
- 	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
--	if (ret < 0 && ret != -EINVAL)
--		return ERR_PTR(ret);
-+	if (ret) {
-+		fw_name = scp_get_default_fw_path(dev, core_id);
-+		if (IS_ERR(fw_name)) {
-+			dev_err(dev, "Cannot get firmware path: %ld\n", PTR_ERR(fw_name));
-+			return ERR_CAST(fw_name);
-+		}
-+	}
- 
- 	rproc = devm_rproc_alloc(dev, np->name, &scp_ops, fw_name, sizeof(*scp));
- 	if (!rproc) {
-@@ -1212,7 +1264,7 @@ static int scp_add_single_core(struct platform_device *pdev,
- 	struct mtk_scp *scp;
- 	int ret;
- 
--	scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev));
-+	scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev), -1);
- 	if (IS_ERR(scp))
- 		return PTR_ERR(scp);
- 
-@@ -1259,7 +1311,7 @@ static int scp_add_multi_core(struct platform_device *pdev,
- 			goto init_fail;
- 		}
- 
--		scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id]);
-+		scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id], core_id);
- 		put_device(&cpdev->dev);
- 		if (IS_ERR(scp)) {
- 			ret = PTR_ERR(scp);
--- 
-2.51.0
+Ben
 
 
