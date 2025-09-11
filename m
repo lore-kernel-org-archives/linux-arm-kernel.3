@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB5FCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6EDCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 15:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZjg26EZExnelWKzBe43tXlBLMB8RNQQi8iUM65ssF4=; b=HojPkHI7A0CJ1uicBkGjXHOZlX
-	ND3KRs5nlDjdM+Mbx1J0LOCl1FMA+ocrJLCziuXsDelVLkzX8K76cpH8sKDZ69+6fTKWJyX01iKM5
-	7txv7uLApue/RJba3k5GABHiWDiaeKZVxIpYcw+mCQ+QEcQgggGDt663cs/8ox1jeTJMZlTrqWRcV
-	Sg5uM7MVQ/l6E49DoyRdHfRwM8zDzOT855lUvpfXJbvuCnR2rtirpd1Sf1gzLsguIt16w+6VkooHn
-	La4sYOISMqCTALGY3DtIZ0+XGQ3W15b/9xnvSgNQT5b0syxB+0f+k9OzRmC/HDS/lrmVHZtx3+rBw
-	zEUmDoWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UuMEMPuykm7rNGqGRgSYCtjd+uJaJUQH41mpXqr8O2w=; b=2Byww+qF3gOSIJYu+5jjK760UK
+	bXhwOS2tsaZ+qEKaH4oXxaUVEsj4d1OpQUx8ObUU57LzPdVaBm2tuakZy8k+cmiPQRjoYN+pY+Tn3
+	Z1kLeQLSpf1MnTpFgk2+44aVreLVMDZ/9e2emduq3wvLXallMwf2bpDJHClbyryXTABymiByt3Hzu
+	fqjCcMXLilh2Qh4vUpQZj81dKEzGUS5uKDoFamoptELwXUxveMkbTgbRNzeXT1hnQQJM9FQnHSExk
+	3lYoDbM/pFC9zjJrJ+G7cpMcSXH+N4RRi9oViRpl1Dfncm3JOCzu1Ckgv6k89ETW6eVGSglJpuAVO
+	gM8dga4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjVR-00000003ypl-2siF;
-	Thu, 11 Sep 2025 15:46:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjVQ-00000003ynx-00pM
+	id 1uwjYO-00000003zg5-25Am;
+	Thu, 11 Sep 2025 15:49:44 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwjYL-00000003zf5-45Np
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 15:46:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87A14153B;
-	Thu, 11 Sep 2025 08:46:30 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 62B683F63F;
-	Thu, 11 Sep 2025 08:46:34 -0700 (PDT)
-Message-ID: <1344b395-66aa-4714-b1fc-9c970c0fd0bf@arm.com>
-Date: Thu, 11 Sep 2025 16:46:32 +0100
+	Thu, 11 Sep 2025 15:49:43 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1757605777;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UuMEMPuykm7rNGqGRgSYCtjd+uJaJUQH41mpXqr8O2w=;
+	b=Gv/J/Im1CRWyw9bIl8PD4nIFLIoBpCCDS8ViJW4a1/U8I1LoLfawuDNMYSQQJlnOXxL6xn
+	OuskPZs1HqkU7fAUh+M5SxMFwGSCzu+glLIkiXNQ9BTxWi41a/3yDUGqqQzW6hvqvGbvxG
+	qqnkM3cXBzd2JtesOHC+5f38VhyJIX0E+XXO/TZJ+Y019OxsWqkvmMq1sTaT+J+emzLMSu
+	lXyTfsY2TjF8eVgy9PTZjs1z/FVVLvPTwNZve1qcbXRjwIhL7QuK85235FlipsXxtccsCT
+	0UahOuRi7w9ZhLffoDRzXhra4do0Uac7YnvaUZnecJLnUSplJHaJ7KH8hv2DMQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1757605777;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UuMEMPuykm7rNGqGRgSYCtjd+uJaJUQH41mpXqr8O2w=;
+	b=8EyvGHyLQfWvch9vyXZ0F+oYN8ZCmX7LrZq8smIyrF3OFyBr/PeUHLTanMneSn8D2Sylym
+	y8TAWPkIKCXiKnDQ==
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>, Will
+ Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob
+ Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ James Clark <james.clark@linaro.org>
+Subject: Re: [PATCH 01/25] irqdomain: Add firmware info reporting interface
+In-Reply-To: <86a531cc1q.wl-maz@kernel.org>
+References: <20250908163127.2462948-1-maz@kernel.org>
+ <20250908163127.2462948-2-maz@kernel.org> <87ikhsvvau.ffs@tglx>
+ <86a531cc1q.wl-maz@kernel.org>
+Date: Thu, 11 Sep 2025 17:49:36 +0200
+Message-ID: <877by5rnu7.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 23/29] arm_mpam: Add mpam_msmon_read() to read monitor
- value
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-24-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250910204309.20751-24-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_084640_134882_EFB0B59F 
-X-CRM114-Status: GOOD (  23.18  )
+X-CRM114-CacheID: sfid-20250911_084942_149308_6CD512BD 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,215 +81,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Thu, Sep 11 2025 at 15:13, Marc Zyngier wrote:
 
-On 9/10/25 21:43, James Morse wrote:
-> Reading a monitor involves configuring what you want to monitor, and
-> reading the value. Components made up of multiple MSC may need values
-> from each MSC. MSCs may take time to configure, returning 'not ready'.
-> The maximum 'not ready' time should have been provided by firmware.
-> 
-> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
-> not ready, then wait the full timeout value before trying again.
-> 
-> CC: Shanker Donthineni <sdonthineni@nvidia.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since v1:
->  * Added XCL support.
->  * Merged FLT/CTL constants.
->  * a spelling mistake in a comment.
->  * moved structrues around.
-> ---
->  drivers/resctrl/mpam_devices.c  | 226 ++++++++++++++++++++++++++++++++
->  drivers/resctrl/mpam_internal.h |  19 +++
->  2 files changed, 245 insertions(+)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index cf190f896de1..1543c33c5d6a 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -898,6 +898,232 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  	return 0;
->  }
->  
-> +struct mon_read {
-> +	struct mpam_msc_ris		*ris;
-> +	struct mon_cfg			*ctx;
-> +	enum mpam_device_features	type;
-> +	u64				*val;
-> +	int				err;
-> +};
-> +
-> +static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-> +				   u32 *flt_val)
-> +{
-> +	struct mon_cfg *ctx = m->ctx;
-> +
-> +	/*
-> +	 * For CSU counters its implementation-defined what happens when not
-> +	 * filtering by partid.
-> +	 */
-> +	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
-> +
-> +	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
-> +	if (m->ctx->match_pmg) {
-> +		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
-> +		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
-> +	}
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		*ctl_val = MSMON_CFG_CSU_CTL_TYPE_CSU;
-> +
-> +		if (mpam_has_feature(mpam_feat_msmon_csu_xcl, &m->ris->props))
-> +			*flt_val |= FIELD_PREP(MSMON_CFG_CSU_FLT_XCL,
-> +					       ctx->csu_exclude_clean);
-> +
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		*ctl_val = MSMON_CFG_MBWU_CTL_TYPE_MBWU;
-> +
-> +		if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ris->props))
-> +			*flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_RWBW, ctx->opts);
-> +
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-> +				    u32 *flt_val)
-> +{
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		*ctl_val = mpam_read_monsel_reg(msc, CFG_CSU_CTL);
-> +		*flt_val = mpam_read_monsel_reg(msc, CFG_CSU_FLT);
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		*ctl_val = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-> +		*flt_val = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +/* Remove values set by the hardware to prevent apparent mismatches. */
-> +static void clean_msmon_ctl_val(u32 *cur_ctl)
-> +{
-> +	*cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
-> +}
-> +
-> +static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-> +				     u32 flt_val)
-> +{
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +
-> +	/*
-> +	 * Write the ctl_val with the enable bit cleared, reset the counter,
-> +	 * then enable counter.
-> +	 */
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, CSU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, MBWU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +/* Call with MSC lock held */
-> +static void __ris_msmon_read(void *arg)
-> +{
-> +	u64 now;
-> +	bool nrdy = false;
-> +	struct mon_read *m = arg;
-> +	struct mon_cfg *ctx = m->ctx;
-> +	struct mpam_msc_ris *ris = m->ris;
-> +	struct mpam_props *rprops = &ris->props;
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
-> +
-> +	if (!mpam_mon_sel_lock(msc)) {
-> +		m->err = -EIO;
-> +		return;
-> +	}
-> +	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, ctx->mon) |
-> +		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> +	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> +
-> +	/*
-> +	 * Read the existing configuration to avoid re-writing the same values.
-> +	 * This saves waiting for 'nrdy' on subsequent reads.
-> +	 */
-> +	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
-> +	clean_msmon_ctl_val(&cur_ctl);
-> +	gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
-> +	if (cur_flt != flt_val || cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN))
-> +		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		now = mpam_read_monsel_reg(msc, CSU);
-> +		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
-> +			nrdy = now & MSMON___NRDY;
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		now = mpam_read_monsel_reg(msc, MBWU);
-> +		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
-> +			nrdy = now & MSMON___NRDY;
-> +		break;
-> +	default:
-> +		m->err = -EINVAL;
-> +		break;
-> +	}
-> +	mpam_mon_sel_unlock(msc);
-> +
-> +	if (nrdy) {
-> +		m->err = -EBUSY;
-> +		return;
-> +	}
-> +
-> +	now = FIELD_GET(MSMON___VALUE, now);
-> +	*m->val += now;
-> +}
-> +
-> +static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
-> +{
-> +	int err, idx;
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
+> On Tue, 09 Sep 2025 10:18:01 +0100,
+> Thomas Gleixner <tglx@linutronix.de> wrote:
+>> 
+>> On Mon, Sep 08 2025 at 17:31, Marc Zyngier wrote:
+>
+> [...]
+>
+>> > @@ -69,6 +90,8 @@ void of_phandle_args_to_fwspec(struct device_node *np, const u32 *args,
+>> >   * @translate:	Given @fwspec, decode the hardware irq number (@out_hwirq) and
+>> >   *		linux irq type value (@out_type). This is a generalised @xlate
+>> >   *		(over struct irq_fwspec) and is preferred if provided.
+>> > + * @get_info: Given @info, report additional firmware-provided information.
+>> > + *            Optional.
+>> 
+>> get_info() is pretty generic. Can we have some more descriptive name for
+>> that? Also please keep the tabular formatting of the doc intact.
+>
+> Would get_fwspec_info() be descriptive enough?
 
-This can be list_for_each_entry_srcu(). (I thought I'd already commented
-but turns out that was on another patch.)
-
-> +		msc = vmsc->msc;
-> +
-> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
-
-Also here.
-
-[...]
-
-Thanks,
-
-Ben
-
+I think so
 
