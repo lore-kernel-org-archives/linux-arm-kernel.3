@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D24FCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:07:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48AC3CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 13:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4mUiUyxJ+UgqSNBwzNnX4weNZjeK/F4l8p0MRA1dyxY=; b=fgWKkkc5X1j0eIzv7+phirSVkI
-	YH2wodAOPkZt4RHT2DU2l8keFyiQfojxP94fBTQ/kEE7ZKHEorVhOmZGlTjRay75kkz4Pm1g8m7eR
-	lM+x9W1A69SRv3jpdBl5GMDnwLYr/+q7GAsVlvP/dKciqD6o4DaBAkh0GBkfAGghm3del6t1rNRDp
-	amHFuRgWIsrLbA35fzlRs2HW8FPAbPg2lOvKKWI79zkJv/V/HEbmEWd6M+GDn9ESq566XNvdEZ1TN
-	r/5xViHwv/UvewQAXlBs8JlnriE8gUMgr6AfVEqbSGwFFkotigMcr5MsyuPV5R4oBfkT+7jDKlIqW
-	WdwMmAKA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V76afWoUOqEXaH6Ebl74yo9TUze5EKe4WOxc4Tx754o=; b=w/pEFKynToHtEYmRmeM5sLuoJ5
+	1+X+FPjiSub3lCzmItEAyIOr1XrugSFay3Swbpsl34w8wxCueb3tbw/gPE9Ah3MOEu/QBUNpmfE3e
+	fsw6H0ES9r3AC3dLpkvbpRKSj+A5cF669apU1vQa7nJjxodsin3DBxS9twMYUECQvEAYrjyDt1WK3
+	FOUhxZXG+X//uHSKQkwt4YXbhyRp/7kwGgg4xpRknYZv/JennJAPYvyOno0ccYCO++5D09p6KvCfm
+	ev/2atTN8NHpS33QtElnWcetT2tms/X3CHbRdlwS2DLYw73jj16/SSWcq7Lk9CeAQh/h38wKjjmxq
+	Bw9ONuTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwh1V-000000038tk-21ei;
-	Thu, 11 Sep 2025 13:07:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uwhBE-00000003Bfb-0sxc;
+	Thu, 11 Sep 2025 13:17:40 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwh1T-000000038sx-3qMt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 11 Sep 2025 13:07:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=4mUiUyxJ+UgqSNBwzNnX4weNZjeK/F4l8p0MRA1dyxY=; b=WA6vvLKBpKYksTkZjbQ+h8s1o3
-	VNTiOn4O9M8Or6/dfthciGGGupv1LQqaJuYKs1HZnC1wDSX9dS++QkUcvEif1l3MBJ6PzE4JYk+2M
-	yl++dAF1Xsrxg9htfhfUgNfGFWSvjbSuQ+NRWFraJj+MsBqI3fEP2JoAM5DFGWQmGkTl9KS25Zn+Z
-	Ans7OwLxePnoDdPvZGAYMFQvNmHlrxM9VUdyrG/A1bxudCFDigbcLKldAROC225sK1ZlvpbePai7j
-	KMS2QuEkr/EhX3e5TYbG4GqsOGnigv9Y5FRwm6ZGAq6PsWmGaqwQktKDblLnmwKCjc6D/rReF5XUK
-	+OngAp+A==;
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwh1Q-000000065JD-1n7A
+	id 1uwhBA-00000003Bdw-2Xvq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 13:07:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1757596018; bh=96Jo2OM+eBPpT8kKW/qCZKj26J6puMVroHTCm7h9Q+0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Qloo6V9Eb/VNX5GTPe7EOoPtScJ4UkOLfW41AhspcpIXxuLCisJXA1LH3hufZUbLr
-	 V4lnNOWtP4RfeyiRyFynhbeDXIAMx/z84RSGvV6mGfeR8a6clL3FtTwcBRXjhTo/n3
-	 zcJVUI2f+ROCVzwnggMwj7ytWJzMq4EV3xZjKhMdklnpthOyO9HW+pCbvx2DnFBL6x
-	 vNMQgm5r1M1+axqfdz+oFKtYlJdiNJHHwsuUQ8BZtKIlgS7bblYeoB5rxAn76O/urS
-	 QY4NH0+CvArrCbvXWaVy8UcCxp8YhrjbgFcCdt9Ag8//oS5cDC0lpqdTIJyFGr4S7h
-	 oH43F9pXG+nrw==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 270B83D3AEA;
-	Thu, 11 Sep 2025 13:06:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1757596018; bh=96Jo2OM+eBPpT8kKW/qCZKj26J6puMVroHTCm7h9Q+0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Qloo6V9Eb/VNX5GTPe7EOoPtScJ4UkOLfW41AhspcpIXxuLCisJXA1LH3hufZUbLr
-	 V4lnNOWtP4RfeyiRyFynhbeDXIAMx/z84RSGvV6mGfeR8a6clL3FtTwcBRXjhTo/n3
-	 zcJVUI2f+ROCVzwnggMwj7ytWJzMq4EV3xZjKhMdklnpthOyO9HW+pCbvx2DnFBL6x
-	 vNMQgm5r1M1+axqfdz+oFKtYlJdiNJHHwsuUQ8BZtKIlgS7bblYeoB5rxAn76O/urS
-	 QY4NH0+CvArrCbvXWaVy8UcCxp8YhrjbgFcCdt9Ag8//oS5cDC0lpqdTIJyFGr4S7h
-	 oH43F9pXG+nrw==
-Received: from mail.mleia.com (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.mleia.com (Postfix) with ESMTPSA id 9F3EF380DFB;
-	Thu, 11 Sep 2025 13:06:57 +0000 (UTC)
-From: Vladimir Zapolskiy <vz@mleia.com>
-To: soc@kernel.org,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Vladimir Zapolskiy <vz@mleia.com>
-Subject: [GIT PULL] NXP LPC device tree changes for v6.18
-Date: Thu, 11 Sep 2025 16:06:42 +0300
-Message-ID: <20250911130642.41958-1-vz@mleia.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 11 Sep 2025 13:17:38 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cMyk56VP2z6L59H;
+	Thu, 11 Sep 2025 21:16:13 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 41687140373;
+	Thu, 11 Sep 2025 21:17:29 +0800 (CST)
+Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
+ 2025 15:17:28 +0200
+Date: Thu, 11 Sep 2025 14:17:26 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
+	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
+	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
+	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
+	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
+	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
+ Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
+	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH v2 06/29] ACPI / MPAM: Parse the MPAM table
+Message-ID: <20250911141726.00002f0c@huawei.com>
+In-Reply-To: <20250910204309.20751-7-james.morse@arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+	<20250910204309.20751-7-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20250911_130658_177922_0EC065BB 
-X-CRM114-Status: GOOD (  11.71  )
-/bin/ln: failed to access 'reaver_cache/texts/20250911_130658_177922_0EC065BB': No such file or directory
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_130658_177922_0EC065BB 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20250911_061736_938612_366EB17A 
+X-CRM114-Status: GOOD (  43.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,73 +85,355 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Wed, 10 Sep 2025 20:42:46 +0000
+James Morse <james.morse@arm.com> wrote:
 
-I kindly ask you to pull the next changes.
+> Add code to parse the arm64 specific MPAM table, looking up the cache
+> level from the PPTT and feeding the end result into the MPAM driver.
+> 
+> For now the MPAM hook mpam_ris_create() is stubbed out, but will update
+> the MPAM driver with optional discovered data.
+> 
+> CC: Carl Worth <carl@os.amperecomputing.com>
+> Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
+> Signed-off-by: James Morse <james.morse@arm.com>
+> 
+Hi James,
 
-It's been awhile since the last NXP LPC32xx and NPX LPC18xx/LPC43xx pull
-request, fortunately today's Linux runs on the platforms with no issues.
+A few comments inline.  Note I've more or less completely forgotten
+what was discussed in RFC 1 so I might well be repeating stuff that
+you replied to then.  Always a problem for me with big complex patch sets!
 
-Best wishes,
-Vladimir
+Jonathan
+
+> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+> new file mode 100644
+> index 000000000000..fd9cfa143676
+> --- /dev/null
+> +++ b/drivers/acpi/arm64/mpam.c
 
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+> +static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+> +				    struct acpi_mpam_resource_node *res)
+> +{
+> +	int level, nid;
+> +	u32 cache_id;
+> +
+> +	switch (res->locator_type) {
+> +	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
+> +		cache_id = res->locator.cache_locator.cache_reference;
+> +		level = find_acpi_cache_level_from_id(cache_id);
+> +		if (level <= 0) {
+> +			pr_err_once("Bad level (%u) for cache with id %u\n", level, cache_id);
+> +			return -EINVAL;
+> +		}
+> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
+> +				       level, cache_id);
+> +	case ACPI_MPAM_LOCATION_TYPE_MEMORY:
+> +		nid = pxm_to_node(res->locator.memory_locator.proximity_domain);
+> +		if (nid == NUMA_NO_NODE)
+> +			nid = 0;
+> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
+> +				       255, nid);
+> +	default:
+> +		/* These get discovered later and treated as unknown */
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+are treated?
 
-are available in the Git repository at:
 
-  https://github.com/vzapolskiy/linux-lpc32xx tags/lpc32xx-dt-for-6.18
+> +		return 0;
+> +	}
+> +}
 
-for you to fetch changes up to d2dab63098bde9a6373eeb4672df806ad62a12da:
+> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
+> +				     struct platform_device *pdev,
+> +				     u32 *acpi_id)
+> +{
+> +	char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1];
+> +	bool acpi_id_valid = false;
+> +	struct acpi_device *buddy;
+> +	char uid[11];
+> +	int err;
+> +
+> +	memset(&hid, 0, sizeof(hid));
 
-  ARM: dts: lpc32xx: Correct PL080 DMA controller device node name (2025-09-11 03:30:27 +0300)
+ = {}; above and skip the memset.
 
-----------------------------------------------------------------
-ARM: nxp: lpc: device tree updates for v6.18
+> +	memcpy(hid, &tbl_msc->hardware_id_linked_device,
+> +	       sizeof(tbl_msc->hardware_id_linked_device));
+> +
+> +	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
+> +		*acpi_id = tbl_msc->instance_id_linked_device;
+> +		acpi_id_valid = true;
+> +	}
+> +
+> +	err = snprintf(uid, sizeof(uid), "%u",
+> +		       tbl_msc->instance_id_linked_device);
+> +	if (err >= sizeof(uid)) {
+> +		pr_debug("Failed to convert uid of device for power management.");
+> +		return acpi_id_valid;
+> +	}
+> +
+> +	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
+> +	if (buddy)
+> +		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
+> +
+> +	return acpi_id_valid;
+> +}
 
-This pull request contains device tree changes for ARM NXP LPC32xx and
-ARM NXP LPC18xx/LPC43xx for v6.18, please pull the following:
+> +
+> +static int __init acpi_mpam_parse(void)
+> +{
+> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+> +	char *table_end, *table_offset = (char *)(table + 1);
+> +	struct property_entry props[4]; /* needs a sentinel */
+Perhaps move this and res into the loop and use = {};
 
-- Frank fixes a multitude of device tree checker warnings reported for
-  NXP LPC18xx/LPC43xx powered boards,
-- Vladimir fixes a number of compile time warnings issued by a dt checker
-  for NXP LPC32xx powered boards,
-- Vladimir replaces Roland as a maintainer of NXP LPC32xx platform
-  device trees, Roland is inactive for more than 10 years.
+> +	struct acpi_mpam_msc_node *tbl_msc;
+> +	int next_res, next_prop, err = 0;
+> +	struct acpi_device *companion;
+> +	struct platform_device *pdev;
+> +	enum mpam_msc_iface iface;
+> +	struct resource res[3];
 
-----------------------------------------------------------------
-Frank Li (11):
-      ARM: dts: lpc18xx: rename node name flash-controller to spi
-      ARM: dts: lpc18xx: rename node name mmcsd to mmc
-      ARM: dts: lpc4350-hitex-eval: change node name flash to flash@0
-      ARM: dts: lpc18xx: swap clock-names bic and cui
-      ARM: dts: lpc: add #address-cells and #size-cells for sram node
-      ARM: dts: lpc: add cfg surfix in pinctrl child node
-      ARM: dts: lpc4357-myd-lpc4357: add power-supply for innolux,at070tn92
-      ARM: dts: lpc: change node name 'button[0-9]' to button-[0-9]'
-      ARM: dts: lpc4357-myd-lpc4357: change node name mdio0 to mdio
-      ARM: dts: lpc18xx: add #address-cell and #szie-cell for spi flash controller
-      ARM: dts: lpc18xx: add missed arm,num-irq-priority-bits
+Add a comment here or a check later on why this is large enough.
 
-Vladimir Zapolskiy (7):
-      dt-bindings: arm: nxp: lpc: Assign myself as maintainer of NXP LPC32xx platforms
-      ARM: dts: lpc32xx: Set motor PWM #pwm-cells property value to 3 cells
-      ARM: dts: lpc32xx: Correct motor PWM device tree node name
-      ARM: dts: lpc32xx: Correct SD/MMC controller device node name
-      ARM: dts: lpc32xx: Specify a precise version of the SD/MMC controller IP
-      ARM: dts: lpc32xx: Specify #dma-cells property of PL080 DMA controller
-      ARM: dts: lpc32xx: Correct PL080 DMA controller device node name
+> +	char uid[16];
+> +	u32 acpi_id;
+> +
+> +	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
+> +		return 0;
+> +
+> +	if (table->revision < 1)
+> +		return 0;
+> +
+> +	table_end = (char *)table + table->length;
+> +
+> +	while (table_offset < table_end) {
+> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+> +		table_offset += tbl_msc->length;
+> +
+> +		if (table_offset > table_end) {
+> +			pr_debug("MSC entry overlaps end of ACPI table\n");
+> +			break;
 
- .../devicetree/bindings/arm/nxp/lpc32xx.yaml       |  2 +-
- arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi             | 14 ++++++++++----
- arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi             | 11 ++++++-----
- arch/arm/boot/dts/nxp/lpc/lpc4337-ciaa.dts         |  6 +++---
- arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts   | 22 +++++++++++++---------
- arch/arm/boot/dts/nxp/lpc/lpc4350.dtsi             |  9 +++++++++
- .../arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts | 21 +++++++++++----------
- arch/arm/boot/dts/nxp/lpc/lpc4357-myd-lpc4357.dts  |  6 ++++--
- arch/arm/boot/dts/nxp/lpc/lpc4357.dtsi             |  9 +++++++++
- 9 files changed, 66 insertions(+), 34 deletions(-)
+That this isn't considered an error is a bit subtle and made me wonder
+if there was a use of uninitialized pdev (there isn't because err == 0)
+Why not return here?
+
+> +		}
+> +
+> +		/*
+> +		 * If any of the reserved fields are set, make no attempt to
+> +		 * parse the MSC structure. This MSC will still be counted,
+> +		 * meaning the MPAM driver can't probe against all MSC, and
+> +		 * will never be enabled. There is no way to enable it safely,
+> +		 * because we cannot determine safe system-wide partid and pmg
+> +		 * ranges in this situation.
+> +		 */
+
+This is decidedly paranoid. I'd normally expect the architecture to be based
+on assumption that is fine for old software to ignore new fields.  ACPI itself
+has fairly firm rules on this (though it goes wrong sometimes :)
+I'm guessing there is something out there that made this necessary though so
+keep it if you actually need it.
+
+> +		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2) {
+> +			pr_err_once("Unrecognised MSC, MPAM not usable\n");
+> +			pr_debug("MSC.%u: reserved field set\n", tbl_msc->identifier);
+> +			continue;
+> +		}
+> +
+> +		if (!tbl_msc->mmio_size) {
+> +			pr_debug("MSC.%u: marked as disabled\n", tbl_msc->identifier);
+> +			continue;
+> +		}
+> +
+> +		if (decode_interface_type(tbl_msc, &iface)) {
+> +			pr_debug("MSC.%u: unknown interface type\n", tbl_msc->identifier);
+> +			continue;
+> +		}
+> +
+> +		next_res = 0;
+> +		next_prop = 0;
+> +		memset(res, 0, sizeof(res));
+> +		memset(props, 0, sizeof(props));
+> +
+> +		pdev = platform_device_alloc("mpam_msc", tbl_msc->identifier);
+
+https://lore.kernel.org/all/20241009124120.1124-13-shiju.jose@huawei.com/
+was a proposal to add a DEFINE_FREE() to clean these up.  Might be worth a revisit.
+Then Greg was against the use it was put to and asking for an example of where
+it helped.  Maybe this is that example.
+
+If you do want to do that, I'd factor out a bunch of the stuff here as a helper
+so we can have the clean ownership pass of a return_ptr().  
+Similar to what Shiju did here (this is the usecase for platform device that
+Greg didn't like).
+https://lore.kernel.org/all/20241009124120.1124-14-shiju.jose@huawei.com/
+
+Even without that I think factoring some of this out and hence being able to
+do returns on errors and put the if (err) into the loop would be a nice
+improvement to readability.
+
+> +		if (!pdev) {
+> +			err = -ENOMEM;
+> +			break;
+> +		}
+> +
+> +		if (tbl_msc->length < sizeof(*tbl_msc)) {
+> +			err = -EINVAL;
+> +			break;
+> +		}
+> +
+> +		/* Some power management is described in the namespace: */
+> +		err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
+> +		if (err > 0 && err < sizeof(uid)) {
+> +			companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
+> +			if (companion)
+> +				ACPI_COMPANION_SET(&pdev->dev, companion);
+> +			else
+> +				pr_debug("MSC.%u: missing namespace entry\n", tbl_msc->identifier);
+> +		}
+> +
+> +		if (iface == MPAM_IFACE_MMIO) {
+> +			res[next_res++] = DEFINE_RES_MEM_NAMED(tbl_msc->base_address,
+> +							       tbl_msc->mmio_size,
+> +							       "MPAM:MSC");
+> +		} else if (iface == MPAM_IFACE_PCC) {
+> +			props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
+> +								tbl_msc->base_address);
+> +			next_prop++;
+
+Why the double increment? Needs a comment if that is right thing to do.
+
+> +		}
+> +
+> +		acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
+> +		err = platform_device_add_resources(pdev, res, next_res);
+> +		if (err)
+> +			break;
+> +
+> +		props[next_prop++] = PROPERTY_ENTRY_U32("arm,not-ready-us",
+> +							tbl_msc->max_nrdy_usec);
+> +
+> +		/*
+> +		 * The MSC's CPU affinity is described via its linked power
+> +		 * management device, but only if it points at a Processor or
+> +		 * Processor Container.
+> +		 */
+> +		if (parse_msc_pm_link(tbl_msc, pdev, &acpi_id)) {
+> +			props[next_prop++] = PROPERTY_ENTRY_U32("cpu_affinity",
+> +								acpi_id);
+> +		}
+> +
+> +		err = device_create_managed_software_node(&pdev->dev, props,
+> +							  NULL);
+> +		if (err)
+> +			break;
+> +
+> +		/* Come back later if you want the RIS too */
+> +		err = platform_device_add_data(pdev, tbl_msc, tbl_msc->length);
+> +		if (err)
+> +			break;
+> +
+> +		err = platform_device_add(pdev);
+> +		if (err)
+> +			break;
+> +	}
+> +
+> +	if (err)
+> +		platform_device_put(pdev);
+> +
+> +	return err;
+> +}
+> +
+> +int acpi_mpam_count_msc(void)
+> +{
+> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+> +	char *table_end, *table_offset = (char *)(table + 1);
+> +	struct acpi_mpam_msc_node *tbl_msc;
+> +	int count = 0;
+> +
+> +	if (IS_ERR(table))
+> +		return 0;
+> +
+> +	if (table->revision < 1)
+> +		return 0;
+> +
+> +	table_end = (char *)table + table->length;
+Trivial so feel free to ignore.
+Perhaps should aim for consistency.  Whilst I prefer pointers for this stuff
+PPTT did use unsigned longs.
+
+> +
+> +	while (table_offset < table_end) {
+> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+> +		if (!tbl_msc->mmio_size)
+> +			continue;
+> +
+> +		if (tbl_msc->length < sizeof(*tbl_msc))
+> +			return -EINVAL;
+> +		if (tbl_msc->length > table_end - table_offset)
+> +			return -EINVAL;
+> +		table_offset += tbl_msc->length;
+> +
+> +		count++;
+> +	}
+> +
+> +	return count;
+> +}
+> +
+
+Could reorder to put acpi_mpam_parse and this use of it together?
+
+> +/*
+> + * Call after ACPI devices have been created, which happens behind acpi_scan_init()
+> + * called from subsys_initcall(). PCC requires the mailbox driver, which is
+> + * initialised from postcore_initcall().
+> + */
+> +subsys_initcall_sync(acpi_mpam_parse);
+
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index c5fd92cda487..af449964426b 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -8,6 +8,7 @@
+>  #ifndef _LINUX_ACPI_H
+>  #define _LINUX_ACPI_H
+>  
+> +#include <linux/cleanup.h>
+>  #include <linux/errno.h>
+>  #include <linux/ioport.h>	/* for struct resource */
+>  #include <linux/resource_ext.h>
+> @@ -221,6 +222,17 @@ void acpi_reserve_initial_tables (void);
+>  void acpi_table_init_complete (void);
+>  int acpi_table_init (void);
+>  
+> +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
+> +{
+> +	struct acpi_table_header *table;
+> +	int status = acpi_get_table(signature, instance, &table);
+> +
+> +	if (ACPI_FAILURE(status))
+> +		return ERR_PTR(-ENOENT);
+> +	return table;
+> +}
+> +DEFINE_FREE(acpi_table, struct acpi_table_header *, if (!IS_ERR(_T)) acpi_put_table(_T))
+
+I'd use if (!IS_ERR_OR_NULL(_T)) not because it is functionally necessary but
+because it will let the compiler optimize this out if it can tell that in a given
+path _T is NULL (I think it was Peter Z who pointed this out in a similar interface
+a while back).
+
+
+I'd like an opinion from Rafael on this in general.
+
+
+
+> +
+>  int acpi_table_parse(char *id, acpi_tbl_table_handler handler);
+>  int __init_or_acpilib acpi_table_parse_entries(char *id,
+>  		unsigned long table_size, int entry_id,
+
 
