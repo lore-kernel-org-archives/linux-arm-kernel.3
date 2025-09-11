@@ -4,123 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E22CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31FBCAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xezEPREPJQkkrl73Yff7UEqumVCaWAif9r9fc2gAvZU=; b=FJmnavSrF0z91tTlq1tb8AfSui
-	5ZaF2XlPgAEYSAoUx7YUFpob0mMjBByLi3OzUviz4RgxPpQE9XBf1Qrm09M3cXT6NhluG48/n5hwb
-	1uw98ZyYrWFBq5D95n/6TD4TtjGWnFp5N/kWLXfV7aMNh0mXYATfDCk+VqbTJ2sLNYKC8dFhYTP7S
-	3LGcrVxwTat4tPz5/a2oFKC9kt215lzy6EBEfypyCoG/tfJV6edDtkH+e0xaQgdcSTBrtYJRU9UL3
-	IGdztzD7ryqb4hRClEgqVZrf8foPul9HOFBmGBhJYJLzWdp2rAzKJ9ANXXIV9crK86LXeBeX3FIOp
-	iPFUKGEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CXxtbIpMN7aU+UMtLOY1wQvwhq9wcmE2BRs0YRXR44o=; b=nnqS647nuz4HSDv5sDw0Ke5MaC
+	7+3hhjrT25loAziqIWmGHfkiz/AV7Z5JrnZjB4aQ5hUlL9QlUSo7lHA+zDOouZnsODIVfNXYka99g
+	SEFRRBuCinkaaBsjMiQ2Ks0w8/XnFhlWBV0KSHMEBHpbgeautYHTtmpKhvUp0d9cpEgAPjzr/kbgc
+	LYIfogI7JSZ7P4c2ViNLzgV82fSSvlmVyRj9jU0bHXLg2Af3/EfE/CJM0OEIXcaqNOB/6khVnLsbg
+	LoglT0j/CXzkla1H+sGCfKg9DPfJ82VEyHz2aId8P8JZ2JPmwCB5Wz2MuRrhyyeNglFjmY3zCdhzA
+	SZmiogDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwc9q-00000001dTS-0aC4;
-	Thu, 11 Sep 2025 07:55:54 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1uwcAE-00000001djG-0sK1;
+	Thu, 11 Sep 2025 07:56:18 +0000
+Received: from mail-ua1-f54.google.com ([209.85.222.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwc9n-00000001dR0-3DQX
+	id 1uwcAC-00000001di1-1jzn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 07:55:53 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 612031400147;
-	Thu, 11 Sep 2025 03:55:48 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Thu, 11 Sep 2025 03:55:48 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1757577348;
-	 x=1757663748; bh=xezEPREPJQkkrl73Yff7UEqumVCaWAif9r9fc2gAvZU=; b=
-	Iu/xuWaoII7KNzuVcloK0wQmhd56+d5wX0Bleltp/a1sZa3XhGzX/yG9JsPSkl/7
-	2cu0Mu9lmvGcmqeKU6/KrMP/1aCgzIef4N/ewbqrmGkduxdjqLHlEalPav5le4TA
-	+jbgQ1Z+mvU5GokUwPzbGIhEj3HxlMneK0jBDzXQV6kMI00VxiXlnhook7P+C5Y7
-	UriP1BgBZbVa1zMIyagjnMw+2sY7iskhAR0+3srbSjSH0y3Yg7G1I2wCRXsEXXYs
-	8KS2JECjFLMhfIZNMjx0egOaiCksw2shqo/EvFx/UtUO1SZUtqDZzPy4b136cHwy
-	fnHZvT9pGYqsuKxHDCD1Vw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1757577348; x=
-	1757663748; bh=xezEPREPJQkkrl73Yff7UEqumVCaWAif9r9fc2gAvZU=; b=X
-	IlM4cTNCufTDuTwE3rh5KIXiSVCwiy8YX9A8fo53sWQ4p2TKGrlQ/9DVCBOHTBG0
-	ffEsLPh+36l9na0nrD2CgxP/dy96GoNkRtEQRzG5aK6nn56aYQGtYTO9P7Y8UiUs
-	an20A9oCUfkbsypc1JODoplvQuBjF8st8s1x31lQ2U0SYE4Jn1XlEMxhnjGHJwJg
-	CNtYItDmOsxdBDmvbtNp8EHZzfn0AGkDnlRRUoNT54QTlsnpmjuslvLqJymldyuB
-	7h+E3hJYEoPPv37Hpq0Dkh4acaBuHq9oAPE4oR1s4jxxyqb8Wde0k9toW89TrDKm
-	U4uNM1J+ErI42a2u/TYQg==
-X-ME-Sender: <xms:goDCaKLlbLhafX1ItUb5fO7F7xQAPgD71xlygMsk3wgbEP7eJM2VEQ>
-    <xme:goDCaCJu-9GwvmuDVC8Y37QomJEPe0pHbKXVqPPiqeh9QFxf908KEUF8un4MQt4Yp
-    DHkwlYQwPBqiaQ5cv4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvheeivdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedvkedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheptghhvghsthgvrhdrrgdruhhnrghlsegrrhhinhgtledrtghomhdprh
-    gtphhtthhopegthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdhr
-    tghpthhtoheprghnughrvggrshesghgrihhslhgvrhdrtghomhdprhgtphhtthhopehgvg
-    gvrhhtodhrvghnvghsrghssehglhhiuggvrhdrsggvpdhrtghpthhtoheprghlvgigrghn
-    uggvrhdrshhvvghrughlihhnsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrhhgih
-    hordhprghrrggtuhgvlhhlohhssehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhurhgv
-    nhgssehgohhoghhlvgdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrg
-    gurdhorhhgpdhrtghpthhtohepihhrrgdrfigvihhnhiesihhnthgvlhdrtghomh
-X-ME-Proxy: <xmx:g4DCaPln0xPi_AdWtVR-mPv6uC8M-3Q_mjf16Kd5LjcVVSzFRbJ7CA>
-    <xmx:g4DCaDlZzyLWYRlZII_JRVLfe6viWHF9oK_S1UNgWncQPOR1vmL64w>
-    <xmx:g4DCaJdy81733zjxS4Q3r5w2j6PHhciLt1QMfw2trLXRldoMsUuYcw>
-    <xmx:g4DCaJIi6RXGIaczaDEPnKMDiC-8AkssR85-snNhqeii8rn1LFIfJA>
-    <xmx:hIDCaH7vVqOM0fbJf4funeExzGloqdRoMAB7v2eOhCknP0mHQleXCcBx>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D083E700065; Thu, 11 Sep 2025 03:55:46 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 11 Sep 2025 07:56:17 +0000
+Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-8a756436f44so256155241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:56:15 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757577375; x=1758182175;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CXxtbIpMN7aU+UMtLOY1wQvwhq9wcmE2BRs0YRXR44o=;
+        b=S2cm2XkVBtzXKKyM0fOk7c3zSrT098MnAcJjyf81+hbFN9ly6DpnjStU53u/UFTDTP
+         3/MgoIv44HkvY4hrP5JrkPu2BPowWR/14PgYY+Kw+h3DSTm6tFMRjOCoSXWE5aNoPWWF
+         cnTdVCxgw7GxnXcWY9VmjJ81WFPQIJbVDHDO8STTm3Gzj1T+nt/WfziIZHNeK0WFiqMP
+         5AJYqhkHH1Da8HcrjHIlJt4OqTOERvzJSsY3v1kij0Oi2TADtP/nnP3qGWPOQ/LYtSHo
+         XPh8j4XibVePOyHzxOoe5Be60xLdPM1A2aHFlI379a5e4bYd9aHD7NkXdQKRwQC0sOtD
+         VHRg==
+X-Forwarded-Encrypted: i=1; AJvYcCWEzlzNxgrZ7yBu3pywQ1BF+cG2Bh91DScVmkYJaBPG2XHQnXAc09FutRhp1R2KdPFcIgMmKHyraSOr2qpkcGa1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0y0VrORtO7fjHweAFbwfVHeIO0C8kHoJ2oUcHWHk5AHSk50U8
+	8iFx4+2fTu9w3qCr/LuAd7mXy64QtWY2HrZFAwjOiZXpa+wWnJIfhMZipYSGQILr
+X-Gm-Gg: ASbGncuIhkwStTTmEj1A19fDtn0SFf8rIJvWLDgcCIvIAr+XkwrYWJzlLUuL+wKngGD
+	wXHuOPKGL6Rcl7jUd3aGFMcdce106R+iXs0NsxZix4brpoTlDRGiwVfIQoEPjsC8Gfp9RF96wS5
+	vvHcwoJEs9vnh8JMlEHc2f4J20uxKRJtFAsvzubL7xoIsKrmqfZOr90zEuoV0747ax9U73iu77s
+	SuKANZNEpdkDvW1wKctV6rgbWEoO0GJr8jTwsoXfhXwPptp+K9LQDwx1CAZQVHBD7VOR56woni6
+	/Z9A4iTsjglH5A/fuBdQEIuablY0Wqr/ThLxEjoOqbv6g6ENfY3MotkyWgKyQdlt1mWJgvEhlm/
+	EnXExk9PwAhujKF+rikZMOb+qfi/FLMzOjtvro3zqutG7cToSGWzqYnul5A0m0VGDBj7E3XOr2s
+	WnLPerQg==
+X-Google-Smtp-Source: AGHT+IHqJl6KbP7J86JskEYWB3uEX2Q8pX2Kvl2J8YrrBOXnb0fpFA5Pfn4OdP4gM7irbFr5SOYh+A==
+X-Received: by 2002:a05:6102:4a92:b0:522:826e:7bfe with SMTP id ada2fe7eead31-53d1afa279dmr6116673137.5.1757577374964;
+        Thu, 11 Sep 2025 00:56:14 -0700 (PDT)
+Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-55374ee8b4bsm197410137.11.2025.09.11.00.56.13
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Sep 2025 00:56:13 -0700 (PDT)
+Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-54e76ce97e5so343664137.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:56:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX9K0/illSJuFdHakYgJImU9OvnTr9PD2CtKYJMZr6ZnyxfP0XjKzNpwx3k280Ad2ReAV4BvOPtK0/QmXuZoEhQ@lists.infradead.org
+X-Received: by 2002:a05:6102:3a0e:b0:4fa:25a2:5804 with SMTP id
+ ada2fe7eead31-53d1c3d7886mr6590613137.10.1757577373049; Thu, 11 Sep 2025
+ 00:56:13 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AmcCJOTBQ5ho
-Date: Thu, 11 Sep 2025 09:53:45 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Andreas Larsson" <andreas@gaisler.com>, ksummit@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, imx@lists.linux.dev,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Richard Weinberger" <richard@nod.at>,
- "Lucas Stach" <l.stach@pengutronix.de>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Ankur Arora" <ankur.a.arora@oracle.com>,
- "David Hildenbrand" <david@redhat.com>,
- "Mike Rapoport" <rppt@kernel.org>,
- "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
- "Matthew Wilcox" <willy@infradead.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- "Vlastimil Babka" <vbabka@suse.cz>,
- "Suren Baghdasaryan" <surenb@google.com>,
- "Ira Weiny" <ira.weiny@intel.com>, "Nishanth Menon" <nm@ti.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- "Sergio Paracuellos" <sergio.paracuellos@gmail.com>
-Message-Id: <363853cd-7f10-4aa9-8850-47eee6d516b9@app.fastmail.com>
-In-Reply-To: <5d2fec2b-8e59-417e-b9e6-12c6e27dd5f0@gaisler.com>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
- <5d2fec2b-8e59-417e-b9e6-12c6e27dd5f0@gaisler.com>
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20250909111130.132976-1-ulf.hansson@linaro.org> <20250909111130.132976-2-ulf.hansson@linaro.org>
+In-Reply-To: <20250909111130.132976-2-ulf.hansson@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 11 Sep 2025 09:56:00 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUFXioe36r9mzNchHw3DGyEiVA-=ajTp333jowEsrxMNw@mail.gmail.com>
+X-Gm-Features: AS18NWAoOrpJbTee-4MheB9wiiHBjhuIG7cLb2hP-U4LE07BEhE1otcBQ_oHwLc
+Message-ID: <CAMuHMdUFXioe36r9mzNchHw3DGyEiVA-=ajTp333jowEsrxMNw@mail.gmail.com>
+Subject: Re: [PATCH 1/5] pmdomain: core: Restore behaviour for disabling
+ unused PM domains
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	Saravana Kannan <saravanak@google.com>, linux-pm@vger.kernel.org, 
+	Stephen Boyd <sboyd@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Sebin Francis <sebin.francis@ti.com>, 
+	Diederik de Haas <didi.debian@cknow.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_005552_473677_9D61E5A2 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20250911_005616_460174_B5EF3297 
+X-CRM114-Status: GOOD (  28.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,45 +105,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 11, 2025, at 07:38, Andreas Larsson wrote:
+Hi Ulf,
+
+On Tue, 9 Sept 2025 at 13:11, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> Recent changes to genpd prevents those PM domains being powered-on during
+> initialization from being powered-off during the boot sequence. Based upon
+> whether CONFIG_PM_CONFIG_PM_GENERIC_DOMAINS_OF is set of not, genpd relies
+> on the sync_state mechanism or the genpd_power_off_unused() (which is a
+> late_initcall_sync), to understand when it's okay to allow these PM domains
+> to be powered-off.
 >
-> We have a upcoming SoC with support for up to 16 GiB of DRAM. When that is
-> used in LEON sparc32 configuration (using 36-bit physical addressing), a
-> removed CONFIG_HIGHMEM would be a considerable limitation, even after an
-> introduction of different CONFIG_VMSPLIT_* options for sparc32.
+> This new behaviour in genpd has lead to problems on different platforms.
+> Let's therefore restore the behavior of genpd_power_off_unused().
+> Moreover, let's introduce GENPD_FLAG_NO_STAY_ON, to allow genpd OF
+> providers to opt-out from the new behaviour.
+>
+> Link: https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.org/
+> Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Link: https://lore.kernel.org/all/20250902-rk3576-lockup-regression-v1-1-c4a0c9daeb00@collabora.com/
+> Reported-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Fixes: 0e789b491ba0 ("pmdomain: core: Leave powered-on genpds on until sync_state")
+> Fixes: 13a4b7fb6260 ("pmdomain: core: Leave powered-on genpds on until late_initcall_sync")
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 
-I agree that without highmem that chip is going to be unusable from Linux,
-but I wonder if there is a chance to actually use it even with highmem,
-for a combination of reasons:
+Thanks for your patch!
 
-- sparc32 has 36-bit addressing in the MMU, but Linux apparently never
-  supported a 64-bit phys_addr_t here, which would be required.
-  This is probably the easiest part and I assume you already have patches
-  for it.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-- As far as I can tell, the current lowmem area is 192MB, which would
-  be ok(-ish) on a 512MB maxed-out SPARCstation, but for anything bigger
-  you likely run out of lowmem long before being able to touch the
-  all highmem pages. This obviously depends a lot on the workload.
+> --- a/include/linux/pm_domain.h
+> +++ b/include/linux/pm_domain.h
+> @@ -115,6 +115,12 @@ struct dev_pm_domain_list {
+>   *                             genpd provider specific way, likely through a
+>   *                             parent device node. This flag makes genpd to
+>   *                             skip its internal support for this.
+> + *
+> + * GENPD_FLAG_NO_STAY_ON:      For genpd OF providers a powered-on PM domain at
+> + *                             initialization is prevented from being
+> + *                             powered-off until the ->sync_state() callback is
+> + *                             invoked. This flag informs genpd to allow a
+> + *                             power-off without waiting for ->sync_state().
 
-- If you come up with patches to extend lowmem to 2GB at the expense
-  of a lower TASK_SIZE, you're still  looking at a ration of 7:1 with
-  14GB of highmem on the maxed-out configuration, so many workloads
-  would still struggle to actually use that memory for page cache.
+This also restores power-down of pmdomains after a failed device
+probe (due to a real issue, or just -EPROBE_DEFER), possibly
+interfering with other devices that are part of the same pmdomain(s)
+but haven't been probed yet. E.g. what if your serial console is
+part of the same pmdomain?  Probably the pmdomain(s) should not
+be powered down immediately, but only later, when either sync state
+or genpd_power_off_unused() kicks in.
 
-- If we remove HIGHPTE (as discussed in this thread) but keep HIGHMEM,
-  you probably still lose on the 16GB configuration. On 4GB configurations,
-  HIGHPTE is not really a requirement, but for workloads with many
-  concurrent tasks using a lot of virtual address space, you would
-  likely want to /add/ HIGHPTE support on sparc32 first.
+But this is a pre-existing issue, so not a blocked for this patch.
 
-When you say "used in LEON sparc32 configuration", does that mean
-you can also run Linux in some other confuration like an rv64
-kernel on a NOEL-V core on that chip?
+>   */
+>  #define GENPD_FLAG_PM_CLK       (1U << 0)
+>  #define GENPD_FLAG_IRQ_SAFE     (1U << 1)
 
-Aside from the upcoming SoC and whatever happens to that, what is
-the largest LEON Linux memory configuration that you know is used
-in production today and still requires kernel updates beyond ~2029?
+Gr{oetje,eeting}s,
 
-      Arnd
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
