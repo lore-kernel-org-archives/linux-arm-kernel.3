@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE9ECAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 18:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B02CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 18:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mYHb2ePbP/cSM3RYmLN5AkN0s21xSd8WU5SVhx9urGw=; b=kcrfBT48QwcEQWd/FEU2KFbZwg
-	d0eooUBum+mF5rvjeDoR25F3KBKWSz51TYr0fSz40KYUDw8JbT63oiymzRVqKnrg0+IXdpA2Os01s
-	gzljPv9mV0wpT/R45EAWjR6W8HcJEQOWTj5Arl5DlLRqLUXqWsl3U7JcKT2tf0eWpt6G3OSlu1djD
-	paTLQFUlPnR+YTBaB3RMlzaCahnb8DSo3O/ql7bIiAFmQ/ISSOVq81vJx3g1ThCsSy6ZCOqm2NdW9
-	g8vIx/DyReFtaIe9c/seMrSnq0izsSzrp/Q041DsuibBgW/8nS4k2m/+Q1cfDo4fiKmDUfGD1ANJf
-	IEa23iPg==;
+	bh=+7nWRXkwzkNu0lYsznyGEbSzR8Qg1Sj9llSzTwfH6ok=; b=CJFmnPwtgMYZgv87wJgczCCkHj
+	3Lewb3Gsi65PQMyRCnphxV6tFh/qBOMrikq+YYtuz7puEhHR61d8ptEPdyRAsROrrpHLXif9b9vzt
+	dw9MBbpRErXVijaGxRXIre25S3hqeaLrmHdIDHzdy0pC1cwqwgIKRuKDYAuWHMQwLMmityeK/+j/u
+	LlPSRtp1JqXrSKK/tAz+cEnVBLSNUP7qFAv1QNzn7JRP8dHWnp+snnTrGNNc1V+Ta3uBlqB8EiE6h
+	89FsQHiu9h4o/s87ylYQyDEo69AnyZ/nfLDAv1i7pRAJ7qGkk3faWQBnd+GcANi5ZfjKjMRokbjMG
+	O214i/ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwlhP-00000004dKu-3urc;
-	Thu, 11 Sep 2025 18:07:11 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1uwljG-00000004dsw-0qnS;
+	Thu, 11 Sep 2025 18:09:06 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwlhM-00000004dJP-3sf1
+	id 1uwljA-00000004dqt-0918
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 18:07:10 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3e249a4d605so1062586f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 11:07:08 -0700 (PDT)
+	Thu, 11 Sep 2025 18:09:05 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45ddc7d5731so7682525e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 11:08:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757614027; x=1758218827; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757614138; x=1758218938; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mYHb2ePbP/cSM3RYmLN5AkN0s21xSd8WU5SVhx9urGw=;
-        b=QYggusO6CL8c3PuERLpF92UabQSA+Hr3S99m4jjtJ95c7/YGW5iD3YLnqATmFcFzMJ
-         s/iqk73Uw27HHZlw0nmv7eJIScBftzIkFsobVnrONSBBOWREQKIGUJgeogdRmhwDvP7A
-         3zYKSbHaYMBDZd9A6tSfz8qFChj/noTiqffunzZCzG8CZHy6yF2E+NGVtMWZwQcGGMem
-         uTEd94dghehYD1ZyNt6rWxhgoRXmTMA+AOMTQfmvijXBNAE1QmNIv4PGGC+FFzIdhB65
-         DNXu1DgQ58PzwojKM2AZIS/Jyhp7loYlazbGmONLF8z3LOWeywbywqs6UiMIojZ9aWSr
-         P6Dw==
+        bh=+7nWRXkwzkNu0lYsznyGEbSzR8Qg1Sj9llSzTwfH6ok=;
+        b=ZX5oIT2qOPX7XAJC/UCZO1M3GjMNy7YA8x+hpFGH6KbihISJxqxUjeA572jdLrW9U0
+         y2n7IN2iQOpikKJkxu5eKZa5tXwgDEHjK48iI/Qhvw21NRzsCHbpJ2ZQiKYcLcEhrY6c
+         KrXpOoIoErOHq0Jc814vxqcM6d+d17e/hFpYJ1o6+QHg6GdE7VeUP38rAJFI/OQK7/HC
+         qnqSoI6r9WJIfBupnqFmbUV+/G5Iljsz3FvNpvowWDl2ngbXht7cvLeH7VID1qIR9IWH
+         zzJlN0K7vk+5mM7LhNdiTdOQbysc3sYxTRykh+SXTAZomSxn6Ct1T8iR2BnoMucY+wnz
+         Nxpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757614027; x=1758218827;
+        d=1e100.net; s=20230601; t=1757614138; x=1758218938;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mYHb2ePbP/cSM3RYmLN5AkN0s21xSd8WU5SVhx9urGw=;
-        b=KSFtZUxxE/eoxEU1oJoWbW/cTzAR1M0pCqtFHCdzA1tSeJVhJXN8gEKSwysqDEun4A
-         LSx7XVRme68tevBrw6qPr3SuS8eV3oUzlnKYYlBJ57ecLoR6gECU4BHffyAZe06SJs1Z
-         WjCOP/leFPLRV3QpRA7VYq/uSLRtB6rZBCT+D6K9uJqHD9J/5dhuQhgPL0DzzVxKXUsT
-         fq5cRWJknc1yuGXhDcwiM5d52sR+BgcD8rhg+9BvBrpSrROPI+Oyj1QP28ARzabSzYnr
-         7ZZK1gU5MWvGuIPbZqaqNGMqYZypW38e43zCjNIVhzvO0OtZ/yapLn5RS/ruASTGRWr8
-         B3Qw==
-X-Forwarded-Encrypted: i=1; AJvYcCV7sPnkeersSyT7WX+FNw/ycH6CAIT4A+o/tw8sjqhMKORw4q8EhIeolcHj1TaTIXC1GK8Iii8RIyLHoVXVPCEf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBCGxjhpgakvcOQ0XUXu9mC/htEhLOjddM6+BA1OAEFKQliR4S
-	Mp9D5AdVe3UcAjCIICjwhrwfk3CwkFKyK/cbNZ1uAkw30jEH8SJoezqJ
-X-Gm-Gg: ASbGncu4giPqBYprxPmWlo0odolDgRVP+AMajadtXPEtjEndtx3EAIomy8++Y2LN/Kp
-	4xqMYdoWk2GMjOnIpAp/kWhqxSXFZ4PJNwn8EQ16qZCocFZBOCgC9mwL2WnGKph6uHoBwgMwmGz
-	JP5whccFdyZMAf66tFqI5Vfinww4Kl43rvSnbmPK0XfsZZKLHOvsXIqJbgAHLDnCSGDFO02YoDW
-	leGMJk+xLOjwr8gNlmVgJGchV4UtEE/v/dw3ibu6xTG8C1mRpR2FNKyQ/TQWV0ulA/vzX/FiaQ7
-	/dHapN0f5OCFqW79wOlfMoP3ZfX9w4dUliOPgm4WsC0ojXBz2rmsXa9z5ORZJ6Eg/Xxu/BH42gq
-	s5ocHUXSvUJBJzILHOoEbMgybhpqaOhAf6in5PO0PidvX0zW+BRGQ6PTOrtvpQBLeCFbKYpkLze
-	snI1RFyuqxwA==
-X-Google-Smtp-Source: AGHT+IHR6gKFBxF/Amrl+hTiQqEAGO5RUJG7DroNK0beFvilU6FlAdKcfqOOFlfA2Rioywi+kGhMlA==
-X-Received: by 2002:a05:6000:2f87:b0:3e6:e931:b42c with SMTP id ffacd0b85a97d-3e7659e9785mr284823f8f.39.1757614026548;
-        Thu, 11 Sep 2025 11:07:06 -0700 (PDT)
+        bh=+7nWRXkwzkNu0lYsznyGEbSzR8Qg1Sj9llSzTwfH6ok=;
+        b=J+iFAOpASJNGbe18vCvtvHub66zW/0UvEDOnCaC4P26CF88oNuPJKfvfzCMzpL1ZBA
+         CKpc+tSaFOIeW9ZPSt61NrwzN6YfL4d4Lh81KVOxlGCgymDgVonr5W0fp3jB1QGNqHvr
+         JFmHU2Ka7sM1E5CzOOpk6NrjMIcluBfuBI76ZXr04AO1VYV28vcBe0qS2iFzIV+DnOn0
+         TepETTEO/gkIVxG0pGkbgRcLSPW5bdXtYpdYp1gfd3pTmOO7EsWWdujLIbjslcg13bnf
+         VmXSkwBP3bXPvF18QuwVXqptWBs6PLSwHWofTfh5N1dWaaKJyczlKS0LzgsgQLjnDjfe
+         1Lyg==
+X-Forwarded-Encrypted: i=1; AJvYcCUR/NdfPUCYkPDrmKmwN7jE6qgfuKqarz6EtceOncAVwqJC4Ljsz+UYmcVqgnKw62OWoWsm/OXCbJ99jXBRAB4E@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfPY+9ERJMU7YlFkBYqfyIXkshvMnrGWDBkF2nYjMKFDv64rR8
+	zMx3Xvn0a5SHEOeD2P8g6K+VuNHGIkBgDN0rtkHl15Y8d1qaY/NziQIm
+X-Gm-Gg: ASbGncuUJL/LcRyonu5aSQHTm9eT5EY+WHTz7lJCGE+GCPn7RLA90uaYx0ub5zNJNV/
+	anG9auJXVUkk42VFJO+cPvrvDbhAooYokMmhHWDQ7AzQum+26rHGj8A5/2hwvNoCIElR0RF9o6f
+	tvdpVWDJWaY2AmThXvugk9v4Ah7ANZgjyAtbMIlPcKvdXwkdiZSx1+jDa/WM8mX4pHcFY+XjBUd
+	5paEvjihNiGCx6mMv03B4FkhTCu7xgx6XVtnz4SB/Es0u1nFS560fs5Oa0wNpqSNZ5hsB7ogczg
+	Y49p/OFFerDUeSazJFJ0vXnc8on80wd+Kv9R7xzPXnREWV4IujI3kcQzigB4n7+qOSgwUUGOGwa
+	Ht/OKGEdwnzDlSEo5iBBin42w/Gd3VLxmOwA2uF8BMZui5dpuzTagJxHAiaq+FGl//ngJCYpwwh
+	teiI71atT39w==
+X-Google-Smtp-Source: AGHT+IG/tgONKkALdGCBSwVsuGobkxpNF6yi/bsIuUbq0WXKY1dVZ7jjm+lB6jrMTTAtwUaxRQ2WoQ==
+X-Received: by 2002:a05:600c:58c1:b0:45d:e0d8:a0bb with SMTP id 5b1f17b1804b1-45f21214d99mr2291715e9.23.1757614138011;
+        Thu, 11 Sep 2025 11:08:58 -0700 (PDT)
 Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e015775f1sm35637425e9.8.2025.09.11.11.07.05
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e016b5a2esm35156765e9.13.2025.09.11.11.08.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Sep 2025 11:07:06 -0700 (PDT)
+        Thu, 11 Sep 2025 11:08:57 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
  Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
@@ -77,19 +77,18 @@ To: Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
 Cc: Andre Przywara <andre.przywara@arm.com>, linux-sunxi@lists.linux.dev,
  linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/7] clk: sunxi-ng: sun55i-a523-ccu: Add missing NPU module
- clock
-Date: Thu, 11 Sep 2025 20:07:04 +0200
-Message-ID: <2795929.mvXUDI8C0e@jernej-laptop>
-In-Reply-To: <20250911174710.3149589-4-wens@kernel.org>
+Subject: Re: [PATCH v2 4/7] clk: sunxi-ng: div: support power-of-two dividers
+Date: Thu, 11 Sep 2025 20:08:56 +0200
+Message-ID: <5919523.DvuYhMxLoT@jernej-laptop>
+In-Reply-To: <20250911174710.3149589-5-wens@kernel.org>
 References: <20250911174710.3149589-1-wens@kernel.org>
- <20250911174710.3149589-4-wens@kernel.org>
+ <20250911174710.3149589-5-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_110708_990636_7DFD9699 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20250911_110900_088356_7CCB64A0 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,22 +103,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne =C4=8Detrtek, 11. september 2025 ob 19:47:06 Srednjeevropski poletni =
+Dne =C4=8Detrtek, 11. september 2025 ob 19:47:07 Srednjeevropski poletni =
 =C4=8Das je Chen-Yu Tsai napisal(a):
 > From: Chen-Yu Tsai <wens@csie.org>
 >=20
-> The main clock controller on the A523/T527 has the NPU's module clock.
-> It was missing from the original submission, likely because that was
-> based on the A523 user manual; the A523 is marketed without the NPU.
+> Some clocks (for timers) on the A523 are mux-divider-gate types
+> with the divider being values of power-of-two.
 >=20
-> Also, merge the private header back into the driver code itself. The
-> header only contains a macro containing the total number of clocks.
-> This has to be updated every time a missing clock gets added. Having
-> it in a separate file doesn't help the process. Instead just drop the
-> macro, and thus the header no longer has any reason to exist.
->=20
-> Also move the .num value to after the list of clks to make it obvious
-> that it should be updated when new clks are added.
+> Add a macro for these types of clocks so that we can use the divider
+> types instead of the M-P types without an M divider.
 >=20
 > Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 
@@ -129,110 +121,39 @@ Best regards,
 Jernej
 
 > ---
-> Changes since v1:
-> - Move .num to after list of clks
-> ---
->  drivers/clk/sunxi-ng/ccu-sun55i-a523.c | 21 ++++++++++++++++++---
->  drivers/clk/sunxi-ng/ccu-sun55i-a523.h | 14 --------------
->  2 files changed, 18 insertions(+), 17 deletions(-)
->  delete mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523.h
+>  drivers/clk/sunxi-ng/ccu_div.h | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
 >=20
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sunxi-n=
-g/ccu-sun55i-a523.c
-> index 1a9a1cb869e2..acb532f8361b 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-> @@ -11,6 +11,9 @@
->  #include <linux/module.h>
->  #include <linux/platform_device.h>
+> diff --git a/drivers/clk/sunxi-ng/ccu_div.h b/drivers/clk/sunxi-ng/ccu_di=
+v.h
+> index 90d49ee8e0cc..be00b3277e97 100644
+> --- a/drivers/clk/sunxi-ng/ccu_div.h
+> +++ b/drivers/clk/sunxi-ng/ccu_div.h
+> @@ -274,6 +274,24 @@ struct ccu_div {
+>  	SUNXI_CCU_M_HWS_WITH_GATE(_struct, _name, _parent, _reg,	\
+>  				  _mshift, _mwidth, 0, _flags)
 > =20
-> +#include <dt-bindings/clock/sun55i-a523-ccu.h>
-> +#include <dt-bindings/reset/sun55i-a523-ccu.h>
+> +#define SUNXI_CCU_P_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg,	\
+> +				       _mshift, _mwidth,		\
+> +				       _muxshift, _muxwidth,		\
+> +				       _gate, _flags)			\
+> +	struct ccu_div _struct =3D {					\
+> +		.enable	=3D _gate,					\
+> +		.div	=3D _SUNXI_CCU_DIV_FLAGS(_mshift, _mwidth,	\
+> +					       CLK_DIVIDER_POWER_OF_TWO), \
+> +		.mux	=3D _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
+> +		.common	=3D {						\
+> +			.reg		=3D _reg,				\
+> +			.hw.init	=3D CLK_HW_INIT_PARENTS_DATA(_name, \
+> +								   _parents, \
+> +								   &ccu_div_ops, \
+> +								   _flags), \
+> +		},							\
+> +	}
 > +
->  #include "../clk.h"
-> =20
->  #include "ccu_common.h"
-> @@ -25,8 +28,6 @@
->  #include "ccu_nkmp.h"
->  #include "ccu_nm.h"
-> =20
-> -#include "ccu-sun55i-a523.h"
-> -
->  /*
->   * The 24 MHz oscillator, the root of most of the clock tree.
->   * .fw_name is the string used in the DT "clock-names" property, used to
-> @@ -486,6 +487,18 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(ve_clk, "ve", ve=
-_parents, 0x690,
-> =20
->  static SUNXI_CCU_GATE_HWS(bus_ve_clk, "bus-ve", ahb_hws, 0x69c, BIT(0), =
-0);
-> =20
-> +static const struct clk_hw *npu_parents[] =3D {
-> +	&pll_periph0_480M_clk.common.hw,
-> +	&pll_periph0_600M_clk.hw,
-> +	&pll_periph0_800M_clk.common.hw,
-> +	&pll_npu_2x_clk.hw,
-> +};
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(npu_clk, "npu", npu_parents, 0x6e0,
-> +				    0, 5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-> +
->  static SUNXI_CCU_GATE_HWS(bus_dma_clk, "bus-dma", ahb_hws, 0x70c, BIT(0)=
-, 0);
-> =20
->  static SUNXI_CCU_GATE_HWS(bus_msgbox_clk, "bus-msgbox", ahb_hws, 0x71c,
-> @@ -1217,6 +1230,7 @@ static struct ccu_common *sun55i_a523_ccu_clks[] =
-=3D {
->  	&bus_ce_sys_clk.common,
->  	&ve_clk.common,
->  	&bus_ve_clk.common,
-> +	&npu_clk.common,
->  	&bus_dma_clk.common,
->  	&bus_msgbox_clk.common,
->  	&bus_spinlock_clk.common,
-> @@ -1343,7 +1357,6 @@ static struct ccu_common *sun55i_a523_ccu_clks[] =
-=3D {
->  };
-> =20
->  static struct clk_hw_onecell_data sun55i_a523_hw_clks =3D {
-> -	.num	=3D CLK_NUMBER,
->  	.hws	=3D {
->  		[CLK_PLL_DDR0]		=3D &pll_ddr_clk.common.hw,
->  		[CLK_PLL_PERIPH0_4X]	=3D &pll_periph0_4x_clk.common.hw,
-> @@ -1524,7 +1537,9 @@ static struct clk_hw_onecell_data sun55i_a523_hw_cl=
-ks =3D {
->  		[CLK_FANOUT0]		=3D &fanout0_clk.common.hw,
->  		[CLK_FANOUT1]		=3D &fanout1_clk.common.hw,
->  		[CLK_FANOUT2]		=3D &fanout2_clk.common.hw,
-> +		[CLK_NPU]		=3D &npu_clk.common.hw,
->  	},
-> +	.num	=3D CLK_NPU + 1,
->  };
-> =20
->  static struct ccu_reset_map sun55i_a523_ccu_resets[] =3D {
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.h b/drivers/clk/sunxi-n=
-g/ccu-sun55i-a523.h
-> deleted file mode 100644
-> index fc8dd42f1b47..000000000000
-> --- a/drivers/clk/sunxi-ng/ccu-sun55i-a523.h
-> +++ /dev/null
-> @@ -1,14 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -/*
-> - * Copyright 2024 Arm Ltd.
-> - */
-> -
-> -#ifndef _CCU_SUN55I_A523_H
-> -#define _CCU_SUN55I_A523_H
-> -
-> -#include <dt-bindings/clock/sun55i-a523-ccu.h>
-> -#include <dt-bindings/reset/sun55i-a523-ccu.h>
-> -
-> -#define CLK_NUMBER	(CLK_FANOUT2 + 1)
-> -
-> -#endif /* _CCU_SUN55I_A523_H */
+>  static inline struct ccu_div *hw_to_ccu_div(struct clk_hw *hw)
+>  {
+>  	struct ccu_common *common =3D hw_to_ccu_common(hw);
 >=20
 
 
