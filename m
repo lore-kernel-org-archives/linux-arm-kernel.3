@@ -4,57 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4362CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1353CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GfW58eup7tYJbLTVeKv5wvtUiuNQqq9cEgUw5/9b13Y=; b=K90iBjuT3wGWeU0Xpqyaf8Qb1V
-	QSs/fYvRHvKjTHkVEAD2syeJ8iN/rzVoAfKgSy2AeAegtBsKvVJgRbXLwZQLyJfW508ky/NzyvH62
-	2knuuNvuyUoPjDWWSFEpChzJiMNdvlG9OfCefGH2XKhGkAw2Keccd+Ed4xzVYYPFNxyNVIcwWRRCr
-	i2d+QRmemLx5d425BeIDRf4XKYs6BAx41aC1NcwzvJh7I+ZlvC+FMNMnnEhtZtDwm4yPXQ0lBcHw4
-	VeIZITIWcpMj6Kq4u+ql6OsAPTUuaILffATOaEvPgv4zZdMlu4Fox3PK13hVxOq0J5uDqsZ3msNVb
-	vWXxwezA==;
+	bh=EjHWS19Y8wiECj9033v4DaVlJKOqYGaE33H2Dh18YhY=; b=qtxJJYlr1khpDUR4sj7mh0sxho
+	y8opaiqyiNPhTEqaNR33rXkrIGMNiUOzdNh1Ukshz0251IVq7rJ9fO7SQLFJBlWxhpPa5X4bmVson
+	qha3uwLTBJaKy9NRL4ar5B9SxqEWjI03blrrYsTgdOxVaIR2IgfQJtegzUpyw3zJzNwpPc/zyX0Jq
+	jzaH5Tj+/8hopG1zSawIgd5M+z0GyG6pfxTBQEC+iDKE51I/t5P/STRtLB6aOIeWq8jHVZNg3o2DZ
+	E+uWOtdV0x0Sk5CRvAMjwAVtMydbVl1GUKxSjTIRTPLgZFsyVlfCRua3FXbW2rLMIsUQaSZYblVmZ
+	D7YemxWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwi9C-00000003VWU-2A5O;
-	Thu, 11 Sep 2025 14:19:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwi99-00000003VVa-49el
+	id 1uwiCS-00000003WZs-3bTs;
+	Thu, 11 Sep 2025 14:23:00 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwiCN-00000003WYr-1RQ9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 14:19:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8B09153B;
-	Thu, 11 Sep 2025 07:19:24 -0700 (PDT)
-Received: from [10.1.32.180] (unknown [10.1.32.180])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 95A4F3F694;
-	Thu, 11 Sep 2025 07:19:31 -0700 (PDT)
-Message-ID: <b4c7ad35-e855-498a-9128-6f2bdf6baaec@arm.com>
-Date: Thu, 11 Sep 2025 15:19:30 +0100
+	Thu, 11 Sep 2025 14:22:59 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cN07p3l0xz6LD8G;
+	Thu, 11 Sep 2025 22:20:06 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7BCCE1402FE;
+	Thu, 11 Sep 2025 22:22:46 +0800 (CST)
+Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Sep
+ 2025 16:22:45 +0200
+Date: Thu, 11 Sep 2025 15:22:44 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
+	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
+	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
+	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
+	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
+	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
+ Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
+	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH v2 08/29] arm_mpam: Add the class and component
+ structures for firmware described ris
+Message-ID: <20250911152244.000047db@huawei.com>
+In-Reply-To: <20250910204309.20751-9-james.morse@arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+	<20250910204309.20751-9-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 2/2] arm64: tlbflush: Don't broadcast if mm was
- only active on local cpu
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, James Morse <james.morse@arm.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250829153510.2401161-1-ryan.roberts@arm.com>
- <20250829153510.2401161-3-ryan.roberts@arm.com>
- <dcc3b52d-0b86-47fc-8297-a6abc8af4c38@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <dcc3b52d-0b86-47fc-8297-a6abc8af4c38@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_071936_112094_94A954E1 
-X-CRM114-Status: GOOD (  41.37  )
+X-CRM114-CacheID: sfid-20250911_072255_672912_46573DE9 
+X-CRM114-Status: GOOD (  37.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,310 +86,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/09/2025 00:58, Yang Shi wrote:
-> Hi Ryan,
-> 
-> 
-> On 8/29/25 8:35 AM, Ryan Roberts wrote:
->> There are 3 variants of tlb flush that invalidate user mappings:
->> flush_tlb_mm(), flush_tlb_page() and __flush_tlb_range(). All of these
->> would previously unconditionally broadcast their tlbis to all cpus in
->> the inner shareable domain.
->>
->> But this is a waste of effort if we can prove that the mm for which we
->> are flushing the mappings has only ever been active on the local cpu. In
->> that case, it is safe to avoid the broadcast and simply invalidate the
->> current cpu.
->>
->> So let's track in mm_context_t::active_cpu either the mm has never been
->> active on any cpu, has been active on more than 1 cpu, or has been
->> active on precisely 1 cpu - and in that case, which one. We update this
->> when switching context, being careful to ensure that it gets updated
->> *before* installing the mm's pgtables. On the reader side, we ensure we
->> read *after* the previous write(s) to the pgtable(s) that necessitated
->> the tlb flush have completed. This guarrantees that if a cpu that is
->> doing a tlb flush sees it's own id in active_cpu, then the old pgtable
->> entry cannot have been seen by any other cpu and we can flush only the
->> local cpu.
->>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>   arch/arm64/include/asm/mmu.h         | 12 ++++
->>   arch/arm64/include/asm/mmu_context.h |  2 +
->>   arch/arm64/include/asm/tlbflush.h    | 90 +++++++++++++++++++++++++---
->>   arch/arm64/mm/context.c              | 30 +++++++++-
->>   4 files changed, 123 insertions(+), 11 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
->> index 6e8aa8e72601..ca32fb860309 100644
->> --- a/arch/arm64/include/asm/mmu.h
->> +++ b/arch/arm64/include/asm/mmu.h
->> @@ -17,6 +17,17 @@
->>   #include <linux/refcount.h>
->>   #include <asm/cpufeature.h>
->>   +/*
->> + * Sentinal values for mm_context_t::active_cpu. ACTIVE_CPU_NONE indicates the
->> + * mm has never been active on any CPU. ACTIVE_CPU_MULTIPLE indicates the mm
->> + * has been active on multiple CPUs. Any other value is the ID of the single
->> + * CPU that the mm has been active on.
->> + */
->> +enum active_cpu {
->> +    ACTIVE_CPU_NONE = UINT_MAX,
->> +    ACTIVE_CPU_MULTIPLE = UINT_MAX - 1,
->> +};
->> +
->>   typedef struct {
->>       atomic64_t    id;
->>   #ifdef CONFIG_COMPAT
->> @@ -26,6 +37,7 @@ typedef struct {
->>       void        *vdso;
->>       unsigned long    flags;
->>       u8        pkey_allocation_map;
->> +    unsigned int    active_cpu;
-> 
-> Any reason why you don't use bit mask to mark the active CPUs? And mm_struct
-> also has cpu_bitmap to record the active CPUs which the process has run on. Why
-> not just use it? 
+On Wed, 10 Sep 2025 20:42:48 +0000
+James Morse <james.morse@arm.com> wrote:
 
-An earlier draft of this patch used that approach. But that version returned
-some performance regressions. I then re-wrote the whole thing as tight as I
-could, including getting rid of the use of the cpu mask; I figured that there
-are (usually?) 512 bits in a mask, so that's 8 loads to figure out if the thread
-has run on more than 1 CPU. Whereas my approach is 1 load.
-
-Anyway, I don't have hard evidence that it is actually the cpu mask that was
-causing the slow downs. I made other changes too. I'll revisit this and do more
-testing. I agree it would be good to use the cpu mask if we can. (or don't
-bother allocating it if we can't!).
-
-> x86 uses it to determine which CPUs kernel should send TLB
-> flush IPI to. I understand this series just check whether local cpu is the
-> active cpu or not, but bit mask should not make things more complicated. And it
-> also can provide more flexibility. We can extend this, for example, use IPI to
-> send local TLB flush if the number of active cpus is quite low. AFAIK, x86 added
-> TLBI broadcast support too, and fallback to IPI if the number of active cpus is
-> <= 3. IIRC, Christohper's series did the similar thing. He should be interested
-> in this series too, cc'ed him.
-
-That definitely feels like a separate step, if we even want to go in that direction.
-
+> An MSC is a container of resources, each identified by their RIS index.
+> Some RIS are described by firmware to provide their position in the system.
+> Others are discovered when the driver probes the hardware.
 > 
-> Thanks,
-> Yang
+> To configure a resource it needs to be found by its class, e.g. 'L2'.
+> There are two kinds of grouping, a class is a set of components, which
+> are visible to user-space as there are likely to be multiple instances
+> of the L2 cache. (e.g. one per cluster or package)
 > 
->>   } mm_context_t;
->>     /*
->> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/
->> mmu_context.h
->> index 0dbe3b29049b..db2505a8eba8 100644
->> --- a/arch/arm64/include/asm/mmu_context.h
->> +++ b/arch/arm64/include/asm/mmu_context.h
->> @@ -180,6 +180,8 @@ init_new_context(struct task_struct *tsk, struct mm_struct
->> *mm)
->>       /* pkey 0 is the default, so always reserve it. */
->>       mm->context.pkey_allocation_map = BIT(0);
->>   +    WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
->> +
->>       return 0;
->>   }
->>   diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/
->> tlbflush.h
->> index f66b8c4696d0..651440e0aff9 100644
->> --- a/arch/arm64/include/asm/tlbflush.h
->> +++ b/arch/arm64/include/asm/tlbflush.h
->> @@ -182,6 +182,52 @@ static inline unsigned long get_trans_granule(void)
->>           (__pages >> (5 * (scale) + 1)) - 1;            \
->>       })
->>   +/*
->> + * Determines whether the user tlbi invalidation can be performed only on the
->> + * local CPU or whether it needs to be broadcast. (Returns true for local).
->> + * Additionally issues appropriate barrier to ensure prior pgtable updates are
->> + * visible to the table walker. Must be paired with flush_tlb_user_post().
->> + */
->> +static inline bool flush_tlb_user_pre(struct mm_struct *mm)
->> +{
->> +    unsigned int self, active;
->> +    bool local;
->> +
->> +    migrate_disable();
->> +
->> +    self = smp_processor_id();
->> +
->> +    /*
->> +     * The load of mm->context.active_cpu must not be reordered before the
->> +     * store to the pgtable that necessitated this flush. This ensures that
->> +     * if the value read is our cpu id, then no other cpu can have seen the
->> +     * old pgtable value and therefore does not need this old value to be
->> +     * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
->> +     * needed to make the pgtable updates visible to the walker, to a
->> +     * dsb(ish) by default. So speculatively load without a barrier and if
->> +     * it indicates our cpu id, then upgrade the barrier and re-load.
->> +     */
->> +    active = READ_ONCE(mm->context.active_cpu);
->> +    if (active == self) {
->> +        dsb(ish);
->> +        active = READ_ONCE(mm->context.active_cpu);
->> +    } else {
->> +        dsb(ishst);
->> +    }
->> +
->> +    local = active == self;
->> +    if (!local)
->> +        migrate_enable();
->> +
->> +    return local;
->> +}
->> +
->> +static inline void flush_tlb_user_post(bool local)
->> +{
->> +    if (local)
->> +        migrate_enable();
->> +}
->> +
->>   /*
->>    *    TLB Invalidation
->>    *    ================
->> @@ -274,11 +320,18 @@ static inline void flush_tlb_all(void)
->>   static inline void flush_tlb_mm(struct mm_struct *mm)
->>   {
->>       unsigned long asid;
->> +    bool local;
->>   -    dsb(ishst);
->> +    local = flush_tlb_user_pre(mm);
->>       asid = __TLBI_VADDR(0, ASID(mm));
->> -    __tlbi(aside1is, asid);
->> -    __tlbi_user(aside1is, asid);
->> +    if (local) {
->> +        __tlbi(aside1, asid);
->> +        __tlbi_user(aside1, asid);
->> +    } else {
->> +        __tlbi(aside1is, asid);
->> +        __tlbi_user(aside1is, asid);
->> +    }
->> +    flush_tlb_user_post(local);
->>       dsb(ish);
->>       mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
->>   }
->> @@ -287,11 +340,18 @@ static inline void __flush_tlb_page_nosync(struct
->> mm_struct *mm,
->>                          unsigned long uaddr)
->>   {
->>       unsigned long addr;
->> +    bool local;
->>   -    dsb(ishst);
->> +    local = flush_tlb_user_pre(mm);
->>       addr = __TLBI_VADDR(uaddr, ASID(mm));
->> -    __tlbi(vale1is, addr);
->> -    __tlbi_user(vale1is, addr);
->> +    if (local) {
->> +        __tlbi(vale1, addr);
->> +        __tlbi_user(vale1, addr);
->> +    } else {
->> +        __tlbi(vale1is, addr);
->> +        __tlbi_user(vale1is, addr);
->> +    }
->> +    flush_tlb_user_post(local);
->>       mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
->>                           (uaddr & PAGE_MASK) + PAGE_SIZE);
->>   }
->> @@ -437,6 +497,8 @@ static inline bool __flush_tlb_range_limit_excess(unsigned
->> long start,
->>   enum tlbi_op {
->>       TLBI_VALE1IS,
->>       TLBI_VAE1IS,
->> +    TLBI_VALE1,
->> +    TLBI_VAE1,
->>   };
->>     #define flush_tlb_range_op(op, ...)                    \
->> @@ -448,6 +510,12 @@ do {                                    \
->>       case TLBI_VAE1IS:                        \
->>           __flush_tlb_range_op(vae1is, __VA_ARGS__);        \
->>           break;                            \
->> +    case TLBI_VALE1:                        \
->> +        __flush_tlb_range_op(vale1, __VA_ARGS__);        \
->> +        break;                            \
->> +    case TLBI_VAE1:                            \
->> +        __flush_tlb_range_op(vae1,  __VA_ARGS__);        \
->> +        break;                            \
->>       default:                            \
->>           BUILD_BUG_ON_MSG(1, "Unknown TLBI op");            \
->>       }                                \
->> @@ -460,6 +528,7 @@ static inline void __flush_tlb_range_nosync(struct
->> mm_struct *mm,
->>   {
->>       unsigned long asid, pages;
->>       enum tlbi_op tlbi_op;
->> +    bool local;
->>         start = round_down(start, stride);
->>       end = round_up(end, stride);
->> @@ -470,13 +539,18 @@ static inline void __flush_tlb_range_nosync(struct
->> mm_struct *mm,
->>           return;
->>       }
->>   -    dsb(ishst);
->> +    local = flush_tlb_user_pre(mm);
->>       asid = ASID(mm);
->>   -    tlbi_op = last_level ? TLBI_VALE1IS : TLBI_VAE1IS;
->> +    if (local)
->> +        tlbi_op = last_level ? TLBI_VALE1 : TLBI_VAE1;
->> +    else
->> +        tlbi_op = last_level ? TLBI_VALE1IS : TLBI_VAE1IS;
->> +
->>       flush_tlb_range_op(tlbi_op, start, pages, stride, asid, tlb_level,
->>                  true, lpa2_is_enabled());
->>   +    flush_tlb_user_post(local);
->>       mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
->>   }
->>   diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
->> index b2ac06246327..adf4fc26ddb6 100644
->> --- a/arch/arm64/mm/context.c
->> +++ b/arch/arm64/mm/context.c
->> @@ -214,9 +214,10 @@ static u64 new_context(struct mm_struct *mm)
->>     void check_and_switch_context(struct mm_struct *mm)
->>   {
->> -    unsigned long flags;
->> -    unsigned int cpu;
->> +    unsigned int cpu = smp_processor_id();
->>       u64 asid, old_active_asid;
->> +    unsigned int active;
->> +    unsigned long flags;
->>         if (system_supports_cnp())
->>           cpu_set_reserved_ttbr0();
->> @@ -251,7 +252,6 @@ void check_and_switch_context(struct mm_struct *mm)
->>           atomic64_set(&mm->context.id, asid);
->>       }
->>   -    cpu = smp_processor_id();
->>       if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
->>           local_flush_tlb_all();
->>   @@ -262,6 +262,30 @@ void check_and_switch_context(struct mm_struct *mm)
->>         arm64_apply_bp_hardening();
->>   +    /*
->> +     * Update mm->context.active_cpu in such a manner that we avoid cmpxchg
->> +     * and dsb unless we definitely need it. If initially ACTIVE_CPU_NONE
->> +     * then we are the first cpu to run so set it to our id. If initially
->> +     * any id other than ours, we are the second cpu to run so set it to
->> +     * ACTIVE_CPU_MULTIPLE. If we update the value then we must issue
->> +     * dsb(ishst) to ensure stores to mm->context.active_cpu are ordered
->> +     * against the TTBR0 write in cpu_switch_mm()/uaccess_enable(); the
->> +     * store must be visible to another cpu before this cpu could have
->> +     * populated any TLB entries based on the pgtables that will be
->> +     * installed.
->> +     */
->> +    active = READ_ONCE(mm->context.active_cpu);
->> +    if (active != cpu && active != ACTIVE_CPU_MULTIPLE) {
->> +        if (active == ACTIVE_CPU_NONE)
->> +            active = cmpxchg_relaxed(&mm->context.active_cpu,
->> +                         ACTIVE_CPU_NONE, cpu);
->> +
->> +        if (active != ACTIVE_CPU_NONE)
->> +            WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_MULTIPLE);
->> +
->> +        dsb(ishst);
->> +    }
->> +
->>       /*
->>        * Defer TTBR0_EL1 setting for user threads to uaccess_enable() when
->>        * emulating PAN.
+> Add support for creating and destroying structures to allow a hierarchy
+> of resources to be created.
 > 
+> CC: Ben Horgan <ben.horgan@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+
+Various minor things inline.
+
+Biggest is I think maybe just moving to explicit reference counts
+rather than using the empty list for that might end up easier to
+read. Mostly because everyone knows what a kref_put() is about.
+
+Obviously a bit pointless in practice, but I prefer not to think too
+hard.
+
+
+> ---
+> Changes since v1:
+>  * Fixed a comp/vmsc typo.
+>  * Removed duplicate description from the commit message.
+>  * Moved parenthesis in the add_to_garbage() macro.
+>  * Check for out of range ris_idx when creating ris.
+>  * Removed GFP as probe_lock is no longer a spin lock.
+>  * Removed alloc flag as ended up searching the lists itself.
+>  * Added a comment about affinity masks not overlapping.
+> 
+> Changes since RFC:
+>  * removed a pr_err() debug message that crept in.
+> ---
+>  drivers/resctrl/mpam_devices.c  | 406 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |  90 +++++++
+>  include/linux/arm_mpam.h        |   8 +-
+>  3 files changed, 493 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index efc4738e3b4d..c7f4981b3545 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -18,7 +18,6 @@
+>  #include <linux/printk.h>
+>  #include <linux/slab.h>
+>  #include <linux/spinlock.h>
+> -#include <linux/srcu.h>
+
+Why does this include no longer make sense?
+
+
+>  #include <linux/types.h>
+>  
+>  #include "mpam_internal.h"
+> @@ -31,7 +30,7 @@
+>  static DEFINE_MUTEX(mpam_list_lock);
+>  static LIST_HEAD(mpam_all_msc);
+>  
+> -static struct srcu_struct mpam_srcu;
+> +struct srcu_struct mpam_srcu;
+
+...
+
+> +/* List of all objects that can be free()d after synchronise_srcu() */
+> +static LLIST_HEAD(mpam_garbage);
+> +
+> +#define init_garbage(x)	init_llist_node(&(x)->garbage.llist)
+
+Whilst this obviously works, I'd rather pass garbage to init_garbage
+instead of the containing structure (where type varies)
+
+> +
+> +static struct mpam_vmsc *
+> +mpam_vmsc_alloc(struct mpam_component *comp, struct mpam_msc *msc)
+> +{
+> +	struct mpam_vmsc *vmsc;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	vmsc = kzalloc(sizeof(*vmsc), GFP_KERNEL);
+> +	if (!vmsc)
+> +		return ERR_PTR(-ENOMEM);
+> +	init_garbage(vmsc);
+> +
+> +	INIT_LIST_HEAD_RCU(&vmsc->ris);
+> +	INIT_LIST_HEAD_RCU(&vmsc->comp_list);
+> +	vmsc->comp = comp;
+> +	vmsc->msc = msc;
+> +
+> +	list_add_rcu(&vmsc->comp_list, &comp->vmsc);
+> +
+> +	return vmsc;
+> +}
+
+> +static struct mpam_component *
+> +mpam_component_get(struct mpam_class *class, int id)
+> +{
+> +	struct mpam_component *comp;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	list_for_each_entry(comp, &class->components, class_list) {
+> +		if (comp->comp_id == id)
+> +			return comp;
+> +	}
+> +
+> +	return mpam_component_alloc(class, id);
+> +}
+
+> +static struct mpam_class *
+> +mpam_class_get(u8 level_idx, enum mpam_class_types type)
+> +{
+> +	bool found = false;
+> +	struct mpam_class *class;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	list_for_each_entry(class, &mpam_classes, classes_list) {
+> +		if (class->type == type && class->level == level_idx) {
+> +			found = true;
+> +			break;
+> +		}
+> +	}
+> +
+> +	if (found)
+> +		return class;
+
+Maybe this gets more complex later, but if it doesn't, just return class where you set
+found above.  Matches with pattern used in mpam_component_get() above.
+
+
+> +
+> +	return mpam_class_alloc(level_idx, type);
+> +}
+
+
+> +static void mpam_ris_destroy(struct mpam_msc_ris *ris)
+> +{
+> +	struct mpam_vmsc *vmsc = ris->vmsc;
+> +	struct mpam_msc *msc = vmsc->msc;
+> +	struct platform_device *pdev = msc->pdev;
+> +	struct mpam_component *comp = vmsc->comp;
+> +	struct mpam_class *class = comp->class;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	/*
+> +	 * It is assumed affinities don't overlap. If they do the class becomes
+> +	 * unusable immediately.
+> +	 */
+> +	cpumask_andnot(&comp->affinity, &comp->affinity, &ris->affinity);
+> +	cpumask_andnot(&class->affinity, &class->affinity, &ris->affinity);
+> +	clear_bit(ris->ris_idx, &msc->ris_idxs);
+> +	list_del_rcu(&ris->vmsc_list);
+> +	list_del_rcu(&ris->msc_list);
+> +	add_to_garbage(ris);
+> +	ris->garbage.pdev = pdev;
+> +
+> +	if (list_empty(&vmsc->ris))
+
+See below. I think it is worth using an explicit reference count even
+though that will only reach zero when the list is empty.
+
+> +		mpam_vmsc_destroy(vmsc);
+> +}
+
+
+> +static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
+> +				  enum mpam_class_types type, u8 class_id,
+> +				  int component_id)
+> +{
+> +	int err;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc_ris *ris;
+> +	struct mpam_class *class;
+> +	struct mpam_component *comp;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	if (ris_idx > MPAM_MSC_MAX_NUM_RIS)
+> +		return -EINVAL;
+> +
+> +	if (test_and_set_bit(ris_idx, &msc->ris_idxs))
+> +		return -EBUSY;
+> +
+> +	ris = devm_kzalloc(&msc->pdev->dev, sizeof(*ris), GFP_KERNEL);
+> +	if (!ris)
+> +		return -ENOMEM;
+> +	init_garbage(ris);
+> +
+> +	class = mpam_class_get(class_id, type);
+> +	if (IS_ERR(class))
+> +		return PTR_ERR(class);
+> +
+> +	comp = mpam_component_get(class, component_id);
+> +	if (IS_ERR(comp)) {
+> +		if (list_empty(&class->components))
+> +			mpam_class_destroy(class);
+
+Maybe just reference count the classes with a kref and do a put here?
+
+> +		return PTR_ERR(comp);
+> +	}
+> +
+> +	vmsc = mpam_vmsc_get(comp, msc);
+> +	if (IS_ERR(vmsc)) {
+> +		if (list_empty(&comp->vmsc))
+> +			mpam_comp_destroy(comp);
+Similar to classes I wonder if simple reference counting is cleaner.
+> +		return PTR_ERR(vmsc);
+> +	}
+> +
+> +	err = mpam_ris_get_affinity(msc, &ris->affinity, type, class, comp);
+> +	if (err) {
+> +		if (list_empty(&vmsc->ris))
+
+and here as well.
+
+> +			mpam_vmsc_destroy(vmsc);
+> +		return err;
+> +	}
+> +
+> +	ris->ris_idx = ris_idx;
+> +	INIT_LIST_HEAD_RCU(&ris->vmsc_list);
+> +	ris->vmsc = vmsc;
+> +
+> +	cpumask_or(&comp->affinity, &comp->affinity, &ris->affinity);
+> +	cpumask_or(&class->affinity, &class->affinity, &ris->affinity);
+> +	list_add_rcu(&ris->vmsc_list, &vmsc->ris);
+> +
+> +	return 0;
+> +}
+
+>  /*
+>   * An MSC can control traffic from a set of CPUs, but may only be accessible
+>   * from a (hopefully wider) set of CPUs. The common reason for this is power
+> @@ -74,10 +469,10 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>  		return;
+>  
+>  	mutex_lock(&mpam_list_lock);
+> -	platform_set_drvdata(pdev, NULL);
+> -	list_del_rcu(&msc->all_msc_list);
+> -	synchronize_srcu(&mpam_srcu);
+> +	mpam_msc_destroy(msc);
+
+I'd suggest introducing mpam_msc_destroy() in the earlier patch. Doesn't make a huge
+difference but 2 out of 3 things removed here would be untouched if you do that.
+
+>  	mutex_unlock(&mpam_list_lock);
+> +
+> +	mpam_free_garbage();
+>  }
+
+
 
 
