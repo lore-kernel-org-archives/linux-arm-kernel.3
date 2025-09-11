@@ -4,92 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E121BCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5FCCAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5XT8NMgj5vRzLdW9q9oYiImrawQNd8w2bYyEW9YcOx4=; b=xbLJPlPDH0ORY1x4no/e8VBmLN
-	0YHfwV40zN5tR7Y8fpJd9py7OoW9g7nwh/n4gcQCEvV7QeaAFgbvWyAecI/S6XKugPFwDDLl7IcLI
-	T/vj6KRVTocugoRx1I8CraNVynJtn2MgZUFByT1ZFhgyp1sCrexgGk2xQ1+UKpBsvqBtvaSDQrDWW
-	7+l5Jn3ck+997wX/qbtyQQnFLc2+aqC0khsDY9bP/dipZDOmNiXzv63Itx6I45tWuVkBNQeYDnVTb
-	LDZ3O6disEF5E54kX4o8BbcUgzdT4rer7G4EqRrnwkbi0I0d1op7sBAUldskt3QUMrUe1vOC0mEh1
-	GO0aZ6eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p1PODi6H2K7+3LlGxoQuwHZt3UE/qkC9ZdWrwkyFJNM=; b=piU0e73h3o9KyhB/TjPl24m1w4
+	KMeSKJUPXJXrVydMYSPCiKzrK2fyVNPfbcYeGCrZihnDxZ8l+k5nQBYvrLrLIWTUUh8QurAYOzFV5
+	gIwns0MCG+AsgbSUR5KKdadL5K/8/5OkILCegur+RaquXrDuE27sGzg54eLLT3liUCIQahGML0gKU
+	b3RcVf/L/zhh/z2Ivy4PfnqCGKRYeIl39wTDQAqYkJZqHojRVmduezB8Mm4CZGVwNLcR5PvfkuJ8T
+	dmFsX07BLCS3FAT18ak+0vd2qOE1rKt77ptfpsN4tbTPFVj0ZxG9EduTAyNqeqlf0yUDNN3owqp55
+	bds/Vn1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcCK-00000001fDN-3X9d;
-	Thu, 11 Sep 2025 07:58:28 +0000
-Received: from mail-vs1-f50.google.com ([209.85.217.50])
+	id 1uwcEc-00000001gb4-3vVL;
+	Thu, 11 Sep 2025 08:00:50 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcCI-00000001fAx-3DTA
+	id 1uwcEa-00000001gYo-3sNI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 07:58:28 +0000
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-5369bb49213so750495137.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:58:26 -0700 (PDT)
+	Thu, 11 Sep 2025 08:00:50 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-623720201fdso846348a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 01:00:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757577647; x=1758182447; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p1PODi6H2K7+3LlGxoQuwHZt3UE/qkC9ZdWrwkyFJNM=;
+        b=SEnYGDDBXQiP/czFDVWCji1mBHw1JFfIDFR8oIQFhFtC32IRyvCx81tXMRzzUDP+Fi
+         OdTKcillKTxT6gMA8FgX60XyQ94Yf1h5aUaf/i3GGMquy0NguLB2DHF92KxWGyHRZcME
+         6B5MOmGu+luZDln2Y4Y9GXdCT4RnJ68f+lOlY9WhNEbYdXaAmeo0nit0/ntDZLcRcLC1
+         L0d1I6BoVUDvZDrnd3zMhnFy8nNzRuAPRwsBEgQwx3pXeKi1ICinCAV/TF9OJlxrdqVJ
+         eLQjKtqXYdksBgOgJg/myKNt9wi1g6k8Uz8c0x+Oe/NcWDPdiLOO4v8QZ8AgiYN6OQ4V
+         TRng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757577505; x=1758182305;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5XT8NMgj5vRzLdW9q9oYiImrawQNd8w2bYyEW9YcOx4=;
-        b=r9aIRCIrJDs5dNw7GSqqk85IbvMN74q43JM7flAOCc9qJWKaVjRIIUwoin0g+6PnyA
-         ys4rQ69/Vs/SEPsqhop82Ftar4v4za0fuqIX4sqcoIrqkkX4IkQ6mEVsQol7lbAwcMJB
-         74zalWoSgANZBQBZCiAI9gY3tiwXuwa5zKzPJaJkdvMFVgJ+4m7ZVDaqntkr6oWN34ku
-         fCZ3qR8uji/h6Em3j2Pg3YNG5cgovM8R1Xdll6PZFTST/3klTG7/ErFzG6OEzegQgVMW
-         l12CK3pdCcxJXtd3H8gImhO72FTzS06GJrgYhytrXHFaRfAAIuDENyvG6EZOayyoP131
-         7q+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWm4lOMYVq06TCoG2LS5AfnF+jXsxTKTG6G7eCcy57XsILbntZuRC/0heLOARb7wr1rKycXs6ztE7Sa/GYE/M/D@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQbm8BDHRxuO7F25RtXUzrcjhS3bXHk6x/MMePYSyf8EPoVvPw
-	E6OiSULsj94Nz4LU6UMY5ou6QGiiS+XdV7KQ+PJbIFhVzR+C5ELihi45/hU3XEgU
-X-Gm-Gg: ASbGncuGLg/wA6ht85Rse2Nns8eP8V4cZGmmsKLQOSKSkRmOBb7FbS0tZm1wEpd3m1j
-	A0/g7tMRU2bwIjKp0b2/7VRU6gXJTXke25g/7N4Vm9AJC8dB1aY0tXVlilUR6l3PLJwn3McwehP
-	d0Nx8A0sqtekdcOATFbwTbwmzM5SBY+pTdQCa5j1Se7byGmDrEOxumDsHxvftD0GNIsjfAFHyxF
-	TdST2529seOSd7gC2EqsuTcpkfrzk0nW6lOw6xfw9deWzmn4CchrWm5unviTNjz1OFBU6msacM3
-	AT7xkh1FR9bU8dDXa8TxGup/bbjWcoWm7HGjd1l02UiikieSpIjgpAdqk1TbSiXqRoaisS2zwSL
-	lA4Rw/BrhxhMTKIWxD7kg9HcY6YphKHPCMA1eIZpZn3PFSm9+daCFYjUnl9aJ
-X-Google-Smtp-Source: AGHT+IE4TajWrPn7UgYNeZPNU9og+yAX7O0N7wUfDvLa60ebnhBhN8on9IWJqJ6JK/FdvBJyU0N6OA==
-X-Received: by 2002:a05:6102:511e:b0:4e7:866c:5cd9 with SMTP id ada2fe7eead31-55208a61891mr838265137.11.1757577505494;
-        Thu, 11 Sep 2025 00:58:25 -0700 (PDT)
-Received: from mail-ua1-f51.google.com (mail-ua1-f51.google.com. [209.85.222.51])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-55376bcda7asm202592137.18.2025.09.11.00.58.24
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Sep 2025 00:58:24 -0700 (PDT)
-Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-8900fcc0330so1030321241.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:58:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVZ9LCUha8A3byppG27TKrkp+ZTexWrZTmE7xhz3+W3EHQYVhtrs1MnCq+3mxznCkKxV0AsEUzD6eZnDpneK3DU@lists.infradead.org
-X-Received: by 2002:a05:6102:292c:b0:528:9956:6a3d with SMTP id
- ada2fe7eead31-5520c29c86amr932343137.12.1757577504247; Thu, 11 Sep 2025
- 00:58:24 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757577647; x=1758182447;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=p1PODi6H2K7+3LlGxoQuwHZt3UE/qkC9ZdWrwkyFJNM=;
+        b=dcTsXnZL2cs0TrBzkcybGOEFvcu/VT/rpNulnR3vBiCRH74LdjxV7ZZqCZ8hanZhvt
+         +oXlrwUElM2APLmCanWv36U+WfY23uakVxRWf57uwJeR8L4S2+9lke2ccJc9XmxuPkiq
+         KWBx4DNbcXGul1sEumP9fW45/8+QhgqfpLeMCsD64xmC3JfF2o5zk31uooQDZSk6jSRa
+         U3uKUXknBhaXor6QNo5PArpUam4/OACvekokZpT7p7Q/FOflrDuT1hbCvrTsrrS0oVe+
+         oLlF19cdeY9JfIxpXLrrYQ99wW8Ln4Z8+jnf7ugiFxWDPq+Zx6bUWevuaqiDaLfwYcx2
+         xyEA==
+X-Forwarded-Encrypted: i=1; AJvYcCVidFGI3NeBcs4irbd9kf1S8oHH/jKQPNJ/7inJjP5fH/50V+od2F/0TyekGVxfvOvsNchnqwHaD1OLPEMZih/e@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZ/JXeu6N4DHeHOPvblRpbUw2oAL+zKOI1FK6dj3HfGlBecE2a
+	98uT9tRQ3yxDzoPSC4vWai1uEhVCpFMLpHUyp4B1VMVpJLdixowbxRrgAao5pKb/H4Z4lQ2gIiI
+	9zLzricKhxMxfw7fffJi2nVjKMMzIclsKVdPoI3CblA==
+X-Gm-Gg: ASbGncuRM62jAzPeZNvimGN5SXlsDiXjObYJPY0e3Rv1tdPq+WFDS3R336spfNNCKh+
+	9cw36nabkw+wJsj+KTQhZikEFsb6RPsKnJ20QjIbaTjGwQTzjsani4NHN2j/4i3VZdfDczLEWgb
+	8AMhgLlPVJaXDjRhc+d/n6K89lo1tVGfF3y7q4YEKQ0ZeDg0ioqEOxhWwGgUYPBdPuHTRfikLbq
+	zZbS6Up5Lx4HbzmY11EuWwV8qbV5Jh5zjVv/twSChA7qAeAlA==
+X-Google-Smtp-Source: AGHT+IGzEzYwQLiPc3IcgYMCTY8qsO9y3WwakWS4JOu30bLWGh1BqDh6LLf50f7d7Tw863clhJFa4G2RQKg6ioIUUPY=
+X-Received: by 2002:a17:907:d16:b0:b04:568b:8a42 with SMTP id
+ a640c23a62f3a-b04b14bbbf0mr1838289166b.29.1757577646906; Thu, 11 Sep 2025
+ 01:00:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250909111130.132976-1-ulf.hansson@linaro.org> <20250909111130.132976-6-ulf.hansson@linaro.org>
-In-Reply-To: <20250909111130.132976-6-ulf.hansson@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 11 Sep 2025 09:58:13 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXJ3D4DC4ukir-mon7_2unNpE_h9uw84yAdoZ6YmeFxWw@mail.gmail.com>
-X-Gm-Features: AS18NWD_t2plr89Vw2try1XwdiXtIzwJE15Ly8pSYFY5EGZZA-yJFymvbXisIAY
-Message-ID: <CAMuHMdXJ3D4DC4ukir-mon7_2unNpE_h9uw84yAdoZ6YmeFxWw@mail.gmail.com>
-Subject: Re: [PATCH 5/5] pmdomain: renesas: rmobile-sysc: Don't keep unused PM
- domains powered-on
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Saravana Kannan <saravanak@google.com>, linux-pm@vger.kernel.org, 
-	Stephen Boyd <sboyd@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Sebin Francis <sebin.francis@ti.com>, 
-	Diederik de Haas <didi.debian@cknow.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+References: <20250813060339.2977604-1-jens.wiklander@linaro.org>
+ <20250813060339.2977604-3-jens.wiklander@linaro.org> <aJ1-YpgvGt4_6CFU@sumit-X1>
+ <CABdmKX2FPg+hO55qWndMajuWP0kZH=OWEh9v-d8aO6HQWyxJtQ@mail.gmail.com>
+ <CAO_48GEqkf_Jm8kSTPEDZkZy-YmT56Zs1Jx9zCvzETPsCzrkEg@mail.gmail.com> <CAHUa44HHSKwiBYPMSY5hj6wyWc9-uvtQVx+JLx4M5yjD5AwyTg@mail.gmail.com>
+In-Reply-To: <CAHUa44HHSKwiBYPMSY5hj6wyWc9-uvtQVx+JLx4M5yjD5AwyTg@mail.gmail.com>
+From: Sumit Semwal <sumit.semwal@linaro.org>
+Date: Thu, 11 Sep 2025 13:30:35 +0530
+X-Gm-Features: Ac12FXxwSUSxE1PNcza1ZTKnBgiGX0FqXLDfvqSE4P5WPQr00OaAEtYCSrcigho
+Message-ID: <CAO_48GE=FHaNzybUxjY=igyOO1oasKb9yu_yAjJEdjTQXicaJA@mail.gmail.com>
+Subject: Re: [PATCH v11 2/9] dma-buf: dma-heap: export declared functions
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: "T.J. Mercier" <tjmercier@google.com>, Sumit Garg <sumit.garg@kernel.org>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com, 
+	Sumit Garg <sumit.garg@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_005826_825498_518E5A26 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20250911_010048_992180_5CA73B34 
+X-CRM114-Status: GOOD (  29.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,38 +109,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 9 Sept 2025 at 13:11, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> The recent changes to genpd makes a genpd OF provider that is powered-on at
-> initialization to stay powered-on, until the ->sync_state() callback is
-> invoked for it.
+Hi Jens,
+
+On Thu, 11 Sept 2025 at 13:20, Jens Wiklander <jens.wiklander@linaro.org> w=
+rote:
 >
-> This may not happen at all, if we wait for a consumer device to be probed,
-> leading to wasting energy. There are ways to enforce the ->sync_state()
-> callback to be invoked, through sysfs or via the probe-defer-timeout, but
-> none of them in its current form are a good fit for rmobile-sysc PM
-> domains.
+> Hi Sumit,
 >
-> Let's therefore opt-out from this behaviour of genpd for now, by using the
-> GENPD_FLAG_NO_STAY_ON.
+> On Thu, Sep 11, 2025 at 9:15=E2=80=AFAM Sumit Semwal <sumit.semwal@linaro=
+.org> wrote:
+> >
+> > Hello Jens,
+> >
+> > On Fri, 15 Aug 2025 at 05:00, T.J. Mercier <tjmercier@google.com> wrote=
+:
+> > >
+> > > On Wed, Aug 13, 2025 at 11:13=E2=80=AFPM Sumit Garg <sumit.garg@kerne=
+l.org> wrote:
+> > > >
+> > > > On Wed, Aug 13, 2025 at 08:02:51AM +0200, Jens Wiklander wrote:
+> > > > > Export the dma-buf heap functions to allow them to be used by the=
+ OP-TEE
+> > > > > driver. The OP-TEE driver wants to register and manage specific s=
+ecure
+> > > > > DMA heaps with it.
+> > Thank you for the series.
+> >
+> > Could you please use EXPORT_SYMBOL_GPL_NS instead of EXPORT_SYMBOL for =
+these?
 >
-> Link: https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.org/
-> Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Fixes: 0e789b491ba0 ("pmdomain: core: Leave powered-on genpds on until sync_state")
-> Fixes: 13a4b7fb6260 ("pmdomain: core: Leave powered-on genpds on until late_initcall_sync")
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Sure, what namespace do you want in the argument for
+> EXPORT_SYMBOL_GPL_NS()? "DMA_BUF"?
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-On SH-Mobile AG5 (kzm9g) and R-Mobile A1 (armadillo).
+I think "DMA_BUF_HEAP" may be better?
+>
+> >
+> > With that change, please feel free to use my
+> > Acked-by: Sumit Semwal <sumit.semwal@linaro.org>
+>
+> Thanks,
+> Jens
+>
+> > > > >
+> > > > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > > > > Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> > > > > ---
+> > > > >  drivers/dma-buf/dma-heap.c | 3 +++
+> > > > >  1 file changed, 3 insertions(+)
+> > > > >
+> > > >
+> > > > Can we get an ack from DMAbuf maintainers here? With that we should=
+ be
+> > > > able to queue this patch-set for linux-next targetting the 6.18 mer=
+ge
+> > > > window.
+> > > >
+> > > > -Sumit
+> > >
+> > > Reviewed-by: T.J. Mercier <tjmercier@google.com>
+> > >
+> > > Sorry I haven't been able to participate much upstream lately.
+> > > >
+> > > > > diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-hea=
+p.c
+> > > > > index 3cbe87d4a464..cdddf0e24dce 100644
+> > > > > --- a/drivers/dma-buf/dma-heap.c
+> > > > > +++ b/drivers/dma-buf/dma-heap.c
+> > > > > @@ -202,6 +202,7 @@ void *dma_heap_get_drvdata(struct dma_heap *h=
+eap)
+> > > > >  {
+> > > > >       return heap->priv;
+> > > > >  }
+> > > > > +EXPORT_SYMBOL(dma_heap_get_drvdata);
+> > > > >
+> > > > >  /**
+> > > > >   * dma_heap_get_name - get heap name
+> > > > > @@ -214,6 +215,7 @@ const char *dma_heap_get_name(struct dma_heap=
+ *heap)
+> > > > >  {
+> > > > >       return heap->name;
+> > > > >  }
+> > > > > +EXPORT_SYMBOL(dma_heap_get_name);
+> > > > >
+> > > > >  /**
+> > > > >   * dma_heap_add - adds a heap to dmabuf heaps
+> > > > > @@ -303,6 +305,7 @@ struct dma_heap *dma_heap_add(const struct dm=
+a_heap_export_info *exp_info)
+> > > > >       kfree(heap);
+> > > > >       return err_ret;
+> > > > >  }
+> > > > > +EXPORT_SYMBOL(dma_heap_add);
+> > > > >
+> > > > >  static char *dma_heap_devnode(const struct device *dev, umode_t =
+*mode)
+> > > > >  {
+> > > > > --
+> > > > > 2.43.0
+> > > > >
+> >
+> > Best,
+> > Sumit.
 
-Gr{oetje,eeting}s,
 
-                        Geert
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+--=20
+Thanks and regards,
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Sumit Semwal (he / him)
+Senior Tech Lead - Android, Platforms and Virtualisation
+Linaro.org =E2=94=82 Arm Solutions at Light Speed
 
