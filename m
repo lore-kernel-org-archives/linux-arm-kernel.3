@@ -4,68 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95737CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC85CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 07:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QsXFqDE+gmRD/x0bUEZx45QWv+5GScBR7g2luqrlIYA=; b=nPjHGRMWV1bcXKnvlO1pM4DRmI
-	wWT5q3UXmyV5TqrQbq9vtJeCN3NWMsg471duKioYJ4iQX7VmWfJpbdHMZYdJ0Ny8CkBvSvXXhw+k7
-	Ejh1GHUBpbclVxMJqqB91ETUHbwMDaTqGEWUJv7/FDxolW01AB8gMhgSxA2X3baSDSwWdqspHr05s
-	9rIe+mM/tUUW0ob+oMZGR+izaKZn1iM8S+6mTfxiyzvR9JdAgme56RClBR0XPqjrYqRQ2aZqnBYjJ
-	Lvwp7CQkvReE8OiD0qWnw6bE/BAi+zzPriVWsZFrro66TAChDC9QXUIO3czHkOXlqCIhYHFv9S00w
-	TGcZErEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GP9NntJ30KfEYObDqnhrL+C6H0K6PogP4x/qLVkNDh8=; b=wWBLmgdtO2uDcTEyFutt92TA4x
+	67ED3ikqXvu4PnKreF9aMrK69KQzoR4ML7OaLhEqD4dzdd/33OtLKjHOBdvz7gFNrf8J6sbI86wW/
+	Zi9ABYqfWnTqKKXUo5Uu028CaA19+Hox4WtHr0u7sM3sD+LqA0nLoAjUCHVetcCKo+fBUY4sSEC9b
+	xHD78taYJ01h1PVxZIFgjcYTkbDHihcfuQeAIHVG1bXcYTFJmKk8PDs4YNktTTvwLaaGQY8Scsbp6
+	92qtWWWaVhU9jD0pJsPYhtaQcjp1o2PRebI1LrNfDXvF5UUnG/rJi6z2ovRJpTdqCCcExLhpYpVSV
+	nXbaosoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbI1-00000001N1o-0pSi;
-	Thu, 11 Sep 2025 07:00:17 +0000
-Received: from mail.thorsis.com ([217.92.40.78])
+	id 1uwbX9-00000001Qln-0VWP;
+	Thu, 11 Sep 2025 07:15:55 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbHy-00000001MyL-1jXI
+	id 1uwbX7-00000001QkZ-0A3i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 07:00:16 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1172A14864B3;
-	Thu, 11 Sep 2025 09:00:07 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1757574009; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=QsXFqDE+gmRD/x0bUEZx45QWv+5GScBR7g2luqrlIYA=;
-	b=SkDTEaxAF/y7/E/ddlcleMBHPgPMOy3DyxO+bPFOYjadfbjxLx8Vn35uRe8fGrp3g5Wl7O
-	9mcjOrYctUVC+BV7dGmXGw677vFln8Gph0+gKxp/s6N1I+5d5uV6wFDZ8w+kbEcqj8PwDx
-	zGpGQWmWCqCKMlAd3L989jVNWSb4cLGBfXRAjDgkAlsEHNdHDEvKZzTIeKYxELrozdhtwB
-	SCNwLW/uTWnu/R9/fzksJSDvvbVDId/2NHzR9kQ8Vo+ZyqxH3AxhT2LJYATQuTQKXdmp8b
-	OP9//XgDNL4EGE5U75+FjIOxQc05qgd27U81taWCbHoku9d74a6Y52tN9IfnDg==
-Date: Thu, 11 Sep 2025 09:00:03 +0200
-From: Alexander Dahl <ada@thorsis.com>
-To: Ryan Wanner <ryan.wanner@microchip.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-leds@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: microchip: sama7d65: Add GPIO buttons and LEDs
-Message-ID: <20250911-breeder-hardness-d3ffa4bfbb6d@thorsis.com>
-Mail-Followup-To: Ryan Wanner <ryan.wanner@microchip.com>, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-leds@vger.kernel.org
-References: <20250909160842.392075-1-Ryan.Wanner@microchip.com>
- <20250910-retake-attic-ac1fe3429a1e@thorsis.com>
- <20250910-alkalize-overtime-930a59a7d169@thorsis.com>
- <fa5d44ca-d1ea-4c72-a998-b10f098b25f8@microchip.com>
+	Thu, 11 Sep 2025 07:15:54 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-628f29d68ecso731646a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 00:15:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757574951; x=1758179751; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GP9NntJ30KfEYObDqnhrL+C6H0K6PogP4x/qLVkNDh8=;
+        b=sxBBd2DUF6CBMm3ghdYQkCdI8jOPD/IsaW5PBJ6oZxMzpW9d0xLOp43MIMzIpC5ca6
+         B51sYUvgT6SzzhAKQY/eOn3cdkStWNYiOtrBPqFnnAkatHVMqL4DtPr2YtdiZRltHTKb
+         VFTDOYkfPylQZ/YsPc9MRiRaXMhWVLPlMK3jNuJTcERbRH5/2Qe3zejQFr7ZzPZ1bw/S
+         ry0K6s8swXcKHWL/91GDQEt8/sqMznBZZmGk2XbNwLqQ/Z01tEzPPjz1aNr+rS8piieX
+         mFZzyf735Ru4sf7KKqYivpMAcGDzAQGqF3BrsHxf4BNF1zjaFWAMF3pPb/xxJu5mHs6g
+         eSlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757574951; x=1758179751;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GP9NntJ30KfEYObDqnhrL+C6H0K6PogP4x/qLVkNDh8=;
+        b=JGyQngXTmPBmtQyXqNR9K2phj2CmMJ2cBh9rqwPwxJXlsceN2HKp1sC27aCA/gtdGA
+         5lrhjTKEm5/zfXCcd43M1hkFEUt/lAW41bDLpeNLDImMDBUqfD7LmlRlRVzgYzJBsbY6
+         7A6vgJMKN3C5aNCLwckRGZlR36IV+YSwyL+7hEFC1YhP4UD8QT1ckJ7jL6jmu6hrb2bq
+         vum1oSAEbmPgiQqKKvBupp+fJKiahjnwxC9mLAc8bYOMgdnfvOhXtVlep7DPf3wo612E
+         2h7eHDipKW91WHpCbfcci7cdas6LUEGwc7T9MX4+M/ZlYev2bxWWjgqSHbNlc5CBH9OE
+         RmKw==
+X-Forwarded-Encrypted: i=1; AJvYcCW5OufBnl1JhxGnEUlJcJt3eG+7gCt8Ea6oxX/JBwQuRLOtsRxHvCOEIz3tNmRZy1Gm2/OE+IuSMEVpXrG6JWTd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeZPyDNcGt2pzi06kBMZZQXO/ZNIIL6c44xKluhHt/rftoCcI3
+	Q1gu2g5lzx8BJ3kge0wggadz98O5bLC7rmEXS5t7VwVAMkK9tOvN7b/dWKWbYU3OYfE5KPBr18j
+	/bMxK8Mer0xmXRfxsl+3Zb5r3c6JJMKMVrXcYdyE83Q==
+X-Gm-Gg: ASbGncsbIjx5Y2CX6jfhVthgC+hxVQxUC19S3Du6QoQpm3CsrNVM+CuebZOetz6k7zj
+	uWmvbm1Jf7qPmcvvX30y6EHydL2hIoDW4k3/y+gfkpkiGOqHZPPZZb1WXvbeEwip2qbvUGJQ3C0
+	cSl/hGTHy0n9kIMHyQSLAVbbhY2GK3JTX4Z+/Fgwi11xpDgMD1S/EZJATxUoqhI3QEMuq2SNTsS
+	L1XLAlwmNn8pavU4tGAGfqWDhyPWpfFTGaSjWg=
+X-Google-Smtp-Source: AGHT+IHy2Mv7dBIklAlXQ3z1llA5qfh3QOZdDcp9k/xtxjZUz/DCzy7vfzzhI0hlOYW8883NeAHTA7AVAmb3DRGTR8w=
+X-Received: by 2002:a17:906:730e:b0:b04:6546:345a with SMTP id
+ a640c23a62f3a-b04b16c733fmr1789866766b.52.1757574950692; Thu, 11 Sep 2025
+ 00:15:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fa5d44ca-d1ea-4c72-a998-b10f098b25f8@microchip.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20250813060339.2977604-1-jens.wiklander@linaro.org>
+ <20250813060339.2977604-3-jens.wiklander@linaro.org> <aJ1-YpgvGt4_6CFU@sumit-X1>
+ <CABdmKX2FPg+hO55qWndMajuWP0kZH=OWEh9v-d8aO6HQWyxJtQ@mail.gmail.com>
+In-Reply-To: <CABdmKX2FPg+hO55qWndMajuWP0kZH=OWEh9v-d8aO6HQWyxJtQ@mail.gmail.com>
+From: Sumit Semwal <sumit.semwal@linaro.org>
+Date: Thu, 11 Sep 2025 12:45:39 +0530
+X-Gm-Features: Ac12FXy7pNPcf0b_CAub_P3Nk83sbsucFa_59lr_vcagvKGZnRZhFr4eESPBY3M
+Message-ID: <CAO_48GEqkf_Jm8kSTPEDZkZy-YmT56Zs1Jx9zCvzETPsCzrkEg@mail.gmail.com>
+Subject: Re: [PATCH v11 2/9] dma-buf: dma-heap: export declared functions
+To: "T.J. Mercier" <tjmercier@google.com>
+Cc: Sumit Garg <sumit.garg@kernel.org>, Jens Wiklander <jens.wiklander@linaro.org>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com, 
+	Sumit Garg <sumit.garg@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_000015_076585_BC6C7A1C 
-X-CRM114-Status: GOOD (  29.66  )
+X-CRM114-CacheID: sfid-20250911_001553_107230_470F3F1E 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,156 +108,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Ryan,
+Hello Jens,
 
-Am Wed, Sep 10, 2025 at 10:16:03AM -0700 schrieb Ryan Wanner:
-> On 9/9/25 23:25, Alexander Dahl wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> > 
-> > Hello Ryan,
-> > 
-> > Am Wed, Sep 10, 2025 at 08:20:28AM +0200 schrieb Alexander Dahl:
-> >> Hello Ryan,
-> >>
-> >> Am Tue, Sep 09, 2025 at 09:08:38AM -0700 schrieb Ryan.Wanner@microchip.com:
-> >>> From: Ryan Wanner <Ryan.Wanner@microchip.com>
-> >>>
-> >>> Add the USER button as a GPIO input as well as add the LEDs and enable
-> >>> the blue LED as a heartbeat.
-> >>>
-> >>> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> >>> ---
-> >>>  .../dts/microchip/at91-sama7d65_curiosity.dts | 49 +++++++++++++++++++
-> >>>  1 file changed, 49 insertions(+)
-> >>>
-> >>> diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-> >>> index f091cc40a9f0..2fe34c59d942 100644
-> >>> --- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-> >>> +++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-> >>> @@ -11,6 +11,7 @@
-> >>>  #include "sama7d65-pinfunc.h"
-> >>>  #include "sama7d65.dtsi"
-> >>>  #include <dt-bindings/mfd/atmel-flexcom.h>
-> >>> +#include <dt-bindings/input/input.h>
-> >>>  #include <dt-bindings/pinctrl/at91.h>
-> >>>
-> >>>  / {
-> >>> @@ -26,6 +27,42 @@ chosen {
-> >>>             stdout-path = "serial0:115200n8";
-> >>>     };
-> >>>
-> >>> +   gpio-keys {
-> >>> +           compatible = "gpio-keys";
-> >>> +
-> >>> +           pinctrl-names = "default";
-> >>> +           pinctrl-0 = <&pinctrl_key_gpio_default>;
-> >>> +
-> >>> +           button {
-> >>> +                   label = "PB_USER";
-> >>> +                   gpios = <&pioa PIN_PC10 GPIO_ACTIVE_LOW>;
-> >>> +                   linux,code = <KEY_PROG1>;
-> >>> +                   wakeup-source;
-> >>> +           };
-> >>> +   };
-> >>> +
-> >>> +   leds {
-> >>> +           compatible = "gpio-leds";
-> >>> +           pinctrl-names = "default";
-> >>> +           pinctrl-0 = <&pinctrl_led_gpio_default>;
-> >>> +
-> >>> +           led-red {
-> >>> +                   label = "red";
-> >>> +                   gpios = <&pioa PIN_PB17 GPIO_ACTIVE_HIGH>; /* Conflict with pwm. */
-> >>> +           };
-> >>> +
-> >>> +           led-green {
-> >>> +                   label = "green";
-> >>> +                   gpios = <&pioa PIN_PB15 GPIO_ACTIVE_HIGH>; /* Conflict with pwm. */
-> >>> +           };
-> >>> +
-> >>> +           led-blue {
-> >>> +                   label = "blue";
-> >>> +                   gpios = <&pioa PIN_PA21 GPIO_ACTIVE_HIGH>;
-> >>> +                   linux,default-trigger = "heartbeat";
-> >>> +           };
-> >>> +   };
-> >>
-> >> The label property is deprecated.  Please use the properties "color"
-> >> and "function" for new boards.  See devicetree binding documentation
-> >> for LEDs.
-> > 
-> > From a quick glance, this seems to be an RGB-LED, so I would suggest
-> > to not model it as three distinct LEDs, but make use of the
-> > "leds-group-multicolor" feature, example:
-> > 
-> >  59         multi-led {
-> >  60                 compatible = "leds-group-multicolor";
-> >  61                 color = <LED_COLOR_ID_RGB>;
-> >  62                 function = LED_FUNCTION_INDICATOR;
-> >  63                 leds = <&led_red>, <&led_green>, <&led_blue>;
-> >  64         };
-> 
-> I see, I was not aware of this feature. This would combine all of the
-> LED pins into one RGB light correct, it seems from sysfs that this is
-> the case.
+On Fri, 15 Aug 2025 at 05:00, T.J. Mercier <tjmercier@google.com> wrote:
+>
+> On Wed, Aug 13, 2025 at 11:13=E2=80=AFPM Sumit Garg <sumit.garg@kernel.or=
+g> wrote:
+> >
+> > On Wed, Aug 13, 2025 at 08:02:51AM +0200, Jens Wiklander wrote:
+> > > Export the dma-buf heap functions to allow them to be used by the OP-=
+TEE
+> > > driver. The OP-TEE driver wants to register and manage specific secur=
+e
+> > > DMA heaps with it.
+Thank you for the series.
 
-The group-multicolor feature was merged for kernel v6.6 so it's still
-quite new.  I tried this some time ago, so this is from memory only.
-The three single color gpio leds are still visible in sysfs, but you
-can not control them independently anymore, only through the sysfs
-interface of that one multicolor led.
+Could you please use EXPORT_SYMBOL_GPL_NS instead of EXPORT_SYMBOL for thes=
+e?
 
-> Would having the default-trigger="heartbeat" still be allowed for the
-> led-blue node or should that be moved into the multi-led node? From the
-> bindings it seems that the default trigger is still in the gpio-led nodes.
+With that change, please feel free to use my
+Acked-by: Sumit Semwal <sumit.semwal@linaro.org>
+> > >
+> > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > > Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> > > ---
+> > >  drivers/dma-buf/dma-heap.c | 3 +++
+> > >  1 file changed, 3 insertions(+)
+> > >
+> >
+> > Can we get an ack from DMAbuf maintainers here? With that we should be
+> > able to queue this patch-set for linux-next targetting the 6.18 merge
+> > window.
+> >
+> > -Sumit
+>
+> Reviewed-by: T.J. Mercier <tjmercier@google.com>
+>
+> Sorry I haven't been able to participate much upstream lately.
+> >
+> > > diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-heap.c
+> > > index 3cbe87d4a464..cdddf0e24dce 100644
+> > > --- a/drivers/dma-buf/dma-heap.c
+> > > +++ b/drivers/dma-buf/dma-heap.c
+> > > @@ -202,6 +202,7 @@ void *dma_heap_get_drvdata(struct dma_heap *heap)
+> > >  {
+> > >       return heap->priv;
+> > >  }
+> > > +EXPORT_SYMBOL(dma_heap_get_drvdata);
+> > >
+> > >  /**
+> > >   * dma_heap_get_name - get heap name
+> > > @@ -214,6 +215,7 @@ const char *dma_heap_get_name(struct dma_heap *he=
+ap)
+> > >  {
+> > >       return heap->name;
+> > >  }
+> > > +EXPORT_SYMBOL(dma_heap_get_name);
+> > >
+> > >  /**
+> > >   * dma_heap_add - adds a heap to dmabuf heaps
+> > > @@ -303,6 +305,7 @@ struct dma_heap *dma_heap_add(const struct dma_he=
+ap_export_info *exp_info)
+> > >       kfree(heap);
+> > >       return err_ret;
+> > >  }
+> > > +EXPORT_SYMBOL(dma_heap_add);
+> > >
+> > >  static char *dma_heap_devnode(const struct device *dev, umode_t *mod=
+e)
+> > >  {
+> > > --
+> > > 2.43.0
+> > >
 
-Sorry, not sure here.  I put linux-leds in Cc, maybe someone over
-there can answer.  If this does not fit how Microchip wants to handle
-that LED on their boards I think that's fine, too.  Just wanted to
-make people aware of the possibility.
-
-Greets
-Alex
-
-> 
-> Best,
-> Ryan
-> > 
-> > Greets
-> > Alex
-> > 
-> >>
-> >> Thanks and greetings
-> >> Alex
-> >>
-> >>> +
-> >>>     memory@60000000 {
-> >>>             device_type = "memory";
-> >>>             reg = <0x60000000 0x40000000>;
-> >>> @@ -352,6 +389,18 @@ pinctrl_i2c10_default: i2c10-default {
-> >>>             bias-pull-up;
-> >>>     };
-> >>>
-> >>> +   pinctrl_key_gpio_default: key-gpio-default {
-> >>> +           pinmux = <PIN_PC10__GPIO>;
-> >>> +           bias-pull-up;
-> >>> +   };
-> >>> +
-> >>> +   pinctrl_led_gpio_default: led-gpio-default {
-> >>> +           pinmux = <PIN_PB15__GPIO>,
-> >>> +                    <PIN_PB17__GPIO>,
-> >>> +                    <PIN_PA21__GPIO>;
-> >>> +           bias-pull-up;
-> >>> +   };
-> >>> +
-> >>>     pinctrl_sdmmc1_default: sdmmc1-default {
-> >>>             cmd-data {
-> >>>                     pinmux = <PIN_PB22__SDMMC1_CMD>,
-> >>> --
-> >>> 2.43.0
-> >>>
-> >>>
-> >>
-> 
-> 
+Best,
+Sumit.
 
