@@ -4,97 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148F6CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A907CAC58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QmswRsDV85LAGSgZM1TnGtsRJLjTs07m6UjoRfbX1i8=; b=SW7ZlUYe+8pNu+rb+/0PDyLCH8
-	dQTRFCqtLIuR5GXSfrYrt1JpUzIy4WJbDa9MfUKqwWH/1/W/d2RH5zRXcKqx35Sw96DgokRrJ2+do
-	fjG6J0WbQKJA+AbsFHTm58pJrbeOjqSmCNYFFvUEbAcafoCJfB11aajjIfnCV9QkFcFy6y13Cl2sy
-	4FdXnTG0isdAnOnYF9yPuAHG3skOZOAjn1t+HoDjRXLhrRPqIVWO16KU8/39RbK3HNv1CXAX02Oy4
-	+9THsm4baQtj1K+oiLGg/oO3xZQnDHBEAbN2D/c9eV7hLwxEpW8EodjsZ0KSGeOUDMprrPYnvYRad
-	/miFSlcQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RfrUIaFbCw2u4DmADOWE2bC7dcf1XW4YsNsgjdQgf1c=; b=fTFQvTcXDqSVM6
+	uw+DjB/n+y7bocn1S33ZaTXKUYAj0KPwy2umHpueHN7ZfejDLk9Y9SHTM+t0P4Llv7HZP+AM+VJTh
+	EmOWehsl2p9sM2uZhzYVfNKatCesqFOfM+xsPRf59oXsDbyLcmmkWuBF/85YRKS+QAOg1DFEUnirL
+	npVWA+4Ltks8JFWqfp0IbYGVMpmFmDZGZ3VvBcL4ViXQKVVOA4d+BgN+geW08WB/rmOHWvPFJ2D5e
+	wAiT67YfyJYJ6L/W4dttankh7eEbfJgGGQsWUBlkhWRDu9Bm2hly65BZclLi58TkUqI/N6kidl0MP
+	wuu6pdp9J/ffppUBq8jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcdp-00000001oPs-2v5e;
-	Thu, 11 Sep 2025 08:26:53 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uwcjH-00000001puV-3paU;
+	Thu, 11 Sep 2025 08:32:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwcdm-00000001oOO-2O7g
+	id 1uwcjF-00000001pu8-0KFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 08:26:51 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45dd513f4ecso2612815e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 01:26:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757579209; x=1758184009; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QmswRsDV85LAGSgZM1TnGtsRJLjTs07m6UjoRfbX1i8=;
-        b=Ou/bYkJ47f+GIbnuReFDU6+bcv0qekQNGcxnIr1Qz7hHTqIWZ00td7w1UYXUtdU6/F
-         pFV/ficZo4efvQwJLefc1ptygODXPVLkvDMI3nd1vDDIUpVO5RcgxnhpZpg0OP6FQ+LP
-         rhKMoAO0OZo72CT1gy/8z2/pupiaSruIflgDRFUER+LaooNcJLxAZVmjs16bNcwmDta1
-         1/7/uifqNqyEz3Kwpprb+kJFTy2VLy7ZapRyT6O36704FwCClYbZPR6k+JPnHRKbQ5fx
-         hh3M67rr8fRDNx8dQ0Bs2slAGStdEL88itmcBlSqx0pPXh5JE0cJAWH01E4R/ypg6H4p
-         W18g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757579209; x=1758184009;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QmswRsDV85LAGSgZM1TnGtsRJLjTs07m6UjoRfbX1i8=;
-        b=f+VVzWv9rI7AxOgkHfWsWt0WVDs/P/Fx83hPX2D8sSw2D6Qq7/E9shmmVX44+UdXIB
-         AR6cnipZXDAvV7ZrkVXmFQXi2t3441W8sDp18/jMi80X1NkIBYR9viBpx/3LC5pF1aD8
-         NUZBP7BRyYOdKXvdMJrwCh+gccEAD553qb2K4GYRLiYuzcivJ3DsCyj9JM4BP/QCoaH0
-         iT9pE5DhfZ3FplIt3Zj9veMdUywBlP8b3YaGsQf+AEFE3F44RFjbP1ye33mSpAzibUsM
-         MDJUlOgW9QaXm5KOqKbv7T9h2wJoKy9n6VxH8EY+9oTe8PbpJXS7BbL/IPunNcmyigHw
-         7Vzw==
-X-Gm-Message-State: AOJu0YxfpaMdgb9Na3qKxy9LeKClQjfucijP+Ty4xHq3XdhMWptVOf7x
-	boLPlH1bUfAyE9menKDfU0tSgESm4Yr5Pp34otVevqNVdgF/Az/4N/L+nN/mDZqs4PE=
-X-Gm-Gg: ASbGncu0WjltrK5FUzxx1b28KXGs5y8mbCobSnOz11fq2CeJ2Et3WGLI2j63Zw2LU6F
-	/uqHGeiIX5adH6smNjuHG5m2nfwIzE8O2H88Nd2I4AAsubM2l4QGIvCKcv0Y6iU5GO1BfWijsPl
-	+dLK6nTHMVfDYeA9MSfQ4qZoyPlIoHPd0F54TcOpL3/tZGUl2iZ/TPAcIyVF6cB9DafWvCCaUC3
-	l2iDhY7E5dIaEZDffDyPReA4i/sOXk14fDGigB6c6YtebLMZegbZPPzi1zgkS6twIaVgoBPt2Gh
-	B6UMQzrw5RybaHUGmtPcHenG9LY5u14PzEmC7AhnOcM71/kEimBQyxgi1jkGGvBry6sQ5K3zcAO
-	AzQk96ESHaGqdOqZ9HgyX/Y76uQ8=
-X-Google-Smtp-Source: AGHT+IE7R9n09fdDc3gxKWMG8ZdQt1MVhy5CILGt7inGxYTFXeK21MqYcM9OgweBeDIjjRUpvgvRaA==
-X-Received: by 2002:a05:600c:870f:b0:45b:8453:d7e with SMTP id 5b1f17b1804b1-45de072e865mr174352905e9.6.1757579208672;
-        Thu, 11 Sep 2025 01:26:48 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e037c3ce5sm13955765e9.16.2025.09.11.01.26.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Sep 2025 01:26:48 -0700 (PDT)
-Message-ID: <fc2ee38c-b163-4b7e-9ba2-c2b93d0fc691@linaro.org>
-Date: Thu, 11 Sep 2025 09:26:47 +0100
+	Thu, 11 Sep 2025 08:32:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 97D7244A95
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 08:32:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68DFFC4CEFA
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 08:32:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757579548;
+	bh=b2VdI0oiFgANIQ5EcSr5TSR36SCbiu1w6XGUxBLPye0=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=ggwfqerCBJ1oYsXw0auys/TMtk4zaG9x7lznAz0fZd/PEGMVwaFpxx0uC/OsvO39x
+	 SiawMvf9VZHE+ShtVyxyx3ND5AFG23QTZC6RqijxgWVv7A/iT4xT3WqwkD+9SQjEFV
+	 G16eIdL1mlAZGfESCa+MEFecoFzqyCZppbIosb/lkhblLK68WwNSwX/LhJzLFhlYSQ
+	 cnkSQ7m6QIysXsCxnQM0mTpbpbScGyq/sDikZDPvF605zIhC/8WqxkIpOxdRp6pYBm
+	 4ArupEjs/BkGtlCSwwFWRUXEfBCrPlMM1jVV/+yVuPaNFSJVB58j8RrqE8DEIo6Wx1
+	 2ISRg3UigNqNA==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-55f6bdcc195so1422484e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 01:32:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV3gCSiadKCmKX0qEf6rpDr4xYdqJXaw6uRyW70bOWFxsTQJa0DKmd2HsD/oLm289QGiejhXheOvZsa/YDMbwLi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAjo1e4FkK4EvDp5lpJa5CHvPykM2VD+ZjtLpMLsPhpAVAWI4R
+	ZKvefotN17b+brXLUm8WC+vzyj3W1nMwiqqq2c8LNHeSEGxSlO998WzG79pq9SJ7jbbi3b8cQ0f
+	5lCuYVBd/iBtNhfpUEoLXeOAf6loZpb8=
+X-Google-Smtp-Source: AGHT+IEz1m0zWqpjfWD3q5Mpqcxnmo7hPZOolLE36cs3jks02zZUBgKBjW6cLa1Fu1krMrNSe+ZBiHzMUOEzh8/ZDyU=
+X-Received: by 2002:a2e:a78a:0:b0:336:e03d:6f2e with SMTP id
+ 38308e7fff4ca-34e315d71a6mr9066571fa.1.1757579546741; Thu, 11 Sep 2025
+ 01:32:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] perf vendor events arm64 AmpereOne: Fix typos in
- metrics' descriptions
-To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
- Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- "Liang, Kan" <kan.liang@linux.intel.com>
-References: <20250910195214.50814-1-ilkka@os.amperecomputing.com>
- <20250910195214.50814-3-ilkka@os.amperecomputing.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250910195214.50814-3-ilkka@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250830170901.1996227-1-wens@kernel.org> <175751929795.2643345.10671677254490584515.b4-ty@csie.org>
+In-Reply-To: <175751929795.2643345.10671677254490584515.b4-ty@csie.org>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Thu, 11 Sep 2025 16:32:14 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64i8fU-KTE8A0sE+ZL2++c3faUPKyGp51S7_rWV9ydOGQ@mail.gmail.com>
+X-Gm-Features: Ac12FXyr2JevaeRf3qm7Q61BcimJDVOxLg7_etSYLuUPLWauqufXTtpAA-OUUag
+Message-ID: <CAGb2v64i8fU-KTE8A0sE+ZL2++c3faUPKyGp51S7_rWV9ydOGQ@mail.gmail.com>
+Subject: Re: (subset) [PATCH 0/8] arm64: allwinner: a523: Enable MCU PRCM and NPU
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>, linux-sunxi@lists.linux.dev, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_012650_637379_0E75C7BB 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20250911_013229_144334_0BF768B1 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,61 +83,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 10, 2025 at 11:48=E2=80=AFPM Chen-Yu Tsai <wens@csie.org> wrote=
+:
+>
+> On Sun, 31 Aug 2025 01:08:53 +0800, Chen-Yu Tsai wrote:
+> > From: Chen-Yu Tsai <wens@csie.org>
+> >
+> > Hi folks,
+> >
+> > This series adds support for the MCU PRCM and the NPU.
+> >
+> > The MCU PRCM is a Power, Reset & Clock Management block that has some
+> > clock and reset controls for the MCU, DSP and some peripherals that the
+> > MCU could use.
+> >
+> > [...]
+>
+> Applied to sunxi/clk-for-6.18 in local tree, thanks!
+>
+> [4/8] clk: sunxi-ng: sun55i-a523-ccu: Add missing NPU module clock
+>       commit: 1ec8e9ba1f663d6ca5e71ab9f5e919c338075ff0
 
+I forgot this needs a bit of work and a new version sent. Backing this
+one out (facepalm).
 
-On 10/09/2025 8:52 pm, Ilkka Koskinen wrote:
-> While fixing a typo in "l1d_cache_access_prefetches" in AmpereOneX,
-> a few other typos were found in metrics' descriptions too. While AmpereOne
-> doesn't have the metric, it did have the typos in the descriptions.
-> 
-> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> ---
->   .../pmu-events/arch/arm64/ampere/ampereone/metrics.json   | 8 ++++----
->   1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json
-> index afcdad58ef89..324104438e78 100644
-> --- a/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json
-> +++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereone/metrics.json
-> @@ -113,7 +113,7 @@
->       {
->   	"MetricName": "load_store_spec_rate",
->   	"MetricExpr": "((LDST_SPEC / INST_SPEC) * 100)",
-> -	"BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speclatively executed",
-> +	"BriefDescription": "The rate of load or store instructions speculatively executed to overall instructions speculatively executed",
->           "MetricGroup": "Operation_Mix",
->           "ScaleUnit": "1percent of operations"
->       },
-> @@ -132,7 +132,7 @@
->       {
->   	"MetricName": "pc_write_spec_rate",
->   	"MetricExpr": "((PC_WRITE_SPEC / INST_SPEC) * 100)",
-> -	"BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speclatively executed",
-> +	"BriefDescription": "The rate of software change of the PC speculatively executed to overall instructions speculatively executed",
->           "MetricGroup": "Operation_Mix",
->           "ScaleUnit": "1percent of operations"
->       },
-> @@ -195,14 +195,14 @@
->       {
->   	"MetricName": "stall_frontend_cache_rate",
->   	"MetricExpr": "((STALL_FRONTEND_CACHE / CPU_CYCLES) * 100)",
-> -	"BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and cache miss",
-> +	"BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and cache miss",
->   	"MetricGroup": "Stall",
->           "ScaleUnit": "1percent of cycles"
->       },
->       {
->   	"MetricName": "stall_frontend_tlb_rate",
->   	"MetricExpr": "((STALL_FRONTEND_TLB / CPU_CYCLES) * 100)",
-> -	"BriefDescription": "Proportion of cycles stalled and no ops delivered from frontend and TLB miss",
-> +	"BriefDescription": "Proportion of cycles stalled and no operations delivered from frontend and TLB miss",
->   	"MetricGroup": "Stall",
->           "ScaleUnit": "1percent of cycles"
->       },
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-
+ChenYu
 
