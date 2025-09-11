@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B6D5CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623FCCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 14:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=crQAPqJFpM+R3V0htFm98vh8Ix4h3qDCG8IlKcH+4ys=; b=aXKvxH9gdWMossJlXheFfHkhG4
-	6grOypJSvnvrWVwDxXtzg2xy4LJYbUDbZO1Irkfc/BRMi0E0mPP8MoMhHdMPq8huAe5U3sT++LZO5
-	HxxhUvL4G5+OYZZlMUAH3JhB89AuKmC9urDU1vobMKZAl47jGt2ZL9r+0VWZWDLwkV37wjDt4CDGk
-	r314SU+YZFd8MOCcgign3lih/TkKv24xfLfdtzj6Jxz/irOrZR6qjPPbg+dBJTXIqTvRV+/eVp7uT
-	rIWT47qm5ru6oxZviUI/gEpSQuCEQFrsrVrxWiDUkQRoeQ9NW15/00d5sDtkMxjHNFUG+Ne+59L3f
-	sh4ThGqw==;
+	bh=EZwrhO2TMKtswlXzt5ghMNhVZsa670G4R3fYlnCBzYU=; b=WE16NEXbhbw/MHUMhWkoC4ANu9
+	ENCu+5ChT2w9ifAvh12JMJEy2e9mD0he/+tbIs0ul4UdJHWacdi0pmQSPVaAwSqLtM1Fs+dIIA/03
+	wEeN+W2KJ0y2lYHVn0V9gLL1xdb4LXOeE1QH2Gf7J1rPqTKqCFHAk0VzzVeFYh+xu8aGhJUgt3HoA
+	XCR7GkTWwBhkFmIBZw/YHypaAVVjDRULIjcnUwmKhNiS+9FDeW8HbH+xROgflLjU4jUwzPcbwdkia
+	/eWT7JJ81YrlWMxLvmKE3tdHPJnTVlspDJ8E+Si43LigIC8BGijDzRX4v2l+Xcwevo7aG41xRDzfw
+	vX2VtecA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhyD-00000003SC0-2R9J;
-	Thu, 11 Sep 2025 14:08:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwhyA-00000003S9Y-2ipj
+	id 1uwhz6-00000003Sc5-48mV;
+	Thu, 11 Sep 2025 14:09:12 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwhz3-00000003SVG-14Ym
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 14:08:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CC69153B;
-	Thu, 11 Sep 2025 07:08:03 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7E1863F694;
-	Thu, 11 Sep 2025 07:08:06 -0700 (PDT)
-Message-ID: <8b502a2a-36f0-4234-84a0-e1d00b95ba56@arm.com>
-Date: Thu, 11 Sep 2025 15:08:05 +0100
+	Thu, 11 Sep 2025 14:09:11 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cMzq66vynz2VRgH;
+	Thu, 11 Sep 2025 22:05:38 +0800 (CST)
+Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
+	by mail.maildlp.com (Postfix) with ESMTPS id 64F2F140296;
+	Thu, 11 Sep 2025 22:08:56 +0800 (CST)
+Received: from [10.67.120.170] (10.67.120.170) by
+ kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 11 Sep 2025 22:08:55 +0800
+Message-ID: <bb4c3f0b-06da-46e6-9769-efe3dc00e9fb@huawei.com>
+Date: Thu, 11 Sep 2025 22:08:55 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/29] ACPI / PPTT: Stop acpi_count_levels() expecting
- callers to clear levels
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-3-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250910204309.20751-3-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 0/2] iommu: Add io_ptdump debug interface for iommu
+To: Jason Gunthorpe <jgg@ziepe.ca>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<yangyicong@huawei.com>, <wangzhou1@hisilicon.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
+	<jonathan.cameron@huawei.com>, <linuxarm@huawei.com>
+References: <20250814093005.2040511-1-xiaqinxin@huawei.com>
+ <20250902161028.GC184112@ziepe.ca>
+ <f2720f17-5e81-4f69-aaf5-791b47973178@huawei.com>
+ <20250910141547.GD882933@ziepe.ca>
+From: Qinxin Xia <xiaqinxin@huawei.com>
+In-Reply-To: <20250910141547.GD882933@ziepe.ca>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.170]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_070814_731457_FAB82026 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250911_070909_633001_EAA07073 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +76,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
 
-On 9/10/25 21:42, James Morse wrote:
-> In acpi_count_levels(), the initial value of *levels passed by the
-> caller is really an implementation detail of acpi_count_levels(), so it
-> is unreasonable to expect the callers of this function to know what to
-> pass in for this parameter.  The only sensible initial value is 0,
-> which is what the only upstream caller (acpi_get_cache_info()) passes.
+
+On 2025/9/10 22:15:47, Jason Gunthorpe <jgg@ziepe.ca> wrote:
+> On Wed, Sep 10, 2025 at 11:20:08AM +0800, Qinxin Xia wrote:
+>> Ok, I see, my colleague Wang Zhou also released a version of io_ptdump
+>> a long time ago, which is implemented in smmu debugfs. Will recommends that
+>> io_ptdump be implemented in a way similar to CPU page table dump. Using
+>> debugfs to expose the data and using format-specific callbacks to implement
+>> specific data dumps, I'll talk to him about this as well.
 > 
-> Use a local variable for the starting cache level in acpi_count_levels(),
-> and pass the result back to the caller via the function return value.
+> I feel we should have a iommu subsystem debugfs and per-iommu_domain
+> directories to dump the page tables.
 > 
-> Gid rid of the levels parameter, which has no remaining purpose.
-
-Nit: s/Gid/Get/
-
+> The smmu debugfs can report what iommu_domains each STE/CD is
+> referencing.
 > 
-> Fix acpi_get_cache_info() to match.
+> This also needs RCU freeing of page table levels as a locking
+> strategy.
 > 
-> Suggested-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> ---
-Thanks,
+> Jason
+> 
 
-Ben
+Thanks, I'll add RCU in the next version, but there's some confusion, Do 
+you mean to create a directory for each domain? like：
 
+/sys/kernel/debug/io_page_tables/domain_xxxx (xxxx=domain addr)
+
+tree domain_xxxx like:
+domain_xxxx
+└── group x
+│ └── device
+└── io_ptdump
+
+And the current design is such:
+
+User Space Interface
+└── DebugFS file: /sys/kernel/debug/io_page_tables
+└── Operation: Reading this file triggers the entire debug information 
+collection process
+
+Kernel Space Components
+├── Configuration option (CONFIG_IO_PTDUMP_DEBUGFS)
+├── Initialization module (mm/io_ptdump.c)
+│ └── device_initcall(io_ptdump_init)
+│ └── io_ptdump_debugfs_register("io_page_tables")
+├── DebugFS backend (mm/io_ptdump_debugfs.c)
+│ └── DEFINE_SHOW_ATTRIBUTE(io_ptdump)
+│ └── .show = io_ptdump_show
+│ └── iommu_group_and_iova_dump(m)
+└── IOMMU core extension (drivers/iommu/iommu.c)
+└── iommu_group_and_iova_dump()
+├── Traverse all IOMMU groups (via iommu_group_kset)
+├── Filter groups with default domain using DMA_IOVA cookie
+├── Build domain-group hierarchy
+│ ├── domain_list: list head
+│ ├── dump_domain: domain entry
+│ │ ├── domain: pointer to iommu_domain
+│ │ └── groups: list head of groups
+│ └── dump_group: group entry
+│ └── group: pointer to iommu_group
+├── Output domain information
+├── Output group and device information
+└── Call iommu_iova_info_dump() to output IOVA mappings
+└── Traverse IOVA red-black tree
+└── Call domain->ops->dump_iova_prot() to get protection information
+└── ARM SMMUv3 implementation (drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c)
+└── arm_smmu_dump_iova_prot()
+└── Call io_pgtable_ops->dump_iova_prot()
+└── ARM LPAE implementation (drivers/iommu/io-pgtable-arm.c)
+└── arm_lpae_dump_iova_prot()
+├── Use __arm_lpae_iopte_walk() to traverse page tables
+├── Obtain page table entry and level information
+├── Format and output mapping range and information
+└── Call dump_prot() to output protection flags
+└── Use prot_bits array to parse permission bits
+
+Do you mean that the interface in io-pgtable-arm.c is directly invoked 
+during the process of obtaining page table information without passing 
+through arm-smmu-v3.c?
+
+I'll add STE and CD dumps to the next release. Any other suggestions?
 
