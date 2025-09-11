@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB8DCAC593
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 22:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64D8CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 22:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zrWtjuRdJs3JWv0wTLShA6+s14Hzwba0vFUmRwZTBnU=; b=JRqleMM2cFtjUchg82raZnDwP3
-	GhHeyRF6ghSgQyySXlfPXp3baUP6JyNzPAGvTSDnlRmOBT1wkeRXZzi3xW07lK5qEoKlL+cuYXsZy
-	x5Fwhf0BUwTigCMfZiuelh9yLyBmuBuVlfAUDM+f8/4bfeebcREVt8HZs0LXs3CAE0Xxv+Ea0V610
-	cjEap/I/AQaRIw2qg4LrUoopCs19wfN5zoUnJ/amTnlSuhrYeCKVQzZPOyKD0xs994avax+3r1khu
-	qXabBtcohjSBYwDwQHX7uqbxqCW6mi1gISEH/zG9/UT1kgxAww1g3X7sA7KEM3n5pX81HCYZW8bC+
-	HJ+mRvUw==;
+	bh=KvnALqP10M4rKQ7KygT+Ty3ys9MJ7qN5lAv7pYVl7MY=; b=wv0yWcbwXRf+7Lpbm+8RNS0kib
+	G+Sk85Nz9wxf+OguL/eIU9Ggjv+LfMnsfQqCPA9unm4KzLnl8rbHCvuxRo1CtRrmmiqrzceqrpABd
+	y6FLJXJeURIbykZmT1irQRjJbRwWF/xSA/HHKvyHr3UP4ATfvnOFzOnWeBkfQXmhb2EqhBEI1fhJQ
+	vuJLIsCtjsN3tDndjVvO2NGeZ+vxaGL051L4C8zIdeRqGJG6OauJ2fm0/AyCY0OCejbIg/ZviIF6/
+	nq8MJDEUbLSLFWn4ESZT3t6biI5Zg+iBBumO+TrcgSAcgc5wRY/g10hlaGvTL9ch5p/BPpHQmmDQs
+	wZ79jH6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwpMe-00000005bpN-1CKl;
-	Thu, 11 Sep 2025 22:02:00 +0000
+	id 1uwpMw-00000005byU-0YWr;
+	Thu, 11 Sep 2025 22:02:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwpMb-00000005bnp-10WN
+	id 1uwpMu-00000005bxY-3lDt
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 11 Sep 2025 22:01:57 +0000
+	Thu, 11 Sep 2025 22:02:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=zrWtjuRdJs3JWv0wTLShA6+s14Hzwba0vFUmRwZTBnU=; b=cNYYnp5IXO4wqQn8OnFALTiUb8
-	sBhn0c06iPkVavHGbTRnBDKU2FLg1+03X0J4QMnNLwU6B1hyeZLovS3Exq1rjosxW4CdwzfBEhgSq
-	BiU1/yNKmL3tuhYB8MIgmmyBmy1G/sOhc0YPJ3pFTDA91n9KBCfjmh4JF8OiD2jgA0m+C5XnKooWy
-	Ba0LhYV+ID7GSZv2qmbCrDg5ErsQ7KmXRd1Xj8LgDM2Yfkx08oXorCYcbxstDIVaZbRMWcvwrFjrW
-	sOGW/ymf+kzlz115dsD+jUS7Ia8SvphVBwNPCCHBUuNLBgQEwmL4QB+qoUu5KAQiQVj3Vnl2nz05n
-	tJwZKUGg==;
+	bh=KvnALqP10M4rKQ7KygT+Ty3ys9MJ7qN5lAv7pYVl7MY=; b=PGbVF6jU1641/D5TqFmJTvH879
+	IKmsuSs2mIPHS0aTem16fTTSMLOsn1UPfOVOUoHRxOBOc8NfKqTgLSIDnbLAJfV8uLINW70plBY16
+	PWlAMTGELcirLEVF4a9Asdz+C1xd+M8T8pbVTnvo6BQ6EWdETdDQf/SdOMl33W9yZ8ZCxqLT23UFF
+	DwVRYaWeaHt6SAREzX8uOt1/Z6LLeNp9P+XOKx3onCuUZaQRaMXNbpv39U/dJsQM2IpUqfGRubc5h
+	I5LefySNLYTWgQ01G9VfmoGGFeP9oxV7rjrfNDCgu5cJHjJzxKb2bm/LvTG1gabzZbxWqYbKwZEx4
+	nPR0wDEA==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwpLa-00000006BJg-1XSJ
+	id 1uwpLa-00000006BJh-1YsR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 22:01:55 +0000
+	Thu, 11 Sep 2025 22:02:08 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1uwpLU-0005sG-L2; Fri, 12 Sep 2025 00:00:48 +0200
+	id 1uwpLU-0005sG-Me; Fri, 12 Sep 2025 00:00:48 +0200
 From: Marco Felsch <m.felsch@pengutronix.de>
-Date: Fri, 12 Sep 2025 00:00:41 +0200
-Subject: [PATCH 1/2] dmaengine: add device_link support
+Date: Fri, 12 Sep 2025 00:00:42 +0200
+Subject: [PATCH 2/2] dmaengine: imx-sdma: fix supplier/consumer dependency
+ handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250912-v6-16-topic-dma-devlink-v1-1-4debc2fbf901@pengutronix.de>
+Message-Id: <20250912-v6-16-topic-dma-devlink-v1-2-4debc2fbf901@pengutronix.de>
 References: <20250912-v6-16-topic-dma-devlink-v1-0-4debc2fbf901@pengutronix.de>
 In-Reply-To: <20250912-v6-16-topic-dma-devlink-v1-0-4debc2fbf901@pengutronix.de>
 To: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
@@ -69,8 +70,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_230103_442164_A3A3E7E8 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20250911_230104_472749_D3242CCE 
+X-CRM114-Status: GOOD (  20.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,78 +86,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Shift the device dependency handling to the driver core by adding
-support for devlinks.
+The whole driver was converted to the devm APIs except for this last
+for-loop. This loop is buggy due to three reasons:
+ 1) It removes the channels without removing the users first. This can
+    lead to very bad situations.
+ 2) The loop starts at 0 and which is channel0 which is a special
+    control channel not registered via vchan_init(). Therefore the
+    remove() always Oops because of NULL pointer exception.
+ 3) sdma_free_chan_resources() disable the clks unconditional without
+    checking if the clks are enabled. This is done for all
+    MAX_DMA_CHANNELS which hang the system if there is at least one unused
+    channel.
 
-The link between the consumer device and the dmaengine device is
-established by the consumer via the dma_request_chan() automatically if
-the dmaengine driver supports it (create_devlink flag set).
+The first issue is fixed by making use of the dmaengine devlink support.
 
-By adding the devlink support it is ensured that the supplier can't be
-removed while the consumer still uses the dmaengine. Furthermore it
-ensures that the supplier driver is present and actual bound before the
-consumer is uses the supplier.
+The second issue is fixed by not doing anything on channel0.
 
-Additional PM and runtime-PM dependency handling can be added easily too
-by setting the required flags (not implemented by this commit).
+The last issue is also fixed by the devlink support because during the
+consumer teardown phase each requested channel is dropped accordingly so
+the dmaengine driver doesn't need to this.
 
-The new create_devlink flag controlls the devlink creation to not cause
-any regressions with existing dmaengine drivers. This flag can be
-removed once all drivers are successfully tested to support devlinks.
+To sum-up, all issues are fixed by dropping the .remove() callback and
+let the frameworks do their job.
 
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
- drivers/dma/dmaengine.c   | 15 +++++++++++++++
- include/linux/dmaengine.h |  3 +++
- 2 files changed, 18 insertions(+)
+ drivers/dma/imx-sdma.c | 15 +--------------
+ 1 file changed, 1 insertion(+), 14 deletions(-)
 
-diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-index 758fcd0546d8bde8e8dddc6039848feeb1e24475..e81985ab806ae87ff3aa4739fe6f6328b2587f2e 100644
---- a/drivers/dma/dmaengine.c
-+++ b/drivers/dma/dmaengine.c
-@@ -858,6 +858,21 @@ struct dma_chan *dma_request_chan(struct device *dev, const char *name)
- 	/* No functional issue if it fails, users are supposed to test before use */
- #endif
+diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+index d4430e6e56deda7de3538e42af7987a456957b43..a11317c8827297d1d6b8ddc0254ecf549e486001 100644
+--- a/drivers/dma/imx-sdma.c
++++ b/drivers/dma/imx-sdma.c
+@@ -2393,6 +2393,7 @@ static int sdma_probe(struct platform_device *pdev)
+ 	sdma->dma_device.device_prep_dma_memcpy = sdma_prep_memcpy;
+ 	sdma->dma_device.device_issue_pending = sdma_issue_pending;
+ 	sdma->dma_device.copy_align = 2;
++	sdma->dma_device.create_devlink = true;
+ 	dma_set_max_seg_size(sdma->dma_device.dev, SDMA_BD_MAX_CNT);
  
-+	/*
-+	 * Devlinks between the dmaengine device and the consumer device
-+	 * are optional till all dmaengine drivers are converted/tested.
-+	 */
-+	if (chan->device->create_devlink) {
-+		struct device_link *dl;
-+
-+		dl = device_link_add(dev, chan->device->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
-+		if (!dl) {
-+			dev_err(dev, "failed to create device link to %s\n",
-+					dev_name(chan->device->dev));
-+			return ERR_PTR(-EINVAL);
-+		}
-+	}
-+
- 	chan->name = kasprintf(GFP_KERNEL, "dma:%s", name);
- 	if (!chan->name)
- 		return chan;
-diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-index bb146c5ac3e4ccd7bc0afbf3b28e5b3d659ad62f..c67737a358df659f2bf050a9ccb8d23b17ceb357 100644
---- a/include/linux/dmaengine.h
-+++ b/include/linux/dmaengine.h
-@@ -817,6 +817,8 @@ struct dma_filter {
-  *	DMA tansaction with no software intervention for reinitialization.
-  *	Zero value means unlimited number of entries.
-  * @descriptor_reuse: a submitted transfer can be resubmitted after completion
-+ * @create_devlink: create a devlink between a dma_chan_dev supplier and
-+ *	dma-channel consumer device
-  * @residue_granularity: granularity of the transfer residue reported
-  *	by tx_status
-  * @device_alloc_chan_resources: allocate resources and return the
-@@ -894,6 +896,7 @@ struct dma_device {
- 	u32 max_burst;
- 	u32 max_sg_burst;
- 	bool descriptor_reuse;
-+	bool create_devlink;
- 	enum dma_residue_granularity residue_granularity;
+ 	platform_set_drvdata(pdev, sdma);
+@@ -2432,25 +2433,11 @@ static int sdma_probe(struct platform_device *pdev)
+ 	return 0;
+ }
  
- 	int (*device_alloc_chan_resources)(struct dma_chan *chan);
+-static void sdma_remove(struct platform_device *pdev)
+-{
+-	struct sdma_engine *sdma = platform_get_drvdata(pdev);
+-	int i;
+-
+-	/* Kill the tasklet */
+-	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
+-		struct sdma_channel *sdmac = &sdma->channel[i];
+-
+-		sdma_free_chan_resources(&sdmac->vc.chan);
+-	}
+-}
+-
+ static struct platform_driver sdma_driver = {
+ 	.driver		= {
+ 		.name	= "imx-sdma",
+ 		.of_match_table = sdma_dt_ids,
+ 	},
+-	.remove		= sdma_remove,
+ 	.probe		= sdma_probe,
+ };
+ 
 
 -- 
 2.47.3
