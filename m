@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24ACCAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 01:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8296CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 01:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8fZSVL95erMaMyHPCedn250s/J96Co6GTJBPpiNgNA=; b=O0gwJjpw86FsM6yCAaUG+iysOX
-	gSLt+1KldnKOgkjFSp+xN6NbBkCX/zxEDsAdDLrE9aFoLiweqycpgkmrisn0ClcaKqnpiTSMCJRT/
-	uV+mXTQjBgtU/GX8lMkHG3rb4ifkjWkZ/hmqCI17EPyjFfgOJp5NKb4GAmWlSVtOUjBATvdKSWWsB
-	cfBgpr3PwHPxtJxgko2G/Bdg6stWhQ8pKbu6KQvrDYXGje3G6k0TVh0A88Eslv7YPxMlqVqJS7X+u
-	gPaJAZ8igZQSKCOJF2UpERDo+SxByORn+IDWQdWJXHCGSmQ/AvfMYyd+M6rXnEneXkQNl6WuevExS
-	afeTKzvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aah23fF+mOOv5wgGxyKr36zpiO4hkn2V4BFOb43mSb4=; b=RSjqd9zC835ZUXUMt4GqHvexKB
+	p6ln9s4kkqE0P5z4l67tGH+niat2mdP/S9EHo1MqH0sGcsc5yWTBWgEpih0ESFWewQW252H4NYkh3
+	Qr9QHXUC7SAcSrtoLPuCt+AGHSvoQTVHazdpvgBcHaTnBw0E6N95AXwzw51MvOrCrPVZFrzSwNq6M
+	kKnef3Fc1xH/sfOnQQEp5oAYDpEKKx2ZprGokDEyG506DVmoTD235OBeJ+gnN7mPvVAC4CWIxe256
+	akbr1dE83DiHzyS1BQnGkEf8OLBN7JMyERMH2AYahsOkfcuJn/WGPtfW5xfVdS4xESsPd/Q/SPji1
+	tgr2jjEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwVoz-000000004bc-0Phw;
-	Thu, 11 Sep 2025 01:09:57 +0000
-Received: from mail-m16.yeah.net ([220.197.32.19])
+	id 1uwVpB-000000004ez-1i2l;
+	Thu, 11 Sep 2025 01:10:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwVow-000000004ap-0An1
+	id 1uwVp8-000000004eD-2fSZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 01:09:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=p8fZSVL95erMaMyHPCedn250s/J96Co6GTJBPpiNgNA=;
-	b=jCAOO/RprN1yTPtfvT+mOmogybY+U+bASpvpUWB9ahkfir0D7ld6jJFgp3H4TO
-	It9wIhIjBhRyJ8JyVrW1Qs8H01gZoFBw1EnTylHJy/7IYHnvgtrZsqOA+vi7R5Vn
-	QP5O/CqHP8r6VrqV9kFURG+l4ctRXgrxXTY8hV/Rg2S04=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDXv_hTIcJooAxfBA--.43095S3;
-	Thu, 11 Sep 2025 09:09:40 +0800 (CST)
-Date: Thu, 11 Sep 2025 09:09:38 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: soc: fsl,imx-iomuxc-gpr: Document i.MX53
-Message-ID: <aMIhUhBgpIo6cPW7@dragon>
-References: <20250822120241.26419-1-festevam@gmail.com>
+	Thu, 11 Sep 2025 01:10:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AB6E944B26;
+	Thu, 11 Sep 2025 01:10:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83677C4CEEB;
+	Thu, 11 Sep 2025 01:10:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757553005;
+	bh=MVGxfRakQnPxyH3uyjRFiBz07temXygvvaFLoRNylVo=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=KR8pWo3JR3b3F+aXwXyH2fVJl5W6keyReuBUyj2196B0cEit46XXGgkoJlGkE2EGj
+	 qGWFr2glITXyI0/GNojAltsc5NXDcJwHcOjp8EM1MjWCd7cLU93sHbA84wIyLGMDCX
+	 0QJRw3BIFaT73mgaGtehKMzLj/BRCw4VAlHCUSTuRNnmbhTUSq3wele7+ogUGXiJem
+	 8TR+9z9YME5oaLBYfd7zfw3jVx2rBZxSvsmjLhfAkbmnfeQkmaPN+yQtW9Ybjwth0o
+	 9vUCt+HT5fKQ37eSJ4giiOuxpow5/hyBJQJjh5K9FZ+k5Eno0kebMcalRcxqVP39wu
+	 aXgpEcOe7svng==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 85E48383BF69;
+	Thu, 11 Sep 2025 01:10:09 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822120241.26419-1-festevam@gmail.com>
-X-CM-TRANSID: Ms8vCgDXv_hTIcJooAxfBA--.43095S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUjBT5UUUUU
-X-Originating-IP: [114.216.146.49]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBAfFZWjCB7k19wABs0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: stmmac: dwc-qos: use PHY WoL
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175755300850.1617124.3396751776402491049.git-patchwork-notify@kernel.org>
+Date: Thu, 11 Sep 2025 01:10:08 +0000
+References: <E1uw0ff-00000004IQJ-3AMp@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1uw0ff-00000004IQJ-3AMp@rmk-PC.armlinux.org.uk>
+To: Russell King <rmk+kernel@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_180954_398396_A0EB69CF 
-X-CRM114-Status: UNSURE (   7.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250910_181006_698970_8978CEE1 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,18 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 09:02:41AM -0300, Fabio Estevam wrote:
-> imx53.dtsi has the following compatible entry:
-> 
-> compatible = "fsl,imx53-iomuxc-gpr", "syscon";
-> 
-> Document the "fsl,imx53-iomuxc-gpr" entry to fix the following
-> dt-schema warning:
-> 
-> failed to match any schema with compatible: ['fsl,imx53-iomuxc-gpr', 'syscon']
-> 
-> Signed-off-by: Fabio Estevam <festevam@gmail.com>
+Hello:
 
-Applied, thanks!
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Tue, 09 Sep 2025 16:54:15 +0100 you wrote:
+> Mark Tegra platforms to use PHY's wake-on-Lan capabilities rather than
+> the stmmac wake-on-Lan.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+> This is the last patch that is needed to WoL on the Jetson Xavier NX
+> to be functional - the only patch that hasn't been through netdev
+> is the DT patch that's being merged through a different route. Once
+> all patches come together (in other words, at the next -rc1), then
+> WoL will be functional on this platform.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next] net: stmmac: dwc-qos: use PHY WoL
+    https://git.kernel.org/netdev/net-next/c/724b22d38a83
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
