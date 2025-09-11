@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C0CCAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 17:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30268CAC596
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 17:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U0rBrJm30Ujnv7/uqbGRpN+whCeGubeOe0HHrobAEdw=; b=WAQRY3UpTbQ4tLnOFwBp4w9fVb
-	ohoRrqTxzCi4Rx5U/kDhzAPck9QGxOS/hpHS+t4BI694zoE9EtXmnQIHHDKpdE+VzMF78i9n1g+Ut
-	11izjpFxbaT7sqBRnvioFDUPg/i4TbQOVU67sOhPBkPpMld+Znzjy4Nech9znwLoy9P+LD5WvrpGG
-	hgAv92uUrYT612J1KMfRZfDBb6zG46s48NJ6fs15eLBHLVqrObspli7qIKY2Pps17SZFURK0sovEl
-	JNMUxQt1qZguL6WqbUP3+rzFsV0asSK++/q7i9Acx4R2OPKWphR/Ea1pRgiYMkAQUfzUqgQH92AXg
-	qyBNGfYA==;
+	bh=uYWRz20Rmvhnac0DS9sDWqyczHi/Us3clZQP6R0KXd4=; b=hSyGWDg/EKVjNca44VAz4xSkRa
+	DWbPbbm+wNPDbXT2b2mXEG5J179e2Iqsodp6ccduB1uM6DcoLJrpak6mg/YRkySvILlyFBQDuQVs8
+	TMosa1S9ZGcJVMrHaf6kKSEkvYklkZ0bLyToWKoRulc1S9Lt/+PkyEnJE2ToHeF4j8/zEmXhVl1WI
+	oSUDjutnCwPBsg0oYggqJ52XXQDGI2CMQQFdKCGSjUpuSyMrORqo0BO+Cpr1/hYlWTSLnMZ9pvn/V
+	oSC9OEptWlospjjUJ+c7YwmI9Wgcx3Q25G1pBzzftFQsGF3mQaC7ICAARcSJ2ye1CJd4at9XCcXrk
+	OfcQUxWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwlOB-00000004XnI-2qD7;
-	Thu, 11 Sep 2025 17:47:19 +0000
+	id 1uwlOC-00000004Xo6-11eI;
+	Thu, 11 Sep 2025 17:47:20 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwlO6-00000004Xj9-42V7
+	id 1uwlO7-00000004Xju-1Tve
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 17:47:16 +0000
+	Thu, 11 Sep 2025 17:47:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 41ADA4403A;
+	by sea.source.kernel.org (Postfix) with ESMTP id 15A1E44FCA;
+	Thu, 11 Sep 2025 17:47:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C52A2C4AF0C;
 	Thu, 11 Sep 2025 17:47:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0090C4CEFA;
-	Thu, 11 Sep 2025 17:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757612834;
-	bh=/cTSt66cQ+6yac9OFUXZq7y3BS/9WNfqleMKgu9n+cU=;
+	s=k20201202; t=1757612835;
+	bh=1ZGcBxhR574KIHzPTRucl3u543FWRbkCW4Ao9ObAk1g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=W1923mdyrb6wKeWPz0BQ+K8Ki71BI7YgVstxpHbobJLymlXvdhlo8hm3X5Dn9Zp74
-	 Fi2SbgYSlBfITlSafaMwz/93h3RuiPr2ZQ9lwPcn1JmZyXXM/TWjrhiUNkNqfiaL/L
-	 bOv3FtrzuMGfDpZU/1LYOjmvlx3O2MMEN2P5TSwVnK+zg+EZQK2+/wkp9jInk3MhJf
-	 2tMmCbOUaNnpnguDcaZlGqriNK7wP9ilM5KZeKro8Vrs4EQ5ca85Dsqji4VpgrkskA
-	 6xM9vghqFvn3s4bBZexgbjkqdJqkNCgrk2hUrpOO+RPBNqjAdw4vA9kY4DiNOsf7i4
-	 QqA94Wd2+qDwQ==
+	b=G2J++6ObT+/bFDQ28j5g6wlsxqMCaur8L7DjvJqCzgBwC6+uusKH7LTfD2NtlJj0n
+	 W/A/v0Bp3yX9pIMzVTkPgsPGCrkWHTu22zxh8EeHKai/TDNsZwp5GzGS0GpX+lm5GS
+	 CMY2pRnHv21ccTJqlK7l2fMrLdklCqugP+qtxucZLR6Gf8g3+dvvH/+ZW84R8qoi0H
+	 BRbqznKQH2GaQ03OFf1Jwa7aEmSwYHHvXsmYNUVRdsV5SUIJ6mZi+svyEYhDdGtS/6
+	 flH+GhAei8XQ9+jGf2OK+Xwkx41OsSU5NyYkWAkTqu6NrpVzCiJWPeyTR9C1aO0ldK
+	 qdGWVVJmbxt8Q==
 Received: by wens.tw (Postfix, from userid 1000)
-	id C990B5FBEB; Fri, 12 Sep 2025 01:47:11 +0800 (CST)
+	id E8C225FEE9; Fri, 12 Sep 2025 01:47:11 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Chen-Yu Tsai <wens@csie.org>,
@@ -54,19 +54,18 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH v2 1/7] dt-bindings: clock: sun55i-a523-ccu: Add missing NPU module clock
-Date: Fri, 12 Sep 2025 01:47:04 +0800
-Message-Id: <20250911174710.3149589-2-wens@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 4/7] clk: sunxi-ng: div: support power-of-two dividers
+Date: Fri, 12 Sep 2025 01:47:07 +0800
+Message-Id: <20250911174710.3149589-5-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250911174710.3149589-1-wens@kernel.org>
 References: <20250911174710.3149589-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_104715_028184_97C349B7 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20250911_104715_412278_F49D6543 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +82,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-The main clock controller on the A523/T527 has the NPU's module clock.
-It was missing from the original submission, likely because that was
-based on the A523 user manual; the A523 is marketed without the NPU.
+Some clocks (for timers) on the A523 are mux-divider-gate types
+with the divider being values of power-of-two.
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Add a macro for these types of clocks so that we can use the divider
+types instead of the M-P types without an M divider.
+
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- include/dt-bindings/clock/sun55i-a523-ccu.h | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/clk/sunxi-ng/ccu_div.h | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/include/dt-bindings/clock/sun55i-a523-ccu.h b/include/dt-bindings/clock/sun55i-a523-ccu.h
-index c8259ac5ada7..54808fcfd556 100644
---- a/include/dt-bindings/clock/sun55i-a523-ccu.h
-+++ b/include/dt-bindings/clock/sun55i-a523-ccu.h
-@@ -185,5 +185,6 @@
- #define CLK_FANOUT0		176
- #define CLK_FANOUT1		177
- #define CLK_FANOUT2		178
-+#define CLK_NPU			179
+diff --git a/drivers/clk/sunxi-ng/ccu_div.h b/drivers/clk/sunxi-ng/ccu_div.h
+index 90d49ee8e0cc..be00b3277e97 100644
+--- a/drivers/clk/sunxi-ng/ccu_div.h
++++ b/drivers/clk/sunxi-ng/ccu_div.h
+@@ -274,6 +274,24 @@ struct ccu_div {
+ 	SUNXI_CCU_M_HWS_WITH_GATE(_struct, _name, _parent, _reg,	\
+ 				  _mshift, _mwidth, 0, _flags)
  
- #endif /* _DT_BINDINGS_CLK_SUN55I_A523_CCU_H_ */
++#define SUNXI_CCU_P_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg,	\
++				       _mshift, _mwidth,		\
++				       _muxshift, _muxwidth,		\
++				       _gate, _flags)			\
++	struct ccu_div _struct = {					\
++		.enable	= _gate,					\
++		.div	= _SUNXI_CCU_DIV_FLAGS(_mshift, _mwidth,	\
++					       CLK_DIVIDER_POWER_OF_TWO), \
++		.mux	= _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
++		.common	= {						\
++			.reg		= _reg,				\
++			.hw.init	= CLK_HW_INIT_PARENTS_DATA(_name, \
++								   _parents, \
++								   &ccu_div_ops, \
++								   _flags), \
++		},							\
++	}
++
+ static inline struct ccu_div *hw_to_ccu_div(struct clk_hw *hw)
+ {
+ 	struct ccu_common *common = hw_to_ccu_common(hw);
 -- 
 2.39.5
 
