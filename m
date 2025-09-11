@@ -4,98 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140D5CAC58D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E608CCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Sep 2025 08:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X3kQgAiwPfvEAAOGUV7iUTri/K2HtvbKjHs1xtQRX0U=; b=SXS86LS4juNvZ1IQi7GhFHrNEo
-	pa3AR8Dq1RYVprdCbyPwipxetXa28a8i4luYJK9cvdtfYwJ8k19flIEpxURp9EMSQpX473CFohyKq
-	x+vQoChqp8fnLRWl1MULpfypErBCsQj4FZpiQrcfVqKVYeK9nQRbUa7KxFMj+pYO8hRJHf0aKrsyR
-	r5ynpmfjWuvcxa7HHxH0W4oNS7TXVYjpWfNjPWCemWABI5PgrJgGRZPrUtREgI/EYmVS+X3GAHgWo
-	GppA566vnFLmGDDrzAM6vq/G/WVbBGDnDPIfCSC1I6IdrEgYnlOKIQcU+7WPhsHOoSwBrSJEExpMW
-	nETUApzg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pk4GSSHk/dF+JbEBtRSDh6h8eFeqFi8ObkP3r/CXZcY=; b=GtvlJO//MWSZYpxbb2CrGOj61j
+	WF+jZAWte0GwoP2cVFn62ifInKAEJCUO8vdb3QJ+rXWdk1Ikj+O/0K2BAHXzIBTQfaWK+/Y5Dr09B
+	TcH69pUkUKBeVDNpbjXs8rnSjHWzPvTejHQSUGsSAbuv8pYSTWp5cjeldWAVDYTifFhzgc5UqwwKO
+	XDUQZfmSXcfRFyW98u0SUu+DAAXh69Oow4aNFwPFX10BypbtiYPymBUfj5V3hKVu0Ng2rn9uCQZbE
+	Gx5RZSOu8spdGAg36xMSRyKCIV/k7H+jOrr2JNu7GN0zdJzre09dUx/8EqJ52QCkmMMTminWcR3Dc
+	Z4GfR/4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwclp-00000001qsp-3Fdg;
-	Thu, 11 Sep 2025 08:35:09 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1uwcov-00000001s3R-0os1;
+	Thu, 11 Sep 2025 08:38:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwclo-00000001qrk-01th
+	id 1uwcos-00000001s1S-3wLH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Sep 2025 08:35:09 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-746dae5ff93so518146a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 01:35:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757579707; x=1758184507; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X3kQgAiwPfvEAAOGUV7iUTri/K2HtvbKjHs1xtQRX0U=;
-        b=AVFY1f8Di7FtnjyXmVB+bSG8SyXNbWYlge8zrheEYA5t5bm3/98ADblG2LXpk/Eo8h
-         QN3gD4eBvlNSEMcG5I5EOF/7TRJSaubduzo+42ZWPJvak/bwxlskmBZEfnpv57ybv8Tj
-         0AnTVZAj/aivAZiYErW/GvztPEwRVpSNii6gZ9KKMTKd+R+Z+0U/VWiNfEQ6lvpyoM8J
-         ceppdL64FcZPovGs2vywvQdbZ7Y9sjmfhl+ZwwS65Ewi3dsD3pLhJ9ErTcZgaRjDaJPR
-         Th/l9q61krCZ9WiVincV6AHTUrW8LTpBan9q5R160QWUg7hNzC5FGI7tHYfqNVkdK5Zd
-         4DWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757579707; x=1758184507;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=X3kQgAiwPfvEAAOGUV7iUTri/K2HtvbKjHs1xtQRX0U=;
-        b=Vorzg3VBQtrSe4mqGsKT0svKmWe/LqsKgnZecFOki/YckUp7XALrkNEpB473DKX+4T
-         gcrZB6R4Tb17WGg8ym1tw09NWLY2cmi7PWTKs33YU+BL8g2NexX+j0k1z8ze9k85kZ2C
-         En2UYsHshnnyfw/Um8QzhvOYmO+8ftOoCrL5wrFMEpa2ENEpwOD5qsK9FDyYnbYRZpm4
-         NzhRWNZNqQbK+J4fjRfdzOf2Zv3IU5gmXJ0WbxUptK/Niugjqsrb7WRJus0WSyK5g3bY
-         wfHbHMQHU0IDuPqfmGSUrmwDFy96ndjBCAsQ3D+chpaPrAMQMZO2CeUugAAnYDBQBvx1
-         YXPw==
-X-Forwarded-Encrypted: i=1; AJvYcCUv6E0n8rn1S0DQlXPMlcczA09wyPD79vG4TcZmZbHvWt2Hc6Vody+zMAhviRKT+XyLyPIE31ua2cIV8r12QVoL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQNup4pxGcLuxLRVCBq7/otPumQDFwbXpzRL5ftmjsZjxAMT9f
-	9fdJca4AcUnod+/fKYgPBuvjvGGKAnu+g7ZcCUYLtNbp1S7UguEVqZjk9YcDeKMMoL2BdZQb7Cz
-	xyN84AXMAf2quEGKW4FwO5CR8OmZtiSxam5tJHNBpcg==
-X-Gm-Gg: ASbGnctIFS9DUDjY+K6cBKOOTWJNK067sSkOf+UrLJ6si4XMHR/bVJSL8WLDoS+Hf8E
-	kGxtmYpqk3CCqHtHLH5l5BIpQ2JgK+5s/JjTlZaSxD1RKPAU0k82YDsyoEbKU7UsKqPOvBcQUzq
-	tCMPgSAq/KXd59IaFHLgglV7y422nYVB2JBbQqGDuj4ct0eOZSp0CF7qMWzmf06Lvh3Os697hnc
-	acWY/Fg3Lqfi39GdtQ=
-X-Google-Smtp-Source: AGHT+IFeh9GhwJV0/BRbDqXK1301VOv+yaAADE4wRS2wEzztzMHQXFq1Ue2WE8k5BTs1i0e0aU2GdBSeES8eqZ6R/tc=
-X-Received: by 2002:a05:6830:348e:b0:74b:3422:f33d with SMTP id
- 46e09a7af769-74c66acfea9mr10389569a34.0.1757579706886; Thu, 11 Sep 2025
- 01:35:06 -0700 (PDT)
+	Thu, 11 Sep 2025 08:38:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A28664448D;
+	Thu, 11 Sep 2025 08:38:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 78EDEC4CEF7;
+	Thu, 11 Sep 2025 08:38:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757579898;
+	bh=3Ta+U8bDmn+TLd+5gSYW6szMLbfTk9DlYnED0UXkvx8=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=HxB+5EauNEn0j+nE4dMAuReoUaw83Uxlh6GEV/G3pDSy8ueRVuWt32zgJ+3Hzykwm
+	 sQDCUjkQ6mxmbINjejWClrBrDVh/uskw1GwFSd7Lwd0AKJqPGSmkbxZoEU3oKMtqgI
+	 NI2aLkgJzZ5zT1mxS7d6omOjF4km0EiKJovYBoOvfcnwWXBIqaq/lAL11wu1/fm9Iy
+	 jxgVoHsUHvh4eAhKsMcXlpKhAUFyCZz34r7PP9m3/pZUcZdRDT0WEhwWmCm+StS6+k
+	 a8VisZ5k/kzbNPN1mDKgCCPYQx3EtrpY2jHDed4bzvvpVGOxEptCM3jXq0F5x2Y/yb
+	 lvhiq6cp94B0A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 711A1CA1016;
+	Thu, 11 Sep 2025 08:38:18 +0000 (UTC)
+From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
+Date: Thu, 11 Sep 2025 16:38:16 +0800
+Subject: [PATCH net-next] net: stmmac: est: Drop frames causing HLBS error
 MIME-Version: 1.0
-References: <20250813060339.2977604-1-jens.wiklander@linaro.org>
- <20250813060339.2977604-3-jens.wiklander@linaro.org> <aJ1-YpgvGt4_6CFU@sumit-X1>
- <CABdmKX2FPg+hO55qWndMajuWP0kZH=OWEh9v-d8aO6HQWyxJtQ@mail.gmail.com>
- <CAO_48GEqkf_Jm8kSTPEDZkZy-YmT56Zs1Jx9zCvzETPsCzrkEg@mail.gmail.com>
- <CAHUa44HHSKwiBYPMSY5hj6wyWc9-uvtQVx+JLx4M5yjD5AwyTg@mail.gmail.com> <CAO_48GE=FHaNzybUxjY=igyOO1oasKb9yu_yAjJEdjTQXicaJA@mail.gmail.com>
-In-Reply-To: <CAO_48GE=FHaNzybUxjY=igyOO1oasKb9yu_yAjJEdjTQXicaJA@mail.gmail.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Thu, 11 Sep 2025 10:34:53 +0200
-X-Gm-Features: Ac12FXx5ebSInGSvpsrj2pSWY8lp7qtZdsTImt4o0DLikSjOCGD4PzhkPWZzq-g
-Message-ID: <CAHUa44HkMNO1ONTGEKHCPXRQwg3zqYf5ZHmxEijW==vbmd1LFw@mail.gmail.com>
-Subject: Re: [PATCH v11 2/9] dma-buf: dma-heap: export declared functions
-To: Sumit Semwal <sumit.semwal@linaro.org>
-Cc: "T.J. Mercier" <tjmercier@google.com>, Sumit Garg <sumit.garg@kernel.org>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com, 
-	Sumit Garg <sumit.garg@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250911-hlbs_2-v1-1-cb655e8995b7@altera.com>
+X-B4-Tracking: v=1; b=H4sIAHeKwmgC/x3MQQqAIBBA0avErBPUEqqrRETlmANhoRKCePek5
+ YPPzxDQEwaYmgweXwp0uwrRNnDYzZ3ISFeD5FLxUQhmrz2skimjtcJ+6AyXUOPHo6H0j2ZwGJn
+ DFGEp5QMVeEEKYgAAAA==
+X-Change-ID: 20250911-hlbs_2-5fdd5e483f02
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Rohan G Thomas <rohan.g.thomas@altera.com>, 
+ Matthew Gerlach <matthew.gerlach@altera.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757579897; l=4389;
+ i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
+ bh=rzzc5ust1FUYLSTdUDlYDXeMTa9SqQgjaI1YarHG5WM=;
+ b=ZMgyKAlpBN4cQqypdUTAVHzpXbtiOTB7N1s66ZtuclJIHZ6WivlbvTwuXWfz4CPtQUFdlXgez
+ rlqVE8DCNOPDuKsQXxAs6WkTpax/SeJICQ6fbDQB53RbMNDHpToKHeL
+X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
+ pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
+X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
+ with auth_id=494
+X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_013508_068232_0F709561 
-X-CRM114-Status: GOOD (  31.69  )
+X-CRM114-CacheID: sfid-20250911_013819_027258_5774702D 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,127 +90,114 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-On Thu, Sep 11, 2025 at 10:00=E2=80=AFAM Sumit Semwal <sumit.semwal@linaro.=
-org> wrote:
->
-> Hi Jens,
->
-> On Thu, 11 Sept 2025 at 13:20, Jens Wiklander <jens.wiklander@linaro.org>=
- wrote:
-> >
-> > Hi Sumit,
-> >
-> > On Thu, Sep 11, 2025 at 9:15=E2=80=AFAM Sumit Semwal <sumit.semwal@lina=
-ro.org> wrote:
-> > >
-> > > Hello Jens,
-> > >
-> > > On Fri, 15 Aug 2025 at 05:00, T.J. Mercier <tjmercier@google.com> wro=
-te:
-> > > >
-> > > > On Wed, Aug 13, 2025 at 11:13=E2=80=AFPM Sumit Garg <sumit.garg@ker=
-nel.org> wrote:
-> > > > >
-> > > > > On Wed, Aug 13, 2025 at 08:02:51AM +0200, Jens Wiklander wrote:
-> > > > > > Export the dma-buf heap functions to allow them to be used by t=
-he OP-TEE
-> > > > > > driver. The OP-TEE driver wants to register and manage specific=
- secure
-> > > > > > DMA heaps with it.
-> > > Thank you for the series.
-> > >
-> > > Could you please use EXPORT_SYMBOL_GPL_NS instead of EXPORT_SYMBOL fo=
-r these?
-> >
-> > Sure, what namespace do you want in the argument for
-> > EXPORT_SYMBOL_GPL_NS()? "DMA_BUF"?
->
-> I think "DMA_BUF_HEAP" may be better?
+Drop those frames causing HLBS error to avoid HLBS interrupt
+flooding and netdev watchdog timeouts due to blocked packets.
+Also add HLBS frame drops to taprio stats.
 
-I'll use that.
+Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/common.h     | 1 +
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.c | 7 ++++++-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.h | 1 +
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c  | 7 +++++--
+ 4 files changed, 13 insertions(+), 3 deletions(-)
 
-Thanks,
-Jens
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index eaa1f2e1c5a53b297b014a8218bf8f3db5beb4de..8f34c9ad457f07553206841223fd38e55208d5ab 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -228,6 +228,7 @@ struct stmmac_extra_stats {
+ 	unsigned long mtl_est_btrlm;
+ 	unsigned long max_sdu_txq_drop[MTL_MAX_TX_QUEUES];
+ 	unsigned long mtl_est_txq_hlbf[MTL_MAX_TX_QUEUES];
++	unsigned long mtl_est_txq_hlbs[MTL_MAX_TX_QUEUES];
+ 	/* per queue statistics */
+ 	struct stmmac_txq_stats txq_stats[MTL_MAX_TX_QUEUES];
+ 	struct stmmac_rxq_stats rxq_stats[MTL_MAX_RX_QUEUES];
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+index ac6f2e3a3fcd2f9ae21913845282ff015cd2f7ec..385431a3336b731547df49621098586b741cae85 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+@@ -63,7 +63,7 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
+ 			 EST_GMAC5_PTOV_SHIFT;
+ 	}
+ 	if (cfg->enable)
+-		ctrl |= EST_EEST | EST_SSWL;
++		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
+ 	else
+ 		ctrl &= ~EST_EEST;
+ 
+@@ -109,6 +109,11 @@ static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
+ 
+ 		x->mtl_est_hlbs++;
+ 
++		for (i = 0; i < txqcnt; i++) {
++			if (value & BIT(i))
++				x->mtl_est_txq_hlbs[i]++;
++		}
++
+ 		/* Clear Interrupt */
+ 		writel(value, est_addr + EST_SCH_ERR);
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
+index d247fa383a6e44a5a8371dd491eab5b1c99cd1f2..f70221c9c84afe6bce62782c7847a8005e469dd7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
+@@ -16,6 +16,7 @@
+ #define EST_XGMAC_PTOV_MUL		9
+ #define EST_SSWL			BIT(1)
+ #define EST_EEST			BIT(0)
++#define EST_DFBS			BIT(5)
+ 
+ #define EST_STATUS			0x00000008
+ #define EST_GMAC5_BTRL			GENMASK(11, 8)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+index 694d6ee1438197bd4434af6e9b78f022e94ff98f..97e89a604abd7a01bb8e904c38f10716e0a911c1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+@@ -1080,6 +1080,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 		for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
+ 			priv->xstats.max_sdu_txq_drop[i] = 0;
+ 			priv->xstats.mtl_est_txq_hlbf[i] = 0;
++			priv->xstats.mtl_est_txq_hlbs[i] = 0;
+ 		}
+ 		mutex_unlock(&priv->est_lock);
+ 	}
+@@ -1097,7 +1098,8 @@ static void tc_taprio_stats(struct stmmac_priv *priv,
+ 
+ 	for (i = 0; i < priv->plat->tx_queues_to_use; i++)
+ 		window_drops += priv->xstats.max_sdu_txq_drop[i] +
+-				priv->xstats.mtl_est_txq_hlbf[i];
++				priv->xstats.mtl_est_txq_hlbf[i] +
++				priv->xstats.mtl_est_txq_hlbs[i];
+ 	qopt->stats.window_drops = window_drops;
+ 
+ 	/* Transmission overrun doesn't happen for stmmac, hence always 0 */
+@@ -1111,7 +1113,8 @@ static void tc_taprio_queue_stats(struct stmmac_priv *priv,
+ 	int queue = qopt->queue_stats.queue;
+ 
+ 	q_stats->stats.window_drops = priv->xstats.max_sdu_txq_drop[queue] +
+-				      priv->xstats.mtl_est_txq_hlbf[queue];
++				      priv->xstats.mtl_est_txq_hlbf[queue] +
++				      priv->xstats.mtl_est_txq_hlbs[queue];
+ 
+ 	/* Transmission overrun doesn't happen for stmmac, hence always 0 */
+ 	q_stats->stats.tx_overruns = 0;
 
-> >
-> > >
-> > > With that change, please feel free to use my
-> > > Acked-by: Sumit Semwal <sumit.semwal@linaro.org>
-> >
-> > Thanks,
-> > Jens
-> >
-> > > > > >
-> > > > > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > > > > > Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
-> > > > > > ---
-> > > > > >  drivers/dma-buf/dma-heap.c | 3 +++
-> > > > > >  1 file changed, 3 insertions(+)
-> > > > > >
-> > > > >
-> > > > > Can we get an ack from DMAbuf maintainers here? With that we shou=
-ld be
-> > > > > able to queue this patch-set for linux-next targetting the 6.18 m=
-erge
-> > > > > window.
-> > > > >
-> > > > > -Sumit
-> > > >
-> > > > Reviewed-by: T.J. Mercier <tjmercier@google.com>
-> > > >
-> > > > Sorry I haven't been able to participate much upstream lately.
-> > > > >
-> > > > > > diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-h=
-eap.c
-> > > > > > index 3cbe87d4a464..cdddf0e24dce 100644
-> > > > > > --- a/drivers/dma-buf/dma-heap.c
-> > > > > > +++ b/drivers/dma-buf/dma-heap.c
-> > > > > > @@ -202,6 +202,7 @@ void *dma_heap_get_drvdata(struct dma_heap =
-*heap)
-> > > > > >  {
-> > > > > >       return heap->priv;
-> > > > > >  }
-> > > > > > +EXPORT_SYMBOL(dma_heap_get_drvdata);
-> > > > > >
-> > > > > >  /**
-> > > > > >   * dma_heap_get_name - get heap name
-> > > > > > @@ -214,6 +215,7 @@ const char *dma_heap_get_name(struct dma_he=
-ap *heap)
-> > > > > >  {
-> > > > > >       return heap->name;
-> > > > > >  }
-> > > > > > +EXPORT_SYMBOL(dma_heap_get_name);
-> > > > > >
-> > > > > >  /**
-> > > > > >   * dma_heap_add - adds a heap to dmabuf heaps
-> > > > > > @@ -303,6 +305,7 @@ struct dma_heap *dma_heap_add(const struct =
-dma_heap_export_info *exp_info)
-> > > > > >       kfree(heap);
-> > > > > >       return err_ret;
-> > > > > >  }
-> > > > > > +EXPORT_SYMBOL(dma_heap_add);
-> > > > > >
-> > > > > >  static char *dma_heap_devnode(const struct device *dev, umode_=
-t *mode)
-> > > > > >  {
-> > > > > > --
-> > > > > > 2.43.0
-> > > > > >
-> > >
-> > > Best,
-> > > Sumit.
->
->
->
-> --
-> Thanks and regards,
->
-> Sumit Semwal (he / him)
-> Senior Tech Lead - Android, Platforms and Virtualisation
-> Linaro.org =E2=94=82 Arm Solutions at Light Speed
+---
+base-commit: 1f24a240974589ce42f70502ccb3ff3f5189d69a
+change-id: 20250911-hlbs_2-5fdd5e483f02
+
+Best regards,
+-- 
+Rohan G Thomas <rohan.g.thomas@altera.com>
+
+
 
