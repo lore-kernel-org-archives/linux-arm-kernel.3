@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EFFCCAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:21:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC633CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mh9tztPGFQu/muha8+cTvQnHWHX3Iq1GCBr0/lImpA=; b=xKm8Ox55PXDMbXaIBOinnZzpNd
-	Gyege+1BZaB6dgLCBesSZJ7eGBR8EWrjO/8KpiC5RpYR4zl6Aw/G8qR4MZBXebPL0UQjmvztvDWS4
-	k/E8E6j2Wv5UJgCxst5+qkqM51CWpHGpn56ZcBJguzldRVekNdQuEUGp6sIJnnVGpfUmFMdB5bwMS
-	4nD2yAylH2rsAsIImpKRZjP6cImUijclcQYLJ5z/g1ZF1K4iJLAtoZAy9l2AxfOW9P11FslmFaSpA
-	QjxqLvBMHTNxmzv0HiFb2d+w5M6ljySEzSniUOu9V7VDZxMkHD6Po4CSNsJzMYbl5dFdi3j/aenjF
-	Hx712ciA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WjMjDYauzfTsJKjb8SaemJ0ni4qohCxq7JiaB8BO8WU=; b=zEajbPeLLxsYgmAcsfUCrw5Rt7
+	T0KmIWbGj2/sMxZ8Ee2ZDpSRJ63m60alD+1g+cRCHF8RpfGy5opaX5Ja8MtTXUgS146NqJelqvPc7
+	Oily0Gx+uXn3MQNLpVx2BZ4EX2sZK5Dp2qPZm0Czt6CDBbtC/rES46y0l9XKEZ8unZDaMoPguhFPC
+	15wAMlmiz3C1990M5nN1YXpQHhH2SAmkzA266xEotykDXlOPsqGKIAaHe/1vO93eTBbF1k/nPBoP2
+	mGhNusONXiJEnNwMggpnigInlDD/4O8c/M53tyRBobWAU3X0veFSeT7Y6TYK1Ntg8cxrF93SZ97xc
+	er9DIzJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2mc-00000009CHl-2Gfw;
-	Fri, 12 Sep 2025 12:21:42 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1ux2nc-00000009CnP-2EEe;
+	Fri, 12 Sep 2025 12:22:44 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2mZ-00000009CFL-2IUz;
-	Fri, 12 Sep 2025 12:21:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757679699; x=1789215699;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=b5WHxd4xwn9rgvCSXcEEDbW+90LANpn1Bb2s22tI1ac=;
-  b=NHKGVgEgfVEIz2n7w8DlCsy2IEVut6YMdklapvp9HNNK6SX8pUwF0Q+i
-   MqPSUTG+12wt3T6mej/DHKMwsXvEjCY2sl8SuGbulxj9LcvY1WkOix8/B
-   0J4tyG6aGY7EWOT9GWlnwCAH5iIm//JZHUia/gttnCNhj6gEemlYl4MJw
-   YC+itvZjRLfFkIi5rGTQKHKWJ6FB68I/gLVvsvDofbfuW9XHKZwAvSpN4
-   pfhyI7EsLLthGIA22wMQC58vjFcQsfeprB0RJw/sHTcxpWVB6I9rzy8oO
-   x/lRWllhb2wQkUlk68G32/dkH3gBafT5+R4A1gBDZDpioqN4FXXk8nFJV
-   A==;
-X-CSE-ConnectionGUID: VzqROIRER0O5goPO6fR/Uw==
-X-CSE-MsgGUID: 1UqM0t5oRtKkRxVCgMxlBQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11550"; a="70647306"
-X-IronPort-AV: E=Sophos;i="6.18,259,1751266800"; 
-   d="scan'208";a="70647306"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Sep 2025 05:21:31 -0700
-X-CSE-ConnectionGUID: GEbi4FkfSrOFGVHD0mHSpQ==
-X-CSE-MsgGUID: TN0X/Ch1QVyqm85T/0E1MA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,259,1751266800"; 
-   d="scan'208";a="174396413"
-Received: from lkp-server02.sh.intel.com (HELO eb5fdfb2a9b7) ([10.239.97.151])
-  by fmviesa009.fm.intel.com with ESMTP; 12 Sep 2025 05:21:29 -0700
-Received: from kbuild by eb5fdfb2a9b7 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ux2mM-00010m-2S;
-	Fri, 12 Sep 2025 12:21:26 +0000
-Date: Fri, 12 Sep 2025 20:21:09 +0800
-From: kernel test robot <lkp@intel.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-wireless@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH mt76 5/5] wifi: mt76: mt7996: Add NPU offload support to
- MT7996 driver
-Message-ID: <202509122047.IrKGvn3P-lkp@intel.com>
-References: <20250910-mt76-npu-devel-v1-5-dbde4a37b9c0@kernel.org>
+	id 1ux2nZ-00000009Cjp-1Sbr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Sep 2025 12:22:43 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cNYQb0Bswz6M4YB;
+	Fri, 12 Sep 2025 20:19:51 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5D6491402EF;
+	Fri, 12 Sep 2025 20:22:32 +0800 (CST)
+Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 12 Sep
+ 2025 14:22:31 +0200
+Date: Fri, 12 Sep 2025 13:22:29 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
+	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
+	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
+	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
+	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
+	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
+ Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
+	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH v2 20/29] arm_mpam: Allow configuration to be applied
+ and restored during cpu online
+Message-ID: <20250912132229.000044c7@huawei.com>
+In-Reply-To: <20250910204309.20751-21-james.morse@arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+	<20250910204309.20751-21-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250910-mt76-npu-devel-v1-5-dbde4a37b9c0@kernel.org>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_052139_627248_8949C3DD 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250912_052241_680047_801F79B7 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,102 +86,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+On Wed, 10 Sep 2025 20:43:00 +0000
+James Morse <james.morse@arm.com> wrote:
 
-kernel test robot noticed the following build warnings:
+> When CPUs come online the MSC's original configuration should be restored.
+> 
+> Add struct mpam_config to hold the configuration. This has a bitmap of
+> features that were modified. Once the maximum partid is known, allocate
+> a configuration array for each component, and reprogram each RIS
+> configuration from this.
+> 
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+Trivial comments
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-[auto build test WARNING on 8620dfbed395fc72f968dfd07f1b50eba352bae6]
+> +
+> +static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
+> +{
+> +	memset(reset_cfg, 0, sizeof(*reset_cfg));
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Bianconi/wifi-mt76-Move-Q_READ-Q_WRITE-definitions-in-dma-h/20250910-230350
-base:   8620dfbed395fc72f968dfd07f1b50eba352bae6
-patch link:    https://lore.kernel.org/r/20250910-mt76-npu-devel-v1-5-dbde4a37b9c0%40kernel.org
-patch subject: [PATCH mt76 5/5] wifi: mt76: mt7996: Add NPU offload support to MT7996 driver
-config: loongarch-allyesconfig (https://download.01.org/0day-ci/archive/20250912/202509122047.IrKGvn3P-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 21857ae337e0892a5522b6e7337899caa61de2a6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250912/202509122047.IrKGvn3P-lkp@intel.com/reproduce)
+Might as well do the following and skip the memset.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509122047.IrKGvn3P-lkp@intel.com/
+	*reset_cfg = (struct mpam_config) {
+		.features = ~0,
+		.cpbm = ~0,
+		.mbw_pbm = ~0,
+		.mbw_max = MPAM...
+		.reset_cpbm = true,
+		.reset_mbw_pbm = true,
+	};
+> +
+> +	reset_cfg->features = ~0;
+> +	reset_cfg->cpbm = ~0;
+> +	reset_cfg->mbw_pbm = ~0;
+> +	reset_cfg->mbw_max = MPAMCFG_MBW_MAX_MAX;
+> +
+> +	reset_cfg->reset_cpbm = true;
+> +	reset_cfg->reset_mbw_pbm = true;
+> +}
 
-All warnings (new ones prefixed by >>):
+> +static int mpam_allocate_config(void)
+> +{
+> +	int err = 0;
 
-   In file included from <built-in>:3:
-   In file included from include/linux/compiler_types.h:171:
-   include/linux/compiler-clang.h:28:9: warning: '__SANITIZE_ADDRESS__' macro redefined [-Wmacro-redefined]
-      28 | #define __SANITIZE_ADDRESS__
-         |         ^
-   <built-in>:371:9: note: previous definition is here
-     371 | #define __SANITIZE_ADDRESS__ 1
-         |         ^
->> drivers/net/wireless/mediatek/mt76/mt7996/main.c:2261:2: warning: use of a '#elifdef' directive is a C23 extension [-Wc23-extensions]
-    2261 | #elifdef CONFIG_MT7996_NPU
-         |  ^
-   2 warnings generated.
+Always set before use. Maybe push down so it is in tighter scope and
+can declare and initialize to final value in one line.
+
+> +	struct mpam_class *class;
+> +	struct mpam_component *comp;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	list_for_each_entry(class, &mpam_classes, classes_list) {
+> +		list_for_each_entry(comp, &class->components, class_list) {
+> +			err = __allocate_component_cfg(comp);
+> +			if (err)
+> +				return err;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
 
 
-vim +2261 drivers/net/wireless/mediatek/mt76/mt7996/main.c
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index b69fa9199cb4..17570d9aae9b 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -169,11 +169,7 @@ struct mpam_props {
+>  	u16			num_mbwu_mon;
+>  };
+>  
+> -static inline bool mpam_has_feature(enum mpam_device_features feat,
+> -				    struct mpam_props *props)
+> -{
+> -	return (1 << feat) & props->features;
+> -}
+> +#define mpam_has_feature(_feat, x)	((1 << (_feat)) & (x)->features)
 
-  2205	
-  2206	const struct ieee80211_ops mt7996_ops = {
-  2207		.add_chanctx = mt76_add_chanctx,
-  2208		.remove_chanctx = mt76_remove_chanctx,
-  2209		.change_chanctx = mt76_change_chanctx,
-  2210		.assign_vif_chanctx = mt76_assign_vif_chanctx,
-  2211		.unassign_vif_chanctx = mt76_unassign_vif_chanctx,
-  2212		.switch_vif_chanctx = mt76_switch_vif_chanctx,
-  2213		.tx = mt7996_tx,
-  2214		.start = mt7996_start,
-  2215		.stop = mt7996_stop,
-  2216		.add_interface = mt7996_add_interface,
-  2217		.remove_interface = mt7996_remove_interface,
-  2218		.config = mt7996_config,
-  2219		.conf_tx = mt7996_conf_tx,
-  2220		.configure_filter = mt7996_configure_filter,
-  2221		.vif_cfg_changed = mt7996_vif_cfg_changed,
-  2222		.link_info_changed = mt7996_link_info_changed,
-  2223		.sta_state = mt7996_sta_state,
-  2224		.sta_pre_rcu_remove = mt76_sta_pre_rcu_remove,
-  2225		.link_sta_rc_update = mt7996_link_sta_rc_update,
-  2226		.set_key = mt7996_set_key,
-  2227		.ampdu_action = mt7996_ampdu_action,
-  2228		.set_rts_threshold = mt7996_set_rts_threshold,
-  2229		.wake_tx_queue = mt76_wake_tx_queue,
-  2230		.hw_scan = mt76_hw_scan,
-  2231		.cancel_hw_scan = mt76_cancel_hw_scan,
-  2232		.remain_on_channel = mt76_remain_on_channel,
-  2233		.cancel_remain_on_channel = mt76_cancel_remain_on_channel,
-  2234		.release_buffered_frames = mt76_release_buffered_frames,
-  2235		.get_txpower = mt7996_get_txpower,
-  2236		.channel_switch_beacon = mt7996_channel_switch_beacon,
-  2237		.get_stats = mt7996_get_stats,
-  2238		.get_et_sset_count = mt7996_get_et_sset_count,
-  2239		.get_et_stats = mt7996_get_et_stats,
-  2240		.get_et_strings = mt7996_get_et_strings,
-  2241		.get_tsf = mt7996_get_tsf,
-  2242		.set_tsf = mt7996_set_tsf,
-  2243		.offset_tsf = mt7996_offset_tsf,
-  2244		.get_survey = mt76_get_survey,
-  2245		.get_antenna = mt76_get_antenna,
-  2246		.set_antenna = mt7996_set_antenna,
-  2247		.set_bitrate_mask = mt7996_set_bitrate_mask,
-  2248		.set_coverage_class = mt7996_set_coverage_class,
-  2249		.sta_statistics = mt7996_sta_statistics,
-  2250		.sta_set_4addr = mt7996_sta_set_4addr,
-  2251		.sta_set_decap_offload = mt7996_sta_set_decap_offload,
-  2252		.add_twt_setup = mt7996_mac_add_twt_setup,
-  2253		.twt_teardown_request = mt7996_twt_teardown_request,
-  2254	#ifdef CONFIG_MAC80211_DEBUGFS
-  2255		.sta_add_debugfs = mt7996_sta_add_debugfs,
-  2256	#endif
-  2257		.set_radar_background = mt7996_set_radar_background,
-  2258		.net_fill_forward_path = mt7996_net_fill_forward_path,
-  2259	#ifdef CONFIG_NET_MEDIATEK_SOC_WED
-  2260		.net_setup_tc = mt76_wed_net_setup_tc,
-> 2261	#elifdef CONFIG_MT7996_NPU
+If this is worth doing push it back to original introduction.
+I'm not sure it is necessary.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Jonathan
+
+
+
 
