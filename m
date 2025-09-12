@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7C5CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 11:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8893FCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 11:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=paWnI1cJAzH8iuBjU12nKkZ6uZxEVLd3qRPiyI/Zuug=; b=TxfGPUAQ99zqY0H9SRP7/o61/j
-	OYnxw1cCAt2KhLisO0Qgdtb+DG+04zGkybmSFfg8PYcbujay6JSA/SXVAbwfYek8+U3SdCJR8X7iU
-	/OP4fjYWkbvFwDPJEcnkIZ1upqEsZ3oKjMQ7bd8ZiTJ5z4gLRvESyYsxMUZW8IqSpM697CE3R1rWd
-	mV+s2mO6RKrtFgvLckeBToOm70rqsciaTyijHp1IxAHjit0H3AmgI2KsvC0ka6zcvik1FHjIScWfZ
-	1obD0K9TClNGDlo52b93xXWuUsau8x6igF4nMOVGqnvCAsaowOLmB2L8udBM6RaKa/tYu2COuxj2c
-	lYKl/GYQ==;
+	bh=67NhHANNx7gYxC40xTcGIRIsdst/NiIzDqY67bnEEbI=; b=hSC3awPTSk2COzJmXLIMzEW5O/
+	YLE6ZQJJSmp8lDrSoLF8nhXpcPR7un0e7gBkoylPChfq3f4dJ968PdlN4aO4xia4VzLoxCo3tig9h
+	8gLUPmYKqoaPyUNEEsa/2GRkGNXuj7nCgTL2QgHoxM1h6N6vBqyH74s6mqkqfHhod42CahGQ4bWpE
+	gpFXPR/Yi7k+TOc06o/A3+ZM1w2Tr3Uj4E1ixb/xBktelpGT9rWda3GaPwxWtyQE9tYlEQHARCMw7
+	Q/q7E6qxE1R9YaMhuS5jHb0V4QU6uT9RzEW9wTCNBP+aBbrmDRBoqUKH4lY/nZeqKc6yU9f3tm9FC
+	trQiGbjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1jE-00000008oN9-1VJM;
+	id 1ux1jE-00000008oNj-2fpZ;
 	Fri, 12 Sep 2025 11:14:08 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1jA-00000008oLW-0kSb
+	id 1ux1jB-00000008oLy-3QLg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 11:14:04 +0000
+	Fri, 12 Sep 2025 11:14:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8DD366021D;
+	by tor.source.kernel.org (Postfix) with ESMTP id 40F2D60234;
+	Fri, 12 Sep 2025 11:14:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1DB6C4CEFA;
 	Fri, 12 Sep 2025 11:14:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFCCAC4CEF9;
-	Fri, 12 Sep 2025 11:14:01 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: soc@lists.linux.dev,
 	soc <soc@kernel.org>
@@ -39,9 +39,9 @@ Cc: Magnus Damm <magnus.damm@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 1/3] Renesas driver updates for v6.18 (take two)
-Date: Fri, 12 Sep 2025 13:13:51 +0200
-Message-ID: <cover.1757669914.git.geert+renesas@glider.be>
+Subject: [GIT PULL 2/3] Renesas DT binding updates for v6.18
+Date: Fri, 12 Sep 2025 13:13:52 +0200
+Message-ID: <cover.1757669916.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1757669912.git.geert+renesas@glider.be>
 References: <cover.1757669912.git.geert+renesas@glider.be>
@@ -61,28 +61,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 2da2740fb9c8e26b6b5e20d74f2ed1d49824236d:
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
 
-  soc: renesas: rz-sysc: Add syscon/regmap support (2025-08-20 08:35:55 +0200)
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-drivers-for-v6.18-tag2
+  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dt-bindings-for-v6.18-tag1
 
-for you to fetch changes up to 5284d0b09d1bdc695256d7240915881d71997899:
+for you to fetch changes up to 1ed2786e9ef8f16204dc3f30c46412070cb7140e:
 
-  soc: renesas: Identify R-Car X5H (2025-09-11 20:21:42 +0200)
-
-----------------------------------------------------------------
-Renesas driver updates for v6.18 (take two)
-
-  - Identify the Renesas R-Car X5H (R8A78000) SoC.
+  dt-bindings: soc: renesas: Document R-Car X5H Ironhide (2025-09-11 20:20:33 +0200)
 
 ----------------------------------------------------------------
-Duy Nguyen (1):
-      soc: renesas: Identify R-Car X5H
+Renesas DT binding updates for v6.18
 
- drivers/soc/renesas/Kconfig       | 12 ++++++++++++
- drivers/soc/renesas/renesas-soc.c | 12 ++++++++++++
- 2 files changed, 24 insertions(+)
+  - Document the R-Car X5H (R8A78000) SoC and the Ironhide board.
+
+----------------------------------------------------------------
+Kuninori Morimoto (1):
+      dt-bindings: soc: renesas: Document R-Car X5H Ironhide
+
+ Documentation/devicetree/bindings/soc/renesas/renesas.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
