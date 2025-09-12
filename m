@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4027ACAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 07:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C816BCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 07:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zk8i9QPgLxhtq8+Lrl2+PM6ORDL/OzegYs6hfW2Kcgo=; b=ZDlI8Vb2LzVnI5Y/VNSHGyDtHH
-	N5l8aNbgJ8PXL6/pBl5ePqzSIzWn5CO8ewXNmrWPDBATaGsvbgsPY7rBG3exUxTfmnPoiuHkiTLLE
-	COwIQjMvT1moujA12U5Q3ulMw1kKDt2LgAYG19wmoNxZdMBPpuQgV97Z+bTcOz1tvECX69GdGKSvL
-	mG1J9ULj3uzM5hdQm+T7hk+kP7q5XLLJrT9IpRIYRJ9Gl9sI9sqdKbbJD5xwfJJeSBCY6Zpq9wgSv
-	FYENfSQCxUNdCVkvI+Kww1j9xYeC6wIye65yIzKB8Pu6CX+6mC1TiSmtTWRConSvUyG+f7RKAss1k
-	8UIHQ1SQ==;
+	bh=UOsdkvLy61rMHjBAk3FQt0XRiYDz8CC2+HPWjoWhpCs=; b=QVMDVBD1ONH4piOOIG16BCt29M
+	4yI7tnBkd5/JvEEKG6/1E30RHDheIli/Sl5eLBIMWsn+WNNIYvFlVMstCc3urpKKqPsuNXWJKneKN
+	btjgYo2o+kSxTm5DNb6GflF3lPQHjfeXEDuQKwrvFYvNcbzgyN3HuOhbYSBCnz5CmLtriUmegg1/d
+	nDE1/On1wMizkVEAtswVw54inGVvzQf/0CLH0zKnu6eWo8btW3A9zTBPNh39ed/1RpFtIIRElCGuE
+	Vv2LJL2z2oyfQltf2zx6rnkQEaC+R+v5qaSJLcfaIpNMQWru0CxDEb1aNRDwc0Kcc3nGIxFrL/39q
+	Ey0eQT7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwxtQ-00000007YtM-25ju;
-	Fri, 12 Sep 2025 07:08:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uwxul-00000007ZF4-3eyc;
+	Fri, 12 Sep 2025 07:09:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwxtO-00000007YsU-28gc
+	id 1uwxuj-00000007ZE9-331C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 07:08:23 +0000
+	Fri, 12 Sep 2025 07:09:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B7ADE43906;
-	Fri, 12 Sep 2025 07:08:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12BAAC4CEF4;
-	Fri, 12 Sep 2025 07:08:20 +0000 (UTC)
-Date: Fri, 12 Sep 2025 09:08:18 +0200
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Luo Jie <quic_luoj@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Varadarajan Narayanan <quic_varada@quicinc.com>, Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>, 
+	by sea.source.kernel.org (Postfix) with ESMTP id 1414A443C0;
+	Fri, 12 Sep 2025 07:09:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84DBEC4CEF4;
+	Fri, 12 Sep 2025 07:09:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757660984;
+	bh=4AlYbUZqbeoGnHZ92DdTmZ5FEV+tYiDs7FOZ8YpY29U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E2uUG2diI3Zm5h84JEAUPN/VYN+T1o384EdT5mjkNcnGKKElEiA+X75BxRaieiVLH
+	 nzXpIAK0bfxjhBqku0zTNcL4s9mf07zhnV4dlawdAkmcueJKwOu4ql/yW+f08huXjd
+	 YSJyc/43tlOEORw99ZXvBsitrmzxArTfvGWxCXh7XQOrTBDPlcwZa0EbDEvpS+udRx
+	 lBevJk/fJQcgLlpk5jYmzHK9zn9Y6xUtL29OHgrj1ZWEixm238y/kh0jz7psdpf0bW
+	 OSvCwXcoLUjV3FZLE0gC+KkWgQBWN7wfNbgFxJIEF/YIQ4N375yKrwibeGXbWe+Paf
+	 PMCzca9hZg2kQ==
+Date: Fri, 12 Sep 2025 09:09:42 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: imx@lists.linux.dev, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Anusha Rao <quic_anusha@quicinc.com>, Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, 
-	Devi Priya <quic_devipriy@quicinc.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Richard Cochran <richardcochran@gmail.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com, quic_leiwei@quicinc.com, 
-	quic_pavir@quicinc.com, quic_suruchia@quicinc.com
-Subject: Re: [PATCH v5 07/10] dt-bindings: clock: qcom: Add NSS clock
- controller for IPQ5424 SoC
-Message-ID: <20250912-chowchow-of-famous-art-8fcd7e@kuoka>
-References: <20250909-qcom_ipq5424_nsscc-v5-0-332c49a8512b@quicinc.com>
- <20250909-qcom_ipq5424_nsscc-v5-7-332c49a8512b@quicinc.com>
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/9] dt-bindings: display: imx: Add i.MX94 DCIF
+Message-ID: <20250912-astonishing-bipedal-raccoon-4a9c67@kuoka>
+References: <20250911-dcif-upstreaming-v5-0-a1e8dab8ae40@oss.nxp.com>
+ <20250911-dcif-upstreaming-v5-4-a1e8dab8ae40@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250909-qcom_ipq5424_nsscc-v5-7-332c49a8512b@quicinc.com>
+In-Reply-To: <20250911-dcif-upstreaming-v5-4-a1e8dab8ae40@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_000822_569269_DB8089B5 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20250912_000945_783581_ABC438ED 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,23 +79,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 09:39:16PM +0800, Luo Jie wrote:
-> NSS clock controller provides the clocks and resets to the networking
-> blocks such as PPE (Packet Process Engine) and UNIPHY (PCS) on IPQ5424
-> devices.
+On Thu, Sep 11, 2025 at 02:37:04PM +0300, Laurentiu Palcu wrote:
+> DCIF is the i.MX94 Display Controller Interface which is used to
+> drive a TFT LCD panel or connects to a display interface depending
+> on the chip configuration.
 > 
-> Add support for the compatible string "qcom,ipq5424-nsscc" based on the
-> existing IPQ9574 NSS clock controller Device Tree binding. Additionally,
-> update the clock names for PPE and NSS for newer SoC additions like
-> IPQ5424 to use generic and reusable identifiers "nss" and "ppe" without
-> the clock rate suffix.
-> 
-> Also add master/slave ids for IPQ5424 networking interfaces, which is
-> used by nss-ipq5424 driver for providing interconnect services using
-> icc-clk framework.
-> 
-> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 > ---
+>  .../bindings/display/imx/nxp,imx94-dcif.yaml       | 82 ++++++++++++++++++++++
+>  1 file changed, 82 insertions(+)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
