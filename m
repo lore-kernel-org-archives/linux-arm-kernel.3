@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB896CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 228DBCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NFH08tmIFwEFshELvQCCzrDsRVylFIuT6nATiecWq28=; b=V72IBEJZ9EgxgC6xrw/Jgllzej
-	OTZvK9+GVV/ClPxXYc2ZVC6d49JqDicJ5PJNwRotUF/MRKxO2oDh40bfAt7Mg8NL0qr53ckNzCwUo
-	MmjB/T2itGud447QRLy2VhLKu4BPsvY/OXbYa2rttoH/yg0lXt0PNbI1ZUDD2bQvkJpM56G0D2dr4
-	nAq3PVuznMi5N5WY+8YkRT4RGK6VOQE75OEY7sjN0oqcLlkjIJ93Y+Qb4ZuhTYZOsgK4UrKo5UDfO
-	7tjECTZTYM0ybCHMoP1IebW5U7aMVWX3eAkCBQAWHTT96EWw14LDmv/E6hktBYX9wcIcXBwguLRnM
-	oGLdK82w==;
+	bh=jxi62TdycFBu65K6f24ki36H46+qfbXbAX96M9Igp/M=; b=PewsnQWHlobJiBf0IztLjrfThO
+	cwgCTgY/Cvo1oBTG9eC3poMn4K7nHLHDMFB5VgSQ1hK9Y+5mDRB33RfoJOA63Jf/XBMevDIlzKrmi
+	bIlr5uOb9riDpH+nBmlKghklqBmth6dnOwQJvVCL0pvUeJTfM2vj1cV4AOxZ7+6QU8XUr3cD2uCmP
+	E2/tug9WffgwROJahDHNIgdWgS7/S1ZTQCVIX6FKo9YYwQFoWJ78OlqK+qCm/qG1dY2OIWt5nM1aJ
+	x5enlpqT3ulqnhDTmo0DOQoxMGHXJOu68mvpmixWgIK8eTEtMVq9KjT8heAr8acf5FqHCl+MC6zLd
+	4pmrsa7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3ZB-00000009Sfm-3Cw3;
-	Fri, 12 Sep 2025 13:11:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ux3bo-00000009TpG-1HzR;
+	Fri, 12 Sep 2025 13:14:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3ZA-00000009SfD-0yBH
+	id 1ux3bm-00000009Tnb-17ep
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 13:11:52 +0000
+	Fri, 12 Sep 2025 13:14:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 954F26023D;
-	Fri, 12 Sep 2025 13:11:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5F6AC4CEF1;
-	Fri, 12 Sep 2025 13:11:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 799AD601E8;
+	Fri, 12 Sep 2025 13:14:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E603C4CEF1;
+	Fri, 12 Sep 2025 13:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757682711;
-	bh=NWoUK1L6tJ83jZRAUU7n305TX9o/58Nkp8C9PBewDA0=;
+	s=k20201202; t=1757682873;
+	bh=MxMamnhy9oj92yxyc9e8YwEgNJD+oI68n6DyGiWWVCs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gm/WI1HUJ7qodlaUKyUiOPYnTT1YpgeGs6d++xyokuvBZD9aGmAZV007oTMQlbdjD
-	 Z3fUmKlNaPmXeK+doiPaonG1HdZBl+noHbQI+2VojQJuu/TDm/HQMCex6mIIMyeRx+
-	 eovDjV/j7oHY4RobWFiTzqyUdbISnKrCaj1NN7Yc/+wetzYk1hFOUb6yfkdrxhsoRr
-	 KRcflX7gQxRJb2b8TbZWdwc9VYAj2cco0hac2mM61EQPc0Nu6VYP5PRSkkERE1bGk4
-	 K1NvSoQOcGeHLkbOMu9xozchSac5sKXA3BB0zgj4pRj66D8QyUBR23RWEipaZCZLzd
-	 iKDl/xq9ur0ww==
-Message-ID: <94913844-e8d2-41da-ab4b-90f69b021bc2@kernel.org>
-Date: Fri, 12 Sep 2025 15:11:42 +0200
+	b=GEwyhLVW7tgTFSLAz7JK3+1HYMD/7HIye32Lxy3ySptbeD+445/nkm2JHAK+972z4
+	 hN1yg6qT/Cv6KzMK+8abeYegIyHojhenatknUEJABAkmsZKRhxN9A/1PKsL28JNgpG
+	 P8gPONP1X/RAQ3DDLBshYfOaHDXkUep0mwc3eyRp2eHwvDGNkpqIyR27ghXrurze4a
+	 32xG1qLEdaIZUklU3/X4Sb88ZgBxKg0LUkvcL4hf/jh43Eg4SPXr+hTax9PtE/mo+E
+	 agzGNJBkiGuwxZdGrjohvI5zMdbZtdppELU60GEdYwgj7UoTvHhVvBA+kwIrM0xjlf
+	 O2SDiRwfa8GpQ==
+Message-ID: <50496bf2-1d10-4d89-addb-f4fe774497d9@kernel.org>
+Date: Fri, 12 Sep 2025 15:14:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] tty: serial: samsung: Remove unused artpec-8 specific
- code
-To: Ravi Patel <ravi.patel@samsung.com>,
- 'Geert Uytterhoeven' <geert@linux-m68k.org>
-Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, jesper.nilsson@axis.com,
- lars.persson@axis.com, alim.akhtar@samsung.com, arnd@kernel.org,
- andriy.shevchenko@linux.intel.com, geert+renesas@glider.be,
- thierry.bultel.yh@bp.renesas.com, dianders@chromium.org,
- robert.marko@sartura.hr, schnelle@linux.ibm.com, kkartik@nvidia.com,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
- ksk4725@coasia.com, kenkim@coasia.com, smn1196@coasia.com,
- pjsin865@coasia.com, shradha.t@samsung.com
-References: <CGME20250911141714epcas5p29f591a1d645c9c69dc5b7d2c2d12af50@epcas5p2.samsung.com>
- <20250911141605.13034-1-ravi.patel@samsung.com>
- <20250911141605.13034-4-ravi.patel@samsung.com>
- <CAMuHMdVe-FULHWk3QCBENG7TsbEZyxj0N5shhESxWBWd49JmOw@mail.gmail.com>
- <6df0e227-896b-438a-913e-95b637aa2b14@kernel.org>
- <8aeda67e-404e-4deb-ac90-015f2325ef64@kernel.org>
- <000101dc2335$ccd62f60$66828e20$@samsung.com>
- <abfaef6f-dd40-441d-86ec-7cd37c1e06b5@kernel.org>
- <002201dc23a4$e27e29c0$a77a7d40$@samsung.com>
+Subject: Re: [PATCH v6 1/2] dt-bindings: ethernet: eswin: Document for EIC7700
+ SoC
+To: weishangjuan@eswincomputing.com, devicetree@vger.kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ yong.liang.choong@linux.intel.com, vladimir.oltean@nxp.com,
+ rmk+kernel@armlinux.org.uk, faizal.abdul.rahim@linux.intel.com,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+ jan.petrous@oss.nxp.com, jszhang@kernel.org, p.zabel@pengutronix.de,
+ boon.khai.ng@altera.com, 0x1207@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ emil.renner.berthing@canonical.com
+Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
+ lizhi2@eswincomputing.com, pinkesh.vaghela@einfochips.com
+References: <20250912055352.2832-1-weishangjuan@eswincomputing.com>
+ <20250912055612.2884-1-weishangjuan@eswincomputing.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -115,7 +109,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <002201dc23a4$e27e29c0$a77a7d40$@samsung.com>
+In-Reply-To: <20250912055612.2884-1-weishangjuan@eswincomputing.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -132,41 +126,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/09/2025 07:19, Ravi Patel wrote:
->>>> Ah, no, I mixed up patches with recent DTS for Artpec-8. This serial ABI
->>>> was accepted three years ago (!!!), so you are Geert absolutely right -
->>>> that's ABI break.
->>>
->>> Thank you for your review.
->>>
->>> The DTS patches for ARTPEC-8 is added recently (https://lore.kernel.org/linux-samsung-soc/20250901051926.59970-1-
->> ravi.patel@samsung.com/)
->>> Before that, there was no user (in DT) of "axis,artpec8-uart" compatible.
->>> So I am not convinced of ABI break (considering patch #1 and #2 goes first with review comment fixes)
->>
->>
->> ABI is defined by bindings and implemented by kernel. Having DTS user is
->> irrelevant to fact whether ABI is or is not broken.
->>
->> Having DTS user determines the known impact of known ABI breakage.
+On 12/09/2025 07:56, weishangjuan@eswincomputing.com wrote:
+> From: Shangjuan Wei <weishangjuan@eswincomputing.com>
 > 
-> OK. So does that mean if someone adds the ABI then it cannot be reverted,
-> because of it breaks backword compatibility (users are using ABI in their local DTB) ?
+> Add ESWIN EIC7700 Ethernet controller, supporting clock
+> configuration, delay adjustment and speed adaptive functions.
 > 
-> Please suggest what should be the proper way.
+> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+> Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
 
+There is no explanation of dropping the tag. Please read CAREFULLY
+submitting patches.
 
-Three years ago you (as in plural) submitted the Artpec-8 bindings and
-driver with purpose. I think it was also claimed that DTS might come or
-might not come ever, so the purpose was to supported out of tree users.
+Comparing also fails:
 
-This means you made a contract in the kernel for that support.
+b4 diff '<20250912055352.2832-1-weishangjuan@eswincomputing.com>'
+Using cached copy of the lookup
+---
+Analyzing 55 messages in the thread
+Preparing fake-am for v6: dt-bindings: ethernet: eswin: Document for
+EIC7700 SoC
+ERROR: Could not fake-am version v6
+---
+Could not create fake-am range for upper series v6
 
-You cannot change that ABI, because otherwise the contract you made
-three years ago meant nothing.
-
-You need to keep full backwards compatibility in the kernel. Look at
-mailing list or git log how others dealt with it.
+I am not going to review twice, so you can drop my tag again without
+explanation.
 
 Best regards,
 Krzysztof
