@@ -4,93 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61FCCCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D923DCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GFs/yrlv3BxwsD3hFdvMm9SwNXFqtO7aFYTEcCrbHJw=; b=mOJoZ3XOM/p70bcG1de6w+1IPF
-	PenbksL2I630Afmf4e1meJEjCmKamfL8z5lDYhkM//a8wZBp+YwHNE/zamoe2u4y3X6+tjLxWW6oF
-	fuLkI1AbQQcreRoLN1aytApKrRihyQr2tkUXoXrgPXEHchV02SnL16XLHYflQMwkJ8jgYCk7CwgBl
-	+s/EpmAQ7yn0qCk7a26VRuvoNiB6qG/d9hoCDcRFN+/ladVKd82GVnqGOqnZi6Tpp+Thm61ISHFnl
-	6DiZvyMHB1I7ZJQu2aCMELjNBTEbJ3ZQ3cpGYwGIJYufkg+Q1cYlLuuvvDJalsnkCkoHElz8CXPJ0
-	ZRpA5MSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MqqpI2kMloNbQrwtAbrBDd+hBQn+g4T03pkyyFvQVUY=; b=qBY7ufNrrJwPoHUniLRYLTNyGU
+	HWVkexWRJLBq3SU0sgS7SDlsLc2thME/sWDz+YGcnjSg8j10yPpcX95CkMcE3r3FAsPIunpSmxuMJ
+	gzdS5Pmz9K1BddmCAGnZj5t/eWOwvJkLx9dTpq4F/QaV7dPn4w4XnJoqbahxtVtFIIqp8I4ru8Hwd
+	xnjiVWRayu9OgZ8k4HlE9OGDQnnO2yw9D57xRX9ttyNkDNxNblbF69YC8A0+dUP34r7CYejRFCv7j
+	3NocEc4BPZfc9Lev56MF2WMoQr4l6WWcDyWLZL3awKiFVNkS4Ue4ID61SUxF3gQjwsbz9YiU76gQZ
+	f3npKK3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4Fi-00000009gfj-1Ckt;
-	Fri, 12 Sep 2025 13:55:50 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1ux4LZ-00000009iCI-1M7z;
+	Fri, 12 Sep 2025 14:01:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4Fg-00000009gek-2dJZ
+	id 1ux4LW-00000009iAM-1rKI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 13:55:49 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b04ba58a84fso268754066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 06:55:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757685347; x=1758290147; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GFs/yrlv3BxwsD3hFdvMm9SwNXFqtO7aFYTEcCrbHJw=;
-        b=XjdpmQscEuq0NPQpyP619jRSnx0bqTfW2nk2m1RHKg60AWko2U749YMRg/FILMbgY3
-         mFisSxIjSNd1yVcO1nn2hu1U8jlcH6Cwbz2zznkSbGrPBs/K50LollG2GIGAXlJgMER8
-         uhBtkigBmA+Y2XaekDtDNkLUsFGp9Lto3glJsX5wyKqMJ0iWw8rxxmpkYY0P0h5EO8B2
-         FsOpz76X87OM9p4fpuOydcFLGwPh1d6MJ8onFrXzhJcZRV2DsOAgZZ1Q5HcuEcp9Iqpy
-         BR4tmPObh7/ybxYDUn0Ik3SN7U9CcJFOYVfheCvxcr7m3lxnwgyXOhd1epiSlwXa12zm
-         ZMFg==
+	Fri, 12 Sep 2025 14:01:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757685707;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MqqpI2kMloNbQrwtAbrBDd+hBQn+g4T03pkyyFvQVUY=;
+	b=hvkHjNwExbsgYxcSmbDubn6kipfCCEtFbX44YwBlCTtnbCqmUbupihbFUqerfmbP7wv/e3
+	+wOLR8gOXBureIe4lrm3E96BRSuyoWpR+mj/BBgKeU7SfT8bxP63lUNc/QIq2sGY05tKkp
+	fYNM5aQlfFd6d3lNglBCw94zQCAs1m4=
+Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com
+ [209.85.210.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-127-tTprR14fOdu6hpBGQBDq6w-1; Fri, 12 Sep 2025 10:01:43 -0400
+X-MC-Unique: tTprR14fOdu6hpBGQBDq6w-1
+X-Mimecast-MFC-AGG-ID: tTprR14fOdu6hpBGQBDq6w_1757685703
+Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-74b64da4a81so4386662a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 07:01:43 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757685347; x=1758290147;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GFs/yrlv3BxwsD3hFdvMm9SwNXFqtO7aFYTEcCrbHJw=;
-        b=KmUv1d1lzEiMRV6kT00oiLzrvZTSGPkEGqU98xSkVucRiPo2Dtt4HgoAKeq5lBA4Bp
-         9+Xdqv4UScNzGbTD5Ci25grekfAxEZ7u2RlX6HymXZj1xo8ZbHHkYx4EG7ezr5ZXMW8k
-         iYPclBCbTfdSycsPiX8SR9fdTLq4pgslqniwxDHUMN8n04ehhqquPChOJqVzfxdS3vRy
-         tcWUIuK5VsY7udFqtiyxu+sORUlBSSpQXxlEk48lm/naPkM5fqNPgpZ2h3Yvxo8zJ/l6
-         nIbeB2C59QWO5Dylhqch+acABoNCn5yKr1NQYWaRyoQNKpAq1YMAxbzEwSyBHEb8qmER
-         3O4A==
-X-Forwarded-Encrypted: i=1; AJvYcCXElrUBOnjXNqOzBl/sdozbMx1UiSZYtnDoup2rettBylKOmdidg9FRC0KOY7A+JtgjvHFtcEX2Yxuo616PQd4z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkQgDlNYrMY2pU1WvGkbZ+hX6+p83tTJ1SQ/genw5z+PZ3muEP
-	Je/eK34TBQTZFIEuWLmgBXDQH+Hl3/5XE1oROELUxQManNWVvzvtbuLI
-X-Gm-Gg: ASbGncvzl9Yjsjj4mrGaROhuIVct7wPw3+Flmn9epRMTzh03BKw4OhL5cgcGP9wPxIH
-	MLSJZYZRifFcNWv3fFmJZKepjx+hIqYVulzcthUNlybcONf+xVz9Nf3K4sSnBAJ7tyIxJw5ZQeu
-	9PE/CEguXKLAbqWIHiotaaDM1ZHgWBY51Be5NYqgsgVXyRK0k3bxIzHBfQY/xk7p640AMXy9ySw
-	cWscu43YGiWmd23RR7io3YyIegzWKwgzvwbBYFqOOqifmva95nnhH+h3sCRuCAicK3SI3VcYfzx
-	zB0yXORkyoqcnMde4pMewrTXIZUgyc8TvlgVj9UHSsviwTJJ39Gv/5zaHxw4wFrzrCaOxBMQRKe
-	VSez2Ixv63FCnAI04CdPZPbUrcJhrWoCsdDXkwuqndPj8/ys=
-X-Google-Smtp-Source: AGHT+IEfWvgTrCzJfv8ZQfD+Jx15z+YEpVcjInjP1fcgF1fRUw7eW1Phf8azNXvHtBWqDEj6x+bNog==
-X-Received: by 2002:a17:907:9627:b0:b04:4625:2372 with SMTP id a640c23a62f3a-b07c356ec97mr305733666b.15.1757685346656;
-        Fri, 12 Sep 2025 06:55:46 -0700 (PDT)
-Received: from HomePC (89-67-214-154.dynamic.play.pl. [89.67.214.154])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b31292aasm381628566b.44.2025.09.12.06.55.45
+        d=1e100.net; s=20230601; t=1757685703; x=1758290503;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MqqpI2kMloNbQrwtAbrBDd+hBQn+g4T03pkyyFvQVUY=;
+        b=JnMKUTYwx/jBf+dqPaZ4aBVrOJJ8pttJ4HkoESeRX9CzkLYEbl0XwQkUT6g13GyE1S
+         6HdFHX7RM5QasDzUo56AynnF7HIg8IKdwu1Jjo10QYwBYKrrJ01ZG/BlgyxZY8xpDwaK
+         /MGlzWChbNbuyUbAaPvG6y/3LGq9X5Y5uDcSR2TwTzKw3GOaDvsF/VSa/3D/gW41h6c9
+         Prq4ipb0WTwTaslwkK+NywPSG7ALA0zlxrVDaM3qdQQaACmXwLrhF6lSNB1haH+uAcRT
+         GluZbfdCIZwOPW9pVAPW4O8wQNgxt/lksYlPMTrXRVxoHEXupet/HuIbpQrHzOoqxnIw
+         iGRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXwadSIn/1rFliGK40+G3qm+lCIMe0T5NPdpqnQmhPAPU7yqJNZlY9OXanPMYw9OCAfGTAsdBQUHLc5WC8ecRXg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdgwA74xJcJjNg1jYSpM+gG1OPJRuwvkfrIOEXXMdI/1sPuoZY
+	whxjOWsNHxyh+3kh+x80v6IPebp72/aDMnOe6kn1qzB+gmloSk029DgRRzWOCeO0ZC2+tXYhdNN
+	DM+XdNgWWBE6cajMiRuJBRYsPheKtVG5SZGHixgxUn5VAqne6SE1mGvAqJ8yss434Ya5fbUZjEo
+	el
+X-Gm-Gg: ASbGnctg599/pWgG+6QfXzqz0W167JZPni+ISAFqohHqcdM0AZ+uBkYF6tcU7pluArY
+	1qzy4+QJBg03DW0BvGn3BgjfUFK+eGKr51sN/LSjLgdZYbOnUKiVrbCePWe4BcmJZOkQzKw53F6
+	0Vg3dOimmKKiMHbl7qLhmy63qbEuV/P+4ilHe1DxWRNw5z4vGRrwkNRyYCUn9Gd/STQ1YamqghX
+	4ntrIp4ZWpgEyVFQNDNeUiUsHpvyyTG1y/nXeD8Ogo2j5SinHxiPdw32Bwk4DLr33W3voONYdCI
+	ELpRXIQeym1e9XGVmKH9TRvr+ggD0i3lk6j7ZpxMJUKGRfSFljvKiMKAwDTLf+iOCVYwBdT0PfQ
+	GW1qeAWfHIuxhO6cz9FYf2yH3oe2HUg==
+X-Received: by 2002:a05:6830:921:b0:749:32a:6e79 with SMTP id 46e09a7af769-75355ac0c40mr1629160a34.29.1757685702760;
+        Fri, 12 Sep 2025 07:01:42 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE5yxEH3wh5uzqiZ9fHV5ltsysfaNN7LLcUgGKgcfhcmP2GCkP3kLrFAt6qiJu3nESHP/mhlA==
+X-Received: by 2002:a05:6830:921:b0:749:32a:6e79 with SMTP id 46e09a7af769-75355ac0c40mr1629088a34.29.1757685702145;
+        Fri, 12 Sep 2025 07:01:42 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b639de9a69sm24487811cf.46.2025.09.12.07.01.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Sep 2025 06:55:46 -0700 (PDT)
-From: Andrey Leonchikov <andreil499@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	dsimic@manjaro.org,
-	dmitry.osipenko@collabora.com,
-	tglx@linutronix.de,
-	amadeus@jmu.edu.cn
-Cc: Andrey Leonchikov <andreil499@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: arm64: dts: rockchip: RK356x: Add OTP description.
-Date: Fri, 12 Sep 2025 15:55:41 +0200
-Message-ID: <20250912135542.2304150-1-andreil499@gmail.com>
-X-Mailer: git-send-email 2.51.0
+        Fri, 12 Sep 2025 07:01:41 -0700 (PDT)
+Date: Fri, 12 Sep 2025 10:01:37 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 2/5] clk: Introduce clk_hw_set_spread_spectrum
+Message-ID: <aMQnwU3UA5xe-Eou@redhat.com>
+References: <20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com>
+ <20250912-clk-ssc-version1-v3-2-fd1e07476ba1@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250912-clk-ssc-version1-v3-2-fd1e07476ba1@nxp.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: N6O593DCNN26zr0mM8lNPIOHvppN2HM5xJDaeR5sRo0_1757685703
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_065548_686004_3B6CD26D 
-X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-CacheID: sfid-20250912_070150_558390_0F94A883 
+X-CRM114-Status: UNSURE (   9.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,130 +122,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add OTP mapping, can be used on future by drivers.
-Contain a factory-programmed values for a various peripheral.
-U-Boot already use "CPU-ID" OTP value ("otp_id" on this patch).
-All values from original Rockchip sources tree on github.
+On Fri, Sep 12, 2025 at 11:35:51AM +0800, Peng Fan wrote:
+> Add clk_hw_set_spread_spectrum to configure a clock to enable spread
+> spectrum feature. set_spread_spectrum ops is added for clk drivers to
+> have their own hardware specific implementation.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Signed-off-by: Andrey Leonchikov <andreil499@gmail.com>
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index fd2214b6fad4..74523efa8ecf 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -1057,6 +1057,111 @@ rng: rng@fe388000 {
- 		status = "disabled";
- 	};
- 
-+	otp_ns: otp@fe38c000 {
-+		compatible = "rockchip,rk3568-otp";
-+		reg = <0x00 0xfe38c000 0x00 0x4000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		clocks = <&cru CLK_OTPC_NS_USR>,
-+			<&cru CLK_OTPC_NS_SBPI>,
-+			<&cru PCLK_OTPC_NS>,
-+			<&cru PCLK_OTPPHY>;
-+		clock-names = "usr", "sbpi", "apb", "phy";
-+		resets = <&cru SRST_OTPPHY>;
-+		reset-names = "otp_phy";
-+
-+		cpu_code: cpu-code@2 {
-+			reg = <0x02 0x02>;
-+		};
-+
-+		specification_serial_number: specification-serial-number@7 {
-+			reg = <0x07 0x01>;
-+			bits = <0x00 0x05>;
-+		};
-+
-+		otp_cpu_version: cpu-version@8 {
-+			reg = <0x08 0x01>;
-+			bits = <0x03 0x03>;
-+		};
-+
-+		mbist_vmin: mbist-vmin@9 {
-+			reg = <0x09 0x01>;
-+			bits = <0x00 0x04>;
-+		};
-+
-+		otp_id: id@a {
-+			reg = <0x0a 0x10>;
-+		};
-+
-+		cpu_leakage: cpu-leakage@1a {
-+			reg = <0x1a 0x01>;
-+		};
-+
-+		log_leakage: log-leakage@1b {
-+			reg = <0x1b 0x01>;
-+		};
-+
-+		npu_leakage: npu-leakage@1c {
-+			reg = <0x1c 0x01>;
-+		};
-+
-+		gpu_leakage: gpu-leakage@1d {
-+			reg = <0x1d 0x01>;
-+		};
-+
-+		core_pvtm: core-pvtm@2a {
-+			reg = <0x2a 0x02>;
-+		};
-+
-+		cpu_tsadc_trim_l: cpu-tsadc-trim-l@2e {
-+			reg = <0x2e 0x01>;
-+		};
-+
-+		cpu_tsadc_trim_h: cpu-tsadc-trim-h@2f {
-+			reg = <0x2f 0x01>;
-+			bits = <0x00 0x04>;
-+		};
-+
-+		gpu_tsadc_trim_l: npu-tsadc-trim-l@30 {
-+			reg = <0x30 0x01>;
-+		};
-+
-+		gpu_tsadc_trim_h: npu-tsadc-trim-h@31 {
-+			reg = <0x31 0x01>;
-+			bits = <0x00 0x04>;
-+		};
-+
-+		tsadc_trim_base_frac: tsadc-trim-base-frac@31 {
-+			reg = <0x31 0x01>;
-+			bits = <0x04 0x04>;
-+		};
-+
-+		tsadc_trim_base: tsadc-trim-base@32 {
-+			reg = <0x32 0x01>;
-+		};
-+
-+		cpu_opp_info: cpu-opp-info@36 {
-+			reg = <0x36 0x06>;
-+		};
-+
-+		gpu_opp_info: gpu-opp-info@3c {
-+			reg = <0x3c 0x06>;
-+		};
-+
-+		npu_opp_info: npu-opp-info@42 {
-+			reg = <0x42 0x06>;
-+		};
-+
-+		dmc_opp_info: dmc-opp-info@48 {
-+			reg = <0x48 0x06>;
-+		};
-+
-+		remark_spec_serial_number: remark-spec-serial-number@56 {
-+			reg = <0x56 1>;
-+			bits = <0 5>;
-+		};
-+	};
-+
- 	i2s0_8ch: i2s@fe400000 {
- 		compatible = "rockchip,rk3568-i2s-tdm";
- 		reg = <0x0 0xfe400000 0x0 0x1000>;
--- 
-2.51.0
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
 
