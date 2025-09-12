@@ -4,88 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B043CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183E5CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=28JpikhNh6hlI5zzwVP1Kei7jvxlx3xsZ1bRu7uJFZI=; b=Nwi2fJR5c/vTUzbD1WjsUUS4sx
-	DYq9a0u2gWZ0YWMLThBrmPyc1OxXS6OC3XgJhBfkWoBb/zatyGRCc+35Y9z0/dF2O/V0jbAFlhTO7
-	j9v5a/HMV6wtvvXVurZAWHxuBtjg74Y0EndCnCGR8tveVsp9w2Jfy9A2iZI0LZ+BuPhRKhK8D5o6b
-	dtNhigI8mOqZ23NT1G4fsVL1i+MdNU45zX+3rKiWXKKom7GNdfSRQyPMjoOJDXgDZeMDs47tTqXvZ
-	glJ/bnd4DymIdYiFC0acB4tmafMCnwPLI2vfToPHSX/ijmy0OYFJCSH2yNHGDHSiboU1ZxPvnL5Yf
-	QDPNzphw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=puMdyIIHvqqqXJRZG+w2G01SbwhDNuDItN0l/+tOcv0=; b=2zVMaINpRJKsHJx/RS9Gcoczt6
+	xMcria5KWSGlp9RGCWoQLqzknXwjwCxoqMtmFx76fTJv43uIhNPewZcxKIpRgIfpsLhO8uIzZwt44
+	LXUawucNZrUvrFSK9/ET5xp1F2v/uyxEzQj5ZvJmftmBV/wL1JW6jKFX0gwbYdugs3yGvQLIH2qDd
+	j669ELVvk/DW8i3HEbJ7jkzAj3kZ91gTm35++qVfke+YTXDMrSvdQyVvNQeD560ZXQbOInOSzcUV+
+	cxe6ZFczG8mHe868YfD37F+17i5uh12rsc1bpmrd0fTVjFI6yfXTpw8K77Je9ZuNCoRkzeYYqaeyV
+	+BpPzb2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5Ed-0000000A4T8-1GKI;
-	Fri, 12 Sep 2025 14:58:47 +0000
-Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5Eb-0000000A4Sa-0Dlr
+	id 1ux5GS-0000000A5L5-0pEo;
+	Fri, 12 Sep 2025 15:00:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux5GQ-0000000A5KT-10UP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 14:58:46 +0000
-Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-621b965a114so1173657eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 07:58:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757689124; x=1758293924; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=28JpikhNh6hlI5zzwVP1Kei7jvxlx3xsZ1bRu7uJFZI=;
-        b=pGSKf+zRbTkRoxHrRSBbqO6fiM2cdHybkUUo5GwvRHg4p3DBkhKVzgO7caNL4N20N0
-         BCNjPuZt5ibNQDN3TnuZJjK/XlDA75F4MCZYzblh4GEVDoQAejIz5aUBOn9VtS8xZrXH
-         CDhhJBWEklucS29uPGA4WmDzSx9UBHpyhzAgDy8mXQnaJWmAFgUZkofTL3VacQVzHWEL
-         dPE3slvnQwp5provrVznffJcLRnB2XkSnDk/kVesN9MLfH1jlcIN9jXVpenr7apLb43u
-         k2193Pvbicmqqzxsn1glEyK/6M5UZ6YYDzuWKnE99fyRLB/5ayqERQdzdFq0LJ+7I0US
-         eJng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757689124; x=1758293924;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=28JpikhNh6hlI5zzwVP1Kei7jvxlx3xsZ1bRu7uJFZI=;
-        b=YMp833NNlQ/ofhUtb/5NZYJ1c8kqUPhuWswzwMyVdtbR3bYiccr/BoEmn8/8g9ivmn
-         rpSgWmOJtCzPiNGne5hD00S+5GSiGBGUXSzvwHXvybEIq0BnOnG4eCz4FqG+7DokBvSD
-         PDKTtPMa1yL4gOsv/kjnm4SphZQpusCdqq6ZAuHS72/uJQhxuPxWRka71o3sHnb4oA8Y
-         IwE54nTRQYH/zOBUD9i8kGbv6GRhYAJqK88L7IbNYHlHC4mYdTD2oexYo2CD3FmwutrJ
-         wTE4IQJevQJZtlQHuJEoT8ur5wi89EE6Mra3S/afx+Y7v5KL22n5QkxgWyr1cJiPJM7R
-         S8fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU0HqQs5Equ/L8Kgmdofq1X7i+O5f4sT7wGoUnnGSE0iZir/5ImgKdDPMpZRsmUE1EoyJMhdrTuNMcW5zW5l8Il@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDaWIJFFgEnO4ugIQhRrsx1YfNe0zw+2ROOrUg2RdORY1r8RHM
-	F6BgZDMXv4ucW7MQBEEmdvYDR5xmsYQdKBP8prrANVQGAnhfOICc1gu55VL0pDrOQyI7egomU6N
-	uVcBrKf8IsyrWQiUrsq9+EhE1xJEFCkYJ/uGOpk8UZw==
-X-Gm-Gg: ASbGnctDyA65eNB985KT7eZ8iCS9u25X8nevV+hKj9o2l+Vc/HtcewwJJ+/HwXUhi/h
-	pnrGtvAIbMWqUTTq6nVYfvx9pfMbnrXY9VztiroW8QNlbE/oT9S6COheeMU99Ljx5pwOO7lWi7L
-	HHITlJ9UkBLGKL5uZlu5jxn7NF2JHfWgv0pGFy56TUh22aOzjvEC3r1fz3MprEwvQSHSNj+ENcl
-	KKmas9zg6dW5mX5uA==
-X-Google-Smtp-Source: AGHT+IHAJ42BGc4DV3+A7HRXSgNpI4Ckz1R2zEcxWqCWvdlWoM2kBfvVDgKpueHQzqgzBraygif8YB0P1rDNI9gE4qo=
-X-Received: by 2002:a05:6870:b907:b0:315:3ef4:eecd with SMTP id
- 586e51a60fabf-32e553a280fmr1618278fac.17.1757689123738; Fri, 12 Sep 2025
- 07:58:43 -0700 (PDT)
+	Fri, 12 Sep 2025 15:00:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01E5C16A3;
+	Fri, 12 Sep 2025 08:00:28 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B01D03F694;
+	Fri, 12 Sep 2025 08:00:31 -0700 (PDT)
+Message-ID: <5eb4b7f0-37eb-47c9-a955-ed9db17fa1e5@arm.com>
+Date: Fri, 12 Sep 2025 16:00:30 +0100
 MIME-Version: 1.0
-References: <20250908-acpm-clk-v4-0-633350c0c0b1@linaro.org>
-In-Reply-To: <20250908-acpm-clk-v4-0-633350c0c0b1@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 12 Sep 2025 15:58:32 +0100
-X-Gm-Features: Ac12FXwxoqn3zsYfC0T8IDf20S9zDpzsxcpDfKlZfpZdk1czNZgS3-vJNTlzLBQ
-Message-ID: <CADrjBPo8L=P2bHKTFvYOj7i0u6pA7vs32d3y+4Ho+82Z1mRE_Q@mail.gmail.com>
-Subject: Re: [PATCH v4 0/5] exynos-acpm: add DVFS protocol and clock driver
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	willmcvicker@google.com, kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 20/29] arm_mpam: Allow configuration to be applied and
+ restored during cpu online
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-21-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250910204309.20751-21-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_075845_094127_938F6082 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20250912_080038_319144_01557661 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +82,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 8 Sept 2025 at 14:13, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
->
-> Dependencies description:
-> All patches should go through the Samsung SoC tree.
-> The acpm-clk driver (#4) depends on the ACPM DVFS ops (#2).
-> If the clock subsystem needs to merge the new clock driver, it will
-> need an immutable tag with the 2 patches.
-> No dependecies for #1, #3, #5.
->
-> The Alive CLock and Power Manager (ACPM) firmware exposes clocks that
-> are variable and index based. These clocks don't provide an entire range
-> of values between the limits but only discrete points within the range.
-> The firmware also manages the voltage scaling appropriately with the
-> clock scaling. Make the ACPM node a clock provider.
->
-> Add support for the ACPM DVFS protocol. It translates clock frequency
-> requests to messages that can be interpreted by the ACPM firmware.
-> Add an ACPM clock driver to model the clocks exposed by the ACPM firmware.
->
-> Thanks,
-> ta
->
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
+Hi James,
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Tested-by: Peter Griffin <peter.griffin@linaro.org> # on gs101-oriole
+On 9/10/25 21:43, James Morse wrote:
+> When CPUs come online the MSC's original configuration should be restored.
+> 
+> Add struct mpam_config to hold the configuration. This has a bitmap of
+> features that were modified. Once the maximum partid is known, allocate
+> a configuration array for each component, and reprogram each RIS
+> configuration from this.
+> 
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since v1:
+>  * Switched entry_rcu to srcu versions.
+> 
+> Changes since RFC:
+>  * Added a comment about the ordering around max_partid.
+>  * Allocate configurations after interrupts are registered to reduce churn.
+>  * Added mpam_assert_partid_sizes_fixed();
+>  * Make reset use an all-ones instead of zero config.
+> ---
+>  drivers/resctrl/mpam_devices.c  | 269 +++++++++++++++++++++++++++++---
+>  drivers/resctrl/mpam_internal.h |  29 +++-
+>  2 files changed, 271 insertions(+), 27 deletions(-)
+> 
+
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Thanks,
+
+Ben
+
 
