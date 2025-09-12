@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28217CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B416ACAC58F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HD3ANW+/BT63gkCknofN+lfkL9Q8HADeIknYUxJB2Y8=; b=dwiofk6qq/T9He9jCLcm6I57Gn
-	4tbX92uaAKIrEfU8Y7yZml3OzUcLbGYoIQPKNyTA+F0PQ8RsfsPNKaJeDkjr4UYSXyXExabq3Mu4N
-	rXngYYf/T/7YstNQFHjgD2VYehKSMUBqq98M4jB/qLMZcYnj91TQwkSNJPEeZ07NlWBsoAHpIJFRz
-	3LPyjVC5w2Ky/+3P/qovLXonl+y2MuS1wMNqVjQCzJxjsoi6uhGW1bYhno7xMxHhHtxLeSqdUiAYq
-	bs4aV0jndOkHpPdh+JuXpQX17JXge/YtnP6Dh/CcT8sNTOIK5Z4rd/806bZME3q3XPjb9uTzRrgh6
-	X5Lk/1Sg==;
+	bh=YhabVYyzSOeYvEJDGB2G48jRn5HpsYcJMnGseYW00zI=; b=qV32XM3OWmukrHkILq5jWd2JlK
+	Uh69dBr2jgkaoZz5QdWq2QRcrYve48Hwi5Q/frosDcYeMgstSF6qZ6knsSUPGLb10sj1jidVNFVpT
+	W54W+kljCZRRxRqJt35KljUMUgJUS/tFi00wt0Ezj/XI2qWIDqzhyGQ5jxG8qsXeBQ5qkrNzijQIb
+	m4o8XXW2WoSNc/aoi4J7gDTzCoozRa33aZOsiHpEkcAKM0x/811I9uxL30N2mvyW7te9+Ew2Gw0L3
+	ifUY6sfrHRGJtCSU3DOq4+hEjKTOitPhZeGU9/FBGAzIjrxVBo+4bMqYYnNsUoh9Bp5tQisgDiIQ6
+	IAjSNxLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5ta-0000000AJkJ-3ZXL;
-	Fri, 12 Sep 2025 15:41:06 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ux5tb-0000000AJlN-23NR;
+	Fri, 12 Sep 2025 15:41:07 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5tR-0000000AJeA-1nH9
+	id 1ux5tR-0000000AJe5-0gL9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 15:41:00 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58CFeiZC634623;
+	Fri, 12 Sep 2025 15:41:01 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58CFeiiZ1062316;
 	Fri, 12 Sep 2025 10:40:44 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1757691644;
-	bh=HD3ANW+/BT63gkCknofN+lfkL9Q8HADeIknYUxJB2Y8=;
+	bh=YhabVYyzSOeYvEJDGB2G48jRn5HpsYcJMnGseYW00zI=;
 	h=From:Date:Subject:References:In-Reply-To:To:CC;
-	b=Q9z7mQDiu/Y1+5kPT2vQkApITYc+PsSuS7VEcgtCuQBLs+8cUygYM++dNCe5BDfJY
-	 fBdA2Bx1ZaOPlVmG+ykab/+3FoQJwJ28kj9HUvYTyPYDqC9rCeuca9zrczn00WlmBt
-	 OjfSvn+pB178Vx24b0PlJgg5pfrQf1ceeQ4Dfkqc=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58CFehXK1398277
+	b=T0QVICwo9BsStIcsr+8L+wtsPel/6HhuEEcifQMExVVEUII6J3m45Xi2b21U3eduE
+	 ZwJ1pAWhILzgtUlfjnUtJ5eWS8vdbfVr35HAuCGuW/YJIaKdharE/F3HRYFpDBC5hE
+	 AK849tfXOatVufzINo38Il77hd5WyLH6hvS0zpbI=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58CFeifP2870515
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 12 Sep 2025 10:40:43 -0500
-Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 12 Sep 2025 10:40:44 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 12
  Sep 2025 10:40:43 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
  Transport; Fri, 12 Sep 2025 10:40:43 -0500
 Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58CFehca4123678;
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58CFehPP3820088;
 	Fri, 12 Sep 2025 10:40:43 -0500
 From: Bryan Brattlof <bb@ti.com>
-Date: Fri, 12 Sep 2025 10:40:40 -0500
-Subject: [PATCH v6 1/4] dt-bindings: arm: ti: Add binding for AM62L SoCs
+Date: Fri, 12 Sep 2025 10:40:43 -0500
+Subject: [PATCH v6 4/4] arm64: dts: ti: k3-am62l: add initial reference
+ board file
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250912-am62lx-v6-1-29d5a6c60512@ti.com>
+Message-ID: <20250912-am62lx-v6-4-29d5a6c60512@ti.com>
 References: <20250912-am62lx-v6-0-29d5a6c60512@ti.com>
 In-Reply-To: <20250912-am62lx-v6-0-29d5a6c60512@ti.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
@@ -74,29 +75,26 @@ To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
  Lindgren <tony@atomide.com>
 CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-        <linux-gpio@vger.kernel.org>, Bryan Brattlof <bb@ti.com>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
+        <linux-gpio@vger.kernel.org>, Bryan Brattlof <bb@ti.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1008; i=bb@ti.com;
- h=from:subject:message-id; bh=qmMFYrd/PSzL8e6/VRTNiSiKrwxX8Xq6GZVbqDFar5E=;
- b=owNCWmg5MUFZJlNZSfnnCAAAXH///7/vn7v2/f/xMC6b/d437xU26o+P/me3X+38v178/tewA
- Rss2Q9Q0aNGjRoANDRptINABoNAMQ0DEAaAMgBkGgAyA0wEaNNMmRgjaaQyPUDJNA0NAAGhoBoa
- A0AepkAAaaDAEaaAeoD1DTQ0ABp6j1GgGQBpo0ZNNMh6n6kQ0YmJkGjQMjIGgNAMmQxNGhphAAM
- gyaMjTJkAZAyAAMmjJoaNBoaNAaY9UDBn0QgDpwsUlFvARtKmsiYq+F6chzhY8b4wrdEjchC61w
- Tl3xp0wdhMnkLeDRYZhxuQ4oQj08KKWsBDXc+GMCRdOeU/tHmDlfsKhzhoR+U5WgMgWs2LTcacI
- A/EJ9H12SANOzexSysNMqiQtWygF3SYQ5d+n64NisX5hHG78wxSYKHTrAmuhhLSLWd1QQ0ZnShO
- 9kAEO/Hapbo1OH6ETo3rlXNS8x0QpuVdSzN2JMJ7v8/twd2hNYSTBxGq08rzXxqBDEYMmDoJaB4
- U3UD96vpa+RNO9KpmQTqaaG5Wth+Zsf+ZRJr7CRo7PzIYUB+HNLr+kryGBEKq422GiWT+RN/1K9
- J6YHxbgcL5/R+NSHivKMWuBG/xKSw8QRStSpogn7hFUvbIKC/weZEFYy9A6Lx/AAEr87/ErPknY
- jyBOHxAM4AyU/xdyRThQkEn55wg
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10522; i=bb@ti.com;
+ h=from:subject:message-id; bh=rZENMQ5wn18nV0zmN4TDUC16o97lMtvclVHm5b8BTU4=;
+ b=owNCWmg5MUFZJlNZVMs/hAAAaX///r79yq/sfn/texX//c+v871/961Xbeb/Zu7vrzPH7t+wA
+ RtqB2oAAGgAAANAABkAA0BoGmQGQNNDBAAGCNMjRpoZAep5TQYjRo0w9KIMTJ6hoGjQxDQ0AaDI
+ YQ0AAD1AANGhoNDaBMQ9QaBobSGQ0AYmgaaAaAaaHCaMTIMRiZDTJkAYJoxDQGjQaAAGACMgYhg
+ jQAAANGgGmEAAAAECfIclVR4W7g4gS2FZVADmpgKUBBwGmMhhgLp4iiWoegeDEFj0xK66OSB1AZ
+ 0yAF6YsyRtlpKL6pzu/herhNsEyAgZDZtJaIQRh9VMXENp9EQICjDpytzrB/hWUhQxxdilQ9bU0
+ LVJhlqk6bp8bmFTm5wZO1kpW0vnDbVGxUCbs1Dys4omCLBsBaFQCVwOf+xwjn25HvM5hHwy2x6O
+ fOBwEe7qoVAT20SYhRPrnhPsvldG4CLaHAMZh5XBkhBOoCsMr0qupgWMTTETz9/lbbfUOT8BYIp
+ xH9AJ6WFRCzOcvVwCaNGZfrREnFD01Jo6vON27L1q0pdAvYDj/sUX1D09+6yZR1MeyE9AUX4FwK
+ GgLIwFkz4CBFuebDW6TvCMj3G/sipf1yAS/tog4afA+R0UiOJdtYHiErcOUGhZjPAEQO7pVDf4u
+ 5IpwoSCpln8IA==
 X-Developer-Key: i=bb@ti.com; a=openpgp;
  fpr=D3D177E40A38DF4D1853FEEF41B90D5D71D56CE0
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_084057_557440_6AF67B55 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_084057_380641_5B63A080 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,34 +109,400 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the binding for TI's AM62L family of devices.
+From: Vignesh Raghavendra <vigneshr@ti.com>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Add the initial board file for the AM62L3's Evaluation Module.
+
+Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
 Signed-off-by: Bryan Brattlof <bb@ti.com>
 ---
-Changes in v1:
- - separated out devicetree bindings
----
- Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+Changes from v1:
+ - switched to non-direct links so TRM updates are automatic
+ - removed current-speed property from main_uart0
+ - removed empty reserved-memory{} node
+ - removed serial2 from aliases{} node
+ - corrected main_uart0 pinmux
 
-diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-index e80c653fa4382acef964e182ecc4ae5445088936..d916c627eb619d16124772df5aacac9354126808 100644
---- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
-+++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-@@ -37,6 +37,12 @@ properties:
-           - const: phytec,am62a-phycore-som
-           - const: ti,am62a7
+Changes from v2:
+ - alphabetized phandles
+ - corrected macros and node names for main_uart0 pinmux node
+
+Changes from v3:
+ - added and enabled more nodes that have been validated
+ - added link to data sheet which is now public
+
+ Changes in v4:
+ - Corrected Copyright year
+---
+ arch/arm64/boot/dts/ti/Makefile          |   3 +
+ arch/arm64/boot/dts/ti/k3-am62l3-evm.dts | 345 +++++++++++++++++++++++++++++++
+ 2 files changed, 348 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index aad9177930e6fc8ade9432a9487e55b53d1e4763..a05cc096b6716e2ab245a8e26ad1f5c3a3142632 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -36,6 +36,9 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62a7-phyboard-lyra-rdk.dtb
+ # Boards with AM62Dx SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
  
-+      - description: K3 AM62L3 SoC and Boards
-+        items:
-+          - enum:
-+              - ti,am62l3-evm
-+          - const: ti,am62l3
++# Boards with AM62Lx SoCs
++dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
 +
-       - description: K3 AM62P5 SoC and Boards
-         items:
-           - enum:
+ # Boards with AM62Px SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dahlia.dtb
+diff --git a/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts b/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..1df76844c1900d4829ee5d5444b129e72b479390
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
+@@ -0,0 +1,345 @@
++// SPDX-License-Identifier: GPL-2.0-only or MIT
++/*
++ * Device Tree file for the AM62L3 Evaluation Module
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ * Technical Reference Manual: https://www.ti.com/lit/pdf/sprujb4
++ * Data Sheet: https://www.ti.com/lit/pdf/sprspa1
++ */
++
++/dts-v1/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/net/ti-dp83867.h>
++#include "k3-am62l3.dtsi"
++#include "k3-pinctrl.h"
++
++/ {
++	compatible = "ti,am62l3-evm", "ti,am62l3";
++	model = "Texas Instruments AM62L3 Evaluation Module";
++
++	chosen {
++		stdout-path = &uart0;
++	};
++
++	memory@80000000 {
++		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
++		device_type = "memory";
++		bootph-all;
++	};
++
++	gpio_keys: gpio-keys {
++		compatible = "gpio-keys";
++		autorepeat;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usr_button_pins_default>;
++
++		usr: button-usr {
++			label = "User Key";
++			linux,code = <BTN_0>;
++			gpios = <&gpio0 90 GPIO_ACTIVE_LOW>;
++		};
++	};
++
++	leds {
++		compatible = "gpio-leds";
++		pinctrl-names = "default";
++		pinctrl-0 = <&usr_led_pins_default>;
++
++		led-0 {
++			label = "am62-sk:green:heartbeat";
++			gpios = <&gpio0 123 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "heartbeat";
++			function = LED_FUNCTION_HEARTBEAT;
++			default-state = "on";
++		};
++	};
++
++	vmain_pd: regulator-0 {
++		/* TPS65988 PD CONTROLLER OUTPUT */
++		compatible = "regulator-fixed";
++		regulator-name = "vmain_pd";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++		regulator-boot-on;
++		bootph-all;
++	};
++
++	vcc_3v3_sys: regulator-1 {
++		/* output of LM61460-Q1 */
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_3v3_sys";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vmain_pd>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	vdd_mmc1: regulator-2 {
++		/* TPS22918DBVR */
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_mmc1";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-boot-on;
++		enable-active-high;
++		vin-supply = <&vcc_3v3_sys>;
++		gpio = <&exp1 3 GPIO_ACTIVE_HIGH>;
++		bootph-all;
++	};
++
++	vcc_1v8: regulator-3 {
++		/* output of TPS6282518DMQ */
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vcc_3v3_sys>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++};
++
++&gpio0 {
++	status = "okay";
++	bootph-all;
++};
++
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0_pins_default>;
++	clock-frequency = <400000>;
++
++	eeprom@51 {
++		/* AT24C512C-MAHM-T or M24512-DFMC6TG */
++		compatible = "atmel,24c512";
++		reg = <0x51>;
++	};
++};
++
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_pins_default>;
++	clock-frequency = <100000>;
++	status = "okay";
++
++	exp1: gpio@22 {
++		compatible = "ti,tca6424";
++		reg = <0x22>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		gpio-line-names = "", "",
++				  "UART1_FET_SEL", "MMC1_SD_EN",
++				  "VPP_LDO_EN", "EXP_PS_3V3_EN",
++				  "UART1_FET_BUF_EN", "", "",
++				  "", "DSI_GPIO0", "DSI_GPIO1",
++				  "", "BT_UART_WAKE_SOC_3V3",
++				  "USB_TYPEA_OC_INDICATION", "",
++				  "", "WLAN_ALERTn", "", "",
++				  "HDMI_INTn", "TEST_GPIO2",
++				  "MCASP0_FET_EN", "MCASP0_BUF_BT_EN",
++				  "MCASP0_FET_SEL", "DSI_EDID",
++				  "PD_I2C_IRQ", "IO_EXP_TEST_LED";
++
++		interrupt-parent = <&gpio0>;
++		interrupts = <91 IRQ_TYPE_EDGE_FALLING>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&gpio0_ioexp_intr_pins_default>;
++		bootph-all;
++	};
++
++	exp2: gpio@23 {
++		compatible = "ti,tca6424";
++		reg = <0x23>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		gpio-line-names = "BT_EN_SOC", "VOUT0_FET_SEL0",
++				  "", "",
++				  "", "",
++				  "", "",
++				  "WL_LT_EN", "EXP_PS_5V0_EN",
++				  "TP45", "TP48",
++				  "TP46", "TP49",
++				  "TP47", "TP50",
++				  "GPIO_QSPI_NAND_RSTn", "GPIO_HDMI_RSTn",
++				  "GPIO_CPSW1_RST", "GPIO_CPSW2_RST",
++				  "", "GPIO_AUD_RSTn",
++				  "GPIO_eMMC_RSTn", "SoC_WLAN_SDIO_RST";
++		bootph-all;
++	};
++
++};
++
++&i2c2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c2_pins_default>;
++	clock-frequency = <400000>;
++	status = "okay";
++
++	typec_pd0: tps658x@3f {
++		compatible = "ti,tps6598x";
++		reg = <0x3f>;
++
++		connector {
++			compatible = "usb-c-connector";
++			label = "USB-C";
++			self-powered;
++			data-role = "dual";
++			power-role = "sink";
++
++			port {
++				usb_con_hs: endpoint {
++					remote-endpoint = <&usb0_hs_ep>;
++				};
++			};
++		};
++	};
++};
++
++&pmx0 {
++	gpio0_ioexp_intr_pins_default: gpio0-ioexp-intr-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x01b0, PIN_INPUT, 7) /* (B12) SPI0_D1.GPIO0_91 */
++		>;
++		bootph-all;
++	};
++
++	i2c0_pins_default: i2c0-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x01cc, PIN_INPUT_PULLUP, 0) /* (B7) I2C0_SCL */
++			AM62LX_IOPAD(0x01d0, PIN_INPUT_PULLUP, 0) /* (A7) I2C0_SDA */
++		>;
++		bootph-all;
++	};
++
++	i2c1_pins_default: i2c1-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x01d4, PIN_INPUT_PULLUP, 0) /* (D7) I2C1_SCL */
++			AM62LX_IOPAD(0x01d8, PIN_INPUT_PULLUP, 0) /* (A6) I2C1_SDA */
++		>;
++		bootph-all;
++	};
++
++	i2c2_pins_default: i2c2-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x01dc, PIN_INPUT_PULLUP, 0) /* (B8) I2C2_SCL */
++			AM62LX_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (D8) I2C2_SDA */
++		>;
++	};
++
++	mmc0_pins_default: mmc0-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x0214, PIN_INPUT_PULLUP, 0) /* (D2) MMC0_CMD */
++			AM62LX_IOPAD(0x020c, PIN_OUTPUT, 0) /* (B2) MMC0_CLK */
++			AM62LX_IOPAD(0x0208, PIN_INPUT_PULLUP, 0) /* (D3) MMC0_DAT0 */
++			AM62LX_IOPAD(0x0204, PIN_INPUT_PULLUP, 0) /* (D4) MMC0_DAT1 */
++			AM62LX_IOPAD(0x0200, PIN_INPUT_PULLUP, 0) /* (C1) MMC0_DAT2 */
++			AM62LX_IOPAD(0x01fc, PIN_INPUT_PULLUP, 0) /* (C2) MMC0_DAT3 */
++			AM62LX_IOPAD(0x01f8, PIN_INPUT_PULLUP, 0) /* (C4) MMC0_DAT4 */
++			AM62LX_IOPAD(0x01f4, PIN_INPUT_PULLUP, 0) /* (B3) MMC0_DAT5 */
++			AM62LX_IOPAD(0x01f0, PIN_INPUT_PULLUP, 0) /* (A3) MMC0_DAT6 */
++			AM62LX_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0) /* (B4) MMC0_DAT7 */
++		>;
++		bootph-all;
++	};
++
++	mmc1_pins_default: mmc1-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x0230, PIN_INPUT, 0) /* (Y3) MMC1_CMD */
++			AM62LX_IOPAD(0x0228, PIN_OUTPUT, 0) /* (Y2) MMC1_CLK */
++			AM62LX_IOPAD(0x0224, PIN_INPUT, 0) /* (AA1) MMC1_DAT0 */
++			AM62LX_IOPAD(0x0220, PIN_INPUT_PULLUP, 0) /* (Y4) MMC1_DAT1 */
++			AM62LX_IOPAD(0x021c, PIN_INPUT_PULLUP, 0) /* (AA2) MMC1_DAT2 */
++			AM62LX_IOPAD(0x0218, PIN_INPUT_PULLUP, 0) /* (AB2) MMC1_DAT3 */
++			AM62LX_IOPAD(0x0234, PIN_INPUT, 0) /* (B6) MMC1_SDCD */
++		>;
++		bootph-all;
++	};
++
++	uart0_pins_default: uart0-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x01b4, PIN_INPUT, 0) /* (D13) UART0_RXD */
++			AM62LX_IOPAD(0x01b8, PIN_OUTPUT, 0) /* (C13) UART0_TXD */
++		>;
++		bootph-all;
++	};
++
++	usb1_default_pins: usb1-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x0248, PIN_INPUT | PIN_DS_PULLUD_ENABLE | PIN_DS_PULL_UP, 0) /* (A5) USB1_DRVVBUS */
++		>;
++	};
++
++	usr_button_pins_default: usr-button-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x01ac, PIN_INPUT, 7) /* (E12) SPI0_D0.GPIO0_90 */
++		>;
++	};
++
++	usr_led_pins_default: usr-led-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x0238, PIN_OUTPUT, 7) /* (D24) MMC1_SDWP.GPIO0_123 */
++		>;
++	};
++
++};
++
++&sdhci0 {
++	/* eMMC */
++	pinctrl-names = "default";
++	pinctrl-0 = <&mmc0_pins_default>;
++	non-removable;
++	status = "okay";
++	bootph-all;
++};
++
++&sdhci1 {
++	/* SD/MMC */
++	pinctrl-names = "default";
++	pinctrl-0 = <&mmc1_pins_default>;
++	vmmc-supply = <&vdd_mmc1>;
++	disable-wp;
++	status = "okay";
++	bootph-all;
++};
++
++&uart0 {
++	pinctrl-0 = <&uart0_pins_default>;
++	pinctrl-names = "default";
++	status = "okay";
++	bootph-all;
++};
++
++&usbss0 {
++	status = "okay";
++	ti,vbus-divider;
++};
++
++&usb0 {
++	usb-role-switch;
++
++	port {
++		usb0_hs_ep: endpoint {
++			remote-endpoint = <&usb_con_hs>;
++		};
++	};
++};
++
++&usbss1 {
++	status = "okay";
++	ti,vbus-divider;
++};
++
++&usb1 {
++	dr-mode = "host";
++	pinctrl-names = "default";
++	pinctrl-0 = <&usb1_default_pins>;
++};
 
 -- 
 2.50.1
