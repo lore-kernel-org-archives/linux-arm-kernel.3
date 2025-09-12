@@ -4,110 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D923DCAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 835B2CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MqqpI2kMloNbQrwtAbrBDd+hBQn+g4T03pkyyFvQVUY=; b=qBY7ufNrrJwPoHUniLRYLTNyGU
-	HWVkexWRJLBq3SU0sgS7SDlsLc2thME/sWDz+YGcnjSg8j10yPpcX95CkMcE3r3FAsPIunpSmxuMJ
-	gzdS5Pmz9K1BddmCAGnZj5t/eWOwvJkLx9dTpq4F/QaV7dPn4w4XnJoqbahxtVtFIIqp8I4ru8Hwd
-	xnjiVWRayu9OgZ8k4HlE9OGDQnnO2yw9D57xRX9ttyNkDNxNblbF69YC8A0+dUP34r7CYejRFCv7j
-	3NocEc4BPZfc9Lev56MF2WMoQr4l6WWcDyWLZL3awKiFVNkS4Ue4ID61SUxF3gQjwsbz9YiU76gQZ
-	f3npKK3w==;
+	bh=1Fi+81t5zqEybF/Ll9ApuHFjhXkkb1vHdHvbxL0Vc8U=; b=mgpqg+HPtCX9nu20UuCEKUd2i2
+	ktnpw+F/XATr1zyfu5/qBALsrGovsrKRJM94WdUllW+VRtm4jWcPQqDsH5DifzjQZQ+QlHHplyhS1
+	9avBP56RnPhz6NaCYyRBiCnk7xcVs+/pV4BJm6tjK9B9sqIDW8kNn5Xja2hnJaZLo16/JYANep6B2
+	1f6AAr89+lUXuX+TUGJ7y6/o+RXvejJ95/Qk78FahT5k7YfYLJWV06A2a1QxPIkENt6p98rp7A8ky
+	O87JjMy+v96RDC3VbaXjbLpCpYlXgDSEubwCHI0gPUkjkYZ4vdtdifGWmV+LduA9d9ee9oXo0DjTg
+	FUDA0ETA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4LZ-00000009iCI-1M7z;
-	Fri, 12 Sep 2025 14:01:53 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ux4PO-00000009jtL-35bg;
+	Fri, 12 Sep 2025 14:05:50 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4LW-00000009iAM-1rKI
+	id 1ux4PL-00000009jsx-3O64
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 14:01:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757685707;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MqqpI2kMloNbQrwtAbrBDd+hBQn+g4T03pkyyFvQVUY=;
-	b=hvkHjNwExbsgYxcSmbDubn6kipfCCEtFbX44YwBlCTtnbCqmUbupihbFUqerfmbP7wv/e3
-	+wOLR8gOXBureIe4lrm3E96BRSuyoWpR+mj/BBgKeU7SfT8bxP63lUNc/QIq2sGY05tKkp
-	fYNM5aQlfFd6d3lNglBCw94zQCAs1m4=
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com
- [209.85.210.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-127-tTprR14fOdu6hpBGQBDq6w-1; Fri, 12 Sep 2025 10:01:43 -0400
-X-MC-Unique: tTprR14fOdu6hpBGQBDq6w-1
-X-Mimecast-MFC-AGG-ID: tTprR14fOdu6hpBGQBDq6w_1757685703
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-74b64da4a81so4386662a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 07:01:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757685703; x=1758290503;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MqqpI2kMloNbQrwtAbrBDd+hBQn+g4T03pkyyFvQVUY=;
-        b=JnMKUTYwx/jBf+dqPaZ4aBVrOJJ8pttJ4HkoESeRX9CzkLYEbl0XwQkUT6g13GyE1S
-         6HdFHX7RM5QasDzUo56AynnF7HIg8IKdwu1Jjo10QYwBYKrrJ01ZG/BlgyxZY8xpDwaK
-         /MGlzWChbNbuyUbAaPvG6y/3LGq9X5Y5uDcSR2TwTzKw3GOaDvsF/VSa/3D/gW41h6c9
-         Prq4ipb0WTwTaslwkK+NywPSG7ALA0zlxrVDaM3qdQQaACmXwLrhF6lSNB1haH+uAcRT
-         GluZbfdCIZwOPW9pVAPW4O8wQNgxt/lksYlPMTrXRVxoHEXupet/HuIbpQrHzOoqxnIw
-         iGRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXwadSIn/1rFliGK40+G3qm+lCIMe0T5NPdpqnQmhPAPU7yqJNZlY9OXanPMYw9OCAfGTAsdBQUHLc5WC8ecRXg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdgwA74xJcJjNg1jYSpM+gG1OPJRuwvkfrIOEXXMdI/1sPuoZY
-	whxjOWsNHxyh+3kh+x80v6IPebp72/aDMnOe6kn1qzB+gmloSk029DgRRzWOCeO0ZC2+tXYhdNN
-	DM+XdNgWWBE6cajMiRuJBRYsPheKtVG5SZGHixgxUn5VAqne6SE1mGvAqJ8yss434Ya5fbUZjEo
-	el
-X-Gm-Gg: ASbGnctg599/pWgG+6QfXzqz0W167JZPni+ISAFqohHqcdM0AZ+uBkYF6tcU7pluArY
-	1qzy4+QJBg03DW0BvGn3BgjfUFK+eGKr51sN/LSjLgdZYbOnUKiVrbCePWe4BcmJZOkQzKw53F6
-	0Vg3dOimmKKiMHbl7qLhmy63qbEuV/P+4ilHe1DxWRNw5z4vGRrwkNRyYCUn9Gd/STQ1YamqghX
-	4ntrIp4ZWpgEyVFQNDNeUiUsHpvyyTG1y/nXeD8Ogo2j5SinHxiPdw32Bwk4DLr33W3voONYdCI
-	ELpRXIQeym1e9XGVmKH9TRvr+ggD0i3lk6j7ZpxMJUKGRfSFljvKiMKAwDTLf+iOCVYwBdT0PfQ
-	GW1qeAWfHIuxhO6cz9FYf2yH3oe2HUg==
-X-Received: by 2002:a05:6830:921:b0:749:32a:6e79 with SMTP id 46e09a7af769-75355ac0c40mr1629160a34.29.1757685702760;
-        Fri, 12 Sep 2025 07:01:42 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE5yxEH3wh5uzqiZ9fHV5ltsysfaNN7LLcUgGKgcfhcmP2GCkP3kLrFAt6qiJu3nESHP/mhlA==
-X-Received: by 2002:a05:6830:921:b0:749:32a:6e79 with SMTP id 46e09a7af769-75355ac0c40mr1629088a34.29.1757685702145;
-        Fri, 12 Sep 2025 07:01:42 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b639de9a69sm24487811cf.46.2025.09.12.07.01.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Sep 2025 07:01:41 -0700 (PDT)
-Date: Fri, 12 Sep 2025 10:01:37 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] clk: Introduce clk_hw_set_spread_spectrum
-Message-ID: <aMQnwU3UA5xe-Eou@redhat.com>
-References: <20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com>
- <20250912-clk-ssc-version1-v3-2-fd1e07476ba1@nxp.com>
+	Fri, 12 Sep 2025 14:05:48 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58C386ET024821;
+	Fri, 12 Sep 2025 14:05:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=1Fi+81t5zqEybF/Ll9ApuHFjhXkkb1
+	vHdHvbxL0Vc8U=; b=JdymV3ITkTcSWYrGAqYC9vUBwbPERmwdJ7SwSpzPahVcmB
+	br9gT4phgvwygUUAi3bNoWfXtnHy6dCZTXY+1IcGYGCd6MSDvQFtwZ59FVh14Zkm
+	vfzwu2r9YJDSn9D4O25/8kKQeaXBrfxGz7ow9SGeZK6IqKoWvjNrVhipWaODarli
+	GtDPVfrbEzN5BeTqC/p995pcDrx5upjpVdi3aGcDIMnh5WmfSVmAgJWAuMpIitpB
+	dx+gg/KyXJBqYUJvppfytE11Gs6VCBfid+zHk9Mld+hpjF8BzLN0R4DoaJen6tmh
+	Qsj/3X1kE2+aoD7/v/vGVE9/PNoEAxLm1WFuoGLQ==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490cmxby8m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 12 Sep 2025 14:05:13 +0000 (GMT)
+Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 58CE2ClP009324;
+	Fri, 12 Sep 2025 14:05:13 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490cmxby8e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 12 Sep 2025 14:05:13 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 58CAOXI1010588;
+	Fri, 12 Sep 2025 14:05:11 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4910snb7ur-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 12 Sep 2025 14:05:11 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 58CE59N522544674
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 12 Sep 2025 14:05:09 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 536162004B;
+	Fri, 12 Sep 2025 14:05:09 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8D07120043;
+	Fri, 12 Sep 2025 14:05:08 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 12 Sep 2025 14:05:08 +0000 (GMT)
+Date: Fri, 12 Sep 2025 16:05:07 +0200
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
+        Mark Rutland <Mark.Rutland@arm.com>
+Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
+Message-ID: <cdd9bc60-96d4-4f19-86c3-dcf598ccbd92-agordeev@linux.ibm.com>
+References: <4b4971fd-0445-4d86-8f3a-6ba3d68d15b7@arm.com>
+ <4aa28016-5678-4c66-8104-8dcc3fa2f5ce@redhat.com>
+ <15d01c8b-5475-442e-9df5-ca37b0d5dc04@arm.com>
+ <7953a735-6129-4d22-be65-ce736630d539@redhat.com>
+ <781a6450-1c0b-4603-91cf-49f16cd78c28@arm.com>
+ <a17ab4e3-627a-4989-a5a5-d430eadabb86@redhat.com>
+ <9ed5441f-cc03-472a-adc6-b9d3ad525664-agordeev@linux.ibm.com>
+ <74d1f275-23c3-4fd8-b665-503c7fc87df0@redhat.com>
+ <248b4623-8755-4323-8a44-be4af30e4856-agordeev@linux.ibm.com>
+ <b46d3430-fb84-464b-b053-490c6ea083da@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <20250912-clk-ssc-version1-v3-2-fd1e07476ba1@nxp.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: N6O593DCNN26zr0mM8lNPIOHvppN2HM5xJDaeR5sRo0_1757685703
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <b46d3430-fb84-464b-b053-490c6ea083da@redhat.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: ZMmKMxWqtsslbAtdOPAzBRJYU4GL7wAu
+X-Proofpoint-ORIG-GUID: j5mM8DCXgm3DPCWWxntSIgsJIjsuTDHV
+X-Authority-Analysis: v=2.4 cv=J52q7BnS c=1 sm=1 tr=0 ts=68c42899 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=xegNWJJ1Rn4Hofgs2fcA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAyNSBTYWx0ZWRfXyQgs4MJipRKm
+ Vh4mPp8mP6XTDOkYJ7/naEofqsCMunScyHXUNGqkDffcXe8gbUTaR6visxv0m0kRskga/a5g93o
+ Y0rVCYsKPe9P0+nMVlo+OxrV7SEnalYxsvJH/2d4bx8m5Zotd/48CmrUGFK82F0g4ZHLlVG2QyQ
+ v9UaEdTcRwYdLo8RFKENqA+3oT6sxrdZPoE2SA+aupZ9ucY0p/3lfsPwTVCbkACKw9viHKZUPh5
+ sUwnl0/J1iAjs+cvRsvj5o5BYd545b8qOoQTDQow9AxgiianjYJVfAmcO4Lvo/OxYU1Zraata1S
+ PL9YSDjhZWpLjBNA8UeDChKZIto5ViRARZ1acta2OR59pSCA4kyBpUWrv47WX0z1P1aU2UCNZhg
+ VoRSX1Jb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-12_05,2025-09-11_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1015 suspectscore=0 spamscore=0 phishscore=0
+ bulkscore=0 adultscore=0 malwarescore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060025
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_070150_558390_0F94A883 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_070547_845955_DC060ECC 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,13 +152,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 11:35:51AM +0800, Peng Fan wrote:
-> Add clk_hw_set_spread_spectrum to configure a clock to enable spread
-> spectrum feature. set_spread_spectrum ops is added for clk drivers to
-> have their own hardware specific implementation.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+On Fri, Sep 12, 2025 at 03:02:15PM +0200, David Hildenbrand wrote:
+> How would that work with nesting? I feel like there is a fundamental problem
+> with nesting with what you describe but I might be wrong.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+My picture is - flush on each lazy_mmu_disable(), pause on lazy_mmu_pause()
+and honour only top-level arch_enter_lazy_mmu_mode_pte(mm, start, end, ptep) 
+context on all nested levels.
 
+In theory (and if I got it right, you leave the door open for this possibility)
+every (mm, start, end, ptep) context could be stored for each nesting level
+(as an opaque arch-specific data?).
+
+But I do not really expect it ever, since arch_enter_lazy_mmu_mode_pte()
+is only to be called in PTE walkers that never span more than one page
+table and follow the pattern:
+
+	ptep = pte_offset_map_lock(...);
+	arch_enter_lazy_mmu_mode_pte(mm, start, end, ptep);
+
+	for (...; ptep++) {
+		/*
+		 * set_pte(ptep, ...) or something
+		 */
+	}
+
+	arch_leave_lazy_mmu_mode();                                             
+	pte_unmap_unlock(...);                                         
+
+As result, the lazy mmu mode is only "bound" to a single PTE table on s390,
+while arch_enter_lazy_mmu_mode() is going to stay NOP.
+
+So when you say you feel a fundamental problem - what that could be?
+
+> David / dhildenb
+
+Thanks!
 
