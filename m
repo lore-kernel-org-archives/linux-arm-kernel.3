@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E05BCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E04CAC58F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=enXqWmu85q5vX+ios6ImSnErQSooiiI8vChDkpA0hr4=; b=uANqbRr75p4am+O3ptF0J5jDQA
-	oZmQ5cXHGvYWaw7WOxr+SF7oxBW8/EmhnjIeBajD2rZ4j6Vzci65TX1sdtlXHIt+lfuSJyvdoDJrZ
-	OX9mIS5W7Vn8fYlrsVdhyaluPGLoJniZjOwMd+/OnwrYsgDVeHFI/acR+/rD62x+tDPt47EM07tVf
-	PkS1Mihsui5h8ET1aj85Dodiu8qZ4Z5lU08NxG3Zhhl1YdFObqLqiP4JNBD7uRVcXCYYRuaC3QDhV
-	MtZcPTpZCZ8Qasku8IcsaYBCV5aRtxMI1FJ+cIA0UOmjVsUt+9bvOruUt4a7gruayXHMjZWtiMEkh
-	R9Fjiyug==;
+	bh=Pz2tA5otSEGWfYY0/Z3IXGtdtKJucG7UCUvSaX5Qmb4=; b=nroHWsXSnj0Kc16OTVgRwfWqRO
+	fIe/U5ppkL8Lx8nY5w7uXdX8dutN0eqJwJbvo72M/EGUtwZxbyN4WwVcV7KuY8oKMmtc7+0zCFuK8
+	MWoANMfRBX1/a/KwR2r9EG4PzBakJP9KVBoI6ogiaZhb+gakR2t2JCSyNeuzl6TWZtb7ZXanZkcRR
+	LWWC0nnGViuuaVUameouX1TKASOdT5sW97qW0aaP2ofFlt9MY+zbHZKrmBtOFhnfIicPjNolhxo7J
+	XogsM1EU5PIvAGTdEqpKU9++4+NRWtbLgCqQMuJsfB09AZwcNC34RySlHgGyot8c8vYWBJOS5sedO
+	/YCcBocA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5vM-0000000AKsW-1935;
-	Fri, 12 Sep 2025 15:42:56 +0000
+	id 1ux5vL-0000000AKrW-2wof;
+	Fri, 12 Sep 2025 15:42:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5vJ-0000000AKnq-0dXN
+	id 1ux5vI-0000000AKnH-2gZM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 15:42:54 +0000
+	Fri, 12 Sep 2025 15:42:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66B481515;
-	Fri, 12 Sep 2025 08:42:44 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D04431A25;
+	Fri, 12 Sep 2025 08:42:39 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A56803F694;
-	Fri, 12 Sep 2025 08:42:50 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1AF223F694;
+	Fri, 12 Sep 2025 08:42:45 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 12 Sep 2025 16:42:10 +0100
-Subject: [PATCH v5 05/14] perf arm_spe: Use full type for data_src
+Date: Fri, 12 Sep 2025 16:42:08 +0100
+Subject: [PATCH v5 03/14] perf arm_spe: Correct setting remote access
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250912-arm_spe_support_hitm_overhead_v1_public-v5-5-0800880da0a7@arm.com>
+Message-Id: <20250912-arm_spe_support_hitm_overhead_v1_public-v5-3-0800880da0a7@arm.com>
 References: <20250912-arm_spe_support_hitm_overhead_v1_public-v5-0-0800880da0a7@arm.com>
 In-Reply-To: <20250912-arm_spe_support_hitm_overhead_v1_public-v5-0-0800880da0a7@arm.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -54,16 +54,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757691759; l=3452;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757691759; l=903;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=B5MnTJqbE8nUXxaPEkMUJDWBL2VBqJdx7w1bQRFcVkQ=;
- b=nJzczTTb3bwmE3jZEJCMh9w2S4RGHG3kY6LrdrEOlCCfUUJ+y0TksJYLG9YUVgiPrEDfHlZ0b
- dFcAYMn3QoiAkFaH07DGulWkER7dXfnBDGsjwjrjyd5uLp5+i66A7iA
+ bh=2z6OBKjmkRcaEjC6nJ2ok4C6Eykyuq0I42TvhkxGR/g=;
+ b=bV1qZVsOEeEsJZvFVLs6LSjU2gXaRj1taC6EeKKhi1eQ2LIXLzAiK3YBnjcErnk0iSDsH9hGe
+ SnDKDK4gfazBENgz3bPXlfh2oeDDkW0wfSCbsVr55pDwjQtKFfkU9Jf
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_084253_328066_25B89FF4 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250912_084252_737003_E96A8FB1 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,105 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Clark <james.clark@linaro.org>
+Set the mem_remote field for a remote access to appropriately represent
+the event.
 
-data_src has an actual type rather than just being a u64. To help
-readers, delay decomposing it to a u64 until it's finally assigned to
-the sample.
-
-Signed-off-by: James Clark <james.clark@linaro.org>
+Fixes: a89dbc9b988f ("perf arm-spe: Set sample's data source field")
+Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/arm-spe.c | 25 ++++++++++++++-----------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+ tools/perf/util/arm-spe.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 6fb012d89488c1e5d4866ec62a2df2bc895cb6ca..38e6f8331f2790b9cd3bc94d5a18657d7e0f5e42 100644
+index 228ed52e653d7873c1d07404671447db03a10e59..63a32255197ab8b1400badeddfb439d4dc5813c4 100644
 --- a/tools/perf/util/arm-spe.c
 +++ b/tools/perf/util/arm-spe.c
-@@ -469,7 +469,8 @@ arm_spe_deliver_synth_event(struct arm_spe *spe,
- }
- 
- static int arm_spe__synth_mem_sample(struct arm_spe_queue *speq,
--				     u64 spe_events_id, u64 data_src)
-+				     u64 spe_events_id,
-+				     union perf_mem_data_src data_src)
- {
- 	struct arm_spe *spe = speq->spe;
- 	struct arm_spe_record *record = &speq->decoder->record;
-@@ -484,7 +485,7 @@ static int arm_spe__synth_mem_sample(struct arm_spe_queue *speq,
- 	sample.stream_id = spe_events_id;
- 	sample.addr = record->virt_addr;
- 	sample.phys_addr = record->phys_addr;
--	sample.data_src = data_src;
-+	sample.data_src = data_src.val;
- 	sample.weight = record->latency;
- 
- 	ret = arm_spe_deliver_synth_event(spe, speq, event, &sample);
-@@ -517,7 +518,8 @@ static int arm_spe__synth_branch_sample(struct arm_spe_queue *speq,
- }
- 
- static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
--					     u64 spe_events_id, u64 data_src)
-+					     u64 spe_events_id,
-+					     union perf_mem_data_src data_src)
- {
- 	struct arm_spe *spe = speq->spe;
- 	struct arm_spe_record *record = &speq->decoder->record;
-@@ -532,7 +534,7 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
- 	sample.stream_id = spe_events_id;
- 	sample.addr = record->to_ip;
- 	sample.phys_addr = record->phys_addr;
--	sample.data_src = data_src;
-+	sample.data_src = data_src.val;
- 	sample.weight = record->latency;
- 	sample.flags = speq->flags;
- 	sample.branch_stack = speq->last_branch;
-@@ -880,21 +882,22 @@ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
- 	return false;
- }
- 
--static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
--				      const struct arm_spe_record *record)
-+static union perf_mem_data_src
-+arm_spe__synth_data_source(struct arm_spe_queue *speq,
-+			   const struct arm_spe_record *record)
- {
--	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
-+	union perf_mem_data_src	data_src = {};
- 
- 	/* Only synthesize data source for LDST operations */
- 	if (!is_ldst_op(record->op))
--		return 0;
-+		return data_src;
- 
- 	if (record->op & ARM_SPE_OP_LD)
- 		data_src.mem_op = PERF_MEM_OP_LOAD;
- 	else if (record->op & ARM_SPE_OP_ST)
- 		data_src.mem_op = PERF_MEM_OP_STORE;
- 	else
--		return 0;
-+		return data_src;
- 
- 	if (!arm_spe__synth_ds(speq, record, &data_src))
- 		arm_spe__synth_memory_level(record, &data_src);
-@@ -908,14 +911,14 @@ static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
- 			data_src.mem_dtlb |= PERF_MEM_TLB_HIT;
+@@ -828,7 +828,7 @@ static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
  	}
  
--	return data_src.val;
-+	return data_src;
+ 	if (record->type & ARM_SPE_REMOTE_ACCESS)
+-		data_src->mem_lvl |= PERF_MEM_LVL_REM_CCE1;
++		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
  }
  
- static int arm_spe_sample(struct arm_spe_queue *speq)
- {
- 	const struct arm_spe_record *record = &speq->decoder->record;
- 	struct arm_spe *spe = speq->spe;
--	u64 data_src;
-+	union perf_mem_data_src data_src;
- 	int err;
- 
- 	/*
+ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
 
 -- 
 2.34.1
