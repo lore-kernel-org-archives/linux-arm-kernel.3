@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2487FCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 22:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3105CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 22:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B7vCHc3e+Jy8US7hTTy4b9nsVzGf6UZv+0sVA7/a1y0=; b=v22YWU6kSXEszyaRAV9pisZDK6
-	nC9h46hH6IM/mJHCKwySarbiftl8DtPbWG8MuvaLm8fIGPkpz5EQF/Pl+QTjqQIdgNP5AIIVn0Jdd
-	19CbOGR4+iYb7FpF+nNUP5lKrBHU+eSDD7VeH+f66dE5AfrKOHCE0IXE4MHzvmSTqRoXw7F3UheaP
-	qjaDUgWzYWCrKAdF3SEHnus8OHHcyIgs46OV4g4Dk8SQ69Qi3AA3Ze6ezT3GKNtXY0BNleG2U4q9u
-	vTAw09Hi1OXbiBgRsmO4P4F7YFJMnKkyRlwk6KzCha+V4IygzFTQb0ekYv6OuLEppp+L/+jBBfuEL
-	fMkeLctg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=fpfqW8FDz3tD25986oEdSeYGy1dr2XFdz8hrVVV4aPc=; b=r2BlaK75WIeVto
+	GQbmPRXjqTDIklk+yHDdBvJe/tK14eEIBrAaFQT6/rySD8+TYbD4qYK32YmH/pM7kgcNXTws2+rh/
+	VGK8W/m8IYkfnLSgfcYYBVGBHjxzNtnfdVjYoT4cYOd/iJ0AlilJOqPpBWeAob6h59BlC61L3mApi
+	aZbt19D2tvtbC8J9mCbMf/GifvDRNnZ9MMK/jRQZEkkqAuwUisKHwQEZIofWDebeMXj060+W0xqSf
+	y9zBkVkX482YkjGLgSwHhra0WEEadg/bfzvkK09ROvmi3xJqZqzhPxhnCNJgQHpA4jxcvR/xJVuGO
+	pHg2upg+BRCv5QI/c83Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxCSo-0000000Bu9N-1m4M;
-	Fri, 12 Sep 2025 22:41:54 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1uxCao-0000000Bwik-2Qj8;
+	Fri, 12 Sep 2025 22:50:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxCSl-0000000Bu8H-09Sk
+	id 1uxCal-0000000BwiH-1vhY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 22:41:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=B7vC
-	Hc3e+Jy8US7hTTy4b9nsVzGf6UZv+0sVA7/a1y0=; b=Um4WpDQHJJyoDGQGUJlI
-	toL1eJ4r/frk7kDy23UEC+FfwIbkQz4MH6fuLgWvXFnQduOCP5AoGVhUs39qkWr3
-	9ylizJqtxlvx0xAlC/TQCGxQ8hsYkxw+hVAf6f6dLucBZTPJdQ6qEJ1wAYsPd89B
-	t1ZkgBrTCdMg5XVpi/QmQz7vjWDanBQ6xeBdnj8Z40H9V03PzIYAOiK1Q1NKWXvi
-	m8+1B6eiVmNMaemuGDOlZEU7TrGi2cyxePRXVPDRhFT0grEQhbQ2gH3hO1q5lmY/
-	uY7NwOdVj651c0bX4GJzSW042wt+udthFxosn9FeRvj/aYA4cD0WuEXRh8H9KbNM
-	CA==
-Received: (qmail 1506839 invoked from network); 13 Sep 2025 00:41:46 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Sep 2025 00:41:46 +0200
-X-UD-Smtp-Session: l3s3148p1@rqzUW6I+mq0gAQnoAHJ8AC93OVDMgFWg
-Date: Sat, 13 Sep 2025 00:41:46 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: linux-media@vger.kernel.org,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Robert Foss <rfoss@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Dongchun Zhu <dongchun.zhu@mediatek.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Todor Tomov <todor.too@gmail.com>, linux-arm-msm@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v2.1 01/72] dt-bindings: media: Deprecate clock-frequency
- property for camera sensors
-Message-ID: <aMShqlBgHXHIExDC@shikoro>
-References: <20250812214620.30425-2-laurent.pinchart@ideasonboard.com>
- <20250813094923.23695-1-laurent.pinchart@ideasonboard.com>
+	Fri, 12 Sep 2025 22:50:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 74FF84064D;
+	Fri, 12 Sep 2025 22:50:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2126EC4CEF5;
+	Fri, 12 Sep 2025 22:50:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757717406;
+	bh=llL5i4JcGr00lkqdNb+4OnrW+J9u96jdBnm9y/x4iE0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=EsgNWuARrB8BcekinBkI5ai0HtqFm7+m9JAImUPxyVHCAj6PzRC9xNX6lQJ/gdJq1
+	 6Doz0yYnBsov5se3z9fEgFX9W2vMQOElUUPHwse7Lhkwv1F7UmAC+PGATMXT60aVYI
+	 C3+rQd8b1aEwoxupU9QiG/rEjoA0WHKBKOLvWahuy5X31IfarZ9FNT2hTP2qff0guF
+	 HkKsYcetOF0xC0927vl57tWDWWmUiFrJi3iq/J/5qCTaxeo24gWTTnJHUf+kRXSs45
+	 axeNIxahq12skZOmqDrnq1WYO8YARqDzhRJqKoUvqV1CoJeFZI0XeMCR6HYgeABapY
+	 1vhma/U2WUZcA==
+Date: Fri, 12 Sep 2025 17:50:04 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: chester62515@gmail.com, mbrugger@suse.com,
+	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, Ionut.Vicovan@nxp.com,
+	larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com,
+	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: pcie: Add the NXP PCIe controller
+Message-ID: <20250912225004.GA1651547@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250813094923.23695-1-laurent.pinchart@ideasonboard.com>
+In-Reply-To: <20250912141436.2347852-2-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_154151_499095_B1D46EDD 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250912_155007_544495_31F585EB 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +76,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
-
-On Wed, Aug 13, 2025 at 12:49:23PM +0300, Laurent Pinchart wrote:
-> Usage of the clock-frequency property for camera sensors is discouraged
-> in favour of using assigned-clock-rates (and assigned-clock-parents
-> where needed). Mark the property as deprecated.
+On Fri, Sep 12, 2025 at 04:14:33PM +0200, Vincent Guittot wrote:
+> Describe the PCIe controller available on the S32G platforms.
 > 
-> Update the examples accordingly. In DT examples where the sensor input
-> clock appears to come from a programmable clock generator, replace
-> clock-frequency by the assigned-clocks and assigned-clock-rates
-> properties. Otherwise, just drop clock-frequency.
-> 
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
 > ---
-> Changes since v2:
+>  .../devicetree/bindings/pci/nxp,s32-pcie.yaml | 169 ++++++++++++++++++
+>  1 file changed, 169 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
 > 
-> - Don't remove clocks property in samsung,exynos4212-fimc-is.yaml
+> diff --git a/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
+> new file mode 100644
+> index 000000000000..287596d7162d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
+> @@ -0,0 +1,169 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/nxp,s32-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP S32G2xx/S32G3xx PCIe controller
+> +
+> +maintainers:
+> +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> +  - Ionut Vicovan <ionut.vicovan@nxp.com>
+> +
+> +description:
+> +  This PCIe controller is based on the Synopsys DesignWare PCIe IP.
+> +  The S32G SoC family has two PCIe controllers, which can be configured as
+> +  either Root Complex or End Point.
+
+s/End Point/Endpoint/ to match spec usage.
+
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - nxp,s32g2-pcie     # S32G2 SoCs RC mode
+> +      - items:
+> +          - const: nxp,s32g3-pcie
+> +          - const: nxp,s32g2-pcie
+> +
+> +  reg:
+> +    minItems: 7
+> +    maxItems: 7
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: dbi2
+> +      - const: atu
+> +      - const: dma
+> +      - const: ctrl
+> +      - const: config
+> +      - const: addr_space
+> +
+> +  interrupts:
+> +    minItems: 8
+> +    maxItems: 8
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: link_req_stat
+> +      - const: dma
+> +      - const: msi
+> +      - const: phy_link_down
+> +      - const: phy_link_up
+> +      - const: misc
+> +      - const: pcs
+> +      - const: tlp_req_no_comp
+> +
+> +  msi-parent:
+> +    description:
+> +      Use this option to reference the GIC controller node which will
+> +      handle the MSIs. This property can be used only in Root Complex mode.
+> +      The msi-parent node must be declared as "msi-controller" and the list of
+> +      available SPIs that can be used must be declared using "mbi-ranges".
+> +      If "msi-parent" is not present in the PCIe node, MSIs will be handled
+> +      by iMSI-RX -Integrated MSI Receiver [AXI Bridge]-, an integrated
+> +      MSI reception module in the PCIe controller's AXI Bridge which
+> +      detects and terminates inbound MSI requests (received on the RX wire).
+> +      These MSIs no longer appear on the AXI bus, instead a hard-wired
+> +      interrupt is raised, documented as "DSP AXI MSI Interrupt" in the SoC
+> +      Reference Manual.
+> +
+> +  nxp,phy-mode:
+> +    $ref: /schemas/types.yaml#/definitions/string
+> +    description: Select PHY mode for PCIe controller
+> +    enum:
+> +      - crns  # Common Reference Clock, No Spread Spectrum
+> +      - crss  # Common Reference Clock, Spread Spectrum
+> +      - srns  # Separate reference Clock, No Spread Spectrum
+> +      - sris  # Separate Reference Clock, Independent Spread Spectrum
+> +
+> +  max-link-speed:
+> +    description:
+> +      The max link speed is normaly Gen3, but can be enforced to a lower value
+> +      in case of special limitations.
+
+s/normaly/normally/
+
+But I doubt you need this here at all.
+
+> +    maximum: 3
+> +
+> +  num-lanes:
+> +    description:
+> +      Max bus width (1 or 2); it is the number of physical lanes
+> +    minimum: 1
+> +    maximum: 2
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - ranges
+> +  - nxp,phy-mode
+> +  - num-lanes
+> +  - phys
+> +
+> +additionalProperties: true
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +
+> +    bus {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pcie0: pcie@40400000 {
+> +            compatible = "nxp,s32g3-pcie",
+> +                         "nxp,s32g2-pcie";
+> +            dma-coherent;
+> +            reg = <0x00 0x40400000 0x0 0x00001000>,   /* dbi registers */
+> +                  <0x00 0x40420000 0x0 0x00001000>,   /* dbi2 registers */
+> +                  <0x00 0x40460000 0x0 0x00001000>,   /* atu registers */
+> +                  <0x00 0x40470000 0x0 0x00001000>,   /* dma registers */
+> +                  <0x00 0x40481000 0x0 0x000000f8>,   /* ctrl registers */
+> +                  /* RC configuration space, 4KB each for cfg0 and cfg1
+> +                   * at the end of the outbound memory map
+> +                   */
+> +                  <0x5f 0xffffe000 0x0 0x00002000>,
+> +                  <0x58 0x00000000 0x0 0x40000000>; /* 1GB EP addr space */
+> +                  reg-names = "dbi", "dbi2", "atu", "dma", "ctrl",
+> +                              "config", "addr_space";
+> +                  #address-cells = <3>;
+> +                  #size-cells = <2>;
+> +                  device_type = "pci";
+> +                  ranges =
+> +                  /* downstream I/O, 64KB and aligned naturally just
+> +                   * before the config space to minimize fragmentation
+> +                   */
+> +                  <0x81000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
+> +                  /* non-prefetchable memory, with best case size and
+> +                  * alignment
+> +                   */
+> +                  <0x82000000 0x0 0x00000000 0x58 0x00000000 0x7 0xfffe0000>;
+> +
+> +                  nxp,phy-mode = "crns";
+> +                  bus-range = <0x0 0xff>;
+> +                  interrupts =  <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>;
+> +                  interrupt-names = "link_req_stat", "dma", "msi",
+> +                                    "phy_link_down", "phy_link_up", "misc",
+> +                                    "pcs", "tlp_req_no_comp";
+> +                  #interrupt-cells = <1>;
+> +                  interrupt-map-mask = <0 0 0 0x7>;
+> +                  interrupt-map = <0 0 0 1 &gic 0 0 0 128 4>,
+> +                                  <0 0 0 2 &gic 0 0 0 129 4>,
+> +                                  <0 0 0 3 &gic 0 0 0 130 4>,
+> +                                  <0 0 0 4 &gic 0 0 0 131 4>;
+> +                  msi-parent = <&gic>;
+> +
+> +                  num-lanes = <2>;
+> +                  phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
+
+num-lanes and phys are properties of a Root Port, not the host bridge.
+Please put them in a separate stanza.  See this for details and
+examples:
+
+  https://lore.kernel.org/linux-pci/20250625221653.GA1590146@bhelgaas/
+
+> +        };
+> +    };
+> -- 
+> 2.43.0
 > 
-> Changes since v1:
-> 
-> - Adapt examples in bindings that reference sensors
-> ---
->  Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml    | 6 ++++--
-
-Can I have this i2c change seperately to avoid dependencies?
-
-Happy hacking,
-
-   Wolfram
-
 
