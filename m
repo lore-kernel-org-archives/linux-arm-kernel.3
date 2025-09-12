@@ -4,161 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A5FCAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 03:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC60CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 04:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4qUsy6RnXe6vvIaWj7vrKidO4//0ogHWm08/PPlfl8M=; b=IMQGXO7Z5tTNPe4hyYk9wJ3v9S
-	WYo96gjEW/6V1byk4swGs6xalgDPr8ekDGc+nCl5f0Mda6NLQ9KYGwz4xNw6FPfgalIwBCnpmjjI3
-	W64/fB3zcBSl/ev4xePYEcJb/vW8iWJ8OV70KTCjl5lzlFF2hBTXv/qghn1R6oBovVudLKseQsUs+
-	6XySx3QbyXbmpy7pV1a4h6HFQlGQFxkaMAbe0ZawWeL3rjZs7C4h4jkCtyz/MdCKzUvjaktuWiNQb
-	PkkCYNaKakmPkkWDXdF+naD3Txd1u0g4OQZke47qXisXD505AjcBIEDqHtPPBl7qlEgU5mhQ8cC2L
-	A+V5PtTA==;
+	bh=E7uBMoNaxhXP968SE0NQ+/XaEbs6QlAHYmwe7jQt5gQ=; b=krWwpZVQCif9Y/IT4Ay1q+9QoA
+	FyiBIO7+av1WM3S8rPWjNfgcp47wG3j0Z7YPaHnt48w3plnqoAaGan8ACc9Vh65+QuJlqyZKe2KwP
+	isUxJv9xs0Lmt0VGNk4XR7ONFA7UUVOqOrtbyANhFIekP1tPSeN7Jpdv+bUQrqfyoJSufIAP+F8+Y
+	0E4xOm//cJjF0oOYMH+nWvh+jDBnx9WKmTdhGT09srmHbNsaydUTHdCMEm4vVpGJ56ULt2pNRPM9A
+	CyzTcFqmXuD3I4Q7BMOb0q2d/r/5rUdU1X8QMuYTUVPaj2c8fZCKDJrH8F38+NLf1v9+iI20lpZ4r
+	rbLfbDNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwufi-00000006oGc-0r4E;
-	Fri, 12 Sep 2025 03:42:02 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1uwv0G-00000006tCl-1hgT;
+	Fri, 12 Sep 2025 04:03:16 +0000
+Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwufg-00000006oFa-0Dt5
+	id 1uwv0E-00000006tBv-0kmn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 03:42:01 +0000
+	Fri, 12 Sep 2025 04:03:15 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DYBk/CoEAcfm+g1arhWboJEGAqobeptwMCiYL1LxIFiLH7PsZ8hmT6GelTzRXE7QaHe1734jYuGijMoBgjJZiAKQuAHswlyM28Xsxd2NwEgaYc5KWFDXXvfjdI3VVAE4ixwHDNKya4ivl+jsy8rVmIk4iyhJ3iw1znwxrdLuyInil/FOPGkRckekJxntpjy0jkh52iiXEvQQeuvYinV13LRBkqqhbbbnzRr04FunBfTixhCYdzr12Fv4pvz7kVeZH6Q2EhvXIkmP2eUeOpn4UczRgoQsofSOjAj+LysSNCh3Xjd4p9luK4Llrt5RDDLWV90shTMsBdbMyZ7KSMTynQ==
+ b=fMGvu50snuuGKMgdy4xDXIx6mVV2Vg4f1ZkClMv+hyjhy5eQrTVH/et22vPQS/iNbqQoZeYGiPmpIXWL6npJkJbjmO0yDNNQ+pTtBQ+tpeXXW8sVmMclhME9ODYn7KAcN+tpwGW6ccmsXq3TRPrJeWZfNO0Ye5ekmwxuWzXRHB0PmJM1w0/5Ug2jfm54CGCcPwUszmENhyKRV9ITQAoYhpYm6mWKLheLfdHrqySeq3lPAt89623gANC2m0mlv9fgz/H2drUa/vkL0eieau4r9xRo5YGLYmk0tYHEh8A2dIukkr8NVU5PK4PpPWzEumhGssz/YxCFbgzrc3G/fS+CHQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4qUsy6RnXe6vvIaWj7vrKidO4//0ogHWm08/PPlfl8M=;
- b=QV0PhRCIjE3IVaDQUI6ULuesF3uos6nWxmAtUB8Wo2irGN3ube9hZ7NumXEQdQkHN54VG0UYv++fIkIU+f/amoRnhBh+lag9g2peUWIZrU5iPQjrrEBgVFmVhgzROu7rq/ULRaJ6HMrggshTGHOg/yU236fK7xkTasTT6GNdJ+6xWHzP7JZl8vCNs4LNtOde6w2cSVYuOxvhoXcpjLMWKaBGOAFGNLLvyQrdrEU1xS3EzMlvRVHEDWfLgnVnNU+GbjZLGHyiOnm9WrIY8GM0eYJFycGjBKITCqJjYHB7ARCeoN1IQg9i7SY/ngVLwVjy9tP22qfC9BDgVukj4aE0Nw==
+ bh=E7uBMoNaxhXP968SE0NQ+/XaEbs6QlAHYmwe7jQt5gQ=;
+ b=rKYNYr/s1DqTC7Wy3kGaAHwrVVy1R2z7om0LKiDqH1E6k27e0svivktGzrRm4x8rHHcYy7952s/0rsXi8EamSa7ZYeT05V+JVy8sm1zhqIJwPqSc2gqPQ1SMAgZPQAcqCZgi2ImjAFGyA8z19Rp+DBczzmpCHtII4Mzxi0J8V4rdVp2O57mxyuoyvGbkJ4Nxjb9um0Sghml5HdETtNINAZXC6LmhrZdLeN8ZdKyfFI2uv7//50ZrChWBU3nEPOkmSFZwbLfIzulVxI5nCoFdcKQdTwdC+IErdavFeBedhRQmw1XqvCHKjaxAhavHvRRdrQzAuQFVqhIh6QA9nDEHsg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4qUsy6RnXe6vvIaWj7vrKidO4//0ogHWm08/PPlfl8M=;
- b=LQE4gsmhubbFKdP/m5r0DSq2+wG6DzDEPUqkQEV3+phcWZKgye0qxPpWqjt2vjzJcgqefB/+Wp7mFwNWjnzc4u2n5nKSXof5yEZZ9o0JsS1ZcskNBLBv9f0RQ9PcMK+6ED1W8LHrevLl6QGfrF1r2hEwJG+kZ8RQKR6HfJFrpoDkrBLXUTy7+pxcn7znRn2hWIyNwauYQRHJzcXTTPCE23iDmArZ+8a1Y7tzMaiSTonfPJQs7B8jSaGVjBSt1r6NJnTBuR4AxR1MFvVJcoVL8Zpi72JFnJ6beUBsOcI+66hsjhMOrngRUwxRnTMagSB/SRqr6vT0YdrIY2+r0jXrwA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PAXPR04MB8526.eurprd04.prod.outlook.com (2603:10a6:102:211::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.15; Fri, 12 Sep
- 2025 03:41:51 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9115.010; Fri, 12 Sep 2025
- 03:41:51 +0000
-Date: Fri, 12 Sep 2025 12:53:16 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Peng Fan <peng.fan@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>,
-	Peter Chen <peter.chen@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Xu Yang <xu.yang_2@nxp.com>, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	imx@lists.linux.dev, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 0/4] pmdomain: core: Introduce
- device_set/get_out_band_wakeup and use it in usb
-Message-ID: <20250912045316.GK5808@nxa18884-linux.ap.freescale.net>
-References: <20250902-pm-v3-0-ffadbb454cdc@nxp.com>
- <CAPDyKFqBJQ92HH1tSq1rfbXV1OwbyvgChyHfv7ykJqf2A6qYpw@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPDyKFqBJQ92HH1tSq1rfbXV1OwbyvgChyHfv7ykJqf2A6qYpw@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: MA0PR01CA0055.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ac::11) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+ bh=E7uBMoNaxhXP968SE0NQ+/XaEbs6QlAHYmwe7jQt5gQ=;
+ b=OjkZaBlW7vbN87QI74mUaD0mtRVWTZEIjnE8/FRN4Nmq5zrjOQpkntwW1MbZH5L8T7sbcpsL9w8586E/exq7ovkPTtbvrbJ5ac8HR/NvFOIZYwZWf5AKLkc581Y+E4ookyEkhDPiPRCHu/zRYYva1q+UKigYU/ZWbdfXWBsH2wI=
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
+ SL2P216MB1360.KORP216.PROD.OUTLOOK.COM (2603:1096:101:10::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9115.18; Fri, 12 Sep 2025 04:03:00 +0000
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07%5]) with mapi id 15.20.9115.010; Fri, 12 Sep 2025
+ 04:02:59 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
+Subject: RE: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Topic: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Index: AQHcGMGJZMRvpcS8k0m0pKjSJCiRfbR5qCyAgAWDqKCAAFVmUIAPUbyQ
+Date: Fri, 12 Sep 2025 04:02:59 +0000
+Message-ID: <SL2P216MB124621E30C6274A4548A38FBFB08A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
+ <20250829084649.359-3-nas.chung@chipsnmedia.com>
+ <22379203-94f8-468d-a9b6-de67f8fba495@kernel.org>
+ <SL2P216MB12469B8A2DD5B2F6EA2F04DCFB06A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+ <SL2P216MB1246080FA1F1DE8B707A1C5BFB06A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+In-Reply-To: <SL2P216MB1246080FA1F1DE8B707A1C5BFB06A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+Accept-Language: en-US, ko-KR
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB1246:EE_|SL2P216MB1360:EE_
+x-ms-office365-filtering-correlation-id: 134b99bf-3c7c-4ee1-44d3-08ddf1b14358
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?X0dfWUgzLC/AAKFhGhAuJjNuIIuCULW7vvpg2Q4LFWGxv0YhCizErBrSTwBq?=
+ =?us-ascii?Q?DeRhpnI8TcJJJfNETciGUD3XUavjZXskmiQ417lD+urb2kB1d/h38UfbyDI/?=
+ =?us-ascii?Q?J5OixluUQ6A0khNOvGWOFuHL+uSHa0OAC8JIi7DJ8nUxKXcZkSHXr5Hwdd8y?=
+ =?us-ascii?Q?6q4ExbdTzwCUrov0VXxFSTEsKESJVb3m9xscr73ERkErbaGNP4n7i0Nj3xXc?=
+ =?us-ascii?Q?xsxyd1Om27dTJ8icNnKdyGsST9akGkUjY+d/A55cY5xiHeTiITKzGC3BUKpr?=
+ =?us-ascii?Q?32IRphxQT7qRVU+VYqpINC4DAde6PJD8SuL18Q7O3Z574Z/rZ7cm2phSAWVS?=
+ =?us-ascii?Q?C2kC8zoMpyH+WZzbYf76beIMFmPfDeVXjVYnUVJR5Mk3g4t96cMOBTbGU9iA?=
+ =?us-ascii?Q?GjJWO+KXKNJ/4nGCpGOZWn95kaIyVgjR+8SY//C8uIYY1ObbnmKvImNoSTEi?=
+ =?us-ascii?Q?aymONLzdOABaQWrjaPjTFvV+kpzxetBUdIXpscmLpa3hBmoyBb5yeMZQ5fwx?=
+ =?us-ascii?Q?T2jiK6g+6gJ23JUQlRWi52Hwb1bZFslfrFqBonTuOF3RqeesrJI8XxiUP9KH?=
+ =?us-ascii?Q?2ymaj1itLblwpHlc8QMBVAAakJxRIvJgiXi2xAnwV7PLA0I4FEu0NXqWWFsb?=
+ =?us-ascii?Q?CG3Ry2f+L70B9dp6mL6yiPAU2Vu8jscOXN7R/upP7TSAH0ByBL+9z1ip/qxd?=
+ =?us-ascii?Q?8ZDQ4/BYeMss4FitN2dBYg96fQqg26SY3/fGnhFb3KopBwzhGBk1K/tkmWWm?=
+ =?us-ascii?Q?pGhoKQfuOgSibThUikBwskKeP+6x8X5IGKd9YMo21b7Oc0iIbnRhm6V5IATg?=
+ =?us-ascii?Q?x01VeCZJHQZXasPb0adj64BoZEE63s4IUAHvNXBFL3ec9TaaR/N0bxGWrYTv?=
+ =?us-ascii?Q?Qnq+OTtjCe5LFGV5Y9i4JX7Cw21ZiY2wV6Qu2Dd4lp2lO2Z3oRV0KBinWnGY?=
+ =?us-ascii?Q?YcLbJWiGCK8iyxbxocTxJLDOzyWI2tMYfv6vfTGibgLY8wo9ZJUSih+iP7mr?=
+ =?us-ascii?Q?Eq6OLXnGVLDpo/zcECuzUzVJfkyIr3ez8M2T9rpPCuh4QYlYzHF95VddpQuq?=
+ =?us-ascii?Q?3kQ8BSKoUJzodCUOlu6srDxJqCTRP2bfLNNPz6jN70JJI3aPnoJ3UrIDb9G+?=
+ =?us-ascii?Q?9KcnE2GjIFX1d+qbeg5Uj+4hicKJCaR6rVWTJTe0UhlxKlJT9A5HF1XT7pgg?=
+ =?us-ascii?Q?rRNDzIgknOPrcEp4wWQCy+qj1z7vl6rDptuhonKrMtnlpk5DSPhC58ZSE8yh?=
+ =?us-ascii?Q?dHibzpevA0oMOmwuSZykS3U+KjiYJIomI7Uc3szLYMnfsCiozbLgcDvGCiru?=
+ =?us-ascii?Q?qtSqxwZbQfI/oVjJUYSFMWpj4/908hrsftmx+PhoYMz0F7NYH683EuSZW6m6?=
+ =?us-ascii?Q?iW3ecXl2L1sNQejkL4izric1ZMW1SjcNJxK0WD2M7YAgDIu92qjukZlxK9Ii?=
+ =?us-ascii?Q?HfppF7S8OuCfT/tEVygCG+O/Tf/n4GNL8gJnD6xbbrsJuXwLz1NAhg=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OPNQzfBtriQOLAa2Bv104FSe+44Ss9H8ZAkQ6DnyKNLmpO6h5xWFepbQwDWn?=
+ =?us-ascii?Q?AD4D+rjknpO7/+ODyv2uWM/c6Ikt9gVDu8qW+EaGXQLfUtGmyq6cI+iXr+2D?=
+ =?us-ascii?Q?c6OCCUzGlHxDJsaCIiB84Kijryq4QieQ5tdy8sUqnvkOzmTwYuN+G2netDZw?=
+ =?us-ascii?Q?wusZ+FKC1xfEdPLicE/gm6kQWVa6j0J287GzD72bEgZ4HURqIF7aWzBDD+i5?=
+ =?us-ascii?Q?5VYBtbjvNdIv0uyHbHNesB/UaWZW0qjgi4JiBW+YE2Z2GVp6xprUvS+mSRVg?=
+ =?us-ascii?Q?hscDGXyVy3q5PnoWeUsLCtkevjKzDDopI1/3u/zjrfrd8wSnuKabv+3kMfDj?=
+ =?us-ascii?Q?ALbqJHOUDopxXl3HMy0ZsB2I64rPjsd1A59B2PxHLLuTg175fKQyCcdBw/gv?=
+ =?us-ascii?Q?+cH9r9j+A9gRVQFjdnzqYRD/5yk5HktcGvhGbBlq0itScSi8JC0DfK1u3qMg?=
+ =?us-ascii?Q?souPLW4seb8+oYfyn5IB+6CMfrqEagZD1973ss3qXmDdA50oXEbWq8ZZau/m?=
+ =?us-ascii?Q?iiZw8wLH26detj4D3qdH4a5GT5I04yTmoX540Kogl06JyFpF/ZAZ26wUX6pq?=
+ =?us-ascii?Q?0lCDBBHTIdq63iXrmaXTn7PQ4v2a21/wwbTSTzWoq7R/38fbnlWjhEUuP8zu?=
+ =?us-ascii?Q?L9E/YnAg9kBfC0Gs7XQTD3rcfSk/pDTyenvBIWXk4c7cUrvJlJqvti2x4fWX?=
+ =?us-ascii?Q?eeV9OPotlfANN/fBZmoPS8OFiF073rcfk6OPegKXpdtx2OJuPMfG/NVjb8Nr?=
+ =?us-ascii?Q?gaQl9/TFVYlzXzJ99rpk0dRb3bnysl7pWBU6Ug3yDt+mYSZjn7mU0uycf69U?=
+ =?us-ascii?Q?nyO2GXHc/joC3aGDcF6OgkFJ4WrHlNBJuh3EJD+KSI/OlkkLQOMYfARx9Qre?=
+ =?us-ascii?Q?B0evF/smz+n/YpWQ7Ro25XXDve9q9pCmmYlLqzKqhmESPZN1mgmken5vuj2H?=
+ =?us-ascii?Q?daKXqrncNmer/g+4mwmXEGzgCgPDg2lteEGaH6gYLxOW4R9hOPUHskEvS67k?=
+ =?us-ascii?Q?3TKpcxLAgy9MrZNingzthkH5e86Y0MH3rQt5W2Zn1sbBP19FxyLjHGMi23GZ?=
+ =?us-ascii?Q?pEeN/JWBDLEFBE4Htzv/ednFHV+weKqS8urou4OZTEXI2HVCRFqNTLwnHHQb?=
+ =?us-ascii?Q?+yNvLZwbjUWGtxALaKnvZbWVf0ckagpjkfPNLxfeDwr+MXs7nUeHqri4AGKq?=
+ =?us-ascii?Q?h9xzgcbE+2zRb8NNlXRQMXko+7X5GoyWWq92w9VT2NTg93KLHac3IdFKVj6y?=
+ =?us-ascii?Q?WWzuapTHctCWttk77uIZ6VoSfldu+vV5NwzKCS+NVbaOJbCaIhTIVkI64UCb?=
+ =?us-ascii?Q?n3xUTWPJaoBqOSIAV8kOX/YmeYTAkT/SRCa5OLC8A6r4WGYMlohil5Wd0wmt?=
+ =?us-ascii?Q?JO2ihh3jbNRTHy9s+K0P5Xotk8742VF62r8iFAADzhZQc5xFLPvbMAYiuJ6Y?=
+ =?us-ascii?Q?zGFfTCVSf7W9mMTnlEdzBx409lrs+qsApJ1m53Atvv+d1xMJIhKqwWOVVwmg?=
+ =?us-ascii?Q?bo/M3PKxi7Q+A80HmOlWKSMVJTx2hpCjmCTH0TI6yTC6F26j1nFkeFyZBmOf?=
+ =?us-ascii?Q?8qYilYTCFN5E8oWr1GU86rLw/XZNnS0ss0AvRBOF?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8526:EE_
-X-MS-Office365-Filtering-Correlation-Id: d5b1f297-be13-4ddb-c013-08ddf1ae4f17
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|19092799006|366016|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OWxpaF/JAxoMJ+rvIxG5CIKm5SA8xK8uXzUxNFKQBVDyKirnSGlwPq1fNSj0?=
- =?us-ascii?Q?GtA3Bge27SBVb9L2xiNv6IUTCwXoiUURgjxHQt44LTewPxS6sXg+rv1vdcTP?=
- =?us-ascii?Q?AsXhcJmWYSHiBnv4GQIHxiPw3da5lufrjiVrGA2rWFkLmlG+uvpRpKmiUPqr?=
- =?us-ascii?Q?2z0a4YgT/XZSINC7knpIGRmmT2auqgrFMsqXiqmK5NCbmTDtdQJmxmcd5T+0?=
- =?us-ascii?Q?g6vnL+G6xW8TKarZzsBTHSO6aQ758FH+n08gOvnD4R2BQ2iOYDho8cQlrbC8?=
- =?us-ascii?Q?NJgo3dkWTkUI61tVetSU1Bf3yripftIS+ORc+C7p8Sy7hI7C7nn9Jyu4JlB6?=
- =?us-ascii?Q?O+ztIClxsF8wMqcE6Fh/hxoV4KiDWpdn7ZdoNoa9UjLxLgTQMHrVIYtR/6QR?=
- =?us-ascii?Q?iogGscct+PtWrDiHdP0djh4ihgv+BEHheTzqSUaXnrsXYLshSdDCnK9DENYo?=
- =?us-ascii?Q?AIIHoVAGPFRGHs1vETGgOwbG/a9O2P4HiKkNbjHAd/FUNpM7QY5JWvdhtpS9?=
- =?us-ascii?Q?rfDGZktph2FaF9GE37VWO22PvAXvTgbXHe0oczaaH1CmrNfc+mCiEx6pc3oU?=
- =?us-ascii?Q?Dy5zIY8k8mo9ur2KUarZgaBrQvVp03b6jELzkWOTU4r4iTQM3tr1XRiRl1Jc?=
- =?us-ascii?Q?c70l8mkUFZrDiJXYNXjHZQPZmcDm1+AnjuUKFbpGUpWarhFfmi1B5SjO8Inm?=
- =?us-ascii?Q?RDy8X5oJPzA4ezihtoPtC0V/8cmcOrMemgzUDaISYCsdHAAolziposXXv0+P?=
- =?us-ascii?Q?i+ZoDFRHIi8V2hpGdrk3RKzIp6QpH3dLxkBTfyU3LGWpj2G5kD2sFsiA53ww?=
- =?us-ascii?Q?1tOjkZtk0f5kv0E6xvZmpF/mwsr19k3MTesRtaZgkZmtYjEGCJSRwulK5CnJ?=
- =?us-ascii?Q?UbDOyOtKlRzti6fKhUBTriv71a1HbWfV1KzRgm3907C1tI1c2kB8rEGzVcYT?=
- =?us-ascii?Q?/oPkopn8hNQX5/H2IH+BZJlvV28qCIthETyIyOv0Nh73SHba67FYk9IRs1Z3?=
- =?us-ascii?Q?/H1eHn87cbtfL1P8AHxaMZYs0SD2z0errvNZAmex+Uaxxfy7tt7s9brU66OK?=
- =?us-ascii?Q?OThCeDl6EDhUGJHDMEfYsL67gQLe97NhSr7tw7fmp2vXJZii6duuE6Wv8Bmd?=
- =?us-ascii?Q?6CuOU+Bz1nHFx/GWYE7SGHr1lPbqATYr35YgptWYrfH4kAn/++s2o+obPPoo?=
- =?us-ascii?Q?o0HQOX7sq5BMobBHeLWShOdU3GM/SkuhQZvmmQ7wvjrO6b+YuzXRMAIMmIK6?=
- =?us-ascii?Q?nZmMWrVxHYkneNaLErkPTRBY5i5UxsMJ9MOoE0Rr0rd8mhLujhcJIjmWhNyF?=
- =?us-ascii?Q?VrPboisvVG/YymGdA7rhtxiQlc2R/2s7fXBKWd1ShD9pZmN68z0HgFNS3qIG?=
- =?us-ascii?Q?W8/s0uKukQ/LrDziOzchJdrHyzJu0lxDWNOURNiXj3/JFXno49f6p/2jweRC?=
- =?us-ascii?Q?04BUBMloi24CwnPuaK15EajYCE76xGd0wiz4LnXyiJCZ3Jwp/mZ4XA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(19092799006)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bBZ7JKN+bmWfaTJgWbJ4WTVw+yrwJ/3O6KlkurO3ficZVIE9gEnh7b7/EIvg?=
- =?us-ascii?Q?UuLoqS2tdZv34qpY/Y9m2K/dBbFfOnVNd7PdFHAxJQQ+oElJqOZ+89SomKa0?=
- =?us-ascii?Q?+Rbq8o69lvfA5TGeL4IilHaaieOh/ta7/+JVjHE1wzrOzgC1+3jhmizK73Pw?=
- =?us-ascii?Q?ArTEEsk7pnq7E2EqPyiUrW7s+fS0rq4GlJ0hTEXciZD6UnuAN4r1d/WpCzyU?=
- =?us-ascii?Q?kAJEVRVzCMHIQZREb6gs+xilxgTYLgvhcJihwr5rSDWNB1cEdiPPLHSLH9bQ?=
- =?us-ascii?Q?rOjI/QmkKuidOXEikuVafpSCSogWqkQqpx5l3Fm+vx9oj4PUGZ04H7+COYjF?=
- =?us-ascii?Q?bdLBP1v759NeiNpxXPJRUBULLrkH/TtV8ZsmhajgdIsQqbYf1PYP3dNGyNvV?=
- =?us-ascii?Q?pjztxMVU0tcoXNZTIST9JMGpQzlJWdiqH+2XB16651vXts3V06VPmUMTlwg6?=
- =?us-ascii?Q?xqsO6eEjAx/yJpRcZZ9dTv+S4HoEGBN+bSD+FyF1L9yKavQ70p8B8mXOOUuV?=
- =?us-ascii?Q?0KPShm5DF8l9is5stsx2L0CKZ/8q3+NZQ0bzve6+O+jVVWaT+hMGN883Xodg?=
- =?us-ascii?Q?x5E1g/yBT9EaSkTvKHIa9pWXbE2Ctw1OC0ygjiH9mrdXU7k6+mTK62R48SHz?=
- =?us-ascii?Q?kOdjDQ8w6vDYdpb2Z8XHodCzQyLog8k2/47TCQliHBaiSn10I8moFBC3yFp2?=
- =?us-ascii?Q?1yFXaJkxDM0VeRZvayJMfpbP8UMztJ/dd3Xk8F+VjBtkzxXVngLEXhCyHyr4?=
- =?us-ascii?Q?CE1u+8Gxs+k4gnl5G1LWnW6PBmH72m/dtVuW9A3nzaIJoty5TEW12fR4cZMq?=
- =?us-ascii?Q?ZEYRjD3ftqRQUjKr/m5EVwrfukOLda1LaUS9hJckPYhgGgRPrwJMn40F+yaj?=
- =?us-ascii?Q?eYVhQjTqcxjEPAUXAcnQmaFyQZ5HuSMiKSyH1qjdtOWhmKyE2SlA4mw1qRwg?=
- =?us-ascii?Q?elilF5Djwh7+t0H1+67w8TN0mTN4YZn1ECRIf3oee6wqUQaPlQkXsw5ZfFPy?=
- =?us-ascii?Q?jXhId5GMB1wdPcQ2n6DVSOAXTGr/wLORwrtXREAFOSU/ppbiJ187IPeNA9vM?=
- =?us-ascii?Q?yUFwy3FYGvzrTTt3GSx4LrrpeLPwD9aBQ2wy32e5DDiARCfaHMfvVgDqfdMd?=
- =?us-ascii?Q?VkeaD/rCFSuNYRM4nleRUO3otcMbFfhserBms3FxkHJA90n0DmbLvPJjQ5fd?=
- =?us-ascii?Q?IeK0Le8D71+ZaxC6ItJSNekIAigFUSkGTF7OMDENPc8HyUbsQfLFphofeisL?=
- =?us-ascii?Q?AOSLbNRcCWCI5Gkj8ruNsvBUHN/cHgRtUviXWYTY4hS08mx8dI5wrlLLMI7y?=
- =?us-ascii?Q?ER+i8lkX+x51lTYqNx9byc9CJknequkM+gl6WJ7F6QAXUwUHaapZg7wiR7aP?=
- =?us-ascii?Q?lzNFeBxwBz+9YStqpffWWoBe2rUz2lsifci81Gpo4AdpTha5zZwIbvTtSP1i?=
- =?us-ascii?Q?REliIaGJsm7qsVOV6QLrzkBDUpNqB95n0V+yU2tuePL6yd+QhbrOmPAk6deV?=
- =?us-ascii?Q?ZZh8812ibnTHZPbTuiCcROikEvhGA/QwrrmfMJl755/nsuZIeBBcVVPNWxvE?=
- =?us-ascii?Q?8WPfYXmOge0L44i/47VKDKI1ax0B5D/CcM3H8yiP?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5b1f297-be13-4ddb-c013-08ddf1ae4f17
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-OriginatorOrg: chipsnmedia.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 03:41:51.1913
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 134b99bf-3c7c-4ee1-44d3-08ddf1b14358
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Sep 2025 04:02:59.7767
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gFzzJIY3O4bkX+rGmB5MYhsutwCZHM4QrWihVxe0Xq8MHLDVBxGXbvOBecmdqoJkF5p75DG7UuQSRlp7Mt0VWQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8526
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ZTtZP6P7w3f+n4WGdF8/drgH1MrDC/NvXSdBKR6dT7o9yGb58YVlREu+FGmUnNe+pKHYDQR3CUFWkyDxM/ug3Vbl1WXoBYH7DFsTywxywzc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SL2P216MB1360
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_204200_093621_796BDA9A 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20250911_210314_336896_C0D315EB 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,16 +174,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf
-On Thu, Sep 11, 2025 at 04:45:31PM +0200, Ulf Hansson wrote:
-[...]
+Hi,
+
+Gentle ping.
+
+Just to recap the previous reply:
+
+On this SoC, each of the cores and the control block has its own SMMU ID,
+providing independent hardware contexts as part of the SoC's isolation poli=
+cy.
+
+I realized that the iommu property was missing in the documentation; would
+adding it be the appropriate way to indicate why each core is represented a=
+s
+a sub-node ?
+
+Thanks.
+Nas.
+
+>-----Original Message-----
+>From: Nas Chung <nas.chung@chipsnmedia.com>
+>Sent: Tuesday, September 2, 2025 4:43 PM
+>To: Nas Chung <nas.chung@chipsnmedia.com>; Krzysztof Kozlowski
+><krzk@kernel.org>; mchehab@kernel.org; hverkuil@xs4all.nl; robh@kernel.org=
+;
+>krzk+dt@kernel.org; conor+dt@kernel.org; shawnguo@kernel.org;
+>s.hauer@pengutronix.de
+>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>lafley.kim <lafley.kim@chipsnmedia.com>
+>Subject: RE: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+>device
 >
->Overall I think the series looks nice, but I will make some more
->thinking of this in the next few days and come back with some proper
->comments, at latest in the middle of next week.
+>Hi, Krzysztof.
+>
+>>-----Original Message-----
+>>From: Nas Chung <nas.chung@chipsnmedia.com>
+>>Sent: Tuesday, September 2, 2025 2:46 PM
+>>To: Krzysztof Kozlowski <krzk@kernel.org>; mchehab@kernel.org;
+>>hverkuil@xs4all.nl; robh@kernel.org; krzk+dt@kernel.org;
+>>conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de
+>>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>>lafley.kim <lafley.kim@chipsnmedia.com>
+>>Subject: RE: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video code=
+c
+>>device
+>>
+>>Hi, Krzysztof.
+>>
+>>>-----Original Message-----
+>>>From: Krzysztof Kozlowski <krzk@kernel.org>
+>>>Sent: Friday, August 29, 2025 10:57 PM
+>>>To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
+>>>hverkuil@xs4all.nl; robh@kernel.org; krzk+dt@kernel.org;
+>>>conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de
+>>>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>>>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>>>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>>>lafley.kim <lafley.kim@chipsnmedia.com>
+>>>Subject: Re: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video
+>codec
+>>>device
+>>>
+>>>On 29/08/2025 10:46, Nas Chung wrote:
+>>>> Add documents for the Wave6 video codec on NXP i.MX SoCs.
+>>>Pretty incomplete commit msg. Nothing explaining hardware, nothing
+>>>documenting resolution of previous discussions (where is all this
+>>>chip&media?).
+>>
+>>I see,  I'll improve the commit message in v4 to include hardware details=
+.
+>>
+>>>
+>>>...
+>>>
+>>>
+>>>> +
+>>>> +properties:
+>>>> +  compatible:
+>>>> +    enum:
+>>>> +      - nxp,imx95-vpu
+>>>> +
+>>>> +  reg:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  clocks:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  power-domains:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  memory-region:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  sram:
+>>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>>> +    description: phandle of the SRAM memory region node.
+>>>> +
+>>>> +  "#cooling-cells":
+>>>> +    const: 2
+>>>> +
+>>>> +  "#address-cells":
+>>>> +    const: 2
+>>>> +
+>>>> +  "#size-cells":
+>>>> +    const: 2
+>>>> +
+>>>> +  ranges: true
+>>>> +
+>>>> +patternProperties:
+>>>> +  "^video-core@[0-9a-f]+$":
+>>>> +    type: object
+>>>
+>>>Missing description.
+>>
+>>I'll add a description in v4.
+>>
+>>>
+>>>> +    additionalProperties: false
+>>>> +
+>>>> +    properties:
+>>>> +      compatible:
+>>>> +        enum:
+>>>> +          - nxp,imx95-vpu-core
+>>>
+>>>Why do you need here compatible? Can this child be anything else? Can it
+>>>be re-used? Is it actually a separate block?
+>>>
+>>>Your example suggests that the only distinctive resource are the
+>>>interrupt and address space and that's on the edge of calling it a
+>>>separate device.
+>>>
+>>>There is some tendency to call such "pseudo-cores" a separate devices in
+>>>case of video codec bindings and experience shows these are usually
+>>>fake. It's not the same as DP or HDMI sub-block of display pipeline.
+>>>
+>>>That's why you should come here with strong argument what separate piece
+>>>of hardware this is.
+>>
+>>Thanks for your feedback.
+>>
+>>As you mentioned, I wanted to represent the interrupts and address space
+>>as separate "cores". This is because, from an external perspective (e.g.
+>>multi-VM),
+>>each of these resources is a VPU interface and can be accessed
+>>independently
+>>to operate the VPU.
+>
+>Apologies, I forgot to mention one detail in my previous reply.
+>
+>I did not include the SMMU-related properties in the core nodes.
+>On this SoC, however, each of these cores has its own SMMU ID
+>as part of the SoC's isolation policy.
+>This allows them to be treated as independent interfaces,
+>even though there is only one actual VPU engine.
+>
+>Would adding the iommu property be the appropriate way to describe
+>this in the device tree?
+>
+>Thanks,
+>Nas.
+>
+>>
+>>However, there is indeed only one actual VPU processing engine.
+>>I understand your point about "pseudo-cores".
+>>
+>>I would appreciate any guidance on the preferred way to represent
+>>these resources in the device tree.
+>>
+>>>
+>>>> +
+>>>> +      reg:
+>>>> +        maxItems: 1
+>>>> +
+>>>> +      clocks:
+>>>> +        maxItems: 1
+>>>> +
+>>>> +      power-domains:
+>>>> +        maxItems: 1
+>>>> +
+>>>> +      interrupts:
+>>>> +        maxItems: 1
+>>>> +
+>>>> +    required:
+>>>> +      - compatible
+>>>> +      - reg
+>>>> +      - clocks
+>>>> +      - power-domains
+>>>> +      - interrupts
+>>>> +
+>>>> +required:
+>>>> +  - compatible
+>>>> +  - reg
+>>>> +  - clocks
+>>>> +  - power-domains
+>>>> +  - memory-region
+>>>> +
+>>>> +additionalProperties: false
+>>>> +
+>>>> +examples:
+>>>> +  - |
+>>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>>> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+>>>> +
+>>>> +    soc {
+>>>> +      #address-cells =3D <2>;
+>>>> +      #size-cells =3D <2>;
+>>>> +
+>>>> +      vpu: video-codec@4c4c0000 {
+>>>
+>>>Unused label, drop
+>>
+>>Okay. I'll drop the unused label.
+>>
+>>>
+>>>> +        compatible =3D "nxp,imx95-vpu";
+>>>> +        reg =3D <0x0 0x4c4c0000 0x0 0x10000>;
+>>>> +        clocks =3D <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+>>>> +        power-domains =3D <&scmi_perf 10>;
+>>>> +        memory-region =3D <&vpu_boot>;
+>>>> +        sram =3D <&sram1>;
+>>>> +        #cooling-cells =3D <2>;
+>>>> +        #address-cells =3D <2>;
+>>>> +        #size-cells =3D <2>;
+>>>> +        ranges;
+>>>> +
+>>>> +        vpucore0: video-core@4c480000 {
+>>>
+>>>None of these labels are used, drop.
+>>
+>>I'll drop it.
+>>
+>>Thanks,
+>>Nas.
+>>
+>>>
+>>>> +          compatible =3D "nxp,imx95-vpu-core";
+>>>> +          reg =3D <0x0 0x4c480000 0x0 0x10000>;
+>>>> +          clocks =3D <&scmi_clk 115>;
+>>>> +          power-domains =3D <&scmi_devpd 21>;
+>>>> +          interrupts =3D <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
+>>>> +        };
+>>>> +
+>>>> +        vpucore1: video-core@4c490000 {
+>>>> +          compatible =3D "nxp,imx95-vpu-core";
+>>>> +          reg =3D <0x0 0x4c490000 0x0 0x10000>;
+>>>> +          clocks =3D <&scmi_clk 115>;
+>>>> +          power-domains =3D <&scmi_devpd 21>;
+>>>> +          interrupts =3D <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
+>>>> +        };
+>>>> +
+>>>
+>>>
+>>>
+>>>Best regards,
+>>>Krzysztof
 
-Thanks a lot for the review! I'll stay tuned for your comments next week.
-
-Thanks,
-Peng
 
