@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D2F2CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 00:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8890CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 00:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4K9hmE0/Fx+jhdDSAZ5UlUxLxvwWNTOGKavjGuAawqQ=; b=UfCLnl2F1YpXbx+zTwM/cBnGbv
-	VvoxwimnbbSVb+dlLg9eRu0OzQY7h3w9eSoj09+ZU1KC1iQyXxrXtXfoGB+3Z33hQdHKhwvuMUWRN
-	kiVCCnyKMkej1fgUzf4+fZLVwHmxR5VP6C0QMIka33xMguuGR/3Px4CL+ukykFmDGNJpQFvJYl0qu
-	3zX7MgZU/GN8/+dv9j6LoluNn9zNWSJKMWX+pWU6ezzX2/spGPoZczUoTouBXuemBmOqqIr4+Cnpv
-	/HbVWeNsEWwjBASNY0R5cM+ZKXom0XOc7kj1OEtJwuTMcnyk88rrl7WqHj6VkocNNcgKy8nY9K3zb
-	tioB/hWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=udoHF/ewggrli9LT0yBxNvcwZCggkGncBKGw8/rNr7c=; b=VvoW1dEqUWpaqSG2Zaj26J3HRs
+	zX/+oOSj3o7Us/uSva5e2c4vpbq13FPDzND2yL6JGeeO37s1SRf9TItuwLcdsfsDNkmuBaAd4Qvic
+	LBTO/xB/4Bm4UjQ9R9iP/QMHgAzE6We+ezRONl/WZBhP5SRKHbUEWflFBaN8If7lnm4x2pb7MbSI8
+	hP0s2cJ+SpnMP4OMt+weV+jmrDQv2DGyFyfOnUzxyA7wqFD/30uk/Y3v6wdxgPtFmXMqh8ZdDidUj
+	5FUQkuMJr8/16u8tq5ob19IF71qfPNSm2o6fjW0OTGJj7XCNgvhZpIQohdxR2PuslFcllmsyKEQyn
+	7DzejKkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwrL7-00000006120-2C9k;
-	Fri, 12 Sep 2025 00:08:33 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1uwrNI-000000061Zd-3zbU;
+	Fri, 12 Sep 2025 00:10:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwrL4-0000000610U-10tx
+	id 1uwrNH-000000061Yg-1aam
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 00:08:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757635710; x=1789171710;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UxcuXC6sExcpG8BeW6MP7jgxfMtnH1Fa8tN/NA404Fg=;
-  b=NPcHy8dVB0iuvC5pQB64RBtcao1jIpE4xNT+WfIoc/WSsQ75R+37P58c
-   j3IIdXvUFDH8lYPJDBAJ5lLBJJ83lmlCDV5m5T4W9XzedVbOHPbeL8njA
-   bw8DaUSrV1jEnmw9ExrNVk4SfQSBjqoWx7zyiB5Xr6pYxMMXHuMDuvrWf
-   84bWNdm6L2ukojSLkBe2dh48i/1Ku4AgbuRIVv7s1CglNKSN0D/NK7iMH
-   iRFLL8UxUlW8OUNsLt4H3VYcZBmS8jhNpfOuyQuY9f5vFcfKtbTEJ6osK
-   iEf3tP4b8a3x7ziE6tg33BdIsf4IVRDl03pUOyFBHvCyP3VENFyOgCVYi
-   Q==;
-X-CSE-ConnectionGUID: zmoXSDRuRlCl0xGFcwB7gg==
-X-CSE-MsgGUID: XA0p6taoRfyPrZypKihfhA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="60040655"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="60040655"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2025 17:08:29 -0700
-X-CSE-ConnectionGUID: JkE15ZKyT4Wcs/nc8sjVrw==
-X-CSE-MsgGUID: jm0+/LUrS322nD6lO7OCzg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,258,1751266800"; 
-   d="scan'208";a="178163399"
-Received: from lkp-server02.sh.intel.com (HELO eb5fdfb2a9b7) ([10.239.97.151])
-  by fmviesa005.fm.intel.com with ESMTP; 11 Sep 2025 17:08:26 -0700
-Received: from kbuild by eb5fdfb2a9b7 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uwrKx-0000iO-2Z;
-	Fri, 12 Sep 2025 00:08:23 +0000
-Date: Fri, 12 Sep 2025 08:08:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Peng Fan <peng.fan@nxp.com>, Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	arm-scmi@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 2/2] firmware: imx: sm-misc: Dump syslog info
-Message-ID: <202509120758.omltrDMi-lkp@intel.com>
-References: <20250910-sm-syslog-v1-2-5b36f8f21da6@nxp.com>
+	Fri, 12 Sep 2025 00:10:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A9D6444BAA
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 00:10:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B647C4CEFF
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 00:10:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757635846;
+	bh=As0st2mk2L0Hyv308eIrHbtQh5TjekLWLPV+ifYiL5s=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=qMpIx4IgtVLlsi6LiDk9WM4G5NIXqk2vJMlQcYqfNyIG0UhdfRyvChYLEJqj5snxz
+	 bj3B/Q3dTu6d2YvnXim26H63nFoGrtEM/v9se8CDOs+Hy9pBdd2tFXz1OD6/bVcLVS
+	 WNhcKqH1ifK6Bpw4omCXCt7SiuA2uUwlJUnvDn1bpZXXZM9eXJSMR2pM28+Im41D6p
+	 XHOGIcdrMSb4yG7mmuQ7wORO2ehoA3OKIXQVaqlECxI6EfjdAQ9x2T8vKfIcYGftjE
+	 Dpm4GWqaKbbHcreuu5dx3YCeDplTMzTkWpG3wgVIOUggX7s81pzqkDmCrld/jWxhNb
+	 XCiyGWaNOoCUA==
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6188b7550c0so1641834a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 17:10:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWPW9HjqdOhgcv+CcZ5RJtbohZV4Ej833HA5ZR9ehKUl1vuqvwfEbWAWuLc4BO0I5zj6inlJ0ZsSAML8vbg3AbV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYDLnIv0EXww5VfHoBooG5RWmuXA6FbPaJbptrT+ez1Zh5LTvN
+	wcWkVo84DJljPiFTf3vFtHAWiatD75A/xd+dags1XjVyeQBweE03F/m+E48X4NcH12Tqvgf73+s
+	G7kkAO45NipHA/cTZYlVyhmkRjyI+c8s=
+X-Google-Smtp-Source: AGHT+IGlZB9ve92AUsjeuNU1Q5ZaXqNU8y7VQEYnPyGvDio1YpPC6YK436PmiT1NHNvhnGHWryG+F5/8KZPOgJm7JoQ=
+X-Received: by 2002:a17:906:478b:b0:b04:5435:901b with SMTP id
+ a640c23a62f3a-b07c3a77fcfmr91410466b.62.1757635845021; Thu, 11 Sep 2025
+ 17:10:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250910-sm-syslog-v1-2-5b36f8f21da6@nxp.com>
+References: <20250905084059.26959-1-ot_zhangchao.zhang@mediatek.com>
+ <20250905084059.26959-2-ot_zhangchao.zhang@mediatek.com> <a7589659-0352-4d47-a3cf-f2433cc512ec@kernel.org>
+ <CAGp9Lzrp-cfn_GiLrHCU629wEAxWy=egOMrRh6thYbymu+QXjA@mail.gmail.com> <0760036f-db69-487c-94b9-a6e405dee0e8@kernel.org>
+In-Reply-To: <0760036f-db69-487c-94b9-a6e405dee0e8@kernel.org>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Thu, 11 Sep 2025 19:10:33 -0500
+X-Gmail-Original-Message-ID: <CAGp9Lzqk-mXiNq2iSrTk-Ed40_2j3GSuLMJcWoE1_iy7yY9-qw@mail.gmail.com>
+X-Gm-Features: Ac12FXz8IhbvaLWT27HxTo9duYFHYYWRiZ_PiuVbsnFzUeOWnt4swjEH76TSLOQ
+Message-ID: <CAGp9Lzqk-mXiNq2iSrTk-Ed40_2j3GSuLMJcWoE1_iy7yY9-qw@mail.gmail.com>
+Subject: Re: [PATCH v7 1/1] Bluetooth: mediatek: add gpio pin to reset bt
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>, Marcel Holtmann <marcel@holtmann.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Luiz Von Dentz <luiz.dentz@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Jiande Lu <jiande.lu@mediatek.com>, 
+	Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>, 
+	Hao Qin <Hao.qin@mediatek.com>, linux-bluetooth <linux-bluetooth@vger.kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	linux-mediatek <linux-mediatek@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_170830_324164_DE74CBF2 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20250911_171047_459797_F5AC0EC8 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,75 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+On Thu, Sep 11, 2025 at 1:07=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 11/09/2025 01:29, Sean Wang wrote:
+> > Hi Krzysztof,
+> >
+> > Sorry again for the confusion. I believe Zhangchao is still new to the
+> > upstream process, and we=E2=80=99ll work together to improve this. Sinc=
+e this
+> > series has become a bit hard to follow, would you agree that it might
+> > be better for us to restart with a clean patch that addresses the
+> > review comments? A clean version would make it easier for reviewers to
+> > focus on the current issues without being distracted by earlier
+> > mistakes.
+>
+> No. If you cannot send v7 of patchset as real patchset, sending again v1
+> won't change anything.
+>
+> For seven versions contributor did not bother to respond to feedback and
+> did not care to read submitting patches how this process looks like.
+>
+> Effect is this totally broken v7.
+>
+> This patch introduces undocumented ABI which kernel tools, if used, also
+> point out.
+>
+> Best regards,
+> Krzysztof
 
-kernel test robot noticed the following build errors:
+Hi Krzysztof,
 
-[auto build test ERROR on 65dd046ef55861190ecde44c6d9fcde54b9fb77d]
+Thanks for the feedback and for spending time reviewing this driver.
+We=E2=80=99ll continue with v8 instead of restarting from v1, and hope it w=
+ill
+be improved to meet the requirements.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan/firmware-arm_scmi-imx-Support-getting-syslog-of-MISC-protocol/20250910-223316
-base:   65dd046ef55861190ecde44c6d9fcde54b9fb77d
-patch link:    https://lore.kernel.org/r/20250910-sm-syslog-v1-2-5b36f8f21da6%40nxp.com
-patch subject: [PATCH 2/2] firmware: imx: sm-misc: Dump syslog info
-config: i386-buildonly-randconfig-004-20250912 (https://download.01.org/0day-ci/archive/20250912/202509120758.omltrDMi-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250912/202509120758.omltrDMi-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509120758.omltrDMi-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/firmware/imx/sm-misc.c:54:39: error: use of undeclared identifier 'SZ_4K'
-      54 |         void *syslog __free(kfree) = kmalloc(SZ_4K, GFP_KERNEL);
-         |                                              ^
->> drivers/firmware/imx/sm-misc.c:54:39: error: use of undeclared identifier 'SZ_4K'
->> drivers/firmware/imx/sm-misc.c:54:39: error: use of undeclared identifier 'SZ_4K'
-   drivers/firmware/imx/sm-misc.c:56:13: error: use of undeclared identifier 'SZ_4K'
-      56 |         u16 size = SZ_4K / 4;
-         |                    ^
-   drivers/firmware/imx/sm-misc.c:64:14: error: use of undeclared identifier 'SZ_4K'
-      64 |                 if (size > SZ_4K / 4) {
-         |                            ^
-   drivers/firmware/imx/sm-misc.c:64:14: error: use of undeclared identifier 'SZ_4K'
-   drivers/firmware/imx/sm-misc.c:64:14: error: use of undeclared identifier 'SZ_4K'
-   7 errors generated.
-
-
-vim +/SZ_4K +54 drivers/firmware/imx/sm-misc.c
-
-    49	
-    50	static int syslog_show(struct seq_file *file, void *priv)
-    51	{
-    52		struct device *dev = file->private;
-    53		/* 4KB is large enough for syslog */
-  > 54		void *syslog __free(kfree) = kmalloc(SZ_4K, GFP_KERNEL);
-    55		/* syslog API use num words, not num bytes */
-    56		u16 size = SZ_4K / 4;
-    57		int ret;
-    58	
-    59		if (!ph)
-    60			return -ENODEV;
-    61	
-    62		ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-    63		if (ret) {
-    64			if (size > SZ_4K / 4) {
-    65				dev_err(dev, "syslog size is larger than 4KB, please enlarge\n");
-    66				return ret;
-    67			}
-    68		}
-    69	
-    70		seq_hex_dump(file, " ", DUMP_PREFIX_NONE, 16, sizeof(u32), syslog, size * 4, false);
-    71		seq_putc(file, '\n');
-    72	
-    73		return 0;
-    74	}
-    75	DEFINE_SHOW_ATTRIBUTE(syslog);
-    76	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+                          Sean
 
