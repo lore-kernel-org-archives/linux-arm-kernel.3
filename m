@@ -4,87 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A43CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 06:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190CBCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 06:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lB5FktB8/5J4NSxT9Jjpfp64bihH79idm8uD0pyv3Sk=; b=WxVKvdNrJp1627+7tiN1cbXIXb
-	GBzhJYX/MTE2bNVmh1JimiMx+j6349WAYEYm31ymdqlfYZy4Wj+qyTHFWjebs8c5dJg4JMDfQVY3l
-	81HQ8ZJApUuOWet+dOCrxxPQmz/EUmiNCVZ5ERGx0q0OTKp90gOtWGMcJ0cBnVPXXfWXzFUVHAg3c
-	8jVuzMWH2zoeSvLV//pYZxHWBtaH7ashSFPrCIl/yyZcGNXJsx1338i2V0Gi44HppBjnPJ26g2MSC
-	r4ErNyaUiz/0hGWZWzBvgGBlKep84QjhUz+RY/5GhXTzoOQYTH/RPU/eqXo2VfnVuRt1Gz93rFpWd
-	YJNS3yrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gLs3bBN2UGIELnav4B4+GwA6oh3fAE8c+1IGQsP9Zpk=; b=Uef0ZLHB73p4GJSXTZKrnkjrtP
+	+d4eTY84yfTLRW1VYKrHfDK4IrgRoplrjkOSgMVehdTabj0yMwqtVGIAK1gMPHU/ciCp9bWzbGLYd
+	4uL097h/y0Bkzhbffq9vD++7CWM2uj4CBjKa7ulzrt5+duFvDnC6uBEEDCJqS6WKGD77fHS/2dpxH
+	UY0KuTSyhEusQ0lZ9PZ9HzTkz2haBPIbaA63mZW/EVHO9qAzKJI9yhelnz6tnSH2BwbSZKnRCWHaA
+	Hz4SiVHsNhP9Hc4qP4+33Vd1Uy5H/FSo4TsznumtD9mG/E+UXelE7PdACc0L7JcJORDlxpmPtwgRS
+	uq4h8rwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwww2-00000007IqK-3Dlz;
-	Fri, 12 Sep 2025 06:07:02 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1uwww7-00000007Irw-0Ehm;
+	Fri, 12 Sep 2025 06:07:07 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwww0-00000007Iov-1A5f
+	id 1uwww2-00000007Iow-00yZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 06:07:01 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5607c2f1598so1711684e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Sep 2025 23:06:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757657218; x=1758262018; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lB5FktB8/5J4NSxT9Jjpfp64bihH79idm8uD0pyv3Sk=;
-        b=e6TWrzL3R/a3JmCKKsErkxuhm0G7ZAsZ0d/WM97bBn+49tQdxPrL/jF3AF1e2OJLJK
-         PzxU0JjGdTAoNjMpQlEN1Mfp3ttqCxGNW7yJYoZz9AuMxP1v0EYXnIk346zjlapu+NPl
-         zrNz2oyGKOOAOZ3RwWrsZ439gcBhTUid0Nofk4e8PXWOWY4pIx17NT2e0T0mAzvSvLDq
-         sWyNvhj+hNzkVZRIflJV8gy6fVv8YAPMVOs10wS/6o5vLHEDpa7Z2As7Ej89Ury52iKq
-         Da6Ve8w0t9AoY8vV+P4pJjLXb1SNwfmBh9JpgmGVSY+md2YD4sGABYRSYzOYsSoRasZs
-         92jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757657218; x=1758262018;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lB5FktB8/5J4NSxT9Jjpfp64bihH79idm8uD0pyv3Sk=;
-        b=Naql9jYcfcZ9/a7rC8+VEJPC8/0DpMDjjugOsZsN/f9EPakgIgoORuIHOPVpPmqzuK
-         /P0EO8UZjjZNqNJFQJC3/y3OC+B64rddrjHdpSLKG05+CHFSdZebNESyireG5dsDcuKH
-         KcYIK0Mgem7ntzMjsnACI47yU/LLrVAnp5766cTFAymkfd3Om2lVU0k2PHfxqkJ9vMFJ
-         nlKNqXnIhQ6sO70AcHUwuMvLDiH47BCz0GgT1IuK4MDrOXEIXmdWxGQjozBkTP7UsBaH
-         RxhSJZPLVfeRsKb26eddsnwJxppyOIDYVudPnEpTaUYUoQlETAIzVEmmezqcN3qaqgH+
-         wgPg==
-X-Gm-Message-State: AOJu0YymC9fNvxFR9bB4JxIj2JFsiUFTkUkuNzUUUd4kXOCOXa4L1a04
-	9IZmxXiQ04+leucahuCtQDaedxCTyeDHbE802Mtb8GcdFa+pV385EM8VldGp6TKx2hQ=
-X-Gm-Gg: ASbGncudXRysv6FbkqFYvqga2g+gpRZt9Z1a93RdZL9MEpq1E7TX8ZwrFxDDELcfNVT
-	00RUlo9VN8ir+z3C8jadNJJooBlFiMsYvrntZDENcURei9P22TMP8vOsYNtm1aOOBIS8hoxp5jv
-	r+7rVTJKKgY2+ebKV9RFsF+hshD0yA0O+/ryvtulTkDUmpc4R+MmQ7YWglssxDqRuAljN2phcU2
-	QuWOu/qkW8X8S7Q+mYfLYkjKYdR+8WwOZQiZW1pP2ioPz5YZ6+rRXEeYuNbbZqoFhGCi+s2WIb8
-	y3GRQPe8WNN+grZubwTykzdGM2KwYAxJaBqP7aUyGg/fmSQS7BSbTOC1R3/eK3aeoXYFX/de9pm
-	VPfmzrZAfKSZhdw9naNOj/YNRxOGCRoteDxqd1M3JRJx+s288qSJ06BN3EDUJLB9WmQ==
-X-Google-Smtp-Source: AGHT+IE71rEGB081PBLdScsfzSjSdSw6Z/pFN6aBX9OQzO88wLDWOZrCaDv039zv6HKilPxbDHoxow==
-X-Received: by 2002:ac2:4cb1:0:b0:55f:7be9:7a32 with SMTP id 2adb3069b0e04-5704f1ce6f0mr493677e87.37.1757657217951;
-        Thu, 11 Sep 2025 23:06:57 -0700 (PDT)
-Received: from nuoska (87-100-249-247.bb.dnainternet.fi. [87.100.249.247])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-56e6460dfa5sm887553e87.112.2025.09.11.23.06.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Sep 2025 23:06:57 -0700 (PDT)
-Date: Fri, 12 Sep 2025 09:06:55 +0300
-From: Mikko Rapeli <mikko.rapeli@linaro.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	will@kernel.org, arnd@arndb.de, stable@vger.kernel.org,
-	Jon Mason <jon.mason@arm.com>, Ross Burton <ross.burton@arm.com>,
-	bruce.ashfield@gmail.com
-Subject: Re: [PATCH] arm64 defconfig: remove CONFIG_SCHED_DEBUG reference
-Message-ID: <aMO4fzACWKFtwJ0v@nuoska>
-References: <20250911144714.2774539-1-mikko.rapeli@linaro.org>
- <386a9d77-f708-4a47-8318-b83f862d5c1d@linaro.org>
+	Fri, 12 Sep 2025 06:07:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q81hFw+KuTmPPkjY9IKxd7AwrW8BFtRNhNiNwSntOMOIsK3br8i6+YVH+kN6znaD0J4hkWIjOaSED+rjDKzkKeXaNf7MT23WPlOlspvH/Xpr9rooA5jfuB92c9RkiHnzSNyGQnoRKNWAOV/VkRU2f9cyBX1cpckZ3P/qw+523KfiCmeOHcXW+/8WZlIBrTq3ytyABN2DEXNfUM1VbwiQgSIz2mTxlsUBjssf/TIempjbbD7vj0a5RYcIEoD5fhaFmxwGchX9ybAXE4rMmNH1He6mzBAS6sTHcwE6xUhJZSmtNHPJWE4UF2hesMV4In7xAyGgQQzGvPAAc+Yv7Y90kQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gLs3bBN2UGIELnav4B4+GwA6oh3fAE8c+1IGQsP9Zpk=;
+ b=Z0/U7uj16bKML+D3XhyFT7oPOQiLLhgnDMkjrq1bXIFR/5H2MQOpyql/k/D4XKMQMbjlpETqrj+4lHnko/t1FT3NBRtBbPvEIB+gH5a8uRiZowfmEzX9ywPHwzZ7jBnOBZVdBS6n0k19aB1mdcIkon0/jv0O1HQQaSGCZl2hFR0c0z7dQiJrB3z3hjejF8N10WeeYoo3CLIDl+JO1JtQbMNbDxEOmeW1Ccpmo9UyNPS3+A3vjwoShrL9ZOmXbM7/kuAvhSvJAGFl7fa7Ota620t/g4yhgFXDREVyWft/tElfKFmoPpz1mbTywUoFfHO+8cRLkAwIM370frI1IqGHeQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SG2P153CA0048.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::17) by
+ KUXPR06MB8032.apcprd06.prod.outlook.com (2603:1096:d10:4e::11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9094.22; Fri, 12 Sep 2025 06:06:52 +0000
+Received: from SG2PEPF000B66CD.apcprd03.prod.outlook.com
+ (2603:1096:4:c6:cafe::38) by SG2P153CA0048.outlook.office365.com
+ (2603:1096:4:c6::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.6 via Frontend Transport; Fri,
+ 12 Sep 2025 06:06:48 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CD.mail.protection.outlook.com (10.167.240.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9115.13 via Frontend Transport; Fri, 12 Sep 2025 06:06:51 +0000
+Received: from localhost.localdomain (unknown [172.16.64.196])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AD4EA41C0144;
+	Fri, 12 Sep 2025 14:06:50 +0800 (CST)
+From: Gary Yang <gary.yang@cixtech.com>
+To: linus.walleij@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com,
+	Gary Yang <gary.yang@cixtech.com>
+Subject: [v2 0/3] Add pinctrl support for sky1
+Date: Fri, 12 Sep 2025 14:06:47 +0800
+Message-ID: <20250912060650.2180691-1-gary.yang@cixtech.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <386a9d77-f708-4a47-8318-b83f862d5c1d@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CD:EE_|KUXPR06MB8032:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: e63a0d50-c03e-426c-8721-08ddf1c29147
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Oo9xG0sCwNOiLaklhgxtt4hHejY+ph1IzXRVC4h7LzYXPfrvL/i6h3z3syeo?=
+ =?us-ascii?Q?LDddV3eDwXXtfM2dxoFBStFoxmKnqHVVuDlgcVzbGB/YczkIMIOnnJwSSMqK?=
+ =?us-ascii?Q?iuG3rcYgAKrLZYtWVpWGRZImSMZ1BbFNU1upPCKwl57RDgZzTB8UeQ20hFoY?=
+ =?us-ascii?Q?orpviw3habaPk3l3K/qAEzQqqdzxG+fQk2n1CElUTxCOYkmcupZio9Z4PlmO?=
+ =?us-ascii?Q?AL0+Nol7vH65PmWdy6CUB3hWFUZ5ltHUQWUi9/NQlfpbL0ISOorkAtPmcj50?=
+ =?us-ascii?Q?SYetiXJ7/NjRS+XwGVDQkD1z5wMGo9JFzd5XIxBkpls7kqw5uWL/5+GGTCmi?=
+ =?us-ascii?Q?pNQtI1Tx2aWVFak4BZeCFG2xocikmRCU+ARGWbLZjqXlhEtc/5+O6kQ5ezUG?=
+ =?us-ascii?Q?hStkoUcBqBx4g3gh91UEa+ShDuT7uTlHzAW2U/BNVp0zdw24FyTTKFsJaQ3Y?=
+ =?us-ascii?Q?66ii+An1xzqVHnyYxGniJXUvcfqEHOsaIbbfjipZGJ0jgl0nbUbkNfntvOYJ?=
+ =?us-ascii?Q?WPtJYCkF16hbeB0ZKqCZZOqVWujaGvtckxkmBej5mNNo9r9trt+XvfG8KKG0?=
+ =?us-ascii?Q?oHz1RyYnWPB2b46R9Rj2Bl7atKljc2HFTsqw3L9DgU8dnXaoaX/NP6WYh2tv?=
+ =?us-ascii?Q?/bPNNHjrstkxJ6YUZPCjwMw2Nev2RMdrbB7/P5O4HyKKQxVgjbKxC1NMowFc?=
+ =?us-ascii?Q?VIjUx7oaH87EXlurcyC6HXGI/v39gXONpB2Y0kVR43F65TV4BRElwjBPzb0R?=
+ =?us-ascii?Q?Lfaf53IsgSPaV8PEb9M9dhb8zzJ/CB50EqVyFkpxIT3jhRGFqnY8SsfLY2m+?=
+ =?us-ascii?Q?/EJ3LQc6VvaVfxh6AwhqwwjCtHWRK7UhrvEFN371LIx+Vje2TZho9xzwrlRp?=
+ =?us-ascii?Q?pxFdmlHn+ZDva8CkaNbxUXHxxpamX4p1yFEarJsZWK8hiYxDPWcvek+UZqnj?=
+ =?us-ascii?Q?k+FRqVB0gYw3V2W9GkcAmnJEZT4M0MSdubQnKn7A0gWGGtwqstPsMLRLdtW6?=
+ =?us-ascii?Q?8G300osaaDzFhDYRO6CEn8IKUhX2sCB/5XHULQZZU4Ay+GsS77UVuPgnsJlf?=
+ =?us-ascii?Q?rGPr/G8nRiijXSq1eP8d5hSfbTbQ3GKxUPdyydoQqpsBlpilevkdjspUjhUv?=
+ =?us-ascii?Q?eodfhba4h9nbqSX+jsLwYpTSyuxlCzy9dlWPY1btYSwuXtYU/l9pJnzpfHVL?=
+ =?us-ascii?Q?Y1b+tYdcDS1b/ydlLyns7Z6SmXnFG3mdN8+b4qHvbHO0pZEyRCEYRcJ8X+eA?=
+ =?us-ascii?Q?Z4BQANzktm9whWJp2sMJejxt3MYbaArPGe0qRZwFom6PE/Ukm/Y46f8kVj9S?=
+ =?us-ascii?Q?UzOXNliQRXHTJ3Tkd3P9REWRKR4Yb2PO41WwcyR4gg5rV9E0g3eYfN7xFmgG?=
+ =?us-ascii?Q?FpTveXevLiFRpsspC7ATfiBmXFJN9riJIpU2Dx5kN+H7UjlBB+4C3AdIdQuY?=
+ =?us-ascii?Q?KiKEVc9LWh9Z4uirqmN00mpfTxWKsyuyL8z4KcSi0w9d2a/WNVlyTeNDpqNW?=
+ =?us-ascii?Q?YqNsz+8Np7tsq1EtDcsyZXK4up9fKtn4kPgJ?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 06:06:51.3038
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e63a0d50-c03e-426c-8721-08ddf1c29147
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CD.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUXPR06MB8032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_230700_323956_1432D084 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20250911_230702_043878_D477D375 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +139,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Patch 1: add Cix pinctrl driver to support pinmux and pinconfigs
+Patch 2: add Cix pinctrl nodes and header file
+Patch 3: add yaml doc
 
-On Thu, Sep 11, 2025 at 05:01:11PM +0200, Krzysztof Kozlowski wrote:
-> On 11/09/2025 16:47, Mikko Rapeli wrote:
-> > It has been completely removed since v6.14-rc6 by
-> 
-> In the future please use kernel style commit SHA ("foo") style.
-> Checkpatch probably complained about this as well - are you sure that
-> you had no warnings here?
+Changes for v2:
+- restructure the pinctrl driver to support pinmux=<..>
+- redefine pinmux macros
+- move header file from dt-bindings to dts
+- fix the code-style issues
 
-Oops forgot to run checkpatch :/
- 
-> > commit dd5bdaf2b72da81d57f4f99e518af80002b6562e
-> > Author:     Ingo Molnar <mingo@kernel.org>
-> > AuthorDate: Mon Mar 17 11:42:54 2025 +0100
-> > Commit:     Ingo Molnar <mingo@kernel.org>
-> > CommitDate: Wed Mar 19 22:20:53 2025 +0100
-> > 
-> >     sched/debug: Make CONFIG_SCHED_DEBUG functionality unconditional
-> 
-> So all above is not necessary.
-> 
-> Anyway, this was already sent:
-> https://lore.kernel.org/all/20250828103828.33255-1-twoerner@gmail.com/
 
-Good, hope this is queued and lands in stable too. Would be nice to get
-this to 6.16.y.
 
-Cheers,
+Gary Yang (3):
+  pinctrl: cix: Add pin-controller support for sky1
+  dt-bindings: pinctrl: Add cix,sky1-pinctrl
+  arm64: dts: cix: Add pinctrl nodes for sky1
 
--Mikko
+ .../bindings/pinctrl/cix,sky1-pinctrl.yaml    |   85 +
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts     |   32 +
+ arch/arm64/boot/dts/cix/sky1-pinfunc.h        |  417 +++++
+ arch/arm64/boot/dts/cix/sky1.dtsi             |   10 +
+ drivers/pinctrl/Kconfig                       |    1 +
+ drivers/pinctrl/Makefile                      |    1 +
+ drivers/pinctrl/cix/Kconfig                   |   14 +
+ drivers/pinctrl/cix/Makefile                  |    4 +
+ drivers/pinctrl/cix/pinctrl-sky1-base.c       |  581 +++++++
+ drivers/pinctrl/cix/pinctrl-sky1.c            | 1435 +++++++++++++++++
+ drivers/pinctrl/cix/pinctrl-sky1.h            |   46 +
+ 11 files changed, 2626 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
+ create mode 100644 arch/arm64/boot/dts/cix/sky1-pinfunc.h
+ create mode 100644 drivers/pinctrl/cix/Kconfig
+ create mode 100644 drivers/pinctrl/cix/Makefile
+ create mode 100644 drivers/pinctrl/cix/pinctrl-sky1-base.c
+ create mode 100644 drivers/pinctrl/cix/pinctrl-sky1.c
+ create mode 100644 drivers/pinctrl/cix/pinctrl-sky1.h
+
+-- 
+2.49.0
+
 
