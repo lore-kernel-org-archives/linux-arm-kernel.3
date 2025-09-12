@@ -4,81 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEAB0CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC33CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3GCPhCikDSUGnoAadyUM/g7Z75+Q0e4AIPmm0nIgWw=; b=HgOs0lfxJ0GIjIWyDn8/y0DQlp
-	vNWiLncoZ4Wo9nzPbneyedVBzqX0fdVxWa/EhPzvUVZfBHu1d2oiRPBrtIIyALE//7dljM+9Dsy9X
-	Gdn7+VaNk8uHlEXPW18i+3OTGuF5/yhOchPaejHBhyF6kThHJsZlkFX3fPs2PvHY6F35zkv+AbIR9
-	BfhCugSr6GMfAejJrwmb38mNKN0ytYFei/IKkmkRhahBQqLMpSYzOHH6dcJLL1BRFtoNPpIoPtuak
-	35xHpeViyhpVpUOmIGAi5mX0ilQVXRO1Y4DhPoTKdsYvk7c+7P4nBdXkYevnrya83ft+apalJMr7R
-	e+EB48qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TkRPP2vjs50fGE7DQcTNA7Np+za+Ztf5iaLCXjnOhsc=; b=LfJM3bE0orIGFaw9iIHuBwb4Wm
+	pwB/vdPCCX8YlFvWaeiUg3k27qCpTNG0b/uz9hBIp14PBaL13gFCmTrjaBNuk3dbLfmilCgkmnQZO
+	mhCFqHgHSE5gHpJScqRrtQLjWoCJG4fLjCSlBGjSeU1eM/XYjukVHaR6CeXKeuwEOSBavd/17A118
+	4vBqACP1QjPHC0sgnEKuuehpBN4BlUCMKK0SP3ayTNExq8sYdNXX6Ma7wI4FbNpkz39HBgXVczsZd
+	w+157WOcYOwYaWRUu0g7rpGCjnMuSCUNepGahdv9tZcFWpfT3CtW30ukMxdOCj2hOvM4XDMHy9AVF
+	P6ZOFz7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4Pv-00000009k2n-0CYN;
-	Fri, 12 Sep 2025 14:06:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ux4VW-00000009lbY-0F4r;
+	Fri, 12 Sep 2025 14:12:10 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4Ps-00000009k1n-3f1Z;
-	Fri, 12 Sep 2025 14:06:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 087D543BA8;
-	Fri, 12 Sep 2025 14:06:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3BA2C4CEF1;
-	Fri, 12 Sep 2025 14:06:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757685979;
-	bh=gQYcfi405JQ9buqQxkTP7o9NnD/8vJsE/3UdfYC31Vk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jzznp34s7YFwrDjEEJkZ6iekjTLnPUhXzJLoPxBZyYG7N5CYK4W0PMCRqN5AARwKl
-	 VymP7CBqTch6oU3Dxu+8CbAWzZ0kIqydRCrxLBhWWMw1bhQ7Z0t2YuRuWT8PhZMYIS
-	 Kfz1cNTv0+6uUTVt0rhcsIvu+8XBwwvlvJbDRBPtUXZi6WaKHo+fJ4EgKll7QJ1KOo
-	 UF6gaG8l5++/aG16KdKtx01G+jonZrF4pNSs9q4TWqU3ki3ZkruTpdg/M5gSykWMLS
-	 gn47pNV+L6Wki7pJ42z98l/YWp8hyHWCGWhDKKhEbjU7tW/W+1B318r/PjuvYKi3cx
-	 6YB8Oj981CRLQ==
-Date: Fri, 12 Sep 2025 09:06:19 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
-	andrew-ct.chen@mediatek.com,
-	angelogioacchino.delregno@collabora.com, broonie@kernel.org,
-	chunkuang.hu@kernel.org, conor+dt@kernel.org, davem@davemloft.net,
-	dmitry.torokhov@gmail.com, edumazet@google.com,
-	flora.fu@mediatek.com, heiko@sntech.de, houlong.wei@mediatek.com,
-	jeesw@melfas.com, kernel@collabora.com, krzk+dt@kernel.org,
-	kuba@kernel.org, lgirdwood@gmail.com, linus.walleij@linaro.org,
-	louisalexis.eyraud@collabora.com, luiz.dentz@gmail.com,
-	maarten.lankhorst@linux.intel.com, marcel@holtmann.org,
-	matthias.bgg@gmail.com, mchehab@kernel.org,
-	minghsiu.tsai@mediatek.com, mripard@kernel.org,
-	p.zabel@pengutronix.de, pabeni@redhat.com, sean.wang@kernel.org,
-	simona@ffwll.ch, support.opensource@diasemi.com,
-	tiffany.lin@mediatek.com, tzimmermann@suse.de,
-	yunfei.dong@mediatek.com, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-bluetooth@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v2 03/12] dt-bindings: net: Convert Marvell 8897/8997
- bindings to DT schema
-Message-ID: <20250912140619.GA1293647-robh@kernel.org>
-References: <20250911151001.108744-1-ariel.dalessandro@collabora.com>
- <20250911151001.108744-4-ariel.dalessandro@collabora.com>
+	id 1ux4VT-00000009lZr-19Sw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Sep 2025 14:12:08 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58CBBJwT017458;
+	Fri, 12 Sep 2025 14:11:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=TkRPP2vjs50fGE7DQcTNA7
+	Np+za+Ztf5iaLCXjnOhsc=; b=R6jfsj43nJJt5EpBReSasm3j//JRTAnKMly0vF
+	HNhgiAKHTmeTB9VXX50+PMpL94Nj+huRfZGAfJlwOdRiBIBhq6yH9BFcomHksFI4
+	/UuFingrJ+k2xiFN6Sf/OoCGaYT/QxWb7TsWTlHfVN8HJNgej/xKd05tTJeIcWoc
+	jnJKcbskcTiyvPkGHpWiYb88RS/hsESTYzg3Aomqa+kblftHzPiw1NmAvqmHKNS+
+	TbzcDHsPUBWmUt3S8CeT9LAECzRmeO3IFiX/W061VUylNlVlNlCQ4AMhqd+HQEXA
+	9KbcEAlRtTIAoSt6w8tXyhPCVaglAN3HQGCCGmqCbruEzsNg==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 494jdx0eka-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 12 Sep 2025 14:11:58 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 58CEBvrT007374
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 12 Sep 2025 14:11:57 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.24; Fri, 12 Sep 2025 07:11:51 -0700
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <vladimir.zapolskiy@linaro.org>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
+        <quic_nihalkum@quicinc.com>, <quic_svankada@quicinc.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2 0/3] Add CCI and imx577 sensor support for monaco evk 
+Date: Fri, 12 Sep 2025 19:41:31 +0530
+Message-ID: <20250912141134.2799078-1-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250911151001.108744-4-ariel.dalessandro@collabora.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTEyMDEwNiBTYWx0ZWRfX3YWQFjK2wpPe
+ cdnfwjOE4Ut3hRuT54KfYtJZZMVKW0sKK/nHIJJjpWcaU0tC7o1UOrSrYtbrrDXbglArMt5mPMv
+ ewAozOo7gfEqrpq8xYRms96LxmAnw/Jo/qoj6yB3WrFXBfpyuTZ3Mdh/iWxZkRIIyy11wDAJk2z
+ y7rVN1kT8SyJueWBS8ctV7jq1+QrcCd4lvTQIMkqal1nUC+X70j6vxVnn8x+SV3KPJ3Pf+QqyNF
+ yGVOG9i8t8nKXN57AqxGL70Rj1YxB1nt5FLxNd9jGTTgPDCTo2TC2l9AdtFyY9lq6IbIOliaGNU
+ TsyCJUD+cY9MCTJeoiVPv9JCTdY5R/xPFX5jE5Klm0F262rCimvnJsO3YcPEdPcDonRxSUAYfdX
+ fRhTb/bO
+X-Proofpoint-GUID: W7a0z10FSACAy_tjCPDTv2bmGPhljes2
+X-Authority-Analysis: v=2.4 cv=JMM7s9Kb c=1 sm=1 tr=0 ts=68c42a2e cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8
+ a=RVIg9llbwysgEqpyqKEA:9 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: W7a0z10FSACAy_tjCPDTv2bmGPhljes2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-12_05,2025-09-11_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 bulkscore=0 clxscore=1011 suspectscore=0 impostorscore=0
+ malwarescore=0 priorityscore=1501 spamscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509120106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_070620_929928_EF1A8C4F 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250912_071207_435148_476DBC3C 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,34 +112,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 11, 2025 at 12:09:52PM -0300, Ariel D'Alessandro wrote:
-> Convert the existing text-based DT bindings for Marvell 8897/8997
-> (sd8897/sd8997) bluetooth devices controller to a DT schema.
-> 
-> While here:
-> 
-> * bindings for "usb1286,204e" (USB interface) are dropped from the DT
->   schema definition as these are currently documented in file [0].
-> * DT binding users are updated to use bluetooth generic name
->   recommendation.
-> 
-> [0] Documentation/devicetree/bindings/net/btusb.txt
-> 
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> ---
->  .../net/bluetooth/marvell,sd8897-bt.yaml      | 79 ++++++++++++++++++
->  .../devicetree/bindings/net/btusb.txt         |  2 +-
->  .../bindings/net/marvell-bt-8xxx.txt          | 83 -------------------
+Monaco EVK is a single-board computer based on the Qualcomm QCS8300 SoC.
+It lacks a camera sensor in its default configuration.
+This series adds CCI support and enables the IMX577 sensor via CSIPHY1
+through device tree overlay.
 
->  .../dts/rockchip/rk3288-veyron-fievel.dts     |  2 +-
->  .../boot/dts/rockchip/rk3288-veyron-jaq.dts   |  2 +-
->  arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi  |  2 +-
+We have tested IMX577 Sensor on CCI1 with following commands:
+- media-ctl --reset
+- media-ctl -V '"imx577 3-001a":0[fmt:SRGGB10/4056x3040 field:none]'
+- media-ctl -V '"msm_csiphy1":0[fmt:SRGGB10/4056x3040]'
+- media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
+- media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
+- media-ctl -l '"msm_csiphy1":1->"msm_csid0":0[1]'
+- media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+- yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video1
+---
 
-.dts files should be separate patches. Please send the bindings patches 
-separately per subsystem so subsystem maintainers can apply them. All 
-the Mediatek dts changes can be 1 series.
+Bindings for Supplies are added by below patch, Bryan is going to merge
+this in linux-next:
+https://lore.kernel.org/all/20250910104915.1444669-1-quic_vikramsa@quicinc.com/
 
-The schema looks good.
+Changes in V2:
+- Remove the patch that adds PHY supply documentation in the qcs8300 CAMSS. 
+  bindings. This change should be submitted together with the qcs8300 bindings patch.
+- Fix indentation and regulator node name - Krzysztof.
+- Update commit message as suggested - Dmitry.
+- Link to v1:
+  https://lore.kernel.org/lkml/20250909114241.840842-1-quic_vikramsa@quicinc.com
 
-Rob
+Used following tools for the sanity check of these changes.
+- make -j32 W=1
+- checkpatch.pl
+- make DT_CHECKER_FLAGS=-m W=1 DT_SCHEMA_FILES=i2c/qcom,i2c-cci.yaml dt_binding_check
+- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=i2c/qcom,i2c-cci.yaml
+
+  Below 2 checks are passing by taking bindings from:
+  https://lore.kernel.org/all/20250910104915.1444669-1-quic_vikramsa@quicinc.com/
+- make DT_CHECKER_FLAGS=-m W=1 DT_SCHEMA_FILES=media/qcom,qcs8300-camss.yaml dt_binding_check
+- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=media/qcom,qcs8300-camss.yaml
+
+This patch series depends on patch series:
+https://lore.kernel.org/all/20250813053724.232494-1-quic_vikramsa@quicinc.com
+
+Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+
+Nihal Kumar Gupta (3):
+  dt-bindings: i2c: qcom-cci: Document qcs8300 compatible
+  arm64: dts: qcom: qcs8300: Add CCI definitions
+  arm64: dts: qcom: monaco-evk-camera: Add DT overlay
+
+ .../devicetree/bindings/i2c/qcom,i2c-cci.yaml |   2 +
+ arch/arm64/boot/dts/qcom/Makefile             |   4 +
+ .../dts/qcom/monaco-evk-camera-imx577.dtso    |  96 ++++++
+ arch/arm64/boot/dts/qcom/qcs8300.dtsi         | 309 ++++++++++++++++++
+ 4 files changed, 411 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
+
+-- 
+2.25.1
+
 
