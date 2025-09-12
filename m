@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14281CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 07:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7F1CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 07:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kg3BU9cKfGHe7tGgdAiZsc5JB/dKxlDiQ/R4O8eZPV4=; b=jK+wxfeJhnJdQvG6yYkwSv9eZz
-	aFDHLv4JnLSMzN7IsRmfIiVeaBbI/N8KxcgLrn2eF8571JHDyNv+hGebq6yl6hVs3n057wqdGSs40
-	gEHgytFuSUoq1fBLPfdTVs7jVCoDea55t0gD0S05ncvR0rQTqYxl2DjyTWgBXtQw8jgCmyiVvtrcN
-	sOZd2Gzs63eDaFPxnmMXiIEGUwI/Iu2+v71xj2+CwM9iFIEHzt96qdPXx3+4Hds4WOYuBQyqR49CF
-	PnwJiw59+nrpF4CwZ0/rHxp9HJiJBRfM2MDlCGRrUx1Bm4YDuPR8EYaMVQ0NcrxwfWKPA2mIXJicU
-	h3igXEiA==;
+	bh=MscxGB98VFXuPCr9hE7EAg+kk5OTN4rOo+anFsMbFV4=; b=RFtIyNZiJM0P2MohPcfyLQGP7B
+	8a+QUk6cfAD2WYkDlclZ/uFJmDbILgHQATEXYgB/qNvxU8GoPexgGlmpoyiqMhdSDImOmHgN3lZ01
+	miXcKzw9tWZ5zkTmjC40yJnCEFWmEnIiHVt5KnXBrKcPvN/0iWsi+zkovfejPT7Mcr6tXZKonLnlZ
+	mLdXBW1eZMgcdqUqYhvEJAdEwTrS1erdJ+Yq8qpZmMDwjEw3/TO1qBej6ZWGf7oscVMOqZM5GD3j7
+	uigOr3+9yTQZERIestJyJyFh3gu6/RT8G8taWOsfVwpUkZamX7rYHdh4RxkYqyKkbwZIsov9wjRvM
+	zc4D/JqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwyHh-00000007ffe-0B5y;
-	Fri, 12 Sep 2025 07:33:29 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1uwyIs-00000007g3n-41XM;
+	Fri, 12 Sep 2025 07:34:42 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwyHe-00000007fe2-16RP
+	id 1uwyIp-00000007g1n-3MKe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 07:33:27 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-570d0c280e4so554864e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 00:33:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757662404; x=1758267204; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kg3BU9cKfGHe7tGgdAiZsc5JB/dKxlDiQ/R4O8eZPV4=;
-        b=XJEhRkZZHUTGWtpWeDW4/w5LKzuyb3SO0MvuwewMb9hA9qIXvD9oW+0DXUm/FfJX5o
-         /Q1bx7lJ6mhFjcWBlohgXM8GYt5B8IExLANyDtU+PZfFYUEb4szkXCETnF8KqJS30mol
-         yJxPTSyPxy+U1wJgnVgN/xYEP6qm97adVEsqfn8T+uXSyzIB6rOXxThPwpbJBLj3d4yR
-         +VZAYBebu8J/XamF30gBMHGvnBa0skPC434Oih+P5WA77YrJ1nFynXp4xaWRwqz1iZyi
-         cSykjEErKEfQes5nmAF6Wwv7HrEVQVc25nprSm4shuogygSje7qY8kWrM1jN5ajIaboa
-         ePIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757662404; x=1758267204;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Kg3BU9cKfGHe7tGgdAiZsc5JB/dKxlDiQ/R4O8eZPV4=;
-        b=FHa7FmOza5LRgXT4le+3NT5UAi4yjLYejFO3dz8taIgKhQxtd1qWfaFVLuD1FC7Xik
-         dogtp3m8G3gqq/9TMgcgpUnEXg55jZ9DTIvkBfARterPWzy9372UTiT9JEg//LKIRTAF
-         KUGIedzeurPu6h8E5aR5PNNDKLRTp54NF78IgUtodaGG4pez6F4TL1/5qE9FsWXQb6sB
-         k0rZiNu+L1wzrizENHkaXZXprXUSrKLiuDjRhu/hIQc9yh1myxOgf2u4JI9GE+d9HgiI
-         4Ury0V8Ou1rb41FqojFixRTYIcamdHXplBv5+SWx/IooJxrftopEN3a/akDGYWM9poUO
-         v4gg==
-X-Forwarded-Encrypted: i=1; AJvYcCXwK6tEx3zVIHxI7LquH4pPb0qsuGRGfo4ERqibpTM1/Ups5JNdaw16Af5lLeXui/X5H5iT9578XRE3mK4eD18w@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5C3F/YR4KXai2m6eJrDacX36BxW6Ig8H7AQb0QEw3er1/Uw8g
-	Ok6yyST2adu/y5E7zVWHh0fXnD1Qa5SUvnlQKjNlqYFUW9Km6yS3vlNVqqTHtcA6XUr5e9or+NF
-	CVFPoIK+YAb9g+LAGoNmNdPAJRnP1/lyu7LXSr0AWUw==
-X-Gm-Gg: ASbGncu0tDqTAkhd3zHd49KGmvMVXzQJuOXvW5UscF76w6f3vEIlWO38v9/wR5Yyx8a
-	W/Oj+gDyL/wuiX7mJpUvEjxq0GCTBjpDGXXvK6zwuffDBjW9rsGXgX8pyEcb89Irio1PJ1YXhim
-	WbPEgm8LohJfR/ClMgBfMcS5y8OlcrBg6TKPL8WN3Zo/lnbLRGVsbJ+CtFYlxOyvaAf7Ocz26/n
-	NXwM+LCWfQFCkYuPQ==
-X-Google-Smtp-Source: AGHT+IFqJ3rG4VGz2N4HeDjhdE1zZXrIjMGRIFcSDQMQTPILLpM42VNVO1ib5uwXHA7KeYqbyezpYRqeKhIIV796t/0=
-X-Received: by 2002:a05:6512:3693:b0:569:a257:c6d6 with SMTP id
- 2adb3069b0e04-57050fe351amr473063e87.49.1757662403635; Fri, 12 Sep 2025
- 00:33:23 -0700 (PDT)
+	Fri, 12 Sep 2025 07:34:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1757662438; x=1758267238; i=markus.elfring@web.de;
+	bh=MscxGB98VFXuPCr9hE7EAg+kk5OTN4rOo+anFsMbFV4=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=XVgCvI9WUvBgHJqmgpANa9paASrfxvqaTaOFuoM3VL1IBR6Jz8y2D8mHR4N2uzDa
+	 pR1yBYLgE3XStEv/vYg2HANlwDyuHkYB6H9289Wbm/AUxHHGdt+gTk9Ub2ZAu1kVI
+	 Ov7ZqTgBUKCr0olwc+p+SPdzglD7IwY9qMcK+aHJ870wOkHyIXh2XParY9JkUYOAd
+	 w4xHrLUqR4LbYGOARObz1hp86ujjLfnOgyRdR/C3zKFiI/NTaXcWYZ/okILYWZcsc
+	 MPjGDNGjIJu3pY3F65LPTijmWrMIulzVtOS0g/bcvInIy/zITNkwTOsp23hNiMfin
+	 oQYOvNxLf/Usmcy6/Q==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.92.219]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1M7Nmo-1v4fvt38Gq-005DkR; Fri, 12
+ Sep 2025 09:33:57 +0200
+Message-ID: <323c362f-9cdb-47f1-834a-b3ee4bb04c32@web.de>
+Date: Fri, 12 Sep 2025 09:33:50 +0200
 MIME-Version: 1.0
-References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
- <CACRpkdb=J+hiC5cu+g0Z-gqzpG8PgX01CXc4P98FfSSAf7PZEA@mail.gmail.com> <CAMRc=McbadZx1yK1jGeyUnXAFZgfA8YpLwacmqC0eMonS-c-9A@mail.gmail.com>
-In-Reply-To: <CAMRc=McbadZx1yK1jGeyUnXAFZgfA8YpLwacmqC0eMonS-c-9A@mail.gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 12 Sep 2025 09:33:12 +0200
-X-Gm-Features: Ac12FXxWiwLmhQls14nNfaQvMLfIJjlBZAsZhTSA6_U4hnix-0Aq3t1bNNwFxXE
-Message-ID: <CACRpkdbSp6ScZrzUtdP0ojP10yOTsbnd33HqgEVdiSwPRomuAg@mail.gmail.com>
-Subject: Re: [PATCH v2 00/15] gpio: replace legacy bgpio_init() with its
- modernized alternative - part 4
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Keguang Zhang <keguang.zhang@gmail.com>, Alban Bedel <albeu@free.fr>, 
-	Doug Berger <opendmb@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+To: James Morse <james.morse@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Amit Singh Tomar <amitsinght@marvell.com>,
+ Baisheng Gao <baisheng.gao@unisoc.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Ben Horgan
+ <ben.horgan@arm.com>, Carl Worth <carl@os.amperecomputing.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ D Scott Phillips <scott@os.amperecomputing.com>,
+ Danilo Krummrich <dakr@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+ David Hildenbrand <david@redhat.com>, Drew Fustini <dfustini@baylibre.com>,
+ Fenghua Yu <fenghuay@nvidia.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Jamie Iles <quic_jiles@quicinc.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, Koba Ko <kobak@nvidia.com>,
+ Len Brown <lenb@kernel.org>, Linu Cherian <lcherian@marvell.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Peter Newman <peternewman@google.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>,
+ Shaopeng Tan <tan.shaopeng@fujitsu.com>, Sudeep Holla
+ <sudeep.holla@arm.com>, Wang ShaoBo <bobo.shaobowang@huawei.com>,
+ Will Deacon <will@kernel.org>, Xin Hao <xhao@linux.alibaba.com>
+References: <20250910204309.20751-10-james.morse@arm.com>
+Subject: Re: [PATCH v2 09/29] arm_mpam: Add MPAM MSC register layout
+ definitions
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250910204309.20751-10-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:5ZzuGnnBIl96e5qkVvluimVHXwMQ3UGMOOz+NEg7m8xWaBk8rQK
+ T1+ehFgrgACSD1OAdvRnLcOyl0orXb44idS5/psmS0ptDfe1kuebhPzxqBJoVW/EL4YRk53
+ TOdp16qPXKMaSme41m9X5RXN1Ifovs4gkLm8S/emgt13jnlAGSynJbZyjuaLCDlcFvsQP/M
+ 8Jx/EKbZQt9wiXcpZvbqg==
+UI-OutboundReport: notjunk:1;M01:P0:YUhwx+D9k+E=;7cxxjEtKjiHhr9gDsjsoNm93k7L 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 NWmSlpfmHhqgUKSM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_003326_304395_B27E37CB 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250912_003440_224017_BD8BDD85 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,27 +104,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 11, 2025 at 9:38=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
-> On Wed, Sep 10, 2025 at 11:32=E2=80=AFPM Linus Walleij <linus.walleij@lin=
-aro.org> wrote:
+=E2=80=A6
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -152,4 +152,271 @@ extern struct list_head mpam_classes;
+=E2=80=A6
+> +/* Error conditions in accessing memory mapped registers */
+> +#define MPAM_ERRCODE_NONE			0
+> +#define MPAM_ERRCODE_PARTID_SEL_RANGE		1
+=E2=80=A6
+> +#define MPAM_ERRCODE_UNEXPECTED_INTERNAL	7
+=E2=80=A6
 
-> > I would merge the first 14 and keep the last for the later part
-> > of the merge window when all other trees with conversions
-> > are merged.
-> >
-> > (You probably already thought of this.)
-> >
-> > Yours,
-> > Linus Walleij
->
-> I already have both pinctrl and mfd changes in my tree from Lee's and
-> your immutable branches. I pushed this into gpio/devel and it built
-> just fine.
+How do you think about to use an enumeration for such a value collection?
+(Is there a need to extend implementation details in similar ways
+at further source code places?)
 
-Ah, excellent planning. Smarter than anything I'd be able to
-logisticize in my head!
-
-Yours,
-Linus Walleij
+Regards,
+Markus
 
