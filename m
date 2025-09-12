@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF19CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 18:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DEC9CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 18:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RTwLCqYrxP4A65CpeLdDZfX/1/5VrrEeFcGj8O2B7PY=; b=I6lwdfY260WwaOFuSk6cvHbYjN
-	tUIwEd361a6++46oDaOkW6FKq+UXb8yHGZi/46ZHeQWsRwkbwA/W7um7ArWyj3qSHy5jn/F/+8Ptb
-	/ebDKvt6RW+omU0CihJadl0YxcDTLvQhlf2ByDkBfPenF2WSUqIWZUIUlXmcSOSFUDKlehavr42r7
-	5ndlaTqzDe+AgZUxYWQGI6t6HvZYzcqzF5slpwJugnyigRo0U2wOALKyOzvxFOrTvoYld0QAKT9xt
-	SczIQRaT7uiHwQGiNoq6kIek0XVjCJbH1Et6OiE3KYadjlGHAG7YF//4ASKCaS0GF5niwQuMklJKB
-	+7VJf5cw==;
+	bh=L5LpCqgd6cuTc0c8Co1kvdyn21Z6xUMeh+u0WbfeIVU=; b=wH8dSjj/PJsxTs2mmO/xeZdoOf
+	l7ZajFmqEGoYVKu7wo0umr0ySH/tYtFFNvnTR3iKGkU1kr5gzmINL0MRpUgTIV15Rmowq+q8civZH
+	X4SP7XN0seD5lz0GEQJGy2OXysuYaqtDGr/NGTwCIHFE/0bYiGuQEP0VZIBrW2y5cmLe5gsJXX6mV
+	IUZ/mN0G26HwwK9VrlCuVSkKMkQC3DjHAFoJn5eGp4szfaaNX1eOGdooHVVD1UP/ndmdsM73yG2YO
+	RZxay/4q/iBg9k6z6sKFZGAeuLx/f1BEeYsb2qBs0vFkRK9ZQhvWmfAnNz5zlC+oJGchS5bCuR7J6
+	0WhJZmLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8cr-0000000B1gx-04fP;
-	Fri, 12 Sep 2025 18:36:01 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1ux8e4-0000000B1xN-1bmv;
+	Fri, 12 Sep 2025 18:37:16 +0000
+Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8cp-0000000B1g1-1F5X
+	id 1ux8e1-0000000B1x2-3MtK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 18:36:00 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3d19699240dso1893311f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 11:35:58 -0700 (PDT)
+	Fri, 12 Sep 2025 18:37:15 +0000
+Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-556f7e21432so720300137.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 11:37:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757702157; x=1758306957; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=RTwLCqYrxP4A65CpeLdDZfX/1/5VrrEeFcGj8O2B7PY=;
-        b=V7lRbJZbr0kTN6N8QhLBE5xL+Cm23L844pbK3tAg2HsT9umJ2dW62Pv5MNPueHmArf
-         maKldJ3beXJ375wvzjzi/eo02aS6JzbTAR4rialOEuzvRvUN1VkByIinGF2lSuN/iUum
-         8YsaXFkX+P27y61ItrXF0J5pBd9oAA0jEVav2upn1gjiXjw1ALC1OxFc0JZ7jocsAFC+
-         FZgDe6Gt2yTfc321sg1bIV8cUu9VDW3xiqWwEN0E7VguiPsjPrNDLqPV+MLnniXYO4NO
-         CRZ5yh2aS8cOMCOMitXL/GvEKSdFSJId8Hb5/kVgzQ8eb0a5VU7yhCCRvjdnN+paror2
-         yLfQ==
+        d=google.com; s=20230601; t=1757702232; x=1758307032; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L5LpCqgd6cuTc0c8Co1kvdyn21Z6xUMeh+u0WbfeIVU=;
+        b=hsaXa3sL3cic/isx/SB1Gx/nHAleOzsdfaskKAUNgTBQGY7akk0aVxpxvHPIhVZYWN
+         boiepokpZE8jdCEQrPvJ+acKnr1/944mv+7l3dgqY35EOQB5rHGXq0A9rh7a0bCBvVDI
+         MDlJ38+IMKgq1KFWeuWZR2hmVDun5rqaFgAGOKiAMDqmDxQinYA2r5nFjOv+b1bQf+Gw
+         Mew/+IGfckM3+r0UabNQdI6OssL84ZUGjZv1H4ic0mgjC61xU7fzaDc8oTcZdlSBm7Om
+         2iN7RZDI46oqb1UWF2QUto7Fl2I4Z9eZ7YkFIqy39ULoTu3QKhTNJJ7AU+fbTBdLDkKd
+         PSUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757702157; x=1758306957;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RTwLCqYrxP4A65CpeLdDZfX/1/5VrrEeFcGj8O2B7PY=;
-        b=Gfv0u34rFrN83p28Yf8tn0l4y5L/9ges23+MAKeeFxiFois2D1V8tMp2WV3imINjNx
-         IvxJJG7LIdOX7uUFILq4ax19bJaQ4mEBIuQuGfRYe85I2sPEuiC9FCZ/aEWpds/ZtlJW
-         RxlKyKrfjrKi/CC1NxlYS0iSboZY4rPYfh6g/JZgS44cySH9wVuN/4MIGn0/GG40ygjE
-         MYhFsqfal2z+PBcK6kSdXJFvAduaC/SfDqVBGuziEigiRC8cyxVBeJK9zMeQT8DozXqO
-         aAmJWHLAN2ISJ246qXFxaRxS9/Ay3ssSxHQ/jSxNdWWEZgHodwOFn7c3DWAhH7/uo2Ga
-         falw==
-X-Forwarded-Encrypted: i=1; AJvYcCWhRTA8N94/NtCmz4boxGk2S1gjzKApEKnq+uUCRWbeWRib5fejbFogPNGcrTZy51VzQKVxxKZl4d8D/Gx2U+G5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT1o1lyMnhbARiLD1MULQ5OvRHmCiUxbNSJ06SDF13D7q02bg/
-	44Sj3UOis6Ckt8Ae13yR0IE/w8LlUvx6zdfWGf+LKNtgmhZPheKRyuQLuIEc4gB6GTo=
-X-Gm-Gg: ASbGncurc8lUVj+T70m+NoqFAquIRgr64OPS9evlKv4veg9Xgao/ZkEG/ghcFwHd3Ix
-	Ij0xT/M4pWPC1mLUyDU3h3K0HTwJGaYCM+EjqAUSowZ9SUL4qHzFYtDz+gNKAs0XAFIm0MfiVTV
-	GsH7xJzu+PgN7Mu2cievOcuzJaQeylj6Y5NSCf3WYNkapqMWUkN+Xek0++G8tzBK9vuSfn2uUIz
-	zeltgv+7GlfJ3B2tXU56Pj6Kq6JpCbN06HjPtOcALxCfWi2450lOlnoz47lNcXeCk+nV4dezhjd
-	I6HhsX+z+jiBQQ/KknN8t1yTxu1txs0tm5aHeiBml9BYpiD+6//nQiBcc21OdDfXiST3FZViGbs
-	Cg5C95c+Jlz5PSlxKVvTk8fye6Lu9Hxjk2kgYIw5iZfNH3g==
-X-Google-Smtp-Source: AGHT+IEFXfAwL8n5C3J9dCog5MqYjz/0z+tjRYy8VBux8QIcdwHNBxHHgPhwuMllRtUOig1ksCGmnw==
-X-Received: by 2002:a05:6000:26c6:b0:3cf:3f1:acd8 with SMTP id ffacd0b85a97d-3e765a2367emr4237912f8f.28.1757702157424;
-        Fri, 12 Sep 2025 11:35:57 -0700 (PDT)
-Received: from [192.168.68.105] ([145.224.119.89])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607cd0a7sm7293297f8f.39.2025.09.12.11.35.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Sep 2025 11:35:57 -0700 (PDT)
-Message-ID: <0bc838d3-26ad-4f2f-8bb5-1c34748e1fbb@linaro.org>
-Date: Fri, 12 Sep 2025 21:35:54 +0300
+        d=1e100.net; s=20230601; t=1757702232; x=1758307032;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=L5LpCqgd6cuTc0c8Co1kvdyn21Z6xUMeh+u0WbfeIVU=;
+        b=Tz6wwfs4prwrEcs+iParmFQneOOqHB3B9QyiYE9dphuaH9qpaKGWYivv3yvXQaKrFX
+         +mjsSfVTGs2wfPOacvG8u+BP6YhTxC8/eqUg+jVwQ/h5LVnxw9OLP2tcb7cZde/KULjP
+         e9AgIZoRuNlQUyMj7DB8ws1OyBsPm9MJkb56+OYbqM9+Wzx7dJzGiLvv8IYfLT0skP/r
+         QE+Ko7oWXFUqp5qjX/jjLfUFa1iGx64jzFF1phUo+7qfzICkIvyXJ2kWZoH9bBu/Y331
+         FetTfMKqFZc/VCAlcfOhmcxjhp/2kjohEZBDR9M5igOIF6aKQabvcwLIok27EPXzp2dC
+         mAxA==
+X-Forwarded-Encrypted: i=1; AJvYcCUuOiCrQ4f0xlKm6fArARTvzocI7BaIBlFkYYEJX0rydd2GVilLHrG+58mKaa0VH1LBEeysHpgxnZt3XOkKzMdq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaTMFRgFu2VPzzwdFWxPJTklUAUKZwqhsHrRUWc9SBbuoDsySS
+	i4mBxfUmXQ4aVB//mfHXOpCIhUDwsUp7E0bdXEpfWG+hLwDUGg5pWsYsStPrWGNq6KXM+6OBWRh
+	HFIai4+pq3uKEf8fZ0t9A0o5+imtCLESmcDmFOGG9
+X-Gm-Gg: ASbGncuF4OX94z8/GsyNoEYElb3gszQu8MRyZmnTndw41E8ZIiFTLWJL9qWFq2cMQ3T
+	qmTYO1FhQ/mPotpSviDRhnyUKYg+2rzILtSftQrgvP9mpIErqa91x62dCJAHy54YTGaviZh7sBZ
+	0WGOfSFZTl3bb0MRmPqplaXvhMUe4EyAXhfRC5jtRTMS/Z+DklGtEsj7wiFeNH420jBWVrP+HaM
+	Irt96OXLyh8SkuLDraID/8=
+X-Google-Smtp-Source: AGHT+IHUXgE+IihNEnKdjmOQEwLekUUvu3+aWzgDFOUfZi4sULxM7CrV7gKrH879sJaDGgzOnRIOHdgF+J3gqIizJi4=
+X-Received: by 2002:a05:6102:3a09:b0:525:3802:c260 with SMTP id
+ ada2fe7eead31-55608e9e69cmr2203452137.3.1757702231508; Fri, 12 Sep 2025
+ 11:37:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH v3 00/16] Introduce kmemdump
-To: David Hildenbrand <david@redhat.com>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
- andersson@kernel.org, pmladek@suse.com, rdunlap@infradead.org,
- corbet@lwn.net, mhocko@suse.com
-Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
- <9c2e289c-0258-4e25-aaeb-a97be89ebd84@redhat.com>
-Content-Language: en-US
-From: Eugen Hristev <eugen.hristev@linaro.org>
-In-Reply-To: <9c2e289c-0258-4e25-aaeb-a97be89ebd84@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250909111130.132976-1-ulf.hansson@linaro.org>
+In-Reply-To: <20250909111130.132976-1-ulf.hansson@linaro.org>
+From: Saravana Kannan <saravanak@google.com>
+Date: Fri, 12 Sep 2025 11:36:35 -0700
+X-Gm-Features: AS18NWBJYwHlx6gFzPDiQm-A363FKAFgsm5_uMk29VFYTcWjd5qUP9Ell1HnVXs
+Message-ID: <CAGETcx9W5MXyHA2r1kDh9=WJiQWLF1xdPaSCH=jXYeAHqQW60w@mail.gmail.com>
+Subject: Re: [PATCH 0/5] pmdomain: Restore behaviour for disabling unused PM domains
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, linux-pm@vger.kernel.org, 
+	Stephen Boyd <sboyd@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Sebin Francis <sebin.francis@ti.com>, 
+	Diederik de Haas <didi.debian@cknow.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_113559_370162_3605CD6E 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20250912_113713_850840_5A9C148E 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,27 +104,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Sep 9, 2025 at 4:11=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org>=
+ wrote:
+>
+> Recent changes to genpd prevents those PM domains being powered-on during
+> initialization from being powered-off during the boot sequence. Based upo=
+n
+> whether CONFIG_PM_CONFIG_PM_GENERIC_DOMAINS_OF is set of not, genpd relie=
+s
+> on the sync_state mechanism or the genpd_power_off_unused() (which is a
+> late_initcall_sync), to understand when it's okay to allow these PM domai=
+ns
+> to be powered-off.
+>
+> This new behaviour in genpd has lead to problems on different platforms [=
+1].
+>
+> In this series, I am therefore suggesting to restore the behavior of
+> genpd_power_off_unused() along with introducing a new genpd config flag,
+> GENPD_FLAG_NO_STAY_ON, to allow genpd OF providers to opt-out from the ne=
+w
+> behaviour.
+>
+> Kind regards
+> Ulf Hansson
+>
+> [1]
+> https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.or=
+g/
+> https://lore.kernel.org/all/20250902-rk3576-lockup-regression-v1-1-c4a0c9=
+daeb00@collabora.com/
 
+I'm surprised this is happening. The default behavior of sync_state()
+is to never turn off a power domain until all the consumers have
+probed.
 
-On 9/12/25 18:56, David Hildenbrand wrote:
->>
->> Changelog since the v2 of the RFC:
->> - V2 available here : https://lore.kernel.org/all/20250724135512.518487-1-eugen.hristev@linaro.org/
->> - Removed the .section as requested by David Hildenbrand.
->> - Moved all kmemdump registration(when possible) to vmcoreinfo.
->> - Because of this, some of the variables that I was registering had to be non-static
->> so I had to modify this as per David Hildenbrand suggestion.
->> - Fixed minor things in the Kinfo driver: one field was broken, fixed some
->> compiler warnings, fixed the copyright and remove some useless includes.
->> - Moved the whole kmemdump from drivers/debug into mm/ and Kconfigs into mm/Kconfig.debug
->> and it's now available in kernel hacking, as per Randy Dunlap review
->> - Reworked some of the Documentation as per review from Jon Corbet
-> 
-> IIUC, it's now only printk.c where we do kmemdump-related magic, right?
-> 
+Is there a consumer that's not captured correctly? If so, can we add them?
 
-Yes. The other places just have some changes such that I am able to
-gather the data inside vmcoreinfo. (remove static, add some function to
-get sizes)
+Also, there are already sync_state related kernel configs, command
+line options and sysfs files that should allow people to power off
+devices (at different levels of granularity) even if its consumers
+haven't probed.
 
+Thanks,
+Saravana
+
+>
+> Ulf Hansson (5):
+>   pmdomain: core: Restore behaviour for disabling unused PM domains
+>   pmdomain: rockchip: Fix regulator dependency with
+>     GENPD_FLAG_NO_STAY_ON
+>   pmdomain: renesas: rcar-sysc: Don't keep unused PM domains powered-on
+>   pmdomain: renesas: rcar-gen4-sysc: Don't keep unused PM domains
+>     powered-on
+>   pmdomain: renesas: rmobile-sysc: Don't keep unused PM domains
+>     powered-on
+>
+>  drivers/pmdomain/core.c                   | 20 ++++++++++++++------
+>  drivers/pmdomain/renesas/rcar-gen4-sysc.c |  1 +
+>  drivers/pmdomain/renesas/rcar-sysc.c      |  1 +
+>  drivers/pmdomain/renesas/rmobile-sysc.c   |  3 ++-
+>  drivers/pmdomain/rockchip/pm-domains.c    |  2 +-
+>  include/linux/pm_domain.h                 |  7 +++++++
+>  6 files changed, 26 insertions(+), 8 deletions(-)
+>
+> --
+> 2.43.0
+>
 
