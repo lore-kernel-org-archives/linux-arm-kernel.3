@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA05ACAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 11:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAACCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 11:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FoirEmRNwEUrLlbuDJkGBmTm8wLZlEha6GRxcibCtU0=; b=PU9deV8OJGsVajDt7qApS/Xnb8
-	29IRpnY/U876tpGtukDKwYSyPYS2qhqh1a+roWgAa+zyJ+pAtA7gAViXKG+9tPsut/u/kioAmJzsL
-	OvgArpJPLsA+0l0fjEWVTyBh/O6o8Ed6BN6WjsAr0zy3iBnkHtLGDv/XHPuNY/uiPAznyzRRfkB3i
-	iwTtiDYCOHiuKq197shysd1K/7FD24vDt+tDbjfEvQs9FTOSjJBVFKBlooeaz2b991MigrqhUaivW
-	5I9rNQRM/PiYz5Q8R/Z8cZtaCv2R9SeJAC2GBKnQkvLM0fZTZZsxLfZr6TNolJU5K5DqQ3p/o9nZU
-	V7LADPyA==;
+	bh=rrk5fIm3V3FRARvlikIPKelGf1Tql/u2TT8O6cc6xNM=; b=prxCgjdUVukG/HSyTZ5CQprWta
+	B4k0FhK+cEvL3HG9c9V5D39OyAhD33l1/zpQPOgtcKzAa0AH5z5ryXAKPWOxCrzyAuJPBm+HWaz69
+	tfC+v6EaAQBLy+SPM/ieU0XShgfHnfVSwRZhoELnnBh45WyWnpmnREb2IjTTg+lfGV7GmsHg5/qBq
+	/a4yGfnUktaz691Totuv78e0qKvCVvEPmO6vS+nmxomEt+ArD43yhOXtemBSsYcFZ6/qpw5ik43oP
+	XZ9nYSIJF1/g0GJflD3tSr6f6W0yvGmDozfVxwcKjZVKglkLRNJnnEJTyZQvwxqHvWk707GjUcEfQ
+	iaGM4IrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1rD-00000008qp2-1TCM;
+	id 1ux1rD-00000008qpf-2i8e;
 	Fri, 12 Sep 2025 11:22:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1r8-00000008qjE-0pKg
+	id 1ux1rB-00000008qmV-0EZs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 11:22:18 +0000
+	Fri, 12 Sep 2025 11:22:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9973460241;
+	by tor.source.kernel.org (Postfix) with ESMTP id 773BF60240;
+	Fri, 12 Sep 2025 11:22:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDC14C4CEF7;
 	Fri, 12 Sep 2025 11:22:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 356F2C4CEFD;
-	Fri, 12 Sep 2025 11:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757676137;
-	bh=IeBrm10npHswatwOwtRAuiaKWaoJBlDnxxV0/8Ycbl8=;
+	s=k20201202; t=1757676140;
+	bh=2Z09lyzr3mlySMGqqjLAI9Q8pohqjxnIJ8nt0XVxnnw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=h7U9Zx/6aHXAM+5tj6gtPPv0G2aF8WwSGMYHqWTwTkFcejHy6ZqvlTQeqkpGpMBkg
-	 rEt+ZG2DqRiuxj/oVnUUkrTReuxciNyZqzHqDZHZSJmlnoahTTq3jI6kncqJpHwvLD
-	 ZSrFteZwKViocvHRfODMN1DjklciUy/lO01cZfzCtCypTUxjHC4hJHSan4f2JftKW2
-	 xsvUfTo9AdDmB1P5KSwFcYLXxWQMmqVxdXc3UfZp2VoNgsjs0VMcdNn9bRiRhEjfsT
-	 czqAnnPYAhS4QN6gao5KI2h/fst2jI6POG0dAiR3MXU33wtNgktbyRymQbeGkvs04X
-	 wwFUo0TzoNikw==
+	b=L34ZYKvkzUB5+9nv8Ow5OWUHNFysI8goeM6YczMJs91QTuZ9ENhdQBw/sQZxbcqIA
+	 GGj0FoaBJlU+Apn+Ir0QqMi0GIx3V2TWDtYMsJruNdyPq6fOqEbAjx7rcQKsBL4eB1
+	 ZfAJbaAPcf3GMZbfEsEvUk5Jj0DDZ6JTNOecVh3+BDkQLJjcF773MbmzCwCxMjxqhC
+	 TG5dd72VwSu7XRSYD0qKQzSZ+du6M4Hsfpq/uXQ/VcdSndSUevVNIBaR6ryzK3pNld
+	 NUkps7GD7ZPpazktK1Lm6xQVSu4UeJVJtUF2+0u/5o0BsfelP33i5UfMQcHxmHzpJO
+	 uEEFna+EHHPWQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 12 Sep 2025 10:25:31 +0100
-Subject: [PATCH v16 5/6] KVM: arm64: Allow GCS to be enabled for guests
+Date: Fri, 12 Sep 2025 10:25:32 +0100
+Subject: [PATCH v16 6/6] KVM: selftests: arm64: Add GCS registers to
+ get-reg-list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250912-arm64-gcs-v16-5-6435e5ec37db@kernel.org>
+Message-Id: <20250912-arm64-gcs-v16-6-6435e5ec37db@kernel.org>
 References: <20250912-arm64-gcs-v16-0-6435e5ec37db@kernel.org>
 In-Reply-To: <20250912-arm64-gcs-v16-0-6435e5ec37db@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -57,17 +58,18 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
  Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 X-Mailer: b4 0.15-dev-56183
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1883; i=broonie@kernel.org;
- h=from:subject:message-id; bh=IeBrm10npHswatwOwtRAuiaKWaoJBlDnxxV0/8Ycbl8=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoxAJYbjs1gu8XoeJOTzmWGxk48gJgJmlcEt1sN
- LwCLyb43WGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaMQCWAAKCRAk1otyXVSH
- 0DPMB/9fvrbX2YUDNAXM4i/lFcz1NafZgkZpthkn7QrwZjcoEKj96jMloLwbl6pBdb3E5fIWVe1
- PqCU5ujWX3mUMkpgrumSskfoO7VKMqjfm5GwxEdgY9bRU35oDo2rirXZRyecfQUgqLq1DhObN+q
- ZAWp0lrURcA2PwCz0om5Plb1b9zv0b2TZZ/HkrjQaLQfXZajz+f+t1EeJcEzKqfgOHfR1zh9+dU
- fsVZNXsSdG78RUOtsHZfkDYf2iMXoIrYgHhVM977K6cZC7P/m4vpAUujBf1YnmHPZstLLKoTfZ5
- kbqadCyXSCm/NLJ8xibHuaCqiIwoi6otcOWdEwlmYk2BWidZ
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2417; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=2Z09lyzr3mlySMGqqjLAI9Q8pohqjxnIJ8nt0XVxnnw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoxAJY4+SLnStXXvVFpBNYWlP1+VGHPxHvlmN6M
+ z611HojkTCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaMQCWAAKCRAk1otyXVSH
+ 0CORB/97WmwBUUlxAL6LjWlqWHp9V44CpCGTC8Lhk6gOOTvNi+TUCs5aGaKAmuFUa6SKHkaOBSF
+ EKWdDn7SfL8jcvcmmZu0fRFASR0rW40r76P/++ZuDCMg1UJhJAtQ8PENu/BIsrwqpjsyVoCsmyJ
+ kTsrJZQkxq5KFPxlIVNtb85ZEaLZEV5IN+y5tLS0jVoN7drGvdySNw56qL+pfuwJTmpzfYRahF+
+ nkLZR9oDmz6oCZoMui8A5bj0hErIFgI/AHAgYXUULilLRnwZ32rMPmmfSuKzXnt3Gp3A/dWTmHa
+ BJHd3LjzUSlDY50YlZs6fq3uO0Jy5Vi7H7qbcCd9ny+3TQuK
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,53 +86,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that required functionality for GCS is in place expose
-ID_AA64PFR1_EL1.GCS, allowing guests to be given the feature.
+GCS adds new registers GCSCR_EL1, GCSCRE0_EL1, GCSPR_EL1 and GCSPR_EL0. Add
+these to those validated by get-reg-list.
 
+Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/nested.c   | 7 ++++---
- arch/arm64/kvm/sys_regs.c | 2 --
- 2 files changed, 4 insertions(+), 5 deletions(-)
+ tools/testing/selftests/kvm/arm64/get-reg-list.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 153b3e11b115..d2d55e18c610 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1459,9 +1459,10 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
- 
- 	case SYS_ID_AA64PFR1_EL1:
- 		/* Only support BTI, SSBS, CSV2_frac */
--		val &= (ID_AA64PFR1_EL1_BT	|
--			ID_AA64PFR1_EL1_SSBS	|
--			ID_AA64PFR1_EL1_CSV2_frac);
-+		val &= (ID_AA64PFR1_EL1_BT		|
-+			ID_AA64PFR1_EL1_SSBS		|
-+			ID_AA64PFR1_EL1_CSV2_frac	|
-+			ID_AA64PFR1_EL1_GCS);
- 		break;
- 
- 	case SYS_ID_AA64MMFR0_EL1:
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 03fb2dce0b80..60e234422064 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1616,7 +1616,6 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
- 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);
- 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_RNDR_trap);
- 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_NMI);
--		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_GCS);
- 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_THE);
- 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTEX);
- 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_PFAR);
-@@ -2953,7 +2952,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 				     ~(ID_AA64PFR1_EL1_PFAR |
- 				       ID_AA64PFR1_EL1_MTEX |
- 				       ID_AA64PFR1_EL1_THE |
--				       ID_AA64PFR1_EL1_GCS |
- 				       ID_AA64PFR1_EL1_MTE_frac |
- 				       ID_AA64PFR1_EL1_NMI |
- 				       ID_AA64PFR1_EL1_RNDR_trap |
+diff --git a/tools/testing/selftests/kvm/arm64/get-reg-list.c b/tools/testing/selftests/kvm/arm64/get-reg-list.c
+index 011fad95dd02..9bf33064377b 100644
+--- a/tools/testing/selftests/kvm/arm64/get-reg-list.c
++++ b/tools/testing/selftests/kvm/arm64/get-reg-list.c
+@@ -42,6 +42,12 @@ struct feature_id_reg {
+ static struct feature_id_reg feat_id_regs[] = {
+ 	REG_FEAT(TCR2_EL1,	ID_AA64MMFR3_EL1, TCRX, IMP),
+ 	REG_FEAT(TCR2_EL2,	ID_AA64MMFR3_EL1, TCRX, IMP),
++	REG_FEAT(GCSPR_EL0,	ID_AA64PFR1_EL1, GCS, IMP),
++	REG_FEAT(GCSPR_EL1,	ID_AA64PFR1_EL1, GCS, IMP),
++	REG_FEAT(GCSPR_EL2,	ID_AA64PFR1_EL1, GCS, IMP),
++	REG_FEAT(GCSCRE0_EL1,	ID_AA64PFR1_EL1, GCS, IMP),
++	REG_FEAT(GCSCR_EL1,	ID_AA64PFR1_EL1, GCS, IMP),
++	REG_FEAT(GCSCR_EL2,	ID_AA64PFR1_EL1, GCS, IMP),
+ 	REG_FEAT(PIRE0_EL1,	ID_AA64MMFR3_EL1, S1PIE, IMP),
+ 	REG_FEAT(PIRE0_EL2,	ID_AA64MMFR3_EL1, S1PIE, IMP),
+ 	REG_FEAT(PIR_EL1,	ID_AA64MMFR3_EL1, S1PIE, IMP),
+@@ -486,6 +492,9 @@ static __u64 base_regs[] = {
+ 	ARM64_SYS_REG(3, 0, 2, 0, 1),	/* TTBR1_EL1 */
+ 	ARM64_SYS_REG(3, 0, 2, 0, 2),	/* TCR_EL1 */
+ 	ARM64_SYS_REG(3, 0, 2, 0, 3),	/* TCR2_EL1 */
++	ARM64_SYS_REG(3, 0, 2, 5, 0),	/* GCSCR_EL1 */
++	ARM64_SYS_REG(3, 0, 2, 5, 1),	/* GCSPR_EL1 */
++	ARM64_SYS_REG(3, 0, 2, 5, 2),	/* GCSCRE0_EL1 */
+ 	ARM64_SYS_REG(3, 0, 5, 1, 0),	/* AFSR0_EL1 */
+ 	ARM64_SYS_REG(3, 0, 5, 1, 1),	/* AFSR1_EL1 */
+ 	ARM64_SYS_REG(3, 0, 5, 2, 0),	/* ESR_EL1 */
+@@ -502,6 +511,7 @@ static __u64 base_regs[] = {
+ 	ARM64_SYS_REG(3, 0, 13, 0, 4),	/* TPIDR_EL1 */
+ 	ARM64_SYS_REG(3, 0, 14, 1, 0),	/* CNTKCTL_EL1 */
+ 	ARM64_SYS_REG(3, 2, 0, 0, 0),	/* CSSELR_EL1 */
++	ARM64_SYS_REG(3, 3, 2, 5, 1),	/* GCSPR_EL0 */
+ 	ARM64_SYS_REG(3, 3, 10, 2, 4),	/* POR_EL0 */
+ 	ARM64_SYS_REG(3, 3, 13, 0, 2),	/* TPIDR_EL0 */
+ 	ARM64_SYS_REG(3, 3, 13, 0, 3),	/* TPIDRRO_EL0 */
+@@ -740,6 +750,8 @@ static __u64 el2_regs[] = {
+ 	SYS_REG(PIRE0_EL2),
+ 	SYS_REG(PIR_EL2),
+ 	SYS_REG(POR_EL2),
++	SYS_REG(GCSPR_EL2),
++	SYS_REG(GCSCR_EL2),
+ 	SYS_REG(AMAIR_EL2),
+ 	SYS_REG(VBAR_EL2),
+ 	SYS_REG(CONTEXTIDR_EL2),
 
 -- 
 2.47.2
