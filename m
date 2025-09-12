@@ -4,54 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFF0CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 17:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB0ECA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 17:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Id2EYLL8iifJNqwKS6WsQkVknrksaHJQmtPjUMKslZM=; b=D2J2R7/iJaAZiRsIowEib02JHi
-	PhYpMYaP/s92MFhKhbbUSaQklk29cDZjicZmbaB2RfjqQt9MjuauAU+89oK7zWXi7IZsTutG+6FUa
-	/pc9A4FQBmzrLBGbwMBGXqZlKHukkCCvNcEZRh965bsI0GmfQafxC+pGEJpnwlHuLGZlbtCvq3Fjg
-	f+JS4+K4oiA8pIxVf+MnVJmzjIPyPeqlI5JeCkJ/asFd2mP2tLdd39BwGqZKMJ49a0JlJzGGLZgtw
-	LCEzdcIuIewYukoKMy+9S2DzT19g5aDYcCEGOzmrZweYrDvFRik0bNL92b+qKOLL3ylXyPH8kiu0K
-	QKd1PtqQ==;
+	bh=pwqpv0OMmuh14dvqJoXmhqMPOebR0cDuIlzyHJCB7FE=; b=KIgqwnOaAlRjxcjk+I3hkPdPW+
+	5mmVWLvgNX7sJ72FkEsEwB7aX4eao8V/zw4VJvkyWl8PcBXDa90SyQ0onytl5Cf2eeKolfCLdplKP
+	td97G5rKqHDJyEq0drmpyHhfzlHVTG1+fX3igZsytN7ntgAmVMhAJZmwhFLPR+RpAZjUkIeULjeo6
+	XGJRImakfLjNZobGQEXVskMi44wWcB6lphMNytA6a5a8ndnVSdXAI5PK1d4KadoJBAREsaE51+QJl
+	A1CdO+PqQ1yJAolJBeOxKIp/J685FwUIcgdvOj5Acf9pne387pWY0WKmRo8FiJTEd6QYgS/3IMW9U
+	vSphVHJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux7H0-0000000Ahm3-42m5;
-	Fri, 12 Sep 2025 17:09:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ux7Lh-0000000Aiz0-0GtR;
+	Fri, 12 Sep 2025 17:14:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux7Gy-0000000AhlV-1IBE
+	id 1ux7Lf-0000000AiyV-3WH5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 17:09:21 +0000
+	Fri, 12 Sep 2025 17:14:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 01CC741B04;
-	Fri, 12 Sep 2025 17:09:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D1EAC4CEF1;
-	Fri, 12 Sep 2025 17:09:17 +0000 (UTC)
-Date: Fri, 12 Sep 2025 18:09:15 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: will@kernel.org, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
-	ardb@kernel.org, scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v7 6/6] arm64: futex: support futex with FEAT_LSUI
-Message-ID: <aMRTu3lcwqhu-dYY@arm.com>
-References: <20250816151929.197589-1-yeoreum.yun@arm.com>
- <20250816151929.197589-7-yeoreum.yun@arm.com>
+	by tor.source.kernel.org (Postfix) with ESMTP id 01BD6601D3;
+	Fri, 12 Sep 2025 17:14:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53DD9C4CEF1;
+	Fri, 12 Sep 2025 17:14:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757697250;
+	bh=pwqpv0OMmuh14dvqJoXmhqMPOebR0cDuIlzyHJCB7FE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W9JrERn+KoIxQfx9Yk0iMN3Gomju4XAAwgpdQ2MqGJwl30FZw0g9IcS4YMSSyAzq9
+	 eimaUJjSJFo4d58GUD6bp9JkOpFKojq2tM0WkyPCc2mvTz3XejGtlnO2AzvjQkQOnJ
+	 0z51JO3q7zfPY1JKO5QCa2k0sZlqvZdV7KTX9xg5EVi+0Do7ZjCXnl7LBDjal2fiHt
+	 nKe6ZM7o5Aasih3d/b/BuG8CHqy/W8lUn9B42OhDzOspQUm0sy17LBMh7BeLKOOhkX
+	 A1m2D8dwOnrZDyHlogQdH1NOxF13JK3PujUqc2kQutHyk6ZODhgyydyVOJetYbxbl5
+	 ypKNA6bFCEoTA==
+Date: Fri, 12 Sep 2025 18:14:07 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v16 2/6] KVM: arm64: Manage GCS access and registers for
+ guests
+Message-ID: <aMRU3zCRpA4Zuj0L@finisterre.sirena.org.uk>
+References: <20250912-arm64-gcs-v16-0-6435e5ec37db@kernel.org>
+ <20250912-arm64-gcs-v16-2-6435e5ec37db@kernel.org>
+ <865xdndgpw.wl-maz@kernel.org>
+ <aMRLYBWfDFiIB7wx@finisterre.sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DpzIhk4kEi/ksl0o"
 Content-Disposition: inline
-In-Reply-To: <20250816151929.197589-7-yeoreum.yun@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_100920_368208_AEEE622A 
-X-CRM114-Status: GOOD (  14.00  )
+In-Reply-To: <aMRLYBWfDFiIB7wx@finisterre.sirena.org.uk>
+X-Cookie: Filmed before a live audience.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,89 +80,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 16, 2025 at 04:19:29PM +0100, Yeoreum Yun wrote:
-> @@ -115,11 +117,137 @@ __llsc_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
->  	return ret;
->  }
-> 
-> +#ifdef CONFIG_AS_HAS_LSUI
-> +
-> +#define __LSUI_PREAMBLE	".arch_extension lsui\n"
-> +
-> +#define LSUI_FUTEX_ATOMIC_OP(op, asm_op, mb)				\
-> +static __always_inline int						\
-> +__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-> +{									\
-> +	int ret = 0;							\
-> +	int oldval;							\
-> +									\
-> +	uaccess_ttbr0_enable();						\
 
-I think we can drop uaccess_ttbr0_*() from these functions. At the
-kconfig level, TTBR0_PAN selects PAN. Hardware with LSUI will also
-have PAN (since 8.1), so the above is an unnecessary branch or nop,
-depending on how the alternatives play out. But add a comment instead.
+--DpzIhk4kEi/ksl0o
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> +static __always_inline int
-> +__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
-> +{
-> +	unsigned int loops = LLSC_MAX_LOOPS;
-> +	int ret, oldval, tmp;
-> +
-> +	uaccess_ttbr0_enable();
-> +	/*
-> +	 * there are no ldteor/stteor instructions...
-> +	 */
-> +	asm volatile("// __lsui_futex_atomic_eor\n"
-> +	__LSUI_PREAMBLE
-> +"	prfm	pstl1strm, %2\n"
-> +"1:	ldtxr	%w1, %2\n"
-> +"	eor	%w3, %w1, %w5\n"
-> +"2:	stltxr	%w0, %w3, %2\n"
-> +"	cbz	%w0, 3f\n"
-> +"	sub	%w4, %w4, %w0\n"
-> +"	cbnz	%w4, 1b\n"
-> +"	mov	%w0, %w6\n"
-> +"3:\n"
-> +"	dmb	ish\n"
-> +	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)
-> +	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)
-> +	: "=&r" (ret), "=&r" (oldval), "+Q" (*uaddr), "=&r" (tmp),
-> +	  "+r" (loops)
-> +	: "r" (oparg), "Ir" (-EAGAIN)
-> +	: "memory");
-> +	uaccess_ttbr0_disable();
-> +
-> +	if (!ret)
-> +		*oval = oldval;
-> +
-> +	return ret;
-> +}
+On Fri, Sep 12, 2025 at 05:33:39PM +0100, Mark Brown wrote:
+> On Fri, Sep 12, 2025 at 12:59:23PM +0100, Marc Zyngier wrote:
 
-That's an unfortunate omission from the architecture.
+> > Just like the previous version, you're missing the accessors that
+> > would be this table useful. Meaning that the vcpu_read_sys_reg() and
+> > vcpu_write_sys_reg() accessors will fail for all 4 GSC registers.
 
-> +#define __lsui_llsc_body(op, ...)					\
-> +({									\
-> +	alternative_has_cap_likely(ARM64_HAS_LSUI) ?			\
-> +		__lsui_##op(__VA_ARGS__) : __llsc_##op(__VA_ARGS__);	\
-> +})
-> +
-> +#else	/* CONFIG_AS_HAS_LSUI */
-> +
-> +#define __lsui_llsc_body(op, ...)	__llsc_##op(__VA_ARGS__)
-> +
-> +#endif	/* CONFIG_AS_HAS_LSUI */
-> +
-> +
->  #define FUTEX_ATOMIC_OP(op)						\
->  static __always_inline int						\
->  __futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)		\
->  {									\
-> -	return __llsc_futex_atomic_##op(oparg, uaddr, oval);		\
-> +	return __lsui_llsc_body(futex_atomic_##op, oparg, uaddr, oval);	\
->  }
+> Just to confirm, this is __vcpu_{read,write}_sysreg()?
 
-That's what I got confused about. It looks fine:
+Sorry, that should have been __vcpu_{read,write}_sys_reg_{to,from}_cpu()
+*sigh*
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+--DpzIhk4kEi/ksl0o
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjEVNYACgkQJNaLcl1U
+h9C9MAf/ZDTHvq/toZNl1zFIlYCxa5MviqirC4jCkD4bApiu8FXEn37o5QLHvV1a
+TScrRejLtHsbWbAOcXqDXGKodfclNDTwGvxbqbHCwHhYLWbr6p2D1vAa48iYJIhv
+gnKnhDqBNSvx4LrNuFwaUJyPhich4VOvTjmSvJPJU8oCLAdPfTECSghGmFnW0FEG
+LdO+0s95tByeppfr9prmKGg8/ctwQ10rlmfVFavH6fvx7zfpFoVrSMFKpzp6z8Hq
+uqT918mBpk8+wcxaGuheKypl/OQVBGv8OjFpY191RQkSB2PvLelMr2QEG1T6CzeS
+9/DQ8sbVFO1rzwaGCpfVMWJL+EKxkA==
+=YqIz
+-----END PGP SIGNATURE-----
+
+--DpzIhk4kEi/ksl0o--
 
