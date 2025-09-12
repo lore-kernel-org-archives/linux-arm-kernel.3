@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1554CAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BB7CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qRzTnvTFYneU/eG0Lb1OTa5ZZyeob/cfLuVwYINLOXU=; b=1nbUe0B6N6dMN69CCpJ65j48QS
-	CL+r2brWvGVohpo6wCX82903zTMxfYm2M7W+SJEGu+1EZTeKBn6fEvpDunjUSYR3lFUFxWJwLbvKT
-	5IwrebpgOBRk8HJKNFp924+5ZDwEvriQcFvZiSSYV+6aQ+frCjvG2py1Ie+qXn280FnN2ePeYwdBI
-	KW5ZVZEWo0n7WzFvM8U1ZFiJpViJY0yj0H98ri+ZzfNFzpOz307X9k1Ee0it+VC02NtU/qGYsO1GQ
-	P68z1mJG0cgzGPcNllV6Ti3J2KhBU6N+79LjhLybKaTM1HyxTjP2PNK+n0+j1APWey29NCPKlfk8d
-	HmCFHv1Q==;
+	bh=Vvq3FOaf6DqqwnxN8Z7Us0Fn4Dhp+dQrWjLWe8nb8hY=; b=ZW+02FrzJcIoqWveU9pwKjtmxK
+	Hffcd0WbR6lVU4pTT+q26e6TTAMzSV1fsMk+Kb3BX/bN0/w3Tbv+YXOdPzEIl9NUEjx1Flm+pxhnp
+	dz5Lt23f7Dk5b24LEpY5797dXQZj8sA3ecv9Wg6dEUICcUY70TS8chhozqqFEQVQp4Q23k/xjdQyb
+	Ui4FEgHu6xaMbPN6xLro8deK+IMs2IYv8yvwbfjBY5SF/BM3JC5LBtFnKY9d+Jgmij7MlSfKQM4rm
+	9AoO52TGUDeQEalP9VNqcx6sZbd9tMXPwEQTUhCdcP/QIdsD2bzlC9f5WxeHU6dxWYEGDyM7vxXTF
+	l7MMwSxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5c9-0000000ADYb-0vva;
-	Fri, 12 Sep 2025 15:23:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5c7-0000000ADWy-09sN
+	id 1ux5eN-0000000AEJy-35nk;
+	Fri, 12 Sep 2025 15:25:23 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux5eK-0000000AEHs-2JCE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 15:23:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C046D1515;
-	Fri, 12 Sep 2025 08:22:49 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E06B3F694;
-	Fri, 12 Sep 2025 08:22:52 -0700 (PDT)
-Date: Fri, 12 Sep 2025 16:22:44 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 18/29] arm_mpam: Register and enable IRQs
-Message-ID: <aMQ6xODb+QRWdblG@e133380.arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-19-james.morse@arm.com>
+	Fri, 12 Sep 2025 15:25:22 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1ux5e9-0005U8-9V; Fri, 12 Sep 2025 17:25:09 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1ux5e9-000xIT-01;
+	Fri, 12 Sep 2025 17:25:09 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1ux5e8-0032iQ-2j;
+	Fri, 12 Sep 2025 17:25:08 +0200
+Date: Fri, 12 Sep 2025 17:25:08 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 08/10] dmaengine: imx-sdma: make use of
+ devm_add_action_or_reset to unregiser the dma_device
+Message-ID: <20250912152508.ccxk2qpcmhxjjsns@pengutronix.de>
+References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
+ <20250911-v6-16-topic-sdma-v2-8-d315f56343b5@pengutronix.de>
+ <aMQy+Ocs+UWq7WoR@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250910204309.20751-19-james.morse@arm.com>
+In-Reply-To: <aMQy+Ocs+UWq7WoR@lizhi-Precision-Tower-5810>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_082303_156061_DA5ACCF4 
-X-CRM114-Status: GOOD (  42.51  )
+X-CRM114-CacheID: sfid-20250912_082520_597014_38C118F1 
+X-CRM114-Status: GOOD (  29.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,217 +83,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On Wed, Sep 10, 2025 at 08:42:58PM +0000, James Morse wrote:
-> Register and enable error IRQs. All the MPAM error interrupts indicate a
-> software bug, e.g. out of range partid. If the error interrupt is ever
-> signalled, attempt to disable MPAM.
+On 25-09-12, Frank Li wrote:
+> On Thu, Sep 11, 2025 at 11:56:49PM +0200, Marco Felsch wrote:
+> > Make use of the devm_add_action_or_reset() to register a custom devm_
+> > release hook. This is required to turn off the IRQs before calling
+> > dma_async_device_unregister().
+> >
+> > Furthermore it removes the last goto error handling within probe() and
+> > trims the remove().
+> >
+> > Make use of disable_irq() and let the devm-irq do the job to free the
+> > IRQ, because the only purpose of using devm_free_irq() was to disable
+> > the IRQ before calling dma_async_device_unregister().
+> >
+> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > ---
+> >  drivers/dma/imx-sdma.c | 23 +++++++++++++++--------
+> >  1 file changed, 15 insertions(+), 8 deletions(-)
+> >
+> > diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> > index d39589c20c4b2a26d0239feb86cce8d5a0f5acdd..d6d0d4300f540268a3ab4a6b14af685f7b93275a 100644
+> > --- a/drivers/dma/imx-sdma.c
+> > +++ b/drivers/dma/imx-sdma.c
+> > @@ -2264,6 +2264,14 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
+> >  				     ofdma->of_node);
+> >  }
+> >
+> > +static void sdma_dma_device_unregister_action(void *data)
+> > +{
+> > +	struct sdma_engine *sdma = data;
+> > +
+> > +	disable_irq(sdma->irq);
 > 
-> Only the irq handler accesses the ESR register, so no locking is needed.
+> May not related this cleanup patch, I am just curious why not mask sdma irq
+> request.
 
-Nit: MPAMF_ESR?  (Casual readers may confuse it with ESR_ELx.
-Formally, there is no MPAM "ESR" register, though people familiar with
-the spec will of course know what you're referring to.)
+You mean by setting irq_set_status_flags(irq, IRQ_DISABLE_UNLAZY)
+infront? Not sure if this is required since this is just the cleanup
+path.
 
-> The work to disable MPAM after an error needs to happen at process
-> context as it takes mutex. It also unregisters the interrupts, meaning
-> it can't be done from the threaded part of a threaded interrupt.
-> Instead, mpam_disable() gets scheduled.
+> > +	dma_async_device_unregister(&sdma->dma_device);
+> > +}
+> > +
+> >  static int sdma_probe(struct platform_device *pdev)
+> >  {
+> >  	struct device *dev = &pdev->dev;
+> > @@ -2388,10 +2396,16 @@ static int sdma_probe(struct platform_device *pdev)
+> >  		return ret;
+> >  	}
+> >
+> > +	ret = devm_add_action_or_reset(dev, sdma_dma_device_unregister_action, sdma);
+> > +	if (ret) {
+> > +		dev_err(dev, "Unable to register release hook\n");
+> > +		return ret;
+> > +	}
 > 
-> Enabling the IRQs in the MSC may involve cross calling to a CPU that
-> can access the MSC.
+> why not use dev_err_probe() her?
+
+Please see my last patch.
+
+Regards,
+  Marco
+
 > 
-> Once the IRQ is requested, the mpam_disable() path can be called
-> asynchronously, which will walk structures sized by max_partid. Ensure
-> this size is fixed before the interrupt is requested.
+> > +
+> >  	ret = of_dma_controller_register(np, sdma_xlate, sdma);
+> >  	if (ret) {
+> >  		dev_err(dev, "failed to register controller\n");
+> > -		goto err_register;
+> > +		return ret;
 > 
-> CC: Rohit Mathew <rohit.mathew@arm.com>
-> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since v1:
->  * Made mpam_unregister_irqs() safe to race with itself.
->  * Removed threaded interrupts.
->  * Schedule mpam_disable() from cpuhp callback in the case of an error.
->  * Added mpam_disable_reason.
->  * Use alloc_percpu()
+> the same here.
 > 
-> Changes since RFC:
->  * Use guard marco when walking srcu list.
->  * Use INTEN macro for enabling interrupts.
->  * Move partid_max_published up earlier in mpam_enable_once().
-> ---
->  drivers/resctrl/mpam_devices.c  | 277 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_internal.h |  10 ++
->  2 files changed, 284 insertions(+), 3 deletions(-)
+> Frank
+> >  	}
+> >
+> >  	/*
+> > @@ -2410,11 +2424,6 @@ static int sdma_probe(struct platform_device *pdev)
+> >  	}
+> >
+> >  	return 0;
+> > -
+> > -err_register:
+> > -	dma_async_device_unregister(&sdma->dma_device);
+> > -
+> > -	return ret;
+> >  }
+> >
+> >  static void sdma_remove(struct platform_device *pdev)
+> > @@ -2423,8 +2432,6 @@ static void sdma_remove(struct platform_device *pdev)
+> >  	int i;
+> >
+> >  	of_dma_controller_free(sdma->dev->of_node);
+> > -	devm_free_irq(&pdev->dev, sdma->irq, sdma);
+> > -	dma_async_device_unregister(&sdma->dma_device);
+> >  	/* Kill the tasklet */
+> >  	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
+> >  		struct sdma_channel *sdmac = &sdma->channel[i];
+> >
+> > --
+> > 2.47.3
+> >
 > 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index a9d3c4b09976..e7e4afc1ea95 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -14,6 +14,9 @@
->  #include <linux/device.h>
->  #include <linux/errno.h>
->  #include <linux/gfp.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/irq.h>
-> +#include <linux/irqdesc.h>
->  #include <linux/list.h>
->  #include <linux/lockdep.h>
->  #include <linux/mutex.h>
-> @@ -166,6 +169,24 @@ static u64 mpam_msc_read_idr(struct mpam_msc *msc)
->  	return (idr_high << 32) | idr_low;
->  }
->  
-> +static void mpam_msc_zero_esr(struct mpam_msc *msc)
-
-Nit: Maybe clear_esr?  (The fact that setting the ERRCODE and OVRWR
-fields to zero clears the interrupt and prepares for unambiguous
-reporting of the next error is more of an implementation detail.
-It doesn't matter what the rest of the register is set to.)
-
-> +{
-> +	__mpam_write_reg(msc, MPAMF_ESR, 0);
-> +	if (msc->has_extd_esr)
-
-This deasserts the interrupt (if level-sensitive) and enables the MSC
-to report further errors.  If we are unlucky and error occurs now,
-won't we splat the newly HW-generated RIS field by:
-
-> +		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
-
-...?  If so, we will diagnose the wrong RIS when we pump the new error
-from MPAMF_ESR.  I think the correct interpretation of the spec may be
-that:
-
- a) software should treat fields in MPAMF_ESR[63:32] as vaild only if
-    ERRCODE is nonzero, and
-
- b) software should never write to MPAMF_ESR[63:32] while ERRCODE is
-    zero.
-
-Does this look right?  Should the fields be cleared in the opposite
-order?
-
-Or alternatively, is it actually necessary to clear MPAMF_ESR[63:32]
-at all?
-
-(The spec seems a bit vague on what software is supposed to do with
-this register to ensure correctness...)
-
-> +}
-> +
-> +static u64 mpam_msc_read_esr(struct mpam_msc *msc)
-> +{
-> +	u64 esr_high = 0, esr_low;
-> +
-> +	esr_low = __mpam_read_reg(msc, MPAMF_ESR);
-> +	if (msc->has_extd_esr)
-> +		esr_high = __mpam_read_reg(msc, MPAMF_ESR + 4);
-> +
-> +	return (esr_high << 32) | esr_low;
-> +}
-
-[...]
-
-> @@ -895,6 +920,13 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
->  	}
->  }
->  
-> +static void _enable_percpu_irq(void *_irq)
-> +{
-> +	int *irq = _irq;
-> +
-> +	enable_percpu_irq(*irq, IRQ_TYPE_NONE);
-
-Can the type vary?  (Maybe this makes no sense on GIC-based systems --
-IRQ_TYPE_NONE (or "0") seems overwhelmingly common.)
-
-(Just my lack of familiarity takling, here.)
-
-[...]
-
-> +static int __setup_ppi(struct mpam_msc *msc)
-> +{
-> +	int cpu;
-> +	struct device *dev = &msc->pdev->dev;
-> +
-> +	msc->error_dev_id = alloc_percpu(struct mpam_msc *);
-> +	if (!msc->error_dev_id)
-> +		return -ENOMEM;
-> +
-> +	for_each_cpu(cpu, &msc->accessibility) {
-> +		struct mpam_msc *empty = *per_cpu_ptr(msc->error_dev_id, cpu);
-> +
-> +		if (empty) {
-> +			dev_err_once(dev, "MSC shares PPI with %s!\n",
-> +				     dev_name(&empty->pdev->dev));
-> +			return -EBUSY;
-> +		}
-> +		*per_cpu_ptr(msc->error_dev_id, cpu) = msc;
-> +	}
-
-How are PPIs supposed to work?
-
-An individual MSC that is affine to multiple CPUs has no way to
-distinguish which CPU an error relates to, and no CPU-specific (or even
-RIS-specific) ESR.
-
-So, won't such an interrupt be pointlessly take the interrupt on all
-CPUs, which would all fight over the reported event?
-
-Have you encountered any platforms wired up this way?  The spec
-recommends not to do this, but does not provide any rationale...
-
-The spec only mentions PPIs in the context of being affine to a single
-CPU (PE).  It's not clear to me that any other use of PPIs makes
-sense (?)
-
-If we really have to cope with this, maybe it would make sense to pick
-a single CPU in the affinity set (though we might have to move it
-around if the unlucky CPU is offlined).
-
-[...]
-
-> +static char *mpam_errcode_names[16] = {
-> +	[0] = "No error",
-> +	[1] = "PARTID_SEL_Range",
-> +	[2] = "Req_PARTID_Range",
-> +	[3] = "MSMONCFG_ID_RANGE",
-> +	[4] = "Req_PMG_Range",
-> +	[5] = "Monitor_Range",
-> +	[6] = "intPARTID_Range",
-> +	[7] = "Unexpected_INTERNAL",
-> +	[8] = "Undefined_RIS_PART_SEL",
-> +	[9] = "RIS_No_Control",
-> +	[10] = "Undefined_RIS_MON_SEL",
-> +	[11] = "RIS_No_Monitor",
-> +	[12 ... 15] = "Reserved"
-> +};
-> +
-> +static int mpam_enable_msc_ecr(void *_msc)
-> +{
-> +	struct mpam_msc *msc = _msc;
-> +
-> +	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
-> +
-> +	return 0;
-> +}
-
-This could also be a switch () { case 0: return "foo";
-case 1: return "bar"; ... }, without the explicit table.  This would
-avoid having to think about the ERRCODE field growing.  (There are some
-RES0 bits looming over it.)
-
-(This also tends to avoid the extra pointer table in .rodata, which
-might be of interest if this were a hot path.)
-
-[...]
-
-(Review truncated -- that's the comments I had so far on the previous
-series.)
-
-Cheers
----Dave
 
