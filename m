@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3105CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 22:50:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB13CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 22:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=fpfqW8FDz3tD25986oEdSeYGy1dr2XFdz8hrVVV4aPc=; b=r2BlaK75WIeVto
-	GQbmPRXjqTDIklk+yHDdBvJe/tK14eEIBrAaFQT6/rySD8+TYbD4qYK32YmH/pM7kgcNXTws2+rh/
-	VGK8W/m8IYkfnLSgfcYYBVGBHjxzNtnfdVjYoT4cYOd/iJ0AlilJOqPpBWeAob6h59BlC61L3mApi
-	aZbt19D2tvtbC8J9mCbMf/GifvDRNnZ9MMK/jRQZEkkqAuwUisKHwQEZIofWDebeMXj060+W0xqSf
-	y9zBkVkX482YkjGLgSwHhra0WEEadg/bfzvkK09ROvmi3xJqZqzhPxhnCNJgQHpA4jxcvR/xJVuGO
-	pHg2upg+BRCv5QI/c83Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H/ALLDcBZ6nZwBY7ZN6L7gT+4ClMkunGI751uMEjico=; b=T52MR+TVWjr39KhneERoTFxM5i
+	M+p4h9jAUphgDxSC3/v+KmiAaSaMR7bk28ilqpqF8qDmYCHWpyHTDvfdBwmSd0CSThYgPYAUMaGvQ
+	atr7RdiGb43fipUGIcbpZ0/EVtIE5xnLNnbHvTvJ29v2T0/veVSU+UtBhtJdeqVylA0LMAjotwQWu
+	xyFQoSP1lIVWKiVveN8cx4wpDOIDYJkhlLmDzo1oIFTQdF30WNE4ddSNoguuI3kO0i10vQsZ+S7bC
+	H7KgUdDZ49kSpsRuUrR+O9mi75PHg9ovvsxOjlG2Hvo1uTPO+z2/8zOJXYvy9QxSINoaKHcHBSzFA
+	QvggqFoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxCao-0000000Bwik-2Qj8;
-	Fri, 12 Sep 2025 22:50:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uxCeb-0000000Bxdn-1zf8;
+	Fri, 12 Sep 2025 22:54:05 +0000
+Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxCal-0000000BwiH-1vhY
+	id 1uxCeY-0000000BxcI-30d4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 22:50:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 74FF84064D;
-	Fri, 12 Sep 2025 22:50:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2126EC4CEF5;
-	Fri, 12 Sep 2025 22:50:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757717406;
-	bh=llL5i4JcGr00lkqdNb+4OnrW+J9u96jdBnm9y/x4iE0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=EsgNWuARrB8BcekinBkI5ai0HtqFm7+m9JAImUPxyVHCAj6PzRC9xNX6lQJ/gdJq1
-	 6Doz0yYnBsov5se3z9fEgFX9W2vMQOElUUPHwse7Lhkwv1F7UmAC+PGATMXT60aVYI
-	 C3+rQd8b1aEwoxupU9QiG/rEjoA0WHKBKOLvWahuy5X31IfarZ9FNT2hTP2qff0guF
-	 HkKsYcetOF0xC0927vl57tWDWWmUiFrJi3iq/J/5qCTaxeo24gWTTnJHUf+kRXSs45
-	 axeNIxahq12skZOmqDrnq1WYO8YARqDzhRJqKoUvqV1CoJeFZI0XeMCR6HYgeABapY
-	 1vhma/U2WUZcA==
-Date: Fri, 12 Sep 2025 17:50:04 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com,
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, Ionut.Vicovan@nxp.com,
-	larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com,
-	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] dt-bindings: pcie: Add the NXP PCIe controller
-Message-ID: <20250912225004.GA1651547@bhelgaas>
+	Fri, 12 Sep 2025 22:54:04 +0000
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-60170e15cf6so1684686d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 15:54:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757717641; x=1758322441; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H/ALLDcBZ6nZwBY7ZN6L7gT+4ClMkunGI751uMEjico=;
+        b=GvlGaV3EgZi9mNmw6W92x7+hDJuDUf5bDmj0cyZpj4FNH3AAAKWUeDuYlfG37XM+Bi
+         iAG1HVRKWOcnsMUqX2W/bVzoawqz61uIl1IyW5yDfJK/IFxQcQ09juXsaeh0BKtyq3+H
+         EY2Y7Fm/8+Ag2AKlzsYCEQR4mcL156kLfbPwFFkPucgWlGi+JMbfgoEmOVUVk8ZyKOzU
+         l59lMLvUjGmq6LrAzNUOZkh5suhUr9cvSI2q/pUterMwN6g5hpdktO0eo8jzkTxcbgF3
+         qzC/VuF+YabFzs+Ji2wP3De3ugrnm354w/ijACmO9nLlWbAxJZJe9+v5rguQsL5s0qk+
+         +p8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757717641; x=1758322441;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=H/ALLDcBZ6nZwBY7ZN6L7gT+4ClMkunGI751uMEjico=;
+        b=LM3c0Ai50g1kSPrM+lwJ3/p3wkt3gC0WxPrao2I/87rGy7nDJTZ8iH4W4rdp3444KK
+         i3MPAD3+hJI+KQUCUWU1NivSZ6waxDrSb8OHH5aFu2jG8ILiW0gkSstO5WYOHExTFvDH
+         mzOW9KE/d65DJIJuj8JKBGqq2bvPOi3eiMOYxqg0YeA8ZVKIibsjA9LpBP0ZYKlMwezc
+         3/A7/aD97VF4dRxRO3OE590PG7/CU3woDDrzs+bOzYRQI4Ak00BrGAA5q+Icl0JSTxnk
+         3nyzJvuG/OE15qkWVDvU3Z3CT1zym9/u/coOOA2q+DdqEEwg8c7Wjq32+X2Xu24Ky4WF
+         fCLw==
+X-Forwarded-Encrypted: i=1; AJvYcCUkEug138YotvGTMqqkOoseM7ISOyJI9mzOC4nMVVHNyECOUBhD8hvy9QL5vDV3H7dYYLU+luHfrhnjYlShVavk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIN58qWrjAuRuATEKtFdVZYwCE0WqFtbR5z3xVhkFRKYIXOrLk
+	MesHUypSCrWCKVw9tLENUOiGnFAN/6ZkTrmaNitwlFKWQO0H24TnARp3UdxqeicHcrBOVmJdSPh
+	wsNMNkKe5E5gU7Cx2+JNSb5fve0fCrcedPMMmR4Q=
+X-Gm-Gg: ASbGncvIIu6C2b888qLOMeAESGOoaVbTp/SFcHBRuExr0krSlHHhBbmTC/65v5OKSyD
+	lQrVXMJcFqrJGBN5SmvYDlVNqi3R+5+ZG5hBaM5oQOodFQpIPnT01XKOUkD1J3O7Wqt++N27nRO
+	Zvqf1AyE/C0FnJ1wP74UGu6X/mh8tipImFBWXF189Yy3bcpFnuR/g/HKcxwBMWZuewPdtNMWIDX
+	1i1VTFkSm7yqIYR1zajfqTpThlScbqeqHUuBFvQ49rGmRzlt1gCW9dUUpTRpsVrzVQchevKQA+9
+	5ykIElM=
+X-Google-Smtp-Source: AGHT+IGmrPKfHKqLuLVsedBSU1D7fMJ0SPSt1pUu9IK0SCtyHO6OiaCBaQyBDxty6OWXlqg3nf3oT3Kb2tAQnhUAUk8=
+X-Received: by 2002:a53:7101:0:b0:626:842f:818c with SMTP id
+ 956f58d0204a3-6272297979cmr3570059d50.24.1757717641302; Fri, 12 Sep 2025
+ 15:54:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250912141436.2347852-2-vincent.guittot@linaro.org>
+References: <20250912-mt8196-gpufreq-v2-0-779a8a3729d9@collabora.com> <20250912-mt8196-gpufreq-v2-9-779a8a3729d9@collabora.com>
+In-Reply-To: <20250912-mt8196-gpufreq-v2-9-779a8a3729d9@collabora.com>
+From: Chia-I Wu <olvaffe@gmail.com>
+Date: Fri, 12 Sep 2025 15:53:50 -0700
+X-Gm-Features: AS18NWAVsbHM7asbGyyRZapaZP5ufrQUasUcMY0V45b2pm9dui9MQp5I0XZOq0k
+Message-ID: <CAPaKu7TEN++z8r68k_4-iCyMLMthqJBUX35pgXupAHPdfttrYg@mail.gmail.com>
+Subject: Re: [PATCH v2 09/10] drm/panthor: devfreq: add pluggable devfreq providers
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Jassi Brar <jassisinghbrar@gmail.com>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
+	linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_155007_544495_31F585EB 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20250912_155402_764488_ABE0DD13 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,217 +108,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 04:14:33PM +0200, Vincent Guittot wrote:
-> Describe the PCIe controller available on the S32G platforms.
-> 
-> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
-> Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
-> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> ---
->  .../devicetree/bindings/pci/nxp,s32-pcie.yaml | 169 ++++++++++++++++++
->  1 file changed, 169 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
-> new file mode 100644
-> index 000000000000..287596d7162d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
-> @@ -0,0 +1,169 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/nxp,s32-pcie.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+On Fri, Sep 12, 2025 at 11:38=E2=80=AFAM Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+<snipped>
+> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.h b/drivers/gpu/drm/=
+panthor/panthor_devfreq.h
+> index a891cb5fdc34636444f141e10f5d45828fc35b51..94c9768d5d038c4ba8516929e=
+db565a1f13443fb 100644
+> --- a/drivers/gpu/drm/panthor/panthor_devfreq.h
+> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.h
+> @@ -8,6 +8,7 @@
+>
+>  struct devfreq;
+>  struct thermal_cooling_device;
+> +struct platform_device;
+>
+>  struct panthor_device;
+>
+> @@ -43,6 +44,19 @@ struct panthor_devfreq {
+>         spinlock_t lock;
+>  };
+>
+> +struct panthor_devfreq_provider {
+> +       /** @dev: device pointer to the provider device */
+> +       struct device *dev;
+> +       /**
+> +        * @init: the provider's init callback that allocates a
+> +        * &struct panthor_devfreq, adds it to panthor, and adds a devfre=
+q
+> +        * device to panthor. Will be called during panthor's probe.
+> +        */
+> +       int (*init)(struct panthor_device *ptdev, struct device *dev);
 > +
-> +title: NXP S32G2xx/S32G3xx PCIe controller
-> +
-> +maintainers:
-> +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> +  - Ionut Vicovan <ionut.vicovan@nxp.com>
-> +
-> +description:
-> +  This PCIe controller is based on the Synopsys DesignWare PCIe IP.
-> +  The S32G SoC family has two PCIe controllers, which can be configured as
-> +  either Root Complex or End Point.
+> +       struct list_head node;
+> +};
+On mt8196, we have performance-domains to replace several other
+properties: clocks, *-supply, power-domains, operating-points-v2.
+There are also quirks, such as GPU_SHADER_PRESENT should be masked by
+GF_REG_SHADER_PRESENT. It feels like that the scope of
+panthor_devfreq_provider is more broader, and at least the naming is
+not right.
 
-s/End Point/Endpoint/ to match spec usage.
+Another issue is I am not sure if we need to expose panthor_device
+internals to the provider. mtk_mfg accesses very few fields of
+panthor_device. It seems we can make the two less coupled.
 
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - enum:
-> +          - nxp,s32g2-pcie     # S32G2 SoCs RC mode
-> +      - items:
-> +          - const: nxp,s32g3-pcie
-> +          - const: nxp,s32g2-pcie
-> +
-> +  reg:
-> +    minItems: 7
-> +    maxItems: 7
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dbi
-> +      - const: dbi2
-> +      - const: atu
-> +      - const: dma
-> +      - const: ctrl
-> +      - const: config
-> +      - const: addr_space
-> +
-> +  interrupts:
-> +    minItems: 8
-> +    maxItems: 8
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: link_req_stat
-> +      - const: dma
-> +      - const: msi
-> +      - const: phy_link_down
-> +      - const: phy_link_up
-> +      - const: misc
-> +      - const: pcs
-> +      - const: tlp_req_no_comp
-> +
-> +  msi-parent:
-> +    description:
-> +      Use this option to reference the GIC controller node which will
-> +      handle the MSIs. This property can be used only in Root Complex mode.
-> +      The msi-parent node must be declared as "msi-controller" and the list of
-> +      available SPIs that can be used must be declared using "mbi-ranges".
-> +      If "msi-parent" is not present in the PCIe node, MSIs will be handled
-> +      by iMSI-RX -Integrated MSI Receiver [AXI Bridge]-, an integrated
-> +      MSI reception module in the PCIe controller's AXI Bridge which
-> +      detects and terminates inbound MSI requests (received on the RX wire).
-> +      These MSIs no longer appear on the AXI bus, instead a hard-wired
-> +      interrupt is raised, documented as "DSP AXI MSI Interrupt" in the SoC
-> +      Reference Manual.
-> +
-> +  nxp,phy-mode:
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    description: Select PHY mode for PCIe controller
-> +    enum:
-> +      - crns  # Common Reference Clock, No Spread Spectrum
-> +      - crss  # Common Reference Clock, Spread Spectrum
-> +      - srns  # Separate reference Clock, No Spread Spectrum
-> +      - sris  # Separate Reference Clock, Independent Spread Spectrum
-> +
-> +  max-link-speed:
-> +    description:
-> +      The max link speed is normaly Gen3, but can be enforced to a lower value
-> +      in case of special limitations.
+I might change my view as mtk_mfg evolves and requires tigher
+integration with panthor. But as is, I might prefer for mtk_mfg to
+live under drivers/soc/mediatek and provide a header for panthor to
+use in soc-specific path.
 
-s/normaly/normally/
 
-But I doubt you need this here at all.
-
-> +    maximum: 3
 > +
-> +  num-lanes:
-> +    description:
-> +      Max bus width (1 or 2); it is the number of physical lanes
-> +    minimum: 1
-> +    maximum: 2
+>
+>  int panthor_devfreq_init(struct panthor_device *ptdev);
+>
+> @@ -57,4 +71,6 @@ int panthor_devfreq_get_dev_status(struct device *dev,
+>
+>  unsigned long panthor_devfreq_get_freq(struct panthor_device *ptdev);
+>
+> +int panthor_devfreq_register_provider(struct panthor_devfreq_provider *p=
+rov);
 > +
-> +allOf:
-> +  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - interrupt-names
-> +  - ranges
-> +  - nxp,phy-mode
-> +  - num-lanes
-> +  - phys
-> +
-> +additionalProperties: true
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/phy/phy.h>
-> +
-> +    bus {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        pcie0: pcie@40400000 {
-> +            compatible = "nxp,s32g3-pcie",
-> +                         "nxp,s32g2-pcie";
-> +            dma-coherent;
-> +            reg = <0x00 0x40400000 0x0 0x00001000>,   /* dbi registers */
-> +                  <0x00 0x40420000 0x0 0x00001000>,   /* dbi2 registers */
-> +                  <0x00 0x40460000 0x0 0x00001000>,   /* atu registers */
-> +                  <0x00 0x40470000 0x0 0x00001000>,   /* dma registers */
-> +                  <0x00 0x40481000 0x0 0x000000f8>,   /* ctrl registers */
-> +                  /* RC configuration space, 4KB each for cfg0 and cfg1
-> +                   * at the end of the outbound memory map
-> +                   */
-> +                  <0x5f 0xffffe000 0x0 0x00002000>,
-> +                  <0x58 0x00000000 0x0 0x40000000>; /* 1GB EP addr space */
-> +                  reg-names = "dbi", "dbi2", "atu", "dma", "ctrl",
-> +                              "config", "addr_space";
-> +                  #address-cells = <3>;
-> +                  #size-cells = <2>;
-> +                  device_type = "pci";
-> +                  ranges =
-> +                  /* downstream I/O, 64KB and aligned naturally just
-> +                   * before the config space to minimize fragmentation
-> +                   */
-> +                  <0x81000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
-> +                  /* non-prefetchable memory, with best case size and
-> +                  * alignment
-> +                   */
-> +                  <0x82000000 0x0 0x00000000 0x58 0x00000000 0x7 0xfffe0000>;
-> +
-> +                  nxp,phy-mode = "crns";
-> +                  bus-range = <0x0 0xff>;
-> +                  interrupts =  <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>,
-> +                                <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>,
-> +                                <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
-> +                                <GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH>,
-> +                                <GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>,
-> +                                <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>,
-> +                                <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>,
-> +                                <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>;
-> +                  interrupt-names = "link_req_stat", "dma", "msi",
-> +                                    "phy_link_down", "phy_link_up", "misc",
-> +                                    "pcs", "tlp_req_no_comp";
-> +                  #interrupt-cells = <1>;
-> +                  interrupt-map-mask = <0 0 0 0x7>;
-> +                  interrupt-map = <0 0 0 1 &gic 0 0 0 128 4>,
-> +                                  <0 0 0 2 &gic 0 0 0 129 4>,
-> +                                  <0 0 0 3 &gic 0 0 0 130 4>,
-> +                                  <0 0 0 4 &gic 0 0 0 131 4>;
-> +                  msi-parent = <&gic>;
-> +
-> +                  num-lanes = <2>;
-> +                  phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-
-num-lanes and phys are properties of a Root Port, not the host bridge.
-Please put them in a separate stanza.  See this for details and
-examples:
-
-  https://lore.kernel.org/linux-pci/20250625221653.GA1590146@bhelgaas/
-
-> +        };
-> +    };
-> -- 
-> 2.43.0
-> 
+>  #endif /* __PANTHOR_DEVFREQ_H__ */
+>
+> --
+> 2.51.0
+>
 
