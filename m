@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F215FCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7426CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xX6FnGnFsu2zJTHIwUJ96kS5B6QGFTAvNOfOinwEn9Y=; b=gMl26EeFXw/zusZyg5vFrQ7ZjW
-	tqANMOzyFCkJkYr6YvtYGw+5muq5Nb3WcZmgiADjG197ow9Vehljx7h7N0lPGloILVlk1PpP/sqCs
-	8+rMvfiNQM7d+IvQIL3veIL8huI9uJNWoJGZblHtsK4LrJ12oyrrVUGZpsgNdGUNlYptvJf1MZXM6
-	lPqeq5j2AyyMAHKnanToh1pRQc7QJtcDGd9+FHejRp0OTuRMEVOsPkfDagWU1+YGBA5Ih3P4zGDLK
-	LP3lSbZxVSQLemNONq+umWYYMU278V3hPWxSiER1JIZBvvTLirwmi2OIvIZF9snFmg3cGFDKvt0uq
-	h/xJYH1A==;
+	bh=rfYOp3U34tuS5/ABM+rK01zZRhwr8rjgRGFvS/00FGI=; b=btY51NCcQU7Ylr9/drVwZ62Bdv
+	fdH6wMlCLe5NZuNMS534g/UMx8tZZRg6h181aYLSVgeC6HE7PBVNZKLG/BXg2mrj8rkM41L4XjAAG
+	Z47xwtG7AfvLr1SGD5RLMCW9iy4tWagXU8FgQg1Ze7C2vpMb4pSxbKKIcvrN9dRMVdsEvSUt2kY/A
+	xMWFFWmNWtvxjOC286p76gR0E9YY+67iApDCG8gjq3/YjWhwkK/02VMsFq/OT4VcHPy7SgqKd3fcQ
+	oxQToB1o8JW3usXyU/gwiWiXymMtHr5zV1qBtGzYKhBocpo0O9kJ5IThMPgPOJe9+b+06AeFXhMBb
+	uJLmQMfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3lP-00000009Xbq-23Rm;
-	Fri, 12 Sep 2025 13:24:31 +0000
+	id 1ux3oJ-00000009Ybb-2CY7;
+	Fri, 12 Sep 2025 13:27:31 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3lM-00000009Xb0-1Djz
+	id 1ux3oH-00000009YaT-11M5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 13:24:29 +0000
+	Fri, 12 Sep 2025 13:27:30 +0000
 Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cNZqX0v5cz6GDGM;
-	Fri, 12 Sep 2025 21:23:04 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cNZv46TKdz6GDH6;
+	Fri, 12 Sep 2025 21:26:08 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5579C14038F;
-	Fri, 12 Sep 2025 21:24:22 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 23B7214038F;
+	Fri, 12 Sep 2025 21:27:27 +0800 (CST)
 Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
  (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 12 Sep
- 2025 15:24:21 +0200
-Date: Fri, 12 Sep 2025 14:24:19 +0100
+ 2025 15:27:25 +0200
+Date: Fri, 12 Sep 2025 14:27:24 +0100
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: James Morse <james.morse@arm.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -55,13 +55,12 @@ CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
 	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
  Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 24/29] arm_mpam: Track bandwidth counter state for
- overflow and power management
-Message-ID: <20250912142419.00006c6d@huawei.com>
-In-Reply-To: <20250910204309.20751-25-james.morse@arm.com>
+	Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH v2 25/29] arm_mpam: Probe for long/lwd mbwu counters
+Message-ID: <20250912142724.000026a7@huawei.com>
+In-Reply-To: <20250910204309.20751-26-james.morse@arm.com>
 References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-25-james.morse@arm.com>
+	<20250910204309.20751-26-james.morse@arm.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -70,8 +69,8 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_062428_473888_288055FF 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20250912_062729_572729_EBEBA02D 
+X-CRM114-Status: GOOD (  25.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +85,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sep 2025 20:43:04 +0000
+On Wed, 10 Sep 2025 20:43:05 +0000
 James Morse <james.morse@arm.com> wrote:
 
-> Bandwidth counters need to run continuously to correctly reflect the
-> bandwidth.
+> From: Rohit Mathew <rohit.mathew@arm.com>
 > 
-> The value read may be lower than the previous value read in the case
-> of overflow and when the hardware is reset due to CPU hotplug.
+> mpam v0.1 and versions above v1.0 support optional long counter for
+> memory bandwidth monitoring. The MPAMF_MBWUMON_IDR register have fields
+> indicating support for long counters. As of now, a 44 bit counter
+> represented by HAS_LONG field (bit 30) and a 63 bit counter represented
+> by LWD (bit 29) can be optionally integrated. Probe for these counters
+> and set corresponding feature bits if any of these counters are present.
 > 
-> Add struct mbwu_state to track the bandwidth counter to allow overflow
-> and power management to be handled.
-> 
+> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
 > Signed-off-by: James Morse <james.morse@arm.com>
-Trivial comment inline.  I haven't spent enough time thinking about this
-to give a proper review so no tags yet.
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+
+Hi Rohit, James.
+
+I'd like a little more justification of the 'front facing' use for the first
+feature bit.  To me that seems confusing but I may well be missing why
+we can't have 3 exclusive features.
 
 Jonathan
- 
+
 > ---
-> Changes since v1:
->  * Fixed lock/unlock typo.
-> ---
->  drivers/resctrl/mpam_devices.c  | 154 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_internal.h |  23 +++++
->  2 files changed, 175 insertions(+), 2 deletions(-)
+>  drivers/resctrl/mpam_devices.c  | 23 ++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |  9 +++++++++
+>  2 files changed, 31 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 1543c33c5d6a..eeb62ed94520 100644
+> index eeb62ed94520..bae9fa9441dc 100644
 > --- a/drivers/resctrl/mpam_devices.c
 > +++ b/drivers/resctrl/mpam_devices.c
-> @@ -918,6 +918,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
->  	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
+> @@ -795,7 +795,7 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  				dev_err_once(dev, "Counters are not usable because not-ready timeout was not provided by firmware.");
+>  		}
+>  		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_MBWU, msmon_features)) {
+> -			bool hw_managed;
+> +			bool has_long, hw_managed;
+>  			u32 mbwumon_idr = mpam_read_partsel_reg(msc, MBWUMON_IDR);
 >  
->  	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
-> +
-Unrelated change.  If it makes sense figure out where to push it back to.
+>  			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumon_idr);
+> @@ -805,6 +805,27 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  			if (FIELD_GET(MPAMF_MBWUMON_IDR_HAS_RWBW, mbwumon_idr))
+>  				mpam_set_feature(mpam_feat_msmon_mbwu_rwbw, props);
+>  
+> +			/*
+> +			 * Treat long counter and its extension, lwd as mutually
+> +			 * exclusive feature bits. Though these are dependent
+> +			 * fields at the implementation level, there would never
+> +			 * be a need for mpam_feat_msmon_mbwu_44counter (long
+> +			 * counter) and mpam_feat_msmon_mbwu_63counter (lwd)
+> +			 * bits to be set together.
+> +			 *
+> +			 * mpam_feat_msmon_mbwu isn't treated as an exclusive
+> +			 * bit as this feature bit would be used as the "front
+> +			 * facing feature bit" for any checks related to mbwu
+> +			 * monitors.
 
->  	if (m->ctx->match_pmg) {
->  		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
->  		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
+Why do we need such a 'front facing' bit?  Why isn't it sufficient just to
+add a little helper or macro to find out if mbwu is turned on?
+
+> +			 */
+> +			has_long = FIELD_GET(MPAMF_MBWUMON_IDR_HAS_LONG, mbwumon_idr);
+> +			if (props->num_mbwu_mon && has_long) {
+> +				if (FIELD_GET(MPAMF_MBWUMON_IDR_LWD, mbwumon_idr))
+> +					mpam_set_feature(mpam_feat_msmon_mbwu_63counter, props);
+> +				else
+> +					mpam_set_feature(mpam_feat_msmon_mbwu_44counter, props);
+> +			}
+> +
+>  			/* Is NRDY hardware managed? */
+>  			hw_managed = mpam_ris_hw_probe_hw_nrdy(ris, MBWU);
+>  			if (hw_managed)
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 725c2aefa8a2..c190826dfbda 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -158,7 +158,16 @@ enum mpam_device_features {
+>  	mpam_feat_msmon_csu_capture,
+>  	mpam_feat_msmon_csu_xcl,
+>  	mpam_feat_msmon_csu_hw_nrdy,
+> +
+> +	/*
+> +	 * Having mpam_feat_msmon_mbwu set doesn't mean the regular 31 bit MBWU
+> +	 * counter would be used. The exact counter used is decided based on the
+> +	 * status of mpam_feat_msmon_mbwu_44counter/mpam_feat_msmon_mbwu_63counter
+> +	 * as well.
+> +	 */
+>  	mpam_feat_msmon_mbwu,
+> +	mpam_feat_msmon_mbwu_44counter,
+> +	mpam_feat_msmon_mbwu_63counter,
+>  	mpam_feat_msmon_mbwu_capture,
+>  	mpam_feat_msmon_mbwu_rwbw,
+>  	mpam_feat_msmon_mbwu_hw_nrdy,
 
 
