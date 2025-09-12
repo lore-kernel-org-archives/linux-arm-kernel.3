@@ -4,156 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2EECAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1554CAC58F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qomhk/EDTtBjrE1lkeg1NIpb7rJMXA0DzPSJ7PFPv3M=; b=gkgshMaVwGvwJPGG02YjaiHrIS
-	xL20b9mv4QUE6ACUHtEoGW3ouarcSsXJL80ka7I5g4lGNFcE6UqXPWYfh7LwLVuWpO1ytnfT7Qbmn
-	LI4wu6BzhJL6W0e2iFRAFhXuMMCnmPZJKwENDWi4yeByvkueNWynfaI733JAvGgEYKDzrku1EspIS
-	Enicthv0djWa59JLEseQYKuA/oc66ZU6XgZm6wcddHQ7NOQN1jTkbW3tAaEb8fbFR4RZGOZZWG+T+
-	HdLTSdihM3zFTKIFkUL1RjBZDekQu46WBNXKCRbrS9UEq2YRhVufqf1Qe0JAcYYXvzNLRJhVsXaHU
-	GfBbUtZg==;
+	bh=qRzTnvTFYneU/eG0Lb1OTa5ZZyeob/cfLuVwYINLOXU=; b=1nbUe0B6N6dMN69CCpJ65j48QS
+	CL+r2brWvGVohpo6wCX82903zTMxfYm2M7W+SJEGu+1EZTeKBn6fEvpDunjUSYR3lFUFxWJwLbvKT
+	5IwrebpgOBRk8HJKNFp924+5ZDwEvriQcFvZiSSYV+6aQ+frCjvG2py1Ie+qXn280FnN2ePeYwdBI
+	KW5ZVZEWo0n7WzFvM8U1ZFiJpViJY0yj0H98ri+ZzfNFzpOz307X9k1Ee0it+VC02NtU/qGYsO1GQ
+	P68z1mJG0cgzGPcNllV6Ti3J2KhBU6N+79LjhLybKaTM1HyxTjP2PNK+n0+j1APWey29NCPKlfk8d
+	HmCFHv1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5bn-0000000ADQh-3fxi;
-	Fri, 12 Sep 2025 15:22:43 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5bk-0000000ADOt-1Hdh
+	id 1ux5c9-0000000ADYb-0vva;
+	Fri, 12 Sep 2025 15:23:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux5c7-0000000ADWy-09sN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 15:22:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IWO3xLX+X+jfpz6r6hlHO4rPgmZgqmOA/NGZMFuW6elnhoxyaalnYnQgnbn34U6uZUgs0lmE75XTTrUGdPU3Y2mNXq9rQA6JKVUhkTA4OuBIxQ+3IiMMl2jxRx0r6TLdV26nO8cy1yxOIHJ6HSKYS89f9T3LPUyaRP7xMShuIIwHBD3fmfeO1vu+ECJ5gOMp5TFTML/iyKY4110nzvVOpX8vb7ey5vkMZjHmsdQ6/89QzreqV9uTSCnJ02AotTgkdMRUpWxLGCSmccCfRNgUNQs7ziWv/TA4n4gYhAXYa1Jt/FqYtfW9QJuCANT26WScLv46hG/DiZl6ejJSxUsHHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Qomhk/EDTtBjrE1lkeg1NIpb7rJMXA0DzPSJ7PFPv3M=;
- b=HIEiMheJ7rayEUcrI0q9yrBWihDxcNkLAG0Sz+SJMCchTRefqjj6T3bB0YP6tYNMofzLvOe9BlRPmXtB4GC2V4nZkEVUsd6tB33X22osMJ87Qqq5t66B9rHl97LL62y7/GS94ACPyuCXExtSG/DzIPWsxuEOoRAw1N8V4dxpdvRSaXTkw+LX65RJfXtuMY3OzLe9q53Q5n4yIaWEC7+l540ouJ32t9T/OyqOeoUY6afiOLlVLY+235A45OMHyufB2Mda4SdjfECMiFPLzBoL3w2BMgYOn6eI5ZYzgi5srhTbc1g3AA/0a5Uew/ANepNc3nleCnC9Ambuh5mQF8NvzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Qomhk/EDTtBjrE1lkeg1NIpb7rJMXA0DzPSJ7PFPv3M=;
- b=VVI40tbHOpEwMUvzZTcWnWksaeOXAGKXOZjp5BM2coeEgNuBZylhQGjjp58O/y2OxbMPFrVhsuozz+40AortixTFuRERnwz8lximPYEnN22rh1cF+YkYz9S9+H1Ux4zEO8TFfdeccYXV+NiuHMzROY/r4cdDSfwJmN1WFcfCfRxpYMG6Ao+EfI0NFc/29mF6SB12pfIIDepRPAGhmml+qeWtvalVzaqT96hDy93GEQ6Z+vgxF9WZ/LeIh6AaHwP/wC0SjIlvPjeiQjy5TvRBr7W/d5m+/Xsm8CkbJtyOA3MLNlHA3NZ4QPBYbx+1otJBjL5P5zyDplM3sumuIHUjOg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by DU2PR04MB8741.eurprd04.prod.outlook.com (2603:10a6:10:2df::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.17; Fri, 12 Sep
- 2025 15:22:31 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9115.015; Fri, 12 Sep 2025
- 15:22:31 +0000
-Date: Fri, 12 Sep 2025 11:22:21 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Maud Spierings <maudspierings@gocontroll.com>
-Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: backlight: Add max25014 bindingsy
-Message-ID: <aMQ6rZJzbMeBrrFv@lizhi-Precision-Tower-5810>
-References: <20250911-max25014-v3-0-d03f4eba375e@gocontroll.com>
- <20250911-max25014-v3-1-d03f4eba375e@gocontroll.com>
- <aMLrrcBZ2Kc4o84t@lizhi-Precision-Tower-5810>
- <3960b845-3838-4690-b01d-21e61ccfa8fd@gocontroll.com>
+	Fri, 12 Sep 2025 15:23:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C046D1515;
+	Fri, 12 Sep 2025 08:22:49 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E06B3F694;
+	Fri, 12 Sep 2025 08:22:52 -0700 (PDT)
+Date: Fri, 12 Sep 2025 16:22:44 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com, lcherian@marvell.com,
+	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+	dfustini@baylibre.com, amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>, Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH v2 18/29] arm_mpam: Register and enable IRQs
+Message-ID: <aMQ6xODb+QRWdblG@e133380.arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-19-james.morse@arm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3960b845-3838-4690-b01d-21e61ccfa8fd@gocontroll.com>
-X-ClientProxiedBy: SJ0PR05CA0180.namprd05.prod.outlook.com
- (2603:10b6:a03:339::35) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DU2PR04MB8741:EE_
-X-MS-Office365-Filtering-Correlation-Id: 22c15015-23bb-4ed0-c32e-08ddf21030df
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|366016|376014|7416014|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ztXdxjsjfpAG43dCsavTpi3bEmIJ00seodJHxilZAVOZ1i3cVVYkWbTrYHJ1?=
- =?us-ascii?Q?AkJXu6xoyuv3SWfMcZBCFTBbs8XKsf6kS776nBbDKVec9G8DP0cYlpI/+/fS?=
- =?us-ascii?Q?GUGA5XwOQz/fHZtpbe8+fLquy0JApAt0+34BCNsFJ9QBm7AiJz8aiqwC3hrN?=
- =?us-ascii?Q?yjKn8Zq5ft6FCnVWGpm+pvbVdUAVrtanXMXfpDEd/RwmZ7C8IebaGQsc2Gk0?=
- =?us-ascii?Q?A8dD1Q/8oXQAJ2YjVWqqAGGAUO5noo+2kZQS5LTUSQaUHz81mqncad8m66oB?=
- =?us-ascii?Q?V0ZHnSK8UJyXPGN0ePRvQMp/ULiprFsWzdycZuNL9WFAQLUxt0aRMIX/xyp8?=
- =?us-ascii?Q?sB3ObG1NJqAoJVgOtIn9RSPtadi2Kh0t6EIp4viTRaeKw9XvwRnGLL+dEV9t?=
- =?us-ascii?Q?FXXUwGxkRRVVYFuMsjAmH+UqhkYkiXYIDVtpogTG2VVCn6GH6VdJJxUJaT8W?=
- =?us-ascii?Q?i+2G1rI9l7KN7XofYmDAz2ghFFNCiixVdU6zGi/HKq1x0r+YaB5Xjm8plV0/?=
- =?us-ascii?Q?+y8PjHm6lUpju3+wIqFZ7a9Q2mosLHizy9adP/2NoRLNa5uYLas84/UI0KtX?=
- =?us-ascii?Q?o/R2X50diPuY/uLO8VoZnoI/8Br3s9l5LASf9so0QP6RmqhjcD0IZUriYXcg?=
- =?us-ascii?Q?HVToK1QgXC/I8+RjCUld6IjhoWYeQvW/I1CqsLTPyr2MpF4Qrmw5mQC1hXub?=
- =?us-ascii?Q?seIs9plpN34IRn4D5PrnMz//h4L5e2g/TFH7l1kv2SxXXB0qISdDcYiqSg+V?=
- =?us-ascii?Q?MRS3vSxFpwUOBVBVnIwNFpI75/t6CmF1E5p+VkD+bNznFSC2DLQHA+sNQ1uD?=
- =?us-ascii?Q?hF6aGsZctR9HRuzehaBaqkRNNc0ebzhNd0qmb0yUkoXXSW/CU/J99dFwevB9?=
- =?us-ascii?Q?GzbFSiSfzZ8jmKnlTDGJc+OGnPDTVW7nnEDdBHJAYfc5i2DIS5QJF07X+E+b?=
- =?us-ascii?Q?qDxODGMgzKbUIuJrZrnXwOo0t0PVFXcUTBNfNuKUlKTLUEB4X0VsUbtatpRW?=
- =?us-ascii?Q?b9sUYQ1PO1TBYgAtlGvvj9oq/VVLFjOturG7rdSE2WsXZhr76P1Tvrm2VNhb?=
- =?us-ascii?Q?DK2oOLqoyRyXqqSgYDZKCgIAUPi3RE3+Ys8Zp1akXdlmjNJzJibYJYbSFX4g?=
- =?us-ascii?Q?8ldMFl45uzUk65MHhL/XaAWkySYyqZj3H2z3Me0fLNjuSWPp21PNuXF2+Byl?=
- =?us-ascii?Q?wyxHVrBhWLERJmmA2whuPbecskg4bK7TgPYtEGOIGskAW+5kx6ssCSfwAQC3?=
- =?us-ascii?Q?oYpFuMEsAJh8zfC7C5ihAGOzTR5zdEmcTKrb+yo1duadCAL1xFuNTiqFE91H?=
- =?us-ascii?Q?rHebCGaPM5rv5l3Ye+hgUU7ZrT2Ad+n/kzNmOT0Gzne9rymDFyNe/oZ+ASgs?=
- =?us-ascii?Q?seocjDt5GMUJhd2eUaJVGr8uzjvIDp5WEhFtkYiXjhBADiugjfXn7WZwtUiv?=
- =?us-ascii?Q?t5h0NRD8VPh4kp53hHLVdFb9J9q1qwIY?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(366016)(376014)(7416014)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tQJBbt8b0WuZisJNT/rsg9pf5bj0vgq2rvqPR7RFnJPZGCJFyEcM1jGNVHUm?=
- =?us-ascii?Q?jd7ouOVW9dH16duMHqRKmS8mYZWbPOrKfbYzJ/11DDV4y5it4yNhH2t7KozI?=
- =?us-ascii?Q?2pa9AurBR/s5uZcnUDQFdJWL/NDgb+ZuPqrQ2GK6Ap7VOARBQkOLGzeBq3WG?=
- =?us-ascii?Q?FQkfeXESxC+4Srz8qzpK3JXEQIP0gC+1z6g+ql6sQWZAxIdgc3f2ai5J7NpW?=
- =?us-ascii?Q?sQdpq2/05h0ChLP2PSeANEyKggHvAYyEvSQNfoPIim/FnV+e0xFeq9lYJYDo?=
- =?us-ascii?Q?d4uF4mjDonZvyd1aMcXch8YwbSnK3QdinZVnDM1loO9gvM7mWiMCK86okfpi?=
- =?us-ascii?Q?ItUmw2mADoArHNHAu+aBWA6RUlVPTEgOOni6KHMnggo3eXtnMg+yeJPBY8yc?=
- =?us-ascii?Q?m14yHN1nXdZg7SGeRIt8pMfQ3yrabitNoHM3T+4UUVKxAKfXdjw+VlBjOOUB?=
- =?us-ascii?Q?shJjTirtywfZ2B0qSx2y856DNWE7fycJ5RCTYkBafD8vAiJCsNmFPT3yUS3C?=
- =?us-ascii?Q?Y3Tzpis3QskVc9f6wMoJlorE2gRxc17eOKfw2NhpoNrBLdmYhjWAXZLpHDzc?=
- =?us-ascii?Q?dgk8cPRuhxE2gAFepjNWEpIMfXJ3ghCWrQSfovgndzityVpiN/vsTRKTFqch?=
- =?us-ascii?Q?fy/2Av6XsvAnXhCSSrSa28BN3hJ4c4KOvfAtiw9vWy8m9C7v9gF/5uwjHtfp?=
- =?us-ascii?Q?FfEdcOwQWHL1LT5mrAgQnfDK55/JwIsSVYVP8B+paIpYhiVJ4EwURujyBhLe?=
- =?us-ascii?Q?spOfES6zi9ggtXFl9Qbkgv8KcMc05SXHf1kLyIN8BzWPWA/q+s8TqOIPUr8k?=
- =?us-ascii?Q?kh4eExD0DSwFxQUflRxVtM2r35m7osCAy/Pqv16S47QGu8hrahjGeV1YmNt6?=
- =?us-ascii?Q?FKn5zrQ5D05AKvF01SS2sA33SjhZE/KRS0Altde+XirVV2bOJhqq6zVVZbwe?=
- =?us-ascii?Q?rIJno+Rq1vXEWcG1J7dUf16vBAFX+qWmPUuDpY8jq0ZCbRHSIF2HiHqy/Kvg?=
- =?us-ascii?Q?FQTacTWtCsgdaOMgMRwYzMRggXe6dyX3Ij20Mm/2ayqXXwec3r0IBmzS3lsR?=
- =?us-ascii?Q?GbB/9biOb29Xdz6MgxN2oL8mf/oHtUXMqDc2yyHkGJq+Qjx+s4r+VPJJd4Ey?=
- =?us-ascii?Q?oMC7k9c+/xSbgHfFBOfRTfMZx46b+3OybuF8NyiIdkfdgJ2oYHXGYHDk9GQA?=
- =?us-ascii?Q?ydW5sjdCE2orNb3it+8huUQAJAnGMoZ7wdru4TL3fEi8Xl9nLRP8bPyJCNkJ?=
- =?us-ascii?Q?uq/0P/G6a/ROMYQ3jK3doXv4qtN19PE7EVqtZEKb96FWIdKUHvmjF2bmrWfd?=
- =?us-ascii?Q?8sX0msiI76kMd6V8GPFfxlWl4JH9PmQdlwrLFiAeFKdWCYZHkr9Mr0TyO3S7?=
- =?us-ascii?Q?JTIi88I2YC8RDnaSS1lt/iNBdCSquTFzDMoG/5dgxIkQtTbeQZNDGmQOQ1d8?=
- =?us-ascii?Q?96GbjMdr49m2qUKx5+gFkbup5AtVMIz71j/nvadl8j1iTXmD+1x5eefIdD8t?=
- =?us-ascii?Q?llrFCarocHpNQ1thRD9ZqkMjPa6r+KN15N296eRq6vmWM3e9Ov5JvWrMmG9f?=
- =?us-ascii?Q?2OsWTBSOen5GE6mHeIRI9LWY7Qh7cU/IqzN3ETxJ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22c15015-23bb-4ed0-c32e-08ddf21030df
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 15:22:31.0673
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XC2UK587AmZoRR+U6eRtLs1M8LCUQqWENgXq/fpBqztPuemQkPV0SW6b+nyDdtkTmDZRF9xqM8mXAa+Xzv14Og==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8741
+In-Reply-To: <20250910204309.20751-19-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_082240_341134_46A76865 
-X-CRM114-Status: GOOD (  28.81  )
+X-CRM114-CacheID: sfid-20250912_082303_156061_DA5ACCF4 
+X-CRM114-Status: GOOD (  42.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,100 +82,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 08:17:09AM +0200, Maud Spierings wrote:
-> Hi Frank,
-> Thanks for the review.
->
-> On 9/11/25 17:33, Frank Li wrote:
-> > On Thu, Sep 11, 2025 at 09:53:18AM +0200, Maud Spierings via B4 Relay wrote:
-> > > From: Maud Spierings <maudspierings@gocontroll.com>
-> > >
-> > > The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-> > > with integrated boost controller.
-> > >
-> > > Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> > > ---
-> > >   .../bindings/leds/backlight/maxim,max25014.yaml    | 81 ++++++++++++++++++++++
-> > >   MAINTAINERS                                        |  5 ++
-> > >   2 files changed, 86 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-> > > new file mode 100644
-> > > index 0000000000000000000000000000000000000000..e113a2ad16aa74f982b9c2ea80578aed2d9424fe
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-> > > @@ -0,0 +1,81 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/leds/backlight/maxim,max25014.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Maxim max25014 backlight controller
-> > > +
-> > > +maintainers:
-> > > +  - Maud Spierings <maudspierings@gocontroll.com>
-> > > +
-> > > +allOf:
-> > > +  - $ref: common.yaml#
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    enum:
-> > > +      - maxim,max25014
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  enable-gpios:
-> > > +    maxItems: 1
-> > > +
-> > > +  interrupts:
-> > > +    maxItems: 1
-> > > +
-> > > +  power-supply:
-> > > +    description: Regulator which controls the boost converter input rail.
-> > > +
-> > > +  pwms:
-> > > +    maxItems: 1
-> > > +
-> > > +  maxim,iset:
-> > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > +    maximum: 15
-> > > +    default: 11
-> > > +    description:
-> > > +      Value of the ISET register field. This controls the current scale of the
-> > > +      outputs, a higher number means more current.
-> >
-> > Use standard unit. Do not use register value directly.
->
-> It is unfortunately not just a value in Amps, it depends on the hardware
-> design. There is a kind of "default" table with a 49.9K resistor, but
-> depending on that resistor the current is different.
+Hi James,
 
-You should calculate in your driver. if 49.9K is dependence, you should
-add xxx_ohm at dts.
+On Wed, Sep 10, 2025 at 08:42:58PM +0000, James Morse wrote:
+> Register and enable error IRQs. All the MPAM error interrupts indicate a
+> software bug, e.g. out of range partid. If the error interrupt is ever
+> signalled, attempt to disable MPAM.
+> 
+> Only the irq handler accesses the ESR register, so no locking is needed.
 
-Frank
+Nit: MPAMF_ESR?  (Casual readers may confuse it with ESR_ELx.
+Formally, there is no MPAM "ESR" register, though people familiar with
+the spec will of course know what you're referring to.)
 
->
-> > > +
-> > > +  maxim,strings:
-> > > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> > > +    description:
-> > > +      A 4-bit bitfield that describes which led strings to turn on.
-> > > +    minItems: 4
-> > > +    maxItems: 4
-> > > +    items:
-> > > +      maximum: 1
-> >
-> > led should have standard interface.
-> >
-> > check  Documentation/devicetree/bindings/leds/common.yaml
->
-> Thanks I will investigate, that may indeed be a better abstraction.
->
-> Kind regards,
-> Maud
->
+> The work to disable MPAM after an error needs to happen at process
+> context as it takes mutex. It also unregisters the interrupts, meaning
+> it can't be done from the threaded part of a threaded interrupt.
+> Instead, mpam_disable() gets scheduled.
+> 
+> Enabling the IRQs in the MSC may involve cross calling to a CPU that
+> can access the MSC.
+> 
+> Once the IRQ is requested, the mpam_disable() path can be called
+> asynchronously, which will walk structures sized by max_partid. Ensure
+> this size is fixed before the interrupt is requested.
+> 
+> CC: Rohit Mathew <rohit.mathew@arm.com>
+> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since v1:
+>  * Made mpam_unregister_irqs() safe to race with itself.
+>  * Removed threaded interrupts.
+>  * Schedule mpam_disable() from cpuhp callback in the case of an error.
+>  * Added mpam_disable_reason.
+>  * Use alloc_percpu()
+> 
+> Changes since RFC:
+>  * Use guard marco when walking srcu list.
+>  * Use INTEN macro for enabling interrupts.
+>  * Move partid_max_published up earlier in mpam_enable_once().
+> ---
+>  drivers/resctrl/mpam_devices.c  | 277 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |  10 ++
+>  2 files changed, 284 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index a9d3c4b09976..e7e4afc1ea95 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -14,6 +14,9 @@
+>  #include <linux/device.h>
+>  #include <linux/errno.h>
+>  #include <linux/gfp.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdesc.h>
+>  #include <linux/list.h>
+>  #include <linux/lockdep.h>
+>  #include <linux/mutex.h>
+> @@ -166,6 +169,24 @@ static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+>  	return (idr_high << 32) | idr_low;
+>  }
+>  
+> +static void mpam_msc_zero_esr(struct mpam_msc *msc)
+
+Nit: Maybe clear_esr?  (The fact that setting the ERRCODE and OVRWR
+fields to zero clears the interrupt and prepares for unambiguous
+reporting of the next error is more of an implementation detail.
+It doesn't matter what the rest of the register is set to.)
+
+> +{
+> +	__mpam_write_reg(msc, MPAMF_ESR, 0);
+> +	if (msc->has_extd_esr)
+
+This deasserts the interrupt (if level-sensitive) and enables the MSC
+to report further errors.  If we are unlucky and error occurs now,
+won't we splat the newly HW-generated RIS field by:
+
+> +		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
+
+...?  If so, we will diagnose the wrong RIS when we pump the new error
+from MPAMF_ESR.  I think the correct interpretation of the spec may be
+that:
+
+ a) software should treat fields in MPAMF_ESR[63:32] as vaild only if
+    ERRCODE is nonzero, and
+
+ b) software should never write to MPAMF_ESR[63:32] while ERRCODE is
+    zero.
+
+Does this look right?  Should the fields be cleared in the opposite
+order?
+
+Or alternatively, is it actually necessary to clear MPAMF_ESR[63:32]
+at all?
+
+(The spec seems a bit vague on what software is supposed to do with
+this register to ensure correctness...)
+
+> +}
+> +
+> +static u64 mpam_msc_read_esr(struct mpam_msc *msc)
+> +{
+> +	u64 esr_high = 0, esr_low;
+> +
+> +	esr_low = __mpam_read_reg(msc, MPAMF_ESR);
+> +	if (msc->has_extd_esr)
+> +		esr_high = __mpam_read_reg(msc, MPAMF_ESR + 4);
+> +
+> +	return (esr_high << 32) | esr_low;
+> +}
+
+[...]
+
+> @@ -895,6 +920,13 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>  	}
+>  }
+>  
+> +static void _enable_percpu_irq(void *_irq)
+> +{
+> +	int *irq = _irq;
+> +
+> +	enable_percpu_irq(*irq, IRQ_TYPE_NONE);
+
+Can the type vary?  (Maybe this makes no sense on GIC-based systems --
+IRQ_TYPE_NONE (or "0") seems overwhelmingly common.)
+
+(Just my lack of familiarity takling, here.)
+
+[...]
+
+> +static int __setup_ppi(struct mpam_msc *msc)
+> +{
+> +	int cpu;
+> +	struct device *dev = &msc->pdev->dev;
+> +
+> +	msc->error_dev_id = alloc_percpu(struct mpam_msc *);
+> +	if (!msc->error_dev_id)
+> +		return -ENOMEM;
+> +
+> +	for_each_cpu(cpu, &msc->accessibility) {
+> +		struct mpam_msc *empty = *per_cpu_ptr(msc->error_dev_id, cpu);
+> +
+> +		if (empty) {
+> +			dev_err_once(dev, "MSC shares PPI with %s!\n",
+> +				     dev_name(&empty->pdev->dev));
+> +			return -EBUSY;
+> +		}
+> +		*per_cpu_ptr(msc->error_dev_id, cpu) = msc;
+> +	}
+
+How are PPIs supposed to work?
+
+An individual MSC that is affine to multiple CPUs has no way to
+distinguish which CPU an error relates to, and no CPU-specific (or even
+RIS-specific) ESR.
+
+So, won't such an interrupt be pointlessly take the interrupt on all
+CPUs, which would all fight over the reported event?
+
+Have you encountered any platforms wired up this way?  The spec
+recommends not to do this, but does not provide any rationale...
+
+The spec only mentions PPIs in the context of being affine to a single
+CPU (PE).  It's not clear to me that any other use of PPIs makes
+sense (?)
+
+If we really have to cope with this, maybe it would make sense to pick
+a single CPU in the affinity set (though we might have to move it
+around if the unlucky CPU is offlined).
+
+[...]
+
+> +static char *mpam_errcode_names[16] = {
+> +	[0] = "No error",
+> +	[1] = "PARTID_SEL_Range",
+> +	[2] = "Req_PARTID_Range",
+> +	[3] = "MSMONCFG_ID_RANGE",
+> +	[4] = "Req_PMG_Range",
+> +	[5] = "Monitor_Range",
+> +	[6] = "intPARTID_Range",
+> +	[7] = "Unexpected_INTERNAL",
+> +	[8] = "Undefined_RIS_PART_SEL",
+> +	[9] = "RIS_No_Control",
+> +	[10] = "Undefined_RIS_MON_SEL",
+> +	[11] = "RIS_No_Monitor",
+> +	[12 ... 15] = "Reserved"
+> +};
+> +
+> +static int mpam_enable_msc_ecr(void *_msc)
+> +{
+> +	struct mpam_msc *msc = _msc;
+> +
+> +	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
+> +
+> +	return 0;
+> +}
+
+This could also be a switch () { case 0: return "foo";
+case 1: return "bar"; ... }, without the explicit table.  This would
+avoid having to think about the ERRCODE field growing.  (There are some
+RES0 bits looming over it.)
+
+(This also tends to avoid the extra pointer table in .rodata, which
+might be of interest if this were a hot path.)
+
+[...]
+
+(Review truncated -- that's the comments I had so far on the previous
+series.)
+
+Cheers
+---Dave
 
