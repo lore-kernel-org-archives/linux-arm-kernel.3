@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC59CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04248CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/DcnQTeZI4YKYnANsuOLP3ExlPyT4WtsTA72OsrRERg=; b=tPzn+yJz+sMXwp0eQEBH43x/Jt
-	3hy7poGaq/kV7Mv/q3Ea1FiEL7UnZs0JtL4BsvG/xKQnygGEZYpwmDRMdnv88Mc2klwnP7DcmugyS
-	jv6DOsMeEqz0/s1TKcQ4PUP95kIqhW7iXmt9KovCpqHKeO/Lsz5C6J/xia5F0SHgUt3t0UQjBShyG
-	w3VuSQjcz561ow+JKjzYXnGu3RGf9WqbaSTJb6ABBc2Y46z3lIjcghapbUq4DmTxI2QrttlFzWK7M
-	/9UlR0aU9605fDyDvy9zlDIhe3gIcgxCE/Un2KXCmW7IBbGKaV7+DLKm4AczQjd3xCaz7bOfD9s5+
-	CVpBgZ2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VTkwyZRqolP6CKYiYk7ypp8uDK8OsYPpq6gq9kFsU4U=; b=rcsKa000it9G7KNbhYTlmWh1mB
+	zZrDipjyly7l4neJS0mV/yqwX/EJA9APUbQaRzh6YqGToPEVLqjsvh5k9rjkAvmpi2K8SXP+RUtdD
+	F6ANu4JVDkHuyfWSfHTUo3tIv+DUFk2muYiru/qbWQG6xtv/z9Iwx9fTxougsi2ihlPEE8uoS24al
+	xQwAAGbDROlgEykZC04YD6ct1mkKXy3Az0zU+IUx4/TOOfZbEQHqHZPMzuhY7WQMa7ULP6X9N5BV+
+	UDAA2VxvDxnudMppwYEuUGlqpCzn4uuqeVg7LOLz6CdQA488OgaJrIT/1ketIJoWOGl6750mBg1/P
+	ZxlfrXyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux487-00000009eS8-329V;
-	Fri, 12 Sep 2025 13:47:59 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1ux491-00000009efB-0H7G;
+	Fri, 12 Sep 2025 13:48:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux484-00000009eRg-1qYB
+	id 1ux48x-00000009edn-2TZ4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 13:47:58 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=/DcnQTeZI4YKYnANsuOLP3ExlPyT4WtsTA72OsrRERg=;
-	b=Q8pLkyYP6XMLOWfm0UEEdNgeHC6ZXfaCemitYMnvTcFKWHImQdcBRA4C4p7bQ3TevArIMHvOy
-	jE1m7zqlkBek2L3dbxELIo4lledWmAravBzacMis+yV1DrtVPsFvdSqEIAPlsKjXYy1xmdnf3MF
-	rGA09i4tPOxEglnLUUJj1zE=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.35])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4cNbK13n41z1P7Gn;
-	Fri, 12 Sep 2025 21:45:09 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cNbJn3zS2z6M53n;
-	Fri, 12 Sep 2025 21:44:57 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 015531402ED;
-	Fri, 12 Sep 2025 21:47:39 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 12 Sep
- 2025 15:47:38 +0200
-Date: Fri, 12 Sep 2025 14:47:36 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Will Deacon <will@kernel.org>
-CC: Yicong Yang <yangyicong@huawei.com>, <yangyicong@hisilicon.com>,
-	<catalin.marinas@arm.com>, <maz@kernel.org>, <oliver.upton@linux.dev>,
-	<corbet@lwn.net>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>, <shuah@kernel.org>,
-	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <tangchengchang@huawei.com>,
-	<wangzhou1@hisilicon.com>
-Subject: Re: [PATCH v4 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
-Message-ID: <20250912144736.00007673@huawei.com>
-In-Reply-To: <aMLvtpaCgRqPAU2Z@willie-the-truck>
-References: <20250715081356.12442-1-yangyicong@huawei.com>
-	<20250715081356.12442-6-yangyicong@huawei.com>
-	<aL7Fgx__LeLfbDyU@willie-the-truck>
-	<5d2ba565-715b-9b17-951b-f805dde5988b@huawei.com>
-	<aMLvtpaCgRqPAU2Z@willie-the-truck>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 12 Sep 2025 13:48:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DA45A4099F;
+	Fri, 12 Sep 2025 13:48:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2132C4CEF4;
+	Fri, 12 Sep 2025 13:48:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757684929;
+	bh=chwM5K+xTzqEOy4QaouFWqu8+ltEBz2JlWDvhXp3SZU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n7UHCh5B5vrhQNfG9nY1XhpwhsjSK11kr/oOJbHpuZo9EF78yza6cnHHzItS9Z3jw
+	 wC5bc/tE+2UbPEZFl1OkREx8UKSZ2F+0kmRaV95SAZpPQUbUHuNoHJqQTXeR3q1VTs
+	 u5yUyJm1KYXqJkk9EHnDaQMbBfof3aWCLVoISVLBgDgDl6suwCLi2Z9n5uMXFufpJg
+	 GEEcPaTjjpVoQhBM1gaCRoU38n2RFPCQGO1ce64hIyDnKJA1TYp87le9OLn5sJjcrD
+	 ZlB6kGXSiQg6OAfjoXqFTNQhfDUUY5yT/jIt4JUWYpNdmStOE086YToHUnFX1sx1sb
+	 pcS1FjtLnc8pw==
+Date: Fri, 12 Sep 2025 14:48:43 +0100
+From: Will Deacon <will@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org, mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com, qperret@google.com, aneesh.kumar@kernel.org,
+	kernel-team@android.com, linux-kernel@vger.kernel.org,
+	smostafa@google.com
+Subject: Re: [PATCH v6 16/24] KVM: arm64: Add clock support for the pKVM hyp
+Message-ID: <aMQku2zzNRppTRhS@willie-the-truck>
+References: <20250821081412.1008261-1-vdonnefort@google.com>
+ <20250821081412.1008261-17-vdonnefort@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250821081412.1008261-17-vdonnefort@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_064757_105824_BF9A3D7C 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20250912_064851_652006_EA4056AF 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +78,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Sep 2025 16:50:14 +0100
-Will Deacon <will@kernel.org> wrote:
+[+Mostafa]
 
-> On Tue, Sep 09, 2025 at 09:48:04AM +0800, Yicong Yang wrote:
-> > On 2025/9/8 20:01, Will Deacon wrote:  
-> > > On Tue, Jul 15, 2025 at 04:13:54PM +0800, Yicong Yang wrote:  
-> > >> diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-> > >> index 69d7afe56853..9e6db258ff48 100644
-> > >> --- a/Documentation/arch/arm64/elf_hwcaps.rst
-> > >> +++ b/Documentation/arch/arm64/elf_hwcaps.rst
-> > >> @@ -435,6 +435,12 @@ HWCAP2_SME_SF8DP4
-> > >>  HWCAP2_POE
-> > >>      Functionality implied by ID_AA64MMFR3_EL1.S1POE == 0b0001.
-> > >>  
-> > >> +HWCAP3_LS64
-> > >> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0001.
-> > >> +
-> > >> +HWCAP3_LS64_V
-> > >> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0010.  
-> > > 
-> > > Given that these instructions only work on IMPLEMENTATION DEFINED memory
-> > > locations and aren't guaranteed to generate an abort if used elsewhere,
-> > > how is userspace supposed to know what to do with them?
-> > >   
-> > 
-> > per ARM DDI0487 L.b section C3.2.6,
-> > 
-> >   When the instructions access a memory type that is not one of the following,
-> >   a data abort for unsupported Exclusive or atomic access is generated...  
+On Thu, Aug 21, 2025 at 09:14:04AM +0100, Vincent Donnefort wrote:
+> By default, the arm64 host kernel is using the arch timer as a source
+> for sched_clock. Conveniently, EL2 has access to that same counter,
+> allowing to generate clock values that are synchronized.
 > 
-> That's about the memory _type_. I'm talking about a supported memory type
-> (e.g. writeback cacheable) but when the physical location doesn't support
-> the instruction. That's captured a little later in the same section:
+> The clock needs nonetheless to be setup with the same slope values as
+> the kernel. Introducing at the same time trace_clock() which is expected
+> to be later configured by the hypervisor tracing.
 > 
->   | If the target memory location does not support the LD64B or ST64B
->   | instructions, then one of the following behaviors occurs:
->   |  * A stage 1 Data Abort, reported using the DFSC code of 0b110101,
->   |    is generated.
->   |  * The instruction performs the memory accesses, but the accesses
->   |    are not single-copy atomic above the byte level
-> 
-> and I think that's a bad interface to expose blindly to userspace solely
-> as a boolean hwcap.
-Hi Will,
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Nasty, so now I'm curious. Any thoughts on how to expose what regions it is appropriate
-for?  I can think of various heavy weight options but wondering if there is a simple
-solution.
+[...]
 
-Jonathan
-> 
-> Will
-> 
+> +/* Using host provided data. Do not use for anything else than debugging. */
+> +u64 trace_clock(void)
+> +{
+> +	struct clock_data *clock = &trace_clock_data;
+> +	u64 bank = smp_load_acquire(&clock->cur);
+> +	u64 cyc, ns;
+> +
+> +	cyc = __arch_counter_get_cntpct() - clock->data[bank].epoch_cyc;
+> +
+> +	if (likely(cyc < clock->data[bank].cyc_overflow64)) {
+> +		ns = cyc * clock->data[bank].mult;
+> +		ns >>= clock->data[bank].shift;
+> +	} else {
+> +		ns = __clock_mult_uint128(cyc, clock->data[bank].mult,
+> +					  clock->data[bank].shift);
+> +	}
+> +
+> +	return (u64)ns + clock->data[bank].epoch_ns;
 
+So the comment here say this is for debugging only but, afaict, this
+would also be useful for the cmdq timeouts in your nested SMMU series [1]
+and would remove the need to mess around with the clock frequency in
+the driver code...
+
+Will
+
+[1] https://lore.kernel.org/lkml/20250819215156.2494305-4-smostafa@google.com/
 
