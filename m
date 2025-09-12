@@ -4,110 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82ACACAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401F5CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NU+SVzKeTWD0+BhYK3td1Pqzo+tTZOjwzHuyU7qJoZg=; b=UYEmaWvWnsfPditUxXdWoA+Jth
-	RUpO9SxiUjgoPaw9jdf8IABv+xlzGl/4H1HNTXmOMgGliPIbh4d6qW6FgpPhV3zprubVC7FqaJS4Z
-	5ZFmLYNgNzzGrpnHvJS7DpPjvstTBtgLqhaRrj8nxg8M49RTr1UQYEBDYBQjxMeHixdgNYUbTjOM2
-	wP7/dkl/p5Lfivf1sZWPGh0Fow149ldy1yIfNOG5qbv0kQbk5OZQ3LadLUZ7+KCLF6zz7Aq48/G2v
-	ecnhqU1PuWxg/OtutxoZ7SmaBcVi3jHsg2xeNSqJAaKXRFilE3WLOZ1LOvCHrtULE3pGu6npe9QJQ
-	A1OabyyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TXUmKbbNO3lTdF+TIniCzMR+B5Zi1zCZ7HmxRzVH2iA=; b=jZcYfs+Ak5KSkDS1ntj1f4AziS
+	gxzXoBB5gdBrrimVbuwsM/nWYN7Gmma2YXhuV4ZPSp8GY5TDEKusc0ajBG4MKkDRczbGivTkeYSxa
+	CToN6i5B8quPhyIPYZMmxAA48ZBQdrrxIUz/hl3VtARm8DAS6k1NfvOnP2BGJMEnAcEvQfeadcIPa
+	vBq6yE9AxKuFJkkxAt26RG0EEBu3KxlVraCJeWcAaB8mJ4j4RlKdGVDw7Q0CgHtbmUkgl2JVy1/Sw
+	84XvYFQWyW7WPYQZLFwbKlKWx5Qa01AQj/vNApO7OXeFeBwGmC8aL0VvqhJAfPqVwp+H39G4ffwLD
+	aoWQVV3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux57Q-0000000A2Hp-0CT0;
-	Fri, 12 Sep 2025 14:51:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux57N-0000000A2Fs-1ApK
+	id 1ux58G-0000000A2gJ-2N0L;
+	Fri, 12 Sep 2025 14:52:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux58E-0000000A2eT-0g8q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 14:51:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757688676;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NU+SVzKeTWD0+BhYK3td1Pqzo+tTZOjwzHuyU7qJoZg=;
-	b=iKIr1OvPFqOM54Bae9o3VBrP3eoAxITH+vi3c6A7mMF0kd9dGC5uDB2KWmFPn1TV0/H6N4
-	eroVOKHkrBPUGeluYpGWf1b0QgURUNHQcBxmCRuYMSbOjWhugnEwENwNrqZlnDGyj42Axd
-	htq6FZiKxI+wVbAEswQqXzAlc+MgbII=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-16-pZZvv3k5PMKPDUWKh2NNJg-1; Fri, 12 Sep 2025 10:51:14 -0400
-X-MC-Unique: pZZvv3k5PMKPDUWKh2NNJg-1
-X-Mimecast-MFC-AGG-ID: pZZvv3k5PMKPDUWKh2NNJg_1757688674
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4b60dd9634dso48948301cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 07:51:14 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757688674; x=1758293474;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NU+SVzKeTWD0+BhYK3td1Pqzo+tTZOjwzHuyU7qJoZg=;
-        b=WsaRxmgn1iIE363FmdVNHzLJ9A471MobdXxiTggfxgCHGG/pGlxXxBTyB9FamSt1KY
-         DBFLaS5Anqc0LI00KRXU5iEIhz3au9OXR24IOuOOHaX90zTUALG8ZDdL1obOf3OqUm9e
-         pMqyxumlXJw6Bp/xvi6TmqdDjbcICXSZYe+QcOoEBsS5LSZ8JERtnbe1k7At0Nos6v7P
-         72Qe+njvDzQpMcE2l8QkQAhA3XK8e8SObIJPJGnUSkWr8oG5C0PtAGLGEU5Kx9CljHRx
-         Res3Avo4D24Y9meE7VpkIfGffN5XXhF4thEqzFI9ew7cY1UBuk10m3D+k072PabES0mD
-         ZPXw==
-X-Forwarded-Encrypted: i=1; AJvYcCXuUch2tQ4h9v95IrIRgeWq6I1Ku9cFdCmYxoUvpMOZeXx6AL3nGDjOagGSvmQheqP95dp1otI86PiezJxwP36y@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywkn26LvlAeIdVsEc2OYtklxEy0BQ3lMJV6Vq8JHQ5wgYBw2YMd
-	yOMp6Ty8ZOsqW72FghxP4HJnDsWlSbM9DSqJKD/SjNnN1C1UTQsfgui1gwS+YDYLCvuo+r0eZ3y
-	bdctr/RfsY+uvSfujV3rM9kzpT6F/HtFReKgwiuUC+utuPS4j/4Ke/Tsbd5b7tOwU0knQikGXln
-	e+
-X-Gm-Gg: ASbGncvH1xBUYELF0LEN9Sh0d5qDmp9irpCTU/Usx9mXJCP/xf3YOMwqYXk9joQ/Soo
-	U5XQ4EmCArCEgsO+bN3nE5mVqenm11eVodrvpx4criXotukk/4TDh+f98d2uYL1nClb6IrPk7bP
-	KRlgLvK6oz2t2+LOeZesAXSSbQPt7DBqv5oyHrb5N3vwwhGTuafLB+2fN/dPxl6Qu4c6gTqwlG8
-	LYaI0uyxcs15Ic9eBbd7Xr+boJbbO/Xu+mpBW3NlBXSJWgPfkjC1oQ6nyh6at7NYLj8Xmiag/BG
-	TXFb/HP2yGZtvdRWo1a8bOEPG/4+AzQrltTwTtJhyBA/jbIqH6hyjXAcw3gkWkwPJJD31LMZN1z
-	sdMhJCBJEU+HxZ7wNXdNgLWN8lW9dJQ==
-X-Received: by 2002:a05:622a:1803:b0:4b3:4b6d:ec52 with SMTP id d75a77b69052e-4b77d0cc905mr42168411cf.32.1757688674176;
-        Fri, 12 Sep 2025 07:51:14 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEKHaF5tvFQHHNEZPu3AfsN41wRwe2BP++0UPlIuNaDPH6QWUiaDDqVyOq53mlk8SSAOAXHkw==
-X-Received: by 2002:a05:622a:1803:b0:4b3:4b6d:ec52 with SMTP id d75a77b69052e-4b77d0cc905mr42167931cf.32.1757688673567;
-        Fri, 12 Sep 2025 07:51:13 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b639dcae6dsm25920811cf.39.2025.09.12.07.51.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Sep 2025 07:51:12 -0700 (PDT)
-Date: Fri, 12 Sep 2025 10:51:09 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 1/5] dt-bindings: clock: Add spread spectrum definition
-Message-ID: <aMQzXdVHOGoT9y4C@redhat.com>
-References: <20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com>
- <20250912-clk-ssc-version1-v3-1-fd1e07476ba1@nxp.com>
+	Fri, 12 Sep 2025 14:52:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93B2616A3;
+	Fri, 12 Sep 2025 07:52:00 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F0013F694;
+	Fri, 12 Sep 2025 07:52:04 -0700 (PDT)
+Message-ID: <52b6bd30-55af-4916-89c0-f87446689fbe@arm.com>
+Date: Fri, 12 Sep 2025 15:52:03 +0100
 MIME-Version: 1.0
-In-Reply-To: <20250912-clk-ssc-version1-v3-1-fd1e07476ba1@nxp.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: -QmtB41L1kKEA7pei-xBcJDj1r-clYdCSQZQSwwGJOo_1757688674
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 15/29] arm_mpam: Reset MSC controls from cpu hp
+ callbacks
+From: Ben Horgan <ben.horgan@arm.com>
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-16-james.morse@arm.com>
+ <abb9b4bb-18d8-4de7-a216-3c18769f61cb@arm.com>
+Content-Language: en-US
+In-Reply-To: <abb9b4bb-18d8-4de7-a216-3c18769f61cb@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_075117_387340_993DC3CA 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_075210_245084_86D542FC 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,13 +83,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 11:35:50AM +0800, Peng Fan wrote:
-> Per dt-schema, the modulation methods are: down-spread(3), up-spread(2),
-> center-spread(1), no-spread(0). So define them in dt-bindings to avoid
-> write the magic number in device tree.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+
+On 9/12/25 12:25, Ben Horgan wrote:
+> Hi James,
+> 
+> On 9/10/25 21:42, James Morse wrote:
+>> When a CPU comes online, it may bring a newly accessible MSC with
+>> it. Only the default partid has its value reset by hardware, and
+>> even then the MSC might not have been reset since its config was
+>> previously dirtyied. e.g. Kexec.
+>>
+>> Any in-use partid must have its configuration restored, or reset.
+>> In-use partids may be held in caches and evicted later.
+>>
+>> MSC are also reset when CPUs are taken offline to cover cases where
+>> firmware doesn't reset the MSC over reboot using UEFI, or kexec
+>> where there is no firmware involvement.
+>>
+>> If the configuration for a RIS has not been touched since it was
+>> brought online, it does not need resetting again.
+>>
+>> To reset, write the maximum values for all discovered controls.
+>>
+>> CC: Rohit Mathew <Rohit.Mathew@arm.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> ---
+>> Changes since RFC:
+>>  * Last bitmap write will always be non-zero.
+>>  * Dropped READ_ONCE() - teh value can no longer change.
+>>  * Write 0 to proporitional stride, remove the bwa_fract variable.
+>>  * Removed nested srcu lock, the assert should cover it.
+>> ---
+>>  drivers/resctrl/mpam_devices.c  | 117 ++++++++++++++++++++++++++++++++
+>>  drivers/resctrl/mpam_internal.h |   8 +++
+>>  2 files changed, 125 insertions(+)
+>>
+>> +
+>> +static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>> +{
+>> +	struct mpam_msc_ris *ris;
+>> +
+>> +	mpam_assert_srcu_read_lock_held();
+> 
+> Unneeded? Checked in list_for_each_entry_srcu().> +
+
+If you do get rid of this then that leaves one use of the helper,
+mpam_assert_srcu_read_lock_held(), and so the helper could go.
+
+> Thanks,
+> 
+> Ben
+> 
+> 
+
+Thanks,
+
+Ben
 
 
