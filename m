@@ -4,152 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76170CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 16:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF299CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 16:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGtYlSntMeKKbhW4nC+fQ8CsC1Hlrz1PAGnmvUirS64=; b=Sp9GzHYgYd/ALWRr4cDIUsiHas
-	9nmX8cVIrxtSUGkLHPQe52jrk06AIdWKsNZqFgNq+8yZewZTHFQy0CRsys5GvO01lxyU/s/W4VfuY
-	FE5QoQhAbZJ4T9ZEI4AwR9i1zXsJs9q25uEte/e7KPLushVe3DL6UBeCFOTLlBIP9xPdw/85gEYVL
-	03jLhnVs+3Ss7CZSeg8MJg2NU+NeLG2ckYjWTL/xfcApyJiQoD5KJgVpxAoC5+oADbrF7TcN0ow3s
-	srg7BxQm1CzLVoF75qEVQvY/3HNGtIv0S/Eb2EzSkXkCz01AKahYGEVLsDfsO5k8La2bPqn3oavxE
-	8IJM3NLg==;
+	bh=+H99IAx0PUO4O6Pjq4UWy/f3UIIMzFhgFv/B2vLxPsg=; b=nDdadSxvkJrjK9axKsJLpO9Rir
+	9JbAuWYZyS3RhcBZORoxLx+otEPdHFwZwcm4xx1NHDRD4A9QtBQhRZMbmhvWNaPfSkFBiOXt1VMVg
+	Cq9bjppbcpbEr7RVFsqqHO7CZqDMRC09jeL/48Wpt0dktUD3NP8MfeThU/UNWWp8PQvwmtioWNb/K
+	LGOQoJ0UFQLMaEs3cfnT163NBHpfJYzXSlvjt07yB8MDu0q8D9NA50z78Frl/1lYOSCUfH6k/EG1Z
+	NlEZmDGB47T2l9pzep6L2lPOEsb+Rs5hrlEvn42dcPzDj/htnqnhHRS0MVp4P2znDd1qEd0PjY4o/
+	eE+Ytwow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux6ok-0000000AZse-0njR;
-	Fri, 12 Sep 2025 16:40:10 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1ux6sp-0000000Ab5L-3QLE;
+	Fri, 12 Sep 2025 16:44:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux6oh-0000000AZrT-1Wwz
+	id 1ux6sn-0000000Ab4H-1y2r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 16:40:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Nfr2qR6UOV2AMe+lhR9xQZ/6n2/vFKDfQtQOc5YecOM5M+gZMHfI+IpXvI8H7lZ5gRiRPAC/EpiF8exRrJCbZPbNRvINeFibWdf/DfYxjJARaTC72YUcnUd34+LNjYQWpemmL+Ob1r0dhhLD1juoBNZomyH4gFp5ubh/YRuFSAVd6qRlxfV5z7JKK5vqHizYohtQPHD+dCWPnf/j9h7iqWJ4E/lHDtcE7U8xBiGE7FYZZgLWq0DeYno1X/D3Zz1sOKspc+fYs9FTrq6TlzbvO8jYGT1GVr0iZj2UxQ+rfZ502ZbX/IdqrYPpoRFbycU0z55zEOuUZVD8gntR9fvs/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YGtYlSntMeKKbhW4nC+fQ8CsC1Hlrz1PAGnmvUirS64=;
- b=Xz2CpvTwetjLXsOp9eEm0QF3Ts5zCMgJURpl+sm2GjAgPincTkdgZmZGozx0pg91s3ldUfXDONZREz4kBW0+1EuMYI5b3NdUr0IDMCdkwBKmJZEQXI+L7D2gXo2F2BYudGtP81eDwE0OUQ+a10Rrm1tA070f9SEgFnZmnoHHlOupo0B/TLfujV9faM8WUe9lyRqTskpLSoYD3K4Xir/X/GtXW6nNfxv+4y7uOvPSC1y4V5A4BvebBA//G62/6RxGNyUlRaI86bO9hmJIqirmk/hEHlBj+s1uzhXu8D57737XoQRWoIPX3mhcsF2vHajCaXb0GzKNQTQSNSFxHAxC5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YGtYlSntMeKKbhW4nC+fQ8CsC1Hlrz1PAGnmvUirS64=;
- b=OeeeP4T2hVVmrQH/KihUGpO4jdSTCDMsZutExw22ET60xuhhW8sMF8kOUXhSpNgboVO7TBXHlrPQDb4gySbzopAWa0DvQ4i/ndxZIsl+VY/kUJ/3vVErxbBKS37n7FHc8jnjZtiK8aW005l6k11UE30oMsLqb1QkFIDmLuLfHDJM3uRbBRlJjMtNNK+ygujMw3fZFLw6o+yz9EDVqdGF4QDg2QUt3KiKq95eRvTbP56PGKAI4dPOCpKhosuEbozo94bO4wy8Z4kyek1NfupzHZ1GeaQv+3KbZcXTiIVa6xCxkfGwVvqq5k0LffUfCXaloCL7sYOEihzPZ2krcplwhA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by VI0PR04MB10589.eurprd04.prod.outlook.com (2603:10a6:800:25f::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Fri, 12 Sep
- 2025 16:40:02 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9115.015; Fri, 12 Sep 2025
- 16:40:02 +0000
-Date: Fri, 12 Sep 2025 12:39:55 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Fri, 12 Sep 2025 16:44:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C32E5444C2;
+	Fri, 12 Sep 2025 16:44:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 147A9C4CEF1;
+	Fri, 12 Sep 2025 16:44:17 +0000 (UTC)
+Date: Fri, 12 Sep 2025 17:44:15 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: will@kernel.org, broonie@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
+	ardb@kernel.org, scott@os.amperecomputing.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 09/10] dmaengine: imx-sdma: make use of
- devm_add_action_or_reset to unregiser the dma-controller
-Message-ID: <aMRM2x7dN3UWn/FN@lizhi-Precision-Tower-5810>
-References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
- <20250911-v6-16-topic-sdma-v2-9-d315f56343b5@pengutronix.de>
- <aMQzNDE8QuUZwGkt@lizhi-Precision-Tower-5810>
- <20250912152809.nj3yk5wmrb7ojjoo@pengutronix.de>
+Subject: Re: [PATCH RESEND v7 4/6] arm64: futex: refactor futex atomic
+ operation
+Message-ID: <aMRN3z3WNRGuwBgQ@arm.com>
+References: <20250816151929.197589-1-yeoreum.yun@arm.com>
+ <20250816151929.197589-5-yeoreum.yun@arm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250912152809.nj3yk5wmrb7ojjoo@pengutronix.de>
-X-ClientProxiedBy: PH8P221CA0058.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:349::7) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|VI0PR04MB10589:EE_
-X-MS-Office365-Filtering-Correlation-Id: cffda36c-2605-4a3a-8ab8-08ddf21b0565
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3oYI43CySIBxL9hsnUp4Tbe8Tk2TEdbEZePvR/FPsKTh9gPYUpv36Pyr9VHl?=
- =?us-ascii?Q?plyvbPDp5XOP0Htn/Bpcl+kZYoQl4wYLm3LwKbJaDzbClsgivjwVZwWxjREh?=
- =?us-ascii?Q?PiwQO45sPyRuTvLpsMPi/PYq/cwQJbt+ZVgg/Ae02mWv3J8gwNgEKfO57nad?=
- =?us-ascii?Q?8jzt4lleFQlwyW9z+pMVKbFCyglNTsYPbLuNhLrEsCyFbVzTczj/2m7M5mDo?=
- =?us-ascii?Q?YiTUc2QlakPI7AwZis+LNUCcIkeZorFwJV0JaVttJBLUwCLfV00GuOx4uq1m?=
- =?us-ascii?Q?8mNS3X06dbHYoaMgcGiPLJ63CssqXZVVV+ERic7a/vOpXip/DKTnIqQLSL4t?=
- =?us-ascii?Q?tPpq7lPwvbgybfma3pmvGOr39MK1GPmqIdB6OCD5R1hOQr7YaC9gYuCQcmnR?=
- =?us-ascii?Q?bjheFwgMx4cX7WugYhLxws+/YD2xMwJ34H8fWdIyPpMsh/tFcITmlXoHE9N2?=
- =?us-ascii?Q?jGaZ6t8OUII+Ao1eEODnembRTrl4rhWyJwADqcna8CuqNDEGcWMnaCCSF3xK?=
- =?us-ascii?Q?JSEY0aYDxmXVQwrnOSafNZZZngs7TbINnFMssOMKIjLBKXRzDwGlMs34a9eX?=
- =?us-ascii?Q?uIXvGW59FbSr4LjAdrMtUJgrdIulKH6K2nYA1IhRQ7+/QaMTyM7x1nP8GOdX?=
- =?us-ascii?Q?7+sEjzw0huXIwWjdVDiFUOE92YVnvIm2y5m1HEa5j4An3o999FO9/dQ076lz?=
- =?us-ascii?Q?qgGGsb/lQkYN95t8K5zAsfM1cc8mMDvm1h8+2ulHSpdpQ9jvnNIK6VmNM+qw?=
- =?us-ascii?Q?MJGyucUl/OoN4YyJkQEfYk1I+DXce3r3YJ3q7APkJrxmpJHDSxMFsZMpZQ7N?=
- =?us-ascii?Q?L8gDKWOAkD2CRL6sKyxH2MgR4ZKFdcphCv/fE9cy15HjAB6XFBCcq016XldV?=
- =?us-ascii?Q?AaCCPavyH5vtaLC1HxNvsSJE8sRdeQwdLHoP7HyXHvggkAofERmQMEY9TlHo?=
- =?us-ascii?Q?RquD4eRb901R5FizGVRCIto7IqK6Hn8zJavRJuAGKc5NKk6vS1kLRtLAZUXv?=
- =?us-ascii?Q?IH4BVuCMW7XD1xxW7gc6MY1IHYsU87GWVjg0z2UNAGPFaMtPzfXDKeQITH28?=
- =?us-ascii?Q?2CGNwim7UEavBD8LH55i9m1z3QbrsXLZA9rRSBaEoxY2bo2FgHj3Qmq0e9zo?=
- =?us-ascii?Q?ZqweKi4JHE6R8xoPz7b0wV5+LPuUp6NcvWff4dCtDBdmSisAm4tP80XezTiJ?=
- =?us-ascii?Q?+rvgTqZ9lVf9vgn4C/PVjsyGy0rV7xlVqXfVw8jQj6EepFN2b0yDhtgTWwBK?=
- =?us-ascii?Q?oJ+XFAR8tFGib2cDo96MPoohoXiKcesKunHtH3dLnpyrjuiZ+ROrGsUF+jnc?=
- =?us-ascii?Q?Tt2kMrdkmj+8qlL/9VOeQ12cV9MZ1g1YRVTT9YcYReEnL9SjHfazTdD8MHqB?=
- =?us-ascii?Q?O5s8RttpnT3Yj89CzlpgkSiZbj0WU0JZ054g2BX2x9VgsJCt0GLVMbaKamGK?=
- =?us-ascii?Q?ySC7qmXKOBPyvnKuNl+1DyvOXLQeq5Cu1n+9C5cmw+iSeBBGDvEnGw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?M02YuGGogdNn1J1jxOXQ3HGWHPlUZsRQVjPxlttdxSqsboMTgXzHlpSsE87b?=
- =?us-ascii?Q?WOxhBSPCFPyurF52yeN0KrkFl55NEphE8z6EVcoxlj8edyKwX+/4Z+53ML6G?=
- =?us-ascii?Q?4mweZvouHKAriBu9PJEco9QIeVRl0J4nkblk9FwcGpo1Aq6ZsfIcYHvGFWxe?=
- =?us-ascii?Q?ig+//u4Msv+xFa7IlR3bVHaH1kDls+S3QPJhVpSAA7rq902nFNrz+Pxk6yG/?=
- =?us-ascii?Q?eujudw4qAcviHszXh3eB/qvY7h9RQgMi5tNPT5iMFG674JiHt3MjbBSdxx3R?=
- =?us-ascii?Q?vfGaKHZ960PtF33IoiMkh5SYHrxdC+LOxenlh4rkno0lxdDjgYB0m4+dL7P8?=
- =?us-ascii?Q?yWDu/Kcx9bgpGhfR0sGsUW10Y3r44qRUaOt6AXMkNRGCucL+7qrIc1FwDRJu?=
- =?us-ascii?Q?+6iRSi6fuMaPKSWrpl+a2eWNNMej9fl7CEm64PnqKjggpB1tOLzv/2iKKTND?=
- =?us-ascii?Q?NHTXv2AHn4zQXqO2t/QxKEJZZ2UjjtQH+D7wjFVDY5GEMJAYG6htvwjB2c9s?=
- =?us-ascii?Q?T3VP7u0Ts9IQLGyecYyBHutEMjY6XNWYDUC2DmI0bgnVujU6AFGQ+/mZhoSW?=
- =?us-ascii?Q?UdDwqRb2TS2N/XJgardH359oBf8sskWtGWltjHV9bYC2fwr2pIJSbV3S+iuP?=
- =?us-ascii?Q?1DMx5Iie5eCFZiwr4OO1kLqvvdlRluns0eOtcKAfv/CQ1PQVFpU7lc28C0rG?=
- =?us-ascii?Q?ZzBSEuQwFlsIi5ExKMPW8LoDn6Fazq7OyZdLqzCfJp46JGurqebBcqObcRcU?=
- =?us-ascii?Q?WCYXGOh+UvV10aa06pOZcgWU2GX2ipJ59e2heXxYfgDSddY9sSmYY+baDTFw?=
- =?us-ascii?Q?hykGqx60lEFEccqu6vvDHv+b52cbPrNDvdpQeUGQqRYqDjfb+pUhUPmn6QSr?=
- =?us-ascii?Q?ozn0NCwT4Qy8uhyh9+6kjhm2GpfBE6AmKV60d0QIRumfbb/Rcv9VRcIt3T7g?=
- =?us-ascii?Q?zWrc/JCdCKi/mqojEkCS4wtvwu9CkNhqcrRIut2vQaLtSpciGuDRKthbIz9U?=
- =?us-ascii?Q?MM+VamUdi99D/6fMgMTTEvVjhjmawXmkToNDqor+byCDqqyexWy8HDrhTKo6?=
- =?us-ascii?Q?2fK5+rEl1N5dX/l4T9rgwamqISVM4AN1rw0diBvsS80MDkSNiPM6YH0xQ47z?=
- =?us-ascii?Q?isGtrUeFfSBg7ab1dPcxVbzoEkFTMz/Kcpq7gglGwHUa2aIVZ7v5obPa0MNG?=
- =?us-ascii?Q?ZoP4BHtrBrS0qlllDWeslS5rou1yU1KP0elTpdp0AbUTr6EIhsZVZxIhvkxF?=
- =?us-ascii?Q?WZCgfpzOtGE6ktDnGslInMbssxcsx4NT2mFWaRAw+8O1WIkCf1pMNGEvXKeh?=
- =?us-ascii?Q?4biOaY47qRGO2R2O2JSt6tG8ILof861Wihf4Agntb+u5xbI1AG6k/BS+kxSP?=
- =?us-ascii?Q?oBUvhcaqteO4M5B3k+2rh389QF7sAUZ28FE5v97W75h+r1BkE2VB5AYVDHXS?=
- =?us-ascii?Q?OCZV4gIvMWSKqLwo/YHhapqomquStr+wY1X9vjaClqRIlMg7v2apMb2Se65L?=
- =?us-ascii?Q?+zT+6EuMQmU2uAkYAqYwl1JSQv78b/1moktf97xrqMULUhHRm/Zas2M2QHBO?=
- =?us-ascii?Q?AK2s02aVplt9ei/Ao5gZM5g4zmL1G2A3flRD6kDt?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cffda36c-2605-4a3a-8ab8-08ddf21b0565
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 16:40:02.6300
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QNoM7WaVp0X/SUUgT1o0ErtngTUGHepUt71069RYUu3AcbGF4FI+QBULZaD8po+jblKkY9XARttrdqNefC1dJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10589
+In-Reply-To: <20250816151929.197589-5-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_094007_414415_3EB3D969 
-X-CRM114-Status: GOOD (  25.15  )
+X-CRM114-CacheID: sfid-20250912_094421_524740_99602E7D 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,74 +68,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 05:28:09PM +0200, Marco Felsch wrote:
-> On 25-09-12, Frank Li wrote:
-> > On Thu, Sep 11, 2025 at 11:56:50PM +0200, Marco Felsch wrote:
-> > > Use the devres capabilities to cleanup the driver remove() callback.
-> > >
-> > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > > ---
-> > >  drivers/dma/imx-sdma.c | 14 +++++++++++++-
-> > >  1 file changed, 13 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-> > > index d6d0d4300f540268a3ab4a6b14af685f7b93275a..a7e6554ca223e2e980caf2e2dea832db9ad60ed6 100644
-> > > --- a/drivers/dma/imx-sdma.c
-> > > +++ b/drivers/dma/imx-sdma.c
-> > > @@ -2264,6 +2264,13 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
-> > >  				     ofdma->of_node);
-> > >  }
-> > >
-> > > +static void sdma_dma_of_dma_controller_unregister_action(void *data)
-> > > +{
-> > > +	struct sdma_engine *sdma = data;
-> > > +
-> > > +	of_dma_controller_free(sdma->dev->of_node);
-> > > +}
-> > > +
-> > >  static void sdma_dma_device_unregister_action(void *data)
-> > >  {
-> > >  	struct sdma_engine *sdma = data;
-> > > @@ -2408,6 +2415,12 @@ static int sdma_probe(struct platform_device *pdev)
-> > >  		return ret;
-> > >  	}
-> > >
-> > > +	ret = devm_add_action_or_reset(dev, sdma_dma_of_dma_controller_unregister_action, sdma);
-> > > +	if (ret) {
-> > > +		dev_err(dev, "failed to register of-dma-controller unregister hook\n");
-> > > +		return ret;
-> > > +	}
-> > > +
-> >
-> > return dev_err_probe()
->
-> Please check my last patch.
+On Sat, Aug 16, 2025 at 04:19:27PM +0100, Yeoreum Yun wrote:
+> +#define FUTEX_ATOMIC_OP(op)						\
+> +static __always_inline int						\
+> +__futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)		\
+> +{									\
+> +	return __llsc_futex_atomic_##op(oparg, uaddr, oval);		\
+> +}
+> +
+> +FUTEX_ATOMIC_OP(add)
+> +FUTEX_ATOMIC_OP(or)
+> +FUTEX_ATOMIC_OP(and)
+> +FUTEX_ATOMIC_OP(eor)
+> +FUTEX_ATOMIC_OP(set)
+> +
+> +static __always_inline int
+> +__futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
+> +{
+> +	return __llsc_futex_cmpxchg(uaddr, oldval, newval, oval);
+> +}
 
-You can use dev_err_probe() here, last patch only convert exist one.
-Avoid add A, then remove A later.
+The patch looks fine and my impression that the __futex_* functions will
+be used in patch 6 to dispatch between lsui and llsc. But you got them
+the other way around. I'll comment there. For this patch:
 
-Frank
-
->
-> Regards,
->   Marco
->
-> >
-> > Frank
-> > >  	/*
-> > >  	 * Because that device tree does not encode ROM script address,
-> > >  	 * the RAM script in firmware is mandatory for device tree
-> > > @@ -2431,7 +2444,6 @@ static void sdma_remove(struct platform_device *pdev)
-> > >  	struct sdma_engine *sdma = platform_get_drvdata(pdev);
-> > >  	int i;
-> > >
-> > > -	of_dma_controller_free(sdma->dev->of_node);
-> > >  	/* Kill the tasklet */
-> > >  	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
-> > >  		struct sdma_channel *sdmac = &sdma->channel[i];
-> > >
-> > > --
-> > > 2.47.3
-> > >
-> >
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
