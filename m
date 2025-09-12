@@ -4,58 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417D0CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD3ECA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LByBQt6EQp1J9q06gR7r28WHk5gYLl8697cgYAHuang=; b=mdLWX0nDgDV9eijpH3QFYAmoKB
-	j8y4lHD/27TEHtWULTQ+FB8zZdEQOHnQXLAol/Z23DDXd45oL4EGTtbsfqcQsnyXwEBMV8aRosOrH
-	s4JdUizXGVo/LEU8r1BXDjn21LVjLtItwSOy+TXjWwizIFPBpq4U1QEq1/Pgdg2RG4QrXMKFzP3Xb
-	Ckqshh+Mkg1WWWzTmrL2r6d81EVj8ySzModUf5x/U/mFMH/gFko7XUsYdUDZNtcqzBWTFinhFvTst
-	xXpVpz1vEYYCwYrzf3jc34MJ2uLaw2i9lVSEZSNryhsDsYMI2qNsnszWWnUPpv9mavzn0ZK2illhh
-	Av71bRcA==;
+	bh=/WgaU7Y24edcvelE6VWdeVRjrf0TYEj3umrowZuuiQ4=; b=lQCK2fdF93mZzd2WHyHpTT0b2d
+	L8KleSCw5aWtoMraoNBGt9uOCTTLGFciwA7tMXjtf76/mNN6KN8l09/LXcLo6KqIS7mEg2pcoPGlT
+	A8iu9f+RFrtfdSdQs7YGpA5UiIvkNija6GdVwxVoaOey+GHNgi9cWejkOSAsnILPgb+bmYR7gXzcF
+	sOzds/X9a6noaYAj1pebi7++nPrRufuyFxBobaU1w2+OfMoFwzUZQDeV2LyE44qn0qgjs93Wix1v0
+	hlmJaVavOr3YHsBOVI3LOpBVCH0RVK7HniPZur5egRZJDFfsnNUFs+MAm1kHf8tmpjr8qFmlFXy1A
+	Xyf2b6xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0Ue-00000008Pyi-3xTP;
-	Fri, 12 Sep 2025 09:55:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0Ua-00000008PwW-40Aq
+	id 1ux0Vv-00000008QLE-1K79;
+	Fri, 12 Sep 2025 09:56:19 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux0Vr-00000008QIK-0rCh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 09:54:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8D6C16A3;
-	Fri, 12 Sep 2025 02:54:45 -0700 (PDT)
-Received: from donnerap (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 485003F66E;
-	Fri, 12 Sep 2025 02:54:52 -0700 (PDT)
-Date: Fri, 12 Sep 2025 10:54:49 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: "J. =?UTF-8?B?TmV1c2Now6RmZXI=?= via B4 Relay"
- <devnull+j.ne.posteo.net@kernel.org>
-Cc: j.ne@posteo.net, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: dts: allwinner: h313: Add Amediatech X96Q
-Message-ID: <20250912105449.70717d80@donnerap>
-In-Reply-To: <20250912-x96q-v1-2-8471daaf39db@posteo.net>
-References: <20250912-x96q-v1-0-8471daaf39db@posteo.net>
-	<20250912-x96q-v1-2-8471daaf39db@posteo.net>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Fri, 12 Sep 2025 09:56:17 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250912095607euoutp0104477bdeace025665e892621cbabf534~kgG6-mNTg1252212522euoutp01O
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 09:56:07 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250912095607euoutp0104477bdeace025665e892621cbabf534~kgG6-mNTg1252212522euoutp01O
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1757670967;
+	bh=/WgaU7Y24edcvelE6VWdeVRjrf0TYEj3umrowZuuiQ4=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=L2Y1YPprEPGLfmwqODN1Guom3McSDbIB5VdVRbCRwMw835DYk5l2p910cNLpNI+z5
+	 rHhytp43Bafk8VFnZrR8BEkRHwf3Se4vxg/aDHH6RYQFEA57hhRE08pTAIp74BuXKO
+	 9QMxfpC3Jk94QuvYOBNoEmOoa3cK1eiUw1e7BptY=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250912095607eucas1p2a18c183541e1b3a3d852cce1a0a151b7~kgG6gXgC42606026060eucas1p2a;
+	Fri, 12 Sep 2025 09:56:07 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250912095605eusmtip13971d667cb9ff7ae4e1a11bc688d941c~kgG5C1vwN0365103651eusmtip1O;
+	Fri, 12 Sep 2025 09:56:05 +0000 (GMT)
+Message-ID: <0ff3ba73-18e8-4941-bac6-2efa790c36ab@samsung.com>
+Date: Fri, 12 Sep 2025 11:56:05 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v5 00/17] Apply drm_bridge_connector and panel_bridge
+ helper for the Analogix DP driver
+To: Damon Ding <damon.ding@rock-chips.com>, andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+	hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+	dmitry.baryshkov@oss.qualcomm.com, dianders@chromium.org,
+	luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20250912085846.7349-1-damon.ding@rock-chips.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250912095607eucas1p2a18c183541e1b3a3d852cce1a0a151b7
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250912085902eucas1p2b611b4afd6b453c161753f50386a6d01
+X-EPHeader: CA
+X-CMS-RootMailID: 20250912085902eucas1p2b611b4afd6b453c161753f50386a6d01
+References: <CGME20250912085902eucas1p2b611b4afd6b453c161753f50386a6d01@eucas1p2.samsung.com>
+	<20250912085846.7349-1-damon.ding@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_025457_073297_FBF73B78 
-X-CRM114-Status: GOOD (  24.34  )
+X-CRM114-CacheID: sfid-20250912_025615_506833_874895C8 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,359 +93,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sep 2025 01:52:10 +0200
-J. Neusch=C3=A4fer via B4 Relay <devnull+j.ne.posteo.net@kernel.org> wrote:
-
-Hi,
-
-many thanks for posting the DT, I really wish more people would do that!
-
-> From: "J. Neusch=C3=A4fer" <j.ne@posteo.net>
->=20
-> The X96Q is a set-top box with an H313 SoC, AXP305 PMIC, 1 or 2 GiB RAM,
-> 8 or 16 GiB eMMC flash, 2x USB A, Micro-SD, HDMI, Ethernet, audio/video
-> output, and infrared input.
->=20
->   https://x96mini.com/products/x96q-tv-box-android-10-set-top-box
->=20
-> Tested, works:
-> - debug UART
-> - status LED
-> - USB ports in host mode
-> - MicroSD
-> - eMMC
-> - recovery button hidden behind audio/video port
-> - analog audio (line out)
->=20
-> Does not work:
-> - Ethernet (requires AC200 MFD/EPHY driver)
-> - analog video output (requires AC200 driver)
-> - HDMI audio/video output
->=20
-> Untested:
-> - "OTG" USB port in device mode
-> - built-in IR receiver
-> - external IR receiver
-> - WLAN (requires out-of-tree XRadio driver)
->=20
-> Table of regulators on the downstream kernel, for reference:
->=20
->  vcc-5v      1   15      0 unknown  5000mV     0mA  5000mV  5000mV
->     dcdca    0    0      0 unknown   900mV     0mA     0mV     0mV
->     dcdcb    0    0      0 unknown  1350mV     0mA     0mV     0mV
->     dcdcc    0    0      0 unknown   900mV     0mA     0mV     0mV
->     dcdcd    0    0      0 unknown  1500mV     0mA     0mV     0mV
->     dcdce    0    0      0 unknown  3300mV     0mA     0mV     0mV
->     aldo1    0    0      0 unknown  3300mV     0mA     0mV     0mV
->     aldo2    0    0      0 unknown   700mV     0mA     0mV     0mV
->     aldo3    0    0      0 unknown   700mV     0mA     0mV     0mV
->     bldo1    0    0      0 unknown  1800mV     0mA     0mV     0mV
->     bldo2    0    0      0 unknown  1800mV     0mA     0mV     0mV
->     bldo3    0    0      0 unknown   700mV     0mA     0mV     0mV
->     bldo4    0    0      0 unknown   700mV     0mA     0mV     0mV
->     cldo1    0    0      0 unknown  2500mV     0mA     0mV     0mV
->     cldo2    0    0      0 unknown   700mV     0mA     0mV     0mV
->     cldo3    0    0      0 unknown   700mV     0mA     0mV     0mV
->=20
-> Signed-off-by: J. Neusch=C3=A4fer <j.ne@posteo.net>
+On 12.09.2025 10:58, Damon Ding wrote:
+> PATCH 1 is a small format optimization for struct analogid_dp_device.
+> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
+> PATCH 3-9 are preparations for apply drm_bridge_connector helper.
+> PATCH 10 is to apply the drm_bridge_connector helper.
+> PATCH 11-14 are to move the panel/bridge parsing to the Analogix side.
+> PATCH 15-16 are preparations for apply panel_bridge helper.
+> PATCH 17 is to apply the panel_bridge helper.
+>
+> Damon Ding (17):
+>    drm/bridge: analogix_dp: Formalize the struct analogix_dp_device
+>    drm/bridge: analogix_dp: Move &drm_bridge_funcs.mode_set to
+>      &drm_bridge_funcs.atomic_enable
+>    drm/bridge: analogix_dp: Add &analogix_dp_plat_data.next_bridge
+>    drm/exynos: exynos_dp: Remove &exynos_dp_device.ptn_bridge
+>    drm/exynos: exynos_dp: Remove unused &exynos_dp_device.connector
+>    drm/bridge: analogix_dp: Remove redundant
+>      &analogix_dp_plat_data.skip_connector
+>    drm/exynos: exynos_dp: Add legacy bridge to parse the display-timings
+>      node
+>    drm/bridge: analogix_dp: Move the color format check to
+>      .atomic_check() for Rockchip platforms
+>    drm/bridge: analogix_dp: Remove unused
+>      &analogix_dp_plat_data.get_modes()
+>    drm/bridge: analogix_dp: Apply drm_bridge_connector helper
+>    drm/bridge: analogix_dp: Add new API analogix_dp_finish_probe()
+>    drm/rockchip: analogix_dp: Apply analogix_dp_finish_probe()
+>    drm/rockchip: analogix_dp: Apply &analogix_dp_plat_data.attach() to
+>      attach next bridge
+>    drm/exynos: exynos_dp: Apply analogix_dp_finish_probe()
+>    drm/bridge: analogix_dp: Remove panel disabling and enabling in
+>      analogix_dp_set_bridge()
+>    drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing
+>      in analogix_dp_unbind()
+>    drm/bridge: analogix_dp: Apply panel_bridge helper
+>
+>   drivers/gpu/drm/bridge/analogix/Kconfig       |   1 +
+>   .../drm/bridge/analogix/analogix_dp_core.c    | 394 ++++++++++--------
+>   .../drm/bridge/analogix/analogix_dp_core.h    |   5 +-
+>   drivers/gpu/drm/exynos/exynos_dp.c            | 168 ++++----
+>   drivers/gpu/drm/rockchip/Kconfig              |   1 -
+>   .../gpu/drm/rockchip/analogix_dp-rockchip.c   |  74 ++--
+>   include/drm/bridge/analogix_dp.h              |   9 +-
+>   7 files changed, 342 insertions(+), 310 deletions(-)
+>
 > ---
->  arch/arm64/boot/dts/allwinner/Makefile             |   1 +
->  arch/arm64/boot/dts/allwinner/sun50i-h313-x96q.dts | 235 +++++++++++++++=
-++++++
->  2 files changed, 236 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts=
-/allwinner/Makefile
-> index 780aeba0f3a4e14d69c9602e37b8d299165507b9..2edfa7bf4ab31c4aa934da98e=
-5e042edc9aaf600 100644
-> --- a/arch/arm64/boot/dts/allwinner/Makefile
-> +++ b/arch/arm64/boot/dts/allwinner/Makefile
-> @@ -41,6 +41,7 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-pine-h64-model-=
-b.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-tanix-tx6.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-tanix-tx6-mini.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h313-tanix-tx1.dtb
-> +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h313-x96q.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h616-bigtreetech-cb1-manta.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h616-bigtreetech-pi.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h616-orangepi-zero2.dtb
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h313-x96q.dts b/arch/ar=
-m64/boot/dts/allwinner/sun50i-h313-x96q.dts
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..9534eb03b89557f2545af5af7=
-cf43390be722cf0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h313-x96q.dts
-> @@ -0,0 +1,235 @@
-> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> +/*
-> + * Copyright (C) 2025 J. Neusch=C3=A4fer <j.ne@posteo.net>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sun50i-h616.dtsi"
-> +#include "sun50i-h616-cpu-opp.dtsi"
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/input/linux-event-codes.h>
-> +#include <dt-bindings/leds/common.h>
-> +
-> +/ {
-> +	model =3D "X96Q";
-> +	compatible =3D "amediatech,x96q", "allwinner,sun50i-h616";
-> +
-> +	aliases {
-> +		mmc0 =3D &mmc0;
-> +		mmc1 =3D &mmc1;
-> +		mmc2 =3D &mmc2;
+>
+> Changes in v2:
+> - Update Exynos DP driver synchronously.
+> - Move the panel/bridge parsing to the Analogix side.
+>
+> Changes in v3:
+> - Rebase for the existing devm_drm_bridge_alloc() applying commit.
+> - Fix the typographical error of panel/bridge check in exynos_dp_bind().
+> - Squash all commits related to skip_connector deletion in both Exynos and
+>    Analogix code into one.
+> - Apply panel_bridge helper to make the codes more concise.
+> - Fix the handing of bridge in analogix_dp_bridge_get_modes().
+> - Remove unnecessary parameter struct drm_connector* for callback
+>    &analogix_dp_plat_data.attach().
+> - In order to decouple the connector driver and the bridge driver, move
+>    the bridge connector initilization to the Rockchip and Exynos sides.
+>
+> Changes in v4:
+> - Rebase for the applied &drm_bridge_funcs.detect() modification commit.
+> - Rename analogix_dp_find_panel_or_bridge() to analogix_dp_finish_probe().
+> - Drop the drmm_encoder_init() modification commit.
+> - Rename the &analogix_dp_plat_data.bridge to
+>    &analogix_dp_plat_data.next_bridge.
+>
+> Changes in v5:
+> - Add legacy bridge to parse the display-timings node under the dp node
+>    for Exynos side.
+> - Move color format check to &drm_connector_helper_funcs.atomic_check()
+>    in order to get rid of &analogix_dp_plat_data.get_modes().
+> - Remove unused callback &analogix_dp_plat_data.get_modes().
+> - Distinguish the &drm_bridge->ops of Analogix bridge based on whether
+>    the downstream device is a panel, a bridge or neither.
+> - Select DRM_DISPLAY_DP_AUX_BUS for DRM_ANALOGIX_DP, and remove it for
+>    ROCKCHIP_ANALOGIX_DP.
+> - Apply rockchip_dp_attach() to support the next bridge attachment for
+>    the Rockchip side.
+> - Move next_bridge attachment from Analogix side to Rockchip/Exynos sides.
 
-We don't do mmc aliases in the upstream DTs. Long story, but you should
-not need them. I guess you want to disagree ;-), in this case U-Boot has
-you covered, by adding the aliases during build time: just use
-$fdtcontroladdr, as you should do anyway.
+Exynos part still lacks "select DRM_BRIDGE_CONNECTOR" in Kconfig, 
+besides that it works fine on all my test boards. Fix this issue and 
+feel free to add:
 
-> +		serial0 =3D &uart0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path =3D "serial0:115200n8";
-> +	};
-> +
-> +	reg_vcc5v: vcc5v {
-> +		/* board wide 5V supply directly from the DC input */
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vcc-5v";
-> +		regulator-min-microvolt =3D <5000000>;
-> +		regulator-max-microvolt =3D <5000000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	gpio-keys {
-> +		compatible =3D "gpio-keys";
-> +
-> +		key-recovery {
-> +			label =3D "Recovery";
-> +			linux,code =3D <KEY_VENDOR>;
-> +			gpios =3D <&pio 7 9 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +
-> +	leds {
-> +		compatible =3D "gpio-leds";
-> +
-> +		led-0 {
-> +			color =3D <LED_COLOR_ID_BLUE>;
-> +			gpios =3D <&pio 7 6 GPIO_ACTIVE_LOW>;
-> +			default-state =3D "on";
-> +		};
-> +	};
-> +};
-> +
-> +&codec {
-> +	allwinner,audio-routing =3D "Line Out", "LINEOUT";
-> +	status =3D "okay";
-> +};
-> +
-> +&cpu0 {
-> +	cpu-supply =3D <&reg_dcdca>;
-> +};
-> +
-> +&ehci0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&ehci3 {
-> +	status =3D "okay";
-> +};
-> +
-> +/* TODO: EMAC1 connected to AC200 PHY */
-> +
-> +&gpu {
-> +	mali-supply =3D <&reg_dcdcc>;
-> +	status =3D "okay";
-> +};
-> +
-> +&ir {
-> +	status =3D "okay";
-> +};
-> +
-> +&mmc0 {
-> +	vmmc-supply =3D <&reg_aldo1>;
-> +	cd-gpios =3D <&pio 5 6 GPIO_ACTIVE_LOW>;	/* PF6 */
-> +	disable-wp;
-> +	bus-width =3D <4>;
-> +	max-frequency =3D <150000000>;
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
 
-That line is already in the .dtsi file, so redundant.
-
-> +	status =3D "okay";
-> +	/* =C2=B5SD */
-
-If we really need this comment, it should be above, right after the
-"&mmc0 {". And I wonder if it should be "microSD" instead.
-
-> +};
-> +
-> +&mmc1 {
-> +	/* TODO: XRadio XR819 WLAN */
-
-Either you just keep the comment, an mention mmc1, but don't reference the
-node, or you add the properties that you know of already, like
-vmmc-supply, vqmmc-supply, mmc-pwrseq, bus-width, non-removable.
-But this "empty reference with a comment" is somewhat odd.
-
-> +};
-> +
-> +&mmc2 {
-> +	vmmc-supply =3D <&reg_aldo1>;
-> +	vqmmc-supply =3D <&reg_bldo1>;
-> +	non-removable;
-> +	cap-mmc-hw-reset;
-> +	mmc-ddr-1_8v;
-> +	mmc-hs200-1_8v;
-> +	bus-width =3D <8>;
-> +	max-frequency =3D <100000000>;
-
-Are you sure you need that?
-
-> +	status =3D "okay";
-> +	/* eMMC */
-
-Please move that comment up.
-
-> +};
-> +
-> +&ohci0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&ohci3 {
-> +	status =3D "okay";
-> +};
-> +
-> +&r_i2c {
-> +	status =3D "okay";
-> +
-> +	axp305: pmic@36 {
-> +		compatible =3D "x-powers,axp305", "x-powers,axp805",
-> +			     "x-powers,axp806";
-> +		interrupt-controller;
-> +		#interrupt-cells =3D <1>;
-> +		reg =3D <0x36>;
-> +
-> +		x-powers,self-working-mode;
-> +		vina-supply =3D <&reg_vcc5v>;
-> +		vinb-supply =3D <&reg_vcc5v>;
-> +		vinc-supply =3D <&reg_vcc5v>;
-> +		vind-supply =3D <&reg_vcc5v>;
-> +		vine-supply =3D <&reg_vcc5v>;
-> +		aldoin-supply =3D <&reg_vcc5v>;
-> +		bldoin-supply =3D <&reg_vcc5v>;
-> +		cldoin-supply =3D <&reg_vcc5v>;
-> +
-> +		regulators {
-> +			reg_dcdca: dcdca {
-> +				regulator-always-on;
-> +				regulator-min-microvolt =3D <810000>;
-> +				regulator-max-microvolt =3D <1100000>;
-> +				regulator-name =3D "vdd-cpu";
-> +			};
-> +
-> +			dcdcb {
-> +				/* unused */
-> +			};
-> +
-> +			reg_dcdcc: dcdcc {
-> +				regulator-always-on;
-> +				regulator-min-microvolt =3D <810000>;
-> +				regulator-max-microvolt =3D <990000>;
-> +				regulator-name =3D "vdd-gpu-sys";
-> +			};
-> +
-> +			dcdcd {
-> +				regulator-always-on;
-
-Why is this always on? What happens if you remove that line or turn it off?
-For always-on regulators we either need a comment saying why, or, better,
-have an explanatory regulator-name (like above).
-Is that for DRAM, by any chance (1.5V for DDR3 chips)?
-
-Cheers,
-Andre
-
-> +				regulator-min-microvolt =3D <1500000>;
-> +				regulator-max-microvolt =3D <1500000>;
-> +			};
-> +
-> +			dcdce {
-> +				/* unused */
-> +			};
-> +
-> +			reg_aldo1: aldo1 {
-> +				regulator-always-on;
-> +				regulator-min-microvolt =3D <3300000>;
-> +				regulator-max-microvolt =3D <3300000>;
-> +				regulator-name =3D "vcc3v3";
-> +			};
-> +
-> +			aldo2 {
-> +				/* unused */
-> +			};
-> +
-> +			aldo3 {
-> +				/* unused */
-> +			};
-> +
-> +			reg_bldo1: bldo1 {
-> +				regulator-always-on;
-> +				regulator-min-microvolt =3D <1800000>;
-> +				regulator-max-microvolt =3D <1800000>;
-> +				regulator-name =3D "vcc1v8";
-> +			};
-> +
-> +			bldo2 {
-> +				/* unused */
-> +			};
-> +
-> +			bldo3 {
-> +				/* unused */
-> +			};
-> +
-> +			bldo4 {
-> +				/* unused */
-> +			};
-> +
-> +			cldo1 {
-> +				/* unused */
-> +			};
-> +
-> +			cldo2 {
-> +				/* unused */
-> +			};
-> +
-> +			cldo3 {
-> +				/* unused */
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&uart0 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&uart0_ph_pins>;
-> +	status =3D "okay";
-> +};
-> +
-> +&usbotg {
-> +	dr_mode =3D "host";	/* USB A type receptacle */
-> +	status =3D "okay";
-> +};
-> +
-> +&usbphy {
-> +	status =3D "okay";
-> +};
->=20
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
