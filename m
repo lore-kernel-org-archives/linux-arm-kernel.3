@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE68CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB7DCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MYpcsE3JJVoPh3yiGg+2u2fE9IOmYvM0Rb6jQc+GT84=; b=DV7/MT6XUNUgU0Xn+D6HfxivpH
-	iRObAbno80g6POILn58xEPyYf+Mifv9hUtCP86V/GQ2N3C0jQiyg8HbESNWEjjnpSEshBksdgdfA8
-	X0VsqnufXEHO4wjB3XYs04ldGSkXbzTOuDcAAFf9PrENe961ruVRZMWYCwyZicyGJ8fneXhvwPmSl
-	g705ln1+4C7SwnPu+/RdMpIPqXeOzpkRM2hQwx6obc9rtCgvdWvzMvqOyj/z3i1hAg4MztWN3x7Du
-	/PLGHySxOQXNZ72RQ1WFRG9RfJN0SrCg0PoDoZ2bgY6Pwly/SYsfmIrnkozXDjcVixkXCzeaFXfjQ
-	HXPDXeeQ==;
+	bh=PYcAOyUQwZgCVnm8L3SgUsalr9j/YAFyY5/IbjQaIJs=; b=duPN0QiGvlR/UBteF7YRSkNpvx
+	qHTQRbL0YIQsexdQB+aWxJsQ2lNxIPWX5zYJN6zNX7pydX3uHIDwvHrYlK9WGnmbeQj7Ec2PQMjUI
+	+HfPwPZLtHKOAczgZaIke1+RzZ92o3ToLxl9eduwOtx3fxLE0OmWW3bm41N1ptN7CIksConFqj8M1
+	pzFhFhn6dCDMV7/+EDsSp0maaH89/A0JL8Q/iMTnGjh+zIc2XDeRdUBV4Aux+OKeQeT7k5b29w6Yg
+	6HDFUZWgIaFmHdJcPCuIw6hweSOd+rXVC6IBfHT5jJmjxVgBKBPlc8QQuY9XKZh7AfMimdbdWr990
+	F5r1yjlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5Pm-0000000A82d-1wZk;
-	Fri, 12 Sep 2025 15:10:18 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1ux5Pp-0000000A86A-3RMJ;
+	Fri, 12 Sep 2025 15:10:21 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5Pj-0000000A7z7-0Jat
+	id 1ux5Pk-0000000A80o-3Hlf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 15:10:17 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-71d603b60cbso18634677b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 08:10:14 -0700 (PDT)
+	Fri, 12 Sep 2025 15:10:18 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-71d603b674aso13423917b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 08:10:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757689814; x=1758294614; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1757689816; x=1758294616; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MYpcsE3JJVoPh3yiGg+2u2fE9IOmYvM0Rb6jQc+GT84=;
-        b=UPqsDMrTHf4rh37R/fMefxhImkqR7ugiW7/s/gY6P7UGPl5/psIRSSDj2ce3w1POAa
-         aijpclcnvl3DUchNrQxPpMcE+SC455L4L0su3/IFPrtMRw6UEMnq4gWeQj+KmKulCR7w
-         l5beAulBYRlynH/YqrjV84EgccGdYLUoVlFbirdsXMv/a0V/hHEAwaAtG+pJd0bVJ1Cj
-         6buc/7PvNFcrqxVyJ6bc2CLVy18G2Cx7RStm8AOZRXr5qU61JThU/FaO4eSfLe7ku7gp
-         TsxQpiKAaUTUzCZddrKR+06SZBWnmzZfLpuFCPvQ8il5xhq0WBMd7ca5jz4Qaye7Xfs7
-         XXqw==
+        bh=PYcAOyUQwZgCVnm8L3SgUsalr9j/YAFyY5/IbjQaIJs=;
+        b=oYPKlUFO9Y4bhqSVEuw+R1vIhbkyXCOjlxlMHFZJA67jdovjfNJPpEHJCuTaEi+oib
+         r0AEhs6HzLihm2ifOEfkdEO2dhH6LFpwpyBIFRlInwjwrEDmkepHydQmwRexR3dXnDYu
+         dNfaL5HO5eH4QseEzL9UrFPl3YsbX772hLSi35UXR0REOkUvZxhk82ycpUAmiBwJBDB5
+         1wXJOWz9/e+tEnZdYlq7PMEW7Ovxml1UrCFpniDDx/BUiD21XLxafk26zvPUfd+5jD51
+         Ya23tGqP5H35tFS0pP89TCa/GjpP4HhTPZTg+LkHJkI4xqM/YQo47HLqaz+3AOIyX9cA
+         IISQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757689814; x=1758294614;
+        d=1e100.net; s=20230601; t=1757689816; x=1758294616;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MYpcsE3JJVoPh3yiGg+2u2fE9IOmYvM0Rb6jQc+GT84=;
-        b=DXiekvjuBp2Hi2GAmpNr/lwJN6VnTYXNcIz6+YzYdz6vdEjXeMwnO+gRFxxNfxZkiG
-         2lCe66DNQJ1yFGxv+Ra4odAMWCb0+DIUoSxQaCYvKnfKllmdKylkHQGK8mkHQUrVUyS+
-         9s/7xYiumL6VNnHQelsm1kwU2OsYTM7fQo08XWhGW3D/cqPnwHkZ5wR9ol+9bF5rZvbx
-         vP6tzgdPa5Ot/mqnxgJJFcy8Nd4wJcULDxpVfMbPaTE5FT9HOrKKntBoiuEQ/zRmJqfi
-         fLtAFLVen41etZjJ/AObn3L8GDU4J3YRAt3YWo6HAFhaIcUpgP0rIABBbTSIc+DOnGmk
-         ex1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWfjQdLZD/V9IfkK6WJjHQpEQ0qU7ox2hTmhJw1bIXQ/7k7GrhPTNB1CfBQmw2QFU/PrtGAUnFQO1ur32mmIzt5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJHZpjS7oZ0fJoKH5M/AxDCZI8fAkuS+mwYDH1/fTI8M8Y5kqG
-	vWmsXtK4mhWs638cPRC/2oMg/NdofvM/lepvgB1z0OAmfQhmfqrpjE1SJq+zek9Sieo=
-X-Gm-Gg: ASbGncvlRCu3spa44jDgOFDPh+Yh7GafCmZDwwPeGoCtUwcDhSFqmY39TaE5MJ9+OCi
-	2mxXDJbTzEFwxwrga4G4ue7HpHfZeEMZXGifXamxx/qL2aIIukWFOQCR5hKmC00LlUYtyGeB0zh
-	ts6hglU3bI/woz4EMAgpiWDeTtJakJ3cmW/sX4EHiJb4FsAlot5kms1Y4uZ3knekcfqUNDl27gO
-	1DBhx8mxis0OvQ+Hwfy4OBjsxCk4r06OOryZS+XaurGDrPwSLe0Mt75fNAu2Ov243X/eXPB2CiU
-	9unRWwqCTFChxpN8k9oWkiwPJbDgEgxBJb5ENeSJF100jkdvnkRrOHM8HZ9ysFQY7tovcGqbu2w
-	UZlFf4BCYJq+9sPn8pHPhFplqO1+QDar/JNH6eLqyIdxp
-X-Google-Smtp-Source: AGHT+IE2B/J5wRLXOu5lnuN+Axv8riYyigPru1eeeYCbQIMixSd8q/6Ui1Mo233PH+t3U62U0f7UQg==
-X-Received: by 2002:a05:690c:10c:b0:71f:c7ae:fb73 with SMTP id 00721157ae682-730659befadmr31464037b3.42.1757689810056;
-        Fri, 12 Sep 2025 08:10:10 -0700 (PDT)
+        bh=PYcAOyUQwZgCVnm8L3SgUsalr9j/YAFyY5/IbjQaIJs=;
+        b=FB+yR4xZKtA875M2rPrV7AqPxI8AFY1OUxbIs72LlVO6MwDq8fZHTy+Zs8LYafnrvO
+         lGh71F0Mu/qhepHy5DzBiA4w1qIB2bhKN91t8W6DIjriuXbb7QRSHvebJpsxLJNGG4Do
+         sK4Us988H6jBWOa4DP/vRwA1ZtYo2PHXViTJAfEbH3h81T7FGaKNrKLYFgPWXUo4Xj0m
+         lwewBWBc+3KMNv/u76SkHIXEhfYevSa5qrSRmYpCDxCMU8ccbTuyNLFmFbrwkMWLL7v1
+         1whOpGsn56rGCooQGxOOV/bbfKNCQZzm5+UVqr+JMChn7U4zP0m5MifPjwyf1/NccFIs
+         WDEg==
+X-Forwarded-Encrypted: i=1; AJvYcCUzx3j8dZzfzwIS4ATn2AqpX+sPFxYaGYU54L446vTXaiKQjsXxLbbNBwhNBq2vY4hSoyT5R4nVLl8GDv4CfY8f@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuLOKukuoGo4WWOrDX9krHTXq1lKPDDYy9N6Fn4KbwcUx67OnN
+	s2/B4gubSC7khkLcv8w3YjriaPLHDfBDixWHAXrNAwumbrEtqHsp3Rx8XHv7TArR4fs=
+X-Gm-Gg: ASbGncu59hWl2UKZpGCT619V8UKoa1i+CY/Gl6tgft3G+CtdKu+HC9aRFqCHAfRxGmG
+	d8jMHUTimns+vWUVwRYcW1O7WXlwO9Ysx8dfpxityGJ0Ng0zqVmo67nRtUbFjTpVx4U7g8uvXKg
+	itpuP7RJnwDrY5nRNyKHcSwyNtIHVspaEZh1DSTrJA6upz2eeuBb7Xhaf8OTpzowJcwWfYfAcV5
+	cF9Vz9Yma7etRwu9l36nPs+vx7/WUE6zh0U11AX2j3Prq7lutNhRxa995xnb8ICPA0za4X4xMnk
+	LlnwgO42PoFIqiJgSz32WYonVe/WqCF2JKc709MORBfo3P2sEOyI8MmWeLI1TSmXT2diNhxmMBa
+	gYiKSHt6c6uILj/JQQU3xzZvDOjfNprKHiYRV6j7Hoimu
+X-Google-Smtp-Source: AGHT+IHdun55kCQevX+5NMIZ7KQNmYxmG9E8Uto+0Ih94+Wvd6F4Zhy4kkyG4jBHuGQaEGCxBRlhMQ==
+X-Received: by 2002:a05:690c:4d8a:b0:723:8943:d6d3 with SMTP id 00721157ae682-73062ab4292mr27250037b3.6.1757689815690;
+        Fri, 12 Sep 2025 08:10:15 -0700 (PDT)
 Received: from eugen-station.. ([145.224.119.89])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-624841586c1sm1302244d50.6.2025.09.12.08.10.04
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-624841586c1sm1302244d50.6.2025.09.12.08.10.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Sep 2025 08:10:09 -0700 (PDT)
+        Fri, 12 Sep 2025 08:10:15 -0700 (PDT)
 From: Eugen Hristev <eugen.hristev@linaro.org>
 To: linux-arm-msm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -89,17 +89,17 @@ Cc: tudor.ambarus@linaro.org,
 	linux-doc@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	Eugen Hristev <eugen.hristev@linaro.org>
-Subject: [RFC][PATCH v3 04/16] Documentation: kmemdump: Add section for coreimage ELF
-Date: Fri, 12 Sep 2025 18:08:43 +0300
-Message-ID: <20250912150855.2901211-5-eugen.hristev@linaro.org>
+Subject: [RFC][PATCH v3 05/16] kernel/vmcore_info: Register dynamic information into Kmemdump
+Date: Fri, 12 Sep 2025 18:08:44 +0300
+Message-ID: <20250912150855.2901211-6-eugen.hristev@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250912150855.2901211-1-eugen.hristev@linaro.org>
 References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_081015_125523_67F81472 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250912_081016_845419_DC51869F 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,32 +114,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add section describing the utility of coreimage ELF generation for
-kmemdump.
+Register vmcoreinfo information into kmemdump.
+Because the size of the info is computed after all entries are being
+added, there is no point in registering the whole page, rather, call
+the kmemdump registration once everything is in place with the right size.
+A second reason is that the vmcoreinfo is added as a region inside
+the ELF coreimage note, there is no point in having blank space at the end.
 
 Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 ---
- Documentation/dev-tools/kmemdump.rst | 8 ++++++++
+ kernel/vmcore_info.c | 8 ++++++++
  1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/dev-tools/kmemdump.rst b/Documentation/dev-tools/kmemdump.rst
-index 504321de951a..5616843e0407 100644
---- a/Documentation/dev-tools/kmemdump.rst
-+++ b/Documentation/dev-tools/kmemdump.rst
-@@ -27,6 +27,14 @@ are limited.
- Although the kernel has multiple debugging mechanisms, kmemdump fits
- a particular model which is not covered by the others.
+diff --git a/kernel/vmcore_info.c b/kernel/vmcore_info.c
+index e066d31d08f8..3e2e846ba9c8 100644
+--- a/kernel/vmcore_info.c
++++ b/kernel/vmcore_info.c
+@@ -14,6 +14,7 @@
+ #include <linux/cpuhotplug.h>
+ #include <linux/memblock.h>
+ #include <linux/kmemleak.h>
++#include <linux/kmemdump.h>
  
-+kmemdump can also prepare specific regions of the kernel that can be
-+put together to form a minimal core image file. To achieve this, the first
-+region is an ELF header with program headers for each region, and another
-+region contains specific ELF NOTE section with vmcoreinfo.
-+There are also multiple regions registered with basic kernel information
-+that will allow debugging tools like 'crash' to load the image.
-+To enable this feature, use CONFIG_KMEMDUMP_COREIMAGE.
+ #include <asm/page.h>
+ #include <asm/sections.h>
+@@ -118,6 +119,12 @@ phys_addr_t __weak paddr_vmcoreinfo_note(void)
+ }
+ EXPORT_SYMBOL(paddr_vmcoreinfo_note);
+ 
++static void vmcoreinfo_kmemdump(void)
++{
++	kmemdump_register_id(KMEMDUMP_ID_COREIMAGE_VMCOREINFO,
++			     (void *)vmcoreinfo_data, vmcoreinfo_size);
++}
 +
- kmemdump Internals
- ==================
+ static int __init crash_save_vmcoreinfo_init(void)
+ {
+ 	vmcoreinfo_data = (unsigned char *)get_zeroed_page(GFP_KERNEL);
+@@ -227,6 +234,7 @@ static int __init crash_save_vmcoreinfo_init(void)
+ 	arch_crash_save_vmcoreinfo();
+ 	update_vmcoreinfo_note();
+ 
++	vmcoreinfo_kmemdump();
+ 	return 0;
+ }
  
 -- 
 2.43.0
