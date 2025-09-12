@@ -4,57 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F01CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 10:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6308CCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 10:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ybf0+jTINfMOxIVudO0rvz89EkDqS1LjNEy+tFtTCEQ=; b=ZT6GW9jUC0u9g/zozHlYL5y9pv
-	4vbbFiHjjT+K33NFB+kydDGvw30fF+yYOLvv1YTa82rBZbSQUmuPaDwlx4mHXGXxCyvwYWoOkEXCu
-	LLHJXXiFyXNi5uVHfFWi9R6AEjbI/55PfC61xliQsx6f9Bpw6qmcVwCdrLN2uKEEpcBdJazMAcZwR
-	Gu/CretROCsqCNuQ3l4v5C+Kh3kD6+6Zk7YVmbQQDKqB7TPUr1f28ICQnRdHQyBC0yYeYQndO0N6o
-	Y9GmKgjxrrD4b+o3AZhkg9KaxAvQr9aadkMExmCo3Rmbg2s+81Zd0+KitCutAjg8LXvRPnqhnnFNf
-	IlJz7wow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vee/TLMNG6EI8Cz9DnAPyhQqR0gceHv7S+20tpt4Xgk=; b=b/Dgx68jVpsmDm82ZZJdFW0YGN
+	YBb/y3ZhLnTh1rFroRoQwjpUqX8Iq075Qn5K6arhlsjBieSurzVcHnl2B+zAgm7Z9e43yICQb+6YW
+	4tgorvGln5fRUhaPMy/7aUBMmxv7BCoieWSCNJShseGgVEbh4pQtXwkD/9ic3U0h6fjNDwI6TpIhH
+	pRufgKvrplbJNdQcUg3szzYfopo+fJew2EqTmEnwIbnMZdeAf348N3aaROJlwUMUrGAl5QjV8gng3
+	GGsTQ8EpeAJ0TUt+/C1d1D0eSeemwBi08eGJkt4xw3WIulhSfkGsLkBjTdJ57UMn47xk6Y7A7LK0X
+	eUBsEkBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0nf-00000008VWk-3ynU;
-	Fri, 12 Sep 2025 10:14:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0nf-00000008VVr-0r3a
+	id 1ux0o9-00000008Vmk-15sE;
+	Fri, 12 Sep 2025 10:15:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux0o7-00000008Vko-0h1T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 10:14:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B6EC601AF;
-	Fri, 12 Sep 2025 10:14:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A1AFC4CEF1;
-	Fri, 12 Sep 2025 10:14:35 +0000 (UTC)
-Date: Fri, 12 Sep 2025 11:14:32 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
-	akpm@linux-foundation.org, mark.rutland@arm.com,
-	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
-	zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
-	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-	konrad.wilk@oracle.com
-Subject: Re: [PATCH v5 5/5] rqspinlock: Use smp_cond_load_acquire_timeout()
-Message-ID: <aMPyiKuzGh4L4gD8@arm.com>
-References: <20250911034655.3916002-1-ankur.a.arora@oracle.com>
- <20250911034655.3916002-6-ankur.a.arora@oracle.com>
- <aMLdZyjYqFY1xxFD@arm.com>
- <CAP01T74XjRJGzT7BV3PYQOQOwZVud3nL7HfcW3kzU_fPFekNHg@mail.gmail.com>
- <87o6rgk5xd.fsf@oracle.com>
+	Fri, 12 Sep 2025 10:15:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7973916A3;
+	Fri, 12 Sep 2025 03:14:57 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 563A93F66E;
+	Fri, 12 Sep 2025 03:15:01 -0700 (PDT)
+Message-ID: <3a93f4f3-cafc-40f5-b405-d42d5f5c9525@arm.com>
+Date: Fri, 12 Sep 2025 11:14:59 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87o6rgk5xd.fsf@oracle.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 05/29] arm64: kconfig: Add Kconfig entry for MPAM
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-6-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250910204309.20751-6-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250912_031507_326796_6B8C2B0B 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,37 +81,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 11, 2025 at 02:58:22PM -0700, Ankur Arora wrote:
-> 
-> Kumar Kartikeya Dwivedi <memxor@gmail.com> writes:
-> 
-> > On Thu, 11 Sept 2025 at 16:32, Catalin Marinas <catalin.marinas@arm.com> wrote:
-> >>
-> >> On Wed, Sep 10, 2025 at 08:46:55PM -0700, Ankur Arora wrote:
-> >> > Switch out the conditional load inerfaces used by rqspinlock
-> >> > to smp_cond_read_acquire_timeout().
-> >> > This interface handles the timeout check explicitly and does any
-> >> > necessary amortization, so use check_timeout() directly.
-> >>
-> >> It's worth mentioning that the default smp_cond_load_acquire_timeout()
-> >> implementation (without hardware support) only spins 200 times instead
-> >> of 16K times in the rqspinlock code. That's probably fine but it would
-> >> be good to have confirmation from Kumar or Alexei.
-> >>
-> >
-> > This looks good, but I would still redefine the spin count from 200 to
-> > 16k for rqspinlock.c, especially because we need to keep
-> > RES_CHECK_TIMEOUT around which still uses 16k spins to amortize
-> > check_timeout.
-> 
-> By my count that amounts to ~100us per check_timeout() on x86
-> systems I've tested with cpu_relax(). Which seems quite reasonable.
-> 
-> 16k also seems safer on CPUs where cpu_relax() is basically a NOP.
+Hi James,
 
-Does this spin count work for poll_idle()? I don't remember where the
-200 value came from.
+On 9/10/25 21:42, James Morse wrote:
+> The bulk of the MPAM driver lives outside the arch code because it
+> largely manages MMIO devices that generate interrupts. The driver
+> needs a Kconfig symbol to enable it. As MPAM is only found on arm64
+> platforms, the arm64 tree is the most natural home for the Kconfig
+> option.
+> 
+> This Kconfig option will later be used by the arch code to enable
+> or disable the MPAM context-switch code, and to register properties
+> of CPUs with the MPAM driver.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> CC: Dave Martin <dave.martin@arm.com>
+> ---
+> Changes since v1:
+>  * Help text rewritten by Dave.
+> ---
+>  arch/arm64/Kconfig | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index e9bbfacc35a6..4be8a13505bf 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2060,6 +2060,29 @@ config ARM64_TLB_RANGE
+>  	  ARMv8.4-TLBI provides TLBI invalidation instruction that apply to a
+>  	  range of input addresses.
+>  
+> +config ARM64_MPAM
+> +	bool "Enable support for MPAM"
+> +	help
+> +	  Memory System Resource Partitioning and Monitoring (MPAM) is an
+> +	  optional extension to the Arm architecture that allows each
+> +	  transaction issued to the memory system to be labelled with a
+> +	  Partition identifier (PARTID) and Performance Monitoring Group
+> +	  identifier (PMG).
+> +
+> +	  Memory system components, such as the caches, can be configured with
+> +	  policies to control how much of various physical resources (such as
+> +	  memory bandwidth or cache memory) the transactions labelled with each
+> +	  PARTID can consume.  Depending on the capabilities of the hardware,
+> +	  the PARTID and PMG can also be used as filtering criteria to measure
+> +	  the memory system resource consumption of different parts of a
+> +	  workload.
+> +
+> +	  Use of this extension requires CPU support, support in the
+> +	  Memory System Components (MSC), and a description from firmware
+> +	  of where the MSCs are in the address space.
+> +
+> +	  MPAM is exposed to user-space via the resctrl pseudo filesystem.
+> +
+>  endmenu # "ARMv8.4 architectural features"
+>  
+>  menu "ARMv8.5 architectural features"
 
--- 
-Catalin
+Seems good to me. I guess we can consider separately whether we want
+this to be default or not.
+
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+
+Thanks,
+
+Ben
+
 
