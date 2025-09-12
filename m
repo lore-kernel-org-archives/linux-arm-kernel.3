@@ -4,71 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A8FCAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:08:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2229CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wwb7BjG4Y6/P4xrH3b8bHVIXPI6hpByGNPPlXJjHlOA=; b=2SvgqFtj3YhFNYmOFtGacnEnBa
-	/Uw7ojnOLqeo4jNDzJuyIowwOSVufx/jGF6XgzG0I1QHDae6/UkdtE57WNQ/5G+38RAGC0nTWQ3so
-	9XJKCkBwekNdOpbd5RBGv+W4TqjNXHR4LiKr+NeA0o9foIozy+KfSmte46U/XPajZItUxpM6DvqJE
-	Dfs2oUvfkK6yWCGvfJbGNnz5CdLNKdQJeAlahFeCH1JLn0fiddfQcM7+rJpc1S90mirP7tIJnlq9K
-	apbcg9zchi5biKoXl1wUNeUFNF62Inyqt1yXmWO7JwkD4LnJM2QAHta/ybSY6TT4AH71mU7derJ+/
-	FxJZ9iwQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tn1IEmMAGZyh6SugTSgTnT2d/eMoRNbNXQXbvicu4BI=; b=AHSyhDk4D6tKfwBuiNA3DqEoy+
+	aTUhofurshh+Tz6GiQ8EVESKUVQynJDQ31jdZ856Ik8egXj0nbHeZTX1ZbGW5pdHVZQrgdQhQQYrB
+	3Qbb9kWkn+S14R6RUB+KyHkq53aYg1H0THstajwWf+J1UiCNdeHBVOY5jAsSkFhd8eJB0/M9qdxYB
+	KWE323SkVhgwdms6zehTL9JPyuLzumJSpB+b9fzD10JU3P3ose+7f/UmB/hIpJ8WY2otBQ1hcpt3q
+	s2c2vpGwetal0B0DHDx/+Jqp8DfH31ZUnSHpEUxdZ+4EQdZfHpLDIGCGMBDR8TswEsbPURzefkG0b
+	BkoZJSWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2a6-00000009775-1Y2e;
-	Fri, 12 Sep 2025 12:08:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ux2cr-000000098Y2-2nFZ;
+	Fri, 12 Sep 2025 12:11:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2a5-0000000975e-1hja
+	id 1ux2cp-000000098Vw-0Mmy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 12:08:45 +0000
+	Fri, 12 Sep 2025 12:11:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C70FC6021D;
-	Fri, 12 Sep 2025 12:08:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1193AC4CEFA;
-	Fri, 12 Sep 2025 12:08:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4FC1E43AE0;
+	Fri, 12 Sep 2025 12:11:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AFC2C4CEF1;
+	Fri, 12 Sep 2025 12:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757678894;
-	bh=06h87KlWkV1Qdl8fM2aLPrnGF5NItjF1URPRbQmcu/I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V//8tx61ZUc+/50eULoGX5XwUqhDag5NjuiYO0FollJVZYf/Nw5EKE/1U7lE2eL0J
-	 R/VVRGWQ69KNy5sm64TdlY+RD3oNYCflvgtz2mmCtMhnq5i0OMdUzn12zMGJCLYSaq
-	 X66W1i4IEO3n1PFWtiiJqvNAHHfetXE+SBmoaIsW/WmQeGbBC3I38Z2jZg5jsbDZTx
-	 CDx6nms0XGniOtq6MSJV3vuXI9z4YjNt6JbPj/fohIILDqy+4A4CsfzNWpyojqzkjC
-	 lDi13wflcTW2iyVGZwacuU5tnZt2tK9lvgsti8MOhAkn6raJ87s3mYpSnfjqqSPmHm
-	 R3k2L8Xwoj2bQ==
-From: Michael Walle <mwalle@kernel.org>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Lee Jones <lee@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	s=k20201202; t=1757679094;
+	bh=XRHXIkOFKo+7035cNRrBYS4AXTjDo5unw4Qr62yGDW0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=a0J2vXtVQcgXKtlhg36EclpHdO5TWV0+E5eP6mUnhhft6bZE+UYwoVO5gQIXKiyY6
+	 M05n8cc0XTZLYqAl+S+Vy+3GK6+vjO8uMG0GnV3nuGerWKeyzujv9CKKiUTkF5WDSd
+	 pt94V79JVWG6GvonNI/l2/H2of8kjUYdX0H42/DdCT7YC5vg0SBKXVwVtq+WI+amZJ
+	 a6gxlIiLDqiyLMEifG0ZCcIv/eic7NTsgajrBEg/y3KYSEo4kQWxS+evyWFisGOyMC
+	 BXfK4eeyBdS5SnARYLycSD6C+pFbFh9mVekY1vgd3dmVwZWTc3vDYzj6AfpLROQuig
+	 zq+r2yIBt4f9A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1ux2cm-00000005gFU-0GlJ;
+	Fri, 12 Sep 2025 12:11:32 +0000
+Date: Fri, 12 Sep 2025 13:11:31 +0100
+Message-ID: <86348rdg5o.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Itaru Kitayama <itaru.kitayama@gmail.com>
+Cc: Itaru Kitayama <itaru.kitayama@linux.dev>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	K Poulose Suzuki <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-watchdog@vger.kernel.org,
-	Andrew Davis <afd@ti.com>
-Subject: [PATCH v2 2/7] dt-bindings: mfd: tps6594: allow gpio-line-names
-Date: Fri, 12 Sep 2025 14:07:40 +0200
-Message-Id: <20250912120745.2295115-3-mwalle@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250912120745.2295115-1-mwalle@kernel.org>
-References: <20250912120745.2295115-1-mwalle@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Subject: Re: [PATCH] PMCR_EL0.N is RAZ/WI. At least a build failes in Ubuntu 22.04 LTS. Remove the set function.
+In-Reply-To: <3FEB4D87-EEAF-4A21-BCBC-291A4A7C2230@gmail.com>
+References: <867by4c4v1.wl-maz@kernel.org>
+	<3FEB4D87-EEAF-4A21-BCBC-291A4A7C2230@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: itaru.kitayama@gmail.com, itaru.kitayama@linux.dev, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, itaru.kitayama@fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250912_051135_164433_EF15B2B0 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +96,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Setting the signal names in the device tree was already possible, but
-it will lead to a warning. Allow the gpio-line-names property to fix
-that.
+On Fri, 12 Sep 2025 12:33:39 +0100,
+Itaru Kitayama <itaru.kitayama@gmail.com> wrote:
+>=20
+>=20
+>=20
+> > On Sep 12, 2025, at 20:01, Marc Zyngier <maz@kernel.org> wrote:
+> >=20
+> > =EF=BB=BFOn Fri, 12 Sep 2025 09:27:40 +0100,
+> > Itaru Kitayama <itaru.kitayama@linux.dev> wrote:
+> >>=20
+> >> Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+> >=20
+> > This isn't an acceptable commit message.
+> >=20
+> >> ---
+> >> Seen a build failure with old Ubuntu 22.04 LTS, while the latest relea=
+se
+> >> has no build issue, a write to the bit fields is RAZ/WI, remove the
+> >> function.
+> >> ---
+> >> tools/testing/selftests/kvm/arm64/vpmu_counter_access.c | 6 ------
+> >> 1 file changed, 6 deletions(-)
+> >>=20
+> >> diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b=
+/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> >> index f16b3b27e32ed7ca57481f27d689d47783aa0345..56214a4430be90b3e1d840=
+f2719b22dd44f0b49b 100644
+> >> --- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> >> +++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> >> @@ -45,11 +45,6 @@ static uint64_t get_pmcr_n(uint64_t pmcr)
+> >>    return FIELD_GET(ARMV8_PMU_PMCR_N, pmcr);
+> >> }
+> >>=20
+> >> -static void set_pmcr_n(uint64_t *pmcr, uint64_t pmcr_n)
+> >> -{
+> >> -    u64p_replace_bits((__u64 *) pmcr, pmcr_n, ARMV8_PMU_PMCR_N);
+> >> -}
+> >> -
+> >> static uint64_t get_counters_mask(uint64_t n)
+> >> {
+> >>    uint64_t mask =3D BIT(ARMV8_PMU_CYCLE_IDX);
+> >> @@ -490,7 +485,6 @@ static void test_create_vpmu_vm_with_pmcr_n(uint64=
+_t pmcr_n, bool expect_fail)
+> >>     * Setting a larger value of PMCR.N should not modify the field, and
+> >>     * return a success.
+> >>     */
+> >> -    set_pmcr_n(&pmcr, pmcr_n);
+> >>    vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0), pmcr);
+> >>    pmcr =3D vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
+> >>=20
+> >>=20
+> >=20
+> > So what are you fixing here? A build failure? A semantic defect?
+> > Something else? What makes this a valid change?
+> >=20
+> > Frankly, I have no idea.
+> >=20
+> > But KVM definitely allows PMCR_EL0.N to be written from userspace, and
+> > that's not going to change.
+> >=20
+>=20
+> Then I=E2=80=99ll drop this patch.
 
-Signed-off-by: Michael Walle <mwalle@kernel.org>
----
- Documentation/devicetree/bindings/mfd/ti,tps6594.yaml | 1 +
- 1 file changed, 1 insertion(+)
+I'm not asking you to drop it, I'm asking you to explain. If you found
+a problem, let's discuss it and fix it. But as it stands, you're not
+giving me much to go on.
 
-diff --git a/Documentation/devicetree/bindings/mfd/ti,tps6594.yaml b/Documentation/devicetree/bindings/mfd/ti,tps6594.yaml
-index a48cb00afe43..ca17fbdea691 100644
---- a/Documentation/devicetree/bindings/mfd/ti,tps6594.yaml
-+++ b/Documentation/devicetree/bindings/mfd/ti,tps6594.yaml
-@@ -41,6 +41,7 @@ properties:
-   system-power-controller: true
- 
-   gpio-controller: true
-+  gpio-line-names: true
- 
-   '#gpio-cells':
-     const: 2
--- 
-2.39.5
+	M.
 
+--=20
+Without deviation from the norm, progress is not possible.
 
