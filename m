@@ -4,74 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BC6CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A1DCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k2+RB6MUOQtyzxNDapW6pVtIpKR/wAmc57WmHmeFGhs=; b=TypRn8LKmsYVQzM2Du1exxdAWg
-	gaDdO/SEFLGU5v6KXsaCRGVIRhC+5pTESqjAV5KmKuO/pKXFu0UXyfm4XpEY/0Vgfn/CcdIvu4bjo
-	4hrPTDGQQ75yGHJ/oqEl+S/qioAigWrpjkAmebnAnQmP82ka9hISd4T/6VpTAtYoqanhfV4HZhxAY
-	Xdsu9y8r2+6ENZKVt629pIxXoQOIcQ3Vfd7v1hVJvnpMHdZh2VdiKgiuLcp6mw4mb3nODXD6xvwNd
-	ZFk/dMMIbbKKnYNTALwFSb+OAGhrxinRwu+G4tacKUzgcPa6f0Qkq0atjhiwYgasdIq+8/EUSmyGw
-	RILP3EFA==;
+	bh=FwmRxOveNll9yM/Pf1bROm7oigcTkb+UVTYDC58BlQ8=; b=jNlpp6/xuFQOaprkVQv21p8FHX
+	2kvsn2URPBcg/BONChbbE33uvFGfM05cACvvzcDSe8A55AeWivmD8yVTJ0dWkpOhlzzgsJtv2l69F
+	pQBydFaHlMlztiSuGNo0CqJBb2ieRW5WovqjPA55Y4qlBXHmTTVv60wOYxgtAyCz/B2TrsFsokEpT
+	Z7roKk4JhboyTZa8h2/zBms22DQBsXM39zPylMn3xamSo5MEcdocuqQK+8irKOxsmY8Zv0IIRiLX8
+	tCI9dqmeshtCpHQsEUAk60/HNj4u65D5T+Chj1GIL5i6tu1vmipHPHQuHr4u9J0dK7CHVq9fZ7AA0
+	h5NA9XQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0Ox-00000008Nfu-0bw7;
-	Fri, 12 Sep 2025 09:49:07 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ux0QH-00000008OJa-0X3B;
+	Fri, 12 Sep 2025 09:50:29 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0Ou-00000008Nek-3qVw
+	id 1ux0QB-00000008OHl-1ULO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 09:49:06 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58C9n2E1580003;
-	Fri, 12 Sep 2025 04:49:02 -0500
+	Fri, 12 Sep 2025 09:50:27 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58C9oAOh495791;
+	Fri, 12 Sep 2025 04:50:10 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757670542;
-	bh=k2+RB6MUOQtyzxNDapW6pVtIpKR/wAmc57WmHmeFGhs=;
+	s=ti-com-17Q1; t=1757670610;
+	bh=FwmRxOveNll9yM/Pf1bROm7oigcTkb+UVTYDC58BlQ8=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=h4JuWNDQkmKTC5rEsIYfu5pCqofF1pvE5x7WTBswvkhhc/CH7ko9MFLI9OVrCIv3+
-	 x48ALvy2WrpCmlauo7u/JqPOktTHfPiv6DQefxscbVkuYwxABJFUohcl//pOo2wnO+
-	 TS3fkQaXj+n257fq8HExvwE3VlT+tgSgTYSwa1vc=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58C9n2F81218723
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 12 Sep 2025 04:49:02 -0500
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 12
- Sep 2025 04:49:01 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+	b=RY6jxN3nnkSaH6skOA8scRxrqMQefuuIMsdrvkHpejF3pNBN4FQoqY42hN0KzkzTV
+	 qtbTa9ORLDZ6218RF/OyzG49UrUQ+69jfqFw8dc7Q5VZWP1qunL7RGqQ9B/jBIxIji
+	 8+6C4Gmq2NfMP9rGpr/som5DJcACw0dyoToFLWfc=
+Received: from DFLE208.ent.ti.com (dfle208.ent.ti.com [10.64.6.66])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58C9oAvh1775818
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 12 Sep 2025 04:50:10 -0500
+Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 12 Sep
+ 2025 04:50:02 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 12 Sep 2025 04:49:01 -0500
+ Transport; Fri, 12 Sep 2025 04:50:02 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58C9n1An3715971;
-	Fri, 12 Sep 2025 04:49:01 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58C9o2Q63717224;
+	Fri, 12 Sep 2025 04:50:02 -0500
 From: Nishanth Menon <nm@ti.com>
 To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
         Beleswar Padhi <b-padhi@ti.com>
 CC: Nishanth Menon <nm@ti.com>, <afd@ti.com>, <u-kumar1@ti.com>,
-        <hnagalla@ti.com>, <jm@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j742s2-mcu-wakeup: Override firmware-name for MCU R5F cores
-Date: Fri, 12 Sep 2025 04:48:57 -0500
-Message-ID: <175766786719.25561.15602931252398544025.b4-ty@ti.com>
+        <hnagalla@ti.com>, <jm@ti.com>, <d-gole@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Robert Nelson
+	<robertcnelson@gmail.com>,
+        Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>,
+        Parth Pancholi <parth.pancholi@toradex.com>,
+        Emanuele Ghidoli
+	<emanuele.ghidoli@toradex.com>,
+        Francesco Dolcini
+	<francesco.dolcini@toradex.com>,
+        Matthias Schiffer
+	<matthias.schiffer@ew.tq-group.com>,
+        Logan Bristol
+	<logan.bristol@utexas.edu>,
+        Josua Mayer <josua@solid-run.com>, John Ma
+	<jma@phytec.com>,
+        Nathan Morrisson <nmorrisson@phytec.com>,
+        Garrett Giordano
+	<ggiordano@phytec.com>,
+        Matt McKee <mmckee@phytec.com>, Wadim Egorov
+	<w.egorov@phytec.de>,
+        Andrejs Cainikovs <andrejs.cainikovs@toradex.com>,
+        Max
+ Krummenacher <max.krummenacher@toradex.com>,
+        Stefan Eichenberger
+	<stefan.eichenberger@toradex.com>,
+        Hiago De Franco
+	<hiago.franco@toradex.com>,
+        Diogo Ivo <diogo.ivo@siemens.com>,
+        Li Hua Qian
+	<huaqian.li@siemens.com>,
+        Jan Kiszka <jan.kiszka@siemens.com>,
+        Baocheng Su
+	<baocheng.su@siemens.com>,
+        Benedikt Niedermayr
+	<benedikt.niedermayr@siemens.com>
+Subject: Re: [PATCH v4 00/34] Refactor TI IPC DT configs into dtsi
+Date: Fri, 12 Sep 2025 04:49:58 -0500
+Message-ID: <175766786790.25701.17214923767658263422.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250823163111.2237199-1-b-padhi@ti.com>
-References: <20250823163111.2237199-1-b-padhi@ti.com>
+In-Reply-To: <20250908142826.1828676-1-b-padhi@ti.com>
+References: <20250908142826.1828676-1-b-padhi@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_024905_048181_D129966A 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250912_025023_484371_2146A8AC 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,22 +123,90 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Beleswar Padhi,
 
-On Sat, 23 Aug 2025 22:01:11 +0530, Beleswar Padhi wrote:
-> The J742S2 SoC reuses the common k3-j784s4-j742s2-mcu-wakeup-common.dtsi
-> for its MCU domain, but it does not override the firmware-name property
-> for its R5F cores. This causes the wrong firmware binaries to be
-> referenced.
-> 
-> Introduce a new k3-j742s2-mcu-wakeup.dtsi file to override the
-> firmware-name property with correct names for J742s2.
+On Mon, 08 Sep 2025 19:57:52 +0530, Beleswar Padhi wrote:
+> The TI K3 SoCs have multiple programmable remote processors like
+> R5F, M4F, C6x/C7x etc. The TI SDKs for these SoCs offer sample firmware
+> which could be run on these cores to demonstrate an "echo" IPC test.
+> Those firmware require certain memory carveouts to be reserved from
+> system memory, timers to be reserved, and certain mailbox
+> configurations for interrupt based messaging. These configurations
+> could be different for a different firmware.
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
+NOTE: I have'nt had feedback from Siemens team, but looking at the series,
+things look fine overall. holler if a problem..
 Thank you!
 
-[1/1] arm64: dts: ti: k3-j742s2-mcu-wakeup: Override firmware-name for MCU R5F cores
-      commit: 00c8fdc2809f05422d919809106f54c23de3cba3
+[01/34] arm64: dts: ti: k3-j7200: Enable R5F remote processors at board level
+        commit: 7b09167cb7cb09282200903b6371996df4d76bc4
+[02/34] arm64: dts: ti: k3-j721e: Enable remote processors at board level
+        commit: 73d0df7437364feb1a39772eccbb4f1a604cf623
+[03/34] arm64: dts: ti: k3-j721s2: Enable remote processors at board level
+        commit: 368ae64a7188ac06d3cb2ee96975d40e6504e40d
+[04/34] arm64: dts: ti: k3-j784s4-j742s2: Enable remote processors at board level
+        commit: fa1b98ddfa1d44a98f70d7480c87f33f8d29c8d7
+[05/34] arm64: dts: ti: k3-am62p-j722s: Enable remote processors at board level
+        commit: ec158a0883c90528bbc1ec960a9b990d49a34099
+[06/34] arm64: dts: ti: k3-am62: Enable remote processors at board level
+        commit: bdc921171dbe13fdc41589d44217d560299bbd5c
+[07/34] arm64: dts: ti: k3-am62a: Enable remote processors at board level
+        commit: f927049553dfaa27acc099b21095ee488b199687
+[08/34] arm64: dts: ti: k3-am64: Enable remote processors at board level
+        commit: 93b4ff5b86e5bc53aeba3a0193597ba31a4e5839
+[09/34] arm64: dts: ti: k3-am65: Enable remote processors at board level
+        commit: c3fc9c1c1ac8f64ef333858ea42676889448a248
+[10/34] arm64: dts: ti: k3-am62: Enable Mailbox nodes at the board level
+        commit: bc590db1b5fe999d056ba66dc1990288c14f1ec3
+[11/34] arm64: dts: ti: k3-am62a: Enable Mailbox nodes at the board level
+        commit: 9ca8079eb36b71a86bb5851d9d3b7a49da8e595f
+[12/34] arm64: dts: ti: k3-am6*-boards: Add label to reserved-memory node
+        commit: 4f1aee4723a796a92f17b23699dc861b582ddfd2
+[13/34] arm64: dts: ti: k3: Rename rproc reserved-mem nodes to 'memory@addr'
+        commit: aee0678597c63e5427e91b2e49a6c5ed4951f277
+[14/34] arm64: dts: ti: k3-j721e-beagleboneai64: Add missing cfg for TI IPC FW
+        commit: a564730142d5d23c197ca4b4741fb6a89e6f0c2c
+[15/34] arm64: dts: ti: k3-am62p-verdin: Add missing cfg for TI IPC Firmware
+        commit: fc4f6f0146d4c778859042a76b1e932b6334bf96
+[16/34] arm64: dts: ti: k3-am62-verdin: Add missing cfg for TI IPC Firmware
+        commit: a49f991e740f5f3917b4023705568aeb817ee773
+[17/34] arm64: dts: ti: k3-am62-pocketbeagle2: Add missing cfg for TI IPC Firmware
+        commit: 6104984a7d1d8c17c724e799501a1be2a2a35a52
+[18/34] arm64: dts: ti: k3-am642-sr-som: Add missing cfg for TI IPC Firmware
+        commit: e85524649959c2fa2477b66a450471df6e1fb725
+[19/34] arm64: dts: ti: k3-am64-phycore-som: Add missing cfg for TI IPC Firmware
+        commit: 67b98792407f41b369ecd799a4928db24dbb2058
+[20/34] arm64: dts: ti: k3-am642-tqma64xxl: Add missing cfg for TI IPC Firmware
+        commit: b13fb32f6bde4c0c533fab6e4bc240b75296e810
+[21/34] Revert "arm64: dts: ti: k3-j721e-sk: Fix reversed C6x carveout locations"
+        commit: 79a1778c7819c8491cdbdc1f7e46d478cb84d5cf
+[22/34] Revert "arm64: dts: ti: k3-j721e-beagleboneai64: Fix reversed C6x carveout locations"
+        commit: 932424a925ce79cbed0a93d36c5f1b69a0128de1
+[23/34] arm64: dts: ti: k3-j721e-beagleboneai64: Switch MAIN R5F clusters to Split-mode
+        commit: 897117c6bb4b151bd9326773cd6a5acdad4c47b4
+[24/34] arm64: dts: ti: k3-j7200-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: c5b645dbecd6d0b2689fa44eeefe2a2648172dc7
+[25/34] arm64: dts: ti: k3-j721e-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: 20ca55168b139c78d4e604a59dbc89403781ee0a
+[26/34] arm64: dts: ti: k3-j721s2-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: e2581d3e0787a42f6ede8a15a66a93ae4a3ecd6f
+[27/34] arm64: dts: ti: k3-j784s4-j742s2-ti-ipc-firmware-common: Refactor IPC cfg into new dtsi
+        commit: 3dabfaa168d8b3835e210f90da3bf0f10b050fdb
+[28/34] arm64: dts: ti: k3-j784s4-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: 2742d963e1dd7f4a3d0505044323b091daffcddc
+[29/34] arm64: dts: ti: k3-j722s-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: 3cc04e49cd5d9c5af24eb4357775f35156b19fec
+[30/34] arm64: dts: ti: k3-am62p-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: 6bd0449be319a29096f3ee7cd415f8b6b28104c7
+[31/34] arm64: dts: ti: k3-am62-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: 1d6161617c10435e970d3bb3ef5de124b94fe719
+[32/34] arm64: dts: ti: k3-am62a-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: d4ab4a33c8e0a8cd33c8cb70ba3c74dba770c2a4
+[33/34] arm64: dts: ti: k3-am64-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: 3ad3ab0bfa577d1f93e7048224c267b32ed4d6a1
+[34/34] arm64: dts: ti: k3-am65-ti-ipc-firmware: Refactor IPC cfg into new dtsi
+        commit: a26bc9175f679da37ee3a52669aeb26db7f57738
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
