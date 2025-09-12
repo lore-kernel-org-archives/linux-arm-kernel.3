@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2589CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 08:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C32DECA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 08:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/rJvbqg5hGEiqSV6xlS8lJzkfECYW8rIvm9JOTORqQ=; b=2rTwYBj+FP82Um44RjYuHWa45x
-	xGmeNDr2uqWj6gRBb8iP+NtGUth4PCLLBFGTd0g+CglLQ8vAR1J3+B45hv2TGqKmdixIIqH7o+Cai
-	3YWIS4o8IkNxlp6khJejCuAmyoYKExTz69XlxWxoNle0xwpcYXwK6GKUhIe2Upm9XTA4xQXoEbCZc
-	IzNmb1VRZqqCLLETK0xC8F1YoY+D2Psz18zWfFofLOrkNyKkmHlWLKKnBEwyfyLlJSSiKhLovROzt
-	eqsDb1ATJMGv+4XXqBMecpJU070JvQak1tSI+gyaH121svRSd9uYsXaJchQOIzEfvuJeFRqU9VLx+
-	i4z0u4iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iAQrbCqZZ4sOxWZdD0ZcXvxkxM3DekbLizKEk5JXiYI=; b=h9Prs7lXWk54NshljxzUL48OCO
+	WjHyatUpI6DSykx3sCRvI70Vr1dQbI4Q1WGq79fJ7wKryN9Ka+Kb2ju2tA6CNbWDGtmwNHHKxzygq
+	0RHGla2AwsuFk4VhGZVDX1btBL3G3tIMyG9Tuw+HpsrY3WhEri6RgazDdzrXcIoVomartGSPwx80E
+	zNPQqDQrG83zwv5K0ZmFD/2BS9Y5o7gWodlwjwsWqR+xbnFVO73fmERKQnUbk+mHHimuDOyo/mycj
+	H9jbDfkObpwV0TloJpOAUtoMxicmS1sA+OQjwEo986vQ14ctDj3OdRYAtUBBOgY0o6CKA/FbScpLQ
+	Od7ijv0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwyxM-00000007rh7-41qZ;
-	Fri, 12 Sep 2025 08:16:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uwz8c-00000007vMP-1DLs;
+	Fri, 12 Sep 2025 08:28:10 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwyxK-00000007pWg-1Qys;
-	Fri, 12 Sep 2025 08:16:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757664696;
-	bh=KjG8Shhom3ptheFneHi2DOtT3R4n7iwULOcuxa4vRfA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eeE5f399qEpPII2CaBiyLBTsmDdK8fMjj7NBb/wZVK6Rn/kzLJjGKmiuv/7M4/LXI
-	 jdNMN+rKbS3YlpfLTBFWksZDVTRSTlF/dt/KjlexFAIYJklY1HHWoGK90O5RB7Vfde
-	 DTgs2pih+PtyWTEMIwxoAgCgddkS2lGtd4+2+1Z0w7g/X9dFls1Dbwp+2wOWI1sumr
-	 qTOE77ZANhMVf7aUL92O4mJP2F57yIUzFH7zERPc/PhlORaWpsd0dcrfneSp0jMKaO
-	 7Dbh5o9Dos2L83yhzIHLu2MyNGCYr3fRzKVLHN8c2joFDPLA54h9wctXFkvdOheZRa
-	 hC8Q8vBryFVeA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F296D17E12AE;
-	Fri, 12 Sep 2025 10:11:33 +0200 (CEST)
-Message-ID: <008524f2-9411-4229-80bc-a6b56ecca123@collabora.com>
-Date: Fri, 12 Sep 2025 10:11:33 +0200
+	id 1uwz8Y-00000007vAX-3Xh7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Sep 2025 08:28:08 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1757665671;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=iAQrbCqZZ4sOxWZdD0ZcXvxkxM3DekbLizKEk5JXiYI=;
+	b=kDlamB2DmhQj2fTmsOmZiyKAroCsKWkXguZcNfTcNVtkG1bOz8NDZcVCf2adk4w6V4LPeR
+	j6LjxuUCyJT2gCgG2RXhbV3aBg0/oeSKoo3tl0EB4Srxpgh3mVIWnr/kM8bC2uZsWeHNUj
+	gjF97lNGZ34GseD0JoxAiDitli856yE=
+From: Itaru Kitayama <itaru.kitayama@linux.dev>
+Date: Fri, 12 Sep 2025 17:27:40 +0900
+Subject: [PATCH] PMCR_EL0.N is RAZ/WI. At least a build failes in Ubuntu
+ 22.04 LTS. Remove the set function.
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/12] arm64: dts: mediatek: mt8173: Fix mt8173-pinctrl
- node names
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>, airlied@gmail.com,
- amergnat@baylibre.com, andrew+netdev@lunn.ch, andrew-ct.chen@mediatek.com,
- broonie@kernel.org, chunkuang.hu@kernel.org, conor+dt@kernel.org,
- davem@davemloft.net, dmitry.torokhov@gmail.com, edumazet@google.com,
- flora.fu@mediatek.com, heiko@sntech.de, houlong.wei@mediatek.com,
- jeesw@melfas.com, kernel@collabora.com, krzk+dt@kernel.org, kuba@kernel.org,
- lgirdwood@gmail.com, linus.walleij@linaro.org,
- louisalexis.eyraud@collabora.com, luiz.dentz@gmail.com,
- maarten.lankhorst@linux.intel.com, marcel@holtmann.org,
- matthias.bgg@gmail.com, mchehab@kernel.org, minghsiu.tsai@mediatek.com,
- mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com,
- robh@kernel.org, sean.wang@kernel.org, simona@ffwll.ch,
- support.opensource@diasemi.com, tiffany.lin@mediatek.com,
- tzimmermann@suse.de, yunfei.dong@mediatek.com
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-sound@vger.kernel.org, netdev@vger.kernel.org
-References: <20250911151001.108744-1-ariel.dalessandro@collabora.com>
- <20250911151001.108744-8-ariel.dalessandro@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250911151001.108744-8-ariel.dalessandro@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250912-selftest-fix3-v1-1-256710a5ae5b@linux.dev>
+X-B4-Tracking: v=1; b=H4sIAHvZw2gC/x2M0QpAQBAAf+XaZ1usdMevyIPYY0vo9pKSf7d5n
+ KmZB5STsELnHkh8icqxG1SFg2kd94VRZmOgkpqyrQiVt5hZM0a5ayQfKTTs2zkQWHMmNv//+uF
+ 9P1b0CzVfAAAA
+X-Change-ID: 20250912-selftest-fix3-27f285e79d82
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_011630_685479_3D64896B 
-X-CRM114-Status: UNSURE (   5.92  )
+X-CRM114-CacheID: sfid-20250912_012807_618627_7C2A85F9 
+X-CRM114-Status: UNSURE (   8.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,15 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 11/09/25 17:09, Ariel D'Alessandro ha scritto:
-> According to the mediatek,mt8173-pinctrl device tree binding schema, the
-> pinctrl node names should match pattern 'pins$'. Fix this.
-> 
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+---
+Seen a build failure with old Ubuntu 22.04 LTS, while the latest release
+has no build issue, a write to the bit fields is RAZ/WI, remove the
+function.
+---
+ tools/testing/selftests/kvm/arm64/vpmu_counter_access.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+index f16b3b27e32ed7ca57481f27d689d47783aa0345..56214a4430be90b3e1d840f2719b22dd44f0b49b 100644
+--- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
++++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+@@ -45,11 +45,6 @@ static uint64_t get_pmcr_n(uint64_t pmcr)
+ 	return FIELD_GET(ARMV8_PMU_PMCR_N, pmcr);
+ }
+ 
+-static void set_pmcr_n(uint64_t *pmcr, uint64_t pmcr_n)
+-{
+-	u64p_replace_bits((__u64 *) pmcr, pmcr_n, ARMV8_PMU_PMCR_N);
+-}
+-
+ static uint64_t get_counters_mask(uint64_t n)
+ {
+ 	uint64_t mask = BIT(ARMV8_PMU_CYCLE_IDX);
+@@ -490,7 +485,6 @@ static void test_create_vpmu_vm_with_pmcr_n(uint64_t pmcr_n, bool expect_fail)
+ 	 * Setting a larger value of PMCR.N should not modify the field, and
+ 	 * return a success.
+ 	 */
+-	set_pmcr_n(&pmcr, pmcr_n);
+ 	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0), pmcr);
+ 	pmcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
+ 
 
+---
+base-commit: aae5a9834b388860844b294c70c8770dd26e528c
+change-id: 20250912-selftest-fix3-27f285e79d82
+
+Best regards,
+-- 
+Itaru Kitayama <itaru.kitayama@linux.dev>
 
 
