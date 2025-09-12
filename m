@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A22CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3419CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XfExTXX0Ld2ILtuxmtNgwiF69CLLxtRelz2XH7b/aKo=; b=i1LKPeWaxGD8IvwNlshQXR8eul
-	3LL4w6uqVt6iHPrUsP4tcsA1/ZI2LtqI+2tci3HC10leaGX1yRyED8gIb2ibk0RUJGtCuPhQWBzYl
-	VKY6EWNzAG3LHsbwYz3LtEIAyOrB6cfB/KhmbPff7nHNSxVsvLHbLkLVaXm/VaCXBa9XZ25HOv698
-	bAUBySdvTftxjj59k1aA9NQzcWBaMG7FZFbZUCvcWROGvdifu++hsVe45IP6ZR3KplCVhE0j78ZbU
-	JgWPuWsxYApFYdnngPKKQ/e+W9bR5FpjnkjPVitcEnwMpgSwD/yKt9eJfSi1RsoC6ML/MXhLFyjqZ
-	UN4XocJQ==;
+	bh=KdvQkoVFRZJd6knxP4tq85eT0ySATHGd5CQSQcnTv9c=; b=rwRzm8/ozVeLUtNm0PfHELtpyo
+	nS2HTWQyfZQAm3Du+JGYCBk3VZJPD2wb8Z8FH3YyeyhHMcWsW/80QV6aK2PXMSxbIaGlbPr4Is4Ri
+	HFP/XBM3xha9gKhpsQ64Pmd5tRGkPC7V7PWA30xa/2E8MnBe4MPKcSk8F/sy6QpMb8ijOSoCB70kn
+	LXJ8XkR8VwcjkyMhlOWRpLGwd0udgjdjKgW2Vn+omSKOAsG71cNtNYZXYt0YkRaBeuglm7t/b7p4U
+	CuqrEakiSXSs8g3U8UOMIoE/9kvtiAvm7NYRo4ViPr9mud+LBgXJtAYm1wd2ySgfxua2peUTV2C7L
+	WNYS3CHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4Ca-00000009fjI-2XxL;
-	Fri, 12 Sep 2025 13:52:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ux4EF-00000009gAu-0M8i;
+	Fri, 12 Sep 2025 13:54:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4CZ-00000009fil-1ITT
+	id 1ux4EE-00000009gAj-1q5f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 13:52:35 +0000
+	Fri, 12 Sep 2025 13:54:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 69B7260249;
-	Fri, 12 Sep 2025 13:52:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE1D1C4CEF1;
-	Fri, 12 Sep 2025 13:52:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CD84360249;
+	Fri, 12 Sep 2025 13:54:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B506C4CEF1;
+	Fri, 12 Sep 2025 13:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757685154;
-	bh=oSkhs3wi6IQurSUKpmheTAydHRp4IZyXAqiEEjRfPHE=;
+	s=k20201202; t=1757685257;
+	bh=HIAwmhCNeSypW5N4gjF2EVFOTx2Y1RaxzUCFu5jMQBU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DFzy+L8jBvK/16VKIZcPoi4CdJo4RN8TP/i2/2HDJXLIHeY8K+bHuFCuWKOtukdm/
-	 m786a7PFUzlSybyymmOx5uAcaJVznFM9RsgMLQZW8S1vDsyOW1U89DZYt8pLOXqacp
-	 tMpWsWhVf5E1oFqVXV7RcgTgKVnrilN4rrTxh3vQhot/QxnPpNK8W8aUO77qrs0E9M
-	 FWF285+b8MNNxmLbydljFbgeVmGmX/eh7/morOW/7t9FBnVD1Z4atuaYozCezrBCHT
-	 Mv+SKBNiLWjyY3mVoiu/5Moqe1DBBRQOux9cfbYibjMY4NHnQeXQuSMVRLlYx+JQCY
-	 zs3/cPWvdF/0Q==
-Date: Fri, 12 Sep 2025 14:52:27 +0100
+	b=d5HLOVTRn8pvc+pKJoK4+1B+mArFCpTnmR6tbLA7cUSDW726oWDdKaGQbYsR/cLNU
+	 cI/PSFWIBpPpf+eU5vognCEBeEdsyiAp13aPfzJpyE3nFKYAdZVlvSUTwxgNwMWiS8
+	 l7aehyrP7Sezh4COKYXi2MGFUE1NIRRWf3JNrEmtPH7jDogV8Uk47L/YhAxVcM3c+u
+	 CtSEGBLgfVPKJJdbA5LEN/kIoAoVd7Is5NqKARbYhrBM6qxZfggSXrCcElxTjbSpMR
+	 C0vQ7X0/32IWXF7+qgyQcIsX6uLDWzdmETRmiZl8DtpwuX+5mpD1FTe6F5JFkZxcOS
+	 5sXX9B9Id3YOg==
+Date: Fri, 12 Sep 2025 14:54:11 +0100
 From: Will Deacon <will@kernel.org>
 To: Mostafa Saleh <smostafa@google.com>
 Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
@@ -52,14 +52,15 @@ Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
 	catalin.marinas@arm.com, robin.murphy@arm.com,
 	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
 	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 14/28] iommu/arm-smmu-v3: Add KVM mode in the driver
-Message-ID: <aMQlm9ucDtd5-15r@willie-the-truck>
+Subject: Re: [PATCH v4 15/28] iommu/arm-smmu-v3: Load the driver later in KVM
+ mode
+Message-ID: <aMQmA9cLaeYWG5_C@willie-the-truck>
 References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-15-smostafa@google.com>
+ <20250819215156.2494305-16-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250819215156.2494305-15-smostafa@google.com>
+In-Reply-To: <20250819215156.2494305-16-smostafa@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,62 +75,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 09:51:42PM +0000, Mostafa Saleh wrote:
-> Add a file only compiled for KVM mode.
-> 
-> At the moment it registers the driver with KVM, and add the hook
-> needed for memory allocation.
-> 
-> Next, it will create the array with available SMMUs and their
-> description.
+On Tue, Aug 19, 2025 at 09:51:43PM +0000, Mostafa Saleh wrote:
+> While in KVM mode, the driver must be loaded after the hypervisor
+> initializes.
 > 
 > Signed-off-by: Mostafa Saleh <smostafa@google.com>
 > ---
->  arch/arm64/include/asm/kvm_host.h             |  4 +++
->  arch/arm64/kvm/iommu.c                        | 10 ++++--
->  drivers/iommu/arm/arm-smmu-v3/Makefile        |  1 +
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 36 +++++++++++++++++++
->  4 files changed, 49 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 25 ++++++++++++++++-----
+>  1 file changed, 19 insertions(+), 6 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index fcb4b26072f7..52212c0f2e9c 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -1678,4 +1678,8 @@ struct kvm_iommu_ops;
->  int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops);
->  size_t kvm_iommu_pages(void);
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 10ca07c6dbe9..a04730b5fe41 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4576,12 +4576,6 @@ static const struct of_device_id arm_smmu_of_match[] = {
+>  };
+>  MODULE_DEVICE_TABLE(of, arm_smmu_of_match);
 >  
-> +#ifdef CONFIG_ARM_SMMU_V3_PKVM
-> +size_t smmu_hyp_pgt_pages(void);
-> +#endif
+> -static void arm_smmu_driver_unregister(struct platform_driver *drv)
+> -{
+> -	arm_smmu_sva_notifier_synchronize();
+> -	platform_driver_unregister(drv);
+> -}
+> -
+>  static struct platform_driver arm_smmu_driver = {
+>  	.driver	= {
+>  		.name			= "arm-smmu-v3",
+> @@ -4592,8 +4586,27 @@ static struct platform_driver arm_smmu_driver = {
+>  	.remove = arm_smmu_device_remove,
+>  	.shutdown = arm_smmu_device_shutdown,
+>  };
 > +
->  #endif /* __ARM64_KVM_HOST_H__ */
-> diff --git a/arch/arm64/kvm/iommu.c b/arch/arm64/kvm/iommu.c
-> index 5460b1bd44a6..0475f7c95c6c 100644
-> --- a/arch/arm64/kvm/iommu.c
-> +++ b/arch/arm64/kvm/iommu.c
-> @@ -17,10 +17,16 @@ int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops)
->  
->  size_t kvm_iommu_pages(void)
->  {
-> +	size_t nr_pages = 0;
+> +#ifndef CONFIG_ARM_SMMU_V3_PKVM
+> +static void arm_smmu_driver_unregister(struct platform_driver *drv)
+> +{
+> +	arm_smmu_sva_notifier_synchronize();
+> +	platform_driver_unregister(drv);
+> +}
 > +
->  	/*
->  	 * This is called very early during setup_arch() where no initcalls,
->  	 * so this has to call specific functions per each KVM driver.
->  	 */
-> -	kvm_nvhe_sym(hyp_kvm_iommu_pages) = 0;
-> -	return 0;
-> +#ifdef CONFIG_ARM_SMMU_V3_PKVM
-> +	nr_pages = smmu_hyp_pgt_pages();
-> +#endif
+>  module_driver(arm_smmu_driver, platform_driver_register,
+>  	      arm_smmu_driver_unregister);
+> +#else
+> +/*
+> + * Must be done after the hypervisor initializes at module_init()
+> + * No need for unregister as this is a built in driver.
+> + */
+> +static int arm_smmu_driver_register(void)
+> +{
+> +	return platform_driver_register(&arm_smmu_driver);
+> +}
+> +device_initcall_sync(arm_smmu_driver_register);
+> +#endif /* !CONFIG_ARM_SMMU_V3_PKVM */
 
-Rather than hard-code this here, I wonder whether it would be better to
-have a default size for the IOMMU carveout and have the driver tells us
-how much it needs later on when it probes. Then we could either free
-any unused portion back to the host or return an error to the driver if
-it wants more than we have.
+I think this is a bit grotty as we now have to reason about different
+initialisation ordering based on CONFIG_ARM_SMMU_V3_PKVM. Could we
+instead return -EPROBE_DEFER if the driver tries to probe before the
+hypervisor is up?
 
 Will
 
