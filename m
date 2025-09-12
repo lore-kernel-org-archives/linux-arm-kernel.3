@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C869CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E24CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzRMAuJOXVTxhce0Yc4MGKlUon63tvYdJK66DMNKHrM=; b=FNJWJYdIJK9YgwtuBdJdORJJdb
-	uT3yDaQ0KM1GqeeoM33FLgXer+GOc639i7dm8d4C6ZiqNlev1eYdwypu1SPz95+KUK3XRi04h2i7N
-	SstN+0QO5jq4GpWVakcYnGBq+RoWMkfH3Phc5b2Fyyfa+TGH07OekNgwSIjtISgSAm+Di3Pk9nDpS
-	Aj9SNw30hat5sAwRrOA3367r8Qx1wthJlxqtmeVWGFTmzbk44/VgF/HyiSzIBSiKIkg5CsUkJKj7a
-	vFpg4D7vEokLUdUFu8A9zQacVf5uib6wsk7BvrAXz/hZNt87x+S+vNIGCibJjA7HGrXW109RQyn51
-	/GkgbPSw==;
+	bh=LmafhAICvh/gGRdQhgiSg69lGgUytxA1oJDjGahIJTE=; b=dkasfa7rt48RDtF2L0+LYcNFwK
+	DOYpqZO1cTpDcgvJlVnG0tz+4QY9v9g1ky+X/9NRJUV+zTOtYlJycnvqDJLe1aqrs7ZO9OUfVoKEE
+	/nMrRpx2JjmtwZ+YU3eI6bHXdI7TnALuS1ivQS06UB9Xeons0fXN9eLaAjRWXOLvRU2Fz84HRnUTH
+	SgWPpuwWTU2CTeuRkExu6tcI41lv2FMJ2s2/hlbz4A7HTMTntVV/havXprpaHcqBYtPFjy5BolvqT
+	+FdqjJ/PHzZ8cLstxnfT8Yh9lKiDAUZrWcKavt+2bc0GQhFlnWgBqmar4lMhCeQWtIAhxxSThCNiu
+	k+4aGJhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0Qq-00000008OYq-3Vly;
-	Fri, 12 Sep 2025 09:51:04 +0000
+	id 1ux0RE-00000008Oio-0fYM;
+	Fri, 12 Sep 2025 09:51:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0Qp-00000008OXi-1ty2
+	id 1ux0RC-00000008Ohv-2vuv
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 12 Sep 2025 09:51:03 +0000
+	Fri, 12 Sep 2025 09:51:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=CzRMAuJOXVTxhce0Yc4MGKlUon63tvYdJK66DMNKHrM=; b=OAZsMBj8IwVrbkKbNtKH3sEUXf
-	QLLnyjfSs46tiYmRy3qhccyoEx2rDak6tEvwuFr0EKSkRQD2p8WTASbs+Y4yki/ZX7Jc/npi9ngTw
-	L1QJrhHUPLuXbNj7xMIJpREQHNDeEkCf+1LBCEroxeiPKqbxTn6HkAjA63oeIUXdt2GTCqPm8Re0c
-	BFgHPymrunuGAm4zA0zuWxhBaO9PHu5tF/qVuDMtRjffOnPk8+NW/yLSjQjOzsnzKKt08d67GHmxg
-	loJsoq4qCiLNt5uISXYlqkDwHNJurlW1uQKMc6N/5YD/yH9yZJSfA6n2ov4FaU1FO7u9+4BO7ojMT
-	0xn2+39g==;
+	bh=LmafhAICvh/gGRdQhgiSg69lGgUytxA1oJDjGahIJTE=; b=fNJ4MgJKai2hXhF83y290eRYPj
+	aAvbbRA+pDpwsfDxsW1MUXtf83ttp9X5fVZAeSfo8nFfmg3H+kUtToQO4fAzEsLo6gHipx/sLX6yb
+	4/7T6B5A0/Y4ogCXuEuSf0YJJlFboa1lONv9gpxvapcTTnCF20GBuPKiqLOS3HmBaD2uqPiMh1hLH
+	Ot5Kw6FKYuJme1BTay1dKmtyRL7phCcNy0cO+zUQtwbIA9WwK79YhEhpp2sArIqtr4W8h/i7C51Y7
+	roQm4HZqD/zMGgLWxyxzqLY6y2UjtqxxdCu09PsK9RX0HUln0ieWDtbi7PeQoMwd5e4AjYNVhSEYt
+	TWqQGD3A==;
 Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0Qm-00000006JV5-0ScA
+	id 1ux0R9-00000006JYR-261q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 09:51:02 +0000
+	Fri, 12 Sep 2025 09:51:25 +0000
 Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58C9ouLT495897;
-	Fri, 12 Sep 2025 04:50:56 -0500
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58C9pKGu496054;
+	Fri, 12 Sep 2025 04:51:20 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757670656;
-	bh=CzRMAuJOXVTxhce0Yc4MGKlUon63tvYdJK66DMNKHrM=;
+	s=ti-com-17Q1; t=1757670680;
+	bh=LmafhAICvh/gGRdQhgiSg69lGgUytxA1oJDjGahIJTE=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=K6KcnFM4lkgAwuBBNwCOo+92tBqr09gOT7Xn35MVRKScCODwqvEjtfmyWNEwuI8ts
-	 l7UkHfEsPr7dggZk54wCBR89qAD4shirsNNM77/S/pEk1T6+HMk5ENE2NYfbdg55KB
-	 OoILfiuxpm4z57ZeZQ1sCproiWGGHYdSvWi6w6vc=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58C9ouvu1776454
+	b=f/Uce/ZGBlKZ5tln+ujWK5YkVDkUAasP58ovixIKjTXYQgzueVHKR32YZSBVfr2Pk
+	 V9LUmtZkDBCuyrYbCt6yoq0VND1Ais995xJWXcPgPon//UPx6xOWTeu+Not9X9pS16
+	 r/mURdbdLPFB2Mu1IVs6KK6ZmIOq1DKQ4Mj6ERqc=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58C9pKBY1776813
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 12 Sep 2025 04:50:56 -0500
-Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 12 Sep 2025 04:51:20 -0500
+Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 12
- Sep 2025 04:50:55 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 04:51:19 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 12 Sep 2025 04:50:56 -0500
+ Transport; Fri, 12 Sep 2025 04:51:19 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58C9ouqf3718647;
-	Fri, 12 Sep 2025 04:50:56 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58C9pJJn3414861;
+	Fri, 12 Sep 2025 04:51:19 -0500
 From: Nishanth Menon <nm@ti.com>
 To: <vigneshr@ti.com>, <praneeth@ti.com>, Paresh Bhagat <p-bhagat@ti.com>
 CC: Nishanth Menon <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
-        <afd@ti.com>, <bb@ti.com>, <s-k6@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62d2-evm: Add support for OSPI flash
-Date: Fri, 12 Sep 2025 04:50:52 -0500
-Message-ID: <175766786947.26144.12602123819286079278.b4-ty@ti.com>
+        <afd@ti.com>, <bb@ti.com>, <devarsht@ti.com>, <s-vadapalli@ti.com>
+Subject: Re: [PATCH v3 0/2] Add USB support for AM62D2
+Date: Fri, 12 Sep 2025 04:51:14 -0500
+Message-ID: <175766786895.26001.8838411000303413799.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250813090300.733295-1-p-bhagat@ti.com>
-References: <20250813090300.733295-1-p-bhagat@ti.com>
+In-Reply-To: <20250903062513.813925-1-p-bhagat@ti.com>
+References: <20250903062513.813925-1-p-bhagat@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_105100_504173_A40B27B3 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20250912_105123_826904_61E160CA 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,18 +103,24 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Paresh Bhagat,
 
-On Wed, 13 Aug 2025 14:33:00 +0530, Paresh Bhagat wrote:
-> AM62D2 EVM has S28HS512T 64 MiB Octal SPI NOR flash connected to the
-> OSPI interface. Add support for the flash and describe the partition
-> information as per bootloader.
+On Wed, 03 Sep 2025 11:55:11 +0530, Paresh Bhagat wrote:
+> This patch series introduces following changes:
 > 
+> * Patch 1 fixes the main pad length in main_pmx/padconfig for AM62D
+>  and AM62A. This also fixes "i2c 0-003f: deferred probe pending".
 > 
+> * Patch 2 enables USB support for AM62D2-EVM by adding pinmux and device
+>  tree nodes.
+> 
+> [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-am62d2-evm: Add support for OSPI flash
-      commit: 1a1066f553df1777ffa5ede050457e41972f34f4
+[1/2] arm64: dts: ti: k3-am62a-main: Fix main padcfg length
+      commit: 4c4e48afb6d85c1a8f9fdbae1fdf17ceef4a6f5b
+[2/2] arm64: dts: ti: k3-am62d2-evm: Enable USB support
+      commit: 5cd40f33273bb41b5eec763bcfc7c9b2e9fe2e64
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
