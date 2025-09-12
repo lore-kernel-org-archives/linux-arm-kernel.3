@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F18CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 21:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF771CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 21:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gZ9DZUA5chLDGyUXJpZKwNcUX4Db1ZyPPNbPNwZoNio=; b=jXNign+I4D5JJA78t9AiMgvDba
-	RV7Kmg0hp7+QiACWWgNbrAyukXfQi7zjVOAqHVAt2pDuSGK7XESTAeYijOzbIYTeAXTUfKACuqGqD
-	aWMX6EszgBo+93YveBkoIKl14+yzs5hTWHvLwX2iuxcov09DC0DpaITDyZ1dF2B5W10Z+GSAOz/K4
-	1hp6hIqgI2URx3mwBZ9w+tvqlzm/p3dFRE+ErRE9lJc6H8aoibyyKTSWHLtRMV0JS//f+Qr4Qinrv
-	/LAK5dk44CtAuTUUkAIaNNLxnmxR3URTBBdPIY/PYFyJwbLmAfEkp4CGsAp9+OD1o/l/xVMyKHfIB
-	8LVHJzSA==;
+	bh=PEh6XoAv4LNiOgWdIDTqFl0eCQtcFl54Up/0xEMUGMo=; b=snCkl8Bkg0CZvQboyPQJJGb711
+	GW6QnUzz8I9FPPJIFvrwIduZc5yDU/JE531kwLkO9xMVN2NaVVCzDctPFaikaan0nxXqpKCZ5oTuv
+	ZBDohUocUCGcVQ+bRFE5o8zFsymcmrMtD+fEVKlxLUsTTyamkSxZRkiQjfbP9o9LkD8DiqPwz/iJX
+	ab3i5+rMwNDbVqh08EX/L2YnIirUUD4D8N2ceQRy8wk2Abv/6V+PmFFc2YtNOlful9bn4+tUro+C8
+	S6dVQFxU+oaFAug4CXf5dJ28ZtkJX0WnVhrXjbIijZuUqGrNs//g4Fg8fOlDyWKnLIVu3t0uxYCGr
+	375vBFYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxBMX-0000000Beat-2GUd;
-	Fri, 12 Sep 2025 21:31:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uxBZK-0000000Bh2Q-3FtW;
+	Fri, 12 Sep 2025 21:44:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxBMV-0000000BeZw-1qcN
+	id 1uxBZI-0000000Bh1o-3UAn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 21:31:20 +0000
+	Fri, 12 Sep 2025 21:44:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C8314012E;
-	Fri, 12 Sep 2025 21:31:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B018EC4CEF1;
-	Fri, 12 Sep 2025 21:31:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DCB1A6013E;
+	Fri, 12 Sep 2025 21:44:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83509C4CEF1;
+	Fri, 12 Sep 2025 21:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757712678;
-	bh=9TERDqn0+X15pemyziSWgElEtDSQeG3yOmJ2tsVV1aE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iREMowba37peCo9YQa9I8FHr0kMyK5OJaH6mCuzGf+RdMdF6ZKADbNouUnzgZ0ZQv
-	 8Op40WBI+63WgZD0sChj/ni4W0lb8nI1ILcnx3TcKmQ+FBLInolnZSF9ZhDDcOYPXC
-	 EeczJ3Gh0eCD/6PYXT4CRA5/V0dDP5ImJ3mjGkyhH5Hez3cecM5/RC9jZAYVcYTMmP
-	 jACTD+BGn3aUWmT39SL6/km9RlIUU9iXwWRyz7QKk6XoybOZH7EzaYNZzVO30Epz5h
-	 k7FugFSLJO55CvssmFMBCbsn43FL9StpZgTUA4d85PG7erA+CU22c2ndzVCWAcVMUW
-	 Il8JXINCM4qnw==
-Date: Fri, 12 Sep 2025 18:31:15 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: James Clark <james.clark@linaro.org>,
+	s=k20201202; t=1757713471;
+	bh=oSKfU+P7ccMg188II6EO2cJq+sduRk0IxK/pqog4cSU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=bJ6I3O6StZuiXEUknMkPl1d+XBcHoYo8KEz0hmh0oJMDf7MhqDpzuxbw6otYgNdvz
+	 JUoafKn1e31LqhlISkZ1IQQvo20W6u8VnkDJhbEjZq7OJMpt2FSRjw/Yl3oEM4+MGl
+	 zJi+ZbrctAmToGrR+0+kYVvhWj9VNr4m1TTnmLaFSQFjQJcU7nQC8VBJld+w2K7JQ2
+	 hdA8NkZHEjRX3CRgndAuVA12VfXC6o5sknSnGqtHy8dpKWt8tPgRSI15ldZl+Y3dPR
+	 Qn/IlGW3uuiqPMX3IKQFlaHmaALAhaAVaovvJOzJFbPAoPJGokI84V/j4pO+QH6w0h
+	 J8cxwUlIailTg==
+Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uxBZF-00000005pTe-1Lxi;
+	Fri, 12 Sep 2025 21:44:29 +0000
+Date: Fri, 12 Sep 2025 22:44:27 +0100
+Message-ID: <87cy7vz6pw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>
-Subject: Re: [PATCH] perf vendor events arm64 AmpereOneX: Fix typo - should
- be l1d_cache_access_prefetches
-Message-ID: <aMSRIzjysMXxFeVI@x1>
-References: <20250909210120.9823-1-ilkka@os.amperecomputing.com>
- <6a24df18-832c-41b8-8226-5dc5b3c9995d@linaro.org>
- <c48690ca-f7d-e711-5b9a-d18c138568d@os.amperecomputing.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c48690ca-f7d-e711-5b9a-d18c138568d@os.amperecomputing.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_143119_528485_FEDC14A4 
-X-CRM114-Status: GOOD (  21.39  )
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v16 5/6] KVM: arm64: Allow GCS to be enabled for guests
+In-Reply-To: <20250912-arm64-gcs-v16-5-6435e5ec37db@kernel.org>
+References: <20250912-arm64-gcs-v16-0-6435e5ec37db@kernel.org>
+	<20250912-arm64-gcs-v16-5-6435e5ec37db@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.104.136.29
+X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,99 +90,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 12:46:24PM -0700, Ilkka Koskinen wrote:
+On Fri, 12 Sep 2025 10:25:31 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
+> Now that required functionality for GCS is in place expose
+> ID_AA64PFR1_EL1.GCS, allowing guests to be given the feature.
 > 
-> On Wed, 10 Sep 2025, James Clark wrote:
-> > On 09/09/2025 10:01 pm, Ilkka Koskinen wrote:
-> > > Add missing 'h' to l1d_cache_access_prefetces
-> > > 
-> > > Also fix a couple of typos and use consistent term in brief descriptions
-> > > 
-> > > Fixes: 16438b652b46 ("perf vendor events arm64 AmpereOneX: Add core
-> > > PMU events and metrics")
-> > > Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> > > ---
-> > >   .../arch/arm64/ampere/ampereonex/metrics.json          | 10 +++++-----
-> > 
-> > The same typos are in arch/arm64/ampere/ampereone/metrics.json as well.
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/kvm/nested.c   | 7 ++++---
+>  arch/arm64/kvm/sys_regs.c | 2 --
+>  2 files changed, 4 insertions(+), 5 deletions(-)
 > 
-> Ah, that's right. The descriptions do have the same typos. I'll prepare
-> another patch for AmpereOne and submit them together as v2.
-> 
-> Cheers, Ilkka
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 153b3e11b115..d2d55e18c610 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -1459,9 +1459,10 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+>  
+>  	case SYS_ID_AA64PFR1_EL1:
+>  		/* Only support BTI, SSBS, CSV2_frac */
+> -		val &= (ID_AA64PFR1_EL1_BT	|
+> -			ID_AA64PFR1_EL1_SSBS	|
+> -			ID_AA64PFR1_EL1_CSV2_frac);
+> +		val &= (ID_AA64PFR1_EL1_BT		|
+> +			ID_AA64PFR1_EL1_SSBS		|
+> +			ID_AA64PFR1_EL1_CSV2_frac	|
+> +			ID_AA64PFR1_EL1_GCS);
 
-Thanks, applied to perf-tools-next,
+How about updating the comment?
 
-- Arnaldo
- 
-> > 
-> > Reviewed-by: James Clark <james.clark@linaro.org>
-> > 
-> > >   1 file changed, 5 insertions(+), 5 deletions(-)
-> > > 
-> > > diff --git
-> > > a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-> > > b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-> > > index 5228f94a793f..6817cac149e0 100644
-> > > --- a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-> > > +++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/metrics.json
-> > > @@ -113,7 +113,7 @@
-> > >       {
-> > >           "MetricName": "load_store_spec_rate",
-> > >           "MetricExpr": "LDST_SPEC / INST_SPEC",
-> > > -        "BriefDescription": "The rate of load or store instructions
-> > > speculatively executed to overall instructions speclatively
-> > > executed",
-> > > +        "BriefDescription": "The rate of load or store instructions
-> > > speculatively executed to overall instructions speculatively
-> > > executed",
-> > >           "MetricGroup": "Operation_Mix",
-> > >           "ScaleUnit": "100percent of operations"
-> > >       },
-> > > @@ -132,7 +132,7 @@
-> > >       {
-> > >           "MetricName": "pc_write_spec_rate",
-> > >           "MetricExpr": "PC_WRITE_SPEC / INST_SPEC",
-> > > -        "BriefDescription": "The rate of software change of the PC
-> > > speculatively executed to overall instructions speclatively
-> > > executed",
-> > > +        "BriefDescription": "The rate of software change of the PC
-> > > speculatively executed to overall instructions speculatively
-> > > executed",
-> > >           "MetricGroup": "Operation_Mix",
-> > >           "ScaleUnit": "100percent of operations"
-> > >       },
-> > > @@ -195,14 +195,14 @@
-> > >       {
-> > >           "MetricName": "stall_frontend_cache_rate",
-> > >           "MetricExpr": "STALL_FRONTEND_CACHE / CPU_CYCLES",
-> > > -        "BriefDescription": "Proportion of cycles stalled and no
-> > > ops delivered from frontend and cache miss",
-> > > +        "BriefDescription": "Proportion of cycles stalled and no
-> > > operations delivered from frontend and cache miss",
-> > >           "MetricGroup": "Stall",
-> > >           "ScaleUnit": "100percent of cycles"
-> > >       },
-> > >       {
-> > >           "MetricName": "stall_frontend_tlb_rate",
-> > >           "MetricExpr": "STALL_FRONTEND_TLB / CPU_CYCLES",
-> > > -        "BriefDescription": "Proportion of cycles stalled and no
-> > > ops delivered from frontend and TLB miss",
-> > > +        "BriefDescription": "Proportion of cycles stalled and no
-> > > operations delivered from frontend and TLB miss",
-> > >           "MetricGroup": "Stall",
-> > >           "ScaleUnit": "100percent of cycles"
-> > >       },
-> > > @@ -391,7 +391,7 @@
-> > >           "ScaleUnit": "100percent of cache acceses"
-> > >       },
-> > >       {
-> > > -        "MetricName": "l1d_cache_access_prefetces",
-> > > +        "MetricName": "l1d_cache_access_prefetches",
-> > >           "MetricExpr": "L1D_CACHE_PRFM / L1D_CACHE",
-> > >           "BriefDescription": "L1D cache access - prefetch",
-> > >           "MetricGroup": "Cache",
-> > 
-> > 
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
