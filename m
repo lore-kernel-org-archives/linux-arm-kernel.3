@@ -4,181 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8D3CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39AC4CAC593
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CtRlLOnEkrTy1giDQFWVdieiUcOOA39r7EYeGTQWbzU=; b=ZZvHW+idkgrxCyghCjsZgYnqM+
-	0GkppIdwby+dDEXqg0KUtZuoSkgx5rzAT0XLIMb8XrQaY87nGRuAgEWVOokkW4CnHgC2ytJLxeLPB
-	zWhSGCq/NyzgiViT6QBQydyZ0MEKxnmNCv4vjVrEMFi8dg9DinzBPKFylZwlXbHdPM8HblFAOJqrU
-	TM6aKDGkivhQwjGtmtd7+GXpCVS/+uMjMcUErXwy1tpog1+C0x1ssgdDuV9i4YyoHRGqkLG5gOo7c
-	3m+0cEN0B03d+0H17oRoJfMt4WFCpaoTfj75EeFrPePOkJ28/uzdwhdueNer8Qs7lL+kbIKiX1a+V
-	JvZS4+TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MdbRNQz00X6py3J27RP8bnCKWb4q1OzSckJ7oG7jAxY=; b=F9mIETKKU0kih9If2QhJbURw1Z
+	LOHl0/MBqaM6rCWqoEjfs11c1zVWZ4uFYAYe5yPNdEbmsTNzIxPq43vElXrnjVII+2TiMNutlmNjL
+	Fp0hHd3PHinlQ8447LoQkLo/zPQgG/286et6Ni1PVD1txUd30U6uHbUgjLEKwEDustWBeCpJpaocc
+	qDkAFxbv/zJxL4inJf3h9yHax+b9jXfdLicJz8Vo3boLl59Zejba7eA/KY50GcPsV0Q8Y5lv8saxQ
+	HD+QjoYG68CG6JIVOA8Ex+eTA/l4Hr50DmVH2Sj5ZMJ82B393zowHI4+QqCdQ5uFhvvcfmfpnTHFD
+	Zv1JaV8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux04Y-00000008Gk7-2mKE;
-	Fri, 12 Sep 2025 09:28:02 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1ux08b-00000008I0V-1YDD;
+	Fri, 12 Sep 2025 09:32:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux04W-00000008Gi9-08iX
+	id 1ux08a-00000008Hzh-1pVJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 12 Sep 2025 09:32:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=MdbRNQz00X6py3J27RP8bnCKWb4q1OzSckJ7oG7jAxY=; b=G18oAEWa6so5KGtM33cMMxpNJj
+	JTNOEmvgAIXAdyF2E1Z9xFunAPsmK21HUFJ9J1JYJMoc/yypWfL40TiP2CbTfYQaOUo/hzVj7MKH0
+	VqqA2fX4knzpbSe4+njklbO0fwh9QM5yv7KD4uruwXADNXgTfAgIq5dq8gnfVDu5hwJeRkZ6qIyP6
+	YZphq3YiNa6AEJHjMzS8mZCFeJfUoG3AqGrxi1acmEDqOxKTD0H4JzujOpmkVPYeOrumPFatKLlz6
+	W3h/SsdfU8lKLNTc2d1u8jZBOFhzH82kKh8tzJ85KbljulkyzbSxzVDNdWd3aAzL25XhfIs5KPnT8
+	biA93TDg==;
+Received: from smtp-out3.simply.com ([94.231.106.210])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux08X-00000006IdQ-0REv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 09:28:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RpP/e0BXkPcA5owDaVS+qRUmQw9u5lpm4/HsAW1I5IB+YwiJb61LxxtTjP3IILSSSfonY1xD1lPWYHwhKqKhuW089hQ/YP0sm+kcXTW8I1ySd0uJ5mnKGQVVusAjEOLNM+yYjQXimZI1R1mjTtVnRKqwh41YDYUTRneOF8ZD0mt2ewmkhWNEU6s0TASuzftSRznGXSfFJ4V4wTDkbzTk8Rs9LLA0rLbaPzT5l5iTJtib/wesHY304+y3kzg6SCHpFHNyREqM/CROe97yqfDJ2qyDQnEOSIA4Cq6+DBF3Pk+LRk/8XpJGj5ehf9nnWUhuEpeR9eQyX6kT67B2Xnn6bA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CtRlLOnEkrTy1giDQFWVdieiUcOOA39r7EYeGTQWbzU=;
- b=DNMWIiRxDH+eFLEiMq8U3uxnU1JZ/MKFGtRTSQ/JdtL0j5I5NRApoyer1yZAxdk+CWRHTT3FLQ3uAsLUdMgeIwJk9h0STQUv1YCRnZOOzPKJ+mAxrdGa34ru7g252iUzgNzLQidy9pectoVyxZz7Y9CkSyuo+1YohtQm9OE0UVo85vAek81gNQc/LhZIiXz3+6jGd6h+RS+vw8zfxFvQ2ckZ7YX10FmpD9Op7QFBQZGULUQZHdrpRNS9UY8opveHq/ynYd1/SPAsfF5My7HyYoPZb24R2n8S7Ee9iVv9bjUQFV07GhlatsoSYPQZW7HukTBiR69LF1lR4sPuvbG2/A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CtRlLOnEkrTy1giDQFWVdieiUcOOA39r7EYeGTQWbzU=;
- b=ItlC9C62iaduM4HnaiODSqruClxnaeI0mik7OYxsE6mz9QZ4uhlXkhRkXgOu0QPWqZQpG4cho3ia/PlLoRFW1qLAkz9SoW+seAMy2rZ0q6Sbk9/rpSs+CiLA9W0WDMgX9u50bjVinjkfM+BS/a4wznQgwYZnVYJR2T7j4a12JqdqkgwuqKrG9SZ/S8QRD4syfdNFUvXPziJ7tRwXqT3Z0YKwXG/GYgErT2XmGruuizRcbuC4MJ7b5YAz3C8HX7HkG4lP1k/BzZkei8AIoYqWG/BPeE4QSTDYoGq4M8KDzEXWt/Gd290GLliZubnEhVt/XistpRDSnkvZuEfXlHtwRA==
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com (2603:1096:604:2b1::11)
- by KL1PR06MB5883.apcprd06.prod.outlook.com (2603:1096:820:dc::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Fri, 12 Sep
- 2025 09:27:51 +0000
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11]) by OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11%5]) with mapi id 15.20.9094.021; Fri, 12 Sep 2025
- 09:27:51 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Jeremy Kerr <jk@codeconstruct.com.au>, "benh@kernel.crashing.org"
-	<benh@kernel.crashing.org>, "joel@jms.id.au" <joel@jms.id.au>,
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "andriy.shevchenko@linux.intel.com"
-	<andriy.shevchenko@linux.intel.com>, "naresh.solanki@9elements.com"
-	<naresh.solanki@9elements.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v18 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add
- transfer-mode and global-regs properties and update example
-Thread-Topic: [PATCH v18 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add
- transfer-mode and global-regs properties and update example
-Thread-Index: AQHcEZHhMUfthzzCFUyK1ToM2tNFA7SPY8MAgAAHMMA=
-Date: Fri, 12 Sep 2025 09:27:51 +0000
-Message-ID: <OS8PR06MB7541C0D6696FC754D944D45EF208A@OS8PR06MB7541.apcprd06.prod.outlook.com>
-References: <20250820051832.3605405-1-ryan_chen@aspeedtech.com>
-	 <20250820051832.3605405-2-ryan_chen@aspeedtech.com>
- <9d6660f0bf5119cedee824cf764f15838622833a.camel@codeconstruct.com.au>
-In-Reply-To: <9d6660f0bf5119cedee824cf764f15838622833a.camel@codeconstruct.com.au>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS8PR06MB7541:EE_|KL1PR06MB5883:EE_
-x-ms-office365-filtering-correlation-id: d12e8d75-ed71-4387-2e77-08ddf1dea548
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700021|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?czlMWGNpUjRRRktYQ3Vzd1gwZGp3TkRXdmJLdjhxTFFkdC91S3VzZ05pSEpS?=
- =?utf-8?B?TjdmcE5KOGswbWxjRHJEV2pZK1NhMmxhcGFrLzNGMkg4ZUtjVUVscnkzUE9L?=
- =?utf-8?B?SjZjOCtVMlFsWG9KK3dzZVhzRHhDNXVkZ1VBbkM4UlRMcnNxT0JZcXhPOUVE?=
- =?utf-8?B?L3Jadzl0TU1xVlRJVTdwU1VzcjZJR3NIbFRoY2xnZWRndi9uc1l4dG5oM2ly?=
- =?utf-8?B?K0hUTmFSSWpLSUQ0WFJrRjZLb3VqZjdpaHh2RVd4RW4zdFlxb2pYMkxFSmNv?=
- =?utf-8?B?OVN0Tkd3clplUFpHUzBSZmlTZmMzS3lVR0NYUHdTRENTUkhqaUtyMlpwQU40?=
- =?utf-8?B?WC9Lbmc4T0lEZU1GZjBsbjVWV3lBSHQwSjREZnFOd2w1T3MrY3JSVUtPV2U0?=
- =?utf-8?B?UGNhejhNV3hmOXIxK0prMFBYUHBBbUhuSHVBYkxRODdwZ1JUVzRYVWt4eG1u?=
- =?utf-8?B?K0RwQmRWbUJyOUdLNDlnU3hiYjJZQmdTR0o0MVJYSlZiZ1B0c3Q0K05xQjlJ?=
- =?utf-8?B?bnJoQ1JmNUpGZU9iWUJCRk4yZWZ2d21sRCtVKzBFZkNwbG1qL3BZZGtiOGxO?=
- =?utf-8?B?UUd6ZWRZb254MG95Tkluck5ZQk5jRDJ3SmdCb2sxVUhoczN4QXdMUGtFd3FD?=
- =?utf-8?B?bU9qdXJKNXlCQ2c4SzFtU0NiTWZDbTZxdDhjMFpjdnhORVdSeTJ0WWl4R05W?=
- =?utf-8?B?NWYvOUtRRTFpaUJPeXk1ZHhOWHFCVm5GTktJMlZYNy9URUlkdy9haDlDR0Zr?=
- =?utf-8?B?aktxNVBtU1lJbmdlOXUvVWkxWGlDSm8xNW53dk5pZmJmV21oc2dNbGlYSGht?=
- =?utf-8?B?V0ZjY0ZEcFU1bmdRb1d0YXl1cklZUEV1MnVPVWFMSWtsT3FGNm1YcWtnd2Zj?=
- =?utf-8?B?d3R0K0QyQkJRRVpBbzM4UzVtb3lDcGphQmhQK1NsMHB4eXRmRG9QOGJ6OFpo?=
- =?utf-8?B?SitGNm5LYmJsZzdVblgvQnluaVFCZzlEbmJNZk5NcXp1SnhuSlpWTUdnV3I5?=
- =?utf-8?B?Vkg5cU9UOEVHZzhsYVRCaFV0dzlhWmwrM0dUVDFyWkl2b0xWRHJCRC9iZFpO?=
- =?utf-8?B?dkRDV2hLaEp2RE8wWlhPdWRReGd3ZkNNMVJaUzVoN1dZc2M5eVBnSVVQYjJm?=
- =?utf-8?B?QnJyVmpKU0ZTYWlkaWJ6VGtuczdtcmNkVnE2SWNCemc4bmNucTJMYmtnc1VK?=
- =?utf-8?B?eGNvU2JqV0U0dlR2NnBiSDJCbEp4OTZrL3NEUDY3N1BTQkRLSEJ6QTFJRWNa?=
- =?utf-8?B?eTEwMDd1VmZsZXpVMC9DSVpkV2V5MytxM2hiZFFyNlVRNUYwTTY5QzlJN1dJ?=
- =?utf-8?B?azBtdHErNlRhUzVTdkY0Z1c5ZXMwbG8yZXZLWU5hWjNHVHpXRDhJenRzN1Bo?=
- =?utf-8?B?L2lvSmd2OHhHaXpta0x0ZnVDNFREMGUwNlVJdm5WeDYzRHhnbHRPU1RPU2NN?=
- =?utf-8?B?TGZpd0szVjQ1NGpialQ0cnMvanJ0bnlRY2RiNlpkSEF5bmxHcjNMN1BZVVBh?=
- =?utf-8?B?TUhFTVhybjkzbjl3c05EcFJvamtvZWZ0WE95dEJFSG8rNWxHbHJ4VGM5dmlE?=
- =?utf-8?B?VmU3ZVphMktvU1Q2NUZPMC9nMU9hRmFTM0VRSkZxSVpZS0JnL2lwUDBMbkNq?=
- =?utf-8?B?RkpzSjNHUjM5bHJHTjEzRnNMMjlRcE5NY3VtQWdxWi8zd1FRLzlBU094dXBx?=
- =?utf-8?B?NXJkSXcvVGNNNzBHMXdLSTNIVklMQWd0Q1JLL3luNERKNWM5WHcyWWl1VStN?=
- =?utf-8?B?eUxiRjhDOXlGbXpZbE4wMWRHQzJlOVR3S0p1RytKRitZTFptenVUZCtkc3Iv?=
- =?utf-8?B?TXVuakRFRmY5cS9VUFlWRVowRmFKczE4R1lUSlUraXREcW5NVUFNRnFtNDZ4?=
- =?utf-8?B?MDR4KzVWQnNWZFF3UkZLVVlwRVdxQ2NzOWdSSFVEYi9CbEROWVlaY0dWemo2?=
- =?utf-8?B?c1BLQ1JGTDA2MzYrMExpSHJLVE51L1dveEE2eno0SncvWEF4VDZxeXdaeFFG?=
- =?utf-8?Q?o/jTU4iVh0b+f10XGzfWuPVq72ixIs=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7541.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700021)(921020);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ck9lZWZwbGxJNStLNk9ORS9YalRRMk9OR3ROMU9UMTRKQkJVdGRsbDBtdmhq?=
- =?utf-8?B?N0QrQkljZjBqbFh0UUdrNlVjeFlVTGhxMmhiaDd1bU15T3NoYy8rVExXNDA3?=
- =?utf-8?B?MVlLekxhcllLV1F3K2NCVVZ1WW0ydkthc2tTOEpLWmFDcFFBZmVwSlpoRVdz?=
- =?utf-8?B?WE9OdTBocFFUUjJ5SktMUzBSMUUwNmRKKzF0MlhwUVhGSTM0bitlZWcrVjhI?=
- =?utf-8?B?dnFCalA5Tm00Rkt3RkE0OVpTQktubm9uMlBCckpDOHhPaEY1NTBWVktlR094?=
- =?utf-8?B?QTdNVmlLMWtTUit3eXFHa2kzb0NDa0RWVjJha3NMUGtkVjV0MjhCSlhMUkVr?=
- =?utf-8?B?M1d4WEpLR1NreU04cnVvVThHUlVZZCsyVnI1UkFBRHFzbFpWa0lhYmh0TEdW?=
- =?utf-8?B?SGhVK2dkajUvN3l3cE15M2hadEVrUzEvUjJMZnovNWZVZy9EQnNQYVl3bW0r?=
- =?utf-8?B?UENKRE83N0RYUFdSeGRNcVc0WU1pSzlGaG1OMllDbldMbGFhY3lQVmtXdXkw?=
- =?utf-8?B?ZnYzTncvNm9wY01SZmR0UEdOdEt4bnNlTnhKekVOekh4OGE2UlN3bnVPNmky?=
- =?utf-8?B?T0JSekNLYTlMNFNHVUc2ZFlKSFhaV3YxT05PNkZDa0UxWC9pc0JSUVdtL1hQ?=
- =?utf-8?B?NlFjQm1Md1cwNDRQZ3pqYk9ncndFZU5tYnFKanpCY052SGhNMGJseWl4eWJE?=
- =?utf-8?B?aUUwOTRMSHJIRDRGdUtTNjZKUUFHLzdlWnRtZjRyeXdBQlNqbXV3S29YcTcx?=
- =?utf-8?B?Z1B1M3oyVnFrYXg4ODdGT3NFYVBBOVNKYmQ2R2gxMkhpbS9uTWY4ZmZrK3dK?=
- =?utf-8?B?UlFWeWlmTVVrbW9tOVJsbWNsaFN2a1ozV29zZ3ZyZllqdk9wOG5VbU1uQUVM?=
- =?utf-8?B?V3ZZbHhEOFBwa2l3bkYyKzF0RVhkSGFjeGhWamR4YlNycEdDR2pJWDdBMXFT?=
- =?utf-8?B?VWV3d1FMRlcvVDZrenlVaGJpeVRRSXQvTGdCYS9TTHA5NFA0ZVdJOE0wcURl?=
- =?utf-8?B?S2ZFQmlMT3JXNUdOYktZYS80aWx1c0Nma1hESUk1aWhTMHcyNmJyRngyMlRY?=
- =?utf-8?B?TmJ0Q0tBRE83Y0JwbmZEWlFsaW16WVJ5YkxROTZRbmx6WnMrR1FHcUlQMm9M?=
- =?utf-8?B?bDJpT1cvZnpGMm1wQ1MvU1FwK0NaY2RmRDA2OTVnRUpyOWJ1L0dDcTJiTnZP?=
- =?utf-8?B?bjRRMm4wOFpzS2lDTUFHTis1T3hvWDFIL1R2OVdBVXpETEc2UGtjS29oWGlv?=
- =?utf-8?B?VkloTWFTYmdBczJXTDVHVDN5VDhDQ1crQi9QT0pjKzljNndsbTA5L3F0QlZL?=
- =?utf-8?B?NGVINklXY2l0OCtycERVUXFVNEVvMWxxZ0FhVzRHeENxNFpYUnNFWW0vNUxi?=
- =?utf-8?B?ZHFEanZZSXZsSVVrZkt2NVFSMGRNQThHRWpIclJkTTRtNkVUOGZNQS80cUxX?=
- =?utf-8?B?R05NQzc1MEp6TVRZOUVnOTA3NVpiekJ6SXZjeHVwem82d3J2TjV2N2U2aXcv?=
- =?utf-8?B?WVNGT2tPRmhhTkszL291UlRiVEl6Q29mbXFyTW5Xdlo3TVkvVkNDRThwZlFZ?=
- =?utf-8?B?M0pBUForUnRKdGVIUWR6eGlHRDFvRlhVQkIyMjNpa0dWWFpieTg4QjRITllG?=
- =?utf-8?B?R1VVRlRuTVRRamh1NTJHc3p4dzdLbVViOE55d0poNFV2SkFBQmgvZVo0bk5D?=
- =?utf-8?B?TVdKOFp2UHBMbkRyeHVnekU5ajI1MTg1MVMxbTdaVzFraVlwYnhrenhHSWFs?=
- =?utf-8?B?Q2hLVjkyQXVOQjVlSTJRMVlrZHd3emROTE5NNkNyYTlQN2RLWmxXMnBYb3Nm?=
- =?utf-8?B?cy9VbDZCRlQxV2hVbU9DakdxNTg3TkVWMGpRdlZ3SEk1QTF1NVYvQ3NaL1dU?=
- =?utf-8?B?Y1dwektjVTRscDZhSFF0ZlQ2QlNodVB5WjJzU29sQmdhQUVveUI4cUgxUWdD?=
- =?utf-8?B?UGR4L1BDdkdER3J5NUhnNUR1aG9IMlhYbXlJUUJiSzB3R0tFdjVkd1piMmNU?=
- =?utf-8?B?cDBLY3U2WFMrRjl6OVpKZGJLSU9qVWtsZ0VaZEI5NEQ5V0lreFRnc25LOE8z?=
- =?utf-8?B?ckNpaVFmZHBGRW43UmZYTU9xL0JQd1RMbjc0dU9EWTRkUVlDYjdmMnp4Q0dt?=
- =?utf-8?Q?GN2xEoocBTDBgzIE4CrugjRG8?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Fri, 12 Sep 2025 09:32:11 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.simply.com (Simply.com) with ESMTP id 4cNTj20s27z1FXSX;
+	Fri, 12 Sep 2025 11:32:06 +0200 (CEST)
+Received: from [10.10.15.10] (h-98-128-223-123.NA.cust.bahnhof.se [98.128.223.123])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by smtp.simply.com (Simply.com) with ESMTPSA id 4cNTj10dkrz1DNGn;
+	Fri, 12 Sep 2025 11:32:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gaisler.com;
+	s=simplycom2; t=1757669526;
+	bh=MdbRNQz00X6py3J27RP8bnCKWb4q1OzSckJ7oG7jAxY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=K2KSDbGzkvWBOxonsgdVaz4kyPUEDqqg6zdhMLv2aF3Nzko04CUw7JvSMaWWK04Lm
+	 vNC1Cj2uBTKc8xdM9glCOdIXQssxtmJblCCyQc2Hi8GbcgeoJPlaNNtX0zy4fREEW3
+	 r6UBaNcudI5k5SPw01Hru5aQU4tI1O1+rPvNEGW9haH4Jy2D6mmjs1dPo7LscCkHqG
+	 0exPIQ+bH57TWaUThA+auuuCXOn4ogST+BxKsuMBMtASfRMsOGVWUUlnDa9TIfd9b/
+	 3Pojb/BipKi+V2g4K0tvCJ/Ey32+ia3F6PZBK+f4oAwOhtLZwlnW83e9G2I0Ng81Ss
+	 PBZ0wbaihaoyA==
+Message-ID: <a393f6bd-ac30-4861-818c-ba0b558df4a4@gaisler.com>
+Date: Fri, 12 Sep 2025 11:32:04 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7541.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d12e8d75-ed71-4387-2e77-08ddf1dea548
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Sep 2025 09:27:51.4016
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: /XqAj/jo8DjX4+E7U6t2By77mCbx2z62sIVrLizw0R2Zcqw/O1CnNoHbA2G/GRWtQ9YvCGIWvcIPC6AlhXOMQQXXwrvjVefWtA8cxtZj4OM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB5883
+User-Agent: Mozilla Thunderbird
+Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
+To: Arnd Bergmann <arnd@arndb.de>, ksummit@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
+ linux-mm@kvack.org, imx@lists.linux.dev,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Richard Weinberger <richard@nod.at>, Lucas Stach <l.stach@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ankur Arora <ankur.a.arora@oracle.com>, David Hildenbrand
+ <david@redhat.com>, Mike Rapoport <rppt@kernel.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Matthew Wilcox <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Suren Baghdasaryan <surenb@google.com>,
+ Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Sergio Paracuellos <sergio.paracuellos@gmail.com>
+References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
+ <5d2fec2b-8e59-417e-b9e6-12c6e27dd5f0@gaisler.com>
+ <363853cd-7f10-4aa9-8850-47eee6d516b9@app.fastmail.com>
+Content-Language: en-US
+From: Andreas Larsson <andreas@gaisler.com>
+In-Reply-To: <363853cd-7f10-4aa9-8850-47eee6d516b9@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_022800_547694_C182A437 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20250912_103209_530684_BE55F1CF 
+X-CRM114-Status: GOOD (  32.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,26 +111,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHYxOCAxLzNdIGR0LWJpbmRpbmdzOiBpMmM6IGFzcGVlZCxp
-MmMueWFtbDogYWRkDQo+IHRyYW5zZmVyLW1vZGUgYW5kIGdsb2JhbC1yZWdzIHByb3BlcnRpZXMg
-YW5kIHVwZGF0ZSBleGFtcGxlDQo+IA0KPiBIaSBSeWFuLA0KPiANCj4gPiBBbmQgQVNUMjYwMCBp
-MmMgY29udHJvbGxlciBoYXZlIHR3byByZWdpc3RlciBtb2RlLCBvbmUgaXMgbGVnYWN5DQo+ID4g
-cmVnaXN0ZXIgbGF5b3V0IHdoaWNoIGlzIG1peCBjb250cm9sbGVyL3RhcmdldCByZWdpc3RlciBj
-b250cm9sDQo+ID4gdG9nZXRoZXIsIGFub3RoZXIgaXMgbmV3IG1vZGUgd2hpY2ggaXMgc2VwYXJh
-dGUgY29udHJvbGxlci90YXJnZXQNCj4gPiByZWdpc3RlciBjb250cm9sLg0KPiANCj4gT0ssIGJ1
-dCB0aGUgYXN0MjQwMCBhbmQgYXN0MjUwMCBJMkMgcGVyaXBoZXJhbHMgLSB3aGljaCB0aGlzIGJp
-bmRpbmcgYWxzbw0KPiBkZXNjcmliZXMgLSBkbyBub3QgaGF2ZSB0aGF0IGZhY2lsaXR5LiBHaXZl
-biB0aGUgMjYwMCBpcyBhIGRpc3RpbmN0IHBlcmlwaGVyYWwgKGFzDQo+IGRpc2N1c3NlZCBvbiB0
-aGUgdjE2IHNlcmllcyksIHRoaXMgd291bGQgc2VlbSB0byB3YXJyYW50IGEgZGlzdGluY3QgYmlu
-ZGluZy4NCj4gDQo+IFNob3VsZCB0aGlzIGJlIHNwbGl0IG91dCBpbnRvIGFuIGFzdDI2MDAtc3Bl
-Y2lmaWMgYmluZGluZywgdG8gcmVmbGVjdCB0aGF0IGl0IGlzDQo+IGRpZmZlcmVudCBoYXJkd2Fy
-ZT8gVGhlIHJlZmVyZW5jZSB0byB0aGUgZ2xvYmFsIHJlZ2lzdGVycyBhbmQgdHJhbnNmZXIgbW9k
-ZXMNCj4gd291bGQgdGhlbiBiZSBhZGRlZCBvbmx5IHRvIHRoZSBhc3QyNjAwLWkyYy1idXMgYmlu
-ZGluZy4NCg0KSSBhZ3JlZSBpdCB3b3VsZCBiZSBjbGVhbmVyIHRvIHNwbGl0IG91dCBhIG5ldyBi
-aW5kaW5nIGZpbGUgc3BlY2lmaWNhbGx5IGZvciBBU1QyNjAwLA0KZm9yIGV4YW1wbGU6IGBhc3Bl
-ZWQsYXN0MjYwMC1pMmMueWFtbGANCkJ1dCBhbHNvIEkgdGhpbmsgYGFzcGVlZCxpMmN2Mi55YW1s
-YCBtb3JlIGJldHRlciBuYW1lLCB0aGF0IGNvbXBhdGlibGUgd2lsbCANCnN1cHBvcnQgbmV4dCBn
-ZW5lcmF0aW9uIHN1Y2ggbGlrZSBBU1QyNzAwIC4uLi4uDQoNCklmIHRoaXMgaXMgb2ssIEknbGwg
-cHJvY2VlZCB0byByZWZhY3RvciB0aGUgYmluZGluZ3MgYWNjb3JkaW5nbHkgaW4gdGhlIG5leHQg
-dmVyc2lvbi4NCg0KUnlhbg0KDQo+IA0KPiBDaGVlcnMsDQo+IA0KPiANCj4gSmVyZW15DQo=
+On 2025-09-11 09:53, Arnd Bergmann wrote:
+> On Thu, Sep 11, 2025, at 07:38, Andreas Larsson wrote:
+>>
+>> We have a upcoming SoC with support for up to 16 GiB of DRAM. When that is
+>> used in LEON sparc32 configuration (using 36-bit physical addressing), a
+>> removed CONFIG_HIGHMEM would be a considerable limitation, even after an
+>> introduction of different CONFIG_VMSPLIT_* options for sparc32.
+> 
+> I agree that without highmem that chip is going to be unusable from Linux,
+> but I wonder if there is a chance to actually use it even with highmem,
+> for a combination of reasons:
+
+I would definitely not call it unusable in LEON sparc32 mode with
+HIGHMEM gone, but it would of course be seriously hampered memory wise
+without HIGHMEM support compared to with HIGHMEM. In NOEL-V 64-bit
+RISC-V mode it will of course not be affected by these matters.
+
+
+> - sparc32 has 36-bit addressing in the MMU, but Linux apparently never
+>   supported a 64-bit phys_addr_t here, which would be required.
+>   This is probably the easiest part and I assume you already have patches
+>   for it.
+> 
+> - As far as I can tell, the current lowmem area is 192MB, which would
+>   be ok(-ish) on a 512MB maxed-out SPARCstation, but for anything bigger
+>   you likely run out of lowmem long before being able to touch the
+>   all highmem pages. This obviously depends a lot on the workload.
+> 
+> - If you come up with patches to extend lowmem to 2GB at the expense
+>   of a lower TASK_SIZE, you're still  looking at a ration of 7:1 with
+>   14GB of highmem on the maxed-out configuration, so many workloads
+>   would still struggle to actually use that memory for page cache.
+
+Yes, we already have patches for 36-bit addressing with 64-bit
+phys_addr_t. Patches for CONFIG_VMSPLIT_* are under development.
+
+Even with 192 MiB lowmem we have being using up to 4 GiB without running
+into problems. Could you elaborate on why you think lowmem would run out
+before 14 GiB highmem in a VMSPLIT_3G or VMSPLIT_2G configuration?
+
+And even if 14 GiB highmem would be hard to get full usage out of, for a
+board with 8 GiB memory (or a configuration limiting 16 GiB down to only
+use 8 GiB or somewhere in between) the difference between getting to use
+2 GiB and 8 GiB is quite hefty.
+
+ 
+> - If we remove HIGHPTE (as discussed in this thread) but keep HIGHMEM,
+>   you probably still lose on the 16GB configuration. On 4GB configurations,
+>   HIGHPTE is not really a requirement, but for workloads with many
+>   concurrent tasks using a lot of virtual address space, you would
+>   likely want to /add/ HIGHPTE support on sparc32 first.
+
+That is an interesting point. Regardless of workloads though, it still
+would be a huge difference between having or not having HIGHMEM, with or
+without HIGHPTE.
+
+
+> When you say "used in LEON sparc32 configuration", does that mean
+> you can also run Linux in some other confuration like an rv64
+> kernel on a NOEL-V core on that chip?
+
+Yes, boot strapping will select between sparc32 LEON and rv64 NOEL-V.
+
+
+> Aside from the upcoming SoC and whatever happens to that, what is
+> the largest LEON Linux memory configuration that you know is used
+> in production today and still requires kernel updates beyond ~2029?
+
+The maximum I know of for systems currently in production has the
+capacity to have up to 2 GiB memory.
+
+
+Cheers,
+Andreas
+
 
