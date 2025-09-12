@@ -4,177 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BB2CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 03:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F00CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 03:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pIJfCg4N2oQGUDEPTId1k3KrZRqXxJU5TwK1ZfHn4bY=; b=gSK3qTw7Zlyoj0M2wZX/2rnXpS
-	kBCFk+0v/yYUBXP4l85/AVZv4KCNcjo2r7e2HpceY4lr71wvaFTUm33ZbVX9O4W1o4SRveGjYZNdP
-	qovu8RYwlblCOY9tMxCr+qo9FQWG92d+Ysh/uEVEPzV/vRMB/mY9sHvX+9AiT/KYrIbstFXhGNtV7
-	hDLkvoPhVmOupQXGiR1FTiHSS8qyvalbisPlydfdIN9JsSl+ZpvaaP3Mc8S1bR5lRpxtmu3whxjo4
-	VE2AgcEwIj4vdQ+bRI3XVQjC+9/6hkpHYtX3S3ef93+YpkIbtH9MYThfh555PvTiisW9TUAWIaxbn
-	GlS30J2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0W+y5K8NTQvQx4kvJHari7pfRGCnr5lxmaUJ+MriK1E=; b=w7DilpaGlC3hf4OB4utwUNbwdD
+	3NvbW2hEzCbCV+D4I7XA92FQluhAI9XszWHjyhwP1+eh/JoFQg/yxHt0nCqtM9ItCkn+f61hjWIHN
+	V22QqfVeIWILTiGoFCeH7JAFW32KnW8TYL9nhYJ8sI7ckhxPoZ9kGoi+GAaZzCDmsxuBZDo6wj6XB
+	hd1H6IapTeaXLBXKLkT/9mHQAGfDp4nMz6XGz7tMbsGA7344Zvm0PfaKGkzzUvKCFtxiAIJ/31i4I
+	8pTKajWJ+dXgGxZ4jdJ8HFhmTusW4lHV5wmrR5eNSIXP5ya5kIu2/mcPqu0brTDGOMlB7vc4zCSTb
+	IYKgnWMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwuaV-00000006mjk-3G48;
-	Fri, 12 Sep 2025 03:36:39 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uwubu-00000006nYh-2HxN;
+	Fri, 12 Sep 2025 03:38:06 +0000
+Received: from mail-m25477.xmail.ntesmail.com ([103.129.254.77])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwuaS-00000006meI-2hEh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 03:36:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bSTOfArNWWif+wl7n45GBkhnUoJSym8GYt2LZ86tBMpU33KrUN9xpao26iK4x/Fvt1wsDfSKOPXJuF54HjlMjsQACus4LqC7Gdhrb27xgBo07tvB0aBtPORJQjfNzWluJ8LKJYi7Nw6lRLf0RTfFInlrfqaz5/r7ppSUeCMxvL2JU5hw8AoBvqu0vJuIOifS87xnIa0cgQRCPwSSCyA+3ncApVqZutvR141oPNrWWGLnR5WA35srHHHvFTLGkI/zOinBL1FVh1kAuO4lC0DdC+073vypngJ08AOcXsuajq5VU/rfQcfHaYBgCb/nriGP2Q76hGW2igis35gFnCQDow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pIJfCg4N2oQGUDEPTId1k3KrZRqXxJU5TwK1ZfHn4bY=;
- b=pk5xjF+FWeMQaeoZhtbcpl4+xoZko+xvgO4GCz9kslsEXwoLTUVdxS2TKBguMVRtsAnGesEAOkmd3nsrAnMD1ToA7f3UZsq31pJUS5+XJGN1m+vYgzXhqRpslt8Sr2ctRSVB4u0tgdcUxH86pqlvAyhvx6AzO+JRllz0AlMG2Jxhbdpxso9DXDC86DlHL+LY4qV3MglXhPjgy+yuqiOP/An0C1KXz4tpKvvzIPsRsBimtBYynSSkaL1+0NkqU8tSlKUdVXnPSqPq6rPnC4IF9rt60W8HFIvH4kl353AozVu55KcAFeHJafGhkG3u8jAhgBd09D05zhLprY8scA5tXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pIJfCg4N2oQGUDEPTId1k3KrZRqXxJU5TwK1ZfHn4bY=;
- b=LgPYqvcRvhVxd3f+hi68TmbTYcwUw9DZRmAeRgDT2GKfMLPi/qAI5sZDX4N3X28IuNTPtkFeyCoIFdfXO8md7CnWcdFQVI7Ed8Cqwnw4lSTrnOxLPginbVqrPvJ4Dz5TnQAHV3zzvJcd3Fy8JtIuNH6Hy/LBBmxSPeL+wy6sSGv8QrnFV9VKQlTRxvHbUfTrtDNa3BMHpUq7AZ5nQQb7mPiw/NNOmlBPoBhIYBs/VezjSrjGKhik0wSqwZgizGi0hqOBPqxlginN/oZXrV/pe+g7UmUcqN7dSLsvkEzC77qqs/nlqE60JknwNYcj2203Yf0yDQ9AGtw+ofIrYOdhrQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PAXPR04MB8526.eurprd04.prod.outlook.com (2603:10a6:102:211::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.15; Fri, 12 Sep
- 2025 03:36:30 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9115.010; Fri, 12 Sep 2025
- 03:36:30 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Fri, 12 Sep 2025 11:35:54 +0800
-Subject: [PATCH v3 5/5] clk: scmi: Support Spread Spectrum for NXP i.MX95
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250912-clk-ssc-version1-v3-5-fd1e07476ba1@nxp.com>
-References: <20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com>
-In-Reply-To: <20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Marco Felsch <m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Brian Masney <bmasney@redhat.com>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757648158; l=6023;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=/f/t/uvptCFsPsDbOruMFADsd8OrSPUdYLFUpJTxZ8M=;
- b=ZmvT3tIxXmGMeGz4DnO20VKQT1X1F44CzQzERPhsy9tw1WJGgGRXOR1dovD/gYwlFIhRAU/NR
- sagkc3vyB5aDsAJMZQl9ybFx2CsIxg0LfF7AEymRtdxawDhx5bj9fbI
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SI2PR01CA0029.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1uwubq-00000006nVG-2AG1;
+	Fri, 12 Sep 2025 03:38:04 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 228cf42bf;
+	Fri, 12 Sep 2025 11:37:50 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	hjc@rock-chips.com
+Cc: maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Damon Ding <damon.ding@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: [PATCH v3] drm/rockchip: analogix_dp: Apply devm_clk_get_optional() for &rockchip_dp_device.grfclk
+Date: Fri, 12 Sep 2025 11:37:25 +0800
+Message-Id: <20250912033725.4054304-1-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8526:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6cd7036f-327b-4414-2f8b-08ddf1ad8ff0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|19092799006|366016|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eHNOaWJieFpmR3Q2YU5BYjJQSFRXVkQza3dnMlZEdWpvaGxSRTFSYVJ2bmNz?=
- =?utf-8?B?NmptUDBNYXVCZFl6WWNIY2JyS1A0NTRQQ2hLeVpOUVU0cEFEdmh6bG1neW9h?=
- =?utf-8?B?S1YyZDJEdStrejNIaXFkYXQvTHJCK3pGWFNHb1BRbjl5cVVBRE1vWG9CMHNj?=
- =?utf-8?B?YmNGZzNCclpSV0E1b3M1aCszSTNLS1dwM2lvTDMwYnUyeDBJM2kxS2VGakwr?=
- =?utf-8?B?UkJGSmExa1pKVUJEZ0VGd1RQZmZsUjVCT2l5bjErQVgrdVhnWnV2d1JFSG5t?=
- =?utf-8?B?bklWTENteU5JWU9iU0lCcWZwa0xXNldmQS9yeUJ3cWJaZ2Y0dmZ4TUUvNC9i?=
- =?utf-8?B?Sk43WUc1bmY2L21GNWpHRVB6VzQyS05JUUNJWUhySGxPa1lqdm8yOVNreVdB?=
- =?utf-8?B?d2Jwb1g3UjkwcFplc21reElxVVlCSWFCVkR1bHZ1bHViRlpYUVk1a3lnOXpw?=
- =?utf-8?B?cVdJKzJPTy90ZUNuK0crdDUxanFQNko4bmNiMzhvLytDUVpOWEpiSFQzZE9v?=
- =?utf-8?B?NEs5eUdwbU5YMWpCODlEaXp4ek5JemNGQStBclQ2bEVWRTN5TFlVTFdqQWFk?=
- =?utf-8?B?c2o1REN0c21qTVB3cmVqenhyeHltRTdodG8ydzJUeXMyM0VrSlFIYzUvdTBx?=
- =?utf-8?B?dnFIL0NKWDhkbWhtRi9La3QyY2tGVVVuNkRIaFRDaFZ5Rnp2Y3lCN2hKK3Av?=
- =?utf-8?B?MFFLL1RENlp0Zys3SWZab3N4RjJHUDh6UU5PYm5iVlFUNU9RK0hoWUtWcGJo?=
- =?utf-8?B?VzJEWksrUnVnTnRTeDAwNUg0WmRKdFI1TFI0ME9EV0hZZ3NqMDNKaUYvQVNu?=
- =?utf-8?B?NWlURE1aWnFnMGYySVh6dUZFLzV2NzZ5MHpTR2pqSXhyQnlLREYvQ3RvaFhw?=
- =?utf-8?B?S2xmY1hqdmQ3RnBMRjVjTkN6Nm1WUnhGVXErTFZkVkU1a3NUTnBGc3BMd3lO?=
- =?utf-8?B?a2FGeDV4QmdnU0hEY281ejJuWC9CSEZVMW1OSjZXMkY0aUpVVFAyM1ZvM0k1?=
- =?utf-8?B?Y3JTeWNyeHRJK0JDWjBKbjdaTFIzOWpCYTNGbkk0NFlya2MyWFJCak12ZjZl?=
- =?utf-8?B?UmF6bU9aRG9CS1ptMDJEdHZhRlNHSEZEZ3lpb0dXcDdzNkx2SDNySVZrUFFR?=
- =?utf-8?B?MTg2bll5YkhPUEM3alUvcTFCbXpTYXY2Z1dMZnZrdk9OVkJQTCsyUXJVeHBC?=
- =?utf-8?B?ZFo2QVFBNG0zUWpkVlAzR2tiZEN1ZWVDSURrTmhJMENIbHlhN2Z6a0ZNVDlL?=
- =?utf-8?B?RldzVFB2RjhvVnUrV3ptbDJqb1JqY08xR0UwOVpRTmxJRXRpUkI3em15VmVT?=
- =?utf-8?B?NzEzSTFRNkhiRElrbERLM2JNZWFkNHpEb2g3MmNoZmp5M3NaVDl6MGVMelZi?=
- =?utf-8?B?aEgwa2M4ZmwzMWl2QWFuL0pSbmxYcWNCbEowbk9LaVBLT2pITWFudk95d3Iw?=
- =?utf-8?B?YkN5ZTV6MjZOTHlRaWNCN3lhdFZkOVEwaDR3QzFHSVltL0lPNEVGVkVXcTFw?=
- =?utf-8?B?dFc5L2VKaUYrQXJZNGIrbkh5Y0t5Skw2WmU0Zkh2K3NzZlduRkFBVndCUEM4?=
- =?utf-8?B?VjhQSzdvQ21KZHB1QmF4Q0JTc0d4SjNMalNUYURpSHRVTjk0clF6cnE5NFF1?=
- =?utf-8?B?eHZyMTVMUEhHL2s5MmJrK3d6VWpNVnhmeGVCZHUwSGlGc2VSY3RHK0lIZ0wz?=
- =?utf-8?B?dWpIUjlFaTZ1MkRDNFZqRHl4dlRTKzZOWVJMWXpDdXhxNHpsUVU2Y0lXUXVk?=
- =?utf-8?B?WE9vWUpKOTlwSmlDZS92bUo2UzdKM2FCay9SbXZ5cU1aanZwUm9RU1RvalpH?=
- =?utf-8?B?WnBHWDdONWRCbm90dExvRm9TR3RudHcrOW1oRDd1bURNNk45ZVdwMnhzNXpF?=
- =?utf-8?B?R2pCbDkvMS9tMkwxa25JMlBJS2FlemxGWnA2YklBSUxCallTTkYvUCt4dFJi?=
- =?utf-8?B?VVZ0dGpmYXRSY3ZvT3ZraUQvT0RIT2NXQk1rZS8zTElhVnFKK0hLdjYrTUNH?=
- =?utf-8?B?NFpKM00xREpRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(19092799006)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TStKMmEzRldnNEJjL0tZcDRJQmR0Ni92MWhUdzBuY05zOVE2Skt6bzBUYXZG?=
- =?utf-8?B?L0NHaDZ1T29FUElxOURGRmtuOTl1a2wyYUVwNzZlaVhMcWdyRWNkVVpMendF?=
- =?utf-8?B?L0x3L2hmSWVtZW03MFJEN0NrWno3TCt2bHR5UTVvNVpEUHNFZzdTVTZBMVJL?=
- =?utf-8?B?SDNaNHpNMjBOcDdERmxEUE54cVRBa2NKOURWUEpyNjRpNWY1ZjBlOFI1Y0hh?=
- =?utf-8?B?aG5SbG90UkZoVlVtY2dPSTF4YUQ5Z1hIeTBJWDRBQ3p1ZTdvdFFkKzIrRmhx?=
- =?utf-8?B?d1BaSnJJeWRmNENoUTVlZTdWUDc5WmpzazZrNEgzaGJCUStVT3J6clpPR2w1?=
- =?utf-8?B?cUsydktCUHBRRmNJQmpvK1VhRVMxcFBFcFltNkhuYTlldytWQy9jVGFWMmtl?=
- =?utf-8?B?RzBUcTdJVWNRSVVMNUg3TGNRWmlYN2FkU0dpelkyMzNUemJLTnNKOVg1eks0?=
- =?utf-8?B?RTN6MVc0U3BHMVFzKzc3QkQ3UHV4Z3oyOStoM2YwbDlpNCs3aG9vYVk3bHZO?=
- =?utf-8?B?R3JLeHMxdlRCbTJKeTVSdGpYUUw5QnVsZXlEMDBzSi9QMVZoWkxvVkVhQUov?=
- =?utf-8?B?cWk3NlFBekVZV0lUNm5iQXl4S3hPV2FUbzU4b0lzNU5xcGxRbnBkSXpXRFBK?=
- =?utf-8?B?RlhXcktpSDdQZU8wbmgwaEtnNGRXUVNpanM5Wk03VXdkcUtxaXpVdmRSK1ll?=
- =?utf-8?B?MGhtZW5aQ1B2bkpqczJuS1k3S1E3dGc1UVpZZjNXVFBrcmNXL2hMS2pPMUp2?=
- =?utf-8?B?SlB3VkNyY1JPSGZ3ODFnYVRIRHc5MU5IQnMvczUzZHBJN2x4SE5rNmhGczM1?=
- =?utf-8?B?bnVDMVZqb0lrODBwNGp0WmxYTk0yQVhob3RCeml4VkRxVGc4bVA5VjdhcSsw?=
- =?utf-8?B?d3pmQWF0NUkvdno5NUJoYmUwc3lPOVlNd3ljSkEwSHo1SXNjWGFQN1kwd2ZB?=
- =?utf-8?B?WXJ4WGFXeWJvd1pVK2l4YWJFRytJbmN3WEo3YlV1S0JRVXgyMUIxRlBod3c1?=
- =?utf-8?B?czJQMXlvcHB3SHJtSldWQVFrN3FIS1NDNUZkUVd2OGVVVklFWWpTd1I0L0hu?=
- =?utf-8?B?cWl3dk5yZzAyQkY2czBCZUZGSFI1cVJLQTNqTm9RZjB2bDRlMWtqMVA1ZHpx?=
- =?utf-8?B?VmpYTk5QMWFkTXhMQXFtbHBzMkhSNHhsUDlXL0tlTUtpdlBMR24yTEM5QVJK?=
- =?utf-8?B?UWg2NU9pZUd3TGdIZVRxTUNTOTNZRm9JdzU4WEtlWkRzVmkzeUdoY1FpNnhF?=
- =?utf-8?B?b0F0T3lmcU9jemFObHB6VWo0MmtmRzcvL0I4VjVCTG4rSTJwZnBRdjUvbHN5?=
- =?utf-8?B?aFdkNTFFQllpT0ZQbnIzZE1TU1V4eFZJK0NTME9nM3U2Ry90eDJvRUpVVlgr?=
- =?utf-8?B?aXhRNXY3dzZNREhMRm1hUHhIVDJldnNCM2YwSWdOM09XcTBuSUIyVnRlc1cw?=
- =?utf-8?B?UlpjMzlSM0xIR1FVSTZWQS9xbEVrZ2U3NDhleDFwVWdRT2NwMnF2N3N5ckow?=
- =?utf-8?B?VGtodUQ0ZFJjeUpVejNWWmx1RVd2TEp5c3RTTGdOYnZIcHRBL1dFUWFRRndp?=
- =?utf-8?B?ZkJxSG52U1FGUFpRSXdNdGRrdjBNMEl0OVdXdXJLNk9RaUNXRmRGZHRZc0dp?=
- =?utf-8?B?TDFySVVIaGZnaVY2YUlUWE54dGdXRDhqV3FQRjJ2TU9jeUdvWFkxT1lDSndn?=
- =?utf-8?B?d01sQnpIWmdoTzA5U0dLaDRqeXkxaW1DbGJvb1J0QmVOaTFDMVU4a09VR3dI?=
- =?utf-8?B?WWdYa20wWmJiZURJRzNlWGNqVkEvSXpubWJxSmIyZkg0Q0xqajAyNml5T3pu?=
- =?utf-8?B?YmdMNjBZTlBvN0dCU1NQb0d0enRld3NVZ3UrN3V2c2Jad3R1R1MwMmdpOStk?=
- =?utf-8?B?MmFidENmaE1INzg4Z3RtTkJiUWx1S09yYzNKV0RiSjFTczNiaGxWUTV3K2Rr?=
- =?utf-8?B?YTVxN1U5NWdhUHJrRkxsQTMzNCtGR2dVN1BtZEczL2R6d1hLd0hsdkFTdGFR?=
- =?utf-8?B?RE9WQXJjb1p1WW4wU2dCK0g3NlQwRjFCNE9mczVDV05PWXBtRk5VZ2IvVytU?=
- =?utf-8?B?YStVVHNWNDBKbU9mNDNNaCs4c0ZkTGFQeDV0WnJLUUhrc01WaHdjUy9JbE8r?=
- =?utf-8?Q?xvndSSNRybRkrIVTeo6o++eMt?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6cd7036f-327b-4414-2f8b-08ddf1ad8ff0
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 03:36:30.4108
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Gt5PgDzTQAHyO5IRbc1wapGqvTLELStAV3Sa8v8m9zx4ItGy0a2kTV8R5IxaUOpnlNQqHJuzmmqd+jHTGghqqw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8526
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a993c0034cc03a3kunm74a946b99d0374
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUgfQ1ZOSE9KTkoYHx9CHx1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=T6HBA5xoEntcxaxL1UxN5gxv62xuBDnFoO4RPii/PwIzDb4I4xGBN26QdOMZCfoDyG8kt+BKR7SdhdDsXfyU+A8GTsYSXLE4GNIGdJngnC8Yt8L7VBSVO2VXMlMxG6EERgJp9C1MMtnn6Scw5UmIfjYmXdpFgmosYrpio+6oEV8=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=0W+y5K8NTQvQx4kvJHari7pfRGCnr5lxmaUJ+MriK1E=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_203636_849847_AC6B9EC6 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20250911_203803_077131_F48C07B4 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,174 +78,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PLL clocks on NXP i.MX95 SoCs support Spread Spectrum (SS).
-This patch introduces scmi_clk_imx_set_spread_spectrum to pass SS
-configuration to the SCMI firmware, which handles the actual
-implementation.
+The "grf" clock is optional for Rockchip eDP controller(RK3399 needs
+while RK3288 and RK3588 do not).
 
-To ensure this feature is only enabled on NXP platforms,
-scmi_clk_imx_extended_config_oem is added. Since SS is only applicable
-to PLL clocks, config_oem_get is used to verify SS support for a given
-clock.
+It can make the code more consice to use devm_clk_get_optional()
+instead of devm_clk_get() with extra checks.
 
-i.MX95 SCMI firmware Spread Spectrum extConfigValue definition is as
-below, no modulation method because firmware forces to use down spread.
-	 extConfigValue[7:0]   - spread percentage (%)
-	 extConfigValue[23:8]  - Modulation Frequency (KHz)
-	 extConfigValue[24]    - Enable/Disable
-	 extConfigValue[31:25] - Reserved
+In addtion, DRM_DEV_ERROR() is replaced by dev_err_probe().
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+
+------
+
+Changes in v2:
+- Replace DRM_DEV_ERROR() with dev_err_probe().
+
+Changes in v3:
+- Update Reviewed-by tag.
 ---
- drivers/clk/clk-scmi.c        | 64 ++++++++++++++++++++++++++++++++++++++++---
- include/linux/scmi_protocol.h |  5 ++++
- 2 files changed, 65 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index d2408403283fc72f0cf902e65f4c08bcbc7b4b0b..bb5e20dab18e92932ab4b99192b496e0c4d96417 100644
---- a/drivers/clk/clk-scmi.c
-+++ b/drivers/clk/clk-scmi.c
-@@ -12,6 +12,7 @@
- #include <linux/of.h>
- #include <linux/module.h>
- #include <linux/scmi_protocol.h>
-+#include <linux/scmi_imx_protocol.h>
- #include <asm/div64.h>
- 
- #define NOT_ATOMIC	false
-@@ -23,6 +24,7 @@ enum scmi_clk_feats {
- 	SCMI_CLK_RATE_CTRL_SUPPORTED,
- 	SCMI_CLK_PARENT_CTRL_SUPPORTED,
- 	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
-+	SCMI_CLK_IMX_SSC_SUPPORTED,
- 	SCMI_CLK_FEATS_COUNT
- };
- 
-@@ -98,6 +100,35 @@ static int scmi_clk_set_parent(struct clk_hw *hw, u8 parent_index)
- 	return scmi_proto_clk_ops->parent_set(clk->ph, clk->id, parent_index);
- }
- 
-+static int scmi_clk_imx_set_spread_spectrum(struct clk_hw *hw,
-+					    struct clk_spread_spectrum *clk_ss)
-+{
-+	struct scmi_clk *clk = to_scmi_clk(hw);
-+	int ret;
-+	u32 val;
-+
-+	/*
-+	 * extConfigValue[7:0]   - spread percentage (%)
-+	 * extConfigValue[23:8]  - Modulation Frequency
-+	 * extConfigValue[24]    - Enable/Disable
-+	 * extConfigValue[31:25] - Reserved
-+	 */
-+	val = FIELD_PREP(SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK, clk_ss->spread_bp / 10000);
-+	val |= FIELD_PREP(SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK, clk_ss->modfreq_hz);
-+	if (clk_ss->method != CLK_SSC_NO_SPREAD)
-+		val |= SCMI_CLOCK_IMX_SS_ENABLE_MASK;
-+	ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 val, false);
-+	if (ret)
-+		dev_warn(clk->dev,
-+			 "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
-+			 clk_ss->modfreq_hz, clk_ss->spread_bp, clk_ss->method,
-+			 clk->id);
-+
-+	return ret;
-+}
-+
- static u8 scmi_clk_get_parent(struct clk_hw *hw)
- {
- 	struct scmi_clk *clk = to_scmi_clk(hw);
-@@ -316,11 +347,33 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
- 		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index d30f0983a53a..937f83cf42fc 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -335,15 +335,9 @@ static int rockchip_dp_of_probe(struct rockchip_dp_device *dp)
+ 		return PTR_ERR(dp->grf);
  	}
  
-+	if (feats_key & BIT(SCMI_CLK_IMX_SSC_SUPPORTED))
-+		ops->set_spread_spectrum = scmi_clk_imx_set_spread_spectrum;
-+
- 	return ops;
- }
+-	dp->grfclk = devm_clk_get(dev, "grf");
+-	if (PTR_ERR(dp->grfclk) == -ENOENT) {
+-		dp->grfclk = NULL;
+-	} else if (PTR_ERR(dp->grfclk) == -EPROBE_DEFER) {
+-		return -EPROBE_DEFER;
+-	} else if (IS_ERR(dp->grfclk)) {
+-		DRM_DEV_ERROR(dev, "failed to get grf clock\n");
+-		return PTR_ERR(dp->grfclk);
+-	}
++	dp->grfclk = devm_clk_get_optional(dev, "grf");
++	if (IS_ERR(dp->grfclk))
++		return dev_err_probe(dev, PTR_ERR(dp->grfclk), "failed to get grf clock\n");
  
-+static void scmi_clk_imx_extended_config_oem(const struct scmi_handle *handle,
-+					     struct scmi_clk *sclk,
-+					     unsigned int *feats_key)
-+{
-+	int ret;
-+	u32 val;
-+
-+	if (strcmp(handle->version->vendor_id, SCMI_IMX_VENDOR) ||
-+	    strcmp(handle->version->sub_vendor_id, SCMI_IMX_SUBVENDOR))
-+		return;
-+
-+	ret = scmi_proto_clk_ops->config_oem_get(sclk->ph, sclk->id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 &val, NULL, false);
-+	if (!ret)
-+		*feats_key |= BIT(SCMI_CLK_IMX_SSC_SUPPORTED);
-+}
-+
- /**
-  * scmi_clk_ops_select() - Select a proper set of clock operations
-+ * @handle: A reference to an SCMI entity
-  * @sclk: A reference to an SCMI clock descriptor
-  * @atomic_capable: A flag to indicate if atomic mode is supported by the
-  *		    transport
-@@ -345,8 +398,8 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
-  *	   NULL otherwise.
-  */
- static const struct clk_ops *
--scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
--		    unsigned int atomic_threshold_us,
-+scmi_clk_ops_select(const struct scmi_handle *handle, struct scmi_clk *sclk,
-+		    bool atomic_capable, unsigned int atomic_threshold_us,
- 		    const struct clk_ops **clk_ops_db, size_t db_size)
- {
- 	const struct scmi_clock_info *ci = sclk->info;
-@@ -370,9 +423,12 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
- 	if (!ci->parent_ctrl_forbidden)
- 		feats_key |= BIT(SCMI_CLK_PARENT_CTRL_SUPPORTED);
- 
--	if (ci->extended_config)
-+	if (ci->extended_config) {
- 		feats_key |= BIT(SCMI_CLK_DUTY_CYCLE_SUPPORTED);
- 
-+		scmi_clk_imx_extended_config_oem(handle, sclk, &feats_key);
-+	}
-+
- 	if (WARN_ON(feats_key >= db_size))
- 		return NULL;
- 
-@@ -459,7 +515,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 		 * to avoid sharing the devm_ allocated clk_ops between multiple
- 		 * SCMI clk driver instances.
- 		 */
--		scmi_ops = scmi_clk_ops_select(sclk, transport_is_atomic,
-+		scmi_ops = scmi_clk_ops_select(handle, sclk, transport_is_atomic,
- 					       atomic_threshold_us,
- 					       scmi_clk_ops_db,
- 					       ARRAY_SIZE(scmi_clk_ops_db));
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index aafaac1496b06a6e4f0ca32eee58a9edf7d4a70f..37f422b4b1ef2af2b4231a1677161aa24e07d0e2 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -80,9 +80,14 @@ enum scmi_clock_oem_config {
- 	SCMI_CLOCK_CFG_DUTY_CYCLE = 0x1,
- 	SCMI_CLOCK_CFG_PHASE,
- 	SCMI_CLOCK_CFG_OEM_START = 0x80,
-+	SCMI_CLOCK_CFG_IMX_SSC = 0x80,
- 	SCMI_CLOCK_CFG_OEM_END = 0xFF,
- };
- 
-+#define SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK	GENMASK(7, 0)
-+#define SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK		GENMASK(23, 8)
-+#define SCMI_CLOCK_IMX_SS_ENABLE_MASK		BIT(24)
-+
- /**
-  * struct scmi_clk_proto_ops - represents the various operations provided
-  *	by SCMI Clock Protocol
-
+ 	dp->pclk = devm_clk_get(dev, "pclk");
+ 	if (IS_ERR(dp->pclk)) {
 -- 
-2.37.1
+2.34.1
 
 
