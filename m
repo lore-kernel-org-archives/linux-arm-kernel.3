@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36429CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87CF1CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nAXPAL7KIyBetGmDpXTI7beb5COSZjfnpSZdKsPIchg=; b=tLhlX3BWgj/rv7CFxHxlpVa0ya
-	RaOunzZYi/AiVM95k/izrAqeAR3f/8Vou6+e2ss9N0MmuvZrsZ3+4piuHJCfSUwJDpctebLfb8x+3
-	rJ2GURKHJ838XB9Bkwt/E7p1pq9kdLs3yFxgfpLBYyT3KTLw002MSpkN8fAf3Jhz5ZZ3qUXkUkDK5
-	s2Hqu+BRFloNvKYk0HQB0izVvfpexZ4LpE0YfGDPgqz5BKXc2oYrlHmG8jYu8gCWjkeReAKGRd+zH
-	RCWRGJxGAhfeoHsy8Vsom4bhiyOFuGjMrTtOzwE95/LcXmqcZyw8rLE2RDxbvCQWSdHgV/vUWPHdR
-	YyM+tf7w==;
+	bh=00JJC95eGA+9HiqS1iD9cIi+d8wa3H1eHI7M7UBEhDw=; b=vF6FN/ZiPdZfAT/v1avn02J69G
+	//4qpMlgwskU88A8HaMY3yVZSmuZrJ9nfEBrNtNnEa7T+vI5i2FxLYyJdBmw7KMFFOfFGcldyZbTs
+	yN4OqsO2KDHBF7YeIKsYfrMd9bfLUKNn7FLvFb2bqCLqHYcjqF6VP3Ag88tz6bTRiEl9AWAMtPxAH
+	iqX7RnIK6YHXjmhZCRkBd06Ys2g+/AFqBz8OOm4u5R90dTDX8D7KoT9+hzZ01wEGe1Xx63ufFpKf6
+	rBl3dTl9/bocrGAUDV5XvEviZpQSstJ0BgDFRv0+8FBD0kZDY1j4K0j1j3SbSoHcodu/pE2QMFqor
+	v9zl1vuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0QX-00000008OPl-32sa;
-	Fri, 12 Sep 2025 09:50:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ux0Qg-00000008OTT-07TP;
+	Fri, 12 Sep 2025 09:50:54 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0QX-00000008OPN-0YVO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 12 Sep 2025 09:50:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nAXPAL7KIyBetGmDpXTI7beb5COSZjfnpSZdKsPIchg=; b=Ghjycm0Otj6SxgTj2zlgWUBG7N
-	PHpfPIT8g+OF+/KIp0S4FBCwdtlzt+eZ1vZyJoscnXhJ1VELozmdTWN6ex0gGx5L7YOLlFh46BxSq
-	r+Y6psp/6NLIDPI9jowPDbGz6IYNUswLxnnuLTUXZ6smQhNU4VLESGm4s4KTdp7NRT6LvckGPzuv3
-	yp0cY/ApFK4Pf2iOUF9ce4RpV6h3/fjTVVqm2134o1yOa3SCmpI2tsHfYXcQzQBgSCQkp0l1+Y6VM
-	GAEG12vsuBtBOYFU2wu1iyC8QVh9B6Wn6gmQDqDF0mXrj1GiDLMHH+909Z4DL9QaCjdhP39J2kByc
-	niPTBw0g==;
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0QS-00000006JSL-1OxP
+	id 1ux0Qa-00000008ORM-2lzj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 09:50:44 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58C9oUCE947168;
-	Fri, 12 Sep 2025 04:50:30 -0500
+	Fri, 12 Sep 2025 09:50:52 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58C9okDc1008505;
+	Fri, 12 Sep 2025 04:50:46 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757670630;
-	bh=nAXPAL7KIyBetGmDpXTI7beb5COSZjfnpSZdKsPIchg=;
+	s=ti-com-17Q1; t=1757670646;
+	bh=00JJC95eGA+9HiqS1iD9cIi+d8wa3H1eHI7M7UBEhDw=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=r+em9jbsy13iy8J9YDMLS/5ubjoP4nEau7BVCcwivqN11QNQKQIhXSNnQCLkwC6xB
-	 1FPAKrjis2VniBv6Njmr83vlTvZ8S7fAVltXDiyyH4edGy6UfQtb7w1FuhNxz2zBZh
-	 GKEPOWgnNxYGexNPFtd0KDxh/h+okCjlSb++5mcY=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58C9oUmP1219561
+	b=k7dEIi2oy/7V+x016xrssKCDh0D/Qq8H6awn2f4qhmk8DWiJ2/TtAM+AK3fRUBZ0q
+	 Gm0zT6uPrCMkJRalRJShu56NVfGuOG6znYSRb1e09f6hLeW5oLklFw/Km7Fm+dZLpW
+	 DB0mtbIJ/gl3onBiaZl6c7FxWpz57CF3RNaJShw4=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58C9ojBn1895129
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 12 Sep 2025 04:50:30 -0500
-Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 12 Sep 2025 04:50:45 -0500
+Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 12
- Sep 2025 04:50:29 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 04:50:45 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 12 Sep 2025 04:50:30 -0500
+ Transport; Fri, 12 Sep 2025 04:50:45 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58C9oUup3718217;
-	Fri, 12 Sep 2025 04:50:30 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58C9ojIl3414296;
+	Fri, 12 Sep 2025 04:50:45 -0500
 From: Nishanth Menon <nm@ti.com>
-To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+To: Judith Mendez <jm@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Moteen Shah <m-shah@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>,
-        <s-jain1@ti.com>, Harikrishna Shenoy <h-shenoy@ti.com>
-CC: Nishanth Menon <nm@ti.com>
-Subject: Re: [PATCH v3] arm64: dts: ti: k3-j721e-main: Add DSI and DPHY-TX
-Date: Fri, 12 Sep 2025 04:50:27 -0500
-Message-ID: <175766787107.26567.5274629136577295894.b4-ty@ti.com>
+        Andrew Davis <afd@ti.com>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 0/2] Remove HS400 support from common
+Date: Fri, 12 Sep 2025 04:50:41 -0500
+Message-ID: <175766786999.26286.12984291959565660129.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250905094325.472473-1-h-shenoy@ti.com>
-References: <20250905094325.472473-1-h-shenoy@ti.com>
+In-Reply-To: <20250908235207.473628-1-jm@ti.com>
+References: <20250908235207.473628-1-jm@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_105040_735741_6A440C8D 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250912_025048_794442_081C42F4 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,23 +91,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Harikrishna Shenoy,
+Hi Judith Mendez,
 
-On Fri, 05 Sep 2025 15:13:25 +0530, Harikrishna Shenoy wrote:
-> TI's J721E SoC supports a DPI to DSI video signal conversion bridge on
-> it's platform bus. The IP is from Cadence, and it has a custom TI
-> wrapper around it to facilitate integration.
+On Mon, 08 Sep 2025 18:52:05 -0500, Judith Mendez wrote:
+> Since eMMC HS400 has been descoped for j722s due to errata i2478 [0]
+> and is supported by default for AM62Px device, remove sdhci0 node from
+> common-main.dtsi and include instead only for AM62Px in am62p-main.dtsi.
 > 
-> This IP takes the DPI video signals from DSS and alongwith the DPHY IP,
-> it transmits DSI video signals out of the SoC.
+> Also, update the STRB value for am62p eMMC sdhci0 node.
+> 
+> Tested on am62p SK board.
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-j721e-main: Add DSI and DPHY-TX
-      commit: 6fdcb1013f13f87cdebd94ab8aa2f8ea2c644a33
+[1/2] arm64: dts: ti: k3-am62p/j722s: Remove HS400 support from common
+      commit: 7efc354b7fe1ac5e874d0188b3d6be88a3fa0fe4
+[2/2] arm64: dts: ti: k3-am62p: Update eMMC HS400 STRB value
+      commit: 9fdcc5f98141cf2f77e8778bee830190d7b71ced
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
