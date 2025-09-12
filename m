@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D71CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:03:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A216CCAC58F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0PdFHKIGbwFEvO78k7VYipO5DNz3mTKctmHS0mOU/VI=; b=NsS5tK9CIyFGjJS2E87uRFhPF9
-	1yftc6UqGVZLbE7r963mPh641INRrGNRNjGxDQk5/RYu0RHuoHWzDpABrOn/3BLrv1ySlF/f4BakI
-	NLoMK6QwWUXfK+bt7rCNcrsnJKsBUEAQiZ8YgRm7hcLDVdI2IJbqBi96L8wiGuvlgkzne6AQoZ30q
-	URay168XmHYmcvG4faSXTMDSYd//CcjKU6mb4EG0K9FI3bMgPeHYtP3J0Ga4wFkAH5/xwxf0DQpEJ
-	q6jqgDrf8EUx7pjQ24c6TVZYmMeYCHKNKjO5gF/2ARp/h1BCb9QSbDTIJJJyV3b5kYp9b2ujcM003
-	2mMAVeRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zguUP/rKI41td6Qd1x37NGTIr2eKo9bTe8UKCbXqKyg=; b=jA8erX/4DQjNi+2K429R3Cn9Tc
+	SV1V2zYPO9KS4PX664ZFNDyixdeFr2miC12PQBuzGHsXVUNIYWip8WnuF4IGh2M0an3zCAsF8bBVe
+	lkoTVwEHZoMBGxXvKDjAmXtbu2CtXHPIDRoU9ymPwfPmVuw621uwJgtC05P6+U1NVqyq0uo1flCoO
+	IgDkwWzttsLt2UT7fFzQpd0wbCLAo9BaJa9okvyhA2aTHoXXmmKD1Ij0VnrYBnvI/oc+RoZJ1p+Fc
+	2gmLWMJsP/muu/CikHj5J3YZ9juX0VRRP56dkyn/xbObKSJZ5dKdaCly1xpWr5kgMVn/fegEUTSVB
+	QrWSPzyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2Un-00000009499-1hhS;
-	Fri, 12 Sep 2025 12:03:17 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1ux2Wn-0000000957l-2euD;
+	Fri, 12 Sep 2025 12:05:21 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2Uk-0000000944i-1vY2
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 12:03:15 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-560880bb751so1818962e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 05:03:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757678592; x=1758283392; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0PdFHKIGbwFEvO78k7VYipO5DNz3mTKctmHS0mOU/VI=;
-        b=FkAYOMyUAU1mzDSLEpYpfdAg0FfCh6ZpRz6zFdRCdyc/ooPP9nJI9QpSSqytLnU6dw
-         5nvzMk6at6GFPPo97FdA5U/ocSM2g2+Ss6N37m2Lk09g3wCdKPMwEEF3sLVz/Le8THZr
-         u1hcj34EugzgF8wh/mUaO6hvTghejWka2uqzv2zQlQLiUjPvh9DCrFLayEM9/WSfXCpC
-         GrU2sFJny3ZmH2a1X6JmzpjsWcKupKv4Rzj5QjqaukiQ6qOzbsf0jPCP0iOGKLWnJ02Q
-         jQTlrWw/CTNqtKPju7RJJR5r4gCOgsfsx5ir/Y/C7dl8kOxQy7dzL7WPPcc7rpB4Z+0j
-         PezQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757678592; x=1758283392;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0PdFHKIGbwFEvO78k7VYipO5DNz3mTKctmHS0mOU/VI=;
-        b=H3/dygcLKgAe44P1tt26DDQ5DscuIKegsA4EdLji85nRoHgPapBkI6wscWf4DVszjT
-         BGUd/etAnjm5gl7SWrdqFV5Ebl8cxorpjcQ7j6wzOZTpkAd41Z2lzDtwfwdbdRHATV4k
-         kETk31lIvCabOoS4Dwg5UWkTh7DFJ9sWkwhamW/8gbYj+bN6Vk1fLDw7mygAg4TwfLKw
-         66qwvqeitkMXtDgQXQV9EY5JxTeMF7BX1UGvuSqQuBTJiuwvupEmmVYqlwBsdH/NU02Y
-         u/Av2aoJaYX3B+FO/3J294M3hTfqAdpRQ2qkSq7eTatjeRJ4M0QFA2xJWAILOqWdnG+V
-         7PqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXMEggf46rYlx1uNg9madeyTr0E4TSqQ+YaNY6FyKWksaABLQ82HBmyHGTCJb8hEylkKN7XEQjCcu9xrytYY30F@lists.infradead.org
-X-Gm-Message-State: AOJu0YzI8DvWs18IfSKchsvWXR1gkkrMqNx5pzFiNJ1EBfdjuYypcqWU
-	Zi/lihuVN5C5RQt0r55ln1x3G7/zFdlLWntSbcGadGHbqF/moqvoSgVgCvs/MoLewJTJ8hskSwP
-	d5stIb65Ib5z0PWuTt9YMeeW38MesktX9GhPHqYjOgngkVyKSuj7FxPk=
-X-Gm-Gg: ASbGncv+3UKePJLpGXarSLwpfWWFK32ksw8D98NI6+wqEcBUbJuydfBCHvEE1MJtq7F
-	rEkLS3Up0qObD6JN1wqQIrJg6vaZameDdvyb7mPKHJ8AgBj6QsE90d3NJy8iaVfUnyEn1WPcLAF
-	vN42gDPpROEMfJc6ejvAcuDo4ScCBSTM9sHW0C7GbVi2BUinAk7p5suLQCBYbbwK4JSEK6wG8L5
-	N7/SEU=
-X-Google-Smtp-Source: AGHT+IGSZOlTW8CCLhnbl5TBUxb6BdFbzV6+OuHe7/KsFBuH3oWJWnilJXYkrdME2jw+G6yIQ8lGS/eJCMYe6xHrNns=
-X-Received: by 2002:ac2:4e0e:0:b0:55f:493c:ba2b with SMTP id
- 2adb3069b0e04-57051f3c661mr692236e87.49.1757678592231; Fri, 12 Sep 2025
- 05:03:12 -0700 (PDT)
+	id 1ux2Wl-00000009569-2Hu7;
+	Fri, 12 Sep 2025 12:05:20 +0000
+X-UUID: bec127068fd011f09eb0dd999d3936bf-20250912
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=zguUP/rKI41td6Qd1x37NGTIr2eKo9bTe8UKCbXqKyg=;
+	b=cnJoxNkso4sJcnDHy7hcZraIxd8IQJa0aJruIqq2aYMm2D48aZAzFN52D9ab3wbToTFM3GOuQF6iKKqzky+e/2WngK0K5Ma3XljX5UQCSVIDL/nFYeOC3oieLA4O5tEFmholJE6ThsQTKRwNwaGAZvr2dVi7p30x/eUQFV7auso=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.4,REQID:59a19298-ac44-4c92-8f9c-59da95d2e1c7,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:1ca6b93,CLOUDID:b9c9b884-5317-4626-9d82-238d715c253f,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: bec127068fd011f09eb0dd999d3936bf-20250912
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <irving-ch.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 161699277; Fri, 12 Sep 2025 05:05:16 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 12 Sep 2025 20:05:13 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 12 Sep 2025 20:05:13 +0800
+From: irving.ch.lin <irving-ch.lin@mediatek.com>
+To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Ulf Hansson
+	<ulf.hansson@linaro.org>, Richard Cochran <richardcochran@gmail.com>
+CC: Qiqi Wang <qiqi.wang@mediatek.com>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-pm@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, <irving-ch.lin@mediatek.com>
+Subject: [PATCH v2 0/4] Add support for MT8189 clock/power controller
+Date: Fri, 12 Sep 2025 20:04:49 +0800
+Message-ID: <20250912120508.3180067-1-irving-ch.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20250909181841.102103-2-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250909181841.102103-2-krzysztof.kozlowski@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 12 Sep 2025 14:03:00 +0200
-X-Gm-Features: Ac12FXwqQ4S6LsJ5ISymFmSoLLy-PySRhoETtxxqmtEpkSI7Fd-SoneEsLrhhRs
-Message-ID: <CACRpkdZAt2n2gd7TuwRiBzUwjKy-LH=d7EYC7hg=j753UxKQYg@mail.gmail.com>
-Subject: Re: [GIT PULL] pinctrl: samsung: drivers for v6.18
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_050314_506322_168E59A9 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_050519_596543_EDD2CBDF 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,25 +92,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 9, 2025 at 8:18=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
+These patches add support for the clock and power controllers
+of MediaTek's new SoC, MT8189. With these changes,
+other modules can easily manage clock and power resources
+using standard Linux APIs, such as the Common Clock Framework (CCF)
+and pm_runtime on MT8189 platform.
 
-> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d5=
-85:
->
->   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
->
-> are available in the Git repository at:
->
->   https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tag=
-s/samsung-pinctrl-6.18
->
-> for you to fetch changes up to d37db94b078197ec4be1cadebbfd7bf144e3c5e4:
->
->   dt-bindings: pinctrl: samsung: Drop S3C2410 (2025-09-02 12:31:25 +0200)
+Irving-ch Lin (4):
+  dt-bindings: clock: mediatek: Add MT8189 clock definitions
+  dt-bindings: power: mediatek: Add MT8189 power domain definitions
+  clk: mediatek: Add clock drivers for MT8189 SoC
+  pmdomain: mediatek: Add power domain driver for MT8189 SoC
 
-Pulled in, thanks for taking care of the Samsung drivers!
+ .../bindings/clock/mediatek,mt8189-clock.yaml |   89 ++
+ .../clock/mediatek,mt8189-sys-clock.yaml      |   58 +
+ .../mediatek,mt8189-power-controller.yaml     |   88 ++
+ drivers/clk/mediatek/Kconfig                  |  146 +++
+ drivers/clk/mediatek/Makefile                 |   14 +
+ drivers/clk/mediatek/clk-mt8189-apmixedsys.c  |  135 +++
+ drivers/clk/mediatek/clk-mt8189-bus.c         |  289 +++++
+ drivers/clk/mediatek/clk-mt8189-cam.c         |  131 ++
+ drivers/clk/mediatek/clk-mt8189-dbgao.c       |  115 ++
+ drivers/clk/mediatek/clk-mt8189-dvfsrc.c      |   61 +
+ drivers/clk/mediatek/clk-mt8189-iic.c         |  149 +++
+ drivers/clk/mediatek/clk-mt8189-img.c         |  122 ++
+ drivers/clk/mediatek/clk-mt8189-mdpsys.c      |  100 ++
+ drivers/clk/mediatek/clk-mt8189-mfg.c         |   56 +
+ drivers/clk/mediatek/clk-mt8189-mmsys.c       |  233 ++++
+ drivers/clk/mediatek/clk-mt8189-scp.c         |   92 ++
+ drivers/clk/mediatek/clk-mt8189-topckgen.c    | 1057 +++++++++++++++++
+ drivers/clk/mediatek/clk-mt8189-ufs.c         |  106 ++
+ drivers/clk/mediatek/clk-mt8189-vcodec.c      |  119 ++
+ drivers/clk/mediatek/clk-mt8189-vlpcfg.c      |  145 +++
+ drivers/clk/mediatek/clk-mt8189-vlpckgen.c    |  280 +++++
+ drivers/clk/mediatek/clk-mux.c                |    4 +
+ drivers/pmdomain/mediatek/mt8189-scpsys.h     |   75 ++
+ drivers/pmdomain/mediatek/mtk-scpsys.c        |  967 ++++++++++++++-
+ .../dt-bindings/clock/mediatek,mt8189-clk.h   |  580 +++++++++
+ .../dt-bindings/power/mediatek,mt8189-power.h |   38 +
+ 26 files changed, 5206 insertions(+), 43 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/power/mediatek,mt8189-power-controller.yaml
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-apmixedsys.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-bus.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-cam.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-dbgao.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-dvfsrc.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-iic.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-img.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-mdpsys.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-mfg.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-mmsys.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-scp.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-topckgen.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-ufs.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-vcodec.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-vlpcfg.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-vlpckgen.c
+ create mode 100644 drivers/pmdomain/mediatek/mt8189-scpsys.h
+ create mode 100644 include/dt-bindings/clock/mediatek,mt8189-clk.h
+ create mode 100644 include/dt-bindings/power/mediatek,mt8189-power.h
 
-Yours,
-Linus Walleij
+-- 
+2.45.2
+
 
