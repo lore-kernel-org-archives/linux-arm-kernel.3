@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298C5CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:46:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2331CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=79lD+UZN7+w3yfpLoI0y3gCWro/hQPDPRWzjwz0DUuU=; b=R5r1vk9SVbWiUoACZWv323a7aC
-	1p+2BSjghJtWoBTjOnjQ2t9oYoWXxcMA6K+pOzpBYbGD7cDYBULjgy8s4pwCmQtV2bD/T3lNKhRW5
-	JZClu2lJXvDZNFrfuVR2zBwpTLItcwISFPr/O1f+gKJow3w1q7XUihfRN2MFSA6qrEO5WOv6Xv7Xm
-	gP6QCsDvr/woAMENcsnlVkgDLpJlSIZgZtYEQa7uSHTkut7ESnxf6aboXjCAeJi2GqVad6+/Zbiha
-	69YxhXjPxACr6LmEysDhatgy1QvOSJ5Z01qYKUWa/JilT21iMd43cliym5sOcs2HUA2zMSL2T84Nc
-	eYQ2hsug==;
+	bh=r4hpL1WjqUwGCaqWkzYGDifvsElcMhYMPsGMRUV9Mt8=; b=TFcjI7bldoqozSE2QTGXgHH5/j
+	bvuIdhqC4mgedAwB9EHrjWmpzI8mcTjpkFnWwq/KJ1ora4F2If4FCdQUwjMn4l5V7xF2uYYyx2GG+
+	22di+hyp5jBjisMZfFeV6IFBHPFW0/+s9W4KUfqkdcWW8yja0aSvwBAUxORwzCIX7ZMQhTA7fQ+fc
+	uLbcz1t12imqKYl7jc/NjRGqnNWh3ilRLS3HDmr2IJ5joQhLntaHc4+AT1QQNloregr3NX6Aj2nND
+	Tg/UXCyrpVgdckZsJqJgbPko+2Xxyd332Irlv2t5udK+RTxov8LtPpjH1yGRJkhQdHFuKEtG2G8Fg
+	e7bvNRQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0Mf-00000008N4Z-0DX9;
-	Fri, 12 Sep 2025 09:46:45 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ux0OJ-00000008NRe-2BK6;
+	Fri, 12 Sep 2025 09:48:27 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0Mc-00000008N3d-1NoL
+	id 1ux0OG-00000008NQY-3Nai
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 09:46:44 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58C9kVwf579719;
-	Fri, 12 Sep 2025 04:46:31 -0500
+	Fri, 12 Sep 2025 09:48:26 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58C9mLV91008151;
+	Fri, 12 Sep 2025 04:48:21 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757670391;
-	bh=79lD+UZN7+w3yfpLoI0y3gCWro/hQPDPRWzjwz0DUuU=;
+	s=ti-com-17Q1; t=1757670501;
+	bh=r4hpL1WjqUwGCaqWkzYGDifvsElcMhYMPsGMRUV9Mt8=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=h3oVCo+Sf9Gu/55IxtFRGR54EiDM3W5ytBriP/OeCnh42mxQujyzFxybH4uIC+rX5
-	 fgpfNTrW6E1y88EVbc8hRQbKlyrJ8Ayv6qgZEiRqX4+ZqdNhlb+WTeBWU2b376CI6d
-	 xr67A/YXIHxwSdetWrLzpu08tVPMdSBrlBvkBQPM=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58C9kVTf1893099
+	b=Q16QU3RUq3NqRnLwztT1oObzs5RQ9HBg/64I5/34nKjWYKYRXvUF0xAqenQ9rupSm
+	 DMDLYcUGpMrMC2FMrdaCCIf+THvnRcVL4q1MZxP8km86Reh3oR+YtkLSCpW/LqMw7s
+	 xca8z1LyEo+Pu2BSGApkVozSY7+vZx0pnVuj8a04=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58C9mL8S2685103
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 12 Sep 2025 04:46:31 -0500
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 12 Sep 2025 04:48:21 -0500
+Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 12
- Sep 2025 04:46:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ Sep 2025 04:48:20 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE209.ent.ti.com
+ (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 12 Sep 2025 04:46:30 -0500
+ Transport; Fri, 12 Sep 2025 04:48:20 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58C9kU003409325;
-	Fri, 12 Sep 2025 04:46:30 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58C9mKuC3715494;
+	Fri, 12 Sep 2025 04:48:20 -0500
 From: Nishanth Menon <nm@ti.com>
-To: <praneeth@ti.com>, <afd@ti.com>, <vigneshr@ti.com>, <d-gole@ti.com>,
-        <u-kumar1@ti.com>, <sebin.francis@ti.com>, <k-willis@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Akashdeep Kaur
-	<a-kaur@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <vishalm@ti.com>
-Subject: Re: [PATCH v6 0/4] Remove unused bits from dts and add support for remaining pinctrl macros
-Date: Fri, 12 Sep 2025 04:46:25 -0500
-Message-ID: <175766787054.26424.12411839583402198052.b4-ty@ti.com>
+To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        Anshul Dalal <anshuld@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 0/4] Add support for TI AM6254atl SiP
+Date: Fri, 12 Sep 2025 04:48:17 -0500
+Message-ID: <175766786841.25865.5286816232704724647.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250909044108.2541534-1-a-kaur@ti.com>
-References: <20250909044108.2541534-1-a-kaur@ti.com>
+In-Reply-To: <20250814134531.2743874-1-anshuld@ti.com>
+References: <20250814134531.2743874-1-anshuld@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_024642_565252_D7FAA633 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20250912_024824_929682_8DA50119 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,35 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Akashdeep Kaur,
+Hi Anshul Dalal,
 
-On Tue, 09 Sep 2025 10:11:04 +0530, Akashdeep Kaur wrote:
-> This patch series cleans up the dts files to remove the pin control
-> DeepSleep configuration that does not take effect in hardware.
-> This series also adds the remaining macros in the pin control file
-> supported by SoC so that any configuration can be used as per requirement
-> in dts files.
+On Thu, 14 Aug 2025 19:15:26 +0530, Anshul Dalal wrote:
+> This patch series adds support for AM6254atl SiP (or AM62x SiP for short)
+> to the linux device-tree.
 > 
-> Link to Previous Versions:
->   -V1: https://lore.kernel.org/linux-arm-kernel/20250731115631.3263798-1-a-kaur@ti.com/
->   -V2: https://lore.kernel.org/linux-arm-kernel/20250901122835.3022850-1-a-kaur@ti.com/
->   -V3: https://lore.kernel.org/linux-arm-kernel/20250902071917.1616729-1-a-kaur@ti.com/
->   -V4: https://lore.kernel.org/linux-arm-kernel/20250904112538.529857-1-a-kaur@ti.com/
->   -V5: https://lore.kernel.org/linux-arm-kernel/20250905051448.2836237-1-a-kaur@ti.com/
+> The OPN (Orderable Part Number) 'AM6254atl' expands as follows[1]:
+> 
+> AM6254atl
+>      ||||
+>      |||+-- Feature Lookup (L indicates 512MiB of integrated LPDDR4)
+>      ||+--- Device Speed Grade (T indicates 1.25GHz/1.4GHz on the A53 cores)
+>      |+---- Silicon PG Revision (A indicates SR 1.0)
+>      +----- Core configuration (4 indicates A53's in Quad core config)
 > 
 > [...]
 
-I have applied the following to branch ti-k3-dts-next on [1].
+I have applied the following to branch ti-k3-dts-next on [1]. As part
+of applying the series, I have had to fix a minor merge conflict due
+to the order I picked patches, do check if all OK and report if not.
 Thank you!
 
-[1/4] arm64: dts: ti: k3-am62p5-sk: Remove the unused cfg in USB1_DRVVBUS
-      commit: fe0e018b05f118cb8e5c8cd77dd74185b2cb7177
-[2/4] arm64: dts: ti: k3-am62x-sk-common: Remove the unused cfg in USB1_DRVVBUS
-      commit: 121babfed84a0c6d7ebee4486db4fbd9a900d9f5
-[3/4] arm64: dts: ti: k3-pinctrl: Add the remaining macros
-      commit: 42558822658e0ad249a8f109fd053e3bad4476e9
-[4/4] arm64: dts: ti: k3-pinctrl: Fix the bug in existing macros
-      commit: 2e79ee4d64e9ba4a3fc90e91dfd715407efab16d
+[1/4] arm64: dts: ti: k3-am62*: remove SoC dtsi from common dtsi
+      commit: e0b9feca7329c495a76891d7766a781dea73787d
+[2/4] dt-bindings: arm: ti: Add binding for AM625 SiP
+      commit: 3e915577cf0b7d3f9088c398888e5e01e10356d7
+[3/4] arm64: dts: ti: Introduce base support for AM6254atl SiP
+      commit: 7c1d13a14e61ab33eec330cb6cabbddb37eecaa9
+[4/4] arm64: dts: ti: Add support for AM6254atl SiP SK
+      commit: 2517e476b819df986fa1fe53927c099032bb72dc
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
