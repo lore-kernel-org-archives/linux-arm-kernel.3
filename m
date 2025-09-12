@@ -4,69 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD52CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 16:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6D3CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 16:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ql/dFA6zzdQLfAJ85mqvQ9yW60NoAl65r0V8dC9FamU=; b=hVenyp23LaM5bQA9zsugUYWBP0
-	NM0mQW18+cF+LGUEnR2NCoFk5CyoxVcPIt44wOq2A3JEdnsDwKsDDJ9ga3p07a7p1/76o6IE1htel
-	RC0oIFDFrCg1zE0GFYiNYq9MjwQVKG2Dnp8WUjq+MXbEkQ2Rwb/IHaRCBiK1rhA9PSRSVyRYKFDyo
-	/aQNDDCidx4bz6F3lQmKQyxKvo01F3J9ACbGpCDrioiyuDIG2VpIJOSTZd6KbZRLQ7Sr44CCX3C5/
-	xcLqEUjnQ/ab7O/YiEnWnwbN14lwJ89IYS1UWXy6NGCyuW/bnQhGCGxfdUut3PQXgwZg2mmuNtwOj
-	D9KbYpPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9/dToF1ybIC73PSFKvtpxb4k1/FWQgFwDCu4r7vW0mY=; b=uyVgKQcMX/LFmwLzYZCaAiQ06h
+	Z5yaWOGkrYvwdJIpAxKB/RpSkLbCwRmNkZX96v4qtBT540YNJlC9vf6BlKivzczShRq9ICZfjAgVB
+	1W5lf+1GV0mvQtZwy+CNqm7oCAiKfof8Y3GT/6U55oni2LkSs6TJ6ie0Zi/FSDfHmOJ9bb9hzFrDI
+	28JGcVz0qgTl9ASOpvsVHp43nTK5uuhnWMrKRUUPtMa8b6xbI39e/zaY9H3l4EgKLrsaaiB6/k5ue
+	yVKbOYQT5B45LSmdI9jY4ulxaKi4LO8ceZtd7oxYpXPTLoljHZ37jc1Ga3SRRZ4oHkCuefrQh1g6I
+	gPLCTXRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux6I7-0000000AS46-2rLR;
-	Fri, 12 Sep 2025 16:06:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux6I5-0000000AS3O-3ao2
+	id 1ux6OX-0000000ATg7-01Ag;
+	Fri, 12 Sep 2025 16:13:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux6OW-0000000ATfh-1L5C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 16:06:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E28B31515;
-	Fri, 12 Sep 2025 09:06:16 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DEF83F66E;
-	Fri, 12 Sep 2025 09:06:19 -0700 (PDT)
-Message-ID: <848050b3-65d7-4caf-b093-7145eb782a7c@arm.com>
-Date: Fri, 12 Sep 2025 17:06:18 +0100
+	Fri, 12 Sep 2025 16:13:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 19EB8601E8;
+	Fri, 12 Sep 2025 16:13:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E8BDC4CEF1;
+	Fri, 12 Sep 2025 16:12:59 +0000 (UTC)
+Date: Fri, 12 Sep 2025 17:12:56 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: will@kernel.org, broonie@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
+	ardb@kernel.org, scott@os.amperecomputing.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v7 1/6] arm64: cpufeature: add FEAT_LSUI
+Message-ID: <aMRGiF9Ez18tc4u9@arm.com>
+References: <20250816151929.197589-1-yeoreum.yun@arm.com>
+ <20250816151929.197589-2-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 28/29] arm_mpam: Add kunit test for bitmap reset
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-29-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250910204309.20751-29-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_090625_942308_8B5D6DAA 
-X-CRM114-Status: GOOD (  14.81  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250816151929.197589-2-yeoreum.yun@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +63,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On 9/10/25 21:43, James Morse wrote:
-> The bitmap reset code has been a source of bugs. Add a unit test.
+On Sat, Aug 16, 2025 at 04:19:24PM +0100, Yeoreum Yun wrote:
+> Since Armv9.6, FEAT_LSUI supplies load/store instructions
+> for privileged level to access user memory without clearing PSTATE.PAN bit.
 > 
-> This currently has to be built in, as the rest of the driver is
-> builtin.
-> 
-> Suggested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->  drivers/resctrl/Kconfig             | 10 +++++
->  drivers/resctrl/mpam_devices.c      |  4 ++
->  drivers/resctrl/test_mpam_devices.c | 68 +++++++++++++++++++++++++++++
->  3 files changed, 82 insertions(+)
->  create mode 100644 drivers/resctrl/test_mpam_devices.c
-> 
-> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-> index c30532a3a3a4..ef59b3057d5d 100644
-> --- a/drivers/resctrl/Kconfig
-> +++ b/drivers/resctrl/Kconfig
-> @@ -5,10 +5,20 @@ menuconfig ARM64_MPAM_DRIVER
->  	  MPAM driver for System IP, e,g. caches and memory controllers.
->  
->  if ARM64_MPAM_DRIVER
-> +
+> Add LSUI feature so that the unprevilieged load/store instructions
+> could be used when kernel accesses user memory without clearing PSTATE.PAN bit.
 
-Nit: add the empty line in an earlier patch
+These two paragraphs are pretty much saying the same thing. Just replace
+the second with something like "Add CPU feature detection for
+FEAT_LSUI". No need to explain the PSTATE.PAN again.
 
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 
-Thanks,
-
-Ben
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
