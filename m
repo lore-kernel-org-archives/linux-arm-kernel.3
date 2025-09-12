@@ -4,85 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03999CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 11:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B622CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 11:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=s5X7H8g9TghKOTLREJ2OSJx6IAiEOQjoYaS013q9w+o=; b=UhBt3NxD3Yl6R5dEyggk21JIvP
-	5IC6Q7Z0C6JrbHguJb03d/MPquLnBEuSjV/fjAaqG+u1I1T/sSrasZmX6saOoBx9oT9qvomwLWqrn
-	PP6tQhk0Oel+tkrL+OKwxhQLQsvitkyI02hNTtwu5rQN+6D1R9FXxhPYBnChWDZQK6iICl5vtgkKH
-	jDwU+dNOgEDFNHlHBuo56LOn0A1L7djNjQj45nQXgAG2xp9gZ6/fzbInDIeVf5m5nuOe9odCFj/X0
-	HujojjksuqNVL9RZw2znUP/ogrjo3Np2+XejhCXbKcruy908SVoI41E7KUt15ERuwYDn9d05QWlvY
-	KGiK28hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=usgUlULW4i11yRWkKbSOR2vnoA79cnMllpfM85XrvTA=; b=jRFinuHxDmFIRN
+	xgvhddlME2p1+ybWRfwhe2LAr43RziIW4EgoZUYMewLKIh41CYnQUkPeMpJd4H17sJYTTMIhz3qKq
+	GCgjee1lYKDFerCOgLEPShQJaNtYNMDOqIXpi0WPRxDm08r96S0FJZml2uOPiSMt/L+m7UywJN6kc
+	fBvxT1wzJpwEs7BLZVdVYw6Ui7mtXOtW3gSEhxSkrQwnCW6FztSc0srgdNIASROaR8TSCHuPqzlCi
+	AtZ4Dsrm1c0OLNh5g7xzh4s+sMjPH8yLAuBIobttnBURtbFCs/UTV8CWiPISFOxhMDePJvG5AglQ9
+	luRT11S3eyAsbW83eKQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1p1-00000008qB6-2Kor;
-	Fri, 12 Sep 2025 11:20:07 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1ux1qw-00000008qZV-2B8g;
+	Fri, 12 Sep 2025 11:22:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1oy-00000008q9h-0shX
+	id 1ux1qv-00000008qZ5-0YTf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 11:20:06 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b04ba3de760so237044666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 04:20:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=monstr-eu.20230601.gappssmtp.com; s=20230601; t=1757676002; x=1758280802; darn=lists.infradead.org;
-        h=content-transfer-encoding:subject:from:cc:to:content-language
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s5X7H8g9TghKOTLREJ2OSJx6IAiEOQjoYaS013q9w+o=;
-        b=0zVlCoyBF3x88uQ1hULgviFjbhmVyFKM3RKFmaiipAvrWm0vemwnBwfiSwrny5Iw6s
-         4MEQVPlDfBi/a8QeqYVpgoRrnAp/xFMpX8nKvUcszH3e3QZxQQSbCCihF3C7pQWM0yTV
-         geKvPMUQXlhFVEPXlAakdfUV/jesrbJJetUZj5eRm1IoQNngRVdKwZWFRE4pUXbA3VtL
-         fAkEm0Qw8zHOywzHQnxssIqriCgDYiGW0LklMagx1dJzxxw6Dxie2XvPWSmSj7GWcP5P
-         BeOXBqxRpGSvzyl6c+0s7hqkHqydeW4ET5qmbl44JmLbxFnwwAeofUSXBEOzT7iO6XG7
-         PYTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757676002; x=1758280802;
-        h=content-transfer-encoding:subject:from:cc:to:content-language
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=s5X7H8g9TghKOTLREJ2OSJx6IAiEOQjoYaS013q9w+o=;
-        b=eYiR42dxy2QjEzbM433HpDSmwLXY6YrnusQu0bydm8I8+nRVKRjl+6mf8936pXtHnl
-         Q1qLQO64qwJLvNfTxy2N2G5qsgDsE4rSZU8ypljbwFG4F8cTSIRvY7IHD5bNVHNY2CsT
-         t4DC45QxWSEam9iz4sQTkZzmxbvXCNpjpZQffsRGTsNwCqFTxCnceOOGzQC+m/Fmr4MN
-         xM6gVBgsvwOv6mGV4M8/4rgflWhxqxM14rO3eeqeZ3dU81Euz7p0pUyCa+i+KDUK3WMO
-         tdUdw/wB89d/pF3mTuN4Cv4auF0abve/W7U1pvHmHdgNSp37E2TgyUxCS5d5YfRF5Sr0
-         JzlQ==
-X-Gm-Message-State: AOJu0Yx1dkW41rON23wj/gO9s7ViBiPg8unGPVpM8s5cSMrhrhxtMVYl
-	xkfj3SuvqkMF7OuK8bPB753wy071Ga0yFe7QX5x/Vza6qHDk7WP+qo8oJ2GFjl7vmU2wjmGwhR1
-	m32nk0+lp
-X-Gm-Gg: ASbGncuyMCCC45hteOzxPgjeuTp92GGla3fCgyHndQa8ep7dqW36Ho/qeqjcEBtUUe+
-	4Pt5/C5L8JGS0rP9A3abYznc2LHs5OsCbspMSZguuw8Z55L6Tr++vi47MRoUR0J6uQn/nx2NUpi
-	OcFYeLGFnPjagAT/aNpOebCTVvOfM2rvhSoQxrE3Ot7buakl9jcH2y3xXtxQO2w7GvYyrXFLISu
-	mbGBu/O8Npe342EYT8UEkfFHKaRnlND8SSS8Cy9CgJINpOdMicMM07zSfm3DzbzbVRugdFT82MN
-	36bTMWeqlpHpq/LF8JaoI5Wku6DIt2Q4s1cQXE2GT/m+0Rl/C+fcUxK1ChO9iM3NYXBQnkAjroA
-	26UUB84niBCgjREaHB150lvzoBxxFOhAn0JX57VVYqK1sAif5nZQ=
-X-Google-Smtp-Source: AGHT+IGvugGRAn2HRo+5LhqaFkHFSWWapkjEnS7PFZhMxUpdAiZSErcN9VQ0FwoL0JVtOgsS/yt7fA==
-X-Received: by 2002:a17:907:6096:b0:b04:5a74:b675 with SMTP id a640c23a62f3a-b07c353e5d7mr289894566b.9.1757676001707;
-        Fri, 12 Sep 2025 04:20:01 -0700 (PDT)
-Received: from [192.168.0.105] (nat-108f.starnet.cz. [109.164.53.108])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b32dd6f3sm348713966b.67.2025.09.12.04.20.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Sep 2025 04:20:01 -0700 (PDT)
-Message-ID: <24b47c3c-1cd7-4dda-9abf-5032fcd1d30c@monstr.eu>
-Date: Fri, 12 Sep 2025 13:19:59 +0200
+	Fri, 12 Sep 2025 11:22:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D376601E8;
+	Fri, 12 Sep 2025 11:22:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0E90C4CEF1;
+	Fri, 12 Sep 2025 11:22:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757676124;
+	bh=3PimEMBH0i74GFm0gTka/GsTCwaQkN7ujfGR5v/cKu8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=aAvDopTqm6lPjisv+xS/BNjZPnJnp1zgCGyS2DVh873f4+Rqk6yPLl5B63vovcGxD
+	 hTZ88VISSi7k07ldOanuYgvGntxSJAXh7Kct8VSSRkyjk5C2f07zyleU9ewPCq5+dE
+	 0NEuIXHXam53+epJ06z6ajhEs1KZciHK4hrBv807a+kracbeCoD1MqtPbPQUNzJT7a
+	 5JV5uvtOKp7+V7g6R5/rl3cQyhci0C/eqk+RZ7pgf0eLMKbT9f642PtHECJ2bvL0Gm
+	 X0DUO9jNB71/WLMIdmlelV/LQhfuvD+ITUbKfs3KIb16U2U2x0FSq9kAJq1pxsoHjU
+	 qnnuckbiSwsdw==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v16 0/6] KVM: arm64: Provide guest support for GCS
+Date: Fri, 12 Sep 2025 10:25:26 +0100
+Message-Id: <20250912-arm64-gcs-v16-0-6435e5ec37db@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: SoC Team <soc@kernel.org>
-Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-From: Michal Simek <monstr@monstr.eu>
-Subject: [GIT PULL] arm64: ZynqMP DT changes for v6.18
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_042004_399679_9342B50A 
-X-CRM114-Status: GOOD (  13.40  )
+X-B4-Tracking: v=1; b=H4sIAAbnw2gC/23TS27cMAwG4KsEXtcFSb276j2KLPSgZow2M4EdG
+ A2CuXupFJ2RocIrC/4kkfz9MW28LrxN354+ppX3ZVuuF3lB++Vpyud4OfG8FFmYCEiBPHNcX6y
+ eT3mbWSHGBMU7CpN8n+LGc1rjJZ+beHt5bauvK9fl9+cRP57l/bxsb9f1/fPEHdvq370d2m7vH
+ WeYUzXW1aBSivb7T14v/OvrdT1NbZudOkq6pyS0ZMpYtM7EaaCqowp7qoTmUmqowUMJfqD6QT2
+ 4nmqh1ucalVwZbBio6ShRT43QwBU9lmIV6YHaO0WA0FMr1Hk2pnCMupSBugfF46lOKAFm7VUqz
+ pmB+n9UAx0Gv/vWplA5O2ed4jrQ8KCWTE+DUKhWaW1D8hUGivCwHg7TQWg9DoEpFcIA42QRO3w
+ sF1uiNCaPQTvOaawXqceHNmPLlCapWLBWNo74HiotMzpeu6WKiJLz8q8w84h1jw/9wpYrI4GCX
+ CwE+k/N92AZuTYccEuWYaV0ieiTPybrdrv9AUWNBEYABAAA
+X-Change-ID: 20230303-arm64-gcs-e311ab0d8729
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+X-Mailer: b4 0.15-dev-56183
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8619; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=3PimEMBH0i74GFm0gTka/GsTCwaQkN7ujfGR5v/cKu8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoxAJUc0pQvdhVzNQSe3Cv9baj9KDsshAOojnY1
+ j3A/310o1+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaMQCVAAKCRAk1otyXVSH
+ 0G8CB/sEPG43HXV6YJaoun+K78dtU+i2OjxzZ1hOlxZ2P+pNHXQtHdWOU2PGD1D34trjaTarWcg
+ xKkQgtaih9ePPSHHAYfOMrW6+cjFHfLgUNnF60vs5/u06h0A2DXqIV2ii9QLk5L/aKdp4Ma18RY
+ TUdvJ+0otTz9O1Rr1M7cQgi3xH5IX0g0soy1KOAQWRkCvXsEaaTcTwsd275UNL+pEBqcsbvfql5
+ fJs8ZvDKaRF3mL+QvCG3JgAxOVG6ErVSxYk86p0zbWgdukcxqJUraLAIbyylEjp7j5JPOPhJJZp
+ h57gLmgXifWSuefMyv9pZV44YYMtvBSP9O/n41YJiZh9Mvku
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,120 +92,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The arm64 Guarded Control Stack (GCS) feature provides support for
+hardware protected stacks of return addresses, intended to provide
+hardening against return oriented programming (ROP) attacks and to make
+it easier to gather call stacks for applications such as profiling.
 
-please pull these changes to your tree. Pull request contain description for new 
-k24 SOM which is placed on kd240 carrier card. Also new kr260 carrier card which 
-is using k26 SOM (as kv260).
-There are a lot of changes in versal-net.dtsi but just because of 16 CPUs and 
-cache hierarchy.
+When GCS is active a secondary stack called the Guarded Control Stack is
+maintained, protected with a memory attribute which means that it can
+only be written with specific GCS operations.  The current GCS pointer
+can not be directly written to by userspace.  When a BL is executed the
+value stored in LR is also pushed onto the GCS, and when a RET is
+executed the top of the GCS is popped and compared to LR with a fault
+being raised if the values do not match.  GCS operations may only be
+performed on GCS pages, a data abort is generated if they are not.
 
-The rest are small cleanups and fixes.
+The combination of hardware enforcement and lack of extra instructions
+in the function entry and exit paths should result in something which
+has less overhead and is more difficult to attack than a purely software
+implementation like clang's shadow stacks.
 
-Thanks,
-Michal
+This series implements support for managing GCS for KVM guests.
 
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v16:
+- Rebase onto v6.17-rc3.
+- Also expose the feature to nested guests.
+- Implement emulation of EXLOCK when returning from nested guests.
+- Rename enter_exception_gcs() to compute_exlock().
+- Move all ID_AA64PFR1_EL1 handling to the final kernel patch.
+- Drop unneeded forwarding of GCS exceptions.
+- Commit and cover message updates.
+- Link to v15: https://lore.kernel.org/r/20250820-arm64-gcs-v15-0-5e334da18b84@kernel.org
 
+Changes in v15:
+- Rebase onto v6.17-rc1.
+- Link to v14: https://lore.kernel.org/r/20241005-arm64-gcs-v14-0-59060cd6092b@kernel.org
 
-  The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+Changes in v14:
+- Rebase onto arm64/for-next/gcs which includes all the non-KVM support.
+- Manage the fine grained traps for GCS instructions.
+- Manage PSTATE.EXLOCK when delivering exceptions to KVM guests.
+- Link to v13: https://lore.kernel.org/r/20241001-arm64-gcs-v13-0-222b78d87eee@kernel.org
 
-    Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+Changes in v13:
+- Rebase onto v6.12-rc1.
+- Allocate VM_HIGH_ARCH_6 since protection keys used all the existing
+  bits.
+- Implement mm_release() and free transparently allocated GCSs there.
+- Use bit 32 of AT_HWCAP for GCS due to AT_HWCAP2 being filled.
+- Since we now only set GCSCRE0_EL1 on change ensure that it is
+  initialised with GCSPR_EL0 accessible to EL0.
+- Fix OOM handling on thread copy.
+- Link to v12: https://lore.kernel.org/r/20240829-arm64-gcs-v12-0-42fec947436a@kernel.org
 
-  are available in the Git repository at:
+Changes in v12:
+- Clarify and simplify the signal handling code so we work with the
+  register state.
+- When checking for write aborts to shadow stack pages ensure the fault
+  is a data abort.
+- Depend on !UPROBES.
+- Comment cleanups.
+- Link to v11: https://lore.kernel.org/r/20240822-arm64-gcs-v11-0-41b81947ecb5@kernel.org
 
-    https://github.com/Xilinx/linux-xlnx.git tags/zynqmp-dt-for-6.18
+Changes in v11:
+- Remove the dependency on the addition of clone3() support for shadow
+  stacks, rebasing onto v6.11-rc3.
+- Make ID_AA64PFR1_EL1.GCS writeable in KVM.
+- Hide GCS registers when GCS is not enabled for KVM guests.
+- Require HCRX_EL2.GCSEn if booting at EL1.
+- Require that GCSCR_EL1 and GCSCRE0_EL1 be initialised regardless of
+  if we boot at EL2 or EL1.
+- Remove some stray use of bit 63 in signal cap tokens.
+- Warn if we see a GCS with VM_SHARED.
+- Remove rdundant check for VM_WRITE in fault handling.
+- Cleanups and clarifications in the ABI document.
+- Clean up and improve documentation of some sync placement.
+- Only set the EL0 GCS mode if it's actually changed.
+- Various minor fixes and tweaks.
+- Link to v10: https://lore.kernel.org/r/20240801-arm64-gcs-v10-0-699e2bd2190b@kernel.org
 
-  for you to fetch changes up to 0e81960419ad186378b4cb55d7939d03c85262ab:
+Changes in v10:
+- Fix issues with THP.
+- Tighten up requirements for initialising GCSCR*.
+- Only generate GCS signal frames for threads using GCS.
+- Only context switch EL1 GCS registers if S1PIE is enabled.
+- Move context switch of GCSCRE0_EL1 to EL0 context switch.
+- Make GCS registers unconditionally visible to userspace.
+- Use FHU infrastructure.
+- Don't change writability of ID_AA64PFR1_EL1 for KVM.
+- Remove unused arguments from alloc_gcs().
+- Typo fixes.
+- Link to v9: https://lore.kernel.org/r/20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org
 
-    arm64: versal-net: Describe L1/L2/L3/LLC caches (2025-09-10 15:56:24 +0200)
+Changes in v9:
+- Rebase onto v6.10-rc3.
+- Restructure and clarify memory management fault handling.
+- Fix up basic-gcs for the latest clone3() changes.
+- Convert to newly merged KVM ID register based feature configuration.
+- Fixes for NV traps.
+- Link to v8: https://lore.kernel.org/r/20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org
 
-  ----------------------------------------------------------------
-  arm64: Xilinx DT changes for 6.18
+Changes in v8:
+- Invalidate signal cap token on stack when consuming.
+- Typo and other trivial fixes.
+- Don't try to use process_vm_write() on GCS, it intentionally does not
+  work.
+- Fix leak of thread GCSs.
+- Rebase onto latest clone3() series.
+- Link to v7: https://lore.kernel.org/r/20231122-arm64-gcs-v7-0-201c483bd775@kernel.org
 
-  - Fix some issues reported by dtschema
-  - Properly mark EMMC devices
-  - Update PSCI version
-  - Update DP description and enable it on boards
-  - Disable DEBUG IPs by default
+Changes in v7:
+- Rebase onto v6.7-rc2 via the clone3() patch series.
+- Change the token used to cap the stack during signal handling to be
+  compatible with GCSPOPM.
+- Fix flags for new page types.
+- Fold in support for clone3().
+- Replace copy_to_user_gcs() with put_user_gcs().
+- Link to v6: https://lore.kernel.org/r/20231009-arm64-gcs-v6-0-78e55deaa4dd@kernel.org
 
-  SOM:
-  - Describe usb hubs
-  - Fix PWM polarity issue
-  - Add support for k24, kr260 and kd240
+Changes in v6:
+- Rebase onto v6.6-rc3.
+- Add some more gcsb_dsync() barriers following spec clarifications.
+- Due to ongoing discussion around clone()/clone3() I've not updated
+  anything there, the behaviour is the same as on previous versions.
+- Link to v5: https://lore.kernel.org/r/20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org
 
-  Versal NET:
-  - Describe CPU cache layout
-  - Fix RTC calibration value
+Changes in v5:
+- Don't map any permissions for user GCSs, we always use EL0 accessors
+  or use a separate mapping of the page.
+- Reduce the standard size of the GCS to RLIMIT_STACK/2.
+- Enforce a PAGE_SIZE alignment requirement on map_shadow_stack().
+- Clarifications and fixes to documentation.
+- More tests.
+- Link to v4: https://lore.kernel.org/r/20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org
 
-  ----------------------------------------------------------------
-  Harini T (1):
-        arm64: versal-net: Update rtc calibration value
+Changes in v4:
+- Implement flags for map_shadow_stack() allowing the cap and end of
+  stack marker to be enabled independently or not at all.
+- Relax size and alignment requirements for map_shadow_stack().
+- Add more blurb explaining the advantages of hardware enforcement.
+- Link to v3: https://lore.kernel.org/r/20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org
 
-  Michal Simek (10):
-        arm64: zynqmp: Use generic spi@ name in zcu111-revA
-        arm64: zynqmp: Remove undocumented arasan,has-mdma property
-        arm64: zynqmp: Introduce DP port labels
-        arm64: zynqmp: Enable PSCI 1.0
-        dt-bindings: soc: xilinx: Add support for K24, KR260 and KD240 CCs
-        arm64: zynqmp: Add support for kr260 board
-        arm64: zynqmp: Add support for kd240 board
-        arm64: zynqmp: Describe ethernet controllers via aliases on SOM
-        arm64: zynqmp: Enable DP in kr260/kv260 revA
-        arm64: versal-net: Describe L1/L2/L3/LLC caches
+Changes in v3:
+- Rebase onto v6.5-rc4.
+- Add a GCS barrier on context switch.
+- Add a GCS stress test.
+- Link to v2: https://lore.kernel.org/r/20230724-arm64-gcs-v2-0-dc2c1d44c2eb@kernel.org
 
-  Paul Alvin (1):
-        arm64: zynqmp: Add cap-mmc-hw-reset and no-sd, no-sdio property to eMMC
+Changes in v2:
+- Rebase onto v6.5-rc3.
+- Rework prctl() interface to allow each bit to be locked independently.
+- map_shadow_stack() now places the cap token based on the size
+  requested by the caller not the actual space allocated.
+- Mode changes other than enable via ptrace are now supported.
+- Expand test coverage.
+- Various smaller fixes and adjustments.
+- Link to v1: https://lore.kernel.org/r/20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org
 
-  Quanyang Wang (1):
-        arm64: zynqmp: Disable coresight by default
+---
+Mark Brown (6):
+      arm64/gcs: Ensure FGTs for EL1 GCS instructions are disabled
+      KVM: arm64: Manage GCS access and registers for guests
+      KVM: arm64: Set PSTATE.EXLOCK when entering an exception
+      KVM: arm64: Validate GCS exception lock when emulating ERET
+      KVM: arm64: Allow GCS to be enabled for guests
+      KVM: selftests: arm64: Add GCS registers to get-reg-list
 
-  Radhey Shyam Pandey (1):
-        arm64: zynqmp: Revert usb node drive strength and slew rate for zcu106
+ arch/arm64/include/asm/el2_setup.h               |  5 +++
+ arch/arm64/include/asm/kvm_emulate.h             |  3 ++
+ arch/arm64/include/asm/kvm_host.h                | 14 +++++++++
+ arch/arm64/include/asm/vncr_mapping.h            |  2 ++
+ arch/arm64/include/uapi/asm/ptrace.h             |  1 +
+ arch/arm64/kvm/emulate-nested.c                  | 40 +++++++++++++++++++++++-
+ arch/arm64/kvm/hyp/exception.c                   | 37 ++++++++++++++++++++++
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h       | 31 ++++++++++++++++++
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c               | 10 ++++++
+ arch/arm64/kvm/nested.c                          |  7 +++--
+ arch/arm64/kvm/sys_regs.c                        | 32 +++++++++++++++++--
+ tools/testing/selftests/kvm/arm64/get-reg-list.c | 12 +++++++
+ 12 files changed, 188 insertions(+), 6 deletions(-)
+---
+base-commit: 1b237f190eb3d36f52dffe07a40b5eb210280e00
+change-id: 20230303-arm64-gcs-e311ab0d8729
 
-  Rohit Visavalia (1):
-        arm64: zynqmp: Enable DP for zcu100, zcu102, zcu104, zcu111
-
-  Venkatesh Yadav Abbarapu (1):
-        arm64: zynqmp: Update the usb5744 hub node as per binding
-
-  Vishal Patel (1):
-        arm64: zynqmp: Fix pwm-fan polarity
-
-   Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml |  81 ++++
-   arch/arm64/boot/dts/xilinx/Makefile                      |  24 ++
-   arch/arm64/boot/dts/xilinx/versal-net.dtsi               | 410 +++++++++++++++++-
-   arch/arm64/boot/dts/xilinx/zynqmp-sck-kd-g-revA.dtso     | 390 +++++++++++++++++
-   arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso     | 455 
-+++++++++++++++++++
-   arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso     | 456 
-++++++++++++++++++++
-   arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso     |  40 +-
-   arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso     |  39 +-
-   arch/arm64/boot/dts/xilinx/zynqmp-sm-k24-revA.dts        |  23 +
-   arch/arm64/boot/dts/xilinx/zynqmp-sm-k26-revA.dts        |   7 +-
-   arch/arm64/boot/dts/xilinx/zynqmp-smk-k24-revA.dts       |  21 +
-   arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm016-dc2.dts   |   1 -
-   arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm017-dc3.dts   |   1 -
-   arch/arm64/boot/dts/xilinx/zynqmp-zcu100-revC.dts        |  21 +
-   arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts        |  18 +
-   arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts        |  18 +
-   arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts        |  18 +
-   arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts        |  14 +-
-   arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts        |  20 +-
-   arch/arm64/boot/dts/xilinx/zynqmp.dtsi                   |  18 +-
-   20 files changed, 2046 insertions(+), 29 deletions(-)
-   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-sck-kd-g-revA.dtso
-   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso
-   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso
-   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-sm-k24-revA.dts
-   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-smk-k24-revA.dts
-
--- 
-Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
-w: www.monstr.eu p: +42-0-721842854
-Maintainer of Linux kernel - Xilinx Microblaze
-Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP/Versal ARM64 SoCs
-U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal/Versal NET SoCs
-TF-A maintainer - Xilinx ZynqMP/Versal/Versal NET SoCs
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
 
