@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB752CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 18:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89BA5CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 18:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=esTzJAps+Q9ohTe0smajF9MVNFiYXLuAoXALxngs7YA=; b=D4kEB1q6AXDvZdg5/lwun1b0YJ
-	9qbOueCobi6FyuRTt9vHtnXbE8lnuMZqRcTdAOr88UZgMz4whVTCD6fwihKkw1pDu1VFarGRfIue+
-	HOx+jNIuL3NKwxZ0b0fmk7001Y0Ve97kYg5vnc8mRswJkUI2/mdUACih1+rwWRaAj2AXVz8sk6s1z
-	FUUsoF4qjnW6Gr8XiXnFjIq9kqcq0vx4hB49hDYu5Fjm5Tzjon/IL7axmBuhtp+BvYCigmJPXBYt1
-	JN31uOYIpn47sxNDzzW3DV90WvV6aGxJbiDEVDYiTFK7s0dkQ3DiYR4L8aqaZiRqdFE8ARo7JaDzz
-	J5lSSY4g==;
+	bh=C8sOpy/rAktuTLkSbEosXeREaQf1wLgvwiE0AeRcq3g=; b=A67l3/rHrZuJxj5YbGxyvDPS9W
+	CcTEeaQ1/fuBUF95I+MgFWUMu9RAW4R0Ql0jSd8GGTScizMvnvOQDqwxFSTpUe4eX7IWmpfhQxZmf
+	/X+rACk3ZZ3LTW2Uo6Dt0W6kTDnuyT+gKi6WBEhxsGKYs8II0S8Vgto1DXMAfbMlFcuNCl+9peswP
+	3UieDuEK9i6chRbAkbDidqUKO/D2PDu3oZ8BJ0ndcCjaZ5eGMZVI8G7yqQHT6r3s01V9vppTS3OD7
+	nc2jBTs84gc6/Pcv8SpQsEmwW6VJtIysKNEB1vGfKBXT5fx+gxQX6FcDv034w1nx0G7UA6bxDtuvw
+	+ac0Og+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8fJ-0000000B2hk-4B5b;
-	Fri, 12 Sep 2025 18:38:34 +0000
+	id 1ux8fQ-0000000B2pG-1XYP;
+	Fri, 12 Sep 2025 18:38:40 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8fH-0000000B2dX-0PLZ;
-	Fri, 12 Sep 2025 18:38:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757702297; cv=none; 
+	id 1ux8fL-0000000B2ih-1BGV;
+	Fri, 12 Sep 2025 18:38:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1757702303; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=jYhju4p2xqEoKJTllo2yZ8ezc39M9zpj2Xqu/SFzebFUFnh2hHQcDybEkwpmJFNmOw2lNARHLKbxr9pokaxeMf7+gvlI5sPweHT/VbTlo86CUR96QUzZp+BqL+9Wrrg8XsLDWRw92MeTdUGAQKgpZz42fky5S5fcxiwlEwj4Cv4=
+	b=a4tRqvqtJl9R9hCDCmWgA92dpDyvjYyxf5bZaBZnzumlk0K88olDl3cj8sv/AQN9MiDYQfW0cDu+xcB5YOR1fcYGMTLCMw2m6842DX09giz3fTARjh3/LHZTuiFKzt8ZZ+xTMINw5l8v819T1To1eG9OIq48c+o4MQIwWW/s6T8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757702297; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=esTzJAps+Q9ohTe0smajF9MVNFiYXLuAoXALxngs7YA=; 
-	b=WcooTMWQVaZyIQf92UQ+g4GRnK2nuXy2EVr9xOLco9ijmvKH00vLhi7NIRA7OUeG1hp0Sf3WccLxrQfjoTelrG5IYvfgFaIQajQiGHRjIAQPlmGzGctl7swiXwbkcJ5MuFo7xntBLNN6L0wVfktOucYFo0N6RflE6f5y/xPPnmg=
+	t=1757702303; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=C8sOpy/rAktuTLkSbEosXeREaQf1wLgvwiE0AeRcq3g=; 
+	b=Vxv4qnF4/hRnA6gggJC60iOILrka4iiIG5PRNxo4Rkbhbf9YYw4y3pp+VS0NzRGELT6sHnSjWZKLHDyAoCXdWKibFNk7+TIvIt/UzHJiAVNAB4Pu9tl1/f0A6J6AXooiI2dISM9mnJ/Rf6E+Es5kxLIMbKPBEeklHfZRKjIzF/I=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757702296;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757702302;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=esTzJAps+Q9ohTe0smajF9MVNFiYXLuAoXALxngs7YA=;
-	b=e/+Mq0lrdf4I9fFWBSoBwTEBFQvysct6QKYHYTBa8a/U9AUHkhm/+MHoFRiRehV2
-	9MuxLF5eKdBav3TV4+Nu6aXYJc07t6uB7JVt1WNhFa6jn5Xz4SQYkHPyX2kW0k2FK48
-	k5SB/WgzK+tTTRo6wiBRVyzQM41yaptoFWZAmJdU=
-Received: by mx.zohomail.com with SMTPS id 1757702295104374.16826602133335;
-	Fri, 12 Sep 2025 11:38:15 -0700 (PDT)
+	bh=C8sOpy/rAktuTLkSbEosXeREaQf1wLgvwiE0AeRcq3g=;
+	b=OpQH0mzJjlgF2SVIxCZOAbCy5K9FFiQZ+cLHOXqHG0zoq/rJbknktGNta9M0deEi
+	noAbDTS8LSGEusGxWsg/XWY/o8DcTBrGs/af3v5pU1KytBZrfKFle3YvCIMZAj2o3ly
+	lFik1GOirgeAWXVfZIID3uWgK0Ruj4ZUQI6qx58U=
+Received: by mx.zohomail.com with SMTPS id 1757702302096356.60938068660244;
+	Fri, 12 Sep 2025 11:38:22 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 12 Sep 2025 20:37:06 +0200
-Subject: [PATCH v2 07/10] drm/panthor: move panthor_devfreq struct to
- header
+Date: Fri, 12 Sep 2025 20:37:07 +0200
+Subject: [PATCH v2 08/10] drm/panthor: devfreq: expose get_dev_status and
+ make it more generic
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250912-mt8196-gpufreq-v2-7-779a8a3729d9@collabora.com>
+Message-Id: <20250912-mt8196-gpufreq-v2-8-779a8a3729d9@collabora.com>
 References: <20250912-mt8196-gpufreq-v2-0-779a8a3729d9@collabora.com>
 In-Reply-To: <20250912-mt8196-gpufreq-v2-0-779a8a3729d9@collabora.com>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -77,8 +77,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_113831_205265_16D3A903 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250912_113835_470158_48BD7A89 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,114 +93,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to make files other than panthor_devfreq.c be able to touch the
-members of a panthor_devfreq instance, it needs to live somewhere other
-than the .c file.
+The only device-specific part of panthor's get_dev_status devfreq
+callback is getting the clock frequency. All the other logic surrounding
+what it does may be useful for other devfreq implementations however.
 
-Move it into the panthor_devfreq.h header, so that the upcoming MediaTek
-MFG devfreq can use it as well.
+Expose it in the panthor_devfreq.h header file, and make it call back
+into get_cur_freq instead of poking the common clock framework directly.
 
-Reviewed-by: Steven Price <steven.price@arm.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/panthor/panthor_devfreq.c | 32 ---------------------------
- drivers/gpu/drm/panthor/panthor_devfreq.h | 36 ++++++++++++++++++++++++++++++-
- 2 files changed, 35 insertions(+), 33 deletions(-)
+ drivers/gpu/drm/panthor/panthor_devfreq.c | 11 ++++++++---
+ drivers/gpu/drm/panthor/panthor_devfreq.h |  3 +++
+ 2 files changed, 11 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/panthor/panthor_devfreq.c
-index 8903f60c0a3f06313ac2008791c210ff32b6bd52..02eb3ca15d1874e1cbafc6b614b196c5cc75b6a1 100644
+index 02eb3ca15d1874e1cbafc6b614b196c5cc75b6a1..34b621b155f1324ba4f0a07c981da669d945a545 100644
 --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
 +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
-@@ -12,38 +12,6 @@
- #include "panthor_devfreq.h"
- #include "panthor_device.h"
+@@ -50,14 +50,18 @@ static void panthor_devfreq_reset(struct panthor_devfreq *pdevfreq)
+ 	pdevfreq->time_last_update = ktime_get();
+ }
  
--/**
-- * struct panthor_devfreq - Device frequency management
-- */
--struct panthor_devfreq {
--	/** @devfreq: devfreq device. */
--	struct devfreq *devfreq;
--
--	/** @gov_data: Governor data. */
--	struct devfreq_simple_ondemand_data gov_data;
--
--	/** @busy_time: Busy time. */
--	ktime_t busy_time;
--
--	/** @idle_time: Idle time. */
--	ktime_t idle_time;
--
--	/** @time_last_update: Last update time. */
--	ktime_t time_last_update;
--
--	/** @last_busy_state: True if the GPU was busy last time we updated the state. */
--	bool last_busy_state;
--
--	/**
--	 * @lock: Lock used to protect busy_time, idle_time, time_last_update and
--	 * last_busy_state.
--	 *
--	 * These fields can be accessed concurrently by panthor_devfreq_get_dev_status()
--	 * and panthor_devfreq_record_{busy,idle}().
--	 */
--	spinlock_t lock;
--};
--
- static void panthor_devfreq_update_utilization(struct panthor_devfreq *pdevfreq)
+-static int panthor_devfreq_get_dev_status(struct device *dev,
+-					  struct devfreq_dev_status *status)
++int panthor_devfreq_get_dev_status(struct device *dev,
++				   struct devfreq_dev_status *status)
  {
- 	ktime_t now, last;
+ 	struct panthor_device *ptdev = dev_get_drvdata(dev);
+ 	struct panthor_devfreq *pdevfreq = ptdev->devfreq;
++	struct devfreq_dev_profile *p = pdevfreq->devfreq->profile;
+ 	unsigned long irqflags;
++	int ret;
+ 
+-	status->current_frequency = clk_get_rate(ptdev->clks.core);
++	ret = p->get_cur_freq(dev, &status->current_frequency);
++	if (ret)
++		return ret;
+ 
+ 	spin_lock_irqsave(&pdevfreq->lock, irqflags);
+ 
+@@ -79,6 +83,7 @@ static int panthor_devfreq_get_dev_status(struct device *dev,
+ 
+ 	return 0;
+ }
++EXPORT_SYMBOL(panthor_devfreq_get_dev_status);
+ 
+ static int panthor_devfreq_get_cur_freq(struct device *dev, unsigned long *freq)
+ {
 diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.h b/drivers/gpu/drm/panthor/panthor_devfreq.h
-index f8e29e02f66cb3281ed4bb4c75cda9bd4df82b92..e8b5ccddd45c52ee3215e9c84c6ebd9109640282 100644
+index e8b5ccddd45c52ee3215e9c84c6ebd9109640282..a891cb5fdc34636444f141e10f5d45828fc35b51 100644
 --- a/drivers/gpu/drm/panthor/panthor_devfreq.h
 +++ b/drivers/gpu/drm/panthor/panthor_devfreq.h
-@@ -4,11 +4,45 @@
- #ifndef __PANTHOR_DEVFREQ_H__
- #define __PANTHOR_DEVFREQ_H__
+@@ -52,6 +52,9 @@ void panthor_devfreq_suspend(struct panthor_device *ptdev);
+ void panthor_devfreq_record_busy(struct panthor_device *ptdev);
+ void panthor_devfreq_record_idle(struct panthor_device *ptdev);
  
-+#include <linux/devfreq.h>
++int panthor_devfreq_get_dev_status(struct device *dev,
++				   struct devfreq_dev_status *status);
 +
- struct devfreq;
- struct thermal_cooling_device;
+ unsigned long panthor_devfreq_get_freq(struct panthor_device *ptdev);
  
- struct panthor_device;
--struct panthor_devfreq;
-+
-+/**
-+ * struct panthor_devfreq - Device frequency management
-+ */
-+struct panthor_devfreq {
-+	/** @devfreq: devfreq device. */
-+	struct devfreq *devfreq;
-+
-+	/** @gov_data: Governor data. */
-+	struct devfreq_simple_ondemand_data gov_data;
-+
-+	/** @busy_time: Busy time. */
-+	ktime_t busy_time;
-+
-+	/** @idle_time: Idle time. */
-+	ktime_t idle_time;
-+
-+	/** @time_last_update: Last update time. */
-+	ktime_t time_last_update;
-+
-+	/** @last_busy_state: True if the GPU was busy last time we updated the state. */
-+	bool last_busy_state;
-+
-+	/**
-+	 * @lock: Lock used to protect busy_time, idle_time, time_last_update and
-+	 * last_busy_state.
-+	 *
-+	 * These fields can be accessed concurrently by panthor_devfreq_get_dev_status()
-+	 * and panthor_devfreq_record_{busy,idle}().
-+	 */
-+	spinlock_t lock;
-+};
-+
- 
- int panthor_devfreq_init(struct panthor_device *ptdev);
- 
+ #endif /* __PANTHOR_DEVFREQ_H__ */
 
 -- 
 2.51.0
