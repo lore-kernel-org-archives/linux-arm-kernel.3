@@ -4,151 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A518CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED13CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dVIxc1Jx9LxlFtXP66f2bqbQveejaiG6g9y7Zt+iMKY=; b=itALOE6MkW6ZEjFGbkPTQONR9U
-	LUDkLlgLNg9xknWkpGNu6O1DucBCis09xjSc0tJv/p4NQ8BzgiBSgJ14rtfFpd9OY+H1ix53KxamH
-	HWXak7RNgRgFgeAstzTjl1U4p/9hAUgRwffU5W+EKGoSXIV6yvgYHCcf1zbjpJKpC/GrurhLcobzX
-	ln6jU9MElPO0+OK4Dm7lFxsjE4BV0b/GeR+LL3gAX0vAwBRWTI/yyysqS+qtEMwoyCdR2e7gnOkL+
-	IsZjyZm71PQH3R99OPNY1S/DOmhtJFcMvXEKSquozd1/mzIFmdeFyjAGJPlw5HtOKLadql65PMtb9
-	+tOol9Gg==;
+	bh=NWnv1uPYTna1ts6VTb5bmSJ4gFzt0Uz75RWyORHBYho=; b=ZEhqOE90b01A7yJFAMSgPLZ7ep
+	KT9AsGbTC3RnQvRAMK49YP9OSEj5X8kTHT+dhEsBbXA7TnF9Wue+w/ovkNEf8ewtkuZBGUrAkrjcA
+	qsFEdyd304qqpskalYfqLfI+S0RWwvp32wTwl+C4nHUupR2pQMLbg+J/hicSn1aMUq+LDKF5v1uwJ
+	VB/keQCdLNL6sSEJO3WlrAbsMB1R5Ed8uF2JCav9Umj31FNs2mPFWTlc8pKtH7TqJ6nzW8jlCfiRD
+	twvKI5be3dyUwKDYBXlY3c+nfNJCYAqRhI/kUnvhbuZnnfp5Rymcy6cg15urWUn30bmV//foS3OKx
+	7YDxd3bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux56v-0000000A1zm-3sdz;
-	Fri, 12 Sep 2025 14:50:49 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1ux56z-0000000A23E-351H;
+	Fri, 12 Sep 2025 14:50:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux56t-0000000A1wB-3M1b
+	id 1ux56t-0000000A1wq-2HhO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 14:50:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bD/UaC8CrnrHhnXPcTqgiNDW6Mf7Mxp7P7fplA02QIV9VL3qvbagJwpod57it3UZdw3QE+B199EU8VLufN5zkq783rC1qUX5ExV5oBGjnZzB6kD9kLZI6PxomC9Xdmc+XkexrS3wxCqOtVVRt99GrYic7cmP0KJ9D/c5+93/q1zQ0NITq8b2fLqr0yFD0EVoEXZ65ZHm3/+3bF70BZxIWu6rl+qtFh4LWito8Agl4jK3ARBA9eQEbkoHlrtbfKEw6Ghrj031aCsgi9FfQH7bRL/lUQi1r2xamey/eDk5w5jvaUxHeOZZ34O/v060T8XAnmO3I5DX8JZ0ppzgiSVplA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dVIxc1Jx9LxlFtXP66f2bqbQveejaiG6g9y7Zt+iMKY=;
- b=L/8HLrC3zndSSWRBr1iB6Qmwf8lT7CJbOHz23muea/SYZP9gJ9w1OAxhcZ1mEgt/YPD8071tT4FInyIbqIUmZD+fh6FINSZDxbL6ACcEEYgQuXJ5M5gFDzm/WcC84qeg9Xi5Ot49MiXQz+l785Ud97HwQiWCyHI9J5t5WZqI+ee4+1f5ZoCLUv5vqWP1c0sWLvwFsTG+mve4XmJ+YRF2H3NgOmjf8wggsMYMjGlCqB3c9aO/CY3X4BGWEMWmiktO7gyLxus2d1t77GdQvJl2WYlVAKyK5tg+CVPsEzXWXJIeOapAo08XthNpIn/S27WgVJ+HNlmlxvFdefe4dqcBnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dVIxc1Jx9LxlFtXP66f2bqbQveejaiG6g9y7Zt+iMKY=;
- b=LTjKOSthYw3cninWtBvVErte+Sdh3wS4JDba5qPjIgHKBGXcEpCgN+x44ofslwwpOSwk0crWfUJ51561hHA4lcyPbH5GIKzwvCAfCQV/eMzXx68vdzoMILavCUVKVLZH3dcAuN5Pcx5Md18fgMzfFWHsYv7fe1yhseB3TjoRwVaO33351UtjyqGqPC0GEAKKooQ4kC47rbsc7ASB4keHi3J2OI43lVL4r5X4BzybR354nP4RWw7Oh6f2ej2xTcfuL9XnQNG+kc3XLzT7OfYot4+FrhBThQ4ead5QRyun++qcLVHrqwyAX4oGgQwrmysLCwTG4MItmV/VlCbNpoM/OQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AS8PR04MB8834.eurprd04.prod.outlook.com (2603:10a6:20b:42d::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.18; Fri, 12 Sep
- 2025 14:50:36 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9115.015; Fri, 12 Sep 2025
- 14:50:36 +0000
-Date: Fri, 12 Sep 2025 10:50:28 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 09/10] dmaengine: imx-sdma: make use of
- devm_add_action_or_reset to unregiser the dma-controller
-Message-ID: <aMQzNDE8QuUZwGkt@lizhi-Precision-Tower-5810>
-References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
- <20250911-v6-16-topic-sdma-v2-9-d315f56343b5@pengutronix.de>
+	Fri, 12 Sep 2025 14:50:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757688646;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NWnv1uPYTna1ts6VTb5bmSJ4gFzt0Uz75RWyORHBYho=;
+	b=cWboFxnO3+POHHYtgd/t7mR5Kt7Sj3ylEXOD2RrvCd28XG/A1OUmD5Nz4oX1MvZiBkgVbL
+	JFz5rVJACU4d7+syyPWXUXT5XxP/dx1IVMn9EBJMzy4s2/MQ6u0P9pG0agTBBQp7w03i9U
+	j40Cq+8rPdFTilIv7B5anAq5tdVmcwE=
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
+ [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-536-X2237_LzOTOvzkKCmyd4nw-1; Fri, 12 Sep 2025 10:50:44 -0400
+X-MC-Unique: X2237_LzOTOvzkKCmyd4nw-1
+X-Mimecast-MFC-AGG-ID: X2237_LzOTOvzkKCmyd4nw_1757688643
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4b3472b7efeso38855671cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 07:50:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757688643; x=1758293443;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NWnv1uPYTna1ts6VTb5bmSJ4gFzt0Uz75RWyORHBYho=;
+        b=MArHulK2DhGkxSx8M/nBupqByEwWAq1c29NNtPDf/Sju1kS97BlNnv0y5Uol+0s8pn
+         8xFTRb6zI8lHt7J7dsfkOOfKLDNkkNMJFDyMtDhZ1pjhnJFhr3mS8h+KMeSVw6BsgNGd
+         FRbprPsoAs5g1kcceCehhWPhO4qJ8XygCO5cK+XC5cut7+Mf2r0eJsJUAfJjfUbbDWu1
+         Pi3/0L8JoaweNIFyBPPf4+7PceF6dWGxPfrh9wqQ0/DiJV1CqI/qp1oaUqmOzuafYQO8
+         s6Lza7hDVw0Q9BS1B3Q7gK2aMl6UkHr5Bjc5riIOhzp8PMr9kQcv+sz2WdDRXtYj8dGM
+         aXdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1FcHdrYptFCAGVIFILKTSBo7jjWA7qyMwYNKRkgXUGNBr9MJf7LVM7aX6LWtJn69KdkdsTto/tZqC5S3LCzV/@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywuui5BeS74Q89nkSdjLFbbefcytduGUiKMqJfTpjy+L2lixfKU
+	7y09gRFOBONKMgPD/s6SZC4UTHK2qgiuFrmDC8bXbL9pXSPyTmJh0mKzDPDF5zOm1NNEjQCdPMw
+	edw/dRPysaGTDxOAmYkUWijyRDeL5hQMTkcB5NHxLw+h2FqQvStQYCBTvNC9kGK6cwikubJ2/Bx
+	nZ
+X-Gm-Gg: ASbGnctSFFWJnrpVF7jrKHJl4QyXs8AdzwdAw7bDhpowyT8os0ouJWynqWMjwM4NbMj
+	/uneRwws/8xkXkyNOOYPh2/FzIYc0w2kpCWDX9iahdRgWoga1NziXCKfhmGn0lNuKSSzQIWkKY6
+	3H1kaTD52OdoUHipn5TTcSgxJT9KNbiH7tSQbFUVpcdxl0F6yTF8JAz2ooMtRXVhZJpMGmo4lRi
+	RtZ9uvDZU0I61FwgdMTtRY4AJGCQlf2tQVnlhG91rY6nXKXfJqEBcSwyxzXp5ktTPKKiomir7Dj
+	OGLVAnUkkR87jYIJjS5dX0zGDDwu0zSwPf4cOwc9cJT4GB34DK9AYEzMJN8ZywfJ47aD1Lq0tAF
+	X1N2v+JzPg33RI0X8FR4KQPI62Qgvdw==
+X-Received: by 2002:a05:622a:5c1a:b0:4a7:81f6:331e with SMTP id d75a77b69052e-4b77cb3caa7mr40317871cf.6.1757688642703;
+        Fri, 12 Sep 2025 07:50:42 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEyVIdYLjBKhorz3T0zQ9Rxegov6rF9Te/Pu4Zg+RAzt3WZQiqnmCsJB1uwM7uqun0gGUSs7Q==
+X-Received: by 2002:a05:622a:5c1a:b0:4a7:81f6:331e with SMTP id d75a77b69052e-4b77cb3caa7mr40317551cf.6.1757688642278;
+        Fri, 12 Sep 2025 07:50:42 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b639a61502sm26238491cf.0.2025.09.12.07.50.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Sep 2025 07:50:41 -0700 (PDT)
+Date: Fri, 12 Sep 2025 10:50:39 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 4/5] clk: Add KUnit tests for assigned-clock-sscs
+Message-ID: <aMQzP7DamsQWl8_L@redhat.com>
+References: <20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com>
+ <20250912-clk-ssc-version1-v3-4-fd1e07476ba1@nxp.com>
+MIME-Version: 1.0
+In-Reply-To: <20250912-clk-ssc-version1-v3-4-fd1e07476ba1@nxp.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: MgA6f5uFP-95RB33RAuH5Ama4q0DSNAGza5rZ5L2zB8_1757688643
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250911-v6-16-topic-sdma-v2-9-d315f56343b5@pengutronix.de>
-X-ClientProxiedBy: BYAPR06CA0030.namprd06.prod.outlook.com
- (2603:10b6:a03:d4::43) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB8834:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6a186fab-7d00-4655-5f95-08ddf20bbb8e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|366016|52116014|7416014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?m0S8G9e9MCGOMoNYSjIaBOEfltSPYaTXS1gMQzIxpePDRe2WTi08QTeS/oPv?=
- =?us-ascii?Q?0RSYK2SHzC08UfzPBlDAyQesjgxfcHlsG3Qhss+51mZmseLlzUH321FdM/1T?=
- =?us-ascii?Q?otZB67GMDh3O4WM2VZZ/ttfpSvs/kRenKcMhxgdO6x2gnOOD3M58Eb3nW0Wg?=
- =?us-ascii?Q?czTdoEq2m50UP7Yg0N7WYVnwiy6v4JzAQDUQzf8QQxnkNejiq4CgWOxjZxCS?=
- =?us-ascii?Q?pL1fuAUaYoQc4bdLhYkm2pHo+J7863KnZz9OGJ9wRPAsHhbbOu9FBxIwdUBh?=
- =?us-ascii?Q?cq3sIGlorsGBtDsCRU4nGRMfin8WpH38ExpO8MzDddiW0X7YQxxnc1PQQESO?=
- =?us-ascii?Q?vCzWWvXT/fjhSjtPmEQVzLkWfOg8geXeLY/1TuVB2A8N87pFDKd/36vA032k?=
- =?us-ascii?Q?7HmeWCgyco3xJhX4jZ+A0bhnjx1r03g5iT2de5oOpJYDDD5G8sC2o2CKm74x?=
- =?us-ascii?Q?WOFyw7wiQdSBnDKN16GtuFpPJGGQ1oJiz0m1b1LZ8oyrGfIYaN5fK/gfJbwS?=
- =?us-ascii?Q?bizviua8MwmZ+VSSFzQiJYmD+43V3/i5w6i7n4WhSue6YWk6F7Hh+voLFHqI?=
- =?us-ascii?Q?Xw21lT+u6yOaoV6fSAvrdQf/WCh5QzSTV13fA/cfcsE4AzlrdMGLh4i5Du6g?=
- =?us-ascii?Q?QhSGXkc4MM3Abaqi0OBvEQ1f8jVcfPuPXojuC8bokFkC0TKARHr+/o+PLaQv?=
- =?us-ascii?Q?YT5+FRD15Mc1Njdm8QHOS6DqgeMfnlCoPXhNTVH762tdy6BC+zttxy51uxGw?=
- =?us-ascii?Q?P5Oul8qe0hhJPD1P4jSzSq417hGHmJWeYFdbqDfps3O73bQs8qIf4cnzcURE?=
- =?us-ascii?Q?YCEhq2WDGWeuV5wRNwxjcLX+fgBjZwwAJEMwOkXpwlPj8wCWdtZuhUyJtOvP?=
- =?us-ascii?Q?4nOrTzP80qz3Ysp84ZtGfgQ+rJMuhT3y3Ac23UGnGMNLpp7RzvirXX/dJuFI?=
- =?us-ascii?Q?Vkk7XWS1IeMjAMlpt/NsYLsMeuwNc2Gx7Gjw0UNGZAlklC/Ett41OKQcd5Q0?=
- =?us-ascii?Q?d/80bfq133vOekTZb8aS7HwptgMJbq2qk3aNZrXcm/vh6YYX91VD6UEqyfQ9?=
- =?us-ascii?Q?7s00uq/ziihW9BHRbMX/aonea5SU3Zm9B3G3Rq2N+oLtVvrDQu0jzl/lNBCy?=
- =?us-ascii?Q?CsBFi+Dvl3SbwOSWPQauIhkN1BydSvNlr37a1YJosPgmn8T92qpR3exZbibx?=
- =?us-ascii?Q?3+C8qbswnXXZCn8XadurfVfCoG9gonvbr4C95Fbwappo1ou4I4W06DRRcMd3?=
- =?us-ascii?Q?eH24NUDudKG9O2l7G7iDpebvQ9Dg4rEma/vqbp1LMDq36kxeXmgl3xrUoJ9n?=
- =?us-ascii?Q?VGApu9fLeLvHJr5SZZWzZmJBEn7A1ce6PhY2oKIrhEcdW/fK7cSXQMllFFYN?=
- =?us-ascii?Q?fushVgj9GrO0A9PR3++pw9A2kvbn99qefwnc8qOviUtb1ZFUhHziTZQxwZXm?=
- =?us-ascii?Q?+vKzVdfEUGwCMYA+3IGe8qiNZy/qt5bY0iMJ3xYfYOLjnUZsrB0vNQ+5iLLB?=
- =?us-ascii?Q?PUZM182/CoT6M3Y=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(366016)(52116014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KviOxFuEE+YyFGbJonAOb3STjG2Pid4T0pf0RygnEvwQyiG3YzRyuWhd9gYn?=
- =?us-ascii?Q?JukPmfJ7r7jxfrw9lZ4TFKj+45x3IEMf7yHCvHZfD9x4Yfwmkgt02jQUc4aG?=
- =?us-ascii?Q?ZOsCLqR2JNFZvDf4asPoW6Bz6Sd4QiOKSLkQ7uMT8r3G0aiyhJM9OheCsyUX?=
- =?us-ascii?Q?H3PTqErMIfzny53khpYmM2vCDrp3Hpb1ppYrlr9E7tdszI0MBnl0bW5uSMHE?=
- =?us-ascii?Q?1ecThF6WIkdTtpLDHBjMKpC9IvW5UEwqQRSVK6gqUXj6XMPwOn7BIF/4cmL/?=
- =?us-ascii?Q?9p9gTYx0WCT9hYZqs8YQCBkB+vXS2ZP+KxmRBzdwTINM2WeB0Ls/1W5g7BdI?=
- =?us-ascii?Q?3bJQ5VnkTSMFSROcw57fGxEo9I7hFzKK6v6qKlLmN55zj9PpVMXMmt5Yf9TE?=
- =?us-ascii?Q?idq1KEBzOGIhNoNhAv5xy3CMXcts912UH9K4SUxwxnqYzYIbPPdG07njddDS?=
- =?us-ascii?Q?2RN1MoOcMY7PxlNijDXJ5yquApjBuoaCYv8POo1hu/14CtZyBTyDlC4VXLnC?=
- =?us-ascii?Q?CHDocjOb2qR6PtJEgSihfL1iKvrxrB9VYPWfOoQeMmxCn/deyf8kRcScVRQF?=
- =?us-ascii?Q?ZPxGO4DEBndLh64O1F5D39S5sS72oiLqwVdRu//CIKBVyOcheU8IFiJF14/M?=
- =?us-ascii?Q?bFPtTUt102epmSrRBs+blfm5TfsXaXmiR1fCAboVE5s/gC5vsnmiC/2fSIaS?=
- =?us-ascii?Q?LZeYgZzQFyPHyDDHVeQvRFOtElbITfK+H09xfrIRx0zZtMweuUqc4R8p0J3y?=
- =?us-ascii?Q?mucmYBeTNyAyvh3BAUfcLruavUJA8x/7aimyDPYtgeEBlklYupn0SSDMA5RA?=
- =?us-ascii?Q?8fKrQkN2r7HG41X262b3y4gCW5Bx3UfPhSNzwsv3H4eQSgb22guQmci1YcsA?=
- =?us-ascii?Q?c6OXxshCRik6avaBUwQ5aRHuNzcZN/kXc/qtOm+VUZp0BVLiazVmb7zxfj2v?=
- =?us-ascii?Q?RW2bcQ1ANg9+paWhzNEh6HlBzKGFXlEFnT7jrs3WZv9eujFyxmMz6/fEZevo?=
- =?us-ascii?Q?X14iQwMfU3zJpGW2/hgw5nxhtYI9Wzh3tTW30UYMbx10qhDI4hRXQR7JEc89?=
- =?us-ascii?Q?Qb45nqFgDX2RMLyNVDjy/A14jyZgZvOqoe7Z5JNz30oENF1aIQqq1oAbjtbV?=
- =?us-ascii?Q?QhrO+vV9iQo5ECgjd3Zfq/qMq82R380mQYs+5RdluZA/ac8yv8r7NhL9Z4fO?=
- =?us-ascii?Q?DnCdLk3r+LuDD/ShELI1dztFpAFVQjfJ+UhJBrBp7lvgwiz9j38s35qllwOV?=
- =?us-ascii?Q?nTcTO21eGmBhvjgFSWJrX/QPCQaGrcBC602NXeMbHyfYUhoxNSvT9GSqiw9O?=
- =?us-ascii?Q?kVXMvrAdmRPYKeWp+bKTbEeT5KvZgHToRxUE48JybyCUz3L1gL/0lfXvBGRf?=
- =?us-ascii?Q?eAAO+A+BY3xPJPikNyrJ7F6yZeQ3XkGdOnuP88oPTaUbgmVck5ondiDeDuGc?=
- =?us-ascii?Q?7owvPkBopR5JoF0ShxjSxhnrI23Iicuh+BN630E4K7JQaumG02l7XH7976bk?=
- =?us-ascii?Q?d960ntJ0jvihP7apzQfAjdt/Qlk2RcU1WfzyfigNjp8RXotWx0UFFv1EfVoD?=
- =?us-ascii?Q?M+PxvIBQ0ZtsHkaqJkCBaHSRuoTgoRX0U1iwfV2a?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a186fab-7d00-4655-5f95-08ddf20bbb8e
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 14:50:36.2654
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MRSHJbGjPeWAxQ3AF6uUExyBOXv4867pau2Rzad3hesT4554sS/G8RE5V5oeOb0bauvgye2zfF5Um1N30uYp5Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8834
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_075047_841249_7632829D 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20250912_075047_653020_5108B6D1 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,59 +121,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 11, 2025 at 11:56:50PM +0200, Marco Felsch wrote:
-> Use the devres capabilities to cleanup the driver remove() callback.
->
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+On Fri, Sep 12, 2025 at 11:35:53AM +0800, Peng Fan wrote:
+> Spread spectrum configuration is part of clock frequency settings,
+> and its behavior can be validated similarly to assigned clock rates.
+> 
+> Extend the existing KUnit tests for assigned-clock-rates to cover
+> assigned-clock-sscs by reusing the test framework. Add new test
+> device trees:
+>   - kunit_clk_assigned_sscs_null.dtso
+>   - kunit_clk_assigned_sscs_null_consumer.dtso
+>   - kunit_clk_assigned_sscs_without.dtso
+>   - kunit_clk_assigned_sscs_without_consumer.dtso
+>   - kunit_clk_assigned_sscs_zero.dtso
+>   - kunit_clk_assigned_sscs_zero_consumer.dtso
+> 
+> These tests cover various invalid configurations of assigned-clock-sscs,
+> ensuring robustness and consistent error handling, similar to the coverage
+> provided for assigned-clock-rates.
+> 
+> Co-developed-by: Brian Masney <bmasney@redhat.com>
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->  drivers/dma/imx-sdma.c | 14 +++++++++++++-
->  1 file changed, 13 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-> index d6d0d4300f540268a3ab4a6b14af685f7b93275a..a7e6554ca223e2e980caf2e2dea832db9ad60ed6 100644
-> --- a/drivers/dma/imx-sdma.c
-> +++ b/drivers/dma/imx-sdma.c
-> @@ -2264,6 +2264,13 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
->  				     ofdma->of_node);
->  }
->
-> +static void sdma_dma_of_dma_controller_unregister_action(void *data)
-> +{
-> +	struct sdma_engine *sdma = data;
-> +
-> +	of_dma_controller_free(sdma->dev->of_node);
-> +}
-> +
->  static void sdma_dma_device_unregister_action(void *data)
->  {
->  	struct sdma_engine *sdma = data;
-> @@ -2408,6 +2415,12 @@ static int sdma_probe(struct platform_device *pdev)
->  		return ret;
->  	}
->
-> +	ret = devm_add_action_or_reset(dev, sdma_dma_of_dma_controller_unregister_action, sdma);
-> +	if (ret) {
-> +		dev_err(dev, "failed to register of-dma-controller unregister hook\n");
-> +		return ret;
-> +	}
-> +
 
-return dev_err_probe()
+There's no need to add a Co-developed-by for me. I just gave you a very
+rough starting point.
 
-Frank
->  	/*
->  	 * Because that device tree does not encode ROM script address,
->  	 * the RAM script in firmware is mandatory for device tree
-> @@ -2431,7 +2444,6 @@ static void sdma_remove(struct platform_device *pdev)
->  	struct sdma_engine *sdma = platform_get_drvdata(pdev);
->  	int i;
->
-> -	of_dma_controller_free(sdma->dev->of_node);
->  	/* Kill the tasklet */
->  	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
->  		struct sdma_channel *sdmac = &sdma->channel[i];
->
-> --
-> 2.47.3
->
+> diff --git a/drivers/clk/kunit_clk_assigned_rates_zero_consumer.dtso b/drivers/clk/kunit_clk_assigned_rates_zero_consumer.dtso
+> index 1d964672e8553a90263af400367a2d947f755015..d62c7522c92461245d45f8ac0ebd26fa2850be98 100644
+> --- a/drivers/clk/kunit_clk_assigned_rates_zero_consumer.dtso
+> +++ b/drivers/clk/kunit_clk_assigned_rates_zero_consumer.dtso
+> @@ -12,5 +12,6 @@ kunit-clock-consumer {
+>  		compatible = "test,clk-consumer";
+>  		assigned-clocks = <&clk>;
+>  		assigned-clock-rates = <0>;
+> +		assigned-clock-sscs = <0 0 0>;
+>  	};
+>  };
+
+kunit_clk_assigned_rates_zero_consumer.dtso is modified, however
+kunit_clk_assigned_rates_zero.dtso was not. The underlying test doesn't
+check for this, so you can drop the change to this dtso file.
+
+Everything else looks good to me.
+
+Brian
+
 
