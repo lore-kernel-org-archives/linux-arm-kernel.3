@@ -4,86 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13984CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3487CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n5DP9lHEHxCZeRxso6ploohANo8ljFzvMmesuroyCAA=; b=a4OFxCjdc0pI4huOt0BVhlkgTj
-	kajRqgMqoq9028BMicmbIHFdq4QgSx0VjwMR/6URm2TI9KVTjYdDbyhH3BJZgRsJrV7bEb1+vfkhq
-	3E8C7F0sw6tCoefKU6tAGqtqILD+yfouPFkZV0Dzayh2XppNTFNXciyEgVY4qLU172qAid8Zh8kZq
-	UJOKqh0Z9kHu55ZOkTSzY/ThfJB1nhyUVAv+yR1FokBa6ohJv+s4kKjhHsl0V1RLO49oa6fD8xVEy
-	NdXudmTYgFpL9CKew3oUUIAa/OY8wTVw5Ia25cc1IT34tj+fk3kLekQCqd7Qis8AUm47FDrBZdPZY
-	T3rHWvcw==;
+	bh=jVnJENHKbgQ1J0mueH4vHl2j195vVwZ/hWwP5jD0u3o=; b=b+sFlXctBU9CGX2VqBHOaAwFMs
+	8OiHE/n+CoZ6QdrZMoaSncqmP3/1c/spg8TP389FjpIWsDggxmKzCEk5USdyZb5jK6MwKuDH5eDoK
+	FQ99BvbKs6RArV4xah2mHuEFJwC6v8BJhM5rjMCL2uNRK7UHzlyZfiWRfr2VDZtSGqGluw5JbF5Fv
+	rjjuG4Gd7cIouCL/XAavdy7OnEbMaBeKggtCERbtHnLhsfBt17pnaXMYTIpXQVOvtgB6Y4xxOIaaa
+	otsx6bfl0/sMRVhsMm+/jMgn0GS2YvTXwY9sUIFH0Pp8K3ILnuxuMO0Q/fmaciIGPFN1wQ+KVyDR0
+	AxV54UkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux53Y-0000000A0Zg-09Km;
-	Fri, 12 Sep 2025 14:47:20 +0000
-Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
+	id 1ux55x-0000000A1XU-2MQV;
+	Fri, 12 Sep 2025 14:49:49 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux53V-0000000A0Yl-0pYW
+	id 1ux55u-0000000A1Vv-48TO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 14:47:18 +0000
-Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-746d72028e0so1552625a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 07:47:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757688436; x=1758293236; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=n5DP9lHEHxCZeRxso6ploohANo8ljFzvMmesuroyCAA=;
-        b=kkYHWLlhHvVFY04Hpi2Zj2qBC8g7+uplc7wIJPCrnpx0RGhv6iJ1/L7a1I4fnL8Dol
-         4lv0tYpg0guzu//RpuWabCjwU7PWmKZhoUuaunT+uBphruB9osYmzvL0slxSX6DBD42Z
-         atDRxvkDglBCH+SLnRVYjl2ArgwWf7JCjNDSa4Q8IxOSwN2c4qZPE90XCCzN85my5fE/
-         ge7YPU86tY7V+gbXHdzAbxH7Lg+A4ixIc/XyIwz6GN9hnQ+ADc8ntyEIL1PSnHxrlejv
-         CyIMY/2z8mrAvPToxASEk9pXKDkCJe1DK6oxOwpcXFSeeNsfLhmHB1boXGuT15QXB16Z
-         Uwjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757688436; x=1758293236;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=n5DP9lHEHxCZeRxso6ploohANo8ljFzvMmesuroyCAA=;
-        b=jwTCl2hEBYbnV756tX19h3vjR34wm8DjgmghtfRuzbXf2mhYrr5cpZ+L+UtsEdca4m
-         W7KuhVToBz8suxRnEynl62Sf1/RDqI6ZSG5I0E2ZLw6dNrwqrY/1gvm1zREz2X/JvuWA
-         5W9Vt+wqQh8WXHLEmnVX6Ntg7o9aS052zWPogYDJQvYfwEpUjnMZnr8FWdF5tWxazliC
-         4yzIZlH5Q/F2TjZRZOAcdeNNChgeEZa6n7IubcTzvW8yBUokF634pmdxgTbbTsDC9YMM
-         0ihe7RQfLr5/MLW9rHAemFaDPy4Bl7VSTqwSU9gmb9Unm77ifC6SiEluSlEMJ4OfmSl0
-         d0BQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUXEDidNObJivVd6QnsoJqu1zPM9vFSwyLchCjBOuM0z+tT/qFF4gTI0apTSzf2gRyh+DYSGvW69CBU2yDuNaMH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuJVNs6qeoAXLdVRR/TXk4KSR5aqDIOqI0+6vnLLug9LerjwYj
-	Nq+kf8V7sdCqFb2KZs31scBTgfhQH/mqVEewUzWF/a819QhYJCaysM+2Cbn8kHXKFT/HlPeNrCj
-	X/R1dNfB5ttjw2UyCkp3g41zcdKMOKY/EczZqDudh3Q==
-X-Gm-Gg: ASbGnctVVtPXfkktr1f0TQFM36fCfkLZl9kU4LUOMtM78i6tbV84Ncx4b4KjpVh+R4M
-	E3CB2TuDxHmhpr5TWINi/2o40PaczDE+8E0G6UHgf0HmLg5FCX8AL+RontiUBewF+/oRjTpLH8S
-	chwRWBQMjWeXxoaAim5deZGAr1vvS0Kg7iLqIm9B2zIkd3OU0OaWolORXG5AxE/v3Hrs7f3K0ay
-	Hx5QlM=
-X-Google-Smtp-Source: AGHT+IGeyQqSFM5GQBH6iCx5tixN2uUYqtRIakzVl52m5pJ6MiMjEL31OlCuxkleyE+f7rCgdWR9L9hwu0O+n0AMn+8=
-X-Received: by 2002:a05:6830:2115:b0:746:d4d3:c8b3 with SMTP id
- 46e09a7af769-75353b6e84bmr1706635a34.15.1757688436065; Fri, 12 Sep 2025
- 07:47:16 -0700 (PDT)
+	Fri, 12 Sep 2025 14:49:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aDg9LgfiuAUbu0bd1WvJrCwu1VI6c/aM38NpMup9HtoH2AuZjMYRdhN9Y08a6NTfa8i9Lxcfnrmj0mLFXxHqDRH/0wIk510h6OtSaG5FiAhEcuCSWJwZUomKmVyLil3P+wm8kl7HCGEyzFgL8mSeWVGEWFc0NXCSHrCFFZZf6Pubps1TLkQevUuKoZTYuXiEvKkkpwLAQCIhRVHzF3zoulRmektsB0RXruGDmb3vOqnNvZRuBteYyhd2CPKW+Rs+amL7ef7gnopZbinHYLCCEEhTbgPjq9JKDA8+f8O0jiBh4a3t7BbSS9ttnN7q8c4USUBeXU1fnFi3e/mlBuUGew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jVnJENHKbgQ1J0mueH4vHl2j195vVwZ/hWwP5jD0u3o=;
+ b=Be7WxZ0vLJ9w8wtwdPuI1el2GpBh3yDfxwtkh62K8S2ieKBJeCv7x8mOwyuWJ0AGEx+YNHWDfE2nCr0TuZ2ezljBn1N4dz/uSkOaRx+LxO1UWpsxiPprdAq5LYulzfVlsNzfN61bNDejVdYfiGFEwyumgtEekBurYXP7Waf0JIiegY+CxZmdS3z66MqeUVx67LKMsm9taHYm9aDuesIAFJSzcFOvDtHX8WAXbFMCW+lCv3YG3msL6L5uB8oBOyxQ2/ObalFkzxBHc4KqOFcKm/oaLMd/8aGmJMCZ8JIS683BeO2DFjXQUhd0FoGVWnDSYBuaOxEz7IPWsIWG5feyqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jVnJENHKbgQ1J0mueH4vHl2j195vVwZ/hWwP5jD0u3o=;
+ b=BknV3wzzphHK5mndb84tKdLEtd97x2zemzayqJd5JeyDwmOniNdRgZ9oEQkRCRuGctsOqS7OQl//71y42zpHkjivdb2b3HjVEWqoNr17eE3ocIKkP+V92D4ncReDbkoDMDY+/70xlhbZTiLcojCVgfXiQ2qQHlh7vBxtp+D33zyONWajoKT3j+CmiT8BwNvl2uT7TmCgLTG/Nvb6CwBcBWteER4ci2+GWU8Buz2fOY89pT8cTgcaSkgiBI0zyJux0LW4hnSUALd9vU4BKdgcRp4yL5N6RLXP8GncQTnyv8hoXUADJ/Fx2QCMEXOYTuZkM/2r9MSvfy4ic6xFBkGzNg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AS8PR04MB8834.eurprd04.prod.outlook.com (2603:10a6:20b:42d::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.18; Fri, 12 Sep
+ 2025 14:49:35 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9115.015; Fri, 12 Sep 2025
+ 14:49:35 +0000
+Date: Fri, 12 Sep 2025 10:49:28 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 08/10] dmaengine: imx-sdma: make use of
+ devm_add_action_or_reset to unregiser the dma_device
+Message-ID: <aMQy+Ocs+UWq7WoR@lizhi-Precision-Tower-5810>
+References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
+ <20250911-v6-16-topic-sdma-v2-8-d315f56343b5@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250911-v6-16-topic-sdma-v2-8-d315f56343b5@pengutronix.de>
+X-ClientProxiedBy: BYAPR08CA0066.namprd08.prod.outlook.com
+ (2603:10b6:a03:117::43) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-References: <20250903-acpm-dvfs-dt-v3-0-f24059e5cd95@linaro.org>
-In-Reply-To: <20250903-acpm-dvfs-dt-v3-0-f24059e5cd95@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 12 Sep 2025 15:47:04 +0100
-X-Gm-Features: Ac12FXyJH7pruBCqQvGbq77_X-ntri0UZ8m2NLg3fLfUFTSIie9VvPVCWn3Vxng
-Message-ID: <CADrjBPqb+yw0DS9ZrGhW8XSWosWrczV=nMBG4pBPvCVFDpJQ0Q@mail.gmail.com>
-Subject: Re: [PATCH v3 0/3] arm64: dts: exynos: gs101: add cpufreq support
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, willmcvicker@google.com, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB8834:EE_
+X-MS-Office365-Filtering-Correlation-Id: 06a07812-d7f9-4434-c6fe-08ddf20b9778
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|366016|52116014|7416014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?McWfViZUsKCpXW1J7RAIIyATO+TDXFygmpLEWU1YcO9PbNjlMOEpJwFNFPc1?=
+ =?us-ascii?Q?ZUJkb92BWMr8SZNfhLhFpM2wU7nHMty6HLTFDNBOiTFbgWsyvPJ10TJqRG4S?=
+ =?us-ascii?Q?fccXp+dXWROjjMW+rIkixdEUzkKOC1jS8jHf6ZMPu9X4r3m38N5RBQO21qFi?=
+ =?us-ascii?Q?A+GOq5fmV+x5rmaKQEcrHmn5ZiXMXXjKhw6CD6w/9ADD3DLG73K7SoTyH08q?=
+ =?us-ascii?Q?VmHTNUur5ZOuPUeY5S1thaT7fMkLaJqB66YdHp78GX3nFjcQjkHgwG+8eDms?=
+ =?us-ascii?Q?f68/IO1mXseBlazrnJBwAFUotWvj4YSX1gxWFeH7Km/ur14hc2HVKRRH9q64?=
+ =?us-ascii?Q?hp15oZPpPQL9faaDyWWr56j8UFWd3zItoIqar42OMNx51tl9Oy3FnfqYS07I?=
+ =?us-ascii?Q?28pamAutYVJEFcT7Sb138j/jNpaKFczYyzoJM9rH9VIT95awg/MYaAOBTWJF?=
+ =?us-ascii?Q?LU+FrREGQ+S0+c4tozOvab75u6yYzbBxHYeC0ihecAOz9euUIqU0tU/PEbsC?=
+ =?us-ascii?Q?fJrT9m2q/MPuSVmtNIuOOXHlBoTeXh/4QtQJnIHFo+3uBSSldf0YF/u0KBZX?=
+ =?us-ascii?Q?X7AHrHBYjLdWeNANDCcKbhbAgLs+dx0/xuawjfsiXadxVkErtV9Pt7qWpldH?=
+ =?us-ascii?Q?chqANSIC9/6YWk/w+KcQ/RGNrhIGSXYglnlDS6wnXSpP696kr0+Sgwdy+c29?=
+ =?us-ascii?Q?zs8lwQmUmnCRXlpaDuqRxT29Vx9llKRiJk5lTkezO4upWw6Xw5BMHDKJGauk?=
+ =?us-ascii?Q?P6RnSy03d/wXNvyMcZSbTR0A5iWxaUq7nJqrRo+sxGSos1LYcbPc9xVQqUpM?=
+ =?us-ascii?Q?jlETlXj16j+Ic2N1C3iMWH2ZCJBKS+fMxEMbjjLskQPf3fbrWEDTp0tUmfnS?=
+ =?us-ascii?Q?+dhDO+Dl4eSlbv4CICKqd3VxncD/mont5KY99FmG1nEQoKaOkYmFczc6ZKo5?=
+ =?us-ascii?Q?YakGg5wWc5VmqrZNGcA0AhmSO2flR368Cxb07uUqOCTv/PdDhgzY0SBLaoBl?=
+ =?us-ascii?Q?EnjoxxvwwQm5Z+DVW4m5spVRNePqRnJmdnONFl82gETkRrGB1SjbtxmNmEOl?=
+ =?us-ascii?Q?A4WAZo5b3zg6oosHOFcQhSqv2bcCMQPUSTnLJn5HtgZWE6ATajop9wizL/Cm?=
+ =?us-ascii?Q?nIVDmB99y6z3qtAJpBF4XA+WcMKu/iHM1PHnEdEwxu8aCipxnYwPTjHK7XQs?=
+ =?us-ascii?Q?TY3qDBuWGas3wUyKljivP5VyQNVVoxNtU/PUCCAkz5KuIkqv001COmBEthDx?=
+ =?us-ascii?Q?EFES1JmvqR/PFRuGUrKuXv/l/SRzwEF09m73DpqI8NIOcJTf/kLJWZ4trB1k?=
+ =?us-ascii?Q?WDf/1wKOBx4sBdCOUA6T1w9msyftD6VcZGD5NWKNSOHacJUYLYFbuNd2RFUx?=
+ =?us-ascii?Q?vpg2UGd+GxYYx2NOvY/3SOPd6/sDLZvCvsMrZ6yqIxyuR+e7LkjESyLeJ8o6?=
+ =?us-ascii?Q?DOGDKDoXRuuYqDaxxFnhSntDGN4wrQc7xcTLQnijbJaMLVWanAFxCQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(366016)(52116014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BuLlMQ33N5UsZEzzU1/Z8x2AbvXrCDgqWhjPBiy+ak1c4dmmS6cAulcKYjhU?=
+ =?us-ascii?Q?vtfDou4s5fQORvOMIcmBRGIU9Ap5kesY0oSRxp1xoURWhUoSPH4Jmp4WAZYu?=
+ =?us-ascii?Q?v50Opvm8n4MP3R8EmGbeIBEPWc6E7A2awKog7mRDU7b/JBy9MDa/OP6cdqVO?=
+ =?us-ascii?Q?1DM6cCvY9uqL0b3ys82v1u6DWOuveUNmER/gRL57Hs29wESPNkW5gdSlLezm?=
+ =?us-ascii?Q?XqWCsVQueyRX8YGYxR4IfLKh88FqMQc4jZQpg+kxVIs+BBMag6hmz6TUlIk3?=
+ =?us-ascii?Q?P0H6Psm1novqTLHnrFrCSgccydILGkLd82pTPZJqopoxRUuR2RZzBT87JenZ?=
+ =?us-ascii?Q?FliLOp4aaG7AmBTIsZ0kONNEVr/wChXOSQ3kOlyd6lAQeGniiatrpiU0NEaI?=
+ =?us-ascii?Q?KSW63lJNNcN2Q3Givdo42tse47gC9sSD3yuViaCkbLsm31F/aHE1w812pDqc?=
+ =?us-ascii?Q?YdSrPcU+ePKttWzeiP3Y4DXIdbrnT808WroY5tG6MUAKRCOEdmNhQBx5ULp3?=
+ =?us-ascii?Q?coOctm0YRvOYQUHfP1u70h2EGmW7XzxnICHkcV5bcXncwugJ80QMX0O2SSmm?=
+ =?us-ascii?Q?NlUvtboSa1RFuWDwHirMaPjNvDBjjTBK/F/UCki5t7quttLQ5tg4cyAbSf0g?=
+ =?us-ascii?Q?yTQjWQo42JwmZJRwOzebPqqr223rQKQ4VvQlDeXXRsR3VcjBsMnS6vRo4ePZ?=
+ =?us-ascii?Q?qRSLL/tQr0zYygz9zrYkAgRCx12YEAKL7++lb2RQVn0GKUKJYdW2FauLDfqL?=
+ =?us-ascii?Q?6VDnoWyNCTydEmY3VgMuPskDCDau3ojOHT4WAQb3p1Q9Lx9ayJF006NNB07Z?=
+ =?us-ascii?Q?MJvFnt78pIi2AycsvklnRurBiV0ttH135SgeGu8rLP/ewwiqzWxalk/jQ5xw?=
+ =?us-ascii?Q?uhPpP0urUnuN6TwB35sMC0qWhe1MHTgmK46ACpP3Qxz5GcwBY7PJ5zMEQfuQ?=
+ =?us-ascii?Q?DBpZLzqqnmnf+Ia1316L5srGLrW61BFrz2t3vTznfkheiosnAtpHp5hFvme7?=
+ =?us-ascii?Q?7VdsHDZ5JnS6qeFcqnXRWbDpAMrAIv574ihEdC7AMt2eYoenm30vN8/3DLdT?=
+ =?us-ascii?Q?h0EIjJ/ygeVKo1oVS52ehOtWzlfUzLQ02AROwmTB3OJHPL+ZgfJxQcSgvq8W?=
+ =?us-ascii?Q?72U3VnObS0DFNJ51YiOYuQ9bISWRkiObQZx6LoPQvmXcu12g4LzPWW6DWmS3?=
+ =?us-ascii?Q?XCzcCOPDTAiwMKWV9Rvy2+Ih3Uph9OeI1R3P9bUUBmxadPV8xdMdOs3AKxTl?=
+ =?us-ascii?Q?TTYSB7b7F3S+ROqw311YSzbdC4aYNMa8akdoSfnWaAflzLrf5opMS+lFYekS?=
+ =?us-ascii?Q?XOfc1oLWdDXd9vf3Q0ZEkkQwzHI4P0kjROwO5IyfLRqAXjbpUoZTAJsG6jZK?=
+ =?us-ascii?Q?+yTCaXEJl+29LtdJ8DwBaAhURr6gs3Gp+V+Il2jmXBbLFfXqa9qKesgW/cM+?=
+ =?us-ascii?Q?Mk+4ASCs6s1B0dmyYVEBW15QayC1dAqy6ivLU6591Q9tPet+vbBRrShk6Ftx?=
+ =?us-ascii?Q?eQEPn5dZD2m0ktsH+JoffneuHR+EvzXhZlO+X/dfBsJmLYmXHM0bKBLIKcLQ?=
+ =?us-ascii?Q?JtAdnQSeUn4SRZgQsEEC/2hnMIA5EEZF/UtNgAfO?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 06a07812-d7f9-4434-c6fe-08ddf20b9778
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 14:49:35.7174
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PVcuIPeNDzVMUM7UCaZeQZcG9RHPXN7CkrjfiYeNdoJpitJic/PZMc00JR3urd5pCN1eSHa6GfHO+/n9nyQDYw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8834
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_074717_241540_EFA58F96 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20250912_074947_026800_EC031CE1 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,24 +162,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 3 Sept 2025 at 15:24, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
+On Thu, Sep 11, 2025 at 11:56:49PM +0200, Marco Felsch wrote:
+> Make use of the devm_add_action_or_reset() to register a custom devm_
+> release hook. This is required to turn off the IRQs before calling
+> dma_async_device_unregister().
 >
-> Define the CPU clocks and OPPs.
+> Furthermore it removes the last goto error handling within probe() and
+> trims the remove().
 >
-> Patch #2 has a dependency on the ACPM clock bindings sent at:
-> https://lore.kernel.org/linux-samsung-soc/20250903-acpm-clk-v3-1-65ecd42d88c7@linaro.org/
+> Make use of disable_irq() and let the devm-irq do the job to free the
+> IRQ, because the only purpose of using devm_free_irq() was to disable
+> the IRQ before calling dma_async_device_unregister().
 >
-> The following error will be seen without the bindings patch:
-> arch/arm64/boot/dts/exynos/google/gs101.dtsi:10:10: fatal error: dt-bindings/clock/google,gs101-acpm.h: No such file or directory
->    10 | #include <dt-bindings/clock/google,gs101-acpm.h>
->       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->
-> Thanks,
-> ta
->
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 > ---
+>  drivers/dma/imx-sdma.c | 23 +++++++++++++++--------
+>  1 file changed, 15 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> index d39589c20c4b2a26d0239feb86cce8d5a0f5acdd..d6d0d4300f540268a3ab4a6b14af685f7b93275a 100644
+> --- a/drivers/dma/imx-sdma.c
+> +++ b/drivers/dma/imx-sdma.c
+> @@ -2264,6 +2264,14 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
+>  				     ofdma->of_node);
+>  }
+>
+> +static void sdma_dma_device_unregister_action(void *data)
+> +{
+> +	struct sdma_engine *sdma = data;
+> +
+> +	disable_irq(sdma->irq);
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Tested-by: Peter Griffin <peter.griffin@linaro.org> # on gs101-oriole
+May not related this cleanup patch, I am just curious why not mask sdma irq
+request.
+
+> +	dma_async_device_unregister(&sdma->dma_device);
+> +}
+> +
+>  static int sdma_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+> @@ -2388,10 +2396,16 @@ static int sdma_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>
+> +	ret = devm_add_action_or_reset(dev, sdma_dma_device_unregister_action, sdma);
+> +	if (ret) {
+> +		dev_err(dev, "Unable to register release hook\n");
+> +		return ret;
+> +	}
+
+why not use dev_err_probe() her?
+
+> +
+>  	ret = of_dma_controller_register(np, sdma_xlate, sdma);
+>  	if (ret) {
+>  		dev_err(dev, "failed to register controller\n");
+> -		goto err_register;
+> +		return ret;
+
+the same here.
+
+Frank
+>  	}
+>
+>  	/*
+> @@ -2410,11 +2424,6 @@ static int sdma_probe(struct platform_device *pdev)
+>  	}
+>
+>  	return 0;
+> -
+> -err_register:
+> -	dma_async_device_unregister(&sdma->dma_device);
+> -
+> -	return ret;
+>  }
+>
+>  static void sdma_remove(struct platform_device *pdev)
+> @@ -2423,8 +2432,6 @@ static void sdma_remove(struct platform_device *pdev)
+>  	int i;
+>
+>  	of_dma_controller_free(sdma->dev->of_node);
+> -	devm_free_irq(&pdev->dev, sdma->irq, sdma);
+> -	dma_async_device_unregister(&sdma->dma_device);
+>  	/* Kill the tasklet */
+>  	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
+>  		struct sdma_channel *sdmac = &sdma->channel[i];
+>
+> --
+> 2.47.3
+>
 
