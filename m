@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3D7CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBC1CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jPTr3PPqDWRc4djKow2UHPQu3j9+zIYkV31B1iDIbjM=; b=oFSchJyZ4p1GMyQrO+q0xU0aME
-	EsZ4xYrSWsFJT0wLRO+b8pmjDjWmhbUw69Rpm36CnUIaYosBj7k919uJqNTXx6C/JL8x6WoIwMUb8
-	NQQJJFmGhPPSDEZ5D4k3wmsH9T+4wa9jwB4cM82EdNRu16eAuhPOoHmtufU9s+ro6PjC6s/xR2OL7
-	m+JNuuZuBXjmYju3OxYRD1FqSDU7CnlhQc8DlLCyCKQ2zSiCzp8/HA6ETXr6wTrBAMFu3fr+Ewksk
-	pHiqhXkT/PJEsPhLECmCX7FY9Yufbd1fVMgp1cK0EvEzhRA3mwH6BWVmAC1MTAmzrtBco3c8ZC3VX
-	/GTIO0gQ==;
+	bh=Wmofm78JRryIo+iavTmFWvNToNAqtknCqZBuvuMBVJk=; b=wgJenMJ12WX5DzZdJJtYoVjSti
+	i/LwZbh1anKMW87mneu6kKzzepkK5k87N1kIcHz38fg69DI9x11ssCoamwGWYl5E1eyKvOpNCjZcb
+	YmsXCwrEr11R8J+Wg+XzQTrGWwfhuYuBnM3KqcYLdHXN2f4ghxt09WBCTmcqQ5Bk5bsHv8t17K6Xq
+	t9IA1edjz+LzvYxAYxa7uiX9Gv2thLQIvhNncmyQs3M11hi52qv0sv3Dkk/MZ9lYcAQXEiVjc5fw6
+	vpqBWHmOrvEx/+dRfWLjZv/hytR/peAMYgoBrXpf6n0Ka/fL24RDSB2H1PRGu0Xh7iZ8i7p4hps1Y
+	axXenwew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4bQ-00000009oN1-1tMn;
-	Fri, 12 Sep 2025 14:18:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ux4cS-00000009oiS-3S6B;
+	Fri, 12 Sep 2025 14:19:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4bQ-00000009oMg-04YZ
+	id 1ux4cQ-00000009ogu-0lFy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 14:18:16 +0000
+	Fri, 12 Sep 2025 14:19:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2A9C46023D;
-	Fri, 12 Sep 2025 14:18:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB3C9C4CEF1;
-	Fri, 12 Sep 2025 14:18:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6EC5C4069D;
+	Fri, 12 Sep 2025 14:19:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E8EEC4CEF4;
+	Fri, 12 Sep 2025 14:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757686694;
-	bh=1hy35R43ASil/Xah8GOzXEPYbvd1rzbSp8b9RvMG6Aw=;
+	s=k20201202; t=1757686757;
+	bh=PSxYq2ubTxu1tLMT4DKVAGcg+k7YJbgFqjIaawl5S3w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TlbPoZYJ6ueISXmeEesGaARcP6z4YBrYkH2IC/638nX32M8kbtDTP0p1jSKvVELs7
-	 RlUkOMEPDIN3fC/vITW5mZ95dHxXGlma/5nu/1tIQRyj3Q22jbl4dOBZ8m/vEAb/zr
-	 8ZbxNUMHritPukMqfvA971a40Z9vmj1g11YY01hg4i+ijIH8yxXn26YvMJ0DKYc2lw
-	 TIbEPYPpPacojnhRmU6Et4QWk7+dqgfiwTWboOYaBsJGPN5aoEp2kQodjq76T+lo55
-	 kAv3nLm3CaMsRDH4xN8NXlKabR6Z76SyN9hfVJfCs9mSfGktNJh//pIKQ6yylRajdi
-	 8mS984t4j9I0Q==
-Date: Fri, 12 Sep 2025 15:18:08 +0100
-From: Will Deacon <will@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 22/28] iommu/arm-smmu-v3-kvm: Emulate CMDQ for host
-Message-ID: <aMQroI4NDu74PDGT@willie-the-truck>
-References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-23-smostafa@google.com>
+	b=N7ULSFcNhUwPip5ZGQjDHF8BRxMGJs/tTb+aAPO85WFZx3/TPtG5mB8Pu7sXtqNzz
+	 Cd1F60y4y6lJkZXJB40Ov9Ed2KGYzF7U9NTt1w2RGCjgkBeDgpNXQ1p3D9fsz1be6e
+	 T8j2o47OLq/1uSPeEGtnooEP12z3/nd93lg0AiOqy+L9e3nTmVry01+N/nH03xLPnz
+	 Hr2G5Yv9gsvSWOIhh8XFXccehuffFv8cLgqZC/vRzqlAmAkIfCUlB3xPcDZZIwplow
+	 Z7imIVx59ZXIr+pWq4gqxoGm22ANUELll1XsHPLsWOZKS3FBD/sfrUONpyC4x3XcRT
+	 6YaOE9diGR7Ug==
+Date: Fri, 12 Sep 2025 09:19:16 -0500
+From: Rob Herring <robh@kernel.org>
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: linus.walleij@linaro.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com
+Subject: Re: [v2 2/3] dt-bindings: pinctrl: Add cix,sky1-pinctrl
+Message-ID: <20250912141916.GA1339383-robh@kernel.org>
+References: <20250912060650.2180691-1-gary.yang@cixtech.com>
+ <20250912060650.2180691-3-gary.yang@cixtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250819215156.2494305-23-smostafa@google.com>
+In-Reply-To: <20250912060650.2180691-3-gary.yang@cixtech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250912_071918_262024_EEB9A86C 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,118 +74,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 09:51:50PM +0000, Mostafa Saleh wrote:
-> Don’t allow access to the command queue from the host:
-> - ARM_SMMU_CMDQ_BASE: Only allowed to be written when CMDQ is disabled, we
->   use it to keep track of the host command queue base.
->   Reads return the saved value.
-> - ARM_SMMU_CMDQ_PROD: Writes trigger command queue emulation which sanitises
->   and filters the whole range. Reads returns the host copy.
-> - ARM_SMMU_CMDQ_CONS: Writes move the sw copy of the cons, but the host can’t
->   skip commands once submitted. Reads return the emulated value and the error
->   bits in the actual cons.
+On Fri, Sep 12, 2025 at 02:06:49PM +0800, Gary Yang wrote:
+> The pin-controller is used to control the Soc pins.
+> There are two pin-controllers on Cix Sky1 platform.
+> One is used under S0 state, the other is used under
+> S5 state.
+
+Wrap lines at 72 chars.
+
 > 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
 > ---
->  .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 108 +++++++++++++++++-
->  1 file changed, 105 insertions(+), 3 deletions(-)
+>  .../bindings/pinctrl/cix,sky1-pinctrl.yaml    | 85 +++++++++++++++++++
+>  1 file changed, 85 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-> index 554229e466f3..10c6461bbf12 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-> @@ -325,6 +325,88 @@ static bool is_cmdq_enabled(struct hyp_arm_smmu_v3_device *smmu)
->  	return FIELD_GET(CR0_CMDQEN, smmu->cr0);
->  }
->  
-> +static bool smmu_filter_command(struct hyp_arm_smmu_v3_device *smmu, u64 *command)
-> +{
-> +	u64 type = FIELD_GET(CMDQ_0_OP, command[0]);
+> diff --git a/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
+> new file mode 100644
+> index 000000000000..c4a127fd8330
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
+> @@ -0,0 +1,85 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pinctrl/cix,sky1-pinctrl.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	switch (type) {
-> +	case CMDQ_OP_CFGI_STE:
-> +		/* TBD: SHADOW_STE*/
-> +		break;
-> +	case CMDQ_OP_CFGI_ALL:
-> +	{
-> +		/*
-> +		 * Linux doesn't use range STE invalidation, and only use this
-> +		 * for CFGI_ALL, which is done on reset and not on an new STE
-> +		 * being used.
-> +		 * Although, this is not architectural we rely on the current Linux
-> +		 * implementation.
-> +		 */
-> +		WARN_ON((FIELD_GET(CMDQ_CFGI_1_RANGE, command[1]) != 31));
-> +		break;
-> +	}
-> +	case CMDQ_OP_TLBI_NH_ASID:
-> +	case CMDQ_OP_TLBI_NH_VA:
-> +	case 0x13: /* CMD_TLBI_NH_VAA: Not used by Linux */
-> +	{
-> +		/* Only allow VMID = 0*/
-> +		if (FIELD_GET(CMDQ_TLBI_0_VMID, command[0]) == 0)
-> +			break;
-> +		break;
-> +	}
-> +	case 0x10: /* CMD_TLBI_NH_ALL: Not used by Linux */
-> +	case CMDQ_OP_TLBI_EL2_ALL:
-> +	case CMDQ_OP_TLBI_EL2_VA:
-> +	case CMDQ_OP_TLBI_EL2_ASID:
-> +	case CMDQ_OP_TLBI_S12_VMALL:
-> +	case 0x23: /* CMD_TLBI_EL2_VAA: Not used by Linux */
-> +		/* Malicous host */
-> +		return WARN_ON(true);
-> +	case CMDQ_OP_CMD_SYNC:
-> +		if (FIELD_GET(CMDQ_SYNC_0_CS, command[0]) == CMDQ_SYNC_0_CS_IRQ) {
-> +			/* Allow it, but let the host timeout, as this should never happen. */
-> +			command[0] &= ~CMDQ_SYNC_0_CS;
-> +			command[0] |= FIELD_PREP(CMDQ_SYNC_0_CS, CMDQ_SYNC_0_CS_SEV);
-> +			command[1] &= ~CMDQ_SYNC_1_MSIADDR_MASK;
-> +		}
-> +		break;
-> +	}
+> +title: Cix Sky1 Pin Controller
 > +
-> +	return false;
-> +}
+> +maintainers:
+> +  - Gary Yang <gary.yang@cixtech.com>
 > +
-> +static void smmu_emulate_cmdq_insert(struct hyp_arm_smmu_v3_device *smmu)
-> +{
-> +	u64 *host_cmdq = hyp_phys_to_virt(smmu->cmdq_host.q_base & Q_BASE_ADDR_MASK);
-> +	int idx;
-> +	u64 cmd[CMDQ_ENT_DWORDS];
-> +	bool skip;
+> +description:
+> +  The pin-controller is used to control Soc pins. There are two pin-controllers
+> +  on Cix Sky1 platform. one is used under S0 state, the other one is used under
+> +  S5 state.
 > +
-> +	if (!is_cmdq_enabled(smmu))
-> +		return;
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - cix,sky1-iomuxc
+> +      - cix,sky1-iomuxc-s5
 > +
-> +	while (!queue_empty(&smmu->cmdq_host.llq)) {
-> +		/* Wait for the command queue to have some space. */
-> +		WARN_ON(smmu_wait_event(smmu, !smmu_cmdq_full(&smmu->cmdq)));
+> +  reg:
+> +    maxItems: 1
 > +
-> +		idx = Q_IDX(&smmu->cmdq_host.llq, smmu->cmdq_host.llq.cons);
-> +		/* Avoid TOCTOU */
-> +		memcpy(cmd, &host_cmdq[idx * CMDQ_ENT_DWORDS], CMDQ_ENT_DWORDS << 3);
-> +		skip = smmu_filter_command(smmu, cmd);
-> +		if (!skip)
-> +			smmu_add_cmd_raw(smmu, cmd);
-> +		queue_inc_cons(&smmu->cmdq_host.llq);
-> +	}
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +# Client device subnode's properties
+> +patternProperties:
+> +  'pins$':
+> +    type: object
+> +    additionalProperties: false
+> +    patternProperties:
+> +      '(^pins|pins?$)':
+> +        type: object
+> +        additionalProperties: false
+> +        description:
+> +          A pinctrl node should contain at least one subnodes representing the
+> +          pinctrl groups available on the machine. Each subnode will list the
+> +          pins it needs, and how they should be configured, with regard to muxer
+> +          configuration, pullups, and drive strength.
+> +        $ref: /schemas/pinctrl/pincfg-node.yaml
+> +
+> +        properties:
+> +          pinmux:
+> +            description:
+> +              Integer array, represents gpio pin number and mux setting.
+> +              Supported pin number and mux varies for different SoCs, and are
+> +              defined as macros in arch/arm64/boot/dts/cix/sky1-pinfunc.h directly.
+> +
+> +          bias-disable: true
+> +
+> +          bias-pull-up: true
+> +
+> +          bias-pull-down: true
+> +
+> +          drive-strength:
+> +            description:
+> +              Can support 15 levels, from DS_LEVEL1 to DS_LEVEL15.
+> +              See arch/arm64/boot/dts/cix/sky1-pinfunc.h for valid arguments.
 
-Hmmm. There's something I'd not considered before here.
+Constraints on the values?
 
-Ideally, the data structures that are shadowed by the hypervisor would
-be mapped as normal-WB cacheable in both the host and the hypervisor so
-we don't have to worry about coherency and we get the performance
-benefits from the caches. Indeed, I think that's how you've mapped
-'host_cmdq' above _however_ I sadly don't think we can do that if the
-actual SMMU hardware isn't coherent.
-
-We don't have a way to say things like "The STEs and CMDQ are coherent
-but the CDs and Stage-1 page-tables aren't" so that means we have to
-treat the shadowed structures populated by the host in the same way as
-the host-owned structures that are consumed directly by the hardware.
-Consequently, we should either be using non-cacheable mappings at EL2
-for these structures or doing CMOs around the accesses.
-
-Will
+> +
+> +        required:
+> +          - pinmux
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  # Pinmux controller node
+> +  - |
+> +    #define CIX_PAD_GPIO012_FUNC_GPIO012 (11 << 8 | 0x0)
+> +    #define DS_LEVEL4 (4)
+> +    iomuxc: pinctrl@4170000 {
+> +        compatible = "cix,sky1-iomuxc";
+> +        reg = <0x4170000 0x1000>;
+> +
+> +        wifi_vbat_gpio: wifi-vbat-gpio-pins {
+> +            pins-wifi-vbat-gpio {
+> +                pinmux = <CIX_PAD_GPIO012_FUNC_GPIO012>;
+> +                bias-pull-up;
+> +                drive-strength = <DS_LEVEL4>;
+> +           };
+> +        };
+> +    };
+> -- 
+> 2.49.0
+> 
 
