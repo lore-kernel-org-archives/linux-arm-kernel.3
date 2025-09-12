@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 515E1CAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD54CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JOm/xfMBw7iGA1K5T+IVdHDrJXg3tmXiQHjTQ8R+3lg=; b=ipCygw+5LnNv4As5SaheZooWWU
-	zc/PQoVK0HOqekRLXqQe8GXHa9auzrH0dVVoXLuBQs5URyl9bRffZSOeWfeq80bIz2ZyyLL2Va7a7
-	TL1gXZmQQl0TBpAFGKbjeqYRvLCXslEC/DIVi4DJMf23PSMDn+h41HkoEwBzAJdVecsVUmFy4eMSm
-	tKT5j7wDk4Tu9irF3t0e7xULg6Nqtcvi+yJaYkydNGBwOYb7uUKloJM1zxMk6WWq2qOhSarYx4MdH
-	KPvCF1AmdKwACyzlYM1cS2O9akVu+wS9Lz0gKYzVyKmo+Qs7Mw4qcwIbIuNnNhiaixUwmj7QK64iZ
-	uNZ86KDw==;
+	bh=tdZQuXNd6jNW6g42AjoI2N5xh1PKCGXnmtRCV0J+Li8=; b=XBHhoIo+ob8OiaZv5FTPNuEQoK
+	PxwMUraOgH/GoslziTtx6MDhlaomOEnZniGw1UkejeoJSFz3QV7VCrJyZbxY5IL4150G75mmGg+DK
+	/tawOqjiVf8ZXv4OnDYW7nRCyqEespiMaA6qATsKdetuIgc3MM4kijZOFyauoOuZWGCqZSOOGS4/7
+	5xgeHf3aAGNlgyDpJiEVSmE6cqq1jAG6ws/2bIWJdHfon673oUr/1DWlZgApdTGvomOK/3WTprT+R
+	Hgo+wNTDSHjarifb26Mxp1BUh1/12RG0ClnQofqTC1s6n8bC6WKZhyuzFcSbWOB5lEOH2ocvNKVGg
+	/wEC1kLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5vh-0000000ALKt-3DHX;
-	Fri, 12 Sep 2025 15:43:17 +0000
+	id 1ux67R-0000000AP2z-1k3t;
+	Fri, 12 Sep 2025 15:55:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5vZ-0000000AL9Z-0erl
+	id 1ux67O-0000000AP1M-3E3p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 15:43:10 +0000
+	Fri, 12 Sep 2025 15:55:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67CF71515;
-	Fri, 12 Sep 2025 08:43:00 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A50943F694;
-	Fri, 12 Sep 2025 08:43:06 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 12 Sep 2025 16:42:17 +0100
-Subject: [PATCH v5 12/14] perf arm_spe: Refactor
- arm_spe__get_metadata_by_cpu()
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F0591515;
+	Fri, 12 Sep 2025 08:55:13 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CEAE3F66E;
+	Fri, 12 Sep 2025 08:55:17 -0700 (PDT)
+Message-ID: <53eddf53-a610-4420-9021-658fdf31aebe@arm.com>
+Date: Fri, 12 Sep 2025 16:55:16 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 24/29] arm_mpam: Track bandwidth counter state for
+ overflow and power management
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-25-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250910204309.20751-25-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250912-arm_spe_support_hitm_overhead_v1_public-v5-12-0800880da0a7@arm.com>
-References: <20250912-arm_spe_support_hitm_overhead_v1_public-v5-0-0800880da0a7@arm.com>
-In-Reply-To: <20250912-arm_spe_support_hitm_overhead_v1_public-v5-0-0800880da0a7@arm.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- James Clark <james.clark@linaro.org>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- German Gomez <german.gomez@arm.com>, Ali Saidi <alisaidi@amazon.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757691759; l=2238;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=1kKucE6e8wSangp0jm3cWYqA6xJQBIZEXjnOHyytAM4=;
- b=heCRUuQYA+SJZUUJraZiBi+RVFteohKeqMxWdGbf7q0QAMdXuNLV+HBMdiK3GotMTIF6uPqCh
- pzkA0wmJ4BKAIsV0WpcXpiwxu0X355HpwBo2Gumicm2MYrr0wQUbUzZ
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_084309_398768_0F6C2E4F 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20250912_085522_893544_96170FD8 
+X-CRM114-Status: GOOD (  34.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,77 +82,334 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Handle "CPU=-1" (per-thread mode) in the arm_spe__get_metadata_by_cpu()
-function. As a result, the function is more general and will be invoked
-by a sequential change.
+Hi James,
 
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- tools/perf/util/arm-spe.c | 34 ++++++++++++++++------------------
- 1 file changed, 16 insertions(+), 18 deletions(-)
+On 9/10/25 21:43, James Morse wrote:
+> Bandwidth counters need to run continuously to correctly reflect the
+> bandwidth.
+> 
+> The value read may be lower than the previous value read in the case
+> of overflow and when the hardware is reset due to CPU hotplug.
+> 
+> Add struct mbwu_state to track the bandwidth counter to allow overflow
+> and power management to be handled.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since v1:
+>  * Fixed lock/unlock typo.
+> ---
+>  drivers/resctrl/mpam_devices.c  | 154 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |  23 +++++
+>  2 files changed, 175 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 1543c33c5d6a..eeb62ed94520 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -918,6 +918,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>  	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
+>  
+>  	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
+> +
+>  	if (m->ctx->match_pmg) {
+>  		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
+>  		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
+> @@ -972,6 +973,7 @@ static void clean_msmon_ctl_val(u32 *cur_ctl)
+>  static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>  				     u32 flt_val)
+>  {
+> +	struct msmon_mbwu_state *mbwu_state;
+>  	struct mpam_msc *msc = m->ris->vmsc->msc;
+>  
+>  	/*
+> @@ -990,20 +992,32 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+>  		mpam_write_monsel_reg(msc, MBWU, 0);
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+> +
+> +		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
+> +		if (mbwu_state)
+> +			mbwu_state->prev_val = 0;
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index c5fd62534e0362dd69c69f6e836cef6f67b0d060..58f80b5c0ab969448c962adb31abde5067cf4be3 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -315,15 +315,28 @@ static int arm_spe_set_tid(struct arm_spe_queue *speq, pid_t tid)
- 	return 0;
- }
- 
--static u64 *arm_spe__get_metadata_by_cpu(struct arm_spe *spe, u64 cpu)
-+static u64 *arm_spe__get_metadata_by_cpu(struct arm_spe *spe, int cpu)
- {
- 	u64 i;
- 
- 	if (!spe->metadata)
- 		return NULL;
- 
-+	/* CPU ID is -1 for per-thread mode */
-+	if (cpu < 0) {
-+		/*
-+		 * On the heterogeneous system, due to CPU ID is -1,
-+		 * cannot confirm the data source packet is supported.
-+		 */
-+		if (!spe->is_homogeneous)
-+			return NULL;
-+
-+		/* In homogeneous system, simply use CPU0's metadata */
-+		return spe->metadata[0];
-+	}
-+
- 	for (i = 0; i < spe->metadata_nr_cpu; i++)
--		if (spe->metadata[i][ARM_SPE_CPU] == cpu)
-+		if (spe->metadata[i][ARM_SPE_CPU] == (u64)cpu)
- 			return spe->metadata[i];
- 
- 	return NULL;
-@@ -915,22 +928,7 @@ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
- 		cpuid = perf_env__cpuid(perf_session__env(spe->session));
- 		midr = strtol(cpuid, NULL, 16);
- 	} else {
--		/* CPU ID is -1 for per-thread mode */
--		if (speq->cpu < 0) {
--			/*
--			 * On the heterogeneous system, due to CPU ID is -1,
--			 * cannot confirm the data source packet is supported.
--			 */
--			if (!spe->is_homogeneous)
--				return false;
--
--			/* In homogeneous system, simply use CPU0's metadata */
--			if (spe->metadata)
--				metadata = spe->metadata[0];
--		} else {
--			metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
--		}
--
-+		metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
- 		if (!metadata)
- 			return false;
- 
+What's the if condition doing here?
 
--- 
-2.34.1
+The below could make more sense but I don't think you can get here if
+the allocation fails.
+
+if (m->ris->mbwu_state)
+
+> +
+>  		break;
+>  	default:
+>  		return;
+>  	}
+>  }
+>  
+> +static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
+> +{
+> +	/* TODO: scaling, and long counters */
+> +	return GENMASK_ULL(30, 0);
+> +}
+> +
+>  /* Call with MSC lock held */
+>  static void __ris_msmon_read(void *arg)
+>  {
+> -	u64 now;
+>  	bool nrdy = false;
+>  	struct mon_read *m = arg;
+> +	u64 now, overflow_val = 0;
+>  	struct mon_cfg *ctx = m->ctx;
+>  	struct mpam_msc_ris *ris = m->ris;
+> +	struct msmon_mbwu_state *mbwu_state;
+>  	struct mpam_props *rprops = &ris->props;
+>  	struct mpam_msc *msc = m->ris->vmsc->msc;
+>  	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
+> @@ -1031,11 +1045,30 @@ static void __ris_msmon_read(void *arg)
+>  		now = mpam_read_monsel_reg(msc, CSU);
+>  		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
+>  			nrdy = now & MSMON___NRDY;
+> +		now = FIELD_GET(MSMON___VALUE, now);
+>  		break;
+>  	case mpam_feat_msmon_mbwu:
+>  		now = mpam_read_monsel_reg(msc, MBWU);
+>  		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+>  			nrdy = now & MSMON___NRDY;
+> +		now = FIELD_GET(MSMON___VALUE, now);
+> +
+> +		if (nrdy)
+> +			break;
+> +
+> +		mbwu_state = &ris->mbwu_state[ctx->mon];
+> +		if (!mbwu_state)
+> +			break;
+> +
+> +		/* Add any pre-overflow value to the mbwu_state->val */
+> +		if (mbwu_state->prev_val > now)
+> +			overflow_val = mpam_msmon_overflow_val(ris) - mbwu_state->prev_val;
+> +
+> +		mbwu_state->prev_val = now;
+> +		mbwu_state->correction += overflow_val;
+> +
+> +		/* Include bandwidth consumed before the last hardware reset */
+> +		now += mbwu_state->correction;
+>  		break;
+>  	default:
+>  		m->err = -EINVAL;
+> @@ -1048,7 +1081,6 @@ static void __ris_msmon_read(void *arg)
+>  		return;
+>  	}
+>  
+> -	now = FIELD_GET(MSMON___VALUE, now);
+>  	*m->val += now;
+>  }
+>  
+> @@ -1261,6 +1293,67 @@ static int mpam_reprogram_ris(void *_arg)
+>  	return 0;
+>  }
+>  
+> +/* Call with MSC lock held */
+> +static int mpam_restore_mbwu_state(void *_ris)
+> +{
+> +	int i;
+> +	struct mon_read mwbu_arg;
+> +	struct mpam_msc_ris *ris = _ris;
+> +
+> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+> +		if (ris->mbwu_state[i].enabled) {
+> +			mwbu_arg.ris = ris;
+> +			mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
+> +			mwbu_arg.type = mpam_feat_msmon_mbwu;
+> +
+> +			__ris_msmon_read(&mwbu_arg);
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/* Call with MSC lock and held */
+> +static int mpam_save_mbwu_state(void *arg)
+> +{
+> +	int i;
+> +	u64 val;
+> +	struct mon_cfg *cfg;
+> +	u32 cur_flt, cur_ctl, mon_sel;
+> +	struct mpam_msc_ris *ris = arg;
+> +	struct msmon_mbwu_state *mbwu_state;
+> +	struct mpam_msc *msc = ris->vmsc->msc;
+> +
+> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+> +		mbwu_state = &ris->mbwu_state[i];
+> +		cfg = &mbwu_state->cfg;
+> +
+> +		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
+> +			return -EIO;
+> +
+> +		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
+> +			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+> +		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+> +
+> +		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+> +		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+> +
+> +		val = mpam_read_monsel_reg(msc, MBWU);
+> +		mpam_write_monsel_reg(msc, MBWU, 0);
+> +
+> +		cfg->mon = i;
+> +		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
+> +		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
+> +		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
+> +		mbwu_state->correction += val;
+> +		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+> +		mpam_mon_sel_unlock(msc);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
+>  {
+>  	memset(reset_cfg, 0, sizeof(*reset_cfg));
+> @@ -1335,6 +1428,9 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>  		 * for non-zero partid may be lost while the CPUs are offline.
+>  		 */
+>  		ris->in_reset_state = online;
+> +
+> +		if (mpam_is_enabled() && !online)
+> +			mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
+>  	}
+>  }
+>  
+> @@ -1369,6 +1465,9 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
+>  			mpam_reprogram_ris_partid(ris, partid, cfg);
+>  		}
+>  		ris->in_reset_state = reset;
+> +
+> +		if (mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
+> +			mpam_touch_msc(msc, &mpam_restore_mbwu_state, ris);
+>  	}
+>  }
+>  
+> @@ -2091,11 +2190,33 @@ static void mpam_unregister_irqs(void)
+>  
+>  static void __destroy_component_cfg(struct mpam_component *comp)
+>  {
+> +	struct mpam_msc *msc;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc_ris *ris;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+>  	add_to_garbage(comp->cfg);
+> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
+> +		msc = vmsc->msc;
+> +
+> +		if (mpam_mon_sel_lock(msc)) {
+> +			list_for_each_entry(ris, &vmsc->ris, vmsc_list)
+> +				add_to_garbage(ris->mbwu_state);
+> +			mpam_mon_sel_unlock(msc);
+> +		}
+> +	}
+>  }
+>  
+>  static int __allocate_component_cfg(struct mpam_component *comp)
+>  {
+> +	int err = 0;
+> +	struct mpam_msc *msc;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc_ris *ris;
+> +	struct msmon_mbwu_state *mbwu_state;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+>  	mpam_assert_partid_sizes_fixed();
+>  
+>  	if (comp->cfg)
+> @@ -2106,6 +2227,35 @@ static int __allocate_component_cfg(struct mpam_component *comp)
+>  		return -ENOMEM;
+>  	init_garbage(comp->cfg);
+>  
+> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
+> +		if (!vmsc->props.num_mbwu_mon)
+> +			continue;
+> +
+> +		msc = vmsc->msc;
+> +		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
+> +			if (!ris->props.num_mbwu_mon)
+> +				continue;
+> +
+> +			mbwu_state = kcalloc(ris->props.num_mbwu_mon,
+> +					     sizeof(*ris->mbwu_state),
+> +					     GFP_KERNEL);
+> +			if (!mbwu_state) {
+> +				__destroy_component_cfg(comp);
+> +				err = -ENOMEM;
+> +				break;
+> +			}
+> +
+> +			if (mpam_mon_sel_lock(msc)) {
+> +				init_garbage(mbwu_state);
+> +				ris->mbwu_state = mbwu_state;
+> +				mpam_mon_sel_unlock(msc);
+> +			}
+
+The if statement is confusing now that mpam_mon_sel_lock()
+unconditionally returns true.
+
+> +		}
+> +
+> +		if (err)
+> +			break;
+> +	}
+> +
+>  	return 0;
+>  }
+>  
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index bb01e7dbde40..725c2aefa8a2 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -212,6 +212,26 @@ struct mon_cfg {
+>  	enum mon_filter_options opts;
+>  };
+>  
+> +/*
+> + * Changes to enabled and cfg are protected by the msc->lock.
+> + * Changes to prev_val and correction are protected by the msc's mon_sel_lock.
+> + */
+> +struct msmon_mbwu_state {
+> +	bool		enabled;
+> +	struct mon_cfg	cfg;
+> +
+> +	/* The value last read from the hardware. Used to detect overflow. */
+> +	u64		prev_val;
+> +
+> +	/*
+> +	 * The value to add to the new reading to account for power management,
+> +	 * and shifts to trigger the overflow interrupt.
+> +	 */
+> +	u64		correction;
+> +
+> +	struct mpam_garbage	garbage;
+> +};
+> +
+>  struct mpam_class {
+>  	/* mpam_components in this class */
+>  	struct list_head	components;
+> @@ -304,6 +324,9 @@ struct mpam_msc_ris {
+>  	/* parent: */
+>  	struct mpam_vmsc	*vmsc;
+>  
+> +	/* msmon mbwu configuration is preserved over reset */
+> +	struct msmon_mbwu_state	*mbwu_state;
+> +
+>  	struct mpam_garbage	garbage;
+>  };
+>  
+
+Thanks,
+
+Ben
 
 
