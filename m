@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC633CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A617FCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WjMjDYauzfTsJKjb8SaemJ0ni4qohCxq7JiaB8BO8WU=; b=zEajbPeLLxsYgmAcsfUCrw5Rt7
-	T0KmIWbGj2/sMxZ8Ee2ZDpSRJ63m60alD+1g+cRCHF8RpfGy5opaX5Ja8MtTXUgS146NqJelqvPc7
-	Oily0Gx+uXn3MQNLpVx2BZ4EX2sZK5Dp2qPZm0Czt6CDBbtC/rES46y0l9XKEZ8unZDaMoPguhFPC
-	15wAMlmiz3C1990M5nN1YXpQHhH2SAmkzA266xEotykDXlOPsqGKIAaHe/1vO93eTBbF1k/nPBoP2
-	mGhNusONXiJEnNwMggpnigInlDD/4O8c/M53tyRBobWAU3X0veFSeT7Y6TYK1Ntg8cxrF93SZ97xc
-	er9DIzJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=41ADgNrKihGdh6ABSZq8itBkuFhnZ+8ndSF55rURelI=; b=pOKp6SRe6e3giLuYbodyCSpo/Z
+	1Y2OjX2iZAegcBnMAZA9MhTBcKcWdAmek2Su633eZCRiZo/m5jmSX+uCzlbSAAZh9gn5mEZTso6BT
+	vx8H7A5fpRl1XnxrPWTR+6Zprg+BH4FhCMDwFnE5AkvYscWciFostC0zaAQvLcxIJ/ByWlgI3VSNd
+	iLQsYE05EhPMeomeDGwU7Qpf6ITbbkS1m6Ooi/C3P4ek4mXX8weKpF7FlzWsgADjZdUGHHCSioDp1
+	dPZqc0ei7QwasVLt9l07odm5V1DDr2DizFX0J6RMSWO+3/vH1PEzgekKj8jeLPmuswQeGB1Pefzsb
+	cj4OiZGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2nc-00000009CnP-2EEe;
-	Fri, 12 Sep 2025 12:22:44 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1ux2pG-00000009DNP-47Qg;
+	Fri, 12 Sep 2025 12:24:26 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2nZ-00000009Cjp-1Sbr
+	id 1ux2pE-00000009DLs-2MwD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 12:22:43 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cNYQb0Bswz6M4YB;
-	Fri, 12 Sep 2025 20:19:51 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5D6491402EF;
-	Fri, 12 Sep 2025 20:22:32 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 12 Sep
- 2025 14:22:31 +0200
-Date: Fri, 12 Sep 2025 13:22:29 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
-	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
-	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
-	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
-	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
- Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
-	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 20/29] arm_mpam: Allow configuration to be applied
- and restored during cpu online
-Message-ID: <20250912132229.000044c7@huawei.com>
-In-Reply-To: <20250910204309.20751-21-james.morse@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-21-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 12 Sep 2025 12:24:26 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58CCO4hS967935;
+	Fri, 12 Sep 2025 07:24:04 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757679844;
+	bh=41ADgNrKihGdh6ABSZq8itBkuFhnZ+8ndSF55rURelI=;
+	h=From:To:CC:Subject:Date;
+	b=jH82VOsf6aACJOZ1aGamQtJYN4wRtOdhrrZF4qB713aRU35oAVF2V0rFt8pt8fdyc
+	 mrmH9SbF4gZFMbzPzfoGRF66lh9fIaTn0ahb0yu5ZYQn0xyl5wtexPTMpTXoEh/hpb
+	 otq3k24f2EJsZvECr5K/MhhljqlZHjAolaz0sfMo=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58CCO42Y2760210
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 12 Sep 2025 07:24:04 -0500
+Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 12
+ Sep 2025 07:24:03 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 12 Sep 2025 07:24:03 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58CCNuLS3589278;
+	Fri, 12 Sep 2025 07:23:57 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <jingoohan1@gmail.com>,
+        <christian.bruel@foss.st.com>, <qiang.yu@oss.qualcomm.com>,
+        <mayank.rana@oss.qualcomm.com>, <thippeswamy.havalige@amd.com>,
+        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
+        <inochiama@gmail.com>, <cassel@kernel.org>, <kishon@kernel.org>,
+        <sergio.paracuellos@gmail.com>, <18255117159@163.com>,
+        <rongqianfeng@vivo.com>
+CC: <jirislaby@kernel.org>, <linux-pci@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH v2 00/10] PCI: Keystone: Enable loadable module support
+Date: Fri, 12 Sep 2025 17:46:11 +0530
+Message-ID: <20250912122356.3326888-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_052241_680047_801F79B7 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20250912_052424_698858_0BEFB622 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +89,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sep 2025 20:43:00 +0000
-James Morse <james.morse@arm.com> wrote:
+Hello,
 
-> When CPUs come online the MSC's original configuration should be restored.
-> 
-> Add struct mpam_config to hold the configuration. This has a bitmap of
-> features that were modified. Once the maximum partid is known, allocate
-> a configuration array for each component, and reprogram each RIS
-> configuration from this.
-> 
-> CC: Dave Martin <Dave.Martin@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-Trivial comments
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+This series enables support for the 'pci-keystone.c' driver to be built
+as a loadable module. The motivation for the series is that PCIe is not
+a necessity for booting Linux due to which the 'pci-keystone.c' driver
+does not need to be built-in.
 
-> +
-> +static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
-> +{
-> +	memset(reset_cfg, 0, sizeof(*reset_cfg));
+Series is based on commit
+bfd2c81b061c Merge branch 'pci/misc'
+of pci/next.
 
-Might as well do the following and skip the memset.
+NOTE for MAINTAINERS: This series has the following dependencies:
+1. The following commit in Linux-Next is a build-dependency for the
+series:
+https://github.com/ColinIanKing/linux-next/commit/8de1de5a3a8d42975953382068fb5195e9d6e6c6
+Since the v1 series was based on linux-next, there were no build errors.
+However, since this series is based on pci/next based on the feedback from
+Manivannan Sadhasivam <mani@kernel.org> at:
+https://lore.kernel.org/r/2gzqupa7i7qhiscwm4uin2jmdb6qowp55mzk7w4o3f73ob64e7@taf5vjd7lhc5/
+without the aforementioned commit, build will fail.
+2. The following patch series include fixes for the driver which are
+required to verify the driver functionality:
+https://lore.kernel.org/r/20250912100802.3136121-1-s-vadapalli@ti.com/
 
-	*reset_cfg = (struct mpam_config) {
-		.features = ~0,
-		.cpbm = ~0,
-		.mbw_pbm = ~0,
-		.mbw_max = MPAM...
-		.reset_cpbm = true,
-		.reset_mbw_pbm = true,
-	};
-> +
-> +	reset_cfg->features = ~0;
-> +	reset_cfg->cpbm = ~0;
-> +	reset_cfg->mbw_pbm = ~0;
-> +	reset_cfg->mbw_max = MPAMCFG_MBW_MAX_MAX;
-> +
-> +	reset_cfg->reset_cpbm = true;
-> +	reset_cfg->reset_mbw_pbm = true;
-> +}
+v1 of this series is at:
+https://lore.kernel.org/r/20250903124505.365913-1-s-vadapalli@ti.com/
+Changes since v1:
+- Based on the feedback provided by Jiri Slaby <jirislaby@kernel.org> at:
+  https://lore.kernel.org/r/3d3a4b52-e343-42f3-9d69-94c259812143@kernel.org/
+  patch 09/11 of the v1 series has been posted as a FIX at:
+  https://lore.kernel.org/r/20250912100802.3136121-2-s-vadapalli@ti.com/
+  and is therefore no longer a part of the current series.
+- Based on the feedback provided by Manivannan Sadhasivam <mani@kernel.org> at:
+  https://lore.kernel.org/r/2gzqupa7i7qhiscwm4uin2jmdb6qowp55mzk7w4o3f73ob64e7@taf5vjd7lhc5/
+  patch 11/11 of the v1 series which is patch 10/10 of this series has
+  been modified by retaining 'builtin_platform_driver()' instead of
+  changing it to 'module_platform_driver()'.
+- Series has been based on pci/next instead of linux-next.
 
-> +static int mpam_allocate_config(void)
-> +{
-> +	int err = 0;
+For testing the series, Linux has been built in the following manner:
+1. Check out at commit bfd2c81b061c Merge branch 'pci/misc' of pci/next
+2. Apply commit and patch series mentioned as dependencies above.
+3. Apply current series.
+4. Build Linux with CONFIG_PCI_KEYSTONE, CONFIG_PCI_KEYSTONE_HOST and
+   CONFIG_PCI_KEYSTONE_EP set to 'm'.
 
-Always set before use. Maybe push down so it is in tighter scope and
-can declare and initialize to final value in one line.
+Series has been tested on AM654-EVM with an NVMe SSD connected to the
+PCIe connector on the board and verifying that the NVMe SSD enumerates
+successfully. Additionally, the 'hdparm' utility has been used to read
+the NVMe SSD for verifying functionality. Test Logs:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/54848d3414dc965bec3c29253a1b2764
 
-> +	struct mpam_class *class;
-> +	struct mpam_component *comp;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_for_each_entry(class, &mpam_classes, classes_list) {
-> +		list_for_each_entry(comp, &class->components, class_list) {
-> +			err = __allocate_component_cfg(comp);
-> +			if (err)
-> +				return err;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
+Regards,
+Siddharth.
 
+Siddharth Vadapalli (10):
+  PCI: Export pci_get_host_bridge_device() for use by pci-keystone
+  PCI: dwc: Export dw_pcie_allocate_domains() for pci-keystone
+  PCI: dwc: Add dw_pcie_free_domains() helper for cleanup
+  PCI: dwc: ep: Export dw_pcie_ep_raise_msix_irq() for pci-keystone
+  PCI: keystone: Add ks_pcie_free_msi_irq() helper for cleanup
+  PCI: keystone: Add ks_pcie_free_intx_irq() helper for cleanup
+  PCI: keystone: Add ks_pcie_host_deinit() helper for cleanup
+  PCI: keystone: Add ks_pcie_disable_error_irq() helper for cleanup
+  PCI: keystone: Exit ks_pcie_probe() for the default switch-case of
+    "mode"
+  PCI: keystone: Add support to build as a loadable module
 
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index b69fa9199cb4..17570d9aae9b 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -169,11 +169,7 @@ struct mpam_props {
->  	u16			num_mbwu_mon;
->  };
->  
-> -static inline bool mpam_has_feature(enum mpam_device_features feat,
-> -				    struct mpam_props *props)
-> -{
-> -	return (1 << feat) & props->features;
-> -}
-> +#define mpam_has_feature(_feat, x)	((1 << (_feat)) & (x)->features)
+ drivers/pci/controller/dwc/Kconfig            |   6 +-
+ drivers/pci/controller/dwc/pci-keystone.c     | 101 ++++++++++++++++++
+ .../pci/controller/dwc/pcie-designware-ep.c   |   1 +
+ .../pci/controller/dwc/pcie-designware-host.c |  10 ++
+ drivers/pci/controller/dwc/pcie-designware.h  |   5 +
+ drivers/pci/host-bridge.c                     |   1 +
+ include/linux/pci.h                           |   1 +
+ 7 files changed, 122 insertions(+), 3 deletions(-)
 
-If this is worth doing push it back to original introduction.
-I'm not sure it is necessary.
-
-Jonathan
-
-
+-- 
+2.43.0
 
 
