@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E55BCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 08:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED183CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 08:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=78rUm8cxq+LJJfG9N5KlRJZsUIMPmzq8mUjXRiVwA6A=; b=Nh/wCeL58luXWmh9VL/H6BjgSj
-	xqPMikhlw5+iwvPa9pdwmkVQtfxAG2IjV03Idgs5vp+2B1bDuIPzcSH6Brmvzadm/v4/SpVhfckiI
-	XhG/QkxwfAUQ8V7k//OxM57o9TlT/3qWRfibf8dW6jcMH4Phz0dRhNC8wKf9/JhEzm6G0tJWMMwff
-	P+EGHIOvK2rPig1H6kIpBeMD75DMH/iV5NFBsHBImL9Ey/mS3FCuOof2mZwNHEp4ABKf1kHnX7Qtb
-	5LFaAxTBH4KZhj+Gg5gskuv2/FNSaRgqARt2eMT2RLj3CPhGK8EE7h7+2sOhN0T61gIjxytibievN
-	pYuL8kHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x/O37A+Sj5/ENSKE8ye7ob3Qbk26KdsluByV9/ixxKs=; b=4+TacY1fLLFqOtgUCsSJc67s+4
+	ns/75U21Zv93Ky0euISKr60N3baS6JztC7sfUz0ySiy4pJKBkygY5yQqRW3olXyz4uYEG5lrYbtG7
+	IRnJgTFJgRrd6cRChvSb3ueGqWv/6EEWxkI2cb4J+ZOvXRPZZeeiJBWYMKU+DPuoR2z3R4fLFDlkA
+	hIZJPMc5Jm0yMvCgTgRUjPh+WE3TRZF3h2Fw1+8kPEjeXl2q9v3q8NOmcgQ5NPe0c+C/cWqVG/maF
+	Dq+9epuC60CFsbjZnJqEtu/a7K83/ObA27yzLQHbXPn59bXeJEDa43b4ks/KArI0UMQuTcNqgvfzE
+	aQG50PeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwzSG-000000080wp-1w0P;
-	Fri, 12 Sep 2025 08:48:28 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwzSE-000000080wT-0kST
+	id 1uwzSS-0000000810t-3A02;
+	Fri, 12 Sep 2025 08:48:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwzSP-000000080yw-1mTZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 08:48:27 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwzRy-0002c5-Ds; Fri, 12 Sep 2025 10:48:10 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwzRx-000u5j-3A;
-	Fri, 12 Sep 2025 10:48:09 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uwzRx-002xL0-2o;
-	Fri, 12 Sep 2025 10:48:09 +0200
-Date: Fri, 12 Sep 2025 10:48:09 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 02/10] dmaengine: imx-sdma: fix spba-bus handling for
- i.MX8M
-Message-ID: <20250912084809.e6atdywisk4ywlr6@pengutronix.de>
-References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
- <20250911-v6-16-topic-sdma-v2-2-d315f56343b5@pengutronix.de>
- <20250912030223.GB5808@nxa18884-linux.ap.freescale.net>
+	Fri, 12 Sep 2025 08:48:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4134416A3;
+	Fri, 12 Sep 2025 01:48:28 -0700 (PDT)
+Received: from [10.57.66.147] (unknown [10.57.66.147])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 63FC83F66E;
+	Fri, 12 Sep 2025 01:48:29 -0700 (PDT)
+Message-ID: <781a6450-1c0b-4603-91cf-49f16cd78c28@arm.com>
+Date: Fri, 12 Sep 2025 10:48:26 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250912030223.GB5808@nxa18884-linux.ap.freescale.net>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/7] mm: introduce local state for lazy_mmu sections
+To: David Hildenbrand <david@redhat.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
+ Mark Rutland <Mark.Rutland@arm.com>
+References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
+ <20250908073931.4159362-3-kevin.brodsky@arm.com>
+ <d23ea683-cca4-4973-88b1-4f6fd9b22314@redhat.com>
+ <ca2054ad-b163-4e61-8ec4-6f2e36461628-agordeev@linux.ibm.com>
+ <e7acb889-1fe9-4db3-acf4-39f4960e8ccd@redhat.com>
+ <2fecfae7-1140-4a23-a352-9fd339fcbae5-agordeev@linux.ibm.com>
+ <e521b1f4-3f2b-48cd-9568-b9a4cf4c4830@redhat.com>
+ <47ee1df7-1602-4200-af94-475f84ca8d80@arm.com>
+ <29383ee2-d6d6-4435-9052-d75a263a5c45@redhat.com>
+ <9de08024-adfc-421b-8799-62653468cf63@arm.com>
+ <ef343405-c394-4763-a79f-21381f217b6c@redhat.com>
+ <4b4971fd-0445-4d86-8f3a-6ba3d68d15b7@arm.com>
+ <4aa28016-5678-4c66-8104-8dcc3fa2f5ce@redhat.com>
+ <15d01c8b-5475-442e-9df5-ca37b0d5dc04@arm.com>
+ <7953a735-6129-4d22-be65-ce736630d539@redhat.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <7953a735-6129-4d22-be65-ce736630d539@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_014826_216347_D11029AB 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20250912_014837_542211_4DD53510 
+X-CRM114-Status: GOOD (  33.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +98,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+On 12/09/2025 10:04, David Hildenbrand wrote:
+>>>
+>>> struct lazy_mmu_state {
+>>>      uint8_t enabled_count;
+>>>      bool paused;
+>>
+>> Looking at the arm64 implementation, I'm thinking: instead of the paused
+>> member, how about a PF_LAZY_MMU task flag? It would be set when lazy_mmu
+>> is actually enabled (i.e. inside an enter()/leave() section, and not
+>> inside a pause()/resume() section). This way, architectures could use
+>> that flag directly to tell if lazy_mmu is enabled instead of reinventing
+>> the wheel, all in slightly different ways. Namely:
+>>
+>> * arm64 uses a thread flag (TIF_LAZY_MMU) - this is trivially replaced
+>> with PF_LAZY_MMU
+>> * powerpc and sparc use batch->active where batch is a per-CPU variable;
+>> I expect this can also be replaced with PF_LAZY_MMU
+>> * x86/xen is more complex as it has xen_lazy_mode which tracks both
+>> LAZY_MMU and LAZY_CPU modes. I'd probably leave that one alone, unless a
+>> Xen expert is motivated to refactor it.
+>>
+>> With that approach, the implementation of arch_enter() and arch_leave()
+>> becomes very simple (no tracking of lazy_mmu status) on arm64, powerpc
+>> and sparc.
+>>
+>> (Of course we could also have an "enabled" member in lazy_mmu_state
+>> instead of PF_LAZY_MMU, there is no functional difference.)
+>>
+>
+> No strong opinion, but to me it feels like PF_LAZY_MMU is rather "the
+> effective state when combining nested+paused", and might complicate
+> the code + sanity checks?
+>
+> So we could maintain that in addition fairly easily of course from the
+> core instead of letting archs do that manually.
+>
+> I would probably have to see the end result to judge whether removing
+> the "paused" bool makes things look more complicated or not.
 
-On 25-09-12, Peng Fan wrote:
-> Hi Marco,
-> 
-> On Thu, Sep 11, 2025 at 11:56:43PM +0200, Marco Felsch wrote:
-> >Starting with i.MX8M* devices there are multiple spba-busses so we can't
-> >just search the whole DT for the first spba-bus match and take it.
-> >Instead we need to check for each device to which bus it belongs and
-> >setup the spba_{start,end}_addr accordingly per sdma_channel.
-> 
-> Could you please explain a bit why it is per sdma_channel, not per sdma_engine?
+Agreed, it is a little difficult to consider all the cases ahead of
+time. What is clear to me though is that [paused] can be inferred from
+[count + enabled], and conversely [enabled] from [count + paused]. As a
+result I really wouldn't store both paused and enabled in task_struct -
+duplicating information is how you create inconsistent states.
 
-Well first, the sdma-slave/user defines which SPBA bus is used.
-Furthermore not all users have to be part of the same SPBA bus or be
-part of a SPBA bus at all. E.g. the i.mx8mm.dtsi sdma1 engine is used
-by uart4 (not part of a SPBA bus) and uart1/2/3 (part of the
-spba-bus@30800000).
+We can very easily introduce helpers to get the enabled/paused status
+regardless of how they're stored. Since "enabled" is what we need to
+know in most cases (arch checking the status), I would rather store
+"enabled" than "paused". But indeed, let's see how it turns out in practice.
 
-I know that the use-case: "The SDMA engine can serve for multiple users
-which are not part of the same SPBA bus" is not yet used but having the
-code in place makes the driver more future proof.
+>
+>>> }
+>>>
+>>> c) With that config, common-code lazy_mmu_*() functions implement the
+>>> updating of the lazy_mmu_state in task_struct and call into arch code
+>>> on the transition from 0->1, 1->0 etc.
+>>
+>> Indeed, this is how I thought about it. There is actually quite a lot
+>> that can be moved to the generic functions:
+>> * Updating lazy_mmu_state
+>> * Sanity checks on lazy_mmu_state (e.g. underflow/overflow)
+>> * Bailing out if in_interrupt() (not done consistently across arch's at
+>> the moment)
+>>
+>>>
+>>> Maybe that can be done through exiting
+>>> arch_enter_lazy_mmu_mode()/arch_leave_lazy_mmu_mode() callbacks, maybe
+>>> we need more. I feel like
+>>> we might be able to implement that through the existing helpers.
+>>
+>> We might want to rename them to align with the new generic helpers, but
+>> yes otherwise the principle should remain unchanged.
+>>
+>> In fact, we will also need to revive arch_flush_lazy_mmu_mode().
+>
+> That's okay if it's all hidden behaind a sane core API.
+>
+>> Indeed,
+>> in the nested situation, we need the following arch calls:
+>>
+>> enter() -> arch_enter()
+>>      enter() -> [nothing]
+>>      leave() -> arch_flush()
+>> leave() -> arch_leave()
+>>
+>> leave() must always flush whatever arch state was batched, as may be
+>> expected by the caller.
+>>
+>> How does all that sound?
+>
+> I am no expert on the "always flush when leaving", but it sounds
+> reasonable to me.
 
-Therefore I think having the SPBA addresses per user is correct.
+This is a core expectation for lazy_mmu: when leave() is called, any
+batched state is flushed. The fact it currently happens unconditionally
+when calling leave() is in fact what stops nesting from exploding on
+arm64 with DEBUG_PAGEALLOC [1].
 
-Regards,
-  Marco
+[1] https://lore.kernel.org/all/aEhKSq0zVaUJkomX@arm.com/
 
-> As I understand, all the channels belong to a sdma engine should use same
-> spba_{start,end}_addr.
-> 
-> Thanks,
-> Peng
-> 
+>
+> Which arch operations would you call from
+>
+> pause()
+> continue()
+
+I also wondered about that. I think the safest is to make them
+respectively arch_leave() and arch_enter() - the flushing entailed by
+arch_leave() might not be required, but it is safer. Additionally,
+powerpc/sparc disable preemption while in lazy_mmu, so it seems like a
+good idea to re-enable it while paused (by calling arch_leave()).
+
+- Kevin
 
