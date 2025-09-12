@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D88CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 07:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4027ACAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 07:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCCG/Pv0GCvODxzoO7x3Jnmfkfx8ryzX1LaxkzN5nYA=; b=CUiHvI6YSCXWPdbO9vlC4mu0OI
-	gJgbD2ckZGWDuf8ifTlccE5LUe22OYigHzkhv8CgaERrh4gMQxGHUH/ySRN/VgrNSvIfW8v/jZgUh
-	ET796xMLheRauR5Ta2QVy0Yz9rv9IWSABjgybX4Noehtj4zn7wRNQtKo7oBIWbSpX2zVVTHmQyg3f
-	a5SmFlKgVQuJ2TZh3WsbogID/HcrGAtHpiugDaU9CZwHVFBR/vtzWtE2PxsArdbmvqegn1OCdsjXj
-	Iq5XUaLRXbzM4f0BtGZcIUfDE1oxPGmg3og9UP/uvZOkztn4wMHGDU8DZn0hClh0qWxhXDUykJodB
-	jT9j4aWQ==;
+	bh=Zk8i9QPgLxhtq8+Lrl2+PM6ORDL/OzegYs6hfW2Kcgo=; b=ZDlI8Vb2LzVnI5Y/VNSHGyDtHH
+	N5l8aNbgJ8PXL6/pBl5ePqzSIzWn5CO8ewXNmrWPDBATaGsvbgsPY7rBG3exUxTfmnPoiuHkiTLLE
+	COwIQjMvT1moujA12U5Q3ulMw1kKDt2LgAYG19wmoNxZdMBPpuQgV97Z+bTcOz1tvECX69GdGKSvL
+	mG1J9ULj3uzM5hdQm+T7hk+kP7q5XLLJrT9IpRIYRJ9Gl9sI9sqdKbbJD5xwfJJeSBCY6Zpq9wgSv
+	FYENfSQCxUNdCVkvI+Kww1j9xYeC6wIye65yIzKB8Pu6CX+6mC1TiSmtTWRConSvUyG+f7RKAss1k
+	8UIHQ1SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwxpg-00000007XY1-0YTD;
-	Fri, 12 Sep 2025 07:04:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uwxtQ-00000007YtM-25ju;
+	Fri, 12 Sep 2025 07:08:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwxpe-00000007XXE-44u7
+	id 1uwxtO-00000007YsU-28gc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 07:04:31 +0000
+	Fri, 12 Sep 2025 07:08:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63372601AE;
-	Fri, 12 Sep 2025 07:04:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85DD8C4CEF4;
-	Fri, 12 Sep 2025 07:04:29 +0000 (UTC)
-Date: Fri, 12 Sep 2025 09:04:27 +0200
+	by sea.source.kernel.org (Postfix) with ESMTP id B7ADE43906;
+	Fri, 12 Sep 2025 07:08:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12BAAC4CEF4;
+	Fri, 12 Sep 2025 07:08:20 +0000 (UTC)
+Date: Fri, 12 Sep 2025 09:08:18 +0200
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Luo Jie <quic_luoj@quicinc.com>
 Cc: Bjorn Andersson <andersson@kernel.org>, 
@@ -47,15 +47,18 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
 	devicetree@vger.kernel.org, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com, quic_leiwei@quicinc.com, 
 	quic_pavir@quicinc.com, quic_suruchia@quicinc.com
-Subject: Re: [PATCH v5 02/10] dt-bindings: clock: Add required
- "interconnect-cells" property
-Message-ID: <20250912-nocturnal-horse-of-acumen-5b2cbd@kuoka>
+Subject: Re: [PATCH v5 07/10] dt-bindings: clock: qcom: Add NSS clock
+ controller for IPQ5424 SoC
+Message-ID: <20250912-chowchow-of-famous-art-8fcd7e@kuoka>
 References: <20250909-qcom_ipq5424_nsscc-v5-0-332c49a8512b@quicinc.com>
- <20250909-qcom_ipq5424_nsscc-v5-2-332c49a8512b@quicinc.com>
+ <20250909-qcom_ipq5424_nsscc-v5-7-332c49a8512b@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250909-qcom_ipq5424_nsscc-v5-2-332c49a8512b@quicinc.com>
+In-Reply-To: <20250909-qcom_ipq5424_nsscc-v5-7-332c49a8512b@quicinc.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250912_000822_569269_DB8089B5 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,24 +73,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 09:39:11PM +0800, Luo Jie wrote:
-> The Networking Subsystem (NSS) clock controller acts as both a clock
-> provider and an interconnect provider. The #interconnect-cells property
-> is mandatory in the Device Tree Source (DTS) to ensure that client
-> drivers, such as the PPE driver, can correctly acquire ICC clocks from
-> the NSS ICC provider.
+On Tue, Sep 09, 2025 at 09:39:16PM +0800, Luo Jie wrote:
+> NSS clock controller provides the clocks and resets to the networking
+> blocks such as PPE (Packet Process Engine) and UNIPHY (PCS) on IPQ5424
+> devices.
 > 
-> Although this property is already present in the NSS CC node of the DTS
-> for CMN PLL for IPQ9574 SoC which is currently supported, it was previously
-> omitted from the list of required properties in the bindings documentation.
-> Adding this as a required property is not expected to break the ABI for
-> currently supported SoC.
+> Add support for the compatible string "qcom,ipq5424-nsscc" based on the
+> existing IPQ9574 NSS clock controller Device Tree binding. Additionally,
+> update the clock names for PPE and NSS for newer SoC additions like
+> IPQ5424 to use generic and reusable identifiers "nss" and "ppe" without
+> the clock rate suffix.
 > 
-> Marking #interconnect-cells as required to comply with Device Tree (DT)
-> binding requirements for interconnect providers.
+> Also add master/slave ids for IPQ5424 networking interfaces, which is
+> used by nss-ipq5424 driver for providing interconnect services using
+> icc-clk framework.
+> 
+> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+> ---
 
-DT bindings do not require interconnect-cells, so that's not a correct
-reason. Drop them from required properties.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
