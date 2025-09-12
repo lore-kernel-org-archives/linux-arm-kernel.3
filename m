@@ -4,59 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FB2CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7A1CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nkPkccxvn+SZFMxFwctOw/AZfYSxK3sB7eBQ6vWZtlg=; b=jz07NGXwc0qYIxNOGrde2ZOCNc
-	mO2I8dEusjpQZSSKCff6hrL8dKrViiuEbRkHVQiipLFyuAX3uh2Ms1tN0U+47BScFEVpfZ0cM/39X
-	auooD78RU1XX3sYvROTL165DkwJEe0Ja6sdDIhlziacnfCYKlCsIA5zIx2Z6cM/UyjtOCakxnAcfR
-	tdYuc0/v1xm1PCnOPfSr7WY05U9Kqe3njL6OVKazM0YjHTPYFiHZyBXqHs1lUh5ES0kPc4v/nQiTu
-	M3K3G1mDm0xNflb8ULHkYjx3z9mPJ3HeljgOa55J59WACmeT+fy9a0rZ9XURX4H6jTRq0jxIwRbYA
-	u7owcndA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8AC7uKL9IcHeorP14y+4WuK1EWrv6DoaCGXHai1hcG4=; b=XDejKgnbnX2GwXAlPnWvLP2F7D
+	5dQzzPdXYgck+8tVmpDZrTW7eoliT7Z+fKTyd+soKVEuGw5XkLmm6YzkM2eQMBqkfJlIHYdy5BSiR
+	Z7EskgQ/z9oWRFYE0xD9LuZBlfAZ1PgXzhkKJJXxib/1VoFzbYPu4Sfr7TZzrCjUy/g8zcHw06oQ2
+	wc+p4bZB0Doc8IhykPNr3vIeE4XlowFvNxprnX1QfskG3LHCoPvKYVtEsPW4ETTGyPTdhw3BE29E6
+	DByYnSG97Xz0QJUjFWCepQQyFXBO9CpLBMgjt5QC3l5DWGBQE+W9IOOQk5/dZZ257UF3yhFZRmkKt
+	2jKP0YzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5V2-0000000ABJb-3QAw;
-	Fri, 12 Sep 2025 15:15:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ux5YN-0000000ACGs-2hIW;
+	Fri, 12 Sep 2025 15:19:11 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5V0-0000000ABIX-3MYM;
-	Fri, 12 Sep 2025 15:15:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1CAAC4516A;
-	Fri, 12 Sep 2025 15:15:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CA67C4CEF4;
-	Fri, 12 Sep 2025 15:15:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757690142;
-	bh=lpXtNXUnkeD2hxRlppy/xJK2BmpxX53cp8KUKDOIVGw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=J+p7L5OcNJ/gFFxeT3+GwrXmQZpky2LLx7teJP+yC+sZHFDojv3xFkTMVFtVPdBp/
-	 bSIytXfPwYQiMX/BtFRFUSv3uT+8fDYic6pVCrb51RLucKitUwlzshqUtayqNIgakS
-	 nCgVgCHqfEWYSq2E6xptcc7AjSxDjB5LURPv0WiowLZpr7lNpnsJOIPM0CuRP7J+J2
-	 6llMHn8rzKKo9v72t6vcl5OkBc2kycdtNY0udpodlZHAG7G7Jz9ZTssa3OJIVXc+0p
-	 cR682EP6sMEmNMSj9KHu2JlJO0dC/v7x7t14+nWhh6nmuffnYcZtwoLLY/v69c6n7P
-	 D6XRCnDSQinrg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: nbd@nbd.name
-Cc: lorenzo@kernel.org,
-	linux-wireless@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH mt76] wifi: mt76: mt7996: Do not use #elifdef directive
-Date: Fri, 12 Sep 2025 17:15:34 +0200
-Message-ID: <8215423cad3d3a35e016b7d2b84d5036c3a0d092.1757690020.git.lorenzo@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	id 1ux5YK-0000000ACEj-3EaY
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Sep 2025 15:19:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UeN1zZrIG4FTzvfW0wsAdFz07+2vne5DD0lJWZmEma1gSHziKsa0+ypTXblq0YZneNQ3dZFCA9zq12AaxJalEqOML88qpZhuqqDreo1e0WHNeJXIb8nHpJY+irPpxK2BYji299CNtrTQ7wnNtow8XJSMDjKXygW1XjPRrrBYIcHxAV38xTaIc2IMqhjcHHM0E1CkrxFgiqKGfLMDrZ+PonDJe7uPsSF9jwA90LhXDUhyOo6Xn+2BNrRPRB/Gs1nSiMKICF7M3ZuLa3vBNpgJuD1wMx3SBzC6K431Ov0oxyh7M+h4ocakpuxJS62KjYKvTn91ZTn3ixJQbysXAE/Byw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8AC7uKL9IcHeorP14y+4WuK1EWrv6DoaCGXHai1hcG4=;
+ b=BNOW19Hz6lzFd3pkoQhmezV7vFAW8jjwuKzd6IDHsAdoP6j4ZbB4Fz0Nv6qLMLyUcpSYi0ebdrQr+a0iOESk4wBinCbdM2rJSfyItdK5X7+tjSX5ip5HMCXgCTldDIjfQPGThOA1FIK5e3DvQPYW3x3xU+ck5yT3/81Bi60Fsx971V+rKCkU6LDAAEc49C5P+4bnDvofuB/iBrzednDOzIoIIfJWskfLMSUP7UxCGsMjgIXLkWQYiZOKRCWpPU4IM7WnkoYZnAF7CTta6voCEE+PR3U93Y0nWuQFB1V8JebGm8OTyuM/sz+4xqqmHwmWcQseWmDzzkINokpfHn3O9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8AC7uKL9IcHeorP14y+4WuK1EWrv6DoaCGXHai1hcG4=;
+ b=Iagq9pLizkz0Jy7NmL8FnlAu+4llm/YsJwIuBo9r5BlzuzDiQAhmLikgpueOq45DW9wljCXbtN1lse82ZVV5cCN7BUsGc/FslOxq4HTAdbTX0m3HBykGTBkQjw8rII8GySNubrdkUCj+ggwW6alhvxVCrL4btSRO1cfS1Dp7FN/6rmHd1gWKOxf1lRCXI7LAbPqds+qtuqIPi+t6qCXfFuhUUQhFSxV7kfc11KysZa89Fto9ImXxuBSjb3BgXPe6E7mgnXtEFBvZ9IQyl/tGFYMnQcnbvTrWXdtxXhbXQtiH+NyDEvxDn1J9k82yowPGRsq+lkuxV8rOpFWEpXZ2wQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by DU2PR04MB8741.eurprd04.prod.outlook.com (2603:10a6:10:2df::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.17; Fri, 12 Sep
+ 2025 15:19:02 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9115.015; Fri, 12 Sep 2025
+ 15:19:02 +0000
+Date: Fri, 12 Sep 2025 11:18:54 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 02/10] dmaengine: imx-sdma: fix spba-bus handling for
+ i.MX8M
+Message-ID: <aMQ53pZQD4tj+GvN@lizhi-Precision-Tower-5810>
+References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
+ <20250911-v6-16-topic-sdma-v2-2-d315f56343b5@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250911-v6-16-topic-sdma-v2-2-d315f56343b5@pengutronix.de>
+X-ClientProxiedBy: BYAPR05CA0044.namprd05.prod.outlook.com
+ (2603:10b6:a03:74::21) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DU2PR04MB8741:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7b045dca-cd4f-44b9-ab29-08ddf20fb49e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|366016|376014|7416014|19092799006|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WyND5XyazZutq9i75F8I58GwgdIUtj/OPRSsXx10V7en4oVbyVsogeudwzH0?=
+ =?us-ascii?Q?oLSeME+7h6xLw00D7eKvV1pnLe5bMPuQXRBVdPfbLvTOXn/N0TmYoHQEuDWQ?=
+ =?us-ascii?Q?uwXLfHnfdaySF4THYZ3pehdNaPxy98CnXkYY+oNUrRRY2woe+LpO8tHxqngg?=
+ =?us-ascii?Q?k8FPojMJBZg6rJJ0DgeXbp9gUm+46vweQ4nOvuMN8VtXWhA14SfLPk12s+8f?=
+ =?us-ascii?Q?c+WjHkgSK5BMapWA8FSxWDsZ79hVtiIKqe1njU0gNNQO9nhjzyCPa1wz75ho?=
+ =?us-ascii?Q?BzHZYV7lcAzr53sWaWnhUGKRO0twLYJiSC6KTHITfCBgKELm26ZYVViCmrLb?=
+ =?us-ascii?Q?SLhiP8CtSvkYN9rBMgZZb1PaOqC5R8VduOZFOcDSCTwEx5Oourm9rFBA1ZSh?=
+ =?us-ascii?Q?u59Vn9SoTbSNSAh4TpXeiflLpoBivEarW+yTJiwp/Iok3VOpSQBwoFKuEj1l?=
+ =?us-ascii?Q?eVoRSil9BJUsiAhHab8DcJpPPI2IgmFEzGOdA3aAQsmiy7nzVh4YcWPIHV6R?=
+ =?us-ascii?Q?geyd6BV/qQPbEXAs4f828g0YfiMPuu556Fc16IU45259h99AiOjzfJdMtmFe?=
+ =?us-ascii?Q?K1gkq3TMk5Fk0bWNZjZ5NsQVmfBxowhXxqXJM8rQ2pNOFAlMrkTtLlLY9EYd?=
+ =?us-ascii?Q?bSbaWnNmtAU5O/PanMYegh2RsSxLFybC/S0gcGOavuuHxpaDDvnS62hZ72Tq?=
+ =?us-ascii?Q?trrFSpdCfrKb54m5OcZ1E82V9yVcltIQ67M5T/xUNbChfD/Qd/6n56MIy3br?=
+ =?us-ascii?Q?HmAVBrDNU3AzgQHIGjLdXJ1Gvwnx1nsOs+edwxGVSipDdHw0gq0gECyM0wMk?=
+ =?us-ascii?Q?7Uowsq6eCFsImBLby1YcYb7IdMNkPRJq7ksQxy+wlf1izkVA8sjtizlW+vhc?=
+ =?us-ascii?Q?pK02COEU3dFRorcgzYOYDpOWFdIjPI1JqU/S0qsuZx67qTccwQBA+xyjO4zc?=
+ =?us-ascii?Q?px43OaiqQcFI+UpPmpVMKbNGs0pb0Z2ia6iwU7EfWgIP7hUpmD9FFJ2fcozu?=
+ =?us-ascii?Q?xph1eyKXNEdKTBMgiflQFI1CT3I3qLbgcHWBWxTDQZljamZMr79i1O809oPe?=
+ =?us-ascii?Q?JwF+e6dw+/GIcGAoEf6dCDzrfOqmLX8lYwHRcMvW4a1dYJOIUBv3I8lAbmWv?=
+ =?us-ascii?Q?okH+D6bLjrMyFMa+TexVXQIMfCnFDC13dtnK41160VkOHa1f2byfV/L+xgUX?=
+ =?us-ascii?Q?lO6CDbQOqJrGNtJy2b27nLx9b9kMZGXzJqp/vq64XJ/7MOHr6f+W/7CFlRKq?=
+ =?us-ascii?Q?Y12siWxxYO5KyzEECuPkveTpR7/eY1s8fHNJpL/lZgbsAlgCEOH5+gVWgP0r?=
+ =?us-ascii?Q?sAEa4Hqq6muekdj0VwKZJdaJVoAaVlT2gWrBOlVYyG0d8eqI9Uu3HEQ/07hA?=
+ =?us-ascii?Q?926j6yIkeAdgOmAKm45gi66AxZU6YK52rvrCX2hmImWQk+iq5IeuYPLm5AnM?=
+ =?us-ascii?Q?UgGLoNls1SqhQyJA8b9UOmIMON0bajiLBbyZ1WMRyoOTnWh9PP+bSQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(366016)(376014)(7416014)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F5DR2LeDDjLxuUC7WnxP16L0/qn3H8WKF/LFnFmaqY6TaOA0EJsFcgl2TIVP?=
+ =?us-ascii?Q?5oGR60bASZMv7W4FDrttrJfz6ZcIzcijTUmqMJY2NFh5nzoUUGiAVF3Z4ITg?=
+ =?us-ascii?Q?GLIWuSLQoLMkq0YfqLX+68HCSsMCEWoB52NN6CFCyIKPtrPDZzdq9QMWC7AE?=
+ =?us-ascii?Q?JPUYgzPHTCRk9orpmqexT1sa2huyd+mcSIAegFsosU97yOaIX1jRXVczs63n?=
+ =?us-ascii?Q?QT1BocaMPxcZMiZg2gdHIN/UDhnAEShfLvTc7iruTPwWiTi1fQIannm7ms5S?=
+ =?us-ascii?Q?xlQfB+h/yjYujnd2SdUODxgi6ROwrEMuZ4eVUDxrArF38RvByl+jETxYbyaf?=
+ =?us-ascii?Q?8W8uMSXrUc7XgVODpHxAwIdNfhWCLMlgA7FvgoCMUs/Kclg4IdVkYcIKqY/s?=
+ =?us-ascii?Q?Q40MjQ+GDnMJw0x6JK4fxncGRHTyfz16fVHmA5HPrK8DQNvsrOB5BOpLFXJ2?=
+ =?us-ascii?Q?UKsmp9Hmj1AAGF/k/faihDaqiCYj/1C2OhF1FUZTQ0AHlQp5sLFB7UdFd827?=
+ =?us-ascii?Q?PyOw2jcmJ8iNVRhFZnncGoIuCUKj8Nm7byiJt/+pEQzdFJ8RctQ9cZvAVFq2?=
+ =?us-ascii?Q?Rj5U4U6r6tVBgZZcVwYgCHINYYyD+mB9Hw1mJu1xCq71DztLYBENoZRowb2U?=
+ =?us-ascii?Q?6jCmr5r8lmgTqCY/DG2xlNm6Ma/7XhS9U/1ogyCvGQ5HmpzYe2pVVpypdq0h?=
+ =?us-ascii?Q?TNBru6XQXixOAMuhS7e/30iwPQhXvshN1XksQTNzmOiZV0H4qcF/r3WQ6tyX?=
+ =?us-ascii?Q?we0xKEo/SvTnA24/sEbEC30VTtLGlpZ7K4vK4TXIy4xCpNGPA/JbuhbqvIDN?=
+ =?us-ascii?Q?wrSvVsEqHUDnUMoptYjnbWbtNgRNkMNZaoBMf+ksKgzyDrjPGRYhvHD0MVDm?=
+ =?us-ascii?Q?jfpvlpIKZYhoY2EnEE1SXUIA3eBJ+Yn7ksvO+AA5w1ILIxRa2Rb8dDgASHMX?=
+ =?us-ascii?Q?93apHXm7esbF/9LwyLLj/Snj0H788U4TS2AB+M1SG0Ep/y9CIp4WWYXcn2Lw?=
+ =?us-ascii?Q?+Qzq03HfB/W/czsCjVGi1eyW2Ro91WOQ9hTvnCksm982d54cRlPJnvtNVm2I?=
+ =?us-ascii?Q?fvro6E1cBIcd9vfZRvQfnaYq62nuXIU4hvb74Tdoe0X+Cx+T3dC7Ja0Bx3M+?=
+ =?us-ascii?Q?GThetBTgxwBgVf8vZEsFVr6ML2rrCM0YGLe+zz1By+cibxAS1Pa8qwUSRkQ9?=
+ =?us-ascii?Q?kyjQVispAJzCJcpCrYXX5vhFjmGYdNMvbxWtspaF6Aki+2VTwr252fIl2nya?=
+ =?us-ascii?Q?D1LIcWlZ0crqng2lnKnzltjdyM9UjrxUMtF2yu5Pa+00LUorlNDaIW4RlN3Y?=
+ =?us-ascii?Q?x98CnkNazLKJs4gBF4+mg4/kHcquN6oRplCuh3JQfQRBHUFmz5HK/I3hR50J?=
+ =?us-ascii?Q?PyToj77PxFgEkv86LMhCPdBKUir1oJymS421l5SSOG6YZvL/gY0jmVdrDwbA?=
+ =?us-ascii?Q?NCwNhvL008BflfJDSlvRQU8qBD7ze4QY5AT1bwr2DapB5xPU4xhsg6S+3CFO?=
+ =?us-ascii?Q?3b+yZMB5ymxbqsSzASUXJfdTrFoaMP/7PKgOhVtjvW4CdDdYrlfwoQYToT3V?=
+ =?us-ascii?Q?BoFqwGdz74NQYOFytfwwSkJ4INOHISbvAeB7nzKq?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b045dca-cd4f-44b9-ab29-08ddf20fb49e
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 15:19:02.6210
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Rxjhx3i7CXuAxzDbo+IfCZJdXEKpGt0CGvEtiWcLqhV3cNp4ub+LCJjBNlfiwnLTTdnCS7zyROEt3vlQD/8CDA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8741
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_081542_857143_CE2D6336 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_081908_963678_7A2679FA 
+X-CRM114-Status: GOOD (  30.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,28 +162,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do not use #elifdef directive since it is a C23 extension but rely
-on #elif defined() instead.
+On Thu, Sep 11, 2025 at 11:56:43PM +0200, Marco Felsch wrote:
+> Starting with i.MX8M* devices there are multiple spba-busses so we can't
+> just search the whole DT for the first spba-bus match and take it.
+> Instead we need to check for each device to which bus it belongs and
+> setup the spba_{start,end}_addr accordingly per sdma_channel.
+>
+> While on it, don't ignore errors from of_address_to_resource() if they
+> are valid.
+>
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I think the below method should be better.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index be8bf03aeb4b..fae9c4e07ab9 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -2258,7 +2258,7 @@ const struct ieee80211_ops mt7996_ops = {
- 	.net_fill_forward_path = mt7996_net_fill_forward_path,
- #ifdef CONFIG_NET_MEDIATEK_SOC_WED
- 	.net_setup_tc = mt76_wed_net_setup_tc,
--#elifdef CONFIG_MT7996_NPU
-+#elif defined(CONFIG_MT7996_NPU)
- 	.net_setup_tc = mt76_npu_net_setup_tc,
- #endif
- 	.change_vif_links = mt7996_change_vif_links,
--- 
-2.51.0
+of_translate_address(per_address) == OF_BAD_ADDR to check if belong spba-bus
 
+aips3: bus@30800000 {
+	...
+        ranges = <0x30800000 0x30800000 0x400000>,
+                 <0x8000000 0x8000000 0x10000000>;
+
+                        spba1: spba-bus@30800000 {
+                                compatible = "fsl,spba-bus", "simple-bus";
+                                #address-cells = <1>;
+                                #size-cells = <1>;
+                                reg = <0x30800000 0x100000>;
+                                ranges;
+
+				...
+				sdma1:
+
+};
+
+of_translate_address() will 1:1 map at spba-bus@30800000 spba1.
+then
+reach ranges = <0x30800000 0x30800000 0x400000> of aips3
+
+if per_address is not in this range, it should return OF_BAD_ADDR. So
+needn't parse reg of bus@30800000 at all.
+
+Frank
+
+> ---
+>  drivers/dma/imx-sdma.c | 58 ++++++++++++++++++++++++++++++++++----------------
+>  1 file changed, 40 insertions(+), 18 deletions(-)
+>
+> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> index 3ecb917214b1268b148a29df697b780bc462afa4..56daaeb7df03986850c9c74273d0816700581dc0 100644
+> --- a/drivers/dma/imx-sdma.c
+> +++ b/drivers/dma/imx-sdma.c
+> @@ -429,6 +429,8 @@ struct sdma_desc {
+>   * @event_mask:		event mask used in p_2_p script
+>   * @watermark_level:	value for gReg[7], some script will extend it from
+>   *			basic watermark such as p_2_p
+> + * @spba_start_addr:	SDMA controller SPBA bus start address
+> + * @spba_end_addr:	SDMA controller SPBA bus end address
+>   * @shp_addr:		value for gReg[6]
+>   * @per_addr:		value for gReg[2]
+>   * @status:		status of dma channel
+> @@ -461,6 +463,8 @@ struct sdma_channel {
+>  	dma_addr_t			per_address, per_address2;
+>  	unsigned long			event_mask[2];
+>  	unsigned long			watermark_level;
+> +	u32				spba_start_addr;
+> +	u32				spba_end_addr;
+>  	u32				shp_addr, per_addr;
+>  	enum dma_status			status;
+>  	struct imx_dma_data		data;
+> @@ -534,8 +538,6 @@ struct sdma_engine {
+>  	u32				script_number;
+>  	struct sdma_script_start_addrs	*script_addrs;
+>  	const struct sdma_driver_data	*drvdata;
+> -	u32				spba_start_addr;
+> -	u32				spba_end_addr;
+>  	unsigned int			irq;
+>  	dma_addr_t			bd0_phys;
+>  	struct sdma_buffer_descriptor	*bd0;
+> @@ -1236,8 +1238,6 @@ static void sdma_channel_synchronize(struct dma_chan *chan)
+>
+>  static void sdma_set_watermarklevel_for_p2p(struct sdma_channel *sdmac)
+>  {
+> -	struct sdma_engine *sdma = sdmac->sdma;
+> -
+>  	int lwml = sdmac->watermark_level & SDMA_WATERMARK_LEVEL_LWML;
+>  	int hwml = (sdmac->watermark_level & SDMA_WATERMARK_LEVEL_HWML) >> 16;
+>
+> @@ -1263,12 +1263,12 @@ static void sdma_set_watermarklevel_for_p2p(struct sdma_channel *sdmac)
+>  		swap(sdmac->event_mask[0], sdmac->event_mask[1]);
+>  	}
+>
+> -	if (sdmac->per_address2 >= sdma->spba_start_addr &&
+> -			sdmac->per_address2 <= sdma->spba_end_addr)
+> +	if (sdmac->per_address2 >= sdmac->spba_start_addr &&
+> +			sdmac->per_address2 <= sdmac->spba_end_addr)
+>  		sdmac->watermark_level |= SDMA_WATERMARK_LEVEL_SP;
+>
+> -	if (sdmac->per_address >= sdma->spba_start_addr &&
+> -			sdmac->per_address <= sdma->spba_end_addr)
+> +	if (sdmac->per_address >= sdmac->spba_start_addr &&
+> +			sdmac->per_address <= sdmac->spba_end_addr)
+>  		sdmac->watermark_level |= SDMA_WATERMARK_LEVEL_DP;
+>
+>  	sdmac->watermark_level |= SDMA_WATERMARK_LEVEL_CONT;
+> @@ -1447,6 +1447,31 @@ static void sdma_desc_free(struct virt_dma_desc *vd)
+>  	kfree(desc);
+>  }
+>
+> +static int sdma_config_spba_slave(struct dma_chan *chan)
+> +{
+> +	struct sdma_channel *sdmac = to_sdma_chan(chan);
+> +	struct device_node *spba_bus;
+> +	struct resource spba_res;
+> +	int ret;
+> +
+> +	spba_bus = of_get_parent(chan->slave->of_node);
+> +	/* Device doesn't belong to the spba-bus */
+> +	if (!of_device_is_compatible(spba_bus, "fsl,spba-bus"))
+> +		return 0;
+> +
+> +	ret = of_address_to_resource(spba_bus, 0, &spba_res);
+> +	of_node_put(spba_bus);
+> +	if (ret) {
+> +		dev_err(sdmac->sdma->dev, "Failed to get spba-bus resources\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	sdmac->spba_start_addr = spba_res.start;
+> +	sdmac->spba_end_addr = spba_res.end;
+> +
+> +	return 0;
+> +}
+> +
+>  static int sdma_alloc_chan_resources(struct dma_chan *chan)
+>  {
+>  	struct sdma_channel *sdmac = to_sdma_chan(chan);
+> @@ -1527,6 +1552,8 @@ static void sdma_free_chan_resources(struct dma_chan *chan)
+>
+>  	sdmac->event_id0 = 0;
+>  	sdmac->event_id1 = 0;
+> +	sdmac->spba_start_addr = 0;
+> +	sdmac->spba_end_addr = 0;
+>
+>  	sdma_set_channel_priority(sdmac, 0);
+>
+> @@ -1837,6 +1864,7 @@ static int sdma_config(struct dma_chan *chan,
+>  {
+>  	struct sdma_channel *sdmac = to_sdma_chan(chan);
+>  	struct sdma_engine *sdma = sdmac->sdma;
+> +	int ret;
+>
+>  	memcpy(&sdmac->slave_config, dmaengine_cfg, sizeof(*dmaengine_cfg));
+>
+> @@ -1867,6 +1895,10 @@ static int sdma_config(struct dma_chan *chan,
+>  		sdma_event_enable(sdmac, sdmac->event_id1);
+>  	}
+>
+> +	ret = sdma_config_spba_slave(chan);
+> +	if (ret)
+> +		return ret;
+> +
+>  	return 0;
+>  }
+>
+> @@ -2235,11 +2267,9 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
+>  static int sdma_probe(struct platform_device *pdev)
+>  {
+>  	struct device_node *np = pdev->dev.of_node;
+> -	struct device_node *spba_bus;
+>  	const char *fw_name;
+>  	int ret;
+>  	int irq;
+> -	struct resource spba_res;
+>  	int i;
+>  	struct sdma_engine *sdma;
+>  	s32 *saddr_arr;
+> @@ -2375,14 +2405,6 @@ static int sdma_probe(struct platform_device *pdev)
+>  			dev_err(&pdev->dev, "failed to register controller\n");
+>  			goto err_register;
+>  		}
+> -
+> -		spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
+> -		ret = of_address_to_resource(spba_bus, 0, &spba_res);
+> -		if (!ret) {
+> -			sdma->spba_start_addr = spba_res.start;
+> -			sdma->spba_end_addr = spba_res.end;
+> -		}
+> -		of_node_put(spba_bus);
+>  	}
+>
+>  	/*
+>
+> --
+> 2.47.3
+>
 
