@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F81CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A59CACAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6MSZWnj1jgR4thBvdLu3JU3z1ibbPCoj24oKf6RqCjE=; b=C8jau4SezsnCzJxzfiCZMkduDT
-	EQRGmgt+pPTwh0A3bIt11hEf2ZF6K6zaLW/aBb/Qs/5rzUgoP9Ohr1DCdsrpkG4vSUWBy6PGZaHsv
-	WEy10/3yxywRWBBxhTyEECddG0Is1HwbGjDF9stUrINWM0yALAqen9wch68T2jRNajNEFPZiQlwDf
-	P+SDKiFRW435qrUcnE/xFD/jgqVFquHeS4tbYiXYRkTr+RGTdZ2IAiIZfY9Z0HEpQhHWm/AUIr8hR
-	gxbfA2kyv54CmH3mPP9EBIf+d0RSi30snkDWBgNfo0WSJm6t8on8MiBH2SjGeeVRD0mjOz8sh4+vg
-	qyrZmeZw==;
+	bh=bJ3zeHjp9c6r+G/TeEWxmYQzWur7IwFq3GAOFT0Gw+A=; b=g7yMswjXYwchVP5SC+d8/0lE/s
+	lw+nRLkm8XePqf7A+wqhkLsVhKEy9BtGvg6hHXz8IscQGXsbNXZGSzW59CFnQPJYEHe53TVrzlB5c
+	P6A7tOjsJmYfAqpUAU1hb404hrHrpARL63eCcmWfciTCzqpwOelFQf98Z1B7aRUhFwekhXcmOQmOx
+	LJdvUzUVgBcjlZIBd2PrQ4zKsOjR7p47I+hvxuZ4AVNF64RkroB5M8PUONMaF7WBWs2EgjVrGsdAP
+	6hnzYlgptYqhmN8AfV+t9dMRAOKPoBLPC1utYAtJiyFrsQliPnidI0JhfHnIdYZwJtWFGlELpZeH8
+	aRG3GkaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2y7-00000009HJj-1ZEO;
-	Fri, 12 Sep 2025 12:33:35 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1ux32g-00000009Iqj-09Nc;
+	Fri, 12 Sep 2025 12:38:18 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2y5-00000009HI8-36dw;
-	Fri, 12 Sep 2025 12:33:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757680393; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=d9lx73cJ+3kbqYZ8pdZisBn1TYdH/TuEI9qHtLZVc0HiotwsWQwMUsygScWa/QCSnQDxrDWQdgrowkEpvxEVaPRwtGqoGt90P7eFUTt0rBxR43B8tFk0DCP02yq0s7o3S/xFBsV5yAQF0Cvj0KV6LCtV3pp487ju/iQaIqFu9uw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757680393; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=6MSZWnj1jgR4thBvdLu3JU3z1ibbPCoj24oKf6RqCjE=; 
-	b=CZLu6l3WO3PVuVjT/emEIylG9WJMo1+3F5CVysgk2x0zUx4eg4yvgKaZ3Szj1/W1vw2HUB92pdwaWEAQh70huS3eG3J7Gtade47mBZhzAHyZhBZ9neuWrOXSd1E+y7GEy4J+eNf+FJ4nXlF0kizicGGXFdegPR8vkp8z83ePE9o=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757680392;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=6MSZWnj1jgR4thBvdLu3JU3z1ibbPCoj24oKf6RqCjE=;
-	b=boIpsGXg6Oa36fHp704E35jAK+/U3XDz+CH4pbWZVUmBTzTFmmki+CCbcz/VW4Go
-	/n3BtmkKJ5ZK9idA/tLZt43qcGWqzTZNVdpT6bplhRwhDf8RfCLubg5clkZEM7d8ie7
-	eMXFLXVoWMeae2oo/2RUAV7YmGRWqFr1y97mOI+g=
-Received: by mx.zohomail.com with SMTPS id 1757680390786230.58638870729078;
-	Fri, 12 Sep 2025 05:33:10 -0700 (PDT)
-Message-ID: <f009ff62-abbe-4305-91ca-9cc762ca4fb1@collabora.com>
-Date: Fri, 12 Sep 2025 14:33:06 +0200
+	id 1ux32d-00000009IoF-03S0
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Sep 2025 12:38:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1757680681; x=1758285481; i=markus.elfring@web.de;
+	bh=bJ3zeHjp9c6r+G/TeEWxmYQzWur7IwFq3GAOFT0Gw+A=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=gq6BTXTxhaqVgXHRN6FRdKsAKerSZDisOzK+obdALsBZS6HrFBd9SRkrKRmQ6+LK
+	 UoYiVFgvMLtMWDJKCZZjtbQIrKyd6udLKfDJTlz/Ejup3RGTgqfSZ/1grVdjphT1v
+	 T1Tf95RXnH0t4vHdbinR3aTj982CG1jsDDZ8O1LqizneU8qYr8dlUIzHY88YZbRVl
+	 fPH9EaNaMLbg87z08cgqZ1QnX0pWvIZ9CmTZqzxnlvWqoEisniMWP4bj/gnalbJAA
+	 H6TYQJVmw8AzFY8psE8grjTEqiAMw998QJWB+llW4DovKKezfA4uv5cVuvqLnXRWj
+	 XAmthfvHl78MZ8ccOw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.92.219]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MBB86-1v7XPy41Da-00Dsrc; Fri, 12
+ Sep 2025 14:38:01 +0200
+Message-ID: <ef091856-8803-4c68-a994-b995ddc0d4ab@web.de>
+Date: Fri, 12 Sep 2025 14:37:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 3/7] iommu: Add verisilicon IOMMU driver
-To: =?UTF-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
-Cc: robin.murphy@arm.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, nicolas.dufresne@collabora.com,
- jgg@ziepe.ca, p.zabel@pengutronix.de, mchehab@kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, kernel@collabora.com,
- linux-media@vger.kernel.org
-References: <20250911155720.180465-1-benjamin.gaignard@collabora.com>
- <20250911155720.180465-4-benjamin.gaignard@collabora.com>
- <vrngq76nnms3jyl5hnxqnkimjc6kil66o6fdyqn5vm3fpovmja@cfynipjw7ktp>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <vrngq76nnms3jyl5hnxqnkimjc6kil66o6fdyqn5vm3fpovmja@cfynipjw7ktp>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] coresight: trbe: Use scope-based resource management in
+ arm_trbe_alloc_buffer()
+To: Leo Yan <leo.yan@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Tamas Zsoldos <tamas.zsoldos@arm.com>, kernel-janitors@vger.kernel.org,
+ LKML <linux-kernel@vger.kernel.org>
+References: <3663eb06-6a98-461b-8fcb-6891165d107f@web.de>
+ <3f2137d5-5bfc-44e7-9269-3069e44eda31@arm.com>
+ <20250912102743.GG12516@e132581.arm.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250912102743.GG12516@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Sy3OoeeJfG5yqy9XH7vpkuCE+asSQwwbe1LDPGRWNeOd7kylLfB
+ ZsLY+4Py0I3/nwi7uWv9aidVvI/8Zd92tqqOO07NyRSeTMx5EFfEJx+1vPYIV0k32pCttDQ
+ ujs9mRPT/ohdAkQwJvv3o60sXjQhSnbFC6qkRxJqKPhH9jotfv3d5zP7g/jAWqcTABkxoki
+ yTqehoOVJvWeeJ99eJnEw==
+UI-OutboundReport: notjunk:1;M01:P0:4WgyHIJLnNM=;+HjWdajmi6nVsk3bg5QRKQNMMI4 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_053333_842233_77B936A2 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250912_053815_343043_9E487207 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +90,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+>> Seems like a good idea though. But please keep the local variable
+>> declaration in the current place which is bit cleaner and reduces
+>> code churn as well.
+>=20
+> Though include/linux/cleanup.h suggests to "always define and assign
+> variables in one statement" to avoid potential interdependency problem
+> with lock, this is not concerned in arm_trbe_alloc_buffer().
+>=20
+> So I bias to Anshuman's suggestion of declaring variables at the top
+> of the function, as this is the style widely used in the kernel.
 
-Le 12/09/2025 à 13:47, Jörg Rödel a écrit :
-> On Thu, Sep 11, 2025 at 05:57:13PM +0200, Benjamin Gaignard wrote:
->> The Verisilicon IOMMU hardware block can be found in combination
->> with Verisilicon hardware video codecs (encoders or decoders) on
->> different SoCs.
->> Enable it will allow us to use non contiguous memory allocators
->> for Verisilicon video codecs.
->>
->> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
->> ---
->>   drivers/iommu/Kconfig     |  11 +
->>   drivers/iommu/Makefile    |   1 +
->>   drivers/iommu/vsi-iommu.c | 808 ++++++++++++++++++++++++++++++++++++++
->>   include/linux/vsi-iommu.h |  21 +
->>   4 files changed, 841 insertions(+)
->>   create mode 100644 drivers/iommu/vsi-iommu.c
->>   create mode 100644 include/linux/vsi-iommu.h
-> This will not go in before Will Deacons comment about code duplication with the
-> Rockchip driver is addressed.
-
-It isn't the same hardware block, not from the same IP vendor and the bits set aren't the same.
-pm_runtime, clock, spin_lock aren't managed differently.
-The common point is they both use 2-level page table.
-
-VSI iommu need an additional function to restore iommu context before decoding
-each frame, rockchip doesn't need it.
+Does anything hinder you to follow the mentioned cleanup advice more?
 
 Regards,
-Benjamin
-
->
-> 	Joerg
+Markus
 
