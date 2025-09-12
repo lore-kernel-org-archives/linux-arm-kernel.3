@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5037BCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F215FCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UW/NOfKa9RFqrpSy7rSdIS7Uk0N5dPhIbH1nTQbHg1w=; b=4DsZq3q6+J2b/sLVyymgDK+nMh
-	+KIr3Gimpr4IyNVofelIwTAv+g5ZnkW0djf31wHGdIW6PCICj3ZU2eUaIhB41tLLEXCvSe0cqmOxb
-	Y1Oh4XAh4UuDt6CMZv59STdLxsX7L/h841XUIcNJfRCSF3FjpE4qXspnVYOJQXp+9NtOVWFCxiJFl
-	g19hGgzw22xVBbuxcoaWqJFYKm9lT2EhRV7UjSaiVVwpoMSSbdM9qm2yz9k8v1kdaaE0WVlyzIgxc
-	VFRcbcWOv/vO5tv5tMsZiToGR49wPgC0/LP1aiAoyVP09t24xbOct3BZYVimS3bN4QCrAYUR8V2bi
-	RzWToEog==;
+	bh=xX6FnGnFsu2zJTHIwUJ96kS5B6QGFTAvNOfOinwEn9Y=; b=gMl26EeFXw/zusZyg5vFrQ7ZjW
+	tqANMOzyFCkJkYr6YvtYGw+5muq5Nb3WcZmgiADjG197ow9Vehljx7h7N0lPGloILVlk1PpP/sqCs
+	8+rMvfiNQM7d+IvQIL3veIL8huI9uJNWoJGZblHtsK4LrJ12oyrrVUGZpsgNdGUNlYptvJf1MZXM6
+	lPqeq5j2AyyMAHKnanToh1pRQc7QJtcDGd9+FHejRp0OTuRMEVOsPkfDagWU1+YGBA5Ih3P4zGDLK
+	LP3lSbZxVSQLemNONq+umWYYMU278V3hPWxSiER1JIZBvvTLirwmi2OIvIZF9snFmg3cGFDKvt0uq
+	h/xJYH1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3iH-00000009WVB-2NEz;
-	Fri, 12 Sep 2025 13:21:17 +0000
+	id 1ux3lP-00000009Xbq-23Rm;
+	Fri, 12 Sep 2025 13:24:31 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3iE-00000009WSl-1r8i
+	id 1ux3lM-00000009Xb0-1Djz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 13:21:16 +0000
+	Fri, 12 Sep 2025 13:24:29 +0000
 Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cNZhL2Zsjz6L5Gb;
-	Fri, 12 Sep 2025 21:16:50 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cNZqX0v5cz6GDGM;
+	Fri, 12 Sep 2025 21:23:04 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4654B14038F;
-	Fri, 12 Sep 2025 21:21:07 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 5579C14038F;
+	Fri, 12 Sep 2025 21:24:22 +0800 (CST)
 Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
  (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 12 Sep
- 2025 15:21:06 +0200
-Date: Fri, 12 Sep 2025 14:21:04 +0100
+ 2025 15:24:21 +0200
+Date: Fri, 12 Sep 2025 14:24:19 +0100
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: James Morse <james.morse@arm.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -56,22 +56,22 @@ CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
  Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 23/29] arm_mpam: Add mpam_msmon_read() to read
- monitor value
-Message-ID: <20250912142104.00006569@huawei.com>
-In-Reply-To: <20250910204309.20751-24-james.morse@arm.com>
+Subject: Re: [PATCH v2 24/29] arm_mpam: Track bandwidth counter state for
+ overflow and power management
+Message-ID: <20250912142419.00006c6d@huawei.com>
+In-Reply-To: <20250910204309.20751-25-james.morse@arm.com>
 References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-24-james.morse@arm.com>
+	<20250910204309.20751-25-james.morse@arm.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_062114_771031_0A493082 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20250912_062428_473888_288055FF 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,152 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Sep 2025 20:43:03 +0000
+On Wed, 10 Sep 2025 20:43:04 +0000
 James Morse <james.morse@arm.com> wrote:
 
-> Reading a monitor involves configuring what you want to monitor, and
-> reading the value. Components made up of multiple MSC may need values
-> from each MSC. MSCs may take time to configure, returning 'not ready'.
-> The maximum 'not ready' time should have been provided by firmware.
+> Bandwidth counters need to run continuously to correctly reflect the
+> bandwidth.
 > 
-> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
-> not ready, then wait the full timeout value before trying again.
+> The value read may be lower than the previous value read in the case
+> of overflow and when the hardware is reset due to CPU hotplug.
 > 
-> CC: Shanker Donthineni <sdonthineni@nvidia.com>
+> Add struct mbwu_state to track the bandwidth counter to allow overflow
+> and power management to be handled.
+> 
 > Signed-off-by: James Morse <james.morse@arm.com>
-Hi James,
-
-A couple of minor comments inline,
+Trivial comment inline.  I haven't spent enough time thinking about this
+to give a proper review so no tags yet.
 
 Jonathan
+ 
+> ---
+> Changes since v1:
+>  * Fixed lock/unlock typo.
+> ---
+>  drivers/resctrl/mpam_devices.c  | 154 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |  23 +++++
+>  2 files changed, 175 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 1543c33c5d6a..eeb62ed94520 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -918,6 +918,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>  	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
+>  
+>  	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
+> +
+Unrelated change.  If it makes sense figure out where to push it back to.
 
-> +static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-> +				     u32 flt_val)
-> +{
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +
-> +	/*
-> +	 * Write the ctl_val with the enable bit cleared, reset the counter,
-> +	 * then enable counter.
-> +	 */
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, CSU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, MBWU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +		break;
-
-Given nothing to do later, I'd just return at end of each case.
-Entirely up to you though as this is just a personal style preference.
-
-> +	default:
-> +		return;
-> +	}
-> +}
-
-> +
-> +static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
-> +{
-> +	int err, idx;
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-
-	guard(srcu)(&mpam_srcu);
-
-Then you can do direct returns on errors which looks like it will simplify
-things somewhat by letting you just return on err.
-
-
-> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
-> +		msc = vmsc->msc;
-I'd bring the declaration down here as well.
-		struct mpam_msc *msc = vmsc->msc;
-Could bring ris down here as well.
-
-> +
-> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
-> +			arg->ris = ris;
-> +
-> +			err = smp_call_function_any(&msc->accessibility,
-> +						    __ris_msmon_read, arg,
-> +						    true);
-> +			if (!err && arg->err)
-> +				err = arg->err;
-> +			if (err)
-> +				break;
-> +		}
-> +		if (err)
-> +			break;
-
-This won't be needed if you returned on error above.
-
-> +	}
-> +	srcu_read_unlock(&mpam_srcu, idx);
-> +
-> +	return err;
-And you only reach here with above changes if err == 0 so return 0; appropriate.
-> +}
-> +
-> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
-> +		    enum mpam_device_features type, u64 *val)
-> +{
-> +	int err;
-> +	struct mon_read arg;
-> +	u64 wait_jiffies = 0;
-> +	struct mpam_props *cprops = &comp->class->props;
-> +
-> +	might_sleep();
-> +
-> +	if (!mpam_is_enabled())
-> +		return -EIO;
-> +
-> +	if (!mpam_has_feature(type, cprops))
-> +		return -EOPNOTSUPP;
-> +
-> +	memset(&arg, 0, sizeof(arg));
-Either use = { }; at declaration or maybe
-	arg = (struct mon_read) {
-		.ctx = ctx,
-		.type = type,
-		.val = val,
-	};
-
-rather than bothering with separate memset.
-
-> +	arg.ctx = ctx;
-> +	arg.type = type;
-> +	arg.val = val;
-> +	*val = 0;
-> +
-> +	err = _msmon_read(comp, &arg);
-> +	if (err == -EBUSY && comp->class->nrdy_usec)
-> +		wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
-> +
-> +	while (wait_jiffies)
-> +		wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
-> +
-> +	if (err == -EBUSY) {
-> +		memset(&arg, 0, sizeof(arg));
-Same as above. 
-> +		arg.ctx = ctx;
-> +		arg.type = type;
-> +		arg.val = val;
-> +		*val = 0;
-> +
-> +		err = _msmon_read(comp, &arg);
-> +	}
-> +
-> +	return err;
-> +}
+>  	if (m->ctx->match_pmg) {
+>  		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
+>  		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
 
 
