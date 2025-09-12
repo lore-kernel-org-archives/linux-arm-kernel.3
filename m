@@ -4,173 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 894F7CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B043CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:58:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9MdOGzPG+iwXgs0Pv3ts6QQIM6i2jOXQ3adOAGJHJOE=; b=pcnIRBeBVdOb/x8vusD1zWtPQr
-	equYmxHyKjQPHUGfOpuimWjDkFBg88MqSxM4wnQZmyU0mHispBo5jBOeJSgQzeqgCcPft1JCcQB43
-	oXDJzEAu5uYwIW9AJc7t96/CDpoy63kBr4fCKhfpPr4gyM8PCr7is6QH7MwWktpp+EdG1RCQfOamB
-	qa51+7407nP3b1LGvm8pWvhS1v6JqWxmkDhsP0qRi0K+ZAwgXjaUAL47l2v+Ws1z0ZICtdajCJ1LD
-	1fFdUcqC+3rxkKn5D5GwIqS5atHFHTNYMOy9uL39E1bCMdZZC363qA6+5MbF6LST3JVzd2S2BA6uR
-	u2Tct50Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=28JpikhNh6hlI5zzwVP1Kei7jvxlx3xsZ1bRu7uJFZI=; b=Nwi2fJR5c/vTUzbD1WjsUUS4sx
+	DYq9a0u2gWZ0YWMLThBrmPyc1OxXS6OC3XgJhBfkWoBb/zatyGRCc+35Y9z0/dF2O/V0jbAFlhTO7
+	j9v5a/HMV6wtvvXVurZAWHxuBtjg74Y0EndCnCGR8tveVsp9w2Jfy9A2iZI0LZ+BuPhRKhK8D5o6b
+	dtNhigI8mOqZ23NT1G4fsVL1i+MdNU45zX+3rKiWXKKom7GNdfSRQyPMjoOJDXgDZeMDs47tTqXvZ
+	glJ/bnd4DymIdYiFC0acB4tmafMCnwPLI2vfToPHSX/ijmy0OYFJCSH2yNHGDHSiboU1ZxPvnL5Yf
+	QDPNzphw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5Br-0000000A3bt-10hH;
-	Fri, 12 Sep 2025 14:55:55 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1ux5Ed-0000000A4T8-1GKI;
+	Fri, 12 Sep 2025 14:58:47 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5Bn-0000000A3ab-3eQn
+	id 1ux5Eb-0000000A4Sa-0Dlr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 14:55:53 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58CC3rFm011678;
-	Fri, 12 Sep 2025 16:55:46 +0200
-Received: from duzpr83cu001.outbound.protection.outlook.com (mail-northeuropeazon11012054.outbound.protection.outlook.com [52.101.66.54])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 490ywn047g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 12 Sep 2025 16:55:46 +0200 (MEST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v3ndQMjah+G/iF77CTv01UaskRH+qQIIfyYS3D3PCCVUjZFM5s1uvZAqqEgyPTQCmokseVU+nCuUJrL8mWeoAUN2aiiNDA2/pdkVLs50F1eY2iQ63UYTXjbFHH5DOQ+4lMyqLQIXQzAYZF2oISpqVknRNGdnYdce1EuWLGtqs3EEeylyHL4JbbYYiQSkMYvK4mqHTon5+Xvj/ivvFk5i5THd0BkWPw/AsXalNVDKKlDvfXhj2YNYkKb0XLeEk+CsxFaRr0NpytLZVvnU+ECymz9oNEiLNfDKilFeep01H5KZHmPXu90sxod6jkJEHXj8Fno3h4VgbaAIYm+IQ/KI2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9MdOGzPG+iwXgs0Pv3ts6QQIM6i2jOXQ3adOAGJHJOE=;
- b=WmU3lxTmgfeFcLGbvN+4u/WNisbHdjTV7aJRatlqv7biJLE30eJcKcmXD6S1hIFIBdRIeVAGS5REgRPOhCOQJ04Mq19/YNgpkrkFRk6MrrBj+5GaC3LumVqn5bQ+VhIb62++3NGf58JPIy+aAT5YO1QAcLnoiNHcDz4V9EYK7GAA2HhB4rR+EDIcnBZaZ7mwShdTHK/8S0AHrvGJWMR/y+UydRXqCnIyF0occr2nZ715DuqZdzUELTasnwnPjKzZP/nwVES/G+7u20eRf2II4FyWer4+ndBF1g69XKjDH4fXHcsntlj5HtQmb8ixw+AXLsd4mjouTw/UEXtd9E9NjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.43) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9MdOGzPG+iwXgs0Pv3ts6QQIM6i2jOXQ3adOAGJHJOE=;
- b=toxltzWg1ko0z+8Um4YCOZ0bNBSea11WnzHIqYN7buDB1XSQYbkWumyYfZhGH6OPtZ2fuhv5V9jynKdyTTCcsxi3h59/HJsmjtuFQNfNXg5WKLq2uQLqe/AyllPVgnwoAEz2JSTopU56rjZ9Qt5+FE29iEkbMvd1FV1bDrFzfxfseFewstju+3hHQN2+voiunyPTAmDL/qzXiSeBxaOaUGg1ZUJBCgrvj/T/aaWwWPFEKwAMpDm9yH9fpI1fc/eDfNi8zrQP/Fr3DapTV/Ft5CHL6m5HNgEXpZPR66Jmvshl8rEeM0HS1OfkJd+dJZ7n37ccMGcDKGLDYbJi5REjyA==
-Received: from AM0PR04CA0049.eurprd04.prod.outlook.com (2603:10a6:208:1::26)
- by PAWPR10MB8259.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:38c::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Fri, 12 Sep
- 2025 14:55:44 +0000
-Received: from AM2PEPF0001C711.eurprd05.prod.outlook.com
- (2603:10a6:208:1:cafe::da) by AM0PR04CA0049.outlook.office365.com
- (2603:10a6:208:1::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.17 via Frontend Transport; Fri,
- 12 Sep 2025 14:55:44 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.43)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.43 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.43; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.43) by
- AM2PEPF0001C711.mail.protection.outlook.com (10.167.16.181) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9115.13 via Frontend Transport; Fri, 12 Sep 2025 14:55:43 +0000
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
- (10.250.44.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Fri, 12 Sep
- 2025 16:53:21 +0200
-Received: from [10.252.28.204] (10.252.28.204) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Fri, 12 Sep
- 2025 16:55:43 +0200
-Message-ID: <db6c66aa-fb86-475f-8ab4-7567e8be1d10@foss.st.com>
-Date: Fri, 12 Sep 2025 16:55:42 +0200
+	Fri, 12 Sep 2025 14:58:46 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-621b965a114so1173657eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 07:58:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757689124; x=1758293924; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=28JpikhNh6hlI5zzwVP1Kei7jvxlx3xsZ1bRu7uJFZI=;
+        b=pGSKf+zRbTkRoxHrRSBbqO6fiM2cdHybkUUo5GwvRHg4p3DBkhKVzgO7caNL4N20N0
+         BCNjPuZt5ibNQDN3TnuZJjK/XlDA75F4MCZYzblh4GEVDoQAejIz5aUBOn9VtS8xZrXH
+         CDhhJBWEklucS29uPGA4WmDzSx9UBHpyhzAgDy8mXQnaJWmAFgUZkofTL3VacQVzHWEL
+         dPE3slvnQwp5provrVznffJcLRnB2XkSnDk/kVesN9MLfH1jlcIN9jXVpenr7apLb43u
+         k2193Pvbicmqqzxsn1glEyK/6M5UZ6YYDzuWKnE99fyRLB/5ayqERQdzdFq0LJ+7I0US
+         eJng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757689124; x=1758293924;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=28JpikhNh6hlI5zzwVP1Kei7jvxlx3xsZ1bRu7uJFZI=;
+        b=YMp833NNlQ/ofhUtb/5NZYJ1c8kqUPhuWswzwMyVdtbR3bYiccr/BoEmn8/8g9ivmn
+         rpSgWmOJtCzPiNGne5hD00S+5GSiGBGUXSzvwHXvybEIq0BnOnG4eCz4FqG+7DokBvSD
+         PDKTtPMa1yL4gOsv/kjnm4SphZQpusCdqq6ZAuHS72/uJQhxuPxWRka71o3sHnb4oA8Y
+         IwE54nTRQYH/zOBUD9i8kGbv6GRhYAJqK88L7IbNYHlHC4mYdTD2oexYo2CD3FmwutrJ
+         wTE4IQJevQJZtlQHuJEoT8ur5wi89EE6Mra3S/afx+Y7v5KL22n5QkxgWyr1cJiPJM7R
+         S8fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU0HqQs5Equ/L8Kgmdofq1X7i+O5f4sT7wGoUnnGSE0iZir/5ImgKdDPMpZRsmUE1EoyJMhdrTuNMcW5zW5l8Il@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDaWIJFFgEnO4ugIQhRrsx1YfNe0zw+2ROOrUg2RdORY1r8RHM
+	F6BgZDMXv4ucW7MQBEEmdvYDR5xmsYQdKBP8prrANVQGAnhfOICc1gu55VL0pDrOQyI7egomU6N
+	uVcBrKf8IsyrWQiUrsq9+EhE1xJEFCkYJ/uGOpk8UZw==
+X-Gm-Gg: ASbGnctDyA65eNB985KT7eZ8iCS9u25X8nevV+hKj9o2l+Vc/HtcewwJJ+/HwXUhi/h
+	pnrGtvAIbMWqUTTq6nVYfvx9pfMbnrXY9VztiroW8QNlbE/oT9S6COheeMU99Ljx5pwOO7lWi7L
+	HHITlJ9UkBLGKL5uZlu5jxn7NF2JHfWgv0pGFy56TUh22aOzjvEC3r1fz3MprEwvQSHSNj+ENcl
+	KKmas9zg6dW5mX5uA==
+X-Google-Smtp-Source: AGHT+IHAJ42BGc4DV3+A7HRXSgNpI4Ckz1R2zEcxWqCWvdlWoM2kBfvVDgKpueHQzqgzBraygif8YB0P1rDNI9gE4qo=
+X-Received: by 2002:a05:6870:b907:b0:315:3ef4:eecd with SMTP id
+ 586e51a60fabf-32e553a280fmr1618278fac.17.1757689123738; Fri, 12 Sep 2025
+ 07:58:43 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: sti: remove dangling stih407-clock file
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-To: Raphael Gallais-Pou <rgallaispou@gmail.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250908-master-v1-1-98efab52f143@gmail.com>
- <7f75a59d-356a-4af4-a1d0-8fb1261397bd@foss.st.com>
-Content-Language: en-US
-In-Reply-To: <7f75a59d-356a-4af4-a1d0-8fb1261397bd@foss.st.com>
+References: <20250908-acpm-clk-v4-0-633350c0c0b1@linaro.org>
+In-Reply-To: <20250908-acpm-clk-v4-0-633350c0c0b1@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 12 Sep 2025 15:58:32 +0100
+X-Gm-Features: Ac12FXwxoqn3zsYfC0T8IDf20S9zDpzsxcpDfKlZfpZdk1czNZgS3-vJNTlzLBQ
+Message-ID: <CADrjBPo8L=P2bHKTFvYOj7i0u6pA7vs32d3y+4Ho+82Z1mRE_Q@mail.gmail.com>
+Subject: Re: [PATCH v4 0/5] exynos-acpm: add DVFS protocol and clock driver
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	willmcvicker@google.com, kernel-team@android.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.28.204]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM2PEPF0001C711:EE_|PAWPR10MB8259:EE_
-X-MS-Office365-Filtering-Correlation-Id: a29b0df2-28e9-44c2-9161-08ddf20c7302
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cEpEZjNWMjF1T1o5K3N6MzNjUXpybUxNVHhtTW9UM09sbmY5blJuNmhOWjRU?=
- =?utf-8?B?b2ZldlVVV3UzNko3Mmc3dUk4eHFvazBFOG5vUUZrM09qOUk3V21xQTlybUh5?=
- =?utf-8?B?M3NoeEhYZ2hCelNQa1hFbzJpVzY1MlMwbkdmTzljTDYwWXhsNktaYTBRdkI2?=
- =?utf-8?B?bTdsZzBGaW9DRlRrV2RsOCtMR21ob251ck85TTRsb0NxK0xON0R6NXdwUWpw?=
- =?utf-8?B?WHVuakdVdXN2UktnNHN1cjBST3RTVVZTbjlDcHpZY3lhQ3VPeWdEL1dLSEw0?=
- =?utf-8?B?d1ZQZ2JlUVZFYmtYWnhpYmxhdVpRdnZQMVc4YnVvUkRzWHN0RVZSdkw0WGx4?=
- =?utf-8?B?YTN1UWhsekhLem91a1YrN2VqZjhiNVRtVGtpZU85M3RDUWthWTE4dlZWVnhZ?=
- =?utf-8?B?UDVxOFhXQkVKUXdhOVhxaW5JZ3Mxd2tyelN4UFZYSnZTbXdDajY4WDdHdkdW?=
- =?utf-8?B?eEZIOC9MVnJIbHh3Rm54cTNsVlBobFQ1MEtCQlhlSzlhNHZWNmRZaldvSndi?=
- =?utf-8?B?YzU5bmZGR1k1RUxiK0xXbi9sdHM1NWFkZytSN3YrNUVnWTBZMG00UWdiWXEw?=
- =?utf-8?B?WG4zWHc4Z2xzckNMQTJRUGdvVFB4eFRnVkpqNCtKalZweXkxSW1BTnZRNGMx?=
- =?utf-8?B?akZxdTJ0TWJNN0JHRkp0akt4Ri9sWXdHL243Ri9DTCtqVUdSYkdzdHJJVTNY?=
- =?utf-8?B?Vlc0WUQ4NENlcXJ0MDBFUFdHU1J2UnJ4SGxHQjJEL05FZzdEdk4vMFdldzEx?=
- =?utf-8?B?L1AycFdCeDNpa1loVnNhQ0p0UFN4L3pydlpQa1RxRVdkMjhOMm1BeTNDdmRY?=
- =?utf-8?B?dW41MXhwdWJObG1vUHNYYjZqVEpMMHVlN3BURUdSTlg4VFJZWk5wMEVub1ov?=
- =?utf-8?B?NkxiSGhrQmtoNUFXTEJsOGV3azF4Q0lBeGFIOGYrL1RLUG5kOFp6bXM3Q3I1?=
- =?utf-8?B?WEE1L1h4eExDODFKWktYR2wzcnJtbnlhU2JHVXJsUFJqNHhOUVUyT1E5VlJ0?=
- =?utf-8?B?RFVpVW1TNDBCRzJyZURWVGZaKzJtNURYQ004Z1JFRjVOdHVpUG5QRVI3NXBY?=
- =?utf-8?B?emlsNFovNzJEc2plcGRnTGd2T2lRTjNieFluR0tyZU5NeEJUV1I5RmFiMHlX?=
- =?utf-8?B?WFFNYTZQTmNtWGpmam1GUlBuSWhSRFZReDZOOFhhMk9ESC9IaXhpRis2RDNj?=
- =?utf-8?B?UFNZVXZkZERSSC82ay9uUy85WlhKM29waWo0T3Zmald5V1hCYUNXKzdYSDJN?=
- =?utf-8?B?TGZLelAxK3JEQVdQSk94aXNwZ2dQdDFNS2UzQkxNYmVTc3dUSWdJUVVEQWJa?=
- =?utf-8?B?LzNCMEh6a2xuVVd5YU45elFnRk1wTEd3L2RNa3hBMWIvMUMybWZCRUVHZXd6?=
- =?utf-8?B?Yy94Q3pPejFxcTMzQS9CeVNCNnJXTkVqRWw1R01OSkwrQTR3eW9DNW5EYkc5?=
- =?utf-8?B?R0VwQ2pVUkg2bk5pQ3ppVzd1VndjcFFXVlV1SGdjY3hnVEdGdHNLbEF4bEJH?=
- =?utf-8?B?ZE4wSERxcnNicVZQTkVDdTY4WTFCUTB2dytCemNGVDNjNHFXQWowZms2cTg1?=
- =?utf-8?B?ZkpjMWVOYjExamdscURWSDVaNUtQeFFOei80MUNvTGZOT1VhdHUyZ1pIRnFa?=
- =?utf-8?B?OWUvMjdYRGdScDd1R2hRczdmSUhNM1JNODUyYmI1VXRMTTlSUjBLdS9tUjNT?=
- =?utf-8?B?ZkpneXpjWTZnZUh1aXRtaTlQNGZPcXBMQ3JvM0NTSmpwUTFJSnBVbEFucWJC?=
- =?utf-8?B?SFgwNDdnQ3ZkcDlMNlUwc1ZibFcxVVY4a3pKa0VvMFVYeDM5cytDNy9OeTlr?=
- =?utf-8?B?SDJvVDZsOSttV2pla0duMTJSc2liY21TWDZYQnJmVDJSTExzM3VCRDd5K3Vn?=
- =?utf-8?B?V3d6THBCa1laNW5YZ3ppcWxmaHlSaS9QVDR3K0ZlOEc0Lzh3TUdTODJBZ09q?=
- =?utf-8?B?NGg4QVArODhNdXpCdnJqc1V2cUxxTVZoWElvWTA0YmhuUXdTVDllWHJwb1BQ?=
- =?utf-8?B?M3FRNC93MU1WV1RUVFNCWkdENzFOdlVyUXVacmdOTU5ic0oxSUVFWTBUdlRr?=
- =?utf-8?Q?kMI9MB?=
-X-Forefront-Antispam-Report: CIP:164.130.1.43;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 14:55:43.8627
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a29b0df2-28e9-44c2-9161-08ddf20c7302
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.43];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C711.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR10MB8259
-X-Authority-Analysis: v=2.4 cv=OaqYDgTY c=1 sm=1 tr=0 ts=68c43472 cx=c_pps a=TPI4aLKDjCd1EbHbt8/hbw==:117 a=peP7VJn1Wk7OJvVWh4ABVQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=d2j-ISUXm-8A:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10 a=pGLkceISAAAA:8 a=8b9GpE9nAAAA:8 a=RuKwHrkmIdvFytnfrUcA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-ORIG-GUID: S784noySfHsOQOEe0kyVyaW-L8ObPYi-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA3MDAwNiBTYWx0ZWRfXxFoQn9IkcGw0 rJv4fJ+fpE54W9xcLyvrpHUQ488WeyLwbX/EeIXRqA5uQA8W7J6C6A4x20p6YAHe8NE7653kli1 V0HQUkV/3EXcQSXIKF6ib6pJoN6AvQXTlVjw5otBaicohz4igHR7hPkJqLbetk7ablp4IceeFT7
- gwO6/+7gary47h4257RrOA9ywwhL9xkr/JGiZMt9jk8rzljYFKO0njKbmBs1qYIiK5aT0uMNNOB 7h8iUAynBVvYe7xvFRDpNuLtZzE/kOW9Ph2PQlbUq+eCnmBns/HQJaUiLCGaQHbjgpccs3L+RpZ x6v1TKmm/0NRG8/TbWNN+SN5EvuwYsBWD3RoSE4+U/FxcmzE/q44VKKf2V4nTRsrP3e8FiWohVh h5l7CBEu
-X-Proofpoint-GUID: S784noySfHsOQOEe0kyVyaW-L8ObPYi-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-12_05,2025-09-11_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 clxscore=1015
- suspectscore=0 bulkscore=0 adultscore=0 priorityscore=1501 malwarescore=0
- spamscore=0 impostorscore=0 classifier=typeunknown authscore=0 authtc=
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509070006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_075552_294856_11E70500 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20250912_075845_094127_938F6082 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,252 +100,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 8 Sept 2025 at 14:13, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
+>
+> Dependencies description:
+> All patches should go through the Samsung SoC tree.
+> The acpm-clk driver (#4) depends on the ACPM DVFS ops (#2).
+> If the clock subsystem needs to merge the new clock driver, it will
+> need an immutable tag with the 2 patches.
+> No dependecies for #1, #3, #5.
+>
+> The Alive CLock and Power Manager (ACPM) firmware exposes clocks that
+> are variable and index based. These clocks don't provide an entire range
+> of values between the limits but only discrete points within the range.
+> The firmware also manages the voltage scaling appropriately with the
+> clock scaling. Make the ACPM node a clock provider.
+>
+> Add support for the ACPM DVFS protocol. It translates clock frequency
+> requests to messages that can be interpreted by the ACPM firmware.
+> Add an ACPM clock driver to model the clocks exposed by the ACPM firmware.
+>
+> Thanks,
+> ta
+>
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
 
-
-On 9/12/25 16:43, Patrice CHOTARD wrote:
-> 
-> 
-> On 9/8/25 09:21, Raphael Gallais-Pou wrote:
->> Following the removal of B2120 board support, the st/stih407-clock.dtsi
->> file has been left unused.  Remove it.
->>
->> Fixes: dee546e1adef ("ARM: sti: drop B2120 board support")
->> Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
->> ---
->>  arch/arm/boot/dts/st/stih407-clock.dtsi | 210 --------------------------------
->>  1 file changed, 210 deletions(-)
->>
->> diff --git a/arch/arm/boot/dts/st/stih407-clock.dtsi b/arch/arm/boot/dts/st/stih407-clock.dtsi
->> deleted file mode 100644
->> index 350bcfcf498bc410ebdb4fd00f2e1ea496a9c8be..0000000000000000000000000000000000000000
->> --- a/arch/arm/boot/dts/st/stih407-clock.dtsi
->> +++ /dev/null
->> @@ -1,210 +0,0 @@
->> -// SPDX-License-Identifier: GPL-2.0-only
->> -/*
->> - * Copyright (C) 2014 STMicroelectronics R&D Limited
->> - */
->> -#include <dt-bindings/clock/stih407-clks.h>
->> -/ {
->> -	/*
->> -	 * Fixed 30MHz oscillator inputs to SoC
->> -	 */
->> -	clk_sysin: clk-sysin {
->> -		#clock-cells = <0>;
->> -		compatible = "fixed-clock";
->> -		clock-frequency = <30000000>;
->> -	};
->> -
->> -	clk_tmdsout_hdmi: clk-tmdsout-hdmi {
->> -		#clock-cells = <0>;
->> -		compatible = "fixed-clock";
->> -		clock-frequency = <0>;
->> -	};
->> -
->> -	clocks {
->> -		#address-cells = <1>;
->> -		#size-cells = <1>;
->> -		ranges;
->> -
->> -		/*
->> -		 * A9 PLL.
->> -		 */
->> -		clockgen-a9@92b0000 {
->> -			compatible = "st,clkgen-c32";
->> -			reg = <0x92b0000 0x10000>;
->> -
->> -			clockgen_a9_pll: clockgen-a9-pll {
->> -				#clock-cells = <1>;
->> -				compatible = "st,stih407-clkgen-plla9";
->> -
->> -				clocks = <&clk_sysin>;
->> -			};
->> -
->> -			clk_m_a9: clk-m-a9 {
->> -				#clock-cells = <0>;
->> -				compatible = "st,stih407-clkgen-a9-mux";
->> -
->> -				clocks = <&clockgen_a9_pll 0>,
->> -					 <&clockgen_a9_pll 0>,
->> -					 <&clk_s_c0_flexgen 13>,
->> -					 <&clk_m_a9_ext2f_div2>;
->> -
->> -				/*
->> -				 * ARM Peripheral clock for timers
->> -				 */
->> -				arm_periph_clk: clk-m-a9-periphs {
->> -					#clock-cells = <0>;
->> -					compatible = "fixed-factor-clock";
->> -
->> -					clocks = <&clk_m_a9>;
->> -					clock-div = <2>;
->> -					clock-mult = <1>;
->> -				};
->> -			};
->> -		};
->> -
->> -		clockgen-a@90ff000 {
->> -			compatible = "st,clkgen-c32";
->> -			reg = <0x90ff000 0x1000>;
->> -
->> -			clk_s_a0_pll: clk-s-a0-pll {
->> -				#clock-cells = <1>;
->> -				compatible = "st,clkgen-pll0-a0";
->> -
->> -				clocks = <&clk_sysin>;
->> -			};
->> -
->> -			clk_s_a0_flexgen: clk-s-a0-flexgen {
->> -				compatible = "st,flexgen", "st,flexgen-stih407-a0";
->> -
->> -				#clock-cells = <1>;
->> -
->> -				clocks = <&clk_s_a0_pll 0>,
->> -					 <&clk_sysin>;
->> -			};
->> -		};
->> -
->> -		clk_s_c0: clockgen-c@9103000 {
->> -			compatible = "st,clkgen-c32";
->> -			reg = <0x9103000 0x1000>;
->> -
->> -			clk_s_c0_pll0: clk-s-c0-pll0 {
->> -				#clock-cells = <1>;
->> -				compatible = "st,clkgen-pll0-c0";
->> -
->> -				clocks = <&clk_sysin>;
->> -			};
->> -
->> -			clk_s_c0_pll1: clk-s-c0-pll1 {
->> -				#clock-cells = <1>;
->> -				compatible = "st,clkgen-pll1-c0";
->> -
->> -				clocks = <&clk_sysin>;
->> -			};
->> -
->> -			clk_s_c0_quadfs: clk-s-c0-quadfs {
->> -				#clock-cells = <1>;
->> -				compatible = "st,quadfs-pll";
->> -
->> -				clocks = <&clk_sysin>;
->> -			};
->> -
->> -			clk_s_c0_flexgen: clk-s-c0-flexgen {
->> -				#clock-cells = <1>;
->> -				compatible = "st,flexgen", "st,flexgen-stih407-c0";
->> -
->> -				clocks = <&clk_s_c0_pll0 0>,
->> -					 <&clk_s_c0_pll1 0>,
->> -					 <&clk_s_c0_quadfs 0>,
->> -					 <&clk_s_c0_quadfs 1>,
->> -					 <&clk_s_c0_quadfs 2>,
->> -					 <&clk_s_c0_quadfs 3>,
->> -					 <&clk_sysin>;
->> -
->> -				/*
->> -				 * ARM Peripheral clock for timers
->> -				 */
->> -				clk_m_a9_ext2f_div2: clk-m-a9-ext2f-div2s {
->> -					#clock-cells = <0>;
->> -					compatible = "fixed-factor-clock";
->> -
->> -					clocks = <&clk_s_c0_flexgen 13>;
->> -
->> -					clock-output-names = "clk-m-a9-ext2f-div2";
->> -
->> -					clock-div = <2>;
->> -					clock-mult = <1>;
->> -				};
->> -			};
->> -		};
->> -
->> -		clockgen-d0@9104000 {
->> -			compatible = "st,clkgen-c32";
->> -			reg = <0x9104000 0x1000>;
->> -
->> -			clk_s_d0_quadfs: clk-s-d0-quadfs {
->> -				#clock-cells = <1>;
->> -				compatible = "st,quadfs-d0";
->> -
->> -				clocks = <&clk_sysin>;
->> -			};
->> -
->> -			clk_s_d0_flexgen: clk-s-d0-flexgen {
->> -				#clock-cells = <1>;
->> -				compatible = "st,flexgen", "st,flexgen-stih407-d0";
->> -
->> -				clocks = <&clk_s_d0_quadfs 0>,
->> -					 <&clk_s_d0_quadfs 1>,
->> -					 <&clk_s_d0_quadfs 2>,
->> -					 <&clk_s_d0_quadfs 3>,
->> -					 <&clk_sysin>;
->> -			};
->> -		};
->> -
->> -		clockgen-d2@9106000 {
->> -			compatible = "st,clkgen-c32";
->> -			reg = <0x9106000 0x1000>;
->> -
->> -			clk_s_d2_quadfs: clk-s-d2-quadfs {
->> -				#clock-cells = <1>;
->> -				compatible = "st,quadfs-d2";
->> -
->> -				clocks = <&clk_sysin>;
->> -			};
->> -
->> -			clk_s_d2_flexgen: clk-s-d2-flexgen {
->> -				#clock-cells = <1>;
->> -				compatible = "st,flexgen", "st,flexgen-stih407-d2";
->> -
->> -				clocks = <&clk_s_d2_quadfs 0>,
->> -					 <&clk_s_d2_quadfs 1>,
->> -					 <&clk_s_d2_quadfs 2>,
->> -					 <&clk_s_d2_quadfs 3>,
->> -					 <&clk_sysin>,
->> -					 <&clk_sysin>,
->> -					 <&clk_tmdsout_hdmi>;
->> -			};
->> -		};
->> -
->> -		clockgen-d3@9107000 {
->> -			compatible = "st,clkgen-c32";
->> -			reg = <0x9107000 0x1000>;
->> -
->> -			clk_s_d3_quadfs: clk-s-d3-quadfs {
->> -				#clock-cells = <1>;
->> -				compatible = "st,quadfs-d3";
->> -
->> -				clocks = <&clk_sysin>;
->> -			};
->> -
->> -			clk_s_d3_flexgen: clk-s-d3-flexgen {
->> -				#clock-cells = <1>;
->> -				compatible = "st,flexgen", "st,flexgen-stih407-d3";
->> -
->> -				clocks = <&clk_s_d3_quadfs 0>,
->> -					 <&clk_s_d3_quadfs 1>,
->> -					 <&clk_s_d3_quadfs 2>,
->> -					 <&clk_s_d3_quadfs 3>,
->> -					 <&clk_sysin>;
->> -			};
->> -		};
->> -	};
->> -};
->>
->> ---
->> base-commit: be5d4872e528796df9d7425f2bd9b3893eb3a42c
->> change-id: 20250907-master-bb115f5b67ad
->>
->> Best regards,
-> 
-> Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> 
-> Thanks
-> Patrice
-
-Applied to sti-next
-
-Thanks
-Patrice
-
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Tested-by: Peter Griffin <peter.griffin@linaro.org> # on gs101-oriole
 
