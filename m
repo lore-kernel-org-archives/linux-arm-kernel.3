@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A625ACA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 05:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB011CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 06:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=if2cvjU3TFQhhovivIlxlLL34BfCU4rnP5dgkUbeVAc=; b=tosu9dhRlPuywX5xnah97oR5Pj
-	RJc5WXOX/bXULbTXNqm4crjxj18A3hsRjuvd7MwpJm4bUhNeYgnsrMebrbES2tobx8Rr+Ap/axmk6
-	Hlaj6doB4dEZ5R5+2LtxXeJcQRmwT369e1dyZKMdpXW1tCdyIF6SJ4iR1XDdRGMAEmVFf1VxpwaQ9
-	W4iT4ob3/dpnx+rvuSeFQHUU3vJ/zRlImaq4yW8cqY5WqkWdpc4fHzSeGeKLBMIx9/WP46BhtNrpn
-	+29biTTmJPuTe3GUiAkIFZoq2nnIQAVsRulrO39tmVLfizljSs+9eh0clNEBNUwG/V5HL25R1Fz8n
-	itMD526A==;
+	bh=PNBRq35TmhAY2KL78JAmIw+p27LY239sDzoMTJ3S5ns=; b=kcElI27woHWZ0Pkddq3cqWqKh/
+	hv1Yx7uEazkDWs9MCbSRYB9AnC9qmA54/zF/XSCBKmsjqEPhnqbuJtSIjSbTlTWAaFdcn37qg2dXk
+	AuYAFb0T14Xdgs6Mxv5WLaqmK644hrCNS05e4wWIgvdEM65ElEC4jY89d3lPCL4ee54bZEu2/dFHD
+	dlReohleOnG1ctfykWXMibLd41dr87A+g0zB5ApxnjDgkUJ1WeILwjWEMWi7EtICVCY7JNSLx65wT
+	ZqyPkqY8mEEfolYBhker3u3aKVp/ZVmERMYAOZ9U+6v1T8ipNljuTZC9QXEYoWM4cJZGqtWaHdVmr
+	eQ4DD5Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwwmp-00000007Gsn-2cUY;
-	Fri, 12 Sep 2025 05:57:31 +0000
-Received: from mail.eswincomputing.com ([123.124.195.78] helo=eswincomputing.com)
+	id 1uwwph-00000007Hcm-33zc;
+	Fri, 12 Sep 2025 06:00:29 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwwmn-00000007GrS-0pUg
+	id 1uwwpe-00000007HcJ-0s6r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 05:57:30 +0000
-Received: from E0005182LT.eswin.cn (unknown [10.12.96.155])
-	by app1 (Coremail) with SMTP id TAJkCgDnCxIwtsNo46POAA--.63698S2;
-	Fri, 12 Sep 2025 13:57:07 +0800 (CST)
-From: weishangjuan@eswincomputing.com
-To: devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	yong.liang.choong@linux.intel.com,
-	vladimir.oltean@nxp.com,
-	rmk+kernel@armlinux.org.uk,
-	faizal.abdul.rahim@linux.intel.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	inochiama@gmail.com,
-	jan.petrous@oss.nxp.com,
-	jszhang@kernel.org,
-	p.zabel@pengutronix.de,
-	boon.khai.ng@altera.com,
-	0x1207@gmail.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	emil.renner.berthing@canonical.com
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	lizhi2@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>
-Subject: [PATCH v6 2/2] ethernet: eswin: Add eic7700 ethernet driver
-Date: Fri, 12 Sep 2025 13:57:02 +0800
-Message-Id: <20250912055702.2939-1-weishangjuan@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
-In-Reply-To: <20250912055352.2832-1-weishangjuan@eswincomputing.com>
-References: <20250912055352.2832-1-weishangjuan@eswincomputing.com>
+	Fri, 12 Sep 2025 06:00:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1757656819; x=1758261619; i=markus.elfring@web.de;
+	bh=PNBRq35TmhAY2KL78JAmIw+p27LY239sDzoMTJ3S5ns=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=k+GTp2jTe0RUkmTTSQGGdH2wuVJ0L5WtA60dx9AA4B6K605HM6XQyuZX7HQgkhhp
+	 tpMJQcnsICPN8ZjZWnGb3y7pBzLJxKRp4S+V+5UdtuX7eIYvS7Co6xd4k51DW55ZQ
+	 8jkedvVNDSU0hMtrp3fuUtic/rKEOMBTlxcA+L40qhhAJEz7Z649qxQLFIR8WXHQJ
+	 VDXem1XDCo58WdAPfmVRoYyddUsUJBmPhwz7pw2LNc748quQ95n50xYWm6dy6nQ/1
+	 /ppALhbddw9jZVw96Owg7E09tmydchZ09v55GXo6bnI0BFRfgNgur/Tl+lpMRB66d
+	 CSAzGAdDUc8aaJFzqg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.92.219]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MyO0s-1uDlhH1msG-00voTF; Fri, 12
+ Sep 2025 08:00:19 +0200
+Message-ID: <b89eda12-c930-43e8-92c0-c2e1699284f7@web.de>
+Date: Fri, 12 Sep 2025 08:00:07 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: trbe: Use scope-based resource management in
+ arm_trbe_alloc_buffer()
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kernel-janitors@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ Leo Yan <leo.yan@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>
+References: <3663eb06-6a98-461b-8fcb-6891165d107f@web.de>
+ <3f2137d5-5bfc-44e7-9269-3069e44eda31@arm.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <3f2137d5-5bfc-44e7-9269-3069e44eda31@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TAJkCgDnCxIwtsNo46POAA--.63698S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuFWxKr4UZFWxGFykXw4UXFb_yoWftw1kpF
-	WkAa4aqrnrJF1fG3yrJF409as5Ka17KF1Y9ryfG3Z3XFZ0yryDZws5ta45tFykJryDuw13
-	ta1UCFWxuFn093DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBC14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI4
-	8JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWx
-	Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0x
-	vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjTRNBMKDUUUU
-X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:0ROLkD4ppWa0eZgi33BI5e1vHecWSXWhdafQxUhhYhyZFT5Iqjv
+ 0+qnuQz2XfORRDr5xT+GALBkYxgwKs3GXQRawRhJEu0uxl+SrfKoftQOoVy+UEQ3y8kpZLC
+ iiQ89vTdQEN5cSBVXBjFNYDnmSMlusuWDnSxppNTt4m9mxFyW5iABe0RAdUv/WjzWq5xwyN
+ VUR0Xl0yy/xOpWZQHLh4w==
+UI-OutboundReport: notjunk:1;M01:P0:eGZ9mSanpnY=;lvcCsd+HGDAwvIfSnHYnoX8kGQK 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 cFaN4B4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_225729_547506_A79EE02D 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20250911_230026_625122_8B0A68EF 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,291 +89,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shangjuan Wei <weishangjuan@eswincomputing.com>
+>> Scope-based resource management became supported for some
+>> programming interfaces by contributions of Peter Zijlstra on 2023-05-26=
+.
+>> See also the commit 54da6a0924311c7cf5015533991e44fb8eb12773 ("locking:
+>=20
+> 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>=20
+> SHA ID here just needs first 12 digits not the entire string.
 
-Add Ethernet controller support for Eswin's eic7700 SoC. The driver
-implements hardware initialization, clock configuration, delay
-adjustment functions based on DWC Ethernet controller, and supports
-device tree configuration and platform driver integration.
+See also once more:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.17-rc5#n109
 
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 226 ++++++++++++++++++
- 3 files changed, 238 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 67fa879b1e52..a13b15ce1abd 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -67,6 +67,17 @@ config DWMAC_ANARION
+>> Introduce __cleanup() based infrastructure").
+>>
+>> * Thus use the attribute =E2=80=9C__free(kfree)=E2=80=9D.
+>>
+>> * Reduce the scopes for the local variables =E2=80=9Cbuf=E2=80=9D and =
+=E2=80=9Cpglist=E2=80=9D.
+>=20
+> What is that required ?
 
- 	  This selects the Anarion SoC glue layer support for the stmmac driver.
+The needed variables should be defined in a succinct way.
 
-+config DWMAC_EIC7700
-+	tristate "Support for Eswin eic7700 ethernet driver"
-+	select CRC32
-+	select MII
-+	depends on OF && HAS_DMA && ARCH_ESWIN || COMPILE_TEST
-+	help
-+	  This driver supports the Eswin EIC7700 Ethernet controller,
-+	  which integrates Synopsys DesignWare QoS features. It enables
-+	  high-speed networking with DMA acceleration and is optimized
-+	  for embedded systems.
-+
- config DWMAC_INGENIC
- 	tristate "Ingenic MAC support"
- 	default MACH_INGENIC
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index b591d93f8503..f4ec5fc16571 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -14,6 +14,7 @@ stmmac-$(CONFIG_STMMAC_SELFTESTS) += stmmac_selftests.o
- # Ordering matters. Generic driver must be last.
- obj-$(CONFIG_STMMAC_PLATFORM)	+= stmmac-platform.o
- obj-$(CONFIG_DWMAC_ANARION)	+= dwmac-anarion.o
-+obj-$(CONFIG_DWMAC_EIC7700)	+= dwmac-eic7700.o
- obj-$(CONFIG_DWMAC_INGENIC)	+= dwmac-ingenic.o
- obj-$(CONFIG_DWMAC_IPQ806X)	+= dwmac-ipq806x.o
- obj-$(CONFIG_DWMAC_LPC18XX)	+= dwmac-lpc18xx.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-new file mode 100644
-index 000000000000..ca297621fcf1
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-@@ -0,0 +1,226 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Eswin DWC Ethernet linux driver
-+ *
-+ * Copyright 2025, Beijing ESWIN Computing Technology Co., Ltd.
-+ *
-+ * Authors:
-+ *   Zhi Li <lizhi2@eswincomputing.com>
-+ *   Shuang Liang <liangshuang@eswincomputing.com>
-+ *   Shangjuan Wei <weishangjuan@eswincomputing.com>
-+ */
-+
-+#include <linux/platform_device.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/stmmac.h>
-+#include <linux/regmap.h>
-+#include <linux/of.h>
-+
-+#include "stmmac_platform.h"
-+
-+/* eth_phy_ctrl_offset eth0:0x100 */
-+#define EIC7700_ETH_TX_CLK_SEL		BIT(16)
-+#define EIC7700_ETH_PHY_INTF_SELI	BIT(0)
-+
-+/* eth_axi_lp_ctrl_offset eth0:0x108 */
-+#define EIC7700_ETH_CSYSREQ_VAL		BIT(0)
-+
-+/*
-+ * TX/RX Clock Delay Bit Masks:
-+ * - TX Delay: bits [14:8] — TX_CLK delay (unit: 0.1ns per bit)
-+ * - RX Delay: bits [30:24] — RX_CLK delay (unit: 0.1ns per bit)
-+ */
-+#define EIC7700_ETH_TX_ADJ_DELAY	GENMASK(14, 8)
-+#define EIC7700_ETH_RX_ADJ_DELAY	GENMASK(30, 24)
-+
-+#define EIC7700_MAX_DELAY_UNIT 0x7F
-+
-+static const char * const eic7700_clk_names[] = {
-+	"tx", "axi", "cfg",
-+};
-+
-+struct eic7700_qos_priv {
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct device *dev;
-+};
-+
-+static int eic7700_clks_config(void *priv, bool enabled)
-+{
-+	struct eic7700_qos_priv *dwc = (struct eic7700_qos_priv *)priv;
-+	struct plat_stmmacenet_data *plat = dwc->plat_dat;
-+	int ret = 0;
-+
-+	if (enabled)
-+		ret = clk_bulk_prepare_enable(plat->num_clks, plat->clks);
-+	else
-+		clk_bulk_disable_unprepare(plat->num_clks, plat->clks);
-+
-+	return ret;
-+}
-+
-+static int eic7700_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct eic7700_qos_priv *dwc_priv;
-+	struct regmap *eic7700_hsp_regmap;
-+	u32 eth_axi_lp_ctrl_offset;
-+	u32 eth_phy_ctrl_offset;
-+	u32 eth_phy_ctrl_regset;
-+	u32 eth_rxd_dly_offset;
-+	u32 eth_dly_param = 0;
-+	u32 delay_ps;
-+	int i, ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				"failed to get resources\n");
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
-+				"dt configuration failed\n");
-+
-+	dwc_priv = devm_kzalloc(&pdev->dev, sizeof(*dwc_priv), GFP_KERNEL);
-+	if (!dwc_priv)
-+		return -ENOMEM;
-+
-+	dwc_priv->dev = &pdev->dev;
-+
-+	/* Read rx-internal-delay-ps and update rx_clk delay */
-+	if (!of_property_read_u32(pdev->dev.of_node,
-+				  "rx-internal-delay-ps", &delay_ps)) {
-+		u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-+
-+		eth_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
-+		eth_dly_param |= FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-+	} else {
-+		dev_warn(&pdev->dev, "can't get rx-internal-delay-ps\n");
-+	}
-+
-+	/* Read tx-internal-delay-ps and update tx_clk delay */
-+	if (!of_property_read_u32(pdev->dev.of_node,
-+				  "tx-internal-delay-ps", &delay_ps)) {
-+		u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-+
-+		eth_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
-+		eth_dly_param |= FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-+	} else {
-+		dev_warn(&pdev->dev, "can't get tx-internal-delay-ps\n");
-+	}
-+
-+	eic7700_hsp_regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-+							     "eswin,hsp-sp-csr");
-+	if (IS_ERR(eic7700_hsp_regmap))
-+		return dev_err_probe(&pdev->dev,
-+				PTR_ERR(eic7700_hsp_regmap),
-+				"Failed to get hsp-sp-csr regmap\n");
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 1, &eth_phy_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"can't get eth_phy_ctrl_offset\n");
-+
-+	regmap_read(eic7700_hsp_regmap, eth_phy_ctrl_offset,
-+		    &eth_phy_ctrl_regset);
-+	eth_phy_ctrl_regset |=
-+		(EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
-+	regmap_write(eic7700_hsp_regmap, eth_phy_ctrl_offset,
-+		     eth_phy_ctrl_regset);
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 2, &eth_axi_lp_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"can't get eth_axi_lp_ctrl_offset\n");
-+
-+	regmap_write(eic7700_hsp_regmap, eth_axi_lp_ctrl_offset,
-+		     EIC7700_ETH_CSYSREQ_VAL);
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 3, &eth_rxd_dly_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"can't get eth_rxd_dly_offset\n");
-+
-+	regmap_write(eic7700_hsp_regmap, eth_rxd_dly_offset,
-+		     eth_dly_param);
-+
-+	plat_dat->num_clks = ARRAY_SIZE(eic7700_clk_names);
-+	plat_dat->clks = devm_kcalloc(&pdev->dev,
-+				      plat_dat->num_clks,
-+				      sizeof(*plat_dat->clks),
-+				      GFP_KERNEL);
-+	if (!plat_dat->clks)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < ARRAY_SIZE(eic7700_clk_names); i++)
-+		plat_dat->clks[i].id = eic7700_clk_names[i];
-+
-+	ret = devm_clk_bulk_get_optional(&pdev->dev,
-+					 plat_dat->num_clks,
-+					 plat_dat->clks);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"Failed to get clocks\n");
-+
-+	plat_dat->clk_tx_i = stmmac_pltfr_find_clk(plat_dat, "tx");
-+	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-+	plat_dat->bsp_priv = dwc_priv;
-+	plat_dat->clks_config = eic7700_clks_config;
-+	dwc_priv->plat_dat = plat_dat;
-+
-+	ret = eic7700_clks_config(dwc_priv, true);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"error enable clock\n");
-+
-+	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-+	if (ret) {
-+		eic7700_clks_config(dwc_priv, false);
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"Failed to driver probe\n");
-+	}
-+
-+	return ret;
-+}
-+
-+static void eic7700_dwmac_remove(struct platform_device *pdev)
-+{
-+	struct eic7700_qos_priv *dwc_priv = get_stmmac_bsp_priv(&pdev->dev);
-+
-+	stmmac_pltfr_remove(pdev);
-+	eic7700_clks_config(dwc_priv, false);
-+}
-+
-+static const struct of_device_id eic7700_dwmac_match[] = {
-+	{ .compatible = "eswin,eic7700-qos-eth" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, eic7700_dwmac_match);
-+
-+static struct platform_driver eic7700_dwmac_driver = {
-+	.probe  = eic7700_dwmac_probe,
-+	.remove = eic7700_dwmac_remove,
-+	.driver = {
-+		.name           = "eic7700-eth-dwmac",
-+		.pm             = &stmmac_pltfr_pm_ops,
-+		.of_match_table = eic7700_dwmac_match,
-+	},
-+};
-+module_platform_driver(eic7700_dwmac_driver);
-+
-+MODULE_AUTHOR("Zhi Li <lizhi2@eswincomputing.com>");
-+MODULE_AUTHOR("Shuang Liang <liangshuang@eswincomputing.com>");
-+MODULE_AUTHOR("Shangjuan Wei <weishangjuan@eswincomputing.com>");
-+MODULE_DESCRIPTION("Eswin eic7700 qos ethernet driver");
-+MODULE_LICENSE("GPL");
---
-2.17.1
 
+>> * Omit four kfree() calls accordingly.
+>=20
+> Right.
+>=20
+> The commit message should be re-written with little more
+> context from arm_trbe_alloc_buffer(), after describing
+> the new scope-based resource management.
+
+Which background information do you miss so far?
+
+Regards,
+Markus
 
