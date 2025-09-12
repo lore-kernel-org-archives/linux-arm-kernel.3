@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE17CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4AFCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2orgPnSyKwUjpy+rXIsFN9QMXdbTbrAv5OJqrbmBqrM=; b=iR9NluVLAHoPHA+vrnC/4TXe+v
-	l/Z99jF8MDQi5OqzdM2jvHuJ+fw9lVndMPgeue+Z12lhc9rXOCE2TeCl63CCt/Wtdut+5CfK0pQaT
-	eU0Bsy1Iely/rzEzmChXgndhivYoAAU+1ocDbeGP9H6p3NDqDrJ/PPdHefGV11FVYVV6EP13Nlj6w
-	bPpcppMQ+vwz6rOxK5GbSrnnth5oclk+iFT8GxGkuQRDXKIwdhHh1t2amPuhihd+npOqCPdZGhIgX
-	qfdhFSUtbDf+yIO6W1d0FQN4yMDK4Octsr9hRU3WAjQgddFm4HEj5aH2k8y/4dm3d5MFiIoy4nFOo
-	4kIi9Enw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uyd47bBGlb81TIx58uZxfLBkgobx+X8dUQ3HzEd7g0U=; b=pcn/gIucuVq1adG1/cgTUIgkGl
+	Q0tFLrALBRapg5ANAHcxmuRk++jHGlH71WTFINuRp06omFcs9dTL1K+NBs+Lk0NYnx6iMHoslywSA
+	H/ogPw92rC4vlXXyEbSVxb6J2z6I3IVYbto2BTXFGGRrj+axTLYf38qWKdb3vNbm4Qy3PiJx5l3xW
+	KdD3LB0Cu0JclpQRMdF1uduov2og+WEogB78B0t/2cVlzykt6AK0g69sfagY10f+vWws5LxrFmOZM
+	ZG09v7SXNI/SOxiO5pulPtVRjaBDATf0zh/bwfVOTA1IHXojdXBHFERJtuVDdURHylgiZc9obZpdV
+	LgiGXSTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2Xu-000000095ym-3lkD;
-	Fri, 12 Sep 2025 12:06:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ux2ZV-000000096bo-2gWA;
+	Fri, 12 Sep 2025 12:08:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2Xt-000000095xh-3tkW
+	id 1ux2ZT-000000096aK-1dzj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 12:06:30 +0000
+	Fri, 12 Sep 2025 12:08:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51E9760200;
-	Fri, 12 Sep 2025 12:06:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC493C4CEF1;
-	Fri, 12 Sep 2025 12:06:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B947644841;
+	Fri, 12 Sep 2025 12:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60C92C4CEF1;
+	Fri, 12 Sep 2025 12:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757678789;
-	bh=A8petOVqvEdmsFYA3MjCwiqV/huIzU9ROOZeN0k+x1E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=atpGPLOReo+o5b9Rzv1hFX5OHQtBhIslvrltVKK+XFmeOjKWb7HbOmV/MP2zAljnc
-	 f2268nyZ6gRgMvCP8U8fegkNEy6meOwcHuM7ZLnzHMlKqbsaX7Jl1o/LIVwWLUSBLK
-	 GclVPUTVBeBvDAXJ6RkjFsISQ3Yhi4RD4JqzPGUhzT/5sJR9fXEJQ9ApusaEC9d3oE
-	 haQTNGUKAfDqK+UO3xX0bRFPifFVMTxndB/QM09+/1UJ+HWIjUGQf1/9/301tryJKM
-	 sQpf0S2jyWpYK6KT48esOOoAE7+HJ+GsQ5NmD1P/udDXxVZaBU5qZ3Mt4hUZckmfeS
-	 d8abCAdiA5kWA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1ux2Xq-00000005g5A-3t5W;
-	Fri, 12 Sep 2025 12:06:27 +0000
-Date: Fri, 12 Sep 2025 13:06:26 +0100
-Message-ID: <864it7dge5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v16 4/6] KVM: arm64: Validate GCS exception lock when emulating ERET
-In-Reply-To: <20250912-arm64-gcs-v16-4-6435e5ec37db@kernel.org>
-References: <20250912-arm64-gcs-v16-0-6435e5ec37db@kernel.org>
-	<20250912-arm64-gcs-v16-4-6435e5ec37db@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1757678886;
+	bh=wJwOnYjjBM2ff4ferRQlzqp+j9TiO4Bd0Gj/yWI3ikg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Iv9ihUa9xREJ4gWjwJcF5xr1lwQt/bJPmEEaxFZsTJaec8mXvhsuFxHar1Pvdn0L1
+	 62/2z+PMzdTRxSbqob75l56WjpDK07la2JA0t18sfigTv0c86yeptCnvhcG7iany0c
+	 +b9LP/B1kJiu8wCk9UFqzg1NQoL8NQz4wJEkQvnT1wDvnNziwh7XwJED/pil8dvqMc
+	 4GkLSxCbqOAhIQODcE+8q+k95jO/8D25n5sge4tSDI19mz2D3w+3XYnrTsee82mP5y
+	 tdkr2Tsm7Aio5UeU84EUkmL4Fu+43KOB9Z3+554Eua04Foh0JnuXDh253qrVtmlhcU
+	 8taeb58Gbix0A==
+From: Michael Walle <mwalle@kernel.org>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Lee Jones <lee@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
+	linux-watchdog@vger.kernel.org,
+	Andrew Davis <afd@ti.com>
+Subject: [PATCH v2 0/7] Initial Kontron SMARC-sAM67 support
+Date: Fri, 12 Sep 2025 14:07:38 +0200
+Message-Id: <20250912120745.2295115-1-mwalle@kernel.org>
+X-Mailer: git-send-email 2.39.5
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250912_050807_481261_2B4BEDFD 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,94 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sep 2025 10:25:30 +0100,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> As per DDI0487 R_TYTWB GCS adds an additional case where an illegal
-> exception return can be generated. If all of:
-> 
->  - PSTATE.EXLOCK is 0.
->  - The EL is not being changed by the ERET.
->  - GCSCR_ELx.EXLOCKEN is 1.
-> 
-> are true then the return is illegal. Emulate this behaviour when
-> emulating ERET for nested guests.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/kvm/emulate-nested.c | 40 +++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 39 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> index 90cb4b7ae0ff..9b02b85eda64 100644
-> --- a/arch/arm64/kvm/emulate-nested.c
-> +++ b/arch/arm64/kvm/emulate-nested.c
-> @@ -2632,6 +2632,41 @@ bool forward_debug_exception(struct kvm_vcpu *vcpu)
->  	return forward_mdcr_traps(vcpu, MDCR_EL2_TDE);
->  }
->  
-> +/*
-> + * A subset of the pseudocode ELFromSPSR(), validity checks are
-> + * assumed to have been done in code that is not GCS specific.
-> + */
-> +static inline int exlock_el_from_spsr(u64 spsr)
-> +{
-> +	return FIELD_GET(GENMASK(3, 2), spsr);
-> +}
-> +
-> +/* See IllegalExceptionReturn() pseudocode */
-> +static bool kvm_check_illegal_exlock_return(struct kvm_vcpu *vcpu, u64 spsr)
-> +{
-> +	u64 cur_el, target_el;
-> +	u64 gcscr;
-> +
-> +	if (!kvm_has_gcs(vcpu->kvm))
-> +		return false;
-> +
-> +	if (spsr & PSR_EXLOCK_BIT)
-> +		return false;
-> +
-> +	cur_el = exlock_el_from_spsr(vcpu->arch.ctxt.regs.pstate);
-> +	target_el = exlock_el_from_spsr(spsr);
-> +
-> +	if (cur_el != target_el)
-> +		return false;
-> +
-> +	if (vcpu_is_el2(vcpu))
-> +		gcscr = __vcpu_sys_reg(vcpu, GCSCR_EL2);
-> +	else
-> +		gcscr = __vcpu_sys_reg(vcpu, GCSCR_EL1);
+Now that the PMIC support is there, we can finally, upstream the
+support for this board. Besides the usual device tree, this
+patchset contains the support for the on-board house keeping MCU. It
+make extensive reuse of the drivers for the former SMARC-sAL28
+board. Besides different hwmon sensors, all the dt binding patches
+will just add a board specific compatible (in addition to the old
+sl28 compatible) to make any future board specific quirks possible.
 
-At the point where we check for an illegal exception return, the state
-is live on the CPU. How does this work? Also, we only handle ERET
-traps for EL2, not EL1.
+I'm aware that there is a patch [1] which moves the sl28cpld MFD
+schema to a different directory. Once that patch is merged, I'll
+repost this series. But I already want to get some early feedback.
 
-> +
-> +	return gcscr & GCSCR_ELx_EXLOCKEN;
-> +}
-> +
->  static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
->  {
->  	u64 mode = spsr & PSR_MODE_MASK;
-> @@ -2642,12 +2677,15 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
->  	 * - trying to return to an illegal M value
->  	 * - trying to return to a 32bit EL
->  	 * - trying to return to EL1 with HCR_EL2.TGE set
-> +	 * - GCSCR_ELx.EXLOCKEN is 1 and PSTATE.EXLOCK is 0 when attempting
-> +	 *   to return from ELx the same EL.
->  	 */
->  	if (mode == PSR_MODE_EL3t   || mode == PSR_MODE_EL3h ||
->  	    mode == 0b00001         || (mode & BIT(1))       ||
->  	    (spsr & PSR_MODE32_BIT) ||
->  	    (vcpu_el2_tge_is_set(vcpu) && (mode == PSR_MODE_EL1t ||
-> -					   mode == PSR_MODE_EL1h))) {
-> +					   mode == PSR_MODE_EL1h)) ||
-> +	    kvm_check_illegal_exlock_return(vcpu, spsr)) {
+v2:
+ - dropped patches which were already picked up
+ - new patch "dt-bindings: mfd: tps6594: allow gpio-line-names"
+ - separate driver for the hwmon, add missing hwmon documentation,
+   thanks Guenter
+ - split the DT as suggested by the SoC maintainers
+ - add missing copyright and license to the overlays, thanks Andrew
 
-This code is simply never reached. Hint: kvm_hyp_handle_eret().
+Michael Walle (7):
+  dt-bindings: arm: ti: Add Kontron SMARC-sAM67 module
+  dt-bindings: mfd: tps6594: allow gpio-line-names
+  arm64: dts: ti: Add support for Kontron SMARC-sAM67
+  dt-bindings: hwmon: sl28cpld: add sa67mcu compatible
+  dt-bindings: watchdog: add SMARC-sAM67 support
+  hwmon: add SMARC-sAM67 support
+  arm64: dts: ti: sa67: add on-board management controller node
 
-	M.
+ .../devicetree/bindings/arm/ti/k3.yaml        |    1 +
+ .../hwmon/kontron,sl28cpld-hwmon.yaml         |    1 +
+ .../devicetree/bindings/mfd/ti,tps6594.yaml   |    1 +
+ .../watchdog/kontron,sl28cpld-wdt.yaml        |    7 +-
+ Documentation/hwmon/sa67.rst                  |   41 +
+ MAINTAINERS                                   |    1 +
+ arch/arm64/boot/dts/ti/Makefile               |    6 +
+ .../dts/ti/k3-am67a-kontron-sa67-base.dts     | 1091 +++++++++++++++++
+ .../dts/ti/k3-am67a-kontron-sa67-gbe1.dtso    |   26 +
+ .../ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso  |   31 +
+ drivers/hwmon/Kconfig                         |   10 +
+ drivers/hwmon/Makefile                        |    1 +
+ drivers/hwmon/sa67mcu-hwmon.c                 |  161 +++
+ 13 files changed, 1377 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/hwmon/sa67.rst
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gbe1.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso
+ create mode 100644 drivers/hwmon/sa67mcu-hwmon.c
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.39.5
+
 
