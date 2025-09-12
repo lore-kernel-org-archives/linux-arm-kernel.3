@@ -4,112 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F810CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:55:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF00CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6scNEiCwQDhpiTGreKSN8tOQ3odhAtWxi6tg8cuj+Pk=; b=26liX7iu4tfZD0M780mM/6/D0y
-	3dzW59ejLrWg13pC/fakSJM86uteQBsmbi93jthRmJ23979L5dUvn28E90ifimGz1CJlJBf40C04G
-	JMRxJMiS7ne6hqmnuIrFYrHSZAvpuVeYvX+RZwSREtlB1Yx9jwvHuuzwxGP1kPYjXQXCZFs1KVHXf
-	0C2wtNyWKhQUeEN/EqomAVlGU9FE/cfzaFIxz465Yxe6tUnlRtlT2KZCqGWgDEgqfHrmwfQz5Ow5h
-	oHvg+Pdt0KgVtgzLvJYn7cnyldQqMHrbhgGDusXnm4E3jyIGSWHUv3v6ysb9Kf64zniKwViNd8cQF
-	FiSyBy6A==;
+	bh=jsX+ssrACzBNObLTnlh8OdW9eS/lR9QUnQa2VKVvgho=; b=jewVycsTzauE+yAMca7Y1Wa3Kq
+	/aWjFkGHt6RVN9ITcqkVkp6zoNRj8uO/LttLN/CbpCk/zX/EKgzAYQ7Ub/ZXr97mf7ZWVdOWc8gyT
+	klL5enzoXCTF538xXAZIv1lDFXC+howBEpJWo6ZzKAp3Ut8hODjsQzfPkv+Qo4Dqof/jcgRlTizIH
+	lx2iZnVcttFSBHkOCOcUgdZ/mUEcBIAQSD2Mhm7aReGU68bgDSDLPaNR9HnEisfiAnP5KjNew8qdG
+	JQEzHXYnqOSZciBRm+kRnrfQFwj6kvS4b3Nkq0f6aXRY7oQomXdk5tsDf1BKS+N/lRY5AJSweBuex
+	/yqXOHLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3JE-00000009NnI-0uL2;
-	Fri, 12 Sep 2025 12:55:24 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1ux3Jd-00000009Nxr-0KcY;
+	Fri, 12 Sep 2025 12:55:49 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3JC-00000009Nmh-2QTM
+	id 1ux3Ja-00000009NvM-2RyB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 12:55:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=6scNEiCwQDhpiTGreKSN8tOQ3odhAtWxi6tg8cuj+Pk=; b=KbhEfAN88WcM4pD441bT2l6Pa1
-	23flmmlVtXb4d/OfaU+RBRGolmVniBWbCzoiGQUwB5r3WhnnaMr8RYY+D3naKECyvQhkVw817d2iy
-	JSzir0qe4MxEkeVAUGhaTAt5ATR9/yj01IeY7UQGzzHX29VdwRSXJ1qS51q44OO2dEmuyO/RMFIOy
-	waB+6mwaoGhA/I0K7eh4Dw4Wd3YKU6LgKyjy4h6JWHzJQfn2wi/kWbtv8moGnEuqdKeCCprlJ7D/7
-	3hGFjLBh/my8YIFhU8TvsiQJJLAviSSF9zAlwQcLAN6Z93n4TdFBSz2cBSd+WWkWJTN6v7JsU8EXx
-	KV5iBH5w==;
-Received: from [122.175.9.182] (port=50898 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1ux3J7-000000025Qs-1rx5;
-	Fri, 12 Sep 2025 08:55:17 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ssantosh@kernel.org,
-	richardcochran@gmail.com,
-	m-malladi@ti.com,
-	s.hauer@pengutronix.de,
-	afd@ti.com,
-	jacob.e.keller@intel.com,
-	kory.maincent@bootlin.com,
-	johan@kernel.org,
-	alok.a.tiwari@oracle.com,
-	m-karicheri2@ti.com,
-	s-anna@ti.com,
-	horms@kernel.org,
-	glaroque@baylibre.com,
-	saikrishnag@marvell.com,
-	diogo.ivo@siemens.com,
-	javier.carrasco.cruz@gmail.com,
-	basharath@couthit.com,
-	parvathi@couthit.com,
-	pmohan@couthit.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	bastien.curutchet@bootlin.com,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v16 6/6] MAINTAINERS: Add entries for ICSSM Ethernet driver
-Date: Fri, 12 Sep 2025 18:23:01 +0530
-Message-ID: <20250912125421.530286-7-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250912104741.528721-1-parvathi@couthit.com>
-References: <20250912104741.528721-1-parvathi@couthit.com>
+	Fri, 12 Sep 2025 12:55:48 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 1EA0F4E40CA2;
+	Fri, 12 Sep 2025 12:55:45 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D111C60638;
+	Fri, 12 Sep 2025 12:55:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5CAF9102F28D5;
+	Fri, 12 Sep 2025 14:55:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1757681743; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=jsX+ssrACzBNObLTnlh8OdW9eS/lR9QUnQa2VKVvgho=;
+	b=10fdBOnuIf9+TVb81hqwJj3lBVctWbHP/drlzP4YF8djSP0qBOtdyRjAQQ2TXTb668LYDl
+	ERqXEk45aSNq7G70RdaPsxMcVzRvgm8K1YieTHpMssjR8kMF9ZwRLChMlmnwwnsWkq5Lm5
+	MiLHpR97JcRbFjSWK/ZaQqHFTy5jYaFslBZX5IltHF964cqUxImiwVgO3fRFLbSsXanywt
+	PAsyIg9SAoOsINqhaFNdQR/5ll4wPk52At8E++uhEHT4awsqsCKwvfVzmNJ1RGtjbJxXQz
+	X7EERm9cfp7gqy6Ck90KN3/QPuLZ1wVlqOUWZ3WiyxDzl1/QqIiufA7IWX0Ftg==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Josua Mayer <josua@solid-run.com>, Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Wunderlich <frank-w@public-files.de>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, Josua Mayer
+ <josua@solid-run.com>
+Subject: Re: [PATCH] arm64: dts: marvell: cn913x-solidrun: fix sata ports
+ status
+In-Reply-To: <87tt17oms0.fsf@BLaptop.bootlin.com>
+References: <20250911-cn913x-sr-fix-sata-v1-1-9e72238d0988@solid-run.com>
+ <87tt17oms0.fsf@BLaptop.bootlin.com>
+Date: Fri, 12 Sep 2025 14:55:40 +0200
+Message-ID: <87qzwbomnn.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_055522_648162_EE2DBA6F 
-X-CRM114-Status: UNSURE (   5.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_055546_758294_4163EE31 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,38 +80,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an entry to MAINTAINERS file for the ICSSM Ethernet driver with
-appropriate maintainer information and mailing list.
+Gregory CLEMENT <gregory.clement@bootlin.com> writes:
 
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
----
- MAINTAINERS | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+> Josua Mayer <josua@solid-run.com> writes:
+>
+>> Commit "arm64: dts: marvell: only enable complete sata nodes" changed
+>> armada-cp11x.dtsi disabling all sata ports status by default.
+>>
+>> The author missed some dts which relied on the dtsi enabling all ports,
+>> and just disabled unused ones instead.
+>>
+>> Update dts for SolidRun cn913x based boards to enable the available
+>> ports, rather than disabling the unvavailable one.
+>>
+>> Further according to dt bindings the serdes phys are to be specified in
+>> the port node, not the controller node.
+>> Move those phys properties accordingly in clearfog base/pro/solidwan.
+>>
+>> Fixes: 30023876aef4 ("arm64: dts: marvell: only enable complete sata nod=
+es")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Josua Mayer <josua@solid-run.com>
+>
+> Applied on mvebu/fixes
+Actually this version not was not applied
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index c930a961435e..47bc35743f22 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -25319,6 +25319,18 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/ti,icss*.yaml
- F:	drivers/net/ethernet/ti/icssg/*
- 
-+TI ICSSM ETHERNET DRIVER (ICSSM)
-+M:	MD Danish Anwar <danishanwar@ti.com>
-+M:	Parvathi Pudi <parvathi@couthit.com>
-+R:	Roger Quadros <rogerq@kernel.org>
-+R:	Mohan Reddy Putluru <pmohan@couthit.com>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/ti,icssm*.yaml
-+F:	Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
-+F:	drivers/net/ethernet/ti/icssm/*
-+
- TI J721E CSI2RX DRIVER
- M:	Jai Luthra <jai.luthra@linux.dev>
- L:	linux-media@vger.kernel.org
--- 
-2.43.0
+>
+> Thanks,
+>
+> Gregory
+>
+>
+>> ---
+>>  arch/arm64/boot/dts/marvell/cn9130-cf.dtsi         | 7 ++++---
+>>  arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts | 6 ++++--
+>>  arch/arm64/boot/dts/marvell/cn9132-clearfog.dts    | 6 ++----
+>>  3 files changed, 10 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/marvell/cn9130-cf.dtsi b/arch/arm64/boo=
+t/dts/marvell/cn9130-cf.dtsi
+>> index ad0ab34b66028c53b8a18b3e8ee0c0aec869759f..bd42bfbe408bbe2a4d58dbd4=
+0204bcfb3c126312 100644
+>> --- a/arch/arm64/boot/dts/marvell/cn9130-cf.dtsi
+>> +++ b/arch/arm64/boot/dts/marvell/cn9130-cf.dtsi
+>> @@ -152,11 +152,12 @@ expander0_pins: cp0-expander0-pins {
+>>=20=20
+>>  /* SRDS #0 - SATA on M.2 connector */
+>>  &cp0_sata0 {
+>> -	phys =3D <&cp0_comphy0 1>;
+>>  	status =3D "okay";
+>>=20=20
+>> -	/* only port 1 is available */
+>> -	/delete-node/ sata-port@0;
+>> +	sata-port@1 {
+>> +		phys =3D <&cp0_comphy0 1>;
+>> +		status =3D "okay";
+>> +	};
+>>  };
+>>=20=20
+>>  /* microSD */
+>> diff --git a/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts b/arch/a=
+rm64/boot/dts/marvell/cn9131-cf-solidwan.dts
+>> index 47234d0858dd2195bb1485f25768ad3c757b7ac2..338853d3b179bb5cb742e975=
+bb830fdb9d62d4cc 100644
+>> --- a/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts
+>> +++ b/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts
+>> @@ -563,11 +563,13 @@ &cp1_rtc {
+>>=20=20
+>>  /* SRDS #1 - SATA on M.2 (J44) */
+>>  &cp1_sata0 {
+>> -	phys =3D <&cp1_comphy1 0>;
+>>  	status =3D "okay";
+>>=20=20
+>>  	/* only port 0 is available */
+>> -	/delete-node/ sata-port@1;
+>> +	sata-port@0 {
+>> +		phys =3D <&cp1_comphy1 0>;
+>> +		status =3D "okay";
+>> +	};
+>>  };
+>>=20=20
+>>  &cp1_syscon0 {
+>> diff --git a/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts b/arch/arm6=
+4/boot/dts/marvell/cn9132-clearfog.dts
+>> index 0f53745a6fa0d8cbd3ab9cdc28a972ed748c275f..115c55d73786e2b9265e1caa=
+4c62ee26f498fb41 100644
+>> --- a/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts
+>> +++ b/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts
+>> @@ -512,10 +512,9 @@ &cp1_sata0 {
+>>  	status =3D "okay";
+>>=20=20
+>>  	/* only port 1 is available */
+>> -	/delete-node/ sata-port@0;
+>> -
+>>  	sata-port@1 {
+>>  		phys =3D <&cp1_comphy3 1>;
+>> +		status =3D "okay";
+>>  	};
+>>  };
+>>=20=20
+>> @@ -631,9 +630,8 @@ &cp2_sata0 {
+>>  	status =3D "okay";
+>>=20=20
+>>  	/* only port 1 is available */
+>> -	/delete-node/ sata-port@0;
+>> -
+>>  	sata-port@1 {
+>> +		status =3D "okay";
+>>  		phys =3D <&cp2_comphy3 1>;
+>>  	};
+>>  };
+>>
+>> ---
+>> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+>> change-id: 20250911-cn913x-sr-fix-sata-5c737ebdb97f
+>>
+>> Best regards,
+>> --=20
+>> Josua Mayer <josua@solid-run.com>
+>>
+>>
+>
+> --=20
+> Gr=C3=A9gory CLEMENT, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
 
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
