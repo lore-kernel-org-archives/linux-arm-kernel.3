@@ -4,70 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62866CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 11:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528F3CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 11:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUNlJgUtKlThWVuegzMCgno/3rScWO4fdbH39TrSDAw=; b=sOOirwk1mRmoLr2/ca4R+hRZoJ
-	4brgOBrLu2/IkESSuPOJ6jtjNEABn9rQ7BDax+pgkinmkCfrMLSkNMkLjLy5rgfCCWb6k9oC1pA0+
-	Un17uTNfW8wsrNP0WHCpLLdkWIl/29NM7LGhLTzS6iPSTIUEZW66hpJ+xNw0I1Nu5EPKMVXK/71oQ
-	5CLKVEelprscnB0gwDYq5P6iM1Htt4yqtrZiXi3PnK1aFfDUHIhQ8dI2rJFwyDbf/pOBwZbs9SdPU
-	FE4GSr/eCdyDs740S5SpX7yoNL6c0cv/R1LL5ukT0nGDo+jDZPDOh0wFlbKvnGOzNcaO07C+Qlyfy
-	m4+4gDwA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yS3MVaBiPFvnqtziEvD6/apdL+y3TLGDsNfXHatWXM4=; b=YmKOvwX8kUQlz5Hs1thwiD39C0
+	C55cG/5jxF/cAe50egPWvgj7YIe8YV3tquM6x2yvNZCOKK+DZSjXIjwfVhJUOK3AhjbCPpAGoLJTK
+	0jTRpMbloSiBPbW9o1keR3UZCtoQiQuK9mgokhlkNfdYLD9jWsy4KnRmerDBtwEZ4I7IA9cfwlngA
+	rs3nbM9AZYZyTRUP6qz2a57RoSHokuAGo0PRRS7HDU+WmGy+v65Gjt1479cP12G0LdoASWxFC0jLq
+	PErxwRj6suNGOs3CXXEYnUMfa5nRw+y+qovKuDfVgEMdHedo6c0jdPsbV2d11pyo/43YWy7yRe1jr
+	qiAwQK6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1gQ-00000008naR-21N4;
-	Fri, 12 Sep 2025 11:11:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1gM-00000008nZ8-3vrD
+	id 1ux1jB-00000008oLq-0ICR;
+	Fri, 12 Sep 2025 11:14:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux1j8-00000008oL2-3rvd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 11:11:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A04BE1515;
-	Fri, 12 Sep 2025 04:11:01 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D0A353F63F;
-	Fri, 12 Sep 2025 04:11:04 -0700 (PDT)
-Message-ID: <0382ea8a-8f15-4983-8659-0471f9090012@arm.com>
-Date: Fri, 12 Sep 2025 12:11:03 +0100
+	Fri, 12 Sep 2025 11:14:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DADF3601E8;
+	Fri, 12 Sep 2025 11:14:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46638C4CEF1;
+	Fri, 12 Sep 2025 11:14:00 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: soc@lists.linux.dev,
+	soc <soc@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [GIT PULL 0/3] Renesas SoC updates for v6.18 (take two)
+Date: Fri, 12 Sep 2025 13:13:50 +0200
+Message-ID: <cover.1757669912.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/29] arm_mpam: Probe hardware to find the supported
- partid/pmg values
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-12-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250910204309.20751-12-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_041111_015060_20E51235 
-X-CRM114-Status: GOOD (  14.39  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +59,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+	Hi SoC folks,
 
-On 9/10/25 21:42, James Morse wrote:
-> CPUs can generate traffic with a range of PARTID and PMG values,
-> but each MSC may also have its own maximum size for these fields.
-> Before MPAM can be used, the driver needs to probe each RIS on
-> each MSC, to find the system-wide smallest value that can be used.
-> The limits from requestors (e.g. CPUs) also need taking into account.
-> 
-> While doing this, RIS entries that firmware didn't describe are created
-> under MPAM_CLASS_UNKNOWN.
-> 
-> While we're here, implement the mpam_register_requestor() call
-> for the arch code to register the CPU limits. Future callers of this
-> will tell us about the SMMU and ITS.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since v1:
->  * Change to lock ordering now that the list-lock mutex isn't held from
->    the cpuhp call.
->  * Removed irq-unmaksed assert in requestor register.
->  * Changed captialisation in print message.
-> ---
->  drivers/resctrl/mpam_devices.c  | 150 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_internal.h |   6 ++
->  include/linux/arm_mpam.h        |  14 +++
->  3 files changed, 169 insertions(+), 1 deletion(-)
+This is my second pull request for the inclusion of Renesas SoC updates
+for v6.18.
 
-Looks good to me. I think Jonathan's comment on getting rid of the local
-variable, 'found', is worthwhile.
+It consists of 3 parts:
 
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+  [GIT PULL 1/3] Renesas driver updates for v6.18 (take two)
 
-Thanks,
+    - Identify the Renesas R-Car X5H (R8A78000) SoC.
 
-Ben
+  [GIT PULL 2/3] Renesas DT binding updates for v6.18
 
+    - Document the R-Car X5H (R8A78000) SoC and the Ironhide board.
+
+  [GIT PULL 3/3] Renesas DTS updates for v6.18 (take two)
+
+    - Add pin control and I2C support for the RZ/N2H SoC and its
+      evaluation board,
+    - Add LED, EEPROM, eMMC, SD card, watchdog, and USB2.0 support for the
+      RZ/T2H and RZ/N2H SoCs and their evaluation boards,
+    - Add I3C support for the RZ/V2H and RZ/V2N SoCs,
+    - Add IMX219 and IMX462 camera overlay support for the Sparrow Hawk
+      board,
+    - Miscellaneous fixes and improvements.
+
+Thanks for pulling!
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
