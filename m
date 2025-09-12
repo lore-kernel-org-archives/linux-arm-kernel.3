@@ -4,78 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92867CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 18:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD84BCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 19:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jgluz1VB/1G/DYBTfp7Su1oyZjWlvzq3TKFpkBLruI4=; b=L9jXxTp83qXSYmUGAABWdPMu+c
-	3xOZWI6zzzESpHBdqr/edvL5mU0c7v2dqejG57FEGfCrbdsU5xxkEN3JGmKic1Tt7sW89VzhhGI7f
-	unsPm4D7EJRmPVHAAkRJ6VSFftgcskX2YLaQIYtu+OwAk9FBzwR0TM8ZxV+vEMGbcAtm6MPHwzA1Q
-	/OA7oMwHxLYLKp/CmcjOrYBkqWwYVD5JduUSPMh2vORwDUVitay+nP5arv56Vr7MhoRa/axl+zSkp
-	UJQlU8+2P3aPCfAlsFpzzuRE5MiUYaEhgWEWduRrmy4bCht6ukyntSzr4zdkb3+Z/3/7Ncx7T3Y6c
-	pNew7rkA==;
+	bh=Q4NS2lGNDYPRFSd1ovtwkZb7OAAyExi6xlEfHJJUBmQ=; b=LRLRIkP/YekhnJ5rbwrUZF3lzl
+	woAs80fsFvUDM3Zmg0sVElJh8VN7cwN+RKlpoChUN+Nda6Oh47cFdCRpaSe0Vl8J0tsA3+oaGUWq6
+	xuvywNrCXWK9EEilQtqVdLiOdtcv2a0xoViGaKNqYfqR0Uno3V2WHo59cmHoWoS78T5a5tIbLaztH
+	rn4wmuqOwqgpI5w5HUVr4zpspBwIgvxBxlRPUwQNICqvuq1m+4moqe0Op3DT+I5geV5oVnG1WZ3fK
+	8FjaRCznWa4IRAvDyM7UH2KQOBbidp5lOd+Ah9Fq87g7vczjUQkLgkStKXS5J6h2La7KxwdQwEBqh
+	KYBexmfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8qX-0000000B61r-3BAJ;
-	Fri, 12 Sep 2025 18:50:09 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1ux9QZ-0000000BDmn-1wPu;
+	Fri, 12 Sep 2025 19:27:23 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8qU-0000000B61O-2mKn
+	id 1ux9QX-0000000BDm9-1M82
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 12 Sep 2025 19:27:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Q4NS2lGNDYPRFSd1ovtwkZb7OAAyExi6xlEfHJJUBmQ=; b=sM0C05B/Y3OuuPJLT/rxWbP4h6
+	lMYUgkvI+D4NZSiYlHnBymLkEAfmQ3a/hlKZBpMTpHVi3OfJ6UXIi+Ug8fUseNg7R/sHhFstBegI3
+	wYsDO+XVgodx3kY3FEui0txhKVG1am9ra2PnsHNytYSRIU+SpIqCvDuYiUIngAEO6G9SeFtwHrbaP
+	hZ+JFl0kbS+6A89TJfBS+Pxw03/TEhYIMb1JDihqsgZNF0qD4R88DpwuElBusat9T0A/YOD719loB
+	bDyDF/ds/UMwru/63Qhlq8h/QHKfOHbgiWtjfxv6TA0eGDNnRs+tFkmd3jm4DgdYOinxizIA7y5Gv
+	dmCcxVuA==;
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux9QT-00000004wmv-2evt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 18:50:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757702987; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=MMStU+3hRtzkLorSu8cvhj4yj9QKVpW2KU9+rsL9jBT5Moof9YaOUbirSYeUkrghwp/a1hkQLMuTeonRBEN8NBKAGE49gePu8sZCHHfA4XCbnAEryr0NfjpLRoTVekNkGRH1m/LD5p6nnpZ1E8tYDvgSHl4h5FhVoemmVsFA96c=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757702987; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Jgluz1VB/1G/DYBTfp7Su1oyZjWlvzq3TKFpkBLruI4=; 
-	b=EYCCAVE8Ab3G8NQ426QKbnwxGKRv15FuBpSAWhzZLkuuNqhsiQiKzXitaK57+GL5tWdsIv+AOhloG/OWpyknYxowmsk8duOTrqYSmxX9VoagJ/bnqesTMUA6Y1oWa0s3bGEg4iso4ST76BlrcOvqP8mgCgiXkcdve4NIVBjahr0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757702987;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=Jgluz1VB/1G/DYBTfp7Su1oyZjWlvzq3TKFpkBLruI4=;
-	b=UA9KyE9azmnLUmH9Qs86R/QKJcGr7uEhTtfLYk93StOiilKYy63S+sO12DWsWm6P
-	Ftc6S5o0hrpM1vB51UgiByP+yAaxIBHbIkTqCjQDgmC8b2U5J/M0ushryPcwzrrB+Vz
-	Ks8rmtfLWnMlVtLsw3+M79+fRHMkXDaooFTRhJWg=
-Received: by mx.zohomail.com with SMTPS id 1757702984518937.115502131544;
-	Fri, 12 Sep 2025 11:49:44 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
- Saravana Kannan <saravanak@google.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org,
- Stephen Boyd <sboyd@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Sebin Francis <sebin.francis@ti.com>,
- Diederik de Haas <didi.debian@cknow.org>,
- Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abel.vesa@linaro.org>,
- Peng Fan <peng.fan@oss.nxp.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>,
- Michal Simek <michal.simek@amd.com>, Konrad Dybcio <konradybcio@kernel.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/5] pmdomain: Restore behaviour for disabling unused PM domains
-Date: Fri, 12 Sep 2025 20:49:37 +0200
-Message-ID: <3919643.KlZ2vcFHjT@workhorse>
-In-Reply-To: <CAGETcx9W5MXyHA2r1kDh9=WJiQWLF1xdPaSCH=jXYeAHqQW60w@mail.gmail.com>
-References: <20250909111130.132976-1-ulf.hansson@linaro.org>
- <CAGETcx9W5MXyHA2r1kDh9=WJiQWLF1xdPaSCH=jXYeAHqQW60w@mail.gmail.com>
+	Fri, 12 Sep 2025 19:27:20 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58CJOvCc668524;
+	Fri, 12 Sep 2025 14:24:57 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757705097;
+	bh=Q4NS2lGNDYPRFSd1ovtwkZb7OAAyExi6xlEfHJJUBmQ=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=ZZ+EeJ/XiIL22njUd2gX5udls+1mAirxXEHksdBu0njlTzgvOx7WWptSXLbMNKltE
+	 M/O8RcnXHxUHFnpQZRP2Jp3wEK6u4t9k78rHVtuRrKQJsGpUduLu13T3ZpxEQGtEcC
+	 HwW/XN6U4cqMbAhoA7IxW84ZRc2IgDv4qXLAh1IU=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58CJOu6i2993241
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 12 Sep 2025 14:24:57 -0500
+Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 12
+ Sep 2025 14:24:56 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 12 Sep 2025 14:24:56 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58CJOuXa187040;
+	Fri, 12 Sep 2025 14:24:56 -0500
+Date: Fri, 12 Sep 2025 14:24:56 -0500
+From: Bryan Brattlof <bb@ti.com>
+To: Andrew Davis <afd@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Linus
+ Walleij <linus.walleij@linaro.org>,
+        Tony Lindgren <tony@atomide.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+        <linux-gpio@vger.kernel.org>
+Subject: Re: [PATCH v6 3/4] arm64: dts: ti: k3-am62l: add initial
+ infrastructure
+Message-ID: <20250912192456.msnw64b62yr5ricw@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20250912-am62lx-v6-0-29d5a6c60512@ti.com>
+ <20250912-am62lx-v6-3-29d5a6c60512@ti.com>
+ <0153912f-04a5-4118-a286-4e9c0293aae6@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+In-Reply-To: <0153912f-04a5-4118-a286-4e9c0293aae6@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_115006_775300_D6367A5D 
-X-CRM114-Status: GOOD (  24.78  )
+X-CRM114-CacheID: sfid-20250912_202718_174192_44FF098B 
+X-CRM114-Status: GOOD (  31.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,100 +111,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 12 September 2025 20:36:35 Central European Summer Time Saravana=
- Kannan wrote:
-> On Tue, Sep 9, 2025 at 4:11=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.or=
-g> wrote:
-> >
-> > Recent changes to genpd prevents those PM domains being powered-on duri=
-ng
-> > initialization from being powered-off during the boot sequence. Based u=
-pon
-> > whether CONFIG_PM_CONFIG_PM_GENERIC_DOMAINS_OF is set of not, genpd rel=
-ies
-> > on the sync_state mechanism or the genpd_power_off_unused() (which is a
-> > late_initcall_sync), to understand when it's okay to allow these PM dom=
-ains
-> > to be powered-off.
-> >
-> > This new behaviour in genpd has lead to problems on different platforms=
- [1].
-> >
-> > In this series, I am therefore suggesting to restore the behavior of
-> > genpd_power_off_unused() along with introducing a new genpd config flag,
-> > GENPD_FLAG_NO_STAY_ON, to allow genpd OF providers to opt-out from the =
-new
-> > behaviour.
-> >
-> > Kind regards
-> > Ulf Hansson
-> >
-> > [1]
-> > https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.=
-org/
-> > https://lore.kernel.org/all/20250902-rk3576-lockup-regression-v1-1-c4a0=
-c9daeb00@collabora.com/
->=20
-> I'm surprised this is happening. The default behavior of sync_state()
-> is to never turn off a power domain until all the consumers have
-> probed.
->=20
-> Is there a consumer that's not captured correctly? If so, can we add them?
+On September 12, 2025 thus sayeth Andrew Davis:
+> On 9/12/25 10:40 AM, Bryan Brattlof wrote:
+> > From: Vignesh Raghavendra <vigneshr@ti.com>
+> > 
+> > Add the initial infrastructure needed for the AM62L. ALl of which can be
+> > found in the Technical Reference Manual (TRM) located here:
+> > 
+> >      https://www.ti.com/lit/pdf/sprujb4
+> > 
+> > Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
+> > Signed-off-by: Bryan Brattlof <bb@ti.com>
+> > ---
+> > Changes in v4:
+> >   - Corrected Copyright year
+> >   - Used 'ranges' property in the fss{} node
+> > 
+> > Changes in v3:
+> >   - Added more nodes now that the SCMI interface is ready
+> > 
+> > Changes in v1:
+> >   - switched to non-direct links to TRM updates are automatic
+> >   - fixed white space indent issues with a few nodes
+> >   - separated out device tree bindings
+> > ---
+> >   arch/arm64/boot/dts/ti/k3-am62l-main.dtsi    | 603 +++++++++++++++++++++++++++
+> >   arch/arm64/boot/dts/ti/k3-am62l-thermal.dtsi |  25 ++
+> >   arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi  | 141 +++++++
+> >   arch/arm64/boot/dts/ti/k3-am62l.dtsi         | 120 ++++++
+> >   arch/arm64/boot/dts/ti/k3-am62l3.dtsi        |  67 +++
+> >   arch/arm64/boot/dts/ti/k3-pinctrl.h          |   2 +
+> >   6 files changed, 958 insertions(+)
+> > 
 
-Yes, and unfortunately, not trivially so, no. In Rockchip's case, the
-regulators supplying a certain power domain cannot be acquired at
-pmdomain probe time, as the regulators themselves are sometimes
-SPI or I2C regulators that depend on powerdomains to be up.
+...
 
-So we only acquire them when the power domain is enabled, which does
-not happen for unused PDs. Acquiring them during PD disable also
-wouldn't work, as the genpd idle check may run after the regulator
-idle check.
+> > diff --git a/arch/arm64/boot/dts/ti/k3-am62l.dtsi 
+> > b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..d058394a8d19d16f100cd87cf293c67bc189b475
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
+> > @@ -0,0 +1,120 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only or MIT
+> > +/*
+> > + * Device Tree Source for AM62L SoC Family
+> > + * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
+> > + *
+> > + * Technical Reference Manual: https://www.ti.com/lit/pdf/sprujb4
+> > + */
+> > +
 
->=20
-> Also, there are already sync_state related kernel configs, command
-> line options and sysfs files that should allow people to power off
-> devices (at different levels of granularity) even if its consumers
-> haven't probed.
+...
 
-This series is a stop-gap solution to get us through v6.17, so that
-problematic drivers like Rockchip pmdomains can be rearchitectured
-to declare their dependency in some way that is not racey. This
-will be somewhat non-trivial, hence the current solution for now.
+> > +		};
+> > +	};
+> > +
+> > +	#include "k3-am62l-thermal.dtsi"
+> 
+> Not a fan of how this is included (yes I know it is done like this in
+> a couple other places, those need fixed too), as we have better/standard
+> ways to add nodes to nodes other than directly including a file with the
+> node. The other issue is now the content of the file, including its #include
+> lines are now inside this parent node.
+> 
+> This dtsi file should just start with "/ {" and add the extra node.
+> 
+> Also, isn't this broken out into a dtsi so we can handle versions of
+> this device qualified for other thermal ranges without having to use
+> a different parent device dtsi? If so then adding it directly to the
+> base dtsi prevents that. Either all AM62L have this one thermal situation
+> and then it doesn't need to be a dtsi, or this include should go into the
+> board level as it is up to the given board what specific variant was chosen
+> to be populated on that board type.
+> 
 
->=20
-> Thanks,
-> Saravana
->=20
+Yeah I've noticed this as well. We have a few parts available in 
+different packaging that have different maximum temp ratings. Ideally we 
+should have some way to specify which package variant the board is using 
+and include these thermal trip points for that package.
 
-Kind regards,
-Nicolas Frattaroli
+It does add more #includes into all of this but I guess if you've picked 
+up on this as well I should probably look into seeing what we can do.
 
-> >
-> > Ulf Hansson (5):
-> >   pmdomain: core: Restore behaviour for disabling unused PM domains
-> >   pmdomain: rockchip: Fix regulator dependency with
-> >     GENPD_FLAG_NO_STAY_ON
-> >   pmdomain: renesas: rcar-sysc: Don't keep unused PM domains powered-on
-> >   pmdomain: renesas: rcar-gen4-sysc: Don't keep unused PM domains
-> >     powered-on
-> >   pmdomain: renesas: rmobile-sysc: Don't keep unused PM domains
-> >     powered-on
-> >
-> >  drivers/pmdomain/core.c                   | 20 ++++++++++++++------
-> >  drivers/pmdomain/renesas/rcar-gen4-sysc.c |  1 +
-> >  drivers/pmdomain/renesas/rcar-sysc.c      |  1 +
-> >  drivers/pmdomain/renesas/rmobile-sysc.c   |  3 ++-
-> >  drivers/pmdomain/rockchip/pm-domains.c    |  2 +-
-> >  include/linux/pm_domain.h                 |  7 +++++++
-> >  6 files changed, 26 insertions(+), 8 deletions(-)
-> >
-> > --
-> > 2.43.0
-> >
->=20
-
-
-
-
+~Bryan
 
