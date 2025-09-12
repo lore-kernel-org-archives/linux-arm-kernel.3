@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B43CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 21:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B9A4CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 21:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=ztvzX841FPofXEw3UAvHe5MUUCcyU4P38VrmHGx3SqU=; b=VvQNfANVe4GGVK
-	SMc1nJk5x7tFvY30glPiFSirF/3+IRH3AcVExDJ/VVpjyuCJRSUtyFeSjwtG9DK8GwKD1voGV2yOU
-	KfgztRo+j+HTKjIF6sAptNAvZAyjvMGgICWGjDT6VshADIQYYs7JYQsgVzcvH/wXX1xU5fV41pPF/
-	7h9cTVWZxG5Fbcs3qI4PpuY2NhJtxbXoA2/Yz4h5BQtiTqwgzg+kTLk+PPC/isz2UQNSwd8vqTP/1
-	53SsBBvRwWQmceDrgAiJh3f2UykJviNXVhovMrtaBqrICsfqEMp4OjK9sZ76QemaUsK26NK9y6hMR
-	UltwYVMDMraeUcv68K9g==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KeZJskDrLdyI31cFaw160l4iI66D6Vs9RjJCvNrmuS0=; b=PuImWFEfjF20qvGEX/q9JOSuCI
+	DSJdQ7b+Ij5mZLq/Q1+3UOccd+9UiGRsuwzDmal22NER4Fvhbb76olJkX+gfnh4nR1eIwj0Lr/+nq
+	gsaIWoLy+XYnTV42prczoVmJpBOZa2K8uoIRrH0QaxUw9oQK4tcBvO4aQH60hocI/7HPYps8gJvc9
+	uNvQbeuYx99vVTTCK3yoJhqVscnQcziqMjIMkUMT0GZcXSgma06I6f0avFQ7HseVESu6Iim2rhLXU
+	hHyBMxjgjoM5EhmQBXF0Jr/Oj6hFqzK331NBJYK6rOwsxlazCleyxPZfgHl0H1qRpA5m60wUINsjh
+	hHzN+HMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxBfW-0000000BiUv-362i;
-	Fri, 12 Sep 2025 21:50:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uxBgi-0000000BirP-0QfB;
+	Fri, 12 Sep 2025 21:52:12 +0000
+Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxBfT-0000000BiU3-2UFi
+	id 1uxBgg-0000000Bipe-0Hey
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 21:50:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1630040C26;
-	Fri, 12 Sep 2025 21:50:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD397C4CEF1;
-	Fri, 12 Sep 2025 21:50:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757713855;
-	bh=I32UvaadbaJ72Eaidbhmruy+XECfJJW6sIgil2cnjeo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=gPkiIYGNsVnzkGKHbxxmFqBsyIMcycgphKoCmbj8GCCYzxsWhQT3JRMOfmPyMqODQ
-	 uzGBxRZL3dghbATykaG2tSVEML0iOTtx1CmufOncToMeAUNzYK2GbPG/9ADADC+F/q
-	 TKmW6+PwUvNMEyFhDRectkEsWwFj/rqtvzT1GiBIYYRZCkQb4m7EIcd0r84ohOvsyX
-	 kjCilPYUg+ek55S/3MfjHoUcR1urIuTIDrF77z1T80tQRtaDG24SkwPg3MJqH6AB70
-	 j+3h6uxILGb51saPCUzDZhSfNo5dZOf3HZM7qqTPv4f62lHTAklzyMKeHXrb1gsQKW
-	 XbM9D3n5jJQ/w==
-Date: Fri, 12 Sep 2025 16:50:53 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Subject: Re: [PATCH v9 3/4] PCI: qcom: Prepare for the DWC ECAM enablement
-Message-ID: <20250912215053.GA1643809@bhelgaas>
+	Fri, 12 Sep 2025 21:52:11 +0000
+Date: Fri, 12 Sep 2025 14:51:58 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1757713924;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KeZJskDrLdyI31cFaw160l4iI66D6Vs9RjJCvNrmuS0=;
+	b=RBdbbhgjcHEyfj2dOzPwo9K7/WXxmFcSrY5PcSj9ybaMhFFXF4ySWXr2Xfqd3wqlxQDaA9
+	ZwlGCinuMV3u8Hu53xZR/N5pdVHx9aqpV1aJoKSTT00Rug9BB7k1PldTYm66ontUvmhLUG
+	MRPF9Ff8BZvypxYSFejo8gfph6/R7Dg=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Jinqian Yang <yangjinqian1@huawei.com>
+Cc: yuzenghui@huawei.com, maz@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, liuyonglong@huawei.com,
+	wangzhou1@hisilicon.com
+Subject: Re: [PATCH v3 1/2] KVM: arm64: Make ID_AA64MMFR1_EL1.{HCX, TWED}
+ writable from userspace
+Message-ID: <aMSV_tLO-W4VKYRX@linux.dev>
+References: <20250911114621.3724469-1-yangjinqian1@huawei.com>
+ <20250911114621.3724469-2-yangjinqian1@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250909-controller-dwc-ecam-v9-3-7d5b651840dd@kernel.org>
+In-Reply-To: <20250911114621.3724469-2-yangjinqian1@huawei.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_145055_676251_14B99FE1 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20250912_145210_256167_B9961DA7 
+X-CRM114-Status: GOOD (  24.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +71,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 12:37:52PM +0530, Manivannan Sadhasivam wrote:
-> From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> 
-> To support the DWC ECAM mechanism, prepare the driver by performing below
-> configurations:
-> 
->   1. Since the ELBI region will be covered by the ECAM 'config' space,
->      override the 'elbi_base' with the address derived from 'dbi_base' and
->      the offset from PARF_SLV_DBI_ELBI register.
-> 
->   2. Block the transactions from the host bridge to devices other than Root
->      Port on the root bus to return all F's. This is required when the 'CFG
->      Shift Feature' of iATU is enabled.
+Hi Jinqian,
 
-FWIW, before I noticed your v9, I had updated the comments here to fix
-a few inconsistencies.  Here's the diff:
+On Thu, Sep 11, 2025 at 07:46:20PM +0800, Jinqian Yang wrote:
+> Allow userspace to downgrade {HCX, TWED} in ID_AA64MMFR1_EL1. Userspace can
+> only change the value from high to low.
+> 
+> Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 2 --
+>  1 file changed, 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 82ffb3b3b3cf..db49beb8804e 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -3002,8 +3002,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  				      ~(ID_AA64MMFR0_EL1_RES0 |
+>  					ID_AA64MMFR0_EL1_ASIDBITS)),
+>  	ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
+> -					ID_AA64MMFR1_EL1_HCX |
+> -					ID_AA64MMFR1_EL1_TWED |
+>  					ID_AA64MMFR1_EL1_XNX |
+>  					ID_AA64MMFR1_EL1_VH |
+>  					ID_AA64MMFR1_EL1_VMIDBits)),
 
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index 7c2b2c8c61c2..962f0311a23a 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -343,15 +343,15 @@ static void qcom_pci_config_ecam(struct dw_pcie_rp *pp)
- 	writel_relaxed(upper_32_bits(pci->dbi_phys_addr), pcie->parf + PARF_ECAM_BASE_HI);
- 
- 	/*
--	 * The only device on root bus is a single Root Port. So if PCI core
--	 * tries to access any devices other than Device/Function (0.0) in Bus
--	 * 0, the TLP will go outside of the controller to the PCI bus. But with
--	 * CFG Shift Feature (ECAM) enabled in iATU, there is no guarantee that
--	 * the response is going to be all F's. Hence, to make sure that the
-+	 * The only device on the root bus is a single Root Port. If we try to
-+	 * access any devices other than Device/Function 00.0 on Bus 0, the TLP
-+	 * will go outside of the controller to the PCI bus. But with CFG Shift
-+	 * Feature (ECAM) enabled in iATU, there is no guarantee that the
-+	 * response is going to be all F's. Hence, to make sure that the
- 	 * requester gets all F's response for accesses other than the Root
--	 * Port, configure iATU to block the transactions starting from function
--	 * 1 of the root bus to the end of the root bus (i.e from dbi_base + 4kb
--	 * to dbi_base + 1MB).
-+	 * Port, configure iATU to block the transactions starting from
-+	 * function 1 of the root bus to the end of the root bus (i.e., from
-+	 * dbi_base + 4KB to dbi_base + 1MB).
- 	 */
- 	addr = pci->dbi_phys_addr + SZ_4K;
- 	writel_relaxed(lower_32_bits(addr), pcie->parf + PARF_BLOCK_SLV_AXI_WR_BASE);
-@@ -1385,7 +1385,7 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
- 	if (pp->ecam_enabled) {
- 		/*
- 		 * Override ELBI when ECAM is enabled, as when ECAM
--		 * is enabled ELBI moves along with the dbi config space.
-+		 * is enabled ELBI moves along with the DBI config space.
- 		 */
- 		offset = FIELD_GET(SLV_DBI_ELBI_ADDR_BASE, readl(pcie->parf + PARF_SLV_DBI_ELBI));
- 		pci->elbi_base = pci->dbi_base + offset;
+I still have a bone to pick with Marc regarding the NV implications of
+this :) Attaching conversation below. Although for non-nested this LGTM.
+
+On Tue, Sep 09, 2025 at 11:10:28AM +0100, Marc Zyngier wrote:
+> My concern here is the transitive implications of FEAT_HCX being
+> disabled: a quick look shows about 20 features that depend on
+> FEAT_HCX, and we don't really track this. I can probably generate the
+> dependency graph, but that's not going to be small. Or very useful.
+>
+> However, we should be able to let FEAT_HCX being disabled without
+> problem if the downgrading is limited to non-EL2 VMs. Same thing for
+> FEAT_VHE.
+>
+> What do you think?
+
+So I'm a bit worried about making fields sometimes-writable, it creates
+a very confusing UAPI behavior. On top of that, our writable masks are
+currently static.
+
+What if we treat the entire register as RES0 in this case? It seems to
+be consistent with all the underlying bits / features being NI. A
+mis-described VM isn't long for this world anyway (e.g. FEAT_SCTLR2 && !FEAT_HCX)
+and in that case I'd prefer an approach that keeps the KVM code as
+simple as possible.
+
+We do, after all, expect some level of sanity from userspace of feature
+dependencies as we do not enforce the dependency graph at the moment.
+Hell, this could be useful for someone cross-migrating a nested VM from
+a machine w/o FEAT_HCX to one that has it.
+
+
+Thanks,
+Oliver
 
