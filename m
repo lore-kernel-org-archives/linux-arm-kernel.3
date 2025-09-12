@@ -4,97 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 746B7CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 17:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A228CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 17:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auNBcvl3SEsbJHPnjRRhDj6Gi+NyPWlHhGeNvhbSGjI=; b=Gotxf/Z6Q2qvpYonGItOud3vMH
-	/kJEvrGJ8Zn+4M6nG8ZuKW+3ppbkefr6GTlZ5wVBqJKy2YACFRW7xd0MFFYs+QG/PX+Hdarvzd2nw
-	GADzusZRf0+xfnPkc5pQom9vII+dkhu7ANs4d6To5cWIiOWyBKnHJRiMLPnOi/aPZ4RPRfZwIpHn4
-	hbj3+A1CEYZqx2//NpBmpzMTV9O7SDy30PKyL0NwHNT12/GdktO1fANupF6fumVpJkpQrog4Js2xz
-	U7EElblPQBjCTuGQQDrs1IiPRyGdD+rNtm7RdLYXkS2K4f58ZPn5i8xv5ejB6qpcJmbIKgXQgDcXr
-	TznPkjMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tjcSWmW/FLtaPaOYE0AhF4l+cmvCOfsmYIv1Yl4wLeY=; b=ciXVO1Hu8GeQ1xuga2GeEyRxcw
+	LbmC4OiwDo+Vfq1gJz5ayUSE84E6FceGWIe2YTfez9xtGUzqkVijqL2ZPsvAhp7jgS7v3Cyd14keM
+	U41tEMn/+umHDfjZ6jWyvRj4ueXxZs9mk/KC1qrJDMCWQa5Rc5U54qYm7RUX1nk7edo+TpS3ls1r+
+	wV/2W26LBcK4EUS9RD6xc9zs4faploL01JLXMPefOhz7Y4yUR4DwW0Jo0Bwx9snh0gMy9YFwcvzvD
+	HbbUKIVNz2whJ8xHSK8bFh99UHuOZx9fY8O0H4MBPRWCOdh0LqBjolrXaoaMH8/13zjCZcsT/slAn
+	U2RTEMRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux7br-0000000AmOH-1ZUM;
-	Fri, 12 Sep 2025 17:30:55 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1ux7i5-0000000AngX-34eJ;
+	Fri, 12 Sep 2025 17:37:21 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux7bp-0000000AmMg-0UvE
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 17:30:54 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-71d71bcab6fso19731397b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 10:30:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757698252; x=1758303052; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=auNBcvl3SEsbJHPnjRRhDj6Gi+NyPWlHhGeNvhbSGjI=;
-        b=nbo4fpBxm8D8lw5qjT8BQ2xZ3AH2rrEK1ng//4EIcRAFq61zhsxsyFkeeSZazom8LI
-         r53r4InY0mAziHH20RvsQQtiATDNyphjkwbP8pvv7OwRLaMp851F2A9DAMR+FtCSu/Ix
-         dfU3+zu5oeqhNHfuoRzfQR5P13f2vxZ/GaYvwqGdZZRZ9U254zNFhMScOeZTXGI6QZXO
-         mQ7SIxFyyHz6TAhZXLz+oZZCq6BCot7xpOVUEidaipz2qwZQVITVATDlzTl6yLTXnA/I
-         Ml/LkMwevfPSamG/BffLtBBCEqG2sxSl19aLsdmQFbNn3TgtV3kPH8UvpE0xIlSBzK2Q
-         I1qg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757698252; x=1758303052;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=auNBcvl3SEsbJHPnjRRhDj6Gi+NyPWlHhGeNvhbSGjI=;
-        b=pz4z8iRtUwG8RTfJFBYerhuG2/8bk/GDMMskYCGpf8w+0gqTEExvf8jrHMMg0VBzEP
-         COOUINm4s4J2yBvqEpVgWJv26H33ZqQQt3dXdEv6MWc6DOjB/az+G3p+Sd98ygYkqx0I
-         PM8Z098RlJXtJjI2Hu8LJtHtXSzLOOVVBL/INXtUZso4ojgce2TbZeKu9sPgoe6NPwS/
-         M3bxDr5452I1JYBJOFpuvqleuV6VBNb5p1UxnVvhzFxEQIQU4o22RosG+4fDaePImMZ6
-         TlJEJ7w/ctPc35uQMxkWdjkKS1PyeZ4DGPYi2HZOCkqr1dXyKRVWV0frfH+5qIp/a1pz
-         2Y9w==
-X-Forwarded-Encrypted: i=1; AJvYcCU14NeED1wQ/Y5f/nCltQrGXtQw+FNQTXZ88qf/PXz3iRhhOhLk0aJVmVCgHvMBMSPa18A74D/of7M05DOU+NHb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyw7GQfm8vXmtkgW2tc2ZW6g1I69h1TJqCEoc91G/GTMBuINTRi
-	M319z/Kujms4/cRdZSwex2UvpUX0ATks1udBSMEIiMqGTfac7aQ4rv7awGsYSkbso93Efx6/HJ7
-	Ns6tAICv+zZ3pWVxt9/o3sqa3zB4VEEk=
-X-Gm-Gg: ASbGncuC+PmGZIiXWtTfWKUWFlE4nQtXHFQ0dFmCSgv32O1Q+NCXKP84KINw3gM8Qba
-	MKAMQcdhzs2we3+6i/zEnyEyaHiqSO1RJnywnKQ/VCvfd9w0oq4zW9n4PaOIPVUNQXABQnh2j5d
-	aYHmdTrthNQXh+S/Al5M9FtQMFyon/o/LPhjqqYgv4BUrdM2Beh5foHsaQ0yK2eNFnZkXDtxkdm
-	fGCcqxNikZcQqA3azYwDmZAOlGl8XKQBONohrvzECqQwMvtHQPt6eWlA/TEJyXUqu3Q
-X-Google-Smtp-Source: AGHT+IGITU3lo0Nc85OeLoKMyjH9+RFM86LRFnrm71Cg8EK1RTjnVlzcFez7i+udct1W4V2JM5TERjHI8MgSCWBrz5o=
-X-Received: by 2002:a05:690c:7092:b0:71f:efa8:587a with SMTP id
- 00721157ae682-730659c09c0mr38811187b3.44.1757698250349; Fri, 12 Sep 2025
- 10:30:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250905-mt8196-gpufreq-v1-0-7b6c2d6be221@collabora.com>
- <20250905-mt8196-gpufreq-v1-5-7b6c2d6be221@collabora.com> <CAPaKu7RUx6KHyvdvrfX3u-7Lk=Wa3nmTh6-tD3CbReNAwNtgoQ@mail.gmail.com>
- <4506669.X9hSmTKtgW@workhorse>
-In-Reply-To: <4506669.X9hSmTKtgW@workhorse>
-From: Chia-I Wu <olvaffe@gmail.com>
-Date: Fri, 12 Sep 2025 10:30:39 -0700
-X-Gm-Features: AS18NWA3g27VWsDg6RRczXJZXbzk7vegWWvE1nw-YT0mXkpVh9cJ-UmAELnMQuY
-Message-ID: <CAPaKu7R_VUnX0TibokX0edQPVjritJgABEVZ-Sy=6EiVt7GrAw@mail.gmail.com>
-Subject: Re: [PATCH RFC 05/10] mailbox: add MediaTek GPUEB IPI mailbox
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Jassi Brar <jassisinghbrar@gmail.com>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	id 1ux7i2-0000000AnfE-2ym6;
+	Fri, 12 Sep 2025 17:37:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757698635;
+	bh=tjcSWmW/FLtaPaOYE0AhF4l+cmvCOfsmYIv1Yl4wLeY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=hLnKdCg9IdpFTqd2bFHEW1X+2Bhorp0+ygrq5pomVadKqxKOeX67keW1iyRbRUHvm
+	 OCJ+5huJFG2c5OjbHw2ZZiy8NkABepAwBwSg8ljvWXSbmzIGMaqrNIJ+T3BVqKfH21
+	 B7TX9T0SZRTBGro1QN5d+ljCGvunDtV/yW3ww+mLWU+CCPovlXL09Sg3KLSEleZGJ9
+	 ix+Vv+GWB0xpz4KH8GTtxt5BgieAiaGmsdv+ol6uBkBSxbQxUP22zhppspVR70z/fp
+	 QAAVgjhRzwdXgMcRlGlpdNTU0KdsnUFP1PGvt4FcdrXjLtCpEGviBA7Iu2jBOpEM9m
+	 jmrs69oNcJb0w==
+Received: from [IPv6:2606:6d00:10:aee0::c41] (unknown [IPv6:2606:6d00:10:aee0::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3052217E0F88;
+	Fri, 12 Sep 2025 19:37:14 +0200 (CEST)
+Message-ID: <694b9ba15cd67f41a38f4a65a3811f035cf8e99d.camel@collabora.com>
+Subject: Re: [PATCH v9 3/7] iommu: Add verisilicon IOMMU driver
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: =?ISO-8859-1?Q?J=F6rg_R=F6del?= <joro@8bytes.org>, Benjamin Gaignard
+	 <benjamin.gaignard@collabora.com>
+Cc: robin.murphy@arm.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, heiko@sntech.de, jgg@ziepe.ca, p.zabel@pengutronix.de,
+ 	mchehab@kernel.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-hardening@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	linux-rockchip@lists.infradead.org, kernel@collabora.com, 
+	linux-media@vger.kernel.org
+Date: Fri, 12 Sep 2025 13:37:11 -0400
+In-Reply-To: <vrngq76nnms3jyl5hnxqnkimjc6kil66o6fdyqn5vm3fpovmja@cfynipjw7ktp>
+References: <20250911155720.180465-1-benjamin.gaignard@collabora.com>
+	 <20250911155720.180465-4-benjamin.gaignard@collabora.com>
+	 <vrngq76nnms3jyl5hnxqnkimjc6kil66o6fdyqn5vm3fpovmja@cfynipjw7ktp>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-kb9W2TmWeCI0uNYqiKHV"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_103053_237217_B12B44D8 
-X-CRM114-Status: GOOD (  61.15  )
+X-CRM114-CacheID: sfid-20250912_103718_921590_A3AC2F7C 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,599 +94,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 3:59=E2=80=AFAM Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
->
-> On Friday, 12 September 2025 06:48:17 Central European Summer Time Chia-I=
- Wu wrote:
-> > On Fri, Sep 5, 2025 at 3:24=E2=80=AFAM Nicolas Frattaroli
-> > <nicolas.frattaroli@collabora.com> wrote:
-> > >
-> > > The MT8196 SoC uses an embedded MCU to control frequencies and power =
-of
-> > > the GPU. This controller is referred to as "GPUEB".
-> > >
-> > > It communicates to the application processor, among other ways, throu=
-gh
-> > > a mailbox.
-> > >
-> > > The mailbox exposes one interrupt, which appears to only be fired whe=
-n a
-> > > response is received, rather than a transaction is completed. For us,
-> > > this means we unfortunately need to poll for txdone.
-> > >
-> > > The mailbox also requires the EB clock to be on when touching any of =
-the
-> > > mailbox registers.
-> > >
-> > > Add a simple driver for it based on the common mailbox framework.
-> > >
-> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > > ---
-> > >  drivers/mailbox/Kconfig             |  10 ++
-> > >  drivers/mailbox/Makefile            |   2 +
-> > >  drivers/mailbox/mtk-gpueb-mailbox.c | 330 ++++++++++++++++++++++++++=
-++++++++++
-> > >  3 files changed, 342 insertions(+)
-> > >
-> > > diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-> > > index 02432d4a5ccd46a16156a09c7f277fb03e4013f5..2016defda1fabb5c0fcc8=
-078f84a52d4e4e00167 100644
-> > > --- a/drivers/mailbox/Kconfig
-> > > +++ b/drivers/mailbox/Kconfig
-> > > @@ -294,6 +294,16 @@ config MTK_CMDQ_MBOX
-> > >           critical time limitation, such as updating display configur=
-ation
-> > >           during the vblank.
-> > >
-> > > +config MTK_GPUEB_MBOX
-> > > +       tristate "MediaTek GPUEB Mailbox Support"
-> > > +       depends on ARCH_MEDIATEK || COMPILE_TEST
-> > > +       help
-> > > +         The MediaTek GPUEB mailbox is used to communicate with the =
-embedded
-> > > +         controller in charge of GPU frequency and power management =
-on some
-> > > +         MediaTek SoCs, such as the MT8196.
-> > > +         Say Y or m here if you want to support the MT8196 SoC in yo=
-ur kernel
-> > > +         build.
-> > > +
-> > >  config ZYNQMP_IPI_MBOX
-> > >         tristate "Xilinx ZynqMP IPI Mailbox"
-> > >         depends on ARCH_ZYNQMP && OF
-> > > diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-> > > index 98a68f838486eed117d24296138bf59fda3f92e4..564d06e71313e6d1972e4=
-a6036e1e78c8c7ec450 100644
-> > > --- a/drivers/mailbox/Makefile
-> > > +++ b/drivers/mailbox/Makefile
-> > > @@ -63,6 +63,8 @@ obj-$(CONFIG_MTK_ADSP_MBOX)   +=3D mtk-adsp-mailbox=
-.o
-> > >
-> > >  obj-$(CONFIG_MTK_CMDQ_MBOX)    +=3D mtk-cmdq-mailbox.o
-> > >
-> > > +obj-$(CONFIG_MTK_GPUEB_MBOX)   +=3D mtk-gpueb-mailbox.o
-> > > +
-> > >  obj-$(CONFIG_ZYNQMP_IPI_MBOX)  +=3D zynqmp-ipi-mailbox.o
-> > >
-> > >  obj-$(CONFIG_SUN6I_MSGBOX)     +=3D sun6i-msgbox.o
-> > > diff --git a/drivers/mailbox/mtk-gpueb-mailbox.c b/drivers/mailbox/mt=
-k-gpueb-mailbox.c
-> > > new file mode 100644
-> > > index 0000000000000000000000000000000000000000..0236fb358136e434a09a2=
-1ef293fe949ced94123
-> > > --- /dev/null
-> > > +++ b/drivers/mailbox/mtk-gpueb-mailbox.c
-> > > @@ -0,0 +1,330 @@
-> > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > +/*
-> > > + * MediaTek GPUEB mailbox driver for SoCs such as the MT8196
-> > > + *
-> > > + * Copyright (C) 2025, Collabora Ltd.
-> > > + *
-> > > + * Developers harmed in the making of this driver:
-> > > + *  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > > + */
-> > > +
-> > > +#include <linux/atomic.h>
-> > > +#include <linux/clk.h>
-> > > +#include <linux/device.h>
-> > > +#include <linux/interrupt.h>
-> > > +#include <linux/io.h>
-> > > +#include <linux/iopoll.h>
-> > > +#include <linux/mailbox_controller.h>
-> > > +#include <linux/module.h>
-> > > +#include <linux/of.h>
-> > > +#include <linux/platform_device.h>
-> > > +
-> > > +#define MBOX_CTL_TX_STS 0x0000
-> > > +#define MBOX_CTL_IRQ_SET 0x0004
-> > > +#define MBOX_CTL_IRQ_CLR 0x0074
-> > > +#define MBOX_CTL_RX_STS 0x0078
-> > > +
-> > > +#define MBOX_FULL BIT(0) /* i.e. we've received data */
-> > > +#define MBOX_CLOGGED BIT(1) /* i.e. the channel is shutdown */
-> > > +
-> > > +struct mtk_gpueb_mbox {
-> > > +       struct device *dev;
-> > > +       struct clk *clk;
-> > > +       void __iomem *mbox_mmio;
-> > > +       void __iomem *mbox_ctl;
-> > > +       void **rx_buf;
-> > > +       atomic_t *rx_status;
-> > > +       struct mbox_controller mbox;
-> > > +       unsigned int *chn;
-> > > +       int irq;
-> > > +       const struct mtk_gpueb_mbox_variant *v;
-> > > +};
-> > > +
-> > > +struct mtk_gpueb_mbox_ch {
-> > > +       const char *name;
-> > > +       const int num;
-> > > +       const unsigned int tx_offset;
-> > > +       const unsigned int tx_len;
-> > > +       const unsigned int rx_offset;
-> > > +       const unsigned int rx_len;
-> > > +       const bool no_response;
-> > > +};
-> > > +
-> > > +struct mtk_gpueb_mbox_variant {
-> > > +       unsigned int num_channels;
-> > > +       const struct mtk_gpueb_mbox_ch channels[] __counted_by(num_ch=
-annels);
-> > > +};
-> > > +
-> > > +/**
-> > > + * mtk_gpueb_mbox_read_rx - read RX buffer from MMIO into ebm's RX b=
-uffer
-> > > + * @ebm: pointer to &struct mtk_gpueb_mbox instance
-> > > + * @channel: number of channel to read
-> > > + */
-> > > +static void mtk_gpueb_mbox_read_rx(struct mtk_gpueb_mbox *ebm,
-> > > +                                  unsigned int channel)
-> > > +{
-> > > +       const struct mtk_gpueb_mbox_ch *ch;
-> > > +
-> > > +       ch =3D &ebm->v->channels[channel];
-> > > +
-> > > +       memcpy_fromio(ebm->rx_buf[channel], ebm->mbox_mmio + ch->rx_o=
-ffset,
-> > > +                     ch->rx_len);
-> > > +
-> > > +}
-> > > +
-> > > +static irqreturn_t mtk_gpueb_mbox_isr(int irq, void *data)
-> > > +{
-> > > +       struct mtk_gpueb_mbox *ebm =3D data;
-> > > +       u32 rx_handled =3D 0;
-> > > +       u32 rx_sts;
-> > > +       int i;
-> > > +
-> > > +       rx_sts =3D readl(ebm->mbox_ctl + MBOX_CTL_RX_STS);
-> > > +
-> > > +       for (i =3D 0; i < ebm->v->num_channels; i++) {
-> > > +               if (rx_sts & BIT(i)) {
-> > > +                       if (!atomic_cmpxchg(&ebm->rx_status[i], 0,
-> > > +                                           MBOX_FULL | MBOX_CLOGGED)=
-)
-> > > +                               rx_handled |=3D BIT(i);
-> > > +               }
-> > > +       }
-> > We can loop over bits that are set in rx_sts, if we expect that only a
-> > few bits are set most of the time.
->
-> Could you elaborate on your preferred approach? num_channels will be
-> smaller than the bit width of rx_sts. I could loop from __fls down to
-> 0 checking for (!rx_sts ^ rx_handled) for an early exit, but I'm not
-> sure if this microoptimisation is what you meant or if that even makes
-> much sense instruction cost wise.
->
-> Alternatively, I could loop from __fss to num_channels.
->
-> Is there some commonly used hyper-optimised "loop over set bits" macro
-> that I'm unfamiliar with?
-Not sure if there is a macro, but panthor open-codes something like
 
-  while (rx_sts) {
-    int chan =3D ffs(rx_sts) - 1;
-    rx_sts &=3D ~BIT(chan);
-    // do away with chan
-  }
+--=-kb9W2TmWeCI0uNYqiKHV
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
->
-> > > +
-> > > +       writel(rx_handled, ebm->mbox_ctl + MBOX_CTL_IRQ_CLR);
-> > > +
-> > > +       if (!(rx_sts ^ rx_handled))
-> > "rx_sts =3D=3D rx_handled" should be more direct.
->
-> Good point, will change.
->
-> > > +               return IRQ_WAKE_THREAD;
-> > > +
-> > > +       dev_warn_ratelimited(ebm->dev, "spurious interrupts on 0x%04X=
-\n",
-> > > +                            rx_sts ^ rx_handled);
-> > > +       return IRQ_NONE;
-> > It seems a bit too punishing when there are spurious interrupts. I
-> > wonder if we should warn, but return IRQ_WAKE_THREAD as long as
-> > rx_handled !=3D 0.
-> >
-> > Also, if another interrupt can fire before mtk_gpueb_mbox_thread runs,
-> > that's data dropping rather than spurious interrupts.
-> >
->
-> Yeah, I agree that this is bad. As wens pointed out, my IRQ clearing
-> earlier would most certainly open us up to losing data. I'll
-> definitely look into changing this; iirc the current code resulted
-> from me being unsure whether partially handled IRQs should still
-> be counted as a handled IRQ or not.
-If we only get rx data (response) as a result of tx data (request),
-this would be fine. But if there can be unsolicited tx data (looking
-at fast_dvfs_event), yeah, we are clearing irq too early.
+Hi,
 
->
-> > > +}
-> > > +
-> > > +static irqreturn_t mtk_gpueb_mbox_thread(int irq, void *data)
-> > > +{
-> > > +       struct mtk_gpueb_mbox *ebm =3D data;
-> > > +       irqreturn_t ret =3D IRQ_NONE;
-> > > +       int status;
-> > > +       int i;
-> > > +
-> > > +       for (i =3D 0; i < ebm->v->num_channels; i++) {
-> > > +               status =3D atomic_cmpxchg(&ebm->rx_status[i],
-> > > +                                       MBOX_FULL | MBOX_CLOGGED, MBO=
-X_FULL);
-> > > +               if (status =3D=3D (MBOX_FULL | MBOX_CLOGGED)) {
-> > We could also save rx_handled from mtk_gpueb_mbox_isr and loop over
-> > bits that are set.  If we do that, ebm->rx_status[i] is guaranteed to
-> > be MBOX_FULL | MBOX_CLOGGED.
-> >
->
-> Wouldn't storing rx_handled open us up to data races with unpleasant
-> code to try and prevent them? As far as I understand, the ISR is allowed
-> to fire again before the thread has completed. Having the rx_status bits
-> as individual atomics gives us finer granularity than needing to protect
-> the entire set of bits.
->
-> If there is some way to pass data from the ISR to the awoken thread
-> directly as a per-invocation parameter rather than a squirreled away
-> member of the driver private struct, then I agree doing it your way
-> seems better.
->
-> > > +                       mtk_gpueb_mbox_read_rx(ebm, i);
-> > > +                       mbox_chan_received_data(&ebm->mbox.chans[i],
-> > > +                                               ebm->rx_buf[i]);
-> > It looks like we read the data and pass it on to the client
-> > immediately. Does each channel need its own rx_buf?
-> >
->
-> Yeah, common mailbox framework does not do a copy here, it just passes
-> the pointer. Which is good, because nobody likes copies, and it
-> prevents the mailbox core from needing to know the size of received
-> data.
->
-> So the individual rx_bufs are needed to prevent channel cross-talk.
-I checked a few other mailbox drivers. The data pointer could even
-point to local variables in some cases. It seems, in general,
-mbox_client cannot expect the data to be valid after
-mbox_chan_received_data returns.
+Le vendredi 12 septembre 2025 =C3=A0 13:47 +0200, J=C3=B6rg R=C3=B6del a =
+=C3=A9crit=C2=A0:
+> On Thu, Sep 11, 2025 at 05:57:13PM +0200, Benjamin Gaignard wrote:
+> > The Verisilicon IOMMU hardware block can be found in combination
+> > with Verisilicon hardware video codecs (encoders or decoders) on
+> > different SoCs.
+> > Enable it will allow us to use non contiguous memory allocators
+> > for Verisilicon video codecs.
+> >=20
+> > Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> > ---
+> > =C2=A0drivers/iommu/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 11 +
+> > =C2=A0drivers/iommu/Makefile=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> > =C2=A0drivers/iommu/vsi-iommu.c | 808 +++++++++++++++++++++++++++++++++=
++++++
+> > =C2=A0include/linux/vsi-iommu.h |=C2=A0 21 +
+> > =C2=A04 files changed, 841 insertions(+)
+> > =C2=A0create mode 100644 drivers/iommu/vsi-iommu.c
+> > =C2=A0create mode 100644 include/linux/vsi-iommu.h
+>=20
+> This will not go in before Will Deacons comment about code duplication wi=
+th the
+> Rockchip driver is addressed.
 
->
-> > > +                       /* FIXME: When does MBOX_FULL get cleared? He=
-re? */
-> > > +                       atomic_set(&ebm->rx_status[i], 0);
-> > > +                       ret =3D IRQ_HANDLED;
-> > > +               }
-> > > +       }
-> > > +
-> > > +       return ret;
-> > > +}
-> > > +
-> > > +static int mtk_gpueb_mbox_send_data(struct mbox_chan *chan, void *da=
-ta)
-> > > +{
-> > > +       struct mtk_gpueb_mbox *ebm =3D dev_get_drvdata(chan->mbox->de=
-v);
-> > > +       unsigned int *num =3D chan->con_priv;
-> > > +       int i;
-> > > +       u32 *values =3D data;
-> > > +
-> > > +       if (*num >=3D ebm->v->num_channels)
-> > > +               return -ECHRNG;
-> > Can this ever happen? (I am not familiar with the mbox subsystem)
->
-> Only if someone with a pointer to chan modifies con_priv outside of
-> what the mailbox driver set. It's an unlikely scenario, so I do think
-> I can remove this check, but the downside is that if someone ever does
-> manage to do this then the next line is a convenient read primitive.
-That should be an invalid usage that we hopefully don't need to worry
-about. Otherwise, as things are, *num can also be modified after the
-check so the check is not sufficient.
+So you'd like a new layer of ops to abstract the common parts of two driver=
+s ? I
+mean, I can see this happening for VSI/RK, but it seems rather pointless if=
+ in a
+year from now Jason get his new framework ready. Re-doing the ops if they c=
+ause
+too much duplicate seems like a better direction.
 
->
-> > > +
-> > > +       if (!ebm->v->channels[*num].no_response &&
-> > > +           atomic_read(&ebm->rx_status[*num]))
-> > > +               return -EBUSY;
-> > When no_response is true, rx_status is 0. We probably don't need to
-> > check no_response.
->
-> Now that I'm thinking about it, I can probably get rid of no_response
-> altogether. It was originally added because I conflated txdone with
-> response received, and one particular command on the sleep channel,
-> namely powering off the MFG, is unable to ever cause a response
-> interrupt to fire.
->
-> Since we now poll for txdone anyway using the TX status register, I
-> don't think this is needed at all anymore, so I'll try and get
-> rid of it.
->
-> > > +
-> > > +       writel(BIT(*num), ebm->mbox_ctl + MBOX_CTL_IRQ_CLR);
-> > > +
-> > > +       /*
-> > > +        * We don't want any fancy nonsense, just write the 32-bit va=
-lues in
-> > > +        * order. memcpy_toio/__iowrite32_copy don't work here, becau=
-se fancy.
-> > > +        */
-> > > +       for (i =3D 0; i < ebm->v->channels[*num].tx_len; i +=3D 4) {
-> > > +               writel(values[i / 4],
-> > > +                      ebm->mbox_mmio + ebm->v->channels[*num].tx_off=
-set + i);
-> > > +       }
-> > > +
-> > > +       writel(BIT(*num), ebm->mbox_ctl + MBOX_CTL_IRQ_SET);
-> > > +
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static int mtk_gpueb_mbox_startup(struct mbox_chan *chan)
-> > > +{
-> > > +       struct mtk_gpueb_mbox *ebm =3D dev_get_drvdata(chan->mbox->de=
-v);
-> > > +       unsigned int *num =3D chan->con_priv;
-> > > +
-> > > +       if (*num >=3D ebm->v->num_channels)
-> > > +               return -ECHRNG;
-> > > +
-> > > +       atomic_set(&ebm->rx_status[*num], 0);
-> > > +
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static void mtk_gpueb_mbox_shutdown(struct mbox_chan *chan)
-> > > +{
-> > > +       struct mtk_gpueb_mbox *ebm =3D dev_get_drvdata(chan->mbox->de=
-v);
-> > > +       unsigned int *num =3D chan->con_priv;
-> > > +
-> > > +       atomic_set(&ebm->rx_status[*num], MBOX_CLOGGED);
-> > > +}
-> > > +
-> > > +static bool mtk_gpueb_mbox_last_tx_done(struct mbox_chan *chan)
-> > > +{
-> > > +       struct mtk_gpueb_mbox *ebm =3D dev_get_drvdata(chan->mbox->de=
-v);
-> > > +       unsigned int *num =3D chan->con_priv;
-> > > +
-> > > +       return !(readl(ebm->mbox_ctl + MBOX_CTL_TX_STS) & BIT(*num));
-> > > +}
-> > > +
-> > > +const struct mbox_chan_ops mtk_gpueb_mbox_ops =3D {
-> > > +       .send_data =3D mtk_gpueb_mbox_send_data,
-> > > +       .startup =3D mtk_gpueb_mbox_startup,
-> > > +       .shutdown =3D mtk_gpueb_mbox_shutdown,
-> > > +       .last_tx_done =3D mtk_gpueb_mbox_last_tx_done,
-> > > +};
-> > > +
-> > > +static struct mbox_chan *
-> > > +mtk_gpueb_mbox_of_xlate(struct mbox_controller *mbox,
-> > > +                       const struct of_phandle_args *sp)
-> > > +{
-> > > +       struct mtk_gpueb_mbox *ebm =3D dev_get_drvdata(mbox->dev);
-> > > +
-> > > +       if (!sp->args_count)
-> > > +               return ERR_PTR(-EINVAL);
-> > > +
-> > > +       if (sp->args[0] >=3D ebm->v->num_channels)
-> > > +               return ERR_PTR(-ECHRNG);
-> > > +
-> > > +       return &mbox->chans[sp->args[0]];
-> > > +}
-> > > +
-> > > +static int mtk_gpueb_mbox_probe(struct platform_device *pdev)
-> > > +{
-> > > +       struct mtk_gpueb_mbox *ebm;
-> > > +       unsigned int rx_buf_sz;
-> > > +       void *buf;
-> > > +       unsigned int i;
-> > > +       int ret;
-> > > +
-> > > +       ebm =3D devm_kzalloc(&pdev->dev, sizeof(*ebm), GFP_KERNEL);
-> > > +       if (!ebm)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       ebm->dev =3D &pdev->dev;
-> > > +       ebm->v =3D of_device_get_match_data(ebm->dev);
-> > > +
-> > > +       dev_set_drvdata(ebm->dev, ebm);
-> > > +
-> > > +       ebm->clk =3D devm_clk_get_enabled(ebm->dev, NULL);
-> > > +       if (IS_ERR(ebm->clk))
-> > > +               return dev_err_probe(ebm->dev, PTR_ERR(ebm->clk),
-> > > +                                    "Failed to get 'eb' clock\n");
-> > > +
-> > > +       ebm->mbox_mmio =3D devm_platform_ioremap_resource_byname(pdev=
-, "mbox");
-> > > +       if (IS_ERR(ebm->mbox_mmio))
-> > > +               return dev_err_probe(ebm->dev, PTR_ERR(ebm->mbox_mmio=
-),
-> > > +                                    "Couldn't map mailbox registers\=
-n");
-> > > +
-> > > +       ebm->mbox_ctl =3D devm_platform_ioremap_resource_byname(pdev,=
- "mbox_ctl");
-> > > +       if (IS_ERR(ebm->mbox_ctl))
-> > > +               return dev_err_probe(
-> > > +                       ebm->dev, PTR_ERR(ebm->mbox_ctl),
-> > > +                       "Couldn't map mailbox control registers\n");
-> > > +
-> > > +       rx_buf_sz =3D (ebm->v->channels[ebm->v->num_channels - 1].rx_=
-offset +
-> > > +                    ebm->v->channels[ebm->v->num_channels - 1].rx_le=
-n);
-> > rx is after tx in mmio. The first half of the space is wasted.
-> >
-> > We follow mtk_gpueb_mbox_read_rx by mbox_chan_received_data. It seems
-> > we only need max of rx_len's.
->
-> We do need the sum of all rx_len's but you're correct that the current co=
-de
-> allocates too much memory. What I think it should do is
->
-> last rx_offset + last rx_len - first rx_offset
->
-> to get the total amount of MMIO occupied by RX.
->
-> > > +
-> > > +       buf =3D devm_kzalloc(ebm->dev, rx_buf_sz, GFP_KERNEL);
-> > > +       if (!buf)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       ebm->rx_buf =3D devm_kmalloc_array(ebm->dev, ebm->v->num_chan=
-nels,
-> > > +                                        sizeof(*ebm->rx_buf), GFP_KE=
-RNEL);
-> > > +       if (!ebm->rx_buf)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       ebm->mbox.chans =3D devm_kcalloc(ebm->dev, ebm->v->num_channe=
-ls,
-> > > +                                      sizeof(struct mbox_chan), GFP_=
-KERNEL);
-> > > +       if (!ebm->mbox.chans)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       ebm->rx_status =3D devm_kcalloc(ebm->dev, ebm->v->num_channel=
-s,
-> > > +                                     sizeof(atomic_t), GFP_KERNEL);
-> > > +       if (!ebm->rx_status)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       ebm->chn =3D devm_kcalloc(ebm->dev, ebm->v->num_channels,
-> > > +                               sizeof(*ebm->chn), GFP_KERNEL);
-> > > +
-> > > +       for (i =3D 0; i < ebm->v->num_channels; i++) {
-> > > +               ebm->rx_buf[i] =3D buf + ebm->v->channels[i].rx_offse=
-t;
-> > > +               spin_lock_init(&ebm->mbox.chans[i].lock);
-> > > +               /* the things you do to avoid explicit casting void* =
-*/
-> > I actually prefer an inline helper that casts chan->con_priv to the
-> > channel number. Another option is "chan - ebm->mox.chans".
->
-> Hmmm, yeah. Though, I don't enjoy chan - ebm->mbox.chans because now we'r=
-e
-> in the woods regarding pointer arithmetics.
->
-> I think the inline helper makes more sense, even if explicitly using a
-> pointer as an integer gives me the heebie-jeebies.
->
-> > > +               ebm->chn[i] =3D i;
-> > > +               ebm->mbox.chans[i].con_priv =3D &ebm->chn[i];
-> > > +               atomic_set(&ebm->rx_status[i], MBOX_CLOGGED);
-> > > +       }
-> > > +
-> > > +       ebm->mbox.dev =3D ebm->dev;
-> > > +       ebm->mbox.num_chans =3D ebm->v->num_channels;
-> > > +       ebm->mbox.txdone_poll =3D true;
-> > > +       ebm->mbox.txpoll_period =3D 0; /* minimum hrtimer interval */
-> > > +       ebm->mbox.of_xlate =3D mtk_gpueb_mbox_of_xlate;
-> > > +       ebm->mbox.ops =3D &mtk_gpueb_mbox_ops;
-> > > +
-> > > +       ebm->irq =3D platform_get_irq(pdev, 0);
-> > > +       if (ebm->irq < 0)
-> > > +               return ebm->irq;
-> > > +
-> > > +       ret =3D devm_request_threaded_irq(ebm->dev, ebm->irq, mtk_gpu=
-eb_mbox_isr,
-> > > +                                       mtk_gpueb_mbox_thread, 0, NUL=
-L, ebm);
-> > > +       if (ret)
-> > > +               return dev_err_probe(ebm->dev, ret, "failed to reques=
-t IRQ\n");
-> > > +
-> > > +       ret =3D devm_mbox_controller_register(ebm->dev, &ebm->mbox);
-> > > +
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static const struct mtk_gpueb_mbox_variant mtk_gpueb_mbox_mt8196 =3D=
- {
-> > > +       .num_channels =3D 12,
-> > > +       .channels =3D {
-> > > +               { "fast_dvfs_event", 0, 0x0000, 16, 0x00e0, 16, false=
- },
-> > > +               { "gpufreq",         1, 0x0010, 32, 0x00f0, 32, false=
- },
-> > > +               { "sleep",           2, 0x0030, 12, 0x0110,  4, true =
- },
-> > > +               { "timer",           3, 0x003c, 24, 0x0114,  4, false=
- },
-> > > +               { "fhctl",           4, 0x0054, 36, 0x0118,  4, false=
- },
-> > > +               { "ccf",             5, 0x0078, 16, 0x011c, 16, false=
- },
-> > > +               { "gpumpu",          6, 0x0088, 24, 0x012c,  4, false=
- },
-> > > +               { "fast_dvfs",       7, 0x00a0, 24, 0x0130, 24, false=
- },
-> > > +               { "ipir_c_met",      8, 0x00b8,  4, 0x0148, 16, false=
- },
-> > > +               { "ipis_c_met",      9, 0x00bc, 16, 0x0158,  4, false=
- },
-> > > +               { "brisket",        10, 0x00cc, 16, 0x015c, 16, false=
- },
-> > > +               { "ppb",            11, 0x00dc,  4, 0x016c,  4, false=
- },
-> > > +       },
-> > > +};
-> > > +
-> > > +static const struct of_device_id mtk_gpueb_mbox_of_ids[] =3D {
-> > > +       { .compatible =3D "mediatek,mt8196-gpueb-mbox",
-> > > +         .data =3D &mtk_gpueb_mbox_mt8196 },
-> > > +       { /* Sentinel */ }
-> > > +};
-> > > +MODULE_DEVICE_TABLE(of, mtk_gpueb_mbox_of_ids);
-> > > +
-> > > +static struct platform_driver mtk_gpueb_mbox_drv =3D {
-> > > +       .probe =3D mtk_gpueb_mbox_probe,
-> > > +       .driver =3D {
-> > > +               .name =3D "mtk-gpueb-mbox",
-> > > +               .of_match_table =3D mtk_gpueb_mbox_of_ids,
-> > > +       }
-> > > +};
-> > > +module_platform_driver(mtk_gpueb_mbox_drv);
-> > > +
-> > > +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>=
-");
-> > > +MODULE_DESCRIPTION("MediaTek GPUEB mailbox driver for SoCs such as t=
-he MT8196");
-> > > +MODULE_LICENSE("GPL");
-> > >
-> > > --
-> > > 2.51.0
-> > >
-> >
->
-> Thank you for your review!
->
-> Kind regards,
-> Nicolas Frattaroli
->
->
+Benjamin already stated he'd be happy to port once there is enough example =
+and
+acceptability of the new code to do so. Why do mainline users have to suffe=
+r
+this ?
+
+To me this rejection isn't about Benjamin's driver, all iommu seems to look
+alike, so anyone else that would have sent new driver would have face the s=
+ame
+issue.
+
+Nicolas
+
+--=-kb9W2TmWeCI0uNYqiKHV
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaMRaSAAKCRDZQZRRKWBy
+9EjcAP9YQJHmhlXLbfNRAJNUDL3s+p3W5755kVTPrP+lUWAdDwD9GcfJeicvbrcm
+s0c4dwtEZdUQ2fXV0uGPXMCOR+CRWQ4=
+=RKhK
+-----END PGP SIGNATURE-----
+
+--=-kb9W2TmWeCI0uNYqiKHV--
 
