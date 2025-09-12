@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85046CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 10:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99848CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 10:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dhsHpSvBEiVQxPG+m1u9q1lWHrpKkyac5Xz6BS5qCPU=; b=omhJEOGMfKxsL6Py2m4pOXtrcL
-	cOqy8zLAsA32n1P3qnAd8QKaL+fHNcylUfRRyUMJ1mqDaM5o/gunNrsiMyZ3z8VdDavYxRrybjFX6
-	BljeRvmOPXElkpDgapjXlN9mtbvwoz4I5u/ZcxCKoxF0soC84y3KIak5aS67L12t1av83fIs4Hrqo
-	H/Qg67v+lzXafcaLK5gH6tuN+5uMCjJZS+I616mwOlzotS1z48GFTMRsj80xdIAimtVJ0H/2TSqEh
-	zTYGcU49xBtsjiB4kqIpYwvW7P++af1cCYGhIDFlG2kbAOg3iLwJWKW06r6SpkLTUCnHDrFYvLNkE
-	as2GcwSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QAI1/iuQnmfWqwTdKggQ6qlQpdt/mhf+D90s4RMqkNI=; b=f1tpi22mGFWfLPYt2xNn8M/ZW5
+	MkV4SBwRXNKbZO4uNd9GFRIu0k7faGsUXa1LEl7XtgLsev3rDAW4IgKe+67c19yTdiNowkT7Mvors
+	OYczvVurtPOFi7PcQWSByJxgrSeaKxw/s5En8GV6WFOke8rSjWP8PmXKncFwX3rUlNJ8HjvjNJuxm
+	nIEDqi+LnXkFVKZgQw1XMKg/qcRGQgSL0OYEJtCOxh0CThsucrvgaUbsdAlX0wE09c9W1xcJy9qe/
+	KNgqDf2wa6U14mMwXHZZPGiiLFgT+xA/OkiPEVzDsBsEOx1zo0j1r4PSavZrlJeNfsJ8AbZWxs67t
+	E0AK06cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0e2-00000008SQx-4BH8;
-	Fri, 12 Sep 2025 10:04:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0e0-00000008SQd-1pMz
+	id 1ux0ha-00000008TEJ-1NGg;
+	Fri, 12 Sep 2025 10:08:22 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux0hY-00000008TDM-1fBv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 10:04:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E2A716A3;
-	Fri, 12 Sep 2025 03:04:30 -0700 (PDT)
-Received: from donnerap (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 392C63F66E;
-	Fri, 12 Sep 2025 03:04:37 -0700 (PDT)
-Date: Fri, 12 Sep 2025 11:04:34 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: "J. =?UTF-8?B?TmV1c2Now6RmZXI=?= via B4 Relay"
- <devnull+j.ne.posteo.net@kernel.org>
-Cc: j.ne@posteo.net, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: sunxi: Add Amediatech X96Q
-Message-ID: <20250912110434.2a520acc@donnerap>
-In-Reply-To: <20250912-x96q-v1-1-8471daaf39db@posteo.net>
-References: <20250912-x96q-v1-0-8471daaf39db@posteo.net>
-	<20250912-x96q-v1-1-8471daaf39db@posteo.net>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Fri, 12 Sep 2025 10:08:21 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58CA89L71011360;
+	Fri, 12 Sep 2025 05:08:09 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757671689;
+	bh=QAI1/iuQnmfWqwTdKggQ6qlQpdt/mhf+D90s4RMqkNI=;
+	h=From:To:CC:Subject:Date;
+	b=OqAPmlMAOuoKOdqjkDQVk7CR8Zfr19sScOkUTLrQ9o40U29VXVT5qcbB+0zUFJgyC
+	 ATU1kr8XH8wO2J8FsofrFlavpJEZZw3D9em9ZpQCFnsdi1/fYEEw2kEOIF3M6LR0MC
+	 fFIHP6GLgpgy0CCjwk3di+0WUK90kIcw19WXiq64=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58CA89vI1904747
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 12 Sep 2025 05:08:09 -0500
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 12
+ Sep 2025 05:08:08 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 12 Sep 2025 05:08:08 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58CA83MG3740807;
+	Fri, 12 Sep 2025 05:08:03 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <cassel@kernel.org>,
+        <kishon@kernel.org>, <sergio.paracuellos@gmail.com>,
+        <18255117159@163.com>, <jirislaby@kernel.org>, <m-karicheri2@ti.com>,
+        <santosh.shilimkar@ti.com>
+CC: <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH 0/2] PCI: Keystone: __init and IRQ Fixes
+Date: Fri, 12 Sep 2025 15:37:57 +0530
+Message-ID: <20250912100802.3136121-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_030440_517535_02045425 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250912_030820_524532_C6FC30D0 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,46 +86,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sep 2025 01:52:09 +0200
-J. Neusch=C3=A4fer via B4 Relay <devnull+j.ne.posteo.net@kernel.org> wrote:
+Hello,
 
-> From: "J. Neusch=C3=A4fer" <j.ne@posteo.net>
->=20
-> The X96Q is a set-top box with an H313 SoC, AXP305 PMIC, 1 or 2 GiB RAM,
-> 8 or 16 GiB eMMC flash, 2x USB A, Micro-SD, HDMI, Ethernet, audio/video
-> output, and infrared input.
->=20
->   https://x96mini.com/products/x96q-tv-box-android-10-set-top-box
->=20
-> Signed-off-by: J. Neusch=C3=A4fer <j.ne@posteo.net>
+This series is based on commit
+320475fbd590 Merge tag 'mtd/fixes-for-6.17-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux
+of Mainline Linux.
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+The first patch in the series has been posted as a Fix in contrast to
+its predecessor at:
+https://lore.kernel.org/r/20250903124505.365913-10-s-vadapalli@ti.com/
+based on the feedback provided by Jiri Slaby <jirislaby@kernel.org> at:
+https://lore.kernel.org/r/3d3a4b52-e343-42f3-9d69-94c259812143@kernel.org/
+Since the Fix is independent of enabling loadable module support for the
+pci-keystone.c driver, it is being posted as a new patch.
 
-Cheers,
-Andre
+Checking out at the commit of Mainline Linux which this series is based
+on, I noticed an exception triggered by the pci-keystone.c driver during
+its probe. Although this is not a fatal exception and Linux continues to
+boot, the driver is non-functional. I root-caused the exception to
+free_initmem() freeing the memory associated with the ks_pcie_host_init()
+function in the driver before the driver's probe was invoked. This
+appears to be a race condition but it is easily reproducible with the
+Linux .config that I have used. The fix therefore is to remove the
+__init macro which is implemented by the second patch in the series.
 
-> ---
->  Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documenta=
-tion/devicetree/bindings/arm/sunxi.yaml
-> index c25a22fe4d25cbd8a8132689f1326548f7f43f2c..c9940b44bc888f7ab81ace671=
-040bd663556c113 100644
-> --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> @@ -963,6 +963,11 @@ properties:
->            - const: hechuang,x96-mate
->            - const: allwinner,sun50i-h616
-> =20
-> +      - description: X96Q
-> +        items:
-> +          - const: amediatech,x96q
-> +          - const: allwinner,sun50i-h616
-> +
->        - description: X96Q Pro+
->          items:
->            - const: amediatech,x96q-pro-plus
->=20
+For reference, the logs for the case where Linux is built by checking
+out at the base commit of Mainline Linux are:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/f4891b707921c53dfb464ad2f3a968bf
+and the logs clearly prove that the print associated with free_initmem()
+which is:
+[    2.446834] Freeing unused kernel memory: 4864K
+is displayed prior to the prints associated with the pci-keystone.c
+driver being probed which is:
+[    7.707103] keystone-pcie 5500000.pcie: host bridge /bus@100000/pcie@5500000 ranges:
+
+Building Linux by applying both patches in the series on the base commit of
+Mainline Linux, the driver probes successfully without any exceptions or
+errors. This was tested on AM654-EVM with an NVMe SSD connected to the
+PCIe Connector on the board. The NVMe SSD enumerates successfully.
+Additionally, the 'hdparm' utility was used to read from the SSD
+confirming that the SSD is functional. The logs corresponding to this are:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/1b09a12a53db4233e82c5bcfc0e89214
+
+Regards,
+Siddharth.
+
+Siddharth Vadapalli (2):
+  PCI: keystone: Use devm_request_irq() to free "ks-pcie-error-irq" on
+    exit
+  PCI: keystone: Remove the __init macro for the ks_pcie_host_init()
+    callback
+
+ drivers/pci/controller/dwc/pci-keystone.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+-- 
+2.43.0
 
 
