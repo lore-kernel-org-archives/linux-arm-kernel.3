@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC77CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 05:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40AF7CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 05:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ihC8q0agrsEZYUC0pc3ffbB0ocdKsH+jDPlyNQdcPVQ=; b=ytzvWU3KjSUsGTfi8L5Kfa2DXX
-	PENdVzrN6FFoAl0Yh0x+fMiyl+KNmGV+VW/NWKSUYJf8rptiZifn5B5lUudsysj+hj0aAV8/zNEU1
-	R6ilJlZkmA7RAbzsPJ7e4hwKlq2Tqt67r77AVN5/4dklAhWPbceTYBPkH0rgEmEElrDkG4NyIeB++
-	HmW6VFbV+vYoAJwAxreQjcCmuRn646CfWURxeDlUCrWYeZYXO6tkQb8yrDFXGkwDKkFnaLBw7toaP
-	Fqs909FB7y3M5e8NtyJktq5Vu9+eJ4gLrC7OFO6p0PiUg3g57W4r+WGHjC44M56Y7/UD7RnKfzfcy
-	02CxCQYw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OHvxt9434YXc4zexoHizmveSnErx4mpkxHnxVRt8ASo=; b=bEmAaRaw3puwnDd3HzVjx0Hh8f
+	Kao+q1+Nx+MpvHai0ybdLx4hBNGvIqCtUVIntwjZEo+ZQlDNLdXtEfhUYqztJAD6UU/RHXS7ooC9D
+	emJiboZkiCEqMs9Hx8pF3VThVBJ2dQ4ojTd60bYoM/LuanQ3EqtZcxepBOaaqD23ZNRzI9HLFl45h
+	/yj0MjZp08kE1oKSQ3iMcZv/hEKxfI6sTP+DSmYpl7V0m/Beey46/byNkPfopZPXkOl5Erzamox32
+	lobAIJbKcPCBTqhOrgXvFiVpMrW+FhETbYTtKn5x52Ub2Osy90NKJ9lMcxvxSApmZVjsNDkxNCngc
+	bxWI+jjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwwjs-00000007G7A-0gOl;
-	Fri, 12 Sep 2025 05:54:28 +0000
-Received: from l-sdnproxy.icoremail.net ([20.188.111.126] helo=azure-sdnproxy.icoremail.net)
+	id 1uwwlv-00000007GZB-12xN;
+	Fri, 12 Sep 2025 05:56:35 +0000
+Received: from zg8tmty1ljiyny4xntuumtyw.icoremail.net ([165.227.155.160])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwwjo-00000007G5G-25RL
+	id 1uwwlr-00000007GXP-3g91
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 05:54:26 +0000
+	Fri, 12 Sep 2025 05:56:33 +0000
 Received: from E0005182LT.eswin.cn (unknown [10.12.96.155])
-	by app2 (Coremail) with SMTP id TQJkCgAHmZJztcNo553OAA--.31689S2;
-	Fri, 12 Sep 2025 13:53:57 +0800 (CST)
+	by app1 (Coremail) with SMTP id TAJkCgD3DQ_+tcNowaPOAA--.51970S2;
+	Fri, 12 Sep 2025 13:56:17 +0800 (CST)
 From: weishangjuan@eswincomputing.com
 To: devicetree@vger.kernel.org,
 	andrew+netdev@lunn.ch,
@@ -63,34 +63,35 @@ Cc: ningyu@eswincomputing.com,
 	lizhi2@eswincomputing.com,
 	pinkesh.vaghela@einfochips.com,
 	Shangjuan Wei <weishangjuan@eswincomputing.com>
-Subject: [PATCH v6 0/2] Add driver support for Eswin eic7700 SoC ethernet controller
-Date: Fri, 12 Sep 2025 13:53:52 +0800
-Message-Id: <20250912055352.2832-1-weishangjuan@eswincomputing.com>
+Subject: [PATCH v6 1/2] dt-bindings: ethernet: eswin: Document for EIC7700 SoC
+Date: Fri, 12 Sep 2025 13:56:12 +0800
+Message-Id: <20250912055612.2884-1-weishangjuan@eswincomputing.com>
 X-Mailer: git-send-email 2.31.1.windows.1
+In-Reply-To: <20250912055352.2832-1-weishangjuan@eswincomputing.com>
+References: <20250912055352.2832-1-weishangjuan@eswincomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TQJkCgAHmZJztcNo553OAA--.31689S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxZFyUXFy7uw1UZr43ZF4fKrg_yoWrurWUpF
-	W0kry5Wwn8tryxX3yftw10kFyfJan3Xr1akr1Iqw1fXa1qvas0vr4ak3W5GFy7Ar4DZ34Y
-	9ay3ZFW7Ca4ay3DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: TAJkCgD3DQ_+tcNowaPOAA--.51970S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCr4kJF18CFWUAr43GFyDKFg_yoWrJw4kpF
+	WkCrW5Jr4fXr1fXa17tF10kFn3tanrCF1Ykrn7t3Waq3s0qas0qw1ayFy5Ga43Cr47ZFy5
+	WFWYvayxA3W2k3DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
 	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
 	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
 	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
 	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26rWY6Fy7MxkIecxEwVCm-wCF04
 	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
 	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI4
-	8JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4U
-	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
-	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRJPEfUUUUU
+	8JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4U
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sR_jjg7UUUUU==
 X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_225424_719561_5E262158 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20250911_225632_241341_127772B0 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,104 +108,150 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Shangjuan Wei <weishangjuan@eswincomputing.com>
 
-This series depends on the config option patch [1].
+Add ESWIN EIC7700 Ethernet controller, supporting clock
+configuration, delay adjustment and speed adaptive functions.
 
-[1] https://lore.kernel.org/all/20250825132427.1618089-3-pinkesh.vaghela@einfochips.com/
-
-Updates:
-
-  Changes in v6：
-  - Update driver patch's commit message
-  - Update eswin,eic7700-eth.yaml
-    - Modify the description content
-  - Update dwmac-eic7700.c  
-    - Move three variables from priv to local scope
-    - Inline eic7700_apply_delay logic directly into the probe function
-  - Link to v5: https://lore.kernel.org/all/20250904085913.2494-1-weishangjuan@eswincomputing.com/
-
-  Changes in v5：
-  - Update eswin,eic7700-eth.yaml
-    - Use "items" instead "enum" for clock-names
-    - Arrange clocks description in correct order
-    - Delete redundant descriptions for eswin,hsp-sp-csr property
-  - Update dwmac-eic7700.c  
-    - Optimize the implementation of eic7700_ appy_delay
-    - Update comments and remove reg checking
-    - Use FIELD_PREP in eic7700_apply_delay function
-    - Use clk_bulk related APIs to manage clks
-  - Link to v4: https://lore.kernel.org/all/20250827081135.2243-1-weishangjuan@eswincomputing.com/
-
-  Changes in v4:
-  - Update eswin,eic7700-eth.yaml
-    - Modify reg:minItems:1 to reg:maxItems: 1
-    - Delete minItems and maxItems of clock and clock-names
-    - Delete phy-mode and phy-handle properties
-    - Add description for clock
-    - Add types of clock-names
-    - Delete descriptions for rx-internal-delay-ps and tx-internal-delay-ps
-    - Add enum value for rx-internal-delay-ps and tx-internal-delay-ps
-    - Modify description for eswin,hsp-sp-csr property
-    - Delete eswin,syscrg-csr and eswin,dly-hsp-reg properties
-    - Modify phy-mode="rgmii" to phy-mode="rgmii-id"
-  - Update dwmac-eic7700.c
-    - Remove fix_mac_speed and configure different delays for different rates
-    - Merge the offset of the dly register into the eswin, hsp sp csr attributes
-      for unified management
-    - Add missing Author and optimize the number of characters per
-      line to within 80
-    - Support default delay configuration and add the handling of vendor delay 
-      configuration
-    - Add clks_config for pm_runtime
-    - Modify the attribute format, such as eswin,hsp_sp_csr to eswin,hsp-sp-csr
-  - Link to v3: https://lore.kernel.org/all/20250703091808.1092-1-weishangjuan@eswincomputing.com/
-
-  Changes in v3:
-  - Update eswin,eic7700-eth.yaml
-    - Modify snps,dwmac to snps,dwmac-5.20
-    - Remove the description of reg
-    - Modify the value of clock minItems and maxItems
-    - Modify the value of clock-names minItems and maxItems
-    - Add descriptions of snps,write-questions, snps,read-questions
-    - Add rx-internal-delay-ps and tx-internal-delay-ps properties
-    - Modify descriptions for custom properties, such as eswin,hsp-sp-csr
-    - Delete snps,axi-config property
-    - Add snps,fixed-burst snps,aal snps,tso properties
-    - Delete snps,lpi_en property
-    - Modify format of custom properties
-  - Update dwmac-eic7700.c
-    - Simplify drivers and remove unnecessary API and DTS attribute configurations
-    - Increase the mapping from tx/rx_delay_ps to private dly
-  - Link to v2: https://lore.kernel.org/all/aDad+8YHEFdOIs38@mev-dev.igk.intel.com/
-
-  Changes in v2:
-  - Update eswin,eic7700-eth.yaml
-    - Add snps,dwmac in binding file
-    - Modify the description of reg
-    - Modify the number of clock-names
-    - Change the names of reset-names and phy-mode
-    - Add description for custom properties, such as eswin,hsp_sp_csr
-    - Delete snps,blen snps,rd_osr_lmt snps,wr_osr_lmt properties
-  - Updat dwmac-eic7700.c
-    - Remove the code related to PHY LED configuration from the MAC driver
-    - Adjust the code format and driver interfaces, such as replacing kzalloc
-      with devm_kzalloc, etc.
-    - Use phylib instead of the GPIO API in the driver to implement the PHY
-      reset function
-  - Link to v1: https://lore.kernel.org/all/20250516010849.784-1-weishangjuan@eswincomputing.com/
-
-Shangjuan Wei (2):
-  dt-bindings: ethernet: eswin: Document for EIC7700 SoC
-  ethernet: eswin: Add eic7700 ethernet driver
-
- .../bindings/net/eswin,eic7700-eth.yaml       | 128 ++++++++++
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 226 ++++++++++++++++++
- 4 files changed, 366 insertions(+)
+Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
+---
+ .../bindings/net/eswin,eic7700-eth.yaml       | 128 ++++++++++++++++++
+ 1 file changed, 128 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
 
--- 
+diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+new file mode 100644
+index 000000000000..9771fed9604e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+@@ -0,0 +1,128 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/eswin,eic7700-eth.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Eswin EIC7700 SOC Eth Controller
++
++maintainers:
++  - Shuang Liang <liangshuang@eswincomputing.com>
++  - Zhi Li <lizhi2@eswincomputing.com>
++  - Shangjuan Wei <weishangjuan@eswincomputing.com>
++
++description:
++  Platform glue layer implementation for STMMAC Ethernet driver.
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - eswin,eic7700-qos-eth
++  required:
++    - compatible
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++properties:
++  compatible:
++    items:
++      - const: eswin,eic7700-qos-eth
++      - const: snps,dwmac-5.20
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-names:
++    const: macirq
++
++  clocks:
++    items:
++      - description: AXI clock
++      - description: Configuration clock
++      - description: GMAC main clock
++      - description: Tx clock
++
++  clock-names:
++    items:
++      - const: axi
++      - const: cfg
++      - const: stmmaceth
++      - const: tx
++
++  resets:
++    maxItems: 1
++
++  reset-names:
++    items:
++      - const: stmmaceth
++
++  rx-internal-delay-ps:
++    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++
++  tx-internal-delay-ps:
++    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++
++  eswin,hsp-sp-csr:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - description: Phandle to HSP(High-Speed Peripheral) device
++      - description: Offset of phy control register for internal
++                     or external clock selection
++      - description: Offset of AXI clock controller Low-Power request
++                     register
++      - description: Offset of register controlling TX/RX clock delay
++    description: |
++      High-Speed Peripheral device needed to configure clock selection,
++      clock low-power mode and clock delay.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - interrupt-names
++  - phy-mode
++  - resets
++  - reset-names
++  - rx-internal-delay-ps
++  - tx-internal-delay-ps
++  - eswin,hsp-sp-csr
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    ethernet@50400000 {
++        compatible = "eswin,eic7700-qos-eth", "snps,dwmac-5.20";
++        reg = <0x50400000 0x10000>;
++        clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
++                <&d0_clock 193>;
++        clock-names = "axi", "cfg", "stmmaceth", "tx";
++        interrupt-parent = <&plic>;
++        interrupts = <61>;
++        interrupt-names = "macirq";
++        phy-mode = "rgmii-id";
++        phy-handle = <&phy0>;
++        resets = <&reset 95>;
++        reset-names = "stmmaceth";
++        rx-internal-delay-ps = <200>;
++        tx-internal-delay-ps = <200>;
++        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118>;
++        snps,axi-config = <&stmmac_axi_setup>;
++        snps,aal;
++        snps,fixed-burst;
++        snps,tso;
++        stmmac_axi_setup: stmmac-axi-config {
++            snps,blen = <0 0 0 0 16 8 4>;
++            snps,rd_osr_lmt = <2>;
++            snps,wr_osr_lmt = <2>;
++        };
++    };
+--
 2.17.1
 
 
