@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A216CCAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4650FCAC58F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 12:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zguUP/rKI41td6Qd1x37NGTIr2eKo9bTe8UKCbXqKyg=; b=jA8erX/4DQjNi+2K429R3Cn9Tc
-	SV1V2zYPO9KS4PX664ZFNDyixdeFr2miC12PQBuzGHsXVUNIYWip8WnuF4IGh2M0an3zCAsF8bBVe
-	lkoTVwEHZoMBGxXvKDjAmXtbu2CtXHPIDRoU9ymPwfPmVuw621uwJgtC05P6+U1NVqyq0uo1flCoO
-	IgDkwWzttsLt2UT7fFzQpd0wbCLAo9BaJa9okvyhA2aTHoXXmmKD1Ij0VnrYBnvI/oc+RoZJ1p+Fc
-	2gmLWMJsP/muu/CikHj5J3YZ9juX0VRRP56dkyn/xbObKSJZ5dKdaCly1xpWr5kgMVn/fegEUTSVB
-	QrWSPzyg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PGOeq4Spk0I0hBg16qA7n3LtACA8dH9IXI2vIvaYPUs=; b=PXdOwgmgDhMa7WQpwmu99VJ7ns
+	BawIxkblzm7O8JMpF/H5121AWzalQQCKaX80LLCqMHN4CXUj2x97EhKduDZ6atTaZBDUmRAwTrvzk
+	pIM3+75EciPPf6rukPSj2hVlZ+kJJdPo335fg3qyZujR4uGlY6J0WlUfxzaSQbtjxh6YExhhCX05v
+	23lSLoKGFNERrr7UjrssEQvdWNs/992Lrq8rihbNrhyivmni2uSAK8W0tEcZQ1ModPecTnfvIAKXa
+	AerCIkHNQd18Kk8G2/qxm/AzwKpRaLAUGLHypFW5N53tQ+fDGCwQxYfT7DmKehLP/4sf4BuLZRldP
+	FgLC1byg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2Wn-0000000957l-2euD;
-	Fri, 12 Sep 2025 12:05:21 +0000
+	id 1ux2Wt-000000095Bv-0pFT;
+	Fri, 12 Sep 2025 12:05:27 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux2Wl-00000009569-2Hu7;
-	Fri, 12 Sep 2025 12:05:20 +0000
-X-UUID: bec127068fd011f09eb0dd999d3936bf-20250912
+	id 1ux2Wp-00000009594-3MZe;
+	Fri, 12 Sep 2025 12:05:25 +0000
+X-UUID: c25ac4f88fd011f09eb0dd999d3936bf-20250912
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=zguUP/rKI41td6Qd1x37NGTIr2eKo9bTe8UKCbXqKyg=;
-	b=cnJoxNkso4sJcnDHy7hcZraIxd8IQJa0aJruIqq2aYMm2D48aZAzFN52D9ab3wbToTFM3GOuQF6iKKqzky+e/2WngK0K5Ma3XljX5UQCSVIDL/nFYeOC3oieLA4O5tEFmholJE6ThsQTKRwNwaGAZvr2dVi7p30x/eUQFV7auso=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=PGOeq4Spk0I0hBg16qA7n3LtACA8dH9IXI2vIvaYPUs=;
+	b=GEY1p4Jh6pDnhzIY8vgJ65ScmapArEAv7p6PhX2/uckd3K5zjlgUh96SHSkKG0dumaq126jSBkklbzcqxZTZNBL0LFFsgQaUYqP04epjgW0UqrF9FzOQ47ZyCoRdLrkAJKp3zIDW8ej68lZbPyEfbdMTLjeSBnmSq+qx11zYalY=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.4,REQID:59a19298-ac44-4c92-8f9c-59da95d2e1c7,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:1ca6b93,CLOUDID:b9c9b884-5317-4626-9d82-238d715c253f,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
-	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
-	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.4,REQID:e13982d1-8908-47d6-ac95-cb1ff1fab568,IP:0,UR
+	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:25
+X-CID-META: VersionHash:1ca6b93,CLOUDID:33dc40a9-24df-464e-9c88-e53ab7cf7153,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
+	-3,IP:nil,URL:11|97|99|83|106|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,CO
+	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: bec127068fd011f09eb0dd999d3936bf-20250912
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+X-UUID: c25ac4f88fd011f09eb0dd999d3936bf-20250912
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
 	(envelope-from <irving-ch.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 161699277; Fri, 12 Sep 2025 05:05:16 -0700
+	with ESMTP id 1186215872; Fri, 12 Sep 2025 05:05:22 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 12 Sep 2025 20:05:13 +0800
+ 15.2.1258.39; Fri, 12 Sep 2025 20:05:19 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 12 Sep 2025 20:05:13 +0800
+ 15.2.1258.39 via Frontend Transport; Fri, 12 Sep 2025 20:05:19 +0800
 From: irving.ch.lin <irving-ch.lin@mediatek.com>
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
 	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
@@ -68,16 +68,18 @@ CC: Qiqi Wang <qiqi.wang@mediatek.com>, <linux-clk@vger.kernel.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
 	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
 	<jh.hsu@mediatek.com>, <irving-ch.lin@mediatek.com>
-Subject: [PATCH v2 0/4] Add support for MT8189 clock/power controller
-Date: Fri, 12 Sep 2025 20:04:49 +0800
-Message-ID: <20250912120508.3180067-1-irving-ch.lin@mediatek.com>
+Subject: [PATCH v2 2/4] dt-bindings: power: mediatek: Add MT8189 power domain definitions
+Date: Fri, 12 Sep 2025 20:04:51 +0800
+Message-ID: <20250912120508.3180067-3-irving-ch.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250912120508.3180067-1-irving-ch.lin@mediatek.com>
+References: <20250912120508.3180067-1-irving-ch.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_050519_596543_EDD2CBDF 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20250912_050523_851086_CACED033 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +94,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These patches add support for the clock and power controllers
-of MediaTek's new SoC, MT8189. With these changes,
-other modules can easily manage clock and power resources
-using standard Linux APIs, such as the Common Clock Framework (CCF)
-and pm_runtime on MT8189 platform.
+From: Irving-ch Lin <irving-ch.lin@mediatek.com>
 
-Irving-ch Lin (4):
-  dt-bindings: clock: mediatek: Add MT8189 clock definitions
-  dt-bindings: power: mediatek: Add MT8189 power domain definitions
-  clk: mediatek: Add clock drivers for MT8189 SoC
-  pmdomain: mediatek: Add power domain driver for MT8189 SoC
+Add device tree bindings for the power domains of MediaTek MT8189 SoC.
+These definitions will be used to describe the power domain topology in
+device tree sources.
 
- .../bindings/clock/mediatek,mt8189-clock.yaml |   89 ++
- .../clock/mediatek,mt8189-sys-clock.yaml      |   58 +
- .../mediatek,mt8189-power-controller.yaml     |   88 ++
- drivers/clk/mediatek/Kconfig                  |  146 +++
- drivers/clk/mediatek/Makefile                 |   14 +
- drivers/clk/mediatek/clk-mt8189-apmixedsys.c  |  135 +++
- drivers/clk/mediatek/clk-mt8189-bus.c         |  289 +++++
- drivers/clk/mediatek/clk-mt8189-cam.c         |  131 ++
- drivers/clk/mediatek/clk-mt8189-dbgao.c       |  115 ++
- drivers/clk/mediatek/clk-mt8189-dvfsrc.c      |   61 +
- drivers/clk/mediatek/clk-mt8189-iic.c         |  149 +++
- drivers/clk/mediatek/clk-mt8189-img.c         |  122 ++
- drivers/clk/mediatek/clk-mt8189-mdpsys.c      |  100 ++
- drivers/clk/mediatek/clk-mt8189-mfg.c         |   56 +
- drivers/clk/mediatek/clk-mt8189-mmsys.c       |  233 ++++
- drivers/clk/mediatek/clk-mt8189-scp.c         |   92 ++
- drivers/clk/mediatek/clk-mt8189-topckgen.c    | 1057 +++++++++++++++++
- drivers/clk/mediatek/clk-mt8189-ufs.c         |  106 ++
- drivers/clk/mediatek/clk-mt8189-vcodec.c      |  119 ++
- drivers/clk/mediatek/clk-mt8189-vlpcfg.c      |  145 +++
- drivers/clk/mediatek/clk-mt8189-vlpckgen.c    |  280 +++++
- drivers/clk/mediatek/clk-mux.c                |    4 +
- drivers/pmdomain/mediatek/mt8189-scpsys.h     |   75 ++
- drivers/pmdomain/mediatek/mtk-scpsys.c        |  967 ++++++++++++++-
- .../dt-bindings/clock/mediatek,mt8189-clk.h   |  580 +++++++++
- .../dt-bindings/power/mediatek,mt8189-power.h |   38 +
- 26 files changed, 5206 insertions(+), 43 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.yaml
+Signed-off-by: Irving-ch Lin <irving-ch.lin@mediatek.com>
+---
+ .../mediatek,mt8189-power-controller.yaml     | 88 +++++++++++++++++++
+ .../dt-bindings/power/mediatek,mt8189-power.h | 38 ++++++++
+ 2 files changed, 126 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/power/mediatek,mt8189-power-controller.yaml
- create mode 100644 drivers/clk/mediatek/clk-mt8189-apmixedsys.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-bus.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-cam.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-dbgao.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-dvfsrc.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-iic.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-img.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-mdpsys.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-mfg.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-mmsys.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-scp.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-topckgen.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-ufs.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-vcodec.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-vlpcfg.c
- create mode 100644 drivers/clk/mediatek/clk-mt8189-vlpckgen.c
- create mode 100644 drivers/pmdomain/mediatek/mt8189-scpsys.h
- create mode 100644 include/dt-bindings/clock/mediatek,mt8189-clk.h
  create mode 100644 include/dt-bindings/power/mediatek,mt8189-power.h
 
+diff --git a/Documentation/devicetree/bindings/power/mediatek,mt8189-power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,mt8189-power-controller.yaml
+new file mode 100644
+index 000000000000..71156f7edafe
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/mediatek,mt8189-power-controller.yaml
+@@ -0,0 +1,88 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/mediatek,mt8189-power-controller.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek Power Domains Controller for MT8189
++
++maintainers:
++  - Qiqi Wang <qiqi.wang@mediatek.com>
++
++description: |
++  MediaTek processors include support for multiple power domains which can be
++  powered up/down by software based on different application scenes to save power.
++
++  IP cores belonging to a power domain should contain a 'power-domains'
++  property that is a phandle for SCPSYS node representing the domain.
++
++properties:
++  compatible:
++    enum:
++      - mediatek,mt8189-scpsys
++
++  reg:
++    maxItems: 1
++
++  '#power-domain-cells':
++    const: 1
++
++  clocks:
++    description: |
++      A number of phandles to clocks that need to be enabled during domain
++      power-up sequencing.
++
++  clock-names:
++    description: |
++      List of names of clocks, in order to match the power-up sequencing
++      for each power domain we need to group the clocks by name. BASIC
++      clocks need to be enabled before enabling the corresponding power
++      domain, and should not have a '-' in their name (i.e mm, mfg, venc).
++      SUSBYS clocks need to be enabled before releasing the bus protection,
++      and should contain a '-' in their name (i.e mm-0, isp-0, cam-0).
++
++      In order to follow properly the power-up sequencing, the clocks must
++      be specified by order, adding first the BASIC clocks followed by the
++      SUSBSYS clocks.
++
++patternProperties:
++  "^mfg[01]-supply$":
++    description: |
++      Regulator supply for mfg domain. With this attribute, scpsys can manage
++      mfg regulator in mtcmos control flow, to achieve low power scenario.
++
++required:
++  - compatible
++  - reg
++  - '#power-domain-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/mediatek,mt8189-clk.h>
++    #include <dt-bindings/power/mediatek,mt8189-power.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++        scpsys: power-controller@1c001000 {
++            compatible = "mediatek,mt8189-scpsys";
++            reg = <0 0x1c001000 0 0x1000>;
++            #power-domain-cells = <1>;
++            clocks = /* MFG */
++                <&topckgen_clk CLK_TOP_MFG_REF_SEL>,
++                <&apmixedsys_clk CLK_APMIXED_MFGPLL>;
++            clock-names = "mfg", "mfg_top";
++            mfg0-supply = <&mt6359_vproc1_buck_reg>;
++            mfg1-supply = <&mt6359_vsram_proc1_ldo_reg>;
++        };
++
++        /* Example of module to register power domain */
++        gpu: gpu@13000000 {
++            reg = <0 0x13000000 0 0x4000>;
++            power-domains = <&scpsys MT8189_POWER_DOMAIN_MFG2>,
++                            <&scpsys MT8189_POWER_DOMAIN_MFG3>;
++            power-domain-names = "core0", "core1";
++        };
++    };
+diff --git a/include/dt-bindings/power/mediatek,mt8189-power.h b/include/dt-bindings/power/mediatek,mt8189-power.h
+new file mode 100644
+index 000000000000..70a8c2113457
+--- /dev/null
++++ b/include/dt-bindings/power/mediatek,mt8189-power.h
+@@ -0,0 +1,38 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) 2025 MediaTek Inc.
++ * Author: Qiqi Wang <qiqi.wang@mediatek.com>
++ */
++
++#ifndef _DT_BINDINGS_POWER_MT8189_POWER_H
++#define _DT_BINDINGS_POWER_MT8189_POWER_H
++
++/* SPM */
++#define MT8189_POWER_DOMAIN_CONN			0
++#define MT8189_POWER_DOMAIN_AUDIO			1
++#define MT8189_POWER_DOMAIN_ADSP_TOP_DORMANT		2
++#define MT8189_POWER_DOMAIN_ADSP_INFRA			3
++#define MT8189_POWER_DOMAIN_ADSP_AO			4
++#define MT8189_POWER_DOMAIN_MM_INFRA			5
++#define MT8189_POWER_DOMAIN_ISP_IMG1			6
++#define MT8189_POWER_DOMAIN_ISP_IMG2			7
++#define MT8189_POWER_DOMAIN_ISP_IPE			8
++#define MT8189_POWER_DOMAIN_VDE0			9
++#define MT8189_POWER_DOMAIN_VEN0			10
++#define MT8189_POWER_DOMAIN_CAM_MAIN			11
++#define MT8189_POWER_DOMAIN_CAM_SUBA			12
++#define MT8189_POWER_DOMAIN_CAM_SUBB			13
++#define MT8189_POWER_DOMAIN_MDP0			14
++#define MT8189_POWER_DOMAIN_DISP			15
++#define MT8189_POWER_DOMAIN_DP_TX			16
++#define MT8189_POWER_DOMAIN_CSI_RX			17
++#define MT8189_POWER_DOMAIN_SSUSB			18
++#define MT8189_POWER_DOMAIN_MFG0			19
++#define MT8189_POWER_DOMAIN_MFG1			20
++#define MT8189_POWER_DOMAIN_MFG2			21
++#define MT8189_POWER_DOMAIN_MFG3			22
++#define MT8189_POWER_DOMAIN_EDP_TX_DORMANT		23
++#define MT8189_POWER_DOMAIN_PCIE			24
++#define MT8189_POWER_DOMAIN_PCIE_PHY			25
++
++#endif /* _DT_BINDINGS_POWER_MT8189_POWER_H */
 -- 
 2.45.2
 
