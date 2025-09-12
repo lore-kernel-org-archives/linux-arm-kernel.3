@@ -4,70 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD54CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C857CCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tdZQuXNd6jNW6g42AjoI2N5xh1PKCGXnmtRCV0J+Li8=; b=XBHhoIo+ob8OiaZv5FTPNuEQoK
-	PxwMUraOgH/GoslziTtx6MDhlaomOEnZniGw1UkejeoJSFz3QV7VCrJyZbxY5IL4150G75mmGg+DK
-	/tawOqjiVf8ZXv4OnDYW7nRCyqEespiMaA6qATsKdetuIgc3MM4kijZOFyauoOuZWGCqZSOOGS4/7
-	5xgeHf3aAGNlgyDpJiEVSmE6cqq1jAG6ws/2bIWJdHfon673oUr/1DWlZgApdTGvomOK/3WTprT+R
-	Hgo+wNTDSHjarifb26Mxp1BUh1/12RG0ClnQofqTC1s6n8bC6WKZhyuzFcSbWOB5lEOH2ocvNKVGg
-	/wEC1kLQ==;
+	bh=LwtSBiRgh7l8m3eHqvj0Z/4D72nKcmOwOzm2avrIc6A=; b=i5dWGUw9dO6/yYlnbZSj5zcNkr
+	yzNAGJNiuU36nLsvcRK34kK7Atmk0IVe0Qc/BluQLLnIsaetN2OrtLrEn0KMOu7NvT/O4TW1n0DwJ
+	B+skoA6lVVQh5gTE8WLYY+vZY69YMP0FC6k4T3VlUOtX4KmfNzLEvrMfwcHNMQS8JpjDv8Dt/gvjj
+	jEceJjLKk1iBszFfWpHX845ify5gHgOrHM4kDIUL866zEnwbMAZU0/C2DLAfN/ZlsXZQGMehXMsEj
+	cODGoWYggz5VLI49HzzIIhq37rauQ4cTDY+HT23Tftq0RCPmwQUEOA/GY8Xe+kD60DTSglh+ohYQ5
+	wJmz2zmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux67R-0000000AP2z-1k3t;
-	Fri, 12 Sep 2025 15:55:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux67O-0000000AP1M-3E3p
+	id 1ux68Z-0000000APQR-3Kdn;
+	Fri, 12 Sep 2025 15:56:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux68X-0000000APP4-1J1U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 15:55:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F0591515;
-	Fri, 12 Sep 2025 08:55:13 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CEAE3F66E;
-	Fri, 12 Sep 2025 08:55:17 -0700 (PDT)
-Message-ID: <53eddf53-a610-4420-9021-658fdf31aebe@arm.com>
-Date: Fri, 12 Sep 2025 16:55:16 +0100
+	Fri, 12 Sep 2025 15:56:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757692592;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=LwtSBiRgh7l8m3eHqvj0Z/4D72nKcmOwOzm2avrIc6A=;
+	b=ctmMaf/dTAnZqm/1FWhLrIVm2+Hd5HkV2vlC51JLfVzcVtWlS7EzfvqELj+yhJG+WCpyuw
+	5aOXAHj++HLx38QY6eu4KXkAZTILwA3zQMgYPBrprgS7D3vWM0DaJnhqxnQ0eBV74ZXVaX
+	o33ZjdcuU6mpI/t1IMAhWcApokxsuLA=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-168-EajnvaeXN5qvKzcrr8D-HQ-1; Fri, 12 Sep 2025 11:56:26 -0400
+X-MC-Unique: EajnvaeXN5qvKzcrr8D-HQ-1
+X-Mimecast-MFC-AGG-ID: EajnvaeXN5qvKzcrr8D-HQ_1757692585
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45e037fd142so16279765e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 08:56:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757692585; x=1758297385;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LwtSBiRgh7l8m3eHqvj0Z/4D72nKcmOwOzm2avrIc6A=;
+        b=AYex1bYw32L2XLrDEwLC2fItVgbUHy1Nv3GiwffdZi4P5VIkEoPBTLOX3LZiK332g3
+         iuD1bB6oRGTOAz++O+a/n2SgxvvWi5NWcr2oA4N/vjL2bg4O/Qt6sSd1DCGe202hoHYc
+         Tpt8tf7axfJ39Hiwi1j75nkLm5HWePeOGGo5crh2ypmhigPV+yAY6EgriNTDwdf4bVDF
+         A7XLqMFd+Lt1RHFgU91yd8DlNmVKLTd/evojbg7HEYiRcIIVpu2lnBcmbCDfp6WdioGq
+         mgugb9CTiILzwYBv16qGZLMPZuGa6MA3eYRvOkWpz8rhtYjYWdbJun6KdEs01I5+m1+3
+         OVSw==
+X-Forwarded-Encrypted: i=1; AJvYcCWmDseAIhOVwHzD4RVgsNt+2/653DEVIGwiBUMKzucFxBR3yBPgveweOi4FaSYWZOs4i0ZhHy+GgBvN+qoFb6ND@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7YeDdEdXuLvBi9sXJV7+1v0RnpVgCksyWKcwLAq1kb/7/Mt7a
+	Z41iHOmMsF7Tsro0ly2ZpuSEttXJ2lgjr3s3yCqqKya104BLtEBr00gOV4j161Id4BkOKpk1urO
+	mBsPAyR16aiwXfgpDapsSTQsYtfBksurKE2a64ZpkzkS4Ums2GgI15V9QIQ9Q8JxKs+XZHyEMYV
+	IJ
+X-Gm-Gg: ASbGnctNJhfVxrdCG8Mix62NQNUMrg+9TnCzzBt+KJMcAdDoR3gk3m3auFoN28ksPTn
+	E7UMvNmr6IV0FeKSakBSy2XILFEp+iPPI+8VGoFhQBIW2GouzcmiXKy4pt6BMMw6uw6Yg5qS3Bt
+	hnaytxZYjPBNkIqrA7VIegyI48tTU8rkzEQMkk1rtzB1cV6m3jqlbrsIBEMGefdLBTweUFw/QTN
+	EfEPkH5TAwpL269dzr5SOG7tDJx3frrgNMogHVD/pGVb3Yzk9j3naXZkmp9GwV2E11xI3UZuiTs
+	Nz3lbC3E9P0xYxBiXq9bE8+2eGxYkf+1MAkSuDyVOacFq372HQejhw6c2sx/75MjwNlQfb3+3VW
+	r/qrNrZd92Mo5xDXFXLVUJtIlcXuNiQvSymgG1fUAAHvyR8SnBVgjX6Gl4XTQsmouPqw=
+X-Received: by 2002:a05:600c:22d2:b0:45d:ec9d:5fc3 with SMTP id 5b1f17b1804b1-45f211f6790mr33105715e9.18.1757692585265;
+        Fri, 12 Sep 2025 08:56:25 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFac7W1MrERsCK511VnCTt0k5ir4FTQySao9wgWh9TgtQ8MeIZa8a3y4/zUuscFnBsbmei1sA==
+X-Received: by 2002:a05:600c:22d2:b0:45d:ec9d:5fc3 with SMTP id 5b1f17b1804b1-45f211f6790mr33105325e9.18.1757692584728;
+        Fri, 12 Sep 2025 08:56:24 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f20:da00:b70a:d502:3b51:1f2d? (p200300d82f20da00b70ad5023b511f2d.dip0.t-ipconnect.de. [2003:d8:2f20:da00:b70a:d502:3b51:1f2d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e037d62besm65340495e9.21.2025.09.12.08.56.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Sep 2025 08:56:24 -0700 (PDT)
+Message-ID: <9c2e289c-0258-4e25-aaeb-a97be89ebd84@redhat.com>
+Date: Fri, 12 Sep 2025 17:56:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 24/29] arm_mpam: Track bandwidth counter state for
- overflow and power management
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-25-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [RFC][PATCH v3 00/16] Introduce kmemdump
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
+ andersson@kernel.org, pmladek@suse.com, rdunlap@infradead.org,
+ corbet@lwn.net, mhocko@suse.com
+Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20250912150855.2901211-1-eugen.hristev@linaro.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: cbxV2t1IRhHVax-Nz89Zj7tLcvHifUDMI8iwlXoLPW4_1757692585
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-In-Reply-To: <20250910204309.20751-25-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_085522_893544_96170FD8 
-X-CRM114-Status: GOOD (  34.16  )
+X-CRM114-CacheID: sfid-20250912_085633_417383_492DDAC4 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,334 +161,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On 9/10/25 21:43, James Morse wrote:
-> Bandwidth counters need to run continuously to correctly reflect the
-> bandwidth.
 > 
-> The value read may be lower than the previous value read in the case
-> of overflow and when the hardware is reset due to CPU hotplug.
-> 
-> Add struct mbwu_state to track the bandwidth counter to allow overflow
-> and power management to be handled.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since v1:
->  * Fixed lock/unlock typo.
-> ---
->  drivers/resctrl/mpam_devices.c  | 154 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_internal.h |  23 +++++
->  2 files changed, 175 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 1543c33c5d6a..eeb62ed94520 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -918,6 +918,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
->  	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
->  
->  	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
-> +
->  	if (m->ctx->match_pmg) {
->  		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
->  		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
-> @@ -972,6 +973,7 @@ static void clean_msmon_ctl_val(u32 *cur_ctl)
->  static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
->  				     u32 flt_val)
->  {
-> +	struct msmon_mbwu_state *mbwu_state;
->  	struct mpam_msc *msc = m->ris->vmsc->msc;
->  
->  	/*
-> @@ -990,20 +992,32 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
->  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
->  		mpam_write_monsel_reg(msc, MBWU, 0);
->  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +
-> +		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
-> +		if (mbwu_state)
-> +			mbwu_state->prev_val = 0;
+> Changelog since the v2 of the RFC:
+> - V2 available here : https://lore.kernel.org/all/20250724135512.518487-1-eugen.hristev@linaro.org/
+> - Removed the .section as requested by David Hildenbrand.
+> - Moved all kmemdump registration(when possible) to vmcoreinfo.
+> - Because of this, some of the variables that I was registering had to be non-static
+> so I had to modify this as per David Hildenbrand suggestion.
+> - Fixed minor things in the Kinfo driver: one field was broken, fixed some
+> compiler warnings, fixed the copyright and remove some useless includes.
+> - Moved the whole kmemdump from drivers/debug into mm/ and Kconfigs into mm/Kconfig.debug
+> and it's now available in kernel hacking, as per Randy Dunlap review
+> - Reworked some of the Documentation as per review from Jon Corbet
 
-What's the if condition doing here?
+IIUC, it's now only printk.c where we do kmemdump-related magic, right?
 
-The below could make more sense but I don't think you can get here if
-the allocation fails.
+-- 
+Cheers
 
-if (m->ris->mbwu_state)
-
-> +
->  		break;
->  	default:
->  		return;
->  	}
->  }
->  
-> +static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
-> +{
-> +	/* TODO: scaling, and long counters */
-> +	return GENMASK_ULL(30, 0);
-> +}
-> +
->  /* Call with MSC lock held */
->  static void __ris_msmon_read(void *arg)
->  {
-> -	u64 now;
->  	bool nrdy = false;
->  	struct mon_read *m = arg;
-> +	u64 now, overflow_val = 0;
->  	struct mon_cfg *ctx = m->ctx;
->  	struct mpam_msc_ris *ris = m->ris;
-> +	struct msmon_mbwu_state *mbwu_state;
->  	struct mpam_props *rprops = &ris->props;
->  	struct mpam_msc *msc = m->ris->vmsc->msc;
->  	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
-> @@ -1031,11 +1045,30 @@ static void __ris_msmon_read(void *arg)
->  		now = mpam_read_monsel_reg(msc, CSU);
->  		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
->  			nrdy = now & MSMON___NRDY;
-> +		now = FIELD_GET(MSMON___VALUE, now);
->  		break;
->  	case mpam_feat_msmon_mbwu:
->  		now = mpam_read_monsel_reg(msc, MBWU);
->  		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
->  			nrdy = now & MSMON___NRDY;
-> +		now = FIELD_GET(MSMON___VALUE, now);
-> +
-> +		if (nrdy)
-> +			break;
-> +
-> +		mbwu_state = &ris->mbwu_state[ctx->mon];
-> +		if (!mbwu_state)
-> +			break;
-> +
-> +		/* Add any pre-overflow value to the mbwu_state->val */
-> +		if (mbwu_state->prev_val > now)
-> +			overflow_val = mpam_msmon_overflow_val(ris) - mbwu_state->prev_val;
-> +
-> +		mbwu_state->prev_val = now;
-> +		mbwu_state->correction += overflow_val;
-> +
-> +		/* Include bandwidth consumed before the last hardware reset */
-> +		now += mbwu_state->correction;
->  		break;
->  	default:
->  		m->err = -EINVAL;
-> @@ -1048,7 +1081,6 @@ static void __ris_msmon_read(void *arg)
->  		return;
->  	}
->  
-> -	now = FIELD_GET(MSMON___VALUE, now);
->  	*m->val += now;
->  }
->  
-> @@ -1261,6 +1293,67 @@ static int mpam_reprogram_ris(void *_arg)
->  	return 0;
->  }
->  
-> +/* Call with MSC lock held */
-> +static int mpam_restore_mbwu_state(void *_ris)
-> +{
-> +	int i;
-> +	struct mon_read mwbu_arg;
-> +	struct mpam_msc_ris *ris = _ris;
-> +
-> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
-> +		if (ris->mbwu_state[i].enabled) {
-> +			mwbu_arg.ris = ris;
-> +			mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
-> +			mwbu_arg.type = mpam_feat_msmon_mbwu;
-> +
-> +			__ris_msmon_read(&mwbu_arg);
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/* Call with MSC lock and held */
-> +static int mpam_save_mbwu_state(void *arg)
-> +{
-> +	int i;
-> +	u64 val;
-> +	struct mon_cfg *cfg;
-> +	u32 cur_flt, cur_ctl, mon_sel;
-> +	struct mpam_msc_ris *ris = arg;
-> +	struct msmon_mbwu_state *mbwu_state;
-> +	struct mpam_msc *msc = ris->vmsc->msc;
-> +
-> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
-> +		mbwu_state = &ris->mbwu_state[i];
-> +		cfg = &mbwu_state->cfg;
-> +
-> +		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-> +			return -EIO;
-> +
-> +		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
-> +			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> +		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> +
-> +		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-> +		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-> +
-> +		val = mpam_read_monsel_reg(msc, MBWU);
-> +		mpam_write_monsel_reg(msc, MBWU, 0);
-> +
-> +		cfg->mon = i;
-> +		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
-> +		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
-> +		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
-> +		mbwu_state->correction += val;
-> +		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
-> +		mpam_mon_sel_unlock(msc);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
->  {
->  	memset(reset_cfg, 0, sizeof(*reset_cfg));
-> @@ -1335,6 +1428,9 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
->  		 * for non-zero partid may be lost while the CPUs are offline.
->  		 */
->  		ris->in_reset_state = online;
-> +
-> +		if (mpam_is_enabled() && !online)
-> +			mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
->  	}
->  }
->  
-> @@ -1369,6 +1465,9 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
->  			mpam_reprogram_ris_partid(ris, partid, cfg);
->  		}
->  		ris->in_reset_state = reset;
-> +
-> +		if (mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
-> +			mpam_touch_msc(msc, &mpam_restore_mbwu_state, ris);
->  	}
->  }
->  
-> @@ -2091,11 +2190,33 @@ static void mpam_unregister_irqs(void)
->  
->  static void __destroy_component_cfg(struct mpam_component *comp)
->  {
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
->  	add_to_garbage(comp->cfg);
-> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-> +		msc = vmsc->msc;
-> +
-> +		if (mpam_mon_sel_lock(msc)) {
-> +			list_for_each_entry(ris, &vmsc->ris, vmsc_list)
-> +				add_to_garbage(ris->mbwu_state);
-> +			mpam_mon_sel_unlock(msc);
-> +		}
-> +	}
->  }
->  
->  static int __allocate_component_cfg(struct mpam_component *comp)
->  {
-> +	int err = 0;
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +	struct msmon_mbwu_state *mbwu_state;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
->  	mpam_assert_partid_sizes_fixed();
->  
->  	if (comp->cfg)
-> @@ -2106,6 +2227,35 @@ static int __allocate_component_cfg(struct mpam_component *comp)
->  		return -ENOMEM;
->  	init_garbage(comp->cfg);
->  
-> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-> +		if (!vmsc->props.num_mbwu_mon)
-> +			continue;
-> +
-> +		msc = vmsc->msc;
-> +		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
-> +			if (!ris->props.num_mbwu_mon)
-> +				continue;
-> +
-> +			mbwu_state = kcalloc(ris->props.num_mbwu_mon,
-> +					     sizeof(*ris->mbwu_state),
-> +					     GFP_KERNEL);
-> +			if (!mbwu_state) {
-> +				__destroy_component_cfg(comp);
-> +				err = -ENOMEM;
-> +				break;
-> +			}
-> +
-> +			if (mpam_mon_sel_lock(msc)) {
-> +				init_garbage(mbwu_state);
-> +				ris->mbwu_state = mbwu_state;
-> +				mpam_mon_sel_unlock(msc);
-> +			}
-
-The if statement is confusing now that mpam_mon_sel_lock()
-unconditionally returns true.
-
-> +		}
-> +
-> +		if (err)
-> +			break;
-> +	}
-> +
->  	return 0;
->  }
->  
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index bb01e7dbde40..725c2aefa8a2 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -212,6 +212,26 @@ struct mon_cfg {
->  	enum mon_filter_options opts;
->  };
->  
-> +/*
-> + * Changes to enabled and cfg are protected by the msc->lock.
-> + * Changes to prev_val and correction are protected by the msc's mon_sel_lock.
-> + */
-> +struct msmon_mbwu_state {
-> +	bool		enabled;
-> +	struct mon_cfg	cfg;
-> +
-> +	/* The value last read from the hardware. Used to detect overflow. */
-> +	u64		prev_val;
-> +
-> +	/*
-> +	 * The value to add to the new reading to account for power management,
-> +	 * and shifts to trigger the overflow interrupt.
-> +	 */
-> +	u64		correction;
-> +
-> +	struct mpam_garbage	garbage;
-> +};
-> +
->  struct mpam_class {
->  	/* mpam_components in this class */
->  	struct list_head	components;
-> @@ -304,6 +324,9 @@ struct mpam_msc_ris {
->  	/* parent: */
->  	struct mpam_vmsc	*vmsc;
->  
-> +	/* msmon mbwu configuration is preserved over reset */
-> +	struct msmon_mbwu_state	*mbwu_state;
-> +
->  	struct mpam_garbage	garbage;
->  };
->  
-
-Thanks,
-
-Ben
+David / dhildenb
 
 
