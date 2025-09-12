@@ -4,92 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7F1CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 07:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F125CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 07:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MscxGB98VFXuPCr9hE7EAg+kk5OTN4rOo+anFsMbFV4=; b=RFtIyNZiJM0P2MohPcfyLQGP7B
-	8a+QUk6cfAD2WYkDlclZ/uFJmDbILgHQATEXYgB/qNvxU8GoPexgGlmpoyiqMhdSDImOmHgN3lZ01
-	miXcKzw9tWZ5zkTmjC40yJnCEFWmEnIiHVt5KnXBrKcPvN/0iWsi+zkovfejPT7Mcr6tXZKonLnlZ
-	mLdXBW1eZMgcdqUqYhvEJAdEwTrS1erdJ+Yq8qpZmMDwjEw3/TO1qBej6ZWGf7oscVMOqZM5GD3j7
-	uigOr3+9yTQZERIestJyJyFh3gu6/RT8G8taWOsfVwpUkZamX7rYHdh4RxkYqyKkbwZIsov9wjRvM
-	zc4D/JqA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QUkpWDNNuTUShRvlsXMt8bA3b7ppAMjYzDtVpFQWtGM=; b=1Y1fZapsnnCNf+kTTnl8Y1hGV9
+	nlJ9rTzab7un6PRXDg0ZAGZyZDGCayOIwT6rEB92gp0hLOJ6afl0aWjPV4qQ/v8Pgl9OUNuYLi7Bm
+	h4iM4cByDtkWFXomPV7MT5OPqKYRMKXxeeZ/e2mFQkIKhmw2GD1xM9lOVk9YkDCvh9qxgNGhhP3uJ
+	GTtuG9dN1IjyhNSFroGu3M7oS52wZszSBE2qD7i9WfwM0bB8gjHbs3+1DZP6Ww9/jmHrFCxjQHfAh
+	919gY+qFCxvwibBLEQcVzoJdxqwPX3vSgiF3PX4MXMOkjTe7yNsvq7fhv0t2z4aF6vE/5ZOHkevCH
+	Z6o9P/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwyIs-00000007g3n-41XM;
-	Fri, 12 Sep 2025 07:34:42 +0000
-Received: from mout.web.de ([212.227.17.11])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwyIp-00000007g1n-3MKe
+	id 1uwyNM-00000007hC2-18CN;
+	Fri, 12 Sep 2025 07:39:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwyNJ-00000007hBW-0IjE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 07:34:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1757662438; x=1758267238; i=markus.elfring@web.de;
-	bh=MscxGB98VFXuPCr9hE7EAg+kk5OTN4rOo+anFsMbFV4=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=XVgCvI9WUvBgHJqmgpANa9paASrfxvqaTaOFuoM3VL1IBR6Jz8y2D8mHR4N2uzDa
-	 pR1yBYLgE3XStEv/vYg2HANlwDyuHkYB6H9289Wbm/AUxHHGdt+gTk9Ub2ZAu1kVI
-	 Ov7ZqTgBUKCr0olwc+p+SPdzglD7IwY9qMcK+aHJ870wOkHyIXh2XParY9JkUYOAd
-	 w4xHrLUqR4LbYGOARObz1hp86ujjLfnOgyRdR/C3zKFiI/NTaXcWYZ/okILYWZcsc
-	 MPjGDNGjIJu3pY3F65LPTijmWrMIulzVtOS0g/bcvInIy/zITNkwTOsp23hNiMfin
-	 oQYOvNxLf/Usmcy6/Q==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.219]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1M7Nmo-1v4fvt38Gq-005DkR; Fri, 12
- Sep 2025 09:33:57 +0200
-Message-ID: <323c362f-9cdb-47f1-834a-b3ee4bb04c32@web.de>
-Date: Fri, 12 Sep 2025 09:33:50 +0200
+	Fri, 12 Sep 2025 07:39:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A80CB16A3;
+	Fri, 12 Sep 2025 00:39:07 -0700 (PDT)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D5433F63F;
+	Fri, 12 Sep 2025 00:39:14 -0700 (PDT)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v2] arm64: mm: Move KPTI helpers to mmu.c
+Date: Fri, 12 Sep 2025 08:39:08 +0100
+Message-ID: <20250912073908.404924-1-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: James Morse <james.morse@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Amit Singh Tomar <amitsinght@marvell.com>,
- Baisheng Gao <baisheng.gao@unisoc.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>, Ben Horgan
- <ben.horgan@arm.com>, Carl Worth <carl@os.amperecomputing.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- D Scott Phillips <scott@os.amperecomputing.com>,
- Danilo Krummrich <dakr@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
- David Hildenbrand <david@redhat.com>, Drew Fustini <dfustini@baylibre.com>,
- Fenghua Yu <fenghuay@nvidia.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Hanjun Guo <guohanjun@huawei.com>, Jamie Iles <quic_jiles@quicinc.com>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>, Koba Ko <kobak@nvidia.com>,
- Len Brown <lenb@kernel.org>, Linu Cherian <lcherian@marvell.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Peter Newman <peternewman@google.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- Rohit Mathew <rohit.mathew@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>,
- Shaopeng Tan <tan.shaopeng@fujitsu.com>, Sudeep Holla
- <sudeep.holla@arm.com>, Wang ShaoBo <bobo.shaobowang@huawei.com>,
- Will Deacon <will@kernel.org>, Xin Hao <xhao@linux.alibaba.com>
-References: <20250910204309.20751-10-james.morse@arm.com>
-Subject: Re: [PATCH v2 09/29] arm_mpam: Add MPAM MSC register layout
- definitions
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250910204309.20751-10-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:5ZzuGnnBIl96e5qkVvluimVHXwMQ3UGMOOz+NEg7m8xWaBk8rQK
- T1+ehFgrgACSD1OAdvRnLcOyl0orXb44idS5/psmS0ptDfe1kuebhPzxqBJoVW/EL4YRk53
- TOdp16qPXKMaSme41m9X5RXN1Ifovs4gkLm8S/emgt13jnlAGSynJbZyjuaLCDlcFvsQP/M
- 8Jx/EKbZQt9wiXcpZvbqg==
-UI-OutboundReport: notjunk:1;M01:P0:YUhwx+D9k+E=;7cxxjEtKjiHhr9gDsjsoNm93k7L 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 NWmSlpfmHhqgUKSM=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_003440_224017_BD8BDD85 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_003917_201358_487D36B2 
+X-CRM114-Status: GOOD (  23.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,21 +69,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -152,4 +152,271 @@ extern struct list_head mpam_classes;
-=E2=80=A6
-> +/* Error conditions in accessing memory mapped registers */
-> +#define MPAM_ERRCODE_NONE			0
-> +#define MPAM_ERRCODE_PARTID_SEL_RANGE		1
-=E2=80=A6
-> +#define MPAM_ERRCODE_UNEXPECTED_INTERNAL	7
-=E2=80=A6
+create_kpti_ng_temp_pgd() is currently defined (as an alias) in
+mmu.c without matching declaration in a header; instead cpufeature.c
+makes its own declaration. This is clearly not pretty, and as commit
+ceca927c86e6 ("arm64: mm: Fix CFI failure due to kpti_ng_pgd_alloc
+function signature") showed, it also makes it very easy for the
+prototypes to go out of sync.
 
-How do you think about to use an enumeration for such a value collection?
-(Is there a need to extend implementation details in similar ways
-at further source code places?)
+All this would be much simpler if kpti_install_ng_mappings() and
+associated functions lived in mmu.c, where they logically belong.
+This is what this patch does:
+- Move kpti_install_ng_mappings() and associated functions from
+  cpufeature.c to mmu.c, add a declaration to <asm/mmu.h>
+- Remove create_kpti_ng_temp_pgd() and just call
+  __create_pgd_mapping_locked() directly instead
+- Mark all these functions __init
+- Move __initdata after kpti_ng_temp_alloc (as suggested by
+  checkpatch)
 
-Regards,
-Markus
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+v1..v2:
+* Removed create_kpti_ng_temp_pgd() instead of making it a wrapper
+  [Ryan's suggestion]
+* Added Reviewed-by's.
+---
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Kees Cook <kees@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ arch/arm64/include/asm/mmu.h   |  6 +++
+ arch/arm64/kernel/cpufeature.c | 97 ----------------------------------
+ arch/arm64/mm/mmu.c            | 96 +++++++++++++++++++++++++++++----
+ 3 files changed, 93 insertions(+), 106 deletions(-)
+
+diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+index 49f1a810df16..624edd6c4964 100644
+--- a/arch/arm64/include/asm/mmu.h
++++ b/arch/arm64/include/asm/mmu.h
+@@ -104,5 +104,11 @@ static inline bool kaslr_requires_kpti(void)
+ 	return true;
+ }
+ 
++#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
++void kpti_install_ng_mappings(void);
++#else
++static inline void kpti_install_ng_mappings(void) {}
++#endif
++
+ #endif	/* !__ASSEMBLY__ */
+ #endif
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index ef269a5a37e1..b99eaad48c14 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1940,103 +1940,6 @@ static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
+ }
+ #endif
+ 
+-#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+-#define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
+-
+-extern
+-void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+-			     phys_addr_t size, pgprot_t prot,
+-			     phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags);
+-
+-static phys_addr_t __initdata kpti_ng_temp_alloc;
+-
+-static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
+-{
+-	kpti_ng_temp_alloc -= PAGE_SIZE;
+-	return kpti_ng_temp_alloc;
+-}
+-
+-static int __init __kpti_install_ng_mappings(void *__unused)
+-{
+-	typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+-	extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+-	kpti_remap_fn *remap_fn;
+-
+-	int cpu = smp_processor_id();
+-	int levels = CONFIG_PGTABLE_LEVELS;
+-	int order = order_base_2(levels);
+-	u64 kpti_ng_temp_pgd_pa = 0;
+-	pgd_t *kpti_ng_temp_pgd;
+-	u64 alloc = 0;
+-
+-	if (levels == 5 && !pgtable_l5_enabled())
+-		levels = 4;
+-	else if (levels == 4 && !pgtable_l4_enabled())
+-		levels = 3;
+-
+-	remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
+-
+-	if (!cpu) {
+-		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
+-		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
+-		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
+-
+-		//
+-		// Create a minimal page table hierarchy that permits us to map
+-		// the swapper page tables temporarily as we traverse them.
+-		//
+-		// The physical pages are laid out as follows:
+-		//
+-		// +--------+-/-------+-/------ +-/------ +-\\\--------+
+-		// :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
+-		// +--------+-\-------+-\------ +-\------ +-///--------+
+-		//      ^
+-		// The first page is mapped into this hierarchy at a PMD_SHIFT
+-		// aligned virtual address, so that we can manipulate the PTE
+-		// level entries while the mapping is active. The first entry
+-		// covers the PTE[] page itself, the remaining entries are free
+-		// to be used as a ad-hoc fixmap.
+-		//
+-		create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc),
+-					KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+-					kpti_ng_pgd_alloc, 0);
+-	}
+-
+-	cpu_install_idmap();
+-	remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
+-	cpu_uninstall_idmap();
+-
+-	if (!cpu) {
+-		free_pages(alloc, order);
+-		arm64_use_ng_mappings = true;
+-	}
+-
+-	return 0;
+-}
+-
+-static void __init kpti_install_ng_mappings(void)
+-{
+-	/* Check whether KPTI is going to be used */
+-	if (!arm64_kernel_unmapped_at_el0())
+-		return;
+-
+-	/*
+-	 * We don't need to rewrite the page-tables if either we've done
+-	 * it already or we have KASLR enabled and therefore have not
+-	 * created any global mappings at all.
+-	 */
+-	if (arm64_use_ng_mappings)
+-		return;
+-
+-	stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
+-}
+-
+-#else
+-static inline void kpti_install_ng_mappings(void)
+-{
+-}
+-#endif	/* CONFIG_UNMAP_KERNEL_AT_EL0 */
+-
+ static void cpu_enable_kpti(struct arm64_cpu_capabilities const *cap)
+ {
+ 	if (__this_cpu_read(this_cpu_vector) == vectors) {
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 183801520740..6a8e831b2b63 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -27,6 +27,7 @@
+ #include <linux/kfence.h>
+ #include <linux/pkeys.h>
+ #include <linux/mm_inline.h>
++#include <linux/stop_machine.h>
+ 
+ #include <asm/barrier.h>
+ #include <asm/cputype.h>
+@@ -466,14 +467,6 @@ static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 	mutex_unlock(&fixmap_lock);
+ }
+ 
+-#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+-extern __alias(__create_pgd_mapping_locked)
+-void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+-			     phys_addr_t size, pgprot_t prot,
+-			     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+-			     int flags);
+-#endif
+-
+ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
+ 				       enum pgtable_type pgtable_type)
+ {
+@@ -735,7 +728,92 @@ static void __init declare_vma(struct vm_struct *vma,
+ }
+ 
+ #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+-static pgprot_t kernel_exec_prot(void)
++#define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
++
++static phys_addr_t kpti_ng_temp_alloc __initdata;
++
++static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
++{
++	kpti_ng_temp_alloc -= PAGE_SIZE;
++	return kpti_ng_temp_alloc;
++}
++
++static int __init __kpti_install_ng_mappings(void *__unused)
++{
++	typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
++	extern kpti_remap_fn idmap_kpti_install_ng_mappings;
++	kpti_remap_fn *remap_fn;
++
++	int cpu = smp_processor_id();
++	int levels = CONFIG_PGTABLE_LEVELS;
++	int order = order_base_2(levels);
++	u64 kpti_ng_temp_pgd_pa = 0;
++	pgd_t *kpti_ng_temp_pgd;
++	u64 alloc = 0;
++
++	if (levels == 5 && !pgtable_l5_enabled())
++		levels = 4;
++	else if (levels == 4 && !pgtable_l4_enabled())
++		levels = 3;
++
++	remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
++
++	if (!cpu) {
++		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
++		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
++		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
++
++		//
++		// Create a minimal page table hierarchy that permits us to map
++		// the swapper page tables temporarily as we traverse them.
++		//
++		// The physical pages are laid out as follows:
++		//
++		// +--------+-/-------+-/------ +-/------ +-\\\--------+
++		// :  PTE[] : | PMD[] : | PUD[] : | P4D[] : ||| PGD[]  :
++		// +--------+-\-------+-\------ +-\------ +-///--------+
++		//      ^
++		// The first page is mapped into this hierarchy at a PMD_SHIFT
++		// aligned virtual address, so that we can manipulate the PTE
++		// level entries while the mapping is active. The first entry
++		// covers the PTE[] page itself, the remaining entries are free
++		// to be used as a ad-hoc fixmap.
++		//
++		__create_pgd_mapping_locked(kpti_ng_temp_pgd, __pa(alloc),
++					    KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
++					    kpti_ng_pgd_alloc, 0);
++	}
++
++	cpu_install_idmap();
++	remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
++	cpu_uninstall_idmap();
++
++	if (!cpu) {
++		free_pages(alloc, order);
++		arm64_use_ng_mappings = true;
++	}
++
++	return 0;
++}
++
++void __init kpti_install_ng_mappings(void)
++{
++	/* Check whether KPTI is going to be used */
++	if (!arm64_kernel_unmapped_at_el0())
++		return;
++
++	/*
++	 * We don't need to rewrite the page-tables if either we've done
++	 * it already or we have KASLR enabled and therefore have not
++	 * created any global mappings at all.
++	 */
++	if (arm64_use_ng_mappings)
++		return;
++
++	stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
++}
++
++static pgprot_t __init kernel_exec_prot(void)
+ {
+ 	return rodata_enabled ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+ }
+
+base-commit: 76eeb9b8de9880ca38696b2fb56ac45ac0a25c6c
+-- 
+2.47.0
+
 
