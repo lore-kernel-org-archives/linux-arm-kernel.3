@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C32DECA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 08:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D274CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 08:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iAQrbCqZZ4sOxWZdD0ZcXvxkxM3DekbLizKEk5JXiYI=; b=h9Prs7lXWk54NshljxzUL48OCO
-	WjHyatUpI6DSykx3sCRvI70Vr1dQbI4Q1WGq79fJ7wKryN9Ka+Kb2ju2tA6CNbWDGtmwNHHKxzygq
-	0RHGla2AwsuFk4VhGZVDX1btBL3G3tIMyG9Tuw+HpsrY3WhEri6RgazDdzrXcIoVomartGSPwx80E
-	zNPQqDQrG83zwv5K0ZmFD/2BS9Y5o7gWodlwjwsWqR+xbnFVO73fmERKQnUbk+mHHimuDOyo/mycj
-	H9jbDfkObpwV0TloJpOAUtoMxicmS1sA+OQjwEo986vQ14ctDj3OdRYAtUBBOgY0o6CKA/FbScpLQ
-	Od7ijv0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7ZOwAPGO79f5asS2OLUcdrzj/m2YUYRBVKyNsi78V1g=; b=4GiDcPDoOrt/+Eo6ilaAdhUDtm
+	BrpylQ63olYb5AcGOh0QmCHBu+Wu+81BN1JWFDlXGl/eVu5SLiiWtR+xP5jcyRq1jgb7U16Lhit7n
+	zZ4t0ATJuzVKFzcb8MTb6ttW80cWLWIfThTY8PIZ0C77nSiKAxVQtKoMdMF+Ry+c7HTT44964z6v+
+	4dTvw/xlMtVzzSdM45+VW1AA4YVO2KNbPwcBjgMdffQi2NwWNI0bwjy9iQ3T/CLHGUB6D8EaaIDBn
+	74skPUgHoY65Dn7hG0QD0t8otRl5FIKyeJQSsZOl6niQFviYUubAkKSMXbCaNWh4LwF7cTqHBw1qv
+	UiPieHzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwz8c-00000007vMP-1DLs;
-	Fri, 12 Sep 2025 08:28:10 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1uwzPR-000000080AB-1bhj;
+	Fri, 12 Sep 2025 08:45:33 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwz8Y-00000007vAX-3Xh7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 08:28:08 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1757665671;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=iAQrbCqZZ4sOxWZdD0ZcXvxkxM3DekbLizKEk5JXiYI=;
-	b=kDlamB2DmhQj2fTmsOmZiyKAroCsKWkXguZcNfTcNVtkG1bOz8NDZcVCf2adk4w6V4LPeR
-	j6LjxuUCyJT2gCgG2RXhbV3aBg0/oeSKoo3tl0EB4Srxpgh3mVIWnr/kM8bC2uZsWeHNUj
-	gjF97lNGZ34GseD0JoxAiDitli856yE=
-From: Itaru Kitayama <itaru.kitayama@linux.dev>
-Date: Fri, 12 Sep 2025 17:27:40 +0900
-Subject: [PATCH] PMCR_EL0.N is RAZ/WI. At least a build failes in Ubuntu
- 22.04 LTS. Remove the set function.
+	id 1uwzPO-0000000808T-2x9J;
+	Fri, 12 Sep 2025 08:45:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757666728;
+	bh=++xvC23WhHonK4sqNZlcsGHCfTMQ0DzxYYwMOSCnYoU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=edj1OScbrKjpPVqztmCVz9kh91znYHmnqwOnX4GXTDDv1rtZIK728AZjneSp3elzY
+	 Q7faCe9qJ2iiDgBK2Y8ie1+DtY0ffIDT82bLf4glmBgbN6B4YfNWivCtP5HyyYqO3p
+	 3XisioVSWwPoQAO3fPmGoexGmx9Pdi2yJf1JnTYw7uHIKrqwa5ZDkUO17yYxITw5fa
+	 0Tui/EJ8SPEeBpZ239R/oexYToNreeCKobYAq5jCftly1XQ8CdbDkzA9l0QCdUe5kk
+	 VzHljIsbAwGjt2YvnnVipRTIeWsQ7nwvL1QXdSgGqSl0XSI8FQdAITNLxaqKKR9pCE
+	 AMcHm6kBRF2og==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0093717E04D6;
+	Fri, 12 Sep 2025 10:45:27 +0200 (CEST)
+Message-ID: <9fafe6a4-e30b-4ea8-a85c-2e66ebd34040@collabora.com>
+Date: Fri, 12 Sep 2025 10:45:27 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250912-selftest-fix3-v1-1-256710a5ae5b@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAHvZw2gC/x2M0QpAQBAAf+XaZ1usdMevyIPYY0vo9pKSf7d5n
- KmZB5STsELnHkh8icqxG1SFg2kd94VRZmOgkpqyrQiVt5hZM0a5ayQfKTTs2zkQWHMmNv//+uF
- 9P1b0CzVfAAAA
-X-Change-ID: 20250912-selftest-fix3-27f285e79d82
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
- Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] remoteproc: mtk_scp: Construct FW path if firmware-name
+ not present
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+ linux-remoteproc@vger.kernel.org
+Cc: arnd@arndb.de, andersson@kernel.org, mathieu.poirier@linaro.org,
+ wenst@chromium.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20250911140043.190801-1-angelogioacchino.delregno@collabora.com>
+ <6f60bb97-86fc-4cda-a373-a991547bbd77@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <6f60bb97-86fc-4cda-a373-a991547bbd77@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_012807_618627_7C2A85F9 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_014530_918927_A06D2171 
+X-CRM114-Status: GOOD (  40.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +79,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
----
-Seen a build failure with old Ubuntu 22.04 LTS, while the latest release
-has no build issue, a write to the bit fields is RAZ/WI, remove the
-function.
----
- tools/testing/selftests/kvm/arm64/vpmu_counter_access.c | 6 ------
- 1 file changed, 6 deletions(-)
+Il 12/09/25 09:01, Matthias Brugger ha scritto:
+> 
+> 
+> On 11/09/2025 16:00, AngeloGioacchino Del Regno wrote:
+>> After a reply on the mailing lists [1] it emerged that the DT
+>> property "firmware-name" should not be relied on because of
+>> possible issues with firmware versions.
+>> For MediaTek SCP, there has never been any firmware version vs
+>> driver version desync issue but, regardless, the firmwares are
+>> always using the same name and they're always located in a path
+>> with a specific pattern.
+>>
+>> Instead of unconditionally always relying on the firmware-name
+>> devicetree property to get a path to the SCP FW file, drivers
+>> should construct a name based on what firmware it knows and
+>> what hardware it is running on.
+>>
+>> In order to do that, add a `scp_get_default_fw_path()` function
+>> that constructs the path and filename based on two of the infos
+>> that the driver can get:
+>>   1. The compatible string with the highest priority (so, the
+>>      first one at index 0); and
+>>   2. The type of SCP HW - single-core or multi-core.
+>>
+>> This means that the default firmware path is generated as:
+>>   - Single core SCP: mediatek/(soc_model)/scp.img
+>>     for example:     mediatek/mt8183/scp.img;
+>>
+>>   - Multi core SCP:  mediatek/(soc_model)/scp_c(core_number).img
+>>     for example:     mediatek/mt8188/scp_c0.img for Core 0, and
+>>                      mediatek/mt8188/scp_c1.img for Core 1.
+>>
+> 
+> As we inventing a naming scheme here: if we decide that signle core FW is calle 
+> scp_c0.img we can get rid of some code.
+> 
 
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index f16b3b27e32ed7ca57481f27d689d47783aa0345..56214a4430be90b3e1d840f2719b22dd44f0b49b 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -45,11 +45,6 @@ static uint64_t get_pmcr_n(uint64_t pmcr)
- 	return FIELD_GET(ARMV8_PMU_PMCR_N, pmcr);
- }
- 
--static void set_pmcr_n(uint64_t *pmcr, uint64_t pmcr_n)
--{
--	u64p_replace_bits((__u64 *) pmcr, pmcr_n, ARMV8_PMU_PMCR_N);
--}
--
- static uint64_t get_counters_mask(uint64_t n)
- {
- 	uint64_t mask = BIT(ARMV8_PMU_CYCLE_IDX);
-@@ -490,7 +485,6 @@ static void test_create_vpmu_vm_with_pmcr_n(uint64_t pmcr_n, bool expect_fail)
- 	 * Setting a larger value of PMCR.N should not modify the field, and
- 	 * return a success.
- 	 */
--	set_pmcr_n(&pmcr, pmcr_n);
- 	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0), pmcr);
- 	pmcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
- 
+Ohey!
 
----
-base-commit: aae5a9834b388860844b294c70c8770dd26e528c
-change-id: 20250912-selftest-fix3-27f285e79d82
+No, well, we're not inventing a naming scheme... if you check in linux-firmware
+and in the current devicetrees, you'll see that the path adheres to what I wrote.
 
-Best regards,
--- 
-Itaru Kitayama <itaru.kitayama@linux.dev>
+As in - all of the single core SCP always had the firmware in path
+mediatek/mtXXXX/scp.img - and the dual core SCP has two firmwares.
+
+The dual core one is a bit special in that the two cores are *almost* (but not
+fully) independent from each other (not entirely relevant to this discussion tho)
+and can load one firmware per core.
+
+In short - in upstream, the only naming that we're inventing is the multicore SCP,
+but we're simply keeping the same name for the singlecore ones.
+
+Even for multicore, I'm not really inventing that out of the blue - MediaTek are
+using that naming in downstream, so I'm just copying that.
+
+Btw... I really don't want to change the single core FW name to "scp_c0.img"
+because my plan is to get this merged and then cleanup the devicetrees for all
+MTK machines to *remove* the firmware-name property from the SCP node(s).
+
+firmware-name support in this driver is retained only for retrocompatibility
+with old DTs (and perhaps "very special" devices needing "very special" firmwares,
+of which none exist right now and hopefully we'll never see anything like that in
+the future).
+
+>> Note that the generated firmware path is being used only if the
+>> "firmware-name" devicetree property is not present in the SCP
+>> node or in the SCP Core node(s).
+>>
+>> [1 - Reply regarding firmware-name property]
+>> Link: https://lore.kernel.org/all/7e8718b0-df78-44a6- 
+>> a102-89529d6abcce@app.fastmail.com/
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/remoteproc/mtk_scp.c | 64 ++++++++++++++++++++++++++++++++----
+>>   1 file changed, 58 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+>> index 8206a1766481..80fcb4b053b3 100644
+>> --- a/drivers/remoteproc/mtk_scp.c
+>> +++ b/drivers/remoteproc/mtk_scp.c
+>> @@ -16,6 +16,7 @@
+>>   #include <linux/remoteproc.h>
+>>   #include <linux/remoteproc/mtk_scp.h>
+>>   #include <linux/rpmsg/mtk_rpmsg.h>
+>> +#include <linux/string.h>
+>>   #include "mtk_common.h"
+>>   #include "remoteproc_internal.h"
+>> @@ -1093,22 +1094,73 @@ static void scp_remove_rpmsg_subdev(struct mtk_scp *scp)
+>>       }
+>>   }
+>> +/**
+>> + * scp_get_default_fw_path() - Get default SCP firmware path
+>> + * @dev:     SCP Device
+>> + * @core_id: SCP Core number
+>> + *
+>> + * This function generates a path based on the following format:
+>> + *     mediatek/(soc_model)/scp(_cX).img; for multi-core or
+>> + *     mediatek/(soc_model)/scp.img for single core SCP HW
+>> + *
+>> + * Return: A devm allocated string containing the full path to
+>> + *         a SCP firmware or an error pointer
+>> + */
+>> +static const char *scp_get_default_fw_path(struct device *dev, int core_id)
+>> +{
+>> +    struct device_node *np = core_id < 0 ? dev->of_node : dev->parent->of_node;
+>> +    char scp_fw_file[7] = "scp_cX";
+> 
+> We provide a string that we later overwrite. I'd prefer to have just the 
+> reservation without any 'artificial' string in it.
+> 
+
+Yeah, this one is a leftover that I forgot to cleanup. I fully agree with you.
+
+Will change that in v2.
+
+>> +    const char *compatible, *soc;
+>> +    int ret;
+>> +
+>> +    /* Use only the first compatible string */
+>> +    ret = of_property_read_string_index(np, "compatible", 0, &compatible);
+>> +    if (ret)
+>> +        return ERR_PTR(ret);
+>> +
+>> +    /* If the compatible string's length is implausible bail out early */
+>> +    if (strlen(compatible) < strlen("mediatek,mtXXXX-scp"))
+> 
+> Seems like a double check of compatible. Why is dt-bindings for that not enough?
+> 
+
+It's more than that... (check below)
+
+>> +        return ERR_PTR(-EINVAL);
+>> +
+>> +    /* If the compatible string starts with "mediatek,mt" assume that it's ok */
+>> +    if (!str_has_prefix(compatible, "mediatek,mt"))
+> 
+> Same here.
+> 
+
+....and it's because.... (check below)
+
+>> +        return ERR_PTR(-EINVAL);
+>> +
+>> +    if (core_id >= 0)
+>> +        ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
+>> +    else
+>> +        ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
+>> +    if (ret <= 0)
+>> +        return ERR_PTR(ret);
+>> +
+>> +    soc = &compatible[strlen("mediatek,")];
+
+...I'd otherwise anyway have to check here, as this is a pointer to the middle of
+the compatible string, used below to extract "mtXXXX" (mt8195, mt1234 etc) from it.
+
+Sure I get your point about bindings - but IMO those multi-purpose checks make the
+code robust, and will avoid exposure of random memory locations (and/or produce
+undefined behavior) in the event that the compatible string is shorter than needed.
+
+>> +
+>> +    return devm_kasprintf(dev, GFP_KERNEL, "mediatek/%.*s/%s.img",
+>> +                  (int)strlen("mtXXXX"), soc, scp_fw_file);
+>> +}
+>> +
+>>   static struct mtk_scp *scp_rproc_init(struct platform_device *pdev,
+>>                         struct mtk_scp_of_cluster *scp_cluster,
+>> -                      const struct mtk_scp_of_data *of_data)
+>> +                      const struct mtk_scp_of_data *of_data,
+>> +                      int core_id)
+>>   {
+>>       struct device *dev = &pdev->dev;
+>>       struct device_node *np = dev->of_node;
+>>       struct mtk_scp *scp;
+>>       struct rproc *rproc;
+>>       struct resource *res;
+>> -    const char *fw_name = "scp.img";
+>> +    const char *fw_name;
+>>       int ret, i;
+>>       const struct mtk_scp_sizes_data *scp_sizes;
+>>       ret = rproc_of_parse_firmware(dev, 0, &fw_name);
+>> -    if (ret < 0 && ret != -EINVAL)
+>> -        return ERR_PTR(ret);
+>> +    if (ret) {
+>> +        fw_name = scp_get_default_fw_path(dev, core_id);
+> 
+> Wouldn't it make more sense to encapsulate the whole fw_name retrival in one 
+> function, e.g. scp_get_fw_path.
+> 
+
+Sorry, not a fan of that, I don't see the actual benefit, as in, (imo) it doesn't
+improve readability and it doesn't remove any duplication (as it's called only once
+in one single place).
+
+But of course, I'm open to understand if I'm missing any point :-)
+
+Cheers,
+Angelo
+
+>> +        if (IS_ERR(fw_name)) {
+>> +            dev_err(dev, "Cannot get firmware path: %ld\n", PTR_ERR(fw_name));
+>> +            return ERR_CAST(fw_name);
+>> +        }
+>> +    }
+>>       rproc = devm_rproc_alloc(dev, np->name, &scp_ops, fw_name, sizeof(*scp));
+>>       if (!rproc) {
+>> @@ -1212,7 +1264,7 @@ static int scp_add_single_core(struct platform_device *pdev,
+>>       struct mtk_scp *scp;
+>>       int ret;
+>> -    scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev));
+>> +    scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev), -1);
+>>       if (IS_ERR(scp))
+>>           return PTR_ERR(scp);
+>> @@ -1259,7 +1311,7 @@ static int scp_add_multi_core(struct platform_device *pdev,
+>>               goto init_fail;
+>>           }
+>> -        scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id]);
+>> +        scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id], 
+>> core_id);
+>>           put_device(&cpdev->dev);
+>>           if (IS_ERR(scp)) {
+>>               ret = PTR_ERR(scp);
+> 
+
 
 
