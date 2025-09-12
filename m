@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11286CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0262CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AakhypBYQL8o+d6jwji8uy7YTM/iJpZSs4ckPqgcd2U=; b=oE6hQQ3shel1Nz8+qM5z/NQ2re
-	tSf0M7bF0+2PyUQ9Qo8hFRh0AWVnQTMoCSsfBHTg5mpQARuAAVMgk1nWLubMLqTySuubYd9710YYD
-	rlFuaCHzIlEq4U5I28Ua6Rk3poYuj7zn0ndp/GIwnpw61PYzGgXDmT3S7Xggy00DAh2Q33cGpDsup
-	d4oOKg9y4KqQw2B7fHxF8HjB2KBIl8tXUAt3wvg8wy9i3Pz954JpgvOgZ1cl6rzHmfAj0UAzL6431
-	tRhGv78bTgzlToyGbBopyMAgM3UJWZsNOSVvxvDVAJScTTfTkygscd51JwZuVb/jfLAObyhixVAcr
-	D35SgSqg==;
+	bh=Na0sRM1JzNDX0cAD9RNRTd0BRFOVeZmTu9S+7uFIpUM=; b=KLtMSKN1nzOZ4SF1KX0PjGLdPl
+	FI+3ZJAaUp/QHPVd5RWmiYSA0huh3N5TTLgYhcePZlVkn814Vln8sNEeVxhzI5N4X3CXWs9PFR3lw
+	m28aalo730InWRjiINidw5OOoC/oUieiYRapqHBMrA4prJzbBZ9Ll5QOL0fAI6tmF2x2oGFhNybWa
+	GurRel5XTc9TkbtobaVlQEy2tQv7gPXrKuE2TkAtp/ILM/gS9NfYhcmc9vwNyIZYmJoUqaiiMHTw4
+	83O6Tzx3kGbKLFwJKZk474Hp9Ayvj75lk6Bl1h8Kmd7tELdMhqon38jySfnvTfBbLYQJahWmmqeIE
+	kdv+nctQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwztE-00000008BXm-2NQj;
-	Fri, 12 Sep 2025 09:16:20 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uwzuA-00000008Bno-1hee;
+	Fri, 12 Sep 2025 09:17:18 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwztC-00000008BWV-0Wcp
+	id 1uwzu1-00000008Bkq-3Rqm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 09:16:19 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45ddfe0b66dso2844005e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 02:16:17 -0700 (PDT)
+	Fri, 12 Sep 2025 09:17:17 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45de4ebe79eso2336485e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 02:17:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757668576; x=1758273376; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1757668628; x=1758273428; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=AakhypBYQL8o+d6jwji8uy7YTM/iJpZSs4ckPqgcd2U=;
-        b=Sf1wZKHkOtmRdD376OzmGYYyqpQlsqQzfbPgpYZokHGkIhJkjqRbclq4/0bP4x7w54
-         6GMCcPOppijnIB6C+cQ0rOfDamcuX7QG9emX8ATQKfb5iNVtPjnUOBXYYVu0FCKMn2Mm
-         y94y1m0G9hljdUXwTvjaUgS9Lnqt1UPiyI3mkYqrM+ucjtrxrSHUlaJgx0dqg+pxoEkI
-         cAEXlLC76newXhadZZCRmrTuniM7dWC6CewPM9V0GVzEQ6sS2xn/+/kU+uVXB7hFYEo0
-         v1SWguZ48KXnHnNcNWwjHtTBOMjq4UGldtvD5gUCN6uX6J4W8uNNz8dOSBOvvrIVG50U
-         Vuhw==
+        bh=Na0sRM1JzNDX0cAD9RNRTd0BRFOVeZmTu9S+7uFIpUM=;
+        b=zoZGEmmDlw7z0aW0itIyP2RWKoDzIws+W8KkeAEaMb7upY85dF1Z2qXRZiIK6hj8vY
+         GBVKtlW2WXOgEtjO7+SwCNEnIGhw5NF5aNp0W6WddbBXQF/CrtI+K6+w8vjB2YZr+9sf
+         1GmcgpUpwvMTcK2Nw/rbc6oIYWIod3yiXdM4mQtpUshkSmFj3tNU8gC5a32EVwQFnnNP
+         wqCzWS366/0FUWkV2M6RRhmbDYFTpjhZ5K0RF89KGAYMfjHOFYTlsloJRuKfHkNsDyfH
+         1h82SmEV10ftEbmWE9QU4FG6b4Ece8HQFwJFpQHYtgbrwtduDasSLV9c0uIxyu2ImNIl
+         Yn9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757668576; x=1758273376;
+        d=1e100.net; s=20230601; t=1757668628; x=1758273428;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=AakhypBYQL8o+d6jwji8uy7YTM/iJpZSs4ckPqgcd2U=;
-        b=lBvtelVl1g4ldKyLl9QSeD0VjzOBksG3+9d5+lnvEuub9hp3+t8wp8I8wae7CwxqZ4
-         aWQNEVlGSq0Xl3wlFHQ0q8VliJL/O5YwjmC++MtxryZtcSRNt2Cn2eyKPGqYQSELtNdc
-         GXrQBLo5cAekihw0A6eoFLS3npCqQWX7QqsgQVGgbeRMRh5TJI052KBYEUNcn4QCMtKu
-         z7c9aU5xOCHbAlm8Q5tyletzF6YnD6peuDDIsAsCHLrO2O8WOL/5K5dWAYJfiH5A74ed
-         vHbj5ts3EhzrxWMrLRaEw9/BmzHATAqNRGIsjdbH3++Lf3PaN8jLkJssBtmr8NEERD8g
-         64Ng==
-X-Forwarded-Encrypted: i=1; AJvYcCX6BXCqhjhypvEsQqtqw2jIhjt0ggnCsqSkTB7xzKOGpX8bDwlvZWPc+kUlH/SqgOOTRkal86wD4OGEztLzRNCO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdS3hfQraQ+ZGddeFk4mYkvnB0xErweklKB6yJ3gGA7JpFolsE
-	YZ+L6Ig25s1bP2Rva+P8JBzKfZmxg8HyleBP6Wj5jb47DSwspvPaqW6yQvGea39StuU=
-X-Gm-Gg: ASbGnctUTJPWp88QzJfjFL6tnJYg/C1ieacIYqoSi2aSuyQOGPAEItWx12jKwqhJ4bL
-	MRR1gPhQfL2Ha4EH7vvkKx1Kk3X5lABzlw8dbpZD3ZNLDd/U+m2guXNlip16eCH0SFKgKWQ1FQQ
-	o08Nli5+k1fQ1i3bBqrlXPgL974Dk2riJc36ODuiJbaIlop/QweGclQxtXPFxUuP2OH1kjJnU6Z
-	IoHQ+y/XbuD2V3YJMVDvMgd6h+qdNrKx4ucoNE0I/a7EHMqyb70VlbEjhFGOd4AQE0Kl6RjJYv9
-	1tG8FNdYRHD6ji2kAFSWYUE8PSqCveb5NxYWBIIIqAQN1ff6KqvEpD0sxyxs+gfklWHcTRpSz7R
-	AuwvkJAV5avn7Fuo9dRouoKHpXEddOFMoJcO0AeQZ3oBTuV7INN0QLg==
-X-Google-Smtp-Source: AGHT+IF8vJt3OJv2R8HpQH2zes8jRU5cdpMi8Ohs9bCmtG+T7zKSQBaHZYMDfUi9FSV/gYpCZFu5Ww==
-X-Received: by 2002:a05:600c:1c87:b0:45d:d33b:4697 with SMTP id 5b1f17b1804b1-45f2313d499mr6962295e9.3.1757668576008;
-        Fri, 12 Sep 2025 02:16:16 -0700 (PDT)
+        bh=Na0sRM1JzNDX0cAD9RNRTd0BRFOVeZmTu9S+7uFIpUM=;
+        b=qRmPDSauoEBeMg27wS3j+EsRO2Ke+v2GmWs2PfM6QrmyD71I5gTxa33k1TrgFqASyj
+         Gpxp+AJKwXetN17bnJzRpOLfCWd6vdIwVQTTsYUXVm1729MPsull+BYQvuTVZ2kicIul
+         iaitVOjXYMGxsHgoGIUK9ELGlYvt174ozs6woq4vTjI3qnGijzDjPoW2zURnrbeRim2/
+         5u5zM1+4bF+WxEawoMU2iQEQoXSFjX/L1lOqddDbbG5EJa0Pls/7/yQgF41U3jpl79KZ
+         +mD8kKXW/KxkND232PqshMOpKK8ldhATxTPrM6FHJwqq0Iv4aevx5+pHetSd1Uwn+jPI
+         wIaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVLurh0f8FtluIPrGqprIiiWguopbYQ/B97zc6HXH4MQx7fLROQuouNh/BUdIOuwFoqaHxGSvXlWWQ4oExOh5+K@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE2aXrLO5H6HgV/4c4w8sRn5BK0Z4NOT1pQJwihSS5dVvanLhO
+	09FSZJ/IaT1tPVfrmcmoqgfVOPoy2vRI5zBFX5bow9vEk3rOOqT3NBD0aYqaKDgTczU=
+X-Gm-Gg: ASbGncty3RoLB6SRXrxGgKcad6+VKidXuZHAXzils1CjKMNSpcVapZAHUzA3DXgK8UO
+	6iOyAyUgmaLc2Dmbr/Z7+TRXKmZBkuhVGpMFfKCNt0EMoA7Fn+1O7LVchcxrlxfSzGSCxr/nLmQ
+	6Q1N9U27xL3hOSj08j7sCNbBUSh+iWw9DS0suYuwLXJwSiehWKRjGwvlaK1LESePqfcraNSbEq8
+	vrMm2YFhsO3F66RhSW1mycvABB8C3IiRsKLtXDQiem7yEbLdpG7HPQt3RKBVwW4GsEbHvSWopbY
+	LqWymGz4jmFY7AW10EmDmCFYIz/88PetqljDX66RdSRklWToTuabdv3B5ep4PCSeJuy9taiJp1F
+	0Zpk2ZhK+HkMwzANZL08tjnHMlAlqhktuAg0PmpO/9jM=
+X-Google-Smtp-Source: AGHT+IHTCW9xZs8Bgrgtw3py8hA8Nlqz8Jk0NP4ZX+1dPY2l87YZ77GgC3GQhGAE7LZOnnpcJM3huA==
+X-Received: by 2002:a05:600c:c165:b0:45d:f7df:26e8 with SMTP id 5b1f17b1804b1-45f212095e8mr13275895e9.7.1757668627916;
+        Fri, 12 Sep 2025 02:17:07 -0700 (PDT)
 Received: from [192.168.1.29] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e037c9d91sm53878945e9.20.2025.09.12.02.16.13
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e017c1dd3sm32051445e9.2.2025.09.12.02.17.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Sep 2025 02:16:15 -0700 (PDT)
-Message-ID: <0aa8bf54-50e4-456d-9f07-a297a34b86c5@linaro.org>
-Date: Fri, 12 Sep 2025 11:16:12 +0200
+        Fri, 12 Sep 2025 02:17:06 -0700 (PDT)
+Message-ID: <52714c33-5bd7-4ca5-bf1d-c89318c77746@linaro.org>
+Date: Fri, 12 Sep 2025 11:17:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 02/10] dt-bindings: clock: Add required
@@ -100,6 +100,7 @@ References: <20250909-qcom_ipq5424_nsscc-v5-0-332c49a8512b@quicinc.com>
  <20250909-qcom_ipq5424_nsscc-v5-2-332c49a8512b@quicinc.com>
  <20250912-nocturnal-horse-of-acumen-5b2cbd@kuoka>
  <b7487ab1-1abd-40ca-8392-fdf63fddaafc@oss.qualcomm.com>
+ <2951b362-c3c1-4608-8534-4d25b089f927@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -146,12 +147,12 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  h0At/TN/618e/QVlZPbMeNSp3S3ieMP9Q6y4gw5CfgiDRJ2K9g99m6Rvlx1qwom6QbU06ltb
  vJE2K9oKd9nPp1NrBfBdEhX8oOwdCLJXEq83vdtOEqE42RxfYta4P3by0BHpcwzYbmi/Et7T
  2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <b7487ab1-1abd-40ca-8392-fdf63fddaafc@oss.qualcomm.com>
+In-Reply-To: <2951b362-c3c1-4608-8534-4d25b089f927@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_021618_213681_E6272714 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250912_021709_900590_F5E863ED 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,31 +168,36 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/09/2025 11:13, Konrad Dybcio wrote:
-> On 9/12/25 9:04 AM, Krzysztof Kozlowski wrote:
->> On Tue, Sep 09, 2025 at 09:39:11PM +0800, Luo Jie wrote:
->>> The Networking Subsystem (NSS) clock controller acts as both a clock
->>> provider and an interconnect provider. The #interconnect-cells property
->>> is mandatory in the Device Tree Source (DTS) to ensure that client
->>> drivers, such as the PPE driver, can correctly acquire ICC clocks from
->>> the NSS ICC provider.
+> On 9/12/25 11:13 AM, Konrad Dybcio wrote:
+>> On 9/12/25 9:04 AM, Krzysztof Kozlowski wrote:
+>>> On Tue, Sep 09, 2025 at 09:39:11PM +0800, Luo Jie wrote:
+>>>> The Networking Subsystem (NSS) clock controller acts as both a clock
+>>>> provider and an interconnect provider. The #interconnect-cells property
+>>>> is mandatory in the Device Tree Source (DTS) to ensure that client
+>>>> drivers, such as the PPE driver, can correctly acquire ICC clocks from
+>>>> the NSS ICC provider.
+>>>>
+>>>> Although this property is already present in the NSS CC node of the DTS
+>>>> for CMN PLL for IPQ9574 SoC which is currently supported, it was previously
+>>>> omitted from the list of required properties in the bindings documentation.
+>>>> Adding this as a required property is not expected to break the ABI for
+>>>> currently supported SoC.
+>>>>
+>>>> Marking #interconnect-cells as required to comply with Device Tree (DT)
+>>>> binding requirements for interconnect providers.
 >>>
->>> Although this property is already present in the NSS CC node of the DTS
->>> for CMN PLL for IPQ9574 SoC which is currently supported, it was previously
->>> omitted from the list of required properties in the bindings documentation.
->>> Adding this as a required property is not expected to break the ABI for
->>> currently supported SoC.
->>>
->>> Marking #interconnect-cells as required to comply with Device Tree (DT)
->>> binding requirements for interconnect providers.
+>>> DT bindings do not require interconnect-cells, so that's not a correct
+>>> reason. Drop them from required properties.
 >>
->> DT bindings do not require interconnect-cells, so that's not a correct
->> reason. Drop them from required properties.
+>> "Mark #interconnect-cells as required to allow consuming the provided
+>> interconnect endpoints"?
 > 
-> "Mark #interconnect-cells as required to allow consuming the provided
-> interconnect endpoints"?
+> "which are in turn necessary for the SoC to function"
 
+If this never worked and code was buggy, never booted, was sent
+incomplete and in junk state, then sure. Say like that. :)
 
-The point is they do not have to be required.
+But I have a feeling code was working okayish...
 
 Best regards,
 Krzysztof
