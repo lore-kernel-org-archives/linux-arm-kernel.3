@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9E8CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 21:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B43CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 21:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qajH50h81DL7BdmYDd16eJw78iu+umAbZP5TG7vajn0=; b=deFx7Xg4e8GqnU4HkrnVWzSb19
-	v1zFLn5sj+Ka6NQbrOivBYWeBtx4YHXbtSg+t4cabjUsJRgrKxpJJeiBowHY8WKtjpptV5xf+AhgI
-	JeY1C38xAUlVQU1I3xbcNwrbw1DaVrwGAn+F1OLChZI5S3aqQyXnAumRdU9W9hKSF4/VK2lZHxH36
-	n5t5PkET6BzxryIzpyjdiOvH2pNrQ5bPew/41SUHNy3qnrFUAiNy4LJQaOwdLGWcV1Gm9hyCjCgYQ
-	/JrYZUZ3ZunavOZEIoA+eY+lg6HWr7KZbJvwFVC6j/Hwj6zZZ6cJpLMFow1v0fd1WCQgQE8wCxJAv
-	AFehp0pQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=ztvzX841FPofXEw3UAvHe5MUUCcyU4P38VrmHGx3SqU=; b=VvQNfANVe4GGVK
+	SMc1nJk5x7tFvY30glPiFSirF/3+IRH3AcVExDJ/VVpjyuCJRSUtyFeSjwtG9DK8GwKD1voGV2yOU
+	KfgztRo+j+HTKjIF6sAptNAvZAyjvMGgICWGjDT6VshADIQYYs7JYQsgVzcvH/wXX1xU5fV41pPF/
+	7h9cTVWZxG5Fbcs3qI4PpuY2NhJtxbXoA2/Yz4h5BQtiTqwgzg+kTLk+PPC/isz2UQNSwd8vqTP/1
+	53SsBBvRwWQmceDrgAiJh3f2UykJviNXVhovMrtaBqrICsfqEMp4OjK9sZ76QemaUsK26NK9y6hMR
+	UltwYVMDMraeUcv68K9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxBbA-0000000BhhY-2G1u;
-	Fri, 12 Sep 2025 21:46:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uxBfW-0000000BiUv-362i;
+	Fri, 12 Sep 2025 21:50:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxBb9-0000000BhhN-3IuV
+	id 1uxBfT-0000000BiU3-2UFi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 21:46:27 +0000
+	Fri, 12 Sep 2025 21:50:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A42C60010;
-	Fri, 12 Sep 2025 21:46:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D47F8C4CEF1;
-	Fri, 12 Sep 2025 21:46:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1630040C26;
+	Fri, 12 Sep 2025 21:50:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD397C4CEF1;
+	Fri, 12 Sep 2025 21:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757713586;
-	bh=LE/pKOZjl39+pd41X1ZUViQqZVkvkaULc0/s+XUleLM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Vg8ENwcSM/0SbWBZCbjFFP2ze6ITCVRYLRkQzz1Vxr4GlnSTxb9plxsUwaJD1Z4ER
-	 DaJKDUOGVo3ytea8MNLu0g66lEck4hPQv8IPnhO5P49qKQybUVUaZ0rzurlgPWkKje
-	 TXepy2qTBZ4Sf4/KBC2FxpY/1Oo5f+B8YEV+dferDgflFqKw8RPsScXkMj2Esk1AAe
-	 GOiH2nsIN8KV7d6dIPbk5g6S9Z8uu0RZOPat05zfRK3xvolfSDDiu6uUwMHp7WCDHY
-	 x1s3m4I9FOn78LOeQ1quboX3Jn+99BdpLXOWN/GBR9zOJKbv08tUryVe3I3dJLD6Fi
-	 CZgzBAxhwVCdQ==
-Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uxBb6-00000005pVz-3V5f;
-	Fri, 12 Sep 2025 21:46:24 +0000
-Date: Fri, 12 Sep 2025 22:46:23 +0100
-Message-ID: <87bjnfz6mo.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
+	s=k20201202; t=1757713855;
+	bh=I32UvaadbaJ72Eaidbhmruy+XECfJJW6sIgil2cnjeo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=gPkiIYGNsVnzkGKHbxxmFqBsyIMcycgphKoCmbj8GCCYzxsWhQT3JRMOfmPyMqODQ
+	 uzGBxRZL3dghbATykaG2tSVEML0iOTtx1CmufOncToMeAUNzYK2GbPG/9ADADC+F/q
+	 TKmW6+PwUvNMEyFhDRectkEsWwFj/rqtvzT1GiBIYYRZCkQb4m7EIcd0r84ohOvsyX
+	 kjCilPYUg+ek55S/3MfjHoUcR1urIuTIDrF77z1T80tQRtaDG24SkwPg3MJqH6AB70
+	 j+3h6uxILGb51saPCUzDZhSfNo5dZOf3HZM7qqTPv4f62lHTAklzyMKeHXrb1gsQKW
+	 XbM9D3n5jJQ/w==
+Date: Fri, 12 Sep 2025 16:50:53 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Subject: Re: [PATCH v16 6/6] KVM: selftests: arm64: Add GCS registers to get-reg-list
-In-Reply-To: <20250912-arm64-gcs-v16-6-6435e5ec37db@kernel.org>
-References: <20250912-arm64-gcs-v16-0-6435e5ec37db@kernel.org>
-	<20250912-arm64-gcs-v16-6-6435e5ec37db@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.104.136.29
-X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, thiago.bauermann@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Subject: Re: [PATCH v9 3/4] PCI: qcom: Prepare for the DWC ECAM enablement
+Message-ID: <20250912215053.GA1643809@bhelgaas>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250909-controller-dwc-ecam-v9-3-7d5b651840dd@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250912_145055_676251_14B99FE1 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,69 +79,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sep 2025 10:25:32 +0100,
-Mark Brown <broonie@kernel.org> wrote:
+On Tue, Sep 09, 2025 at 12:37:52PM +0530, Manivannan Sadhasivam wrote:
+> From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 > 
-> GCS adds new registers GCSCR_EL1, GCSCRE0_EL1, GCSPR_EL1 and GCSPR_EL0. Add
-> these to those validated by get-reg-list.
+> To support the DWC ECAM mechanism, prepare the driver by performing below
+> configurations:
 > 
-> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  tools/testing/selftests/kvm/arm64/get-reg-list.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+>   1. Since the ELBI region will be covered by the ECAM 'config' space,
+>      override the 'elbi_base' with the address derived from 'dbi_base' and
+>      the offset from PARF_SLV_DBI_ELBI register.
 > 
-> diff --git a/tools/testing/selftests/kvm/arm64/get-reg-list.c b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-> index 011fad95dd02..9bf33064377b 100644
-> --- a/tools/testing/selftests/kvm/arm64/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-> @@ -42,6 +42,12 @@ struct feature_id_reg {
->  static struct feature_id_reg feat_id_regs[] = {
->  	REG_FEAT(TCR2_EL1,	ID_AA64MMFR3_EL1, TCRX, IMP),
->  	REG_FEAT(TCR2_EL2,	ID_AA64MMFR3_EL1, TCRX, IMP),
-> +	REG_FEAT(GCSPR_EL0,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSPR_EL1,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSPR_EL2,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSCRE0_EL1,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSCR_EL1,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSCR_EL2,	ID_AA64PFR1_EL1, GCS, IMP),
->  	REG_FEAT(PIRE0_EL1,	ID_AA64MMFR3_EL1, S1PIE, IMP),
->  	REG_FEAT(PIRE0_EL2,	ID_AA64MMFR3_EL1, S1PIE, IMP),
->  	REG_FEAT(PIR_EL1,	ID_AA64MMFR3_EL1, S1PIE, IMP),
-> @@ -486,6 +492,9 @@ static __u64 base_regs[] = {
->  	ARM64_SYS_REG(3, 0, 2, 0, 1),	/* TTBR1_EL1 */
->  	ARM64_SYS_REG(3, 0, 2, 0, 2),	/* TCR_EL1 */
->  	ARM64_SYS_REG(3, 0, 2, 0, 3),	/* TCR2_EL1 */
-> +	ARM64_SYS_REG(3, 0, 2, 5, 0),	/* GCSCR_EL1 */
-> +	ARM64_SYS_REG(3, 0, 2, 5, 1),	/* GCSPR_EL1 */
-> +	ARM64_SYS_REG(3, 0, 2, 5, 2),	/* GCSCRE0_EL1 */
->  	ARM64_SYS_REG(3, 0, 5, 1, 0),	/* AFSR0_EL1 */
->  	ARM64_SYS_REG(3, 0, 5, 1, 1),	/* AFSR1_EL1 */
->  	ARM64_SYS_REG(3, 0, 5, 2, 0),	/* ESR_EL1 */
-> @@ -502,6 +511,7 @@ static __u64 base_regs[] = {
->  	ARM64_SYS_REG(3, 0, 13, 0, 4),	/* TPIDR_EL1 */
->  	ARM64_SYS_REG(3, 0, 14, 1, 0),	/* CNTKCTL_EL1 */
->  	ARM64_SYS_REG(3, 2, 0, 0, 0),	/* CSSELR_EL1 */
-> +	ARM64_SYS_REG(3, 3, 2, 5, 1),	/* GCSPR_EL0 */
->  	ARM64_SYS_REG(3, 3, 10, 2, 4),	/* POR_EL0 */
->  	ARM64_SYS_REG(3, 3, 13, 0, 2),	/* TPIDR_EL0 */
->  	ARM64_SYS_REG(3, 3, 13, 0, 3),	/* TPIDRRO_EL0 */
-> @@ -740,6 +750,8 @@ static __u64 el2_regs[] = {
->  	SYS_REG(PIRE0_EL2),
->  	SYS_REG(PIR_EL2),
->  	SYS_REG(POR_EL2),
-> +	SYS_REG(GCSPR_EL2),
-> +	SYS_REG(GCSCR_EL2),
->  	SYS_REG(AMAIR_EL2),
->  	SYS_REG(VBAR_EL2),
->  	SYS_REG(CONTEXTIDR_EL2),
-> 
+>   2. Block the transactions from the host bridge to devices other than Root
+>      Port on the root bus to return all F's. This is required when the 'CFG
+>      Shift Feature' of iATU is enabled.
 
-More importantly, I'd expect a test that exercises the exception
-paths, as the current code is pretty broken.
+FWIW, before I noticed your v9, I had updated the comments here to fix
+a few inconsistencies.  Here's the diff:
 
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+index 7c2b2c8c61c2..962f0311a23a 100644
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -343,15 +343,15 @@ static void qcom_pci_config_ecam(struct dw_pcie_rp *pp)
+ 	writel_relaxed(upper_32_bits(pci->dbi_phys_addr), pcie->parf + PARF_ECAM_BASE_HI);
+ 
+ 	/*
+-	 * The only device on root bus is a single Root Port. So if PCI core
+-	 * tries to access any devices other than Device/Function (0.0) in Bus
+-	 * 0, the TLP will go outside of the controller to the PCI bus. But with
+-	 * CFG Shift Feature (ECAM) enabled in iATU, there is no guarantee that
+-	 * the response is going to be all F's. Hence, to make sure that the
++	 * The only device on the root bus is a single Root Port. If we try to
++	 * access any devices other than Device/Function 00.0 on Bus 0, the TLP
++	 * will go outside of the controller to the PCI bus. But with CFG Shift
++	 * Feature (ECAM) enabled in iATU, there is no guarantee that the
++	 * response is going to be all F's. Hence, to make sure that the
+ 	 * requester gets all F's response for accesses other than the Root
+-	 * Port, configure iATU to block the transactions starting from function
+-	 * 1 of the root bus to the end of the root bus (i.e from dbi_base + 4kb
+-	 * to dbi_base + 1MB).
++	 * Port, configure iATU to block the transactions starting from
++	 * function 1 of the root bus to the end of the root bus (i.e., from
++	 * dbi_base + 4KB to dbi_base + 1MB).
+ 	 */
+ 	addr = pci->dbi_phys_addr + SZ_4K;
+ 	writel_relaxed(lower_32_bits(addr), pcie->parf + PARF_BLOCK_SLV_AXI_WR_BASE);
+@@ -1385,7 +1385,7 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
+ 	if (pp->ecam_enabled) {
+ 		/*
+ 		 * Override ELBI when ECAM is enabled, as when ECAM
+-		 * is enabled ELBI moves along with the dbi config space.
++		 * is enabled ELBI moves along with the DBI config space.
+ 		 */
+ 		offset = FIELD_GET(SLV_DBI_ELBI_ADDR_BASE, readl(pcie->parf + PARF_SLV_DBI_ELBI));
+ 		pci->elbi_base = pci->dbi_base + offset;
 
