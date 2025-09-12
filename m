@@ -4,87 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCD7CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 10:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9605CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 10:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3OPza13UxQG3vaIXj292M6st2XTaYne/dlf9fQOIh4A=; b=lWT6lwTqiv/HbIbmrmdrfiSDo1
-	2oaTC2fQ4l2NPERoWcdma7vzKSPCxs3B/T3fqa6Orp0gzlduEvzjU4/fmkQWuzoChZ7D+XfFBHAiR
-	mDQaqttdRHZdUzYPLZ1d2qDoedCJWLIYtUX8HMvKbA4ITke7VDN/BNDJhO86r7k6pPGgiUHtOhUBe
-	8ursXamIRWiEasP7IkPghSe1jcRe2eyG4OE/zNO/tzeEConCj9CyEN8lK431QFVTBcVoAGZE4I9PE
-	PWh7EN1zEXsHTxm7GH14g1aNBkSlgPglQTUtgZEEYx2b5uT1DFJVlvxfW7faPz2QouqKsfeAjWZSy
-	+Lm22lqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tHyObWRBc+w7/TZVsa/8EuymxPotwQp52ccIw8C968g=; b=b5J9oC/KbcPNSp9pJHn+7wv6op
+	Z2qsxeDo5tkUddv+jqSQd0PK6D0EK6bX3pWjg7M3BJbg0qtnJK1kueKRK05QlvY88s9tJBNL27uix
+	vquCysSgkyfgb+ELKnYTaTo8dLwbUdYPC5lTl3T/4qq2vQkDznt8BJ8sNE/IoLooPYwG007PC4XeV
+	4VzTbLgY17iHZMbFowby6RO9GalgZ86jLVJKIrslb67lYldhJMf3BiJs9DhE4J4sgMghQl75c9o2U
+	70RwQ0hcqmmpTvIpyEReFYdL76Dci93J/GNf2PR4DsTvSOgm5tieNRkOvsBEWaXAsVk25BZUgNR0v
+	88WWbLsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1JX-00000008frH-3dUV;
-	Fri, 12 Sep 2025 10:47:35 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1ux1Kn-00000008gPx-1Fbu;
+	Fri, 12 Sep 2025 10:48:53 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1JV-00000008fqW-2QO2
+	id 1ux1Kk-00000008g4U-1ctj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 10:47:34 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-751415c488cso1482458a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 03:47:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757674052; x=1758278852; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3OPza13UxQG3vaIXj292M6st2XTaYne/dlf9fQOIh4A=;
-        b=cANQUtbolM40qSTR5+P1MdWWq2Qot/1IiOJRHQWTi856n7WECUe2NVBwiZkBjT+ca2
-         1JDluPRVN6EHVPuoQRMzsAASO58psr3fzdCxY/e+aduK+6qVsaZ27rpMeDYtx3nlwQuz
-         av9QfnfpwGF4WZSotyKLHg1uHFdY+WkBF0COdf/cONFmn0K49zqjzVumtURMAkD0+oK2
-         HhALgmZqb/rIYadZ4jgFgX+sr3HIAiHrqn3TQa8vf8bw56+EThjsbJBxvm7Z6JLkniVJ
-         zMqusyIWvHE+uhq1Zuvb7K8IPmJk27SBZryVQqDy1If9KzTLCuZECzPOzuMWBlnSt2ET
-         zT7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757674052; x=1758278852;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3OPza13UxQG3vaIXj292M6st2XTaYne/dlf9fQOIh4A=;
-        b=Ibq4gFsuoPYVig1/TEpJPlVUMizNw4vh1Oheh7CNbTmUmcneIoHL6AYCbxA0+8JzqB
-         YsYa38V7nOQdqRJNWkHcLDUn2FXutO85hFbV+tt8xKHSFH52SvYkM+HoS9YoJCijr33B
-         sg26Zlm8yQyY+lJbA4T4sGOv666+YFd31glu0rvGqa4QeX+K88K0of79Ewhhza+2Egyz
-         S+6CjXOzHK2RCBcbwWjhpOThyYh7Fff5L6dKvXXwDJLuYJ7GzIjxnGgYayc8Pibr0sah
-         J752hNeEEgbGXLvKiJwN7Axp1N39bt0e8xvyFhD3xychhhn+miMJ0jE1GnQjoh5U26jk
-         2S7A==
-X-Forwarded-Encrypted: i=1; AJvYcCX32+5Vekx0IJrdB0fDd2Y7zX/AO0OheIlBtHtl6QGF8U2z484M2UhDbuaUnakHr7LrzbkKMYsd0ueUyacoc1Ws@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsStErFR9VxRb/CPhkbLsTJxsWS7HAyg2T1WNWs7J0QQ0gD19Q
-	2qHn4IU07G+gaQdI37Mm7MBNEwWK1/gbMJHKLjge9Xxl6mY/95STepVVg6IeT7e4+jsiHXAZeBE
-	prqf7VyySHFcS/aXaE5vuv6+6AWarjW+CeMl2TuF/Sw==
-X-Gm-Gg: ASbGnctBVsmPPOpegyubi6vsvVqJDRqzFVzJ5N6dwHzqjYjA1AXMuKrXsNpavLdn4fR
-	YDgBvGzbMrOyxaZwGxAy1G/4YlWRWB/leT8fLqocTzuAagAInmbI77Wun91Aj6U4WhYyX1Dnf0f
-	tgGDHDivWNnhUff2MQX+F6kKmUCLLdj/jkn4ZEAbqVX20eC/o4SjLxGraMA5MzMHdMmwCzwSOCy
-	WZY3Ms=
-X-Google-Smtp-Source: AGHT+IEwK6PAnW60amX/KFZUitg+3IWCKUF6YtBbEuqSyk7vuHndUimzJs3aHNTIWVsqYWSuZljSYmdD0ujXlXGOsTc=
-X-Received: by 2002:a05:6830:25c3:b0:741:924c:3f60 with SMTP id
- 46e09a7af769-753550e1f31mr1194594a34.20.1757674052466; Fri, 12 Sep 2025
- 03:47:32 -0700 (PDT)
+	Fri, 12 Sep 2025 10:48:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=tHyObWRBc+w7/TZVsa/8EuymxPotwQp52ccIw8C968g=; b=H6oOFmft+OeJxNyEMHhcixJVS4
+	5yB3EW9C32Bcoue2aBmWIOAGegw6rYDHvlEEjVePiTPHvT7Z5/2ms6L7pEPj79EBZFgHHM0FkZb4t
+	+DKIdbnixNT7zft3VfjIRSPt05E06h7iJjplFSTwrX58D6xiYP2H4Q3OD/fbq3Whb74ThFWfWY+Xs
+	2AM5yVa74fUxugCEbqCTEKt3HDduIO40HnAnE5xx4TowejCPLmabDExSwxKm69cD5m1uyGtEWmrVT
+	AZPcnCuDPzHkiOCw3JTX7WqRXqLpAZWofUIYStbd/QZfW+Pgvftf87IM46AKAOHoHOLGcAOwYj2md
+	18qO/rGQ==;
+Received: from [122.175.9.182] (port=38569 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1ux1K0-000000022nY-0FId;
+	Fri, 12 Sep 2025 06:48:03 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ssantosh@kernel.org,
+	richardcochran@gmail.com,
+	m-malladi@ti.com,
+	s.hauer@pengutronix.de,
+	afd@ti.com,
+	jacob.e.keller@intel.com,
+	kory.maincent@bootlin.com,
+	johan@kernel.org,
+	alok.a.tiwari@oracle.com,
+	m-karicheri2@ti.com,
+	s-anna@ti.com,
+	horms@kernel.org,
+	glaroque@baylibre.com,
+	saikrishnag@marvell.com,
+	diogo.ivo@siemens.com,
+	javier.carrasco.cruz@gmail.com,
+	basharath@couthit.com,
+	parvathi@couthit.com,
+	pmohan@couthit.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	vadim.fedorenko@linux.dev,
+	bastien.curutchet@bootlin.com,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v16 0/6] PRU-ICSSM Ethernet Driver
+Date: Fri, 12 Sep 2025 16:14:49 +0530
+Message-ID: <20250912104741.528721-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250804-b4-gs101_max77759_fg-v5-0-03a40e6c0e3d@uclouvain.be> <20250804-b4-gs101_max77759_fg-v5-4-03a40e6c0e3d@uclouvain.be>
-In-Reply-To: <20250804-b4-gs101_max77759_fg-v5-4-03a40e6c0e3d@uclouvain.be>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 12 Sep 2025 11:47:21 +0100
-X-Gm-Features: Ac12FXyNpSAUYBZClLOkGpS7sVjhUkL1QiaqAQuJpPSEayd4ohKDjbLy5QhjEPs
-Message-ID: <CADrjBPqT8GORaMReQwMGUV+Lrh-njhk_giD2gQUPJRRuSz4XNw@mail.gmail.com>
-Subject: Re: [PATCH v5 4/4] arm64: dts: exynos: google: add Maxim MAX77759 Fuel-gauge
-To: t.antoine@uclouvain.be
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Dimitri Fedrau <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_034733_627889_6B396BD6 
-X-CRM114-Status: GOOD (  26.06  )
+X-CRM114-CacheID: sfid-20250912_034850_498838_FF9C2EC8 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,164 +121,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 4 Aug 2025 at 15:25, Thomas Antoine via B4 Relay
-<devnull+t.antoine.uclouvain.be@kernel.org> wrote:
->
-> From: Thomas Antoine <t.antoine@uclouvain.be>
->
-> Add the node for the Maxim MAX77759 fuel gauge as a slave of the i2c.
->
-> The TODO is still applicable given there are other slaves on the
-> bus (e.g. PCA9468, other MAX77759 functions and the MAX20339 OVP).
->
-> For the device specific values (full design capacity and terminal
-> current), the device should check an EEPROM at address 0x50 of the
-> hsi2c_8 for a battery id stored in register 0x17. A set of parameters
-> for the initialization of the fuel gauge should be chosen based on
-> this id. Those sets are defined here:
->
-> Link: https://android.googlesource.com/kernel/gs/+/refs/heads/android-gs-raviole-5.10-android15/arch/arm64/boot/dts/google/gs101-oriole-battery-data.dtsi
-> Link: https://android.googlesource.com/kernel/gs/+/refs/heads/android-gs-raviole-5.10-android15/arch/arm64/boot/dts/google/gs101-raven-battery-data.dtsi
->
-> This does not seem to be a standard pattern in the kernel currently
-> so it is not implemented. Values observed on tested devices are
-> instead used. The driver or the devicetree should be should be
-> extended in the future to take versions into account.
->
-> The pinctrl name follows the convention proposed in
-> Link: https://lore.kernel.org/all/20250524-b4-max77759-mfd-dts-v2-2-b479542eb97d@linaro.org/
->
-> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
-> ---
+Hi,
 
-This needs rebasing now to apply. With Andre's feedback addressed
+The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
+is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
+Megabit ICSS (ICSSM).
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Support for ICSSG Dual-EMAC mode has already been mainlined [1] and the
+fundamental components/drivers such as PRUSS driver, Remoteproc driver,
+PRU-ICSS INTC, and PRU-ICSS IEP drivers are already available in the mainline
+Linux kernel. The current set of patch series builds on top of these components
+and introduces changes to support the Dual-EMAC using ICSSM on the TI AM57xx,
+AM437x and AM335x devices.
 
+AM335x, AM437x and AM57xx devices may have either one or two PRU-ICSS instances
+with two 32-bit RISC PRU cores. Each PRU core has (a) dedicated Ethernet interface
+(MII, MDIO), timers, capture modules, and serial communication interfaces, and
+(b) dedicated data and instruction RAM as well as shared RAM for inter PRU
+communication within the PRU-ICSS.
 
+These patches add support for basic RX and TX  functionality over PRU Ethernet
+ports in Dual-EMAC mode.
 
+Further, note that these are the initial set of patches for a single instance of
+PRU-ICSS Ethernet.  Additional features such as Ethtool support, VLAN Filtering,
+Multicast Filtering, Promiscuous mode, Storm prevention, Interrupt coalescing,
+Linux PTP (ptp4l) Ordinary clock and Switch mode support for AM335x, AM437x
+and AM57x along with support for a second instance of  PRU-ICSS on AM57x
+will be posted subsequently.
 
->  arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 10 ++++++++
->  .../boot/dts/exynos/google/gs101-pixel-common.dtsi | 30 ++++++++++++++++++++++
->  arch/arm64/boot/dts/exynos/google/gs101-raven.dts  | 11 ++++++++
->  3 files changed, 51 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> index 8df42bedbc036b5e97f6238d64820370043ffef2..18d147f6ea4a1a76c375996557349c866b9dad72 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> @@ -13,6 +13,12 @@
->  / {
->         model = "Oriole";
->         compatible = "google,gs101-oriole", "google,gs101";
-> +
-> +       battery: battery {
-> +               compatible = "simple-battery";
-> +               charge-full-design-microamp-hours = <4524000>;
-> +               charge-term-current-microamp = <45000>;
-> +       };
->  };
->
->  &cont_splash_mem {
-> @@ -27,3 +33,7 @@ &framebuffer0 {
->         format = "a8r8g8b8";
->         status = "okay";
->  };
-> +
-> +&fuel_gauge {
-> +       monitored-battery = <&battery>;
-> +};
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-> index d6ddcc13f7b20c6dfbe92e86abafe965870d0c78..3362ad89ef6bacb7349259cf9e14452193ff7361 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-> @@ -10,6 +10,7 @@
->
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/input/input.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
->  #include <dt-bindings/usb/pd.h>
->  #include "gs101-pinctrl.h"
->  #include "gs101.dtsi"
-> @@ -99,6 +100,16 @@ &hsi2c_8 {
->         eeprom: eeprom@50 {
->                 compatible = "atmel,24c08";
->                 reg = <0x50>;
-> +
-> +               nvmem-layout {
-> +                       compatible = "fixed-layout";
-> +                       #address-cells = <1>;
-> +                       #size-cells = <1>;
-> +
-> +                       fg_state: fgstate@42 {
-> +                               reg = <0x42 0x17>;
-> +                       };
-> +               };
->         };
->  };
->
-> @@ -188,6 +199,18 @@ usbc0_role_sw: endpoint {
->                         };
->                 };
->         };
-> +
-> +       fuel_gauge: fuel-gauge@36 {
-> +               compatible = "maxim,max77759-fg";
-> +               reg = <0x36>;
-> +               pinctrl-names = "default";
-> +               pinctrl-0 = <&if_pmic_fg_int>;
-> +               interrupt-parent = <&gpa9>;
-> +               interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-> +               shunt-resistor-micro-ohms = <5000>;
-> +               nvmem-cell-names = "fg_state";
-> +               nvmem-cells = <&fg_state>;
-> +       };
->  };
->
->  &pinctrl_far_alive {
-> @@ -214,6 +237,13 @@ typec_int: typec-int-pins {
->  };
->
->  &pinctrl_gpio_alive {
-> +       if_pmic_fg_int: if-pmic-fg-int-pins {
-> +               samsung,pins = "gpa9-3";
-> +               samsung,pin-function = <GS101_PIN_FUNC_EINT>;
-> +               samsung,pin-pud = <GS101_PIN_PULL_UP>;
-> +               samsung,pin-drv = <GS101_PIN_DRV_2_5_MA>;
-> +       };
-> +
->         key_power: key-power-pins {
->                 samsung,pins = "gpa10-1";
->                 samsung,pin-function = <GS101_PIN_FUNC_EINT>;
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-raven.dts b/arch/arm64/boot/dts/exynos/google/gs101-raven.dts
-> index 1e7e6b34b8649bc700a745c579a0268f0f6a9524..f91800879ea94b8fb0008c5e1f828072cabc1ac7 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101-raven.dts
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101-raven.dts
-> @@ -13,6 +13,13 @@
->  / {
->         model = "Raven";
->         compatible = "google,gs101-raven", "google,gs101";
-> +
-> +       battery: battery {
-> +               compatible = "simple-battery";
-> +
-> +               charge-full-design-microamp-hours = <4904000>;
-> +               charge-term-current-microamp = <49000>;
-> +       };
->  };
->
->  &cont_splash_mem {
-> @@ -27,3 +34,7 @@ &framebuffer0 {
->         format = "a8r8g8b8";
->         status = "okay";
->  };
-> +
-> +&fuel_gauge {
-> +       monitored-battery = <&battery>;
-> +};
->
-> --
-> 2.50.1
->
->
+The patches presented in this series have gone through the patch verification
+tools and no warnings or errors are reported. Sample test logs obtained from AM33x,
+AM43x and AM57x verifying the functionality on Linux next kernel are available here:
+
+[Interface up Testing](https://gist.github.com/ParvathiPudi/59ca0087dc7bed0f83a3b0e6db27d39c)
+
+[Ping Testing](https://gist.github.com/ParvathiPudi/bcd39aa7006f6176d8c5b71a23d0928b)
+
+[Iperf Testing](https://gist.github.com/ParvathiPudi/9bb4fa42410fbc757a93f65ecb45e4f3)
+
+[1] https://lore.kernel.org/all/20230106121046.886863-1-danishanwar@ti.com/
+[2] https://lore.kernel.org/all/20250108125937.10604-1-basharath@couthit.com/
+
+This is the v16 of the patch series [v1]. This version of the patchset
+addresses the comments made on [v15] of the series.
+
+Changes from v15 to v16 :
+
+*) Added a patch to update the MAINTAINERS entries as per Jakub Kicinski's
+review comment.
+*) Rebased the series on latest net-next.
+
+Changes from v14 to v15 :
+
+*) Addressed Jakub Kicinski's comments on patch 4 of the series.
+*) Addressed MD Danish Anwar comments on patch 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v13 to v14 :
+
+*) Addressed Jakub Kicinski's comments on patch 4 of the series.
+*) Addressed MD Danish Anwar comments on cover letter of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v12 to v13 :
+
+*) Addressed Alok Tiwari comments on patch 2, 3 and 5 of the series.
+*) Addressed Bastien Curutchet comment on patch 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v11 to v12 :
+
+*) Addressed Jakub Kicinski's comments on patch 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v10 to v11 :
+
+*) Reduced patch series size by removing features such as Ethtool support,
+VLAN filtering, Multicast filtering, Promiscuous mode handling, Storm Prevention,
+Interrupt coalescing, and Linux PTP (ptp4l) ordinary clock support. This was done
+based on Jakub Kicinski's feedback regarding the large patch size (~5kLoC).
+Excluded features will be resubmitted.
+*) Addressed Jakub Kicinski comments on patch 2, and 3 of the series.
+*) Addressed Jakub Kicinski's comment on patch 4 of the series by implementing
+hrtimer based TX resume logic to notify upper layers in case of TX busy.
+*) Rebased the series on latest net-next.
+
+Changes from v9 to v10 :
+
+*) Addressed Vadim Fedorenko comments on patch 6 and 11 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v8 to v9 :
+
+*) Addressed Vadim Fedorenko comments on patch 6 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v7 to v8 :
+
+*) Addressed Paolo Abeni comments on patch 3 and 4 of the series.
+*) Replaced threaded IRQ logic with NAPI logic based on feedback from Paolo Abeni.
+*) Added Reviewed-by: tag from Rob Herring for patch 1.
+*) Rebased the series on latest net-next.
+
+Changes from v6 to v7 :
+
+*) Addressed Rob Herring comments on patch 1 of the series.
+*) Addressed Jakub Kicinski comments on patch 4, 5 and 6 of the series.
+*) Addressed Alok Tiwari comments on Patch 1, 4 and 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v5 to v6 :
+
+*) Addressed Simon Horman comments on patch 2, 7 and 11 of the series.
+*) Addressed Andrew Lunn comments on patch 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v4 to v5 :
+
+*) Addressed Andrew Lunn and Keller, Jacob E comments on patch 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v3 to v4 :
+
+*) Added support for AM33x and AM43x platforms.
+*) Removed SOC patch [2] and its dependencies.
+*) Addressed Jakub Kicinski, MD Danish Anwar and Nishanth Menon comments on cover
+   letter of the series.
+*) Addressed Rob Herring comments on patch 1 of the series.
+*) Addressed Ratheesh Kannoth comments on patch 2 of the series.
+*) Addressed Maxime Chevallier comments on patch 4 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v2 to v3 :
+
+*) Addressed Conor Dooley comments on patch 1 of the series.
+*) Addressed Simon Horman comments on patch 2, 3, 4, 5 and 6 of the series.
+*) Addressed Joe Damato comments on patch 4 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v1 to v2 :
+
+*) Addressed Andrew Lunn, Rob Herring comments on patch 1 of the series.
+*) Addressed Andrew Lunn comments on patch 2, 3, and 4 of the series.
+*) Addressed Richard Cochran, Jason Xing comments on patch 6 of the series.
+*) Rebased patchset on next-202401xx linux-next.
+
+[v1] https://lore.kernel.org/all/20250109105600.41297-1-basharath@couthit.com/
+[v2] https://lore.kernel.org/all/20250124122353.1457174-1-basharath@couthit.com/
+[v3] https://lore.kernel.org/all/20250214054702.1073139-1-parvathi@couthit.com/
+[v4] https://lore.kernel.org/all/20250407102528.1048589-1-parvathi@couthit.com/
+[v5] https://lore.kernel.org/all/20250414113458.1913823-1-parvathi@couthit.com/
+[v6] https://lore.kernel.org/all/20250423060707.145166-1-parvathi@couthit.com/
+[v7] https://lore.kernel.org/all/20250503121107.1973888-1-parvathi@couthit.com/
+[v8] https://lore.kernel.org/all/20250610105721.3063503-1-parvathi@couthit.com/
+[v9] https://lore.kernel.org/all/20250623135949.254674-1-parvathi@couthit.com/
+[v10] https://lore.kernel.org/all/20250702140633.1612269-1-parvathi@couthit.com/
+[v11] https://lore.kernel.org/all/20250722132700.2655208-1-parvathi@couthit.com/
+[v12] https://lore.kernel.org/all/20250724072535.3062604-1-parvathi@couthit.com/
+[v13] https://lore.kernel.org/all/20250812110723.4116929-1-parvathi@couthit.com/
+[v14] https://lore.kernel.org/all/20250822132758.2771308-1-parvathi@couthit.com/
+[v15] https://lore.kernel.org/all/20250904101729.693330-1-parvathi@couthit.com/
+
+Thanks and Regards,
+Parvathi.
+
+Parvathi Pudi (3):
+  dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for
+    AM57xx, AM43xx and AM33xx SOCs
+  net: ti: icssm-prueth: Adds IEP support for PRUETH on AM33x, AM43x and
+    AM57x SOCs
+  MAINTAINERS: Add entries for ICSSM Ethernet driver
+
+Roger Quadros (3):
+  net: ti: icssm-prueth: Adds ICSSM Ethernet driver
+  net: ti: icssm-prueth: Adds PRUETH HW and SW configuration
+  net: ti: icssm-prueth: Adds link detection, RX and TX support.
+
+ .../devicetree/bindings/net/ti,icss-iep.yaml  |   10 +-
+ .../bindings/net/ti,icssm-prueth.yaml         |  233 +++
+ .../bindings/net/ti,pruss-ecap.yaml           |   32 +
+ .../devicetree/bindings/soc/ti/ti,pruss.yaml  |    9 +
+ MAINTAINERS                                   |   12 +
+ drivers/net/ethernet/ti/Kconfig               |   12 +
+ drivers/net/ethernet/ti/Makefile              |    3 +
+ drivers/net/ethernet/ti/icssg/icss_iep.c      |  101 +
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 1748 +++++++++++++++++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  262 +++
+ .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |   85 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  257 +++
+ 12 files changed, 2761 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switch.h
+
+-- 
+2.43.0
+
 
