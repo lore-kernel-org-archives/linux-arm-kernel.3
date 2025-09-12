@@ -4,146 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586C3CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:22:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A54A8CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 09:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=211TaafuVdmwmFpTWX2T7r+JSbXlFt0Mtw+hMPa5lqU=; b=VzC8r/9chqWiT7awpKx8518u5J
-	NhTw7EsdA1CZEpoCL7i5xiO2rIDBXRWvgvAcOvcm7fyYI6I2RRuz0uP4bFAbT0Zrxm4EVF5f0valK
-	dme6ffLel0U4BzsWMy22ZrnSz7gYYP71D/c0M2D0PL9RwwuRW6pmMytQUXoHBCJ0rsRkrcwriZMj2
-	Sci42jWWIUdIq0Xkk3HAmAuZOp6HhuaXTXorBFcoI2cHo3xCA7ZNiICHX5pgKlo00zB4yItwVX9TY
-	EpelI1okJbfQ1TXzH84HNGI0SOhHSIMJ9+F76wcTN+unyDXRzUrJT51prI2DXZ6/RKi1/porp+HMv
-	CNE02d6Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BOMYwUSj3ToMRrs1GbfaZczlic4yEzoQ0wQhZEu+bgo=; b=AilkYr1t8yCXLEf/ksnf+8zSK7
+	Z+35WF/LxeP1E7W6ltuu5cgIF6M0GLW+ZJ1hBT5R7d6VcASW2ExMuqrGt1rTjiuBXpgnGd/dK6Dtp
+	7OLIoz+0Xt0Tjcf+hULBOMzNr1ehOH1GOKKmxsY+Gww4eMC30FGFkjNW7CAteJML/KdwXifpChHjT
+	U1iFYVf4voY25oGTvRLNrN4rLoFLYHMYtWDbAOuUdUl1XRllutCSKxMJPD36aKeHaUJ791Vs24EgB
+	kzTG9jRzIUhq7cGyQt0PlUgF2cJjvJGw0UOTWgmTVRI3kBxnJ9MiuYW2PM3+eVpXROfkd5GiQb13d
+	s7WXo6xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwzyl-00000008Eeu-1P3e;
-	Fri, 12 Sep 2025 09:22:03 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ux00n-00000008FMw-3BFt;
+	Fri, 12 Sep 2025 09:24:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwzyj-00000008Ede-0dcJ
+	id 1ux00l-00000008FMm-3qh5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 12 Sep 2025 09:24:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=BOMYwUSj3ToMRrs1GbfaZczlic4yEzoQ0wQhZEu+bgo=; b=G9EYw774siQITUXd5rGbqqRgWx
+	WXB0Ya/9TpoD/I7o6StCvSwBr6vuETe3GLmB62culvZ69WIhJ3ddHXgTrmt0BIFTafg5w6iBKXrqM
+	aR18IOgs9m2L7x+EaKd6dg6DgFmkrLGJcm1yCC1pdMjCoaaIiNax6Y6GT2R6LToA6/4dLIeUV+k1e
+	4uVt/hHL/nTwcwY6XtsxLeHOlHK5HSJX/9gyEH8MxBlGzdm1yufYeaGIaBL52Jo5wakSo9/aGUgLS
+	YgU7m7bwl1D/q01PAVGhobyQkV5WktfPx2DzCfet3QrQOH7Ac1b9PJT3G8qyjQsqurpH4cCjD258Q
+	9FpeDlVQ==;
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux00i-00000006I5H-3nWu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 09:22:02 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58C8DIqx025757
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 09:22:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	211TaafuVdmwmFpTWX2T7r+JSbXlFt0Mtw+hMPa5lqU=; b=psmAV4uhJDui1mD2
-	TpCjvU8MQQJRkxDuw3yqKkng4nptAa5x/7xUSHj6EX1X6oUbpT8FF28zsrmre7yu
-	6p/Fp2rav/iYRUYCqDi++eNdmU0cYLSY3LSWJ+tX3FS0MmKDSL8p4IePtThsrg/z
-	Ac7+4k4XpROaSNMzt9ybKtn3X8B783KyfS5kAUKtMZPEDpMpPdotPDoiRuFREgPa
-	pg9//ykOut1X5Rjq7PwNqZFRjrYipChc66NfW+GoX/UZm+8We35j13Jt+hH62Gtl
-	F6u0m5V5mD8j29L+7+62Pb1B5wvt2owSxXuoK0JQQiSo9icMMzJ7VUQ0QyT0iZD5
-	YEREwA==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 490cj12xkc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 09:21:59 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4b77ed74e90so847071cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 02:21:59 -0700 (PDT)
+	Fri, 12 Sep 2025 09:24:06 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45de5246dc4so2969925e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 02:24:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757669042; x=1758273842; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BOMYwUSj3ToMRrs1GbfaZczlic4yEzoQ0wQhZEu+bgo=;
+        b=ZeVbq8IjquC9AwxqQM/WWLa9VeuncaGhN3MXqW2Rv7TxaEP2dJIKZ4HAgI6VSd6n/0
+         +yFI/rHOCiuWkaQTYfaqh9GDF+0upCowwbevRCzV+v+dXPA0SWefBzmn6CUkWECPE93f
+         9IkvUVg7TGEIG2OKneG4YIniLoepckGui/tnPwvO2y7RYsRoVD7N2gMO2BrSh7yakwOO
+         G5mTcOoT5lUzl5MPbrkRyfejeC7Wi9eTnDkQ/ZGVZh8gcBHDPBJC51gzMLVNHaQuF86A
+         Ku7uSTIPNSmlewsNRDuut2yCe1ZdTZqGpxeNQh6lfBzmHExHLsLNgYmFsok8vDmGtdpS
+         pTLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757668919; x=1758273719;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=211TaafuVdmwmFpTWX2T7r+JSbXlFt0Mtw+hMPa5lqU=;
-        b=tKoIHMaCtTBgx+0EmiCqijLcGl/IGjI2zl0XuphoGxgpUfRAJ9xhtBppRZHXkKF9cC
-         Z0oj6R3iX2GKCW7z6xotwGpoEvJxd2ja78qzK7KOEty1F43xvSc5f/jBEitFUiaePc4S
-         jwEj3guTv+vCT4152aX98fmdSBiP0qGiavkHy+RuxiPBkNL/7RM67Obc95KRfugCVbGv
-         UFfrEZ5Dr9wAI4NKLAjflNSlH9poFzz45eMJU3TW9OydOXDIe9X/exUpZagup3LEClK8
-         60Zl0Dipr1GhbyZkQyIjc+BU9B9D4Xe8YWLEiXBrxQ9SORUgX8kDE1TGj5Ns356MYEWG
-         fMHw==
-X-Forwarded-Encrypted: i=1; AJvYcCV9CnRRes5AHBM09XHOnpOhaFnpyMA3zc0hgf4yHK/4KObrJgQFySzvxisJhPQMzgb0DKsPAtVZddD2XIyE/Q0z@lists.infradead.org
-X-Gm-Message-State: AOJu0YylZkeaBjb9VTFyl4lyvdIfSSYhoMtT3l+cI2fkkwimqbRtm2EJ
-	RhONe5WBmCkQm/4MFmUzHFDXPRU2ZyKxlHCIMKEqcdZmDnzssP2T27r3SPlhJmO/FuJu+fm81Tz
-	BryEe4FGbyvZl2kL1LH3Pk61WNyOqygvrClQo4s8NgNKcA3g+NDz8CQB4jnZwmwoWTQ27+ulg8m
-	0v2A==
-X-Gm-Gg: ASbGncsgMdH86dog/B5NUtW9CFkayLiygS9oDA7DeqeDGiBsTd7DP5HHCp6tJZwvTtC
-	jNpMYUz5WalLqXqg+v5j6IX6S3u4w91DrUF+sjj04/x+IaSd5HcN7Cj3+N7NVPpc59Kx0e1aFlM
-	lKDP8hDlPtpmlCkqrQeRJBm2iBNQOLn4TwONob30grANdZQ5j7HoGxtOvRjNH7rMEzrUwgCPYEt
-	bLWYlFEJkgtfFv1zdNpUIazsQm/ikdtF0YvhtiB/caet9MwwiYcKcXM67W+utUHDbSrPaQGTtoX
-	gvt6fnDSRhpWghiZpvji13Q6K6BVy36SmWkpxu+VBR8Nnl4WViQ8ZLwWF1GHiBqYrm59QYQ3FGK
-	zX517hTSqw3EQ4R3+La69hg==
-X-Received: by 2002:a05:622a:91:b0:4b5:a0fb:599e with SMTP id d75a77b69052e-4b77cfcdec6mr20253721cf.2.1757668919065;
-        Fri, 12 Sep 2025 02:21:59 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHt3j5cbbw2xXdC7Iuoclxovs03WKjCh8mVblR4EhINwYFg0atoGoM3n750wMhgvxAjL7lHSQ==
-X-Received: by 2002:a05:622a:91:b0:4b5:a0fb:599e with SMTP id d75a77b69052e-4b77cfcdec6mr20253621cf.2.1757668918594;
-        Fri, 12 Sep 2025 02:21:58 -0700 (PDT)
-Received: from [192.168.149.223] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b32f2098sm337290866b.74.2025.09.12.02.21.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Sep 2025 02:21:58 -0700 (PDT)
-Message-ID: <d293a11b-155d-45d3-bafc-00c2f90e8c43@oss.qualcomm.com>
-Date: Fri, 12 Sep 2025 11:21:55 +0200
+        d=1e100.net; s=20230601; t=1757669042; x=1758273842;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BOMYwUSj3ToMRrs1GbfaZczlic4yEzoQ0wQhZEu+bgo=;
+        b=h2/YhDvEbO7UvJIi7e3Q4NlAvlWnjrYoTn444cozAdGYKW0iZMGbsnO4si8UMyVkSJ
+         djkLu17jCoVnaCTH4I7O5WiHP47biheDDdN5LOioTyjCqOKFDd57MA6AwqMWCRNs1OpG
+         RoVPdEyrLWkh0k0RS+m2JcK0qxDaj3QW6t6iEqOP3224OjkGce8B2bQGNWXQlyeCwRle
+         6Atp8iKw7yzp1zNTAfhz0TUqXMKfk0eGT3M/7P76eGRQs0GaNVoe59H8T/cH3m9rQwvl
+         3WGC72ICwGB3/fg6JjHe6cMBjVCZ3W9GpkNv218VcidYUGyFMRqu6bT8G14IOcgK4vfJ
+         q6OA==
+X-Forwarded-Encrypted: i=1; AJvYcCVBzjboBHGQvlGIdkV/FwJpDM/GEM1cZfQhBfiVa8AahwSzgSpVMonbqNrx2xMMqKc6DbN74UCi9hprqxgvDE15@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoCol1q3UglRMpZT1KIIgJZXMEn/Nz1Lx/USeNribA8pMftUfw
+	EczPerxCdk+TqIpyxTb67/AyeMRIKcHf/DoHxoMdwPFBtpTfP9+wxHLhvXsO7QbWnXk=
+X-Gm-Gg: ASbGncs7/KoCvKsimsx2nk9cMOQ4c/WVUgZTLLPtzaCn3fPC7X92VbWBFgorvz52fTu
+	U2ComFj7RQkAMl+6ADoJJ6O7C0dBqGNmkVj2JTXoAfIXTuf2qg8hZH//0eJfXnvkAiOGaH8Ec87
+	ehgLgGexSo7puDNEQ5h3yC5cjOzyDA7Ksj9L4gqgu2Vy9tndDuhSgyWfi59ZDFkXs2fMM87Y9dU
+	eMn5nxSwWgxuXl0kvOe1WeEmasx6EVcfJudHGN7DzQVbv6F19aDyaPZyLOnMEIdOWFcDCGs7oOm
+	7HDRlX+wLDVP9unv3mYkB6VAfakDoIIGkHdB+jPqO4eD248PpKG15iA+289kd4tPDHP775ZrP7c
+	D05D9hes4fm1VZePDcSsPB9IxkZf74bawEA==
+X-Google-Smtp-Source: AGHT+IFZ4LkljsZAZV2KGxX2vnp7A1Ij/erNB1dV87KomdD4NYdDAGsePpI/vQBLekU2xgSQDZkE4w==
+X-Received: by 2002:a05:6000:2503:b0:3d4:c46b:e57e with SMTP id ffacd0b85a97d-3e765536c58mr1041490f8f.0.1757669042563;
+        Fri, 12 Sep 2025 02:24:02 -0700 (PDT)
+Received: from kuoka.. ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607d7b3esm5727337f8f.46.2025.09.12.02.23.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Sep 2025 02:24:01 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] pinctrl: Simplify printks with pOF format
+Date: Fri, 12 Sep 2025 11:23:52 +0200
+Message-ID: <20250912092351.162307-2-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 02/10] dt-bindings: clock: Add required
- "interconnect-cells" property
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Luo Jie <quic_luoj@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>,
-        Varadarajan Narayanan <quic_varada@quicinc.com>,
-        Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Anusha Rao <quic_anusha@quicinc.com>,
-        Manikanta Mylavarapu <quic_mmanikan@quicinc.com>,
-        Devi Priya <quic_devipriy@quicinc.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-        netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com,
-        quic_leiwei@quicinc.com, quic_pavir@quicinc.com,
-        quic_suruchia@quicinc.com
-References: <20250909-qcom_ipq5424_nsscc-v5-0-332c49a8512b@quicinc.com>
- <20250909-qcom_ipq5424_nsscc-v5-2-332c49a8512b@quicinc.com>
- <20250912-nocturnal-horse-of-acumen-5b2cbd@kuoka>
- <b7487ab1-1abd-40ca-8392-fdf63fddaafc@oss.qualcomm.com>
- <2951b362-c3c1-4608-8534-4d25b089f927@oss.qualcomm.com>
- <52714c33-5bd7-4ca5-bf1d-c89318c77746@linaro.org>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <52714c33-5bd7-4ca5-bf1d-c89318c77746@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: ZBvfxjrEMV9Xr1Qyj_YLf1Ue06F4GFk0
-X-Proofpoint-GUID: ZBvfxjrEMV9Xr1Qyj_YLf1Ue06F4GFk0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAyNCBTYWx0ZWRfXz2HJ4zTJKCL7
- jovx/ikxZRlNYCqjDZuSIuElyxGLlF7KaWCSqykKCWO/vgf7kdqxkJL1QaZx3pGtzKnh8xsKbsz
- DhJ/JfYAnm70bk0InJyaeDf7zWf8ZAKq+S/WVm8hwSXMOtsjtofdS6rV+EeUXSyoBQugZp4JKLl
- cgNaAX+q6znObZ6e+zTsixohh+IZQPvKqr1fPtRCPEr4J9iEW3PcArD2iYjiZ5Sxgnt0nb/KXfD
- 8DNZOuVwrQLKlpXFkHqbLwBfVPO8vBkmn8lmm1uh1TLQi5VIHSTkTlve2hkP3KKIXK2628n7lkI
- llowYWYDI7++8hJ+gFDxpc0NnUlaizu4qU1Kf3qKFgJcw1W7ipJ2Bqv2c90qb1nGUbqKN6zLH0Y
- 4Dv9Kgjl
-X-Authority-Analysis: v=2.4 cv=QeFmvtbv c=1 sm=1 tr=0 ts=68c3e637 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=UDPjpuflI1CVcGcpNKsA:9
- a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-12_03,2025-09-11_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 clxscore=1015 spamscore=0 impostorscore=0
- bulkscore=0 suspectscore=0 adultscore=0 malwarescore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509060024
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2536; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=+bVJ+4hy5vMtuVwCqUQtQcNPKerS7zzgW7OjoDwLJD0=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBow+anDJAMN9wRUbRQ5JlQl3eiWjS4RDs50mngh
+ v0da2zDAfqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaMPmpwAKCRDBN2bmhouD
+ 18n5D/4hSZl8udzkB2YzvH4Z9aKuFcLBa9CFrbK1nRLSDu5FSjWXEXWKEbFj1MHjLOqSErjfA6f
+ fc2Ubu88L88RmHPoMzOYbLoElN/YbJz/dIcfvMLod8fnzL+nyanIDfXmVZtUmmDYQSgiudqq55N
+ OgcP1rd3Njv+m6SEpSi9mucEgKnmUW/IXbyBYlD+Kf9WQMw6AGL4ICHWW/kdhFOk5ZcOjb1HnW4
+ OAHTA2vvtVF74+R8APPWN46YH+EFMlIbmGxIAT4HXnpqw9hdoUbIXp5OqY+f027EOcWS+tUlw/L
+ U+PodlsU4UHYaoRtvkk8VhihoB1YgDyYkotQtLGqHYP970ckzBwoScgk7ZWMrRY67jWusybohk/
+ s0Sp6GbG2Iio6vqkiMMxTYn9Yvj1+Gifxh39F+gN7GBgU9oAjMTiPuB3aEF7oV1Pm9sO+X13wCk
+ JZrp9Lr7mtvLvnSqC8NcPGe6K4RBMSK16uLP8KVuigMVo22/6w4qqL3uOChq/sXCS5+s5ImXBOQ
+ XMGDwuPVLAxgzYT7HmVuCKaR23ULDBoq29eCZLj3YUNm5MuzgKkthjnb9mQWiHhNWP25F0eJDuD
+ ujygi2OswjTMsQQ+Ad8fb301JcyprI6J6eqSPB4ZFgCmc1C+y4Btbks/pdsehgKkZWjRTK3XoZC PTV13F72brgao+g==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_022201_325345_BFB4C652 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250912_102405_119397_CC278A53 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,41 +133,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/12/25 11:17 AM, Krzysztof Kozlowski wrote:
-> On 12/09/2025 11:13, Konrad Dybcio wrote:
->> On 9/12/25 11:13 AM, Konrad Dybcio wrote:
->>> On 9/12/25 9:04 AM, Krzysztof Kozlowski wrote:
->>>> On Tue, Sep 09, 2025 at 09:39:11PM +0800, Luo Jie wrote:
->>>>> The Networking Subsystem (NSS) clock controller acts as both a clock
->>>>> provider and an interconnect provider. The #interconnect-cells property
->>>>> is mandatory in the Device Tree Source (DTS) to ensure that client
->>>>> drivers, such as the PPE driver, can correctly acquire ICC clocks from
->>>>> the NSS ICC provider.
->>>>>
->>>>> Although this property is already present in the NSS CC node of the DTS
->>>>> for CMN PLL for IPQ9574 SoC which is currently supported, it was previously
->>>>> omitted from the list of required properties in the bindings documentation.
->>>>> Adding this as a required property is not expected to break the ABI for
->>>>> currently supported SoC.
->>>>>
->>>>> Marking #interconnect-cells as required to comply with Device Tree (DT)
->>>>> binding requirements for interconnect providers.
->>>>
->>>> DT bindings do not require interconnect-cells, so that's not a correct
->>>> reason. Drop them from required properties.
->>>
->>> "Mark #interconnect-cells as required to allow consuming the provided
->>> interconnect endpoints"?
->>
->> "which are in turn necessary for the SoC to function"
-> 
-> If this never worked and code was buggy, never booted, was sent
-> incomplete and in junk state, then sure. Say like that. :)
-> 
-> But I have a feeling code was working okayish...
+Print full device node name with %pOF format, so the code will be a bit
+simpler.
 
-If Linux is unaware of resources, it can't turn them off/on, so it was
-only working courtesy of the previous boot stages messing with them.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ drivers/pinctrl/sprd/pinctrl-sprd.c      | 9 +++------
+ drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c | 7 +++----
+ 2 files changed, 6 insertions(+), 10 deletions(-)
 
-Konrad
+diff --git a/drivers/pinctrl/sprd/pinctrl-sprd.c b/drivers/pinctrl/sprd/pinctrl-sprd.c
+index c4a1d99dfed0..16cf9d15f247 100644
+--- a/drivers/pinctrl/sprd/pinctrl-sprd.c
++++ b/drivers/pinctrl/sprd/pinctrl-sprd.c
+@@ -258,8 +258,7 @@ static int sprd_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 
+ 	grp = sprd_pinctrl_find_group_by_name(pctl, np->name);
+ 	if (!grp) {
+-		dev_err(pctl->dev, "unable to find group for node %s\n",
+-			of_node_full_name(np));
++		dev_err(pctl->dev, "unable to find group for node %pOF\n", np);
+ 		return -EINVAL;
+ 	}
+ 
+@@ -276,16 +275,14 @@ static int sprd_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 	if (ret < 0) {
+ 		if (ret != -EINVAL)
+ 			dev_err(pctl->dev,
+-				"%s: could not parse property function\n",
+-				of_node_full_name(np));
++				"%pOF: could not parse property function\n", np);
+ 		function = NULL;
+ 	}
+ 
+ 	ret = pinconf_generic_parse_dt_config(np, pctldev, &configs,
+ 					      &num_configs);
+ 	if (ret < 0) {
+-		dev_err(pctl->dev, "%s: could not parse node property\n",
+-			of_node_full_name(np));
++		dev_err(pctl->dev, "%pOF: could not parse node property\n", np);
+ 		return ret;
+ 	}
+ 
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
+index 5f13315ebff3..50a16f3bd131 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
+@@ -274,8 +274,7 @@ static void fill_pin_function(struct device *dev, struct device_node *node,
+ 			if (!strcmp(pins[pin].pin.name, name))
+ 				break;
+ 		if (pin == npins) {
+-			dev_warn(dev, "%s: cannot find pin %s\n",
+-				 of_node_full_name(node), name);
++			dev_warn(dev, "%pOF: cannot find pin %s\n", node, name);
+ 			index++;
+ 			continue;
+ 		}
+@@ -283,8 +282,8 @@ static void fill_pin_function(struct device *dev, struct device_node *node,
+ 		/* Read the associated mux value. */
+ 		muxval = sunxi_pinctrl_dt_read_pinmux(node, index);
+ 		if (muxval == INVALID_MUX) {
+-			dev_warn(dev, "%s: invalid mux value for pin %s\n",
+-				 of_node_full_name(node), name);
++			dev_warn(dev, "%pOF: invalid mux value for pin %s\n",
++				 node, name);
+ 			index++;
+ 			continue;
+ 		}
+-- 
+2.48.1
+
 
