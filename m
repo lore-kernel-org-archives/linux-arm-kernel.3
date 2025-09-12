@@ -4,73 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6EC4CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 16:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0BFCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 16:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVGOKR1fh/W7NC1PJLVeO15M5+A5gS3m+PUWm8OF9Kc=; b=QacHHuh/GAM6sRgG0aoGehak0S
-	tm5onuTAZkz0y6/kbIXb+I/fwZT5oZQ8mvojrWkhju1Oet1zFZ3i/mbjr4rgZf7ztcJKL0ad0+nfB
-	9LbcAypsqjSmuD4aOiDIx8IuFlfwsZ5b5Fe/6JpnXDee+U/mDnc71grX6zWkzdOZICbj0is+kDKd2
-	vHMcx+4cnpTruch3GIh9QNbXmuezGVQEccDIRtoikl8elghulOFP2ALhTV6+413l2KXuAa3fO7Fnx
-	N58Kvjx4zggCQRr2zpwvvT+7rCkb5ctlJQaJ4Faw3IEtmIMiso3ymplNpQvNfdzw7DE2Qk5op0bfY
-	teVyaeRA==;
+	bh=R4JxbJXmsJnBHi7LZ9Rfjzpo472X5OUsxK080cM8h2w=; b=Uz23Uwq8/5WLlV5t2Zt9H7kz8j
+	0Ps0xskaSY1lncMSfpnojpK75OCniBf8oVeUDp0VCcjgGPvjoiiaHwItOoWbenzYKRqXjCqIum0L+
+	PuVhya5f/Oj0Vp5r9pCeKwHycVmVozW0ElM3swfTIpr3xNzvzWbXwbFux6LSKmwJZF4cFykQv3TWj
+	/mFxEmL8lCNapQf/6MCn5Q4f0zHE7ewncVXKGitZj2r18TrYu/+EBSxismaCovcn58S/fQI3iQ2od
+	Rccgr6/YETafhHd30BWk0ITzuPgj8teDXUUNSqOA9EZSch7aUZYbchEMD/1Bo/ruKG+c4+a9huDb3
+	59lO8Lww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux6y9-0000000AcOC-3beh;
-	Fri, 12 Sep 2025 16:49:53 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1ux728-0000000Adap-3s6O;
+	Fri, 12 Sep 2025 16:54:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux6y7-0000000AcMa-2ETm
+	id 1ux726-0000000AdZm-2WNQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 16:49:52 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1ux6xz-0004dA-7V; Fri, 12 Sep 2025 18:49:43 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1ux6xy-000xpe-2y;
-	Fri, 12 Sep 2025 18:49:42 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1ux6xy-0033g6-2a;
-	Fri, 12 Sep 2025 18:49:42 +0200
-Date: Fri, 12 Sep 2025 18:49:42 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Fri, 12 Sep 2025 16:53:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4710843C97;
+	Fri, 12 Sep 2025 16:53:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D870C4CEF1;
+	Fri, 12 Sep 2025 16:53:55 +0000 (UTC)
+Date: Fri, 12 Sep 2025 17:53:53 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: will@kernel.org, broonie@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
+	ardb@kernel.org, scott@os.amperecomputing.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 08/10] dmaengine: imx-sdma: make use of
- devm_add_action_or_reset to unregiser the dma_device
-Message-ID: <20250912164942.p7w2p63wvracosra@pengutronix.de>
-References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
- <20250911-v6-16-topic-sdma-v2-8-d315f56343b5@pengutronix.de>
- <aMQy+Ocs+UWq7WoR@lizhi-Precision-Tower-5810>
- <20250912152508.ccxk2qpcmhxjjsns@pengutronix.de>
- <aMRMWfwcAnkF7wwn@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH RESEND v7 4/6] arm64: futex: refactor futex atomic
+ operation
+Message-ID: <aMRQIeIdyiWVR8a0@arm.com>
+References: <20250816151929.197589-1-yeoreum.yun@arm.com>
+ <20250816151929.197589-5-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aMRMWfwcAnkF7wwn@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20250816151929.197589-5-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_094951_596282_78956B6C 
-X-CRM114-Status: GOOD (  36.19  )
+X-CRM114-CacheID: sfid-20250912_095358_661962_A476D7D0 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,122 +67,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-09-12, Frank Li wrote:
-> On Fri, Sep 12, 2025 at 05:25:08PM +0200, Marco Felsch wrote:
-> > On 25-09-12, Frank Li wrote:
-> > > On Thu, Sep 11, 2025 at 11:56:49PM +0200, Marco Felsch wrote:
-> > > > Make use of the devm_add_action_or_reset() to register a custom devm_
-> > > > release hook. This is required to turn off the IRQs before calling
-> > > > dma_async_device_unregister().
-> > > >
-> > > > Furthermore it removes the last goto error handling within probe() and
-> > > > trims the remove().
-> > > >
-> > > > Make use of disable_irq() and let the devm-irq do the job to free the
-> > > > IRQ, because the only purpose of using devm_free_irq() was to disable
-> > > > the IRQ before calling dma_async_device_unregister().
-> > > >
-> > > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > > > ---
-> > > >  drivers/dma/imx-sdma.c | 23 +++++++++++++++--------
-> > > >  1 file changed, 15 insertions(+), 8 deletions(-)
-> > > >
-> > > > diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-> > > > index d39589c20c4b2a26d0239feb86cce8d5a0f5acdd..d6d0d4300f540268a3ab4a6b14af685f7b93275a 100644
-> > > > --- a/drivers/dma/imx-sdma.c
-> > > > +++ b/drivers/dma/imx-sdma.c
-> > > > @@ -2264,6 +2264,14 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
-> > > >  				     ofdma->of_node);
-> > > >  }
-> > > >
-> > > > +static void sdma_dma_device_unregister_action(void *data)
-> > > > +{
-> > > > +	struct sdma_engine *sdma = data;
-> > > > +
-> > > > +	disable_irq(sdma->irq);
-> > >
-> > > May not related this cleanup patch, I am just curious why not mask sdma irq
-> > > request.
-> >
-> > You mean by setting irq_set_status_flags(irq, IRQ_DISABLE_UNLAZY)
-> > infront? Not sure if this is required since this is just the cleanup
-> > path.
+On Sat, Aug 16, 2025 at 04:19:27PM +0100, Yeoreum Yun wrote:
+> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
+> index bc06691d2062..ab7003cb4724 100644
+> --- a/arch/arm64/include/asm/futex.h
+> +++ b/arch/arm64/include/asm/futex.h
+> @@ -7,17 +7,21 @@
 > 
-> It is not important for this patch.
+>  #include <linux/futex.h>
+>  #include <linux/uaccess.h>
+> +#include <linux/stringify.h>
 > 
-> >
-> > > > +	dma_async_device_unregister(&sdma->dma_device);
-> > > > +}
-> > > > +
-> > > >  static int sdma_probe(struct platform_device *pdev)
-> > > >  {
-> > > >  	struct device *dev = &pdev->dev;
-> > > > @@ -2388,10 +2396,16 @@ static int sdma_probe(struct platform_device *pdev)
-> > > >  		return ret;
-> > > >  	}
-> > > >
-> > > > +	ret = devm_add_action_or_reset(dev, sdma_dma_device_unregister_action, sdma);
-> > > > +	if (ret) {
-> > > > +		dev_err(dev, "Unable to register release hook\n");
-> > > > +		return ret;
-> > > > +	}
-> > >
-> > > why not use dev_err_probe() her?
-> >
-> > Please see my last patch.
+>  #include <asm/errno.h>
 > 
-> You can direct use dev_err_probe() here, instead replace all in last one.
+> -#define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
+> +#define LLSC_MAX_LOOPS	128 /* What's the largest number you can think of? */
 
-I get your point and yes I could do this, but I have to do the last
-patch anyway. Therefore I'm not sure what difference this makes for this
-series.
+I just noticed - you might as well leave the name as is here, especially
+if in patch 6 you align down address and use CAS on a 64-bit value as
+per Will's comment (and it's no longer LLSC). I think renaming this is
+unnecessary.
 
-> 
-> Frank
-> 
-> >
-> > Regards,
-> >   Marco
-> >
-> > >
-> > > > +
-> > > >  	ret = of_dma_controller_register(np, sdma_xlate, sdma);
-> > > >  	if (ret) {
-> > > >  		dev_err(dev, "failed to register controller\n");
-> > > > -		goto err_register;
-> > > > +		return ret;
-> > >
-> > > the same here.
-> > >
-> > > Frank
-> > > >  	}
-> > > >
-> > > >  	/*
-> > > > @@ -2410,11 +2424,6 @@ static int sdma_probe(struct platform_device *pdev)
-> > > >  	}
-> > > >
-> > > >  	return 0;
-> > > > -
-> > > > -err_register:
-> > > > -	dma_async_device_unregister(&sdma->dma_device);
-> > > > -
-> > > > -	return ret;
-> > > >  }
-> > > >
-> > > >  static void sdma_remove(struct platform_device *pdev)
-> > > > @@ -2423,8 +2432,6 @@ static void sdma_remove(struct platform_device *pdev)
-> > > >  	int i;
-> > > >
-> > > >  	of_dma_controller_free(sdma->dev->of_node);
-> > > > -	devm_free_irq(&pdev->dev, sdma->irq, sdma);
-> > > > -	dma_async_device_unregister(&sdma->dma_device);
-> > > >  	/* Kill the tasklet */
-> > > >  	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
-> > > >  		struct sdma_channel *sdmac = &sdma->channel[i];
-> > > >
-> > > > --
-> > > > 2.47.3
-> > > >
-> > >
-> 
+-- 
+Catalin
 
