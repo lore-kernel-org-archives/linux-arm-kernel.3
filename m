@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FE6CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 18:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92867CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 18:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oV/3Pz7Wzm8ZwlFU3fSYfBzlnE9jSVU2V5jX/R2UlXw=; b=hgCuucvCqqjKibWfc6CQdIHQHF
-	3TQcs9MW/Ko7Yo65yHhv0b/oWxAWX0YQJENiNN5LsEANaFqWxkQVagqcxD28p6MQasTFT4pwm7g6n
-	QYSSnRFIPpQdVXAj7I1PcHCtYcp+oVUIIGXm7u3Bq/V8nf0qEjdngKKblp6jRlqC1QpUjs7Uwr8Nr
-	OMPxa3YnPgFIF/+FH8nVmMHg+0DxSfzEi1K3e8e9Vu/Ee0CfIiM5qQH/Q0Fn8VHMKR6T3f0A63nGu
-	cW2khL57BSyz5pilylKmvJkZRu/EstvuVXoVH8sOtEMUTxauk4L4xDocuQwUadkypG7mQnbaZWbFk
-	N98mVCbw==;
+	bh=Jgluz1VB/1G/DYBTfp7Su1oyZjWlvzq3TKFpkBLruI4=; b=L9jXxTp83qXSYmUGAABWdPMu+c
+	3xOZWI6zzzESpHBdqr/edvL5mU0c7v2dqejG57FEGfCrbdsU5xxkEN3JGmKic1Tt7sW89VzhhGI7f
+	unsPm4D7EJRmPVHAAkRJ6VSFftgcskX2YLaQIYtu+OwAk9FBzwR0TM8ZxV+vEMGbcAtm6MPHwzA1Q
+	/OA7oMwHxLYLKp/CmcjOrYBkqWwYVD5JduUSPMh2vORwDUVitay+nP5arv56Vr7MhoRa/axl+zSkp
+	UJQlU8+2P3aPCfAlsFpzzuRE5MiUYaEhgWEWduRrmy4bCht6ukyntSzr4zdkb3+Z/3/7Ncx7T3Y6c
+	pNew7rkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8fu-0000000B3MZ-0p7z;
-	Fri, 12 Sep 2025 18:39:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ux8qX-0000000B61r-3BAJ;
+	Fri, 12 Sep 2025 18:50:09 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8ft-0000000B3L3-37X1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 12 Sep 2025 18:39:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=oV/3Pz7Wzm8ZwlFU3fSYfBzlnE9jSVU2V5jX/R2UlXw=; b=lpEOVf2JswI+dI4GpbeaT7Awru
-	PtPPi+k4JdxlLuMq5wNormgHukRdm0hbEPqa/K+X5W7Wp2gfqPgLBhzzwDnlkIobja3i1D+gIP6D1
-	c/QLCW9xj/n0lChT5ME1/0PmRoQEHOD5gQ1CsiNfgdQk89omLTYf4l9iVextAS9NBZoNUckLy9lj9
-	J738zySPeGwUVHLiuTw4P/uoL4XdhCZkt/Po6CvM7M2P9i+ypJcQs0RTlidhaa+2MbNSO6+wUCCjo
-	NH+ed5MIAxzcSLKMqmRHOI3wjTFbL1nUl/tylpRnLt1S3/YwGxoV7pcaoHOPyCCh3dXSuceTju4VR
-	utVAEk0Q==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8fq-00000006PXY-24Yo
+	id 1ux8qU-0000000B61O-2mKn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 18:39:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8409544C2D;
-	Fri, 12 Sep 2025 18:39:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8D7AC4CEF1;
-	Fri, 12 Sep 2025 18:39:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757702343;
-	bh=YEEaCZO5aN1y/1zb1AbHYkqAatzlAvFXSfhR1nYo2v4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sBh+Slp03NFbbnGWPogR3V+Y6ccKy1YKEh+TT890SB1Mi6o6VrykNOSey1A0LF35R
-	 35uabzq+f2zPB7r8tnlKVkaE6LiimTlE9u0To0ck5X/ji5r7mEhsPmsovQUctfyI52
-	 IeEjoSxvHPAfY8wDD/vmWIr87II2awQiwlYVjbvhIYjVbeJ3VGDbyhxcndAgVOZ9xz
-	 npEX0gRRaGFOlWCN9JEPASOm3jrclSOe4XF38YKFku5XNh8BvpXbgfDUCxIfg8AT4b
-	 7iLLlKi4JZJY2RwgPzQjbw6LL2ksJSwBfSuLNW4Sm0sUq3s9HCviazZ8AaKZ8y12+I
-	 tmT+ot12r7N5w==
-Date: Fri, 12 Sep 2025 15:39:00 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Yunseong Kim <ysk@kzalloc.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] perf: arm64: Sync ESR_ELx_EC_* macros in
- arm64_exception_types.h with esr.h
-Message-ID: <aMRoxL9Zok_pGZ8u@x1>
-References: <20250822145855.53071-2-ysk@kzalloc.com>
- <20250829132434.GI745921@e132581.arm.com>
+	Fri, 12 Sep 2025 18:50:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1757702987; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=MMStU+3hRtzkLorSu8cvhj4yj9QKVpW2KU9+rsL9jBT5Moof9YaOUbirSYeUkrghwp/a1hkQLMuTeonRBEN8NBKAGE49gePu8sZCHHfA4XCbnAEryr0NfjpLRoTVekNkGRH1m/LD5p6nnpZ1E8tYDvgSHl4h5FhVoemmVsFA96c=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1757702987; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Jgluz1VB/1G/DYBTfp7Su1oyZjWlvzq3TKFpkBLruI4=; 
+	b=EYCCAVE8Ab3G8NQ426QKbnwxGKRv15FuBpSAWhzZLkuuNqhsiQiKzXitaK57+GL5tWdsIv+AOhloG/OWpyknYxowmsk8duOTrqYSmxX9VoagJ/bnqesTMUA6Y1oWa0s3bGEg4iso4ST76BlrcOvqP8mgCgiXkcdve4NIVBjahr0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757702987;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=Jgluz1VB/1G/DYBTfp7Su1oyZjWlvzq3TKFpkBLruI4=;
+	b=UA9KyE9azmnLUmH9Qs86R/QKJcGr7uEhTtfLYk93StOiilKYy63S+sO12DWsWm6P
+	Ftc6S5o0hrpM1vB51UgiByP+yAaxIBHbIkTqCjQDgmC8b2U5J/M0ushryPcwzrrB+Vz
+	Ks8rmtfLWnMlVtLsw3+M79+fRHMkXDaooFTRhJWg=
+Received: by mx.zohomail.com with SMTPS id 1757702984518937.115502131544;
+	Fri, 12 Sep 2025 11:49:44 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+ Saravana Kannan <saravanak@google.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org,
+ Stephen Boyd <sboyd@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Sebin Francis <sebin.francis@ti.com>,
+ Diederik de Haas <didi.debian@cknow.org>,
+ Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abel.vesa@linaro.org>,
+ Peng Fan <peng.fan@oss.nxp.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>,
+ Michal Simek <michal.simek@amd.com>, Konrad Dybcio <konradybcio@kernel.org>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/5] pmdomain: Restore behaviour for disabling unused PM domains
+Date: Fri, 12 Sep 2025 20:49:37 +0200
+Message-ID: <3919643.KlZ2vcFHjT@workhorse>
+In-Reply-To: <CAGETcx9W5MXyHA2r1kDh9=WJiQWLF1xdPaSCH=jXYeAHqQW60w@mail.gmail.com>
+References: <20250909111130.132976-1-ulf.hansson@linaro.org>
+ <CAGETcx9W5MXyHA2r1kDh9=WJiQWLF1xdPaSCH=jXYeAHqQW60w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250829132434.GI745921@e132581.arm.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_193906_745404_942F3607 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250912_115006_775300_D6367A5D 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,21 +90,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 02:24:34PM +0100, Leo Yan wrote:
-> On Fri, Aug 22, 2025 at 11:58:56PM +0900, Yunseong Kim wrote:
-> > Update perf util arm64_exception_types.h to match the exception class
-> > macros defined in tools/arch/arm64/include/asm/esr.h. This ensures
-> > consistency between perf tooling and the kernel header definitions for
-> > ESR_ELx_EC_* values.
-> > 
-> > In v2, ESR_ELx_EC_OTHER and ESR_ELx_EC_GCS, which were missing in v1, were
-> > included.
-> > 
-> > Signed-off-by: Yunseong Kim <ysk@kzalloc.com>
-> 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+On Friday, 12 September 2025 20:36:35 Central European Summer Time Saravana=
+ Kannan wrote:
+> On Tue, Sep 9, 2025 at 4:11=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.or=
+g> wrote:
+> >
+> > Recent changes to genpd prevents those PM domains being powered-on duri=
+ng
+> > initialization from being powered-off during the boot sequence. Based u=
+pon
+> > whether CONFIG_PM_CONFIG_PM_GENERIC_DOMAINS_OF is set of not, genpd rel=
+ies
+> > on the sync_state mechanism or the genpd_power_off_unused() (which is a
+> > late_initcall_sync), to understand when it's okay to allow these PM dom=
+ains
+> > to be powered-off.
+> >
+> > This new behaviour in genpd has lead to problems on different platforms=
+ [1].
+> >
+> > In this series, I am therefore suggesting to restore the behavior of
+> > genpd_power_off_unused() along with introducing a new genpd config flag,
+> > GENPD_FLAG_NO_STAY_ON, to allow genpd OF providers to opt-out from the =
+new
+> > behaviour.
+> >
+> > Kind regards
+> > Ulf Hansson
+> >
+> > [1]
+> > https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.=
+org/
+> > https://lore.kernel.org/all/20250902-rk3576-lockup-regression-v1-1-c4a0=
+c9daeb00@collabora.com/
+>=20
+> I'm surprised this is happening. The default behavior of sync_state()
+> is to never turn off a power domain until all the consumers have
+> probed.
+>=20
+> Is there a consumer that's not captured correctly? If so, can we add them?
 
-Thanks, applied to perf-tools-next,
+Yes, and unfortunately, not trivially so, no. In Rockchip's case, the
+regulators supplying a certain power domain cannot be acquired at
+pmdomain probe time, as the regulators themselves are sometimes
+SPI or I2C regulators that depend on powerdomains to be up.
 
-- Arnaldo
+So we only acquire them when the power domain is enabled, which does
+not happen for unused PDs. Acquiring them during PD disable also
+wouldn't work, as the genpd idle check may run after the regulator
+idle check.
+
+>=20
+> Also, there are already sync_state related kernel configs, command
+> line options and sysfs files that should allow people to power off
+> devices (at different levels of granularity) even if its consumers
+> haven't probed.
+
+This series is a stop-gap solution to get us through v6.17, so that
+problematic drivers like Rockchip pmdomains can be rearchitectured
+to declare their dependency in some way that is not racey. This
+will be somewhat non-trivial, hence the current solution for now.
+
+>=20
+> Thanks,
+> Saravana
+>=20
+
+Kind regards,
+Nicolas Frattaroli
+
+> >
+> > Ulf Hansson (5):
+> >   pmdomain: core: Restore behaviour for disabling unused PM domains
+> >   pmdomain: rockchip: Fix regulator dependency with
+> >     GENPD_FLAG_NO_STAY_ON
+> >   pmdomain: renesas: rcar-sysc: Don't keep unused PM domains powered-on
+> >   pmdomain: renesas: rcar-gen4-sysc: Don't keep unused PM domains
+> >     powered-on
+> >   pmdomain: renesas: rmobile-sysc: Don't keep unused PM domains
+> >     powered-on
+> >
+> >  drivers/pmdomain/core.c                   | 20 ++++++++++++++------
+> >  drivers/pmdomain/renesas/rcar-gen4-sysc.c |  1 +
+> >  drivers/pmdomain/renesas/rcar-sysc.c      |  1 +
+> >  drivers/pmdomain/renesas/rmobile-sysc.c   |  3 ++-
+> >  drivers/pmdomain/rockchip/pm-domains.c    |  2 +-
+> >  include/linux/pm_domain.h                 |  7 +++++++
+> >  6 files changed, 26 insertions(+), 8 deletions(-)
+> >
+> > --
+> > 2.43.0
+> >
+>=20
+
+
+
+
 
