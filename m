@@ -4,155 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B929CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 06:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF079CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 07:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kMmVaqs6yb14ZNsWywBqOF/jZ3k8gC+AeqRjCuP1xn0=; b=RdS8zicqfVLtrM6qEtOYy1dwL/
-	ghUBzwxEjTiR06o7faLbCliYpjG8jLQt5iJ+/qZzyzDgFKAEiKQ9QNWHpiMrRlI6I58Hc87GCrgc/
-	aGwST4b+em1cmXNwYEsfJFFlgT7fmvdEkkcq37Ij+2DkT5GTYCqCj5BPAodFSo4EO3ae7Z9ah+cAu
-	KS+ZOya05Pi09beonkPPHITk7s5dgo/WAFzTe00pAff5tgapTjIiv0dxyVdGgopzzprQImaUdd/fm
-	0lEJ9e4Q+ju6J/FNhfYRZm83a3FZdv8aBjJFZ5pmXiBUMZWTJdWc1kFLxCqsbOytZG/ZPrGmUgaal
-	iI25QWWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YaWj+Wtj/24uprPfhMzjPFyopaRjb/i1iqDzvUVq8gE=; b=NbWThNRf0fcbVs8wOCyiuxras2
+	q/xYoxWuI69Fxz2woEfwN6Ufvob1OAfpy8kjP6JKjW7iaHSR+HReZxMZCM4G/gShfHUyRZ0/JDQWv
+	9tnuvqGBg7X0dIGZOK3A19r522oTLWSVB/6HKSHiFtRB7iTC9Amv46E47Ldp4AEfhD89Cap0x2W4z
+	pqW2VJIG7xZbewbOvOfF8o9rP7R1IWeNr5dhlaWHkN02UkU43fHgxpanpliwWgK6TiaEXVxcgzVVn
+	EA9qMdhicB2lFrLk6j/zUhglJBv/GKtxaLjh1ywJ4Jroql1COdwOvHqAhycxlR0clw2ubxEoEESPp
+	OWgvf7GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwxRE-00000007RdZ-0CTM;
-	Fri, 12 Sep 2025 06:39:16 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uwxnD-00000007Wve-0agu;
+	Fri, 12 Sep 2025 07:01:59 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwxRA-00000007RbY-3bDL
+	id 1uwxn9-00000007Ws9-2upM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 06:39:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S2D5Oi43HopUC/sCK+6JXifQbg13ydPrGZq36Ch1PWSJtCHjeX868vo0qFzHXUN4aJ6/7nngf0a54t4SBopznHryFZpMXbvfg6l2lUEESrg2SMM9jTLi3+j13eaaWFYTvqupPGip2qlN5hB41xOVneDbzCptryPtp2Qo9lK3PMJpRy5bVlZLigw/DNnUXUxaaaDrz8D0bgjc9M1k/xgChYR2rAl6WFOq8CI4Y64xb2FjsOsE8kduldJoITL9WiZOOvVkfYvdGQXauAQjDl7J5ES5rNXVeeMnKB4/cceVXKp59lHvqCK2QgPDG2X7qStjTi+QSbdB3tjR76yxo9s1Uw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kMmVaqs6yb14ZNsWywBqOF/jZ3k8gC+AeqRjCuP1xn0=;
- b=ZOXXIREdAwpUCpG06U9ddQcexU/zkmWgWLU21a6RgNxQn/BgFq/O7vfcB6iw2+QVchjSFnLiAY7ZqIToqpdE8nli/UyBZbxgbnIM1Wq8T9chJYjJqVS/W5f+DrxgL/galTh6NiPk7bzRwidQ6J7sXh+sGBiPpctdadGWS4jV6R6JocTHyAeezcvXa/J22W9HSp2hfZu+lvjylCPpahliimCmRfFB1PzNJtS9fTxkV8xvfo5+RUVJccAno5E9/yblXOMoPMKasFSm0rnWmkT12w+aTX2bdFVggxd+UTa09AJqI8cvER9Bf2OpSsq+KYZP7tEZXIK+QqAbV8dy5K8JnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kMmVaqs6yb14ZNsWywBqOF/jZ3k8gC+AeqRjCuP1xn0=;
- b=VP1cqlVMQ7HjE8QzjoecmOJzm3jiLtFHCgkO9zVbtYL7zbgx/j/vxn2a5b1p5O0o+gd8ghVKFbQysCV5QvoM+ufnDvRgBf5wXs5CebLPJ+1LR/1jazxSd+fPcX27B9Z4OD8mWxAgLA4/Dxaz1S1S5GZmM5KDxJyfJBEYu2yg+aEeyg5YwNh24toqRprgPAQMBbhVPy/UHQJibofdfPKi6bPRTlRBsoGYRMT8XjWwRIWbmoAfQXnyVqjbXjinpm4vnVt4027GwwpJUwrCdNnshtmW+ps72udhFumazJMaq7L+TO/jVav9A7gfiBL0avXkf2lKjXC9EPQUkssHPJDhhw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PAXPR04MB8366.eurprd04.prod.outlook.com (2603:10a6:102:1be::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.17; Fri, 12 Sep
- 2025 06:39:04 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9115.010; Fri, 12 Sep 2025
- 06:39:04 +0000
-Date: Fri, 12 Sep 2025 15:50:32 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] firmware: imx: sm-misc: Dump syslog info
-Message-ID: <20250912075032.GB27864@nxa18884-linux.ap.freescale.net>
-References: <20250910-sm-syslog-v1-0-5b36f8f21da6@nxp.com>
- <20250910-sm-syslog-v1-2-5b36f8f21da6@nxp.com>
- <aMGYUALGv283tnV7@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aMGYUALGv283tnV7@lizhi-Precision-Tower-5810>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI1PR02CA0048.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::11) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 12 Sep 2025 07:01:57 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3db9641b725so1303315f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 00:01:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757660513; x=1758265313; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=YaWj+Wtj/24uprPfhMzjPFyopaRjb/i1iqDzvUVq8gE=;
+        b=HtW+rGb6rwiy9Bw0sfDLs+OlG5Tt6gHrk7NEAG+hcVsWwPFqsKI58h/7T8mk2pAxNf
+         0YweUp1ccf69ULWd8LxDqTzogEluzl/GG0wQFlfaeDKAsCwrLG0vrXWvscioBThdDnGx
+         WW50/BqRKo0E6bub63BrfvNOTCtt0YuLpjbx+wC2itb3iCt31MWG/xEet7CmyN3hh7Zu
+         Kb0x1lkRY63Socms/9b8r6AAoGArb1bF4H1xdMVLZIpt2aFrWpV/Ic9Raqs3odVWe2v1
+         IQebuD0QCQ04TcQ2psJJniKBcwYTr702b0YE6rrQgBFE9KV/9b9uPYDBMxGTGAp3B5JU
+         uUuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757660513; x=1758265313;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YaWj+Wtj/24uprPfhMzjPFyopaRjb/i1iqDzvUVq8gE=;
+        b=sH8NqCoGcTH/SzcTyYh+NzVmwLq1h3tjYEbRMPDtwfoYGp+8FSw+sUpnPpIW9kEd/u
+         3LLG1XyQnUav59Ni/N5omjMpKgCOyYs1vOlomef8+uqenIZGeX2qUlYeoQJpQx4ILDGZ
+         f4SwaDP43j0rk5msQToUbo/RpE7Agj7wV/H03pcRz1oilUxha+1DrrFNFF8CXgwUv9Ev
+         wWHfOyDllxWX0MTTfoiiqzVr175roFtnE9SdsipTOFF8iE/TNa2bzX7W+cBO36WfnuGD
+         9YaLdPnr3AkYD8Z7yCStpFt2Q+KApxiVoI99y0Dgluny5d4EF5SPTMgdDhDDGl9Q5PHe
+         BUrA==
+X-Forwarded-Encrypted: i=1; AJvYcCUSMI/lOdbhnbViPaKL3sd6V4KogZFUd4BOWwlzKcXft+NS7HaDd+DAqAN4EwgSKVxixPi95tSWocCgSD0GXw5i@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpBlVRbHNOIl0LGpHM0OxPslkejaVc3bDfmJ7oZ037uM1gsJ5i
+	X8uQBue6Caz6LGd3Z17r00wwEto8Y+F1cYvOMGKt95Auh0roip+0MCBe
+X-Gm-Gg: ASbGncuEte+NQADRK/VKUWEjHt6Qy2hcG00Lu7ucsfC6HEkBeG/LFsWEzV9fZnrmsqX
+	dSGmsXSAWZrH4hOMa2bgsNF5yk7L+0E46vyo31sxFZF2B683LlQpYXNwB5QoyE51/zEcZuRWkMq
+	wAj3OQ57Tmm0Y/XJLt/WkTL+DBmUD4ZFPrGPZlh8l+oWonkKuFT4nI+EBm/K153hGiy4xuXG9wR
+	mn6cWEmppaakfgtYclHz+MJuQekqDxCTy6k6v7iJcTLTR4vmOfHTfWGNLQ4W2F0vRT10ic8TIEp
+	iJEKeGRKFeUxF+jS1H+idaGeyzEX8XZ0T05unD/qSZ4IDnCvZLAJCpyqd1YBHOr6wpBRR8IvPRT
+	vCvoF2aZrLRiDp82Wr0iRnF3sO7tyVlM=
+X-Google-Smtp-Source: AGHT+IEOlpS//jr2i1NsakDvG6pEzwnvWvf80bQZB97SnNY1RtBItPkLSDjlNWiHmg/Wj/paRb2sRQ==
+X-Received: by 2002:a05:6000:2407:b0:3ce:9872:fd3 with SMTP id ffacd0b85a97d-3e765a2dd81mr1373225f8f.34.1757660513106;
+        Fri, 12 Sep 2025 00:01:53 -0700 (PDT)
+Received: from [192.168.2.177] ([91.116.220.47])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e015775f1sm54638945e9.8.2025.09.12.00.01.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Sep 2025 00:01:52 -0700 (PDT)
+Message-ID: <6f60bb97-86fc-4cda-a373-a991547bbd77@gmail.com>
+Date: Fri, 12 Sep 2025 09:01:49 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8366:EE_
-X-MS-Office365-Filtering-Correlation-Id: ba4b7226-746e-4a1c-101e-08ddf1c710aa
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Y64q4Q3pGfYURi6YidKgspa96DpQ9qip3Qd4bTVyqtuWWCcIoEBY8tcUf+E6?=
- =?us-ascii?Q?FHVlhsyY4gwMGEnG4D8ZDev51q8tdjsrT7pa7Nu1vOFk6D8KOeigB97oxT65?=
- =?us-ascii?Q?gxmZnkxExyUmy49SvzDJu8zdtRPWe+aVC2nWJlo22thGX+2RQpkTzAogD6FE?=
- =?us-ascii?Q?YMM9+D2DjwZajpH7ivJZCDe6Qo49KePOg6Z7ZPnYA6en36fOpDYiP2GOOG43?=
- =?us-ascii?Q?/gu2hCeThtw7mXI6s43D4mKyvgj466X9eQP5Ie+cjyp8NXA4xBm42QY7nIdY?=
- =?us-ascii?Q?N+1v6pcy4uwgpeloWWEnuURTPDd0BHhD0A0VIQniUwNiw9b3OZo+gKeaOZnh?=
- =?us-ascii?Q?Z7T+NMf9z/ocwUWh5Y3KpyMclQiTPTrfVYPgT0eMxhZDBKEofF87rFr/wAng?=
- =?us-ascii?Q?Gy8yTVx7828r9YStQBKoN1IlzC5Ja6JQf8JCoQJNvRciM7C44LW67TbHJvi0?=
- =?us-ascii?Q?MZyC03mUEx/MPzVVNWRI6ECaTQc8CCeActOg9WS6TwaoWplyHWsQKCKXY3aO?=
- =?us-ascii?Q?N6aadBVbOyTExbiVVeyRWQvh+3slFy6wnNHDXJBfSB/QYoe21YKj8yx9DvCa?=
- =?us-ascii?Q?WrU6p7J6ZW9LyeLg7OzlNuSiwScvlka6aQSPszHD2KWVxiA5ji2R0LPJtT/s?=
- =?us-ascii?Q?BMeQa/v43W/DOej8bRTTRphLjitDzJ5HgbppNH7YToWoT3RrIfhfARExTUDv?=
- =?us-ascii?Q?yYZ+D4KN+AUs9JC73TwkvifaFiorO9Xafs5QbGTOVXfmJotX4cXymsmhB3g6?=
- =?us-ascii?Q?sKKLWHrxgxhbb2mysVoKieEtvVkNNnSYy3q2OTyDOcsm0GmIDfcEMNRIOMvb?=
- =?us-ascii?Q?GS2tQnaiffxZ7EIrIt2Q1ChQb7vU4wqzGYJo0wvSYrv3jLRu3LEziIu/DN+P?=
- =?us-ascii?Q?aZScJp4xbrqJlQ4uzMnoZFqHTshhjYzJnGT9TJ/sfEInJLrJWZjrrAY02A3h?=
- =?us-ascii?Q?m1rSHoGpfn5Ifzk9bJYX0crKe88TVPzEhNKEeO03UL09lcQp7jb7SlB2BKCh?=
- =?us-ascii?Q?8jpwSLUcBl66JmMoEOsWnaS6FbNPyG6WxpjdxY5kMz0ZMQHVEwR3gdmc6dNb?=
- =?us-ascii?Q?MVsmIEOH9C8Y8eR7v0/FViHvezJThwJlxAaBlqkfJX0NxAb0ofBxsTjDq+q7?=
- =?us-ascii?Q?nTC0ALAxtvZdrOZQ6ewpp5C7IWISHPTxHs1RSIaHpHCNrjBhX9E/Xm1xEFMc?=
- =?us-ascii?Q?gF8GkyUyUYYKjp2NtvaxRLB9MHgRiIU9qc5UpyzGExWxzRc2Rf/PEcf2qOvq?=
- =?us-ascii?Q?+o9AemZ7D2AB0kViWji5D2kPngNW+5SxKew+y07U+io4aRh37U4vp3jrUfin?=
- =?us-ascii?Q?pkaASD/YpQraIHJugRT4/YyrJHWaSE24GEN7owTpQGz9b5tBdYvv/RLiA2A5?=
- =?us-ascii?Q?u3m1t/Ub64qK7UWHxiIVlJ5/HxyPeecTXQAZOWR6MSr6PfrMvKHCDLNx0mCG?=
- =?us-ascii?Q?G3j2BS41Bf3DjAOp1boDxA4EMNhv+YZ7/gDubeaPPqfF9jGuvwALAg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?l/yhwu7MvlQyrEUPuzPymyz+/oLoEQM/CR7AicyV6HFIqjgRNzQghws9BapX?=
- =?us-ascii?Q?6nbOqtMpLeHRuUbtf/CPv4KM0DE0dybNt0TMlEnNccBzCyYW3jwxE+4emSI2?=
- =?us-ascii?Q?E5hiQqx0VZ6VpfUFATqTERUt1GgOO2p+aVdxhEyX54nrCag+LmBJUk6wXiAD?=
- =?us-ascii?Q?nMyWklKXUyoRepnNvYes/XQeiu4OnvSGKf9g6psQzdpLruiv9JWzHuyI/cmm?=
- =?us-ascii?Q?ezNNTfGp3B+RwPCQzysmL/MJfXh204e3eHedqdeDp1a/3dxJkpjLq0rP/hmP?=
- =?us-ascii?Q?l0yueRb3fddHTuH0FPlbBicLyJEbKbzMJIeWfrLIBuSieybg3u8q+sRNVKp+?=
- =?us-ascii?Q?yR6BEpLSx5F/NWFXrgvfFJ0K8m0deq/koMf5CxAUpM4uyYebBlJ2t9RsshlK?=
- =?us-ascii?Q?Ob230SzyFPmGlfybr7bnSV+dhyymxk+vNufYYA4k+gJHNtDsDmbdo23go1Rl?=
- =?us-ascii?Q?SjgmtgXE4cYXAmqNEPw+g1qDXBQuWL5vaOGx1BFr35DkLSht8irwE4lBSOk6?=
- =?us-ascii?Q?DH5x+CPMusHbtesTC3sEPiB1algvlXTurQdjqySUYM1tRCLEGhUBZ3t1L80e?=
- =?us-ascii?Q?zc8A1kCOeuwchQyF01RMqmqLxQxCgwocNNSzjLWCDT3ecciL5FeKTzg63ll/?=
- =?us-ascii?Q?XtlX8zfXaspd2SkDMioKv9j++xpu87JGHXDoY/UHJbvjRxJJZKz88qKMaW9N?=
- =?us-ascii?Q?mc57A6vbt7ywq/a8Lf9+EsnzfrVT40WT/SHKzS0WwBBLIANOpqxuAkfwJMOw?=
- =?us-ascii?Q?3t1wwBhIqxh0/hSo1j1xeflY1R/Dyewk+TXiqSe02DgVb3u8IjfPiOZDyefg?=
- =?us-ascii?Q?ss8OzXhvWLIHpRwwrQEkaAXbHLEAKWjD+5Finm8JMDVDWxaoJIww0Ubrl/Ca?=
- =?us-ascii?Q?UL2bea+7mde33itRGgciTLjV4zu+dgXYEh+Pqt0cZuUZS7/jiUZ0Kq0nkMMG?=
- =?us-ascii?Q?RvKJhBquXJvKGj5+rzb3JvNpqnlSltN2lqfxDwpr73dScI6hHyvObxPno/PH?=
- =?us-ascii?Q?uH3JaKilOSKz5FnqX80HldJV1NQBuhi3eu2Bj+74jyaBsBfRnMrNVwpY24M1?=
- =?us-ascii?Q?MlGwZisFfaaI329ABv9VvNmBLdCDtH++vwEw1xbBOPFD4zx/vBG5B2b7xpt5?=
- =?us-ascii?Q?31yRzvJMmlJJh50hgM3f9frO/kiMI3rYWMwYIT0U1w29YlA1uWVdauG055Ma?=
- =?us-ascii?Q?WpbWaLPG+FivCTeJ934smUGm5SY7Jer1yTO2iGVAKT3Ka9kquL7MJrNcr0L0?=
- =?us-ascii?Q?wM6MOdB7PqtHJNT65HtZsV4TxS3GJ8mWlX8mb+EnFEvyzHHgiXVEpxPMxorK?=
- =?us-ascii?Q?30XiyWXH+I4qk8Zl7dssXlJ5YvdOpm/S1RxJgdl3stlncVlH/w+PmGI2xcmR?=
- =?us-ascii?Q?uTU1GYm7AXktRFUS0ImQtir3Bg0FswZibp1UbGfUTCTx14a/hjWE/vo3y8se?=
- =?us-ascii?Q?FatOXXKHfOy+6R6ryxv9ndfiJRJXfRikbhPbth1M1Suv5CPlyY29zlw4JWPP?=
- =?us-ascii?Q?W7AutkxOvuygoAycsc+nlzsTp4nvWoI+1iIRmIcg1m7Ur1mFDIZ79vzwDDw1?=
- =?us-ascii?Q?i/sw1Nb4lmezxmy8ZUJr57yhI/s+1CxuRhlo+Z21?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ba4b7226-746e-4a1c-101e-08ddf1c710aa
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 06:39:03.9515
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U+XBclvCN6CUhTN1XvS3HYwJ0sbmKta/uFvrMe9vjcPvbf32yHoawG+tDggmtbMGx9CAB7YXYoQ3iVruqwRs8g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8366
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] remoteproc: mtk_scp: Construct FW path if firmware-name
+ not present
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-remoteproc@vger.kernel.org
+Cc: arnd@arndb.de, andersson@kernel.org, mathieu.poirier@linaro.org,
+ wenst@chromium.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20250911140043.190801-1-angelogioacchino.delregno@collabora.com>
+Content-Language: en-US, ca-ES, es-ES
+From: Matthias Brugger <matthias.bgg@gmail.com>
+Autocrypt: addr=matthias.bgg@gmail.com; keydata=
+ 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
+In-Reply-To: <20250911140043.190801-1-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_233912_913630_643E9775 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250912_000155_788343_71DB44D9 
+X-CRM114-Status: GOOD (  38.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,91 +148,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
 
-On Wed, Sep 10, 2025 at 11:25:04AM -0400, Frank Li wrote:
->On Wed, Sep 10, 2025 at 10:28:18PM +0800, Peng Fan wrote:
-[...]
->> +static int syslog_show(struct seq_file *file, void *priv)
->> +{
->> +	struct device *dev = file->private;
->> +	/* 4KB is large enough for syslog */
->> +	void *syslog __free(kfree) = kmalloc(SZ_4K, GFP_KERNEL);
->> +	/* syslog API use num words, not num bytes */
->> +	u16 size = SZ_4K / 4;
->> +	int ret;
->> +
->> +	if (!ph)
->> +		return -ENODEV;
->> +
->> +	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
->> +	if (ret) {
->> +		if (size > SZ_4K / 4) {
->> +			dev_err(dev, "syslog size is larger than 4KB, please enlarge\n");
->> +			return ret;
->
 
-size could be runtime updated with the returned syslog size.
+On 11/09/2025 16:00, AngeloGioacchino Del Regno wrote:
+> After a reply on the mailing lists [1] it emerged that the DT
+> property "firmware-name" should not be relied on because of
+> possible issues with firmware versions.
+> For MediaTek SCP, there has never been any firmware version vs
+> driver version desync issue but, regardless, the firmwares are
+> always using the same name and they're always located in a path
+> with a specific pattern.
+> 
+> Instead of unconditionally always relying on the firmware-name
+> devicetree property to get a path to the SCP FW file, drivers
+> should construct a name based on what firmware it knows and
+> what hardware it is running on.
+> 
+> In order to do that, add a `scp_get_default_fw_path()` function
+> that constructs the path and filename based on two of the infos
+> that the driver can get:
+>   1. The compatible string with the highest priority (so, the
+>      first one at index 0); and
+>   2. The type of SCP HW - single-core or multi-core.
+> 
+> This means that the default firmware path is generated as:
+>   - Single core SCP: mediatek/(soc_model)/scp.img
+>     for example:     mediatek/mt8183/scp.img;
+> 
+>   - Multi core SCP:  mediatek/(soc_model)/scp_c(core_number).img
+>     for example:     mediatek/mt8188/scp_c0.img for Core 0, and
+>                      mediatek/mt8188/scp_c1.img for Core 1.
+> 
 
->suppose it is never happen, you pass down size to misc_syslog, it should
->never write data more than size.
+As we inventing a naming scheme here: if we decide that signle core FW is calle 
+scp_c0.img we can get rid of some code.
 
-Right. But size could be updated even it not write data more than the input
-size.
+> Note that the generated firmware path is being used only if the
+> "firmware-name" devicetree property is not present in the SCP
+> node or in the SCP Core node(s).
+> 
+> [1 - Reply regarding firmware-name property]
+> Link: https://lore.kernel.org/all/7e8718b0-df78-44a6-a102-89529d6abcce@app.fastmail.com/
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>   drivers/remoteproc/mtk_scp.c | 64 ++++++++++++++++++++++++++++++++----
+>   1 file changed, 58 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+> index 8206a1766481..80fcb4b053b3 100644
+> --- a/drivers/remoteproc/mtk_scp.c
+> +++ b/drivers/remoteproc/mtk_scp.c
+> @@ -16,6 +16,7 @@
+>   #include <linux/remoteproc.h>
+>   #include <linux/remoteproc/mtk_scp.h>
+>   #include <linux/rpmsg/mtk_rpmsg.h>
+> +#include <linux/string.h>
+>   
+>   #include "mtk_common.h"
+>   #include "remoteproc_internal.h"
+> @@ -1093,22 +1094,73 @@ static void scp_remove_rpmsg_subdev(struct mtk_scp *scp)
+>   	}
+>   }
+>   
+> +/**
+> + * scp_get_default_fw_path() - Get default SCP firmware path
+> + * @dev:     SCP Device
+> + * @core_id: SCP Core number
+> + *
+> + * This function generates a path based on the following format:
+> + *     mediatek/(soc_model)/scp(_cX).img; for multi-core or
+> + *     mediatek/(soc_model)/scp.img for single core SCP HW
+> + *
+> + * Return: A devm allocated string containing the full path to
+> + *         a SCP firmware or an error pointer
+> + */
+> +static const char *scp_get_default_fw_path(struct device *dev, int core_id)
+> +{
+> +	struct device_node *np = core_id < 0 ? dev->of_node : dev->parent->of_node;
+> +	char scp_fw_file[7] = "scp_cX";
 
->
->I am not sure what means of misc_syslog() return value. Generally it should
->be how many data in pointer 'syslog' if return value > 0.
->
->So seq_hex_dump() should use ret value. Then only dump validate data,
->instead of the whole buffer.
+We provide a string that we later overwrite. I'd prefer to have just the 
+reservation without any 'artificial' string in it.
 
-size has been updated by misc_syslog, so it is not to dump whole buffer.
+> +	const char *compatible, *soc;
+> +	int ret;
+> +
+> +	/* Use only the first compatible string */
+> +	ret = of_property_read_string_index(np, "compatible", 0, &compatible);
+> +	if (ret)
+> +		return ERR_PTR(ret);
+> +
+> +	/* If the compatible string's length is implausible bail out early */
+> +	if (strlen(compatible) < strlen("mediatek,mtXXXX-scp"))
 
-Thanks,
-Peng
+Seems like a double check of compatible. Why is dt-bindings for that not enough?
 
->
->Frank
->
->> +		}
->> +	}
->> +
->> +	seq_hex_dump(file, " ", DUMP_PREFIX_NONE, 16, sizeof(u32), syslog, size * 4, false);
->> +	seq_putc(file, '\n');
->> +
->> +	return 0;
->> +}
->> +DEFINE_SHOW_ATTRIBUTE(syslog);
->> +
->> +static void scmi_imx_misc_put(void *p)
->> +{
->> +	debugfs_remove((struct dentry *)p);
->> +}
->> +
->>  static int scmi_imx_misc_ctrl_probe(struct scmi_device *sdev)
->>  {
->>  	const struct scmi_handle *handle = sdev->handle;
->>  	struct device_node *np = sdev->dev.of_node;
->> +	struct dentry *scmi_imx_dentry;
->>  	u32 src_id, flags;
->>  	int ret, i, num;
->>
->> @@ -98,6 +134,12 @@ static int scmi_imx_misc_ctrl_probe(struct scmi_device *sdev)
->>  		}
->>  	}
->>
->> +	scmi_imx_dentry = debugfs_create_dir("scmi_imx", NULL);
->> +	if (!IS_ERR(scmi_imx_dentry))
->> +		debugfs_create_file("syslog", 0444, scmi_imx_dentry, &sdev->dev, &syslog_fops);
->> +
->> +	devm_add_action_or_reset(&sdev->dev, scmi_imx_misc_put, scmi_imx_dentry);
->> +
->>  	return 0;
->>  }
->>
->>
->> --
->> 2.37.1
->>
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	/* If the compatible string starts with "mediatek,mt" assume that it's ok */
+> +	if (!str_has_prefix(compatible, "mediatek,mt"))
+
+Same here.
+
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	if (core_id >= 0)
+> +		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
+> +	else
+> +		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
+> +	if (ret <= 0)
+> +		return ERR_PTR(ret);
+> +
+> +	soc = &compatible[strlen("mediatek,")];
+> +
+> +	return devm_kasprintf(dev, GFP_KERNEL, "mediatek/%.*s/%s.img",
+> +			      (int)strlen("mtXXXX"), soc, scp_fw_file);
+> +}
+> +
+>   static struct mtk_scp *scp_rproc_init(struct platform_device *pdev,
+>   				      struct mtk_scp_of_cluster *scp_cluster,
+> -				      const struct mtk_scp_of_data *of_data)
+> +				      const struct mtk_scp_of_data *of_data,
+> +				      int core_id)
+>   {
+>   	struct device *dev = &pdev->dev;
+>   	struct device_node *np = dev->of_node;
+>   	struct mtk_scp *scp;
+>   	struct rproc *rproc;
+>   	struct resource *res;
+> -	const char *fw_name = "scp.img";
+> +	const char *fw_name;
+>   	int ret, i;
+>   	const struct mtk_scp_sizes_data *scp_sizes;
+>   
+>   	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
+> -	if (ret < 0 && ret != -EINVAL)
+> -		return ERR_PTR(ret);
+> +	if (ret) {
+> +		fw_name = scp_get_default_fw_path(dev, core_id);
+
+Wouldn't it make more sense to encapsulate the whole fw_name retrival in one 
+function, e.g. scp_get_fw_path.
+
+> +		if (IS_ERR(fw_name)) {
+> +			dev_err(dev, "Cannot get firmware path: %ld\n", PTR_ERR(fw_name));
+> +			return ERR_CAST(fw_name);
+> +		}
+> +	}
+>   
+>   	rproc = devm_rproc_alloc(dev, np->name, &scp_ops, fw_name, sizeof(*scp));
+>   	if (!rproc) {
+> @@ -1212,7 +1264,7 @@ static int scp_add_single_core(struct platform_device *pdev,
+>   	struct mtk_scp *scp;
+>   	int ret;
+>   
+> -	scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev));
+> +	scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev), -1);
+>   	if (IS_ERR(scp))
+>   		return PTR_ERR(scp);
+>   
+> @@ -1259,7 +1311,7 @@ static int scp_add_multi_core(struct platform_device *pdev,
+>   			goto init_fail;
+>   		}
+>   
+> -		scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id]);
+> +		scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id], core_id);
+>   		put_device(&cpdev->dev);
+>   		if (IS_ERR(scp)) {
+>   			ret = PTR_ERR(scp);
+
 
