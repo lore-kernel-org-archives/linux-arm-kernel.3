@@ -4,96 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24437CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15D5CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 14:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=jVGUoZl7QKW/jrUqmLdcQ17BKW7CKZzyHqO+L1oBJKU=; b=pSTESu75bNCAeuX7yanxUdriND
-	GBf8TpbjhbqJdijRXzzLR8NAeqdlNiLQa+0RlzuYhptDYP+FnCitb1VErXh0sWuW+Zu98VPF0hpHw
-	teKGVcOtkRVqFT0BF+44Yczaon6h9d2lnAXKEnPaaHVSDaeqn6/HZop4BVJNkWQWSYX/TlJlwC6Al
-	fhY08jYpB7CB1BVQd4N1GhSzTbyoSnGR3GVcMuLS76ViFmcFbKHEiFEup0jjGvAZPpsUKjauwR2Yt
-	Hv6cBMxl3PFh6wK+kszi2dnLiq1FcsmhbKU/o1HZmnpm7nJxHwYLmsqsCsHoLxhncXxb4j1x3nh0L
-	ITKp04sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VuzkyNZKkR3meXdDRDwpWYxxojRdzJ/W83NSFihGMXo=; b=3/FV2XL80xlZfaz9dEWWP5CmpO
+	mULS3+SbHsQV9NFhu3HyKquPB4YVRtjydgp6FD0zuEeo7kIIxlezfVPeuUXZ1/ZdsPhSB+24Mb3Pg
+	NRpxsvgdoqID1jVnCdUk3rxer0FH996SkbfHjirXH5vyGXp3PHpunFoPtixg3/Clrr/2rkPZuk7x/
+	VPk1qjMr8On4DIYnQ+ieOdK1lpTDm/QjMSu26LdroKLNB1V1CmscsMm1y2sFyN0XPWab63xaO+U5F
+	B45jsaKitKZekV44RIIZKlYmMcx//RyOJegpcuQxUdJ93l1uRvs0+jGGkoPiR01jf/CuOHr1cDZAx
+	lgnVxIPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4sn-00000009wXV-3Oae;
-	Fri, 12 Sep 2025 14:36:13 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1ux4uf-00000009xKl-1cUV;
+	Fri, 12 Sep 2025 14:38:09 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux4sl-00000009wVM-0XOX
+	id 1ux4uc-00000009xJJ-2wtA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 14:36:12 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-56a04f7691aso2729488e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 07:36:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757687769; x=1758292569; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=jVGUoZl7QKW/jrUqmLdcQ17BKW7CKZzyHqO+L1oBJKU=;
-        b=vrUlGkoF7G0kfIQAeliaDXm5L2nWf5q9j5tTfNAX/o+tSsMYgMn4Kq7eBRCt8odrCd
-         ltHvY9gmm5ttO08qcxEVFgUymeVAbY+oUaFzASYWvkxoAMOPUNLlvWbDTUqclmC87/YX
-         DI85kGSsbBkhQNxOJA51WJXj/tWeK1vscCn2i0Wsb26qAIZu/+7f9wXUMmuzphvE+A+A
-         uyulbEB3WnxiWkLSq8roArH+jPZQN9tq4Z7/kjWnZwY7LochipiQ5myVTa4qCEPtkZ2x
-         1ioPlC+ESEq6RPyg8o53FfbXp2tPn26hoyUAMvDz3vc0+NXhZg/mbGgmkRfEXWNIEZds
-         XPRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757687769; x=1758292569;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jVGUoZl7QKW/jrUqmLdcQ17BKW7CKZzyHqO+L1oBJKU=;
-        b=YlJTkoA+aInxH5mtb3bDPfAe1W9CkyzhZ7jOHzpx8FKch7VR5Z42M8+y5az+x5PZDk
-         Sh9tg3qE64MBQRI9jPGuS3vDI0+Q2M8BKzUgYqLVOlqHAtEZF5BZ3IYBLXgEog4znAGt
-         uLc0RyG0c2Wz+KPWe9Z9sq5GvUggvd5asCSh4hDpG/4DDmqFznBDqKI4h+WZtLFyf4s6
-         2jbipsZwa+OGexcZh2xZnMXnnsvcPLQ3oCk5i3XtN439XOqfwaDP0124AkVPLHqIXpql
-         epnoS0REaRW883xKg3xlcal/16+/ssrRiSbgBFKr0VzzZvR+EtksuewySi3sozDTT9eD
-         jYTw==
-X-Forwarded-Encrypted: i=1; AJvYcCUD0i5FsF2sNrdm7b9YwwenzgP82Rf1R0WSg5dHvAU7SmheHwFBCPOI4vxwM3b0grnDBcV3IQXIwNdGmDpPBkLu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAhi1TxTAtl6za9djNgdGmL2/UJYN5BgMZAkTUkcvePv1HOFAx
-	jdtfj5W9e2ftwAZlGFyDRe3JTK3MDbvmOugPPMq5xWU1x2rcZXN60V4iZ0Sl5uX946c=
-X-Gm-Gg: ASbGnctjOIOLMoWqf5maE00wKNF5aSVCa7imyRKWePO0mabCvXmq3gPtqW6QofZs3iG
-	ZehPz09jV+kP8IWK09RX0cZeoncq3XLlVdO2A8nD2HWvb4Rag4VZWttFgrIh/623V5zDhTeU9os
-	36rr4CY1K5v/plmhEzJADtdSUQvOE/o7FFTVsDxE61Od82dREMqOmI1gWNvarhA9auVxZQj6ZiX
-	fRipsB+EgEetyUHpkFQYMj1SAB0GHsXg87laPq/pjxmJlNU1p6Kvd3C1UeQ/unAqLsyVvcdD8n/
-	8RAWannnMEP+6WUG8Z0ImGYkwmU1hz0gm59hYg5bD/cHtX+Kjr3oXgKEqgP5Z+VBex392Qd4s2z
-	jG1+N7tb5FiX8AJWW6emUoWNut/DLRbgBkC+kFhyk25aMAJd6R4q3oO5HLpT0ayyF6g==
-X-Google-Smtp-Source: AGHT+IEsSVAtYO0GTF2dOCpPZHkcGM8bs2rKRqzsbq84UASkP3MlDRwNQk3IdJUJ/J8IxFpxvDpQOQ==
-X-Received: by 2002:ac2:51d0:0:b0:55f:3ae4:fe55 with SMTP id 2adb3069b0e04-5705be234camr1238974e87.4.1757687767437;
-        Fri, 12 Sep 2025 07:36:07 -0700 (PDT)
-Received: from nuoska (87-100-249-247.bb.dnainternet.fi. [87.100.249.247])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-56e64fa7192sm1199028e87.124.2025.09.12.07.36.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Sep 2025 07:36:07 -0700 (PDT)
-Date: Fri, 12 Sep 2025 17:36:05 +0300
-From: Mikko Rapeli <mikko.rapeli@linaro.org>
-To: linux-mmc@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Russell King <linux@armlinux.org.uk>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org
-Cc: ulf.hansson@linaro.org, linux-kernel@vger.kernel.org,
-	adrian.hunter@intel.com, victor.shih@genesyslogic.com.tw,
-	ben.chuang@genesyslogic.com.tw, geert+renesas@glider.be,
-	angelogioacchino.delregno@collabora.com, dlan@gentoo.org,
-	arnd@arndb.de, zhoubinbin@loongson.cn,
-	Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: Re: [PATCH v3 0/4] enable ROCKCHIP_PM_DOMAINS
-Message-ID: <aMQv1V49xa_MThGq@nuoska>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+	Fri, 12 Sep 2025 14:38:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cWkSSIBWUTaxzsDih2wtKUobXYFJpz8bYkSEUAMNyv6ZW9zVKoA3GoUT6dC9fbqdBLa5qCOkw9RIBI4IsaPdZFtpnp1Y01KRxKPaFXSjGvuhk/l8YX/e4GbpAKDQrrzsewRQXUE/DvkY0B2Q23mN1jXQbrl4WAH21yK5ABTGGsKxoRYIOBM7339zig1TJLbArWO4gWx4otORXbaxnZJ/BSKrcN+OypZAVAZwviA/VZbpR2I7a487BKe3S1glJBWaWp1NM+7N40OLryoHa05fFhmUf45pCpI+Cz0uQM2IE20qt/4PTspKodov5J1LYK9QsI/a2pFurncV8R/np/Ip/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VuzkyNZKkR3meXdDRDwpWYxxojRdzJ/W83NSFihGMXo=;
+ b=a5GXQL5+iYw+fZxWTR2H68bFCx4mVmHGK1roEK+glH1Bcxfl1edDCgPg5z0goq23NItITucScaQbOrFLU/9VJMtOG8sabv/jlWVVaEJ7sc/VwHDU/AYdXsNWMbwVAsyjiH3AJo19p7k5bqeJDvmpIrY2KIQtX3U84dYXgJq7QQ9MuZ5pVgLwfoCO2WR0fJjf6nZ9MrFhyFOxgrRFErmVrVkIwWy7exWvAwRlLvsBJfIznArWY+kOPawiP537a9OEU+k9jUfE1T1dzjaej4OcS8VACB5QR7uHaclWuavmvzlVHW2dXvXPuivkL5cO+1WV5s7wckCg7w9XYTXDLhLVGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VuzkyNZKkR3meXdDRDwpWYxxojRdzJ/W83NSFihGMXo=;
+ b=foXdZDKpqsnboktdfyP8y7kygXWj6JSlmBOuKR4/NBidFO08ns8tVlWOn3UxmS8ID56ccLgVHvwiZollPVlwVGOi7SEI8FsYjMyA/rwe5ZRvxXH6bp9hfqzwooIBGK6/PzsUPOncmEZl92xZ7Ph6WCdRahG6TocW8AsYJXG7FbPyJyDTbz9Ap7/5xbgpvldn8Ay/K5d9NDYEImkyIQtBHgAP3P47yTP3ptL0fDBwGURZhMelRMPgTdqfYsdggqIXzC+QmfL4r1xZR9rP1j4rqwztNpBGSYNe9slnmJ1ciREQfYi4FV+VCE0GmOosaJ8AHAeO7RtZ3SNEJzKo4g+ctw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by GV1PR04MB10243.eurprd04.prod.outlook.com (2603:10a6:150:17d::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.17; Fri, 12 Sep
+ 2025 14:37:52 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9115.015; Fri, 12 Sep 2025
+ 14:37:52 +0000
+Date: Fri, 12 Sep 2025 10:37:44 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 6/6] remoteproc: imx_rproc: Clean up after ops
+ introduction
+Message-ID: <aMQwOI29hSRVsFD0@lizhi-Precision-Tower-5810>
+References: <20250910-imx-rproc-cleanup-v2-0-10386685b8a9@nxp.com>
+ <20250910-imx-rproc-cleanup-v2-6-10386685b8a9@nxp.com>
+ <aMGe/gwmFqjoFszg@lizhi-Precision-Tower-5810>
+ <PAXPR04MB8459CABA152B6C1C122B35F28809A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250912061120.GA27864@nxa18884-linux.ap.freescale.net>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250912143036.2844523-1-mikko.rapeli@linaro.org>
- <20250912142735.2843958-1-mikko.rapeli@linaro.org>
- <20250912142253.2843018-1-mikko.rapeli@linaro.org>
+In-Reply-To: <20250912061120.GA27864@nxa18884-linux.ap.freescale.net>
+X-ClientProxiedBy: SJ0PR03CA0097.namprd03.prod.outlook.com
+ (2603:10b6:a03:333::12) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|GV1PR04MB10243:EE_
+X-MS-Office365-Filtering-Correlation-Id: 86dca44a-8b21-44d7-2b7d-08ddf209f456
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|366016|376014|7416014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pS+AzE0tgexzVnse+Ruw1IbQ8OE/WM4cbISpKjPJq7OZAjZK+LyZJDfIBrGj?=
+ =?us-ascii?Q?V/oXHm1K1h4voEKM6gojzlbuCTWXb17WUkC0xbvCdkIokYMCVChl8uytfUTL?=
+ =?us-ascii?Q?0GXC/mX/+Qa7tEL5Os3Ps3p7I9v9lo2vfL0OhZPyMJ4/1qNyjfNz7SwMA6m8?=
+ =?us-ascii?Q?hCyv6qGGRLADKqBgyNtHR+abBKcugPnvj4m0ApmRYvM8XKmfVZie5EeaP72x?=
+ =?us-ascii?Q?/0C+rEtTgBdKhOV3uU0oqSAHjpb0TxkFFkijLyclYzrRylLK3siuLumI92m7?=
+ =?us-ascii?Q?w0YBPqH3gLqUy8KSXGu7hSy50hKtFAdqkMULqpYtDIV5QkR6IHWT14221KJ4?=
+ =?us-ascii?Q?zKOjKXYe3UL+6tUdHHvOtvhqcteTJZBaRuFu3icT5vMKqYZjGPgitum6AraQ?=
+ =?us-ascii?Q?0we9cays5oAHbZQv76mKksaxYgYxVI3/01EktUvjwx0IsOOdHN5hFNNl/0eO?=
+ =?us-ascii?Q?7NlTm91pOrqPGMeXPjTDHkMjvxGjwrZKtQ7TE/Jz+BfBFnVicfcpTxSNUi5L?=
+ =?us-ascii?Q?nIh5KDleOVJP0aRPDRhunA72IUBh8y894/Yqw9oVaU+N5sc7owjixpaPzH2y?=
+ =?us-ascii?Q?ExGdIGq6201/N+QDVUcqO2pP6WG8ZXz8DXbzzqmpBALdxfXDUFix7aHi0/r1?=
+ =?us-ascii?Q?TxcnIdtiWsWBJ1beGlWOC+Gp6+fzN5baA5lyzOlklC8oyDbslHYWzRJKvrqY?=
+ =?us-ascii?Q?bdRFtuU2ixBetyVNkwx2+GeDUwjSf19n28cQcoNJlFRecbXmBe2CaZKqXxl6?=
+ =?us-ascii?Q?ooYXEEBcvIIOK1bnzgBkD1GvQO0ABNCZqfklfBzJY9aWPVTw1Gp3od7Ctxvk?=
+ =?us-ascii?Q?GG3/F4l2v5OgFeen2J5QB7cNiZRjdbUiC0xDa6hzxTWbp2DGWtuc6z5gc0Un?=
+ =?us-ascii?Q?mWpOkvzQZB53ZDbQ3x5CYVnh5ftH+IRt1RYclgBZwu5x4lubWkLixuhcjGVP?=
+ =?us-ascii?Q?xE4zA4DFpEKVSi5hUi8YBN15Fiv8CIhrUdQMA0xMHfKepKr03IphtDoUAe4N?=
+ =?us-ascii?Q?h9glYRPonHLc51tpuJrAHpEkQZYMtlqtdFuiStEjtMCBHDV975gmoyFA8EMI?=
+ =?us-ascii?Q?W3kK6GMGc6l5j82E+wLIhee2PbkTde3xAyTr1f2Ccm6vMCC4H0HkqsJw6VGO?=
+ =?us-ascii?Q?KLhD2FKxlWEoIBLM9uvYREu3nlZ28rggppALaHczir5qgF8K0Z94LYSSmpbG?=
+ =?us-ascii?Q?EtW/IIE2IsYGbwROKSepbtdPTKSOjLe5ClTpo7k+2z65VoT7Y1P+bzXCbm5V?=
+ =?us-ascii?Q?bb/N6it+/jKEyz2o9yeG9Xt0SynpnGT63a7nX+XHJIg5GEmeQCMcJczFG92v?=
+ =?us-ascii?Q?n2ykdj7OM4GDEWlRRSoxUOrcerYhqE0QVljkeTexa4u/XgIdrG2EV1bmHlLn?=
+ =?us-ascii?Q?f9FqxcSAZoGvUAV4nZE4E0xe6g9ZRWJA1JiQxtc9wcr/wNytKqYwJ43nGjgm?=
+ =?us-ascii?Q?jrwNez+NDg0ZR6ccJMF72YBl11taIcJDRHESi3ipmjuj2QYRMxODKV8JHFKl?=
+ =?us-ascii?Q?F5Kohd+ID5EYh30=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(366016)(376014)(7416014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YqqEZ7ChfpTUAPja3/NYXbXQvlg8tcZIXK1r+7maavoa0CLPDxCd06A3v9aM?=
+ =?us-ascii?Q?itCPWF4tdjMRg4S0qH4a/Gxsj4W5bLHtQiw21QteaBquwJGqvS+4ABIFRCiB?=
+ =?us-ascii?Q?YMb/mfForo2Gld5Rgkab9MZrZHCM6Cq9MjMk/XgO2Hri6tAw3sUSv8q4bPkz?=
+ =?us-ascii?Q?KwuG5yk/c9tRLV5vz/drjNAScO654wNM6vfAJTntwf+HOpeUdJHXE73O3sAU?=
+ =?us-ascii?Q?sbBCrR22ojdZkZ+YTwOm7R8PIo6XG4SRSbnrsBY+AUVEDajjm+Spr725xIiX?=
+ =?us-ascii?Q?bznRpdTX4GKmiCSFYU7mIeWxPlxIb9Czzk7Hj5L/QCGz9EhraZ6j1EhuDR0u?=
+ =?us-ascii?Q?pAUnl/Laa5Q+90xvJHfSenKYIY4AAwAxyCH8CCjYswC3be7zr0q7e8n2jDvA?=
+ =?us-ascii?Q?UufiJf7InLpBA47E6SnpOtLvwNzl9mRZqggZuut8wmGnosJxztWiHjQux60i?=
+ =?us-ascii?Q?Ut22j4vkeAvc8ihn2eTXmQthTDGWVmjIllhSre2lbKwn/J1W6QuG22KPsz10?=
+ =?us-ascii?Q?nGnkooiBDEKXVWi/JNkSlLzTqxtbngugd4BUpCNu/2Sk0qdE5N2ZUmZ7wmg/?=
+ =?us-ascii?Q?yTlR16PHOnorEzwEISuqW9eyKqFEvqUomwcFIinmXM9EL27QTS0rvknLKlVo?=
+ =?us-ascii?Q?VUDue7dWl4BHQdrToC8zJdO5jCVli7fMUQSZpXhX40cHhsa4+5QimWBG/ZOy?=
+ =?us-ascii?Q?h6AVQxlHY6WUNQt+PL9HW9PFZ9rErLqNeX6FOUIfo4p4sGm4sYDPZHrO13J5?=
+ =?us-ascii?Q?aJ/+xa8OAbx1nhRgc9uJO4nul7lEQzEFO3UyD+gXS0iD6Fs0kYstBdIYJwiu?=
+ =?us-ascii?Q?TjVJJUcKs3NEr3stz7Xclwoc1s7wVuUVoWyrP3H7AKTqUBP7b5IHMWcg2n7A?=
+ =?us-ascii?Q?+crizpGnI7vXcIR5cvhkOBPpIHDZXjX4IKcrW2my40d63wubGjV/v7HA8S8f?=
+ =?us-ascii?Q?thVmjC0pmSKKFSbviiUZE1kanoGwC7M38dbbvEEOxypy9DkPX7TWscrDGHBY?=
+ =?us-ascii?Q?Vv5WXY2/3YbwHKDiAU/jwxNjtXDfuLfYSuxUB4hFK84D39HruUEjzCzKZutG?=
+ =?us-ascii?Q?M2sZKKyYo6iQCPuPN/HMhGI68v3+6Xw92LH5eOdqdYaofRtE+mGSW+W8Pm6q?=
+ =?us-ascii?Q?jShXUL8Xmt2ZV6wuY5nBm4iB7hOuZ5rlrivxI6tUp8mnWi+owEzD09Trj/03?=
+ =?us-ascii?Q?uIgQJIoK56F7DYIyW+O9sifLAb7a8bJbSqydPf3ie/cmZf6BYdTb73bGXNo+?=
+ =?us-ascii?Q?6qELy+1bO6pnaNOeFWnq2j504BbQmQhoxOrdgSfOlhg8cdgeZFdO2J703ein?=
+ =?us-ascii?Q?4vP0NTwlO4AN+wV479RRz3arI7JscvfOOuprrDH5XBYXhzNsjRb+s3he1xpl?=
+ =?us-ascii?Q?nJ/ickvLawOGaAMvNaU7UMesM9UPzF/oDqM6Nc2dXdWFNp3YA2xQNvQ/gAUi?=
+ =?us-ascii?Q?wgd5wmscLH/ZXk0VpFaGD5EHrME3eqCnmibKH4jJR8/eK+46FZvN4TdyXOy0?=
+ =?us-ascii?Q?axls6ZQjHqzsc2+LCY0j8OgIOzhyrHsJI8JAl9TkOaJSFMdIXeTe/dtmKRc+?=
+ =?us-ascii?Q?EaDBUoL4uAaqZeSf1cP5+cAq0nxH8Rpw0PTN7zod?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 86dca44a-8b21-44d7-2b7d-08ddf209f456
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 14:37:52.5310
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NR1JxnCjX3PBj+/P2p4X5c5v/npuxjavskEW39BvKQjqtxUsqsHKH8YBWNUNtrMv752giQqxVfQx58oBHFxNGQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10243
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_073611_227514_CEFFFB75 
-X-CRM114-Status: GOOD (  33.06  )
+X-CRM114-CacheID: sfid-20250912_073806_743021_0E82DBFB 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,180 +171,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Sep 12, 2025 at 02:11:20PM +0800, Peng Fan wrote:
+> On Thu, Sep 11, 2025 at 01:13:59AM +0000, Peng Fan wrote:
+> >Hi Frank,
+> >>
+> >> Can you remove 'method' in data struct also?
+> >
+> >The method is used in other places and other purpose, imx_rproc_detach
+> >imx_rproc_put_scu, imx_rproc_remove, it is also referred
+> >imx_dsp_rproc.c.
+> >
+> >Could we keep it for now?
+>
+> The method could not be removed from the data structure, because it is also
+> used in imx_dsp_rproc.c.
 
-Sorry I did not use scripts/get_maintainers.pl correctly after
-changes were moving from one susbsystem to another based on review
-comments but I hope correct maintainers and lists have received
-the patches now.
+Okay! It is already much better than before.
 
-Cheers,
+Frank
 
--Mikko
-
-On Fri, Sep 12, 2025 at 05:22:49PM +0300, Mikko Rapeli wrote:
-> Hi,
-> 
-> MMC_DW_ROCKCHIP needs ROCKCHIP_PM_DOMAINS before MMC is detected
-> on Rockchip rk3399 rockpi4b and similar devices. Make this dependency
-> more visible, or the default with ARCH_ROCKCHIP if possible.
-> 
-> v3: use "default ARCH_ROCKCHIP" in ROCKCHIP_PM_DOMAINS as suggested
->     by Arnd Bergmann <arnd@arndb.de>, enable more MMC drivers for
->     COMPILE_TEST and remove MMC_LOONGSON2 which doesn't link,
->     remove PM dependency as suggested by
->     Geert Uytterhoeven <geert@linux-m68k.org>
-> 
-> v2: changed from "depend on" in MMC driver to "select" as default
->     on ARCH_ROCKCHIP as suggested by Ulf and Heiko
->     https://marc.info/?i=20250912084112.2795848-1-mikko.rapeli%20()%20linaro%20!%20org
-> 
-> v1: https://lore.kernel.org/linux-mmc/20250911144313.2774171-1-mikko.rapeli@linaro.org/
-> 
-> Mikko Rapeli (4):
->   pmdomain: rockchip: enable ROCKCHIP_PM_DOMAINS with ARCH_ROCKCHIP
->   mmc: add COMPILE_TEST to multiple drivers
->   mmc: remove COMPILE_TEST from MMC_LOONGSON2
->   ARM: rockchip: remove REGULATOR conditional to PM
-> 
->  arch/arm/mach-rockchip/Kconfig    |  2 +-
->  drivers/mmc/host/Kconfig          | 10 +++++-----
->  drivers/pmdomain/rockchip/Kconfig |  1 +
->  3 files changed, 7 insertions(+), 6 deletions(-)
-> 
-> -- 
-> 2.34.1
-> 
-
-On Fri, Sep 12, 2025 at 05:27:35PM +0300, Mikko Rapeli wrote:
-> On rk3399 based rockpi4b, mounting rootfs from mmc fails unless
-> ROCKCHIP_PM_DOMAINS is enabled. Accoriding to
-> Heiko Stübner <heiko@sntech.de> all SoCs since 2012 have power
-> domains so the support should be enabled by default
-> on both arm and arm64.
-> 
-> Failing boot without CONFIG_ROCKCHIP_PM_DOMAINS=y:
-> 
-> https://ledge.validation.linaro.org/scheduler/job/119268
-> 
-> /dev/disk/by-partuuid/1d48ffd8-f2a7-4a33-b52f-186089b3c85e: Can't lookup blockdev
-> /dev/disk/by-partuuid/1d48ffd8-f2a7-4a33-b52f-186089b3c85e: Can't lookup blockdev
-> /dev/disk/by-partuuid/1d48ffd8-f2a7-4a33-b52f-186089b3c85e: Can't lookup blockdev
-> /dev/disk/by-partuuid/1d48ffd8-f2a7-4a33-b52f-186089b3c85e: Can't lookup blockdev
-> /dev/disk/by-partuuid/1d48ffd8-f2a7-4a33-b52f-186089b3c85e: Can't lookup blockdev
-> /dev/disk/by-partuuid/1d48ffd8-f2a7-4a33-b52f-186089b3c85e: Can't lookup blockdev
-> dw-apb-uart ff1a0000.serial: forbid DMA for kernel console
-> root '/dev/disk/by-partuuid/1d48ffd8-f2a7-4a33-b52f-186089b3c85e' doesn't exist or does not contain a /dev.
-> rk_gmac-dwmac fe300000.ethernet: deferred probe timeout, ignoring dependency
-> rk_gmac-dwmac fe300000.ethernet: probe with driver rk_gmac-dwmac failed with error -110
-> rk_iommu ff650800.iommu: deferred probe timeout, ignoring dependency
-> rk_iommu ff650800.iommu: probe with driver rk_iommu failed with error -110
-> dwmmc_rockchip fe320000.mmc: deferred probe timeout, ignoring dependency
-> rockchip-typec-phy ff7c0000.phy: deferred probe timeout, ignoring dependency
-> dwmmc_rockchip fe320000.mmc: probe with driver dwmmc_rockchip failed with error -110
-> rockchip-typec-phy ff7c0000.phy: probe with driver rockchip-typec-phy failed with error -110
-> rockchip-typec-phy ff800000.phy: deferred probe timeout, ignoring dependency
-> rockchip-typec-phy ff800000.phy: probe with driver rockchip-typec-phy failed with error -110
-> rk_iommu ff660480.iommu: deferred probe timeout, ignoring dependency
-> rk_iommu ff660480.iommu: probe with driver rk_iommu failed with error -110
-> rk_iommu ff8f3f00.iommu: deferred probe timeout, ignoring dependency
-> rk_iommu ff8f3f00.iommu: probe with driver rk_iommu failed with error -110
-> rk_iommu ff903f00.iommu: deferred probe timeout, ignoring dependency
-> rk_iommu ff903f00.iommu: probe with driver rk_iommu failed with error -110
-> rk_iommu ff914000.iommu: deferred probe timeout, ignoring dependency
-> rk_iommu ff914000.iommu: probe with driver rk_iommu failed with error -110
-> rk_iommu ff924000.iommu: deferred probe timeout, ignoring dependency
-> rk_iommu ff924000.iommu: probe with driver rk_iommu failed with error -110
-> platform fe800000.usb: deferred probe pending: platform: wait for supplier /phy@ff7c0000/usb3-port
-> sdhci-arasan fe330000.mmc: deferred probe timeout, ignoring dependency
-> platform fe900000.usb: deferred probe pending: platform: wait for supplier /phy@ff800000/usb3-port
-> sdhci-arasan fe330000.mmc: probe with driver sdhci-arasan failed with error -110
-> platform ff1d0000.spi: deferred probe pending: (reason unknown)
-> platform hdmi-sound: deferred probe pending: asoc-simple-card: parse error
-> 
-> Working boot with CONFIG_ROCKCHIP_PM_DOMAINS=y:
-> 
-> https://ledge.validation.linaro.org/scheduler/job/119272
-> 
-> dwmmc_rockchip fe320000.mmc: IDMAC supports 32-bit address mode.
-> dwmmc_rockchip fe320000.mmc: Using internal DMA controller.
-> dwmmc_rockchip fe320000.mmc: Version ID is 270a
-> dwmmc_rockchip fe320000.mmc: DW MMC controller at irq 45,32 bit host data width,256 deep fifo
-> dwmmc_rockchip fe320000.mmc: Got CD GPIO
-> ff1a0000.serial: ttyS2 at MMIO 0xff1a0000 (irq = 44, base_baud = 1500000) is a 16550A
-> printk: legacy console [ttyS2] enabled
-> mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
-> dw_wdt ff848000.watchdog: No valid TOPs array specified
-> mmc_host mmc1: Bus speed (slot 0) = 50000000Hz (slot req 50000000Hz, actual 50000000HZ div = 0)
-> mmc0: CQHCI version 5.10
-> rk_gmac-dwmac fe300000.ethernet: IRQ eth_wake_irq not found
-> mmc1: new high speed SDHC card at address aaaa
-> fan53555-regulator 0-0040: FAN53555 Option[8] Rev[1] Detected!
-> fan53555-regulator 0-0041: FAN53555 Option[8] Rev[1] Detected!
-> rk_gmac-dwmac fe300000.ethernet: IRQ eth_lpi not found
-> mmcblk1: mmc1:aaaa SC16G 14.8 GiB
-> rk_gmac-dwmac fe300000.ethernet: IRQ sfty not found
-> GPT:Primary header thinks Alt. header is not at the end of the disk.
-> rk_gmac-dwmac fe300000.ethernet: Deprecated MDIO bus assumption used
-> GPT:1978417 != 31116287
-> rk_gmac-dwmac fe300000.ethernet: PTP uses main clock
-> GPT:Alternate GPT header not at the end of the disk.
-> rk_gmac-dwmac fe300000.ethernet: clock input or output? (input).
-> GPT:1978417 != 31116287
-> rk_gmac-dwmac fe300000.ethernet: TX delay(0x28).
-> GPT: Use GNU Parted to correct GPT errors.
-> rk_gmac-dwmac fe300000.ethernet: RX delay(0x11).
->  mmcblk1: p1 p2 p3 p4 p5 p6 p7 p8
-> 
-> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Suggested-by: Heiko Stübner <heiko@sntech.de>
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Mikko Rapeli <mikko.rapeli@linaro.org>
-> ---
->  drivers/pmdomain/rockchip/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/pmdomain/rockchip/Kconfig b/drivers/pmdomain/rockchip/Kconfig
-> index 218d43186e5b9..17f2e6fe86b6f 100644
-> --- a/drivers/pmdomain/rockchip/Kconfig
-> +++ b/drivers/pmdomain/rockchip/Kconfig
-> @@ -3,6 +3,7 @@ if ARCH_ROCKCHIP || COMPILE_TEST
->  
->  config ROCKCHIP_PM_DOMAINS
->  	bool "Rockchip generic power domain"
-> +	default ARCH_ROCKCHIP
->  	depends on PM
->  	depends on HAVE_ARM_SMCCC_DISCOVERY
->  	depends on REGULATOR
-> -- 
-> 2.34.1
-> 
-
-On Fri, Sep 12, 2025 at 05:30:36PM +0300, Mikko Rapeli wrote:
-> PM is explicitly enabled in lines just below so
-> REGULATOR can be too.
-> 
-> Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Signed-off-by: Mikko Rapeli <mikko.rapeli@linaro.org>
-> ---
->  arch/arm/mach-rockchip/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/mach-rockchip/Kconfig b/arch/arm/mach-rockchip/Kconfig
-> index b7855cc665e94..c90193dd39283 100644
-> --- a/arch/arm/mach-rockchip/Kconfig
-> +++ b/arch/arm/mach-rockchip/Kconfig
-> @@ -13,7 +13,7 @@ config ARCH_ROCKCHIP
->  	select HAVE_ARM_SCU if SMP
->  	select HAVE_ARM_TWD if SMP
->  	select DW_APB_TIMER_OF
-> -	select REGULATOR if PM
-> +	select REGULATOR
->  	select ROCKCHIP_TIMER
->  	select ARM_GLOBAL_TIMER
->  	select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
-> -- 
-> 2.34.1
-> 
-
+>
+> I have a few more patches to do further cleanup, but that would make
+> the patchset a bit larger. I would like to see Mathieu's view.
+>
+> Mathieu,
+>
+> Do you expect me to add more patches in V3 to cleanup other parts or
+> we could keep the patchset size as it is, with further cleanup in
+> a standalone new patchset?
+>
+> Thanks,
+> Peng.
+>
+>
+> >
+> >Thanks,
+> >Peng.
+> >
+> >>
+> >> Frank
+> >> > -	case IMX_RPROC_NONE:
+> >> > +	/*
+> >> > +	 * To i.MX{7,8} ULP, Linux is under control of RTOS, no need
+> >> > +	 * dcfg->ops or dcfg->ops->detect_mode, it is state
+> >> RPROC_DETACHED.
+> >> > +	 */
+> >> > +	if (!dcfg->ops || !dcfg->ops->detect_mode) {
+> >> >  		priv->rproc->state = RPROC_DETACHED;
+> >> >  		return 0;
+> >> > -	default:
+> >> > -		break;
+> >> >  	}
+> >> >
+> >> > -	return 0;
+> >> > +	return dcfg->ops->detect_mode(priv->rproc);
+> >> >  }
+> >> >
+> >> >  static int imx_rproc_clk_enable(struct imx_rproc *priv)
+> >> >
+> >> > --
+> >> > 2.37.1
+> >> >
 
