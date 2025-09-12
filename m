@@ -4,64 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83756CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 05:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC77CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 05:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bOuJIl5jH5w0bJhhr/fG3QSJrybAdR7bz58Ih+9yIBw=; b=x5cy1Xq1lLIGRpgj46RIH8J/+5
-	jfc0a/v2kmvfzsewPRJTxF8MkRWGFfGfSI7QM7husocbo+c/td67tArgQszGykQetA0+b8/YUh/uG
-	tEmupHMd3HV9G0E/oD2R4j2jWQDU8hH8JUyzRn0sUkDjGawoJvixE9WHjS0LFNQeu5ghfMNbjcuT+
-	m0tcxE9ZyQ/MUDLBPsIzrj45EKuoVFfmlGfiZUzazCzikP5O8nzh5wMhR7YYEO76+jxhx4tjFV77Q
-	jBCD701qiD9ovFOG6Nqat8/QLblCUjcvYFjLgeoGnuZCFH9V0iZE8wnuxV5S7oHZwx5GUxEc8ubge
-	aw/DVkzg==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ihC8q0agrsEZYUC0pc3ffbB0ocdKsH+jDPlyNQdcPVQ=; b=ytzvWU3KjSUsGTfi8L5Kfa2DXX
+	PENdVzrN6FFoAl0Yh0x+fMiyl+KNmGV+VW/NWKSUYJf8rptiZifn5B5lUudsysj+hj0aAV8/zNEU1
+	R6ilJlZkmA7RAbzsPJ7e4hwKlq2Tqt67r77AVN5/4dklAhWPbceTYBPkH0rgEmEElrDkG4NyIeB++
+	HmW6VFbV+vYoAJwAxreQjcCmuRn646CfWURxeDlUCrWYeZYXO6tkQb8yrDFXGkwDKkFnaLBw7toaP
+	Fqs909FB7y3M5e8NtyJktq5Vu9+eJ4gLrC7OFO6p0PiUg3g57W4r+WGHjC44M56Y7/UD7RnKfzfcy
+	02CxCQYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwwH2-00000007AaO-479a;
-	Fri, 12 Sep 2025 05:24:40 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwwH0-00000007AZC-0TdQ
+	id 1uwwjs-00000007G7A-0gOl;
+	Fri, 12 Sep 2025 05:54:28 +0000
+Received: from l-sdnproxy.icoremail.net ([20.188.111.126] helo=azure-sdnproxy.icoremail.net)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwwjo-00000007G5G-25RL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 05:24:39 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 8FB7EC8EC44;
-	Fri, 12 Sep 2025 05:24:19 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 759F160638;
-	Fri, 12 Sep 2025 05:24:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 497E3102F2833;
-	Fri, 12 Sep 2025 07:24:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1757654674; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=bOuJIl5jH5w0bJhhr/fG3QSJrybAdR7bz58Ih+9yIBw=;
-	b=oj6uZAMeRU86ySa3dYaj3uhMj9lSFjdaVDg8pxBN8qjlH3go9bYu/MsJwNpzp5CTYnZtFH
-	2IRxGoq9ua5LU9fhsu4yWtm/Oe46UCwav5KzGcuA3ml4iZbky28O/mBiQGIQtxv1PKtqll
-	VWQ5MaeA/Xc9X/JKVc5qooxiG7FDluuSU2jGEGs9476RsuKbeIoweAp5xfsMO3ikFBzuJB
-	gzmX0wI0N1alUvQrXtnxyI2YiOkTzVQrqadVp0rkisCyWk06RC+rZ0jqHgiZgSfOJ/xpxd
-	aKcm11BHH7/lh54OVM9W54+oCxxIJcx/NGGNlr3yTX1LYuHB0SWvGX/ytQLieA==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Jihed Chaibi <jihed.chaibi.dev@gmail.com>, andrew@lunn.ch,
- sebastian.hesselbarth@gmail.com, robh@kernel.org
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, shuah@kernel.org, jihed.chaibi.dev@gmail.com
-Subject: Re: [PATCH] ARM: dts: kirkwood: Fix sound DAI cells for OpenRD clients
-In-Reply-To: <20250830203750.239890-1-jihed.chaibi.dev@gmail.com>
-References: <20250830203750.239890-1-jihed.chaibi.dev@gmail.com>
-Date: Fri, 12 Sep 2025 07:24:27 +0200
-Message-ID: <87348sp7jo.fsf@BLaptop.bootlin.com>
+	Fri, 12 Sep 2025 05:54:26 +0000
+Received: from E0005182LT.eswin.cn (unknown [10.12.96.155])
+	by app2 (Coremail) with SMTP id TQJkCgAHmZJztcNo553OAA--.31689S2;
+	Fri, 12 Sep 2025 13:53:57 +0800 (CST)
+From: weishangjuan@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	yong.liang.choong@linux.intel.com,
+	vladimir.oltean@nxp.com,
+	rmk+kernel@armlinux.org.uk,
+	faizal.abdul.rahim@linux.intel.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	inochiama@gmail.com,
+	jan.petrous@oss.nxp.com,
+	jszhang@kernel.org,
+	p.zabel@pengutronix.de,
+	boon.khai.ng@altera.com,
+	0x1207@gmail.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	emil.renner.berthing@canonical.com
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	lizhi2@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>
+Subject: [PATCH v6 0/2] Add driver support for Eswin eic7700 SoC ethernet controller
+Date: Fri, 12 Sep 2025 13:53:52 +0800
+Message-Id: <20250912055352.2832-1-weishangjuan@eswincomputing.com>
+X-Mailer: git-send-email 2.31.1.windows.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TQJkCgAHmZJztcNo553OAA--.31689S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZFyUXFy7uw1UZr43ZF4fKrg_yoWrurWUpF
+	W0kry5Wwn8tryxX3yftw10kFyfJan3Xr1akr1Iqw1fXa1qvas0vr4ak3W5GFy7Ar4DZ34Y
+	9ay3ZFW7Ca4ay3DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26rWY6Fy7MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI4
+	8JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4U
+	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRJPEfUUUUU
+X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_222438_349564_9E980AB1 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250911_225424_719561_5E262158 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +105,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jihed Chaibi <jihed.chaibi.dev@gmail.com> writes:
+From: Shangjuan Wei <weishangjuan@eswincomputing.com>
 
-> A previous commit changed the '#sound-dai-cells' property for the
-> kirkwood audio controller from 1 to 0 in the kirkwood.dtsi file,
-> but did not update the corresponding 'sound-dai' property in the
-> kirkwood-openrd-client.dts file.
->
-> This created a mismatch, causing a dtbs_check validation error where
-> the dts provides one cell (<&audio0 0>) while the .dtsi expects zero.
->
-> Remove the extraneous cell from the 'sound-dai' property to fix the
-> schema validation warning and align with the updated binding.
->
-> Fixes: e662e70fa419 ("arm: dts: kirkwood: fix error in #sound-dai-cells s=
-ize")
-> Signed-off-by: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
+This series depends on the config option patch [1].
 
-Applied on mvebu/fixes
+[1] https://lore.kernel.org/all/20250825132427.1618089-3-pinkesh.vaghela@einfochips.com/
 
-Thanks,
+Updates:
 
-Gregory
-> ---
->  arch/arm/boot/dts/marvell/kirkwood-openrd-client.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm/boot/dts/marvell/kirkwood-openrd-client.dts b/arch/=
-arm/boot/dts/marvell/kirkwood-openrd-client.dts
-> index d4e0b8150a8..cf26e2ceaaa 100644
-> --- a/arch/arm/boot/dts/marvell/kirkwood-openrd-client.dts
-> +++ b/arch/arm/boot/dts/marvell/kirkwood-openrd-client.dts
-> @@ -38,7 +38,7 @@ sound {
->  		simple-audio-card,mclk-fs =3D <256>;
->=20=20
->  		simple-audio-card,cpu {
-> -			sound-dai =3D <&audio0 0>;
-> +			sound-dai =3D <&audio0>;
->  		};
->=20=20
->  		simple-audio-card,codec {
-> --=20
-> 2.39.5
->
+  Changes in v6：
+  - Update driver patch's commit message
+  - Update eswin,eic7700-eth.yaml
+    - Modify the description content
+  - Update dwmac-eic7700.c  
+    - Move three variables from priv to local scope
+    - Inline eic7700_apply_delay logic directly into the probe function
+  - Link to v5: https://lore.kernel.org/all/20250904085913.2494-1-weishangjuan@eswincomputing.com/
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+  Changes in v5：
+  - Update eswin,eic7700-eth.yaml
+    - Use "items" instead "enum" for clock-names
+    - Arrange clocks description in correct order
+    - Delete redundant descriptions for eswin,hsp-sp-csr property
+  - Update dwmac-eic7700.c  
+    - Optimize the implementation of eic7700_ appy_delay
+    - Update comments and remove reg checking
+    - Use FIELD_PREP in eic7700_apply_delay function
+    - Use clk_bulk related APIs to manage clks
+  - Link to v4: https://lore.kernel.org/all/20250827081135.2243-1-weishangjuan@eswincomputing.com/
+
+  Changes in v4:
+  - Update eswin,eic7700-eth.yaml
+    - Modify reg:minItems:1 to reg:maxItems: 1
+    - Delete minItems and maxItems of clock and clock-names
+    - Delete phy-mode and phy-handle properties
+    - Add description for clock
+    - Add types of clock-names
+    - Delete descriptions for rx-internal-delay-ps and tx-internal-delay-ps
+    - Add enum value for rx-internal-delay-ps and tx-internal-delay-ps
+    - Modify description for eswin,hsp-sp-csr property
+    - Delete eswin,syscrg-csr and eswin,dly-hsp-reg properties
+    - Modify phy-mode="rgmii" to phy-mode="rgmii-id"
+  - Update dwmac-eic7700.c
+    - Remove fix_mac_speed and configure different delays for different rates
+    - Merge the offset of the dly register into the eswin, hsp sp csr attributes
+      for unified management
+    - Add missing Author and optimize the number of characters per
+      line to within 80
+    - Support default delay configuration and add the handling of vendor delay 
+      configuration
+    - Add clks_config for pm_runtime
+    - Modify the attribute format, such as eswin,hsp_sp_csr to eswin,hsp-sp-csr
+  - Link to v3: https://lore.kernel.org/all/20250703091808.1092-1-weishangjuan@eswincomputing.com/
+
+  Changes in v3:
+  - Update eswin,eic7700-eth.yaml
+    - Modify snps,dwmac to snps,dwmac-5.20
+    - Remove the description of reg
+    - Modify the value of clock minItems and maxItems
+    - Modify the value of clock-names minItems and maxItems
+    - Add descriptions of snps,write-questions, snps,read-questions
+    - Add rx-internal-delay-ps and tx-internal-delay-ps properties
+    - Modify descriptions for custom properties, such as eswin,hsp-sp-csr
+    - Delete snps,axi-config property
+    - Add snps,fixed-burst snps,aal snps,tso properties
+    - Delete snps,lpi_en property
+    - Modify format of custom properties
+  - Update dwmac-eic7700.c
+    - Simplify drivers and remove unnecessary API and DTS attribute configurations
+    - Increase the mapping from tx/rx_delay_ps to private dly
+  - Link to v2: https://lore.kernel.org/all/aDad+8YHEFdOIs38@mev-dev.igk.intel.com/
+
+  Changes in v2:
+  - Update eswin,eic7700-eth.yaml
+    - Add snps,dwmac in binding file
+    - Modify the description of reg
+    - Modify the number of clock-names
+    - Change the names of reset-names and phy-mode
+    - Add description for custom properties, such as eswin,hsp_sp_csr
+    - Delete snps,blen snps,rd_osr_lmt snps,wr_osr_lmt properties
+  - Updat dwmac-eic7700.c
+    - Remove the code related to PHY LED configuration from the MAC driver
+    - Adjust the code format and driver interfaces, such as replacing kzalloc
+      with devm_kzalloc, etc.
+    - Use phylib instead of the GPIO API in the driver to implement the PHY
+      reset function
+  - Link to v1: https://lore.kernel.org/all/20250516010849.784-1-weishangjuan@eswincomputing.com/
+
+Shangjuan Wei (2):
+  dt-bindings: ethernet: eswin: Document for EIC7700 SoC
+  ethernet: eswin: Add eic7700 ethernet driver
+
+ .../bindings/net/eswin,eic7700-eth.yaml       | 128 ++++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 226 ++++++++++++++++++
+ 4 files changed, 366 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+
+-- 
+2.17.1
+
 
