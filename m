@@ -4,174 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD34CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 05:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B09CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 05:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yzoe9bBy6JqFGvw4aQe+FnT/opNYGoZccJet5HeyrHc=; b=Ho39GF7znaeVNwn+nLoOwvmADg
-	KqQay0/BROIXeDz9wMbJp48Id2Pt00Rbhe9EXYyP3GsvOOMoKWAFG/Zx5O8NKkpNOSCDHlk8YIicH
-	s7HwXbS60brYE3ukMzJPoArb3MQW1tEnDCQJs/qHQ3XrFrfLgZY181/zsiYAkZavSgSrCQYumU/Jl
-	XiKSGiElzS8Rc2irkog1exIFv6aipJuVZcqFdVcChJrF8cjwcq2gdgH5sgsyxrv0bRsyUDZkk/Wpg
-	kKFYWK8qqX+DbbVbsneTZ3WaGVBSqp3oHZLz5rQLByjRIscX5UWHbBdUAIOc//SXtUvJcKtzIbXnU
-	MUn22W6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SBl1cCA3xHTcpiIdbq4ZV4glfFTpYxnU35Smjtoz8C4=; b=LScTYMqCP9hQkgDaQpa32gQxYu
+	3e5gN1TBPLEeO9wJe+Ml3w5wgvAF5m9TUcYkpPgx3LBcdj4+0EugcfbA3GayamBSFLr+WOeT0nGQA
+	bEnCDfNh39VD4AALPAo7GaX+kRYBeyFX1JZIsFM489fXCmbHYfGolOdQ16DyqUGy7xNSvSmMW+7Cv
+	Nya3kFZAb8negkX4GzB3uVZ73vZvgyyvIyWhNqgDMwwofAYYVoS1j+qnMBORNMn1gQrEH8uBVLdZJ
+	fbScp2maeHbvXyMezaDU9Y3bPpClp50x63emDYaopoxB38c6ZONQFeoQVKsCQMIA5hF3o26Xr1Ul+
+	uClnFnQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uww7A-000000077pF-3Wfh;
-	Fri, 12 Sep 2025 05:14:28 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uwwCm-000000078ua-1XZQ;
+	Fri, 12 Sep 2025 05:20:16 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uww78-000000077oX-1Iqb
+	id 1uwwCj-000000078tL-0Jlh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 05:14:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jJ2dk4PCcoGOaPbbbvbqfvNT8pLNxKPKnV/0M3ay7ZMfDB0hBVDsxzvLKv3xHB3yPO/H5gLXNTm6YYAUVDQKaP+m4/mGoC1TgK/KlQAWofrKhYAqtrrk9K1OPeUaa2h+e08yEt6mnsbgurEF//1ZzQoH9w0/pb6VKip44+XIR2QfjtKAgKvvzxPFUMtGWLt19woa+EIMBgWaxqP7u80ymIz+H5KB5ncrwok+ex7bz4Q5Xfz7odF2WlBKz9mwodQCpFEbSHUL8ZDCnmFSek3nTy0HLUgCWYGSegZia8NcVLSrsKHt12WwuGTKB2Y4XiMfmIswrWIt8JWK5qSI4XIDYQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Yzoe9bBy6JqFGvw4aQe+FnT/opNYGoZccJet5HeyrHc=;
- b=dI+Ak5KPTgazN+I1OpqHMaP7hgYCWMdky6FudPZVQJPwmVMisD93LrGVbWVnN2RbAAmPPcDdVJpoiopscj6sQIi0VwO/7ZGNu5OOAyDmo5swxR02FlHgE3zPk6/R/TxqxLqVkuUPHWYNMUq62xBpXkslD0v8/GU2yTdMLz+fmnjAuw+7uHNKMj6/Mk0P3CdSHs7WfVgsTdGcF7ZDIxmOmCDWkbV+TBepZF/3yWs64FtALauKLp6IREKuO6173zGH3NaY+MQ/cnu2smPw8lis886eV311gSMoCg5Bu+IBMauN1XY72ew5zCIFtCBaXgmNC+l8kzaH1FdFJuAzW3Dr6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Yzoe9bBy6JqFGvw4aQe+FnT/opNYGoZccJet5HeyrHc=;
- b=T6HY3RLbxI6CeX6pgDgp9bdar2qCEmjpfuOVLE2vkzeJUlkhQt7O0LxiYtfvfKJKmsB3pHFb9q0kgP0JH6/tM7HuLRdCKyQ2V5K+OPTJ8s908tL5dVrfea2wf4HwHwDmgznLPGh+eVXHC3UEclUMEUXliASBm7gLcsbk80PUfteCOaUHnHsglUPm+UUbooq35b+UGvT3HZq1FONaqAmUyJJ40NkvNEYngLjG7F1n3Ahd0AjuoxckWUgL2yEQ3XxUTxlZYJyzvE5J2EwyeCvHKW8Ug6zBT1s/KXySH+nUo+cjNKz7xGlEsTUwf2iAgcsAbbcs9ghaoWX3Vb7+gRrDXA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by PR3PR04MB7243.eurprd04.prod.outlook.com (2603:10a6:102:8c::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.13; Fri, 12 Sep
- 2025 05:14:11 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%5]) with mapi id 15.20.9115.010; Fri, 12 Sep 2025
- 05:14:11 +0000
-Message-ID: <9ee65036-be35-4adc-a3b3-bd495a926905@nxp.com>
-Date: Fri, 12 Sep 2025 13:15:41 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/bridge: imx8qxp-ldb: Remove dummy Runtime PM callback
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <c7436cda28409f0080dca6cd2ca13f142d6dc489.1756999913.git.geert+renesas@glider.be>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <c7436cda28409f0080dca6cd2ca13f142d6dc489.1756999913.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR02CA0033.apcprd02.prod.outlook.com
- (2603:1096:4:195::20) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Fri, 12 Sep 2025 05:20:15 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250912052002epoutp04cad5ba780327923bd2e473b772e47d9c~kcV29hukW2162521625epoutp04J
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 05:20:02 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250912052002epoutp04cad5ba780327923bd2e473b772e47d9c~kcV29hukW2162521625epoutp04J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1757654402;
+	bh=SBl1cCA3xHTcpiIdbq4ZV4glfFTpYxnU35Smjtoz8C4=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=oc7Hunzf6UFQCt4xaZ7hYqWXb32NZXpcnP/b02Dj0YpjMWc/CB/hhH2gxTENBqJFY
+	 FeqCfKDr6nKG9IzWUnaPkI+9LNLnIIEPyif2sNeXTCX6ANJGDEcJixFtWq4FV5/awf
+	 uzBwcSAe2cPf3+k9N4R0ST4RWcJaWrLFA9eeMYJE=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250912052001epcas5p245dd958eda4e47543eca23ea52c48340~kcV2IUOzm0647606476epcas5p2d;
+	Fri, 12 Sep 2025 05:20:01 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4cNN6825DYz6B9m6; Fri, 12 Sep
+	2025 05:20:00 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250912051959epcas5p17511cbcad9f9a50495677bc3bf44b8e2~kcV0tAR4b0582905829epcas5p1M;
+	Fri, 12 Sep 2025 05:19:59 +0000 (GMT)
+Received: from FDSFTE411 (unknown [107.122.81.184]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250912051955epsmtip25fe3af81aa42f9f80904ec2a9c2d8bda~kcVxFhMUc0678906789epsmtip2S;
+	Fri, 12 Sep 2025 05:19:55 +0000 (GMT)
+From: "Ravi Patel" <ravi.patel@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Geert Uytterhoeven'"
+	<geert@linux-m68k.org>
+Cc: <gregkh@linuxfoundation.org>, <jirislaby@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <jesper.nilsson@axis.com>,
+	<lars.persson@axis.com>, <alim.akhtar@samsung.com>, <arnd@kernel.org>,
+	<andriy.shevchenko@linux.intel.com>, <geert+renesas@glider.be>,
+	<thierry.bultel.yh@bp.renesas.com>, <dianders@chromium.org>,
+	<robert.marko@sartura.hr>, <schnelle@linux.ibm.com>, <kkartik@nvidia.com>,
+	<linux-kernel@vger.kernel.org>, <linux-serial@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-arm-kernel@axis.com>,
+	<ksk4725@coasia.com>, <kenkim@coasia.com>, <smn1196@coasia.com>,
+	<pjsin865@coasia.com>, <shradha.t@samsung.com>
+In-Reply-To: <abfaef6f-dd40-441d-86ec-7cd37c1e06b5@kernel.org>
+Subject: RE: [PATCH 3/3] tty: serial: samsung: Remove unused artpec-8
+ specific code
+Date: Fri, 12 Sep 2025 10:49:54 +0530
+Message-ID: <002201dc23a4$e27e29c0$a77a7d40$@samsung.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PR3PR04MB7243:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3e1f2a0e-902d-4c7a-e0f7-08ddf1bb3528
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|19092799006|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cUhjdDFua2FnWm1Gd3FodWc5MHNCdnJKdldwcHBGS1RNZGJlQ3dqT0JNQUdr?=
- =?utf-8?B?SnpyOFY4YWJnQTk4NFNWSlJZUjBmQ1VtT3h2Mkw1VER3K2xnNUZvaE9sODBS?=
- =?utf-8?B?UFhWeTNvVUJTa0xTcjRncEtaS3k5UXFLSjJTdHpING5Bd1FNMUVpUkM1d3pS?=
- =?utf-8?B?Vkd4bms2dVZLUG9iWUE4QTkrUEpqMUo5Z2ZHaHpEaDVmaURza2N5Z1VwdmYz?=
- =?utf-8?B?bkhUcGNpV3FqK3NjeXlkb1lmMzZ4SnEwbHF3TndEMkk1alhHK1RnRDEwMWJh?=
- =?utf-8?B?UmJkMmFmaERsSlNucVhBN1NRbnVlMU1xc012bGFDQndlN3AzaUFzWFA1ajcw?=
- =?utf-8?B?QTkvL3lHMkJ4Tm01bFFucWJJc2JOb2daY0NOcTFHeERQWTRzbHRFb0JkTmNr?=
- =?utf-8?B?U3JPTS9CdjFpcE9iRkQySy92dUhXbVhOZEI2ZUxTMmtZMnVTOHhRTHcyYW8r?=
- =?utf-8?B?dVl2RGFMUnhGaWhSUTZ4NnpqRnBocWo4aVRWYlh1N1dLSlFrazdvcTRkeVRY?=
- =?utf-8?B?YmNNVlZRQWVZM1dZTDB6OUxyTXBYakZIUjN1ZUNHa0ZtQTRvUENjRG01STd3?=
- =?utf-8?B?RXdZeVNKUHcrWjc5cEEzVlRlZlYvNjVnUG56ZmtPMlR4WXZ2UGlNaTFCUUlQ?=
- =?utf-8?B?aEk2UmRLWTJaYStZZCtLbFl6bDgvbGQyNzlJazBqaFZpTEtYa29QcG10dmh4?=
- =?utf-8?B?Q2xvTUsvaUxMc29MVDNRaTBuM1pta3NIb2lrZVhpdE94SitsVkU2bWNSeVNG?=
- =?utf-8?B?L3pSTWlPd1ZXdUpMWndRL1pGNEZmMlpUckJqMU82TjVJVDM1R0VrQ1BxYXQ4?=
- =?utf-8?B?YkJXQlJzSkVQbTlhZ2ZGVUk4QVVzTjJTMjV5cUl0TDc4ODhrRnJ3T1liRUxi?=
- =?utf-8?B?RXkwZENBN3dUOElTNjBIbmhGdHNqMXR2SS9tRnVyM3pxVDNmRDNKbUs3ck1x?=
- =?utf-8?B?LzVpcDk0VVUyYTd6WExlczFwa052NW9HOHhlMUdJaHJnRmg2NlFseXQxNTlr?=
- =?utf-8?B?RGZKVUo0eFhuTVNEVkxwQ0ZXamhTMmNtcXp3NXlBNnVkWHN1ZmN0WXpTZnh6?=
- =?utf-8?B?TzYyVjJ4Wm9zN0hnenlwbkRyZlNxazJkazEyYlBsZnNpUXpJSjZFeU93d1k5?=
- =?utf-8?B?S3NsSFN5QkMyL21UQ3gwbGhscjczemU5ckM5UUVqTlJodkxkM2NiaVVHRnpV?=
- =?utf-8?B?bEdTY0s0NktYeDlmVkRESjc3aG9LWFIxaUJpY3FTTkU0cUNaaVgyaGZHQ0Vl?=
- =?utf-8?B?alFweGZzaFp1QXR6dUk4dmY3U2EvWTdnWmg0YVA3d1MwRWxPalN6UHR0YW56?=
- =?utf-8?B?OEZHUEt1aDQxVjk0YlVuVm0yR3E0TmxQdDBiWG9RRW5KUU9xUG9QcXhJcnF2?=
- =?utf-8?B?bHdTZFNjOEUxMUFONU1PV1hrQlNhUVJ5Qmk2dXVvQVF4M1J0TDNQcFdlUzhD?=
- =?utf-8?B?MDFlcGVhWEJhTmtDalBGeXdTTnVHQmQreC9MOGkrdW1yVEJZdXU2YzJUd1dL?=
- =?utf-8?B?QWFHaWlJUlVwY3lneGgxT21UYjErTWlQVWhWZWx3SVhRQjRjblVpaEwraTVq?=
- =?utf-8?B?U3A3R3hySjZsR2NxRUlRQUNMRTNvUG9mYVBaWEswc1lxZFNZaWJWTVU0VkpH?=
- =?utf-8?B?ZVNQNGQ1blBoanN6aFBZR0RyaGdPdy9LUG9nSUFBS1RoMFZkZm9DRkVLWEFC?=
- =?utf-8?B?UnFiNmNxNXlDSkZvaHhoRm9BRUVkWllnd1krMXQzcEJpYkhNS2ptMWFuNE1m?=
- =?utf-8?B?aHJQelROVEx2OTd4L0RPWllyNGNHUmtVekJjNEw5WmN1RUR0SG9CWFZUMmtN?=
- =?utf-8?B?cnZOa2hiaDNpNElvZFRpeU1CcThIaG0yVnAyOUYwZ1dndHBtV2JRR1JzNVla?=
- =?utf-8?B?SFN0bFQ3RDZvS3RKYWxESnlyVXArMUxqK05TQ3VJVHlLNjNmM0RPSDBma3l6?=
- =?utf-8?B?aVJJS0x6dlBITHMrQU5Yd1JQaVZQYUJaZjBiTmwxZ2tTQWM0bzlkSlZyalI2?=
- =?utf-8?B?TWVMT002RnFnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(19092799006)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WkszVVlLQkFWSVBTRUIyQnhiMDlOYnA5NlByelFCREFja3lydHY5QVREVVc4?=
- =?utf-8?B?Qzd2MFprZTF1c25KNFZxbkx4WWloa29XQi9pd1ZEa2ttZWFTZUsxNmh0eFYz?=
- =?utf-8?B?bnJ4a09RSHZHaklKbExDbTI2T0REV2xsQmhPTW1YQ0lKL0VtNUVjTmtJd2po?=
- =?utf-8?B?RFJVUmxuK1VuUkhKUzZySE91TXE5ZHVETVJSQVNJMzFPTlJQOXBBMENDTExF?=
- =?utf-8?B?cHJOcGRmZmNSYVU2U1FTQnZhSWsydGlFSEFBRmJWNmd2SkkwMFpjSGtuNlNW?=
- =?utf-8?B?OUJmbWN4S2d5ZW1xbVRJT1BscDNiaE1jTDZnd1hOOFdkeFFieUhtSW0vWWRw?=
- =?utf-8?B?Rk52WERUa01haHF3ZTVlTlR6Qnl2S240dEN3R0NHM1VhenA3V09Wd2JIYWRJ?=
- =?utf-8?B?NGRpWGNUZHdqL0FsdlQ4UittN2ZFSlExWFFlUkFDZFZERW9BZjZpYjRQZm1Q?=
- =?utf-8?B?NGxBb0dGQW54TXhKaDU5RjhHYjkySHF2WDdpL1RyeThGVmxZM2xnbWtoNllq?=
- =?utf-8?B?amR0YXIzRFNjdkh6UHBxZVloMHEvemc2K3FyM2p1K2pFN0txRWE0ZkNlTmFH?=
- =?utf-8?B?TFdMb1VLNWlFZXRKbUR6VStCQWErODdVSlM3MllzSjk5OEJ2TW9DTnJISWVI?=
- =?utf-8?B?TnRlUStZSmxqV2J5Y29QSEVUMDhiYzFucVllVU9RS1dYVU0zQjF4Uk5mMVE0?=
- =?utf-8?B?UkR1UmVwVEtKWWNnMmV5UUUyNk1oWFN1YS94ZTFTRkk3allMd0lwdlpNQnAw?=
- =?utf-8?B?dDl2UmJOaUNlZXdMWGpRVmVBbDJVOUJBaE5sdDZTUStvYmNKYkRsZmJaQk1l?=
- =?utf-8?B?eVlvRmRCYTFXYWk1b0hBdzYvSVpMK2xpbXVkakF4ZTEyOVV0M2cxL1IrVDlk?=
- =?utf-8?B?VVZzN1M2eGNyZ1hnVHc0U2lpa29pSk9wM3ZMQWg0aXdqazEvSHhuZmpSUG1p?=
- =?utf-8?B?M3NtbEJoZVgwN0pXcDN6VFZHem1DRVkrWlI3d2twYWQ4aXpodzZZRVdwc2I5?=
- =?utf-8?B?dnpQUkhTVjk3VzhjMHN4ZTVuVlBTZFMwaGVVQ0wxbkpWTXN1YjY1Z3ZBei9W?=
- =?utf-8?B?YkFuQ3VoUTdzZmNhQVZCYzY1NHo4d1RtbjZUWmpUUkJhUWVOUHcxRnhaN0N2?=
- =?utf-8?B?YVRuVHFyV0hxMzF6ZHA3eVIwc1dGOFd3Q1RKMlRiTnRhZkVTM25ZYjNxamVv?=
- =?utf-8?B?OTlOaXMrc3ZOYTVWU1VaeDl3OXpjUEk3eFdWOEJDdDdWdXFjVnFkRk9IL3h1?=
- =?utf-8?B?ejZWeHdNU2NMYnBkOE0vMVVxKzBMQ0FoVHhMQ1NqQnRYbWpPTkVPNnZSNW9S?=
- =?utf-8?B?MERWVm1TT2JncW9Ua1RVRFlnMTF5eEY4VDRmYXFHU2E1SytvNm5RaitlWEND?=
- =?utf-8?B?T3R1c0Mwd1Q5ZGZBOHpPMWRtUmlhakR0eTZoaTBWcjdzWC9NUjd5Wk5Ia0FL?=
- =?utf-8?B?d0Uyejd2WDZXUG9iZ0FRelh6QjlHQjJGb0FoLzhkKytlSno5R2VCREdNZDNN?=
- =?utf-8?B?K0t5S2IxM0svb3F0OU5ubjlKM1AzamN0NmlNUWFWR2VFcmNrUGducGQyaGU4?=
- =?utf-8?B?WCs1K3NwSHFDZkQ1ejFZOFFESjJSYzRzU1B4djFzd1A3SzU0QzcvRlhKTDAw?=
- =?utf-8?B?c0Z1eHpjSEkzYUNHaC9Qb1hFSUVYV2xLMnNYWUNQcU83Mk5ZREpjU0RmU0lE?=
- =?utf-8?B?Kzh5Zm04UkMyZm8yQ0Fhb1R6YkxqY2w2QzQzZENYMG5JUE9aKzRhc0JhMzRi?=
- =?utf-8?B?YWJWeVFUKzV5aC8rVWxSYzNndkJiOWxuY1Vkb2dwVmVwakt5MmxOczludXY1?=
- =?utf-8?B?MmlPWTJ2ZTdvNU0zdFZXT3FGWXo4QkwxUUJzNWdtWkgwY1h0eHZETjZpYjVw?=
- =?utf-8?B?U2FydHRNZXY3aytUekNxWEpYb2s0dDdmMlRKVFVUSmNyNFNsVlNWZjcvendG?=
- =?utf-8?B?Z2tydlVDbnYwMzVTQWUreGFtTjg0Y0QvbzFCUjB2S3NxR1o5aEp6MEY1ZXZ2?=
- =?utf-8?B?M0ZMZy9tVDRzdXBWOHhPT00yWENzdVpYbmZzRHdvMGVtU2RBbkRvRnhiYjRW?=
- =?utf-8?B?NkxGSzVvZklrN2VBWSttVFNvdlVkdWVOOEQ3UlZNNXhYRFh5ZVlROE5mVlhI?=
- =?utf-8?Q?JFA++3mAJ+Ekxs+tQaoY9I38E?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3e1f2a0e-902d-4c7a-e0f7-08ddf1bb3528
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2025 05:14:11.3502
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hHRQ2wB4VXQcw1QX/EArVBNDYyBsQHDG9LYL97AJxWWVPhx2/uxMSmEljn8Ba46CDsdYrYDk34T9wrCwM0obNg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7243
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJu8uqH6fYxQzG+hnF7rWV1C9oliQHCvJCeAevVl18Bulx3hgI90RbxAdnEKbQB9/8vTwGziL2EswACVSA=
+Content-Language: en-in
+X-CMS-MailID: 20250912051959epcas5p17511cbcad9f9a50495677bc3bf44b8e2
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250911141714epcas5p29f591a1d645c9c69dc5b7d2c2d12af50
+References: <CGME20250911141714epcas5p29f591a1d645c9c69dc5b7d2c2d12af50@epcas5p2.samsung.com>
+	<20250911141605.13034-1-ravi.patel@samsung.com>
+	<20250911141605.13034-4-ravi.patel@samsung.com>
+	<CAMuHMdVe-FULHWk3QCBENG7TsbEZyxj0N5shhESxWBWd49JmOw@mail.gmail.com>
+	<6df0e227-896b-438a-913e-95b637aa2b14@kernel.org>
+	<8aeda67e-404e-4deb-ac90-015f2325ef64@kernel.org>
+	<000101dc2335$ccd62f60$66828e20$@samsung.com>
+	<abfaef6f-dd40-441d-86ec-7cd37c1e06b5@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_221426_343347_C49AD837 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20250911_222013_743625_0B1E0BE4 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,20 +109,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/04/2025, Geert Uytterhoeven wrote:
-> Since commit 63d00be69348fda4 ("PM: runtime: Allow unassigned
-> ->runtime_suspend|resume callbacks"), unassigned
-> .runtime_{suspend,resume}() callbacks are treated the same as dummy
-> callbacks that just return zero.
+
+
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk@kernel.org>
+> Sent: 11 September 2025 22:52
+> To: Ravi Patel <ravi.patel@samsung.com>; 'Geert Uytterhoeven' <geert@linux-m68k.org>
+> Cc: gregkh@linuxfoundation.org; jirislaby@kernel.org; robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> jesper.nilsson@axis.com; lars.persson@axis.com; alim.akhtar@samsung.com; arnd@kernel.org; andriy.shevchenko@linux.intel.com;
+> geert+renesas@glider.be; thierry.bultel.yh@bp.renesas.com; dianders@chromium.org; robert.marko@sartura.hr; schnelle@linux.ibm.com;
+> kkartik@nvidia.com; linux-kernel@vger.kernel.org; linux-serial@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; linux-arm-kernel@axis.com; ksk4725@coasia.com; kenkim@coasia.com;
+> smn1196@coasia.com; pjsin865@coasia.com; shradha.t@samsung.com
+> Subject: Re: [PATCH 3/3] tty: serial: samsung: Remove unused artpec-8 specific code
 > 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
->  drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c | 7 +------
->  1 file changed, 1 insertion(+), 6 deletions(-)
+> On 11/09/2025 18:04, Ravi Patel wrote:
+> >>>>> -OF_EARLYCON_DECLARE(artpec8, "axis,artpec8-uart",
+> >>>>> -                       s5pv210_early_console_setup);
+> >>>>>
+> >>>>>  static int __init gs101_early_console_setup(struct earlycon_device *device,
+> >>>>>                                             const char *opt)
+> >>>>
+> >>>> Removing these breaks backwards-compatibility with existing DTBs,
+> >>>> which lack the new "samsung,exynos8895-uart" fallback compatible value.
+> >>>
+> >>> This was just applied, so ABI break would be fine. It should be however
+> >>> clearly expressed in the commit msg.
+> >>>
+> >>> I have a feeling that not much testing was happening in Samsung around
+> >>> this patchset and only now - after I applied it - some things happen.
+> >>> But it is damn too late, my tree is already closed which means this is
+> >>> going to be the ABI.
+> >>
+> >> Ah, no, I mixed up patches with recent DTS for Artpec-8. This serial ABI
+> >> was accepted three years ago (!!!), so you are Geert absolutely right -
+> >> that's ABI break.
+> >
+> > Thank you for your review.
+> >
+> > The DTS patches for ARTPEC-8 is added recently (https://lore.kernel.org/linux-samsung-soc/20250901051926.59970-1-
+> ravi.patel@samsung.com/)
+> > Before that, there was no user (in DT) of "axis,artpec8-uart" compatible.
+> > So I am not convinced of ABI break (considering patch #1 and #2 goes first with review comment fixes)
+> 
+> 
+> ABI is defined by bindings and implemented by kernel. Having DTS user is
+> irrelevant to fact whether ABI is or is not broken.
+> 
+> Having DTS user determines the known impact of known ABI breakage.
 
-Applied to misc/kernel.git (drm-misc-next).  Thanks!
+OK. So does that mean if someone adds the ABI then it cannot be reverted,
+because of it breaks backword compatibility (users are using ABI in their local DTB) ?
 
--- 
-Regards,
-Liu Ying
+Please suggest what should be the proper way.
+
+Thanks,
+Ravi
+
+> 
+> Best regards,
+> Krzysztof
+
 
