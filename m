@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C580FCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5037BCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 13:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oeww4Ivx5YThdAfSYdbOCn1Gj1LUFzN/W4lJGwFtW3A=; b=kzmU7RqC5V6v3UDmrltoXSdahw
-	uZIKAtSIfW3O5PirSZSvNtVtp+gYGjZArhX5DlfxirPA2Ax0QY3aSNzB4fSJHRxH/C+IFFwKeMHiv
-	P02eiA9gjGGd/bLXeIxzGRLHdXxeDlo8pyr3YbR7SKuWgFOSIzG1yH/+7kwls1333lUKSGujznqeU
-	A0gUKn9u/EyOUcPtp2N/IPQ6BkEQ9ISwbwaAuwKc679hyQ2h0ajaBpU7ebeO5BgDlvjtFaYTzXpw9
-	WzdV6EWIshgRZavfJ23brr7E06aJysHBdBs3IEqdKJ5QD4ShB2qONizh1X4MT5yoful6nRp2pCa8W
-	J/WQ574w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UW/NOfKa9RFqrpSy7rSdIS7Uk0N5dPhIbH1nTQbHg1w=; b=4DsZq3q6+J2b/sLVyymgDK+nMh
+	+KIr3Gimpr4IyNVofelIwTAv+g5ZnkW0djf31wHGdIW6PCICj3ZU2eUaIhB41tLLEXCvSe0cqmOxb
+	Y1Oh4XAh4UuDt6CMZv59STdLxsX7L/h841XUIcNJfRCSF3FjpE4qXspnVYOJQXp+9NtOVWFCxiJFl
+	g19hGgzw22xVBbuxcoaWqJFYKm9lT2EhRV7UjSaiVVwpoMSSbdM9qm2yz9k8v1kdaaE0WVlyzIgxc
+	VFRcbcWOv/vO5tv5tMsZiToGR49wPgC0/LP1aiAoyVP09t24xbOct3BZYVimS3bN4QCrAYUR8V2bi
+	RzWToEog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3fs-00000009Vdi-45z6;
-	Fri, 12 Sep 2025 13:18:48 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1ux3iH-00000009WVB-2NEz;
+	Fri, 12 Sep 2025 13:21:17 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux3fq-00000009VcU-2bZO
+	id 1ux3iE-00000009WSl-1r8i
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 13:18:47 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-321281431f1so631082fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 06:18:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757683125; x=1758287925; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=oeww4Ivx5YThdAfSYdbOCn1Gj1LUFzN/W4lJGwFtW3A=;
-        b=T47z2DqFajRe798Lm70xO+KAHMZUofwD/DU8kjM2+Vc7wBFPHIn+Wrvvu+IG9gvXgc
-         ll7gdBhCfm1V+0Y0HAJEFunV1ZiktliUVNjQ+7NPF/hDUBeZqi0MeWjWKnCEETgjITGr
-         EvrnFRvOrbiGZvcOyHzhB5qSGyGGLJUNMrDlZeFsGi5G6yUWRWHRV/JLunjwkccb5ULC
-         Kl2n9H1qTc3c44oCKj+nwNckXMzUCPd+0ZCPx+Y+9vOQ7CU3qyICWOMdhUp/xaHjxlPX
-         Fjbsv7iqngCX4YoEspcE6a4oIyn9jDxHGJR3rttWG3VnNhJC7PsBU7F1ZMhsTpGUtvSo
-         eayA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757683125; x=1758287925;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oeww4Ivx5YThdAfSYdbOCn1Gj1LUFzN/W4lJGwFtW3A=;
-        b=T9jh64AFfEA/unBKP1PZEuQSpkvVqTAkbSnhZH1tmGG7rJkJQA0LGn882/thukOxJF
-         lAEwYoZk3Dld1T303m+zk7W+QvVuizaw+V/sGGQjiBk5Xp9Z087ub1RgIraBCHvGkPgu
-         n2vLQZddkbyscKIH+NRuRxIRYDhofSUQX6szMtHJwkVpoALnv1UFZECr8/YFMiN5nHIt
-         F+QhFebrhW5XkRpFlnW+lRNlLBotB7AvMnOmbiyTudjN9LfiifV7nVMfpIfGNxW3UW19
-         GK00yM/C3JRrQlUAorF/jND7icgYIWiCMvm5mOFgSjpBQDmuUxApPR155ALBKMjCTMfD
-         s13Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX7bWygYK7i8yV3am59RH/dC0XPstTJ2VoYf+66HoWbVT6J0OK05Y7YWIiulmsuhQ2NsnzP5R7YT7Q46gGwEHsH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPJAGQhbJhIDPiHv2DFdK5Sjz4Aml/X3w+F9oPlsGyfnmPi0Xl
-	Zijf1nfJ3mZh7vbeXAkJps/ts+WxcMyVAlSlitt3RsXZtwaQkVYrLWynG7HbaAFGE8yzenNZdNz
-	4B+7LsWpxd+jGrhwMWuVA22JRC2yLgOVeGFlcjypf2g==
-X-Gm-Gg: ASbGncvHQEGzO/EnTrNBsfE30HGVFwR+S7rZj9qFcDgvjD1cMr6JRE62c+heZBv2Ldx
-	BOkjL7uGnPHS7jcbqhnOeJScNcJ+0Jo1Cyz2ysV550Gcb4zLVXsCdwwTaUalymcXq8AHvlN4agt
-	iJg1390gJNzND5ybHw/y0ZpjbdrEZgZo340F8/3UVNvxbFhX/8K2dKoVzn83MBw5SBJbVviUk7P
-	MhMrJM=
-X-Google-Smtp-Source: AGHT+IGfSaVuijaDjlm+oIKN2iiydfgKjK+5YsMgIZmmXxQ/CONJDi7ONHUL/Qm+aJ4qj0ySkZLSHpb1XTjKs2wTKXo=
-X-Received: by 2002:a05:6871:154:b0:322:4639:f3a0 with SMTP id
- 586e51a60fabf-32e53e60589mr1203923fac.9.1757683125291; Fri, 12 Sep 2025
- 06:18:45 -0700 (PDT)
+	Fri, 12 Sep 2025 13:21:16 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cNZhL2Zsjz6L5Gb;
+	Fri, 12 Sep 2025 21:16:50 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4654B14038F;
+	Fri, 12 Sep 2025 21:21:07 +0800 (CST)
+Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 12 Sep
+ 2025 15:21:06 +0200
+Date: Fri, 12 Sep 2025 14:21:04 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
+	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
+	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
+	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
+	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
+	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
+ Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
+	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH v2 23/29] arm_mpam: Add mpam_msmon_read() to read
+ monitor value
+Message-ID: <20250912142104.00006569@huawei.com>
+In-Reply-To: <20250910204309.20751-24-james.morse@arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+	<20250910204309.20751-24-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20250907202752.3613183-1-alok.a.tiwari@oracle.com>
-In-Reply-To: <20250907202752.3613183-1-alok.a.tiwari@oracle.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 12 Sep 2025 14:18:34 +0100
-X-Gm-Features: Ac12FXyFWdruiBB0gYT4kEG-HddeFzWWyfMX32BSCDTTl49jpBagppTHhtL-eME
-Message-ID: <CADrjBPoByCUtKLR193QpfMv+1VTspq1s8Mzm4dzLCUai8P30Tg@mail.gmail.com>
-Subject: Re: [PATCH] scsi: ufs: exynos: correct sync pattern mask timing comment
-To: Alok Tiwari <alok.a.tiwari@oracle.com>
-Cc: alim.akhtar@samsung.com, krzk@kernel.org, martin.petersen@oracle.com, 
-	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_061846_674539_71F294C2 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_062114_771031_0A493082 
+X-CRM114-Status: GOOD (  19.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,17 +86,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 7 Sept 2025 at 21:27, Alok Tiwari <alok.a.tiwari@oracle.com> wrote:
->
-> Fix the comment for SYNC_LEN_G2 in exynos_ufs_config_sync_pattern_mask().
-> The actual value is 40us, not 44us, matching the configured mask timing.
-> This change improves code clarity and avoids potential confusion for
-> readers and maintainers.
->
-> No functional changes.
->
-> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
-> ---
+On Wed, 10 Sep 2025 20:43:03 +0000
+James Morse <james.morse@arm.com> wrote:
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> Reading a monitor involves configuring what you want to monitor, and
+> reading the value. Components made up of multiple MSC may need values
+> from each MSC. MSCs may take time to configure, returning 'not ready'.
+> The maximum 'not ready' time should have been provided by firmware.
+> 
+> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
+> not ready, then wait the full timeout value before trying again.
+> 
+> CC: Shanker Donthineni <sdonthineni@nvidia.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+Hi James,
+
+A couple of minor comments inline,
+
+Jonathan
+
+> +static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+> +				     u32 flt_val)
+> +{
+> +	struct mpam_msc *msc = m->ris->vmsc->msc;
+> +
+> +	/*
+> +	 * Write the ctl_val with the enable bit cleared, reset the counter,
+> +	 * then enable counter.
+> +	 */
+> +	switch (m->type) {
+> +	case mpam_feat_msmon_csu:
+> +		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
+> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
+> +		mpam_write_monsel_reg(msc, CSU, 0);
+> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+> +		break;
+> +	case mpam_feat_msmon_mbwu:
+> +		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+> +		mpam_write_monsel_reg(msc, MBWU, 0);
+> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+> +		break;
+
+Given nothing to do later, I'd just return at end of each case.
+Entirely up to you though as this is just a personal style preference.
+
+> +	default:
+> +		return;
+> +	}
+> +}
+
+> +
+> +static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+> +{
+> +	int err, idx;
+> +	struct mpam_msc *msc;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc_ris *ris;
+> +
+> +	idx = srcu_read_lock(&mpam_srcu);
+
+	guard(srcu)(&mpam_srcu);
+
+Then you can do direct returns on errors which looks like it will simplify
+things somewhat by letting you just return on err.
+
+
+> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
+> +		msc = vmsc->msc;
+I'd bring the declaration down here as well.
+		struct mpam_msc *msc = vmsc->msc;
+Could bring ris down here as well.
+
+> +
+> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
+> +			arg->ris = ris;
+> +
+> +			err = smp_call_function_any(&msc->accessibility,
+> +						    __ris_msmon_read, arg,
+> +						    true);
+> +			if (!err && arg->err)
+> +				err = arg->err;
+> +			if (err)
+> +				break;
+> +		}
+> +		if (err)
+> +			break;
+
+This won't be needed if you returned on error above.
+
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	return err;
+And you only reach here with above changes if err == 0 so return 0; appropriate.
+> +}
+> +
+> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+> +		    enum mpam_device_features type, u64 *val)
+> +{
+> +	int err;
+> +	struct mon_read arg;
+> +	u64 wait_jiffies = 0;
+> +	struct mpam_props *cprops = &comp->class->props;
+> +
+> +	might_sleep();
+> +
+> +	if (!mpam_is_enabled())
+> +		return -EIO;
+> +
+> +	if (!mpam_has_feature(type, cprops))
+> +		return -EOPNOTSUPP;
+> +
+> +	memset(&arg, 0, sizeof(arg));
+Either use = { }; at declaration or maybe
+	arg = (struct mon_read) {
+		.ctx = ctx,
+		.type = type,
+		.val = val,
+	};
+
+rather than bothering with separate memset.
+
+> +	arg.ctx = ctx;
+> +	arg.type = type;
+> +	arg.val = val;
+> +	*val = 0;
+> +
+> +	err = _msmon_read(comp, &arg);
+> +	if (err == -EBUSY && comp->class->nrdy_usec)
+> +		wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
+> +
+> +	while (wait_jiffies)
+> +		wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
+> +
+> +	if (err == -EBUSY) {
+> +		memset(&arg, 0, sizeof(arg));
+Same as above. 
+> +		arg.ctx = ctx;
+> +		arg.type = type;
+> +		arg.val = val;
+> +		*val = 0;
+> +
+> +		err = _msmon_read(comp, &arg);
+> +	}
+> +
+> +	return err;
+> +}
+
 
