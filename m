@@ -4,71 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB00CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 06:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17327CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 06:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6LH87+1IiY/lYyLvbTQW2dEczZuDxUoWtu5AqiVG26Q=; b=MEgAIFyJ00fKAQlf77yRZGBzuo
-	XVJXkI5P/rRgz/5Tv6WpkIkZ4eD8y+uF73LtdvwPuCVVc11kVKcn4A+1BmVv92cQCZasjNN3chWsn
-	PtIM79cMJ2ucLs298oJkYdKQcYPhepDp2lY9dWgaphhvUUPk1vJjCr7Tcskbeeb4rFaUxeGeiLibg
-	Sklzu13EaiW8tnsdYq7SZpC+213MDI2e6zxbDfxIoCZyB5cjkaQAX0ENzR64hWvcwwiaYCGjOt8qd
-	2OWUsCjL7u6CfdkCNenExPvZwSzbwdjn0xjgMZD8J/Ya8fG2RnYcfj4AzC2JJ2pMe8lxc56byP5Yx
-	ckfk69Eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PgJGoJ+SyNU8xTZFXwYN9HASt02ajCyHXftNu5jhfMs=; b=Yn9E3CCwRPOgLC2uEScoSD+OcS
+	HwElWk4Yo7jTLEj9bbisels9lJ+MkwBc9JlZ57W7/fPcEcu9mnkK0/ZU/ts31HlsMHQreiHzef7vv
+	Cy6RE6knXkDCcNFcMLE1BhLMW2IPC0juDkZr9ODpRCXea4b1xBTbumwjZTbVXOWLlyoo8KwQnIhBY
+	A7lcdyIBryoOhx2AEvV0b4nSnS9RWLRBrBXM2TbBWSwJTDEwltkh6ROBE3Pqb/OtTDdxxJwSetA7l
+	djTheAV7k/lyrTikKOCN7XmYjfFKNnE2dwwwn5X8ytHrrbCduVAWqMGNP1vsWSjYr+OZnVhCiDPdE
+	MMedeH/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwx9B-00000007Mc6-1uRV;
-	Fri, 12 Sep 2025 06:20:37 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uwxCJ-00000007NVX-0MIk;
+	Fri, 12 Sep 2025 06:23:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwx98-00000007Mas-1ktu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 06:20:35 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58C6KRt8458365;
-	Fri, 12 Sep 2025 01:20:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757658027;
-	bh=6LH87+1IiY/lYyLvbTQW2dEczZuDxUoWtu5AqiVG26Q=;
-	h=From:To:CC:Subject:Date;
-	b=XkeTqY9h7X5uhDfwbJRyfbtlmdQdsmsrsJAFT+BH0J8YpP26KHDZtqAuOV+jiloN5
-	 DBXgEAZhWLIWivijHykP0065sHLJl35ulcEyVXouR4vx1egIJn6O3bGX4YOmrSCt6B
-	 eXWVtVn62g/KpzIIsPEHBBThEM40Hr9Smec4RZU0=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58C6KR8t2560140
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 12 Sep 2025 01:20:27 -0500
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 12
- Sep 2025 01:20:26 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 12 Sep 2025 01:20:26 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58C6KM8v3143558;
-	Fri, 12 Sep 2025 01:20:23 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <u-kumar1@ti.com>,
-        <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH] arm64: dts: ti: k3-j721s2-evm: Add overlay to enable USB0 Type-A
-Date: Fri, 12 Sep 2025 11:50:14 +0530
-Message-ID: <20250912062021.2906034-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uwxCI-00000007NV9-1kHC;
+	Fri, 12 Sep 2025 06:23:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 77E38601AF;
+	Fri, 12 Sep 2025 06:23:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5749EC4CEF4;
+	Fri, 12 Sep 2025 06:23:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757658229;
+	bh=9T73VS9+o4Zoo6JQMDrxwkWyCcTGJSPu9bJ/JLxGhoI=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=K+tUT9Ui0Lj0qetX4V8f8hxvGPJsm/BKTf0HW7pE5h0z0YOzKPHtIxQhImX/f+n88
+	 gIuNPwW4DTVun4DprE4qf5t+qx5He/qG+pETHjCT3CATCAXmMzjZ1vWuw+ac99zdfm
+	 +0aVzmrQL52bl6DV3bmQq+0IRUqRkRMDEuBcnmXuYaPcRJHCkC+i31tQKa7A3TQ56D
+	 n7cx6at6JYpOJZbx3fVBPZli50U6g2ppn8f3IMad24G4Qk3PIFAOv0b3LedhAUosuY
+	 IGi+43ynLvyWq4ea6CVaNvuE7ALbHzlh+dAhb+JmPcQZnJO83RCRsGrJ+lGYixbAwm
+	 91fKGAvuN2fkg==
+Message-ID: <295aa861-8e5c-4146-a137-20dcfc24e1c0@kernel.org>
+Date: Fri, 12 Sep 2025 08:23:43 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_232034_621413_5615D8BB 
-X-CRM114-Status: GOOD (  20.81  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] defconfig: cleanup orphaned CONFIG_SCHED_DEBUG
+To: Trevor Woerner <twoerner@gmail.com>, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-msm@vger.kernel.org, openbmc@lists.ozlabs.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250828103828.33255-1-twoerner@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250828103828.33255-1-twoerner@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,116 +118,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The J721S2-EVM (J721S2-SOM mounted on the J7 Common Processor Board) has
-a single instance of USB namely USB0. On the board, USB0 can be enabled
-using a single USB interface at a time among the following:
-1. USB3.1 Gen1 Type C interface
-2. Two USB2.0 Type A interfaces via an on-board USB Hub
+On 28/08/2025 12:38, Trevor Woerner wrote:
+> In commit b52173065e0a ("sched/debug: Remove CONFIG_SCHED_DEBUG") this
+> Kconfig option was removed since CONFIG_SCHED_DEBUG was made unconditional
+> by patches preceding it.
+> 
+> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
 
-By default, USB0 is enabled using the USB3.1 Gen1 Type C interface. Hence,
-add a device-tree overlay to allow using USB0 with the USB2.0 Type A
-interfaces by configuring the "USB2.0_MUX_SEL" mux. Also, since the Type A
-interfaces only connect to USB Devices with USB0 acting as the USB Host,
-set the Dual-Role mode for USB0 to Host.
+I doubt anyone will pick up such patch touching all possible
+architectures. I would suggest to split it per arch.
 
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
+If you want to keep it like that, there is a chance soc@ would pick it
+up if you send it to them.
 
-Hello,
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-This patch is based on linux-next tagged next-20250911.
-Patch has been validated on J721S2-EVM. Test logs have been provided
-below for the default case without the DT overlay (Type C Interface)
-and with the DT overlay applied (Type A Interface).
-
-Without the DT overlay, USB0 is configured with 'dr_mode' set to "otg"
-due to which the 'lsusb' output does not contain any output initially
-as the USB Mass Storage device is not yet connected to the Type C
-Interface on the EVM. After connecting the USB Mass Storage device to
-the Type C Interface, USB0 assumes the Host role and enumerates the Mass
-Storage device. Following this, 'lsusb' output shows the USB Root Hub
-and the USB Mass Storage Device. Test Logs for this are:
-https://gist.github.com/Siddharth-Vadapalli-at-TI/6bc1434b7d949a2f2c43d55811aee661
-
-With the DT overlay applied, USB0 assumes the Host role by default, due
-to which the 'lsusb' output contains the Root Hub even without the USB
-Mass Storage device connected to the Type A Interface on the EVM. After
-the USB Mass Storage device is connected to the Type A Interface, it is
-enumerated and shows up in the 'lsusb' output. Test Logs for this are:
-https://gist.github.com/Siddharth-Vadapalli-at-TI/dc3443be624b61d920833f1a66ab356a
-
-Regards,
-Siddharth.
-
- arch/arm64/boot/dts/ti/Makefile               |  4 +++
- .../dts/ti/k3-j721s2-evm-usb0-type-a.dtso     | 28 +++++++++++++++++++
- 2 files changed, 32 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j721s2-evm-usb0-type-a.dtso
-
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index aad9177930e6..1e4829801e49 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -131,6 +131,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-gesi-exp-board.dtbo
- k3-j721s2-evm-dtbs := k3-j721s2-common-proc-board.dtb k3-j721s2-evm-gesi-exp-board.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
-+dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-usb0-type-a.dtbo
- 
- # Boards with J722s SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
-@@ -230,6 +231,8 @@ k3-j721e-sk-csi2-dual-imx219-dtbs := k3-j721e-sk.dtb \
- 	k3-j721e-sk-csi2-dual-imx219.dtbo
- k3-j721s2-evm-pcie1-ep-dtbs := k3-j721s2-common-proc-board.dtb \
- 	k3-j721s2-evm-pcie1-ep.dtbo
-+k3-j721s2-evm-usb0-type-a-dtbs := k3-j721s2-common-proc-board.dtb \
-+	k3-j721s2-evm-usb0-type-a.dtbo
- k3-j722s-evm-csi2-quad-rpi-cam-imx219-dtbs := k3-j722s-evm.dtb \
- 	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
- k3-j722s-evm-csi2-quad-tevi-ov5640-dtbs := k3-j722s-evm.dtb \
-@@ -272,6 +275,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
- 	k3-j721e-evm-pcie1-ep.dtb \
- 	k3-j721e-sk-csi2-dual-imx219.dtb \
- 	k3-j721s2-evm-pcie1-ep.dtb \
-+	k3-j721s2-evm-usb0-type-a.dtb \
- 	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtb \
- 	k3-j722s-evm-csi2-quad-tevi-ov5640.dtb \
- 	k3-j742s2-evm-usb0-type-a.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-evm-usb0-type-a.dtso b/arch/arm64/boot/dts/ti/k3-j721s2-evm-usb0-type-a.dtso
-new file mode 100644
-index 000000000000..fe4a23efe708
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-evm-usb0-type-a.dtso
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/**
-+ * DT Overlay for enabling USB0 instance of USB in the Host Mode of operation
-+ * with the Type-A Connector on the J7 common processor board.
-+ *
-+ * J7 Common Processor Board Product Link: https://www.ti.com/tool/J721EXCPXEVM
-+ *
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&exp_som {
-+	p0-hog {
-+		/* P0 - USB2.0_MUX_SEL */
-+		gpio-hog;
-+		gpios = <0 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "USB2.0_MUX_SEL";
-+	};
-+};
-+
-+&usb0 {
-+	dr_mode = "host";
-+};
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
