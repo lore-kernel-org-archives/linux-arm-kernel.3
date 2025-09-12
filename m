@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F4BCAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A31CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 15:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YaVFVuWtyKgp7Y3tlzPDyRgfcQER5D3c+vZ1/BrwHVY=; b=SHHOUuxZ1oq7oIXVoP5XHWTRpJ
-	jKZ73pl9bb/7NV171KWDIhcowhFLs1d4tS+JrHyLDL/PyrUoN593Z1W5lL8I3FejhtgV6xv+Fxbdl
-	D/MWdmqnX+yZUFwp6r0kM7guiYp5mdtHmlRdlnYRsD2hah4mvwroL4oUg4GMScmMqwWZY5agyApvm
-	f30Aotg+8IJZdzvNUK6/1KIWa2ljpkJKEGnvb6MxFi4jf07OntgBvoOGHMcwwqo4gULjsLC76LHGj
-	dZiymJWJSwaKkDAZ7R3IfA0JryGehS6TUHFXzVqwZNf3SsnxfFwgoLf841D6FweLtzWhOGfXFJuut
-	OXKVmaUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=by+ObUytjvXcenImIHt9JZJA99LZebCeS92rU3XDcD8=; b=SUd/xOh0YNTgpDffef3/KpuU3K
+	m/Yf3kpLJyKPeeAVwHIhaoi8ykUzVGM5/EUgpu0hdOfc2+Jo1AZ4XmhU0lCI6tGWjPeJuMeacvg7E
+	rsbRfCUepztf333NfWC8+rwAp0NVfwQBSftB/R+oPJDrIw0B4qFzD/b/KmP+oP3zojsCzIbtADM3O
+	oXUkW5wMMqobo+p4DKDxlak9KFfbJDzDK5dyog1oLySumpwqR1NCsVAkuKzBmuLqvuCso44XFdfX9
+	JvKQcUi6N7T1lSIoxxrUuAhDHynF2tTE6/Oar1bi1+ywZ3G+TXRSk0cfkyu6Gy7dxWcj/v9EjQswF
+	n8ez84lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5ee-0000000AEU4-2LXr;
-	Fri, 12 Sep 2025 15:25:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux5ec-0000000AES7-2NXB
+	id 1ux5gu-0000000AFOd-0hFH;
+	Fri, 12 Sep 2025 15:28:00 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ux5gr-0000000AFNc-0u2P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 15:25:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E94328AC;
-	Fri, 12 Sep 2025 08:25:28 -0700 (PDT)
-Received: from [10.57.66.147] (unknown [10.57.66.147])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 301DA3F694;
-	Fri, 12 Sep 2025 08:25:29 -0700 (PDT)
-Message-ID: <338ef811-1dab-4c4e-bc5f-8ebd8cb68435@arm.com>
-Date: Fri, 12 Sep 2025 17:25:27 +0200
+	Fri, 12 Sep 2025 15:27:58 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1ux5gi-0005o5-PB; Fri, 12 Sep 2025 17:27:48 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1ux5gi-000xIm-1T;
+	Fri, 12 Sep 2025 17:27:48 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1ux5gi-0032oA-14;
+	Fri, 12 Sep 2025 17:27:48 +0200
+Date: Fri, 12 Sep 2025 17:27:48 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 02/10] dmaengine: imx-sdma: fix spba-bus handling for
+ i.MX8M
+Message-ID: <20250912152748.gn66fmmrqyqlqdrb@pengutronix.de>
+References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de>
+ <20250911-v6-16-topic-sdma-v2-2-d315f56343b5@pengutronix.de>
+ <aMQ53pZQD4tj+GvN@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Subject: Re: [PATCH v2 0/7] Nesting support for lazy MMU mode
-To: David Hildenbrand <david@redhat.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
- Mark Rutland <Mark.Rutland@arm.com>
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908191602.61160a7990b9ea418de758c7@linux-foundation.org>
- <d1b4ff2a-052f-4556-91ae-273962edbed0@redhat.com>
-Content-Language: en-GB
-In-Reply-To: <d1b4ff2a-052f-4556-91ae-273962edbed0@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aMQ53pZQD4tj+GvN@lizhi-Precision-Tower-5810>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_082538_675274_1E9BC52C 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20250912_082757_410018_603DC263 
+X-CRM114-Status: GOOD (  34.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,105 +83,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/09/2025 11:21, David Hildenbrand wrote:
-> On 09.09.25 04:16, Andrew Morton wrote:
->> On Mon,  8 Sep 2025 08:39:24 +0100 Kevin Brodsky
->> <kevin.brodsky@arm.com> wrote:
->>
->>> The main change enabling nesting is patch 2, following the approach
->>> suggested by Catalin Marinas [4]: have enter() return some state and
->>> the matching leave() take that state.
->>
->> This is so totally the correct way.  Thanks.
->
-> Staring at this, I wonder if we could alternatively handle it like
-> pagefault_disable()/pagefault_enable(), having something like
-> current->lazy_mmu_enabled.
->
-> We wouldn't have to worry about preemption in that case I guess
-> (unless the arch has special requirements).
->
-> Not sure if that was already discussed, just a thought. 
+On 25-09-12, Frank Li wrote:
+> On Thu, Sep 11, 2025 at 11:56:43PM +0200, Marco Felsch wrote:
+> > Starting with i.MX8M* devices there are multiple spba-busses so we can't
+> > just search the whole DT for the first spba-bus match and take it.
+> > Instead we need to check for each device to which bus it belongs and
+> > setup the spba_{start,end}_addr accordingly per sdma_channel.
+> >
+> > While on it, don't ignore errors from of_address_to_resource() if they
+> > are valid.
+> >
+> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> 
+> I think the below method should be better.
+> 
+> of_translate_address(per_address) == OF_BAD_ADDR to check if belong spba-bus
 
-Based on the outcome of the discussion with David on patch 2 [1p], there
-is indeed an alternative approach that we should seriously consider. In
-summary:
+The SDMA engine doesn't have to be part of the SPBA bus, please see the
+i.MX8MM for example.
 
-* Keep the API stateless, handle nesting with a counter in task_struct
-* Introduce new functions to temporarily disable lazy_mmu without
-impacting nesting, track that with a bool in task_struct (addresses the
-situation in mm/kasan/shadow.c and possibly some x86 cases too)
-* Move as much handling from arch_* to generic functions
+Regards,
+  Marco
 
-What the new generic infrastructure would look like:
-
-struct task_struct {
-    ...
-#ifdef CONFIG_ARCH_LAZY_MMU
-    struct {
-        uint8_t count;
-        bool enabled; /* or paused, see below */
-    } lazy_mmu_state;
-#endif
-}
-
-* lazy_mmu_mode_enable():
-    if (!lazy_mmu_state.count) {
-        arch_enter_lazy_mmu_mode();
-        lazy_mmu_state.enabled = true;
-    }
-    lazy_mmu_state.count++;
-
-* lazy_mmu_mode_disable():
-    lazy_mmu_count--;
-    if (!lazy_mmu_state.count) {
-        lazy_mmu_state.enabled = false;
-        arch_leave_lazy_mmu_mode();
-    } else {
-        arch_flush_lazy_mmu_mode();
-    }
-
-* lazy_mmu_mode_pause():
-    lazy_mmu_state.enabled = false;
-    arch_leave_lazy_mmu_mode();
-
-* lazy_mmu_mode_resume();
-    arch_enter_lazy_mmu_mode();
-    lazy_mmu_state.enabled = true;
-
-The generic enable()/disable() helpers are able to handle most of the
-logic, leaving only truly arch-specific code to the arch callbacks:
-* Updating lazy_mmu_state
-* Sanity checks on lazy_mmu_state (e.g. count underflow/overflow,
-pause()/resume() only called when count > 0, etc.)
-* Bailing out if in_interrupt() (not done consistently across arch's at
-the moment)
-
-A further improvement is to make arch code check lazy_mmu_state.enabled
-to determine whether lazy_mmu is enabled at any given point. At the
-moment every arch uses a different mechanism, and this is an occasion to
-make them converge.
-
-The arch callback interface remains unchanged, and we are resurrecting
-arch_flush_lazy_mmu_mode() to handle the nested disable() case (flushing
-must happen when exiting a section regardless of nesting):
-
-enable() -> arch_enter()
-    enable() -> [nothing]
-    disable() -> arch_flush()
-disable() -> arch_leave()
-
-Note: lazy_mmu_state.enabled (set whenever lazy_mmu is actually enabled)
-could be replaced with lazy_mmu_state.paused (set inside a
-pause()/resume() section). I believe this is equivalent but the former
-is slightly more convenient for arch code - to be confirmed in practice.
-
-Any thoughts on this? Unless there are concerns, I will move towards
-that approach in v3.
-
-- Kevin
-
-[1p]
-https://lore.kernel.org/all/4aa28016-5678-4c66-8104-8dcc3fa2f5ce@redhat.com/t/#u
-
+> aips3: bus@30800000 {
+> 	...
+>         ranges = <0x30800000 0x30800000 0x400000>,
+>                  <0x8000000 0x8000000 0x10000000>;
+> 
+>                         spba1: spba-bus@30800000 {
+>                                 compatible = "fsl,spba-bus", "simple-bus";
+>                                 #address-cells = <1>;
+>                                 #size-cells = <1>;
+>                                 reg = <0x30800000 0x100000>;
+>                                 ranges;
+> 
+> 				...
+> 				sdma1:
+> 
+> };
+> 
+> of_translate_address() will 1:1 map at spba-bus@30800000 spba1.
+> then
+> reach ranges = <0x30800000 0x30800000 0x400000> of aips3
+> 
+> if per_address is not in this range, it should return OF_BAD_ADDR. So
+> needn't parse reg of bus@30800000 at all.
+> 
+> Frank
+> 
+> > ---
+> >  drivers/dma/imx-sdma.c | 58 ++++++++++++++++++++++++++++++++++----------------
+> >  1 file changed, 40 insertions(+), 18 deletions(-)
+> >
+> > diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> > index 3ecb917214b1268b148a29df697b780bc462afa4..56daaeb7df03986850c9c74273d0816700581dc0 100644
+> > --- a/drivers/dma/imx-sdma.c
+> > +++ b/drivers/dma/imx-sdma.c
+> > @@ -429,6 +429,8 @@ struct sdma_desc {
+> >   * @event_mask:		event mask used in p_2_p script
+> >   * @watermark_level:	value for gReg[7], some script will extend it from
+> >   *			basic watermark such as p_2_p
+> > + * @spba_start_addr:	SDMA controller SPBA bus start address
+> > + * @spba_end_addr:	SDMA controller SPBA bus end address
+> >   * @shp_addr:		value for gReg[6]
+> >   * @per_addr:		value for gReg[2]
+> >   * @status:		status of dma channel
+> > @@ -461,6 +463,8 @@ struct sdma_channel {
+> >  	dma_addr_t			per_address, per_address2;
+> >  	unsigned long			event_mask[2];
+> >  	unsigned long			watermark_level;
+> > +	u32				spba_start_addr;
+> > +	u32				spba_end_addr;
+> >  	u32				shp_addr, per_addr;
+> >  	enum dma_status			status;
+> >  	struct imx_dma_data		data;
+> > @@ -534,8 +538,6 @@ struct sdma_engine {
+> >  	u32				script_number;
+> >  	struct sdma_script_start_addrs	*script_addrs;
+> >  	const struct sdma_driver_data	*drvdata;
+> > -	u32				spba_start_addr;
+> > -	u32				spba_end_addr;
+> >  	unsigned int			irq;
+> >  	dma_addr_t			bd0_phys;
+> >  	struct sdma_buffer_descriptor	*bd0;
+> > @@ -1236,8 +1238,6 @@ static void sdma_channel_synchronize(struct dma_chan *chan)
+> >
+> >  static void sdma_set_watermarklevel_for_p2p(struct sdma_channel *sdmac)
+> >  {
+> > -	struct sdma_engine *sdma = sdmac->sdma;
+> > -
+> >  	int lwml = sdmac->watermark_level & SDMA_WATERMARK_LEVEL_LWML;
+> >  	int hwml = (sdmac->watermark_level & SDMA_WATERMARK_LEVEL_HWML) >> 16;
+> >
+> > @@ -1263,12 +1263,12 @@ static void sdma_set_watermarklevel_for_p2p(struct sdma_channel *sdmac)
+> >  		swap(sdmac->event_mask[0], sdmac->event_mask[1]);
+> >  	}
+> >
+> > -	if (sdmac->per_address2 >= sdma->spba_start_addr &&
+> > -			sdmac->per_address2 <= sdma->spba_end_addr)
+> > +	if (sdmac->per_address2 >= sdmac->spba_start_addr &&
+> > +			sdmac->per_address2 <= sdmac->spba_end_addr)
+> >  		sdmac->watermark_level |= SDMA_WATERMARK_LEVEL_SP;
+> >
+> > -	if (sdmac->per_address >= sdma->spba_start_addr &&
+> > -			sdmac->per_address <= sdma->spba_end_addr)
+> > +	if (sdmac->per_address >= sdmac->spba_start_addr &&
+> > +			sdmac->per_address <= sdmac->spba_end_addr)
+> >  		sdmac->watermark_level |= SDMA_WATERMARK_LEVEL_DP;
+> >
+> >  	sdmac->watermark_level |= SDMA_WATERMARK_LEVEL_CONT;
+> > @@ -1447,6 +1447,31 @@ static void sdma_desc_free(struct virt_dma_desc *vd)
+> >  	kfree(desc);
+> >  }
+> >
+> > +static int sdma_config_spba_slave(struct dma_chan *chan)
+> > +{
+> > +	struct sdma_channel *sdmac = to_sdma_chan(chan);
+> > +	struct device_node *spba_bus;
+> > +	struct resource spba_res;
+> > +	int ret;
+> > +
+> > +	spba_bus = of_get_parent(chan->slave->of_node);
+> > +	/* Device doesn't belong to the spba-bus */
+> > +	if (!of_device_is_compatible(spba_bus, "fsl,spba-bus"))
+> > +		return 0;
+> > +
+> > +	ret = of_address_to_resource(spba_bus, 0, &spba_res);
+> > +	of_node_put(spba_bus);
+> > +	if (ret) {
+> > +		dev_err(sdmac->sdma->dev, "Failed to get spba-bus resources\n");
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	sdmac->spba_start_addr = spba_res.start;
+> > +	sdmac->spba_end_addr = spba_res.end;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  static int sdma_alloc_chan_resources(struct dma_chan *chan)
+> >  {
+> >  	struct sdma_channel *sdmac = to_sdma_chan(chan);
+> > @@ -1527,6 +1552,8 @@ static void sdma_free_chan_resources(struct dma_chan *chan)
+> >
+> >  	sdmac->event_id0 = 0;
+> >  	sdmac->event_id1 = 0;
+> > +	sdmac->spba_start_addr = 0;
+> > +	sdmac->spba_end_addr = 0;
+> >
+> >  	sdma_set_channel_priority(sdmac, 0);
+> >
+> > @@ -1837,6 +1864,7 @@ static int sdma_config(struct dma_chan *chan,
+> >  {
+> >  	struct sdma_channel *sdmac = to_sdma_chan(chan);
+> >  	struct sdma_engine *sdma = sdmac->sdma;
+> > +	int ret;
+> >
+> >  	memcpy(&sdmac->slave_config, dmaengine_cfg, sizeof(*dmaengine_cfg));
+> >
+> > @@ -1867,6 +1895,10 @@ static int sdma_config(struct dma_chan *chan,
+> >  		sdma_event_enable(sdmac, sdmac->event_id1);
+> >  	}
+> >
+> > +	ret = sdma_config_spba_slave(chan);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> >  	return 0;
+> >  }
+> >
+> > @@ -2235,11 +2267,9 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
+> >  static int sdma_probe(struct platform_device *pdev)
+> >  {
+> >  	struct device_node *np = pdev->dev.of_node;
+> > -	struct device_node *spba_bus;
+> >  	const char *fw_name;
+> >  	int ret;
+> >  	int irq;
+> > -	struct resource spba_res;
+> >  	int i;
+> >  	struct sdma_engine *sdma;
+> >  	s32 *saddr_arr;
+> > @@ -2375,14 +2405,6 @@ static int sdma_probe(struct platform_device *pdev)
+> >  			dev_err(&pdev->dev, "failed to register controller\n");
+> >  			goto err_register;
+> >  		}
+> > -
+> > -		spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
+> > -		ret = of_address_to_resource(spba_bus, 0, &spba_res);
+> > -		if (!ret) {
+> > -			sdma->spba_start_addr = spba_res.start;
+> > -			sdma->spba_end_addr = spba_res.end;
+> > -		}
+> > -		of_node_put(spba_bus);
+> >  	}
+> >
+> >  	/*
+> >
+> > --
+> > 2.47.3
+> >
+> 
 
