@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB077CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 13:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C42CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 13:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Mnmx2sgw4WEslCg4DD/AvZUrJvXuGMClCMNCsJPvEs=; b=b6gvu28mVqitDI7lGg+PwxM6Tl
-	3XoigjcpRJ8kNzJUlr1HrwmCBClZNxHFkNJnG8GlrBforTaFjhyBA+owtdNdbiqMAq3TU74iV5Oet
-	Uzn/GfsiyQl12w+3/5dnWlodMT2XjRzpTfTAOlesIr9w7E/+VTwSM5zKpVNZgpZ7od9LlzN7TuN0Q
-	GPZ+ohgCDUCysq/Mw5TKmdRp/EJQSvI7peXc38vf6ulQop/kgI1oM9B29JUrg7/B92FsyZpr3W+xr
-	ffDB5M+ySDOGZfSDaZOqLvab8forkjBpyHfowIlKwdWg5H7kgzpaluVSPLmG0/Wl0snu+sANAddDW
-	lMhybtgg==;
+	bh=E5mab86645Sapfjkb/w4wFvZdTEM2XTRwTZw9cv1dew=; b=jsiH5OCM72unnTacNpFcjJ818q
+	CKMS7z8wze1Ppk+JpuhNDW5Piz388McFD6GJ9996VX5t410kOFm5lRSD0XKGwhf3VH+DRWIyYCpP4
+	DvIMTeArNeW6rMTvSxP8nQSscvy19BZFPx4qBXtTkGGI1iLbkk6hjqa5QzrQ4H5AbHo1y2TX4G0JO
+	gMWPBOIJxbnkJZ9I6dEnZ8Y/zeiviA7twFOoQmX8Fw6xnPFonlEWQUZ0dd3HWL2JjWaPCI0Wj/MBU
+	IeHzQBLGfUa15vDzcse+7CIV291n8TSXlmh1cfyh99ESFWssmLPstq2GMtoJfT8NQscLq+ejuA5bv
+	DKzh/kVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxPsz-0000000Emz7-2Q7e;
-	Sat, 13 Sep 2025 13:01:49 +0000
+	id 1uxPts-0000000EnK3-0hCA;
+	Sat, 13 Sep 2025 13:02:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxPsx-0000000Emxy-17Gh;
-	Sat, 13 Sep 2025 13:01:48 +0000
+	id 1uxPtq-0000000EnIe-0Gze;
+	Sat, 13 Sep 2025 13:02:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 22D0942CBB;
-	Sat, 13 Sep 2025 13:01:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1000C4CEEB;
-	Sat, 13 Sep 2025 13:01:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B7CA940176;
+	Sat, 13 Sep 2025 13:02:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CEB1C4CEEB;
+	Sat, 13 Sep 2025 13:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757768504;
-	bh=AomHbXjj2ZCUcLKxzCjlmTkzRv3ch6j47Nsf97s7m28=;
+	s=k20201202; t=1757768561;
+	bh=RaiIJcx5VZn7srWuUvK70Cr15E5gF3Rk7CVplrhCHBs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b+NnwqsdjYqUUU5iDKDNJ1RiHTJ41S+3Q5XcrXwOvxElRasNhNUyyKz0q22WSbK24
-	 Iv9gkT9b9xl9pVbotzkof4Al5C1TtWA/zJrlymNERSHnY447cR/VRfac1D31t/WBCw
-	 lkpDKFRO4rZuYPCIK+IwL5DSMBBgvRSaEhd2tjDlXb2Eu1QTM1LbcNOMxi6n2ISqCi
-	 9KEA4/V+KEHgPDpRaU/FAhFE7YMpYwJ8mVKeqt0yjjadCUEguXponQbyqPn99Kqbla
-	 MeTXIG6jKyUr+OtDEB3CQ4jdTOXrWDRYPTr4tajuv7QT78p/rTgjVv7fhvHHI/VCYq
-	 X9j/XgJIxBfFg==
-Date: Sat, 13 Sep 2025 14:01:37 +0100
+	b=RRwKCehsNlWZ0JEhm1e74Yx3g9bGNycmX5+uuaJCFHcVXBA59nEIegT2KIyj2B1Zw
+	 shNbGrZHubISMRpvGtuuG3KHVrEM+WpDRQ1yfZ1erRoNFgxhggBPFVxSUEIrq+odIh
+	 mVYCvKNGej7fuI3wxT5dbQ2SH/FarfidvRP8wM/aVPTtD3T15+rptBjI78ncAQ0YiM
+	 v2QULault82d8Fe0yaNgSWQ3UMRR9lJ0qdr4QNzuJNLV1ZEtmCShzgjc/Nm6dT6n7L
+	 Xc1RwFHoADmA6JZBR8w+D71MNYoCMqg+IR8l7HdkRitFXXJA8POMhKn8u1CfNjmqHu
+	 M8NQNNjFiEI/w==
+Date: Sat, 13 Sep 2025 14:02:35 +0100
 From: Simon Horman <horms@kernel.org>
 To: Christian Marangi <ansuelsmth@gmail.com>
 Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -63,18 +63,18 @@ Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH v17 6/8] mfd: an8855: Add support for Airoha
- AN8855 Switch MFD
-Message-ID: <20250913130137.GL224143@horms.kernel.org>
+Subject: Re: [net-next PATCH v17 1/8] dt-bindings: net: dsa: Document support
+ for Airoha AN8855 DSA Switch
+Message-ID: <20250913130235.GM224143@horms.kernel.org>
 References: <20250911133929.30874-1-ansuelsmth@gmail.com>
- <20250911133929.30874-7-ansuelsmth@gmail.com>
+ <20250911133929.30874-2-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250911133929.30874-7-ansuelsmth@gmail.com>
+In-Reply-To: <20250911133929.30874-2-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_060147_325148_D6BB81CA 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20250913_060242_123681_172AAD8C 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,49 +89,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 11, 2025 at 03:39:21PM +0200, Christian Marangi wrote:
-> Add support for Airoha AN8855 Switch MFD that provide support for a DSA
-> switch and a NVMEM provider.
+On Thu, Sep 11, 2025 at 03:39:16PM +0200, Christian Marangi wrote:
+> Document support for Airoha AN8855 5-port Gigabit Switch.
 > 
-> Also make use of the mdio-regmap driver and register a regmap for each
-> internal PHY of the switch.
-> This is needed to handle the double usage of the PHYs as both PHY and
-> Switch accessor.
+> It does expose the 5 Internal PHYs on the MDIO bus and each port
+> can access the Switch register space by configurting the PHY page.
+
+nit: configuring
+
 > 
 > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-
-...
-
-> diff --git a/drivers/mfd/airoha-an8855.c b/drivers/mfd/airoha-an8855.c
-
-...
-
-> +static int an855_mdio_register(struct device *dev, struct an8855_core_priv *priv)
-> +{
-> +	struct device_node *mdio_np;
-> +	int ret;
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../net/dsa/airoha,an8855-switch.yaml         | 86 +++++++++++++++++++
+>  1 file changed, 86 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+> new file mode 100644
+> index 000000000000..fbb9219fadae
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+> @@ -0,0 +1,86 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/dsa/airoha,an8855-switch.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	mdio_np = of_get_child_by_name(dev->of_node, "mdio");
-> +	if (!mdio_np)
-> +		return -ENODEV;
+> +title: Airoha AN8855 Gigabit Switch
 > +
-> +	for_each_available_child_of_node_scoped(mdio_np, phy_np) {
-> +		ret = an8855_phy_register(dev, priv, phy_np);
-> +		if (ret)
-> +			break;
-> +	}
-
-Hi Christian,
-
-Maybe it cannot happen, but if the loop above iterates zero times,
-then ret will be used uninitialised below.
-
-Flagged by Smatch.
-
+> +maintainers:
+> +  - Christian Marangi <ansuelsmth@gmail.com>
 > +
-> +	of_node_put(mdio_np);
-> +	return ret;
-> +}
+> +description: >
+> +  Airoha AN8855 is a 5-port Gigabit Switch.
+> +
+> +  It does expose the 5 Internal PHYs on the MDIO bus and each port
+> +  can access the Switch register space by configurting the PHY page.
+
+Likewise here.
 
 ...
 
