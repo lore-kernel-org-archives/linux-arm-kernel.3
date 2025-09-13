@@ -4,103 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AB5CAC594
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F6BCAC593
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xc1itu5KlQDWqH+H4ca13G4lDoFzZa+J7vZRdBNUkg8=; b=EKdZ/YFE+yBBhT1u4Xur0nip8v
-	IhJuoUPBynu3ppL6N2e1D2G7m4I7NEaui3kuKE4XgYQ7jqnjo5diszu1RumeO7Q10CMWdSjnk1gvT
-	zFsF5gcmC3rA9Am6aT9YAFKALt6hX/Y5mV5jO8D3zoUnGnQ8p28Xi5pf+n00YsxRMtV81524Q8OD2
-	rii2HebEcL5KiJRF+zpazPmnnK+8XAQ0emGj+u8yAfo4bfzfz2o4XV0ZKUvsKB27eMq2YUuLhFl+x
-	jCMKHMTb8/xcuEm7Bdin2vnqFdhG23fr5VipBCnR1EwlSwNLjKLNv0lrOdqpMWkUnzH2dkaRwdIhk
-	MpgNZQ7g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UUfEoumCbzIEx8AGvj96Z7JPRJbPQvAkGwx1CilBgwE=; b=eSbSPef6zSiqao
+	2EwmbEfBYBd03DSMBXVVCPopiUIHtHLbl97Iw/jevrlEDAWubomSndrIiC59cr0nN1J5xG5LC3leu
+	PnwhSX7EjFP/zMftFReShcX6yWwb1zMymwzAUTjnE+AAZ3DdivaVSE9ofsgn4xt1yXDuCOtzhD4Q+
+	WVwDUDVVnRsQJ15xGTYokgSpUQj0bx21+CHyjYzjWodaa5bDOk5CmT1Pfalj3IRu25UPi46xnhtUJ
+	+2HHKAJUGCsDmIUPvjVY9eD5i+RjbQy4tYvu+WAa+q93cnLbnbxUybrAoM3om9u5ujiLvIBFXMZ7X
+	lnuF3vtaDcJN7LTpFdYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXbp-0000000GI7Y-2wPC;
-	Sat, 13 Sep 2025 21:16:37 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uxXgW-0000000GJMp-1fH7;
+	Sat, 13 Sep 2025 21:21:28 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXbi-0000000GI2X-0vtQ
+	id 1uxXgT-0000000GJLX-2y5u
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 21:16:31 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45dcff2f313so19428305e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:16:29 -0700 (PDT)
+	Sat, 13 Sep 2025 21:21:26 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45f29d2357aso2302285e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:21:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757798188; x=1758402988; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xc1itu5KlQDWqH+H4ca13G4lDoFzZa+J7vZRdBNUkg8=;
-        b=EgyriK6+rsyk0sCG6AXDTXCjAQU9As7Exadn+aadsfzblCP3A3mRtJugZWptb44qz2
-         pYpS8OyXnfy5/RZZmSPr23w4DLC3ZHwxwcikCvdisRDF2O2uRC6iituRc2QR0xbrg9SE
-         Sgrx7hkkaC4u3LqVm8/uS9thiHsUzYy+GaO0MDKvNPvAXRtqf9NMsw4qkATp53gfPgc5
-         174zeamfCHzc0ZzO7SbsTwtdLjsfQi5FAnwOR7/FxTKZqg0aVk7YVUTTLyUPvhOFLwC3
-         gNunwN1yoVYlO3h89Uwv2tM4QeEsTSgIHpkmuJ87DaCACsfm/6vbcme7acEmLTUjCQrM
-         9Rsg==
+        d=gmail.com; s=20230601; t=1757798484; x=1758403284; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UUfEoumCbzIEx8AGvj96Z7JPRJbPQvAkGwx1CilBgwE=;
+        b=iqnaWgOZ9KrCrvNwq6jqc36DQodu1uLQmhSXd5OGVlsF1IwT8iNzVraHuSmL0djSxo
+         6mHvpKjevDbWzj/U/ubgoFKf5++TPfyf+HxvVEQRt+NO1uKQXhJlalMq3hnlgpgeYuwe
+         g34mY3wqYbA5v3I2s10+yjju5DZXzc5p4M3T9eqMHFc30Y/aAcDlcTwM+/LN0/Mv95+7
+         OlORZJ9iLa1rYwN8v4X5S4cUPT9DmoYazgY5zr48A4APeGrMCOF+0UXE/SKrWO59tVXu
+         6o+ElBDPvKs6O3ZVsamBJQBbPHLTXlyMeigiFJQHVeTRh8gD1evsCI6rVyXbOn32Rm5L
+         PQWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757798188; x=1758402988;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xc1itu5KlQDWqH+H4ca13G4lDoFzZa+J7vZRdBNUkg8=;
-        b=EgF/ho2KzBFcbXLxDPP4mIQLu17NfwdWu5ej1QGz7A/k1cwNpM/FMBIPY2INY/71oo
-         877ipjH5ZhK3kfZd/lSMMJUAdia0WegxIHaduimKuDRQP3vOdGHGaSpeGA5M24oU91N5
-         9dujY0PVAXWVJOjdYFLBcohWFE64KFVSWqQ8F5mRBTo0DEhvr5k5IKaxgKRl+QSd6H46
-         RhDzGu8eana4d+0bo5RL/9puCDu93CrHPtGgUr4p5Aiw7YaE1SrrDZLz+q6RV3Lkd76C
-         aWyV+6xoTdQRFvAfCvE5I3B/3RgzHvTq2PKA9qNRA4Z24fZ5wAnDgB5YHrDswmbQoCzy
-         yulA==
-X-Forwarded-Encrypted: i=1; AJvYcCWbBBQ1r7NkoyIAYLdv7uw2O4d2ejopDIKwxSdeH/iJwZUYdhCJBB642xSXZmDwN6RyU4n2Mpk/AcOFMq1qe/7Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTZPakj8KWhU59dZUbYlwmE26s9WSTxTCzyl5W+kSMwXhckuT5
-	RKwplHGkSjl1isvBipNr2n6VkpVNywWo2VqRXfp5j2b1Uk4JfGqVsxFJ
-X-Gm-Gg: ASbGncsLx6y/KjrHeVAfaVa4RKaWc6mEY+2G9xgtdRtSaUPpnoK7I3ZYz0gj6rZKiTd
-	Ze7rxLkMX+Xllp3s1yMQxQhpdKqkGQ5MnhGoHHQTlPGwkBotrYj6F5BECFCRpu/za6/Th5zlJKh
-	Olyp0OWYZkArx8RlNxsHI3UVPZunVx3AL6ll9e7oqmaowHjgB9Q76IItn+nLVfbELvxyyRaQZHH
-	979gZL52cF78FmuocwUoClUN0n/DYrbMC1PCphnu3QSYjtBwm81F65ImyLkWP2TH3Jwh8XLE6xX
-	XBsURa9PWhG7StvosOHgAAFnwbCFn3HAoKVu/qbjrVetLwJGVuaw4ui+98Kgc6fzL8j3CKYCg/g
-	jcWp2I59hFp5yjKNKYsTpQZWOEYKDsoO4BdnBylJQTQ==
-X-Google-Smtp-Source: AGHT+IGhdgswjdcu+5JC+27xL3gEdZUaPnM5znx2uaoFA5uc1n2maYqdCXzlYh1D0GuyCTtQVTqWqA==
-X-Received: by 2002:a05:600c:1c13:b0:45d:db2a:ce30 with SMTP id 5b1f17b1804b1-45f25971c61mr39608505e9.0.1757798188371;
-        Sat, 13 Sep 2025 14:16:28 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757798484; x=1758403284;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UUfEoumCbzIEx8AGvj96Z7JPRJbPQvAkGwx1CilBgwE=;
+        b=fO8sAdHtYyvM3Hpz1roPMoOuugNmZCdYPPkOQXiWb88vGQ3WtQhl328RpHci8gRB2u
+         X/btL/BRtfo/SW8o3gfsG7TK4dClwf9JzDAeaVhFUR5bVfEbEcbc1FDY8dBzBvILdrWz
+         YrARtlJZD1YZYSAwyVLc+ixRDSFyWiPma0mhsMRnM4BO6e0jzt2Q9SmhRMNQYicErc6t
+         3VWdSmJfl5+7KHTpnmIL+e2S6AHtR7i1IZoJBEMHaaLtJf8SHhYlFinIV6qlT2vtwMbO
+         sV6LUwGSh50Wdrw+gwDHQZlv+kcSc7ItBhZHniAWtDmsdZck0/uTlXtq5T+a8BcsGRWa
+         pwtg==
+X-Forwarded-Encrypted: i=1; AJvYcCU4WUxFQYOsz/FBVFNI3ujeoBPFizMWGC37FdpIMeFMJhx7g+CElHLZ4cl8VGMrlGJUBWNpdo5kGESWc3k2af1w@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEHotlOYST7AAZPqWnDmjLVSMMy/2kDrjxrqY7sP+TpscZxzc9
+	UNMo790NWWGOxf3q8+Yn8qEAzsNaOgWz7b0PCpstzT0toHDWZHbGnkMt
+X-Gm-Gg: ASbGncvzht2ylwFNr35nC/FhqPxkxHcupkyojbH7MLaeg56t1keBr1+wVLy4IAtyr5W
+	pnor00dfABJG5+7d7oGoV/bINS1wVHSxlb/0FSP5tiu5qFPtYkdy2l/CHhikGeU02ihR+5w6Yrq
+	LhowPVw8Nl3Ba1wtQWrhE4FfDPzjB0Ugrz+g0VBexCRQucXbFqm0KLPkQ8O4nMCaADmbnlBawGX
+	RMrRgSQcPyZAi2Og9Au2bFAhdvQY468VNxIBgGHxHRtKBxYWNG1PoSM0wv3BAg5dR0iFSA4zO41
+	jUt/gFbmy8WXYWSsNQhQHS1BW6L6mh8ovBih6V/xJ9s5rffzAQliQVIeOah4W8AgdhMSi4q56GX
+	1mU4AbonlLv7FwU5GjrPoZrIIKMgk82WjPUHGxDPInvih7xJK6dJN
+X-Google-Smtp-Source: AGHT+IG1Lbyz/LuhSCMvFaFvWIQA+e+oeS+V5WfPI22yr5MxxdIQ2TC5LggKVWnkSIrVed1aQHOliw==
+X-Received: by 2002:a7b:ca5a:0:b0:45d:e0cf:41c9 with SMTP id 5b1f17b1804b1-45f211f89d6mr50232345e9.22.1757798483764;
+        Sat, 13 Sep 2025 14:21:23 -0700 (PDT)
 Received: from Radijator.localdomain ([93.140.65.23])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e014ac468sm65403145e9.0.2025.09.13.14.16.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607cd6absm11576842f8f.34.2025.09.13.14.21.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Sep 2025 14:16:27 -0700 (PDT)
+        Sat, 13 Sep 2025 14:21:22 -0700 (PDT)
 From: =?utf-8?q?Duje_Mihanovi=C4=87?= <dujemihanovic32@gmail.com>
-Date: Sat, 13 Sep 2025 23:12:51 +0200
-Subject: [PATCH v4 4/4] arm64: dts: marvell: pxa1908: Add power domains
+Subject: [PATCH RESEND 0/9] samsung,coreprimevelte DTS additions
+Date: Sat, 13 Sep 2025 23:21:02 +0200
+Message-Id: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250913-pxa1908-genpd-v4-4-55e4cf32f619@dujemihanovic.xyz>
-References: <20250913-pxa1908-genpd-v4-0-55e4cf32f619@dujemihanovic.xyz>
-In-Reply-To: <20250913-pxa1908-genpd-v4-0-55e4cf32f619@dujemihanovic.xyz>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
-Cc: David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>, 
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: Karel Balej <balejk@matfyz.cz>, David Wronek <david@mainlining.org>, 
  phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-pm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
  =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2261;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1213;
  i=duje@dujemihanovic.xyz; s=20240706; h=from:subject:message-id;
- bh=+LiKf5xAdZ3VQjErBPnxDlU3GQ3YyQ0Gx7TmBGM/obc=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDBlH7ysdPpw0RT3vQf4RtxL3zu1vTtn5ZOwt9qz2YQhlz
- BXfJbSso5SFQYyLQVZMkSX3v+M13s8iW7dnLzOAmcPKBDKEgYtTACZyaiLDP+1NE9us7d3Xf1+/
- vbXEtXlV949f9+TOOPZX37FVFJh0UJDhN+tPww0L66uakjo2sWksUrm+eyXf0oDUq8/EZyrWzZW
- z5QYA
+ bh=TYNRK4+bphtWM7te51Y2NO2PW29CFLfANZF+pOwh/qQ=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDBlHH/jV+J233T/1YRr7LA/+q+zzuV2uNy35qlfiltS9f
+ 7PmHwmdjlIWBjEuBlkxRZbc/47XeD+LbN2evcwAZg4rE8gQBi5OAZgIexPDXzGZg+FHP2t9rNgW
+ nql9ZntQ4APjT2v3POL9smtm9o0HgUwMf2Wkwv6F2M472b7v/66Tv1cwKEc9YfYV6PBy/Faiyt6
+ 1kBUA
 X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
  fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_141630_278684_F3AAE567 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20250913_142125_763761_1516E917 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,68 +112,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Duje Mihanović <duje@dujemihanovic.xyz>
-
-Update the APMU clock controller's compatible to allow the new power
-domain driver to probe. Also add the first two power domain consumers:
-IOMMU (fixes probing) and framebuffer.
+This series adds some hardware support for the PXA1908 SoC and
+samsung,coreprimevelte board which has accumulated before the initial
+support series was merged.
 
 Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
 ---
-v2:
-- Drop power controller node
-- &pd -> &apmu
+Duje Mihanović (9):
+      arm64: dts: marvell: samsung,coreprimevelte: Add backlight
+      arm64: dts: marvell: samsung,coreprimevelte: Correct CD GPIO
+      arm64: dts: marvell: samsung,coreprimevelte: Enable eMMC
+      arm64: dts: marvell: pxa1908: Add PWMs
+      arm64: dts: marvell: samsung,coreprimevelte: Add vibrator
+      arm64: dts: marvell: pxa1908: Move ramoops to SoC dtsi
+      arm64: dts: marvell: samsung,coreprimevelte: Drop some reserved memory
+      arm64: dts: marvell: samsung,coreprimevelte: Fill in memory node
+      arm64: dts: marvell: samsung,coreprimevelte: Add USB connector
+
+ .../marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 157 ++++++++++++++++-----
+ arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi       |  46 ++++++
+ 2 files changed, 169 insertions(+), 34 deletions(-)
 ---
- arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 1 +
- arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi                       | 5 ++++-
- 2 files changed, 5 insertions(+), 1 deletion(-)
+base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
+change-id: 20250902-pxa1908-dts-65d86a5d2d85
 
-diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-index 47a4f01a7077bfafe2cc50d0e59c37685ec9c2e9..d61922f326a4654a45ab4312ea512ac1b8b01c50 100644
---- a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-+++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-@@ -23,6 +23,7 @@ chosen {
- 		fb0: framebuffer@17177000 {
- 			compatible = "simple-framebuffer";
- 			reg = <0 0x17177000 0 (480 * 800 * 4)>;
-+			power-domains = <&apmu PXA1908_POWER_DOMAIN_DSI>;
- 			width = <480>;
- 			height = <800>;
- 			stride = <(480 * 4)>;
-diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi b/arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi
-index cf2b9109688ce560eec8a1397251ead68d78a239..ae85b90eeb408a8f4014ec7b60048ae1fd3d4044 100644
---- a/arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi
-+++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi
-@@ -3,6 +3,7 @@
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/clock/marvell,pxa1908.h>
-+#include <dt-bindings/power/marvell,pxa1908-power.h>
- 
- / {
- 	model = "Marvell Armada PXA1908";
-@@ -79,6 +80,7 @@ smmu: iommu@c0010000 {
- 			#iommu-cells = <1>;
- 			interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>,
- 				<GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&apmu PXA1908_POWER_DOMAIN_VPU>;
- 			status = "disabled";
- 		};
- 
-@@ -291,9 +293,10 @@ sdh2: mmc@81000 {
- 			};
- 
- 			apmu: clock-controller@82800 {
--				compatible = "marvell,pxa1908-apmu";
-+				compatible = "marvell,pxa1908-apmu", "syscon";
- 				reg = <0x82800 0x400>;
- 				#clock-cells = <1>;
-+				#power-domain-cells = <1>;
- 			};
- 		};
- 	};
-
+Best regards,
 -- 
-2.51.0
+Duje Mihanović <duje@dujemihanovic.xyz>
 
 
