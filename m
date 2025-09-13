@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33048CAC594
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 10:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA66CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 10:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1guyBJs3shf6AQpI28PewU6Gyr2SLWAikCJzxtTjlO4=; b=VksRbDB9ZTzlK8B0rHqAKR5qqF
-	GeOV9YSN3aJE+CX1p3WPocdxdWt7zOWuoMUTPtaN0y7qoKBJjbtLx4Ocrua4LzREUASXrd5gaA0kb
-	U4AO9mGjOIve2yEjAW3ep/RwnAxEMtUvBr1W6D0K/36Abqh5nwThogln/7/SSgIBLBsCmGo1VydIm
-	lVqcRL8ZiFPvrTwJA/Q0kKC56a9JdZd6UNN10rUW32WDNn5O1LaNL0JdWgEZHSvRpFBvrCBMRFQAz
-	OgTICvBNbhZDDsbW0ZS8KISBVzdS9kyGTWXMG6Q6tJd1Bcl+IhK/AuQahVl1PAh3AgcodBuxCPU9F
-	gYln2jbA==;
+	bh=0Fo8rDgsgL3oMTlQGP2qNGmy2BxQXSmGIlr4hASY30A=; b=snwRLs6HN0LHWrnIAqzYcrZgoF
+	sGuPK17bCMI9QK1ED8LK1SRVt0mc0cIT3DpMMXVAgE9LEsGGMszroWbMOEvgo2bg3bmTsPCIB7xir
+	kZpmwVRIiU0PeipbT48jRQJ7NGdPDRvhCtsVpFXLp+3oBcbXOyFAByKk0BnYll4iGFE3qkHrZdYE+
+	NWyCJcMLk6iba7zKVXdjNYvFIaRemX9kOjG+oCKFJdGuuv99kI0ySe5W3/nI5T8jhsYq0J3PTmqIp
+	1u7jA8cckpq9JpFuu6VepELd76AVQD1QjkSH6wkmYgOadsOCfAJYKro3G+lFU0hdXJqoQrZZOjmx/
+	K0MiGXjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxNGh-0000000EF52-3HqR;
-	Sat, 13 Sep 2025 10:14:07 +0000
+	id 1uxNId-0000000EGLt-1KYk;
+	Sat, 13 Sep 2025 10:16:07 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxNGW-0000000EEyT-3DNo
+	id 1uxNIb-0000000EGLV-0Umi
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 10:13:58 +0000
+	Sat, 13 Sep 2025 10:16:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AF572445F8;
-	Sat, 13 Sep 2025 10:13:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F3DBC4AF09;
-	Sat, 13 Sep 2025 10:13:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C46C640B8C;
+	Sat, 13 Sep 2025 10:16:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DE92C4CEEB;
+	Sat, 13 Sep 2025 10:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757758435;
-	bh=gg+p2abigytfLpQ1USOCeccuZsakIO3PMSF9uUJcR1s=;
+	s=k20201202; t=1757758564;
+	bh=ojF6PfBKwReEDaj3Mu698DpXN9oraXTujEiRhBUQr4g=;
 	h=From:To:Cc:Subject:Date:From;
-	b=Zgijsq1Cqn9yxYRD5qy8CtpiSOZcIb1zSWbiIzKWWGmYz2rLhtjguTJc99ruFTCIO
-	 SBIHbtOsBD0up1g9TcmacgHpwE82waWENv5ohjINdzI82hO9hLHuAxUFzuwaYFqMFy
-	 XpPI7sYHR75Pt1lnBCiwhseRYtwHr4oKrwLFcAhlAjsJBcnn6+GgZFIDtbXs7l9aH2
-	 IqU+qxrvAufsk0IEbkX29d/zeIWyNWzJEQyxKIpn7Gde3pg+xHnuvJRZOW2hpPEOVW
-	 6giKh1xVV6Egj5zGWS1YOyVDeo1oI/WNEE9rYWAQo0b9WLYDUhV1X/B8+a/6RSBDcU
-	 /xzRocsjmtJWw==
+	b=WDj51K4z3iWjhPFCI7RymiVsSdQW+WqIf/Pa5Pi0Q7i06vDTAS81VP2Grh7l4GE/X
+	 Vry82r6ey6DJysCVDhJowMXp7a4VLYQuHAAGOCTX8r4JyrlMGUCGqJ3Z14Sx0XyBzD
+	 U6WTkDfRbiC8WJm+XToSaTmqPi3IJE1XhEFFWrwVZTWz8XcBizMan2DPyPRI2augOy
+	 0vLjJmAuxQu+D/pB3E51CVzfqabaFj8Ig10s0MUsLi3jx6LwD5TGl+lrxfjBjP0X7m
+	 rE8WeT+yoxagx8PJ9QQ7FTG7yDV9pkr7+JhMgqIHSTquv2/weYMk4jMcdur7ueyEJs
+	 oiYXMieo8H5sw==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 1D62A5FC8D; Sat, 13 Sep 2025 18:13:53 +0800 (CST)
+	id 275645FC8D; Sat, 13 Sep 2025 18:16:02 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
+To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: netdev@vger.kernel.org,
+	Samuel Holland <samuel@sholland.org>,
+	Andre Przywara <andre.przywara@arm.com>
+Cc: linux-sunxi@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH net-next v6 0/6] net: stmmac: Add support for Allwinner A523 GMAC200
-Date: Sat, 13 Sep 2025 18:13:43 +0800
-Message-Id: <20250913101349.3932677-1-wens@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: sun55i: a523: Assign standard clock rates to PRCM bus clocks
+Date: Sat, 13 Sep 2025 18:16:00 +0800
+Message-Id: <20250913101600.3932762-1-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_031356_844606_0FBB7EB1 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20250913_031605_174749_C1466C58 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,104 +78,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-Hi everyone,
+At least in the initial version of U-boot support landed upstream, the
+PRCM bus clocks were not configured, and left at their reset default 24
+MHz clock rate. This is quite slow for the peripherals on them.
 
-This is v6 of my Allwinner A523 GMAC200 support series.
+The recommended rates from the manual are:
 
-Changes since v5:
-- Use plat->phy_interface instead of plat->mac_interface (Russell)
-- Link to v5
-  https://lore.kernel.org/all/20250911174032.3147192-1-wens@kernel.org/
+- AHBS: 200 MHz
+- APBS0: 100 MHz
+- APBS1: 24 MHz
 
-Changes since v4:
-- Moved clock-names list to main schema in DT binding (Rob)
-- Dropped 4 patches that are already merged
-- Link to v4
-  https://lore.kernel.org/all/20250908181059.1785605-1-wens@kernel.org/
+Since 24 MHz is the hardware default, just assign rates for the first two.
 
-Changes since v3:
-- driver
-  - Fixed printf format specifier warning
-- Link to v3
-  https://lore.kernel.org/all/20250906041333.642483-1-wens@kernel.org/
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes since v2:
-- DT binding
-  - Added "select" to avoid matching against all dwmac entries
-- driver
-  - Include "ps" unit in "... must be multiple of ..." error message
-  - Use FIELD_FIT to check if delay value is in range and FIELD_MAX to get
-    the maximum value
-  - Reword error message for delay value exceeding maximum
-  - Drop MASK_TO_VAL
-- Link to v2:
-  https://lore.kernel.org/all/20250813145540.2577789-1-wens@kernel.org/
-
-Changes since v1:
-- Dropped RFT tag
-- Switched to generic (tx|rx)-internal-delay-ps 
-- dwmac-sun55i driver bits
-  - Changed dev_err() + return to dev_err_probe()
-  - Added check of return value from syscon regmap write
-  - Changed driver name to match file name
-- sram driver bits
-  - Fixed check on return value
-  - Expanded commit message
-- dtsi
-  - Fixed typo in tx-queues-config
-- cubie a5e
-  - Add PHY regulator delay
-- Link to v1:
-  https://lore.kernel.org/all/20250701165756.258356-1-wens@kernel.org/
-
-This series adds support for the second Ethernet controller found on the
-Allwinner A523 SoC family. This controller, dubbed GMAC200, is a DWMAC4
-core with an integration layer around it. The integration layer is
-similar to older Allwinner generations, but with an extra memory bus
-gate and separate power domain.
-
-Patch 1 adds a new compatible string combo to the existing Allwinner
-EMAC binding.
-
-Patch 2 adds a new driver for this core and integration combo.
-
-Patch 3 adds a device node and pinmux settings for the GMAC200.
-
-Patches 4, 5, and 6 enable the GMAC200 on three boards. I only tested
-the Orangepi 4A and Radxa Cubie A5E.
-
-
-Please have a look and help test on the Avaota A1. I don't expect
-any issues there though, since the PHY is always on, unlike on the
-Cubie A5E.
-
-Patches 1 and 2 should go through net-next, and I will take all the
-other patches through the sunxi tree. Hopefully we can get this merged
-for v6.18.
-
-
-Thanks
-ChenYu
-
-Chen-Yu Tsai (6):
-  dt-bindings: net: sun8i-emac: Add A523 GMAC200 compatible
-  net: stmmac: Add support for Allwinner A523 GMAC200
-  arm64: dts: allwinner: a523: Add GMAC200 ethernet controller
-  arm64: dts: allwinner: a527: cubie-a5e: Enable second Ethernet port
-  arm64: dts: allwinner: t527: avaota-a1: enable second Ethernet port
-  arm64: dts: allwinner: t527: orangepi-4a: Enable Ethernet port
-
- .../net/allwinner,sun8i-a83t-emac.yaml        |  95 ++++++++++-
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  55 ++++++
- .../dts/allwinner/sun55i-a527-cubie-a5e.dts   |  28 ++-
- .../dts/allwinner/sun55i-t527-avaota-a1.dts   |  26 ++-
- .../dts/allwinner/sun55i-t527-orangepi-4a.dts |  23 +++
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-sun55i.c    | 159 ++++++++++++++++++
- 8 files changed, 393 insertions(+), 6 deletions(-)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 3aad1b909501..5cd6ddae86c8 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -767,6 +767,8 @@ r_ccu: clock-controller@7010000 {
+ 				      "pll-audio";
+ 			#clock-cells = <1>;
+ 			#reset-cells = <1>;
++			assigned-clocks = <&r_ccu CLK_R_AHB>, <&r_ccu CLK_R_APB0>;
++			assigned-clock-rates = <200000000>, <100000000>;
+ 		};
+ 
+ 		nmi_intc: interrupt-controller@7010320 {
 -- 
 2.39.5
 
