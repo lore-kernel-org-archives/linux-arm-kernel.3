@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888C7CAC593
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:21:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 085FDCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U1pL+OZ1Boa6u+YXgScmmKOffrAx3fdC1TFoaMx+6KU=; b=B4/gWVxWtYgqCCJpVUITX/hi65
-	zzTx9h/H/MTV7JF94oGCXo1eopPx1Vv0nx5pAQPevrINCfUONTjlepU0SsCjhmM89NunqdnxpUPX/
-	NfunwmbQu2MMf8dpLfb7yAdrkFiHBnjzF+wTGoFeQw2LCgND+P61irynD+T/sLZUQyhz8WY3f3gcN
-	8VhbiHY8rguiZzLqIFldk8oCYAJuboLR2VeD2i1mlNql1/fzr9MFZcoXCNMjA5wvNK/18Q8TkZjkB
-	JkY5Ias+xe5usIuW2ZdfmYQuhjWir3sKa+OeQOgmTqSt7RKwQ8k7D6zdcZV1WIZdA2o7P95xAn3rx
-	8qt3O2yg==;
+	bh=cpVtTH4bHBYzIxiNrmk9dugn8tPCGekUmbNjeMCfqOI=; b=yUA2aDPK4cgLXYr03tW/bAElHW
+	LgkVFowrl0S+FsTLzXQROrGdFwEsbAOd4KqdZEG3wLIe2JCI4uEX/Zr1E4Jsc8pb7KV7WcinIKnpp
+	70OSj+hQGwoyMxdhAa8UJnH5naZSZDxwlrzwdYR7Pw9CIQD0G2+NBLa9LkB7tYNdtnI+Vh4/t2Vqe
+	F4CE7YIRNCmhgpMp87UPVeZQgD211sN9wpeOPyFqQkA+E3KZ63o6HlJ2XPi6Vk8FmC2CEaUrnfmxS
+	a6oBrY/WR4yPBya0oq4g3G6YxWeHblSdVoOENnHGlz7h0bOoV/MVEtpz+BjEdmouZyiV4E1Be/mOd
+	ZCdU3m2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXgk-0000000GJXb-1xHP;
-	Sat, 13 Sep 2025 21:21:42 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uxXgt-0000000GJim-2tD8;
+	Sat, 13 Sep 2025 21:21:51 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXge-0000000GJRF-0ldY
+	id 1uxXgj-0000000GJVW-20t1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 21:21:37 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45f2acb5f42so498135e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:21:35 -0700 (PDT)
+	Sat, 13 Sep 2025 21:21:42 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3e8ef75b146so356477f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:21:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757798494; x=1758403294; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757798500; x=1758403300; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=U1pL+OZ1Boa6u+YXgScmmKOffrAx3fdC1TFoaMx+6KU=;
-        b=CEH1d9W3lZBM+xrvKf4va+WjHejr463yZ8Q6tziEXmtFCmv2N0UdgwqQWUJJtGw+Zv
-         fr+ZecFjtl7JtrK3uWxWL/UBRP15N7BumD3yKIJCrVsW0olDWMMd6fyLk99m+sTSkrRj
-         pX0ulRqHFAueKwgO2DNp4637b74iRQcWquefKqsb9UYvPhDPGS9wBebjzuJlwNXGBjD+
-         O5pG02R1z2f0P8fNbzHDShgakpuupkITf4ASM0XIWgXTiYypJO9jKGByJDpnH+cpOglr
-         ma4nUjiwLwe4yj6yZKvjwslk+G975yEDvVArv1+XZ/PUcALxAZusBDSFEg+qb9eR4iP3
-         AIvA==
+        bh=cpVtTH4bHBYzIxiNrmk9dugn8tPCGekUmbNjeMCfqOI=;
+        b=WaeVSvHK/6WE6jIH40OaD4l6eRX5ezDDma3jPR2FNtIEz+LooKgx/46DAfs30oSSMh
+         5siSHA5P2ftoNKUpuxplSw6tW86MGGHh1Sgk12nGLE6HyujyfxSYaBMcuVvG3qdtbZg1
+         NBhNsTIzdFoL7jICw/NWxmFl9C4ekOWuEFAzFQu/uAhrIaTcRCZ0VrJh8jyQV1hFveYH
+         qJz59k0OfVPdYW9Piw6T8OpTdkK6O1glntO6IiI/dzDz+6YQN3n5gUwJnb+Y540EoTWC
+         wTw+biS9Y/U9EpLOlpv95blkxArqe842q5gGQeNcwotVaHWuZOZV33s8Pov5XnflMJrY
+         jnbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757798494; x=1758403294;
+        d=1e100.net; s=20230601; t=1757798500; x=1758403300;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=U1pL+OZ1Boa6u+YXgScmmKOffrAx3fdC1TFoaMx+6KU=;
-        b=Uinm4DD0iHDm1/8lnaJ5Na+ziIQf0/VMrHZclkUXz1ANfd2XCHF0kGnOy2zOI74au7
-         J8C7cj8yiHTarsmdZRx43YDJVeHaE9AA0xwVAdqlkB8M9a2JXYBrFxIZOzt5IP1wVFxF
-         I+JMzrex5UTbWojrtsg/eS9hGyo5dYw+s95TfPGxpZFgNncKYApXXjS0tkhbbT9R8STy
-         z5ZVGkk6JJ406wWUk40KFwoX2urlqWiCkrb0At1hn0F2ZfyD0L7IBlEL6eKkihDh1IX9
-         XtzqX2mNIJciUtjcbD0iMfSQAcSAaQ+Ztm3WXPgkA70u4yPka9D0kviZZE6JgvPg0anx
-         Hu9A==
-X-Forwarded-Encrypted: i=1; AJvYcCW3hB+UXxLpc+/vQp6BB6a2yexYkIv3AuWeNhVCq2Bn4ueWVQER3JO/G5b7V+ZGG2lYL4WM+Nomw+7Ikt7Ewkaz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8QBuycwnnunfVAoTlt8r7egHmXe0TMLckClBydD2kFm5q92Ni
-	hemxH0xT2Uocp4nlbzM0eR+7mALjFXAkwsOK/jAhE3B05LszI9ZgYjxf
-X-Gm-Gg: ASbGncsJpzSjiSxCTFQQr1NGviNx+HxNMy6UQ26nZvL6JwjrNNEKkQgRvc1/055fecK
-	Co/KLrUyrX+6OxiE6/ZM44tkru4sZccOva1GiNmJ9B/umX+l3KvMmCoIhEeli6hXFyQIkVkSu4Z
-	/E/q82H2bL7H8mRaKPxsQmzdn6dDpIy7z9FcQSLOsLIVUxgmN040ZIJzy84bPOl8XeeEMYy/6jq
-	CazpXARfMncWOsTgzi43iIrywkYVW7jjH3nNq8zC1o96yvn8elpZR3+EBmUBuOPkBMcbWEt9VkB
-	thu6WbYAT7L7+EUoCtJQtdaiLZbPm8JFQ3J2Ej/zWOV/TH4HtghoFvM5sj36KnfgpgzJ5bmCXbT
-	d1+5lKwthBSVDMnNAeo5Jk7DGL4q7L4zMcbndf5QBtCfepNEMd1GQ
-X-Google-Smtp-Source: AGHT+IEUygTfQFxD0Xjd1YPk8jG2g29zmtJi+7jJLe6De4WxzayNW1WWv1CJtbsKPSYW8CMC/jCaBg==
-X-Received: by 2002:a05:600d:f:b0:45d:e531:99df with SMTP id 5b1f17b1804b1-45dfd5ab3bamr97128825e9.3.1757798494216;
-        Sat, 13 Sep 2025 14:21:34 -0700 (PDT)
+        bh=cpVtTH4bHBYzIxiNrmk9dugn8tPCGekUmbNjeMCfqOI=;
+        b=aNOIAi1FLqFhvfZZALozRSjlBNtJlKk7txl0Wm2EtENDa8AfVeF7DgX93/SiIMgSES
+         CLyjsZs0pNvnejY0qsq6dmRRZvWY8C1Pj2sOim0cJPTeqVGChF7LJKP7QLiszx+tS8r7
+         T5aUCVv2crqWzedYvsm+fkHjrFJD8kyCT3+oA9cfphqX/4PvtIOjMKW4mgsjgWm6GqKT
+         uWBXpyg6GDdMf+gRypmTfmX4awI3NPirFkr7Ltls71TRikCDojtm04fTrM7WUuAjRUrz
+         0Lpd/WiQp2of2fBSBJtTepMuFENo/wYOK9W/wMEwBZFIUCmemHv8eWQoNHFhxDHcgNgd
+         44QA==
+X-Forwarded-Encrypted: i=1; AJvYcCWBCtOL1IqKKUKqypsTwsriip0oEgUUXuHAcKNiOJ21dO0eBuLNj0ljxsC9aKV0sH3/TUA7uGfU62T9eTyyYfOH@lists.infradead.org
+X-Gm-Message-State: AOJu0YymEzXNtna1x1iQgOa0tMc2kEqFMKcvOIj7WvUzVyRy26vvSHR8
+	j2dTh8dUm3Qxt4uAk9hfNoV9t7Mhs8l8/DcPMhfCmGP1cX51CZZQasyJ
+X-Gm-Gg: ASbGncvSh/Nmrotc+IiaKvRcLzXSwK/uQY5gGllWmGs23IKrdNbiDWqVjjWMG+HGhp8
+	E1SA30ApkfJMrgBiZNfCHZwCYOul0ZSqhAb90sBMWFYVVFBEdxZs6XrqwTsm2FxX2d7xQWLl9hT
+	foWquKAMZE6jlhZQS4FOMCyGwhcEKkFAYYjKstDpDQMCdlE43DiGBIIynljEObSORx7D+Y8uBGt
+	zRRH4h24iA98IE3t/UWSK4yXNrIulQMA5bM0bOevmm8sZ8xxdPoe84/8gICaRey8EPlbA9p7UEy
+	aoBio1GgPH9FtcMfiRIvAr4dZYQjpORKEDiu4Fz++5AxSox4Le7r8ef8XVbazd/arx1yUstcn0B
+	9r7c1fDeXEEa0vH8XOSiO4Oob+djNLOSYCTcwDAMwhTScyaaA0W1g
+X-Google-Smtp-Source: AGHT+IGQbeLuYMGr75Uv+t8fAINg0m32Go0SXPJ3x4GDoXlXLUXrQPT9iD6lPWsbNXLMr0iYh+onNA==
+X-Received: by 2002:a5d:4b02:0:b0:3e7:f044:2860 with SMTP id ffacd0b85a97d-3e7f0442884mr3036887f8f.7.1757798499546;
+        Sat, 13 Sep 2025 14:21:39 -0700 (PDT)
 Received: from Radijator.localdomain ([93.140.65.23])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607cd6absm11576842f8f.34.2025.09.13.14.21.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607cd6absm11576842f8f.34.2025.09.13.14.21.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Sep 2025 14:21:33 -0700 (PDT)
+        Sat, 13 Sep 2025 14:21:37 -0700 (PDT)
 From: =?utf-8?q?Duje_Mihanovi=C4=87?= <dujemihanovic32@gmail.com>
-Date: Sat, 13 Sep 2025 23:21:07 +0200
-Subject: [PATCH RESEND 5/9] arm64: dts: marvell: samsung,coreprimevelte:
- Add vibrator
+Date: Sat, 13 Sep 2025 23:21:09 +0200
+Subject: [PATCH RESEND 7/9] arm64: dts: marvell: samsung,coreprimevelte:
+ Drop some reserved memory
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250913-pxa1908-dts-v1-5-8120cdc969b8@dujemihanovic.xyz>
+Message-Id: <20250913-pxa1908-dts-v1-7-8120cdc969b8@dujemihanovic.xyz>
 References: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
 In-Reply-To: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,18 +89,18 @@ Cc: Karel Balej <balejk@matfyz.cz>, David Wronek <david@mainlining.org>,
  linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
  =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1770;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1150;
  i=duje@dujemihanovic.xyz; s=20240706; h=from:subject:message-id;
- bh=jyb7dMVKfzm+pC9ukuRfnyNGN4DBhDuznQcq0ZsICNA=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDBlHH/j37juY9Cokv79Ivex67/u52+yiz786v2NtQu+Kn
- W9sVvlId5SyMIhxMciKKbLk/ne8xvtZZOv27GUGMHNYmUCGMHBxCsBE+lMZ/se8UnkwxUnpNgP7
- C83rcy38H4a8W2+xQN79ernL5Qu6boqMDKt1+L48Ov2+rGaZ52PZPb8kBU7dail6FLLr4sG8yZz
- LLzMCAA==
+ bh=AOTuIRkZ7qxukusobcqK/hGoYlqb/lfC8O75aryw37k=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDBlHH/iHWezr+Ji3VcW4KOXAtNRPH1Ked6kyHNpyev0K7
+ ZI7nzLXdZSyMIhxMciKKbLk/ne8xvtZZOv27GUGMHNYmUCGMHBxCsBEvrxn+J+u/WeDhUtCgUiZ
+ Ae9bk/sdh/Ofbw7P8H+yrM/g89cdk28wMuxnMjui4BTafcogPXb64b3WtlFnE26FcS5d8PHaod6
+ DmYwA
 X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
  fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_142136_252771_F808D58D 
-X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-CacheID: sfid-20250913_142141_538838_F8820C1A 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,59 +118,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Duje Mihanović <duje@dujemihanovic.xyz>
 
-The board has a vibrator hooked up to PWM3. Add a node for it and its
-associated pinctrl configuration.
+Most of the memory marked as reserved is actually usable. Delete its
+reserved-memory nodes so that the memory can be used.
 
 Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
 ---
- .../marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 23 ++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ .../dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts  | 17 -----------------
+ 1 file changed, 17 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-index 78b7bccfc5f299889d1b9a8fd2c08554f17eb147..c28c2eadc42cc538fc5491ecdfcfbe0191004794 100644
+index dc58b19ef5d11c69f52ea7804323fe2fb2257ca7..13a726d86e65ad836166325e0958a6ec3e6d022e 100644
 --- a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
 +++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-@@ -121,6 +121,15 @@ backlight {
- 		ctrl-gpios = <&gpio 97 GPIO_ACTIVE_HIGH>;
- 		max-brightness = <210>;
+@@ -41,23 +41,6 @@ framebuffer@17000000 {
+ 			reg = <0 0x17000000 0 0x1800000>;
+ 			no-map;
+ 		};
+-
+-		gpu@9000000 {
+-			reg = <0 0x9000000 0 0x1000000>;
+-		};
+-
+-		/* Communications processor, aka modem */
+-		cp@5000000 {
+-			reg = <0 0x5000000 0 0x3000000>;
+-		};
+-
+-		cm3@a000000 {
+-			reg = <0 0xa000000 0 0x80000>;
+-		};
+-
+-		seclog@8000000 {
+-			reg = <0 0x8000000 0 0x100000>;
+-		};
  	};
-+
-+	vibrator {
-+		compatible = "pwm-vibrator";
-+		pwm-names = "enable";
-+		pwms = <&pwm3 100000>;
-+		enable-gpios = <&gpio 20 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vibrator_pin>;
-+	};
- };
  
- &smmu {
-@@ -365,6 +374,16 @@ sdh2_fast_pins_2: sdh2-fast-pins-2 {
- 		pinctrl-single,bias-pulldown = <0x8000 0xa000 0x8000 0xa000>;
- 		pinctrl-single,low-power-mode = <0x288 0x388>;
- 	};
-+
-+	vibrator_pin: vibrator-pin {
-+		pinctrl-single,pins = <0x12c 0>;
-+		pinctrl-single,drive-strength = <0x1000 0x1800>;
-+		pinctrl-single,bias-pullup = <0x8000 0xc000 0x8000 0xc000>;
-+		pinctrl-single,bias-pulldown = <0xa000 0xa000 0 0xa000>;
-+		pinctrl-single,input-schmitt = <0 0x30>;
-+		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
-+		pinctrl-single,low-power-mode = <0 0x388>;
-+	};
- };
- 
- &uart0 {
-@@ -409,3 +428,7 @@ &sdh0 {
- 	bus-width = <4>;
- 	wp-inverted;
- };
-+
-+&pwm3 {
-+	status = "okay";
-+};
+ 	i2c-muic {
 
 -- 
 2.51.0
