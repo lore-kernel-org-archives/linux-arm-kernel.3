@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0677ACAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 09:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2856CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 09:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llSqr6SrvAH3wy9n6q0vaWwWuQff59HrQWE9Ffc1WMQ=; b=NKAdPdadwcZnlQ3i4grLmXxzX6
-	zOaCeTety6jFwnlGhe6WLr8TnJrTlg3GUJh1MlPezBIPjWGQnubSL8swrT0bLAxkKdBzFY0kFxt71
-	HRDuwnJ0Ja9k1Rmi9PPtFoBPQICZBbqmxJ/Nn7UH95ADY1c/cVLnikudkTbiUEErjPFrNurET++Pf
-	lzlvPK0vx9UsYXujVsCqqAt4DMsvPw1AqFSyqHwBe1m1J8QTcjWWvQQsSrI+hy9TfDulE9eVl2WWY
-	Qnvw48GMZEQhW3lEv12Qu4AXNn6wWt3TsjAP0wsNpx5rm74LNNBsnlFJoOhAI79psX6MDX3lR5QLt
-	5c0MAcrw==;
+	bh=Wqsl90K8VON6BboRubqU8w1H96gQXUcu5dsnaHXzI6M=; b=2VmYX4KiPYO/cA/sQZNSb3UmMI
+	czFDQFVIW6yY9cVywhDPhlQCYOvOAcj/lN0++96I2WwWcIp+aGymfgUEREl+F0dfWL0wTVkk0GcKg
+	bpfxl2HExEVor6albQ+1Esx3wjrQtuh1Mi/pVsuyCsprmmhwS9YaNy6szHtHI+bXLB9GdJeBK56hC
+	tt/nBbN6g5Oa/vh/NpkJdS6UtebMDgQR8YZGv+crjqdiBqSp1F10HUp7jlZIlspyd0aplZQZM4ODh
+	dfaWNjn3MHnfLND1/A0twX+yoqmD9n5491jHCAExt2fDl7P/sLDsrmJWc6SFn6d3qQVb+GYJQyLWL
+	amvtvfMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxMXN-0000000E66C-1VzG;
-	Sat, 13 Sep 2025 09:27:17 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1uxMaM-0000000E6yz-1YE2;
+	Sat, 13 Sep 2025 09:30:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxMXK-0000000E654-44WS
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 09:27:16 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-62f0702ef0dso653531a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 02:27:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1757755633; x=1758360433; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=llSqr6SrvAH3wy9n6q0vaWwWuQff59HrQWE9Ffc1WMQ=;
-        b=XsDOQCJb+MdbTEdyR48OPDUIUYdA6nJsCMuTzZTBeSbmg6m/ejmun/S8obzLJSFZFh
-         yDBWYtX/RXzoq62xRK32oMsPac5Pdtm1mFSF82h1Bs8hGLlqbFdsFRJgIVJ3i7Vm1iU4
-         lgL45cfyDGA5gugW3YaCvVzj+urVz741NcOeA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757755633; x=1758360433;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=llSqr6SrvAH3wy9n6q0vaWwWuQff59HrQWE9Ffc1WMQ=;
-        b=AJiSN9ej99Bzj1MAFuHtScCAzUQF7Hdp+njgPeesE9i1EKdxD6Lg5lbf6Ec9VpYGu/
-         6c5cLr16SRjL9rBFmZPqtruhkRScLrBwEE2PUJ8QFI2SRG2+Zc+dxIxYwU+cMjozgg+9
-         waB+AV/Iwy7s6ptDLF+8W8S0uvKSjmhvNZCQdVN7j9wfdO9TZw9vD3SmF8f5w+QGKriP
-         PwD82IUVN0gofDUARZq2X/EIcR8fBSr0NsOdvMbThhzLUHSloh/228lfs0ZFx1aoj7RN
-         RiDUYEMYnyS/lvJuKjzIM3Z0lzvVj+Vm0tniVSsklAhWNkCdFWTFNjR0ClkvD/mNrkEc
-         mDRg==
-X-Forwarded-Encrypted: i=1; AJvYcCVQTVi8I4DvVxatBcYhEpdvA6YAIoAfDqTAeEcj2QgcTZAMWB9TQ7JfDVejLPYRmsofJThJDFpjvtZ4FgSO5mit@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIv2IX42bP7dMCf9PIrCQaBaHb51Ux3V67VwbfP+R/u6YZi3+6
-	cDHNI23UVlTUOjFASaO79dI1uf41Aq/QCCrkTjeRGj11LsNpm4Pn3TNDHUQkcPIHgz8=
-X-Gm-Gg: ASbGnctmGJ0Q8O+SgsayT1MiKOiGipH+xvDqVi7mcmjChhcz8QQ3lsyWQSIQb/JlNlL
-	r2LCuI2UK1GLhSa4MrgVlsSPvfh5cQ5Q7rlTdOQu+YbGNZOCAF+3bFn4epmoz5YlW5nPiqzs7kn
-	ihprh7mhSAqvX1FzY7uwS25uL3M4ZYPFzqECRO6owejWOYLIl92x0HRNQLbfj2UfoKrMovn+ZJ8
-	/yZPzpUz3xYxJP0jNWGvlGs4YTYAwb6ybWGeW+hJksgtrUAljSFzRr8Ktv1FHANLD9WNglhsgPK
-	FO2W0OSz1vuStttbV7q3CPaae9LJS5JWYouvwWRwq5DOzsOyY0yrQzbTASczdz3RSBq9cs3Qvc9
-	J19QfcU/B7x6uIucuuKpO83CZbeL4H9T67UEz/H3pRQXxvWaN4b+8Z3tiyiPWf88EXhFKHUS1Qn
-	dPCdNPjYIBIdKuEKkK8DJ4BdqThmkvvyuxKkX/st6scW4JA1ddyexZWkY3Z5xmGB1V
-X-Google-Smtp-Source: AGHT+IHcZdrPl3YiT8w37AtF2eLwy3H1lf7B4vokF4mlZ6H6fOjpLCxDlkfMTGZH+eFNfBTCbsCKyw==
-X-Received: by 2002:a17:907:74e:b0:b04:6546:3475 with SMTP id a640c23a62f3a-b07c22b2136mr684830166b.6.1757755633084;
-        Sat, 13 Sep 2025 02:27:13 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b33478besm551705766b.99.2025.09.13.02.27.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Sep 2025 02:27:12 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
+	id 1uxMaL-0000000E6yD-17BS;
+	Sat, 13 Sep 2025 09:30:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 58A9460219;
+	Sat, 13 Sep 2025 09:30:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3766C4CEEB;
+	Sat, 13 Sep 2025 09:30:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757755820;
+	bh=c12/xNUXslNQin2axApjPv7ljtSkh0GTCsEFL44BFio=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=sjvqPnzqsYnWNxyxRDIBh+NQRy7Qf3VKRmVD4aWDVkjjK3X2qgB0ociCTcXT7rRE6
+	 KfyVY9CT/R53w5AbTPrvFD6V+X7BNzx6nA8630xM3lyo8BOak1vIoZ7am0QF8RKhOs
+	 YcRJqaB/bFH3UuSVFOUszO9gxEu6jkHslv5dqfv0khkLOnOaSQlAHXStkj0rNlV1wq
+	 rA2ezBsW7mDqHW1IPxDgNFl9oqv6vAp+GhPcd+HnrE3KU/CpvrvJZjkj57WajF+u01
+	 iA95YWsidRyYVZrbjeQ3EGCSG1VJKBgAdFMQJxUtrJQ+unTyhnye6JG0AaPKbqlKrF
+	 b0eH7QGVeY3OA==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 7C2145FC8D; Sat, 13 Sep 2025 17:30:17 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Maxime Ripard <mripard@kernel.org>,
+	Lukas Schmid <lukas.schmid@netcube.li>
+Cc: Chen-Yu Tsai <wens@csie.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org
-Subject: [PATCH v2 3/5] dt-bindings: touchscreen: convert raspberrypi,firmware-ts bindings to json schema
-Date: Sat, 13 Sep 2025 11:26:53 +0200
-Message-ID: <20250913092707.1005616-3-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250913092707.1005616-1-dario.binacchi@amarulasolutions.com>
-References: <20250913092707.1005616-1-dario.binacchi@amarulasolutions.com>
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 0/5] Add support for NetCube Systems Nagami SoM and its carrier boards
+Date: Sat, 13 Sep 2025 17:30:16 +0800
+Message-Id: <175775572870.3891284.1456456718289976149.b4-ty@csie.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250831162536.2380589-1-lukas.schmid@netcube.li>
+References: <20250831162536.2380589-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_022715_034729_FCEDB437 
-X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,108 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert Raspberry Pi firmware 7" touchscreen controller device tree
-binding to json-schema.
+From: Chen-Yu Tsai <wens@csie.org>
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+On Sun, 31 Aug 2025 18:25:29 +0200, Lukas Schmid wrote:
+> This series adds support for the NetCube Systems Nagami SoM and its
+> associated carrier boards, the Nagami Basic Carrier and the Nagami Keypad
+> Carrier.
+> 
+> Changes in v8:
+>   - Use a gpio-mux instead of the gpio-hog for the USB0_SEC_EN signal
+>   - Fix the dt-schema issues
+> 
+> [...]
 
----
+Applied to sunxi/dt-for-6.18 in local tree, thanks!
 
-Changes in v2:
-- Added in v2
+[1/5] dt-bindings: arm: sunxi: Add NetCube Systems Nagami SoM and carrier board bindings
+      commit: db5796c5c5c6db72339e818b54e6a2e043f7032c
+[2/5] riscv: dts: allwinner: d1s-t113: Add pinctrl's required by NetCube Systems Nagami SoM
+      commit: cbce6d5326b116f55dc29f7fc0a7d56a9a03d9e5
+[3/5] ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
+      commit: cba2febbd6465aabdff157fb95b1c07d090af1f0
+[4/5] ARM: dts: sunxi: add support for NetCube Systems Nagami Basic Carrier
+      commit: e36d4d54eefb60144666b27754007e1c0dd0a581
+[5/5] ARM: dts: sunxi: add support for NetCube Systems Nagami Keypad Carrier
+      commit: caffed0800ef4dd29cc29ee17a89d015e867e03a
 
- .../touchscreen/raspberrypi,firmware-ts.txt   | 26 -----------
- .../touchscreen/raspberrypi,firmware-ts.yaml  | 45 +++++++++++++++++++
- 2 files changed, 45 insertions(+), 26 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
- create mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+Note that there were some cases in the device tree files where lines were
+indented more than necessary, like for gpio-line-names and the board level
+fallback compatible string. Wrapped lines for lists of items should align
+with the first item on the first line.
 
-diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-deleted file mode 100644
-index 2a1af240ccc3..000000000000
---- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-+++ /dev/null
-@@ -1,26 +0,0 @@
--Raspberry Pi firmware based 7" touchscreen
--=====================================
--
--Required properties:
-- - compatible: "raspberrypi,firmware-ts"
--
--Optional properties:
-- - firmware: Reference to RPi's firmware device node
-- - touchscreen-size-x: See touchscreen.txt
-- - touchscreen-size-y: See touchscreen.txt
-- - touchscreen-inverted-x: See touchscreen.txt
-- - touchscreen-inverted-y: See touchscreen.txt
-- - touchscreen-swapped-x-y: See touchscreen.txt
--
--Example:
--
--firmware: firmware-rpi {
--	compatible = "raspberrypi,bcm2835-firmware";
--	mboxes = <&mailbox>;
--
--	ts: touchscreen {
--		compatible = "raspberrypi,firmware-ts";
--		touchscreen-size-x = <800>;
--		touchscreen-size-y = <480>;
--	};
--};
-diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
-new file mode 100644
-index 000000000000..8faa796fb7dd
---- /dev/null
-+++ b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
-@@ -0,0 +1,45 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/input/touchscreen/raspberrypi,firmware-ts.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Raspberry Pi firmware based 7" touchscreen
-+
-+maintainers:
-+  - Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+
-+allOf:
-+  - $ref: touchscreen.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - raspberrypi,firmware-ts
-+
-+  firmware:
-+    description: Phandle to RPi's firmware device node.
-+
-+  touchscreen-size-x: true
-+  touchscreen-size-y: true
-+  touchscreen-inverted-x: true
-+  touchscreen-inverted-y: true
-+  touchscreen-swapped-x-y: true
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+
-+examples:
-+  - |
-+    firmware: firmware-rpi {
-+        compatible = "raspberrypi,bcm2835-firmware";
-+        mboxes = <&mailbox>;
-+
-+        ts: touchscreen {
-+            compatible = "raspberrypi,firmware-ts";
-+            touchscreen-size-x = <800>;
-+            touchscreen-size-y = <480>;
-+        };
-+    };
+
+Best regards,
 -- 
-2.43.0
-
-base-commit: 22f20375f5b71f30c0d6896583b93b6e4bba7279
-branch: drop-touchscreen.txt
+Chen-Yu Tsai <wens@csie.org>
 
