@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EAD1CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 06:08:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19FA3CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 06:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMfKA2PZgPOmVfqRXTkkHCiiOedbM9SoVMaMWdVftwE=; b=nODOwxbhdGq7PRjxKbXOYsJ4o3
-	ayf7Eekip7iGM/n7PIjf58BWFXTZp9k23eJi/0GDA/ytYiFGaZlhJFu9nV2Ql2AdvCIR1gN5ETY6y
-	RZ2ollo+l0ySb++e9bvs5VhgerV2fgDj/gQEzyRHM/ys+nemZJn4FM2r7knkulFJL2ZT3LkLc3cHq
-	AdGS8QyuwW62Vlg0VSdFm5TLfz1D9hkaIMEDqO1XWS1sFj3j7X8zIkEPbTcb3ki0pb1/KL3B53BMR
-	BY9F/u8irRtHMUMVkfsMiKpKaSWhKnoo+z7KAtlGItqV8pFQ1WTMocjjuKUulNtFaFaM2PvqEtLCE
-	FjlCZwDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQyCjn/OWf2+VSIqgIH858jrK7O/hQpEjAyI+XpYzBg=; b=ubTmuWkMYz87L/mHlIAk67wboH
+	2aux4A/tCOmt6qO90Tg9BNsZdr75PvlTTROnfXfsYtRYuKJ94WLTAyk1Qy0k60XKgTtMwnVUi64MP
+	WpNERQoC2QB+/sBPvZ7QoxFCU6zkXB1tceNyyObmkDQbgjjoM4v2LtagBW0YtpPJrKHjJBYA3lw4k
+	inpekiuCmOSd2gBXSeccnlTr+SPjFlQkv0NfxzI/ua5URZZLd9qafCi2RPGFR2Xctmg5iKViwIvD0
+	IY+FqaY52LhpEg0yx8ota6eLN5AHbnU2Vn8pzzTC0peaZHDuVB4dFmRGpgHxtp6MaQEvc9sEu7y1D
+	jYR4387A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxJQR-0000000DSsI-2RFW;
-	Sat, 13 Sep 2025 06:07:55 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxJQP-0000000DSr5-16nA
+	id 1uxJYb-0000000DUgS-0IvY;
+	Sat, 13 Sep 2025 06:16:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uxJYX-0000000DUfQ-45J7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 06:07:54 +0000
-Received: from 8bytes.org (p54921b16.dip0.t-ipconnect.de [84.146.27.22])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id A91B850666;
-	Sat, 13 Sep 2025 08:07:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1757743671;
-	bh=IZAmRIn12H1ws1EBpMtxCKjZ7v/W9gcCO1MklaSOXk8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=2Astz+p3RJR5KWmv0+YIQv3aDHwwsttywLL9GmMaJmELgV6Ua4ppoge0lyMlauI06
-	 OrsHNKcE6Czahdah0QlI2S9GQgZjBY9UkTBoOfxHs48DrTyO5IRErDYOG5VSbnmas1
-	 oL3BBCFsQCxBKicaZy6xqVADh4+qtCmAtBDzIkmNIIhEq3+fQ40z7bllYay5DLGPZw
-	 hGwvAh9DVH/qjUyi808k9tjXeLqZRb68L/uh3Q0CnQapykQ1cRISJoTG/xMzChVh/k
-	 1CLf1xeMzBywCjdW9wmN+vBtHliv6Q+sOBPenMIvFNjO6R/IalDxps56lfJbIRlwRR
-	 tq0aTJHFiCPuw==
-Date: Sat, 13 Sep 2025 08:07:50 +0200
-From: Joerg Roedel <joro@8bytes.org>
-To: Janne Grunau <j@jannau.net>
-Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Hector Martin <marcan@marcan.st>, Joerg Roedel <joerg.roedel@amd.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Dan Carpenter <dan.carpenter@linaro.org>
-Subject: Re: [PATCH] iommu/io-pgtable-dart: Fix off by one error in table
- index check
-Message-ID: <xae5ifnkyfh3idpuvjqxd2ui4lz2ptstozwiitl3xec2aroz4r@beni7t6fudbi>
-References: <20250909-iommu-dart-tbl-check-fix-v1-1-c800a0375660@jannau.net>
+	Sat, 13 Sep 2025 06:16:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 150C6418C9;
+	Sat, 13 Sep 2025 06:16:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE707C4CEEB;
+	Sat, 13 Sep 2025 06:16:14 +0000 (UTC)
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id 344A95FBD7;
+	Sat, 13 Sep 2025 14:16:12 +0800 (CST)
+From: Chen-Yu Tsai <wens@csie.org>
+To: Stephen Boyd <sboyd@kernel.org>, Jernej Skrabec <jernej@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>, linux-sunxi@lists.linux.dev, 
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250911174710.3149589-1-wens@kernel.org>
+References: <20250911174710.3149589-1-wens@kernel.org>
+Subject: Re: (subset) [PATCH v2 0/7] arm64: allwinner: a523: Enable MCU
+ PRCM and NPU
+Message-Id: <175774417218.3827849.2965288836170499623.b4-ty@csie.org>
+Date: Sat, 13 Sep 2025 14:16:12 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250909-iommu-dart-tbl-check-fix-v1-1-c800a0375660@jannau.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_230753_518536_8008DB3A 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_231618_041619_2C42C14D 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,9 +68,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 01:54:43PM +0200, Janne Grunau wrote:
->  drivers/iommu/io-pgtable-dart.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+On Fri, 12 Sep 2025 01:47:03 +0800, Chen-Yu Tsai wrote:
+> From: Chen-Yu Tsai <wens@csie.org>
+> 
+> Hi folks,
+> 
+> This is v2 of my A523 MCU PRCM and NPU support series.
+> 
+> Changes since v1:
+> - Dropped dual divider clock rate read-back fix that is already merged
+> - DT binding
+>   - Moved "r-ahb" clock to the end of the list and added "r-apb0" clock
+> - Add NPU clk
+>   - Move .num to after list of clks
+> - MCU CCU clk driver
+>   - Added comment for "fixed" dividers in audio PLL clock
+>   - Corrected variable names for audio PLL divider clocks
+>   - Added comment for the reversed order of some of the DSP clock's
+>     parents when compared to the manual
+>   - Added comments for clocks and resets only found in the BSP driver
+>   - Corrected register offset for i2s3-asrc and bus-mcu-pwm0 clocks
+>   - Made "r-ahb" and new "r-apb0" external bus clocks the parents of the
+>     bus gate clocks, with comments if guessed which one applies
+>   - Moved .num_clks to after the list of clocks, making it obvious that
+>     the value needs to be added if more clocks are added to the list
+> - MCU CCU DT node
+>   - Enlarged MCU PRCM register range to 0x200
+>   - Moved "r-ahb" clock to the end of the list and added "r-apb0" clock
+> - Link to v1
+>   https://lore.kernel.org/all/20250830170901.1996227-1-wens@kernel.org/
+> 
+> [...]
 
-Applied, thanks.
+Applied to sunxi/dt-for-6.18 in local tree, thanks!
+
+[6/7] arm64: dts: allwinner: a523: Add MCU PRCM CCU node
+      commit: edd63e54e516b54c0b7071463d6e839445efab68
+[7/7] arm64: dts: allwinner: a523: Add NPU device node
+      commit: a1845487afd06899502714a3500b60f815d98203
+
+Best regards,
+-- 
+Chen-Yu Tsai <wens@csie.org>
+
 
