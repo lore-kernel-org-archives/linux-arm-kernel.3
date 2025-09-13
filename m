@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9060DCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 11:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C25E9CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 11:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMMoSzCc5h3tOZ4YYR+aO/iNO1TdT3TVeZmWGA5I9nI=; b=rK74X9Yk9XYsNju0NMAw1Jfgtm
-	aFt/xbJow2bBvr/8gcaDlN9XRVgdeWKff+50RlMZA1Mkxv9TAfmimKOAzkJReHSuPMjkzRmjWsJd/
-	nE/xIp6QiK926Iw3lo6tuOfGKuwkbRIhNpjuYjH4SIZ7y6+IoZOUU8sWWVbuEWVQNPPohnH7wMeAB
-	GAESTPVpcHNs2o1BKeUrJ5DW7n3cTHSyvLxL8wnnfkPkS7meZBxO7Uhy4T8id4kmvXgDQ7IwVuPl4
-	fPdx5W8conu3pZlyWvOjG9fK2RpfarPCn0+RKtGxK/p3/vdx8RiSM56tAcOw1+/gyO4QBGsnSO5Vh
-	C4IYaMPA==;
+	bh=vM/wOHbGgB/+niDKSnNnlcAAPUzV0FZzOUIFNQXZ5cc=; b=nT5P7JQHaRF2CpAW3resoIIsYP
+	MTjRjcqMo0RJXZxUMb6EHQ/Vl+pXCC5WThMkziLkjXp8H0Da5VuyG2BkYd6XQ1v0cBz/OVL6OXzQi
+	qSnszJJFfeL1htRxxsxfMxxHjyKXdr0CAtIUq3WE5/+Hue/LIi8Kl4wJCHFAYnTB1a116wtrL5w2i
+	DmOdB/BYQVSNy8i04XgvX826w+hv1jy6AwEnvUMK/zGwSvoVUclPj+zv23S8FQCg0YwqpzD61jigS
+	V72DBfxkyT89DDw9FHvIN0WjfLvkr4M82nkGc7qYSSbDGaVNH+Diu9kEiRzxmDsyMHE0YIdKO+SCm
+	MtRhVaTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxORp-0000000EUmm-2o9s;
-	Sat, 13 Sep 2025 11:29:41 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1uxOSP-0000000EUzN-4Brn;
+	Sat, 13 Sep 2025 11:30:18 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxORn-0000000EUlZ-2v9W
+	id 1uxOSN-0000000EUxt-1RnT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 11:29:40 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b0418f6fc27so471621066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 04:29:38 -0700 (PDT)
+	Sat, 13 Sep 2025 11:30:16 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b0aaa7ea90fso33007466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 04:30:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757762977; x=1758367777; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757763013; x=1758367813; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dMMoSzCc5h3tOZ4YYR+aO/iNO1TdT3TVeZmWGA5I9nI=;
-        b=hG/GQUPUgfB5gxgKZ7mhcUM6XpLDUHhDAyqRB6yxVnAVTHlIA+KWWfXOrGgk/VD71k
-         Wc4jQoTAfVQ299yJk7FCSWMMaoZ2cnKuuWBXHTkgWxFpendPeLUHjRcavY0JbbGJdK9m
-         HLBZKkxsYkezbxl2RGkjsRtyrzUbRNLrgeLDMUgQTByHjfCbwzZ6EdECf4rNtD49O37H
-         bVRVk1XdVjubDscg935OzzXWMDWVDwCXEHXJm2GOT9UgZP5pXDcstsjG/1Taiimuo/Zd
-         Tga/M4GnaNv84cHE2r19+NwSXFmcORV53g4w/5a8IR6M6a0jZk8NOn9+SlKO4IV90/PU
-         FqnA==
+        bh=vM/wOHbGgB/+niDKSnNnlcAAPUzV0FZzOUIFNQXZ5cc=;
+        b=S/EAzu5g3VuchJHFudyn84j1jvDGeqvb56NlG4xtyyi98H14FOr84cfZIdxVpriqy8
+         qds9Y1sc9r/O57kHnpK67mSTFFReCeYA1uh4QnU3P92gZrqVKL/uubW3iyoa6K7+5yK8
+         rYEUJiV65ID/weecgoNwcnizyVJ8lGthxK/5agsU1KcWQRQLTxp6We0XI285laF2tGX/
+         PhPAzoUI7uk8+lZBd+O0Y37nCHBkTFcB//pkI7ZVZ+7DfUWb9Uv/MjGZ/q5j7eh2s9BK
+         UHg+8QiOyq7bsLdwtCZzQXZmcF6coC9Rg8l6QyegffxWPyuV+6mo8Vw24P6awgJyBSTH
+         iA8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757762977; x=1758367777;
+        d=1e100.net; s=20230601; t=1757763013; x=1758367813;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dMMoSzCc5h3tOZ4YYR+aO/iNO1TdT3TVeZmWGA5I9nI=;
-        b=oZ2te2LCOsNpYcCbT2q8KJ5B2ys3SsO37hWfPrYIirymjNCtn+siKRAk9Z3x2QBnU0
-         hcdcMtpy1erDe9CnfkvmDdFDiO6sMmX5elagHIwDJp+uGIYZ3D5qecIa5QyEhaZhJvHb
-         O+pKl+bpRjU9F00w7Y7wpZJBbAZWSmKrVUquJ9WE+FcFzs+pvhHrqzgeCxzTWsUGTDNP
-         nc+m/4MeIpS6V60wBstqbATHxSe6ik9FE71YO+DZssqrrDw7aKyTUB+wL7I8KxE2t8UD
-         NT0Miy1rcH/a92fNPZGjdtXlxhKWsqVTqFW02lGj3gqoyqK0JvMQpFCwoWjeFJjMEWSL
-         NCXA==
-X-Forwarded-Encrypted: i=1; AJvYcCUmYR+EEEIJK+OQ/C//S1QekaWJowC42290lih1vjHlJGltfSyecXcGhlma6HqpIHv4LBLkOSZl5WN7Iwep6JiX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjlqJz0hLyiXX16ws8gaHJp9V32TUUQ3S5yOqsaXzrGL9QvQ9d
-	EKdYd0NFOBEa9DyuruFb+RL2Dwiw9455PXZOBfnV/e5p2JD2UjbvDaxI
-X-Gm-Gg: ASbGncsY0+3S9OcJBbDiWzn8telxKqLZC4w58u7KpnT4ya9Z3VvQftI99FdaE3wn6A+
-	JOb25JsvuXy/QAAA0bLNry6x6XpxpKMHkD7VieZ+sWIhcekSnyJ79EmUGWvOnj9NJFHZe1CFlnM
-	2Md02i4rcfzjcn6LxuEtBtnAYr3+YVRCrllVfHimqLuvqd3sg5gM2PVM5qqXNmzFpMEQ6dfMIlC
-	HMdOKV9u5UPLMgSTBF5+4l5nQPSuIGUKb1zppENBC2oC6/gI24fCfQAuR0gg1Y4NvhPdZPzui83
-	AZnlmn9vqk2X285F3IhBfsvi6abu2esWufuRkahF8WwokdUeiVpBvpJsz/4n37VTr5O2awTWKKt
-	QajddNqd4lUqSUtPgkwRQcvHzQhMKCtnJgt+9LD5YTJzO4aAfeqy9+T0=
-X-Google-Smtp-Source: AGHT+IHjrg9HhMV8KoVTmQL6sNcOl2lLDDIPwEcS0bg0jeSuB02uw0MNZjGq45peF5NvlyJozkp5Pg==
-X-Received: by 2002:a17:907:968a:b0:b04:a289:7b with SMTP id a640c23a62f3a-b07c347f8cemr599471366b.4.1757762977003;
-        Sat, 13 Sep 2025 04:29:37 -0700 (PDT)
+        bh=vM/wOHbGgB/+niDKSnNnlcAAPUzV0FZzOUIFNQXZ5cc=;
+        b=QG2kA4G9Fs8TZ2T6m45NMKs0E3qa2wDavoxdIypiGs2LOV7C68CdW49bGk7fNqy7W5
+         xGXdX/MOllc3ba9wDOG4XnM16hM6IqNSFDPzhxnbtMOMH19Yy15Xp9D9XvDtzdRpmGYP
+         y79RpfohCB6GbReJ8JjuqM1oB5yYXkMGQe2JawUxYvGzjz99L08sGlaDXkAc7bPpfMRE
+         fJLCwmoW5RsDPWpWwX266TWqsw4kC6wiRd8pudAIUaKKmZl2eUkVwHAM6GrdlVZqJymp
+         nw6puzCNQpp1gVHjk2l/BZlINNDiIVjKODyssWpQtRTmZU9kMDE2o2l4/FxVPel1yz1k
+         gTbw==
+X-Forwarded-Encrypted: i=1; AJvYcCWrL2lFQGZMUWXH9p+O6yXvsQ1LxmG31lwMqstjv4ggfqnryEN6yKUW0S7+ECSn+zTmfTUAPV0fTc4S5KTiLF7F@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2AMACaumWR8CRin9WdwU94a5GfjSS73tuTnLCJFVbnyajZJUz
+	3wAfBwu69HYFnGYuRtRLRmoF5k7GjVBG3LoIdd8fW1rvxXa9tXKVQIPY
+X-Gm-Gg: ASbGncu5OGamixN41XTAgzHCzxowO+qB2y1HRUzyIahxLTPr5EmqUIiW4ngHKFsgDUO
+	gxYNDBrW3yiIibjPEG9whtwnFDFHvS5w9QSoZGqyPaMEtGAPVRa8Mgg+wQI5nE2uwuboomzdTLn
+	8HgI5BORTg7ifpNm2bNRFHZbviyLiB0EkPHZVLr/tQVPiouhgQ2epJqc1tvuv82F2/sbUWYQdwA
+	DkK+bNKCSllsKeg9TZVXuGd2EHSOcuYFSWQ+i99XIYAZ+DLJlS4eywDsEqvmEpCzsRnZcCMdDwZ
+	vBOpQxc5ynFcWCjX28C9qsRK8WEClpnhquM+DuyfCzs9CXIAq07BhaTBUswBhTW1lGq+w8EncSP
+	+yv8pFWo6zDfyg2T5YWPZdnBCIDJxbfAu7Rj1dutjmKqG/kRMoZz0wIg=
+X-Google-Smtp-Source: AGHT+IHGrkQn7+NmuVgBdc10MUVOT+vd1j8NXgn0gL8ncYy9IeCu/BFaE0KTAPOvNiL0g93r6GOAgw==
+X-Received: by 2002:a17:907:3f16:b0:b04:5a74:b674 with SMTP id a640c23a62f3a-b07c3a88730mr640143666b.58.1757763013249;
+        Sat, 13 Sep 2025 04:30:13 -0700 (PDT)
 Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07de03d93csm167035166b.12.2025.09.13.04.29.36
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b334e720sm551560166b.104.2025.09.13.04.30.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Sep 2025 04:29:36 -0700 (PDT)
+        Sat, 13 Sep 2025 04:30:12 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>,
  Samuel Holland <samuel@sholland.org>,
  Andre Przywara <andre.przywara@arm.com>, Chen-Yu Tsai <wens@kernel.org>
 Cc: linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: sun55i: a523: Assign standard clock rates to PRCM bus
- clocks
-Date: Sat, 13 Sep 2025 13:29:34 +0200
-Message-ID: <12739001.O9o76ZdvQC@jernej-laptop>
-In-Reply-To: <20250913101600.3932762-1-wens@kernel.org>
-References: <20250913101600.3932762-1-wens@kernel.org>
+Subject: Re: [PATCH 1/3] arm64: dts: allwinner: a527: cubie-a5e: Drop external 32.768
+ KHz crystal
+Date: Sat, 13 Sep 2025 13:30:10 +0200
+Message-ID: <6190895.lOV4Wx5bFT@jernej-laptop>
+In-Reply-To: <20250913102450.3935943-1-wens@kernel.org>
+References: <20250913102450.3935943-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_042939_771036_A27CD98B 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20250913_043015_402552_6F5EF1D5 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +101,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 13. september 2025 ob 12:16:00 Srednjeevropski poletni =C4=8Das=
+Dne sobota, 13. september 2025 ob 12:24:48 Srednjeevropski poletni =C4=8Das=
  je Chen-Yu Tsai napisal(a):
 > From: Chen-Yu Tsai <wens@csie.org>
 >=20
-> At least in the initial version of U-boot support landed upstream, the
-> PRCM bus clocks were not configured, and left at their reset default 24
-> MHz clock rate. This is quite slow for the peripherals on them.
+> The Radxa Cubie A5E has empty pads for a 32.768 KHz crystal, but it is
+> left unpopulated, as per the schematics and seen on board images. A dead
+> give away is the RTC's LOSC auto switch register showing the external
+> OSC to be abnormal.
 >=20
-> The recommended rates from the manual are:
+> Drop the external crystal from the device tree. It was not referenced
+> anyway.
 >=20
-> - AHBS: 200 MHz
-> - APBS0: 100 MHz
-> - APBS1: 24 MHz
->=20
-> Since 24 MHz is the hardware default, just assign rates for the first two.
-
-I think it's better to be explicit than assume. However, this is fine too.
+> Fixes: c2520cd032ae ("arm64: dts: allwinner: a523: add Radxa A5E support")
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 
 Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
 Jernej
 
->=20
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 > ---
->  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 2 ++
->  1 file changed, 2 insertions(+)
+>  arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts | 7 -------
+>  1 file changed, 7 deletions(-)
 >=20
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/=
-boot/dts/allwinner/sun55i-a523.dtsi
-> index 3aad1b909501..5cd6ddae86c8 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -767,6 +767,8 @@ r_ccu: clock-controller@7010000 {
->  				      "pll-audio";
->  			#clock-cells =3D <1>;
->  			#reset-cells =3D <1>;
-> +			assigned-clocks =3D <&r_ccu CLK_R_AHB>, <&r_ccu CLK_R_APB0>;
-> +			assigned-clock-rates =3D <200000000>, <100000000>;
->  		};
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/ar=
+ch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+> index 71074b072184..e333bbaf01d3 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+> @@ -24,13 +24,6 @@ chosen {
+>  		stdout-path =3D "serial0:115200n8";
+>  	};
 > =20
->  		nmi_intc: interrupt-controller@7010320 {
+> -	ext_osc32k: ext-osc32k-clk {
+> -		#clock-cells =3D <0>;
+> -		compatible =3D "fixed-clock";
+> -		clock-frequency =3D <32768>;
+> -		clock-output-names =3D "ext_osc32k";
+> -	};
+> -
+>  	leds {
+>  		compatible =3D "gpio-leds";
+> =20
 >=20
 
 
