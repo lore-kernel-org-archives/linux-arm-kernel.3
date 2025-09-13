@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE65BCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 15:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC02CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 15:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFKKmedxIGpODUcpv5yJPTtaQepA4vIoxRDKYhs1yXI=; b=0BaWjWX+7JmYyu+Yf6tdKVJsoU
-	TOR26PCuqkkNEtvH4Xy82xG91/ZrgfPiwC07rFeJP1eMA+0rPxOTCAqXvR+tN4T7Rm6Hx8vcbQC45
-	4+OtTFCSM3PW+rSJTsOQWa5FTBJLSz3VXs4K72I3wUTaijhYUkwmwhqVdI4gUEKw5GOSGYOpn8D1K
-	p+wPGd7OfHxvVaX68t/jj7RzZLLfd7FlckFJsTf5lgXVrrS1uLleFo3i/+OyXbAuJvmNscX7VL8cC
-	4E19ZNL8KPqF3VBqxr6yeJHnIymm+CYh6V8NQOPbJ9J5EMex5g/DqPcTxC5ZH37B1KVJmqHkB07JM
-	aCCY8VXQ==;
+	bh=05GRB/53nZPO6o+N3DAvzgd3dnUX4eZqo9wgsliDOpI=; b=pqpMdBpUhoS8afZ+3MGnr6MBHR
+	F08blnTGf7zqAH5g404dLk7S0/WOrPsOqpAfq/M02OH4eYChs0imVMuexEaCvQxSJtOg9b+n0P3GO
+	BEbKZmWyYvLIgeXxObyJxTGe9VtH7dKHeNq7DWOD7sIIS9TOAygRsjCfgAvzPbxO7IBlKdBHKYzBe
+	f5kPRqKBBl0e0pcUiVxu5UjpMA1G9JA5RCxfSrHBSRdUxwY7AejxjMk7bzz2NVfdnODE+iye6zGQq
+	IiY1boUALmPvZNvwSvyiZnD6R5glcbsxA0X74c4QTLviiNSGWQGffYDHG7CBFGN1jv1EOVF/HHm5C
+	bJ1PM4Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxRsX-0000000FC5k-1YfJ;
-	Sat, 13 Sep 2025 15:09:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uxS29-0000000FE02-11O7;
+	Sat, 13 Sep 2025 15:19:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxRsU-0000000FC4a-3gJw;
-	Sat, 13 Sep 2025 15:09:28 +0000
+	id 1uxS26-0000000FDyx-0Duw;
+	Sat, 13 Sep 2025 15:19:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C759243D08;
-	Sat, 13 Sep 2025 15:09:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFBA7C4CEEB;
-	Sat, 13 Sep 2025 15:09:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7A8FA43B3C;
+	Sat, 13 Sep 2025 15:19:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0BF1C4CEEB;
+	Sat, 13 Sep 2025 15:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757776164;
-	bh=k3JGm7bgPzqa31QJZlMPgghHEp9L20SNijx437wsPug=;
+	s=k20201202; t=1757776759;
+	bh=3l1oTIkNxjy5OX16l6qHW4FBN6o/HIdlJKsNx/PnB8E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qpZ4Xk/0h6acPs74zvOc1NFJ5Jxq3AutOs0wqXl+ci/YlJMKz2qsZ7wQfDFyBvrJR
-	 lC9m1DO0QpsyefA0jSIkWLuo+iQ23zEINuTRDSaA1wtEGdp6toKAFNpCnyx76DKAhD
-	 8f473nFSEKygwdbTVRQ0yekLJhvrj8dr+zl3mSM/vCPVo8VKdCw6DL3fxtRtA0Ft0O
-	 3o7r2ZJ6ajL9TTnimHNSCKl+54t5yx7wumR8QHAEnrT7lZ+4gP4THT1Lemj0kp4sYs
-	 VpZOpFhwL/9ivY///QFf3eH7S3btU6e6wo+/NHtYm2A6W/cokalzFhnWNbMK1RbWrt
-	 hCobJgwcrm+kQ==
+	b=DvhQNiLrokdSbX0zoE8wOEAUlZEhtvHh5Ejbk+iAGs3xhPdbMoHvRPoeT62QVW1+R
+	 Ryq2MGV6Q1XhS5caliz+jZPSOOf9UJfofiFlMENHninWsoaLA/M+WCUsGKs5tlRUkX
+	 Spx5L9f/WBNJXRe3q91dKnTkBEs4iDJdBqvx5IJOcz+ppe4UOwUPHasbRYVcmPEU5J
+	 BEomchFqI8hUZOpncDK03NySvToKtUm2uqhq40jNDC/MGOkR8h3tX0GSVN5EioEXeC
+	 Q5Jl2Zjmr06eRoG5MYMaaUWL78Syjaj1upYMboBkjcYXHIdCnwIxQ7WWC2fsHI4yn0
+	 8NpFtDs5Jhliw==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org
 Cc: Jack Wang <jinpu.wang@ionos.com>,
@@ -57,16 +57,16 @@ Cc: Jack Wang <jinpu.wang@ionos.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15.y 1/2] mtd: rawnand: stm32_fmc2: Fix dma_map_sg error check
-Date: Sat, 13 Sep 2025 11:09:16 -0400
-Message-ID: <20250913150917.1408380-1-sashal@kernel.org>
+Subject: [PATCH 5.10.y 1/2] mtd: rawnand: stm32_fmc2: Fix dma_map_sg error check
+Date: Sat, 13 Sep 2025 11:19:11 -0400
+Message-ID: <20250913151912.1412912-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <2025091308-trio-unedited-6b17@gregkh>
-References: <2025091308-trio-unedited-6b17@gregkh>
+In-Reply-To: <2025091309-quote-graves-e875@gregkh>
+References: <2025091309-quote-graves-e875@gregkh>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_080926_939602_D381F48C 
+X-CRM114-CacheID: sfid-20250913_081922_114905_95C13137 
 X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,10 +111,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 5 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/stm32_fmc2_nand.c b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-index 1ac8c4887ce03..a65ee2d3c1b3a 100644
+index c0c47f31c100d..9e535405e8b20 100644
 --- a/drivers/mtd/nand/raw/stm32_fmc2_nand.c
 +++ b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-@@ -860,8 +860,8 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+@@ -858,8 +858,8 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
  
  	ret = dma_map_sg(nfc->dev, nfc->dma_data_sg.sgl,
  			 eccsteps, dma_data_dir);
@@ -125,7 +125,7 @@ index 1ac8c4887ce03..a65ee2d3c1b3a 100644
  
  	desc_data = dmaengine_prep_slave_sg(dma_ch, nfc->dma_data_sg.sgl,
  					    eccsteps, dma_transfer_dir,
-@@ -891,8 +891,10 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+@@ -889,8 +889,10 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
  
  		ret = dma_map_sg(nfc->dev, nfc->dma_ecc_sg.sgl,
  				 eccsteps, dma_data_dir);
