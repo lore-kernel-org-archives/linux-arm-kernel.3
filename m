@@ -4,111 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A0D0CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Sep 2025 23:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE94CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 00:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40KXg9kUsO5+HICeEL0Iq0HUslxsWdLGZ0xsN27NPfo=; b=pXbajslJOwjFwlu1+vpWkS9wnt
-	ASV7SAO17x8xCz8BhwUgOgaotnf8FJsx08MGLXEHUylcNKVU3dwBGFzmodvgbqsU9tGBfvUimGDH6
-	3vQjQsR6Q9wLym4nUTtB7QwZ8uGo82+JfxGpbfahIGRNDKph12iTLy6j+XmY4mQFL/kzFBU6H+dr0
-	ypVJeMEyNq33jEUv9kPgj9ughS2I2OUuUwUa6Np91Cb7n+gF1IZvt/U+U22tnuiWa5XuNaUpoySvW
-	b4XNj6pw73jYxubHBHlsFzgEhV7I749Y0/EhHFQUjvSSTWHRu5qiN2QmBu7eXWxFP9mU3s8/lzSMu
-	9hC7NQHA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UO/7lH/N6ZDafNfSE6DEnroDEbW/MX1V/QAkUexnxuk=; b=nHcCxGJULekXP7pHryEppGnySX
+	j2fy50Q+U7e3Geon0IRlVf+iFbtrUxlNq5gYzjCZDP5Iao2d5uCN/Sr4zuiNDGuqiw6MaQ1CBaVoe
+	v9jLo/TkbUGH/uEyUR/mZx+5HQhP/EXHaDifabyjOz5AHbYWg20AcTLq7G1Wh4UW9V8npHWxO2xIo
+	c65ULpUgK3Z/wjbjArjuvWai+FkfocR5Fe8T/JeUzbgK6n0bCoB3QcqghRmCrVeI0zbtrsi3wzdTV
+	ZMELoJ/GHaGRJRn85UKDoDkRAIqRpcF3uFRbl5ALylz73MLFY/xA6//PiITWLhugnUHnDyB5q9WYm
+	QrBniWeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxDKK-0000000C8Wk-0mu1;
-	Fri, 12 Sep 2025 23:37:12 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1uxDpJ-0000000CF95-0RlA;
+	Sat, 13 Sep 2025 00:09:13 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxDKH-0000000C8UQ-21xF
+	id 1uxDpH-0000000CF8i-03e1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Sep 2025 23:37:11 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id B74147A0183;
-	Fri, 12 Sep 2025 19:37:05 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Fri, 12 Sep 2025 19:37:06 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1757720225;
-	 x=1757806625; bh=40KXg9kUsO5+HICeEL0Iq0HUslxsWdLGZ0xsN27NPfo=; b=
-	NxKfWVKQ4CZWI0LoscpaJX6WEp/yA+hcrArsFRjvTb1Yh/ZSoPIpBPtL4KYOU00M
-	38QVUlT/7a7YMf72tkR097ADhnPbtOkw7DyOZLLwbX6BIOoe7MHHzZb0d/X/gWpi
-	S15rmczJcIaW+7HGY1U/CvmRG0ZkpjEGiaRRzoUzy/9wL5O6W+NwTRXa/OB1CCQC
-	UDb9uoxAQ49XZKMUyLFcx46B0ZUBrSUvtucWYguKS2k03kerl3p4XI68kJqP82Mt
-	0iqgS9PHrmUTnkK33tWqpJCNcKTuLUVQg3NlHKmFxxOHGhpPWzM4eVhjReRaHb/s
-	ZuiSR3iiG/Awpps8xfCiew==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-transfer-encoding:content-type
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm1; t=1757720225; x=1757806625; bh=4
-	0KXg9kUsO5+HICeEL0Iq0HUslxsWdLGZ0xsN27NPfo=; b=RvKv6szhC/uAWRcFF
-	qLZYBUM/JzLSb/NJYPC5xOdDg7UZlCXmlT2+ZNqZ4NVFI1AvHGAWvpLCH6+NqGQq
-	Q5X5XBnHGImJG3vOGOqi/bH/dWFOMFXZWX2Mz3PhdQ1c4mTaMc/hNZs6lEko+qbS
-	OhxxZgnexJMz+KhEH5PbXt77zd1SXVHcr+QZTazEJ66/BoIL0hkpOp2VIbno6vdV
-	pJhFKOxSkgkKtXBPo7oBpPSwRQuQhrIJgdl7W5CqMLjviXfTDZDWEpQ+9OYY2KLO
-	1B7VrxXtq+vjmU3KrAEZPpObI2UOVepofCwCekRdnZjinhuQhNerjqOGnWD/Kx9h
-	cv1JQ==
-X-ME-Sender: <xms:oK7EaJWYWiIWWi1ubcmf9R1QkKK68HTnHhD5xmKA-HllO9gwbUeDDA>
-    <xme:oK7EaIzwz7QQSi2KUGDzwg6g-Ms4dVfQZuAutLIULmlkMhRdn1C3jNkFKENjVGeBA
-    L8Z2w30mXE5sERHVt0>
-X-ME-Received: <xmr:oK7EaIGe6LRlxraxQZL_KowjeX4CU3Ow2Li3_S0w6HcCogDyvmROIHmuIwEtufnWy_I>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdeftdeflecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefkffggfgfhuffvfhgjtgfgsehtkeertddtvdejnecuhfhrohhmpeftvggsvggttggr
-    ucevrhgrnhcuoehrvggsvggttggrsegsshguihhordgtohhmqeenucggtffrrghtthgvrh
-    hnpeevheehieegvddujeeiudffffdtheeifefhteetledvveehudffiefghfevieejueen
-    ucffohhmrghinheplhhinhgrrhhordhorhhgpdguvghvihgtvghtrhgvvgdrohhrghenuc
-    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehrvggsvggt
-    tggrsegsshguihhordgtohhmpdhnsggprhgtphhtthhopedutddpmhhouggvpehsmhhtph
-    houhhtpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehr
-    ohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvg
-    hlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgt
-    phhtthhopehjohgvlhesjhhmshdrihgurdgruhdprhgtphhtthhopegrnhgurhgvfiestg
-    houggvtghonhhsthhruhgtthdrtghomhdrrghupdhrtghpthhtohepuggvvhhitggvthhr
-    vggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
-    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
-    lhhinhhugidqrghsphgvvggusehlihhsthhsrdhoiihlrggsshdrohhrgh
-X-ME-Proxy: <xmx:oK7EaFucsMrYmPiOzaLV5Joh5nyfmWetEsObfDVTDsCDNRVmkAStbA>
-    <xmx:oK7EaACSPjqS8GeqrVllmbcDFFjpsygEjTtdZhehqkGveIAHoavnnw>
-    <xmx:oK7EaIDAWuJJarms6BbMKlVyAvbbtnCb9TsGiS1g4d4rTqiGhfBQvw>
-    <xmx:oK7EaCrIlYqTfavDdVcugJ8lwrNDX45sk83lJljnJRFozs5xjrL9JA>
-    <xmx:oa7EaJ8VYrSyWOWQR9gC9FDzBO0j_Ikl6dLEyIEqBwFOqz6jMAvU686L>
-Feedback-ID: i5b994698:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 12 Sep 2025 19:37:03 -0400 (EDT)
-Message-ID: <04b0799e-b0a3-4dbc-98f3-239869c79305@bsdio.com>
-Date: Fri, 12 Sep 2025 17:37:02 -0600
+	Sat, 13 Sep 2025 00:09:12 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-71d60504bf8so23542517b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Sep 2025 17:09:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757722149; x=1758326949; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UO/7lH/N6ZDafNfSE6DEnroDEbW/MX1V/QAkUexnxuk=;
+        b=ekXU1R+WCMsGG2kYfkbTihHJuAaEQYLHuJlGnKBvHVdFEiy4QDAroUxiVIb9i6H10/
+         aTPvO8njxxlGVBq8waXD1zA6GMwOqJCBZFy9iF+puVLm+VW+u/BW7jvpuHwpUjQc5sbc
+         CuFeNOv/RZz9jrsLSTX6zUN4dRyBgxrtOBCrpAsEqZ6f4ELeOzLwFV5eWg71pwC+GUTO
+         0VHQZe1xaIK4M1jKpG/12rUihENIO8GG5/wUJcvyiyKtiBMSH5Q07wKKG4qyQr7fHen4
+         +t0T9LO95+qWIjcHR+1yJ+eUJ4lcwjEvH/kQss1qlUporEPBXvcvpTUUR4Rka37qNSI0
+         +MWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757722149; x=1758326949;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UO/7lH/N6ZDafNfSE6DEnroDEbW/MX1V/QAkUexnxuk=;
+        b=E+AH/H9MPY6ZdVNFTNtJRpGVFWB7aXaTlhTYTi849CRsX2iAX6jTM37g8sKxLmtsHZ
+         Xm79Z3/HbGaJbPtUILgytvGUglzaon1KhOr0CLa/0zplbYcS+4raT8EIoEpw61Se8HYD
+         ruPtt0c9a9yi4l1va/8zD2DysozMFKLxRemHeJVdUy/1zKQzHyJ82MrARt3so2gkWmSl
+         5SLMcCPvbNa4zl13NffiXVq6bSLmShxOuTpcNZzYz+CJ4g8VOdT7DbBeAFOC62cf+jEY
+         V/S1b1PLAM2Zq5mY26/foKm3z4rDwhac2XXBkEgpV43Y1xhReLxId6uCMHuev/Sz5rsl
+         eSFA==
+X-Forwarded-Encrypted: i=1; AJvYcCXUPMOrP3ChibuoCS43UBEgemjqrGW7gGQH8DYjfuts3qu7XTDzpN7VGjVVBbdQwa7IuNJgnWHDqATZsjO+10Ks@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhlrcfCSNlrEyv9RwwsVx5E7b133MSBHHdro2R2KDgdkOrHcxa
+	yvHKATw6cXeUKmhvIt65n5F8QAWix3yBKC7RWPhFnskXr3Y0ZcYmm4eY
+X-Gm-Gg: ASbGncvevVh9zWoxFTHXWfqw7xqGUk9Y1ZM8POdmdYSV67o+RAWNnfR+Q0s3cqvVCu0
+	kQguUjdP/RuVAWGy55/cANmk2FUPYRPetXXT60J5eTRYWyIQ0/kYWFmIK52kMka6cAXFNrHGz35
+	joNNpDI4lDdI4CeQkkx4FjHZLbcdhawRvCjji9WJQyZK7ey9g5lV33ZpPAoqDkR1KT3UExCNXau
+	Iev0fRPIrhfWiMVMSGuUNgadggwZw2rpJmM+qlglIBcKZ6qY+OmB2bc9VFYOQQvo4V0In0IJeWa
+	9yU46rIeguCNQYVhXTQfHGW+tuD8vzA5wcqx3Oo6d9akzGeUhyiazvmuGair1R790QncSKJPL9L
+	sdFRl1Uw4/lj0WO7uODgLPO0UVC3dKCBHXidU677dCovMBE7uJJcyerTlabsDErgLIkoMtnt9o+
+	h7mg8=
+X-Google-Smtp-Source: AGHT+IHZWd4EJg2gnZfEA4Hk6YneuFz1ZkOf66cLLfb+s1nr3lhcJwgBnTnK2mMOety0VlhoHn2A3A==
+X-Received: by 2002:a05:690c:dc4:b0:723:b37b:f75f with SMTP id 00721157ae682-730652db8fbmr50959917b3.26.1757722149288;
+        Fri, 12 Sep 2025 17:09:09 -0700 (PDT)
+Received: from localhost (c-73-224-175-84.hsd1.fl.comcast.net. [73.224.175.84])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-72f791a3fbfsm14663937b3.48.2025.09.12.17.09.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Sep 2025 17:09:08 -0700 (PDT)
+From: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: "Yury Norov (NVIDIA)" <yury.norov@gmail.com>
+Subject: [PATCH] arm64/fpsimd: simplify sme_setup()
+Date: Fri, 12 Sep 2025 20:09:05 -0400
+Message-ID: <20250913000906.67086-1-yury.norov@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Rebecca Cran <rebecca@bsdio.com>
-Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
- ALTRAD8 BMC
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20250911051009.4044609-1-rebecca@bsdio.com>
- <20250911051009.4044609-3-rebecca@bsdio.com>
- <1e4c65c6-4745-45e2-9e20-9d2e69ae2ea4@kernel.org>
-Content-Language: en-US
-In-Reply-To: <1e4c65c6-4745-45e2-9e20-9d2e69ae2ea4@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_163709_960739_9A2EBE9E 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_170911_058709_C696FBF5 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,78 +101,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/11/25 00:29, Krzysztof Kozlowski wrote:
-> Never tested.
->
-> It does not look like you tested the DTS against bindings. Please run
-> `make dtbs_check W=1` (see
-> Documentation/devicetree/bindings/writing-schema.rst or
-> https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-> for instructions).
+The function checks info->vq_map for emptiness right before calling
+find_last_bit().
 
+We can use the find_last_bit() output and save on bitmap_empty() call,
+which is O(N).
 
-Am I doing something wrong, or are a certain number of validation issues 
-expected?
+Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
+---
+ arch/arm64/kernel/fpsimd.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-For example, I'm seeing these - most of which are from aspeed-g5.dtsi, 
-not my dts file:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-/ahb/apb/memory-controller@1e6e0000: failed to match any schema with 
-compatible: ['aspeed,ast2500-sdram-edac']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-/ahb/apb/syscon@1e6e2000/p2a-control@2c: failed to match any schema with 
-compatible: ['aspeed,ast2500-p2a-ctrl']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-/ahb/apb/display@1e6e6000: failed to match any schema with compatible: 
-['aspeed,ast2500-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-/ahb/apb/timer@1e782000: failed to match any schema with compatible: 
-['aspeed,ast2400-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-/ahb/apb/pwm-tacho-controller@1e786000: failed to match any schema with 
-compatible: ['aspeed,ast2500-pwm-tacho']
-/home/bcran/src/linux/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-fan@0: aspeed,fan-tach-ch: b'\x00\x08' is not of type 'object', 
-'integer', 'array', 'boolean', 'null'
-     from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-
-...
-
-/home/bcran/src/linux/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-lpc@1e789000 (aspeed,ast2500-lpc-v2): reg-io-width: 4 is not of type 
-'object'
-     from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-/home/bcran/src/linux/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-lpc@1e789000 (aspeed,ast2500-lpc-v2): lpc-snoop@90: 'clocks' does not 
-match any of the regexes: '^pinctrl-[0-9]+$'
-     from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-/home/bcran/src/linux/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the 
-regexes: '^pinctrl-[0-9]+$'
-     from schema $id: 
-http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-
-...
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-/ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with 
-compatible: ['aspeed,ast2500-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-/ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with 
-compatible: ['aspeed,ast2500-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-/ahb/apb/bus@1e78a000/i2c@100/power-supply@3c: failed to match any 
-schema with compatible: ['pmbus']
-/home/bcran/src/linux/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: 
-gpio@1c (nxp,pca9557): '#address-cells', '#size-cells', 'gpio@0', 
-'gpio@1', 'gpio@2', 'gpio@3', 'gpio@4', 'gpio@5', 'gpio@6', 'gpio@7' do 
-not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 
-'^pinctrl-[0-9]+$'
-     from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-
-
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index c37f02d7194e..e3f8f51748bc 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1265,6 +1265,8 @@ void __init sme_setup(void)
+ 	if (!system_supports_sme())
+ 		return;
+ 
++	min_bit = find_last_bit(info->vq_map, SVE_VQ_MAX);
++
+ 	/*
+ 	 * SME doesn't require any particular vector length be
+ 	 * supported but it does require at least one.  We should have
+@@ -1272,9 +1274,8 @@ void __init sme_setup(void)
+ 	 * let's double check here.  The bitmap is SVE_VQ_MAP sized for
+ 	 * sharing with SVE.
+ 	 */
+-	WARN_ON(bitmap_empty(info->vq_map, SVE_VQ_MAX));
++	WARN_ON(min_bit >= SVE_VQ_MAX);
+ 
+-	min_bit = find_last_bit(info->vq_map, SVE_VQ_MAX);
+ 	info->min_vl = sve_vl_from_vq(__bit_to_vq(min_bit));
+ 
+ 	max_bit = find_first_bit(info->vq_map, SVE_VQ_MAX);
 -- 
-Rebecca Cran
+2.43.0
 
 
