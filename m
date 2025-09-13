@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DADDCAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 10:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A545CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 10:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R0u2QtKY6DjdWNtmJWntiw0G2jjWFg+XxMaqxMr4OXM=; b=hSqFn9T8g9w4XEZO+xiw6WJyop
-	wDBrHC+XOLwG7HVSQYBSCk8g8dTInbcJ6j1C5rhxGNBXkPu2D3H2SSEjYB54gOjmCbHLC752x2F38
-	Eq3y/pSgIB6Lf/RGUdFKnlmQwf5NtkfoZvjz81tM8YfCtunZ5uCCYrefn+QaniYUzxDLNRe077V63
-	c/VEtjUXM6ooLJbfRG9swBlwzgfAnie8Sjqe7iqnTRWiFxwh9aKgRIhJVtx0EqkSp409HOYJ0d+EA
-	6ygaeABCVFrq1O3zQE/KSIQxVnExPnjbPwhuBrodCiE8QYxruVaKo0kxsiCMhArJs2mem0q55Gnde
-	3eVd16iQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=21AZHTqybSb5OmbtTVjNOZNhbq9KmR6x57mgJmfZhKk=; b=IF/hKZxWpGeF3QmiX/qPxXr+Zp
+	Vq5ssRHxoSeFPm+ND82X0vkZV7vxGyrxID+e8wo3PwT3WsVK6a0xt1mOcFggfUBzVorH6EHhWDoso
+	DdWOhevXc/srnGGFP0UAEl34N1jlyo1P4JtXvXF09Y1/MCDhYH6JmpHKTcV7igHyLvuGKP0VNWN4Y
+	Rz6x0GpbZwp3jE7s6L46+h55cwKg6KA6fl0fzrvFBxBv/MCvCIvhurssee5gUEFX0SYOpRX6P2CD1
+	t0AYHia9F8GQ+ZrCHlN49yhF2ieB4guSTTqeM39xeg+nzNOvfQbFLbLHN780iHKX2dg/ku2+27mrJ
+	kEaLRN1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxNRJ-0000000EIS8-1FKR;
+	id 1uxNRJ-0000000EISO-2ypP;
 	Sat, 13 Sep 2025 10:25:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxNRG-0000000EIQ2-0UGv
+	id 1uxNRG-0000000EIQ1-0Uf7
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 13 Sep 2025 10:25:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 49BA3445D8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 433FD44405;
 	Sat, 13 Sep 2025 10:25:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05A6FC4AF0B;
-	Sat, 13 Sep 2025 10:25:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA168C4CEF4;
+	Sat, 13 Sep 2025 10:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1757759101;
-	bh=F1Bd2arcxbTkCF48WNm4VUaJPRpk9xfWUd6LNWgngaA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=txXKhMAAMyPNO2QN8sEOlhqm/B0jycwB+TpbbHXDCOAHEF1XJ2hpharCoYFO223kx
-	 nNUDHubMapubYHp9/sme7sUiS43RtYSBfFYqIXSpcI+vgfwAfVjJG3/SNDXgN3JnRR
-	 Q1v3L6u+Pt+9eVCQxkpgR2CXl0NXn3R2ZUQZqSUHegNeN8XnqrM11BzGgYLEBqK1d7
-	 ODfsqR6ojyC3nXmXeTOeW2vg+l4bP97f3BL9eEsrXGQCxymtzQUJ9yvn0qPsm3aCEb
-	 AcQjmGdl1QErVvN1vreOykTbur2X6KUMsjXoECz5AIbHDBk3Yhwg6sRYZvuuQwxnmu
-	 VT6+12u0MmMCQ==
+	bh=7AISgck/ZfKlMuH4s1xfIjU+tBk3KnXivPq4YLbqruY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=tyj2oI2RMRQskhiT81MTqum2l6GhYqY0PwIRVt4nqfJRTrm3cfoNVuhHJKl17KV3B
+	 4iRQvig9nVX+PBxa4lq9SpVAWPSzIwAZHRWHzrbfOXELt/o1uBDgzYAPLXuesKqYQa
+	 LF6B8O+C02ZS5EuLrVyhNC4NmzHGVbgd4dZdz53VUiqJzvABTQgZOtmaQZ4m37oPlF
+	 pQg969k78J4vJtPSlKvNL3IjKTKh+7uGupXQDJMTNfRschgeQKaTYEwpt9WQB7joQz
+	 hNXN7batDHUgvVlZvZS+wxX0tYSqIoQ18SQhW5V7kgNYLOUH9B7wukwGU7AHTHONlw
+	 TtM6J9DZrq7dQ==
 Received: by wens.tw (Postfix, from userid 1000)
-	id A193C5FC8D; Sat, 13 Sep 2025 18:24:58 +0800 (CST)
+	id BAADB5FE35; Sat, 13 Sep 2025 18:24:58 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej@kernel.org>,
@@ -53,16 +53,17 @@ Cc: linux-sunxi@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/3] arm64: dts: allwinner: a527: cubie-a5e: Drop external 32.768 KHz crystal
-Date: Sat, 13 Sep 2025 18:24:48 +0800
-Message-Id: <20250913102450.3935943-1-wens@kernel.org>
+Subject: [PATCH 3/3] arm64: dts: allwinner: t527: orangepi-4a: hook up external 32k crystal
+Date: Sat, 13 Sep 2025 18:24:50 +0800
+Message-Id: <20250913102450.3935943-3-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250913102450.3935943-1-wens@kernel.org>
+References: <20250913102450.3935943-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_032502_192871_A6624B1A 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250913_032502_194096_A1B64FE8 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +80,39 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-The Radxa Cubie A5E has empty pads for a 32.768 KHz crystal, but it is
-left unpopulated, as per the schematics and seen on board images. A dead
-give away is the RTC's LOSC auto switch register showing the external
-OSC to be abnormal.
+When the board was added, its external 32.768 KHz crystal was described
+but not hooked up correctly. This meant the device had to fall back to
+the SoC's internal oscillator or divide a 32 KHz clock from the main
+oscillator, neither of which are accurate for the RTC. As a result the
+RTC clock will drift badly.
 
-Drop the external crystal from the device tree. It was not referenced
-anyway.
+Hook the crystal up to the RTC block and request the correct clock rate.
 
-Fixes: c2520cd032ae ("arm64: dts: allwinner: a523: add Radxa A5E support")
+Fixes: de713ccb9934 ("arm64: dts: allwinner: t527: Add OrangePi 4A board")
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts | 7 -------
- 1 file changed, 7 deletions(-)
+ arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-index 71074b072184..e333bbaf01d3 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-@@ -24,13 +24,6 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+index fb5311a46c2e..f71860db83d3 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+@@ -393,6 +393,14 @@ &r_pio {
+ 	vcc-pm-supply = <&reg_bldo2>;
+ };
  
--	ext_osc32k: ext-osc32k-clk {
--		#clock-cells = <0>;
--		compatible = "fixed-clock";
--		clock-frequency = <32768>;
--		clock-output-names = "ext_osc32k";
--	};
--
- 	leds {
- 		compatible = "gpio-leds";
- 
++&rtc {
++	clocks = <&r_ccu CLK_BUS_R_RTC>, <&osc24M>,
++		 <&r_ccu CLK_R_AHB>, <&ext_osc32k>;
++	clock-names = "bus", "hosc", "ahb", "ext-osc32k";
++	assigned-clocks = <&rtc CLK_OSC32K>;
++	assigned-clock-rates = <32768>;
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pb_pins>;
 -- 
 2.39.5
 
