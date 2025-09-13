@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9F9CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 09:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0677ACAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 09:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=woVp7FNEkX/bwtVc5utqy3tuJJ+oPzZT5NUOh8DxvE0=; b=LV2QO/BulEs9Jn/cKWHuwfkW84
-	uKGZWHQJk71QfgQR+XN6/6l1FlcARPmDWq6AwTPgzz+z/DzaxsrIGvtjuJp17ur3Mzq9l4sIPVGSH
-	43M9ZRMFH5BayUjoUq3JnegXaIxX7qCcnTyVWwSQ0+93zNVq3vDFb3DA2X48Vqn42eE5GKHPaqjdu
-	PYMM4jDJqFTBYdJkM1TwUNjD7MfGueaSifXhpG5MI6qW74B3W/pB17QQYlmMRzGbJNilr9ffIvxaU
-	qFEWAKNhuNYIm+dhBDrekEdn1Wj6AUBA5+zKNT5+TwMgQe36hRxb7M2AxAbWvBiSbwQYn+wznKpwn
-	R/UH2n1g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=llSqr6SrvAH3wy9n6q0vaWwWuQff59HrQWE9Ffc1WMQ=; b=NKAdPdadwcZnlQ3i4grLmXxzX6
+	zOaCeTety6jFwnlGhe6WLr8TnJrTlg3GUJh1MlPezBIPjWGQnubSL8swrT0bLAxkKdBzFY0kFxt71
+	HRDuwnJ0Ja9k1Rmi9PPtFoBPQICZBbqmxJ/Nn7UH95ADY1c/cVLnikudkTbiUEErjPFrNurET++Pf
+	lzlvPK0vx9UsYXujVsCqqAt4DMsvPw1AqFSyqHwBe1m1J8QTcjWWvQQsSrI+hy9TfDulE9eVl2WWY
+	Qnvw48GMZEQhW3lEv12Qu4AXNn6wWt3TsjAP0wsNpx5rm74LNNBsnlFJoOhAI79psX6MDX3lR5QLt
+	5c0MAcrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxMND-0000000E46j-0wDz;
-	Sat, 13 Sep 2025 09:16:47 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1uxMXN-0000000E66C-1VzG;
+	Sat, 13 Sep 2025 09:27:17 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxMNB-0000000E45T-06cO
+	id 1uxMXK-0000000E654-44WS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 09:16:46 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6228de280ccso5296618a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 02:16:44 -0700 (PDT)
+	Sat, 13 Sep 2025 09:27:16 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-62f0702ef0dso653531a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 02:27:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1757755003; x=1758359803; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=woVp7FNEkX/bwtVc5utqy3tuJJ+oPzZT5NUOh8DxvE0=;
-        b=njHosU38hrfsZsFg/NFQCF2kWagNXeKxqoe9DiwdIj2AmRhCSUTQFBJBXuAqObn4/u
-         SM9e9a3AH22VaiKiLvbsjz3eisDH3+hW9/8iSgzPdY8azgylbU3XU57SLlDryzYe3vah
-         Hkuiv33QTyEeYcTIZEWhnjXZ+neMKlbiQJcSw=
+        d=amarulasolutions.com; s=google; t=1757755633; x=1758360433; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=llSqr6SrvAH3wy9n6q0vaWwWuQff59HrQWE9Ffc1WMQ=;
+        b=XsDOQCJb+MdbTEdyR48OPDUIUYdA6nJsCMuTzZTBeSbmg6m/ejmun/S8obzLJSFZFh
+         yDBWYtX/RXzoq62xRK32oMsPac5Pdtm1mFSF82h1Bs8hGLlqbFdsFRJgIVJ3i7Vm1iU4
+         lgL45cfyDGA5gugW3YaCvVzj+urVz741NcOeA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757755003; x=1758359803;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=woVp7FNEkX/bwtVc5utqy3tuJJ+oPzZT5NUOh8DxvE0=;
-        b=GY2qGjOle6Pv7aX+wdLOMxc9eOT2AhmJ+4WSzGIq4eMQ/OvZgHlVJQIaUKl7NzWMlj
-         WeH/3eUG0qLmTFhOCUJB1NO76WIzVvKIFKuEbyFsxjVk2xwrbTVA60531lxkR5xgujcU
-         RKU8mrQDxk7GpOE7sMCqr0PntSAxIJRUjvMRB8CQKsrJVz+NCwe8aBLAHNQSOCT+aq7E
-         zgr61Tl4HrG5x8mJmtrWdxxb+57uw9p3R2yo3vJcZHtFJcs+iy0Ml/slcsz/Y5rCU1S9
-         BQFQD2aJkCMwgCB5eF5mjx1ZpLGFd9Kf9LfmpzEEYV5v3wDl/9xP9EOePC9Qd2HIECl4
-         y9eA==
-X-Forwarded-Encrypted: i=1; AJvYcCWAoktLhOqMqn981rbLNyFF/dcDNq/uchGq+QDz9Fzdt7iFWrwf23fFETTO8nFAxtDV3TVDTlEPCIAxUVVnzOfe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuLIB5VoSRSjSdGQrRT/eCbEnUgb2VOn0F+ZzOeQk2R2S+hfda
-	+QGtoAXYRAJA6wZwflYBXkIEcVD9UpEiFFzpBsYsKQqWdoZyQqrHbHyu3IAl7WakV6M=
-X-Gm-Gg: ASbGncsJxFLTX2J09PY/k5TnGO7LJ8pZaNooDldGjObhhIA6Y93zsrHcxVI3CvmyhHr
-	awcflScmbWc7co/R2DYFT9SntLVG+/kJX20g/pIS3WA85hPe523pHD9TpuZ3C210lub0/Al118s
-	wEe0y5qa8FxT8yL6F6xzPLImQiPgS9uEJbjgl2jmNxuZN7/9Myv5BEOLGvoCz2qevH5FpUKkSlR
-	hofjhscjLlHKhATFVEkMkufB4Mdi7kyQ50EFmYLPN7H27+/PPtB9IspNGmF/4TSR73BFJ7eWzGP
-	yjvf/26Dox+dZT/dDKnGkLk6LwOhPCgaZFJlPosKb4xKePTXqWjC1Nps8Wi4AqnJVZRuNu0fSxK
-	7Su8AqUl8MwZHl9LUZ6x+nqj2UgwZwieBqyePn6lWo4IySYi7fphF9fn1wQtfUUgvdy3CT7+q//
-	WiX+qZKoeg3wbLcCcmWVtYJ4aaLPlXXKSvFnhg0j/1Co4PWCj/362oadDpwZdOXeRO
-X-Google-Smtp-Source: AGHT+IFLQcrw9kq1ufoEVqOgFBOrdye9rBnznBZUzXL2tY70bbUV8mzf6aopgG578A5tsns/4TRC0w==
-X-Received: by 2002:a05:6402:44d9:b0:628:e750:85d with SMTP id 4fb4d7f45d1cf-62ed8410affmr5076000a12.21.1757755002961;
-        Sat, 13 Sep 2025 02:16:42 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757755633; x=1758360433;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=llSqr6SrvAH3wy9n6q0vaWwWuQff59HrQWE9Ffc1WMQ=;
+        b=AJiSN9ej99Bzj1MAFuHtScCAzUQF7Hdp+njgPeesE9i1EKdxD6Lg5lbf6Ec9VpYGu/
+         6c5cLr16SRjL9rBFmZPqtruhkRScLrBwEE2PUJ8QFI2SRG2+Zc+dxIxYwU+cMjozgg+9
+         waB+AV/Iwy7s6ptDLF+8W8S0uvKSjmhvNZCQdVN7j9wfdO9TZw9vD3SmF8f5w+QGKriP
+         PwD82IUVN0gofDUARZq2X/EIcR8fBSr0NsOdvMbThhzLUHSloh/228lfs0ZFx1aoj7RN
+         RiDUYEMYnyS/lvJuKjzIM3Z0lzvVj+Vm0tniVSsklAhWNkCdFWTFNjR0ClkvD/mNrkEc
+         mDRg==
+X-Forwarded-Encrypted: i=1; AJvYcCVQTVi8I4DvVxatBcYhEpdvA6YAIoAfDqTAeEcj2QgcTZAMWB9TQ7JfDVejLPYRmsofJThJDFpjvtZ4FgSO5mit@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIv2IX42bP7dMCf9PIrCQaBaHb51Ux3V67VwbfP+R/u6YZi3+6
+	cDHNI23UVlTUOjFASaO79dI1uf41Aq/QCCrkTjeRGj11LsNpm4Pn3TNDHUQkcPIHgz8=
+X-Gm-Gg: ASbGnctmGJ0Q8O+SgsayT1MiKOiGipH+xvDqVi7mcmjChhcz8QQ3lsyWQSIQb/JlNlL
+	r2LCuI2UK1GLhSa4MrgVlsSPvfh5cQ5Q7rlTdOQu+YbGNZOCAF+3bFn4epmoz5YlW5nPiqzs7kn
+	ihprh7mhSAqvX1FzY7uwS25uL3M4ZYPFzqECRO6owejWOYLIl92x0HRNQLbfj2UfoKrMovn+ZJ8
+	/yZPzpUz3xYxJP0jNWGvlGs4YTYAwb6ybWGeW+hJksgtrUAljSFzRr8Ktv1FHANLD9WNglhsgPK
+	FO2W0OSz1vuStttbV7q3CPaae9LJS5JWYouvwWRwq5DOzsOyY0yrQzbTASczdz3RSBq9cs3Qvc9
+	J19QfcU/B7x6uIucuuKpO83CZbeL4H9T67UEz/H3pRQXxvWaN4b+8Z3tiyiPWf88EXhFKHUS1Qn
+	dPCdNPjYIBIdKuEKkK8DJ4BdqThmkvvyuxKkX/st6scW4JA1ddyexZWkY3Z5xmGB1V
+X-Google-Smtp-Source: AGHT+IHcZdrPl3YiT8w37AtF2eLwy3H1lf7B4vokF4mlZ6H6fOjpLCxDlkfMTGZH+eFNfBTCbsCKyw==
+X-Received: by 2002:a17:907:74e:b0:b04:6546:3475 with SMTP id a640c23a62f3a-b07c22b2136mr684830166b.6.1757755633084;
+        Sat, 13 Sep 2025 02:27:13 -0700 (PDT)
 Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-62efb5b8b0asm1593089a12.20.2025.09.13.02.16.41
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b33478besm551705766b.99.2025.09.13.02.27.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Sep 2025 02:16:42 -0700 (PDT)
+        Sat, 13 Sep 2025 02:27:12 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
 	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] ARM: dts: imx6ull-engicam-microgea-rmm: fix report-rate-hz value
-Date: Sat, 13 Sep 2025 11:16:31 +0200
-Message-ID: <20250913091638.1003563-1-dario.binacchi@amarulasolutions.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org
+Subject: [PATCH v2 3/5] dt-bindings: touchscreen: convert raspberrypi,firmware-ts bindings to json schema
+Date: Sat, 13 Sep 2025 11:26:53 +0200
+Message-ID: <20250913092707.1005616-3-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250913092707.1005616-1-dario.binacchi@amarulasolutions.com>
+References: <20250913092707.1005616-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_021645_094052_A2403FE3 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20250913_022715_034729_FCEDB437 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,52 +106,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'report-rate-hz' property for the edt-ft5x06 driver was added and
-handled in the Linux kernel by me with patches [1] and [2] for this
-specific board.
+Convert Raspberry Pi firmware 7" touchscreen controller device tree
+binding to json-schema.
 
-The v1 upstream version, which was the one applied to the customer's
-kernel, used the 'report-rate' property, which was written directly to
-the controller register. During review, the 'hz' suffix was added,
-changing its handling so that writing the value directly to the register
-was no longer possible for the M06 controller.
-
-Once the patches were accepted in mainline, I did not reapply them to
-the customer's kernel, and when upstreaming the DTS for this board, I
-forgot to correct the 'report-rate-hz' property value.
-
-The property must be set to 60 because this board uses the M06 controller,
-which expects the report rate in units of 10 Hz, meaning the actual value
-written to the register is 6.
-
-[1] 625f829586ea ("dt-bindings: input: touchscreen: edt-ft5x06: add report-rate-hz")
-[2] 5bcee83a406c ("Input: edt-ft5x06 - set report rate by dts property")
-Fixes: ffea3cac94ba ("ARM: dts: imx6ul: support Engicam MicroGEA RMM board")
-Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
 ---
 
- arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v2:
+- Added in v2
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts
-index 5d1cc8a1f555..8d41f76ae270 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts
-@@ -136,7 +136,7 @@ touchscreen: touchscreen@38 {
- 		interrupt-parent = <&gpio2>;
- 		interrupts = <8 IRQ_TYPE_EDGE_FALLING>;
- 		reset-gpios = <&gpio2 14 GPIO_ACTIVE_LOW>;
--		report-rate-hz = <6>;
-+		report-rate-hz = <60>;
- 		/* settings valid only for Hycon touchscreen */
- 		touchscreen-size-x = <1280>;
- 		touchscreen-size-y = <800>;
+ .../touchscreen/raspberrypi,firmware-ts.txt   | 26 -----------
+ .../touchscreen/raspberrypi,firmware-ts.yaml  | 45 +++++++++++++++++++
+ 2 files changed, 45 insertions(+), 26 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+ create mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+deleted file mode 100644
+index 2a1af240ccc3..000000000000
+--- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
++++ /dev/null
+@@ -1,26 +0,0 @@
+-Raspberry Pi firmware based 7" touchscreen
+-=====================================
+-
+-Required properties:
+- - compatible: "raspberrypi,firmware-ts"
+-
+-Optional properties:
+- - firmware: Reference to RPi's firmware device node
+- - touchscreen-size-x: See touchscreen.txt
+- - touchscreen-size-y: See touchscreen.txt
+- - touchscreen-inverted-x: See touchscreen.txt
+- - touchscreen-inverted-y: See touchscreen.txt
+- - touchscreen-swapped-x-y: See touchscreen.txt
+-
+-Example:
+-
+-firmware: firmware-rpi {
+-	compatible = "raspberrypi,bcm2835-firmware";
+-	mboxes = <&mailbox>;
+-
+-	ts: touchscreen {
+-		compatible = "raspberrypi,firmware-ts";
+-		touchscreen-size-x = <800>;
+-		touchscreen-size-y = <480>;
+-	};
+-};
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+new file mode 100644
+index 000000000000..8faa796fb7dd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/touchscreen/raspberrypi,firmware-ts.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Raspberry Pi firmware based 7" touchscreen
++
++maintainers:
++  - Dario Binacchi <dario.binacchi@amarulasolutions.com>
++
++allOf:
++  - $ref: touchscreen.yaml#
++
++properties:
++  compatible:
++    enum:
++      - raspberrypi,firmware-ts
++
++  firmware:
++    description: Phandle to RPi's firmware device node.
++
++  touchscreen-size-x: true
++  touchscreen-size-y: true
++  touchscreen-inverted-x: true
++  touchscreen-inverted-y: true
++  touchscreen-swapped-x-y: true
++
++additionalProperties: false
++
++required:
++  - compatible
++
++examples:
++  - |
++    firmware: firmware-rpi {
++        compatible = "raspberrypi,bcm2835-firmware";
++        mboxes = <&mailbox>;
++
++        ts: touchscreen {
++            compatible = "raspberrypi,firmware-ts";
++            touchscreen-size-x = <800>;
++            touchscreen-size-y = <480>;
++        };
++    };
 -- 
 2.43.0
 
 base-commit: 22f20375f5b71f30c0d6896583b93b6e4bba7279
-branch: report-rate-hz-on-microgea-rmm
+branch: drop-touchscreen.txt
 
