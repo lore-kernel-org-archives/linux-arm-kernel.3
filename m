@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F6BCAC593
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D4FCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UUfEoumCbzIEx8AGvj96Z7JPRJbPQvAkGwx1CilBgwE=; b=eSbSPef6zSiqao
-	2EwmbEfBYBd03DSMBXVVCPopiUIHtHLbl97Iw/jevrlEDAWubomSndrIiC59cr0nN1J5xG5LC3leu
-	PnwhSX7EjFP/zMftFReShcX6yWwb1zMymwzAUTjnE+AAZ3DdivaVSE9ofsgn4xt1yXDuCOtzhD4Q+
-	WVwDUDVVnRsQJ15xGTYokgSpUQj0bx21+CHyjYzjWodaa5bDOk5CmT1Pfalj3IRu25UPi46xnhtUJ
-	+2HHKAJUGCsDmIUPvjVY9eD5i+RjbQy4tYvu+WAa+q93cnLbnbxUybrAoM3om9u5ujiLvIBFXMZ7X
-	lnuF3vtaDcJN7LTpFdYQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sWd2b4T+HmUToKXe+DhMe4fckX1fCVdutnchyiOuReA=; b=hkkVNWLLdJ+14dBODXhxvc4TiG
+	zfhciLpE0mGYaL7ALExcxbt0qwGPLxljOpha77gAoXenmSP+lh+J58qEtlDI9XwT5kewgUj4XkQ9r
+	1nT+pTNXhXLuFZhccEcIpVRtC+9aUsXMU4FUGu2y8OFHO/R7pkLQg7F2s6KGLg5yJa9tPccn3nDM7
+	RvWovw0ndc/jj5coyf8nmT+QVchSyW2v33nrb4bFCnz2DXxEhGcEQ+v1QJNNEhyvMtNbIh6rSOvdm
+	kpJuJ/UgX3t2AZVMfWgZ0nJJ4Hp9K1xIPjWofcMXT9rBAm49igJ2Nnuir24Axz/QRvL7KkDU8hSNu
+	gac9QaQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXgW-0000000GJMp-1fH7;
-	Sat, 13 Sep 2025 21:21:28 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1uxXgY-0000000GJO0-32XH;
+	Sat, 13 Sep 2025 21:21:30 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXgT-0000000GJLX-2y5u
+	id 1uxXgV-0000000GJM5-1FtA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 21:21:26 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45f29d2357aso2302285e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:21:25 -0700 (PDT)
+	Sat, 13 Sep 2025 21:21:28 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3e7428c4cbdso2045882f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:21:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757798484; x=1758403284; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UUfEoumCbzIEx8AGvj96Z7JPRJbPQvAkGwx1CilBgwE=;
-        b=iqnaWgOZ9KrCrvNwq6jqc36DQodu1uLQmhSXd5OGVlsF1IwT8iNzVraHuSmL0djSxo
-         6mHvpKjevDbWzj/U/ubgoFKf5++TPfyf+HxvVEQRt+NO1uKQXhJlalMq3hnlgpgeYuwe
-         g34mY3wqYbA5v3I2s10+yjju5DZXzc5p4M3T9eqMHFc30Y/aAcDlcTwM+/LN0/Mv95+7
-         OlORZJ9iLa1rYwN8v4X5S4cUPT9DmoYazgY5zr48A4APeGrMCOF+0UXE/SKrWO59tVXu
-         6o+ElBDPvKs6O3ZVsamBJQBbPHLTXlyMeigiFJQHVeTRh8gD1evsCI6rVyXbOn32Rm5L
-         PQWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757798484; x=1758403284;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1757798485; x=1758403285; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=UUfEoumCbzIEx8AGvj96Z7JPRJbPQvAkGwx1CilBgwE=;
-        b=fO8sAdHtYyvM3Hpz1roPMoOuugNmZCdYPPkOQXiWb88vGQ3WtQhl328RpHci8gRB2u
-         X/btL/BRtfo/SW8o3gfsG7TK4dClwf9JzDAeaVhFUR5bVfEbEcbc1FDY8dBzBvILdrWz
-         YrARtlJZD1YZYSAwyVLc+ixRDSFyWiPma0mhsMRnM4BO6e0jzt2Q9SmhRMNQYicErc6t
-         3VWdSmJfl5+7KHTpnmIL+e2S6AHtR7i1IZoJBEMHaaLtJf8SHhYlFinIV6qlT2vtwMbO
-         sV6LUwGSh50Wdrw+gwDHQZlv+kcSc7ItBhZHniAWtDmsdZck0/uTlXtq5T+a8BcsGRWa
-         pwtg==
-X-Forwarded-Encrypted: i=1; AJvYcCU4WUxFQYOsz/FBVFNI3ujeoBPFizMWGC37FdpIMeFMJhx7g+CElHLZ4cl8VGMrlGJUBWNpdo5kGESWc3k2af1w@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEHotlOYST7AAZPqWnDmjLVSMMy/2kDrjxrqY7sP+TpscZxzc9
-	UNMo790NWWGOxf3q8+Yn8qEAzsNaOgWz7b0PCpstzT0toHDWZHbGnkMt
-X-Gm-Gg: ASbGncvzht2ylwFNr35nC/FhqPxkxHcupkyojbH7MLaeg56t1keBr1+wVLy4IAtyr5W
-	pnor00dfABJG5+7d7oGoV/bINS1wVHSxlb/0FSP5tiu5qFPtYkdy2l/CHhikGeU02ihR+5w6Yrq
-	LhowPVw8Nl3Ba1wtQWrhE4FfDPzjB0Ugrz+g0VBexCRQucXbFqm0KLPkQ8O4nMCaADmbnlBawGX
-	RMrRgSQcPyZAi2Og9Au2bFAhdvQY468VNxIBgGHxHRtKBxYWNG1PoSM0wv3BAg5dR0iFSA4zO41
-	jUt/gFbmy8WXYWSsNQhQHS1BW6L6mh8ovBih6V/xJ9s5rffzAQliQVIeOah4W8AgdhMSi4q56GX
-	1mU4AbonlLv7FwU5GjrPoZrIIKMgk82WjPUHGxDPInvih7xJK6dJN
-X-Google-Smtp-Source: AGHT+IG1Lbyz/LuhSCMvFaFvWIQA+e+oeS+V5WfPI22yr5MxxdIQ2TC5LggKVWnkSIrVed1aQHOliw==
-X-Received: by 2002:a7b:ca5a:0:b0:45d:e0cf:41c9 with SMTP id 5b1f17b1804b1-45f211f89d6mr50232345e9.22.1757798483764;
-        Sat, 13 Sep 2025 14:21:23 -0700 (PDT)
+        bh=sWd2b4T+HmUToKXe+DhMe4fckX1fCVdutnchyiOuReA=;
+        b=BeMMF/U3tqk5CcS6Q/rmvWSuZT9imVS/ZOMowTgKlt6O1MRSWIqZbkhtk5IdLTbsHn
+         QhZbN5BRW34Dxfy2zXrotdoQrNWQS8MwWw02UMYx/d3UsAEJXOgIoBf8B+wigYuzkIaB
+         po8k/EJc47IP4fFXpBrgzXQ/isC+MfrGZQ5VIunsOUBJ/MWnvcvrBTSv1jdfbSFoaN2N
+         Ff6kRBEOubLS9LICEKk/9cL24l+12RnBFMHVQ0fGM/T85RPyuCx8ZBbQI4f60v1IF8FM
+         lg8YDphWRyqTUX6xWEMnXKkZOXRwUb+NunVKOc5//ESp0qgjmNFETYDci8BmIsD2jA2+
+         IINg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757798485; x=1758403285;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sWd2b4T+HmUToKXe+DhMe4fckX1fCVdutnchyiOuReA=;
+        b=RJTGYR6VHno+yUKyBCuiP28xueU994RNmxbD5hM14tommJC0/yAkiRC5zHvLSPYLXM
+         e9r5refpfCfQwtUhr0hNWyu0W5jkmVq4paYkr6F6DBOGK7CorrS94VMhJJ+4KpSLPHrz
+         sSYZ6fbt6q1d9YCtcAeb6HxfNYBUh9CUgtvui13kK9nSZjh2RdFIjYLbTSFtCPas5Py1
+         P3L7BumYkGg8oXcQKbddnrNFqUfhfFjpi1lWDQpj7VGo3DN/ktJXHAWT5TIhMkW94QmB
+         0yG2d4eJJM90f+sHdOncjKlBkN5ZvQEWOn9hPM2uAihCZbMsSrcb4oPdYOn4NmoK7txm
+         yVYw==
+X-Forwarded-Encrypted: i=1; AJvYcCV89OUtthrE2Pf7lLiNmyxa3Hhz87P8mRNWg3PiazXh5PqhQmRx4FhVo1657qTOHD8+7anD2Hwrr+RDVV0l+su6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtULl5LyHGVbce2IXw8wKfxshRgkEHqroTrWQA/dsUJFiNWbxC
+	kbyJCwe5zrvBBK5ToM28n33yHmfNOTmS6FxeOAmAuGGPBKD3uFztEgpd
+X-Gm-Gg: ASbGncs7T8QGR4kSiAZfulWnio/7S77KNLNKAGEesZwkv3MSS32Wruxb+98OORpwL1h
+	pO+Bgb4ToY6tsYubpOg+Hc8vqyAK8m6pBfwfSSwACEWTqj0yXRLGbAwYpDgqOWb7cp/sFPPnPpT
+	t6tWjzCwBPJ72A4+APHuk9w0XyXh1qNanb6C4C1cu4Op4g14tffZLq7k9tllUYNpGShFYYwp2cq
+	E11Us9GBbwsDQvfb3WJUs1V9Cd3dMrVjrfHpzTrdagZtoy5Yv0ycDUd1RYBMbrlxdYEHs7VFQzt
+	2KKEdBdcM9MnWSmTZz+3K1F2AgDQssiC5JglgiPJPzHtBfnVGPNm8RRgqifNwpzZTZrv4eMuOH0
+	AilSTfs5kuZ61nllIGkQZ3DaZffUfmO+kxMou3kB2rg==
+X-Google-Smtp-Source: AGHT+IEGJzSKpd6zREOPWaWs/h+7A671p7jcXu2As5oGpHICFBcGGlWQqYtS0ly1bNsIo7cSV/bMuA==
+X-Received: by 2002:a5d:5f42:0:b0:3e8:6b2b:25e0 with SMTP id ffacd0b85a97d-3e86b2b278bmr2411238f8f.25.1757798485438;
+        Sat, 13 Sep 2025 14:21:25 -0700 (PDT)
 Received: from Radijator.localdomain ([93.140.65.23])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607cd6absm11576842f8f.34.2025.09.13.14.21.20
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607cd6absm11576842f8f.34.2025.09.13.14.21.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Sep 2025 14:21:22 -0700 (PDT)
+        Sat, 13 Sep 2025 14:21:24 -0700 (PDT)
 From: =?utf-8?q?Duje_Mihanovi=C4=87?= <dujemihanovic32@gmail.com>
-Subject: [PATCH RESEND 0/9] samsung,coreprimevelte DTS additions
-Date: Sat, 13 Sep 2025 23:21:02 +0200
-Message-Id: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
+Date: Sat, 13 Sep 2025 23:21:03 +0200
+Subject: [PATCH RESEND 1/9] arm64: dts: marvell: samsung,coreprimevelte:
+ Add backlight
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20250913-pxa1908-dts-v1-1-8120cdc969b8@dujemihanovic.xyz>
+References: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
+In-Reply-To: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, 
  Tony Luck <tony.luck@intel.com>, 
@@ -85,19 +89,18 @@ Cc: Karel Balej <balejk@matfyz.cz>, David Wronek <david@mainlining.org>,
  linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
  =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1213;
- i=duje@dujemihanovic.xyz; s=20240706; h=from:subject:message-id;
- bh=TYNRK4+bphtWM7te51Y2NO2PW29CFLfANZF+pOwh/qQ=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDBlHH/jV+J233T/1YRr7LA/+q+zzuV2uNy35qlfiltS9f
- 7PmHwmdjlIWBjEuBlkxRZbc/47XeD+LbN2evcwAZg4rE8gQBi5OAZgIexPDXzGZg+FHP2t9rNgW
- nql9ZntQ4APjT2v3POL9smtm9o0HgUwMf2Wkwv6F2M472b7v/66Tv1cwKEc9YfYV6PBy/Faiyt6
- 1kBUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=895; i=duje@dujemihanovic.xyz;
+ s=20240706; h=from:subject:message-id;
+ bh=3n1cVAjfm4iMd5ytnRCe0bLiwYBnKiHaKl8qPthmrxY=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDBlHH/hXRhoe8Uv9obNo0ed8oRy98/4WF0LNYuP3zt/In
+ WfmFnK1o5SFQYyLQVZMkSX3v+M13s8iW7dnLzOAmcPKBDKEgYtTACayai3DX7ni9SVTgjLbf5mH
+ etXa+kVFmPX1CnXJdps82B1ZJK7izvA/2tDK/nTfb2vDI2slt2+/LPXgmW4+rxfXapNP3yXbUjV
+ 5AQ==
 X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
  fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_142125_763761_1516E917 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250913_142127_358059_625A3A0D 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,32 +115,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds some hardware support for the PXA1908 SoC and
-samsung,coreprimevelte board which has accumulated before the initial
-support series was merged.
+From: Duje Mihanović <duje@dujemihanovic.xyz>
+
+Add a node for the KTD2801 backlight chip found on the board.
 
 Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
 ---
-Duje Mihanović (9):
-      arm64: dts: marvell: samsung,coreprimevelte: Add backlight
-      arm64: dts: marvell: samsung,coreprimevelte: Correct CD GPIO
-      arm64: dts: marvell: samsung,coreprimevelte: Enable eMMC
-      arm64: dts: marvell: pxa1908: Add PWMs
-      arm64: dts: marvell: samsung,coreprimevelte: Add vibrator
-      arm64: dts: marvell: pxa1908: Move ramoops to SoC dtsi
-      arm64: dts: marvell: samsung,coreprimevelte: Drop some reserved memory
-      arm64: dts: marvell: samsung,coreprimevelte: Fill in memory node
-      arm64: dts: marvell: samsung,coreprimevelte: Add USB connector
+ arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
- .../marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 157 ++++++++++++++++-----
- arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi       |  46 ++++++
- 2 files changed, 169 insertions(+), 34 deletions(-)
----
-base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
-change-id: 20250902-pxa1908-dts-65d86a5d2d85
+diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
+index 47a4f01a7077bfafe2cc50d0e59c37685ec9c2e9..b9628b1f59f2f749804799e3d9faa48e3036e81a 100644
+--- a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
++++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
+@@ -115,6 +115,12 @@ key-voldown {
+ 			gpios = <&gpio 17 GPIO_ACTIVE_LOW>;
+ 		};
+ 	};
++
++	backlight {
++		compatible = "kinetic,ktd2801";
++		ctrl-gpios = <&gpio 97 GPIO_ACTIVE_HIGH>;
++		max-brightness = <210>;
++	};
+ };
+ 
+ &smmu {
 
-Best regards,
 -- 
-Duje Mihanović <duje@dujemihanovic.xyz>
+2.51.0
 
 
