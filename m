@@ -4,103 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F25CAC594
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B24ECAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGIDvsaWCo8xv8p7HWlgtVj86XAI/5q9CVA6cYOpa5o=; b=ElnG5/7Q6eInRmRMEwVabildS+
-	P/6+Lyf66ilUjkxxogtraNUwfqL7bG5i2McTiTdp7a6KewudhC8z7ta0X9GccMfRzHnZZDxaKsxE6
-	ps6uv4//BGzlKxGKjZB5Zc3IIBgUbmHWJfSgw1xE9+JsMZiEo+V8QDnx291p6M43U2nn96yUdmEo9
-	aXbQ0lm+ox3jF6PUV8uKOT+j2lKqz8t73PaEgKpvDQKtFsnhN8oKSUsHJD1P0KWpy79KWqbfmelpC
-	wBFBckxaKosGKl1b7pef9bsBlRJXVV7xfeZfLajeJvbbKo7Cwt7yF0J7a3myzR/WKNVLtXubPfhpN
-	8rxazLhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iywYQxRz9CS7up3Rb4XVNLQEC9bvPlsrkIVlIPpDzfw=; b=SBaw0+6bu2JEyZK1cK6gTuk/ib
+	3niUyBLXgV8McIbwoNlmPIGMX57TXiK7mavlDpESEWdXxD5T4gV6sVqo80MjxNixwO7FMr8wv5G/b
+	CBfTIb95XiuNtGarTAHTEvEEiTSWLNwBHDt39noRGf0fkbJZ8CELTCELlyjXgtFZJl1/Yw1mGoLeN
+	Pxy4OHtv3AxK6Q386h5YhR/SyWA6oPo0cOriyAdauZsfGj+YjTWT5smX5WvtlX560iM9caYmqMIQw
+	Nysc5XGQ1ZFhiN22DRB7CnDJrBTMe1j2gUBfs6ehNYOmZlHVZX6o9jgkQgsbw5vP06tpiDM63NOQ/
+	eh7drU2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXgu-0000000GJjf-09JK;
-	Sat, 13 Sep 2025 21:21:52 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1uxXi6-0000000GKfj-448A;
+	Sat, 13 Sep 2025 21:23:06 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXgm-0000000GJYa-0Ffo
+	id 1uxXi4-0000000GKeX-2uON
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 21:21:45 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3e957ca53d1so281071f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:21:43 -0700 (PDT)
+	Sat, 13 Sep 2025 21:23:05 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45dd505a1dfso24400655e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:23:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757798502; x=1758403302; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TGIDvsaWCo8xv8p7HWlgtVj86XAI/5q9CVA6cYOpa5o=;
-        b=FyyDAuKg6bQjaUiy493me9wmAyO8KYqjo6ZJJN+nU8Y0YAt14S2ym68v3w0OhPaMzd
-         hE3UZUMOjH+U5YwB4E3kcU4kKNLFqNndUo+gCCLLBLyjOv8CDVDMpKSUe9FoE06kaCqp
-         13UrzidXV9PLeRqt1rW3g1FGKEzyckId0ARPISSQMolYpRB4g4FdDEpa2VurK5YJxCNi
-         kCJkYyceMHxp7REckXQVLEFOQ12GleNwvE1LC/bPqDXduVUkTk5DXK3hh8rjU6YiO5My
-         9uCDbVqrgcuYWdbzIhuf47ut7dwADVnjH3Cb4Tnke2lCyRW09hx0EisEVi/+5bwTTzWA
-         AHCA==
+        d=gmail.com; s=20230601; t=1757798583; x=1758403383; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iywYQxRz9CS7up3Rb4XVNLQEC9bvPlsrkIVlIPpDzfw=;
+        b=cy8bHEwEVd9OAvr4HetfjS8c5kqVkxunI7tIKGCoaBXqy1W/Yi+UfxcbGwomrgPIIQ
+         pKrb5Tu4qdsTntKxiS7LJmjXO7xPf1kRPo03lc4j7ddtylZ8YXmBWbGI0OO/bgTx2etl
+         4d4HYFWT0iEyJVvHcLWb0mOlDscvTGHF/7TocsTitfupghWrxcWc0keZBYZ2RIFD8YIR
+         4eMMmQvZTeNb8Q413lurEzmz8FM1WV+B5Yal2ilNnX5dDSAhawiQOK6oyGZJpZVft37Y
+         B6jUGnDbp2B2NVTRvxegEd+PbbAM7lAJ/md5S/E/jYiL6CbQVtvAMl6iE4BFLY5YxFem
+         lICA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757798502; x=1758403302;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1757798583; x=1758403383;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=TGIDvsaWCo8xv8p7HWlgtVj86XAI/5q9CVA6cYOpa5o=;
-        b=tDFBmm/P5EjuN7dBGi3r14NLCf0k0XAkJDhph7rEBieKvXobw/UscPYCAcUaw0P2Bs
-         zhJtTsoLgtMO9CpJsb/Xmc3DgDKTad3LVyggp8llM7dcSmasZHvLz/Nq5tTWm7e+1YcA
-         tZAGSGMeMQGXL5ea64bMYGnFni0rKoYt74t+aTpjj633w6qW/rcOBEGZd8Uzk4Rhhq1X
-         xxQ8EGq1AYTTPOwMzlbIbr55MUdrkK6zIo78PRlQ4qa/AKSdhkL6mVd7XFQl8GalKME9
-         OGhYr7Yr5OM+spFiI2P8Wxmiowf8R175JH1Ogbmi2z/wKyvxpNxuA7Qk4RL5xdFHwJ4A
-         Fu5w==
-X-Forwarded-Encrypted: i=1; AJvYcCVKMa/aJLgn+Vfa8+wG7LZpimK1RpEWIPTHIPfFn7Y7MZTgozrw8F42EhMiGawC541HJGr7GrgJDPerTIQsfoRl@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtOD5yNp9NdRPK7khg/cUSfj7+9FQ5irB7Xvl42oO9tCeu/VzR
-	AgJHZpFIqB5fFHXTPr1UWcJs03XNlEUJqI2yzjlv3xo5I/VOCkhIdw3q
-X-Gm-Gg: ASbGncsDNvHU+OfKueh/SidNE5wZsDS8wB8GrQIjbagWa5tQm9tE0ZtcJImmbHu2j/B
-	iP3lETreRmvDPAKrMs+0wUVLuUF/9RaenUBtgc7bsg4H6ajZKmh+ElsCOJZetct31uiidwXMdbT
-	XGnF5s/A6E9PM+xPKzfLh9Jy9u6CPm+1RSWhl3/5RXU0FPP7OvLS6t3ewTcOirqdGrTl/el21sn
-	LrTaFFfAfib9OCmDThZCAoPCTEia2hUhJAvvWKj9HvqiJkJgyby7Hju38IVBlfdWKsZZ5WHlwIL
-	Y+bsHi52Mllj/W7IN+gpd2X/X664sdBlUuKWNeeDYTCmQpxVxmYu47exrCkC8fM/TFzWGMHLPoY
-	dbOhdRekUboM7GVk+tHHDPXzH8zPSlzyWTfw/L6FmGQ==
-X-Google-Smtp-Source: AGHT+IFmY5THLm9dS6Ltyl84/gJeP6O7MDMN8wq3OBTV4vsimxgGIeh5PeYusAs8d7qMKStK/tRNLg==
-X-Received: by 2002:a05:6000:616:b0:3e7:41ac:45f8 with SMTP id ffacd0b85a97d-3e765a227fdmr6279358f8f.55.1757798502238;
-        Sat, 13 Sep 2025 14:21:42 -0700 (PDT)
-Received: from Radijator.localdomain ([93.140.65.23])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607cd6absm11576842f8f.34.2025.09.13.14.21.39
+        bh=iywYQxRz9CS7up3Rb4XVNLQEC9bvPlsrkIVlIPpDzfw=;
+        b=HUgx80vH+H/SfFnTJ6KdxX3Tvr1zRqlAWKvjBtvP1T2ZJBhjTKvjSGpODx+jpIeSsn
+         9uGpr45WcZBkLwcXGTaKKHbePBDc9uxdJw+Li1DhCAd0fRMMN2XDBR43T0e4xcQn2irc
+         gyu+6ih/9qhNBHz1pcU/3vn4G+yAhydDAtLYq3BNu3c2wUTkZawEwE4t4LpOAmZ1WOLk
+         cH+sAFiTNrqiPPnhKD6DFCADhO6D2BHlEfKtxSU6IluRB1X67TthMFq8wiqRNPAhJeXd
+         GVacSST+Qh/xhH9D5LjoJCcAFeUl5+F2NY8dBBOyDP/pEPfOGR91XN+vV7WSaXDAFYT4
+         dbjw==
+X-Forwarded-Encrypted: i=1; AJvYcCVUi+MHsr21C5u9ZshamT9pDOMKYByH5sSN8+gNmsXOndVrtb5+jvm2gsZsXN+qxrkWA/Yh+fVfegRz3lzYWpvN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBw0A3V9zcxGZlOUH9ILH81UFp5tW4PfdoAPBbxGAKoowVo41X
+	MkQ1ppL3e4DAVG4S1ofODpLRtfRcSmOMnlaW38x5BA7rZ/FtqoDqTIq9
+X-Gm-Gg: ASbGncttxqNFEiV8p49Aqu/n3jYFkAhMX56R2otu8wLCrZY8P53vvBI054NN2hRBwzs
+	NssMHiY6zNrtP5tUYebwO/YRdAlWvYh4YJvWydAUatqIMU4u+ce2wDtw/oOtH2/qBdJGzLE1Wai
+	hoW2tZD8LvLMVAe15IJsbNaxttwtHi9DDAt3rUhf8VSieh7Yr9sOP7Ho9bdB29bg5pKRvxrB0YK
+	YrGHAgyyoSpLDpShUV3C1k8ZkbL0g824EGv0In4o2q+vXDpQY3NRjE2/Uly2teobFDJAaPQ86/S
+	1+VfMic5VdMMULq/Dhnr7DWppQGF7OeOa7NmEHzlk7iJzGYVVVCz+dYGb6agujGRis8R4t1fkWs
+	fNFulWxyQsscKyMc1Hi3pXLIAR5Y67DU3x5yeu4SlLEgfq/3I
+X-Google-Smtp-Source: AGHT+IEW20rf2hIhimdxJS1T6kk93raCiCsoiaFO2LWxY/a237S3KFMKKEA8B3zumhUKy7Hqe0S/gA==
+X-Received: by 2002:a05:600c:605a:b0:45d:d353:a491 with SMTP id 5b1f17b1804b1-45f211cb5c2mr51983385e9.1.1757798582965;
+        Sat, 13 Sep 2025 14:23:02 -0700 (PDT)
+Received: from radijator.localnet ([93.140.65.23])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e016b5c5dsm114475115e9.14.2025.09.13.14.23.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Sep 2025 14:21:41 -0700 (PDT)
-From: =?utf-8?q?Duje_Mihanovi=C4=87?= <dujemihanovic32@gmail.com>
-Date: Sat, 13 Sep 2025 23:21:10 +0200
-Subject: [PATCH RESEND 8/9] arm64: dts: marvell: samsung,coreprimevelte:
- Fill in memory node
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250913-pxa1908-dts-v1-8-8120cdc969b8@dujemihanovic.xyz>
-References: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
+        Sat, 13 Sep 2025 14:23:02 -0700 (PDT)
+From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <dujemihanovic32@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>,
+ Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: Karel Balej <balejk@matfyz.cz>, David Wronek <david@mainlining.org>,
+ phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH RESEND 0/9] samsung,coreprimevelte DTS additions
+Date: Sat, 13 Sep 2025 23:23:00 +0200
+Message-ID: <12753058.O9o76ZdvQC@radijator>
 In-Reply-To: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, 
- Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: Karel Balej <balejk@matfyz.cz>, David Wronek <david@mainlining.org>, 
- phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
- =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1297;
- i=duje@dujemihanovic.xyz; s=20240706; h=from:subject:message-id;
- bh=nM2aOAL4Rd5X1oThp5ECWAxcNFIMgGN60dxwZOl4zsk=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDBlHH/jHnzbvid+8/4WqqeD2tsaqOVVzrW4dMC58tePCo
- R7OvtSNHaUsDGJcDLJiiiy5/x2v8X4W2bo9e5kBzBxWJpAhDFycAjARFgZGhusB+x2XswWu8b3z
- 53X0TMVnDvZdygG+SlOKT/IdFw/uiGBkmLWy9mLEXqMDpzo+7rnl8nit1aT0YN05gZ/uzJ9mF2/
- LwgwA
-X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
- fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
+References: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_142144_116140_7CF3F973 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250913_142304_738426_4ED16739 
+X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,48 +103,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Duje Mihanović <duje@dujemihanovic.xyz>
+Resent due to mail server issues with the initial send.
 
-The board is known to have 1 GiB of DRAM with the first 16 MiB unusable.
-Instead of relying on the bootloader to fill in the memory node, do it
-ourselves.
+Regards,
+--
+Duje
 
-Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
----
- .../boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-index 13a726d86e65ad836166325e0958a6ec3e6d022e..b3741389e2ae056714ff4235b972bc72b5560455 100644
---- a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-+++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-@@ -30,13 +30,22 @@ fb0: framebuffer@17177000 {
- 		};
- 	};
- 
--	/* Bootloader fills this in */
- 	memory@0 {
- 		device_type = "memory";
--		reg = <0 0 0 0>;
-+		reg = <0 0 0 0x40000000>;
- 	};
- 
- 	reserved-memory {
-+		/*
-+		 * Reserved by the vendor bootloader as a "secure region".
-+		 *
-+		 * TODO: See if the responsible stage of the bootloader can be
-+		 * replaced
-+		 */
-+		secure-region@0 {
-+			reg = <0 0 0 0x1000000>;
-+		};
-+
- 		framebuffer@17000000 {
- 			reg = <0 0x17000000 0 0x1800000>;
- 			no-map;
-
--- 
-2.51.0
 
 
