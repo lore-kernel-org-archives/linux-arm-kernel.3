@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D15CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4632BCAC594
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Sep 2025 21:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xL3C//pZp2AWlO03t2q6KgLvL06f+SJHlgWyKC0fL+c=; b=xw4/2TBw3xCr9xPbcRf8FwH7Hq
-	sgOgLZem69YUM3KSdFY1tWFiB//CsJrpu59/yICc6DkFmIeQqGJg3pSHOpHie5/GG/TeOKJDNT63u
-	axrffJy/RBBfY3pX8J7Y3Oj2Azme4++06+a99uoLgJH9ykid3ZlURC4Vtl4a08GBbVMDwUfm3TUhf
-	Jc0B8LGXgCbceDQPMrDhDVCDYRi+fe52+S71A7yruf2oJA+R1aLcDrG6ADtefI2P6OLOWd3KjOyKo
-	7NMyQ9EUBx0hj630sL36Q+CO7hTQYcBnO+Z+t9LbmsIJ/cVZEUPKw3DsXclQOddtX+pBAr+DAhhgV
-	LqmHkdWw==;
+	bh=oxWfkQz90C9L6MSNr2+XH/iEJ/4hSdL7W7krVSxEuE0=; b=mVKLmz4mvsA4+7AfwRmiGJdbwc
+	glZ5z7ewiskx6DLBWMjDOXTfsnCTcYXaOj9doPOyTJSfNyy4FjzEGW/DZcFkM37Xci+8oVSeZClha
+	W0qsXt/E44SFRtFCEVwQeICWjPMG/+4m250j2xe9jBqWLQEB3HNPqkSQN8lMlfoLHrSfObMs2oCb5
+	Tq9g6+RWWnL1oJNITJVwv1v2n6UFajjA6hkoCD3EL4YylgNjGtkHcnyoJsyyU/Mcf16jxHNkOWeB1
+	UMJ1q2SyRUQrbRG+GJUTRB9j2WuXmqjhOWkg+/nZQl4/SdZVWZW7Dpzn8hEqZ3M9ksY6C7/q6mzBH
+	VU5FeLpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXgd-0000000GJRG-038C;
+	id 1uxXgd-0000000GJRi-1LbF;
 	Sat, 13 Sep 2025 21:21:35 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXgX-0000000GJNP-47HU
+	id 1uxXga-0000000GJOu-39sG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Sep 2025 21:21:31 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45f2313dd86so16539955e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:21:29 -0700 (PDT)
+	Sat, 13 Sep 2025 21:21:33 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45dd513f4ecso18597365e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 13 Sep 2025 14:21:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757798488; x=1758403288; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757798491; x=1758403291; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xL3C//pZp2AWlO03t2q6KgLvL06f+SJHlgWyKC0fL+c=;
-        b=i0zbnAaOyvR8mqDy91u5t8B8Dh7cBVMya1PGsw9YIrgtaZa2yzr425eJ2O5zWXEMXh
-         AGbM5A0OfnfhqAeAYOwE4c5Dc4K1Is/HCcx9pc7BgqJ81Bg6+bBti2Xw7JlYMbCNDFv+
-         HFOAb/J9GeDTPLjMA4Vy6tsreVRBtn/OOGUT/K16OfcKTgehJvArrbkLF9yvxBqd3tNb
-         ic9u9xYMzSy44LainlrScrPG1JPMuMFDeP2kVJddg/25IgbpuUh0W/21BukuIMb/yhLe
-         EL70c4Edy6YroRnDG8qknmqO3poKfZ9jwhfs7la9bxyesNF839oXJayPJzqcWFJoTQnb
-         cyKg==
+        bh=oxWfkQz90C9L6MSNr2+XH/iEJ/4hSdL7W7krVSxEuE0=;
+        b=CqbxskMSRBFGK3P9/c/Sw1OzYqod8twp8lQHXX23fyM4CH3/8DWwQnBwmCnypA2znh
+         z+H3zrE2py9Iif6tyrTp+9GJHEhLg2Yot8WCO2bYXx1h4130nD8FP9r10agxpy40PS/n
+         ZrbHZuIzTzu5qofq6/pHnepCK6T6/yW9fYEiyIdIaG7fMUEa+TVzs0bYJ+U5Ef8Swrij
+         uG626n4Ujp9ThIdGut/g1DKg9PZMs0n5OMR+lRLY8X7PI5+Lae5GXtZ99QwnKaCXz1y+
+         vHJ3K0SStVNqm3MV7ZMDqW6m71FCkNilfJF5I6woZDBn9AyhmCnbM+zGdFm3FnludG34
+         N4dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757798488; x=1758403288;
+        d=1e100.net; s=20230601; t=1757798491; x=1758403291;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xL3C//pZp2AWlO03t2q6KgLvL06f+SJHlgWyKC0fL+c=;
-        b=luGN85eUi6Ly+1lqVoSN+ZSMC8M50k/xCeWeDwMU5RNjhTaMridiqJ1grq9spHZ7ud
-         b5E6c89C+81Cipk8vMVP0x2eiqKIesJFNk6VXErXZNKpJC2IrdyTMfr1NIcZ1fwPRIzl
-         kLbh8imNbUNPQEJA+XiiCmdd6qeyvEsixIyu56OlTMEEwaoc7dxHRuVJd/pw2TB3LAfy
-         oU3rPxQAJG9uqhVBA/ak+wupIJGV81+QJ5cI/3r8/RtC8M1mZfd9NPKx1ujP4+ih8Dvo
-         UhJCEOyU705a/ZRCTDUofdXShsZxTBnQqb06WGinDJxtAwrtSgOUeBKkaU6aCZggYV+t
-         ADGg==
-X-Forwarded-Encrypted: i=1; AJvYcCVF8yBz4scjhWxb2Q7L/n/T85/1snwvQuluuQ67sHHgPyCNTvuS3URUCVFuP5mLVqaZVL8LpBr6xSEmvliDIUtx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLvh2MeIXZljfu8DEKyb/aSazPLyHXy4o6wDXhS46ITkq0KI87
-	xso1uj4+m3i0MuLgm2tYGWRODfzQMWH5zBVsS2U/ubriFH84HwMkArV5
-X-Gm-Gg: ASbGncs9k9nDVVZEVxbXnniX1GxMFFjwX258+DI5V13UVhriIWOT7C9ulF+ui5tcv4S
-	pxSmFwWWbKuEqnUiyTXP+l1YLWxMVQNWxDN7mfz8KhWsIRkR8CBgOV2+NVYaQHTL5nnthnXDvDj
-	hPwV5OW/VlywEx1qPfHX+ujfTDMOO2QrjvuELNUnqkwcH2+mf/H1V42lQHiaEgowKeU3n8Qi6y2
-	VcEnnpw2r+htZN6G/mpWRzdB8NMsaCTGlO6d2aM8ZDAWPhCLeNJcrumQkBdLP0avlg95nmCTD7v
-	RYnxB15AM0VDRCbZegFPhflAz7aXB1OgkfzDN/PXaY+X39QFWvARGb5kh6mHKVEfF4JFL/5vwfU
-	IOWTEirMX2ESZi9Zo2RU2G/9s8QFNB2LBxC0F6FeNzQ==
-X-Google-Smtp-Source: AGHT+IFTCecBSyk7qSB9OZ+w6EvZXPsCkL9LEyhwk6+17yz+FRVjdFe1qhayQGm2rot65cvy44Mtdw==
-X-Received: by 2002:a05:600c:1d2a:b0:45b:9c93:d21d with SMTP id 5b1f17b1804b1-45f24ef20d0mr59569695e9.8.1757798488110;
-        Sat, 13 Sep 2025 14:21:28 -0700 (PDT)
+        bh=oxWfkQz90C9L6MSNr2+XH/iEJ/4hSdL7W7krVSxEuE0=;
+        b=Df5WvN+7ni6NBYIQUNqo6LB3/d8h77Ceu4m2Q+FzJy0OiDHejlHIuThP0thdrQRNZ/
+         18SF3/8rwS5nq5fVYEkB74smNFB0l0frD5K2VOW5prxgFiU03Hu/jIF7Z4mdcMw2hvDF
+         Lxbeos5szv0fUbVgCvcEULhWiiBKSGKO5zO8lX2D6wjUtkPxmtcEfPEtjwxzsU6XP1cy
+         Pp2/dW8ZTsNd/WSol6NpjRgMRMWhr/BevR8vQyC9vw8MDW0vWETHOG5CAeldQXv4jWXS
+         p9HSnakv60expAG+bTbHyV7yzfVNvscASpJ4EilyqvY+lxUDgnNB2Rdty0yV6kYT3S0/
+         R9fg==
+X-Forwarded-Encrypted: i=1; AJvYcCVDvgs2FfZF+NnhzQxeOZcRLaCTs02semj+mrYrB8+ymh0Fig4L+vmICR/oWBqwK2A3PfFvmLfSAV1E65pvjYN6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoTUFbefIlww3z3sa6i75q9xN4FAcrJaRJ2f4fOZeJHPNhU6HM
+	21uV2ItfbVlMyU0N69947sTLar2ZrKZKhLQ8vGdofRW+li/k7vExZunn
+X-Gm-Gg: ASbGncs5wSdMwFQnslnepPoaqeCd4mZxjiuAhUvEf0vTAgUaZbFkAas4kOaJohbqECr
+	l3TE5PgxiIAoOIxo/ioZbaIxiMwdCigxSGVdalxXaMkiX3ay8ZJN6bOsNStJLeNc3iYqvep8zx6
+	Z1m+Ia1edxFBWthLIX6PnxfoaG9bmho5OAWhjuoU3DFmruUoE1Il1l/GjTPKXTwXZvhah/rLsFQ
+	iEDOkrbdML6g7jZKm6y569dcS5o3lRfoKEv5NsY856lVqPwfHwd06C08ekm2LIZ5F/iNL7JjV+n
+	VWhlTv6QuJDYOrrhpTQlcWM8USggR7N4rUhflD/3CLHR6VN1UlN/4llWhFOnOhSowRBX1OvFqDw
+	ruANW6txL8tTQ5MSrdvT1Uae7NcMLS2TaKi2GP5XCFUJ7HzQnXfGc
+X-Google-Smtp-Source: AGHT+IEs/fk+jCkMcX17PxuJzAl3BMnHRPZjZ8PBJFXUcfnuVJskMnNC5koV2QxLjtd7wZEjTRjvpQ==
+X-Received: by 2002:a05:600c:45c5:b0:453:66f:b96e with SMTP id 5b1f17b1804b1-45f211ef88dmr66556345e9.11.1757798490854;
+        Sat, 13 Sep 2025 14:21:30 -0700 (PDT)
 Received: from Radijator.localdomain ([93.140.65.23])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607cd6absm11576842f8f.34.2025.09.13.14.21.25
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607cd6absm11576842f8f.34.2025.09.13.14.21.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 13 Sep 2025 14:21:27 -0700 (PDT)
+        Sat, 13 Sep 2025 14:21:30 -0700 (PDT)
 From: =?utf-8?q?Duje_Mihanovi=C4=87?= <dujemihanovic32@gmail.com>
-Date: Sat, 13 Sep 2025 23:21:04 +0200
-Subject: [PATCH RESEND 2/9] arm64: dts: marvell: samsung,coreprimevelte:
- Correct CD GPIO
+Date: Sat, 13 Sep 2025 23:21:05 +0200
+Subject: [PATCH RESEND 3/9] arm64: dts: marvell: samsung,coreprimevelte:
+ Enable eMMC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250913-pxa1908-dts-v1-2-8120cdc969b8@dujemihanovic.xyz>
+Message-Id: <20250913-pxa1908-dts-v1-3-8120cdc969b8@dujemihanovic.xyz>
 References: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
 In-Reply-To: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,18 +89,18 @@ Cc: Karel Balej <balejk@matfyz.cz>, David Wronek <david@mainlining.org>,
  linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
  =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=979; i=duje@dujemihanovic.xyz;
- s=20240706; h=from:subject:message-id;
- bh=ifag7Tho57hQxJ2BLXtabDmC2XZUT9SI6SYVIH9Ngjw=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDBlHH/if57uvdUP+coQwr8aSaQf3TW2t0pdcnz1Teg6f5
- U7RUJaCjlIWBjEuBlkxRZbc/47XeD+LbN2evcwAZg4rE8gQBi5OAZgI50RGht1mTixiPcEtPdxz
- nKcv3TGJyXtx6Fap1KUqM3OnFtz7WsvIcFp6lf4K71kz8hsbHrHa6Ypksfppuq2YcNHL8vzLJf/
- MWAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3698;
+ i=duje@dujemihanovic.xyz; s=20240706; h=from:subject:message-id;
+ bh=8/peqm48tCTiEczHfDYZk/YBJQovtzWt9KQ0JhK9ewc=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDBlHH/iXbxO44VcrF9qzRXLzgmz7d28d/yQ4fUguaD247
+ amSxPXTHaUsDGJcDLJiiiy5/x2v8X4W2bo9e5kBzBxWJpAhDFycAjCR8B2MDPvn8IomPP5QfVl3
+ 86QD/VOXm555zJEWyxtWvVnu/v1z8v8YGT4wz157xuv64fv66QyrH351u68YtHFzhVT8g1maq78
+ 8O8oIAA==
 X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
  fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_142130_037660_0E00C953 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20250913_142132_822284_CF615907 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,28 +117,114 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Duje Mihanović <duje@dujemihanovic.xyz>
 
-Right now, the CD GPIO is defined as active high with a cd-inverted
-property. Just define the GPIO as active low instead.
+Commit a41fcca4b342 ("mmc: sdhci-pxav3: set NEED_RSP_BUSY capability")
+fixed eMMC probing on this board. Enable the eMMC and add its pinctrl.
 
 Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
 ---
- arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ .../marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 79 +++++++++++++++++++++-
+ 1 file changed, 77 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-index b9628b1f59f2f749804799e3d9faa48e3036e81a..aa161982ca43844287d212e8a24884d2b8440fed 100644
+index aa161982ca43844287d212e8a24884d2b8440fed..78b7bccfc5f299889d1b9a8fd2c08554f17eb147 100644
 --- a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
 +++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-@@ -330,8 +330,7 @@ &sdh2 {
- &sdh0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&sdh0_pins_0 &sdh0_pins_1 &sdh0_pins_2>;
--	cd-gpios = <&gpio 11 0>;
--	cd-inverted;
-+	cd-gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
- 	bus-width = <4>;
- 	wp-inverted;
+@@ -292,6 +292,79 @@ sdh0_pins_2: sdh0-pins-2 {
+ 		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
+ 		pinctrl-single,low-power-mode = <0x208 0x388>;
+ 	};
++
++	sdh2_pins_0: sdh2-pins-0 {
++		pinctrl-single,pins = <
++			0x24 1
++			0x28 1
++			0x2c 1
++			0x30 1
++			0x34 1
++			0x38 1
++			0x3c 1
++			0x40 1
++		>;
++		pinctrl-single,drive-strength = <0x1000 0x1800>;
++		pinctrl-single,bias-pullup = <0 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0 0xa000 0 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0 0x388>;
++	};
++
++	sdh2_pins_1: sdh2-pins-1 {
++		pinctrl-single,pins = <0x64 1>;
++		pinctrl-single,drive-strength = <0x1000 0x1800>;
++		pinctrl-single,bias-pullup = <0 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0 0xa000 0 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0x208 0x388>;
++	};
++
++	sdh2_pins_2: sdh2-pins-2 {
++		pinctrl-single,pins = <0x5c 1>;
++		pinctrl-single,bias-pullup = <0xc000 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0x8000 0xa000 0x8000 0xa000>;
++		pinctrl-single,low-power-mode = <0x288 0x388>;
++	};
++
++	sdh2_fast_pins_0: sdh2-fast-pins-0 {
++		pinctrl-single,pins = <
++			0x24 1
++			0x28 1
++			0x2c 1
++			0x30 1
++			0x34 1
++			0x38 1
++			0x3c 1
++			0x40 1
++		>;
++		pinctrl-single,drive-strength = <0x1800 0x1800>;
++		pinctrl-single,bias-pullup = <0 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0 0xa000 0 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0 0x388>;
++	};
++
++	sdh2_fast_pins_1: sdh2-fast-pins-1 {
++		pinctrl-single,pins = <0x64 1>;
++		pinctrl-single,drive-strength = <0x1800 0x1800>;
++		pinctrl-single,bias-pullup = <0 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0 0xa000 0 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0x208 0x388>;
++	};
++
++	sdh2_fast_pins_2: sdh2-fast-pins-2 {
++		pinctrl-single,pins = <0x5c 1>;
++		pinctrl-single,drive-strength = <0x1800 0x1800>;
++		pinctrl-single,bias-pullup = <0xc000 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0x8000 0xa000 0x8000 0xa000>;
++		pinctrl-single,low-power-mode = <0x288 0x388>;
++	};
  };
+ 
+ &uart0 {
+@@ -320,11 +393,13 @@ &usb {
+ };
+ 
+ &sdh2 {
+-	/* Disabled for now because initialization fails with -ETIMEDOUT. */
+-	status = "disabled";
++	pinctrl-names = "default", "state_uhs";
++	pinctrl-0 = <&sdh2_pins_0 &sdh2_pins_1 &sdh2_pins_2>;
++	pinctrl-1 = <&sdh2_fast_pins_0 &sdh2_fast_pins_1 &sdh2_fast_pins_2>;
+ 	bus-width = <8>;
+ 	non-removable;
+ 	mmc-ddr-1_8v;
++	mmc-hs200-1_8v;
+ };
+ 
+ &sdh0 {
 
 -- 
 2.51.0
