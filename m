@@ -4,75 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002DACA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02045CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OWMH7QKFrmOpM3PC2q24WTKS7xGZo6kSzJtOAukfP24=; b=SDOE1u2M3Gfgl5pHHZ8H86VhT+
-	bYgevvR92aH+KDyWLevNmGuPKVpaoC+oUi+pqJj2V129i2f5IfdD71zrnQ0InXWeN0O3y1DQamdJF
-	C0aRB85EHJ/WbvzvFV1XnrmVudSIl1UZZ1nwgLR3oy8E9MbV2682/WNwZ27CImNZuMqG2hvfgTW7k
-	Iu/UlKsZNgoq6H3ZTOpglTb9VXkeHYyCHUbFU3YLfrMKYMD4pG0bJo/cOFJo6qVOeGGCn29gjUzvX
-	gOBNoXdbgQGvqf6Y9DEEkBS61G6F+8lDUNX/601mZ2I+Qx6TU9w9pOGY8vL1GqmcYa6Wr9VWlOmFd
-	QZam5fpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zFrj3gEfIT3tk5nJrn5YbyG7ZS/WolhxcrzQL1fTi+0=; b=wsA4nF0WgbSFFfLf6BwTQ6JA2A
+	3A1bqPKaG3ZoO6QicgNQeLRmZ7U7WN5xVFAvKAg3EAePO+syWdORVI8AjwXEpUcwtajo/cwfLiLQc
+	5dKKo/zgKq8sgyPfQTNuWic5vNIMLYyM/K1atXnU2jpEsWSq/BQgoMhVZJDrNWR8IhtZxj7opI4vC
+	MtcG9rx6XQNIeAJgpqRXDQAvBY1spILEq2TmAiYiYXSHREXxSR+j1J9w9hvur2msORt+kfIcmJgW/
+	ju7bs58JN9k7ILV8k28T9mAKeMXEYmc38ulj43XRtFC3h0t5M7rQUq0yI0hgYklzylyy9+RFLN98W
+	3u1J45uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxtKN-000000029Fk-0dNh;
-	Sun, 14 Sep 2025 20:28:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uxtUX-00000002AS9-1m8Y;
+	Sun, 14 Sep 2025 20:38:33 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxtKL-000000029FS-2Sm2
+	id 1uxtUU-00000002AQJ-1ED1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 20:28:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8EE7C601AA;
-	Sun, 14 Sep 2025 20:28:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1D97C4CEF0;
-	Sun, 14 Sep 2025 20:27:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757881679;
-	bh=D0n5ETJv3R8O+fczQgdPp8EqHieV5Ctrcdn9KrkWRvw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=I7A+ekkFx+MmNjmDBQ0/KTElBERoYXwPeRTCLw4lLb6/DXdWxSWu5bXicPO0Obz7T
-	 9sIYTiTC6Znl6EdSXH/w86jAyWRE0yDOpFNz21ofxAbWdNi7PAnl/qHgLqUURJqOLk
-	 G13O9a44Deh6CbSPRWdyQ2FOij1zVuCyBJ5RXuLdXC30lORs6vBSCOpY+pYcOetscs
-	 MvdlQMuDEpFAGmITJ50TbaxBOtXBM6VGpkJsA6hTP6NKxCZ0UKYYEpzF5Rnl1LBO/N
-	 Gk/tj7Rim9T3DwlvaI2GoPY3WmCIdP+lcmQYnU+xrUhXqHtZVJK/XH1EasFhRzZxk+
-	 D80BVzfZMPP7Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uxtKH-00000006Ar2-1oaU;
-	Sun, 14 Sep 2025 20:27:57 +0000
-Date: Sun, 14 Sep 2025 21:27:57 +0100
-Message-ID: <878qigzsmq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Jinqian Yang <yangjinqian1@huawei.com>,
-	yuzenghui@huawei.com,
+	Sun, 14 Sep 2025 20:38:32 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-627b85e4c0fso5607584a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 13:38:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1757882308; x=1758487108; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zFrj3gEfIT3tk5nJrn5YbyG7ZS/WolhxcrzQL1fTi+0=;
+        b=O8Hb4yQGZrx0tOaMCIph1dXS0saBAcOuOqSU7rXJwhuJlmApfTxSj0BRZBCJP6CTuC
+         yD6uKbl83pl5J8I9oBk6kQNo/F/Yytw0T+NvVsZ6DnZx3I0mIwa+P+dx9LEcfW9f2TiH
+         kGbjr3m4+LxSO5kxbyir/zx5AVDElL0bQi35M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757882308; x=1758487108;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zFrj3gEfIT3tk5nJrn5YbyG7ZS/WolhxcrzQL1fTi+0=;
+        b=Qi1qdzuPm4abU4J4fOlUVaePHbXndMwukEVz9rEVNRImYygZGfRCd9IqEqdYC6m/4F
+         03lk92SdtQ/CcIVCKREEoIl7pyxCCFbFd5cDp48X94/Q1gk730plt6AznGmM9aMTgXUK
+         Ih5py+KjeQn+4eUqSVEmJvfNyvhE9iA4PgU8IV01k5EpNuR2beUWXcHVUEHXtZuGcqD8
+         RZAIaCfLVJ0NGhm75tUpDB4TchjgZ++ITUxh5zQe/CRYFRZneDG1sCKGRIIFMN8Apf+y
+         HP6hUznIZgRN1JAReYc1s5Zz1buz5CTQ7iBg5hNgjcNavEbk5XKfvtNNcbEOScjprHEA
+         rZQg==
+X-Forwarded-Encrypted: i=1; AJvYcCWNZ3VxEu3jAaCorki54uZf2wEJgS0llgulW744hGhoJb1CdPkeNiLzWWuyFlWYQLd2PAqKYNbElrEjNL44umHm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVcOWM4wxoLBSLHe7H/qSBaUHiX2UVUIICjA6/rvNTgxz6cup4
+	tLjmyJGF+VUzM0Ge/2RLSlAddtw8VlASpB7smDDzqBe1tNrnG0p1m0BtNLObvPLhSYYdYMRXw2l
+	prxrH
+X-Gm-Gg: ASbGncuNJ5hVdYQA2gt2PG4YBnLWSX9FEeC735dHovx+tjZEg0EQ6C57eokH1m3OMh+
+	S5m5CVPSOh0xsXTn/JHWIKdmKPU1RLhqt0DJPD1V2MCb7Uc2WNgYOhkQIlfDJtgtBHq63pD0mgi
+	tpcUZKOhvmGvAgBTJdEE+UXlQBCHB2HkZvOKSYPh4HQMETZrLATWNBaGQ4VEP+ElhYCZJoaNL8k
+	waQ+V7FoBIUbBZv5OJUqi/hyxjlV6ZkSqlWHB0Tf/oHwr8IzJhnUpNNF0IW5tNRXyEi91hRQ+k3
+	xYj1k6+EK+wf0z2S3MDvz75KekImlM1+3T2z5R5aRnen06LRGmGzbYNTHl87GSY2N5iNrnB9dDL
+	1bhbP9uo11MAU1J6kZ94kAv2gm/5XXu/FG+ytTLucJt/skHfRveLleJNY+x7ukAZIvuM3O81w3k
+	w2TEUR+lFtwr39iZykiP2bPTH1Xo43oAYrUL7IvKc2yYwwax+XpkzCwVxXSSK/27xqzQFKoUVVK
+	SA=
+X-Google-Smtp-Source: AGHT+IHD40fLYi4O1kTcM1Rp7p7ZYRGGkgLnzuTVUkbYF/Dv84qViywJ6Kd34fqgy/JBzIXC++JDJw==
+X-Received: by 2002:a50:d647:0:b0:62e:c5f7:cf92 with SMTP id 4fb4d7f45d1cf-62ec5f7cff2mr8580125a12.13.1757882308297;
+        Sun, 14 Sep 2025 13:38:28 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-62ec33ad242sm7803739a12.17.2025.09.14.13.38.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 Sep 2025 13:38:27 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	liuyonglong@huawei.com,
-	wangzhou1@hisilicon.com
-Subject: Re: [PATCH v3 1/2] KVM: arm64: Make ID_AA64MMFR1_EL1.{HCX, TWED} writable from userspace
-In-Reply-To: <aMSV_tLO-W4VKYRX@linux.dev>
-References: <20250911114621.3724469-1-yangjinqian1@huawei.com>
-	<20250911114621.3724469-2-yangjinqian1@huawei.com>
-	<aMSV_tLO-W4VKYRX@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, yangjinqian1@huawei.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, liuyonglong@huawei.com, wangzhou1@hisilicon.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-input@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org
+Subject: [PATCH v3 3/5] dt-bindings: touchscreen: convert raspberrypi,firmware-ts bindings to json schema
+Date: Sun, 14 Sep 2025 22:37:54 +0200
+Message-ID: <20250914203812.1055696-3-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250914203812.1055696-1-dario.binacchi@amarulasolutions.com>
+References: <20250914203812.1055696-1-dario.binacchi@amarulasolutions.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250914_133830_374786_BE05303C 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,67 +108,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sep 2025 22:51:58 +0100,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> Hi Jinqian,
-> 
-> On Thu, Sep 11, 2025 at 07:46:20PM +0800, Jinqian Yang wrote:
-> > Allow userspace to downgrade {HCX, TWED} in ID_AA64MMFR1_EL1. Userspace can
-> > only change the value from high to low.
-> > 
-> > Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
-> > ---
-> >  arch/arm64/kvm/sys_regs.c | 2 --
-> >  1 file changed, 2 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> > index 82ffb3b3b3cf..db49beb8804e 100644
-> > --- a/arch/arm64/kvm/sys_regs.c
-> > +++ b/arch/arm64/kvm/sys_regs.c
-> > @@ -3002,8 +3002,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
-> >  				      ~(ID_AA64MMFR0_EL1_RES0 |
-> >  					ID_AA64MMFR0_EL1_ASIDBITS)),
-> >  	ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
-> > -					ID_AA64MMFR1_EL1_HCX |
-> > -					ID_AA64MMFR1_EL1_TWED |
-> >  					ID_AA64MMFR1_EL1_XNX |
-> >  					ID_AA64MMFR1_EL1_VH |
-> >  					ID_AA64MMFR1_EL1_VMIDBits)),
-> 
-> I still have a bone to pick with Marc regarding the NV implications of
-> this :) Attaching conversation below. Although for non-nested this LGTM.
-> 
-> On Tue, Sep 09, 2025 at 11:10:28AM +0100, Marc Zyngier wrote:
-> > My concern here is the transitive implications of FEAT_HCX being
-> > disabled: a quick look shows about 20 features that depend on
-> > FEAT_HCX, and we don't really track this. I can probably generate the
-> > dependency graph, but that's not going to be small. Or very useful.
-> >
-> > However, we should be able to let FEAT_HCX being disabled without
-> > problem if the downgrading is limited to non-EL2 VMs. Same thing for
-> > FEAT_VHE.
-> >
-> > What do you think?
-> 
-> So I'm a bit worried about making fields sometimes-writable, it creates
-> a very confusing UAPI behavior. On top of that, our writable masks are
-> currently static.
-> 
-> What if we treat the entire register as RES0 in this case? It seems to
-> be consistent with all the underlying bits / features being NI. A
-> mis-described VM isn't long for this world anyway (e.g. FEAT_SCTLR2 && !FEAT_HCX)
-> and in that case I'd prefer an approach that keeps the KVM code as
-> simple as possible.
+Convert Raspberry Pi firmware 7" touchscreen controller device tree
+binding to json-schema.
 
-I've pushed out a branch implementing this[1], though it hasn't had
-much testing yet. I'll post it once I've convinced myself that this is
-sane enough.
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-	M.
+---
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/el2-res0
+Changes in v3:
+- Drop firmware-rpi node and use only touchscreen node to fix warnings
+  you can see in
+  https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250913092707.1005616-3-dario.binacchi@amarulasolutions.com/
 
+Changes in v2:
+- Added in v2
+
+ .../touchscreen/raspberrypi,firmware-ts.txt   | 26 ------------
+ .../touchscreen/raspberrypi,firmware-ts.yaml  | 40 +++++++++++++++++++
+ 2 files changed, 40 insertions(+), 26 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+ create mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+deleted file mode 100644
+index 2a1af240ccc3..000000000000
+--- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
++++ /dev/null
+@@ -1,26 +0,0 @@
+-Raspberry Pi firmware based 7" touchscreen
+-=====================================
+-
+-Required properties:
+- - compatible: "raspberrypi,firmware-ts"
+-
+-Optional properties:
+- - firmware: Reference to RPi's firmware device node
+- - touchscreen-size-x: See touchscreen.txt
+- - touchscreen-size-y: See touchscreen.txt
+- - touchscreen-inverted-x: See touchscreen.txt
+- - touchscreen-inverted-y: See touchscreen.txt
+- - touchscreen-swapped-x-y: See touchscreen.txt
+-
+-Example:
+-
+-firmware: firmware-rpi {
+-	compatible = "raspberrypi,bcm2835-firmware";
+-	mboxes = <&mailbox>;
+-
+-	ts: touchscreen {
+-		compatible = "raspberrypi,firmware-ts";
+-		touchscreen-size-x = <800>;
+-		touchscreen-size-y = <480>;
+-	};
+-};
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+new file mode 100644
+index 000000000000..697c508326b3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+@@ -0,0 +1,40 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/touchscreen/raspberrypi,firmware-ts.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Raspberry Pi firmware based 7" touchscreen
++
++maintainers:
++  - Dario Binacchi <dario.binacchi@amarulasolutions.com>
++
++allOf:
++  - $ref: touchscreen.yaml#
++
++properties:
++  compatible:
++    enum:
++      - raspberrypi,firmware-ts
++
++  firmware:
++    description: Phandle to RPi's firmware device node.
++
++  touchscreen-size-x: true
++  touchscreen-size-y: true
++  touchscreen-inverted-x: true
++  touchscreen-inverted-y: true
++  touchscreen-swapped-x-y: true
++
++additionalProperties: false
++
++required:
++  - compatible
++
++examples:
++  - |
++    touchscreen {
++        compatible = "raspberrypi,firmware-ts";
++        touchscreen-size-x = <800>;
++        touchscreen-size-y = <480>;
++    };
 -- 
-Jazz isn't dead. It just smells funny.
+2.43.0
+
+base-commit: df86f912b45c20e236060321c85fe35437e9325d
+branch: drop-touchscreen.txt
 
