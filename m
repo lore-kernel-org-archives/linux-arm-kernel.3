@@ -4,116 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40003CAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 12:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00007CAC58F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 12:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z5MX8qAJItNgmzO0beYalK7Q8o3C3aTt+dOB4KLH+88=; b=QHUH0oKZvG2lbdduFR8Qx03QjK
-	8AzYRTMh8JAJlt7YavpcKf7kBC8ph5C1KtEClQZj+b86/srOjXET4CKE5YXpuSNWPczPA5L3WmnhC
-	IXnpxhf3euCBG7Ijp48hHH68DRXdzrEsYxC1LVIK4ygRcXW/9JZ6oHadX8SFl56FrhTJ2tiNv7FVr
-	sEKlYdkh9PgIJbzOXphoDxs3SN7MgDONR/x4hGoR1Yj1RTt3LVdVusmH8L0wLI2w/4FQc/1gWsCbp
-	Hgxdnh9RBTTSs3LF6eGjEHgH1aryp5GQFXGGUb62a6Ah3/q27hb8kD0OechCIb1YjSnDmJnu3xMwq
-	ZrXvcBlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TGC4WoAJlpX9tdCXckzAZr5W3saj1ZSsINit3PsYuzA=; b=ejomhDx/1trnOsom7BUwDIklFc
+	TnH1c5bWtJzWNDXTBl5DMojmgiWxUs7UDp0f72V/9w/cnK16xTl19I3KThgHGVXVaPId0sybeGTK0
+	h5N9ejlHAHs8Q12IofkMe/vujCH0jP/NaVcCxE36Vds4T1EHPq4+3dU9tIuF6tgd+loodePZd/JqR
+	YUM4FvMO1/5W6QhtDQqnNIHXXDgs+wTBl6Q8c7jU2o7CvUq3s8WMYv1zbYohi9Jf/lMJpy3gYpyPk
+	VneArvCNG38lOs5CvhEo7AsIeTUN/ka8bXHb6FkoR/hfXkOltVAbjfsUS5YlPclUBkAgNLXhthSPB
+	/OkqxxVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlUW-000000014DX-0cbL;
-	Sun, 14 Sep 2025 12:06:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uxlX9-000000014ia-3Cym;
+	Sun, 14 Sep 2025 12:08:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlUT-000000014Cx-2rlP;
-	Sun, 14 Sep 2025 12:05:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0535B404D4;
-	Sun, 14 Sep 2025 12:05:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9376C4CEF0;
-	Sun, 14 Sep 2025 12:05:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757851556;
-	bh=VPAHReVnPlaTN0aQS3I1hluH0vProSeTueDNuzjCjj4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YuHy6qI4tiX9PBJO++rGoG8tESbjcg4wxE5VjBSXkhY0CpRqgsBROiAk5s/G9BAId
-	 crWhjliGMXuwBaLvjKwHAiDTVUDTmVgdCcj5/wtGCE/SYEQUBFdCmOecfLeGod0Ivj
-	 lT524/lJamQxdOHc5KglcCirgWd1bz57gReNX0WED74gOwmPKTDfHd+scRvXmgSWDd
-	 wdWAbGLFuqua6NTXYvSR9IuPKzmDcfpQv3aPhVxkP/dtzZLNSBmxcjoGbt1Er2WYzW
-	 zsKdlvLCq82f6/FgQmqp/ZL5nz+6ztf/1begdedtus+CaA8KhPgufG5sfh5E0vb8Ys
-	 kHsSBfLAtFUWA==
-Message-ID: <746e10a5-02fe-4f0d-ab86-d674a8fedab0@kernel.org>
-Date: Sun, 14 Sep 2025 14:05:49 +0200
+	id 1uxlX7-000000014hV-2LAs
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 14 Sep 2025 12:08:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757851720;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TGC4WoAJlpX9tdCXckzAZr5W3saj1ZSsINit3PsYuzA=;
+	b=FUeAnkDJW2mk8y1fOisF489Z0IOpfqgbpu9XulN49RNI288zmCFbSBfrEfRjRpKAZ5tK44
+	7S/gQlysYWIHns+MG2wcxt9+q3ixxGadaflWsIYiKMs7qVeMvsM0b8LrcdYK46TWPA8Mgn
+	GU8DJINiIk3yZCr1VyN3F7dsLXU/Lvs=
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
+ [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-17-ROunTTGqOa-1sEV7rfoeAw-1; Sun, 14 Sep 2025 08:08:38 -0400
+X-MC-Unique: ROunTTGqOa-1sEV7rfoeAw-1
+X-Mimecast-MFC-AGG-ID: ROunTTGqOa-1sEV7rfoeAw_1757851718
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-828bd08624aso119249185a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 05:08:38 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757851718; x=1758456518;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TGC4WoAJlpX9tdCXckzAZr5W3saj1ZSsINit3PsYuzA=;
+        b=DQpusFxO2v36pDuG5lVNNpAUV687Y8FNq/77Vr/OLWbQLicMa/Rd1QsWuiZYfTKHT/
+         +eHtlQL8ct9wZBSz0PtVJ9RCoPKEtUfrAt6U1f625i9490YyxLdJ2tdh01XR90Lvie+8
+         CVR7eSwF6fAO7KszpE9vMzAsy1dnuMjPO8qsfQiFTT8aohJ+sLEALaHhTLSXImJM2FJ3
+         mSc6S7+HMWKsMQzMCrf13MOc8/XSfWCgUsD6Vo9icuyoo/lFEnEmK1fXB5LmMIX2SN8x
+         ArKWHphTA54yhydnYcfuflUmZ7U2QClU7uCmzRXVXUc37tgHpWAnWzQktDhjGHT3Ie+n
+         48CQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUocZiy9uVYJZMeDtXisw4hUQzpJx1Nj0K6UBaPRQpolCgI8MN2puLTIae7h/D8+foE+R+awtLIvivaGWa97bHq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfSncaKiurnOq4hOBF0clTC8+6HAv+Qm9y2dbcR/zxue+AGqa/
+	9cJ5qFRjqRIcM+MtZA3c5IiIWtTx+0C2VD7sa14099A1rKbJatYDSsTQxTihVNHHoPTqmf5GNsx
+	TEqaGMPIdjCsThuoRF2csBYXb1s3kqecDWxdCcoQpMVFqNmHkx3aI4NsNJdThTqrgAtgA0rwSPT
+	GW
+X-Gm-Gg: ASbGncsuTGRngYyJwcd1EHDIcyiZxZubcwJKj5gaxh1em60kvsjSzwI5xp+wYZUhVQs
+	3LoM5Asaiel6n9QeaWETlKXNU/bQD/0hXtzcplQemZRkbyn97IHvxlt0b3Wl1wff4wefTB4UcnS
+	uoyE7p7Sof//gBXb0VddvlgFwPNuIzX00PuMFjQk4TzNSYJyKoearcdoGnuUwS+rwbjS5Nbixwq
+	PZfKHJ8geJeO45OP7xiVqedaBQxDcKFg9Uh13CMqxReBaf2NY9Kx5Utx2RpmHLCqb8L+eBIkKXY
+	ZaY3zE8D7y7Sua602f84aCS/vx2V+tFJ0ay1SETCFwV8G6KBUjJZz4ssT6hKw+HRQhWPFPusg/B
+	kY9d/b/iZztXXzVkyEc77kFC370Bcut0=
+X-Received: by 2002:a05:620a:c4f:b0:815:9bd3:72a4 with SMTP id af79cd13be357-82401a95c9bmr1036169285a.69.1757851718244;
+        Sun, 14 Sep 2025 05:08:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFRdCKGXPgtbhvJpUCdDwCaaC2B0DLna/CzbBAvfkLzYJU98qL9IvUSFcqawGBto49lPMPxgQ==
+X-Received: by 2002:a05:620a:c4f:b0:815:9bd3:72a4 with SMTP id af79cd13be357-82401a95c9bmr1036164085a.69.1757851717778;
+        Sun, 14 Sep 2025 05:08:37 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-820cfcaca15sm580413985a.71.2025.09.14.05.08.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 Sep 2025 05:08:37 -0700 (PDT)
+Date: Sun, 14 Sep 2025 08:08:33 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	Sean Paul <sean@poorly.run>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Yannick Fertre <yannick.fertre@foss.st.com>,
+	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+	Philippe Cornu <philippe.cornu@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v2 0/9] drm: convert from clk round_rate() to
+ determine_rate()
+Message-ID: <aMawQYUIjPw9m4IO@redhat.com>
+References: <20250811-drm-clk-round-rate-v2-0-4a91ccf239cf@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] dt-bindings: power: mediatek: Add MT8189 power
- domain definitions
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Richard Cochran <richardcochran@gmail.com>
-Cc: Qiqi Wang <qiqi.wang@mediatek.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, netdev@vger.kernel.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com, sirius.wang@mediatek.com,
- vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
-References: <20250912120508.3180067-1-irving-ch.lin@mediatek.com>
- <20250912120508.3180067-3-irving-ch.lin@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250912120508.3180067-3-irving-ch.lin@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20250811-drm-clk-round-rate-v2-0-4a91ccf239cf@redhat.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 8woGVw1kySMoBYLFkGkAWLedhR0B5-u0uUo5fReYjG8_1757851718
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_050557_773600_B20B2E0D 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20250914_050841_673657_43A0C8EF 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,124 +140,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/09/2025 14:04, irving.ch.lin wrote:
-> From: Irving-ch Lin <irving-ch.lin@mediatek.com>
+Hi all,
+
+On Mon, Aug 11, 2025 at 06:56:04AM -0400, Brian Masney wrote:
+> The round_rate() clk ops is deprecated in the clk framework in favor
+> of the determine_rate() clk ops, so let's go ahead and convert the
+> drivers in the drm subsystem using the Coccinelle semantic patch
+> posted below. I did a few minor cosmetic cleanups of the code in a
+> few cases.
 > 
-> Add device tree bindings for the power domains of MediaTek MT8189 SoC.
-> These definitions will be used to describe the power domain topology in
-> device tree sources.
-> 
-> Signed-off-by: Irving-ch Lin <irving-ch.lin@mediatek.com>
-> ---
->  .../mediatek,mt8189-power-controller.yaml     | 88 +++++++++++++++++++
->  .../dt-bindings/power/mediatek,mt8189-power.h | 38 ++++++++
->  2 files changed, 126 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/power/mediatek,mt8189-power-controller.yaml
->  create mode 100644 include/dt-bindings/power/mediatek,mt8189-power.h
-> 
-> diff --git a/Documentation/devicetree/bindings/power/mediatek,mt8189-power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,mt8189-power-controller.yaml
-> new file mode 100644
-> index 000000000000..71156f7edafe
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/power/mediatek,mt8189-power-controller.yaml
-> @@ -0,0 +1,88 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/power/mediatek,mt8189-power-controller.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek Power Domains Controller for MT8189
-> +
-> +maintainers:
-> +  - Qiqi Wang <qiqi.wang@mediatek.com>
-> +
-> +description: |
-> +  MediaTek processors include support for multiple power domains which can be
-> +  powered up/down by software based on different application scenes to save power.
-> +
-> +  IP cores belonging to a power domain should contain a 'power-domains'
-> +  property that is a phandle for SCPSYS node representing the domain.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt8189-scpsys
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  '#power-domain-cells':
-> +    const: 1
-> +
-> +  clocks:
-> +    description: |
-> +      A number of phandles to clocks that need to be enabled during domain
-> +      power-up sequencing.
+> Changes since v1:
+> - Drop space after the cast (Maxime)
+> - Added various Acked-by and Reviewed-by tags
 
-Nothing improved, there is no such code in the bindings.
+Would it be possible to get this picked up for v6.18? I'd like to remove
+this API from drivers/clk in v6.19.
 
-> +
-> +  clock-names:
-> +    description: |
-> +      List of names of clocks, in order to match the power-up sequencing
-> +      for each power domain we need to group the clocks by name. BASIC
+I'm not sure which tree(s) this should go through. All of the patches
+except patch 1 have at least one Acked-by or Reviewed-by.
 
-Nothing improved here either.
+Thanks,
 
-> +      clocks need to be enabled before enabling the corresponding power
-> +      domain, and should not have a '-' in their name (i.e mm, mfg, venc).
-> +      SUSBYS clocks need to be enabled before releasing the bus protection,
-> +      and should contain a '-' in their name (i.e mm-0, isp-0, cam-0).
-> +
-> +      In order to follow properly the power-up sequencing, the clocks must
-> +      be specified by order, adding first the BASIC clocks followed by the
-> +      SUSBSYS clocks.
-> +
-> +patternProperties:
-> +  "^mfg[01]-supply$":
-> +    description: |
-> +      Regulator supply for mfg domain. With this attribute, scpsys can manage
-> +      mfg regulator in mtcmos control flow, to achieve low power scenario.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - '#power-domain-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/mediatek,mt8189-clk.h>
-> +    #include <dt-bindings/power/mediatek,mt8189-power.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +        scpsys: power-controller@1c001000 {
-> +            compatible = "mediatek,mt8189-scpsys";
-> +            reg = <0 0x1c001000 0 0x1000>;
-> +            #power-domain-cells = <1>;
-> +            clocks = /* MFG */
-> +                <&topckgen_clk CLK_TOP_MFG_REF_SEL>,
-> +                <&apmixedsys_clk CLK_APMIXED_MFGPLL>;
-> +            clock-names = "mfg", "mfg_top";
-> +            mfg0-supply = <&mt6359_vproc1_buck_reg>;
-> +            mfg1-supply = <&mt6359_vsram_proc1_ldo_reg>;
-> +        };
-> +
-> +        /* Example of module to register power domain */
+Brian
 
-
-What do the guidelines speak about this? Don't do this, don't add the
-consumers. Drop.
-
-The binding did not improve, so I am not doing full review. Please go
-through writing bindings or tutorials/presentations explaining this, so
-we won't need to repeat same comments.
-
-
-Best regards,
-Krzysztof
 
