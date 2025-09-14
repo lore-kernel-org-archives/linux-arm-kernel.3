@@ -4,110 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35483CAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 10:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EAF4CAC58F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 11:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XfCcIG0ka5J2qoDrl5MW2nVLdWjCJV+an4Vrxl8TtIc=; b=RNH80U4V21COKE6e9z3caXJViS
-	Y+2j9I5mI8vuaM6JWfRRrdJRgb5W58/53VtZl7oYfgBOP0eIhmxgc5JRplSJXmEWQtsq3w/wWWUFK
-	0C+/8NJWPEWoIz4djpRNRKCjGfbmhzsarQ+am7hEf4RiwcM1U7sidmJjC0z/f7rOlwD2LmiJrnQOd
-	8YMTjudxI858IU2wqCoghosSEKscN6WTIxw/BxR8nrmfmnZ9Rg+4RxYMddNTtkS7VUWm35twRfBcV
-	cxVoMZttTXk5EhYhp8f2H7ZwqPIDdDIyePZCVMMuttPey1r8ddXwJ8AiMYgOrTeJv3JVCKuUtfhQf
-	/70hRL9Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6kWbQjmWNj90FslbkuEkjvxEvCWQssax8cSBKQRPyJ0=; b=wbUPAR1PnuVcFmwHugMBztS0xm
+	Nh0rHw4//LVUcmHv0nZy7IveyFPnREvLukAtJnxEQau4siBctGvUdnfBOCBVx0iHT2dQ3sPAxOczs
+	S9vNw2nH5pN3CO6SXFMV2zHZ0TQSFzqQA5V6QyDsU9r+RIsBz37b5PO+GJEv+ifwXnG7sI1LEQA1t
+	m8LFbO+kgxyWrZWZ5wrj9DwwuCi49lwK7Dpb2XxqXFRVy7BYMbIvuQOakuCrq1j06utI0ls/zUD8e
+	2W5j/hQ47i3ySTA1U49cGtMG5ZKxFfEElQ9ft4Qvbfqz8eERxbozkno2xsWKeMeW9Oatkvo5C3OH1
+	9yqDaMTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxjlR-00000000mYZ-1Yno;
-	Sun, 14 Sep 2025 10:15:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uxkvX-00000000xCW-29RP;
+	Sun, 14 Sep 2025 11:29:51 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxjlP-00000000mY0-1rZ5
+	id 1uxkvV-00000000xBL-1giV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 10:15:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B891643640;
-	Sun, 14 Sep 2025 10:15:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D24FC4CEF0;
-	Sun, 14 Sep 2025 10:15:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757844918;
-	bh=YOiXMP4qhqUVJERQ/wa0Y3qAWcdtKSQrh1JK66PXogI=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=F1owBbbbhYucUaUlIBBEwPmqcVtK7Zc3gW5J8+Enx/4u2I1ZETbqAFqQw3jQd5kyX
-	 ogB3FnBjL/RyAvsjBFluEhBLbqTzNkBAWQ6b/ChaigtXNh2MgmMkBMmGQVdg2c/Ka9
-	 bQFLZ/GwI+QrZC9al7OqZwIvALZJDg+3XFiyKGh8FjkZz+DPZ7YMzWdu36Tnx6Pbai
-	 +mec63x4FyxGwgfpg00xhT3cvKK93olSoXjDe87QSDuSakrzxH4r9gmBcFaTJJQvdP
-	 2VjPt+vCen31tYbXWIj9552tr1EJdTM9v2ROeP2dfO0vEHS8S6F/FJUBoU54xWhhcb
-	 OZcNHN7b6aToA==
-Message-ID: <c3449621-546d-4911-9692-a465c6fa9697@kernel.org>
-Date: Sun, 14 Sep 2025 12:15:12 +0200
+	Sun, 14 Sep 2025 11:29:50 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3e4b5aee522so1955915f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 04:29:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757849387; x=1758454187; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6kWbQjmWNj90FslbkuEkjvxEvCWQssax8cSBKQRPyJ0=;
+        b=BvMuyVbXvFfZQ2fb7dmGjdMOu6dDvtiI57W/IKBmMCSNnCdJLyr+8bUIfAp5G6B9FM
+         bmRtYgLLE7Fvf24QOLTI5mFf0RRTe9nfj6aje/efML5jnI4aYMwH/VpytTNrSqX1dskJ
+         oD77zNaS0+R+Nh2qeF6noKMixzZgUxp2dU0gpSZYfrpcPesnoOIrXjyYU2vlPgsCaYEg
+         XPq1+LBlJ7QYdMw1NfWBQHkVzM5xkQ0aVfbQGoxKJl7TOW3DaFPWna/QOXtWps3j0Tsi
+         Pw/PjzK3cY8gBmBTwjHdxocU2O95gRBUcuGffDmLRqSvHENkIrb3DC9vy5WELrUgbwkg
+         2xpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757849388; x=1758454188;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6kWbQjmWNj90FslbkuEkjvxEvCWQssax8cSBKQRPyJ0=;
+        b=vXaa7Jg8dEhbsY0Tlky0VL+uaHBA3i8z/WBNq8UdKKES5rzvIUtFCo58f8CHKv3vUK
+         inwevpN03dbHEnC0HAR+uw1JXIC7J5Ld4SRAHW2zLiu6xAEhpVnxanjuSxyXy8s8MByL
+         G+xSAMwQyxt+EGJUWn0Lg0NWosyf7ki6LXt/z1PdJjtuW/S0bUJ6vINBkmWVzLFGvkE1
+         90CW8FfREck5Q3n89nODQlWhCAb+qOObh2K6Lyp5yhSd6mNM6OSoiPIZzFYEWGZTacb6
+         3oTxBwletdMroN1RXVKncqO0g25PI1d9BSau5w77nnEnjH+0tonyBSUiPVec0bp5mhQc
+         wIug==
+X-Forwarded-Encrypted: i=1; AJvYcCVfqbwOs/lrbbmeXFWTxM2x8/+Qn8lE3/9unM0BS+UoDRdFrR4NPZKZC1NRkrviejACwMvL2CwWfMbX3IiHv6o8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy39VQOCnbfZweTRB58HZcC/V0m9jR+Yv5hG05mNc0ZoT5Zn1fF
+	zu8+mntL86PW9IujBbzEPbND2/7fuAAoVcjapSFRhwVfjHrwnSR9WbRG
+X-Gm-Gg: ASbGnctN/1GwvvY2hAX6elfU79KNbCmDigsHeO9FtzDnhQvL0WtlVvGJzQkaQdbtHMu
+	gQQt/g1fOrWW+LqWo3WxIH5lt+5/xBenuGbYOaF/RDNJ0pR8fLYs0nqR5s6la9jsHZmU1kjxx3Z
+	faLft45NAiF8MVqTH2HbGDO12O0L9oeKIkE9nyx65F0fV1roshbO6GG1XwDmfu4zabSrsVO8UY8
+	Tiv7v4PjE69BsaBB0WkYqT6NE3tZ8WaZ9CwXAMYgMVRzLQahAblW8xU0mgfMVxLiuEPqcIK0XVy
+	hZZ/oBw8fi0bfQtFtfm2fSy31zeBdCK0cY8J4/aoLP367kzZ306ZNT6oJ2eom7Gp0VUZO6cgpvl
+	hQE2NVDPAfCv+7jJCgxgp66CQx5Q9HM51VhlXezt75M1aCJNcX0Yc4rNi1pKQH3ZQSHVZC7jjKw
+	==
+X-Google-Smtp-Source: AGHT+IG39OXL5GbVP5YXCrtcp7+pGbdpdEB59AacbRvXYzjADaHt3PlBFvUeX/cNMkHe4IVaRg1YkA==
+X-Received: by 2002:a05:6000:2385:b0:3e2:4a3e:d3cf with SMTP id ffacd0b85a97d-3e7655940b6mr9199096f8f.5.1757849387391;
+        Sun, 14 Sep 2025 04:29:47 -0700 (PDT)
+Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e8346defd3sm6591268f8f.1.2025.09.14.04.29.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 Sep 2025 04:29:46 -0700 (PDT)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 1/3] dt-bindings: soc: samsung: exynos-pmu: add exynos8890 compatible
+Date: Sun, 14 Sep 2025 14:29:40 +0300
+Message-ID: <20250914112942.2604194-2-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250914112942.2604194-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250914112942.2604194-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] pcie: s32g: Add initial PCIe support (RC)
-To: Vincent Guittot <vincent.guittot@linaro.org>, chester62515@gmail.com,
- mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, s32@nxp.com,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com,
- ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com,
- linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250912141436.2347852-1-vincent.guittot@linaro.org>
- <20250912141436.2347852-4-vincent.guittot@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250912141436.2347852-4-vincent.guittot@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_031519_531785_64F0E73E 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250914_042949_447106_AFE9E66E 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,44 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/09/2025 16:14, Vincent Guittot wrote:
-> +
-> +static u64 s32g_get_coherency_boundary(struct device *dev)
-> +{
-> +	struct device_node *np;
-> +	struct resource res;
-> +
-> +	np = of_find_node_by_type(NULL, "memory");
+Add exynos8890-pmu compatible to the bindings documentation. Since
+Samsung, as usual, reuses devices from older designs, use the
+samsung,exynos7-pmu compatible.
 
-You leak OF node.
+Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+---
+ Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-> +
-> +	if (of_address_to_resource(np, 0, &res)) {
-> +		dev_warn(dev, "Fail to get coherency boundary\n");
-> +		return 0;
-> +	}
-> +
-> +	return res.start;
-> +}
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+index f0fb24156..be1441193 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+@@ -55,6 +55,7 @@ properties:
+               - samsung,exynos2200-pmu
+               - samsung,exynos7870-pmu
+               - samsung,exynos7885-pmu
++              - samsung,exynos8890-pmu
+               - samsung,exynos8895-pmu
+               - samsung,exynos9810-pmu
+               - samsung,exynos990-pmu
+-- 
+2.43.0
 
-
-
-...
-
-
-> +
-> +static struct platform_driver s32g_pcie_driver = {
-> +	.driver = {
-> +		.name	= "s32g-pcie",
-> +		.owner	= THIS_MODULE,
-
-That 12-yo code. My litmus test from last talk...
-
-Please clean it up from such old coding style. BTW, tools are reporting
-this since years (in this case coccinelle), so be sure that you actually
-run standard static checks on new driver code (smatch, sparse, coccinelle).
-
-
-Best regards,
-Krzysztof
 
