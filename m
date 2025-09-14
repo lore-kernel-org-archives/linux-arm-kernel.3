@@ -4,94 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A6DCAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7A9CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PNSjjL64mFdVCOUJRjIHIc/4Pp2YkjFAp7TrkUJbvbY=; b=SYElCKITqXjLRlglArrvmxxfKG
-	Hh9QgyFdnKDNkwDA/nbE9VObELrERjfjseHPeZZLId+v2alRkYN5O4w3cRvSJIgsPRx1q/cvR1N7L
-	28jIYE5Otu2uP/a7I5CsiK8Xomnnj7vL5ZOnpcrrTot42BRtlk7DehJvZsiaZc/NUvtASzvihsOdx
-	Kwpve/GKQIsWWQ+YI+jLquv8i7k/cp5zTLT7E7RCj79KsE+72NcDVL1gnuxHwKNMG6ZdVMSyMw9Ra
-	JRiIgj9MUoQ8DppOPiVHjc1T2CL4Bk4ebKDsq/1t9Be1tUgFCACQxXe5ZVxC6CtZYKxW1rxxJ+OYb
-	1+XGjjZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=48IVj5CqlyL/NG9D8QI6HlBHg921K6RZAXGHFBjc8Ec=; b=vtLrGkNj3aF4ItBzX28xTx+qRy
+	HsqIdJ90/X96TKkTmRmlT1lErF+GyR35+TeD67Nmk+oA+gLZrUmNrvOaQvzJzqznER7OieEaA+FKm
+	foRCrfiLvFiHjhGQP8inAh9v/i5g5bCj4nuTUOpm6isXLTxt04ss7V+Ixwu536nYuxWD0eQ8joOj3
+	fK8zqbn7H54dzNfql0UtceqH7ht0L/FIakJEuQbk8pYN6KiNycpuVSc08zCv7j6r4nWLaRMdaqcPe
+	NgVg7XzRyI3xQCQjv+2bEjgBzjVonXunddFxcvzDuHZ6YDv+3t/mmMOUBelpNEfZTtWnUDWXkHkxE
+	9L16xNYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxtX9-00000002AtH-0aMp;
-	Sun, 14 Sep 2025 20:41:15 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1uxtZp-00000002B80-0qJQ;
+	Sun, 14 Sep 2025 20:44:01 +0000
+Received: from mail-4317.protonmail.ch ([185.70.43.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxtX6-00000002Ast-38Ve
+	id 1uxtZm-00000002B7X-264g
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 20:41:13 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-265abad93bfso67795ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 13:41:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757882472; x=1758487272; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=PNSjjL64mFdVCOUJRjIHIc/4Pp2YkjFAp7TrkUJbvbY=;
-        b=RbOWsWM9pVWWIKZ1Atquvj0AcouPhFkPTnHaT4SnzhwZ/6vEvPGC5ktdBxb1cTq/zi
-         gYXRuYEh1FU72g/DBahRzT83IiQKK64LoNc8KcL0Er71Q+/oSKd3KdiwDUCjk3wexIaf
-         D6tfjlZPUA18GhNHXcHcd5FoE62SEA4XmogBi4nZTbDIrI3KVtUcqM1Tn7HRG+bZU/c6
-         9yKlmaYnMvN8qMAFV7jvFqJoMKk9Fv/f19/pntB2qGuMDhbMJLDXFHYqEOmTHZH73KYP
-         G9k5AUL1bD25zOHgvoSj7F2UIFydUpQruBC4+8REB8oUPAJazQSkIjUQuR983erAWTDP
-         swTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757882472; x=1758487272;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PNSjjL64mFdVCOUJRjIHIc/4Pp2YkjFAp7TrkUJbvbY=;
-        b=w4IQmVd60W81elX97MUY1YIomcLxxVvayzZxnZHz4nXo11QsxkxcWZ36u8pLH9l0o3
-         kkMACJEkR9+fSstUI8tZQAIoCFNv9wTtROiXkLn5N5b5ggDp80rfgo0naq6WQo5DEN2z
-         9FOoofa9SO9aW76PncK/eduYQhlkWkJ4FLFtK1QE1Y0YWfnSWpWbTaBWo9o4oc+cpl/K
-         K3eFDWam/2BF1rbYveLQNMjgog9MA4N2Bc8/9378wR/rmuPSHIwq5PQO/yDLyEhTaB5J
-         VhF29KS9N/CAzncXzmo/rMughyU9Z4NPWg03xZq3f+g/9l38LWJLMf7xbYo9HHCqD4zx
-         7nTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVHZUjEiDRsHkrOAmp2gATKqbPryfksALXPx1ksTQukDZOtXNUWFp7XNUxIkSdiaf9Ze2/MzzHU4S5Oez9Mh2wx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEus+d/JV8YQainvRwfBiz/ZHQ78sMCE+RmctsLQlkZRopwCX4
-	3U8miX4IlwT/5BxliMoOZ8CX7kn28KG66kew2m5jo3rz2lMLeXIT4gWV3/Hu5Qp/7Q==
-X-Gm-Gg: ASbGnct3efm1DkICSWi59Di3qdyqY1zQ2DfYlzwPAD9VdWXmOXOOdKC2E4KmgF3EKeq
-	IVi/V/1IvBKp9fL+a9/ixF3ydNbHO81Qqe+QyQoUvvfScQnFedxGftug5buICSJI2S/Ha5eaaV+
-	Dg/4eDjzxEVyXHO60nFvopscZBNWOCELMfKd3PIRMX8AXhm1QZXqaOjjOQ1fEdPMcitE8DaLU/x
-	6YDkIXf2zw8WnIH7vNsboG/EEmXH1vQimkm/Xd53Cy4qQIdkueVYQc563hCNByjGEN1x6jwALGa
-	iG3JQCydPOcDOHaonDm13D4BBWjklaix6s053EhQ5EFDF/qdSob0uVK/Gxf5xhoAzFzUa15Av/m
-	rJ17bq84VAIhgjDYf9sJd9k3dAKQ2tPMXZQEEinLA13dDS970Jtry5jihxW3Tfv96T/bi46HF+Q
-	==
-X-Google-Smtp-Source: AGHT+IHvAZDBJIBrGn/Rxmed7TPoC1eE87FxlDAP8nIpAj01UwnK5cfZtdePiHpGJ6H0pHDgIaQEaQ==
-X-Received: by 2002:a17:903:244b:b0:234:bfa1:da3e with SMTP id d9443c01a7336-260a3dd2bbamr3723445ad.5.1757882471428;
-        Sun, 14 Sep 2025 13:41:11 -0700 (PDT)
-Received: from google.com (23.178.142.34.bc.googleusercontent.com. [34.142.178.23])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-264ba05335dsm22707595ad.142.2025.09.14.13.41.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Sep 2025 13:41:10 -0700 (PDT)
-Date: Sun, 14 Sep 2025 20:41:04 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	jgg@ziepe.ca, mark.rutland@arm.com
-Subject: Re: [PATCH v4 02/28] KVM: arm64: Donate MMIO to the hypervisor
-Message-ID: <aMcoYCcJXjN64cOE@google.com>
-References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-3-smostafa@google.com>
+	Sun, 14 Sep 2025 20:44:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
+	s=protonmail; t=1757882633; x=1758141833;
+	bh=48IVj5CqlyL/NG9D8QI6HlBHg921K6RZAXGHFBjc8Ec=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=PRuwwEqat2/bq4H/qR19mTbOp2JpcbAyiNXaeyACK4uBTDamAJzizfLCscIL3l8pV
+	 Kj/1qUGyu5RHw/9rDv6TU1Q3Fdtx6ZpX92iXIvDqkBzHY7RBnoE6aAXRRRbcv0+V40
+	 Kpw6GRaOX1nTsCbsIcJS0xARegl0P07a8JopJCP0E+JQdq/IHKDLLxOjly4EY6eLRc
+	 3wS+SmJsx/gDQE7wyhhqS5jgEahnWC2HcemkLPr0N4aeYJBYAHaiviwSHH/emaZzMw
+	 r268HycMr5wZwR1JfXFC94rutAQ/ve3Ouoowb7Vqo3nzPARTTp2w4COj4jjeeIrlS4
+	 1WrFPEiR5Q11g==
+Date: Sun, 14 Sep 2025 20:43:47 +0000
+To: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+From: Alexandru Chimac <alex@chimac.ro>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, Alexandru Chimac <alex@chimac.ro>
+Subject: [PATCH 0/3] arm64: dts: exynos: Add initial support for Exynos9610
+Message-ID: <20250914-exynos9610-devicetree-v1-0-2000fc3bbe0b@chimac.ro>
+Feedback-ID: 139133584:user:proton
+X-Pm-Message-ID: c4ef3fb25bbc20795872882f29db89dd9add1fbf
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250819215156.2494305-3-smostafa@google.com>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_134112_811627_27E7C30B 
-X-CRM114-Status: GOOD (  33.02  )
+X-CRM114-CacheID: sfid-20250914_134359_150995_D9208728 
+X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,155 +67,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 09:51:30PM +0000, Mostafa Saleh wrote:
-> Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
-> drivers can use that to protect the MMIO of IOMMU.
-> The initial attempt to implement this was to have a new flag to
-> "___pkvm_host_donate_hyp" to accept MMIO. However that had many problems,
-> it was quite intrusive for host/hyp to check/set page state to make it
-> aware of MMIO and to encode the state in the page table in that case.
-> Which is called in paths that can be sensitive to performance (FFA, VMs..)
-> 
-> As donating MMIO is very rare, and we don’t need to encode the full state,
-> it’s reasonable to have a separate function to do this.
-> It will init the host s2 page table with an invalid leaf with the owner ID
-> to prevent the host from mapping the page on faults.
-> 
-> Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
-> stage-2 PTEs, as this can be triggered from recycle logic under memory
-> pressure. There is no code relying on this, as all ownership changes is
-> done via kvm_pgtable_stage2_set_owner()
-> 
-> For error path in IOMMU drivers, add a function to donate MMIO back
-> from hyp to host.
-> 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 +
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 64 +++++++++++++++++++
->  arch/arm64/kvm/hyp/pgtable.c                  |  9 +--
->  3 files changed, 68 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> index 52d7ee91e18c..98e173da0f9b 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> @@ -37,6 +37,8 @@ int __pkvm_host_share_hyp(u64 pfn);
->  int __pkvm_host_unshare_hyp(u64 pfn);
->  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
->  int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot prot);
-> +int __pkvm_host_donate_hyp_mmio(u64 pfn);
-> +int __pkvm_hyp_donate_host_mmio(u64 pfn);
->  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
->  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
->  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index 861e448183fd..c9a15ef6b18d 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -799,6 +799,70 @@ int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot prot)
->  	return ret;
->  }
->  
-> +int __pkvm_host_donate_hyp_mmio(u64 pfn)
-> +{
-> +	u64 phys = hyp_pfn_to_phys(pfn);
-> +	void *virt = __hyp_va(phys);
-> +	int ret;
-> +	kvm_pte_t pte;
-> +
-> +	host_lock_component();
-> +	hyp_lock_component();
-> +
-> +	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, NULL);
-> +	if (ret)
-> +		goto unlock;
-> +
-> +	if (pte && !kvm_pte_valid(pte)) {
-> +		ret = -EPERM;
-> +		goto unlock;
-> +	}
-> +
-> +	ret = kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)virt, &pte, NULL);
-> +	if (ret)
-> +		goto unlock;
-> +	if (pte) {
-> +		ret = -EBUSY;
-> +		goto unlock;
-> +	}
+This patchset adds device trees for Exynos9610 and Galaxy Tab S6 Lite (2020=
+).
+The primary method to boot mainline is currently via uniLoader (at github.c=
+om/ivoszbg/uniLoader).
 
-I'm thinking of a situation where both of these checks might be
-necessary.. The first check seems to confirm if the page being donated
-isn't set up to trap in the hyp (i.e. the donor/host doesn't own the
-page anymore). 
+This patchset depends on the following ones being merged:
+ - 20250914-exynos9610-pinctrl-b44cdfaeeed1
+ - 20250914-exynos9610-chipid-b7c1600dbb92
 
-However, the second check seems to check if the pfn is already mapped
-in the hyp's space. Is this check only to catch errorneous donations of
-a shared page or is there something else?
+Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+---
+Alexandru Chimac (3):
+      dt-bindings: arm: samsung: Document gta4xl board binding
+      arm64: dts: exynos: Add initial support for the Exynos9610 SoC
+      arm64: dts: exynos: Add initial support for Samsung Galaxy Tab S6 Lit=
+e (gta4xl)
 
-> +
-> +	ret = pkvm_create_mappings_locked(virt, virt + PAGE_SIZE, PAGE_HYP_DEVICE);
-> +	if (ret)
-> +		goto unlock;
-> +	/*
-> +	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
-> +	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
-> +	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
-> +	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
-> +	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
-> +	 */
-> +	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys,
-> +				PAGE_SIZE, &host_s2_pool, PKVM_ID_HYP));
-> +unlock:
-> +	hyp_unlock_component();
-> +	host_unlock_component();
-> +
-> +	return ret;
-> +}
-> +
-> +int __pkvm_hyp_donate_host_mmio(u64 pfn)
-> +{
-> +	u64 phys = hyp_pfn_to_phys(pfn);
-> +	u64 virt = (u64)__hyp_va(phys);
-> +	size_t size = PAGE_SIZE;
-> +
-> +	host_lock_component();
-> +	hyp_lock_component();
-> +
-> +	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, virt, size) != size);
-> +	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys,
-> +				PAGE_SIZE, &host_s2_pool, PKVM_ID_HOST));
-> +	hyp_unlock_component();
-> +	host_unlock_component();
-> +
-> +	return 0;
-> +}
-> +
->  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
->  {
->  	return ___pkvm_host_donate_hyp(pfn, nr_pages, PAGE_HYP);
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index c351b4abd5db..ba06b0c21d5a 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -1095,13 +1095,8 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
->  	kvm_pte_t *childp = NULL;
->  	bool need_flush = false;
->  
-> -	if (!kvm_pte_valid(ctx->old)) {
-> -		if (stage2_pte_is_counted(ctx->old)) {
-> -			kvm_clear_pte(ctx->ptep);
-> -			mm_ops->put_page(ctx->ptep);
-> -		}
-> -		return 0;
-> -	}
-> +	if (!kvm_pte_valid(ctx->old))
-> +		return stage2_pte_is_counted(ctx->old) ? -EPERM : 0;
->  
->  	if (kvm_pte_table(ctx->old, ctx->level)) {
->  		childp = kvm_pte_follow(ctx->old, mm_ops);
-> -- 
+ .../bindings/arm/samsung/samsung-boards.yaml       |    6 +
+ arch/arm64/boot/dts/exynos/Makefile                |    1 +
+ arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts   |   97 ++
+ arch/arm64/boot/dts/exynos/exynos9610-pinctrl.dtsi | 1180 ++++++++++++++++=
+++++
+ arch/arm64/boot/dts/exynos/exynos9610.dtsi         |  263 +++++
+ 5 files changed, 1547 insertions(+)
+---
+base-commit: 48c4c0b684f394721b7db809e1cc282fccdb33da
+change-id: 20250914-exynos9610-devicetree-221da550773a
+prerequisite-message-id: <20250914-exynos9610-chipid-v1-0-ade99e09a23c@chim=
+ac.ro>
+prerequisite-patch-id: eb6590750a81953810a2f29d48131b5da055a2ed
+prerequisite-patch-id: 11416958919ddfe096ba3a7c866173ee0b288fe3
+prerequisite-message-id: <20250914-exynos9610-pinctrl-v1-0-90eda0c8fa03@chi=
+mac.ro>
+prerequisite-patch-id: 27e949ada132a43ba3dbf880af3e6168ec94eaf9
+prerequisite-patch-id: f446d396d0258709db47aef69e68821eb72582dc
+prerequisite-patch-id: e3bf016be9509ee79beb3d51907ef6cd58fb98b1
 
-Thanks
-Praan
+Best regards,
+--=20
+Alexandru Chimac <alex@chimac.ro>
+
+
 
