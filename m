@@ -4,83 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFA0CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 14:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD60CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 14:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f+24megX2Ew8mouYg7ffKFfhJAlPa4GTjPRKCpZOtUQ=; b=5Eos3Ll1wQUX3R5lDqR/Jck6cH
-	5I+3u0IgcCDw0u2kV0ZJj8R4JAWqf4pcHSzXe+AKlCxw9M3oazI5WTAVu1inSf8CSTjZdHZI+GLgo
-	9Z33NIQml43A/CC9g+1vTfL4LqCfbeF6i+qpE+S7SC3muCQzD1l+ZDbYqBqy3ZzLiJgeCP+ONzE71
-	I7fi6+kQuS8jY0394gCRU5ytKSn6SRSc3qJNxjLrkF64HofkVOf/MTxUffo/bD0MB5kFYJ44ArQyH
-	Hh8D1TSwvUkSb0rGkEJLHHqOL3soe78Uppmwh+BH5iRtVd099nnVRwe5CT3SGkJO08hywRb5qLCXA
-	Jf20ZL/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rsUHVkzZaZp36viUnZ0K/EbyNwm+EVEnUQ5b1FzHDOg=; b=gh0bEl9vhD3MWMdoUBLRnCyXeO
+	H/k40R/OP0B9kXEwRIJ0iF0m4EgedG/76XgkMFy4wnUpr0gYFrLOZmsvqETwGvOAGEsNaALdGUFQl
+	4jDwX3vqBxnXiGGjdVTcJhqJedJv08mZIIgn7onGDYLllCj38pQgfzKrE5AM2QsdLmj7cLHPebSEQ
+	oebTdtYKgNHIurmlVGAQw4DZ1rR2RIwNgyvISlGjiyn+z5wZ/xghLsnp+EXt0VaztXXQhKPgzmLwm
+	Q7mc4pDflMk7k22ErHv53imEEXz+UTuTu0Kvy5O65w+LVFXBzgpXfkmwt57tvZOUtDqpJdm/jpYH2
+	t+t42/eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxnX2-00000001TGP-02Yr;
-	Sun, 14 Sep 2025 14:16:44 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uxnYG-00000001TdD-1ZCY;
+	Sun, 14 Sep 2025 14:18:00 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxnX0-00000001TFe-0FuN
+	id 1uxnYD-00000001TbF-3Hin
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 14:16:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757859402; x=1789395402;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LC3H0PVcyqKsgsnH8G6RjhY7nYzGXX6eP+wpc+zEEsM=;
-  b=ej3/aRzshsMfaU6A2muS8jmsfDp5hOI3nkMuu66PLt4U9+wJrY24dSOF
-   YRQnyX4CGLDLYXQN2OLhuEfG0f8XryQxfm0cc0KGDGnKxVCYVkrcQ/PZ8
-   y4XXcRWZZEYiQHnWVeeuSwU99vrN9fk8d5QqTsaMk8HXMkEs0w5c3ibR5
-   jN1Jm+4b3LnYoIubksCzsi0TM37xeaYI0qIS3RlIlfWaAlFTMN+ilTDUJ
-   GvVr5dMmFU1rHcrJRNB5a9uI0URQglXwkuXNju8bG8Qpk/IdFSCVZKkTv
-   uAqcoms36rlNAFDAslfns0r6sD/jN0Ief1K7r5xRcXp//K5LABNQFyuqW
-   w==;
-X-CSE-ConnectionGUID: vfZlp/+MRlaOASDcS/b4eg==
-X-CSE-MsgGUID: z0YhzQ47SLq93Yn/BW71/g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11553"; a="71503323"
-X-IronPort-AV: E=Sophos;i="6.18,264,1751266800"; 
-   d="scan'208";a="71503323"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2025 07:16:33 -0700
-X-CSE-ConnectionGUID: fKFq+2jnSAaSeZDt1z3VvQ==
-X-CSE-MsgGUID: Zi1Q9B4xRvyVk5+bxvVdOw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,264,1751266800"; 
-   d="scan'208";a="174224891"
-Received: from lkp-server02.sh.intel.com (HELO eb5fdfb2a9b7) ([10.239.97.151])
-  by orviesa007.jf.intel.com with ESMTP; 14 Sep 2025 07:16:30 -0700
-Received: from kbuild by eb5fdfb2a9b7 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uxnWi-0002Sy-0K;
-	Sun, 14 Sep 2025 14:16:24 +0000
-Date: Sun, 14 Sep 2025 22:16:06 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
+	Sun, 14 Sep 2025 14:17:59 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3c46686d1e6so2349342f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 07:17:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757859476; x=1758464276; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rsUHVkzZaZp36viUnZ0K/EbyNwm+EVEnUQ5b1FzHDOg=;
+        b=W8imCIwKjUnpEf9GS2oD4aWlHlIwe8T9byIeoygjiMVw5NuQ5cZa093zmaxGH8yepW
+         N9EoZNnil8tvAZwPodZcc9mzpgM0iH4bl0yTAhnOeU+lAzht1WxDBwOceiAglo+w/iaw
+         wSaOW535TSMBT+MiPJi512u9yE9Zol325x245QlWgUNzCrkmAyN4xkwy3q0smHaPxCfG
+         VCDM/PelxWcwjjahDLDzNqWzeR5HLW1babhzOZBvhn4fAve4xdsSDryX1RMcag1UZ+Wj
+         VxZRSewvh+MDI2n43haFKqzBvt61ff1gOxg6sTOr9AB1VcgpSP9Th2ji9l8tZVmxPkwX
+         NUcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757859476; x=1758464276;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rsUHVkzZaZp36viUnZ0K/EbyNwm+EVEnUQ5b1FzHDOg=;
+        b=MNlFRua2hAgdHyBMhCJNmImdih4TkPm2fu5e4BH+wDU1D3Hplv1g+D79p4+iCW/esd
+         MGBZUDeuOZiIM1JvLPglY56G48D40ETeo02wq2UDABWMdRwWJTSnIf9g1g1h1YVQJKSM
+         HfqEJRucsD1E5icfYE9iN0s8z24MzeeonWYpff/8ekQVjhR/6HoMLPv6rAXAZ69dvGqF
+         uZIQnWCnL/WiZDUtGUtmiY5KMjOCa+SgkGRLVwgOFy14i5rSISlpPf55+h44sUyz65GM
+         cijL97olfkyC6XR2faDNZIfApFwnak+bF9bGk+0PHkpevuSfd/S364kCsgpmCTvppmkk
+         YQnA==
+X-Forwarded-Encrypted: i=1; AJvYcCW+S470QEw5PTwQiRYSZnBQrET6fO3gzMO/tNCpc1hWGPwusVAjPEfyTwWHGIwzndYNqBq+UdJhEw/IjIcsGWoO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7GCKAWn4D1RfRmVhK7KsfLUIcuFHh/R7Vawhd6rL8/WskECz9
+	T/lUjL0h/DYOiB2hDI50zXcwF1GfYw3o5Mgr3oJujX+O/2ySW6BtChFb
+X-Gm-Gg: ASbGnct8usUUzpbGbKF5FnG1bQVlu79HfLVpYvAE75TmKvG3P7tGQ6ffkS32eoPvp3/
+	Vlu/UIDzvCCXIvgSj5TnQzzksSGD0/bYpmCgxeZPASU1s5stNZXjHkSd0hI60KxBqqwnW6p+PLt
+	RSS+GfPUsVDZOI93oeam+QocQdyd5YkmRbqbngvfnhQ4A7KcWmHiqHuWu5HXm3QIo2Fy7cJHWmS
+	cFowvGH2wQSCw2NYSerX+o8O9einmZhRDP+EF8H29jT+Zp3f0vs8VyHBjnGpDpCR3rs/vXcD9nN
+	+hGkwNgrwh9Yn9fQIuIC4lTc85mZ6tpN+RE+CpbFKKmSIolg+2d3SJkJPCsNothC7EriSnjCqmx
+	Wx0P/SSbyyoAMj922TPPvi8F3KZmIv6FJ+aLQW53o+46vyBN3oRDyp+83YlR32Jv+noM01J2J74
+	aT1sDeJBKK
+X-Google-Smtp-Source: AGHT+IG7SrhD2n8YR6eRCNsiBeL2SRv1fue30YukLFK37eQXkOEUvQbSB53x/xhqHBpjrKKhjtKgHg==
+X-Received: by 2002:a05:6000:270e:b0:3e7:9d76:beb5 with SMTP id ffacd0b85a97d-3e79d76c25emr4400712f8f.14.1757859475877;
+        Sun, 14 Sep 2025 07:17:55 -0700 (PDT)
+Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e813eb46f3sm7319270f8f.23.2025.09.14.07.17.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 Sep 2025 07:17:55 -0700 (PDT)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 5/5] clk: samsung: introduce exynos8890 clock driver
-Message-ID: <202509142156.qb0htmwo-lkp@intel.com>
-References: <20250914122116.2616801-6-ivo.ivanov.ivanov1@gmail.com>
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] phy: exynos5-usbdrd: support the exynos8890 USBDRD
+Date: Sun, 14 Sep 2025 17:17:41 +0300
+Message-ID: <20250914141745.2627756-1-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250914122116.2616801-6-ivo.ivanov.ivanov1@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_071642_119713_8DB94BB6 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250914_071757_867463_1FF168AF 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,57 +106,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ivaylo,
+Hey folks,
 
-kernel test robot noticed the following build errors:
+This patchset adds support for the usbdrd phy for exynos8890. The SoC
+features 2 dwc3 controllers and 2 usb phy controllers. One of the USBs
+is used for DRD, whereas the second - for host. The host one seems to
+only be used on the MV8890 SBC, which... I don't think anyone has,
+really.
 
-[auto build test ERROR on krzk-dt/for-next]
-[also build test ERROR on linus/master v6.17-rc5]
-[cannot apply to krzk/for-next clk/clk-next next-20250912]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Code from this patchset can and will be reused for 8895 (I actually based
+it on my old 8895 work but decided to upstream it)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ivaylo-Ivanov/dt-bindings-clock-add-exynos8890-SoC/20250914-202302
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux-dt.git for-next
-patch link:    https://lore.kernel.org/r/20250914122116.2616801-6-ivo.ivanov.ivanov1%40gmail.com
-patch subject: [PATCH v1 5/5] clk: samsung: introduce exynos8890 clock driver
-config: csky-randconfig-001-20250914 (https://download.01.org/0day-ci/archive/20250914/202509142156.qb0htmwo-lkp@intel.com/config)
-compiler: csky-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250914/202509142156.qb0htmwo-lkp@intel.com/reproduce)
+Best regards,
+Ivaylo
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509142156.qb0htmwo-lkp@intel.com/
+Ivaylo Ivanov (2):
+  dt-bindings: phy: samsung,usb3-drd-phy: add exynos8890 support
+  phy: exynos5-usbdrd: support the exynos8890 USBDRD controller
 
-All errors (new ones prefixed by >>):
-
-   drivers/clk/samsung/clk-exynos8890.c: In function 'exynos8890_init_clocks':
->> drivers/clk/samsung/clk-exynos8890.c:49:45: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-      49 | #define QCH_DIS                 (QCH_MASK | FIELD_PREP(QCH_EN_MASK, 0))
-         |                                             ^~~~~~~~~~
-   drivers/clk/samsung/clk-exynos8890.c:88:31: note: in expansion of macro 'QCH_DIS'
-      88 |                         val = QCH_DIS;
-         |                               ^~~~~~~
-
-
-vim +/FIELD_PREP +49 drivers/clk/samsung/clk-exynos8890.c
-
-    39	
-    40	/*
-    41	 * As exynos8890 first introduced hwacg, cmu registers are mapped similarly
-    42	 * to exynos7, with the exception of the new q-state and q-ch registers that
-    43	 * can set the behavior of automatic gates.
-    44	 */
-    45	
-    46	/* decoded magic number from downstream */
-    47	#define QCH_EN_MASK		BIT(0)
-    48	#define QCH_MASK		(GENMASK(19, 16) | BIT(12))
-  > 49	#define QCH_DIS			(QCH_MASK | FIELD_PREP(QCH_EN_MASK, 0))
-    50	
+ .../bindings/phy/samsung,usb3-drd-phy.yaml    |  25 +++
+ drivers/phy/samsung/phy-exynos5-usbdrd.c      | 210 ++++++++++++++++++
+ 2 files changed, 235 insertions(+)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
