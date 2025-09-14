@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2ACCA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 21:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D976CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 21:57:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mmgJCfUyGE59PSXhluohTFxk2CSFp51DzKWgMlshUko=; b=Fdl0Nd1WMOxsuScHgmLo3zQDWl
-	qn8d9/VCKAXYtpBICK88wxlba0Qe808J5CzIMksmpP0NSGkGf9OMlW7Kx9JrcqGbSs7k2OUMYMe8l
-	buBRuNRpoLs/kDm83C5XDStPNHG6V0KoWU03I8X2pFWwVPlWsUw5h6sKresf0QSLji8zFpIq0OYz2
-	FWO08FcBy9N82n+tK+22PlaSiGWapaW/eG33SZEHpmuTvuy5a9/sMxf4In8WGyhQXYT+/H4aYwBL8
-	HROK9HNZJOojMrQ5tD6aPrMUEJo1GC+rt3OY+nuNJo8h/tbSE0mdZOYEJ78ivS5lx00cXCyeo6Wwx
-	gn+apelQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=frEB1stw5N7XnViY1459uXBp+ytNJah/GP226JlkULM=; b=T/NWSxLuClnu/txP5bbWB/1Vz9
+	c2taqgWIb6umP69plaNFgMqCPxKsbXKMpl0rKHOCeVWVqaCGTudiGIAGLk+9oHzeZozchCG/Urji5
+	39tAZCtbIMmv+gm27IQeCjRloBdw6yj14fCc4f2SeAjQmRYBbuo+S6cIW8H6uTiOvoeCKykf4Z224
+	GI9N5F2Yft0FnEyKWDG0co7IGORVkStRkuZe9yTeIzOTnh7hUdXVzK4j2rHtHlQZ9NzHmKcvd83wq
+	9/DJtb7X0eoi+XlQLqxl04oquTkL9p/7d6M5t4rdCbWkA0HdAqLUzStEFgexZ33veWQcG+e0NJL19
+	MdW/4hcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxu9Z-00000002F02-3Jtz;
-	Sun, 14 Sep 2025 21:20:57 +0000
-Received: from mail-10627.protonmail.ch ([79.135.106.27])
+	id 1uxuj8-00000002H71-1zDq;
+	Sun, 14 Sep 2025 21:57:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxu9V-00000002Exf-4320
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 21:20:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
-	s=protonmail; t=1757884848; x=1758144048;
-	bh=mmgJCfUyGE59PSXhluohTFxk2CSFp51DzKWgMlshUko=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=EFjT+GYPLf7Fuy9LBws+HTJ22YxKwa15I1oUIQSH2bStoj0Prtx9I6TSv40dVAifj
-	 mCT2qcc0lZTDeypszc+eBlOmJGRAyeA9furSO7n5APntt741nVGFkLg6pnAW7OBSHH
-	 QsOj1R4pnxojfEo0QGrO1K5YxUrjqqyJ8tTXGNbsrUUaHxW1vHzjCjVy26Q0Y1TJHM
-	 +iYJ/+fLSnCBqhkHrxEXkN5KObtYJZOXXJX+sdwwVMASaNF9n8ygp3tsnVpkOWcJRL
-	 hQLm+sf/n7q62Z+7XDeT1LZMcjMbV0lkeL+bkVtAUUOfz5XW/y1l+GVYfOWHRLKSzE
-	 LBPWIiFJhcDfA==
-Date: Sun, 14 Sep 2025 21:20:42 +0000
-To: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alexandru Chimac <alexchimac@protonmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-From: Alexandru Chimac <alex@chimac.ro>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Alexandru Chimac <alex@chimac.ro>
-Subject: [PATCH 8/8] arm64: dts: exynos9610-gta4xl: Assign clocks to existing nodes
-Message-ID: <20250915-exynos9610-clocks-v1-8-3f615022b178@chimac.ro>
-In-Reply-To: <20250915-exynos9610-clocks-v1-0-3f615022b178@chimac.ro>
-References: <20250915-exynos9610-clocks-v1-0-3f615022b178@chimac.ro>
-Feedback-ID: 139133584:user:proton
-X-Pm-Message-ID: 817b1c8826d8fad866384fcd032225ea749d553a
+	id 1uxuj7-00000002H6r-0MF1;
+	Sun, 14 Sep 2025 21:57:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FEC5601AC;
+	Sun, 14 Sep 2025 21:57:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 651FEC4CEF0;
+	Sun, 14 Sep 2025 21:57:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757887059;
+	bh=UzomXMO2OVf/W47Q+4CtX5NoW3MYQVWQvopO9CDJOjc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=DIfT072ZUKWuwafbT+XzNyblKmtqMiLwjIe2LsTqvzKFVgkD24Hil6F9doh8y3HN5
+	 RBiGg4uRdZK3CtZiPyKr5uVsP6N/LDKF+FzhiurEBJM+4hxaYkS2POFMncjxOiKEIE
+	 k8hKs8rKCaxqjEpT+EZAyTbDij3gjHnyvxFxXe5T2BkLt6NhBGurpnWhLp4oppvUZK
+	 xLMk0HIWgRlKr1CTpkx6w7zI8YC7HsSBfyDX7rgGRYwdpCJiK3GM7SK7X6oN0X1Fzu
+	 +b1HnZhGitHed6KFpMgxJusg5De/AlcTNy8iezumCH1hA1lwQ+X94hSDfgqttsqCSU
+	 LNHOBCO5hj25g==
+Date: Sun, 14 Sep 2025 16:57:39 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_142054_149414_5A2C2B65 
-X-CRM114-Status: UNSURE (   7.29  )
-X-CRM114-Notice: Please train this message.
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
+ linux-remoteproc@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Jjian Zhou <Jjian.Zhou@mediatek.com>, 
+ Xiangzhi Tang <Xiangzhi.Tang@mediatek.com>, 
+ linux-mediatek@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hailong Fan <Hailong.Fan@mediatek.com>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
+In-Reply-To: <20250914122943.10412-2-xiangzhi.tang@mediatek.com>
+References: <20250914122943.10412-1-xiangzhi.tang@mediatek.com>
+ <20250914122943.10412-2-xiangzhi.tang@mediatek.com>
+Message-Id: <175788697866.1955455.17302760216827607004.robh@kernel.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: Add VCP support for
+ mt8196
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,31 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Temporarily assign DISPAUD_DISP gate to simplefb node,
-until the Exynos DRM driver will support this SoC.
 
-Signed-off-by: Alexandru Chimac <alex@chimac.ro>
----
- arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts | 1 +
- 1 file changed, 1 insertion(+)
+On Sun, 14 Sep 2025 20:29:24 +0800, Xiangzhi Tang wrote:
+> Add the new binding document for MediaTek Video Companion
+> Processor(VCP) on MediaTek mt8196.
+> 
+> Signed-off-by: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
+> ---
+>  .../remoteproc/mediatek,mt8196-vcp.yaml       | 165 ++++++++++++++++++
+>  1 file changed, 165 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
+> 
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts b/arch/arm64/=
-boot/dts/exynos/exynos9610-gta4xl.dts
-index 1a09d5e8ebaa130e9cd0b7f3266ee2c9dac4cf9a..e08a3603c27396c96dc2e9d5186=
-be504ff7ce3aa 100644
---- a/arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts
-+++ b/arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts
-@@ -29,6 +29,7 @@ framebuffer0: framebuffer@ca000000 {
- =09=09=09height =3D <2000>;
- =09=09=09stride =3D <(1200 * 4)>;
- =09=09=09format =3D "a8r8g8b8";
-+=09=09=09clocks =3D <&cmu_dispaud CLK_GOUT_DISPAUD_CLK_DISPAUD_DISP>;
- =09=09};
- =09};
-=20
+My bot found errors running 'make dt_binding_check' on your patch:
 
---=20
-2.47.3
+yamllint warnings/errors:
 
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml: patternProperties:^vcp@[a-f0-9]+$:properties:mtk,vcp-core-twohart: 'anyOf' conditional failed, one must be fixed:
+	'description' is a dependency of '$ref'
+	'/schemas/types.yaml#/definitions/uint32' does not match '^#/(definitions|\\$defs)/'
+		hint: A vendor property can have a $ref to a a $defs schema
+	hint: Vendor specific properties must have a type and description unless they have a defined, common suffix.
+	from schema $id: http://devicetree.org/meta-schemas/vendor-props.yaml#
+Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dts:26:18: fatal error: dt-bindings/power/mt8196-power.h: No such file or directory
+   26 |         #include <dt-bindings/power/mt8196-power.h>
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [scripts/Makefile.dtbs:132: Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1525: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250914122943.10412-2-xiangzhi.tang@mediatek.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
