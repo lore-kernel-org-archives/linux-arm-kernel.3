@@ -4,102 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86209CAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 11:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BABC0CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 11:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V7EEVogNqm3h2fGQuXoQvzBFJfVHtUlo6y8LaBgKxgU=; b=RNN0nOuwVx8ZErFHoOIGhwvEa/
-	YInGRVYGkLJ5fhY9XEaZCUxV/gUGnktucrRzasc7x2tubW1VQoKFs+4quVmzeA2RMBzWQCEsqCE9Z
-	zDz22e20gIrMADUBz137zqbweIc0No/VZXUehrFUcWqcbWYdbrOdFUyjHQ0tunv//rLL0a2rQx0wK
-	FlhUHKpCadPBWMSRblCZGEqFncWtkECq2fhfylZcooTTIItqvOgM4RJLv64TI5UCE3VJXuVHZTkmm
-	Xi3bjyrgsuLvhO1/gysp15ZeU1CBGPJEmdGGyJpqttDQRk5kEslkx1Oyljp+BO0JBhG1PX9MTklQC
-	7tXkTq8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0lA0sZ0scMI1vlgDRPbNSunRy05u3Azkfkcb6cStDwk=; b=lGgXGBlotzpNKgKI6MizvYOJiz
+	duhjqsN8cpvcb8E7gwEBl4yqZSXvl4dJORamVpS94IXAE9gsI73uI0pt3QbqFIQcWMzCAWduFiPnF
+	8mRxggzYKRPm1YHxXQPh2eIWaGAw2h5FnTHcNZwayVHbL7r3scVgk18uOgEWPnbObjnvKbf6MAX35
+	kPKq/sdqgpu5oqaNr4wikXQB0lDx2Enz2HNRF9yrfvKFfAdvmiR8sWFzTxmJiO14y/QLp7/J2b8q+
+	n7TulX+VzNN4RWu/dZD3D4YxcaAY/OY4seOV3BAqDbYjEdB7+gtYKK0z+F2qyz5NxT78XcrbNCx2M
+	wqXlTwEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlLI-000000012HI-1q4g;
-	Sun, 14 Sep 2025 11:56:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uxlLL-000000012IQ-34ek;
+	Sun, 14 Sep 2025 11:56:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlLF-000000012GW-2x1s
+	id 1uxlLK-000000012Hj-1kkH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 11:56:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757850984;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=V7EEVogNqm3h2fGQuXoQvzBFJfVHtUlo6y8LaBgKxgU=;
-	b=gWHy8OytRbrr+hxTPoJtG9xDbnqKkDF74kKE8rxEGti4rFBrSue7Q/T4bQt5boZbVlihiW
-	eIUELjWG0tcyHnRXETW5s9mQejxFaMLvCqJC2OM30PyUyON4DxHiA7QixgFcdssc4lLH2w
-	/UKidZzfZ5yjwuZTv9i8NkFOGZmIrl8=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-84-1yQzXL2RMJ6uV1M1vVYJnw-1; Sun, 14 Sep 2025 07:56:23 -0400
-X-MC-Unique: 1yQzXL2RMJ6uV1M1vVYJnw-1
-X-Mimecast-MFC-AGG-ID: 1yQzXL2RMJ6uV1M1vVYJnw_1757850983
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7e86f8f27e1so945074385a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 04:56:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757850983; x=1758455783;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=V7EEVogNqm3h2fGQuXoQvzBFJfVHtUlo6y8LaBgKxgU=;
-        b=CfdyKfnnkeyOGbH8h2JLljzwiBPqbsEWasLfrgi8VJTqHeOVsObix4EIupL9z4qwgr
-         AKgHcZuHaDw4jHc7exdNNVjRYT/aRJcktoxeXYlvJGof9AKvVbyIXx4NZ+JJjdkhGVDV
-         7te69ha946XF/EH8lu+o96zlTFPgTPK9LCtYeAVvcCicPIfxNOJAGmj8aV6e2c00MrlF
-         OM2CD6nM2bhroFl0OVNxZyk1Q0gKqSMqJWgwd9pwBcP5G5Xw6sALpMbVthtjm9Qf5b3F
-         gZ/BTqTvoZLD0FWBh/M7AtTm3qxV+Ebc9Xfe2j9xGdbnsF71h+5yijdcicicNLfpxYaP
-         Q1rw==
-X-Forwarded-Encrypted: i=1; AJvYcCWsLroHNTxzdO1krHFdqgoIhyEPtBDiu513DG5tV9ddInUORAJ7Ix7QA0srPooj7Uv8oFtwXOmCH4YSJXdYDVam@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUruvcQme7SKATrsVEZO+OYRSY4+S5CsgU4KW8Cunmw8JpG5AH
-	V/H/U9Iir4IpCqbhNzvVxCnAmRZPP8GWnqHc7aO62VfDC3KbiW5p0X9aXBLnw9rvjx9svVIeu85
-	xCVr1pZ7f8mGBvYUh3RS6P9v7cSzfusI5lJlqljCYusi4EYFd9XLxxjfnEuD0qZ8JnG0SEiHo7q
-	39
-X-Gm-Gg: ASbGncvQ9x7CJmTGlaBCjmicAdrE0rPgvb6VggWBkji8x9I8BHEngz9P3NWiUJT4NoQ
-	V3VQEfbOS8uzb+pw5XMG+O2633cjcvjGeauVM+lBGR6AGiC/LqQYd8jGOCe41kLTbpEgrCtVFDb
-	nPKOTKXFsLfFMQMCHY72p5b2aXs1nWChMhH0jIGIHfVxKBV+J/AdkF7fUhht4yspxpth/85HSQx
-	S/o+XHln2u2qta6WsrmR0h/R8wKbC8XU/rrWK9rDerSAqsrHuA1Ea3qEFVRW0gRd0FYH38Vjota
-	NGITanocTGMji5VO71jHO8LphRx1R4ZNgpPkfqQ+bFOjsRpSgqn6H/K64D+Xahx3SM8r0neBgZx
-	zSkVyFSqB9mpkaJEjVcJvhpZjIcipHaY=
-X-Received: by 2002:a05:620a:414f:b0:7e8:8f35:1d2b with SMTP id af79cd13be357-81ff181374emr1625000085a.2.1757850982921;
-        Sun, 14 Sep 2025 04:56:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFjgXFxjwySPCU3ek1M0DJbAsGYTyjXrUec8xKOuYaZ+ALRKNikNG6Y3NJHY97G0hh6czoOhA==
-X-Received: by 2002:a05:620a:414f:b0:7e8:8f35:1d2b with SMTP id af79cd13be357-81ff181374emr1624998885a.2.1757850982589;
-        Sun, 14 Sep 2025 04:56:22 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-820c974c848sm587652085a.23.2025.09.14.04.56.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Sep 2025 04:56:22 -0700 (PDT)
-Date: Sun, 14 Sep 2025 07:56:20 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Iwona Winiarska <iwona.winiarska@intel.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
-	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] peci: controller: peci-aspeed: convert from round_rate()
- to determine_rate()
-Message-ID: <aMatZAX6eFI1RmDH@redhat.com>
-References: <20250810-peci-round-rate-v1-1-ec96d216a455@redhat.com>
+	Sun, 14 Sep 2025 11:56:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7FDFA601AA;
+	Sun, 14 Sep 2025 11:56:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DCCDC4CEF0;
+	Sun, 14 Sep 2025 11:56:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757850989;
+	bh=72P1XeE7gCDZuUaE9HGq0KcOlPy2jCWwmfe+8Bijb1Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ol+Jb1WDabHGqEYRRuzYJnuUlxI0TPcRedF4LOzhRwy8qt4x/RgCwK7skMLAwSCSh
+	 kZUkFrMXD36Md5U34jeUcfO8IsPsChQea4GO3wSj6dgx8rn0TDd0HQoUGmVtT5Jm7w
+	 4vbO2KEvBayBBL0avTBS1NNFdxwC06aRJ3zBRaFGXdgg59vBDvifFKbvWJV/W8zhJs
+	 h3JFikHNdItKWRo559a/vTFqgiVliY+2fJdgzM8XEPmEB2JiOHbpvs3YlcflCt+R/7
+	 XiqGeb2dS0XeZBx7XaJNdBDxXpg6OqUGJCvXInpFKLUIh1gsjUw2C7plVitmtAaXSt
+	 EMbSMqiD9WL/w==
+Message-ID: <21e78a0c-f1fd-4476-9553-c3890d05b635@kernel.org>
+Date: Sun, 14 Sep 2025 13:56:23 +0200
 MIME-Version: 1.0
-In-Reply-To: <20250810-peci-round-rate-v1-1-ec96d216a455@redhat.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: jndi-kbdRjATLXa16t7_dLM0bGDE8wRkpVe_g2okaNM_1757850983
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_045625_815365_8E058C8C 
-X-CRM114-Status: GOOD (  12.53  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC][PATCH v3 16/16] dt-bindings: Add Google Kinfo
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
+ andersson@kernel.org, pmladek@suse.com, rdunlap@infradead.org,
+ corbet@lwn.net, david@redhat.com, mhocko@suse.com
+Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
+ <20250912150855.2901211-17-eugen.hristev@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250912150855.2901211-17-eugen.hristev@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,20 +119,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Iwona, Joel, and Andrew,
-
-On Sun, Aug 10, 2025 at 06:21:51PM -0400, Brian Masney wrote:
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> appended to the "under-the-cut" portion of the patch.
+On 12/09/2025 17:08, Eugen Hristev wrote:
+> Add documentation for Google Kinfo kmemdump backend driver.
 > 
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
+> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
+> ---
+>  .../bindings/misc/google,kinfo.yaml           | 36 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 37 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/misc/google,kinfo.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/misc/google,kinfo.yaml b/Documentation/devicetree/bindings/misc/google,kinfo.yaml
+> new file mode 100644
+> index 000000000000..b1e4fac43586
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/misc/google,kinfo.yaml
+> @@ -0,0 +1,36 @@
+> +# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/misc/google,kinfo.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Google Pixel Kinfo debug driver
+> +
+> +maintainers:
+> +  - Eugen Hristev <eugen.hristev@linaro.org>
+> +
+> +description:
+> +  The Google Pixel Kinfo debug driver uses a supplied reserved memory area
+> +  to save debugging information on the running kernel.
 
-Would it be possible to get this picked up for v6.18? I'd like to remove
-this API from drivers/clk in v6.19.
 
-Thanks,
+Bindings should be for hardware, not drivers, so this does not belong to
+DT. It might be a dedicated reserved memory node, though.
 
-Brian
 
+Best regards,
+Krzysztof
 
