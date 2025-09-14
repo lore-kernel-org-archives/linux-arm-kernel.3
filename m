@@ -4,54 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7A9CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:44:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D037ECA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=48IVj5CqlyL/NG9D8QI6HlBHg921K6RZAXGHFBjc8Ec=; b=vtLrGkNj3aF4ItBzX28xTx+qRy
-	HsqIdJ90/X96TKkTmRmlT1lErF+GyR35+TeD67Nmk+oA+gLZrUmNrvOaQvzJzqznER7OieEaA+FKm
-	foRCrfiLvFiHjhGQP8inAh9v/i5g5bCj4nuTUOpm6isXLTxt04ss7V+Ixwu536nYuxWD0eQ8joOj3
-	fK8zqbn7H54dzNfql0UtceqH7ht0L/FIakJEuQbk8pYN6KiNycpuVSc08zCv7j6r4nWLaRMdaqcPe
-	NgVg7XzRyI3xQCQjv+2bEjgBzjVonXunddFxcvzDuHZ6YDv+3t/mmMOUBelpNEfZTtWnUDWXkHkxE
-	9L16xNYg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4k2wvUidZXGm9nxO170X/NIchLZbbnseGG9mmcEP+hU=; b=g8QblwM94DJnYsq8ksHeSOcoTN
+	xxfAvmMbrYV9tNgaHjiQbtUWzB/M/mAOUN5emI6iZSCjdofmrLFY9U8S5vqlL3gsoHl4rj16U+fRI
+	fiUvCXd3gn2ECrkMLVYXD3JOUESJC+g2eVm8RLs5J3EFylNeg9uFhje54dXHXnJu6nSr91zVFIghF
+	uRcDfsnOLb1DO0pfZsIL0ZC4a33ecGK22Yk8ClLkY/AF1K44n4z2MYmvMeA+cJCeGqTuAKjggVfrO
+	YT3KXG6STkvv1PzZDeQ9B9PhDSiR4dB6kMgZAN9vYr0fCEDZtFDIXEprmcC/SuRYKGAjx88DAWeTG
+	Om8h6DTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxtZp-00000002B80-0qJQ;
-	Sun, 14 Sep 2025 20:44:01 +0000
-Received: from mail-4317.protonmail.ch ([185.70.43.17])
+	id 1uxtZw-00000002B9l-26O9;
+	Sun, 14 Sep 2025 20:44:08 +0000
+Received: from mail-24422.protonmail.ch ([109.224.244.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxtZm-00000002B7X-264g
+	id 1uxtZt-00000002B8h-36lw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 20:44:00 +0000
+	Sun, 14 Sep 2025 20:44:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
-	s=protonmail; t=1757882633; x=1758141833;
-	bh=48IVj5CqlyL/NG9D8QI6HlBHg921K6RZAXGHFBjc8Ec=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=PRuwwEqat2/bq4H/qR19mTbOp2JpcbAyiNXaeyACK4uBTDamAJzizfLCscIL3l8pV
-	 Kj/1qUGyu5RHw/9rDv6TU1Q3Fdtx6ZpX92iXIvDqkBzHY7RBnoE6aAXRRRbcv0+V40
-	 Kpw6GRaOX1nTsCbsIcJS0xARegl0P07a8JopJCP0E+JQdq/IHKDLLxOjly4EY6eLRc
-	 3wS+SmJsx/gDQE7wyhhqS5jgEahnWC2HcemkLPr0N4aeYJBYAHaiviwSHH/emaZzMw
-	 r268HycMr5wZwR1JfXFC94rutAQ/ve3Ouoowb7Vqo3nzPARTTp2w4COj4jjeeIrlS4
-	 1WrFPEiR5Q11g==
-Date: Sun, 14 Sep 2025 20:43:47 +0000
+	s=protonmail; t=1757882643; x=1758141843;
+	bh=4k2wvUidZXGm9nxO170X/NIchLZbbnseGG9mmcEP+hU=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=bFFaJw94g3MktzhyjX0mxxW8xxGJ6ypjvj/EX34xF5UKDEYvGzvc+ctnpdwkArf28
+	 +c/uBqggqj7WsGhWli3PvmOd82NAFXGFiRFTvZrFLth6y0okDqbdbCyPh9KlxZ0i9X
+	 8K5iLG6g/lBR5yIaGgfhZeX6be1hNpCTUz4j7bDGq05BFhNhdbsW8LG0fTmKxJ5G5P
+	 wwGrWFMIVytuihscOFjmr+OaRyDUas58yDqkOo09gDUkseV0mNdR9e83ewHobx1Hiw
+	 mAXJZKRQId2Rr4gXBuBsEJI41rKzYueX8Yj2YO/splMYlnX0nuGgohRKWx7dWF1hqt
+	 +a12CJlstN51w==
+Date: Sun, 14 Sep 2025 20:43:56 +0000
 To: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>
 From: Alexandru Chimac <alex@chimac.ro>
 Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, Alexandru Chimac <alex@chimac.ro>
-Subject: [PATCH 0/3] arm64: dts: exynos: Add initial support for Exynos9610
-Message-ID: <20250914-exynos9610-devicetree-v1-0-2000fc3bbe0b@chimac.ro>
+Subject: [PATCH 1/3] dt-bindings: arm: samsung: Document gta4xl board binding
+Message-ID: <20250914-exynos9610-devicetree-v1-1-2000fc3bbe0b@chimac.ro>
+In-Reply-To: <20250914-exynos9610-devicetree-v1-0-2000fc3bbe0b@chimac.ro>
+References: <20250914-exynos9610-devicetree-v1-0-2000fc3bbe0b@chimac.ro>
 Feedback-ID: 139133584:user:proton
-X-Pm-Message-ID: c4ef3fb25bbc20795872882f29db89dd9add1fbf
+X-Pm-Message-ID: 744824239cd0443819c6a709d341ab1acfd156d6
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_134359_150995_D9208728 
-X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-CacheID: sfid-20250914_134405_932390_CB072765 
+X-CRM114-Status: UNSURE (   6.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,46 +70,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset adds device trees for Exynos9610 and Galaxy Tab S6 Lite (2020=
-).
-The primary method to boot mainline is currently via uniLoader (at github.c=
-om/ivoszbg/uniLoader).
-
-This patchset depends on the following ones being merged:
- - 20250914-exynos9610-pinctrl-b44cdfaeeed1
- - 20250914-exynos9610-chipid-b7c1600dbb92
+Add binding for the Samsung Galaxy Tab S6 Lite (SM-P610/SM-P615)
+board.
 
 Signed-off-by: Alexandru Chimac <alex@chimac.ro>
 ---
-Alexandru Chimac (3):
-      dt-bindings: arm: samsung: Document gta4xl board binding
-      arm64: dts: exynos: Add initial support for the Exynos9610 SoC
-      arm64: dts: exynos: Add initial support for Samsung Galaxy Tab S6 Lit=
-e (gta4xl)
+ Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml | 6 ++++=
+++
+ 1 file changed, 6 insertions(+)
 
- .../bindings/arm/samsung/samsung-boards.yaml       |    6 +
- arch/arm64/boot/dts/exynos/Makefile                |    1 +
- arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts   |   97 ++
- arch/arm64/boot/dts/exynos/exynos9610-pinctrl.dtsi | 1180 ++++++++++++++++=
-++++
- arch/arm64/boot/dts/exynos/exynos9610.dtsi         |  263 +++++
- 5 files changed, 1547 insertions(+)
----
-base-commit: 48c4c0b684f394721b7db809e1cc282fccdb33da
-change-id: 20250914-exynos9610-devicetree-221da550773a
-prerequisite-message-id: <20250914-exynos9610-chipid-v1-0-ade99e09a23c@chim=
-ac.ro>
-prerequisite-patch-id: eb6590750a81953810a2f29d48131b5da055a2ed
-prerequisite-patch-id: 11416958919ddfe096ba3a7c866173ee0b288fe3
-prerequisite-message-id: <20250914-exynos9610-pinctrl-v1-0-90eda0c8fa03@chi=
-mac.ro>
-prerequisite-patch-id: 27e949ada132a43ba3dbf880af3e6168ec94eaf9
-prerequisite-patch-id: f446d396d0258709db47aef69e68821eb72582dc
-prerequisite-patch-id: e3bf016be9509ee79beb3d51907ef6cd58fb98b1
+diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.y=
+aml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+index f8e20e602c2059c827ed6a7fab3ac0d8ae4caab7..ae926239f5fa434e409ccc9e302=
+66e9a1c9a8546 100644
+--- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
++++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+@@ -244,6 +244,12 @@ properties:
+               - samsung,starlte                 # Samsung Galaxy S9 (SM-G9=
+60F)
+           - const: samsung,exynos9810
+=20
++      - description: Exynos9610 based boards
++        items:
++          - enum:
++            - samsung,gta4xl # Samsung Galaxy Tab S6 Lite (SM-P610/P615)
++          - const: samsung,exynos9610
++
+       - description: Exynos990 based boards
+         items:
+           - enum:
 
-Best regards,
 --=20
-Alexandru Chimac <alex@chimac.ro>
+2.47.3
 
 
 
