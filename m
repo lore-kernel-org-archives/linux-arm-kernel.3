@@ -4,94 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 107AECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 17:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D417DCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 17:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VnBZKBOJmiN67eQQM1Bf1khwvZJgal4hwMc9eP3h39w=; b=bOdUABP3ci2ApMmAap4NJfxjIF
-	Gjv5iiuMQJYu8NxHzqeSjbTteS3OH5LzWbMu3sWuWd+RU2kfQQLCADSOTYwbCgG0jLAeUlhSQ7esr
-	mJezNiNdLCk9+H0iTChjVt3ENsbb6wVl1Wyj9vUVC2b9iuZsRiODPwuXZyP+nHhVGeXnTGDBXTVrj
-	d8SXHZltBpWtgTbeQ56Ty96djQuoeENFGl9+mrqIZ9LvJLE32f/9FqhyBy7e3ndykVc2BLgOGOrzG
-	xApqD7qChJeYfVopx3nleUSrRVCrKYAJf2E6umd91AyPOHsByKsKhWTmeOyHpYq/CEkVfMz1gnq0G
-	4U+ZHiNg==;
+	bh=WMdgI0iZ2TvocV4JZ7DyZgorR1pQL3heQi0CeqfMARw=; b=aIY8SdssO0Mj0FK7LW9WC7GMIE
+	2WqqhzBhb3+eUaJiazwEBIVV77BcFysZ/KWWRY/qb2NtGkA7fKMqUBOMW1OGBGvhGSYAzfu7sYOen
+	pVQC/1GAhQxPdK+YzqeocKGKWCCoH4etfDYfPSUQKpysGIBcSMhGF/v3YxrYDql5K8IW/iYH+7UHt
+	UzOnKST5pFoamHxDXXVCsVd/jFoWRAptjfO86X7HmxbMO/8yklM71V9cyN7YEWwuhDHmUMKzS7sRs
+	5FOLcpq0LRTdL7ykkPjfr56P1S+hk6oka9nfM3IxW3rqqDFqOcVKfGXuf0ilP5a2TjpU9+boF0xqh
+	0Pu/7Aqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxqKs-00000001uZY-3bcT;
-	Sun, 14 Sep 2025 17:16:22 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uxqKz-00000001udM-358B;
+	Sun, 14 Sep 2025 17:16:29 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxqKq-00000001uYI-1Psh
+	id 1uxqKt-00000001uZ5-0ABL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 17:16:21 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b04ba58a84fso460065266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 10:16:19 -0700 (PDT)
+	Sun, 14 Sep 2025 17:16:24 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b0e7bc49263so59074066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 10:16:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1757870178; x=1758474978; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1757870181; x=1758474981; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VnBZKBOJmiN67eQQM1Bf1khwvZJgal4hwMc9eP3h39w=;
-        b=E8c2RwmmyAwopP0Y4TojKhnMy3xujklzpzmfdn4xpVUYPYtiPSnfEm93dgj8dg2h7V
-         5aUMITilaJ6MVVmiRRjamP63XTdFnnjvNz2h7dQaaKnZkq7ex2XYp9Lk2CYO87MowLD1
-         ZdZ1DuvHbCsNn+H2qVj4XgmItAmY3jgsDCaS0=
+        bh=WMdgI0iZ2TvocV4JZ7DyZgorR1pQL3heQi0CeqfMARw=;
+        b=mGe7bBBKrsCQ1QIX79hqtejaT1T5JsnjwLlHWrF54ymCevmwJetQJDoQA1gt6lA8I0
+         aB9vNM0h+9U9hzazHCbokaSRE67S51CtTS9uHqsvc0kBP9P9kL3F4veNq4cxXWwNCIhH
+         4M60yq2prvm6IXy+sdv67OuKJ5Zhvobw9r23Y=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757870178; x=1758474978;
+        d=1e100.net; s=20230601; t=1757870181; x=1758474981;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VnBZKBOJmiN67eQQM1Bf1khwvZJgal4hwMc9eP3h39w=;
-        b=EiB8GsmeTQY0IBfw3ZqGJTihUFA5s9KGhLuvCK9cqWd2KJvpkKvTJ/AxL/hLNVuzAv
-         qW4gc8qsLONJtP3Sxes2UG6F13QdW1HwBLnc97fhAF/yWTCjX7BJpIQPj8hBGWgmPYQi
-         fDbnxqyO4PU19m1ipesIf3QxVae8MNWCTjpzlc7/fLW7bCgURFHlMaZ6L/GWw4tEddcm
-         4L9HYJOnLrIx/m5nMWENOCwVuVdDQctzyEgUz9/PPboKAosave/CDHtU8HskAZoW94By
-         eu6T7444TLaw2+GK6iksHtSugPEHfPBDXjKCDpF+2dkXLb83BuCriRPfA5L78R/tooj6
-         XEeg==
-X-Forwarded-Encrypted: i=1; AJvYcCWvBeBKRq0ENZJV27s6aHK3ATJMJZL7LeqZhmjt0Gbz3coM/J/L6Jj/BE0wZNvqywX8bkSq1bFoBfUq2KpzKPXH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/EVvjTk2rHfUCWLCwaySDwn1ii2exDD9AeEMF+g8lLbxuzDei
-	stpPf/W2vggsb0ImO69PUA45loD5U/gHOtUA4YU+9flEJSOpOPSB7ngvExRLBTkmP0M=
-X-Gm-Gg: ASbGncsh1P6RzJn7KkX+dgZSxdYNllV/HxtQ4OhjulrjfBkSa0CGOPIl/Wf7LSLRnk8
-	4NbNNTB/P1arezomt9QLgSbpEPR4w8cXmc787OGWSJbQUijXf1uZjWkW0lRMCb3WjXSYmn+Ry94
-	hpmBibl/dc4QTes4r/tT8MBi+lpc1mFyq/wTCBLhjRkgjCajzX4KdOL3SMYEHL/98HDnBKYww33
-	7GcAKnkv/vVKU5G0NruQ5X//p0JoHXEb0Qi0N6qPSu+62vyLfNeoxOQsI25x2ZXiKn5ghVmxKBj
-	PqHofqXX+8eqoYqdqOeCl/VOLo8TB/s8O9AxiO+9vNIgaJXDayJeTcJchpGp9+ETv2M8ATtJMR9
-	QD68JN/fQKB152vrUYTbrFaDW13z1vY6VwaiX1MCLWjYBXCPDNQ1lGOIS2Nd6/c7kBBABeagglG
-	9HE0WKBxIK24YWsGZhRr6p7JJApXZegke4z8a0TpklHuoKgevzcwFaPelKZRNDrqwe
-X-Google-Smtp-Source: AGHT+IGTu8BD4q01N7jRbGlEMQ6UMK1mwiKmfPW/m2RwIO0Ts7qqmSd+/c4Mm3Jym91bOgEHInMb0g==
-X-Received: by 2002:a17:907:2da2:b0:afd:d94b:830d with SMTP id a640c23a62f3a-b07c3a7b887mr976251766b.62.1757870178516;
-        Sun, 14 Sep 2025 10:16:18 -0700 (PDT)
+        bh=WMdgI0iZ2TvocV4JZ7DyZgorR1pQL3heQi0CeqfMARw=;
+        b=kNcWg9QNV7jTUZ2Omnm8fOykC4c5RIgWS1E7tdJpjWYzr8RiViJpPmVTNKRr80z1jS
+         brRVOLLWf/tHIuQY7uI4khK0SCZAqSF+5+j6UxBuAoIBBP7DiyVo+liLC6VeFLL4aJVI
+         ZyIz3X4nblzZaPIYa7Aa+nxubX4GqpK/3kw+M60hOoKey9p3O0fhLX+vQIM3nkI8OI8C
+         lot5pZc73w02K+vMvat6hefyFdDSRPaG9vt8XTyXexeU3D327Zhto4Bm0P5vnAndip7m
+         /indAQhPzGltw7QBxocQF50qWH1LsRvYbv3PhS0Ghgnj2JZAYNd8kQDO64iIn0kLvvTl
+         qLNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVRqdZPA2Qz4dz2VLpwHWCixytyYMK1ZA+KbdQ/UC2qhUR0F66n4gzm//pM2kwHePlcpT1azjukf4T+iMsr8hSY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLGz+fufN+XnOlAOkybXIbBF4nUs4bZjYlaUz2oCAZMfR8krGv
+	f+ww1oV+8g7JZnhaoT6MdxT3G/8kVZVpJANhV4DyXWFYh5aWqrzxi9T3XD+mfjmHkJg=
+X-Gm-Gg: ASbGncvazi9Cm/NLz1lsVOicadIsoYceG3YP4x/cgwiuOatLicCOm6QjdtYlgLChYq8
+	67MhlBCXtEOFCDRitx2HZ6nVqEry6W9huSSoUBoHh/TXDLz8T58ZvSREU6OsW6YC6o0jI5qusR9
+	rAjyj+iwzOGEviFeJRQdnKrfSwQm24AAPC+b6Dz9IFO7VY5R1y8VAIReCYT/jAIWI/j4Jb9WxjE
+	WpSY7ndsy55Hpyh7D6ce90yXHI8SLPGwFjco7dW1a0dppqOA0m6gVmAvGYyCObXaq7hV7KZN3xo
+	v6pbRUsPWukoWdjccuDMnOKJFzfzcWAOGPicNaH4y34adWtKsYG/3HtzpenFdjs3IxO7FtV0AGA
+	IKBIesOJv9vCazbiqVY3ufYJSKDJiRuUSHmV1ld6PRd6I8h+/X2teXn/DgG+rTkGglWNQtWU0Nw
+	TTVx8yXwLmSw4Fq8JQgQ8d19gyYS3e3nhYq5tMktV47eDDkz/QJ3jqxJ9lkuru2pXE
+X-Google-Smtp-Source: AGHT+IHfjFWKG/mF8+Rc9t6eyI85z35rKOGB32yV2tBXoq5uOjqdENe0BpELyw7Da4eiS0RVUPNPpw==
+X-Received: by 2002:a17:907:c08:b0:b04:3a46:c4f2 with SMTP id a640c23a62f3a-b07c383f1bemr990265066b.48.1757870181371;
+        Sun, 14 Sep 2025 10:16:21 -0700 (PDT)
 Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b334e76dsm776980466b.102.2025.09.14.10.16.17
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b334e76dsm776980466b.102.2025.09.14.10.16.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Sep 2025 10:16:18 -0700 (PDT)
+        Sun, 14 Sep 2025 10:16:21 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: Frank Li <Frank.Li@nxp.com>,
 	linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	Fabio Estevam <festevam@gmail.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-input@vger.kernel.org
-Subject: [PATCH v2 2/6] Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros
-Date: Sun, 14 Sep 2025 19:15:59 +0200
-Message-ID: <20250914171608.1050401-3-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v2 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support glitch thresold
+Date: Sun, 14 Sep 2025 19:16:01 +0200
+Message-ID: <20250914171608.1050401-5-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250914171608.1050401-1-dario.binacchi@amarulasolutions.com>
 References: <20250914171608.1050401-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_101620_420318_EBCC3797 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250914_101623_107326_0CBA30FC 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,204 +110,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace opencoded masking and shifting, with BIT(), GENMASK(),
-FIELD_GET() and FIELD_PREP() macros.
+Support the touchscreen-glitch-threshold-ns property. Unlike the
+generic description in touchscreen.yaml, this controller maps the
+provided value to one of four discrete thresholds internally.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
 ---
 
-Changes in v2:
-- Add Reviewed-by tag of Frank Li.
-- Move the patch right after the one fixing the typo according
-  to Frank Li's suggestions.
+(no changes since v1)
 
- drivers/input/touchscreen/imx6ul_tsc.c | 96 +++++++++++++++-----------
- 1 file changed, 54 insertions(+), 42 deletions(-)
+ .../input/touchscreen/fsl,imx6ul-tsc.yaml         | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/drivers/input/touchscreen/imx6ul_tsc.c b/drivers/input/touchscreen/imx6ul_tsc.c
-index c2c6e50efc54..e2c59cc7c82c 100644
---- a/drivers/input/touchscreen/imx6ul_tsc.c
-+++ b/drivers/input/touchscreen/imx6ul_tsc.c
-@@ -7,6 +7,7 @@
- #include <linux/errno.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/bitfield.h>
- #include <linux/gpio/consumer.h>
- #include <linux/input.h>
- #include <linux/slab.h>
-@@ -20,25 +21,23 @@
- #include <linux/log2.h>
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+index 678756ad0f92..310af56a0be6 100644
+--- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
++++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+@@ -62,6 +62,21 @@ properties:
+     description: Number of data samples which are averaged for each read.
+     enum: [ 1, 4, 8, 16, 32 ]
  
- /* ADC configuration registers field define */
--#define ADC_AIEN		(0x1 << 7)
-+#define ADC_AIEN		BIT(7)
-+#define ADC_ADCH_MASK		GENMASK(4, 0)
- #define ADC_CONV_DISABLE	0x1F
--#define ADC_AVGE		(0x1 << 5)
--#define ADC_CAL			(0x1 << 7)
--#define ADC_CALF		0x2
--#define ADC_12BIT_MODE		(0x2 << 2)
--#define ADC_CONV_MODE_MASK	(0x3 << 2)
-+#define ADC_AVGE		BIT(5)
-+#define ADC_CAL			BIT(7)
-+#define ADC_CALF		BIT(1)
-+#define ADC_CONV_MODE_MASK	GENMASK(3, 2)
-+#define ADC_12BIT_MODE		0x2
- #define ADC_IPG_CLK		0x00
--#define ADC_INPUT_CLK_MASK	0x3
--#define ADC_CLK_DIV_8		(0x03 << 5)
--#define ADC_CLK_DIV_MASK	(0x3 << 5)
--#define ADC_SHORT_SAMPLE_MODE	(0x0 << 4)
--#define ADC_SAMPLE_MODE_MASK	(0x1 << 4)
--#define ADC_HARDWARE_TRIGGER	(0x1 << 13)
--#define ADC_AVGS_SHIFT		14
--#define ADC_AVGS_MASK		(0x3 << 14)
-+#define ADC_INPUT_CLK_MASK	GENMASK(1, 0)
-+#define ADC_CLK_DIV_8		0x03
-+#define ADC_CLK_DIV_MASK	GENMASK(6, 5)
-+#define ADC_SAMPLE_MODE		BIT(4)
-+#define ADC_HARDWARE_TRIGGER	BIT(13)
-+#define ADC_AVGS_MASK		GENMASK(15, 14)
- #define SELECT_CHANNEL_4	0x04
- #define SELECT_CHANNEL_1	0x01
--#define DISABLE_CONVERSION_INT	(0x0 << 7)
- 
- /* ADC registers */
- #define REG_ADC_HC0		0x00
-@@ -65,19 +64,26 @@
- #define REG_TSC_DEBUG_MODE	0x70
- #define REG_TSC_DEBUG_MODE2	0x80
- 
-+/* TSC_MEASURE_VALUE register field define */
-+#define X_VALUE_MASK		GENMASK(27, 16)
-+#define Y_VALUE_MASK		GENMASK(11, 0)
++  touchscreen-glitch-threshold-ns:
++    description: |
++      Unlike the generic property defined in touchscreen.yaml, this
++      controller does not allow arbitrary values. Internally the value is
++      converted to IPG clock cycles and mapped to one of four discrete
++      thresholds exposed by the TSC_DEBUG_MODE2 register:
 +
- /* TSC configuration registers field define */
--#define DETECT_4_WIRE_MODE	(0x0 << 4)
--#define AUTO_MEASURE		0x1
--#define MEASURE_SIGNAL		0x1
--#define DETECT_SIGNAL		(0x1 << 4)
--#define VALID_SIGNAL		(0x1 << 8)
--#define MEASURE_INT_EN		0x1
--#define MEASURE_SIG_EN		0x1
--#define VALID_SIG_EN		(0x1 << 8)
--#define DE_GLITCH_2		(0x2 << 29)
--#define START_SENSE		(0x1 << 12)
--#define TSC_DISABLE		(0x1 << 16)
-+#define MEASURE_DELAY_TIME_MASK	GENMASK(31, 8)
-+#define DETECT_5_WIRE_MODE	BIT(4)
-+#define AUTO_MEASURE		BIT(0)
-+#define MEASURE_SIGNAL		BIT(0)
-+#define DETECT_SIGNAL		BIT(4)
-+#define VALID_SIGNAL		BIT(8)
-+#define MEASURE_INT_EN		BIT(0)
-+#define MEASURE_SIG_EN		BIT(0)
-+#define VALID_SIG_EN		BIT(8)
-+#define DE_GLITCH_MASK		GENMASK(30, 29)
-+#define DE_GLITCH_2		0x02
-+#define START_SENSE		BIT(12)
-+#define TSC_DISABLE		BIT(16)
- #define DETECT_MODE		0x2
-+#define STATE_MACHINE_MASK	GENMASK(22, 20)
- 
- struct imx6ul_tsc {
- 	struct device *dev;
-@@ -112,19 +118,20 @@ static int imx6ul_adc_init(struct imx6ul_tsc *tsc)
- 
- 	adc_cfg = readl(tsc->adc_regs + REG_ADC_CFG);
- 	adc_cfg &= ~(ADC_CONV_MODE_MASK | ADC_INPUT_CLK_MASK);
--	adc_cfg |= ADC_12BIT_MODE | ADC_IPG_CLK;
--	adc_cfg &= ~(ADC_CLK_DIV_MASK | ADC_SAMPLE_MODE_MASK);
--	adc_cfg |= ADC_CLK_DIV_8 | ADC_SHORT_SAMPLE_MODE;
-+	adc_cfg |= FIELD_PREP(ADC_CONV_MODE_MASK, ADC_12BIT_MODE) |
-+		FIELD_PREP(ADC_INPUT_CLK_MASK, ADC_IPG_CLK);
-+	adc_cfg &= ~(ADC_CLK_DIV_MASK | ADC_SAMPLE_MODE);
-+	adc_cfg |= FIELD_PREP(ADC_CLK_DIV_MASK, ADC_CLK_DIV_8);
- 	if (tsc->average_enable) {
- 		adc_cfg &= ~ADC_AVGS_MASK;
--		adc_cfg |= (tsc->average_select) << ADC_AVGS_SHIFT;
-+		adc_cfg |= FIELD_PREP(ADC_AVGS_MASK, tsc->average_select);
- 	}
- 	adc_cfg &= ~ADC_HARDWARE_TRIGGER;
- 	writel(adc_cfg, tsc->adc_regs + REG_ADC_CFG);
- 
- 	/* enable calibration interrupt */
- 	adc_hc |= ADC_AIEN;
--	adc_hc |= ADC_CONV_DISABLE;
-+	adc_hc |= FIELD_PREP(ADC_ADCH_MASK, ADC_CONV_DISABLE);
- 	writel(adc_hc, tsc->adc_regs + REG_ADC_HC0);
- 
- 	/* start ADC calibration */
-@@ -164,19 +171,21 @@ static void imx6ul_tsc_channel_config(struct imx6ul_tsc *tsc)
- {
- 	u32 adc_hc0, adc_hc1, adc_hc2, adc_hc3, adc_hc4;
- 
--	adc_hc0 = DISABLE_CONVERSION_INT;
-+	adc_hc0 = FIELD_PREP(ADC_AIEN, 0);
- 	writel(adc_hc0, tsc->adc_regs + REG_ADC_HC0);
- 
--	adc_hc1 = DISABLE_CONVERSION_INT | SELECT_CHANNEL_4;
-+	adc_hc1 = FIELD_PREP(ADC_AIEN, 0) |
-+		FIELD_PREP(ADC_ADCH_MASK, SELECT_CHANNEL_4);
- 	writel(adc_hc1, tsc->adc_regs + REG_ADC_HC1);
- 
--	adc_hc2 = DISABLE_CONVERSION_INT;
-+	adc_hc2 = FIELD_PREP(ADC_AIEN, 0);
- 	writel(adc_hc2, tsc->adc_regs + REG_ADC_HC2);
- 
--	adc_hc3 = DISABLE_CONVERSION_INT | SELECT_CHANNEL_1;
-+	adc_hc3 = FIELD_PREP(ADC_AIEN, 0) |
-+		FIELD_PREP(ADC_ADCH_MASK, SELECT_CHANNEL_1);
- 	writel(adc_hc3, tsc->adc_regs + REG_ADC_HC3);
- 
--	adc_hc4 = DISABLE_CONVERSION_INT;
-+	adc_hc4 = FIELD_PREP(ADC_AIEN, 0);
- 	writel(adc_hc4, tsc->adc_regs + REG_ADC_HC4);
- }
- 
-@@ -188,13 +197,16 @@ static void imx6ul_tsc_channel_config(struct imx6ul_tsc *tsc)
- static void imx6ul_tsc_set(struct imx6ul_tsc *tsc)
- {
- 	u32 basic_setting = 0;
-+	u32 debug_mode2;
- 	u32 start;
- 
--	basic_setting |= tsc->measure_delay_time << 8;
--	basic_setting |= DETECT_4_WIRE_MODE | AUTO_MEASURE;
-+	basic_setting |= FIELD_PREP(MEASURE_DELAY_TIME_MASK,
-+				    tsc->measure_delay_time);
-+	basic_setting |= AUTO_MEASURE;
- 	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETTING);
- 
--	writel(DE_GLITCH_2, tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
-+	debug_mode2 = FIELD_PREP(DE_GLITCH_MASK, DE_GLITCH_2);
-+	writel(debug_mode2, tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
- 
- 	writel(tsc->pre_charge_time, tsc->tsc_regs + REG_TSC_PRE_CHARGE_TIME);
- 	writel(MEASURE_INT_EN, tsc->tsc_regs + REG_TSC_INT_EN);
-@@ -250,7 +262,7 @@ static bool tsc_wait_detect_mode(struct imx6ul_tsc *tsc)
- 
- 		usleep_range(200, 400);
- 		debug_mode2 = readl(tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
--		state_machine = (debug_mode2 >> 20) & 0x7;
-+		state_machine = FIELD_GET(STATE_MACHINE_MASK, debug_mode2);
- 	} while (state_machine != DETECT_MODE);
- 
- 	usleep_range(200, 400);
-@@ -278,8 +290,8 @@ static irqreturn_t tsc_irq_fn(int irq, void *dev_id)
- 
- 	if (status & MEASURE_SIGNAL) {
- 		value = readl(tsc->tsc_regs + REG_TSC_MEASURE_VALUE);
--		x = (value >> 16) & 0x0fff;
--		y = value & 0x0fff;
-+		x = FIELD_GET(X_VALUE_MASK, value);
-+		y = FIELD_GET(Y_VALUE_MASK, value);
- 
- 		/*
- 		 * In detect mode, we can get the xnur gpio value,
++        0: 8191 IPG cycles
++        1: 4095 IPG cycles
++        2: 2047 IPG cycles
++        3: 1023 IPG cycles
++
++      Any value provided in device tree is converted to cycles and rounded
++      up to the next supported threshold, or to 8191 if above 4095.
++
+ required:
+   - compatible
+   - reg
 -- 
 2.43.0
 
