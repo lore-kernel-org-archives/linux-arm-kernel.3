@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB292CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 19:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F75CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 19:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ucEMkCrQGIdJ4Nevg1/Hu+/wNjfyLfIiVA+eKeRhwJg=; b=od3Zot3JJ6mlbRWeTFXKjlWkPm
-	yWdkfe6ivIcg1wAGhx8FyjSBMEzrEeItNGmtfGf7jueK9XmMn7oAbY1ogtyzbcf4I61Cq8MhEgei4
-	iMaE/63DeYt0umGeaKmUctcLxPxs2EPafumVZghnsvRvxdFgW+QURa7dQ+PqM0GFym/FvcMKWj7sC
-	6jixLr8M/ZOEhGMqz3fMvEADkUT6m7NYAeaXAsBjgizEz9HLO+Tf/I2IDuvfGU/l8Ez3TbiPtxxRv
-	PNw7DPhr6e2BGTiprP5/qB+U6Myg0Fc7ozadhy/ZrjmLj/zrQzkLdoLmClvF1+xwckBARUQqM/drr
-	DwzAL3nA==;
+	bh=gzCJFtXYRyJroeLFXYB/us06vnoQums11eW20jk6YCE=; b=GRqU5XbJEy9M+hXOLC7B57Ur+h
+	HQ63sEPZfDcpcqyNIHNHhujpvqteoBbm71Z1NTMTGUlg36Xf7WY8BdQTcLSM/rik86t6UBlF9Z1ew
+	ZBd1cXny9Z2dMx8J0n8LpMZVpDqVWjIgHgzaaxMKAV9Dqg1Eb7G5mORM8OEUkpkWFGyWU1kzFnHCA
+	U3Ib7FH81+3eNpbfPG4+LmhWokzbybj7lxvN/R5boCqOIHWXfEvPyZX04/Jp0ZPvCii+w0q876qY2
+	43iCKwzvNUhT3WS1Hgh3Nlq+T06dltrsRvqiLmNOcbFeZD6RAGBR4WdZmonRlez9njZRBLX0RVrf7
+	CBsrM7cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxsYv-000000024ZO-1TvZ;
+	id 1uxsYv-000000024Zj-2kw4;
 	Sun, 14 Sep 2025 19:39:01 +0000
-Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
+Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxsYr-000000024Xq-1PvQ
+	id 1uxsYt-000000024YW-0jiQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 19:38:58 +0000
-Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
-	by mailfout.stl.internal (Postfix) with ESMTP id BE00A1D000BD;
-	Sun, 14 Sep 2025 15:38:55 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-07.internal (MEProxy); Sun, 14 Sep 2025 15:38:56 -0400
+	Sun, 14 Sep 2025 19:39:00 +0000
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 3DA107A0123;
+	Sun, 14 Sep 2025 15:38:58 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-11.internal (MEProxy); Sun, 14 Sep 2025 15:38:58 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1757878735;
-	 x=1757965135; bh=ucEMkCrQGIdJ4Nevg1/Hu+/wNjfyLfIiVA+eKeRhwJg=; b=
-	rIc89o2uVaJOm+ZYgrx/GrJQiamMCqQd0XMYNXzSywWf6221V046XGVOGXmPkYfK
-	WAXO19Bzn/mNhZqOJ1qTTTiy3aqcsddRxzaQrCA301O1x75yZxcED5hErDF1OfEI
-	wLovP5emG/IYpA9OYudC0/ZUUKO6gi9R8mH99flumNB6bYO/qKaYunArncVk0kjV
-	FP/kkSpIU1zqorxI50hGmVr8IRGTZOAdMQIebcc+rVDO7dUOtXZ5Qi4Jcg1D1Yff
-	Pt1Z0bjzgs395itrIgjYrgBepuerw4qcvtQFPN3IL/Ttvs4SDweTZsY0RICbyXSW
-	A65H7g5m4xNFmTfumkJmSw==
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1757878738;
+	 x=1757965138; bh=gzCJFtXYRyJroeLFXYB/us06vnoQums11eW20jk6YCE=; b=
+	mwkPIpohZEhwqI/IwhfqkGTZsjuM2JNlvIeiphXFrUXYUiU2UMQ8Zl+1N71ETRMp
+	mvj4n/WWKuaX6HUA0cwh7EWdiqLsMEmMl0RtxLH3YIqN9NSvlVve6j6p0HfWUYY9
+	nbZ0O6kNkwaflL8XqWVlhSVd4S35DN7Ck5wk4yc4mKvPPirzexTqhXt9x0Z/Qeqr
+	Ljl7DK55UdouDTDE650JbziP2P7yZ7JsbSVmjO2YyIHJw+8JsQs8oJm+B5Ep3F8Z
+	jGlsulkARvxT/2Qs2PNdUOXcPVNa63J9CMzaiCZMhS4SBQAeosEGAHNquGlGzovk
+	WZJtrJ7SwsPCQBTzo41mLQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1757878735; x=
-	1757965135; bh=ucEMkCrQGIdJ4Nevg1/Hu+/wNjfyLfIiVA+eKeRhwJg=; b=R
-	bV4XuujsswLV1+C2zkSnLKqCRZsuP2jDcfXeAvjkaudZRwsNHN+cH0PNhMQqGkr9
-	EsOZpbcmfQS96wX8GCFhsGBO2D+0MuISAZEa/gg8X+O2z+G2veiyCfgGJyRj7Jxf
-	g/4ASo9P417pF3QJp1FruDt28evOtnDPVIXTUkhjYmH/Fdm4kM9aHBmXotpqXALH
-	5fhPROGocn3Iw9sLoKJKiPn2UcS7rYF1wz2l8WySCyATRFuHYxldvf7DYycLV3Ww
-	HQzWJKOO/RCK4rWPiquBGZLjnUhb9ig3i9vYd2Ll2kqpjpXMk07pQKXhtSE4tGF/
-	zCq0KMZjlSGpUE/TFyerQ==
-X-ME-Sender: <xms:zhnHaEjpsDHR4NcIsVTZrHlwbjmZNhHmN1EJEjhWhvgaig-LD4wQpw>
-    <xme:zhnHaNKUBduGkNFvLx18XM25VzsugmQp5fuUkLQLKbg1LQetWAVUmdCCzW37PZ7ac
-    41q5IR_XWIAnF5CyNY>
-X-ME-Received: <xmr:zhnHaDge4hmjTcVONSwITglBXpWkImS_fKNaq0prLrDEEy9JrD8NANi0JeHDXQr8orSZV7pQe0Z8_CGQfEI8QpAtGZEexUtWowiXPQ>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1757878738; x=
+	1757965138; bh=gzCJFtXYRyJroeLFXYB/us06vnoQums11eW20jk6YCE=; b=C
+	B0Z69C6bJUj+e288TUML+f83a1KSjhZ8NqlbXBZPhgkE1Ja2aq9WU5q2bw8TYa0W
+	AceMMk6KRLyuvfKXudhE4FSR+cdc8w+ioVsThTFg1QaiGJFjCFcH9WQ/BaetqrLw
+	bPpTOoTcnGreYbJ5rGyRJVdGZf5nMwgLrEGLLMV6QRklGDjoZdjga+GfY1eNu4cA
+	ussW4QoqX+21fZ+5fzOqgD4EqzTEWPWh1Ro3jB2tIJocWeUA3jY/EXbEnaBVb99/
+	G5fQmC4y6iJL0dv2JOQj9t+MrXQW7RuBxYGwPy3TiH/gY4IMM7gFI6KG3tHznHuy
+	eAmWrgQ6ek/uYrcT1YNSQ==
+X-ME-Sender: <xms:0RnHaC2Xljp3iwt1DT_FIw4zAMwm-GFn-HfDTnBvT2ncv5GAKeDteA>
+    <xme:0RnHaMUZ5GjcBDlVze7_g6SifHh9biwnOnkvsgDzhPHg52jCcxd6qonI8JRASb9CN
+    RYdkze76BLLPqTDBuE>
+X-ME-Received: <xmr:0RnHaFw-YmCxdUZ3srnpsX9BWVxk_HFwmGt8JVmTMQQFltsW6Zr5BzY22BtC_wb1oL42wrqfP0iClFgqSx8_tHDjyu-ikoixZnYaAA>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdefheeijecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
@@ -67,30 +67,30 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdefheeijecutefuodetgg
     ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpeefhe
     ehieeludffheetiefhvddtleffuddtleduudeiudetvdefffehkeehgfettdenucevlhhu
     shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
-    drnhgvthdpnhgspghrtghpthhtohepudegpdhmohguvgepshhmthhpohhuthdprhgtphht
+    drnhgvthdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphht
     thhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgvrghlsehgohhmph
     grrdguvghvpdhrtghpthhtohepjhesjhgrnhhnrghurdhnvghtpdhrtghpthhtoheprghs
     rghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrh
     hmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthho
-    pehmrgiisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiihihsiihtohhfrdhkoh
-    iilhhofihskhhisehlihhnrghrohdrohhrghdprhgtphhtthhopehsvhgvnheskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvg
-    hlrdhorhhg
-X-ME-Proxy: <xmx:zhnHaL3N00QCZPuX01YnvmVQt7cFmqU_jmG66W8I7xR80ksKr8P2yg>
-    <xmx:zxnHaJiLqUSVfHtA1F7qtQfO2WB-_B_lT3Ys0jtXEzZInF3166544Q>
-    <xmx:zxnHaM8E5qPDJL98IVtSwGJxODbEwSnm9aII9qGWAKrmdjsrJBRoiA>
-    <xmx:zxnHaFJ5wJW5hWD5aoVh_R3Quiud8Uo1FAuzj6woNzaFtkKP6SCJFw>
-    <xmx:zxnHaNzEoSnxmcj0K8p3Kw4UD_UxchKUqawnYu-owLFrlnfuBDRiR6EH>
+    pehmrgiisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrd
+    horhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdho
+    rhhgpdhrtghpthhtoheprghlhihsshgrsehrohhsvghniiifvghighdrihho
+X-ME-Proxy: <xmx:0RnHaDy9FbKT7J-iCQ9IPTsKyBZodP9yoDl91f2ikR6qbBp1CD5z4Q>
+    <xmx:0RnHaK25s3Q9eePhupYu0QpHuaR6pngwVa02FchMe2nONa1vSTBiwA>
+    <xmx:0RnHaBoQTz2-JBJXlTPQLEeR9KGpBMKPc8QVJ7hLQvRuRav2ohwmUw>
+    <xmx:0RnHaAC3-cd5xE797989RGJHJq9ip1d9LNKlnO_L_zYZsE9RU3HRSQ>
+    <xmx:0hnHaKnasb0TRCXW2cEp6bv3DTB3CWmJk35Z3UltyrcuA-rVmMeMdOo_>
 Feedback-ID: i47b949f6:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 14 Sep 2025 15:38:54 -0400 (EDT)
+ 14 Sep 2025 15:38:57 -0400 (EDT)
 From: Janne Grunau <j@jannau.net>
-Date: Sun, 14 Sep 2025 21:38:44 +0200
-Subject: [PATCH v2 1/6] dt-bindings: arm: apple: Add t6020x compatibles
+Date: Sun, 14 Sep 2025 21:38:45 +0200
+Subject: [PATCH v2 2/6] arm64: dts: apple: Add ethernet0 alias for J375
+ template
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250914-dt-apple-t6020-v2-1-1a738a98bb43@jannau.net>
+Message-Id: <20250914-dt-apple-t6020-v2-2-1a738a98bb43@jannau.net>
 References: <20250914-dt-apple-t6020-v2-0-1a738a98bb43@jannau.net>
 In-Reply-To: <20250914-dt-apple-t6020-v2-0-1a738a98bb43@jannau.net>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -99,21 +99,19 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
  Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>, 
  Marc Zyngier <maz@kernel.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3210; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=yAz8uxGOoeAELBwQQr/MUQrZttiky7faDv9NWAZtF4Y=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhozjkifDd0zgzHb7tFto9gSmK2dr3Sb0KxtzX+Mt7JO2+
- BLD1KXbUcrCIMbFICumyJKk/bKDYXWNYkztgzCYOaxMIEMYuDgFYCJPlzH8r1uTo7XifMDsf4dr
- V7co9vpdlNySt0E99/Vu78b/Hq+czjD8z7geuKJAgnO6wGaZ5FiVQ5ESp+0Xc9+Yr5n4S1YqNuE
- ANwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=762; i=j@jannau.net; s=yk2025;
+ h=from:subject:message-id; bh=W0OKDz1j+KjVHP3zG7O8HDQskqjMR1ZP/OoML7KXvAw=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhozjkicjsxcYfzJhyixt5OcWjajdME1gxU2nUOkDmddNF
+ KvPrMvsKGVhEONikBVTZEnSftnBsLpGMab2QRjMHFYmkCEMXJwCMBHzo4wMT0TLG0ru7ZZSapt6
+ 7cuEx7NubjwaFfAo5+iOAo5n33Ob5jH8j/VSYHlx72vu47lh9QXLWeZ2KcQrW9/+qP3g4NtE3Vn
+ O7AA=
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_123857_489397_4A5C004F 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20250914_123859_275450_E9CA67ED 
+X-CRM114-Status: UNSURE (   9.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,89 +127,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds the following apple,t6020/t6021/t6022 platforms:
+The alias is used by the boot loader to fill the MAC address.
 
-- apple,j414s - MacBook Pro (14-inch, M2 Pro, 2023)
-- apple,j414c - MacBook Pro (14-inch, M2 Nax, 2023)
-- apple,j416s - MacBook Pro (16-inch, M2 Pro, 2023)
-- apple,j416c - MacBook Pro (16-inch, M2 Max, 2023)
-- apple,j474s - Mac mini (M2 Pro, 2023)
-- apple,j475c - Mac Studio (M2 Max, 2023)
-- apple,j475d - Mac Studio (M2 Ultra, 2023)
-- apple,j475d - Mac Pro (M2 Ultra, 2023)
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Fixes: aaa1d42a4ce3 ("arm64: dts: apple: Add J375 devicetrees")
 Reviewed-by: Neal Gompa <neal@gompa.dev>
 Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- Documentation/devicetree/bindings/arm/apple.yaml | 39 +++++++++++++++++++++++-
- 1 file changed, 38 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/apple/t600x-j375.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/apple.yaml b/Documentation/devicetree/bindings/arm/apple.yaml
-index 7073535b7c5b5ce885391699af56751241ddacb5..5c2629ec3d4cbcee49d3ff6a4db1cc8298e2a2e1 100644
---- a/Documentation/devicetree/bindings/arm/apple.yaml
-+++ b/Documentation/devicetree/bindings/arm/apple.yaml
-@@ -96,7 +96,7 @@ description: |
-   - MacBook Pro (13-inch, M2, 2022)
-   - Mac mini (M2, 2023)
- 
--  And devices based on the "M1 Pro", "M1 Max" and "M1 Ultra" SoCs:
-+  Devices based on the "M1 Pro", "M1 Max" and "M1 Ultra" SoCs:
- 
-   - MacBook Pro (14-inch, M1 Pro, 2021)
-   - MacBook Pro (14-inch, M1 Max, 2021)
-@@ -105,6 +105,17 @@ description: |
-   - Mac Studio (M1 Max, 2022)
-   - Mac Studio (M1 Ultra, 2022)
- 
-+  Devices based on the "M2 Pro", "M2 Max" and "M2 Ultra" SoCs:
-+
-+  - MacBook Pro (14-inch, M2 Pro, 2023)
-+  - MacBook Pro (14-inch, M2 Max, 2023)
-+  - MacBook Pro (16-inch, M2 Pro, 2023)
-+  - MacBook Pro (16-inch, M2 Max, 2023)
-+  - Mac mini (M2 Pro, 2023)
-+  - Mac Studio (M2 Max, 2023)
-+  - Mac Studio (M2 Ultra, 2023)
-+  - Mac Pro (M2 Ultra, 2023)
-+
-   The compatible property should follow this format:
- 
-   compatible = "apple,<targettype>", "apple,<socid>", "apple,arm-platform";
-@@ -310,6 +321,32 @@ properties:
-           - const: apple,t6002
-           - const: apple,arm-platform
- 
-+      - description: Apple M2 Pro SoC based platforms
-+        items:
-+          - enum:
-+              - apple,j414s # MacBook Pro (14-inch, M2 Pro, 2023)
-+              - apple,j416s # MacBook Pro (16-inch, M2 Pro, 2023)
-+              - apple,j474s # Mac mini (M2 Pro, 2023)
-+          - const: apple,t6020
-+          - const: apple,arm-platform
-+
-+      - description: Apple M2 Max SoC based platforms
-+        items:
-+          - enum:
-+              - apple,j414c # MacBook Pro (14-inch, M2 Max, 2023)
-+              - apple,j416c # MacBook Pro (16-inch, M2 Max, 2023)
-+              - apple,j475c # Mac Studio (M2 Max, 2023)
-+          - const: apple,t6021
-+          - const: apple,arm-platform
-+
-+      - description: Apple M2 Ultra SoC based platforms
-+        items:
-+          - enum:
-+              - apple,j180d # Mac Pro (M2 Ultra, 2023)
-+              - apple,j475d # Mac Studio (M2 Ultra, 2023)
-+          - const: apple,t6022
-+          - const: apple,arm-platform
-+
- additionalProperties: true
- 
- ...
+diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+index ed38acc0dfc36a1e30b1d44f1a8dcee089e87232..c0fb93ae72f4d4fcb254a36dc408d55ab1bca0e9 100644
+--- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+@@ -12,6 +12,7 @@
+ / {
+ 	aliases {
+ 		bluetooth0 = &bluetooth0;
++		ethernet0 = &ethernet0;
+ 		serial0 = &serial0;
+ 		wifi0 = &wifi0;
+ 	};
 
 -- 
 2.51.0
