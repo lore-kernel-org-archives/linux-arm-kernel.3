@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0427ECA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002DACA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:
-	References:Date:Message-Id:From:Subject:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fvpjs0BqN0pyTli6k6OgxsXb9XXuOU84MIIbCqeK10g=; b=kS7d6rQU8M5MVXnBswZAdgrsbe
-	U8NgFDeRPXtHHicryqZZ3j+BJJ+i1G8gnx3kWdBFGQcisGVb5vzpvkhs2qPEi853A02H57a7ifwKF
-	MhWMQzqu6PR5SCn3UgqNWZ9iDt/+Ll+uHyUyrfkOWEK3XXoH6u+7a11xbWwnL978SkYh8BFiWSgdV
-	nTACBbjL4K1ceBvmnR8SCpryKTJ9jLYZyMP9iytq2Jfbgpd6EPtlaf4k2/hS049yCJsKic0/Gg6+/
-	v7vzKZq6n9Dapb9T4SlgLDlPGLT0Pz9eI8Lf4qz+stlrpoJqY21JSkkO0sZOqfGcajsUhAfZl1/zu
-	qHGEEiyQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OWMH7QKFrmOpM3PC2q24WTKS7xGZo6kSzJtOAukfP24=; b=SDOE1u2M3Gfgl5pHHZ8H86VhT+
+	bYgevvR92aH+KDyWLevNmGuPKVpaoC+oUi+pqJj2V129i2f5IfdD71zrnQ0InXWeN0O3y1DQamdJF
+	C0aRB85EHJ/WbvzvFV1XnrmVudSIl1UZZ1nwgLR3oy8E9MbV2682/WNwZ27CImNZuMqG2hvfgTW7k
+	Iu/UlKsZNgoq6H3ZTOpglTb9VXkeHYyCHUbFU3YLfrMKYMD4pG0bJo/cOFJo6qVOeGGCn29gjUzvX
+	gOBNoXdbgQGvqf6Y9DEEkBS61G6F+8lDUNX/601mZ2I+Qx6TU9w9pOGY8vL1GqmcYa6Wr9VWlOmFd
+	QZam5fpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxt3H-000000027Fi-1u6d;
-	Sun, 14 Sep 2025 20:10:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uxtKN-000000029Fk-0dNh;
+	Sun, 14 Sep 2025 20:28:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxt3F-000000027FI-1D1h
+	id 1uxtKL-000000029FS-2Sm2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 20:10:22 +0000
+	Sun, 14 Sep 2025 20:28:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F26304429C;
-	Sun, 14 Sep 2025 20:10:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA54AC4CEF0;
-	Sun, 14 Sep 2025 20:10:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8EE7C601AA;
+	Sun, 14 Sep 2025 20:28:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1D97C4CEF0;
+	Sun, 14 Sep 2025 20:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757880620;
-	bh=jaRrPAgWKjDQlUKhFim10dcggCFExzmEAeZ51T9N4xM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Ioa37xFKekcZtgaxszIXsoLrlcf9VeQ4jiJy8Ujo7j9mZK9elQuYamTRAX+Xg+Nt6
-	 FM6t88R56qJrsRyJaa5fCYjLvE71WMNyJ/8CS5hYvq/NSLxibnMEXHB6Z3WFuesxPC
-	 B+X2ihYTNHfUpLmGIz18GnKsPl4mOvn7OykGZytzokHDD13pYqCXs/AqkIal0EGt7e
-	 8PTUUzTT0G8DbhvedE9cjJ56BoLeLTg0qwH6OzqtosUmBmfb1Q80fSqG/XmqscJv14
-	 1PR+08FPb7cCMfiH032SMQJIWeu6+HTrnwuOIS61yTc0cEuZBgeqIbldtEfZzcp/qp
-	 nToUB4GK0VytA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE83339B167D;
-	Sun, 14 Sep 2025 20:10:23 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v16 0/6] PRU-ICSSM Ethernet Driver
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175788062248.3540305.3507616475736965699.git-patchwork-notify@kernel.org>
-Date: Sun, 14 Sep 2025 20:10:22 +0000
-References: <20250912104741.528721-1-parvathi@couthit.com>
-In-Reply-To: <20250912104741.528721-1-parvathi@couthit.com>
-To: Parvathi Pudi <parvathi@couthit.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_131021_368608_3FF5B8A4 
-X-CRM114-Status: GOOD (  13.40  )
+	s=k20201202; t=1757881679;
+	bh=D0n5ETJv3R8O+fczQgdPp8EqHieV5Ctrcdn9KrkWRvw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=I7A+ekkFx+MmNjmDBQ0/KTElBERoYXwPeRTCLw4lLb6/DXdWxSWu5bXicPO0Obz7T
+	 9sIYTiTC6Znl6EdSXH/w86jAyWRE0yDOpFNz21ofxAbWdNi7PAnl/qHgLqUURJqOLk
+	 G13O9a44Deh6CbSPRWdyQ2FOij1zVuCyBJ5RXuLdXC30lORs6vBSCOpY+pYcOetscs
+	 MvdlQMuDEpFAGmITJ50TbaxBOtXBM6VGpkJsA6hTP6NKxCZ0UKYYEpzF5Rnl1LBO/N
+	 Gk/tj7Rim9T3DwlvaI2GoPY3WmCIdP+lcmQYnU+xrUhXqHtZVJK/XH1EasFhRzZxk+
+	 D80BVzfZMPP7Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uxtKH-00000006Ar2-1oaU;
+	Sun, 14 Sep 2025 20:27:57 +0000
+Date: Sun, 14 Sep 2025 21:27:57 +0100
+Message-ID: <878qigzsmq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Jinqian Yang <yangjinqian1@huawei.com>,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	liuyonglong@huawei.com,
+	wangzhou1@hisilicon.com
+Subject: Re: [PATCH v3 1/2] KVM: arm64: Make ID_AA64MMFR1_EL1.{HCX, TWED} writable from userspace
+In-Reply-To: <aMSV_tLO-W4VKYRX@linux.dev>
+References: <20250911114621.3724469-1-yangjinqian1@huawei.com>
+	<20250911114621.3724469-2-yangjinqian1@huawei.com>
+	<aMSV_tLO-W4VKYRX@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, yangjinqian1@huawei.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, liuyonglong@huawei.com, wangzhou1@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,49 +84,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: pratheesh@ti.com, vigneshr@ti.com, praneeth@ti.com, edumazet@google.com, glaroque@baylibre.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, saikrishnag@marvell.com, m-karicheri2@ti.com, bastien.curutchet@bootlin.com, mohan@couthit.com, jacob.e.keller@intel.com, kuba@kernel.org, pabeni@redhat.com, s.hauer@pengutronix.de, devicetree@vger.kernel.org, conor+dt@kernel.org, alok.a.tiwari@oracle.com, richardcochran@gmail.com, johan@kernel.org, prajith@ti.com, rogerq@kernel.org, basharath@couthit.com, ssantosh@kernel.org, vadim.fedorenko@linux.dev, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, kory.maincent@bootlin.com, m-malladi@ti.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, horms@kernel.org, krishna@couthit.com, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Fri, 12 Sep 2025 16:14:49 +0530 you wrote:
-> Hi,
+On Fri, 12 Sep 2025 22:51:58 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
 > 
-> The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
-> is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
-> Megabit ICSS (ICSSM).
+> Hi Jinqian,
 > 
-> Support for ICSSG Dual-EMAC mode has already been mainlined [1] and the
-> fundamental components/drivers such as PRUSS driver, Remoteproc driver,
-> PRU-ICSS INTC, and PRU-ICSS IEP drivers are already available in the mainline
-> Linux kernel. The current set of patch series builds on top of these components
-> and introduces changes to support the Dual-EMAC using ICSSM on the TI AM57xx,
-> AM437x and AM335x devices.
+> On Thu, Sep 11, 2025 at 07:46:20PM +0800, Jinqian Yang wrote:
+> > Allow userspace to downgrade {HCX, TWED} in ID_AA64MMFR1_EL1. Userspace can
+> > only change the value from high to low.
+> > 
+> > Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+> > ---
+> >  arch/arm64/kvm/sys_regs.c | 2 --
+> >  1 file changed, 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> > index 82ffb3b3b3cf..db49beb8804e 100644
+> > --- a/arch/arm64/kvm/sys_regs.c
+> > +++ b/arch/arm64/kvm/sys_regs.c
+> > @@ -3002,8 +3002,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+> >  				      ~(ID_AA64MMFR0_EL1_RES0 |
+> >  					ID_AA64MMFR0_EL1_ASIDBITS)),
+> >  	ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
+> > -					ID_AA64MMFR1_EL1_HCX |
+> > -					ID_AA64MMFR1_EL1_TWED |
+> >  					ID_AA64MMFR1_EL1_XNX |
+> >  					ID_AA64MMFR1_EL1_VH |
+> >  					ID_AA64MMFR1_EL1_VMIDBits)),
 > 
-> [...]
+> I still have a bone to pick with Marc regarding the NV implications of
+> this :) Attaching conversation below. Although for non-nested this LGTM.
+> 
+> On Tue, Sep 09, 2025 at 11:10:28AM +0100, Marc Zyngier wrote:
+> > My concern here is the transitive implications of FEAT_HCX being
+> > disabled: a quick look shows about 20 features that depend on
+> > FEAT_HCX, and we don't really track this. I can probably generate the
+> > dependency graph, but that's not going to be small. Or very useful.
+> >
+> > However, we should be able to let FEAT_HCX being disabled without
+> > problem if the downgrading is limited to non-EL2 VMs. Same thing for
+> > FEAT_VHE.
+> >
+> > What do you think?
+> 
+> So I'm a bit worried about making fields sometimes-writable, it creates
+> a very confusing UAPI behavior. On top of that, our writable masks are
+> currently static.
+> 
+> What if we treat the entire register as RES0 in this case? It seems to
+> be consistent with all the underlying bits / features being NI. A
+> mis-described VM isn't long for this world anyway (e.g. FEAT_SCTLR2 && !FEAT_HCX)
+> and in that case I'd prefer an approach that keeps the KVM code as
+> simple as possible.
 
-Here is the summary with links:
-  - [net-next,v16,1/6] dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for AM57xx, AM43xx and AM33xx SOCs
-    https://git.kernel.org/netdev/net-next/c/eb391228ae08
-  - [net-next,v16,2/6] net: ti: icssm-prueth: Adds ICSSM Ethernet driver
-    https://git.kernel.org/netdev/net-next/c/511f6c1ae093
-  - [net-next,v16,3/6] net: ti: icssm-prueth: Adds PRUETH HW and SW configuration
-    https://git.kernel.org/netdev/net-next/c/a99b56577da4
-  - [net-next,v16,4/6] net: ti: icssm-prueth: Adds link detection, RX and TX support.
-    https://git.kernel.org/netdev/net-next/c/e15472e8f2e7
-  - [net-next,v16,5/6] net: ti: icssm-prueth: Adds IEP support for PRUETH on AM33x, AM43x and AM57x SOCs
-    https://git.kernel.org/netdev/net-next/c/1853367b76cd
-  - [net-next,v16,6/6] MAINTAINERS: Add entries for ICSSM Ethernet driver
-    https://git.kernel.org/netdev/net-next/c/7d4b52174dac
+I've pushed out a branch implementing this[1], though it hasn't had
+much testing yet. I'll post it once I've convinced myself that this is
+sane enough.
 
-You are awesome, thank you!
+	M.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/el2-res0
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Jazz isn't dead. It just smells funny.
 
