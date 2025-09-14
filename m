@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC259CAC594
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 14:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42973CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 14:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5qapOJtKxyY0MNaqH7qXtB8qqR3nlxKXEctWyb1YrfM=; b=rqEGEXUJD2ZnHVb/TSi1ANvmCL
-	7+2DJ5qyxda3Cc9J7Lebdvg2io0DYhDHolH7oT+ttcXFJdZNCwVOcyxTqVOZT19094IatAyWdRuUJ
-	E3kWqCNqtehc4n2FPeFD3yvG0/3yBJT0hqspftGF/M9XrTAYbn7N/I5Yg/MR1+654w7zek2Z/1HDB
-	0eB+YM+bhSrR+V11bNCjGwse2Ve8D2IeRGmfgiNqcgB/g0/PGQgEX1zuHbnu8Qo6iOAMrHHSZ8Q/X
-	TMoA+rK5FaKQF+m6FYSm4zFrP0P6WU6CICmVWFbsczCfESZscuZZQYS5D4HV02rxelfRUM9ziKhS+
-	NjhZRHww==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WLnk4ZbyfQe9FhVo0Iaf0C5FfaSInQx1UG35rxo35j0=; b=omurYuLDlUJN4KOGS3sXFAflzk
+	acqAy8UHmQdthzk+PKzXK/EG+UkmVBDYDjOxxnnfrnM3S1+HFBuPMzqaMSJ7FRHoqLrMlKqlExX27
+	P6FBsH0PLOFEFfROCPvxCql7n1qHx1zOau/4alq3gfofDZCzIuOHu6jRvl6fswK0Z0M24YACAgRbh
+	WVD4VYPC5zICEiBSHjxejxRTithZbixOlQLwUMiHL+Q6bUg/omlwIDYgZUfH/vC5mbWAoaAg3lnmR
+	Y/R3glnGoNTHOr00sELOxKt43/Kch+t1I9ZeV83dxf3EPT+piRhtHtJn+nTzCQmMyUU+WK1+4dWPR
+	vM/D1T5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxo9D-00000001bCm-2s1Y;
-	Sun, 14 Sep 2025 14:56:11 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uxo9H-00000001bFT-0FIC;
+	Sun, 14 Sep 2025 14:56:15 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxo99-00000001b7u-1x8U
+	id 1uxo9B-00000001b9i-2Cqw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 14:56:09 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3ea7af25f8aso86549f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 07:56:06 -0700 (PDT)
+	Sun, 14 Sep 2025 14:56:10 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45dcfecdc0fso33861215e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 07:56:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757861765; x=1758466565; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5qapOJtKxyY0MNaqH7qXtB8qqR3nlxKXEctWyb1YrfM=;
-        b=EIrtnopByv+ymYdxZ0/C1oxCkFO6NZcSYSjKNCamKRNioOVbT4Z8hXwy8iCKl+84A5
-         GKZXigoOXNtnUwWyzONyUtpVIP2C8GhWdC3avv77djfdDMcSzUBhtDmp/8btVpA/5CmE
-         zg6s5yB+nZsEsrtsUVze3Xe8G/S5URsp4XkwU47vbOYpdFUhKJmnomyG2QC8s3p9SWoc
-         GeN42HF6rbxD4ebGy+jvtJKyxkKHcZNij397UIcTgJ1sCKyW2nYTEg+RnljNxPpF/lOK
-         wqiZoL+iAbVIOeGgbh4YPEkA3+L7mEVy0bP86Hq4DoAaGinNlkI6V9NFK0oM4muXnXhb
-         3yPA==
+        d=gmail.com; s=20230601; t=1757861768; x=1758466568; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WLnk4ZbyfQe9FhVo0Iaf0C5FfaSInQx1UG35rxo35j0=;
+        b=Inicd/kh0Ga9I6+/ZxZyOGvltMphGkAShzht3h4LJbs6uK+3m6I20y5vD4ywEB7D2g
+         5/z3xpEkQ6DVl5M0VdHazRtVvnt85sZmM/67gRJV9KLxztSMLlz6XtVwbDosaN616i1B
+         6KEZgRnmR/DtYn/AtOZDZYuN6ClM9J6RvP/Hsq5aDXjaR9a/Wek7jguCfrWE+x+aXyiQ
+         c/c2a1rYsDbsU7t87rbaunbH9pRmaWcxcP2Qf7iM+r+ttpGSuzjFoFoNMkC6pIHM0sGI
+         qfOw7IZ2RCWoLiyCpjoj/+96ULe5oQZujd6kOUGN3ZYHCCA06RysvDMbGrvbFz/T9VGv
+         6DJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757861765; x=1758466565;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5qapOJtKxyY0MNaqH7qXtB8qqR3nlxKXEctWyb1YrfM=;
-        b=J4Fn2iQVQsB0zacC1fpzsdWgAN+sxR0erJqc6g+Pkj/kXrfh3+FRsxtHT15922tKgN
-         EQXr9H7DD7N9MrQqwK2Wav6t+l+0ltMkkCDbWWYdPtxANFIM6KQ/rGx8Y8j72gwA61dH
-         RSkYziv01wi8Uar0Eaq0lW6bzoCyHvBRnNUF+NNSmligl0riDvFYMvpkS7PUt0VMwXSZ
-         e5XSn66WkNB61DPpfopb2CdbudmotuVSjMgLCZ9HLzyBfle/g8wVHkFb6vVdKHGxU98x
-         ERB9qH3JhmhnmVa9UoKpHRJy9kBXipPPafiIFKo1iDMfxJJ4qzdJs3+sQoIIOlLjWDtk
-         zABA==
-X-Forwarded-Encrypted: i=1; AJvYcCW4U38Pnkk0ZC7lrQ7Lm80pmMFKYy6qfcOJO0YVCabSBZP0RLUwcbds0h1+oQ1bxKODSszSqx7hhO8EFSvi91yt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTAkOIj5MXhExLxKkqbsntVDKMc+q1uImXDicWYPdiQPbrxpNc
-	Ax1R0A05zx9lHsmcsJi3Uz7Vl0yb0W4+xb0NPM63YpS4kHQYAIw2mRaJB1lFcA==
-X-Gm-Gg: ASbGncvYwJWtjq4ZRD9TRh5B0wK+SnKUt23lqeUu/Mx1i+3vAGOhPBldOFgeghdnfeX
-	1ScxpCkkCna63IRPmi75TgVc7T5fNHLMq2toZM0g3Ml1hkrVgj6b5AN5HGyIHS99oJ2erdU336e
-	c04g/Slc4g3gDJef3jl8PeD0IUnqBtghCXDscashXeVF+isTzsqlsH7Y7bEb3KxovRnwpE0W5bN
-	mTuuIo3C2AmMGYRtCKy+YlpbsXZ6uVDLph5edw6W/0tFgHyo2bSLBfPMqJcvZepVFWHcfOq+T1T
-	wLeHBN4TevrkomXbbET5pj75LcMyhL8QTfnJSf3c11+jnrl8uRz0ACDD8qhNgiiSuoYKw5Fgdtl
-	OyjdtWznJ4fesLiQKdhR2cJQ4NFsgluE7bPtiPLT4K0G/xSJmLsSm7Vc5VTvsijSONgwnrx3PCA
-	==
-X-Google-Smtp-Source: AGHT+IFV/3JZpFtVZv9IijfdfagkrdK3hCy/JcOZd8MWso5BvseWKVtiecc8/LFjzi/kNn1nTtuUIw==
-X-Received: by 2002:a05:6000:2486:b0:3e7:404f:685 with SMTP id ffacd0b85a97d-3e765a197ebmr8559306f8f.44.1757861765516;
-        Sun, 14 Sep 2025 07:56:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757861768; x=1758466568;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WLnk4ZbyfQe9FhVo0Iaf0C5FfaSInQx1UG35rxo35j0=;
+        b=K5dDxNgYyNcnodHdp0LkKjun3jXX3tFQ8FGNBttVNBTRK7agR3w9AWnDKzZhXTohqn
+         083MBjpD7RNDmnjgwFtXxm8F8J/itkXTSpU9DfMlb6jxQ+6kHAu1zEw/HxO5TeOrY9xu
+         e1APBZFanox2c0kD1RRb2++PyCxUt3b37JzfXmz1UqxiISM7HUoUe3qhY8u4CVlhOrvO
+         /NaNiW4+zAzPy8c7w2SM4eTUiSHkWjbGqyfK3e+YfUeJqKUzgn79eu84Cb3yxMe9rPA1
+         wL6iRsgDGZAKtPuM465T5qhUVzTsbc3sNlwnlwdpPsJ3Mq1GFzzZJPAozu6PY4YVzZCK
+         EmBw==
+X-Forwarded-Encrypted: i=1; AJvYcCXZ508iWyZO+tbhxjaKajyaAdPx2MahkjUNXwqBx3M4gJtXoTlIXCI2+jLNAL660g4cqdvDqta+Y0L+ioLJUtKi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxT3U/GDB+fYWaBOpuxi4F7w6DLa4b1AMVACT67UmYSs6M9I2AK
+	ztHcqkSNVnlxJLudMZf/m+YIwsrkbqbtWSPdJ647gwDNuh/3XE4YOhN/
+X-Gm-Gg: ASbGncuY30Mmc/KeE3v3Q6fkFiV7kr1Kdbl7/bHR0lUTDmc26JDv9k8WycgVFf6xILe
+	q2pdPSLCV2/S9mWRI0Y/adXQRKC2nZnnzRn0wduGCLhmQA3bqRjfxPurexOSwvusPkwIM6qoN23
+	e6ejswMgaPerYmZZO4VMgGGCPYNcJ7gAEJ2PLbOlgD7M06vQf350rzsEgbDp4wuAXrEgzotrGXv
+	mKXOdVSC64CPcNJ+9mizLm0EYumPV5k3a4CXhxTQFKWIF0PfnecduUeSx80HTdBSM1dZoX48T1K
+	HuXbLwzoTTOPkAxWHLmBSstPTjUv0Cec50vLba+p3nHZ9XZ3hGZoBebviwZ3WjYesEg2zytXI+p
+	xgVMoQqbiE/C0FuMFsxALkBsxu2+V4QiYRO2zv7MqsNShD9HO6yFiqg+L+596JThw+QEl0VHp7s
+	PzqtfJEWV/
+X-Google-Smtp-Source: AGHT+IGA9P0DPlT3qLVqItOCiBENzd7lo8jFqFbJSSw4qh0mrbF1bC17C9VB8+t7dwhrkHYrwMRVbg==
+X-Received: by 2002:a05:600c:1c96:b0:45b:4282:7b60 with SMTP id 5b1f17b1804b1-45f211fb7c4mr77463375e9.34.1757861767382;
+        Sun, 14 Sep 2025 07:56:07 -0700 (PDT)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e037d62besm136303475e9.21.2025.09.14.07.56.04
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e037d62besm136303475e9.21.2025.09.14.07.56.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Sep 2025 07:56:05 -0700 (PDT)
+        Sun, 14 Sep 2025 07:56:07 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -83,15 +84,18 @@ Cc: linux-samsung-soc@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] phy: exynos5-usbdrd: support the exynos8890 USBDRD
-Date: Sun, 14 Sep 2025 17:55:53 +0300
-Message-ID: <20250914145555.2631595-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v2 1/2] dt-bindings: phy: samsung,usb3-drd-phy: add exynos8890 support
+Date: Sun, 14 Sep 2025 17:55:54 +0300
+Message-ID: <20250914145555.2631595-2-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250914145555.2631595-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250914145555.2631595-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_075607_538110_C5E93C11 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20250914_075609_592462_29971FA1 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +110,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey folks,
+The exynos8890 SoC features two dwc3 controllers with one USBDRD and
+one USBHOST controller. Document compatible for the USBDRD one.
 
-This patchset adds support for the usbdrd phy for exynos8890. The SoC
-features 2 dwc3 controllers and 2 usb phy controllers. One of the USBs
-is used for DRD, whereas the second - for host. The host one seems to
-only be used on the MV8890 SBC, which... I don't think anyone has,
-really.
+Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+---
+ .../bindings/phy/samsung,usb3-drd-phy.yaml    | 25 +++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-Code from this patchset can and will be reused for 8895 (I actually based
-it on my old 8895 work but decided to upstream it)
-
-Best regards,
-Ivaylo
-
-Changes in v2:
-- fix up the messed series (a patch from another subsystem was accidentally
-  sent)
-
-Ivaylo Ivanov (2):
-  dt-bindings: phy: samsung,usb3-drd-phy: add exynos8890 support
-  phy: exynos5-usbdrd: support the exynos8890 USBDRD controller
-
- .../bindings/phy/samsung,usb3-drd-phy.yaml    |  25 +++
- drivers/phy/samsung/phy-exynos5-usbdrd.c      | 210 ++++++++++++++++++
- 2 files changed, 235 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+index e90640320..2b1544baf 100644
+--- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+@@ -33,6 +33,7 @@ properties:
+       - samsung,exynos7-usbdrd-phy
+       - samsung,exynos7870-usbdrd-phy
+       - samsung,exynos850-usbdrd-phy
++      - samsung,exynos8890-usbdrd-phy
+       - samsung,exynos990-usbdrd-phy
+ 
+   clocks:
+@@ -209,6 +210,30 @@ allOf:
+         reg-names:
+           maxItems: 1
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - samsung,exynos8890-usbdrd-phy
++    then:
++      properties:
++        clocks:
++          minItems: 3
++          maxItems: 3
++
++        clock-names:
++          items:
++            - const: phy
++            - const: ref
++            - const: pipe
++
++        reg:
++          maxItems: 1
++
++        reg-names:
++          maxItems: 1
++
+   - if:
+       properties:
+         compatible:
 -- 
 2.43.0
 
