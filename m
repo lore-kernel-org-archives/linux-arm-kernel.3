@@ -4,107 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BABC0CAC582
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 11:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A51CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 12:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0lA0sZ0scMI1vlgDRPbNSunRy05u3Azkfkcb6cStDwk=; b=lGgXGBlotzpNKgKI6MizvYOJiz
-	duhjqsN8cpvcb8E7gwEBl4yqZSXvl4dJORamVpS94IXAE9gsI73uI0pt3QbqFIQcWMzCAWduFiPnF
-	8mRxggzYKRPm1YHxXQPh2eIWaGAw2h5FnTHcNZwayVHbL7r3scVgk18uOgEWPnbObjnvKbf6MAX35
-	kPKq/sdqgpu5oqaNr4wikXQB0lDx2Enz2HNRF9yrfvKFfAdvmiR8sWFzTxmJiO14y/QLp7/J2b8q+
-	n7TulX+VzNN4RWu/dZD3D4YxcaAY/OY4seOV3BAqDbYjEdB7+gtYKK0z+F2qyz5NxT78XcrbNCx2M
-	wqXlTwEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x/P2pmY9erGP27JX1LIX0xO5lGm9xSowmXkGs5Snrvk=; b=LVmsMsv2eGBEHVadELdOGiPCF3
+	3ArfDyaKSEq3k0j/rwHBwlc72+WqPohcSFKpYVQo5/XKw/iVcuQFAB9yIH8B0G7aXGC8XdRbu8nEQ
+	hJnbiz8lMoYC0F4ZNNvwe+e7HlSdYm7govhLA32E81Ans+hZInVq3BKadwg8h5DnsAQnSjc5KmPkK
+	Sm/0OV6zUqFS89cHP9K7/E0lgFrACmWrr5BxSawKuoQJQd0mZo3lp8SYnZnMeJa0KmnSYAJW0cD2H
+	z9pMAsDSERsqX7QEt4WJ4CFqp1WOIimJTbxJd+ghZMnHU33xwxsghZhVIcIR5Lg5POO13Jqii/DoD
+	I0nWyDxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlLL-000000012IQ-34ek;
-	Sun, 14 Sep 2025 11:56:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uxlQK-000000013AY-22FP;
+	Sun, 14 Sep 2025 12:01:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlLK-000000012Hj-1kkH
+	id 1uxlQH-0000000138e-3Fcn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 11:56:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7FDFA601AA;
-	Sun, 14 Sep 2025 11:56:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DCCDC4CEF0;
-	Sun, 14 Sep 2025 11:56:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757850989;
-	bh=72P1XeE7gCDZuUaE9HGq0KcOlPy2jCWwmfe+8Bijb1Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ol+Jb1WDabHGqEYRRuzYJnuUlxI0TPcRedF4LOzhRwy8qt4x/RgCwK7skMLAwSCSh
-	 kZUkFrMXD36Md5U34jeUcfO8IsPsChQea4GO3wSj6dgx8rn0TDd0HQoUGmVtT5Jm7w
-	 4vbO2KEvBayBBL0avTBS1NNFdxwC06aRJ3zBRaFGXdgg59vBDvifFKbvWJV/W8zhJs
-	 h3JFikHNdItKWRo559a/vTFqgiVliY+2fJdgzM8XEPmEB2JiOHbpvs3YlcflCt+R/7
-	 XiqGeb2dS0XeZBx7XaJNdBDxXpg6OqUGJCvXInpFKLUIh1gsjUw2C7plVitmtAaXSt
-	 EMbSMqiD9WL/w==
-Message-ID: <21e78a0c-f1fd-4476-9553-c3890d05b635@kernel.org>
-Date: Sun, 14 Sep 2025 13:56:23 +0200
+	Sun, 14 Sep 2025 12:01:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757851296;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=x/P2pmY9erGP27JX1LIX0xO5lGm9xSowmXkGs5Snrvk=;
+	b=gBIUvd4fckGN6RTSALzJN7JsqnAWkaPUNRxZTxXlSayx2VuepzmF4aWT7uj4OoJUKz6Eg0
+	tSjz/jnuU32SZUMQ7sqSZbdA51H1xKV1aPLaY/eUzGG7W5og2jE9/N+k1gDjvPzWrq/loE
+	peL4G1PMZ+vdcg4v0QbxUa+Hqx8kcpo=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-465-zfhEee7SNeWNNVOaQSyjmw-1; Sun, 14 Sep 2025 08:01:34 -0400
+X-MC-Unique: zfhEee7SNeWNNVOaQSyjmw-1
+X-Mimecast-MFC-AGG-ID: zfhEee7SNeWNNVOaQSyjmw_1757851294
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-811917bdcfeso807035185a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 05:01:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757851294; x=1758456094;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=x/P2pmY9erGP27JX1LIX0xO5lGm9xSowmXkGs5Snrvk=;
+        b=omeswxRXtq6ERe6fGPbzC3+5JK+38njxfXgF2Qu1URYXBa6hNv/xCpwPY5CJ/it2MI
+         E4LPg4MF5Ja6kdqbZVKsKcTH1kTaQkfbPebqXRxNX0Suk/zJ5uPoPMGLACIKt1OFZHnI
+         ol3tk1n9zLtBL9RwYVuDzdbU5mymDMpDdWU4VPxVC8CLfHRdCGreaMyt8PQlP9n61u8r
+         F6DitrYURRxs1o2mNQfJ8fqygYv0GTxTiotJcoVeVA3hxIvuuEJCg8nC6angr8vURLWa
+         1vU0X+2/zcA15xo/vnnQ5RYc4/TyrlzQEVcHKXif8YMuuHolkROr6xiOvkK4OPxKTZRv
+         62hw==
+X-Forwarded-Encrypted: i=1; AJvYcCV+2gsoBfEoRZjY0ibQPhG+qudPsCC25NMv5/wJva6pHHJvK+IWoDpDTFI/ilnG4ZrBqDvfjqjBgu/STtfOIg11@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7xGiXcqlPI8WQ0QCPkXaH6cU5vTMa+qzFrAl7HZlJ04+vvt8I
+	skc78kXTwPBrvZDnFvG1FTYmkNtSbBdpx4PXdKM+kKGJQTQIz8Dt1KLVkUORXVARUyzcJ7kpVXM
+	itybpmvXRf7FSwvINPrcO+zt+bE83iv3E1IqYQAdVgjXudXn3SKgjFJkVuEfdew6Ghdo00wc5Q1
+	gQ
+X-Gm-Gg: ASbGncs4rzF0nUa3IZg3Znxa19o9e7Kn3QIIFcSOtzjz7vM7bnU5BqdlyGvkcIKjD0I
+	tqCD4VAcUlZ3tZ1Aq51LkbR0SjyLHAM/FOyQE4iKNR3Cw4FBVh6ElJAsdYJjIGOJOzBp59+K/Hf
+	0FZ0kPv64Doxu8Qb3FcPjTdwwGCiRdFhX8NTrm4MOMooFy0I9EOAo21H06StgNtpmd1zB+EmuD3
+	DG3pPR7kIwbcTcvyU/2AUzxw9z29Fl94zFcGEQ6Qsvn5AwDbqLNQvbw5jXCcyBRtRcnF5dnSaUA
+	UbMx/kpgjOTb1k6amJrFugb+7vkSiNcCEC8TL8+wgNDO8kHA13UYneDxMa3oHkxcWYmRQBBU+Z1
+	7pi1LomPgYKxUA7s6uR9Bx7gQ80hQlik=
+X-Received: by 2002:a05:620a:1a18:b0:7e8:3fec:5e61 with SMTP id af79cd13be357-823fb826048mr1027927485a.7.1757851294097;
+        Sun, 14 Sep 2025 05:01:34 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGIsrBfOXyBwmvGT0Kz8IZrStEjhdVLehZi62PDrHPdMWX397mJ04MxVHeqPCuDiG+BC8R/RA==
+X-Received: by 2002:a05:620a:1a18:b0:7e8:3fec:5e61 with SMTP id af79cd13be357-823fb826048mr1027921885a.7.1757851293541;
+        Sun, 14 Sep 2025 05:01:33 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b7942d706dsm16096071cf.23.2025.09.14.05.01.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 Sep 2025 05:01:32 -0700 (PDT)
+Date: Sun, 14 Sep 2025 08:01:31 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Andi Shyti <andi.shyti@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] i2c: busses: bcm2835: convert from round_rate() to
+ determine_rate()
+Message-ID: <aMaum0Lv4C9B3Mzt@redhat.com>
+References: <20250810-i2c-round-rate-v1-1-9488b57153e7@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH v3 16/16] dt-bindings: Add Google Kinfo
-To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
- andersson@kernel.org, pmladek@suse.com, rdunlap@infradead.org,
- corbet@lwn.net, david@redhat.com, mhocko@suse.com
-Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
- <20250912150855.2901211-17-eugen.hristev@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250912150855.2901211-17-eugen.hristev@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20250810-i2c-round-rate-v1-1-9488b57153e7@redhat.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: EUaOWORNpeSaFKL3t7_iN7YF4EyFKSh3w5PK8caq4lU_1757851294
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250914_050137_890905_65FE4A3F 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,42 +115,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/09/2025 17:08, Eugen Hristev wrote:
-> Add documentation for Google Kinfo kmemdump backend driver.
+Hi all,
+
+On Sun, Aug 10, 2025 at 06:32:18PM -0400, Brian Masney wrote:
+> The round_rate() clk ops is deprecated, so migrate this driver from
+> round_rate() to determine_rate() using the Coccinelle semantic patch
+> appended to the "under-the-cut" portion of the patch.
 > 
-> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
-> ---
->  .../bindings/misc/google,kinfo.yaml           | 36 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 37 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/misc/google,kinfo.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/misc/google,kinfo.yaml b/Documentation/devicetree/bindings/misc/google,kinfo.yaml
-> new file mode 100644
-> index 000000000000..b1e4fac43586
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/misc/google,kinfo.yaml
-> @@ -0,0 +1,36 @@
-> +# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/misc/google,kinfo.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Google Pixel Kinfo debug driver
-> +
-> +maintainers:
-> +  - Eugen Hristev <eugen.hristev@linaro.org>
-> +
-> +description:
-> +  The Google Pixel Kinfo debug driver uses a supplied reserved memory area
-> +  to save debugging information on the running kernel.
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
 
+Would it be possible to get this picked up for v6.18? I'd like to remove
+this API from drivers/clk in v6.19.
 
-Bindings should be for hardware, not drivers, so this does not belong to
-DT. It might be a dedicated reserved memory node, though.
+Thanks,
 
+Brian
 
-Best regards,
-Krzysztof
 
