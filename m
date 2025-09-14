@@ -4,128 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00007CAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 12:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9ACCAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 12:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGC4WoAJlpX9tdCXckzAZr5W3saj1ZSsINit3PsYuzA=; b=ejomhDx/1trnOsom7BUwDIklFc
-	TnH1c5bWtJzWNDXTBl5DMojmgiWxUs7UDp0f72V/9w/cnK16xTl19I3KThgHGVXVaPId0sybeGTK0
-	h5N9ejlHAHs8Q12IofkMe/vujCH0jP/NaVcCxE36Vds4T1EHPq4+3dU9tIuF6tgd+loodePZd/JqR
-	YUM4FvMO1/5W6QhtDQqnNIHXXDgs+wTBl6Q8c7jU2o7CvUq3s8WMYv1zbYohi9Jf/lMJpy3gYpyPk
-	VneArvCNG38lOs5CvhEo7AsIeTUN/ka8bXHb6FkoR/hfXkOltVAbjfsUS5YlPclUBkAgNLXhthSPB
-	/OkqxxVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9hU2kDwn8IFHpbOTDX+dG8pysyvJ8KjOOASnN49MHHM=; b=YhKxNCgNEz9v7PIMobac4DyGLu
+	wvIdq4ReYT1eM7vrZBTNjrVufy5QWk+Z+m6dequQyQSqy1wE9KpSV0bEXBwmyjr9hbouuIyGiDZsE
+	2I21bF8ZotoKiUGg8QeCTGhw1NmSUAxsOtm3zm0mjGgfSoJQOpHl4qSprnQvMHNk3dM9km1LBJk3T
+	7PCcS8GpWAFWH66vmOy7nNnwX1pGeKM5gJNDIp7L9LBWRtmKF2JNoN8Kx91ERkjUR2n16FnzishCo
+	o6zbMIRIomlR5M0KlVvZKRQflG221M1Nixgs1gE498y8AgsoJ0SbeM++eO8Q6CkVvKpozkTE2vWLr
+	sRxlfmPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlX9-000000014ia-3Cym;
-	Sun, 14 Sep 2025 12:08:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uxljQ-000000016li-0DLc;
+	Sun, 14 Sep 2025 12:21:24 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlX7-000000014hV-2LAs
+	id 1uxljM-000000016kp-446o
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 12:08:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757851720;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TGC4WoAJlpX9tdCXckzAZr5W3saj1ZSsINit3PsYuzA=;
-	b=FUeAnkDJW2mk8y1fOisF489Z0IOpfqgbpu9XulN49RNI288zmCFbSBfrEfRjRpKAZ5tK44
-	7S/gQlysYWIHns+MG2wcxt9+q3ixxGadaflWsIYiKMs7qVeMvsM0b8LrcdYK46TWPA8Mgn
-	GU8DJINiIk3yZCr1VyN3F7dsLXU/Lvs=
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
- [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-17-ROunTTGqOa-1sEV7rfoeAw-1; Sun, 14 Sep 2025 08:08:38 -0400
-X-MC-Unique: ROunTTGqOa-1sEV7rfoeAw-1
-X-Mimecast-MFC-AGG-ID: ROunTTGqOa-1sEV7rfoeAw_1757851718
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-828bd08624aso119249185a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 05:08:38 -0700 (PDT)
+	Sun, 14 Sep 2025 12:21:22 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45f2b062b86so2829815e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 05:21:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757852479; x=1758457279; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9hU2kDwn8IFHpbOTDX+dG8pysyvJ8KjOOASnN49MHHM=;
+        b=jyfOlkx379BEduf4sZ9MpFAArWBBsOZ8gXQxS7AsT93x2/Loik6I3Sd2853/PCJSUh
+         FDlG3u/fFt4CVGBpaXR7dDJiU4+cZxlW1V64sEHVwjWI8zWNNIZhMB40S2zX0MIBchWL
+         OICD6mYPlu0B6l3bqXAo5KFH/xhWntKz37cdmkb7cbxb4HKbMbq95laFwn+S77fGDKkp
+         vJz4IByPGW3nUiMuRiVlOrMQ0WCCNHHcrFNIKl611db8dpCeEtlTVjP8PhJ23nfUWv4h
+         9pWrRA8mopRpgUVnKEI1mQsp0SGDIBTEqm3N1Q+HlwqNkLUzNTMzCYZcPWTxeruT47t+
+         O0nA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757851718; x=1758456518;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TGC4WoAJlpX9tdCXckzAZr5W3saj1ZSsINit3PsYuzA=;
-        b=DQpusFxO2v36pDuG5lVNNpAUV687Y8FNq/77Vr/OLWbQLicMa/Rd1QsWuiZYfTKHT/
-         +eHtlQL8ct9wZBSz0PtVJ9RCoPKEtUfrAt6U1f625i9490YyxLdJ2tdh01XR90Lvie+8
-         CVR7eSwF6fAO7KszpE9vMzAsy1dnuMjPO8qsfQiFTT8aohJ+sLEALaHhTLSXImJM2FJ3
-         mSc6S7+HMWKsMQzMCrf13MOc8/XSfWCgUsD6Vo9icuyoo/lFEnEmK1fXB5LmMIX2SN8x
-         ArKWHphTA54yhydnYcfuflUmZ7U2QClU7uCmzRXVXUc37tgHpWAnWzQktDhjGHT3Ie+n
-         48CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUocZiy9uVYJZMeDtXisw4hUQzpJx1Nj0K6UBaPRQpolCgI8MN2puLTIae7h/D8+foE+R+awtLIvivaGWa97bHq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfSncaKiurnOq4hOBF0clTC8+6HAv+Qm9y2dbcR/zxue+AGqa/
-	9cJ5qFRjqRIcM+MtZA3c5IiIWtTx+0C2VD7sa14099A1rKbJatYDSsTQxTihVNHHoPTqmf5GNsx
-	TEqaGMPIdjCsThuoRF2csBYXb1s3kqecDWxdCcoQpMVFqNmHkx3aI4NsNJdThTqrgAtgA0rwSPT
-	GW
-X-Gm-Gg: ASbGncsuTGRngYyJwcd1EHDIcyiZxZubcwJKj5gaxh1em60kvsjSzwI5xp+wYZUhVQs
-	3LoM5Asaiel6n9QeaWETlKXNU/bQD/0hXtzcplQemZRkbyn97IHvxlt0b3Wl1wff4wefTB4UcnS
-	uoyE7p7Sof//gBXb0VddvlgFwPNuIzX00PuMFjQk4TzNSYJyKoearcdoGnuUwS+rwbjS5Nbixwq
-	PZfKHJ8geJeO45OP7xiVqedaBQxDcKFg9Uh13CMqxReBaf2NY9Kx5Utx2RpmHLCqb8L+eBIkKXY
-	ZaY3zE8D7y7Sua602f84aCS/vx2V+tFJ0ay1SETCFwV8G6KBUjJZz4ssT6hKw+HRQhWPFPusg/B
-	kY9d/b/iZztXXzVkyEc77kFC370Bcut0=
-X-Received: by 2002:a05:620a:c4f:b0:815:9bd3:72a4 with SMTP id af79cd13be357-82401a95c9bmr1036169285a.69.1757851718244;
-        Sun, 14 Sep 2025 05:08:38 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFRdCKGXPgtbhvJpUCdDwCaaC2B0DLna/CzbBAvfkLzYJU98qL9IvUSFcqawGBto49lPMPxgQ==
-X-Received: by 2002:a05:620a:c4f:b0:815:9bd3:72a4 with SMTP id af79cd13be357-82401a95c9bmr1036164085a.69.1757851717778;
-        Sun, 14 Sep 2025 05:08:37 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-820cfcaca15sm580413985a.71.2025.09.14.05.08.35
+        d=1e100.net; s=20230601; t=1757852479; x=1758457279;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9hU2kDwn8IFHpbOTDX+dG8pysyvJ8KjOOASnN49MHHM=;
+        b=bn/Nw4cPxaZBhpUnbBniemdDOOjqLyjTaAvR1xT6bgLk2T5YmZBtqjnFv1RKfmtaBc
+         b0bAkT8/EOJuJxm+pL3OppP749QEcrMm0+Xfl9JbhT1jkV/X1Ujo5+8/jx2TiZLbZ/f8
+         MXfwMBXFPmjJWH4tlr23fvIRc1aTY+ViM9664xA/17+Dlcgv7FEC9MZYIQLJjBjYzcbL
+         OXx3zDUXK/YE2r6b9HrXCn7Nd8hqlLTSQ2JL6AlLxPywqtJOnj94n5kPc9R/aetwJTWs
+         GqA+BS9TE9s0vTnnwsuCCVrqmJe9QyfuLm3LFggJx93eXw1utHhOTN/27InAxCJGxrS8
+         wneg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwtWSzTJ3/jLi7gzK6ovVVbifNju2hC5qUQnrdsjoXkMRdfzN8OOBqVn0+teBNtA2Df/dkIs5MCv90Wzk/L8lY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxutzqp0ARU6ukE/6dj1O++4iWeNCAnrExtoS4qNMFVRaVxLy60
+	OWb2AYRztHrrDTwz5TbGBSRcpLQQ2BQsQZ6nHNqf27R187R69dBQE133
+X-Gm-Gg: ASbGncs9DNYo9XgvTrYp4bOYxAy3gju2TVl2wVGWCsUcV7AEExG9nM3rtiVUmBcQlPc
+	sIN5pXBACJvj19CRqgDOslPckYKCnAjdQH+rn9m3EUrh7IxV6ZU/T4fbdLYotZgL6L6mFso1J1e
+	l6DVtxeOn5X7+1wJMYi2KkCOOIOxk7uuvLq707q37tfg08AqkvbJFTKqVKcXpXbmsWFejVFKM49
+	pyKSWWBvnv2VvHg9Nn9tcQ7mZJaDOrRPr8OshGgTFsVE8v28Lb3aDIiyH9hAvX7GcQu0SylHSU7
+	ZfvXe6Sf6a/MBQgSXf2YaZ6ysdSkeG5ZnDMQx/TMYuqlZqHLP2vQuqr5OInDID3jDxPpj2bSO9s
+	mz/KrVqyv0xoArchD/01f0A/2QX2ciF44/+5K1AeafVE7/87EOCnwMjvrQ3NG+oB6hYZgNNYOEU
+	H8z0/h1LKOVVvHfeSWmsI=
+X-Google-Smtp-Source: AGHT+IHNLBsatSIb71J2GFQncSTA+a3kyt/UTKwYcV2O04qKu+uELYeEsk/eGdFPUJLCbm3RtTdvwQ==
+X-Received: by 2002:a05:600c:5742:b0:45b:8f11:8e00 with SMTP id 5b1f17b1804b1-45f2120592amr59760815e9.37.1757852478915;
+        Sun, 14 Sep 2025 05:21:18 -0700 (PDT)
+Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e017b4222sm136476615e9.20.2025.09.14.05.21.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Sep 2025 05:08:37 -0700 (PDT)
-Date: Sun, 14 Sep 2025 08:08:33 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	Yannick Fertre <yannick.fertre@foss.st.com>,
-	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-	Philippe Cornu <philippe.cornu@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	freedreno@lists.freedesktop.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v2 0/9] drm: convert from clk round_rate() to
- determine_rate()
-Message-ID: <aMawQYUIjPw9m4IO@redhat.com>
-References: <20250811-drm-clk-round-rate-v2-0-4a91ccf239cf@redhat.com>
+        Sun, 14 Sep 2025 05:21:18 -0700 (PDT)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/5] clk: samsung: introduce exynos8890 clock driver
+Date: Sun, 14 Sep 2025 15:21:11 +0300
+Message-ID: <20250914122116.2616801-1-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <20250811-drm-clk-round-rate-v2-0-4a91ccf239cf@redhat.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8woGVw1kySMoBYLFkGkAWLedhR0B5-u0uUo5fReYjG8_1757851718
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_050841_673657_43A0C8EF 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20250914_052121_017481_4679470B 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,27 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Hey folks,
 
-On Mon, Aug 11, 2025 at 06:56:04AM -0400, Brian Masney wrote:
-> The round_rate() clk ops is deprecated in the clk framework in favor
-> of the determine_rate() clk ops, so let's go ahead and convert the
-> drivers in the drm subsystem using the Coccinelle semantic patch
-> posted below. I did a few minor cosmetic cleanups of the code in a
-> few cases.
-> 
-> Changes since v1:
-> - Drop space after the cast (Maxime)
-> - Added various Acked-by and Reviewed-by tags
+This patchset adds a pretty much full (except for ISP and camera blocks)
+cmu driver for exynos8890. It's configured to run with gates in manual
+mode, which is done differenetly from other exynos SoCs.
 
-Would it be possible to get this picked up for v6.18? I'd like to remove
-this API from drivers/clk in v6.19.
+Best regards,
+Ivaylo
 
-I'm not sure which tree(s) this should go through. All of the patches
-except patch 1 have at least one Acked-by or Reviewed-by.
+Ivaylo Ivanov (5):
+  dt-bindings: clock: add exynos8890 SoC
+  clk: samsung: clk-pll: Add support for pll_141xx
+  clk: samsung: clk-pll: Add support for pll_1419x
+  clk: samsung: clk-pll: Add support for pll_1431x
+  clk: samsung: introduce exynos8890 clock driver
 
-Thanks,
+ .../clock/samsung,exynos8890-cmu.yaml         |  477 +
+ drivers/clk/samsung/Makefile                  |    1 +
+ drivers/clk/samsung/clk-exynos8890.c          | 8695 +++++++++++++++++
+ drivers/clk/samsung/clk-pll.c                 |   13 +-
+ drivers/clk/samsung/clk-pll.h                 |   12 +
+ .../clock/samsung,exynos8890-cmu.h            | 1279 +++
+ 6 files changed, 10475 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/samsung,exynos8890-cmu.yaml
+ create mode 100644 drivers/clk/samsung/clk-exynos8890.c
+ create mode 100644 include/dt-bindings/clock/samsung,exynos8890-cmu.h
 
-Brian
+-- 
+2.43.0
 
 
