@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F3DCAC594
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 13:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A47CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 13:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kAG7m9JuJHlEHyVLrilF0p1L19ca1FzfGVRDxZu6tYk=; b=Yf6yLpB6DWiu5AGxM+vwYrSv11
-	tUgYl/S1kA14Ocg/jy+xH3z68HwX8Kkj9Xr03AshR2quD77QAFpto0TLbsoN5L18AnOny7LIcAU5y
-	naRGsMNt1QVkZWoFDbTjsC6EESQHQUgKpXTYiFjMnA/Hr1rVVE+88E0yBjtu+CqaTI4Q/Qw8ShhHR
-	knpYV07mLFoszNEh6zjPj84YTsFu1gUBfsZd9jbtXZ2jZ6d2l+9aLQ48P7Kh8aosk9MP3hzVyo0uN
-	4LBjrrmrEEPGKe1ikyy+bPPUN5pA01bfL+FoiCicdzLY7t5cBUNrcutGb5dF8+lDZsYx1cpGgsgsR
-	Q9msHeFQ==;
+	bh=0gwU2jvcuEz7Zmi2rF3iYuLef34+LUaEBtsQc2TxOPc=; b=38ZWLhymKMUQUQwCsMykIo8AsQ
+	EwLoTnfrOwZRl/GRcyaZltB1SS41rzX5rm+EiQ5EHT5jPZ6LF0ZGYvNWOKT2Qwc5SQilZ1Ysn3WZc
+	2aULax05XZUPmcR9zwAhpjzpIi4w0bekaSCp0VzBLzZj07rSIPr66Xm9kAqnYa4fhASjscGLyTQ2N
+	xkrV27oqab84hjVPujLy4sPf7EfHMfk5JlUG0KsDz8vyxLiCmIhiat3HkKTyLDJKiNbWDFGxqE2yp
+	xu0fvB67HkJxsafB41/PwiPy6dcf0SMQrQ71/s5l/cZEML9F0Dut/0ouS/Xaws2uK1ep9ka42mm/R
+	+LADkZDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxmeq-00000001JfC-2yPq;
-	Sun, 14 Sep 2025 13:20:44 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uxmgF-00000001K0T-0prT;
+	Sun, 14 Sep 2025 13:22:11 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxmeo-00000001JeY-2rRH
+	id 1uxmgC-00000001JzR-1UfB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 13:20:43 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45de56a042dso21172745e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 06:20:42 -0700 (PDT)
+	Sun, 14 Sep 2025 13:22:09 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3df3be0e098so2001592f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 06:22:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757856041; x=1758460841; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757856126; x=1758460926; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kAG7m9JuJHlEHyVLrilF0p1L19ca1FzfGVRDxZu6tYk=;
-        b=Rt9FTLrbTpNyjtryz/2yBdb91LKt+5OMZ+FbT740jipJpK7Y+NYUFgDhnAmYpxoNQl
-         26xaobhsV6gj5r54ledj6ks1I8bewHcTpPOz+4ALArz2AJWze+/RhlS58krMwo7d/oCk
-         XZUGOnbcm4wBqfvRGyKZdu5Z9v8yM3wzvUfXaT0t51BYjlxIW1iuviwu+j8H93EEBZ3/
-         bkUkVc+zd4D3sXuw7Orst6xr/LmqtxQzIEmeIfgtE897uO9UBSXwj/Bu+PboEmWyTaBS
-         UnYd/SAm0xTSLddPY0SQHSLl/JvJkvFZZGQXGyVk0q1LRMRwmQ7adcwZtst56aEtv8XI
-         oZ0A==
+        bh=0gwU2jvcuEz7Zmi2rF3iYuLef34+LUaEBtsQc2TxOPc=;
+        b=F0DVHe958OVm4CiCKWJNYPeNFPT33aCfsyh/aZkNxyZdLSc1KoyBpCI1gbfghD+ebH
+         7FXMmQF3i/Sn6Zsnf6YrMder92efDtcjp+M4XoT1cfYkB3iPhE2gFcUcC+Urzx39dQHn
+         c7jz6BlSNvrOFttbP6yQfWnG9VHIAVfeyVPZ0snQeTHuJpC1RCev7XNg5Ob6KrOwdQ2P
+         cpkVPr+EgG6PGj5V/B3d0PaoDebGxFxiiWCon8t5493gtl0MurKMp22hCdpuulT+1sml
+         4EkSOnTjsDnhscc3l9QQw+j0WAWGLa3CxJ1UZXSbVoTVXsFf/w5jaxkScUNx1ftNDdtR
+         BynA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757856041; x=1758460841;
+        d=1e100.net; s=20230601; t=1757856126; x=1758460926;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kAG7m9JuJHlEHyVLrilF0p1L19ca1FzfGVRDxZu6tYk=;
-        b=Wbu9h1aD9KIWaupqGICXZpmFNNZukqXH8VP4U53iAsjOGfHmYzu/cNa6lONiIi6xRm
-         l1w+iCC/t+B7Gr3MWMrJiHBMw5nfdU1+IvEjd6AzJATZPJ6dNhhYxIG+HFfATLXKC85p
-         2N2KLi+mNaK3c6ClHVfzpDH+42kCoYquEwdlSrosN9L1jOKusv8/wcChkgYp745GpE64
-         a9gsKZ+xON7KHw2HdQIOck0k4zsh6OkaKjvYcqpqqfEDVXaoYBUYUTusHw5krOIsUWir
-         +dhP+rBCF0kNUZyt8K15Es9Qpf/dXFiNhAC84YIvlCZIZFR53gjZFzDW/sU02wjYWMG/
-         xPyw==
-X-Forwarded-Encrypted: i=1; AJvYcCUKB/7bPHUcfH3Fcw024UFfiJDiSlFYO/qj0MZ+R9echtT58F3O/eKwCcZG9m6N68H7Y7Esb5kYAUzQtvWlsjCn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yye+/Vxe8BARsdB/svfuodIdnN4pax+VIUzDOxLGYLDZCf+NIG3
-	ZnJs2MbD23mScmsqATWoml8Igsg9OYB1RoxDlcGfzK8Tnn3wGQJ4UVTLR1SQog==
-X-Gm-Gg: ASbGnctosIqF17x1+M03XsV9mbuIwarNeWb0pAqvE2XX7eizSa9xkYylzlyWN0vL4u5
-	BKErknwuhrOdgj0j2wltVDR3t6r9DfyETpv8DaDr1HQd7y3yGN9KUV7rBLDF8UoJF7dCE2sz50G
-	DbPMVptfCtGk9b24wixl0XGEsbUQx0HoVUz8SX/p3v+cxgPeuo2iZep8B3YQJkTI6sV3zy1Zgt2
-	SedPMTKFHgSyjug0XYBdeYx3WrJX7yEvDA9DGwmIHrLES0liQArJiMw+HlL7vAPS8nItqyrLb/2
-	xWHZe6nEClX1FOVeffAvlglqGiG43N1jI0xItdqjCFVfVWL/TUqBfHrhLo8UoETNav+q7r4hFsF
-	BgiBg8/fko7G5pRymZ9ZTzvhw758Rf9wu0xYedeF8Ldzs54nQjUi+SF31EwnFgSOg6K0dXiiGCW
-	mhyysSe6vn
-X-Google-Smtp-Source: AGHT+IGXHijtzVt4eJs2ZV02TN6C9aMKH+pvbvhPrJQNoOx9E+tCmvs9kL5J7Zm+EWTDt2YmA/iNKA==
-X-Received: by 2002:a7b:cb87:0:b0:45c:a955:4578 with SMTP id 5b1f17b1804b1-45f211f7f55mr62938465e9.21.1757856040463;
-        Sun, 14 Sep 2025 06:20:40 -0700 (PDT)
+        bh=0gwU2jvcuEz7Zmi2rF3iYuLef34+LUaEBtsQc2TxOPc=;
+        b=nUZj43IzF0T83mv7Eko/mi+UGc9qcZcIFcYDb7Bue7Gu6OtZCGsYsBMXlp5fRrAq4f
+         YE6tXZPXMjGgd3a/njgNaQYXtNs1EveRGaMfel+/E5S/Z8hvSYOm2T5upKA96Y+a4eqG
+         Yq2xRpMtZVLkT+UZw5YFf6MBk/SAQoakOSrQ7uF90XsFgYfb+gMh2Z26DdCSMTYvKOB0
+         MT2qBdvOFiJDFoi0TjP0qgIUgweEg4RtaqdP1EI9Uv1Xqylk/FdGq4SO1YdH3r6SBmea
+         +0OwAPSwURZ1jppUoWCLdAsa8Iyp0BSQ3n2uNVaki+Cy1NeT42bxQAA2mJDDqaUEyzKU
+         C1RA==
+X-Forwarded-Encrypted: i=1; AJvYcCW6dNFmdTBxCeL9fLPge/SbClQjMSnZbjJdQcseKp/2j5ihsSZ+n0Ce02cGxAfUTRIFXCnLuLJ/jv2C3JqGeL9U@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxCPb8l8xoufPJrtu1M184WpFVTIzMvY6TIH8qO2s6qKrOi9Ef
+	2n9xMzZmZ9KO03t4YsYUeLdd/Amh6TYqR+zG0yZXw/sJofVvKYEtRcPCLaSJTw==
+X-Gm-Gg: ASbGncvi1/YUvlRpVff4ClHSoo+6efmOrzkq3vpA1y8JUoJpWqjDXTxxmIjmlrKMIdL
+	Zxnff8y7DK3uXl2UQW7u9J/xU3eXOhaM/rhIVULvmupQZgdwRaaq/Rxjg8zRgptvA9pCSYKTeY5
+	nb/5pi4MigMbGXeWoTbAMoYoeVjq4GYfHgle/WWgYAOdAsUV+AuhPUfD1IBAY0i9A+m2/VRPV7G
+	3P8kLukv7GRxyy7LtQw2fNmHJn64dml+SZVVlXJ32ABEH4SUs6HYFMzZuytMcKLsouw9yG40RvK
+	lNBCLtzhNeaPuHU8BtpYiuriHj62JXOqdSoDmL7bAy+u4+WYLx05jtkQpbDlBQNNNbY8tIJ50Gb
+	08PXJU33azxoaScFWfaTBn2TpCYbYr5tCSKb1XzObMdG7iv3GGhiGyuN1/2D3gYMcreZ3EydFjy
+	6MRgHdWEkx
+X-Google-Smtp-Source: AGHT+IE7WXHLfVH2u4+DSdlsFQ3ngfdBOj6lQTdYHkhX00KlElTNErFlDHZmemjLFy+aNAvICL1RWA==
+X-Received: by 2002:a5d:5f42:0:b0:3e8:68:3a91 with SMTP id ffacd0b85a97d-3e800683aeemr6491401f8f.60.1757856126372;
+        Sun, 14 Sep 2025 06:22:06 -0700 (PDT)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45f2acbeee0sm29595095e9.0.2025.09.14.06.20.39
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e80da7f335sm7274707f8f.8.2025.09.14.06.22.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Sep 2025 06:20:40 -0700 (PDT)
+        Sun, 14 Sep 2025 06:22:06 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>
 Cc: linux-samsung-soc@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-pwm@vger.kernel.org,
+	linux-serial@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] dt-bindings: pwm: samsung: add exynos8890 compatible
-Date: Sun, 14 Sep 2025 16:20:33 +0300
-Message-ID: <20250914132033.2622886-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v1] dt-bindings: serial: samsung: add samsung,exynos8890-uart compatible
+Date: Sun, 14 Sep 2025 16:22:01 +0300
+Message-ID: <20250914132201.2622955-1-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_062042_730533_B356D595 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250914_062208_404067_4F78D879 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,25 +103,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add samsung,exynos8890-pwm compatible string to binding document.
+Add dedicated samsung,exynos8890-uart compatible to the dt-schema for
+representing uart of the exynos8890.
+
+Like exynos8895, it has a required DT property samsung,uart-fifosize,
+so reuse support for it.
 
 Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 ---
- Documentation/devicetree/bindings/pwm/pwm-samsung.yaml | 1 +
+ Documentation/devicetree/bindings/serial/samsung_uart.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/pwm/pwm-samsung.yaml b/Documentation/devicetree/bindings/pwm/pwm-samsung.yaml
-index 17a2b927a..97acbdec3 100644
---- a/Documentation/devicetree/bindings/pwm/pwm-samsung.yaml
-+++ b/Documentation/devicetree/bindings/pwm/pwm-samsung.yaml
-@@ -31,6 +31,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/serial/samsung_uart.yaml b/Documentation/devicetree/bindings/serial/samsung_uart.yaml
+index 1a1f991d5..6ebe8a869 100644
+--- a/Documentation/devicetree/bindings/serial/samsung_uart.yaml
++++ b/Documentation/devicetree/bindings/serial/samsung_uart.yaml
+@@ -49,6 +49,7 @@ properties:
+       - items:
            - enum:
-               - samsung,exynos5433-pwm
-               - samsung,exynos7-pwm
-+              - samsung,exynos8890-pwm
-               - samsung,exynosautov9-pwm
-               - samsung,exynosautov920-pwm
-               - tesla,fsd-pwm
+               - samsung,exynos7870-uart
++              - samsung,exynos8890-uart
+           - const: samsung,exynos8895-uart
+ 
+   reg:
 -- 
 2.43.0
 
