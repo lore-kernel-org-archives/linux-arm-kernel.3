@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D3FACAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 12:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FA3CAC582
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 12:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6My8g8ijlC6ggM3Nx6OmXgJVfqUSxwxL444mCRnJ11g=; b=Geu26AjIsGTWL2VvpMPosfHBtM
-	HgnZTskuNZA1HUqxKWhDdy0rt1LTcUwN4GcWHi/jYGtJNBbAhGX1yMQW25CwQuW0pA1tRcZKLkKq+
-	iF1PyLY/SGQ9YUZKc7jqUkaYsNGWMw+SzaaMr033nIkn6wmoNDguPREUUIDcBXl8kKwl8vvBXarbY
-	8Gml7AJ6Ow3Ibi1RS+T3/O0fIAN/OkbWSD0To1b9Ey2WZwCU0IHlVfKDIQbJaAbgfJZwxpM1a+ZfC
-	LVN5iBJmmHSxofphYDlzc3kmIJNmK4OZUcO8WSNYszF4R51IIe3f5o4DjFaGGaoe/OWTUj2lh+thn
-	XZdoAVvA==;
+	bh=kZRPj8VFGD82gxi1pIqE3YbUy5FZEodVqHSWuZV8rz0=; b=Jm3DcvRIuWO6coQzB4FB34xuIs
+	ztJs/6L7zy13FvMVUg7xkj21f7i3v7S6tB5dpOZrNo71g4yLPDFvzKFneqB/8hOaW3YxY4s2opGPf
+	AgZUvGXMuBAgJCz9F5J3pBOIoiJgQ0lYXOkCKXl6QAhj9sQTGpm/HNU2E4S09w4GU7rNA+8kylC1v
+	WirJio13lrA+67HUijSOnFRLjegzP7TGzgsHF70t57pk5u+oFashJHlNdN6ZFsFC8aDIgo2Yl90mq
+	9lX+WXlhXD9XSXZnng4gu9nzuL6ZBa5ARM+mlIEZXbUs7SsGGsVUkEmWRO0eX2tRMkWTjjdkpaqM5
+	ObR98zLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlwb-00000001A10-3IGY;
-	Sun, 14 Sep 2025 12:35:01 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1uxlx5-00000001A83-0kRR;
+	Sun, 14 Sep 2025 12:35:31 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxlwZ-000000019yz-1BVc
+	id 1uxlx2-00000001A7S-0hW9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 12:35:00 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b04770a25f2so450176966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 05:34:58 -0700 (PDT)
+	Sun, 14 Sep 2025 12:35:29 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-62f330eeb86so428972a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 05:35:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757853297; x=1758458097; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1757853326; x=1758458126; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6My8g8ijlC6ggM3Nx6OmXgJVfqUSxwxL444mCRnJ11g=;
-        b=GSkeTyV6zimbLCUQN+M+aPm5jiMq06zovPp7tpInXYkcsPJ/Jys6pwbPXtbzqOr47d
-         xaFUwLFpf1Yu2Lo1VzUgiw8pfGAsnZ7fm+r+w/H5Xz/OG2U4WtLawM5Xw+dYmd4dGRh5
-         2ArZylVYdkDX4jMfayu3Dhf4AYc12Z0381G3cNZRvzb2VcELsFon1gy2V3ag7zEvhokI
-         4LABDIrHnrjy/deEjhaHWWsnYZzudRN0fLVP0090a7ud/Y9whOnIe1kaLPi/O069kSBH
-         hN6PeiLSM0f6NxHUO0OroqdgxkZtTDRhnLmto+o2pRCW4clMq+nMYEyPWfzbszCtZTcZ
-         n9Yw==
+        bh=kZRPj8VFGD82gxi1pIqE3YbUy5FZEodVqHSWuZV8rz0=;
+        b=RoHWDEgstuVyp8AvzERyJ6X9gLl8Y1K8aY5+Lct7i+EdXKKj/r9BHZMlzc01q+k+VB
+         xWLeb7YyCRvJSA7K30Kibtonp0S8QOqW+upmO+L2X4PeOsG6E0ZBWSnS3rFMa5Xk0EWu
+         RNATtbJIKRPBhbsTgRbj/OfFKSXvuia8DQHvPBH3UiuuPxbiIW/4pJikqOD1y6Mzjstb
+         kdswGBQzJzOmM4cmOpB2fi3CwA0qkX8l9XfsnZS2gQRBbVibCv7Z56iaaQdWr0jZSw5C
+         r3HPCBz65GHbXG2UdClIVMbRUo/WzJNOYOnInEDf2iVZ2wPw2pn5YCfMCbbJMPuKzHwa
+         G6nA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757853297; x=1758458097;
+        d=1e100.net; s=20230601; t=1757853326; x=1758458126;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6My8g8ijlC6ggM3Nx6OmXgJVfqUSxwxL444mCRnJ11g=;
-        b=ufdh41fBJC9mWUWHzaoEfWu9djJkviyFlzA9PuT62rlt/aWEWJFQmmic2wR4MiQAUj
-         oAUa/BJ8OfIQePdUgOixVQcyKPHCpOQ/PZ26zesvckHfjfnMTgXULHm7uT8pxbgLtkNe
-         xp9VKqZEf8FhuE1c2p2N97d8xrVF6RsW8y50kvocc2tsRc7ja04Rr82Rdtq4W2MwhgJY
-         8v45Ba4hjrLt/1Ibo43Ouphg9QPNYFVgs1sqs1m2n1zwXsu0wGccrnSP6cRZIh3wwz4o
-         8OoCPYxstahHQrc+D5JSEEYChEXhPdgt1lUedWc3Cq6G/7Lfe6+dX00F4vRGHr3PJXPT
-         PcLA==
-X-Forwarded-Encrypted: i=1; AJvYcCWfSgs/RLQyrIxMU7OMGfNtxyTKN0qW4dbJP5utrAK7WgnII8jnXZSWatqg+DsA/q6m23dqnVNpMDkZk6sSY32r@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe5nehcHtSKhssu71VMmvTDmeEmlsXjVBow5ruQWH8OWFfqlOW
-	g1Z1risxFVrXeWmsdjYw2IeEJBQqesH368SYPNu+pnQhkFIj6OEEsRb8inMTgp2gPDDTkfNix6G
-	dp6cUqPBASvKGgt+zV/EtZK3zOoyhvbf4ohi3ABQToQ==
-X-Gm-Gg: ASbGncvYIP9vOghzLUghjzQ7oA/zIc1s+Wh3u9C8Baccs/6KxAt1v+jeDpZpzpds/Of
-	BgxKF2Ovcdv8TpyG366brrciyF/4db3VaF5Owbug2sJkNvGPEL6TeKM28YrUl3+0uBrcTukanzl
-	y3AW6Y0VdcW4O+VS24wLiuKNYIyBIlATmtRzsOFeo78Nw7QXqvhvlFsDoHYuxGgLtX12dgfCAEh
-	e7k5E//exWs4Ucs880jbuEyOWRLag0ntC4utA7qiM2ySRg=
-X-Google-Smtp-Source: AGHT+IE9iMZLipi8SbmYOlVHFkjWHvFeGW1GqsUB94IHXcDFtD/+YhZqBpHxrpl4wzzT0r2J3Pq8q72gpM+PxQoXhrE=
-X-Received: by 2002:a17:907:7f87:b0:b0e:d477:4961 with SMTP id
- a640c23a62f3a-b0ed477740fmr113747966b.23.1757853296988; Sun, 14 Sep 2025
- 05:34:56 -0700 (PDT)
+        bh=kZRPj8VFGD82gxi1pIqE3YbUy5FZEodVqHSWuZV8rz0=;
+        b=CuyRzKRw0kjrbPJ1UeRx0bEqJAz6p+sT21iZiUBoV6W/dkQO0Oo/4gl2tL2cyzNzwn
+         e8KBARBpeptOdQ9AvRyr07UkTC6/AW4CMVBMmun4oiA2HnXwutm4P6b0euksRjLkhAbB
+         NTPHEboaVva8sKOcaIyvkx0zo683wd4c7O60D5hCGI/2imzAR+ynvAEhlaR8nLN7QP6s
+         yjZ5Izo41zlFP57uKxMnrn/dc45M4z5xBxpqv1kSAmQTNA90dyDfWO5GmQSxhEdVWgPC
+         o56DRU3GN6t5hPeWE0clEF78PMt6iedYEHaZo6v4exn+xBt2sg70YiGpEUcq+iGWcQaD
+         6fbg==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ3kDCk8IvpPUGEaUfnewP3Wk/35Zvsp4JlLEcjuUzgaMwH19ilt+Epf/WnRkZpYb0F4oDlg4uLmL/MvrGDaBI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdYGTXeDKWbeZBMNKq2IyScOQWmbxRULO6IvupMSau9Jy3XROl
+	H1Zrr5QsC2n2om6kjs4GbWbS9MawjeFbyypWMfVXNmc0rfMotVqCDTjbOXoCnARNupFzA99pG04
+	RA9E9dudkHB57YYaC3J3cGev1dexYkwGMwZkJMfcr6A==
+X-Gm-Gg: ASbGncvtC/8wef0X+NObtv8x77XIYzOtqzm81IyOmB2ov4JS12OuoHKsbalTMzAv7X3
+	eS4fEqa6cDFwVdFIdGEPbACqQ3197p7f1AtvWHZvt0NIAbxoMgQUmkzBJS25lSK8AB157AR098f
+	BYtEEAhQHExQXW0/8A8MiGiXHY9iWY4jvfp9agshxi6O/t2m+aEEZ0mSfl4X95TVZLk21Zp6D/L
+	L39gHmXGg+G7X87g8AvCgn3v4XXWLKRhSuI+rB6yNCCSeg=
+X-Google-Smtp-Source: AGHT+IGC5U6e2Dn1tMsLyF18gYUHRa22VodbP73NxQ0EqXqogritItpRUDjrhDJduFW7Qc87Fq6Zc0iIgGpKneFSjR0=
+X-Received: by 2002:a05:6402:390c:b0:628:6af4:595 with SMTP id
+ 4fb4d7f45d1cf-62ed82fc9f7mr8593311a12.20.1757853326146; Sun, 14 Sep 2025
+ 05:35:26 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250912141436.2347852-1-vincent.guittot@linaro.org>
- <20250912141436.2347852-2-vincent.guittot@linaro.org> <aMSHsoLHGUBoWX8e@lizhi-Precision-Tower-5810>
-In-Reply-To: <aMSHsoLHGUBoWX8e@lizhi-Precision-Tower-5810>
+References: <20250912141436.2347852-2-vincent.guittot@linaro.org> <20250912225004.GA1651547@bhelgaas>
+In-Reply-To: <20250912225004.GA1651547@bhelgaas>
 From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Sun, 14 Sep 2025 14:34:44 +0200
-X-Gm-Features: Ac12FXyj3Q4Ir_GGRHAULDx1O8xgannDkGizhiAuLvket8uRGtmjSHnXquF9Gho
-Message-ID: <CAKfTPtBh3jvEQF09sL8g7Zeru+WvtQO31UFZEZDx1DYJ8RCK3w@mail.gmail.com>
+Date: Sun, 14 Sep 2025 14:35:14 +0200
+X-Gm-Features: Ac12FXzoBnTdY1zYFeG3eA1G823XRIjgcnE5BClULnG3hfvuq5oVWCbfskuc7HM
+Message-ID: <CAKfTPtCfjJ8-30aAeEyigeLyuKtTq+k6PQg+5w4-0Wa7pduZvg@mail.gmail.com>
 Subject: Re: [PATCH 1/4] dt-bindings: pcie: Add the NXP PCIe controller
-To: Frank Li <Frank.li@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
 Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
 	s32@nxp.com, lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
@@ -83,8 +82,8 @@ Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_053459_377233_44BC44D5 
-X-CRM114-Status: GOOD (  38.93  )
+X-CRM114-CacheID: sfid-20250914_053528_257951_D540A12F 
+X-CRM114-Status: GOOD (  34.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,17 +98,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sept 2025 at 22:51, Frank Li <Frank.li@nxp.com> wrote:
+On Sat, 13 Sept 2025 at 00:50, Bjorn Helgaas <helgaas@kernel.org> wrote:
 >
 > On Fri, Sep 12, 2025 at 04:14:33PM +0200, Vincent Guittot wrote:
 > > Describe the PCIe controller available on the S32G platforms.
->
-> can you cc imx@lists.linux.dev next time? suppose most part is similar with
-> imx and layerscape chips.
-
-Ok will do
-
->
 > >
 > > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
 > > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
@@ -151,7 +143,12 @@ Ok will do
 > > +  This PCIe controller is based on the Synopsys DesignWare PCIe IP.
 > > +  The S32G SoC family has two PCIe controllers, which can be configured as
 > > +  either Root Complex or End Point.
-> > +
+>
+> s/End Point/Endpoint/ to match spec usage.
+
+Ok
+
+>
 > > +properties:
 > > +  compatible:
 > > +    oneOf:
@@ -163,12 +160,6 @@ Ok will do
 > > +
 > > +  reg:
 > > +    minItems: 7
->
-> If minItems is the same maxItems, needn't minItems.
-
-Ok, I didn't know that
-
->
 > > +    maxItems: 7
 > > +
 > > +  reg-names:
@@ -195,12 +186,6 @@ Ok, I didn't know that
 > > +      - const: misc
 > > +      - const: pcs
 > > +      - const: tlp_req_no_comp
->
-> use - for names
-
-Yes, I forgot to change this
-
->
 > > +
 > > +  msi-parent:
 > > +    description:
@@ -215,14 +200,6 @@ Yes, I forgot to change this
 > > +      These MSIs no longer appear on the AXI bus, instead a hard-wired
 > > +      interrupt is raised, documented as "DSP AXI MSI Interrupt" in the SoC
 > > +      Reference Manual.
->
-> Don't need description for this common property.
->
-> msi-parent for pcie devices is most likely wrong. It should use msi-map.
-
-Ok, I'm going to have a look.
-
->
 > > +
 > > +  nxp,phy-mode:
 > > +    $ref: /schemas/types.yaml#/definitions/string
@@ -238,9 +215,11 @@ Ok, I'm going to have a look.
 > > +      The max link speed is normaly Gen3, but can be enforced to a lower value
 > > +      in case of special limitations.
 >
-> needn't description here.
+> s/normaly/normally/
+>
+> But I doubt you need this here at all.
 
-ok
+I'm going to remove the description
 
 >
 > > +    maximum: 3
@@ -248,12 +227,6 @@ ok
 > > +  num-lanes:
 > > +    description:
 > > +      Max bus width (1 or 2); it is the number of physical lanes
->
-> needn't description here.
-
-ok
-
->
 > > +    minimum: 1
 > > +    maximum: 2
 > > +
@@ -272,16 +245,6 @@ ok
 > > +  - phys
 > > +
 > > +additionalProperties: true
->
-> unevaluatedProperties: false
->
-> because you refs to /schemas/pci/snps,dw-pcie-common.yaml
->
-> You can send to me do internal review before you post to upstream.
-
-ok, thanks
-
->
 > > +
 > > +examples:
 > > +  - |
@@ -293,12 +256,6 @@ ok, thanks
 > > +        #size-cells = <2>;
 > > +
 > > +        pcie0: pcie@40400000 {
->
-> Needn't label "pcie0"
-
-ok
-
->
 > > +            compatible = "nxp,s32g3-pcie",
 > > +                         "nxp,s32g2-pcie";
 > > +            dma-coherent;
@@ -346,27 +303,20 @@ ok
 > > +                                  <0 0 0 2 &gic 0 0 0 129 4>,
 > > +                                  <0 0 0 3 &gic 0 0 0 130 4>,
 > > +                                  <0 0 0 4 &gic 0 0 0 131 4>;
->
-> use pre define macro
->
-> <0 0 0 1 &gic GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>,
-
-yes
-
->
 > > +                  msi-parent = <&gic>;
->
-> Suppose it is wrong for pcie
-
-
-
->
-> you should use msi-map
->
-> Frank
 > > +
 > > +                  num-lanes = <2>;
 > > +                  phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
+>
+> num-lanes and phys are properties of a Root Port, not the host bridge.
+> Please put them in a separate stanza.  See this for details and
+> examples:
+>
+>   https://lore.kernel.org/linux-pci/20250625221653.GA1590146@bhelgaas/
+
+Ok, I'm going to have a look
+
+>
 > > +        };
 > > +    };
 > > --
