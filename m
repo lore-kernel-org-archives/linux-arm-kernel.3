@@ -4,58 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33180CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 19:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D39CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 19:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5NIBzHXHLTvGZLCPYIRsSe5gBL+3KSRcfZdaGnG5L8=; b=ZRqiw/B73l+YZtSsqM6DliaaJH
-	j9Eimz3IEkYPXnaT2RL5Xew1sjHVJ/M+x6zJl5G9rMrlDszDg3sdTEZlhitV4CL6cAjSsBwFaOkaz
-	8XiPg4FMGCynB70XoBTE2mk0iFcW1pRApiUh2MU5gxiQCHUG69rayfzTtjrdsrD0TStTPJ9QCgZZm
-	W14Kc/L+sXxwWIo05Qsk+866aOZQVXmBEl6q9G8MdKeaOn35NNmDaNqVX5X9HW8Cf2G028hfpRl82
-	Wl4G/T7FDp6fzSY4rGLUwwHGPU/xddNULf/RO1nAr0t+t8s8v6l+IeyV7mdN151/p0gE83yUYwQ3s
-	js/UH04g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9ob3+l+1f9IP3Uc7NeallE4LkO03rIbLfuv4476RPcQ=; b=axbVhXV1suX+5y
+	tXDl5enpHXOzr3DRxN7gupBnwgW4m4MuuADfk7uPlpRojZ2r/wpplz4G/x/zIRdN06i0D+F404hei
+	6fIafCeIDvhk5QAaB89hxINe7VdFC8LoVdU3/4U+YU/+qGtHqN+9BRwPGswdb6aFMq2mLbTU2APrB
+	7VsgQV3EEft8AQzB1F1zh0jwlYh/x9AdNZLAxx6xbs9oNiyisrAHNtKWkld1ywFDCErxTMGPa0JOq
+	pUKJ2wPurM1uwy4KZkpD9JPwq0vCjjkPLnlpZjq9SmWe0WFj9SBd1Z1TpOy5jEf2lXMI8BpsXWQD6
+	5mznRledEggv0USE0XFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxsUv-000000023f1-3jUI;
-	Sun, 14 Sep 2025 19:34:53 +0000
-Received: from mail-24422.protonmail.ch ([109.224.244.22])
+	id 1uxsYs-000000024YA-07hU;
+	Sun, 14 Sep 2025 19:38:58 +0000
+Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxsUs-000000023bj-3T5J
+	id 1uxsYo-000000024XY-3XtG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 19:34:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
-	s=protonmail; t=1757878488; x=1758137688;
-	bh=J5NIBzHXHLTvGZLCPYIRsSe5gBL+3KSRcfZdaGnG5L8=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=sK+4rO6oG/pTd2IwSniKK4XZZqj+SapzlITiiNOsxU74NPeXXkDpyEa6Z4WUmLwA4
-	 btwHtRGJ3HqafxTEmL7BqF21eIxUVdjx8kiCB/i/OJxPwoKaPP3tlD2+Gt5TStrOdI
-	 I4eW0xn6+u0qfSDnXLOZcJJoPMarAuyUe78+fQzVra3gqLawI59mu4S/zlzR+FrbiV
-	 W6RdThh/JJn6m0ZUVBbemfEUM+Csub4DspeJnAtAnviz9f/FwRPCyZ9NzoNwJiZn2G
-	 /eFOwoIayoXqiXnZ7MUmZhSlTkfTNVVEYCn8HVllz+pLKft0OM6CB1YF8ngJYN5KrQ
-	 XjJRSQC40yjVw==
-Date: Sun, 14 Sep 2025 19:34:45 +0000
-To: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>
-From: Alexandru Chimac <alex@chimac.ro>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Alexandru Chimac <alex@chimac.ro>
-Subject: [PATCH 3/3] pinctrl: samsung: Add Exynos9610 pinctrl configuration
-Message-ID: <20250914-exynos9610-pinctrl-v1-3-90eda0c8fa03@chimac.ro>
-In-Reply-To: <20250914-exynos9610-pinctrl-v1-0-90eda0c8fa03@chimac.ro>
-References: <20250914-exynos9610-pinctrl-v1-0-90eda0c8fa03@chimac.ro>
-Feedback-ID: 139133584:user:proton
-X-Pm-Message-ID: 97105e46a9afaa2b00f7a321c6efb135deac6307
+	Sun, 14 Sep 2025 19:38:56 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id ECA3A7A0129;
+	Sun, 14 Sep 2025 15:38:52 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Sun, 14 Sep 2025 15:38:53 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1757878732; x=1757965132; bh=9o
+	b3+l+1f9IP3Uc7NeallE4LkO03rIbLfuv4476RPcQ=; b=XVpu1fpk7uG/ZP3obd
+	r8+y6Ts0QQDe6l3zxRBt7Q2pqT7A1BB1jKIXa8qGE8rS3EIyZBdqwNXHOchezRiQ
+	YCKButws4u65Wp32GE6yaLTgJoQRfV8tSVmlOeKNy+zDNKHuFQ3uiET5HBCAqFAM
+	HqEesA7XLfW5PveNncDsyePsf8oNeCh3mCj2H2VONVvncRPcorP9sGMafq4SL5F7
+	QERFgeqbHdgGifntm5GEr5kNSCMbTUUp60Kb6zA9FmpRaycysBTB6GTeK245kbaR
+	LNoobBz9Pl6CktgDPWLkmFfOpWLSsRsqgjg+bx2NXVeks4soddbakrvqd07U4uZJ
+	Kl7w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1757878732; x=1757965132; bh=9ob3+l+1f9IP3Uc7NeallE4LkO03
+	rIbLfuv4476RPcQ=; b=Mh1X2mgIsk0zOsXQx3JQcC9gqW0wsXNcvRkNnrlVzw6i
+	uX6iWl8tEOtkXB53qrqAvx9PToSvYlJQeadAy7vyD4ekpt4SPt/+kNBTvCS0AYv8
+	lHgFtq1SOTEtoe01OM8K96W0VIELYclOonjXx3f4t1UXksgCajYyUp74ft/PQPCO
+	Cp3maXXTB5Tgrs+8wHNsfG2vqlDGB0D8VGRiD5FEJruYfNWDhHCIEWPBnfuwBZd/
+	kTC79GwUzeMprVp6gTzvblOjkAH/F0sNTbM/hIfq8p441qt2VzPLjl27ZsJR8gKW
+	bm4g5E43LmAqMEX3zYVEw429UvjuMh/Z/RgnHy24SQ==
+X-ME-Sender: <xms:zBnHaKHTW0q1s9SFeBvGzOT-J4U2BkK8qQwJ82YUVvXdDBYvkWl_Sg>
+    <xme:zBnHaLdSYyIJ-kljZECBmeqcJSau-87d70vM-NkbCkJ1XwSjF1IayqaRxDVdEgX6v
+    oy5WKzXdDRbjh9AH2Y>
+X-ME-Received: <xmr:zBnHaLm2g1qn8biWb7BGXsoUCzu2uxXkqBQhSFUyfN0cIDaJOr7Q3CAnvYbVjPnmSHap9tTtWR_P8Fxs8WbOyV6DNGKzLPi_RJ-CaQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdefheeijecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefhufffkfggtgfgvfevofesthejredtredtjeenucfhrhhomheplfgrnhhnvgcuifhr
+    uhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefhjeethe
+    ejffetuefhjeetgeegveelleeltdfhgfetieegudelteehhfejveffleenucffohhmrghi
+    nhepghhithhhuhgsrdgtohhmpdhkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiii
+    gvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgs
+    pghrtghpthhtohepudegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehrohgshh
+    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhr
+    tghpthhtohepjhesjhgrnhhnrghurdhnvghtpdhrtghpthhtoheprghsrghhiheslhhish
+    htshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgv
+    lheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehmrgiisehkvg
+    hrnhgvlhdrohhrghdprhgtphhtthhopehkrhiihihsiihtohhfrdhkohiilhhofihskhhi
+    sehlihhnrghrohdrohhrghdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpd
+    hrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:zBnHaKqikW0vmKgbAfERI-K53piFSlS9r9U-w4dW-d2fXA_N-5cPCA>
+    <xmx:zBnHaIEiRvs-Wz5zs2i9XBHer96afvOVvJ1Cqae67QjEOI_XAxAJVQ>
+    <xmx:zBnHaASc80BvbOv-rOnT285Y7eHU_Ef1NmUeXRcb52vq6d_Ve44nZQ>
+    <xmx:zBnHaON4PwWvo808Z1Uyu_MgFKQS_k5ID3AdJAvXh8S0uOgc93D6rQ>
+    <xmx:zBnHaA0kq46KPksJlY5JqsuDnIec6_D6w4QGX2RmTCGF0EqpcjOxj0Dt>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 14 Sep 2025 15:38:51 -0400 (EDT)
+From: Janne Grunau <j@jannau.net>
+Subject: [PATCH v2 0/6] arm64: Add initial device trees for Apple M2
+ Pro/Max/Ultra devices
+Date: Sun, 14 Sep 2025 21:38:43 +0200
+Message-Id: <20250914-dt-apple-t6020-v2-0-1a738a98bb43@jannau.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMMZx2gC/12Nyw6CMBBFf4XM2jFtBXms/A/DopRBakypbWk0h
+ H+3oomJy3OSe+4CnpwmD022gKOovZ5MArHLQI3SXAh1nxgEEwWrOMc+oLT2RhiOTDDkh6JWVHe
+ DoBLSyDoa9GMLntsPO7rPqRt+ctQ+TO65nUb+tt++qP77kSPDgpWdzFXe1RWdrtIYOe8NBWjXd
+ X0BUFl+ycIAAAA=
+X-Change-ID: 20250811-dt-apple-t6020-1359ce9bf2e7
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>, 
+ Marc Zyngier <maz@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6369; i=j@jannau.net;
+ s=yk2025; h=from:subject:message-id;
+ bh=cUkvxMc1z2FUP8/ZLqz9qQHCc2lZtpnUyN61yW93mXU=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhozjkidn3RO+ZS1w/Of7n+tvPZi+KHfrkUuhi0q8dTZPN
+ lLYt1dodkcpC4MYF4OsmCJLkvbLDobVNYoxtQ/CYOawMoEMYeDiFICJpMsyMnzwvbNXJ0zb4lWL
+ iuxc1dqI0H/HV3jabP1kfMeP9fMGo52MDPdPhesv625NTbdyX2Erbewl84G38v5MPi7xZMF7zXd
+ bWQE=
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_123451_016697_B64C0E83 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250914_123855_308063_AEC0C87E 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,176 +131,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl configuration for Exynos9610. The bank types
-used are the same as on Exynos850, so we can reuse the macros.
+This series adds device trees for Apple's M2 Pro, Max and Ultra based
+devices. The M2 Pro (t6020), M2 Max (t6021) and M2 Ultra (t6022) SoCs
+follow design of the t600x family so copy the structure of SoC *.dtsi
+files.
 
-Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+t6020 is a cut-down version of t6021, so the former just includes the
+latter and disables the missing bits.
+
+t6022 is two connected t6021 dies. The implementation seems to use
+t6021 and disables blocks based on whether it is useful to carry
+multiple instances. The disabled blocks are mostly on the second die.
+MMIO addresses on the second die have a constant offset. The interrupt
+controller is multi-die aware. This setup can be represented in the
+device tree with two top level "soc" nodes. The MMIO offset is applied
+via "ranges" and devices are included with preprocessor macros to make
+the node labels unique and to specify the die number for the interrupt
+definition.
+
+The devices itself are very similar to their M1 Pro, M1 Max and M1 Ultra
+counterparts. The existing device templates are SoC agnostic so the new
+devices can reuse them and include their t602{0,1,2}.dtsi file. The
+minor differences in pinctrl and gpio numbers can be easily adjusted.
+
+With the t602x SoC family Apple introduced two new devices:
+
+The M2 Pro Mac mini is similar to the larger M1 and M2 Max Mac Studio. The
+missing SDHCI card reader and two front USB3.1 type-c ports and their
+internal USB hub can be easily deleted.
+
+The M2 Ultra Mac Pro (tower and rack-mount cases) differs from all other
+devices but may share some bits with the M2 Ultra Mac Studio. The PCIe
+implementation on the M2 Ultra in the Mac Pro differs slightly. Apple
+calls the PCIe controller "apcie-ge" in their device tree. The
+implementation seems to be mostly compatible with the base t6020 PCIe
+controller. The main difference is that there is only a single port with
+with 8 or 16 PCIe Gen4 lanes. These ports connect to a Microchip
+Switchtec PCIe switch with 100 lanes to which all internal PCIe devices
+and PCIe slots connect too.
+
+This series does not include PCIe support for the Mac Pro for two
+reasons:
+- the linux switchtec driver fails to probe and the downstream PCIe
+  connections come up as PCIe Gen1
+- some of the internal devices require PERST# and power control to come
+  up. Since the device are connected via the PCIe switch the PCIe
+  controller can not do this. The PCI slot pwrctrl can be utilized for
+  power control but misses integration with PERST# as proposed in [1].
+
+This series depends on "[PATCH v2 0/5] Apple device tree sync from
+downstream kernel" [2] due to the reuse of the t600x device templates
+(patch dependencies and DT compilation) and 4 page table level support
+in apple-dart and io-pgtable-dart [3] since the dart instances report
+42-bit IAS (IOMMU device attach fails without the series).
+
+Both dependencies are in next and queued for the 6.18 merge window in
+https://github.com/AsahiLinux/linux/commits/apple-soc/dt-6.18 and
+https://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git/log/
+
+After discussion with the devicetree maintainers we agreed to not extend
+lists with the generic compatibles anymore [4]. Instead either the first
+compatible SoC or t8103 is used as fallback compatible supported by the
+drivers. t8103 is used as default since most drivers and bindings were
+initially written for M1 based devices.
+
+[1]: https://lore.kernel.org/linux-pci/20250819-pci-pwrctrl-perst-v1-0-4b74978d2007@oss.qualcomm.com/
+[2]: https://lore.kernel.org/asahi/20250823-apple-dt-sync-6-17-v2-0-6dc0daeb4786@jannau.net/
+[3]: https://lore.kernel.org/asahi/20250821-apple-dart-4levels-v2-0-e39af79daa37@jannau.net/
+[4]: https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org/
+
 ---
- drivers/pinctrl/samsung/pinctrl-exynos-arm64.c | 109 +++++++++++++++++++++=
-++++
- drivers/pinctrl/samsung/pinctrl-samsung.c      |   2 +
- drivers/pinctrl/samsung/pinctrl-samsung.h      |   1 +
- 3 files changed, 112 insertions(+)
+Changes in v2:
+- Fixed copy-n-paste errors still referencing t600x (M1 series)
+- Reworded outdated comments
+- Dropped all dt-binding changes except "dt-bindings: arm: apple: Add
+  t6020x compatibles" as those were picked up in apple-soc/drivers-6.18
+- Dropped all driver changes, will be sent separately if not already
+  picked up
+- rebased onto https://github.com/AsahiLinux/linux/commits/apple-soc/dt-6.18
+- Link to v1: https://lore.kernel.org/r/20250828-dt-apple-t6020-v1-0-507ba4c4b98e@jannau.net
 
-diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinct=
-rl/samsung/pinctrl-exynos-arm64.c
-index 5fe7c4b9f7bd424f396082f1b1b16bfb65f26cdf..a100962c51c28e2422c61a67d20=
-faf03486f4f70 100644
---- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-+++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-@@ -1604,6 +1604,115 @@ const struct samsung_pinctrl_of_match_data exynos88=
-95_of_data __initconst =3D {
- =09.num_ctrl=09=3D ARRAY_SIZE(exynos8895_pin_ctrl),
- };
-=20
-+/* pin banks of exynos9610 pin-controller 0 (ALIVE) */
-+static struct samsung_pin_bank_data exynos9610_pin_banks0[] =3D {
-+=09EXYNOS850_PIN_BANK_EINTN(6, 0x000, "etc0"),
-+=09EXYNOS850_PIN_BANK_EINTW(8, 0x020, "gpa0", 0x00),
-+=09EXYNOS850_PIN_BANK_EINTW(8, 0x040, "gpa1", 0x04),
-+=09EXYNOS850_PIN_BANK_EINTW(8, 0x060, "gpa2", 0x08),
-+=09EXYNOS850_PIN_BANK_EINTN(5, 0x080, "gpq0"),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 1 (CMGP) */
-+static struct samsung_pin_bank_data exynos9610_pin_banks1[] =3D {
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x000, "gpm0", 0x00),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x020, "gpm1", 0x04),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x040, "gpm2", 0x08),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x060, "gpm3", 0x0C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x080, "gpm4", 0x10),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x0A0, "gpm5", 0x14),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x0C0, "gpm6", 0x18),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x0E0, "gpm7", 0x1C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x100, "gpm8", 0x20),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x120, "gpm9", 0x24),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x140, "gpm10", 0x28),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x160, "gpm11", 0x2C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x180, "gpm12", 0x30),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x1A0, "gpm13", 0x34),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x1C0, "gpm14", 0x38),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x1E0, "gpm15", 0x3C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x200, "gpm16", 0x40),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x220, "gpm17", 0x44),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x240, "gpm18", 0x48),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x260, "gpm19", 0x4C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x280, "gpm20", 0x50),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x2A0, "gpm21", 0x54),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x2C0, "gpm22", 0x58),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x2E0, "gpm23", 0x5C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x300, "gpm24", 0x60),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x320, "gpm25", 0x64),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 2 (DISPAUD) */
-+static struct samsung_pin_bank_data exynos9610_pin_banks2[] =3D {
-+=09EXYNOS850_PIN_BANK_EINTG(5, 0x000, "gpb0", 0x00),
-+=09EXYNOS850_PIN_BANK_EINTG(4, 0x020, "gpb1", 0x04),
-+=09EXYNOS850_PIN_BANK_EINTG(5, 0x040, "gpb2", 0x08),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 3 (FSYS) */
-+static struct samsung_pin_bank_data exynos9610_pin_banks3[] =3D {
-+=09EXYNOS850_PIN_BANK_EINTG(4, 0x000, "gpf0", 0x00),
-+=09EXYNOS850_PIN_BANK_EINTG(8, 0x020, "gpf1", 0x04),
-+=09EXYNOS850_PIN_BANK_EINTG(6, 0x040, "gpf2", 0x08),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 4 (TOP) */
-+static struct samsung_pin_bank_data exynos9610_pin_banks4[] =3D {
-+=09EXYNOS850_PIN_BANK_EINTG(8, 0x000, "gpp0", 0x00),
-+=09EXYNOS850_PIN_BANK_EINTG(6, 0x020, "gpp1", 0x04),
-+=09EXYNOS850_PIN_BANK_EINTG(8, 0x040, "gpp2", 0x08),
-+=09EXYNOS850_PIN_BANK_EINTG(8, 0x060, "gpc0", 0x0C),
-+=09EXYNOS850_PIN_BANK_EINTG(8, 0x080, "gpc1", 0x10),
-+=09EXYNOS850_PIN_BANK_EINTG(5, 0x0A0, "gpc2", 0x14),
-+=09EXYNOS850_PIN_BANK_EINTG(8, 0x0C0, "gpg0", 0x18),
-+=09EXYNOS850_PIN_BANK_EINTG(8, 0x0E0, "gpg1", 0x1C),
-+=09EXYNOS850_PIN_BANK_EINTG(8, 0x100, "gpg2", 0x20),
-+=09EXYNOS850_PIN_BANK_EINTG(6, 0x120, "gpg3", 0x24),
-+=09EXYNOS850_PIN_BANK_EINTG(3, 0x140, "gpg4", 0x28),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 5 (SHUB) */
-+static struct samsung_pin_bank_data exynos9610_pin_banks5[] =3D {
-+=09EXYNOS850_PIN_BANK_EINTG(4, 0x000, "gph0", 0x00),
-+=09EXYNOS850_PIN_BANK_EINTG(3, 0x020, "gph1", 0x04),
-+};
-+
-+static const struct samsung_pin_ctrl exynos9610_pin_ctrl[] __initconst =3D=
- {
-+=09{
-+=09=09/* pin-controller instance 0 ALIVE data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks0,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks0),
-+=09=09.eint_wkup_init =3D exynos_eint_wkup_init,
-+=09}, {
-+=09=09/* pin-controller instance 1 CMGP data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks1,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks1),
-+=09=09.eint_wkup_init =3D exynos_eint_wkup_init,
-+=09}, {
-+=09=09/* pin-controller instance 2 DISPAUD data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks2,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks2),
-+=09}, {
-+=09=09/* pin-controller instance 3 FSYS data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks3,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks3),
-+=09}, {
-+=09=09/* pin-controller instance 4 TOP data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks4,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks4),
-+=09}, {
-+=09=09/* pin-controller instance 5 SHUB data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks5,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks5),
-+=09},
-+};
-+
-+const struct samsung_pinctrl_of_match_data exynos9610_of_data __initconst =
-=3D {
-+=09.ctrl=09=09=3D exynos9610_pin_ctrl,
-+=09.num_ctrl=09=3D ARRAY_SIZE(exynos9610_pin_ctrl),
-+};
-+
- /*
-  * Pinctrl driver data for Tesla FSD SoC. FSD SoC includes three
-  * gpio/pin-mux/pinconfig controllers.
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctrl/sa=
-msung/pinctrl-samsung.c
-index 24745e1d78cec59c932ed57fdb8ca85410376ff7..2036212bf3d079cc61f1827847a=
-37025c12e0961 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.c
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
-@@ -1498,6 +1498,8 @@ static const struct of_device_id samsung_pinctrl_dt_m=
-atch[] =3D {
- =09=09.data =3D &exynos850_of_data },
- =09{ .compatible =3D "samsung,exynos8895-pinctrl",
- =09=09.data =3D &exynos8895_of_data },
-+=09{ .compatible =3D "samsung,exynos9610-pinctrl",
-+=09=09.data =3D &exynos9610_of_data },
- =09{ .compatible =3D "samsung,exynos9810-pinctrl",
- =09=09.data =3D &exynos9810_of_data },
- =09{ .compatible =3D "samsung,exynos990-pinctrl",
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.h b/drivers/pinctrl/sa=
-msung/pinctrl-samsung.h
-index 1cabcbe1401a614ea33803132db776e97c1d56ee..c711580a8729d05edf5057e0c0a=
-7fed65d692c43 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.h
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.h
-@@ -395,6 +395,7 @@ extern const struct samsung_pinctrl_of_match_data exyno=
-s7870_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos7885_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos850_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos8895_of_data;
-+extern const struct samsung_pinctrl_of_match_data exynos9610_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos9810_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos990_of_data;
- extern const struct samsung_pinctrl_of_match_data exynosautov9_of_data;
+---
+Hector Martin (3):
+      arm64: dts: apple: Add initial t6020/t6021/t6022 DTs
+      arm64: dts: apple: Add J414 and J416 Macbook Pro device trees
+      arm64: dts: apple: Add J180d (Mac Pro, M2 Ultra, 2023) device tree
 
---=20
-2.47.3
+Janne Grunau (3):
+      dt-bindings: arm: apple: Add t6020x compatibles
+      arm64: dts: apple: Add ethernet0 alias for J375 template
+      arm64: dts: apple: Add J474s, J475c and J475d device trees
 
+ Documentation/devicetree/bindings/arm/apple.yaml |   39 +-
+ arch/arm64/boot/dts/apple/Makefile               |    8 +
+ arch/arm64/boot/dts/apple/t600x-j375.dtsi        |    1 +
+ arch/arm64/boot/dts/apple/t6020-j414s.dts        |   26 +
+ arch/arm64/boot/dts/apple/t6020-j416s.dts        |   26 +
+ arch/arm64/boot/dts/apple/t6020-j474s.dts        |   47 +
+ arch/arm64/boot/dts/apple/t6020.dtsi             |   22 +
+ arch/arm64/boot/dts/apple/t6021-j414c.dts        |   26 +
+ arch/arm64/boot/dts/apple/t6021-j416c.dts        |   26 +
+ arch/arm64/boot/dts/apple/t6021-j475c.dts        |   37 +
+ arch/arm64/boot/dts/apple/t6021.dtsi             |   69 +
+ arch/arm64/boot/dts/apple/t6022-j180d.dts        |  121 ++
+ arch/arm64/boot/dts/apple/t6022-j475d.dts        |   42 +
+ arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi       |   38 +
+ arch/arm64/boot/dts/apple/t6022.dtsi             |  349 ++++
+ arch/arm64/boot/dts/apple/t602x-common.dtsi      |  465 +++++
+ arch/arm64/boot/dts/apple/t602x-die0.dtsi        |  575 ++++++
+ arch/arm64/boot/dts/apple/t602x-dieX.dtsi        |  128 ++
+ arch/arm64/boot/dts/apple/t602x-gpio-pins.dtsi   |   81 +
+ arch/arm64/boot/dts/apple/t602x-j414-j416.dtsi   |   45 +
+ arch/arm64/boot/dts/apple/t602x-j474-j475.dtsi   |   38 +
+ arch/arm64/boot/dts/apple/t602x-nvme.dtsi        |   42 +
+ arch/arm64/boot/dts/apple/t602x-pmgr.dtsi        | 2265 ++++++++++++++++++++++
+ 23 files changed, 4515 insertions(+), 1 deletion(-)
+---
+base-commit: eef7336dc6c11f80c08b55b09b24faf124baeb0d
+change-id: 20250811-dt-apple-t6020-1359ce9bf2e7
+
+Best regards,
+-- 
+Janne Grunau <j@jannau.net>
 
 
