@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02045CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A6DCAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 20:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFrj3gEfIT3tk5nJrn5YbyG7ZS/WolhxcrzQL1fTi+0=; b=wsA4nF0WgbSFFfLf6BwTQ6JA2A
-	3A1bqPKaG3ZoO6QicgNQeLRmZ7U7WN5xVFAvKAg3EAePO+syWdORVI8AjwXEpUcwtajo/cwfLiLQc
-	5dKKo/zgKq8sgyPfQTNuWic5vNIMLYyM/K1atXnU2jpEsWSq/BQgoMhVZJDrNWR8IhtZxj7opI4vC
-	MtcG9rx6XQNIeAJgpqRXDQAvBY1spILEq2TmAiYiYXSHREXxSR+j1J9w9hvur2msORt+kfIcmJgW/
-	ju7bs58JN9k7ILV8k28T9mAKeMXEYmc38ulj43XRtFC3h0t5M7rQUq0yI0hgYklzylyy9+RFLN98W
-	3u1J45uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PNSjjL64mFdVCOUJRjIHIc/4Pp2YkjFAp7TrkUJbvbY=; b=SYElCKITqXjLRlglArrvmxxfKG
+	Hh9QgyFdnKDNkwDA/nbE9VObELrERjfjseHPeZZLId+v2alRkYN5O4w3cRvSJIgsPRx1q/cvR1N7L
+	28jIYE5Otu2uP/a7I5CsiK8Xomnnj7vL5ZOnpcrrTot42BRtlk7DehJvZsiaZc/NUvtASzvihsOdx
+	Kwpve/GKQIsWWQ+YI+jLquv8i7k/cp5zTLT7E7RCj79KsE+72NcDVL1gnuxHwKNMG6ZdVMSyMw9Ra
+	JRiIgj9MUoQ8DppOPiVHjc1T2CL4Bk4ebKDsq/1t9Be1tUgFCACQxXe5ZVxC6CtZYKxW1rxxJ+OYb
+	1+XGjjZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxtUX-00000002AS9-1m8Y;
-	Sun, 14 Sep 2025 20:38:33 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1uxtX9-00000002AtH-0aMp;
+	Sun, 14 Sep 2025 20:41:15 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxtUU-00000002AQJ-1ED1
+	id 1uxtX6-00000002Ast-38Ve
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 20:38:32 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-627b85e4c0fso5607584a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 13:38:29 -0700 (PDT)
+	Sun, 14 Sep 2025 20:41:13 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-265abad93bfso67795ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 13:41:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1757882308; x=1758487108; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zFrj3gEfIT3tk5nJrn5YbyG7ZS/WolhxcrzQL1fTi+0=;
-        b=O8Hb4yQGZrx0tOaMCIph1dXS0saBAcOuOqSU7rXJwhuJlmApfTxSj0BRZBCJP6CTuC
-         yD6uKbl83pl5J8I9oBk6kQNo/F/Yytw0T+NvVsZ6DnZx3I0mIwa+P+dx9LEcfW9f2TiH
-         kGbjr3m4+LxSO5kxbyir/zx5AVDElL0bQi35M=
+        d=google.com; s=20230601; t=1757882472; x=1758487272; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=PNSjjL64mFdVCOUJRjIHIc/4Pp2YkjFAp7TrkUJbvbY=;
+        b=RbOWsWM9pVWWIKZ1Atquvj0AcouPhFkPTnHaT4SnzhwZ/6vEvPGC5ktdBxb1cTq/zi
+         gYXRuYEh1FU72g/DBahRzT83IiQKK64LoNc8KcL0Er71Q+/oSKd3KdiwDUCjk3wexIaf
+         D6tfjlZPUA18GhNHXcHcd5FoE62SEA4XmogBi4nZTbDIrI3KVtUcqM1Tn7HRG+bZU/c6
+         9yKlmaYnMvN8qMAFV7jvFqJoMKk9Fv/f19/pntB2qGuMDhbMJLDXFHYqEOmTHZH73KYP
+         G9k5AUL1bD25zOHgvoSj7F2UIFydUpQruBC4+8REB8oUPAJazQSkIjUQuR983erAWTDP
+         swTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757882308; x=1758487108;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zFrj3gEfIT3tk5nJrn5YbyG7ZS/WolhxcrzQL1fTi+0=;
-        b=Qi1qdzuPm4abU4J4fOlUVaePHbXndMwukEVz9rEVNRImYygZGfRCd9IqEqdYC6m/4F
-         03lk92SdtQ/CcIVCKREEoIl7pyxCCFbFd5cDp48X94/Q1gk730plt6AznGmM9aMTgXUK
-         Ih5py+KjeQn+4eUqSVEmJvfNyvhE9iA4PgU8IV01k5EpNuR2beUWXcHVUEHXtZuGcqD8
-         RZAIaCfLVJ0NGhm75tUpDB4TchjgZ++ITUxh5zQe/CRYFRZneDG1sCKGRIIFMN8Apf+y
-         HP6hUznIZgRN1JAReYc1s5Zz1buz5CTQ7iBg5hNgjcNavEbk5XKfvtNNcbEOScjprHEA
-         rZQg==
-X-Forwarded-Encrypted: i=1; AJvYcCWNZ3VxEu3jAaCorki54uZf2wEJgS0llgulW744hGhoJb1CdPkeNiLzWWuyFlWYQLd2PAqKYNbElrEjNL44umHm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVcOWM4wxoLBSLHe7H/qSBaUHiX2UVUIICjA6/rvNTgxz6cup4
-	tLjmyJGF+VUzM0Ge/2RLSlAddtw8VlASpB7smDDzqBe1tNrnG0p1m0BtNLObvPLhSYYdYMRXw2l
-	prxrH
-X-Gm-Gg: ASbGncuNJ5hVdYQA2gt2PG4YBnLWSX9FEeC735dHovx+tjZEg0EQ6C57eokH1m3OMh+
-	S5m5CVPSOh0xsXTn/JHWIKdmKPU1RLhqt0DJPD1V2MCb7Uc2WNgYOhkQIlfDJtgtBHq63pD0mgi
-	tpcUZKOhvmGvAgBTJdEE+UXlQBCHB2HkZvOKSYPh4HQMETZrLATWNBaGQ4VEP+ElhYCZJoaNL8k
-	waQ+V7FoBIUbBZv5OJUqi/hyxjlV6ZkSqlWHB0Tf/oHwr8IzJhnUpNNF0IW5tNRXyEi91hRQ+k3
-	xYj1k6+EK+wf0z2S3MDvz75KekImlM1+3T2z5R5aRnen06LRGmGzbYNTHl87GSY2N5iNrnB9dDL
-	1bhbP9uo11MAU1J6kZ94kAv2gm/5XXu/FG+ytTLucJt/skHfRveLleJNY+x7ukAZIvuM3O81w3k
-	w2TEUR+lFtwr39iZykiP2bPTH1Xo43oAYrUL7IvKc2yYwwax+XpkzCwVxXSSK/27xqzQFKoUVVK
-	SA=
-X-Google-Smtp-Source: AGHT+IHD40fLYi4O1kTcM1Rp7p7ZYRGGkgLnzuTVUkbYF/Dv84qViywJ6Kd34fqgy/JBzIXC++JDJw==
-X-Received: by 2002:a50:d647:0:b0:62e:c5f7:cf92 with SMTP id 4fb4d7f45d1cf-62ec5f7cff2mr8580125a12.13.1757882308297;
-        Sun, 14 Sep 2025 13:38:28 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-62ec33ad242sm7803739a12.17.2025.09.14.13.38.26
+        d=1e100.net; s=20230601; t=1757882472; x=1758487272;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PNSjjL64mFdVCOUJRjIHIc/4Pp2YkjFAp7TrkUJbvbY=;
+        b=w4IQmVd60W81elX97MUY1YIomcLxxVvayzZxnZHz4nXo11QsxkxcWZ36u8pLH9l0o3
+         kkMACJEkR9+fSstUI8tZQAIoCFNv9wTtROiXkLn5N5b5ggDp80rfgo0naq6WQo5DEN2z
+         9FOoofa9SO9aW76PncK/eduYQhlkWkJ4FLFtK1QE1Y0YWfnSWpWbTaBWo9o4oc+cpl/K
+         K3eFDWam/2BF1rbYveLQNMjgog9MA4N2Bc8/9378wR/rmuPSHIwq5PQO/yDLyEhTaB5J
+         VhF29KS9N/CAzncXzmo/rMughyU9Z4NPWg03xZq3f+g/9l38LWJLMf7xbYo9HHCqD4zx
+         7nTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHZUjEiDRsHkrOAmp2gATKqbPryfksALXPx1ksTQukDZOtXNUWFp7XNUxIkSdiaf9Ze2/MzzHU4S5Oez9Mh2wx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEus+d/JV8YQainvRwfBiz/ZHQ78sMCE+RmctsLQlkZRopwCX4
+	3U8miX4IlwT/5BxliMoOZ8CX7kn28KG66kew2m5jo3rz2lMLeXIT4gWV3/Hu5Qp/7Q==
+X-Gm-Gg: ASbGnct3efm1DkICSWi59Di3qdyqY1zQ2DfYlzwPAD9VdWXmOXOOdKC2E4KmgF3EKeq
+	IVi/V/1IvBKp9fL+a9/ixF3ydNbHO81Qqe+QyQoUvvfScQnFedxGftug5buICSJI2S/Ha5eaaV+
+	Dg/4eDjzxEVyXHO60nFvopscZBNWOCELMfKd3PIRMX8AXhm1QZXqaOjjOQ1fEdPMcitE8DaLU/x
+	6YDkIXf2zw8WnIH7vNsboG/EEmXH1vQimkm/Xd53Cy4qQIdkueVYQc563hCNByjGEN1x6jwALGa
+	iG3JQCydPOcDOHaonDm13D4BBWjklaix6s053EhQ5EFDF/qdSob0uVK/Gxf5xhoAzFzUa15Av/m
+	rJ17bq84VAIhgjDYf9sJd9k3dAKQ2tPMXZQEEinLA13dDS970Jtry5jihxW3Tfv96T/bi46HF+Q
+	==
+X-Google-Smtp-Source: AGHT+IHvAZDBJIBrGn/Rxmed7TPoC1eE87FxlDAP8nIpAj01UwnK5cfZtdePiHpGJ6H0pHDgIaQEaQ==
+X-Received: by 2002:a17:903:244b:b0:234:bfa1:da3e with SMTP id d9443c01a7336-260a3dd2bbamr3723445ad.5.1757882471428;
+        Sun, 14 Sep 2025 13:41:11 -0700 (PDT)
+Received: from google.com (23.178.142.34.bc.googleusercontent.com. [34.142.178.23])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-264ba05335dsm22707595ad.142.2025.09.14.13.41.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Sep 2025 13:38:27 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org
-Subject: [PATCH v3 3/5] dt-bindings: touchscreen: convert raspberrypi,firmware-ts bindings to json schema
-Date: Sun, 14 Sep 2025 22:37:54 +0200
-Message-ID: <20250914203812.1055696-3-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250914203812.1055696-1-dario.binacchi@amarulasolutions.com>
-References: <20250914203812.1055696-1-dario.binacchi@amarulasolutions.com>
+        Sun, 14 Sep 2025 13:41:10 -0700 (PDT)
+Date: Sun, 14 Sep 2025 20:41:04 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	jgg@ziepe.ca, mark.rutland@arm.com
+Subject: Re: [PATCH v4 02/28] KVM: arm64: Donate MMIO to the hypervisor
+Message-ID: <aMcoYCcJXjN64cOE@google.com>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-3-smostafa@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250819215156.2494305-3-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_133830_374786_BE05303C 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250914_134112_811627_27E7C30B 
+X-CRM114-Status: GOOD (  33.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,108 +106,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert Raspberry Pi firmware 7" touchscreen controller device tree
-binding to json-schema.
+On Tue, Aug 19, 2025 at 09:51:30PM +0000, Mostafa Saleh wrote:
+> Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
+> drivers can use that to protect the MMIO of IOMMU.
+> The initial attempt to implement this was to have a new flag to
+> "___pkvm_host_donate_hyp" to accept MMIO. However that had many problems,
+> it was quite intrusive for host/hyp to check/set page state to make it
+> aware of MMIO and to encode the state in the page table in that case.
+> Which is called in paths that can be sensitive to performance (FFA, VMs..)
+> 
+> As donating MMIO is very rare, and we don’t need to encode the full state,
+> it’s reasonable to have a separate function to do this.
+> It will init the host s2 page table with an invalid leaf with the owner ID
+> to prevent the host from mapping the page on faults.
+> 
+> Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
+> stage-2 PTEs, as this can be triggered from recycle logic under memory
+> pressure. There is no code relying on this, as all ownership changes is
+> done via kvm_pgtable_stage2_set_owner()
+> 
+> For error path in IOMMU drivers, add a function to donate MMIO back
+> from hyp to host.
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 +
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 64 +++++++++++++++++++
+>  arch/arm64/kvm/hyp/pgtable.c                  |  9 +--
+>  3 files changed, 68 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> index 52d7ee91e18c..98e173da0f9b 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> @@ -37,6 +37,8 @@ int __pkvm_host_share_hyp(u64 pfn);
+>  int __pkvm_host_unshare_hyp(u64 pfn);
+>  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
+>  int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot prot);
+> +int __pkvm_host_donate_hyp_mmio(u64 pfn);
+> +int __pkvm_hyp_donate_host_mmio(u64 pfn);
+>  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 861e448183fd..c9a15ef6b18d 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -799,6 +799,70 @@ int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot prot)
+>  	return ret;
+>  }
+>  
+> +int __pkvm_host_donate_hyp_mmio(u64 pfn)
+> +{
+> +	u64 phys = hyp_pfn_to_phys(pfn);
+> +	void *virt = __hyp_va(phys);
+> +	int ret;
+> +	kvm_pte_t pte;
+> +
+> +	host_lock_component();
+> +	hyp_lock_component();
+> +
+> +	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, NULL);
+> +	if (ret)
+> +		goto unlock;
+> +
+> +	if (pte && !kvm_pte_valid(pte)) {
+> +		ret = -EPERM;
+> +		goto unlock;
+> +	}
+> +
+> +	ret = kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)virt, &pte, NULL);
+> +	if (ret)
+> +		goto unlock;
+> +	if (pte) {
+> +		ret = -EBUSY;
+> +		goto unlock;
+> +	}
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+I'm thinking of a situation where both of these checks might be
+necessary.. The first check seems to confirm if the page being donated
+isn't set up to trap in the hyp (i.e. the donor/host doesn't own the
+page anymore). 
 
----
+However, the second check seems to check if the pfn is already mapped
+in the hyp's space. Is this check only to catch errorneous donations of
+a shared page or is there something else?
 
-Changes in v3:
-- Drop firmware-rpi node and use only touchscreen node to fix warnings
-  you can see in
-  https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250913092707.1005616-3-dario.binacchi@amarulasolutions.com/
+> +
+> +	ret = pkvm_create_mappings_locked(virt, virt + PAGE_SIZE, PAGE_HYP_DEVICE);
+> +	if (ret)
+> +		goto unlock;
+> +	/*
+> +	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
+> +	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
+> +	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
+> +	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
+> +	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
+> +	 */
+> +	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys,
+> +				PAGE_SIZE, &host_s2_pool, PKVM_ID_HYP));
+> +unlock:
+> +	hyp_unlock_component();
+> +	host_unlock_component();
+> +
+> +	return ret;
+> +}
+> +
+> +int __pkvm_hyp_donate_host_mmio(u64 pfn)
+> +{
+> +	u64 phys = hyp_pfn_to_phys(pfn);
+> +	u64 virt = (u64)__hyp_va(phys);
+> +	size_t size = PAGE_SIZE;
+> +
+> +	host_lock_component();
+> +	hyp_lock_component();
+> +
+> +	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, virt, size) != size);
+> +	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys,
+> +				PAGE_SIZE, &host_s2_pool, PKVM_ID_HOST));
+> +	hyp_unlock_component();
+> +	host_unlock_component();
+> +
+> +	return 0;
+> +}
+> +
+>  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+>  {
+>  	return ___pkvm_host_donate_hyp(pfn, nr_pages, PAGE_HYP);
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index c351b4abd5db..ba06b0c21d5a 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -1095,13 +1095,8 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  	kvm_pte_t *childp = NULL;
+>  	bool need_flush = false;
+>  
+> -	if (!kvm_pte_valid(ctx->old)) {
+> -		if (stage2_pte_is_counted(ctx->old)) {
+> -			kvm_clear_pte(ctx->ptep);
+> -			mm_ops->put_page(ctx->ptep);
+> -		}
+> -		return 0;
+> -	}
+> +	if (!kvm_pte_valid(ctx->old))
+> +		return stage2_pte_is_counted(ctx->old) ? -EPERM : 0;
+>  
+>  	if (kvm_pte_table(ctx->old, ctx->level)) {
+>  		childp = kvm_pte_follow(ctx->old, mm_ops);
+> -- 
 
-Changes in v2:
-- Added in v2
-
- .../touchscreen/raspberrypi,firmware-ts.txt   | 26 ------------
- .../touchscreen/raspberrypi,firmware-ts.yaml  | 40 +++++++++++++++++++
- 2 files changed, 40 insertions(+), 26 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
- create mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
-
-diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-deleted file mode 100644
-index 2a1af240ccc3..000000000000
---- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-+++ /dev/null
-@@ -1,26 +0,0 @@
--Raspberry Pi firmware based 7" touchscreen
--=====================================
--
--Required properties:
-- - compatible: "raspberrypi,firmware-ts"
--
--Optional properties:
-- - firmware: Reference to RPi's firmware device node
-- - touchscreen-size-x: See touchscreen.txt
-- - touchscreen-size-y: See touchscreen.txt
-- - touchscreen-inverted-x: See touchscreen.txt
-- - touchscreen-inverted-y: See touchscreen.txt
-- - touchscreen-swapped-x-y: See touchscreen.txt
--
--Example:
--
--firmware: firmware-rpi {
--	compatible = "raspberrypi,bcm2835-firmware";
--	mboxes = <&mailbox>;
--
--	ts: touchscreen {
--		compatible = "raspberrypi,firmware-ts";
--		touchscreen-size-x = <800>;
--		touchscreen-size-y = <480>;
--	};
--};
-diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
-new file mode 100644
-index 000000000000..697c508326b3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
-@@ -0,0 +1,40 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/input/touchscreen/raspberrypi,firmware-ts.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Raspberry Pi firmware based 7" touchscreen
-+
-+maintainers:
-+  - Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+
-+allOf:
-+  - $ref: touchscreen.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - raspberrypi,firmware-ts
-+
-+  firmware:
-+    description: Phandle to RPi's firmware device node.
-+
-+  touchscreen-size-x: true
-+  touchscreen-size-y: true
-+  touchscreen-inverted-x: true
-+  touchscreen-inverted-y: true
-+  touchscreen-swapped-x-y: true
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+
-+examples:
-+  - |
-+    touchscreen {
-+        compatible = "raspberrypi,firmware-ts";
-+        touchscreen-size-x = <800>;
-+        touchscreen-size-y = <480>;
-+    };
--- 
-2.43.0
-
-base-commit: df86f912b45c20e236060321c85fe35437e9325d
-branch: drop-touchscreen.txt
+Thanks
+Praan
 
