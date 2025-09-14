@@ -4,92 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BDF0CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 13:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CFA5CAC594
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Sep 2025 13:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kaljxPkcfQHPyVYy5h8ZrWxk1AbMPnNmiDPm6nh1Er8=; b=Y2jiPi07JeMr3HhmefbQIBVwV+
-	Dsn6Tguk+6mzjGBiESdup7+xp8HkZ7VUYB0tAchbtYB9P9B8ke1G6z8O9J+wcmh2MwT4yzU/fCONL
-	7o70YbKmXqoY56jcKvrhRv2PUyvdMuwTVrlrR/NCWxjVk4ZBhXKpSpppnbmd+WnbA4V5kk7SZzpq+
-	oHQJGSIvcIFw28CFIVzoBXjKOiVqZRdStAbx51IpwJFQIKi2vKPIu5hHQcp0Vw5+Mowvjb9ZX8SDI
-	1Ijthv79kJuWpXE13Ej5WR/OJTI9066X4WM7I++vbZKija9eKj7VmgUFAiNlzU1U9ISQBjZxXdSYx
-	WxsLz20g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/CmeOF+K9n+Yda4daR9X4YZ6S7fYQYndSWUv3kSKv0A=; b=vJ6JdbA/lhoqIU+EkiA5Bq4xr0
+	BXxVF6lJvl9cGdBwmjZSTN0eSFbtv5Fmj+vqZGW+UBrVw7dKir5UIAqkJPGm48wqG8JPWkPpLQx7p
+	gRfK+8XfPWuXpahMydjFINCgIhBuYwYGuaJtmnMbsj7vNkwMWVlzssFc5aS2YcybZz7ImufSVYd3X
+	0uIDQKJNbSOxtFsZ2ZDfWIuGsQ6iEX1A6U7SflCK4yb9Aqqf8g+HOv0SAP/DofUa6Tp0d8KEFL6xe
+	JObfnbE0sT8HmAzlFA74jRD4Kd1xFmWZdoMgenSbkF0iANQv0j2F2WjG0C7oUM7sTFtYHqiPfQvRU
+	LqZehYUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxmhm-00000001KP3-0TOH;
-	Sun, 14 Sep 2025 13:23:46 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uxmmW-00000001L6v-3IX1;
+	Sun, 14 Sep 2025 13:28:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxmhj-00000001KO4-3PC8
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Sep 2025 13:23:44 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45dd505a1dfso27359085e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Sep 2025 06:23:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757856222; x=1758461022; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kaljxPkcfQHPyVYy5h8ZrWxk1AbMPnNmiDPm6nh1Er8=;
-        b=Z9WhixNEwozdzMjaaMgKbLloST1RrP+9zSZKjnTDwOE4whksqbtTQu7GBMpmrtQ+cd
-         aP26HnruraqVzZuWXgncYdvJn0fjymG901Q+93b+vmxeb8RaeIu6NwXuLJl8eC/+hSVR
-         oiu4xxVZQsAWz3NtIHBTSpVaQdtt+BtGAADq3gcLDJv//dqubcgXaES2Vz770sNM4GhW
-         mHcOQk+H0TKh16Xu5jWPLEoBTKr4uNXIKgrkya2XNDojUHaqXdjOQOnbMTTNIX7uNZpF
-         50uCNP13uLw2UqpuRkycmREV8YSV1IMlJrAtBdrYY6aUsjw1RObZClvOnbLGiBX0nk0z
-         tZdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757856222; x=1758461022;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kaljxPkcfQHPyVYy5h8ZrWxk1AbMPnNmiDPm6nh1Er8=;
-        b=xKdnUDljIq2mpxM+oSQde+dveG1alh8PZPhF6wY5+vIrxCpv+nySpIEmEHbrsFZL3W
-         +958zvjku3Xr6mQVrYQQ9NvWmvE0wVy5vM7kWYj4oPIDPcYoqQPPxxyJwBQhHUkpo419
-         Ive8wfvy5jCa8R/nDCIOIkMgPDWwYr1HhespgA3kXmwv59F50claLGVLCvvzkAHuG6aY
-         76B8uYZ91U06vz9KeVg7YMtGu0wjhIxz0bJ9ruJ4C9XWDWbO7QAWoBHTXdjqYaVdhzln
-         P891bu1tmvXPzJSaGEwWss1x4VFQRyrfS4uUbjdvHbQIKYFoB5qUxwj4T2Ij9pmmH3Wk
-         RS6g==
-X-Forwarded-Encrypted: i=1; AJvYcCXXWvyyyXIQqjouXPqEtTG8O6W3FPK7r8sOFY9iHsmpi9v2fOfaAKByQJuqMhDvMM0kMcU3+c8F+fkgaTvLZXtC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxg4mOfGwyPUoLxX+q93X0+Wkua899VFzDQhJIfSz9JbZ7TrMBh
-	giQELyrilSy4BzZk5vAhFs1liqG+IRoBz9HKDQKEtaj/vmz20eNMZi7g
-X-Gm-Gg: ASbGncvs/N/E2rUXPw5XtTmv1WjRK2HFwWC7ERIhCesl6EaWPoTxlGfjmSkuuJ/jCyy
-	/i7yjfTp1Z7Lp1H/QWlmghxIV09k4cdchZGajBS7k4zRLsgFU/b0mn6vDwUQ/ZLKxM5O11F58Fo
-	/HLoF7uTkgrRDX9fA5i4ZOr/ZAU3oWkheUpHbIC8g/InWvkE/UF84Oc/B/UTs4KaD6KVni3aS/B
-	W5uvyPbmfVXMsAKveZB38gJm2j6oDFJdFOcZO8tyf6MH+RgrwuOhnxCN9qltoEhqfMSPSIw4kOu
-	Bns/lJ1bihSo+/9MhTCLl5HA6cZn8SYN4anwTe+RYlhl19yx0nMHLE1EyCTu7hCiiISzvoUbgRa
-	Gp0Uuve/gii1dpTkw4EEP6C2m+MIijhoJfFdRDdoUcxA+KLiaIBz1IvSPcZRCi4OSBVfNsYd0cQ
-	RhAPJeAJ3b
-X-Google-Smtp-Source: AGHT+IEDzY27XIjmb+pnfP0KAuMr1rdHFrYSHqkjaYiv+DONBXw4koHR1jE3FQkMkK1VOsljfrgsZA==
-X-Received: by 2002:a05:600c:1c0b:b0:45d:2ac9:4240 with SMTP id 5b1f17b1804b1-45f211f7099mr102931935e9.17.1757856221985;
-        Sun, 14 Sep 2025 06:23:41 -0700 (PDT)
-Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45f27f44093sm61736025e9.24.2025.09.14.06.23.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Sep 2025 06:23:41 -0700 (PDT)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] dt-bindings: timer: exynos4210-mct: Add samsung,exynos8890-mct compatible
-Date: Sun, 14 Sep 2025 16:23:39 +0300
-Message-ID: <20250914132339.2623006-1-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uxmmU-00000001L63-0BG4;
+	Sun, 14 Sep 2025 13:28:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C0AD40982;
+	Sun, 14 Sep 2025 13:28:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AB6EC4CEF0;
+	Sun, 14 Sep 2025 13:28:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757856516;
+	bh=bi2EiYLS+A8f/w7jCWkTyo4nLGGJbpc175iFxjzkCG8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gjjIl8rxHh/A+Rj5iCmVil4FvhlqvxqSjvzIrrX+iGIg5tLPjjBVIembnsVoZvzQp
+	 5be5fGB3/gB+x3bDN63Kka9CVZCQ6zJIc0m1Oyqu/79rd540xp8gPZM0GRF/XhN33K
+	 IBcBrWJ5f40VSBavkO4PuVHxXiSlQSthFe9ZWugpGn0VyifkWMXEh6ijxVx0nu1h3i
+	 +g/KsRkNBX3IeAX+sc6Br/XeFeE4GBTqrBwxipi/OcuN5sQ2ZaaaW2SzzuQJgGSzXu
+	 phUufiwv89X6n0xUsfTqzVCS+LEwnUiocUJaxjhoKDCqor6uE79NB2hxGHex5ljzRb
+	 VW59hY8cxFLYw==
+Message-ID: <8c298465-893a-4a18-9955-4769288ec010@kernel.org>
+Date: Sun, 14 Sep 2025 15:28:29 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] remoterpoc: mediatek: vcp: Add vcp remoteproc
+ driver
+To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "irving.ch.lin" <irving-ch.lin@mediatek.com>,
+ =?UTF-8?B?VmluY2UtV0wgTGl1ICjlionmlofpvo0p?= <vince-wl.liu@mediatek.com>,
+ =?UTF-8?B?SmggSHN1ICjoqLHluIzlrZwp?= <jh.hsu@mediatek.com>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <sirius.wang@mediatek.com>
+Cc: Rob Herring <robh@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Jjian Zhou <Jjian.Zhou@mediatek.com>,
+ Hailong Fan <Hailong.Fan@mediatek.com>
+References: <20250914122943.10412-1-xiangzhi.tang@mediatek.com>
+ <20250914122943.10412-3-xiangzhi.tang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250914122943.10412-3-xiangzhi.tang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_062343_868287_3CE2BCE8 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20250914_062838_136928_D3B0B081 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,38 +131,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Just like most Samsung Exynos SoCs, exynos8890 has functionally the same
-multicore timer.
+On 14/09/2025 14:29, Xiangzhi Tang wrote:
+> +
+> +static const struct rproc_ops mtk_vcp_ops = {
+> +	.load		= mtk_vcp_load,
+> +	.start		= mtk_vcp_start,
+> +	.stop		= mtk_vcp_stop,
+> +};
+> +
+> +static int vcp_multi_core_init(struct platform_device *pdev,
+> +			       struct mtk_vcp_of_cluster *vcp_cluster,
+> +			       enum vcp_core_id core_id)
+> +{
+> +	int ret;
+> +
+> +	ret = of_property_read_u32(pdev->dev.of_node, "mtk,vcp-core-twohart",
+> +				   &vcp_cluster->twohart[core_id]);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to twohart property\n");
+> +		return ret;
+> +	}
+> +	ret = of_property_read_u32(pdev->dev.of_node, "mtk,core-sram-offset",
 
-Add a dedicated samsung,exynos8890-mct compatible to the dt-schema for
-representing the MCT timer of exynos8890.
+Undocumented ABI, if you ever bothered to test your DTS you would see
+clear warning.
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
----
- .../devicetree/bindings/timer/samsung,exynos4210-mct.yaml       | 2 ++
- 1 file changed, 2 insertions(+)
+> +				   &vcp_cluster->sram_offset[core_id]);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to sram-offset property\n");
+> +		return ret;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static struct mtk_vcp_device *vcp_rproc_init(struct platform_device *pdev,
+> +					     struct mtk_vcp_of_cluster *vcp_cluster)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev_of_node(dev);
+> +	struct device_node *child;
+> +	struct platform_device *cpdev;
+> +	struct mtk_vcp_device *vcp;
+> +	struct rproc *rproc;
+> +	const struct mtk_vcp_of_data *vcp_of_data;
+> +	u32 core_id;
+> +	int ret;
+> +
+> +	vcp_of_data = of_device_get_match_data(dev);
+> +	rproc = devm_rproc_alloc(dev, np->name, &mtk_vcp_ops,
+> +				 vcp_of_data->platdata.fw_name,
+> +				 sizeof(struct mtk_vcp_device));
+> +	if (!rproc) {
+> +		dev_err(dev, "unable to allocate remoteproc\n");
 
-diff --git a/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml b/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml
-index 10578f544..2c01e8bdb 100644
---- a/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml
-+++ b/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml
-@@ -34,6 +34,7 @@ properties:
-               - samsung,exynos5420-mct
-               - samsung,exynos5433-mct
-               - samsung,exynos850-mct
-+              - samsung,exynos8890-mct
-               - samsung,exynos8895-mct
-               - samsung,exynos990-mct
-               - tesla,fsd-mct
-@@ -137,6 +138,7 @@ allOf:
-               - samsung,exynos5420-mct
-               - samsung,exynos5433-mct
-               - samsung,exynos850-mct
-+              - samsung,exynos8890-mct
-               - samsung,exynos8895-mct
-               - samsung,exynos990-mct
-     then:
--- 
-2.43.0
+No, you never do this.
 
+> +		return ERR_PTR(-ENOMEM);
+> +	}
+> +
+> +	vcp  = rproc->priv;
+> +	vcp->rproc = rproc;
+> +	vcp->pdev = pdev;
+> +	vcp->dev = dev;
+> +	vcp->ops = &vcp_of_data->ops;
+> +	vcp->platdata = &vcp_of_data->platdata;
+> +	vcp->vcp_cluster = vcp_cluster;
+> +
+> +	rproc->auto_boot = vcp_of_data->platdata.auto_boot;
+> +	rproc->sysfs_read_only = vcp_of_data->platdata.sysfs_read_only;
+> +	mutex_init(&vcp->vcp_cluster->vcp_feature_mutex);
+> +	mutex_init(&vcp->vcp_cluster->vcp_pw_clk_mutex);
+> +	platform_set_drvdata(pdev, vcp);
+> +
+> +	ret = vcp_reserve_memory_ioremap(vcp);
+> +	if (ret) {
+> +		dev_err(dev, "vcp_reserve_memory_ioremap failed ret = %d\n", ret);
+> +		return ERR_PTR(ret);
+> +	}
+> +
+> +	core_id = 0;
+> +	for_each_available_child_of_node(np, child) {
+> +		if (of_device_is_compatible(child, "mediatek,vcp-core")) {
+> +			cpdev = of_find_device_by_node(child);
+> +			if (!cpdev) {
+> +				ret = -ENODEV;
+> +				dev_err(dev, "Not found platform device for core\n");
+
+1. That's probe path, so why are you using this old style? The syntax is
+return dev_err_probe and I am dissapointed that your internal review did
+not ask for that.
+
+2. You just leak here everywhere device.
+
+This patchset has trivial errors, which should be spotted easily by
+internal review. Plus your other patch ignored EXITING feedback, so what
+is even point of posting this if you are just going to ignore us?
+
+Please confirm that you received extensive internal review before
+posting this?
+
+Mediatek posts so many patches, I complained so many times about poor
+quality, things a bit improved two years ago and for a year the quality
+deteriorated and Mediatek posts poor code again. It's huge company with
+huge resources, so I do not understand why trivial bugs like this cannot
+be found inside first, to offload the community reviewers.
+
+NAK
+
+Best regards,
+Krzysztof
 
