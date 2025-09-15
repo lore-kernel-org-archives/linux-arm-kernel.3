@@ -4,224 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 265C4CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F313CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwrkzCggQuPmENi77EVZKy8tQuTw5Us30ynCmnR3ES0=; b=Pl/1E4y+VLOkMidzRoLBv9T7Pi
-	67+Tqr/aaVHFNDHC+FsMbRG7Ks7UuI6ubIxEpxj5irs3hl6ug3FtkI6n/omBFscwb3ffKNirZU19S
-	drx7kZYQVek2J5xeFYmND7mkHrbd8moUL/SOWAO+vvi3dRS2SMmLPdAGdLsCthOv/hQhKzrvGSxWl
-	ns/0rnIZhCZVF4ceqSPx0ZxvLSN8KEG1X0pLnypy0ZLqq5hIHiHpcjzeUxfNDdBJhxtKnkjWSpLKF
-	kVdlQwplq1rKQdyhIMh3tXo72nf/nw+XE7LPQNfLrML+LKkZ3Hr9QgwekRAWlpmRkaBPZVoNp6q0U
-	B1KvKFBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OFejQ0cdNa9qmbNTPF5Hw3J5X2zJAp7tBi6KMLn2gXc=; b=P2Pl0H4Ujo08ZEdCStwev/rgO2
+	p6RiTQueyryqpb2BgOI7mQURp+8pUjTS9mYaIEzS4qDLv0Mtry6CuB2LMgysjAFr1b6RUeR7yh/63
+	K51noum607NeqVj9+sbPGZ5B3sm+iKV1D2Wdi91Y/VMBS7d9VN4IOCva8lLT/IH45h5lqmVzpnIyA
+	4BYTS4wV0D/2UglzkHLqnC8M+RjaQVFhd/+KkI0najGV7CWfwGnhFq2SPNb5E3OVP/q/1wtt0nuGR
+	3dcy169yAf3rQp68qlPyTAR0GwZ5MTwYZmH0Wle8cST2BJx1CQLNMFUVj5O9DbJFBYjPmrDY13cwC
+	IeJ5YrVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAuW-00000004rer-0J9m;
-	Mon, 15 Sep 2025 15:14:32 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1uyB1G-00000004scy-20vo;
+	Mon, 15 Sep 2025 15:21:30 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAuS-00000004rdr-49BL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 15:14:30 +0000
-Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58FEMiqo019902;
-	Mon, 15 Sep 2025 15:14:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=pwrkzCggQuPmENi77EVZKy8tQuTw5Us30ynCmnR3ES0=; b=
-	igEDSQdcn7/aJpzEDG2o8qEVehk60AgldLZFLgQvnHwbVv40/A/9p25KBSnR96TB
-	xbNzXCytenCDpyivKIqOEGiqHLPhGx6emiHjUI804OU2w6msJtrZxJsnuSZX1xyM
-	ia4DrPND57p5RqbHOdPuNOR3HWREN248fRs38um6jQnSHdMpgH4xvoKW9fuY9Ya6
-	S4hQleHb+fWnvCpwr9Go7RqZKKzoxJa5aIpNcSxAJH+tbnWR8Ci/aq2JZYT7EBYL
-	HlV3upwCKSKLDF6729Hstbo3GiVLH7Y9Yv1LRhQLYtzL+Sfq+oe1LLPTO9pAgn69
-	/ZhORQTfI87sastgUSWkPA==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 494yhd2p7e-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 15 Sep 2025 15:14:21 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 58FF1xbs011168;
-	Mon, 15 Sep 2025 15:14:20 GMT
-Received: from cy7pr03cu001.outbound.protection.outlook.com (mail-westcentralusazon11010048.outbound.protection.outlook.com [40.93.198.48])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 494y2b5h3j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 15 Sep 2025 15:14:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Tg4lM3t95DfY9I0itwwFXjP6qKQJmEqe+c6hKh0ug7EfmD2pIUW/BmxUaRAvg4c7GWUHeJBajbIbHaUimvB1DSUvzb5Xz8HoYv4UV8KI7A2Ts0hilGumXM42yN3qCaPnJyVKQropoDQ2X4zAj2RXxaUIPoilOkB867pB23cIzBcx9MnyoCLCae6ilBL0aCpsJDnpe5QklEpeQV+dvRPhJamSe8HFzA2Mbzvh7wrlVjdrb+5QqNhoF2IkTPfHUVvMHz8iOWuyi7CWS20UMDazuYsPe2U727I+ySQowu3+zCkieZrRDuXb0OQjdDJ1oYThxKqcv6STNU23TkcHvCp7Ug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pwrkzCggQuPmENi77EVZKy8tQuTw5Us30ynCmnR3ES0=;
- b=DUJhqJ+UuvL1oxrFugAGvGad12HcAR6Cy3My8ev9T/hSi21icA/8e/HKej2I1iclc7Sig6rMPJnUNSUeFLhY7zi0RVAgOifvhvPLFeMmrIvEuYJaqyEsOdcZGTPAqoELYmbeVuwmwg/sjdV7j1ZDJwCNG2vc6Fv3Fjibp0+fUQNT/utslENjsHc49YwdiOms/Vn7z4X0Nhq5YJayCk/7GgZkibuY+MiIeZYwVzukR9O34nhOiIcGUrCtIOZhShRgm6nIk1E1oW+s9gDTCKcR+au3nuDpsamjpUD+DaMoKcbGFLP7x1Gz0D6T58a/b38bKPq4rPO8ZeK2J713k7D+aA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pwrkzCggQuPmENi77EVZKy8tQuTw5Us30ynCmnR3ES0=;
- b=S0mHlJmKg+NONG1fRV+1dA0Hde9FVT05YGQwE/Hj+pNv2sJ/hu+GzNlxP6uttvJRg2Ax5udv4zWITzwcqbYfE4l1sF3K1wMvs/oeAMT4CTJ1U4TF5N8k1A8h2Do4kEd7tUXatNo0puY/ho13LmTb3cViwGokt15UlDvHstqC3TY=
-Received: from DS7PR10MB5328.namprd10.prod.outlook.com (2603:10b6:5:3a6::12)
- by SJ0PR10MB6349.namprd10.prod.outlook.com (2603:10b6:a03:477::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.21; Mon, 15 Sep
- 2025 15:14:17 +0000
-Received: from DS7PR10MB5328.namprd10.prod.outlook.com
- ([fe80::ea13:c6c1:9956:b29c]) by DS7PR10MB5328.namprd10.prod.outlook.com
- ([fe80::ea13:c6c1:9956:b29c%6]) with mapi id 15.20.9115.020; Mon, 15 Sep 2025
- 15:14:17 +0000
-Message-ID: <74ccc612-beee-42a3-9ce3-947e59988f90@oracle.com>
-Date: Mon, 15 Sep 2025 20:44:10 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
- 'CFG Shift Feature'
-To: Manivannan Sadhasivam <mani@kernel.org>,
-        Jingoo Han
- <jingoohan1@gmail.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Alim Akhtar
- <alim.akhtar@samsung.com>,
-        Jonathan Chocron <jonnyc@amazon.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org,
-        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-References: <20250909-controller-dwc-ecam-v9-0-7d5b651840dd@kernel.org>
- <20250909-controller-dwc-ecam-v9-4-7d5b651840dd@kernel.org>
-Content-Language: en-US
-From: ALOK TIWARI <alok.a.tiwari@oracle.com>
-In-Reply-To: <20250909-controller-dwc-ecam-v9-4-7d5b651840dd@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0227.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a6::16) To DS7PR10MB5328.namprd10.prod.outlook.com
- (2603:10b6:5:3a6::12)
+	id 1uyB1C-00000004saV-3we0;
+	Mon, 15 Sep 2025 15:21:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757949684;
+	bh=gtM2QscaPzR4xfedL0O2h+0MwhbJv7L7+rVQtjSfix4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ZnQtBxEcdpoSZJludpjeppay19kRf+JxYUd/FXeWXaExetQRhHPXEq8GeTv+AKE6X
+	 Hec/m03fwJJ8Glz4rfz1D1Pq+oOvIUVk3mit6IVjW13UaXAzIJDH+oOwiPmjLv+PAf
+	 yZO8cJt+/mESmCPnINE4ij/5RA51wQSdYnGJetGyq5QguES+YEgE90tA9s36v0pQCt
+	 2pl0nSpYCEeLBmMNWCpL/LAcs/tNKZCbDVhyrPldmxk1G54Zx1DVtOf12qygQYPKeT
+	 WAa1whbf4UakRwCaxjdWKhEndFQTpAR/7/H+fj3YwyapYEs2ahy+dIGjqvTm1OFB9V
+	 Vs7cIJZ2UN+rQ==
+Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:1c8d:f5ba:823d:730b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6C69517E046C;
+	Mon, 15 Sep 2025 17:21:22 +0200 (CEST)
+From: Laura Nao <laura.nao@collabora.com>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	p.zabel@pengutronix.de,
+	richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com,
+	wenst@chromium.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	kernel@collabora.com,
+	Laura Nao <laura.nao@collabora.com>
+Subject: [PATCH v6 00/27] Add support for MT8196 clock controllers
+Date: Mon, 15 Sep 2025 17:19:20 +0200
+Message-Id: <20250915151947.277983-1-laura.nao@collabora.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR10MB5328:EE_|SJ0PR10MB6349:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9608b26-af1b-4b3e-4a1f-08ddf46a89db
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZDg3eXBKWkVEVXUrZk1iMWlUV3loVDhWbXJtaE9wWlIrZkdBUUFRcHlhTVV5?=
- =?utf-8?B?ODc1SER6K0x0dFpVSTBxQVBua0JqcFdqRlJ5QTZBdFRkRkdkYWk3NmpJT0hj?=
- =?utf-8?B?b1F5WHVMd25ZK0lkVHo5Z2ZVaEI5Y0MvTlo2MktZV0txbDY1N29TMnRJRjdN?=
- =?utf-8?B?dkFZakFUeWViTE1tS3dRbDU5OVBVR09hc09kUDlCT2lOdlpFTFJyZGFOVW9p?=
- =?utf-8?B?akh2YlNQaGswdWsvR3Y5SVI3NDlNZCttR1R0c1lOaUs3K29rRFhyRXkvY3J5?=
- =?utf-8?B?WjlBVnFjQzJYdFlqYnNrNmhYYlU5Zi9GL21QSzZPUFdSdWUzWHJ2VC9BMWhO?=
- =?utf-8?B?QXpEeFUzcXdEeXYxakJsb3p5NzBzWVdzZDNJWU9VWm1zVkpjcXJ3TTRsMDBh?=
- =?utf-8?B?M1RQR2JVMlhGR29TSWhmYmlsaE9wb0pleEswYjJRdUxHZWFUNlBSTnB6OE9u?=
- =?utf-8?B?aUtsK2FDWXNGckE5eDVHa203cExidVkyaTB5NHVhd3VoRUJ1NmJXVU54MWw4?=
- =?utf-8?B?WkwrNlRQbUhaS0U3R0JVSVV2MkY1My9qWjYyOUxXdjUxQ2xvUnBya0puWHd5?=
- =?utf-8?B?dEd3M2pEQmgwRmN0VHBhLzRlUnBqeTFkMlhDczRXdEdqOE12Y2wvWXE1NjdV?=
- =?utf-8?B?MjdGMnp3WXR5TEhwTGZqQ0VaenEwWXRuUTJ3eDh5amZxaTUzRlRQeGFyWnNy?=
- =?utf-8?B?QmZqMTZzTCtpS3FwaGNVNFpscXlpcG5YeStabzJCckNSNDdZTzk5c1BWUzlk?=
- =?utf-8?B?eE9oV2xaWW90L2RuT0hYRkM0VkdqeDAzbFh5L1FoRUd4M1k5WHNFV3J5dytJ?=
- =?utf-8?B?bVNtK3I2Qkh3OXFQcmphZWZ1UG9URWszLytaeGw5aWpXOVhZRlpjWlorYktU?=
- =?utf-8?B?L1NZajAwZXR5Yy8wVFd2dzlLbHNlQmtUekZTbkdWazY5QVdUZ3FBWHJFRmx2?=
- =?utf-8?B?dzdHUVUvdm1vL01DZW9KWm43S284YzJlb3prMnM0RUVSSUl0QnBDS0ZIM1JW?=
- =?utf-8?B?MkhtSTI5dEd4K2RwbHdSOWVNNW9naE91M1Y2eUNNMFd5N0xkUlJNbGc3SGh4?=
- =?utf-8?B?Rlh5UFk2SDVMbTIza1ZIQ29HazBNamEyNWxyWHFjS1AvL3ppL2dTR0kzWlYw?=
- =?utf-8?B?czFSd2c0b1lSb1R5dFQ3TVRkL3dIcmUramN4Z05TcHR6aHYwekpyYlFRQS9O?=
- =?utf-8?B?ZGJ5TDIrTnBkNzlSeithNjV3bCs3Y1dzeEpZZ2ZJR05iUFpKYmxiR0RpSUhP?=
- =?utf-8?B?K1l2cVl3RlV2UHU4ZXNvcUUwSW00c1hqaEVIdkYzMmVjK1prakYyWVEvbG1W?=
- =?utf-8?B?ampFbUduWE5iWjAyWEwrdUx2RFZGaWtIR2FtdHNxcFZhMnpsaUxoelVUK1Jo?=
- =?utf-8?B?YTRzaEZ5NXd4T2RFc0pTUlo4Q1FxOFpPaHNuc2dHZElma1Zyc0xrL2NlZWs4?=
- =?utf-8?B?L0IrdjlUdDhmYkkrY1VOK05Sc0M0MUFNRGVVL0VWUGVFWXcxTHpMNmFpR1ZV?=
- =?utf-8?B?N0xCZzhETHZ4eGtiN2piMGhzY0tXSnBhOUZBZm44MFcxU1NDSkZTdG5iNkh5?=
- =?utf-8?B?WmpEYkRiRjFzUTZycUwvU1E1UlFoUUtJdkRLd0FLQlF5S1k3SkxJejdjVXo5?=
- =?utf-8?B?V0s5L3NSUit2cGRraTdmeC9ZNWFBMGZQWVRCWk1sRXRqa0VNeXpwREQweW5q?=
- =?utf-8?B?dlBQcHVhaVhJVUtIb3ZhMENlNUhGRXA1ZkFjTHo4UzZkTm40Y1BRZWFhZHh1?=
- =?utf-8?B?YzFaVUhYQTNkczhHTUxIb0NRT1lHS0JKOThrVm5WcmJURjQxUkVQWHFDT2c3?=
- =?utf-8?B?OVM1bnYxUHIyNFd2OVJUNlcxTk9XcXQ2SEJydFNaNWxIL2tFa0Z4Q3JZd05z?=
- =?utf-8?B?dW44MklMaXdpMGtja0M0NFZqQkRGREdzQnZnaXptY2NESDRVYWpBUURGUzRY?=
- =?utf-8?Q?lwiAUciyOaw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR10MB5328.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Si9GdVFlM2RSTUNBcXZQZHV5K1RVWStuRXE0NUhpSkhMY09iNEhoRXdZcTlJ?=
- =?utf-8?B?cHVTWC92cmtHK1lKYUYvWFNpYzJmS1k5L0ZiaU1FenJ2RjgzMVowd2Z4TTBE?=
- =?utf-8?B?K3hKbUxuTGlGTnZuVTJaY1N4ZXg3ZnhHVml1emU3Z2M0cDBHcnJ3YXp3Q1E5?=
- =?utf-8?B?RUhBQjhmUi9qWkFKdU01VHkweTQyTU1nemtCeWVrb3NTQjgxTVdtTlExUzRS?=
- =?utf-8?B?VnpzMXZYYkdOOUJiUGUwR2ZhaTMyWXpIYmRXaEEyZ2J6ZGlEd25SNGxkSnd3?=
- =?utf-8?B?aTdMa1VXOXFDeVRmdGNqWEFWcUxVQnBDbVRpZFlLQzVRVGM0OHpHaHg3N0ZU?=
- =?utf-8?B?aWZ5V1pwUWpjdGJzZEtFVk1rQ2xvN3plY25vRFdMa3dOLzNzelJUOWVxeHdU?=
- =?utf-8?B?NVdwaHF4a3VDZlZDV3drc3RkZXdPQzZMQ0RTZVVnWUZJVHZMNkRGQU9LcW90?=
- =?utf-8?B?RUUwTTVoU2IySVUwY0UveVpodzFOSU9YeVU2Q1lmRkdFTjkwUFRpN051a2N5?=
- =?utf-8?B?NWtPeFkxSTkyelBHNkdpc3pZcDBvbjRwWnNndHk2dVRjMy9GN0FRbnhNZ3Jl?=
- =?utf-8?B?VUZ1emRXYitSWWo0bjJnd3RwT21hekhaaFNhcE9WNzZWK1FDcFRqTnZJUHNx?=
- =?utf-8?B?ODQycDZQZGZGaWR0RldPR2JmcWV0UEx2dXdhQnFNYk56YjRGVjJUVkgxMElN?=
- =?utf-8?B?dlJKY3BZajJLdnE2Q3dnSmIzS24vOUcvRjNRWWpzT2dST2dhcitqTzFPalNv?=
- =?utf-8?B?YXVQVU9SV1k1YnZON29QVVRQL2pqa1ZiZVFYM2RnenNzODNaQzVRYTNvWEMx?=
- =?utf-8?B?dmdQY1Z5TlNLSUdvRkZnaUZCYUU5TVBheUg4aFdlTlpwditydEJRSVlBcHZH?=
- =?utf-8?B?b3QvQWpBbzdMZDhKMUVVQVo3M21hSmljaTdBV3FlOWg5VDV2d3I3RGdHOFQ5?=
- =?utf-8?B?ZitES1B5Y1J3THVXRWxDb0tQZWhwOHBmTmNmRUtIMUpaQXhSSjR3UFVaeWdZ?=
- =?utf-8?B?VUlnU3pDdzVBbzZlRWVEMG1NalNjRERoZEwvNDZ2cno0d2t2UFpPQnJySVVV?=
- =?utf-8?B?TmdIWVpIMTFNc1Z2U2FvaU1tZWRETDlWYWdSL244TkVkenQ3ZEFDNHJDd2RS?=
- =?utf-8?B?VFlpUWF1T2d4THZEemNaVVpkSytNbVBneWw3NHpTQUNZVk5sWklCN3VWbGVm?=
- =?utf-8?B?ZFJZQ24vbEdheVZnM0JPZFBKdTlNRFZlbk84eDVFMGxOeU1vYzdyOXhTUUpK?=
- =?utf-8?B?WnV2K0oyZzBkZDJaNnhZTCtnRFN6dVpEUDNvY3UwbkQyZDFHN29NVFRsL2RI?=
- =?utf-8?B?VTRLejh6NytpQk51U09HZU9UWDdCMXRpaXVZdDRNdlNrbVFQa0cyZWNzbVhr?=
- =?utf-8?B?NUVUZGR6UlhTeEJ0cHRjbG5qS3hLL1NkQmJoUkgwZm5IZWMrZGUzL2RMQmRt?=
- =?utf-8?B?TWgxczJBUmkyOVdud3F4YmMrciswMFh1NjRRZWtyOFZyRDNqQXBWUm54NndK?=
- =?utf-8?B?MEYyUzRKWTl4M2xBL1prZmlNSkYvdmYyaVNDZVhobEtoK0h5dlVaTWNQWmpN?=
- =?utf-8?B?RkhmNzhJeUw1cyt4OE56RWI0d0NUNVBqMm1uL1I4ejlULzVhN0JTaGU1TTNH?=
- =?utf-8?B?RHBIZTBkZW1jR05Xa2IrM1MvcHVMamIzOTE5RGpJR1lCeEFnSUIxR3hpTWdz?=
- =?utf-8?B?UC8zdHBaVWFuWnRsUC9ETklIMFBFMnRTalZYMTlTUEhnaWR3R0dsMytja3Jo?=
- =?utf-8?B?ZmorZ1VZcTN2bjhwRWl5NlY4VUh5b1lMak1pRm5OeExPTzc0N3owRkM0TStW?=
- =?utf-8?B?bldxQUpYRmx5enNlZlFieEJUbjJhMExpL2tOdmx3YmVuUS9BcGw1eC9hVk5q?=
- =?utf-8?B?aER6alVHbEdVSDRKUWdFWEZhb05rcEhIdENxZGlDK3d1bHk0Mk5KRzcxOThi?=
- =?utf-8?B?R0VNVWtTRGhkVElKTEtTOHpIdlpKUXExbDZOT2JUVUFRSVBsb2FxL2FER3FQ?=
- =?utf-8?B?eTZramlabm9nOFRPNTR6MlZWQ1B2WVQ1cjJncUpVZWZXRE1XVTE3QmdkQm04?=
- =?utf-8?B?ZW5oZm12LzlXakR4d290R1NLZEhJZWttNEhDNEM2bnYzbnJzdTk5eE1TMW5l?=
- =?utf-8?B?V2c4WURZVEc3Skc2NEwzdVFFbGtSMGN5eUNDd3dnUHpucUEwYU1BNytPcWdh?=
- =?utf-8?B?WHc9PQ==?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: c2BHnrSdUeal+CNx7oo3CSaD8ynIK7yYFqtp7MKx+DkyioCOi/JIokM1x8L5P6+KxjhTo7jNS/bzUlcvXH21bq3hqPPUo2KO/zd6NwZOPXRMCgNcg2mRwwy/WKe9tGIxJA9q8ilmYPMbhB64HbccovA5DLSxfUPxlkblnG6vDP2RTOx6snV7SpM4P3xruwkIDLoQ5daBARZHVqjB3FxhxK/MNG8/xjjB7LZBs704N5gKzMk5DfDqNs2W17A8VJ1UGQ0s5aW7+j5y+5LMFgKpGbuEqNFTcQ2JMI7PwKG/ml3ZiYCwifimbSO4jImGvPV1LT4wGCH4wxbteHCqtF4K8btZ79NR8Xz+f7yHYxDEyiYjXQitf8FAnD4zUtQ7U3FVOM5KrBwG7PBvzGSiGMY3YiUz9RB3r97jZATyCMo9MaOTsSvxPzGnodEj7XU31M3i/vnjw2XYHUOVJBP89vFXJinTre+OVBNU3dLLm8E3K3SZLD7fq1Ut/E9YJLuHkS3yMpgAVgnhxjj1gJMEbUYe/PxTBfsSAm00uZWcrI+Ynv+CI7ttj3v6zCWfYXKV87BcI9W7MC1Hqum8lvMvzPqFjw+8DlNrQl7R8V06fXRXI9k=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9608b26-af1b-4b3e-4a1f-08ddf46a89db
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR10MB5328.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2025 15:14:17.4646
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XRmS5qs1zizkyA5A7vKkYIbmqRtTrRoxb9J4iIVj50tZ6bTIuO4ErgXZ6Gc9PgCu6ss+1a7SB75gEGzuZlWFInFzzOy9IJflmc6+uv3z4pI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB6349
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-15_06,2025-09-12_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 bulkscore=0 adultscore=0
- mlxlogscore=684 spamscore=0 mlxscore=0 suspectscore=0 malwarescore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2508110000
- definitions=main-2509150145
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTEzMDAxOCBTYWx0ZWRfX9THMO5pIw2SC
- 1/96FNgbHN+NVkJAPcurK8UUT2hk5b7loZ3y5sWV9UVxLALkrQa7OMTa2eNbWGlY1PPpWm5Vfez
- 9N/+zyy3MRSLPBsceOBG/t0JG9jg2wH2iewEI2ztfjc2xkbUJnig8gx8fbhTzGY6Vg42/hzepqX
- ZTdoX/LZu+hE6ppMQmaGmw6HAo7N/XVs536xxcNYgL95UmKKGF8b7frwIFyCTli+CNlP5tPgeYi
- 0Ygtd5AF+4b3Oqo/HDHf3Zerk/c3Ddh/NKm0OjejkoofjLUSPbDwKv+q9MmgjyuREBwKSrSbRx6
- QvPYSGGGkUMGlqvocPwbBod24XK2R3mWsoecX83wItjEvmscsE62miFSr70LO8OzL7UCWe8Guof
- 2e+vE3A3
-X-Proofpoint-ORIG-GUID: ICoGWk3fWDXV46iZ_XItRny0rt4WEod3
-X-Authority-Analysis: v=2.4 cv=YKafyQGx c=1 sm=1 tr=0 ts=68c82d4d b=1 cx=c_pps
- a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=yJojWOMRYYMA:10 a=GoEa3M9JfhUA:10 a=KA5JyWV0K4rStvnKX18A:9
- a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
-X-Proofpoint-GUID: ICoGWk3fWDXV46iZ_XItRny0rt4WEod3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_081429_080266_3D9B38A3 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250915_082127_153079_B9C8F3C2 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -236,22 +87,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series introduces support for the clock controllers on the
+MediaTek MT8196 platform, following up on an earlier submission[1].
 
+MT8196 uses a hardware voting mechanism to control some of the clock muxes
+and gates, along with a fence register responsible for tracking PLL and mux
+gate readiness. The series introduces support for these voting and fence
+mechanisms, and includes drivers for all clock controllers on the platform.
 
-On 9/9/2025 12:37 PM, Manivannan Sadhasivam wrote:
-> Currently, the driver is not making use of this CFG shift feature, thereby
-> creating the iATU outbound map for each config access to the devices,
-> causing latency and wasting CPU cycles.
-> 
-> So to avoid this, configure the controller to enable CFG shift feature by
-> enabling the 'CFG Shift' bit of the 'iATU Control 2 Register'.
-> 
-> As a result of enabling CFG shift (ECAM), there is longer a need to map the
-> DBI register space separately as the DBI region falls under the 'config'
-> space used for ECAM (as DBI is used to access the Root Port).
+[1] https://lore.kernel.org/all/20250307032942.10447-1-guangjie.song@mediatek.com/
 
-nit : there is no longer a need
+Changes in v6:
+- Removed unnecessary braces in clk-mux and clk-gate
+- Excluded clk26m from the parent lists of vlp_audio_h, vlp_aud_engen1,
+  vlp_aud_engen2, and vlp_aud_intbus
+- Reordered entries in of_match_clk_mt8196_mdpsys
+- Converted mfg_eb clock into a mux with a gate
 
-Thanks,
-Alok
+Link to v5: https://lore.kernel.org/all/20250829091913.131528-1-laura.nao@collabora.com/
+
+Laura Nao (27):
+  clk: mediatek: clk-pll: Add set/clr regs for shared PLL enable control
+  clk: mediatek: clk-pll: Add ops for PLLs using set/clr regs and FENC
+  clk: mediatek: clk-mux: Add ops for mux gates with set/clr/upd and
+    FENC
+  clk: mediatek: clk-mtk: Introduce mtk_clk_get_hwv_regmap()
+  clk: mediatek: clk-mux: Add ops for mux gates with HW voter and FENC
+  clk: mediatek: clk-gate: Refactor mtk_clk_register_gate to use
+    mtk_gate struct
+  clk: mediatek: clk-gate: Add ops for gates with HW voter
+  clk: mediatek: clk-mtk: Add MUX_DIV_GATE macro
+  dt-bindings: clock: mediatek: Describe MT8196 clock controllers
+  clk: mediatek: Add MT8196 apmixedsys clock support
+  clk: mediatek: Add MT8196 topckgen clock support
+  clk: mediatek: Add MT8196 topckgen2 clock support
+  clk: mediatek: Add MT8196 vlpckgen clock support
+  clk: mediatek: Add MT8196 peripheral clock support
+  clk: mediatek: Add MT8196 ufssys clock support
+  clk: mediatek: Add MT8196 pextpsys clock support
+  clk: mediatek: Add MT8196 I2C clock support
+  clk: mediatek: Add MT8196 mcu clock support
+  clk: mediatek: Add MT8196 mdpsys clock support
+  clk: mediatek: Add MT8196 mfg clock support
+  clk: mediatek: Add MT8196 disp0 clock support
+  clk: mediatek: Add MT8196 disp1 clock support
+  clk: mediatek: Add MT8196 disp-ao clock support
+  clk: mediatek: Add MT8196 ovl0 clock support
+  clk: mediatek: Add MT8196 ovl1 clock support
+  clk: mediatek: Add MT8196 vdecsys clock support
+  clk: mediatek: Add MT8196 vencsys clock support
+
+ .../bindings/clock/mediatek,mt8196-clock.yaml | 112 ++
+ .../clock/mediatek,mt8196-sys-clock.yaml      | 107 ++
+ drivers/clk/mediatek/Kconfig                  |  71 ++
+ drivers/clk/mediatek/Makefile                 |  13 +
+ drivers/clk/mediatek/clk-gate.c               | 117 ++-
+ drivers/clk/mediatek/clk-gate.h               |   3 +
+ drivers/clk/mediatek/clk-mt8196-apmixedsys.c  | 204 ++++
+ drivers/clk/mediatek/clk-mt8196-disp0.c       | 170 +++
+ drivers/clk/mediatek/clk-mt8196-disp1.c       | 170 +++
+ .../clk/mediatek/clk-mt8196-imp_iic_wrap.c    | 118 +++
+ drivers/clk/mediatek/clk-mt8196-mcu.c         | 167 +++
+ drivers/clk/mediatek/clk-mt8196-mdpsys.c      | 186 ++++
+ drivers/clk/mediatek/clk-mt8196-mfg.c         | 150 +++
+ drivers/clk/mediatek/clk-mt8196-ovl0.c        | 154 +++
+ drivers/clk/mediatek/clk-mt8196-ovl1.c        | 154 +++
+ drivers/clk/mediatek/clk-mt8196-peri_ao.c     | 142 +++
+ drivers/clk/mediatek/clk-mt8196-pextp.c       | 131 +++
+ drivers/clk/mediatek/clk-mt8196-topckgen.c    | 985 ++++++++++++++++++
+ drivers/clk/mediatek/clk-mt8196-topckgen2.c   | 568 ++++++++++
+ drivers/clk/mediatek/clk-mt8196-ufs_ao.c      | 108 ++
+ drivers/clk/mediatek/clk-mt8196-vdec.c        | 253 +++++
+ drivers/clk/mediatek/clk-mt8196-vdisp_ao.c    |  80 ++
+ drivers/clk/mediatek/clk-mt8196-venc.c        | 236 +++++
+ drivers/clk/mediatek/clk-mt8196-vlpckgen.c    | 725 +++++++++++++
+ drivers/clk/mediatek/clk-mtk.c                |  16 +
+ drivers/clk/mediatek/clk-mtk.h                |  22 +
+ drivers/clk/mediatek/clk-mux.c                | 120 ++-
+ drivers/clk/mediatek/clk-mux.h                |  87 ++
+ drivers/clk/mediatek/clk-pll.c                |  45 +-
+ drivers/clk/mediatek/clk-pll.h                |   8 +
+ .../dt-bindings/clock/mediatek,mt8196-clock.h | 803 ++++++++++++++
+ .../reset/mediatek,mt8196-resets.h            |  26 +
+ 32 files changed, 6216 insertions(+), 35 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-apmixedsys.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-disp0.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-disp1.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-mcu.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-mdpsys.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-mfg.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl0.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl1.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-peri_ao.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-pextp.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen2.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-ufs_ao.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-vdec.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-vdisp_ao.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-venc.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-vlpckgen.c
+ create mode 100644 include/dt-bindings/clock/mediatek,mt8196-clock.h
+ create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+
+-- 
+2.39.5
+
 
