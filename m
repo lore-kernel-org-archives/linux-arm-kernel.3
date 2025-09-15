@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A45CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 00:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79289CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 00:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T0dQJiAhlpboEPbiA8CUsmS/UKRFituLVy8EIbbov3M=; b=oMfVeFFerALQGta1AeXS7h4wxi
-	xm4LJw8aqU+yj2izVpHLKAFTKUnM7XEOcGmf62C13pzWu6uFVixf6puGy3zcc9MrGL1Fx8rQsam7Q
-	7El501UcSWnGZmA8Y+ZuroYf5NWYVWtRGptN/6ykTk7Eu5qyRU3TyaJIxSNHEGPo+/57TvLyFZFie
-	cdj002BjB2XnqDErDxEYaHO9nXUJkdxqo9I5Fs2Doia8QcQWcWnNZeBjBQIdt+B3KXRIw4NUhoW+N
-	OmtU804Ugbw2xp4oYKajb0vvlLrrHRDcfqltfRFaWz3Ii5v6ncgfQa+p5azRV9BxxE0LeMlTR1EuE
-	31pOkTUg==;
+	bh=DsQckaVkw2bJf0DaY5ZGRLxLmgeFtbhYf3r3jl7uGYs=; b=rOhjJ/ZYOXdGbLEbZyY1ucnrJI
+	k6mE+WsxWG69TNEih4cVkRemljhqLAA2BGToPSuqdF/0MuI4DgPmi5RO/ScRMfpA3Yn9O2p1U8sIF
+	bfRCMKcn8UqbEzXUTtUp7ZoQ3CjQNWpWxGv1RJ92/lFvqwnBrbEufwEP0O6IANCC42pyyHfR+skZU
+	kzEbtblXRnGoLyrjac7vp6iZ1dcnQtN5WcjJ1hbfMTqjV1vsBivZIa7kiIhlHAxf4ng6DBZp2bTo0
+	INF1I+l+NFu5jjFv6VpPXeCUELr2SG0KHoW55SUhWbV3XyTxT637sOptkZvEyJKqhF+dEDrbveN6u
+	wORa3xsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxwof-00000002O5z-1cay;
-	Mon, 15 Sep 2025 00:11:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uxwpg-00000002OTG-37gd;
+	Mon, 15 Sep 2025 00:12:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxwoe-00000002O5n-16qs
+	id 1uxwpf-00000002OT3-1tSM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 00:11:32 +0000
+	Mon, 15 Sep 2025 00:12:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 353A7601AC;
-	Mon, 15 Sep 2025 00:11:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACCE8C4CEF0;
-	Mon, 15 Sep 2025 00:11:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9637E601AC;
+	Mon, 15 Sep 2025 00:12:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13AECC4CEF0;
+	Mon, 15 Sep 2025 00:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757895090;
-	bh=J3AJunPYZjvT3fBNOBIckknDBrGE+MfaU9bXgPby/a0=;
+	s=k20201202; t=1757895154;
+	bh=UbiiW95aQkxFo3IVZ6BYSGYhMqA/n8zEEIb5wb50uts=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RZD90E4AiDIV43hBZmJzBk9jr9saqUD9qMC+wCdrnqi4iZCE/wAhYj95gJ0t47+lb
-	 MfOI3mMEZhmZg7ys9rkuJa0gRSLUdmmvVYzZTLCcVSkcrNtNzrxBjwtGvDkmd+1YgS
-	 BHLEC0aoy5mkzRlGwW4wQobbGOwiXKEfa3VIzgiuRcxilucittQg2AL1boynqY1Kxz
-	 F02scaSH6Vc7ADt+gRQzRpt5zOumCi80E0GijXxY1h15qAqXDtxw4tehrvWElJisHv
-	 MfsSB733yqaGUX3/kYoiP9gBWdAE8OU6BziFW4merg26OYkOyUmk0DWDqSABuGHIS3
-	 QBrVsR0AGMnCg==
-Date: Sun, 14 Sep 2025 19:11:29 -0500
+	b=U44cO0PUxNY01mFS2Jti1eqVALemOF50c3VaOKUC5xbCNlAQjVV/ygpBjc60AcKKt
+	 FMQoBif5NPmfyoH7LuaUdZyMtklATc9S9hx5Gw5o7EygUN8i2q291C4qLDrQb9Xrj6
+	 dMVKCKQ1mMvXq/FshFhZE9fSMJCfWkt/GBDiDW+1MyK1nQRznAlRIR+nOSZZZCpSLv
+	 Z4dQQPw6w4lY8e8xzi26hYOsjXvQV4EmvZGnwuTkxbKMZWGToppz2g9Ybu9bT3gIv4
+	 0vNx7ENyBIpf2Uzyqpg0b1YXhI8tljqJJqDxzW1YEMXyPXTeRS9DZt53YsWLWcSOPJ
+	 pc7UW9rNtUdkA==
+Date: Sun, 14 Sep 2025 19:12:33 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Jonas Rebmann <jre@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
-	Eric Dumazet <edumazet@google.com>, devicetree@vger.kernel.org,
-	Jakub Kicinski <kuba@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
+Cc: Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
 	Mark Brown <broonie@kernel.org>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-kernel@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	imx@lists.linux.dev, Sascha Hauer <s.hauer@pengutronix.de>,
+	Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
 	"David S. Miller" <davem@davemloft.net>,
-	Sascha Hauer <s.hauer@pengutronix.de>, imx@lists.linux.dev,
-	Andrew Lunn <andrew@lunn.ch>, linux-arm-kernel@lists.infradead.org,
-	Shawn Guo <shawnguo@kernel.org>, linux-sound@vger.kernel.org
-Subject: Re: [PATCH 2/4] ASoC: dt-bindings: asahi-kasei,ak4458: Reference
- common DAI properties
-Message-ID: <175789508944.2293375.7905961656761093444.robh@kernel.org>
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/4] dt-bindings: arm: fsl: Add Protonic PRT8ML
+Message-ID: <175789515239.2294687.11215788946792312657.robh@kernel.org>
 References: <20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de>
- <20250910-imx8mp-prt8ml-v1-2-fd04aed15670@pengutronix.de>
+ <20250910-imx8mp-prt8ml-v1-3-fd04aed15670@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250910-imx8mp-prt8ml-v1-2-fd04aed15670@pengutronix.de>
+In-Reply-To: <20250910-imx8mp-prt8ml-v1-3-fd04aed15670@pengutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,16 +85,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 10 Sep 2025 14:35:22 +0200, Jonas Rebmann wrote:
-> Reference the dai-common.yaml schema to allow '#sound-dai-cells' and
-> "sound-name-prefix' to be used.
+On Wed, 10 Sep 2025 14:35:23 +0200, Jonas Rebmann wrote:
+> Add DT compatible string for Protonic PRT8ML board.
 > 
 > Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
 > ---
->  Documentation/devicetree/bindings/sound/asahi-kasei,ak4458.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
