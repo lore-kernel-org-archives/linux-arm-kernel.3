@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED65CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F409FCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jEX9XijT6dZdXfDNPrPyYoF9pF2to+I4KU0mZQv7Zoo=; b=fUTYMUVEeE5viI28FnnR0fuYc3
-	oOhwRbBo/qJJAbj3JSPGrOr78sJVvkctnJmyFNrFQGl3MVK4Vmlf5+2Ci4+NXFO7AYE8e8dYE+EBi
-	oPDoC/T3k8++JqrXwA5Ai2kDA8H1dr5baH7Rse0Yf4MyanVhbTzMClwGS/lEtU0lgro3cuWNenA6a
-	yUUR2Eiir36Y7aetfh8BcGrX0sRCykBNPCz5B9+oij2Dmgvc5kblz78+KTznju2aikKFmfMCcm5Kp
-	ApX2qkKveml2lXgcvaRxXRMeo4V+wt7ACNn0MCiPDD3DLYoNxhMC/ZBGkZjNa345IBTjPqydYQoYp
-	CgfHT/FQ==;
+	bh=4HtoPMsE9SX8KlqVgahmYprZZ3H87MUytra5RjXqUME=; b=gVb3ibiPficnmAj4PKr0/LRYsn
+	Bl21Cx7ZHJvSFbA/OhvA3P81a11dthtkkZb/XKIyr9ContruWjtIH6nRlw0M8QZFqutkjShfx7Awg
+	6uU6nYrvCSlkyZlnIkMn4tEqNPJXNAQjeTt5Ia/RfmWypzrgOU3joQ9V78wUt3tpIiVnPjf/VXS5l
+	ibmnQzhGWS+junVIpJKo2k+pLXyjSK9NBxU21m4jibGUI0lvgg8V+WAvguP4NBqJczv5Bt1efldo3
+	g9IyTCI1OjLf7yJ6+lbOMXb5r5ScpWXVgRFw/JO1hHPEYz0MUb108/28146+IMXbDFGxdBqgnpQve
+	fwOFcoOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4kd-00000003Fmr-0FHS;
-	Mon, 15 Sep 2025 08:39:55 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1uy4lA-00000003FyR-49ri;
+	Mon, 15 Sep 2025 08:40:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4ka-00000003FmW-2xBi
+	id 1uy4l9-00000003Fy8-3KeZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 08:39:53 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7762021c574so1680820b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 01:39:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757925591; x=1758530391; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=jEX9XijT6dZdXfDNPrPyYoF9pF2to+I4KU0mZQv7Zoo=;
-        b=U8ZSjIQSBPaj92RquSKRPtFVHrMoKfRBHG368GUV87rbZv6eH4Gda315v6CBIguAMh
-         AiZPFZo7y7ic6d5oWe3zWb2sem4n4LQyXZeKivykUakJS/EO/qZnkJxel0SLkKek+E0D
-         nKMKR4Bdnx78rRs1AtAJUPgZQ9/+TrM2H2qPNgVDuGgFbhF4URuSQNd64GdbhPQdF/Oa
-         X4oy2tAzjzR2AgCKuitfA4RzM01t+ay4T5uAVznvkVYZ3loJB99Zru1//QyeCi39pUIW
-         1Khqwv0uJ5PJK31WdzK32yla9CRLZXVw4xWfJJf7LcJgkAl93CJNm5KpBxST8A/bMFn7
-         cp2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757925591; x=1758530391;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jEX9XijT6dZdXfDNPrPyYoF9pF2to+I4KU0mZQv7Zoo=;
-        b=t7OhqKnFJOHAQoQsDqodkAjq/CFdpBp11826Ujz8xbaFA6aYsfdIGdGFS2NHOwT0ik
-         wt5FPa5zN8Q13mG4UYP5WhsSNOP6Pngj6UqaHV2cZg2eKOjSC+9ZVL0jb2rqHrS6eSPp
-         n2IowCSrL643Y6ESGpKZQlMsNTeO7tCwwlkxhm8Cmi4rOB2bw0fIdQYIt0fO//m8wodI
-         z7vwStehcabb6Mf0RKJ8HuHXR0fhkaoQntkuInXiafOh/2CvyEVC8DjfuN+vlwIX5Fpv
-         v+eD1jMHImh3ZMFhLJCJjPWjr46/kNn8mARpnSZUi8H5j7grWwJzwcVGkPsOT+lw+4Ix
-         eGYw==
-X-Forwarded-Encrypted: i=1; AJvYcCV+5vp5hHrCao/H4A+CNNUjc94h8HcaC3XDpuMsSShCAHX7yjhHgUakyiGtKNAicxscW1n+ukypawhn8HeNX07y@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNgb6PgBLWEwj2H+jxpj8k+7FDJ4Vgc0191jhTfDpf8cPa+ujV
-	WPUqpUHeCMURStMBKgYe2Ux+rNp+kExhLeOZL3Zt0CxzpC+tQ5oiR7T4NrvP6kwVxMof5XTJF3J
-	TKumMS7ablhcpvQu9UOPNhcXVkYZnXgDc8d+UQL95
-X-Gm-Gg: ASbGncst7rGZLs9XtJsbyu/dppvBMBj6P1pE5xe5dTATd+Z3xpNRopG6XVAIqUi6vhr
-	pUv4e7Hzp9BjzQeb554gd4RARcm8yOFbrj6JOL6FYIgR0uHPnEkORGlUPotLxQoa9ngnnzryfHS
-	n0IJp8V6+nOSpzgBck69o/uJ6sqbJKJoqEVfSDqqG1f55QGA1Z44gxL0mlsRgstW3WxCS6sw4vZ
-	0GWkKr4Ycn3U9YBdpXqOIBvevpw4LB+JV4rvp62Ww==
-X-Google-Smtp-Source: AGHT+IFQWa1Lq5s3wHqivhZWy3fXCUWg+0nXwEU0qlOA4xFoXSjxKquMoaAEWKKfO/WgYI37H9Hf7stft0DUGFXxn+A=
-X-Received: by 2002:a17:902:ebc5:b0:256:3dfa:1c98 with SMTP id
- d9443c01a7336-25d23e13e2emr141646225ad.11.1757925590740; Mon, 15 Sep 2025
- 01:39:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250905091301.2711705-1-verhaegen@google.com> <aL5t33Ztwse6HoQP@vaman>
-In-Reply-To: <aL5t33Ztwse6HoQP@vaman>
-From: George Verhaegen <verhaegen@google.com>
-Date: Mon, 15 Sep 2025 09:39:23 +0100
-X-Gm-Features: Ac12FXwunFCBoJSIg5TZc6taVzPDODNO9kbuJ_l3vtZMfjpWrOJmHmPUWle_GzA
-Message-ID: <CAAntYmJbFo+PZGVamNYjOav03UrZ0i6a6fMiRdfTJ=LgsHiCZQ@mail.gmail.com>
-Subject: Re: [PATCH v5 0/3] ALSA: compress_offload: Add 64-bit safe timestamp API
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Cezary Rojewski <cezary.rojewski@intel.com>, 
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
-	Bard Liao <yung-chuan.liao@linux.intel.com>, 
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, Srinivas Kandagatla <srini@kernel.org>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	kernel-team@android.com, linux-sound@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
-	linux-arm-msm@vger.kernel.org, sound-open-firmware@alsa-project.org, 
+	Mon, 15 Sep 2025 08:40:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B31660193;
+	Mon, 15 Sep 2025 08:40:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF715C4CEF1;
+	Mon, 15 Sep 2025 08:40:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757925626;
+	bh=1jCFiBr+qjXT/5UiDcf8H2ZeLPlBgMeCldx90ZjHgKA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=N0X5lOfNW8lUdgTtjI+cgthoXYqlrLiP9ITymqBg7KZGrKq7j5jeBU7eo3MJHJoD7
+	 3TDmh6l2VS47dbySiNlkOqxBPiEO5Brsoa8pF4/jvq+jbAsNoYW8XgRWBPIwwD2kdB
+	 TVJ4+3kyuChD8O+BXLZQf+QGCqMcLHkEpYJK6pKw/sUD5ksaAvy7GcVeeQGYMeCXW2
+	 szZs8AfeRmxpgkwi/wTHNuPMJy+aVuhQJNYL1PKUr9P6/dtOz3R/J+qoeoUaoC5CJZ
+	 b0pNgrwwxa2LXISoYssZaN0TW4Bhk+VMIn55xijkB9jwoi9sV1K2sjVqefosP6kHMe
+	 WWMRpMVsJyMfg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uy4l6-00000006HwN-2YsP;
+	Mon, 15 Sep 2025 08:40:24 +0000
+Date: Mon, 15 Sep 2025 09:40:24 +0100
+Message-ID: <861po8cdmv.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>, kernel test robot <lkp@intel.com>
+Cc: oe-kbuild-all@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_013952_741769_A127096F 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [arm-platforms:irq/ppi-affinity 18/25] drivers/perf/arm_pmu.c:68:35: sparse: sparse: cast removes address space '__percpu' of expression
+In-Reply-To: <202509150852.4ziBllm5-lkp@intel.com>
+References: <202509150852.4ziBllm5-lkp@intel.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, lkp@intel.com, oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,13 +80,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 8 Sept 2025 at 06:47, Vinod Koul <vkoul@kernel.org> wrote:
-> Please updated tinycompress changes with this once this is picked up by
-> Takashi-san
+On Mon, 15 Sep 2025 01:21:29 +0100,
+kernel test robot <lkp@intel.com> wrote:
+> 
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git irq/ppi-affinity
+> head:   136dedfe26e7de871029de6ed7dcf555e840fadc
+> commit: 49964285d3074f0494d8f09dce6e120d623b7843 [18/25] perf: arm_pmu: Request specific affinities for percpu NMI/IRQ
+> config: arm-randconfig-r132-20250915 (https://download.01.org/0day-ci/archive/20250915/202509150852.4ziBllm5-lkp@intel.com/config)
+> compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 21857ae337e0892a5522b6e7337899caa61de2a6)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250915/202509150852.4ziBllm5-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202509150852.4ziBllm5-lkp@intel.com/
+> 
+> sparse warnings: (new ones prefixed by >>)
+> >> drivers/perf/arm_pmu.c:68:35: sparse: sparse: cast removes address space '__percpu' of expression
+> >> drivers/perf/arm_pmu.c:68:35: sparse: sparse: incorrect type in initializer (different address spaces) @@     expected void const [noderef] __percpu *__vpp_verify @@     got void ** @@
+>    drivers/perf/arm_pmu.c:68:35: sparse:     expected void const [noderef] __percpu *__vpp_verify
+>    drivers/perf/arm_pmu.c:68:35: sparse:     got void **
+> >> drivers/perf/arm_pmu.c:68:35: sparse: sparse: cast removes address space '__percpu' of expression
+> >> drivers/perf/arm_pmu.c:68:35: sparse: sparse: cast removes address space '__percpu' of expression
+>    drivers/perf/arm_pmu.c:95:35: sparse: sparse: cast removes address space '__percpu' of expression
+>    drivers/perf/arm_pmu.c:95:35: sparse: sparse: incorrect type in initializer (different address spaces) @@     expected void const [noderef] __percpu *__vpp_verify @@     got void ** @@
+>    drivers/perf/arm_pmu.c:95:35: sparse:     expected void const [noderef] __percpu *__vpp_verify
+>    drivers/perf/arm_pmu.c:95:35: sparse:     got void **
+>    drivers/perf/arm_pmu.c:95:35: sparse: sparse: cast removes address space '__percpu' of expression
+>    drivers/perf/arm_pmu.c:95:35: sparse: sparse: cast removes address space '__percpu' of expression
+> 
+> vim +/__percpu +68 drivers/perf/arm_pmu.c
+> 
+>     64	
+>     65	static void armpmu_free_percpu_pmuirq(unsigned int irq, int cpu,
+>     66					   void __percpu *devid)
+>     67	{
+>   > 68		struct arm_pmu *armpmu = *per_cpu_ptr((void **)devid, cpu);
+>     69	
+>     70		if (armpmu_count_irq_users(&armpmu->supported_cpus, irq) == 1)
+>     71			free_percpu_irq(irq, devid);
+>     72	}
+>     73	
 
-For reference, link to pull request:
-https://github.com/alsa-project/tinycompress/pull/29
+I'll squash this in before posting the series:
+
+diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+index e427675446894..7171d8e0d27a5 100644
+--- a/drivers/perf/arm_pmu.c
++++ b/drivers/perf/arm_pmu.c
+@@ -65,7 +65,7 @@ static void armpmu_enable_percpu_pmuirq(unsigned int irq)
+ static void armpmu_free_percpu_pmuirq(unsigned int irq, int cpu,
+ 				   void __percpu *devid)
+ {
+-	struct arm_pmu *armpmu = *per_cpu_ptr((void **)devid, cpu);
++	struct arm_pmu *armpmu = *per_cpu_ptr((void * __percpu *)devid, cpu);
+ 
+ 	if (armpmu_count_irq_users(&armpmu->supported_cpus, irq) == 1)
+ 		free_percpu_irq(irq, devid);
+@@ -92,7 +92,7 @@ static void armpmu_disable_percpu_pmunmi(unsigned int irq)
+ static void armpmu_free_percpu_pmunmi(unsigned int irq, int cpu,
+ 				      void __percpu *devid)
+ {
+-	struct arm_pmu *armpmu = *per_cpu_ptr((void **)devid, cpu);
++	struct arm_pmu *armpmu = *per_cpu_ptr((void * __percpu *)devid, cpu);
+ 
+ 	if (armpmu_count_irq_users(&armpmu->supported_cpus, irq) == 1)
+ 		free_percpu_nmi(irq, devid);
 
 Thanks,
-  Joris (George)
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
