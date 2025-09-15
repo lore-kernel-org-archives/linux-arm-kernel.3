@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E08CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 05:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A40CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 05:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oNMOaL81IkhElHKr2VApsXrxfwnHiJNxSJBV5ekXwTA=; b=k2fIzNCsWCiembwuM1Vv+wKwbj
-	F934zaIRJd+bAQLaGmUI2ipKUdvGuJV2+mujl84YqMPCrojDnlKKGL7uRv4iENYTy8PXNK1L1UIAD
-	3tMBCP1uJu5f/wpNArxE97moCanCpD4VOzikbh6SFYRB2Y87h9T7HF7ddSwvDkg0UB5TdyT3usnxX
-	nahdwkZEncVqFM+XFHjnn2Rp/bnDhwW40l6mU1vT72MWLIo4GU+JRRzWOfdlM6RJYiepN+3aOWXRX
-	4MmJMtFsNW96fN++qiwDVH0wUmSy7pGxgK5sxtLmDQECKuHTxK2aYttcUldcD8S1p0ieQLrxT/RvK
-	7ub7RhUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=Qtqck/gpVB4ju4zZiFzaFJ+MV8r04EU/eAiQG9DA2kU=; b=HsivK8swtPkoVXVNFJBv0FNGcp
+	v7HAtnEA3Ljl17Ubz5d5Tkm2KtlqtGbukfkTYFTk/SpZRp6EIUeuPRPaBInk5ScZbUZWJDoEPxdI8
+	kTdAB0GwSL02HK8vuFGwt4lFAliyCMKhBv8fBn2kXBC3BCogUjvUWuTpIY9/t8Tzp/azEx6Lfdv7Q
+	udnZ6O+UX9MVn38EIkLEui6dU7UIf5UzglXLtycERGaxM0ET38lzoTobsVVmgGd4GqNlbMhW5hu8y
+	k9SS+HiLu2PZi6olPakowM9sgRoihmlXYVOXoRF61bzZij9f9KXPiDJjkRuv7nJbzeuatT6KHZ3Op
+	iHBjlXBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy1QX-00000002ojU-1SvY;
-	Mon, 15 Sep 2025 05:06:57 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uy1Un-00000002p5p-06rm;
+	Mon, 15 Sep 2025 05:11:21 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy1QU-00000002oim-2AHX
+	id 1uy1Ui-00000002p3J-2cUB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 05:06:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1757912812;
-	bh=oNMOaL81IkhElHKr2VApsXrxfwnHiJNxSJBV5ekXwTA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bwExPnFdRLkhCTTi+hk/aoWc+gY5XGZePQgDQN+4nim/C8quuZxzvEFZu002gI0rH
-	 9MQhVepzXwruhuA5KoAaeQc1UVV2xJ40DoOw7W6aSSAU39KsCncmJCpaaUbZo6Vhqg
-	 /IWyQZ0XW1SBb4NrMgUYpB+Z6F7UQuFy9gpVrgCP5ChIKmMztJMLz8FrXlEoK/OX0M
-	 R6Vmg4eHGafzc3EEDbyG3WGrF8dkPqJERJ6wqUddiRub+QPew+DrAs2qpMgSmaY9Yf
-	 /13wRgEQSpA7Yf/i1nm+adpnqT6V8yB1yH/BQFxjL8qyojo0YjyFdbOZ+DasjGATJg
-	 ljuHfKM4dmbVA==
-Received: from [IPv6:2405:6e00:2430:fb15:b2b4:1872:3690:c682] (unknown [120.20.190.44])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id F1C9864CF0;
-	Mon, 15 Sep 2025 13:06:49 +0800 (AWST)
-Message-ID: <28dc3bd8aeca7e3164747960747f75060c596704.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] peci: controller: peci-aspeed: convert from
- round_rate() to determine_rate()
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Brian Masney <bmasney@redhat.com>, Iwona Winiarska
-	 <iwona.winiarska@intel.com>, Joel Stanley <joel@jms.id.au>, Maxime Ripard
-	 <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
-	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Mon, 15 Sep 2025 14:36:48 +0930
-In-Reply-To: <aMatZAX6eFI1RmDH@redhat.com>
-References: <20250810-peci-round-rate-v1-1-ec96d216a455@redhat.com>
-	 <aMatZAX6eFI1RmDH@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+	Mon, 15 Sep 2025 05:11:20 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250915051108epoutp04f6688df35a8b8987cb44c26037f0d0be~lXJ8lMmg30528905289epoutp04U
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 05:11:08 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250915051108epoutp04f6688df35a8b8987cb44c26037f0d0be~lXJ8lMmg30528905289epoutp04U
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1757913068;
+	bh=Qtqck/gpVB4ju4zZiFzaFJ+MV8r04EU/eAiQG9DA2kU=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=sTSJagWLuoMvhkRIfGldifYu9jDDkxC1rDeol/b51PkWJSkoL46xYVJH2iiZlDDCp
+	 eiGVsulECiPJMRcZ1BkHLDzFR5NHQ74m4+xPJQjWrp43bly0Dulc1HjYMqAaxK2y0y
+	 tNxp8g4pQ9gYLaoe8lOjZoO/16QwKLUlqfCaTMeM=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250915051107epcas2p1b2da98d21c1af3159b3be2e7cd1d33ab~lXJ76u2CS3200232002epcas2p1L;
+	Mon, 15 Sep 2025 05:11:07 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.36.102]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cQCmW08qJz2SSKv; Mon, 15 Sep
+	2025 05:11:07 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250915051106epcas2p19c54f69c993621430aac622c6865919b~lXJ6xOlrR3117831178epcas2p1e;
+	Mon, 15 Sep 2025 05:11:06 +0000 (GMT)
+Received: from tayo (unknown [10.229.9.198]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250915051106epsmtip1ea10842bfde3976dc3dc3e1101d27762~lXJ6p1qNv0859208592epsmtip1G;
+	Mon, 15 Sep 2025 05:11:06 +0000 (GMT)
+From: "myunggeun.ji" <myunggeun.ji@samsung.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>, Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev
+Cc: Jongho Park <jongho0910.park@samsung.com>, kiisung lee
+	<kiisung.lee@samsung.com>, "myunggeun.ji" <myunggeun.ji@samsung.com>
+Subject: [PATCH 0/2] update exynos-iommu code and device tree for v9
+Date: Mon, 15 Sep 2025 14:13:18 +0900
+Message-ID: <20250915051320.3378957-1-myunggeun.ji@samsung.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250915051106epcas2p19c54f69c993621430aac622c6865919b
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250915051106epcas2p19c54f69c993621430aac622c6865919b
+References: <CGME20250915051106epcas2p19c54f69c993621430aac622c6865919b@epcas2p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_220654_745005_782E6A63 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250914_221117_156170_7072DE32 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,23 +95,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brian,
+Series updates exynos-iommu code and device tree to support
+for ExynosAuto sysMMU version v9.
+It provides initial driver code and register information the sysMMU device.
 
-On Sun, 2025-09-14 at 07:56 -0400, Brian Masney wrote:
-> Hi Iwona, Joel, and Andrew,
->=20
-> On Sun, Aug 10, 2025 at 06:21:51PM -0400, Brian Masney wrote:
-> > The round_rate() clk ops is deprecated, so migrate this driver from
-> > round_rate() to determine_rate() using the Coccinelle semantic patch
-> > appended to the "under-the-cut" portion of the patch.
-> >=20
-> > Signed-off-by: Brian Masney <bmasney@redhat.com>
->=20
-> Would it be possible to get this picked up for v6.18? I'd like to remove
-> this API from drivers/clk in v6.19.
+myunggeun.ji (2):
+  iommu/exynos: Implement register set and fault handling on SysMMU v9
+  arm64: dts: exynosautov920: Add DT node for sysMMU
 
-My (strong) preference is that Iwona applies it, but I'll keep an eye
-out for any unusual delays.
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi | 21 ++++++
+ drivers/iommu/exynos-iommu.c                  | 73 ++++++++++++++++---
+ 2 files changed, 85 insertions(+), 9 deletions(-)
 
-Andrew
+-- 
+2.50.1
+
 
